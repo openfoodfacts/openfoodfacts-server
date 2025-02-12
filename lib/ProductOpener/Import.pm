@@ -71,6 +71,8 @@ BEGIN {
 
 		&import_csv_file
 		&import_products_categories_from_public_database
+		&list_product_images_files_in_dir
+		&upload_images_for_product
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -126,7 +128,27 @@ $IMPORT_MAX_PACKAGING_COMPONENTS = 10;
 # image_dir: path to image directory
 # stats: stats map
 # return
-sub import_images_from_dir ($image_dir, $stats) {
+
+=head2 list_product_images_files_in_dir ($image_dir, $stats)
+
+List product images files in a directory.
+The resulting list can be used by import_images_for_product() to upload the images.
+
+=head3 Arguments
+
+=head4 $image_dir Image directory
+
+=head4 $stats Stats reference
+
+=head3 Returns
+
+A reference to a hash of product codes with image types (front, ingredients, nutrition, other) with optional language codes as keys,
+and image file names as values.
+
+=cut
+
+sub list_product_images_files_in_dir ($image_dir, $stats) {
+
 	my $images_ref = {};
 
 	if (not -d $image_dir) {
@@ -237,6 +259,278 @@ sub import_images_from_dir ($image_dir, $stats) {
 	}
 
 	return $images_ref;
+}
+
+=head2 upload_images_for_product ($args_ref, $images_ref, $product_ref, $imported_product_ref, $product_id, $code, $user_id, $comment, $stats_ref)
+
+Given a list of images for a product with possible image types (front, ingredients, nutrition, other),
+upload them to the server and select the image type.
+
+This function is called by import_csv_file() as CSV file can contain links to images, or we may have associated images in a directory
+(loaded with list_product_images_files_in_dir()).
+
+It is is also called directly by the import_images.pl script, to upload images from a directory.
+
+=head3 Arguments
+
+=head4 $args_ref Import arguments reference
+
+=head4 $images_ref Images reference for the product
+
+=head4 $product_ref Product reference
+
+Only needed to get the "images" field, and "lc" field to determine the language of the product.
+
+=head4 $imported_product_ref Imported product reference: from a CSV file, may contain image coordinates
+
+=head4 $product_id Product ID
+
+=head4 $code Product code
+
+=head4 $user_id User ID used to upload and select the pictures
+
+=head4 $stats_ref Stats reference to keep track of the number of images added
+
+=cut
+
+sub upload_images_for_product($args_ref, $images_ref, $product_ref, $imported_product_ref, $product_id, $code,
+	$user_id, $comment, $stats_ref)
+{
+
+	if (    (not $args_ref->{test})
+		and (not((defined $args_ref->{do_not_upload_images}) and ($args_ref->{do_not_upload_images}))))
+	{
+
+		$log->debug("uploading images for product",
+			{code => $code, images_ref => $images_ref, product_ref => $product_ref})
+			if $log->is_debug();
+
+		# Keep track of the images we select so that we don't select multiple images for the same field
+		my %selected_images = ();
+
+		foreach my $imagefield (sort keys %{$images_ref}) {
+
+			$log->debug("uploading image for product", {imagefield => $imagefield, code => $code})
+				if $log->is_debug();
+
+			# compute imgid for new image
+			my $current_max_imgid = -1;
+
+			if (defined $product_ref->{images}) {
+				foreach my $imgid (keys %{$product_ref->{images}}) {
+					if (($imgid =~ /^\d/) and ($imgid > $current_max_imgid)) {
+						$current_max_imgid = $imgid;
+					}
+				}
+			}
+
+			# if the language is not specified in column name,
+			# use the language of the product
+
+			my $imagefield_with_lc = $imagefield;
+
+			# we might have more than one column for image_other
+			# image_other_url.2 -> remove the number
+			$imagefield_with_lc =~ s/(\.|_)(\d+)$//;
+
+			if ($imagefield_with_lc !~ /_\w\w/) {
+				$imagefield_with_lc .= "_" . $product_ref->{lc};
+			}
+
+			# upload the image
+			my $file = $images_ref->{$imagefield};
+
+			# Skip PDF file, as we have issues to convert them, and they are sometimes not images about the product
+			# but multi-pages product sheets, certificates etc.
+			if ($file =~ /\.pdf$/) {
+				$log->debug("skipping PDF file", {file => $file, imagefield => $imagefield, code => $code})
+					if $log->is_debug();
+			}
+			elsif (-e "$file") {
+				$log->debug("found image file", {file => $file, imagefield => $imagefield, code => $code})
+					if $log->is_debug();
+
+				# upload a photo
+				my $imgid;
+				my $debug;
+				my $return_code
+					= process_image_upload($product_id, "$file", $user_id, undef, $comment, \$imgid, \$debug);
+				$log->debug(
+					"process_image_upload",
+					{
+						file => $file,
+						imagefield => $imagefield,
+						code => $code,
+						return_code => $return_code,
+						imgid => $imgid,
+						imagefield_with_lc => $imagefield_with_lc,
+						debug => $debug
+					}
+				) if $log->is_debug();
+
+				if (($imgid > 0) and ($imgid > $current_max_imgid)) {
+					$stats_ref->{products_images_added}{$code} = 1;
+				}
+
+				my $x1 = $imported_product_ref->{"image_" . $imagefield . "_x1"} || -1;
+				my $y1 = $imported_product_ref->{"image_" . $imagefield . "_y1"} || -1;
+				my $x2 = $imported_product_ref->{"image_" . $imagefield . "_x2"} || -1;
+				my $y2 = $imported_product_ref->{"image_" . $imagefield . "_y2"} || -1;
+				my $coordinates_image_size
+					= $imported_product_ref->{"image_" . $imagefield . "_coordinates_image_size"} || $crop_size;
+				my $angle = $imported_product_ref->{"image_" . $imagefield . "_angle"} || 0;
+				my $normalize = $imported_product_ref->{"image_" . $imagefield . "_normalize"} || "false";
+				my $white_magic = $imported_product_ref->{"image_" . $imagefield . "_white_magic"} || "false";
+
+				$log->debug(
+					"select and crop image?",
+					{
+						code => $code,
+						imgid => $imgid,
+						current_max_imgid => $current_max_imgid,
+						imagefield_with_lc => $imagefield_with_lc,
+						x1 => $x1,
+						y1 => $y1,
+						x2 => $x2,
+						y2 => $y2,
+						angle => $angle,
+						normalize => $normalize,
+						white_magic => $white_magic
+					}
+				) if $log->is_debug();
+
+				# select the photo
+				if (
+					($imagefield_with_lc =~ /front|ingredients|nutrition|packaging/)
+					and (
+						(
+							not(    (defined $args_ref->{only_select_not_existing_images})
+								and ($args_ref->{only_select_not_existing_images}))
+						)
+						or (   (not defined $product_ref->{images})
+							or (not defined $product_ref->{images}{$imagefield_with_lc}))
+					)
+					)
+				{
+
+					if (($imgid > 0) and ($imgid > $current_max_imgid)) {
+
+						$log->debug(
+							"assigning image imgid to imagefield_with_lc",
+							{
+								code => $code,
+								current_max_imgid => $current_max_imgid,
+								imgid => $imgid,
+								imagefield_with_lc => $imagefield_with_lc,
+								x1 => $x1,
+								y1 => $y1,
+								x2 => $x2,
+								y2 => $y2,
+								angle => $angle,
+								normalize => $normalize,
+								white_magic => $white_magic
+							}
+						) if $log->is_debug();
+						$selected_images{$imagefield_with_lc} = 1;
+						eval {
+							process_image_crop($user_id, $product_id, $imagefield_with_lc, $imgid, $angle,
+								$normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size);
+						};
+					}
+					else {
+						$log->debug("returned imgid $imgid not greater than the previous max imgid: $current_max_imgid",
+							{imgid => $imgid, current_max_imgid => $current_max_imgid})
+							if $log->is_debug();
+
+						# overwrite already selected images
+						# if the selected image is not the same
+						# or if we have non null crop coordinates that differ
+						if (
+								($imgid > 0)
+							and (exists $product_ref->{images})
+							and (
+								(not exists $product_ref->{images}{$imagefield_with_lc})
+								or (
+									(
+										($product_ref->{images}{$imagefield_with_lc}{imgid} != $imgid)
+										or (    ($x1 > 1)
+											and ($product_ref->{images}{$imagefield_with_lc}{x1} != $x1))
+										or (    ($x2 > 1)
+											and ($product_ref->{images}{$imagefield_with_lc}{x2} != $x2))
+										or (    ($y1 > 1)
+											and ($product_ref->{images}{$imagefield_with_lc}{y1} != $y1))
+										or (    ($y2 > 1)
+											and ($product_ref->{images}{$imagefield_with_lc}{y2} != $y2))
+										or ($product_ref->{images}{$imagefield_with_lc}{angle} != $angle)
+									)
+								)
+							)
+							)
+						{
+							$log->debug(
+								"re-assigning image imgid to imagefield_with_lc",
+								{
+									code => $code,
+									imgid => $imgid,
+									imagefield_with_lc => $imagefield_with_lc,
+									x1 => $x1,
+									y1 => $y1,
+									x2 => $x2,
+									y2 => $y2,
+									coordinates_image_size => $coordinates_image_size,
+									angle => $angle,
+									normalize => $normalize,
+									white_magic => $white_magic
+								}
+							) if $log->is_debug();
+							$selected_images{$imagefield_with_lc} = 1;
+							eval {
+								process_image_crop($user_id, $product_id, $imagefield_with_lc, $imgid, $angle,
+									$normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size);
+							};
+						}
+					}
+				}
+				# If the image type is "other" and we don't have a front image, assign it
+				# This is in particular for producers that send us many images without specifying their type: assume the first one is the front
+				elsif ( ($imgid > 0)
+					and ($imagefield_with_lc =~ /^other/)
+					and (not defined $product_ref->{images}{"front_" . $product_ref->{lc}})
+					and (not defined $selected_images{"front_" . $product_ref->{lc}}))
+				{
+					$log->debug(
+						"selecting front image as we don't have one",
+						{
+							imgid => $imgid,
+							imagefield => $imagefield,
+							front_imagefield => "front_" . $product_ref->{lc},
+							x1 => $x1,
+							y1 => $y1,
+							x2 => $x2,
+							y2 => $y2,
+							coordinates_image_size => $coordinates_image_size,
+							angle => $angle,
+							normalize => $normalize,
+							white_magic => $white_magic
+						}
+					) if $log->is_debug();
+					# Keep track that we have selected an image, so that we don't select another one after,
+					# as we don't reload the product_ref after calling process_image_crop()
+					$selected_images{"front_" . $product_ref->{lc}} = 1;
+					eval {
+						process_image_crop($user_id, $product_id, "front_" . $product_ref->{lc},
+							$imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size);
+					};
+				}
+			}
+			else {
+				$log->debug("did not find image file", {file => $file, imagefield => $imagefield, code => $code})
+					if $log->is_debug();
+			}
+		}
+	}
+
+	return;
 }
 
 # download image at given url parameter
@@ -1433,7 +1727,7 @@ sub import_csv_file ($args_ref) {
 	# Read images from directory if supplied
 	my $images_ref = {};
 	if ((defined $args_ref->{images_dir}) and ($args_ref->{images_dir} ne '')) {
-		$images_ref = import_images_from_dir($args_ref->{images_dir}, $stats_ref);
+		$images_ref = list_product_images_files_in_dir($args_ref->{images_dir}, $stats_ref);
 	}
 
 	$log->debug("importing products", {csv_file => $args_ref->{csv_file}}) if $log->is_debug();
@@ -1877,7 +2171,7 @@ sub import_csv_file ($args_ref) {
 		}
 
 		# TODO: check what happens if the product exists with a different product type than the current server
-		my $product_ref = product_exists($product_id);    # returns 0 if not
+		my $product_ref = retrieve_product($product_id);
 
 		my $product_comment = $args_ref->{comment};
 		if ((defined $imported_product_ref->{comment}) and ($imported_product_ref->{comment} ne "")) {
@@ -1893,9 +2187,9 @@ sub import_csv_file ($args_ref) {
 				$skip_not_existing++;
 				next;
 			}
+			else {
+				$new++;
 
-			$new++;
-			if (1 and (not $product_ref)) {
 				$log->debug("creating not existing product", {code => $code, product_id => $product_id})
 					if $log->is_debug();
 
@@ -2496,246 +2790,11 @@ sub import_csv_file ($args_ref) {
 		# Upload images
 
 		if (defined $images_ref->{$code}) {
-
 			$stats_ref->{products_with_images}{$code} = 1;
-
-			if (    (not $args_ref->{test})
-				and (not((defined $args_ref->{do_not_upload_images}) and ($args_ref->{do_not_upload_images}))))
-			{
-
-				$log->debug("uploading images for product", {code => $code}) if $log->is_debug();
-
-				my $images_ref = $images_ref->{$code};
-
-				# Keep track of the images we select so that we don't select multiple images for the same field
-				my %selected_images = ();
-
-				foreach my $imagefield (sort keys %{$images_ref}) {
-
-					$log->debug("uploading image for product", {imagefield => $imagefield, code => $code})
-						if $log->is_debug();
-
-					my $current_max_imgid = -1;
-
-					if (defined $product_ref->{images}) {
-						foreach my $imgid (keys %{$product_ref->{images}}) {
-							if (($imgid =~ /^\d/) and ($imgid > $current_max_imgid)) {
-								$current_max_imgid = $imgid;
-							}
-						}
-					}
-
-					# if the language is not specified, assign it to the language of the product
-
-					my $imagefield_with_lc = $imagefield;
-
-					# image_other_url.2 -> remove the number
-					$imagefield_with_lc =~ s/(\.|_)(\d+)$//;
-
-					if ($imagefield_with_lc !~ /_\w\w/) {
-						$imagefield_with_lc .= "_" . $product_ref->{lc};
-					}
-
-					# upload the image
-					my $file = $images_ref->{$imagefield};
-
-					# Skip PDF file has we have issues to convert them, and they are sometimes not images about the product
-					# but multi-pages product sheets, certificates etc.
-					if ($file =~ /\.pdf$/) {
-						$log->debug("skipping PDF file", {file => $file, imagefield => $imagefield, code => $code})
-							if $log->is_debug();
-					}
-					elsif (-e "$file") {
-						$log->debug("found image file", {file => $file, imagefield => $imagefield, code => $code})
-							if $log->is_debug();
-
-						# upload a photo
-						my $imgid;
-						my $debug;
-						my $return_code
-							= process_image_upload($product_id, "$file", $user_id, undef, $product_comment, \$imgid,
-							\$debug);
-						$log->debug(
-							"process_image_upload",
-							{
-								file => $file,
-								imagefield => $imagefield,
-								code => $code,
-								return_code => $return_code,
-								imgid => $imgid,
-								imagefield_with_lc => $imagefield_with_lc,
-								debug => $debug
-							}
-						) if $log->is_debug();
-
-						if (($imgid > 0) and ($imgid > $current_max_imgid)) {
-							$stats_ref->{products_images_added}{$code} = 1;
-						}
-
-						my $x1 = $imported_product_ref->{"image_" . $imagefield . "_x1"} || -1;
-						my $y1 = $imported_product_ref->{"image_" . $imagefield . "_y1"} || -1;
-						my $x2 = $imported_product_ref->{"image_" . $imagefield . "_x2"} || -1;
-						my $y2 = $imported_product_ref->{"image_" . $imagefield . "_y2"} || -1;
-						my $coordinates_image_size
-							= $imported_product_ref->{"image_" . $imagefield . "_coordinates_image_size"} || $crop_size;
-						my $angle = $imported_product_ref->{"image_" . $imagefield . "_angle"} || 0;
-						my $normalize = $imported_product_ref->{"image_" . $imagefield . "_normalize"} || "false";
-						my $white_magic = $imported_product_ref->{"image_" . $imagefield . "_white_magic"} || "false";
-
-						$log->debug(
-							"select and crop image?",
-							{
-								code => $code,
-								imgid => $imgid,
-								current_max_imgid => $current_max_imgid,
-								imagefield_with_lc => $imagefield_with_lc,
-								x1 => $x1,
-								y1 => $y1,
-								x2 => $x2,
-								y2 => $y2,
-								angle => $angle,
-								normalize => $normalize,
-								white_magic => $white_magic
-							}
-						) if $log->is_debug();
-
-						# select the photo
-						if (
-							($imagefield_with_lc =~ /front|ingredients|nutrition|packaging/)
-							and (
-								(
-									not(    (defined $args_ref->{only_select_not_existing_images})
-										and ($args_ref->{only_select_not_existing_images}))
-								)
-								or (   (not defined $product_ref->{images})
-									or (not defined $product_ref->{images}{$imagefield_with_lc}))
-							)
-							)
-						{
-
-							if (($imgid > 0) and ($imgid > $current_max_imgid)) {
-
-								$log->debug(
-									"assigning image imgid to imagefield_with_lc",
-									{
-										code => $code,
-										current_max_imgid => $current_max_imgid,
-										imgid => $imgid,
-										imagefield_with_lc => $imagefield_with_lc,
-										x1 => $x1,
-										y1 => $y1,
-										x2 => $x2,
-										y2 => $y2,
-										angle => $angle,
-										normalize => $normalize,
-										white_magic => $white_magic
-									}
-								) if $log->is_debug();
-								$selected_images{$imagefield_with_lc} = 1;
-								eval {
-									process_image_crop($user_id, $product_id, $imagefield_with_lc, $imgid, $angle,
-										$normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size);
-								};
-								# $modified++;
-
-							}
-							else {
-								$log->debug(
-									"returned imgid $imgid not greater than the previous max imgid: $current_max_imgid",
-									{imgid => $imgid, current_max_imgid => $current_max_imgid}
-								) if $log->is_debug();
-
-								# overwrite already selected images
-								# if the selected image is not the same
-								# or if we have non null crop coordinates that differ
-								if (
-										($imgid > 0)
-									and (exists $product_ref->{images})
-									and (
-										(not exists $product_ref->{images}{$imagefield_with_lc})
-										or (
-											(
-												($product_ref->{images}{$imagefield_with_lc}{imgid} != $imgid)
-												or (    ($x1 > 1)
-													and ($product_ref->{images}{$imagefield_with_lc}{x1} != $x1))
-												or (    ($x2 > 1)
-													and ($product_ref->{images}{$imagefield_with_lc}{x2} != $x2))
-												or (    ($y1 > 1)
-													and ($product_ref->{images}{$imagefield_with_lc}{y1} != $y1))
-												or (    ($y2 > 1)
-													and ($product_ref->{images}{$imagefield_with_lc}{y2} != $y2))
-												or ($product_ref->{images}{$imagefield_with_lc}{angle} != $angle)
-											)
-										)
-									)
-									)
-								{
-									$log->debug(
-										"re-assigning image imgid to imagefield_with_lc",
-										{
-											code => $code,
-											imgid => $imgid,
-											imagefield_with_lc => $imagefield_with_lc,
-											x1 => $x1,
-											y1 => $y1,
-											x2 => $x2,
-											y2 => $y2,
-											coordinates_image_size => $coordinates_image_size,
-											angle => $angle,
-											normalize => $normalize,
-											white_magic => $white_magic
-										}
-									) if $log->is_debug();
-									$selected_images{$imagefield_with_lc} = 1;
-									eval {
-										process_image_crop($user_id, $product_id, $imagefield_with_lc, $imgid, $angle,
-											$normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size);
-									};
-									# $modified++;
-								}
-
-							}
-						}
-						# If the image type is "other" and we don't have a front image, assign it
-						# This is in particular for producers that send us many images without specifying their type: assume the first one is the front
-						elsif ( ($imgid > 0)
-							and ($imagefield_with_lc =~ /^other/)
-							and (not defined $product_ref->{images}{"front_" . $product_ref->{lc}})
-							and (not defined $selected_images{"front_" . $product_ref->{lc}}))
-						{
-							$log->debug(
-								"selecting front image as we don't have one",
-								{
-									imgid => $imgid,
-									imagefield => $imagefield,
-									front_imagefield => "front_" . $product_ref->{lc},
-									x1 => $x1,
-									y1 => $y1,
-									x2 => $x2,
-									y2 => $y2,
-									coordinates_image_size => $coordinates_image_size,
-									angle => $angle,
-									normalize => $normalize,
-									white_magic => $white_magic
-								}
-							) if $log->is_debug();
-							# Keep track that we have selected an image, so that we don't select another one after,
-							# as we don't reload the product_ref after calling process_image_crop()
-							$selected_images{"front_" . $product_ref->{lc}} = 1;
-							eval {
-								process_image_crop($user_id, $product_id, "front_" . $product_ref->{lc},
-									$imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2,
-									$coordinates_image_size);
-							};
-						}
-					}
-					else {
-						$log->debug("did not find image file",
-							{file => $file, imagefield => $imagefield, code => $code})
-							if $log->is_debug();
-					}
-				}
-			}
+			upload_images_for_product(
+				$args_ref, $images_ref->{$code}, $product_ref, $imported_product_ref, $product_id,
+				$code, $user_id, $product_comment, $stats_ref
+			);
 		}
 		else {
 			$log->debug("no images for product", {code => $code}) if $log->is_debug();

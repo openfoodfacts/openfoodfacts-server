@@ -13,6 +13,23 @@ server {
 	}
 }
 
+# map to decide if we go to the priority (8002) or standard service (8001)
+map $uri $apache_port {
+	default 8001;
+
+	# home pages
+	"~*^/$" 8002;
+	# product read / write (note that nginx does not support direct utf-8)
+	"~*^/(mountaj|m\xc9\x99hsul|\xd0\xbf\xd1\x80\xd0\xbe\xd0\xb4\xd1\x83\xd0\xba\xd1\x82|gynnyrch|produkt|product|product|product|produkto|producto|toode|produkto|produit|produto|term\xc3\xa9k|produk|\xe8\xa3\xbd\xe5\x93\x81|afaris|\xd3\xa9\xd0\xbd\xd1\x96\xd0\xbc|\xec\x83\x9d\xec\x84\xb1\xeb\xac\xbc|berhem|\xe0\xa4\x89\xe0\xa4\xa4\xe0\xa5\x8d\xe0\xa4\xaa\xe0\xa4\xbe\xe0\xa4\xa6\xe0\xa4\xa8|produk|produkt|\xe0\xa4\x89\xe0\xa4\xa4\xe0\xa5\x8d\xe0\xa4\xaa\xe0\xa4\xbe\xe0\xa4\xa6\xe0\xa4\xa8|product|product|product|produkt|produkt|produit|produto|produto|produto|\xd0\xbf\xd1\x80\xd0\xbe\xd0\xb4\xd1\x83\xd0\xba\xd1\x82|product|proizvod|produkto|\xc3\xbcr\xc3\xbcn|\xd0\xbf\xd1\x80\xd0\xbe\xd0\xb4\xd1\x83\xd0\xba\xd1\x82|\xe4\xba\xa7\xe5\x93\x81|\xe7\x94\xa2\xe5\x93\x81|\xe7\x94\xa2\xe5\x93\x81)/" 8002;
+	"~*^/cgi/product.pl" 8002;
+	# product API read / write
+	"~*^/api/v./product/" 8002;
+        # whitelist most cgi (but display and search)
+        "~*^/cgi/(?!display\.pl|search\.pl)" 8002;
+        # whitelist most api (but search)
+        "~*^/api/v./(?!search\b)" 8002;
+}
+
 # variables definitions for expiry headers are loaded from /etc/nginx/conf.d/expires-no-json-xml.conf
 
 server {
@@ -147,8 +164,8 @@ server {
 		real_ip_recursive on;
 		access_log /var/log/nginx/proxy-off-access.log proxied_requests buffer=256K flush=1s;
 		error_log /var/log/nginx/proxy-off-error.log;
-
-		proxy_pass http://127.0.0.1:8004/cgi/display.pl?;
+		# Note: as soon as we use a variable in proxy_pass, $uri and the rest must be explicit
+		proxy_pass http://127.0.0.1:$apache_port/cgi/display.pl?$uri$is_args$args;
 	}
 
 	location /cgi/ {
@@ -158,8 +175,8 @@ server {
 		real_ip_recursive on;
 		access_log /var/log/nginx/proxy-off-access.log proxied_requests buffer=256K flush=1s;
 		error_log /var/log/nginx/proxy-off-error.log;
-
-		proxy_pass http://127.0.0.1:8004;
+		# Note: as soon as we use a variable in proxy_pass, $uri and the rest must be explicit
+		proxy_pass http://127.0.0.1:$apache_port$uri$is_args$args;
 	}
 }
 

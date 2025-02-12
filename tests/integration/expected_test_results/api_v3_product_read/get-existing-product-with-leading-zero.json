@@ -1,5 +1,5 @@
 {
-   "code" : "04260392550101",
+   "code" : "4260392550101",
    "errors" : [],
    "product" : {
       "_id" : "4260392550101",
@@ -811,7 +811,6 @@
       "misc_tags" : [
          "en:environmental-score-changed",
          "en:environmental-score-computed",
-         "en:environmental-score-extended-data-not-computed",
          "en:environmental-score-grade-changed",
          "en:environmental-score-missing-data-labels",
          "en:environmental-score-missing-data-origins",
@@ -973,6 +972,7 @@
       "packaging_text_en" : "1 wooden box to recycle, 6 25cl glass bottles to reuse, 3 steel lids to recycle, 1 plastic film to discard",
       "packagings" : [
          {
+            "food_contact" : 0,
             "material" : {
                "id" : "en:wood"
             },
@@ -985,6 +985,7 @@
             }
          },
          {
+            "food_contact" : 1,
             "material" : {
                "id" : "en:glass"
             },
@@ -1000,6 +1001,7 @@
             }
          },
          {
+            "food_contact" : 1,
             "material" : {
                "id" : "en:steel"
             },
@@ -1012,6 +1014,7 @@
             }
          },
          {
+            "food_contact" : 0,
             "material" : {
                "id" : "en:plastic"
             },
@@ -1101,6 +1104,23 @@
       "lc_name" : "Product found",
       "name" : "Product found"
    },
-   "status" : "success",
-   "warnings" : []
+   "status" : "success_with_warnings",
+   "warnings" : [
+      {
+         "field" : {
+            "id" : "code",
+            "value" : "4260392550101"
+         },
+         "impact" : {
+            "id" : "none",
+            "lc_name" : "None",
+            "name" : "None"
+         },
+         "message" : {
+            "id" : "different_normalized_product_code",
+            "lc_name" : "",
+            "name" : ""
+         }
+      }
+   ]
 }

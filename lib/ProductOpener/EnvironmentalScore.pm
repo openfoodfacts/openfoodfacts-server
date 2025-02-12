@@ -771,17 +771,27 @@ sub compute_environmental_score ($product_ref) {
 			}
 		}
 	}
-	if (defined $product_ref->{environmental_score_extended_data}) {
-		add_tag($product_ref, "misc", "en:environmental-score-extended-data-computed");
-		if (defined $product_ref->{environmental_score_extended_data_version}) {
-			add_tag($product_ref, "misc",
-				"en:environmental-score-extended-data-version-"
-					. get_string_id_for_lang("no_language", $product_ref->{environmental_score_extended_data_version}));
-		}
+
+	# 2024/12 ecoscore fields were renamed to environmental_score fields
+	# remove ecoscore fields
+
+	delete $product_ref->{ecoscore_grade};
+	delete $product_ref->{ecoscore_score};
+
+	delete $product_ref->{ecoscore_data};
+
+	remove_tag($product_ref, "misc", "en:ecoscore-computed");
+	remove_tag($product_ref, "misc", "en:ecoscore-missing-data-warning");
+	remove_tag($product_ref, "misc", "en:ecoscore-missing-data-no-packagings");
+	foreach my $missing (qw(labels origins packagings)) {
+		remove_tag($product_ref, "misc", "en:ecoscore-missing-data-" . $missing);
 	}
-	else {
-		add_tag($product_ref, "misc", "en:environmental-score-extended-data-not-computed");
-	}
+	remove_tag($product_ref, "misc", "en:ecoscore-no-missing-data");
+	remove_tag($product_ref, "misc", "en:ecoscore-not-applicable");
+	remove_tag($product_ref, "misc", "en:ecoscore-changed");
+	remove_tag($product_ref, "misc", "en:ecoscore-grade-changed");
+	remove_tag($product_ref, "misc", "en:ecoscore-score-above-100");
+	remove_tag($product_ref, "misc", "en:ecoscore-downgraded");
 
 	# Special case for waters and sodas: disable the Environmental-Score
 
@@ -810,6 +820,7 @@ sub compute_environmental_score ($product_ref) {
 		$product_ref->{environmental_score_data}{status} = "unknown";
 		$product_ref->{environmental_score_tags} = ["not-applicable"];
 		$product_ref->{environmental_score_grade} = "not-applicable";
+		$product_ref->{environmental_score_data}{grade} = "not-applicable";
 
 		add_tag($product_ref, "misc", "en:environmental-score-not-applicable");
 		add_tag($product_ref, "misc", "en:environmental-score-not-computed");
@@ -975,6 +986,7 @@ sub compute_environmental_score ($product_ref) {
 			$product_ref->{environmental_score_data}{status} = "unknown";
 			$product_ref->{environmental_score_tags} = ["unknown"];
 			$product_ref->{environmental_score_grade} = "unknown";
+			$product_ref->{environmental_score_data}{grade} = "unknown";
 
 			add_tag($product_ref, "misc", "en:environmental-score-not-computed");
 		}

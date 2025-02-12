@@ -355,6 +355,7 @@
       "agribalyse" : {
          "warning" : "missing_agribalyse_match"
       },
+      "grade" : "unknown",
       "missing" : {
          "categories" : 1,
          "ingredients" : 1,
@@ -399,7 +400,6 @@
    "lc_imported" : "fr",
    "main_countries_tags" : [],
    "misc_tags" : [
-      "en:environmental-score-extended-data-not-computed",
       "en:environmental-score-not-computed",
       "en:nutriscore-missing-category",
       "en:nutriscore-missing-nutrition-data",
@@ -510,18 +510,21 @@
    ],
    "packagings" : [
       {
+         "food_contact" : 0,
          "material" : "en:non-corrugated-cardboard",
          "number_of_units" : 1,
          "shape" : "en:sleeve",
          "weight_specified" : 52
       },
       {
+         "food_contact" : 1,
          "material" : "en:ps-6-polystyrene",
          "number_of_units" : 4,
          "shape" : "en:pot",
          "weight_specified" : 4.8
       },
       {
+         "food_contact" : 1,
          "material" : "en:ps-6-polystyrene",
          "number_of_units" : 4,
          "shape" : "en:lid-or-cap",

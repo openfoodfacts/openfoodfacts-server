@@ -811,7 +811,6 @@
       "misc_tags" : [
          "en:environmental-score-changed",
          "en:environmental-score-computed",
-         "en:environmental-score-extended-data-not-computed",
          "en:environmental-score-grade-changed",
          "en:environmental-score-missing-data-labels",
          "en:environmental-score-missing-data-origins",
@@ -973,6 +972,7 @@
       "packaging_text_en" : "1 wooden box to recycle, 6 25cl glass bottles to reuse, 3 steel lids to recycle, 1 plastic film to discard",
       "packagings" : [
          {
+            "food_contact" : 0,
             "material" : {
                "id" : "en:wood"
             },
@@ -985,6 +985,7 @@
             }
          },
          {
+            "food_contact" : 1,
             "material" : {
                "id" : "en:glass"
             },
@@ -1000,6 +1001,7 @@
             }
          },
          {
+            "food_contact" : 1,
             "material" : {
                "id" : "en:steel"
             },
@@ -1012,6 +1014,7 @@
             }
          },
          {
+            "food_contact" : 0,
             "material" : {
                "id" : "en:plastic"
             },
