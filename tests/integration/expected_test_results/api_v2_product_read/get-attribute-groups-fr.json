@@ -23,6 +23,7 @@
                   "id" : "low_salt",
                   "match" : 96.6533333333333,
                   "name" : "Sel",
+                  "panel_id" : "nutrient_level_salt",
                   "status" : "known",
                   "title" : "Sel en faible quantité"
                },
@@ -33,6 +34,7 @@
                   "id" : "low_fat",
                   "match" : 60.5882352941176,
                   "name" : "Matières grasses",
+                  "panel_id" : "nutrient_level_fat",
                   "status" : "known",
                   "title" : "Matières grasses en quantité modérée"
                },
@@ -43,6 +45,7 @@
                   "id" : "low_sugars",
                   "match" : 20,
                   "name" : "Sucres",
+                  "panel_id" : "nutrient_level_sugars",
                   "status" : "known",
                   "title" : "Sucres en quantité modérée"
                },
@@ -53,6 +56,7 @@
                   "id" : "low_saturated_fat",
                   "match" : 17.6,
                   "name" : "Acides gras saturés",
+                  "panel_id" : "nutrient_level_saturated_fat",
                   "status" : "known",
                   "title" : "Acides gras saturés en quantité élevée"
                }
