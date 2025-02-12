@@ -9,6 +9,7 @@
          "packaging_text_en" : "1 25cl glass bottle, 1 steel lid, 1 plastic wrap",
          "packagings" : [
             {
+               "food_contact" : 1,
                "material" : {
                   "id" : "en:glass"
                },
@@ -24,6 +25,7 @@
                }
             },
             {
+               "food_contact" : 1,
                "material" : {
                   "id" : "en:steel"
                },
@@ -33,6 +35,7 @@
                }
             },
             {
+               "food_contact" : 0,
                "material" : {
                   "id" : "en:plastic"
                },
