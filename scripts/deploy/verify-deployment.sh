@@ -243,13 +243,14 @@ function check_links {
       if [[ -e $target ]]
       then
         GOT_ERROR=1
-        >&2 echo "ERROR: link $target (currently links to $destination) should be removed"
+	current_destination=$(readlink -f $target)
+        >&2 echo "ERROR: link $target (currently links to $current_destination ) should be removed"
       else
         [[ -n "$VERBOSE" ]] && echo "    OK removed link does not exist: $target"
       fi
       continue
     fi
-    elif [[ ! $(readlink -f $destination) = $(readlink -f $target) ]]
+    if [[ ! $(readlink -f $destination) = $(readlink -f $target) ]]
     then
       GOT_ERROR=1
       if [[ ! -e $target ]]
