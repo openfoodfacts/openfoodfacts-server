@@ -115,10 +115,12 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 
 	# Estimating the environmental impact
 	foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
+		# TODO: when we don't have an ecobalyse_code or ecobalyse_proxy_code,
+		# we can ignore the ingredient, but we need to record the quantity of unrecognized ingredients
 		next unless defined $ingredient_ref->{id} && defined $ingredient_ref->{percent_estimate};
 		push @{$payload->{ingredients}},
 			{
-			id => $ingredient_ref->{id},
+			id => $ingredient_ref->{ecobalyse_code} || $ingredient_ref->{ecobalyse_proxy_code},
 			mass => $ingredient_ref->{percent_estimate}
 			};
 	}

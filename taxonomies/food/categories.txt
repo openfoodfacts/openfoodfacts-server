@@ -67554,10 +67554,10 @@ lt: Mėlynės
 nl: Bosbessen, Bosbes
 ro: Afine
 agribalyse_food_code:en: 13028
-sales_format:en: weight, package
 ciqual_food_code:en: 13028
 ciqual_food_name:en: Blueberry, raw
 ciqual_food_name:fr: Myrtille, crue
+sales_format:en: weight, package
 
 < en:Blueberries
 < en:Fresh fruits
@@ -67651,10 +67651,10 @@ nl: Frambozen
 ro: Zmeură
 sv: Hallon
 agribalyse_food_code:en: 13015
-sales_format:en: weight, package
 ciqual_food_code:en: 13015
 ciqual_food_name:en: Raspberry, raw
 ciqual_food_name:fr: Framboise, crue
+sales_format:en: weight, package
 wikidata:en: Q13179
 
 < en:Fresh fruits
@@ -67726,10 +67726,10 @@ nl: Aardbeien
 ro: Căpșune
 sv: Jordgubbe
 agribalyse_food_code:en: 13014_1
-sales_format:en: weight, package
 ciqual_food_code:en: 13014
 ciqual_food_name:en: Strawberry, raw
 ciqual_food_name:fr: Fraise, crue
+sales_format:en: weight, package
 
 #agribalyse_food_code:en:13014_1
 #ciqual_food_code:en:13014
@@ -69340,8 +69340,8 @@ bulk_proxy_category:en: en:bananas(frecinette)
 expected_ingredients:en: en:banana
 sales_format:en: package, weight, item
 
-< en:Bananas(red)
 < en:Bananas(fresh)
+< en:Bananas(red)
 < en:Bulk
 en: Bananas(fresh whole red)
 fr: Bananes(fraîche rouge)
