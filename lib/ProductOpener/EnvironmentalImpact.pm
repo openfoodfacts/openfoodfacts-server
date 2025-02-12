@@ -166,13 +166,16 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	# Send the request and get the response
 	my $response = $ua->request($request);
 
+	# Parse the JSON response
+	my $response_content = $response->decoded_content;
+	my $response_data = $response_content;
+	# if the response is JSON, decode it
+	eval {$response_data = decode_json($response_content);};
+
+	$product_ref->{environmental_impact}{ecobalyse_response} = $response_data;
+
 	# Handle the response based on success or failure
 	if ($response->is_success) {
-		# Parse the JSON response
-		my $response_data;
-		eval {$response_data = decode_json($response->decoded_content);};
-
-		$product_ref->{environmental_impact}{ecobalyse_response_data} = $response_data;
 
 		# Access the specific "ecs" value
 		if (exists $response_data->{results}{total}{ecs}) {
@@ -186,17 +189,17 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	else {
 		# If the request failed, log the error
 		$log->error("send_event request failed",
-			{endpoint => $url_recipe, payload => $payload, response => $response->decoded_content})
+			{endpoint => $url_recipe, payload => $payload, response => $response_content})
 			if $log->is_error();
 		# Add an error message to the errors array
-		$product_ref->{environmental_impact}{ecobalyse_response} = $response->decoded_content;
+		$product_ref->{environmental_impact}{ecobalyse_response} = $response_data;
 
 		push @{$errors_ref},
 			{
 			message => {id => "error_response_from_ecobalyse"},
 			field => {
 				id => "ecobalyse_response",
-				value => $response->decoded_content,
+				value => $response_content,
 			},
 			impact => {id => "failure"},
 			service => {id => "estimate_environmental_impact_service"},
