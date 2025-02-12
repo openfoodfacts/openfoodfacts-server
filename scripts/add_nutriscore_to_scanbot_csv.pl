@@ -116,8 +116,12 @@ while (<STDIN>) {
 				$nutriscore_status = 1;
 				$total{nutriscore_products}++;
 			}
+			if (	(not defined $product_ref->{environmental_score_grade}) and (defined $product_ref->{ecoscore_grade})) {
+				$product_ref->{environmental_score_grade} = $product_ref->{ecoscore_grade};
+			}
+
 			if (    (defined $product_ref->{environmental_score_grade})
-				and ($product_ref->{environmental_score_grade} =~ /^[a-e]$/))
+				and ($product_ref->{environmental_score_grade} =~ /^([a-f]|a-plus)$/))
 			{
 				$environmental_score_scans = $scans;
 				$environmental_score_unique_scans = $unique_scans;
