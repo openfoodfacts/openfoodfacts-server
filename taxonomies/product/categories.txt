@@ -6,6 +6,9 @@
 # - carbon_impact_fr_impactco2_link:en: URL for the category on https://impactco2.fr/
 
 en: Furniture
+de: Möbel
+es: Muebles
+fr: Meubles
 
 en: Appliances
 
@@ -17,9 +20,15 @@ en: Freezer
 
 < en:Appliances
 en: Dishwasher
+de: Geschirrspüler
+es: Lavavajillas
+fr: Lave-vaisselle
 
 < en:Appliances
 en: Micro-waves
+de: Mikrowellen
+es: Microondas
+fr: Micro-ondes
 
 < en:Appliances
 en: Ovens
@@ -27,27 +36,50 @@ en: Ovens
 en: Cooking equipment
 
 en: Sport equipment
+de: Sportausrüstung
+es: Equipo deportivo
+fr: Équipement de sport
 
 < en:Sport equipment
 en: Bikes
+de: Fahrräder
+es: Bicicletas
+fr: Vélos
 
 < en:Sport equipment
 en: Bike equipment
+de: Fahrradausrüstung
+es: Equipo de bicicleta
+fr: Équipement de vélo
 
 < en:Sport equipment
 en: Swimming equipment
+de: Schwimmausrüstung
+es: Equipo de natación
+fr: Équipement de natation
 
 < en:Sport equipment
 en: Sport clothes
+de: Sportkleidung
+es: Ropa deportiva
+fr: Vêtements de sport
 
 en: Fitness equipment
+de: Fitnessgeräte
+es: Equipos de fitness
+fr: Équipements de fitness
 
 < en:Sport equipment
 en: Sport shoes
+de: Sportschuhe
+es: Zapatillas deportivas
+fr: Chaussures de sport
 
 en: Baby equipment
 
 en: Electronic products, electronics
+de: Elektronische Produkte
+es: Productos electrónicos
 fr: Appareils électroniques
 secondhand_used:en: backmarket
 
@@ -59,6 +91,9 @@ en: Printers
 
 < en: Electronic products
 en: USB cables
+de: USB-Kabel
+es: Cables USB
+fr: Câbles USB
 
 < en: Electronic products
 en: Headphones
@@ -73,10 +108,15 @@ unit_name:fr: tablette numérique
 
 < en: electronic products
 en: mobile phones, cell phones
+de: Mobiltelefone, Handys
+es: teléfonos móviles, celulares
 fr: téléphones portables, téléphones mobiles
 
 < en: mobile phones
 en: Smartphones
+de: Smartphones
+es: Teléfonos inteligentes
+fr: Smartphones
 xx: Smartphones
 carbon_impact_fr_impactco2:en: 85.9
 carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/numerique/smartphone
@@ -107,11 +147,20 @@ unit_name:en: t-shirt
 
 < en: Clothes
 en: Women clothes
+de: Damenbekleidung
+es: Ropa de mujer
+fr: Vêtements pour femmes
 
 < en: Clothes
 en: Men clothes
+de: Herrenbekleidung
+es: Ropa de hombre
+fr: Vêtements pour hommes
 
 en: Women shoes
+de: Damenschuhe
+es: Zapatos de mujer
+fr: Chaussures pour femmes
 
 < en: Clothes
 en: Socks
@@ -129,6 +178,9 @@ en: Dresses
 en: Pull-Over
 
 en: Jewelry
+de: Schmuck
+es: Joyería
+fr: Bijoux
 
 en: Books
 de: Bücher
@@ -145,12 +197,13 @@ en: Toilet papers, toilet tissues, toilet rolls
 fr: Papiers toilette, papier toilette, papier hygiénique, papiers hygiéniques
 
 en: Cigarettes
+de: Zigaretten
+es: Cigarrillos
 fr: Cigarettes
 
-en: Laundry detergents
-fr: Lessives
-
 en: Christmas trees
+de: Weihnachtsbäume
+es: Árboles de Navidad
 fr: Arbres de Noël
 
 en: Vitamins
@@ -158,24 +211,10 @@ de: Vitamine
 es: Vitaminas
 fr: Vitamines
 
-en: Liquid detergent
-de: Flüssigwaschmittel
-es: Detergentes líquidos
-fr: Lessives liquides
-
-en: Dishwasher tablets
-de: Geschirrspültabs
-es: Pastillas para lavavajillas
-fr: Tablettes pour lave-vaisselle
-
 en: Batteries
 de: Batterien
 es: Pilas, Baterías
 fr: Piles
-
-en: Bleach
-de: Bleichmittel
-fr: Eau de Javel
 
 # To move into OBF
 en: Personal care products
@@ -208,6 +247,41 @@ en: Household chemicals
 de: Haushaltschemikalien
 es: Productos químicos domésticos
 fr: Produits chimiques ménagers
+
+<en: Household chemicals
+en: Bleach
+de: Bleichmittel
+fr: Eau de Javel
+
+<en: Household chemicals
+en: Laundry detergents
+de: Waschmittel
+es: Detergentes para la ropa
+fr: Lessives
+
+<en: Household chemicals
+en: Liquid detergent
+de: Flüssigwaschmittel
+es: Detergentes líquidos
+fr: Lessives liquides
+
+<en: Household chemicals
+en: Dishwasher tablets
+de: Geschirrspültabs
+es: Pastillas para lavavajillas
+fr: Tablettes pour lave-vaisselle
+
+<en: Household chemicals
+en: Detergents
+de: Waschmittel
+es: Detergentes
+fr: Détergents
+
+<en: Household chemicals
+en: Toilet gel
+de: Toilettengel
+es: Gel WC
+fr: Gel WC
 
 en: Inflatable toys
 de: Aufblasbares Spielzeug
@@ -273,14 +347,4 @@ en: Diapers
 de: Windeln
 es: Pañales
 fr: Couches
-
-en: Detergents
-de: Waschmittel
-es: Detergentes
-fr: Détergents
-
-en: Toilet gel
-de: Toilettengel
-es: Gel WC
-fr: Gel WC
 
