@@ -13,17 +13,22 @@ properties:
 
   categories:
     type: string
+    description: |
+      Comma separated list of categories (not taxonomized), in the last language used to edit it (recorded in categories_lc)
+      This field is mostly used for debugging and testing purposes. Do not use it for display purposes.
   categories_hierarchy:
     type: array
+    description: An array of categories tag entries
     items:
-      type: string
+      $ref: ./tags/taxonomy_tag_entry.yaml      
   categories_lc:
     type: string
-    description: Categories language code
+    description: Language code of the last edit for categories
   categories_tags:
     type: array
+    description: An array of indexed categories tag entries (lossy, for search only)
     items:
-      type: string
+      $ref: ./tags/indexed_taxonomy_tag_entry.yaml      
 
   checkers_tags:
     type: array
