@@ -536,6 +536,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#adding-nutrition-facts-for-the-prepared-product" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding nutrition facts for the prepared product
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -548,8 +557,35 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Search for Products">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-suggestions-for-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get suggestions for fields
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Get suggestions for fields">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#new-solution-search-a-licious-has-all-actually-used-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      New solution: Search-a-licious (has all actually used values)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#legacy-solution-suggestpl-has-all-taxonomized-values-and-only-taxonomized-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      Legacy solution: suggest.pl (has all taxonomized values, and only taxonomized values)
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#get-data-for-a-list-of-products" class="md-nav__link">
@@ -1611,6 +1647,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#adding-nutrition-facts-for-the-prepared-product" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding nutrition facts for the prepared product
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1623,8 +1668,35 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Search for Products">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-suggestions-for-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get suggestions for fields
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Get suggestions for fields">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#new-solution-search-a-licious-has-all-actually-used-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      New solution: Search-a-licious (has all actually used values)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#legacy-solution-suggestpl-has-all-taxonomized-values-and-only-taxonomized-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      Legacy solution: suggest.pl (has all taxonomized values, and only taxonomized values)
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#get-data-for-a-list-of-products" class="md-nav__link">
@@ -1686,11 +1758,48 @@ nutriment_energy_unit=kJ
 add_labels
 add_brands
 </code></pre></div>
+<h3 id="adding-nutrition-facts-for-the-prepared-product">Adding nutrition facts for the prepared product<a class="headerlink" href="#adding-nutrition-facts-for-the-prepared-product" title="Permanent link">#</a></h3>
+<p>You can send prepared nutritional values</p>
+<ul>
+<li>nutriment_energy-kj (regular)</li>
+<li>nutriment_energy-kj_prepared (prepared)</li>
+</ul>
 <h2 id="search-for-products">Search for Products<a class="headerlink" href="#search-for-products" title="Permanent link">#</a></h2>
 <p><strong>Important:</strong> full text search currently works only for v1 API (or search-a-licious, which is in beta)</p>
-<p><a href="https://wiki.openfoodfacts.org/API/Read/Search">documentation for v1 Search API</a></p>
-<p><a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/search">Reference documentation for v2 search API</a></p>
-<p>The future of search is the <a href="https://github.com/openfoodfacts/search-a-licious">search-a-licious project</a>, deployed, in beta, at <a href="https://search.openfoodfacts.org/">search.openfoodfacts.org</a>.</p>
+<ul>
+<li><a href="https://wiki.openfoodfacts.org/API/Read/Search">Documentation for v1 Search API</a></li>
+</ul>
+<ul>
+<li><a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/search">Reference documentation for v2 search API</a></li>
+</ul>
+<ul>
+<li>The future of search in Open Food Facts is the <a href="https://github.com/openfoodfacts/search-a-licious">search-a-licious project</a>, deployed, in beta, at <a href="https://search.openfoodfacts.org/">search.openfoodfacts.org</a>. It has an API: <a href="https://search.openfoodfacts.org/docs">Search-a-licious API</a></li>
+</ul>
+<h2 id="get-suggestions-for-fields">Get suggestions for fields<a class="headerlink" href="#get-suggestions-for-fields" title="Permanent link">#</a></h2>
+<h3 id="new-solution-search-a-licious-has-all-actually-used-values">New solution: Search-a-licious (has all actually used values)<a class="headerlink" href="#new-solution-search-a-licious-has-all-actually-used-values" title="Permanent link">#</a></h3>
+<p>Get brands, categories, labels… suggestions using the <a href="https://search.openfoodfacts.org/docs">Search-a-licious API</a>. 
+You can also use the classic suggest.pl route</p>
+<h3 id="legacy-solution-suggestpl-has-all-taxonomized-values-and-only-taxonomized-values">Legacy solution: suggest.pl (has all taxonomized values, and only taxonomized values)<a class="headerlink" href="#legacy-solution-suggestpl-has-all-taxonomized-values-and-only-taxonomized-values" title="Permanent link">#</a></h3>
+<ul>
+<li>https://world.openfoodfacts.org/cgi/suggest.pl?tagtype=emb_codes&amp;term=FR</li>
+<li>https://world.openfoodfacts.org/cgi/suggest.pl?tagtype=categories&amp;term=f</li>
+<li>https://world.openfoodfacts.org/cgi/suggest.pl?tagtype=labels&amp;term=f</li>
+<li>https://world.openfoodfacts.org/cgi/suggest.pl?tagtype=ingredients&amp;term=f</li>
+<li>https://world.openfoodfacts.org/cgi/suggest.pl?tagtype=packaging_shapes&amp;term=f</li>
+<li>https://world.openfoodfacts.org/cgi/suggest.pl?tagtype=packaging_materials&amp;term=f</li>
+<li>https://world.openfoodfacts.org/cgi/suggest.pl?tagtype=packaging_shapes&amp;term=f</li>
+<li>https://world.openfoodfacts.org/cgi/suggest.pl?tagtype=languages&amp;term=f</li>
+<li>https://world.openfoodfacts.org/cgi/suggest.pl?tagtype=stores&amp;term=f</li>
+<li>https://world.openfoodfacts.org/cgi/suggest.pl?tagtype=brands&amp;term=f</li>
+<li>https://world.openfoodfacts.org/cgi/suggest.pl?tagtype=countries&amp;term=f</li>
+<li>https://world.openfoodfacts.org/cgi/suggest.pl?tagtype=traces&amp;term=f</li>
+<li>https://world.openfoodfacts.org/cgi/suggest.pl?tagtype=origins&amp;term=f</li>
+<li>https://world.openfoodfacts.org/cgi/suggest.pl?tagtype=states&amp;term=f</li>
+<li>https://world.openfoodfacts.org/cgi/suggest.pl?tagtype=nutrients&amp;term=f</li>
+<li>https://world.openfoodfacts.org/cgi/suggest.pl?tagtype=additives&amp;term=f</li>
+<li>https://world.openfoodfacts.org/cgi/suggest.pl?tagtype=allergens&amp;term=f</li>
+<li>https://world.openfoodfacts.org/cgi/suggest.pl?tagtype=minerals&amp;term=f</li>
+</ul>
 <h3 id="get-data-for-a-list-of-products">Get data for a list of products<a class="headerlink" href="#get-data-for-a-list-of-products" title="Permanent link">#</a></h3>
 <p>You can use comma to separate multiple values of a query parameter. This allows you to make bulk requests. The product result can also be limited to specified data using <code>fields</code>.</p>
 <div class="highlight"><pre><span></span><code>https://world.openfoodfacts.org/api/v2/search?code=3263859883713,8437011606013,6111069000451&amp;fields=code,product_name
