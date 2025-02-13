@@ -10644,6 +10644,10 @@ gpc_category_description:en: Definition: Includes any product that can be descri
 gpc_category_name:en: Coffee - Ground Beans
 
 < en:Beverage preparations
+en: Concentrated coffees
+nl: Koffieconcentraten
+
+< en:Beverage preparations
 en: Coffee beans
 bg: Кафе на зърна
 de: Kaffeebohnen, Ungemahlene Kaffeebohnen, Kaffeekirschen
@@ -35304,6 +35308,7 @@ agribalyse_food_code:en: 7001
 ciqual_food_code:en: 7001
 ciqual_food_name:en: Bread, French bread, baguette
 ciqual_food_name:fr: Pain, baguette, courante
+sales_format:en: weight, package
 wikidata:en: Q208172
 
 < en:Baguettes
@@ -35322,6 +35327,7 @@ agribalyse_food_code:en: 7007
 ciqual_food_code:en: 7007
 ciqual_food_name:en: Bread, French bread, baguette, unsalted
 ciqual_food_name:fr: Pain, baguette, de tradition française
+sales_format:en: weight, package
 
 < en:Baguettes
 < fr:Pains de tradition française
@@ -36693,6 +36699,7 @@ gpc_category_name:en: Cakes - Sweet (Perishable)
 en: Banana breads
 xx: Banana breads
 fr: Gâteaux aux bananes, gâteau aux bananes, gâteaux à la banane, gâteau à la banane, pains à la banane, pain à la banane, pains aux bananes, pain à la banane
+nl: Bananenbroden, Banaanbroden
 wikidata:en: Q806097
 
 < en:Cakes
@@ -38060,6 +38067,8 @@ hr: Ušećereni limun
 it: Cedro candito
 nl: Gekonfijte citroen
 
+< en:Candied fruits
+en: Candied bananas
 
 < en:Candied fruits
 en: Candied lime
@@ -39660,6 +39669,7 @@ ciqual_food_name:fr: Bonbons, tout type
 gpc_category_code:en: 10000047
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a hard or soft confection made mostly from sugar, with added flavourings that may or may not contain gelatine. These products may be individually wrapped, packaged loose in a bag or container, or tightly packaged in a roll or tube. Products include toffees.Definition Excludes: Excludes products such as Sugar Candy Products covered in chocolate.
 gpc_category_name:en: Sugar Candy/Sugar Candy Substitutes Confectionery
+sales_format:en: weight, package
 wikidata:en: Q185583
 
 < en:Candies
@@ -41602,26 +41612,21 @@ hr: Kavijar od sterleta
 #wikidata:en:
 
 < en:Plant-based foods
-en: Seeds, Grains
-bg: Семена
-ca: Llavors i grans
-cs: Semínka
-da: Frø, korn, kerner
-de: Samen, Körner
-es: Semillas, Granos, Simientes, Pepitas
-fi: siemenet
-fr: Graines
-he: זרעים
-hr: sjemenke
-hu: Magok, Szemes termékek
-it: Semi
-lt: Sėklos, Grūdai
-nl: Zaden
-pl: Nasiona, Ziarna
-pt: Sementes, Grãos
-ru: Зёрна
-zh: 种子, 谷物
-wikidata:en: Q2995529
+en: Nut and seed mixes, nuts and seeds mixes, Mixes of nuts and seeds
+nl: Noten en zaden mengsels
+comment:en: for mixes of nuts and seeds
+
+< en:Plant-based foods
+en: Dried fruit and seed mixes
+fr: Mélange de graines et fruits secs
+nl: Gedroogd fruit en zaden mengsels
+sales_format:en: package, weight
+
+< en:Plant-based foods
+en: Shelf-stable prepared fruit nuts and seeds Mixes
+gpc_category_code:en: 10000207
+gpc_category_description:en: Definition: Includes any products that can be described/observed as any variety of fruit mixed either with nuts or seeds or both, that have gone through further manufacturing processes, such as reformed, cooked or dried, however these products can also be coated, in sauce, stuffed or filled. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Excludes products such as Fruit, Nuts and Seeds sold separately, Unprepared and Unprocessed Fruit and Nuts and/or Seeds Mixes.
+gpc_category_name:en: Fruit/Nuts/Seeds Mixes - Prepared/Processed (Shelf Stable)
 
 < en:Plant-based foods
 en: Cereals and potatoes
@@ -42053,7 +42058,35 @@ ciqual_food_name:fr: Sarrasin entier, cru
 #zh-tw:蕎麥
 wikidata:en: Q132734
 
-< en:Cereal grains
+< en:Plant-based foods
+en: Seeds, Grains
+bg: Семена
+ca: Llavors i grans
+cs: Semínka
+da: Frø, korn, kerner
+de: Samen, Körner
+es: Semillas, Granos, Simientes, Pepitas
+fi: siemenet
+fr: Graines
+he: זרעים
+hr: sjemenke
+hu: Magok, Szemes termékek
+it: Semi
+lt: Sėklos, Grūdai
+nl: Zaden
+pl: Nasiona, Ziarna
+pt: Sementes, Grãos
+ru: Зёрна
+zh: 种子, 谷物
+wikidata:en: Q2995529
+
+< en:seeds
+en: Mixed seeds, Seed mixes
+fr: Mélanges de graines
+nl: Zaadmengsels
+sales_format:en: weight, package
+
+< en:seeds
 en: Chia, Dried chia seeds, chia seeds
 xx: Chia
 bg: Чиа
@@ -42072,6 +42105,7 @@ agribalyse_food_code:en: 15047
 ciqual_food_code:en: 15047
 ciqual_food_name:en: Seeds, chia, dried
 ciqual_food_name:fr: Chia, graine, séchée
+sales_format:en: weight, package
 wco_hs_code:en: 1207.99
 wco_hs_heading:en: 12.07
 wikidata:en: Q1071585
@@ -42214,7 +42248,7 @@ la: Digitaria sanguinalis
 nl: Bloedgierst
 wikidata:en: Q158994
 
-< en:Cereal grains
+< en:Seeds
 en: Flax seeds, Flax, Linseeds, Common flax
 bg: Ленено семе
 de: Leinsamen, Leinsaaten, Leinsaat
@@ -42426,6 +42460,7 @@ agribalyse_proxy_food_code:en: 9101
 agribalyse_proxy_food_name:en: Rice, parboiled, raw
 agribalyse_proxy_food_name:fr: Riz blanc étuvé, cru
 intake24_category_code:en: RICE
+sales_format:en: weight, package
 wikidata:en: Q161426
 
 < en:Rices
@@ -42696,6 +42731,7 @@ agribalyse_food_code:en: 9109
 ciqual_food_code:en: 9109
 ciqual_food_name:en: Rice, red, raw
 ciqual_food_name:fr: Riz rouge, cru
+sales_format:en: weight, package
 wikidata:en: Q7305375
 
 < en:Red rices
@@ -42783,12 +42819,14 @@ hr: Smeđe basmati riže
 it: Riso Basmati integrale
 lt: Rudieji Basmati ryžiai
 nl: Zilvervlies basmatirijsten, Zilvervlies basmatirijst
+sales_format:en: weight, package
 #wikidata:en:
 
 < en:Basmati rices
 < en:Semi-milled rices
 en: Semi-milled Basmati rices
 fr: Riz Basmati semi-complet
+sales_format:en: weight, package
 
 < en:Basmati rices
 < en:White rices
@@ -42801,6 +42839,7 @@ hr: Bijele basmati riže
 it: Riso Basmati bianco
 lt: Baltieji Basmati ryžiai
 nl: Witte basmatirijsten, Witte basmatirijst
+sales_format:en: weight, package
 #wikidata:en:
 
 < en:Japonica rices
@@ -42825,6 +42864,7 @@ nl: Camarguerijsten, Camargue rijst, Camarguerijst
 origins:en: en:france, en:camargue
 protected_name_file_number:en: PGI-FR-0073
 protected_name_type:en: pgi
+sales_format:en: weight, package
 wikidata:en: Q18745430
 
 < en:Brown rices
@@ -42836,6 +42876,7 @@ fr: Riz de Camargue complet
 < en:Semi-milled rices
 en: Semi-milled Camargue rices
 fr: Riz de Camargue semi-complet
+sales_format:en: weight, package
 
 < en:Japonica rices
 < en:Medium grain rices
@@ -42879,6 +42920,7 @@ en: Semi-milled Jasmine rices
 es: Arroz Jazmín semi-integral, Arroces Jazmín semi-integrales
 fr: Riz thaï semi-complet
 hr: Polumljevene riže jasmina
+sales_format:en: weight, package
 
 < en:Brown rices
 < en:Jasmine rice
@@ -42897,6 +42939,7 @@ es: Arroces Jazmín blancos
 fr: Riz thaï blanc
 hr: Bijela riža jasmina
 nl: Witte thaise rijsten, Witte thaise rijst
+sales_format:en: weight, package
 
 < en:Japonica rices
 < en:Short grain rices
@@ -43042,8 +43085,7 @@ ciqual_food_name:en: Rye, whole, raw
 ciqual_food_name:fr: Seigle entier, cru
 #wikidata:en:
 
-
-< en:Cereal grains
+< en:Seeds
 en: Sesame, raw sesame, sesame seeds
 bg: Сусам, сусамово семе
 de: Sesam
@@ -43623,6 +43665,16 @@ de: Quinoa Chips
 fr: Chips au quinoa
 hr: Čips od kvinoje
 nl: Quinoa chips
+
+< en:Crisps
+en: Banana crisps
+de: Bananenchips
+es: Rodajas de plátano deshidratadas, Chips de plátano
+fr: Chips de banane
+it: Chips di banana essiccata
+lt: Džiovinti bananų traškučiai
+nl: Banana chips
+opposite:en: en:bananas, en: dried-bananas
 
 < en:Crisps
 en: Lentil Crisps
@@ -54109,6 +54161,16 @@ comment:en: In dutch there is a difference between compote and moes. The former 
 wikidata:en: Q618345
 
 < en:Compotes
+en: Banana pulp
+fr: Pulpe de banane
+nl: Bananenpulp
+agribalyse_food_code:en: 13005
+ciqual_food_code:en: 13005
+ciqual_food_name:en: Banana, pulp, raw
+ciqual_food_name:fr: Banane, pulpe, crue
+opposite:en: en:whole-bananas, en:sliced-banana, en:banana-flours
+
+< en:Compotes
 en: Peach compotes
 bg: Компот от праскови
 de: Pfirsichkompott
@@ -55361,11 +55423,6 @@ zh: 咸味零食
 incompatible_with:en: categories:en:sweet-snacks
 nova:en: 3
 
-< en:Salty snacks
-en: Shelf-stable prepared fruit nuts and seeds Mixes
-gpc_category_code:en: 10000207
-gpc_category_description:en: Definition: Includes any products that can be described/observed as any variety of fruit mixed either with nuts or seeds or both, that have gone through further manufacturing processes, such as reformed, cooked or dried, however these products can also be coated, in sauce, stuffed or filled. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Excludes products such as Fruit, Nuts and Seeds sold separately, Unprepared and Unprocessed Fruit and Nuts and/or Seeds Mixes.
-gpc_category_name:en: Fruit/Nuts/Seeds Mixes - Prepared/Processed (Shelf Stable)
 
 < en:Plant-based foods
 en: Tiger nuts
@@ -55401,6 +55458,12 @@ en: Flavoured nuts
 fr: Fruits de coques aromatisées
 nl: Gearomatiseerde noten
 
+< en:Nuts and their products
+en: Coated nuts
+
+< en:coated-nuts
+en: Coated walnuts
+
 < en:Plant-based foods
 < en:Variety packs
 en: Fruits-Nuts-Seed variety packs
@@ -55417,7 +55480,7 @@ gpc_category_name:en: Fruit/Nuts/Seeds Combination Variety Packs
 
 < en:Nuts
 < en:Seeds
-en: Unprocessed unshelled nuts or seeds
+en: Raw nuts or seeds, Unprocessed unshelled nuts or seeds
 gpc_category_code:en: 10000008
 gpc_category_description:en: Definition: Includes any products that can be described/observed as any variety of nuts and seeds that has not gone through any further manufacturing processes, such as reformed, cooked or dried, however these products can be coated, in sauce, stuffed or filled. Products include nuts and seeds sold on their own or a combination of both. Definition Excludes: Excludes products such as Prepared and Processed Nuts and Seeds, Fruit and Nuts and/or Seeds Mixes.
 gpc_category_name:en: Nuts/Seeds - Unprepared/Unprocessed (In Shell)
@@ -55428,6 +55491,7 @@ en: Prepared unshelled nuts or seeds
 gpc_category_code:en: 10000235
 gpc_category_description:en: Definition: Includes any products that can be described/observed as any variety of fresh nuts and seeds that has gone through further manufacturing processes, such as reformed or cooked, however these products can also be coated, in sauce, stuffed or filled. Products include nuts and seeds sold on their own or a combination of both. Definition Excludes: Excludes products such as Unprepared and Unprocessed Nuts and Seeds, Fruit and Nuts and/or Seeds Mixes.
 gpc_category_name:en: Nuts/Seeds - Prepared/Processed (In Shell)
+
 
 < en:Nuts and their products
 en: Nuts, Fruit nuts
@@ -55455,14 +55519,9 @@ th: ถั่วเปลือกแข็ง
 zh: 坚果
 food_groups:en: en:nuts
 intake24_category_code:en: NUTS
+opposite:en: en:bars, en:seeds, en:beverages, en:confectionaries
 pnns_group_2:en: Nuts
 wikidata:en: Q11009
-
-< en:Nuts
-en: Coated nuts
-
-< en:coated-nuts
-en: Coated walnuts
 
 < en:Nuts
 en: French nuts, Nuts from France
@@ -55499,24 +55558,6 @@ en: Mixed nuts, Nut mix
 de: Nussmischung
 nl: Notenmelanges, gemengde noten
 opposite:en: en:brazil-nuts
-
-< en:Cashew nuts
-< en:Salted nuts
-en: Salted cashews, Salted cashew nuts
-de: Gesalzene Cashewnüsse, Gesalzene Cashewkerne
-fr: Noix de cajou salées
-hr: Slani indijski oraščići
-lt: Anakardžiai su druska, Sūdyti anakardžiai
-tr: Tuzlu Kaju
-
-< en:Cashew nuts
-< en:Unsalted nuts
-en: Unsalted cashews, Unsalted cashew nuts
-de: Ungesalzene Cashewnüsse, Ungesalzene Cashewkerne
-fr: Noix de cajou non-salées
-hr: Neslani indijski oraščići
-lt: Anakardžiai (nesūdyti)
-nl: Cashewnoten (ongezouten), Ongezouten cashewnoten
 
 < en:Peanuts
 < en:Salted nuts
@@ -55638,6 +55679,7 @@ agribalyse_food_code:en: 15000
 ciqual_food_code:en: 15000
 ciqual_food_name:en: Almond (with peel)
 opposite:en: en:almonds flakes
+sales_format:en: weight, package
 
 #< en:Almonds(shelled)
 # en: Sliced almonds
@@ -55724,6 +55766,7 @@ nl: Gegrilde amandelen
 agribalyse_proxy_food_code:en: 15042
 agribalyse_proxy_food_name:en: Almond, grilled, salted
 opposite:en: en:almonds(unroasted)
+sales_format:en: weight, package
 
 < en:Shelled almonds
 en: Almonds(unroasted)
@@ -55733,6 +55776,7 @@ opposite:en: en:almonds(roasted)
 < en:Almonds(non-blanched)
 < en:Almonds(unroasted)
 < en:Almonds(unsalted)
+< en:Bulk
 < en:Whole almonds
 en: Almonds(raw), Raw almonds
 ca: Ametlles crues
@@ -55740,9 +55784,8 @@ de: Mandeln(Naturbelassen)
 es: Almendra natural, Almendra cruda, Almendra cruda con piel
 fr: Amandes décortiqués crues, Amandes crues
 ro: Migdale crude
-bulk_proxy_category:en: en:almonds
 expected_ingredients:en: en:almond
-sales_format:en: package, weight
+sales_format:en: weight, package
 
 < en:Shelled almonds
 en: Almonds(salted), Salted almonds
@@ -55767,6 +55810,13 @@ en: Almonds(unsalted), Unsalted almonds
 fr: Amandes non-salées
 nl: Amandelen(ongezouten), Ongezouten amandelen
 opposite:en: en:almonds(salted)
+
+< en:Almonds(roasted)
+< en:Almonds(unsalted)
+< en:Bulk
+en: Almonds(roasted and unsalted)
+fr: Amandes grillées et non-salées
+sales_format:en: weight, package
 
 < en:Almonds(roasted)
 < en:Salted almonds
@@ -55810,9 +55860,59 @@ ru: Орехи Кешью
 tr: Kaju
 agribalyse_proxy_food_code:en: 15019
 agribalyse_proxy_food_name:en: Cashew nut, grilled, salted
+sales_format:en: weight, package
 wco_hs_code:en: 0801.31
 wco_hs_heading:en: 08.01
 wikidata:en: Q34007
+
+< en:Cashew nuts
+< en:Salted nuts
+en: Salted cashews, Salted cashew nuts
+de: Gesalzene Cashewnüsse, Gesalzene Cashewkerne
+fr: Noix de cajou salées
+hr: Slani indijski oraščići
+lt: Anakardžiai su druska, Sūdyti anakardžiai
+tr: Tuzlu Kaju
+opposite:en: en:unsalted-cashew-nuts
+
+< en:Cashew nuts
+< en:Unsalted nuts
+en: Unsalted cashews, Unsalted cashew nuts
+de: Ungesalzene Cashewnüsse, Ungesalzene Cashewkerne
+fr: Noix de cajou non-salées
+hr: Neslani indijski oraščići
+lt: Anakardžiai (nesūdyti)
+nl: Cashewnoten (ongezouten), Ongezouten cashewnoten
+opposite:en: en:salted-cashew-nuts
+
+< en: Non-roasted cashew nuts
+< en: Unsalted cashews
+en: Raw cashew nuts
+fr: Noix de cajou crues
+expected_ingredients:en: en:cashew-nuts
+sales_format:en: weight, package
+
+< en:Bulk
+< en:Cashew nuts
+< en:Roasted nuts
+en: Roasted cashew nuts
+de: Geröstete Cashews, Geröstete Cashewnüsse
+fi: paahdetut cashew-pähkinät
+fr: Noix de Cajou grillées
+hr: Pečeni indijski oraščići
+lt: Skrudinti anakardžiai
+nl: Geroosterde cashewnoten
+tr: Kavrulmuş Kaju
+agribalyse_food_code:en: 15019
+ciqual_food_code:en: 15019
+ciqual_food_name:en: Cashew nut, grilled, salted
+opposite:en: en:non-roasted-cashew-nuts
+sales_format:en: weight, package
+
+< en:Cashew nuts
+en: Non-roasted cashew nuts
+fr: Noix de cajou non-grillées
+opposite:en: en:roasted-cashew-nuts
 
 < en:Nuts
 en: Chestnuts
@@ -55832,60 +55932,61 @@ agribalyse_food_code:en: 15024
 ciqual_food_code:en: 15024
 ciqual_food_name:en: Chestnut, raw
 ciqual_food_name:fr: Châtaigne, crue
+sales_format:en: weight, package
 wco_hs_code:en: 0802.41
 wco_hs_heading:en: 08.02
 wikidata:en: Q129324
 
-< en:Nuts
+< en:Chestnuts
 it: Marrone di San Zeno
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-0209
 protected_name_type:en: pdo
 wikidata:en: Q3849854
 
-< en:Nuts
+< en:Chestnuts
 it: Marrone di Castel del Rio
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-1523, PGI-IT-1523-AM01
 protected_name_type:en: pgi
 wikidata:en: Q3849851
 
-< en:Nuts
+< en:Chestnuts
 it: Marrone di Roccadaspide
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-0447
 protected_name_type:en: pgi
 wikidata:en: Q3849853
 
-< en:Nuts
+< en:Chestnuts
 it: Marrone di Combai
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-0565
 protected_name_type:en: pgi
 wikidata:en: Q3849852
 
-< en:Nuts
+< en:Chestnuts
 it: Marrone di Caprese Michelangelo
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-0455
 protected_name_type:en: pdo
 wikidata:en: Q3849848
 
-< en:Nuts
+< en:Chestnuts
 it: Marrone della Valle di Susa
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-0564
 protected_name_type:en: pgi
 #wikidata:en:
 
-< en:Nuts
+< en:Chestnuts
 it: Marrone di Serino, Castagna di Serino
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-02147
 protected_name_type:en: pgi
 #wikidata:en:
 
-< en:Nuts
+< en:Chestnuts
 it: Marrone del Mugello
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-1527
@@ -55965,6 +56066,7 @@ agribalyse_food_code:en: 15004
 ciqual_food_code:en: 15004
 ciqual_food_name:en: Hazelnut
 opposite:en: en:sweet-spreads, en:almonds, en:walnuts, en:snacks, en:dried-fruits, en:hazelnut-based-drinks
+sales_format:en: weight, package
 season_in_country_fr:en: 9,10,11
 wco_hs_code:en: 0802.21
 wco_hs_heading:en: 08.02
@@ -56014,6 +56116,7 @@ nl: Gepelde hazelnoten
 pt: Avelãs sin casca
 tr: Kabuklu fındık
 opposite:en: en:unshelled-hazelnuts
+sales_format:en: weight, package
 wco_hs_code:en: 0802.22
 wco_hs_heading:en: 08.02
 
@@ -56052,11 +56155,15 @@ lt: Gliaudyti lazdyno riešutai be odelės
 nl: Gepelde witte hazelnoten
 opposite:en: en:shelled-hazelnuts-with-skin
 
+< en:Hazelnuts (unsalted)
 < en:Shelled hazelnuts
 en: Raw hazelnuts, Unroasted hazelnuts
 fr: Noisettes décortiquées crues
+agribalyse_proxy_food_code:en: 15004
+agribalyse_proxy_food_name:en: Hazelnut
 expected_ingredients:en: en:hazelnut
 opposite:en: en:roasted-hazelnuts
+sales_format:en: weight, package
 
 < en:Hazelnuts
 < en:Roasted nuts
@@ -56074,7 +56181,6 @@ agribalyse_food_code:en: 15033
 ciqual_food_code:en: 15033
 ciqual_food_name:en: Hazelnut, grilled
 opposite:en: en:raw-hazelnuts
-
 
 < en:Roasted hazelnuts
 < en:Shelled hazelnuts with skin
@@ -56161,7 +56267,7 @@ en: Areca nuts
 wco_hs_code:en: 0802.80
 wco_hs_heading:en: 08.02
 
-< en:Legumes
+#< en:Legumes
 < en:Nuts
 en: Peanuts, ground nuts, groundnuts
 bg: Фъстъци
@@ -56211,6 +56317,7 @@ agribalyse_food_code:en: 38406
 ciqual_food_code:en: 38406
 ciqual_food_name:en: Coated peanuts
 ciqual_food_name:fr: Cacahuètes (arachide) enrobées d'un biscuit, pour apéritif
+sales_format:en: weight, package
 wikipedia:nl: https://nl.wikipedia.org/wiki/Borrelnootje
 
 < en:Coated peanuts
@@ -56263,6 +56370,7 @@ tr: Kavrulmuş yer fıstığı, Kavrulmuş yerfıstığı
 agribalyse_food_code:en: 15037
 ciqual_food_code:en: 15037
 ciqual_food_name:en: Peanut, grilled
+sales_format:en: weight, package
 wco_hs_code:en: 2008.11
 wco_hs_heading:en: 20.08
 
@@ -56275,20 +56383,6 @@ nl: Geroosterde gezouten pinda's
 agribalyse_food_code:en: 15002
 ciqual_food_code:en: 15002
 ciqual_food_name:en: Peanut, grilled, salted
-
-< en:Nuts
-< en:Roasted nuts
-en: Roasted Cashew Nuts
-de: Geröstete Cashews, Geröstete Cashewnüsse
-fi: paahdetut cashew-pähkinät
-fr: Noix de Cajou grillées
-hr: Pečeni indijski oraščići
-lt: Skrudinti anakardžiai
-nl: Geroosterde cashewnoten
-tr: Kavrulmuş Kaju
-agribalyse_food_code:en: 15019
-ciqual_food_code:en: 15019
-ciqual_food_name:en: Cashew nut, grilled, salted
 
 < en:Nuts
 < en:Shelled nuts
@@ -56604,7 +56698,7 @@ it: olio di noce di cedro
 fr: huile de noix de cèdre
 wikidata:en: Q184315
 
-< en:Nuts
+< en:Walnuts
 en: Black walnuts
 de: Schwarznuss
 es: Nogal negro americano
@@ -56697,6 +56791,7 @@ ciqual_food_name:en: Walnut, dried, husked
 ciqual_food_name:fr: Noix, séchée, cerneaux
 expected_ingredients:en: en:walnut
 opposite:en: en:fresh-walnuts
+sales_format:en: weight, package
 wco_hs_code:en: 0802.32
 wco_hs_heading:en: 08.02
 
@@ -56746,13 +56841,6 @@ en: Chestnut flours T110
 es: Harinas de castañas T110
 fr: Farines de châtaigne T110
 hr: Brašna od kestena t110
-
-< en:Plant-based foods
-< en:Snacks
-en: Mixed nuts and dried fruits, Nuts with dried fruits, Nuts and dried fruits
-de: Studentenfutter
-fr: Mélanges de fruits secs et de fruits à coque
-nl: Noten en gedroogd fruit (gemengd), Studentenhavers
 
 < en:Nuts and their products
 < en:Oilseed purees
@@ -62309,7 +62397,6 @@ hr: Obična kaša
 lt: Paprasti dribsniai košėms
 nl: Pappen (gewoon)
 
-
 < en:Breakfast cereals
 en: Mueslis, Muesli, Granola
 af: Muesli
@@ -62391,36 +62478,6 @@ agribalyse_proxy_food_code:en: 32111
 agribalyse_proxy_food_name:en: Muesli, crunchy, with fruits or dried fruits, fortified with vitamins and chemical elements
 agribalyse_proxy_food_name:fr: Muesli croustillant aux fruits ou fruits secs, enrichi en vitamines et minéraux
 
-< en:Crunchy mueslis
-< en:Mueslis with fruits
-en: Crunchy mueslis with fruits, Crunchy muesli with fruits
-fr: Mueslis croustillants aux fruits, Muesli croustillant aux fruits
-hr: Hrskavi müsli s voćem
-lt: Traškus muslis su vaisiais
-agribalyse_proxy_food_code:en: 32111
-agribalyse_proxy_food_name:en: Muesli, crunchy, with fruits or dried fruits, fortified with vitamins and chemical elements
-agribalyse_proxy_food_name:fr: Muesli croustillant aux fruits ou fruits secs, enrichi en vitamines et minéraux
-
-< en:Crunchy mueslis with fruits
-en: Crunchy muesli with fruits fortified with vitamins and chemical elements, Crunchy muesli with dried fruits fortified with vitamins and chemical elements
-fr: Muesli croustillant aux fruits enrichi en vitamines et minéraux, Muesli croustillant aux fruits secs enrichi en vitamines et minéraux
-hr: Hrskavi müsli s voćem obogaćeni vitaminima i kemijskim elementima
-lt: Traškus muslis su vaisiais papildytas vitaminais ir mineralais
-agribalyse_food_code:en: 32111
-ciqual_food_code:en: 32111
-ciqual_food_name:en: Muesli, crunchy, with fruits or dried fruits, fortified with vitamins and chemical elements
-ciqual_food_name:fr: Muesli croustillant aux fruits ou fruits secs, enrichi en vitamines et minéraux
-
-< en:Crunchy mueslis with fruits
-en: Crunchy muesli with fruits not fortified with vitamins and chemical elements, Crunchy Muesli with fruits dried fruits grains not fortified with vitamins and chemical elements
-fr: Muesli croustillant aux fruits non enrichi en vitamines et minéraux, Muesli croustillant aux fruits secs et aux graines non enrichi en vitamines et minéraux
-hr: Hrskavi müsli s voćem koji nije obogaćen vitaminima i kemijskim elementima
-lt: Traškus muslis su vaisiais nepapildytas vitaminais ir mineralais
-agribalyse_food_code:en: 32108
-ciqual_food_code:en: 32108
-ciqual_food_name:en: Muesli, crunchy, with fruits and/or dried fruits, grains (not fortified with vitamins and chemical elements)
-ciqual_food_name:fr: Muesli croustillant aux fruits et/ou fruits secs, graines (non enrichi en vitamines et minéraux)
-
 < en:Cereals with nuts
 < en:Mueslis
 en: Mueslis with nuts, Walnut muesli
@@ -62437,10 +62494,12 @@ en: Bircher-style mueslis, Muesli flakes, Bircher-style muesli flakes
 fr: Mueslis floconneux, Muesli floconneux, Muesli en flocons, Flocons de muesli
 hr: Müsli na bircher
 lt: Musli dribsniai
+nl: Mueslis (Bircher), Birecher Mueslis
 agribalyse_food_code:en: 32128
 ciqual_food_code:en: 32128
 ciqual_food_name:en: Muesli, flakes (Bircher-style)
 ciqual_food_name:fr: Muesli floconneux ou de type traditionnel
+sales_format:en: weight, package
 
 # Bircher-style muesli
 
@@ -62491,11 +62550,6 @@ ciqual_food_code:en: 32141
 ciqual_food_name:en: Muesli, flakes, not fortified with vitamins and chemical elements (average food)
 ciqual_food_name:fr: Muesli non enrichi en vitamines et minéraux (aliment moyen)
 
-< en:Mueslis
-en: Crunchy mueslis
-fr: Mueslis croustillants
-hr: Hrskavi musli
-lt: Traškus muslis
 
 < en:Chocolate cereals
 < en:Mueslis
@@ -62519,6 +62573,47 @@ agribalyse_proxy_food_name:fr: Muesli croustillant au chocolat, avec ou sans fru
 < en:Mueslis with chocolate
 en: Bircher-style mueslis with chocolate
 fr: Mueslis floconneux au chocolat
+
+< en:Mueslis
+en: Crunchy mueslis
+fr: Mueslis croustillants
+hr: Hrskavi musli
+lt: Traškus muslis
+
+< en: Crunchy mueslis
+en: Crunchy mueslis without fruits
+fr: Mueslis croustillants sans fruits
+sales_format:en: weight, package
+
+< en:Crunchy mueslis
+< en:Mueslis with fruits
+en: Crunchy mueslis with fruits, Crunchy muesli with fruits
+fr: Mueslis croustillants aux fruits, Muesli croustillant aux fruits
+hr: Hrskavi müsli s voćem
+lt: Traškus muslis su vaisiais
+agribalyse_proxy_food_code:en: 32111
+agribalyse_proxy_food_name:en: Muesli, crunchy, with fruits or dried fruits, fortified with vitamins and chemical elements
+agribalyse_proxy_food_name:fr: Muesli croustillant aux fruits ou fruits secs, enrichi en vitamines et minéraux
+
+< en:Crunchy mueslis with fruits
+en: Crunchy muesli with fruits fortified with vitamins and chemical elements, Crunchy muesli with dried fruits fortified with vitamins and chemical elements
+fr: Muesli croustillant aux fruits enrichi en vitamines et minéraux, Muesli croustillant aux fruits secs enrichi en vitamines et minéraux
+hr: Hrskavi müsli s voćem obogaćeni vitaminima i kemijskim elementima
+lt: Traškus muslis su vaisiais papildytas vitaminais ir mineralais
+agribalyse_food_code:en: 32111
+ciqual_food_code:en: 32111
+ciqual_food_name:en: Muesli, crunchy, with fruits or dried fruits, fortified with vitamins and chemical elements
+ciqual_food_name:fr: Muesli croustillant aux fruits ou fruits secs, enrichi en vitamines et minéraux
+
+< en:Crunchy mueslis with fruits
+en: Crunchy muesli with fruits not fortified with vitamins and chemical elements, Crunchy Muesli with fruits dried fruits grains not fortified with vitamins and chemical elements
+fr: Muesli croustillant aux fruits non enrichi en vitamines et minéraux, Muesli croustillant aux fruits secs et aux graines non enrichi en vitamines et minéraux
+hr: Hrskavi müsli s voćem koji nije obogaćen vitaminima i kemijskim elementima
+lt: Traškus muslis su vaisiais nepapildytas vitaminais ir mineralais
+agribalyse_food_code:en: 32108
+ciqual_food_code:en: 32108
+ciqual_food_name:en: Muesli, crunchy, with fruits and/or dried fruits, grains (not fortified with vitamins and chemical elements)
+ciqual_food_name:fr: Muesli croustillant aux fruits et/ou fruits secs, graines (non enrichi en vitamines et minéraux)
 
 < en:Crunchy mueslis
 < en:Mueslis with chocolate
@@ -62591,6 +62686,8 @@ hr: Pahuljice od heljde
 lt: Grikių dribsniai
 nl: Boekweitvlokken
 ro: Fulgi de hrișcă
+sales_format:en: weight, package
+
 
 # Corn Flakes
 
@@ -62660,7 +62757,6 @@ agribalyse_food_code:en: 32121
 ciqual_food_code:en: 32121
 ciqual_food_name:en: Breakfast cereals, corn flakes, sugar iced, fortified with vitamins and chemical elements
 
-# The most common english appellation is rolled oats, the name of the category should stay "rolled oats" even if it doesn't match with the other category names
 < en:Cereal flakes
 < en:Rolled flakes
 en: Rolled oats, Oat flakes, Oatmeal, Oatmeal flakes
@@ -62682,7 +62778,14 @@ agribalyse_food_code:en: 9311
 ciqual_food_code:en: 9311
 ciqual_food_name:en: Oatmeal flakes
 ciqual_food_name:fr: Flocon d'avoine
+comment:en: The most common english appellation is rolled oats, the name of the category should stay "rolled oats" even if it doesn't match with the other category names
+sales_format:en: weight, package
 wikidata:en: Q57656974
+
+< en:Rolled oats
+en: Rolled oats (small)
+fr: Flocons d'avoine (petit)
+sales_format:en: weight, package
 
 < en:Oat flakes
 en: Pre-cooked oat flakes
@@ -62724,7 +62827,9 @@ nl: Gierstvlokken
 < en:Cereal flakes
 < en:Rolled flakes
 en: Blend of rolled cereal flakes
-fr: Mélanges de flocons de céréales
+fr: Mélanges de flocons de céréales, flocons 5 céréales
+comment:en: If there are nuts, grains or dried fruits, it becomes a muesli
+sales_format:en: weight, package
 
 < en:Cereal flakes
 < en:Extruded cereals
@@ -64467,7 +64572,7 @@ mk: Прехранбен адитив
 mn: Хүнсний нэмэлт бүтээгдэхүүн
 ms: Bahan tambahan makanan
 nb: Tilsetningsstoff
-nl: Voedingsadditief, Voedingssupplement
+nl: Voedingsadditief
 nn: Tilsetjingsstoff
 pl: Dodatek do żywności
 pt: Aditivo alimentar
@@ -66707,13 +66812,6 @@ protected_name_file_number:en: PDO-ES-0817
 protected_name_type:en: pdo
 #wikidata:en:
 
-< en:Bananas
-es: Plátano de Canarias
-origins:en: en:spain
-protected_name_file_number:en: PGI-ES-0867
-protected_name_type:en: pgi
-#wikidata:en:
-
 < en:Chickpeas
 < en:Vegetables from Spain
 es: Garbanzo de Escacena
@@ -66915,13 +67013,6 @@ protected_name_type:en: pdo
 #wikidata:en:
 
 < en:Spanish fruits
-es: Clementinas de las Tierras del Ebro, Clementines de les Terres de l'Ebre
-origins:en: en:spain
-protected_name_file_number:en: PGI-ES-0173
-protected_name_type:en: pgi
-#wikidata:en:
-
-< en:Spanish fruits
 es: Manzana de Girona, Poma de Girona
 origins:en: en:spain
 protected_name_file_number:en: PGI-ES-0154
@@ -67080,6 +67171,7 @@ tr: kamkat
 uk: кумкват
 vi: quất
 zh: 金橘
+sales_format:en: weight, package
 #arz:كمكوات
 #ast:kumquat
 #azb:کینکان
@@ -67100,6 +67192,7 @@ en: Kumquat without pips
 fr: Kumquat sans pépins
 hr: Kumkvat bez koštica
 lt: Kinkanas be kauliukų
+nl: Kumquat(zonder zaden)
 agribalyse_food_code:en: 13549
 ciqual_food_code:en: 13549
 ciqual_food_name:en: Kumquat, without pips, raw
@@ -67124,7 +67217,15 @@ agribalyse_proxy_food_code:en: 13085
 agribalyse_proxy_food_name:en: Apple, Canada, pulp, raw
 agribalyse_proxy_food_name:fr: Pomme Canada, pulpe, crue
 intake24_category_code:en: APLS
+sales_format:en: weight, package
 wikidata:en: Q89
+
+< en:Apples
+en: Elstar apples
+fr: Pommes Elstar, Elstar
+hr: Elstar jabuke
+nl: Elstar
+sales_format:en: weight, package
 
 < en:Apples
 en: Story apples
@@ -67174,6 +67275,8 @@ hr: Svježe jabuke
 it: Mele fresche
 lt: Švieži obuoliai
 nl: Verse appels
+bulk_proxy:en: en:apples
+sales_format:en: weight, package
 season_in_country_fr:en: 1,2,3,4,8,9,10,11,12
 
 < en:Apples
@@ -67204,6 +67307,7 @@ it: Mele Fuji
 la: Malus domestica cult. Red Delicious x Ralls Genet
 lt: Fuji obuoliai
 nl: Fuji appels
+sales_format:en: weight, package
 wikidata:en: Q504893
 
 < en:Apples
@@ -67219,6 +67323,7 @@ la: Malus domestica cult. Kidd's Orange Red' x Golden Delicious
 lt: Gala obuoliai
 nl: Gala appels
 ro: Mere Gala
+sales_format:en: weight, package
 wikidata:en: Q494259
 
 < en:Apples
@@ -67232,6 +67337,7 @@ hr: Jabuke golden delicious
 la: Malus domestica cult. Golden Delicious
 lt: Golden obuoliai
 nl: Golden Delicious appels
+sales_format:en: weight, package
 wikidata:en: Q201996
 
 < en:Apples
@@ -67243,11 +67349,6 @@ ciqual_food_code:en: 13620
 ciqual_food_name:en: Apple, var. Golden, pulp and skin, raw
 ciqual_food_name:fr: Pomme Golden, pulpe et peau, crue
 
-< en:Apples
-en: Elstar apples
-fr: Pommes Elstar, Elstar
-hr: Elstar jabuke
-nl: Elstar
 
 < en:Acidic apples
 < en:Apples
@@ -67259,6 +67360,7 @@ hr: Granny smith jabuke
 la: Malus domestica x Malus sylvestris
 lt: Granny Smith obuoliai
 nl: Granny Smith appels
+sales_format:en: weight, package
 wikidata:en: Q506040
 
 < en:Apples
@@ -67274,6 +67376,7 @@ wikidata:en: Q2117265
 < en:Apples
 en: Pink Lady, Cripps Pink
 xx: Pink Lady, Cripps Pink
+sales_format:en: weight, package
 
 < en:Apples
 en: Russet apples
@@ -67281,6 +67384,7 @@ es: Manzanas reineta
 fr: Pommes reinette
 hr: Riđe jabuke
 nl: Reinette appels
+sales_format:en: weight, package
 wikidata:en: Q2299367
 
 < en:Apples
@@ -67300,6 +67404,7 @@ wikidata:en: Q3353034
 < en:Russet apples
 en: Canada Reinettes apples, Canada Apples, Canada Reinettes, Canadian Reinettes, Canadian Reinettes Apples, Canada Russet apples
 fr: Pommes Reinettes du Canada, Pommes Canada Grises, Pommes du Canada, Reinettes du Canada
+sales_format:en: weight, package
 wikidata:en: Q1723442
 
 < en:Apples
@@ -67391,6 +67496,7 @@ lt: Abrikosai
 nl: Abrikozen
 sv: Aprikoser, aprikos
 tr: Kayısı
+sales_format:en: weight, package
 wikidata:en: Q3733836
 
 < en:Apricots
@@ -67529,6 +67635,7 @@ agribalyse_food_code:en: 13028
 ciqual_food_code:en: 13028
 ciqual_food_name:en: Blueberry, raw
 ciqual_food_name:fr: Myrtille, crue
+sales_format:en: weight, package
 
 < en:Blueberries
 < en:Fresh fruits
@@ -67625,6 +67732,7 @@ agribalyse_food_code:en: 13015
 ciqual_food_code:en: 13015
 ciqual_food_name:en: Raspberry, raw
 ciqual_food_name:fr: Framboise, crue
+sales_format:en: weight, package
 wikidata:en: Q13179
 
 < en:Fresh fruits
@@ -67699,6 +67807,7 @@ agribalyse_food_code:en: 13014_1
 ciqual_food_code:en: 13014
 ciqual_food_name:en: Strawberry, raw
 ciqual_food_name:fr: Fraise, crue
+sales_format:en: weight, package
 
 #agribalyse_food_code:en:13014_1
 #ciqual_food_code:en:13014
@@ -67797,6 +67906,7 @@ lt: Vyšnios
 nl: Kersen
 ro: Cireșe
 sv: Körsbär
+sales_format:en: weight, package
 wikidata:en: Q196
 
 < en:Cherries
@@ -67866,8 +67976,9 @@ hr: Grejpfrutovi
 ja: グレープフルーツ
 la: Citrus x paradisi
 lt: Greipfrutai
-nl: Grapefruit soorten
+nl: Grapefruit
 ro: Grepfrut, Grepfruturi
+sales_format:en: weight, package
 
 < en:Grapefruits
 en: Fresh grapefruits
@@ -67885,15 +67996,16 @@ hr: Pomelo
 ja: ブンタン
 la: Citrus maxima
 lt: Pomelo greipfrutai, Didieji greipfrutai Pomelo
-nl: Grapefruits
+nl: Pomelos
+sales_format:en: weight, package
 
 < en:Fresh pomelos
-en: Corsican pomelos
+en: Pomelos from Corsica, Corsican pomelos
 fr: Pomelo de Corse
 origins:en: en:france
 protected_name_file_number:en: PGI-FR-1085
 protected_name_type:en: pgi
-#wikidata:en:
+sales_format:en: weight, package
 
 < en:Citrus
 en: Lemons
@@ -67915,6 +68027,7 @@ tr: Limon
 agribalyse_proxy_food_code:en: 13009
 agribalyse_proxy_food_name:en: Lemon, pulp, raw
 agribalyse_proxy_food_name:fr: Citron, pulpe, cru
+sales_format:en: weight, package
 
 < en:Lemons
 en: Lemons Primofiori, Lemons Mesero, Lemons Blanco
@@ -68036,6 +68149,7 @@ lt: Žaliosios citrinos
 nl: Limoenen
 ro: Lime, Lămâi verzi
 ru: Лаймы, Лайм
+sales_format:en: weight, package
 
 < en:Limes
 en: Lime pulp
@@ -68052,7 +68166,7 @@ en: Yuzu
 fr: Yuzu
 
 < en:Citrus
-en: Mandarin oranges, Mandarins, Mandarines
+en: Mandarins, Mandarines, Mandarin oranges
 bg: Мандарини
 ca: mandarina
 co: mandarina
@@ -68094,6 +68208,7 @@ uk: мандарин
 # eml:mandarëin
 # scn:mannarinu
 # vro:mandarijn
+sales_format:en: weight, package
 
 < en:Fresh fruits
 < en:Mandarin oranges
@@ -68124,6 +68239,15 @@ hr: Klementine
 la: Citrus x clementina
 lt: Klementinai
 nl: Clementines
+sales_format:en: weight, package
+
+< en:Clementines
+< en:Spanish fruits
+es: Clementinas de las Tierras del Ebro, Clementines de les Terres de l'Ebre
+origins:en: en:spain
+protected_name_file_number:en: PGI-ES-0173
+protected_name_type:en: pgi
+#wikidata:en:
 
 < en:Clementines
 < en:Fresh fruits
@@ -68136,10 +68260,12 @@ season_in_country_fr:en: 1,2,11,12
 
 < en:Clementines
 < en:French fruits
+en: Clementines from Corsica
 fr: Clémentine de Corse
 origins:en: en:france, en:corsica
 protected_name_file_number:en: PGI-FR-0300
 protected_name_type:en: pgi
+sales_format:en: weight, package
 
 < en:Clementines
 it: Clementine di Calabria
@@ -68183,6 +68309,7 @@ pl: Pomarańcza, Pomarańcze
 ru: Апельсины
 tr: Portakal
 intake24_category_code:en: ORNG
+sales_format:en: weight, package
 
 < en:Fresh fruits
 < en:Oranges
@@ -68268,6 +68395,7 @@ agribalyse_food_code:en: 13012
 ciqual_food_code:en: 13012
 ciqual_food_name:en: Fig, raw
 ciqual_food_name:fr: Figue, crue
+sales_format:en: weight, package
 
 < en:Figs
 < en:Fresh fruits
@@ -68304,6 +68432,7 @@ ciqual_food_code:en: 13112
 ciqual_food_name:en: Grape, raw
 ciqual_food_name:fr: Raisin, cru
 intake24_category_code:en: GRPS
+sales_format:en: weight, package
 season_in_country_fr:en: 9,10
 
 < en:Grapes
@@ -68340,6 +68469,7 @@ agribalyse_food_code:en: 13044
 ciqual_food_code:en: 13044
 ciqual_food_name:en: Grape, white, raw
 ciqual_food_name:fr: Raisin blanc à gros grain (type Italia ou Dattier) cru
+sales_format:en: weight, package
 
 # TODO merge above
 #fr:Raisins blancs à gros grain type Italia, Raisins blancs à gros grain type Dattier, Raisin blanc à gros grain type Italia, Raisin blanc à gros grain type Dattier
@@ -68371,6 +68501,7 @@ agribalyse_food_code:en: 13045
 ciqual_food_code:en: 13045
 ciqual_food_name:en: Grape, red, raw
 ciqual_food_name:fr: Raisin noir, cru
+sales_format:en: weight, package
 
 < en:Grapes
 en: Seedless grapes
@@ -68414,6 +68545,7 @@ nl: Kakis
 agribalyse_proxy_food_code:en: 13066
 agribalyse_proxy_food_name:en: Persimmon, pulp, raw
 agribalyse_proxy_food_name:fr: Kaki, pulpe, cru
+sales_format:en: weight, package
 
 < en:Dried fruits
 en: Dried Kakis
@@ -68458,6 +68590,7 @@ nl: Kiwis
 agribalyse_proxy_food_code:en: 13021
 agribalyse_proxy_food_name:en: Kiwi fruit, pulp and seeds, raw
 agribalyse_proxy_food_name:fr: Kiwi, pulpe et graines, cru
+sales_format:en: weight, package
 
 < en:Fresh fruits
 < en:Kiwis
@@ -68485,10 +68618,12 @@ fr: Kiwis séchés
 < en:Kiwis
 en: Green kiwis
 fr: Kiwis verts
+sales_format:en: weight, package
 
 < en:Kiwis
 en: Yellow kiwis
 fr: Kiwis jaunes
+sales_format:en: weight, package
 
 < en:Green kiwis
 en: Green Jumbo, Jumbo Green
@@ -68551,6 +68686,7 @@ protected_name_file_number:en: PGI-IT-02469
 protected_name_type:en: pgi
 #wikidata:en:
 
+< en:Bulk
 < en:Fresh fruits
 < en:Peaches
 en: Fresh peaches
@@ -68558,6 +68694,7 @@ es: Melocotones frescos
 fr: Pêches fraîches
 hr: Svježe breskve
 lt: Švieži persikai
+sales_format:en: weight, package
 season_in_country_fr:en: 6,7,8,9
 
 < en:Peaches
@@ -68587,6 +68724,7 @@ hr: Nektarine
 la: Prunus persica var. nucipersica, Prunus persica var. nectarina
 lt: Nektarinai
 nl: Nectarines
+sales_format:en: weight, package
 
 < en:Fresh peaches
 < en:Nectarines
@@ -68611,6 +68749,7 @@ fr: Pitayas
 hr: Pitaje
 lt: Drakono vaisiai
 nl: Pitajas, pitahajas, Drakenvruchten
+sales_format:en: weight, package
 wikidata:en: Q232755
 
 < en:Fruits
@@ -68629,6 +68768,7 @@ fr: Nèfles
 hr: Mušmule
 la: Mespilus germanica
 nl: Mispels
+sales_format:en: weight, package
 wikidata:en: Q3092517
 
 < en:Fruits
@@ -68645,6 +68785,7 @@ lt: Melionai
 nl: Meloenen en watermeloenen
 ru: Тыквина
 intake24_category_code:en: MLNS
+sales_format:en: weight, package
 wikidata:en: Q5881191
 
 < en:Melons
@@ -68782,6 +68923,7 @@ agribalyse_food_code:en: 13026
 ciqual_food_code:en: 13026
 ciqual_food_name:en: Melon, cantaloupe (ex Cavaillon or Charentais melon), pulp, raw
 ciqual_food_name:fr: Melon cantaloup (par ex.: Charentais, de Cavaillon) pulpe, cru
+sales_format:en: weight, package
 wikidata:en: Q1063115
 
 < en:Cantaloupe melons
@@ -68824,6 +68966,7 @@ ro: Honeydew
 sv: Honungsmelon
 tl: Milong lunti
 vi: Dưa lê
+sales_format:en: weight, package
 wikidata:en: Q47801
 
 < en:Muskmelons
@@ -68865,6 +69008,7 @@ ja: スイカ, 西瓜
 la: Citrullus lanatus
 lt: Arbūzai
 nl: Watermeloenen
+sales_format:en: weight, package
 wikidata:en: Q38645
 
 < en:Melons
@@ -68888,6 +69032,7 @@ nl: Peren
 ru: Груши
 tr: Armut
 intake24_category_code:en: PEAR
+sales_format:en: weight, package
 wikidata:en: Q13099586
 
 < en:Pears
@@ -68910,6 +69055,7 @@ en: Conference pears
 fr: Poires Conférence, Conférence
 hr: Konferencijske kruške
 nl: Conference peren
+sales_format:en: weight, package
 
 < en:Pears
 en: Guyot pears, Pears (Guyot)
@@ -68949,6 +69095,7 @@ season_in_country_fr:en: 1,2,3,8,9,10,11,12
 < en:Apples
 en: Apples Chantecler
 fr: Pommes Chantecler, Pommes Chantecler Belchard
+sales_format:en: weight, package
 
 
 < en:Apples
@@ -69008,6 +69155,7 @@ ciqual_food_name:en: Plum, raw
 ciqual_food_name:fr: Prune, crue
 intake24_category_code:en: PLUM
 
+< en:Bulk
 < en:Fresh fruits
 < en:Plums
 en: Fresh plums
@@ -69015,6 +69163,7 @@ de: Frische Pflaumen
 fr: Prunes fraîches
 hr: Svježe šljive
 lt: Šviežios slyvos
+sales_format:en: weight, package
 season_in_country_fr:en: 7,8,9
 
 < en:Fresh plums
@@ -69053,6 +69202,7 @@ hr: Pitomi šipak
 ja: ザクロ
 lt: Granatų vaisiai, Granatos
 nl: Granaatappels
+sales_format:en: weight, package
 
 < en:Fresh fruits
 < en:Pomegranates
@@ -69081,6 +69231,7 @@ agribalyse_food_code:en: 13010
 ciqual_food_code:en: 13010
 ciqual_food_name:en: Quince, raw
 ciqual_food_name:fr: Coing, cru
+sales_format:en: weight, package
 wikidata:en: Q43300
 
 < en:Fresh fruits
@@ -69121,6 +69272,7 @@ pl: Awokado
 agribalyse_proxy_food_code:en: 13004
 agribalyse_proxy_food_name:en: Avocado, pulp, raw
 agribalyse_proxy_food_name:fr: Avocat, pulpe, cru
+sales_format:en: weight, package
 wikidata:en: Q961769
 
 < en:Avocados
@@ -69130,6 +69282,8 @@ agribalyse_food_code:en: 13004
 ciqual_food_code:en: 13004
 ciqual_food_name:en: Avocado, pulp, raw
 ciqual_food_name:fr: Avocat, pulpe, cru
+
+#### Bananas 
 
 < en:Tropical fruits
 en: Bananas
@@ -69150,7 +69304,22 @@ tr: Muz
 agribalyse_proxy_food_code:en: 53100
 agribalyse_proxy_food_name:en: Plantain banana, raw
 agribalyse_proxy_food_name:fr: Banane plantain, crue
+opposite:en: en:beverages, en:cakes, en:candies, en:desserts
 wikidata:en: Q503
+
+< en:Bananas
+< en:Fresh fruits
+en: Fresh bananas, Bananas (fresh)
+de: Frische Bananen
+fr: Bananes fraîches
+nl: verse bananen
+opposite:en: en:frozen-bananas
+
+< en:Bananas
+en: Frozen bananas, Bananas (frozen)
+fr: Bananes congélés
+nl: Bananen(diepvries)
+opposite:en: en:bananas(fresh)
 
 < en:Bananas
 en: Plantain bananas
@@ -69168,28 +69337,36 @@ food_groups:en: en:potatoes
 pnns_group_2:en: Potatoes
 wikidata:en: Q165449
 
-< en:Plantain bananas
-en: Cooked plantain bananas
-fr: Bananes plantain cuites
-agribalyse_food_code:en: 53101
-ciqual_food_code:en: 53101
-ciqual_food_name:en: Plantain banana, cooked
-ciqual_food_name:fr: Banane plantain, cuite
-#wikidata:en:
-
-< en:Plantain bananas
-fr: Matooke, matoke
-wikidata:en: Q101418717
-
-< en:Flours
-en: Banana flours
-fr: Farines de banane
-hr: Brašna od banane
-lt: Bananų miltai
-nl: Bananenmelen
+< en:Bananas
+en: Cavendish Bananas, Bananas Cavendish
+xx: Cavendish
+fr: Bananes Cavendish
+nl: Cavendish Bananen
+opposite:en: en:plantain-bananas, en:red-bananas, en:baby-bananas
 
 < en:Bananas
-en: Red banana
+en: Bananas from the Canary Islands
+es: Plátano de Canarias
+fr: Bananes des Îles Canaries
+nl: Bananen van de Canarische eilanden
+origins:en: en:spain
+protected_name_file_number:en: PGI-ES-0867
+protected_name_type:en: pgi
+#wikidata:en:
+
+< en:Bananas
+en: Frecinette Bananas, Frécinette bananas, Frécinettes bananas, Bananas (frécinette)
+fr: Bananes frécinettes, Bananes fréchinettes
+opposite:en: en:plantain-bananas, en:red-bananas, en:cavendish-bananas
+
+< en:Plantain bananas
+en: Matooke bananas, Bananas (Matooke)
+xx: Matooke
+fr: Bananes matooke, Matooke, matoke
+wikidata:en: Q101418717
+
+< en:Bananas
+en: Red bananas, Bananas(red)
 ar: الموز الأحمر
 fr: Bananes rouges
 hr: Crvena banana
@@ -69199,15 +69376,67 @@ ml: ചെങ്കദളി
 nl: Rode bananen
 pt: Banana vermelha
 ta: செவ்வாழை
+opposite:en: en:plantain-bananas, en:baby-bananas, en:cavendish-bananas
 wikidata:en: Q2427471
 
-< en:Bananas
-en: Banana pulp
-fr: Pulpe de banane
-agribalyse_food_code:en: 13005
-ciqual_food_code:en: 13005
-ciqual_food_name:en: Banana, pulp, raw
-ciqual_food_name:fr: Banane, pulpe, crue
+< en:Plantain bananas
+en: Cooked plantain bananas
+fr: Bananes plantain cuites
+agribalyse_food_code:en: 53101
+ciqual_food_code:en: 53101
+ciqual_food_name:en: Plantain banana, cooked
+ciqual_food_name:fr: Banane plantain, cuite
+#wikidata:en:
+
+#< en:Bananas
+< en:Flours
+en: Banana flours
+fr: Farines de banane
+hr: Brašna od banane
+lt: Bananų miltai
+nl: Bananenmelen
+comment:en: Bananas is restricted to whole fresh ones
+
+< en:Bulk
+< en:Cavendish Bananas
+< en:Fresh Bananas
+en: Fresh Cavendish Bananas, Bananas (fresh Cavendish)
+fr: Bananes fraîches Cavendish, Bananes Cavendish fraîches
+nl: Verse hele Cavendish bananen, Bananen(verse Cavendish)
+bulk_proxy_category:en: en:bananas
+comment:en: assume that most bananas sold in the shop are fresh Cavendish bananas
+expected_ingredients:en: en:banana
+sales_format:en: package, weight, item
+
+< en:Bulk
+< en:Frecinette Bananas
+< en:Fresh bananas
+en: Fresh Frecinette Bananas, Bananas (fresh frecinette)
+fr: Bananes frecinettes fraîches
+nl: Verse hele frecinette bananen
+bulk_proxy_category:en: en:frecinette-bananas
+expected_ingredients:en: en:banana
+sales_format:en: package, weight, item
+
+< en:Bulk
+< en:Fresh Bananas
+< en:Red Bananas
+en: Fresh Red Bananas
+fr: Bananes rouges fraîches, Bananes fraîches rouges
+nl: Bananen(verse hele rode), Verse hele rode bananen
+bulk_proxy_category:en: en:red-bananas
+expected_ingredients:en: en:banana
+sales_format:en: package, weight, item
+
+< en:Bananas from the Canary Islands
+< en:Bulk
+< en:Fresh bananas
+en: Fresh Bananas from the Canary Islands
+fr: Bananes fraîches des Canaries
+nl: Verse hele bananen van de Canarische eilanden, Bananen(verse rode van de Canrische eilanden)
+bulk_proxy_category:en: en:bananas-from-the-canary-islands
+expected_ingredients:en: en:bananas
+sales_format:en: package, weight, item
 
 < en:Tropical fruits
 en: Chirimuyas, Custard apples, Cherimoyas
@@ -69237,6 +69466,7 @@ zh: 椰子
 agribalyse_proxy_food_code:en: 15006
 agribalyse_proxy_food_name:en: Coconut, ripe kernel, fresh
 agribalyse_proxy_food_name:fr: Noix de coco, amande mûre, fraîche
+sales_format:en: weight, package
 wco_hs_code:en: 0801.12
 wco_hs_heading:en: 08.01
 wikidata:en: Q3342808
@@ -69278,6 +69508,7 @@ fr: Noix de coco râpée
 hr: Ribani kokos
 lt: Tarkuotas kokosas
 nl: Geraspte kokos, Kokosrasp
+sales_format:en: weight, package
 #wikidata:en:
 
 < en:Tropical fruits
@@ -69432,6 +69663,7 @@ nl_be: Mangos
 agribalyse_proxy_food_code:en: 13025_1
 agribalyse_proxy_food_name:en: Mango, pulp, raw
 agribalyse_proxy_food_name:fr: Mangue importée par bateau, pulpe, crue
+sales_format:en: weight, package
 wikidata:en: Q169
 
 < en:Fresh fruits
@@ -69596,7 +69828,7 @@ zh: 番木瓜
 agribalyse_proxy_food_code:en: 13035
 agribalyse_proxy_food_name:en: Papaya, pulp, raw
 agribalyse_proxy_food_name:fr: Papaye, pulpe, crue
-
+sales_format:en: weight, package
 
 < en:Fresh fruits
 < en:Papayas
@@ -69626,6 +69858,7 @@ nl_be: Passievruchten
 agribalyse_proxy_food_code:en: 13016
 agribalyse_proxy_food_name:en: Passion fruit, pulp and pips, raw
 agribalyse_proxy_food_name:fr: Fruit de la passion ou maracudja, pulpe et pépins, cru
+sales_format:en: weight, package
 
 < en:Tropical fruits
 en: Passion fruit pulp and pips
@@ -69653,6 +69886,7 @@ pl: Ananas
 agribalyse_proxy_food_code:en: 13002
 agribalyse_proxy_food_name:en: Pineapple, pulp, raw
 agribalyse_proxy_food_name:fr: Ananas, pulpe, cru
+sales_format:en: weight, package
 wikidata:en: Q10817602
 
 < en:Fresh fruits
@@ -69857,7 +70091,7 @@ fr: Mélanges de fruits surgelés
 hr: Smrznuto miješano voće
 it: Frutta mista surgelata
 lt: Šaldyti įvairūs vaisiai
-nl: Bevroren fruitmelanges
+nl: Bevroren fruitmelanges, Diepvriesfruit
 
 < en:Frozen berries
 < en:Frozen mixed fruits
@@ -69952,12 +70186,13 @@ zh: 椰枣
 agribalyse_proxy_food_code:en: 13011
 agribalyse_proxy_food_name:en: Date, pulp and peel, dried
 agribalyse_proxy_food_name:fr: Datte, pulpe et peau, sèche
-description:en: Date, the fruit of the date palm (Phoenix dactylifera). Dry or soft dates are eaten out-of-hand, or may be pitted and stuffed with fillings such as almonds, walnuts, pecans, candied orange and lemon peel, tahini, marzipan or cream cheese.
+\description:en: Date, the fruit of the date palm (Phoenix dactylifera). Dry or soft dates are eaten out-of-hand, or may be pitted and stuffed with fillings such as almonds, walnuts, pecans, candied orange and lemon peel, tahini, marzipan or cream cheese.
 # ang:fingeræppel
 # atj:Pikesaniminan
 # nah:Zōyacapolin
 # scn:Dàttula
 # zh-cn:椰枣
+sales_format:en: weight, package
 wikidata:en: Q1652093
 wikipedia:en: https://en.wikipedia.org/wiki/Date_palm#Fruits
 
@@ -70041,6 +70276,7 @@ agribalyse_food_code:en: 13111
 ciqual_food_code:en: 13111
 ciqual_food_name:en: Apple, dried
 ciqual_food_name:fr: Pomme, sèche
+sales_format:en: weight, package
 
 < en:Dried fruits
 en: Dried apricots
@@ -70072,24 +70308,23 @@ ciqual_food_code:en: 13001
 ciqual_food_name:en: Apricot, pitted, dried
 ciqual_food_name:fr: Abricot, dénoyauté, sec
 
+#< en:Bananas
 < en:Dried fruits
-en: Dried bananas, Dried banana chips, Banana crisps
-de: getrocknete Bananen, gedörrte Bananen, Bananenchips
-es: Plátanos deshidratados, Bananas deshidratadas, Rodajas de plátano deshidratadas, Chips de plátano
-fr: Bananes séchées, Chips de banane
+en: Dried bananas
+de: getrocknete Bananen, gedörrte Bananen
+es: Plátanos deshidratados, Bananas deshidratadas
+fr: Bananes séchées
 hr: Sušene banane
-it: Banana essiccata, Chips di banana essiccata
-lt: Džiovinti bananų traškučiai, Džiovinti bananai
-nl: Gedroogde bananen, bananenchips
+it: Banana essiccata
+lt: Džiovinti bananai
+nl: Gedroogde bananen
 ru: Бананы сушёные, сушёные бананы
 agribalyse_food_code:en: 13089
 ciqual_food_code:en: 13089
 ciqual_food_name:en: Banana, pulp, dried
 ciqual_food_name:fr: Banane, pulpe, sèche
-
-#<en:Bananas
-#en:Dried banana pulp
-#fr:Pulpe de banane sèche
+comment:en: Bananas is restricted to whole fresh ones
+opposite:en: en:bananas, en: banana-crisps
 
 < en:Dried fruits
 en: Dried strawberries
@@ -70221,6 +70456,7 @@ lt: Džiovinti įvairūs vaisiai
 nl: Gedroogde fruitmelanges
 pl: Suszona mieszanka owoców
 
+
 < en:Dried mixed fruits
 en: Mix of grains and dried fruit, Mix of nuts and dried fruit
 fr: Mélange apéritif de graines et fruits séchés
@@ -70241,6 +70477,15 @@ ciqual_food_code:en: 15049
 ciqual_food_name:en: Mix of unsalted grains/nuts and raisins
 ciqual_food_name:fr: Mélange apéritif de graines (non salées) et raisins secs
 
+< en:Mix of grains and raisins
+< en:Plant-based foods
+< en:Snacks
+en: Nuts with dried fruits, Nuts and dried fruits, Mixed nuts and dried fruits
+de: Studentenfutter
+fr: Mendiants, Mélanges étudiants, Mélanges de fruits secs et de fruits à coque
+nl: Noten en gedroogd fruit (gemengd), Studentenhavers
+sales_format:en: weight, package
+
 < en:Mix of grains and dried fruit
 en: Mix of salted grains and raisins, Mix of salted nuts and raisins
 fr: Mélange apéritif de graines salées et raisins secs
@@ -70248,6 +70493,7 @@ agribalyse_food_code:en: 15018
 ciqual_food_code:en: 15018
 ciqual_food_name:en: Mix of salted grains/nuts and raisins
 ciqual_food_name:fr: Mélange apéritif de graines salées et raisins secs
+
 
 < en:Dried fruits
 < en:Papayas
@@ -70526,6 +70772,11 @@ agribalyse_food_code:en: 13713
 ciqual_food_code:en: 13713
 ciqual_food_name:en: Apricot, canned in light syrup, not drained
 ciqual_food_name:fr: Abricot au sirop léger, appertisé, non égoutté
+
+< en:Fruits in syrup
+en: Bananas in syrup
+fr: Bananes au sirop
+nl: Bananen op siroop
 
 < en:Fruits in syrup
 en: Canned mixed fruit in syrup, Canned fruit cocktail in syrup
@@ -71265,6 +71516,7 @@ pl: Liście kolendry
 agribalyse_proxy_food_code:en: 11094
 agribalyse_proxy_food_name:en: Coriander, fresh
 agribalyse_proxy_food_name:fr: Coriandre, fraiche
+sales_format:en: weight, package
 
 < en:Coriander leaves
 < en:Fresh aromatic plants
@@ -71336,6 +71588,7 @@ agribalyse_proxy_food_code:en: 11093
 agribalyse_proxy_food_name:en: Dill, fresh
 agribalyse_proxy_food_name:fr: Aneth, frais
 expected_ingredients:en: en:dill
+sales_format:en: weight, package
 wikidata:en: Q26686
 
 < en:Dill
@@ -71489,6 +71742,7 @@ zh: 薄荷
 agribalyse_proxy_food_code:en: 11027
 agribalyse_proxy_food_name:en: Mint, fresh
 agribalyse_proxy_food_name:fr: Menthe, fraîche
+sales_format:en: weight, package
 wikidata:en: Q47859
 
 < en:Dried aromatic plants
@@ -71813,6 +72067,7 @@ tr: Maydanoz
 agribalyse_proxy_food_code:en: 11014
 agribalyse_proxy_food_name:en: Parsley, fresh
 agribalyse_proxy_food_name:fr: Persil, frais
+sales_format:en: weight, package
 wikidata:en: Q25284
 
 < en:Fresh aromatic plants
@@ -72190,6 +72445,7 @@ pl: Tymianek, Tymianek właściwy, Tymian, Macierzanka zwyczajna
 agribalyse_proxy_food_code:en: 11070
 agribalyse_proxy_food_name:en: Thyme, fresh
 agribalyse_proxy_food_name:fr: Thym, frais
+sales_format:en: weight, package
 wikidata:en: Q148668
 
 < en:Fresh aromatic plants
@@ -72335,6 +72591,7 @@ es: Bouquets garnis, Bouquet garni
 fr: Bouquets garnis, Bouquet garni
 hr: Buket garni
 nl: Kruidenbuiltjes
+sales_format:en: weight, package
 wikidata:en: Q895177
 
 < en:Bouquet garni
@@ -73101,7 +73358,7 @@ agribalyse_proxy_food_name:fr: Cumin, graine
 wikidata:en: Q132624
 
 < en:Cumin
-en: Ground cumin seedskumin
+en: Ground cumin seeds
 es: Comino molido, Comino en polvo
 fr: Cumin en poudre, Cumin moulu
 hr: Mljevene sjemenke kimaskumin
@@ -73191,7 +73448,6 @@ ciqual_food_name:en: Fenugreek, seed
 ciqual_food_name:fr: Fenugrec, graine
 
 < en:Fenugreek seeds
-< en:Seeds
 en: Whole fenugreek seeds
 de: Ganze Bockshornkleesamen
 es: Semillas de fenogreco enteras, Fenogreco en grano
@@ -73245,6 +73501,7 @@ ciqual_food_name:fr: Gingembre, racine crue
 gpc_category_code:en: 10006113
 gpc_category_description:en: Definition: Includes any product that can be described/observed as a fresh commercial varieties of ginger grown from Zingiber officinale Roscoe, of the Zingiberaceae family, to be supplied fresh.Definition Excludes: Specifically excludes: Prepared/Processed or Unprepared/Unprocessed and Shelf Stable or Frozen Ginger.
 gpc_category_name:en: Ginger
+sales_format:en: weight, package
 wikidata:en: Q35625
 
 #Please don't put in ginger
@@ -73784,6 +74041,7 @@ nl_be: Kurkuma, Geelwortel
 agribalyse_proxy_food_code:en: 11089
 agribalyse_proxy_food_name:en: Turmeric, powder
 agribalyse_proxy_food_name:fr: Curcuma, poudre
+sales_format:en: weight, package
 #wikidata:en:Q42562
 wikidata:en: Q20730193
 
@@ -73963,12 +74221,13 @@ lt: Čili pipirai
 nl: Chili pepers
 pl: Papryczki chili, papryczki chilli
 agribalyse_food_code:en: 20151
-ciqual_food_code:en: 20151
+\ciqual_food_code:en: 20151
 ciqual_food_name:en: Chili pepper, raw
 ciqual_food_name:fr: Piment, cru
 gpc_category_code:en: 10006102
 gpc_category_description:en: Definition: Includes any product that can be described/observed as a fresh commercial variety of Chili Peppers grown from capsicum annuum, c. baccatum, c. chinense, c. frutescens and c. pubescens with a minimum pungency level of  900 on the Scoville index. Definition Excludes: Specifically excludes any Prepared/Processed or Unprepared/Unprocessed and Shelf Stable or Frozen Chili Peppers and Chili peppers for industrial processing.
 gpc_category_name:en: Chilli Peppers
+sales_format:en: weight, package
 
 < en:Chili peppers
 en: Chili powders
@@ -92052,6 +92311,7 @@ ciqual_food_code:en: 20010
 ciqual_food_name:en: Mushroom, all types, raw
 ciqual_food_name:fr: Champignon, tout type, cru
 intake24_category_code:en: MSRH
+sales_format:en: weight, package
 wikidata:en: Q654236
 
 < en:Fresh vegetables
@@ -92094,6 +92354,7 @@ ru: Шампиньоны
 ciqual_food_code:en: 20056
 ciqual_food_name:en: Button mushroom or cultivated mushroom, raw
 ciqual_food_name:fr: Champignon de Paris ou champignon de couche, cru
+sales_format:en: weight, package
 wikidata:en: Q227690
 
 < en:Mushrooms
@@ -92178,6 +92439,7 @@ nl: Cantharellen, Hanenkammen
 ciqual_food_code:en: 20103
 ciqual_food_name:en: Chanterelle or girolle mushroom, raw
 ciqual_food_name:fr: Champignon chanterelle ou girolle crue
+sales_format:en: weight, package
 
 < en:Mushrooms
 en: Horn of plenty mushrooms, Horn of plenty
@@ -92237,6 +92499,7 @@ nl: Oesterzwammen
 ciqual_food_code:en: 20114
 ciqual_food_name:en: Oyster mushroom, raw
 ciqual_food_name:fr: Champignon, pleurote, crue
+sales_format:en: weight, package
 
 < en:Oyster mushrooms
 en: Chopped oyster mushrooms
@@ -92304,6 +92567,7 @@ ja: 椎茸, しいたけ
 la: Lentinula edodes
 nl: Shiitakes
 pl: Grzyby shiitake
+sales_format:en: weight, package
 wikidata:en: Q105965457
 
 < en:Shiitake mushrooms
@@ -103579,6 +103843,12 @@ fr: Graines de courge décortiquées grillées
 hr: Pečene oljuštene sjemenke bundeve
 nl: Geroosterde gepelde pompoenpitten
 
+< en:Roasted shelled pumpkin seeds
+en: Pumpkin seeds(non-roasted/shelled/unsalted), Non-roasted unsalted shelled pumpkin seeds
+fr: Graines de courge(non-grillées/non-salées/décortiquées)
+nl: Pompoenpitten(gepeld/ongeroosterd/ongezouten)
+sales_format:en: weight, package
+
 < en:Seeds
 en: Cucurbitacea seeds
 fr: Graines de cucurbitacées
@@ -103815,7 +104085,7 @@ bg: Кафява захар
 de: braune Zucker
 es: Azúcar moreno
 fi: fariinisokerit
-fr: Sucres roux, sucre roux, Sucres blonds
+fr: Sucres roux, sucre roux
 hr: Smeđi šećeri
 it: Zucchero grezzo
 ja: ブラウンシュガー
@@ -104003,6 +104273,12 @@ ciqual_food_code:en: 31016
 ciqual_food_name:en: Sugar, white
 ciqual_food_name:fr: Sucre blanc
 wikidata:en: Q15631442
+
+< en:Sugars
+en: Blond sugars, light brown sugars
+fr: Sucres blonds, Sucre blond
+comment:en: Sugars that are not sparkling white
+sales_format:en: weight, package
 
 < en:Sugars
 en: rock candies, rock sugars
@@ -105106,6 +105382,12 @@ nl: Atjar tjampoer
 nl_be: Atjar tjampoer
 
 < en:Vegetable pickles
+en: Banana flowers in brine
+cs: Banánový květ ve slaném nálevu
+de: Bananenblüten in Salzwasser
+nl: Bananenbloemen(gepekeld)
+
+< en:Vegetable pickles
 en: Beetroot(pickled), Pickled beets
 de: Eingelegte rote Bete
 es: Remolacha encurtida
@@ -105446,6 +105728,7 @@ agribalyse_food_code:en: 20196
 ciqual_food_code:en: 20196
 ciqual_food_name:en: Jerusalem artichoke, raw
 ciqual_food_name:fr: Topinambour, cru
+sales_format:en: weight, package
 
 < en:Jerusalem artichoke
 en: Cooked Jerusalem artichoke
@@ -105474,12 +105757,14 @@ ciqual_food_code:en: 20181
 ciqual_food_name:en: Parsnip, raw
 ciqual_food_name:fr: Panais, cru
 
+< en:Bulk
 < en:Fresh vegetables
 < en:Parsnip
 en: Fresh parsnip
 fr: Panais frais
 nl: Verse pastinaken, Verse pastinaak
 expected_ingredients:en: en:parsnip
+sales_format:en: weight, package
 season_in_country_fr:en: 1,2,3,10,11,12
 
 < en:Cooked vegetables
@@ -105594,6 +105879,7 @@ tr: Enginar
 agribalyse_food_code:en: 20052
 ciqual_food_code:en: 20052
 ciqual_food_name:en: Artichoke, globe, raw
+sales_format:en: weight, package
 
 < en:Artichokes
 it: Carciofo Spinoso di Sardegna
@@ -105690,6 +105976,7 @@ ru: Спаржа
 agribalyse_proxy_food_code:en: 20076
 agribalyse_proxy_food_name:en: Asparagus, canned, drained
 agribalyse_proxy_food_name:fr: Asperge, appertisée, égouttée
+sales_format:en: weight, package
 wikidata:en: Q23041045
 
 < en: Asparagus
@@ -105759,6 +106046,7 @@ agribalyse_proxy_food_code:en: 20282
 agribalyse_proxy_food_name:en: Asparagus, white or purple, peeled, raw
 agribalyse_proxy_food_name:fr: Asperge, blanche ou violette, pelée, crue
 opposite:en: en:green-asparagus, en:purple-asparagus
+sales_format:en: weight, package
 #TOCHECK:wikidata:en:Q22806705
 
 #< en:Asparagus
@@ -106071,6 +106359,7 @@ tr: Patlıcan
 agribalyse_food_code:en: 20053
 ciqual_food_code:en: 20053
 ciqual_food_name:en: Eggplant, raw
+sales_format:en: weight, package
 #TOCHECK:wikidata:en:Q12533094
 
 < en:Aubergines
@@ -106148,6 +106437,7 @@ agribalyse_proxy_food_name:fr: Betterave rouge, crue
 intake24_category_code:en: BEET
 intake24_category_code:fr: BEET
 opposite:en: en:beetroot(pickled)
+sales_format:en: weight, package
 #TOCHECK:wikidata:en:Q99548274
 
 < en:Vegetables
@@ -106162,6 +106452,7 @@ ciqual_food_code:en: 20091
 ciqual_food_name:en: Beetroot, raw
 ciqual_food_name:fr: Betterave rouge, crue
 opposite:en: en:beetroot(cooked)
+sales_format:en: weight, package
 
 < en:Beet
 < en:Canned vegetables
@@ -106301,6 +106592,7 @@ intake24_category_code:en: BRCL
 # war:Brokoli
 # yue:西蘭花
 opposite:en: en:mashed-broccoli, en:mixed-vegetables
+sales_format:en: weight, package
 wikidata:en: Q47722
 wikipedia:en: https://en.wikipedia.org/wiki/Broccoli
 
@@ -106373,6 +106665,7 @@ agribalyse_food_code:en: 20058
 ciqual_food_code:en: 20058
 ciqual_food_name:en: Brussels sprout, raw
 ciqual_food_name:fr: Chou de Bruxelles, cru
+sales_format:en: weight, package
 wikidata:en: Q104664711
 
 < en:Brussels sprouts
@@ -106397,6 +106690,7 @@ la: Brassica oleracea var. capitata
 nl: Kolen
 pl: Kapusta, Kapusty
 intake24_category_code:en: CBBG
+sales_format:en: weight, package
 
 < en:Cabbages
 en: Pointed cabbages, Pointed cabbage
@@ -106413,6 +106707,7 @@ agribalyse_food_code:en: 20116
 ciqual_food_code:en: 20116
 ciqual_food_name:en: White cabbage, raw
 ciqual_food_name:fr: Chou blanc, cru
+sales_format:en: weight, package
 
 < en:White cabbage
 en: Canned white cabbage
@@ -106427,6 +106722,7 @@ agribalyse_food_code:en: 20069
 ciqual_food_code:en: 20069
 ciqual_food_name:en: Green cabbage, raw
 ciqual_food_name:fr: Chou vert, cru
+sales_format:en: weight, package
 #TOCHECK:wikidata:en:Q45989
 
 < en:Green cabbage
@@ -106456,7 +106752,16 @@ agribalyse_food_code:en: 20014
 ciqual_food_code:en: 20014
 ciqual_food_name:en: Red cabbage, raw
 ciqual_food_name:fr: Chou rouge, cru
+sales_format:en: weight, package
 #TOCHECK:wikidata:en:Q263203
+
+< en:Fresh vegetables
+< en:Red cabbage
+en: Fresh red cabbage
+es: Lombarda fresca
+fr: Choux rouges frais
+hr: Svježi crveni kupus
+expected_ingredients:en: en:taro
 
 < en:Red cabbage
 en: Red cabbage with apple
@@ -106488,6 +106793,7 @@ agribalyse_food_code:en: 20065
 ciqual_food_code:en: 20065
 ciqual_food_name:en: Turnip cabbage, raw
 ciqual_food_name:fr: Chou-rave, cru
+sales_format:en: weight, package
 #TOCHECK:wikidata:en:Q147202
 
 < en:Cabbages
@@ -106510,6 +106816,7 @@ nl: Paksoi, Pak-choi
 ciqual_food_code:en: 20167
 ciqual_food_name:en: Chinese cabbage (nappa cabbage or bok choy), raw
 ciqual_food_name:fr: Chou chinois ou pak-choi ou pé-tsai, cru
+sales_format:en: weight, package
 wikipedia:en: https://en.wikipedia.org/wiki/Bok_choy
 
 < en:Cabbages
@@ -106524,6 +106831,7 @@ agribalyse_food_code:en: 20167
 ciqual_food_code:en: 20167
 ciqual_food_name:en: Chinese cabbage (nappa cabbage or bok choy), raw
 ciqual_food_name:fr: Chou chinois ou pak-choi ou pé-tsai, cru
+sales_format:en: weight, package
 #TOCHECK:wikidata:en:Q165178
 
 < en:Chinese cabbage
@@ -106544,6 +106852,7 @@ agribalyse_food_code:en: 20218
 ciqual_food_code:en: 20218
 ciqual_food_name:en: Curly kale, raw
 ciqual_food_name:fr: Chou frisé, cru
+sales_format:en: weight, package
 
 < en:Cooked vegetables
 < en:Curly kale
@@ -106644,6 +106953,7 @@ ciqual_food_code:en: 20009
 ciqual_food_name:en: Carrot, raw
 ciqual_food_name:fr: Carotte, crue
 intake24_category_code:en: CRTS
+sales_format:en: weight, package
 
 < en:Carrots
 < en:Cooked vegetables
@@ -106665,6 +106975,8 @@ fr: Carottes fraîches
 hr: Svježe mrkve
 it: Carote fresche
 nl: Verse wortel
+bulk_proxy:en: en:carrots
+sales_format:en: weight, package
 season_in_country_fr:en: 1,2,3,9,10,11,12
 
 < en:Carrots
@@ -106691,6 +107003,7 @@ agribalyse_food_code:en: 20016
 ciqual_food_code:en: 20016
 ciqual_food_name:en: Cauliflower, raw
 ciqual_food_name:fr: Chou-fleur, cru
+sales_format:en: weight, package
 
 < en:Cauliflowers
 en: Fresh cauliflowers
@@ -106732,9 +107045,11 @@ la: Apium graveolens
 nl: Selderij
 nl_be: Selderij
 pl: Seler, Selery
+sales_format:en: weight, package
 
 < en:Celery
 fr: Céleri frais
+nl: Selderij (vers)
 season_in_country_fr:en: 1,2,3,10,11,12
 
 < en:Celery
@@ -106742,6 +107057,7 @@ en: Fenland Celery
 origins:en: en:united-kingdom
 protected_name_file_number:en: PGI-GB-0887
 protected_name_type:en: pgi
+sales_format:en: weight, package
 #wikidata:en:
 
 < en:Celery
@@ -106754,6 +107070,7 @@ agribalyse_food_code:en: 20023
 ciqual_food_code:en: 20023
 ciqual_food_name:en: Celery stalk, raw
 ciqual_food_name:fr: Céleri branche, cru
+sales_format:en: weight, package
 
 < en:Celery
 en: Canned celery stalks
@@ -106784,6 +107101,7 @@ agribalyse_food_code:en: 20055
 ciqual_food_code:en: 20055
 ciqual_food_name:en: Celeriac, raw
 ciqual_food_name:fr: Céleri-rave, cru
+sales_format:en: weight, package
 
 < en:Celeriac
 < en:Cooked vegetables
@@ -106867,12 +107185,14 @@ description:en: Chard (Beta vulgaris subsp. vulgaris, Cicla-Group and Flavescens
 wikidata:en: Q157954
 wikipedia:en: https://en.wikipedia.org/wiki/Chard
 
+< en:Bulk
 < en:Chards
 < en:Fresh vegetables
 en: Fresh chards
 es: Acelgas frescas
 fr: Blettes fraîches
 hr: Svježe blitve
+sales_format:en: weight, package
 season_in_country_fr:en: 6,7,8,9,10,11
 
 < en:Chards
@@ -106902,6 +107222,7 @@ tr: Salatalık, Hıyar
 agribalyse_food_code:en: 20019
 ciqual_food_code:en: 20019
 ciqual_food_name:en: Cucumber, pulp and peel, raw
+sales_format:en: weight, package
 wikidata:en: Q23425
 
 #Useful for soups ?
@@ -106966,6 +107287,7 @@ ciqual_food_code:en: 20090
 ciqual_food_name:en: Escaroles
 ciqual_food_name:fr: Scarole, crue
 description:en: Cichorium endivia is a species of flowering plant belonging to the genus Cichorium, which is widely cultivated as one of the species of similar bitter-leafed vegetables known as endive and escarole.
+sales_format:en: weight, package
 # nds-nl:Andievie
 # pcd:Indife
 # scn:Nirvia
@@ -106986,6 +107308,7 @@ agribalyse_food_code:en: 20026
 ciqual_food_code:en: 20026
 ciqual_food_name:en: Chicory, raw
 ciqual_food_name:fr: Endive, crue
+sales_format:en: weight, package
 
 < en:Belgian endives
 < en:Canned vegetables
@@ -107028,7 +107351,7 @@ agribalyse_food_code:en: 20163
 ciqual_food_code:en: 20163
 ciqual_food_name:en: Green endive, raw
 ciqual_food_name:fr: Chicorée verte, crue
-
+sales_format:en: weight, package
 
 < en:Plant-based foods
 # <en:ingredient:en:vegetable
@@ -107141,6 +107464,7 @@ hr: Lukovice komorača
 nl: Venkelknollen
 expected_ingredients:en: en:fennel-bulbs
 opposite:en: en:fennel-seeds
+sales_format:en: weight, package
 
 < en:Fennel bulbs
 en: Boiled fennel, Fennel cooked in water
@@ -107208,6 +107532,7 @@ agribalyse_proxy_food_name:fr: Ail, cru
 gpc_category_code:en: 10006003
 gpc_category_description:en: Definition: Includes any product that can be described/observed as a fresh commercial variety of Garlic of varieties (cultivars) grown from Allium sativum L. to be supplied fresh to the consumer. Definition Excludes: Specifically excludes: Prepared/Processed or Unprepared/Unprocessed and Shelf Stable or Frozen Garlic.
 gpc_category_name:en: Garlic
+sales_format:en: weight, package
 wikidata:en: Q23400
 
 < en:Garlic
@@ -107249,6 +107574,7 @@ de: Neapolitanischer Lauch
 fr: Ail Blanc
 hr: Napolitanski luk
 nl: Witte knoflook
+sales_format:en: weight, package
 wikidata:en: Q1817792
 
 < en:Garlic
@@ -107404,6 +107730,7 @@ intake24_category_code:en: LEEK
 # sco:Leek
 # vls:Pret
 # yue:京蔥
+sales_format:en: weight, package
 wikidata:en: Q1807269
 wikipedia:en: https://en.wikipedia.org/wiki/Leek
 
@@ -107545,6 +107872,7 @@ description:en: Lettuce (Lactuca sativa) is an annual plant of the daisy family,
 # wuu:莴苣
 # yue:生菜
 # zh-tw:萵苣
+sales_format:en: weight, package
 wikidata:en: Q83193
 # wikidata:en:Q578052
 wikipedia:en: https://en.wikipedia.org/wiki/Lettuce
@@ -107557,6 +107885,7 @@ gpc_category_name:en: Loose Leaf/Multileaf Lettuce Other
 
 < en:Lettuces
 fr: Sucrines
+sales_format:en: weight, package
 
 < en:Lettuces
 fr: Laitue fraîche
@@ -107572,6 +107901,7 @@ agribalyse_food_code:en: 20171
 ciqual_food_code:en: 20171
 ciqual_food_name:en: Cos or romaine lettuce, raw
 ciqual_food_name:fr: Laitue romaine, crue
+sales_format:en: weight, package
 
 < en:Lettuces
 en: Iceberg lettuce
@@ -107596,6 +107926,7 @@ agribalyse_food_code:en: 20200
 ciqual_food_code:en: 20200
 ciqual_food_name:en: Iceberg lettuce, raw
 ciqual_food_name:fr: Laitue iceberg, crue
+sales_format:en: weight, package
 
 < en:Lettuces
 fr: Batavia
@@ -107651,6 +107982,7 @@ expected_ingredients:en: en:onion
 intake24_category_code:en: ONIO
 # aeb-arab:راس بصل
 # ckb:پیاز
+sales_format:en: weight, package
 wikidata:en: Q3406628
 wikipedia:en: https://en.wikipedia.org/wiki/Onion
 
@@ -107687,6 +108019,7 @@ fr: Oignons jaunes, oignon jaune
 hr: Žuti luk
 nl: Gele uien
 expected_ingredients:en: en:yellow onion
+sales_format:en: weight, package
 wikidata:en: Q8051898
 wikipedia:en: https://en.wikipedia.org/wiki/Yellow_onion
 
@@ -107703,6 +108036,7 @@ fr: Oignons blancs, oignon blanc
 hr: Bijeli luk
 nl: Witte uien
 expected_ingredients:en: en:white onion
+sales_format:en: weight, package
 wikidata:en: Q7995660
 wikipedia:en: https://en.wikipedia.org/wiki/White_onion
 
@@ -107724,6 +108058,7 @@ hr: Crveni luk
 ja: 赤たまねぎ, 紫たまねぎ
 nl: Rode uien
 expected_ingredients:en: en:red onion
+sales_format:en: weight, package
 wikidata:en: Q622350
 wikipedia:en: https://en.wikipedia.org/wiki/Red_onion
 
@@ -107761,6 +108096,7 @@ ciqual_food_code:en: 20097
 ciqual_food_name:en: Shallot, raw
 ciqual_food_name:fr: Échalote, crue
 expected_ingredients:en: en:shallots
+sales_format:en: weight, package
 wikidata:en: Q193498
 
 < en:Fresh vegetables
@@ -107810,6 +108146,7 @@ ciqual_food_name:en: Sweet pepper, green, yellow or red, raw
 ciqual_food_name:fr: Poivron, vert, jaune ou rouge, cru
 intake24_category_code:en: PPRS
 intake24_category_code:fr: PPRS
+sales_format:en: weight, package
 
 < en:Fresh vegetables
 < en:Sweet peppers
@@ -107844,6 +108181,7 @@ agribalyse_food_code:en: 20085
 ciqual_food_code:en: 20085
 ciqual_food_name:en: Sweet pepper, green, raw
 ciqual_food_name:fr: Poivron vert, cru
+sales_format:en: weight, package
 
 < en:Cooked sweet peppers
 < en:Green sweet peppers
@@ -107855,18 +108193,19 @@ ciqual_food_name:en: Sweet pepper, green, cooked
 ciqual_food_name:fr: Poivron vert, cuit
 
 < en:Sweet Peppers
-en: Yellow sweet peppers
+en: Sweet peppers(yellow), Yellow sweet peppers
 bg: Жълти чушки
 es: Pimientos amarillos
 fr: Poivrons jaunes
 he: גמבות צהובות, פלפלים צהובים
 hr: Žute slatke paprike
 ja: 黄ピーマン
-nl: Gele paprikas
+nl: Paprikas(geel), Gele paprikas
 agribalyse_food_code:en: 20168
 ciqual_food_code:en: 20168
 ciqual_food_name:en: Sweet pepper, yellow, raw
 ciqual_food_name:fr: Poivron jaune, cru
+sales_format:en: weight, package
 
 < en: Yellow sweet peppers
 en: Fresh yellow sweet peppers
@@ -107900,6 +108239,7 @@ es: Mezclas de pimientos multicolores
 fr: Mélanges de poivrons multicolores
 hr: Miješane paprike babure
 nl: Gemengde paprikas
+sales_format:en: weight, package
 
 < en:Sweet Peppers
 en: Red bell peppers, Red sweet peppers
@@ -107914,6 +108254,7 @@ agribalyse_food_code:en: 20087
 ciqual_food_code:en: 20087
 ciqual_food_name:en: Sweet pepper, red, raw
 ciqual_food_name:fr: Poivron rouge, cru
+sales_format:en: weight, package
 
 < en:Red bell peppers
 en: Canned sweet red peppers
@@ -108015,6 +108356,7 @@ agribalyse_proxy_food_name:fr: Pomme de terre, sans peau, crue
 food_groups:en: en:potatoes
 intake24_category_code:en: POTS
 pnns_group_2:en: Potatoes
+sales_format:en: weight, package
 
 < en:Potatoes
 en: Allians potatoes
@@ -108040,6 +108382,7 @@ agribalyse_food_code:en: 4023
 ciqual_food_code:en: 4023
 ciqual_food_name:en: New potato, raw
 ciqual_food_name:fr: Pomme de terre nouvelle, crue
+sales_format:en: weight, package
 
 #################### Potato minimal processing ####################
 
@@ -108059,6 +108402,7 @@ de: Agata Kartoffeln
 fr: Pommes de terre Agata
 hr: Agata krumpir
 nl: Agata aardappelen
+sales_format:en: weight, package
 wikidata:en: Q373973
 
 < en:Potatoes
@@ -108079,6 +108423,7 @@ en: Charlotte potatoes
 fr: Pommes de terre Charlotte
 hr: Charlotte krumpir
 nl: Charlotte aardappel
+sales_format:en: weight, package
 wikidata:en: Q1067085
 
 < en:Potatoes
@@ -108098,6 +108443,7 @@ de: Grenaille Kartoffeln
 fr: Pomme de terre Grenaille
 hr: Grenaille krumpir
 nl: Grenaille aardappelen
+sales_format:en: weight, package
 
 < en:Potatoes
 en: Jersey Royal potatoes
@@ -108128,6 +108474,7 @@ hr: Krumpir za kuhanje na pari
 < en:Potatoes
 en: Potatoes for gratin
 fr: Pomme de terre gratin
+sales_format:en: weight, package
 
 < en:Potatoes
 en: Potatoes for hash browns, hashed brown potatoes, hashed browned potatoes
@@ -108262,8 +108609,9 @@ en: Potatoes from France, French potatoes
 de: Kartoffeln aus Frankreich
 fr: Pommes de terre françaises
 hr: Krumpir iz Francuske
-nl: Aardappelen uit Frankrijk, Franse aardappen
+nl: Aardappelen uit Frankrijk, Franse aardappelen
 origins:en: en:france
+sales_format:en: weight, package
 #wikidata:en:
 #add the origin France if you want to specify this category
 
@@ -108338,6 +108686,7 @@ agribalyse_proxy_food_code:en: 20132
 ciqual_proxy_food_code:en: 20132
 ciqual_proxy_food_name:en: Red kuri squash, pulp, raw
 ciqual_proxy_food_name:fr: Potimarron, pulpe, cru
+sales_format:en: weight, package
 
 < en:Red kuri squash
 en: Red kuri pulp, Red kuri squash pulp
@@ -108398,6 +108747,7 @@ ciqual_food_name:en: Pumpkin, raw
 ciqual_food_name:fr: Potiron, cru
 comment:en: A pumpkin is a cultivated winter squash in the genus Cucurbita.
 expected_ingredients:en: en:pumpkin
+sales_format:en: weight, package
 
 < en:Pumpkins
 en: Sweet dumpling squashes, Sweet dumpling squash
@@ -108418,6 +108768,7 @@ fr: Pâtissons, Patissons
 hr: Pattypan squash
 agribalyse_proxy_food_code:en: 20136
 agribalyse_proxy_food_name:fr: Courge melonnette, pulpe, crue
+sales_format:en: weight, package
 wikidata:en: Q876892
 
 < en:Cooked vegetables
@@ -108458,6 +108809,7 @@ agribalyse_food_code:en: 20138
 ciqual_food_code:en: 20138
 ciqual_food_name:en: Squash, butternut, pulp, raw
 ciqual_food_name:fr: Courge doubeurre (butternut), pulpe, crue
+sales_format:en: weight, package
 wikidata:en: Q4169287
 
 < en:Pumpkins
@@ -108467,6 +108819,7 @@ fr: Courges spaghetti, courge spaghetti
 hr: Špageti tikve
 nl: Spaghettipompoenen
 expected_ingredients:en: en:spaghetti squash
+sales_format:en: weight, package
 wikidata:en: Q2142043
 
 < en: Spaghetti squashes
@@ -108570,7 +108923,6 @@ zh: 萝卜
 # ingredient/fr:Radis has 393 products in 4 languages @2019-05-16
 # category/radish has 2 products @2019-05-22
 # usage:en:fruit and vegetable concentrates (safflower, radish, black carrot, lemon, hibiscus)
-description:en: The radish (Raphanus raphanistrum subsp. sativus or Raphanus sativus) is an edible root vegetable of the Brassicaceae family. The root of the radish is usually eaten raw, although tougher specimens can be steamed. The raw flesh has a crisp texture and a pungent, peppery flavor.
 # aeb-arab:فجل
 # azb:قیرمیزی تورپ
 # bar:Radi
@@ -108599,6 +108951,8 @@ description:en: The radish (Raphanus raphanistrum subsp. sativus or Raphanus sat
 # szl:Radiska
 # yue:蘿蔔
 # zh-tw:蘿蔔
+description:en: The radish (Raphanus raphanistrum subsp. sativus or Raphanus sativus) is an edible root vegetable of the Brassicaceae family. The root of the radish is usually eaten raw, although tougher specimens can be steamed. The raw flesh has a crisp texture and a pungent, peppery flavor.
+sales_format:en: weight, package
 wikidata:en: Q7224565
 wikipedia:en: https://en.wikipedia.org/wiki/Radish
 
@@ -108612,7 +108966,7 @@ season_in_country_fr:en: 3,4,5,6
 
 
 < en:Radishes
-en: Red radishes
+en: Radishes(red), Red radishes
 bg: Червени репички
 es: Rábanos rojos, Rábanos picantes
 fr: Radis rouges, Radis rouge, Radis roses, Radis rose
@@ -108625,6 +108979,7 @@ ciqual_food_code:en: 20045
 ciqual_food_name:en: Radish, raw
 ciqual_food_name:fr: Radis rouge, cru
 expected_ingredients:en: en:res radish
+sales_format:en: weight, package
 wikidata:en: Q1057750
 
 < en:Red radishes
@@ -108634,7 +108989,7 @@ nl: Verse rode radijs
 expected_ingredients:en: en:red radish
 
 < en:Radishes
-en: Black radishes, Black radish
+en: Radishes(black), Black radishes, Black radish
 bg: Черни репички
 fr: Radis noirs
 hr: Crne rotkve
@@ -108644,6 +108999,7 @@ ciqual_food_code:en: 20089
 ciqual_food_name:en: Radish, black, raw
 ciqual_food_name:fr: Radis noir, cru
 expected_ingredients:en: en:black radish
+sales_format:en: weight, package
 wikidata:en: Q159587
 
 < en:Black radishes
@@ -108661,16 +109017,9 @@ ja: ダイコン, 大根, だいこん
 la: Raphanus sativus var. longipinnatus
 nl: Daikon radijs
 expected_ingredients:en: en:daikon radish
+sales_format:en: weight, package
 wikidata:en: Q7224757
 # Not sure what to do with ja: translation, 「ダイコン」 seems to have a complex relationship with "radish".
-
-< en:Fresh vegetables
-< en:Red cabbage
-en: Fresh red cabbage
-es: Lombarda fresca
-fr: Choux rouges frais
-hr: Svježi crveni kupus
-expected_ingredients:en: en:taro
 
 < en:Vegetables
 en: Taro tubers
@@ -108816,6 +109165,7 @@ agribalyse_food_code:en: 20280
 ciqual_food_code:en: 20280
 ciqual_food_name:en: Romanesco cauliflower or romanesco broccoli, raw
 ciqual_food_name:fr: Chou romanesco ou brocoli à pomme, cru
+sales_format:en: weight, package
 wikidata:en: Q1775431
 
 
@@ -108856,6 +109206,7 @@ comment:en: do not mix green onion with welsh onion
 # category/scallions has 7 products @2019-05-22
 description:en: Scallions (green onions) are vegetables of various Allium onion species. Spring onions may be cooked or used raw as a part of salads, salsas or Asian recipes. Diced scallions are used in soup, noodle and seafood dishes, sandwiches, curries and as part of a stir fry. In many Eastern sauces, the bottom half-centimetre (quarter-inch) of the root is commonly removed before use.
 # sco:Sybae
+sales_format:en: weight, package
 wikidata:en: Q774278
 wikipedia:en: https://en.wikipedia.org/wiki/Scallion
 
@@ -108893,19 +109244,8 @@ agribalyse_proxy_food_code:en: 20059
 agribalyse_proxy_food_name:en: Spinach, raw
 intake24_category_code:en: SPNC
 intake24_category_code:fr: SPNC
+sales_format:en: weight, package
 wikidata:en: Q81464
-
-#< en:Cooked vegetables
-#< en:Spinachs
-#en: Cooked spinach
-#fr: Épinards cuits
-#hr: Kuhani špinat
-#pl: Szpinak gotowany
-#agribalyse_food_code:en: 20027
-#ciqual_food_code:en: 20027
-#ciqual_food_name:en: Spinach, cooked
-#ciqual_food_name:fr: Épinard, cuit
-# no products on 7 sep 2024
 
 < en:Cooked vegetables
 < en:Spinachs
@@ -108944,6 +109284,7 @@ ciqual_food_code:en: 20270
 ciqual_food_name:en: Spinach, young leaves, raw
 ciqual_food_name:fr: Épinard, jeunes pousses pour salades, cru
 expected_ingredients:en: en:spinach
+sales_format:en: weight, package
 
 < en:Canned vegetables
 < en:Spinachs
@@ -109173,6 +109514,7 @@ intake24_category_code:fr: TRNP
 # sco:Neep
 # sgs:Ruopė
 # yue:大頭菜
+sales_format:en: weight, package
 wikidata:en: Q3916957
 wikipedia:en: https://en.wikipedia.org/wiki/Turnip
 
@@ -109183,6 +109525,7 @@ agribalyse_food_code:en: 20201
 ciqual_food_code:en: 20201
 ciqual_food_name:en: Rutabaga or Swede, raw
 ciqual_food_name:fr: Rutabaga, cru
+sales_format:en: weight, package
 
 < en:Cooked vegetables
 < en:Rutabaga
@@ -109220,6 +109563,12 @@ season_in_country_fr:en: 1,2,3,4,5,10,11,12
 en: Golden Ball turnips, Orange Jelly turnips, Golden Ball, Orange Jelly
 fr: Navets jaune boule d'or, Navet jaune boule d'or, Navets jaunes
 
+< en:Root vegetables
+en: Mashua
+fr: Capucine tubéreuse
+la: Tropaeolum tuberosum
+sales_format:en: weight, package
+
 < en:Tomatoes and their products
 < en:Vegetables
 en: Tomatoes
@@ -109244,11 +109593,6 @@ ciqual_food_name:fr: Tomate, crue
 intake24_category_code:en: TMTO
 intake24_category_code:fr: TMTO
 
-#agribalyse_food_code:en:20047_2
-#ciqual_food_code:en:20047
-#ciqual_food_name:en:Tomato in season, raw
-#ciqual_food_name:fr:Tomate de saison, crue
-
 #agribalyse_food_code:en:20047_3
 #ciqual_food_code:en:20047
 #ciqual_food_name:en:Tomato off season, raw
@@ -109270,6 +109614,8 @@ hr: Svježe rajčice
 it: Pomodori freschi
 nl: Verse tomaten, Verse tomaat
 pl: Pomidory świeże, Świeże pomidory
+bulk_proxy:en en:tomatoes
+sales_format:en: weight, package
 season_in_country_fr:en: 6,7,8,9
 
 < en:Tomatoes
@@ -109277,6 +109623,7 @@ fr: Tomate olivette, Tomates olivettes
 
 < en:Tomatoes
 fr: Tomates allongées
+sales_format:en: weight, package
 
 < en:Tomatoes
 en: Cherry tomatoes
@@ -109295,6 +109642,7 @@ agribalyse_food_code:en: 20172
 ciqual_food_code:en: 20172
 ciqual_food_name:en: Tomato, cherry, raw
 ciqual_food_name:fr: Tomate cerise, crue
+sales_format:en: weight, package
 wikidata:en: Q6540634
 
 < en:Tomatoes
@@ -109366,6 +109714,8 @@ es: Calabacín fresco
 fr: Courgettes fraîches
 hr: Svježe tikvice
 it: Zucchine fresche
+bulk_proxy:en: en:zucchini
+sales_format:en: weight, package
 season_in_country_fr:en: 5,6,7,8,9,10
 
 < en:Zucchini
@@ -109468,6 +109818,7 @@ ciqual_food_name:en: Green salad, raw, without seasoning
 ciqual_food_name:fr: Salade verte, crue, sans assaisonnement
 intake24_category_code:en: C000
 intake24_category_code:fr: C000
+sales_format:en: weight, package
 
 < en:Vegetables
 it: Radicchio
@@ -109540,6 +109891,7 @@ agribalyse_food_code:en: 20099
 ciqual_food_code:en: 20099
 ciqual_food_name:en: Lamb's lettuce, raw
 ciqual_food_name:fr: Mâche, crue
+sales_format:en: weight, package
 # hsb:rjaponka
 # sr-ec:Матовилац
 # sr-el:Matovilac
@@ -109611,6 +109963,7 @@ agribalyse_food_code:en: 20217
 ciqual_food_code:en: 20217
 ciqual_food_name:en: Roman rocket, raw
 ciqual_food_name:fr: Roquette, crue
+sales_format:en: weight, package
 # arz:جرجير
 # ast:Guxanu
 # azb:اکین اینداوسو
@@ -109712,6 +110065,7 @@ agribalyse_food_code:en: 20272
 ciqual_food_code:en: 20272
 ciqual_food_name:en: Mesclun or salads, mix of baby leaves
 ciqual_food_name:fr: Mesclun ou salade, mélange de jeunes pousses
+sales_format:en: weight, package
 
 < en:Leaf vegetables
 en: Watercress, watercress
@@ -109726,10 +110080,13 @@ agribalyse_food_code:en: 20022
 ciqual_food_code:en: 20022
 ciqual_food_name:en: Watercress, raw
 ciqual_food_name:fr: Cresson de fontaine, cru
+sales_format:en: weight, package
 wikidata:en: Q150452
 
 < en:Watercress
+en: Watercress (fresh)
 fr: Cresson frais
+nl: Waterkers (vers)
 season_in_country_fr:en: 1,2,3,4,5,9,10,11,12
 
 < en:Fresh sprouts
@@ -109972,6 +110329,7 @@ agribalyse_food_code:en: 20269
 ciqual_food_code:en: 20269
 ciqual_food_name:en: Flat bean, raw
 ciqual_food_name:fr: Haricot plat, cru
+sales_format:en: weight, package
 
 < en:Legumes
 fr: Haricot de Castelnaudary
@@ -110000,6 +110358,7 @@ ciqual_food_code:en: 20061
 ciqual_food_name:en: French bean, raw
 ciqual_food_name:fr: Haricot vert, cru
 intake24_category_code:en: FGRB
+sales_format:en: weight, package
 wikidata:en: Q2987371
 
 < en:Green beans
@@ -110061,6 +110420,7 @@ ja: グリーンピース, えんどう豆, アオエンドウ
 nl: Verse doperwten
 pl: Groszek zielony, Groch zielony
 ru: Зелёный горошек
+sales_format:en: weight, package
 
 < en:Fresh legumes
 < en:Green peas
@@ -110198,6 +110558,7 @@ agribalyse_food_code:en: 20515
 ciqual_food_code:en: 20515
 ciqual_food_name:en: Split pea, dried
 ciqual_food_name:fr: Pois cassé, sec
+sales_format:en: weight, package
 
 < en:Cooked pulses
 en: Cooked split peas
@@ -110297,6 +110658,7 @@ tr: Nohut
 agribalyse_proxy_food_code:en: 20516
 agribalyse_proxy_food_name:en: Chick pea, dried
 agribalyse_proxy_food_name:fr: Pois chiche, sec
+sales_format:en: weight, package
 wikidata:en: Q81375
 
 < en:Chickpeas
@@ -110710,6 +111072,7 @@ nl: Gepelde rode linzen
 agribalyse_proxy_food_code:en: 20535
 agribalyse_proxy_food_name:en: Lentil, pink or red, dried
 agribalyse_proxy_food_name:fr: Lentille corail, sèche
+sales_format:en: weight, package
 
 < en:Dried lentils
 < en:Red lentils
@@ -110789,6 +111152,7 @@ agribalyse_food_code:en: 20585
 ciqual_food_code:en: 20585
 ciqual_food_name:en: Lentil, green, dried
 ciqual_food_name:fr: Lentille verte, sèche
+sales_format:en: weight, package
 
 < en:Dried green lentils
 en: Castellana Lentils, Casrtilian lentils
@@ -111005,6 +111369,7 @@ fr: Fèves
 agribalyse_proxy_food_code:en: 20518
 agribalyse_proxy_food_name:en: Broad bean, dried
 agribalyse_proxy_food_name:fr: Fève, sèche
+sales_format:en: weight, package
 
 < en:Broad beans
 en: Dried broad beans
@@ -111756,6 +112121,7 @@ agribalyse_food_code:en: 20591_1
 ciqual_food_code:en: 20591
 ciqual_food_name:en: Soy protein, textured, rehydrated, from soy flour
 ciqual_food_name:fr: Protéine de soja texturée
+sales_format:en: package, weight
 
 < en:Textured vegetable protein
 en: Textured pea protein
@@ -114727,6 +115093,7 @@ agribalyse_food_code:en: 7602
 ciqual_food_code:en: 7602
 ciqual_food_name:en: Croissant
 ciqual_food_name:fr: Croissant, sans précision
+sales_format:en: weight, package
 wikidata:en: Q207832
 
 < en:Croissants
@@ -114841,6 +115208,7 @@ agribalyse_food_code:en: 23480
 ciqual_food_code:en: 23480
 ciqual_food_name:en: Apple turnover
 ciqual_food_name:fr: Chausson aux pommes
+sales_format:en: weight, package
 wikidata:en: Q2461000
 
 < en:Viennoiseries
@@ -114859,6 +115227,7 @@ tr: Çikolatalı kruvasan, Çikolatalı kruasan, Çikolatalı ay çöreği, Çik
 agribalyse_food_code:en: 7730
 ciqual_food_code:en: 7730
 ciqual_food_name:en: Chocolate croissant, puff pastry, from bakery
+sales_format:en: weight, package
 wikidata:en: Q1190838
 
 < en:Chocolate croissant
@@ -116180,17 +116549,21 @@ hr: Lisnati khorasan pšenični kolači
 it: Gallette di grano Khorasan soffiato, Torte di grano Khorasan soffiato
 nl: Kamutwafels
 
-#Crackers are used a thin hard bread that need to be covered with something sweet or savoury
+< en:Biscuits and crackers
+en: Crackers(Breakfast), Breakfast crackers
+fr: Biscuits crackers, Crackers
+nl: Crackers(ontbijt), Ontbijtcrackers
+
 < en:Appetizers
 < en:Biscuits and crackers
-en: Crackers
+en: Crackers(Appetizers)
 bg: Крекери
 ca: Galetes salades
 da: Crackers
 de: Crackers
 es: Crackers
 fi: suolaiset keksit
-fr: Biscuits apéritifs, biscuits pour l'apéritif, gâteaux pour l'apéritif, Gâteaux apéritifs, Biscuits crackers, Crackers, Biscuits salés, Crackers salés
+fr: Biscuits apéritifs, biscuits pour l'apéritif, gâteaux pour l'apéritif, Gâteaux apéritifs, Biscuits salés, Crackers salés
 he: קרקרים
 hr: Krekeri
 hu: Krékerek
@@ -116206,15 +116579,16 @@ ciqual_food_name:fr: Biscuit apéritif (aliment moyen)
 ciqual_proxy_food_code:en: 38402
 ciqual_proxy_food_name:en: Salty snacks, crackers, plain
 ciqual_proxy_food_name:fr: Biscuit apéritif, crackers, nature
+comment:en: Crackers are used a thin hard bread that need to be covered with something sweet or savoury
 
 #small crackers (max 5 cm) for appetizers
-< en:Crackers
+< en:Crackers(Appetizers)
 en: Small Crackers
 hr: Mali krekeri
 it: Scrocchi
 nl: Toastjes
 
-< en:Crackers
+< en:Crackers(Appetizers)
 en: Wheat crackers
 bg: Пшенични крекери
 fr: Crackers au froment, Biscuits apéritifs au froment
@@ -116223,12 +116597,12 @@ ciqual_food_code:en: 7351
 ciqual_food_name:en: Wheat crackers
 ciqual_food_name:fr: Crackers de table au froment
 
-< en:Crackers
+< en:Crackers(Appetizers)
 en: Rice crackers
 bg: Оризови крекери
 fr: Biscuits apéritifs au riz
 
-< en:Crackers
+< en:Crackers(Appetizers)
 en: Plain salty snacks, Plain salty crackers
 fr: Biscuits apéritifs nature, Crackers nature
 agribalyse_food_code:en: 38402
@@ -116236,17 +116610,17 @@ ciqual_food_code:en: 38402
 ciqual_food_name:en: Salty snacks, crackers, plain
 ciqual_food_name:fr: Biscuit apéritif, crackers, nature
 
-< en:Crackers
+< en:Crackers(Appetizers)
 en: Salty canistrelli
 fr: Canistrelli salés
 
-< en:Crackers
+< en:Crackers(Appetizers)
 en: Cheese puff pastries
 fr: Biscuits Feuilletés auf fromage
 hr: Lisnato pecivo sa sirom
 nl: Kaasvlinders
 
-< en:Crackers
+< en:Crackers(Appetizers)
 fr: Crêpes dentelle salées, Crêpes dentelles salées
 
 < fr:Crêpes dentelles salées
@@ -116257,10 +116631,10 @@ ciqual_food_code:en: 38408
 ciqual_food_name:en: Salted crispy crepe with cheese, prepacked
 ciqual_food_name:fr: Crêpe dentelle (pour apéritif) au fromage, préemballée
 
-< en:Crackers
+< en:Crackers(Appetizers)
 fr: Flûtes et torsades apéritifs
 
-< en:Crackers
+< en:Crackers(Appetizers)
 en: Pretzel, Mini pretzels
 ar: عقدية, :مخبوزات
 az: Bretzel
@@ -116321,7 +116695,7 @@ wikidata:en: Q160525
 < en:Pretzel
 fr: mélange Sticks et Bretzels
 
-< en:Crackers
+< en:Crackers(Appetizers)
 en: Puffed salty snacks, Salty snacks puff pastry, Salty palmiers
 fr: Biscuit apéritif feuilleté, Palmiers salés
 hr: Napuhane slane grickalice
@@ -116331,7 +116705,7 @@ ciqual_food_code:en: 38407
 ciqual_food_name:en: Salty snacks, puff pastry
 ciqual_food_name:fr: Biscuit apéritif feuilleté
 
-< en:Crackers
+< en:Crackers(Appetizers)
 en: Puffed salty snacks (potato/soy based)
 de: Gepuffte salzige Snacks (Kartoffel/Soja)
 fr: Biscuits apéritifs soufflés (à base de pomme de terre/soja), Gâteaux apéritifs soufflés
@@ -116353,7 +116727,7 @@ nl: Kaasflips
 ro: Pufuleți cu brânză
 #wikidata:en:
 
-< en:Crackers
+< en:Crackers(Appetizers)
 en: Salty snacks with reduced fat, Crackers with reduced fat
 fr: Biscuits apéritifs allégés, Biscuits apéritifs nature allégés en matière grasse, Crackers nature allégés en matière grasse
 agribalyse_food_code:en: 38403
@@ -116361,11 +116735,11 @@ ciqual_food_code:en: 38403
 ciqual_food_name:en: Salty snacks, crackers, reduced fat
 ciqual_food_name:fr: Biscuit apéritif, crackers, nature, allégé en matière grasse
 
-< en:Crackers
+< en:Crackers(Appetizers)
 en: Salty sesame snacks
 fr: Biscuits apéritifs au sésame
 
-< en:Crackers
+< en:Crackers(Appetizers)
 en: Salty snacks crackers garnished with cheese, Salty snacks crackers filled with cheese
 fr: Biscuits apéritifs fourrés au fromage, Biscuits apéritifs crackers garnis au fromage, Biscuits apéritifs crackers fourrés au fromage
 agribalyse_food_code:en: 38401
@@ -118078,7 +118452,7 @@ ciqual_food_name:fr: Risotto, aux légumes
 wikidata:en: Q54222942
 
 < en:Vegetable risottos
-en: Mushrooms risottos
+en: Mushroom risottos, Mushrooms risottos
 de: Pilzrisotto, Pilz-Risotto
 es: Risottos de champiñones
 fr: Risottos aux champignons
@@ -118830,6 +119204,7 @@ agribalyse_food_code:en: 20047_2
 ciqual_food_code:en: 20047
 ciqual_food_name:en: Tomato, in season, raw
 ciqual_food_name:fr: Tomate de saison, crue
+sales_format:en: weight, package
 
 < en:tomatoes
 en: Tomato off season raw
