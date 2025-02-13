@@ -1504,6 +1504,17 @@ Checks related to the ingredients list and ingredients analysis.
 
 =cut
 
+# note: we need common ingredients words that exist only in 1 language
+my %ingredients_in_languages_regexps = (
+	"en" => qr/\b(sugar|water|salt|flour)\b/i,
+	"es" => qr/\b(azucar|agua|harina)\b/i,
+	"de" => qr/\b(zutaten|Zucker|Salz|Wasser|Mehl)\b/i,
+	"fr" => qr/\b(ingrédients|sucre|eau|sel|farine)\b/i,
+	"it" => qr/\b(ingredienti|zucchero|farina|acqua)\b/i,
+	"nl" => qr/\b(ingrediënten|suiker|zout|bloem)\b/i,
+	"pt" => qr/\b(açúcar|farinha|água)\b/i,
+);
+
 sub check_ingredients ($product_ref) {
 
 	# spell corrected additives
@@ -1513,18 +1524,21 @@ sub check_ingredients ($product_ref) {
 	}
 
 	# Multiple languages in ingredient lists
+	# Record the languages for which we have ingredients in the ingredients_text field
 
-	my $nb_languages = 0;
+	my %ingredients_in_languages = ();
 
 	if (defined $product_ref->{ingredients_text}) {
-		($product_ref->{ingredients_text} =~ /\b(ingrédients|sucre|eau|sel|farine)\b/i) and $nb_languages++;
-		($product_ref->{ingredients_text} =~ /\b(sugar|salt|flour|milk)\b/i) and $nb_languages++;
-		($product_ref->{ingredients_text} =~ /\b(ingrediënten|suiker|zout|bloem)\b/i) and $nb_languages++;
-		($product_ref->{ingredients_text} =~ /\b(azucar|agua|harina)\b/i) and $nb_languages++;
-		($product_ref->{ingredients_text} =~ /\b(zutaten|Zucker|Salz|Wasser|Mehl)\b/i) and $nb_languages++;
-		($product_ref->{ingredients_text} =~ /\b(açúcar|farinha|água)\b/i) and $nb_languages++;
-		($product_ref->{ingredients_text} =~ /\b(ingredienti|zucchero|farina|acqua)\b/i) and $nb_languages++;
+
+		foreach my $lc (keys %ingredients_in_languages_regexps) {
+
+			if ($product_ref->{ingredients_text} =~ $ingredients_in_languages_regexps{$lc}) {
+				$ingredients_in_languages{$lc} = 1;
+			}
+		}
 	}
+
+	my $nb_languages = scalar keys %ingredients_in_languages;
 
 	if ($nb_languages > 1) {
 		foreach my $max (5, 4, 3, 2, 1) {
@@ -1533,6 +1547,14 @@ sub check_ingredients ($product_ref) {
 			}
 		}
 		push @{$product_ref->{data_quality_warnings_tags}}, "en:ingredients-number-of-languages-$nb_languages";
+	}
+
+	# Create data quality warning for each language that is not the same as ingredients_lc
+	foreach my $lc (sort keys %ingredients_in_languages) {
+		if ($lc ne $product_ref->{ingredients_lc}) {
+			push @{$product_ref->{data_quality_warnings_tags}},
+				"en:ingredients-language-mismatch-" . $product_ref->{ingredients_lc} . "-contains-" . $lc;
+		}
 	}
 
 	if ((defined $product_ref->{ingredients_n}) and ($product_ref->{ingredients_n} > 0)) {
