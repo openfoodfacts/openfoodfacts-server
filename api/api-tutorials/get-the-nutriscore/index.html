@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/api/tutorials/license-be-on-the-legal-side/">
+        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/api/api-tutorials/get-the-nutriscore/">
       
       
-        <link rel="prev" href="../how-to-create-data-quality-controls-in-your-app/">
+        <link rel="prev" href="../../leveraging-links-to-wikidata/">
       
       
-        <link rel="next" href="../product-prices/">
+        <link rel="next" href="../../tutorials/adding-missing-products/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>License be on the legal side - Product Opener (Open Food Facts Server)</title>
+        <title>Get the nutriscore - Product Opener (Open Food Facts Server)</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#understanding-and-being-compliant-with-our-data-licences" class="md-skip">
+        <a href="#introduction" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              License be on the legal side
+              Get the nutriscore
             
           </span>
         </div>
@@ -559,17 +559,19 @@
                 
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_14" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_14" checked>
         
           
           <label class="md-nav__link" for="__nav_2_14" id="__nav_2_14_label" tabindex="0">
@@ -584,7 +586,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_14_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_14_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_14">
             <span class="md-nav__icon md-icon"></span>
             Api tutorials
@@ -595,10 +597,29 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../api-tutorials/get-the-nutriscore/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Get the nutriscore
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -608,6 +629,231 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#display-nutri-score-knowledge-panels-all-the-logic-below-in-5-lines-of-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Display Nutri-Score knowledge panels - All the logic below in 5 lines of code !
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-official-visual-assets-of-the-nutri-score" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using the official visual assets of the Nutri-Score
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-ready-for-nutri-score-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting ready for Nutri-Score V2
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting ready for Nutri-Score V2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#new-transition-assets-for-nutri-score-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      New transition assets for Nutri-Score V2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#available-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Available languages
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-version-getting-the-nutri-score-v1-value-we-dont-recommand-the-manual-way-anymore-especially-with-v2-around-the-corner" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual version: Getting the Nutri-Score v1 value (we don't recommand the manual way anymore, especially with v2 around the corner)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-completion-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data completion flow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data completion flow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-a-message-if-we-have-a-category-but-no-nutri-score" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a message if we have a category but no Nutri-Score
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-message-if-we-have-a-category-but-no-nutrition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a message if we have a category but no nutrition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-message-if-we-have-nutrition-but-no-category" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a message if we have nutrition but no category
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#help-the-user-add-the-category-if-it-is-missing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Help the user add the category if it is missing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-message-if-we-have-no-category-and-no-nutrition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a message if we have no category and no nutrition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-one-click-option-to-indicate-no-nutrition-facts-on-the-packaging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a one-click option to indicate no nutrition facts on the packaging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-message-if-the-nutrition-image-is-missing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a message if the nutrition image is missing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-message-if-the-nutrition-image-is-obsolete-using-the-image-refresh-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a message if the nutrition image is obsolete using the image refresh API
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-nutri-score-disclaimers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add Nutri-Score disclaimers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Add Nutri-Score disclaimers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-message-if-fibers-are-missing" class="md-nav__link">
+    <span class="md-ellipsis">
+      a message if fibers are missing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-message-if-fruitnuts-are-missing" class="md-nav__link">
+    <span class="md-ellipsis">
+      a message if fruit/nuts are missing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-message-if-fruitsnuts-is-an-estimate-from-ingredients" class="md-nav__link">
+    <span class="md-ellipsis">
+      a message if fruits/nuts is an estimate from ingredients
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-message-if-fruitsnuts-is-an-estimate-from-category" class="md-nav__link">
+    <span class="md-ellipsis">
+      a message if fruits/nuts is an estimate from category
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -625,19 +871,17 @@
                 
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_15" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_15" >
         
           
           <label class="md-nav__link" for="__nav_2_15" id="__nav_2_15_label" tabindex="0">
@@ -652,7 +896,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_15_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_15_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_15">
             <span class="md-nav__icon md-icon"></span>
             Tutorials
@@ -666,7 +910,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../adding-missing-products/" class="md-nav__link">
+      <a href="../../tutorials/adding-missing-products/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -688,7 +932,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../comparing-sodas/" class="md-nav__link">
+      <a href="../../tutorials/comparing-sodas/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -710,7 +954,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../creating-a-local-cache-of-open-food-facts-data/" class="md-nav__link">
+      <a href="../../tutorials/creating-a-local-cache-of-open-food-facts-data/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -732,7 +976,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../finding-healthy-cereals/" class="md-nav__link">
+      <a href="../../tutorials/finding-healthy-cereals/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -754,7 +998,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../folksonomy-engine/" class="md-nav__link">
+      <a href="../../tutorials/folksonomy-engine/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -776,7 +1020,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../get-in-touch-with-openfoodfacts/" class="md-nav__link">
+      <a href="../../tutorials/get-in-touch-with-openfoodfacts/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -798,7 +1042,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../get-ingredient-related-analysis/" class="md-nav__link">
+      <a href="../../tutorials/get-ingredient-related-analysis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -820,7 +1064,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../get-the-green-score/" class="md-nav__link">
+      <a href="../../tutorials/get-the-green-score/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -842,7 +1086,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../get-the-nutriscore/" class="md-nav__link">
+      <a href="../../tutorials/get-the-nutriscore/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -864,7 +1108,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-to-create-data-quality-controls-in-your-app/" class="md-nav__link">
+      <a href="../../tutorials/how-to-create-data-quality-controls-in-your-app/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -883,29 +1127,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    License be on the legal side
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../tutorials/license-be-on-the-legal-side/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -915,42 +1140,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#understanding-and-being-compliant-with-our-data-licences" class="md-nav__link">
-    <span class="md-ellipsis">
-      Understanding and being compliant with our data licences
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-in-touch" class="md-nav__link">
-    <span class="md-ellipsis">
-      Getting in touch
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -963,7 +1152,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../product-prices/" class="md-nav__link">
+      <a href="../../tutorials/product-prices/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -985,7 +1174,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reporting-issues-with-nutripatrol/" class="md-nav__link">
+      <a href="../../tutorials/reporting-issues-with-nutripatrol/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1007,7 +1196,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../scanning-cosmetics-pet-food-and-other-products/" class="md-nav__link">
+      <a href="../../tutorials/scanning-cosmetics-pet-food-and-other-products/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1029,7 +1218,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../working-with-facets/" class="md-nav__link">
+      <a href="../../tutorials/working-with-facets/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1589,20 +1778,209 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#understanding-and-being-compliant-with-our-data-licences" class="md-nav__link">
+  <a href="#introduction" class="md-nav__link">
     <span class="md-ellipsis">
-      Understanding and being compliant with our data licences
+      Introduction
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#getting-in-touch" class="md-nav__link">
+  <a href="#display-nutri-score-knowledge-panels-all-the-logic-below-in-5-lines-of-code" class="md-nav__link">
     <span class="md-ellipsis">
-      Getting in touch
+      Display Nutri-Score knowledge panels - All the logic below in 5 lines of code !
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-official-visual-assets-of-the-nutri-score" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using the official visual assets of the Nutri-Score
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-ready-for-nutri-score-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting ready for Nutri-Score V2
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting ready for Nutri-Score V2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#new-transition-assets-for-nutri-score-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      New transition assets for Nutri-Score V2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#available-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Available languages
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-version-getting-the-nutri-score-v1-value-we-dont-recommand-the-manual-way-anymore-especially-with-v2-around-the-corner" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual version: Getting the Nutri-Score v1 value (we don't recommand the manual way anymore, especially with v2 around the corner)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-completion-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data completion flow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data completion flow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-a-message-if-we-have-a-category-but-no-nutri-score" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a message if we have a category but no Nutri-Score
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-message-if-we-have-a-category-but-no-nutrition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a message if we have a category but no nutrition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-message-if-we-have-nutrition-but-no-category" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a message if we have nutrition but no category
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#help-the-user-add-the-category-if-it-is-missing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Help the user add the category if it is missing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-message-if-we-have-no-category-and-no-nutrition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a message if we have no category and no nutrition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-one-click-option-to-indicate-no-nutrition-facts-on-the-packaging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a one-click option to indicate no nutrition facts on the packaging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-message-if-the-nutrition-image-is-missing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a message if the nutrition image is missing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-message-if-the-nutrition-image-is-obsolete-using-the-image-refresh-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a message if the nutrition image is obsolete using the image refresh API
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-nutri-score-disclaimers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add Nutri-Score disclaimers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Add Nutri-Score disclaimers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-message-if-fibers-are-missing" class="md-nav__link">
+    <span class="md-ellipsis">
+      a message if fibers are missing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-message-if-fruitnuts-are-missing" class="md-nav__link">
+    <span class="md-ellipsis">
+      a message if fruit/nuts are missing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-message-if-fruitsnuts-is-an-estimate-from-ingredients" class="md-nav__link">
+    <span class="md-ellipsis">
+      a message if fruits/nuts is an estimate from ingredients
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-message-if-fruitsnuts-is-an-estimate-from-category" class="md-nav__link">
+    <span class="md-ellipsis">
+      a message if fruits/nuts is an estimate from category
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1625,26 +2003,124 @@
   
 
 
-  <h1>License be on the legal side</h1>
+  <h1>Get the nutriscore</h1>
 
-<h2 id="understanding-and-being-compliant-with-our-data-licences">Understanding and being compliant with our data licences<a class="headerlink" href="#understanding-and-being-compliant-with-our-data-licences" title="Permanent link">#</a></h2>
+<h3 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h3>
 <ul>
-<li>The Open Food Facts database is available under the <a href="https://opendatacommons.org/licenses/odbl/1.0/">Open Database License</a>.</li>
-<li>The individual contents of the database are available under the <a href="https://opendatacommons.org/licenses/dbcl/1.0/">Database Contents License</a>.</li>
-<li>Product images are available under the <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">Creative Commons Attribution ShareAlike</a> license. They may contain graphical elements subject to copyright or other rights that may, in some cases, be reproduced (quotation rights or fair use).</li>
+<li>If you can't get the information on a specific product, you can get your user to send photos and data, that will then be processed by Open Food Facts AI and contributors to get the computed result you want to show them.</li>
+<li>You can implement the complete flow below so that they get immediately the result with some effort on their side.</li>
+<li>That will ensure user satisfaction</li>
+<li>Please refer to the <a href="https://openfoodfacts.github.io/openfoodfacts-server/reference/api-tutorials/adding-missing-products/">product addition tutorial</a> for the technical way to do the required operations (such as nutrition input), and to the high level workflow below for all the cases you have to handle.</li>
+</ul>
+<h3 id="display-nutri-score-knowledge-panels-all-the-logic-below-in-5-lines-of-code">Display Nutri-Score knowledge panels - All the logic below in 5 lines of code !<a class="headerlink" href="#display-nutri-score-knowledge-panels-all-the-logic-below-in-5-lines-of-code" title="Permanent link">#</a></h3>
+<ul>
+<li>The Knowledge Panels are already implemented in the Dart package</li>
+<li>They are simple to implement from the JSON API</li>
+<li>They allow you to consume present and future knowledge from Open Food Facts</li>
+</ul>
+<h3 id="using-the-official-visual-assets-of-the-nutri-score">Using the official visual assets of the Nutri-Score<a class="headerlink" href="#using-the-official-visual-assets-of-the-nutri-score" title="Permanent link">#</a></h3>
+<p>Please use only the official assets to display the Nutri-Score. You can get v1 logos here: <a href="https://drive.google.com/drive/u/1/folders/13SL2hgqYHSLMhYjMze9nYXV9GOdGMBgc">NutriScore variants</a></p>
+<h3 id="getting-ready-for-nutri-score-v2">Getting ready for Nutri-Score V2<a class="headerlink" href="#getting-ready-for-nutri-score-v2" title="Permanent link">#</a></h3>
+<ul>
+<li>Nutri-Score V2 has a new computation method, which now requires the ingredient list, a category, and of course the nutrition table</li>
+<li>It also has a transition period new logo, to indicate you are using the new computation. It is not compulsory to use it, but it will save you from a lot of questions from your users ("Do you have the new formula ?")</li>
+<li>The assets for the transition period logo are language dependant. We have already loaded the official assets. If your language is not supported, please get in touch instead of trying to translate the assets on your own. We'll make sure to find solutions.</li>
+</ul>
+<h4 id="new-transition-assets-for-nutri-score-v2">New transition assets for Nutri-Score V2<a class="headerlink" href="#new-transition-assets-for-nutri-score-v2" title="Permanent link">#</a></h4>
+<ul>
+<li>https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg</li>
+<li>https://static.openfoodfacts.org/images/attributes/dist/nutriscore-b-new-en.svg</li>
+<li>https://static.openfoodfacts.org/images/attributes/dist/nutriscore-c-new-en.svg</li>
+<li>https://static.openfoodfacts.org/images/attributes/dist/nutriscore-d-new-en.svg</li>
+<li>https://static.openfoodfacts.org/images/attributes/dist/nutriscore-e-new-en.svg</li>
+</ul>
+<h4 id="available-languages">Available languages<a class="headerlink" href="#available-languages" title="Permanent link">#</a></h4>
+<ul>
+<li>Dutch (nl), French (fr), German (de), Luxembourgish (lb), English (en)</li>
+<li>Replace likeso <code>nutriscore-e-new-en.svg</code> &gt; <code>nutriscore-e-new-fr.svg</code></li>
 </ul>
 <ul>
-<li>Please read the <a href="https://world.openfoodfacts.org/terms-of-use">Terms and conditions of use and reuse</a> before reusing the data.</li>
-<li>Please read our <a href="https://wiki.openfoodfacts.org/ODBL_License">simple summary of the OdBL and our licence on the wiki</a></li>
-<li>Please read our <a href="https://wiki.openfoodfacts.org/ODBL_License">attribution guidelines (how to) on the wiki</a></li>
-<li>Please <a href="https://wiki.openfoodfacts.org/ODBL_non-compliance">check that your app is not in the non-compliance shamelist</a>. If so, please get in touch at <a href="mailto:reuse@openfoodfacts.org">reuse@openfoodfacts.org</a> or on the Slack so that we can fix it together.</li>
-<li>Please read the API FAQ, which includes legal questions as well. If your question is not answered, please send it to <a href="mailto:reuse@openfoodfacts.org">reuse@openfoodfacts.org</a></li>
+<li>You can get the new assets in additional languages by contacting <a href="mailto:reuse@openfoodfacts.org">reuse@openfoodfacts.org</a>. We will provide unofficial courtesy translations.</li>
+<li>Make sure you use v2 assets when showing v2 values.</li>
 </ul>
-<h2 id="getting-in-touch">Getting in touch<a class="headerlink" href="#getting-in-touch" title="Permanent link">#</a></h2>
+<h3 id="manual-version-getting-the-nutri-score-v1-value-we-dont-recommand-the-manual-way-anymore-especially-with-v2-around-the-corner">Manual version: Getting the Nutri-Score v1 value (we don't recommand the manual way anymore, especially with v2 around the corner)<a class="headerlink" href="#manual-version-getting-the-nutri-score-v1-value-we-dont-recommand-the-manual-way-anymore-especially-with-v2-around-the-corner" title="Permanent link">#</a></h3>
+<h3 id="data-completion-flow">Data completion flow<a class="headerlink" href="#data-completion-flow" title="Permanent link">#</a></h3>
+<p>Here are the different messages to use according to the state:</p>
+<h4 id="add-a-message-if-we-have-a-category-but-no-nutri-score">Add a message if we have a category but no Nutri-Score<a class="headerlink" href="#add-a-message-if-we-have-a-category-but-no-nutri-score" title="Permanent link">#</a></h4>
+<pre>if "en:categories-completed" in states_tags AND nutrition_grade=Null</pre>
+
+<pre>"We could not compute an Nutri-Score for this product. It might be that the category is an exception. If you believe this is an error, you can email contact@thenameofyourapp.org"</pre>
+
 <ul>
-<li>We like learning what the Open Food Facts data is used for. It is not mandatory, but we would appreciate it if you would <a href="mailto:reuse@openfoodfacts.org">tell us about your use case</a> so that we can share them with the Open Food Facts community.</li>
-<li>You can learn more on the getting in touch with Open Food Facts page of this document, which also covers the technical side.</li>
+<li>List of exceptions: <a href="https://www.santepubliquefrance.fr/content/download/150262/file/QR_scientifique_technique_150421.pdf">https://www.santepubliquefrance.fr/content/download/150262/file/QR_scientifique_technique_150421.pdf</a></li>
+<li>You can get states with <a href="https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=ecoscore_grade,states_tags">https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=ecoscore_grade,states_tags </a></li>
 </ul>
+<h4 id="add-a-message-if-we-have-a-category-but-no-nutrition">Add a message if we have a category but no nutrition<a class="headerlink" href="#add-a-message-if-we-have-a-category-but-no-nutrition" title="Permanent link">#</a></h4>
+<pre>if "en:categories-completed" in states_tags  AND "en:nutrition-facts-to-be-completed" in states_tags</pre>
+<p>pre&gt;</p>
+<ul>
+<li>Prompt: "Add nutrition facts to compute the Nutri-Score"</li>
+</ul>
+<ul>
+<li>Add a one-click option to indicate no nutrition facts on the packaging<ul>
+<li>"This product doesn't have nutrition facts"</li>
+</ul>
+</li>
+</ul>
+<h4 id="add-a-message-if-we-have-nutrition-but-no-category">Add a message if we have nutrition but no category<a class="headerlink" href="#add-a-message-if-we-have-nutrition-but-no-category" title="Permanent link">#</a></h4>
+<pre>if "en:categories-to-be-completed" in states_tags AND "en:nutrition-facts-completed" in states_tags</pre>
+
+<ul>
+<li>Prompt: "Add a category to compute the Nutri-Score"</li>
+</ul>
+<h4 id="help-the-user-add-the-category-if-it-is-missing">Help the user add the category if it is missing<a class="headerlink" href="#help-the-user-add-the-category-if-it-is-missing" title="Permanent link">#</a></h4>
+<ul>
+<li>You can use our Robotoff API to get your users to validate a prediction</li>
+</ul>
+<ul>
+<li><a href="https://docs.google.com/document/d/1IoDy0toQrrqtWHvDYp2rEVw84Yq1J0x2pt-0RGTm7h0/edit">Robotoff Questions</a></li>
+</ul>
+<h4 id="add-a-message-if-we-have-no-category-and-no-nutrition">Add a message if we have no category and no nutrition<a class="headerlink" href="#add-a-message-if-we-have-no-category-and-no-nutrition" title="Permanent link">#</a></h4>
+<pre>if "en:categories-to-be-completed" in states_tags  AND "en:nutrition-facts-to-be-completed" in states_tags</pre>
+
+<ul>
+<li>Prompt: "Add nutrition facts and a category to compute the Nutri-Score"</li>
+</ul>
+<h4 id="add-a-one-click-option-to-indicate-no-nutrition-facts-on-the-packaging">Add a one-click option to indicate no nutrition facts on the packaging<a class="headerlink" href="#add-a-one-click-option-to-indicate-no-nutrition-facts-on-the-packaging" title="Permanent link">#</a></h4>
+<ul>
+<li>This product doesn't have nutrition facts</li>
+</ul>
+<h4 id="add-a-message-if-the-nutrition-image-is-missing">Add a message if the nutrition image is missing<a class="headerlink" href="#add-a-message-if-the-nutrition-image-is-missing" title="Permanent link">#</a></h4>
+<pre>if "en:nutrition-photo-to-be-selected" in states_tags OR "en:photos-to-be-uploaded" in states_tags</pre>
+
+<h4 id="add-a-message-if-the-nutrition-image-is-obsolete-using-the-image-refresh-api">Add a message if the nutrition image is obsolete using the image refresh API<a class="headerlink" href="#add-a-message-if-the-nutrition-image-is-obsolete-using-the-image-refresh-api" title="Permanent link">#</a></h4>
+<ul>
+<li><a href="https://github.com/openfoodfacts/api-documentation/issues/15">https://github.com/openfoodfacts/api-documentation/issues/15</a></li>
+</ul>
+<h4 id="add-nutri-score-disclaimers">Add Nutri-Score disclaimers<a class="headerlink" href="#add-nutri-score-disclaimers" title="Permanent link">#</a></h4>
+<h5 id="a-message-if-fibers-are-missing">a message if fibers are missing<a class="headerlink" href="#a-message-if-fibers-are-missing" title="Permanent link">#</a></h5>
+<pre>
+msgctxt "nutrition_grade_fr_fiber_warning"
+msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
+</pre>
+
+<h5 id="a-message-if-fruitnuts-are-missing">a message if fruit/nuts are missing<a class="headerlink" href="#a-message-if-fruitnuts-are-missing" title="Permanent link">#</a></h5>
+<pre>
+msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
+</pre>
+
+<h5 id="a-message-if-fruitsnuts-is-an-estimate-from-ingredients">a message if fruits/nuts is an estimate from ingredients<a class="headerlink" href="#a-message-if-fruitsnuts-is-an-estimate-from-ingredients" title="Permanent link">#</a></h5>
+<pre>
+msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
+</pre>
+
+<h5 id="a-message-if-fruitsnuts-is-an-estimate-from-category">a message if fruits/nuts is an estimate from category<a class="headerlink" href="#a-message-if-fruitsnuts-is-an-estimate-from-category" title="Permanent link">#</a></h5>
+<pre>
+msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
+</pre>
 
 
 
