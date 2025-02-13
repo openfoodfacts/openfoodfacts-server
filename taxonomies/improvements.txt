@@ -1,4 +1,5 @@
 # Data quality taxonomy
+# Can you add translations in more languages (European, Asian and more), following alphabetical order for language ordering, except for english which comes first ?
 
 en: Nutrition - High sugars value for category
 bg: Хранене - Високо съдържание на захар за категорията
@@ -187,7 +188,10 @@ fr: Nutrition - Haut taux d'acides gras saturés pour la catégorie
 hi: Nutrition - श्रेणी के लिए अधिक संतृप्त वसा मात्रा
 hr: Nutricija - Visoka vrijednost zasićenih masti za kategoriju
 hu: Táplálkozás - Magas telített zsírtartalom a kategóriában
+id: Nutrisi - Nilai lemak jenuh tinggi untuk kategori
 it: Nutrizione - Alto valore di grassi saturi per la categoria
+ja: 栄養 - カテゴリーの高い飽和脂肪値
+ko: 영양 - 카테고리의 높은 포화 지방 값
 lt: Mityba - Didelė prisotintųjų riebalų vertė kategorijai
 lv: Uzturs - Augsts piesātināto tauku daudzums kategorijai
 nl: Voeding - Hoge waarde aan verzadigd vet voor de categorie
@@ -200,8 +204,11 @@ sk: Výživa - Vysoká hodnota nasýtených tukov pre kategóriu
 sl: Prehrana - Visoka vrednost nasičenih maščob za kategorijo
 sr: Иshrana - Visoka vrednost zaštićenih masti za kategoriju
 sv: Näring - Högt mättat fettvärde för kategorin
+th: โภชนาการ - ค่าไขมันอิ่มตัวสูงสำหรับประเภท
 tr: Beslenme - Kategori için yüksek doymuş yağ değeri
 uk: Харчування - Високий вміст насичених жирів для категорії
+vi: Dinh dưỡng - Giá trị chất béo bão hòa cao cho danh mục
+zh: 营养 - 类别的高饱和脂肪值
 
 en: Nutrition - Very high saturated fat value for category
 bg: Хранене - Много високо съдържание на наситени мазнини за категорията
@@ -216,7 +223,10 @@ fr: Nutrition - Très haut taux d'acides gras saturés pour la catégorie
 hi: Nutrition - श्रेणी के लिए बहुत अधिक संतृप्त वसा मात्रा
 hr: Nutricija - Vrlo visoka vrijednost zasićenih masti za kategoriju
 hu: Táplálkozás - Nagyon magas telített zsírtartalom a kategóriában
+id: Nutrisi - Nilai lemak jenuh sangat tinggi untuk kategori
 it: Nutrizione - Valore molto alto di grassi saturi per la categoria
+ja: 栄養 - カテゴリーの非常に高い飽和脂肪値
+ko: 영양 - 카테고리의 매우 높은 포화 지방 값
 lt: Mityba - Labai didelė prisotintųjų riebalų vertė kategorijai
 lv: Uzturs - Ļoti augsts piesātināto tauku daudzums kategorijai
 nl: Voeding - Zeer hoog gehalte aan verzadigd vet voor de categorie
@@ -229,8 +239,11 @@ sk: Výživa - Veľmi vysoká hodnota nasýtených tukov pre kategóriu
 sl: Prehrana - Zelo visoka vrednost nasičenih maščob za kategorijo
 sr: Иshrana - Веома висока вредност заступљених масти за категорију
 sv: Näring - Mycket högt mättat fettvärde för kategorin
+th: โภชนาการ - ค่าไขมันอิ่มตัวสูงมากสำหรับประเภท
 tr: Beslenme - Kategori için çok yüksek doymuş yağ değeri
 uk: Харчування - Дуже високий вміст насичених жирів для категорії
+vi: Dinh dưỡng - Giá trị chất béo bão hòa rất cao cho danh mục
+zh: 营养 - 类别非常高的饱和脂肪值
 
 
 en: Better Nutri-Score with less salt
@@ -288,45 +301,461 @@ description:tr: Tuzun %5 ila %10 oranında azaltılması daha iyi bir Nutri-Scor
 description:uk: Зменшення вмісту солі на 5-10% призведе до покращення Nutri-Score.
 
 en: Better Nutri-Score with slightly less salt
+bg: По-добър Nutri-Score с малко по-малко сол
+cs: Lepší Nutri-Score s trochou méně soli
+da: Bedre Nutri-Score med lidt mindre salt
+de: Besserer Nutri-Score mit etwas weniger Salz
+el: Καλύτερο Nutri-Score με λίγο λιγότερο αλάτι
+es: Mejor Nutri-Score con un poco menos de sal
+et: Parem Nutri-Score veidi vähem soola
+fi: Parempi Nutri-Score hieman vähemmän suolaa
 fr: Meilleur Nutri-Score avec un peu moins de sel
+hi: थोड़ा कम नमक के साथ बेहतर न्यूट्री-स्कोर
+hr: Bolji Nutri-Score s malo manje soli
+hu: Jobb Nutri-Score kicsit kevesebb sóval
+it: Miglior Nutri-Score con un po' meno sale
+lt: Geresnis Nutri-Score su šiek tiek mažiau druskos
+lv: Labāks Nutri-Score ar nedaudz mazāk sāls
+nl: Beter Nutri-Score met iets minder zout
+no: Bedre Nutri-Score med litt mindre salt
+pl: Lepszy Nutri-Score z nieco mniejszą ilością soli
+pt: Melhor Nutri-Score com um pouco menos de sal
+ro: Nutri-Score mai bun cu puțin mai puțină sare
+ru: Лучший Nutri-Score с немного меньшим количеством соли
+sk: Lepší Nutri-Score s trochou menej soli
+sl: Boljši Nutri-Score z malo manj soli
+sr: Bolji Nutri-Score sa malo manje soli
+sv: Bättre Nutri-Score med lite mindre salt
+tr: Biraz daha az tuzla daha iyi Nutri-Score
+uk: Кращий Nutri-Score з трохи меншою кількістю солі
 description:en: A decrease of salt by 5% or less would result in a better Nutri-Score.
+description:bg: Намаляване на солта с 5% или по-малко би довело до по-добър Nutri-Score.
+description:cs: Snížení obsahu soli o 5 % nebo méně by vedlo k lepšímu Nutri-Score.
+description:da: En reduktion af salt med 5% eller mindre ville resultere i en bedre Nutri-Score.
+description:de: Eine Reduzierung des Salzgehalts um 5% oder weniger würde zu einem besseren Nutri-Score führen.
+description:el: Μια μείωση του αλατιού κατά 5% ή λιγότερο θα οδηγούσε σε καλύτερο Nutri-Score.
+description:es: Una disminución de la sal del 5% o menos resultaría en un mejor Nutri-Score.
+description:et: Soola vähendamine 5% või vähem tooks kaasa parema Nutri-Score'i.
+description:fi: Suolan vähentäminen 5% tai vähemmän johtaisi parempaan Nutri-Scoreen.
 description:fr: Une diminution de sel de 5% ou moins se traduirait par un meilleur Nutri-Score.
+description:hi: नमक में 5% या उससे कम की कमी से न्यूट्री-स्कोर बेहतर होगा।
+description:hr: Smanjenje soli za 5% ili manje rezultiralo bi boljim Nutri-Scoreom.
+description:hu: A só 5%-os vagy kisebb mértékű csökkentése jobb Nutri-Score eredményt hozna.
+description:it: Una diminuzione del sale del 5% o meno risulterebbe in un Nutri-Score migliore.
+description:lt: Druskos sumažinimas 5% ar mažiau lemtų geresnį Nutri-Score.
+description:lv: Sāls samazināšana par 5% vai mazāk rezultātā būtu labāks Nutri-Score.
+description:nl: Een vermindering van het zoutgehalte met 5% of minder zou resulteren in een betere Nutri-Score.
+description:no: En reduksjon av salt med 5% eller mindre ville resultere i en bedre Nutri-Score.
+description:pl: Obniżenie zawartości soli o 5% lub mniej skutkowałoby lepszym Nutri-Score.
+description:pt: Uma diminuição de sal de 5% ou menos resultaria em um melhor Nutri-Score.
+description:ro: O scădere a sarii cu 5% sau mai puțin ar rezulta într-un Nutri-Score mai bun.
+description:ru: Снижение содержания соли на 5% или менее приведет к улучшению Nutri-Score.
+description:sk: Zníženie obsahu soli o 5 % alebo menej by viedlo k lepšiemu Nutri-Score.
+description:sl: Zmanjšanje soli za 5% ali manj bi privedlo do boljšega Nutri-Score.
+description:sr: Smanjenje soli za 5% ili manje rezultiralo bi boljim Nutri-Scoreom.
+description:sv: En minskning av salt med 5% eller mindre skulle resultera i en bättre Nutri-Score.
+description:tr: Tuzun %5 veya daha az azaltılması daha iyi bir Nutri-Score sonucunu getirecektir.
+description:uk: Зменшення вмісту солі на 5% або менше призведе до покращення Nutri-Score.
 
 en: Better Nutri-Score with much less salt
+bg: По-добър Nutri-Score с много по-малко сол
+cs: Lepší Nutri-Score s mnohem menším množstvím soli
+da: Bedre Nutri-Score med meget mindre salt
+de: Besserer Nutri-Score mit viel weniger Salz
+el: Καλύτερο Nutri-Score με πολύ λιγότερο αλάτι
+es: Mejor Nutri-Score con mucha menos sal
+et: Parem Nutri-Score palju vähem soola
+fi: Parempi Nutri-Score paljon vähemmän suolaa
 fr: Meilleur Nutri-Score avec beaucoup moins de sel
+hi: बहुत कम नमक के साथ बेहतर न्यूट्री-स्कोर
+hr: Bolji Nutri-Score s puno manje soli
+hu: Jobb Nutri-Score sokkal kevesebb sóval
+it: Miglior Nutri-Score con molto meno sale
+lt: Geresnis Nutri-Score su daug mažiau druskos
+lv: Labāks Nutri-Score ar daudz mazāk sāls
+nl: Beter Nutri-Score met veel minder zout
+no: Bedre Nutri-Score med mye mindre salt
+pl: Lepszy Nutri-Score ze znacznie mniejszą ilością soli
+pt: Melhor Nutri-Score com muito menos sal
+ro: Nutri-Score mai bun cu mult mai puțină sare
+ru: Лучший Nutri-Score с гораздо меньшим количеством соли
+sk: Lepší Nutri-Score s oveľa menším množstvom soli
+sl: Boljši Nutri-Score z veliko manj soli
+sr: Bolji Nutri-Score sa mnogo manje soli
+sv: Bättre Nutri-Score med mycket mindre salt
+tr: Çok daha az tuzla daha iyi Nutri-Score
+uk: Кращий Nutri-Score з набагато меншою кількістю солі
 description:en: A decrease of salt by 10% to 20% would result in a better Nutri-Score.
+description:bg: Намаляване на солта с 10% до 20% би довело до по-добър Nutri-Score.
+description:cs: Snížení obsahu soli o 10% až 20% by vedlo k lepšímu Nutri-Score.
+description:da: En reduktion af salt med 10% til 20% ville resultere i en bedre Nutri-Score.
+description:de: Eine Reduzierung des Salzgehalts um 10% bis 20% würde zu einem besseren Nutri-Score führen.
+description:el: Μια μείωση του αλατιού κατά 10% έως 20% θα οδηγούσε σε καλύτερο Nutri-Score.
+description:es: Una disminución de la sal del 10% al 20% resultaría en un mejor Nutri-Score.
+description:et: Soola vähendamine 10% kuni 20% võrra tooks kaasa parema Nutri-Score'i.
+description:fi: Suolan vähentäminen 10% - 20% johtaisi parempaan Nutri-Scoreen.
 description:fr: Une diminution de sel de 10% à 20% se traduirait par un meilleur Nutri-Score.
+description:hi: नमक में 10% से 20% की कमी से न्यूट्री-स्कोर बेहतर होगा।
+description:hr: Smanjenje soli za 10% do 20% rezultiralo bi boljim Nutri-Scoreom.
+description:hu: A só 10% - 20% -os csökkentése jobb Nutri-Score-hoz vezetne.
+description:it: Una diminuzione del sale del 10% al 20% comporterebbe un miglioramento del Nutri-Score.
+description:lt: Sumažinus druskos kiekį nuo 10% iki 20%, pagerėtų „Nutri-Score“.
+description:lv: Sāls samazinājums par 10% līdz 20% uzlabotu Nutri-Score.
+description:nl: Een vermindering van het zoutgehalte met 10% tot 20% zou resulteren in een betere Nutri-Score.
+description:no: En reduksjon av salt med 10% til 20% ville resultere i en bedre Nutri-Score.
+description:pl: Zmniejszenie zawartości soli o 10% do 20% spowodowałoby lepszy Nutri-Score.
+description:pt: Uma diminuição de sal de 10% a 20% resultaria em um melhor Nutri-Score.
+description:ro: O scădere a sării cu 10% până la 20% ar duce la un Nutri-Score mai bun.
+description:ru: Уменьшение содержания соли на 10–20 % приведет к улучшению Nutri-Score.
+description:sk: Zníženie obsahu soli o 10% až 20% by viedlo k lepšiemu Nutri-Score.
+description:sl: Zmanjšanje soli za 10% do 20% bi privedlo do boljšega Nutri-Score.
+description:sr: Smanjenje soli za 10% do 20% rezultiralo bi boljim Nutri-Scoreom.
+description:sv: En minskning av salt med 10% till 20% skulle resultera i en bättre Nutri-Score.
+description:tr: Tuzun %10 ila %20 oranında azaltılması daha iyi bir Nutri-Score ile sonuçlanacaktır.
+description:uk: Зменшення вмісту солі на 10–20 % призведе до покращення Nutri-Score.
 
 
 en: Better Nutri-Score with slightly less energy
+bg: По-добър Nutri-Score с малко по-малко енергия
+cs: Lepší Nutri-Score s trochou méně energie
+da: Bedre Nutri-Score med lidt mindre energi
+de: Besserer Nutri-Score mit etwas weniger Energie
+el: Καλύτερο Nutri-Score με λίγο λιγότερη ενέργεια
+es: Mejor Nutri-Score con un poco menos de energía
+et: Parem Nutri-Score veidi vähem energiat
+fi: Parempi Nutri-Score hieman vähemmän energiaa
 fr: Meilleur Nutri-Score avec un peu moins d'énergie
+hi: थोड़ा कम ऊर्जा के साथ बेहतर न्यूट्री-स्कोर
+hr: Bolji Nutri-Score s malo manje energije
+hu: Jobb Nutri-Score kicsit kevesebb energiával
+it: Miglior Nutri-Score con un po' meno energia
+lt: Geresnis Nutri-Score su šiek tiek mažiau energijos
+lv: Labāks Nutri-Score ar nedaudz mazāk enerģijas
+nl: Beter Nutri-Score met iets minder energie
+no: Bedre Nutri-Score med litt mindre energi
+pl: Lepszy Nutri-Score z odrobiną mniej energii
+pt: Melhor Nutri-Score com um pouco menos de energia
+ro: Nutri-Score mai bun cu puțin mai puțină energie
+ru: Лучший Nutri-Score с немного меньшим количеством энергии
+sk: Lepší Nutri-Score s trochou menej energie
+sl: Boljši Nutri-Score z malo manj energije
+sr: Bolji Nutri-Score sa malo manje energije
+sv: Bättre Nutri-Score med lite mindre energi
+tr: Biraz daha az enerji ile daha iyi Nutri-Score
+uk: Кращий Nutri-Score з трохи меншою кількістю енергії
 description:en: A decrease of energy by 5% or less would result in a better Nutri-Score.
+description:bg: Намаляване на енергията с 5% или по-малко би довело до по-добър Nutri-Score.
+description:cs: Snížení energie o 5 % nebo méně by vedlo k lepšímu Nutri-Score.
+description:da: Et fald i energi med 5% eller mindre ville resultere i en bedre Nutri-Score.
+description:de: Eine Verringerung der Energie um 5 % oder weniger würde zu einem besseren Nutri-Score führen.
+description:el: Μια μείωση της ενέργειας κατά 5% ή λιγότερο θα οδηγούσε σε ένα καλύτερο Nutri-Score.
+description:es: Una disminución de energía del 5% o menos resultaría en un mejor Nutri-Score.
+description:et: Energia vähenemine 5% või vähem tooks kaasa parema Nutri-Score'i.
+description:fi: Energian vähentäminen 5 % tai vähemmän johtaisi parempaan Nutri-Scoreen.
 description:fr: Une diminution d'énergie de 5% ou moins se traduirait par un meilleur Nutri-Score.
+description:hi: ऊर्जा में 5% या उससे कम की कमी से बेहतर न्यूट्री-स्कोर प्राप्त होगा।
+description:hr: Smanjenje energije za 5% ili manje rezultiralo bi boljim Nutri-Scoreom.
+description:hu: Az energia 5%-os vagy kisebb mértékű csökkentése jobb Nutri-Score-t eredményezne.
+description:it: Una diminuzione di energia del 5% o meno comporterebbe un miglioramento del Nutri-Score.
+description:lt: Energijos sumažinimas 5% ar mažiau pagerintų „Nutri-Score“.
+description:lv: Enerģijas samazinājums par 5% vai mazāk uzlabotu Nutri-Score.
+description:nl: Een afname van energie met 5% of minder zou resulteren in een betere Nutri-Score.
+description:no: En reduksjon av energi med 5 % eller mindre vil resultere i en bedre Nutri-Score.
+description:pl: Zmniejszenie energii o 5% lub mniej spowodowałoby lepszy Nutri-Score.
+description:pt: Uma diminuição de energia em 5% ou menos resultaria em um melhor Nutri-Score.
+description:ro: O scădere a energiei cu 5% sau mai puțin ar duce la un Nutri-Score mai bun.
+description:ru: Уменьшение энергии на 5% или менее приведет к улучшению Nutri-Score.
+description:sk: Zníženie energie o 5 % alebo menej by viedlo k lepšiemu Nutri-Score.
+description:sl: Zmanjšanje energije za 5 % ali manj bi povzročilo boljši Nutri-Score.
+description:sr: Smanjenje energije za 5% ili manje rezultiralo bi boljim Nutri-Scoreom.
+description:sv: En minskning av energi med 5 % eller mindre skulle resultera i en bättre Nutri-Score.
+description:tr: Enerjide %5 veya daha az bir azalma daha iyi bir Nutri-Score ile sonuçlanacaktır.
+description:uk: Зменшення енергії на 5% або менше призведе до покращення Nutri-Score.
 
 en: Better Nutri-Score with less energy
+bg: По-добър Nutri-Score с по-малко енергия
+cs: Lepší Nutri-Score s menším množstvím energie
+da: Bedre Nutri-Score med mindre energi
+de: Besserer Nutri-Score mit weniger Energie
+el: Καλύτερο Nutri-Score με λιγότερη ενέργεια
+es: Mejor Nutri-Score con menos energía
+et: Parem Nutri-Score vähem energiaga
+fi: Parempi Nutri-Score vähemmän energiaa
 fr: Meilleur Nutri-Score avec moins d'énergie
+hi: कम ऊर्जा के साथ बेहतर न्यूट्री-स्कोर
+hr: Bolji Nutri-Score s manje energije
+hu: Jobb Nutri-Score kevesebb energiával
+it: Miglior Nutri-Score con meno energia
+lt: Geresnis Nutri-Score su mažiau energijos
+lv: Labāks Nutri-Score ar mazāk enerģijas
+nl: Beter Nutri-Score met minder energie
+no: Bedre Nutri-Score med mindre energi
+pl: Lepszy Nutri-Score z mniejszą ilością energii
+pt: Melhor Nutri-Score com menos energia
+ro: Nutri-Score mai bun cu mai puțină energie
+ru: Лучший Nutri-Score с меньшим количеством энергии
+sk: Lepší Nutri-Score s menším množstvom energie
+sl: Boljši Nutri-Score z manj energije
+sr: Bolji Nutri-Score sa manje energije
+sv: Bättre Nutri-Score med mindre energi
+tr: Daha az enerji ile daha iyi Nutri-Score
+uk: Кращий Nutri-Score з меншою кількістю енергії
 description:en: A decrease of energy by 5% to 10% would result in a better Nutri-Score.
+description:bg: Намаляване на енергията с 5% до 10% би довело до по-добър Nutri-Score.
+description:cs: Snížení energie o 5% až 10% by vedlo k lepšímu Nutri-Score.
+description:da: Et fald i energi med 5% til 10% ville resultere i en bedre Nutri-Score.
+description:de: Eine Verringerung der Energie um 5% bis 10% würde zu einem besseren Nutri-Score führen.
+description:el: Μια μείωση της ενέργειας κατά 5% έως 10% θα οδηγούσε σε ένα καλύτερο Nutri-Score.
+description:es: Una disminución de energía del 5% al 10% resultaría en un mejor Nutri-Score.
+description:et: Energia vähenemine 5% kuni 10% tooks kaasa parema Nutri-Score'i.
+description:fi: Energian väheneminen 5–10 % johtaisi parempaan Nutri-Scoreen.
 description:fr: Une diminution d'énergie de 5% à 10% se traduirait par un meilleur Nutri-Score.
+description:hi: ऊर्जा में 5% से 10% की कमी से बेहतर न्यूट्री-स्कोर प्राप्त होगा।
+description:hr: Smanjenje energije za 5% do 10% rezultiralo bi boljim Nutri-Scoreom.
+description:hu: Az energia 5-10%-os csökkenése jobb Nutri-Score-t eredményezne.
+description:it: Una diminuzione di energia dal 5% al 10% comporterebbe un miglioramento del Nutri-Score.
+description:lt: Energijos sumažėjimas nuo 5% iki 10% pagerintų „Nutri-Score“.
+description:lv: Enerģijas samazinājums par 5% līdz 10% uzlabotu Nutri-Score.
+description:nl: Een afname van energie met 5% tot 10% zou resulteren in een betere Nutri-Score.
+description:no: En reduksjon av energi med 5% til 10% vil resultere i en bedre Nutri-Score.
+description:pl: Zmniejszenie energii o 5% do 10% spowodowałoby lepszy Nutri-Score.
+description:pt: Uma diminuição de energia de 5% a 10% resultaria em um melhor Nutri-Score.
+description:ro: O scădere a energiei cu 5% până la 10% ar duce la un Nutri-Score mai bun.
+description:ru: Уменьшение энергии на 5–10 % приведет к улучшению Nutri-Score.
+description:sk: Zníženie energie o 5% až 10% by viedlo k lepšiemu Nutri-Score.
+description:sl: Zmanjšanje energije za 5 % do 10 % bi povzročilo boljši Nutri-Score.
+description:sr: Smanjenje energije za 5% do 10% rezultiralo bi boljim Nutri-Scoreom.
+description:sv: En minskning av energi med 5% till 10% skulle resultera i en bättre Nutri-Score.
+description:tr: Enerjide %5 ila %10 arasında bir azalma daha iyi bir Nutri-Score ile sonuçlanacaktır.
+description:uk: Зменшення енергії на 5–10 % призведе до покращення Nutri-Score.
 
 en: Better Nutri-Score with much less energy
+bg: По-добър Nutri-Score с много по-малко енергия
+cs: Lepší Nutri-Score s mnohem menším množstvím energie
+da: Bedre Nutri-Score med meget mindre energi
+de: Besserer Nutri-Score mit viel weniger Energie
+el: Καλύτερο Nutri-Score με πολύ λιγότερη ενέργεια
+es: Mejor Nutri-Score con mucha menos energía
+et: Parem Nutri-Score palju vähem energiat
+fi: Parempi Nutri-Score paljon vähemmän energiaa
 fr: Meilleur Nutri-Score avec beaucoup moins d'énergie
+hi: बहुत कम ऊर्जा के साथ बेहतर न्यूट्री-स्कोर
+hr: Bolji Nutri-Score s puno manje energije
+hu: Jobb Nutri-Score sokkal kevesebb energiával
+it: Miglior Nutri-Score con molta meno energia
+lt: Geresnis Nutri-Score su daug mažiau energijos
+lv: Labāks Nutri-Score ar daudz mazāk enerģijas
+nl: Beter Nutri-Score met veel minder energie
+no: Bedre Nutri-Score med mye mindre energi
+pl: Lepszy Nutri-Score ze znacznie mniejszą ilością energii
+pt: Melhor Nutri-Score com muito menos energia
+ro: Nutri-Score mai bun cu mult mai puțină energie
+ru: Лучший Nutri-Score с гораздо меньшим количеством энергии
+sk: Lepší Nutri-Score s oveľa menším množstvom energie
+sl: Boljši Nutri-Score z veliko manj energije
+sr: Bolji Nutri-Score sa mnogo manje energije
+sv: Bättre Nutri-Score med mycket mindre energi
+tr: Çok daha az enerji ile daha iyi Nutri-Score
+uk: Кращий Nutri-Score з набагато меншою кількістю енергії
 description:en: A decrease of energy by 10% to 20% would result in a better Nutri-Score.
+description:bg: Намаляване на енергията с 10% до 20% би довело до по-добър Nutri-Score.
+description:cs: Snížení energie o 10% až 20% by vedlo k lepšímu Nutri-Score.
+description:da: Et fald i energi med 10% til 20% ville resultere i en bedre Nutri-Score.
+description:de: Eine Verringerung der Energie um 10% bis 20% würde zu einem besseren Nutri-Score führen.
+description:el: Μια μείωση της ενέργειας κατά 10% έως 20% θα οδηγούσε σε ένα καλύτερο Nutri-Score.
+description:es: Una disminución de energía del 10% al 20% resultaría en un mejor Nutri-Score.
+description:et: Energia vähenemine 10% kuni 20% tooks kaasa parema Nutri-Score'i.
+description:fi: Energian väheneminen 10–20 % johtaisi parempaan Nutri-Scoreen.
 description:fr: Une diminution d'énergie de 10% à 20% se traduirait par un meilleur Nutri-Score.
+description:hi: ऊर्जा में 10% से 20% की कमी से बेहतर न्यूट्री-स्कोर प्राप्त होगा।
+description:hr: Smanjenje energije za 10% do 20% rezultiralo bi boljim Nutri-Scoreom.
+description:hu: Az energia 10-20%-os csökkenése jobb Nutri-Score-t eredményezne.
+description:it: Una diminuzione di energia dal 10% al 20% comporterebbe un miglioramento del Nutri-Score.
+description:lt: Energijos sumažėjimas nuo 10% iki 20% pagerintų „Nutri-Score“.
+description:lv: Enerģijas samazinājums par 10% līdz 20% uzlabotu Nutri-Score.
+description:nl: Een afname van energie met 10% tot 20% zou resulteren in een betere Nutri-Score.
+description:no: En reduksjon av energi med 10% til 20% vil resultere i en bedre Nutri-Score.
+description:pl: Zmniejszenie energii o 10% do 20% spowodowałoby lepszy Nutri-Score.
+description:pt: Uma diminuição de energia de 10% a 20% resultaria em um melhor Nutri-Score.
+description:ro: O scădere a energiei cu 10% până la 20% ar duce la un Nutri-Score mai bun.
+description:ru: Уменьшение энергии на 10–20 % приведет к улучшению Nutri-Score.
+description:sk: Zníženie energie o 10% až 20% by viedlo k lepšiemu Nutri-Score.
+description:sl: Zmanjšanje energije za 10 % do 20 % bi povzročilo boljši Nutri-Score.
+description:sr: Smanjenje energije za 10% do 20% rezultiralo bi boljim Nutri-Scoreom.
+description:sv: En minskning av energi med 10% till 20% skulle resultera i en bättre Nutri-Score.
+description:tr: Enerjide %10 ila %20 arasında bir azalma daha iyi bir Nutri-Score ile sonuçlanacaktır.
+description:uk: Зменшення енергії на 10–20 % призведе до покращення Nutri-Score.
 
 en: Better Nutri-Score with slightly less energy from saturated fat
+bg: По-добър Nutri-Score с малко по-малко енергия от наситени мазнини
+cs: Lepší Nutri-Score s trochou méně energie z nasycených tuků
+da: Bedre Nutri-Score med lidt mindre energi fra mættet fedt
+de: Besserer Nutri-Score mit etwas weniger Energie aus gesättigten Fettsäuren
+el: Καλύτερο Nutri-Score με λίγο λιγότερη ενέργεια από κορεσμένα λιπαρά
+es: Mejor Nutri-Score con un poco menos de energía proveniente de grasas saturadas
+et: Parem Nutri-Score veidi vähem energiat küllastunud rasvadest
+fi: Parempi Nutri-Score hieman vähemmän energiaa tyydyttyneestä rasvasta
 fr: Meilleur Nutri-Score avec un peu moins d'énergie provenant des acides gras saturés
+hi: संतृप्त वसा से थोड़ी कम ऊर्जा के साथ बेहतर न्यूट्री-स्कोर
+hr: Bolji Nutri-Score s malo manje energije iz zasićenih masti
+hu: Jobb Nutri-Score kicsit kevesebb energiával a telített zsírokból
+it: Miglior Nutri-Score con un po' meno energia da grassi saturi
+lt: Geresnis Nutri-Score su šiek tiek mažiau energijos iš sočiųjų riebalų
+lv: Labāks Nutri-Score ar nedaudz mazāk enerģijas no piesātinātajiem taukiem
+nl: Beter Nutri-Score met iets minder energie uit verzadigd vet
+no: Bedre Nutri-Score med litt mindre energi fra mettet fett
+pl: Lepszy Nutri-Score z odrobiną mniej energii z tłuszczów nasyconych
+pt: Melhor Nutri-Score com um pouco menos de energia proveniente de gordura saturada
+ro: Nutri-Score mai bun cu puțin mai puțină energie din grăsimi saturate
+ru: Лучший Nutri-Score с немного меньшим количеством энергии из насыщенных жиров
+sk: Lepší Nutri-Score s trochou menej energie z nasýtených tukov
+sl: Boljši Nutri-Score z malo manj energije iz nasičenih maščob
+sr: Bolji Nutri-Score sa malo manje energije iz zasićenih masti
+sv: Bättre Nutri-Score med lite mindre energi från mättat fett
+tr: Doymuş yağdan biraz daha az enerji ile daha iyi Nutri-Score
+uk: Кращий Nutri-Score з трохи меншою кількістю енергії з насичених жирів
 description:en: A decrease of energy from saturated fat by 5% or less would result in a better Nutri-Score.
+description:bg: Намаляване на енергията от наситени мазнини с 5% или по-малко би довело до по-добър Nutri-Score.
+description:cs: Snížení energie z nasycených tuků o 5 % nebo méně by vedlo k lepšímu Nutri-Score.
+description:da: En reduktion af energi fra mættet fedt med 5 % eller mindre ville resultere i en bedre Nutri-Score.
+description:de: Eine Verringerung der Energie aus gesättigten Fettsäuren um 5 % oder weniger würde zu einem besseren Nutri-Score führen.
+description:el: Μια μείωση της ενέργειας από κορεσμένα λιπαρά κατά 5% ή λιγότερο θα οδηγούσε σε ένα καλύτερο Nutri-Score.
+description:es: Una disminución de energía proveniente de grasas saturadas del 5% o menos daría como resultado un mejor Nutri-Score.
+description:et: Küllastunud rasvast saadava energia vähenemine 5% või vähem tooks kaasa parema Nutri-Score'i.
+description:fi: Tyydyttyneestä rasvasta saatavan energian väheneminen 5 % tai vähemmän parantaisi Nutri-Score-arvoa.
 description:fr: Une diminution d'énergie provenant des acides gras saturés de 5% ou moins se traduirait par un meilleur Nutri-Score.
+description:hi: संतृप्त वसा से ऊर्जा में 5% या उससे कम की कमी से बेहतर न्यूट्री-स्कोर प्राप्त होगा।
+description:hr: Smanjenje energije iz zasićenih masti za 5% ili manje rezultiralo bi boljim Nutri-Scoreom.
+description:hu: A telített zsírokból származó energia 5%-os vagy kisebb mértékű csökkentése jobb Nutri-Score-t eredményezne.
+description:it: Una diminuzione dell'energia dai grassi saturi del 5% o meno comporterebbe un miglioramento del Nutri-Score.
+description:lt: Sumažinus energiją iš sočiųjų riebalų 5% ar mažiau, pagerėtų „Nutri-Score“.
+description:lv: Sātināto tauku enerģijas samazinājums par 5% vai mazāk uzlabotu Nutri-Score.
+description:nl: Een afname van energie uit verzadigd vet met 5% of minder zou resulteren in een betere Nutri-Score.
+description:no: En reduksjon av energi fra mettet fett med 5 % eller mindre vil resultere i en bedre Nutri-Score.
+description:pl: Zmniejszenie energii pochodzącej z tłuszczów nasyconych o 5% lub mniej spowodowałoby lepszy Nutri-Score.
+description:pt: Uma diminuição de energia proveniente de gorduras saturadas de 5% ou menos resultaria em um melhor Nutri-Score.
+description:ro: O scădere a energiei din grăsimi saturate cu 5% sau mai puțin ar duce la un Nutri-Score mai bun.
+description:ru: Уменьшение энергии из насыщенных жиров на 5% или менее приведет к улучшению Nutri-Score.
+description:sk: Zníženie energie z nasýtených tukov o 5 % alebo menej by viedlo k lepšiemu Nutri-Score.
+description:sl: Zmanjšanje energije iz nasičenih maščob za 5 % ali manj bi povzročilo boljši Nutri-Score.
+description:sr: Smanjenje energije iz zasićenih masti za 5% ili manje rezultiralo bi boljim Nutri-Scoreom.
+description:sv: En minskning av energi från mättat fett med 5 % eller mindre skulle resultera i en bättre Nutri-Score.
+description:tr: Doymuş yağdan elde edilen enerjinin %5 veya daha az azaltılması daha iyi bir Nutri-Score ile sonuçlanacaktır.
+description:uk: Зменшення енергії з насичених жирів на 5% або менше призведе до покращення Nutri-Score.
 
 en: Better Nutri-Score with less energy from saturated fat
+bg: По-добър Nutri-Score с по-малко енергия от наситени мазнини
+cs: Lepší Nutri-Score s menším množstvím energie z nasycených tuků
+da: Bedre Nutri-Score med mindre energi fra mættet fedt
+de: Besserer Nutri-Score mit weniger Energie aus gesättigten Fettsäuren
+el: Καλύτερο Nutri-Score με λιγότερη ενέργεια από κορεσμένα λιπαρά
+es: Mejor Nutri-Score con menos energía proveniente de grasas saturadas
+et: Parem Nutri-Score vähem energiat küllastunud rasvadest
+fi: Parempi Nutri-Score vähemmän energiaa tyydyttyneestä rasvasta
 fr: Meilleur Nutri-Score avec moins d'énergie provenant des acides gras saturés
+hi: संतृप्त वसा से कम ऊर्जा के साथ बेहतर न्यूट्री-स्कोर
+hr: Bolji Nutri-Score s manje energije iz zasićenih masti
+hu: Jobb Nutri-Score kevesebb energiával a telített zsírokból
+it: Miglior Nutri-Score con meno energia da grassi saturi
+lt: Geresnis Nutri-Score su mažiau energijos iš sočiųjų riebalų
+lv: Labāks Nutri-Score ar mazāk enerģijas no piesātinātajiem taukiem
+nl: Beter Nutri-Score met minder energie uit verzadigd vet
+no: Bedre Nutri-Score med mindre energi fra mettet fett
+pl: Lepszy Nutri-Score z mniejszą ilością energii z tłuszczów nasyconych
+pt: Melhor Nutri-Score com menos energia proveniente de gordura saturada
+ro: Nutri-Score mai bun cu mai puțină energie din grăsimi saturate
+ru: Лучший Nutri-Score с меньшим количеством энергии из насыщенных жиров
+sk: Lepší Nutri-Score s menším množstvom energie z nasýtených tukov
+sl: Boljši Nutri-Score z manj energije iz nasičenih maščob
+sr: Bolji Nutri-Score sa manje energije iz zasićenih masti
+sv: Bättre Nutri-Score med mindre energi från mättat fett
+tr: Doymuş yağdan daha az enerji ile daha iyi Nutri-Score
+uk: Кращий Nutri-Score з меншою кількістю енергії з насичених жирів
 description:en: A decrease of energy from saturated fat by 5% to 10% would result in a better Nutri-Score.
+description:bg: Намаляване на енергията от наситени мазнини с 5% до 10% би довело до по-добър Nutri-Score.
+description:cs: Snížení energie z nasycených tuků o 5% až 10% by vedlo k lepšímu Nutri-Score.
+description:da: En reduktion af energi fra mættet fedt med 5% til 10% ville resultere i en bedre Nutri-Score.
+description:de: Eine Verringerung der Energie aus gesättigten Fettsäuren um 5% bis 10% würde zu einem besseren Nutri-Score führen.
+description:el: Μια μείωση της ενέργειας από κορεσμένα λιπαρά κατά 5% έως 10% θα οδηγούσε σε ένα καλύτερο Nutri-Score.
+description:es: Una disminución de energía proveniente de grasas saturadas del 5% al 10% daría como resultado un mejor Nutri-Score.
+description:et: Küllastunud rasvast saadava energia vähenemine 5–10% võrra tooks kaasa parema Nutri-Score'i.
+description:fi: Tyydyttyneestä rasvasta saatavan energian väheneminen 5–10 % parantaisi Nutri-Score-arvoa.
 description:fr: Une diminution d'énergie provenant des acides gras saturés de 5% à 10% se traduirait par un meilleur Nutri-Score.
+description:hi: संतृप्त वसा से ऊर्जा में 5% से 10% की कमी से बेहतर न्यूट्री-स्कोर प्राप्त होगा।
+description:hr: Smanjenje energije iz zasićenih masti za 5% do 10% rezultiralo bi boljim Nutri-Scoreom.
+description:hu: A telített zsírokból származó energia 5-10%-os csökkentése jobb Nutri-Score-t eredményezne.
+description:it: Una diminuzione dell'energia dai grassi saturi del 5% al 10% comporterebbe un miglioramento del Nutri-Score.
+description:lt: Sumažinus energiją iš sočiųjų riebalų nuo 5% iki 10%, pagerėtų „Nutri-Score“.
+description:lv: Sātināto tauku enerģijas samazinājums par 5% līdz 10% uzlabotu Nutri-Score.
+description:nl: Een afname van energie uit verzadigd vet met 5% tot 10% zou resulteren in een betere Nutri-Score.
+description:no: En reduksjon av energi fra mettet fett med 5 % til 10 % vil resultere i en bedre Nutri-Score.
+description:pl: Zmniejszenie energii pochodzącej z tłuszczów nasyconych o 5% do 10% spowodowałoby lepszy Nutri-Score.
+description:pt: Uma diminuição de energia proveniente de gorduras saturadas de 5% a 10% resultaria em um melhor Nutri-Score.
+description:ro: O scădere a energiei din grăsimi saturate cu 5% până la 10% ar duce la un Nutri-Score mai bun.
+description:ru: Уменьшение энергии из насыщенных жиров на 5–10 % приведет к улучшению Nutri-Score.
+description:sk: Zníženie energie z nasýtených tukov o 5 % až 10 % by viedlo k lepšiemu Nutri-Score.
+description:sl: Zmanjšanje energije iz nasičenih maščob za 5 % do 10 % bi povzročilo boljši Nutri-Score.
+description:sr: Smanjenje energije iz zasićenih masti za 5% do 10% rezultiralo bi boljim Nutri-Scoreom.
+description:sv: En minskning av energi från mättat fett med 5 % till 10 % skulle resultera i en bättre Nutri-Score.
+description:tr: Doymuş yağdan elde edilen enerjinin %5 ila %10 oranında azaltılması daha iyi bir Nutri-Score ile sonuçlanacaktır.
+description:uk: Зменшення енергії з насичених жирів на 5–10 % призведе до покращення Nutri-Score.
 
 en: Better Nutri-Score with much less energy from saturated fat
+bg: По-добър Nutri-Score с много по-малко енергия от наситени мазнини
+cs: Lepší Nutri-Score s mnohem menším množstvím energie z nasycených tuků
+da: Bedre Nutri-Score med meget mindre energi fra mættet fedt
+de: Besserer Nutri-Score mit viel weniger Energie aus gesättigten Fettsäuren
+el: Καλύτερο Nutri-Score με πολύ λιγότερη ενέργεια από κορεσμένα λιπαρά
+es: Mejor Nutri-Score con mucha menos energía proveniente de grasas saturadas
+et: Parem Nutri-Score palju vähem energiat küllastunud rasvadest
+fi: Parempi Nutri-Score paljon vähemmän energiaa tyydyttyneestä rasvasta
 fr: Meilleur Nutri-Score avec beaucoup moins d'énergie provenant des acides gras saturés
+hi: संतृप्त वसा से बहुत कम ऊर्जा के साथ बेहतर न्यूट्री-स्कोर
+hr: Bolji Nutri-Score s puno manje energije iz zasićenih masti
+hu: Jobb Nutri-Score sokkal kevesebb energiával a telített zsírokból
+it: Miglior Nutri-Score con molta meno energia da grassi saturi
+lt: Geresnis Nutri-Score su daug mažiau energijos iš sočiųjų riebalų
+lv: Labāks Nutri-Score ar daudz mazāk enerģijas no piesātinātajiem taukiem
+nl: Beter Nutri-Score met veel minder energie uit verzadigd vet
+no: Bedre Nutri-Score med mye mindre energi fra mettet fett
+pl: Lepszy Nutri-Score ze znacznie mniejszą ilością energii z tłuszczów nasyconych
+pt: Melhor Nutri-Score com muito menos energia proveniente de gordura saturada
+ro: Nutri-Score mai bun cu mult mai puțină energie din grăsimi saturate
+ru: Лучший Nutri-Score с гораздо меньшим количеством энергии из насыщенных жиров
+sk: Lepší Nutri-Score s oveľa menším množstvom energie z nasýtených tukov
+sl: Boljši Nutri-Score z veliko manj energije iz nasičenih maščob
+sr: Bolji Nutri-Score sa mnogo manje energije iz zasićenih masti
+sv: Bättre Nutri-Score med mycket mindre energi från mättat fett
+tr: Doymuş yağdan çok daha az enerji ile daha iyi Nutri-Score
+uk: Кращий Nutri-Score з набагато меншою кількістю енергії з насичених жирів
 description:en: A decrease of energy from saturated fat by 10% to 20% would result in a better Nutri-Score.
+description:bg: Намаляване на енергията от наситени мазнини с 10% до 20% би довело до по-добър Nutri-Score.
+description:cs: Snížení energie z nasycených tuků o 10% až 20% by vedlo k lepšímu Nutri-Score.
+description:da: En reduktion af energi fra mættet fedt med 10% til 20% ville resultere i en bedre Nutri-Score.
+description:de: Eine Verringerung der Energie aus gesättigten Fettsäuren um 10% bis 20% würde zu einem besseren Nutri-Score führen.
+description:el: Μια μείωση της ενέργειας από κορεσμένα λιπαρά κατά 10% έως 20% θα οδηγούσε σε ένα καλύτερο Nutri-Score.
+description:es: Una disminución de energía proveniente de grasas saturadas del 10% al 20% daría como resultado un mejor Nutri-Score.
+description:et: Küllastunud rasvast saadava energia vähenemine 10–20% võrra tooks kaasa parema Nutri-Score'i.
+description:fi: Tyydyttyneestä rasvasta saatavan energian väheneminen 10–20 % parantaisi Nutri-Score-arvoa.
 description:fr: Une diminution d'énergie provenant des acides gras saturés de 10% à 20% se traduirait par un meilleur Nutri-Score.
+description:hi: संतृप्त वसा से ऊर्जा में 10% से 20% की कमी से बेहतर न्यूट्री-स्कोर प्राप्त होगा।
+description:hr: Smanjenje energije iz zasićenih masti za 10% do 20% rezultiralo bi boljim Nutri-Scoreom.
+description:hu: A telített zsírokból származó energia 10-20%-os csökkentése jobb Nutri-Score-t eredményezne.
+description:it: Una diminuzione dell'energia dai grassi saturi del 10% al 20% comporterebbe un miglioramento del Nutri-Score.
+description:lt: Sumažinus energiją iš sočiųjų riebalų nuo 10% iki 20%, pagerėtų „Nutri-Score“.
+description:lv: Sātināto tauku enerģijas samazinājums par 10% līdz 20% uzlabotu Nutri-Score.
+description:nl: Een afname van energie uit verzadigd vet met 10% tot 20% zou resulteren in een betere Nutri-Score.
+description:no: En reduksjon av energi fra mettet fett med 10 % til 20 % vil resultere i en bedre Nutri-Score.
+description:pl: Zmniejszenie energii pochodzącej z tłuszczów nasyconych o 10% do 20% spowodowałoby lepszy Nutri-Score.
+description:pt: Uma diminuição de energia proveniente de gorduras saturadas de 10% a 20% resultaria em um melhor Nutri-Score.
+description:ro: O scădere a energiei din grăsimi saturate cu 10% până la 20% ar duce la un Nutri-Score mai bun.
+description:ru: Уменьшение энергии из насыщенных жиров на 10–20 % приведет к улучшению Nutri-Score.
+description:sk: Zníženie energie z nasýtených tukov o 10 % až 20 % by viedlo k lepšiemu Nutri-Score.
+description:sl: Zmanjšanje energije iz nasičenih maščob za 10 % do 20 % bi povzročilo boljši Nutri-Score.
+description:sr: Smanjenje energije iz zasićenih masti za 10% do 20% rezultiralo bi boljim Nutri-Scoreom.
+description:sv: En minskning av energi från mättat fett med 10 % till 20 % skulle resultera i en bättre Nutri-Score.
+description:tr: Doymuş yağdan elde edilen enerjinin %10 ila %20 oranında azaltılması daha iyi bir Nutri-Score ile sonuçlanacaktır.
+description:uk: Зменшення енергії з насичених жирів на 10–20 % призведе до покращення Nutri-Score.
 
 en: Better Nutri-Score with slightly less saturated fat ratio
 fr: Meilleur Nutri-Score avec un peu moins de ratio d'acides gras saturés
@@ -341,7 +770,33 @@ description:fr: Une diminution du ratio d'acides gras saturés / matières grass
 en: Better Nutri-Score with much less saturated fat ratio
 fr: Meilleur Nutri-Score avec beaucoup moins de ratio d'acides gras saturés
 description:en: A decrease of the saturated fat / fat ratio by 10% to 20% would result in a better Nutri-Score.
+description:bg: Намаляване на съотношението на наситени мазнини / мазнини с 10% до 20% би довело до по-добър Nutri-Score.
+description:cs: Snížení poměru nasycených tuků / tuků o 10 % až 20 % by vedlo k lepšímu Nutri-Score.
+description:da: En reduktion af forholdet mellem mættet fedt og fedt med 10 % til 20 % ville resultere i en bedre Nutri-Score.
+description:de: Eine Verringerung des Verhältnisses von gesättigten Fettsäuren zu Fett um 10 % bis 20 % würde zu einem besseren Nutri-Score führen.
+description:el: Μια μείωση της αναλογίας κορεσμένων λιπαρών / λιπαρών κατά 10% έως 20% θα οδηγούσε σε ένα καλύτερο Nutri-Score.
+description:es: Una disminución de la relación grasa saturada / grasa del 10% al 20% daría como resultado un mejor Nutri-Score.
+description:et: Küllastunud rasva / rasva suhte vähenemine 10–20% võrra tooks kaasa parema Nutri-Score'i.
+description:fi: Tyydyttyneen rasvan ja rasvan suhteen pieneneminen 10–20 % parantaisi Nutri-Score-arvoa.
 description:fr: Une diminution du ratio d'acides gras saturés / matières grasses de 10% à 20% se traduirait par un meilleur Nutri-Score.
+description:hi: संतृप्त वसा / वसा अनुपात में 10% से 20% की कमी से बेहतर न्यूट्री-स्कोर प्राप्त होगा।
+description:hr: Smanjenje omjera zasićenih masti / masti za 10% do 20% rezultiralo bi boljim Nutri-Scoreom.
+description:hu: A telített zsír / zsír arány 10-20%-os csökkentése jobb Nutri-Score-t eredményezne.
+description:it: Una diminuzione del rapporto grassi saturi / grassi del 10% al 20% comporterebbe un miglioramento del Nutri-Score.
+description:lt: Sočiųjų riebalų ir riebalų santykio sumažinimas nuo 10% iki 20% pagerintų „Nutri-Score“.
+description:lv: Sātināto tauku / tauku attiecības samazinājums par 10% līdz 20% uzlabotu Nutri-Score.
+description:nl: Een afname van de verzadigd vet / vet verhouding met 10% tot 20% zou resulteren in een betere Nutri-Score.
+description:no: En reduksjon av forholdet mellom mettet fett og fett med 10 % til 20 % vil resultere i en bedre Nutri-Score.
+description:pl: Zmniejszenie stosunku tłuszczów nasyconych do tłuszczów o 10% do 20% skutkowałoby lepszym Nutri-Score.
+description:pt: Uma diminuição da relação gordura saturada / gordura de 10% a 20% resultaria em um melhor Nutri-Score.
+description:ro: O scădere a raportului grăsimi saturate / grăsimi de la 10% la 20% ar duce la un Nutri-Score mai bun.
+description:ru: Уменьшение соотношения насыщенных жиров и жиров на 10–20 % приведет к улучшению Nutri-Score.
+description:sk: Zníženie pomeru nasýtených tukov a tukov o 10 % až 20 % by viedlo k lepšiemu Nutri-Score.
+description:sl: Zmanjšanje razmerja nasičenih maščob in maščob za 10 % do 20 % bi povzročilo boljši Nutri-Score.
+description:sr: Smanjenje odnosa zasićenih masti i masti za 10% do 20% rezultiralo bi boljim Nutri-Scoreom.
+description:sv: En minskning av förhållandet mellan mättat fett och fett med 10 % till 20 % skulle resultera i en bättre Nutri-Score.
+description:tr: Doymuş yağ / yağ oranının %10 ila %20 oranında azaltılması daha iyi bir Nutri-Score ile sonuçlanacaktır.
+description:uk: Зменшення співвідношення насичених жирів і жирів на 10–20 % призведе до покращення Nutri-Score.
 
 en: Better Nutri-Score with less sodium
 bg: По-добър Nutri-Score с по-малко натрий
@@ -458,9 +913,61 @@ description:tr: Şekerin %5 ila %10 azaltılması daha iyi bir Nutri-Score'a yol
 description:uk: Зменшення вмісту цукру на 5% до 10% призведе до кращого показника Nutri-Score.
 
 en: Better Nutri-Score with much less sugars
+bg: По-добър Nutri-Score с много по-малко захар
+cs: Lepší Nutri-Score s mnohem menším množstvím cukru
+da: Bedre Nutri-Score med meget mindre sukker
+de: Besserer Nutri-Score mit viel weniger Zucker
+el: Καλύτερο Nutri-Score με πολύ λιγότερη ζάχαρη
+es: Mejor Nutri-Score con mucho menos azúcares
+et: Parem Nutri-Score palju vähem suhkruga
+fi: Parempi Nutri-Score paljon vähemmän sokeria
 fr: Meilleur Nutri-Score avec beaucoup moins de sucres
+hi: बहुत कम चीनी के साथ बेहतर न्यूट्री-स्कोर
+hr: Bolji Nutri-Score s puno manje šećera
+hu: Jobb Nutri-Score sokkal kevesebb cukorral
+it: Miglior Nutri-Score con molti meno zuccheri
+lt: Geresnis Nutri-Score su daug mažiau cukraus
+lv: Labāks Nutri-Score ar daudz mazāk cukura
+nl: Beter Nutri-Score met veel minder suikers
+no: Bedre Nutri-Score med mye mindre sukker
+pl: Lepszy Nutri-Score ze znacznie mniejszą ilością cukru
+pt: Melhor Nutri-Score com muito menos açúcares
+ro: Nutri-Score mai bun cu mult mai puțin zahăr
+ru: Лучший Nutri-Score с гораздо меньшим количеством сахара
+sk: Lepší Nutri-Score s oveľa menším množstvom cukru
+sl: Boljši Nutri-Score z veliko manj sladkorja
+sr: Bolji Nutri-Score sa mnogo manje šećera
+sv: Bättre Nutri-Score med mycket mindre socker
+tr: Çok daha az şekerle daha iyi Nutri-Score
+uk: Кращий Nutri-Score з набагато меншою кількістю цукру
 description:en: A decrease of sugars by 10% to 20% would result in a better Nutri-Score.
+description:bg: Намаляване на захарите с 10% до 20% би довело до по-добър Nutri-Score.
+description:cs: Snížení cukrů o 10% až 20% by vedlo k lepšímu Nutri-Score.
+description:da: En reduktion af sukker med 10% til 20% ville resultere i en bedre Nutri-Score.
+description:de: Eine Verringerung des Zuckergehalts um 10% bis 20% würde zu einem besseren Nutri-Score führen.
+description:el: Μια μείωση των σακχάρων κατά 10% έως 20% θα οδηγούσε σε καλύτερο Nutri-Score.
+description:es: Una disminución de los azúcares en un 10% a 20% resultaría en un mejor Nutri-Score.
+description:et: Suhkru vähendamine 10% kuni 20% võrra viiks parema Nutri-Score'ini.
+description:fi: Sokerin vähentäminen 10% - 20% johtaisi parempaan Nutri-Scoreen.
 description:fr: Une diminution de sucres de 10% à 20% se traduirait par un meilleur Nutri-Score.
+description:hi: चीनी में 10% से 20% की कमी से न्यूट्री-स्कोर बेहतर होगा।
+description:hr: Smanjenje šećera za 10% do 20% rezultiralo bi boljim Nutri-Scoreom.
+description:hu: A cukrok 10% - 20% -os csökkentése jobb Nutri-Score-hoz vezetne.
+description:it: Una diminuzione degli zuccheri dal 10% al 20% comporterebbe un miglioramento del Nutri-Score.
+description:lt: Cukraus sumažinimas nuo 10% iki 20% pagerintų „Nutri-Score“.
+description:lv: Cukura samazinājums par 10% līdz 20% uzlabotu Nutri-Score.
+description:nl: Een afname van suikers met 10% tot 20% zou resulteren in een betere Nutri-Score.
+description:no: En reduksjon av sukker med 10% til 20% ville resultere i en bedre Nutri-Score.
+description:pl: Zmniejszenie zawartości cukru o 10% do 20% spowodowałoby lepszy Nutri-Score.
+description:pt: Uma diminuição de açúcares de 10% a 20% resultaria em um melhor Nutri-Score.
+description:ro: O scădere a zaharurilor cu 10% până la 20% ar duce la un Nutri-Score mai bun.
+description:ru: Уменьшение сахара на 10% - 20% приведет к улучшению Nutri-Score.
+description:sk: Zníženie cukrov o 10% až 20% by viedlo k lepšiemu Nutri-Score.
+description:sl: Zmanjšanje sladkorjev za 10% do 20% bi povzročilo boljši Nutri-Score.
+description:sr: Smanjenje šećera za 10% do 20% rezultiralo bi boljim Nutri-Scoreom.
+description:sv: En minskning av socker med 10% till 20% skulle resultera i en bättre Nutri-Score.
+description:tr: Şekerlerde %10 ila %20 arasında bir azalma daha iyi bir Nutri-Score ile sonuçlanacaktır.
+description:uk: Зменшення цукрів на 10% - 20% призведе до покращення Nutri-Score.
 
 en: Better Nutri-Score with less saturated fat
 da: Bedre Nutri-Score med mindre mættet fedt
@@ -505,23 +1012,86 @@ description:tr: Doymuş yağın %5 ila %10 azaltılması daha iyi bir Nutri-Scor
 description:uk: Зменшення вмісту насичених жирів на 5% до 10% призведе до кращого показника Nutri-Score.
 
 en: Better Nutri-Score with much less saturated fat
+bg: По-добър Nutri-Score с много по-малко наситени мазнини
+cs: Lepší Nutri-Score s mnohem méně nasycených tuků
+da: Bedre Nutri-Score med meget mindre mættet fedt
+de: Besserer Nutri-Score mit viel weniger gesättigten Fettsäuren
+el: Καλύτερο Nutri-Score με πολύ λιγότερα κορεσμένα λιπαρά
+es: Mejor Nutri-Score con mucha menos grasa saturada
+et: Parem Nutri-Score palju vähem küllastunud rasva
+fi: Parempi Nutri-Score paljon vähemmän tyydyttyneitä rasvoja
 fr: Meilleur Nutri-Score avec beaucoup moins d'acides gras saturés
+hi: बहुत कम संतृप्त वसा के साथ बेहतर न्यूट्री-स्कोर
+hr: Bolji Nutri-Score s puno manje zasićenih masti
+it: Miglior Nutri-Score con molti meno grassi saturi
+lt: Geresnis Nutri-Score su daug mažiau sočiųjų riebalų
+nl: Beter Nutri-Score met veel minder verzadigd vet
+no: Bedre Nutri-Score med mye mindre mettet fett
+pl: Lepszy Nutri-Score ze znacznie mniejszą ilością tłuszczów nasyconych
+pt: Melhor Nutri-Score com muito menos gordura saturada
+ru: Лучший Nutri-Score с гораздо меньшим количеством насыщенных жиров
+sk: Lepší Nutri-Score s oveľa menším množstvom nasýtených tukov
+sl: Boljši Nutri-Score z veliko manj nasičenih maščob
+sv: Bättre Nutri-Score med mycket mindre mättat fett
+tr: Çok daha az doymuş yağ ile daha iyi Nutri-Score
+uk: Кращий Nutri-Score з набагато меншою кількістю насичених жирів
 description:en: A decrease of saturated fat by 10% to 20% would result in a better Nutri-Score.
+description:bg: Намаляване на наситените мазнини с 10% до 20% би довело до по-добър Nutri-Score.
+description:cs: Snížení nasycených tuků o 10% až 20% by vedlo k lepšímu Nutri-Score.
+description:da: En reduktion af mættet fedt med 10% til 20% ville resultere i en bedre Nutri-Score.
+description:de: Eine Verringerung des gesättigten Fettes um 10% bis 20% würde zu einem besseren Nutri-Score führen.
+description:el: Μια μείωση του κορεσμένου λίπους κατά 10% έως 20% θα οδηγούσε σε καλύτερο Nutri-Score.
+description:es: Una disminución de la grasa saturada en un 10% a 20% resultaría en un mejor Nutri-Score.
+description:et: Küllastunud rasva vähenemine 10% kuni 20% võrra viiks parema Nutri-Score'i.
+description:fi: Kyllästettyjen rasvojen väheneminen 10% - 20% johtaisi parempaan Nutri-Scoreen.
 description:fr: Une diminution des acides gras saturés de 10% à 20% se traduirait par un meilleur Nutri-Score.
+description:hi: संतृप्त वसा में 10% से 20% की कमी से न्यूट्री-स्कोर बेहतर होगा।
+description:hr: Smanjenje zasićenih masti za 10% do 20% rezultiralo bi boljim Nutri-Scoreom.
+description:hu: A telített zsírok 10% - 20% -os csökkentése jobb Nutri-Score-t eredményezne.
+description:it: Una diminuzione dei grassi saturi del 10% al 20% comporterebbe un miglioramento del Nutri-Score.
+description:lt: Sotieji riebalai sumažėjus 10–20 %, „Nutri-Score“ pagerėtų.
+description:lv: Sātināto tauku samazinājums par 10–20% uzlabotu Nutri-Score.
+description:nl: Een afname van verzadigd vet met 10% tot 20% zou resulteren in een betere Nutri-Score.
+description:no: En reduksjon av mettet fett med 10% til 20% ville resultere i en bedre Nutri-Score.
+description:pl: Zmniejszenie zawartości tłuszczu nasyconego o 10% do 20% spowodowałoby lepszy Nutri-Score.
+description:pt: Uma diminuição de gordura saturada em 10% a 20% resultaria em um melhor Nutri-Score.
+description:ro: O scădere a grăsimii saturate cu 10% până la 20% ar duce la un Nutri-Score mai bun.
+description:ru: Уменьшение содержания насыщенных жиров на 10–20 % приведет к улучшению Nutri-Score.
+description:sk: Zníženie nasýtených tukov o 10 % až 20 % by viedlo k lepšiemu Nutri-Score.
+description:sl: Zmanjšanje nasičenih maščob za 10 % do 20 % bi povzročilo boljši Nutri-Score.
+description:sr: Smanjenje zasićenih masti za 10% do 20% rezultiralo bi boljim Nutri-Scoreom.
+description:sv: En minskning av mättat fett med 10 % till 20 % skulle resultera i en bättre Nutri-Score.
+description:tr: Doymuş yağın %10 ila %20 oranında azaltılması daha iyi bir Nutri-Score ile sonuçlanacaktır.
+description:uk: Зменшення насичених жирів на 10–20 % призведе до покращення Nutri-Score.
 
 en: Better Nutri-Score with more proteins
+bg: По-добър Nutri-Score с повече протеини
+cs: Lepší Nutri-Score s více bílkovin
 da: Bedre Nutri-Score med flere proteiner
 de: Besserer Nutri-Score mit mehr Proteinen
+el: Καλύτερο Nutri-Score με περισσότερες πρωτεΐνες
 es: Mejor Nutri-Score con más proteínas
+et: Parem Nutri-Score rohkem valke
 fi: Parempi Nutri-Score enemmän proteiinia
 fr: Meilleur Nutri-Score avec plus de protéines
 hi: अधिक प्रोटीन के साथ बेहतर न्यूट्री-स्कोर
+hr: Bolji Nutri-Score s više proteina
+hu: Jobb Nutri-Score több fehérjével
 it: Miglior Nutri-Score con più proteine
+lt: Geresnis Nutri-Score su daugiau baltymų
+lv: Labāks Nutri-Score ar vairāk olbaltumvielām
 nl: Beter Nutri-Score met meer eiwitten
 no: Bedre Nutri-Score med mer protein
 pl: Lepszy Nutri-Score z większą ilością białka
 pt: Melhor Nutri-Score com mais proteínas
+ro: Nutri-Score mai bun cu mai multe proteine
+ru: Лучший Nutri-Score с большим количеством белка
+sk: Lepší Nutri-Score s viac bielkovín
+sl: Boljši Nutri-Score z več beljakovinami
+sr: Bolji Nutri-Score sa više proteina
 sv: Bättre Nutri-Score med mer protein
+tr: Daha fazla protein ile daha iyi Nutri-Score
+uk: Кращий Nutri-Score з більшою кількістю білка
 description:en: An increase of proteins by 5% to 10% would result in a better Nutri-Score.
 description:bg: Увеличение на протеините с 5% до 10% би довело до по-добър Nutri-Score.
 description:cs: Zvýšení obsahu bílkovin o 5% až 10% by vedlo k lepšímu Nutri-Score.
@@ -552,23 +1122,85 @@ description:tr: Proteinlerin %5 ila %10 artması daha iyi bir Nutri-Score'a yol 
 description:uk: Збільшення кількості білка на 5% до 10% призведе до кращого показника Nutri-Score.
 
 en: Better Nutri-Score with much more proteins
+bg: По-добър Nutri-Score с много повече протеини
+cs: Lepší Nutri-Score s mnohem více bílkovin
+da: Bedre Nutri-Score med meget mere protein
+de: Besserer Nutri-Score mit viel mehr Proteinen
+el: Καλύτερο Nutri-Score με πολύ περισσότερες πρωτεΐνες
+es: Mejor Nutri-Score con muchas más proteínas
+et: Parem Nutri-Score palju rohkem valke
+fi: Parempi Nutri-Score paljon enemmän proteiinia
 fr: Meilleur Nutri-Score avec beaucoup plus de protéines
+hi: अधिक प्रोटीन के साथ बेहतर न्यूट्री-स्कोर
+hr: Bolji Nutri-Score s puno više proteina
+it: Miglior Nutri-Score con molte più proteine
+lt: Geresnis Nutri-Score su daug daugiau baltymų
+nl: Beter Nutri-Score met veel meer proteïne
+no: Bedre Nutri-Score med mye mer protein
+pl: Lepszy Nutri-Score ze znacznie większą ilością białka
+pt: Melhor Nutri-Score com muito mais proteínas
+ro: Nutri-Score mai bun cu mult mai multe proteine
+ru: Лучший Nutri-Score с гораздо большим количеством белка
+sk: Lepší Nutri-Score s oveľa viac bielkovín
+sl: Boljši Nutri-Score z veliko več beljakovin
+sr: Bolji Nutri-Score sa mnogo više proteina
+sv: Bättre Nutri-Score med mycket mer protein
+tr: Çok daha fazla protein ile daha iyi Nutri-Score
+uk: Кращий Nutri-Score з набагато більшою кількістю білка
 description:en: An increase of proteins by 10% to 20% would result in a better Nutri-Score.
+description:bg: Увеличение на протеините с 10% до 20% би довело до по-добър Nutri-Score.
+description:cs: Zvýšení obsahu bílkovin o 10% až 20% by vedlo k lepšímu Nutri-Score.
+description:da: En stigning i proteiner med 10% til 20% ville resultere i en bedre Nutri-Score.
+description:de: Eine Erhöhung des Proteingehalts um 10% bis 20% würde zu einem besseren Nutri-Score führen.
+description:el: Μια αύξηση των πρωτεϊνών κατά 10% έως 20% θα οδηγούσε σε καλύτερο Nutri-Score.
+description:es: Un aumento de las proteínas en un 10% a 20% resultaría en un mejor Nutri-Score.
+description:et: Valguprotsendi suurendamine 10% kuni 20% võrra parandaks Nutri-Score'i.
+description:fi: Proteiinien lisääminen 10%:sta 20%:iin johtaisi parempaan Nutri-Scoreen.
 description:fr: Une augmentation des protéines de 10% à 20% se traduirait par un meilleur Nutri-Score.
+description:hi: प्रोटीन में 10% से 20% की वृद्धि से न्यूट्री-स्कोर बेहतर होगा।
+description:hr: Povećanje proteina za 10% do 20% rezultiralo bi boljim Nutri-Scoreom.
+description:hu: A fehérjék 10% - 20% -os növekedése jobb Nutri-Score-hoz vezetne.
+description:it: Un aumento delle proteine del 10% al 20% comporterebbe un miglioramento del Nutri-Score.
+description:lt: Baltymų kiekio padidėjimas nuo 10% iki 20% padarytų Nutri-Score geresnį.
+description:lv: Olbuksu daudzuma palielināšana par 10% līdz 20% rezultētu labākā Nutri-Score.
+description:nl: Een toename van eiwitten met 10% tot 20% zou resulteren in een betere Nutri-Score.
+description:no: En økning av proteiner med 10% til 20% ville resultere i en bedre Nutri-Score.
+description:pl: Zwiększenie ilości białka o 10% do 20% skutkowałoby lepszym Nutri-Score.
+description:pt: Um aumento de proteínas em 10% a 20% resultaria em um melhor Nutri-Score.
+description:ro: O creștere a proteinelor cu 10% până la 20% ar duce la un Nutri-Score mai bun.
+description:ru: Увеличение содержания белка на 10% до 20% приведет к лучшему показателю Nutri-Score.
+description:sk: Zvýšenie obsahu bielkovín o 10% až 20% by viedlo k lepšiemu Nutri-Score.
+description:sl: Povečanje beljakovin za 10% do 20% bi privedlo do boljšega Nutri-Score.
+description:sr: Повећање протеина за 10% до 20% би довело до бољег Nutri-Score-а.
+description:sv: En ökning av protein med 10% till 20% skulle resultera i en bättre Nutri-Score.
+description:tr: Proteinlerin %10 ila %20 artması daha iyi bir Nutri-Score'a yol açacaktır.
+description:uk: Збільшення кількості білка на 10% до 20% призведе до кращого показника Nutri-Score.
 
 en: Better Nutri-Score with more fiber
+bg: По-добър Nutri-Score с повече фибри
+cs: Lepší Nutri-Score s více vlákniny
 da: Bedre Nutri-Score med mere fiber
 de: Besserer Nutri-Score mit mehr Ballaststoffen
+el: Καλύτερο Nutri-Score με περισσότερες φυτικές ίνες
 es: Mejor Nutri-Score con más fibra
+et: Parem Nutri-Score rohkem kiudaineid
 fi: Parempi Nutri-Score enemmän kuitua
 fr: Meilleur Nutri-Score avec plus de fibres
 hi: अधिक फाइबर के साथ बेहतर न्यूट्री-स्कोर
+hr: Bolji Nutri-Score s više vlakana
 it: Miglior Nutri-Score con più fibre
+lt: Geresnis Nutri-Score su daugiau skaidulų
 nl: Beter Nutri-Score met meer vezels
 no: Bedre Nutri-Score med mer fiber
 pl: Lepszy Nutri-Score z większą ilością błonnika
 pt: Melhor Nutri-Score com mais fibras
+ru: Лучший Nutri-Score с большим количеством клетчатки
+sk: Lepší Nutri-Score s viac vlákniny
+sl: Boljši Nutri-Score z več vlaknin
+sr: Bolji Nutri-Score sa više vlakana
 sv: Bättre Nutri-Score med mer fiber
+tr: Daha fazla lif ile daha iyi Nutri-Score
+uk: Кращий Nutri-Score з більшою кількістю клітковини
 description:en: An increase of fiber by 5% to 10% would result in a better Nutri-Score.
 description:bg: Увеличение на фибрите с 5% до 10% би довело до по-добър Nutri-Score.
 description:cs: Zvýšení vlákniny o 5% až 10% by vedlo k lepšímu Nutri-Score.
@@ -599,23 +1231,88 @@ description:tr: Lifin %5 ila %10 arasında artırılması daha iyi bir Nutri-Sco
 description:uk: Збільшення кількості клітковини на 5% до 10% призведе до кращого показника Nutri-Score.
 
 en: Better Nutri-Score with much more fiber
+bg: По-добър Nutri-Score с много повече фибри
+cs: Lepší Nutri-Score s mnohem více vlákniny
+da: Bedre Nutri-Score med meget mere fiber
+de: Besserer Nutri-Score mit viel mehr Ballaststoffen
+el: Καλύτερο Nutri-Score με πολύ περισσότερες φυτικές ίνες
+es: Mejor Nutri-Score con mucha más fibra
+et: Parem Nutri-Score palju rohkem kiudaineid
+fi: Parempi Nutri-Score paljon enemmän kuitua
 fr: Meilleur Nutri-Score avec beaucoup plus de fibres
+hi: बहुत अधिक फाइबर के साथ बेहतर न्यूट्री-स्कोर
+hr: Bolji Nutri-Score s puno više vlakana
+it: Miglior Nutri-Score con molte più fibre
+lt: Geresnis Nutri-Score su daug daugiau skaidulų
+nl: Beter Nutri-Score met veel meer vezels
+no: Bedre Nutri-Score med mye mer fiber
+pl: Lepszy Nutri-Score z dużo większą ilością błonnika
+pt: Melhor Nutri-Score com muito mais fibra
+ro: Nutri-Score mai bun cu mult mai multe fibre
+ru: Лучший Nutri-Score с гораздо большим количеством клетчатки
+sk: Lepší Nutri-Score s oveľa viac vlákniny
+sl: Boljši Nutri-Score z veliko več vlaknin
+sr: Bolji Nutri-Score sa mnogo više vlakana
+sv: Bättre Nutri-Score med mycket mer fiber
+tr: Çok daha fazla lif ile daha iyi Nutri-Score
+uk: Кращий Nutri-Score з набагато більшою кількістю клітковини
 description:en: An increase of fiber by 10% to 20% would result in a better Nutri-Score.
+description:bg: Увеличение на фибрите с 10% до 20% би довело до по-добър Nutri-Score.
+description:cs: Zvýšení vlákniny o 10% až 20% by vedlo k lepšímu Nutri-Score.
+description:da: En stigning i fiber med 10% til 20% ville resultere i en bedre Nutri-Score.
+description:de: Eine Erhöhung des Ballaststoffgehalts um 10% bis 20% würde zu einem besseren Nutri-Score führen.
+description:el: Μια αύξηση των ινών κατά 10% έως 20% θα οδηγούσε σε καλύτερο Nutri-Score.
+description:es: Un aumento de la fibra en un 10% a 20% resultaría en un mejor Nutri-Score.
+description:et: Kiudainete suurendamine 10% kuni 20% võrra parandaks Nutri-Score'i.
+description:fi: Kuidun lisääminen 10%:sta 20%:iin johtaisi parempaan Nutri-Scoreen.
 description:fr: Une augmentation des fibres de 10% à 20% se traduirait par un meilleur Nutri-Score.
+description:hi: फाइबर में 10% से 20% की वृद्धि से न्यूट्री-स्कोर बेहतर होगा।
+description:hr: Povećanje vlakana za 10% do 20% rezultiralo bi boljim Nutri-Scoreom.
+description:hu: A rost növekedése 10% -kal 20% -kal jobb Nutri-Score-hoz vezetne.
+description:it: Un aumento delle fibre del 10% al 20% comporterebbe un miglioramento del Nutri-Score.
+description:lt: Skaidulų padidėjimas nuo 10% iki 20% padarytų Nutri-Score geresnį.
+description:lv: Šķiedrvielu palielināšana par 10% līdz 20% rezultētu labākā Nutri-Score.
+description:nl: Een toename van vezels met 10% tot 20% zou resulteren in een betere Nutri-Score.
+description:no: En økning av fiber med 10% til 20% ville resultere i en bedre Nutri-Score.
+description:pl: Zwiększenie ilości błonnika o 10% do 20% spowodowałoby poprawę Nutri-Score.
+description:pt: Um aumento de fibras em 10% a 20% resultaria em um melhor Nutri-Score.
+description:ro: O creștere a fibrelor cu 10% până la 20% ar duce la un Nutri-Score mai bun.
+description:ru: Увеличение количества клетчатки на 10% до 20% приведет к лучшему показателю Nutri-Score.
+description:sk: Zvýšenie vlákniny o 10% až 20% by viedlo k lepšiemu Nutri-Score.
+description:sl: Povečanje vlaknin za 10% do 20% bi privedlo do boljšega Nutri-Score.
+description:sr: Povećanje vlakana za 10% do 20% bi dovelo do boljeg Nutri-Scorea.
+description:sv: En ökning av fiber med 10% till 20% skulle resultera i en bättre Nutri-Score.
+description:tr: Lifin %10 ila %20 arasında artırılması daha iyi bir Nutri-Score'a yol açar.
+description:uk: Збільшення кількості клітковини на 10% до 20% призведе до кращого Nutri-Score.
 
 en: Better Nutri-Score with more fruits and vegetables
+bg: По-добър Nutri-Score с повече плодове и зеленчуци
+cs: Lepší Nutri-Score s více ovocem a zeleninou
 da: Bedre Nutri-Score med flere frugter og grøntsager
 de: Besserer Nutri-Score mit mehr Obst und Gemüse
+el: Καλύτερο Nutri-Score με περισσότερα φρούτα και λαχανικά
 es: Mejor Nutri-Score con más frutas y verduras
+et: Parem Nutri-Score rohkem puuvilju ja köögivilju
 fi: Parempi Nutri-Score enemmän hedelmiä ja vihanneksia
 fr: Meilleur Nutri-Score avec plus de fruits et légumes
 hi: अधिक फलों और सब्जियों के साथ बेहतर न्यूट्री-स्कोर
+hr: Bolji Nutri-Score s više voća i povrća
+hu: Jobb Nutri-Score több gyümölccsel és zöldséggel
 it: Miglior Nutri-Score con più frutta e verdura
+lt: Geresnis Nutri-Score su daugiau vaisių ir daržovių
+lv: Labāks Nutri-Score ar vairāk augļiem un dārzeņiem
 nl: Beter Nutri-Score met meer fruit en groenten
 no: Bedre Nutri-Score med mer frukt og grønnsaker
 pl: Lepszy Nutri-Score z większą ilością owoców i warzyw
 pt: Melhor Nutri-Score com mais frutas e vegetais
+ro: Nutri-Score mai bun cu mai multe fructe și legume
+ru: Лучший Nutri-Score с большим количеством фруктов и овощей
+sk: Lepší Nutri-Score s viac ovocia a zeleniny
+sl: Boljši Nutri-Score z več sadja in zelenjave
+sr: Bolji Nutri-Score sa više voća i povrća
 sv: Bättre Nutri-Score med mer frukt och grönsaker
+tr: Daha fazla meyve ve sebze ile daha iyi Nutri-Score
+uk: Кращий Nutri-Score з більшою кількістю фруктів та овочів
 description:en: An increase of fruits, vegetables, nuts and colza/walnut/olive oils by 5% to 10% would result in a better Nutri-Score.
 description:da: En stigning i frugt, grøntsager, nødder og raps-/valnød-/olivenolier med 5% til 10% ville resultere i en bedre Nutri-Score.
 description:de: Eine Erhöhung von Obst, Gemüse, Nüssen und Raps-/Walnuss-/Olivenölen um 5% bis 10% würde zu einem besseren Nutri-Score führen.
@@ -631,18 +1328,31 @@ description:pt: Um aumento de frutas, legumes, nozes e óleos de colza/noz/oliva
 description:sv: En ökning av frukt, grönsaker, nötter och raps-/valnöt-/olivoljor med 5% till 10% skulle resultera i en bättre Nutri-Score.
 
 en: Better Nutri-Score with slightly less sodium
+bg: По-добър Nutri-Score с малко по-малко натрий
+cs: Lepší Nutri-Score s trochou méně sodíku
 da: Bedre Nutri-Score med lidt mindre natrium
 de: Besserer Nutri-Score mit etwas weniger Natrium
+el: Καλύτερο Nutri-Score με λίγο λιγότερο νάτριο
 es: Mejor Nutri-Score con un poco menos de sodio
+et: Parem Nutri-Score veidi vähem naatriumit
 fi: Parempi Nutri-Score hieman vähemmän natriumia
 fr: Meilleur Nutri-Score avec un peu moins de sodium
 hi: थोड़ा कम सोडियम के साथ बेहतर न्यूट्री-स्कोर
+hr: Bolji Nutri-Score s malo manje natrija
 it: Miglior Nutri-Score con un po' meno sodio
+lt: Geresnis Nutri-Score su šiek tiek mažiau natrio
 nl: Beter Nutri-Score met iets minder natrium
 no: Bedre Nutri-Score med litt mindre natrium
 pl: Lepszy Nutri-Score z nieco mniejszą ilością sodu
 pt: Melhor Nutri-Score com um pouco menos de sódio
+ro: Nutri-Score mai bun cu puțin mai puțin sodiu
+ru: Лучший Nutri-Score с немного меньшим количеством натрия
+sk: Lepší Nutri-Score s trochou menej sodíka
+sl: Boljši Nutri-Score z malo manj natrija
+sr: Bolji Nutri-Score sa malo manje natrijuma
 sv: Bättre Nutri-Score med lite mindre natrium
+tr: Biraz daha az sodyumla daha iyi Nutri-Score
+uk: Кращий Nutri-Score з трохи меншою кількістю натрію
 description:en: A decrease of sodium by 5% or less would result in a better Nutri-Score.
 description:da: En reduktion af natrium med 5% eller mindre ville resultere i en bedre Nutri-Score.
 description:de: Eine Verringerung des Natriumgehalts um 5% oder weniger würde zu einem besseren Nutri-Score führen.
@@ -658,31 +1368,59 @@ description:pt: Uma diminuição de sódio em 5% ou menos resultaria em um melho
 description:sv: En minskning av natrium med 5% eller mindre skulle resultera i en bättre Nutri-Score.
 
 en: Better Nutri-Score with slightly less sugars
+bg: По-добър Nutri-Score с малко по-малко захари
+cs: Lepší Nutri-Score s trochou méně cukrů
 da: Bedre Nutri-Score med lidt mindre sukker
 de: Besserer Nutri-Score mit etwas weniger Zucker
+el: Καλύτερο Nutri-Score με λίγο λιγότερα σάκχαρα
 es: Mejor Nutri-Score con un poco menos de azúcares
+et: Parem Nutri-Score veidi vähem suhkruid
 fi: Parempi Nutri-Score hieman vähemmän sokeria
 fr: Meilleur Nutri-Score avec un peu moins de sucres
 hi: थोड़ा कम चीनी के साथ बेहतर न्यूट्री-स्कोर
+hr: Bolji Nutri-Score s malo manje šećera
 it: Miglior Nutri-Score con un po' meno zuccheri
+lt: Geresnis Nutri-Score su šiek tiek mažiau cukrų
 nl: Beter Nutri-Score met iets minder suikers
 no: Bedre Nutri-Score med litt mindre sukker
 pl: Lepszy Nutri-Score z nieco mniejszą ilością cukru
 pt: Melhor Nutri-Score com um pouco menos de açúcares
+ro: Nutri-Score mai bun cu puțin mai puține zaharuri
+ru: Лучший Nutri-Score с немного меньшим количеством сахара
+sk: Lepší Nutri-Score s trochou menej cukrov
+sl: Boljši Nutri-Score z malo manj sladkorjev
+sr: Bolji Nutri-Score sa malo manje šećera
 sv: Bättre Nutri-Score med lite mindre socker
+tr: Biraz daha az şekerle daha iyi Nutri-Score
+uk: Кращий Nutri-Score з трохи меншою кількістю цукрів
 description:en: A decrease of sugars by 5% or less would result in a better Nutri-Score.
+description:bg: Намаляване на захарите с 5% или по-малко би довело до по-добър Nutri-Score.
+description:cs: Snížení cukrů o 5 % nebo méně by vedlo k lepšímu Nutri-Score.
 description:da: En reduktion af sukker med 5% eller mindre ville resultere i en bedre Nutri-Score.
 description:de: Eine Verringerung des Zuckergehalts um 5% oder weniger würde zu einem besseren Nutri-Score führen.
+description:el: Μια μείωση των ζαχάρων κατά 5% ή λιγότερο θα οδηγούσε σε καλύτερο Nutri-Score.
 description:es: Una disminución de los azúcares en un 5% o menos resultaría en un mejor Nutri-Score.
+description:et: Suhkru vähenemine 5% või vähem tooks kaasa parema Nutri-Score'i.
 description:fi: Sokerin vähentäminen 5% tai vähemmän johtaisi parempaan Nutri-Scoreen.
 description:fr: Une réduction des sucres de 5% ou moins entraînerait un meilleur Nutri-Score.
-description:hi: चीनी में 5% से 10% की कमी से न्यूट्री-स्कोर बेहतर होगा।
+description:hi: चीनी में 5% या उससे कम की कमी से न्यूट्री-स्कोर बेहतर होगा।
+description:hr: Smanjenje šećera za 5% ili manje rezultiralo bi boljim Nutri-Scoreom.
+description:hu: A cukrok 5%-os vagy kisebb mértékű csökkentése jobb Nutri-Score-t eredményezne.
 description:it: Una diminuzione degli zuccheri del 5% o meno comporterebbe un miglioramento del Nutri-Score.
+description:lt: Cukraus sumažinimas 5% ar mažiau pagerintų „Nutri-Score“.
+description:lv: Cukura samazinājums par 5% vai mazāk uzlabotu Nutri-Score.
 description:nl: Een afname van suikers met 5% of minder zou resulteren in een betere Nutri-Score.
 description:no: En reduksjon av sukker med 5% eller mindre ville resultere i en bedre Nutri-Score.
 description:pl: Zmniejszenie zawartości cukru o 5% lub mniej skutkowałoby lepszym Nutri-Score.
 description:pt: Uma diminuição de açúcares em 5% ou menos resultaria em um melhor Nutri-Score.
+description:ro: O scădere a zaharurilor cu 5% sau mai puțin ar duce la un Nutri-Score mai bun.
+description:ru: Уменьшение сахара на 5% или менее приведет к улучшению Nutri-Score.
+description:sk: Zníženie cukrov o 5 % alebo menej by viedlo k lepšiemu Nutri-Score.
+description:sl: Zmanjšanje sladkorjev za 5 % ali manj bi povzročilo boljši Nutri-Score.
+description:sr: Smanjenje šećera za 5% ili manje rezultiralo bi boljim Nutri-Scoreom.
 description:sv: En minskning av socker med 5% eller mindre skulle resultera i en bättre Nutri-Score.
+description:tr: Şekerlerde %5 veya daha az bir azalma daha iyi bir Nutri-Score ile sonuçlanacaktır.
+description:uk: Зменшення цукрів на 5% або менше призведе до кращого Nutri-Score.
 
 en: Better Nutri-Score with slightly less saturated fat
 da: Bedre Nutri-Score med lidt mindre mættet fedt
@@ -712,72 +1450,140 @@ description:pt: Uma diminuição de gordura saturada em 5% ou menos resultaria e
 description:sv: En minskning av mättat fett med 5% eller mindre skulle resultera i en bättre Nutri-Score.
 
 en: Better Nutri-Score with slightly more proteins
+bg: По-добър Nutri-Score с малко повече протеини
+cs: Lepší Nutri-Score s trochou více bílkovin
 da: Bedre Nutri-Score med lidt mere protein
 de: Besserer Nutri-Score mit etwas mehr Proteinen
+el: Καλύτερο Nutri-Score με λίγο περισσότερες πρωτεΐνες
 es: Mejor Nutri-Score con un poco más de proteínas
+et: Parem Nutri-Score veidi rohkem valke
 fi: Parempi Nutri-Score hieman enemmän proteiinia
 fr: Meilleur Nutri-Score avec un peu plus de protéines
 hi: थोड़ा अधिक प्रोटीन के साथ बेहतर न्यूट्री-स्कोर
+hr: Bolji Nutri-Score s malo više proteina
 it: Miglior Nutri-Score con un po' più di proteine
+lt: Geresnis Nutri-Score su šiek tiek daugiau baltymų
 nl: Beter Nutri-Score met iets meer eiwitten
 no: Bedre Nutri-Score med litt mer protein
 pl: Lepszy Nutri-Score z nieco większą ilością białka
 pt: Melhor Nutri-Score com um pouco mais de proteínas
+ro: Nutri-Score mai bun cu puțin mai multe proteine
+ru: Лучший Nutri-Score с немного большим количеством белка
+sk: Lepší Nutri-Score s trochou viac bielkovín
+sl: Boljši Nutri-Score z malo več beljakovin
+sr: Bolji Nutri-Score sa malo više proteina
 sv: Bättre Nutri-Score med lite mer protein
+tr: Biraz daha fazla protein ile daha iyi Nutri-Score
+uk: Кращий Nutri-Score з трохи більшою кількістю білка
 description:en: An increase of proteins by 5% or less would result in a better Nutri-Score.
+description:bg: Увеличението на протеините с 5% или по-малко би довело до по-добър Nutri-Score.
+description:cs: Zvýšení obsahu bílkovin o 5 % nebo méně by vedlo k lepšímu Nutri-Score.
 description:da: En stigning i proteiner med 5% eller mindre ville resultere i en bedre Nutri-Score.
-description:de: Eine Erhöhung des Proteingehalts um 5% oder weniger würde zu einem besseren Nutri-Score führen.
+description:de: Eine Erhöhung des Proteingehalts um 5 % oder weniger würde zu einem besseren Nutri-Score führen.
+description:el: Μια αύξηση των πρωτεϊνών κατά 5% ή λιγότερο θα οδηγούσε σε καλύτερο Nutri-Score.
 description:es: Un aumento de las proteínas en un 5% o menos resultaría en un mejor Nutri-Score.
-description:fi: Proteiinien lisääminen 5% tai vähemmän johtaisi parempaan Nutri-Scoreen.
-description:fr: Une augmentation des protéines de 5% ou moins entraînerait un meilleur Nutri-Score.
+description:et: Valkude sisalduse suurenemine 5% või vähem tooks kaasa parema Nutri-Score'i.
+description:fi: Proteiinien lisääminen 5 % tai vähemmän johtaisi parempaan Nutri-Scoreen.
+description:fr: Une augmentation des protéines de 5 % ou moins entraînerait un meilleur Nutri-Score.
 description:hi: प्रोटीन में 5% या उससे कम की वृद्धि से न्यूट्री-स्कोर बेहतर होगा।
+description:hr: Povećanje proteina za 5% ili manje rezultiralo bi boljim Nutri-Scoreom.
+description:hu: A fehérjék 5%-os vagy kisebb mértékű növelése jobb Nutri-Score-t eredményezne.
 description:it: Un aumento delle proteine del 5% o meno comporterebbe un miglioramento del Nutri-Score.
+description:lt: Baltymų padidėjimas 5% ar mažiau pagerintų „Nutri-Score“.
+description:lv: Olbaltumvielu daudzuma palielinājums par 5% vai mazāk uzlabotu Nutri-Score.
 description:nl: Een toename van eiwitten met 5% of minder zou resulteren in een betere Nutri-Score.
-description:no: En økning av proteiner med 5% eller mindre ville resultere i en bedre Nutri-Score.
+description:no: En økning av proteiner med 5 % eller mindre vil resultere i en bedre Nutri-Score.
 description:pl: Zwiększenie zawartości białka o 5% lub mniej skutkowałoby lepszym Nutri-Score.
 description:pt: Um aumento de proteínas em 5% ou menos resultaria em um melhor Nutri-Score.
-description:sv: En ökning av protein med 5% eller mindre skulle resultera i en bättre Nutri-Score.
+description:ro: O creștere a proteinelor cu 5% sau mai puțin ar duce la un Nutri-Score mai bun.
+description:ru: Увеличение содержания белка на 5% или менее приведет к улучшению Nutri-Score.
+description:sk: Zvýšenie bielkovín o 5 % alebo menej by viedlo k lepšiemu Nutri-Score.
+description:sl: Povečanje beljakovin za 5 % ali manj bi povzročilo boljši Nutri-Score.
+description:sr: Povećanje proteina za 5% ili manje rezultiralo bi boljim Nutri-Scoreom.
+description:sv: En ökning av protein med 5 % eller mindre skulle resultera i en bättre Nutri-Score.
+description:tr: Proteinlerde %5 veya daha az bir artış daha iyi bir Nutri-Score ile sonuçlanacaktır.
+description:uk: Збільшення білків на 5% або менше призведе до кращого Nutri-Score.
 
 en: Better Nutri-Score with slightly more fiber
+bg: По-добър Nutri-Score с малко повече фибри
+cs: Lepší Nutri-Score s trochou více vlákniny
 da: Bedre Nutri-Score med lidt mere fiber
 de: Besserer Nutri-Score mit etwas mehr Ballaststoffen
+el: Καλύτερο Nutri-Score με λίγο περισσότερες φυτικές ίνες
 es: Mejor Nutri-Score con un poco más de fibra
+et: Parem Nutri-Score veidi rohkem kiudaineid
 fi: Parempi Nutri-Score hieman enemmän kuitua
 fr: Meilleur Nutri-Score avec un peu plus de fibres
 hi: थोड़ा अधिक फाइबर के साथ बेहतर न्यूट्री-स्कोर
+hr: Bolji Nutri-Score s malo više vlakana
 it: Miglior Nutri-Score con un po' più di fibre
+lt: Geresnis Nutri-Score su šiek tiek daugiau skaidulų
 nl: Beter Nutri-Score met iets meer vezels
 no: Bedre Nutri-Score med litt mer fiber
 pl: Lepszy Nutri-Score z nieco większą ilością błonnika
 pt: Melhor Nutri-Score com um pouco mais de fibras
+ro: Nutri-Score mai bun cu puțin mai multe fibre
+ru: Лучший Nutri-Score с немного большим количеством клетчатки
+sk: Lepší Nutri-Score s trochou viac vlákniny
+sl: Boljši Nutri-Score z malo več vlaknin
+sr: Bolji Nutri-Score sa malo više vlakana
 sv: Bättre Nutri-Score med lite mer fiber
+tr: Biraz daha fazla lif ile daha iyi Nutri-Score
+uk: Кращий Nutri-Score з трохи більшою кількістю клітковини
 description:en: An increase of fiber by 5% or less would result in a better Nutri-Score.
+description:bg: Увеличаването на фибрите с 5% или по-малко би довело до по-добър Nutri-Score.
+description:cs: Zvýšení vlákniny o 5 % nebo méně by vedlo k lepšímu Nutri-Score.
 description:da: En stigning i fiberindholdet med 5% eller mindre ville resultere i en bedre Nutri-Score.
 description:de: Eine Erhöhung des Ballaststoffgehalts um 5% oder weniger würde zu einem besseren Nutri-Score führen.
+description:el: Μια αύξηση των φυτικών ινών κατά 5% ή λιγότερο θα οδηγούσε σε ένα καλύτερο Nutri-Score.
 description:es: Un aumento de la fibra en un 5% o menos resultaría en un mejor Nutri-Score.
+description:et: Kiudainete sisalduse suurenemine 5% või vähem tooks kaasa parema Nutri-Score'i.
 description:fi: Kuidun lisääminen 5% tai vähemmän johtaisi parempaan Nutri-Scoreen.
 description:fr: Une augmentation des fibres de 5% ou moins entraînerait un meilleur Nutri-Score.
 description:hi: फाइबर  में 5% या उससे कम की वृद्धि से न्यूट्री-स्कोर बेहतर होगा।
+description:hr: Povećanje vlakana za 5% ili manje rezultiralo bi boljim Nutri-Scoreom.
+description:hu: A rostok 5% -os vagy kisebb mértékű növelése jobb Nutri-Score-t eredményezne.
 description:it: Un aumento delle fibre del 5% o meno comporterebbe un miglioramento del Nutri-Score.
+description:lt: Skaidulų padidėjimas 5% ar mažiau pagerintų „Nutri-Score“.
+description:lv: Šķiedrvielu daudzuma palielinājums par 5% vai mazāk uzlabotu Nutri-Score.
 description:nl: Een toename van vezels met 5% of minder zou resulteren in een betere Nutri-Score.
-description:no: En økning av fiber med 5% eller mindre ville resultere i en bedre Nutri-Score.
+description:no: En økning av fiber med 5% eller mindre vil resultere i en bedre Nutri-Score.
 description:pl: Zwiększenie zawartości błonnika o 5% lub mniej skutkowałoby lepszym Nutri-Score.
 description:pt: Um aumento de fibras em 5% ou menos resultaria em um melhor Nutri-Score.
+description:ro: O creștere a fibrelor cu 5% sau mai puțin ar duce la un Nutri-Score mai bun.
+description:ru: Увеличение содержания клетчатки на 5% или менее приведет к улучшению Nutri-Score.
+description:sk: Zvýšenie vlákniny o 5 % alebo menej by viedlo k lepšiemu Nutri-Score.
+description:sl: Povečanje vlaknin za 5 % ali manj bi povzročilo boljši Nutri-Score.
+description:sr: Povećanje vlakana za 5% ili manje rezultiralo bi boljim Nutri-Scoreom.
 description:sv: En ökning av fiber med 5% eller mindre skulle resultera i en bättre Nutri-Score.
+description:tr: Liflerde %5 veya daha az bir artış daha iyi bir Nutri-Score ile sonuçlanacaktır.
+description:uk: Збільшення вмісту клітковини на 5% або менше призведе до кращого Nutri-Score.
 
 en: Better Nutri-Score with slightly more fruits and vegetables
+bg: По-добър Nutri-Score с малко повече плодове и зеленчуци
+cs: Lepší Nutri-Score s trochou více ovoce a zeleniny
 da: Bedre Nutri-Score med lidt mere frugt og grøntsager
 de: Besserer Nutri-Score mit etwas mehr Obst und Gemüse
+el: Καλύτερο Nutri-Score με λίγο περισσότερα φρούτα και λαχανικά
 es: Mejor Nutri-Score con un poco más de frutas y verduras
+et: Parem Nutri-Score veidi rohkem puuvilju ja köögivilju
 fi: Parempi Nutri-Score hieman enemmän hedelmiä ja vihanneksia
 fr: Meilleur Nutri-Score avec un peu plus de fruits et légumes
 hi: थोड़ा अधिक फलों और सब्जियों के साथ बेहतर न्यूट्री-स्कोर
+hr: Bolji Nutri-Score s malo više voća i povrća
 it: Miglior Nutri-Score con un po' più di frutta e verdura
+lt: Geresnis Nutri-Score su šiek tiek daugiau vaisių ir daržovių
 nl: Beter Nutri-Score met iets meer fruit en groenten
 no: Bedre Nutri-Score med litt mer frukt og grønnsaker
 pl: Lepszy Nutri-Score z nieco większą ilością owoców i warzyw
 pt: Melhor Nutri-Score com um pouco mais de frutas e vegetais
+ru: Лучший Nutri-Score с немного большим количеством фруктов и овощей
+sk: Lepší Nutri-Score s trochou viac ovocia a zeleniny
+sl: Boljši Nutri-Score z malo več sadja in zelenjave
+sr: Bolji Nutri-Score sa malo više voća i povrća
 sv: Bättre Nutri-Score med lite mer frukt och grönsaker
+tr: Biraz daha fazla meyve ve sebze ile daha iyi Nutri-Score
+uk: Кращий Nutri-Score з трохи більшою кількістю фруктів та овочів
 description:en: An increase of fruits, vegetables, nuts and colza/walnut/olive oils by 5% or less would result in a better Nutri-Score.
 description:da: En stigning i frugt, grøntsager, nødder og raps-/valnød-/olivenolier med 5% eller mindre ville resultere i en bedre Nutri-Score.
 description:de: Eine Erhöhung von Obst, Gemüse, Nüssen und Raps-/Walnuss-/Olivenölen um 5% oder weniger würde zu einem besseren Nutri-Score führen.
@@ -792,17 +1598,115 @@ description:pt: Um aumento de frutas, legumes, nozes e óleos de colza/noz/oliva
 description:sv: En ökning av frukt, grönsaker, nötter och raps-/valnöt-/olivoljor med 5% eller mindre skulle resultera i en bättre Nutri-Score.
 
 en: Better Nutri-Score with slightly more fruits / vegetables / legumes
+bg: По-добър Nutri-Score с малко повече плодове / зеленчуци / бобови растения
+cs: Lepší Nutri-Score s trochou více ovoce / zeleniny / luštěnin
+da: Bedre Nutri-Score med lidt mere frugt / grøntsager / bælgfrugter
+de: Besserer Nutri-Score mit etwas mehr Obst / Gemüse / Hülsenfrüchten
+el: Καλύτερο Nutri-Score με λίγο περισσότερα φρούτα / λαχανικά / όσπρια
+es: Mejor Nutri-Score con un poco más de frutas / verduras / legumbres
+et: Parem Nutri-Score veidi rohkem puuvilju / köögivilju / kaunvilju
+fi: Parempi Nutri-Score hieman enemmän hedelmiä / vihanneksia / palkokasveja
 fr: Meilleur Nutri-Score avec un peu plus de fruits / légumes / légumes secs
+hi: थोड़ा अधिक फल / सब्जियां / फलियां के साथ बेहतर न्यूट्री-स्कोर
+hr: Bolji Nutri-Score s malo više voća / povrća / mahunarki
+it: Miglior Nutri-Score con un po' più di frutta / verdura / legumi
+lt: Geresnis Nutri-Score su šiek tiek daugiau vaisių / daržovių / ankštinių augalų
+nl: Beter Nutri-Score met iets meer fruit / groenten / peulvruchten
+no: Bedre Nutri-Score med litt mer frukt / grønnsaker / belgfrukter
+pl: Lepszy Nutri-Score z nieco większą ilością owoców / warzyw / roślin strączkowych
+pt: Melhor Nutri-Score com um pouco mais de frutas / legumes / leguminosas
+ro: Nutri-Score mai bun cu puțin mai multe fructe / legume / leguminoase
+ru: Лучший Nutri-Score с немного большим количеством фруктов / овощей / бобовых
+sk: Lepší Nutri-Score s trochou viac ovocia / zeleniny / strukovín
+sl: Boljši Nutri-Score z malo več sadja / zelenjave / stročnic
+sr: Bolji Nutri-Score sa malo više voća / povrća / mahunarki
+sv: Bättre Nutri-Score med lite mer frukt / grönsaker / baljväxter
+tr: Biraz daha fazla meyve / sebze / baklagiller ile daha iyi Nutri-Score
+uk: Кращий Nutri-Score з трохи більшою кількістю фруктів / овочів / бобових
 description:en: An increase of fruits, vegetables, legumes by 5% or less would result in a better Nutri-Score.
 description:fr: Une augmentation des fruits, légumes, légumes secs de 5% ou moins entraînerait un meilleur Nutri-Score.
 
 en: Better Nutri-Score with more fruits / vegetables / legumes
+bg: По-добър Nutri-Score с повече плодове / зеленчуци / бобови растения
+cs: Lepší Nutri-Score s více ovoce / zeleniny / luštěnin
+da: Bedre Nutri-Score med mere frugt / grøntsager / bælgfrugter
+de: Besserer Nutri-Score mit mehr Obst / Gemüse / Hülsenfrüchten
+el: Καλύτερο Nutri-Score με περισσότερα φρούτα / λαχανικά / όσπρια
+es: Mejor Nutri-Score con más frutas / verduras / legumbres
+et: Parem Nutri-Score rohkem puuvilju / köögivilju / kaunvilju
+fi: Parempi Nutri-Score enemmän hedelmiä / vihanneksia / palkokasveja
 fr: Meilleur Nutri-Score avec plus de fruits / légumes / légumes secs
+hi: अधिक फल / सब्जियां / फलियां के साथ बेहतर न्यूट्री-स्कोर
+hr: Bolji Nutri-Score s više voća / povrća / mahunarki
+it: Miglior Nutri-Score con più frutta / verdura / legumi
+lt: Geresnis Nutri-Score su daugiau vaisių / daržovių / ankštinių augalų
+nl: Beter Nutri-Score met meer fruit / groenten / peulvruchten
+no: Bedre Nutri-Score med mer frukt / grønnsaker / belgfrukter
+pl: Lepszy Nutri-Score z większą ilością owoców / warzyw / roślin strączkowych
+pt: Melhor Nutri-Score com mais frutas / legumes / leguminosas
+ro: Nutri-Score mai bun cu mai multe fructe / legume / leguminoase
+ru: Лучший Nutri-Score с большим количеством фруктов / овощей / бобовых
+sk: Lepší Nutri-Score s viac ovocia / zeleniny / strukovín
+sl: Boljši Nutri-Score z več sadja / zelenjave / stročnic
+sr: Bolji Nutri-Score sa više voća / povrća / mahunarki
+sv: Bättre Nutri-Score med mer frukt / grönsaker / baljväxter
+tr: Daha fazla meyve / sebze / baklagiller ile daha iyi Nutri-Score
+uk: Кращий Nutri-Score з більшою кількістю фруктів / овочів / бобових
 description:en: An increase of fruits, vegetables, legumes by 5% to 10% would result in a better Nutri-Score.
 description:fr: Une augmentation des fruits, légumes, légumes secs de 5% à 10% entraînerait un meilleur Nutri-Score.
 
 en: Better Nutri-Score with much more fruits / vegetables / legumes
+bg: По-добър Nutri-Score с много повече плодове / зеленчуци / бобови растения
+cs: Lepší Nutri-Score s mnohem více ovoce / zeleniny / luštěnin
+da: Bedre Nutri-Score med meget mere frugt / grøntsager / bælgfrugter
+de: Besserer Nutri-Score mit viel mehr Obst / Gemüse / Hülsenfrüchten
+el: Καλύτερο Nutri-Score με πολύ περισσότερα φρούτα / λαχανικά / όσπρια
+es: Mejor Nutri-Score con mucha más frutas / verduras / legumbres
+et: Parem Nutri-Score palju rohkem puuvilju / köögivilju / kaunvilju
+fi: Parempi Nutri-Score paljon enemmän hedelmiä / vihanneksia / palkokasveja
 fr: Meilleur Nutri-Score avec beaucoup plus de fruits / légumes / légumes secs
+hi: बहुत अधिक फल / सब्जियां / फलियां के साथ बेहतर न्यूट्री-स्कोर
+hr: Bolji Nutri-Score s puno više voća / povrća / mahunarki
+it: Miglior Nutri-Score con molta più frutta / verdura / legumi
+lt: Geresnis Nutri-Score su daug daugiau vaisių / daržovių / ankštinių augalų
+nl: Beter Nutri-Score met veel meer fruit / groenten / peulvruchten
+no: Bedre Nutri-Score med mye mer frukt / grønnsaker / belgfrukter
+pl: Lepszy Nutri-Score z dużo większą ilością owoców / warzyw / roślin strączkowych
+pt: Melhor Nutri-Score com muito mais frutas / legumes / leguminosas
+ro: Nutri-Score mai bun cu mult mai multe fructe / legume / leguminoase
+ru: Лучший Nutri-Score с гораздо большим количеством фруктов / овощей / бобовых
+sk: Lepší Nutri-Score s oveľa viac ovocia / zeleniny / strukovín
+sl: Boljši Nutri-Score z veliko več sadja / zelenjave / stročnic
+sr: Bolji Nutri-Score sa mnogo više voća / povrća / mahunarki
+sv: Bättre Nutri-Score med mycket mer frukt / grönsaker / baljväxter
+tr: Çok daha fazla meyve / sebze / baklagiller ile daha iyi Nutri-Score
+uk: Кращий Nutri-Score з набагато більшою кількістю фруктів / овочів / бобових
 description:en: An increase of fruits, vegetables, legumes by 10% to 20% would result in a better Nutri-Score.
+description:bg: Увеличение на плодовете, зеленчуците и бобовите растения с 10% до 20% би довело до по-добър Nutri-Score.
+description:cs: Zvýšení množství ovoce, zeleniny a luštěnin o 10 % až 20 % by vedlo k lepšímu Nutri-Score.
+description:da: En stigning i frugt, grøntsager og bælgfrugter på 10 % til 20 % ville resultere i en bedre Nutri-Score.
+description:de: Eine Erhöhung des Anteils an Obst, Gemüse und Hülsenfrüchten um 10 % bis 20 % würde zu einem besseren Nutri-Score führen.
+description:el: Μια αύξηση των φρούτων, λαχανικών και οσπρίων κατά 10% έως 20% θα είχε ως αποτέλεσμα ένα καλύτερο Nutri-Score.
+description:es: Un aumento de frutas, verduras y legumbres del 10% al 20% daría como resultado un mejor Nutri-Score.
+description:et: Puuviljade, köögiviljade ja kaunviljade suurendamine 10–20% võrra tooks kaasa parema Nutri-Score'i.
+description:fi: Hedelmien, vihannesten ja palkokasvien lisääminen 10–20 % parantaisi Nutri-Score-arvoa.
 description:fr: Une augmentation des fruits, légumes, légumes secs de 10% à 20% se traduirait par un meilleur Nutri-Score.
+description:hi: फलों, सब्जियों और फलियों में 10% से 20% की वृद्धि से बेहतर न्यूट्री-स्कोर प्राप्त होगा।
+description:hr: Povećanje voća, povrća i mahunarki za 10% do 20% rezultiralo bi boljim Nutri-Scoreom.
+description:hu: A gyümölcsök, zöldségek és hüvelyesek 10-20%-os növelése jobb Nutri-Score-t eredményezne.
+description:it: Un aumento di frutta, verdura e legumi dal 10% al 20% comporterebbe un miglioramento del Nutri-Score.
+description:lt: Vaisių, daržovių ir ankštinių augalų padidinimas nuo 10% iki 20% pagerintų „Nutri-Score“.
+description:lv: Augļu, dārzeņu un pākšaugu palielinājums par 10% līdz 20% uzlabotu Nutri-Score.
+description:nl: Een toename van fruit, groenten en peulvruchten met 10% tot 20% zou resulteren in een betere Nutri-Score.
+description:no: En økning av frukt, grønnsaker og belgfrukter med 10 % til 20 % vil resultere i en bedre Nutri-Score.
+description:pl: Zwiększenie ilości owoców, warzyw i roślin strączkowych o 10% do 20% skutkowałoby lepszym Nutri-Score.
+description:pt: Um aumento de frutas, legumes e leguminosas de 10% a 20% resultaria em um melhor Nutri-Score.
+description:ro: O creștere a fructelor, legumelor și leguminoaselor cu 10% până la 20% ar duce la un Nutri-Score mai bun.
+description:ru: Увеличение количества фруктов, овощей и бобовых на 10–20 % приведет к улучшению Nutri-Score.
+description:sk: Zvýšenie množstva ovocia, zeleniny a strukovín o 10 % až 20 % by viedlo k lepšiemu Nutri-Score.
+description:sl: Povečanje sadja, zelenjave in stročnic za 10 % do 20 % bi povzročilo boljši Nutri-Score.
+description:sr: Povećanje voća, povrća i mahunarki za 10% do 20% rezultiralo bi boljim Nutri-Scoreom.
+description:sv: En ökning av frukt, grönsaker och baljväxter med 10 % till 20 % skulle resultera i en bättre Nutri-Score.
+description:tr: Meyve, sebze ve baklagillerin %10 ila %20 oranında artırılması daha iyi bir Nutri-Score ile sonuçlanacaktır.
+description:uk: Збільшення кількості фруктів, овочів і бобових на 10–20 % призведе до покращення Nutri-Score.
 
