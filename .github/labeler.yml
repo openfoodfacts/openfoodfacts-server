@@ -1240,6 +1240,7 @@ Checkbot:
   - any-glob-to-any-file: 'scripts/checkbot.pl'
 
 # https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/APIProductRevert.html
+# Also points to https://nutripatrol.openfoodfacts.org/
 # Tracking issue: 
 👮 Moderation:
 - changed-files:
@@ -1253,7 +1254,7 @@ Checkbot:
   - any-glob-to-any-file: 'lib/ProductOpener/APIProductRevert.pm'
   - any-glob-to-any-file: 'scripts/make_user_moderator.pl'
   - any-glob-to-any-file: 'tests/integration/delete_user.t'
-
+  - any-glob-to-any-file: 'templates/api/knowledge-panels/report_problem/incomplete_or_incorrect_data.tt.json'
 
 # Enabling users to delete account while preserving accountability for edits
 # By default we don't delete products belonging to the user. It only happens for potential spam accounts.

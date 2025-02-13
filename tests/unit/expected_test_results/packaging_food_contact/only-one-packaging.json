@@ -1,0 +1,29 @@
+{
+   "lc" : "en",
+   "misc_tags" : [
+      "en:packagings-number-of-components-1",
+      "en:packagings-not-complete",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-not-empty"
+   ],
+   "packaging_materials_tags" : [
+      "en:plastic"
+   ],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [
+      "en:film"
+   ],
+   "packaging_text" : "plastic wrap",
+   "packagings" : [
+      {
+         "food_contact" : 1,
+         "material" : "en:plastic",
+         "shape" : "en:film"
+      }
+   ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:plastic" : {}
+   },
+   "packagings_n" : 1
+}
