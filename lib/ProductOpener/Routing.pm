@@ -415,9 +415,10 @@ sub product_route($request_ref) {
 
 	if (is_valid_code($request_ref->{components}[1])) {
 		my $code = $request_ref->{components}[1];
-		if ($code ne normalize_code($code)) {
+		my $normalized_code = normalize_code($code);
+		if ($code ne $normalized_code) {
 			# redirect to normalized code
-			$request_ref->{redirect} = product_url($code);
+			$request_ref->{redirect} = product_url($normalized_code);
 			return 1;
 		}
 		$request_ref->{product} = 1;
