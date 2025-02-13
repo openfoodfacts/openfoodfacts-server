@@ -108,9 +108,8 @@ analyze_request($request_ref);
 # If we have a redirect, execute it
 if (defined $request_ref->{redirect}) {
 	$log->debug("init_request redirect", {request_ref => $request_ref});
-	redirect_to_url($request_ref, $request_ref->{redirect_status} // 302 , $request_ref->{redirect});
+	redirect_to_url($request_ref, $request_ref->{redirect_status} // 302, $request_ref->{redirect});
 }
-
 
 # If we have an error, display the error page and return
 

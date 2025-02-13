@@ -583,7 +583,7 @@ sub facets_route($request_ref) {
 	if ($is_obsolete_url) {
 		# redirect to the canonical url
 		$request_ref->{redirect} = $request_ref->{canon_rel_url};
-		$request_ref->{redirect_code} = 301;
+		$request_ref->{redirect_status} = 301;
 	}
 
 	if (defined $request_ref->{groupby_tagtype}) {
@@ -814,7 +814,7 @@ e.g. /categories/breakfast-cereals/labels/organic/brands/monoprix
 
 Tags can be prefixed by a - to indicate that we want products without this tag
 
-Tags that where not recogniezed are left in $request_ref->{components}
+Tags that where not recognized are left in $request_ref->{components}
 
 Note that we also handle singular tags types like "brand" or "category",
 but mark them as obsolete (needs a redirect)
@@ -836,8 +836,8 @@ sub extract_tagtype_and_tag_value_pairs_from_components ($request_ref) {
 		$found = defined $tagtype;
 		next unless $found;
 
-		shift @$components_ref;  # consume tag type
-		# even one singular make the url obsolete
+		shift @$components_ref;    # consume tag type
+								   # even one singular make the url obsolete
 		$is_obsolete_url ||= $is_singular;
 
 		my $tag_prefix;
