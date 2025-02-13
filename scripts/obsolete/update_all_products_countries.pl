@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -26,6 +26,7 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -44,7 +45,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 
 # Get a list of all products
@@ -75,8 +76,8 @@ my $cursor = $products_collection->query({})->fields({ code => 1 });
 				foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
 					push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
 				}
-			}		
-			elsif (defined $hierarchy_fields{$field}) {		
+			}
+			elsif (defined $hierarchy_fields{$field}) {
 				$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy($field, $product_ref->{$field}) ];
 				$product_ref->{$field . "_tags" } = [];
 				foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
@@ -85,12 +86,12 @@ my $cursor = $products_collection->query({})->fields({ code => 1 });
 					}
 				}
 			}
-			
+
 		# Store
 
-		store("$data_root/products/$path/product.sto", $product_ref);		
+		store( "$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref );
 		$products_collection->save($product_ref);
-		
+
 		}
 	}
 

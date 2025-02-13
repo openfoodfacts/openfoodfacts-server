@@ -1,0 +1,109 @@
+div.tagsinput {
+    line-height: 1.2;
+    resize: vertical; /* Make the box manually resizable, vertically (CSS3) */
+}
+
+div.tagsinput input {
+    box-shadow: none;
+}
+
+div.tagsinput input:focus {
+    background: none;
+    border: none;
+}
+
+.ui-selectable { list-style-type: none; margin: 0; padding: 0; }
+
+.ui-selectable img {
+  vertical-align:middle;
+}
+.ui-selectee:hover { background: #FECA40; }
+.ui-selected { background: #F39814!important; color: white!important; }
+
+.command { margin-bottom:5px; }
+
+label { margin-top: 20px; }
+
+fieldset { margin-top: 15px; margin-bottom:15px;}
+
+legend { font-size: 1.375em; }
+
+textarea {  height:8rem; }
+
+.display { float:right; margin-top:10px;margin-bottom:10px; max-width:400px; }
+.cropbox { max-width:100%; }
+.cropimgdiv { width:100%; max-height:800px;}
+.ingredients_image_full { max-height:400px }
+
+
+.upload_image_div {
+	padding-top:0.5rem;
+}
+
+.button_div {
+	margin-top:0.5rem;
+}
+
+#label_new_code, #new_code { display: inline; margin-top: 0px; width:200px; }
+
+th {
+	font-weight:bold;
+}
+
+.contained {
+	border:1px solid #ccc;
+	padding:1rem;
+}
+
+#product_form ul.tabs {
+	border-top:1px solid #ccc;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+	background-color:#EFEFEF;
+}
+
+#product_form .tabs dd>a, #product_form .tabs .tab-title>a {
+padding:0.5rem 1rem;
+}
+
+#product_form .tabs-content {
+	background-color:white;
+	padding:1rem;
+	border-bottom:1px solid #ccc;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+}
+
+.select_add_language {
+	border:0;
+}
+
+
+#product_form ul.tabs .select2-container--default .select2-selection--single {
+	height:2.5rem;
+	top:0;
+	border:0;
+	background-color: #0099ff;
+	color: #FFFFFF;
+	transition: background-color 300ms ease-out;
+}
+
+#product_form ul.tabs .select2-container--default .select2-selection--single:hover, #product_form ul.tabs .select2-container--default .select2-selection--single:focus {
+	background-color: #007acc;
+	color:#FFFFFF;
+}
+
+#product_form ul.tabs .select2-container--default .select2-selection--single .select2-selection__arrow b {
+  border-color: #fff transparent transparent transparent;
+	margin-top:4px;
+}
+
+#product_form ul.tabs .select2-container--default .select2-selection--single .select2-selection__placeholder {
+	color:white;
+}
+
+#product_form ul.tabs .select2-container--default .select2-selection--single .select2-selection__rendered {
+	line-height:2.5rem;
+}
+
+

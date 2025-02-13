@@ -1,0 +1,22 @@
+{
+   "errors" : [
+      {
+         "field" : {
+            "id" : "body",
+            "value" : ""
+         },
+         "impact" : {
+            "id" : "failure",
+            "lc_name" : "Failure",
+            "name" : "Failure"
+         },
+         "message" : {
+            "id" : "empty_request_body",
+            "lc_name" : "Empty request body",
+            "name" : "Empty request body"
+         }
+      }
+   ],
+   "status" : "failure",
+   "warnings" : []
+}

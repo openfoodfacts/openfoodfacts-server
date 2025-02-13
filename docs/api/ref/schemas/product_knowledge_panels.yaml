@@ -1,0 +1,6 @@
+type: object
+description: |
+  Knowledge panels for a product
+properties:
+  knowledge_panels:
+    $ref: ./knowledge_panels/panels.yaml

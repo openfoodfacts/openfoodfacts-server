@@ -1,0 +1,16 @@
+type: object
+title: get_product_by_barcode_base_response
+properties:
+  code:
+    type: string
+    description: |
+      Barcode of the product
+      (can be EAN-13 or internal codes for some food stores).
+      For products without a barcode, Open Food Facts assigns a 
+      number starting with the 200 reserved prefix.
+  status:
+    type: integer
+    enum: [0, 1]
+    description: Return values based on ProductOpener/Display.pm analysis
+  status_verbose:
+    type: string

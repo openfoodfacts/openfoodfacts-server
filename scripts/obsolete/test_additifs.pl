@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -26,6 +26,7 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -44,7 +45,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 
 # Get a list of all products
@@ -67,16 +68,17 @@ my $cursor = get_products_collection()->query({})->fields({ code => 1 })->sort({
 		#next if $code ne '3329770041684';
 		
 		#print "testing product $code\n";
-		
+
 		$product_ref = retrieve_product($code);
 		my $class = 'additives';
-		defined $product_ref->{$class . '_tags'} or	$product_ref->{$class . '_tags'} = [];		
-		
+		defined $product_ref->{ $class . '_tags' }
+			or $product_ref->{ $class . '_tags' } = [];
+
 		my @old_r = @{$product_ref->{$class . '_tags'}};
 		my @old = @old_r;
 
 		# Update
-		extract_ingredients_classes_from_text($product_ref);
+		extract_additives_from_text($product_ref);
 		
 		my @new = @{$product_ref->{$class . '_tags'}};
 		my %old = {};
@@ -103,15 +105,15 @@ my $cursor = get_products_collection()->query({})->fields({ code => 1 })->sort({
 				$minus{$id}++;
 			}
 		}
-		
+
 		foreach my $id (@new) {
-			if (not $old{$id}) {
-				$change .= "+$id ";
+			if ( not $old{$id} ) {
+				$change      .= "+$id ";
 				$change_html .= "<span style=\"color:#0a0\">+$id</span> ";
 				$plus{$id}++;
 			}
-		}		
-		
+		}
+
 		if ($change ne '') {
 			print "change for $code: $change\n";
 		}
@@ -120,8 +122,8 @@ my $cursor = get_products_collection()->query({})->fields({ code => 1 })->sort({
 		
 		next if $path =~ /invalid/;
 
-		if (-e "$data_root/products/$path/product.sto") {
-			#store("$data_root/products/$path/product.sto", $product_ref);		
+		if (-e "$BASE_DIRS{PRODUCTS}/$path/product.sto") {
+			#store("$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref);		
 			#get_products_collection()->save($product_ref);
 		
 			# print $OUT "<a href=\"" . product_url($product_ref) . "\">$product_ref->{code} - $product_ref->{name}</a> : " . join (" ", sort @{$product_ref->{$class . '_tags'}}) . "<br />\n";
@@ -134,18 +136,17 @@ my $cursor = get_products_collection()->query({})->fields({ code => 1 })->sort({
 	
 print $OUT "<br><br><br>Additifs les plus enlevés :</br>";
 
-foreach my $id (sort { $minus{$b} <=> $minus{$a} } keys %minus) {
+foreach my $id ( sort { $minus{$b} <=> $minus{$a} } keys %minus ) {
 	print $OUT "<span style=\"color:#a00\">($id)</span> : $minus{$id}<br/>\n";
-}	
+}
 
 print $OUT "<br><br><br>Additifs les plus ajoutés :</br>";
 
-foreach my $id (sort { $plus{$b} <=> $plus{$a} } keys %plus) {
+foreach my $id ( sort { $plus{$b} <=> $plus{$a} } keys %plus ) {
 	print $OUT "<span style=\"color:#0a0\">+$id</span> : $plus{$id}<br/>\n";
-}	
-	
-	
-close $OUT;	
+}
+
+close $OUT;
 
 exit(0);
 

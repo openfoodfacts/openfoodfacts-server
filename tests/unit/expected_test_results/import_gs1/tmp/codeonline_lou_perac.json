@@ -1,0 +1,330 @@
+{
+   "tradeItem" : {
+      "brandOwner" : {
+         "gln" : "3010232601309",
+         "partyName" : "LOU PERAC"
+      },
+      "gdsnTradeItemClassification" : {
+         "gpcCategoryCode" : "10000028"
+      },
+      "gtin" : "03023260022725",
+      "informationProviderOfTradeItem" : {
+         "gln" : "3010232601309",
+         "partyName" : "0"
+      },
+      "isTradeItemAConsumerUnit" : "true",
+      "targetMarket" : {
+         "targetMarketCountryCode" : "250"
+      },
+      "tradeItemContactInformation" : [
+         {
+            "contactAddress" : "CS70240 -  12250 Roquefort-sur-Soulzon - France",
+            "contactName" : "Société des Caves",
+            "contactTypeCode" : "BZL",
+            "structuredAddress" : {
+               "streetAddress" : "CS70240 -  12250 Roquefort-sur-Soulzon - France"
+            }
+         },
+         {
+            "contactAddress" : "CS70240 -  12250 Roquefort-sur-Soulzon - France",
+            "contactName" : "Société des Caves",
+            "contactTypeCode" : "CXC"
+         }
+      ],
+      "tradeItemInformation" : {
+         "extension" : {
+            "allergen_information:allergenInformationModule" : {
+               "allergenRelatedInformation" : [
+                  {
+                     "allergen" : [
+                        {
+                           "allergenTypeCode" : "AM",
+                           "levelOfContainmentCode" : "CONTAINS"
+                        }
+                     ],
+                     "allergenStatement" : {
+                        "#" : "LAIT",
+                        "@" : {
+                           "languageCode" : "fr"
+                        }
+                     },
+                     "isAllergenRelevantDataProvided" : "true"
+                  }
+               ]
+            },
+            "consumer_instructions:consumerInstructionsModule" : {
+               "consumerInstructions" : {
+                  "consumerStorageInstructions" : {
+                     "#" : "2°c - 6°c",
+                     "@" : {
+                        "languageCode" : "fr"
+                     }
+                  }
+               }
+            },
+            "food_and_beverage_ingredient:foodAndBeverageIngredientModule" : {
+               "ingredientStatement" : {
+                  "#" : "Ingrédients : LAIT pasteurisé de brebis, ferments lactiques, sel, présure animale, chlorure de calcium, colorant de croûte : caramel",
+                  "@" : {
+                     "languageCode" : "fr"
+                  }
+               },
+               "isIngredientRelevantDataProvided" : "TRUE"
+            },
+            "health_related_information:healthRelatedInformationModule" : {
+               "healthRelatedInformation" : {
+                  "compulsoryAdditiveLabelInformation" : {
+                     "#" : "Dans le cadre d'une alimentation variée et équilibrée et d'un mode de vie sain.",
+                     "@" : {
+                        "languageCode" : "fr"
+                     }
+                  }
+               }
+            },
+            "nutritional_information:nutritionalInformationModule" : {
+               "isNutrientRelevantDataProvided" : "false",
+               "nutrientHeader" : [
+                  {
+                     "dailyValueIntakeReference" : {
+                        "#" : "Apports de référence pour un adulte type (8400kj/2000 Kcal)",
+                        "@" : {
+                           "languageCode" : "fr"
+                        }
+                     },
+                     "nutrientDetail" : [
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "SALTEQ",
+                           "quantityContained" : [
+                              {
+                                 "#" : "1.6",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "FASAT",
+                           "quantityContained" : [
+                              {
+                                 "#" : "23.57",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "PRO-",
+                           "quantityContained" : [
+                              {
+                                 "#" : "15.6",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "ENER-",
+                           "quantityContained" : [
+                              {
+                                 "#" : "1494",
+                                 "@" : {
+                                    "measurementUnitCode" : "KJO"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "SUGAR-",
+                           "quantityContained" : [
+                              {
+                                 "#" : "0",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "FAT",
+                           "quantityContained" : [
+                              {
+                                 "#" : "33.2",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "CHOAVL",
+                           "quantityContained" : [
+                              {
+                                 "#" : "0",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "ENER-",
+                           "quantityContained" : [
+                              {
+                                 "#" : "361",
+                                 "@" : {
+                                    "measurementUnitCode" : "E14"
+                                 }
+                              }
+                           ]
+                        }
+                     ],
+                     "preparationStateCode" : "UNPREPARED",
+                     "servingSize" : {
+                        "#" : "100",
+                        "@" : {
+                           "measurementUnitCode" : "GRM"
+                        }
+                     }
+                  }
+               ]
+            },
+            "place_of_item_activity:placeOfItemActivityModule" : {
+               "placeOfProductActivity" : {
+                  "countryOfOrigin" : {
+                     "countryCode" : "250"
+                  }
+               }
+            },
+            "referenced_file_detail_information:referencedFileDetailInformationModule" : {
+               "referencedFileHeader" : [
+                  {
+                     "contentDescription" : {
+                        "#" : "visualVariantDescription : GOUSTAL",
+                        "@" : {
+                           "languageCode" : "fr"
+                        }
+                     },
+                     "fileEffectiveStartDateTime" : "2020-03-12T00:00:00+02:00",
+                     "isPrimaryFile" : "TRUE",
+                     "referencedFileTypeCode" : "PRODUCT_IMAGE",
+                     "uniformResourceIdentifier" : "https://lctls-marketing.alchemyasp.com/permalink_gs1/2/12259/document/FcbIIbf2TJBLhoho5HZ3DVHtTntaCFrIeiwso9irgw6EdPfDAKV1uYm5DO6i4OIU/03023260022725_C1L1_s02.png"
+                  },
+                  {
+                     "contentDescription" : {
+                        "#" : "visualVariantDescription : GOUSTAL",
+                        "@" : {
+                           "languageCode" : "fr"
+                        }
+                     },
+                     "fileEffectiveEndDateTime" : "2020-03-12T00:00:00+02:00",
+                     "fileEffectiveStartDateTime" : "2017-04-01T00:00:00+02:00",
+                     "isPrimaryFile" : "FALSE",
+                     "referencedFileTypeCode" : "PRODUCT_IMAGE",
+                     "uniformResourceIdentifier" : "https://lctls-marketing.alchemyasp.com/permalink_gs1/2/11754/document/ZBSwBJuGhqMX1OySPYueYvuku582vF4RyY5nIQdnlAYBUBuMDpKJ9VnlE6Trfh7r/03023260022725_C1N1_s01.png"
+                  },
+                  {
+                     "contentDescription" : {
+                        "#" : "visualVariantDescription : GOUSTAL",
+                        "@" : {
+                           "languageCode" : "fr"
+                        }
+                     },
+                     "fileEffectiveStartDateTime" : "2020-03-12T00:00:00+02:00",
+                     "isPrimaryFile" : "FALSE",
+                     "referencedFileTypeCode" : "PRODUCT_IMAGE",
+                     "uniformResourceIdentifier" : "https://lctls-marketing.alchemyasp.com/permalink_gs1/2/12882/document/ktk0hJGGnn5kOg2F7T6dj8JeRZhnaAOR1U11blgEXppOFFIf73UfF8ns8NG5i7lF/03023260022725_C1N1_s02.png"
+                  },
+                  {
+                     "contentDescription" : {
+                        "#" : "visualVariantDescription : GOUSTAL",
+                        "@" : {
+                           "languageCode" : "fr"
+                        }
+                     },
+                     "fileEffectiveEndDateTime" : "2020-03-12T00:00:00+02:00",
+                     "fileEffectiveStartDateTime" : "2017-04-01T00:00:00+02:00",
+                     "isPrimaryFile" : "TRUE",
+                     "referencedFileTypeCode" : "PRODUCT_IMAGE",
+                     "uniformResourceIdentifier" : "https://lctls-marketing.alchemyasp.com/permalink_gs1/2/11752/document/DB7jDIQtDXyjgcmwaVb9cUAiU97QH5a6vShYear7xMWqBW9qiBGIC6H7zGeKrceo/03023260022725_C1C1_s01.png"
+                  },
+                  {
+                     "contentDescription" : {
+                        "#" : "produitVariantDescription : 1",
+                        "@" : {
+                           "languageCode" : "fr"
+                        }
+                     },
+                     "fileEffectiveStartDateTime" : "2020-03-12T00:00:00+02:00",
+                     "isPrimaryFile" : "FALSE",
+                     "referencedFileTypeCode" : "PRODUCT_IMAGE",
+                     "uniformResourceIdentifier" : "https://lctls-marketing.alchemyasp.com/permalink_gs1/2/12881/document/jilKAdX9zazAiMBFxwFOtpqXKHlbyXH6898SzwrNOlaxyERVia9fv4mQnZsnUFia/03023260022725_C7N1_s02.png"
+                  },
+                  {
+                     "contentDescription" : {
+                        "#" : "produitVariantDescription : 1",
+                        "@" : {
+                           "languageCode" : "fr"
+                        }
+                     },
+                     "fileEffectiveStartDateTime" : "2017-04-01T00:00:00+02:00",
+                     "isPrimaryFile" : "FALSE",
+                     "referencedFileTypeCode" : "PRODUCT_IMAGE",
+                     "uniformResourceIdentifier" : "https://lctls-marketing.alchemyasp.com/permalink_gs1/2/11753/document/DxG3UwxTO7wnpF8BsBBzpjy3xHEqxUmw9xd6a4zjS5WQTDkiOq2Gv8r6KVoaKpad/03023260022725_C7N1_s01.png"
+                  }
+               ]
+            },
+            "trade_item_description:tradeItemDescriptionModule" : {
+               "tradeItemDescriptionInformation" : {
+                  "brandNameInformation" : {
+                     "brandName" : "LOU PERAC",
+                     "subBrand" : "Lou perac"
+                  },
+                  "descriptionShort" : {
+                     "#" : "GOUSTAL L-PERAC",
+                     "@" : {
+                        "languageCode" : "fr"
+                     }
+                  },
+                  "regulatedProductName" : {
+                     "#" : "Fromage de brebis au lait pasteurisé",
+                     "@" : {
+                        "languageCode" : "fr"
+                     }
+                  },
+                  "tradeItemDescription" : {
+                     "#" : "LOU PERAC GOUSTAL 440g lait brebis pasteurisé 33%MG s/PF",
+                     "@" : {
+                        "languageCode" : "fr"
+                     }
+                  }
+               }
+            },
+            "trade_item_measurements:tradeItemMeasurementsModule" : {
+               "tradeItemMeasurements" : {
+                  "netContent" : {
+                     "#" : "0.44",
+                     "@" : {
+                        "measurementUnitCode" : "KGM"
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "tradeItemSynchronisationDates" : {
+         "lastChangeDateTime" : "2020-07-10T11:54:50.00744+02:00"
+      },
+      "tradeItemUnitDescriptorCode" : "BASE_UNIT_OR_EACH"
+   }
+}

@@ -1,0 +1,13 @@
+type: object
+title: panels
+description: |-
+  The panels object is a dictionary of individual panel objects.
+  Each key of the dictionary is the id of the panel, and the value is the panel object.
+
+  Apps typically display a number of root panels with known panel ids (e.g. health_card and environment_card). Panels can reference other panels and display them as sub-panels.
+examples:
+  - additionalProperties: string
+properties:
+  additionalProperties:
+    $ref: ./panel.yaml
+readOnly: true

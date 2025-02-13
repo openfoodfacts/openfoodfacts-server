@@ -1,0 +1,169 @@
+{
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "20047",
+         "ecobalyse_code" : "tomato-heated-greenhouse-eu",
+         "id" : "en:peeled-tomatoes",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 58.3333333333333,
+         "percent_max" : 100,
+         "percent_min" : 16.6666666666667,
+         "processing" : "en:cooked",
+         "text" : "tomates pelées",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "13009",
+         "ecobalyse_code" : "6ece5452-42de-4e0a-8c70-1d305e614cc8",
+         "id" : "en:lemon",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 20.8333333333333,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "processing" : "en:sliced",
+         "text" : "citron",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "20020",
+         "ecobalyse_code" : "zucchini-eu",
+         "id" : "en:courgette",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 10.4166666666667,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "processing" : "en:diced",
+         "text" : "courgette",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "19051",
+         "ecobalyse_code" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
+         "id" : "en:raw-milk",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 5.20833333333333,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "lait cru",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "20053",
+         "ecobalyse_code" : "eggplant-eu",
+         "id" : "en:aubergine",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 2.60416666666666,
+         "percent_max" : 20,
+         "percent_min" : 0,
+         "processing" : "en:raw",
+         "text" : "aubergines",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "28800",
+         "id" : "en:raw-ham",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 2.60416666666666,
+         "percent_max" : 16.6666666666667,
+         "percent_min" : 0,
+         "processing" : "en:sliced",
+         "text" : "jambon cru",
+         "vegan" : "no",
+         "vegetarian" : "no"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:raw-milk",
+         "en:raw-ham"
+      ],
+      "en:non-vegetarian" : [
+         "en:raw-ham"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:non-vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:peeled-tomatoes",
+      "en:vegetable",
+      "en:fruit-vegetable",
+      "en:tomato",
+      "en:lemon",
+      "en:fruit",
+      "en:citrus-fruit",
+      "en:courgette",
+      "en:raw-milk",
+      "en:dairy",
+      "en:milk",
+      "en:aubergine",
+      "en:raw-ham",
+      "en:animal",
+      "en:meat",
+      "en:pork",
+      "en:pork-meat",
+      "en:ham"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 6,
+   "ingredients_n_tags" : [
+      "6",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:peeled-tomatoes",
+      "en:lemon",
+      "en:courgette",
+      "en:raw-milk",
+      "en:aubergine",
+      "en:raw-ham"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:peeled-tomatoes",
+      "en:vegetable",
+      "en:fruit-vegetable",
+      "en:tomato",
+      "en:lemon",
+      "en:fruit",
+      "en:citrus-fruit",
+      "en:courgette",
+      "en:raw-milk",
+      "en:dairy",
+      "en:milk",
+      "en:aubergine",
+      "en:raw-ham",
+      "en:animal",
+      "en:meat",
+      "en:pork",
+      "en:pork-meat",
+      "en:ham"
+   ],
+   "ingredients_text" : "tomates pelées cuites, rondelle de citron, dés de courgette, lait cru, aubergines crues, jambon cru en tranches",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 6,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:raw-ham"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
+   "known_ingredients_n" : 18,
+   "lc" : "fr",
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 92.1875,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 92.1875,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 92.1875,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 92.1875
+   },
+   "unknown_ingredients_n" : 0
+}

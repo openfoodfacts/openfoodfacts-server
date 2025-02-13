@@ -1,0 +1,58 @@
+{
+    "level": "info",
+    "topics": [
+        "health"
+    ],
+    "title_element": {
+        "icon_url": "[% static_subdomain %]/images/icons/dist/info.svg",
+        "icon_size": "small",
+        "title":  "[% edq(lang('nutriscore_calculation_details')) %]",
+        "type": "info"
+    },
+    "elements": [
+        // Display warnings
+        [% IF panel.nutriscore_warnings %]
+            [% FOREACH warning IN panel.nutriscore_warnings %]
+            {
+                "element_type": "text",
+                "text_element": {
+                    "type": "warning",
+                    "html": `[% warning %]
+                    `,
+                }
+            },
+            [% END %]
+        [% END %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `
+[% IF product.nutriscore.2023.data.is_beverage %]
+    <p>[% lang('nutriscore_is_beverage') %]</p>
+[% ELSE %]
+    <p>[% lang('nutriscore_is_not_beverage') %]</p>
+[% END %]
+[% IF product.nutriscore.2023.data.is_water %]
+    <p>[% lang('nutriscore_is_water') %]</p>
+[% END %]
+[% IF product.nutriscore.2023.data.is_fat_oil_nuts_seeds %]
+    <p>[% lang('nutriscore_is_fat_oil_nuts_seeds') %]</p>
+[% END %]
+[% IF product.nutriscore.2023.data.is_cheese %]
+    <p>[% lang('nutriscore_is_cheese') %]</p>
+[% END %]
+[% IF product.nutriscore.2023.data.is_red_meat_product %]
+    <p>[% lang('nutriscore_is_red_meat_product') %]</p>
+[% END %]
+<p>[% lang("nutriscore_count_proteins_reason_" _ product.nutriscore.2023.data.count_proteins_reason )%]</p>
+
+<p>
+  <strong>[% lang('nutriscore_score') %][% sep %]: [% product.nutriscore.2023.score %]</strong>
+  ([% product.nutriscore.2023.data.negative_points %] - [% product.nutriscore.2023.data.positive_points %])
+</p>
+<p><strong>[% lang('nutriscore_grade') %][% sep %]: [% product.nutriscore.2023.grade FILTER ucfirst %]</strong></p>                
+                `,
+            }
+        },        
+    ]
+}

@@ -1,5 +1,45 @@
+$lightskyblue:#f0f5f9;
+$skyblue:#D9E5F2;
+$paleblue:#EAF5FB;
+$pastelblue:#ABD7F0;
+$dark:#4F4F4F;
+$oceanblue:#00588d;
+$bluegrey:#E8EEF4;
 $animal: #f00;
 $cereal: #fc0;
 $plant: #00d400;
 $dark-fish: #06f;
 $light-fish: #0cf;
+
+// OFF colors
+$latte: #F6F3F0;
+$cappucino: #EDE0DB;
+$mocha: #85746C;
+$chocolate: #341100;
+$macchiato: #A08D84;
+$cortado: #52443D;
+$ristreto: #201A17;
+
+$off-orange: #ff8714;
+$off-blue: #0064c8;
+$off-turquoise: #008C8C;
+$off-pink: #FF6E78;
+
+// non-official colors, but still used across the project
+$highlight-yellow: #FFC51C;
+$highlight-green: #009664;
+$highlight-dark-orange: #FF6E3C;
+$highlight-light-blue: #4cb1f8;
+
+// additional top bar color between latte and cappucino
+$cafecreme: #f2e9e4;
+
+$top-bar-color: $ristreto;
+$menu-bar-color: $latte;
+$text-color: black;
+$text-color-dark: white;
+$primary-button-color: $chocolate;
+$secondary-button-color: $cappucino;
+$primary-button-color-dark: $cappucino;
+$secondary-button-color-dark: $macchiato;
+

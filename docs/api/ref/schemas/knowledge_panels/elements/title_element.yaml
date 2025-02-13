@@ -1,0 +1,38 @@
+title: title_element
+x-stoplight:
+  id: lox0wvl9bdgy2
+type: object
+description: The title of a panel.
+properties:
+  name:
+    type: string
+    description: A short name of this panel, not including any actual values
+  title:
+    type: string
+  type:
+    type: string
+    enum:
+      - grade
+      - percentage
+    description: 'Used to indicate how the value of this item is measured, such as "grade" for Nutri-Score and Eco-Score or "percentage" for Salt'
+  grade:
+    type: string
+    description: The value for this panel where it corresponds to a A to E grade such as the Nutri-Score of the Eco-Score.
+    enum:
+      - a
+      - b
+      - c
+      - d
+      - e
+      - unknown
+  value:
+    type: number
+    description: 'The numeric value of the panel, where the type is "percentage"'
+  icon_url:
+    type: string
+  icon_color_from_evaluation:
+    type: string
+  icon_size:
+    type: string
+    description: |
+      If set to "small", the icon should be displayed at a small size.

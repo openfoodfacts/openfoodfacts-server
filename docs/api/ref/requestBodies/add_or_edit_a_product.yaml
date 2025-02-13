@@ -1,0 +1,55 @@
+type: object
+description: |
+  You can provide most of the properties defined in the product schema.
+properties:
+  code:
+    type: string
+    description: The barcode of the product to be added or edited
+    example: "0074570036004"
+  user_id:
+    type: string
+    description: A valid username.
+    example: myusername
+  password:
+    type: string
+    description: A valid corresponding password (related to specific environment).
+    example: mypassword
+  comment:
+    type: string
+    description: A comment for the change. It will be shown in product changes history.
+    example: new packaging from super-app
+  brands:
+    type: array
+    items:
+      type: string
+    description: The brands of the product (comma separated list of values).
+    examples:
+      - - Häagen-Dazs
+          General-mills
+  labels:
+    type: array
+    items:
+      type: string
+    description: The labels of the product (comma separated list of values).
+    examples:
+      - - Kosher
+          Ferroro
+  categories:
+    type: array
+    items:
+      type: string
+    description: The categories of the product (comma separated list of values).
+    examples:
+      - - Desserts
+          Frozen foods
+  packaging:
+    type: string
+    description: |
+      Packaging type, format, material.
+      The [v3 API documentation](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v3/#operation/post-api-v3-product-barcode)
+      has a more structured data for `packaging`.
+    example: Frozen
+required:
+  - code
+  - user_id
+  - password

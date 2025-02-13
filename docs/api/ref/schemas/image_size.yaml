@@ -1,0 +1,16 @@
+type: object
+title: image_size
+description: |
+  properties of fullsize image
+  **TODO** explain how to compute name
+properties:
+  h:
+    type: integer
+    example: 400
+    description: |
+      The height of the reduced/full image in pixels.
+  w:
+    type: integer
+    example: 255
+    description: |
+      The width of the reduced/full image in pixels.

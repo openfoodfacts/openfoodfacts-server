@@ -1,28 +1,75 @@
 # Configuration
-lib/ProductOpener/Config.pm
 lib/ProductOpener/Config2.pm
 lib/ProductOpener/SiteLang.pm
-taxonomies/nutrient_levels.txt
+po/site-specific
+
+# tests outputs
+tests/unit/outputs/
+tests/integration/outputs/
+
+# local configs, most of them are link to files in conf/ depending on instance
+/html/.well-known/apple-*
+/log.conf
+/minion_log.conf
+
+# data dirs - we shall not mix data and git files, as it makes deployments/updates difficult
+/build-cache
+/debug
+/deleted.images
+/dist
+/logs
+/new_images
+/orgs
+/products
+/tmp
+/users
+/imports
+/lang
+/html/dump
+/html/files
+/html/data
+/html/exports
+/deleted_private_products
+/deleted_products
+/deleted_products_images
+/export_files
+
+# Images
+/html/images/products
+
 
 # Local files
-.DS_Store?
+.DS_Store
 ._*
 .Spotlight-V100
 .Trashes
 ehthumbs.db
 Thumbs.db
 .vstags
+# editors
+.~*
+.*.swo
+.*.swp
+.vscode/launch.json
+.vscode/perl-lang/
+.vscode/settings.json
+.idea/
 
 # Logs
+logs/
+!scripts/utils/logs
+debug/
 Store.debug.txt
 *.log
-logs/modperl_error_log
+nytprof*.out
 
 # Local databases
 data/mongodb
 Lang.open*
 users_emails.sto
 html/data/*
+html/products_countries.js
+products_stats_*.html
 
 # Libraries
 node_modules
@@ -30,9 +77,37 @@ html/bower_components
 local
 
 # Front build
-html/css/dist
-html/js/dist
-html/images/icons/dist
+/html/css/dist
+/html/js/dist
+/html/images/icons/dist
+/html/images/attributes/dist
 
 # Don't store helm dependencies in our git repo
 docker/productopener/charts
+docker/logs
+
+# Exclude 3rd party deps, because SonarCloud ignores files in a .gitignore
+html/js/datatables.*
+html/js/jquery*
+html/js/*nivo-zoom*
+html/js/sigma*
+
+# coverage data
+/cover_db
+
+# Env files
+.env*
+venv
+
+# Taxonomies and cache
+cache
+taxonomies/*.sto
+taxonomies/*.result.txt
+taxonomies/*.all.txt
+/build-cache/taxonomies/*.json
+/build-cache/taxonomies/*.sto
+/build-cache/taxonomies/*.result.txt
+
+# Shared services and other dependencies
+/deps
+/deps/*

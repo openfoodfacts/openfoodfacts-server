@@ -1,0 +1,27 @@
+<!-- start templates/[% template.name %] -->
+
+<p>You can use this form to see how an ingredient list is analyzed.</p>
+
+<form method="get" action="/cgi/test_ingredients_analysis.pl" enctype="multipart/form-data">
+    
+    Ingredients text (language code: [% lc %]): <br/>
+    <textarea id="ingredients_text" name="ingredients_text" style="height:8rem;">[% ingredients_text %]</textarea>
+    <input type="hidden" name="type" value="[% type %]"/>
+    <input type="hidden" name="action" value='process'/>
+    <input type="submit" name="submit">
+
+</form>
+
+[% IF action == 'process' %]
+    <h4>Preparsed ingredients text</h4>
+    <p>[% preparsed_ingredients_text %]</p>
+    [% display_ingredients_analysis %]
+    <h4>Ingredients analysis</h4>
+    [% html_details %]
+    <h4>JSON</h4>
+    <pre>
+    [% json %]
+    </pre>
+[% END %]
+
+<!-- end templates/[% template.name %] -->

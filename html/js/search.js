@@ -1,7 +1,7 @@
 // This file is part of Product Opener.
 //
 // Product Opener
-// Copyright (C) 2011-2020 Association Open Food Facts
+// Copyright (C) 2011-2024 Association Open Food Facts
 // Contact: contact@openfoodfacts.org
 // Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 //
@@ -18,21 +18,22 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-function modifySearchCriterion(element, criterion_number){
+function modifySearchCriterion(element, criterion_number) {
 	//Type of criterion
-	var typeSelect = $(element).find("#tagtype_0");
+	const selects = element.find('select');
+	const typeSelect = selects.eq(0);
 	typeSelect.attr("name", "tagtype_" + criterion_number);
 	typeSelect.attr("id", "tagtype_" + criterion_number);
 	typeSelect.val();
 
 	//Contains/Does not contain select
-	var containsSelect = $(element).find("#tag_contains_0");
+	const containsSelect = selects.eq(1);
 	containsSelect.attr("name", "tag_contains_" + criterion_number);
 	containsSelect.attr("id", "tag_contains_" + criterion_number);
 	containsSelect.val();
 
 	//Criterion value
-	var tagContent = $(element).find("#tag_0");
+	const tagContent = element.find('input');
 	tagContent.attr("name", "tag_" + criterion_number);
 	tagContent.attr("id", "tag_" + criterion_number);
 	tagContent.val("");
@@ -41,21 +42,33 @@ function modifySearchCriterion(element, criterion_number){
 }
 
 function addSearchCriterion(target, criteria_number) {
-	var criterionRow1 = modifySearchCriterion($(".criterion-row").first().clone(), criteria_number);
-	var criterionRow2 = modifySearchCriterion($(".criterion-row").first().clone(), criteria_number + 1);
+	const first = $(".criterion-row").first();
 
-	$(".criterion-row").last().after(criterionRow1);
-	$(".criterion-row").last().after(criterionRow2);
+	first.parent().append(
+		modifySearchCriterion(first.clone(), criteria_number)
+	);
+
+	// keep it responsive
+	if (Foundation.utils.is_large_up()) {
+		first.parent().append(
+			modifySearchCriterion(first.clone(), criteria_number + 1)
+		);
+	}
 }
 
-(function( $ ){
-	//On criterion value change
-	$(document).on("change", ".tag-search-criterion > input", function(e){
-		var criterionNumber = parseInt(e.target.name.substr(e.target.name.length - 1), 10);
-		//If it's the last criterion, add two more
-		if(!isNaN(criterionNumber) && $("#tag_" + (criterionNumber + 1).toString()).length === 0){
-			addSearchCriterion(e.target, criterionNumber + 1);
+(function ($) {
+	//On criterion value change for the last criterion
+	$(document).on("change", ".criterion-row:last .tag-search-criterion > input", function (e) {
+		const criterionNumber = parseInt(e.target.name.substr(e.target.name.length - 1), 10);
+		addSearchCriterion(e.target, criterionNumber + 1);
+		e.preventDefault();
+
+		// keep focus on rolling criterion
+		if (Foundation.utils.is_large_up()) {
+			$(".criterion-row:nth-last-of-type(2) select:first").focus();
+		} else {
+			$(".criterion-row:last select:first").focus();
 		}
 	});
 
-})( jQuery );
+})(jQuery);

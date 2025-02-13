@@ -1,9 +1,0 @@
-dependencies:
-- name: mongodb
-  repository: https://kubernetes-charts.storage.googleapis.com/
-  version: 4.10.1
-- name: memcached
-  repository: https://kubernetes-charts.storage.googleapis.com/
-  version: 2.4.0
-digest: sha256:9aa089749cea4160e65a351021e02451b0d63b1782718fb364cb2de5a3bc9532
-generated: 2018-12-17T12:50:02.2256156+01:00

@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -26,6 +26,7 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -44,7 +45,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 my %places = ();
 open (my $IN, q{<}, "places.txt");
@@ -130,13 +131,13 @@ my $cursor = $products_collection->query({})->fields({ code => 1 });
 
 		# Check lock and previous version
 		if ($product_ref->{$field} eq '') {
-			my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
+			my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
 			if ((defined $changes_ref) and (defined $changes_ref->[0])) {
 				my $ip = $changes_ref->[0]{ip};
 
 				# look up IP address '24.24.24.24'
 				# returns undef if country is unallocated, or not defined in our database
-				use ProductOpener::GeoIP;
+				require ProductOpener::GeoIP;
 				my $countrycode = ProductOpener::GeoIP::get_country_for_ip($ip);
 				if (defined $countrycode) {
 					$country = canonicalize_taxonomy_tag('en', "countries", $countrycode);
@@ -189,7 +190,7 @@ my $cursor = $products_collection->query({})->fields({ code => 1 });
 		# Store
 		#if ($code eq '!3033710076017')
 		{
-		store("$data_root/products/$path/product.sto", $product_ref);
+		store("$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref);
 		$products_collection->save($product_ref);
 		}
 		}

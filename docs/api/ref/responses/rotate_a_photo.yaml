@@ -1,0 +1,17 @@
+#TODO: Describe the response fields
+#TODO: Api review to sort this response in a particular order. It is not fixed.
+type: object
+title: rotate_a_photo_response
+properties:
+  status:
+    type: string
+    example: status ok
+  imagefield:
+    type: string
+    example: nutrition_fr
+  image:
+    type: object
+    properties:
+      display_url:
+        type: string
+        example: nutrition_fr.67.400.jpg

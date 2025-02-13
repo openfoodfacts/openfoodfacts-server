@@ -1,0 +1,169 @@
+type: object
+title: product_ingredients
+description: Fields about ingredients of a product
+properties:
+  additives_tags:
+    type: array
+    items:
+      type: string
+  allergens:
+    type: string
+    description: comma separated list of allergens
+  allergens_lc:
+    type: string
+    description: language in which `allergens` where input
+  allergens_hierarchy:
+    type: array
+    items:
+      type: string
+  allergens_tags:
+    type: array
+    items:
+      type: string
+
+  ingredients:
+    $ref: "./ingredient.yaml#/components/schemas/Ingredients"
+  ingredients_analysis:
+    type: object
+    properties:
+      "en:palm-oil":
+        type: array
+        items:
+          type: string
+      "en:vegan-status-unknown":
+        type: array
+        items:
+          type: string
+      "en:vegetarian-status-unknown":
+        type: array
+        items:
+          type: string
+  ingredients_analysis_tags:
+    type: array
+    items:
+      type: string
+  ingredients_from_or_that_may_be_from_palm_oil_n:
+    type: integer
+  ingredients_from_palm_oil_n:
+    type: integer
+  ingredients_from_palm_oil_tags:
+    type: array
+    items:
+      type: object
+  ingredients_hierarchy:
+    type: array
+    items:
+      type: string
+  ingredients_n:
+    type: integer
+  ingredients_n_tags:
+    type: array
+    items:
+      type: string
+  ingredients_original_tags:
+    type: array
+    items:
+      type: string
+  ingredients_percent_analysis:
+    type: integer
+  ingredients_sweeteners_n:
+    type: integer
+    description: |
+      Number of sweeteners additives in the ingredients. Undefined if ingredients are not specified.
+  ingredients_non_nutritive_sweeteners_n:
+    type: integer
+    description: |
+      Number of non-nutritive sweeteners additives (as specified in the Nutri-Score formula) in the ingredients. Undefined if ingredients are not specified.
+  ingredients_tags:
+    type: array
+    items:
+      type: string
+  ingredients_lc:
+    type: string
+    description: |
+      Language that was used to parse the ingredient list. If `ingredients_text` is available
+      for the product main language (`lang`), `ingredients_lc=lang`, otherwise we look at
+      `ingredients_text` fields for other languages and set `ingredients_lc` to the first
+      non-empty `ingredient_text`.
+  ingredients_text:
+    type: string
+    description: |
+      Raw list of ingredients. This will get automatically
+      parsed and get used to compute the Eco-Score or find allergens, etc..
+
+      It's a copy of ingredients_text in the main language of the product (see `lang` proprety).
+
+    example: |
+      Farine de blé* 67,4%, sucre de canne*, huile de tournesol oléique*, graines de chia* 5,2%, son de blé*, oranges déshydratées * 0,9%, farine de riz*, poudres à lever (acide citrique, carbonates de sodium), arôme naturel d'orange.
+  ingredients_text_with_allergens:
+    type: string
+    description: |
+      Same text as `ingredients_text` but where allergens have HTML elements around them to identify them
+    example: |
+      Farine de <span class="allergen">blé*</span> 67,4%, sucre de canne*, huile de tournesol oléique*, graines de chia* 5,2%, <span class="allergen">son de blé*</span>, oranges déshydratées * 0,9%, farine de riz*, poudres à lever (acide citrique, carbonates de sodium), arôme naturel d'orange.
+  ingredients_that_may_be_from_palm_oil_n:
+    type: integer
+  ingredients_that_may_be_from_palm_oil_tags:
+    type: array
+    items:
+      type: object
+  ingredients_with_specified_percent_n:
+    type: integer
+  ingredients_with_specified_percent_sum:
+    type: integer
+  ingredients_with_unspecified_percent_n:
+    type: integer
+  ingredients_with_unspecified_percent_sum:
+    type: integer
+  known_ingredients_n:
+    type: integer
+  origins:
+    type: string
+    description: |
+      Origins of ingredients
+  origins_hierarchy:
+    type: array
+    items:
+      type: object
+  origins_lc:
+    type: string
+  origins_tags:
+    type: array
+    items:
+      type: object
+  traces:
+    type: string
+    description: |
+      List of substances that might cause allergies
+      that are present in trace amounts in the product
+      (this does not include the ingredients, as they
+      are not only present in trace amounts).
+      It is taxonomized with the allergens taxonomy.
+  traces_hierarchy:
+    type: array
+    items:
+      oneOf:
+        - type: "object"
+        - type: "string"
+  traces_lc:
+    type: string
+  traces_tags:
+    type: array
+    items:
+      oneOf:
+        - type: "object"
+        - type: "string"
+  unknown_ingredients_n:
+    type: integer
+
+patternProperties:
+  'ingredients_text_(?<language_code>\w\w)':
+    type: string
+    description: |
+      Raw list of ingredients in language given by 'language_code'.
+
+      See `ingredients_text`
+  'ingredients_text_with_allergens_(?<language_code>\w\w)':
+    description: |
+      Like `ingredients_text_with_allergens` for a particular language
+    type: string

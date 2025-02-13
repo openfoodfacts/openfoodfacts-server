@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -44,19 +44,18 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 
 # Get a list of all products
 
 
 my $cursor = $products_collection->query({})->fields({ code => 1 });
-	
-my $i=0;	
-	
-	while (my $product_ref = $cursor->next) {
-        
-		
+
+my $i = 0;
+
+while ( my $product_ref = $cursor->next ) {
+
 		my $code = $product_ref->{code};
 		my $path = product_path($code);
 				
@@ -96,11 +95,11 @@ my $i=0;
 	
 	# Ingredients classes
 	extract_ingredients_from_text($product_ref);
-	extract_ingredients_classes_from_text($product_ref);
+	extract_additives_from_text($product_ref);
 
 	compute_languages($product_ref); # need languages for allergens detection
-	detect_allergens_from_text($product_ref);					
-					
+	detect_allergens_from_text($product_ref);
+
 					store_product($product_ref, "Changing unknown main language xx to fr - scanparty-franprix-05-2016");
 					
 					#last;
@@ -114,7 +113,6 @@ my $i=0;
 	
 	}
 
-print "\n$i products modified\n\n";	
-	
-exit(0);
+print "\n$i products modified\n\n";
 
+exit(0);

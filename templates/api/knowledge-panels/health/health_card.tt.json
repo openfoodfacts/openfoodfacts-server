@@ -1,0 +1,39 @@
+{
+    "type": "card",
+    "expanded": true,
+    "topics": [
+        "health"
+    ],
+    "title_element": {
+        "title": "[% edq(lang('health')) %]",
+    },    
+    "elements": [
+        [% IF panels.recommendation_health.defined %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "recommendation_health",
+            },
+        },
+        [% END %]
+
+        [% IF knowledge_panels_options.knowledge_panels_client == 'disabled-web' %]
+
+            [% IF feature_enabled("ingredients") %]
+                [% INCLUDE "api/knowledge-panels/health/ingredients_panels.tt.json" %]
+            [% END %]
+            [% IF feature_enabled("nutrition") %]
+                [% INCLUDE "api/knowledge-panels/health/nutrition_panels.tt.json" %]
+            [% END %]
+
+        [% ELSE %]
+
+            [% IF feature_enabled("nutrition") %]
+                [% INCLUDE "api/knowledge-panels/health/nutrition_panels.tt.json" %]
+            [% END %]
+            [% IF feature_enabled("ingredients") %]
+                [% INCLUDE "api/knowledge-panels/health/ingredients_panels.tt.json" %]
+            [% END %]
+        [% END %]
+    ],
+}

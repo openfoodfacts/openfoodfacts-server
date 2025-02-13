@@ -1,0 +1,31 @@
+type: object
+properties:
+  code:
+    type: string
+    description: |
+      Barcode of the product
+    example: '3017620422003'
+  imagefield:
+    type: string
+    description: |
+      Indicates the type of the image and the corresponding language. It should
+      be in the format `{IMAGE_TYPE}_{LANG}` format, where `IMAGE_TYPE` is one
+      of `front|ingredients|nutrition|packaging|other` and `LANG` is the 2
+      letter language code. Use `other` if you don't want the image to be
+      selected. Note that the first image of a product is always selected as front
+      picture.
+    example: front_en
+  imgupload_front_en:
+    type: string
+    format: binary
+    description: |
+      This field must contain image binary content.
+      The format and extension must be one of gif|jpeg|jpg|png|heic.            
+      This field is dynamic and dependent on the value of imagefield in the
+      request body. It wil be imgupload_the value of the imagefield stated
+      earlier. For example, if `imagefield=front_en`, the name of this field
+      should be `imageupload_front_en`.
+required:
+  - code
+  - imagefield
+  - imgupload_front_en

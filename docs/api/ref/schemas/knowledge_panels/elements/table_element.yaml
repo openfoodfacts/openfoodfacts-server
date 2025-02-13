@@ -1,0 +1,31 @@
+title: table_element
+type: object
+description: Element to display a table.
+properties:
+  id:
+    type: string
+    description: An id for the table.
+  title:
+    type: string
+    description: |
+      Title of the column.
+  rows:
+    type: string
+  columns:
+    type: array
+    items:
+      type: object
+      title: table_column
+      properties:
+        type:
+          type: string
+        text:
+          type: string
+        text_for_small_screens:
+          type: string
+        style:
+          type: string
+        column_group_id:
+          type: string
+        shown_by_default:
+          type: boolean

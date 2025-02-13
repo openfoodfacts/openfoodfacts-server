@@ -1,0 +1,83 @@
+type: object
+title: Product-Images
+description: |
+  Information about Images of a product.
+
+  Images ensure the reliability of Open Food Facts data.
+  It provides a primary source and proof of all the structured data.
+  You may therefore want to display it along the structured information.
+
+  See also tutorials about images:
+  * [Getting images](https://openfoodfacts.github.io/openfoodfacts-server/api/how-to-download-images/)
+  * [Uploading images](https://openfoodfacts.github.io/openfoodfacts-server/api/tutorial-uploading-photo-to-a-product/)
+properties:
+  images:
+    description: |
+      This contains properties for all images contained on the product.
+    type: object
+    title: product_images_properties
+    properties:
+      front:
+        $ref: "./image_role.yaml#/components/schemas/ImageRole"
+
+    additionalProperties:
+      $ref: "./image.yaml#/components/schemas/Image"
+    propertyNames:
+      type: integer
+
+    patternProperties:
+      '(?<imgid>\d+)':
+        description: |
+          See property `1` to get the real type of those objects
+          (Put this way because of a [bug in rapidoc](https://github.com/rapi-doc/RapiDoc/issues/880))
+        type: string
+      '(?<image_type>front|nutrition|ingredients|packaging|other)_(?<language_code>\w\w)':
+        description: |
+          See property `front` to get the real type of those objects
+          (Put this way because of a [bug in rapidoc](https://github.com/rapi-doc/RapiDoc/issues/880))
+        type: string
+
+  last_image_dates_tags:
+    type: array
+    items:
+      type: string
+  last_image_t:
+    description: timestamp of last image upload (or update?)
+    type: integer
+
+  selected_images:
+    type: object
+    title: product_selected_images
+    description: |
+      URL for selected (important) images of the product.
+
+      This is very handy if you display the product to users.
+    properties:
+      front:
+        $ref: "./image_urls.yaml#/components/schemas/SelectedImage"
+
+    patternProperties:
+      "(?<image_type>front|packaging|ingredients|nutrition|other)":
+        description: |
+          See property `front` to get the real type of those objects
+          (Put this way because of a [bug in rapidoc](https://github.com/rapi-doc/RapiDoc/issues/880))
+        type: string
+
+  image_small_url:
+    type: string
+  image_thumb_url:
+    type: string
+  image_url:
+    type: string
+
+patternProperties:
+  "image(_(?<image_type>front|packaging|ingredients|nutrition|other))?(_(?<image_size>small|thumb))?_url":
+    description: |
+      the URL of image of type `image_type` in size `image_size` (or full size if not given).
+
+      The `image_type` tells which image the url correspond to. `image_type` is `front` if not provided.
+
+      The image is the one for current language (affected by `lc` parameter) if an image exists for this language, the image in main product language otherwise.
+
+      **IMPORTANT:** you should use `selected_images` field instead of this one.
+    type: string

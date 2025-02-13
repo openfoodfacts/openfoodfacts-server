@@ -1,0 +1,45 @@
+<!-- start templates/[% template.name %] -->
+
+<p>The spellcheck results are based on matches in a given taxonomy.</p>
+<p>For words with at least 5 characters, we consider an edit distance of 1 (insert, replace or delete).</p>
+
+[% IF action_process == 'process' %]
+    <p>
+        Spellcheck result for taxonomy <strong>[% tagtype %]</strong> and language <strong>[% lc %]</strong>:
+    </p>
+    <table>
+        <caption>Spellcheck Results</caption>
+        <tr>
+            <th scope="col">Input</th>
+            <th scope="col">Correction</th>
+            <th scope="col">[% lc %] tag</th>
+            <th scope="col">Canonical tag</th>
+        </tr>
+        [% FOREACH token IN tokens %]
+            <tr>
+                <td>[% token.token %]</td>
+                <td>[% token.tag %]</td>
+                <td>[% token.tagid %]</td>
+                <td>[% token.canon_tagid %]</td>
+            </tr>
+        [% END %]
+    </table>
+[% END %]
+
+[% IF action_display == 'display' %]
+    <form method="get" action="/cgi/spellcheck_test.pl" enctype="multipart/form-data">
+        <label>Taxonomy:
+            <input type="text" name="tagtype" id="tagtype" value="[% tagtype %]" />
+        </label>
+        <br />
+        <br />
+        <label>Text (language code: [% lc %]):
+            <textarea id="text" name="text" style="height:8rem;">[% text %]</textarea>
+        </label>
+        <input type="hidden" name="type" value="add"  />
+        <input type="hidden" name="action" value="process"  />
+        <input class="button" type="submit" name=".submit" />
+    </form>
+[% END %]
+
+<!-- end templates/[% template.name %] -->

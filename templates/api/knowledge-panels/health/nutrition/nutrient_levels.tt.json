@@ -1,0 +1,36 @@
+{
+    "level": "info",
+    "topics": [
+        "health"
+    ],
+    "expanded": false,
+    "expand_for": "large",
+    "evaluation": "unknown",
+    "title_element": {
+        "icon_url": "[% static_subdomain %]/images/icons/dist/nutrition.svg",
+        "title": "[% edq(lang('nutrient_levels_p')) FILTER ucfirst %]",
+        "icon_color_from_evaluation": true,        
+    },    
+    "elements": [
+        {
+            "element_type": "panel_group",
+            "panel_group_element": {
+                "panel_group_id": "nutrient_levels_group",            
+                "panel_ids": [
+                    [% IF panels.nutrient_level_fat.defined %]
+                        "nutrient_level_fat",
+                    [% END %] 
+                    [% IF panels.${'nutrient_level_saturated-fat'}.defined %]
+                        "nutrient_level_saturated-fat",
+                    [% END %] 
+                    [% IF panels.nutrient_level_sugars.defined %]
+                        "nutrient_level_sugars",
+                    [% END %] 
+                    [% IF panels.nutrient_level_salt.defined %]
+                        "nutrient_level_salt",
+                    [% END %]                                                             
+                ]
+            }
+        }
+    ]
+}

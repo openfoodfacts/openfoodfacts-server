@@ -2,10 +2,10 @@
 
 use CGI::Carp qw(fatalsToBrowser);
 
-use strict;
-use utf8;
+use ProductOpener::PerlStandards;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -24,7 +24,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Time::Local;
 
 use Encode::Locale qw/decode_argv/;
@@ -128,7 +128,7 @@ $lc = $global_values{lc};
 
 my $time = time();
 
-if (opendir (DH, "$images_dir")) {
+if (opendir (DH, $images_dir)) {
 	foreach my $file (sort readdir(DH)) {
 
 		#next if $file gt "2013-07-13 11.02.07";
@@ -152,8 +152,8 @@ if (opendir (DH, "$images_dir")) {
 
 			print $file . "\tcode: " . $code . "\n";
 
-			if ((defined $code) and (not defined $codes{$code})) {	# in some pictures we detect the wrong code, for a product we already scanned..
-			# see http://world.openfoodfacts.org/cgi/product.pl?type=edit&code=5010663251270 -> a barely there code is still detected
+			if ( ( defined $code ) and ( not defined $codes{$code} ) ) {    # in some pictures we detect the wrong code, for a product we already scanned..
+																			# see http://world.openfoodfacts.org/cgi/product.pl?type=edit&code=5010663251270 -> a barely there code is still detected
 
 				$codes{$code}++;
 

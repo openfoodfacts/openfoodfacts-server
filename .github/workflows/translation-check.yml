@@ -1,0 +1,24 @@
+name: 🌐 Translations check
+
+on:
+  pull_request:
+    paths: ["**.po", "**.pot", ".github/workflows/translation-check.yml"]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate translation files
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: install gettext (i18n) tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gettext
+      - name: Validate translation files
+        run: |
+          scripts/check-translations.sh

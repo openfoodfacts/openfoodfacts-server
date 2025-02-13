@@ -1,0 +1,51 @@
+{
+   "ingredients" : [
+      {
+         "id" : "en:tomato-puree",
+         "percent_estimate" : 100,
+         "percent_max" : 100,
+         "percent_min" : 100,
+         "processing" : "en:double-concentrated",
+         "text" : "Tomatenmark",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {},
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:tomato-puree",
+      "en:vegetable",
+      "en:tomato"
+   ],
+   "ingredients_n" : 1,
+   "ingredients_n_tags" : [
+      "1",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:tomato-puree"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:tomato-puree",
+      "en:vegetable",
+      "en:tomato"
+   ],
+   "ingredients_text" : "Tomatenmark 2-fach-konzentriert",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 1,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "known_ingredients_n" : 3,
+   "lc" : "de",
+   "nutriments" : {
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100
+   },
+   "unknown_ingredients_n" : 0
+}

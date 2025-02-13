@@ -1,0 +1,8 @@
+type: object
+title: get_product_by_barcode_response
+allOf:
+  - $ref: ./get_product_by_barcode_base.yaml
+  - type: object
+    properties:
+      product:
+        $ref: ../schemas/product.yaml

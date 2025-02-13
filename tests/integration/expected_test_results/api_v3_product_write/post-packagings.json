@@ -1,0 +1,23 @@
+{
+   "errors" : [
+      {
+         "field" : {
+            "api_action" : "product",
+            "id" : "api_method",
+            "value" : "POST"
+         },
+         "impact" : {
+            "id" : "failure",
+            "lc_name" : "Failure",
+            "name" : "Failure"
+         },
+         "message" : {
+            "id" : "invalid_api_method",
+            "lc_name" : "Invalid API method",
+            "name" : "Invalid API method"
+         }
+      }
+   ],
+   "status" : "failure",
+   "warnings" : []
+}

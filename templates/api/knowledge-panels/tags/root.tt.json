@@ -1,0 +1,19 @@
+[%# A card with panels related to a tag %]
+{
+    "type": "card",
+    "expanded": true,
+    "topics": [
+        "tags",
+        "[% tagtype %]"
+    ],
+    "elements": [
+        [% FOREACH panel_name IN panel.tags_panels %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "[% panel_name %]",
+            },
+        },
+        [% END %]
+    ],
+}

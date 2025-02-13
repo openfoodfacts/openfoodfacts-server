@@ -1,0 +1,335 @@
+{
+   "tradeItem" : {
+      "brandOwner" : {
+         "gln" : "3770009520010",
+         "partyName" : "LETSWORK GROUP"
+      },
+      "gdsnTradeItemClassification" : {
+         "gpcCategoryCode" : "10000621"
+      },
+      "gtin" : "03665902201619",
+      "informationProviderOfTradeItem" : {
+         "gln" : "3770009520010",
+         "partyName" : "LETSWORK GROUP"
+      },
+      "isTradeItemAConsumerUnit" : "true",
+      "targetMarket" : {
+         "targetMarketCountryCode" : "250"
+      },
+      "tradeItemContactInformation" : [
+         {
+            "contactName" : "OREA MG",
+            "contactTypeCode" : "BZL",
+            "structuredAddress" : {
+               "city" : "Antananarivo",
+               "countryCode" : "450",
+               "postalCode" : "101",
+               "streetAddress" : "B 350 B Anatihazo Isotry"
+            }
+         }
+      ],
+      "tradeItemInformation" : {
+         "extension" : {
+            "alcohol_information:alcoholInformationModule" : {
+               "alcoholInformation" : {
+                  "percentageOfAlcoholByVolume" : "0"
+               }
+            },
+            "allergen_information:allergenInformationModule" : {
+               "allergenRelatedInformation" : [
+                  {
+                     "allergen" : [
+                        {
+                           "allergenTypeCode" : "AC",
+                           "levelOfContainmentCode" : "FREE_FROM"
+                        },
+                        {
+                           "allergenTypeCode" : "AE",
+                           "levelOfContainmentCode" : "CONTAINS"
+                        },
+                        {
+                           "allergenTypeCode" : "AF",
+                           "levelOfContainmentCode" : "FREE_FROM"
+                        },
+                        {
+                           "allergenTypeCode" : "AM",
+                           "levelOfContainmentCode" : "MAY_CONTAIN"
+                        },
+                        {
+                           "allergenTypeCode" : "AP",
+                           "levelOfContainmentCode" : "FREE_FROM"
+                        },
+                        {
+                           "allergenTypeCode" : "AS",
+                           "levelOfContainmentCode" : "FREE_FROM"
+                        },
+                        {
+                           "allergenTypeCode" : "AU",
+                           "levelOfContainmentCode" : "MAY_CONTAIN"
+                        },
+                        {
+                           "allergenTypeCode" : "AW",
+                           "levelOfContainmentCode" : "MAY_CONTAIN"
+                        },
+                        {
+                           "allergenTypeCode" : "AY",
+                           "levelOfContainmentCode" : "MAY_CONTAIN"
+                        },
+                        {
+                           "allergenTypeCode" : "BC",
+                           "levelOfContainmentCode" : "FREE_FROM"
+                        },
+                        {
+                           "allergenTypeCode" : "BM",
+                           "levelOfContainmentCode" : "FREE_FROM"
+                        },
+                        {
+                           "allergenTypeCode" : "NL",
+                           "levelOfContainmentCode" : "FREE_FROM"
+                        },
+                        {
+                           "allergenTypeCode" : "UM",
+                           "levelOfContainmentCode" : "FREE_FROM"
+                        },
+                        {
+                           "allergenTypeCode" : "AN",
+                           "levelOfContainmentCode" : "FREE_FROM"
+                        }
+                     ],
+                     "isAllergenRelevantDataProvided" : "true"
+                  }
+               ]
+            },
+            "consumer_instructions:consumerInstructionsModule" : {
+               "consumerInstructions" : {
+                  "consumerStorageInstructions" : {
+                     "#" : "Sans agents conservateurs\nRéfrigération vivement conseillée avant et après ouverture",
+                     "@" : {
+                        "languageCode" : "fr"
+                     }
+                  },
+                  "consumerUsageInstructions" : {
+                     "#" : "Réfrigérer après chaque utilisation",
+                     "@" : {
+                        "languageCode" : "fr"
+                     }
+                  }
+               }
+            },
+            "diet_information:dietInformationModule" : {
+               "dietInformation" : {
+                  "dietTypeInformation" : [
+                     {
+                        "dietTypeCode" : "WITHOUT_BEEF"
+                     },
+                     {
+                        "dietTypeCode" : "COELIAC"
+                     },
+                     {
+                        "dietTypeCode" : "DIETETIC"
+                     },
+                     {
+                        "dietTypeCode" : "DIABETIC"
+                     },
+                     {
+                        "dietTypeCode" : "HALAL"
+                     },
+                     {
+                        "dietTypeCode" : "WITHOUT_PORK"
+                     },
+                     {
+                        "dietTypeCode" : "KOSHER"
+                     },
+                     {
+                        "dietTypeCode" : "VEGETARIAN"
+                     }
+                  ]
+               }
+            },
+            "food_and_beverage_ingredient:foodAndBeverageIngredientModule" : {
+               "ingredientStatement" : {
+                  "#" : "Ingrédients : Pur cacao de MadagascarŒufs fraisHuiles végétalesGélifiant végétalSucre",
+                  "@" : {
+                     "languageCode" : "fr"
+                  }
+               },
+               "isIngredientRelevantDataProvided" : "TRUE"
+            },
+            "food_and_beverage_preparation_serving:foodAndBeveragePreparationServingModule" : {
+               "preparationServing" : {
+                  "preparationInstructions" : {
+                     "#" : "A tartiner sur les gâteaux, pains, biscuits ou en accompagnement de desserts etc.",
+                     "@" : {
+                        "languageCode" : "fr"
+                     }
+                  }
+               }
+            },
+            "nutritional_information:nutritionalInformationModule" : {
+               "isNutrientRelevantDataProvided" : "true",
+               "nutrientHeader" : [
+                  {
+                     "dailyValueIntakeReference" : {
+                        "#" : "Apports de référence pour un adulte-type (8400 kj/2000 kcal)",
+                        "@" : {
+                           "languageCode" : "fr"
+                        }
+                     },
+                     "nutrientDetail" : [
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "ENER-",
+                           "quantityContained" : [
+                              {
+                                 "#" : "1255.1",
+                                 "@" : {
+                                    "measurementUnitCode" : "KJO"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "ENER-",
+                           "quantityContained" : [
+                              {
+                                 "#" : "299.98",
+                                 "@" : {
+                                    "measurementUnitCode" : "E14"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "FAT",
+                           "quantityContained" : [
+                              {
+                                 "#" : "18.48",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "PRO-",
+                           "quantityContained" : [
+                              {
+                                 "#" : "7.87",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "SALTEQ",
+                           "quantityContained" : [
+                              {
+                                 "#" : "0.28",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "CHOAVL",
+                           "quantityContained" : [
+                              {
+                                 "#" : "24.67",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "SUGAR-",
+                           "quantityContained" : [
+                              {
+                                 "#" : "24.05",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "FASAT",
+                           "quantityContained" : [
+                              {
+                                 "#" : "6.72",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        }
+                     ],
+                     "preparationStateCode" : "UNPREPARED",
+                     "servingSize" : {
+                        "#" : "100",
+                        "@" : {
+                           "measurementUnitCode" : "GRM"
+                        }
+                     }
+                  }
+               ]
+            },
+            "place_of_item_activity:placeOfItemActivityModule" : {
+               "placeOfProductActivity" : {
+                  "countryOfOrigin" : {
+                     "countryCode" : "450"
+                  }
+               }
+            },
+            "trade_item_description:tradeItemDescriptionModule" : {
+               "tradeItemDescriptionInformation" : {
+                  "brandNameInformation" : {
+                     "brandName" : "OREA MG"
+                  },
+                  "descriptionShort" : {
+                     "#" : "Pâte À tartiner OREA choco 235 g",
+                     "@" : {
+                        "languageCode" : "fr"
+                     }
+                  },
+                  "regulatedProductName" : {
+                     "#" : "Pâte à tartiner choco",
+                     "@" : {
+                        "languageCode" : "fr"
+                     }
+                  },
+                  "tradeItemDescription" : {
+                     "#" : "Pâte À tartiner OREA choco 235 g",
+                     "@" : {
+                        "languageCode" : "fr"
+                     }
+                  }
+               }
+            },
+            "trade_item_measurements:tradeItemMeasurementsModule" : {
+               "tradeItemMeasurements" : {
+                  "netContent" : {
+                     "#" : 235,
+                     "@" : {
+                        "measurementUnitCode" : "GRM"
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "tradeItemSynchronisationDates" : {
+         "lastChangeDateTime" : "2020-05-26T12:56:03.524Z"
+      },
+      "tradeItemUnitDescriptorCode" : "BASE_UNIT_OR_EACH"
+   }
+}

@@ -1,0 +1,34 @@
+server {
+    listen 80;
+    listen [::]:80;
+    server_name hunger.openfoodfacts.org;
+    return 301 https://hunger.openfoodfacts.org;
+}
+
+
+server {
+    client_body_timeout 120s;
+    client_header_timeout 120s;
+
+    server_name hunger.openfoodfacts.org;
+
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+
+    include snippets/ssl.openfoodfacts.org;
+    include snippets/ssl-params.conf;
+
+    root /srv/hunger-game;
+
+    access_log /srv/off/logs/hunger-game.nginx.access2.log;
+    error_log /srv/off/logs/hunger-game.nginx.error2.log;
+
+    gzip on;
+    gzip_min_length 1000;
+
+    include snippets/ssl-headers.conf;
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+}

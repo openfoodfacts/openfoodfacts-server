@@ -1,0 +1,216 @@
+{
+   "errors" : [],
+   "product" : {
+      "categories" : "confiture",
+      "categories_hierarchy" : [
+         "en:plant-based-foods-and-beverages",
+         "en:plant-based-foods",
+         "en:breakfasts",
+         "en:spreads",
+         "en:plant-based-spreads",
+         "en:sweet-spreads",
+         "en:fruit-and-vegetable-preserves",
+         "en:jams"
+      ],
+      "categories_tags" : [
+         "en:plant-based-foods-and-beverages",
+         "en:plant-based-foods",
+         "en:breakfasts",
+         "en:spreads",
+         "en:plant-based-spreads",
+         "en:sweet-spreads",
+         "en:fruit-and-vegetable-preserves",
+         "en:jams"
+      ],
+      "categories_tags_fr" : [
+         "Aliments et boissons à base de végétaux",
+         "Aliments d'origine végétale",
+         "Petit-déjeuners",
+         "Produits à tartiner",
+         "Pâtes à tartiner végétales",
+         "Produits à tartiner sucrés",
+         "Confitures et marmelades",
+         "Confitures"
+      ],
+      "ingredients" : [
+         {
+            "ciqual_proxy_food_code" : "31016",
+            "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
+            "id" : "en:sugar",
+            "is_in_taxonomy" : 1,
+            "percent" : 75,
+            "percent_estimate" : 75,
+            "percent_max" : 75,
+            "percent_min" : 75,
+            "quantity" : "300 g",
+            "quantity_g" : 300,
+            "text" : "Sucre",
+            "vegan" : "yes",
+            "vegetarian" : "yes"
+         },
+         {
+            "ciqual_food_code" : "13050",
+            "ecobalyse_code" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
+            "id" : "en:apple",
+            "is_in_taxonomy" : 1,
+            "percent" : 25,
+            "percent_estimate" : 25,
+            "percent_max" : 25,
+            "percent_min" : 25,
+            "quantity" : "100 g",
+            "quantity_g" : 100,
+            "text" : "pommes",
+            "vegan" : "yes",
+            "vegetarian" : "yes"
+         }
+      ],
+      "ingredients_text_fr" : "Sucre 300g, pommes 100g",
+      "lang" : "fr",
+      "nutriments" : {
+         "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 25,
+         "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 25,
+         "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 25,
+         "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 25,
+         "nova-group" : 3,
+         "nova-group_100g" : 3,
+         "nova-group_serving" : 3,
+         "nutrition-score-fr" : 18,
+         "nutrition-score-fr_100g" : 18
+      },
+      "nutriments_estimated" : {
+         "alcohol_100g" : 0,
+         "beta-carotene_100g" : 4.25e-06,
+         "calcium_100g" : 0.0040175,
+         "carbohydrates_100g" : 77.525,
+         "cholesterol_100g" : 0,
+         "copper_100g" : 1.1875e-05,
+         "energy-kcal_100g" : 311.475,
+         "energy-kj_100g" : 1326.75,
+         "energy_100g" : 1326.75,
+         "fat_100g" : 0.0325,
+         "fiber_100g" : 0.325,
+         "fructose_100g" : 1.5075,
+         "galactose_100g" : 0,
+         "glucose_100g" : 0.8125,
+         "iodine_100g" : 2.5e-07,
+         "iron_100g" : 7.525e-05,
+         "lactose_100g" : 0,
+         "magnesium_100g" : 0.0022375,
+         "maltose_100g" : 0,
+         "manganese_100g" : 1.4225e-05,
+         "pantothenic-acid_100g" : 1.775e-05,
+         "phosphorus_100g" : 0.00275,
+         "phylloquinone_100g" : 1.5e-07,
+         "polyols_100g" : 0.1475,
+         "potassium_100g" : 0.032625,
+         "proteins_100g" : 0.0675,
+         "salt_100g" : 0.00405,
+         "saturated-fat_100g" : 0.00525,
+         "selenium_100g" : 3.7875e-06,
+         "sodium_100g" : 0.0016275,
+         "starch_100g" : 0,
+         "sucrose_100g" : 75.055,
+         "sugars_100g" : 77.375,
+         "vitamin-a_100g" : 0,
+         "vitamin-b12_100g" : 0,
+         "vitamin-b1_100g" : 4.75e-06,
+         "vitamin-b2_100g" : 2.125e-05,
+         "vitamin-b6_100g" : 9.25e-06,
+         "vitamin-b9_100g" : 0,
+         "vitamin-c_100g" : 0.001,
+         "vitamin-d_100g" : 0,
+         "vitamin-e_100g" : 1.25e-05,
+         "vitamin-pp_100g" : 2.275e-05,
+         "water_100g" : 21.8025,
+         "zinc_100g" : 2.75e-05
+      },
+      "nutriscore_data" : {
+         "components" : {
+            "negative" : [
+               {
+                  "id" : "energy",
+                  "points" : 3,
+                  "points_max" : 10,
+                  "unit" : "kJ",
+                  "value" : 1326.75
+               },
+               {
+                  "id" : "sugars",
+                  "points" : 15,
+                  "points_max" : 15,
+                  "unit" : "g",
+                  "value" : 77.38
+               },
+               {
+                  "id" : "saturated_fat",
+                  "points" : 0,
+                  "points_max" : 10,
+                  "unit" : "g",
+                  "value" : 0.01
+               },
+               {
+                  "id" : "salt",
+                  "points" : 0,
+                  "points_max" : 20,
+                  "unit" : "g",
+                  "value" : 0
+               }
+            ],
+            "positive" : [
+               {
+                  "id" : "fiber",
+                  "points" : 0,
+                  "points_max" : 5,
+                  "unit" : "g",
+                  "value" : 0.33
+               },
+               {
+                  "id" : "fruits_vegetables_legumes",
+                  "points" : 0,
+                  "points_max" : 5,
+                  "unit" : "%",
+                  "value" : 25
+               }
+            ]
+         },
+         "count_proteins" : 0,
+         "count_proteins_reason" : "negative_points_greater_than_or_equal_to_11",
+         "grade" : "d",
+         "is_beverage" : 0,
+         "is_cheese" : 0,
+         "is_fat_oil_nuts_seeds" : 0,
+         "is_red_meat_product" : 0,
+         "is_water" : 0,
+         "negative_points" : 18,
+         "negative_points_max" : 55,
+         "positive_nutrients" : [
+            "fiber",
+            "fruits_vegetables_legumes"
+         ],
+         "positive_points" : 0,
+         "positive_points_max" : 10,
+         "score" : 18
+      },
+      "nutriscore_grade" : "d",
+      "nutriscore_score" : 18
+   },
+   "status" : "success_with_warnings",
+   "warnings" : [
+      {
+         "field" : {
+            "default_value" : "en",
+            "id" : "tags_lc"
+         },
+         "impact" : {
+            "id" : "warning",
+            "lc_name" : "Warning",
+            "name" : "Warning"
+         },
+         "message" : {
+            "id" : "missing_field",
+            "lc_name" : "Missing field",
+            "name" : "Missing field"
+         }
+      }
+   ]
+}

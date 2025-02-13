@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -26,6 +26,7 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -44,7 +45,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 
 # Get a list of all products
@@ -63,15 +64,15 @@ my $cursor = $products_collection->query({})->fields({ code => 1 });
 		$product_ref = retrieve_product($code);
 		
 		# Update
-		#extract_ingredients_classes_from_text($product_ref);
+		#extract_additives_from_text($product_ref);
 		
-		my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
-		
-		if (not defined $changes_ref) {
-			$changes_ref = [{}];
-		}		
-		
-		compute_product_history_and_completeness($product_ref, $changes_ref);		
+		my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
+
+		if ( not defined $changes_ref ) {
+			$changes_ref = [ {} ];
+		}
+
+		compute_product_history_and_completeness($product_ref, $changes_ref);
 		
 		my $change_ref = $changes_ref->[0];
 		if ((not defined $change_ref->{userid}) or ($change_ref->{userid} eq '')) {
@@ -80,7 +81,7 @@ my $cursor = $products_collection->query({})->fields({ code => 1 });
 
 		# Store
 
-		store("$data_root/products/$path/product.sto", $product_ref);		
+		store( "$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref );
 		$products_collection->save($product_ref);
 	}
 

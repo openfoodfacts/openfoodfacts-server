@@ -1,0 +1,240 @@
+type: object
+description: Parameters of type tags (for search)
+properties:
+  additives_tags:
+    style: form
+    explode: false
+    schema:
+      type: string
+      example: e322
+    in: query
+    name: additives_tags
+    description: |
+      The additives_tags in english of product(s) you are searching for.
+      The [OFF App](https://world.openfoodfacts.org/additives) has a list of possible values for `additives`.
+
+      You can use multiple values by using a comma separated list.
+      You can add a "-" before values to avoid matching a tag.
+  allergens_tags:
+    style: form
+    explode: false
+    schema:
+      type: string
+      example: m
+    in: query
+    name: allergens_tags
+    description: |
+      The allergens_tags in english of product(s) you are searching for.
+      The [OFF App](https://world.openfoodfacts.org/allergens) has a list of possible values for `allergens`.
+
+      You can use multiple values by using a comma separated list.
+      You can add a "-" before values to avoid matching a tag.
+  brands_tags:
+    style: form
+    explode: false
+    schema:
+      type: string
+      example: ferrero
+    in: query
+    name: brands_tags
+    description: |
+      The brands_tags of product(s) you are searching for.
+      The [OFF App](https://world.openfoodfacts.org/brands) has a list of possible values for `brands`.
+
+      You can use multiple values by using a comma separated list.
+      You can add a "-" before values to avoid matching a tag.
+  categories_tags:
+    style: form
+    explode: false
+    schema:
+      type: string
+      example: chocolates
+    in: query
+    name: categories_tags
+    description: |
+      The category of product(s) you are searching for.
+      The [OFF App](https://world.openfoodfacts.org/categories) has a list of possible values for `categories`.
+
+      You can use multiple values by using a comma separated list.
+      You can add a "-" before values to avoid matching a tag.
+  countries_tags:
+    style: form
+    explode: false
+    schema:
+      type: string
+      example: united-kingdom
+    in: query
+    name: countries_tags_en
+    description: |
+      The countries_tags_en of product(s) you are searching for.
+      The [OFF App](https://world.openfoodfacts.org/countries) shows a list of possible values for `countries`.
+
+      You can use multiple values by using a comma separated list.
+      You can add a "-" before values to avoid matching a tag.
+  emb_codes_tags:
+    style: form
+    explode: false
+    schema:
+      type: string
+    in: query
+    name: emb_codes_tags
+    description: |
+      The emb_codes_tags of product(s) you are searching for.
+
+      You can use multiple values by using a comma separated list.
+      You can add a "-" before values to avoid matching a tag.
+  labels_tags:
+    style: form
+    explode: false
+    schema:
+      type: string
+      example: organic
+    in: query
+    name: labels_tags
+    description: |
+      The labels_tags in english of product(s) you are searching for.
+      The [OFF App](https://world.openfoodfacts.org/labels) has a list of possible values for `labels`.
+
+      You can use multiple values by using a comma separated list.
+      You can add a "-" before values to avoid matching a tag.
+  manufacturing_places_tags:
+    style: form
+    explode: false
+    schema:
+      type: string
+    in: query
+    name: manufacturing_places_tags
+    description: |
+      The manufacturing_places_tags of product(s) you are searching for.
+      The [OFF App](https://world.openfoodfacts.org/manufacturing-places) has a list of possible values for `manufacturing-places`.
+
+      You can use multiple values by using a comma separated list.
+      You can add a "-" before values to avoid matching a tag.
+  nutrition_grades_tags:
+    style: form
+    explode: false
+    schema:
+      type: string
+      example: e
+    in: query
+    name: nutrition_grades_tags
+    description: |
+      The nutrition_grades_tags of product(s) you are searching for.
+      The [OFF App](https://world.openfoodfacts.org/nutrition-grades) has a list of possible values for `nutrition-grades`.
+
+      You can use multiple values by using a comma separated list.
+      You can add a "-" before values to avoid matching a tag.
+  origins_tags:
+    style: form
+    explode: false
+    schema:
+      type: string
+    in: query
+    name: origins_tags
+    description: |
+      The origins_tags of product(s) you are searching for.
+
+      You can use multiple values by using a comma separated list.
+      You can add a "-" before values to avoid matching a tag.
+  packaging_tags:
+    style: form
+    explode: false
+    schema:
+      type: string
+      example: 1-jar-aus-klarglas
+    in: query
+    name: packaging_tags_de
+    description: |
+      The packaging_tag in german of product(s) you are searching for.
+      The [OFF App](https://world.openfoodfacts.org/packaging) has a list of possible values for `packaging`.
+
+      You can use multiple values by using a comma separated list.
+      You can add a "-" before values to avoid matching a tag.
+  purchase_places_tags:
+    style: form
+    explode: false
+    schema:
+      type: string
+    in: query
+    name: purchase_places_tags
+    description: |
+      The purchase_places_tags of product(s) you are searching for.
+
+      You can use multiple values by using a comma separated list.
+      You can add a "-" before values to avoid matching a tag.
+  states_tags:
+    style: form
+    explode: false
+    schema:
+      type: string
+      example: nutrition-facts-completed
+    in: query
+    name: states_tags
+    description: |
+      The states_tags in english of product(s) you are searching for.
+      The [OFF App](https://world.openfoodfacts.org/states) has a list of possible values for `states`.
+
+      You can use multiple values by using a comma separated list.
+      You can add a "-" before values to avoid matching a tag.
+  stores_tags:
+    style: form
+    explode: false
+    schema:
+      type: string
+      example: aldi
+    in: query
+    name: stores_tags
+    description: |
+      The stores_tags of product(s) you are searching for.
+
+      You can use multiple values by using a comma separated list.
+      You can add a "-" before values to avoid matching a tag.
+  traces_tags:
+    style: form
+    explode: false
+    schema:
+      type: string
+    in: query
+    name: traces_tags
+    description: |
+      The traces_tags of product(s) you are searching for.
+      The [OFF App](https://world.openfoodfacts.org/traces) shows a list of possible values for `traces`.
+
+      You can use multiple values by using a comma separated list.
+      You can add a "-" before values to avoid matching a tag.
+  tag_name_with_language_code:
+    in: query
+    name: '<tag_name>_tags_<language_code>'
+    description: |
+      You can add a language code to a specific tag to query it in a specific language
+    style: form
+    explode: false
+    schema:
+      type: object
+      patternProperties:
+        '(?<tag_name>\w+)_tags_(?<language_code>\w\w)':
+          type: string
+          description: |
+            Will search in the tags corresponding to `tag_name`,
+            in the language corresponding to `language_code.
+
+            `tag_name` is one of the field above which have the `_tags`` suffix:
+            categories, nutrition_grades, etc.
+
+            `language_code` is a two letter iso language `language_code.
+
+            You can use multiple values by using a comma separated list.
+            You can add a "-" before values to avoid matching a tag.
+      examples:
+        - packaging_tags_de:
+          summary: packaging in german
+          value:
+            packaging_tags_de: "de:Flasche"
+        - origins_tags_fr:
+          summary: origins in french
+          value:
+            origins_tags_fr: "fr:France"
+        - categories_tags_en:
+          summary: categories in english
+          value:
+            categories_tags_en: "en:Beer"

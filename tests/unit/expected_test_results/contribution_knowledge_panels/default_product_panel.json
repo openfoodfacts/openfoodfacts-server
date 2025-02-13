@@ -1,0 +1,51 @@
+{
+   "contribution_card" : {
+      "elements" : [
+         {
+            "element_type" : "panel",
+            "panel_element" : {
+               "panel_id" : "data_quality_errors"
+            }
+         }
+      ],
+      "expanded" : true,
+      "title_element" : {
+         "title" : "Contribution"
+      },
+      "topics" : [
+         "contribution"
+      ],
+      "type" : "card"
+   },
+   "data_quality_errors" : {
+      "elements" : [
+         {
+            "element_type" : "text",
+            "text_element" : {
+               "html" : "<ul> <li id=\"data-error-en:energy-value-in-kcal-does-not-match-value-in-kj\"> Energy value in kcal does not match value in kJ <br><span class=\"description\">The energy value in kJ must be about 4.2 times greater than the value in kcal</span> </li> <li id=\"data-error-en:nutrition-saturated-fat-greater-than-fat\"> Nutrition Saturated Fat greater than Fat <br><span class=\"description\">Saturated Fat is a sub-section of Fat on the nutrition labels, as a result, it should always be smaller than fat.</span> </li> </ul>"
+            }
+         },
+         {
+            "action_element" : {
+               "actions" : [
+                  "add_nutrition_facts"
+               ],
+               "html" : ""
+            },
+            "element_type" : "action"
+         }
+      ],
+      "evaluation" : "bad",
+      "expand_for" : "large",
+      "level" : "info",
+      "title_element" : {
+         "icon_color_from_evaluation" : true,
+         "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/data-error.svg",
+         "subtitle" : "Help us improve quality of our data by contributing fixes",
+         "title" : "Detected Errors"
+      },
+      "topics" : [
+         "contribution"
+      ]
+   }
+}

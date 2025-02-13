@@ -1,0 +1,15 @@
+title: Packaging component shape
+x-stoplight:
+  id: xrj8agza3dwgf
+type: object
+description: The shape property is canonicalized using the packaging_shapes taxonomy.
+examples:
+  - id: 'en:bottle'
+    lc_name: bouteille
+properties:
+  id:
+    type: string
+    description: 'Canonical id of the entry in the taxonomy. If the value cannot be mapped to a taxonomy entry, the value will be the name of the entry in its original language prefixed by the language 2 letter code and a colon.'
+  lc_name:
+    type: string
+    description: 'Name of the entry in the language requested in the tags_lc field of the request. This field is returned only of tags_lc is specified. If the translation is not available, or if the entry does not exist in the taxonomy, the value will be the name of the entry in its original language prefixed by the language 2 letter code and a colon.'

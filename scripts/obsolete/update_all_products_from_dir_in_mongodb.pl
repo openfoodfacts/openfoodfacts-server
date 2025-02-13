@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -26,6 +26,7 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -44,7 +45,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 use Data::Dumper;
 
@@ -81,11 +82,13 @@ sub find_products($$) {
 		}
 	}
 	closedir DH;
+
+	return;
 }
 
 
 if (scalar $#products < 0) {
-	find_products("$data_root/products",'');
+	find_products($BASE_DIRS{PRODUCTS},'');
 }
 
 
@@ -107,7 +110,7 @@ my %codes = ();
 		
 		
 		#my $product_ref = retrieve_product($code);
-		my $product_ref = retrieve("$data_root/products/$path/product.sto") or print "not defined $data_root/products/$path/product.sto\n";
+		my $product_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/product.sto") or print "not defined $BASE_DIRS{PRODUCTS}/$path/product.sto\n";
 
 		if ((defined $product_ref)) {
 
@@ -156,7 +159,7 @@ foreach my $k (keys %{$product_ref}) {
 			next if ((defined $product_ref->{empty}) and ($product_ref->{empty} == 1));
 			next if ((defined $product_ref->{deleted}) and ($product_ref->{deleted} eq 'on'));
 			print STDERR "updating product $code -- " . $product_ref->{code} . " \n";
-			my $return = $products_collection->save($product_ref , { safe => 1 });		
+			my $return = $products_collection->save($product_ref , { safe => 1 });
 			print STDERR "return $return\n";
 			my $err = $database->last_error();
 			if (defined $err) {

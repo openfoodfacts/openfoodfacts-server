@@ -1,0 +1,684 @@
+{
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "31039",
+         "id" : "en:orange-marmalade",
+         "ingredients" : [
+            {
+               "ciqual_food_code" : "31077",
+               "id" : "en:glucose-fructose-syrup",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 20.5,
+               "text" : "sirop de glucose-fructose",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_proxy_food_code" : "31016",
+               "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
+               "id" : "en:sugar",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 10.25,
+               "text" : "sucre",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_food_code" : "13034",
+               "ecobalyse_code" : "f3c21efc-5e7b-4c24-a7f6-6ffbcb34d5b1",
+               "id" : "en:orange-pulp",
+               "is_in_taxonomy" : 1,
+               "percent" : 4.5,
+               "percent_estimate" : 4.5,
+               "text" : "pulpe d'orange",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_proxy_food_code" : "2070",
+               "ecobalyse_code" : "f3c21efc-5e7b-4c24-a7f6-6ffbcb34d5b1",
+               "id" : "en:concentrated-orange-juice",
+               "ingredients" : [],
+               "is_in_taxonomy" : 1,
+               "percent" : 1.4,
+               "percent_estimate" : 1.4,
+               "text" : "jus d'orange concentré",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_proxy_food_code" : "13034",
+               "ecobalyse_code" : "f3c21efc-5e7b-4c24-a7f6-6ffbcb34d5b1",
+               "id" : "en:orange",
+               "ingredients" : [],
+               "is_in_taxonomy" : 1,
+               "percent" : 0.6,
+               "percent_estimate" : 0.6,
+               "processing" : "en:pulp,en:concentrated",
+               "text" : "orange",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "id" : "en:gelling-agent",
+               "ingredients" : [
+                  {
+                     "id" : "en:e440a",
+                     "is_in_taxonomy" : 1,
+                     "percent_estimate" : 1.875,
+                     "text" : "pectines",
+                     "vegan" : "yes",
+                     "vegetarian" : "yes"
+                  }
+               ],
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 1.875,
+               "text" : "gélifiant"
+            },
+            {
+               "id" : "en:acid",
+               "ingredients" : [
+                  {
+                     "id" : "en:e330",
+                     "is_in_taxonomy" : 1,
+                     "percent_estimate" : 0.9375,
+                     "text" : "acide citrique",
+                     "vegan" : "yes",
+                     "vegetarian" : "yes"
+                  }
+               ],
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0.9375,
+               "text" : "acidifiant"
+            },
+            {
+               "id" : "en:acidity-regulator",
+               "ingredients" : [
+                  {
+                     "id" : "en:e333",
+                     "is_in_taxonomy" : 1,
+                     "percent_estimate" : 0.234375,
+                     "text" : "citrate de calcium",
+                     "vegan" : "yes",
+                     "vegetarian" : "yes"
+                  },
+                  {
+                     "id" : "en:sodium-citrate",
+                     "is_in_taxonomy" : 1,
+                     "percent_estimate" : 0.234375,
+                     "text" : "citrate de sodium"
+                  }
+               ],
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0.46875,
+               "text" : "correcteurs d'acidité"
+            },
+            {
+               "id" : "en:natural-orange-flavouring",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0.234375,
+               "text" : "arôme naturel d'orange",
+               "vegan" : "maybe",
+               "vegetarian" : "maybe"
+            },
+            {
+               "id" : "en:thickener",
+               "ingredients" : [
+                  {
+                     "id" : "en:e415",
+                     "is_in_taxonomy" : 1,
+                     "percent_estimate" : 0.234375,
+                     "text" : "gomme xanthane",
+                     "vegan" : "yes",
+                     "vegetarian" : "yes"
+                  }
+               ],
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0.234375,
+               "text" : "épaississant"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent" : 41,
+         "percent_estimate" : 41,
+         "text" : "Marmelade d'oranges",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "id" : "en:chocolate",
+         "ingredients" : [
+            {
+               "ciqual_proxy_food_code" : "31016",
+               "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
+               "id" : "en:sugar",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 12.45,
+               "text" : "sucre",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_proxy_food_code" : "16030",
+               "id" : "en:cocoa-paste",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 6.225,
+               "text" : "pâte de cacao",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_food_code" : "16030",
+               "id" : "en:cocoa-butter",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 3.1125,
+               "text" : "beurre de cacao",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "from_palm_oil" : "maybe",
+               "id" : "en:vegetable-fat",
+               "ingredients" : [
+                  {
+                     "from_palm_oil" : "no",
+                     "id" : "en:illipe-oil",
+                     "is_in_taxonomy" : 1,
+                     "percent_estimate" : 0.778125,
+                     "text" : "huile de illipe",
+                     "vegan" : "yes",
+                     "vegetarian" : "yes"
+                  },
+                  {
+                     "from_palm_oil" : "no",
+                     "id" : "en:mango-kernel-oil",
+                     "is_in_taxonomy" : 1,
+                     "percent_estimate" : 0.3890625,
+                     "text" : "huile de mangue",
+                     "vegan" : "yes",
+                     "vegetarian" : "yes"
+                  },
+                  {
+                     "from_palm_oil" : "no",
+                     "id" : "en:shorea-robusta-seed-oil",
+                     "is_in_taxonomy" : 1,
+                     "percent_estimate" : 0.19453125,
+                     "text" : "huile de sal",
+                     "vegan" : "yes",
+                     "vegetarian" : "yes"
+                  },
+                  {
+                     "ciqual_food_code" : "16110",
+                     "from_palm_oil" : "no",
+                     "id" : "en:shea-butter",
+                     "is_in_taxonomy" : 1,
+                     "percent_estimate" : 0.097265625,
+                     "text" : "huile de karité",
+                     "vegan" : "yes",
+                     "vegetarian" : "yes"
+                  },
+                  {
+                     "ciqual_food_code" : "16129",
+                     "ecobalyse_code" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+                     "from_palm_oil" : "yes",
+                     "id" : "en:palm-oil",
+                     "is_in_taxonomy" : 1,
+                     "percent_estimate" : 0.0972656249999999,
+                     "text" : "huile de palme",
+                     "vegan" : "yes",
+                     "vegetarian" : "yes"
+                  }
+               ],
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 1.55625,
+               "text" : "graisses végétales",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "id" : "en:flavouring",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0.778124999999999,
+               "text" : "arôme",
+               "vegan" : "maybe",
+               "vegetarian" : "maybe"
+            },
+            {
+               "id" : "en:emulsifier",
+               "ingredients" : [
+                  {
+                     "ciqual_food_code" : "42200",
+                     "id" : "en:soya-lecithin",
+                     "is_in_taxonomy" : 1,
+                     "percent_estimate" : 0.3890625,
+                     "text" : "lécithine de soja",
+                     "vegan" : "yes",
+                     "vegetarian" : "yes"
+                  }
+               ],
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0.3890625,
+               "text" : "émulsifiant"
+            },
+            {
+               "id" : "en:lactose-and-milk-proteins",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0.389062500000001,
+               "text" : "lactose et protéines de lait",
+               "vegan" : "no",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent" : 24.9,
+         "percent_estimate" : 24.9,
+         "text" : "chocolat",
+         "vegan" : "maybe",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "9410",
+         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "id" : "en:wheat-flour",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 17.05,
+         "text" : "farine de blé",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "31016",
+         "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
+         "id" : "en:sugar",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 8.525,
+         "text" : "sucre",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "22000",
+         "ecobalyse_code" : "egg-indoor-code3",
+         "id" : "en:egg",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 4.2625,
+         "text" : "oeufs",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "31077",
+         "id" : "en:glucose-fructose-syrup",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 2.13125,
+         "text" : "sirop de glucose-fructose",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "17130",
+         "ecobalyse_code" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
+         "from_palm_oil" : "no",
+         "id" : "en:colza-oil",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 1.065625,
+         "text" : "huile de colza",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:raising-agent",
+         "ingredients" : [
+            {
+               "id" : "en:e503ii",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0.266406249999999,
+               "text" : "carbonate acide d'ammonium",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "id" : "en:e450i",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0.133203125,
+               "text" : "diphosphate disodique",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "id" : "en:e500ii",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0.133203125,
+               "text" : "carbonate acide de sodium",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.532812499999999,
+         "text" : "poudre à lever"
+      },
+      {
+         "ciqual_food_code" : "11058",
+         "id" : "en:salt",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.266406250000003,
+         "text" : "sel",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:emulsifier",
+         "ingredients" : [
+            {
+               "ciqual_food_code" : "42200",
+               "id" : "en:soya-lecithin",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0.266406250000003,
+               "text" : "lécithine de soja",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.266406250000003,
+         "text" : "émulsifiant"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:lactose-and-milk-proteins",
+         "en:egg"
+      ],
+      "en:palm-oil" : [
+         "en:palm-oil"
+      ],
+      "en:vegan-status-unknown" : [
+         "en:sodium-citrate"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "en:sodium-citrate"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil",
+      "en:non-vegan",
+      "en:vegetarian-status-unknown"
+   ],
+   "ingredients_hierarchy" : [
+      "en:orange-marmalade",
+      "en:jam",
+      "en:marmalade",
+      "en:chocolate",
+      "en:wheat-flour",
+      "en:cereal",
+      "en:flour",
+      "en:wheat",
+      "en:cereal-flour",
+      "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide",
+      "en:egg",
+      "en:glucose-fructose-syrup",
+      "en:monosaccharide",
+      "en:fructose",
+      "en:glucose",
+      "en:colza-oil",
+      "en:oil-and-fat",
+      "en:vegetable-oil-and-fat",
+      "en:rapeseed-oil",
+      "en:raising-agent",
+      "en:salt",
+      "en:emulsifier",
+      "en:orange-pulp",
+      "en:fruit",
+      "en:citrus-fruit",
+      "en:orange",
+      "en:pulp",
+      "en:concentrated-orange-juice",
+      "en:juice",
+      "en:fruit-juice",
+      "en:orange-juice",
+      "en:gelling-agent",
+      "en:acid",
+      "en:acidity-regulator",
+      "en:natural-orange-flavouring",
+      "en:flavouring",
+      "en:natural-flavouring",
+      "en:thickener",
+      "en:cocoa-paste",
+      "en:plant",
+      "en:cocoa",
+      "en:cocoa-butter",
+      "en:vegetable-fat",
+      "en:lactose-and-milk-proteins",
+      "en:protein",
+      "en:animal-protein",
+      "en:milk-proteins",
+      "en:lactose",
+      "en:e503ii",
+      "en:e503",
+      "en:e450i",
+      "en:e450",
+      "en:e500ii",
+      "en:e500",
+      "en:soya-lecithin",
+      "en:e322",
+      "en:e322i",
+      "en:e440a",
+      "en:e330",
+      "en:e333",
+      "en:sodium-citrate",
+      "en:minerals",
+      "en:sodium",
+      "en:e415",
+      "en:illipe-oil",
+      "en:mango-kernel-oil",
+      "en:vegetable-oil",
+      "en:shorea-robusta-seed-oil",
+      "en:shea-butter",
+      "en:palm-oil",
+      "en:palm-oil-and-fat"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 42,
+   "ingredients_n_tags" : [
+      "42",
+      "41-50"
+   ],
+   "ingredients_original_tags" : [
+      "en:orange-marmalade",
+      "en:chocolate",
+      "en:wheat-flour",
+      "en:sugar",
+      "en:egg",
+      "en:glucose-fructose-syrup",
+      "en:colza-oil",
+      "en:raising-agent",
+      "en:salt",
+      "en:emulsifier",
+      "en:glucose-fructose-syrup",
+      "en:sugar",
+      "en:orange-pulp",
+      "en:concentrated-orange-juice",
+      "en:orange",
+      "en:gelling-agent",
+      "en:acid",
+      "en:acidity-regulator",
+      "en:natural-orange-flavouring",
+      "en:thickener",
+      "en:sugar",
+      "en:cocoa-paste",
+      "en:cocoa-butter",
+      "en:vegetable-fat",
+      "en:flavouring",
+      "en:emulsifier",
+      "en:lactose-and-milk-proteins",
+      "en:e503ii",
+      "en:e450i",
+      "en:e500ii",
+      "en:soya-lecithin",
+      "en:e440a",
+      "en:e330",
+      "en:e333",
+      "en:sodium-citrate",
+      "en:e415",
+      "en:illipe-oil",
+      "en:mango-kernel-oil",
+      "en:shorea-robusta-seed-oil",
+      "en:shea-butter",
+      "en:palm-oil",
+      "en:soya-lecithin"
+   ],
+   "ingredients_percent_analysis" : -1,
+   "ingredients_tags" : [
+      "en:orange-marmalade",
+      "en:jam",
+      "en:marmalade",
+      "en:chocolate",
+      "en:wheat-flour",
+      "en:cereal",
+      "en:flour",
+      "en:wheat",
+      "en:cereal-flour",
+      "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide",
+      "en:egg",
+      "en:glucose-fructose-syrup",
+      "en:monosaccharide",
+      "en:fructose",
+      "en:glucose",
+      "en:colza-oil",
+      "en:oil-and-fat",
+      "en:vegetable-oil-and-fat",
+      "en:rapeseed-oil",
+      "en:raising-agent",
+      "en:salt",
+      "en:emulsifier",
+      "en:orange-pulp",
+      "en:fruit",
+      "en:citrus-fruit",
+      "en:orange",
+      "en:pulp",
+      "en:concentrated-orange-juice",
+      "en:juice",
+      "en:fruit-juice",
+      "en:orange-juice",
+      "en:gelling-agent",
+      "en:acid",
+      "en:acidity-regulator",
+      "en:natural-orange-flavouring",
+      "en:flavouring",
+      "en:natural-flavouring",
+      "en:thickener",
+      "en:cocoa-paste",
+      "en:plant",
+      "en:cocoa",
+      "en:cocoa-butter",
+      "en:vegetable-fat",
+      "en:lactose-and-milk-proteins",
+      "en:protein",
+      "en:animal-protein",
+      "en:milk-proteins",
+      "en:lactose",
+      "en:e503ii",
+      "en:e503",
+      "en:e450i",
+      "en:e450",
+      "en:e500ii",
+      "en:e500",
+      "en:soya-lecithin",
+      "en:e322",
+      "en:e322i",
+      "en:e440a",
+      "en:e330",
+      "en:e333",
+      "en:sodium-citrate",
+      "en:minerals",
+      "en:sodium",
+      "en:e415",
+      "en:illipe-oil",
+      "en:mango-kernel-oil",
+      "en:vegetable-oil",
+      "en:shorea-robusta-seed-oil",
+      "en:shea-butter",
+      "en:palm-oil",
+      "en:palm-oil-and-fat"
+   ],
+   "ingredients_text" : "Marmelade d'oranges 41% (sirop de glucose-fructose, sucre, pulpe d'orange 4.5%, jus d'orange concentré 1.4% (équivalent jus d'orange 7.8%), pulpe d'orange concentrée 0.6% (équivalent pulpe d'orange 2.6%), gélifiant (pectines), acidifiant (acide citrique), correcteurs d'acidité (citrate de calcium, citrate de sodium), arôme naturel d'orange, épaississant (gomme xanthane)), chocolat 24.9% (sucre, pâte de cacao, beurre de cacao, graisses végétales (illipe, mangue, sal, karité et palme en proportions variables), arôme, émulsifiant (lécithine de soja), lactose et protéines de lait), farine de blé, sucre, oeufs, sirop de glucose-fructose, huile de colza, poudre à lever (carbonate acide d'ammonium, diphosphate disodique, carbonate acide de sodium), sel, émulsifiant (lécithine de soja).",
+   "ingredients_with_specified_percent_n" : 1,
+   "ingredients_with_specified_percent_sum" : 4.5,
+   "ingredients_with_unspecified_percent_n" : 29,
+   "ingredients_with_unspecified_percent_sum" : 93.5,
+   "ingredients_without_ciqual_codes" : [
+      "en:acid",
+      "en:acidity-regulator",
+      "en:chocolate",
+      "en:e330",
+      "en:e333",
+      "en:e415",
+      "en:e440a",
+      "en:e450i",
+      "en:e500ii",
+      "en:e503ii",
+      "en:emulsifier",
+      "en:flavouring",
+      "en:gelling-agent",
+      "en:illipe-oil",
+      "en:lactose-and-milk-proteins",
+      "en:mango-kernel-oil",
+      "en:natural-orange-flavouring",
+      "en:raising-agent",
+      "en:shorea-robusta-seed-oil",
+      "en:sodium-citrate",
+      "en:thickener",
+      "en:vegetable-fat"
+   ],
+   "ingredients_without_ciqual_codes_n" : 22,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:acid",
+      "en:acidity-regulator",
+      "en:chocolate",
+      "en:cocoa-butter",
+      "en:cocoa-paste",
+      "en:e330",
+      "en:e333",
+      "en:e415",
+      "en:e440a",
+      "en:e450i",
+      "en:e500ii",
+      "en:e503ii",
+      "en:emulsifier",
+      "en:flavouring",
+      "en:gelling-agent",
+      "en:glucose-fructose-syrup",
+      "en:illipe-oil",
+      "en:lactose-and-milk-proteins",
+      "en:mango-kernel-oil",
+      "en:natural-orange-flavouring",
+      "en:orange-marmalade",
+      "en:raising-agent",
+      "en:salt",
+      "en:shea-butter",
+      "en:shorea-robusta-seed-oil",
+      "en:sodium-citrate",
+      "en:soya-lecithin",
+      "en:thickener",
+      "en:vegetable-fat"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 29,
+   "known_ingredients_n" : 73,
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
+      "en:at-least-5-ingredients-with-specified-percent"
+   ],
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 6.5,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 6.5,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 7.565625,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 7.565625
+   },
+   "unknown_ingredients_n" : 0
+}

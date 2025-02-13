@@ -1,0 +1,77 @@
+///
+/// Default component settings
+///
+$include-sveetoy-spaces: true !default;
+// Defines default space sizes with their breakpoint values
+$sveetoy-space-thin: () !default;
+$sveetoy-space-tiny: () !default;
+$sveetoy-space-normal: () !default;
+$sveetoy-space-wide: () !default;
+$sveetoy-space-huge: () !default;
+// New thickness names to apply: thin, tiny, normal, wide, huge
+$sveetoy-spaces: () !default;
+// Map of breakpoints, usually mapped on those Foundation ones
+$sveetoy-breakpoints: () !default;
+/// Common sample
+/// $sveetoy-breakpoints: (
+///     small: $small-up,
+///     medium: $medium-up,
+///     large: $large-up,
+///     xlarge: $xlarge-up,
+/// ) !default;
+///
+/// Spaces around mixin
+///
+/// Includes properties to apply vertical/horizontal spacing on an
+/// element for various breakpoints
+///
+/// Arguments:
+///     $definitions (map): space sizes map which define at least
+///         the keyword name from '$default'.
+///
+/// Keyword Arguments:
+///     $axis (string): axis to apply spaces, can ben either 'horizontal' or
+///         'vertical'.
+///     $default (string): Breakpoint name to use as as default class spacing.
+///         Won't be included in media queries.
+///     $sides (list): Sides to apply spacing depending from $axis, 'start'
+///         means 'top' or 'left' and 'end' means 'right' or 'bottom'. Both
+///         sides are enabled by default.
+///     $prop (string): Property name to define, default is 'padding' but it
+///         can 'margin' also.
+///
+@mixin sveetoy-apply-spaces($definitions, $axis: "vertical", $default: "small", $sides: ("start", "end"), $prop: "padding") {
+    $space-start: top;
+    $space-end: bottom;
+    @if $axis=="horizontal" {
+        $space-start: left;
+        $space-end: right;
+    }
+    @if $definitions !=null {
+        @if map-get($definitions, $default)==null {
+            @error "Given space definition must contain at least the '#{$default}' key";
+        }
+        // Default size comes from 'small'
+        @if index($sides, "start") {
+            #{$prop}-#{$space-start}: map-get($definitions, $default);
+        }
+        @if index($sides, "end") {
+            #{$prop}-#{$space-end}: map-get($definitions, $default);
+        }
+        // Breakpoints
+        @each $name,
+        $size in $definitions {
+            // Ignore default size, also dont try to use an unknowed breakpoint
+            @if $name !=$default and map-get($sveetoy-breakpoints, $name) {
+                @media #{map-get($sveetoy-breakpoints, $name)} {
+                    @if index($sides, "start") {
+                        #{$prop}-#{$space-start}: $size;
+                    }
+                    @if index($sides, "end") {
+                        #{$prop}-#{$space-end}: $size;
+                    }
+                }
+            }
+        }
+    }
+}

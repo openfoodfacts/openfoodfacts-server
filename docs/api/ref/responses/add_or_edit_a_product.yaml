@@ -1,0 +1,9 @@
+type: object
+title: add_or_edit_a_product_response
+properties:
+  status_verbose:
+    type: string
+    example: fields saved
+  status:
+    type: integer
+    example: 1

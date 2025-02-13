@@ -1,0 +1,35 @@
+# tabs - we want 1 tab to represent 4 chars
+--entab-leading-whitespace=4
+--default-tabsize=4
+--outdent-labels
+# Max line width is 120 cols
+-l=120
+# Indent level is 4 cols
+-i=4
+# also for continuation lines
+--continuation-indentation=4
+# Maximal vertical tightness
+--vertical-tightness=0
+# Minimal closing vertical tightness
+--vertical-tightness-closing=0
+# No extra indentation for closing brackets
+--closing-token-indentation=0
+# Tight parenthesis
+--paren-tightness=2
+# Tight braces
+--brace-tightness=2
+# Tight square brackets
+--square-bracket-tightness=2
+# Tight block braces
+--block-brace-tightness=2
+# No space before semicolons
+--nospace-for-semicolon
+# Don't outdent long quoted strings
+--no-outdent-long-lines
+# Break before all operators
+--break-before-all-operators
+# No vertical alignments
+-novalign
+# No blanks before comments
+--noblanks-before-comments
+# NOTE: see .perltidy_excludes for file excluded from checks

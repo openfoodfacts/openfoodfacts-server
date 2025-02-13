@@ -1,0 +1,68 @@
+{
+    "level" :"recommendation",
+    "topics": [
+        "health"
+    ],
+    "evaluation": "bad",
+    "title_element": {
+        "title": "Limitez votre consommation d'alcool",
+        "subtitle": "Maximum 2 verres par jour et pas tous les jours",
+        "icon_url": "[% static_subdomain %]/images/icons/dist/arrow-bottom-right-thick.svg",
+        "icon_color_from_evaluation": true,
+        "evaluation": "bad",                
+    },
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "quote",
+                "html": `
+                <ul>
+                <li>Les risques liés à la consommation d’alcool pour la santé au cours de la vie
+                augmentent avec la quantité consommée ;
+                <li>Si vous consommez de l’alcool, pour limiter les risques pour votre santé au cours de
+                votre vie, il est recommandé de :
+                <ul>
+                <li>ne pas consommer plus de 10 verres standard par semaine et pas plus de 2
+                verres standard par jour ;
+                <li>avoir des jours dans la semaine sans consommation.
+                </ul>
+                <li>Et pour chaque occasion de consommation, il est recommandé de :
+                <ul>
+                <li>réduire la quantité totale d’alcool que vous buvez;
+                <li>boire lentement, en mangeant et en alternant avec de l’eau ;
+                <li>éviter les lieux et les activités à risque ;
+                <li>s'assurer que vous avez des personnes que vous connaissez près de vous et
+                que vous pouvez rentrer chez vous en toute sécurité.
+                </ul>
+                <li>D'une façon générale, l'option la plus sûre est de ne pas consommer d'alcool en cas
+                de :
+                <ul>
+                <li>conduite automobile ;
+                <li>manipulation d'outils ou de machines (bricolage, etc.) ;
+                <li>pratique de sports à risque ;
+                <li>consommation de certains médicaments ;
+                <li>existence de certaines pathologies. 
+                </ul>
+                </ul>
+                    `,
+                "source_text": "Santé publique France - Recommendations sur l'alimentation, l'activité physique et la sédentarité pour les adultes - Janvier 2019",
+                "source_url": "https://www.santepubliquefrance.fr/content/download/35744/683783",
+                "source_language": "fr",
+            }
+        },
+        {
+            "element_type": "image",
+            "image_element": {
+                "url": "[% static_subdomain %]/images/misc/recommendations/recommendation_health_fr_spf_vivre_mieux_avec_moins_d_alcool.837x1188.png",
+                "alt": "",
+                "type": "quote",
+                "source_text": "Santé publique France - Vivre mieux avec moins d'alcool - 2021",
+                "source_url": "https://www.santepubliquefrance.fr/determinants-de-sante/alcool/documents/depliant-flyer/vivre-mieux-avec-moins-d-alcool",
+                "source_language": "fr",
+            }
+        },
+    ],
+}
+
+

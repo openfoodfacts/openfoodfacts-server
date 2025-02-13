@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -49,6 +49,7 @@ TXT
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -66,7 +67,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 use Getopt::Long;
 
@@ -111,12 +112,12 @@ while (my $product_ref = $cursor->next) {
 	(($n % 100) == 0) and print STDERR $n . " products checked\n";
 	
 	$n++;
-	
-	my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
-	if (not defined $changes_ref) {
+
+	my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
+	if ( not defined $changes_ref ) {
 		next;
-	}	
-	
+	}
+
 	$product_ref = retrieve_product($code);
 	
 	if ((defined $product_ref) and ($code ne '')) {

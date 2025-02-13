@@ -1,0 +1,116 @@
+type: object
+title: product_misc
+description: |
+  Miscellaneous but important fields of a product
+properties:
+  additives_n:
+    type: integer
+    description: |
+      Number of food additives.
+  checked:
+    type: string
+  complete:
+    type: integer
+  completeness:
+    type: number
+  ecoscore_grade:
+    type: string
+    description: |
+      See also: `ecoscore_tags`
+  ecoscore_score:
+    type: integer
+    description: |
+      See also: `ecoscore_tags`
+  food_groups:
+    type: string
+  food_groups_tags:
+    type: array
+    items:
+      type: string
+  nutrient_levels:
+    description: |
+      Traffic light indicators on main nutrients levels
+    type: object
+    properties:
+      fat:
+        type: string
+        enum: ["low", "moderate", "high"]
+      salt:
+        type: string
+        enum: ["low", "moderate", "high"]
+      saturated-fat:
+        type: string
+        enum: ["low", "moderate", "high"]
+      sugars:
+        type: string
+        enum: ["low", "moderate", "high"]
+  packaging_text:
+    type: string
+    description: |
+      Recycling instructions as raw text, e.g. Plastic
+      bottle to recycle, Plastic cap to recycle.
+      This will get automatically parsed and
+      will be used to compute the Eco-Score.
+      You can either request it (if it exists) or
+      send it in a specific language.
+    example: packaging_text_en
+  packagings:
+    $ref: ./packagings/packagings.yaml
+  packagings_complete:
+    $ref: ./packagings/packagings_complete.yaml
+
+  pnns_groups_1:
+    description: |
+      Category of food according to [French Nutrition and Health Program](https://fr.wikipedia.org/wiki/Programme_national_nutrition_sant%C3%A9)
+    type: string
+  pnns_groups_1_tags:
+    type: array
+    items:
+      type: string
+  pnns_groups_2:
+    description: |
+      Sub Category of food according to [French Nutrition and Health Program](https://fr.wikipedia.org/wiki/Programme_national_nutrition_sant%C3%A9)
+    type: string
+  pnns_groups_2_tags:
+    type: array
+    items:
+      type: string
+  popularity_key:
+    description: |
+      An imprecise measurement of popularity based on Scan statistics. A higher value means higher popularity.
+    type: integer
+  popularity_tags:
+    description: |
+      Indicators for the popularity of a product, like the amount of scans in a specific year.
+    type: array
+    items:
+      type: string
+  scans_n:
+    type: integer
+  unique_scans_n:
+    type: integer
+  serving_quantity:
+    type: string
+    description: |
+      Normalized version of serving_size.
+      Note that this is NOT the number of servings by product.
+      <small>(in perl, see `normalize_serving_size`)</small>
+  serving_quantity_unit:
+    type: string
+    description: |
+      The unit (either g or ml) for the correponding serving_quantity.
+    example: "g"
+  serving_size:
+    type: string
+    description: |
+      Serving size text (generally in g or ml).
+      We expect a quantity + unit but the user is free to input any string.
+
+patternProperties:
+  'food_groups_(?<language_code>\w\w)':
+    type: string
+    description: see `food_groups`
+  'packaging_text_(?<language_code>\w\w)':
+    type: string
+    description: |
+      Packaging text in language designated by `language_code`

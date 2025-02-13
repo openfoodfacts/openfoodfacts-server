@@ -1,0 +1,21 @@
+{
+   "errors" : [
+      {
+         "field" : {
+            "id" : "tagtype"
+         },
+         "impact" : {
+            "id" : "failure",
+            "lc_name" : "Failure",
+            "name" : "Failure"
+         },
+         "message" : {
+            "id" : "missing_field",
+            "lc_name" : "Missing field",
+            "name" : "Missing field"
+         }
+      }
+   ],
+   "status" : "failure",
+   "warnings" : []
+}

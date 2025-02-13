@@ -1,0 +1,51 @@
+[% IF panels.ingredients.defined %]
+{
+    "element_type": "panel_group",
+    "panel_group_element": {
+        "title": "[% edq(lang('ingredients')) %]",
+        "type": "subcard",
+        "panel_group_id": "ingredients",
+        "panel_ids": [
+            "ingredients",
+            [% IF panels.ingredients_rare_crops.defined %]
+            "ingredients_rare_crops",
+            [% END %]
+        ],
+        [% IF panel.ingredients_image.defined %]
+        "image": [% encode_json(panel.ingredients_image) %],
+        [% END %]
+    },
+},
+[% END %]
+[% IF panels.nova.defined %]
+{
+    "element_type": "panel_group",
+    "panel_group_element": {
+        "title": "[% edq(lang('attribute_group_processing_name')).ucfirst %]",
+        "panel_ids": ["nova"],
+    },
+}, 
+[% END %]        
+[% IF panels.additives.defined %]
+{
+    "element_type": "panel_group",
+    "panel_group_element": {
+        "title": "[% edq(lang('additives_p')).ucfirst %]",
+        "panel_ids": ["additives"],
+    },
+}, 
+[% END %]
+[% IF panels.ingredients_analysis.defined %]
+{
+    "element_type": "panel_group",
+    "panel_group_element": {
+        "title":  "[% edq(lang('ingredients_analysis')) %]",
+        "panel_ids": [
+            "ingredients_analysis",
+            [% IF panels.ingredients_analysis_details.defined %]
+            "ingredients_analysis_details",
+            [% END %]
+        ],
+    },
+}, 
+[% END %]

@@ -15,26 +15,33 @@ logger.setLevel(logging.INFO)
 
 JSONObject = Mapping[str, Any]
 
+SCRAPY_SPIDER_FILE_PATH = Path("non_eu_spider.py").absolute()
+
 
 def scrape_document_info() -> List[JSONObject]:
-    logger.info("Scraping remote document information")
-    # Try importing scrapy to check for dependency
-    import scrapy  # noqa
+    """Scrape official non-EU packager codes page and extract documents information.
 
-    spider_file_path = Path("non_eu_spider.py").absolute()
-    cmd = "scrapy runspider --output - --output-format json --loglevel WARN".split(" ")
-    cmd.append(str(spider_file_path))
+    Returns:
+        list of JSONObject: List of document information as dictionaries with the keys:
+        country_name, title, url, publication_date, file_path, section.
+    """
+    logger.info("Scraping remote document information")
+    cmd = "scrapy runspider --output - --output-format json --loglevel WARN".split(
+        " ")
+    cmd.append(str(SCRAPY_SPIDER_FILE_PATH))
     cmd_res = subprocess.run(cmd, stdout=subprocess.PIPE, check=True)
     return json.loads(cmd_res.stdout.decode())
 
 
 def download_documents(document_info: Sequence[JSONObject], dest_dir: Path) -> None:
-    logger.info("Downloading %s documents into '%s'", len(document_info), dest_dir)
+    logger.info("Downloading %s documents into '%s'",
+                len(document_info), dest_dir)
     dest_dir = Path(dest_dir)
     for i, doc_info in enumerate(document_info):
         dest_path = dest_dir / doc_info["file_path"]
         logger.info(
-            "(%s/%s) Downloading %s", i + 1, len(document_info), doc_info["url"]
+            "(%s/%s) Downloading %s", i +
+            1, len(document_info), doc_info["url"]
         )
         dest_path.parent.mkdir(parents=True, exist_ok=True)
         with urlopen(doc_info["url"]) as response, dest_path.open("wb") as dest_file:
@@ -58,7 +65,8 @@ def document_info_diff(
         )
     ]
     unchanged_names = (
-        set(local_docs.keys()).difference(removed_names).difference(updated_names)
+        set(local_docs.keys()).difference(
+            removed_names).difference(updated_names)
     )
 
     return {
@@ -86,10 +94,12 @@ def main():
 
 @main.command(
     help="Show local data status as compared to remote source.\n\n"
-    "DATA_DIR is the path to the local packager code data storage.",
-    no_args_is_help=True,
+    "DATA_DIR is the path to the local directory containing packager code data. "
+    "Defaults to 'packager_codes_data'.",
 )
-@click.argument("data_dir", type=click.Path(file_okay=False))
+@click.argument(
+    "data_dir", type=click.Path(file_okay=False), default="packager_codes_data"
+)
 @click.option(
     "--output-format",
     "-f",
@@ -103,6 +113,7 @@ def status(data_dir: str, output_format: str) -> None:
 
     local_meta = load_local_meta(data_dir)
     scraped_info = scrape_document_info()
+    print(scraped_info)
     doc_diff = document_info_diff(scraped_info, local_meta["document_info"])
 
     if output_format == "json":
@@ -122,10 +133,12 @@ def status(data_dir: str, output_format: str) -> None:
 
 @main.command(
     help="Sync packager code files with remote.\n\n"
-    "DATA_DIR is the path of the local directory in which to sync data.",
-    no_args_is_help=True,
+    "DATA_DIR is the path of the local directory in which to sync data. Defaults to "
+    "'packager_codes_data'.",
 )
-@click.argument("data_dir", type=click.Path(file_okay=False))
+@click.argument(
+    "data_dir", type=click.Path(file_okay=False), default="packager_codes_data"
+)
 def sync(data_dir: str) -> None:
     data_dir = Path(data_dir)
     data_dir.mkdir(exist_ok=True)

@@ -1,0 +1,55 @@
+services:
+  memcached:
+    restart: always
+    networks:
+    - webnet
+  postgres:
+    restart: always
+    networks:
+    - webnet
+  backend:
+    restart: always
+    networks: 
+    - webnet
+  incron:
+    restart: always
+    networks:
+    - webnet
+  minion:
+    restart: always
+    networks:
+    - webnet
+  frontend:
+    restart: always
+    networks:
+    - webnet
+volumes:
+  html_data:
+    external: true
+    name: ${COMPOSE_PROJECT_NAME}_html_data
+  users:
+    external: true
+    name: ${COMPOSE_PROJECT_NAME}_users
+  products:
+    external: true
+    name: ${COMPOSE_PROJECT_NAME}_products
+  orgs:
+    external: true
+    name: ${COMPOSE_PROJECT_NAME}_orgs
+  product_images:
+    external: true
+    name: ${COMPOSE_PROJECT_NAME}_product_images
+  podata:
+    external: true
+    name: ${COMPOSE_PROJECT_NAME}_podata
+  export_files:
+    external: true
+    name: ${COMPOSE_PROJECT_NAME}_export_files
+  build_cache:
+    external: true
+    name: ${COMPOSE_PROJECT_NAME}_build_cache
+
+networks:
+  webnet:
+    external: true
+    name: ${COMPOSE_PROJECT_NAME}_webnet
