@@ -33,12 +33,21 @@ my @products = (
 			code => '200000000034',
 			product_name => "Some product",
 			generic_name => "Tester",
-			ingredients_text => "apple, milk, eggs, palm oil",
+			ingredients_text => "apple, milk, eggs, palm oil, coloring: curcumin, emulsifier: soy lecithin",
 			categories => "cookies",
 			labels => "organic",
 			origin => "france",
 			packaging_text_en =>
 				"1 wooden box to recycle, 6 25cl glass bottles to reuse, 3 steel lids to recycle, 1 plastic film to discard",
+			nutriment_salt => '50.2',
+			nutriment_salt_unit => 'mg',
+			nutriment_sugars => '12.5',
+			"nutriment_saturated-fat" => '5.6',
+			nutriment_fiber => 2,
+			"nutriment_energy-kj" => 400,
+			nutriment_proteins => 4.5,
+			nutriment_carbohydrates => 10.5,
+			nutriment_fat => 8.5,
 		)
 	},
 );
@@ -145,6 +154,29 @@ my $tests_ref = [
 		method => 'GET',
 		path => '/api/v2/product/200000000034',
 		query_string => '?fields=attribute_groups,all,knowledge_panels',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'get-fields-knowledge-panels-knowledge-panels_included-health_card-environment_card',
+		method => 'GET',
+		path => '/api/v2/product/200000000034',
+		query_string => '?fields=knowledge_panels&knowledge_panels_included=health_card,environment_card',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'get-fields-knowledge-panels-knowledge-panels_excluded-environment_card',
+		method => 'GET',
+		path => '/api/v2/product/200000000034',
+		query_string => '?fields=knowledge_panels&knowledge_panels_excluded=environment_card',
+		expected_status_code => 200,
+	},
+	{
+		test_case =>
+			'get-fields-knowledge-panels-knowledge-panels_included-health_card-environment_card-knowledge_panels_excluded-health_card',
+		method => 'GET',
+		path => '/api/v2/product/200000000034',
+		query_string =>
+			'?fields=knowledge_panels&knowledge_panels_included=health_card,environment_card&knowledge_panels_excluded=health_card',
 		expected_status_code => 200,
 	},
 	# Test authentication

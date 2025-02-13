@@ -8,10 +8,14 @@
         [% FOREACH facet IN facets %]
             <p>
                 &rarr;
-                <a href="[% facet.url %]">[% facet.number_of_products %][% sep %]: [% facet.count %]</a>
+                <a href="[% owner_pretty_path %][% facet.url %]">[% facet.number_of_products %][% sep %]: [% facet.count %]</a>
                 <br>
             </p>
-        [% END %]        
+        [% END %]
+
+        [% IF add_products_to_discover_the_evolution_of_their_nutriscore_grades %]
+            <p>[% lang("add_products_to_discover_the_evolution_of_their_nutriscore_grades") %]</p>
+        [% END %]
 
         <h2>[% lang("your_products") %]</h2>
         
@@ -36,14 +40,14 @@
             <ul>
                 <li>[% lang('number_of_products_with_changes_since_last_export') %][% sep %]:
                     [% IF count_to_be_exported %]
-                        <a href="/state/en:to-be-exported">[% count_to_be_exported %]</a>
+                        <a href="[% owner_pretty_path %]/state/en:to-be-exported">[% count_to_be_exported %]</a>
                     [% ELSE %]
                         [% count_to_be_exported %]
                     [% END %]
                 </li>
                 <li>[% lang('number_of_products_withdrawn_from_the_market_since_last_export') %][% sep %]:
                     [% IF count_obsolete_to_be_exported %]
-                        <a href="/state/en:to-be-exported?obsolete=1">[% count_obsolete_to_be_exported %]</a>
+                        <a href="[% owner_pretty_path %]/state/en:to-be-exported?obsolete=1">[% count_obsolete_to_be_exported %]</a>
                     [% ELSE %]
                         [% count_obsolete_to_be_exported %]
                     [% END %]

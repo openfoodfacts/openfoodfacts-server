@@ -1,6 +1,4 @@
-﻿version: "3.7"
-
-x-backend-conf: &backend-conf
+﻿x-backend-conf: &backend-conf
   image: openfoodfacts-server/backend:dev
   build:
     context: .
@@ -24,7 +22,7 @@ x-backend-conf: &backend-conf
     - ./sftp:/mnt/podata/sftp/
   # Allow the container to connect to the host when using Linux.
   # This is needed to access other services that are running outside of Docker
-  # e.g. when developing with Robotoff or openfoodfacts-query
+  # e.g. when developing with openfoodfacts-query
   extra_hosts:
     - "host.docker.internal:host-gateway"
 
@@ -34,7 +32,6 @@ x-minion-db-network: &minion-db-network
     # see also docs/dev/explain-pro-dev-setup.md
     minion_db:
     default:
-
 
 services:
   postgres:
@@ -91,15 +88,6 @@ services:
             - world.openfoodfacts.localhost
             - static.openfoodfacts.localhost
             - images.openfoodfacts.localhost
-  mongodb:
-    # Note: keep it as close a possible to mongodb.yml
-    image: mongo:4.4
-    command: mongod --wiredTigerCacheSizeGB ${MONGODB_CACHE_SIZE}
-    volumes:
-      - dbdata:/data/db
-      - ./html/data:/import
-    ports:
-      - "127.0.0.1:${MONGO_EXPOSE_PORT:-27017}:27017"
 
 volumes:
   product_images:
@@ -116,7 +104,6 @@ volumes:
   export_files:
     name: ${PO_COMMON_PREFIX:-}po_export_files
   podata:
-  dbdata:
 
 networks:
   # this is a specific network to enable pro platform to join the postgres db

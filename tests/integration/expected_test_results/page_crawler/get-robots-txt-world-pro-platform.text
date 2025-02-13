@@ -5,18 +5,12 @@ Disallow: /cgi
 Disallow: /code
 Disallow: /api
 Disallow: /additives
-Disallow: /additives-debug
-Disallow: /additives-next
-Disallow: /additives-prev
 Disallow: /allergen
 Disallow: /allergens
 Disallow: /amino-acid
 Disallow: /amino-acids
 Disallow: /brands
 Disallow: /categories
-Disallow: /categories-debug
-Disallow: /categories-next
-Disallow: /categories-prev
 Disallow: /categories-properties
 Disallow: /checker
 Disallow: /checkers
@@ -43,6 +37,7 @@ Disallow: /data-quality-warnings-producers
 Disallow: /data-source
 Disallow: /data-sources
 Disallow: /debug
+Disallow: /environmental-score
 Disallow: /editor
 Disallow: /editors
 Disallow: /packager-code
@@ -69,9 +64,6 @@ Disallow: /ingredients-that-may-be-from-palm-oil
 Disallow: /known-nutrient
 Disallow: /known-nutrients
 Disallow: /labels
-Disallow: /labels-debug
-Disallow: /labels-next
-Disallow: /labels-prev
 Disallow: /language
 Disallow: /languages
 Disallow: /last-check-date
@@ -216,4 +208,23 @@ User-agent: DataForSeoBot
 Disallow: /
 
 User-agent: AhrefsBot
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+User-agent: cohere-ai
+Disallow: /
+User-agent: anthropic-ai
+Disallow: /
+User-agent: ClaudeBot
+Disallow: /
+User-agent: Claude-Web
+Disallow: /
+User-agent: PerplexityBot
+Disallow: /
+User-agent: Diffbot
+Disallow: /
+User-agent: ImagesiftBot
+Disallow: /
+User-agent: ChatGPT-User
 Disallow: /

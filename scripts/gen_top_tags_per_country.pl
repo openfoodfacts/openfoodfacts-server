@@ -27,7 +27,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
 use ProductOpener::Store qw/get_string_id_for_lang store/;
 use ProductOpener::Index qw/:all/;
-use ProductOpener::Display qw/$cc $country $static_subdomain add_product_nutriment_to_stats compute_stats_for_products/;
+use ProductOpener::Display qw/$country $static_subdomain add_product_nutriment_to_stats compute_stats_for_products/;
 use ProductOpener::Tags
 	qw/%country_languages %properties canonicalize_taxonomy_tag_link display_taxonomy_tag exists_taxonomy_tag/;
 use ProductOpener::Users qw/:all/;
@@ -46,7 +46,7 @@ use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
 use File::Path qw(mkpath);
-use JSON::PP;
+use JSON::MaybeXS;
 
 # Output will be in the $BASE_DIRS{PRIVATE_DATA} directory
 # data/index: data related to the Open Food Hunt operation (old): points for countries, users and ambassadors
@@ -155,7 +155,7 @@ $fields_ref->{completed_t} = 1;
 
 $fields_ref->{nutriments} = 1;
 $fields_ref->{nutrition_grade_fr} = 1;
-$fields_ref->{ecoscore_extended_data} = 1;
+$fields_ref->{environmental_score_extended_data} = 1;
 
 # Sort by created_t so that we can see which product was the nth in each country -> necessary to compute points for Open Food Hunt
 # do not include empty products and products that have been marked as obsolete
@@ -229,17 +229,17 @@ while (my $product_ref = $cursor->next) {
 
 	# Add environmental impact from impact estimator if we have them
 	if (
-			(defined $product_ref->{ecoscore_extended_data})
-		and (defined $product_ref->{ecoscore_extended_data}{impact})
-		and (defined $product_ref->{ecoscore_extended_data}{impact}{likeliest_impacts})
+			(defined $product_ref->{environmental_score_extended_data})
+		and (defined $product_ref->{environmental_score_extended_data}{impact})
+		and (defined $product_ref->{environmental_score_extended_data}{impact}{likeliest_impacts})
 		# TODO: Need to add a filter to keep only impacts computed with high confidence
 		)
 	{
 		defined $products_nutriments{$code} or $products_nutriments{$code} = {};
 		$products_nutriments{$code}{climate_change}
-			= $product_ref->{ecoscore_extended_data}{impact}{likeliest_impacts}{Climate_change};
+			= $product_ref->{environmental_score_extended_data}{impact}{likeliest_impacts}{Climate_change};
 		$products_nutriments{$code}{ef_score}
-			= $product_ref->{ecoscore_extended_data}{impact}{likeliest_impacts}{EF_single_score};
+			= $product_ref->{environmental_score_extended_data}{impact}{likeliest_impacts}{EF_single_score};
 	}
 
 	# Compute points
@@ -395,11 +395,7 @@ while (my $product_ref = $cursor->next) {
 	}
 	elsif ((defined $product_ref->{completed_t}) and ($product_ref->{completed_t} > 0)) {
 		$complete++;
-		if ($complete % 10 == 0) {
-			print "completed products: $complete\n";
-		}
 	}
-
 }
 
 # compute points
@@ -813,7 +809,7 @@ HTML
 			;
 
 		my $stats_dir = "$BASE_DIRS{PUBLIC_DATA}/products_stats/$lc";
-		print "products_stats - saving $stats_dir/products_stats_$cc.html\n";
+		# print "products_stats - saving $stats_dir/products_stats_$cc.html\n";
 		ensure_dir_created_or_die($stats_dir);
 		if (open(my $OUT, ">:encoding(UTF-8)", "$stats_dir/products_stats_$cc.html")) {
 			print $OUT $html;
@@ -840,16 +836,18 @@ my $start = 100000000000;
 
 foreach my $country (sort {$countries{$b} <=> $countries{$a}} keys %countries) {
 
-	if ($countries_dates{$country}{$date . ".start"} < $start) {
+	if (    (defined $countries_dates{$country}{$date . ".start"})
+		and ($countries_dates{$country}{$date . ".start"} < $start))
+	{
 		$start = $countries_dates{$country}{$date . ".start"};
 	}
-	if ($countries_dates{$country}{$date . ".end"} > $end) {
+	if ((defined $countries_dates{$country}{$date . ".end"}) and ($countries_dates{$country}{$date . ".end"} > $end)) {
 		$end = $countries_dates{$country}{$date . ".end"};
 	}
 }
 
 foreach my $country (
-	sort {$countries_dates{$a}{$date . ".start"} <=> $countries_dates{$b}{$date . ".start"}}
+	sort {($countries_dates{$a}{$date . ".start"} || 0) <=> ($countries_dates{$b}{$date . ".start"} || 0)}
 	keys %countries
 	)
 {

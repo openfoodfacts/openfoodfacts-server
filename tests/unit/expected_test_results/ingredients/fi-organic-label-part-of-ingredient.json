@@ -14,6 +14,7 @@
       },
       {
          "ciqual_proxy_food_code" : "19051",
+         "ecobalyse_code" : "2bf307e8-8cb0-400b-a4f1-cf615d9e96f4",
          "id" : "en:milk",
          "is_in_taxonomy" : 1,
          "labels" : "en:organic",
@@ -56,6 +57,7 @@
       "en:cereal",
       "en:malt"
    ],
+   "ingredients_lc" : "fi",
    "ingredients_n" : 3,
    "ingredients_n_tags" : [
       "3",
@@ -86,6 +88,11 @@
       "en:malted-barley"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:green-tea",
+      "en:malted-barley"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 8,
    "lc" : "fi",
    "nutriments" : {

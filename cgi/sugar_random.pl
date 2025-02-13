@@ -25,7 +25,7 @@ use ProductOpener::PerlStandards;
 use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Storable qw(lock_store lock_nstore lock_retrieve);
 use Apache2::RequestRec ();
 use Apache2::Const ();

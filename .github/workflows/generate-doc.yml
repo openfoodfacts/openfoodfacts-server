@@ -19,6 +19,8 @@ jobs:
     steps:
       - name: Checkout sources
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
       # generating project documentation
       - name: Build documentation with MkDocs
@@ -79,7 +81,7 @@ jobs:
 
 
       - name: Deploy API documentation to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4.6.1
+        uses: JamesIves/github-pages-deploy-action@v4.7.2
         # we only deploy on push to main
         if: |
           github.event_name == 'push' && github.event.ref == 'refs/heads/main'

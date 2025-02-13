@@ -36,7 +36,7 @@ use ProductOpener::Users qw/$User_id/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Mail qw/:all/;
-use ProductOpener::Products qw/product_exists store_product/;
+use ProductOpener::Products qw/retrieve_product store_product/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
@@ -46,7 +46,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Time::Local;
 use Data::Dumper;
 
@@ -140,7 +140,7 @@ while (my $imported_product_ref = $csv->getline_hr($io)) {
 
 	print "PRODUCT LINE NUMBER $i - CODE $code";
 
-	my $product_ref = product_exists($code);    # returns 0 if not
+	my $product_ref = retrieve_product($code);    # returns 0 if not
 
 	if (not $product_ref) {
 		print "- does not exist in OFF yet\n";

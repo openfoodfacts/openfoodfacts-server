@@ -113,6 +113,98 @@ my $tests_ref = [
 			"services":["estimate_ingredients_percent", "analyze_ingredients"],'
 			. $product_hazelnut_spread_json . '}',
 	},
+
+	# parse_ingredients_text missing ingredients
+	{
+		test_case => 'parse-ingredients-text-service-missing-ingredients',
+		method => 'POST',
+		path => '/api/v3/product_services',
+		body => <<JSON
+{
+	"services":["parse_ingredients_text"],
+	"product": {
+		"lc": "en"
+	}
+}
+JSON
+	},
+
+	# parse_ingredients_text
+	{
+		test_case => 'parse-ingredients-text-service-lc-fr',
+		method => 'POST',
+		path => '/api/v3/product_services',
+		body => <<JSON
+{
+	"services":["parse_ingredients_text"],
+	"product": {
+		"ingredients_text": "Sucre, huile de palme, huile de NOISETTES, quelque chose d'inconnu",
+		"lc": "fr"
+	}
+}
+JSON
+	},
+
+	# no lc, should default to en
+	{
+		test_case => 'parse-ingredients-text-service-no-lc',
+		method => 'POST',
+		path => '/api/v3/product_services',
+		body => <<JSON
+{
+	"services":["parse_ingredients_text"],
+	"product": {
+		"ingredients_text_es": "azúcar, aceite de palma, agua, algo desconocido",
+		"ingredients_text_en": "sugar, palm oil, water, something unknown"
+	}
+}
+JSON
+	},
+
+	# ingredients_text_fr defined, should use it
+	{
+		test_case => 'parse-ingredients-text-service-ingredients-text-fr',
+		method => 'POST',
+		path => '/api/v3/product_services',
+		body => <<JSON
+{
+	"services":["parse_ingredients_text"],
+	"product": {
+		"ingredients_text_fr": "sucre, huile de palme, eau, quelque chose d'inconnu"
+	}
+}
+JSON
+	},
+
+	# determine_food_contact_of_packaging_components
+	{
+		test_case => 'determine-food-contact-of-packaging-components-service',
+		method => 'POST',
+		path => '/api/v3/product_services',
+		body => <<JSON
+{
+	"services":["determine_food_contact_of_packaging_components"],
+	"product": {
+		"lc": "en",
+		"packagings": [
+			{
+				"material": "en:plastic",
+				"shape": "en:tray"
+			},
+			{
+				"material": "en:plastic",
+				"shape": "en:film"
+			},
+			{
+				"material": "en:paper",
+				"shape": "en:label"
+			}
+		]
+	}
+}
+JSON
+	},
+
 ];
 
 execute_api_tests(__FILE__, $tests_ref);

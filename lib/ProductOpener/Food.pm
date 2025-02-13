@@ -65,6 +65,7 @@ BEGIN {
 		&is_fat_oil_nuts_seeds_for_nutrition_score
 		&is_water_for_nutrition_score
 
+		&has_category_that_should_have_prepared_nutrition_data
 		&check_availability_of_nutrients_needed_for_nutriscore
 		&compute_nutriscore_data
 		&compute_nutriscore
@@ -72,6 +73,8 @@ BEGIN {
 		&compute_nutrition_data_per_100g_and_per_serving
 		&compute_unknown_nutrients
 		&compute_nutrient_levels
+		&evaluate_nutrient_level
+		&compute_units_of_alcohol
 		&compute_estimated_nutrients
 
 		&compare_nutriments
@@ -103,7 +106,7 @@ use ProductOpener::Lang qw/$lc %Lang %Langs lang/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Images qw/extract_text_from_image/;
 use ProductOpener::Nutriscore qw/compute_nutriscore_score_and_grade/;
-use ProductOpener::Numbers qw/convert_string_to_number round_to_max_decimal_places/;
+use ProductOpener::Numbers qw/:all/;
 use ProductOpener::Ingredients
 	qw/estimate_nutriscore_2021_milk_percent_from_ingredients estimate_nutriscore_2023_red_meat_percent_from_ingredients/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
@@ -346,6 +349,8 @@ sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $
 
 		$value = convert_string_to_number($value);
 
+		$value = remove_insignificant_digits($value);
+
 		$product_ref->{nutriments}{$nid . "_unit"} = $unit;
 		$product_ref->{nutriments}{$nid . "_value"} = $value;
 		# Convert values passed in international units IU or % of daily value % DV to the default unit for the nutrient
@@ -399,12 +404,14 @@ sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $
 # !proteins : important, always show even if value has not been entered
 
 %cc_nutriment_table = (
-	default => "europe",
-	ca => "ca",
-	ru => "ru",
-	us => "us",
-	hk => "hk",
-	jp => "jp",
+	off_default => "off_europe",
+	off_ca => "off_ca",
+	off_ru => "off_ru",
+	off_us => "off_us",
+	off_hk => "off_hk",
+	off_jp => "off_jp",
+	off_in => "off_in",
+	opff_default => "opff_europe"
 );
 
 =head2 %nutriments_tables
@@ -439,7 +446,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 
 # http://healthycanadians.gc.ca/eating-nutrition/label-etiquetage/tips-conseils/nutrition-fact-valeur-nutritive-eng.php
 %nutriments_tables = (
-	europe => [
+	off_europe => [
 		(
 			'!energy-kj', '!energy-kcal',
 			'!energy-', '-energy-from-fat-',
@@ -503,7 +510,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'nitrate-', 'acidity-',
 		)
 	],
-	ca => [
+	off_ca => [
 		(
 			'!energy-kcal', 'energy-',
 			'!fat', '-saturated-fat',
@@ -566,7 +573,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'nitrate-', 'acidity-',
 		)
 	],
-	ru => [
+	off_ru => [
 		(
 			'!proteins', '-casein-',
 			'-serum-proteins-', '-nucleotides-',
@@ -629,7 +636,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'nitrate-', 'acidity-',
 		)
 	],
-	us => [
+	off_us => [
 		(
 			'!energy-kcal', 'energy-',
 			'-energy-from-fat-', '!fat',
@@ -690,7 +697,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'nitrate-', 'acidity-',
 		)
 	],
-	us_before_2017 => [
+	off_us_before_2017 => [
 		(
 			'!energy', '-energy-from-fat',
 			'!fat', '-saturated-fat',
@@ -752,7 +759,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'nitrate-', 'acidity-',
 		)
 	],
-	hk => [
+	off_hk => [
 		(
 			'!energy-kj', '!energy-kcal', '!proteins', '!fat',
 			'-saturated-fat', '-unsaturated-fat-', '--monounsaturated-fat-', '--monounsaturated-fat-',
@@ -765,7 +772,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'nutrition-score-fr-', 'sulphate-', 'nitrate-', 'acidity-',
 		)
 	],
-	jp => [
+	off_jp => [
 		(
 			'!energy-kj-', '!energy-kcal',
 			'!energy-', '-energy-from-fat-',
@@ -824,7 +831,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'nitrate-', 'acidity-',
 		)
 	],
-	in => [
+	off_in => [
 		(
 			'!energy-kj', '!energy-kcal',
 			'!proteins', '-casein-',
@@ -887,6 +894,22 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'nitrate-', 'acidity-',
 		)
 	],
+	# https://eur-lex.europa.eu/eli/reg/2009/767/2018-12-26
+	opff_europe => [
+		(
+			'!crude-fat', '!crude-protein', '!crude-ash', '!crude-fibre', '!moisture',
+			# optional additives, alphabetical order
+			'beta-carotene-', 'biotin-', 'calcium-', 'copper-', 'iodine-',
+			'iron-', 'magnesium-', 'manganese-', 'omega-3-fat-', 'omega-6-fat-',
+			'phosphorus-', 'potassium-', 'selenium-', 'sodium-', 'taurine-',
+			'vitamin-a-', 'vitamin-c-', 'vitamin-d-', 'vitamin-e-', 'zinc-',
+			# optional stricly pet food related, alphabetical order
+			'ammonium-chloride-', 'calcium-iodate-anhydrous-',
+			'cassia-gum-', 'choline-chloride-', 'copper-ii-sulphate-pentahydrate-',
+			'iron-ii-sulphate-monohydrate-', 'manganous-sulphate-monohydrate-',
+			'potassium-iodide-', 'sodium-selenite-', 'zinc-sulphate-monohydrate-'
+		)
+	]
 );
 
 # Compute the list of nutriments that are not shown by default so that they can be suggested
@@ -1831,6 +1854,38 @@ sub is_nutriscore_applicable_to_the_product_categories ($product_ref) {
 	return ($category_available, $nutriscore_applicable, $not_applicable_category);
 }
 
+=head2 has_category_that_should_have_prepared_nutrition_data($product_ref)
+
+Check if the product should have prepared nutrition data, based on its categories.
+
+=head3 Arguments
+
+=head4 $product_ref - ref to the product
+
+=head3 Return values
+
+=head4 $category_tag - undef or category tag
+
+Return the product category tag that should have prepared nutrition data, or undef if none.
+
+=cut
+
+sub has_category_that_should_have_prepared_nutrition_data($product_ref) {
+
+	foreach my $category_tag (
+		"en:dried-products-to-be-rehydrated", "en:cocoa-and-chocolate-powders",
+		"en:dessert-mixes", "en:flavoured-syrups",
+		"en:instant-beverages", "en:beverage-preparations"
+		)
+	{
+
+		if (has_tag($product_ref, "categories", $category_tag)) {
+			return $category_tag;
+		}
+	}
+	return;
+}
+
 =head2 check_availability_of_nutrients_needed_for_nutriscore ($product_ref)
 
 Check that we know or can estimate the nutrients needed to compute the Nutri-Score of the product.
@@ -1859,29 +1914,22 @@ sub check_availability_of_nutrients_needed_for_nutriscore ($product_ref) {
 
 	my $prepared = '';
 
-	foreach my $category_tag (
-		"en:dried-products-to-be-rehydrated", "en:cocoa-and-chocolate-powders",
-		"en:dessert-mixes", "en:flavoured-syrups",
-		"en:instant-beverages", "en:beverage-preparations"
-		)
-	{
+	my $category_tag = has_category_that_should_have_prepared_nutrition_data($product_ref);
 
-		if (has_tag($product_ref, "categories", $category_tag)) {
+	if (defined $category_tag) {
 
-			if ((defined $product_ref->{nutriments}{"energy_prepared_100g"})) {
-				$product_ref->{nutrition_score_debug}
-					= "using prepared product data for category $category_tag" . " - ";
-				$prepared = '_prepared';
-				add_tag($product_ref, "misc", "en:nutrition-grade-computed-for-prepared-product");
-			}
-			else {
-				$product_ref->{"nutrition_grades_tags"} = ["unknown"];
-				$product_ref->{nutrition_score_debug}
-					= "no score for category $category_tag without data for prepared product" . " - ";
-				add_tag($product_ref, "misc", "en:nutriscore-missing-prepared-nutrition-data");
-				$nutrients_available = 0;
-			}
-			last;
+		$prepared = '_prepared';
+
+		if ((defined $product_ref->{nutriments}{"energy_prepared_100g"})) {
+			$product_ref->{nutrition_score_debug} = "using prepared product data for category $category_tag" . " - ";
+			add_tag($product_ref, "misc", "en:nutrition-grade-computed-for-prepared-product");
+		}
+		else {
+			$product_ref->{"nutrition_grades_tags"} = ["unknown"];
+			$product_ref->{nutrition_score_debug}
+				= "no score for category $category_tag without data for prepared product" . " - ";
+			add_tag($product_ref, "misc", "en:nutriscore-missing-prepared-nutrition-data");
+			$nutrients_available = 0;
 		}
 	}
 
@@ -2073,7 +2121,7 @@ sub set_fields_comparing_nutriscore_versions ($product_ref, $version1, $version2
 	return;
 }
 
-=head2 compute_nutriscore( $product_ref )
+=head2 compute_nutriscore( $product_ref, $current_version = "2023" )
 
 Determines if we have enough data to compute the Nutri-Score (category + nutrition facts),
 and if the Nutri-Score is applicable to the product the category.
@@ -2082,7 +2130,7 @@ Populates the data structure needed to compute the Nutri-Score and computes it.
 
 =cut
 
-sub compute_nutriscore ($product_ref, $current_version = "2021") {
+sub compute_nutriscore ($product_ref, $current_version = "2023") {
 
 	# Initialize values
 
@@ -2277,8 +2325,8 @@ sub compute_nutrition_data_per_100g_and_per_serving ($product_ref) {
 
 			}
 		}
+		# nutrition_data_<_/prepared>_per eq '100g' or '1kg'
 		else {
-
 			foreach my $nid (keys %{$product_ref->{nutriments}}) {
 				if (   ($product_type eq "") and ($nid =~ /_/)
 					or (($product_type eq "_prepared") and ($nid !~ /_prepared$/)))
@@ -2288,15 +2336,27 @@ sub compute_nutrition_data_per_100g_and_per_serving ($product_ref) {
 				}
 				$nid =~ s/_prepared$//;
 
+				# Value for 100g is the same as value shown in the nutrition table
 				$product_ref->{nutriments}{$nid . $product_type . "_100g"}
 					= $product_ref->{nutriments}{$nid . $product_type};
+				# get rid of non-digit prefixes if any
 				$product_ref->{nutriments}{$nid . $product_type . "_100g"}
 					=~ s/^(<|environ|max|maximum|min|minimum)( )?//;
+				# set value as numeric
 				$product_ref->{nutriments}{$nid . $product_type . "_100g"} += 0.0;
 				delete $product_ref->{nutriments}{$nid . $product_type . "_serving"};
 
 				my $unit = get_property("nutrients", "zz:$nid", "unit:en")
 					;    # $unit will be undef if the nutrient is not in the taxonomy
+
+				# petfood, Value for 100g is 10x smaller than in the nutrition table (kg)
+				if (    (defined $product_ref->{product_type})
+					and ($product_ref->{product_type} eq "petfood")
+					and (defined $unit)
+					and ($unit ne "%"))
+				{
+					$product_ref->{nutriments}{$nid . $product_type . "_100g"} /= 10;
+				}
 
 				# If the nutrient has no unit (e.g. pH), or is a % (e.g. "% vol" for alcohol), it is the same regardless of quantity
 				# otherwise we adjust the value for the serving quantity
@@ -2313,9 +2373,7 @@ sub compute_nutrition_data_per_100g_and_per_serving ($product_ref) {
 					# Record that we have a nutrient value for this product type (with a unit, not NOVA, alcohol % etc.)
 					$nutrition_data{$product_type} = 1;
 				}
-
 			}
-
 		}
 
 		# Carbon footprint
@@ -2462,6 +2520,17 @@ sub compute_nutrient_levels ($product_ref) {
 	}
 
 	return;
+}
+
+my %nutrient_level_evaluation_table = (
+	low => "good",
+	moderate => "average",
+	high => "bad",
+);
+
+sub evaluate_nutrient_level ($nid, $nutrient_level) {
+	# Will need different tables if we add nutrients that are good for you
+	return $nutrient_level_evaluation_table{$nutrient_level} // 'unknown';
 }
 
 =head2 create_nutrients_level_taxonomy ()
@@ -3002,7 +3071,13 @@ sub assign_nutriments_values_from_request_parameters ($product_ref, $nutriment_t
 	foreach my $checkbox ("no_nutrition_data", "nutrition_data", "nutrition_data_prepared") {
 
 		if (defined single_param($checkbox)) {
-			$product_ref->{$checkbox} = remove_tags_and_quote(decode utf8 => single_param($checkbox));
+			my $checkbox_value = remove_tags_and_quote(decode utf8 => single_param($checkbox));
+			if (($checkbox_value eq '1') or ($checkbox_value eq "on")) {
+				$product_ref->{$checkbox} = "on";
+			}
+			else {
+				$product_ref->{$checkbox} = "";
+			}
 		}
 		elsif (defined single_param($checkbox . "_displayed")) {
 			$product_ref->{$checkbox} = "";
@@ -3077,18 +3152,19 @@ sub assign_nutriments_values_from_request_parameters ($product_ref, $nutriment_t
 
 		next if $nid =~ /^nutrition-score/;
 
-		# Only moderators can update values for fields sent by the producer
-		if (skip_protected_field($product_ref, $nid, $can_edit_owner_fields)) {
-			next;
-		}
-
 		# Unit and label are the same for as sold and prepared nutrition table
 		my $enid = encodeURIComponent($nid);
-		my $unit = remove_tags_and_quote(decode utf8 => single_param("nutriment_${enid}_unit"));
-		my $label = remove_tags_and_quote(decode utf8 => single_param("nutriment_${enid}_label"));
 
 		# We can have nutrient values for the product as sold, or prepared
 		foreach my $product_type ("", "_prepared") {
+
+			# Only moderators can update values for fields sent by the producer
+			if (skip_protected_field($product_ref, $nid . $product_type, $can_edit_owner_fields)) {
+				next;
+			}
+
+			my $unit = remove_tags_and_quote(decode utf8 => single_param("nutriment_${enid}_unit"));
+			my $label = remove_tags_and_quote(decode utf8 => single_param("nutriment_${enid}_label"));
 
 			# do not delete values if the nutriment is not provided
 			next if (not defined single_param("nutriment_${enid}${product_type}"));
@@ -3115,6 +3191,16 @@ sub assign_nutriments_values_from_request_parameters ($product_ref, $nutriment_t
 
 			if ($nid eq 'alcohol') {
 				$unit = '% vol';
+			}
+
+			# pet nutrients (analytical_constituents) are always in percent
+			if (   ($nid eq 'crude-fat')
+				or ($nid eq 'crude-protein')
+				or ($nid eq 'crude-ash')
+				or ($nid eq 'crude-fibre')
+				or ($nid eq 'moisture'))
+			{
+				$unit = '%';
 			}
 
 			# New label?

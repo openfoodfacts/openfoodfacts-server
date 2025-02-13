@@ -4,6 +4,8 @@
   <img height="48" src="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg"/>
 </picture>
 
+
+
 ([Looking for the Open Food Facts API doc ?](https://openfoodfacts.github.io/openfoodfacts-server/api/))
 
 # Open Food Facts - Product Opener (Web Server)
@@ -17,6 +19,7 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/openfoodfacts/openfoodfacts-server)
 ![GitHub last commit](https://img.shields.io/github/last-commit/openfoodfacts/openfoodfacts-server)
 ![Github Repo Size](https://img.shields.io/github/repo-size/openfoodfacts/openfoodfacts-server)
+[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/9345/badge)](https://www.bestpractices.dev/projects/9345)
 
 ## Tests
 

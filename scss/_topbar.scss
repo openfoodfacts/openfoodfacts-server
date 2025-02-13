@@ -98,8 +98,6 @@
         .button {
           height: auto;
           position: relative;
-          //not sure why top: auto; is added, breaks buttons in the top bar
-          //top: auto;
         }
       }
     }
@@ -227,7 +225,6 @@
           height: 2.35rem;
           &[type="text"] {
             width: 100%;
-            //border-color:$white;
             box-shadow: none;
             @media #{$topbar-media-query} {
               width: 180px;

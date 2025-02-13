@@ -35,7 +35,6 @@
    "food_groups_tags" : [
       "en:alcoholic-beverages"
    ],
-   "ingredients_lc" : "en",
    "lc" : "en",
    "misc_tags" : [
       "en:nutriscore-not-applicable",
@@ -58,7 +57,7 @@
       "salt" : 0.5,
       "salt_100g" : 0.5,
       "salt_unit" : "g",
-      "salt_value" : 0.5,
+      "salt_value" : "0.5",
       "saturated-fat_100g" : 0,
       "sodium_100g" : 0.2,
       "sodium_value" : 0.2,
@@ -123,7 +122,7 @@
    "nutriscore_tags" : [
       "not-applicable"
    ],
-   "nutriscore_version" : "2021",
+   "nutriscore_version" : "2023",
    "nutrition_data_per" : "100g",
    "nutrition_data_prepared_per" : "100g",
    "nutrition_grade_fr" : "not-applicable",

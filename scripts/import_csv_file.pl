@@ -38,7 +38,7 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Import qw/import_csv_file/;
-use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::PackagerCodes qw/:all/;
@@ -47,7 +47,7 @@ use ProductOpener::LoadData qw/load_data/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Time::Local;
 use Data::Dumper;
 use Text::CSV;
@@ -131,7 +131,7 @@ GetOptions(
 	"skip_existing_values" => \$skip_existing_values,
 	"only_select_not_existing_images" => \$only_select_not_existing_images,
 	"use_brand_owner_as_org_name" => \$use_brand_owner_as_org_name,
-) or die("Error in command line arguments:\n$\nusage");
+) or die("Error in command line arguments:\n\n$usage");
 
 print STDERR "import_csv_file.pl
 - user_id: $user_id

@@ -75,6 +75,7 @@
       "en:coagulating-enzyme",
       "en:flavouring"
    ],
+   "ingredients_lc" : "en",
    "ingredients_n" : 5,
    "ingredients_n_tags" : [
       "5",
@@ -110,6 +111,14 @@
       "en:rennet"
    ],
    "ingredients_without_ciqual_codes_n" : 5,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:charcoal",
+      "en:e428",
+      "en:ferment",
+      "en:flavouring",
+      "en:rennet"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 5,
    "known_ingredients_n" : 6,
    "lc" : "en",
    "nutriments" : {

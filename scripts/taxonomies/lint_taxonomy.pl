@@ -149,7 +149,8 @@ sub iter_taxonomy_entries ($lines_iter) {
 				my $entry = {
 					type => $entry_type,
 					parents => [],
-					entry_id_line => {line => $line, previous => [@previous_lines], line_num => $line_num},
+					entry_id_line =>
+						{line => $line, previous => [@previous_lines], line_num => $line_num, type => $entry_type},
 					entries => {},
 					props => {},
 					original_lines => \@original_lines,
@@ -180,13 +181,19 @@ sub iter_taxonomy_entries ($lines_iter) {
 						}
 					);
 				}
-				push @parents, {line => $line, previous => [@previous_lines], line_num => $line_num};
+				push @parents, {line => $line, previous => [@previous_lines], line_num => $line_num, type => "parent"};
 				@previous_lines = ();
 			}
 			# synonym
 			elsif ($line =~ /^(\w+):[^:]*(,.*)*$/) {
 				if (!defined $entry_id_line) {
-					$entry_id_line = {line => $line, previous => [@previous_lines], lc => $1,, line_num => $line_num};
+					$entry_id_line = {
+						line => $line,
+						previous => [@previous_lines],
+						lc => $1,
+						line_num => $line_num,
+						type => "entry_id"
+					};
 				}
 				else {
 					my $lc = $1;
@@ -213,7 +220,8 @@ sub iter_taxonomy_entries ($lines_iter) {
 						push @{$entries{$lc}{previous}}, @previous_lines;
 					}
 					else {
-						$entries{$lc} = {line => $line, previous => [@previous_lines],, line_num => $line_num};
+						$entries{$lc}
+							= {line => $line, previous => [@previous_lines], line_num => $line_num, type => "entry_lc"};
 					}
 				}
 				@previous_lines = ();
@@ -238,7 +246,8 @@ sub iter_taxonomy_entries ($lines_iter) {
 					);
 				}
 				# override to continue
-				$props{"$prop:$lc"} = {line => $line, previous => [@previous_lines], line_num => $line_num};
+				$props{"$prop:$lc"}
+					= {line => $line, previous => [@previous_lines], line_num => $line_num, type => "property"};
 				@previous_lines = ();
 			}
 			# comments or undefined
@@ -360,22 +369,63 @@ sub lint_entry($entry_ref, $do_sort) {
 	# print parents, line id, synonyms, sorted props
 	for my $parent (@parents) {
 		push @output_lines, @{$parent->{previous}};
-		push @output_lines, $parent->{line};
+		push @output_lines, normalized_line($parent);
 	}
 	if (defined $entry_id_line) {
 		push @output_lines, @{$entry_id_line->{previous}};
-		push @output_lines, $entry_id_line->{line};
+		push @output_lines, normalized_line($entry_id_line);
 	}
 	for my $key (@sorted_entries) {
 		push @output_lines, @{$entries{$key}->{previous}};
-		push @output_lines, $entries{$key}->{line};
+		push @output_lines, normalized_line($entries{$key});
 	}
 	for my $key (@sorted_props) {
 		push @output_lines, @{$props{$key}->{previous}};
-		push @output_lines, $props{$key}->{line};
+		push @output_lines, normalized_line($props{$key});
 	}
 	push @output_lines, @tail_lines;
 	return join("", @output_lines);
+}
+
+# normalize spaces on a line
+sub normalized_line($entry) {
+	my $line = $entry->{line};
+	my $normalize_commas
+		= (    ($entry->{type} eq "entry_lc")
+			|| ($entry->{type} eq "entry_id")
+			|| ($entry->{type} eq "synonyms")
+			|| ($entry->{type} eq "stopwords"));
+	# insure exactly one space after line prefix
+	if ($entry->{type} eq "parent") {
+		$line =~ s/^< */< /;
+	}
+	elsif (($entry->{type} eq "property") || ($entry->{type} eq "stopwords") || ($entry->{type} eq "synonyms")) {
+		# property_name:lang: or line_type:lang:
+		$line =~ s/^([^:]+):([^:]+): */$1:$2: /;
+	}
+	else {
+		# entry_id or entry_lc just have language
+		$line =~ s/^([^:]+): */$1: /;
+	}
+	# remove trailing space at end of line
+	$line =~ s/ +$//g;
+	if ($normalize_commas) {
+		# remove multiple commas
+		$line =~ s/,+/,/g;
+		# remove trailing space and comma at end of line
+		$line =~ s/[ ,]+$//g;
+		# first replace special cases by a lower comma
+		# but if is escape or within a number
+		# in numbers
+		$line =~ s/(\d),(\d)/$1‚$2/g;
+		# escaped comma \,
+		$line =~ s/\\,/\\‚/g;
+		# ensure exactly one space after commas
+		$line =~ s/,( )*/, /g;
+		# put back lower comma
+		$line =~ s/‚/,/g;
+	}
+	return $line;
 }
 
 # check that an entry is already sorted, compared to $sorted_output
