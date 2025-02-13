@@ -608,6 +608,7 @@
       "agribalyse" : {
          "warning" : "missing_agribalyse_match"
       },
+      "grade" : "unknown",
       "missing" : {
          "agb_category" : 1,
          "labels" : 1,
@@ -637,7 +638,7 @@
       },
       {
          "ciqual_food_code" : "16129",
-         "ecobalyse_code" : "refined-palm-oil",
+         "ecobalyse_code" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
          "from_palm_oil" : "yes",
          "id" : "en:palm-oil",
          "is_in_taxonomy" : 1,
@@ -731,7 +732,6 @@
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
-      "en:environmental-score-extended-data-not-computed",
       "en:environmental-score-not-computed",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-energy",

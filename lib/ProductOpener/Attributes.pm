@@ -570,7 +570,8 @@ sub compute_attribute_nutriscore ($product_ref, $target_lc, $target_cc) {
 		$attribute_ref->{match} = 0;
 		if ($target_lc ne "data") {
 			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_nutriscore_not_applicable_title");
-			$attribute_ref->{description} = f_lang_in_lc(
+			# Note: we now display the not-applicable category in the short description
+			$attribute_ref->{description_short} = f_lang_in_lc(
 				$target_lc,
 				"f_attribute_nutriscore_not_applicable_description",
 				{
@@ -580,8 +581,8 @@ sub compute_attribute_nutriscore ($product_ref, $target_lc, $target_cc) {
 					)
 				}
 			);
-			$attribute_ref->{description_short}
-				= lang_in_other_lc($target_lc, "attribute_nutriscore_not_applicable_description_short");
+			#$attribute_ref->{description_short}
+			#	= lang_in_other_lc($target_lc, "attribute_nutriscore_not_applicable_description_short");
 		}
 	}
 
@@ -662,6 +663,8 @@ sub compute_attribute_environmental_score ($product_ref, $target_lc, $target_cc)
 	# TBD: remove this code once all products have been updated (but we won't show the score for old revisions)
 	if ((not defined $product_ref->{environmental_score_data}) and (defined $product_ref->{ecoscore_data})) {
 		$product_ref->{environmental_score_data} = $product_ref->{ecoscore_data};
+		$product_ref->{environmental_score_score} = $product_ref->{ecoscore_score};
+		$product_ref->{environmental_score_grade} = $product_ref->{ecoscore_grade};
 	}
 
 	my $attribute_ref = initialize_attribute($attribute_id, $target_lc);
@@ -725,7 +728,8 @@ sub compute_attribute_environmental_score ($product_ref, $target_lc, $target_cc)
 		if ($target_lc ne "data") {
 			$attribute_ref->{title}
 				= lang_in_other_lc($target_lc, "attribute_environmental_score_not_applicable_title");
-			$attribute_ref->{description} = f_lang_in_lc(
+			# Note: we now display the not-applicable category in the short description
+			$attribute_ref->{description_short} = f_lang_in_lc(
 				$target_lc,
 				"f_attribute_environmental_score_not_applicable_description",
 				{
@@ -738,8 +742,8 @@ sub compute_attribute_environmental_score ($product_ref, $target_lc, $target_cc)
 					)
 				}
 			);
-			$attribute_ref->{description_short}
-				= lang_in_other_lc($target_lc, "attribute_environmental_score_not_applicable_description_short");
+			#$attribute_ref->{description_short}
+			#	= lang_in_other_lc($target_lc, "attribute_environmental_score_not_applicable_description_short");
 		}
 	}
 	# Environmental-Score is unknown

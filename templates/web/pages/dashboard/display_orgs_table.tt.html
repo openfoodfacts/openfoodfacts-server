@@ -67,7 +67,7 @@
 		    </a>
 	    </td>
             <td>[% org.valid_org %]</td>
-            <td>[% display_date_ymd(org.created_t) %]</td>
+	    <td>[% IF org.created_t %][% display_date_ymd(org.created_t) %][% END %]</td>
             <td>
                 [% IF org.last_logged_member_t %]
                     [% display_date_ymd(org.last_logged_member_t) %]

@@ -118,6 +118,10 @@ $decalTop:48px;
     }
 }
 
+li.accordion-navigation.accordion-navigation-inactive:after {
+    display: none;
+}
+
 // align dropdown only on manages images accordion
 #manage_images_accordion .accordion-navigation {
     &:after {

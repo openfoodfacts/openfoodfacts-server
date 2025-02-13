@@ -326,6 +326,7 @@
       "agribalyse" : {
          "warning" : "missing_agribalyse_match"
       },
+      "grade" : "unknown",
       "missing" : {
          "categories" : 1,
          "labels" : 1,
@@ -350,7 +351,7 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "13005",
-         "ecobalyse_code" : "banana-non-eu",
+         "ecobalyse_code" : "f79d155e-3f9e-4882-8dd0-b03f28c1ff76",
          "id" : "en:banana",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 100,
@@ -427,7 +428,6 @@
    "main_countries_tags" : [],
    "minerals_tags" : [],
    "misc_tags" : [
-      "en:environmental-score-extended-data-not-computed",
       "en:environmental-score-not-computed",
       "en:nutriscore-missing-category",
       "en:nutriscore-missing-nutrition-data",

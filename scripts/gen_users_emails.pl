@@ -38,13 +38,21 @@ if (scalar $#userids < 0) {
 
 my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");
 
-foreach my $userid (@userids) {
+my $i = 0;
+my $n = scalar @userids;
+
+foreach my $userid (sort @userids) {
 	my $user_ref = retrieve_user($userid);
 	if (defined $user_ref) {
 		my $email = $user_ref->{email};
 		if ((defined $email) and ($email =~ /\@/)) {
 			$emails_ref->{$email} = [$userid];
 		}
+	}
+	$i++;
+	if ($i % 1000 == 0) {
+		print "$i / $n - $userid\n";
+		store("$BASE_DIRS{USERS}/users_emails.sto", $emails_ref);
 	}
 }
 

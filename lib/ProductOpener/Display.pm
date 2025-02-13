@@ -104,7 +104,6 @@ BEGIN {
 		&add_params_to_query
 		&add_params_and_filters_to_query
 
-		&url_for_text
 		&process_template
 
 		@search_series
@@ -115,6 +114,7 @@ BEGIN {
 		$images_subdomain
 		$static_subdomain
 		$producers_platform_url
+		$public_platform_url
 		$test
 		@lcs
 		$country
@@ -175,6 +175,7 @@ use ProductOpener::Cache qw/$max_memcached_object_size $memd generate_cache_key/
 use ProductOpener::Permissions qw/has_permission/;
 use ProductOpener::ProductsFeatures qw(feature_enabled);
 use ProductOpener::RequestStats qw(:all);
+use ProductOpener::PackagingFoodContact qw/determine_food_contact_of_packaging_components_service/;
 
 use Encode;
 use URI::Escape::XS;
@@ -329,47 +330,6 @@ $images_subdomain = format_subdomain('images');
 
 =head1 FUNCTIONS
 
-
-=head2 url_for_text ( $textid )
-
-Return the localized URL for a text. (e.g. "data" points to /data in English and /donnees in French)
-Note: This currently only has environmental_score
-
-=cut
-
-# Note: the following urls are currently hardcoded, but the idea is to build the mapping table
-# at startup from the available translated texts in the repository. (TODO)
-my %urls_for_texts = (
-	"environmental_score" => {
-		en => "eco-score-the-environmental-impact-of-food-products",
-		de => "eco-score-die-umweltauswirkungen-von-lebensmitteln",
-		es => "eco-score-el-impacto-medioambiental-de-los-productos-alimenticios",
-		fr => "eco-score-l-impact-environnemental-des-produits-alimentaires",
-		it => "eco-score-impatto-ambientale-dei-prodotti-alimentari",
-		nl => "eco-score-de-milieu-impact-van-voedingsproducten",
-		pt => "eco-score-o-impacto-ambiental-dos-produtos-alimentares",
-	},
-);
-
-sub url_for_text ($textid) {
-
-	# remove starting / if passed
-	$textid =~ s/^\///;
-
-	if (not defined $urls_for_texts{$textid}) {
-		return "/" . $textid;
-	}
-	elsif (defined $urls_for_texts{$textid}{$lc}) {
-		return "/" . $urls_for_texts{$textid}{$lc};
-	}
-	elsif ($urls_for_texts{$textid}{en}) {
-		return "/" . $urls_for_texts{$textid}{en};
-	}
-	else {
-		return "/" . $textid;
-	}
-}
-
 =head2 process_template ( $template_filename , $template_data_ref , $result_content_ref, $request_ref = {} )
 
 Add some functions and variables needed by many templates and process the template with template toolkit.
@@ -386,6 +346,7 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{server_options_private_products} = $server_options{private_products};
 	$template_data_ref->{server_options_producers_platform} = $server_options{producers_platform};
 	$template_data_ref->{producers_platform_url} = $producers_platform_url;
+	$template_data_ref->{public_platform_url} = $public_platform_url;
 	$template_data_ref->{server_domain} = $server_domain;
 	$template_data_ref->{static_subdomain} = $static_subdomain;
 	$template_data_ref->{images_subdomain} = $images_subdomain;
@@ -424,7 +385,6 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{display_date_without_time} = \&display_date_without_time;
 	$template_data_ref->{display_date_ymd} = \&display_date_ymd;
 	$template_data_ref->{display_date_tag} = \&display_date_tag;
-	$template_data_ref->{url_for_text} = \&url_for_text;
 	$template_data_ref->{product_url} = \&product_url;
 	$template_data_ref->{product_action_url} = \&product_action_url;
 	$template_data_ref->{product_name_brand_quantity} = \&product_name_brand_quantity;
@@ -464,8 +424,15 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	};
 
 	$template_data_ref->{round} = sub ($var) {
-		return sprintf("%.0f", $var);
+		# Check if $var is defined and is numeric
+		if (defined $var && $var =~ /^-?\d+(\.\d+)?$/) {
+			return sprintf("%.0f", $var);
+		}
+		else {
+			return;
+		}
 	};
+
 	$template_data_ref->{sprintf} = sub ($var1, $var2) {
 		return sprintf($var1, $var2);
 	};
@@ -840,10 +807,18 @@ sub init_request ($request_ref = {}) {
 		}
 	}
 
-	# select the nutriment table format according to the country
-	$nutriment_table = $cc_nutriment_table{default};
-	if (exists $cc_nutriment_table{$cc}) {
-		$nutriment_table = $cc_nutriment_table{$cc};
+	if ($options{product_type} eq "petfood") {
+		$nutriment_table = $cc_nutriment_table{"opff_default"};
+		if (exists $cc_nutriment_table{"opff_" . $cc}) {
+			$nutriment_table = $cc_nutriment_table{"opff_" . $cc};
+		}
+	}
+	# food
+	else {
+		$nutriment_table = $cc_nutriment_table{"off_default"};
+		if (exists $cc_nutriment_table{"off_" . $cc}) {
+			$nutriment_table = $cc_nutriment_table{"off_" . $cc};
+		}
 	}
 
 	if ($test) {
@@ -942,10 +917,15 @@ CSS
 	# call format_subdomain($subdomain) only once
 	$formatted_subdomain = format_subdomain($subdomain);
 	$producers_platform_url = $formatted_subdomain . '/';
+	$public_platform_url = $formatted_subdomain . '/';
 
 	# If we are not already on the producers platform: add .pro
 	if ($producers_platform_url !~ /\.pro\.open/) {
 		$producers_platform_url =~ s/\.open/\.pro\.open/;
+	}
+	# and the contrary for public platform
+	if ($public_platform_url =~ /\.pro\.open/) {
+		$public_platform_url =~ s/\.pro\.open/\.open/;
 	}
 
 	# Enable or disable user food preferences: used to compute attributes and to display
@@ -1016,12 +996,12 @@ sub set_user_agent_request_ref_attributes ($request_ref) {
 	my $is_crawl_bot = 0;
 	my $is_denied_crawl_bot = 0;
 	if ($user_agent_str
-		=~ /\b(GoogleOther|Googlebot|Googlebot-Image|Google-InspectionTool|bingbot|Applebot|Yandex|DuckDuck|DotBot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Qwant|facebookexternalhit|Bytespider|GPTBot|ChatGPT-User|cohere-ai|anthropic-ai|PerplexityBot|ClaudeBot|Claude-Web|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|Amazon|aiohttp|python-request|ImagesiftBot|Diffbot)/i
+		=~ /\b(GoogleOther|Googlebot|Googlebot-Image|Google-InspectionTool|bingbot|Applebot|Yandex|DuckDuck|DotBot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Qwant|facebookexternalhit|Bytespider|GPTBot|ChatGPT-User|cohere-ai|anthropic-ai|PerplexityBot|ClaudeBot|Claude-Web|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|Amazon|aiohttp|python-request|ImagesiftBot|Diffbot|Timpibot)/i
 		)
 	{
 		$is_crawl_bot = 1;
 		if ($user_agent_str
-			=~ /\b(bingbot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Bytespider|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|YandexMarket|Amazon|GPTBot|ChatGPT-User|PerplexityBot|ClaudeBot|Claude-Web|cohere-ai|anthropic-ai|ImagesiftBot|Diffbot)/i
+			=~ /\b(bingbot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Bytespider|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|YandexMarket|Amazon|GPTBot|ChatGPT-User|PerplexityBot|ClaudeBot|Claude-Web|cohere-ai|anthropic-ai|ImagesiftBot|Diffbot|Timpibot)/i
 			)
 		{
 			$is_denied_crawl_bot = 1;
@@ -1301,6 +1281,20 @@ sub display_index_for_producer ($request_ref) {
 				count => $count,
 				};
 		}
+	}
+
+	# Count the products with a Nutri-Score computed
+	my $count = count_products($request_ref, {misc_tags => "en:nutriscore-computed"});
+	if ($count > 0) {
+		push @{$template_data_ref->{facets}},
+			{
+			url => "/misc?filter=nutriscore",
+			number_of_products => lang("discover_the_evolution_of_the_nutriscore_grades_of_your_products"),
+			count => $count,
+			};
+	}
+	else {
+		$template_data_ref->{add_products_to_discover_the_evolution_of_their_nutriscore_grades} = 1;
 	}
 
 	# Display a message if some product updates have not been published yet
@@ -2041,7 +2035,7 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 
 		# For the Environmental-Score, we want to display A+ before A even though A+ is after A in alphabetical order
 		# If the tagid "a" is followed by tagid "a-plus", invert them
-		if (($tagtype eq 'environmental_score') and (defined $tags[1])) {
+		if (($tagtype eq 'ecoscore') or ($tagtype eq 'environmental_score') and (defined $tags[1])) {
 
 			if (($tags[0]{_id} eq 'a') and ($tags[1]{_id} eq 'a-plus')) {
 				my $tags_tmp = $tags[0];
@@ -2236,7 +2230,7 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 					. "\" style=\"max-height:80px;\"> "
 					. $grade;
 			}
-			elsif ($tagtype eq 'environmental_score') {
+			elsif (($tagtype eq 'ecoscore') or ($tagtype eq 'environmental_score')) {
 				my $grade;
 
 				if ($tagid eq "a-plus") {
@@ -2257,9 +2251,9 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 				}
 
 				$display
-					= "<img src=\"/images/attributes/dist/environmental-score-$tagid.svg\" alt=\"Environmental-Score "
+					= "<img src=\"/images/attributes/dist/green-score-$tagid.svg\" alt=\"Green-Score "
 					. $grade
-					. "\" title=\"Environmental-Score "
+					. "\" title=\"Green-Score "
 					. $grade
 					. "\" style=\"max-height:80px;\"> "
 					. $grade;
@@ -5498,7 +5492,11 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			$cursor = execute_query(
 				sub {
 					return get_products_collection(get_products_collection_request_parameters($request_ref))
-						->query($query_ref)->fields($fields_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+						->query($query_ref)
+						->fields($fields_ref)
+						->sort($sort_ref)
+						->limit($limit)
+						->skip($skip);
 				}
 			);
 			$log->debug("MongoDB query ok", {error => $@}) if $log->is_debug();
@@ -6963,7 +6961,8 @@ sub search_and_graph_products ($request_ref, $query_ref, $graph_ref) {
 		$cursor = execute_query(
 			sub {
 				return get_products_collection(get_products_collection_request_parameters($request_ref))
-					->query($query_ref)->fields($fields_ref);
+					->query($query_ref)
+					->fields($fields_ref);
 			}
 		);
 	};
@@ -7273,7 +7272,8 @@ sub search_products_for_map ($request_ref, $query_ref) {
 		$cursor = execute_query(
 			sub {
 				return get_products_collection(get_products_collection_request_parameters($request_ref))
-					->query($query_ref)->fields(
+					->query($query_ref)
+					->fields(
 					{
 						code => 1,
 						lc => 1,
@@ -7648,6 +7648,10 @@ sub display_page ($request_ref) {
 	$template_data_ref->{request} = $request_ref;
 
 	my $html;
+	# ?content_only=1 -> only the content, no header, footer, etc.
+	if (($user_agent =~ /smoothie/) or (single_param('content_only'))) {
+		$template_data_ref->{content_only} = 1;
+	}
 	process_template('web/common/site_layout.tt.html', $template_data_ref, \$html, $request_ref)
 		|| ($html = "template error: " . $tt->error());
 
@@ -7660,9 +7664,6 @@ sub display_page ($request_ref) {
 
 	# Twitter account
 	$html =~ s/<twitter_account>/$twitter_account/g;
-
-	# Replace urls for texts in links like <a href="/environmental_score"> with a localized name
-	$html =~ s/(href=")(\/[^"]+)/$1 . url_for_text($2)/eg;
 
 	my $status_code = $request_ref->{status_code} // 200;
 
@@ -7999,14 +8000,22 @@ JS
 
 		localize_environmental_score($request_ref->{cc}, $product_ref);
 
-		$template_data_ref->{environmental_score_grade} = uc($product_ref->{environmental_score_data}{"grade"});
-		$template_data_ref->{environmental_score_grade_lc} = $product_ref->{environmental_score_data}{"grade"};
+		if (defined $product_ref->{environmental_score_data}{"grade"}) {
+			$template_data_ref->{environmental_score_grade} = uc($product_ref->{environmental_score_data}{"grade"});
+			$template_data_ref->{environmental_score_lc} = $product_ref->{environmental_score_data}{"grade"};
+		}
+
 		$template_data_ref->{environmental_score_score} = $product_ref->{environmental_score_data}{"score"};
 		$template_data_ref->{environmental_score_data} = $product_ref->{environmental_score_data};
 		$template_data_ref->{environmental_score_calculation_details}
 			= display_environmental_score_calculation_details($request_ref->{cc},
 			$product_ref->{environmental_score_data});
 	}
+
+	# 2025/02 - Determine which packaging components are in contact with food, so that we can display them
+	# This is for initial development of the feature, once finalized, we could compute and store this data in the product
+
+	ProductOpener::PackagingFoodContact::determine_food_contact_of_packaging_components_service($product_ref);
 
 	# Activate knowledge panels for all users
 
@@ -9677,18 +9686,35 @@ Reference to a data structure with needed data to display.
 
 sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_ref) {
 
+	my $template_data_ref = {};
 	# This function populates a data structure that is used by the template to display the nutrition facts table
-	my $template_data_ref = {
+	if ((defined $product_ref->{product_type}) && ($product_ref->{product_type} eq "petfood")) {
+		$template_data_ref = {
 
-		nutrition_table => {
-			id => "nutrition",
-			header => {
-				name => lang('nutrition_data_table'),
-				columns => [],
+			nutrition_table => {
+				id => "analytical_constituents",
+				header => {
+					name => lang('analytical_constituents'),
+					columns => [],
+				},
+				rows => [],
 			},
-			rows => [],
-		},
-	};
+		};
+	}
+	# food
+	else {
+		$template_data_ref = {
+
+			nutrition_table => {
+				id => "nutrition",
+				header => {
+					name => lang('nutrition_data_table'),
+					columns => [],
+				},
+				rows => [],
+			},
+		};
+	}
 
 	# List of columns
 	my @cols = ();
@@ -9719,13 +9745,24 @@ sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_re
 			$col_name = lang("prepared_product");
 		}
 
+		# only for 100g, petfood is diplayed per 1kg
+		# update header name here
+		# update value later
+		my $name_per_xxg;
+		if ((defined $product_ref->{product_type}) && ($product_ref->{product_type} eq "petfood")) {
+			$name_per_xxg = $col_name . "<br>" . lang("analytical_constituents_per_1kg");
+		}
+		else {
+			$name_per_xxg = $col_name . "<br>" . lang("nutrition_data_per_100g");
+		}
 		$columns{$product_type . "100g"} = {
 			scope => "product",
 			product_type => $product_type,
 			per => "100g",
-			name => $col_name . "<br>" . lang("nutrition_data_per_100g"),
+			name => $name_per_xxg,
 			short_name => "100g",
 		};
+
 		$columns{$product_type . "serving"} = {
 			scope => "product",
 			product_type => $product_type,
@@ -9774,6 +9811,7 @@ sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_re
 			}
 		}
 	}
+	# }
 
 	# Comparisons with other products, categories, recommended daily values etc.
 
@@ -10145,7 +10183,20 @@ CSS
 							$value = $product_ref->{nutriments}{$nid . "_" . $col_id};
 						}
 						else {
-							$value = $decf->format(g_to_unit($product_ref->{nutriments}{$nid . "_" . $col_id}, $unit));
+							# only for 100g, petfood is diplayed per 1kg
+							# update header above
+							# update value here
+							if (   (defined $product_ref->{product_type})
+								&& ($product_ref->{product_type} eq "petfood")
+								&& ($unit ne "%"))
+							{
+								$value = $decf->format(
+									g_to_unit($product_ref->{nutriments}{$nid . "_" . $col_id} * 10, $unit));
+							}
+							else {
+								$value
+									= $decf->format(g_to_unit($product_ref->{nutriments}{$nid . "_" . $col_id}, $unit));
+							}
 						}
 
 						# too small values are converted to e notation: 7.18e-05
@@ -11632,7 +11683,8 @@ sub search_and_analyze_recipes ($request_ref, $query_ref) {
 		$cursor = execute_query(
 			sub {
 				return get_products_collection(get_products_collection_request_parameters($request_ref))
-					->query($query_ref)->fields($fields_ref);
+					->query($query_ref)
+					->fields($fields_ref);
 			}
 		);
 	};

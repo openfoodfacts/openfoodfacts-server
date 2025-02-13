@@ -1,0 +1,37 @@
+{
+   "lc" : "en",
+   "misc_tags" : [
+      "en:packagings-number-of-components-2",
+      "en:packagings-not-complete",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-not-empty"
+   ],
+   "packaging_materials_tags" : [
+      "en:metal",
+      "en:paper"
+   ],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [
+      "en:can",
+      "en:label"
+   ],
+   "packaging_text" : "can, paper label",
+   "packagings" : [
+      {
+         "food_contact" : 1,
+         "material" : "en:metal",
+         "shape" : "en:can"
+      },
+      {
+         "food_contact" : 0,
+         "material" : "en:paper",
+         "shape" : "en:label"
+      }
+   ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:metal" : {},
+      "en:paper-or-cardboard" : {}
+   },
+   "packagings_n" : 2
+}
