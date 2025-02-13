@@ -28,22 +28,22 @@ use CGI::Carp qw(fatalsToBrowser);
 binmode(STDOUT, ":encoding(UTF-8)");
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/get_fileid get_string_id_for_lang/;
 use ProductOpener::Index qw/:all/;
-use ProductOpener::Display qw/:all/;
+use ProductOpener::Display qw/$country/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Images qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Users qw/$User_id/;
+use ProductOpener::Images qw/process_image_crop process_image_upload/;
+use ProductOpener::Lang qw/$lc lang/;
 use ProductOpener::Mail qw/:all/;
-use ProductOpener::Products qw/:all/;
+use ProductOpener::Products qw/analyze_and_enrich_product_data init_product retrieve_product store_product/;
 use ProductOpener::Food qw/:all/;
-use ProductOpener::Units qw/:all/;
+use ProductOpener::Units qw/unit_to_g/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
-use ProductOpener::ImportConvert qw/:all/;
-use ProductOpener::PackagerCodes qw/:all/;
+use ProductOpener::ImportConvert qw/%global_params @fields clean_fields extract_nutrition_facts_from_text/;
+use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
 
 use Log::Any qw($log);
 use Log::Any::Adapter 'TAP', filter => "none";
@@ -52,7 +52,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Time::Local;
 use Data::Dumper;
 
@@ -448,7 +448,8 @@ while (my $imported_product_ref = $csv->getline_hr($io)) {
 	if (
 		   (not defined $images_ref->{$code})
 		or (not defined $images_ref->{$code}{front})
-		or ((not defined $images_ref->{$code}{ingredients}) and (not exists $products_without_ingredients_lists{$code}))
+		or (    (not defined $images_ref->{$code}{ingredients})
+			and (not exists $products_without_ingredients_lists{$code}))
 		)
 	{
 		print "MISSING IMAGES SOME - PRODUCT CODE $code\n";
@@ -457,7 +458,7 @@ while (my $imported_product_ref = $csv->getline_hr($io)) {
 
 	print "product $i - code: $code\n";
 
-	my $product_ref = product_exists("org-systeme-u/" . $code);    # returns 0 if not
+	my $product_ref = retrieve_product("org-systeme-u/" . $code);    # returns 0 if not
 
 	if (not $product_ref) {
 		print "- does not exist in OFF yet\n";
@@ -1235,7 +1236,11 @@ while (my $imported_product_ref = $csv->getline_hr($io)) {
 						# normalize quantity
 						$log->debug(
 							"normalizing quantity",
-							{field => $field, existing_value => $product_ref->{$field}, new_value => $new_field_value}
+							{
+								field => $field,
+								existing_value => $product_ref->{$field},
+								new_value => $new_field_value
+							}
 						) if $log->is_debug();
 						$product_ref->{$field} = $new_field_value;
 						push @modified_fields, $field;

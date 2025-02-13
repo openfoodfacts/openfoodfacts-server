@@ -2,7 +2,9 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "13014",
+         "ecobalyse_code" : "e5bf7d33-6afe-46d6-ac06-f69c5769b10e",
          "id" : "en:strawberry",
+         "is_in_taxonomy" : 1,
          "origins" : "en:brittany",
          "percent_estimate" : 62.5,
          "percent_max" : 100,
@@ -13,7 +15,9 @@
       },
       {
          "ciqual_food_code" : "16400",
+         "ecobalyse_code" : "bbda834e-1548-4682-a461-c367dc1ce517",
          "id" : "en:unsalted-butter",
+         "is_in_taxonomy" : 1,
          "origins" : "en:normandy",
          "percent_estimate" : 18.75,
          "percent_max" : 50,
@@ -24,7 +28,9 @@
       },
       {
          "ciqual_food_code" : "20172",
+         "ecobalyse_code" : "tomato-heated-greenhouse-eu",
          "id" : "en:cherry-tomato",
+         "is_in_taxonomy" : 1,
          "origins" : "en:brittany",
          "percent_estimate" : 9.375,
          "percent_max" : 33.3333333333333,
@@ -35,7 +41,9 @@
       },
       {
          "ciqual_food_code" : "13050",
+         "ecobalyse_code" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
          "id" : "en:apple",
+         "is_in_taxonomy" : 1,
          "origins" : "en:normandy",
          "percent_estimate" : 9.375,
          "percent_max" : 25,
@@ -69,6 +77,7 @@
       "en:apple",
       "en:malaceous-fruit"
    ],
+   "ingredients_lc" : "fr",
    "ingredients_n" : 4,
    "ingredients_n_tags" : [
       "4",
@@ -102,6 +111,8 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 12,
    "lc" : "fr",
    "nutriments" : {

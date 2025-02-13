@@ -26,7 +26,8 @@ jobs:
       if: matrix.env == 'off-net'
       run: |
         # direct container access
-        echo "REDIS_URL=searchredis:6379" >> $GITHUB_ENV
+        echo "REDIS_URL=redis:6379" >> $GITHUB_ENV
+        echo "RATE_LIMITER_BLOCKING_ENABLED=0" >> $GITHUB_ENV
         echo "MONGODB_HOST=10.1.0.200" >> $GITHUB_ENV
         echo "ROBOTOFF_URL=https://robotoff.openfoodfacts.net" >> $GITHUB_ENV
         echo "QUERY_URL=http://10.1.0.200:5511" >> $GITHUB_ENV
@@ -38,15 +39,34 @@ jobs:
         echo "GEOLITE2_PATH=/usr/local/share/GeoLite2-Country/GeoLite2-Country.mmdb" >> $GITHUB_ENV
         echo "INFLUXDB_HOST=10.1.0.200" >> $GITHUB_ENV
         echo "FACETS_KP_URL=https://facets-kp.openfoodfacts.net/render-to-html" >> $GITHUB_ENV
+        echo "NUTRIPATROL_URL=nutripatrol.openfoodfacts.net" >> $GITHUB_ENV
         # deploy target
         echo "SSH_HOST=10.1.0.200" >> $GITHUB_ENV
         echo "SSH_PROXY_HOST=ovh1.openfoodfacts.org" >> $GITHUB_ENV
         echo "SSH_USERNAME=off" >> $GITHUB_ENV
+
     - name: Set various variable for prod (org) deployment
       if: matrix.env == 'off-org'
       run: |
         # FIXME: we do not deploy to prod currently
         false
+
+    - name: Check for an eventual NO_DEPLOY file to put deployment on hold
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ env.SSH_HOST }}
+        username: ${{ env.SSH_USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        proxy_host: ${{ env.SSH_PROXY_HOST }}
+        proxy_username: ${{ env.SSH_USERNAME }}
+        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          if [[ -f /home/off/${{ matrix.env }}/NO_DEPLOY ]]
+          then
+            >&2 echo "A NO_DEPLOY file exists (in /home/off/${{ matrix.env }}), failing !"
+            exit 1
+          fi
+
     - name: Wait for frontend container build workflow
       uses: tomchv/wait-my-workflow@v1.1.0
       id: wait-build
@@ -127,13 +147,14 @@ jobs:
           echo "COMPOSE_PROJECT_NAME=po" >> .env
           echo "COMPOSE_PATH_SEPARATOR=;" >> .env
           echo "COMPOSE_FILE=docker-compose.yml;docker/prod.yml;docker/geolite2.yml;docker/monitor.yml" >> .env
+          echo "COMPOSE_FILE_BUILD=docker-compose.yml;docker/prod.yml" >> .env
           echo "COMPOSE_PROFILES=off" >> .env
           echo "PRODUCT_OPENER_EXPOSE=" >> .env
           echo "ADMIN_EXPOSE=" >> .env
 
           # Set App variables
           echo "TAG=sha-${{ github.sha }}" >> .env
-          echo "WEB_LANG_PATH=../off-web-net/lang" >> .env
+          echo "WEB_RESOURCES_PATH=../off-web-net/" >> .env
           echo "PRODUCERS_PLATFORM=0" >> .env
           echo "PRODUCT_OPENER_PORT=80" >> .env
           echo "PRODUCT_OPENER_DOMAIN=${{ env.PRODUCT_OPENER_DOMAIN }}" >> .env
@@ -148,6 +169,7 @@ jobs:
           echo "QUERY_URL=${{ env.QUERY_URL }}" >> .env
           echo "REDIS_URL=${{ env.REDIS_URL }}" >> .env
           echo "FACETS_KP_URL=${{ env.FACETS_KP_URL }}" >> .env
+          echo "NUTRIPATROL_URL=${{ env.NUTRIPATROL_URL }}" >> .env
           echo "GOOGLE_CLOUD_VISION_API_KEY=${{ secrets.GOOGLE_CLOUD_VISION_API_KEY }}" >> .env
           echo "CROWDIN_PROJECT_IDENTIFIER=${{ env.CROWDIN_PROJECT_IDENTIFIER }}" >> .env
           echo "CROWDIN_PROJECT_KEY=${{ secrets.CROWDIN_PROJECT_KEY }}" >> .env
@@ -157,10 +179,11 @@ jobs:
           echo "INFLUXDB_HOST=${{ env.INFLUXDB_HOST }}" >> .env
           echo "LOG_LEVEL_ROOT=ERROR" >> .env
           echo "LOG_LEVEL_MONGODB=ERROR" >> .env
+          echo "LOG_LEVEL_RATE_LIMITER=INFO" >> .env
           echo "BUILD_CACHE_REPO=openfoodfacts/openfoodfacts-build-cache" >> .env
 
           # Override domain name in nginx.conf
-          sed -i.bak "s/productopener.localhost/${{ env.PRODUCT_OPENER_DOMAIN }}/g" ./conf/nginx.conf
+          sed -i.bak "s/productopener.localhost/${{ env.PRODUCT_OPENER_DOMAIN }}/g" ./conf/nginx-docker/nginx.conf
 
     - name: Create Docker volumes and network
       uses: appleboy/ssh-action@master
@@ -222,6 +245,7 @@ jobs:
           cd ${{ matrix.env }} && \
           make init_backend
 
+    # NOTE: the mongodb and redis containers are deployed by openfoodfacts-shared-services 
     - name: Start services
       uses: appleboy/ssh-action@master
       with:
@@ -237,7 +261,7 @@ jobs:
           cd ${{ matrix.env }} && \
           make hdown && \
           make build_lang && \
-          make up
+          make prod_up
 
     - name: Check services are up
       uses: appleboy/ssh-action@master
@@ -269,7 +293,7 @@ jobs:
           cd ${{ matrix.env }} && \
           make prune
 
-    - uses: frankie567/grafana-annotation-action@v1.0.3
+    - uses: basos9/grafana-annotation-action@v1.0.3
       if: ${{ always() }}
       with:
         apiHost: https://grafana.openfoodfacts.org

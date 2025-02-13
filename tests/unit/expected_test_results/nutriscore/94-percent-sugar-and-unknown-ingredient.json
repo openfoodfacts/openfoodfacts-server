@@ -1,9 +1,12 @@
 {
    "additives_n" : 0,
-   "additives_old_n" : 0,
-   "additives_old_tags" : [],
    "additives_original_tags" : [],
    "additives_tags" : [],
+   "allergens" : "",
+   "allergens_from_ingredients" : "",
+   "allergens_from_user" : "(en) ",
+   "allergens_hierarchy" : [],
+   "allergens_tags" : [],
    "amino_acids_tags" : [],
    "categories" : "sugars",
    "categories_hierarchy" : [
@@ -35,7 +38,10 @@
    ],
    "ingredients" : [
       {
+         "ciqual_proxy_food_code" : "31016",
+         "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
          "id" : "en:sugar",
+         "is_in_taxonomy" : 1,
          "percent" : 94,
          "percent_estimate" : 94,
          "percent_max" : 94,
@@ -46,6 +52,7 @@
       },
       {
          "id" : "en:strange-ingredient",
+         "is_in_taxonomy" : 0,
          "percent_estimate" : 6,
          "percent_max" : 6,
          "percent_min" : 6,
@@ -68,25 +75,25 @@
       "en:vegan-status-unknown",
       "en:vegetarian-status-unknown"
    ],
-   "ingredients_from_or_that_may_be_from_palm_oil_n" : 0,
-   "ingredients_from_palm_oil_n" : 0,
-   "ingredients_from_palm_oil_tags" : [],
    "ingredients_hierarchy" : [
       "en:sugar",
       "en:added-sugar",
       "en:disaccharide",
       "en:strange-ingredient"
    ],
+   "ingredients_lc" : "en",
    "ingredients_n" : 2,
    "ingredients_n_tags" : [
       "2",
       "1-10"
    ],
+   "ingredients_non_nutritive_sweeteners_n" : 0,
    "ingredients_original_tags" : [
       "en:sugar",
       "en:strange-ingredient"
    ],
    "ingredients_percent_analysis" : 1,
+   "ingredients_sweeteners_n" : 0,
    "ingredients_tags" : [
       "en:sugar",
       "en:added-sugar",
@@ -94,21 +101,23 @@
       "en:strange-ingredient"
    ],
    "ingredients_text" : "sugar 94%, strange ingredient",
-   "ingredients_that_may_be_from_palm_oil_n" : 0,
-   "ingredients_that_may_be_from_palm_oil_tags" : [],
    "ingredients_with_specified_percent_n" : 1,
    "ingredients_with_specified_percent_sum" : 94,
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 6,
    "ingredients_without_ciqual_codes" : [
-      "en:strange-ingredient",
-      "en:sugar"
+      "en:strange-ingredient"
    ],
-   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:strange-ingredient"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 3,
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-energy",
@@ -123,12 +132,31 @@
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients"
    ],
+   "nova_group" : 2,
+   "nova_group_debug" : "",
+   "nova_groups" : "2",
+   "nova_groups_markers" : {
+      "2" : [
+         [
+            "categories",
+            "en:sugars"
+         ]
+      ]
+   },
+   "nova_groups_tags" : [
+      "en:2-processed-culinary-ingredients"
+   ],
    "nucleotides_tags" : [],
+   "nutrient_levels" : {},
+   "nutrient_levels_tags" : [],
    "nutriments" : {
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0,
+      "nova-group" : 2,
+      "nova-group_100g" : 2,
+      "nova-group_serving" : 2
    },
    "nutriscore" : {
       "2021" : {
@@ -155,7 +183,7 @@
          "category_available" : 1,
          "data" : {
             "energy" : null,
-            "fiber" : 0,
+            "fiber" : null,
             "fruits_vegetables_legumes" : 0,
             "is_beverage" : 0,
             "is_cheese" : 0,
@@ -183,7 +211,7 @@
    "nutriscore_tags" : [
       "unknown"
    ],
-   "nutriscore_version" : "2021",
+   "nutriscore_version" : "2023",
    "nutrition_data_per" : "100g",
    "nutrition_data_prepared_per" : "100g",
    "nutrition_grade_fr" : "unknown",
@@ -209,6 +237,12 @@
       "sweets",
       "known"
    ],
+   "traces" : "",
+   "traces_from_ingredients" : "",
+   "traces_from_user" : "(en) ",
+   "traces_hierarchy" : [],
+   "traces_tags" : [],
    "unknown_ingredients_n" : 1,
+   "unknown_nutrients_tags" : [],
    "vitamins_tags" : []
 }

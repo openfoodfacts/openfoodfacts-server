@@ -17,7 +17,7 @@
 
 <form id="select_format_form" action="/cgi/import_file_process.pl" method="POST" enctype="multipart/form-data">
 
-    <input type="submit" class="button small" value="[% lang('import_data') %]">
+    <input type="submit" class="button small" value="[% edq(lang('import_data')) %]">
     [% selected_columns_count %]
 
     <table id="select_fields" aria-label="data table">
@@ -47,7 +47,7 @@
 
     <input type="hidden" name="columns_fields_json" id="columns_fields_json">
     <input type="hidden" name="file_id" id="file_id" value="[% file_id %]">
-    <input type="submit" class="button small" value="[% lang('import_data') %]">
+    <input type="submit" class="button small" value="[% edq(lang('import_data')) %]">
     [% selected_columns_count %]
 
 </form>

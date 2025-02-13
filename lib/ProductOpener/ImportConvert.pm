@@ -51,6 +51,9 @@ use Log::Any qw($log);
 use Storable qw(dclone);
 use Text::Fuzzy;
 
+# to use read_file
+use File::Slurp;
+
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
@@ -58,7 +61,6 @@ BEGIN {
 		$empty_regexp
 		$unknown_regexp
 		$not_applicable_regexp
-		$none_regexp
 		$empty_unknown_not_applicable_or_none_regexp
 
 		%fields
@@ -66,7 +68,6 @@ BEGIN {
 		%products
 
 		&assign_value
-		&remove_value
 
 		&get_list_of_files
 
@@ -78,7 +79,6 @@ BEGIN {
 		&print_stats
 
 		&match_taxonomy_tags
-		&match_specific_taxonomy_tags
 		&match_labels_in_product_name
 		&assign_countries_for_product
 		&assign_main_language_of_product
@@ -103,19 +103,20 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Store qw/get_string_id_for_lang unac_string_perl/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Products qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Products qw/normalize_code/;
+use ProductOpener::Ingredients qw/clean_ingredients_text_for_lang split_generic_name_from_ingredients/;
 use ProductOpener::Food qw/:all/;
-use ProductOpener::Units qw/:all/;
-use ProductOpener::Text qw/:all/;
+use ProductOpener::Units qw/normalize_quantity/;
+use ProductOpener::Text qw/regexp_escape/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Time::Local;
 use Data::Dumper;
 use Text::CSV;
@@ -133,7 +134,7 @@ my $mode = "append";
 $empty_regexp = '(?:,|\%|;|_|°|-|\/|\\|\.|\s)*';
 $unknown_regexp = 'unknown|inconnu|inconnue|non renseigné(?:e)?(?:s)?|nr|n\/r';
 $not_applicable_regexp = 'n(?:\/|\\|\.|-)?a(?:\.)?|(?:not|non)(?: |-)applicable|no aplica';
-$none_regexp = 'none|aucun|aucune|aucun\(e\)';
+my $none_regexp = 'none|aucun|aucune|aucun\(e\)';
 
 $empty_unknown_not_applicable_or_none_regexp
 	= join('|', ($empty_regexp, $unknown_regexp, $not_applicable_regexp, $none_regexp));
@@ -334,27 +335,32 @@ sub match_taxonomy_tags ($product_ref, $source, $target, $options_ref) {
 			$value =~ s/^\s+//;
 			$value =~ s/\s+$//;
 
-			my $canon_tag = canonicalize_taxonomy_tag($product_ref->{lc}, $target, $value);
-			$log->trace("match_taxonomy_tags: split value", {value => $value, canon_tag => $canon_tag})
-				if $log->is_trace();
-
-			if (exists_taxonomy_tag($target, $canon_tag)) {
-
-				assign_value($product_ref, $target, $canon_tag);
-				$log->info("match_taxonomy_tags: assigning value",
-					{source => $source, value => $canon_tag, target => $target})
-					if $log->is_info();
-			}
 			# try to see if we have a packager code
 			# e.g. from Carrefour: Fabriqué en France par EMB 29181 (F) ou EMB 86092A (G) pour Interdis.
-			elsif (($value =~ /^((e|emb)(\s|-|\.)*(\d{5})(\s|-|\.)*(\w)?)$/i)
-				or ($value =~ /([a-z][a-z])(\s|\.|-)+\d\d(\s|\.|-)+\d\d\d(\s|\.|-)+\d\d\d(\s|\.|-)+(ce|ec|eg)/i))
-			{
-				assign_value($product_ref, "emb_codes", $value);
-				$log->info(
-					"match_taxonomy_tags: found packaging code - assigning value",
-					{source => $source, value => $value, target => "emb_codes"}
-				) if $log->is_info();
+			if ($target eq "emb_codes") {
+				if (   ($value =~ /^((e|emb)(\s|-|\.)*(\d{5})(\s|-|\.)*(\w)?)$/i)
+					or ($value =~ /([a-z][a-z])(\s|\.|-)+\d\d(\s|\.|-)+\d\d\d(\s|\.|-)+\d\d\d(\s|\.|-)+(ce|ec|eg)/i))
+				{
+					assign_value($product_ref, "emb_codes", $value);
+					$log->info(
+						"match_taxonomy_tags: found packaging code - assigning value",
+						{source => $source, value => $value, target => "emb_codes"}
+					) if $log->is_info();
+				}
+			}
+			# Or a known taxonomy entry
+			else {
+				my $canon_tag = canonicalize_taxonomy_tag($product_ref->{lc}, $target, $value);
+				$log->trace("match_taxonomy_tags: split value", {value => $value, canon_tag => $canon_tag})
+					if $log->is_trace();
+
+				if (exists_taxonomy_tag($target, $canon_tag)) {
+
+					assign_value($product_ref, $target, $canon_tag);
+					$log->info("match_taxonomy_tags: assigning value",
+						{source => $source, value => $canon_tag, target => $target})
+						if $log->is_info();
+				}
 			}
 		}
 	}
@@ -1212,6 +1218,15 @@ sub load_xml_file ($file, $xml_rules_ref, $xml_fields_mapping_ref, $code) {
 
 	$log->info("parsing xml file with XML::Rules", {file => $file, xml_rules => $xml_rules_ref}) if $log->is_info();
 
+	# Read the file content
+	# Check if the file is empty or contains only comments
+	# See issue #9655, file 13003_3270190006787_valNut.xml + 5 others are empty
+	my $content = read_file($file);
+	if ($content =~ /^\s*<!--.*-->\s*$/s) {
+		# $log->warn("File is empty or contains only comments", {file => $file}) if $log->is_warn();
+		return 1;
+	}
+
 	my $parser = XML::Rules->new(rules => $xml_rules_ref);
 
 	my $xml_ref;
@@ -1233,7 +1248,7 @@ sub load_xml_file ($file, $xml_rules_ref, $xml_fields_mapping_ref, $code) {
 
 	if ($log->is_trace()) {
 		binmode STDOUT, ":encoding(UTF-8)";
-		open(my $OUT_JSON, ">", "$www_root/data/import_debug_xml.json");
+		open(my $OUT_JSON, ">", "$BASE_DIRS{PUBLIC_DATA}/import_debug_xml.json");
 		print $OUT_JSON encode_json($xml_ref);
 		close($OUT_JSON);
 	}

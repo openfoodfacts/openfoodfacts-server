@@ -1,44 +1,47 @@
 type: object
+description: |
+  You can provide most of the properties defined in the product schema.
 properties:
   code:
     type: string
     description: The barcode of the product to be added or edited
-    example: '0074570036004'
+    example: "0074570036004"
   user_id:
     type: string
     description: A valid username.
     example: myusername
   password:
     type: string
-    description: A valid corresponding password.
+    description: A valid corresponding password (related to specific environment).
     example: mypassword
+  comment:
+    type: string
+    description: A comment for the change. It will be shown in product changes history.
+    example: new packaging from super-app
   brands:
-    schema:
-      type: array
-      items:
-        type: string
-    style: form
-    explode: false
+    type: array
+    items:
+      type: string
     description: The brands of the product (comma separated list of values).
-    example: Häagen-Dazs,General-mills
+    examples:
+      - - Häagen-Dazs
+          General-mills
   labels:
-    schema:
-      type: array
-      items:
-        type: string
-    style: form
-    explode: false
+    type: array
+    items:
+      type: string
     description: The labels of the product (comma separated list of values).
-    example: Kosher,Ferroro
+    examples:
+      - - Kosher
+          Ferroro
   categories:
-    schema:
-      type: array
-      items:
-        type: string
-    style: form
-    explode: false
+    type: array
+    items:
+      type: string
     description: The categories of the product (comma separated list of values).
-    example: Desserts,Frozen foods
+    examples:
+      - - Desserts
+          Frozen foods
   packaging:
     type: string
     description: |

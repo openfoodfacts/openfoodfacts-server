@@ -1,0 +1,1144 @@
+<catalogue_item_notification:catalogueItemNotificationMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:catalogue_item_notification="urn:gs1:gdsn:catalogue_item_notification:xsd:3" xsi:schemaLocation="http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader http://www.gs1globalregistry.net/3.1/schemas/sbdh/StandardBusinessDocumentHeader.xsd urn:gs1:gdsn:catalogue_item_notification:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/CatalogueItemNotification.xsd">
+	<sh:StandardBusinessDocumentHeader xmlns:sh="http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader">
+		<sh:HeaderVersion>1.0</sh:HeaderVersion>
+		<sh:Sender xmlns:sh="http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader">
+			<sh:Identifier Authority="GS1">4104420000001</sh:Identifier>
+		</sh:Sender>
+		<sh:Receiver xmlns:sh="http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader">
+			<sh:Identifier Authority="GS1">4049111100007</sh:Identifier>
+		</sh:Receiver>
+		<sh:DocumentIdentification xmlns:sh="http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader">
+			<sh:Standard>GS1</sh:Standard>
+			<sh:TypeVersion>3.1</sh:TypeVersion>
+			<sh:InstanceIdentifier>B14245A3-AA64-4845-8ADC-6E5E61C8073F</sh:InstanceIdentifier>
+			<sh:Type>catalogueItemNotification</sh:Type>
+			<sh:MultipleType>false</sh:MultipleType>
+			<sh:CreationDateAndTime>2018-01-01T00:00:00</sh:CreationDateAndTime>
+		</sh:DocumentIdentification>
+	</sh:StandardBusinessDocumentHeader>
+	<transaction>
+		<transactionIdentification>
+			<entityIdentification>DFF37EEB-90AD-45CD-9385-6654FAD65D3B</entityIdentification>
+			<contentOwner>
+				<gln>4104420000001</gln>
+			</contentOwner>
+		</transactionIdentification>
+		<documentCommand xmlns:catalogue_item_notification="urn:gs1:gdsn:catalogue_item_notification:xsd:3">
+			<documentCommandHeader xmlns:catalogue_item_notification="urn:gs1:gdsn:catalogue_item_notification:xsd:3" type="CHANGE_BY_REFRESH">
+				<documentCommandIdentification xmlns:catalogue_item_notification="urn:gs1:gdsn:catalogue_item_notification:xsd:3">
+					<entityIdentification>713F0F57-0D7E-455F-A675-0B8E140E4242</entityIdentification>
+					<contentOwner xmlns:catalogue_item_notification="urn:gs1:gdsn:catalogue_item_notification:xsd:3">
+						<gln>4104420000001</gln>
+					</contentOwner>
+				</documentCommandIdentification>
+			</documentCommandHeader>
+			<catalogue_item_notification:catalogueItemNotification xmlns:catalogue_item_notification="urn:gs1:gdsn:catalogue_item_notification:xsd:3">
+				<creationDateTime>2024-07-01T14:54:00.680</creationDateTime>
+				<documentStatusCode>ORIGINAL</documentStatusCode>
+				<documentStructureVersion>3.1</documentStructureVersion>
+				<lastUpdateDateTime>2024-07-01T14:54:00.680</lastUpdateDateTime>
+				<catalogueItemNotificationIdentification xmlns:catalogue_item_notification="urn:gs1:gdsn:catalogue_item_notification:xsd:3">
+					<entityIdentification>0088103B-EDBB-4A22-8AC1-3C91A779AC47</entityIdentification>
+					<contentOwner xmlns:catalogue_item_notification="urn:gs1:gdsn:catalogue_item_notification:xsd:3">
+						<gln>4104420000001</gln>
+					</contentOwner>
+				</catalogueItemNotificationIdentification>
+				<isReload>true</isReload>
+				<catalogueItem>
+					<catalogueItemState>
+						<catalogueItemStateCode>REGISTERED</catalogueItemStateCode>
+					</catalogueItemState>
+					<tradeItem>
+						<gtin>04104420249196</gtin>
+						<additionalTradeItemIdentification additionalTradeItemIdentificationTypeCode="SUPPLIER_ASSIGNED">127355</additionalTradeItemIdentification>
+						<isTradeItemABaseUnit>false</isTradeItemABaseUnit>
+						<isTradeItemAConsumerUnit>false</isTradeItemAConsumerUnit>
+						<isTradeItemADespatchUnit>true</isTradeItemADespatchUnit>
+						<isTradeItemAnInvoiceUnit>true</isTradeItemAnInvoiceUnit>
+						<isTradeItemAnOrderableUnit>true</isTradeItemAnOrderableUnit>
+						<tradeItemUnitDescriptorCode>CASE</tradeItemUnitDescriptorCode>
+						<informationProviderOfTradeItem>
+							<gln>4104420000001</gln>
+							<partyName>Alnatura GmbH</partyName>
+						</informationProviderOfTradeItem>
+						<gdsnTradeItemClassification>
+							<gpcCategoryCode>10000057</gpcCategoryCode>
+							<gpcCategoryDefinition>Saucen (ohne Kühlung haltbar)</gpcCategoryDefinition>
+							<gpcCategoryName>Saucen (ohne Kühlung haltbar)</gpcCategoryName>
+						</gdsnTradeItemClassification>
+						<nextLowerLevelTradeItemInformation>
+							<quantityOfChildren>1</quantityOfChildren>
+							<totalQuantityOfNextLowerLevelTradeItem>6</totalQuantityOfNextLowerLevelTradeItem>
+							<childTradeItem>
+								<gtin>04104420249189</gtin>
+								<quantityOfNextLowerLevelTradeItem>6</quantityOfNextLowerLevelTradeItem>
+							</childTradeItem>
+						</nextLowerLevelTradeItemInformation>
+						<targetMarket>
+							<targetMarketCountryCode>276</targetMarketCountryCode>
+						</targetMarket>
+						<tradeItemInformation>
+							<extension>
+								<allergenInformationModule/>
+								<deliveryPurchasingInformationModule>
+									<deliveryPurchasingInformation>
+										<startAvailabilityDateTime>2024-07-01T00:00:00</startAvailabilityDateTime>
+									</deliveryPurchasingInformation>
+								</deliveryPurchasingInformationModule>
+								<dairyFishMeatPoultryItemModule>
+									<dairyFishMeatPoultryInformation/>
+								</dairyFishMeatPoultryItemModule>
+								<marketingInformationModule/>
+								<packagingInformationModule>
+									<packaging>
+										<packagingTypeCode>CT</packagingTypeCode>
+										<returnableAsset/>
+									</packaging>
+								</packagingInformationModule>
+								<packagingMarkingModule>
+									<packagingMarking>
+										<isPackagingMarkedReturnable>false</isPackagingMarkedReturnable>
+										<packagingMarkedLanguageCode>fr</packagingMarkedLanguageCode>
+										<packagingDate>
+											<tradeItemDateOnPackagingTypeCode>BEST_BEFORE_DATE</tradeItemDateOnPackagingTypeCode>
+										</packagingDate>
+										<hasBatchNumber>true</hasBatchNumber>
+									</packagingMarking>
+								</packagingMarkingModule>
+								<placeOfItemActivityModule>
+									<placeOfProductActivity>
+										<countryOfOrigin>
+											<countryCode>276</countryCode>
+										</countryOfOrigin>
+									</placeOfProductActivity>
+								</placeOfItemActivityModule>
+								<tradeItemDataCarrierAndIdentificationModule>
+									<dataCarrier>
+										<dataCarrierTypeCode>EAN_13</dataCarrierTypeCode>
+									</dataCarrier>
+								</tradeItemDataCarrierAndIdentificationModule>
+								<tradeItemDescriptionModule>
+									<tradeItemDescriptionInformation>
+										<descriptionShort languageCode="de">Vegetarische Soja Bolognese 0,35L</descriptionShort>
+										<descriptionShort languageCode="fr">Bolognaise végétarienne au soja 0,3</descriptionShort>
+										<functionalName languageCode="de">Tomatensoßen</functionalName>
+										<functionalName languageCode="fr">alimentaire</functionalName>
+										<regulatedProductName languageCode="de">Bio Tomatensauce mit Gemüse und Sojaeiweißerzeugnis</regulatedProductName>
+										<regulatedProductName languageCode="fr">Sauce tomate bio aux légumes et protéines de soja texturées</regulatedProductName>
+										<tradeItemDescription languageCode="de">Alnatura Vegetarische Soja Bolognese 0,35L</tradeItemDescription>
+										<tradeItemDescription languageCode="fr">Alnatura Bolognaise végétarienne au soja 0,35l</tradeItemDescription>
+										<brandNameInformation>
+											<brandName>Alnatura</brandName>
+										</brandNameInformation>
+									</tradeItemDescriptionInformation>
+								</tradeItemDescriptionModule>
+								<tradeItemLifespanModule>
+									<tradeItemLifespan>
+										<minimumTradeItemLifespanFromTimeOfArrival>360</minimumTradeItemLifespanFromTimeOfArrival>
+									</tradeItemLifespan>
+								</tradeItemLifespanModule>
+								<tradeItemHandlingModule/>
+								<tradeItemMeasurementsModule>
+									<tradeItemMeasurements>
+										<depth measurementUnitCode="MMT">264.000</depth>
+										<height measurementUnitCode="MMT">97.000</height>
+										<width measurementUnitCode="MMT">182.000</width>
+										<tradeItemWeight>
+											<grossWeight measurementUnitCode="GRM">3609.000</grossWeight>
+										</tradeItemWeight>
+									</tradeItemMeasurements>
+								</tradeItemMeasurementsModule>
+								<variableTradeItemInformationModule>
+									<variableTradeItemInformation>
+										<isTradeItemAVariableUnit>false</isTradeItemAVariableUnit>
+									</variableTradeItemInformation>
+								</variableTradeItemInformationModule>
+							</extension>
+						</tradeItemInformation>
+						<tradeItemSynchronisationDates>
+							<lastChangeDateTime>2024-07-01T14:54:05.157</lastChangeDateTime>
+							<effectiveDateTime>2024-08-16T00:00:00</effectiveDateTime>
+							<publicationDateTime>2024-07-01T14:54:05.157</publicationDateTime>
+						</tradeItemSynchronisationDates>
+					</tradeItem>
+					<catalogueItemChildItemLink>
+						<quantity>6</quantity>
+						<catalogueItem>
+							<catalogueItemState>
+								<catalogueItemStateCode>REGISTERED</catalogueItemStateCode>
+							</catalogueItemState>
+							<tradeItem>
+								<gtin>04104420249189</gtin>
+								<additionalTradeItemIdentification additionalTradeItemIdentificationTypeCode="SUPPLIER_ASSIGNED">127355</additionalTradeItemIdentification>
+								<isTradeItemABaseUnit>true</isTradeItemABaseUnit>
+								<isTradeItemAConsumerUnit>true</isTradeItemAConsumerUnit>
+								<isTradeItemADespatchUnit>false</isTradeItemADespatchUnit>
+								<isTradeItemAnInvoiceUnit>false</isTradeItemAnInvoiceUnit>
+								<isTradeItemAnOrderableUnit>false</isTradeItemAnOrderableUnit>
+								<tradeItemUnitDescriptorCode>BASE_UNIT_OR_EACH</tradeItemUnitDescriptorCode>
+								<brandOwner>
+									<gln>4104420000001</gln>
+									<partyName>Alnatura GmbH</partyName>
+								</brandOwner>
+								<informationProviderOfTradeItem>
+									<gln>4104420000001</gln>
+									<partyName>Alnatura GmbH</partyName>
+								</informationProviderOfTradeItem>
+								<manufacturerOfTradeItem>
+									<gln>4104420000001</gln>
+									<partyName>Alnatura GmbH</partyName>
+								</manufacturerOfTradeItem>
+								<gdsnTradeItemClassification>
+									<gpcCategoryCode>10000057</gpcCategoryCode>
+									<gpcCategoryDefinition>Saucen (ohne Kühlung haltbar)</gpcCategoryDefinition>
+									<gpcCategoryName>Saucen (ohne Kühlung haltbar)</gpcCategoryName>
+								</gdsnTradeItemClassification>
+								<targetMarket>
+									<targetMarketCountryCode>276</targetMarketCountryCode>
+								</targetMarket>
+								<tradeItemContactInformation>
+									<contactTypeCode>BZL</contactTypeCode>
+									<contactAddress>Mahatma-Gandhi-Straße 7, DE-64295 Darmstadt</contactAddress>
+									<contactName>Alnatura GmbH</contactName>
+								</tradeItemContactInformation>
+								<tradeItemContactInformation>
+									<contactTypeCode>CXC</contactTypeCode>
+									<targetMarketCommunicationChannel>
+										<communicationChannel>
+											<communicationChannelCode>WEBSITE</communicationChannelCode>
+											<communicationValue>www.alnatura.de</communicationValue>
+										</communicationChannel>
+									</targetMarketCommunicationChannel>
+								</tradeItemContactInformation>
+								<tradeItemInformation>
+									<extension>
+										<allergenInformationModule>
+											<allergenRelatedInformation>
+												<allergen>
+													<allergenTypeCode>AY</allergenTypeCode>
+													<levelOfContainmentCode>CONTAINS</levelOfContainmentCode>
+												</allergen>
+											</allergenRelatedInformation>
+										</allergenInformationModule>
+										<alcoholInformationModule/>
+										<certificationInformationModule>
+											<certificationInformation>
+												<certificationAgency>EU</certificationAgency>
+												<certificationStandard>Organic_Certification</certificationStandard>
+												<certification>
+													<certificationValue>DE-ÖKO-003</certificationValue>
+													<certificationEffectiveEndDateTime>2025-01-31T00:00:00</certificationEffectiveEndDateTime>
+													<certificationEffectiveStartDateTime>2024-07-01T14:54:01.090</certificationEffectiveStartDateTime>
+												</certification>
+											</certificationInformation>
+											<certificationInformation>
+												<certificationAgency>EU</certificationAgency>
+												<certificationStandard>Organic_QualitySymbol</certificationStandard>
+												<certification>
+													<certificationValue>EG</certificationValue>
+													<certificationEffectiveEndDateTime>2025-01-31T00:00:00</certificationEffectiveEndDateTime>
+													<certificationEffectiveStartDateTime>2024-07-01T14:54:01.090</certificationEffectiveStartDateTime>
+												</certification>
+											</certificationInformation>
+										</certificationInformationModule>
+										<consumerInstructionsModule>
+											<consumerInstructions>
+												<consumerStorageInstructions languageCode="de">Nach dem Öffnen im Kühlschrank aufbewahren und innerhalb von 2 Tagen verbrauchen.</consumerStorageInstructions>
+											</consumerInstructions>
+											<consumerInstructions>
+												<consumerStorageInstructions languageCode="fr">Une fois ouvert, conserver au réfrigérateur et consommer dans les 2 jours.</consumerStorageInstructions>
+											</consumerInstructions>
+										</consumerInstructionsModule>
+										<deliveryPurchasingInformationModule>
+											<deliveryPurchasingInformation>
+												<startAvailabilityDateTime>2024-07-01T00:00:00</startAvailabilityDateTime>
+											</deliveryPurchasingInformation>
+										</deliveryPurchasingInformationModule>
+										<dietInformationModule>
+											<dietInformation>
+												<dietTypeInformation>
+													<dietTypeCode>VEGAN</dietTypeCode>
+													<isDietTypeMarkedOnPackage>FALSE</isDietTypeMarkedOnPackage>
+												</dietTypeInformation>
+												<dietTypeInformation>
+													<dietTypeCode>VEGETARIAN</dietTypeCode>
+													<isDietTypeMarkedOnPackage>FALSE</isDietTypeMarkedOnPackage>
+												</dietTypeInformation>
+											</dietInformation>
+										</dietInformationModule>
+										<dairyFishMeatPoultryItemModule>
+											<dairyFishMeatPoultryInformation>
+												<fishReportingInformation/>
+											</dairyFishMeatPoultryInformation>
+										</dairyFishMeatPoultryItemModule>
+										<dutyFeeTaxInformationModule>
+											<dutyFeeTaxInformation>
+												<dutyFeeTaxAgencyCode>246</dutyFeeTaxAgencyCode>
+												<dutyFeeTaxTypeCode>VAT</dutyFeeTaxTypeCode>
+												<dutyFeeTax>
+													<dutyFeeTaxCategoryCode>LOW</dutyFeeTaxCategoryCode>
+												</dutyFeeTax>
+											</dutyFeeTaxInformation>
+										</dutyFeeTaxInformationModule>
+										<farmingAndProcessingInformationModule>
+											<tradeItemOrganicInformation>
+												<organicClaim>
+													<organicTradeItemCode>2</organicTradeItemCode>
+												</organicClaim>
+												<organicProductPlaceOfFarmingCode>EU_OR_NON_EU_AGRICULTURE</organicProductPlaceOfFarmingCode>
+											</tradeItemOrganicInformation>
+											<tradeItemFarmingAndProcessing>
+												<geneticallyModifiedDeclarationCode>FREE_FROM</geneticallyModifiedDeclarationCode>
+											</tradeItemFarmingAndProcessing>
+										</farmingAndProcessingInformationModule>
+										<foodAndBeverageIngredientModule>
+											<ingredientStatement languageCode="de">Zutaten: Tomatenmark* einfach konzentriert 46%, Tomaten* passiert 13%, Zwiebeln* 6,8%, Karotten* 6,7%, Paprika* 5,7%, Zucchini* 5,7 %, SOJAEIWEIßERZEUGNIS* 4%, Lauch* 4%, Sonnenblumenöl*, Sojasauce* (Wasser, SOJABOHNEN*, Salz), Zitronensaftkonzentrat*, Maisstärke*, Meersalz, Basilikum*, Knoblauch*, Thymian*, Paprika*, Oregano*, Pfeffer* *aus biologischer Landwirtschaft </ingredientStatement>
+											<ingredientStatement languageCode="fr">Ingrédients: Concentré de tomates* à concentration simple 46 %, tomates* en purée 13%, oignons* 6,8%, carottes* 6,7%, poivron* 5,7%, courgettes* 5,7%, protéines de soja texturées* 4%, poireau* 4%, huile de tournesol*, SAUCE SOJA* (Eau, féves de soja*, sel), jus de citron concentré*, amidon de mais*, sel marin, basilic*, ail*, thym*, paprika en poudre* origan*, poivre* *issus de I'agriculture biologique </ingredientStatement>
+										</foodAndBeverageIngredientModule>
+										<foodAndBeveragePreparationServingModule>
+											<preparationServing>
+												<preparationTypeCode>HEAT_AND_SERVE</preparationTypeCode>
+												<preparationInstructions languageCode="de">Soja-Bolognese im Topf kurz erhitzen.</preparationInstructions>
+												<preparationInstructions languageCode="fr">Faire chauffer brièvement la sauce végetarienne avec soja dans une casserole.</preparationInstructions>
+											</preparationServing>
+										</foodAndBeveragePreparationServingModule>
+										<healthRelatedInformationModule>
+											<healthRelatedInformation/>
+										</healthRelatedInformationModule>
+										<healthWellnessPackagingMarkingModule>
+											<healthWellnessPackagingMarking>
+												<isPackagingMarkedWithIngredients>true</isPackagingMarkedWithIngredients>
+											</healthWellnessPackagingMarking>
+										</healthWellnessPackagingMarkingModule>
+										<marketingInformationModule>
+											<marketingInformation>
+												<tradeItemFeatureBenefit languageCode="de" sequenceNumber="1">Bio-Qualität</tradeItemFeatureBenefit>
+												<tradeItemFeatureBenefit languageCode="de" sequenceNumber="2">pikante Tomatensauce mit Gemüse und Sojaschnetzel</tradeItemFeatureBenefit>
+												<tradeItemFeatureBenefit languageCode="de" sequenceNumber="3">für die schnelle Küche: kurz erhitzt zu Pasta oder Gnocchi und für Lasagne</tradeItemFeatureBenefit>
+												<tradeItemMarketingMessage languageCode="de">Sauce bolognese, der Klassiker unter den italienischen Saucen, hier in der vegetarischen Variante: Bio-Tomatensauce mit Gemüse und Sojaschnetzel. Ideal zu Pasta oder Gnocchi und unentbehrlich für vegetarische Lasagne.</tradeItemMarketingMessage>
+												<season>
+													<isTradeItemSeasonal>FALSE</isTradeItemSeasonal>
+												</season>
+											</marketingInformation>
+										</marketingInformationModule>
+										<nutritionalInformationModule>
+											<nutrientHeader>
+												<preparationStateCode>UNPREPARED</preparationStateCode>
+												<nutrientBasisQuantity measurementUnitCode="MLT">100.00</nutrientBasisQuantity>
+												<nutrientDetail>
+													<nutrientTypeCode>ENER-</nutrientTypeCode>
+													<measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+													<quantityContained measurementUnitCode="E14">81.00000</quantityContained>
+													<quantityContained measurementUnitCode="KJO">340.00000</quantityContained>
+												</nutrientDetail>
+												<nutrientDetail>
+													<nutrientTypeCode>CHOAVL</nutrientTypeCode>
+													<measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+													<quantityContained measurementUnitCode="GRM">9.10000</quantityContained>
+												</nutrientDetail>
+												<nutrientDetail>
+													<nutrientTypeCode>SUGAR-</nutrientTypeCode>
+													<measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+													<quantityContained measurementUnitCode="GRM">6.10000</quantityContained>
+												</nutrientDetail>
+												<nutrientDetail>
+													<nutrientTypeCode>PRO-</nutrientTypeCode>
+													<measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+													<quantityContained measurementUnitCode="GRM">3.90000</quantityContained>
+												</nutrientDetail>
+												<nutrientDetail>
+													<nutrientTypeCode>FAT</nutrientTypeCode>
+													<measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+													<quantityContained measurementUnitCode="GRM">2.80000</quantityContained>
+												</nutrientDetail>
+												<nutrientDetail>
+													<nutrientTypeCode>FIBTG</nutrientTypeCode>
+													<measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+													<quantityContained measurementUnitCode="GRM">1.90000</quantityContained>
+												</nutrientDetail>
+												<nutrientDetail>
+													<nutrientTypeCode>SALTEQ</nutrientTypeCode>
+													<measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+													<quantityContained measurementUnitCode="GRM">0.85000</quantityContained>
+												</nutrientDetail>
+												<nutrientDetail>
+													<nutrientTypeCode>FASAT</nutrientTypeCode>
+													<measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+													<quantityContained measurementUnitCode="GRM">0.30000</quantityContained>
+												</nutrientDetail>
+											</nutrientHeader>
+										</nutritionalInformationModule>
+										<packagingInformationModule>
+											<packaging>
+												<packagingTypeCode>JR</packagingTypeCode>
+												<returnableAsset/>
+											</packaging>
+										</packagingInformationModule>
+										<packagingMarkingModule>
+											<packagingMarking>
+												<isPackagingMarkedReturnable>false</isPackagingMarkedReturnable>
+												<packagingMarkedLanguageCode>fr</packagingMarkedLanguageCode>
+												<packagingDate>
+													<tradeItemDateOnPackagingTypeCode>BEST_BEFORE_DATE</tradeItemDateOnPackagingTypeCode>
+												</packagingDate>
+												<hasBatchNumber>true</hasBatchNumber>
+												<packagingMarkedLabelAccreditationCode>EU_ORGANIC_FARMING</packagingMarkedLabelAccreditationCode>
+												<avpList>
+													<stringAVP attributeName="AVPEinwegMehrwegCode">EINWEG_OP</stringAVP>
+												</avpList>
+											</packagingMarking>
+										</packagingMarkingModule>
+										<placeOfItemActivityModule>
+											<placeOfProductActivity>
+												<countryOfOrigin>
+													<countryCode>276</countryCode>
+												</countryOfOrigin>
+											</placeOfProductActivity>
+											<importClassification>
+												<importClassificationTypeCode>INTRASTAT</importClassificationTypeCode>
+												<importClassificationValue>21039090</importClassificationValue>
+											</importClassification>
+										</placeOfItemActivityModule>
+										<promotionalItemInformationModule>
+											<isTradeItemAPromotionalUnit>false</isTradeItemAPromotionalUnit>
+										</promotionalItemInformationModule>
+										<regulatedTradeItemModule>
+											<regulatoryInformation>
+												<regulatoryAct>GHS</regulatoryAct>
+												<regulatoryAgency>UN</regulatoryAgency>
+												<permitIdentification>
+													<regulatoryPermitIdentification>FALSE</regulatoryPermitIdentification>
+												</permitIdentification>
+											</regulatoryInformation>
+											<regulatoryInformation>
+												<regulatoryAct>VerpackG</regulatoryAct>
+												<permitIdentification>
+													<regulatoryPermitIdentification>DE5306251111978</regulatoryPermitIdentification>
+												</permitIdentification>
+											</regulatoryInformation>
+											<regulatoryInformation>
+												<regulationTypeCode>BIOCIDE_REGULATION</regulationTypeCode>
+												<isTradeItemRegulationCompliant>NOT_APPLICABLE</isTradeItemRegulationCompliant>
+											</regulatoryInformation>
+											<regulatoryInformation>
+												<regulationTypeCode>FOOD_INFORMATION_REGULATION</regulationTypeCode>
+											</regulatoryInformation>
+										</regulatedTradeItemModule>
+										<referencedFileDetailInformationModule>
+											<referencedFileHeader>
+												<referencedFileTypeCode>PRODUCT_IMAGE</referencedFileTypeCode>
+												<uniformResourceIdentifier>https://mediaservice.alnatura.de/asset/501324310981/image_jopune2a5531f83o52tot4vv52</uniformResourceIdentifier>
+												<fileName>04104420213630_C1C1_s02_v01</fileName>
+												<isPrimaryFile>TRUE</isPrimaryFile>
+												<fileFormatName>JPEG</fileFormatName>
+												<fileEffectiveStartDateTime>2024-08-16T00:00:00</fileEffectiveStartDateTime>
+											</referencedFileHeader>
+											<referencedFileHeader>
+												<referencedFileTypeCode>ORGANIC_CERTIFICATE</referencedFileTypeCode>
+												<uniformResourceIdentifier>https://mediaservice.alnatura.de/asset/501324310981/document_dv733r3ii90pr2i8mlkundlu0f</uniformResourceIdentifier>
+												<fileName>kbA_EU_Bio_31012025</fileName>
+												<fileFormatName>PDF</fileFormatName>
+												<fileEffectiveEndDateTime>2025-01-31T00:00:00</fileEffectiveEndDateTime>
+											</referencedFileHeader>
+										</referencedFileDetailInformationModule>
+										<salesInformationModule>
+											<salesInformation>
+												<isBasePriceDeclarationRelevant>TRUE</isBasePriceDeclarationRelevant>
+												<priceComparisonMeasurement measurementUnitCode="LTR">0.3500</priceComparisonMeasurement>
+												<priceComparisonContentTypeCode>PER_LITRE</priceComparisonContentTypeCode>
+											</salesInformation>
+										</salesInformationModule>
+										<tradeItemDataCarrierAndIdentificationModule>
+											<dataCarrier>
+												<dataCarrierTypeCode>EAN_13</dataCarrierTypeCode>
+											</dataCarrier>
+										</tradeItemDataCarrierAndIdentificationModule>
+										<tradeItemDescriptionModule>
+											<tradeItemDescriptionInformation>
+												<descriptionShort languageCode="de">Vegetarische Soja Bolognese 0,35L</descriptionShort>
+												<descriptionShort languageCode="fr">Bolognaise végétarienne au soja 0,3</descriptionShort>
+												<functionalName languageCode="de">Tomatensoßen</functionalName>
+												<functionalName languageCode="fr">alimentaire</functionalName>
+												<regulatedProductName languageCode="de">Bio Tomatensauce mit Gemüse und Sojaeiweißerzeugnis</regulatedProductName>
+												<regulatedProductName languageCode="fr">Sauce tomate bio aux légumes et protéines de soja texturées</regulatedProductName>
+												<tradeItemDescription languageCode="de">Alnatura Vegetarische Soja Bolognese 0,35L</tradeItemDescription>
+												<tradeItemDescription languageCode="fr">Alnatura Bolognaise végétarienne au soja 0,35l</tradeItemDescription>
+												<brandNameInformation>
+													<brandName>Alnatura</brandName>
+												</brandNameInformation>
+											</tradeItemDescriptionInformation>
+										</tradeItemDescriptionModule>
+										<tradeItemLifespanModule>
+											<tradeItemLifespan>
+												<minimumTradeItemLifespanFromTimeOfArrival>360</minimumTradeItemLifespanFromTimeOfArrival>
+											</tradeItemLifespan>
+										</tradeItemLifespanModule>
+										<tradeItemHandlingModule/>
+										<tradeItemMeasurementsModule>
+											<tradeItemMeasurements>
+												<depth measurementUnitCode="MMT">87.000</depth>
+												<height measurementUnitCode="MMT">95.000</height>
+												<netContent measurementUnitCode="LTR">0.350</netContent>
+												<width measurementUnitCode="MMT">87.000</width>
+												<tradeItemWeight>
+													<grossWeight measurementUnitCode="GRM">594.000</grossWeight>
+													<netWeight measurementUnitCode="GRM">375.000</netWeight>
+												</tradeItemWeight>
+											</tradeItemMeasurements>
+										</tradeItemMeasurementsModule>
+										<transportationHazardousClassificationModule>
+											<transportationClassification>
+												<regulatedTransportationMode>
+													<hazardousInformationHeader>
+														<dangerousGoodsRegulationAgency>ADR</dangerousGoodsRegulationAgency>
+														<dangerousGoodsRegulationCode>ZNA</dangerousGoodsRegulationCode>
+													</hazardousInformationHeader>
+												</regulatedTransportationMode>
+											</transportationClassification>
+										</transportationHazardousClassificationModule>
+										<variableTradeItemInformationModule>
+											<variableTradeItemInformation>
+												<isTradeItemAVariableUnit>false</isTradeItemAVariableUnit>
+											</variableTradeItemInformation>
+										</variableTradeItemInformationModule>
+									</extension>
+								</tradeItemInformation>
+								<tradeItemSynchronisationDates>
+									<lastChangeDateTime>2024-07-01T14:54:04.280</lastChangeDateTime>
+									<effectiveDateTime>2024-08-16T00:00:00</effectiveDateTime>
+									<publicationDateTime>2024-07-01T14:54:04.280</publicationDateTime>
+								</tradeItemSynchronisationDates>
+								<avpList>
+									<stringAVP attributeName="marketingTextShortTextTeaser">Wenn es einmal schnell gehen muss, ist die Vegetarische Soja-Bolognese von Alnatura mit 42 Prozent Gemüseanteil einfach ideal. Mit ihrem fruchtig-aromatischen Geschmack passt sie perfekt zu Pasta und Gnocchi. Zur Zubereitung kurz im Topf erhitzen und nach Belieben mit Ricotta, Sahne oder Crème fraÎche verfeinern. </stringAVP>
+								</avpList>
+							</tradeItem>
+						</catalogueItem>
+					</catalogueItemChildItemLink>
+				</catalogueItem>
+			</catalogue_item_notification:catalogueItemNotification>
+			<catalogue_item_notification:catalogueItemNotification xmlns:catalogue_item_notification="urn:gs1:gdsn:catalogue_item_notification:xsd:3">
+				<creationDateTime>2024-07-01T14:54:00.680</creationDateTime>
+				<documentStatusCode>ORIGINAL</documentStatusCode>
+				<documentStructureVersion>3.1</documentStructureVersion>
+				<lastUpdateDateTime>2024-07-01T14:54:00.680</lastUpdateDateTime>
+				<catalogueItemNotificationIdentification xmlns:catalogue_item_notification="urn:gs1:gdsn:catalogue_item_notification:xsd:3">
+					<entityIdentification>FD24F384-3F31-47CC-9F67-541966495261</entityIdentification>
+					<contentOwner xmlns:catalogue_item_notification="urn:gs1:gdsn:catalogue_item_notification:xsd:3">
+						<gln>4104420000001</gln>
+					</contentOwner>
+				</catalogueItemNotificationIdentification>
+				<isReload>true</isReload>
+				<catalogueItem>
+					<catalogueItemState>
+						<catalogueItemStateCode>REGISTERED</catalogueItemStateCode>
+					</catalogueItemState>
+					<tradeItem>
+						<gtin>04104420254336</gtin>
+						<additionalTradeItemIdentification additionalTradeItemIdentificationTypeCode="SUPPLIER_ASSIGNED">127355</additionalTradeItemIdentification>
+						<isTradeItemABaseUnit>false</isTradeItemABaseUnit>
+						<isTradeItemAConsumerUnit>false</isTradeItemAConsumerUnit>
+						<isTradeItemADespatchUnit>true</isTradeItemADespatchUnit>
+						<isTradeItemAnInvoiceUnit>false</isTradeItemAnInvoiceUnit>
+						<isTradeItemAnOrderableUnit>false</isTradeItemAnOrderableUnit>
+						<tradeItemUnitDescriptorCode>PALLET</tradeItemUnitDescriptorCode>
+						<informationProviderOfTradeItem>
+							<gln>4104420000001</gln>
+							<partyName>Alnatura GmbH</partyName>
+						</informationProviderOfTradeItem>
+						<gdsnTradeItemClassification>
+							<gpcCategoryCode>10000057</gpcCategoryCode>
+							<gpcCategoryDefinition>Saucen (ohne Kühlung haltbar)</gpcCategoryDefinition>
+							<gpcCategoryName>Saucen (ohne Kühlung haltbar)</gpcCategoryName>
+						</gdsnTradeItemClassification>
+						<nextLowerLevelTradeItemInformation>
+							<quantityOfChildren>1</quantityOfChildren>
+							<totalQuantityOfNextLowerLevelTradeItem>144</totalQuantityOfNextLowerLevelTradeItem>
+							<childTradeItem>
+								<gtin>04104420249196</gtin>
+								<quantityOfNextLowerLevelTradeItem>144</quantityOfNextLowerLevelTradeItem>
+							</childTradeItem>
+						</nextLowerLevelTradeItemInformation>
+						<targetMarket>
+							<targetMarketCountryCode>276</targetMarketCountryCode>
+						</targetMarket>
+						<tradeItemInformation>
+							<extension>
+								<allergenInformationModule/>
+								<deliveryPurchasingInformationModule>
+									<deliveryPurchasingInformation>
+										<startAvailabilityDateTime>2024-07-01T00:00:00</startAvailabilityDateTime>
+									</deliveryPurchasingInformation>
+								</deliveryPurchasingInformationModule>
+								<dairyFishMeatPoultryItemModule>
+									<dairyFishMeatPoultryInformation/>
+								</dairyFishMeatPoultryItemModule>
+								<marketingInformationModule/>
+								<packagingInformationModule>
+									<packaging>
+										<platformTermsAndConditionsCode>2</platformTermsAndConditionsCode>
+										<platformTypeCode>11</platformTypeCode>
+										<packagingTypeCode>PX</packagingTypeCode>
+										<returnableAsset/>
+									</packaging>
+								</packagingInformationModule>
+								<packagingMarkingModule>
+									<packagingMarking>
+										<isPackagingMarkedReturnable>false</isPackagingMarkedReturnable>
+										<packagingMarkedLanguageCode>fr</packagingMarkedLanguageCode>
+										<packagingDate>
+											<tradeItemDateOnPackagingTypeCode>BEST_BEFORE_DATE</tradeItemDateOnPackagingTypeCode>
+										</packagingDate>
+										<hasBatchNumber>true</hasBatchNumber>
+									</packagingMarking>
+								</packagingMarkingModule>
+								<placeOfItemActivityModule>
+									<placeOfProductActivity>
+										<countryOfOrigin>
+											<countryCode>276</countryCode>
+										</countryOfOrigin>
+									</placeOfProductActivity>
+								</placeOfItemActivityModule>
+								<tradeItemDataCarrierAndIdentificationModule>
+									<dataCarrier>
+										<dataCarrierTypeCode>EAN_13</dataCarrierTypeCode>
+									</dataCarrier>
+								</tradeItemDataCarrierAndIdentificationModule>
+								<tradeItemDescriptionModule>
+									<tradeItemDescriptionInformation>
+										<descriptionShort languageCode="de">Vegetarische Soja Bolognese 0,35L</descriptionShort>
+										<descriptionShort languageCode="fr">Bolognaise végétarienne au soja 0,3</descriptionShort>
+										<functionalName languageCode="de">Tomatensoßen</functionalName>
+										<functionalName languageCode="fr">alimentaire</functionalName>
+										<regulatedProductName languageCode="de">Bio Tomatensauce mit Gemüse und Sojaeiweißerzeugnis</regulatedProductName>
+										<regulatedProductName languageCode="fr">Sauce tomate bio aux légumes et protéines de soja texturées</regulatedProductName>
+										<tradeItemDescription languageCode="de">Alnatura Vegetarische Soja Bolognese 0,35L</tradeItemDescription>
+										<tradeItemDescription languageCode="fr">Alnatura Bolognaise végétarienne au soja 0,35l</tradeItemDescription>
+										<brandNameInformation>
+											<brandName>Alnatura</brandName>
+										</brandNameInformation>
+									</tradeItemDescriptionInformation>
+								</tradeItemDescriptionModule>
+								<tradeItemLifespanModule>
+									<tradeItemLifespan>
+										<minimumTradeItemLifespanFromTimeOfArrival>360</minimumTradeItemLifespanFromTimeOfArrival>
+									</tradeItemLifespan>
+								</tradeItemLifespanModule>
+								<tradeItemHandlingModule>
+									<tradeItemHandlingInformation>
+										<tradeItemStacking>
+											<stackingFactor>2</stackingFactor>
+											<stackingFactorTypeCode>STORAGE_UNSPECIFIED</stackingFactorTypeCode>
+										</tradeItemStacking>
+										<tradeItemStacking>
+											<stackingFactor>1</stackingFactor>
+											<stackingFactorTypeCode>TRANSPORT_UNSPECIFIED</stackingFactorTypeCode>
+										</tradeItemStacking>
+									</tradeItemHandlingInformation>
+								</tradeItemHandlingModule>
+								<tradeItemHierarchyModule>
+									<tradeItemHierarchy>
+										<quantityOfCompleteLayersContainedInATradeItem>9</quantityOfCompleteLayersContainedInATradeItem>
+									</tradeItemHierarchy>
+								</tradeItemHierarchyModule>
+								<tradeItemMeasurementsModule>
+									<tradeItemMeasurements>
+										<depth measurementUnitCode="MMT">1200.000</depth>
+										<height measurementUnitCode="MMT">1029.000</height>
+										<width measurementUnitCode="MMT">800.000</width>
+										<tradeItemWeight>
+											<grossWeight measurementUnitCode="GRM">540312.000</grossWeight>
+										</tradeItemWeight>
+									</tradeItemMeasurements>
+								</tradeItemMeasurementsModule>
+								<variableTradeItemInformationModule>
+									<variableTradeItemInformation>
+										<isTradeItemAVariableUnit>false</isTradeItemAVariableUnit>
+									</variableTradeItemInformation>
+								</variableTradeItemInformationModule>
+							</extension>
+						</tradeItemInformation>
+						<tradeItemSynchronisationDates>
+							<lastChangeDateTime>2024-07-01T14:54:06.037</lastChangeDateTime>
+							<effectiveDateTime>2024-08-16T00:00:00</effectiveDateTime>
+							<publicationDateTime>2024-07-01T14:54:06.037</publicationDateTime>
+						</tradeItemSynchronisationDates>
+					</tradeItem>
+					<catalogueItemChildItemLink>
+						<quantity>144</quantity>
+						<catalogueItem>
+							<catalogueItemState>
+								<catalogueItemStateCode>REGISTERED</catalogueItemStateCode>
+							</catalogueItemState>
+							<tradeItem>
+								<gtin>04104420249196</gtin>
+								<additionalTradeItemIdentification additionalTradeItemIdentificationTypeCode="SUPPLIER_ASSIGNED">127355</additionalTradeItemIdentification>
+								<isTradeItemABaseUnit>false</isTradeItemABaseUnit>
+								<isTradeItemAConsumerUnit>false</isTradeItemAConsumerUnit>
+								<isTradeItemADespatchUnit>true</isTradeItemADespatchUnit>
+								<isTradeItemAnInvoiceUnit>true</isTradeItemAnInvoiceUnit>
+								<isTradeItemAnOrderableUnit>true</isTradeItemAnOrderableUnit>
+								<tradeItemUnitDescriptorCode>CASE</tradeItemUnitDescriptorCode>
+								<informationProviderOfTradeItem>
+									<gln>4104420000001</gln>
+									<partyName>Alnatura GmbH</partyName>
+								</informationProviderOfTradeItem>
+								<gdsnTradeItemClassification>
+									<gpcCategoryCode>10000057</gpcCategoryCode>
+									<gpcCategoryDefinition>Saucen (ohne Kühlung haltbar)</gpcCategoryDefinition>
+									<gpcCategoryName>Saucen (ohne Kühlung haltbar)</gpcCategoryName>
+								</gdsnTradeItemClassification>
+								<nextLowerLevelTradeItemInformation>
+									<quantityOfChildren>1</quantityOfChildren>
+									<totalQuantityOfNextLowerLevelTradeItem>6</totalQuantityOfNextLowerLevelTradeItem>
+									<childTradeItem>
+										<gtin>04104420249189</gtin>
+										<quantityOfNextLowerLevelTradeItem>6</quantityOfNextLowerLevelTradeItem>
+									</childTradeItem>
+								</nextLowerLevelTradeItemInformation>
+								<targetMarket>
+									<targetMarketCountryCode>276</targetMarketCountryCode>
+								</targetMarket>
+								<tradeItemInformation>
+									<extension>
+										<allergenInformationModule/>
+										<deliveryPurchasingInformationModule>
+											<deliveryPurchasingInformation>
+												<startAvailabilityDateTime>2024-07-01T00:00:00</startAvailabilityDateTime>
+											</deliveryPurchasingInformation>
+										</deliveryPurchasingInformationModule>
+										<dairyFishMeatPoultryItemModule>
+											<dairyFishMeatPoultryInformation/>
+										</dairyFishMeatPoultryItemModule>
+										<marketingInformationModule/>
+										<packagingInformationModule>
+											<packaging>
+												<packagingTypeCode>CT</packagingTypeCode>
+												<returnableAsset/>
+											</packaging>
+										</packagingInformationModule>
+										<packagingMarkingModule>
+											<packagingMarking>
+												<isPackagingMarkedReturnable>false</isPackagingMarkedReturnable>
+												<packagingMarkedLanguageCode>fr</packagingMarkedLanguageCode>
+												<packagingDate>
+													<tradeItemDateOnPackagingTypeCode>BEST_BEFORE_DATE</tradeItemDateOnPackagingTypeCode>
+												</packagingDate>
+												<hasBatchNumber>true</hasBatchNumber>
+											</packagingMarking>
+										</packagingMarkingModule>
+										<placeOfItemActivityModule>
+											<placeOfProductActivity>
+												<countryOfOrigin>
+													<countryCode>276</countryCode>
+												</countryOfOrigin>
+											</placeOfProductActivity>
+										</placeOfItemActivityModule>
+										<tradeItemDataCarrierAndIdentificationModule>
+											<dataCarrier>
+												<dataCarrierTypeCode>EAN_13</dataCarrierTypeCode>
+											</dataCarrier>
+										</tradeItemDataCarrierAndIdentificationModule>
+										<tradeItemDescriptionModule>
+											<tradeItemDescriptionInformation>
+												<descriptionShort languageCode="de">Vegetarische Soja Bolognese 0,35L</descriptionShort>
+												<descriptionShort languageCode="fr">Bolognaise végétarienne au soja 0,3</descriptionShort>
+												<functionalName languageCode="de">Tomatensoßen</functionalName>
+												<functionalName languageCode="fr">alimentaire</functionalName>
+												<regulatedProductName languageCode="de">Bio Tomatensauce mit Gemüse und Sojaeiweißerzeugnis</regulatedProductName>
+												<regulatedProductName languageCode="fr">Sauce tomate bio aux légumes et protéines de soja texturées</regulatedProductName>
+												<tradeItemDescription languageCode="de">Alnatura Vegetarische Soja Bolognese 0,35L</tradeItemDescription>
+												<tradeItemDescription languageCode="fr">Alnatura Bolognaise végétarienne au soja 0,35l</tradeItemDescription>
+												<brandNameInformation>
+													<brandName>Alnatura</brandName>
+												</brandNameInformation>
+											</tradeItemDescriptionInformation>
+										</tradeItemDescriptionModule>
+										<tradeItemLifespanModule>
+											<tradeItemLifespan>
+												<minimumTradeItemLifespanFromTimeOfArrival>360</minimumTradeItemLifespanFromTimeOfArrival>
+											</tradeItemLifespan>
+										</tradeItemLifespanModule>
+										<tradeItemHandlingModule/>
+										<tradeItemMeasurementsModule>
+											<tradeItemMeasurements>
+												<depth measurementUnitCode="MMT">264.000</depth>
+												<height measurementUnitCode="MMT">97.000</height>
+												<width measurementUnitCode="MMT">182.000</width>
+												<tradeItemWeight>
+													<grossWeight measurementUnitCode="GRM">3609.000</grossWeight>
+												</tradeItemWeight>
+											</tradeItemMeasurements>
+										</tradeItemMeasurementsModule>
+										<variableTradeItemInformationModule>
+											<variableTradeItemInformation>
+												<isTradeItemAVariableUnit>false</isTradeItemAVariableUnit>
+											</variableTradeItemInformation>
+										</variableTradeItemInformationModule>
+									</extension>
+								</tradeItemInformation>
+								<tradeItemSynchronisationDates>
+									<lastChangeDateTime>2024-07-01T14:54:05.157</lastChangeDateTime>
+									<effectiveDateTime>2024-08-16T00:00:00</effectiveDateTime>
+									<publicationDateTime>2024-07-01T14:54:05.157</publicationDateTime>
+								</tradeItemSynchronisationDates>
+							</tradeItem>
+							<catalogueItemChildItemLink>
+								<quantity>6</quantity>
+								<catalogueItem>
+									<catalogueItemState>
+										<catalogueItemStateCode>REGISTERED</catalogueItemStateCode>
+									</catalogueItemState>
+									<tradeItem>
+										<gtin>04104420249189</gtin>
+										<additionalTradeItemIdentification additionalTradeItemIdentificationTypeCode="SUPPLIER_ASSIGNED">127355</additionalTradeItemIdentification>
+										<isTradeItemABaseUnit>true</isTradeItemABaseUnit>
+										<isTradeItemAConsumerUnit>true</isTradeItemAConsumerUnit>
+										<isTradeItemADespatchUnit>false</isTradeItemADespatchUnit>
+										<isTradeItemAnInvoiceUnit>false</isTradeItemAnInvoiceUnit>
+										<isTradeItemAnOrderableUnit>false</isTradeItemAnOrderableUnit>
+										<tradeItemUnitDescriptorCode>BASE_UNIT_OR_EACH</tradeItemUnitDescriptorCode>
+										<brandOwner>
+											<gln>4104420000001</gln>
+											<partyName>Alnatura GmbH</partyName>
+										</brandOwner>
+										<informationProviderOfTradeItem>
+											<gln>4104420000001</gln>
+											<partyName>Alnatura GmbH</partyName>
+										</informationProviderOfTradeItem>
+										<manufacturerOfTradeItem>
+											<gln>4104420000001</gln>
+											<partyName>Alnatura GmbH</partyName>
+										</manufacturerOfTradeItem>
+										<gdsnTradeItemClassification>
+											<gpcCategoryCode>10000057</gpcCategoryCode>
+											<gpcCategoryDefinition>Saucen (ohne Kühlung haltbar)</gpcCategoryDefinition>
+											<gpcCategoryName>Saucen (ohne Kühlung haltbar)</gpcCategoryName>
+										</gdsnTradeItemClassification>
+										<targetMarket>
+											<targetMarketCountryCode>276</targetMarketCountryCode>
+										</targetMarket>
+										<tradeItemContactInformation>
+											<contactTypeCode>BZL</contactTypeCode>
+											<contactAddress>Mahatma-Gandhi-Straße 7, DE-64295 Darmstadt</contactAddress>
+											<contactName>Alnatura GmbH</contactName>
+										</tradeItemContactInformation>
+										<tradeItemContactInformation>
+											<contactTypeCode>CXC</contactTypeCode>
+											<targetMarketCommunicationChannel>
+												<communicationChannel>
+													<communicationChannelCode>WEBSITE</communicationChannelCode>
+													<communicationValue>www.alnatura.de</communicationValue>
+												</communicationChannel>
+											</targetMarketCommunicationChannel>
+										</tradeItemContactInformation>
+										<tradeItemInformation>
+											<extension>
+												<allergenInformationModule>
+													<allergenRelatedInformation>
+														<allergen>
+															<allergenTypeCode>AY</allergenTypeCode>
+															<levelOfContainmentCode>CONTAINS</levelOfContainmentCode>
+														</allergen>
+													</allergenRelatedInformation>
+												</allergenInformationModule>
+												<alcoholInformationModule/>
+												<certificationInformationModule>
+													<certificationInformation>
+														<certificationAgency>EU</certificationAgency>
+														<certificationStandard>Organic_Certification</certificationStandard>
+														<certification>
+															<certificationValue>DE-ÖKO-003</certificationValue>
+															<certificationEffectiveEndDateTime>2025-01-31T00:00:00</certificationEffectiveEndDateTime>
+															<certificationEffectiveStartDateTime>2024-07-01T14:54:01.090</certificationEffectiveStartDateTime>
+														</certification>
+													</certificationInformation>
+													<certificationInformation>
+														<certificationAgency>EU</certificationAgency>
+														<certificationStandard>Organic_QualitySymbol</certificationStandard>
+														<certification>
+															<certificationValue>EG</certificationValue>
+															<certificationEffectiveEndDateTime>2025-01-31T00:00:00</certificationEffectiveEndDateTime>
+															<certificationEffectiveStartDateTime>2024-07-01T14:54:01.090</certificationEffectiveStartDateTime>
+														</certification>
+													</certificationInformation>
+												</certificationInformationModule>
+												<consumerInstructionsModule>
+													<consumerInstructions>
+														<consumerStorageInstructions languageCode="de">Nach dem Öffnen im Kühlschrank aufbewahren und innerhalb von 2 Tagen verbrauchen.</consumerStorageInstructions>
+													</consumerInstructions>
+													<consumerInstructions>
+														<consumerStorageInstructions languageCode="fr">Une fois ouvert, conserver au réfrigérateur et consommer dans les 2 jours.</consumerStorageInstructions>
+													</consumerInstructions>
+												</consumerInstructionsModule>
+												<deliveryPurchasingInformationModule>
+													<deliveryPurchasingInformation>
+														<startAvailabilityDateTime>2024-07-01T00:00:00</startAvailabilityDateTime>
+													</deliveryPurchasingInformation>
+												</deliveryPurchasingInformationModule>
+												<dietInformationModule>
+													<dietInformation>
+														<dietTypeInformation>
+															<dietTypeCode>VEGAN</dietTypeCode>
+															<isDietTypeMarkedOnPackage>FALSE</isDietTypeMarkedOnPackage>
+														</dietTypeInformation>
+														<dietTypeInformation>
+															<dietTypeCode>VEGETARIAN</dietTypeCode>
+															<isDietTypeMarkedOnPackage>FALSE</isDietTypeMarkedOnPackage>
+														</dietTypeInformation>
+													</dietInformation>
+												</dietInformationModule>
+												<dairyFishMeatPoultryItemModule>
+													<dairyFishMeatPoultryInformation>
+														<fishReportingInformation/>
+													</dairyFishMeatPoultryInformation>
+												</dairyFishMeatPoultryItemModule>
+												<dutyFeeTaxInformationModule>
+													<dutyFeeTaxInformation>
+														<dutyFeeTaxAgencyCode>246</dutyFeeTaxAgencyCode>
+														<dutyFeeTaxTypeCode>VAT</dutyFeeTaxTypeCode>
+														<dutyFeeTax>
+															<dutyFeeTaxCategoryCode>LOW</dutyFeeTaxCategoryCode>
+														</dutyFeeTax>
+													</dutyFeeTaxInformation>
+												</dutyFeeTaxInformationModule>
+												<farmingAndProcessingInformationModule>
+													<tradeItemOrganicInformation>
+														<organicClaim>
+															<organicTradeItemCode>2</organicTradeItemCode>
+														</organicClaim>
+														<organicProductPlaceOfFarmingCode>EU_OR_NON_EU_AGRICULTURE</organicProductPlaceOfFarmingCode>
+													</tradeItemOrganicInformation>
+													<tradeItemFarmingAndProcessing>
+														<geneticallyModifiedDeclarationCode>FREE_FROM</geneticallyModifiedDeclarationCode>
+													</tradeItemFarmingAndProcessing>
+												</farmingAndProcessingInformationModule>
+												<foodAndBeverageIngredientModule>
+													<ingredientStatement languageCode="de">Zutaten: Tomatenmark* einfach konzentriert 46%, Tomaten* passiert 13%, Zwiebeln* 6,8%, Karotten* 6,7%, Paprika* 5,7%, Zucchini* 5,7 %, SOJAEIWEIßERZEUGNIS* 4%, Lauch* 4%, Sonnenblumenöl*, Sojasauce* (Wasser, SOJABOHNEN*, Salz), Zitronensaftkonzentrat*, Maisstärke*, Meersalz, Basilikum*, Knoblauch*, Thymian*, Paprika*, Oregano*, Pfeffer* *aus biologischer Landwirtschaft </ingredientStatement>
+													<ingredientStatement languageCode="fr">Ingrédients: Concentré de tomates* à concentration simple 46 %, tomates* en purée 13%, oignons* 6,8%, carottes* 6,7%, poivron* 5,7%, courgettes* 5,7%, protéines de soja texturées* 4%, poireau* 4%, huile de tournesol*, SAUCE SOJA* (Eau, féves de soja*, sel), jus de citron concentré*, amidon de mais*, sel marin, basilic*, ail*, thym*, paprika en poudre* origan*, poivre* *issus de I'agriculture biologique </ingredientStatement>
+												</foodAndBeverageIngredientModule>
+												<foodAndBeveragePreparationServingModule>
+													<preparationServing>
+														<preparationTypeCode>HEAT_AND_SERVE</preparationTypeCode>
+														<preparationInstructions languageCode="de">Soja-Bolognese im Topf kurz erhitzen.</preparationInstructions>
+														<preparationInstructions languageCode="fr">Faire chauffer brièvement la sauce végetarienne avec soja dans une casserole.</preparationInstructions>
+													</preparationServing>
+												</foodAndBeveragePreparationServingModule>
+												<healthRelatedInformationModule>
+													<healthRelatedInformation/>
+												</healthRelatedInformationModule>
+												<healthWellnessPackagingMarkingModule>
+													<healthWellnessPackagingMarking>
+														<isPackagingMarkedWithIngredients>true</isPackagingMarkedWithIngredients>
+													</healthWellnessPackagingMarking>
+												</healthWellnessPackagingMarkingModule>
+												<marketingInformationModule>
+													<marketingInformation>
+														<tradeItemFeatureBenefit languageCode="de" sequenceNumber="1">Bio-Qualität</tradeItemFeatureBenefit>
+														<tradeItemFeatureBenefit languageCode="de" sequenceNumber="2">pikante Tomatensauce mit Gemüse und Sojaschnetzel</tradeItemFeatureBenefit>
+														<tradeItemFeatureBenefit languageCode="de" sequenceNumber="3">für die schnelle Küche: kurz erhitzt zu Pasta oder Gnocchi und für Lasagne</tradeItemFeatureBenefit>
+														<tradeItemMarketingMessage languageCode="de">Sauce bolognese, der Klassiker unter den italienischen Saucen, hier in der vegetarischen Variante: Bio-Tomatensauce mit Gemüse und Sojaschnetzel. Ideal zu Pasta oder Gnocchi und unentbehrlich für vegetarische Lasagne.</tradeItemMarketingMessage>
+														<season>
+															<isTradeItemSeasonal>FALSE</isTradeItemSeasonal>
+														</season>
+													</marketingInformation>
+												</marketingInformationModule>
+												<nutritionalInformationModule>
+													<nutrientHeader>
+														<preparationStateCode>UNPREPARED</preparationStateCode>
+														<nutrientBasisQuantity measurementUnitCode="MLT">100.00</nutrientBasisQuantity>
+														<nutrientDetail>
+															<nutrientTypeCode>ENER-</nutrientTypeCode>
+															<measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+															<quantityContained measurementUnitCode="E14">81.00000</quantityContained>
+															<quantityContained measurementUnitCode="KJO">340.00000</quantityContained>
+														</nutrientDetail>
+														<nutrientDetail>
+															<nutrientTypeCode>CHOAVL</nutrientTypeCode>
+															<measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+															<quantityContained measurementUnitCode="GRM">9.10000</quantityContained>
+														</nutrientDetail>
+														<nutrientDetail>
+															<nutrientTypeCode>SUGAR-</nutrientTypeCode>
+															<measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+															<quantityContained measurementUnitCode="GRM">6.10000</quantityContained>
+														</nutrientDetail>
+														<nutrientDetail>
+															<nutrientTypeCode>PRO-</nutrientTypeCode>
+															<measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+															<quantityContained measurementUnitCode="GRM">3.90000</quantityContained>
+														</nutrientDetail>
+														<nutrientDetail>
+															<nutrientTypeCode>FAT</nutrientTypeCode>
+															<measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+															<quantityContained measurementUnitCode="GRM">2.80000</quantityContained>
+														</nutrientDetail>
+														<nutrientDetail>
+															<nutrientTypeCode>FIBTG</nutrientTypeCode>
+															<measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+															<quantityContained measurementUnitCode="GRM">1.90000</quantityContained>
+														</nutrientDetail>
+														<nutrientDetail>
+															<nutrientTypeCode>SALTEQ</nutrientTypeCode>
+															<measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+															<quantityContained measurementUnitCode="GRM">0.85000</quantityContained>
+														</nutrientDetail>
+														<nutrientDetail>
+															<nutrientTypeCode>FASAT</nutrientTypeCode>
+															<measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+															<quantityContained measurementUnitCode="GRM">0.30000</quantityContained>
+														</nutrientDetail>
+													</nutrientHeader>
+												</nutritionalInformationModule>
+												<packagingInformationModule>
+													<packaging>
+														<packagingTypeCode>JR</packagingTypeCode>
+														<returnableAsset/>
+													</packaging>
+												</packagingInformationModule>
+												<packagingMarkingModule>
+													<packagingMarking>
+														<isPackagingMarkedReturnable>false</isPackagingMarkedReturnable>
+														<packagingMarkedLanguageCode>fr</packagingMarkedLanguageCode>
+														<packagingDate>
+															<tradeItemDateOnPackagingTypeCode>BEST_BEFORE_DATE</tradeItemDateOnPackagingTypeCode>
+														</packagingDate>
+														<hasBatchNumber>true</hasBatchNumber>
+														<packagingMarkedLabelAccreditationCode>EU_ORGANIC_FARMING</packagingMarkedLabelAccreditationCode>
+														<avpList>
+															<stringAVP attributeName="AVPEinwegMehrwegCode">EINWEG_OP</stringAVP>
+														</avpList>
+													</packagingMarking>
+												</packagingMarkingModule>
+												<placeOfItemActivityModule>
+													<placeOfProductActivity>
+														<countryOfOrigin>
+															<countryCode>276</countryCode>
+														</countryOfOrigin>
+													</placeOfProductActivity>
+													<importClassification>
+														<importClassificationTypeCode>INTRASTAT</importClassificationTypeCode>
+														<importClassificationValue>21039090</importClassificationValue>
+													</importClassification>
+												</placeOfItemActivityModule>
+												<promotionalItemInformationModule>
+													<isTradeItemAPromotionalUnit>false</isTradeItemAPromotionalUnit>
+												</promotionalItemInformationModule>
+												<regulatedTradeItemModule>
+													<regulatoryInformation>
+														<regulatoryAct>GHS</regulatoryAct>
+														<regulatoryAgency>UN</regulatoryAgency>
+														<permitIdentification>
+															<regulatoryPermitIdentification>FALSE</regulatoryPermitIdentification>
+														</permitIdentification>
+													</regulatoryInformation>
+													<regulatoryInformation>
+														<regulatoryAct>VerpackG</regulatoryAct>
+														<permitIdentification>
+															<regulatoryPermitIdentification>DE5306251111978</regulatoryPermitIdentification>
+														</permitIdentification>
+													</regulatoryInformation>
+													<regulatoryInformation>
+														<regulationTypeCode>BIOCIDE_REGULATION</regulationTypeCode>
+														<isTradeItemRegulationCompliant>NOT_APPLICABLE</isTradeItemRegulationCompliant>
+													</regulatoryInformation>
+													<regulatoryInformation>
+														<regulationTypeCode>FOOD_INFORMATION_REGULATION</regulationTypeCode>
+													</regulatoryInformation>
+												</regulatedTradeItemModule>
+												<referencedFileDetailInformationModule>
+													<referencedFileHeader>
+														<referencedFileTypeCode>PRODUCT_IMAGE</referencedFileTypeCode>
+														<uniformResourceIdentifier>https://mediaservice.alnatura.de/asset/501324310981/image_jopune2a5531f83o52tot4vv52</uniformResourceIdentifier>
+														<fileName>04104420213630_C1C1_s02_v01</fileName>
+														<isPrimaryFile>TRUE</isPrimaryFile>
+														<fileFormatName>JPEG</fileFormatName>
+														<fileEffectiveStartDateTime>2024-08-16T00:00:00</fileEffectiveStartDateTime>
+													</referencedFileHeader>
+													<referencedFileHeader>
+														<referencedFileTypeCode>ORGANIC_CERTIFICATE</referencedFileTypeCode>
+														<uniformResourceIdentifier>https://mediaservice.alnatura.de/asset/501324310981/document_dv733r3ii90pr2i8mlkundlu0f</uniformResourceIdentifier>
+														<fileName>kbA_EU_Bio_31012025</fileName>
+														<fileFormatName>PDF</fileFormatName>
+														<fileEffectiveEndDateTime>2025-01-31T00:00:00</fileEffectiveEndDateTime>
+													</referencedFileHeader>
+												</referencedFileDetailInformationModule>
+												<salesInformationModule>
+													<salesInformation>
+														<isBasePriceDeclarationRelevant>TRUE</isBasePriceDeclarationRelevant>
+														<priceComparisonMeasurement measurementUnitCode="LTR">0.3500</priceComparisonMeasurement>
+														<priceComparisonContentTypeCode>PER_LITRE</priceComparisonContentTypeCode>
+													</salesInformation>
+												</salesInformationModule>
+												<tradeItemDataCarrierAndIdentificationModule>
+													<dataCarrier>
+														<dataCarrierTypeCode>EAN_13</dataCarrierTypeCode>
+													</dataCarrier>
+												</tradeItemDataCarrierAndIdentificationModule>
+												<tradeItemDescriptionModule>
+													<tradeItemDescriptionInformation>
+														<descriptionShort languageCode="de">Vegetarische Soja Bolognese 0,35L</descriptionShort>
+														<descriptionShort languageCode="fr">Bolognaise végétarienne au soja 0,3</descriptionShort>
+														<functionalName languageCode="de">Tomatensoßen</functionalName>
+														<functionalName languageCode="fr">alimentaire</functionalName>
+														<regulatedProductName languageCode="de">Bio Tomatensauce mit Gemüse und Sojaeiweißerzeugnis</regulatedProductName>
+														<regulatedProductName languageCode="fr">Sauce tomate bio aux légumes et protéines de soja texturées</regulatedProductName>
+														<tradeItemDescription languageCode="de">Alnatura Vegetarische Soja Bolognese 0,35L</tradeItemDescription>
+														<tradeItemDescription languageCode="fr">Alnatura Bolognaise végétarienne au soja 0,35l</tradeItemDescription>
+														<brandNameInformation>
+															<brandName>Alnatura</brandName>
+														</brandNameInformation>
+													</tradeItemDescriptionInformation>
+												</tradeItemDescriptionModule>
+												<tradeItemLifespanModule>
+													<tradeItemLifespan>
+														<minimumTradeItemLifespanFromTimeOfArrival>360</minimumTradeItemLifespanFromTimeOfArrival>
+													</tradeItemLifespan>
+												</tradeItemLifespanModule>
+												<tradeItemHandlingModule/>
+												<tradeItemMeasurementsModule>
+													<tradeItemMeasurements>
+														<depth measurementUnitCode="MMT">87.000</depth>
+														<height measurementUnitCode="MMT">95.000</height>
+														<netContent measurementUnitCode="LTR">0.350</netContent>
+														<width measurementUnitCode="MMT">87.000</width>
+														<tradeItemWeight>
+															<grossWeight measurementUnitCode="GRM">594.000</grossWeight>
+															<netWeight measurementUnitCode="GRM">375.000</netWeight>
+														</tradeItemWeight>
+													</tradeItemMeasurements>
+												</tradeItemMeasurementsModule>
+												<transportationHazardousClassificationModule>
+													<transportationClassification>
+														<regulatedTransportationMode>
+															<hazardousInformationHeader>
+																<dangerousGoodsRegulationAgency>ADR</dangerousGoodsRegulationAgency>
+																<dangerousGoodsRegulationCode>ZNA</dangerousGoodsRegulationCode>
+															</hazardousInformationHeader>
+														</regulatedTransportationMode>
+													</transportationClassification>
+												</transportationHazardousClassificationModule>
+												<variableTradeItemInformationModule>
+													<variableTradeItemInformation>
+														<isTradeItemAVariableUnit>false</isTradeItemAVariableUnit>
+													</variableTradeItemInformation>
+												</variableTradeItemInformationModule>
+											</extension>
+										</tradeItemInformation>
+										<tradeItemSynchronisationDates>
+											<lastChangeDateTime>2024-07-01T14:54:04.280</lastChangeDateTime>
+											<effectiveDateTime>2024-08-16T00:00:00</effectiveDateTime>
+											<publicationDateTime>2024-07-01T14:54:04.280</publicationDateTime>
+										</tradeItemSynchronisationDates>
+										<avpList>
+											<stringAVP attributeName="marketingTextShortTextTeaser">Wenn es einmal schnell gehen muss, ist die Vegetarische Soja-Bolognese von Alnatura mit 42 Prozent Gemüseanteil einfach ideal. Mit ihrem fruchtig-aromatischen Geschmack passt sie perfekt zu Pasta und Gnocchi. Zur Zubereitung kurz im Topf erhitzen und nach Belieben mit Ricotta, Sahne oder Crème fraÎche verfeinern. </stringAVP>
+										</avpList>
+									</tradeItem>
+								</catalogueItem>
+							</catalogueItemChildItemLink>
+						</catalogueItem>
+					</catalogueItemChildItemLink>
+				</catalogueItem>
+			</catalogue_item_notification:catalogueItemNotification>
+		</documentCommand>
+	</transaction>
+</catalogue_item_notification:catalogueItemNotificationMessage>

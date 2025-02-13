@@ -22,7 +22,7 @@
 /*exported displayMap*/
 
 function displayMap(containerId, pointers) {
-  var map = L.map(containerId, { maxZoom: 12 });
+  const map = L.map(containerId, { maxZoom: 12 });
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -30,16 +30,11 @@ function displayMap(containerId, pointers) {
   }).addTo(map);
 
 
-  var markers = new L.MarkerClusterGroup({ singleMarkerMode: true });
+  const markers = new L.MarkerClusterGroup({ singleMarkerMode: true });
+  const layers = [];
 
-  var length = pointers.length,
-    pointer = null;
-
-  var layers = [];
-
-  for (var i = 0; i < length; i++) {
-    pointer = pointers[i];
-    var marker = new L.marker(pointer.geo);
+  for (const pointer of pointers) {
+    const marker = new L.marker(pointer.geo);
     marker.bindPopup('<a href="' + pointer.url + '">' + pointer.product_name + '</a><br>' + pointer.brands + "<br>" + '<a href="' + pointer.url + '">' + pointer.img + '</a><br>' + pointer.origins);
     layers.push(marker);
   }

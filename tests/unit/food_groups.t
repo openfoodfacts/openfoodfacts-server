@@ -3,12 +3,14 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::FoodGroups qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::FoodGroups qw/compute_food_groups/;
+use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
+use ProductOpener::Tags qw/compute_field_tags/;
 
 my @tests = (
 
@@ -96,7 +98,7 @@ foreach my $test_ref (@tests) {
 
 	compute_food_groups($product_ref);
 
-	is_deeply($product_ref->{food_groups_tags}, $test_ref->[1]) or diag explain $product_ref;
+	is($product_ref->{food_groups_tags}, $test_ref->[1]) or diag Dumper $product_ref;
 
 }
 

@@ -2,6 +2,7 @@
    "ingredients" : [
       {
          "id" : "en:e428",
+         "is_in_taxonomy" : 1,
          "labels" : "en:vegan",
          "percent_estimate" : 60,
          "percent_max" : 100,
@@ -12,6 +13,7 @@
       },
       {
          "id" : "en:charcoal",
+         "is_in_taxonomy" : 0,
          "labels" : "en:vegan",
          "percent_estimate" : 20,
          "percent_max" : 50,
@@ -22,6 +24,7 @@
       },
       {
          "id" : "en:ferment",
+         "is_in_taxonomy" : 1,
          "labels" : "en:vegan",
          "percent_estimate" : 10,
          "percent_max" : 33.3333333333333,
@@ -32,6 +35,7 @@
       },
       {
          "id" : "en:rennet",
+         "is_in_taxonomy" : 1,
          "labels" : "en:vegan",
          "percent_estimate" : 5,
          "percent_max" : 25,
@@ -42,6 +46,7 @@
       },
       {
          "id" : "en:flavouring",
+         "is_in_taxonomy" : 1,
          "labels" : "en:vegan",
          "percent_estimate" : 5,
          "percent_max" : "5",
@@ -70,6 +75,7 @@
       "en:coagulating-enzyme",
       "en:flavouring"
    ],
+   "ingredients_lc" : "en",
    "ingredients_n" : 5,
    "ingredients_n_tags" : [
       "5",
@@ -105,6 +111,14 @@
       "en:rennet"
    ],
    "ingredients_without_ciqual_codes_n" : 5,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:charcoal",
+      "en:e428",
+      "en:ferment",
+      "en:flavouring",
+      "en:rennet"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 5,
    "known_ingredients_n" : 6,
    "lc" : "en",
    "nutriments" : {

@@ -41,7 +41,13 @@ add_brands
 
 ## Search for Products
 
-[Reference documentation for search API](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/search)
+**Important:** full text search currently works only for v1 API (or search-a-licious, which is in beta)
+
+[documentation for v1 Search API](https://wiki.openfoodfacts.org/API/Read/Search)
+
+[Reference documentation for v2 search API](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/search)
+
+The future of search is the [search-a-licious project](https://github.com/openfoodfacts/search-a-licious), deployed, in beta, at [search.openfoodfacts.org](https://search.openfoodfacts.org/).
 
 ### Get data for a list of products
 

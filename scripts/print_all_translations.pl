@@ -23,8 +23,8 @@
 use Modern::Perl '2017';
 use utf8;
 
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Tags qw/%Languages/;
+use ProductOpener::Lang qw/%Lang/;
 
 binmode(STDOUT, ":encoding(UTF-8)");
 

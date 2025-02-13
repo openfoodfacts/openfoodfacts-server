@@ -26,11 +26,12 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Users qw/:all/;
+use ProductOpener::Users qw/retrieve_user store_user/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/:all/;
@@ -38,21 +39,21 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::Missions qw/:all/;
+use ProductOpener::Missions qw/compute_missions_for_user gen_missions_html/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 my $user_id = $ARGV[0];
 
-my $user_ref = retrieve("$data_root/users/${user_id}.sto");
+my $user_ref = retrieve_user($user_id);
 
 if (defined $user_ref) {
 	ProductOpener::Missions::compute_missions_for_user($user_ref);
-	# store("$data_root/users/${user_id}.sto", $user_ref);
+	# store_user($user_ref);
 }
 else {
 	print "user_id: $user_id not found\n";

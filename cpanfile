@@ -1,6 +1,6 @@
 # Should also be available as Debian packages
 # If a minimum version number is specified, "cpanm --skip-satisfied" will install a newer version than apt if one is available in cpan.
-
+requires 'Array::Diff';
 requires 'CGI', '>= 4.53, < 5.0'; # libcgi-pm-perl
 requires 'Tie::IxHash'; # libtie-ixhash-perl
 requires 'LWP::Authen::Digest'; # libwww-perl
@@ -13,11 +13,11 @@ requires 'MIME::Base32';
 requires 'Cache::Memcached::Fast'; #libcache-memcached-fast-perl
 requires 'JSON'; # libjson-perl
 requires 'JSON::PP'; # libjson-pp-perl
+requires 'Cpanel::JSON::XS'; # libcpanel-json-xs-perl - fast parsing
+requires 'JSON::MaybeXS'; # libjson-maybexs-perl
 requires 'Clone'; # libclone-perl
 requires 'Crypt::PasswdMD5'; # libcrypt-passwdmd5-perl
 requires 'Encode::Detect'; # libencode-detect-perl
-requires 'Graphics::Color::RGB'; # libgraphics-color-perl
-requires 'Graphics::Color::HSL'; # libgraphics-color-perl
 requires 'Barcode::ZBar'; # libbarcode-zbar-perl
 requires 'XML::FeedPP'; # libxml-feedpp-perl
 requires 'URI::Find'; # liburi-find-perl
@@ -37,12 +37,13 @@ requires 'Pod::Simple::HTMLBatch'; # libpod-simple-perl
 requires 'GeoIP2', '>= 2.006002, < 3.0'; # libgeoip2-perl, deps: libdata-validate-ip-perl libio-compress-perl libjson-maybexs-perl liblist-someutils-perl, libdata-dumper-concise-perl, libdata-printer-perl
 requires 'Email::Valid', '>= 1.202, < 2.0'; # libemail-valid-perl
 requires 'Path::Tiny', '>= 0.118'; # libpath-tiny-perl
+requires 'XML::RPC', '== 2'; # libxml-rpc-fast-perl
+
 
 # Probably not available as Debian/Ubuntu packages
 requires 'MongoDB', '>= 2.2.2, < 2.3'; # libmongodb-perl has 1.8.1/2.0.3 vs 2.2.2. deps: libauthen-sasl-saslprep-perl, libbson-perl, libauthen-scram-perl, libclass-xsaccessor-perl, libdigest-hmac-perl, libsafe-isa-perl, libconfig-autoconf-perl, libpath-tiny-perl
 # we fix this because MongoDB depends on it, and 0.023 does not install correctly
 requires 'Type::Tiny::XS', '==0.022';
-requires 'Encode::Punycode'; # deps: libnet-idn-encode-perl, libtest-nowarnings-perl
 requires 'GraphViz2'; # deps: libfile-which-perl, libdata-section-simple-perl, libwant-perl, libipc-run3-perl, liblog-handler-perl, libtest-deep-perl
 requires 'Algorithm::CheckDigits'; # libalgorithm-checkdigits-perl has 0.50 vs 1.3.3. deps: libprobe-perl-perl
 requires 'Image::OCR::Tesseract'; # deps: libfile-find-rule-perl
@@ -70,6 +71,7 @@ requires 'XML::XML2JSON';
 requires 'Redis';
 requires 'Digest::SHA1';
 requires 'Data::Difference';
+requires 'Data::Compare';
 
 # Mojolicious/Minion
 requires 'Mojolicious::Lite';
@@ -89,14 +91,28 @@ requires 'Action::Retry'; # deps: libmath-fibonacci-perl
 requires 'AnyEvent';
 requires 'AnyEvent::Inotify::Simple';
 
-# GS1 Encoder
+# more Apache stuff
+requires 'Apache::Bootstrap';  # needed by Apache2::Connection::XForwardedFor
+requires 'Apache2::Connection::XForwardedFor';
+
+# GS1 Sunrise 2027
 requires 'GS1::SyntaxEngine::FFI';
+requires 'Imager::zxing';
+requires 'Imager::File::AVIF';
+requires 'Imager::File::HEIF';
+requires 'Imager::File::JPEG';
+requires 'Imager::File::PNG';
+requires 'Imager::File::WEBP';
+
+# To dynamically load Config_*.pm modules
+requires 'Module::Load';
+
+# To measure the time taken by requests
+requires 'Time::Monotonic';
 
 on 'test' => sub {
-  requires 'Test::More', '>= 1.302186, < 2.0';
-  requires 'Test::MockModule';
+  requires 'Test2::V0';
   requires 'Mock::Quick';
-  requires 'Test::Number::Delta'; # libtest-number-delta-perl
   requires 'Test::Files';
   requires 'File::Spec';
   requires 'Log::Any::Adapter::TAP'; # liblog-any-adapter-tap-perl
@@ -110,6 +126,10 @@ on 'test' => sub {
   requires 'Devel::Cover::Report::Codecovbash';
   requires 'Test::Fake::HTTPD';
   requires 'URL::Encode';
+  requires 'Test::File::Contents';
+  requires 'FindBin';
+  requires 'Test::Pod';
+  requires 'UUID';
 };
 
 on 'develop' => sub {
@@ -121,6 +141,8 @@ on 'develop' => sub {
   requires 'Devel::Cover';
   requires 'Devel::Cover::Report::Codecov';
   requires 'Devel::Cover::Report::Codecovbash';
+  requires 'Test2::Harness';
+  requires 'Test2::Harness::Renderer::JUnit';
 };
 
 feature "off_server_dev_tools", "Optional development tools" => sub {

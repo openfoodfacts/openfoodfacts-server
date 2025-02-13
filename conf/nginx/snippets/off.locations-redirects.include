@@ -1,5 +1,13 @@
 # Redirects for Open Food Facts
 
+location = /nutriscore-v2 {
+	return 301 https://$host/new-nutriscore;
+}
+
+location ~ ^/(greenscore|ecoscore|eco-score-l-impact-environnemental-des-produits-alimentaires|eco-score-the-environmental-impact-of-food-products)$ {
+	return 301 https://$host/green-score;
+}
+
 # Donations
 # 100 % translated: fr, bg, ca, zh, cs, da, nl, de, he, id, it, lt, pl, pt, ro, ru, es, tr, uk, vi
 # EN
@@ -14,6 +22,11 @@ location = /faire-un-don-a-open-food-facts {
 
 location = /donner-a-open-food-facts {
         try_files /donate/fr.helloasso.html =404;
+}
+
+# AR
+location = /donate-to-open-food-facts-ar {
+	try_files /donate/ar.html =404;
 }
 
 # BG: даряване-на-openfoodfacts
@@ -55,30 +68,43 @@ location = /haz-su-donacion-a-open-food-facts {
 }
 
 # EE: anneta-to-openfoodfacts
+location = /anneta-to-openfoodfacts {
+	try_files /donate/ee.html =404;
+}
 
 # FI
 location = /lahjoita-open-food-factsille {
 	try_files /donate/fi.html =404;
 }
 
-#HE
+# HE
 location = /donate-to-open-food-facts-he {
 	try_files /donate/he.html =404;
 }
 
-## ID
+# HU
+location = /donate-to-open-food-facts-hu {
+	try_files /donate/hu.html =404;
+}
+
+# HT
+location = /donate-to-open-food-facts-ht {
+	try_files /donate/ht.html =404;
+}
+
+# ID
 location = /donate-to-open-food-facts-id {
 	try_files /donate/id.html =404;
 }
 
-## IT
+# IT
 location = /dona-a-open-food-facts {
 	try_files /donate/it.html =404;
 }
 
-## LT
-location = /donate-to-open-food-facts-lt {
-	try_files /donate/lt.html =404;
+# JA
+location = /donate-to-open-food-facts-ja {
+	try_files /donate/ja.html =404;
 }
 
 # KO
@@ -86,9 +112,34 @@ location = /donate-to-open-food-facts-ko {
 	try_files /donate/ko.html =404;
 }
 
+# LT
+location = /donate-to-open-food-facts-lt {
+	try_files /donate/lt.html =404;
+}
+
+# LU
+location = /donate-to-open-food-facts-lu {
+	try_files /donate/lu.html =404;
+}
+
+# MG
+location = /donate-to-open-food-facts-mg {
+	try_files /donate/mg.html =404;
+}
+
+# MS
+location = /donate-to-open-food-facts-ms {
+	try_files /donate/ms.html =404;
+}
+
 # NL
 location = /doneren-aan-openfoodfacts {
 	try_files /donate/nl.html =404;
+}
+
+# NB
+location = /donate-to-open-food-facts-nb {
+	try_files /donate/nb.html =404;
 }
 
 # PL: Przekaż darowiznę na openfoodfacts
@@ -111,9 +162,24 @@ location = /donate-to-open-food-facts-ru {
 	try_files /donate/ru.html =404;
 }
 
+# SK
+location = /donate-to-open-food-facts-sk {
+	try_files /donate/sk.html =404;
+}
+
 # SL
 location = /doniraj-k-open-food-facts {
 	try_files /donate/sl.html =404;
+}
+
+# SV
+location = /donate-to-open-food-facts-sv {
+	try_files /donate/sv.html =404;
+}
+
+# TH
+location = /donate-to-open-food-facts-th {
+	try_files /donate/th.html =404;
 }
 
 # TR
@@ -131,9 +197,10 @@ location = /donate-to-open-food-facts-vi {
 	try_files /donate/vi.html =404;
 }
 
-
 # zh-cn: 捐赠给openfoodfacts Juānzèng gěi openfoodfacts
-
+location = /donate-to-open-food-facts-cn {
+	try_files /donate/cn.html =404;
+}
 
 location = /hunger-game {
 	return 301 https://hunger.openfoodfacts.org;
@@ -144,6 +211,11 @@ location = /ecoscore {
 	        return 301 https://$host/eco-score-l-impact-environnemental-des-produits-alimentaires;
 	}
 	return 301 https://$host/eco-score-the-environmental-impact-of-food-products;
+}
+
+# old page Redirect
+location = /donate {
+	return 301 https://$host/donate-to-open-food-facts;
 }
 
 # 2022-06-13 Redirect press pages to blog post about the new Flutter app

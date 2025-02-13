@@ -18,7 +18,7 @@
         "environment"
     ],
     "title_element": {
-        "title": "[% lang('packaging_parts') %]",           
+        "title": "[% edq(lang('packaging_parts')) %]",           
     },    
     "expanded": true,
     "elements": [
@@ -40,7 +40,7 @@
                     [% ELSE %]
                     "evaluation": "neutral",
                     "icon_url": "[% static_subdomain %]/images/icons/dist/help.svg",
-                    "icon_alt": "[% lang('unknown') %]",
+                    "icon_alt": "[% edq(lang('unknown')) %]",
                     [% END %]                
                     "html": `
                         [% FOREACH packaging IN product.packagings %]
@@ -52,6 +52,9 @@
                                 </strong>
                                     [% IF packaging.material %]
                                         ([% display_taxonomy_tag_name('packaging_materials',packaging.material) %][% IF packaging.weight_specified %][% sep %]: [% packaging.weight_specified %] g[% ELSIF packaging.weight_measured %][% sep %]: [% packaging.weight_measured %] g[% END %])
+                                    [% END %]
+                                    [% IF packaging.food_contact %]
+                                        - [% edq(lang('in_contact_with_food')) %]
                                     [% END %]
                                     <br>
                             [% END %]

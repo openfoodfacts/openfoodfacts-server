@@ -1,6 +1,4 @@
-﻿version: "3.7"
-
-x-backend-conf: &backend-conf
+﻿x-backend-conf: &backend-conf
   image: openfoodfacts-server/backend:dev
   build:
     context: .
@@ -20,9 +18,11 @@ x-backend-conf: &backend-conf
     - ./docker/docker-entrypoint.sh:/docker-entrypoint.sh
     # we use this for debugging, from times to times
     - ./debug:/mnt/podata/debug/
+    # sftp folder for the pro platform
+    - ./sftp:/mnt/podata/sftp/
   # Allow the container to connect to the host when using Linux.
   # This is needed to access other services that are running outside of Docker
-  # e.g. when developing with Robotoff or openfoodfacts-query
+  # e.g. when developing with openfoodfacts-query
   extra_hosts:
     - "host.docker.internal:host-gateway"
 
@@ -33,11 +33,9 @@ x-minion-db-network: &minion-db-network
     minion_db:
     default:
 
-
 services:
   postgres:
     # only turn on for off profile
-    profiles: ["off"]
     <<: *minion-db-network
   backend:
     <<: [*backend-conf, *minion-db-network] 
@@ -90,30 +88,22 @@ services:
             - world.openfoodfacts.localhost
             - static.openfoodfacts.localhost
             - images.openfoodfacts.localhost
-  mongodb:
-    # Note: keep it as close a possible to mongodb.yml
-    image: mongo:4.4
-    command: mongod --wiredTigerCacheSizeGB ${MONGODB_CACHE_SIZE}
-    volumes:
-      - dbdata:/data/db
-      - ./html/data:/import
-    ports:
-      - "127.0.0.1:${MONGO_EXPOSE_PORT:-27017}:27017"
+
 volumes:
   product_images:
   html_data:
+  other_servers:
   products:
   # those one are volumes shared between off and pro, so we assign hard-coded names
   # see docs/dev/explain-pro-dev-setup.md
-  # PO_COMMON_PREFIX is there to separate env, eg. for tests
+  # PO_COMMON_PREFIX is there to separate envs, eg. for tests
   users:
     name: ${PO_COMMON_PREFIX:-}po_users
   orgs:
     name: ${PO_COMMON_PREFIX:-}po_orgs
-  podata:  # we also need to share it because users_emails and orgs... are not separated yet
-    name: ${PO_COMMON_PREFIX:-}po_podata
-  dbdata:
-  build_cache:
+  export_files:
+    name: ${PO_COMMON_PREFIX:-}po_export_files
+  podata:
 
 networks:
   # this is a specific network to enable pro platform to join the postgres db

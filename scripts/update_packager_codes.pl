@@ -26,15 +26,16 @@ use Modern::Perl '2017';
 use experimental qw/switch/;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/get_string_id_for_lang store/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::PackagerCodes qw/:all/;
+use ProductOpener::PackagerCodes
+	qw/$ec_code_regexp %geocode_addresses %packager_codes get_canon_local_authority normalize_packager_codes/;
 
 use Term::ANSIColor;
 use Carp;
-use JSON::PP;
+use JSON::MaybeXS;
 use Text::CSV ();
 
 say {*STDERR} "loading geocoded addresses";
@@ -89,22 +90,28 @@ sub normalize_code {
 
 	my $arg = do {
 		given ($cc) {
+			"$code" when 'at';
 			"BE $code EC" when 'be';
 			"CH-$code" when 'ch';
+			"$code" when 'cy';
+			"$code" when 'cz';
 			"DE $code EC" when 'de';
+			"$code" when 'dk';
 			"EE $code EC" when 'ee';
 			"ES $code CE" when 'es';
 			"FI $code EC" when 'fi';
 			"FR $code CE" when 'fr';
 			"HR $code EU" when 'hr';
-			"$code EC" when 'hu';
-			"$code EC" when 'it';
+			"$code" when 'hu';
+			"$code" when 'ie';
+			"$code" when 'it';
 			"LT $code EC" when 'lt';
-			"LU $code EC" when 'lu';
+			"$code" when 'lu';
 			"PL $code EC" when 'pl';
 			"$code EC" when 'rs';
 			"SE $code EC" when 'se';
 			"SK $code EC" when 'sk';
+			"$code ES" when 'si';
 			"UK $code EC" when 'uk';
 			join q{  }, uc($cc), $code, 'EC';
 		}
@@ -114,11 +121,6 @@ sub normalize_code {
 }
 
 my %code_processor = (
-	it => sub {
-		my ($c) = @_;
-		$c =~ s/^CE //sxm;
-		return $c;
-	},
 	uk => sub {
 		my ($c) = @_;
 		$c =~ s/(\s|\/)*ec$//isxm;
@@ -159,21 +161,27 @@ sub normalize_local_authority {
 my $sep_set = [q{;}, qq{\t}];
 
 my %approval_key = (
+	at => 'code',
 	be => 'no_agrement',
 	ch => 'bew_nr',
+	cy => 'code',
+	cz => 'code',
 	de => 'code',
+	dk => 'code',
 	ee => 'tunnusnumber',
 	es => 'n_rgseaa',
 	fi => 'numero',
 	fr => 'numero_agrement',
 	hr => 'app_number',
 	hu => 'code',
-	it => 'approvalnumber',
+	ie => 'code',
+	it => 'code',
 	lt => 'vet_approval_no',
-	lu => 'zulassungsnummer',
+	lu => 'code',
 	pl => 'code',
 	rs => 'approval_number',
 	se => 'nr',
+	si => 'code',
 	sk => 'schvaľovacie_čislo',
 	uk => 'approval_number',
 );

@@ -9,8 +9,6 @@
    ],
    "added_countries_tags" : [],
    "additives_n" : 0,
-   "additives_old_n" : 0,
-   "additives_old_tags" : [],
    "additives_original_tags" : [],
    "additives_tags" : [],
    "allergens" : "",
@@ -68,7 +66,7 @@
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
       "en:all-but-one-ingredient-with-specified-percent",
-      "en:ecoscore-extended-data-not-computed",
+      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown"
@@ -77,16 +75,16 @@
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
       "en:all-but-one-ingredient-with-specified-percent",
-      "en:ecoscore-extended-data-not-computed",
+      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown",
-      "en:ecoscore-packaging-packaging-data-missing",
-      "en:ecoscore-production-system-no-label"
+      "en:environmental-score-packaging-packaging-data-missing",
+      "en:environmental-score-production-system-no-label"
    ],
    "data_quality_warnings_tags" : [
-      "en:ecoscore-packaging-packaging-data-missing",
-      "en:ecoscore-production-system-no-label"
+      "en:environmental-score-packaging-packaging-data-missing",
+      "en:environmental-score-production-system-no-label"
    ],
    "data_sources" : "Producers, Producer - world-test-food",
    "data_sources_imported" : "Producers, Producer - world-test-food",
@@ -94,7 +92,14 @@
       "producers",
       "producer-world-test-food"
    ],
-   "ecoscore_data" : {
+   "ecoscore_tags" : [
+      "unknown"
+   ],
+   "editors_tags" : [
+      "test-user"
+   ],
+   "entry_dates_tags" : "--ignore--",
+   "environmental_score_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
             "aggregated_origins" : [
@@ -105,6 +110,9 @@
             ],
             "epi_score" : 50,
             "epi_value" : 0,
+            "origins_from_categories" : [
+               "en:unknown"
+            ],
             "origins_from_origins_field" : [
                "en:martinique"
             ],
@@ -305,7 +313,6 @@
             }
          },
          "packaging" : {
-            "non_recyclable_and_non_biodegradable_materials" : 1,
             "value" : -15,
             "warning" : "packaging_data_missing"
          },
@@ -319,6 +326,7 @@
       "agribalyse" : {
          "warning" : "missing_agribalyse_match"
       },
+      "grade" : "unknown",
       "missing" : {
          "categories" : 1,
          "labels" : 1,
@@ -328,14 +336,10 @@
       "missing_key_data" : 1,
       "status" : "unknown"
    },
-   "ecoscore_grade" : "unknown",
-   "ecoscore_tags" : [
+   "environmental_score_grade" : "unknown",
+   "environmental_score_tags" : [
       "unknown"
    ],
-   "editors_tags" : [
-      "test-user"
-   ],
-   "entry_dates_tags" : "--ignore--",
    "food_groups_tags" : [],
    "generic_name" : "Bananes",
    "generic_name_fr" : "Bananes",
@@ -347,7 +351,9 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "13005",
+         "ecobalyse_code" : "f79d155e-3f9e-4882-8dd0-b03f28c1ff76",
          "id" : "en:banana",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 100,
          "percent_max" : 100,
          "percent_min" : 100,
@@ -362,9 +368,6 @@
       "en:vegan",
       "en:vegetarian"
    ],
-   "ingredients_from_or_that_may_be_from_palm_oil_n" : 0,
-   "ingredients_from_palm_oil_n" : 0,
-   "ingredients_from_palm_oil_tags" : [],
    "ingredients_hierarchy" : [
       "en:banana",
       "en:fruit"
@@ -375,10 +378,12 @@
       "1",
       "1-10"
    ],
+   "ingredients_non_nutritive_sweeteners_n" : 0,
    "ingredients_original_tags" : [
       "en:banana"
    ],
    "ingredients_percent_analysis" : 1,
+   "ingredients_sweeteners_n" : 0,
    "ingredients_tags" : [
       "en:banana",
       "en:fruit"
@@ -388,14 +393,14 @@
    "ingredients_text_fr_imported" : "Banane",
    "ingredients_text_with_allergens" : "Banane",
    "ingredients_text_with_allergens_fr" : "Banane",
-   "ingredients_that_may_be_from_palm_oil_n" : 0,
-   "ingredients_that_may_be_from_palm_oil_tags" : [],
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "interface_version_created" : "import_csv_file - version 2019/09/17",
    "known_ingredients_n" : 2,
    "lang" : "fr",
@@ -417,31 +422,31 @@
    "last_editor" : "test-user",
    "last_modified_by" : "test-user",
    "last_modified_t" : "--ignore--",
+   "last_updated_t" : "--ignore--",
    "lc" : "fr",
    "lc_imported" : "fr",
    "main_countries_tags" : [],
    "minerals_tags" : [],
    "misc_tags" : [
+      "en:environmental-score-not-computed",
       "en:nutriscore-missing-category",
-      "en:nutrition-not-enough-data-to-compute-nutrition-score",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-energy",
       "en:nutriscore-missing-nutrition-data-fat",
-      "en:nutriscore-missing-nutrition-data-saturated-fat",
-      "en:nutriscore-missing-nutrition-data-sugars",
-      "en:nutriscore-missing-nutrition-data-sodium",
       "en:nutriscore-missing-nutrition-data-proteins",
-      "en:nutrition-no-fiber",
-      "en:nutriscore-using-estimated-nutrition-facts",
+      "en:nutriscore-missing-nutrition-data-saturated-fat",
+      "en:nutriscore-missing-nutrition-data-sodium",
+      "en:nutriscore-missing-nutrition-data-sugars",
       "en:nutriscore-not-computed",
-      "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
+      "en:nutriscore-using-estimated-nutrition-facts",
       "en:nutrition-all-nutriscore-values-known",
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
-      "en:packagings-number-of-components-0",
-      "en:packagings-not-complete",
+      "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
+      "en:nutrition-no-fiber",
+      "en:nutrition-not-enough-data-to-compute-nutrition-score",
       "en:packagings-empty",
-      "en:ecoscore-extended-data-not-computed",
-      "en:ecoscore-not-computed",
+      "en:packagings-not-complete",
+      "en:packagings-number-of-components-0",
       "en:main-countries-new-product"
    ],
    "nova_group_debug" : "no nova group when the product does not have a category",
@@ -558,7 +563,7 @@
    "nutriscore_tags" : [
       "unknown"
    ],
-   "nutriscore_version" : "2021",
+   "nutriscore_version" : "2023",
    "nutrition_data_per" : "100g",
    "nutrition_data_prepared_per" : "100g",
    "nutrition_grade_fr" : "unknown",
@@ -606,6 +611,7 @@
    "product_name" : "Super bananes",
    "product_name_fr" : "Super bananes",
    "product_name_fr_imported" : "Super bananes",
+   "product_type" : "food",
    "removed_countries_tags" : [],
    "rev" : 1,
    "sources" : [

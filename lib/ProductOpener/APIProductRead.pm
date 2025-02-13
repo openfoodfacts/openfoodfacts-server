@@ -44,12 +44,16 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Display qw/$subdomain redirect_to_url request_param single_param/;
+use ProductOpener::Users qw/$Owner_id/;
+use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::API qw/:all/;
+use ProductOpener::Ingredients qw/flatten_sub_ingredients/;
+use ProductOpener::API qw/add_error customize_response_for_product normalize_requested_code/;
+use ProductOpener::URL qw(format_subdomain);
+
+my $cc;
 
 =head2 read_product_api ( $request_ref )
 
@@ -123,19 +127,46 @@ sub read_product_api ($request_ref) {
 
 		# Return an error if we could not find a product
 
-		if ($request_ref->{api_version} >= 1) {
-			$request_ref->{status_code} = 404;
-		}
-
 		add_error(
 			$response_ref,
 			{
 				message => {id => "product_not_found"},
 				field => {id => "code", value => $code},
 				impact => {id => "failure"},
-			}
+			},
+			404
 		);
 		$response_ref->{result} = {id => "product_not_found"};
+	}
+	elsif ( (not $server_options{private_products})
+		and (defined $product_ref->{product_type})
+		and ($product_ref->{product_type} ne $options{product_type}))
+	{
+
+		# If the product has a product_type and it is not the product_type of the server,
+		# redirect to the correct server if the request includes a matching product_type parameter (or the "all" product type)
+		# unless we are on the pro platform
+
+		my $requested_product_type = single_param("product_type");
+		if (    (defined $requested_product_type)
+			and (($requested_product_type eq "all") or ($requested_product_type eq $product_ref->{product_type})))
+		{
+			redirect_to_url($request_ref, 302,
+				format_subdomain($subdomain, $product_ref->{product_type}) . "/"
+					. $request_ref->{original_query_string});
+		}
+		else {
+			add_error(
+				$response_ref,
+				{
+					message => {id => "product_found_with_a_different_product_type"},
+					field => {id => "product_type", value => $product_ref->{product_type}},
+					impact => {id => "failure"},
+				},
+				404
+			);
+			$response_ref->{result} = {id => "product_found_with_a_different_product_type"};
+		}
 	}
 	else {
 		$response_ref->{result} = {id => "product_found"};
@@ -165,7 +196,7 @@ sub read_product_api ($request_ref) {
 		# Return blame information
 		if (single_param("blame")) {
 			my $path = product_path_from_id($product_id);
-			my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
+			my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
 			if (not defined $changes_ref) {
 				$changes_ref = [];
 			}

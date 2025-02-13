@@ -3,26 +3,29 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
 
-use ProductOpener::DataQuality qw/:all/;
+use ProductOpener::DataQuality qw/check_quality/;
 use ProductOpener::DataQualityFood qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Tags qw/has_tag/;
+use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
 
-sub check_quality_and_test_product_has_quality_tag($$$$) {
+sub check_quality_and_test_product_has_quality_tag($$$$;$) {
 	my $product_ref = shift;
-	my $tag = shift;
+	my $tag_name = shift;
 	my $reason = shift;
 	my $yesno = shift;
+	my $tag_level = shift // 'data_quality';
 	ProductOpener::DataQuality::check_quality($product_ref);
 	if ($yesno) {
-		ok(has_tag($product_ref, 'data_quality', $tag), $reason)
-			or diag explain {tag => $tag, yesno => $yesno, product => $product_ref};
+		ok(has_tag($product_ref, $tag_level, $tag_name), $reason)
+			or diag Dumper {tag => $tag_name, yesno => $yesno, product => $product_ref};
 	}
 	else {
-		ok(!has_tag($product_ref, 'data_quality', $tag), $reason)
-			or diag explain {tag => $tag, yesno => $yesno, product => $product_ref};
+		ok(!has_tag($product_ref, $tag_level, $tag_name), $reason)
+			or diag Dumper {tag => $tag_name, yesno => $yesno, product => $product_ref};
 	}
 
 	return;
@@ -95,7 +98,7 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	has_tag($product_ref, 'data_quality', 'en:ingredients-de-over-30-percent-digits'),
 	'product with more than 30% digits in the language-specific ingredients has tag ingredients-over-30-percent-digits'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 # ingredients-de-over-30-percent-digits - with exactly 30%
 $product_ref = {
@@ -109,7 +112,7 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	!has_tag($product_ref, 'data_quality', 'en:ingredients-de-over-30-percent-digits'),
 	'product with at most 30% digits in the language-specific ingredients has no ingredients-over-30-percent-digits tag'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 # ingredients-de-over-30-percent-digits - without a text
 $product_ref = {
@@ -122,7 +125,7 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	!has_tag($product_ref, 'data_quality', 'en:ingredients-de-over-30-percent-digits'),
 	'product with no language-specific ingredients text has no ingredients-over-30-percent-digits tag'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 # ingredients-over-30-percent-digits - with more than 30%
 $product_ref = {
@@ -133,7 +136,7 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	has_tag($product_ref, 'data_quality', 'en:ingredients-over-30-percent-digits'),
 	'product with more than 30% digits in the ingredients has tag ingredients-over-30-percent-digits'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 # ingredients-over-30-percent-digits - with exactly 30%
 $product_ref = {
@@ -144,7 +147,7 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	!has_tag($product_ref, 'data_quality', 'en:ingredients-over-30-percent-digits'),
 	'product with at most 30% digits in the ingredients has no ingredients-over-30-percent-digits tag'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 # ingredients-over-30-percent-digits - without a text
 $product_ref = {lc => 'de'};
@@ -152,7 +155,7 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	!has_tag($product_ref, 'data_quality', 'en:ingredients-over-30-percent-digits'),
 	'product with no ingredients text has no ingredients-over-30-percent-digits tag'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 # issue 1466: Add quality facet for dehydrated products that are missing prepared values
 
@@ -164,7 +167,7 @@ ok(
 		'en:missing-nutrition-data-prepared-with-category-dried-products-to-be-rehydrated'
 	),
 	'product without dried category with no other qualities is not flagged for issue 1466'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 $product_ref = {categories_tags => ['en:dried-products-to-be-rehydrated']};
 ProductOpener::DataQuality::check_quality($product_ref);
@@ -174,7 +177,7 @@ ok(
 		'en:missing-nutrition-data-prepared-with-category-dried-products-to-be-rehydrated'
 	),
 	'dried product category with no other qualities is flagged for issue 1466'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 # positive control 1
 $product_ref = {
@@ -191,7 +194,7 @@ ok(
 		'en:missing-nutrition-data-prepared-with-category-dried-products-to-be-rehydrated'
 	),
 	'dried product category with prepared data is not flagged for issue 1466'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 # positive control 2
 $product_ref = {
@@ -209,7 +212,7 @@ ok(
 		'en:missing-nutrition-data-prepared-with-category-dried-products-to-be-rehydrated'
 	),
 	'dried product category with 2 prepared data values is not flagged for issue 1466'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 $product_ref = {
 	categories_tags => ['en:dried-products-to-be-rehydrated'],
@@ -223,7 +226,7 @@ ok(
 		'en:missing-nutrition-data-prepared-with-category-dried-products-to-be-rehydrated'
 	),
 	'dried product category with undefined nutriments hash is flagged for issue 1466'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 $product_ref = {
 	categories_tags => ['en:dried-products-to-be-rehydrated'],
@@ -239,7 +242,7 @@ ok(
 		'en:missing-nutrition-data-prepared-with-category-dried-products-to-be-rehydrated'
 	),
 	'dried product category with nutriments hash with unrelated data is flagged for issue 1466'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 $product_ref = {
 	categories_tags => ['en:dried-products-to-be-rehydrated'],
@@ -254,7 +257,7 @@ ok(
 		'en:missing-nutrition-data-prepared-with-category-dried-products-to-be-rehydrated'
 	),
 	'dried product category with nutrition_data_prepared off is flagged for issue 1466'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 $product_ref = {
 	categories_tags => ['en:dried-products-to-be-rehydrated'],
@@ -272,7 +275,7 @@ ok(
 		'en:missing-nutrition-data-prepared-with-category-dried-products-to-be-rehydrated'
 	),
 	'dried product category with no nutrition data checked prepared data is flagged for issue 1466'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 $product_ref = {
 	categories_tags => ['en:dried-products-to-be-rehydrated'],
@@ -290,13 +293,13 @@ ok(
 		'en:missing-nutrition-data-prepared-with-category-dried-products-to-be-rehydrated'
 	),
 	'dried product category with no nutrition data checked prepared data is flagged for issue 1466'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 use Log::Any::Adapter 'TAP', filter => "none";
 
 check_quality_and_test_product_has_quality_tag(
 	{
-		'ecoscore_data' => {
+		'environmental_score_data' => {
 			'adjustments' => {
 				'origins_of_ingredients' => {
 					'aggregated_origins' => [
@@ -316,7 +319,7 @@ check_quality_and_test_product_has_quality_tag(
 			}
 		}
 	},
-	"en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
+	"en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
 	"origins 100 percent unknown",
 	1
 );
@@ -329,9 +332,9 @@ $product_ref = {
 };
 extract_ingredients_from_text($product_ref);
 ProductOpener::DataQuality::check_quality($product_ref);
-ok(has_tag($product_ref, 'data_quality', 'en:all-ingredients-with-specified-percent')) or diag explain $product_ref;
+ok(has_tag($product_ref, 'data_quality', 'en:all-ingredients-with-specified-percent')) or diag Dumper $product_ref;
 ok(has_tag($product_ref, 'data_quality', 'en:sum-of-ingredients-with-unspecified-percent-lesser-than-10'))
-	or diag explain $product_ref;
+	or diag Dumper $product_ref;
 
 $product_ref = {
 	lc => 'en',
@@ -340,11 +343,11 @@ $product_ref = {
 extract_ingredients_from_text($product_ref);
 ProductOpener::DataQuality::check_quality($product_ref);
 ok(has_tag($product_ref, 'data_quality', 'en:all-but-one-ingredient-with-specified-percent'))
-	or diag explain $product_ref;
+	or diag Dumper $product_ref;
 ok(has_tag($product_ref, 'data_quality', 'en:sum-of-ingredients-with-unspecified-percent-lesser-than-10'))
-	or diag explain $product_ref;
+	or diag Dumper $product_ref;
 ok(has_tag($product_ref, 'data_quality', 'en:sum-of-ingredients-with-specified-percent-greater-than-100'))
-	or diag explain $product_ref;
+	or diag Dumper $product_ref;
 
 # energy does not match nutrients
 $product_ref = {
@@ -360,7 +363,7 @@ ProductOpener::DataQuality::check_quality($product_ref);
 is($product_ref->{nutriments}{"energy-kj_value_computed"}, 1436);
 ok(has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
 	'energy not matching nutrients')
-	or diag explain $product_ref;
+	or diag Dumper $product_ref;
 
 # energy does not match nutrients but this alert is ignored for this category
 $product_ref = {
@@ -374,11 +377,45 @@ $product_ref = {
 	}
 };
 ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
+	'energy not matching nutrients but category possesses ignore_energy_calculated_error:en:yes tag'
+) or diag Dumper $product_ref;
+
+$product_ref = {
+	categories_tags => ['en:sweeteners'],
+	nutriments => {
+		"energy-kj_value" => 550,
+		"carbohydrates_value" => 10,
+		"fat_value" => 20,
+		"proteins_value" => 30,
+		"fiber_value" => 2,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
 is($product_ref->{nutriments}{"energy-kj_value_computed"}, 1436);
 ok(
 	!has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
 	'energy not matching nutrients but category possesses ignore_energy_calculated_error:en:yes tag'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
+
+$product_ref = {
+	categories_tags => ['en:sweet-spreads'],
+	nutriments => {
+		"energy-kj_value" => 8,
+		"fat_value" => 0.5,
+		"saturated-fat_value" => 0.1,
+		"carbohydrates_value" => 0.5,
+		"sugars_value" => 0.5,
+		"proteins_value" => 0.5,
+		"salt_value" => 0.01,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
+	'energy not matching nutrients but energy is lower than 55 kj'
+) or diag Dumper $product_ref;
 
 # energy matches nutrients
 $product_ref = {
@@ -394,7 +431,7 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	!has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
 	'energy matching nutrients'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 # Polyols in general contribute energy
 $product_ref = {
@@ -410,7 +447,7 @@ $product_ref = {
 ProductOpener::DataQuality::check_quality($product_ref);
 ok(has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
 	'energy not matching nutrients - polyols')
-	or diag explain $product_ref;
+	or diag Dumper $product_ref;
 
 # Erythritol is a polyol which does not contribute to energy
 $product_ref = {
@@ -428,7 +465,7 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	!has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
 	'energy matching nutrient - erythritol'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 # Erythritol is a polyol which does not contribute to energy
 # If we do not have a value for polyols but we have a value for erythritol,
@@ -447,7 +484,7 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	!has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
 	'energy matching nutrient - erythritol without polyols'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 # Polyols in general contribute energy
 $product_ref = {
@@ -462,8 +499,8 @@ $product_ref = {
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 ok(has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
-	'energy not matching nutrient')
-	or diag explain $product_ref;
+	'energy not matching nutrient but lower than 55 kj')
+	or diag Dumper $product_ref;
 
 # Erythritol is a polyol which does not contribute to energy
 $product_ref = {
@@ -481,7 +518,7 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	!has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
 	'energy not matching nutrient'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 # en:nutrition-value-negative-$nid should be raised - for nutriments (except nutriments containing "nutrition-score") below 0
 $product_ref = {
@@ -507,20 +544,53 @@ check_quality_and_test_product_has_quality_tag(
 	'nutriment should have positive value (except nutrition-score)', 0
 );
 
+# en:nutrition-value-negative-$nid warning only should be raised - for nutriments containing "estimate"
+$product_ref = {
+	nutriments => {
+		"fruits-vegetables-nuts-estimate-from-ingredients_100g" => -0.0000194786420834592,
+	}
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-value-negative-fruits-vegetables-nuts-estimate-from-ingredients',
+	'negative nutriments containg "estimate" should not raise error',
+	0, 'data_quality_errors'
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-value-negative-fruits-vegetables-nuts-estimate-from-ingredients',
+	'negative nutriments containg "estimate" should raise warning only',
+	1, 'data_quality_warnings'
+);
+
 # serving size should contains digits
 $product_ref = {serving_size => "serving_size"};
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:serving-size-is-missing-digits',
-	'serving size should contains digits', 1
+	'serving size does not contain digits', 1
 );
 $product_ref = {serving_size => "120g"};
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:serving-size-is-missing-digits',
-	'serving size should contains digits', 0
+	'serving size contains digits', 0
+);
+$product_ref = {serving_size => ""};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:serving-size-is-missing-digits',
+	'serving size is empty', 0
+);
+$product_ref = {serving_size => "-"};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:serving-size-is-missing-digits',
+	'serving size is -', 0
 );
 
 # serving size is missing
@@ -609,6 +679,14 @@ check_quality_and_test_product_has_quality_tag(
 	'serving size cannot be parsed', 0
 );
 
+# serving size not recognized (leading to undefined serving quantity)
+$product_ref = {serving_size => "50",};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-data-per-serving-serving-quantity-is-not-recognized',
+	'serving size is not recognized', 1
+);
+
 # percentage for ingredient is higher than 100% in extracted ingredients from the picture
 $product_ref = {
 	ingredients => [
@@ -691,6 +769,58 @@ check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:nutrition-3-or-more-values-are-identical',
 	'3 or more identical values and above 1 in the nutrition table', 1
+);
+## en:nutrition-values-are-all-identical but equal to 0
+$product_ref = {
+	nutriments => {
+		"energy-kj_100g" => 0,
+		"energy-kcal_100g" => 0,
+		"fat_100g" => 0,
+		"saturated-fat_100g" => 0,
+		"carbohydrates_100g" => 0,
+		"sugars_100g" => 0,
+		"fibers_100g" => 0,
+		"proteins_100g" => 0,
+		"salt_100g" => 0,
+		"sodium_100g" => 0,
+	}
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-values-are-all-identical',
+	'all identical values and above 1 in the nutrition table 1', 0
+);
+$product_ref = {
+	nutriments => {
+		"energy-kj_100g" => 2,
+		"energy-kcal_100g" => 2,
+		"fat_100g" => 2,
+		"saturated-fat_100g" => 2,
+		"carbohydrates_100g" => 2,
+		"sugars_100g" => 2,
+		"fibers_100g" => 2,
+		"proteins_100g" => 2,
+		"salt_100g" => 2,
+		"sodium_100g" => 0.8,
+	}
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-values-are-all-identical',
+	'all identical values and above 1 in the nutrition table 2', 1
+);
+## should have enough input nutriments
+$product_ref = {
+	nutriments => {
+		"energy-kj_100g" => 2,
+		"salt_100g" => 2,
+		"sodium_100g" => 0.8,
+	}
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-values-are-all-identical',
+	'all identical values and above 1 in the nutrition table BUT not enough nutriments given', 0
 );
 
 # sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars
@@ -797,6 +927,7 @@ check_quality_and_test_product_has_quality_tag(
 	'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
 	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 1
 );
+
 $product_ref = {
 	nutriments => {
 		"sugars_100g" => 20,
@@ -812,6 +943,78 @@ check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
 	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 0
+);
+
+# lactose < 0.01g
+$product_ref = {
+	nutriments => {
+		"sugars_100g" => 0,
+		"lactose_100g" => 0.01,
+		'lactose_modifier' => '<',
+	}
+};
+
+ProductOpener::DataQuality::check_quality($product_ref);
+
+ok(
+	!has_tag(
+		$product_ref, 'data_quality_errors',
+		'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars'
+	),
+	'Lactose and symbol lower than should be ignore'
+) or diag Dumper $product_ref;
+
+# salt_100g is very small warning (may be in mg)
+## lower than 0.001
+$product_ref = {
+	nutriments => {
+		salt_100g => 0.0009,    # lower than 0.001
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-value-under-0-001-g-salt',
+	'value for salt is lower than 0.001g', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-value-under-0-01-g-salt',
+	'value for salt is lower than 0.001g, should not trigger warning for 0.01', 0
+);
+## lower than 0.01
+$product_ref = {
+	nutriments => {
+		salt_100g => 0.009,    # lower than 0.01
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-value-under-0-001-g-salt',
+	'value for salt is above 0.001g', 0
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-value-under-0-01-g-salt',
+	'value for salt is lower than 0.001g, and above 0.01', 1
+);
+## above 0.01
+$product_ref = {
+	nutriments => {
+		salt_100g => 0.02,    # above 0.01
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-value-under-0-001-g-salt',
+	'value for salt is above 0.001g', 0
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-value-under-0-01-g-salt',
+	'value for salt is above 0.001g', 0
 );
 
 # testing of ProductOpener::DataQualityFood::check_quantity subroutine
@@ -923,6 +1126,31 @@ check_quality_and_test_product_has_quality_tag(
 	'1 kcal = 4.184 kJ, value in kcal is between 165*3.7-2=608.5 and 165*4.7+2=777.5', 1
 );
 
+# nutrition - saturated fat is greater than fat
+## trigger the error because saturated-fat_100g is greated than fat
+$product_ref = {
+	nutriments => {
+		fat_100g => 0,
+		"saturated-fat_100g" => 1,
+	}
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-saturated-fat-greater-than-fat',
+	'saturated fat greater than fat', 1
+);
+## if undefined fat, error should not be triggered
+$product_ref = {
+	nutriments => {
+		"saturated-fat_100g" => 1,
+	}
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-saturated-fat-greater-than-fat',
+	'saturated fat may be greater than fat but fat is missing', 0
+);
+
 # category with expected nutriscore grade. Prerequisite: "expected_nutriscore_grade:en:c" under "en:Extra-virgin olive oils" category, in the taxonomy
 # category with expected nutriscore grade. Different nutriscore grade as compared to the expected nutriscore grade
 $product_ref = {
@@ -933,7 +1161,10 @@ $product_ref = {
 		'en:olive-oils', 'en:virgin-olive-oils',
 		'en:extra-virgin-olive-oils'
 	],
-	nutrition_grade_fr => "d"
+	nutrition_grade_fr => "d",
+	nutriscore => {
+		2023 => {"nutrients_available" => 1,},
+	},
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
@@ -953,7 +1184,10 @@ $product_ref = {
 		"en:ice-cream-tubs", "en:virgin-olive-oils",
 		"en:extra-virgin-olive-oils", "fr:glace-aux-calissons"
 	],
-	nutrition_grade_fr => "d"
+	nutrition_grade_fr => "d",
+	nutriscore => {
+		2023 => {"nutrients_available" => 1,},
+	},
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
@@ -970,13 +1204,16 @@ $product_ref = {
 		'en:olive-tree-products', 'en:vegetable-oils',
 		'en:olive-oils', 'en:virgin-olive-oils',
 		'en:extra-virgin-olive-oils'
-	]
+	],
+	nutriscore => {
+		2023 => {"nutrients_available" => 0,},
+	},
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:nutri-score-grade-from-category-does-not-match-calculated-grade',
-	'Calculate nutriscore grade should be the same as the one provided in the taxonomy for this category', 1
+	'Calculate nutriscore grade should be the same as the one provided in the taxonomy for this category', 0
 );
 # category with expected nutriscore grade. Same nutriscore grade as compared to the expected nutriscore grade
 $product_ref = {
@@ -987,14 +1224,12 @@ $product_ref = {
 		'en:olive-oils', 'en:virgin-olive-oils',
 		'en:extra-virgin-olive-oils'
 	],
-	nutrition_grade_fr => "c"
+	nutrition_grade_fr => "b",
+	nutriscore => {
+		2023 => {"nutrients_available" => 1,},
+	},
 };
 ProductOpener::DataQuality::check_quality($product_ref);
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:nutri-score-grade-from-category-does-not-match-calculated-grade',
-	'Calculate nutriscore grade should be the same as the one provided in the taxonomy for this category', 0
-);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:nutri-score-grade-from-category-does-not-match-calculated-grade',
@@ -1096,128 +1331,743 @@ check_quality_and_test_product_has_quality_tag(
 	'en:ingredients-single-ingredient-from-category-does-not-match-actual-ingredients',
 	'We expect the ingredient given in the taxonomy for this product', 0
 );
-# vegan label but non-vegan ingredients
-# unknown ingredient -> warnings
+
+# category minimum number of ingredients. Raise error
 $product_ref = {
-	labels_tags => ["en:vegetarian", "en:vegan",],
-	ingredients => [
-		{
-			id => "en:lentils",
-			vegan => "yes",
-			vegetarian => "yes"
-		},
-		{
-			id => "en:green-bell-pepper",
-			vegan => "yes",
-			vegetarian => "yes"
-		},
-		{
-			id => "en:totoro",
-		}
+	categories_tags => [
+		"en:dairies", "en:fermented-foods",
+		"en:fermented-milk-products", "en:cheeses",
+		"en:italien-cheeses", "en:strected-curd-cheeses",
+		"en:frozen-desserts", "en:olive-tree-products",
+		"en:mozzarella"
 	],
+	ingredients => [{id => 'en:buffalo milk'}, {id => 'en:salt'}]
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:vegan-label-but-non-vegan-ingredient',
-	'raise error only when vegan is no and label is vegan', 0
+	'en:ingredients-count-lower-than-expected-for-the-category',
+	'2 ingredients provided, at least 3 expected (rennet is missing)', 1
 );
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:vegetarian-label-but-non-vegetarian-ingredient',
-	'raise error only when vegetarian is no and label is vegan', 0
-);
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:vegan-label-but-could-not-confirm-for-all-ingredients',
-	'raise warning because vegan or non-vegan is unknown for an ingredient', 1
-);
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:vegetarian-label-but-could-not-confirm-for-all-ingredients',
-	'raise warning because vegetarian or non-vegetarian is unknown for an ingredient', 1
-);
-# non-vegan/non-vegetarian ingredient -> error
+# category minimum number of ingredients. More ingredients
 $product_ref = {
-	labels_tags => ["en:vegetarian", "en:vegan",],
-	ingredients => [
-		{
-			id => "en:lentils",
-			vegan => "yes",
-			vegetarian => "yes"
-		},
-		{
-			id => "en:green-bell-pepper",
-			vegan => "yes",
-			vegetarian => "yes"
-		},
-		{
-			id => "en:chicken",
-			vegan => "no",
-			vegetarian => "no"
-		}
+	categories_tags => [
+		"en:dairies", "en:fermented-foods",
+		"en:fermented-milk-products", "en:cheeses",
+		"en:italien-cheeses", "en:strected-curd-cheeses",
+		"en:frozen-desserts", "en:olive-tree-products",
+		"en:mozzarella"
 	],
+	ingredients => [{id => 'en:buffalo milk'}, {id => 'en:salt'}, {id => 'en:e330'}]
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:vegan-label-but-non-vegan-ingredient',
-	'raise error only when vegan is no and label is vegan', 1
+	'en:ingredients-count-lower-than-expected-for-the-category',
+	'4 ingredients provided, at least 3 expected', 0
 );
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:vegetarian-label-but-non-vegetarian-ingredient',
-	'raise error only when vegetarian is no and label is vegan', 1
-);
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:vegan-label-but-could-not-confirm-for-all-ingredients',
-	'raise warning because vegan or non-vegan is unknown for an ingredient', 0
-);
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:vegetarian-label-but-could-not-confirm-for-all-ingredients',
-	'raise warning because vegetarian or non-vegetarian is unknown for an ingredient', 0
-);
-# non-vegan/vegatarian ingredient -> error
+# category minimum number of ingredients. No ingredients at all
 $product_ref = {
-	labels_tags => ["en:vegetarian", "en:vegan",],
-	ingredients => [
-		{
-			id => "en:lentils",
-			vegan => "yes",
-			vegetarian => "yes"
-		},
-		{
-			id => "en:green-bell-pepper",
-			vegan => "yes",
-			vegetarian => "yes"
-		},
-		{
-			id => "en:honey",
-			vegan => "no",
-			vegetarian => "yes"
-		}
+	categories_tags => [
+		"en:dairies", "en:fermented-foods",
+		"en:fermented-milk-products", "en:cheeses",
+		"en:italien-cheeses", "en:strected-curd-cheeses",
+		"en:frozen-desserts", "en:olive-tree-products",
+		"en:mozzarella"
 	],
+	ingredients => []
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:ingredients-count-lower-than-expected-for-the-category',
+	'0 ingredients provided, at least 3 expecte, but do not raise error', 0
+);
+
+# product quantity warnings and errors
+$product_ref = {product_quantity => "123456789",};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:product-quantity-over-10kg',
+	'raise warning because the product quantity is above 10000g', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:product-quantity-over-30kg',
+	'raise error because the product quantity is above 30000g', 1
+);
+# product quantity warnings and errors
+$product_ref = {product_quantity => "20000",};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:product-quantity-over-10kg',
+	'raise warning because the product quantity is above 10000g', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:product-quantity-over-30kg',
+	'raise error because the product quantity is above 30000g', 0
+);
+$product_ref = {
+	product_quantity => "0.001",
+	quantity => "1 mg",
 };
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:vegan-label-but-non-vegan-ingredient',
-	'raise error only when vegan is no and label is vegan', 1
+	'en:product-quantity-under-1g',
+	'raise warning because the product quantity is under 1g', 1
+);
+check_quality_and_test_product_has_quality_tag($product_ref, 'en:product-quantity-in-mg',
+	'raise warning because the product quantity is in mg', 1);
+
+# Brands - Detected category from brand
+$product_ref = {brands_tags => ["bledina", "camel", "purina", "yves-rocher",],};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:detected-category-from-brand-baby-foods',
+	'Detected category from brand - Baby', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:vegetarian-label-but-non-vegetarian-ingredient',
-	'raise error only when vegetarian is no and label is vegan', 0
+	'en:detected-category-from-brand-cigarettes',
+	'Detected category from brand - Cigarettes', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:vegan-label-but-could-not-confirm-for-all-ingredients',
-	'raise warning because vegan or non-vegan is unknown for an ingredient', 0
+	'en:detected-category-from-brand-pet-foods',
+	'Detected category from brand - Pet Foods', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:vegetarian-label-but-could-not-confirm-for-all-ingredients',
-	'raise warning because vegetarian or non-vegetarian is unknown for an ingredient', 0
+	'en:detected-category-from-brand-beauty',
+	'Detected category from brand - Beauty', 1
 );
+
+# Nutrition errors - sugar + starch > carbohydrates
+## without "<" symbol
+$product_ref = {
+	nutriments => {
+		"carbohydrates_100g" => 1,
+		"sugars_100g" => 2,
+		"starch_100g" => 3,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(has_tag($product_ref, 'data_quality', 'en:nutrition-sugars-plus-starch-greater-than-carbohydrates'),
+	'sum of sugars and starch greater carbohydrates')
+	or diag Dumper $product_ref;
+## with "<" symbol
+$product_ref = {
+	nutriments => {
+		"carbohydrates_100g" => 1,
+		"sugars_100g" => 1,
+		"sugars_modifier" => "<",
+		"starch_100g" => 1,
+		"starch_modifier" => "<",
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag($product_ref, 'data_quality', 'en:nutrition-sugars-plus-starch-greater-than-carbohydrates'),
+	'sum of sugars and starch greater carbohydrates, presence of "<" symbol,  and sugars or starch is smaller than carbohydrates'
+) or diag Dumper $product_ref;
+## sugar or starch is greater than carbohydrates, with "<" symbol
+$product_ref = {
+	nutriments => {
+		"carbohydrates_100g" => 3,
+		"sugars_100g" => 1,
+		"starch_100g" => 5,
+		"starch_modifier" => "<",
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag($product_ref, 'data_quality', 'en:nutrition-sugars-plus-starch-greater-than-carbohydrates'),
+	'sum of sugars and starch greater carbohydrates, presence of "<" symbol, and sugars or starch is greater than carbohydrates'
+) or diag Dumper $product_ref;
+## should not be triggered
+$product_ref = {
+	nutriments => {
+		"carbohydrates_100g" => 3,
+		"sugars_100g" => 2,
+		"starch_100g" => 1,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(!has_tag($product_ref, 'data_quality', 'en:nutrition-sugars-plus-starch-greater-than-carbohydrates'),
+	'sum of sugars and starch greater carbohydrates')
+	or diag Dumper $product_ref;
+
+# unexpected character in ingredients
+$product_ref = {
+	languages_codes => {
+		en => 1
+	},
+	lc => 'en',
+	ingredients_text_en => 'AaaAAa, BbbBBB, $, @, !, ?, Https://,',
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+
+ok(has_tag($product_ref, 'data_quality', 'en:ingredients-en-5-vowels'), '5 vowel in a row')
+	or diag Dumper $product_ref;
+ok(has_tag($product_ref, 'data_quality', 'en:ingredients-en-5-consonants'), '5 consonants in a row')
+	or diag Dumper $product_ref;
+ok(has_tag($product_ref, 'data_quality', 'en:ingredients-en-4-repeated-chars'), '4 repeated characters')
+	or diag Dumper $product_ref;
+ok(has_tag($product_ref, 'data_quality', 'en:ingredients-en-unexpected-chars-currencies'), '$')
+	or diag Dumper $product_ref;
+ok(has_tag($product_ref, 'data_quality', 'en:ingredients-en-unexpected-chars-arobase'), '@')
+	or diag Dumper $product_ref;
+ok(has_tag($product_ref, 'data_quality', 'en:ingredients-en-unexpected-chars-exclamation-mark'), '!')
+	or diag Dumper $product_ref;
+ok(has_tag($product_ref, 'data_quality', 'en:ingredients-en-unexpected-chars-question-mark'), '?')
+	or diag Dumper $product_ref;
+ok(has_tag($product_ref, 'data_quality', 'en:ingredients-en-ending-comma'), ',')
+	or diag Dumper $product_ref;
+ok(has_tag($product_ref, 'data_quality', 'en:ingredients-en-unexpected-url'), 'detected url')
+	or diag Dumper $product_ref;
+
+# jam and related categories and fruit (specific ingredients) content
+## missing specific ingredients
+$product_ref = {
+	categories_tags => ["en:jams"],
+	countries_tags => ["en:slovenia",],
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(has_tag($product_ref, 'data_quality', 'en:missing-specific-ingredient-for-this-category'),
+	'specific ingredients missing')
+	or diag Dumper $product_ref;
+## missing specific ingredients for fruit
+$product_ref = {
+	categories_tags => ["en:jams"],
+	countries_tags => ["en:slovenia",],
+	specific_ingredients => [
+		{
+			id => "en:other",
+			ingredient => "other",
+			quantity => "50 g",
+			quantity_g => 50,
+			text => "other",
+		},
+	]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(has_tag($product_ref, 'data_quality', 'en:missing-specific-ingredient-for-this-category'),
+	'specific ingredients but en:fruit missing')
+	or diag Dumper $product_ref;
+## specific ingredients for fruit ok
+$product_ref = {
+	categories_tags => ["en:jams"],
+	countries_tags => ["en:slovenia",],
+	specific_ingredients => [
+		{
+			id => "en:fruit",
+			ingredient => "fruit",
+			quantity => "50 g",
+			quantity_g => 50,
+			text => "Prepared with 50g of fruit per 100g",
+		},
+	]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(!has_tag($product_ref, 'data_quality', 'en:missing-fruit-content-for-jams-or-jellies'),
+	'specific ingredients with en:fruit ok')
+	or diag Dumper $product_ref;
+ok(
+	!has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-jams'
+	),
+	'en:fruit content ok'
+) or diag Dumper $product_ref;
+## specific ingredients for fruit is given but content is too small
+$product_ref = {
+	categories_tags => ["en:jams"],
+	countries_tags => ["en:slovenia",],
+	specific_ingredients => [
+		{
+			id => "en:fruit",
+			ingredient => "fruit",
+			quantity => "5 g",
+			quantity_g => 5,
+			text => "Prepared with 5g of fruit per 100g",
+		},
+	]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(!has_tag($product_ref, 'data_quality', 'en:missing-fruit-content-for-jams-or-jellies'),
+	'specific ingredients with en:fruit ok')
+	or diag Dumper $product_ref;
+ok(
+	has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-jams'
+	),
+	'en:fruit content too small'
+) or diag Dumper $product_ref;
+## specific ingredients for fruit is given but content is too small with more specific category
+$product_ref = {
+	categories_tags => ["en:jams", "en:redcurrants-jams"],
+	countries_tags => ["en:slovenia",],
+	specific_ingredients => [
+		{
+			id => "en:fruit",
+			ingredient => "fruit",
+			quantity => "10 g",
+			quantity_g => 10,
+			text => "Prepared with 10g of fruit per 100g",
+		},
+	]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-jams'
+	),
+	'en:fruit content too small for jam but has more specific category with smaller threshold'
+) or diag Dumper $product_ref;
+ok(
+	has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-redcurrants-jams'
+	),
+	'en:fruit content too small'
+) or diag Dumper $product_ref;
+## specific ingredients for fruit is given but content is too small for jams but high enough for more specific category
+$product_ref = {
+	categories_tags => ["en:jams", "en:redcurrants-jams"],
+	countries_tags => ["en:slovenia",],
+	specific_ingredients => [
+		{
+			id => "en:fruit",
+			ingredient => "fruit",
+			quantity => "30 g",
+			quantity_g => 30,
+			text => "Prepared with 30g of fruit per 100g",
+		},
+	]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-jams'
+	),
+	'en:fruit content too small for jam but has more specific category with smaller threshold'
+) or diag Dumper $product_ref;
+ok(
+	!has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-redcurrants-jams'
+	),
+	'en:fruit content too small'
+) or diag Dumper $product_ref;
+## extra jams
+$product_ref = {
+	categories_tags => ["en:extra-jams"],
+	countries_tags => ["en:slovenia",],
+	specific_ingredients => [
+		{
+			id => "en:fruit",
+			ingredient => "fruit",
+			quantity => "1 g",
+			quantity_g => 1,
+			text => "Prepared with 1g of fruit per 100g",
+		},
+	]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-45-for-category-extra-jams'
+	),
+	'en:fruit content too small extra jams'
+) or diag Dumper $product_ref;
+## Blackcurrant jams
+$product_ref = {
+	categories_tags => ["en:blackcurrant-jams"],
+	countries_tags => ["en:slovenia",],
+	specific_ingredients => [
+		{
+			id => "en:fruit",
+			ingredient => "fruit",
+			quantity => "2 g",
+			quantity_g => 3,
+			text => "Prepared with 2g of fruit per 100g",
+		},
+	]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-blackcurrant-jams'
+	),
+	'en:fruit content too small blackcurrant jams'
+) or diag Dumper $product_ref;
+## ginger jams
+$product_ref = {
+	categories_tags => ["en:ginger-jams"],
+	countries_tags => ["en:slovenia",],
+	specific_ingredients => [
+		{
+			id => "en:fruit",
+			ingredient => "fruit",
+			quantity => "3 g",
+			quantity_g => 3,
+			text => "Prepared with 3g of fruit per 100g",
+		},
+	]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-15-for-category-ginger-jams'
+	),
+	'en:fruit content too small ginger jams'
+) or diag Dumper $product_ref;
+## quince jams
+$product_ref = {
+	categories_tags => ["en:quince-jams"],
+	countries_tags => ["en:slovenia",],
+	specific_ingredients => [
+		{
+			id => "en:fruit",
+			ingredient => "fruit",
+			quantity => "4 g",
+			quantity_g => 4,
+			text => "Prepared with 4g of fruit per 100g",
+		},
+	]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-quince-jams'
+	),
+	'en:fruit content too small quince jams'
+) or diag Dumper $product_ref;
+## rosehip jams
+$product_ref = {
+	categories_tags => ["en:rosehip-jams"],
+	countries_tags => ["en:slovenia",],
+	specific_ingredients => [
+		{
+			id => "en:fruit",
+			ingredient => "fruit",
+			quantity => "5 g",
+			quantity_g => 5,
+			text => "Prepared with 5g of fruit per 100g",
+		},
+	]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-rosehip-jams'
+	),
+	'en:fruit content too small rosehip jams'
+) or diag Dumper $product_ref;
+## Sea-buckthorn jams
+$product_ref = {
+	categories_tags => ["en:sea-buckthorn-jams"],
+	countries_tags => ["en:slovenia",],
+	specific_ingredients => [
+		{
+			id => "en:fruit",
+			ingredient => "fruit",
+			quantity => "6 g",
+			quantity_g => 6,
+			text => "Prepared with 6g of fruit per 100g",
+		},
+	]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-sea-buckthorn-jams'
+	),
+	'en:fruit content too small sea-buckthorn jams'
+) or diag Dumper $product_ref;
+## marmalades
+$product_ref = {
+	categories_tags => ["en:marmalades"],
+	countries_tags => ["en:slovenia",],
+	specific_ingredients => [
+		{
+			id => "en:fruit",
+			ingredient => "fruit",
+			quantity => "7 g",
+			quantity_g => 7,
+			text => "Prepared with 7g of fruit per 100g",
+		},
+	]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-20-for-category-marmalades'
+	),
+	'en:fruit content too small marmalades jams'
+) or diag Dumper $product_ref;
+## citrus jams
+$product_ref = {
+	categories_tags => ["en:citrus-jams"],
+	countries_tags => ["en:slovenia",],
+	specific_ingredients => [
+		{
+			id => "en:fruit",
+			ingredient => "fruit",
+			quantity => "8 g",
+			quantity_g => 8,
+			text => "Prepared with 8g of fruit per 100g",
+		},
+	]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-20-for-category-citrus-jams'
+	),
+	'en:fruit content too small citrus jams'
+) or diag Dumper $product_ref;
+## blackcurrants jellies
+$product_ref = {
+	categories_tags => ["en:blackcurrants-jellies"],
+	countries_tags => ["en:slovenia",],
+	specific_ingredients => [
+		{
+			id => "en:fruit",
+			ingredient => "fruit",
+			quantity => "9 g",
+			quantity_g => 9,
+			text => "Prepared with 9g of fruit per 100g",
+		},
+	]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-blackcurrants-jellies'
+	),
+	'en:fruit content too small blackcurrants jellies'
+) or diag Dumper $product_ref;
+## passion fruit jellies
+$product_ref = {
+	categories_tags => ["en:passion-fruit-jellies"],
+	countries_tags => ["en:slovenia",],
+	specific_ingredients => [
+		{
+			id => "en:fruit",
+			ingredient => "fruit",
+			quantity => "1 g",
+			quantity_g => 1,
+			text => "Prepared with 1g of fruit per 100g",
+		},
+	]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-6-for-category-passion-fruit-jellies'
+	),
+	'en:fruit content too small passion fruit jellies'
+) or diag Dumper $product_ref;
+## Quince jellies
+$product_ref = {
+	categories_tags => ["en:quince-jellies"],
+	countries_tags => ["en:slovenia",],
+	specific_ingredients => [
+		{
+			id => "en:fruit",
+			ingredient => "fruit",
+			quantity => "10 g",
+			quantity_g => 10,
+			text => "Prepared with 10g of fruit per 100g",
+		},
+	]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-quince-jellies'
+	),
+	'en:fruit content too small quince jellies'
+) or diag Dumper $product_ref;
+## Redcurrants jellies
+$product_ref = {
+	categories_tags => ["en:redcurrants-jellies"],
+	countries_tags => ["en:slovenia",],
+	specific_ingredients => [
+		{
+			id => "en:fruit",
+			ingredient => "fruit",
+			quantity => "11 g",
+			quantity_g => 11,
+			text => "Prepared with 11g of fruit per 100g",
+		},
+	]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-redcurrants-jellies'
+	),
+	'en:fruit content too small redcurrants jellies'
+) or diag Dumper $product_ref;
+## sea-buckthorn jellies
+$product_ref = {
+	categories_tags => ["en:sea-buckthorn-jellies"],
+	countries_tags => ["en:slovenia",],
+	specific_ingredients => [
+		{
+			id => "en:fruit",
+			ingredient => "fruit",
+			quantity => "12 g",
+			quantity_g => 12,
+			text => "Prepared with 12g of fruit per 100g",
+		},
+	]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-sea-buckthorn-jellies'
+	),
+	'en:fruit content too small sea-buckthorn jellies'
+) or diag Dumper $product_ref;
+## chestnut spreads
+$product_ref = {
+	categories_tags => ["en:chestnut-spreads"],
+	countries_tags => ["en:slovenia",],
+	specific_ingredients => [
+		{
+			id => "en:fruit",
+			ingredient => "fruit",
+			quantity => "13 g",
+			quantity_g => 13,
+			text => "Prepared with 13g of fruit per 100g",
+		},
+	]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-38-for-category-chestnut-spreads'
+	),
+	'en:fruit content too small chestnut-spreads'
+) or diag Dumper $product_ref;
+
+# Test case for fiber content
+$product_ref = {
+	nutriments => {
+		fiber_100g => 5,
+		'soluble-fiber_100g' => 3,
+		'insoluble-fiber_100g' => 3,
+	},
+	data_quality_errors_tags => [],
+};
+
+ProductOpener::DataQuality::check_quality($product_ref);
+
+ok(
+	has_tag($product_ref, 'data_quality_errors', 'en:nutrition-soluble-fiber-plus-insoluble-fiber-greater-than-fiber'),
+	'Soluble fiber + Insoluble fiber exceeds total fiber'
+) or diag Dumper $product_ref;
+
+# Test case for fiber content having "<" symbol
+$product_ref = {
+	nutriments => {
+		fiber_100g => 5,
+		'soluble-fiber_100g' => 1,
+		'soluble-fiber_modifier' => '<',
+		'insoluble-fiber_100g' => 5,
+	},
+	data_quality_errors_tags => [],
+};
+
+ProductOpener::DataQuality::check_quality($product_ref);
+
+ok(
+	!has_tag($product_ref, 'data_quality_errors', 'en:nutrition-soluble-fiber-plus-insoluble-fiber-greater-than-fiber'),
+	'Soluble fiber + Insoluble fiber exceeds total fiber but there is < symbol'
+) or diag Dumper $product_ref;
+
+# Test case for fiber content having ">" symbol
+$product_ref = {
+	nutriments => {
+		fiber_100g => 5,
+		'soluble-fiber_100g' => 1,
+		'soluble-fiber_modifier' => '>',
+		'insoluble-fiber_100g' => 5,
+	},
+	data_quality_errors_tags => [],
+};
+
+# Test case for fiber content beside other element having "<"
+$product_ref = {
+	nutriments => {
+		fiber_100g => 5,
+		'soluble-fiber_100g' => 1,
+		'soluble-fiber_modifier' => '<',
+		'insoluble-fiber_100g' => 10,
+	},
+	data_quality_errors_tags => [],
+};
+
+ProductOpener::DataQuality::check_quality($product_ref);
+
+ok(
+	has_tag($product_ref, 'data_quality_errors', 'en:nutrition-soluble-fiber-plus-insoluble-fiber-greater-than-fiber'),
+	'insoluble-fiber_100g larger than fiber_100g'
+) or diag Dumper $product_ref;
+
+# Test case for sum fiber subnutriment comparison with fiber (0.01 difference should be fine)
+$product_ref = {
+	nutriments => {
+		fiber_100g => 3.57,
+		'soluble-fiber_100g' => 1.79,
+		'insoluble-fiber_100g' => 1.79,
+	},
+	data_quality_errors_tags => [],
+};
+
+ProductOpener::DataQuality::check_quality($product_ref);
+
+ok(
+	!has_tag($product_ref, 'data_quality_errors', 'en:nutrition-soluble-fiber-plus-insoluble-fiber-greater-than-fiber'),
+	'insoluble-fiber_100g larger than fiber_100g'
+) or diag Dumper $product_ref;
+
+# Test case for sum fiber subnutriment comparison with fiber (0.02 difference should be raise error)
+$product_ref = {
+	nutriments => {
+		fiber_100g => 3.57,
+		'soluble-fiber_100g' => 1.79,
+		'insoluble-fiber_100g' => 1.80,
+	},
+	data_quality_errors_tags => [],
+};
+
+ProductOpener::DataQuality::check_quality($product_ref);
+
+ok(
+	has_tag($product_ref, 'data_quality_errors', 'en:nutrition-soluble-fiber-plus-insoluble-fiber-greater-than-fiber'),
+	'insoluble-fiber_100g larger than fiber_100g'
+) or diag Dumper $product_ref;
+
 done_testing();

@@ -11,23 +11,35 @@ ARG CPANMOPTS=
 FROM debian:bullseye AS modperl
 
 # Install cpm to install cpanfile dependencies
-RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
+    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
     apt update && \
     apt install -y \
         apache2 \
         apt-utils \
         cpanminus \
+        # being able to build things
         g++ \
         gcc \
         less \
         libapache2-mod-perl2 \
-        # libexpat1-dev \
         make \
         gettext \
         wget \
+        # images processing
         imagemagick \
         graphviz \
         tesseract-ocr \
+        # ftp client
+        lftp \
+        # some compression utils
+        gzip \
+        tar \
+        unzip \
+        zip \
+        pigz \
+        # useful to send mail
+        mailutils \
         # perlmagick \
         #
         # Packages from ./cpanfile:
@@ -69,7 +81,8 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         # NB: not available in ubuntu 1804 LTS:
         libgeoip2-perl \
         libemail-valid-perl
-RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
+    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
     apt install -y \
         #
         # cpan dependencies that can be satisfied by apt even if the package itself can't:
@@ -93,9 +106,6 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         libclass-singleton-perl \
         # DateTime::Locale
         libfile-sharedir-install-perl \
-        # Encode::Punycode
-        libnet-idn-encode-perl \
-        libtest-nowarnings-perl \
         # File::chmod::Recursive
         libfile-chmod-perl \
         # GeoIP2
@@ -104,6 +114,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         libdata-validate-ip-perl \
         libio-compress-perl \
         libjson-maybexs-perl \
+        libcpanel-json-xs-perl \
         liblist-allutils-perl \
         liblist-someutils-perl \
         # GraphViz2
@@ -146,9 +157,38 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         # gnu readline
         libreadline-dev \
         # IO::AIO needed by Perl::LanguageServer
-        libperl-dev
+        libperl-dev \
+        # needed to build Apache2::Connection::XForwardedFor
+        libapache2-mod-perl2-dev \
+        # needed for  Imager::File::WEBP
+        libwebpmux3 \
+        # Imager::zxing - build deps
+        cmake \
+        pkg-config \
+        # Imager::zxing - decoders
+        libavif-dev \
+        libde265-dev \
+        libheif-dev \
+        libjpeg-dev \
+        libpng-dev \
+        libwebp-dev \
+        libx265-dev
 
-# Run www-data user as host user 'off' or developper uid
+# Install zxing-cpp from source until 2.1 or higher is available in Debian: https://github.com/openfoodfacts/openfoodfacts-server/pull/8911/files#r1322987464
+RUN set -x && \
+    cd /tmp && \
+    wget https://github.com/zxing-cpp/zxing-cpp/archive/refs/tags/v2.1.0.tar.gz && \
+    tar xfz v2.1.0.tar.gz && \
+    cmake -S zxing-cpp-2.1.0 -B zxing-cpp.release \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DBUILD_WRITERS=OFF -DBUILD_READERS=ON -DBUILD_EXAMPLES=OFF && \
+    cmake --build zxing-cpp.release -j8 && \
+    cmake --install zxing-cpp.release && \
+    cd / && \
+    rm -rf /tmp/v2.1.0.tar.gz /tmp/zxing-cpp*
+
+# Run www-data user AS host user 'off' or developper uid
 ARG USER_UID
 ARG USER_GID
 RUN usermod --uid $USER_UID www-data && \
@@ -165,8 +205,16 @@ WORKDIR /tmp
 # Install Product Opener from the workdir.
 COPY ./cpanfile* /tmp/
 # Add ProductOpener runtime dependencies from cpan
-RUN --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
-    cpanm $CPANMOPTS --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps .
+# we also add apt cache as some libraries might be installed from apt
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
+    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt \
+    --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
+    set -x && \
+    # first install some dependencies that are not well handled
+    cpanm --notest --quiet --skip-satisfied --local-lib /tmp/local/ "Apache::Bootstrap" && \
+    cpanm $CPANMOPTS --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps . \
+    # in case of errors show build.log, but still, fail
+    || ( for f in /root/.cpanm/work/*/build.log;do echo $f"= start =============";cat $f; echo $f"= end ============="; done; false )
 
 ######################
 # backend production image stage
@@ -189,20 +237,25 @@ RUN \
 RUN \
     mkdir -p var/run/apache2/ && \
     chown www-data:www-data var/run/apache2/ && \
-    for path in data html_data users products product_images orgs new_images logs tmp; do \
+    for path in data html_data users products product_images orgs logs new_images deleted_products_images reverted_products deleted_private_products translate deleted_products deleted.images import_files tmp build-cache/taxonomies debug sftp; do \
         mkdir -p /mnt/podata/${path}; \
     done && \
     chown www-data:www-data -R /mnt/podata && \
     # Create symlinks of data files that are indeed conf data in /mnt/podata (because we currently mix data and conf data)
     # NOTE: do not changes those links for they are in a volume, or handle migration in entry-point
-    for path in data-default external-data emb_codes ingredients madenearme packager-codes po taxonomies templates build-cache; do \
+    for path in data-default external-data emb_codes ingredients madenearme packager-codes po taxonomies templates; do \
         ln -sf /opt/product-opener/${path} /mnt/podata/${path}; \
     done && \
     # Create some necessary files to ensure permissions in volumes
     mkdir -p /opt/product-opener/html/data/ && \
     mkdir -p /opt/product-opener/html/data/taxonomies/ && \
-    mkdir -p /opt/product-opener/html/images/ && \
+    mkdir -p /opt/product-opener/html/images/products && \
     chown www-data:www-data -R /opt/product-opener/html/ && \
+    # inter services directories (until we get a real solution)
+    for service in obf off opf opff; do \
+        mkdir -p /srv/$service; \
+        chown www-data:www-data -R /srv/$service; \
+    done && \
     # logs dir
     mkdir -p /var/log/apache2/ && \
     chown www-data:www-data -R /var/log
@@ -220,4 +273,4 @@ CMD ["apache2ctl", "-D", "FOREGROUND"]
 ######################
 # Prod image is default
 ######################
-FROM runnable as prod
+FROM runnable AS prod

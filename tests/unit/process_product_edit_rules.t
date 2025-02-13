@@ -2,15 +2,14 @@
 
 use ProductOpener::PerlStandards;
 
-use Test::More;
+use Test2::V0;
 use Log::Any::Adapter 'TAP';
-use Test::MockModule;
 
 use ProductOpener::Config qw/@edit_rules/;
 use ProductOpener::Users qw/$User_id/;
 
 use ProductOpener::Test qw/:all/;
-use ProductOpener::TestDefaults qw/:all/;
+use ProductOpener::TestDefaults qw/%default_product %default_product_form/;
 use ProductOpener::Products qw/process_product_edit_rules/;
 
 my %base_product = (%default_product,);
@@ -178,29 +177,39 @@ my @edit_rules_backup = @edit_rules;
 # a global for fake CGI parameters
 my %form = ();
 
-sub fake_single_param ($name) {
-	return scalar $form{$name};
-}
-
 # removed params
 my @removed = ();
 
-sub fake_delete ($name) {
-	push @removed, $name;
-	return;
-}
-
 {
 	# monkey patch single_param
-	my $display_module = Test::MockModule->new('ProductOpener::Display');
-	$display_module->mock('single_param', \&fake_single_param);
+	my $display_module = mock 'ProductOpener::Display' => (
+		override => [
+			single_param => sub ($name) {
+				return scalar $form{$name};
+			}
+		]
+	);
 	# because this is a direct import in Products we have to monkey patch here, there also
-	my $products_module = Test::MockModule->new('ProductOpener::Products');
-	$products_module->mock('single_param', \&fake_single_param);
+	my $products_module = mock 'ProductOpener::Products' => (
+		override => [
+			single_param => sub ($name) {
+				return scalar $form{$name};
+			},
+			Delete => sub ($name) {
+				push @removed, $name;
+				return;
+			}
+		]
+	);
 	# patch CGI Delete
-	my $cgi_module = Test::MockModule->new('CGI');
-	$cgi_module->mock('Delete', \&fake_delete);
-	$products_module->mock('Delete', \&fake_delete);
+	my $cgi_module = mock 'CGI' => (
+		override => [
+			Delete => sub($name) {
+				push @removed, $name;
+				return;
+			}
+		]
+	);
 
 	foreach my $test_ref (@tests) {
 		# use eval to ensure edit_rules changes will be reverted
@@ -215,7 +224,7 @@ sub fake_delete ($name) {
 			@removed = ();
 			my $result = process_product_edit_rules(\%product);
 			is($result, $test_ref->{result}, "Result for $id - $desc");
-			is_deeply(\@removed, $test_ref->{delete_param} // [], "Delete params for $id - $desc");
+			is(\@removed, $test_ref->{delete_param} // [], "Delete params for $id - $desc");
 		};
 		# restore edit_rules
 		@edit_rules = @edit_rules_backup;

@@ -4,11 +4,20 @@ x-stoplight:
 type: object
 description: The title of a panel.
 properties:
+  name:
+    type: string
+    description: A short name of this panel, not including any actual values
   title:
     type: string
+  type:
+    type: string
+    enum:
+      - grade
+      - percentage
+    description: 'Used to indicate how the value of this item is measured, such as "grade" for Nutri-Score and Eco-Score or "percentage" for Salt'
   grade:
     type: string
-    description: Indicates that the panel corresponds to a A to E grade such as the Nutri-Score of the Eco-Score.
+    description: The value for this panel where it corresponds to a A to E grade such as the Nutri-Score of the Eco-Score.
     enum:
       - a
       - b
@@ -16,6 +25,9 @@ properties:
       - d
       - e
       - unknown
+  value:
+    type: number
+    description: 'The numeric value of the panel, where the type is "percentage"'
   icon_url:
     type: string
   icon_color_from_evaluation:
@@ -24,7 +36,3 @@ properties:
     type: string
     description: |
       If set to "small", the icon should be displayed at a small size.
-  type:
-    type: string
-    example: grade
-    description: 'Used to indicate a special type for the title, such as "grade" for Nutri-Score and Eco-Score.'

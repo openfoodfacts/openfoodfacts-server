@@ -24,19 +24,20 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Export qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Products qw/:all/;
+use ProductOpener::Display qw/add_params_to_query/;
+use ProductOpener::Products qw/product_path_from_id/;
 
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Time::Local;
 use Data::Dumper;
 use Getopt::Long;
 use CGI qw(:cgi :cgi-lib);
-use ProductOpener::Data qw/:all/;
+use ProductOpener::Data qw/get_products_collection/;
 
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
@@ -63,6 +64,7 @@ Usage:
 
 export_products_data_and_images.pl --query field_name=field_value --query other_field_name=other_field_value
 [--products-file=path to .tar.gz file] [--images-file=path to .tar.gz file]
+[--jsonl-file=path to jsonl.gz file] [--mongo-file=path to mongodbdump.gz file]
 TXT
 	;
 
@@ -70,6 +72,8 @@ my %query_fields_values = ();
 my $query_codes_from_file;
 my $products_file;
 my $images_file;
+my $jsonl_file;
+my $mongo_file;
 my $sample_mod;
 
 GetOptions(
@@ -77,6 +81,8 @@ GetOptions(
 	"query-codes-from-file=s" => \$query_codes_from_file,
 	"images-file=s" => \$images_file,
 	"products-file=s" => \$products_file,
+	"jsonl-file=s" => \$jsonl_file,
+	"mongo-file=s" => \$mongo_file,
 	"sample-mod=s" => \$sample_mod,
 
 ) or die("Error in command line arguments:\n\n$usage");
@@ -85,6 +91,7 @@ print STDERR "export_products_data_and_images.pl
 - query fields values:
 ";
 
+# build the query
 my $query_ref = {};
 my $request_ref = {};
 
@@ -138,49 +145,71 @@ if (defined $sample_mod) {
 use Data::Dumper;
 print STDERR "MongoDB query:\n" . Dumper($query_ref) . "\n";
 
-# harvest products'code from mongo db
-my $cursor = get_products_collection({timeout => 3 * 60 * 60 * 1000})->query($query_ref)->fields({"code" => 1})
-	->sort({code => 1});
+# sto dupms
+if ($products_file || $images_file) {
+	# harvest products'code from mongo db
+	my $cursor = get_products_collection({timeout => 3 * 60 * 60 * 1000})->query($query_ref)->fields({"code" => 1})
+		->sort({code => 1});
 
-$cursor->immortal(1);
+	$cursor->immortal(1);
 
-# Create a list of directories to be exported
+	# Create a list of directories to be exported
 
-my $files = "";
-my $i = 0;
+	my $files = "";
+	my $i = 0;
 
-while (my $product_ref = $cursor->next) {
-	$files .= product_path_from_id($product_ref->{code}) . "\n";
-	$i++;
-}
-
-print STDERR "$i products to export.\n";
-
-# Save the list of directories to a tmp file so that we can pass it as a parameter to tar
-
-my $tmp_file = "/tmp/export_products_data_and_images." . time() . ".txt";
-
-open(my $out, ">", $tmp_file) or die("Could not open $tmp_file for writing: $!\n");
-print $out $files;
-close($out);
-
-if (defined $products_file) {
-	my $tar_cmd = "cvf";
-	if ($products_file =~ /\.gz$/) {
-		$tar_cmd = "cvfz";
+	while (my $product_ref = $cursor->next) {
+		$files .= product_path_from_id($product_ref->{code}) . "\n";
+		$i++;
 	}
-	print STDERR "Executing tar command: tar $tar_cmd $products_file -C $data_root/products -T $tmp_file\n";
-	system('tar', $tar_cmd, $products_file, "-C", "$data_root/products", "-T", $tmp_file);
-}
 
-if (defined $images_file) {
-	my $tar_cmd = "cvf";
-	# Probably not a good idea to compress images, but allow it anyway
-	if ($images_file =~ /\.gz$/) {
-		$tar_cmd = "cvfz";
+	print STDERR "$i products to export.\n";
+
+	# Save the list of directories to a tmp file so that we can pass it as a parameter to tar
+
+	my $tmp_file = "/tmp/export_products_data_and_images." . time() . ".txt";
+
+	open(my $out, ">", $tmp_file) or die("Could not open $tmp_file for writing: $!\n");
+	print $out $files;
+	close($out);
+
+	if (defined $products_file) {
+		my $tar_cmd = "cvf";
+		if ($products_file =~ /\.gz$/) {
+			$tar_cmd = "cvfz";
+		}
+		print STDERR "Executing tar command: tar $tar_cmd $products_file -C $BASE_DIRS{PRODUCTS} -T $tmp_file\n";
+		system("tar $tar_cmd $products_file -C $BASE_DIRS{PRODUCTS} -T $tmp_file > /dev/null 2>&1");
 	}
-	print STDERR "Executing tar command: tar $tar_cmd $images_file -C $www_root/images/products -T $tmp_file\n";
-	system('tar', $tar_cmd, $images_file, "-C", "$www_root/images/products", "-T", $tmp_file);
+
+	if (defined $images_file) {
+		my $tar_cmd = "cvf";
+		# Probably not a good idea to compress images, but allow it anyway
+		if ($images_file =~ /\.gz$/) {
+			$tar_cmd = "cvfz";
+		}
+		print STDERR "Executing tar command: tar $tar_cmd $images_file -C $BASE_DIRS{PRODUCTS_IMAGES} -T $tmp_file\n";
+		system("tar $tar_cmd $images_file -C $BASE_DIRS{PRODUCTS_IMAGES} -T $tmp_file > /dev/null 2>&1");
+	}
+
+	print STDERR "$i products exported.\n";
 }
 
-print STDERR "$i products exported.\n";
+# mongodb dumps
+if ($jsonl_file || $mongo_file) {
+	my @mongo_args = ("--host", $mongodb_host, "--collection", "products", "--db", $mongodb);
+	my $json = JSON->new->utf8->allow_nonref->canonical;
+	my $query_str = $json->encode($query_ref);
+	push(@mongo_args, "--query", "'$query_str'");
+	if ($jsonl_file) {
+		my $cmd = join(" ", ('mongoexport', @mongo_args, '|', 'gzip', '>', "'$jsonl_file'"));
+		print(STDERR "Executing mongoexport command: $cmd\n");
+		system($cmd);
+	}
+	if ($mongo_file) {
+		my $cmd = join(" ", ('mongodump', @mongo_args, '--gzip', "--archive='$mongo_file'"));
+		print(STDERR "Executing mongodump command: $cmd\n");
+		system($cmd);
+	}
+}
+

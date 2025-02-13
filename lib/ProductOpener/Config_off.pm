@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -18,6 +18,8 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+## no critic (RequireFilenameMatchesPackage);
+
 package ProductOpener::Config;
 
 use utf8;
@@ -27,6 +29,8 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
+		$flavor
+
 		%string_normalization_for_lang
 		%admins
 
@@ -35,6 +39,7 @@ BEGIN {
 		$conf_root
 		$data_root
 		$www_root
+		$sftp_root
 		$geolite2_path
 		$reference_timezone
 		$contact_email
@@ -54,6 +59,8 @@ BEGIN {
 		$events_username
 		$events_password
 
+		$rate_limiter_blocking_enabled
+
 		$facets_kp_url
 		$redis_url
 
@@ -63,15 +70,13 @@ BEGIN {
 
 		$memd_servers
 
-		$google_analytics
+		$analytics
 
 		$thumb_size
 		$crop_size
 		$small_size
 		$display_size
 		$zoom_size
-
-		$page_size
 
 		%options
 		%server_options
@@ -99,6 +104,8 @@ use vars @EXPORT_OK;    # no 'my' keyword for these
 
 use ProductOpener::Config2;
 
+$flavor = 'off';
+
 # define the normalization applied to change a string to a tag id (in particular for taxonomies)
 # tag ids are also used in URLs.
 
@@ -108,6 +115,8 @@ use ProductOpener::Config2;
 # - dangerous if different words (in the same context like ingredients or category names) have the same unaccented form
 # lowercase:
 # - useful when the same word appears in lowercase, with a first capital letter, or in all caps.
+
+# IMPORTANT: if you change it, you need to change $BUILD_TAGS_VERSION in Tags.pm
 
 %string_normalization_for_lang = (
 	# no_language is used for strings that are not in a specific language (e.g. user names)
@@ -168,21 +177,48 @@ use ProductOpener::Config2;
 	},
 );
 
-%admins = map {$_ => 1} qw(
-	alex-off
-	cha-delh
-	charlesnepote
-	gala-nafikova
-	hangy
-	manoncorneille
-	raphael0202
-	sarazine-ouattara
-	stephane
-	tacinte
-	teolemon
+%options = (
+	site_name => "Open Food Facts",
+	product_type => "food",
+	og_image_url => "https://static.openfoodfacts.org/images/logos/off-logo-vertical-white-social-media-preview.png",
+	android_apk_app_link => "https://world.openfoodfacts.org/files/off.apk?utm_source=off&utf_medium=web",
+	android_app_link =>
+		"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=off&utf_medium=web",
+	ios_app_link => "https://apps.apple.com/app/open-food-facts/id588797948?utm_source=off&utf_medium=web",
+	facebook_page_url => "https://www.facebook.com/OpenFoodFacts?utm_source=off&utf_medium=web",
+	facebook_page_url_fr => "https://www.facebook.com/OpenFoodFacts.fr",
+	twitter_account => "OpenFoodFacts",
+	twitter_account_fr => "OpenFoodFactsFr",
+	# favicon HTML and images generated with https://realfavicongenerator.net/ using the SVG icon
+	favicons => <<HTML
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/off/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/off/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/off/favicon-16x16.png">
+<link rel="manifest" href="/images/favicon/off/site.webmanifest">
+<link rel="mask-icon" href="/images/favicon/off/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/images/favicon/off/favicon.ico">
+<meta name="msapplication-TileColor" content="#00aba9">
+<meta name="msapplication-config" content="/images/favicon/off/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+HTML
+	,
 );
 
 $options{export_limit} = 10000;
+
+# Recent changes limits
+$options{default_recent_changes_page_size} = 20;
+$options{max_recent_changes_page_size} = 1000;
+
+# List of products limits
+$options{default_api_products_page_size} = 20;
+$options{default_web_products_page_size} = 50;
+$options{max_products_page_size} = 100;
+$options{max_products_page_size_for_logged_in_users} = 1000;
+
+# List of tags limits
+$options{default_tags_page_size} = 100;
+$options{max_tags_page_size} = 1000;
 
 $options{users_who_can_upload_small_images} = {
 	map {$_ => 1}
@@ -193,8 +229,6 @@ $options{users_who_can_upload_small_images} = {
 		teolemon
 		)
 };
-
-$options{product_type} = "food";
 
 # edit rules
 # see ProductOpener::Products::process_product_edit_rules for documentation
@@ -329,6 +363,46 @@ $options{product_type} = "food";
 			)
 		],
 	},
+	{
+		name => "Vegan App Chakib",
+		conditions => [["user_id", "vegan-app-chakib"],],
+		actions => [["ignore"],],
+		notifications => [
+			qw (
+				slack_channel_edit-alert
+			)
+		],
+	},
+	{
+		name => "Vegetarian App Chakib",
+		conditions => [["user_id", "vegetarian-app-chakib"],],
+		actions => [["ignore"],],
+		notifications => [
+			qw (
+				slack_channel_edit-alert
+			)
+		],
+	},
+	{
+		name => "Allergies App Chakib",
+		conditions => [["user_id", "allergies-app-chakib"],],
+		actions => [["ignore"],],
+		notifications => [
+			qw (
+				slack_channel_edit-alert
+			)
+		],
+	},
+	{
+		name => "Additives App Chakib",
+		conditions => [["user_id", "additives-app-chakib"],],
+		actions => [["ignore"],],
+		notifications => [
+			qw (
+				slack_channel_edit-alert
+			)
+		],
+	},
 
 );
 
@@ -344,6 +418,7 @@ $memd_servers = $ProductOpener::Config2::memd_servers;
 $www_root = $ProductOpener::Config2::www_root;
 $data_root = $ProductOpener::Config2::data_root;
 $conf_root = $ProductOpener::Config2::conf_root;
+$sftp_root = $ProductOpener::Config2::sftp_root;    # might be undef
 
 $geolite2_path = $ProductOpener::Config2::geolite2_path;
 
@@ -373,6 +448,10 @@ $redis_url = $ProductOpener::Config2::redis_url;
 # Facets knowledge panels url
 $facets_kp_url = $ProductOpener::Config2::facets_kp_url;
 
+# If $rate_limiter_blocking_enabled is set to 1, the rate limiter will block requests
+# by returning a 429 error code instead of a 200 code
+$rate_limiter_blocking_enabled = $ProductOpener::Config2::rate_limiter_blocking_enabled;
+
 # server options
 
 %server_options = %ProductOpener::Config2::server_options;
@@ -391,9 +470,7 @@ $small_size = 200;
 $display_size = 400;
 $zoom_size = 800;
 
-$page_size = 24;
-
-$google_analytics = <<HTML
+$analytics = <<HTML
 <!-- Matomo -->
 <script>
   var _paq = window._paq = window._paq || [];
@@ -466,22 +543,6 @@ $options{manifest} = $manifest;
 
 $options{display_random_sample_of_products_after_edits} = 0;    # from MongoDB 3.2 onward
 
-$options{favicons} = <<HTML
-<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
-<link rel="manifest" href="/images/favicon/site.webmanifest">
-<link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
-<link rel="shortcut icon" href="/images/favicon/favicon.ico">
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
-<meta name="theme-color" content="#ffffff">
-
-<meta name="apple-itunes-app" content="app-id=588797948">
-<meta name="flattr:id" content="dw637l">
-HTML
-	;
-
 $options{opensearch_image} = <<XML
 <Image width="16" height="16" type="image/x-icon">https://static.$server_domain/images/favicon/favicon.ico</Image>
 XML
@@ -542,11 +603,11 @@ $options{categories_considered_as_beverages_for_nutriscore_2023} = [
 $options{categories_exempted_from_nutriscore} = [
 	qw(
 		en:alcoholic-beverages
-		en:aromatic-herbs
 		en:baby-foods
 		en:baby-milks
 		en:chewing-gum
 		en:food-additives
+		en:dietary-supplements
 		en:meal-replacements
 		en:salts
 		en:spices
@@ -767,6 +828,7 @@ $options{replace_existing_values_when_importing_those_tags_fields} = {
 	created_t
 	last_modified_t
 	last_modified_by
+	last_updated_t
 	product_name
 	abbreviated_product_name
 	generic_name
@@ -801,8 +863,8 @@ $options{replace_existing_values_when_importing_those_tags_fields} = {
 	food_groups
 	states
 	brand_owner
-	ecoscore_score
-	ecoscore_grade
+	environmental_score_score
+	environmental_score_grade
 	nutrient_levels_tags
 	product_quantity
 	owner
@@ -871,15 +933,15 @@ $options{off_export_fields_groups} = [
 			"nova_groups",
 			"nutriscore_grade",
 			"nutriscore_score",
-			"ecoscore_grade",
-			"ecoscore_score",
-			"ecoscore_data.missing_key_data",
-			"ecoscore_data.agribalyse.code",
-			"ecoscore_data.adjustments.origins_of_ingredients.value",
-			"ecoscore_data.adjustments.packaging.value",
-			"ecoscore_data.adjustments.packaging.non_recyclable_and_non_biodegradable_materials",
-			"ecoscore_data.adjustments.production_system.value",
-			"ecoscore_data.adjustments.threatened_species.value",
+			"environmental_score_grade",
+			"environmental_score_score",
+			"environmental_score_data.missing_key_data",
+			"environmental_score_data.agribalyse.code",
+			"environmental_score_data.adjustments.origins_of_ingredients.value",
+			"environmental_score_data.adjustments.packaging.value",
+			"environmental_score_data.adjustments.packaging.non_recyclable_and_non_biodegradable_materials",
+			"environmental_score_data.adjustments.production_system.value",
+			"environmental_score_data.adjustments.threatened_species.value",
 		]
 	],
 ];
@@ -903,8 +965,34 @@ $options{attribute_groups} = [
 	],
 	["ingredients_analysis", ["vegan", "vegetarian", "palm_oil_free",]],
 	["labels", ["labels_organic", "labels_fair_trade"]],
+	# Note: before 2025, the Environmental-Score was called the Eco-Score,
+	# as the id of the attribute is stored inside clients, we keep the
+	# id "ecoscore" for the attribute.
 	["environment", ["ecoscore", "forest_footprint",]],
 ];
+
+# By default attributes have 4 possible values: not_important, important, very_important, mandatory
+# For some attributes, like allergens or vegan, we can limit to 2 values: not_important, mandatory
+$options{attribute_values_default} = ["not_important", "important", "very_important", "mandatory"];
+
+$options{attribute_values} = {
+	"allergens_no_gluten" => ["not_important", "mandatory"],
+	"allergens_no_milk" => ["not_important", "mandatory"],
+	"allergens_no_eggs" => ["not_important", "mandatory"],
+	"allergens_no_nuts" => ["not_important", "mandatory"],
+	"allergens_no_peanuts" => ["not_important", "mandatory"],
+	"allergens_no_sesame_seeds" => ["not_important", "mandatory"],
+	"allergens_no_soybeans" => ["not_important", "mandatory"],
+	"allergens_no_celery" => ["not_important", "mandatory"],
+	"allergens_no_mustard" => ["not_important", "mandatory"],
+	"allergens_no_lupin" => ["not_important", "mandatory"],
+	"allergens_no_fish" => ["not_important", "mandatory"],
+	"allergens_no_crustaceans" => ["not_important", "mandatory"],
+	"allergens_no_molluscs" => ["not_important", "mandatory"],
+	"allergens_no_sulphur_dioxide_and_sulphites" => ["not_important", "mandatory"],
+	"vegan" => ["not_important", "mandatory"],
+	"vegetarian" => ["not_important", "mandatory"],
+};
 
 # default preferences for attributes
 $options{attribute_default_preferences} = {
@@ -912,6 +1000,10 @@ $options{attribute_default_preferences} = {
 	"nova" => "important",
 	"ecoscore" => "important",
 };
+
+use JSON::MaybeXS;
+$options{attribute_default_preferences_json}
+	= JSON->new->utf8->canonical->encode($options{attribute_default_preferences});
 
 # Used to generate the sample import file for the producers platform
 # possible values: mandatory, recommended, optional.
@@ -987,42 +1079,8 @@ $options{import_export_fields_importance} = {
 	},
 );
 
-# allow moving products to other instances of Product Opener on the same server
-# e.g. OFF -> OBF
-
-$options{current_server} = "off";
-
-$options{other_servers} = {
-	obf => {
-		name => "Open Beauty Facts",
-		data_root => "/srv/obf",
-		www_root => "/srv/obf/html",
-		mongodb => "obf",
-		domain => "openbeautyfacts.org",
-	},
-	off => {
-		name => "Open Food Facts",
-		data_root => "/srv/off",
-		www_root => "/srv/off/html",
-		mongodb => "off",
-		domain => "openfoodfacts.org",
-	},
-	opf => {
-		name => "Open Products Facts",
-		data_root => "/srv/opf",
-		www_root => "/srv/opf/html",
-		mongodb => "opf",
-		domain => "openproductsfacts.org",
-	},
-	opff => {
-		prefix => "opff",
-		name => "Open Pet Food Facts",
-		data_root => "/srv/opff",
-		www_root => "/srv/opff/html",
-		mongodb => "opff",
-		domain => "openpetfoodfacts.org",
-	}
-};
+# Name of the Redis stream to which product updates are published
+$options{redis_stream_name} = "product_updates";
 
 # used to rename texts and to redirect to the new name
 $options{redirect_texts} = {

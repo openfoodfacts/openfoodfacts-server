@@ -15,6 +15,76 @@ msgstr ""
 "X-Crowdin-Language: th\n"
 "X-Crowdin-File-ID: 3123\n"
 
+msgctxt "site_description_off"
+msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
+msgstr "ฐานข้อมูลของสารอาหาร ส่วนประกอบ และข้อมูลอื่นๆ เกี่ยวกับผลิตภัณฑ์อาหารจากทั่วโลก แบบเปิด ฟรี และให้คุณมีส่วนร่วม"
+
+msgctxt "tagline_off"
+msgid "Open Food Facts gathers information and data on food products from around the world."
+msgstr "Open Food Facts รวบรวมข้อมูลและข้อมูลเกี่ยวกับผลิตภัณฑ์อาหารจากทั่วโลก"
+
+msgctxt "footer_tagline_off"
+msgid "A collaborative, free and open database of food products from around the world."
+msgstr "การทำงานร่วมกันของฐานข้อมูลฟรีและเปิดของผลิตภัณฑ์อาหารจากทั่วโลก"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_off"
+msgid "/open-food-facts-mobile-app"
+msgstr ""
+
+msgctxt "site_description_obf"
+msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
+msgstr ""
+
+msgctxt "tagline_obf"
+msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
+msgstr "Open Beauty Facts ได้รวบรวมข่าวสารและข้อมูลเกี่ยวกับผลิตภัณฑ์เครื่องสำอางจากทั่วโลก"
+
+msgctxt "footer_tagline_obf"
+msgid "A collaborative, free and open database of cosmetic products from around the world."
+msgstr ""
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_obf"
+msgid "/open-beauty-facts-mobile-app"
+msgstr ""
+
+msgctxt "footer_and_the_facebook_group_obf"
+msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
+msgstr ""
+
+msgctxt "search_description_opensearch_obf"
+msgid "Open Beauty Facts product search"
+msgstr ""
+
+msgctxt "warning_not_complete_obf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "หน้าของผลิตภัณฑ์นี้ยังไม่สมบูรณ์ คุณสามารถช่วยได้โดยการแก้ไขและเพิ่มข้อมูลจากรูปภาพที่เรามี หรือถ่ายรูปเพิ่มเติมผ่านแอปพลิเคชันบน <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a>หรือ<a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a> ขอบคุณเป็นอย่างยิ่ง!"
+
+msgctxt "brands_example_beauty"
+msgid "Nivea, Nivea Men"
+msgstr ""
+
+msgctxt "categories_example_beauty"
+msgid "Anti-dandruff shampoo, Whitening toothpaste"
+msgstr ""
+
+msgctxt "emb_codes_example_beauty"
+msgid "EMB 53062"
+msgstr ""
+
+msgctxt "generic_name_example_beauty"
+msgid "Anti-dandruff shampoo"
+msgstr ""
+
+msgctxt "product_name_example_beauty"
+msgid "Anti-Perspirant Stress Protect"
+msgstr ""
+
+msgctxt "ingredients_text_example_beauty"
+msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+msgstr ""
+
 msgctxt "1_product"
 msgid "1 product"
 msgstr "1 รายการ"
@@ -33,7 +103,7 @@ msgstr "เพิ่มภาษา"
 
 msgctxt "add_product"
 msgid "Add a product"
-msgstr "เพิ่มสินค้า"
+msgstr "เพิ่มผลิตภัณฑ์ใหม่"
 
 msgctxt "add_user"
 msgid "Register"
@@ -57,15 +127,15 @@ msgstr "คุณสามารถเพิ่มหรือแก้ไขผ
 
 msgctxt "join_us_on_slack"
 msgid "Join us on Slack"
-msgstr ""
+msgstr "เข้าร่วมกับเราที่ Slack"
 
 msgctxt "add_user_join_the_project"
 msgid "%s is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!"
-msgstr ""
+msgstr "คุณสามารถมีส่วนร่วมกับโครงการ %s  ได้อีกมาก เราต้องการทั้งข้อมูลผลิตภัณฑ์ใหม่ ความทุ่มเท และความคิดของคุณในการพัฒนาโครงการ"
 
 msgctxt "add_user_join_us_on_slack"
 msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
-msgstr ""
+msgstr "เราใช้ระบบ Slack เพื่อติดต่อกัน เรายินดีรับฟังความเห็นของคุณ"
 
 msgctxt "add_user_you_can_edit_pro"
 msgid "You can now easily import your product data and photos."
@@ -83,9 +153,21 @@ msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
 msgstr "คำขอเข้าร่วมองค์กรของคุณกำลังรอการอนุมัติจากผู้ดูแลระบบขององค์กร"
 
+msgctxt "admin_status_updated"
+msgid "Admin Status Updated"
+msgstr ""
+
+msgctxt "admin_status"
+msgid "Admin Status"
+msgstr ""
+
+msgctxt "grant_remove_admin_status"
+msgid "Grant/Remove Admin status"
+msgstr ""
+
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
-msgstr "โปรดส่งอีเมลไปที่ <a href=\"mailto:producers@openfoodfacts.org\">Producers@openfoodfacts.org</a> หากคุณมีคำถามใดๆ"
+msgstr "หากคุณมีคำถามเพิ่มเติม อีเมลสอบถามได้ที่ <a href=\"mailto:producers@openfoodfacts.org\">Producers@openfoodfacts.org</a> "
 
 msgctxt "if_you_work_for_a_producer"
 msgid "If you work for a producer or brand and will add or complete data for your own products only, you can get access to our completely free Platform for Producers."
@@ -93,7 +175,7 @@ msgstr "หากคุณทำงานให้กับผู้ผลิต
 
 msgctxt "producers_platform_description_long"
 msgid "The platform for producers allows manufacturers to easily import data and photos for all their products, to mark them as official, and to get free analysis of improvement opportunities for their products."
-msgstr "แพลตฟอร์มสำหรับผู้ผลิตจะช่วยให้ผู้ผลิตนำเข้าข้อมูลและภาพถ่ายสำหรับผลิตภัณฑ์ทั้งหมดของตนได้อย่างง่ายดาย โดยสามารถขึ้นเครื่องหมายเป็นทางการ และรับการวิเคราะห์ด้านโอกาสในการปรับปรุงผลิตภัณฑ์ของตนได้โดยไม่มีค่าใช้จ่าย"
+msgstr "แพลตฟอร์มสำหรับผู้ผลิตจะช่วยให้ผู้ผลิตนำเข้าข้อมูลและภาพถ่ายสำหรับผลิตภัณฑ์ทั้งหมดได้อย่างง่ายดาย โดยสามารถขึ้นเครื่องหมายเป็นทางการ พร้อมรับผลวิเคราะห์ทางคุณภาพต่างๆ เพื่อใช้ในการปรับปรุงผลิตภัณฑ์ได้โดยไม่มีค่าใช้จ่าย"
 
 msgctxt "pro_account"
 msgid "Professional account"
@@ -126,27 +208,27 @@ msgstr ""
 # please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
-msgstr "ขอบคุณที่เป็นส่วนหนึ่งของ<<site_name>>"
+msgstr "ขอบคุณที่มีส่วนร่วมกับ <<site_name>>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr "สารปรุงแต่งอาหารนี้อาจเป็นอันตราย ใช้งานในปริมารจำกัด"
+msgstr "วัตถุเจือปนอาหารนี้อาจเป็นอันตราย ควรใช้งานในปริมารจำกัด"
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-msgstr "สารปรุงแต่งอาหารนี้เป็นอันตราย เลี่ยงการใช้"
+msgstr "วัตถุเจือปนอาหารนี้เป็นอันตราย ควรเลี่ยงการใช้"
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
-msgstr "สารปรุงแต่งอาหารนี้ห้ามใช้ในยุโรป เลี่ยงการใช้"
+msgstr "วัตถุเจือปนอาหารนี้ห้ามใช้ในยุโรป ควรเลี่ยงการใช้"
 
 msgctxt "additives_p"
 msgid "additives"
-msgstr "สารปรุงแต่งอาหาร"
+msgstr "วัตถุเจือปนอาหาร"
 
 msgctxt "additives_s"
 msgid "additive"
-msgstr "สารปรุงแต่งอาหาร"
+msgstr "วัตถุเจือปนอาหาร"
 
 msgctxt "advanced_search"
 msgid "Advanced search"
@@ -158,7 +240,11 @@ msgstr "การค้นหาขั้นสูงและกราฟ"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
-msgstr "การดื่มมากเกินไปเป็นอันตรายต่อสุขภาพ"
+msgstr "การดื่มผลิตภัณฑ์นี้มากเกินไปอาจเป็นอันตรายต่อสุขภาพ"
+
+msgctxt "email_warning"
+msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
+msgstr ""
 
 msgctxt "all_missions"
 msgid "All missions"
@@ -166,7 +252,7 @@ msgstr "ภารกิจทั้งหมด"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
-msgstr "สารหรือผลิตภัณฑ์ที่ก่อให้เกิดอาการแพ้หรือแพ้"
+msgstr "สารก่อภูมิแพ้"
 
 msgctxt "allergens_p"
 msgid "allergens"
@@ -178,7 +264,7 @@ msgstr "สารก่อภูมิแพ้"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
-msgstr "หน้าผลิตภัณฑ์แก้ไขโดย"
+msgstr "หน้าผลิตภัณฑ์นี้แก้ไขโดย"
 
 msgctxt "android_apk_app_icon_url"
 msgid "/images/misc/android-apk.svg"
@@ -188,38 +274,28 @@ msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
 msgstr ""
 
-# DO NOT TRANSLATE
-msgctxt "android_apk_app_link"
-msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr "https://world.openfoodfacts.org/files/off.apk"
-
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/en_get.svg"
-msgstr "/images/misc/playstore/img/th_get.svg"
+msgstr ""
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
 msgstr "ดาวน์โหลดที่ Google Play"
 
-# Change hl=en to your language, and make sure the url works
-msgctxt "android_app_link"
-msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
-msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=th"
-
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr "<p>ผลิตภัณฑ์นี้ยังไม่ได้อยู่ในฐานข้อมูล <<site_name>> คุณช่วยกรุณาถ่ายรูปสินค้า บาร์โค้ด ส่วนผสม และข้อมูลโภชนาการเพื่อเพิ่มลงใน <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>ไหม</p>\n"
-"<p>ขอบคุณล่วงหน้า!</p>\n"
+msgstr "<p>ผลิตภัณฑ์นี้ยังไม่มีในฐานข้อมูล <<site_name>> กรุณาถ่ายรูปสินค้า บาร์โค้ด ส่วนประกอบ และฉลากโภชนาการ  <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a> เพื่อเพิ่มผลิตภัณฑ์ </p> ในระบบ\n"
+"<p>ขอบคุณ</p>\n"
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
-msgstr "การถ่ายภาพ"
+msgstr "ถ่ายภาพ"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
-msgstr "หมายเหตุ: รูปภาพที่คุณส่งจะได้รับการเผยแพร่ภายใต้สัญญาอนุญาต Creative Commons Attribution และ ShareAlike ที่ให้สิทธิ์ใช้งานฟรี"
+msgstr "หมายเหตุ: รูปภาพที่คุณส่งเข้าระบบจะได้รับการเผยแพร่ภายใต้สัญญาอนุญาต Creative Commons Attribution และ ShareAlike ที่ให้สิทธิ์ใช้งานฟรี"
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
@@ -227,11 +303,11 @@ msgstr "คุณสามารถเพิ่มรูปภาพ:"
 
 msgctxt "axis_x"
 msgid "Horizontal axis"
-msgstr "แกนแนวนอน"
+msgstr "แกน X"
 
 msgctxt "axis_y"
 msgid "Vertical axis"
-msgstr "แกนตั้ง"
+msgstr "แกน Y"
 
 msgctxt "barcode"
 msgid "Barcode"
@@ -239,7 +315,7 @@ msgstr "บาร์โค้ด"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
-msgstr "หมายเลขบาร์โค้ด:"
+msgstr "รหัสบาร์โค้ด"
 
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
@@ -263,7 +339,7 @@ msgstr "ยี่ห้อสินค้า"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
-msgstr "ไวไวปรุงสำเร็จ, คาลบี้รสดั้งเดิม, ป็อกกี้รสสตรอเบอรี่"
+msgstr "ไวไว, คาลบี้, ป็อกกี้ (ควรตรวจสอบการสะกดภาษาไทยกับ Google)"
 
 msgctxt "brands_p"
 msgid "brands"
@@ -271,7 +347,7 @@ msgstr "แบรนด์"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
-msgstr "ผลิตภัณฑ์จาก %s แบรนด์"
+msgstr "ผลิตภัณฑ์จาก %s "
 
 msgctxt "brands_s"
 msgid "brand"
@@ -279,19 +355,19 @@ msgstr "ยี่ห้อสินค้า"
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
-msgstr "เพิ่มแบรนด์"
+msgstr "เพิ่มยี่ห้อ"
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
-msgstr "ผลิตภัณฑ์จาก %s แบรนด์"
+msgstr "ไม่ใช่ผลิตภัณฑ์จาก %s"
 
 msgctxt "brand_owner"
 msgid "Brand owner"
-msgstr ""
+msgstr "เจ้าของแบรนด์"
 
 msgctxt "brand_owner_example"
 msgid "The Coca Cola Company"
-msgstr ""
+msgstr "บริษัทโคคาโคล่า"
 
 msgctxt "by"
 msgid "by"
@@ -303,11 +379,11 @@ msgstr "หมวดหมู่"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
-msgstr "ปลาซาร์ดีนในน้ำมันมะกอก, น้ำส้มเข้มข้น"
+msgstr "ปลาซาร์ดีนในน้ำมันมะกอก, น้ำส้มผลิตจากหัวน้ำส้มเข้มข้น"
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
-msgstr "ระบุเฉพาะหมวดหมู่ที่เฉพาะเจาะจงที่สุดเท่านั้น หมวดหมู่ \"ผู้ปกครอง\" จะถูกเพิ่มโดยอัตโนมัติ"
+msgstr "ระบุเฉพาะหมวดหมู่ย่อยที่เฉพาะเจาะจงที่สุดเพียงอย่างเดียว หมวดหมู่ใหญ่อื่นๆ จะถูกเพิ่มโดยอัตโนมัติ"
 
 msgctxt "categories_p"
 msgid "categories"
@@ -315,7 +391,7 @@ msgstr "หมวดหมู่"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
-msgstr "ผลิตภัณฑ์จากหมวด %s"
+msgstr "ผลิตภัณฑ์จากหมวดหมู่ %s"
 
 msgctxt "categories_s"
 msgid "category"
@@ -327,7 +403,7 @@ msgstr "เพิ่ม​หมวดหมู่"
 
 msgctxt "categories_without_products"
 msgid "Products not from the %s category"
-msgstr "ผลิตภัณฑ์จากหมวด %s"
+msgstr "ผลิตภัณฑ์จากหมวดหมู่ %s"
 
 msgctxt "change_fields"
 msgid "Data"
@@ -347,15 +423,15 @@ msgstr "รูปภาพที่อัพโหลด"
 
 msgctxt "checkers_p"
 msgid "checkers"
-msgstr "หมากฮอส"
+msgstr "ผู้ตรวจสอบ"
 
 msgctxt "checkers_s"
 msgid "checker"
-msgstr "ตาหมากรุก"
+msgstr "ผู้ตรวจสอบ"
 
 msgctxt "cities_p"
 msgid "packaging cities"
-msgstr "บรรจุภัณฑ์เมือง"
+msgstr "สถานที่แบ่งบรรจุ"
 
 msgctxt "cities_products"
 msgid "Products packaged in the city of %s"
@@ -363,7 +439,7 @@ msgstr "ผลิตภัณฑ์ที่บรรจุในเมือง
 
 msgctxt "cities_s"
 msgid "packaging city"
-msgstr "บรรจุภัณฑ์เมือง"
+msgstr "สถานที่แบ่งบรรจุ"
 
 msgctxt "cities_without_products"
 msgid "Products not packaged in the city of %s"
@@ -379,31 +455,31 @@ msgstr "รหัส"
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
-msgstr ""
+msgstr "ทำภารกิจเสร็จสิ้น %d :"
 
 msgctxt "connected_with_facebook"
 msgid "You are connected with your Facebook account."
-msgstr "ขณะนี้คุณกำลังเชื่อมต่อกับบัญชี Facebook ของคุณ"
+msgstr "คุณกำลังเชื่อมต่อกับบัญชี Facebook ของคุณ"
 
 msgctxt "contributor_since"
 msgid "Contributor since"
-msgstr ""
+msgstr "คุณเข้าร่วมตั้งแต่"
 
 msgctxt "copy_data"
 msgid "Copy data from current product to new product"
-msgstr ""
+msgstr "คัดลอกข้อมูลจากผลิตภัณฑ์ปัจจุบันไปยังผลิตภัณฑ์ใหม่"
 
 msgctxt "correct_the_following_errors"
 msgid "Please correct the following errors:"
-msgstr "กรุณาแก้ไขข้อผิดพลาดดังต่อไปนี้"
+msgstr "กรุณาแก้ไขข้อผิดพลาดดังนี้"
 
 msgctxt "correctors_p"
 msgid "correctors"
-msgstr ""
+msgstr "ผู้ตรวจแก้"
 
 msgctxt "correctors_s"
 msgid "corrector"
-msgstr ""
+msgstr "ผู้ตรวจแก้"
 
 msgctxt "countries"
 msgid "Countries where sold"
@@ -411,7 +487,7 @@ msgstr "ประเทศที่ขาย"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (not including stores specialising in foreign products)"
-msgstr ""
+msgstr "ประเทศที่มีผลิตภัณฑ์นี้จำหน่ายอย่างแพร่หลาย (ไม่รวมร้านค้าที่จำหน่ายสินค้าจากต่างประเทศ)"
 
 msgctxt "countries_p"
 msgid "countries"
@@ -431,27 +507,27 @@ msgstr "ผลิตภัณฑ์ที่ไม่ได้ขายใน %s
 
 msgctxt "data_source"
 msgid "Data source"
-msgstr "แหล่งที่มาข้อมูล"
+msgstr "แหล่งที่มาของข้อมูล"
 
 msgctxt "data_sources_p"
 msgid "data sources"
-msgstr "แหล่งที่มาข้อมูล"
+msgstr "แหล่งที่มาของข้อมูล"
 
 msgctxt "data_sources_s"
 msgid "data source"
-msgstr "แหล่งที่มาข้อมูล"
+msgstr "แหล่งที่มาของข้อมูล"
 
 msgctxt "debug_p"
 msgid "debug"
-msgstr ""
+msgstr "ดีบั๊ก"
 
 msgctxt "debug_s"
 msgid "debug"
-msgstr ""
+msgstr "ดีบั๊ก"
 
 msgctxt "delete_comment"
 msgid "Reason for removal"
-msgstr ""
+msgstr "เหตุผลในการลบ"
 
 msgctxt "delete_product"
 msgid "Delete a product"
@@ -467,11 +543,11 @@ msgstr "ลบรูปภาพ"
 
 msgctxt "delete_user"
 msgid "Delete a user"
-msgstr ""
+msgstr "ลบผู้ใช้งาน"
 
 msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
-msgstr ""
+msgstr "การดำเนินการนี้จะลบรายละเอียดผู้ใช้ของคุณและ ผลิตภัณฑ์ที่คุณเพิ่มไว้จะกลายเป็นไม่ระบุชื่อแทน กรุณากรอกชื่อผู้ใช้ของคุณอีกครั้งเพื่อยืนยันการลบบัญชีผู้ใช้"
 
 msgctxt "danger_zone"
 msgid "Danger Zone"
@@ -491,7 +567,7 @@ msgstr ""
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
-msgstr ""
+msgstr "บริจาคให้กับ Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
@@ -511,7 +587,7 @@ msgstr ""
 
 msgctxt "edit_comment"
 msgid "Changes summary"
-msgstr ""
+msgstr "บันทึกสาเหตุการแก้ไขข้อมูล"
 
 msgctxt "edit_product"
 msgid "Edit a product"
@@ -519,7 +595,7 @@ msgstr "แก้ไขสินค้า"
 
 msgctxt "edit_product_page"
 msgid "Edit the page"
-msgstr "แก้ไขหน้า"
+msgstr "แก้ไขข้อมูลผลิตภัณฑ์"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
@@ -527,7 +603,7 @@ msgstr ""
 
 msgctxt "edit_profile_confirm"
 msgid "Changes to your public profile have been saved."
-msgstr ""
+msgstr "บันทึกการเปลี่ยนแปลงโปรไฟล์สาธารณะของคุณแล้ว"
 
 msgctxt "edit_profile_msg"
 msgid "Information below is visible in your public profile."
@@ -555,19 +631,19 @@ msgstr ""
 
 msgctxt "editors_p"
 msgid "editors"
-msgstr ""
+msgstr "ผู้แก้ไข"
 
 msgctxt "editors_s"
 msgid "editor"
-msgstr ""
+msgstr "ผู้แก้ไข"
 
 msgctxt "email"
 msgid "E-mail address"
-msgstr ""
+msgstr "อีเมล"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with traceability code %s"
-msgstr ""
+msgstr "ผลิตภัณฑ์ที่บรรจุโดยบริษัทโดยมีรหัสตรวจสอบย้อนกลับ %s"
 
 msgctxt "emb_code_p"
 msgid "Traceability codes"
@@ -575,19 +651,19 @@ msgstr ""
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
-msgstr ""
+msgstr "รหัสการตรวจสอบย้อนกลับ"
 
 msgctxt "emb_codes"
 msgid "Traceability code"
-msgstr ""
+msgstr "รหัสการตรวจสอบย้อนกลับ"
 
 msgctxt "emb_codes_p"
 msgid "traceability codes"
-msgstr ""
+msgstr "รหัสการตรวจสอบย้อนกลับ"
 
 msgctxt "emb_codes_products"
 msgid "Products with the traceability code %s"
-msgstr ""
+msgstr "ผลิตภัณฑ์ที่มีรหัสตรวจสอบย้อนกลับ %s"
 
 msgctxt "emb_codes_s"
 msgid "traceability code"
@@ -595,7 +671,7 @@ msgstr ""
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the traceability code %s"
-msgstr ""
+msgstr "ผลิตภัณฑ์ที่ไม่มีรหัสตรวจสอบย้อนกลับ %s"
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
@@ -608,11 +684,11 @@ msgstr ""
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
-msgstr ""
+msgstr "วันที่เพิ่มผลิตภัณฑ์"
 
 msgctxt "entry_dates_s"
 msgid "Entry date"
-msgstr ""
+msgstr "วันที่เพิ่มผลิตภัณฑ์"
 
 msgctxt "error"
 msgid "Error"
@@ -620,11 +696,11 @@ msgstr ""
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
-msgstr "ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง. <a href=\"/cgi/reset_password.pl\">ลืมรหัสผ่าน?</a>"
+msgstr "ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง. <a href=\"/cgi/reset_password.pl\"> คลิกที่นี่ถ้าลืมรหัสผ่าน</a>"
 
 msgctxt "error_database"
 msgid "An error occurred while reading the data, try to refresh the page."
-msgstr ""
+msgstr "เกิดข้อผิดพลาดขณะอ่านข้อมูล โปรดลองรีเฟรชหน้าเว็บ"
 
 msgctxt "error_different_passwords"
 msgid "The password and confirmation password are different."
@@ -632,7 +708,7 @@ msgstr "รหัสผ่านไม่ตรงกัน"
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr "ที่อยู่อีเมลนี้ถูกใช้โดยผู้ใช้รายอื่นแล้ว คุณอาจมีบัญชีอยู่แล้วหรือไม่? คุณสามารถ <a href=\"/cgi/reset_password.pl\">รีเซ็ตรหัสผ่าน</a> ของบัญชีอื่นของคุณได้"
+msgstr "เนื่องจากมีอีเมลนี้อยู่ในระบบ คุณอาจมีบัญชีอยู่แล้ว คุณสามารถลอง <a href=\"/cgi/reset_password.pl\">รีเซ็ตรหัสผ่าน</a> เพื่อใช้บัญชีที่ลงทะเบียนไว้แล้วได้"
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
@@ -640,7 +716,7 @@ msgstr ""
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
-msgstr ""
+msgstr "อีเมลไม่ถูกต้อง"
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be at least 6 characters long."
@@ -648,27 +724,27 @@ msgstr "รหัสผ่านของคุณ จะต้องมีค�
 
 msgctxt "error_invalid_user"
 msgid "Invalid user."
-msgstr "ผู้ใช้งานไม่ถูกต้อง"
+msgstr "ชื่อผู้ใช้งานไม่ถูกต้อง"
 
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
-msgstr ""
+msgstr "ชื่อผู้ใช้งาน จะต้องมีเฉพาะ ตัวอักษร ตัวเลข และขีดกลางเท่านั้น"
 
 msgctxt "error_username_too_long"
-msgid "The user name is too long (maximum 20 characters)."
-msgstr "ชื่อผู้ใช้ยาวเกินไป (สูงสุดได้ถึง 20 อักขระ)"
+msgid "The user name is too long (maximum 40 characters)."
+msgstr "ชื่อผู้ใช้งาน ยาวเกินไป (สูงสุดได้ถึง 60 ตัวอักษร)"
 
 msgctxt "error_name_too_long"
 msgid "The name is too long (maximum 60 characters)."
-msgstr "ชื่อยาวเกินไป (สูงสุดได้ถึง 60 อักขระ)"
+msgstr "ชื่อของคุณยาวเกินไป (สูงสุดได้ถึง 60 ตัวอักษร)"
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
-msgstr ""
+msgstr "รหัสบาร์โค้ดนี้มีผลิตภัณฑ์อยู่แล้ว"
 
 msgctxt "error_no_name"
 msgid "You need to enter a name or nickname."
-msgstr "คุณต้องป้อนชื่อหรือชื่อเล่น"
+msgstr "กรุณาใส่ ชื่อ หรือ ชื่อเล่น"
 
 msgctxt "error_no_permission"
 msgid "Permission denied."
@@ -676,11 +752,11 @@ msgstr "สิทธิ์ในการเข้าถึงถูกปฏิ
 
 msgctxt "error_no_username"
 msgid "You need to enter a user name"
-msgstr ""
+msgstr "กรุณาใส่ ชื่อผู้ใช้งาน"
 
 msgctxt "error_reset_already_connected"
 msgid "You are already signed in."
-msgstr ""
+msgstr "คุณเข้าสู่ระบบแล้ว"
 
 msgctxt "error_reset_invalid_token"
 msgid "The reset password link is invalid or has expired."
@@ -712,23 +788,19 @@ msgstr "ที่ดีที่สุดก่อนวันที่"
 
 msgctxt "expiration_date_note"
 msgid "The expiration date is a way to track product changes over time and to identify the most recent version."
-msgstr ""
+msgstr "วันหมดอายุสามารถใช้ในการตรวจสอบการเปลี่ยนแปลงข้อมูลผลิตภัณฑ์ และใช้ตรวจสอบเวอร์ชั่นล่าสุดได้"
 
 msgctxt "explore_products_by"
 msgid "Explore products by..."
-msgstr ""
+msgstr "แสดงเฉพาะผลิตภัณฑ์ตามเงื่อนไข โดย..."
 
 msgctxt "facebook_locale"
 msgid "en_US"
 msgstr ""
 
-msgctxt "facebook_page"
-msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr ""
-
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
-msgstr "หากข้อมูลที่ไม่สมบูรณ์หรือไม่ถูกต้องคุณสามารถดำเนินการหรือแก้ไขได้โดยการแก้ไขหน้านี้"
+msgstr "หากพบว่าข้อมูล ไม่สมบูรณ์ หรือ ไม่ถูกต้อง คุณสามารถแก้ไขได้โดยการ แก้ไขข้อมูลผลิตภัณฑ์"
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
@@ -750,7 +822,7 @@ msgstr ""
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
-msgstr ""
+msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
@@ -803,12 +875,21 @@ msgstr "ร่วมกับเราใน %s:"
 
 msgctxt "footer_legal"
 msgid "Legal"
-msgstr "กฎหมายระบุว่า"
+msgstr "กฎหมายที่เกี่ยวข้อง"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_legal_link"
 msgid "/legal"
-msgstr "/legal"
+msgstr "/กฎหมายที่เกี่ยวข้อง"
+
+msgctxt "footer_privacy"
+msgid "Privacy"
+msgstr "นโยบายความเป็นส่วนตัว"
+
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
+msgctxt "footer_privacy_link"
+msgid "/privacy"
+msgstr "นโยบายความเป็นส่วนตัว"
 
 msgctxt "footer_press"
 msgid "Press"
@@ -817,11 +898,7 @@ msgstr "กด"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_press_link"
 msgid "/press"
-msgstr "/press"
-
-msgctxt "footer_tagline"
-msgid "A collaborative, free and open database of food products from around the world."
-msgstr "การทำงานร่วมกันของฐานข้อมูลฟรีและเปิดของผลิตภัณฑ์อาหารจากทั่วโลก"
+msgstr "/สื่อประชาสัมพันธ์"
 
 msgctxt "footer_terms"
 msgid "Terms of use"
@@ -830,7 +907,7 @@ msgstr "ข้อกำหนดการใช้งาน"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
-msgstr ""
+msgstr "/ข้อกำหนดการใช้งาน"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
@@ -859,6 +936,10 @@ msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
 msgstr ""
 
+msgctxt "footer_pro"
+msgid "Open Food Facts for Producers"
+msgstr ""
+
 msgctxt "for"
 msgid "for"
 msgstr ""
@@ -873,7 +954,7 @@ msgstr "ชื่อสามัญ"
 
 msgctxt "generic_name_example"
 msgid "Chocolate bar with milk and hazelnuts"
-msgstr ""
+msgstr "บะหมี่กึ่งสำเร็จรูปรสหมูสับต้มยำ"
 
 msgctxt "goodbye"
 msgid "See you soon!"
@@ -881,15 +962,15 @@ msgstr "เห็นคุณเร็ว ๆ นี้!"
 
 msgctxt "graph_count"
 msgid "%d products match the search criteria, of which %i products have defined values for the graph's axis."
-msgstr ""
+msgstr "%d ผลิตภัณฑ์ที่ตรงกับเกณฑ์การค้นหา ซึ่งผลิตภัณฑ์ %i ได้กำหนดค่าสำหรับแกนของกราฟ"
 
 msgctxt "graph_title"
 msgid "Graph title"
-msgstr ""
+msgstr "ระบุชื่อกราฟ"
 
 msgctxt "graphs_and_maps"
 msgid "Graphs and maps"
-msgstr ""
+msgstr "กราฟและแผนที่"
 
 msgctxt "hello"
 msgid "Hello"
@@ -897,31 +978,31 @@ msgstr "สวัสดี"
 
 msgctxt "high"
 msgid "high"
-msgstr ""
+msgstr "มาก"
 
 msgctxt "high_quantity"
 msgid "high quantity"
-msgstr "ปริมาณสูง"
+msgstr "มีปริมาณมาก"
 
 msgctxt "history"
 msgid "Changes history"
-msgstr ""
+msgstr "ประวัติการแก้ไขข้อมูล"
 
 msgctxt "image_front"
 msgid "Front picture"
-msgstr ""
+msgstr "ภาพถ่ายด้านหน้าของผลิตภัณฑ์"
 
 msgctxt "image_ingredients"
 msgid "Ingredients picture"
-msgstr "รูปภาพของรายชื่อของส่วนผสม"
+msgstr "ภาพถ่ายส่วนประกอบของผลิตภัณฑ์"
 
 msgctxt "image_ingredients_note"
 msgid "If the picture is neat enough, the ingredients can be extracted automatically"
-msgstr ""
+msgstr "ระบบสามารถอ่าน ส่วนประกอบอาหาร ได้โดยอัตโนมัติ เมื่อภาพถ่ายส่วนประกอบอาหารมีความชัดเจนเพียงพอ"
 
 msgctxt "image_nutrition"
 msgid "Nutrition facts picture"
-msgstr ""
+msgstr "รูปภาพฉลากโภชนาการ"
 
 msgctxt "image_upload_error_image_already_exists"
 msgid "This picture has already been sent."
@@ -929,40 +1010,41 @@ msgstr "ภาพนี้ได้ถูกส่งไป"
 
 msgctxt "image_upload_error_image_too_small"
 msgid "The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself."
-msgstr ""
+msgstr "รูปภาพมีขนาดเล็กเกินไป กรุณาอย่าอัปโหลดรูปภาพที่พบบนอินเทอร์เน็ต และใช้เฉพาะรูปภาพที่คุณถ่ายเองเท่านั้น"
 
 msgctxt "image_upload_error_no_barcode_found_in_image_long"
 msgid "The barcode in the image could not be read, or the image contained no barcode.\n"
 "You can try with another image, or directly enter the barcode."
-msgstr ""
+msgstr "ไม่สามารถอ่านบาร์โค้ดในภาพได้ หรือรูปภาพไม่มีบาร์โค้ด\n"
+"คุณสามารถลองใช้รูปภาพอื่นหรือป้อนบาร์โค้ดโดยตรง"
 
 msgctxt "image_upload_error_no_barcode_found_in_image_short"
 msgid "No barcode found in the image."
-msgstr ""
+msgstr "ไม่พบบาร์โค้ดในภาพ"
 
 msgctxt "image_upload_error_no_barcode_specified_or_found"
 msgid "No barcode specified or found in the image or filename."
-msgstr ""
+msgstr "ระบบไม่พบรหัสบาร์โค้ดในภาพ"
 
 msgctxt "image_upload_error_could_not_read_image"
 msgid "The image could not be read."
-msgstr ""
+msgstr "ไม่สามารถอ่านไฟล์รูปภาพได้"
 
 msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
-msgstr ""
+msgstr "กรุณากรอกเลขบาร์โค้ด หรือ ส่งรูปภาพบาร์โค้ด ของผลิตภัณฑ์"
 
 msgctxt "image_full_size"
 msgid "Full size"
-msgstr ""
+msgstr "ภาพขนาดเต็ม"
 
 msgctxt "image_attribution_creativecommons"
 msgid "This file was uploaded to product %s and is licensed under the %s license."
-msgstr ""
+msgstr "ไฟล์นี้ถูกอัปโหลดไปยังหน้าผลิตภัณฑ์ %s และได้รับอนุญาตภายใต้ใบอนุญาต %s โดยปริยาย"
 
 msgctxt "image_attribution_photographer"
 msgid "Attribution: Photo by %s per %s"
-msgstr ""
+msgstr "แสดงที่มา: รูปถ่ายโดย %s ต่อ %s"
 
 msgctxt "image_attribution_photographer_editor"
 msgid "Attribution: Photo by %s with additional modifications by %s per %s"
@@ -970,15 +1052,15 @@ msgstr ""
 
 msgctxt "image_original_link_text"
 msgid "(Original Image)"
-msgstr ""
+msgstr "(ภาพต้นฉบับ)"
 
 msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
-msgstr ""
+msgstr "รายละเอียดภาพถ่ายและข้อมูลการระบุแหล่งที่มา"
 
 msgctxt "invite_user"
 msgid "Invite Users"
-msgstr ""
+msgstr "เชิญเพื่อนเข้าร่วมทีม"
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
@@ -998,15 +1080,15 @@ msgstr "ส่วนผสม"
 
 msgctxt "no_ingredient"
 msgid "Ingredients are missing"
-msgstr ""
+msgstr "ส่วนประกอบอาหารไม่ครบถ้วน"
 
 msgctxt "one_ingredient"
 msgid "1 ingredient"
-msgstr ""
+msgstr "มีส่วนประกอบ 1 อย่าง"
 
 msgctxt "f_ingredients_with_number"
 msgid "{number} ingredients"
-msgstr ""
+msgstr "มีส่วนประกอบ {number} อย่าง"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
@@ -1014,39 +1096,39 @@ msgstr "ส่วนผสม"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
-msgstr ""
+msgstr "หมายเหตุ: การระบุส่วนประกอบอาหารนั้นสามารถทำได้หลายแบบ เมื่อพบว่าข้อมูลไม่ถูกต้อง กรุณาแจ้งให้เราทราบ"
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_p"
 msgid "ingredients from or that may be from palm oil"
-msgstr ""
+msgstr "มีส่วนประกอบที่มาจากผลผลิตจากปาล์ม"
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_s"
 msgid "ingredient from or that may be from palm oil"
-msgstr ""
+msgstr "มีส่วนประกอบที่มาจากผลผลิตจากปาล์ม"
 
 msgctxt "ingredients_from_palm_oil_p"
 msgid "ingredients from palm oil"
-msgstr ""
+msgstr "มีน้ำมันปาล์มเป็นส่วนประกอบ"
 
 msgctxt "ingredients_from_palm_oil_s"
 msgid "ingredient from palm oil"
-msgstr ""
+msgstr "มีน้ำมันปาล์มเป็นส่วนประกอบ"
 
 msgctxt "ingredients_n_p"
 msgid "Numbers of ingredients"
-msgstr ""
+msgstr "จำนวนส่วนประกอบอาหาร"
 
 msgctxt "ingredients_n_s"
 msgid "Number of ingredients"
-msgstr ""
+msgstr "จำนวนส่วนประกอบอาหาร"
 
 msgctxt "known_ingredients_n_s"
 msgid "Number of recognized ingredients"
-msgstr ""
+msgstr "จำนวนส่วนประกอบอาหารที่ระบบรู้จัก"
 
 msgctxt "unknown_ingredients_n_s"
 msgid "Number of unrecognized ingredients"
-msgstr ""
+msgstr "จำนวนส่วนประกอบอาหารที่ระบบไม่รู้จัก"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -1054,39 +1136,42 @@ msgstr "ส่วนผสม"
 
 msgctxt "ingredients_products"
 msgid "Products that contain the ingredient %s"
-msgstr ""
+msgstr "ผลิตภัณฑ์ที่มีส่วนประกอบของ %s"
 
 msgctxt "ingredients_s"
 msgid "ingredient"
-msgstr ""
+msgstr "ส่วนประกอบ"
 
 msgctxt "ingredients_text"
 msgid "Ingredients list"
-msgstr "ส่วนผสมรายการ"
+msgstr "ส่วนประกอบอาหาร"
 
 msgctxt "ingredients_text_display_note"
 msgid "Ingredients are listed in order of importance (quantity)."
-msgstr "ส่วนผสมมีการระบุไว้ในลำดับความสำคัญ (ปริมาณ)"
+msgstr "ส่วนประกอบอาหารเรียงลำดับตามปริมาณ"
 
 msgctxt "ingredients_text_example"
 msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, cocoa 4,8%, ascorbic acid"
-msgstr ""
+msgstr "ธัญพืช 85.5% (แป้ง _ข้าวสาลี_, แป้ง_ข้าวสาลี_ทั้งหมด 11%), สารสกัดมอลต์, โกโก้ 4.8%, กรดแอสคอร์บิก"
 
 msgctxt "ingredients_text_note"
 msgid "Keep the order, indicate the % when specified, separate with a comma or - , use ( ) for ingredients of an ingredient, surround allergens with _ e.g. _milk_"
-msgstr ""
+msgstr "1). เรียงส่วนประกอบอาหารตามลำดับเดิมบนฉลากผลิตภัณฑ์\n"
+"2). ใส่ % เมื่อมีการระบุในฉลาก\n"
+"3). ใส่ คอมมา (,) คั่นส่วนประกอบอาหารแต่ละชนิด และใช้ ( ) ในกรณีที่ ส่วนประกอบที่เป็นส่วนผสมหลายอย่าง เช่น \"น้ำจับเลี้ยง (เฉาก๊วย, เก๊กฮวย, หล่อฮังก๊วย) 55%\"\n"
+"4). ใส่ _ ไว้ทั้งข้างหน้า และหลังส่วนประกอบที่เป็น สารก่อภูมิแพ้ เช่น _นม_"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_p"
 msgid "ingredients that may be from palm oil"
-msgstr ""
+msgstr "อาจมีส่วนผสมที่มาจากน้ำมันปาล์ม"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_s"
 msgid "ingredient that may be from palm oil"
-msgstr ""
+msgstr "อาจมีส่วนผสมที่มาจากน้ำมันปาล์ม"
 
 msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
-msgstr ""
+msgstr "ผลิตภัณฑ์นี้ไม่มีส่วนประกอบของ %s"
 
 # Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
 msgctxt "ios_app_icon_url"
@@ -1096,10 +1181,6 @@ msgstr "/images/misc/appstore/black/appstore_TH.svg"
 msgctxt "ios_app_icon_alt_text"
 msgid "Download on the App Store"
 msgstr "ดาวน์โหลดที่ Google Play"
-
-msgctxt "ios_app_link"
-msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr ""
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -1111,7 +1192,7 @@ msgstr ""
 
 msgctxt "labels"
 msgid "Labels, certifications, awards"
-msgstr "ฉลากต่างๆ การรับรอง และรางวัล"
+msgstr "ตราสัญญลักษณ์ต่างๆ (เช่น ฮาลาล, อย, ทางเลือกสุขภาพ ฯลฯ)"
 
 msgctxt "labels_example"
 msgid "Organic"
@@ -1119,15 +1200,15 @@ msgstr ""
 
 msgctxt "labels_note"
 msgid "Indicate only the most specific labels. \"Parents\" labels will be added automatically."
-msgstr ""
+msgstr "ระบุตราสัญญลักษณ์ที่แสดงอยู่บนฉลากผลิตภัณฑ์เท่านั้น"
 
 msgctxt "labels_p"
 msgid "labels"
-msgstr ""
+msgstr "ฉลาก"
 
 msgctxt "labels_products"
 msgid "Products that have the label %s"
-msgstr ""
+msgstr "สินค้าที่มีฉลาก %s"
 
 msgctxt "labels_s"
 msgid "label"
@@ -1135,15 +1216,15 @@ msgstr ""
 
 msgctxt "labels_tagsinput"
 msgid "add a label"
-msgstr ""
+msgstr "เพิ่มข้อมูลฉลาก"
 
 msgctxt "labels_without_products"
 msgid "Products that do not have the label %s"
-msgstr ""
+msgstr "ผลิตภัณฑ์ที่ไม่มีฉลาก %s"
 
 msgctxt "lang"
 msgid "Main language"
-msgstr ""
+msgstr "ภาษาหลักบนฉลากของผลิตภัณฑ์"
 
 msgctxt "lang_note"
 msgid "Language most present and most highlighted on the product"
@@ -1155,7 +1236,7 @@ msgstr ""
 
 msgctxt "languages_p"
 msgid "languages"
-msgstr ""
+msgstr "ภาษา"
 
 msgctxt "languages_s"
 msgid "language"
@@ -1163,29 +1244,29 @@ msgstr "ภาษา"
 
 msgctxt "last_edit_dates_p"
 msgid "Last edit dates"
-msgstr ""
+msgstr "วันที่แก้ไขล่าสุด"
 
 msgctxt "last_edit_dates_s"
 msgid "Last edit date"
-msgstr ""
+msgstr "วันที่แก้ไขล่าสุด"
 
 msgctxt "last_image_dates_p"
 msgid "Last picture dates"
-msgstr ""
+msgstr "วันที่ถ่ายรูปล่าสุด"
 
 msgctxt "last_image_dates_s"
 msgid "Last picture date"
-msgstr ""
+msgstr "วันที่ถ่ายรูปล่าสุด"
 
 msgctxt "licence_accept"
 msgid "By adding information, data and/or images, you accept to place irrevocably your contribution under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> licence\n"
 "for information and data, and under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> licence for images.\n"
 "You accept to be credited by re-users by a link to the product your are contributing to."
-msgstr ""
+msgstr "เมื่อคุณเพิ่มหรือแก้ไขข้อมูลเข้าในระบบ แปลว่าคุณยอมรับเงื่อนไขของสัญญาอนุญาตแบบ <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> สำหรับข้อมูลที่เป็นตัวอักษรและตัวเลข และ <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> สำหรับรูปภาพของคุณ โดยปริยาย และคุณยอมรับที่จะได้เครดิต เพียงผู้ใช้ใส่ลิงก์มาที่หน้าผลิตภัณฑ์ที่คุณกำลังแก้ไขนี้เท่านั้น"
 
 msgctxt "link"
 msgid "Link to the product page on the official site of the producer"
-msgstr "เชื่อมโยงไปยังหน้าสินค้าบนเว็บไซต์อย่างเป็นทางการของผู้ผลิต"
+msgstr "ลิงค์ไปยังหน้าผลิตภัณฑ์บนเว็บไซต์อย่างเป็นทางการของผู้ผลิต"
 
 msgctxt "list_of_x"
 msgid "List of %s"
@@ -1193,11 +1274,11 @@ msgstr "รายการ %s"
 
 msgctxt "loadmore"
 msgid "Load more results"
-msgstr ""
+msgstr "โหลดผลลัพธ์เพิ่มเติม"
 
 msgctxt "login_and_add_product"
 msgid "Sign-in and add the product"
-msgstr ""
+msgstr "เข้าสู่ระบบและเพิ่มผลิตภัณฑ์"
 
 msgctxt "login_and_edit_product"
 msgid "Sign-in and edit the product"
@@ -1222,7 +1303,8 @@ msgstr "ลงชื่อเข้าใช้เพื่อเพิ่มห
 msgctxt "login_to_add_products"
 msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
 "<p>If you do not yet have an account on <<site_name>>, you can <a href=\"/cgi/user.pl\">register in 30 seconds</a>.</p>\n"
-msgstr ""
+msgstr "<p>โปรดเข้าสู่ระบบเพื่อเพิ่มหรือแก้ไขผลิตภัณฑ์</p>\n\n"
+"<p>หากคุณยังไม่มีบัญชีใน <<site_name>>, คุณสามารถ <a href=\"/cgi/user.pl\">ลงทะเบียนเสร็จในเวลา 30 วินาที</a></p>\n"
 
 msgctxt "login_username_email"
 msgid "Username or e-mail address:"
@@ -1230,11 +1312,11 @@ msgstr "ชื่อผู้ใช้หรืออีเมลที่อย
 
 msgctxt "low"
 msgid "low"
-msgstr ""
+msgstr "ระดับต่ำ"
 
 msgctxt "low_quantity"
 msgid "low quantity"
-msgstr ""
+msgstr "มีปริมาณน้อย"
 
 msgctxt "manage_images"
 msgid "Manage images"
@@ -1286,7 +1368,7 @@ msgstr "เมนู"
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
-msgstr "เพิ่มสินค้า"
+msgstr "เพิ่มผลิตภัณฑ์ใหม่"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_add_a_product_link"
@@ -1295,7 +1377,7 @@ msgstr ""
 
 msgctxt "menu_contribute"
 msgid "Contribute"
-msgstr "สนับสนุน"
+msgstr "ร่วมสนับสนุน"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_contribute_link"
@@ -1304,7 +1386,7 @@ msgstr "/contribute"
 
 msgctxt "menu_discover"
 msgid "Discover"
-msgstr "ค้นพบ"
+msgstr "รู้จักกับ Open Food Facts"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
@@ -1361,15 +1443,15 @@ msgstr ""
 
 msgctxt "new_code"
 msgid "If the barcode is not correct, please correct it here:"
-msgstr ""
+msgstr "หากรหัสบาร์โค้ดไม่ถูกต้อง กรุณาแก้ไขที่นี่:"
 
 msgctxt "new_code_note"
 msgid "For products without a barcode, an internal code is automatically set."
-msgstr ""
+msgstr "สำหรับผลิตภัณฑ์ที่ไม่มีบาร์โค้ด รหัสภายในจะถูกตั้งค่าโดยอัตโนมัติ"
 
 msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
-msgstr ""
+msgstr "สมัครรับจดหมายข่าว (สูงสุด 2 อีเมลต่อเดือน)"
 
 msgctxt "subscribe_to_our_newsletter"
 msgid "Subscribe to our newsletter"
@@ -1381,7 +1463,7 @@ msgstr "ถัดไป"
 
 msgctxt "no_barcode"
 msgid "Product without barcode"
-msgstr "สินค้าโดยไม่มีบาร์โค้ด"
+msgstr "สินค้าที่ไม่มีบาร์โค้ด"
 
 msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
@@ -1389,19 +1471,19 @@ msgstr ""
 
 msgctxt "multiple_nutrition_data"
 msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
-msgstr ""
+msgstr "มีข้อมูลโภชนาการหลายประเภทที่ระบุไว้ในผลิตภัณฑ์ (เช่น เมื่อมีการเพิ่มน้ำหรือนม)"
 
 msgctxt "multiple_nutrition_data_instructions"
 msgid "Enter only the nutrition facts for the unprepared product, without added water or milk. If there are different products, enter nutrition facts for the first product listed."
-msgstr ""
+msgstr "ใส่ข้อมูลโภชนาการสำหรับผลิตภัณฑ์ที่ยังไม่ได้ปรุง (โดยไม่มีการเพิ่มน้ำหรือนมเข้าไป) หากมีผลิตภัณฑ์มากกว่า 1 ชนิด (เช่น คุกกี้หลายแบบ แต่ละแบบมีฉลากของตัวเอง) ใส่ข้อมูลโภชนาการสำหรับผลิตภัณฑ์ที่แสดงอยู่ในรายการแรกเท่านั้น"
 
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
-msgstr ""
+msgstr "ยังไม่มีรายการผลิตภัณฑ์สำหรับบาร์โค้ด %s"
 
 msgctxt "no_products"
 msgid "No products."
-msgstr ""
+msgstr "ไม่พบผลิตภัณฑ์"
 
 msgctxt "not_saved"
 msgid "Error while saving, please retry."
@@ -1430,7 +1512,7 @@ msgstr ""
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
-msgstr ""
+msgstr "ปริมาณสารอาหาร"
 
 msgctxt "nutrient_levels_s"
 msgid "nutrient level"
@@ -1462,7 +1544,7 @@ msgstr "ข้อมูลโภชนาการ"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
-msgstr ""
+msgstr "ค่าเฉลี่ยของสารอาหาร สำหรับผลิตภัณฑ์ %d ในหมวดหมู่ %s (จากผลิตภัณฑ์ %d ที่มีฉลากโภชนาการ)"
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
@@ -1470,7 +1552,7 @@ msgstr ""
 
 msgctxt "nutrition_data_compare_value"
 msgid "value for 100 g / 100 ml"
-msgstr ""
+msgstr "สำหรับ 100 กรัม / 100 มล."
 
 msgctxt "nutrition_data_comparison_with_categories"
 msgid "Comparison to average values of products in the same category:"
@@ -1482,7 +1564,7 @@ msgstr ""
 
 msgctxt "nutrition_data_note"
 msgid "If the picture is sufficiently sharp and level, nutrition facts can be automatically extracted from the picture."
-msgstr ""
+msgstr "หากภาพมีความคมชัดเพียงพอ ข้อมูลโภชนาการจะถูกดึงออกมาจากภาพโดยอัตโนมัติ"
 
 msgctxt "nutrition_data_per_10"
 msgid "10th centile"
@@ -1510,15 +1592,15 @@ msgstr ""
 
 msgctxt "nutrition_data_per_max"
 msgid "Maximum"
-msgstr ""
+msgstr "ค่ามากที่สุด"
 
 msgctxt "nutrition_data_per_mean"
 msgid "Mean"
-msgstr ""
+msgstr "ค่าเฉลี่ย"
 
 msgctxt "nutrition_data_per_min"
 msgid "Minimum"
-msgstr ""
+msgstr "ค่าน้อยที่สุด"
 
 msgctxt "nutrition_data_per_serving"
 msgid "per serving"
@@ -1535,11 +1617,11 @@ msgstr "ข้อมูลโภชนาการ"
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
 "by typing the first letters of their name in the last row of the table."
-msgstr ""
+msgstr "ตารางนี้อิงจากสารอาหารที่มักระบุในฉลากโภชนาการ ถ้าไม่มีข้อมูลระบุไว้ให้เว้นว่างเท่านั้น ถ้าระบุเป็น 0 ต้องใส่ 0 <br/>สามารถเพิ่มสารอาหารอื่นๆ (วิตามิน แร่ธาตุ โคเลสเตอรอล เป็นต้น) โดยพิมพ์ชื่อสารอาหารในช่อง \"เพิ่มสารอาหารอื่น\" ระบบจะแสดงตัวเลือกให้โดยอัตโนมัติ"
 
 msgctxt "nutrition_data_table_asterisk"
 msgid "Essential nutrients to calculate the Nutri-Score."
-msgstr ""
+msgstr "สารอาหารที่จำเป็นในการคำนวณ Nutri-Score"
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
@@ -1579,7 +1661,7 @@ msgstr "แหล่งที่มาของวัตถุดิบ"
 
 msgctxt "origins_example"
 msgid "California, USA"
-msgstr ""
+msgstr "น้ำพุแม่ริม เชียงใหม่"
 
 msgctxt "origins_note_xxx"
 msgid "Indicate the origin of ingredients"
@@ -1743,35 +1825,35 @@ msgstr "เพิ่มสารอาหารอื่นๆ"
 
 msgctxt "product_added"
 msgid "Product added on"
-msgstr "สินค้าเข้ามาเมื่อ"
+msgstr "ผลิตภัณฑ์เข้าในระบบเมื่อ"
 
 msgctxt "product_changes_saved"
 msgid "Changes saved."
-msgstr ""
+msgstr "บันทึกการเปลี่ยนแปลงแล้ว"
 
 msgctxt "product_edit_you_contributed"
 msgid "You just helped to improve the world largest open data database."
-msgstr ""
+msgstr "คุณเพิ่งช่วยปรับปรุงฐานข้อมูลเปิดที่ใหญ่ทีสุดในโลก"
 
 msgctxt "product_edit_thank_you"
 msgid "Thank you so much for joining us in our journey to data transparency!"
-msgstr ""
+msgstr "ขอบคุณที่มีส่วนร่วมในการสร้างความโปร่งใสของข้อมูลผลิตภัณฑ์อาหาร"
 
 msgctxt "product_characteristics"
 msgid "Product characteristics"
-msgstr "ลักษณะสินค้า"
+msgstr "ลักษณะผลิตภัณฑ์"
 
 msgctxt "product_created"
 msgid "Product created"
-msgstr ""
+msgstr "สร้างผลิตภัณฑ์แล้ว"
 
 msgctxt "product_description"
 msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
-msgstr ""
+msgstr "ส่วนประกอบ สารก่อภูมิแพ้ สารเติมแต่ง ข้อมูลโภชนาการ ตราสัญญลักษณ์ แหล่งที่มาของส่วนผสม และข้อมูลเกี่ยวกับผลิตภัณฑ์ %s"
 
 msgctxt "product_image"
 msgid "Product picture"
-msgstr ""
+msgstr "รูปภาพของผลิตภัณฑ์"
 
 msgctxt "product_image_with_barcode"
 msgid "Picture with barcode:"
@@ -1779,7 +1861,7 @@ msgstr "ภาพถ่ายที่มีบาร์โค้ด:"
 
 msgctxt "product_js_current_image"
 msgid "Current image:"
-msgstr ""
+msgstr "ส่วนของภาพที่เลือกไว้ในปัจจุบัน:"
 
 msgctxt "product_js_deleting_images"
 msgid "Deleting images"
@@ -1787,15 +1869,15 @@ msgstr ""
 
 msgctxt "product_js_extract_ingredients"
 msgid "Extract the ingredients from the picture"
-msgstr "สารสกัดจากส่วนผสมจากภาพ"
+msgstr "อ่านส่วนประกอบอาหารจากรูปภาพ"
 
 msgctxt "product_js_extracted_ingredients_nok"
 msgid "Ingredients text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
-msgstr ""
+msgstr "ไม่สามารถอ่านส่วนประกอบอาหารจากภาพ กรุณาใช้ภาพที่ชัดเจนมากขึ้น"
 
 msgctxt "product_js_extracted_ingredients_ok"
 msgid "Ingredients text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed."
-msgstr ""
+msgstr "ส่วนประกอบอาหารที่อ่านจากภาพอาจมีข้อผิดพลาด กรุณาตรวจสอบและแก้ไขให้ถูกต้อง"
 
 msgctxt "product_js_extracting_ingredients"
 msgid "Extracting ingredients"
@@ -1803,11 +1885,11 @@ msgstr ""
 
 msgctxt "product_js_image_normalize"
 msgid "Normalize colors"
-msgstr ""
+msgstr "ปรับสีให้เป็นธรรมชาติ"
 
 msgctxt "product_js_image_open_full_size_image"
 msgid "Open the picture in original size in a new windows"
-msgstr ""
+msgstr "ดูรูปภาพขนาดเต็มในหน้าต่างใหม่"
 
 msgctxt "product_js_image_received"
 msgid "Image received"
@@ -1815,7 +1897,7 @@ msgstr ""
 
 msgctxt "product_js_image_rotate_and_crop"
 msgid "Rotate the image if necessary, then click and drag to select the interesting zone:"
-msgstr ""
+msgstr "สามารถหมุนรูปภาพได้ตามต้องการ จากนั้นคลิกและลากเพื่อเลือกส่วนของภาพที่เกี่ยวข้อง:"
 
 msgctxt "product_js_image_rotate_left"
 msgid "Rotate left"
@@ -1827,23 +1909,23 @@ msgstr "หมุนขวา"
 
 msgctxt "product_js_image_save"
 msgid "Validate and/or resize image"
-msgstr ""
+msgstr "ตรวจสอบส่วนของภาพที่เลือกไว้"
 
 msgctxt "product_js_image_saved"
 msgid "Image saved"
-msgstr ""
+msgstr "บันทึกรูปภาพแล้ว"
 
 msgctxt "product_js_image_saving"
 msgid "Saving image"
-msgstr ""
+msgstr "กำลังบันทึกรูปภาพ"
 
 msgctxt "product_js_image_upload_error"
 msgid "Error while uploading image"
-msgstr ""
+msgstr "เกิดข้อผิดพลาดขณะอัปโหลดรูปภาพ"
 
 msgctxt "product_js_image_white_magic"
 msgid "Photo on white background: try to remove the background"
-msgstr ""
+msgstr "ลองลบพื้นหลังออก เมื่อรูปถ่ายมีพื้นหลังสีขาว"
 
 msgctxt "product_js_images_delete_error"
 msgid "Errors while deleting images"
@@ -1871,7 +1953,7 @@ msgstr "เพิ่มรูปภาพ"
 
 msgctxt "product_js_upload_image_note"
 msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients, nutrition facts etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
-msgstr ""
+msgstr "→ ถ้าคุณใช้ Chrome, Firefox หรือ Safari คุณสามารถเลือกรูปภาพได้หลายรูป (ผลิตภัณฑ์ ส่วนผสม ข้อมูลโภชนาการ ฯลฯ) โดยการคลิกรูปภาพเหล่านั้นในขณะที่กดปุ่ม Ctrl ค้างไว้เพื่อเพิ่มรูปภาพทั้งหมดในครั้งเดียว"
 
 msgctxt "product_js_uploading_image"
 msgid "Uploading image"
@@ -1879,7 +1961,7 @@ msgstr "ภาพที่อัพโหลด"
 
 msgctxt "product_last_edited"
 msgid "Last edit of product page on"
-msgstr ""
+msgstr "แก้ไขหน้าผลิตภัณฑ์ครั้งล่าสุดเมื่อ"
 
 msgctxt "product_name"
 msgid "Product name"
@@ -1887,7 +1969,7 @@ msgstr "ชื่อสินค้า"
 
 msgctxt "product_name_example"
 msgid "Kinder Bueno White"
-msgstr ""
+msgstr "ไวไวปรุงสำเร็จ, คาลบี้รสดั้งเดิม, ป็อกกี้รสสตรอเบอรี่"
 
 msgctxt "products"
 msgid "products"
@@ -1907,7 +1989,7 @@ msgstr "ผลิตภัณฑ์"
 
 msgctxt "products_with_nutriments"
 msgid "with nutrition facts"
-msgstr ""
+msgstr "พร้อมข้อมูลโภชนาการ"
 
 msgctxt "products_you_edited"
 msgid "Products you added or edited"
@@ -1915,15 +1997,15 @@ msgstr ""
 
 msgctxt "purchase_places"
 msgid "City, state and country where purchased"
-msgstr "เมืองรัฐและประเทศที่ซื้อ"
+msgstr "สถานที่จำหน่าย (ระบุเป็นเมือง จังหวัด หรือ ประเทศที่มีวางขาย)"
 
 msgctxt "purchase_places_note"
 msgid "Indicate where you bought or saw the product (at least the country)"
-msgstr ""
+msgstr "ระบุสถานที่ที่คุณซื้อหรือเห็นผลิตภัณฑ์นี้ (เช่น ประเทศไทย, เชียงใหม่ หรือชื่อร้านค้าและสาขา)"
 
 msgctxt "purchase_places_p"
 msgid "purchase places"
-msgstr ""
+msgstr "สถานที่ซื้อ"
 
 msgctxt "purchase_places_products"
 msgid "Products sold in %s"
@@ -1931,7 +2013,7 @@ msgstr "ผลิตภัณฑ์ที่ขายใน %s"
 
 msgctxt "purchase_places_s"
 msgid "purchase place"
-msgstr ""
+msgstr "สถานที่ซื้อ"
 
 msgctxt "purchase_places_tagsinput"
 msgid "add a place"
@@ -1947,15 +2029,15 @@ msgstr "ปริมาณ"
 
 msgctxt "quantity_example"
 msgid "2 l, 250 g, 1 kg, 25 cl, 6 fl oz, 1 pound"
-msgstr ""
+msgstr "2 l, 250 g, 1 kg, 25 cl, 6 fl oz, 1 pound (ระบบรองรับหน่วยในภาษาอังกฤษเท่านั้น)"
 
 msgctxt "remember_me"
 msgid "Remember me"
-msgstr "จำข้อมูลไว้"
+msgstr "จำการเข้าระบบของฉันไว้"
 
 msgctxt "remember_purchase_places_and_stores"
 msgid "Remember the place of purchase and store for the next product adds"
-msgstr ""
+msgstr "จำสถานที่ซื้อและเก็บไว้สำหรับการเพิ่มสินค้าครั้งถัดไป"
 
 msgctxt "reset_password"
 msgid "Reset password"
@@ -1999,7 +2081,7 @@ msgstr ""
 
 msgctxt "risk_level_0"
 msgid "To be completed"
-msgstr ""
+msgstr "ที่ต้องทำให้เสร็จ"
 
 msgctxt "risk_level_1"
 msgid "Low risks"
@@ -2050,7 +2132,7 @@ msgid "Select products with specific brands, categories, labels, origins of ingr
 msgstr "เลือกผลิตภัณฑ์ที่มีแบรนด์ที่เฉพาะเจาะจงประเภท, ป้าย, ต้นกำเนิดของส่วนผสมสถ​​านที่ผลิต ฯลฯ"
 
 msgctxt "search_description_opensearch"
-msgid "Open Food Facts product search"
+msgid "Product search"
 msgstr ""
 
 msgctxt "search_does_not_contain"
@@ -2220,7 +2302,7 @@ msgstr ""
 
 msgctxt "search_series_organic_label"
 msgid "organic"
-msgstr ""
+msgstr "ฮาลาล, ทางเลือกสุขภาพ"
 
 msgctxt "search_series_with_sweeteners"
 msgid "With sweeteners"
@@ -2276,7 +2358,7 @@ msgstr "ดูหน้าสินค้า"
 
 msgctxt "re_edit_product_page"
 msgid "Edit the product again"
-msgstr ""
+msgstr "แก้ไขผลิตภัณฑ์นี้อีกครั้ง"
 
 msgctxt "select_country"
 msgid "Country"
@@ -2304,19 +2386,19 @@ msgstr "หน่วยบริโภค"
 
 msgctxt "serving_size_prepared"
 msgid "Prepared serving size"
-msgstr ""
+msgstr "หน่วยบริโภค (หลังจากปรุงแล้ว)"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
-msgstr ""
+msgstr "60 g, 12 oz, 20cl, 2 fl oz (ระบบรองรับเฉพาะภาษาอังกฤษ)"
 
 msgctxt "serving_size_note"
 msgid "If the nutrition facts table contains values for the prepared product, indicate the total serving size of the prepared product (including added water or milk)."
-msgstr ""
+msgstr "หากฉลากโภชนาแสดงค่าของผลิตภัณฑ์ที่ปรุงไว้แล้ว ให้ระบุจำนวนหน่วยบริโภคของผลิตภัณฑ์ที่ปรุงไว้ด้วย (ใส่น้ำหนักที่รวมน้ำหรือนมที่เติมด้วย)"
 
 msgctxt "serving_too_small_for_nutrition_analysis"
 msgid "Serving size is too small (5 g / 5 ml or less) to calculate 100 g / 100 ml values and perform any further nutritional analysis"
-msgstr ""
+msgstr "หน่วยบริโภคเล็กเกินไป (5 ก. / 5 มล. หรือน้อยกว่า) จึงไม่มีการคำนวณค่า 100 ก. / 100 มล. และไม่มีการวิเคราะห์เพิ่มเติม"
 
 msgctxt "session_title"
 msgid "Sign-in"
@@ -2341,18 +2423,6 @@ msgstr ""
 msgctxt "signout"
 msgid "Sign-out"
 msgstr "ออกจากระบบ"
-
-msgctxt "site_description"
-msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr ""
-
-msgctxt "site_name"
-msgid "Open Food Facts"
-msgstr "Open Food Facts"
-
-msgctxt "logo_site_name"
-msgid "Open Food Facts logo"
-msgstr ""
 
 msgctxt "sort_by"
 msgid "Sort by"
@@ -2396,7 +2466,7 @@ msgstr "ร้านค้า"
 
 msgctxt "stores_note"
 msgid "Name of the shop or supermarket chain"
-msgstr ""
+msgstr "ชื่อร้านค้าหรือ ซูเปอร์มาร์เก็ตที่จำหน่าย"
 
 msgctxt "stores_p"
 msgid "stores"
@@ -2449,11 +2519,11 @@ msgstr "สารเจือปน"
 
 msgctxt "traces_example"
 msgid "Milk, Gluten, Nuts"
-msgstr ""
+msgstr "นม กลูเตน ถั่ว แป้งสาลี ไข่"
 
 msgctxt "traces_note"
 msgid "Indicate ingredients from mentions like \"May contain traces of\", \"Made in a factory that also uses\" etc."
-msgstr ""
+msgstr "มีข้อความ เช่น \"ข้อมูลสำหรับผู้แพ้อาหาร อาจมีส่วนผสมของ...\" ระบุ เป็นต้น"
 
 msgctxt "traces_p"
 msgid "traces"
@@ -2465,10 +2535,6 @@ msgstr ""
 
 msgctxt "twitter"
 msgid "Twitter username (optional)"
-msgstr ""
-
-msgctxt "twitter_account"
-msgid "OpenFoodFacts"
 msgstr ""
 
 msgctxt "unknown"
@@ -2547,6 +2613,10 @@ msgctxt "view"
 msgid "view"
 msgstr ""
 
+msgctxt "view_this_revision"
+msgid "View this revision"
+msgstr ""
+
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
 msgstr ""
@@ -2562,24 +2632,11 @@ msgstr "ผลการมุมมองจากคนทั้งโลก"
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"https://support.openfoodfacts.org/help/en-gb/9/27\">Why it matters</a>"
-msgstr ""
+msgstr "ข้อมูลต้องมาจากฉลากบรรจุภัณฑ์เท่านั้น ห้ามนำข้อมูลจากเว็บไซต์ต่างๆ (หรือแม้แต่เว็บไซต์ผู้ผลิต) และคุณต้องเป็นผู้ถ่ายรูปบรรจุภัณฑ์นั้นๆ ด้วยตนเองเท่านั้น<br/>\n"
+"<a href=\"https://support.openfoodfacts.org/help/en-gb/9/27\">อ่านเพิ่มเติมเกี่ยวกับข้อกำหนดนี้</a>"
 
 msgctxt "website"
 msgid "Site or blog address"
-msgstr ""
-
-# Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
-msgctxt "windows_phone_app_icon_url"
-msgid "/images/misc/microsoft/English.svg"
-msgstr "/images/misc/microsoft/Thai.svg"
-
-msgctxt "windows_phone_app_icon_alt_text"
-msgid "Get it from Microsoft"
-msgstr ""
-
-# Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
-msgctxt "windows_phone_app_link"
-msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
 msgstr ""
 
 msgctxt "you_are_connected_as_x"
@@ -2588,31 +2645,35 @@ msgstr ""
 
 msgctxt "product_js_unselect_image"
 msgid "Unselect image"
-msgstr ""
+msgstr "ยกเลิกการเลือกรูปภาพ"
 
 msgctxt "product_js_unselecting_image"
 msgid "Unselecting image."
-msgstr ""
+msgstr "ยกเลิกการเลือกรูปภาพ"
 
 msgctxt "product_js_unselected_image_ok"
 msgid "Unselected image."
-msgstr ""
+msgstr "ยกเลิกการเลือกรูปภาพ"
 
 msgctxt "product_js_unselected_image_nok"
 msgid "Error while unselecting image."
-msgstr ""
+msgstr "ข้อผิดพลาดขณะยกเลิกการเลือกรูปภาพ"
 
 msgctxt "product_js_zoom_on_wheel"
 msgid "Enable zooming with the mouse wheel."
-msgstr ""
+msgstr "ใช้งานการซูมด้วยล้อของเมาส์"
 
 msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
+msgstr "โหลดรูปภาพที่ความละเอียดต่ำ (เมื่ออินเตอร์เน็ตช้า)"
+
+msgctxt "protected_image_message"
+msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
 msgstr ""
 
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
-msgstr ""
+msgstr "ข้อควรระวัง: เนื่องจากไม่มีฉลากโภชนาการ ข้อมูลสารอาหารนี้จะคำนวณจากรายการส่วนประกอบ"
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -2636,7 +2697,7 @@ msgstr ""
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
-msgstr ""
+msgstr "ข้อควรระวัง: เนื่องจากไม่ได้ระบุปริมาณของ ผลไม้ ผัก และถั่ว บนฉลากอาหารไว้อย่างชัดเจน ค่าที่แสดงเป็นค่าที่ระบบคำนวณจากรายการส่วนประกอบ: %d"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -2764,11 +2825,11 @@ msgstr ""
 
 msgctxt "product_as_sold"
 msgid "As sold"
-msgstr ""
+msgstr "ในรูปแบบที่ขาย"
 
 msgctxt "prepared_product"
 msgid "Prepared"
-msgstr ""
+msgstr "ในรูปแบบที่พร้อมกิน"
 
 msgctxt "unit"
 msgid "Unit"
@@ -2776,24 +2837,24 @@ msgstr ""
 
 msgctxt "nutrition_data_exists"
 msgid "Nutrition facts are specified for the product as sold."
-msgstr ""
+msgstr "ข้อมูลโภชนาการระบุไว้สำหรับผลิตภัณฑ์ในรูปแบบที่ขาย (เช่น คอนเฟล็กที่ไม่ใส่นม)"
 
 msgctxt "nutrition_data_prepared_exists"
 msgid "Nutrition facts are specified for the prepared product."
-msgstr ""
+msgstr "ข้อมูลโภชนาการระบุไว้สำหรับผลิตภัณฑ์ในรูปแบบที่ปรุงแล้วพร้อมกิน (เช่น คอนเฟล็กที่ใส่นม แสดงค่าที่รวมนมมาให้ด้วย)"
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
-msgstr ""
+msgstr "NOVA group"
 
 msgctxt "nova_groups_p"
 msgid "NOVA groups"
-msgstr ""
+msgstr "NOVA groups"
 
 # Title for the link to the explanation of what a NOVA Group is
 msgctxt "nova_groups_info"
 msgid "NOVA groups for food processing"
-msgstr ""
+msgstr "NOVA groups สำหรับระดับการแปรรูปอาหาร"
 
 msgctxt "footer_partners"
 msgid "Partners"
@@ -2870,7 +2931,7 @@ msgstr ""
 
 msgctxt "infants_age"
 msgid "< 1"
-msgstr ""
+msgstr "< 1"
 
 msgctxt "infants_description"
 msgid "From more than 12 weeks up to and including 11 months of age"
@@ -3010,15 +3071,15 @@ msgstr ""
 
 msgctxt "net_weight"
 msgid "Net weight"
-msgstr ""
+msgstr "น้ำหนักสุทธิ"
 
 msgctxt "drained_weight"
 msgid "Drained weight"
-msgstr ""
+msgstr "น้ำหนักเนื้อ"
 
 msgctxt "volume"
 msgid "Volume"
-msgstr ""
+msgstr "ปริมาตร"
 
 msgctxt "other_information"
 msgid "Other information"
@@ -3034,7 +3095,7 @@ msgstr ""
 
 msgctxt "preparation"
 msgid "Preparation"
-msgstr ""
+msgstr "ขั้นตอนการปรุง"
 
 msgctxt "recipe_idea"
 msgid "Recipe idea"
@@ -3042,15 +3103,15 @@ msgstr ""
 
 msgctxt "origin"
 msgid "Origin of the product and/or its ingredients"
-msgstr ""
+msgstr "ที่มาของผลิตภัณฑ์และ/หรือส่วนผสมของผลิตภัณฑ์"
 
 msgctxt "origin_note"
 msgid "Packaging mentions that indicate the manufacturing place and/or the origins of the ingredients"
-msgstr ""
+msgstr "ข้อความบนบรรจุภัณฑ์ที่ระบุสถานที่ผลิตหรือแหล่งผลิตส่วนผสม"
 
 msgctxt "origin_example"
 msgid "Made in France. Tomatoes from Italy. Origin of the rice: India, Thailand."
-msgstr ""
+msgstr "Made in Thailand, ผลิตในไทย, ข้าวจากทุ่งกุลาร้องไห้, ช็อกโกแลตจากเบลเยี่ยม, ทุเรียนนนท์, ชมพู่เพชร"
 
 msgctxt "customer_service"
 msgid "Customer service"
@@ -3194,7 +3255,7 @@ msgstr ""
 
 msgctxt "for_one_serving"
 msgid "for one serving"
-msgstr ""
+msgstr "ต่อหน่วยบริโภค"
 
 msgctxt "methodology"
 msgid "Methodology"
@@ -3214,7 +3275,7 @@ msgstr ""
 
 msgctxt "error_too_many_products_to_export"
 msgid "Too many products (%d products, the limit is %d) to export, please download the <a href=\"/data\">complete database export</a> instead."
-msgstr ""
+msgstr "คุณ export ข้อมูลมากเกินไป (%d ผลิตภัณฑ์ ขีดจำกัดคือ %d) โปรดดาวน์โหลด <a href=\"/data\">complete database</a> แทน"
 
 msgctxt "translate_taxonomy_to"
 msgid "Help translate the %s to %s"
@@ -3266,11 +3327,11 @@ msgstr ""
 
 msgctxt "ingredients_analysis_p"
 msgid "ingredients analysis"
-msgstr ""
+msgstr "ผลวิเคราะห์ส่วนประกอบอาหาร"
 
 msgctxt "ingredients_analysis_s"
 msgid "ingredients analysis"
-msgstr ""
+msgstr "ผลวิเคราะห์ส่วนประกอบอาหาร"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
@@ -3874,43 +3935,43 @@ msgstr ""
 
 msgctxt "nutriscore_calculation_details"
 msgid "Details of the calculation of the Nutri-Score"
-msgstr ""
+msgstr "รายละเอียดการคำนวณ Nutri-Score"
 
 msgctxt "nutriscore_is_beverage"
 msgid "This product is considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "ผลิตภัณฑ์นี้จัดเป็นหมวดหมู่เครื่องดื่มสำหรับคำนวณค่า Nutri-Score"
 
 msgctxt "nutriscore_is_not_beverage"
 msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "ผลิตภัณฑ์นี้ไม่จัดเป็นหมวดหมู่เครื่องดื่มสำหรับคำนวณค่า Nutri-Score"
 
 msgctxt "nutriscore_positive_points"
 msgid "Positive points"
-msgstr ""
+msgstr "คะแนนคุณภาพด้านบวก"
 
 msgctxt "nutriscore_negative_points"
 msgid "Negative points"
-msgstr ""
+msgstr "คะแนนคุณภาพด้านลบ"
 
 msgctxt "nutriscore_proteins_negative_points_less_than_11"
 msgid "The points for proteins are counted because the negative points are less than 11."
-msgstr ""
+msgstr "นับรวมคะแนนสําหรับโปรตีนเนื่องจากคะแนนคุณภาพด้านลบน้อยกว่า 11"
 
 msgctxt "nutriscore_proteins_negative_points_greater_or_equal_to_11"
 msgid "The points for proteins are not counted because the negative points are greater or equal to 11."
-msgstr ""
+msgstr "ไม่นับรวมคะแนนสําหรับโปรตีนเนื่องจากคะแนนคุณภาพด้านลบมากกว่า 11"
 
 msgctxt "nutriscore_proteins_maximum_fruits_points"
 msgid "The points for proteins are counted because the points for the fruits, vegetables, nuts and colza/walnut/olive oils are at the maximum."
-msgstr ""
+msgstr "นับรวมคะแนนสําหรับโปรตีนเนื่องจากคะแนนคุณภาพสำหรับหมวดหมู่ ผัก ผลไม้ ถั่วต่างๆ และน้ำมันพืช ได้คะแนนเต็มแล้ว"
 
 msgctxt "nutriscore_proteins_is_cheese"
 msgid "The points for proteins are counted because the product is in the cheeses category."
-msgstr ""
+msgstr "นับรวมคะแนนสําหรับโปรตีนเนื่องจากผลิตภัณฑ์นี้จัดอยู่ในหมวดหมู่ของชีส"
 
 msgctxt "nutriscore_proteins_is_added_fat"
 msgid "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
-msgstr ""
+msgstr "ผลิตภัณฑ์อยู่ในหมวดหมู่ไขมัน จึงคิดคะแนนจากอัตราส่วนของไขมันอิ่มตัวต่อปริมาณไขมันทั้งหมด"
 
 msgctxt "nutriscore_points_for_energy"
 msgid "Energy"
@@ -3926,7 +3987,7 @@ msgstr "ไขมันอิ่มตัว"
 
 msgctxt "nutriscore_points_for_saturated_fat_ratio"
 msgid "Saturated fat / fat ratio"
-msgstr ""
+msgstr "อัตราส่วนไขมันอิ่มตัว / ไขมันทั้งหมด"
 
 msgctxt "nutriscore_points_for_sodium"
 msgid "Sodium"
@@ -3934,11 +3995,11 @@ msgstr "โซเดียม"
 
 msgctxt "nutriscore_points_for_fruits_vegetables_nuts_colza_walnut_olive_oils"
 msgid "Fruits, vegetables, nuts, and colza/walnut/olive oils"
-msgstr ""
+msgstr "ผลไม้ ผัก ถั่ว และโคลซ่า/วอลนัท/น้ำมันมะกอก"
 
 msgctxt "nutriscore_points_for_fiber"
 msgid "Fiber"
-msgstr ""
+msgstr "ใยอาหาร"
 
 msgctxt "nutriscore_points_for_proteins"
 msgid "Proteins"
@@ -3983,6 +4044,10 @@ msgstr ""
 
 msgctxt "thank_you"
 msgid "Thank you!"
+msgstr ""
+
+msgctxt "thank_you_very_much"
+msgid "Thank you very much!"
 msgstr ""
 
 msgctxt "value_for_the_product"
@@ -4176,6 +4241,10 @@ msgstr ""
 
 msgctxt "remove_products"
 msgid "Remove all the products"
+msgstr ""
+
+msgctxt "remove_user"
+msgid "Remove user"
 msgstr ""
 
 msgctxt "remove_products_from_producers_platform"
@@ -4385,7 +4454,7 @@ msgstr ""
 
 msgctxt "origin_import_note"
 msgid "Text or sentences that indicate the origin of the product and/or its ingredients."
-msgstr ""
+msgstr "ข้อความที่บ่งบอกถึงที่มาของผลิตภัณฑ์และ/หรือส่วนผสมของผลิตภัณฑ์"
 
 msgctxt "nutriscore_grade_producer_note"
 msgid "Nutri-Score grade from A to E displayed on the product label"
@@ -4439,11 +4508,11 @@ msgstr ""
 
 msgctxt "attribute_labels_organic_name"
 msgid "Organic farming"
-msgstr ""
+msgstr "การเกษตรอินทรีย์"
 
 msgctxt "attribute_labels_organic_yes_title"
 msgid "Organic product"
-msgstr ""
+msgstr "สินค้าออร์แกนิค"
 
 msgctxt "attribute_labels_organic_no_title"
 msgid "Not an organic product"
@@ -4503,7 +4572,7 @@ msgstr ""
 
 msgctxt "attribute_nutriscore_setting_name"
 msgid "Good nutritional quality (Nutri-Score)"
-msgstr ""
+msgstr "คุณภาพทางโภชนาการ (Nutri-Score)"
 
 msgctxt "attribute_nutriscore_setting_note"
 msgid "The Nutri-Score is computed and can be taken into account for all products, even if is not displayed on the packaging."
@@ -4541,31 +4610,31 @@ msgstr ""
 
 msgctxt "attribute_nutriscore_b_description_short"
 msgid "Good nutritional quality"
-msgstr ""
+msgstr "คุณภาพทางโภชนาการระดับดี"
 
 msgctxt "attribute_nutriscore_c_description_short"
 msgid "Average nutritional quality"
-msgstr ""
+msgstr "คุณภาพทางโภชนาการระดับปานกลาง"
 
 msgctxt "attribute_nutriscore_d_description_short"
 msgid "Poor nutritional quality"
-msgstr ""
+msgstr "คุณภาพทางโภชนาการระดับไม่ดี"
 
 msgctxt "attribute_nutriscore_e_description_short"
 msgid "Bad nutritional quality"
-msgstr ""
+msgstr "คุณภาพทางโภชนาการระดับแย่"
 
 msgctxt "attribute_group_processing_name"
 msgid "Food processing"
-msgstr ""
+msgstr "ระดับการแปรรูปอาหาร"
 
 msgctxt "attribute_nova_name"
 msgid "NOVA group"
-msgstr ""
+msgstr "NOVA group"
 
 msgctxt "attribute_nova_unknown_title"
 msgid "NOVA not computed"
-msgstr ""
+msgstr "ไม่ได้คำนวณ NOVA groups"
 
 msgctxt "attribute_nova_unknown_description_short"
 msgid "Food processing level unknown"
@@ -4573,28 +4642,28 @@ msgstr ""
 
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
-msgstr ""
+msgstr "ไม่มีหรือแปรรูปอาหารน้อย (NOVA group)"
 
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
 msgid "NOVA %s"
-msgstr ""
+msgstr "NOVA %s"
 
 msgctxt "attribute_nova_1_description_short"
 msgid "Unprocessed or minimally processed foods"
-msgstr ""
+msgstr "กลุ่มที่ 1 กลุ่มที่ 1 อาหารที่ไม่แปรรูปหรือแปรรูปน้อยที่สุด"
 
 msgctxt "attribute_nova_2_description_short"
 msgid "Processed culinary ingredients"
-msgstr ""
+msgstr "เครื่องปรุงอาหารที่ผ่านการแปรรูป"
 
 msgctxt "attribute_nova_3_description_short"
 msgid "Processed foods"
-msgstr ""
+msgstr "อาหารแปรรูป"
 
 msgctxt "attribute_nova_4_description_short"
 msgid "Ultra processed foods"
-msgstr ""
+msgstr "ผลิตภัณฑ์อาหารที่ผ่านการแปรรูประดับสูง"
 
 msgctxt "export_product_page"
 msgid "Export product to public database"
@@ -4610,7 +4679,7 @@ msgstr ""
 
 msgctxt "nova_group_producer"
 msgid "NOVA group"
-msgstr ""
+msgstr "NOVA group"
 
 msgctxt "error_unknown_org"
 msgid "Unknown organization."
@@ -4654,7 +4723,7 @@ msgstr ""
 
 msgctxt "attribute_additives_setting_note"
 msgid "Additives are markers of food processing, and excess consumption of some of them have undesirable health impacts."
-msgstr ""
+msgstr "สารเติมแต่งและวัตถุเจือปนอาหาร สามารถใช้เป็นตัวบ่งบอกถึงระดับการแปรรูปอาหารได้ การบริโภคสารเติมแต่งและวัตถุเจือปนอาหารมากเกินไปนั้นส่งผลกระทบต่อสุขภาพได้"
 
 msgctxt "attribute_additives_unknown_title"
 msgid "Additives not computed"
@@ -4682,7 +4751,7 @@ msgstr ""
 
 msgctxt "image_packaging"
 msgid "Recycling instructions and/or packaging information picture"
-msgstr ""
+msgstr "คำแนะนำการรีไซเคิลและ/หรือข้อมูลบรรจุภัณฑ์จากรูปภาพ"
 
 msgctxt "image_packaging_url"
 msgid "Link to recycling instructions and/or packaging information photo"
@@ -4715,7 +4784,7 @@ msgstr ""
 
 msgctxt "product_js_extract_packaging"
 msgid "Extract the recycling instructions and/or packaging information from the picture"
-msgstr ""
+msgstr "อ่านข้อมูลคำแนะนำการรีไซเคิลและ/หรือข้อมูลบรรจุภัณฑ์จากรูปภาพ"
 
 msgctxt "product_js_extracted_packaging_nok"
 msgid "Recycling instructions and/or packaging information text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
@@ -4733,40 +4802,48 @@ msgctxt "attribute_group_environment_name"
 msgid "Environment"
 msgstr "สิ่งแวดล้อม"
 
-msgctxt "attribute_ecoscore_name"
-msgid "Eco-Score"
+msgctxt "attribute_environmental_score_name"
+msgid "Green-Score"
 msgstr ""
 
-msgctxt "attribute_ecoscore_setting_name"
-msgid "Low environmental impact (Eco-Score)"
+msgctxt "attribute_environmental_score_setting_name"
+msgid "Low environmental impact (Green-Score)"
 msgstr ""
 
-msgctxt "attribute_ecoscore_setting_note"
-msgid "The Eco-Score is an environmental score (ecoscore) from A to E which makes it easy to compare the impact of food products on the environment."
+msgctxt "attribute_environmental_score_setting_note"
+msgid "The Green-Score is an environmental score (environmental_score) from A to E which makes it easy to compare the impact of food products on the environment."
 msgstr ""
 
-# keep %s, it will be replaced by the letter A, B, C, D or E
-msgctxt "attribute_ecoscore_grade_title"
-msgid "Eco-Score %s"
+# keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
+msgctxt "attribute_environmental_score_grade_title"
+msgid "Green-Score %s"
 msgstr ""
 
-msgctxt "attribute_ecoscore_a_description_short"
+msgctxt "attribute_environmental_score_a_plus_description_short"
 msgid "Very low environmental impact"
 msgstr ""
 
-msgctxt "attribute_ecoscore_b_description_short"
+msgctxt "attribute_environmental_score_a_description_short"
+msgid "Very low environmental impact"
+msgstr ""
+
+msgctxt "attribute_environmental_score_b_description_short"
 msgid "Low environmental impact"
 msgstr ""
 
-msgctxt "attribute_ecoscore_c_description_short"
+msgctxt "attribute_environmental_score_c_description_short"
 msgid "Moderate environmental impact"
 msgstr ""
 
-msgctxt "attribute_ecoscore_d_description_short"
+msgctxt "attribute_environmental_score_d_description_short"
 msgid "High environmental impact"
 msgstr ""
 
-msgctxt "attribute_ecoscore_e_description_short"
+msgctxt "attribute_environmental_score_e_description_short"
+msgid "Very high environmental impact"
+msgstr ""
+
+msgctxt "attribute_environmental_score_f_description_short"
 msgid "Very high environmental impact"
 msgstr ""
 
@@ -4894,10 +4971,6 @@ msgctxt "number_of_members"
 msgid "Number of Members"
 msgstr ""
 
-msgctxt "serial_no"
-msgid "S.No"
-msgstr ""
-
 msgctxt "contact_form"
 msgid "Contact form"
 msgstr ""
@@ -4924,31 +4997,23 @@ msgid "Environmental impact"
 msgstr ""
 
 # Numerical score for the Eco-score (do not translate Eco-score)
-msgctxt "ecoscore_score"
+msgctxt "environmental_score_score"
 msgid "Eco-score score"
 msgstr ""
 
 # Letter grade from A to E for the Eco-score (do not translate Eco-score)
-msgctxt "ecoscore_grade"
+msgctxt "environmental_score_grade"
 msgid "Eco-score grade"
 msgstr ""
 
 # do not translate Eco-score
-msgctxt "ecoscore_calculation_details"
+msgctxt "environmental_score_calculation_details"
 msgid "Details of the calculation of the Eco-score"
 msgstr ""
 
 # do not translate Eco-score
-msgctxt "ecoscore_information"
+msgctxt "environmental_score_information"
 msgid "Information about the Eco-score"
-msgstr ""
-
-msgctxt "preferences_edit_your_food_preferences"
-msgid "Edit your food preferences"
-msgstr ""
-
-msgctxt "preferences_your_preferences"
-msgid "Your food preferences"
 msgstr ""
 
 msgctxt "preferences_currently_selected_preferences"
@@ -4956,7 +5021,15 @@ msgid "Currently selected preferences"
 msgstr ""
 
 msgctxt "preferences_locally_saved"
-msgid "Your food preferences are kept in your browser and never sent to Open Food Facts or anyone else."
+msgid "Your preferences are kept in your browser and never sent to Open Food Facts or anyone else."
+msgstr ""
+
+msgctxt "preferences_edit_your_preferences"
+msgid "Edit your preferences"
+msgstr ""
+
+msgctxt "preferences_your_preferences"
+msgid "Your preferences"
 msgstr ""
 
 # used in phrases like "salt in unknown quantity"
@@ -4970,14 +5043,14 @@ msgstr ""
 
 msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
+msgstr "ยังไม่มีฉลากโภชนาการ"
+
+msgctxt "environmental_score_p"
+msgid "Green-Score"
 msgstr ""
 
-msgctxt "ecoscore_p"
-msgid "Eco-Score"
-msgstr ""
-
-msgctxt "ecoscore_s"
-msgid "Eco-Score"
+msgctxt "environmental_score_s"
+msgid "Green-Score"
 msgstr ""
 
 msgctxt "packaging_parts"
@@ -5012,7 +5085,7 @@ msgstr ""
 
 msgctxt "products_on_this_page_are_sorted_according_to_your_preferences"
 msgid "Products on this page are sorted according to your preferences:"
-msgstr ""
+msgstr "ผลิตภัณฑ์ในหน้านี้จัดเรียงตามความต้องการ (preferences) ของคุณ:"
 
 msgctxt "choose_which_information_you_prefer_to_see_first"
 msgid "Choose which information you prefer to see first."
@@ -5020,7 +5093,7 @@ msgstr ""
 
 msgctxt "see_your_preferences"
 msgid "See your preferences"
-msgstr ""
+msgstr "ดูการตั้งค่าความต้องการ (preferences) ของคุณ"
 
 msgctxt "delete_all_preferences"
 msgid "Delete all preferences"
@@ -5036,15 +5109,15 @@ msgstr ""
 
 msgctxt "products_match_yes"
 msgid "Products that match your preferences"
-msgstr ""
+msgstr "ผลิตภัณฑ์ที่ตรงกับความต้องการ (preferences) ของคุณ"
 
 msgctxt "products_match_no"
 msgid "Products that do not match your preferences"
-msgstr ""
+msgstr "ผลิตภัณฑ์ที่ไม่ตรงกับความต้องการ (preferences) ของคุณ"
 
 msgctxt "products_match_unknown"
 msgid "Products for which we currently miss data to determine if they match your preferences"
-msgstr ""
+msgstr "ผลิตภัณฑ์ที่ยังไม่มีข้อมูลอยู่ในขณะนี้เพื่อใช้พิจารณาว่าตรงกับความต้องการ (preferences) ของคุณหรือไม่"
 
 msgctxt "forest_footprint"
 msgid "Forest footprint"
@@ -5056,7 +5129,7 @@ msgstr ""
 
 msgctxt "type"
 msgid "Type"
-msgstr ""
+msgstr "ประเภท"
 
 msgctxt "processing_factor"
 msgid "Processing factor"
@@ -5141,7 +5214,7 @@ msgstr ""
 # It = the platform
 msgctxt "product_edits_by_producers_indicators"
 msgid "It computes indicators such as the Nutri-Score, NOVA, and the Eco-score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
-msgstr ""
+msgstr "โดยจะคำนวณตัวชี้วัดต่างๆ เช่น คะแนนโภชนาการ NOVA และคะแนน Eco และระบุคำแนะนำเพื่อปรับปรุงตัวชี้วัดเหล่านั้นโดยอัตโนมัติ (เช่น ผลิตภัณฑ์ทั้งหมดที่จะได้รับเกรด Nutri-Score ที่ดีขึ้นโดยมีการเปลี่ยนแปลงองค์ประกอบเล็กน้อย)"
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest footprint"
@@ -5205,12 +5278,12 @@ msgstr ""
 
 msgctxt "classify_products_according_to_your_preferences"
 msgid "Classify products according to your preferences"
-msgstr ""
+msgstr "จำแนกผลิตภัณฑ์ตามความต้องการ (preferences) ของคุณ"
 
 # %d will be replaced by the number of products
 msgctxt "classify_the_d_products_below_according_to_your_preferences"
 msgid "Classify the %d products below according to your preferences"
-msgstr ""
+msgstr "จำแนกผลิตภัณฑ์จำนวน %d ชนิดด้านล่างตามความต้องการ (preferences) ของคุณ"
 
 msgctxt "sort_by_popularity"
 msgid "Most scanned products"
@@ -5220,8 +5293,8 @@ msgctxt "sort_by_nutriscore_score"
 msgid "Products with the best Nutri-Score"
 msgstr ""
 
-msgctxt "sort_by_ecoscore_score"
-msgid "Products with the best Eco-Score"
+msgctxt "sort_by_environmental_score_score"
+msgid "Products with the best Green-Score"
 msgstr ""
 
 msgctxt "sort_by_created_t"
@@ -5274,33 +5347,33 @@ msgctxt "delete_user_process"
 msgid "User is being deleted. This may take a few minutes."
 msgstr ""
 
-msgctxt "attribute_ecoscore_not_applicable_title"
-msgid "Eco-Score not yet applicable"
+msgctxt "attribute_environmental_score_not_applicable_title"
+msgid "Green-Score not yet applicable"
 msgstr ""
 
-msgctxt "attribute_ecoscore_not_applicable_description_short"
+msgctxt "attribute_environmental_score_not_applicable_description_short"
 msgid "Not yet applicable for the category"
 msgstr ""
 
 # variable names between { } must not be translated
-msgctxt "f_attribute_ecoscore_not_applicable_description"
+msgctxt "f_attribute_environmental_score_not_applicable_description"
 msgid "Not yet applicable for the category: {category}"
 msgstr ""
 
-msgctxt "ecoscore_not_applicable_coming_soon"
-msgid "The Eco-Score is not yet applicable for this category, but we are working on adding support for it."
+msgctxt "environmental_score_not_applicable_coming_soon"
+msgid "The Green-Score is not yet applicable for this category, but we are working on adding support for it."
 msgstr ""
 
-msgctxt "attribute_ecoscore_unknown_title"
-msgid "Eco-Score not computed"
+msgctxt "attribute_environmental_score_unknown_title"
+msgid "Green-Score not computed"
 msgstr ""
 
-msgctxt "attribute_ecoscore_unknown_description_short"
+msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr ""
 
-msgctxt "ecoscore_unknown_call_to_help"
-msgid "We could not compute the Eco-Score of this product as it is missing some data, could you help complete it?"
+msgctxt "environmental_score_unknown_call_to_help"
+msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
 msgstr ""
 
 msgctxt "org_list_of_gs1_gln_description"
@@ -5429,222 +5502,222 @@ msgctxt "forest_footprint_one_line_explanation"
 msgid "The forest footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
 msgstr ""
 
-msgctxt "ecoscore_agribalyse_match_warning"
-msgid "The Eco-Score can only be calculated if the product has a sufficiently precise category."
+msgctxt "environmental_score_agribalyse_match_warning"
+msgid "The Green-Score can only be calculated if the product has a sufficiently precise category."
 msgstr ""
 
-msgctxt "ecoscore_add_more_precise_category"
+msgctxt "environmental_score_add_more_precise_category"
 msgid "You can modify the product page to add a more precise category."
 msgstr ""
 
-msgctxt "ecoscore_platform_promo"
+msgctxt "environmental_score_platform_promo"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
 msgstr ""
 
-msgctxt "ecoscore_warning_missing_information"
-msgid "Warning: some information necessary to calculate the Eco-Score with precision is not provided (see the details of the calculation below)."
+msgctxt "environmental_score_warning_missing_information"
+msgid "Warning: some information necessary to calculate the Green-Score with precision is not provided (see the details of the calculation below)."
 msgstr ""
 
-msgctxt "ecoscore_add_missing_information"
+msgctxt "environmental_score_add_missing_information"
 msgid "You can edit the product to add the missing information."
 msgstr ""
 
-msgctxt "ecoscore_product_category_reference_score"
+msgctxt "environmental_score_product_category_reference_score"
 msgid "Baseline score of the product category"
 msgstr ""
 
-msgctxt "ecoscore_panel_lca"
+msgctxt "environmental_score_panel_lca"
 msgid "Lifecyle Analysis (LCA)"
 msgstr ""
 
 # do not translate Agribalyse
-msgctxt "ecoscore_agribalyse_category"
+msgctxt "environmental_score_agribalyse_category"
 msgid "Agribalyse category"
 msgstr ""
 
-msgctxt "ecoscore_category_proxy_match"
+msgctxt "environmental_score_category_proxy_match"
 msgid "Approximate match with the product category"
 msgstr ""
 
-msgctxt "ecoscore_category_exact_match"
+msgctxt "environmental_score_category_exact_match"
 msgid "Exact match with the product category"
 msgstr ""
 
-msgctxt "ecoscore_pef_environmental_score"
+msgctxt "environmental_score_pef_environmental_score"
 msgid "PEF environmental score"
 msgstr ""
 
-msgctxt "ecoscore_incl_climate_change_impact"
+msgctxt "environmental_score_incl_climate_change_impact"
 msgid "including impact on climate change"
 msgstr ""
 
-msgctxt "ecoscore_impact_detail_by_stages"
+msgctxt "environmental_score_impact_detail_by_stages"
 msgid "Details of the impacts by stages of the life cycle"
 msgstr ""
 
 # stage meaning step
-msgctxt "ecoscore_stage"
+msgctxt "environmental_score_stage"
 msgid "Stage"
 msgstr ""
 
-msgctxt "ecoscore_impact"
+msgctxt "environmental_score_impact"
 msgid "Impact"
 msgstr ""
 
-msgctxt "ecoscore_agriculture"
+msgctxt "environmental_score_agriculture"
 msgid "Agriculture"
 msgstr ""
 
-msgctxt "ecoscore_processing"
+msgctxt "environmental_score_processing"
 msgid "Processing"
 msgstr ""
 
-msgctxt "ecoscore_packaging"
+msgctxt "environmental_score_packaging"
 msgid "Packaging"
 msgstr "บรรจุภัณฑ์"
 
-msgctxt "ecoscore_transportation"
+msgctxt "environmental_score_transportation"
 msgid "Transportation"
 msgstr ""
 
-msgctxt "ecoscore_distribution"
+msgctxt "environmental_score_distribution"
 msgid "Distribution"
 msgstr ""
 
-msgctxt "ecoscore_consumption"
+msgctxt "environmental_score_consumption"
 msgid "Consumption"
 msgstr ""
 
-msgctxt "ecoscore_lca_score_out_of_100"
+msgctxt "environmental_score_lca_score_out_of_100"
 msgid "LCA score out of 100"
 msgstr ""
 
-msgctxt "ecoscore_no_agribalyse_category_match"
+msgctxt "environmental_score_no_agribalyse_category_match"
 msgid "No match between product categories and Agribalyse categories."
 msgstr ""
 
-msgctxt "ecoscore_edit_category_to_more_granular"
+msgctxt "environmental_score_edit_category_to_more_granular"
 msgid "You can modify the product page to add a more granular category."
 msgstr ""
 
-msgctxt "ecoscore_additional_bonuses_and_maluses"
+msgctxt "environmental_score_additional_bonuses_and_maluses"
 msgid "Additional bonuses and maluses"
 msgstr ""
 
-msgctxt "ecoscore_production_system"
+msgctxt "environmental_score_production_system"
 msgid "Production mode"
 msgstr "โหมดการผลิต"
 
-msgctxt "ecoscore_no_labels_taken_into_account"
+msgctxt "environmental_score_no_labels_taken_into_account"
 msgid "No labels taken into account for the production system."
 msgstr ""
 
-msgctxt "ecoscore_please_add_the_labels"
+msgctxt "environmental_score_please_add_the_labels"
 msgid "If this product has a label characterizing the production system (organic, fair trade, Label Rouge, Bleu Blanc Coeur etc.), you can modify the product sheet to add it."
 msgstr ""
 
-msgctxt "ecoscore_origins_of_ingredients"
+msgctxt "environmental_score_origins_of_ingredients"
 msgid "Origins of ingredients"
-msgstr "แหล่งที่มาของส่วนผสม"
+msgstr "แหล่งที่มาของส่วนประกอบอาหาร"
 
-msgctxt "ecoscore_ingredients_not_indicated"
+msgctxt "environmental_score_ingredients_not_indicated"
 msgid "The origins of the ingredients of this product are not indicated."
-msgstr ""
+msgstr "ไม่ได้ระบุแหล่งที่มาของส่วนประกอบอาหารในผลิตภัณฑ์นี้"
 
-msgctxt "ecoscore_please_add_the_ingredients"
+msgctxt "environmental_score_please_add_the_ingredients"
 msgid "If they are indicated on the packaging, you can modify the product sheet and add them."
 msgstr ""
 
-msgctxt "ecoscore_environmental_policy"
+msgctxt "environmental_score_environmental_policy"
 msgid "Environmental policy"
 msgstr ""
 
-msgctxt "ecoscore_threatened_species"
+msgctxt "environmental_score_threatened_species"
 msgid "Threatened species"
 msgstr ""
 
-msgctxt "ecoscore_ingredients_whose_cultivation_threatens_species"
+msgctxt "environmental_score_ingredients_whose_cultivation_threatens_species"
 msgid "Ingredients that threatens species"
-msgstr ""
+msgstr "ส่วนประกอบอาหารที่ส่งผลกระทบกับสายพันธุ์"
 
-msgctxt "ecoscore_no_species_threatening_ingredients"
+msgctxt "environmental_score_no_species_threatening_ingredients"
 msgid "No ingredients that threaten species"
-msgstr ""
+msgstr "ไม่มีส่วนประกอบอาหารที่ส่งผลกระทบกับสายพันธุ์"
 
-msgctxt "ecoscore_ingredients_unknown"
+msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
+msgstr "ยังไม่มีข้อมูลส่วนประกอบอาหารในผลิตภัณฑ์นี้"
+
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
+msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
 msgstr ""
 
-msgctxt "ecoscore_edit_for_more_precise_ecoscore"
-msgid "For a more precise calculation of the Eco-Score, you can edit the product page and add them."
-msgstr ""
-
-msgctxt "ecoscore_packaging_ratio"
+msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
 msgstr ""
 
-msgctxt "ecoscore_packaging_score"
+msgctxt "environmental_score_packaging_score"
 msgid "score"
 msgstr ""
 
-msgctxt "ecoscore_score_of_all_components"
+msgctxt "environmental_score_score_of_all_components"
 msgid "Score of all components"
 msgstr ""
 
-msgctxt "ecoscore_no_packaging_information"
+msgctxt "environmental_score_no_packaging_information"
 msgid "The information about the packaging of this product is not filled in."
 msgstr ""
 
-msgctxt "ecoscore_unprecise_packaging_information"
+msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
 msgstr ""
 
-msgctxt "ecoscore_edit_for_more_precise_ecoscore"
-msgid "For a more precise calculation of the Eco-Score, you can modify the product page and add them."
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
+msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
 msgstr ""
 
-msgctxt "ecoscore_final_score"
+msgctxt "environmental_score_final_score"
 msgid "Final score"
 msgstr ""
 
-msgctxt "ecoscore_lower_the_score_lower_the_impact"
+msgctxt "environmental_score_lower_the_score_lower_the_impact"
 msgid "(the lower the score, the lower the impact)"
 msgstr ""
 
-msgctxt "ecoscore_kg_co2_eq_kg_product"
+msgctxt "environmental_score_kg_co2_eq_kg_product"
 msgid "kg CO2 eq/kg of product"
 msgstr ""
 
 # do not translate the link
-msgctxt "ecoscore_platform_prompt_ecoscore_modal"
+msgctxt "environmental_score_platform_prompt_environmental_score_modal"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
 msgstr ""
 
-# do not translate Eco-Score and the link
-msgctxt "ecoscore_description"
-msgid "The <a href=\"/ecoscore\">Eco-Score</a> is an experimental score that summarizes the environmental impacts of food products."
+# do not translate Green-Score and the link
+msgctxt "environmental_score_description"
+msgid "The <a href=\"/green-score\">Green-Score</a> is an experimental score that summarizes the environmental impacts of food products."
 msgstr ""
 
-# do not translate Eco-Score
-msgctxt "ecoscore_warning_fr"
-msgid "The Eco-Score formula is subject to change as it is regularly improved to make it more precise."
+# do not translate Green-Score
+msgctxt "environmental_score_warning_fr"
+msgid "The Green-Score formula is subject to change as it is regularly improved to make it more precise."
 msgstr ""
 
-# do not translate Eco-Score
-msgctxt "ecoscore_warning_international"
-msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+# do not translate Green-Score
+msgctxt "environmental_score_warning_international"
+msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
 msgstr ""
 
-msgctxt "ecoscore_warning_transportation_world"
+msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
 msgstr ""
 
-msgctxt "ecoscore_warning_transportation"
+msgctxt "environmental_score_warning_transportation"
 msgid "The full impact of transportation to your country is currently unknown."
 msgstr ""
 
 msgctxt "app_banner_text"
-msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
+msgid "Scan barcodes to get the Nutri-Score, the Green-Score and more!"
 msgstr ""
 
 msgctxt "org_gs1_product_name_is_abbreviated"
@@ -5676,35 +5749,35 @@ msgctxt "org_protect_data_note"
 msgid "Removing or changing the provided data will be possible only by experimented contributors on the web site."
 msgstr ""
 
-msgctxt "ecoscore_packaging_impact_high"
+msgctxt "environmental_score_packaging_impact_high"
 msgid "Packaging with a high impact"
 msgstr ""
 
-msgctxt "ecoscore_packaging_impact_medium"
+msgctxt "environmental_score_packaging_impact_medium"
 msgid "Packaging with a medium impact"
 msgstr ""
 
-msgctxt "ecoscore_packaging_impact_low"
+msgctxt "environmental_score_packaging_impact_low"
 msgid "Packaging with a low impact"
 msgstr ""
 
-msgctxt "ecoscore_packaging_missing_information"
+msgctxt "environmental_score_packaging_missing_information"
 msgid "Missing packaging information for this product"
 msgstr ""
 
-msgctxt "ecoscore_origins_of_ingredients_impact_high"
+msgctxt "environmental_score_origins_of_ingredients_impact_high"
 msgid "Origins of ingredients with a high impact"
 msgstr ""
 
-msgctxt "ecoscore_origins_of_ingredients_impact_medium"
+msgctxt "environmental_score_origins_of_ingredients_impact_medium"
 msgid "Origins of ingredients with a medium impact"
 msgstr ""
 
-msgctxt "ecoscore_origins_of_ingredients_impact_low"
+msgctxt "environmental_score_origins_of_ingredients_impact_low"
 msgid "Origins of ingredients with a low impact"
 msgstr ""
 
-msgctxt "ecoscore_origins_of_ingredients_missing_information"
+msgctxt "environmental_score_origins_of_ingredients_missing_information"
 msgid "Missing origins of ingredients information"
 msgstr ""
 
@@ -5729,33 +5802,75 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr ""
 
-# variable names between { } must not be translated, {number_of_employees} will be a number
-msgctxt "donation_body_employees"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
+msgctxt "donation_text_2023_main"
+msgid "Help us make food transparency the norm!"
 msgstr ""
 
-# variable names between { } must not be translated, {year} will be the upcoming year
-msgctxt "donation_why_year"
-msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
+msgctxt "donation_text_2023_secondary"
+msgid "As a non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat."
+msgstr ""
+
+msgctxt "donation_text_2023_tertiary"
+msgid "The food revolution starts with you!"
+msgstr ""
+
+msgctxt "donation_hook_2024"
+msgid "Help us inform millions of consumers around the world about what they eat"
+msgstr ""
+
+msgctxt "donation_title_2024"
+msgid "Please give to our 2024 Fundraiser"
+msgstr ""
+
+msgctxt "donation_list_2024_main"
+msgid "Your donations fund the day-to-day operations of our non-profit association:"
+msgstr ""
+
+msgctxt "donation_list_2024_first"
+msgid "keeping our database open & available to all,"
+msgstr ""
+
+msgctxt "donation_list_2024_first_sub"
+msgid "technical infrastructure (website/mobile app) & a small permanent team"
+msgstr ""
+
+msgctxt "donation_list_2024_second"
+msgid "remain independent of the food industry,"
+msgstr ""
+
+msgctxt "donation_list_2024_third"
+msgid "engage a community of committed citizens,"
+msgstr ""
+
+msgctxt "donation_list_2024_fourth"
+msgid "support the advancement of public health research."
+msgstr ""
+
+msgctxt "donation_financial_2024_text"
+msgid "Each donation counts! We appreciate your support in bringing further food transparency in the world."
+msgstr ""
+
+msgctxt "donation_button_2024_text"
+msgid "I SUPPORT"
 msgstr ""
 
 msgctxt "donation_cta"
 msgid "Donate"
 msgstr "บริจาค"
 
-msgctxt "ecoscore_production_system_no_labels_with_environmental_benefits"
+msgctxt "environmental_score_production_system_no_labels_with_environmental_benefits"
 msgid "No labels with environmental benefits"
 msgstr ""
 
-msgctxt "ecoscore_production_system_labels_with_environmental_benefits"
+msgctxt "environmental_score_production_system_labels_with_environmental_benefits"
 msgid "Labels with environmental benefits"
 msgstr ""
 
-msgctxt "ecoscore_production_system_labels_with_environmental_benefits_high"
+msgctxt "environmental_score_production_system_labels_with_environmental_benefits_high"
 msgid "Labels with high environmental benefits"
 msgstr ""
 
-msgctxt "ecoscore_production_system_labels_with_environmental_benefits_very_high"
+msgctxt "environmental_score_production_system_labels_with_environmental_benefits_very_high"
 msgid "Labels with very high environmental benefits"
 msgstr ""
 
@@ -5766,7 +5881,7 @@ msgstr ""
 # statistical mean
 msgctxt "mean"
 msgid "Mean"
-msgstr ""
+msgstr "ค่าเฉลี่ย"
 
 msgctxt "recipes_ingredients_statistics"
 msgid "Ingredients statistics for all products"
@@ -5786,7 +5901,20 @@ msgstr ""
 
 # variable names between { } must not be translated
 msgctxt "f_carbon_footprint_per_100g_of_product"
-msgid "{grams} g CO² per 100g of product"
+msgid "{grams} g CO₂e per 100g of product"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_carbon_footprint_per_unit"
+msgid "{kilograms} kg CO₂e per unit"
+msgstr ""
+
+msgctxt "average_for_the_category"
+msgid "average for the category"
+msgstr ""
+
+msgctxt "data_source_and_detailed_carbon_impact"
+msgid "Data source and detailed carbon impact"
 msgstr ""
 
 # variable names between { } must not be translated
@@ -5834,27 +5962,27 @@ msgctxt "life_cycle_analysis"
 msgid "Life cycle analysis"
 msgstr ""
 
-msgctxt "ecoscore_bonuses_and_maluses"
+msgctxt "environmental_score_bonuses_and_maluses"
 msgid "Bonuses and maluses"
 msgstr ""
 
-msgctxt "ecoscore_for_this_product"
-msgid "Eco-Score for this product"
+msgctxt "environmental_score_for_this_product"
+msgid "Green-Score for this product"
 msgstr ""
 
 msgctxt "average_impact_of_the_category"
 msgid "Average impact of products of the same category"
 msgstr ""
 
-msgctxt "ecoscore_sum_of_bonuses_and_maluses"
+msgctxt "environmental_score_sum_of_bonuses_and_maluses"
 msgid "Sum of bonuses and maluses"
 msgstr ""
 
-msgctxt "ecoscore_sum_of_bonuses_and_maluses_is_capped"
+msgctxt "environmental_score_sum_of_bonuses_and_maluses_is_capped"
 msgid "The sum of bonuses and maluses is capped at +25."
 msgstr ""
 
-msgctxt "ecoscore_lca_score"
+msgctxt "environmental_score_lca_score"
 msgid "Life cycle analysis score"
 msgstr ""
 
@@ -5862,7 +5990,7 @@ msgctxt "impact_for_this_product"
 msgid "Impact for this product"
 msgstr ""
 
-msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
+msgctxt "environmental_score_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
 msgstr ""
 
@@ -5876,6 +6004,10 @@ msgstr ""
 
 msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
+msgstr "ต้องระบุข้อมูลโภชนาการของผลิตภัณฑ์เพื่อคำนวณ Nutri-Score"
+
+msgctxt "nutriscore_missing_nutrition_data_details"
+msgid "Missing nutrition facts:"
 msgstr ""
 
 msgctxt "nutriscore_missing_category_and_nutrition_data"
@@ -5900,28 +6032,28 @@ msgstr ""
 
 msgctxt "data_quality_errors_panel_subtitle"
 msgid "Help us improve quality of our data by contributing fixes"
-msgstr ""
+msgstr "คุณสามารถช่วยแก้ไขข้อมูลให้ถูกต้องมากขึ้น"
 
 msgctxt "data_quality_warnings_panel_title"
 msgid "Potential issues"
-msgstr ""
+msgstr "ข้อควรระวัง"
 
 msgctxt "data_quality_warnings_panel_subtitle"
 msgid "We have detected some potential issues or potential improvements, could you check if some apply ?"
-msgstr ""
+msgstr "ระบบตรวจพบปัญหาด้านคุณภาพของข้อมูลในประเด็นดังนี้ คุณต้องการตรวจสอบและแก้ไขหรือไม่ ?"
 
 msgctxt "data_quality_info_panel_title"
 msgid "Data Quality infos"
-msgstr ""
+msgstr "คุณภาพของข้อมูล"
 
 msgctxt "data_quality_info_panel_subtitle"
 msgid "Some infos about data quality on this product"
-msgstr ""
+msgstr "ข้อมูลการตรวจสอบในด้านคุณภาพของข้อมูลผลิตภัณฑ์"
 
 # will be followed by : and a value. e.g. "Compared to: bananas"
 msgctxt "compared_to"
 msgid "Compared to"
-msgstr ""
+msgstr "เปรียบเทียบกับ"
 
 # name of an activity / a sport
 msgctxt "activity_walking"
@@ -5964,7 +6096,7 @@ msgstr ""
 
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
-msgstr ""
+msgstr "ยังไม่มีฉลากโภชนาการ"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
@@ -6054,36 +6186,36 @@ msgstr ""
 
 msgctxt "nova_1_unprocessed_ingredients"
 msgid "The product contains only unprocessed or minimally processed ingredients."
-msgstr ""
+msgstr "ผลิตภัณฑ์ประกอบด้วยส่วนประกอบที่ยังไม่ผ่านกระบวนการแปรรูป หรือผ่านการแปรรูปน้อยที่สุดเท่านั้น"
 
 # variable names between { } must not be translated
 msgctxt "f_nova_markers_for_nova_group"
 msgid "Elements that indicate the product is in the {nova_group} group"
-msgstr ""
+msgstr "ส่วนประกอบที่ระบุว่าผลิตภัณฑ์นี้อยู่ในกลุ่ม {nova_group}"
 
 msgctxt "nova_classification_description"
 msgid "Food products are classified into 4 groups according to their degree of processing:"
-msgstr ""
+msgstr "ผลิตภัณฑ์อาหารถูกแบ่งออกเป็น 4 กลุ่มตามระดับการแปรรูปอาหาร:"
 
 msgctxt "nova_classification_how"
 msgid "The determination of the group is based on the category of the product and on the ingredients it contains."
-msgstr ""
+msgstr "การกำหนดกลุ่ม NOVA ขึ้นอยู่กับหมวดหมู่และส่วนประกอบของผลิตภัณฑ์นั้นๆ"
 
 msgctxt "nova_classification_learn_more"
 msgid "Learn more about the NOVA classification"
-msgstr ""
+msgstr "ดูข้อมูลเพิ่มเติมเกี่ยวกับการจำแนกประเภทตาม NOVA group"
 
 msgctxt "nova_group_missing_category"
 msgid "The category of the product must be specified in order to determine the NOVA group."
-msgstr ""
+msgstr "ต้องระบุหมวดหมู่ของผลิตภัณฑ์เพื่อใช้กำหนด NOVA group"
 
 msgctxt "nova_group_missing_ingredients"
 msgid "The ingredients of the product must be specified in order to determine the NOVA group."
-msgstr ""
+msgstr "ต้องระบุส่วนประกอบของผลิตภัณฑ์เพื่อใช้กำหนด NOVA group"
 
 msgctxt "nova_group_too_many_unknown_ingredient"
 msgid "We could not recognize some of the ingredients and determine the NOVA group."
-msgstr ""
+msgstr "ระบบไม่รู้จักส่วนประกอบอาหารบางอย่าง จึงไม่สามารถกำหนด NOVA group ได้"
 
 msgctxt "unselect_image"
 msgid "Unselect Image"
@@ -6093,8 +6225,8 @@ msgctxt "nutriscore_learn_more"
 msgid "Learn more about the Nutri-Score"
 msgstr "เรียนรู้เพิ่มเติมเกี่ยวกับคะแนน Nutri-Score"
 
-msgctxt "ecoscore_learn_more"
-msgid "Learn more about the Eco-Score"
+msgctxt "environmental_score_learn_more"
+msgid "Learn more about the Green-Score"
 msgstr ""
 
 # The translation needs to be short as it is displayed at the top of small product cards
@@ -6132,8 +6264,8 @@ msgid "Use default preferences"
 msgstr ""
 
 msgctxt "reset_preferences_details"
-msgid "Nutri-Score, Eco-Score and food processing level (NOVA)"
-msgstr ""
+msgid "Nutri-Score, Green-Score and food processing level (NOVA)"
+msgstr "Nutri-Score, Green-Score และระดับการแปรรูปอาหาร (NOVA)"
 
 msgctxt "actions_add_ingredients"
 msgid "Could you add the ingredients list?"
@@ -6143,8 +6275,8 @@ msgctxt "actions_to_compute_nutriscore"
 msgid "Could you add the information needed to compute the Nutri-Score?"
 msgstr ""
 
-msgctxt "actions_to_compute_ecoscore"
-msgid "Could you add a precise product category so that we can compute the Eco-Score?"
+msgctxt "actions_to_compute_environmental_score"
+msgid "Could you add a precise product category so that we can compute the Green-Score?"
 msgstr ""
 
 msgctxt "action_add_ingredients_text"
@@ -6157,7 +6289,7 @@ msgstr ""
 
 msgctxt "action_add_nutrition_facts"
 msgid "Add nutrition facts"
-msgstr ""
+msgstr "เพิ่มฉลากโภชนาการ"
 
 msgctxt "action_add_origins"
 msgid "Add the origins of ingredients for this product"
@@ -6169,6 +6301,10 @@ msgstr ""
 
 msgctxt "action_add_packaging_components"
 msgid "Add packaging components"
+msgstr ""
+
+msgctxt "action_add_quantity"
+msgid "Add quantity of the product"
 msgstr ""
 
 # this is not used yet
@@ -6184,7 +6320,7 @@ msgstr ""
 # this is not used yet
 msgctxt "action_add_ingredients_image"
 msgid "Take a photo of the ingredients"
-msgstr "ถ่ายภาพของส่วนผสม"
+msgstr "ถ่ายภาพของส่วนประกอบอาหาร"
 
 # this is not used yet
 msgctxt "action_add_nutrition_image"
@@ -6224,20 +6360,20 @@ msgstr ""
 # this is not used yet
 msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
-msgstr ""
+msgstr "ถ่ายภาพรหัสตรวจสอบย้อนกลับ"
 
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
 msgid "What you need to know"
-msgstr ""
+msgstr "สิ่งที่คุณควรรู้"
 
 msgctxt "knowledge_panels_recommendation"
 msgid "Recommendation"
-msgstr ""
+msgstr "คำแนะนำ"
 
 msgctxt "nutrient_info_salt_risk"
 msgid "A high consumption of salt (or sodium) can cause raised blood pressure, which can increase the risk of heart disease and stroke."
-msgstr ""
+msgstr "การบริโภคเกลือ (หรือโซเดียม) ในปริมาณมากอาจทำให้ความดันโลหิตสูงขึ้น ซึ่งอาจเพิ่มความเสี่ยงต่อโรคหัวใจและโรคหลอดเลือดสมองได้"
 
 msgctxt "nutrient_info_salt_high_blood_pressure"
 msgid "Many people who have high blood pressure do not know it, as there are often no symptoms."
@@ -6249,7 +6385,7 @@ msgstr ""
 
 msgctxt "nutrient_recommendation_salt_title"
 msgid "Limit the consumption of salt and salted food"
-msgstr ""
+msgstr "จำกัดการบริโภคเกลือและอาหารรสเค็ม"
 
 msgctxt "nutrient_recommendation_salt_cooking_and_table"
 msgid "Reduce the quantity of salt used when cooking, and don't salt again at the table."
@@ -6257,7 +6393,7 @@ msgstr ""
 
 msgctxt "nutrient_recommendation_salt_limit_salty_snacks"
 msgid "Limit the consumption of salty snacks and choose products with lower salt content."
-msgstr ""
+msgstr "เลือกผลิตภัณฑ์ที่มีปริมาณเกลือโซเดียมน้อยเป็นประจำ"
 
 msgctxt "nutrient_info_sugars_risk"
 msgid "A high consumption of sugar can cause weight gain and tooth decay. It also augments the risk of type 2 diabetes and cardio-vascular diseases."
@@ -6265,7 +6401,7 @@ msgstr ""
 
 msgctxt "nutrient_recommendation_sugars_title"
 msgid "Limit the consumption of sugar and sugary drinks"
-msgstr ""
+msgstr "จำกัดการบริโภคน้ำตาลและเครื่องดื่มที่มีน้ำตาล"
 
 msgctxt "nutrient_recommendation_sugars_drinks"
 msgid "Sugary drinks (such as sodas, fruit beverages, and fruit juices and nectars) should be limited as much as possible (no more than 1 glass a day)."
@@ -6277,7 +6413,7 @@ msgstr ""
 
 msgctxt "nutrient_info_fat_and_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr ""
+msgstr "การบริโภคไขมันในปริมาณมาก โดยเฉพาะไขมันอิ่มตัว นั้นเพิ่มคอเลสเตอรอล ซึ่งเพิ่มความเสี่ยงต่อการเกิดโรคหลอดเลือดทั้งหัวใจและสมอง"
 
 msgctxt "nutrient_recommendation_fat_and_saturated_fat_title"
 msgid "Reduce the consumption of fat and saturated fat"
@@ -6314,7 +6450,7 @@ msgstr ""
 # result of the matching with the user preferences: should ne a noun, not a verb
 msgctxt "matching_with_your_preferences"
 msgid "Matching with your preferences"
-msgstr ""
+msgstr "เปรียบเทียบกับความต้องการ (preferences) ของคุณ"
 
 # HTML tags and variable names between { } must not be translated
 msgctxt "f_join_us_on_slack"
@@ -6531,10 +6667,6 @@ msgctxt "faq_for_producers"
 msgid "FAQ for producers"
 msgstr ""
 
-msgctxt "join_the_next_pros_meet_up"
-msgid "Join the next Pros' Meet-up"
-msgstr ""
-
 # variable names between { } must not be translated
 msgctxt "product_js_enter_value_between_0_and_max"
 msgid "Please enter a value between 0 and {max}."
@@ -6550,7 +6682,7 @@ msgstr ""
 
 msgctxt "product_js_sugars_warning"
 msgid "Sugars should not be higher than carbohydrates."
-msgstr ""
+msgstr "ปริมาณน้ำตาลไม่ควรมีมากกว่าคาร์โบไฮเดรตทั้งหมด"
 
 msgctxt "product_js_saturated_fat_warning"
 msgid "Saturated fat should not be higher than fat."
@@ -6596,6 +6728,10 @@ msgctxt "relative_to_all_products"
 msgid "relative to all products"
 msgstr ""
 
+msgctxt "preferred_language"
+msgid "Preferred Language"
+msgstr ""
+
 msgctxt "packagings_n_p"
 msgid "Numbers of packaging components"
 msgstr ""
@@ -6618,5 +6754,474 @@ msgstr ""
 
 msgctxt "weight_percent"
 msgid "Weight percent"
+msgstr ""
+
+msgctxt "nutriscore_component_energy"
+msgid "Energy"
+msgstr "พลังงาน"
+
+msgctxt "nutriscore_component_energy_from_saturated_fat"
+msgid "Energy from saturated fat"
+msgstr ""
+
+msgctxt "nutriscore_component_sugars"
+msgid "Sugars"
+msgstr "น้ำตาล"
+
+msgctxt "nutriscore_component_saturated_fat"
+msgid "Saturated fat"
+msgstr "ไขมันอิ่มตัว"
+
+msgctxt "nutriscore_component_saturated_fat_ratio"
+msgid "Saturated fat / fat"
+msgstr ""
+
+msgctxt "nutriscore_component_salt"
+msgid "Salt"
+msgstr "เกลือ"
+
+msgctxt "nutriscore_component_non_nutritive_sweeteners"
+msgid "Non-nutritive sweeteners"
+msgstr ""
+
+msgctxt "nutriscore_component_fruits_vegetables_legumes"
+msgid "Fruits, vegetables and legumes"
+msgstr ""
+
+msgctxt "nutriscore_component_fiber"
+msgid "Fiber"
+msgstr "ใยอาหาร"
+
+msgctxt "nutriscore_component_proteins"
+msgid "Proteins"
+msgstr "โปรตีน"
+
+msgctxt "presence"
+msgid "Presence"
+msgstr ""
+
+msgctxt "absence"
+msgid "Absence"
+msgstr ""
+
+msgctxt "nutriscore_is_water"
+msgid "This product is considered to be water for the calculation of the Nutri-Score."
+msgstr ""
+
+msgctxt "nutriscore_is_fat_oil_nuts_seeds"
+msgid "This product is considered to be fat, oil, nuts or seeds for the calculation of the Nutri-Score."
+msgstr ""
+
+msgctxt "nutriscore_is_cheese"
+msgid "This product is considered to be cheese for the calculation of the Nutri-Score."
+msgstr ""
+
+msgctxt "nutriscore_is_red_meat_product"
+msgid "This product is considered to be a red meat product for the calculation of the Nutri-Score."
+msgstr ""
+
+msgctxt "nutriscore_count_proteins_reason_beverage"
+msgid "Points for proteins are counted because the product is considered to be a beverage."
+msgstr "นับรวมคะแนนสําหรับโปรตีนเนื่องจากผลิตภัณฑ์นี้จัดอยู่ในหมวดหมู่เครื่องดื่ม"
+
+msgctxt "nutriscore_count_proteins_reason_cheese"
+msgid "Points for proteins are counted because the product is considered to be cheese."
+msgstr "นับรวมคะแนนสําหรับโปรตีนเนื่องจากผลิตภัณฑ์นี้จัดอยู่ในหมวดหมู่ของชีส"
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_7"
+msgid "Points for proteins are counted because the negative points are less than 7."
+msgstr "นับรวมคะแนนสําหรับโปรตีนเนื่องจากคะแนนคุณภาพด้านลบน้อยกว่า 7"
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_11"
+msgid "Points for proteins are counted because the negative points are less than 11."
+msgstr "นับรวมคะแนนสําหรับโปรตีนเนื่องจากคะแนนคุณภาพด้านลบน้อยกว่า 11"
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_7"
+msgid "Points for proteins are not counted because the negative points greater than or equal to 7."
+msgstr "ไม่นับรวมคะแนนสําหรับโปรตีนเนื่องจากคะแนนคุณภาพด้านลบมากกว่าหรือเท่ากับ 7"
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_11"
+msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
+msgstr "ไม่นับรวมคะแนนสําหรับโปรตีนเนื่องจากคะแนนคุณภาพด้านลบมากกว่าหรือเท่ากับ 11"
+
+msgctxt "nutriscore_explanation_what_it_is"
+msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
+msgstr "Nutri-Score เป็นโลโก้ที่แสดงคุณภาพโภชนาการโดยรวมของผลิตภัณฑ์"
+
+msgctxt "nutriscore_explanation_what_it_takes_into_account"
+msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
+msgstr "ดัชนีคุณภาพของคุณค่าทางโภชนาการ มีระดับตั้งแต่ A ถึง E การให้คะแนนขึ้นอยู่กับปริมาณสารอาหารที่เป็นประโยชน์ (เช่น โปรตีน, ใยอาหาร, ผลไม้, ผัก และถั่ว) และสารอาหารที่ควรลดลง (เช่น พลังงาน, ไขมันอิ่มตัว, น้ำตาล, เกลือ) แต่ไม่เหมาะจะใช้อ้างอิงสำหรับผู้มีโรคประจำตัว ควรได้รับคำแนะนำเพิ่มเติมจากแพทย์ และนักกำหนดอาหาร"
+
+msgctxt "nutriscore_explanation_where_the_data_comes_from"
+msgid "The score is calculated from the data of the nutrition facts table and the composition data (fruits, vegetables and legumes)."
+msgstr ""
+
+msgctxt "nutriscore_explanation_recommended_by_public_health_authorities"
+msgid "The display of this logo is recommended by public health authorities without obligation for companies."
+msgstr ""
+
+msgctxt "nutriscore_explanation_title"
+msgid "What is the Nutri-Score?"
+msgstr "อธิบายเพิ่มเติมเกี่ยวกับ Nutri-Score"
+
+msgctxt "nutrient_info_energy_risk"
+msgid "Energy intakes above energy requirements are associated with increased risks of weight gain, overweight, obesity, and consequently risk of diet-related chronic diseases."
+msgstr ""
+
+msgctxt "nutrient_info_saturated_fat_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "การบริโภคไขมันในปริมาณมาก โดยเฉพาะไขมันอิ่มตัว นั้นเพิ่มคอเลสเตอรอล ซึ่งเพิ่มความเสี่ยงต่อการเกิดโรคหลอดเลือดทั้งหัวใจและสมอง"
+
+msgctxt "nutrient_info_saturated_fat_ratio_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "การบริโภคไขมันในปริมาณมาก โดยเฉพาะไขมันอิ่มตัว นั้นเพิ่มคอเลสเตอรอล ซึ่งเพิ่มความเสี่ยงต่อการเกิดโรคหลอดเลือดทั้งหัวใจและสมอง"
+
+msgctxt "nutrient_info_energy_from_saturated_fat_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "การบริโภคไขมันในปริมาณมาก โดยเฉพาะไขมันอิ่มตัว นั้นเพิ่มคอเลสเตอรอล ซึ่งเพิ่มความเสี่ยงต่อการเกิดโรคหลอดเลือดทั้งหัวใจและสมอง"
+
+msgctxt "nutrient_info_non_nutritive_sweeteners_risk"
+msgid "Non-nutritive sweeteners may not confer any long-term benefit in reducing body fat in adults or children. There may be potential undesirable effects from long-term use of non-nutritive sweeteners, such as an increased risk of type 2 diabetes and cardiovascular diseases in adults."
+msgstr ""
+
+msgctxt "nutrient_info_fiber_benefit"
+msgid "Consuming foods rich in fiber (especially whole grain foods) reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
+msgstr ""
+
+msgctxt "nutrient_info_fruits_vegetables_legumes_benefit"
+msgid "Consuming foods rich in fruits, vegetables and legumes reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
+msgstr ""
+
+msgctxt "nutrient_info_proteins_benefit"
+msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
+msgstr ""
+
+msgctxt "revert"
+msgid "Revert to this revision"
+msgstr ""
+
+msgctxt "product_js_product_revert_confirm"
+msgid "Revert to this product revision?"
+msgstr ""
+
+msgctxt "api_status_success"
+msgid "Success"
+msgstr ""
+
+msgctxt "api_status_failure"
+msgid "Failure"
+msgstr ""
+
+msgctxt "api_result_product_reverted"
+msgid "Product reverted to the specified revision"
+msgstr ""
+
+msgctxt "api_result_product_not_reverted"
+msgid "Product not reverted to the specified revision"
+msgstr ""
+
+# sweeteners (additives), plural
+msgctxt "sweeteners"
+msgid "sweeteners"
+msgstr ""
+
+# sweetener (additive), singular
+msgctxt "sweetener"
+msgid "sweetener"
+msgstr "สารให้ความหวาน"
+
+msgctxt "action_edit_product"
+msgid "Complete or correct product information"
+msgstr ""
+
+msgctxt "report_problem_panel_title"
+msgid "Report a problem"
+msgstr ""
+
+msgctxt "report_problem_navigation"
+msgid "Report a problem."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_title"
+msgid "Incomplete or incorrect information?"
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_subtitle_off"
+msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct"
+msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct_off"
+msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
+
+msgctxt "description"
+msgid "Description"
+msgstr ""
+
+# duplicate with "report_problem_panel_title"
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
+msgstr ""
+
+msgctxt "enter_main_contact_username"
+msgid "Enter main contact's username :"
+msgstr ""
+
+msgctxt "change_main_contact"
+msgid "Change main contact"
+msgstr ""
+
+msgctxt "main_contact_updated"
+msgid "Main contact updated"
+msgstr ""
+
+msgctxt "error_unknown_member"
+msgid "This user is not a member of the organization."
+msgstr ""
+
+msgctxt "skip_to_content"
+msgid "Skip to Content"
+msgstr ""
+
+msgctxt "cant_delete_main_contact"
+msgid "You cannot remove the main contact. Change it first."
+msgstr ""
+
+msgctxt "open_in_crm"
+msgid "Open in CRM"
+msgstr ""
+
+msgctxt "information_provided_by_the_manufacturer"
+msgid "Information provided by the manufacturer"
+msgstr ""
+
+msgctxt "information_provided_by_the_manufacturer_edit_form"
+msgid "Information identified by a factory icon has been provided by the manufacturer. It can be changed only by the manufacturer and moderators. If it is out of date or incorrect, please let us know."
+msgstr ""
+
+msgctxt "knowledge_panels_did_you_know"
+msgid "Did you know?"
+msgstr ""
+
+msgctxt "knowledge_panels_why_it_matters"
+msgid "Why it matters"
+msgstr ""
+
+msgctxt "knowledge_panels_what_you_can_do"
+msgid "What you can do"
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_title"
+msgid "Good for agricultural biodiversity"
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_subtitle"
+msgid "Contains neglected or underutilized crops:"
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_did_you_know"
+msgid "Since 1900, 75% of plant diversity has been lost as farmers around the world have abandoned local varieties for high-yielding varieties adapted to mass industrial processing. As a result, 60 % of human energy intake in the world comes from only 3 species: wheat, rice and corn."
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_why_it_matters"
+msgid "The lack of variety of crops makes our food supply more vulnerable to pests, diseases and climate change."
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do"
+msgid "Consuming diverse cereals, legumes, vegetables and fruits contributes to:"
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_1"
+msgid "preserving neglected and underutilized species"
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_2"
+msgid "rural development and support of local farmers and companies"
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_3"
+msgid "preserving of diversified landscapes"
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_4"
+msgid "food security"
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_5"
+msgid "and your health!"
+msgstr ""
+
+msgctxt "created_by"
+msgid "Created by"
+msgstr ""
+
+msgctxt "org_id"
+msgid "Org id"
+msgstr ""
+
+msgctxt "verified_status"
+msgid "Verified status"
+msgstr ""
+
+msgctxt "creation_date"
+msgid "Creation date"
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_divinfood"
+msgid "Open Food Facts participates in the European project <a href=\"https://divinfood.eu/\">DIVINFOOD</a> (funded from European Union’s Horizon 2020 research and innovation programme). DIVINFOOD aims to develop food chains that value under-utilised agrobiodiversity in order to act against the decline of biodiversity and to meet the growing expectations of consumers for healthy, local products that contribute to sustainable food systems."
+msgstr "Open Food Facts เข้าร่วมโครงการ <a href=\"https://divinfood.eu/\">DIVINFOOD</a> (ซึ่งเป็นทุนจากโครงการวิจัยและนวัตกรรมของสหภาพยุโรป Horizon 2020) โดย DIVINFOOD มีเป้าหมายที่จะพัฒนาโซ่อาหาร (Food chain) ที่ให้ความคุ้มค่ากับความหลากหลายทางชีวภาพที่นำมาใช้น้อยไปจนถึงการต่อต้านการลดลงของความหลากหลายทางชีวภาพและการตอบสนองต่อความคาดหวังที่เพิ่มขึ้นของผู้บริโภคสำหรับผลิตภัณฑ์ที่เป็นอย่างดีต่อสุขภาพ ผลิตภัณฑ์ท้องถิ่นที่มีส่วนร่วมในระบบอาหารที่ยั่งยืน"
+
+msgctxt "deny"
+msgid "Deny"
+msgstr ""
+
+msgctxt "users_requested_to_join_org"
+msgid "These users have requested to join the organization:"
+msgstr ""
+
+msgctxt "last_login"
+msgid "Last login date"
+msgstr ""
+
+msgctxt "last_import"
+msgid "Last import date"
+msgstr ""
+
+msgctxt "drop_a_file"
+msgid "Drop"
+msgstr ""
+
+msgctxt "select_product_data_file"
+msgid "Select a file with product data"
+msgstr ""
+
+msgctxt "number_of_products_without_nutriscore"
+msgid "Number of products without Nutri-Score"
+msgstr ""
+
+msgctxt "percent_of_products_with_nutriscore"
+msgid "% of products where Nutri-Score is computed"
+msgstr ""
+
+msgctxt "products_to_be_exported"
+msgid "Products to be exported"
+msgstr ""
+
+msgctxt "products_exported"
+msgid "Products exported"
+msgstr ""
+
+msgctxt "opportunities_to_improve_nutriscore"
+msgid "Opp. for Nutri-Score improvements"
+msgstr ""
+
+msgctxt "date_of_last_update"
+msgid "Date of last update"
+msgstr ""
+
+msgctxt "number_of_products_on_public_platform"
+msgid "Number of products on public platform"
+msgstr ""
+
+msgctxt "number_of_products_on_producer_platform"
+msgid "Number of products on producer platform"
+msgstr ""
+
+msgctxt "automated_daily_export_to_public_platform"
+msgid "Automatic daily export to public platform"
+msgstr ""
+
+msgctxt "improvements_navigation"
+msgid "Improvements"
+msgstr ""
+
+msgctxt "products_with_changes_since_last_export"
+msgid "Products with changes since last export"
+msgstr ""
+
+msgctxt "organization_list"
+msgid "Organization list"
+msgstr ""
+
+msgctxt "open_org"
+msgid "Open org"
+msgstr ""
+
+msgctxt "secondhand"
+msgid "Secondhand"
+msgstr ""
+
+msgctxt "donated_products_title"
+msgid "Donations"
+msgstr ""
+
+msgctxt "donated_products_subtitle"
+msgid "Give this product, or search for a similar donated product"
+msgstr ""
+
+msgctxt "used_products_title"
+msgid "Used products"
+msgstr ""
+
+msgctxt "used_products_subtitle"
+msgid "Buy this product used, or search for a similar used product"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_name"
+msgid "Repairability index"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_setting_name"
+msgid "Good repairability"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_setting_note"
+msgid "Mandatory rating in France for certain products since 2021"
+msgstr ""
+
+# keep %s, it will be replaced by the letter A, B, C, D or E
+msgctxt "attribute_repairability_index_france_grade_title"
+msgid "Repairability index %s"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_unknown_title"
+msgid "Repairability index unknown"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_not_applicable_title"
+msgid "Repairability index not-applicable"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_not_applicable_description_short"
+msgid "Not-applicable for the category"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_repairability_index_france_not_applicable_description"
+msgid "Applicable only for categories: {categories}"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_very_good_description_short"
+msgid "Very good repairability"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_good_description_short"
+msgid "Good repairability"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_average_description_short"
+msgid "Average repairability"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_poor_description_short"
+msgid "Poor repairability"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_bad_description_short"
+msgid "Bad repairability"
 msgstr ""
 
