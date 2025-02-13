@@ -24648,9 +24648,9 @@ zh: 硬粒小麦
 ciqual_proxy_food_code:en: 9060
 ciqual_proxy_food_name:en: Durum wheat, whole, raw
 ciqual_proxy_food_name:fr: Blé dur entier, cru
-ecobalyse:en: durum-wheat-non-eu
-ecobalyse_origins_en_european_union:en: durum-wheat-eu
-ecobalyse_origins_en_france:en: durum-wheat-fr
+ecobalyse:en: 2e196834-d2b1-4786-9265-db4440c8517c
+ecobalyse_origins_en_european_union:en: 0d5d65e0-6ffc-4ffa-9966-944bc3ed62c8
+ecobalyse_origins_en_france:en: 28013f55-a3ce-4ae6-9a97-133ce7724ece
 wikidata:en: Q618324
 # xmf:კიჭიბე ქობალკაკალი
 wikipedia:en: https://en.wikipedia.org/wiki/Durum
@@ -24766,7 +24766,7 @@ zh: 硬质粗粒小麦粉
 ciqual_food_code:en: 9610
 ciqual_food_name:en: Durum wheat semolina, raw
 ciqual_food_name:fr: Semoule de blé dur, crue
-ecobalyse:en: durum-wheat-semolina
+ecobalyse:en: b02ea3a9-f5f1-4673-b043-1d6d72894964
 wikidata:en: Q95370124
 #13020 in 29 @2021-09-28
 
@@ -27732,8 +27732,8 @@ carbon_footprint_fr_foodges_value:fr: 1.2
 ciqual_proxy_food_code:en: 9410
 ciqual_proxy_food_name:fr: Farine de blé tendre ou froment T110
 # Ecobalyse flour is Wheat flour at industrial mill
-ecobalyse_proxy:en: flour
-ecobalyse_proxy_labels_en_organic:en: flour-organic
+ecobalyse_proxy:en: a2e25aca-1f42-4bc8-bc0e-4d7c751775aa
+ecobalyse_proxy_labels_en_organic:en: db791ac8-02b9-41b0-bc2b-2913e745bd19
 vegan:en: yes
 vegetarian:en: yes
 # arc:ܩܡܚܐ
@@ -27880,8 +27880,8 @@ carbon_footprint_fr_foodges_ingredient:fr: Farine de blé
 carbon_footprint_fr_foodges_value:fr: 1.2
 ciqual_proxy_food_code:en: 9410
 ciqual_proxy_food_name:fr: Farine de blé tendre ou froment T110
-ecobalyse:en: flour
-ecobalyse_labels_en_organic:en: flour-organic
+ecobalyse_proxy:en: a2e25aca-1f42-4bc8-bc0e-4d7c751775aa
+ecobalyse_proxy_labels_en_organic:en: db791ac8-02b9-41b0-bc2b-2913e745bd19
 wikidata:en: Q2249305
 # ko:밀가루 translation issue with en:wheat
 # zh-min-nan:Mī-hún
@@ -29093,9 +29093,9 @@ nl: suikermaïs, zoete maïs
 pl: kukurydza słodka, słodka kukurydza
 pt: milgo doce
 # ingredient/fr:maïs-doux 103 products in 5 languages @2018-09-24
-ecobalyse:en: sweet-corn-br
-ecobalyse_labels_en_organic:en: sweet-corn-organice-fr
-ecobalyse_origins_en_france:en: sweet-corn-fr
+ecobalyse:en: 6467c956-277d-4e09-80c2-b0b062f84086
+ecobalyse_labels_en_organic:en: 741c0970-2823-430a-b4e4-e61ce08ea95a
+ecobalyse_origins_en_france:en: 40fa68b6-381e-4dd6-ba70-8b43cfdee64e
 eurocode_2_group_3:en: 8.45.50
 
 < en:sweet corn
@@ -30140,8 +30140,8 @@ uk: басматі
 ciqual_food_code:en: 9119
 ciqual_food_name:en: Basmati rice, raw
 ciqual_food_name:fr: Riz thaï ou basmati, cru
-ecobalyse:en: rice-basmati-non-eu
-ecobalyse_labels_en_organic:en: rice-basmati-organic
+ecobalyse:en: cce078cf-3d3e-4153-a0a1-35555b2da639
+ecobalyse_labels_en_organic:en: dcdcb4d1-1793-4f1b-bd1f-7578d02e4fb1
 # bho:बासमती
 # pnb:باسمتی
 # yue:印度香米
@@ -30899,8 +30899,7 @@ carbon_footprint_fr_foodges_value:fr: 1.3
 ciqual_proxy_food_code:en: 31016
 ciqual_proxy_food_name:en: Sugar, white
 ciqual_proxy_food_name:fr: Sucre blanc
-ecobalyse:en: sugar
-ecobalyse_labels_en_organic:en: sugar-beet-organic
+ecobalyse:en: 8f075c25-9ebf-430c-b41d-51d165c6e0d8
 vegan:en: yes
 vegetarian:en: yes
 # als:Zucker
@@ -34939,7 +34938,7 @@ carbon_footprint_fr_foodges_value:fr: 4.9
 ciqual_proxy_food_code:en: 31074
 ciqual_proxy_food_name:en: Dark chocolate bar, more than 70% cocoa
 description:en: DARK BLACK CHOCOLATE is a form of chocolate containing cocoa solids, cocoa butter and sugar, without the milk found in milk chocolate.
-ecobalyse:en: dark-chocolate
+ecobalyse:en: 6f3939f7-408c-45d5-8653-61f3336bf305
 # yue:黑朱古力
 wikidata:en: Q277628
 wikipedia:en: https://en.wikipedia.org/wiki/Dark_chocolate
@@ -35371,7 +35370,7 @@ carbon_footprint_fr_foodges_ingredient:fr: Eau en bouteille PET, plate, 0.5 L
 carbon_footprint_fr_foodges_value:fr: 0.4
 ciqual_food_code:en: 18066
 ciqual_food_name:fr: Eau du robinet
-ecobalyse:en: tap-water
+ecobalyse:en: 36b3ffec-51e7-4e26-b1b5-7d52554e0aa6
 # als:Wasser
 # ang:Wæter
 # arc:ܡܝܐ
@@ -38722,9 +38721,9 @@ carbon_footprint_fr_foodges_value:fr: 1.1
 ciqual_food_code:en: 13000
 ciqual_food_name:en: Apricot, pitted, raw
 ciqual_food_name:fr: Abricot, dénoyauté, cru
-ecobalyse:en: apricot-eu
-ecobalyse_labels_en_organic:en: apricot-organic
-ecobalyse_origins_en_france:en: apricot-fr
+ecobalyse:en: c455b3b8-406b-407a-a525-b2c832522e49
+ecobalyse_labels_en_organic:en: 36158ea6-066c-4fd6-9e28-6477c7297b37
+ecobalyse_origins_en_france:en: e3865e84-12e7-4f7a-9fe3-132f67713d82
 # 5160 in 25 @2021-09-12
 eurocode_2_group_3:en: 9.20.10
 wikidata:en: Q3733836
@@ -39016,8 +39015,8 @@ carbon_footprint_fr_foodges_value:fr: 1.2
 ciqual_food_code:en: 13005
 ciqual_food_name:en: Banana, pulp, raw
 ciqual_food_name:fr: Banane, pulpe, crue
-ecobalyse:en: banana-non-eu
-ecobalyse_labels_en_organic:en: banana-organic
+ecobalyse:en: f79d155e-3f9e-4882-8dd0-b03f28c1ff76
+ecobalyse_labels_en_organic:en: b3f92ca9-3121-4e2d-9e1d-0cc2c5d392fe
 wikidata:en: Q503
 # als:Banane
 # arz:موز
@@ -39530,8 +39529,8 @@ carbon_footprint_fr_foodges_value:fr: 0.8
 # 1597 products in 10 languages @2018-09-27
 ciqual_food_code:en: 13025
 ciqual_food_name:en: Mango, pulp, raw
-ecobalyse:en: mango-non-eu
-ecobalyse_labels_en_organic:en: mango-organic
+ecobalyse:en: db0e5f44-34b4-4160-b003-77c828d75e60
+ecobalyse_labels_en_organic:en: ef57c898-8780-48cb-b00f-7d8a310f46aa
 # ace:Mamplam
 # atj:Wamincic ka mirokisitc
 # bcl:Mangga
@@ -39729,9 +39728,9 @@ description:es: Prunus persica es una especie de árbol del género Prunus de la
 description:fr: La pêche est un fruit comestible produit par le pêcher (Prunus persica) originaire de Chine.
 description:it: Il pesco (Prunus persica) è una specie della famiglia Rosaceae che produce un frutto commestibile chiamato pèsca.
 description:nl: De perzik (Prunus persica) is een boomsoort en een vrucht. De vrucht bevat een harde houtachtige pit.
-ecobalyse:en: peach-eu
+ecobalyse:en: fa9e9f34-acc9-4974-89c4-003d2428f502
 ecobalyse_labels_en_organic:en: peach-organic
-ecobalyse_origins_en_france:en: peach-fr
+ecobalyse_origins_en_france:en: a0012089-de27-45ae-89d1-863f71a06e72
 eurocode_2_group_3:en: 9.20.20
 wikidata:en: Q13411121
 # nah:Durazno
@@ -40017,8 +40016,8 @@ zh: 梨
 #carbon_footprint_fr_foodges_value:fr:0.5
 carbon_footprint_fr_foodges_ingredient:fr: Poire (Argentine)
 carbon_footprint_fr_foodges_value:fr: 1
-ecobalyse:en: pear-eu
-ecobalyse_origins_en_france:en: pear-fr
+ecobalyse:en: bb00f430-ffda-46a3-ba45-267b0064a43e
+ecobalyse_origins_en_france:en: eab762ca-1edc-4fcc-ba6d-c247bbab0ec8
 wikidata:en: Q13099586
 # ast:pera
 # dsb:Kšuška
@@ -40198,8 +40197,8 @@ wa: pronne
 ciqual_food_code:en: 13100
 ciqual_food_name:en: Plum, raw
 ciqual_food_name:fr: Prune, crue
-ecobalyse:en: plum-fr
-ecobalyse_labels_en_organic:en: plum-organic
+ecobalyse:en: b83a6d8e-5afa-447b-be7b-5df9573e7d3b
+ecobalyse_labels_en_organic:en: 10af6fa1-e374-4748-b8a8-f735d2813489
 # 35 products in 1 language @2018-09-30
 eurocode_2_group_3:en: 9.20.30
 openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:prune
@@ -40612,8 +40611,8 @@ carbon_footprint_fr_foodges_value:fr: 1.3
 ciqual_food_code:en: 13050
 ciqual_food_name:en: Apple, pulp, raw
 ciqual_food_name:fr: Pomme, pulpe, crue
-ecobalyse:en: apple-fr
-ecobalyse_labels_en_organic:en: apple-organic
+ecobalyse:en: 8c2299d6-49e4-493c-bafe-c0b4b7ef2079
+ecobalyse_labels_en_organic:en: 3d3fc6bd-0a43-462b-bc39-fed04cf34498
 # aeb-arab:كعبة تفّاح
 # aeb-latn:toffè7
 # ang:Æppel
@@ -41478,7 +41477,7 @@ zh: 克里曼丁红橘
 ciqual_food_code:en: 13082
 ciqual_food_name:en: Clementine, pulp, raw
 ciqual_food_name:fr: Clémentine, pulpe, crue
-ecobalyse:en: clementine-non-eu
+ecobalyse:en: 299941e9-577c-4618-968c-6901ffa99a8d
 wikidata:en: Q460517
 # frr:Clementiin
 # koi:Клементин
@@ -42054,8 +42053,8 @@ zh: 柠檬
 ciqual_proxy_food_code:en: 13009
 ciqual_proxy_food_name:en: Lemon, pulp, raw
 ciqual_proxy_food_name:fr: Citron, pulpe, cru
-ecobalyse:en: lemon-eu
-ecobalyse_labels_en_organic:en: lemon-organic
+ecobalyse:en: 6ece5452-42de-4e0a-8c70-1d305e614cc8
+ecobalyse_labels_en_organic:en: ed5c98fd-6fe5-43ca-b938-1dde919794b7
 wikidata:en: Q1093742
 
 # en:description:The skin or outer layer of a fruit, vegetable, etc.
@@ -42592,7 +42591,7 @@ agribalyse_proxy_food_name:en: Mandarin, pulp, raw
 agribalyse_proxy_food_name:fr: Mandarine, pulpe, crue
 carbon_footprint_fr_foodges_ingredient:fr: Mandarine
 carbon_footprint_fr_foodges_value:fr: 1.3
-ecobalyse:en: mandarin-eu
+ecobalyse:en: 6467c956-277d-4e09-80c2-b0b062f84086
 # aeb-arab:كعبة مدنين
 # arz:سفندى
 # eml:mandarëin
@@ -42819,8 +42818,8 @@ carbon_footprint_fr_foodges_value:fr: 0.8
 # 2121 products in 8 languages @2018-09-28
 ciqual_proxy_food_code:en: 13034
 ciqual_proxy_food_name:en: Orange, pulp, raw
-ecobalyse:en: orange-non-eu
-ecobalyse_origins_en_european_union:en: orange-eu
+ecobalyse:en: f3c21efc-5e7b-4c24-a7f6-6ffbcb34d5b1
+ecobalyse_origins_en_european_union:en: af47d8b1-2c50-4f3f-8d10-1941133bd100
 wikidata:en: Q13191
 # ast:Naranxa
 # bho:संतरा
@@ -43776,8 +43775,8 @@ vi: Việt quất đen
 zh: 山桑子
 ciqual_food_code:en: 13028
 ciqual_food_name:en: Blueberry, raw
-ecobalyse:en: blueberry-non-eu
-ecobalyse_labels_en_organic:en: blueberry-organic
+ecobalyse:en: b193fd9e-99ab-4d1b-8e81-3b38bab2eacf
+ecobalyse_labels_en_organic:en: df1fe70a-08c0-4b8a-9f88-0caeb002d26a
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/blueberry
 # 943 producten in 13 languages @2018-10-01
 eurocode_2_group_3:en: 9.30.46
@@ -44223,9 +44222,9 @@ carbon_footprint_fr_foodges_value:fr: 1.3
 ciqual_food_code:en: 13008
 ciqual_food_name:en: Cherry, pitted, raw
 ciqual_food_name:fr: Cerise, dénoyautée, crue
-ecobalyse:en: cherry-tr
-ecobalyse_labels_en_organic:en: cherry-organic
-ecobalyse_origins_en_france:en: cherry-fr
+ecobalyse:en: 4e13ea5f-4ad1-4009-ae91-842cb18bd4dd
+ecobalyse_labels_en_organic:en: b4e8febc-6588-4599-8c58-c019144597c6
+ecobalyse_origins_en_france:en: 8ea6e0d1-a163-4059-8a6b-bd443f0168db
 wikidata:en: Q196
 # arz:كريز
 # ast:cereza
@@ -45638,9 +45637,9 @@ zh: 奇異果
 ciqual_food_code:en: 13021
 ciqual_food_name:en: Kiwi fruit, pulp and seeds, raw
 ciqual_food_name:fr: Kiwi, pulpe et graines, cru
-ecobalyse:en: kiwi-non-eu
-ecobalyse_origins_en_european_union:en: kiwi-eu
-ecobalyse_origins_en_france:en: kiwi-fr
+ecobalyse:en: 5c5663f5-3075-4814-92ff-1f65c99ad518
+ecobalyse_origins_en_european_union:en: cf4d7abd-8cd6-48ef-bc83-212ad3f672b9
+ecobalyse_origins_en_france:en: f3ed8d7b-21be-4d21-aae0-fee3ae914224
 # ang:cīnisc gōsberige
 # arz:كيوي
 # atj:wamin ka kawisitc
@@ -45856,8 +45855,8 @@ ciqual_food_code:en: 13023
 ciqual_food_name:en: Lychee, pulp, raw
 ciqual_food_name:fr: Litchi, pulpe, cru
 description:en: LYCHEE is the sole member of the genus Litchi in the soapberry family, Sapindaceae.
-ecobalyse:en: lychee-non-eu
-ecobalyse_labels_en_organic:en: lychee-organic
+ecobalyse:en: e9764c3c-554f-4f1e-9ba1-8debc869e6ba
+ecobalyse_labels_en_organic:en: 03ecc69a-01a4-4ca2-83ba-77e8310d034a
 eurocode_2_group_2:en: 9.25
 eurocode_2_group_3:en: 9.25.40
 # bcl:Litsiyas
@@ -45964,9 +45963,9 @@ zh: 瓜
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:melon 94 products in 5 languages @2018-09-29
 carbon_footprint_fr_foodges_ingredient:fr: Melon
 carbon_footprint_fr_foodges_value:fr: 0.5
-ecobalyse:en: melon-eu
-ecobalyse_labels_en_organic:en: melon-organic
-ecobalyse_origins_en_france:en: melon-fr
+ecobalyse:en: 7b30c4ad-e851-4274-8062-4e14850108a9
+ecobalyse_labels_en_organic:en: 359ec82d-4f28-43bd-b5be-84256a45c03e
+ecobalyse_origins_en_france:en: dc5c2f84-937c-4059-b7f9-352658cd4c57
 wikidata:en: Q5881191
 # gsw:Melone
 # pnb:خربوزہ
@@ -46177,7 +46176,7 @@ zh: 西瓜
 ciqual_food_code:en: 13036
 ciqual_food_name:en: Watermelon, pulp, raw
 ciqual_food_name:fr: Pastèque, pulpe, crue
-ecobalyse:en: watermelon-organic
+ecobalyse:en: d5aff6c8-470b-457b-bc67-294d8987ee5e
 openfoodfacts:en: https://world.openfoodfacts.org/ingredient/watermelon
 # aeb-arab:دلّاع
 # aeb:latn:dellè3
@@ -46492,7 +46491,7 @@ zh: 番木瓜
 ciqual_food_code:en: 13035
 ciqual_food_name:en: Papaya, pulp, raw
 ciqual_food_name:fr: Papaye, pulpe, crue
-ecobalyse:en: papaya-organic
+ecobalyse:en: 8eec6aa3-2234-468c-aa5a-cfb364285ac9
 wikidata:en: Q12330939
 #arz:بابايا
 #ast:papaya
@@ -46730,8 +46729,8 @@ ur: انناس
 yi: אנאנאס
 za: Bohloz
 zh: 鳳梨
-ecobalyse:en: pineapple-non-eu
-ecobalyse_labels_en_organic:en: pineapple-organic
+ecobalyse:en: c1ca415f-85bb-43f6-bf8f-8bedd6f95e9a
+ecobalyse_labels_en_organic:en: 0f52bae1-07d0-446d-ae5b-f246f894ac3b
 wikidata:en: Q10817602
 # bjn:Kanas
 # chy:Šéstotó'emeno
@@ -47121,8 +47120,8 @@ zh: 樹莓
 ciqual_food_code:en: 13015
 ciqual_food_name:en: Raspberry, raw
 ciqual_food_name:fr: Framboise, crue
-ecobalyse:en: raspberry-eu
-ecobalyse_labels_en_organic:en: raspberry-organic
+ecobalyse:en: 50939126-d4a5-4b94-b110-63e8b9e66173
+ecobalyse_labels_en_organic:en: 091cda9d-3c9d-444c-ad0e-1d6f34491767
 eurocode_2_group_3:en: 9.30.20
 
 < en:raspberry
@@ -47483,9 +47482,9 @@ carbon_footprint_fr_foodges_value:fr: 3.5
 ciqual_food_code:en: 13014
 ciqual_food_name:en: Strawberry, raw
 ciqual_food_name:fr: Fraise, crue
-ecobalyse:en: strawberry-non-eu
-ecobalyse_origins_en_european_union:en: strawberry-eu
-ecobalyse_origins_en_france:en: strawberry-fr-offseason
+ecobalyse:en: e5bf7d33-6afe-46d6-ac06-f69c5769b10e
+ecobalyse_origins_en_european_union:en: ce20da3d-0ce4-49e9-8942-6d99ff0221b1
+ecobalyse_origins_en_france:en: 3c20126c-e2ab-403b-8bbc-0fc0d2fd3a1b
 eurocode_2_group_3:en: 9.30.15
 # aeb-arab:كعبة فراز
 # ary:لفريز
@@ -49906,9 +49905,9 @@ zh: 苦苣
 # wikidata:en:Q28604477 what is this?
 # category/endives has 8 products @2019-05-22
 # ingredient/endive has 125 products @2019-05-22
-ecobalyse:en: endive-eu
-ecobalyse_labels_en_organic:en: endive-organic
-ecobalyse_origins_en_france:en: endive-fr
+ecobalyse:en: d680c44f-8458-406a-ac2c-13cd83e90a07
+ecobalyse_labels_en_organic:en: 6842d570-6b53-49f3-ba9c-984b55e40171
+ecobalyse_origins_en_france:en: b26efb2f-8811-4fbb-9d01-3d7f0d8135ef
 eurocode_2_group_3:en: 8.10.10
 # nds-nl:andievie
 # pcd:indife
@@ -50098,10 +50097,10 @@ zh: 莴苣属, 萵苣
 ciqual_food_code:en: 20031
 ciqual_food_name:en: Lettuce, raw
 ciqual_food_name:fr: Laitue, crue
-ecobalyse:en: lettuce-non-eu
-ecobalyse_labels_en_organic:en: lettuce-organic
-ecobalyse_origins_en_european_union:en: lettuce-eu
-ecobalyse_origins_en_france:en: lettuce-fr
+ecobalyse:en: e1495d32-01f6-462c-9157-b8351574d412
+ecobalyse_labels_en_organic:en: 83adcc36-72b1-4bff-b7bb-c6ac6f2a4a0b
+ecobalyse_origins_en_european_union:en: 2b5cc667-b981-4d27-8b1a-c435fab2043e
+ecobalyse_origins_en_france:en: 6348bb16-2d8c-4b82-8dbc-8b7dc587c09b
 # 2021 in 5 languages @2021-08-10
 eurocode_2_group_3:en: 8.10.12
 # aeb-arab:خسّ
@@ -50327,8 +50326,8 @@ zh: 莙薘菜
 ciqual_food_code:en: 20004
 ciqual_food_name:en: Swiss chard, raw
 ciqual_food_name:fr: Bette ou blette, crue
-ecobalyse:en: swiss-chard-eu
-ecobalyse_origins_en_france:en: swiss-chard-fr
+ecobalyse:en: 4974a272-0080-4a52-a46e-ae222dcf8dff
+ecobalyse_origins_en_france:en: 2920acc6-000a-4f43-9525-7d619d19f62e
 eurocode_2_group_3:en: 8.10.20
 # azb:پازی تره‌سی
 # frr:Mangold
@@ -50454,8 +50453,8 @@ carbon_footprint_fr_foodges_value:fr: 0.5
 ciqual_food_code:en: 20059
 ciqual_food_name:en: Spinach, raw
 ciqual_food_name:fr: Épinard, cru
-ecobalyse:en: spinach-non-eu
-ecobalyse_labels_en_organic:en: spinach-organic
+ecobalyse:en: f46de7f5-4bf0-45f4-b75b-3e00164dd9ca
+ecobalyse_labels_en_organic:en: 49ad2a72-d196-4379-8f23-212b27d44917
 eurocode_2_group_3:en: 8.10.24
 # azb:ایسپاناق
 # bar:Spinat
