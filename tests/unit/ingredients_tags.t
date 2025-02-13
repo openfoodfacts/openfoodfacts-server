@@ -228,7 +228,7 @@ my @tests = (
 	# and all sub-ingredients being discarded
 	[
 		{lc => "en", ingredients_text => "Organic 100% juice (organic pear, organic apple), natural flavor."},
-		['en:juice', 'en:natural-flavouring', 'en:pear', 'en:apple']
+		['en:juice', 'en:natural-flavouring', 'en:pear-juice', 'en:apple-juice']
 	],
 	[{lc => "en", ingredients_text => "au jus (beef stock, water)"}, ['en:au-jus', 'en:beef-broth', 'en:water']],
 	# pure juice is a label, and currently not an ingredient
