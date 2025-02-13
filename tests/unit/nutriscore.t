@@ -947,7 +947,7 @@ foreach my $test_ref (@tests) {
 	# Detect possible improvements
 	detect_possible_improvements_nutriscore($product_ref, 2023);
 
-	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
+	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results, {id => $testid});
 }
 
 is(compute_nutriscore_grade(1.56, 1, 0), "c");
