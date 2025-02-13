@@ -39,7 +39,6 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&create_tag_knowledge_panels
-		&create_category_packagings_materials_panel
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -47,8 +46,8 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::KnowledgePanels qw(create_panel_from_json_template);
-use ProductOpener::Tags qw(:all);
-use ProductOpener::Packaging qw(:all);
+use ProductOpener::Tags qw(canonicalize_taxonomy_tag);
+use ProductOpener::Packaging qw(load_categories_packagings_materials_stats);
 
 use Encode;
 use Data::DeepAccess qw(deep_get);
@@ -73,7 +72,7 @@ If $target_lc is equal to "data", no strings are returned.
 
 =head4 country code $target_cc
 
-Needed for some country specific panels like the Eco-Score.
+Needed for some country specific panels like the Environmental-Score.
 
 =head4 options $options_ref
 

@@ -25,14 +25,15 @@ use ProductOpener::PerlStandards;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/get_fileid/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Users qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/$lc %Lang lang/;
 use ProductOpener::Orgs qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::Text qw/:all/;
+use ProductOpener::Tags qw/canonicalize_tag_link/;
+use ProductOpener::Text qw/remove_tags_and_quote/;
+use ProductOpener::CRM qw/get_company_url/;
 
 use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
@@ -53,7 +54,7 @@ my $request_ref = ProductOpener::Display::init_request();
 my $orgid = $Org_id;
 
 if (defined single_param('orgid')) {
-	$orgid = get_fileid(single_param('orgid'), 1);
+	$orgid = remove_tags_and_quote(decode utf8 => single_param('orgid'));
 }
 
 $log->debug("org profile form - start", {type => $type, action => $action, orgid => $orgid, User_id => $User_id})
@@ -68,21 +69,21 @@ my $org_ref = retrieve_org($orgid);
 if (not defined $org_ref) {
 	$log->debug("org does not exist", {orgid => $orgid}) if $log->is_debug();
 
-	if ($admin or $User{pro_moderator}) {
+	if ($request_ref->{admin} or $request_ref->{pro_moderator}) {
 		$template_data_ref->{org_does_not_exist} = 1;
 	}
 	else {
-		display_error_and_exit($Lang{error_org_does_not_exist}{$lang}, 404);
+		display_error_and_exit($request_ref, $Lang{error_org_does_not_exist}{$lc}, 404);
 	}
 }
 
 # Does the user have permission to edit the org profile?
 
-if (not(is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pro_moderator})) {
+if (not(is_user_in_org_group($org_ref, $User_id, "admins") or $request_ref->{admin} or $request_ref->{pro_moderator})) {
 	$log->debug("user does not have permission to edit org",
 		{orgid => $orgid, org_admins => $org_ref->{admins}, User_id => $User_id})
 		if $log->is_debug();
-	display_error_and_exit($Lang{error_no_permission}{$lang}, 403);
+	display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
 }
 
 my @errors = ();
@@ -90,19 +91,20 @@ my @errors = ();
 if ($action eq 'process') {
 
 	if ($type eq 'edit') {
-		if (single_param('delete') eq 'on') {
-			if ($admin) {
+		my $delete = single_param('delete') // '';
+		if ($delete eq 'on') {
+			if ($request_ref->{admin}) {
 				$type = 'delete';
 			}
 			else {
-				display_error_and_exit($Lang{error_no_permission}{$lang}, 403);
+				display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
 			}
 		}
 		else {
 
 			# Administrator fields
 
-			if ($admin or $User{pro_moderator}) {
+			if ($request_ref->{admin} or $User{pro_moderator}) {
 
 				# If the org does not exist yet, create it
 				if (not defined $org_ref) {
@@ -115,6 +117,7 @@ if ($action eq 'process') {
 					@admin_fields,
 					(
 						"valid_org",
+						"crm_org_id",
 						"enable_manual_export_to_public_platform",
 						"activate_automated_daily_export_to_public_platform",
 						"protect_data",
@@ -134,6 +137,8 @@ if ($action eq 'process') {
 					$org_ref->{$field} = remove_tags_and_quote(decode utf8 => single_param($field));
 				}
 
+				$org_ref->{crm_org_id} ||= undef;
+
 				# Set the list of org GLNs
 				set_org_gs1_gln($org_ref, remove_tags_and_quote(decode utf8 => single_param("list_of_gs1_gln")));
 			}
@@ -148,7 +153,7 @@ if ($action eq 'process') {
 			}
 
 			if (not defined $org_ref->{name}) {
-				push @errors, $Lang{error_missing_org_name}{$lang};
+				push @errors, $Lang{error_missing_org_name}{$lc};
 			}
 
 			# Contact sections
@@ -172,6 +177,11 @@ if ($action eq 'process') {
 			}
 		}
 	}
+	elsif ($type eq 'user_delete') {
+		if (single_param('user_id') eq $org_ref->{main_contact}) {
+			push @errors, $Lang{cant_delete_main_contact}{$lc};
+		}
+	}
 
 	if ($#errors >= 0) {
 
@@ -187,7 +197,7 @@ $log->debug("org form - before display / process", {type => $type, action => $ac
 
 if ($action eq 'display') {
 
-	$template_data_ref->{admin} = $admin;
+	$template_data_ref->{admin} = $request_ref->{admin};
 
 	# Create the list of sections and fields
 
@@ -195,7 +205,7 @@ if ($action eq 'display') {
 
 	# Admin
 
-	if ($admin or $User{pro_moderator}) {
+	if ($request_ref->{admin} or $User{pro_moderator}) {
 
 		my $admin_fields_ref = [];
 
@@ -204,7 +214,15 @@ if ($action eq 'display') {
 			(
 				{
 					field => "valid_org",
-					type => "checkbox",
+					type => "select",
+					selected => $org_ref->{valid_org},
+					description => lang("org_valid_org"),
+					required => 1,
+					options => [
+						{value => "unreviewed", label => "Unreviewed"},
+						{value => "accepted", label => "Accepted"},
+						{value => "rejected", label => "Rejected"},
+					],
 				},
 				{
 					field => "enable_manual_export_to_public_platform",
@@ -362,19 +380,12 @@ elsif ($action eq 'process') {
 		store_org($org_ref);
 		$template_data_ref->{result} = lang("edit_org_result");
 	}
-	elsif ($type eq 'user_delete') {
-
-		if (is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pro_moderator}) {
-			remove_user_by_org_admin(single_param('org_id'), single_param('user_id'));
+	elsif (is_user_in_org_group($org_ref, $User_id, "admins") or $request_ref->{admin} or $User{pro_moderator}) {
+		if ($type eq 'user_delete') {
+			remove_user_by_org_admin(single_param('orgid'), single_param('user_id'));
 			$template_data_ref->{result} = lang("edit_org_result");
 		}
-		else {
-			display_error_and_exit($Lang{error_no_permission}{$lang}, 403);
-		}
-
-	}
-	elsif ($type eq 'add_users') {
-		if (is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pro_moderator}) {
+		elsif ($type eq 'add_users') {
 			my $email_list = remove_tags_and_quote(single_param('email_list'));
 			my $email_ref = add_users_to_org_by_admin($orgid, $email_list);
 
@@ -383,12 +394,33 @@ elsif ($action eq 'process') {
 				added => \@{$email_ref->{added}},
 				invited => \@{$email_ref->{invited}},
 			};
-		}
-	}
 
-	elsif ($type eq 'admin_status') {
-		# verify right to change status
-		if (is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pro_moderator}) {
+		}
+		elsif ($type eq 'change_main_contact') {
+			my $main_contact = remove_tags_and_quote(single_param('main_contact'));
+			# check that the main contact is a member of the organization
+			if (not is_user_in_org_group($org_ref, $main_contact, 'members')) {
+				$template_data_ref->{result} = lang('error_unknown_member');
+			}
+			else {
+				$org_ref->{main_contact} = $main_contact;
+				store_org($org_ref);
+				$template_data_ref->{result} = lang('main_contact_updated');
+			}
+		}
+		elsif ($type eq 'pending_user') {
+			$log->debug("pending user action", {action => single_param('accept_user') || single_param('deny_user')})
+				if $log->is_debug();
+			my $user_id = remove_tags_and_quote(single_param('user_id'));
+			if (single_param('deny_user')) {
+				remove_user_from_org($org_ref, $user_id, ["pending"]);
+			}
+			elsif (single_param('accept_user')) {
+				accept_pending_user_in_org($org_ref, $user_id);
+				$template_data_ref->{email_ref} = {added => (retrieve_user($user_id)->{email}),};
+			}
+		}
+		elsif ($type eq 'admin_status') {
 			# inputs are in the form admin_status_<user_id>, get them among param and extract the user_id
 			my @user_ids = sort map {$_ =~ /^admin_status_/ ? $' : ()} param();
 			my @existing_admins = sort grep {is_user_in_org_group($org_ref, $_, "admins")} keys %{$org_ref->{members}};
@@ -411,6 +443,10 @@ elsif ($action eq 'process') {
 			$template_data_ref->{result} = lang("admin_status_updated");
 		}
 	}
+	else {
+		display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
+	}
+
 	$template_data_ref->{profile_url} = canonicalize_tag_link("editors", "org-" . $orgid);
 	$template_data_ref->{profile_name} = sprintf(lang('user_s_page'), $org_ref->{name});
 }
@@ -436,9 +472,15 @@ foreach my $member_id (sort keys %{$org_ref->{members}}) {
 }
 $template_data_ref->{org_members} = \@org_members;
 $template_data_ref->{user_is_admin} = \%user_is_admin;
+$template_data_ref->{pending_users} = [map {retrieve_user($_)} sort keys %{$org_ref->{pending}}];
+
 $template_data_ref->{current_user_id} = $User_id;
 
-$tt->process('web/pages/org_form/org_form.tt.html', $template_data_ref, \$html)
+$template_data_ref->{main_contact} = $org_ref->{main_contact};
+$template_data_ref->{crm_company_url} = get_company_url($org_ref);
+$template_data_ref->{org_is_accepted} = $org_ref->{valid_org} eq 'accepted' ? 1 : 0;
+
+process_template('web/pages/org_form/org_form.tt.html', $template_data_ref, \$html, $request_ref)
 	or $html = "<p>template error: " . $tt->error() . "</p>";
 
 $request_ref->{title} = $title;

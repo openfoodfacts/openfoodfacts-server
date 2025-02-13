@@ -3,6 +3,89 @@
    "errors" : [],
    "product" : {
       "knowledge_panels" : {
+         "additive_en:e100" : {
+            "elements" : [],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "E100 - Curcumin"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "additive_en:e322" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<strong>Lecithin:</strong> Lecithin -UK: , US: , from the Greek lekithos, \"egg yolk\"- is a generic term to designate any group of yellow-brownish fatty substances occurring in animal and plant tissues, which are amphiphilic – they attract both water and fatty substances -and so are both hydrophilic and lipophilic-, and are used for smoothing food textures, dissolving powders -emulsifying-, homogenizing liquid mixtures, and repelling sticking materials.Lecithins are mixtures of glycerophospholipids including phosphatidylcholine, phosphatidylethanolamine, phosphatidylinositol, phosphatidylserine, and phosphatidic acid.Lecithin was first isolated in 1845 by the French chemist and pharmacist Theodore Gobley. In 1850, he named the phosphatidylcholine lécithine. Gobley originally isolated lecithin from egg yolk—λέκιθος lekithos is \"egg yolk\" in Ancient Greek—and established the complete chemical formula of phosphatidylcholine in 1874; in between, he had demonstrated the presence of lecithin in a variety of biological matters, including venous blood, in human lungs, bile, human brain tissue, fish eggs, fish roe, and chicken and sheep brain. Lecithin can easily be extracted chemically using solvents such as hexane, ethanol, acetone, petroleum ether, benzene, etc., or extraction can be done mechanically. It is usually available from sources such as soybeans, eggs, milk, marine sources, rapeseed, cottonseed, and sunflower. It has low solubility in water, but is an excellent emulsifier. In aqueous solution, its phospholipids can form either liposomes, bilayer sheets, micelles, or lamellar structures, depending on hydration and temperature. This results in a type of surfactant that usually is classified as amphipathic. Lecithin is sold as a food additive and dietary supplement. In cooking, it is sometimes used as an emulsifier and to prevent sticking, for example in nonstick cooking spray.",
+                     "source_language" : "English",
+                     "source_lc" : "en",
+                     "source_text" : "Wikipedia",
+                     "source_url" : "https://en.wikipedia.org/wiki/Lecithin"
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "E322 - Lecithins"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "additive_en:e322i" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<strong>Lecithin:</strong> Lecithin -UK: , US: , from the Greek lekithos, \"egg yolk\"- is a generic term to designate any group of yellow-brownish fatty substances occurring in animal and plant tissues, which are amphiphilic – they attract both water and fatty substances -and so are both hydrophilic and lipophilic-, and are used for smoothing food textures, dissolving powders -emulsifying-, homogenizing liquid mixtures, and repelling sticking materials.Lecithins are mixtures of glycerophospholipids including phosphatidylcholine, phosphatidylethanolamine, phosphatidylinositol, phosphatidylserine, and phosphatidic acid.Lecithin was first isolated in 1845 by the French chemist and pharmacist Theodore Gobley. In 1850, he named the phosphatidylcholine lécithine. Gobley originally isolated lecithin from egg yolk—λέκιθος lekithos is \"egg yolk\" in Ancient Greek—and established the complete chemical formula of phosphatidylcholine in 1874; in between, he had demonstrated the presence of lecithin in a variety of biological matters, including venous blood, in human lungs, bile, human brain tissue, fish eggs, fish roe, and chicken and sheep brain. Lecithin can easily be extracted chemically using solvents such as hexane, ethanol, acetone, petroleum ether, benzene, etc., or extraction can be done mechanically. It is usually available from sources such as soybeans, eggs, milk, marine sources, rapeseed, cottonseed, and sunflower. It has low solubility in water, but is an excellent emulsifier. In aqueous solution, its phospholipids can form either liposomes, bilayer sheets, micelles, or lamellar structures, depending on hydration and temperature. This results in a type of surfactant that usually is classified as amphipathic. Lecithin is sold as a food additive and dietary supplement. In cooking, it is sometimes used as an emulsifier and to prevent sticking, for example in nonstick cooking spray.",
+                     "source_language" : "English",
+                     "source_lc" : "en",
+                     "source_text" : "Wikipedia",
+                     "source_url" : "https://en.wikipedia.org/wiki/Lecithin"
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "E322i - Lecithin"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "additives" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "additive_en:e100"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "additive_en:e322"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "additive_en:e322i"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "topics" : [
+               "health"
+            ],
+            "type" : "inline"
+         },
          "carbon_footprint" : {
             "elements" : [
                {
@@ -25,7 +108,7 @@
                            "type" : "percent"
                         }
                      ],
-                     "id" : "ecoscore_carbon_impact_by_stages_table",
+                     "id" : "environmental_score_carbon_impact_by_stages_table",
                      "rows" : [
                         {
                            "id" : "agriculture",
@@ -117,14 +200,69 @@
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/car.svg",
-               "subtitle" : "286 g CO² per 100g of product",
+               "subtitle" : "286 g CO₂e per 100g of product",
                "title" : "Equal to driving 1.5 km in a petrol car"
             },
             "topics" : [
                "environment"
             ]
          },
-         "ecoscore" : {
+         "environment_card" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "environmental_score"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "carbon_footprint"
+                     ],
+                     "title" : "Carbon footprint"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_group_id" : "packaging_recycling",
+                     "panel_ids" : [
+                        "packaging_recycling"
+                     ],
+                     "title" : "Packaging"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "origins_of_ingredients"
+                     ],
+                     "title" : "Transportation"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "palm_oil"
+                     ],
+                     "title" : "Threatened species"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "title_element" : {
+               "title" : "Environment"
+            },
+            "topics" : [
+               "environment"
+            ],
+            "type" : "card"
+         },
+         "environmental_score" : {
             "elements" : [
                {
                   "element_type" : "text",
@@ -136,13 +274,13 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "The <a href=\"http://world.openfoodfacts.localhost/ecoscore\">Eco-Score</a> is an experimental score that summarizes the environmental impacts of food products."
+                     "html" : "The <a href=\"http://world.openfoodfacts.localhost/green-score\">Green-Score</a> is an experimental score that summarizes the environmental impacts of food products."
                   }
                },
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                    \n                        The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country.\n                                    \n                ",
+                     "html" : "\n                    \n                        The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country.\n                                    \n                ",
                      "type" : "note"
                   }
                },
@@ -150,7 +288,7 @@
                   "element_type" : "panel_group",
                   "panel_group_element" : {
                      "panel_ids" : [
-                        "ecoscore_agribalyse"
+                        "environmental_score_agribalyse"
                      ],
                      "title" : "Life cycle analysis"
                   }
@@ -159,9 +297,9 @@
                   "element_type" : "panel_group",
                   "panel_group_element" : {
                      "panel_ids" : [
-                        "ecoscore_origins_of_ingredients",
-                        "ecoscore_threatened_species",
-                        "ecoscore_packaging"
+                        "environmental_score_origins_of_ingredients",
+                        "environmental_score_threatened_species",
+                        "environmental_score_packaging"
                      ],
                      "title" : "Bonuses and maluses"
                   }
@@ -170,30 +308,32 @@
                   "element_type" : "panel_group",
                   "panel_group_element" : {
                      "panel_ids" : [
-                        "ecoscore_total"
+                        "environmental_score_total"
                      ],
-                     "title" : "Eco-Score for this product"
+                     "title" : "Green-Score for this product"
                   }
                },
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost/eco-score-the-environmental-impact-of-food-products\">Learn more about the Eco-Score</a></p>\n"
+                     "html" : "\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost/green-score\">Learn more about the Green-Score</a></p>\n"
                   }
                }
             ],
             "level" : "info",
             "title_element" : {
                "grade" : "c",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
-               "title" : "Eco-Score C - Moderate environmental impact",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg",
+               "name" : "Green-Score",
+               "subtitle" : "Moderate environmental impact",
+               "title" : "Green-Score C",
                "type" : "grade"
             },
             "topics" : [
                "environment"
             ]
          },
-         "ecoscore_agribalyse" : {
+         "environmental_score_agribalyse" : {
             "elements" : [
                {
                   "element_type" : "text",
@@ -215,7 +355,7 @@
                            "type" : "percent"
                         }
                      ],
-                     "id" : "ecoscore_lca_impacts_by_stages_table",
+                     "id" : "environmental_score_lca_impacts_by_stages_table",
                      "rows" : [
                         {
                            "id" : "agriculture",
@@ -315,7 +455,7 @@
                "environment"
             ]
          },
-         "ecoscore_origins_of_ingredients" : {
+         "environmental_score_origins_of_ingredients" : {
             "elements" : [
                {
                   "element_type" : "text",
@@ -338,7 +478,7 @@
                "environment"
             ]
          },
-         "ecoscore_packaging" : {
+         "environmental_score_packaging" : {
             "elements" : [
                {
                   "element_type" : "table",
@@ -361,7 +501,7 @@
                            "type" : "text"
                         }
                      ],
-                     "id" : "ecoscore_packaging_components",
+                     "id" : "environmental_score_packaging_components",
                      "rows" : [
                         {
                            "values" : [
@@ -452,7 +592,7 @@
                "environment"
             ]
          },
-         "ecoscore_production_system" : {
+         "environmental_score_production_system" : {
             "evaluation" : "neutral",
             "level" : "info",
             "title_element" : {
@@ -465,7 +605,7 @@
                "environment"
             ]
          },
-         "ecoscore_threatened_species" : {
+         "environmental_score_threatened_species" : {
             "elements" : [
                {
                   "element_type" : "text",
@@ -488,12 +628,12 @@
                "environment"
             ]
          },
-         "ecoscore_total" : {
+         "environmental_score_total" : {
             "elements" : [
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                Life cycle analysis score: 70<br>\n                Sum of bonuses and maluses:\n                    \n                        -23\n                    <br><br>\n                Final score: 47/100\n                \n                ",
+                     "html" : "\n                Life cycle analysis score: 70<br>\n                Sum of bonuses and maluses:\n                    \n                        -23\n                    <br><br>\n                Final score: 47/100\n                ",
                      "type" : "summary"
                   }
                }
@@ -501,7 +641,7 @@
             "level" : "info",
             "title_element" : {
                "grade" : "c",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg",
                "subtitle" : "Product: Some product - 100 g",
                "title" : "Impact for this product: C (Score: 47/100)",
                "type" : "grade"
@@ -510,61 +650,6 @@
                "environment"
             ]
          },
-         "environment_card" : {
-            "elements" : [
-               {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "ecoscore"
-                  }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_ids" : [
-                        "carbon_footprint"
-                     ],
-                     "title" : "Carbon footprint"
-                  }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_group_id" : "packaging_recycling",
-                     "panel_ids" : [
-                        "packaging_recycling"
-                     ],
-                     "title" : "Packaging"
-                  }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_ids" : [
-                        "origins_of_ingredients"
-                     ],
-                     "title" : "Transportation"
-                  }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_ids" : [
-                        "palm_oil"
-                     ],
-                     "title" : "Threatened species"
-                  }
-               }
-            ],
-            "expanded" : true,
-            "title_element" : {
-               "title" : "Environment"
-            },
-            "topics" : [
-               "environment"
-            ],
-            "type" : "card"
-         },
          "health_card" : {
             "elements" : [
                {
@@ -572,7 +657,7 @@
                   "panel_group_element" : {
                      "panel_group_id" : "nutrition",
                      "panel_ids" : [
-                        "nutriscore"
+                        "nutriscore_2023"
                      ],
                      "title" : "Nutrition",
                      "type" : "subcard"
@@ -612,6 +697,15 @@
                   "element_type" : "panel_group",
                   "panel_group_element" : {
                      "panel_ids" : [
+                        "additives"
+                     ],
+                     "title" : "Additives"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
                         "ingredients_analysis",
                         "ingredients_analysis_details"
                      ],
@@ -628,6 +722,139 @@
             ],
             "type" : "card"
          },
+         "incomplete_or_incorrect_data" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                If the information does not match the information on the packaging, you can complete or correct it. Thank you!\n                Open Food Facts is a collaborative database, and every contribution is useful for all.\n                "
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "edit_product"
+                     ],
+                     "html" : ""
+                  },
+                  "element_type" : "action"
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team.\n                "
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "report_product_to_nutripatrol"
+                     ],
+                     "html" : ""
+                  },
+                  "element_type" : "action"
+               }
+            ],
+            "evaluation" : "neutral",
+            "expand_for" : "large",
+            "level" : "info",
+            "title_element" : {
+               "icon_url" : "http://static.openfoodfacts.localhost/images/logos/off-logo-icon-light.svg",
+               "subtitle" : "Category, labels, ingredients, allergens, nutritional information, photos etc.",
+               "title" : "Incomplete or incorrect information?"
+            },
+            "topics" : [
+               "problem"
+            ]
+         },
+         "ingredient_1" : {
+            "elements" : [],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "Apple: 58.3% (estimate)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredient_2" : {
+            "elements" : [],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "Milk: 20.8% (estimate)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredient_3" : {
+            "elements" : [],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "Egg: 10.4% (estimate)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredient_4" : {
+            "elements" : [],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "Palm oil: 5.2% (estimate)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredient_5" : {
+            "elements" : [],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "Colour: 2.6% (estimate)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredient_6" : {
+            "elements" : [],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "— E100: 2.6% (estimate)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredient_7" : {
+            "elements" : [],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "Emulsifier: 2.6% (estimate)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredient_8" : {
+            "elements" : [],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "— Soya lecithin: 2.6% (estimate)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
          "ingredients" : {
             "elements" : [
                {
@@ -635,8 +862,8 @@
                   "text_element" : {
                      "edit_field_id" : "ingredients_text_en",
                      "edit_field_type" : "ingredients_text",
-                     "edit_field_value" : "apple, milk, eggs, palm oil",
-                     "html" : "<span class=\"allergen\">apple</span>, <span class=\"allergen\">milk</span>, <span class=\"allergen\">eggs</span>, palm oil",
+                     "edit_field_value" : "apple, milk, eggs, palm oil, coloring: curcumin, emulsifier: soy lecithin",
+                     "html" : "<span class=\"allergen\">apple</span>, <span class=\"allergen\">milk</span>, <span class=\"allergen\">eggs</span>, palm oil, coloring: curcumin, emulsifier: soy lecithin",
                      "language" : "English",
                      "lc" : "en"
                   }
@@ -644,7 +871,13 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<strong>Allergens:</strong> \n                    Apple, Eggs, Milk\n                "
+                     "html" : "<strong>Allergens:</strong> \n                    Apple, Eggs, Milk, Soybeans\n                "
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredients_list"
                   }
                }
             ],
@@ -655,7 +888,7 @@
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/ingredients.svg",
-               "title" : "4 ingredients"
+               "title" : "8 ingredients"
             },
             "topics" : [
                "health"
@@ -700,13 +933,13 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "en: <span>apple</span>, <span>milk</span>, <span>eggs</span>, <span>palm oil</span>"
+                     "html" : "en: <span>apple</span>, <span>milk</span>, <span>eggs</span>, <span>palm oil</span>, <span>coloring</span> (<span>curcumin</span>), <span>emulsifier</span> (<span>soy lecithin</span>)"
                   }
                },
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<ol id=\"ordered_ingredients_list\">\n<li><span>apple</span> -> en:apple - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;25 - percent_max:&nbsp;100</li>\n<li><span>milk</span> -> en:milk - vegan:&nbsp;no - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;50</li>\n<li><span>eggs</span> -> en:egg - vegan:&nbsp;no - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;33.3333333333333</li>\n<li><span>palm oil</span> -> en:palm-oil - vegan:&nbsp;yes - vegetarian:&nbsp;yes - from_palm_oil:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;25</li>\n</ol>\n"
+                     "html" : "<ol id=\"ordered_ingredients_list\">\n<li><span>apple</span> -> en:apple - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;13050 - percent_min:&nbsp;16.6666666666667 - percent_max:&nbsp;100</li>\n<li><span>milk</span> -> en:milk - vegan:&nbsp;no - vegetarian:&nbsp;yes - ciqual_proxy_food_code:&nbsp;19051 - percent_min:&nbsp;0 - percent_max:&nbsp;50</li>\n<li><span>eggs</span> -> en:egg - vegan:&nbsp;no - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;22000 - percent_min:&nbsp;0 - percent_max:&nbsp;33.3333333333333</li>\n<li><span>palm oil</span> -> en:palm-oil - vegan:&nbsp;yes - vegetarian:&nbsp;yes - from_palm_oil:&nbsp;yes - ciqual_food_code:&nbsp;16129 - percent_min:&nbsp;0 - percent_max:&nbsp;25</li>\n<li><span>coloring</span> -> en:colour - percent_min:&nbsp;0 - percent_max:&nbsp;20<ol id=\"ordered_ingredients_list\">\n<li><span>curcumin</span> -> en:e100 - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;20</li>\n</ol>\n</li>\n<li><span>emulsifier</span> -> en:emulsifier - percent_min:&nbsp;0 - percent_max:&nbsp;16.6666666666667<ol id=\"ordered_ingredients_list\">\n<li><span>soy lecithin</span> -> en:soya-lecithin - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;42200 - percent_min:&nbsp;0 - percent_max:&nbsp;16.6666666666667</li>\n</ol>\n</li>\n</ol>\n"
                   }
                },
                {
@@ -798,25 +1031,92 @@
                "health"
             ]
          },
+         "ingredients_list" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_1"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_2"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_3"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_4"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_5"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_6"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_7"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_8"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "title" : "Ingredient information"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
          "nova" : {
             "elements" : [
                {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "\n\n    \n        \n            <p>Elements that indicate the product is in the 3 - Processed foods group:</p>\n            <ul>\n            \n                <li>Category: Sweet snacks</li>\n            \n            </ul>\n        \n    \n\n"
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "recommendation_ultra_processed_foods"
                   }
                },
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n<p>Food products are classified into 4 groups according to their degree of processing:</p>\n<ol>\n<li>Unprocessed or minimally processed foods</li>\n<li>Processed culinary ingredients</li>\n<li>Processed foods</li>\n<li>Ultra processed foods</li>\n</ol>\n<br>\n<p>The determination of the group is based on the category of the product and on the ingredients it contains.</p>\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost/nova\">Learn more about the NOVA classification</a></p>\n"
+                     "html" : "\n\n    \n        \n            <p>Elements that indicate the product is in the 4 - Ultra processed food and drink products group:</p>\n            <ul>\n            \n                <li>Additive: E100 - Curcumin</li>\n            \n                <li>Additive: E322 - Lecithins</li>\n            \n                <li>Ingredient: Colour</li>\n            \n                <li>Ingredient: Emulsifier</li>\n            \n            </ul>\n        \n    \n\n"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>Food products are classified into 4 groups according to their degree of processing:</p>\n<ol>\n<li>Unprocessed or minimally processed foods</li>\n<li>Processed culinary ingredients</li>\n<li>Processed foods</li>\n<li>Ultra-processed foods</li>\n</ol>\n<br>\n<p>The determination of the group is based on the category of the product and on the ingredients it contains.</p>\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost/nova\">Learn more about the NOVA classification</a></p>\n"
                   }
                }
             ],
             "level" : "info",
             "title_element" : {
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
-               "title" : "Processed foods"
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-4.svg",
+               "subtitle" : "4 ultra-processing markers",
+               "title" : "Ultra-processed foods"
             },
             "topics" : [
                "health"
@@ -845,26 +1145,56 @@
                "health"
             ]
          },
-         "nutriscore" : {
+         "nutriscore_2023" : {
             "elements" : [
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients.\n                    ",
+                     "html" : "The nutrition facts of the product must be specified in order to compute the Nutri-Score.<p>Missing nutrition facts: <b>Energy, Fat, Proteins, Saturated fat, Sodium, Sugars</b></p>\n                    ",
                      "type" : "warning"
                   }
                },
                {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: 62\n                    ",
-                     "type" : "warning"
+                  "action_element" : {
+                     "actions" : [
+                        "add_nutrition_facts"
+                     ],
+                     "html" : "Could you add the information needed to compute the Nutri-Score?"
+                  },
+                  "element_type" : "action"
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "nutriscore_new_computation"
                   }
                },
                {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "nutriscore_description"
+                  }
+               }
+            ],
+            "level" : "info",
+            "title_element" : {
+               "grade" : "unknown",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown-new-en.svg",
+               "subtitle" : "Missing nutrition facts",
+               "title" : "Nutri-Score UNKNOWN",
+               "type" : "grade"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_description" : {
+            "elements" : [
+               {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<!-- start templates/web/pages/product/includes/nutriscore_details.tt.html -->\n\n<p>This product is not considered a beverage for the calculation of the Nutri-Score.</p>\n\n\n\n\n\n  <p> \n    <strong>Positive points: 3</strong> \n  </p>\n\n  <ul>\n    \n      <li>\n        <strong>Proteins:\n1&nbsp;</strong>/&nbsp;5\n(value: 1.974375, \n        rounded value: 1.97)\n      </li>\n    \n      <li>\n        <strong>Fiber:\n0&nbsp;</strong>/&nbsp;5\n(value: 0.8125, \n        rounded value: 0.81)\n      </li>\n    \n      <li>\n        <strong>Fruits, vegetables, nuts, and colza/walnut/olive oils:\n2&nbsp;</strong>/&nbsp;5\n(value: 62.5, \n        rounded value: 62.5)\n      </li>\n    \n  </ul>\n\n\n\n  <p> \n    <strong>Negative points: 6</strong> \n  </p>\n\n  <ul>\n    \n      <li>\n        <strong>Energy:\n1&nbsp;</strong>/&nbsp;10\n(value: 558.75, \n        rounded value: 558.8)\n      </li>\n    \n      <li>\n        <strong>Sugars:\n1&nbsp;</strong>/&nbsp;10\n(value: 7.2621875, \n        rounded value: 7.26)\n      </li>\n    \n      <li>\n        <strong>Saturated fat:\n4&nbsp;</strong>/&nbsp;10\n(value: 4.903125, \n        rounded value: 4.9)\n      </li>\n    \n      <li>\n        <strong>Sodium:\n0&nbsp;</strong>/&nbsp;10\n(value: 19.725, \n        rounded value: 19.7)\n      </li>\n    \n  </ul>\n\n\n\n<p>The points for proteins are counted because the negative points are less than 11.</p>\n\n<p>\n  <strong>Nutritional score: </strong>\n  (6 - 3)\n</p>\n<p><strong>Nutri-Score: </strong></p>\n\n<!-- end templates/web/pages/product/includes/nutriscore_details.tt.html -->"
+                     "html" : "<p>The Nutri-Score is a logo on the overall nutritional quality of products.</p>\n<p>\nThe score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt).\nThe score is calculated from the data of the nutrition facts table and the composition data (fruits, vegetables and legumes).\n</p>\n\n                ",
+                     "type" : "info"
                   }
                },
                {
@@ -876,10 +1206,37 @@
             ],
             "level" : "info",
             "title_element" : {
-               "grade" : "c",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-c.svg",
-               "title" : "Average nutritional quality",
-               "type" : "grade"
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/info.svg",
+               "title" : "What is the Nutri-Score?",
+               "type" : "info"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_new_computation" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<p>The computation of the Nutri-Score is evolving to provide better recommendations based on the latest scientific evidence.</p><p>Main improvements:</p><ul><li>Better score for some fatty fish and oils rich in good fats</li><li>Better score for whole products rich in fiber</li><li>Worse score for products containing a lot of salt or sugar</li><li>Worse score for red meat (compared to poultry)</li></ul>\n                ",
+                     "type" : "info"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost/nutriscore-v2\">Discover all the improvements of the new Nutri-Score</a></p>\n"
+                  }
+               }
+            ],
+            "level" : "info",
+            "title_element" : {
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/info.svg",
+               "title" : "Discover the new Nutri-Score!",
+               "type" : "info"
             },
             "topics" : [
                "health"
@@ -1026,10 +1383,10 @@
                                  "text" : "Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)"
                               },
                               {
-                                 "text" : "62.5 %"
+                                 "text" : "58.333 %"
                               },
                               {
-                                 "text" : "62.5 %"
+                                 "text" : "58.333 %"
                               }
                            ]
                         }
@@ -1089,7 +1446,7 @@
                   "element_type" : "text",
                   "text_element" : {
                      "evaluation" : "good",
-                     "html" : "\n                        \n                            \n                                1 x \n                                <strong>\n                                    Box\n                                    \n                                </strong>\n                                    \n                                        (Wood)\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                                3 x \n                                <strong>\n                                    Lid\n                                    \n                                </strong>\n                                    \n                                        (Steel)\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                        ",
+                     "html" : "\n                        \n                            \n                                1 x \n                                <strong>\n                                    Box\n                                    \n                                </strong>\n                                    \n                                        (Wood)\n                                    \n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                                3 x \n                                <strong>\n                                    Lid\n                                    \n                                </strong>\n                                    \n                                        (Steel)\n                                    \n                                    \n                                        - In contact with food\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                        ",
                      "icon_alt" : "Recycle",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/recycle-variant.svg",
@@ -1100,7 +1457,7 @@
                   "element_type" : "text",
                   "text_element" : {
                      "evaluation" : "bad",
-                     "html" : "\n                        \n                            \n                        \n                            \n                        \n                            \n                        \n                            \n                                1 x \n                                <strong>\n                                    Film\n                                    \n                                </strong>\n                                    \n                                        (Plastic)\n                                    \n                                    <br>\n                            \n                        \n                        ",
+                     "html" : "\n                        \n                            \n                        \n                            \n                        \n                            \n                        \n                            \n                                1 x \n                                <strong>\n                                    Film\n                                    \n                                </strong>\n                                    \n                                        (Plastic)\n                                    \n                                    \n                                    <br>\n                            \n                        \n                        ",
                      "icon_alt" : "Discard",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/delete.svg",
@@ -1111,7 +1468,7 @@
                   "element_type" : "text",
                   "text_element" : {
                      "evaluation" : "neutral",
-                     "html" : "\n                        \n                            \n                        \n                            \n                                6 x \n                                <strong>\n                                    Bottle\n                                    25cl \n                                </strong>\n                                    \n                                        (Glass)\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                        \n                        ",
+                     "html" : "\n                        \n                            \n                        \n                            \n                                6 x \n                                <strong>\n                                    Bottle\n                                    25cl \n                                </strong>\n                                    \n                                        (Glass)\n                                    \n                                    \n                                        - In contact with food\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                        \n                        ",
                      "icon_alt" : "Unknown",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/help.svg",
@@ -1281,6 +1638,50 @@
                "environment"
             ]
          },
+         "recommendation_ultra_processed_foods" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                    Several studies have found that a lower consumption of ultra-processed foods is associated with a reduced risk of noncommunicable chronic diseases, such as obesity, hypertension and diabetes.\n                    ",
+                     "source_language" : "en",
+                     "source_text" : "Ultra-processed foods increase noncommunicable chronic disease risk",
+                     "source_url" : "https://pubmed.ncbi.nlm.nih.gov/34798466/",
+                     "type" : "quote"
+                  }
+               }
+            ],
+            "evaluation" : "bad",
+            "level" : "recommendation",
+            "title_element" : {
+               "evaluation" : "bad",
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/arrow-bottom-right-thick.svg",
+               "subtitle" : "Limiting ultra-processed foods reduces the risk of noncommunicable chronic diseases",
+               "title" : "Limit ultra-processed foods"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "report_problem_card" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "incomplete_or_incorrect_data"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "title_element" : {
+               "title" : "Report a problem"
+            },
+            "topics" : [
+               "problems"
+            ],
+            "type" : "card"
+         },
          "root" : {
             "elements" : [
                {
@@ -1293,6 +1694,12 @@
                   "element_type" : "panel",
                   "panel_element" : {
                      "panel_id" : "environment_card"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "report_problem_card"
                   }
                }
             ],

@@ -1,13 +1,5 @@
 {
    "additives_n" : 5,
-   "additives_old_n" : 5,
-   "additives_old_tags" : [
-      "en:e330",
-      "en:e296",
-      "en:e331",
-      "en:e300",
-      "en:e960"
-   ],
    "additives_original_tags" : [
       "en:e330",
       "en:e296",
@@ -23,9 +15,15 @@
       "en:e331iii",
       "en:e960"
    ],
+   "allergens" : "",
+   "allergens_from_ingredients" : "",
+   "allergens_from_user" : "(fr) ",
+   "allergens_hierarchy" : [],
+   "allergens_tags" : [],
    "amino_acids_tags" : [],
    "categories" : "ice teas",
    "categories_hierarchy" : [
+      "en:beverages-and-beverages-preparations",
       "en:beverages",
       "en:tea-based-beverages",
       "en:iced-teas"
@@ -47,6 +45,7 @@
       "agribalyse-18015"
    ],
    "categories_tags" : [
+      "en:beverages-and-beverages-preparations",
       "en:beverages",
       "en:tea-based-beverages",
       "en:iced-teas"
@@ -59,7 +58,9 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "18066",
+         "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
          "id" : "en:water",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 89.95,
          "percent_max" : 95.1,
          "percent_min" : 84.8,
@@ -69,7 +70,9 @@
       },
       {
          "ciqual_proxy_food_code" : "31016",
+         "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
          "id" : "en:sugar",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 2.85,
          "percent_max" : 4.5,
          "percent_min" : 1.2,
@@ -80,6 +83,7 @@
       {
          "ciqual_food_code" : "31077",
          "id" : "en:fructose",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 2.85,
          "percent_max" : 4.5,
          "percent_min" : 1.2,
@@ -92,6 +96,7 @@
          "ingredients" : [
             {
                "id" : "en:e330",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 1.68750000000001,
                "percent_max" : 4.5,
                "percent_min" : 0.6,
@@ -101,6 +106,7 @@
             },
             {
                "id" : "en:e296",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 1.08750000000001,
                "percent_max" : 2.25,
                "percent_min" : 0,
@@ -109,6 +115,7 @@
                "vegetarian" : "yes"
             }
          ],
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 2.77500000000001,
          "percent_max" : 4.5,
          "percent_min" : 1.2,
@@ -119,13 +126,18 @@
          "id" : "en:black-tea-extract",
          "ingredients" : [
             {
-               "id" : "fr:l",
+               "ciqual_food_code" : "18154",
+               "id" : "en:black-tea-extract",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 1.2,
                "percent_max" : 1.2,
                "percent_min" : 1.2,
-               "text" : "l"
+               "text" : "l",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             }
          ],
+         "is_in_taxonomy" : 1,
          "percent" : 1.2,
          "percent_estimate" : 1.2,
          "percent_max" : 1.2,
@@ -135,7 +147,9 @@
          "vegetarian" : "yes"
       },
       {
+         "ecobalyse_code" : "fa9e9f34-acc9-4974-89c4-003d2428f502",
          "id" : "en:peach",
+         "is_in_taxonomy" : 1,
          "percent" : 0.1,
          "percent_estimate" : 0.1,
          "percent_max" : 0.1,
@@ -150,12 +164,14 @@
          "ingredients" : [
             {
                "id" : "en:sodium-citrate",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 0.05,
                "percent_max" : 0.1,
                "percent_min" : 0,
                "text" : "citrate trisodique"
             }
          ],
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 0.05,
          "percent_max" : 0.1,
          "percent_min" : 0,
@@ -163,6 +179,7 @@
       },
       {
          "id" : "en:flavouring",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 0.05,
          "percent_max" : 0.1,
          "percent_min" : 0,
@@ -174,15 +191,15 @@
          "id" : "en:antioxidant",
          "ingredients" : [
             {
-               "id" : "en:e300",
+               "id" : "en:vitamin-c",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 0.05,
                "percent_max" : 0.1,
                "percent_min" : 0,
-               "text" : "acide ascorbique",
-               "vegan" : "yes",
-               "vegetarian" : "yes"
+               "text" : "acide ascorbique"
             }
          ],
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 0.05,
          "percent_max" : 0.1,
          "percent_min" : 0,
@@ -193,6 +210,7 @@
          "ingredients" : [
             {
                "id" : "en:e960",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 0.125000000000028,
                "percent_max" : 0.1,
                "percent_min" : 0,
@@ -201,6 +219,7 @@
                "vegetarian" : "yes"
             }
          ],
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 0.125000000000028,
          "percent_max" : 0.1,
          "percent_min" : 0,
@@ -208,16 +227,13 @@
       }
    ],
    "ingredients_analysis" : {
-      "en:palm-oil-content-unknown" : [
-         "fr:l"
-      ],
       "en:vegan-status-unknown" : [
-         "fr:l",
-         "en:sodium-citrate"
+         "en:sodium-citrate",
+         "en:vitamin-c"
       ],
       "en:vegetarian-status-unknown" : [
-         "fr:l",
-         "en:sodium-citrate"
+         "en:sodium-citrate",
+         "en:vitamin-c"
       ]
    },
    "ingredients_analysis_tags" : [
@@ -225,9 +241,6 @@
       "en:vegan-status-unknown",
       "en:vegetarian-status-unknown"
    ],
-   "ingredients_from_or_that_may_be_from_palm_oil_n" : 0,
-   "ingredients_from_palm_oil_n" : 0,
-   "ingredients_from_palm_oil_tags" : [],
    "ingredients_hierarchy" : [
       "en:water",
       "en:sugar",
@@ -249,13 +262,13 @@
       "en:sweetener",
       "en:e330",
       "en:e296",
-      "fr:l",
       "en:sodium-citrate",
       "en:minerals",
       "en:sodium",
-      "en:e300",
+      "en:vitamin-c",
       "en:e960"
    ],
+   "ingredients_lc" : "fr",
    "ingredients_n" : 16,
    "ingredients_n_tags" : [
       "16",
@@ -275,13 +288,13 @@
       "en:sweetener",
       "en:e330",
       "en:e296",
-      "fr:l",
+      "en:black-tea-extract",
       "en:sodium-citrate",
-      "en:e300",
+      "en:vitamin-c",
       "en:e960"
    ],
    "ingredients_percent_analysis" : 1,
-   "ingredients_sweeteners_n" : 0,
+   "ingredients_sweeteners_n" : 1,
    "ingredients_tags" : [
       "en:water",
       "en:sugar",
@@ -303,16 +316,13 @@
       "en:sweetener",
       "en:e330",
       "en:e296",
-      "fr:l",
       "en:sodium-citrate",
       "en:minerals",
       "en:sodium",
-      "en:e300",
+      "en:vitamin-c",
       "en:e960"
    ],
    "ingredients_text" : "Eau, sucre, fructose, acidifiants (acide citrique, acide malique), extrait de the noir (1,2g/l), jus de pêche à base de concentré (0,1%), correcteur d'acidité (citrate trisodique), arômes, antioxydant (acide ascorbique), édulcorant (glycosides de steviol)",
-   "ingredients_that_may_be_from_palm_oil_n" : 0,
-   "ingredients_that_may_be_from_palm_oil_tags" : [],
    "ingredients_with_specified_percent_n" : 1,
    "ingredients_with_specified_percent_sum" : 0.1,
    "ingredients_with_unspecified_percent_n" : 10,
@@ -322,16 +332,30 @@
       "en:acidity-regulator",
       "en:antioxidant",
       "en:e296",
-      "en:e300",
       "en:e330",
       "en:e960",
       "en:flavouring",
       "en:peach",
       "en:sodium-citrate",
       "en:sweetener",
-      "fr:l"
+      "en:vitamin-c"
    ],
-   "ingredients_without_ciqual_codes_n" : 12,
+   "ingredients_without_ciqual_codes_n" : 11,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:acid",
+      "en:acidity-regulator",
+      "en:antioxidant",
+      "en:black-tea-extract",
+      "en:e296",
+      "en:e330",
+      "en:e960",
+      "en:flavouring",
+      "en:fructose",
+      "en:sodium-citrate",
+      "en:sweetener",
+      "en:vitamin-c"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 12,
    "known_ingredients_n" : 25,
    "lc" : "fr",
    "minerals_tags" : [],
@@ -345,22 +369,69 @@
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-d-2023-d"
    ],
+   "nova_group" : 4,
+   "nova_group_debug" : "",
+   "nova_groups" : "4",
+   "nova_groups_markers" : {
+      "3" : [
+         [
+            "ingredients",
+            "en:sugar"
+         ]
+      ],
+      "4" : [
+         [
+            "additives",
+            "en:e960"
+         ],
+         [
+            "ingredients",
+            "en:flavouring"
+         ],
+         [
+            "ingredients",
+            "en:sweetener"
+         ],
+         [
+            "ingredients",
+            "en:fructose"
+         ]
+      ]
+   },
+   "nova_groups_tags" : [
+      "en:4-ultra-processed-food-and-drink-products"
+   ],
    "nucleotides_tags" : [],
+   "nutrient_levels" : {
+      "fat" : "low",
+      "salt" : "low",
+      "saturated-fat" : "low",
+      "sugars" : "moderate"
+   },
+   "nutrient_levels_tags" : [
+      "en:fat-in-low-quantity",
+      "en:saturated-fat-in-low-quantity",
+      "en:sugars-in-moderate-quantity",
+      "en:salt-in-low-quantity"
+   ],
    "nutriments" : {
       "energy_100g" : 82,
-      "fat_100g" : 0,
+      "fat_100g" : "0",
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0.1,
       "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0.1,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0.1,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0.1,
-      "nutrition-score-fr" : 6,
-      "nutrition-score-fr_100g" : 6,
+      "nova-group" : 4,
+      "nova-group_100g" : 4,
+      "nova-group_serving" : 4,
+      "nutrition-score-fr" : 8,
+      "nutrition-score-fr_100g" : 8,
       "proteins_100g" : 0,
       "salt" : 0.025,
       "salt_100g" : 0.025,
       "salt_unit" : "g",
-      "salt_value" : 0.025,
-      "saturated-fat_100g" : 0,
+      "salt_value" : "0.025",
+      "saturated-fat_100g" : "0",
       "sodium_100g" : 0.01,
       "sodium_value" : 0.01,
       "sugars_100g" : 4.5
@@ -464,6 +535,9 @@
                   },
                   {
                      "id" : "sugars",
+                     "new_grade" : "d",
+                     "new_score" : 7,
+                     "new_value" : 3.4,
                      "points" : 3,
                      "points_max" : 10,
                      "unit" : "g",
@@ -507,7 +581,12 @@
                      "value" : null
                   },
                   {
+                     "current_grade" : "d",
+                     "current_score" : 8,
                      "id" : "fruits_vegetables_legumes",
+                     "new_grade" : "c",
+                     "new_score" : 6,
+                     "new_value" : 41,
                      "points" : 0,
                      "points_max" : 6,
                      "unit" : "%",
@@ -546,43 +625,94 @@
       "d"
    ],
    "nutriscore_data" : {
-      "energy" : 82,
-      "energy_points" : 3,
-      "energy_value" : 82,
-      "fiber" : 0,
-      "fiber_points" : 0,
-      "fiber_value" : 0,
-      "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0.1,
-      "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 0,
-      "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 0.1,
+      "components" : {
+         "negative" : [
+            {
+               "id" : "energy",
+               "points" : 1,
+               "points_max" : 10,
+               "unit" : "kJ",
+               "value" : 82
+            },
+            {
+               "id" : "sugars",
+               "points" : 3,
+               "points_max" : 10,
+               "unit" : "g",
+               "value" : 4.5
+            },
+            {
+               "id" : "saturated_fat",
+               "points" : 0,
+               "points_max" : 10,
+               "unit" : "g",
+               "value" : 0
+            },
+            {
+               "id" : "salt",
+               "points" : 0,
+               "points_max" : 20,
+               "unit" : "g",
+               "value" : 0.03
+            },
+            {
+               "id" : "non_nutritive_sweeteners",
+               "points" : 4,
+               "points_max" : 4,
+               "unit" : "number",
+               "value" : 1
+            }
+         ],
+         "positive" : [
+            {
+               "id" : "proteins",
+               "points" : 0,
+               "points_max" : 7,
+               "unit" : "g",
+               "value" : 0
+            },
+            {
+               "id" : "fiber",
+               "points" : 0,
+               "points_max" : 5,
+               "unit" : "g",
+               "value" : null
+            },
+            {
+               "id" : "fruits_vegetables_legumes",
+               "points" : 0,
+               "points_max" : 6,
+               "unit" : "%",
+               "value" : 0.1
+            }
+         ]
+      },
+      "count_proteins" : 1,
+      "count_proteins_reason" : "beverage",
       "grade" : "d",
       "is_beverage" : 1,
       "is_cheese" : 0,
-      "is_fat" : 0,
+      "is_fat_oil_nuts_seeds" : 0,
+      "is_red_meat_product" : 0,
       "is_water" : 0,
-      "negative_points" : 6,
+      "negative_points" : 8,
+      "negative_points_max" : 54,
+      "positive_nutrients" : [
+         "proteins",
+         "fiber",
+         "fruits_vegetables_legumes"
+      ],
       "positive_points" : 0,
-      "proteins" : 0,
-      "proteins_points" : 0,
-      "proteins_value" : 0,
-      "saturated_fat" : 0,
-      "saturated_fat_points" : 0,
-      "saturated_fat_value" : 0,
-      "score" : 6,
-      "sodium" : 10,
-      "sodium_points" : 0,
-      "sodium_value" : 10,
-      "sugars" : 4.5,
-      "sugars_points" : 3,
-      "sugars_value" : 4.5
+      "positive_points_max" : 18,
+      "score" : 8
    },
    "nutriscore_grade" : "d",
-   "nutriscore_score" : 6,
-   "nutriscore_score_opposite" : -6,
+   "nutriscore_score" : 8,
+   "nutriscore_score_opposite" : -8,
    "nutriscore_tags" : [
       "d"
    ],
-   "nutriscore_version" : "2021",
+   "nutriscore_version" : "2023",
    "nutrition_data_per" : "100g",
    "nutrition_data_prepared_per" : "100g",
    "nutrition_grade_fr" : "d",
@@ -603,11 +733,17 @@
       "beverages",
       "known"
    ],
-   "pnns_groups_2" : "Sweetened beverages",
+   "pnns_groups_2" : "Artificially sweetened beverages",
    "pnns_groups_2_tags" : [
-      "sweetened-beverages",
+      "artificially-sweetened-beverages",
       "known"
    ],
-   "unknown_ingredients_n" : 1,
+   "traces" : "",
+   "traces_from_ingredients" : "",
+   "traces_from_user" : "(fr) ",
+   "traces_hierarchy" : [],
+   "traces_tags" : [],
+   "unknown_ingredients_n" : 0,
+   "unknown_nutrients_tags" : [],
    "vitamins_tags" : []
 }

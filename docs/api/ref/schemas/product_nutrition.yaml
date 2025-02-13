@@ -1,4 +1,5 @@
 type: object
+title: product_nutrition
 description: |
   Nutrition fields of a product
 
@@ -18,8 +19,8 @@ properties:
   nutrition_data_per:
     type: string
     enum:
-    - serving
-    - 100g
+      - serving
+      - 100g
     description: |
       The nutrition data on the package can be per serving or per 100g.
 
@@ -35,8 +36,8 @@ properties:
   nutrition_data_prepared_per:
     type: string
     enum:
-    - serving
-    - 100g
+      - serving
+      - 100g
     description: |
       The nutrition data for prepared product on the package (if any) can be per serving or per 100g.
 
@@ -60,6 +61,9 @@ properties:
       (eg. the nutrition facts for a bowl of milk with cocoa powder),
       a `_prepared` suffix is added (before other suffixes).
 
+      You can get all possible nutrients from the
+      [nutrients taxonomy](https://static.openfoodfacts.org/data/taxonomies/nutrients.json)
+
       **FIXME** add more nutrients with description.
     properties:
       alcohol:
@@ -82,7 +86,7 @@ properties:
           energy_value will be equal to energy-kj_value if we have it or to energy-kcal_value otherwise
       energy_unit:
         type: string
-        enum: ["kcal", "kj"]
+        enum: ["kcal", "kJ"]
         description: |
           Equal to energy-kj_unit if we have it or to energy-kcal_unit otherwise
       energy-kcal:
@@ -161,7 +165,52 @@ properties:
           [units-module]: https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Units.html
           [default-unit]: https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Food.html#default_unit_for_nid_(_%24nid)
         type: string
-        enum: ['公斤', '公升', 'kg', 'кг', 'l', 'л', '毫克', 'mg', 'мг', 'mcg', 'µg', 'oz', 'fl oz', 'dl', 'дл', 'cl', 'кл', '斤', 'g', '', ' ', 'kj', '克', '公克', 'г', 'мл', 'ml', 'mmol/l', '毫升', '% vol', 'ph', '%', '% dv', '% vol (alcohol)', 'iu', 'mol/l', 'mval/l', 'ppm', '�rh', '�fh', '�e', '�dh', 'gpg']
+        enum:
+          [
+            "公斤",
+            "公升",
+            "kg",
+            "кг",
+            "l",
+            "л",
+            "毫克",
+            "mg",
+            "мг",
+            "mcg",
+            "µg",
+            "oz",
+            "fl oz",
+            "dl",
+            "дл",
+            "cl",
+            "кл",
+            "斤",
+            "g",
+            "",
+            " ",
+            "kJ",
+            "克",
+            "公克",
+            "г",
+            "мл",
+            "ml",
+            "mmol/l",
+            "毫升",
+            "% vol",
+            "ph",
+            "%",
+            "% dv",
+            "% vol (alcohol)",
+            "iu",
+            "mol/l",
+            "mval/l",
+            "ppm",
+            "�rh",
+            "�fh",
+            "�e",
+            "�dh",
+            "gpg",
+          ]
       '(?<nutrient>[\w-]+)_100g':
         description: |
           The standardized value of a serving of 100g (or 100ml for liquids)
@@ -213,92 +262,24 @@ properties:
           for the nutrient for **prepared** product.
         type: number
         readOnly: true
+
+  #TODO: migrated on product_nutriscore.yaml (if *_ratio fields are not available anymore, remove this)
   nutriscore_data:
     description: |
       Detail of data the Nutri-Score was computed upon.
 
-      **Note**: this might not be stable, don't rely too much on this, or, at least, tell us !
+      **Note**: this might not be stable, don't rely too much on this, or, at least, tell us !
 
       **TODO** document each property
     type: object
     properties:
-      energy:
-        type: integer
-      energy_points:
-        type: integer
-      energy_value:
-        type: integer
-      fiber:
-        type: integer
-      fiber_points:
-        type: integer
-      fiber_value:
-        type: integer
-      fruits_vegetables_nuts_colza_walnut_olive_oils:
-        type: integer
-      fruits_vegetables_nuts_colza_walnut_olive_oils_points:
-        type: integer
-      fruits_vegetables_nuts_colza_walnut_olive_oils_value:
-        type: integer
-      grade:
-        type: string
-      is_beverage:
-        type: integer
-      is_cheese:
-        type: integer
-      is_fat:
-        type: integer
-      is_water:
-        type: integer
-      negative_points:
-        type: integer
-      positive_points:
-        type: integer
-      proteins:
-        type: number
-      proteins_points:
-        type: integer
-      proteins_value:
-        type: number
-      saturated_fat:
-        type: number
-      saturated_fat_points:
-        type: integer
+      # **TODO** "*_ratio" are still available?
       saturated_fat_ratio:
         type: number
       saturated_fat_ratio_points:
         type: integer
       saturated_fat_ratio_value:
         type: number
-      saturated_fat_value:
-        type: number
-      score:
-        type: integer
-      sodium:
-        type: number
-      sodium_points:
-        type: integer
-      sodium_value:
-        type: number
-      sugars:
-        type: number
-      sugars_points:
-        type: integer
-      sugars_value:
-        type: number
-  nutriscore_grade:
-    description: |
-      Nutri-Score for the product as a letter.
-
-      See https://world.openfoodfacts.org/nutriscore.
-    type: string
-    enum: ["a", "b", "c", "d", "e"]
-  nutriscore_score:
-    description: |
-      Nutri-Score for the product as an integer (see also `nutriscore_grade`).
-    type: integer
-  nutriscore_score_opposite:
-    type: integer
   nutrition_grade_fr:
     type: string
     description: |
@@ -318,7 +299,7 @@ properties:
     type: integer
   nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients:
     type: integer
-  nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value: 
+  nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value:
     type: integer
   nutrition_score_warning_no_fiber:
     type: integer

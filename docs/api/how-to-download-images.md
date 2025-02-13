@@ -1,44 +1,55 @@
 # How to download product images
 
 The preferred method of downloading Open Food Facts images depends on what you
-which to achieve.
+wish to achieve.
 
-If you want to download a limited number of images, especially if these images
-have been uploaded recently, you should [download the image from Open Food
+If you want to download a few images (say up to 10), especially if these images
+have been uploaded recently, you should [download the image from the Open Food
 Facts
 server](./how-to-download-images.md#download-from-open-food-facts-server).
 
-If you plan to download a large amount of images, you should on the contrary
-[use Open Food Facts images dataset hosted on
+If you plan to download more images, you should instead
+[use the Open Food Facts images dataset hosted on
 AWS](./how-to-download-images.md#download-from-aws).
+
+**NOTE:** please avoid fetching full image if it is not needed, but use image in the right size.
 
 ## Download from AWS
 
-If you want to download a large number of images, this is the recommended
-option, as AWS S3 will be faster and allow concurrent download, contrary to
+If you want to download many images, this is the recommended
+option, as AWS S3 is faster and allows concurrent download, unlike the
 Open Food Facts server, where you should preferably download images one at a
 time. See [AWS Images dataset](./aws-images-dataset.md) for more information
-about how to download images from AWS dataset.
+about how to download images from the AWS dataset.
 
 ## Download from Open Food Facts server
 
-All images are hosted under
-[https://images.openfoodfacts.org/images/products/](https://static.openfoodfacts.org/images/products/) folder. 
+All images are hosted under the
+[https://images.openfoodfacts.org/images/products/](https://images.openfoodfacts.org/images/products/) folder. 
 But you have to build the right URL from the product info.
+
+## images URL directly available in product data
+
+When you request the API, you will get the url of some important images: front, ingredients, nutrition, packaging
+
+The field [`selected_images`](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#cmp--schemas-product-images) provides you with those images.
+
+The structure should be simple enough to read. You get different image type, and inside different image size, and inside the urls for the different languages.
+
+## Computing images URL
+
+In get you want to get an image which url is not directly present in product data, you need to compute the image url by yourself.
 
 ### Computing single product image folder
 
-Images of a product are stored in a single directory. The path of this
-directory can be inferred easily from the product barcode.
-There are two cases:
+Images of a product are stored in a single directory. The path of this directory can be inferred easily from the product barcode:
 
-1. If the product barcode length is lower or equal to 8 (ex: "22222222"), the directory path is
-simply the barcode: `https://images.openfoodfacts.org/images/products/{barcode}`.
+If the barcode is less than 13 digits long, it must be padded with leading 0s so that it has 13 digits.
 
-2. Otherwise, we split the 9 first part of the code by group of three digits to get the three first folder names, and use the rest of the name as the last folder name^[split-regexp].
-   For example, the barcode `3435660768163` is split as : `343/566/076/8163`, thus products images will be in `https://images.openfoodfacts.org/images/products/343/566/076/8163`
+Then split the first 9 digits of the barcode into 3 groups of 3 digits to get the first 3 folder names, and use the rest of the barcode as the last folder name^[split-regexp].
+   For example, barcode `3435660768163` is split into: `343/566/076/8163`, thus product images will be in `https://images.openfoodfacts.org/images/products/343/566/076/8163`
 
-^[split-regexp]: The following regex can be used to split the barcode into subfolders: `r"^(...)(...)(...)(.*)$"`
+^[split-regexp]: The following regex can be used to split the barcode into subfolders: `/^(...)(...)(...)(.*)$/`
 
 ### Computing single image file name
 
@@ -49,7 +60,7 @@ Above we get the folder name, now we need the filename inside that folder for a 
 To get the image file names, we have to use the database dump or the API. 
 All images information are stored in the `images` field. 
 
-Eg. For product [3168930010883](https://world.openfoodfacts.org/api/v0/product/3168930010883.json),
+Eg. For product [3168930010883](https://world.openfoodfacts.org/api/v2/product/3168930010883.json),
 we have (trimmed the data):
 
 ```json
@@ -123,7 +134,7 @@ The available resolutions can be found in the `sizes` subfield.
 #### Filename for a raw image
 
 For a raw image (the one under a numeric key in images field), 
-filename is very easy to compute: 
+the filename is very easy to compute: 
 * just take the image digit + `.jpg` for full resolution
 * image digit + `.` + resolution + `.jpg` for a lower resolution
 
@@ -147,6 +158,7 @@ In the structure, selected images have additional fields:
 
 For selected images, the filename is the image key followed by the revision number and the resolution: `<image_name>.<rev>.<resolution>.jpg`.
 Resolution must always be specified, but you can use `full` keyword to get the full resolution image.
+`image_name` is the image type + language code (eg: `front_fr`).
 
 In our above example, the filename for the front image in french (`front_fr` key) is:
 * `front_fr.4.400.jpg` for 400 px version
@@ -158,7 +170,7 @@ So, adding the folder part, the final url for our example is:
 
 ## A python snippet
 
-So if we have the product_data in a dict, a Python code doing it would be something like:
+So if we have the product_data in a dict, Python code for doing it would be something like:
 
 ```python
 def get_image_url(product_data, image_name, resolution="full"):

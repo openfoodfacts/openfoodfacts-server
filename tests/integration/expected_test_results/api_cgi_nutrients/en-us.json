@@ -477,7 +477,7 @@
          "display_in_edit_form" : true,
          "id" : "vitamin-d",
          "important" : false,
-         "name" : "Vitamin D",
+         "name" : "Vitamin D (D3)",
          "unit" : "µg"
       },
       {
@@ -565,6 +565,27 @@
          "unit" : "mg"
       },
       {
+         "display_in_edit_form" : true,
+         "id" : "calcium",
+         "important" : false,
+         "name" : "Calcium",
+         "unit" : "mg"
+      },
+      {
+         "display_in_edit_form" : true,
+         "id" : "iron",
+         "important" : false,
+         "name" : "Iron",
+         "unit" : "mg"
+      },
+      {
+         "display_in_edit_form" : true,
+         "id" : "potassium",
+         "important" : false,
+         "name" : "Potassium",
+         "unit" : "mg"
+      },
+      {
          "display_in_edit_form" : false,
          "id" : "silica",
          "important" : false,
@@ -579,13 +600,6 @@
          "unit" : "mg"
       },
       {
-         "display_in_edit_form" : true,
-         "id" : "potassium",
-         "important" : false,
-         "name" : "Potassium",
-         "unit" : "mg"
-      },
-      {
          "display_in_edit_form" : false,
          "id" : "chloride",
          "important" : false,
@@ -593,24 +607,10 @@
          "unit" : "mg"
       },
       {
-         "display_in_edit_form" : true,
-         "id" : "calcium",
-         "important" : false,
-         "name" : "Calcium",
-         "unit" : "mg"
-      },
-      {
          "display_in_edit_form" : false,
          "id" : "phosphorus",
          "important" : false,
          "name" : "Phosphorus",
-         "unit" : "mg"
-      },
-      {
-         "display_in_edit_form" : true,
-         "id" : "iron",
-         "important" : false,
-         "name" : "Iron",
          "unit" : "mg"
       },
       {

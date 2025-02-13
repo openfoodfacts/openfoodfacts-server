@@ -5,8 +5,8 @@
     ],
     "evaluation": "bad",
     "title_element": {
-        "title": "[% lang('recommendation_who_reduce_or_stop_drinking_alcohol_title') %]",
-        "subtitle": "[% lang('recommendation_who_reduce_or_stop_drinking_alcohol_subtitle') %]",
+        "title": "[% edq(lang('recommendation_who_reduce_or_stop_drinking_alcohol_title')) %]",
+        "subtitle": "[% edq(lang('recommendation_who_reduce_or_stop_drinking_alcohol_subtitle')) %]",
         "icon_url": "[% static_subdomain %]/images/icons/dist/arrow-bottom-right-thick.svg",
         "icon_color_from_evaluation": true,
         "evaluation": "bad",                

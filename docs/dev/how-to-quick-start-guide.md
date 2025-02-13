@@ -13,21 +13,19 @@ First setup time estimate is `~10min` with the following specs:
 
 **Docker** is the easiest way to install the Open Food Facts server, play with it, and even modify the code.
 
-Docker provides an isolated environment, very close to a Virtual Machine. This environment contains everything required to launch the Open Food Facts server. There is **no need to install** Perl, Perl modules, Nginx, nor Apache separately.
+Docker provides an isolated environment, very close to a Virtual Machine. This environment contains everything required to launch the Open Food Facts server. There is **no need to install** Perl, Perl modules, Nginx, or Apache separately.
 
 > **_NOTE:_**  New to Perl? Check [how to learn perl](how-to-learn-perl.md)!
 
 **Installation steps:**
-- [Install Docker CE](https://docs.docker.com/install/#supported-platforms)
+- [Install Docker CE](https://docs.docker.com/engine/install/)
 > If you run e.g. Debian, don't forget to add your user to the `docker` group!
-- [Install Docker Compose](https://docs.docker.com/compose/install/)
-- [Enable command-line completion](https://docs.docker.com/compose/completion/)
 
 ### Windows Prerequisites
 
 When running with Windows, install [Docker Desktop](https://www.docker.com/products/docker-desktop/) **which will cover all of the above**.
 
-The Make tasks use a number of Linux commands, such as rm and nproc, so it is recommeded to run Make commands from the Git Bash shell. In addition, the following need to be installed and included in the PATH:
+The Make tasks use a number of Linux commands, such as rm and nproc, so it is recommended to run Make commands from the Git Bash shell. In addition, the following need to be installed and included in the PATH:
 
 - [Make for Windows](http://gnuwin32.sourceforge.net/packages/make.htm)
 - [wget for windows](https://eternallybored.org/misc/wget/) (In order to download the full product database). If you want to download wget with the executable, copy the wget.exe file to C:/Windows/System32 and you are done.
@@ -38,39 +36,80 @@ The process of cloning the repository will create a number of symbolic links whi
  - Completely disable UAC
  - Specifically grant the [Create symbolic links](https://learn.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/create-symbolic-links) permission to your user
 
-Make sure you also activated the [Developper mode](https://learn.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development) on your device.
-
-## 2. Clone the repository from GitHub
-
-> _You must have a GitHub account if you want to contribute to Open Food Facts development, but it’s not required if you just want to see how it works._
+Make sure you also activated the [Developer mode](https://learn.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development) on your device.
 
 
-> _Be aware Open Food Facts server takes more than 1.3 GB (2019/11)._
+### Windows Subsystem for Linux (WSL) Prerequisites
 
-Choose your prefered way to clone, either:
+Ensure that you have WSL installed on your Windows machine. For instructions on how to do so, you can follow [Microsoft's guide to install WSL](https://learn.microsoft.com/en-us/windows/wsl/install). 
 
-### On Windows:
+After succcessfully installing WSL, you need to set up your Linux distribution and install Docker on it: 
+- Go to the Microsoft Store and install [Ubuntu](https://www.microsoft.com/store/productId/9PDXGNCFSCZV?ocid=pdpshare) as your Linux distribution
+- Open Ubuntu and execute the commands/instructions specified in [Installing Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/) (**NOTE: this is NOT the same thing as Docker for Desktop)
+- Restart your computer to ensure all changes take effect and WSL can properly integrate with Docker
+
+### Docker Desktop Prerequisite
+
+If you use Docker Desktop:
+
+- ensure you allow enough memory for your VMs (at least 4G)
+- ensure you Enabled host networking (in Resources / Network)
+
+
+## 2. Fork and clone the repository from GitHub
+
+> _You must have a GitHub account and fork the project if you want to contribute to Open Food Facts development, but it’s not required if you just want to see how it works._
+
+> _Cloning Open Food Facts server with the default options downloads 2.23 GiB (as of 2024-03). See [Shallow Clone](#shallow-clone) if this might be a problem for you._ 
+
+### Fork the repository
+
+If you want to collaborate you will need to fork the repository.
+(See [*Creating a pull request from a fork* in Github documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork) for an explanation.)
+
+Go to https://github.com/openfoodfacts/openfoodfacts-server and click the "Fork" button.
+
+This will create a new repository in your GitHub account.
+eg. (for an hypothetical my-user-id user): https://github.com/my-user-id/openfoodfacts-server.
+
+This is the url you have to use in the following instructions.
+
+Very important: always work in new branches, never in "main", otherwise it will be difficult
+to sync your project with the upstream repository (the openfoodfacts original repository).
+
+From time to time (before starting a new branch), it's a good idea to sync your fork,
+either using the github interface and then pulling "main" locally, or from the command line.
+
+### Clone
+
+Choose your preferred way to clone, either:
+
+#### On Windows:
 
 If you are running Docker on Windows, please use the following git clone command:
 
 ```console
-git clone -c core.symlinks=true https://github.com/openfoodfacts/openfoodfacts-server.git
+# replace my-user-id with your user id if you forked the repository, otherwise use openfoodfacts
+git clone -c core.symlinks=true https://github.com/my-user-id/openfoodfacts-server.git
 ```
+or (if you want to use ssh)
+```console
+# replace my-user-id with your user id if you forked the repository, otherwise use openfoodfacts
+git clone -c core.symlinks=true git@github.com:my-user-id/openfoodfacts-server.git
+```
+
+#### On other systems:
+
+```console
+# replace my-user-id with your user id if you forked the repository, otherwise use openfoodfacts
+git clone git@github.com:my-user-id/openfoodfacts-server.git
+```
+
 or
-```console
-git clone -c core.symlinks=true git@github.com:openfoodfacts/openfoodfacts-server.git
-```
-
-### On other systems:
 
 ```console
-git clone git@github.com:openfoodfacts/openfoodfacts-server.git
-```
-
-or
-
-```console
-git clone https://github.com/openfoodfacts/openfoodfacts-server.git
+# replace my-user-id with your user id if you forked the repository, otherwise use openfoodfacts
+git clone https://github.com/my-user-id/openfoodfacts-server.git
 ```
 
 Go to the cloned directory:
@@ -79,7 +118,23 @@ Go to the cloned directory:
 cd openfoodfacts-server/
 ```
 
-## 3. [Optional] Review Product Opener's environment
+### Shallow Clone
+
+A full clone of the `openfoodfacts-server` repository can consume a significant amount of your PC's resources. It will download over 2 GiB of data and take up over 3 GiB of drive space.
+
+```console
+git clone --single-branch --depth=1 https://github.com/openfoodfacts/openfoodfacts-server.git
+```
+
+To save your PC's resources, consider using a shallow clone by only cloning the `main` branch combined with a shallow fetch. This reduces the downloaded data to approximately 333 MiB and the repo will only use around 350 MiB of drive space.
+
+You will still be able to contribute PRs based on the `main` branch. However, you will not be able to view the full Git version history of any files, and you need to use an additional branch from GitHub, e.g., `gh-pages`, you can do it like this:
+
+```console
+git remote set-branches --add origin gh-pages
+git fetch --depth=1 origin gh-pages:gh-pages
+git checkout gh-pages
+```
 
 > _Note: you can skip this step for the first setup since the default `.env` in the repo contains all the default values required to get started._
 
@@ -115,12 +170,12 @@ The `.env` file also contains some useful Docker Compose variables:
 * `COMPOSE_SEPARATOR` is the separator used for `COMPOSE_FILE`.
 
 **Note:**
-Instead of modifying `.env` (with the risk commit it inadvertently),
-You can also set needed variables in your shell, they will override `.env` values.
+Instead of modifying `.env` (and risk committing it inadvertently),
+you can also set needed variables in your shell; they will override `.env` values.
 Consider creating a `.envrc` file that you source each time you need to work on the project.
 On linux and macOS, you can automatically do it if you [use direnv](how-to-use-direnv.md).
 
-## 4. Build your dev environment
+## 3. Build your dev environment
 
 From the repository root, run:
 
@@ -161,17 +216,17 @@ Since the default `PRODUCT_OPENER_DOMAIN` in the `.env` file is set to `openfood
 127.0.0.1 world.openfoodfacts.localhost fr.openfoodfacts.localhost static.openfoodfacts.localhost ssl-api.openfoodfacts.localhost fr-en.openfoodfacts.localhost
 ```
 
-**You're done ! Check http://openfoodfacts.localhost/ !**
+**You're done! Check `http://openfoodfacts.localhost/`.**
 
 ### Going further
 
 To learn more about developing with Docker, see the [Docker developer's guide](how-to-develop-using-docker.md).
 
-To have all site page on your dev instance, see [Using pages from openfoodfacts-web](how-to-use-pages-from-openfoodfacts-web.md)
+To have all site pages on your dev instance, see [Using pages from openfoodfacts-web](how-to-use-pages-from-openfoodfacts-web.md)
 
 [Using Repl](how-to-use-repl.md) offers you a way to play with perl.
 
-Specific notes are provide on [applying AGRIBALYSE updates to support the Ecoscore](how-to-update-agribalyse-ecoscore.md) calculation.
+Specific notes are provided on [applying AGRIBALYSE updates to support the Ecoscore](how-to-update-agribalyse-ecoscore.md) calculation.
 
 ## Visual Studio Code
 
@@ -191,9 +246,18 @@ When running `make dev`:
 bash: make: command not found
 ```
 
-**Solution:** 
+**Solution (if using Windows):** 
 Click the Windows button, then type “environment properties” into the search bar and hit Enter. Click Environment Variables, then under System variables choose Path and click Edit. Click New and insert C:\Program Files (x86)\GnuWin32\bin, then save the changes. Open a new terminal and test that the command works.
-(see [Make Windows](https://pakstech.com/blog/make-windows/) for more)
+(See [Make Windows](https://pakstech.com/blog/make-windows/) for more.)
+
+**Solution (if using a Linux distro):**
+Check that your bash PATH setting is correct. If it is, your Linux distro doesn't include `make` by default. For Debian (which I had that problem with --Pau Amma), use
+
+```shell
+sudo apt-get install make
+```
+
+For other distros, consult your distro's documentation or support resources for the command to use.
 
 ### make dev error: [build_lang] Error 2 - Could not load taxonomy: /mnt/podata/taxonomies/traces.result.sto
 
@@ -229,11 +293,36 @@ and turn on the toggle for *Developer Mode*.
 
 On Windows systems, the git repository needs to be cloned with symlinks enabled.
 
-You need to remove current directory where you clone the project, and clone the project again, using right options:
+You need to remove the directory where you cloned the project, and clone the project again, using the right options:
 
 ```console
-git clone -c core.symlinks=true git@github.com:openfoodfacts/openfoodfacts-server.git
+# replace my-user-id with your user id if you forked the repository, otherwise use openfoodfacts
+git clone -c core.symlinks=true git@github.com:my-user-id/openfoodfacts-server.git
 ```
+### make dev error: open /.docker/buildx/current: permission denied
+On macOS
+When running `make dev`:
+```console
+docker compose --env-file=.env  build   2>&1
+open /.docker/buildx/current: permission denied
+make: *** [build] Error 1
+openfoodfacts-server % 
+```
+
+**Solution:**
+Check for permissions by
+```console
+ls -la /.docker/buildx
+```
+If there is a file that is not owned by user with root instead of USER:
+```console
+-rw-------   1 root    staff   48 Apr 28 17:04 current
+```
+Then Run 
+```console
+sudo chown -R USER:USER /Users/USER/.docker/buildx
+```
+Replacing USER with current user
 
 ### 'rm' is not recognized as an internal or external command
 
@@ -248,7 +337,7 @@ Use the Git Bash shell to run the make commands in windows so that programs like
 When running `make import_prod_data`.
 
 ```console
-process_begin: CreateProcess(NULL, wget --no-verbose https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz, ...) failed.
+process_begin: CreateProcess(NULL, wget --no-verbose https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.gz, ...) failed.
 make (e=2): The system cannot find the file specified.
 ```
 
@@ -280,7 +369,7 @@ make: *** [Makefile:154: import_sample data] Error 22
 **Solution:**
 The cause of this issue is that you already have the mongodb database server running on your local machine at port 27017. 
 
-*For linux users:*
+*For Linux users:*
 
 First stop the MongoDB server from your OS
 ```console
@@ -295,7 +384,7 @@ systemctl status mongod | grep Active
 > The output of this command should be:
   `Active: inactive (dead)`
 
-Then, executed this:
+Then, execute this:
 ```console
 docker compose up 
 ```

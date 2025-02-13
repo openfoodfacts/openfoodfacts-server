@@ -3,11 +3,13 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
 
-use ProductOpener::DataQuality qw/:all/;
+use ProductOpener::DataQuality qw/check_quality/;
 use ProductOpener::DataQualityFood qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Tags qw/has_tag/;
 use ProductOpener::Ingredients qw/:all/;
 
 sub check_quality_and_test_product_has_quality_tag($$$$) {
@@ -18,11 +20,11 @@ sub check_quality_and_test_product_has_quality_tag($$$$) {
 	ProductOpener::DataQuality::check_quality($product_ref);
 	if ($yesno) {
 		ok(has_tag($product_ref, 'data_quality', $tag), $reason)
-			or diag explain {tag => $tag, yesno => $yesno, product => $product_ref};
+			or diag Dumper {tag => $tag, yesno => $yesno, product => $product_ref};
 	}
 	else {
 		ok(!has_tag($product_ref, 'data_quality', $tag), $reason)
-			or diag explain {tag => $tag, yesno => $yesno, product => $product_ref};
+			or diag Dumper {tag => $tag, yesno => $yesno, product => $product_ref};
 	}
 
 	return;
@@ -806,6 +808,19 @@ check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:very-low-sodium-or-very-low-salt-label-claim-but-sodium-or-salt-above-limitation',
 	'label should not be triggered for waters category', 0
+);
+
+# check opposites labels, labels that should not appear at the same time on the same product
+$product_ref = {labels_tags => ["en:pasteurized", "en:unpasteurized", "en:vegetarian"],};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:mutually-exclusive-tags-for-labels-non-vegetarian-and-labels-vegetarian',
+	'having these labels should NOT trigger facet', 0
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:mutually-exclusive-tags-for-labels-pasteurized-and-labels-unpasteurized',
+	'having these two labels should trigger facet', 1
 );
 
 done_testing();

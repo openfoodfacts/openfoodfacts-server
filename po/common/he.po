@@ -15,6 +15,76 @@ msgstr ""
 "X-Crowdin-Language: he\n"
 "X-Crowdin-File-ID: 3123\n"
 
+msgctxt "site_description_off"
+msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
+msgstr "מסד נתונים שיתופי, חינמי ופתוח של רכיבים, עובדות תזונתיות ופרטים על מוצרי מזון מכל העולם"
+
+msgctxt "tagline_off"
+msgid "Open Food Facts gathers information and data on food products from around the world."
+msgstr "המיזם Open Food Facts אוסף מידע ונתונים על מוצרי מזון מכל רחבי העולם."
+
+msgctxt "footer_tagline_off"
+msgid "A collaborative, free and open database of food products from around the world."
+msgstr "מסד נתונים חופשי, פתוח ושיתופי של מוצרי מזון מכל רחבי העולם."
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_off"
+msgid "/open-food-facts-mobile-app"
+msgstr "/open-food-facts-mobile-app"
+
+msgctxt "site_description_obf"
+msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
+msgstr "מסד נתונים שיתופי, חופשי ופתוח של רכיבים ומידע על מוצרי טיפוח מכל רחבי העולם"
+
+msgctxt "tagline_obf"
+msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
+msgstr "המיזם Open Beauty Facts אוסף מידע ונתונים על מוצרי קוסמטיקה מכל רחבי העולם."
+
+msgctxt "footer_tagline_obf"
+msgid "A collaborative, free and open database of cosmetic products from around the world."
+msgstr "מסד נתונים חופשי, פתוח ושיתופי של מוצרי טיפוח מכל רחבי העולם."
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_obf"
+msgid "/open-beauty-facts-mobile-app"
+msgstr "/open-beauty-facts-mobile-app"
+
+msgctxt "footer_and_the_facebook_group_obf"
+msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
+msgstr "ו<a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">קבוצת הפייסבוק למתנדבים</a>"
+
+msgctxt "search_description_opensearch_obf"
+msgid "Open Beauty Facts product search"
+msgstr "חיפוש מוצרים ב־Open Beauty Facts"
+
+msgctxt "warning_not_complete_obf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "עמוד מוצר זה לוקה בחסר. ניתן לסייע להשלים אותו על ידי עריכה או הוספת נתונים נוספים מהתמונות שכבר יש לנו או על ידי צילום תמונות נוספות באמצעות יישומון ה־<a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> או ה־<a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. תודה רבה!"
+
+msgctxt "brands_example_beauty"
+msgid "Nivea, Nivea Men"
+msgstr "פינוק, פינוק לגבר"
+
+msgctxt "categories_example_beauty"
+msgid "Anti-dandruff shampoo, Whitening toothpaste"
+msgstr "שמפו נגד קשקשים, משחת שיניים מלבינה"
+
+msgctxt "emb_codes_example_beauty"
+msgid "EMB 53062"
+msgstr "EMB 53062"
+
+msgctxt "generic_name_example_beauty"
+msgid "Anti-dandruff shampoo"
+msgstr "שמפו נגד קשקשים"
+
+msgctxt "product_name_example_beauty"
+msgid "Anti-Perspirant Stress Protect"
+msgstr "מונע הזעה מגן במצבי לחץ"
+
+msgctxt "ingredients_text_example_beauty"
+msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+msgstr "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+
 msgctxt "1_product"
 msgid "1 product"
 msgstr "מוצר אחד"
@@ -129,7 +199,7 @@ msgstr "נא למלא את שם הארגון שלך (חברה או מותג)."
 
 msgctxt "enter_email_addresses_of_users"
 msgid "Enter email addresses of users to invite (comma-separated):"
-msgstr ""
+msgstr "נא למלא כתובות דוא״ל של משתמשים להזמנה (עם פסיקים שמפרידים ביניהם):"
 
 msgctxt "f_this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
@@ -204,11 +274,6 @@ msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
 msgstr "APK ל־Android"
 
-# DO NOT TRANSLATE
-msgctxt "android_apk_app_link"
-msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr "https://world.openfoodfacts.org/files/off.apk"
-
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/en_get.svg"
@@ -217,11 +282,6 @@ msgstr ""
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
 msgstr "זמין ב־Google Play"
-
-# Change hl=en to your language, and make sure the url works
-msgctxt "android_app_link"
-msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
-msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=he"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -738,10 +798,6 @@ msgctxt "facebook_locale"
 msgid "en_US"
 msgstr "he_IL"
 
-msgctxt "facebook_page"
-msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr "https://www.facebook.com/OpenFoodFacts"
-
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
 msgstr "אם המידע חלקי או שגוי, ניתן להשלים או לתקן אותו על־ידי עריכת עמוד זה."
@@ -827,6 +883,15 @@ msgctxt "footer_legal_link"
 msgid "/legal"
 msgstr "/legal"
 
+msgctxt "footer_privacy"
+msgid "Privacy"
+msgstr "פרטיות"
+
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
+msgctxt "footer_privacy_link"
+msgid "/privacy"
+msgstr "/privacy"
+
 msgctxt "footer_press"
 msgid "Press"
 msgstr "מידע לעתונאים"
@@ -835,10 +900,6 @@ msgstr "מידע לעתונאים"
 msgctxt "footer_press_link"
 msgid "/press"
 msgstr "/press"
-
-msgctxt "footer_tagline"
-msgid "A collaborative, free and open database of food products from around the world."
-msgstr "מסד נתונים חופשי, פתוח ושיתופי של מוצרי מזון מכל רחבי העולם."
 
 msgctxt "footer_terms"
 msgid "Terms of use"
@@ -1118,10 +1179,6 @@ msgstr "/images/misc/appstore/black/appstore_HB.svg"
 msgctxt "ios_app_icon_alt_text"
 msgid "Download on the App Store"
 msgstr "זמין ב־App Store"
-
-msgctxt "ios_app_link"
-msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr ""
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -2086,8 +2143,8 @@ msgid "Select products with specific brands, categories, labels, origins of ingr
 msgstr "ניתן לבחור במוצרים ממותגים מסוימים, קטגוריות, תוויות, מקורות של מרכיבים, מקומות ייצור וכו׳"
 
 msgctxt "search_description_opensearch"
-msgid "Open Food Facts product search"
-msgstr "חיפוש מוצרים ב־Open Food Facts"
+msgid "Product search"
+msgstr "חיפוש מוצרים"
 
 msgctxt "search_does_not_contain"
 msgid "does not contain"
@@ -2379,18 +2436,6 @@ msgctxt "signout"
 msgid "Sign-out"
 msgstr "יציאה"
 
-msgctxt "site_description"
-msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr "מסד נתונים שיתופי, חופשי ופתוח של רכיבים, הרכבים תזונתיים ומידע על מוצרי מזון מכל רחבי העולם."
-
-msgctxt "site_name"
-msgid "Open Food Facts"
-msgstr "Open Food Facts"
-
-msgctxt "logo_site_name"
-msgid "Open Food Facts logo"
-msgstr "הלוגו של Open Food Facts"
-
 msgctxt "sort_by"
 msgid "Sort by"
 msgstr "סידור לפי"
@@ -2504,10 +2549,6 @@ msgctxt "twitter"
 msgid "Twitter username (optional)"
 msgstr "שם משתמש בטוויטר"
 
-msgctxt "twitter_account"
-msgid "OpenFoodFacts"
-msgstr "OpenFoodFacts"
-
 msgctxt "unknown"
 msgid "Unknown"
 msgstr "לא ידוע"
@@ -2584,6 +2625,10 @@ msgctxt "view"
 msgid "view"
 msgstr "צפייה"
 
+msgctxt "view_this_revision"
+msgid "View this revision"
+msgstr "הצגת המהדורה הזאת"
+
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
 msgstr "צפייה ברשימה של מוצרים תואמים מכל העולם"
@@ -2604,20 +2649,6 @@ msgstr "מקור המידע והנתונים חייב להיות אריזת המ
 msgctxt "website"
 msgid "Site or blog address"
 msgstr "כתובת אתר או בלוג"
-
-# Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
-msgctxt "windows_phone_app_icon_url"
-msgid "/images/misc/microsoft/English.svg"
-msgstr "/images/misc/microsoft/Hebrew.svg"
-
-msgctxt "windows_phone_app_icon_alt_text"
-msgid "Get it from Microsoft"
-msgstr "החנות של Windows Phone"
-
-# Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
-msgctxt "windows_phone_app_link"
-msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
-msgstr "https://apps.microsoft.com/detail/XP8LT18SRPKLRG?hl=he-IL&gl=IL"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -4782,40 +4813,48 @@ msgctxt "attribute_group_environment_name"
 msgid "Environment"
 msgstr "סביבה"
 
-msgctxt "attribute_ecoscore_name"
-msgid "Eco-Score"
-msgstr "Eco-Score"
+msgctxt "attribute_environmental_score_name"
+msgid "Green-Score"
+msgstr "Green-Score"
 
-msgctxt "attribute_ecoscore_setting_name"
-msgid "Low environmental impact (Eco-Score)"
-msgstr "השפעה סביבתית נמוכה (Eco-Score)"
+msgctxt "attribute_environmental_score_setting_name"
+msgid "Low environmental impact (Green-Score)"
+msgstr "השפעה סביבתית נמוכה (Green-Score)"
 
-msgctxt "attribute_ecoscore_setting_note"
-msgid "The Eco-Score is an environmental score (ecoscore) from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "Eco-Score הוא ציון סביבתי מ־A עד E שמקל על ההשוואה של מוצרי מזון על הסביבה."
+msgctxt "attribute_environmental_score_setting_note"
+msgid "The Green-Score is an environmental score (environmental_score) from A to E which makes it easy to compare the impact of food products on the environment."
+msgstr "Green-Score הוא ציון סביבתי מ־A עד E שמקל על ההשוואה של מוצרי מזון על הסביבה."
 
-# keep %s, it will be replaced by the letter A, B, C, D or E
-msgctxt "attribute_ecoscore_grade_title"
-msgid "Eco-Score %s"
-msgstr "Eco-Score %s"
+# keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
+msgctxt "attribute_environmental_score_grade_title"
+msgid "Green-Score %s"
+msgstr "Green-Score %s"
 
-msgctxt "attribute_ecoscore_a_description_short"
+msgctxt "attribute_environmental_score_a_plus_description_short"
 msgid "Very low environmental impact"
 msgstr "השפעה מועטה מאוד על איכות הסביבה"
 
-msgctxt "attribute_ecoscore_b_description_short"
+msgctxt "attribute_environmental_score_a_description_short"
+msgid "Very low environmental impact"
+msgstr "השפעה מועטה מאוד על איכות הסביבה"
+
+msgctxt "attribute_environmental_score_b_description_short"
 msgid "Low environmental impact"
 msgstr "השפעה מועטה על איכות הסביבה"
 
-msgctxt "attribute_ecoscore_c_description_short"
+msgctxt "attribute_environmental_score_c_description_short"
 msgid "Moderate environmental impact"
 msgstr "השפעה מתונה על איכות הסביבה"
 
-msgctxt "attribute_ecoscore_d_description_short"
+msgctxt "attribute_environmental_score_d_description_short"
 msgid "High environmental impact"
 msgstr "השפעה רבה על איכות הסביבה"
 
-msgctxt "attribute_ecoscore_e_description_short"
+msgctxt "attribute_environmental_score_e_description_short"
+msgid "Very high environmental impact"
+msgstr "השפעה רבה מאוד על איכות הסביבה"
+
+msgctxt "attribute_environmental_score_f_description_short"
 msgid "Very high environmental impact"
 msgstr "השפעה רבה מאוד על איכות הסביבה"
 
@@ -4943,10 +4982,6 @@ msgctxt "number_of_members"
 msgid "Number of Members"
 msgstr "מספר חברים"
 
-msgctxt "serial_no"
-msgid "S.No"
-msgstr "מס׳ סידורי"
-
 msgctxt "contact_form"
 msgid "Contact form"
 msgstr "טופס יצירת קשר"
@@ -4973,40 +5008,40 @@ msgid "Environmental impact"
 msgstr "השפעה על איכות הסביבה"
 
 # Numerical score for the Eco-score (do not translate Eco-score)
-msgctxt "ecoscore_score"
+msgctxt "environmental_score_score"
 msgid "Eco-score score"
-msgstr "ציון Eco-Score"
+msgstr "ציון Green-Score"
 
 # Letter grade from A to E for the Eco-score (do not translate Eco-score)
-msgctxt "ecoscore_grade"
+msgctxt "environmental_score_grade"
 msgid "Eco-score grade"
-msgstr "דירוג Eco-Score"
+msgstr "דירוג Green-Score"
 
 # do not translate Eco-score
-msgctxt "ecoscore_calculation_details"
+msgctxt "environmental_score_calculation_details"
 msgid "Details of the calculation of the Eco-score"
-msgstr "פירוט אופן חישוב Eco-Score"
+msgstr "פירוט אופן חישוב Green-Score"
 
 # do not translate Eco-score
-msgctxt "ecoscore_information"
+msgctxt "environmental_score_information"
 msgid "Information about the Eco-score"
-msgstr "מידע על Eco-Score"
-
-msgctxt "preferences_edit_your_food_preferences"
-msgid "Edit your food preferences"
-msgstr "עריכת העדפות המזון שלך"
-
-msgctxt "preferences_your_preferences"
-msgid "Your food preferences"
-msgstr "העדפות המזון שלך"
+msgstr "מידע על Green-Score"
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
 msgstr "ההעדפות שנבחרו נכון לעכשיו"
 
 msgctxt "preferences_locally_saved"
-msgid "Your food preferences are kept in your browser and never sent to Open Food Facts or anyone else."
-msgstr "העדפות המזון שלך נשמרות בדפדפן שלך ולעולם אינן נשלחות ל־Open Food Facts או לכל גורם אחר."
+msgid "Your preferences are kept in your browser and never sent to Open Food Facts or anyone else."
+msgstr "ההעדפות שלך נשמרות בדפדפן שלך ולעולם אינן נשלחות ל־Open Food Facts או לכל גורם אחר."
+
+msgctxt "preferences_edit_your_preferences"
+msgid "Edit your preferences"
+msgstr "עריכת ההעדפות שלך"
+
+msgctxt "preferences_your_preferences"
+msgid "Your preferences"
+msgstr "ההעדפות שלך"
 
 # used in phrases like "salt in unknown quantity"
 msgctxt "unknown_quantity"
@@ -5021,13 +5056,13 @@ msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr "עובדות תזונתיות חסרות"
 
-msgctxt "ecoscore_p"
-msgid "Eco-Score"
-msgstr "Eco-Score"
+msgctxt "environmental_score_p"
+msgid "Green-Score"
+msgstr "Green-Score"
 
-msgctxt "ecoscore_s"
-msgid "Eco-Score"
-msgstr "Eco-Score"
+msgctxt "environmental_score_s"
+msgid "Green-Score"
+msgstr "Green-Score"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5190,7 +5225,7 @@ msgstr "הפלטפורמה מספקת גם ניתוח מעמיק של המוצר
 # It = the platform
 msgctxt "product_edits_by_producers_indicators"
 msgid "It computes indicators such as the Nutri-Score, NOVA, and the Eco-score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
-msgstr "הוא מחשב חיוויים כגון Nutri-Score,‏ NOVA ו־Eco-Score ומזהה אוטומטית הצעות כדי לשפר אותם (למשל כל המוצרים שיקבלו ציון Nutri-Score טוב יותר עם שינוי קל בהרכב)."
+msgstr "הוא מחשב חיוויים כגון Nutri-Score,‏ NOVA ו־Green-Score ומזהה אוטומטית הצעות כדי לשפר אותם (למשל כל המוצרים שיקבלו ציון Nutri-Score טוב יותר עם שינוי קל בהרכב)."
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest footprint"
@@ -5269,8 +5304,8 @@ msgctxt "sort_by_nutriscore_score"
 msgid "Products with the best Nutri-Score"
 msgstr "מוצרים עם ה־Nutri-Score הטוב ביותר"
 
-msgctxt "sort_by_ecoscore_score"
-msgid "Products with the best Eco-Score"
+msgctxt "sort_by_environmental_score_score"
+msgid "Products with the best Green-Score"
 msgstr "מוצרים עם ה־Edo-Score הטוב ביותר"
 
 msgctxt "sort_by_created_t"
@@ -5323,34 +5358,34 @@ msgctxt "delete_user_process"
 msgid "User is being deleted. This may take a few minutes."
 msgstr "המשתמש נמחק. זה עלול לארוך מספר דקות."
 
-msgctxt "attribute_ecoscore_not_applicable_title"
-msgid "Eco-Score not yet applicable"
-msgstr "Eco-Score לא חל עדיין"
+msgctxt "attribute_environmental_score_not_applicable_title"
+msgid "Green-Score not yet applicable"
+msgstr "Green-Score לא חל עדיין"
 
-msgctxt "attribute_ecoscore_not_applicable_description_short"
+msgctxt "attribute_environmental_score_not_applicable_description_short"
 msgid "Not yet applicable for the category"
 msgstr "לא חל עדיין על הקטגוריה"
 
 # variable names between { } must not be translated
-msgctxt "f_attribute_ecoscore_not_applicable_description"
+msgctxt "f_attribute_environmental_score_not_applicable_description"
 msgid "Not yet applicable for the category: {category}"
 msgstr "לא חל עדיין על הקטגוריה: {category}"
 
-msgctxt "ecoscore_not_applicable_coming_soon"
-msgid "The Eco-Score is not yet applicable for this category, but we are working on adding support for it."
-msgstr "Eco-Score לא חל עדיין על הקטגוריה הזאת אך אנו עמלים להוספת התמיכה בציון."
+msgctxt "environmental_score_not_applicable_coming_soon"
+msgid "The Green-Score is not yet applicable for this category, but we are working on adding support for it."
+msgstr "Green-Score לא חל עדיין על הקטגוריה הזאת אך אנו עמלים להוספת התמיכה בציון."
 
-msgctxt "attribute_ecoscore_unknown_title"
-msgid "Eco-Score not computed"
-msgstr "Eco-Score לא מחושב"
+msgctxt "attribute_environmental_score_unknown_title"
+msgid "Green-Score not computed"
+msgstr "Green-Score לא מחושב"
 
-msgctxt "attribute_ecoscore_unknown_description_short"
+msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr "ההשפעה על איכות הסביבה לא ידועה"
 
-msgctxt "ecoscore_unknown_call_to_help"
-msgid "We could not compute the Eco-Score of this product as it is missing some data, could you help complete it?"
-msgstr "לא הצלחנו לחשב את ה־Eco-Score של מוצר זה מכיוון שחסרים בו נתונים, נוכל להיעזר בך להשלים אותו?"
+msgctxt "environmental_score_unknown_call_to_help"
+msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
+msgstr "לא הצלחנו לחשב את ה־Green-Score של מוצר זה מכיוון שחסרים בו נתונים, נוכל להיעזר בך להשלים אותו?"
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
@@ -5478,223 +5513,223 @@ msgctxt "forest_footprint_one_line_explanation"
 msgid "The forest footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
 msgstr "טביעת הרגל של היער מחושבת על ידי התחשבות במרכיבים שייצורם דורש פולי סויה שגידולם קשור לכריתת יערות."
 
-msgctxt "ecoscore_agribalyse_match_warning"
-msgid "The Eco-Score can only be calculated if the product has a sufficiently precise category."
-msgstr "ניתן לחשב Eco-Score רק אם למוצר יש קטגוריה מדויקת מספיק."
+msgctxt "environmental_score_agribalyse_match_warning"
+msgid "The Green-Score can only be calculated if the product has a sufficiently precise category."
+msgstr "ניתן לחשב Green-Score רק אם למוצר יש קטגוריה מדויקת מספיק."
 
-msgctxt "ecoscore_add_more_precise_category"
+msgctxt "environmental_score_add_more_precise_category"
 msgid "You can modify the product page to add a more precise category."
 msgstr "באפשרותך לשנות את עמוד המוצר כדי להוסיף קטגוריה מדויקת יותר."
 
-msgctxt "ecoscore_platform_promo"
+msgctxt "environmental_score_platform_promo"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
 msgstr "אם ייצרת את המוצר הזה, ניתן לשלוח לנו מידע עליו עם <a href=\"https://il.pro.openfoodfacts.org\">הפלטפורמה החינמית שלנו ליצרנים</a>."
 
-msgctxt "ecoscore_warning_missing_information"
-msgid "Warning: some information necessary to calculate the Eco-Score with precision is not provided (see the details of the calculation below)."
-msgstr "אזהרה: חלק מהמידע הנחוץ לחישוב Eco-Score באופן מדויק לא מסופק (פרטי החישוב מופיעים להלן לעיונך)."
+msgctxt "environmental_score_warning_missing_information"
+msgid "Warning: some information necessary to calculate the Green-Score with precision is not provided (see the details of the calculation below)."
+msgstr "אזהרה: חלק מהמידע הנחוץ לחישוב Green-Score באופן מדויק לא מסופק (פרטי החישוב מופיעים להלן לעיונך)."
 
-msgctxt "ecoscore_add_missing_information"
+msgctxt "environmental_score_add_missing_information"
 msgid "You can edit the product to add the missing information."
 msgstr "ניתן לערוך את המוצר כדי להוסיף את הפרטים החסרים."
 
-msgctxt "ecoscore_product_category_reference_score"
+msgctxt "environmental_score_product_category_reference_score"
 msgid "Baseline score of the product category"
 msgstr "ציון הבסיס של קטגוריית המוצר"
 
-msgctxt "ecoscore_panel_lca"
+msgctxt "environmental_score_panel_lca"
 msgid "Lifecyle Analysis (LCA)"
 msgstr "ניתוח מחזור חיים (LCA)"
 
 # do not translate Agribalyse
-msgctxt "ecoscore_agribalyse_category"
+msgctxt "environmental_score_agribalyse_category"
 msgid "Agribalyse category"
 msgstr "קטגוריית Agribalyse"
 
-msgctxt "ecoscore_category_proxy_match"
+msgctxt "environmental_score_category_proxy_match"
 msgid "Approximate match with the product category"
 msgstr "התאמה משוערת לקטגוריית המוצרים"
 
-msgctxt "ecoscore_category_exact_match"
+msgctxt "environmental_score_category_exact_match"
 msgid "Exact match with the product category"
 msgstr "התאמה מדויקת לקטגוריית המוצרים"
 
-msgctxt "ecoscore_pef_environmental_score"
+msgctxt "environmental_score_pef_environmental_score"
 msgid "PEF environmental score"
 msgstr "ציון PEF סביבתי"
 
-msgctxt "ecoscore_incl_climate_change_impact"
+msgctxt "environmental_score_incl_climate_change_impact"
 msgid "including impact on climate change"
 msgstr "כולל השפעה על שינויי האקלים"
 
-msgctxt "ecoscore_impact_detail_by_stages"
+msgctxt "environmental_score_impact_detail_by_stages"
 msgid "Details of the impacts by stages of the life cycle"
 msgstr "פירוט ההשפעות לפי שלבי מחזור החיים"
 
 # stage meaning step
-msgctxt "ecoscore_stage"
+msgctxt "environmental_score_stage"
 msgid "Stage"
 msgstr "שלב"
 
-msgctxt "ecoscore_impact"
+msgctxt "environmental_score_impact"
 msgid "Impact"
 msgstr "השפעה"
 
-msgctxt "ecoscore_agriculture"
+msgctxt "environmental_score_agriculture"
 msgid "Agriculture"
 msgstr "חקלאות"
 
-msgctxt "ecoscore_processing"
+msgctxt "environmental_score_processing"
 msgid "Processing"
 msgstr "עיבוד"
 
-msgctxt "ecoscore_packaging"
+msgctxt "environmental_score_packaging"
 msgid "Packaging"
 msgstr "אריזה"
 
-msgctxt "ecoscore_transportation"
+msgctxt "environmental_score_transportation"
 msgid "Transportation"
 msgstr "שינוע"
 
-msgctxt "ecoscore_distribution"
+msgctxt "environmental_score_distribution"
 msgid "Distribution"
 msgstr "הפצה"
 
-msgctxt "ecoscore_consumption"
+msgctxt "environmental_score_consumption"
 msgid "Consumption"
 msgstr "צריכה"
 
-msgctxt "ecoscore_lca_score_out_of_100"
+msgctxt "environmental_score_lca_score_out_of_100"
 msgid "LCA score out of 100"
 msgstr "ציון LCA מתוך 100"
 
-msgctxt "ecoscore_no_agribalyse_category_match"
+msgctxt "environmental_score_no_agribalyse_category_match"
 msgid "No match between product categories and Agribalyse categories."
 msgstr "אין התאמה בין קטגוריות המוצרים והקטגוריות ב־Agribalyse."
 
-msgctxt "ecoscore_edit_category_to_more_granular"
+msgctxt "environmental_score_edit_category_to_more_granular"
 msgid "You can modify the product page to add a more granular category."
 msgstr "ניתן לשנות את עמוד המוצר כדי להוסיף קטגוריה מדויקת יותר."
 
-msgctxt "ecoscore_additional_bonuses_and_maluses"
+msgctxt "environmental_score_additional_bonuses_and_maluses"
 msgid "Additional bonuses and maluses"
 msgstr "ציונים לשבח ולרעה"
 
-msgctxt "ecoscore_production_system"
+msgctxt "environmental_score_production_system"
 msgid "Production mode"
 msgstr "מצב ייצור"
 
-msgctxt "ecoscore_no_labels_taken_into_account"
+msgctxt "environmental_score_no_labels_taken_into_account"
 msgid "No labels taken into account for the production system."
 msgstr "לא נלקחו אף תוויות בחשבון במערכת הייצור."
 
-msgctxt "ecoscore_please_add_the_labels"
+msgctxt "environmental_score_please_add_the_labels"
 msgid "If this product has a label characterizing the production system (organic, fair trade, Label Rouge, Bleu Blanc Coeur etc.), you can modify the product sheet to add it."
 msgstr "אם למוצר זה יש תווית שמאפיינת את מערכת הייצור (אורגני, סחר הוגן, חי בריא, תנאי ייצור נאותים וכו׳), ניתן לשנות את גיליון המוצר כדי להוסיף אותה."
 
-msgctxt "ecoscore_origins_of_ingredients"
+msgctxt "environmental_score_origins_of_ingredients"
 msgid "Origins of ingredients"
 msgstr "מקורות הרכיבים"
 
-msgctxt "ecoscore_ingredients_not_indicated"
+msgctxt "environmental_score_ingredients_not_indicated"
 msgid "The origins of the ingredients of this product are not indicated."
 msgstr "מקורות רכיבי המוצר הזה לא צוינו."
 
-msgctxt "ecoscore_please_add_the_ingredients"
+msgctxt "environmental_score_please_add_the_ingredients"
 msgid "If they are indicated on the packaging, you can modify the product sheet and add them."
 msgstr "אם הם מצוינים על האריזה, ניתן לערוך את גיליון המוצר ולהוסיף אותם."
 
-msgctxt "ecoscore_environmental_policy"
+msgctxt "environmental_score_environmental_policy"
 msgid "Environmental policy"
 msgstr "מדיניות סביבתית"
 
-msgctxt "ecoscore_threatened_species"
+msgctxt "environmental_score_threatened_species"
 msgid "Threatened species"
 msgstr "מינים בסכנה"
 
-msgctxt "ecoscore_ingredients_whose_cultivation_threatens_species"
+msgctxt "environmental_score_ingredients_whose_cultivation_threatens_species"
 msgid "Ingredients that threatens species"
 msgstr "רכיבים שמאיימים על מינים"
 
-msgctxt "ecoscore_no_species_threatening_ingredients"
+msgctxt "environmental_score_no_species_threatening_ingredients"
 msgid "No ingredients that threaten species"
 msgstr "אין רכיבים שמאיימים על מינים"
 
-msgctxt "ecoscore_ingredients_unknown"
+msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
 msgstr "המידע על רכיבי מוצר זה לא נמסרו."
 
-msgctxt "ecoscore_edit_for_more_precise_ecoscore"
-msgid "For a more precise calculation of the Eco-Score, you can edit the product page and add them."
-msgstr "לחישוב מדויק יותר של Eco-Score, ניתן לערוך את דף המוצר ולהוסיף אותם."
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
+msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
+msgstr "לחישוב מדויק יותר של Green-Score, ניתן לערוך את דף המוצר ולהוסיף אותם."
 
-msgctxt "ecoscore_packaging_ratio"
+msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
 msgstr "יחס"
 
-msgctxt "ecoscore_packaging_score"
+msgctxt "environmental_score_packaging_score"
 msgid "score"
 msgstr "ציון"
 
-msgctxt "ecoscore_score_of_all_components"
+msgctxt "environmental_score_score_of_all_components"
 msgid "Score of all components"
 msgstr "ציון לכל הרכיבים"
 
-msgctxt "ecoscore_no_packaging_information"
+msgctxt "environmental_score_no_packaging_information"
 msgid "The information about the packaging of this product is not filled in."
 msgstr "המידע על אריזת המוצר הזה לא צוין."
 
-msgctxt "ecoscore_unprecise_packaging_information"
+msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
 msgstr "המידע על אריזת המוצר הזה אינה מדויקת מספיק (הצורות המדויקות והחומרים של כל הרכיבים של האריזה)."
 
-msgctxt "ecoscore_edit_for_more_precise_ecoscore"
-msgid "For a more precise calculation of the Eco-Score, you can modify the product page and add them."
-msgstr "לחישוב מדויק יותר של Eco-Score, ניתן לשנות את דף המוצר ולהוסיף אותם."
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
+msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
+msgstr "לחישוב מדויק יותר של Green-Score, ניתן לשנות את דף המוצר ולהוסיף אותם."
 
-msgctxt "ecoscore_final_score"
+msgctxt "environmental_score_final_score"
 msgid "Final score"
 msgstr "ציון סופי"
 
-msgctxt "ecoscore_lower_the_score_lower_the_impact"
+msgctxt "environmental_score_lower_the_score_lower_the_impact"
 msgid "(the lower the score, the lower the impact)"
 msgstr "(ככל שהציון יותר נמוך ככה ההשפעה יותר נמוכה)"
 
-msgctxt "ecoscore_kg_co2_eq_kg_product"
+msgctxt "environmental_score_kg_co2_eq_kg_product"
 msgid "kg CO2 eq/kg of product"
 msgstr "ק״ג CO2 שווה ערך לק״ג מוצר"
 
 # do not translate the link
-msgctxt "ecoscore_platform_prompt_ecoscore_modal"
+msgctxt "environmental_score_platform_prompt_environmental_score_modal"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
 msgstr "אם ייצרת את המוצר הזה, ניתן לשלוח לנו מידע עליו עם <a href=\"https://il.pro.openfoodfacts.org\">הפלטפורמה החינמית שלנו ליצרנים</a>."
 
-# do not translate Eco-Score and the link
-msgctxt "ecoscore_description"
-msgid "The <a href=\"/ecoscore\">Eco-Score</a> is an experimental score that summarizes the environmental impacts of food products."
-msgstr "<a href=\"/ecoscore\">Eco-Score</a> הוא ציון ניסיוני שמסכם את ההשפעות הסביבתיות של מוצרי מזון."
+# do not translate Green-Score and the link
+msgctxt "environmental_score_description"
+msgid "The <a href=\"/green-score\">Green-Score</a> is an experimental score that summarizes the environmental impacts of food products."
+msgstr "<a href=\"/green-score\">Green-Score</a> הוא ציון ניסיוני שמסכם את ההשפעות הסביבתיות של מוצרי מזון."
 
-# do not translate Eco-Score
-msgctxt "ecoscore_warning_fr"
-msgid "The Eco-Score formula is subject to change as it is regularly improved to make it more precise."
-msgstr "נוסחת Eco-Score עשויה להשתנות כיוון שהיא משתפרת באופן תמידי כך שתהיה מדויקת ככל הניתן."
+# do not translate Green-Score
+msgctxt "environmental_score_warning_fr"
+msgid "The Green-Score formula is subject to change as it is regularly improved to make it more precise."
+msgstr "נוסחת Green-Score עשויה להשתנות כיוון שהיא משתפרת באופן תמידי כך שתהיה מדויקת ככל הניתן."
 
-# do not translate Eco-Score
-msgctxt "ecoscore_warning_international"
-msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "Eco-Score פותח במקור בצרפת והוא מתפשט למדינות אירופיות נוספות. נוסחת Eco-Score עשויה להשתנות כיוון שהיא משתפרת באופן תמידי כדי שתהיה מדויקת, ככל הניתן, לכל מדינה ומדינה."
+# do not translate Green-Score
+msgctxt "environmental_score_warning_international"
+msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgstr "Green-Score פותח במקור בצרפת והוא מתפשט למדינות אירופיות נוספות. נוסחת Green-Score עשויה להשתנות כיוון שהיא משתפרת באופן תמידי כדי שתהיה מדויקת, ככל הניתן, לכל מדינה ומדינה."
 
-msgctxt "ecoscore_warning_transportation_world"
+msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
 msgstr "נא לבחור מדינה כדי לכלול את השפעותיה המלאות של התעבורה."
 
-msgctxt "ecoscore_warning_transportation"
+msgctxt "environmental_score_warning_transportation"
 msgid "The full impact of transportation to your country is currently unknown."
 msgstr "ההשפעה המלאה של התעבורה למדינה שלך אינה ידועה כרגע."
 
 msgctxt "app_banner_text"
-msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
-msgstr "ניתן לסרוק ברקודים כדי לקבל Nutri-Score,‏ Eco-Score ועוד!"
+msgid "Scan barcodes to get the Nutri-Score, the Green-Score and more!"
+msgstr "ניתן לסרוק ברקודים כדי לקבל Nutri-Score,‏ Green-Score ועוד!"
 
 msgctxt "org_gs1_product_name_is_abbreviated"
 msgid "GS1 product names for this manufacturer are abbreviated."
@@ -5725,35 +5760,35 @@ msgctxt "org_protect_data_note"
 msgid "Removing or changing the provided data will be possible only by experimented contributors on the web site."
 msgstr "הסרה או שינוי של הנתונים שסופקו תהיה אפשרית רק על ידי מתנדבים מנוסים באתר."
 
-msgctxt "ecoscore_packaging_impact_high"
+msgctxt "environmental_score_packaging_impact_high"
 msgid "Packaging with a high impact"
 msgstr "אריזה בעלת השפעה גבוהה"
 
-msgctxt "ecoscore_packaging_impact_medium"
+msgctxt "environmental_score_packaging_impact_medium"
 msgid "Packaging with a medium impact"
 msgstr "אריזה בעלת השפעה בינונית"
 
-msgctxt "ecoscore_packaging_impact_low"
+msgctxt "environmental_score_packaging_impact_low"
 msgid "Packaging with a low impact"
 msgstr "אריזה בעלת השפעה נמוכה"
 
-msgctxt "ecoscore_packaging_missing_information"
+msgctxt "environmental_score_packaging_missing_information"
 msgid "Missing packaging information for this product"
 msgstr "חסר מידע אריזה עבור מוצר זה"
 
-msgctxt "ecoscore_origins_of_ingredients_impact_high"
+msgctxt "environmental_score_origins_of_ingredients_impact_high"
 msgid "Origins of ingredients with a high impact"
 msgstr "מקורות רכיבים בעלי השפעה גבוהה"
 
-msgctxt "ecoscore_origins_of_ingredients_impact_medium"
+msgctxt "environmental_score_origins_of_ingredients_impact_medium"
 msgid "Origins of ingredients with a medium impact"
 msgstr "מקורות רכיבים בעלי השפעה בינונית"
 
-msgctxt "ecoscore_origins_of_ingredients_impact_low"
+msgctxt "environmental_score_origins_of_ingredients_impact_low"
 msgid "Origins of ingredients with a low impact"
 msgstr "מקורות רכיבים בעלי השפעה נמוכה"
 
-msgctxt "ecoscore_origins_of_ingredients_missing_information"
+msgctxt "environmental_score_origins_of_ingredients_missing_information"
 msgid "Missing origins of ingredients information"
 msgstr "חסר מידע על מקורות של רכיבים"
 
@@ -5790,23 +5825,63 @@ msgctxt "donation_text_2023_tertiary"
 msgid "The food revolution starts with you!"
 msgstr "מהפכת המזון מתחילה בך!"
 
+msgctxt "donation_hook_2024"
+msgid "Help us inform millions of consumers around the world about what they eat"
+msgstr "נשמח לסיוע בהפצת ידע למיליוני צרכנים ברחבי העולם לגבי מה הם מכניסים לפה"
+
+msgctxt "donation_title_2024"
+msgid "Please give to our 2024 Fundraiser"
+msgstr "נא לתרום לגיוס התרומות לשנת 2024"
+
+msgctxt "donation_list_2024_main"
+msgid "Your donations fund the day-to-day operations of our non-profit association:"
+msgstr "התרומות שלך מממנות את הפעילויות היומיומיות של העמותה שלנו שאינה למטרות רווח:"
+
+msgctxt "donation_list_2024_first"
+msgid "keeping our database open & available to all,"
+msgstr "שמירה על מסד הנתונים שלנו פתוח וזמין לכולם,"
+
+msgctxt "donation_list_2024_first_sub"
+msgid "technical infrastructure (website/mobile app) & a small permanent team"
+msgstr "תשתית טכנית (אתר/יישומון לניידים) וצוות קבוע קטן"
+
+msgctxt "donation_list_2024_second"
+msgid "remain independent of the food industry,"
+msgstr "להישאר בלתי תלויים בתעשיית המזון,"
+
+msgctxt "donation_list_2024_third"
+msgid "engage a community of committed citizens,"
+msgstr "לתחזק קהילה של אזרחים מעורבים,"
+
+msgctxt "donation_list_2024_fourth"
+msgid "support the advancement of public health research."
+msgstr "לתמוך בהתפתחות של מחקרי בריאות הציבור."
+
+msgctxt "donation_financial_2024_text"
+msgid "Each donation counts! We appreciate your support in bringing further food transparency in the world."
+msgstr "כל תרומה נחשבת! אנו מעכירים את התמיכה שלך בהפצת שקיפות מזון בעולם."
+
+msgctxt "donation_button_2024_text"
+msgid "I SUPPORT"
+msgstr "ארצה לתמוך"
+
 msgctxt "donation_cta"
 msgid "Donate"
 msgstr "תרומה"
 
-msgctxt "ecoscore_production_system_no_labels_with_environmental_benefits"
+msgctxt "environmental_score_production_system_no_labels_with_environmental_benefits"
 msgid "No labels with environmental benefits"
 msgstr "אין תוויות עם יתרונות סביבתיים"
 
-msgctxt "ecoscore_production_system_labels_with_environmental_benefits"
+msgctxt "environmental_score_production_system_labels_with_environmental_benefits"
 msgid "Labels with environmental benefits"
 msgstr "תוויות עם יתרונות סביבתיים"
 
-msgctxt "ecoscore_production_system_labels_with_environmental_benefits_high"
+msgctxt "environmental_score_production_system_labels_with_environmental_benefits_high"
 msgid "Labels with high environmental benefits"
 msgstr "תוויות עם יתרונות סביבתיים רבים"
 
-msgctxt "ecoscore_production_system_labels_with_environmental_benefits_very_high"
+msgctxt "environmental_score_production_system_labels_with_environmental_benefits_very_high"
 msgid "Labels with very high environmental benefits"
 msgstr "תוויות עם יתרונות סביבתיים רבים מאוד"
 
@@ -5837,8 +5912,21 @@ msgstr "טביעת רגל פחמנית"
 
 # variable names between { } must not be translated
 msgctxt "f_carbon_footprint_per_100g_of_product"
-msgid "{grams} g CO² per 100g of product"
-msgstr "{grams} גרם CO² לכל 100 גרם של מוצר"
+msgid "{grams} g CO₂e per 100g of product"
+msgstr "{grams} גרם CO₂e לכל 100 גרם של מוצר"
+
+# variable names between { } must not be translated
+msgctxt "f_carbon_footprint_per_unit"
+msgid "{kilograms} kg CO₂e per unit"
+msgstr "{kilograms} ק״ג של CO₂e ליחידה"
+
+msgctxt "average_for_the_category"
+msgid "average for the category"
+msgstr "ממוצע לקטגוריה"
+
+msgctxt "data_source_and_detailed_carbon_impact"
+msgid "Data source and detailed carbon impact"
+msgstr "מקור נתונים והשפעת פחמן מפורטת"
 
 # variable names between { } must not be translated
 msgctxt "f_equal_to_driving_km_in_a_petrol_car"
@@ -5885,27 +5973,27 @@ msgctxt "life_cycle_analysis"
 msgid "Life cycle analysis"
 msgstr "ניתוח מחזור חיים"
 
-msgctxt "ecoscore_bonuses_and_maluses"
+msgctxt "environmental_score_bonuses_and_maluses"
 msgid "Bonuses and maluses"
 msgstr "בונוסים ומאלוסים"
 
-msgctxt "ecoscore_for_this_product"
-msgid "Eco-Score for this product"
-msgstr "Eco-Score עבור מוצר זה"
+msgctxt "environmental_score_for_this_product"
+msgid "Green-Score for this product"
+msgstr "Green-Score עבור מוצר זה"
 
 msgctxt "average_impact_of_the_category"
 msgid "Average impact of products of the same category"
 msgstr "השפעה ממוצעת של מוצרים מאותה הקטגוריה"
 
-msgctxt "ecoscore_sum_of_bonuses_and_maluses"
+msgctxt "environmental_score_sum_of_bonuses_and_maluses"
 msgid "Sum of bonuses and maluses"
 msgstr "סכום של בונוסים ומאלוסים"
 
-msgctxt "ecoscore_sum_of_bonuses_and_maluses_is_capped"
+msgctxt "environmental_score_sum_of_bonuses_and_maluses_is_capped"
 msgid "The sum of bonuses and maluses is capped at +25."
 msgstr "סכום הבונוסים והמאלוסים מוגבל ל־‎+25."
 
-msgctxt "ecoscore_lca_score"
+msgctxt "environmental_score_lca_score"
 msgid "Life cycle analysis score"
 msgstr "ציון ניתוח מחזור חיים"
 
@@ -5913,7 +6001,7 @@ msgctxt "impact_for_this_product"
 msgid "Impact for this product"
 msgstr "השפעת המוצר הזה"
 
-msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
+msgctxt "environmental_score_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
 msgstr "הציון של מוצרים עם אריזה מחומרים שלא ניתן למחזר ואינם מתכלים מוגבל ל־79 (דרגה B)."
 
@@ -5928,6 +6016,10 @@ msgstr "יש לציין את קטגוריית המוצר כדי לחשב Nutri-S
 msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "יש לציין את העובדות התזונתיות של המוצר כדי לחשב Nutri-Score."
+
+msgctxt "nutriscore_missing_nutrition_data_details"
+msgid "Missing nutrition facts:"
+msgstr "עובדות תזונתיות חסרות:"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
@@ -6142,11 +6234,11 @@ msgstr "ביטול בחירת התמונה"
 
 msgctxt "nutriscore_learn_more"
 msgid "Learn more about the Nutri-Score"
-msgstr "מידע נוסף על ציון תזונתי"
+msgstr "תודה רבה"
 
-msgctxt "ecoscore_learn_more"
-msgid "Learn more about the Eco-Score"
-msgstr "מידע נוסף על Eco-Score"
+msgctxt "environmental_score_learn_more"
+msgid "Learn more about the Green-Score"
+msgstr "מידע נוסף על Green-Score"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
@@ -6183,8 +6275,8 @@ msgid "Use default preferences"
 msgstr "להשתמש בהעדפות ברירת המחדל"
 
 msgctxt "reset_preferences_details"
-msgid "Nutri-Score, Eco-Score and food processing level (NOVA)"
-msgstr "Nutri-Score,‏ Eco-Score ורמת עיבוד מזון (NOVA)"
+msgid "Nutri-Score, Green-Score and food processing level (NOVA)"
+msgstr "Nutri-Score,‏ Green-Score ורמת עיבוד מזון (NOVA)"
 
 msgctxt "actions_add_ingredients"
 msgid "Could you add the ingredients list?"
@@ -6194,9 +6286,9 @@ msgctxt "actions_to_compute_nutriscore"
 msgid "Could you add the information needed to compute the Nutri-Score?"
 msgstr "נוכל לבקש ממך להוסיף את המידע הדרוש לחישוב Nutri-Score?"
 
-msgctxt "actions_to_compute_ecoscore"
-msgid "Could you add a precise product category so that we can compute the Eco-Score?"
-msgstr "נוכל לבקש ממך להוסיף קטגוריה מדויקת כדי שנוכל לחשב Eco-Score?"
+msgctxt "actions_to_compute_environmental_score"
+msgid "Could you add a precise product category so that we can compute the Green-Score?"
+msgstr "נוכל לבקש ממך להוסיף קטגוריה מדויקת כדי שנוכל לחשב Green-Score?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -6221,6 +6313,10 @@ msgstr "נא לצלם תמונה של פרטי המיחזור"
 msgctxt "action_add_packaging_components"
 msgid "Add packaging components"
 msgstr "הוספת רכיבי אריזה"
+
+msgctxt "action_add_quantity"
+msgid "Add quantity of the product"
+msgstr "הוספת כמות למוצר"
 
 # this is not used yet
 msgctxt "action_add_basic_details"
@@ -6582,10 +6678,6 @@ msgctxt "faq_for_producers"
 msgid "FAQ for producers"
 msgstr "שאלות נפוצות של יצרנים"
 
-msgctxt "join_the_next_pros_meet_up"
-msgid "Join the next Pros' Meet-up"
-msgstr "הצטרפו למפגש המקצוענים הבא"
-
 # variable names between { } must not be translated
 msgctxt "product_js_enter_value_between_0_and_max"
 msgid "Please enter a value between 0 and {max}."
@@ -6769,7 +6861,7 @@ msgstr "Nutri-Score הוא לוגו שמעיד על איכות תזונתית כ
 
 msgctxt "nutriscore_explanation_what_it_takes_into_account"
 msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
-msgstr ""
+msgstr "הציון מ־A עד E מחושב על סמך רכיבי תזונה ומזונות שכדאי להעדיף (חלבונים, סיבים, פירות, ירקות וקטניות…) ורכיבי תזונה שרצוי להגביל (קלוריות, שומן רווי, סוכרים, מלח)."
 
 msgctxt "nutriscore_explanation_where_the_data_comes_from"
 msgid "The score is calculated from the data of the nutrition facts table and the composition data (fruits, vegetables and legumes)."
@@ -6785,7 +6877,7 @@ msgstr "מה זה Nutri-Score?"
 
 msgctxt "nutrient_info_energy_risk"
 msgid "Energy intakes above energy requirements are associated with increased risks of weight gain, overweight, obesity, and consequently risk of diet-related chronic diseases."
-msgstr ""
+msgstr "צריכת אנרגיה עודפת מעל דרישות האנרגיה המומלצות קשורה בסיכון מוגבר לעלייה במשקל, עודף משקל, השמנת יתר, וכתוצאה מכך לסיכון למחלות כרוניות הקשורות לתזונה."
 
 msgctxt "nutrient_info_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
@@ -6801,7 +6893,7 @@ msgstr "צריכה גבוהה של שומן, במיוחד שומנים רווי�
 
 msgctxt "nutrient_info_non_nutritive_sweeteners_risk"
 msgid "Non-nutritive sweeteners may not confer any long-term benefit in reducing body fat in adults or children. There may be potential undesirable effects from long-term use of non-nutritive sweeteners, such as an increased risk of type 2 diabetes and cardiovascular diseases in adults."
-msgstr ""
+msgstr "ממתיקים שאינם מזינים עשויים שלא להעניק תועלת ארוכת טווח בהפחתת שומן הגוף אצל מבוגרים או ילדים. ייתכנו השפעות לא רצויות אפשריות משימוש ארוך טווח בממתיקים שאינם תזונתיים, כגון סיכון מוגבר לסוכרת מסוג 2 ומחלות לב וכלי דם במבוגרים."
 
 msgctxt "nutrient_info_fiber_benefit"
 msgid "Consuming foods rich in fiber (especially whole grain foods) reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
@@ -6809,9 +6901,338 @@ msgstr "צריכת מזון עשיר בסיבים (במיוחד מאכלים מ�
 
 msgctxt "nutrient_info_fruits_vegetables_legumes_benefit"
 msgid "Consuming foods rich in fruits, vegetables and legumes reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
-msgstr ""
+msgstr "צריכת מזונות עשירים בפירות, ירקות וקטניות מפחיתה את הסיכונים לסרטן מערכת העיכול והנשימה, מחלות לב וכלי דם, השמנת יתר וסוכרת."
 
 msgctxt "nutrient_info_proteins_benefit"
 msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
+msgstr "מזונות עשירים בחלבונים הם בדרך כלל עשירים בסידן או בברזל שהם מינרלים חיוניים עם יתרונות בריאותיים רבים."
+
+msgctxt "revert"
+msgid "Revert to this revision"
+msgstr "שחזר למהדורה זו"
+
+msgctxt "product_js_product_revert_confirm"
+msgid "Revert to this product revision?"
+msgstr "לשחזר למהדורת המוצר הזאת?"
+
+msgctxt "api_status_success"
+msgid "Success"
+msgstr "הצלחנו"
+
+msgctxt "api_status_failure"
+msgid "Failure"
+msgstr "כשל"
+
+msgctxt "api_result_product_reverted"
+msgid "Product reverted to the specified revision"
+msgstr "המוצר הוחזר למהדורה שצוינה"
+
+msgctxt "api_result_product_not_reverted"
+msgid "Product not reverted to the specified revision"
+msgstr "המוצר לא הוחזר למהדורה שצוינה"
+
+# sweeteners (additives), plural
+msgctxt "sweeteners"
+msgid "sweeteners"
+msgstr "ממתיקים"
+
+# sweetener (additive), singular
+msgctxt "sweetener"
+msgid "sweetener"
+msgstr "ממתיק"
+
+msgctxt "action_edit_product"
+msgid "Complete or correct product information"
+msgstr "השלמה או תיקון של פרטי המוצר"
+
+msgctxt "report_problem_panel_title"
+msgid "Report a problem"
+msgstr "דיווח על תקלה"
+
+msgctxt "report_problem_navigation"
+msgid "Report a problem."
+msgstr "דיווח על תקלה."
+
+msgctxt "incomplete_or_incorrect_data_title"
+msgid "Incomplete or incorrect information?"
+msgstr "פרטים חלקיים או שגויים?"
+
+msgctxt "incomplete_or_incorrect_data_subtitle_off"
+msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
+msgstr "קטגוריה, תוויות, מרכיבים, אלרגנים, מידע תזונתי, תמונות וכו׳."
+
+msgctxt "incomplete_or_incorrect_data_content_correct"
+msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
+msgstr "אם המידע אינו תואם למידע על האריזה, ניתן להשלים או לתקן אותו. תודה!"
+
+msgctxt "incomplete_or_incorrect_data_content_correct_off"
+msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr "Open Food Facts הוא מסד נתונים שיתופי, וכל תרומה מועילה לכלל."
+
+msgctxt "description"
+msgid "Description"
+msgstr "תיאור"
+
+# duplicate with "report_problem_panel_title"
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
+msgstr "דיווח על תקלה"
+
+msgctxt "enter_main_contact_username"
+msgid "Enter main contact's username :"
+msgstr "נא למלא את שם משתמש הקשר העיקרי:"
+
+msgctxt "change_main_contact"
+msgid "Change main contact"
+msgstr "החלפת גורם קשר עיקרי"
+
+msgctxt "main_contact_updated"
+msgid "Main contact updated"
+msgstr "גורם קשר עודכן"
+
+msgctxt "error_unknown_member"
+msgid "This user is not a member of the organization."
+msgstr "המשתמש הזה לא חבר בארגון."
+
+msgctxt "skip_to_content"
+msgid "Skip to Content"
+msgstr "דילוג לתוכן"
+
+msgctxt "cant_delete_main_contact"
+msgid "You cannot remove the main contact. Change it first."
+msgstr "אי אפשר להסיר את גורם הקשר הראשי. יש לשנות אותו קודם."
+
+msgctxt "open_in_crm"
+msgid "Open in CRM"
+msgstr "פתיחה ב־CRM"
+
+msgctxt "information_provided_by_the_manufacturer"
+msgid "Information provided by the manufacturer"
+msgstr "הפרטים סופקו על ידי היצרן"
+
+msgctxt "information_provided_by_the_manufacturer_edit_form"
+msgid "Information identified by a factory icon has been provided by the manufacturer. It can be changed only by the manufacturer and moderators. If it is out of date or incorrect, please let us know."
+msgstr "פרטים שמסומנים בסמל של מפעל סופקו על ידי היצרן. רק היצרן או מפקחים מטעמו יכולים לשנות אותם. אם הם מיושנים או שגויים נא לעדכן אותנו."
+
+msgctxt "knowledge_panels_did_you_know"
+msgid "Did you know?"
+msgstr "הידעת?"
+
+msgctxt "knowledge_panels_why_it_matters"
+msgid "Why it matters"
+msgstr "למה זה משנה"
+
+msgctxt "knowledge_panels_what_you_can_do"
+msgid "What you can do"
+msgstr "מה אפשר לעשות"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_title"
+msgid "Good for agricultural biodiversity"
+msgstr "טוב לגיוון ביולוגי חקלאי"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_subtitle"
+msgid "Contains neglected or underutilized crops:"
+msgstr "מכיל יבולים מוזנחים או לא מנוצלים:"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_did_you_know"
+msgid "Since 1900, 75% of plant diversity has been lost as farmers around the world have abandoned local varieties for high-yielding varieties adapted to mass industrial processing. As a result, 60 % of human energy intake in the world comes from only 3 species: wheat, rice and corn."
 msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_why_it_matters"
+msgid "The lack of variety of crops makes our food supply more vulnerable to pests, diseases and climate change."
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do"
+msgid "Consuming diverse cereals, legumes, vegetables and fruits contributes to:"
+msgstr "צריכת דגנים מגוונים, קטניות, ירקות ופירות תורמת ל־:"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_1"
+msgid "preserving neglected and underutilized species"
+msgstr "שימור מינים מוזנחים ולא מנוצלים"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_2"
+msgid "rural development and support of local farmers and companies"
+msgstr "פיתוח כפרי ותמיכה בחקלאים וחברות מקומיות"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_3"
+msgid "preserving of diversified landscapes"
+msgstr "שימור נופים מגוונים"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_4"
+msgid "food security"
+msgstr "ביטחון תזונתי"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_5"
+msgid "and your health!"
+msgstr "והבריאות שלך!"
+
+msgctxt "created_by"
+msgid "Created by"
+msgstr "נוצר על־ידי"
+
+msgctxt "org_id"
+msgid "Org id"
+msgstr "מזהה ארגון"
+
+msgctxt "verified_status"
+msgid "Verified status"
+msgstr "מצב מאומת"
+
+msgctxt "creation_date"
+msgid "Creation date"
+msgstr "תאריך יצירה"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_divinfood"
+msgid "Open Food Facts participates in the European project <a href=\"https://divinfood.eu/\">DIVINFOOD</a> (funded from European Union’s Horizon 2020 research and innovation programme). DIVINFOOD aims to develop food chains that value under-utilised agrobiodiversity in order to act against the decline of biodiversity and to meet the growing expectations of consumers for healthy, local products that contribute to sustainable food systems."
+msgstr ""
+
+msgctxt "deny"
+msgid "Deny"
+msgstr "דחייה"
+
+msgctxt "users_requested_to_join_org"
+msgid "These users have requested to join the organization:"
+msgstr "המשתמשים האלה ביקשו להצטרף לארגון:"
+
+msgctxt "last_login"
+msgid "Last login date"
+msgstr "תאריך הכניסה האחרון"
+
+msgctxt "last_import"
+msgid "Last import date"
+msgstr "תאריך הייבוא האחרון"
+
+msgctxt "drop_a_file"
+msgid "Drop"
+msgstr "גרירה"
+
+msgctxt "select_product_data_file"
+msgid "Select a file with product data"
+msgstr "נא לבחור קובץ עם נתוני מוצרים"
+
+msgctxt "number_of_products_without_nutriscore"
+msgid "Number of products without Nutri-Score"
+msgstr "מספר המוצרים ללא Nutri-Score"
+
+msgctxt "percent_of_products_with_nutriscore"
+msgid "% of products where Nutri-Score is computed"
+msgstr "% המוצרים שמחושב להם ה־Nutri-Score"
+
+msgctxt "products_to_be_exported"
+msgid "Products to be exported"
+msgstr "מוצרים לייצוא"
+
+msgctxt "products_exported"
+msgid "Products exported"
+msgstr "מוצרים יוצאו"
+
+msgctxt "opportunities_to_improve_nutriscore"
+msgid "Opp. for Nutri-Score improvements"
+msgstr "הזדמנויות לשיפור Nutri-Score"
+
+msgctxt "date_of_last_update"
+msgid "Date of last update"
+msgstr "תאריך העדכון האחרון"
+
+msgctxt "number_of_products_on_public_platform"
+msgid "Number of products on public platform"
+msgstr "מספר המוצרים בפלטפורמה הציבורית"
+
+msgctxt "number_of_products_on_producer_platform"
+msgid "Number of products on producer platform"
+msgstr "מספר המוצרים בפלטפורמה ליצרנים"
+
+msgctxt "automated_daily_export_to_public_platform"
+msgid "Automatic daily export to public platform"
+msgstr "ייצוא יומי אוטומטי לפלטפורמה הציבורית"
+
+msgctxt "improvements_navigation"
+msgid "Improvements"
+msgstr "שיפורים"
+
+msgctxt "products_with_changes_since_last_export"
+msgid "Products with changes since last export"
+msgstr "מוצרים עם שינויים מאז הייצוא האחרון"
+
+msgctxt "organization_list"
+msgid "Organization list"
+msgstr "רשימת ארגונים"
+
+msgctxt "open_org"
+msgid "Open org"
+msgstr "פתיחת ארגון"
+
+msgctxt "secondhand"
+msgid "Secondhand"
+msgstr "יד שנייה"
+
+msgctxt "donated_products_title"
+msgid "Donations"
+msgstr "תרומות"
+
+msgctxt "donated_products_subtitle"
+msgid "Give this product, or search for a similar donated product"
+msgstr "לספק את המוצר הזה, או לחפש אחר מוצר דומה שנתרם"
+
+msgctxt "used_products_title"
+msgid "Used products"
+msgstr "מוצרים משומשים"
+
+msgctxt "used_products_subtitle"
+msgid "Buy this product used, or search for a similar used product"
+msgstr "רכישת המוצר הזה משומש, או לחפש אחר מוצרים משומשים דומים"
+
+msgctxt "attribute_repairability_index_france_name"
+msgid "Repairability index"
+msgstr "מדד יכולת תיקון"
+
+msgctxt "attribute_repairability_index_france_setting_name"
+msgid "Good repairability"
+msgstr "יכולת תיקון טובה"
+
+msgctxt "attribute_repairability_index_france_setting_note"
+msgid "Mandatory rating in France for certain products since 2021"
+msgstr "דירוג חובה בצרפת למוצרים מסוימים מאז 2021"
+
+# keep %s, it will be replaced by the letter A, B, C, D or E
+msgctxt "attribute_repairability_index_france_grade_title"
+msgid "Repairability index %s"
+msgstr "מדד יכולת תיקון %s"
+
+msgctxt "attribute_repairability_index_france_unknown_title"
+msgid "Repairability index unknown"
+msgstr "מדד יכולת תיקון לא ידוע"
+
+msgctxt "attribute_repairability_index_france_not_applicable_title"
+msgid "Repairability index not-applicable"
+msgstr "מדד יכולת תיקון לא ישים"
+
+msgctxt "attribute_repairability_index_france_not_applicable_description_short"
+msgid "Not-applicable for the category"
+msgstr "לא חל על הקטגוריה"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_repairability_index_france_not_applicable_description"
+msgid "Applicable only for categories: {categories}"
+msgstr "תקף רק לקטגוריות: {categories}"
+
+msgctxt "attribute_repairability_index_france_very_good_description_short"
+msgid "Very good repairability"
+msgstr "יכולת תיקון טובה"
+
+msgctxt "attribute_repairability_index_france_good_description_short"
+msgid "Good repairability"
+msgstr "יכולת תיקון טובה"
+
+msgctxt "attribute_repairability_index_france_average_description_short"
+msgid "Average repairability"
+msgstr "יכולת תיקון ממוצעת"
+
+msgctxt "attribute_repairability_index_france_poor_description_short"
+msgid "Poor repairability"
+msgstr "יכולת תיקון ירודה"
+
+msgctxt "attribute_repairability_index_france_bad_description_short"
+msgid "Bad repairability"
+msgstr "יכולת תיקון גרועה"
 

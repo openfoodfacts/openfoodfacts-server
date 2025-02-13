@@ -1,14 +1,22 @@
 <!-- start templates/[% component.name %] -->
 
+[% SET has_permission_product_revert = has_permission("product_revert") %]
+
 <h2 id="history">[% lang('history') %]</h2>
 <ul id="history_list">
   [% FOREACH revision IN revisions %]
   <li>
-    [% revision.date %] - [% display_editor_link(revision.userid) %] [% revision.diffs %] [% IF
-    revision.comment %] - [% revision.comment %] [% END %] -
-    <a href="[% this_product_url %]?rev=[% revision.number %]">[% lang('view') %]</a>
+    [% revision.date %] - [% display_editor_link(revision.userid) %][% IF revision.uuid %] (UUID: [% revision.uuid %])[% END %][% IF revision.app_version %] (App Version: [% revision.app_version %])[% END %] [% revision.diffs %] [% IF
+    revision.comment %] - [% revision.comment %] [% END %] &nbsp;
+    <a href="[% this_product_url %]?rev=[% revision.number %]" class="button tiny">[% lang('view_this_revision') %]</a>
+    [% IF has_permission_product_revert AND product.rev != revision.number %]
+    &nbsp; <a class="button tiny alert product_revert_button" data-code="[% product.code %]" data-rev="[% revision.number %]">[% lang('revert') %]</a>
+    <span id="revert_result_[% revision.number %]"></span>
+    [% END %]
   </li>
   [% END %]
 </ul>
+
+<script>var revert_confirm_message = "[% lang("product_js_product_revert_confirm") %]";</script>
 
 <!-- end templates/[% component.name %] -->

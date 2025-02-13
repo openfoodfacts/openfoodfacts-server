@@ -2,13 +2,14 @@ type: object
 description: |
   Data about a product which is represented as tags
 properties:
-
   brands:
     type: string
+    description: List of brands (not taxonomized)
   brands_tags:
     type: array
     items:
       type: string
+      description: List of brands (tags, not taxonomized)
 
   categories:
     type: string
@@ -18,6 +19,7 @@ properties:
       type: string
   categories_lc:
     type: string
+    description: Categories language code
   categories_tags:
     type: array
     items:
@@ -27,6 +29,7 @@ properties:
     type: array
     items:
       type: string
+      description: List of checkers (users who checked the product) tags
   cities:
     type: string
   cities_tags:
@@ -48,6 +51,7 @@ properties:
       type: string
   countries_lc:
     type: string
+    description: Countries language code
   countries_tags:
     type: array
     items:
@@ -65,7 +69,7 @@ properties:
   emb_codes:
     type: string
     description: |
-      Packager code.
+      Packager code. EMB is the French system of traceability codes for packager.
     example: EMB 2013330
   emb_codes_orig:
     type: string
@@ -73,7 +77,6 @@ properties:
     type: array
     items:
       type: object
-
 
   labels:
     type: string
@@ -94,7 +97,10 @@ properties:
     type: array
     items:
       type: string
-    example: ["2016-03-11","2016-03","2016"]
+    examples:
+      - - "2016-03-11"
+        - "2016-03"
+        - "2016"
 
   manufacturing_places:
     type: string
@@ -103,7 +109,7 @@ properties:
   manufacturing_places_tags:
     type: array
     items:
-      type: object
+      type: "string"
   nova_groups_tags:
     type: array
     items:

@@ -3,6 +3,7 @@
       {
          "ciqual_food_code" : "36301",
          "id" : "en:mechanically-separated-meat-of-turkey",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 66.6666666666667,
          "percent_max" : 100,
          "percent_min" : 33.3333333333333,
@@ -13,6 +14,7 @@
       {
          "ciqual_proxy_food_code" : "28205",
          "id" : "en:mechanically-separated-meat-of-pork",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 16.6666666666667,
          "percent_max" : 50,
          "percent_min" : 0,
@@ -23,6 +25,7 @@
       {
          "ciqual_food_code" : "36005",
          "id" : "en:mechanically-separated-meat-of-chicken",
+         "is_in_taxonomy" : 1,
          "labels" : "en:halal",
          "percent_estimate" : 16.6666666666667,
          "percent_max" : 33.3333333333333,
@@ -64,6 +67,7 @@
       "en:chicken",
       "en:chicken-meat"
    ],
+   "ingredients_lc" : "fr",
    "ingredients_n" : 3,
    "ingredients_n_tags" : [
       "3",
@@ -97,6 +101,12 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:mechanically-separated-meat-of-chicken",
+      "en:mechanically-separated-meat-of-pork",
+      "en:mechanically-separated-meat-of-turkey"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 3,
    "known_ingredients_n" : 13,
    "lc" : "fr",
    "nutriments" : {

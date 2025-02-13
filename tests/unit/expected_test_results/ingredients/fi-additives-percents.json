@@ -2,7 +2,9 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "9410",
+         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
          "id" : "en:flour",
+         "is_in_taxonomy" : 1,
          "percent" : 12,
          "percent_estimate" : 12,
          "text" : "jauho",
@@ -15,6 +17,7 @@
             {
                "ciqual_food_code" : "16030",
                "id" : "en:cocoa-butter",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 22,
                "text" : "kaakaovoi",
                "vegan" : "yes",
@@ -22,7 +25,9 @@
             },
             {
                "ciqual_proxy_food_code" : "31016",
+               "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
                "id" : "en:sugar",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 11,
                "text" : "sokeri",
                "vegan" : "yes",
@@ -30,6 +35,7 @@
             },
             {
                "id" : "en:milk-proteins",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 5.5,
                "text" : "maitoproteiini",
                "vegan" : "no",
@@ -37,13 +43,16 @@
             },
             {
                "ciqual_food_code" : "22000",
+               "ecobalyse_code" : "egg-indoor-code3",
                "id" : "en:chicken-egg",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 5.5,
                "text" : "kananmuna",
                "vegan" : "no",
                "vegetarian" : "yes"
             }
          ],
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 44,
          "text" : "suklaa",
          "vegan" : "maybe",
@@ -54,18 +63,21 @@
          "ingredients" : [
             {
                "id" : "en:e463",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 22,
                "text" : "e463",
                "vegan" : "yes",
                "vegetarian" : "yes"
             }
          ],
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 22,
          "text" : "emulgointiaineet"
       },
       {
          "from_palm_oil" : "maybe",
          "id" : "en:e432",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 11,
          "text" : "e432",
          "vegan" : "maybe",
@@ -74,6 +86,7 @@
       {
          "from_palm_oil" : "maybe",
          "id" : "en:e472",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 5.5,
          "text" : "e472",
          "vegan" : "maybe",
@@ -84,6 +97,7 @@
          "ingredients" : [
             {
                "id" : "en:e322",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 1.375,
                "text" : "e322",
                "vegan" : "maybe",
@@ -91,17 +105,20 @@
             },
             {
                "id" : "en:e333",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 1.375,
                "text" : "e333",
                "vegan" : "yes",
                "vegetarian" : "yes"
             }
          ],
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 2.75,
          "text" : "happamuudensäätöaineet"
       },
       {
          "id" : "en:e474",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 1.375,
          "text" : "e474",
          "vegan" : "maybe",
@@ -109,6 +126,7 @@
       },
       {
          "id" : "en:e475",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 0.6875,
          "text" : "e475",
          "vegan" : "maybe",
@@ -119,6 +137,7 @@
          "ingredients" : [
             {
                "id" : "en:e330",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 0.171875,
                "text" : "sitruunahappo",
                "vegan" : "yes",
@@ -126,18 +145,21 @@
             },
             {
                "id" : "en:e338",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 0.171875,
                "text" : "fosforihappo",
                "vegan" : "yes",
                "vegetarian" : "yes"
             }
          ],
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 0.34375,
          "text" : "happo"
       },
       {
          "ciqual_food_code" : "11058",
          "id" : "en:salt",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 0.34375,
          "text" : "suola",
          "vegan" : "yes",
@@ -194,6 +216,7 @@
       "en:e330",
       "en:e338"
    ],
+   "ingredients_lc" : "fi",
    "ingredients_n" : 19,
    "ingredients_n_tags" : [
       "19",
@@ -271,6 +294,25 @@
       "en:milk-proteins"
    ],
    "ingredients_without_ciqual_codes_n" : 14,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:acid",
+      "en:acidity-regulator",
+      "en:chocolate",
+      "en:cocoa-butter",
+      "en:e322",
+      "en:e330",
+      "en:e333",
+      "en:e338",
+      "en:e432",
+      "en:e463",
+      "en:e472",
+      "en:e474",
+      "en:e475",
+      "en:emulsifier",
+      "en:milk-proteins",
+      "en:salt"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 16,
    "known_ingredients_n" : 26,
    "lc" : "fi",
    "misc_tags" : [

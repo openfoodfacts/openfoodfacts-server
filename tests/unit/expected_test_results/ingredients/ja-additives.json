@@ -6,6 +6,7 @@
             {
                "ciqual_proxy_food_code" : "9510",
                "id" : "en:modified-starch",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 31.25,
                "percent_max" : 100,
                "percent_min" : 6.25,
@@ -15,6 +16,7 @@
             },
             {
                "id" : "en:e415",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 25,
                "percent_max" : 50,
                "percent_min" : 0,
@@ -23,6 +25,7 @@
                "vegetarian" : "yes"
             }
          ],
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 56.25,
          "percent_max" : 100,
          "percent_min" : 12.5,
@@ -30,6 +33,7 @@
       },
       {
          "id" : "en:e262",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 21.875,
          "percent_max" : 50,
          "percent_min" : 0,
@@ -39,7 +43,9 @@
       },
       {
          "ciqual_proxy_food_code" : "31016",
+         "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
          "id" : "en:trehalose",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 10.9375,
          "percent_max" : 33.3333333333333,
          "percent_min" : 0,
@@ -50,6 +56,7 @@
       {
          "ciqual_proxy_food_code" : "9510",
          "id" : "en:modified-starch",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 5.46875,
          "percent_max" : 25,
          "percent_min" : 0,
@@ -59,6 +66,7 @@
       },
       {
          "id" : "en:e640i",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 2.734375,
          "percent_max" : 20,
          "percent_min" : 0,
@@ -71,12 +79,14 @@
          "ingredients" : [
             {
                "id" : "en:amino-acids",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 1.3671875,
                "percent_max" : 16.6666666666667,
                "percent_min" : 0,
                "text" : "アミノ酸等"
             }
          ],
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 1.3671875,
          "percent_max" : 16.6666666666667,
          "percent_min" : 0,
@@ -89,6 +99,7 @@
          "ingredients" : [
             {
                "id" : "en:vitamin-c",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 0.341796875,
                "percent_max" : 14.2857142857143,
                "percent_min" : 0,
@@ -96,12 +107,14 @@
             },
             {
                "id" : "en:vitamin-e",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 0.341796875,
                "percent_max" : 7.14285714285714,
                "percent_min" : 0,
                "text" : "V.E"
             }
          ],
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 0.68359375,
          "percent_max" : 14.2857142857143,
          "percent_min" : 0,
@@ -112,12 +125,14 @@
          "ingredients" : [
             {
                "id" : "en:vegetable-pigment",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 0.68359375,
                "percent_max" : 12.5,
                "percent_min" : 0,
                "text" : "野菜色素"
             }
          ],
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 0.68359375,
          "percent_max" : 12.5,
          "percent_min" : 0,
@@ -161,6 +176,7 @@
       "en:vitamin-e",
       "en:vegetable-pigment"
    ],
+   "ingredients_lc" : "ja",
    "ingredients_n" : 14,
    "ingredients_n_tags" : [
       "14",
@@ -222,6 +238,21 @@
       "en:vitamin-e"
    ],
    "ingredients_without_ciqual_codes_n" : 11,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:amino-acids",
+      "en:antioxidant",
+      "en:colour",
+      "en:condiment",
+      "en:e262",
+      "en:e415",
+      "en:e640i",
+      "en:modified-starch",
+      "en:thickener",
+      "en:vegetable-pigment",
+      "en:vitamin-c",
+      "en:vitamin-e"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 12,
    "known_ingredients_n" : 18,
    "lc" : "ja",
    "nutriments" : {

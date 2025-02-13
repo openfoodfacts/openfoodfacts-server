@@ -1,6 +1,4 @@
-﻿version: "3.7"
-
-x-backend-conf: &backend-conf
+﻿x-backend-conf: &backend-conf
   image: ghcr.io/openfoodfacts/openfoodfacts-server/backend:${TAG}
   environment:
     - PRODUCERS_PLATFORM
@@ -27,13 +25,22 @@ x-backend-conf: &backend-conf
     - GEOLITE2_PATH
     - LOG_LEVEL_ROOT
     - LOG_LEVEL_MONGODB
+    - LOG_LEVEL_RATE_LIMITER
+    - NUTRIPATROL_URL
     - INFLUXDB_HOST
     - BUILD_CACHE_REPO
+    - RATE_LIMITER_BLOCKING_ENABLED
+    - ODOO_CRM_URL
+    - ODOO_CRM_DB
+    - ODOO_CRM_USER
+    - ODOO_CRM_PASSWORD
   depends_on:
     - memcached
   volumes:
     # pointer to openfoodfacts-web/lang
-    - ${WEB_LANG_PATH}:/mnt/podata/lang
+    - ${WEB_RESOURCES_PATH}/lang:/mnt/podata/lang
+    # pointer to openfoodfacts-web/html
+    - ${WEB_RESOURCES_PATH}/html:/opt/product-opener/html/off_web_html
     # Static data (e.g dumps)
     - html_data:/opt/product-opener/html/data
     # other servers dirs (this is temporary to be able to develop for now)
@@ -64,8 +71,10 @@ x-backend-conf: &backend-conf
     - ./logs/apache2:/var/log/httpd
 
     # Apache conf
-    - ./conf/apache.conf:/etc/apache2/sites-enabled/product-opener.conf
-    - ./conf/apache-mpm_prefork.conf:/etc/apache2/mods-avalable/mpm_prefork.conf
+    - ./conf/apache2-docker/apache.conf:/etc/apache2/sites-enabled/product-opener.conf
+    - ./conf/apache2-docker/apache-mpm_prefork.conf:/etc/apache2/mods-enabled/mpm_prefork.conf
+    - ./conf/apache-2.4/modperl.conf:/etc/apache2/conf-enabled/modperl.conf
+
 
 services:
   memcached:
@@ -80,11 +89,6 @@ services:
       - POSTGRES_DB=minion
     volumes:
       - pgdata:/var/lib/postgresql/data
-  redis:
-    image: redis:7.2-alpine
-    command: redis-server --save 60 1 --loglevel warning
-    volumes:
-      - redisdata:/data
   backend: *backend-conf
   minion:
     <<: *backend-conf
@@ -121,13 +125,18 @@ services:
       - css_dist:/opt/product-opener/html/css/dist
       - node_modules:/opt/product-opener/node_modules
 
+      # openfoodfacts-web static files
+      - ${WEB_RESOURCES_PATH}/html:/opt/product-opener/html/off_web_html
+
+
       # Logs
       - ./logs/nginx/:/var/log/nginx/
 
       # Nginx, we use templates dir to be able to use environment vars
-      - ./conf/nginx.conf:/etc/nginx/templates/default.conf.template
+      - ./conf/nginx-docker/nginx.conf:/etc/nginx/templates/default.conf.template
       # cors headers definition as an include
       - ./conf/nginx/snippets/off.cors-headers.include:/etc/nginx/snippets/off.cors-headers.include
+      - ./conf/nginx/snippets/expiry-headers.include:/etc/nginx/snippets/expiry-headers.include
       # some expires rules
       - ./conf/nginx/snippets/expires-no-json-xml.conf:/etc/nginx/snippets/expires-no-json-xml.conf
       # some redirects
@@ -144,4 +153,3 @@ volumes:
   # build_cache does not needs not be external, for wiping it will avoid keeping too much cached data
   build_cache:
   other_servers:
-  redisdata:

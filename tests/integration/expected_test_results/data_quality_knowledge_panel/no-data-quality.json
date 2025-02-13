@@ -1,5 +1,5 @@
 {
-   "code" : "200000000001",
+   "code" : "0200000000001",
    "product" : {
       "knowledge_panels" : {
          "contribution_card" : {
@@ -46,7 +46,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<ul> <li id=\"data-error-en:ecoscore-extended-data-not-computed\"> EcoScore - Extended data - Not computed </li> <li id=\"data-error-en:food-groups-1-unknown\"> Food groups 1 unknown </li> <li id=\"data-error-en:food-groups-2-unknown\"> Food groups 2 unknown </li> <li id=\"data-error-en:food-groups-3-unknown\"> Food groups 3 unknown </li> <li id=\"data-error-en:ingredients-percent-analysis-ok\"> Ingredients percent analysis OK </li> </ul>"
+                     "html" : "<ul> <li id=\"data-error-en:environmental-score-extended-data-not-computed\"> Environmental-score-extended-data-not-computed </li> <li id=\"data-error-en:food-groups-1-unknown\"> Food groups 1 unknown </li> <li id=\"data-error-en:food-groups-2-unknown\"> Food groups 2 unknown </li> <li id=\"data-error-en:food-groups-3-unknown\"> Food groups 3 unknown </li> <li id=\"data-error-en:ingredients-percent-analysis-ok\"> Ingredients percent analysis OK </li> </ul>"
                   }
                }
             ],
@@ -83,37 +83,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<ul> <li id=\"data-error-en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown\"> EcoScore origins of ingredients origins are 100 percent unknown <br><span class=\"description\">Origins of ingredients are one of the Eco-Score components. They are currently extracted from the ingredient list and the Origins field.</span> </li> </ul>"
-                  }
-               },
-               {
-                  "action_element" : {
-                     "actions" : [
-                        "add_origins"
-                     ],
-                     "html" : ""
-                  },
-                  "element_type" : "action"
-               },
-               {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "<ul> <li id=\"data-error-en:ecoscore-packaging-packaging-data-missing\"> EcoScore - packaging - Packaging data missing <br><span class=\"description\">No packaging data - Packaging is one of the components of the Eco-Score, and thus it's important to have packaging data.</span> </li> </ul>"
-                  }
-               },
-               {
-                  "action_element" : {
-                     "actions" : [
-                        "add_packaging_components"
-                     ],
-                     "html" : ""
-                  },
-                  "element_type" : "action"
-               },
-               {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "<ul> <li id=\"data-error-en:ecoscore-production-system-no-label\"> EcoScore - production system - no label </li> </ul>"
+                     "html" : "<ul> <li id=\"data-error-en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown\"> Environmental-score-origins-of-ingredients-origins-are-100-percent-unknown </li> <li id=\"data-error-en:environmental-score-packaging-packaging-data-missing\"> Environmental-score-packaging-packaging-data-missing </li> <li id=\"data-error-en:environmental-score-production-system-no-label\"> Environmental-score-production-system-no-label </li> </ul>"
                   }
                }
             ],
@@ -130,42 +100,12 @@
                "contribution"
             ]
          },
-         "ecoscore" : {
-            "elements" : [
-               {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "We could not compute the Eco-Score of this product as it is missing some data, could you help complete it?",
-                     "type" : "summary"
-                  }
-               },
-               {
-                  "action_element" : {
-                     "actions" : [
-                        "add_categories"
-                     ],
-                     "html" : "Could you add a precise product category so that we can compute the Eco-Score?"
-                  },
-                  "element_type" : "action"
-               }
-            ],
-            "level" : "info",
-            "title_element" : {
-               "grade" : "unknown",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-unknown.svg",
-               "title" : "Eco-Score not computed - Unknown environmental impact",
-               "type" : "grade"
-            },
-            "topics" : [
-               "environment"
-            ]
-         },
          "environment_card" : {
             "elements" : [
                {
                   "element_type" : "panel",
                   "panel_element" : {
-                     "panel_id" : "ecoscore"
+                     "panel_id" : "environmental_score"
                   }
                },
                {
@@ -197,8 +137,60 @@
             ],
             "type" : "card"
          },
+         "environmental_score" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?",
+                     "type" : "summary"
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "add_categories"
+                     ],
+                     "html" : "Could you add a precise product category so that we can compute the Green-Score?"
+                  },
+                  "element_type" : "action"
+               }
+            ],
+            "level" : "info",
+            "title_element" : {
+               "grade" : "unknown",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-unknown.svg",
+               "subtitle" : "Unknown environmental impact",
+               "title" : "Green-Score not computed",
+               "type" : "grade"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
          "health_card" : {
             "elements" : [
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_group_id" : "nutrition",
+                     "panel_ids" : [
+                        "nutriscore_2023"
+                     ],
+                     "title" : "Nutrition",
+                     "type" : "subcard"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "nutrition_facts_table",
+                        "serving_size"
+                     ],
+                     "title" : ""
+                  }
+               },
                {
                   "element_type" : "panel_group",
                   "panel_group_element" : {
@@ -228,27 +220,6 @@
                      ],
                      "title" : "Ingredients analysis"
                   }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_group_id" : "nutrition",
-                     "panel_ids" : [
-                        "nutriscore"
-                     ],
-                     "title" : "Nutrition",
-                     "type" : "subcard"
-                  }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_ids" : [
-                        "nutrition_facts_table",
-                        "serving_size"
-                     ],
-                     "title" : ""
-                  }
                }
             ],
             "expanded" : true,
@@ -259,6 +230,73 @@
                "health"
             ],
             "type" : "card"
+         },
+         "incomplete_or_incorrect_data" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                If the information does not match the information on the packaging, you can complete or correct it. Thank you!\n                Open Food Facts is a collaborative database, and every contribution is useful for all.\n                "
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "edit_product"
+                     ],
+                     "html" : ""
+                  },
+                  "element_type" : "action"
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team.\n                "
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "report_product_to_nutripatrol"
+                     ],
+                     "html" : ""
+                  },
+                  "element_type" : "action"
+               }
+            ],
+            "evaluation" : "neutral",
+            "expand_for" : "large",
+            "level" : "info",
+            "title_element" : {
+               "icon_url" : "http://static.openfoodfacts.localhost/images/logos/off-logo-icon-light.svg",
+               "subtitle" : "Category, labels, ingredients, allergens, nutritional information, photos etc.",
+               "title" : "Incomplete or incorrect information?"
+            },
+            "topics" : [
+               "problem"
+            ]
+         },
+         "ingredient_1" : {
+            "elements" : [],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "Water: 75.0% (estimate)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredient_2" : {
+            "elements" : [],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "Test-ingredient: 25.0% (estimate)"
+            },
+            "topics" : [
+               "health"
+            ]
          },
          "ingredients" : {
             "elements" : [
@@ -271,6 +309,12 @@
                      "html" : "water, test_ingredient",
                      "language" : "English",
                      "lc" : "en"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredients_list"
                   }
                }
             ],
@@ -338,7 +382,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<ol id=\"ordered_ingredients_list\">\n<li><span>water</span> -> en:water - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;50 - percent_max:&nbsp;100</li>\n<li><span class=\"text_info unknown_ingredient\">test_ingredient</span> -> en:test-ingredient - percent_min:&nbsp;0 - percent_max:&nbsp;50</li>\n</ol>\n"
+                     "html" : "<ol id=\"ordered_ingredients_list\">\n<li><span>water</span> -> en:water - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;18066 - percent_min:&nbsp;50 - percent_max:&nbsp;100</li>\n<li><span class=\"text_info unknown_ingredient\">test_ingredient</span> -> en:test-ingredient - percent_min:&nbsp;0 - percent_max:&nbsp;50</li>\n</ol>\n"
                   }
                },
                {
@@ -472,6 +516,30 @@
             ],
             "type" : "inline"
          },
+         "ingredients_list" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_1"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_2"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "title" : "Ingredient information"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
          "nova" : {
             "elements" : [
                {
@@ -483,7 +551,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n<p>Food products are classified into 4 groups according to their degree of processing:</p>\n<ol>\n<li>Unprocessed or minimally processed foods</li>\n<li>Processed culinary ingredients</li>\n<li>Processed foods</li>\n<li>Ultra processed foods</li>\n</ol>\n<br>\n<p>The determination of the group is based on the category of the product and on the ingredients it contains.</p>\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost/nova\">Learn more about the NOVA classification</a></p>\n"
+                     "html" : "\n<p>Food products are classified into 4 groups according to their degree of processing:</p>\n<ol>\n<li>Unprocessed or minimally processed foods</li>\n<li>Processed culinary ingredients</li>\n<li>Processed foods</li>\n<li>Ultra-processed foods</li>\n</ol>\n<br>\n<p>The determination of the group is based on the category of the product and on the ingredients it contains.</p>\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost/nova\">Learn more about the NOVA classification</a></p>\n"
                   }
                }
             ],
@@ -519,12 +587,12 @@
                "health"
             ]
          },
-         "nutriscore" : {
+         "nutriscore_2023" : {
             "elements" : [
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "The nutrition facts of the product must be specified in order to compute the Nutri-Score.\n                    ",
+                     "html" : "The nutrition facts of the product must be specified in order to compute the Nutri-Score.<p>Missing nutrition facts: <b>Energy, Fat, Proteins, Saturated fat, Sodium, Sugars</b></p>\n                    ",
                      "type" : "warning"
                   }
                },
@@ -538,9 +606,37 @@
                   "element_type" : "action"
                },
                {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "nutriscore_new_computation"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "nutriscore_description"
+                  }
+               }
+            ],
+            "level" : "info",
+            "title_element" : {
+               "grade" : "unknown",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown-new-en.svg",
+               "subtitle" : "Missing nutrition facts",
+               "title" : "Nutri-Score UNKNOWN",
+               "type" : "grade"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_description" : {
+            "elements" : [
+               {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : ""
+                     "html" : "<p>The Nutri-Score is a logo on the overall nutritional quality of products.</p>\n<p>\nThe score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt).\nThe score is calculated from the data of the nutrition facts table and the composition data (fruits, vegetables and legumes).\n</p>\n\n                ",
+                     "type" : "info"
                   }
                },
                {
@@ -552,11 +648,37 @@
             ],
             "level" : "info",
             "title_element" : {
-               "grade" : "unknown",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown.svg",
-               "subtitle" : "Missing nutrition facts",
-               "title" : "Missing data to compute the Nutri-Score",
-               "type" : "grade"
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/info.svg",
+               "title" : "What is the Nutri-Score?",
+               "type" : "info"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_new_computation" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<p>The computation of the Nutri-Score is evolving to provide better recommendations based on the latest scientific evidence.</p><p>Main improvements:</p><ul><li>Better score for some fatty fish and oils rich in good fats</li><li>Better score for whole products rich in fiber</li><li>Worse score for products containing a lot of salt or sugar</li><li>Worse score for red meat (compared to poultry)</li></ul>\n                ",
+                     "type" : "info"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost/new-nutriscore\">Discover all the improvements of the new Nutri-Score</a></p>\n"
+                  }
+               }
+            ],
+            "level" : "info",
+            "title_element" : {
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/info.svg",
+               "title" : "Discover the new Nutri-Score!",
+               "type" : "info"
             },
             "topics" : [
                "health"
@@ -840,6 +962,24 @@
                "environment"
             ]
          },
+         "report_problem_card" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "incomplete_or_incorrect_data"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "title_element" : {
+               "title" : "Report a problem"
+            },
+            "topics" : [
+               "problems"
+            ],
+            "type" : "card"
+         },
          "root" : {
             "elements" : [
                {
@@ -852,6 +992,12 @@
                   "element_type" : "panel",
                   "panel_element" : {
                      "panel_id" : "environment_card"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "report_problem_card"
                   }
                },
                {

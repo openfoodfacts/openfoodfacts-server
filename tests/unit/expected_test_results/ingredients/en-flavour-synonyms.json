@@ -2,6 +2,7 @@
    "ingredients" : [
       {
          "id" : "en:natural-orange-flavouring",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 75,
          "percent_max" : 100,
          "percent_min" : 50,
@@ -11,6 +12,7 @@
       },
       {
          "id" : "en:lemon-flavouring",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 25,
          "percent_max" : 50,
          "percent_min" : 0,
@@ -40,6 +42,7 @@
       "en:natural-flavouring",
       "en:lemon-flavouring"
    ],
+   "ingredients_lc" : "en",
    "ingredients_n" : 2,
    "ingredients_n_tags" : [
       "2",
@@ -66,6 +69,11 @@
       "en:natural-orange-flavouring"
    ],
    "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:lemon-flavouring",
+      "en:natural-orange-flavouring"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 4,
    "lc" : "en",
    "nutriments" : {

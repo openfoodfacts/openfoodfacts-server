@@ -11,6 +11,8 @@ map $howmuchsugar_name $howmuchsugar_lang {
 	combiendesucres fr;
 }
 
+# variables definitions for expiry headers are loaded from /etc/nginx/conf.d/expires-no-json-xml.conf
+
 log_format proxied_requests2
   '$http_x_forwarded_for - $remote_user [$time_local] '
   '"$request" $status $body_bytes_sent '
@@ -21,8 +23,6 @@ server {
 	listen [::]:80;
 
 	server_name howmuchsugar.in combiendesucres.fr;
-
-	include /etc/nginx/snippets/expires-no-json-xml.conf;
 
 	access_log /var/log/nginx/nginx.howmuchsugar.access.log proxied_requests2;
 	error_log /var/log/nginx/nginx.howmuchsugar.error.log;
@@ -36,16 +36,19 @@ server {
 	index index.html index.htm index.nginx-debian.html;
 
 	location ~* \.(eot|ttf|woff|woff2)$ {
+		include snippets/expiry-headers.include;
 		add_header Access-Control-Allow-Origin *;
 	}
 
 	location ~ ^/(favicon.ico) {
+		include snippets/expiry-headers.include;
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		try_files $howmuchsugar_name-favicon.ico =404;
 	}
 
 	location ~ ^/(.well-known|images|js|rss|data|files|resources|foundation)/ {
+		include snippets/expiry-headers.include;
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		try_files $uri $uri/ =404;
@@ -56,11 +59,13 @@ server {
 	}
 
 	location ~ ^/$ {
+		include snippets/expiry-headers.include;
 		try_files $uri /$howmuchsugar_name.html;
 	}
 
 	# redirect to .html files
 	location / {
+		include snippets/expiry-headers.include;
 		try_files $uri $uri.html =404;
 	}
 
@@ -71,6 +76,6 @@ server {
 		proxy_set_header       X-Forwarded-For $proxy_add_x_forwarded_for;
 		proxy_set_header X-Site-Name $howmuchsugar_name;
 		proxy_set_header X-Site-Lang $howmuchsugar_lang;
-		proxy_pass http://127.0.0.1:8004;
+		proxy_pass http://127.0.0.1:8001;
 	}
 }

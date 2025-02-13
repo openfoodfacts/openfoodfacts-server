@@ -4,7 +4,7 @@
         "health"
     ],
     "title_element": {
-        "icon_url": "[% static_subdomain %]/images/attributes/dist/nutriscore-[% panel.nutriscore_grade %]-new-formula-[% IF lc == "fr" %][% lc %][% ELSE %]en[% END %].svg",
+        "icon_url": "[% static_subdomain %]/images/attributes/dist/nutriscore-[% panel.nutriscore_grade %]-new-[% IF lc == "fr" %][% lc %][% ELSE %]en[% END %].svg",
         "title": "[% panel.title %]",
         [% IF panel.subtitle %]
         "subtitle": "[% panel.subtitle %]",
@@ -13,13 +13,19 @@
         "grade": "[% panel.nutriscore_grade %]",
     },
     "elements": [
-        // Explanation of Nutri-Score
-        {
-            "element_type": "panel",
-            "panel_element": {
-                "panel_id": "nutriscore_description",
+        // First display warnings
+        [% IF panel.nutriscore_warnings %]
+            [% FOREACH warning IN panel.nutriscore_warnings %]
+            {
+                "element_type": "text",
+                "text_element": {
+                    "type": "warning",
+                    "html": `[% warning %]
+                    `,
+                }
             },
-        },
+            [% END %]
+        [% END %]        
         // Display actions if we are missing data to compute the Nutri-Score
         [% IF panel.nutriscore_unknown_reason == "missing_category" OR  panel.nutriscore_unknown_reason == "missing_nutrition_data" OR panel.nutriscore_unknown_reason == "missing_category_and_nutrition_data" %]
         {
@@ -39,12 +45,26 @@
             }
         },        
         [% END %]
+        // New Nutri-Score
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "nutriscore_new_computation",
+            },
+        },        
+        // Explanation of Nutri-Score
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "nutriscore_description",
+            },
+        },        
         // Start with negative points first, as the positive points depend on negative points
         [% IF product.nutriscore.2023.data.components.negative.size > 0 %]
         {
             "element_type": "panel_group",
             "panel_group_element": {
-                "title": "[% lang('nutriscore_negative_points') %][% sep %]: [% product.nutriscore.2023.data.negative_points %]/[% product.nutriscore.2023.data.negative_points_max %]",
+                "title": "[% edq(lang('nutriscore_negative_points')) %][% sep %]: [% product.nutriscore.2023.data.negative_points %]/[% product.nutriscore.2023.data.negative_points_max %]",
                 "evaluation": "bad",
                 "icon_url": "[% static_subdomain %]/images/icons/dist/circle-minus.svg",
                 "icon_size": "small",
@@ -62,7 +82,7 @@
         {
             "element_type": "panel_group",
             "panel_group_element": {
-                "title": "[% lang('nutriscore_positive_points') %][% sep %]: [% product.nutriscore.2023.data.positive_points %]/[% product.nutriscore.2023.data.positive_points_max %]",
+                "title": "[% edq(lang('nutriscore_positive_points')) %][% sep %]: [% product.nutriscore.2023.data.positive_points %]/[% product.nutriscore.2023.data.positive_points_max %]",
                 "evaluation": "good",
                 "icon_url": "[% static_subdomain %]/images/icons/dist/circle-plus.svg",
                 "icon_size": "small",

@@ -18,6 +18,8 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=encoding UTF-8
+
 =head1 NAME
 
 ProductOpener::Tags - multilingual tags taxonomies (hierarchies of tags)
@@ -46,9 +48,14 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
+		&init_taxonomies
+		&retrieve_tags_taxonomy
+		&init_languages
 
 		&canonicalize_tag2
 		&canonicalize_tag_link
+
+		&sanitize_taxonomy_line
 
 		&has_tag
 		&has_one_of_the_tags_from_the_list
@@ -60,24 +67,26 @@ BEGIN {
 		&get_property_with_fallbacks
 		&get_inherited_property
 		&get_property_from_tags
+		&get_inherited_property_and_matching_tag
 		&get_inherited_property_from_tags
 		&get_matching_regexp_property_from_tags
 		&get_inherited_property_from_categories_tags
 		&get_inherited_properties
 		&get_tags_grouped_by_property
+		&get_all_tags_having_property
 
-		%canon_tags
 		%tags_images
 		%tags_texts
 		%level
 		%special_tags
+		%translations_from
 
 		&get_taxonomyid
-		&get_taxonomyurl
 
 		&gen_tags_hierarchy_taxonomy
 		&gen_ingredients_tags_hierarchy_taxonomy
 		&display_tags_hierarchy_taxonomy
+
 		&build_tags_taxonomy
 		&build_all_taxonomies
 		&list_taxonomy_tags_in_language
@@ -95,13 +104,11 @@ BEGIN {
 
 		&spellcheck_taxonomy_tag
 
-		&get_tag_css_class
 		&get_tag_image
 
 		&display_tag_name
 		&display_tag_link
 		&display_tags_list
-		&display_tag_and_parents
 		&display_parents_and_children
 		&display_tags_hierarchy
 		&export_tags_hierarchy
@@ -114,7 +121,6 @@ BEGIN {
 		&get_city_code
 		%emb_codes_cities
 		%emb_codes_geo
-		%cities
 		&init_emb_codes
 
 		%tags_fields
@@ -127,7 +133,6 @@ BEGIN {
 		%properties
 
 		%language_codes
-		%language_codes_reverse
 
 		%country_names
 		%country_codes
@@ -138,9 +143,7 @@ BEGIN {
 
 		%stopwords
 		%synonyms_for
-		%synonyms_for_extended
 		%just_synonyms
-		%translations_from
 		%translations_to
 
 		%Languages
@@ -148,7 +151,6 @@ BEGIN {
 		&country_to_cc
 
 		&add_user_translation
-		&load_users_translations
 		&load_users_translations_for_lc
 		&add_users_translations_to_taxonomy
 
@@ -165,8 +167,6 @@ BEGIN {
 		&cmp_taxonomy_tags_alphabetically
 
 		&cached_display_taxonomy_tag
-		$cached_display_taxonomy_tag_calls
-		$cached_display_taxonomy_tag_misses
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -176,17 +176,17 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::TagsEntries qw/:all/;
-use ProductOpener::Lang qw/:all/;
-use ProductOpener::Text qw/:all/;
-use ProductOpener::PackagerCodes qw/:all/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die get_files_for_taxonomy get_path_for_taxonomy_file/;
+use ProductOpener::Lang qw/$lc  %Lang %tag_type_singular lang/;
+use ProductOpener::Text qw/normalize_percentages regexp_escape/;
+use ProductOpener::PackagerCodes qw/localize_packager_code normalize_packager_codes/;
+use ProductOpener::Index qw/$lang_dir/;
 
 use Clone qw(clone);
 use List::MoreUtils qw(uniq);
 
 use URI::Escape::XS;
+use List::Util qw(first);
 use Log::Any qw($log);
 use Digest::SHA1;
 use File::Copy;
@@ -196,13 +196,14 @@ use LWP::UserAgent ();
 use Encode;
 
 use GraphViz2;
-use JSON::PP;
+use JSON::MaybeXS;
 
 use Data::DeepAccess qw(deep_get deep_exists);
 
 binmode STDERR, ":encoding(UTF-8)";
 
 =head1 GLOBAL VARIABLES
+
 =cut
 
 =head2 %tags_fields
@@ -234,7 +235,7 @@ To this initial list, taxonomized fields will be added by retrieve_tags_taxonomy
 	teams => 1,
 	categories_properties => 1,
 	owners => 1,
-	ecoscore => 1,
+	environmental_score => 1,
 	# users tags:
 	editors => 1,
 	photographers => 1,
@@ -246,6 +247,7 @@ To this initial list, taxonomized fields will be added by retrieve_tags_taxonomy
 
 # Writable tags fields that can be written directly (e.g. categories, labels) and that are not derived from other fields (e.g. states)
 %writable_tags_fields = (
+	brands => 1,
 	categories => 1,
 	labels => 1,
 	origins => 1,
@@ -268,8 +270,10 @@ To this initial list, taxonomized fields will be added by retrieve_tags_taxonomy
 	weighers => 1,
 );
 
-# Fields that have an associated taxonomy
-%taxonomy_fields = ();    # populated by retrieve_tags_taxonomy
+# Fields, that is property, that have an associated taxonomy
+# most of the time it associate the taxonomy name with itself,
+# but their might be other property refering to a taxonomy under an other name
+%taxonomy_fields = ();    # populated by retrieve_tags_taxonomy and init_taxonomies
 
 # Fields that can have different values by language
 %language_fields = (
@@ -298,7 +302,7 @@ To this initial list, taxonomized fields will be added by retrieve_tags_taxonomy
 	environment_infocard => 1,
 );
 
-%canon_tags = ();
+my %canon_tags = ();
 
 my %tags_level = ();
 my %tags_direct_parents = ();
@@ -310,7 +314,7 @@ my %tags_all_parents = ();
 my %just_tags = ();    # does not include synonyms that are only synonyms
 my %synonyms = ();
 %synonyms_for = ();
-%synonyms_for_extended = ();
+my %synonyms_for_extended = ();
 %translations_from = ();
 %translations_to = ();
 %level = ();
@@ -323,6 +327,8 @@ my %root_entries = ();
 
 %tags_images = ();
 %tags_texts = ();
+
+my %cities;
 
 my $logo_height = 90;
 
@@ -359,6 +365,12 @@ sub get_property_with_fallbacks ($tagtype, $tagid, $property, $fallback_lcs = ["
 
 sub get_inherited_property ($tagtype, $canon_tagid, $property) {
 
+	my ($value, $matching_tagid) = get_inherited_property_and_matching_tag($tagtype, $canon_tagid, $property);
+	return $value;
+}
+
+sub get_inherited_property_and_matching_tag ($tagtype, $canon_tagid, $property) {
+
 	my @parents = ($canon_tagid);
 	my %seen = ();
 
@@ -378,7 +390,7 @@ sub get_inherited_property ($tagtype, $canon_tagid, $property) {
 				}
 				else {
 					#Return only one occurence of the property if several are defined in ingredients.txt
-					return $property_value;
+					return ($property_value, $tagid);
 				}
 			}
 			elsif (exists $direct_parents{$tagtype}{$tagid}) {
@@ -387,7 +399,7 @@ sub get_inherited_property ($tagtype, $canon_tagid, $property) {
 			}
 		}
 	}
-	return;
+	return (undef, undef);
 }
 
 =head2 get_property_from_tags ($tagtype, $tags_ref, $property)
@@ -490,6 +502,7 @@ Iterating from the most specific category, try to get a property for a tag by ex
 =head3 Parameters
 
 =head4 $product_ref - the product reference
+
 =head4 $property - the property - string
 
 =head3 Return
@@ -532,9 +545,13 @@ and then decide the order, but this methods is more eager to save time.
 =head3 Parameters
 
 =head4 $tagtype - str, name of taxonomy
+
 =head4 $canon_tagid - tag id for which we want properties
+
 =head4 $properties_names - ref to a list of property name
+
 =head4 $fallback_lcs - fallback language code to try
+
 If may search a description:fr but if fallback is ['xx', 'en']
 and we find a description:xx or description:en property we will use this value.
 
@@ -640,11 +657,13 @@ sub get_inherited_properties ($tagtype, $canon_tagid, $properties_names_ref, $fa
 }
 
 =head2 get_tags_grouped_by_property ($tagtype, $tagids_ref, $prop_name, $props_ref, $inherited_props_ref, $fallback_lcs = ["xx", "en"])
+
 Retrieve properties of a series of tags given in C<$tagids_ref>
 and return them, but grouped by C<$prop_name>,
 also fetching C<$props_ref> and C<$inherited_props_ref>
 
 =head3 Return
+
 A ref to a hashmap, where keys are property C<$prop_name> values,
 and values are in turn hashmaps where keys are tag ids,
 and values are a hashmap with of properties and their values.
@@ -652,6 +671,7 @@ and values are a hashmap with of properties and their values.
 Tags with undefined property are with group under "undef" value.
 
 =head4 Example
+
 we asks for quality tags, grouped by fix_action, while getting descriptions
 {
 	"add_nutrition_facts" => {
@@ -669,6 +689,7 @@ we asks for quality tags, grouped by fix_action, while getting descriptions
 		}
 	}
 }
+
 =cut
 
 sub get_tags_grouped_by_property ($tagtype, $tagids_ref, $prop_name, $props_ref, $inherited_props_ref,
@@ -696,6 +717,37 @@ sub get_tags_grouped_by_property ($tagtype, $tagids_ref, $prop_name, $props_ref,
 	}
 
 	return $grouped_tags;
+}
+
+=head2 get_all_tags_having_property ($product_ref, $tagtype, $prop_name)
+
+For each tag of a given field ($tagtype, can be "labels" or "categories", for example),
+and a given property ($prop_name, without last column (:). Can be "incompatible_with:en", for example),
+return a hash of tagid <-> property_value
+remark: this DOES NOT handle property inheritance
+
+=head3 Return
+
+A hash, where keys are tagid and values are property_value
+
+=head4 Example, get_all_tags_having_property($product_ref, "labels", "incompatible_with:en")
+
+
+=cut
+
+sub get_all_tags_having_property ($product_ref, $tagtype, $prop_name) {
+	my %tag_property_hash = ();
+	if (defined $product_ref->{$tagtype . "_tags"}) {
+		foreach my $tagid (@{$product_ref->{$tagtype . "_tags"}}) {
+			my $property_value = get_property($tagtype, $tagid, $prop_name);
+
+			if (defined $property_value) {
+				$tag_property_hash{$tagid} = lc($property_value =~ s/\s+/-/gr);
+			}
+		}
+	}
+
+	return \%tag_property_hash;
 }
 
 sub has_tag ($product_ref, $tagtype, $tagid) {
@@ -884,6 +936,13 @@ sub remove_stopwords ($tagtype, $lc, $tagid) {
 
 		my $uppercased_stopwords_overrides = 0;
 
+		if ($lc eq 'en') {
+			# in English, "a" is a stopwords for ingredients, but we do not want to remove it at the end of a tag
+			# e.g. "Cochineal Red A" -> "cochineal-red-a" --> "a" should not be a stopword
+			$tagid =~ s/a$/A/;
+			$uppercased_stopwords_overrides = 1;
+		}
+
 		if ($lc eq 'fr') {
 			# "Dés de tomates" -> "des-de-tomates" --> "dés" should not be a stopword
 			$tagid =~ s/\bdes-de\b/DES-DE/g;
@@ -1020,6 +1079,7 @@ sub get_lc_tagid ($synonyms_ref, $lc, $tagtype, $tag, $warning) {
 
 sub get_file_from_cache ($source, $target) {
 	my $cache_root = "$BASE_DIRS{CACHE_BUILD}/taxonomies";
+	(-e $cache_root) or mkdir($cache_root, 0755);
 	my $local_cache_source = "$cache_root/$source";
 
 	# first, try to get it localy
@@ -1041,24 +1101,29 @@ sub get_file_from_cache ($source, $target) {
 	return 0;
 }
 
+# Add a version string to the taxonomy data
+# Change this version string if you want to force the taxonomies to be rebuilt
+# e.g. if the taxonomy building algorithm or configuration has changed
+# This needs to be done also when the unaccenting parameters for languages set in Config.pm are changed
+
+my $BUILD_TAGS_VERSION = "20241206 - the letter A at the end of an entry should not be a stopword in English";
+
 sub get_from_cache ($tagtype, @files) {
 	# If the full set of cached files can't be found then returns the hash to be used
 	# when saving the new cached files.
-	my $tag_data_root = "$data_root/taxonomies/$tagtype";
+	my $tag_data_root = "$BASE_DIRS{CACHE_BUILD}/taxonomies-result/$tagtype";
 	my $tag_www_root = "$BASE_DIRS{PUBLIC_DATA}/taxonomies/$tagtype";
 
 	my $sha1 = Digest::SHA1->new;
 
-	# Add a version string to the taxonomy data
-	# Change this version string if you want to force the taxonomies to be rebuilt
-	# e.g. if the taxonomy building algorithm or configuration has changed
-	# This needs to be done also when the unaccenting parameters for languages set in Config.pm are changed
-
-	$sha1->add("20230316 - made xx: unaccented");
+	# marker for code version
+	$sha1->add($BUILD_TAGS_VERSION);
 
 	foreach my $source_file (@files) {
-		open(my $IN, "<", "$data_root/taxonomies/$source_file.txt")
-			or die("Cannot open $data_root/taxonomies/$source_file.txt : $!\n");
+		# The source file can be prefixed by the product type
+		my $source_path = get_path_for_taxonomy_file($source_file);
+		open(my $IN, "<", $source_path)
+			or die("Cannot open $source_path (tagtype: $tagtype - product_type: $options{product_type}): $!\n");
 
 		binmode($IN);
 		$sha1->addfile($IN);
@@ -1067,6 +1132,10 @@ sub get_from_cache ($tagtype, @files) {
 
 	my $hash = $sha1->hexdigest;
 	my $cache_prefix = "$tagtype.$hash";
+
+	# disable by env variable, useful when iterating over Tags.pm (see make rebuild_taxonomies)
+	return $cache_prefix if $ENV{TAXONOMY_NO_GET_FROM_CACHE};
+
 	my $got_from_cache = get_file_from_cache("$cache_prefix.result.sto", "$tag_data_root.result.sto");
 	if ($got_from_cache) {
 		$got_from_cache = get_file_from_cache("$cache_prefix.result.txt", "$tag_data_root.result.txt");
@@ -1076,6 +1145,9 @@ sub get_from_cache ($tagtype, @files) {
 	}
 	if ($got_from_cache) {
 		$got_from_cache = get_file_from_cache("$cache_prefix.full.json", "$tag_www_root.full.json");
+	}
+	if ($got_from_cache) {
+		$got_from_cache = get_file_from_cache("$cache_prefix.extended.json", "$tag_www_root.extended.json");
 	}
 	if ($got_from_cache) {
 		print "obtained taxonomy for $tagtype from " . ('', 'local', 'GitHub')[$got_from_cache] . " cache.\n";
@@ -1120,18 +1192,39 @@ sub put_file_to_cache ($source, $target) {
 }
 
 sub put_to_cache ($tagtype, $cache_prefix) {
-	my $tag_data_root = "$data_root/taxonomies/$tagtype";
+	my $tag_data_root = "$BASE_DIRS{CACHE_BUILD}/taxonomies-result//$tagtype";
 	my $tag_www_root = "$BASE_DIRS{PUBLIC_DATA}/taxonomies/$tagtype";
 
 	put_file_to_cache("$tag_www_root.json", "$cache_prefix.json");
 	put_file_to_cache("$tag_www_root.full.json", "$cache_prefix.full.json");
+	put_file_to_cache("$tag_www_root.extended.json", "$cache_prefix.extended.json");
 	put_file_to_cache("$tag_data_root.result.txt", "$cache_prefix.result.txt");
 	put_file_to_cache("$tag_data_root.result.sto", "$cache_prefix.result.sto");
+	# note: we don't put errors to cache as it is a non sense, errors are to be fixed before
+	# and you need them only if you touch the taxonomy hence rebuild it (and thus have them locally)
 
 	return;
 }
 
-=head2 build_tags_taxonomy( $tagtype, $file, $publish )
+# create a struct for a taxonomy error
+sub _taxonomy_error($severity, $type, $msg, $line = undef) {
+	return {
+		severity => $severity,
+		type => $type,
+		msg => $msg,
+		line_num => $line,
+	};
+}
+
+# error to string
+sub _taxonomy_error_display($error_ref) {
+	my %error = %$error_ref;
+	my $line = "";
+	$line = "$error{line_num} - " if $error{line_num};
+	return "$error{severity} - $error{type} - $line$error{msg}";
+}
+
+=head2 build_tags_taxonomy( $tagtype, $file, $publish)
 
 Build taxonomy from the taxonomy file
 
@@ -1154,16 +1247,23 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 	binmode STDIN, ":encoding(UTF-8)";
 	binmode STDOUT, ":encoding(UTF-8)";
 
-	my @files = ($tagtype);
+	my $result_dir = "$BASE_DIRS{CACHE_BUILD}/taxonomies-result/";
+	ensure_dir_created_or_die("$result_dir");
+
+	# Some taxonomy tag types include other tag types (e.g. origins includes countries)
+	my @tagtypes = ($tagtype);
 
 	# For the origins taxonomy, include the countries taxonomy
 	if ($tagtype eq "origins") {
-		@files = ("countries", "origins");
+		@tagtypes = ("countries", "origins");
 	}
 
 	# For the Open Food Facts ingredients taxonomy, concatenate additives, minerals, vitamins, nucleotides and other nutritional substances taxonomies
-	elsif (($tagtype eq "ingredients") and (defined $options{product_type}) and ($options{product_type} eq "food")) {
-		@files = (
+	elsif ( ($tagtype eq "ingredients")
+		and (defined $options{product_type})
+		and (($options{product_type} eq "food") or ($options{product_type} eq "petfood")))
+	{
+		@tagtypes = (
 			"additives_classes", "additives", "minerals", "vitamins",
 			"nucleotides", "other_nutritional_substances", "ingredients"
 		);
@@ -1171,34 +1271,53 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 	# Packaging
 	elsif (($tagtype eq "packaging")) {
-		@files = ("packaging_materials", "packaging_shapes", "packaging_recycling", "preservation");
+		@tagtypes = ("packaging_materials", "packaging_shapes", "packaging_recycling", "preservation");
 	}
 
 	# Traces - just a copy of allergens
 	elsif ($tagtype eq "traces") {
-		@files = ("allergens");
+		@tagtypes = ("allergens");
 	}
 
+	# List the individual taxonomy source files for all included tag types
+	# Each tag type can have a common and/or a product type specific source file.
+
+	my @files = ();
+	foreach my $tagtype (@tagtypes) {
+		my @tagtype_files = get_files_for_taxonomy($tagtype, $options{product_type});
+		if (scalar @tagtype_files == 0) {
+			die("No taxonomy file(s) found for $tagtype\n");
+		}
+		push @files, @tagtype_files;
+	}
+
+	# Check if we already have a cached version of the taxonomy
 	my $cache_prefix = get_from_cache($tagtype, @files);
 	if (!$cache_prefix) {
 		return;
 	}
 
-	print "building taxonomy for $tagtype - publish: $publish\n";
+	print("building taxonomy for $tagtype - publish: $publish\n");
 
 	# Concatenate taxonomy files if needed
-	my $file = "$tagtype.txt";
-	if ((scalar @files) > 1) {
-		$file = "$tagtype.all.txt";
+	my $file_path;
+	if ((scalar @files) == 1) {
+		# Only 1 file
+		$file_path = get_path_for_taxonomy_file($files[0]);
+	}
+	else {
+		# Multiple files
+		$file_path = "$result_dir/$tagtype.all.txt";
 
-		open(my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/$file")
-			or die("Cannot write $data_root/taxonomies/$file : $!\n");
+		open(my $OUT, ">:encoding(UTF-8)", $file_path)
+			or die("Cannot write $file_path : $!\n");
 
-		foreach my $taxonomy (@files) {
-			open(my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$taxonomy.txt")
-				or die("Missing $data_root/taxonomies/$taxonomy.txt\n");
+		foreach my $taxonomy_file (@files) {
+			my $taxonomy_path = get_path_for_taxonomy_file($taxonomy_file);
+			open(my $IN, "<:encoding(UTF-8)", $taxonomy_path)
+				or die("Cannot open $taxonomy_path: $!\n");
 
-			print $OUT "# $taxonomy.txt\n\n";
+			print $OUT "# $taxonomy_file\n\n";
 
 			while (<$IN>) {
 				print $OUT $_;
@@ -1211,7 +1330,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 		close($OUT);
 	}
 
-	# we ofen use the term *tag* in the code to indicate a single entry between commas
+	# we often use the term *tag* in the code to indicate a single entry between commas
 	# that is most lines, are tags separated by commas.
 
 	# when we speak about normalized entry, or tagid,
@@ -1271,9 +1390,9 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 	# $tagtype -> $canon_tagid -> "$property:$lc" stores the value for property
 	$properties{$tagtype} = {};
 
-	my $errors = '';
+	my @taxonomy_errors = ();
 
-	if (open(my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$file")) {
+	if (open(my $IN, "<:encoding(UTF-8)", $file_path)) {
 
 		# Main name of a tag in a specific language (display form) - e.g. "Café au lait"
 		my $lc_tag;
@@ -1337,7 +1456,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 				# Make sure we don't have empty entries
 				if ($line eq "") {
-					die("Empty entry at line $line_number in $data_root/taxonomies/$file\n");
+					die("Empty entry at line $line_number in $file_path\n");
 				}
 				# split on comma
 				my @tags = split(/\s*,\s*/, $line);
@@ -1399,7 +1518,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 						. $translations_from{$tagtype}{"$lc:$lc_tagid"} . " ("
 						. $tagtype . ")"
 						. " - $lc:$lc_tagid cannot be mapped to entry $canon_tagid\n";
-					$errors .= "ERROR - " . $msg;
+					push(@taxonomy_errors, _taxonomy_error("ERROR", "duplicate_synonym", $msg, $line_number));
 					next;
 				}
 
@@ -1439,7 +1558,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 							. $translations_from{$tagtype}{$lc . ":" . $synonyms{$tagtype}{$lc}{$tagid}}
 							. " ($tagtype)"
 							. " - $lc:$tagid cannot be mapped to entry $canon_tagid / $lc:$lc_tagid\n";
-						$errors .= "ERROR - " . $msg;
+						push(@taxonomy_errors, _taxonomy_error("ERROR", "duplicate_synonym", $msg, $line_number));
 						next;
 					}
 					# add synonym to both tracking lists
@@ -1449,7 +1568,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 				}
 
 			}
-			elsif ($line =~ /^expected_nutriscore_grade:en:/) {
+			elsif ($line =~ /^expected_nutriscore_grade:en: */) {
 				# the line should be the nutriscore grade: a, b, c, d or e
 				my $nutriscore_grade = $';    # everything after the matched string
 
@@ -1461,10 +1580,10 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 						. $nutriscore_grade
 						. " is incorrect\n";
 
-					$errors .= "ERROR - " . $msg;
+					push(@taxonomy_errors, _taxonomy_error("ERROR", "unknown_nutriscore", $msg, $line_number));
 				}
 			}
-			elsif ($line =~ /^expected_ingredients:en:/) {
+			elsif ($line =~ /^expected_ingredients:en: */) {
 				# the line should contain a single ingredient
 				my $expected_ingredients = $';    # everything after the matched string
 
@@ -1472,11 +1591,12 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					my $msg
 						= "expected_ingredients:en: in "
 						. $tagtype
-						. " should contain a single letter "
+						. " should contain a single value "
 						. $expected_ingredients
 						. " is incorrect\n";
 
-					$errors .= "ERROR - " . $msg;
+					push(@taxonomy_errors,
+						_taxonomy_error("ERROR", "multiple_expected_ingredients", $msg, $line_number));
 				}
 			}
 			else {
@@ -1487,16 +1607,18 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 		close($IN);
 
-		if ($errors ne "") {
+		if (scalar @taxonomy_errors) {
 
 			print STDERR "Errors in the $tagtype taxonomy definition:\n";
-			print STDERR $errors;
+			print STDERR join("", map {_taxonomy_error_display($_)} @taxonomy_errors);
+			# do we only have duplicate synonyms errors ?
+			my $only_duplicate_errors = !(first {$_->{type} ne "duplicate_synonym"} @taxonomy_errors);
 			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
 			# Disable die for the packaging taxonomy as some legit material and shape might have same name
-			unless (($tagtype eq "ingredients")
-				or ($tagtype eq "packaging")
-				or ($tagtype eq "packaging"))
-			{
+			my $taxonomy_with_duplicate_tolerated
+				= (($tagtype eq "ingredients") or ($tagtype eq "packaging") or ($tagtype eq "inci_functions"));
+			unless ($only_duplicate_errors and $taxonomy_with_duplicate_tolerated) {
+				store("$result_dir/$tagtype.errors.sto", {errors => \@taxonomy_errors});
 				die("Errors in the $tagtype taxonomy definition");
 			}
 		}
@@ -1726,7 +1848,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 		# > Nectars de goyave, nectar de goyave, nectar goyave
 		# > Nectars d'abricot, nectar d'abricot, nectars d'abricots, nectar
 
-		open(my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$file") or die;
+		open(my $IN, "<:encoding(UTF-8)", $file_path) or die;
 
 		# print STDERR "Tags.pm - load_tags_taxonomy - tagtype: $tagtype - phase 3, computing hierarchy\n";
 
@@ -1735,9 +1857,12 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 		$canon_tagid = undef;
 
+		$line_number = 0;
+
 		while (<$IN>) {
 
 			my $line = sanitize_taxonomy_line($_);
+			$line_number++;
 
 			# consider parenthesis as spaces
 			$line =~ s/\(|\)/-/g;
@@ -1806,7 +1931,8 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					foreach my $parentid (sort keys %parents) {
 						# Make sure the parent is not equal to the child
 						if ($parentid eq $canon_tagid) {
-							$errors .= "ERROR - $canon_tagid is a parent of itself\n";
+							my $msg = "$canon_tagid is a parent of itself\n";
+							push(@taxonomy_errors, _taxonomy_error("ERROR", "circular_parent", $msg, $line_number));
 							next;
 						}
 						defined $direct_parents{$tagtype}{$canon_tagid} or $direct_parents{$tagtype}{$canon_tagid} = {};
@@ -1829,19 +1955,9 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 				if (defined $canon_tagid) {
 					defined $properties{$tagtype}{$canon_tagid} or $properties{$tagtype}{$canon_tagid} = {};
 
-					# If the property name matches the name of an already loaded taxonomy,
-					# canonicalize the property values for the corresponding synonym
-					# e.g. if an additive has a class additives_classes:en: en:stabilizer (a synonym),
-					# we can map it to en:stabiliser (the canonical name in the additives_classes taxonomy)
-					if (exists $translations_from{$property}) {
-						$properties{$tagtype}{$canon_tagid}{"$property:$lc"}
-							= join(",", map({canonicalize_taxonomy_tag($lc, $property, $_)} split(/\s*,\s*/, $line)));
-					}
-					else {
-						# TODO print a warning if the property is already defined
-						# add property value
-						$properties{$tagtype}{$canon_tagid}{"$property:$lc"} = $line;
-					}
+					# TODO print a warning if the property is already defined
+					# add property value
+					$properties{$tagtype}{$canon_tagid}{"$property:$lc"} = $line;
 				}
 				else {
 					print STDERR "taxonomy : $tagtype : discarding orphan line : $property : "
@@ -1854,18 +1970,22 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 		# allow a second file for wikipedia abstracts -> too big, so don't include it in the main file
 		# only process properties
+		my $properties_path = $file_path;
+		$properties_path =~ s/\.txt$/.properties.txt/;
 
-		if (-e "$data_root/taxonomies/${tagtype}.properties.txt") {
+		if (-e $properties_path) {
 
-			open(my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/${tagtype}.properties.txt");
+			open(my $IN, "<:encoding(UTF-8)", $properties_path);
 
 			# print STDERR "Tags.pm - load_tags_taxonomy - tagtype: $tagtype - phase 3, computing hierarchy\n";
 
 			$canon_tagid = undef;
 
+			$line_number = 0;
 			while (<$IN>) {
 
 				my $line = sanitize_taxonomy_line($_);
+				$line_number++;
 
 				# consider parenthesis as spaces
 				$line =~ s/\(|\)/-/g;
@@ -1945,7 +2065,8 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 				#print "- $parentid\n";
 
 				if ($parentid eq $tagid) {
-					$errors .= "ERROR - $tagid is a parent of itself\n";
+					my $msg = "$tagid is a parent of itself\n";
+					push(@taxonomy_errors, _taxonomy_error("ERROR", "circular_parent", $msg));
 				}
 				elsif (not defined $seen{$parentid}) {
 					defined $all_parents{$tagtype}{$tagid} or $all_parents{$tagtype}{$tagid} = [];
@@ -1993,7 +2114,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			$sort_key_parents{$tagid} = $key;
 		}
 
-		open(my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/$tagtype.result.txt");
+		open(my $OUT, ">:encoding(UTF-8)", "$result_dir/$tagtype.result.txt");
 
 		print $OUT
 			"# The [taxonomy name].results.txt files are generated by build_tags_taxonomy.pl.\n# Do not edit this file manually. Edit instead the [taxonomy name].txt source.\n\n";
@@ -2001,6 +2122,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 		# data structure to export the taxonomy to json format
 		my %taxonomy_json = ();
 		my %taxonomy_full_json = ();    # including wikipedia abstracts
+		my %taxonomy_extended_json = ();    # with extended synonyms
 
 		foreach my $lc (sort keys %{$stopwords{$tagtype}}) {
 			next if $lc =~ /\./;    # .orig or .strings
@@ -2016,6 +2138,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 			$taxonomy_json{$tagid} = {name => {}};
 			$taxonomy_full_json{$tagid} = {name => {}};
+			$taxonomy_extended_json{$tagid} = {name => {}};
 
 			# print "taxonomy - compute all children - $tagid - level: $level{$tagtype}{$tagid} - longest: $longest_parent{$tagid} - syn: $just_synonyms{$tagtype}{$tagid} - sort_key: $sort_key_parents{$tagid} \n";
 			if (defined $direct_parents{$tagtype}{$tagid}) {
@@ -2025,7 +2148,9 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					my $lc = $parentid;
 					$lc =~ s/^(\w\w):.*/$1/;
 					if (not exists $translations_to{$tagtype}{$parentid}{$lc}) {
-						$errors .= "ERROR - $tagid has an undefined parent $parentid\n";
+						my $msg = "$tagid has an undefined parent $parentid\n";
+						push(@taxonomy_errors, _taxonomy_error("ERROR", "unknown_parent", $msg));
+
 					}
 					else {
 						print $OUT "< $lc:" . $translations_to{$tagtype}{$parentid}{$lc} . "\n";
@@ -2067,6 +2192,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 				$taxonomy_json{$tagid}{name}{$lc} = $translations_to{$tagtype}{$tagid}{$lc};
 				$taxonomy_full_json{$tagid}{name}{$lc} = $translations_to{$tagtype}{$tagid}{$lc};
+				$taxonomy_extended_json{$tagid}{name}{$lc} = $translations_to{$tagtype}{$tagid}{$lc};
 
 				my $lc_tagid = get_string_id_for_lang($lc, $translations_to{$tagtype}{$tagid}{$lc});
 
@@ -2082,12 +2208,24 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					{
 						$taxonomy_json{$tagid}{name}{$lc} .= " - " . $synonyms_for{$tagtype}{$lc}{$lc_tagid}[1];
 						$taxonomy_full_json{$tagid}{name}{$lc} .= " - " . $synonyms_for{$tagtype}{$lc}{$lc_tagid}[1];
+						$taxonomy_extended_json{$tagid}{name}{$lc}
+							.= " - " . $synonyms_for{$tagtype}{$lc}{$lc_tagid}[1];
 					}
 
 					# add synonyms to the full taxonomy
 					if (defined $synonyms_for{$tagtype}{$lc}{$lc_tagid}) {
 						(defined $taxonomy_full_json{$tagid}{synonyms}) or $taxonomy_full_json{$tagid}{synonyms} = {};
 						$taxonomy_full_json{$tagid}{synonyms}{$lc} = $synonyms_for{$tagtype}{$lc}{$lc_tagid};
+						$taxonomy_extended_json{$tagid}{normalized_synonyms}{$lc}
+							= [map {get_string_id_for_lang($lc, $_)} @{$synonyms_for{$tagtype}{$lc}{$lc_tagid}}];
+					}
+
+					# add extended synonyms to the extended taxonomy
+					if (defined $synonyms_for_extended{$tagtype}{$lc}{$lc_tagid}) {
+						(defined $taxonomy_extended_json{$tagid}{synonyms_extended})
+							or $taxonomy_extended_json{$tagid}{synonyms_extended} = {};
+						$taxonomy_extended_json{$tagid}{normalized_synonyms_extended}{$lc}
+							= [sort keys %{$synonyms_for_extended{$tagtype}{$lc}{$lc_tagid}}];
 					}
 				}
 			}
@@ -2122,13 +2260,18 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 		close $OUT;
 
-		if ($errors ne "") {
+		if (scalar @taxonomy_errors) {
 
 			print STDERR "Errors in the $tagtype taxonomy definition:\n";
-			print STDERR $errors;
+			print STDERR join("", map {_taxonomy_error_display($_)} @taxonomy_errors);
+			# do we only have duplicate synonyms errors ?
+			my $only_duplicate_errors = !(first {%{$_}{type} ne "duplicate_synonym"} @taxonomy_errors);
 			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
-			# Disable also for packaging taxonomy for some shapes and materials shares same names
-			unless (($tagtype eq "ingredients") or ($tagtype eq "packaging")) {
+			# Disable die for the packaging taxonomy as some legit material and shape might have same name
+			my $taxonomy_with_duplicate_tolerated
+				= (($tagtype eq "ingredients") or ($tagtype eq "packaging") or ($tagtype eq "inci_functions"));
+			unless ($only_duplicate_errors and $taxonomy_with_duplicate_tolerated) {
+				store("$result_dir/$tagtype.errors.sto", {errors => \@taxonomy_errors});
 				die("Errors in the $tagtype taxonomy definition");
 			}
 		}
@@ -2137,30 +2280,27 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 		{
 			binmode STDOUT, ":encoding(UTF-8)";
-			if (open(my $OUT_JSON, ">", "$BASE_DIRS{PUBLIC_DATA}/taxonomies/$tagtype.json")) {
-				print $OUT_JSON encode_json(\%taxonomy_json);
-				close($OUT_JSON);
-			}
-			else {
-				print
-					"Cannot open $BASE_DIRS{PUBLIC_DATA}/taxonomies/$tagtype.json, skipping writing taxonomy to file.\n";
-			}
 
-			if (open(my $OUT_JSON_FULL, ">", "$BASE_DIRS{PUBLIC_DATA}/taxonomies/$tagtype.full.json")) {
-				print $OUT_JSON_FULL encode_json(\%taxonomy_full_json);
-				close($OUT_JSON_FULL);
+			foreach my $extension_taxonomy_ref (
+				["", \%taxonomy_json],
+				[".full", \%taxonomy_full_json],
+				[".extended", \%taxonomy_extended_json]
+				)
+			{
+				my ($extension, $taxonomy_ref) = @$extension_taxonomy_ref;
+				# Output the taxonomy in JSON format
+				if (open(my $OUT_JSON, ">", "$BASE_DIRS{PUBLIC_DATA}/taxonomies/$tagtype$extension.json")) {
+					print $OUT_JSON encode_json($taxonomy_ref);
+					close($OUT_JSON);
+				}
+				else {
+					print
+						"Cannot open $BASE_DIRS{PUBLIC_DATA}/taxonomies/$tagtype$extension.json, skipping writing taxonomy to file.\n";
+				}
 			}
-			else {
-				print
-					"Cannot open $BASE_DIRS{PUBLIC_DATA}/taxonomies/$tagtype.full.json, skipping writing taxonomy to file.\n";
-			}
-			# to serve pre-compressed files from Apache
-			# nginx : needs nginx_static module
-			# system("cp $BASE_DIRS{PUBLIC_DATA}/taxonomies/$tagtype.json $BASE_DIRS{PUBLIC_DATA}/taxonomies/$tagtype.json.json");
-			# system("gzip $BASE_DIRS{PUBLIC_DATA}/taxonomies/$tagtype.json");
 		}
 
-		$log->error("taxonomy errors", {errors => $errors}) if $log->is_error();
+		$log->error("taxonomy errors", {errors => \@taxonomy_errors}) if $log->is_error();
 
 		my $taxonomy_ref = {
 			stopwords => $stopwords{$tagtype},
@@ -2179,12 +2319,13 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 		};
 
 		if ($publish) {
-			store("$data_root/taxonomies/$tagtype.result.sto", $taxonomy_ref);
+			store("$result_dir/$tagtype.result.sto", $taxonomy_ref);
+			store("$result_dir/$tagtype.errors.sto", {errors => \@taxonomy_errors});
 			put_to_cache($tagtype, $cache_prefix);
 		}
 	}
 
-	return;
+	return @taxonomy_errors;
 }
 
 =head2 build_all_taxonomies ( $pubish)
@@ -2198,15 +2339,17 @@ Build all taxonomies, including the test taxonomy
 =cut
 
 sub build_all_taxonomies ($publish) {
+	my %errors = ();
 	foreach my $taxonomy (@taxonomy_fields, "test") {
 		# traces and data_quality_xxx are not real taxonomy per se
 		# (but built from allergens and data_quality)
 		if ($taxonomy ne "traces" and rindex($taxonomy, 'data_quality_', 0) != 0) {
-			build_tags_taxonomy($taxonomy, $publish);
+			my @taxonomy_errors = build_tags_taxonomy($taxonomy, $publish);
+			$errors{$taxonomy} = \@taxonomy_errors if @taxonomy_errors;
 		}
 	}
 
-	return;
+	return \%errors;
 }
 
 =head2 generate_tags_taxonomy_extract ( $tagtype, $tags_ref, $options_ref, $lcs_ref)
@@ -2439,10 +2582,12 @@ sub generate_tags_taxonomy_extract ($tagtype, $tags_ref, $options_ref, $lcs_ref)
 	return $taxonomy_ref;
 }
 
-sub retrieve_tags_taxonomy ($tagtype) {
+sub retrieve_tags_taxonomy ($tagtype, $die_if_taxonomy_cannot_be_loaded = 0) {
 
 	$taxonomy_fields{$tagtype} = $tagtype;
 	$tags_fields{$tagtype} = 1;
+
+	my $result_dir = "$BASE_DIRS{CACHE_BUILD}/taxonomies-result";
 
 	my $file = $tagtype;
 	if ($tagtype eq "traces") {
@@ -2454,45 +2599,48 @@ sub retrieve_tags_taxonomy ($tagtype) {
 
 	# Check if we have a taxonomy for the previous or the next version
 	if ($tagtype !~ /_(next|prev)/) {
-		if (-e "$data_root/taxonomies/${file}_prev.result.sto") {
+		if (-e "$result_dir/${file}_prev.result.sto") {
 			retrieve_tags_taxonomy("${tagtype}_prev");
 		}
-		if (-e "$data_root/taxonomies/${file}_next.result.sto") {
+		if (-e "$result_dir/${file}_next.result.sto") {
 			retrieve_tags_taxonomy("${tagtype}_next");
 		}
 	}
 
-	if (!-e "$data_root/taxonomies/$file.result.sto") {
-		print "Building $file on the fly\n";
-		build_tags_taxonomy($file, 1);
-	}
+	my $taxonomy_ref = retrieve("$result_dir/$file.result.sto");
 
-	my $taxonomy_ref = retrieve("$data_root/taxonomies/$file.result.sto")
-		or die("Could not load taxonomy: $data_root/taxonomies/$file.result.sto");
-	if (defined $taxonomy_ref) {
-
-		$loaded_taxonomies{$tagtype} = 1;
-		$stopwords{$tagtype} = $taxonomy_ref->{stopwords};
-		$synonyms{$tagtype} = $taxonomy_ref->{synonyms};
-		$synonyms_for{$tagtype} = $taxonomy_ref->{synonyms_for};
-		$synonyms_for_extended{$tagtype} = $taxonomy_ref->{synonyms_for_extended};
-		$just_synonyms{$tagtype} = $taxonomy_ref->{just_synonyms};
-		# %just_synonyms was not included in taxonomies previously
-		if (not exists $just_synonyms{$tagtype}) {
-			$just_synonyms{$tagtype} = {};
+	if (not defined $taxonomy_ref) {
+		if ($die_if_taxonomy_cannot_be_loaded) {
+			$log->error("Could not load taxonomy $tagtype - dying") if $log->is_error();
+			die("Could not load taxonomy: $result_dir/$file.result.sto");
 		}
-		$translations_from{$tagtype} = $taxonomy_ref->{translations_from};
-		$translations_to{$tagtype} = $taxonomy_ref->{translations_to};
-		$level{$tagtype} = $taxonomy_ref->{level};
-		$direct_parents{$tagtype} = $taxonomy_ref->{direct_parents};
-		$direct_children{$tagtype} = $taxonomy_ref->{direct_children};
-		$all_parents{$tagtype} = $taxonomy_ref->{all_parents};
-		$root_entries{$tagtype} = $taxonomy_ref->{root_entries};
-		$properties{$tagtype} = $taxonomy_ref->{properties};
+		else {
+			$log->info("Could not load taxonomy $tagtype - skipping") if $log->is_info();
+			return;
+		}
 	}
+
+	$loaded_taxonomies{$tagtype} = 1;
+	$stopwords{$tagtype} = $taxonomy_ref->{stopwords};
+	$synonyms{$tagtype} = $taxonomy_ref->{synonyms};
+	$synonyms_for{$tagtype} = $taxonomy_ref->{synonyms_for};
+	$synonyms_for_extended{$tagtype} = $taxonomy_ref->{synonyms_for_extended};
+	$just_synonyms{$tagtype} = $taxonomy_ref->{just_synonyms};
+	# %just_synonyms was not included in taxonomies previously
+	if (not exists $just_synonyms{$tagtype}) {
+		$just_synonyms{$tagtype} = {};
+	}
+	$translations_from{$tagtype} = $taxonomy_ref->{translations_from};
+	$translations_to{$tagtype} = $taxonomy_ref->{translations_to};
+	$level{$tagtype} = $taxonomy_ref->{level};
+	$direct_parents{$tagtype} = $taxonomy_ref->{direct_parents};
+	$direct_children{$tagtype} = $taxonomy_ref->{direct_children};
+	$all_parents{$tagtype} = $taxonomy_ref->{all_parents};
+	$root_entries{$tagtype} = $taxonomy_ref->{root_entries};
+	$properties{$tagtype} = $taxonomy_ref->{properties};
 
 	$special_tags{$tagtype} = [];
-	if (open(my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/special_$file.txt")) {
+	if (open(my $IN, "<:encoding(UTF-8)", "$BASE_DIRS{TAXONOMIES_SRC}/special_$file.txt")) {
 
 		while (<$IN>) {
 
@@ -2538,94 +2686,130 @@ sub country_to_cc ($country) {
 	return;
 }
 
-# load all tags images
+sub init_languages() {
+	# Build map of language codes and names
 
-# print STDERR "Tags.pm - loading tags images\n";
-if (opendir my $DH2, "$www_root/images/lang") {
-	foreach my $langid (sort readdir($DH2)) {
-		next if $langid eq '.';
-		next if $langid eq '..';
-		next if ((length($langid) ne 2) and not($langid eq 'other'));
+	%language_codes = ();
+	my %language_codes_reverse = ();
 
-		if (-e "$www_root/images/lang/$langid") {
-			opendir my $DH, "$www_root/images/lang/$langid" or die "Couldn't open the current directory: $!";
-			foreach my $tagtype (sort readdir($DH)) {
-				next if $tagtype =~ /\./;
-				#print STDERR "Tags: loading tagtype images $langid/$tagtype\n";
-				load_tags_images($langid, $tagtype);
-			}
-			closedir($DH);
+	%Languages = ();    # Hash of language codes, will be used to initialize %Lang::Langs
+
+	foreach my $language (keys %{$properties{languages}}) {
+
+		my $lc = lc($properties{languages}{$language}{"language_code_2:en"});
+
+		$language_codes{$lc} = $language;
+		$language_codes_reverse{$language} = $lc;
+
+		# %Languages will be passed to Lang::build_lang() to populate language names and
+		# to initialize to the English value all missing values for all the languages
+		$Languages{$lc} = $translations_to{languages}{$language};
+	}
+
+	return;
+}
+
+sub init_countries() {
+	# Build map of local country names in official languages to (country, language)
+
+	$log->info("Building a map of local country names in official languages to (country, language)") if $log->is_info();
+
+	%country_names = ();
+	%country_codes = ();
+	%country_codes_reverse = ();
+	%country_languages = ();
+
+	foreach my $country (sort keys %{$properties{countries}}) {
+
+		my $cc = country_to_cc($country);
+		if (not(defined $cc)) {
+			next;
 		}
 
-	}
-	closedir($DH2);
-}
-else {
-	$log->warn("The $lang_dir directory could not be opened.") if $log->is_warn();
-	$log->warn("Tags images could not be loaded.") if $log->is_warn();
-}
+		$country_codes{$cc} = $country;
+		$country_codes_reverse{$country} = $cc;
 
-# It would be nice to move this from BEGIN to INIT, as it's slow, but other BEGIN code depends on it.
-foreach my $taxonomyid (@ProductOpener::Config::taxonomy_fields) {
-	$log->info("loading taxonomy $taxonomyid");
-	retrieve_tags_taxonomy($taxonomyid);
-}
-# ingredients_original uses the ingredients taxonomy
-$taxonomy_fields{"ingredients_original"} = "ingredients";
-
-# Build map of language codes and names
-
-%language_codes = ();
-%language_codes_reverse = ();
-
-%Languages = ();    # Hash of language codes, will be used to initialize %Lang::Langs
-
-foreach my $language (keys %{$properties{languages}}) {
-
-	my $lc = lc($properties{languages}{$language}{"language_code_2:en"});
-
-	$language_codes{$lc} = $language;
-	$language_codes_reverse{$language} = $lc;
-
-	# %Languages will be passed to Lang::build_lang() to populate language names and
-	# to initialize to the English value all missing values for all the languages
-	$Languages{$lc} = $translations_to{languages}{$language};
-}
-
-# Build map of local country names in official languages to (country, language)
-
-$log->info("Building a map of local country names in official languages to (country, language)") if $log->is_info();
-
-%country_names = ();
-%country_codes = ();
-%country_codes_reverse = ();
-%country_languages = ();
-
-foreach my $country (keys %{$properties{countries}}) {
-
-	my $cc = country_to_cc($country);
-	if (not(defined $cc)) {
-		next;
-	}
-
-	$country_codes{$cc} = $country;
-	$country_codes_reverse{$country} = $cc;
-
-	$country_languages{$cc} = ['en'];
-	if (defined $properties{countries}{$country}{"language_codes:en"}) {
-		$country_languages{$cc} = [];
-		foreach my $language (split(",", $properties{countries}{$country}{"language_codes:en"})) {
-			$language = get_string_id_for_lang("no_language", $language);
-			$language =~ s/-/_/;
-			push @{$country_languages{$cc}}, $language;
-			my $name = $translations_to{countries}{$country}{$language};
-			my $nameid = get_string_id_for_lang("no_language", $name);
-			if (not defined $country_names{$nameid}) {
-				$country_names{$nameid} = [$cc, $country, $language];
-				# print STDERR "country_names{$nameid} = [$cc, $country, $language]\n";
+		$country_languages{$cc} = ['en'];
+		if (defined $properties{countries}{$country}{"language_codes:en"}) {
+			$country_languages{$cc} = [];
+			foreach my $language (split(",", $properties{countries}{$country}{"language_codes:en"})) {
+				$language = get_string_id_for_lang("no_language", $language);
+				$language =~ s/-/_/;
+				push @{$country_languages{$cc}}, $language;
+				my $name = $translations_to{countries}{$country}{$language};
+				my $nameid = get_string_id_for_lang("no_language", $name);
+				if (not defined $country_names{$nameid}) {
+					$country_names{$nameid} = [$cc, $country, $language];
+				}
 			}
 		}
+		else {
+			$log->warn("No language_codes:en for country $country") if $log->is_warn();
+		}
 	}
+	return;
+}
+
+=head2 init_taxonomies($die_if_some_taxonomies_cannot_be_loaded = 0)
+
+Initialize all taxonomies. This function is called when the Tags.pm module is loaded,
+in order to load all available taxonomies, as most scripts / modules that load Tags.pm
+expect taxonomies to be loaded.
+
+It is also called by lib/startup_apache.pl startup script with the $die_if_some_taxonomies_cannot_be_loaded set to 1.
+
+=head3 Parameters
+
+=head4 die if some taxonomies cannot be loaded $die_if_some_taxonomies_cannot_be_loaded
+
+If set to 1, the function will die if some taxonomies cannot be loaded.
+
+=cut
+
+sub init_taxonomies($die_if_some_taxonomies_cannot_be_loaded = 0) {
+	# this is only to avoid loading data when we check compilation
+	return if ($ENV{PO_NO_LOAD_DATA});
+
+	# load all tags images
+
+	# print STDERR "Tags.pm - loading tags images\n";
+	if (opendir my $DH2, "$www_root/images/lang") {
+		foreach my $langid (sort readdir($DH2)) {
+			next if $langid eq '.';
+			next if $langid eq '..';
+			next if ((length($langid) ne 2) and not($langid eq 'other'));
+
+			if (-e "$www_root/images/lang/$langid") {
+				opendir my $DH, "$www_root/images/lang/$langid" or die "Couldn't open the current directory: $!";
+				foreach my $tagtype (sort readdir($DH)) {
+					next if $tagtype =~ /\./;
+					#print STDERR "Tags: loading tagtype images $langid/$tagtype\n";
+					load_tags_images($langid, $tagtype);
+				}
+				closedir($DH);
+			}
+
+		}
+		closedir($DH2);
+	}
+	else {
+		$log->warn("The $lang_dir directory could not be opened.") if $log->is_warn();
+		$log->warn("Tags images could not be loaded.") if $log->is_warn();
+	}
+
+	foreach my $taxonomyid (@ProductOpener::Config::taxonomy_fields) {
+		$log->info("loading taxonomy $taxonomyid");
+		retrieve_tags_taxonomy($taxonomyid, $die_if_some_taxonomies_cannot_be_loaded);
+	}
+	# ingredients_original uses the ingredients taxonomy
+	$taxonomy_fields{"ingredients_original"} = "ingredients";
+	# mandatory_additive_class uses additives_classes
+	$taxonomy_fields{"mandatory_additive_class"} = "additives_classes";
+
+	init_languages();
+	init_countries();
+
+	return;
 }
 
 my %and = (
@@ -2936,64 +3120,10 @@ sub get_taxonomy_tag_and_link_for_lang ($target_lc, $tagtype, $tagid) {
 
 	my $taxonomy = $taxonomy_fields{$tagtype};
 
-	my $tag_lc;
+	my $exists_in_taxonomy = exists_taxonomy_tag($tagtype, $tagid) || 0;
+	my $display = display_taxonomy_tag($target_lc, $tagtype, $tagid);
 
-	if ($tagid =~ /^(\w\w):/) {
-		$tag_lc = $1;
-	}
-
-	my $display = '';
-	my $display_lc = "en";    # Default to English
-	my $exists_in_taxonomy = 0;
-
-	if (    (defined $translations_to{$taxonomy})
-		and (defined $translations_to{$taxonomy}{$tagid})
-		and (defined $translations_to{$taxonomy}{$tagid}{$target_lc}))
-	{
-		# we have a translation for the target language
-		# print STDERR "display_taxonomy_tag - translation for the target language - translations_to{$taxonomy}{$tagid}{$target_lc} : $translations_to{$taxonomy}{$tagid}{$target_lc}\n";
-		$display = $translations_to{$taxonomy}{$tagid}{$target_lc};
-		$display_lc = $target_lc;
-		$exists_in_taxonomy = 1;
-	}
-	else {
-		# use tag language
-		if (    (defined $translations_to{$taxonomy})
-			and (defined $translations_to{$taxonomy}{$tagid})
-			and (defined $tag_lc)
-			and (defined $translations_to{$taxonomy}{$tagid}{$tag_lc}))
-		{
-			# we have a translation for the tag language
-			# print STDERR "display_taxonomy_tag - translation for the tag language - translations_to{$taxonomy}{$tagid}{$tag_lc} : $translations_to{$taxonomy}{$tagid}{$tag_lc}\n";
-
-			$display = "$tag_lc:" . $translations_to{$taxonomy}{$tagid}{$tag_lc};
-
-			$exists_in_taxonomy = 1;
-		}
-		else {
-			$display = $tagid;
-			if (defined $tag_lc) {
-				$display_lc = $tag_lc;
-			}
-
-			if ($target_lc eq $tag_lc) {
-				$display =~ s/^(\w\w)://;
-			}
-			# print STDERR "display_taxonomy_tag - no translation available for $taxonomy $tagid in target language $lc or tag language $tag_lc - result: $display\n";
-		}
-	}
-
-	# for additives, add the first synonym
-	if ($taxonomy =~ /^additives(|_prev|_next|_debug)$/) {
-		$tagid =~ s/.*://;
-		if (    (defined $synonyms_for{$taxonomy}{$target_lc})
-			and (defined $synonyms_for{$taxonomy}{$target_lc}{$tagid})
-			and (defined $synonyms_for{$taxonomy}{$target_lc}{$tagid}[1]))
-		{
-			$display .= " - " . ucfirst($synonyms_for{$taxonomy}{$target_lc}{$tagid}[1]);
-		}
-	}
-
+	my $display_lc = $target_lc;
 	my $display_lc_prefix = "";
 	my $display_tag = $display;
 
@@ -3067,8 +3197,9 @@ sub display_tags_list ($tagtype, $tags_list) {
 			if ($img =~ /\.(\d+)x(\d+)/) {
 				$size = " width=\"$1\" height=\"$2\"";
 			}
+			my $alt = display_taxonomy_tag_name($lc, $tagtype, $tag);
 			$images .= <<HTML
-<img src="/images/lang/$lc/$tagtype/$img"$size/ style="display:inline">
+<img src="/images/lang/$lc/$tagtype/$img"$size/ style="display:inline" alt="$alt">
 HTML
 				;
 		}
@@ -3181,9 +3312,9 @@ sub display_tags_hierarchy ($tagtype, $tags_ref) {
 					$size = " width=\"$1\" height=\"$2\"";
 				}
 				# print STDERR "abbio - lc: $lc - tagtype: $tagtype - tag: $tag - img: $img\n";
-
+				my $alt = display_taxonomy_tag_name($lc, $tagtype, $tag);
 				$images .= <<HTML
-<img src="/images/lang/$lc/$tagtype/$img"$size/ style="display:inline">
+<img src="/images/lang/$lc/$tagtype/$img"$size/ style="display:inline" atl="$alt">
 HTML
 					;
 			}
@@ -3280,8 +3411,10 @@ sub display_tags_hierarchy_taxonomy ($target_lc, $tagtype, $tags_ref) {
 				if ($img =~ /\.(\d+)x(\d+)/) {
 					$size = " width=\"$1\" height=\"$2\"";
 				}
+				my $alt = display_taxonomy_tag_name($target_lc, $tagtype, $tag);
+
 				$images .= <<HTML
-<img src="$img"$size/ style="display:inline">
+<img src="$img"$size/ style="display:inline" alt="$alt">
 HTML
 					;
 			}
@@ -3327,6 +3460,8 @@ sub list_taxonomy_tags_in_language ($target_lc, $tagtype, $tags_ref) {
 }
 
 sub canonicalize_tag2 ($tagtype, $tag) {
+	return $tag if !defined $tag;
+
 	#$tag = lc($tag);
 	my $canon_tag = $tag;
 	$canon_tag =~ s/^ //g;
@@ -3353,25 +3488,7 @@ sub canonicalize_tag2 ($tagtype, $tag) {
 
 	$tag = $canon_tag;
 
-	if (($tagtype ne "additives_debug") and ($tagtype =~ /^additives(|_prev|_next|_debug)$/)) {
-
-		# e322-lecithines -> e322
-		my $tagid = get_string_id_for_lang($lc, $tag);
-		$tagid =~ s/-.*//;
-		my $other_name = $ingredients_classes{$tagtype}{$tagid}{other_names};
-		$other_name =~ s/,.*//;
-		if ($other_name ne '') {
-			$other_name = " - " . $other_name;
-		}
-		$tag = ucfirst($tagid) . $other_name;
-	}
-
-	elsif (($tagtype eq 'ingredients_from_palm_oil') or ($tagtype eq 'ingredients_that_may_be_from_palm_oil')) {
-		my $tagid = get_string_id_for_lang($lc, $tag);
-		$tag = $ingredients_classes{$tagtype}{$tagid}{name};
-	}
-
-	elsif ($tagtype eq 'emb_codes') {
+	if ($tagtype eq 'emb_codes') {
 
 		$tag = uc($tag);
 
@@ -3386,7 +3503,6 @@ sub canonicalize_tag2 ($tagtype, $tag) {
 	}
 
 	return $tag;
-
 }
 
 sub get_taxonomyid ($tag_lc, $tagid) {
@@ -3486,6 +3602,9 @@ Otherwise, we return the string prefixed with the language code (e.g. en:An unkn
 sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref = undef) {
 
 	my $taxonomy = $taxonomy_fields{$tagtype};
+	if (not defined $taxonomy) {
+		die("canonicalize_taxonomy_tag: unknown tag type $tagtype, cannot canonicalize tag $tag");
+	}
 
 	if (not defined $tag) {
 		if (defined $exists_in_taxonomy_ref) {
@@ -4013,8 +4132,8 @@ otherwise, the tag id.
 =cut
 
 my %cached_display_taxonomy_tags = ();
-$cached_display_taxonomy_tag_calls = 0;
-$cached_display_taxonomy_tag_misses = 0;
+my $cached_display_taxonomy_tag_calls = 0;
+my $cached_display_taxonomy_tag_misses = 0;
 
 sub cached_display_taxonomy_tag ($target_lc, $tagtype, $tag) {
 	$cached_display_taxonomy_tag_calls++;
@@ -4227,7 +4346,7 @@ sub canonicalize_tag_link ($tagtype, $tagid, $tag_prefix = undef) {
 		}
 	}
 
-	my $path = $tag_type_singular{$tagtype}{$lang};
+	my $path = $tag_type_singular{$tagtype}{$lc};
 	if (not defined $path) {
 		$path = $tag_type_singular{$tagtype}{en};
 	}
@@ -4464,6 +4583,7 @@ sub init_tags_texts {
 	return if (%tags_texts);
 
 	$log->info("loading tags texts") if $log->is_info();
+
 	if (opendir DH2, $lang_dir) {
 		foreach my $langid (readdir(DH2)) {
 			next if $langid eq '.';
@@ -4763,7 +4883,9 @@ sub add_users_translations_to_taxonomy ($tagtype) {
 
 	load_users_translations($users_translations_ref, $tagtype);
 
-	if (open(my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$tagtype.txt")) {
+	my $file_path = get_path_for_taxonomy($tagtype, $options{product_type});
+
+	if (open(my $IN, "<:encoding(UTF-8)", $file_path)) {
 
 		binmode(STDIN, ":encoding(UTF-8)");
 		binmode(STDOUT, ":encoding(UTF-8)");
@@ -5057,6 +5179,12 @@ sub get_knowledge_content ($tagtype, $tagid, $target_lc, $target_cc) {
 	}
 	return;
 }
+
+# Init the taxonomies, as most modules / scripts that load Tags.pm expect the taxonomies to be loaded
+# only available taxonomies will be loaded, and missing taxonomies will not trigger an error.
+# In almost all cases, all taxonomies should be available, with the exception of the build_tags_taxonomy.pl script
+
+init_taxonomies(0);
 
 $log->info("Tags.pm loaded") if $log->is_info();
 

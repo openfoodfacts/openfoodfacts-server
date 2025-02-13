@@ -1,0 +1,21 @@
+[%# A panel to indicate how to report problems with the product or its data %]
+{
+    "type": "card",
+    "expanded": true,
+    "topics": [
+        "problems"
+    ],
+    "title_element": {
+        "title": "[% edq(lang('report_problem_panel_title')) %]",
+    },
+    "elements": [
+        [% FOREACH panel_name IN panel.report_problem_panels %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "[% panel_name %]",
+            },
+        },
+        [% END %]
+    ],
+}

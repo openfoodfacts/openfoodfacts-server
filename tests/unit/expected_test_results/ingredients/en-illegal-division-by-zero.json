@@ -5,6 +5,7 @@
          "ingredients" : [
             {
                "id" : "en:paracetamol-500-m-5-060198-790",
+               "is_in_taxonomy" : 0,
                "percent_estimate" : 100,
                "percent_max" : 100,
                "percent_min" : 100,
@@ -13,6 +14,7 @@
                "text" : "paracetamol 500 m 5 060198 790"
             }
          ],
+         "is_in_taxonomy" : 0,
          "percent_estimate" : 100,
          "percent_max" : 100,
          "percent_min" : 100,
@@ -42,6 +44,7 @@
       "en:each-capsule-contains",
       "en:paracetamol-500-m-5-060198-790"
    ],
+   "ingredients_lc" : "en",
    "ingredients_n" : 2,
    "ingredients_n_tags" : [
       "2",
@@ -66,6 +69,11 @@
       "en:paracetamol-500-m-5-060198-790"
    ],
    "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:each-capsule-contains",
+      "en:paracetamol-500-m-5-060198-790"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 0,
    "lc" : "en",
    "nutriments" : {

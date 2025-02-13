@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -18,6 +18,8 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+## no critic (RequireFilenameMatchesPackage);
+
 package ProductOpener::Config;
 
 use utf8;
@@ -27,15 +29,17 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
+		$flavor
+
 		%string_normalization_for_lang
 		%admins
-		%moderators
 
 		$server_domain
 		@ssl_subdomains
 		$conf_root
 		$data_root
 		$www_root
+		$sftp_root
 		$geolite2_path
 		$reference_timezone
 		$contact_email
@@ -48,11 +52,16 @@ BEGIN {
 		$crowdin_project_identifier
 		$crowdin_project_key
 
+		$log_emails
 		$robotoff_url
 		$query_url
 		$events_url
 		$events_username
 		$events_password
+
+		$rate_limiter_blocking_enabled
+		$facets_kp_url
+		$redis_url
 
 		$mongodb
 		$mongodb_host
@@ -60,15 +69,13 @@ BEGIN {
 
 		$memd_servers
 
-		$google_analytics
+		$analytics
 
 		$thumb_size
 		$crop_size
 		$small_size
 		$display_size
 		$zoom_size
-
-		$page_size
 
 		%options
 		%server_options
@@ -87,12 +94,16 @@ BEGIN {
 		%weblink_templates
 
 		@edit_rules
+
+		$build_cache_repo
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 use vars @EXPORT_OK;    # no 'my' keyword for these
 
 use ProductOpener::Config2;
+
+$flavor = "opff";
 
 # define the normalization applied to change a string to a tag id (in particular for taxonomies)
 # tag ids are also used in URLs.
@@ -103,6 +114,8 @@ use ProductOpener::Config2;
 # - dangerous if different words (in the same context like ingredients or category names) have the same unaccented form
 # lowercase:
 # - useful when the same word appears in lowercase, with a first capital letter, or in all caps.
+
+# IMPORTANT: if you change it, you need to change $BUILD_TAGS_VERSION in Tags.pm
 
 %string_normalization_for_lang = (
 	# no_language is used for strings that are not in a specific language (e.g. user names)
@@ -147,36 +160,59 @@ use ProductOpener::Config2;
 );
 
 %admins = map {$_ => 1} qw(
-	agamitsudo
-	aleene
-	bcatelin
-	bojackhorseman
+	alex-off
+	cha-delh
 	charlesnepote
+	gala-nafikova
 	hangy
-	javichu
-	kyzh
-	lafel
-	lucaa
-	mbe
-	moon-rabbit
+	manoncorneille
 	raphael0202
-	sebleouf
-	segundo
 	stephane
 	tacinte
-	tacite
 	teolemon
-	twoflower
-
-	jniderkorn
-	desan
-	cedagaesse
-	m-etchebarne
 );
 
-%moderators = map {$_ => 1} qw(
-
+%options = (
+	site_name => "Open Pet Food Facts",
+	product_type => "petfood",
+	og_image_url => "https://world.openpetfoodfacts.org/images/misc/openpetfoodfacts-logo-en.png",
+	#android_apk_app_link => "https://world.openbeautyfacts.org/images/apps/obf.apk",
+	#android_app_link => "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&utm_source=opff&utf_medium=web",
+	#ios_app_link => "https://apps.apple.com/app/open-beauty-facts/id1122926380?utm_source=opff&utf_medium=web",
+	#facebook_page_url => "https://www.facebook.com/openbeautyfacts?utm_source=opff&utf_medium=web",
+	#twitter_account => "OpenBeautyFacts",
+	default_preferences =>
+		'{ "nova" : "important", "labels_organic" : "important", "labels_fair_trade" : "important" }',
+	# favicon HTML and images generated with https://realfavicongenerator.net/ using the SVG icon
+	favicons => <<HTML
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/opff/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/opff/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/opff/favicon-16x16.png">
+<link rel="manifest" href="/images/favicon/opff/site.webmanifest">
+<link rel="mask-icon" href="/images/favicon/opff/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/images/favicon/opff/favicon.ico">
+<meta name="msapplication-TileColor" content="#00aba9">
+<meta name="msapplication-config" content="/images/favicon/opff/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+HTML
+	,
 );
+
+$options{export_limit} = 10000;
+
+# Recent changes limits
+$options{default_recent_changes_page_size} = 20;
+$options{max_recent_changes_page_size} = 1000;
+
+# List of products limits
+$options{default_api_products_page_size} = 20;
+$options{default_web_products_page_size} = 50;
+$options{max_products_page_size} = 100;
+$options{max_products_page_size_for_logged_in_users} = 1000;
+
+# List of tags limits
+$options{default_tags_page_size} = 100;
+$options{max_tags_page_size} = 1000;
 
 @edit_rules = ();
 
@@ -212,9 +248,15 @@ $events_url = $ProductOpener::Config2::events_url;
 $events_username = $ProductOpener::Config2::events_username;
 $events_password = $ProductOpener::Config2::events_password;
 
+# If $rate_limiter_blocking_enabled is set to 1, the rate limiter will block requests
+# by returning a 429 error code instead of a 200 code
+$rate_limiter_blocking_enabled = $ProductOpener::Config2::rate_limiter_blocking_enabled;
+
 # server options
 
 %server_options = %ProductOpener::Config2::server_options;
+
+$build_cache_repo = $ProductOpener::Config2::build_cache_repo;
 
 $reference_timezone = 'Europe/Paris';
 
@@ -228,9 +270,27 @@ $small_size = 200;
 $display_size = 400;
 $zoom_size = 800;
 
-$page_size = 20;
-
-$google_analytics = <<HTML
+$analytics = <<HTML
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+  _paq.push(["setCookieDomain", "*.openpetfoodfacts.org"]);
+  _paq.push(["setDomains", ["*.openpetfoodfacts.org"]]);
+  _paq.push(["setDoNotTrack", true]);
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//analytics.openfoodfacts.org/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '9']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.openfoodfacts.org/matomo.php?idsite=9&amp;rec=1" style="border:0;" alt="" /></p></noscript>
 HTML
 	;
 
@@ -264,41 +324,147 @@ XML
 	;
 
 # fields for which we will load taxonomies
+# note: taxonomies that are used as properties of other taxonomies must be loaded first
+# (e.g. additives_classes are referenced in additives)
+# Below is a list of all of the taxonomies with other taxonomies that reference them
+# If there are entries in () these are other taxonomies that are combined into this one
+#
+# additives
+# additives_classes: additives, minerals
+# allergens: ingredients, traces
+# amino_acids
+# categories
+# countries:
+# data_quality
+# data_quality_bugs (data_quality)
+# data_quality_errors (data_quality)
+# data_quality_errors_producers (data_quality)
+# data_quality_info (data_quality)
+# data_quality_warnings (data_quality)
+# data_quality_warnings_producers (data_quality)
+# food_groups: categories
+# improvements
+# ingredients_analysis
+# ingredients_processing:
+# ingredients (additives_classes, additives, minerals, vitamins, nucleotides, other_nutritional_substances): labels
+# labels: categories
+# languages:
+# minerals
+# misc
+# nova_groups
+# nucleotides
+# nutrient_levels
+# nutrients
+# origins (countries): categories, ingredients, labels
+# other_nutritional_substances
+# packaging_materials: packaging_recycling, packaging_shapes
+# packaging_recycling
+# packaging_shapes: packaging_materials, packaging_recycling
+# packaging (packaging_materials, packaging_shapes, packaging_recycling, preservation): labels
+# periods_after_opening:
+# states:
+# traces (allergens)
+# vitamins
 
-@taxonomy_fields
-	= qw(units states countries languages labels categories additives additives_classes vitamins minerals amino_acids nucleotides other_nutritional_substances allergens traces nutrient_levels misc ingredients nova_groups);
+@taxonomy_fields = qw(
+	units
+	languages states countries
+	allergens origins additives_classes ingredients
+	packaging_shapes packaging_materials packaging_recycling packaging
+	labels food_groups categories
+	ingredients_processing
+	additives vitamins minerals amino_acids nucleotides other_nutritional_substances traces
+	ingredients_analysis
+	nutrients nutrient_levels misc nova_groups
+	periods_after_opening
+	data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors data_quality_warnings_producers data_quality_errors_producers
+	improvements
+);
 
 # tag types (=facets) that should be indexed by web crawlers, all other tag types are not indexable
-@index_tag_types = qw(brands categories labels additives nova_groups nutrition_grades products);
+@index_tag_types = qw(brands categories labels additives nova_groups environmental_score nutrition_grades products);
 
 # fields in product edit form, above ingredients and nutrition facts
 
-@product_fields
-	= qw(quantity packaging brands categories labels origins manufacturing_places emb_codes link expiration_date purchase_places stores countries  );
+@product_fields = qw(quantity packaging brands categories labels origins manufacturing_places
+	emb_codes link expiration_date purchase_places stores countries  );
 
 # fields currently not shown in the default edit form, can be used in imports or advanced edit forms
 
 @product_other_fields = qw(
+	producer_product_id
 	producer_version_id
-	net_weight_value net_weight_unit drained_weight_value drained_weight_unit volume_value volume_unit
-	other_information conservation_conditions recycling_instructions_to_recycle recycling_instructions_to_discard
+	brand_owner
+	quantity_value
+	quantity_unit
+	serving_size_value
+	serving_size_unit
+	net_weight_value
+	net_weight_unit
+	drained_weight_value
+	drained_weight_unit
+	volume_value
+	volume_unit
+	other_information
+	conservation_conditions
+	recycling_instructions_to_recycle
+	recycling_instructions_to_discard
 	nutrition_grade_fr_producer
+	nutriscore_score_producer
+	nutriscore_grade_producer
+	recipe_idea
+	origin
+	customer_service
+	producer
+	preparation
+	warning
+	data_sources
+	obsolete
+	obsolete_since_date
+	periods_after_opening
 );
 
 # fields shown on product page
 # do not show purchase_places
 
-@display_fields
-	= qw(generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link stores countries);
+@display_fields = qw(
+	generic_name
+	quantity
+	packaging
+	brands
+	brand_owner
+	categories
+	labels
+	origin
+	origins
+	producer
+	manufacturing_places
+	emb_codes
+	link stores
+	countries
+);
 
 # fields displayed in a new section after the nutrition facts
 
-@display_other_fields
-	= qw(other_information conservation_conditions recycling_instructions_to_recycle recycling_instructions_to_discard);
+@display_other_fields = qw(
+	other_information
+	preparation
+	recipe_idea
+	warning
+	conservation_conditions
+	periods_after_opening
+	recycling_instructions_to_recycle
+	recycling_instructions_to_discard
+	customer_service
+);
 
 # fields for drilldown facet navigation
+# If adding to this list ensure that the tables are being replicated to Postgres in the openfoodfacts-query repo
 
 @drilldown_fields = qw(
+	nutrition_grades
+	nova_groups
+	environmental_score
 	brands
 	categories
 	labels
@@ -315,15 +481,15 @@ XML
 	other_nutritional_substances
 	allergens
 	traces
-	nova_groups
-	nutrition_grades
 	misc
 	languages
 	users
 	states
+	data_sources
 	entry_dates
 	last_edit_dates
 	last_check_dates
+	teams
 );
 
 @export_fields = qw(
@@ -331,10 +497,14 @@ XML
 	creator
 	created_t
 	last_modified_t
+	last_modified_by
+	last_updated_t
 	product_name
+	abbreviated_product_name
 	generic_name
 	quantity
 	packaging
+	packaging_text
 	brands
 	categories
 	origins
@@ -346,23 +516,48 @@ XML
 	stores
 	countries
 	ingredients_text
+	ingredients_tags
+	ingredients_analysis_tags
 	allergens
 	traces
 	serving_size
 	serving_quantity
-	no_nutriments
+	no_nutrition_data
 	additives_n
 	additives
-	ingredients_from_palm_oil_n
-	ingredients_from_palm_oil
-	ingredients_that_may_be_from_palm_oil_n
-	ingredients_that_may_be_from_palm_oil
-	nutrition_grade_fr
+	nutriscore_score
+	nutriscore_grade
 	nova_group
 	pnns_groups_1
 	pnns_groups_2
+	food_groups
 	states
+	brand_owner
+	environmental_score_score
+	environmental_score_grade
+	nutrient_levels_tags
+	product_quantity
+	owner
+	data_quality_errors_tags
+	unique_scans_n
+	popularity_tags
+	completeness
+	last_image_t
 );
+
+# Used to generate the list of possible product attributes, which is
+# used to display the possible choices for user preferences
+$options{attribute_groups} = [["labels", ["labels_organic", "labels_fair_trade"]],];
+
+# default preferences for attributes
+$options{attribute_default_preferences} = {
+	"labels_organic" => "important",
+	"labels_fair_trade" => "important",
+};
+
+use JSON::MaybeXS;
+$options{attribute_default_preferences_json}
+	= JSON->new->utf8->canonical->encode($options{attribute_default_preferences});
 
 # for ingredients OCR, we use tesseract-ocr
 # on debian, dictionaries are in /usr/share/tesseract-ocr/tessdata
@@ -400,37 +595,7 @@ XML
 
 );
 
-# allow moving products to other instances of Product Opener on the same server
-# e.g. OFF -> OBF
-
-$options{current_server} = "opff";
-
-$options{other_servers} = {
-	obf => {
-		name => "Open Beauty Facts",
-		data_root => "/srv/obf",
-		www_root => "/srv/obf/html",
-		mongodb => "obf",
-		domain => "openbeautyfacts.org",
-	},
-	off => {
-		name => "Open Food Facts",
-		data_root => "/srv/off",
-		www_root => "/srv/off/html",
-		mongodb => "off",
-		domain => "openfoodfacts.org",
-	},
-	opf => {
-		prefix => "opf",
-		name => "Open Products Facts",
-		data_root => "/srv/opf",
-		www_root => "/srv/opf/html",
-		mongodb => "opf",
-		domain => "openproductsfacts.org",
-	}
-};
-
 # Name of the Redis stream to which product updates are published
-$options{redis_stream_name} = "product_updates_opff";
+$options{redis_stream_name} = "product_updates";
 
 1;

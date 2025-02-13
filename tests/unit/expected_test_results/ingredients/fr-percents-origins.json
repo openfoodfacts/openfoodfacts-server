@@ -2,7 +2,9 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "2074",
+         "ecobalyse_code" : "3d3fc6bd-0a43-462b-bc39-fed04cf34498",
          "id" : "en:apple-juice",
+         "is_in_taxonomy" : 1,
          "labels" : "en:organic",
          "percent" : 80,
          "percent_estimate" : 80,
@@ -12,6 +14,7 @@
       },
       {
          "id" : "en:quince",
+         "is_in_taxonomy" : 1,
          "labels" : "en:organic",
          "percent" : 20,
          "percent_estimate" : 20,
@@ -22,6 +25,7 @@
       {
          "ciqual_food_code" : "11082",
          "id" : "en:sea-salt",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 0,
          "text" : "sel marin",
          "vegan" : "yes",
@@ -29,6 +33,7 @@
       },
       {
          "id" : "en:sodium-chloride",
+         "is_in_taxonomy" : 1,
          "origins" : "en:france,en:italy",
          "percent" : 98,
          "percent_estimate" : 0,
@@ -62,6 +67,7 @@
       "en:minerals",
       "en:sodium"
    ],
+   "ingredients_lc" : "fr",
    "ingredients_n" : 4,
    "ingredients_n_tags" : [
       "4",
@@ -98,6 +104,12 @@
       "en:sodium-chloride"
    ],
    "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:quince",
+      "en:sea-salt",
+      "en:sodium-chloride"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 3,
    "known_ingredients_n" : 12,
    "lc" : "fr",
    "misc_tags" : [

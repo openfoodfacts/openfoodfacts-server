@@ -2,7 +2,9 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "2070",
+         "ecobalyse_code" : "f3c21efc-5e7b-4c24-a7f6-6ffbcb34d5b1",
          "id" : "en:orange-juice",
+         "is_in_taxonomy" : 1,
          "labels" : "en:no-preservatives",
          "percent_estimate" : 75,
          "percent_max" : 100,
@@ -14,6 +16,7 @@
       {
          "ciqual_food_code" : "26036",
          "id" : "en:salmon",
+         "is_in_taxonomy" : 1,
          "labels" : "en:sustainable-seafood-msc",
          "percent_estimate" : 25,
          "percent_max" : 50,
@@ -47,6 +50,7 @@
       "en:fish",
       "en:oily-fish"
    ],
+   "ingredients_lc" : "fi",
    "ingredients_n" : 2,
    "ingredients_n_tags" : [
       "2",
@@ -75,6 +79,10 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:salmon"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 9,
    "labels" : "en:no-gluten",
    "labels_hierarchy" : [
