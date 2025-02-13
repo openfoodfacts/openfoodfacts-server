@@ -74,7 +74,7 @@ my $tests_ref = [
 	{
 		test_case => 'crawler-access-nested-facet-page',
 		method => 'GET',
-		path => '/category/hazelnut-spreads/brand/nutella',
+		path => '/facets/categories/hazelnut-spreads/brands/nutella',
 		headers_in => {'User-Agent' => $CRAWLING_BOT_USER_AGENT},
 		expected_status_code => 200,
 		expected_type => 'html',
@@ -84,7 +84,7 @@ my $tests_ref = [
 	{
 		test_case => 'normal-user-access-nested-facet-page',
 		method => 'GET',
-		path => '/category/hazelnut-spreads/brand/nutella',
+		path => '/facets/categories/hazelnut-spreads/brands/nutella',
 		headers_in => {'User-Agent' => $NORMAL_USER_USER_AGENT},
 		expected_status_code => 200,
 		expected_type => 'html',
@@ -94,7 +94,7 @@ my $tests_ref = [
 	{
 		test_case => 'crawler-access-category-facet-page',
 		method => 'GET',
-		path => '/category/hazelnut-spreads',
+		path => '/facets/categories/hazelnut-spreads',
 		headers_in => {'User-Agent' => $CRAWLING_BOT_USER_AGENT},
 		expected_status_code => 200,
 		expected_type => 'html',
@@ -104,7 +104,7 @@ my $tests_ref = [
 	{
 		test_case => 'normal-user-access-category-facet-page',
 		method => 'GET',
-		path => '/category/hazelnut-spreads',
+		path => '/facets/categories/hazelnut-spreads',
 		headers_in => {'User-Agent' => $NORMAL_USER_USER_AGENT},
 		expected_status_code => 200,
 		expected_type => 'html',
@@ -114,7 +114,7 @@ my $tests_ref = [
 	{
 		test_case => 'crawler-access-list-of-tags',
 		method => 'GET',
-		path => '/categories',
+		path => '/facets/categories',
 		headers_in => {'User-Agent' => $CRAWLING_BOT_USER_AGENT},
 		expected_status_code => 200,
 		expected_type => 'html',
@@ -124,7 +124,7 @@ my $tests_ref = [
 	{
 		test_case => 'normal-user-access-list-of-tags',
 		method => 'GET',
-		path => '/categories',
+		path => '/facets/categories',
 		headers_in => {'User-Agent' => $NORMAL_USER_USER_AGENT},
 		expected_status_code => 200,
 		expected_type => 'html',
@@ -134,7 +134,7 @@ my $tests_ref = [
 	{
 		test_case => 'crawler-access-editor-facet-page',
 		method => 'GET',
-		path => '/editor/unknown-user',
+		path => '/facets/editors/unknown-user',
 		headers_in => {'User-Agent' => $CRAWLING_BOT_USER_AGENT},
 		expected_status_code => 200,
 		expected_type => 'html',
@@ -144,7 +144,7 @@ my $tests_ref = [
 	{
 		test_case => 'normal-user-access-editor-facet-page',
 		method => 'GET',
-		path => '/editor/unknown-user',
+		path => '/facets/editors/unknown-user',
 		headers_in => {'User-Agent' => $NORMAL_USER_USER_AGENT},
 		expected_status_code => 404,
 		expected_type => 'html',
@@ -154,7 +154,7 @@ my $tests_ref = [
 	{
 		test_case => 'normal-user-get-facet-knowledge-panels',
 		method => 'GET',
-		path => '/category/cakes',
+		path => '/facets/categories/cakes',
 		headers_in => {'User-Agent' => $NORMAL_USER_USER_AGENT},
 		expected_status_code => 200,
 		expected_type => 'html',
@@ -164,7 +164,7 @@ my $tests_ref = [
 	{
 		test_case => 'crawler-does-not-get-facet-knowledge-panels',
 		method => 'GET',
-		path => '/category/cakes',
+		path => '/facets/categories/cakes',
 		headers_in => {'User-Agent' => $CRAWLING_BOT_USER_AGENT},
 		expected_status_code => 200,
 		expected_type => 'html',
