@@ -34,7 +34,7 @@ nb: gjenvinnes
 pt: reciclável, a reciclar, para reciclar
 # associated_materials: en:glass, en:aluminium, en:steel
 
-<en: recycle
+< en: recycle
 en: recycle in glass bin, recycle in glass container, recycle with glass, in glass bin, in glass container
 es: Contenedor verde, Al verde, Contenedor de vidrio, Recicla verde
 fr: recycler dans le conteneur à verre, recycler dans le bac à verre, recycler avec le verre, dans le conteneur à verre, avec le verre, tri verre, bac verre
@@ -45,7 +45,7 @@ pt: Ecoponto Verde, Recicla verde
 packaging_materials:en: en:glass
 # note: for NL, even though there are different logos for recyclen in de glasbak, glasbak etc. they mean the same thing, so we keep them as one entry
 
-<en: recycle
+< en: recycle
 en: recycle in paper bin, recycle in paper container, recycle with paper
 es: Contenedor azul, Al azul, Contenedor de papel, Recicla azul
 fr: recycler dans le conteneur à papier, recycler dans le bac à papier, recycler avec le papier, dans le conteneur à papier, dans le bac à papier, avec le papier
@@ -96,7 +96,7 @@ fr: consigné, consigne, rapporter au magasin, retourner au magasin
 # nl:recycle-als-statiegeld is already coer
 it: riconsegnare al negozio, restituire al negozio
 
-<en: return to store
+< en: return to store
 en: return PET bottle to store, PET deposit bottle
 fr: bouteille en PET consignée, rapporter la bouteille en PET au magasin
 
@@ -109,8 +109,8 @@ packaging_materials:en: en:pet-1-polyethylene-terephthalate
 packaging_shapes:en: en:bottle
 
 #In the Netherlands metal cans must be returned in exchange for the deposit, when it has the statiegeldblik logo
-<en:return to store
-nl:statiegeldblik, recycle als statiegeldblik
+< en:return to store
+nl: statiegeldblik, recycle als statiegeldblik
 packaging_shapes:en: en:can
 
 # In Croatia, there is a specific label for plastic and glass bottle with deposit
