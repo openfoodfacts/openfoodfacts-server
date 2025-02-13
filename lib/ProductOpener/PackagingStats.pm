@@ -88,10 +88,10 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Data qw/get_products_collection/;
 use ProductOpener::Packaging qw/get_parent_material/;
-use ProductOpener::Ecoscore qw/load_agribalyse_data %agribalyse/;
+use ProductOpener::EnvironmentalScore qw/load_agribalyse_data %agribalyse/;
 
 use File::Path qw(mkpath);
-use JSON::PP;
+use JSON::MaybeXS;
 use Data::DeepAccess qw(deep_exists deep_get deep_set deep_val);
 use Text::CSV;
 

@@ -10,7 +10,7 @@ use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Products qw/compute_languages/;
 use ProductOpener::Tags qw/canonicalize_taxonomy_tag/;
-use ProductOpener::Ingredients qw/clean_ingredients_text extract_ingredients_classes_from_text/;
+use ProductOpener::Ingredients qw/clean_ingredients_text extract_additives_from_text/;
 
 # dummy product for testing
 
@@ -19,7 +19,7 @@ my $product_ref = {
 	ingredients_text => "Agua, vitaminas (B1, C y E), Vitamina B2"
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -42,7 +42,7 @@ $product_ref = {
 
 compute_languages($product_ref);
 clean_ingredients_text($product_ref);
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 is(
 	$product_ref->{additives_original_tags},
@@ -59,7 +59,7 @@ $product_ref = {
 		"pâte de cacao* de Madagascar 75%, sucre de canne*, beurre de cacao*. * issus du commerce équitable et de l'agriculture biologique (100% du poids total)."
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 is($product_ref->{additives_original_tags}, [],);
 
@@ -69,7 +69,7 @@ $product_ref = {
 	categories_tags => ["en:debug"],
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 is($product_ref->{additives},
 	' [ acide-citrique -> en:e330  -> exists  -- ok  ]  [ colorant -> fr:colorant  ]  [ e120 -> en:e120  -> exists  -- mandatory_additive_class: en:colour (current: en:colour)  -- ok  ]  [ vitamine-c -> en:e300  -> exists  -- mandatory_additive_class: en:acidity-regulator,en:antioxidant,en:flour-treatment-agent,en:sequestrant,en:acid (current: en:colour)  -> exists as a vitamin en:vitamin-c  ]  [ e500 -> en:e500  -> exists  -- mandatory_additive_class: en:acidity-regulator, en:raising-agent (current: en:vitamins)  -- e-number  ] '
@@ -87,7 +87,7 @@ $product_ref = {
 		"Poitrine de porc, sel, conservateurs : lactate de potassium, nitrite de sodium, arôme naturel, sirop de glucose, antioxydant : érythorbate de sodium"
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 is($product_ref->{additives_original_tags}, ['en:e326', 'en:e250', 'en:e316',],);
 
@@ -104,7 +104,7 @@ $product_ref = {
 		"Farine de blé 46 %, sucre de canne roux non raffiné, farine complète de blé 15 %, graines de sésame 13 %, huile de tournesol oléique 13 %, sel marin non raffiné, poudres à lever : carbonates d'ammonium et de sodium, acide citrique ; extrait de vanille, antioxydant : extraits de romarin.",
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 is($product_ref->{additives_original_tags}, ['en:e503', 'en:e500', 'en:e330', 'en:e392',],);
 
@@ -114,7 +114,7 @@ $product_ref = {
 		"carbonates de sodium et d'ammonium, nitrate de sodium et de potassium, Phosphate d'aluminium et de sodium.",
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -125,7 +125,7 @@ $product_ref = {
 	ingredients_text => "poudres à lever : carbonates de sodium et d'ammonium",
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 is($product_ref->{additives_original_tags}, ['en:e500', 'en:e503',]);
 
@@ -134,7 +134,7 @@ $product_ref = {
 	ingredients_text => "calcium, sodium, potassium, aluminium, magnésium, fer, or, argent, sels",
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 is($product_ref->{additives_original_tags}, ['en:e173', 'en:e175', 'en:e174',],);
 
@@ -144,7 +144,7 @@ $product_ref = {
 		"sirop de maltitol, Chlorophylle, Sels de sodium et de potassium de complexes cupriques de chlorophyllines, Carotènes végétaux, Carotènes d'algues",
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 is($product_ref->{additives_original_tags}, ['en:e965ii', 'en:e140i', 'en:e141ii', 'en:e160aii', 'en:e160aiv',],);
 
@@ -153,7 +153,7 @@ $product_ref = {
 	ingredients_text => "colorants : carotène et extraits de paprika et de curcuma",
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 0 and is($product_ref->{additives_original_tags}, ['en:e160a', 'en:e160c', 'en:e100',],);
 
@@ -163,7 +163,7 @@ $product_ref = {
 		"colorants : E100 et E120, acidifiant : acide citrique et E331, colorants : lutéine et tartrazine",
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 0 and is($product_ref->{additives_original_tags}, ['en:e100', 'en:e120', 'en:e330', 'en:e331', 'en:e100', 'en:e102',],);
 
@@ -172,7 +172,7 @@ $product_ref = {
 	ingredients_text => "colorant: caroténoides mélangés",
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 is($product_ref->{additives_original_tags}, ['en:e160a',],);
 
@@ -183,7 +183,7 @@ $product_ref = {
 ",
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 is(
 	$product_ref->{additives_original_tags},
@@ -202,7 +202,7 @@ $product_ref = {
 ",
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives_original_tags};
 
@@ -221,7 +221,7 @@ $product_ref = {
 	ingredients_text => "Eau, sucre, vitamine C"
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 is($product_ref->{additives_original_tags}, [],);
 
@@ -230,7 +230,7 @@ $product_ref = {
 	ingredients_text => "Eau, sucre, antioxydant: vitamine C"
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -241,7 +241,7 @@ $product_ref = {
 	ingredients_text => "Eau, sucre, anti-oxydants: vitamine C"
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -252,7 +252,7 @@ $product_ref = {
 	ingredients_text => "Eau, sucre, antioxydants: vitamine C, acide citrique"
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 is($product_ref->{additives_original_tags}, ['en:e300', 'en:e330',],);
 
@@ -261,7 +261,7 @@ $product_ref = {
 	ingredients_text => "vitamines (A,C)"
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -272,7 +272,7 @@ $product_ref = {
 	ingredients_text => "vitamines E, B6"
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -283,7 +283,7 @@ $product_ref = {
 	ingredients_text => "vitamines B9 et B12"
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -294,7 +294,7 @@ $product_ref = {
 	ingredients_text => "vitamines: D, K et PP"
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -305,7 +305,7 @@ $product_ref = {
 	ingredients_text => "vitamines : C, PP, acide folique et E"
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -316,7 +316,7 @@ $product_ref = {
 	ingredients_text => "Chlorures d'ammonium et de calcium"
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -329,7 +329,7 @@ $product_ref = {
 	ingredients_text => "Chlorures de calcium et ammonium"
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -342,7 +342,7 @@ $product_ref = {
 	ingredients_text => "Sulfates de fer, de zinc et de cuivre"
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -355,7 +355,7 @@ $product_ref = {
 	ingredients_text => "Minéraux (carbonate de calcium)"
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -368,7 +368,7 @@ $product_ref = {
 	ingredients_text => "carbonate de calcium"
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -382,7 +382,7 @@ $product_ref = {
 		"Mineraux (carbonate de calcium, chlorures de calcium, potassium et magnésium, citrates de potassium et de sodium, phosphate de calcium, sulfates de fer, de zinc, de cuivre et de manganèse, iodure de potassium, sélénite de sodium)."
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -404,7 +404,7 @@ $product_ref = {
 		"(carbonate de calcium, chlorures de calcium, potassium et magnésium, citrates de potassium et de sodium, phosphate de calcium, sulfates de fer, de zinc, de cuivre et de manganèse, iodure de potassium, sélénite de sodium)."
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -426,7 +426,7 @@ $product_ref = {
 		"Lactosérum déminéralisé (lait) - Huiles végétales (Palme, Colza, Coprah, Tournesol, Mortierella alpina) - Lactose (lait) - Lait écrémé - Galacto- oligosaccharides (GOS) (lait) - Protéines de lactosérum concentrées (lait) - Fructo- oligosaccharides (FOS) - Huile de poisson - Chlorure de choline - Emulsifiant: lécithine de soja - Taurine - Nucléotides - Inositol - L-tryptophane - L-carnitine - Vitamines (C, PP, B5, B9, A, E, B8, B12, BI, D3, B6, K1, B2) - Minéraux (carbonate de calcium, chlorures de potassium et de magnésium, citrates de potassium et de sodium, phosphate de calcium, sulfates de fer, de zinc, de cuivre et de manganèse, iodure de potassium, sélénite de sodium)."
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives_original_tags};
 
@@ -440,7 +440,7 @@ $product_ref = {
 		"Purée de pomme 40 %, sirop de glucose-fructose, farine de blé, protéines de lait, sucre, protéines de soja, purée de framboise 5 %, lactosérum, protéines de blé hydrolysées, sirop de glucose, graisse de palme non hydrogénée, humectant : glycérol végétal, huile de tournesol, minéraux (potassium, calcium, magnésium, fer, zinc, cuivre, sélénium, iode), jus concentré de raisin, arômes naturels, jus concentré de citron, levure désactivée, correcteur d'acidité : citrates de sodium, sel marin, acidifiant : acide citrique, vitamines A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E (lactose, protéines de lait), cannelle, poudres à lever (carbonates de sodium, carbonates d'ammonium)."
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives_original_tags};
 
@@ -470,7 +470,7 @@ $product_ref = {
 	ingredients_text => "Calcium phosphate"
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -483,7 +483,7 @@ $product_ref = {
 	ingredients_text => "acidity regulators: Calcium phosphate"
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -497,7 +497,7 @@ $product_ref = {
 		"Dextrines maltées de mais, lait écrémé, huiles végétales non hydrogénées : colza, noix de coco, tournesol, lactose, Bifidus longum maternis. Minéraux : phosphate de calcium naturel de lait, oxyde de magnésium naturel, pyrophosphate de fer, gluconate de zinc, gluconate de cuivre, iodate de potassium, sélénite de sodium Vitamine d'Origine Végétale : L-ascorbate de sodium (vitamine C, cobalamine (vitamine B12), vitamines nature identique : niacine (vitamine PP), acide pantothénique (vitamine B5), riboflavine (vitamine B2), thiamine (vitamine B1), pyridoxine (vitamine B6), rétinol (vitamine A), acide folique (vitamine B9), phytoménadione (vitamine K1), biotine (vitamine B8), ergocalciférol (vitamine D2), vitamine Naturelle : tocophérols naturels extrait de tournesol (vitamine E)"
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -526,7 +526,7 @@ $product_ref = {
 	ingredients_text => "Oxyde de magnésium, Acide gluconique, Gluconate de calcium"
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -542,7 +542,7 @@ $product_ref = {
 		"Céréales 90,5 % (farine de blé et gluten de blé 57,8 %, farine complète de blé 31 %, farine de blé malté), sucre, graines de lin, levure, huile de palme, fibres d'avoine, sel, minéraux [calcium (orthophosphate), fer (fumarate), magnésium (oxyde)], agent de traitement de la farine (acide ascorbique), vitamines [E, thiamine (B1), riboflavine (B2), B6, acide folique)]."
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -558,7 +558,7 @@ $product_ref = {
 		"REAL SUGARCANE, SALT, ANTIOXIDANT (INS 300), ACIDITY REGULATOR (INS 334), STABILIZER (INS 440, INS 337), WATER (FOR MAINTAINING DESIRED BRIX), CONTAINS PERMITTED NATURAL FLAVOUR & NATURAL IDENTICAL COLOURING SUBSTANCES (INS 141[i])"
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -571,7 +571,7 @@ $product_ref = {
 		"water, sugar, tea, lemon juice, flavouring, acidity regulator (330, 331), vitamin C, antioxidant (304)"
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -583,7 +583,7 @@ $product_ref = {
 		"chlorure de choline, taurine, inositol, L-cystéine, sels de sodium de l’AMP, citrate de choline, carnitine"
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -603,7 +603,7 @@ $product_ref = {
 	ingredients_text => "émulsifiant: chlorure de choline, agent de traitement de la farine:l cystéine"
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -615,7 +615,7 @@ $product_ref = {
 Lait partiellement écrémé, eau, lactose, maltodextrines, huiles végétales (colza, tournesol), vitamines : A, B1, B2, B5, B6, B8, B9, B12, C, D3, E, K1 et PP, substances d'apport minéral : citrate de calcium, sulfates de fer, de magnésium, de zinc, de cuivre et de manganèse, citrate de sodium, iodure et hydroxyde de potassium, sélénite de sodium, émulsifiant : lécithine de colza, éthylvanilline."
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -636,7 +636,7 @@ $product_ref = {
 		"INFORMATIONS NUTRITIONNELLES PRÉPARATION POUR NOURRISSONS EN potlDRE - Ingrédients du produit reconstitué : Lactose (lait), huiles végétales (palme, colza, tournesol), maltodextrines, proteines de lait hydrolysées, minéraux (phosphate tricalcique, chlorure de potassium, citrate trisodique, phosphate dipotassique, phosphate de magnésium, sulfate ferreux, sulfate de zinc, hydroxyde de potassium, sélénite de sodium, iodure de potassium, sulfate de cuivre, sulfate de manganèse), émulsifiant (esters citriques de mono et diglycérides d'acides gras), vitamines (C,pp, B9,H,B12), L-phénylalanine, chlorure de choline, L-tryptophane, L-tyrosine, taurine, inositol, antioxydants (palmitate d'ascorbyle, tocophérols) (soja), L-carnitine, ferments lactiques (Lactobacillus fermentum CECT5716)"
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -666,7 +666,7 @@ $product_ref = {
 	ingredients_text => "huile de colza, orthophosphates de calcium, carbonate de calcium, citrates de potassium"
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -679,7 +679,7 @@ $product_ref = {
 	ingredients_text => "copper carbonate"
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -692,7 +692,7 @@ $product_ref = {
 	ingredients_text => "Café instantané 100 % pur arabica"
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -704,7 +704,7 @@ $product_ref = {
 	ingredients_text => "Instant coffee 100 %."
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -720,7 +720,7 @@ $product_ref = {
 		"water, sugar, tea, lemon juice, flavouring, acidity regulator (330, 331), vitamin C, antioxidant (304)"
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -732,7 +732,7 @@ $product_ref = {
 		"Sucre (France), OEUF entier (reconstitué à partir de poudre d OEUF), huile de colza, farine de riz, amidon de pomme de terre, stabilisants : glycérol et gomme xanthane, amidon de maïs, poudres à lever : diphosphates et carbonates de sodium, arôme naturel de citron, émulsifiant : mono- et diglycérides d'acides gras, conservateur : sorbate de potassium, sel, colorant : riboflavine. Traces éventuelles de soja."
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -747,7 +747,7 @@ $product_ref = {
 		"farine de seigle, sel, poudre à lever : carbonates de sodium,carbonates dlammonium,diphosphates,tartrates d potassium, amidon de blé, poudre de lait écrémé, extrait de malt dlorge, noix de coco 0,1 % arômes, jaune d'œuf en poudre, fécule de pomme de terre, farine dorge, amidon de maïs colorants : caramel ordinaire et curcumine, lactose et protéine de lait en poudre. Colorant: Sels de sodium et de potassium de complexes cupriques de chlorophyllines, Complexe cuivrique des chlorophyllines avec sels de sodium et de potassium, oxyde et hydroxyde de fer rouge, oxyde et hydroxyde de fer jaune et rouge, Tartrate double de sodium et de potassium, Éthylènediaminetétraacétate de calcium et de disodium, Phosphate d'aluminium et de sodium, Diphosphate de potassium et de sodium, Tripoliphosphates de sodium et de potassium, Sels de sodium de potassium et de calcium d'acides gras, Mono- et diglycérides d'acides gras, Esters acétiques des mono- et diglycérides, Esters glycéroliques de l'acide acétique et d'acides gras, Esters glycéroliques de l'acide citrique et d'acides gras, Esters monoacétyltartriques et diacétyltartriques, Esters mixtes acétiques et tartriques des mono- et diglycérides d'acides gras, Esters lactyles d'acides gras du glycérol et du propane-1, Silicate double d'aluminium et de calcium, Silicate d'aluminium et calcium, Silicate d'aluminium et de calcium, Silicate double de calcium et d'aluminium,  Glycine et son sel de sodium, Cire d'abeille blanche et jaune, Acide cyclamique et ses sels, Saccharine et ses sels, Acide glycyrrhizique et sels, Sels et esters de choline, Octénylesuccinate d'amidon et d'aluminium, "
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -793,7 +793,7 @@ $product_ref = {
 "
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -806,7 +806,7 @@ $product_ref = {
 "
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -832,7 +832,7 @@ $product_ref = {
 	categories_tags => ["en:debug"],
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -851,7 +851,7 @@ $product_ref = {
 "
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -875,7 +875,7 @@ $product_ref = {
 "
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -888,7 +888,7 @@ $product_ref = {
 "
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -901,7 +901,7 @@ $product_ref = {
 ",
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -913,7 +913,7 @@ $product_ref = {
 ",
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -925,7 +925,7 @@ $product_ref = {
 ",
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -937,7 +937,7 @@ $product_ref = {
 ",
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 diag Dumper $product_ref->{additives};
 
@@ -951,7 +951,7 @@ $product_ref = {
 	ingredients_text => "Leche desnatada de vaca, enzima lactasa y vitaminas A, D, E y ácido fólico.",
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 is($product_ref->{vitamins_tags}, ["en:vitamin-a", "en:vitamin-d", "en:vitamin-e", "en:folic-acid",],)
 	or diag Dumper $product_ref->{vitamins_tags};
@@ -964,7 +964,7 @@ $product_ref = {
 	categories_tags => ["en:debug"],
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 is($product_ref->{additives},
 	' [ sitruunahappo -> en:e330  -> exists  -- ok  ]  [ väri -> fi:väri  ]  [ e120 -> en:e120  -> exists  -- mandatory_additive_class: en:colour (current: en:colour)  -- ok  ]  [ c-vitamiini -> en:e300  -> exists  -- mandatory_additive_class: en:acidity-regulator,en:antioxidant,en:flour-treatment-agent,en:sequestrant,en:acid (current: en:colour)  -> exists as a vitamin en:vitamin-c  ]  [ e500 -> en:e500  -> exists  -- mandatory_additive_class: en:acidity-regulator, en:raising-agent (current: en:vitamins)  -- e-number  ] '
@@ -978,7 +978,7 @@ $product_ref = {
 		"Sian rinta, suola, säilöntäaineet (kaliumlaktaatti), natriumnitriitti, luontainen aromi, glukoosisiirapppi, hapettumisenestoaine (natriumerytorbaatti)"
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 is($product_ref->{additives_original_tags}, ['en:e326', 'en:e250', 'en:e316',],);
 
@@ -991,7 +991,7 @@ $product_ref = {
 		"sakeuttamisaine arabikumi, makeutusaineet (sorbitoli, maltitolisiirappi, asesulfaami K), happamuudensäätöaine sitruunahappo, pintakäsittelyaine mehiläisvaha"
 };
 
-extract_ingredients_classes_from_text($product_ref);
+extract_additives_from_text($product_ref);
 
 is($product_ref->{additives_original_tags}, ['en:e414', 'en:e420', 'en:e965ii', 'en:e950', 'en:e330', 'en:e901',],);
 

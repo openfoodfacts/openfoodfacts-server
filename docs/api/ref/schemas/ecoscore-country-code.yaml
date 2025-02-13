@@ -1,0 +1,81 @@
+components:
+  schemas:
+    EcoscoreCountryCode:
+      type: string
+      enum:
+        [
+          "ad",
+          "al",
+          "at",
+          "ax",
+          "ba",
+          "be",
+          "bg",
+          "ch",
+          "cy",
+          "cz",
+          "de",
+          "dk",
+          "dz",
+          "ee",
+          "eg",
+          "es",
+          "fi",
+          "fo",
+          "fr",
+          "gg",
+          "gi",
+          "gr",
+          "hr",
+          "hu",
+          "ie",
+          "il",
+          "im",
+          "is",
+          "it",
+          "je",
+          "lb",
+          "li",
+          "lt",
+          "lu",
+          "lv",
+          "ly",
+          "ma",
+          "mc",
+          "md",
+          "me",
+          "mk",
+          "mt",
+          "nl",
+          "no",
+          "pl",
+          "ps",
+          "pt",
+          "ro",
+          "rs",
+          "se",
+          "si",
+          "sj",
+          "sk",
+          "sm",
+          "sy",
+          "tn",
+          "tr",
+          "ua",
+          "uk",
+          "us",
+          "va",
+          "world",
+          "xk",
+        ]
+      # patternProperties not supported by generators
+      #patternProperties:
+      #  (?<country_code>\w\w):
+      #    type: integer
+    EcoscoreCountryValues:
+      type: object
+      propertyNames:
+        $ref: "#/components/schemas/EcoscoreCountryCode"
+      additionalProperties:
+        type: number
+        default: 0

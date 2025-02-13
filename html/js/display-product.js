@@ -225,7 +225,7 @@ class RobotoffAsker extends HTMLElement {
         button.textContent = caption;
       }
     }
-
+    
     shadowRoot.appendChild(content);
     this.nextQuestion();
   }

@@ -77,18 +77,19 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/%cc_nutriment_table %nutriments_tables/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Lang qw/$lc %Lang lang/;
-use ProductOpener::Display qw/$header $nutriment_table/;
+use ProductOpener::Display qw/$nutriment_table/;
 use ProductOpener::Export qw/export_csv/;
 use ProductOpener::Import
 	qw/$IMPORT_MAX_PACKAGING_COMPONENTS import_csv_file import_products_categories_from_public_database/;
 use ProductOpener::ImportConvert qw/clean_fields/;
 use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
+use ProductOpener::Orgs qw/update_export_date/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Time::Local;
 use Data::Dumper;
 use Text::CSV();
@@ -227,12 +228,14 @@ sub load_csv_or_excel_file ($file) {    # path and file name
 				}
 			}
 			# Remove rows with a value for only one column, and do not use that value for non empty columns
+			# Those can be "comment" rows added at the top of the file
 			if ($non_empty_values >= 2) {
 				push @original_rows, $row_ref;
 
 				for (my $i = 0; $i < scalar(@$row_ref); $i++) {
 					if ((defined $row_ref->[$i]) and ($row_ref->[$i] ne "")) {
-						$non_empty_columns[$i] = 1;
+						not defined $non_empty_columns[$i] and $non_empty_columns[$i] = 0;
+						$non_empty_columns[$i]++;
 					}
 				}
 			}
@@ -242,21 +245,38 @@ sub load_csv_or_excel_file ($file) {    # path and file name
 			{number_of_original_rows => scalar(@original_rows), non_empty_columns => \@non_empty_columns})
 			if $log->is_debug();
 
+		# Check if the file contains a "Description" row and a header "Row"
+		# in that case, the first column contains an empty cell, then "Description:" and "Example:" (possibly translated)
+		my $has_description_and_example_rows = 0;
+		if (    ($original_rows[0][0] eq "")
+			and ($non_empty_columns[0] == 2)
+			and ($original_rows[1][0] ne "")
+			and ($original_rows[2][0] ne ""))
+		{
+			$has_description_and_example_rows = 1;
+		}
+
 		# Copy non empty columns and rows
 
 		my $seen_header = 0;
 
 		foreach my $row_ref (@original_rows) {
+			# If we have a description and example row, skip rows that have a value only in the first column (description and example title)
+			if (($has_description_and_example_rows) and ($row_ref->[0] ne "")) {
+				next;
+			}
+
 			my @new_row = ();
 			for (my $i = 0; $i < scalar(@$row_ref); $i++) {
-				if ($non_empty_columns[$i]) {
+				# Skip empty columns + the first column if there are description and example rows
+				if (($non_empty_columns[$i]) and not(($i == 0) and $has_description_and_example_rows)) {
 					push @new_row, $row_ref->[$i];
 				}
 			}
 
 			$log->debug("new_row", {new_row => \@new_row}) if $log->is_debug();
 
-			# Is it a header? (column 1 or 2 should not be empty)
+			# Is it a header? (column 1 and 2 should not be empty)
 			if (not $seen_header) {
 
 				if ((defined $new_row[0]) and ($new_row[0] ne "") and (defined $new_row[1]) and ($new_row[1] ne "")) {
@@ -926,7 +946,7 @@ sub init_packaging_columns_names_for_lang ($l) {
 
 sub init_nutrients_columns_names_for_lang ($l) {
 
-	$nutriment_table = $cc_nutriment_table{default};
+	$nutriment_table = $cc_nutriment_table{off_default};
 
 	# Go through all the nutrients in the nutrients taxonomy
 	foreach my $nutrient_tagid (sort(get_all_taxonomy_entries("nutrients"))) {
@@ -1807,6 +1827,9 @@ sub export_and_import_to_public_database ($args_ref) {
 
 	my $started_t = time();
 	my $export_id = $started_t;
+
+	# sync CRM
+	update_export_date($Org_id, $started_t);
 
 	my $exports_ref = retrieve("$BASE_DIRS{EXPORT_FILES}/${Owner_id}/exports.sto");
 	if (not defined $exports_ref) {

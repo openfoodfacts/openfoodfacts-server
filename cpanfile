@@ -37,6 +37,8 @@ requires 'Pod::Simple::HTMLBatch'; # libpod-simple-perl
 requires 'GeoIP2', '>= 2.006002, < 3.0'; # libgeoip2-perl, deps: libdata-validate-ip-perl libio-compress-perl libjson-maybexs-perl liblist-someutils-perl, libdata-dumper-concise-perl, libdata-printer-perl
 requires 'Email::Valid', '>= 1.202, < 2.0'; # libemail-valid-perl
 requires 'Path::Tiny', '>= 0.118'; # libpath-tiny-perl
+requires 'XML::RPC', '== 2'; # libxml-rpc-fast-perl
+
 
 # Probably not available as Debian/Ubuntu packages
 requires 'MongoDB', '>= 2.2.2, < 2.3'; # libmongodb-perl has 1.8.1/2.0.3 vs 2.2.2. deps: libauthen-sasl-saslprep-perl, libbson-perl, libauthen-scram-perl, libclass-xsaccessor-perl, libdigest-hmac-perl, libsafe-isa-perl, libconfig-autoconf-perl, libpath-tiny-perl
@@ -105,6 +107,9 @@ requires 'Imager::File::WEBP';
 # To dynamically load Config_*.pm modules
 requires 'Module::Load';
 
+# To measure the time taken by requests
+requires 'Time::Monotonic';
+
 on 'test' => sub {
   requires 'Test2::V0';
   requires 'Mock::Quick';
@@ -124,6 +129,7 @@ on 'test' => sub {
   requires 'Test::File::Contents';
   requires 'FindBin';
   requires 'Test::Pod';
+  requires 'UUID';
 };
 
 on 'develop' => sub {
@@ -136,6 +142,7 @@ on 'develop' => sub {
   requires 'Devel::Cover::Report::Codecov';
   requires 'Devel::Cover::Report::Codecovbash';
   requires 'Test2::Harness';
+  requires 'Test2::Harness::Renderer::JUnit';
 };
 
 feature "off_server_dev_tools", "Optional development tools" => sub {

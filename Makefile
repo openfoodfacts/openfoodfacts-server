@@ -6,12 +6,14 @@ endif
 
 
 # use bash everywhere !
-SHELL := /bin/bash
+SHELL := $(shell which bash)
 # some vars
 ENV_FILE ?= .env
 NAME = "ProductOpener"
+VERSION = $(shell cat version.txt)
 MOUNT_POINT ?= /mnt
-DOCKER_LOCAL_DATA ?= /srv/off/docker_data
+DOCKER_LOCAL_DATA_DEFAULT = /srv/off/docker_data
+DOCKER_LOCAL_DATA ?= $(DOCKER_LOCAL_DATA_DEFAULT)
 OS := $(shell uname)
 
 # mount point for shared data (default to the one on staging)
@@ -48,14 +50,32 @@ endif
 HOSTS=127.0.0.1 world.productopener.localhost fr.productopener.localhost static.productopener.localhost ssl-api.productopener.localhost fr-en.productopener.localhost
 # commands aliases
 DOCKER_COMPOSE=docker compose --env-file=${ENV_FILE} ${LOAD_EXTRA_ENV_FILE}
+# docker command that do not need the shared network
+DOCKER_COMPOSE_BUILD=COMPOSE_FILE="${COMPOSE_FILE_BUILD}" ${DOCKER_COMPOSE}
 # we run tests in a specific project name to be separated from dev instances
-# keep web-default for web contents
+# Also we merge the compose files of dependencies right in with COMPOSE_FILE,
+# so we are isolated and don't need an external network
+# We keep web-default for web contents
 # we also publish mongodb on a separate port to avoid conflicts
 # we also enable the possibility to fake services in po_test_runner
-DOCKER_COMPOSE_TEST=WEB_RESOURCES_PATH=./web-default ROBOTOFF_URL="http://backend:8881/" GOOGLE_CLOUD_VISION_API_URL="http://backend:8881/" COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test PO_COMMON_PREFIX=test_ MONGO_EXPOSE_PORT=27027 docker compose --env-file=${ENV_FILE}
+DOCKER_COMPOSE_TEST=WEB_RESOURCES_PATH=./web-default ROBOTOFF_URL="http://backend:8881/" \
+	GOOGLE_CLOUD_VISION_API_URL="http://backend:8881/" \
+	ODOO_CRM_URL="" \
+	MONGO_EXPOSE_PORT=27027 MONGODB_CACHE_SIZE=4 \
+	COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test \
+	COMPOSE_FILE="${COMPOSE_FILE_BUILD};${DEPS_DIR}/openfoodfacts-shared-services/docker-compose.yml" \
+	PO_COMMON_PREFIX=test_  \
+	docker compose --env-file=${ENV_FILE}
 # Enable Redis only for integration tests
 DOCKER_COMPOSE_INT_TEST=REDIS_URL="redis:6379" ${DOCKER_COMPOSE_TEST}
 TEST_CMD ?= yath test -PProductOpener::LoadData
+
+# Space delimited list of dependant projects
+DEPS=openfoodfacts-shared-services
+# Set the DEPS_DIR if it hasn't been set already
+ifeq (${DEPS_DIR},)
+	export DEPS_DIR=${PWD}/deps
+endif
 
 .DEFAULT_GOAL := usage
 
@@ -66,7 +86,7 @@ _FORCE:
 # Info #
 #------#
 info:
-	@echo "${NAME} version: ${VERSION}"
+	@echo "${NAME} version: v${VERSION}"
 
 usage:
 	@echo "🥫 Welcome to the Open Food Facts project"
@@ -90,10 +110,17 @@ dev: hello build init_backend _up import_sample_data create_mongodb_indexes refr
 	@echo "🥫 You should be able to access your local install of Open Food Facts at http://world.openfoodfacts.localhost/"
 	@echo "🥫 You have around 100 test products. Please run 'make import_prod_data' if you want a full production dump (~2M products)."
 
+#-------#
+# CI    #
+#-------#
+dev_no_build: hello init_backend _up import_sample_data create_mongodb_indexes refresh_product_tags
+	@echo "🥫 You should be able to access your local install of Open Food Facts at http://world.openfoodfacts.localhost/"
+	@echo "🥫 You have around 100 test products. Please run 'make import_prod_data' if you want a full production dump (~2M products)."
+
 edit_etc_hosts:
 	@grep -qxF -- "${HOSTS}" /etc/hosts || echo "${HOSTS}" >> /etc/hosts
 
-create_folders:
+create_folders: clone_deps
 # create some folders to avoid having them owned by root (when created by docker compose)
 	@echo "🥫 Creating folders before docker compose use them."
 	mkdir -p logs/apache2 logs/nginx debug html/data sftp || ( whoami; ls -l . ; false )
@@ -117,14 +144,20 @@ create_folders:
 # args variable may be use to eg. "--progress plain" option and keep logs on a failing build
 build:
 	@echo "🥫 Building containers …"
-	${DOCKER_COMPOSE} build ${args} ${container} 2>&1
+	${DOCKER_COMPOSE_BUILD} build ${args} ${container} 2>&1
 
-_up:
+_up:run_deps
 	@echo "🥫 Starting containers …"
 	${DOCKER_COMPOSE} up -d 2>&1
 	@echo "🥫 started service at http://openfoodfacts.localhost"
 
 up: build create_folders _up
+
+# Used by staging so that shared services are not created
+# Shared services are started by the github workflow of openfoodfacts-shared-services
+prod_up: build create_folders
+	@echo "🥫 Starting containers …"
+	${DOCKER_COMPOSE} up -d 2>&1
 
 down:
 	@echo "🥫 Bringing down containers …"
@@ -132,20 +165,16 @@ down:
 
 hdown:
 	@echo "🥫 Bringing down containers and associated volumes …"
-	${DOCKER_COMPOSE} down -v
+	${DOCKER_COMPOSE} down -v --remove-orphans
 
 reset: hdown up
 
-restart:
+restart:run_deps
 	@echo "🥫 Restarting frontend & backend containers …"
 	${DOCKER_COMPOSE} restart backend frontend
 	@echo "🥫  started service at http://openfoodfacts.localhost"
 
-restart_db:
-	@echo "🥫 Restarting MongoDB database …"
-	${DOCKER_COMPOSE} restart mongodb
-
-status:
+status:run_deps
 	@echo "🥫 Getting container status …"
 	${DOCKER_COMPOSE} ps
 
@@ -182,7 +211,7 @@ build_lang: create_folders
 	@echo "🥫 Rebuild language"
     # Run build_lang.pl
     # Languages may build taxonomies on-the-fly so include GITHUB_TOKEN so results can be cached
-	${DOCKER_COMPOSE} run --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
+	${DOCKER_COMPOSE_BUILD} run --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 
 build_lang_test: create_folders
 # Run build_lang.pl in test env
@@ -191,51 +220,38 @@ build_lang_test: create_folders
 # use this in dev if you messed up with permissions or user uid/gid
 reset_owner:
 	@echo "🥫 reset owner"
-	${DOCKER_COMPOSE_TEST} run --rm --no-deps --user root backend chown www-data:www-data -R /opt/product-opener/ /mnt/podata /var/log/apache2 /var/log/httpd  || true
-	${DOCKER_COMPOSE_TEST} run --rm --no-deps --user root frontend chown www-data:www-data -R /opt/product-opener/html/images/icons/dist /opt/product-opener/html/js/dist /opt/product-opener/html/css/dist
+	${DOCKER_COMPOSE_BUILD} run --rm --no-deps --user root backend chown www-data:www-data -R /opt/product-opener/ /mnt/podata /var/log/apache2 /var/log/httpd  || true
+	${DOCKER_COMPOSE_BUILD} run --rm --no-deps --user root frontend chown www-data:www-data -R /opt/product-opener/html/images/icons/dist /opt/product-opener/html/js/dist /opt/product-opener/html/css/dist
 
 init_backend: build_taxonomies build_lang
 
-create_mongodb_indexes:
+create_mongodb_indexes:run_deps
 	@echo "🥫 Creating MongoDB indexes …"
-	docker cp conf/mongodb/create_indexes.js $(shell docker compose ps -q mongodb):/data/db
-	${DOCKER_COMPOSE} exec -T mongodb //bin/sh -c "mongo off /data/db/create_indexes.js"
+	${DOCKER_COMPOSE} run --rm backend perl /opt/product-opener/scripts/create_mongodb_indexes.pl
 
-refresh_product_tags:
+refresh_product_tags: run_deps
 	@echo "🥫 Refreshing product data cached in Postgres …"
 	${DOCKER_COMPOSE} run --rm backend perl /opt/product-opener/scripts/refresh_postgres.pl ${from}
 
-import_sample_data:
+import_sample_data: run_deps
 	@ if [[ "${PRODUCT_OPENER_FLAVOR_SHORT}" = "off" &&  "${PRODUCERS_PLATFORM}" != "1" ]]; then \
    		echo "🥫 Importing sample data (~200 products) into MongoDB …"; \
-		${DOCKER_COMPOSE} run --rm backend bash /opt/product-opener/scripts/import_sample_data.sh; \
+		${DOCKER_COMPOSE} run --rm -e SKIP_SAMPLE_IMAGES backend bash /opt/product-opener/scripts/import_sample_data.sh; \
 	else \
 	 	echo "🥫 Not importing sample data into MongoDB (only for po_off project)"; \
 	fi
 	
-import_more_sample_data:
+import_more_sample_data: run_deps
 	@echo "🥫 Importing sample data (~2000 products) into MongoDB …"
 	${DOCKER_COMPOSE} run --rm backend bash /opt/product-opener/scripts/import_more_sample_data.sh
 
+refresh_mongodb:run_deps
+	@echo "🥫 Refreshing mongoDB from product files …"
+	${DOCKER_COMPOSE} run --rm backend perl /opt/product-opener/scripts/update_all_products_from_dir_in_mongodb.pl
+
 # this command is used to import data on the mongodb used on staging environment
-import_prod_data:
-	@echo "🥫 Importing production data (~2M products) into MongoDB …"
-	@echo "🥫 This might take up to 10 mn, so feel free to grab a coffee!"
-	@echo "🥫 Removing old archive in case you have one"
-	( rm -f ./html/data/openfoodfacts-mongodbdump.gz || true ) && ( rm -f ./html/data/gz-sha256sum || true )
-	@echo "🥫 Downloading full MongoDB dump from production …"
-# verify we got sufficient space, NEEDED is in octet, LEFT in ko, we normalize to MB and NEEDED is multiplied by two (because it also will be imported)
-	NEEDED=$$(curl -s --head https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.gz|grep -i content-length: |cut -d ":" -f 2|tr -d " \r\n\t"); \
-	  LEFT=$$(df . -k --output=avail |tail -n 1); \
-	  NEEDED=$$(($$NEEDED/1048576 * 2)); \
-	  LEFT=$$(($$LEFT/1024)); \
-	  if [[ $$LEFT -lt $$NEEDED ]]; then >&2 echo "NOT ENOUGH SPACE LEFT ON DEVICE: $$NEEDED MB > $$LEFT MB"; exit 1; fi
-	wget --no-verbose https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.gz -P ./html/data
-	wget --no-verbose https://static.openfoodfacts.org/data/gz-sha256sum -P ./html/data
-	cd ./html/data && sha256sum --check gz-sha256sum
-	@echo "🥫 Restoring the MongoDB dump …"
-	${DOCKER_COMPOSE} exec -T mongodb //bin/sh -c "cd /data/db && mongorestore --quiet --drop --gzip --archive=/import/openfoodfacts-mongodbdump.gz"
-	rm html/data/openfoodfacts-mongodbdump.gz && rm html/data/gz-sha256sum
+import_prod_data: run_deps
+	@cd ${DEPS_DIR}/openfoodfacts-shared-services && $(MAKE) import_prod_data
 
 #--------#
 # Checks #
@@ -260,19 +276,21 @@ tests: build_taxonomies_test build_lang_test unit_test integration_test
 # add COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover"' if you want to trigger code coverage report generation
 unit_test: create_folders
 	@echo "🥫 Running unit tests …"
+	mkdir -p tests/unit/outputs/
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -e PO_EAGER_LOAD_DATA=1 -T --rm backend yath test --job-count=${CPU_COUNT} -PProductOpener::LoadData  tests/unit
+	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit.xml" -e PO_EAGER_LOAD_DATA=1 -T --rm backend yath test --renderer=Formatter --renderer=JUnit --job-count=${CPU_COUNT} -PProductOpener::LoadData  tests/unit
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 unit tests success"
 
 integration_test: create_folders
 	@echo "🥫 Running integration tests …"
+	mkdir -p tests/integration/outputs/
 # we launch the server and run tests within same container
 # we also need dynamicfront for some assets to exists
 # this is the place where variables are important
 	${DOCKER_COMPOSE_INT_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion redis
 # note: we need the -T option for ci (non tty environment)
-	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -e PO_EAGER_LOAD_DATA=1 -T backend yath -PProductOpener::LoadData tests/integration
+	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/integration/outputs/junit.xml" -e PO_EAGER_LOAD_DATA=1 -T backend yath --renderer=Formatter --renderer=JUnit -PProductOpener::LoadData tests/integration
 	${DOCKER_COMPOSE_INT_TEST} stop
 	@echo "🥫 integration tests success"
 
@@ -339,12 +357,12 @@ TO_CHECK := $(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --n
 check_perl_fast:
 	@echo "🥫 Checking ${TO_CHECK}"
 	test -z "${TO_CHECK}" || \
-	  ${DOCKER_COMPOSE} run --rm backend make -j ${CPU_COUNT} ${TO_CHECK} || \
+	  ${DOCKER_COMPOSE_BUILD} run --rm backend make -j ${CPU_COUNT} ${TO_CHECK} || \
 	  ( echo "Perl syntax errors! Look at 'failed--compilation' in above logs" && false )
 
 check_translations:
 	@echo "🥫 Checking translations"
-	${DOCKER_COMPOSE} run --rm backend scripts/check-translations.sh
+	${DOCKER_COMPOSE_BUILD} run --rm backend scripts/check-translations.sh
 
 # check all perl files compile (takes time, but needed to check a function rename did not break another module !)
 # IMPORTANT: We exclude some files that are in .check_perl_excludes
@@ -352,7 +370,7 @@ check_perl:
 	@echo "🥫 Checking all perl files"
 	@if grep -P '^\s*$$' .check_perl_excludes; then echo "No blank line accepted in .check_perl_excludes, fix it"; false; fi
 	ALL_PERL_FILES=$$(find . -regex ".*\.\(p[lm]\|t\)"|grep -v "/\."|grep -v "/obsolete/"| grep -vFf .check_perl_excludes) ; \
-	${DOCKER_COMPOSE} run --rm --no-deps backend make -j ${CPU_COUNT} $$ALL_PERL_FILES  || \
+	${DOCKER_COMPOSE_BUILD} run --rm --no-deps backend make -j ${CPU_COUNT} $$ALL_PERL_FILES  || \
 	  ( echo "Perl syntax errors! Look at 'failed--compilation' in above logs" && false )
 
 # check with perltidy
@@ -362,13 +380,13 @@ TO_TIDY_CHECK := $(shell echo ${TO_CHECK}| tr " " "\n" | grep -vFf .perltidy_exc
 check_perltidy:
 	@echo "🥫 Checking with perltidy ${TO_TIDY_CHECK}"
 	@if grep -P '^\s*$$' .perltidy_excludes; then echo "No blank line accepted in .perltidy_excludes, fix it"; false; fi
-	test -z "${TO_TIDY_CHECK}" || ${DOCKER_COMPOSE} run --rm --no-deps backend perltidy --assert-tidy -opath=/tmp/ --standard-error-output ${TO_TIDY_CHECK}
+	test -z "${TO_TIDY_CHECK}" || ${DOCKER_COMPOSE_BUILD} run --rm --no-deps backend perltidy --assert-tidy -opath=/tmp/ --standard-error-output ${TO_TIDY_CHECK}
 
 # same as check_perltidy, but this time applying changes
 lint_perltidy:
 	@echo "🥫 Linting with perltidy ${TO_TIDY_CHECK}"
 	@if grep -P '^\s*$$' .perltidy_excludes; then echo "No blank line accepted in .perltidy_excludes, fix it"; false; fi
-	test -z "${TO_TIDY_CHECK}" || ${DOCKER_COMPOSE} run --rm --no-deps backend perltidy --standard-error-output -b -bext=/ ${TO_TIDY_CHECK}
+	test -z "${TO_TIDY_CHECK}" || ${DOCKER_COMPOSE_BUILD} run --rm --no-deps backend perltidy --standard-error-output -b -bext=/ ${TO_TIDY_CHECK}
 
 
 #Checking with Perl::Critic
@@ -377,20 +395,20 @@ lint_perltidy:
 # find . -regex ".*\.\(p[lM]\|t\)"|grep -v "/\."|grep -v "/obsolete/"|xargs docker compose run --rm --no-deps -T backend perlcritic
 check_critic:
 	@echo "🥫 Checking with perlcritic"
-	test -z "${TO_CHECK}" || ${DOCKER_COMPOSE} run --rm --no-deps backend perlcritic ${TO_CHECK}
+	test -z "${TO_CHECK}" || ${DOCKER_COMPOSE_BUILD} run --rm --no-deps backend perlcritic ${TO_CHECK}
 
-TAXONOMIES_TO_CHECK := $(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --name-only | grep  'taxonomies.*/.*\.txt$$' | grep -v '\.result.txt' | xargs ls -d 2>/dev/null | grep -v "^.$$")
+TAXONOMIES_TO_CHECK := $(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --name-only | grep  -P 'taxonomies.*/.*\.txt$$' | grep -v '\.result.txt' | xargs ls -d 2>/dev/null | grep -v "^.$$")
 
 # TODO remove --no-sort as soon as we have sorted taxonomies
 check_taxonomies:
 	@echo "🥫 Checking taxonomies"
 	test -z "${TAXONOMIES_TO_CHECK}" || \
-	${DOCKER_COMPOSE} run --rm --no-deps backend scripts/taxonomies/lint_taxonomy.pl --verbose -check ${TAXONOMIES_TO_CHECK}
+	${DOCKER_COMPOSE_BUILD} run --rm --no-deps backend scripts/taxonomies/lint_taxonomy.pl --verbose --check ${TAXONOMIES_TO_CHECK}
 
 lint_taxonomies:
 	@echo "🥫 Linting taxonomies"
 	test -z "${TAXONOMIES_TO_CHECK}" || \
-	${DOCKER_COMPOSE} run --rm --no-deps backend scripts/taxonomies/lint_taxonomy.pl --verbose ${TAXONOMIES_TO_CHECK}
+	${DOCKER_COMPOSE_BUILD} run --rm --no-deps backend scripts/taxonomies/lint_taxonomy.pl --verbose ${TAXONOMIES_TO_CHECK}
 
 
 check_openapi_v2:
@@ -409,20 +427,27 @@ check_openapi: check_openapi_v2 check_openapi_v3
 # Compilation #
 #-------------#
 
+build_packager_codes: create_folders
+	@echo "🥫 build packager codes"
+	${DOCKER_COMPOSE_BUILD} run --no-deps --rm backend /opt/product-opener/scripts/update_packager_codes.pl
+
 build_taxonomies: create_folders
+	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache _bind_local
 	@echo "🥫 build taxonomies"
-    # GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
-	${DOCKER_COMPOSE} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
+# GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
+	${DOCKER_COMPOSE_BUILD} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
 
 # a version where we force building without using cache
 # use it when you are developing in Tags.pm and want to iterate
 # at the end, change the $BUILD_TAGS_VERSION in Tags.pm
 rebuild_taxonomies:
-	${DOCKER_COMPOSE} run --no-deps --rm -e TAXONOMY_NO_GET_FROM_CACHE=1 backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
+	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache _bind_local
+	${DOCKER_COMPOSE_BUILD} run --no-deps --rm -e TAXONOMY_NO_GET_FROM_CACHE=1 backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
 
 build_taxonomies_test: create_folders
+	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache PROJECT_SUFFIX=_test _bind_local
 	@echo "🥫 build taxonomies"
-    # GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
+# GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
 	${DOCKER_COMPOSE_TEST} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
 
 
@@ -434,6 +459,25 @@ _clean_old_external_volumes:
 	( docker volume inspect ${COMPOSE_PROJECT_NAME}_orgs|grep /rpool/off/clones && docker volume rm ${COMPOSE_PROJECT_NAME}_orgs ) || true
 	( docker volume inspect ${COMPOSE_PROJECT_NAME}_products|grep /rpool/off/clones && docker volume rm ${COMPOSE_PROJECT_NAME}_products ) || true
 	( docker volume inspect ${COMPOSE_PROJECT_NAME}_product_images|grep /rpool/off/clones && docker volume rm ${COMPOSE_PROJECT_NAME}_product_images ) || true
+
+save_orgs_to_mongodb:
+	@echo "🥫 Saving exsiting orgs into MongoDB …"
+	${DOCKER_COMPOSE_BUILD} run --rm backend perl -I/opt/product-opener/lib /opt/product-opener/scripts/migrations/2024_06_save_existing_orgs_to_mongodb.pl "/mnt/podata/orgs"
+
+_bind_local:
+ifeq ($(DOCKER_LOCAL_DATA),$(DOCKER_LOCAL_DATA_DEFAULT))
+	@true
+else ifeq ($(MOUNT_FOLDER),)
+	$(error "Missing MOUNT_FOLDER variable")
+else ifeq ($(MOUNT_VOLUME),)
+	$(error "Missing MOUNT_VOLUME variable")
+else
+	@echo "🥫 Linking data volume ${COMPOSE_PROJECT_NAME}${PROJECT_SUFFIX}_${MOUNT_VOLUME} to directory ${DOCKER_LOCAL_DATA}/${MOUNT_FOLDER} …"
+# local data
+	mkdir -p "${DOCKER_LOCAL_DATA}/${MOUNT_FOLDER}"
+	docker volume rm ${COMPOSE_PROJECT_NAME}${PROJECT_SUFFIX}_${MOUNT_VOLUME} || true
+	docker volume create --label com.docker.compose.project=${COMPOSE_PROJECT_NAME}${PROJECT_SUFFIX} --label com.docker.compose.version=$(shell docker compose version --short) --label com.docker.compose.volume=${MOUNT_VOLUME} --driver=local -o type=none -o o=bind -o "device=${DOCKER_LOCAL_DATA}/${MOUNT_FOLDER}" ${COMPOSE_PROJECT_NAME}${PROJECT_SUFFIX}_${MOUNT_VOLUME}
+endif
 
 #------------#
 # Production #
@@ -452,8 +496,6 @@ create_external_volumes: _clean_old_external_volumes
 	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/podata ${COMPOSE_PROJECT_NAME}_podata
 # note for this one, it should be shared with pro instance in the future
 	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/export_files ${COMPOSE_PROJECT_NAME}_export_files
-# Create Redis volume
-	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/redis ${COMPOSE_PROJECT_NAME}_redisdata
 
 create_external_networks:
 	@echo "🥫 Creating external networks (production only) …"
@@ -477,12 +519,35 @@ clean_folders: clean_logs
 	( rm -rf html/data/i18n/ || true )
 	( rm -rf html/{css,js}/dist/ || true )
 	( rm -rf tmp/ || true )
+	( rm -rf build-cache/ || true )
 
 clean_logs:
 	( rm -f logs/* logs/apache2/* logs/nginx/* || true )
 
 
 clean: goodbye hdown prune prune_cache clean_folders
+
+# Run dependent projects
+run_deps: clone_deps
+	@for dep in ${DEPS} ; do \
+		cd ${DEPS_DIR}/$$dep && $(MAKE) run; \
+	done
+
+
+# Clone dependent projects without running them (used to pull in yml for tests)
+clone_deps:
+	@mkdir -p ${DEPS_DIR}; \
+	for dep in ${DEPS} ; do \
+		echo $$dep; \
+		if [ ! -d ${DEPS_DIR}/$$dep ]; then \
+			echo "Cloning $$dep"; \
+			git clone --filter=blob:none --sparse \
+				https://github.com/openfoodfacts/$$dep.git ${DEPS_DIR}/$$dep; \
+			echo "Cloned $$dep"; \
+		else \
+			cd ${DEPS_DIR}/$$dep && git pull; \
+		fi; \
+	done
 
 #-----------#
 # Utilities #

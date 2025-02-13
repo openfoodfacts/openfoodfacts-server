@@ -9,7 +9,7 @@ $Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Ingredients qw/extract_ingredients_classes_from_text/;
+use ProductOpener::Ingredients qw/extract_additives_from_text/;
 use ProductOpener::Products qw/:all/;
 
 # dummy product for testing
@@ -211,6 +211,62 @@ my @tests = (
 		},
 		[]
 	],
+	# Paprika for color
+	[
+		{
+			lc => 'en',
+			ingredients_text => "paprika for color"
+		},
+		['en:e160c']
+	],
+	# Colored with paprika
+	[
+		{
+			lc => 'en',
+			ingredients_text => "colored with paprika"
+		},
+		['en:e160c']
+	],
+	# oleoresin paprika
+	[
+		{
+			lc => 'en',
+			ingredients_text => "oleoresin paprika"
+		},
+		['en:e160c']
+	],
+	# oleoresin of paprika
+	[
+		{
+			lc => 'en',
+			ingredients_text => "oleoresin of paprika"
+		},
+		['en:e160c']
+	],
+	# paprika added for color
+	[
+		{
+			lc => 'en',
+			ingredients_text => "paprika added for color"
+		},
+		['en:e160c']
+	],
+	# turmeric color
+	[
+		{
+			lc => 'en',
+			ingredients_text => "turmeric color"
+		},
+		['en:e100']
+	],
+	# turmeric for color
+	[
+		{
+			lc => 'en',
+			ingredients_text => "turmeric for color"
+		},
+		['en:e100']
+	],
 
 );
 
@@ -222,7 +278,7 @@ foreach my $test_ref (@tests) {
 	$product_ref->{categories_tags} = ["en:debug"];
 	$product_ref->{"ingredients_text_" . $product_ref->{lc}} = $product_ref->{ingredients_text};
 
-	extract_ingredients_classes_from_text($product_ref);
+	extract_additives_from_text($product_ref);
 
 	is($product_ref->{additives_original_tags}, $expected_tags) or diag Dumper $product_ref;
 }

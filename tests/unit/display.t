@@ -31,26 +31,13 @@ is(display_date_tag($t), '<time datetime="2016-08-27T12:08:49">27. August 2016, 
 #	'<p><span class="field">Link to the product page on the official site of the producer:</span> <a href="http://producer.com">http://producer.com</a></p>'
 # );
 
-#test for URL localization
-#test for path not existing in urls_for_text
-my $textid = '/doesnotexist';
-is(url_for_text($textid), '/doesnotexist');
-
-# test a language other than default (en)
-$textid = '/ecoscore';
-$lc = 'es';
-is(url_for_text($textid), '/eco-score-el-impacto-medioambiental-de-los-productos-alimenticios');
-
-# test for language that does not exist (test defaults to en)
-$lc = 'does not exist';
-is(url_for_text($textid), '/eco-score-the-environmental-impact-of-food-products');
-
 $lc = 'en';
 
 #test search query
 my $request_ref = {
 	lc => "en",
 	current_link => '/cgi/search.pl?action=process&sort_by=unique_scans_n&page_size=24',
+	cc => 'world',
 };
 
 my $count = 25;
@@ -58,8 +45,7 @@ my $limit = 24;
 my $page = 1;
 is(
 	display_pagination($request_ref, $count, $limit, $page),
-	'</ul>' . "\n"
-		. '<ul id="pages" class="pagination"><li class="unavailable">Pages:</li><li class="current"><a href="">1</a></li><li><a href="/cgi/search.pl?action=process&sort_by=unique_scans_n&page_size=24&page=2">2</a></li><li><a href="/cgi/search.pl?action=process&sort_by=unique_scans_n&page_size=24&page=2" rel="next$nofollow">Next</a></li><li class="unavailable">(24 products per page)</li></ul>'
+	'<ul id="pages" class="pagination"><li class="unavailable">Pages:</li><li class="current"><a href="">1</a></li><li><a href="/cgi/search.pl?action=process&sort_by=unique_scans_n&page_size=24&page=2">2</a></li><li><a href="/cgi/search.pl?action=process&sort_by=unique_scans_n&page_size=24&page=2" rel="next$nofollow">Next</a></li><li class="unavailable">(24 products per page)</li></ul>'
 		. "\n"
 );
 
@@ -67,8 +53,7 @@ is(
 $request_ref->{current_link} = '/label/organic';
 is(
 	display_pagination($request_ref, $count, $limit, $page),
-	'</ul>' . "\n"
-		. '<ul id="pages" class="pagination"><li class="unavailable">Pages:</li><li class="current"><a href="">1</a></li><li><a href="/label/organic/2">2</a></li><li><a href="/label/organic/2" rel="next$nofollow">Next</a></li><li class="unavailable">(24 products per page)</li></ul>'
+	'<ul id="pages" class="pagination"><li class="unavailable">Pages:</li><li class="current"><a href="">1</a></li><li><a href="/label/organic/2">2</a></li><li><a href="/label/organic/2" rel="next$nofollow">Next</a></li><li class="unavailable">(24 products per page)</li></ul>'
 		. "\n"
 );
 
@@ -88,42 +73,48 @@ is($request_ref->{structured_response}[3]{id}, 'mandatory');
 is($request_ref->{structured_response}[3]{factor}, 4);
 is($request_ref->{structured_response}[3]{minimum_match}, 20);
 
-my $nutriscore_data_ref = {
-	'negative_points' => 8,
-	'proteins_points' => 2,
-	'proteins' => '3.9',
-	'sodium_points' => 1,
-	'sugars_value' => 15,
-	'positive_points' => 2,
-	'is_water' => 0,
-	'fruits_vegetables_nuts_colza_walnut_olive_oils_points' => 0,
-	'fruits_vegetables_nuts_colza_walnut_olive_oils' => 0,
-	'energy_points' => 1,
-	'fruits_vegetables_nuts_colza_walnut_olive_oils_value' => 0,
-	'fiber_value' => 0,
-	'sugars' => 15,
-	'is_fat' => 0,
-	'proteins_value' => '3.9',
-	'is_beverage' => 0,
-	'sodium' => 160,
-	'score' => 6,
-	'saturated_fat_ratio' => 70,
-	'energy' => 573,
-	'fiber' => 0,
-	'saturated_fat' => '3.5',
-	'grade' => 'c',
-	'saturated_fat_ratio_value' => 70,
-	'saturated_fat_value' => '3.5',
-	'sugars_points' => 3,
-	'sodium_value' => 160,
-	'fiber_points' => 0,
-	'is_cheese' => 0,
-	'energy_value' => 573,
-	'saturated_fat_ratio_points' => 10,
-	'saturated_fat_points' => 3
+my $product_nutriscore_data_ref = {
+	nutriscore => {
+		"2021" => {
+			'score' => 6,
+			'grade' => 'c',
+			data => {
+				'negative_points' => 8,
+				'proteins_points' => 2,
+				'proteins' => '3.9',
+				'sodium_points' => 1,
+				'sugars_value' => 15,
+				'positive_points' => 2,
+				'is_water' => 0,
+				'fruits_vegetables_nuts_colza_walnut_olive_oils_points' => 0,
+				'fruits_vegetables_nuts_colza_walnut_olive_oils' => 0,
+				'energy_points' => 1,
+				'fruits_vegetables_nuts_colza_walnut_olive_oils_value' => 0,
+				'fiber_value' => 0,
+				'sugars' => 15,
+				'is_fat' => 0,
+				'proteins_value' => '3.9',
+				'is_beverage' => 0,
+				'sodium' => 160,
+				'saturated_fat_ratio' => 70,
+				'energy' => 573,
+				'fiber' => 0,
+				'saturated_fat' => '3.5',
+				'saturated_fat_ratio_value' => 70,
+				'saturated_fat_value' => '3.5',
+				'sugars_points' => 3,
+				'sodium_value' => 160,
+				'fiber_points' => 0,
+				'is_cheese' => 0,
+				'energy_value' => 573,
+				'saturated_fat_ratio_points' => 10,
+				'saturated_fat_points' => 3
+			}
+		}
+	}
 };
 
-my $nutriscore_calculation_detail = display_nutriscore_calculation_details($nutriscore_data_ref);
+my $nutriscore_calculation_detail = display_nutriscore_calculation_details_2021($product_nutriscore_data_ref);
 like($nutriscore_calculation_detail, qr/Nutritional score: 6/);
 like($nutriscore_calculation_detail, qr/Proteins:\n2&nbsp;<\/strong>\/&nbsp;5/);
 like($nutriscore_calculation_detail, qr/Positive points: 2/);

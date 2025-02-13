@@ -63,7 +63,8 @@ use ProductOpener::Config qw/:all/;
 
 use Log::Any qw($log);
 use Log::Log4perl;
-Log::Log4perl->init("$conf_root/log.conf");    # Init log4perl from a config file.
+# Init log4perl from a config file
+Log::Log4perl->init($ENV{LOG4PERL_CONF} // "$conf_root/log.conf");
 use Log::Any::Adapter;
 Log::Any::Adapter->set('Log4perl');    # Send all logs to Log::Log4perl
 
@@ -85,7 +86,7 @@ use ProductOpener::DataQualityFood qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Nutriscore qw(:all);
-use ProductOpener::Ecoscore qw(:all);
+use ProductOpener::EnvironmentalScore qw(:all);
 use ProductOpener::Attributes qw(:all);
 use ProductOpener::KnowledgePanels qw(:all);
 use ProductOpener::Orgs qw(:all);
@@ -117,6 +118,7 @@ use ProductOpener::Data qw/:all/;
 use ProductOpener::LoadData qw/:all/;
 use ProductOpener::NutritionCiqual qw/:all/;
 use ProductOpener::NutritionEstimation qw/:all/;
+use ProductOpener::RequestStats qw/:all/;
 
 use Apache2::Const -compile => qw(OK);
 use Apache2::Connection ();

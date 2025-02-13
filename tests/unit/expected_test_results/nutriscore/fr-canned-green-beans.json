@@ -2,6 +2,11 @@
    "additives_n" : 0,
    "additives_original_tags" : [],
    "additives_tags" : [],
+   "allergens" : "",
+   "allergens_from_ingredients" : "",
+   "allergens_from_user" : "(fr) ",
+   "allergens_hierarchy" : [],
+   "allergens_tags" : [],
    "amino_acids_tags" : [],
    "categories" : "haricots verts en conserve",
    "categories_hierarchy" : [
@@ -58,6 +63,7 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "18066",
+         "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
          "id" : "en:water",
          "is_in_taxonomy" : 1,
          "percent" : 80,
@@ -70,6 +76,7 @@
       },
       {
          "ciqual_proxy_food_code" : "31016",
+         "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
          "id" : "en:sugar",
          "is_in_taxonomy" : 1,
          "percent" : 10,
@@ -82,6 +89,7 @@
       },
       {
          "ciqual_food_code" : "20061",
+         "ecobalyse_code" : "french-bean-non-eu",
          "id" : "en:green-bean",
          "is_in_taxonomy" : 1,
          "percent" : 10,
@@ -109,6 +117,7 @@
       "en:legume",
       "en:pod-and-seed-vegetable"
    ],
+   "ingredients_lc" : "fr",
    "ingredients_n" : 3,
    "ingredients_n_tags" : [
       "3",
@@ -139,6 +148,8 @@
    "ingredients_with_unspecified_percent_sum" : 0,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 8,
    "lc" : "fr",
    "minerals_tags" : [],
@@ -152,7 +163,33 @@
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-a-2023-a"
    ],
+   "nova_group" : 3,
+   "nova_group_debug" : "",
+   "nova_groups" : "3",
+   "nova_groups_markers" : {
+      "3" : [
+         [
+            "ingredients",
+            "en:sugar"
+         ]
+      ]
+   },
+   "nova_groups_tags" : [
+      "en:3-processed-foods"
+   ],
    "nucleotides_tags" : [],
+   "nutrient_levels" : {
+      "fat" : "low",
+      "salt" : "moderate",
+      "saturated-fat" : "low",
+      "sugars" : "low"
+   },
+   "nutrient_levels_tags" : [
+      "en:fat-in-low-quantity",
+      "en:saturated-fat-in-low-quantity",
+      "en:sugars-in-low-quantity",
+      "en:salt-in-moderate-quantity"
+   ],
    "nutriments" : {
       "energy_100g" : 315,
       "fat_100g" : 0.9,
@@ -161,8 +198,11 @@
       "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 50,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 50,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 50,
-      "nutrition-score-fr" : -4,
-      "nutrition-score-fr_100g" : -4,
+      "nova-group" : 3,
+      "nova-group_100g" : 3,
+      "nova-group_serving" : 3,
+      "nutrition-score-fr" : 0,
+      "nutrition-score-fr_100g" : 0,
       "proteins_100g" : 5,
       "salt_100g" : 1.2,
       "salt_value" : 1.2,
@@ -170,7 +210,7 @@
       "sodium" : 0.48,
       "sodium_100g" : 0.48,
       "sodium_unit" : "g",
-      "sodium_value" : 0.48,
+      "sodium_value" : "0.48",
       "sugars_100g" : 3.6
    },
    "nutriments_estimated" : {
@@ -272,6 +312,9 @@
                   },
                   {
                      "id" : "sugars",
+                     "new_grade" : "a",
+                     "new_score" : -1,
+                     "new_value" : 3.4,
                      "points" : 1,
                      "points_max" : 15,
                      "unit" : "g",
@@ -286,6 +329,9 @@
                   },
                   {
                      "id" : "salt",
+                     "new_grade" : "a",
+                     "new_score" : -1,
+                     "new_value" : 1,
                      "points" : 5,
                      "points_max" : 20,
                      "unit" : "g",
@@ -295,6 +341,9 @@
                "positive" : [
                   {
                      "id" : "proteins",
+                     "new_grade" : "a",
+                     "new_score" : -1,
+                     "new_value" : 7.3,
                      "points" : 2,
                      "points_max" : 7,
                      "unit" : "g",
@@ -302,6 +351,9 @@
                   },
                   {
                      "id" : "fiber",
+                     "new_grade" : "a",
+                     "new_score" : -1,
+                     "new_value" : 6.4,
                      "points" : 3,
                      "points_max" : 5,
                      "unit" : "g",
@@ -309,6 +361,9 @@
                   },
                   {
                      "id" : "fruits_vegetables_legumes",
+                     "new_grade" : "a",
+                     "new_score" : -1,
+                     "new_value" : 61,
                      "points" : 1,
                      "points_max" : 5,
                      "unit" : "%",
@@ -347,43 +402,87 @@
       "a"
    ],
    "nutriscore_data" : {
-      "energy" : 315,
-      "energy_points" : 0,
-      "energy_value" : 315,
-      "fiber" : 5.3,
-      "fiber_points" : 5,
-      "fiber_value" : 5.3,
-      "fruits_vegetables_nuts_colza_walnut_olive_oils" : 50,
-      "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 1,
-      "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 50,
+      "components" : {
+         "negative" : [
+            {
+               "id" : "energy",
+               "points" : 0,
+               "points_max" : 10,
+               "unit" : "kJ",
+               "value" : 315
+            },
+            {
+               "id" : "sugars",
+               "points" : 1,
+               "points_max" : 15,
+               "unit" : "g",
+               "value" : 3.6
+            },
+            {
+               "id" : "saturated_fat",
+               "points" : 0,
+               "points_max" : 10,
+               "unit" : "g",
+               "value" : 0.1
+            },
+            {
+               "id" : "salt",
+               "points" : 5,
+               "points_max" : 20,
+               "unit" : "g",
+               "value" : 1.2
+            }
+         ],
+         "positive" : [
+            {
+               "id" : "proteins",
+               "points" : 2,
+               "points_max" : 7,
+               "unit" : "g",
+               "value" : 5
+            },
+            {
+               "id" : "fiber",
+               "points" : 3,
+               "points_max" : 5,
+               "unit" : "g",
+               "value" : 5.3
+            },
+            {
+               "id" : "fruits_vegetables_legumes",
+               "points" : 1,
+               "points_max" : 5,
+               "unit" : "%",
+               "value" : 50
+            }
+         ]
+      },
+      "count_proteins" : 1,
+      "count_proteins_reason" : "negative_points_less_than_11",
       "grade" : "a",
       "is_beverage" : 0,
       "is_cheese" : 0,
-      "is_fat" : 0,
+      "is_fat_oil_nuts_seeds" : 0,
+      "is_red_meat_product" : 0,
       "is_water" : 0,
-      "negative_points" : 5,
-      "positive_points" : 9,
-      "proteins" : 5,
-      "proteins_points" : 3,
-      "proteins_value" : 5,
-      "saturated_fat" : 0.1,
-      "saturated_fat_points" : 0,
-      "saturated_fat_value" : 0.1,
-      "score" : -4,
-      "sodium" : 480,
-      "sodium_points" : 5,
-      "sodium_value" : 480,
-      "sugars" : 3.6,
-      "sugars_points" : 0,
-      "sugars_value" : 3.6
+      "negative_points" : 6,
+      "negative_points_max" : 55,
+      "positive_nutrients" : [
+         "proteins",
+         "fiber",
+         "fruits_vegetables_legumes"
+      ],
+      "positive_points" : 6,
+      "positive_points_max" : 17,
+      "score" : 0
    },
    "nutriscore_grade" : "a",
-   "nutriscore_score" : -4,
-   "nutriscore_score_opposite" : 4,
+   "nutriscore_score" : 0,
+   "nutriscore_score_opposite" : 0,
    "nutriscore_tags" : [
       "a"
    ],
-   "nutriscore_version" : "2021",
+   "nutriscore_version" : "2023",
    "nutrition_data_per" : "100g",
    "nutrition_data_prepared_per" : "100g",
    "nutrition_grade_fr" : "a",
@@ -408,6 +507,12 @@
       "vegetables",
       "known"
    ],
+   "traces" : "",
+   "traces_from_ingredients" : "",
+   "traces_from_user" : "(fr) ",
+   "traces_hierarchy" : [],
+   "traces_tags" : [],
    "unknown_ingredients_n" : 0,
+   "unknown_nutrients_tags" : [],
    "vitamins_tags" : []
 }

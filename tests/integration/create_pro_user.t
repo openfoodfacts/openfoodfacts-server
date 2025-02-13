@@ -91,8 +91,8 @@ compare_to_expected_results(\@mails, "$expected_result_dir/mails.json",
 
 # the pro moderator got to the org page
 $resp = get_page($moderator_ua, "/cgi/org.pl?type=edit&orgid=org-acme-inc");
-# the pro moderator validates the user org by going on org page and adding a tick
-my %fields = (%{dclone(\%default_org_edit_form)}, %{dclone(\%default_org_edit_admin_form)}, valid_org => 1);
+# the pro moderator validates the user org by going on org page and changes the org validation status from 'unreviewed' to 'accepted'
+my %fields = (%{dclone(\%default_org_edit_form)}, %{dclone(\%default_org_edit_admin_form)}, valid_org => 'accepted');
 $resp = post_form($moderator_ua, "/cgi/org.pl", \%fields);
 # the org is now validated
 $org_ref = retrieve("$data_root/orgs/acme-inc.sto");

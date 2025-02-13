@@ -8,11 +8,12 @@ use utf8;
 use Test2::V0;
 use Data::Dumper;
 $Data::Dumper::Terse = 1;
+$Data::Dumper::Sortkeys = 1;
 use Log::Any::Adapter 'TAP';
 
-use JSON::PP;
+use JSON::MaybeXS;
 
-my $json = JSON::PP->new->allow_nonref->canonical;
+my $json = JSON::MaybeXS->new->allow_nonref->canonical;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -20,7 +21,7 @@ use ProductOpener::Test qw/init_expected_results/;
 use ProductOpener::Products qw/analyze_and_enrich_product_data/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
-use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Attributes qw/compute_attributes/;
 use ProductOpener::Packaging qw/:all/;
@@ -131,7 +132,7 @@ my @tests = (
 
 	# bug https://github.com/openfoodfacts/openfoodfacts-server/issues/6356
 	[
-		'en-ecoscore-score-at-20-threshold',
+		'en-environmental_score-score-at-20-threshold',
 		{
 			lc => "en",
 			categories => "Cocoa and hazelnuts spreads",
@@ -234,6 +235,7 @@ foreach my $test_ref (@tests) {
 
 		local $/;    #Enable 'slurp' mode
 		my $expected_product_ref = $json->decode(<$expected_result>);
+		print STDERR "testid: $testid\n";
 		is($product_ref, $expected_product_ref) or diag Dumper $product_ref;
 	}
 	else {

@@ -98,6 +98,7 @@ html/js/sigma*
 
 # Env files
 .env*
+venv
 
 # Taxonomies and cache
 cache
@@ -107,3 +108,7 @@ taxonomies/*.all.txt
 /build-cache/taxonomies/*.json
 /build-cache/taxonomies/*.sto
 /build-cache/taxonomies/*.result.txt
+
+# Shared services and other dependencies
+/deps
+/deps/*
