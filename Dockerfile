@@ -160,6 +160,8 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libperl-dev \
         # needed to build Apache2::Connection::XForwardedFor
         libapache2-mod-perl2-dev \
+        # needed for  Imager::File::WEBP
+        libwebpmux3 \
         # Imager::zxing - build deps
         cmake \
         pkg-config \
@@ -203,7 +205,11 @@ WORKDIR /tmp
 # Install Product Opener from the workdir.
 COPY ./cpanfile* /tmp/
 # Add ProductOpener runtime dependencies from cpan
-RUN --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
+# we also add apt cache as some libraries might be installed from apt
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
+    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt \
+    --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
+    set -x && \
     # first install some dependencies that are not well handled
     cpanm --notest --quiet --skip-satisfied --local-lib /tmp/local/ "Apache::Bootstrap" && \
     cpanm $CPANMOPTS --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps . \
