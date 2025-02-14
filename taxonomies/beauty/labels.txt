@@ -1,3 +1,5 @@
+##### Add translations in all European, Asian languages (and more)
+
 stopwords:en: ingredients, from, with, of, by, the, verified, certified, approved, 100%, pure, product, guaranty, guaranteed, standard
 stopwords:fr: ingrédients, issus, de, l', convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit, sas
 stopwords:es: por, la, las, los, el, apto, para, certificado, controlado, registrado, 100%
@@ -68,11 +70,28 @@ en: Without sodium laureth sulfate
 fr: sans sodium-laureth-sulfate, sans sodium-lauryl-laureth-sulfate, sans sodium-laureth-sulfates
 
 en: Without titanium dioxide
+de: Ohne Titandioxid
+es: Sin dióxido de titanio
 fr: Sans dioxyde de titane
-
+it: Senza biossido di titanio
+ja: 酸化チタン不使用
+ko: 이산화 티타늄 없음
+nl: Zonder titaniumdioxide
+pt: Sem dióxido de titânio
+zh-CN: 不含二氧化钛
+zh-TW: 不含二氧化鈦
 
 en: Without toluene
+de: Ohne Toluol
+es: Sin tolueno
 fr: Sans toluene
+it: Senza toluene
+ja: トルエン不使用
+ko: 톨루엔 없음
+nl: Zonder tolueen
+pt: Sem tolueno
+zh-CN: 不含甲苯
+zh-TW: 不含甲苯
 
 en: Without methylisothiazolinone
 fr: Sans methylisothiazolinone
@@ -102,7 +121,16 @@ en: Without synthetic antiperspirant
 fr: Sans anti transpirant synthetique
 
 en: Without picramic acid
+de: Ohne Pikraminsäure
+es: Sin ácido picrámico
 fr: Sans acide picramique
+it: Senza acido picramico
+ja: ピクラミン酸不使用
+ko: 피크람산 없음
+nl: Zonder picraminezuur
+pt: Sem ácido pícrico
+zh-CN: 不含苦味酸
+zh-TW: 不含苦味酸
 
 en: Without SLS SLES
 fr: Sans SLS SLES
@@ -1331,10 +1359,28 @@ en: No animal derived ingredients
 fr: Pas de composant animal, Sans matière animale
 
 en: Without animal fat
+de: Ohne tierisches Fett
+es: Sin grasa animal
 fr: Sans graisse animale, sans graisses animales
+it: Senza grassi animali
+ja: 動物性脂肪不使用
+ko: 동물성 지방 없음
+nl: Zonder dierlijk vet
+pt: Sem gordura animal
+zh-CN: 不含动物脂肪
+zh-TW: 不含動物脂肪
 
 en: Without bisphenol
+de: Ohne Bisphenol
+es: Sin bisfenol
 fr: Sans bisphenol
+it: Senza bisfenolo
+ja: ビスフェノール不使用
+ko: 비스페놀 없음
+nl: Zonder bisfenol
+pt: Sem bisfenol
+zh-CN: 不含双酚
+zh-TW: 不含雙酚
 
 en: PEFC, Pan European Forest Certification, Program for the Endorsement of Forest Certification, Program for the Endorsement of Forest Certification schemes
 fr: PEFC
@@ -1474,10 +1520,69 @@ fr: Packaging entièrement recyclable
 nl: Volledig recyclebare verpakking
 
 en: Easily flammable
+zh-CN: 易燃
+zh-TW: 易燃
+ar: قابل للاشتعال بسهولة
+az: Asanlıqla alışan
+bg: Лесно запалим
+bn: সহজে দাহ্য
+cs: Snadno hořlavé
+da: Letantændelig
 de: Leicht entflammbar
+el: Εύφλεκτο
 es: Fácilmente inflamable
+et: Kergesti süttiv
+fa: به راحتی قابل اشتعال
+fi: Helposti syttyvä
 fr: Facilement inflammable
+ga: Inlasta go héasca
+gu: સરળતાથી જ્વલનશીલ
+he: דליק בקלות
+hr: Lako zapaljivo
+hu: Könnyen gyúlékony
+id: Mudah terbakar
+is: Eldfimt
+it: Facilmente infiammabile
+ja: 可燃性
+ka: ადვილად აალებადი
+kk: Оңай тұтанатын
+km: ងាយឆេះ
+kn: ಸುಲಭವಾಗಿ ಉರಿಯುವ
+ko: 가연성
+ky: Оңой күйүүчү
+lt: Lengvai užsidegantis
+lv: Viegli uzliesmojošs
+ml: എളുപ്പത്തിൽ കത്തുന്ന
+mn: Шатамхай
+mr: सहजपणे ज्वलनशील
+ms: Mudah terbakar
+mt: Faċilment jaqbad
+ne: सजिलै जल्ने
 nl: Makkelijk ontvlambaar
+no: Lettantennelig
+or: ସହଜରେ ଜ୍ୱଳନଶୀଳ
+pa: ਆਸਾਨੀ ਨਾਲ ਜਲਣਸ਼ੀਲ
+pl: Łatwopalny
+pt: Facilmente inflamável
+ro: Ușor inflamabil
+ru: Легковоспламеняющийся
+si: පහසුවෙන් ගිනි ඇවිලෙන
+sk: Ľahko horľavé
+sl: Lahko vnetljivo
+sq: Lehtësisht i ndezshëm
+sr: Lako zapaljivo
+sv: Lättantändlig
+sw: Huwaka kwa urahisi
+ta: எளிதில் தீப்பற்றக்கூடிய
+te: సులభంగా మండే
+tg: Ба осонӣ оташгиранда
+th: ติดไฟง่าย
+tk: Aňsatlyk bilen ot alýan
+tl: Madaling magliyab
+tr: Kolay alevlenir
+uk: Легкозаймистий
+uz: Oson yonuvchi
+vi: Dễ cháy
 
 en: Without phthalates, without phtalates, 0 phthalates
 de: Ohne Phthalate
@@ -1536,10 +1641,69 @@ fr: Sans phenoxyethanol
 nl: Zonder fenoxyethanol
 
 en: Without aluminium salts
+zh-CN: 不含铝盐
+zh-TW: 不含鋁鹽
+ar: بدون أملاح الألومنيوم
+az: Alüminium duzları olmadan
+bg: Без алуминиеви соли
+bn: অ্যালুমিনিয়াম লবণ ছাড়া
+cs: Bez hlinitých solí
+da: Uden aluminiumsalte
 de: Ohne Aluminiumsalze
+el: Χωρίς άλατα αλουμινίου
 es: Sin sales de aluminio
+et: Ilma alumiiniumisooladeta
+fa: بدون نمک آلومینیوم
+fi: Ilman alumiinisuoloja
 fr: Sans sels d'aluminium
+ga: Gan salainn alúmanaim
+gu: એલ્યુમિનિયમ ક્ષાર વગર
+he: ללא מלחי אלומיניום
+hr: Bez aluminijevih soli
+hu: Alumíniumsók nélkül
+id: Tanpa garam aluminium
+is: Án álsöltum
+it: Senza Sali di alluminio
+ja: アルミニウム塩不使用
+ka: ალუმინის მარილების გარეშე
+kk: Алюминий тұздарынсыз
+km: គ្មានអំបិលអាលុយមីញ៉ូម
+kn: ಅಲ್ಯೂಮಿನಿಯಂ ಲವಣಗಳಿಲ್ಲದೆ
+ko: 알루미늄 염 없음
+ky: Алюминий туздары жок
+lt: Be aliuminio druskų
+lv: Bez alumīnija sāļiem
+ml: അലുമിനിയം ലവണങ്ങൾ ഇല്ലാതെ
+mn: Хөнгөн цагааны давсгүй
+mr: ॲल्युमिनियम लवणांशिवाय
+ms: Tanpa garam aluminium
+mt: Mingħajr imluħa tal-aluminju
+ne: आल्मुनियम नुन बिना
 nl: Zonder aluminiumzouten
+no: Uten aluminiumsalter
+or: ଆଲୁମିନିୟମ ଲବଣ ବିନା
+pa: ਐਲੂਮੀਨੀਅਮ ਲੂਣ ਤੋਂ ਬਿਨਾਂ
+pl: Bez soli glinu
+pt: Sem sais de alumínio
+ro: Fără săruri de aluminiu
+ru: Без солей алюминия
+si: ඇලුමිනියම් ලවණ රහිතයි
+sk: Bez hliníkových solí
+sl: Brez aluminijevih soli
+sq: Pa kripëra alumini
+sr: Bez aluminijumskih soli
+sv: Utan aluminiumsalter
+sw: Bila chumvi za alumini
+ta: அலுமினிய உப்புகள் இல்லாமல்
+te: అల్యూమినియం లవణాలు లేకుండా
+tg: Бе намакҳои алюминий
+th: ไม่มีเกลืออลูมิเนียม
+tk: Alýumin duzlary ýok
+tl: Walang mga asin ng aluminyo
+tr: Alüminyum tuzları içermez
+uk: Без солей алюмінію
+uz: Alyuminiy tuzlarisiz
+vi: Không chứa muối nhôm
 
 en: Without silicon, Silicon free, Without silicone
 de: Ohne Silikon
