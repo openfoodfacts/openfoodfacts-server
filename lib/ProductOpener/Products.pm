@@ -95,6 +95,7 @@ BEGIN {
 		&compute_completeness_and_missing_tags
 		&compute_product_history_and_completeness
 		&compute_languages
+		&review_product_type
 		&compute_changes_diff_text
 		&compute_data_sources
 		&compute_sort_keys
@@ -3000,6 +3001,59 @@ sub compute_languages ($product_ref) {
 	return;
 }
 
+=head2 review_product_type ( $product_ref )
+
+Reviews the product type based on the presence of specific tags in the categories field.
+Updates the product type if necessary.
+
+=head3 Arguments
+
+=head4 Product reference $product_ref
+
+A reference to a hash containing the product details.
+
+=cut
+
+sub review_product_type ($product_ref) {
+
+	my $error;
+
+	my $expected_type;
+	if (has_tag($product_ref, "categories", "en:open-beauty-facts")) {
+		$expected_type = "beauty";
+	}
+	elsif (has_tag($product_ref, "categories", "en:open-food-facts")) {
+		$expected_type = "food";
+	}
+	elsif (has_tag($product_ref, "categories", "en:open-pet-food-facts")) {
+		$expected_type = "petfood";
+	}
+	elsif (has_tag($product_ref, "categories", "en:open-products-facts")) {
+		$expected_type = "product";
+	}
+
+	if ($expected_type and ($product_ref->{product_type} ne $expected_type)) {
+		$error = change_product_type($product_ref, $expected_type);
+	}
+
+	if ($error) {
+		$log->error("review_product_type - error", {error => $error, product_ref => $product_ref});
+	}
+	else {
+		# We remove the tag en:incorrect-product-type and its children before the product is stored on the server of the new type
+		remove_tag($product_ref, "categories", "en:incorrect-product-type");
+		remove_tag($product_ref, "categories", "en:open-beauty-facts");
+		remove_tag($product_ref, "categories", "en:open-food-facts");
+		remove_tag($product_ref, "categories", "en:open-pet-food-facts");
+		remove_tag($product_ref, "categories", "en:open-products-facts");
+		remove_tag($product_ref, "categories", "en:non-food-products");
+		remove_tag($product_ref, "categories", "en:non-pet-food-products");
+		remove_tag($product_ref, "categories", "en:non-beauty-products");
+	}
+
+	return;
+}
+
 =head2 process_product_edit_rules ($product_ref)
 
 Process the edit_rules (see C<@edit_rules> in in Config file).
@@ -3722,6 +3776,11 @@ sub analyze_and_enrich_product_data ($product_ref, $response_ref) {
 	analyze_and_combine_packaging_data($product_ref, $response_ref);
 
 	compute_languages($product_ref);    # need languages for allergens detection and cleaning ingredients
+
+	# change the product type of non-food categorized products (issue #11094)
+	if (has_tag($product_ref, "categories", "en:incorrect-product-type")) {
+		review_product_type($product_ref);
+	}
 
 	# Run special analysis, score calculations that it specific to the product type
 
