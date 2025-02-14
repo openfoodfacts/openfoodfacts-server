@@ -42,7 +42,7 @@ $product_ref = {
 		"some unknown words for ingredient: 69% pšeničná múka, pitná voda, repkový olej, stabilizátor: glycerol; pšeničný glutén, regulátor kyslosti: kyselina jablčná; jedlá soľ, emulgátor: mono - a diglyceridy mastných kyselín; dextróza, kypriaca látka: uhličitany sodné; konzervačné látky: propionan vápenatý, sorban draselný; múku upravujúca látka: L-cystein.",
 };
 check_ingredients_between_languages($product_ref);
-ok(has_tag($product_ref, "taxonomies_enhancer", "en:possible-stop-word-before-sk:some-unknown-words-for-ingredient"),
+ok(has_tag($product_ref, "taxonomies_enhancer", "possible-stop-word-before-sk-some-unknown-words-for-ingredient"),
 	'sk has one stop word before')
 	or diag Dumper $product_ref;
 
@@ -53,7 +53,7 @@ $product_ref = {
 		"product name or something. some unknown words for ingredient: 69% pšeničná múka, pitná voda, repkový olej, stabilizátor: glycerol; pšeničný glutén, regulátor kyslosti: kyselina jablčná; jedlá soľ, emulgátor: mono - a diglyceridy mastných kyselín; dextróza, kypriaca látka: uhličitany sodné; konzervačné látky: propionan vápenatý, sorban draselný; múku upravujúca látka: L-cystein.",
 };
 check_ingredients_between_languages($product_ref);
-ok(has_tag($product_ref, "taxonomies_enhancer", "en:possible-stop-word-before-sk:some-unknown-words-for-ingredient"),
+ok(has_tag($product_ref, "taxonomies_enhancer", "possible-stop-word-before-sk-some-unknown-words-for-ingredient"),
 	'sk has one stop word before and only one')
 	or diag Dumper $product_ref;
 
@@ -68,12 +68,11 @@ $product_ref = {
 check_ingredients_between_languages($product_ref);
 ok(
 	has_tag(
-		$product_ref, "taxonomies_enhancer",
-		"en:possible-stop-word-before-hr:some-unknown-words-for-ingredient-in-hr"
+		$product_ref, "taxonomies_enhancer", "possible-stop-word-before-hr-some-unknown-words-for-ingredient-in-hr"
 	),
 	'hr has one stop word before and it is not influenced by other lang stop word before'
 ) or diag Dumper $product_ref;
-ok(has_tag($product_ref, "taxonomies_enhancer", "en:possible-stop-word-before-sk:some-unknown-words-for-ingredient"),
+ok(has_tag($product_ref, "taxonomies_enhancer", "possible-stop-word-before-sk-some-unknown-words-for-ingredient"),
 	'sk has one stop word before and it is not influenced by other lang stop word before')
 	or diag Dumper $product_ref;
 
@@ -87,7 +86,7 @@ $product_ref = {
 };
 check_ingredients_between_languages($product_ref);
 ok(
-	has_tag($product_ref, "taxonomies_enhancer", "en:possible-stop-word-before-sk:some-unknown-words-for-ingredient"),
+	has_tag($product_ref, "taxonomies_enhancer", "possible-stop-word-before-sk-some-unknown-words-for-ingredient"),
 	'sk has one stop word before and it is not influenced by having 2 languages without stopwords'
 ) or diag Dumper $product_ref;
 
@@ -102,13 +101,12 @@ $product_ref = {
 check_ingredients_between_languages($product_ref);
 ok(
 	has_tag(
-		$product_ref, "taxonomies_enhancer",
-		"en:possible-stop-word-before-hr:some-unknown-words-for-ingredient-in-hr"
+		$product_ref, "taxonomies_enhancer", "possible-stop-word-before-hr-some-unknown-words-for-ingredient-in-hr"
 	),
 	'hr has one stop word before and it is not influenced by other lang having a stop word before and a word before that stop word'
 ) or diag Dumper $product_ref;
 ok(
-	has_tag($product_ref, "taxonomies_enhancer", "en:possible-stop-word-before-sk:some-unknown-words-for-ingredient"),
+	has_tag($product_ref, "taxonomies_enhancer", "possible-stop-word-before-sk-some-unknown-words-for-ingredient"),
 	'sk has one stop word before and only one and it is not influenced by other lang having a stop word before'
 ) or diag Dumper $product_ref;
 
@@ -142,7 +140,7 @@ $product_ref = {
 		"69% búzaliszt, ivóvíz, repceolaj, stabilizátor: glicerin; búzaglutén, savanyúságot szabályozó anyag: almasav; étkezési só, emulgeálószer: zsírsavak mono - és digliceridjei; dextróz, térfogatnövelő szer: nátrium-karbonátok; tartósítószerek: kalcium-propionát, kálium-szorbát; lisztkezelő szer: L-Cisztein.",
 };
 check_ingredients_between_languages($product_ref);
-ok(has_tag($product_ref, "taxonomies_enhancer", "en:possible-stop-word-after-hr:čuvati-na-suhom-mjestu"),
+ok(has_tag($product_ref, "taxonomies_enhancer", "possible-stop-word-after-hr-čuvati-na-suhom-mjestu"),
 	'hr has one stop word')
 	or diag Dumper $product_ref;
 
@@ -154,7 +152,7 @@ $product_ref = {
 };
 check_ingredients_between_languages($product_ref);
 ok(
-	has_tag($product_ref, "taxonomies_enhancer", "en:possible-stop-word-before-hr:ingredient-in-hr"),
+	has_tag($product_ref, "taxonomies_enhancer", "possible-stop-word-before-hr-ingredient-in-hr"),
 	'if 1 stop word before and 1 stop word after, then only stop word before should be seen'
 ) or diag Dumper $product_ref;
 
@@ -174,13 +172,10 @@ $product_ref = {
 };
 check_ingredients_between_languages($product_ref);
 ok(
-	has_tag(
-		$product_ref, "taxonomies_enhancer",
-		"en:possible-stop-word-after-cs:skladujte-v-suchu-a-chraňte-před-teplem"
-	),
+	has_tag($product_ref, "taxonomies_enhancer", "possible-stop-word-after-cs-skladujte-v-suchu-a-chraňte-před-teplem"),
 	'cs has one stop word'
 ) or diag Dumper $product_ref;
-ok(has_tag($product_ref, "taxonomies_enhancer", "en:possible-stop-word-after-hr:čuvati-na-suhom-mjestu"),
+ok(has_tag($product_ref, "taxonomies_enhancer", "possible-stop-word-after-hr-čuvati-na-suhom-mjestu"),
 	'hr has one stop word as well')
 	or diag Dumper $product_ref;
 
@@ -191,15 +186,12 @@ $product_ref = {
 		"69% pšenična moka, voda, olje oljne ogrščice, stabilizator: glicerol; pšenični gluten, sredstvo za uravnavanje kislosti: jabolčna kislina ; nejodirana sol, emulgator: mono - in diglicerid! maščobnih kislin; dekstroza, sredstvo za vzhajanje: natrijevi karbonati; konzervansa: kalcijev propionat , kalijev sorbat; sredstvo za obdelavo moke: L-cistein. Uporabno najmanj do: glej odtis na zadnji strani embalaže.",
 };
 check_ingredients_between_languages($product_ref);
-ok(has_tag($product_ref, "taxonomies_enhancer", "en:possible-stop-word-after-sl:uporabno-najmanj-do"),
+ok(has_tag($product_ref, "taxonomies_enhancer", "possible-stop-word-after-sl-uporabno-najmanj-do"),
 	'sl has one stop word')
 	or diag Dumper $product_ref;
-ok(
-	!has_tag(
-		$product_ref, "taxonomies_enhancer", "en:possible-stop-word-after-sl:glej-odtis-na-zadnji-strani-embalaže"
-	),
-	'sl has only one stop word, second word is not reported'
-) or diag Dumper $product_ref;
+ok(!has_tag($product_ref, "taxonomies_enhancer", "possible-stop-word-after-sl-glej-odtis-na-zadnji-strani-embalaže"),
+	'sl has only one stop word, second word is not reported')
+	or diag Dumper $product_ref;
 
 $product_ref = {
 	ingredients_text_sk =>
@@ -210,18 +202,15 @@ $product_ref = {
 		"69% pšenična moka, voda, olje oljne ogrščice, stabilizator: glicerol; pšenični gluten, sredstvo za uravnavanje kislosti: jabolčna kislina ; nejodirana sol, emulgator: mono - in diglicerid! maščobnih kislin; dekstroza, sredstvo za vzhajanje: natrijevi karbonati; konzervansa: kalcijev propionat , kalijev sorbat; sredstvo za obdelavo moke: L-cistein. Uporabno najmanj do: glej odtis na zadnji strani embalaže.",
 };
 check_ingredients_between_languages($product_ref);
-ok(has_tag($product_ref, "taxonomies_enhancer", "en:possible-stop-word-after-hr:čuvati-na-suhom-mjestu"),
+ok(has_tag($product_ref, "taxonomies_enhancer", "possible-stop-word-after-hr-čuvati-na-suhom-mjestu"),
 	'hr is one of the 2 stop words with sl')
 	or diag Dumper $product_ref;
-ok(has_tag($product_ref, "taxonomies_enhancer", "en:possible-stop-word-after-sl:uporabno-najmanj-do"),
+ok(has_tag($product_ref, "taxonomies_enhancer", "possible-stop-word-after-sl-uporabno-najmanj-do"),
 	'sl is one of the 2 stop words with hr')
 	or diag Dumper $product_ref;
-ok(
-	!has_tag(
-		$product_ref, "taxonomies_enhancer", "en:possible-stop-word-after-sl:glej-odtis-na-zadnji-strani-embalaže"
-	),
-	'sl has only one stop word with hr, second word for sl is not reported'
-) or diag Dumper $product_ref;
+ok(!has_tag($product_ref, "taxonomies_enhancer", "possible-stop-word-after-sl-glej-odtis-na-zadnji-strani-embalaže"),
+	'sl has only one stop word with hr, second word for sl is not reported')
+	or diag Dumper $product_ref;
 
 # TEST UNKNOWN INGREDIENTS
 $product_ref = {
@@ -230,7 +219,7 @@ $product_ref = {
 };
 check_ingredients_between_languages($product_ref);
 ok(
-	has_tag($product_ref, "taxonomies_enhancer", "en:ingredients-hr:secer-is-possible-typo-for-hr:šećer"),
+	has_tag($product_ref, "taxonomies_enhancer", "ingredients-hr-secer-is-possible-typo-for-hr-šećer"),
 	'typo should be fetched if both language are having single word although percentage of unknown ingredients is below the threshold'
 ) or diag Dumper $product_ref;
 
@@ -239,7 +228,7 @@ $product_ref = {
 	ingredients_text_en => "Salt, sugar, strawberry.",
 };
 check_ingredients_between_languages($product_ref);
-ok(has_tag($product_ref, "taxonomies_enhancer", "en:ingredients-hr:secer-is-possible-typo-for-hr:šećer"),
+ok(has_tag($product_ref, "taxonomies_enhancer", "ingredients-hr-secer-is-possible-typo-for-hr-šećer"),
 	'typo should be fetched')
 	or diag Dumper $product_ref;
 
@@ -248,7 +237,7 @@ $product_ref = {
 	ingredients_text_en => "Salt, jaggery, strawberry.",
 };
 check_ingredients_between_languages($product_ref);
-ok(has_tag($product_ref, "taxonomies_enhancer", "en:ingredients-hr:jaggery-is-new-translation-for-en:jaggery"),
+ok(has_tag($product_ref, "taxonomies_enhancer", "ingredients-hr-jaggery-is-new-translation-for-en-jaggery"),
 	'suggest Croatian translation for existing ingredient in English')
 	or diag Dumper $product_ref;
 
@@ -258,7 +247,7 @@ $product_ref = {
 	ingredients_text_pl => "sól, cukier, truskawka.",
 };
 check_ingredients_between_languages($product_ref);
-ok(has_tag($product_ref, "taxonomies_enhancer", "en:ingredients-hr:secer-is-possible-typo-for-hr:šećer"),
+ok(has_tag($product_ref, "taxonomies_enhancer", "ingredients-hr-secer-is-possible-typo-for-hr-šećer"),
 	'typo should be fetched')
 	or diag Dumper $product_ref;
 
@@ -271,7 +260,7 @@ check_ingredients_between_languages($product_ref);
 ok(
 	has_tag(
 		$product_ref, "taxonomies_enhancer",
-		"en:ingredients-hr:newword-is-new-translation-for-en:invert-sugar-solution"
+		"ingredients-hr-newword-is-new-translation-for-en-invert-sugar-solution"
 	),
 	'new translation for invert sugar solution in hr but known in 2 differents lang'
 ) or diag Dumper $product_ref;
@@ -285,7 +274,7 @@ ok(
 	has_tag(
 		$product_ref,
 		"taxonomies_enhancer",
-		"en:ingredients-taxonomy-between-invert-sugar-solution-id:en:invert-sugar-solution-and-mrkva-id:en:carrot-should-be-same-id"
+		"ingredients-taxonomy-between-invert-sugar-solution-id-en-invert-sugar-solution-and-mrkva-id-en-carrot-should-be-same-id"
 	),
 	'different ids between lang hr and en leading to taxonomy mismatch warning'
 ) or diag Dumper $product_ref;
@@ -329,7 +318,7 @@ $product_ref = {
 	ingredients_text_ro => "",
 };
 check_ingredients_between_languages($product_ref);
-ok(has_tag($product_ref, "taxonomies_enhancer", "en:ingredients-fr:basilic-0-is-possible-typo-for-fr:basilic"),
+ok(has_tag($product_ref, "taxonomies_enhancer", "ingredients-fr-basilic-0-is-possible-typo-for-fr-basilic"),
 	'parsing promblem due to OCR resulting in space after comma')
 	or diag Dumper $product_ref;
 
@@ -367,17 +356,16 @@ check_ingredients_between_languages($product_ref);
 ok(
 	has_tag(
 		$product_ref, "taxonomies_enhancer",
-		"en:ingredients-hu:vanílla-darabkák-is-new-translation-for-en:exhausted-ground-vanilla-pod"
+		"ingredients-hu-vanilla-darabkak-is-new-translation-for-en-exhausted-vanilla-pod"
 	),
 	'hu new translation'
 ) or diag Dumper $product_ref;
-ok(has_tag($product_ref, "taxonomies_enhancer", "en:ingredients-hu:szinezék-is-possible-typo-for-hu:színezék"),
+ok(has_tag($product_ref, "taxonomies_enhancer", "ingredients-hu-szinezek-is-possible-typo-for-hu-szinezek"),
 	'hu 1/2 typo')
 	or diag Dumper $product_ref;
-ok(
-	has_tag($product_ref, "taxonomies_enhancer", "en:ingredients-hu:glükózsirup-is-possible-typo-for-hu:glükózszirup"),
-	'hu 2/2 typo'
-) or diag Dumper $product_ref;
+ok(has_tag($product_ref, "taxonomies_enhancer", "ingredients-hu-glukozsirup-is-possible-typo-for-hu-glukozszirup"),
+	'hu 2/2 typo')
+	or diag Dumper $product_ref;
 
 $product_ref = {
 	ingredients_text_en => "spice extracts (including _celeriac_)",
@@ -388,7 +376,7 @@ ok(
 	has_tag(
 		$product_ref,
 		"taxonomies_enhancer",
-		"en:ingredients-taxonomy-between-including-celeriac-id:en:celeriac-and-w-tym-seler-id:en:celery-should-be-same-id"
+		"ingredients-taxonomy-between-including-celeriac-id-en-celeriac-and-w-tym-seler-id-en-celery-should-be-same-id"
 	),
 	'en-pl, remove underscores'
 ) or diag Dumper $product_ref;
@@ -413,48 +401,42 @@ $product_ref = {
 };
 check_ingredients_between_languages($product_ref);
 ok(
-	has_tag(
-		$product_ref, "taxonomies_enhancer",
-		"en:possible-stop-word-after-cs:skladujte-v-suchu-a-chraňte-před-teplem"
-	),
+	has_tag($product_ref, "taxonomies_enhancer", "possible-stop-word-after-cs-skladujte-v-suchu-a-chraňte-před-teplem"),
 	'cs-hr-hu-pl-ro-sk-sl, cs stopword'
 ) or diag Dumper $product_ref;
-ok(has_tag($product_ref, "taxonomies_enhancer", "en:possible-stop-word-after-sl:uporabno-najmanj-do"),
+ok(has_tag($product_ref, "taxonomies_enhancer", "possible-stop-word-after-sl-uporabno-najmanj-do"),
 	'cs-hr-hu-pl-ro-sk-sl, sl stopword')
 	or diag Dumper $product_ref;
-ok(has_tag($product_ref, "taxonomies_enhancer", "en:possible-stop-word-after-hr:čuvati-na-suhom-mjestu"),
+ok(has_tag($product_ref, "taxonomies_enhancer", "possible-stop-word-after-hr-čuvati-na-suhom-mjestu"),
 	'cs-hr-hu-pl-ro-sk-sl, hr stopword')
 	or diag Dumper $product_ref;
 ok(
 	has_tag(
-		$product_ref, "taxonomies_enhancer",
-		"en:ingredients-sk:pšeničny-gluten-is-new-translation-for-en:wheat-gluten"
+		$product_ref, "taxonomies_enhancer", "ingredients-sk-pšeničny-gluten-is-new-translation-for-en-wheat-gluten"
 	),
 	'cs-hr-hu-pl-ro-sk-sl, sk new translation'
 ) or diag Dumper $product_ref;
 ok(
 	has_tag(
 		$product_ref, "taxonomies_enhancer",
-		"en:ingredients-ro:carbonați-de-sodiu-is-possible-typo-for-ro:carbonati-de-sodiu"
+		"ingredients-ro-carbonați-de-sodiu-is-possible-typo-for-ro-carbonati-de-sodiu"
 	),
 	'cs-hr-hu-pl-ro-sk-sl, ro typo in taxonomy'
 ) or diag Dumper $product_ref;
-ok(has_tag($product_ref, "taxonomies_enhancer", "en:ingredients-pl:emuglator-is-possible-typo-for-pl:emulgator"),
+ok(has_tag($product_ref, "taxonomies_enhancer", "ingredients-pl-emuglator-is-possible-typo-for-pl-emulgator"),
 	'cs-hr-hu-pl-ro-sk-sl, pl typo')
 	or diag Dumper $product_ref;
-ok(has_tag($product_ref, "taxonomies_enhancer", "en:ingredients-cs:konzervanty-is-possible-typo-for-cs:konzervant"),
+ok(has_tag($product_ref, "taxonomies_enhancer", "ingredients-cs-konzervanty-is-possible-typo-for-cs-konzervant"),
 	'cs-hr-hu-pl-ro-sk-sl, cs is missing a synonym or handle plural in product opener')
 	or diag Dumper $product_ref;
 ok(
-	has_tag(
-		$product_ref, "taxonomies_enhancer", "en:ingredients-cs:kypřící-látka-is-possible-typo-for-cs:kypřicí-látka"
-	),
+	has_tag($product_ref, "taxonomies_enhancer", "ingredients-cs-kypřici-latka-is-possible-typo-for-cs-kypřici-latka"),
 	'cs-hr-hu-pl-ro-sk-sl, cs missing declension'
 ) or diag Dumper $product_ref;
 ok(
 	has_tag(
 		$product_ref, "taxonomies_enhancer",
-		"en:ingredients-sk:konzervačne-latky-is-possible-typo-for-sk:konzervačná-látka"
+		"ingredients-sk-konzervačne-latky-is-possible-typo-for-sk-konzervačna-latka"
 	),
 	'cs-hr-hu-pl-ro-sk-sl, sk missing declension'
 ) or diag Dumper $product_ref;
@@ -462,14 +444,14 @@ ok(
 	has_tag(
 		$product_ref,
 		"taxonomies_enhancer",
-		"en:ingredients-ro:mono-şi-digliceride-ale-acizilor-graşi-is-possible-typo-for-ro:mono--și-digliceride-ale-acizilor-grași"
+		"ingredients-ro-mono-şi-digliceride-ale-acizilor-graşi-is-possible-typo-for-ro-mono-și-digliceride-ale-acizilor-grași"
 	),
 	'cs-hr-hu-pl-ro-sk-sl, ro typo or synonym'
 ) or diag Dumper $product_ref;
 ok(
 	has_tag(
 		$product_ref, "taxonomies_enhancer",
-		"en:ingredients-ro:agent-de-afanare-is-possible-typo-for-ro:agent-de-afânare"
+		"ingredients-ro-agent-de-afanare-is-possible-typo-for-ro-agent-de-afanare"
 	),
 	'cs-hr-hu-pl-ro-sk-sl, ro typo or synonym again'
 ) or diag Dumper $product_ref;
@@ -495,12 +477,9 @@ $product_ref = {
 		"apă, oțet din vin, semințe de muştar, coji de muştar, sare de masă, acidifiant: acid citric, arome naturale de cuişoare, scorțișoară, ghimbir și tarhon, antioxidant: metabisulfit de potasiu, amestec de condimente.",
 };
 check_ingredients_between_languages($product_ref);
-ok(
-	has_tag(
-		$product_ref, "taxonomies_enhancer", "en:ingredients-es:acido-citico-is-possible-typo-for-es:acido-citrico"
-	),
-	'es-hr-ro, typo in es'
-) or diag Dumper $product_ref;
+ok(has_tag($product_ref, "taxonomies_enhancer", "ingredients-es-acido-citico-is-possible-typo-for-es-acido-citrico"),
+	'es-hr-ro, typo in es')
+	or diag Dumper $product_ref;
 
 # example based on 8000430133035
 #   different lists, in this example fr is missing "presure" but there exists picture with fr ingredients list having "presure"
@@ -538,20 +517,17 @@ check_ingredients_between_languages($product_ref);
 ok(
 	has_tag(
 		$product_ref, "taxonomies_enhancer",
-		"en:ingredients-da:pasteuriseret-komælk-is-new-translation-for-en:pasteurised-cow-s-milk"
+		"ingredients-da-pasteuriseret-komaelk-is-new-translation-for-en-pasteurised-cow-s-milk"
 	),
 	'cs-da-de-en-es-fi-fr-it-nl-pt-ru-sv, new word for da based on sv as well as en'
 ) or diag Dumper $product_ref;
-ok(
-	has_tag(
-		$product_ref, "taxonomies_enhancer", "en:ingredients-da:microbiel-løbe-is-new-translation-for-en:coagulant"
-	),
-	'cs-da-de-en-es-fi-fr-it-nl-pt-ru-sv, new word for da based on es as well as en'
-) or diag Dumper $product_ref;
+ok(has_tag($product_ref, "taxonomies_enhancer", "ingredients-da-microbiel-løbe-is-new-translation-for-en-coagulant"),
+	'cs-da-de-en-es-fi-fr-it-nl-pt-ru-sv, new word for da based on es as well as en')
+	or diag Dumper $product_ref;
 ok(
 	has_tag(
 		$product_ref, "taxonomies_enhancer",
-		"en:ingredients-da:pasteuriseret-komælk-is-possible-typo-for-da:pasteuriseret-mælk"
+		"ingredients-da-pasteuriseret-komaelk-is-possible-typo-for-da-pasteuriseret-maelk"
 	),
 	'cs-da-de-en-es-fi-fr-it-nl-pt-ru-sv, typo in da based on fi as well as en'
 ) or diag Dumper $product_ref;
