@@ -1,5 +1,5 @@
 <!-- start templates/[% template.name %] -->
-
+<script src="[% static_subdomain %]/js/dist/JsBarcode.all.min.js"></script>
 [% IF product_changes_saved %]
     <div data-alert class="alert-box info">
         <span>lang('product_changes_saved')</span>
@@ -83,10 +83,22 @@
                <nav id="navbar" class="navbar h-space-tiny">
                     <ul class="inline-list">
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#product"><span>[% lang("product") %]</span></a></li>
-                        <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#match"><span>[% lang("your_criteria") %]</span></a></li>
-                        <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#health"><span>[% lang("health") %]</span></a></li>
+                        [% IF user_preferences %]
+                            <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#match"><span>[% lang("your_criteria") %]</span></a></li>
+                        [% END %]
+                        [% IF health_card_panel %]
+                            <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#health"><span>[% lang("health") %]</span></a></li>
+                        [% END %]
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#environment"><span>[% lang("environment") %]</span></a></li>
+                        [% IF secondhand_card_panel %]
+                        <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#secondhand"><span>[% lang("secondhand") %]</span></a></li>
+                        [% END %]                        
+                        [% IF report_problem_card_panel %]
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#report_problem"><span>[% lang("report_problem_navigation") %]</span></a></li>
+                        [% END %]
+                        [% IF display_data_quality_issues_and_improvement_opportunities %]
+                        <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#improvement"><span>[% lang("improvements_navigation") %]</span></a></li>
+                        [% END %]
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#contribution"><span>[% lang("contribution_navigation") %]</span></a></li>
                     </ul>
                 </nav><!-- .navbar -->
@@ -162,10 +174,26 @@
                     
                     <!-- Display UPC code if the EAN starts with 0 -->
                         [% IF upc_code == 'defined' %]
-                            <p id="barcode_paragraph">
-                                [% lang("barcode") %]:  <span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">[% code %]</span> [% upc %]
-                            </p>
+                            <div id="barcode_div">
+                                <!-- Display only text of the code if mobile -->
+                                <div id="barcode_div_code">
+                                    <p id="barcode_paragraph">[% lang("barcode") %]: <br id="barcode_br"><span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">[% code %]</span>[% upc %]</p>
+                                </div>
+                                <!-- Display with SVG if not mobile -->
+                                <div id="barcode_div_svg">
+                                    <svg id="barcode_svg"
+                                        jsbarcode-format="auto"
+                                        jsbarcode-value="[% code %]"
+                                        jsbarcode-displayValue="false"
+                                        jsbarcode-height="40">
+                                    </svg>
+                                </div>
+                            </div>
+                            <script>if (screen && screen.width >= 600) JsBarcode("#barcode_svg").init()</script>
                             <div property="gr:hasEAN_UCC-13" content="[% code %]" datatype="xsd:string"></div>
+                        [% ELSE %]
+                         [%# put in DOM for folksonomy %]
+                          <span id="barcode"  style="display: none;">[% code %]</span>
                         [% END %]
                         
                         [% product_fields %]
@@ -181,7 +209,7 @@
         </div>
     </section>
 
-
+[% IF user_preferences %]
     <!-- product summary -->
     <section class="row" id="match">
         <div class="large-12 column">
@@ -202,7 +230,9 @@
 
         </div>
     </section>
+[% END %]
 
+[% IF health_card_panel %]
     <section class="row" id="health">
         <div class="large-12 column">
             <div class="card">
@@ -212,6 +242,7 @@
             </div>
         </div>
     </section>
+[% END %]
 
     <section class="row" id="environment">
         <div class="large-12 column">
@@ -242,6 +273,19 @@
     </section>
 [% END %]
 
+
+[% IF secondhand_card_panel %]
+<section class="row" id="secondhand">
+        <div class="large-12 column">
+            <div class="card">
+                <div class="card-section">
+                        [% secondhand_card_panel %]
+                </div>
+            </div>
+        </div>
+    </section>
+[% END %]
+
 <!-- Report problem card, if not on the platform for producers -->    
 [% IF ! server_options_producers_platform %]
     <section class="row" id="report_problem">
@@ -258,7 +302,7 @@
 <!-- Platform for producers: data quality issues and improvements opportunities -->
 [% IF server_options_producers_platform %]
 
-    <section class="row" >
+    <section class="row" id="improvement">
         <div class="large-12 column">
             <div class="card">
                 <div class="card-section">

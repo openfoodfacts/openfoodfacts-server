@@ -1,7 +1,7 @@
 type: object
+title: product_ingredients
 description: Fields about ingredients of a product
 properties:
-
   additives_tags:
     type: array
     items:
@@ -22,7 +22,7 @@ properties:
       type: string
 
   ingredients:
-    $ref: ./ingredient.yaml
+    $ref: "./ingredient.yaml#/components/schemas/Ingredients"
   ingredients_analysis:
     type: object
     properties:
@@ -84,7 +84,7 @@ properties:
       Language that was used to parse the ingredient list. If `ingredients_text` is available
       for the product main language (`lang`), `ingredients_lc=lang`, otherwise we look at
       `ingredients_text` fields for other languages and set `ingredients_lc` to the first
-      non-empty `ingredient_text`. 
+      non-empty `ingredient_text`.
   ingredients_text:
     type: string
     description: |
@@ -94,13 +94,13 @@ properties:
       It's a copy of ingredients_text in the main language of the product (see `lang` proprety).
 
     example: |
-        Farine de blé* 67,4%, sucre de canne*, huile de tournesol oléique*, graines de chia* 5,2%, son de blé*, oranges déshydratées * 0,9%, farine de riz*, poudres à lever (acide citrique, carbonates de sodium), arôme naturel d'orange.
+      Farine de blé* 67,4%, sucre de canne*, huile de tournesol oléique*, graines de chia* 5,2%, son de blé*, oranges déshydratées * 0,9%, farine de riz*, poudres à lever (acide citrique, carbonates de sodium), arôme naturel d'orange.
   ingredients_text_with_allergens:
     type: string
     description: |
       Same text as `ingredients_text` but where allergens have HTML elements around them to identify them
     example: |
-        Farine de <span class="allergen">blé*</span> 67,4%, sucre de canne*, huile de tournesol oléique*, graines de chia* 5,2%, <span class="allergen">son de blé*</span>, oranges déshydratées * 0,9%, farine de riz*, poudres à lever (acide citrique, carbonates de sodium), arôme naturel d'orange.
+      Farine de <span class="allergen">blé*</span> 67,4%, sucre de canne*, huile de tournesol oléique*, graines de chia* 5,2%, <span class="allergen">son de blé*</span>, oranges déshydratées * 0,9%, farine de riz*, poudres à lever (acide citrique, carbonates de sodium), arôme naturel d'orange.
   ingredients_that_may_be_from_palm_oil_n:
     type: integer
   ingredients_that_may_be_from_palm_oil_tags:
@@ -142,16 +142,19 @@ properties:
   traces_hierarchy:
     type: array
     items:
-      type: object
+      oneOf:
+        - type: "object"
+        - type: "string"
   traces_lc:
     type: string
   traces_tags:
     type: array
     items:
-      type: object
+      oneOf:
+        - type: "object"
+        - type: "string"
   unknown_ingredients_n:
     type: integer
-
 
 patternProperties:
   'ingredients_text_(?<language_code>\w\w)':
@@ -164,4 +167,3 @@ patternProperties:
     description: |
       Like `ingredients_text_with_allergens` for a particular language
     type: string
-

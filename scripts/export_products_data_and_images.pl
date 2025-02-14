@@ -32,7 +32,7 @@ use ProductOpener::Products qw/product_path_from_id/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Time::Local;
 use Data::Dumper;
 use Getopt::Long;
@@ -179,7 +179,7 @@ if ($products_file || $images_file) {
 			$tar_cmd = "cvfz";
 		}
 		print STDERR "Executing tar command: tar $tar_cmd $products_file -C $BASE_DIRS{PRODUCTS} -T $tmp_file\n";
-		system('tar', $tar_cmd, $products_file, "-C", $BASE_DIRS{PRODUCTS}, "-T", $tmp_file);
+		system("tar $tar_cmd $products_file -C $BASE_DIRS{PRODUCTS} -T $tmp_file > /dev/null 2>&1");
 	}
 
 	if (defined $images_file) {
@@ -189,7 +189,7 @@ if ($products_file || $images_file) {
 			$tar_cmd = "cvfz";
 		}
 		print STDERR "Executing tar command: tar $tar_cmd $images_file -C $BASE_DIRS{PRODUCTS_IMAGES} -T $tmp_file\n";
-		system('tar', $tar_cmd, $images_file, "-C", $BASE_DIRS{PRODUCTS_IMAGES}, "-T", $tmp_file);
+		system("tar $tar_cmd $images_file -C $BASE_DIRS{PRODUCTS_IMAGES} -T $tmp_file > /dev/null 2>&1");
 	}
 
 	print STDERR "$i products exported.\n";

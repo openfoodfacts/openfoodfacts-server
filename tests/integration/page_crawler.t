@@ -6,6 +6,9 @@ use Test2::V0;
 use ProductOpener::APITest qw/edit_product execute_api_tests new_client wait_application_ready/;
 use ProductOpener::Test qw/remove_all_products remove_all_users/;
 use ProductOpener::TestDefaults qw/%default_product_form/;
+use ProductOpener::Cache qw/$memd/;
+# We need to flush memcached so that cached queries from other tests (e.g. web_html.t) don't interfere with this test
+$memd->flush_all;
 
 use File::Basename "dirname";
 
@@ -252,6 +255,13 @@ my $tests_ref = [
 		test_case => 'get-robots-txt-world',
 		path => '/robots.txt',
 		subdomain => 'world',
+		expected_type => 'text',
+	},
+	# Indexing should be disabled for denied crawlers
+	{
+		test_case => 'get-robots-txt-denied-crawler',
+		path => '/robots.txt',
+		headers_in => {'User-Agent' => $DENIED_CRAWLING_BOT_USER_AGENT},
 		expected_type => 'text',
 	},
 ];

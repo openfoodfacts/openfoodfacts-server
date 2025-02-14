@@ -187,7 +187,7 @@ my @tests = (
 		["en:colour", "en:e162", "en:e160c", "en:e100"],
 	],
 
-	[{lc => "fr", ingredients_text => "graisse végétale bio (colza)"}, ["en:colza-oil"]],
+	[{lc => "fr", ingredients_text => "graisse végétale bio (colza)"}, ["en:vegetable-fat", "en:colza-oil"]],
 
 	[{lc => "fr", ingredients_text => "lait cru de lapin"}, ["fr:lait-cru-de-lapin"]],
 	[
@@ -201,7 +201,7 @@ my @tests = (
 
 	[
 		{lc => "en", ingredients_text => "vegetable oil (coconut & rapeseed)"},
-		["en:vegetable-oil", "en:coconut", "en:rapeseed"]
+		["en:vegetable-oil", "en:coconut-oil", "en:rapeseed-oil"]
 	],
 
 	[{lc => "fr", ingredients_text => "amidon de blé. traces de _céleri_."}, ["en:wheat-starch"]],
@@ -228,7 +228,7 @@ my @tests = (
 	# and all sub-ingredients being discarded
 	[
 		{lc => "en", ingredients_text => "Organic 100% juice (organic pear, organic apple), natural flavor."},
-		['en:juice', 'en:natural-flavouring', 'en:pear', 'en:apple']
+		['en:juice', 'en:natural-flavouring', 'en:pear-juice', 'en:apple-juice']
 	],
 	[{lc => "en", ingredients_text => "au jus (beef stock, water)"}, ['en:au-jus', 'en:beef-broth', 'en:water']],
 	# pure juice is a label, and currently not an ingredient
@@ -319,9 +319,16 @@ my @tests = (
 	# Russian oil
 	[
 		{lc => "ru", ingredients_text => "масло растительное (подсолнечное, соевое), Масло (Пальмовое)"},
-		["en:sunflower-oil", "en:soya-oil", "en:palm-oil"]
+		["en:vegetable-oil", "en:oil", "en:sunflower-oil", "en:soya-oil", "en:palm-oil"]
 	],
 	[{lc => "fr", ingredients_text => "Banane coupée et cuite au naturel"}, ["en:banana"],],
+	[
+		{lc => "fr", ingredients_text => "Ingrédient inconnu coupée et cuite au naturel"},
+		["fr:ingredient-inconnu-coupee-et-cuite-au-naturel"],
+	],
+	[{lc => "fr", ingredients_text => "Ingrédient inconnu et sel"}, ["fr:ingredient-inconnu", "en:salt"],],
+	[{lc => "fr", ingredients_text => "Sel et ingrédient inconnu"}, ["en:salt", "fr:ingredient-inconnu"],],
+	[{lc => "en", ingredients_text => "Toasted mango and unknown fruit"}, ["en:mango", "en:unknown-fruit"],],
 
 );
 

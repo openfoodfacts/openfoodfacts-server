@@ -424,13 +424,6 @@ my @tests = (
 			},
 			{
 				'id' => 'en:cream',
-				'ingredients' => [
-					{
-						'id' => 'en:milk',
-						'is_in_taxonomy' => 1,
-						'text' => 'dont lait'
-					}
-				],
 				'is_in_taxonomy' => 1,
 				'text' => "cr\x{e8}me"
 			},
@@ -1837,10 +1830,16 @@ my @tests = (
 		{lc => "hr", ingredients_text => "Pasterizirano mlijeko (s 1.0% mliječne masti)"},
 		[
 			{
-				'id' => 'en:milk-with-1-0-milk-fat',
-				'is_in_taxonomy' => 1,
-				'processing' => 'en:pasteurised',
-				'text' => 'mlijeko s 1.0% mliječne masti'
+				id => "en:pasteurised-milk",
+				ingredients => [
+					{
+						id => "en:milk-with-1-0-milk-fat",
+						is_in_taxonomy => 1,
+						text => "mlijeko s 1.0% mlije\x{10d}ne masti"
+					}
+				],
+				is_in_taxonomy => 1,
+				text => "Pasterizirano mlijeko"
 			}
 		]
 	],
@@ -2706,6 +2705,33 @@ my @tests = (
 			}
 		]
 	],
+
+	# sojaeiweißkonzentrat
+	[
+		{lc => "de", ingredients_text => "Sojaeiweißkonzentrat, Sojaeiweisskonzentrat, Sojaproteinkonzentrat"},
+		[
+			{
+				'id' => 'en:soy-protein',
+				'is_in_taxonomy' => 1,
+				'text' => "Sojaeiwei\x{df}",
+				'processing' => 'en:concentrated'
+			},
+			{
+				'processing' => 'en:concentrated',
+				'text' => 'Sojaeiweiss',
+				'is_in_taxonomy' => 1,
+				'id' => 'en:soy-protein'
+			},
+			{
+				'id' => 'en:soy-protein',
+				'is_in_taxonomy' => 1,
+				'text' => 'Sojaprotein',
+				'processing' => 'en:concentrated'
+			}
+
+		]
+	],
+
 );
 
 foreach my $test_ref (@tests) {
@@ -2715,7 +2741,7 @@ foreach my $test_ref (@tests) {
 
 	print STDERR "ingredients_text: " . $product_ref->{ingredients_text} . "\n";
 
-	parse_ingredients_text_service($product_ref, {});
+	parse_ingredients_text_service($product_ref, {}, {});
 
 	is($product_ref->{ingredients}, $expected_ingredients_ref)
 

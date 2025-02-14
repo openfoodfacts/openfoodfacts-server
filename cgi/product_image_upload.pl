@@ -42,7 +42,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Log::Any qw($log);
 
 my $type = single_param('type') || 'add';
@@ -73,7 +73,7 @@ $log->debug(
 		code => $code,
 		previous_code => $previous_code,
 		previous_imgid => $previous_imgid,
-		cc => $cc,
+		cc => $request_ref->{cc},
 		lc => $lc,
 		imagefield => $imagefield,
 		ip => remote_addr()
@@ -197,7 +197,7 @@ if ($imagefield) {
 		exit(0);
 	}
 
-	my $product_ref = product_exists($product_id);    # returns 0 if not
+	my $product_ref = retrieve_product($product_id);
 
 	if (not $product_ref) {
 		$log->info("product code does not exist yet, creating product", {code => $code});

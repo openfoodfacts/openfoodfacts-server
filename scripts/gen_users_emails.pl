@@ -36,24 +36,27 @@ if (scalar $#userids < 0) {
 	@userids = retrieve_userids();
 }
 
-foreach my $userid (@userids) {
+my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");
+
+my $i = 0;
+my $n = scalar @userids;
+
+foreach my $userid (sort @userids) {
 	my $user_ref = retrieve_user($userid);
-
-	my $first = '';
-	if (!exists $user_ref->{discussion}) {
-		$first = 'first';
+	if (defined $user_ref) {
+		my $email = $user_ref->{email};
+		if ((defined $email) and ($email =~ /\@/)) {
+			$emails_ref->{$email} = [$userid];
+		}
 	}
-
-	# print $user_ref->{email} . "\tnews_$user_ref->{newsletter}$first\tdiscussion_$user_ref->{discussion}\n";
-
-	if ($user_ref->{newsletter}) {
-		print lc($user_ref->{email}) . "\n";
-	}
-
-	if ($user_ref->{twitter} ne '') {
-		#		print "\@" . $user_ref->{twitter} . " ";
+	$i++;
+	if ($i % 1000 == 0) {
+		print "$i / $n - $userid\n";
+		store("$BASE_DIRS{USERS}/users_emails.sto", $emails_ref);
 	}
 }
+
+store("$BASE_DIRS{USERS}/users_emails.sto", $emails_ref);
 
 exit(0);
 

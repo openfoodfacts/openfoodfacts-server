@@ -1,923 +1,1264 @@
 # Including "to be" in the state makes it a TODO state
 
-en:Empty
-bg:Празно
-ca:Buit
-cs:Prázdný
-de:Leer
-el:Άδειο
-es:Vacío
-fi:Tyhjä
-fr:Vide
-he:ריק
-hu:Üres
-it:Vuoto
-ja:空
-nl:Leeg
-nl_be:Leeg
-pl:Pusty
-pt:Vazio
-ro:Gol
-rs:Prazno
-ru:Пустые
-sv:Tom
-vi:Trống
-zh:空
+en: Empty
+bg: Празно
+ca: Buit
+cs: Prázdný
+de: Leer
+el: Άδειο
+es: Vacío
+fi: Tyhjä
+fr: Vide
+he: ריק
+hu: Üres
+it: Vuoto
+ja: 空
+nl: Leeg
+nl_be: Leeg
+pl: Pusty
+pt: Vazio
+ro: Gol
+rs: Prazno
+ru: Пустые
+sv: Tom
+vi: Trống
+zh: 空
 zh-CN:空
 zh-TW:空
 zh-HK:空
 
-en:Checked
-bg:Проверено
-ca:Comprovat
-cs:Potvrzený
-de:Geprüft
-el:Ελέγχθηκε
-es:Comprobado
-fi:Tarkistettu
-fr:Vérifié
-he:נבדק
-hu:Ellenőrizve
-it:Verificato
-ja:確認済
-nl:Gecontroleerd
-nl_be:Geverifieerd
-pl:Sprawdzony
-pt:Verificado
-ro:Verificat
-rs:Provereno
-sv:Kontrollerat
-vi:Đã kiểm tra
-zh:已确认
+en: Checked
+bg: Проверено
+ca: Comprovat
+cs: Potvrzený
+de: Geprüft
+el: Ελέγχθηκε
+es: Comprobado
+fi: Tarkistettu
+fr: Vérifié
+he: נבדק
+hu: Ellenőrizve
+it: Verificato
+ja: 確認済
+nl: Gecontroleerd
+nl_be: Geverifieerd
+pl: Sprawdzony
+pt: Verificado
+ro: Verificat
+rs: Provereno
+sv: Kontrollerat
+vi: Đã kiểm tra
+zh: 已确认
 zh-CN:已确认
 zh-TW:已確認
 zh-HK:已確認
 
-en:To be checked
-ca:Pendent de comprovar
-cs:K potvrzení
-de:Zu prüfen
-el:Να ελεγχθεί
-es:Pendiente de comprobación
-fi:Odottaa tarkistusta
-fr:À vérifier
-he:לבדיקה
-hu:Ellenőrizni kell
-it:Da verificare
-ja:要確認
-nl:Te controleren
-nl_be:Nog te verifiëren
-pl:Do sprawdzenia
-pt:A verificar
-ro:De verificat
-sv:Att kontrolleras
-vi:Được kiểm tra
-zh:需确认
+en: To be checked
+ca: Pendent de comprovar
+cs: K potvrzení
+de: Zu prüfen
+el: Να ελεγχθεί
+es: Pendiente de comprobación
+fi: Odottaa tarkistusta
+fr: À vérifier
+he: לבדיקה
+hu: Ellenőrizni kell
+it: Da verificare
+ja: 要確認
+nl: Te controleren
+nl_be: Nog te verifiëren
+pl: Do sprawdzenia
+pt: A verificar
+ro: De verificat
+sv: Att kontrolleras
+vi: Được kiểm tra
+zh: 需确认
 zh-CN:需确认
 zh-TW:需確認
 zh-HK:需確認
 
-en:Complete
-ca:Complet
-cs:Hotový
-de:Ausgefüllt
-el:Συμπληρώθηκε
-es:Completado
-fi:Valmis
-fr:Complet
-he:הושלם
-hu:Teljes
-it:Completato
-ja:完了
-nl:Volledig
-nl_be:Volledig
-pt:Completo
-ro:Complet
-rs:Upotpunjeno
-ru:Заполненные
-sv:Fullständig
-vi:Hoàn thành
-zh:完成
+en: Complete
+ca: Complet
+cs: Hotový
+de: Ausgefüllt
+el: Συμπληρώθηκε
+es: Completado
+fi: Valmis
+fr: Complet
+he: הושלם
+hu: Teljes
+it: Completato
+ja: 完了
+nl: Volledig
+nl_be: Volledig
+pt: Completo
+ro: Complet
+rs: Upotpunjeno
+ru: Заполненные
+sv: Fullständig
+vi: Hoàn thành
+zh: 完成
 zh-CN:完成
 zh-TW:完成
 zh-HK:完成
 
-en:To be completed
-ca:Pendent de completar
-cs:Před dokončením
-de:Auszufüllen
-el:Να συμπληρωθεί
-es:A completar
-fi:Tarvitsee täydentää
-fr:À compléter
-he:להשלמה
-hu:Kiegészítendő
-it:Da completare
-ja:未完了
-lt:Turi būti baigtas
-nl:Aan te vullen
-nl_be:Te vervolledigen
-pl:Do uzupełnienia
-pt:A completar
-ro:De completat
-ru:Не заполненные
-sv:Ofullständing
-tr:Tamamlanacak
-vi:Được hoàn thành
-zh:应完成
+en: To be completed
+ca: Pendent de completar
+cs: Před dokončením
+de: Auszufüllen
+el: Να συμπληρωθεί
+es: A completar
+fi: Tarvitsee täydentää
+fr: À compléter
+he: להשלמה
+hu: Kiegészítendő
+it: Da completare
+ja: 未完了
+lt: Turi būti baigtas
+nl: Aan te vullen
+nl_be: Te vervolledigen
+pl: Do uzupełnienia
+pt: A completar
+ro: De completat
+ru: Не заполненные
+sv: Ofullständing
+tr: Tamamlanacak
+vi: Được hoàn thành
+zh: 应完成
 zh-CN:应完成
 zh-TW:應完成
 zh-HK:應完成
 
-en:Expiration date to be completed
-ca:Data de caducitat pendent d'omplir
-cs:Datum exporace je třeba doplnit
-de:Verbrauchsdatum auszufüllen
-el:Να συμπληρωθεί η ημερομηνία λήξης
-es:Fecha límite de consumo a completar
-fi:Parasta ennen päiväys tarvitsee täydentää
-fr:Date limite à compléter
-he:תאריך תפוגה להשלמה
-hu:Lejárati dátum kitöltendő
-it:Data di scadenza da completare
-ja:期限未完了
-lt:Galiojimo data turi būti užpildyta
-nl:Houdbaarheidsdatum invullen
-nl_be:Houdbaarheidsdatum invullen
-pl:Data ważności do uzupełnienia
-pt:Data de validade a completar
-ro:De completat data de expirare
-rs:Rok isticanja nije upotpunjen
-ru:Окончание срока годности надо указать
-sv:Saknar utgångsdatum
-tr:Son kullanma tarihi tamamlanacak
-vi:Ngày hết hạn sẽ được hoàn thành
-zh:应完成期限
+en: Expiration date to be completed
+ca: Data de caducitat pendent d'omplir
+cs: Datum exporace je třeba doplnit
+de: Verbrauchsdatum auszufüllen
+el: Να συμπληρωθεί η ημερομηνία λήξης
+es: Fecha límite de consumo a completar
+fi: Parasta ennen päiväys tarvitsee täydentää
+fr: Date limite à compléter
+he: תאריך תפוגה להשלמה
+hu: Lejárati dátum kitöltendő
+it: Data di scadenza da completare
+ja: 期限未完了
+lt: Galiojimo data turi būti užpildyta
+nl: Houdbaarheidsdatum invullen
+nl_be: Houdbaarheidsdatum invullen
+pl: Data ważności do uzupełnienia
+pt: Data de validade a completar
+ro: De completat data de expirare
+rs: Rok isticanja nije upotpunjen
+ru: Окончание срока годности надо указать
+sv: Saknar utgångsdatum
+tr: Son kullanma tarihi tamamlanacak
+vi: Ngày hết hạn sẽ được hoàn thành
+zh: 应完成期限
 zh-CN:应完成期限
 zh-TW:應完成期限
 zh-HK:應完成期限
 
-en:Expiration date completed
-ca:Data de caducitat completa
-cs:Datum expirace hotovo
-de:Verbrauchsdatum ausgefüllt
-el:Η ημερομηνία λήξης συμπληρώθηκε
-es:Fecha límite de consumo completada
-fi:&quot;Parasta ennen&quot; täytetty
-fr:Date limite complétée
-he:תאריך התפוגה הושלם
-hu:Lejárati dátum megadva
-it:Data di scadenza completata
-ja:期限完了
-nl:Houdbaarheidsdatum ingevuld
-nl_be:Houdbaarheidsdatum ingevuld
-pt:Data de validade completada
-ro:Data de expirare completată
-rs:Rok isticanja upotpunjen
-ru:Окончание срока годности указано
-sv:Utgångsdatum fullständingt
-vi:Ngày hết hạn đã hoàn thành
-zh:完成期限
+en: Expiration date completed
+ca: Data de caducitat completa
+cs: Datum expirace hotovo
+de: Verbrauchsdatum ausgefüllt
+el: Η ημερομηνία λήξης συμπληρώθηκε
+es: Fecha límite de consumo completada
+fi: &quot;Parasta ennen&quot; täytetty
+fr: Date limite complétée
+he: תאריך התפוגה הושלם
+hu: Lejárati dátum megadva
+it: Data di scadenza completata
+ja: 期限完了
+nl: Houdbaarheidsdatum ingevuld
+nl_be: Houdbaarheidsdatum ingevuld
+pt: Data de validade completada
+ro: Data de expirare completată
+rs: Rok isticanja upotpunjen
+ru: Окончание срока годности указано
+sv: Utgångsdatum fullständingt
+vi: Ngày hết hạn đã hoàn thành
+zh: 完成期限
 zh-CN:完成期限
 zh-TW:完成期限
 zh-HK:完成期限
 
-en:Product name to be completed
-ca:Nom de producte pendent d'omplir
-cs:Jméno produktu je třeba doplnit
-de:Produktname auszufüllen
-el:Να συμπληρωθεί το όνομα του προϊόντος
-es:Nombre de producto a completar
-fi:Tuotteen nimi kaipaa täydennystä
-fr:Nom du produit à compléter
-he:שם המוצר להשלמה
-hu:Termék neve kitöltendő
-it:Nome prodotto da completare
-ja:製品名未完了
-nl:Productnaam invullen
-nl_be:Productnaam invullen
-pl:Nazwa produktu do uzupełnienia
-pt:Nome do produto a completar
-ro:De completat numele produsului
-rs:Naziv proizvoda nije upotpunjen
-ru:Название надо указать
-sv:Saknar produktnamn
-vi:Tên sản phẩm cần hoàn thành
-zh:应完成品名
+en: Product name to be completed
+ca: Nom de producte pendent d'omplir
+cs: Jméno produktu je třeba doplnit
+de: Produktname auszufüllen
+el: Να συμπληρωθεί το όνομα του προϊόντος
+es: Nombre de producto a completar
+fi: Tuotteen nimi kaipaa täydennystä
+fr: Nom du produit à compléter
+he: שם המוצר להשלמה
+hu: Termék neve kitöltendő
+it: Nome prodotto da completare
+ja: 製品名未完了
+nl: Productnaam invullen
+nl_be: Productnaam invullen
+pl: Nazwa produktu do uzupełnienia
+pt: Nome do produto a completar
+ro: De completat numele produsului
+rs: Naziv proizvoda nije upotpunjen
+ru: Название надо указать
+sv: Saknar produktnamn
+vi: Tên sản phẩm cần hoàn thành
+zh: 应完成品名
 zh-CN:应完成品名
 zh-TW:應完成品名
 zh-HK:應完成品名
 
-en:Quantity to be completed
-ca:Quantitat de producte pendent d'omplir
-cs:Množství je třeba doplnit
-de:Menge auszufüllen
-el:Να συμπληρωθεί η ποσότητα
-es:Cantidad a completar
-fi:Määrä tarvitsee täydentää
-fr:Quantité à compléter
-he:כמות להשלמה
-hu:Mennyiség kitöltendő
-it:Quantità da completare
-ja:数量未完了
-nl:Hoeveelheid invullen
-nl_be:Hoeveelheid invullen
-pt:Quantidade a completar
-ro:Cantitatea de completat
-rs:Količina nije upotpunjena
-ru:Количество надо указать
-sv:Saknar mängd
-tr:Miktar tamamlanacak
-vi:Số lượng cần hoàn thành
-zh:应完成数量
+en: Quantity to be completed
+ca: Quantitat de producte pendent d'omplir
+cs: Množství je třeba doplnit
+de: Menge auszufüllen
+el: Να συμπληρωθεί η ποσότητα
+es: Cantidad a completar
+fi: Määrä tarvitsee täydentää
+fr: Quantité à compléter
+he: כמות להשלמה
+hu: Mennyiség kitöltendő
+it: Quantità da completare
+ja: 数量未完了
+nl: Hoeveelheid invullen
+nl_be: Hoeveelheid invullen
+pt: Quantidade a completar
+ro: Cantitatea de completat
+rs: Količina nije upotpunjena
+ru: Количество надо указать
+sv: Saknar mängd
+tr: Miktar tamamlanacak
+vi: Số lượng cần hoàn thành
+zh: 应完成数量
 zh-CN:应完成数量
 zh-TW:應完成數量
 zh-HK:應完成數量
 
-en:Packaging to be completed
-ca:Tipus d'envàs pendent d'omplir
-cs:Balení je třeba doplnit
-de:Verpackung auszufüllen
-el:Να συμπληρωθεί η συσκευασία
-es:Envase a completar
-fi:Pakkausta pitää täydentää
-fr:Emballage à compléter
-he:אריזה להשלמה
-hu:Csomagolás kitöltendő
-it:Imballaggio da completare
-ja:包装未完了
-nl:Verpakking invullen
-nl_be:Verpakking invullen
-pt:Embalagem a completar
-ro:De completat ambalarea
-rs:Pakovanje nije upotpunjeno
-ru:Упаковку надо описать
-sv:Saknar förpackning
-vi:Bao bì được hoàn thành
-zh:应完成包装
+en: Packaging to be completed
+ca: Tipus d'envàs pendent d'omplir
+cs: Balení je třeba doplnit
+de: Verpackung auszufüllen
+el: Να συμπληρωθεί η συσκευασία
+es: Envase a completar
+fi: Pakkausta pitää täydentää
+fr: Emballage à compléter
+he: אריזה להשלמה
+hu: Csomagolás kitöltendő
+it: Imballaggio da completare
+ja: 包装未完了
+nl: Verpakking invullen
+nl_be: Verpakking invullen
+pt: Embalagem a completar
+ro: De completat ambalarea
+rs: Pakovanje nije upotpunjeno
+ru: Упаковку надо описать
+sv: Saknar förpackning
+vi: Bao bì được hoàn thành
+zh: 应完成包装
 zh-CN:应完成包装
 zh-TW:應完成包裝
 zh-HK:應完成包裝
 
-en:Brands to be completed
-ca:Marca o marques pendents d'omplir
-cs:Značky jsou třeba doplnit
-de:Marken auszufüllen
-el:Να συμπληρωθούν οι μάρκες
-es:Marcas a completar
-fi:Tuotemerkit tarvitsee täydentää
-fr:Marques à compléter
-he:מותגים להשלמה
-hu:Márkanév kitöltendő
-it:Marchi da completare
-ja:ブランド未完了
-nl:Merken invullen
-pt:Marcas a completar
-ro:Mărci de completat
-rs:Brend nije upotpunjen
-ru:Марки надо указать
-sv:Saknar varumärken
-vi:Thương hiệu được hoàn thành
-zh:应完成商标
+en: Brands to be completed
+ca: Marca o marques pendents d'omplir
+cs: Značky jsou třeba doplnit
+de: Marken auszufüllen
+el: Να συμπληρωθούν οι μάρκες
+es: Marcas a completar
+fi: Tuotemerkit tarvitsee täydentää
+fr: Marques à compléter
+he: מותגים להשלמה
+hu: Márkanév kitöltendő
+it: Marchi da completare
+ja: ブランド未完了
+nl: Merken invullen
+pt: Marcas a completar
+ro: Mărci de completat
+rs: Brend nije upotpunjen
+ru: Марки надо указать
+sv: Saknar varumärken
+vi: Thương hiệu được hoàn thành
+zh: 应完成商标
 zh-CN:应完成商标
 zh-TW:應完成商標
 zh-HK:應完成商標
 
-en:Categories to be completed
-ca:Categories pendents d'omplir
-cs:Kategorie je třeba doplnit
-de:Kategorien auszufüllen
-el:Να συμπληρωθούν οι κατηγορίες
-es:Categorías a completar
-fi:Luokat tarvitsee täydentää
-fr:Catégories à compléter
-he:קטגוריות להשלמה
-hu:Kategóriákat kell megadni
-it:Categorie da completare
-ja:カテゴリー未完了
-nl:Categorieën invullen
-pl:Kategorie do uzupełnienia
-pt:Categorias a completar
-ro:Categorii de completat
-rs:Kategorije nisu upotpunjene
-ru:Категории надо указать
-sv:Saknar kategorier
-tr:Kategoriler tamamlanacak
-vi:Danh mục cần hoàn thành
-zh:应完成分类
+en: Categories to be completed
+ca: Categories pendents d'omplir
+cs: Kategorie je třeba doplnit
+de: Kategorien auszufüllen
+el: Να συμπληρωθούν οι κατηγορίες
+es: Categorías a completar
+fi: Luokat tarvitsee täydentää
+fr: Catégories à compléter
+he: קטגוריות להשלמה
+hu: Kategóriákat kell megadni
+it: Categorie da completare
+ja: カテゴリー未完了
+nl: Categorieën invullen
+pl: Kategorie do uzupełnienia
+pt: Categorias a completar
+ro: Categorii de completat
+rs: Kategorije nisu upotpunjene
+ru: Категории надо указать
+sv: Saknar kategorier
+tr: Kategoriler tamamlanacak
+vi: Danh mục cần hoàn thành
+zh: 应完成分类
 zh-CN:应完成分类
 zh-TW:應完成分類
 zh-HK:應完成分類
 
-en:Characteristics completed
-ca:Característiques completes
-cs:Charakteristiky jsou hotové
-de:Merkmale ausgefüllt
-el:Τα χαρακτηριστικά συμπληρώθηκαν
-es:Características completadas
-fi:Ominaisuudet täytetty
-fr:Caractéristiques complétées
-he:מאפיינים הושלמו
-hu:Jellemzők teljes
-it:Caratteristiche completate
-ja:特徴完了
-nl:Eigenschappen klaar
-nl_be:Eigenschappen ingevuld
-pt:Características completadas
-ro:Caracteristici completate
-rs:Karakteristike upotpunjene
-ru:Характеристики заполнены
-sv:Egenskaper fulllständigt
-vi:Đặc điểm hoàn thành
-zh:完成特征
+en: Characteristics completed
+ca: Característiques completes
+cs: Charakteristiky jsou hotové
+de: Merkmale ausgefüllt
+el: Τα χαρακτηριστικά συμπληρώθηκαν
+es: Características completadas
+fi: Ominaisuudet täytetty
+fr: Caractéristiques complétées
+he: מאפיינים הושלמו
+hu: Jellemzők teljes
+it: Caratteristiche completate
+ja: 特徴完了
+nl: Eigenschappen klaar
+nl_be: Eigenschappen ingevuld
+pt: Características completadas
+ro: Caracteristici completate
+rs: Karakteristike upotpunjene
+ru: Характеристики заполнены
+sv: Egenskaper fulllständigt
+vi: Đặc điểm hoàn thành
+zh: 完成特征
 zh-CN:完成特征
 zh-TW:完成特徵
 zh-HK:完成特徵
 
-en:Characteristics to be completed
-ca:Característiques del producte pendents d'omplir
-cs:Charakteristiky je třeba doplnit
-de:Merkmale auszufüllen
-el:Να συμπληρωθούν τα χαρακτηριστικά
-es:Características a completar
-fi:Ominaisuuksia tarvitsee täydentää
-fr:Caractéristiques à compléter
-he:מאפיינים להשלמה
-hu:Jellemzők kitöltendő
-it:Caratteristiche da completare
-ja:特徴未完了
-nl:Eigenschappen invullen
-nl_be:Eigenschappen invullen
-pt:Características a completar
-ro:Caracteristici de completat
-rs:Karakteristike nisu upotpunjene
-ru:Характеристики не заполнены
-sv:Saknar egenskaper
-vi:Đặc điểm cần hoàn thành
-zh:应完成特征
+en: Characteristics to be completed
+ca: Característiques del producte pendents d'omplir
+cs: Charakteristiky je třeba doplnit
+de: Merkmale auszufüllen
+el: Να συμπληρωθούν τα χαρακτηριστικά
+es: Características a completar
+fi: Ominaisuuksia tarvitsee täydentää
+fr: Caractéristiques à compléter
+he: מאפיינים להשלמה
+hu: Jellemzők kitöltendő
+it: Caratteristiche da completare
+ja: 特徴未完了
+nl: Eigenschappen invullen
+nl_be: Eigenschappen invullen
+pt: Características a completar
+ro: Caracteristici de completat
+rs: Karakteristike nisu upotpunjene
+ru: Характеристики не заполнены
+sv: Saknar egenskaper
+vi: Đặc điểm cần hoàn thành
+zh: 应完成特征
 zh-CN:应完成特征
 zh-TW:應完成特徵
 zh-HK:應完成特徵
 
-en:Ingredients completed
-ca:Ingredients complets
-cs:Ingredience jsou hotové
-de:Zutaten ausgefüllt
-el:Τα συσταστικά συμπληρώθηκαν
-es:Ingredientes completados
-fi:Ainesosat täytetty
-fr:Ingrédients complétés
-he:הרכיבים הושלמו
-hu:Összetevők teljes
-it:Ingredienti completati
-ja:原材料完了
-nl:Ingrediënten klaar
-pl:Składniki uzupełnione
-pt:Ingredientes completados
-ro:Ingrediente completate
-rs:Sastav upotpunjen
-ru:Состав указан
-sv:Ingredienser fullständigt
-vi:Thành phần đã hoàn thành
-zh:完成成分
+en: Ingredients completed
+ca: Ingredients complets
+cs: Ingredience jsou hotové
+de: Zutaten ausgefüllt
+el: Τα συσταστικά συμπληρώθηκαν
+es: Ingredientes completados
+fi: Ainesosat täytetty
+fr: Ingrédients complétés
+he: הרכיבים הושלמו
+hu: Összetevők teljes
+it: Ingredienti completati
+ja: 原材料完了
+nl: Ingrediënten klaar
+pl: Składniki uzupełnione
+pt: Ingredientes completados
+ro: Ingrediente completate
+rs: Sastav upotpunjen
+ru: Состав указан
+sv: Ingredienser fullständigt
+vi: Thành phần đã hoàn thành
+zh: 完成成分
 zh-CN:完成成分
 zh-TW:完成成分
 zh-HK:完成成分
 
-en:Ingredients to be completed
-ca:Ingredients pendents d'omplir
-cs:Ingredience je třeba doplnit
-de:Zutaten auszufüllen
-el:Να συμπληρωθούν τα συστατικά
-es:Ingredientes a completar
-fi:Ainesosat tarvitsevat täydennystä
-fr:Ingrédients à compléter
-he:רכיבים להשלמה
-hu:Összetevők kitöltendő
-it:Ingredienti da completare
-ja:原材料未完了
-nl:Ingrediënten invullen
-nl_be:Ingrediënten invullen
-pl:Składniki do uzupełnienia
-pt:Ingredientes a completar
-ro:Ingrediente de completat
-ru:Состав надо указать
-sv:Saknar ingredienser
-tr:İçerikler tamamlanacak
-vi:Thành phần được hoàn thành
-zh:应完成成分
+en: Ingredients to be completed
+ca: Ingredients pendents d'omplir
+cs: Ingredience je třeba doplnit
+de: Zutaten auszufüllen
+el: Να συμπληρωθούν τα συστατικά
+es: Ingredientes a completar
+fi: Ainesosat tarvitsevat täydennystä
+fr: Ingrédients à compléter
+he: רכיבים להשלמה
+hu: Összetevők kitöltendő
+it: Ingredienti da completare
+ja: 原材料未完了
+nl: Ingrediënten invullen
+nl_be: Ingrediënten invullen
+pl: Składniki do uzupełnienia
+pt: Ingredientes a completar
+ro: Ingrediente de completat
+ru: Состав надо указать
+sv: Saknar ingredienser
+tr: İçerikler tamamlanacak
+vi: Thành phần được hoàn thành
+zh: 应完成成分
 zh-CN:应完成成分
 zh-TW:應完成成分
 zh-HK:應完成成分
 
-en:Nutrition facts completed
-ca:Dades nutricionals completes
-cs:Nutriční hodnoty jsou hotové
-de:Nährwertinformationen ausgefüllt
-el:Τα διατροφικά στοιχεία συμπληρώθηκαν
-es:Valores nutricionales completados
-fi:Ravintotiedot täytetty
-fr:Informations nutritionnelles complétées
-he:מפרט תזונתי הושלם
-hu:Tápértékadatok teljes
-it:Valori nutrizionali completati
-ja:栄養成分表完了
-nl:Voedingswaarden klaar
-nl_be:Nutritionele informatie ingevuld
-pl:Wartości odżywcze uzupełnione
-pt:Valores nutricionais completados
-ro:Valori nutriționale completate
-ru:Пищевая и энергетическая ценность указаны
-sv:Näringsinnehåll fullständigt
-vi:Thành phần dinh dưỡng đã hoàn thành
-zh:完成营养成分
+en: Nutrition facts completed
+ca: Dades nutricionals completes
+cs: Nutriční hodnoty jsou hotové
+de: Nährwertinformationen ausgefüllt
+el: Τα διατροφικά στοιχεία συμπληρώθηκαν
+es: Valores nutricionales completados
+fi: Ravintotiedot täytetty
+fr: Informations nutritionnelles complétées
+he: מפרט תזונתי הושלם
+hu: Tápértékadatok teljes
+it: Valori nutrizionali completati
+ja: 栄養成分表完了
+nl: Voedingswaarden klaar
+nl_be: Nutritionele informatie ingevuld
+pl: Wartości odżywcze uzupełnione
+pt: Valores nutricionais completados
+ro: Valori nutriționale completate
+ru: Пищевая и энергетическая ценность указаны
+sv: Näringsinnehåll fullständigt
+vi: Thành phần dinh dưỡng đã hoàn thành
+zh: 完成营养成分
 zh-CN:完成营养成分
 zh-TW:完成營養成分
 zh-HK:完成營養成分
 
-en:Nutrition facts to be completed
-ca:Dades nutricionals pendents d'omplir
-cs:Nutriční hodnoty je třeba doplnit
-de:Nährwertinformationen auszufüllen
-el:Να συμπληρωθούν τα διατροφικά στοιχεία
-es:Valores nutricionales a completar
-fi:Ravintotiedot tarvitsee täydentää
-fr:Informations nutritionnelles à compléter
-he:מפרט תזונתי להשלמה
-hu:Tápértékadatok kitöltendő
-it:Valori nutrizionali da completare
-ja:栄養成分表未完了
-nl:Voedingswaarden invullen
-nl_be:Nutritionele informatie invullen
-pl:Wartości odżywcze do uzupełnienia
-pt:Valores nutricionais a completar
-ro:Valori nutriționale de completat
-ru:Пищевую и энергетическую ценность надо указать
-sv:Saknar näringsinnehåll
-vi:Thành phần dinh dưỡng cần hoàn thành
-zh:应完成营养成分
+en: Nutrition facts to be completed
+ca: Dades nutricionals pendents d'omplir
+cs: Nutriční hodnoty je třeba doplnit
+de: Nährwertinformationen auszufüllen
+el: Να συμπληρωθούν τα διατροφικά στοιχεία
+es: Valores nutricionales a completar
+fi: Ravintotiedot tarvitsee täydentää
+fr: Informations nutritionnelles à compléter
+he: מפרט תזונתי להשלמה
+hu: Tápértékadatok kitöltendő
+it: Valori nutrizionali da completare
+ja: 栄養成分表未完了
+nl: Voedingswaarden invullen
+nl_be: Nutritionele informatie invullen
+pl: Wartości odżywcze do uzupełnienia
+pt: Valores nutricionais a completar
+ro: Valori nutriționale de completat
+ru: Пищевую и энергетическую ценность надо указать
+sv: Saknar näringsinnehåll
+vi: Thành phần dinh dưỡng cần hoàn thành
+zh: 应完成营养成分
 zh-CN:应完成营养成分
 zh-TW:應完成營養成分
 zh-HK:應完成營養成分
 
-en:Photos validated
-ca:Imatges validades
-cs:Fotografie jsou ověřené
-de:Bilder geprüft
-el:Οι φωτογραφίες επικυρώθηκαν
-es:Fotografías validadas
-fi:Valokuvat vahvistettu
-fr:Photos validées
-he:התמונות אומתו
-hu:Fényképek érvényesítve
-it:Foto validate
-ja:写真検証済
-nl:Foto's gecontroleerd
-nl_be:Foto's gevalideerd
-pt:Imagens validadas
-ro:Fotografii validate
-ru:Фотографии выбраны
-sv:Bilder godkända
-zh:已验证照片
+en: Photos validated
+ca: Imatges validades
+cs: Fotografie jsou ověřené
+de: Bilder geprüft
+el: Οι φωτογραφίες επικυρώθηκαν
+es: Fotografías validadas
+fi: Valokuvat vahvistettu
+fr: Photos validées
+he: התמונות אומתו
+hu: Fényképek érvényesítve
+it: Foto validate
+ja: 写真検証済
+nl: Foto's gecontroleerd
+nl_be: Foto's gevalideerd
+pt: Imagens validadas
+ro: Fotografii validate
+ru: Фотографии выбраны
+sv: Bilder godkända
+zh: 已验证照片
 zh-CN:已验证照片
 zh-TW:已驗證照片
 zh-HK:已驗證照片
 
-en:Photos to be validated
-ca:Imatges pendents de validar
-cs:Fotografie je třeba ověřit
-de:Bilder in Prüfung
-el:Να επικυρωθούν οι φωτογραφίες
-es:Fotografías a validar
-fi:Valokuvia jotka tarvitsevat vahvistamista
-fr:Photos à valider
-he:תמונות לאימות
-hu:Fényképeket érvényesíteni kell
-it:Foto da convalidare
-ja:写真未検証
-lt:Nuotraukos turi būti patikrintos
-nl:Te controleren foto's
-nl_be:Te controleren foto's
-pt:Imagens a validar
-ro:Fotografii de validat
-ru:Фотографии не выбраны
-sv:Bilder som ska godkännas
-tr:Resimler doğrulanacak
-vi:Ảnh cần được xác thực
-zh:应验证照片
+en: Photos to be validated
+ca: Imatges pendents de validar
+cs: Fotografie je třeba ověřit
+de: Bilder in Prüfung
+el: Να επικυρωθούν οι φωτογραφίες
+es: Fotografías a validar
+fi: Valokuvia jotka tarvitsevat vahvistamista
+fr: Photos à valider
+he: תמונות לאימות
+hu: Fényképeket érvényesíteni kell
+it: Foto da convalidare
+ja: 写真未検証
+lt: Nuotraukos turi būti patikrintos
+nl: Te controleren foto's
+nl_be: Te controleren foto's
+pt: Imagens a validar
+ro: Fotografii de validat
+ru: Фотографии не выбраны
+sv: Bilder som ska godkännas
+tr: Resimler doğrulanacak
+vi: Ảnh cần được xác thực
+zh: 应验证照片
 zh-CN:应验证照片
 zh-TW:應驗證照片
 zh-HK:應驗證照片
 
-en:Photos uploaded
-ca:Imatges carregades
-cs:Fotografie jsou nahrány
-de:Bilder hochgeladen
-el:Οι φωτογραφίες μεταφορτώθηκαν
-es:Fotografías subidas
-fi:Kuvia ladattu
-fr:Photos envoyées
-he:התמונות הועלו
-hu:Fényképek feltöltve
-it:Foto caricate
-ja:写真のアップロード完了
-lt:Įkeltos nuotraukos
-nl:Geüploade foto's
-nl_be:Geüploade foto's
-pl:Zdjęcia dodane
-pt:Imagens enviadas
-ro:Fotografii încărcate
-ru:Фотографии загружены
-sv:Bilder uppladdade
-tr:Resimler yüklenecek
-vi:Ảnh đã được tải lên
-zh:已上传照片
+en: Photos uploaded
+ca: Imatges carregades
+cs: Fotografie jsou nahrány
+de: Bilder hochgeladen
+el: Οι φωτογραφίες μεταφορτώθηκαν
+es: Fotografías subidas
+fi: Kuvia ladattu
+fr: Photos envoyées
+he: התמונות הועלו
+hu: Fényképek feltöltve
+it: Foto caricate
+ja: 写真のアップロード完了
+lt: Įkeltos nuotraukos
+nl: Geüploade foto's
+nl_be: Geüploade foto's
+pl: Zdjęcia dodane
+pt: Imagens enviadas
+ro: Fotografii încărcate
+ru: Фотографии загружены
+sv: Bilder uppladdade
+tr: Resimler yüklenecek
+vi: Ảnh đã được tải lên
+zh: 已上传照片
 zh-CN:已上传照片
 zh-TW:已上傳照片
 zh-HK:已上傳照片
 
-en:Photos to be uploaded
-ca:Imatges pendents de carregar
-cs:Fotografie je třeba doplnit
-de:Bilder hochladen
-el:Να μεταφορτωθούν οι φωτογραφίες
-es:Fotografías a subir
-fi:Valokuvat tarvitsee ladata
-fr:Photos à envoyer
-he:תמונות להעלאה
-hu:Fényképeket kell feltölteni
-it:Foto da caricare
-ja:写真のアップロード未完了
-nl:Foto's uploaden
-nl_be:Foto's uploaden
-pt:Imagens a enviar
-ro:Fotografii de încărcat
-ru:Фотографии надо загрузить
-sv:Saknar bilder
-vi:Ảnh sẽ được tải lên
-zh:应上传照片
+en: Photos to be uploaded
+ca: Imatges pendents de carregar
+cs: Fotografie je třeba doplnit
+de: Bilder hochladen
+el: Να μεταφορτωθούν οι φωτογραφίες
+es: Fotografías a subir
+fi: Valokuvat tarvitsee ladata
+fr: Photos à envoyer
+he: תמונות להעלאה
+hu: Fényképeket kell feltölteni
+it: Foto da caricare
+ja: 写真のアップロード未完了
+nl: Foto's uploaden
+nl_be: Foto's uploaden
+pt: Imagens a enviar
+ro: Fotografii de încărcat
+ru: Фотографии надо загрузить
+sv: Saknar bilder
+vi: Ảnh sẽ được tải lên
+zh: 应上传照片
 zh-CN:应上传照片
 zh-TW:應上傳照片
 zh-HK:應上傳照片
 
-en:Categories completed
-ca:Categories completes
-cs:Kategorie jsou hotové
-de:Kategorien ausgefüllt
-el:Οι φωτογραφίες συμπληρώθηκαν
-es:Categorías completadas
-fi:Luokat täytetty
-fr:Catégories complétées
-he:קטגוריות הושלמו
-hu:Kategóriák megadva
-it:Categorie completate
-ja:カテゴリー完了
-nl:Categorieën klaar
-pl:Kategorie uzupełnione
-pt:Categorias completadas
-ru:Категории указаны
-sv:Kategorier fullständigt
-vi:Danh mục đã hoàn thành
-zh:完成分类
+en: Categories completed
+ca: Categories completes
+cs: Kategorie jsou hotové
+de: Kategorien ausgefüllt
+el: Οι φωτογραφίες συμπληρώθηκαν
+es: Categorías completadas
+fi: Luokat täytetty
+fr: Catégories complétées
+he: קטגוריות הושלמו
+hu: Kategóriák megadva
+it: Categorie completate
+ja: カテゴリー完了
+nl: Categorieën klaar
+pl: Kategorie uzupełnione
+pt: Categorias completadas
+ru: Категории указаны
+sv: Kategorier fullständigt
+vi: Danh mục đã hoàn thành
+zh: 完成分类
 zh-CN:完成分类
 zh-TW:完成分類
 zh-HK:完成分類
 
-en:Brands completed
-ca:Marca o marques completes
-cs:Značky jsou hotové
-de:Marken ausgefüllt
-el:Οι μάρκες συμπληρώθηκαν
-es:Marcas completadas
-fi:Tuotemerkit täytetty
-fr:Marques complétées
-he:מותגים הושלמו
-hu:Márkanevek megadva
-it:Marchi completati
-ja:ブランド完了
-nl:Merken klaar
-pl:Marki uzupełnione
-pt:Marcas completadas
-ru:Марки указаны
-sv:Varumärken fullständigt
-vi:Thương hiệu đã hoàn thành
-zh:完成商标
+en: Brands completed
+ar: العلامات التجارية المكتملة
+az: Markalar tamamlandı
+bg: Марките са попълнени
+bn: ব্র্যান্ড সম্পূর্ণ হয়েছে
+bs: Brendovi su završeni
+ca: Marca o marques completes
+cs: Značky jsou hotové
+da: Mærker er fuldført
+de: Marken ausgefüllt
+el: Οι μάρκες συμπληρώθηκαν
+es: Marcas completadas
+et: Kaubamärgid on valmis
+fa: برندها تکمیل شده است
+fi: Tuotemerkit täytetty
+fr: Marques complétées
+ga: Tá brandaí críochnaithe
+he: מותגים הושלמו
+hr: Marke su završene
+hu: Márkanevek megadva
+hy: Ապրանքանիշերն ավարտված են
+id: Merek selesai
+is: Vörumerki lokið
+it: Marchi completati
+ja: ブランド完了
+ka: ბრენდები დასრულებულია
+kk: Брендтер аяқталды
+km: ម៉ាកបានបញ្ចប់
+kn: ಬ್ರ್ಯಾಂಡ್‌ಗಳು ಪೂರ್ಣಗೊಂಡಿವೆ
+ko: 브랜드 완료
+ky: Бренддер аяктады
+lo: ຍີ່ຫໍ້ສໍາເລັດແລ້ວ
+lt: Prekių ženklai baigti
+lv: Zīmoli ir pabeigti
+mk: Брендовите се завршени
+ml: ബ്രാൻഡുകൾ പൂർത്തിയായി
+mn: Брэндүүд дууссан
+mr: ब्रँड पूर्ण झाले
+ms: Jenama selesai
+mt: Marki kompluti
+my: ကုန်အမှတ်တံဆိပ်များ ပြီးစီးခဲ့သည်
+nl: Merken klaar
+no: Merker fullført
+pl: Marki uzupełnione
+pt: Marcas completadas
+ro: Mărcile sunt complete
+ru: Марки указаны
+sk: Značky sú hotové
+sl: Blagovne znamke so dokončane
+sq: Markat janë plotësuar
+sr: Брендови су завршени
+sv: Varumärken fullständigt
+ta: பிராண்டுகள் முடிந்துவிட்டன
+te: బ్రాండ్లు పూర్తయ్యాయి
+th: แบรนด์เสร็จสมบูรณ์
+tk: Markalar tamamlandy
+tl: Nakumpleto na ang mga tatak
+tr: Markalar tamamlandı
+uk: Бренди завершено
+ur: برانڈز مکمل ہو گئے
+uz: Brendlar yakunlandi
+vi: Thương hiệu đã hoàn thành
+zh: 完成商标
 zh-CN:完成商标
 zh-TW:完成商標
 zh-HK:完成商標
 
-en:Packaging completed
-ca:Envàs complet
-cs:Informace o balení jsou hotové
-de:Verpackung ausgefüllt
-el:Η συσκευασία συμπληρώθηκε
-es:Empaquetado completado
-fi:Pakkaus täytetty
-fr:Emballage complété
-he:אריזה הושלמה
-hu:Csomagolás megadva
-it:Imballaggio completato
-ja:包装完了
-nl:Verpakking klaar
-pt:Embalagem completada
-ru:Упаковка описана
-sv:Förpackning fullständigt
-vi:Bao bì đã hoàn thành
-zh:完成包装
+en: Packaging completed
+ca: Envàs complet
+cs: Informace o balení jsou hotové
+de: Verpackung ausgefüllt
+el: Η συσκευασία συμπληρώθηκε
+es: Empaquetado completado
+fi: Pakkaus täytetty
+fr: Emballage complété
+he: אריזה הושלמה
+hu: Csomagolás megadva
+it: Imballaggio completato
+ja: 包装完了
+nl: Verpakking klaar
+pt: Embalagem completada
+ru: Упаковка описана
+sv: Förpackning fullständigt
+vi: Bao bì đã hoàn thành
+zh: 完成包装
 zh-CN:完成包装
 zh-TW:完成包裝
 zh-HK:完成包裝
 
-en:Quantity completed
-bg:Завършено количество
-bs:Količina završena
-ca:Quantitat completa
-cs:Informace o množství jsou hotové
-da:Mængde udfyldt
-de:Menge ausgefüllt
-el:Η ποσότητα συμπληρώθηκε
-es:Cantidad completada
-et:Kogus täidetud
-fi:Määrä täytetty
-fr:Quantité complétée
-he:כמות הושלמה
-hr:Količina dovršena
-hu:Mennyiség megadva
-it:Quantità completata
-ja:数量完了
+en: Quantity completed
+bg: Завършено количество
+bs: Količina završena
+ca: Quantitat completa
+cs: Informace o množství jsou hotové
+da: Mængde udfyldt
+de: Menge ausgefüllt
+el: Η ποσότητα συμπληρώθηκε
+es: Cantidad completada
+et: Kogus täidetud
+fi: Määrä täytetty
+fr: Quantité complétée
+he: כמות הושלמה
+hr: Količina dovršena
+hu: Mennyiség megadva
+it: Quantità completata
+ja: 数量完了
 zh-CN:完成数量
 zh-TW:完成數量
 zh-HK:完成數量
-lt:Kiekis užpildytas
-lv:Daudzums aizpildīts
-mk:Количина завршена
-nl:Hoeveelheid klaar
-no:Mengde fullført
-pl:Ilość uzupełniona
-pt:Quantidade completada
-ro:Cantitate completată
-ru:Количество указано
-sl:Količina dokončana
-sq:Sasia e plotësuar
-sr:Količina završena
-sv:Mängd fullständigt
-tr:Miktar tamamlandı
-uk:Кількість вказана
-vi:Số lượng hoàn thành
-zh:完成数量
+lt: Kiekis užpildytas
+lv: Daudzums aizpildīts
+mk: Количина завршена
+nl: Hoeveelheid klaar
+no: Mengde fullført
+pl: Ilość uzupełniona
+pt: Quantidade completada
+ro: Cantitate completată
+ru: Количество указано
+sl: Količina dokončana
+sq: Sasia e plotësuar
+sr: Količina završena
+sv: Mängd fullständigt
+tr: Miktar tamamlandı
+uk: Кількість вказана
+vi: Số lượng hoàn thành
+zh: 完成数量
 
-en:Product name completed
-ca:Nom del producte complet
-cs:Jméno produktu je hotové
-de:Produktname ausgefüllt
-el:Το όνομα του προϊόντος συμπληρώθηκε
-es:Nombre de producto completado
-fi:Tuotteen nimi täytetty
-fr:Nom du produit complété
-he:שם מוצר הושלם
-hu:Termék neve megadva
-it:Nome prodotto completato
-ja:製品名完了
-lt:Produkto pavadinimas užpildytas
-nl:Productnaam klaar
-pl:Nazwa produktu uzupełniona
-pt:Nome do produto completado
-ru:Название указано
-sv:Produktnamn fullständigt
-tr:Ürün adı tamamlanacak
-vi:Tên sản phẩm đã hoàn thành
-zh:完成品名
+en: Product name completed
+ar: اسم المنتج مكتمل
+az: Məhsul adı tamamlandı
+bg: Име на продукта е попълнено
+bn: পণ্যের নাম সম্পূর্ণ
+bs: Naziv proizvoda završen
+ca: Nom del producte complet
+cs: Jméno produktu je hotové
+da: Produktnavn fuldført
+de: Produktname ausgefüllt
+el: Το όνομα του προϊόντος συμπληρώθηκε
+es: Nombre de producto completado
+et: Toote nimi on valmis
+fa: نام محصول کامل شد
+fi: Tuotteen nimi täytetty
+fr: Nom du produit complété
+ga: Ainm an táirge críochnaithe
+he: שם מוצר הושלם
+hr: Naziv proizvoda završen
+hu: Termék neve megadva
+hy: Ապրանքի անվանումն ավարտված է
+id: Nama Produk Selesai
+is: Vöruheiti lokið
+it: Nome prodotto completato
+ja: 製品名完了
+ka: პროდუქტის სახელი დასრულებულია
+kk: Өнімнің атауы аяқталды
+km: ឈ្មោះផលិតផលបានបញ្ចប់
+kn: ಉತ್ಪನ್ನದ ಹೆಸರು ಪೂರ್ಣಗೊಂಡಿದೆ
+ko: 제품 이름 완료
+ky: Продукциянын аты аяктады
+lo: ຊື່ຜະລິດຕະພັນສໍາເລັດແລ້ວ
+lt: Produkto pavadinimas užpildytas
+lv: Produkta nosaukums ir pabeigts
+mk: Името на производот е завршено
+ml: ഉൽപ്പന്നത്തിന്റെ പേര് പൂർത്തിയായി
+mn: Бүтээгдэхүүний нэр дууссан
+mr: उत्पादनाचे नाव पूर्ण झाले
+ms: Nama produk selesai
+mt: Isem tal-prodott komplut
+my: ကုန်ပစ္စည်းအမည် ပြီးပါပြီ
+nl: Productnaam klaar
+no: Produktnavn fullført
+pl: Nazwa produktu uzupełniona
+pt: Nome do produto completado
+ro: Numele produsului este complet
+ru: Название указано
+sk: Názov produktu je hotový
+sl: Ime izdelka je končano
+sq: Emri i produktit është plotësuar
+sr: Назив производа је завршен
+sv: Produktnamn fullständigt
+ta: தயாரிப்பு பெயர் முடிந்தது
+te: ఉత్పత్తి పేరు పూర్తయింది
+th: ชื่อผลิตภัณฑ์เสร็จสมบูรณ์
+tk: Önümiň ady tamamlandy
+tl: Pangalan ng produkto nakumpleto
+tr: Ürün adı tamamlandı
+uk: Назва продукту вказана
+ur: مصنوعات کا نام مکمل ہو گیا
+uz: Mahsulot nomi yakunlandi
+vi: Tên sản phẩm đã hoàn thành
+zh: 完成品名
 zh-CN:完成品名
 zh-TW:完成品名
 zh-HK:完成品名
 
-en:Packaging code to be completed
-ca:Codi d'envasat pendent d'omplir
-cs:Kód balení je třeba doplnit
-de:Verpackungscode auszufüllen
-el:Να συμπληρωθεί ο κωδικός συσκευασίας
-es:Código de empaque a completar
-fi:Pakkauskoodi tarvitsee täydentää
-fr:Code emballeur à compléter
-he:קוד אריזה להשלמה
-hu:Csomagolási kód kitöltendő
-it:Codice di imballaggio da completare
-lt:Turi būti užpildytas pakuotės kodas
-nl:Verpakkerscode niet ingevuld
-pt:Código de embalador a completar
-sv:Identifieringsmärke saknas
-vi:Mã đóng gói cần hoàn thành
-zh:包装代码需要完成
 
-en:Packaging code completed
-ca:Codi d'envasat complet
-cs:Kód balení je hotový
-de:Verpackungscode ausgefüllt
-el:Ο κωδικός συσκευασίας συμπληρώθηκε
-es:Código de empaque completado
-fi:Pakkauskoodi täytetty
-fr:Code emballeur complété
-he:קוד אריזה הושלם
-hu:Csomagolási kód megadva
-it:Codice di imballaggio completato
-nl:Verpakkerscode gereed
-pt:Código de embalador completado
-sv:Identifieringsmärke fullständigt
-vi:Mã đóng gói đã hoàn thành
-zh:包装代码已完成
+# Add translations in all European, Asian languages (and more), in alphabetical order, while keeping English at the top
 
-en:Front photo selected
-bs:Prednja fotografija odabrana
-ca:Foto frontal seleccionada
-de:Frontfoto ausgewählt
-el:Επιλέχθηκε φωτογραφία μπροστά
-es:Foto frontal seleccionada
-fi:Etukuva valittu
-fr:Photo de face sélectionnée
-he:נבחרה תמונת חזית
-hr:Prednja fotografija odabrana
-hu:Borító fotó kiválasztva
-it:Foto frontale selezionata
-lt:Išrinktas priekinis nuotraukos
-mk:Избрана предна фотографија
-nl:Voorfoto geselecteerd
-no:Framsidebilde valgt
-pl:Wybrano zdjęcie przedniej części
-pt:Imagem frontal selecionada
-ro:Fotografie frontală selectată
-ru:Выбрано фото спереди
-sq:Fotografia e përparme është zgjedhur
-sr:Изабрана предња фотографија
-sv:Främre foto valt
-tr:Ön fotoğraf seçildi
-uk:Обрано фото спереду
-zh:已选择前照片
+en: Packaging code to be completed
+ca: Codi d'envasat pendent d'omplir
+cs: Kód balení je třeba doplnit
+de: Verpackungscode auszufüllen
+el: Να συμπληρωθεί ο κωδικός συσκευασίας
+es: Código de empaque a completar
+fi: Pakkauskoodi tarvitsee täydentää
+fr: Code emballeur à compléter
+he: קוד אריזה להשלמה
+hu: Csomagolási kód kitöltendő
+it: Codice di imballaggio da completare
+lt: Turi būti užpildytas pakuotės kodas
+nl: Verpakkerscode niet ingevuld
+pt: Código de embalador a completar
+sv: Identifieringsmärke saknas
+vi: Mã đóng gói cần hoàn thành
+zh: 包装代码需要完成
 
-en:Front photo to be selected
-ca:Falta seleccionar la foto frontal, Falta triar la foto frontal
-de:Frontfoto muss ausgewählt werden
-es:Foto frontal a seleccionar
-fi:Etukuva valitsematta
-fr:Photo de face non sélectionnée
-he:יש לבחור בתמונת חזית
-hu:Borító fotó kiválasztandó
-it:Foto frontale da selezionare
-nl:Foto van de voorkant geselecteerd
-pt:Imagem frontal a selecionar
-ru:Необходимо выбрать фронтальное фото
-sv:Främre foto att välja
-tr:Ön fotoğraf seçilmeli
-vi:Ảnh mặt trước cần chọn
-zh:需要选择前照片
+en: Packaging code completed
+ca: Codi d'envasat complet
+cs: Kód balení je hotový
+de: Verpackungscode ausgefüllt
+el: Ο κωδικός συσκευασίας συμπληρώθηκε
+es: Código de empaque completado
+fi: Pakkauskoodi täytetty
+fr: Code emballeur complété
+he: קוד אריזה הושלם
+hu: Csomagolási kód megadva
+it: Codice di imballaggio completato
+nl: Verpakkerscode gereed
+pt: Código de embalador completado
+sv: Identifieringsmärke fullständigt
+vi: Mã đóng gói đã hoàn thành
+zh: 包装代码已完成
+
+en: Front photo selected
+bs: Prednja fotografija odabrana
+ca: Foto frontal seleccionada
+de: Frontfoto ausgewählt
+el: Επιλέχθηκε φωτογραφία μπροστά
+es: Foto frontal seleccionada
+fi: Etukuva valittu
+fr: Photo de face sélectionnée
+he: נבחרה תמונת חזית
+hr: Prednja fotografija odabrana
+hu: Borító fotó kiválasztva
+it: Foto frontale selezionata
+lt: Išrinktas priekinis nuotraukos
+mk: Избрана предна фотографија
+nl: Voorfoto geselecteerd
+no: Framsidebilde valgt
+pl: Wybrano zdjęcie przedniej części
+pt: Imagem frontal selecionada
+ro: Fotografie frontală selectată
+ru: Выбрано фото спереди
+sq: Fotografia e përparme është zgjedhur
+sr: Изабрана предња фотографија
+sv: Främre foto valt
+tr: Ön fotoğraf seçildi
+uk: Обрано фото спереду
+zh: 已选择前照片
+
+en: Front photo to be selected
+ca: Falta seleccionar la foto frontal, Falta triar la foto frontal
+de: Frontfoto muss ausgewählt werden
+es: Foto frontal a seleccionar
+fi: Etukuva valitsematta
+fr: Photo de face non sélectionnée
+he: יש לבחור בתמונת חזית
+hu: Borító fotó kiválasztandó
+it: Foto frontale da selezionare
+nl: Foto van de voorkant geselecteerd
+pt: Imagem frontal a selecionar
+ru: Необходимо выбрать фронтальное фото
+sv: Främre foto att välja
+tr: Ön fotoğraf seçilmeli
+vi: Ảnh mặt trước cần chọn
+zh: 需要选择前照片
 zh-CN:需要选择前照片
 zh-TW:需要選擇前照片
 zh-HK:需要選擇前照片
 
-en:Ingredients photo selected
-ca:Foto dels ingredients seleccionada
-de:Zutatenfoto ausgewählt
-es:Foto de ingredientes seleccionada
-fi:Ainesosakuva valittu
-fr:Photo des ingrédients sélectionnée
-he:נבחרה תמונת רכיבים
-hu:Összetevők fotó kiválasztva
-it:Foto degli ingredienti selezionata
-nl:Foto van de ingrediënten geselecteerd
-pt:Imagem dos ingredientes selecionada
-ru:Фото ингредиентов выбрано
-sv:Ingrediensfoto vald
-tr:İçerik fotoğrafı seçildi
-vi:Ảnh thành phần đã chọn
-zh:已选择成分照片
+en: Ingredients photo selected
+ar: صورة المكونات المحددة
+az: Seçilmiş Tərkibi Fotoşəkili
+bg: Избрана снимка на съставките
+bn: উপাদানের ছবি নির্বাচন করা হয়েছে
+bs: Odabrana fotografija sastojaka
+ca: Foto dels ingredients seleccionada
+cs: Vybrána fotografie ingrediencí
+da: Foto af ingredienser valgt
+de: Zutatenfoto ausgewählt
+el: Έχει επιλεγεί φωτογραφία συστατικών
+es: Foto de ingredientes seleccionada
+et: Koostisosade foto on valitud
+fa: عکس مواد تشکیل دهنده انتخاب شد
+fi: Ainesosakuva valittu
+fr: Photo des ingrédients sélectionnée
+ga: Grianghraf Comhábhar Roghnaithe
+he: נבחרה תמונת רכיבים
+hr: Odabrana fotografija sastojaka
+hu: Összetevők fotó kiválasztva
+hy: Ընտրված բաղադրիչների լուսանկարը
+id: Foto Bahan Dipilih
+is: Valin Innihaldsefni Ljósmynd
+it: Foto degli ingredienti selezionata
+ja: 選択された成分写真
+ka: არჩეულია ინგრედიენტების ფოტო
+kk: Тандалған ингредиенттердің фотосы
+km: រូបថតគ្រឿងផ្សំដែលបានជ្រើសរើស
+kn: ಆಯ್ದ ಪದಾರ್ಥಗಳ ಫೋಟೋ
+ko: 선택된 성분 사진
+ky: Тандалган ингредиенттердин сүрөтү
+lo: ຮູບພາບສ່ວນປະກອບທີ່ເລືອກ
+lt: Pasirinkta ingredientų nuotrauka
+lv: Atlasīts sastāvdaļu fotoattēls
+mk: Избрана фотографија со состојки
+ml: തിരഞ്ഞെടുത്ത ചേരുവകളുടെ ഫോട്ടോ
+mn: Сонгогдсон найрлагын зургийг
+mr: निवडलेले घटक फोटो
+ms: Foto Bahan Terpilih
+mt: Ritratt tal-Ingredjenti Magħżul
+my: ရွေးချယ်ထားသော ပါဝင်ပစ္စည်းများ ဓာတ်ပုံ
+nl: Foto van de ingrediënten geselecteerd
+no: Valgt ingrediensbilde
+pl: Wybrano zdjęcie składników
+pt: Imagem dos ingredientes selecionada
+ro: Fotografie cu ingredientele selectate
+ru: Фото ингредиентов выбрано
+sk: Vybraná fotografia prísad
+sl: Izbrana fotografija sestavin
+sq: Fotografia e Përbërësve të Zgjedhur
+sr: Одабрана фотографија састојака
+sv: Ingrediensfoto vald
+ta: தேர்ந்தெடுக்கப்பட்ட பொருட்கள் புகைப்படம்
+te: ఎంచుకున్న పదార్ధాల ఫోటో
+th: ภาพถ่ายส่วนผสมที่เลือก
+tk: Saýlanan maddalaryň suraty
+tl: Napiling Larawan ng Sangkap
+tr: İçerik fotoğrafı seçildi
+uk: Вибрано фотографію інгредієнтів
+ur: منتخب اجزاء کی تصویر
+uz: Tanlangan ingredientlar fotosurati
+vi: Ảnh thành phần đã chọn
+zh: 已选择成分照片
 zh-CN:已选择成分照片
 zh-TW:已選擇成分照片
 zh-HK:已選擇成分照片
 
-en:Ingredients photo to be selected
-ca:Foto dels ingredients a seleccionar, Foto dels ingredients a triar, Falta triar la foto dels ingredients, Falta seleccionar la foto dels ingredients
-de:Zutatenfoto muss ausgewählt werden
-es:Foto de ingredientes a seleccionar
-fi:Ainesosakuva valitsematta
-fr:Photo des ingrédients non sélectionnée
-he:יש לבחור בתמונת רכיבים
-hu:Összetevők fotó kiválasztandó
-it:Foto degli ingredienti da selezionare
-nl:Ingrediëntenfoto moet worden geselecteerd
-pt:Imagem dos ingredientes a selecionar
-sv:Ingrediensfoto att välja
-vi:Ảnh thành phần cần chọn
-zh:需要选择成分照片
+en: Ingredients photo to be selected
+ar: يجب تحديد صورة المكونات
+az: Tərkibi fotoşəkili seçilməlidir
+bg: Трябва да се избере снимка на съставките
+bn: উপাদানের ছবি নির্বাচন করতে হবে
+bs: Fotografija sastojaka mora biti odabrana
+ca: Foto dels ingredients a seleccionar, Foto dels ingredients a triar, Falta triar la foto dels ingredients, Falta seleccionar la foto dels ingredients
+cs: Je třeba vybrat fotografii složek
+da: Ingrediensfoto skal vælges
+de: Zutatenfoto muss ausgewählt werden
+el: Πρέπει να επιλεγεί φωτογραφία συστατικών
+es: Foto de ingredientes a seleccionar
+et: Koostisosade foto tuleb valida
+fa: عکس مواد تشکیل دهنده باید انتخاب شود
+fi: Ainesosakuva on valittava
+fr: Photo des ingrédients non sélectionnée
+ga: Ní mór grianghraf comhábhar a roghnú
+he: יש לבחור בתמונת רכיבים
+hr: Fotografija sastojaka mora biti odabrana
+hu: Összetevők fotó kiválasztandó
+hy: Պետք է ընտրվի բաղադրիչների լուսանկարը
+id: Foto bahan harus dipilih
+is: Velja þarf innihaldsmynd
+it: Foto degli ingredienti da selezionare
+ja: 成分写真を選択する必要があります
+ka: ინგრედიენტების ფოტოს შერჩევაა საჭირო
+kk: Ингредиенттердің фотосуретін таңдау керек
+km: រូបថតគ្រឿងផ្សំត្រូវតែត្រូវបានជ្រើសរើស
+kn: ಪದಾರ್ಥಗಳ ಫೋಟೋವನ್ನು ಆಯ್ಕೆ ಮಾಡಬೇಕು
+ko: 성분 사진을 선택해야 합니다
+ky: Курамынын сүрөтү тандалышы керек
+lo: ຕ້ອງເລືອກຮູບສ່ວນປະກອບ
+lt: Reikia pasirinkti ingrediento nuotrauką
+lv: Jāizvēlas sastāvdaļu fotoattēls
+mk: Треба да се избере фотографија со состојки
+ml: ചേരുവകളുടെ ഫോട്ടോ തിരഞ്ഞെടുക്കണം
+mn: Найрлагын зургийг сонгох хэрэгтэй
+mr: घटकांचा फोटो निवडणे आवश्यक आहे
+ms: Foto ramuan perlu dipilih
+mt: Ritratt tal-ingredjenti għandu jintgħażel
+my: ပါဝင်ပစ္စည်းများ ဓာတ်ပုံ ရွေးချယ်ရမည်
+nl: Ingrediëntenfoto moet worden geselecteerd
+no: Ingrediensbilde må velges
+pl: Należy wybrać zdjęcie składników
+pt: Imagem dos ingredientes a selecionar
+ro: Trebuie selectată o fotografie cu ingredientele
+ru: Необходимо выбрать фото ингредиентов
+sk: Je potrebné vybrať fotografiu prísad
+sl: Izbrati je treba fotografijo sestavin
+sq: Duhet të zgjidhet një fotografi e përbërësve
+sr: Мора да се изабере фотографија састојака
+sv: Ingrediensfoto att välja
+ta: பொருட்கள் புகைப்படம் தேர்ந்தெடுக்கப்பட வேண்டும்
+te: పదార్ధాల ఫోటోను ఎంచుకోవాలి
+th: ต้องเลือกรูปภาพส่วนผสม
+tk: Maddalaryň suratyny saýlamaly
+tl: Dapat piliin ang larawan ng mga sangkap
+tr: İçerik fotoğrafı seçilmeli
+uk: Необхідно вибрати фотографію інгредієнтів
+ur: اجزاء کی تصویر منتخب کی جانی چاہیے
+uz: Ingredientlar fotosuratini tanlash kerak
+vi: Ảnh thành phần cần chọn
+zh: 需要选择成分照片
 zh-CN:需要选择成分照片
 zh-TW:需要選擇成分照片
 zh-HK:需要選擇成分照片
 
-en:Nutrition photo selected
-ca:Foto d'informació nutricional seleccionada
-de:Nährwertangabenfoto ausgewählt
-es:Foto de información nutricional seleccionada
-fi:Ravintokuva valittu
-fr:Photo de la nutrition sélectionnée
-he:נבחרה תמונת ערכים תזונתיים
-hu:Tápérték fotó kiválasztva
-it:Foto delle informazioni nutrizionali selezionata
-nl:Foto van de voedingswaarden geselecteerd
-pt:Imagem das informações nutricionais selecionada
-ru:Выбрано фото с информацией о питательности
-sv:Näringsfoto vald
-tr:Beslenme fotoğrafı seçildi
-zh:已选择营养照片
+en: Nutrition photo selected
+ar: صورة معلومات غذائية محددة
+az: Qida məlumatları şəkli seçildi
+bg: Избрана е снимка на хранителна информация
+bn: পুষ্টি তথ্যের ছবি নির্বাচন করা হয়েছে
+bs: Odabrana fotografija nutritivnih informacija
+ca: Foto d'informació nutricional seleccionada
+cs: Vybrána fotografie nutričních informací
+da: Foto af næringsoplysninger valgt
+de: Nährwertangabenfoto ausgewählt
+el: Έχει επιλεγεί φωτογραφία διατροφικών πληροφοριών
+es: Foto de información nutricional seleccionada
+et: Valitud toitumisalase teabe foto
+fa: عکس اطلاعات تغذیه ای انتخاب شد
+fi: Ravintokuva valittu
+fr: Photo de la nutrition sélectionnée
+ga: Roghnaíodh grianghraf faisnéise cothaithe
+he: נבחרה תמונת ערכים תזונתיים
+hr: Odabrana fotografija nutritivnih informacija
+hu: Tápérték fotó kiválasztva
+hy: Ընտրվել է սննդային տեղեկատվության լուսանկարը
+id: Foto informasi gizi dipilih
+is: Næringarmynd valin
+it: Foto delle informazioni nutrizionali selezionata
+ja: 栄養写真が選択されました
+ka: არჩეულია კვების ინფორმაციის ფოტო
+kk: Тағамдық ақпараттың фотосуреті таңдалды
+km: បានជ្រើសរើសរូបថតព័ត៌មានអាហារូបត្ថម្ភ
+kn: ಪೌಷ್ಟಿಕಾಂಶದ ಮಾಹಿತಿಯ ಫೋಟೋವನ್ನು ಆಯ್ಕೆ ಮಾಡಲಾಗಿದೆ
+ko: 영양 정보 사진 선택됨
+ky: Тамактануу маалыматынын сүрөтү тандалды
+lo: ເລືອກຮູບພາບຂໍ້ມູນໂພຊະນາການແລ້ວ
+lt: Pasirinkta nuotrauka su maistine informacija
+lv: Atlasīts uzturvērtības informācijas fotoattēls
+mk: Избрана фотографија со информации за исхрана
+ml: പോഷകാഹാര വിവരങ്ങളുടെ ഫോട്ടോ തിരഞ്ഞെടുത്തു
+mn: Тэжээлийн мэдээллийн зургийг сонгосон
+mr: पोषण माहितीचा फोटो निवडला आहे
+ms: Foto maklumat pemakanan dipilih
+mt: Intgħażlet ritratt tal-informazzjoni nutrizzjonali
+my: အာဟာရဆိုင်ရာအချက်အလက်များဓာတ်ပုံကိုရွေးချယ်ပြီးပါပြီ
+nl: Foto van de voedingswaarden geselecteerd
+no: Næringsinformasjon bilde valgt
+pl: Wybrano zdjęcie z informacjami o wartościach odżywczych
+pt: Imagem das informações nutricionais selecionada
+ro: Fotografia cu informațiile nutriționale a fost selectată
+ru: Выбрано фото с информацией о питательности
+si: පෝෂණ තොරතුරු වල ඡායාරූපය තෝරා ඇත
+sk: Bola vybratá fotografia s informáciami o výživových hodnotách
+sl: Izbrana je fotografija prehranskih informacij
+sq: Është zgjedhur fotografia e informacionit ushqimor
+sr: Одабрана је фотографија са информацијама о исхрани
+sv: Näringsfoto vald
+ta: ஊட்டச்சத்து தகவல் புகைப்படம் தேர்ந்தெடுக்கப்பட்டது
+te: పోషకాహార సమాచార ఛాయాచిత్రం ఎంపిక చేయబడింది
+tg: Сурати маълумоти ғизоӣ интихоб шуд
+th: เลือกรูปภาพข้อมูลโภชนาการแล้ว
+tk: Iýmit maglumatlarynyň suraty saýlandy
+tl: Napili na ang litrato ng impormasyon sa nutrisyon
+tr: Beslenme fotoğrafı seçildi
+uk: Вибрано фотографію з інформацією про харчову цінність
+ur: غذائی معلومات کی تصویر منتخب کی گئی
+uz: Oziqlanish ma'lumotlari fotosurati tanlandi
+vi: Ảnh thông tin dinh dưỡng đã chọn
+zh: 已选择营养照片
 zh-CN:已选择营养照片
 zh-TW:已選擇營養照片
 zh-HK:已選擇營養照片
 
-en:Nutrition photo to be selected
-ca:Foto d'informació nutricional a seleccionar, Foto d'informació nutricional a triar
-de:Nährwertangabenfoto muss ausgewählt werden
-es:Foto de información nutricional a seleccionar
-fi:Ravintokuva valitsematta
-fr:Photo de la nutrition non sélectionnée
-he:יש לבחור בתמונת ערכים תזונתיים
-hu:Tápérték fotó kiválasztandó
-it:Foto delle informazioni nutrizionali da selezionare
-nl:Foto van voedingswaarden moet worden geselecteerd
-pl:Zdjęcie informacji o wartościach odżywczych do wyboru
-pt:Imagem das informações nutricionais a selecionar
-ru:Выбрать фото пищевой ценности
-sv:Näringsfotot måste väljas
-tr:Beslenme fotoğrafı seçilmeli
-zh:待选择营养照片
+en: Nutrition photo to be selected
+ca: Foto d'informació nutricional a seleccionar, Foto d'informació nutricional a triar
+de: Nährwertangabenfoto muss ausgewählt werden
+es: Foto de información nutricional a seleccionar
+fi: Ravintokuva valitsematta
+fr: Photo de la nutrition non sélectionnée
+he: יש לבחור בתמונת ערכים תזונתיים
+hu: Tápérték fotó kiválasztandó
+it: Foto delle informazioni nutrizionali da selezionare
+nl: Foto van voedingswaarden moet worden geselecteerd
+pl: Zdjęcie informacji o wartościach odżywczych do wyboru
+pt: Imagem das informações nutricionais a selecionar
+ru: Выбрать фото пищевой ценности
+sv: Näringsfotot måste väljas
+tr: Beslenme fotoğrafı seçilmeli
+zh: 待选择营养照片
 
-en:Packaging photo selected
-ca:Foto de l'embalatge seleccionada
-de:Verpackungsfoto ausgewählt
-es:Foto de embalaje seleccionada
-fi:Pakkauskuva valittu
-fr:Photo de l'emballage sélectionnée
-hu:Csomagolás fotó kiválasztva
-it:Foto dell'imballaggio selezionata
-nl:Verpakkingsfoto geselecteerd
-pl:Zdjęcie opakowania wybrane
-pt:Imagem da embalagem selecionada
-ru:Выбрано фото упаковки
-sv:Förpackningsfoto vald
-tr:Paketleme fotoğrafı seçildi
-zh:已选择包装照片
+en: Packaging photo selected
+ar: صورة التعبئة والتغليف المحددة
+az: Seçilmiş qablaşdırma şəkli
+bg: Избрана снимка на опаковката
+bn: প্যাকেজিং ছবি নির্বাচন করা হয়েছে
+bs: Odabrana fotografija pakovanja
+ca: Foto de l'embalatge seleccionada
+cs: Vybrána fotografie obalu
+da: Emballagefoto valgt
+de: Verpackungsfoto ausgewählt
+el: Έχει επιλεγεί φωτογραφία συσκευασίας
+es: Foto de embalaje seleccionada
+et: Pakendifoto valitud
+fa: عکس بسته بندی انتخاب شده
+fi: Pakkauskuva valittu
+fr: Photo de l'emballage sélectionnée
+ga: Grianghraf Pacáistithe Roghnaithe
+he: נבחרה תמונת אריזה
+hr: Odabrana fotografija pakiranja
+hu: Csomagolás fotó kiválasztva
+hy: Ընտրված փաթեթավորման լուսանկարը
+id: Foto kemasan dipilih
+is: Umbúðir mynd valin
+it: Foto dell'imballaggio selezionata
+ja: 選択されたパッケージ写真
+ka: შეფუთვის არჩეული ფოტო
+kk: Қаптаманың таңдалған фотосуреті
+km: រូបថតវេចខ្ចប់ដែលបានជ្រើសរើស
+kn: ಪ್ಯಾಕೇಜಿಂಗ್ ಫೋಟೋ ಆಯ್ಕೆ ಮಾಡಲಾಗಿದೆ
+ko: 포장 사진 선택됨
+ky: Тандалган таңгактоо сүрөтү
+lo: ເລືອກຮູບພາບການຫຸ້ມຫໍ່ແລ້ວ
+lt: Pasirinkta pakuotės nuotrauka
+lv: Atlasīts iepakojuma fotoattēls
+mk: Избрана фотографија од пакувањето
+ml: തിരഞ്ഞെടുത്ത പാക്കേജിംഗ് ഫോട്ടോ
+mn: Сонгогдсон сав баглаа боодлын зураг
+mr: निवडलेला पॅकेजिंग फोटो
+ms: Foto pembungkusan dipilih
+mt: Ritratt tal-ippakkjar magħżul
+my: ရွေးချယ်ထားသော ထုပ်ပိုးမှုပုံ
+nl: Verpakkingsfoto geselecteerd
+no: Emballasjefoto valgt
+pl: Zdjęcie opakowania wybrane
+pt: Imagem da embalagem selecionada
+ro: Fotografia ambalajului selectată
+ru: Выбрано фото упаковки
+sk: Vybraná fotografia obalu
+sl: Izbrana fotografija embalaže
+sq: Fotografia e paketimit të zgjedhur
+sr: Одабрана фотографија паковања
+sv: Förpackningsfoto vald
+ta: தேர்ந்தெடுக்கப்பட்ட பேக்கேஜிங் புகைப்படம்
+te: ఎంచుకున్న ప్యాకేజింగ్ ఫోటో
+th: เลือกรูปภาพบรรจุภัณฑ์แล้ว
+tk: Saýlanan gaplama suraty
+tl: Napiling larawan ng packaging
+tr: Paketleme fotoğrafı seçildi
+uk: Вибрано фотографію упаковки
+ur: منتخب پیکیجنگ تصویر
+uz: Tanlangan qadoqlash fotosurati
+vi: Ảnh đóng gói đã chọn
+zh: 已选择包装照片
+zh-CN:已选择包装照片
+zh-HK:已選擇包装照片
+zh-TW:已選擇包装照片
 
-en:Packaging photo to be selected
-ca:Foto de l'embalatge a triar, Foto de l'embalatge a seleccionar, Seleccionar foto de l'embalatge, Triar foto de l'embalatge
-da:Vælg emballagefoto
-de:Verpackungsfoto muss ausgewählt werden
-es:Foto de embalaje a seleccionar
-fi:Pakkauskuva valitsematta
-fr:Photo de l'emballage non sélectionnée
-he:יש לבחור בתמונת אריזה
-hu:Csomgaolás fotó kiválasztandó
-it:Foto dell'imballaggio da selezionare
-ja:パッケージ写真を選択してください
-ko:포장 사진을 선택하세요
-nl:Verpakkingsfoto moet worden geselecteerd
-no:Velg emballasjebilde
-pt:Imagem da embalagem a selecionar
-sv:Förpackningsfoto att välja
-tr:Paketleme fotoğrafı seçilmeli
-zh:需要选择包装照片
+en: Packaging photo to be selected
+ca: Foto de l'embalatge a triar, Foto de l'embalatge a seleccionar, Seleccionar foto de l'embalatge, Triar foto de l'embalatge
+da: Vælg emballagefoto
+de: Verpackungsfoto muss ausgewählt werden
+es: Foto de embalaje a seleccionar
+fi: Pakkauskuva valitsematta
+fr: Photo de l'emballage non sélectionnée
+he: יש לבחור בתמונת אריזה
+hu: Csomgaolás fotó kiválasztandó
+it: Foto dell'imballaggio da selezionare
+ja: パッケージ写真を選択してください
+ko: 포장 사진을 선택하세요
+nl: Verpakkingsfoto moet worden geselecteerd
+no: Velg emballasjebilde
+pt: Imagem da embalagem a selecionar
+sv: Förpackningsfoto att välja
+tr: Paketleme fotoğrafı seçilmeli
+zh: 需要选择包装照片
 
-en:Origins completed
-ca:Orígens completats
-da:Oprindelse fuldført
-de:Herkunft ausgefüllt
-es:Orígenes completados
-fi:Alkuperä täydennetty
-fr:Origines complétées
-hu:Származás kitöltve
-it:Origine degli ingredienti completata
-ja:起源が完了しました
-ko:기원이 완료되었습니다
-nl:Oorsprong vervolledigd
-no:Opprinnelse fullført
-pl:Pochodzenie uzupełnione
-pt:Origens dos ingredientes completas
-ru:Происхождение заполнено
-sv:Ursprung slutfört
-tr:Kökenler tamamlandı
-zh:起源已完成
+en: Origins completed
+ar: اكتمل الأصل
+az: Mənşəyi tamamlandı
+bg: Произходът е попълнен
+bn: উৎস সম্পন্ন হয়েছে
+bs: Porijeklo je završeno
+ca: Orígens completats
+cs: Původ dokončen
+da: Oprindelse fuldført
+de: Herkunft ausgefüllt
+el: Η προέλευση έχει ολοκληρωθεί
+es: Orígenes completados
+et: Päritolu on lõpetatud
+fa: مبدا کامل شد
+fi: Alkuperä täydennetty
+fr: Origines complétées
+ga: Tá an bunús críochnaithe
+he: מקורות הושלמו
+hr: Podrijetlo je završeno
+hu: Származás kitöltve
+hy: Ծագումն ավարտված է
+id: Asal selesai
+is: Uppruni lokið
+it: Origine degli ingredienti completata
+ja: 起源が完了しました
+ka: წარმოშობა დასრულებულია
+kk: Шығу тегі аяқталды
+km: ប្រភពដើមបានបញ្ចប់
+kn: ಮೂಲವು ಪೂರ್ಣಗೊಂಡಿದೆ
+ko: 기원이 완료되었습니다
+ky: Келип чыгышы аяктады
+lo: ຕົ້ນກໍາເນີດສໍາເລັດ
+lt: Kilmė užpildyta
+lv: Izcelsme ir pabeigta
+mk: Потеклото е завршено
+ml: ഉത്ഭവം പൂർത്തിയായി
+mn: Гарал үүсэл дууссан
+mr: मूळ पूर्ण झाले
+ms: Asal selesai
+mt: L-oriġini hija kompluta
+my: မူရင်းပြီးစီးခဲ့သည်
+nl: Oorsprong vervolledigd
+no: Opprinnelse fullført
+pl: Pochodzenie uzupełnione
+pt: Origens dos ingredientes completas
+ro: Origini completate
+ru: Происхождение заполнено
+si: මූලාරම්භය සම්පූර්ණ කර ඇත
+sk: Pôvod je dokončený
+sl: Poreklo je zaključeno
+sq: Origjina është plotësuar
+sr: Порекло је завршено
+sv: Ursprung slutfört
+ta: தோற்றம் முடிந்தது
+te: మూలం పూర్తయింది
+tg: Пайдоиш ба итмом расид
+th: แหล่งกำเนิดเสร็จสมบูรณ์
+tk: Gelip çykyşy tamamlandy
+tl: Nakumpleto na ang pinagmulan
+tr: Kökenler tamamlandı
+uk: Походження заповнено
+ur: اصل مکمل ہو گیا
+uz: Kelib chiqishi yakunlandi
+vi: Nguồn gốc đã hoàn thành
+zh: 起源已完成
+zh-CN: 起源已完成
+zh-TW: 起源已完成
+zh-HK: 起源已完成
 
-en:Origins to be completed
-ca:Orígens per completar
-de:Herkunft auszufüllen
-es:Orígenes por completar
-fi:Alkuperä täydennettävä
-fr:Origines à compléter
-he:מקורות להשלים
-hu:Származás kitöltendő
-it:Origine degli ingredienti da completare
-ja:完成する起源
-ko:완료되어야 할 기원
-nl:Oorsprong moet worden vervolledigd
-pl:Pochodzenie do uzupełnienia
-pt:Origens dos ingredientes a completar
-ru:Происхождение для заполнения
-sv:Ursprung att slutföra
-tr:Tamamlanacak kökenler
-zh:待完成的起源
+en: Origins to be completed
+ca: Orígens per completar
+de: Herkunft auszufüllen
+es: Orígenes por completar
+fi: Alkuperä täydennettävä
+fr: Origines à compléter
+he: מקורות להשלים
+hu: Származás kitöltendő
+it: Origine degli ingredienti da completare
+ja: 完成する起源
+ko: 완료되어야 할 기원
+lt: Kilmė turi būti užpildyta
+nl: Oorsprong moet worden vervolledigd
+pl: Pochodzenie do uzupełnienia
+pt: Origens dos ingredientes a completar
+ro: Origini de completat
+ru: Происхождение для заполнения
+sv: Ursprung att slutföra
+tr: Tamamlanacak kökenler
+vi: Nguồn gốc cần hoàn thành
+zh: 待完成的起源
+zh-CN:待完成的起源
+zh-TW:待完成的起源
+zh-HK:待完成的起源
 

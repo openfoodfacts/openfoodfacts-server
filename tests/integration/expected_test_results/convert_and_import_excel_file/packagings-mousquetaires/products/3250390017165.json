@@ -60,25 +60,25 @@
    "data_quality_errors_tags" : [],
    "data_quality_info_tags" : [
       "en:packaging-data-incomplete",
-      "en:ecoscore-extended-data-not-computed",
+      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown"
    ],
    "data_quality_tags" : [
       "en:packaging-data-incomplete",
-      "en:ecoscore-extended-data-not-computed",
+      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown",
-      "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-      "en:ecoscore-production-system-no-label",
-      "en:ecoscore-threatened-species-ingredients-missing"
+      "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+      "en:environmental-score-production-system-no-label",
+      "en:environmental-score-threatened-species-ingredients-missing"
    ],
    "data_quality_warnings_tags" : [
-      "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-      "en:ecoscore-production-system-no-label",
-      "en:ecoscore-threatened-species-ingredients-missing"
+      "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+      "en:environmental-score-production-system-no-label",
+      "en:environmental-score-threatened-species-ingredients-missing"
    ],
    "data_sources" : "Producers, Producer - test-org",
    "data_sources_imported" : "Producers, Producer - test-org",
@@ -86,7 +86,14 @@
       "producers",
       "producer-test-org"
    ],
-   "ecoscore_data" : {
+   "ecoscore_tags" : [
+      "unknown"
+   ],
+   "editors_tags" : [
+      "test-user"
+   ],
+   "entry_dates_tags" : "--ignore--",
+   "environmental_score_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
             "aggregated_origins" : [
@@ -304,24 +311,24 @@
             "non_recyclable_and_non_biodegradable_materials" : 0,
             "packagings" : [
                {
-                  "ecoscore_material_score" : 92,
-                  "ecoscore_shape_ratio" : 0.1,
+                  "environmental_score_material_score" : 92,
+                  "environmental_score_shape_ratio" : 0.1,
                   "material" : "en:paper",
                   "number_of_units" : 1,
                   "shape" : "en:film",
                   "weight_specified" : 6.05
                },
                {
-                  "ecoscore_material_score" : 92,
-                  "ecoscore_shape_ratio" : 1,
+                  "environmental_score_material_score" : 92,
+                  "environmental_score_shape_ratio" : 1,
                   "material" : "en:non-corrugated-cardboard",
                   "number_of_units" : 1,
                   "shape" : "en:sleeve",
                   "weight_specified" : 11.6
                },
                {
-                  "ecoscore_material_score" : 21,
-                  "ecoscore_shape_ratio" : 0.1,
+                  "environmental_score_material_score" : 21,
+                  "environmental_score_shape_ratio" : 0.1,
                   "material" : "en:pp-5-polypropylene",
                   "non_recyclable_and_non_biodegradable" : "no",
                   "number_of_units" : 1,
@@ -344,6 +351,7 @@
       "agribalyse" : {
          "warning" : "missing_agribalyse_match"
       },
+      "grade" : "unknown",
       "missing" : {
          "categories" : 1,
          "ingredients" : 1,
@@ -353,20 +361,15 @@
       "missing_agribalyse_match_warning" : 1,
       "status" : "unknown"
    },
-   "ecoscore_grade" : "unknown",
-   "ecoscore_tags" : [
+   "environmental_score_grade" : "unknown",
+   "environmental_score_tags" : [
       "unknown"
    ],
-   "editors_tags" : [
-      "test-user"
-   ],
-   "entry_dates_tags" : "--ignore--",
    "food_groups_tags" : [],
    "id" : "3250390017165",
    "informers_tags" : [
       "test-user"
    ],
-   "ingredients_lc" : "fr",
    "interface_version_created" : "import_csv_file - version 2019/09/17",
    "lang" : "fr",
    "lang_imported" : "fr",
@@ -392,27 +395,26 @@
    "lc_imported" : "fr",
    "main_countries_tags" : [],
    "misc_tags" : [
+      "en:environmental-score-not-computed",
       "en:nutriscore-missing-category",
-      "en:nutrition-not-enough-data-to-compute-nutrition-score",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-energy",
       "en:nutriscore-missing-nutrition-data-fat",
-      "en:nutriscore-missing-nutrition-data-saturated-fat",
-      "en:nutriscore-missing-nutrition-data-sugars",
-      "en:nutriscore-missing-nutrition-data-sodium",
       "en:nutriscore-missing-nutrition-data-proteins",
-      "en:nutrition-no-fiber",
+      "en:nutriscore-missing-nutrition-data-saturated-fat",
+      "en:nutriscore-missing-nutrition-data-sodium",
+      "en:nutriscore-missing-nutrition-data-sugars",
       "en:nutriscore-not-computed",
-      "en:nutrition-no-fruits-vegetables-nuts",
+      "en:nutrition-no-fiber",
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
-      "en:packagings-number-of-components-3",
+      "en:nutrition-no-fruits-vegetables-nuts",
+      "en:nutrition-not-enough-data-to-compute-nutrition-score",
       "en:packagings-complete",
       "en:packagings-not-empty",
-      "en:packagings-with-weights",
+      "en:packagings-number-of-components-3",
       "en:packagings-with-all-weights",
       "en:packagings-with-all-weights-complete",
-      "en:ecoscore-extended-data-not-computed",
-      "en:ecoscore-not-computed",
+      "en:packagings-with-weights",
       "en:main-countries-new-product"
    ],
    "nova_group_debug" : "no nova group when the product does not have ingredients",
@@ -476,7 +478,7 @@
    "nutriscore_tags" : [
       "unknown"
    ],
-   "nutriscore_version" : "2021",
+   "nutriscore_version" : "2023",
    "nutrition_data_per" : "100g",
    "nutrition_data_prepared_per" : "100g",
    "nutrition_grade_fr" : "unknown",
@@ -558,6 +560,7 @@
    "product_name_fr_imported" : "Pate feuilletee deroulee",
    "product_quantity" : 230,
    "product_quantity_unit" : "g",
+   "product_type" : "food",
    "quantity" : "230 g",
    "quantity_imported" : "230 g",
    "removed_countries_tags" : [],

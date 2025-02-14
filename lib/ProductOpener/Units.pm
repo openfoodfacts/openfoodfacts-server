@@ -47,6 +47,7 @@ BEGIN {
 		&normalize_serving_size
 		&normalize_quantity
 		&extract_standard_unit
+		&normalize_product_quantity_and_serving_size
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -341,6 +342,51 @@ sub normalize_serving_size ($serving) {
 
 		return unit_to_g($q, $u);
 	}
+	return;
+}
+
+=head2 normalize_product_quantity_and_serving_size ($product_ref)
+
+Normalize the product quantity and serving size fields.
+
+=head3 Parameters
+
+=head4 $product_ref
+
+Reference to a product.
+
+=cut
+
+sub normalize_product_quantity_and_serving_size ($product_ref) {
+
+	(defined $product_ref->{product_quantity}) and delete $product_ref->{product_quantity};
+	(defined $product_ref->{product_quantity_unit}) and delete $product_ref->{product_quantity_unit};
+	if ((defined $product_ref->{quantity}) and ($product_ref->{quantity} ne "")) {
+		my $product_quantity = normalize_quantity($product_ref->{quantity});
+		if (defined $product_quantity) {
+			$product_ref->{product_quantity} = $product_quantity;
+		}
+		my $product_quantity_unit = extract_standard_unit($product_ref->{quantity});
+		if (defined $product_quantity_unit) {
+			$product_ref->{product_quantity_unit} = $product_quantity_unit;
+		}
+	}
+
+	if ((defined $product_ref->{serving_size}) and ($product_ref->{serving_size} ne "")) {
+		$product_ref->{serving_quantity} = normalize_serving_size($product_ref->{serving_size});
+
+		my $serving_quantity_unit = extract_standard_unit($product_ref->{serving_size});
+		if (defined $serving_quantity_unit) {
+			$product_ref->{serving_quantity_unit} = $serving_quantity_unit;
+		}
+	}
+	else {
+		(defined $product_ref->{serving_quantity}) and delete $product_ref->{serving_quantity};
+		(defined $product_ref->{serving_size})
+			and ($product_ref->{serving_size} eq "")
+			and delete $product_ref->{serving_size};
+	}
+
 	return;
 }
 

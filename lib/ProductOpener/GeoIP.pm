@@ -50,6 +50,7 @@ BEGIN {
 	@EXPORT_OK = qw(
 		&get_country_for_ip
 		&get_country_code_for_ip
+		&get_country_for_ip_api
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -136,6 +137,36 @@ sub get_country_code_for_ip ($ip) {
 	}
 
 	return $country;
+}
+
+sub get_country_for_ip_api ($request_ref) {
+	my $response_ref = $request_ref->{api_response};
+
+	my $error_id;
+
+	my $ip = $request_ref->{geoip_ip};
+	if (not defined $ip) {
+		$error_id = "missing_field";
+	}
+	else {
+		$response_ref->{country} = get_country_for_ip($ip);
+		$response_ref->{cc} = get_country_code_for_ip($ip);
+		if (not defined $response_ref->{country}) {
+			$error_id = "invalid_field";
+		}
+	}
+
+	if (defined $error_id) {
+		push @{$response_ref->{errors}},
+			{
+			message => {id => $error_id},
+			field => {id => "ip"},
+			impact => {id => "failure"},
+			};
+		$response_ref->{status_code} = $400;
+	}
+
+	return;
 }
 
 1;

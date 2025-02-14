@@ -11,6 +11,7 @@
       },
       {
          "ciqual_food_code" : "12110",
+         "ecobalyse_code" : "f804033a-fe59-4ec5-b24b-c7482b2a6cf6",
          "id" : "en:comte",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 22.7272727272727,
@@ -43,6 +44,7 @@
       },
       {
          "ciqual_food_code" : "5214",
+         "ecobalyse_code" : "6621c18e-85de-4683-82be-7b236e68bc48",
          "id" : "en:red-wine",
          "is_in_taxonomy" : 1,
          "origins" : "en:italy",
@@ -168,6 +170,7 @@
       "en:pepper",
       "en:seed"
    ],
+   "ingredients_lc" : "fr",
    "ingredients_n" : 11,
    "ingredients_n_tags" : [
       "11",
@@ -216,6 +219,18 @@
       "fr:jambon-superieur"
    ],
    "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:parmigiano-reggiano",
+      "en:pepper",
+      "en:ricotta",
+      "en:rose-wine",
+      "en:salt",
+      "en:uht-cream",
+      "en:white-wine",
+      "fr:coquillettes",
+      "fr:jambon-superieur"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 9,
    "known_ingredients_n" : 15,
    "lc" : "fr",
    "nutriments" : {

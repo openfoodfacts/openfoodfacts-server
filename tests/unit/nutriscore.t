@@ -11,8 +11,11 @@ use Log::Any::Adapter 'TAP';
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/compute_field_tags/;
 use ProductOpener::Food qw/:all/;
-use ProductOpener::Ingredients qw/extract_ingredients_classes_from_text extract_ingredients_from_text/;
-use ProductOpener::Nutriscore qw/compute_nutriscore_grade/;
+use ProductOpener::FoodProducts qw/:all/;
+use ProductOpener::ProducersFood qw/:all/;
+use ProductOpener::Ingredients qw/extract_additives_from_text extract_ingredients_from_text/;
+use ProductOpener::Nutriscore
+	qw/compute_nutriscore_grade get_value_with_one_less_negative_point_2023 get_value_with_one_more_positive_point_2023/;
 use ProductOpener::NutritionCiqual qw/load_ciqual_data/;
 use ProductOpener::NutritionEstimation qw/:all/;
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
@@ -877,6 +880,45 @@ my @tests = (
 			},
 		}
 	],
+
+	# orange
+	[
+		"en-orange",
+		{
+			lc => "en",
+			categories => "oranges",
+			ingredients_text => "orange",
+		}
+	],
+
+	# pickled vegetable with water and dill: water should not be counted in fruits/vegetables
+	# dill should be counted
+	[
+		"pl-pickled-vegetables",
+		{
+			lc => "pl",
+			categories => "pickled vegetables",
+			ingredients_text => "52% rzodkiew biała, woda, koper, 0,6% czosnek, sól, chrzan",
+			nutriments => {
+				energy_100g => 53,
+				fat_100g => 0.1,
+				"saturated-fat_100g" => 0,
+				sugars_100g => 0,
+				sodium_100g => 2,
+				proteins_100g => 0.7,
+			},
+		}
+	],
+
+	# dill
+	[
+		"en-dill",
+		{
+			lc => "en",
+			categories => "dill",
+			ingredients_text => "dill",
+		}
+	],
 );
 
 my $json = JSON->new->allow_nonref->canonical;
@@ -897,18 +939,60 @@ foreach my $test_ref (@tests) {
 		}
 	}
 
-	fix_salt_equivalent($product_ref);
-	compute_serving_size_data($product_ref);
+	compute_nutrition_data_per_100g_and_per_serving($product_ref);
 	compute_field_tags($product_ref, $product_ref->{lc}, "categories");
-	extract_ingredients_from_text($product_ref);
-	extract_ingredients_classes_from_text($product_ref);
-	special_process_product($product_ref);
-	compute_estimated_nutrients($product_ref);
-	compute_nutriscore($product_ref);
+
+	specific_processes_for_food_product($product_ref);
+
+	# Detect possible improvements
+	detect_possible_improvements_nutriscore($product_ref, 2023);
 
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
 }
 
 is(compute_nutriscore_grade(1.56, 1, 0), "c");
+
+# Tests for detecting possible improvements
+
+# 2023 thresholds:
+
+#my %points_thresholds_2023 = (
+#
+#	# negative points
+#
+#	energy => [335, 670, 1005, 1340, 1675, 2010, 2345, 2680, 3015, 3350],    # kJ / 100g
+#	energy_beverages => [30, 90, 150, 210, 240, 270, 300, 330, 360, 390],    # kJ /100g or 100ml
+#	sugars => [3.4, 6.8, 10, 14, 17, 20, 24, 27, 31, 34, 37, 41, 44, 48, 51],    # g / 100g
+#	sugars_beverages => [0.5, 2, 3.5, 5, 6, 7, 8, 9, 10, 11],    # g / 100g or 100ml
+#	saturated_fat => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],    # g / 100g
+#	salt => [0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3, 3.2, 3.4, 3.6, 3.8, 4],    # g / 100g
+#
+#	# for fats
+#	energy_from_saturated_fat => [120, 240, 360, 480, 600, 720, 840, 960, 1080, 1200],    # g / 100g
+#	saturated_fat_ratio => [10, 16, 22, 28, 34, 40, 46, 52, 58, 64],    # %
+#
+#	# positive points
+#	fruits_vegetables_legumes => [40, 60, 80, 80, 80],    # %
+#	fruits_vegetables_legumes_beverages => [40, 40, 60, 60, 80, 80],
+#	fiber => [3.0, 4.1, 5.2, 6.3, 7.4],    # g / 100g - AOAC method
+#	proteins => [2.4, 4.8, 7.2, 9.6, 12, 14, 17],    # g / 100g
+#	proteins_beverages => [1.2, 1.5, 1.8, 2.1, 2.4, 2.7, 3.0],    # g / 100g
+#);
+
+is(get_value_with_one_less_negative_point_2023(0, "sugars", 0), undef);
+is(get_value_with_one_less_negative_point_2023(0, "sugars", 3), undef);
+is(get_value_with_one_less_negative_point_2023(0, "sugars", 4), 3.4);
+is(get_value_with_one_less_negative_point_2023(0, "sugars", 7), 6.8);
+is(get_value_with_one_less_negative_point_2023(0, "sugars", 10), 6.8);
+is(get_value_with_one_less_negative_point_2023(0, "sugars", 60), 51);
+is(get_value_with_one_less_negative_point_2023(1, "sugars", 3), 2);
+is(get_value_with_one_less_negative_point_2023(1, "saturated_fat", 7), 6);
+
+is(get_value_with_one_more_positive_point_2023(0, "proteins", 0), 2.5);
+is(get_value_with_one_more_positive_point_2023(0, "proteins", 5), 7.3);
+is(get_value_with_one_more_positive_point_2023(1, "proteins", 2), 2.2);
+is(get_value_with_one_more_positive_point_2023(0, "proteins", 20), undef);
+
+is(get_value_with_one_more_positive_point_2023(0, "fruits_vegetables_legumes", 45), 61);
 
 done_testing();

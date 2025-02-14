@@ -48,7 +48,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 print STDERR ("Please fix this script before using it:\n"
 		. "1- do not write to lang/ (its git controlled)\n"

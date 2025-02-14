@@ -55,7 +55,7 @@ use ProductOpener::Mail qw/send_email_to_admin/;
 
 use Encode;
 
-=head2 revert_product_api()
+=head2 revert_product_api($request_ref)
 
 Process API v3 requests to revert a product to a specific revision.
 
@@ -87,13 +87,15 @@ sub revert_product_api ($request_ref) {
 					impact => {id => "failure"},
 				}
 			);
-			$error = 1;
+			$error++;
 		}
 	}
 
 	# Check that the user has permission (is an admin or a moderator, or we are on the producers platform)
 
-	$error += check_user_permission($request_ref, $response_ref, "product_revert");
+	if (not check_user_permission($request_ref, $response_ref, "product_revert")) {
+		$error++;
+	}
 
 	if (not $error) {
 

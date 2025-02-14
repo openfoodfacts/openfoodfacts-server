@@ -6,11 +6,12 @@ use utf8;
 use Test2::V0;
 use Data::Dumper;
 $Data::Dumper::Terse = 1;
+$Data::Dumper::Sortkeys = 1;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Products qw/compute_languages/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Ingredients qw/detect_allergens_from_text/;
+use ProductOpener::Ingredients qw/detect_allergens_from_text get_allergens_taxonomyid/;
 
 # dummy product for testing
 
@@ -410,6 +411,8 @@ is(
 		'allergens_from_ingredients' => "Saumon, oeufs, bl\x{e9}",
 		'allergens_hierarchy' => ['en:eggs', 'en:fish', 'en:gluten', 'en:mustard'],
 		'allergens_tags' => ['en:eggs', 'en:fish', 'en:gluten', 'en:mustard'],
+		'ingredients_lc' => 'fr',
+		'ingredients_text' => "Saumon, oeufs, bl\x{e9}, chocolat",
 		'ingredients_text_fr' => "Saumon, oeufs, bl\x{e9}, chocolat",
 		'ingredients_text_with_allergens' =>
 			"<span class=\"allergen\">Saumon</span>, <span class=\"allergen\">oeufs</span>, <span class=\"allergen\">bl\x{e9}</span>, chocolat",
@@ -450,6 +453,8 @@ is(
 		'allergens_from_ingredients' => '',
 		'allergens_hierarchy' => ['en:celery', 'en:crustaceans', 'en:lupin'],
 		'allergens_tags' => ['en:celery', 'en:crustaceans', 'en:lupin'],
+		'ingredients_lc' => 'fr',
+		'ingredients_text' => 'Filet de saumon sauvage',
 		'ingredients_text_fr' => 'Filet de saumon sauvage',
 		'ingredients_text_with_allergens' => 'Filet de saumon sauvage',
 		'ingredients_text_with_allergens_fr' => 'Filet de saumon sauvage',
@@ -534,5 +539,18 @@ detect_allergens_from_text($product_ref);
 diag Dumper $product_ref->{allergens_tags};
 
 is($product_ref->{allergens_tags}, ['en:gluten', 'en:soybeans',]) || diag Dumper $product_ref->{allergens_tags};
+
+# Get an allergens id from the allergens taxonomy
+is(get_allergens_taxonomyid("en", "egg"), "en:eggs");
+is(get_allergens_taxonomyid("fr", "fromage"), "en:milk");
+is(get_allergens_taxonomyid("en", "tuna"), "en:fish");
+# Get an allergens id from the ingredients taxonomy, using the allergens:en: property
+is(get_allergens_taxonomyid("en", "monkfish"), "en:fish");
+is(get_allergens_taxonomyid("en", "en:monkfish"), "en:fish");
+is(get_allergens_taxonomyid("es", "en:monkfish"), "en:fish");
+# Ingredients that are not in the allergens taxonomy
+is(get_allergens_taxonomyid("en", "pineapple"), "pineapple");
+# Ingredients that are not the ingredients taxonomy
+is(get_allergens_taxonomyid("en", "some very strange ingredient"), "some-very-strange-ingredient");
 
 done_testing();

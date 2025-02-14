@@ -118,6 +118,10 @@ $decalTop:48px;
     }
 }
 
+li.accordion-navigation.accordion-navigation-inactive:after {
+    display: none;
+}
+
 // align dropdown only on manages images accordion
 #manage_images_accordion .accordion-navigation {
     &:after {
@@ -262,3 +266,16 @@ html[dir="rtl"] .image_box figure figcaption {
     // This breaks the layout of the tags in the product page. This is a temporary fix until the issue is resolved.
     display: flex !important;
 }
+
+// It is hides SVG barcode when mobile and shows when desktop
+#barcode_div_code,#barcode_div_svg{
+    display: inline-block;
+    vertical-align: top;
+}
+
+@media only screen and (max-width: 600px) {
+    #barcode_div_svg,#barcode_br {
+        display: none;
+    }
+}
+  
