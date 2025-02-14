@@ -67143,6 +67143,27 @@ sales_format:en: weight, package
 wikidata:en: Q89
 
 < en:Apples
+< en:Fresh fruits
+en: Fresh apples
+de: Frische Äpfel
+es: Manzanas frescas
+fr: Pommes fraîches
+hr: Svježe jabuke
+it: Mele fresche
+lt: Švieži obuoliai
+nl: Verse appels
+bulk_proxy:en: en:apples
+sales_format:en: weight, package
+season_in_country_fr:en: 1,2,3,4,8,9,10,11,12
+
+########   Apple varieties
+
+< en:Apples
+en: Apples Chantecler
+fr: Pommes Chantecler, Pommes Chantecler Belchard
+sales_format:en: weight, package
+
+< en:Apples
 en: Elstar apples
 fr: Pommes Elstar, Elstar
 hr: Elstar jabuke
@@ -67187,19 +67208,6 @@ protected_name_file_number:en: PDO-IT-0197
 protected_name_type:en: pdo
 #wikidata:en:
 
-< en:Apples
-< en:Fresh fruits
-en: Fresh apples
-de: Frische Äpfel
-es: Manzanas frescas
-fr: Pommes fraîches
-hr: Svježe jabuke
-it: Mele fresche
-lt: Švieži obuoliai
-nl: Verse appels
-bulk_proxy:en: en:apples
-sales_format:en: weight, package
-season_in_country_fr:en: 1,2,3,4,8,9,10,11,12
 
 < en:Apples
 en: Sweet apples
@@ -67949,7 +67957,6 @@ tr: Limon
 agribalyse_proxy_food_code:en: 13009
 agribalyse_proxy_food_name:en: Lemon, pulp, raw
 agribalyse_proxy_food_name:fr: Citron, pulpe, cru
-sales_format:en: weight, package
 
 < en:Lemons
 en: Lemons Primofiori, Lemons Mesero, Lemons Blanco
@@ -67965,6 +67972,7 @@ fr: Citrons frais
 hr: Svježi limuni
 lt: Šviežios citrinos
 nl: Verse citroen
+sales_format:en: weight, package
 season_in_country_fr:en: 1,2,11,12
 
 < en: Fresh lemons
@@ -68178,6 +68186,7 @@ de: Frische Clementinen
 fr: Clémentines fraîches
 hr: Svježe klementine
 lt: Švieži klementinai
+sales_format:en: weight, package
 season_in_country_fr:en: 1,2,11,12
 
 < en:Clementines
@@ -68231,7 +68240,7 @@ pl: Pomarańcza, Pomarańcze
 ru: Апельсины
 tr: Portakal
 intake24_category_code:en: ORNG
-sales_format:en: weight, package
+
 
 < en:Fresh fruits
 < en:Oranges
@@ -68241,6 +68250,7 @@ fr: Oranges fraîches
 hr: Svježe naranče
 lt: Švieži apelsinai
 tr: Taze portakal
+sales_format:en: weight, package
 season_in_country_fr:en: 1,2,3,12
 
 < en:Fresh oranges
@@ -68954,23 +68964,31 @@ nl: Peren
 ru: Груши
 tr: Armut
 intake24_category_code:en: PEAR
-sales_format:en: weight, package
 wikidata:en: Q13099586
+
+< en:Fresh fruits
+< en:Pears
+en: Fresh pears
+de: Frische Birnen
+es: Peras frescas
+fr: Poires fraîches
+hr: Svježe kruške
+lt: Šviežios kriaušės
+sales_format:en: weight, package
+season_in_country_fr:en: 1,2,3,8,9,10,11,12
+
+########### Pear varieties
+
+< en:Pears
+en: Abate pears, Pears (Abate), Abate Fetel
+xx: Abate Fetel
+es: Limonea
+fr: Poires Abate, Poires Abbé Fétel, Abbé Fétel, Abate Fétel
+wikidata:en: Q306912
 
 < en:Pears
 en: Comice pears
 fr: Poires comice
-
-< en:Pears
-en: Packham's pears, Packham's Triumph pears
-fr: Poires Packham's, Poires Packham's Triumph
-
-< en:Pears
-it: Pera dell'Emilia Romagna
-origins:en: en:italy
-protected_name_file_number:en: PGI-IT-1534
-protected_name_type:en: pgi
-wikidata:en: Q3899627
 
 < en:Pears
 en: Conference pears
@@ -68986,11 +69004,13 @@ fr: Poires Guyot
 wikidata:en: Q3033517
 
 < en:Pears
-en: Abate Fetel
-xx: Abate Fetel
-es: Limonea
-fr: Poires Abate, Poires Abbé Fétel, Abbé Fétel, Abate Fétel
-wikidata:en: Q306912
+en: Harrow Sweet pears
+xx: Harrow Sweet
+fr: Poires Harrow Sweet
+
+< en:Pears
+en: Packham's pears, Packham's Triumph pears
+fr: Poires Packham's, Poires Packham's Triumph
 
 < en:Pears
 en: Williams pears
@@ -68999,26 +69019,7 @@ de: Williams Christ, Williams Christbirne, Williamsbirne
 fr: Poires Williams, Williams
 wikidata:en: Q498862
 
-< en:Pears
-en: Harrow Sweet pears
-xx: Harrow Sweet
-fr: Poires Harrow Sweet
-
-< en:Fresh fruits
-< en:Pears
-en: Fresh pears
-de: Frische Birnen
-es: Peras frescas
-fr: Poires fraîches
-hr: Svježe kruške
-lt: Šviežios kriaušės
-season_in_country_fr:en: 1,2,3,8,9,10,11,12
-
-< en:Apples
-en: Apples Chantecler
-fr: Pommes Chantecler, Pommes Chantecler Belchard
-sales_format:en: weight, package
-
+########### Pear origins
 
 < en:Apples
 fr: Pommes de Savoie
@@ -69026,6 +69027,14 @@ origins:en: en:france
 protected_name_file_number:en: PGI-FR-0196
 protected_name_type:en: pgi
 #wikidata:en:Q21427804 (amalgame)
+
+
+< en:Pears
+it: Pera dell'Emilia Romagna
+origins:en: en:italy
+protected_name_file_number:en: PGI-IT-1534
+protected_name_type:en: pgi
+wikidata:en: Q3899627
 
 < en:Pears
 fr: Poires de Savoie
@@ -73421,9 +73430,8 @@ ciqual_food_code:en: 11074
 ciqual_food_name:en: Ginger, raw
 ciqual_food_name:fr: Gingembre, racine crue
 gpc_category_code:en: 10006113
-gpc_category_description:en: Definition: Includes any product that can be described/observed as a fresh commercial varieties of ginger grown from Zingiber officinale Roscoe, of the Zingiberaceae family, to be supplied fresh.Definition Excludes: Specifically excludes: Prepared/Processed or Unprepared/Unprocessed and Shelf Stable or Frozen Ginger.
+gpc_category_description:en: Definition: Includes any product that can be described/observed as a fresh commercial varieties of ginger grown from Zingiber officinale Roscoe, of the Zingiberaceae family, to be supplied fresh. Definition Excludes: Specifically excludes: Prepared/Processed or Unprepared/Unprocessed and Shelf Stable or Frozen Ginger.
 gpc_category_name:en: Ginger
-sales_format:en: weight, package
 wikidata:en: Q35625
 
 #Please don't put in ginger
@@ -73464,6 +73472,7 @@ agribalyse_food_code:en: 11074
 ciqual_food_code:en: 11074
 ciqual_food_name:en: Ginger, raw
 ciqual_food_name:fr: Gingembre, racine crue
+sales_format:en: weight, package
 
 < en:Ginger
 < en:Plant-based pickles
@@ -106281,7 +106290,6 @@ tr: Patlıcan
 agribalyse_food_code:en: 20053
 ciqual_food_code:en: 20053
 ciqual_food_name:en: Eggplant, raw
-sales_format:en: weight, package
 #TOCHECK:wikidata:en:Q12533094
 
 < en:Aubergines
@@ -106514,7 +106522,6 @@ intake24_category_code:en: BRCL
 # war:Brokoli
 # yue:西蘭花
 opposite:en: en:mashed-broccoli, en:mixed-vegetables
-sales_format:en: weight, package
 wikidata:en: Q47722
 wikipedia:en: https://en.wikipedia.org/wiki/Broccoli
 
@@ -106529,6 +106536,7 @@ fr: Brocolis frais
 hr: Svježe brokule
 expected_ingredients:en: en:broccoli
 opposite:en: en:frozen-broccoli
+sales_format:en: weight, package
 season_in_country_fr:en: 9,10,11
 
 < en:Broccoli
@@ -107144,7 +107152,6 @@ tr: Salatalık, Hıyar
 agribalyse_food_code:en: 20019
 ciqual_food_code:en: 20019
 ciqual_food_name:en: Cucumber, pulp and peel, raw
-sales_format:en: weight, package
 wikidata:en: Q23425
 
 #Useful for soups ?
@@ -107163,6 +107170,7 @@ es: Pepinos frescos
 fr: Concombre frais
 hr: Svježi krastavci
 pl: Ogórki świeże
+sales_format:en: weight, package
 season_in_country_fr:en: 5,6,7,8,9,10
 
 < en:Vegetables
@@ -107652,10 +107660,24 @@ intake24_category_code:en: LEEK
 # sco:Leek
 # vls:Pret
 # yue:京蔥
-sales_format:en: weight, package
 wikidata:en: Q1807269
 wikipedia:en: https://en.wikipedia.org/wiki/Leek
 
+< en:Frozen vegetables
+< en:Leeks
+en: Frozen leeks
+de: Tiefkühl-Lauch, Gefrohrene Lauche
+es: Puerro congelado
+fr: Poireaux surgelés
+hr: Smrznuti poriluk
+nl: Diepvries prei
+agribalyse_food_code:en: 20236
+agribalyse_proxy_food_code:en: 20236
+agribalyse_proxy_food_name:en: Leek, frozen, raw
+agribalyse_proxy_food_name:fr: Poireau, surgelé, cru
+ciqual_food_code:en: 20236
+ciqual_food_name:en: Leek, frozen, raw
+ciqual_food_name:fr: Poireau, surgelé, cru
 
 < en:Cooked vegetables
 < en:Leeks
@@ -107673,6 +107695,7 @@ es: Puerro fresco
 fr: Poireaux frais
 hr: Svježi poriluk
 nl: Verse prei
+sales_format:en: weight, package
 season_in_country_fr:en: 1,2,3,4,9,10,11,12
 
 < en:Leeks
@@ -107941,7 +107964,6 @@ fr: Oignons jaunes, oignon jaune
 hr: Žuti luk
 nl: Gele uien
 expected_ingredients:en: en:yellow onion
-sales_format:en: weight, package
 wikidata:en: Q8051898
 wikipedia:en: https://en.wikipedia.org/wiki/Yellow_onion
 
@@ -107949,6 +107971,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Yellow_onion
 en: Fresh yellow onions
 nl: Verse gele uien
 expected_ingredients:en: en:yellow onion
+sales_format:en: weight, package
 
 < en:Onions
 en: White onions, white onion
@@ -108280,18 +108303,6 @@ intake24_category_code:en: POTS
 pnns_group_2:en: Potatoes
 sales_format:en: weight, package
 
-< en:Potatoes
-en: Allians potatoes
-fr: Pommes de terre Allians
-
-< en:Potatoes
-en: Nazca potatoes
-fr: Pommes de terre Nazca
-
-< en:Potatoes
-en: Louisiana potatoes
-fr: Pommes de terre Louisiana
-
 #################### Potato harvest ####################
 
 < en:Potatoes
@@ -108326,6 +108337,10 @@ hr: Agata krumpir
 nl: Agata aardappelen
 sales_format:en: weight, package
 wikidata:en: Q373973
+
+< en:Potatoes
+en: Allians potatoes
+fr: Pommes de terre Allians
 
 < en:Potatoes
 en: Amandine potatoes, Potatoes(Amandine)
@@ -108380,6 +108395,14 @@ de: Lady Christl Kartoffeln
 fr: Pomme de terre Lady Christl
 hr: Lady christl krumpir
 nl: Lady Christl aardappelen
+
+< en:Potatoes
+en: Louisiana potatoes
+fr: Pommes de terre Louisiana
+
+< en:Potatoes
+en: Nazca potatoes
+fr: Pommes de terre Nazca
 
 < en:Potatoes
 en: Red potatoes
@@ -113977,22 +114000,6 @@ en: Vegetables (freshly prepared)
 gpc_category_code:en: 10000271
 gpc_category_description:en: Definition: Includes any products that can be described/observed as any variety of fresh vegetables, combination of vegetables or fruit vegetables, which may be whole, chopped, cleaned and trimmed, that have gone through further manufacturing processes, such as reformed, cooked, salted or smoked, however these products can also be coated, in sauce, stuffed or filled. Definition Excludes: Specifically excludes products that have added ingredients included such as rice, couscous and pasta. These products can be/must be refrigerated to extend their consumable life. Excludes products such as Vegetables with additional dough or grains, Frozen and Shelf Stable Prepared and Processed Vegetables, all Unprepared and Unprocessed Vegetables, all Fruit, Nuts and Seeds.
 gpc_category_name:en: Vegetables - Prepared/Processed (Perishable)
-
-< en:Frozen vegetables
-< en:Leeks
-en: Frozen leeks
-de: Tiefkühl-Lauch, Gefrohrene Lauche
-es: Puerro congelado
-fr: Poireaux surgelés
-hr: Smrznuti poriluk
-nl: Diepvries prei
-agribalyse_food_code:en: 20236
-agribalyse_proxy_food_code:en: 20236
-agribalyse_proxy_food_name:en: Leek, frozen, raw
-agribalyse_proxy_food_name:fr: Poireau, surgelé, cru
-ciqual_food_code:en: 20236
-ciqual_food_name:en: Leek, frozen, raw
-ciqual_food_name:fr: Poireau, surgelé, cru
 
 < en:Artichokes
 < en:Frozen vegetables
