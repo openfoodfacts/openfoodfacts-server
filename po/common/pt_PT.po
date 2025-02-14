@@ -5353,7 +5353,7 @@ msgstr "Produtos com o melhor Nutri-Score"
 
 msgctxt "sort_by_environmental_score_score"
 msgid "Products with the best Green-Score"
-msgstr "Produtos com melhor Green-Score"
+msgstr "Produtos com o melhor Green-Score"
 
 msgctxt "sort_by_created_t"
 msgid "Recently added products"
@@ -5416,7 +5416,7 @@ msgstr "Não aplicável para a categoria"
 # variable names between { } must not be translated
 msgctxt "f_attribute_environmental_score_not_applicable_description"
 msgid "Not yet applicable for the category: {category}"
-msgstr "Ainda não aplicável à categoria: {category}"
+msgstr "Ainda não se aplica para a categoria: {category}"
 
 msgctxt "environmental_score_not_applicable_coming_soon"
 msgid "The Green-Score is not yet applicable for this category, but we are working on adding support for it."
@@ -5570,7 +5570,7 @@ msgstr "Pode alterar a página do produto para adicionar uma categoria mais prec
 
 msgctxt "environmental_score_platform_promo"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
-msgstr "Se é o fabricante deste produto, pode enviar-nos as informações através da nossa <a href=\"https://world.pro.openfoodfacts.org\">plataforma gratuita para fabricantes</a>."
+msgstr "Se é o fabricante deste produto, pode enviar-nos as informações através da nossa <a href=\"https://world-pt.pro.openfoodfacts.org\">plataforma gratuita para produtores</a>."
 
 msgctxt "environmental_score_warning_missing_information"
 msgid "Warning: some information necessary to calculate the Green-Score with precision is not provided (see the details of the calculation below)."
@@ -5668,11 +5668,11 @@ msgstr "Modo de produção"
 
 msgctxt "environmental_score_no_labels_taken_into_account"
 msgid "No labels taken into account for the production system."
-msgstr "Nenhuma etiqueta foi considerada para o sistema de produção."
+msgstr "Nenhum rótulo foi considerado para o sistema de produção."
 
 msgctxt "environmental_score_please_add_the_labels"
 msgid "If this product has a label characterizing the production system (organic, fair trade, Label Rouge, Bleu Blanc Coeur etc.), you can modify the product sheet to add it."
-msgstr "Se este produto tiver uma etiqueta que caracterize o sistema de produção (orgânico, comércio justo, Label Rouge, Bleu Blanc Coeur, etc.), pode alterar a ficha do produto para adicioná-la."
+msgstr "Se este produto tem um rótulo caracterizando o sistema de produção (orgânico, comércio justo, etc.), pode editar a página do produto para adicioná-la."
 
 msgctxt "environmental_score_origins_of_ingredients"
 msgid "Origins of ingredients"
@@ -5680,11 +5680,11 @@ msgstr "Origem dos ingredientes"
 
 msgctxt "environmental_score_ingredients_not_indicated"
 msgid "The origins of the ingredients of this product are not indicated."
-msgstr "As origens dos ingredientes deste produto não são indicadas."
+msgstr "A origem dos ingredientes deste produto não está indicada."
 
 msgctxt "environmental_score_please_add_the_ingredients"
 msgid "If they are indicated on the packaging, you can modify the product sheet and add them."
-msgstr "Se estiverem indicados na embalagem, pode alterar a página do produto e adicioná-los."
+msgstr "Se for indicado na embalagem, pode editar a página do produto e adicionar."
 
 msgctxt "environmental_score_environmental_policy"
 msgid "Environmental policy"
@@ -5708,7 +5708,7 @@ msgstr "A informação sobre os ingredientes deste produto não foi fornecida."
 
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "Para um cálculo mais preciso do Green-Score, pode editar a página do produto e adicioná-las."
+msgstr "Para um cálculo mais preciso do Green-Score, pode editar a página do produto e adicioná-los."
 
 msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
@@ -5724,11 +5724,11 @@ msgstr "Pontuação de todos os componentes"
 
 msgctxt "environmental_score_no_packaging_information"
 msgid "The information about the packaging of this product is not filled in."
-msgstr "A informação sobre as embalagens deste produto não está preenchida."
+msgstr "A informação sobre a embalagem deste produto não está preenchida."
 
 msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
-msgstr "A informação sobre as embalagens deste produto não é suficientemente precisa (formas e materiais de todos os componentes da embalagem)."
+msgstr "A informação sobre a embalagem deste produto não é suficientemente precisa (formas e materiais de todos os componentes da embalagem)."
 
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
@@ -5749,7 +5749,7 @@ msgstr "kg CO2 eq/kg de produto"
 # do not translate the link
 msgctxt "environmental_score_platform_prompt_environmental_score_modal"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
-msgstr "Se é o fabricante deste produto, pode enviar-nos as informações através da nossa <a href=\"https://world.pro.openfoodfacts.org\">plataforma gratuita para fabricantes</a>."
+msgstr "Se é o fabricante deste produto, pode enviar-nos as informações através da nossa <a href=\"https://world-pt.pro.openfoodfacts.org\">plataforma gratuita para produtores</a>."
 
 # do not translate Green-Score and the link
 msgctxt "environmental_score_description"
@@ -5759,16 +5759,16 @@ msgstr "O <a href=\"/green-score\">Green-Score</a> é uma pontuação experiment
 # do not translate Green-Score
 msgctxt "environmental_score_warning_fr"
 msgid "The Green-Score formula is subject to change as it is regularly improved to make it more precise."
-msgstr "A fórmula do Green-Score está sujeita a alterações, pois é regularmente melhorada para torná-la mais precisa."
+msgstr "A fórmula Green-Score está sujeita a alterações, pois é regularmente melhorada para torná-la mais precisa."
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
 msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "O Green-Score foi inicialmente desenvolvido para França e está a ser alargado a outros países europeus. A fórmula do Green-Score está sujeita a mudanças, uma vez que é regularmente melhorada para torná-la mais precisa e mais adequada a cada país."
+msgstr "O Green-Score foi inicialmente desenvolvido para França e está a ser alargado a outros países europeus. A fórmula Green-Score está sujeita a mudanças, uma vez que é regularmente melhorada para torná-la mais precisa e mais adequada a cada país."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
-msgstr "Selecione um país para incluir o impacto total do transporte."
+msgstr "Selecione um país por forma a incluir todo o impacto do transporte."
 
 msgctxt "environmental_score_warning_transportation"
 msgid "The full impact of transportation to your country is currently unknown."
@@ -5918,19 +5918,19 @@ msgstr "Doar"
 
 msgctxt "environmental_score_production_system_no_labels_with_environmental_benefits"
 msgid "No labels with environmental benefits"
-msgstr "Sem etiquetas sobre os benefícios ambientais"
+msgstr "Sem etiquetas com benefícios ambientais"
 
 msgctxt "environmental_score_production_system_labels_with_environmental_benefits"
 msgid "Labels with environmental benefits"
-msgstr "Etiquetas sobre os benefícios ambientais"
+msgstr "Etiquetas com benefícios ambientais"
 
 msgctxt "environmental_score_production_system_labels_with_environmental_benefits_high"
 msgid "Labels with high environmental benefits"
-msgstr "Etiquetas sobre altos benefícios ambientais"
+msgstr "Etiquetas com altos benefícios ambientais"
 
 msgctxt "environmental_score_production_system_labels_with_environmental_benefits_very_high"
 msgid "Labels with very high environmental benefits"
-msgstr "Etiquetas sobre elevados benefícios ambientais"
+msgstr "Etiquetas com elevados benefícios ambientais"
 
 msgctxt "other"
 msgid "Other"
@@ -6050,7 +6050,7 @@ msgstr "Impacto para este produto"
 
 msgctxt "environmental_score_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
-msgstr "A pontuação de produtos com materiais de embalagem não recicláveis e não biodegradáveis é limitada a 79 (classificação B)."
+msgstr "A pontuação de produtos com materiais da embalagem não recicláveis e não biodegradáveis é limitada a 79 (grau B)."
 
 msgctxt "nutriscore_not_applicable"
 msgid "Nutri-Score not applicable for this product category."
