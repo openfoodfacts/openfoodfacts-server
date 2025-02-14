@@ -59,6 +59,7 @@ use Text::Levenshtein qw(distance);
 
 use ProductOpener::Ingredients qw/parse_ingredients_text_service/;
 use ProductOpener::Tags qw/add_tag get_taxonomy_tag_synonyms is_a/;
+use ProductOpener::Store qw/get_string_id_for_lang/;
 
 # Configure Log4perl
 Log::Log4perl->init(\<<'EOL');
@@ -763,27 +764,39 @@ sub check_ingredients_between_languages {
 		$log->debug(
 			"check_ingredients_between_languages - detected: en:possible-stop-word-before-$missing_stop_words_before{$lang}"
 		) if $log->is_debug();
-		add_tag($product_ref, "taxonomies_enhancer", "en:possible-stop-word-before-$missing_stop_words_before{$lang}");
+		add_tag($product_ref, "taxonomies_enhancer",
+			get_string_id_for_lang("en", "possible-stop-word-before-$missing_stop_words_before{$lang}"));
 	}
 	foreach my $lang (keys %missing_stop_words_after) {
 		$log->debug(
 			"check_ingredients_between_languages - detected: en:possible-stop-word-after-$missing_stop_words_after{$lang}"
 		) if $log->is_debug();
-		add_tag($product_ref, "taxonomies_enhancer", "en:possible-stop-word-after-$missing_stop_words_after{$lang}");
+		add_tag($product_ref, "taxonomies_enhancer",
+			get_string_id_for_lang("en", "possible-stop-word-after-$missing_stop_words_after{$lang}"));
 	}
 	foreach my $new_ingredient_id (keys %missing_ingredients) {
 		$log->debug(
 			"check_ingredients_between_languages - detected: en:ingredients-$new_ingredient_id-is-new-translation-for-$missing_ingredients{$new_ingredient_id}"
 		) if $log->is_debug();
-		add_tag($product_ref, "taxonomies_enhancer",
-			"en:ingredients-$new_ingredient_id-is-new-translation-for-$missing_ingredients{$new_ingredient_id}");
+		add_tag(
+			$product_ref,
+			"taxonomies_enhancer",
+			get_string_id_for_lang(
+				"en", "ingredients-$new_ingredient_id-is-new-translation-for-$missing_ingredients{$new_ingredient_id}"
+			)
+		);
 	}
 	foreach my $ingredient_with_typo (keys %ingredients_typo) {
 		$log->debug(
 			"check_ingredients_between_languages - detected: en:ingredients-$ingredient_with_typo-is-possible-typo-for-$ingredients_typo{$ingredient_with_typo}"
 		) if $log->is_debug();
-		add_tag($product_ref, "taxonomies_enhancer",
-			"en:ingredients-$ingredient_with_typo-is-possible-typo-for-$ingredients_typo{$ingredient_with_typo}");
+		add_tag(
+			$product_ref,
+			"taxonomies_enhancer",
+			get_string_id_for_lang(
+				"en", "ingredients-$ingredient_with_typo-is-possible-typo-for-$ingredients_typo{$ingredient_with_typo}"
+			)
+		);
 	}
 	# ignore if there are too many discrepencies found, it might be comparison of old ingredient list in a lang and new ingredient list in other lang, example 8014190017627
 	if (scalar(keys %mismatch_in_taxonomy) < 2) {
@@ -791,8 +804,13 @@ sub check_ingredients_between_languages {
 			$log->debug(
 				"check_ingredients_between_languages - detected: en:ingredients-taxonomy-between-$ingredient_id1-and-$mismatch_in_taxonomy{$ingredient_id1}-should-be-same-id"
 			) if $log->is_debug();
-			add_tag($product_ref, "taxonomies_enhancer",
-				"en:ingredients-taxonomy-between-$ingredient_id1-and-$mismatch_in_taxonomy{$ingredient_id1}-should-be-same-id"
+			add_tag(
+				$product_ref,
+				"taxonomies_enhancer",
+				get_string_id_for_lang(
+					"en",
+					"ingredients-taxonomy-between-$ingredient_id1-and-$mismatch_in_taxonomy{$ingredient_id1}-should-be-same-id"
+				)
 			);
 		}
 	}
