@@ -63,7 +63,7 @@ my %product_type_features = (
 		nova => 1,
 		nutrition => 1,
 		nutriscore => 1,
-		ecoscore => 1,
+		environmental_score => 1,
 		forest_footprint => 1,
 		user_preferences => 1,
 		popularity => 1,    # indicates if we have computed popularity from scan data
@@ -76,7 +76,7 @@ my %product_type_features = (
 		nutrition => 1,
 		user_preferences => 1,
 	},
-	pet_food => {
+	petfood => {
 		health_card => 1,
 		ingredients => 1,
 		additives => 1,

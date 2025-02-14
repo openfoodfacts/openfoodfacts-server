@@ -56,27 +56,27 @@
       "data_quality_errors_tags" : [],
       "data_quality_info_tags" : [
          "en:no-packaging-data",
-         "en:ecoscore-extended-data-not-computed",
+         "en:environmental-score-extended-data-not-computed",
          "en:food-groups-1-unknown",
          "en:food-groups-2-unknown",
          "en:food-groups-3-unknown"
       ],
       "data_quality_tags" : [
          "en:no-packaging-data",
-         "en:ecoscore-extended-data-not-computed",
+         "en:environmental-score-extended-data-not-computed",
          "en:food-groups-1-unknown",
          "en:food-groups-2-unknown",
          "en:food-groups-3-unknown",
-         "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-         "en:ecoscore-packaging-packaging-data-missing",
-         "en:ecoscore-production-system-no-label",
-         "en:ecoscore-threatened-species-ingredients-missing"
+         "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+         "en:environmental-score-packaging-packaging-data-missing",
+         "en:environmental-score-production-system-no-label",
+         "en:environmental-score-threatened-species-ingredients-missing"
       ],
       "data_quality_warnings_tags" : [
-         "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-         "en:ecoscore-packaging-packaging-data-missing",
-         "en:ecoscore-production-system-no-label",
-         "en:ecoscore-threatened-species-ingredients-missing"
+         "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+         "en:environmental-score-packaging-packaging-data-missing",
+         "en:environmental-score-production-system-no-label",
+         "en:environmental-score-threatened-species-ingredients-missing"
       ],
       "ecoscore_data" : {
          "adjustments" : {
@@ -313,6 +313,7 @@
          "agribalyse" : {
             "warning" : "missing_agribalyse_match"
          },
+         "grade" : "unknown",
          "missing" : {
             "categories" : 1,
             "ingredients" : 1,
@@ -339,7 +340,6 @@
       "informers_tags" : [
          "openfoodfacts-contributors"
       ],
-      "ingredients_lc" : "en",
       "interface_version_created" : "20221102/api/v3",
       "interface_version_modified" : "20150316.jqm2",
       "lang" : "en",
@@ -364,8 +364,7 @@
       "lc" : "en",
       "main_countries_tags" : [],
       "misc_tags" : [
-         "en:ecoscore-extended-data-not-computed",
-         "en:ecoscore-not-computed",
+         "en:environmental-score-not-computed",
          "en:nutriscore-missing-category",
          "en:nutriscore-missing-nutrition-data",
          "en:nutriscore-missing-nutrition-data-energy",
@@ -445,7 +444,7 @@
       "nutriscore_tags" : [
          "unknown"
       ],
-      "nutriscore_version" : "2021",
+      "nutriscore_version" : "2023",
       "nutrition_data_per" : "100g",
       "nutrition_data_prepared_per" : "100g",
       "nutrition_grade_fr" : "unknown",

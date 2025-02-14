@@ -2,7 +2,7 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "13014",
-         "ecobalyse_code" : "strawberry-non-eu",
+         "ecobalyse_code" : "e5bf7d33-6afe-46d6-ac06-f69c5769b10e",
          "id" : "en:strawberry",
          "is_in_taxonomy" : 1,
          "percent" : 55.1569506726457,
@@ -15,7 +15,7 @@
       },
       {
          "ciqual_proxy_food_code" : "13034",
-         "ecobalyse_code" : "orange-non-eu",
+         "ecobalyse_code" : "f3c21efc-5e7b-4c24-a7f6-6ffbcb34d5b1",
          "id" : "en:orange",
          "is_in_taxonomy" : 1,
          "percent" : 29.1479820627803,
@@ -28,7 +28,7 @@
       },
       {
          "ciqual_food_code" : "13050",
-         "ecobalyse_code" : "apple-fr",
+         "ecobalyse_code" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
          "id" : "en:apple",
          "is_in_taxonomy" : 1,
          "percent" : 15.695067264574,
@@ -55,6 +55,7 @@
       "en:apple",
       "en:malaceous-fruit"
    ],
+   "ingredients_lc" : "fr",
    "ingredients_n" : 3,
    "ingredients_n_tags" : [
       "3",

@@ -114,7 +114,7 @@
                            "type" : "percent"
                         }
                      ],
-                     "id" : "ecoscore_carbon_impact_by_stages_table",
+                     "id" : "environmental_score_carbon_impact_by_stages_table",
                      "rows" : [
                         {
                            "id" : "agriculture",
@@ -213,7 +213,62 @@
                "environment"
             ]
          },
-         "ecoscore" : {
+         "environment_card" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "environmental_score"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "carbon_footprint"
+                     ],
+                     "title" : "Empreinte carbone"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_group_id" : "packaging_recycling",
+                     "panel_ids" : [
+                        "packaging_recycling"
+                     ],
+                     "title" : "Emballage"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "origins_of_ingredients"
+                     ],
+                     "title" : "Transport"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "palm_oil"
+                     ],
+                     "title" : "Espèces menacées"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "title_element" : {
+               "title" : "Environnement"
+            },
+            "topics" : [
+               "environment"
+            ],
+            "type" : "card"
+         },
+         "environmental_score" : {
             "elements" : [
                {
                   "element_type" : "text",
@@ -225,13 +280,13 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "L'<a href=\"http://world-fr.openfoodfacts.localhost/ecoscore\">Eco-Score</a> est un score expérimental qui synthétise les impacts environnementaux des produits alimentaires."
+                     "html" : "Le <a href=\"http://world-fr.openfoodfacts.localhost/green-score\">Green-Score</a> est un score expérimental qui synthétise les impacts environnementaux des produits alimentaires."
                   }
                },
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                    \n                        L'Eco-Score a été initialement conçu pour la France et est en cours d'extension à d'autres pays européens. La formule de l'Eco-Score est susceptible d'évoluer car elle est régulièrement améliorée pour la rendre plus précise et mieux adaptée à chaque pays.\n                                    \n                ",
+                     "html" : "\n                    \n                        Le Green-Score a été initialement conçu pour la France et est en cours d'extension à d'autres pays européens. La formule du Green-Score est susceptible d'évoluer car elle est régulièrement améliorée pour la rendre plus précise et mieux adaptée à chaque pays.\n                                    \n                ",
                      "type" : "note"
                   }
                },
@@ -239,7 +294,7 @@
                   "element_type" : "panel_group",
                   "panel_group_element" : {
                      "panel_ids" : [
-                        "ecoscore_agribalyse"
+                        "environmental_score_agribalyse"
                      ],
                      "title" : "Analyse du cycle de vie"
                   }
@@ -248,9 +303,9 @@
                   "element_type" : "panel_group",
                   "panel_group_element" : {
                      "panel_ids" : [
-                        "ecoscore_origins_of_ingredients",
-                        "ecoscore_threatened_species",
-                        "ecoscore_packaging"
+                        "environmental_score_origins_of_ingredients",
+                        "environmental_score_threatened_species",
+                        "environmental_score_packaging"
                      ],
                      "title" : "Bonus et malus"
                   }
@@ -259,31 +314,32 @@
                   "element_type" : "panel_group",
                   "panel_group_element" : {
                      "panel_ids" : [
-                        "ecoscore_total"
+                        "environmental_score_total"
                      ],
-                     "title" : "Eco-Score pour ce produit"
+                     "title" : "Green-Score pour ce produit"
                   }
                },
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n<p>&rarr; <a href=\"http://world-fr.openfoodfacts.localhost/eco-score-l-impact-environnemental-des-produits-alimentaires\">En savoir plus sur l'Eco-Score</a></p>\n"
+                     "html" : "\n<p>&rarr; <a href=\"http://world-fr.openfoodfacts.localhost/green-score\">En savoir plus sur le Green-Score</a></p>\n"
                   }
                }
             ],
             "level" : "info",
             "title_element" : {
                "grade" : "c",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
-               "name" : "Eco-Score",
-               "title" : "Eco-Score C - Impact modéré sur l'environnement",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg",
+               "name" : "Green-Score",
+               "subtitle" : "Impact modéré sur l'environnement",
+               "title" : "Green-Score C",
                "type" : "grade"
             },
             "topics" : [
                "environment"
             ]
          },
-         "ecoscore_agribalyse" : {
+         "environmental_score_agribalyse" : {
             "elements" : [
                {
                   "element_type" : "text",
@@ -305,7 +361,7 @@
                            "type" : "percent"
                         }
                      ],
-                     "id" : "ecoscore_lca_impacts_by_stages_table",
+                     "id" : "environmental_score_lca_impacts_by_stages_table",
                      "rows" : [
                         {
                            "id" : "agriculture",
@@ -405,7 +461,7 @@
                "environment"
             ]
          },
-         "ecoscore_origins_of_ingredients" : {
+         "environmental_score_origins_of_ingredients" : {
             "elements" : [
                {
                   "element_type" : "text",
@@ -428,7 +484,7 @@
                "environment"
             ]
          },
-         "ecoscore_packaging" : {
+         "environmental_score_packaging" : {
             "elements" : [
                {
                   "element_type" : "table",
@@ -451,7 +507,7 @@
                            "type" : "text"
                         }
                      ],
-                     "id" : "ecoscore_packaging_components",
+                     "id" : "environmental_score_packaging_components",
                      "rows" : [
                         {
                            "values" : [
@@ -542,7 +598,7 @@
                "environment"
             ]
          },
-         "ecoscore_production_system" : {
+         "environmental_score_production_system" : {
             "evaluation" : "neutral",
             "level" : "info",
             "title_element" : {
@@ -555,7 +611,7 @@
                "environment"
             ]
          },
-         "ecoscore_threatened_species" : {
+         "environmental_score_threatened_species" : {
             "elements" : [
                {
                   "element_type" : "text",
@@ -578,7 +634,7 @@
                "environment"
             ]
          },
-         "ecoscore_total" : {
+         "environmental_score_total" : {
             "elements" : [
                {
                   "element_type" : "text",
@@ -591,7 +647,7 @@
             "level" : "info",
             "title_element" : {
                "grade" : "c",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg",
                "subtitle" : "Produit : Some product - 100 g",
                "title" : "Impact pour ce produit: C (Score: 47/100)",
                "type" : "grade"
@@ -599,61 +655,6 @@
             "topics" : [
                "environment"
             ]
-         },
-         "environment_card" : {
-            "elements" : [
-               {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "ecoscore"
-                  }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_ids" : [
-                        "carbon_footprint"
-                     ],
-                     "title" : "Empreinte carbone"
-                  }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_group_id" : "packaging_recycling",
-                     "panel_ids" : [
-                        "packaging_recycling"
-                     ],
-                     "title" : "Emballage"
-                  }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_ids" : [
-                        "origins_of_ingredients"
-                     ],
-                     "title" : "Transport"
-                  }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_ids" : [
-                        "palm_oil"
-                     ],
-                     "title" : "Espèces menacées"
-                  }
-               }
-            ],
-            "expanded" : true,
-            "title_element" : {
-               "title" : "Environnement"
-            },
-            "topics" : [
-               "environment"
-            ],
-            "type" : "card"
          },
          "health_card" : {
             "elements" : [
@@ -773,6 +774,94 @@
                "problem"
             ]
          },
+         "ingredient_1" : {
+            "elements" : [],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "Pomme : 58.3% (estimation)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredient_2" : {
+            "elements" : [],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "Lait : 20.8% (estimation)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredient_3" : {
+            "elements" : [],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "Œuf : 10.4% (estimation)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredient_4" : {
+            "elements" : [],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "Huile de palme : 5.2% (estimation)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredient_5" : {
+            "elements" : [],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "Colorant : 2.6% (estimation)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredient_6" : {
+            "elements" : [],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "— E100 : 2.6% (estimation)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredient_7" : {
+            "elements" : [],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "Émulsifiant : 2.6% (estimation)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredient_8" : {
+            "elements" : [],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "title" : "— Lécithine de soja : 2.6% (estimation)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
          "ingredients" : {
             "elements" : [
                {
@@ -790,6 +879,12 @@
                   "element_type" : "text",
                   "text_element" : {
                      "html" : "<strong>Allergènes :</strong> \n                    en:Apple, Œufs, Lait, Soja\n                "
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredients_list"
                   }
                }
             ],
@@ -938,6 +1033,66 @@
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/vegetarian.svg",
                "title" : "Végétarien"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredients_list" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_1"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_2"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_3"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_4"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_5"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_6"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_7"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredient_8"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "title" : "Information sur les ingrédients"
             },
             "topics" : [
                "health"
@@ -1163,6 +1318,12 @@
                   "text_element" : {
                      "html" : "Avertissement : Le taux de fruits, légumes et noix n'est pas indiqué sur l'étiquette, il a été estimé en fonction de la liste des ingrédients : 58\n                    ",
                      "type" : "warning"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "nutriscore_new_computation"
                   }
                },
                {
@@ -1415,6 +1576,33 @@
                "health"
             ]
          },
+         "nutriscore_new_computation" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<p>Le calcul du Nutri-Score évolue pour fournir de meilleures recommandations basées sur les dernières preuves scientifiques.</p><p>Principales améliorations :</p><ul><li>Meilleur score pour certains poissons gras et huiles riches en bonnes graisses</li><li>Meilleur score pour les produits complets riches en fibres</li><li>Moins bon score pour les produits contenant beaucoup de sel ou de sucre</li><li>Moins bon score pour la viande rouge (comparée à la volaille)</li></ul>\n                ",
+                     "type" : "info"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>&rarr; <a href=\"http://world-fr.openfoodfacts.localhost/nutriscore-v2\">Découvrez toutes les améliorations du nouveau Nutri-Score</a></p>\n"
+                  }
+               }
+            ],
+            "level" : "info",
+            "title_element" : {
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/info.svg",
+               "title" : "Découvrez le nouveau Nutri-Score !",
+               "type" : "info"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
          "nutrition_facts_table" : {
             "elements" : [
                {
@@ -1634,7 +1822,7 @@
                   "element_type" : "text",
                   "text_element" : {
                      "evaluation" : "good",
-                     "html" : "\n                        \n                            \n                                1 x \n                                <strong>\n                                    Boîte\n                                    \n                                </strong>\n                                    \n                                        (Bois)\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                                3 x \n                                <strong>\n                                    Couvercle\n                                    \n                                </strong>\n                                    \n                                        (Acier)\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                        ",
+                     "html" : "\n                        \n                            \n                                1 x \n                                <strong>\n                                    Boîte\n                                    \n                                </strong>\n                                    \n                                        (Bois)\n                                    \n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                                3 x \n                                <strong>\n                                    Couvercle\n                                    \n                                </strong>\n                                    \n                                        (Acier)\n                                    \n                                    \n                                        - En contact avec l'aliment\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                        ",
                      "icon_alt" : "Recycler",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/recycle-variant.svg",
@@ -1645,7 +1833,7 @@
                   "element_type" : "text",
                   "text_element" : {
                      "evaluation" : "bad",
-                     "html" : "\n                        \n                            \n                        \n                            \n                        \n                            \n                        \n                            \n                                1 x \n                                <strong>\n                                    Film\n                                    \n                                </strong>\n                                    \n                                        (Plastique)\n                                    \n                                    <br>\n                            \n                        \n                        ",
+                     "html" : "\n                        \n                            \n                        \n                            \n                        \n                            \n                        \n                            \n                                1 x \n                                <strong>\n                                    Film\n                                    \n                                </strong>\n                                    \n                                        (Plastique)\n                                    \n                                    \n                                    <br>\n                            \n                        \n                        ",
                      "icon_alt" : "Jeter",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/delete.svg",
@@ -1656,7 +1844,7 @@
                   "element_type" : "text",
                   "text_element" : {
                      "evaluation" : "neutral",
-                     "html" : "\n                        \n                            \n                        \n                            \n                                6 x \n                                <strong>\n                                    Bouteille\n                                    25cl \n                                </strong>\n                                    \n                                        (Verre)\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                        \n                        ",
+                     "html" : "\n                        \n                            \n                        \n                            \n                                6 x \n                                <strong>\n                                    Bouteille\n                                    25cl \n                                </strong>\n                                    \n                                        (Verre)\n                                    \n                                    \n                                        - En contact avec l'aliment\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                        \n                        ",
                      "icon_alt" : "Inconnu",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/help.svg",
@@ -1831,7 +2019,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                    Plusieurs études ont montré qu'une consommation élevée d'aliments ultra-transformés est associée à un risque accru de maladies chroniques non transmissibles, telles que l'obésité, l'hypertension et le diabète.\n                    ",
+                     "html" : "\n                    Plusieurs études ont montré qu'une consommation plus faible d'aliments ultra-transformés est associée à un risque diminué de maladies chroniques non transmissibles, telles que l'obésité, l'hypertension et le diabète.\n                    ",
                      "source_language" : "en",
                      "source_text" : "Ultra-processed foods increase noncommunicable chronic disease risk",
                      "source_url" : "https://pubmed.ncbi.nlm.nih.gov/34798466/",
@@ -1845,7 +2033,7 @@
                "evaluation" : "bad",
                "icon_color_from_evaluation" : true,
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/arrow-bottom-right-thick.svg",
-               "subtitle" : "Les aliments ultra-transformés augmentent le risque de maladies chroniques",
+               "subtitle" : "Limiter les aliments ultra-transformés réduit le risque de maladies chroniques",
                "title" : "Limiter les aliments ultra-transformés"
             },
             "topics" : [

@@ -25,7 +25,8 @@ import requests
 
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
-formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+formatter = logging.Formatter(
+    "%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 stream_handler = logging.StreamHandler()
 stream_handler.setLevel(logging.INFO)
 stream_handler.setFormatter(formatter)
@@ -134,7 +135,8 @@ def run_ocr_on_image_paths(image_paths: List[pathlib.Path], override: bool = Fal
     r_json = orjson.loads(r.content)
     responses = r_json["responses"]
     return (
-        [(images_content[i][0], responses[i]) for i in range(len(images_content))],
+        [(images_content[i][0], responses[i])
+         for i in range(len(images_content))],
         True,
     )
 
@@ -142,7 +144,8 @@ def run_ocr_on_image_paths(image_paths: List[pathlib.Path], override: bool = Fal
 def dump_ocr(
     image_paths: List[pathlib.Path], sleep: float = 0.0, override: bool = False
 ):
-    responses, performed_request = run_ocr_on_image_paths(image_paths, override)
+    responses, performed_request = run_ocr_on_image_paths(
+        image_paths, override)
 
     for image_path, response in responses:
         json_path = image_path.with_suffix(".json.gz")
@@ -150,7 +153,8 @@ def dump_ocr(
         with gzip.open(str(json_path), "wb") as f:
             logger.debug("Dumping OCR JSON to %s", json_path)
             f.write(
-                orjson.dumps({"responses": [response], "created_at": int(time.time())})
+                orjson.dumps(
+                    {"responses": [response], "created_at": int(time.time())})
             )
     if performed_request and sleep:
         time.sleep(sleep)

@@ -287,13 +287,13 @@
                "description" : "",
                "description_short" : "High environmental impact",
                "grade" : "d",
-               "icon_url" : "https://server_domain/images/attributes/dist/ecoscore-d.svg",
+               "icon_url" : "https://server_domain/images/attributes/dist/green-score-d.svg",
                "id" : "ecoscore",
                "match" : 35,
-               "name" : "Eco-Score",
-               "panel_id" : "ecoscore",
+               "name" : "Green-Score",
+               "panel_id" : "environmental_score",
                "status" : "known",
-               "title" : "Eco-Score D"
+               "title" : "Green-Score D"
             },
             {
                "description" : "",
@@ -365,7 +365,7 @@
    "data_quality_info_tags" : [
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
-      "en:ecoscore-extended-data-not-computed",
+      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-known",
       "en:food-groups-2-known",
       "en:food-groups-3-unknown"
@@ -376,20 +376,23 @@
       "en:created-missing",
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
-      "en:ecoscore-extended-data-not-computed",
+      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-known",
       "en:food-groups-2-known",
       "en:food-groups-3-unknown",
-      "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-      "en:ecoscore-packaging-packaging-data-missing",
-      "en:ecoscore-production-system-no-label"
+      "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+      "en:environmental-score-packaging-packaging-data-missing",
+      "en:environmental-score-production-system-no-label"
    ],
    "data_quality_warnings_tags" : [
-      "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-      "en:ecoscore-packaging-packaging-data-missing",
-      "en:ecoscore-production-system-no-label"
+      "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+      "en:environmental-score-packaging-packaging-data-missing",
+      "en:environmental-score-production-system-no-label"
    ],
-   "ecoscore_data" : {
+   "ecoscore_tags" : [
+      "d"
+   ],
+   "environmental_score_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
             "aggregated_origins" : [
@@ -779,9 +782,9 @@
       },
       "status" : "known"
    },
-   "ecoscore_grade" : "d",
-   "ecoscore_score" : 35,
-   "ecoscore_tags" : [
+   "environmental_score_grade" : "d",
+   "environmental_score_score" : 35,
+   "environmental_score_tags" : [
       "d"
    ],
    "food_groups" : "en:cheese",
@@ -792,7 +795,7 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "19051",
-         "ecobalyse_code" : "milk",
+         "ecobalyse_code" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
          "id" : "en:cow-s-milk",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 57.1428571428571,
@@ -845,7 +848,7 @@
       },
       {
          "ciqual_proxy_food_code" : "31016",
-         "ecobalyse_code" : "sugar",
+         "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
          "id" : "en:sugar",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 2.5,
@@ -968,15 +971,14 @@
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
-      "en:ecoscore-changed",
-      "en:ecoscore-computed",
-      "en:ecoscore-extended-data-not-computed",
-      "en:ecoscore-grade-changed",
-      "en:ecoscore-missing-data-labels",
-      "en:ecoscore-missing-data-no-packagings",
-      "en:ecoscore-missing-data-origins",
-      "en:ecoscore-missing-data-packagings",
-      "en:ecoscore-missing-data-warning",
+      "en:environmental-score-changed",
+      "en:environmental-score-computed",
+      "en:environmental-score-grade-changed",
+      "en:environmental-score-missing-data-labels",
+      "en:environmental-score-missing-data-no-packagings",
+      "en:environmental-score-missing-data-origins",
+      "en:environmental-score-missing-data-packagings",
+      "en:environmental-score-missing-data-warning",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-energy",
       "en:nutriscore-missing-nutrition-data-fat",
@@ -1107,7 +1109,7 @@
    "nutriscore_tags" : [
       "unknown"
    ],
-   "nutriscore_version" : "2021",
+   "nutriscore_version" : "2023",
    "nutrition_data_per" : "100g",
    "nutrition_data_prepared_per" : "100g",
    "nutrition_grade_fr" : "unknown",

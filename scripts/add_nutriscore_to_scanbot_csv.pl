@@ -76,9 +76,9 @@ while (<STDIN>) {
 	my $nutriscore_unique_scans = 0;
 	my $nutriscore_status = 0;
 
-	my $ecoscore_scans = 0;
-	my $ecoscore_unique_scans = 0;
-	my $ecoscore_status = 0;
+	my $environmental_score_scans = 0;
+	my $environmental_score_unique_scans = 0;
+	my $environmental_score_status = 0;
 
 	if ($source eq "producers") {
 		$total{producers_products}++;
@@ -116,13 +116,13 @@ while (<STDIN>) {
 				$nutriscore_status = 1;
 				$total{nutriscore_products}++;
 			}
-			if (    (defined $product_ref->{ecoscore_grade})
-				and ($product_ref->{ecoscore_grade} =~ /^[a-e]$/))
+			if (    (defined $product_ref->{environmental_score_grade})
+				and ($product_ref->{environmental_score_grade} =~ /^[a-e]$/))
 			{
-				$ecoscore_scans = $scans;
-				$ecoscore_unique_scans = $unique_scans;
-				$ecoscore_status = 1;
-				$total{ecoscore_products}++;
+				$environmental_score_scans = $scans;
+				$environmental_score_unique_scans = $unique_scans;
+				$environmental_score_status = 1;
+				$total{environmental_score_products}++;
 			}
 		}
 	}
@@ -139,8 +139,8 @@ while (<STDIN>) {
 	$total{nutriscore_scans} += $nutriscore_scans;
 	$total{nutriscore_unique_scans} += $nutriscore_unique_scans;
 
-	$total{ecoscore_scans} += $ecoscore_scans;
-	$total{ecoscore_unique_scans} += $ecoscore_unique_scans;
+	$total{environmental_score_scans} += $environmental_score_scans;
+	$total{environmental_score_unique_scans} += $environmental_score_unique_scans;
 
 	print join("\t",
 		$code, $scans, $unique_scans, $found,
@@ -160,9 +160,11 @@ my $nutriscore_products_percent = sprintf("%.2f", 100 * $total{nutriscore_produc
 my $nutriscore_scans_percent = sprintf("%.2f", 100 * $total{nutriscore_scans} / $total{scans});
 my $nutriscore_unique_scans_percent = sprintf("%.2f", 100 * $total{nutriscore_unique_scans} / $total{unique_scans});
 
-my $ecoscore_products_percent = sprintf("%.2f", 100 * $total{ecoscore_products} / $total{products});
-my $ecoscore_scans_percent = sprintf("%.2f", 100 * $total{ecoscore_scans} / $total{scans});
-my $ecoscore_unique_scans_percent = sprintf("%.2f", 100 * $total{ecoscore_unique_scans} / $total{unique_scans});
+my $environmental_score_products_percent
+	= sprintf("%.2f", 100 * $total{environmental_score_products} / $total{products});
+my $environmental_score_scans_percent = sprintf("%.2f", 100 * $total{environmental_score_scans} / $total{scans});
+my $environmental_score_unique_scans_percent
+	= sprintf("%.2f", 100 * $total{environmental_score_unique_scans} / $total{unique_scans});
 
 print STDERR <<TXT
 
@@ -182,9 +184,9 @@ nutriscore_products: $total{nutriscore_products} - $nutriscore_products_percent
 nutriscore_scans: $total{nutriscore_scans} - $nutriscore_scans_percent
 nutriscore_unique_scans: $total{nutriscore_unique_scans} - $nutriscore_unique_scans_percent
 
-ecoscore_products: $total{ecoscore_products} - $ecoscore_products_percent
-ecoscore_scans: $total{ecoscore_scans} - $ecoscore_scans_percent
-ecoscore_unique_scans: $total{ecoscore_unique_scans} - $ecoscore_unique_scans_percent
+environmental_score_products: $total{environmental_score_products} - $environmental_score_products_percent
+environmental_score_scans: $total{environmental_score_scans} - $environmental_score_scans_percent
+environmental_score_unique_scans: $total{environmental_score_unique_scans} - $environmental_score_unique_scans_percent
 
 TXT
 	;

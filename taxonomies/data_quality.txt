@@ -4,17 +4,34 @@
 
 # Data quality errors should not contain false positive, as opposed to data quality warnings
 en: Data quality errors
+ar: أخطاء جودة البيانات
 de: Datenqualitätsfehler
 es: Errores de calidad de datos
 fr: Erreurs de qualité des données
 it: Errori di qualità dei dati
+ja: データ品質エラー
+ko: 데이터 품질 오류
+nl: Fouten in de gegevenskwaliteit
+pl: Błędy jakości danych
 pt: Erros de qualidade de dados
+ru: Ошибки качества данных
+zh: 数据质量错误
 description:en: Error detected on data
 
 < en:Data quality errors
 en: Nutrition errors
+ar: أخطاء التغذية
+de: Ernährungsfehler
 es: Errores de nutrición
 fr: Erreurs nutritionnelles
+it: Errori nutrizionali
+ja: 栄養に関するエラー
+ko: 영양 오류
+nl: Voedingsfouten
+pl: Błędy żywieniowe
+pt: Erros de nutrição
+ru: Ошибки в питании
+zh: 营养错误
 description:en: Error on nutrition data (nutrients)
 fix_action:en: add_nutrition_facts
 marker_type:en: error
@@ -39,13 +56,24 @@ description:fr: La valeur de l'énergie en kJ doit être environ 4,2 fois plus g
 
 < en:Nutrition errors
 en: Energy value in kcal greater than in kJ
+de: Energiegehalt in kcal ist größer als in kJ
 es: Valor energético en kcal mayor que en kJ
 fr: La valeur de l'énergie en kcal est plus grande qu'en kJ
+it: Il valore energetico in kcal è maggiore che in kJ
+nl: De energiewaarde in kcal is groter dan in kJ
+pl: Wartość energetyczna w kcal jest większa niż w kJ
+pt: O valor energético em kcal é maior do que em kJ
+ru: Энергетическая ценность в ккал больше, чем в кДж
+zh: 能量值以千卡为单位大于以千焦为单位
 description:en: The energy value in kJ must be about 4.2 times greater than the value in kcal. The values could be reversed.
 description:fr: La valeur de l'énergie en kJ doit être environ 4,2 fois plus grande que la valeur en kcal. Les valeurs sont peut être inversées.
 
 < en:Nutrition errors
 en: Energy value in kcal and kj are reversed
+de: Energiewert in kcal und kJ sind vertauscht
+es: El valor energético en kcal y kj están invertidos
+fr: La valeur énergétique en kcal et kj sont inversées
+it: Il valore energetico in kcal e kJ sono invertiti
 description:en: The energy value in kJ must be about 4.2 times greater than the value in kcal. The values seems to be reversed.
 
 < en:Nutrition errors
@@ -61,10 +89,14 @@ description:fr: La valeur énergétique entrée en kJ ne correspond pas à la va
 < en:Nutrition errors
 en: Nutrition - Sugars plus starch greater than carbohydrates
 de: Ernährung - Zucker plus Stärke größer als Kohlenhydrate
-es:Nutrición: azúcares más almidón más que los carbohidratos
+es: Nutrición - azúcares más almidón más que los carbohidratos
 fr: Nutrition - Sucres plus amidon supérieurs aux glucides
 it: Nutrizione - Zuccheri più amido maggiori dei carboidrati
+nl: Voeding - Suikers plus zetmeel groter dan koolhydraten
+pl: Żywienie - Cukry plus skrobia większe niż węglowodany
 pt: Nutrição - Açúcares mais amido maior que carboidratos
+ru: Питание - Сахара плюс крахмал больше, чем углеводы
+zh: 营养 - 糖加淀粉大于碳水化合物
 
 < en:Nutrition errors
 en: Nutrition - Fructose plus glucose plus maltose plus lactose plus sucrose greater than sugars
@@ -76,7 +108,18 @@ pt: Nutrição - Frutose mais glicose mais maltose mais lactose mais sacarose ma
 
 < en:Nutrition errors
 en: Nutrition Saturated Fat greater than Fat
+ar: التغذية - الدهون المشبعة أكبر من الدهون
+de: Ernährung - Gesättigte Fettsäuren größer als Fett
+es: Nutrición - Grasas saturadas mayores que grasa
 fr: Acides gras saturés supérieurs aux matières grasses
+it: Nutrizione - Grassi saturi maggiori dei grassi
+ja: 栄養 - 飽和脂肪酸が脂肪より多い
+ko: 영양 - 포화 지방이 지방보다 큼
+nl: Voeding - Verzadigd vet groter dan vet
+pl: Odżywianie - Tłuszcze nasycone większe niż tłuszcz
+pt: Nutrição - Gordura saturada maior que gordura
+ru: Питание - Насыщенные жиры больше, чем жиры
+zh: 营养 - 饱和脂肪大于脂肪
 description:en: Saturated Fat is a sub-section of Fat on the nutrition labels, as a result, it should always be smaller than fat.
 description:fr: Les acides gras saturés sont contenus dans les matières grasses. En conséquence, ils ne doivent jamais être plus élévés que ces dernières.
 
@@ -86,6 +129,10 @@ description:en: "Nutrition facts are specified for the product as sold." is chec
 
 < en:Nutrition errors
 en: Nutrition data per serving - Serving size is not recognized
+de: Nährwertangaben pro Portion - Portionsgröße wird nicht erkannt
+es: Datos nutricionales por porción - El tamaño de la porción no se reconoce
+fr: Données nutritionnelles par portion - La portion n'est pas reconnue
+it: Valori nutrizionali per porzione - La dimensione della porzione non viene riconosciuta
 description:en: serving size cannot be parsed (digit or unit may be missing or unknown)
 
 < en:Nutrition errors
@@ -96,15 +143,34 @@ description:fr: La portion est nulle ou non reconnue alors que les valeurs nutri
 
 < en:Nutrition errors
 en: Nutrition value over 1000 - Alcohol
+ar: قيمة غذائية تزيد عن 1000 - كحول
 de: Nährwert über 1000 - Alkohol
 es: Valor nutricional superior a 1000 - Alcohol
 fr: Valeur nutritionnelle supérieure à 1000 - Alcool
 it: Valore nutrizionale superiore a 1000 - Alcol
+ja: 栄養価が1000を超える - アルコール
+ko: 영양가 1000 이상 - 알코올
+nl: Voedingswaarde boven 1000 - Alcohol
+pl: Wartość odżywcza powyżej 1000 - Alkohol
 pt: Valor nutricional acima de 1000 - Álcool
+ru: Пищевая ценность выше 1000 - Алкоголь
+zh: 营养价值超过1000 - 酒精
 description:en: Alcohol value is over 1000g per 100g, which is impossible.
 
 < en:Nutrition errors
 en: Nutrition value over 1000 - Alpha-linolenic acid
+ar: القيمة الغذائية فوق 1000 - حمض ألفا لينولينيك
+de: Nährwert über 1000 - Alpha-Linolensäure
+es: Valor nutricional superior a 1000 - Ácido alfa-linolénico
+fr: Valeur nutritionnelle supérieure à 1000 - Acide alpha-linolénique
+it: Valore nutrizionale superiore a 1000 - Acido alfa-linolenico
+ja: 栄養価が1000を超える - α-リノレン酸
+ko: 영양가가 1000을 초과 - 알파-리놀렌산
+nl: Voedingswaarde boven 1000 - Alfa-linoleenzuur
+pl: Wartość odżywcza powyżej 1000 - Kwas alfa-linolenowy
+pt: Valor nutricional acima de 1000 - Ácido alfa-linolênico
+ru: Пищевая ценность выше 1000 - Альфа-линоленовая кислота
+zh: 营养价值超过1000 - α-亚麻酸
 description:en: Alpha-linolenic acid value is over 1000g per 100g, which is impossible.
 
 < en:Nutrition errors
@@ -113,14 +179,48 @@ description:en: Arachidic acid value is over 1000g per 100g, which is impossible
 
 < en:Nutrition errors
 en: Nutrition value over 1000 - Arachidonic acid
+ar: قيمة غذائية تزيد عن 1000 - حمض الأراكيدونيك
+de: Nährwert über 1000 - Arachidonsäure
+es: Valor nutricional superior a 1000 - Ácido araquidónico
+fr: Valeur nutritionnelle supérieure à 1000 - Acide arachidonique
+it: Valore nutrizionale superiore a 1000 - Acido arachidonico
+ja: 栄養価が1000を超える - アラキドン酸
+ko: 영양가 1000 이상 - 아라키돈산
+nl: Voedingswaarde boven 1000 - Arachidonzuur
+pl: Wartość odżywcza powyżej 1000 - Kwas arachidonowy
+pt: Valor nutricional acima de 1000 - Ácido araquidónico
+ru: Пищевая ценность выше 1000 - Арахидоновая кислота
+zh: 营养价值超过1000 - 花生四烯酸
 description:en: Arachidonic acid value is over 1000g per 100g, which is impossible.
 
 < en:Nutrition errors
 en: Nutrition value over 1000 - Behenic acid
+ar: القيمة الغذائية فوق 1000 - حمض البهينيك
+de: Nährwert über 1000 - Behensäure
+es: Valor nutricional superior a 1000 - Ácido behénico
+fr: Valeur nutritionnelle supérieure à 1000 - Acide béhénique
+it: Valore nutrizionale superiore a 1000 - Acido beenico
+ja: 栄養価が1000を超える - ベヘン酸
+ko: 영양가가 1000을 초과 - 베헨산
+nl: Voedingswaarde boven 1000 - Beheenzuur
+pt: Valor nutricional acima de 1000 - Ácido behênico
+ru: Пищевая ценность выше 1000 - Бегеновая кислота
+zh: 营养价值超过1000 - 山嵛酸
 description:en: Behenic acid value is over 1000g per 100g, which is impossible.
 
 < en:Nutrition errors
 en: Nutrition value over 1000 - Biotin
+ar: القيمة الغذائية فوق 1000 - بيوتين
+de: Nährwert über 1000 - Biotin
+es: Valor nutricional superior a 1000 - Biotina
+fr: Valeur nutritionnelle supérieure à 1000 - Biotine
+it: Valore nutrizionale superiore a 1000 - Biotina
+ja: 栄養価が1000を超える - ビオチン
+ko: 영양가가 1000을 초과 - 비오틴
+nl: Voedingswaarde boven 1000 - Biotine
+pt: Valor nutricional acima de 1000 - Biotina
+ru: Пищевая ценность выше 1000 - Биотин
+zh: 营养价值超过1000 - 生物素
 description:en: Biotin value is over 1000g per 100g, which is impossible.
 
 < en:Nutrition errors
@@ -896,7 +996,31 @@ description:fr: Les valeurs nutritionnelles doivent être revues car elles ne de
 
 < en:Data quality errors
 en: Ingredients errors
+ar: أخطاء في المكونات
+de: Zutatenfehler
+es: Errores en los ingredientes
+fr: Erreurs d'ingrédients
+it: Errori negli ingredienti
+ja: 原材料のエラー
+ko: 성분 오류
+nl: Ingrediënten fouten
+pl: Błędy w składnikach
+pt: Erros nos ingredientes
+ru: Ошибки в ингредиентах
+zh: 配料错误
 description:en: There might be an issue with ingredients
+description:ar: قد تكون هناك مشكلة في المكونات
+description:de: Es könnte ein Problem mit Zutaten geben
+description:es: Podría haber un problema con los ingredientes
+description:fr: Il pourrait y avoir un problème avec les ingrédients
+description:it: Potrebbe esserci un problema con gli ingredienti
+description:ja: 原材料に問題がある可能性があります
+description:ko: 성분에 문제가 있을 수 있습니다
+description:nl: Er is mogelijk een probleem met ingrediënten
+description:pl: Może wystąpić problem ze składnikami
+description:pt: Pode haver um problema com os ingredientes
+description:ru: Возможно, есть проблема с ингредиентами
+description:zh: 成分可能存在问题
 marker_type:en: error
 show_on_producers_platform:en: yes
 
@@ -908,6 +1032,11 @@ fix_action:en: add_nutrition_facts
 < en:Ingredients errors
 en: ingredients single ingredient from category does not match actual ingredients
 description:en: This category expect a single and specific ingredient
+fix_action:en: add_ingredients_text
+
+< en:Ingredients errors
+en: ingredients count lower than expected for the category
+description:en: This category expect at least a given number of ingredients
 fix_action:en: add_ingredients_text
 
 
@@ -3337,6 +3466,8 @@ en: Nutrition value very low for category - Salt
 de: Nährwert sehr niedrig für Kategorie - Salz
 es: Valor nutricional muy bajo para la categoría - Sal
 fr: Valeur nutritionnelle très faible pour la catégorie - Sel
+it: Valore nutrizionale molto basso per la categoria - Sale
+nl: Voedingswaarde erg laag voor categorie - Zout
 description:en: Compared to the category average, the Salt value is abnormally low.
 
 < en:Nutrition warnings
@@ -3360,15 +3491,42 @@ description:en: Compared to the category average, the Sugars value is abnormally
 
 < en:Data quality errors
 en: Quantity and serving errors
+ar: كمية المنتج وحجم الحصة غير متناسقين
+de: Probleme mit Produktmenge oder Portionsgröße
+es: Problemas con la cantidad del producto o el tamaño de la porción
+fr: Problèmes potentiels sur les quantités ou la portion
+it: Problemi potenziali sulle quantità o sulla porzione
+nl: Mogelijke problemen met hoeveelheden of portiegrootte
+pt: Problemas potenciais nas quantidades ou tamanho da porção
 description:en: Potential issues on quantities or serving size
 
 < en:Quantity and serving errors
 en: Product quantity over 30kg
+de: Produktmenge über 30kg
+es: Cantidad del producto superior a 30 kg
+fr: Quantité du produit supérieure à 30 kg
+it: Quantità del prodotto superiore a 30 kg
+nl: Producthoeveelheid boven 30 kg
+pt: Quantidade do produto acima de 30 kg
 description:en: Product quantity is above 30kg, which is very unlikely.
+description:ar: كمية المنتج تزيد عن 30 كجم ، وهو أمر غير مرجح للغاية.
+description:de: Die Produktmenge beträgt über 30 kg, was sehr unwahrscheinlich ist.
+description:es: La cantidad del producto es superior a 30 kg, lo cual es muy poco probable.
+description:fr: La quantité du produit est supérieure à 30 kg, ce qui est très improbable.
+description:it: La quantità del prodotto è superiore a 30 kg, il che è molto improbabile.
+description:nl: De producthoeveelheid is meer dan 30 kg, wat zeer onwaarschijnlijk is.
+description:pt: A quantidade do produto é superior a 30 kg, o que é muito improvável.
 
 < en:Data quality warnings
 en: Quantity and serving warnings
 description:en: Potential issues on quantities or serving size
+description:ar: مشاكل محتملة في الكميات أو حجم الحصة
+description:de: Mögliche Probleme mit Mengen oder Portionsgröße
+description:es: Problemas potenciales en las cantidades o el tamaño de la porción
+description:fr: Problèmes potentiels sur les quantités ou la portion
+description:it: Potenziali problemi sulle quantità o sulla porzione
+description:nl: Mogelijke problemen met hoeveelheden of portiegrootte
+description:pt: Problemas potenciais nas quantidades ou tamanho da porção
 
 < en:Quantity and serving warnings
 en: Product quantity in mg
@@ -3447,6 +3605,9 @@ en: Serving size in mg
 de: Portionsgröße in mg
 es: Tamaño de porción en mg
 fr: Taille de portion en mg
+it: Dimensione della porzione in mg
+nl: Portiegrootte in mg
+pt: Tamanho da porção em mg
 description:en: The serving size is listed in milligrams (mg), which is unusual for most food products. It is likely a data quality error.
 
 
@@ -3456,6 +3617,12 @@ description:en: The serving size is listed in milligrams (mg), which is unusual 
 
 < en:Data quality warnings
 en: Carbon footprint warnings
+de: Warnungen zum CO2-Fußabdruck
+es: Advertencias sobre la huella de carbono
+fr: Avertissements sur l'empreinte carbone
+it: Avvertenze sull'impronta di carbonio
+nl: Waarschuwingen over de koolstofvoetafdruk
+pt: Avisos sobre la pegada de carbono
 
 < en:Carbon footprint warnings
 en: Carbon footprint from known ingredients but not from meat or fish
@@ -3702,6 +3869,18 @@ description:en: In EU, a claim that a food is high in omega-3 may only be made w
 en: high monounsaturated fat label claim but monounsaturated fat under limitation
 description:en: In EU, a claim that a food is high in monounsaturated fat may only be made where at least 45 % of the fatty acids present in the product derive from monounsaturated fat under the condition that monounsaturated fat provides more than 20 % of energy of the product. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
 description:es: En la UE, solo se puede afirmar que un alimento es rico en grasas monoinsaturadas si al menos el 45 % de los ácidos grasos presentes en el producto provienen de grasas monoinsaturadas, siempre y cuando las grasas monoinsaturadas aporten más del 20 % de la energía del producto. Ver: https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX%3A02006R1924-20141213
+description:fr: Dans l'UE, une allégation selon laquelle un aliment est riche en acides gras monoinsaturés ne peut être faite que si au moins 45 % des acides gras présents dans le produit proviennent d'acides gras monoinsaturés, à condition que les acides gras monoinsaturés fournissent plus de 20 % de l'énergie du produit. Voir: https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX%3A02006R1924-20141213
+
+< en:Data quality warnings
+en: rich in polyunsaturated fatty acids label claim but polyunsaturated fat under limitation
+description:en: In EU, a claim that a food is high in polyunsaturated fat may only be made where at least 45 % of the fatty acids present in the product derive from polyunsaturated fat under the condition that polyunsaturated fat provides more than 20 % of energy of the product. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+description:es: En la UE, solo se puede afirmar que un alimento es rico en grasas monoinsaturadas si al menos el 45 % de los ácidos grasos presentes en el producto provienen de grasas monoinsaturadas, siempre y cuando las grasas monoinsaturadas aporten más del 20 % de la energía del producto. Ver: https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX%3A02006R1924-20141213
+
+< en:Data quality warnings
+en: rich in unsaturated fatty acids label claim but unsaturated fat under limitation
+description:en: In EU, a claim that a food is high in unsaturated fat may only be made where at least 70 % of the fatty acids present in the product derive from unsaturated fat under the condition that unsaturated fat provides more than 20 % of energy of the product. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+
 description:fr: Dans l'UE, une allégation selon laquelle un aliment est riche en acides gras monoinsaturés ne peut être faite que si au moins 45 % des acides gras présents dans le produit proviennent d'acides gras monoinsaturés, à condition que les acides gras monoinsaturés fournissent plus de 20 % de l'énergie du produit. Voir: https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX%3A02006R1924-20141213
 
 < en:Data quality warnings

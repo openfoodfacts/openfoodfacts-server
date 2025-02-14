@@ -64,7 +64,7 @@ delete($default_product{'type'});
 
 # our sample data
 # testimony ok product
-my %product_ok = (%default_product, code => "2000000000001");
+my %product_ok = (%default_product, code => "2000000000001", lc => "en");
 # int code
 my %product_int_code = (%default_product, code => 2000000000002);
 my %product_int_code_deleted = (%default_product, code => 2000000000003, deleted => "on");
@@ -133,7 +133,7 @@ is($product_ref, \%product_ok);
 
 # product has no more int code
 $product_ref = retrieve_product("2000000000002");
-%fixed_product = (%product_int_code, code => "2000000000002", _id => "2000000000002");
+%fixed_product = (%product_int_code, code => "2000000000002", _id => "2000000000002", lc => "en");
 is($product_ref, \%fixed_product);
 $product_ref = $products_collection->find_id("2000000000002");
 is($product_ref, \%fixed_product);
@@ -141,7 +141,7 @@ $product_ref = $products_collection->find_id(2000000000002);
 is($product_ref, undef);
 # product has no more int code even deleted
 $product_ref = retrieve_product("2000000000003", "include_deleted");
-%fixed_product = (%product_int_code_deleted, code => "2000000000003", _id => "2000000000003");
+%fixed_product = (%product_int_code_deleted, code => "2000000000003", _id => "2000000000003", lc => "en");
 is($product_ref, \%fixed_product);
 # but not indexed
 is($products_collection->find_id("2000000000003"), undef);
@@ -154,7 +154,7 @@ is(retrieve_product("2000000000004"), undef);
 
 # product normalized
 $product_ref = retrieve_product("12345678");
-%fixed_product = (%product_non_normalized_code, code => "12345678", _id => "12345678", rev => "1");
+%fixed_product = (%product_non_normalized_code, code => "12345678", _id => "12345678", rev => "1", lc => "en");
 # pop some inconvenient field
 remove_non_relevant_fields($product_ref, \%fixed_product);
 is($product_ref, \%fixed_product);

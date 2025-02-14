@@ -382,7 +382,7 @@ XML
 );
 
 # tag types (=facets) that should be indexed by web crawlers, all other tag types are not indexable
-@index_tag_types = qw(brands categories labels additives nova_groups ecoscore nutrition_grades products);
+@index_tag_types = qw(brands categories labels additives nova_groups environmental_score nutrition_grades products);
 
 # fields in product edit form, above ingredients and nutrition facts
 
@@ -464,7 +464,7 @@ XML
 @drilldown_fields = qw(
 	nutrition_grades
 	nova_groups
-	ecoscore
+	environmental_score
 	brands
 	categories
 	labels
@@ -533,8 +533,8 @@ XML
 	food_groups
 	states
 	brand_owner
-	ecoscore_score
-	ecoscore_grade
+	environmental_score_score
+	environmental_score_grade
 	nutrient_levels_tags
 	product_quantity
 	owner
@@ -596,6 +596,6 @@ $options{attribute_default_preferences_json}
 );
 
 # Name of the Redis stream to which product updates are published
-$options{redis_stream_name} = "product_updates_opff";
+$options{redis_stream_name} = "product_updates";
 
 1;

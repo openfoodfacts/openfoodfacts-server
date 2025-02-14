@@ -375,9 +375,6 @@ HTML
 	conservation_conditions
 	recycling_instructions_to_recycle
 	recycling_instructions_to_discard
-	nutrition_grade_fr_producer
-	nutriscore_score_producer
-	nutriscore_grade_producer
 	recipe_idea
 	origin
 	customer_service
@@ -428,9 +425,6 @@ HTML
 # If adding to this list ensure that the tables are being replicated to Postgres in the openfoodfacts-query repo
 
 @drilldown_fields = qw(
-	nutrition_grades
-	nova_groups
-	ecoscore
 	brands
 	categories
 	labels
@@ -439,12 +433,6 @@ HTML
 	manufacturing_places
 	emb_codes
 	ingredients
-	additives
-	vitamins
-	minerals
-	amino_acids
-	nucleotides
-	other_nutritional_substances
 	allergens
 	traces
 	misc
@@ -488,20 +476,10 @@ HTML
 	traces
 	serving_size
 	serving_quantity
-	no_nutrition_data
 	additives_n
 	additives
-	nutriscore_score
-	nutriscore_grade
-	nova_group
-	pnns_groups_1
-	pnns_groups_2
-	food_groups
 	states
 	brand_owner
-	ecoscore_score
-	ecoscore_grade
-	nutrient_levels_tags
 	product_quantity
 	owner
 	data_quality_errors_tags
@@ -566,6 +544,6 @@ $options{attribute_default_preferences_json}
 $options{no_nutrition_table} = 1;
 
 # Name of the Redis stream to which product updates are published
-$options{redis_stream_name} = "product_updates_opf";
+$options{redis_stream_name} = "product_updates";
 
 1;

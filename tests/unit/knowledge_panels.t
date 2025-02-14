@@ -20,8 +20,8 @@ HTML <a href="https://url.com">test</a>
 
 is(
 	ProductOpener::KnowledgePanels::convert_multiline_string_to_singleline(
-		'<a href="https://agribalyse.ademe.fr/app/aliments/[% product.ecoscore_data.agribalyse.code %]">'),
-	'"<a href=\"https://agribalyse.ademe.fr/app/aliments/[% product.ecoscore_data.agribalyse.code %]\">"'
+		'<a href="https://agribalyse.ademe.fr/app/aliments/[% product.environmental_score_data.agribalyse.code %]">'),
+	'"<a href=\"https://agribalyse.ademe.fr/app/aliments/[% product.environmental_score_data.agribalyse.code %]\">"'
 );
 
 done_testing();
