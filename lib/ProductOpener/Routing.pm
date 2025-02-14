@@ -551,10 +551,10 @@ sub facets_route($request_ref) {
 		my ($tagtype, $lc, $is_singular) = _get_facet_tagtype($components[-1], $target_lc);
 		if (defined $tagtype) {
 			$request_ref->{groupby_tagtype} = $tagtype;
-			$is_obsolete_url = $is_singular;
+			$is_obsolete_url ||= $is_singular;
 			pop @components;
 			# use $target_lc for canon url
-			$canon_rel_url_suffix .= "/" . $tag_type_singular{$request_ref->{groupby_tagtype}}{$target_lc};
+			$canon_rel_url_suffix .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$target_lc};
 			$log->debug("request looks like a list of tags", {groupby => $request_ref->{groupby_tagtype}, lc => $lc})
 				if $log->is_debug();
 		}
@@ -582,8 +582,12 @@ sub facets_route($request_ref) {
 	}
 
 	if ($is_obsolete_url) {
-		# redirect to the canonical url
-		$request_ref->{redirect} = $request_ref->{canon_rel_url};
+		# redirect to the canonical url with some minor modifications:
+		# remove lc: in tags and page number if it's 1
+		my $redirect_url = $request_ref->{canon_rel_url};
+		$redirect_url =~ s!/${target_lc}:!/!g;
+		$redirect_url =~ s!/1$!!;
+		$request_ref->{redirect} = $redirect_url;
 		$request_ref->{redirect_status} = 301;
 	}
 
