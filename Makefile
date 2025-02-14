@@ -154,6 +154,7 @@ _up:run_deps
 up: build create_folders _up
 
 # Used by staging so that shared services are not created
+# Shared services are started by the github workflow of openfoodfacts-shared-services
 prod_up: build create_folders
 	@echo "🥫 Starting containers …"
 	${DOCKER_COMPOSE} up -d 2>&1

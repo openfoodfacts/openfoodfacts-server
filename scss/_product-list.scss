@@ -245,6 +245,12 @@ $productsGutter:12;
     #main_column {
         height: auto !important;
     }
+    #pages.pagination {
+      margin: 0.1rem;
+      flex-basis: fit-content;
+      flex-wrap: wrap;
+      flex-direction: row;
+  }
 }
 
 // Greeter CSS
