@@ -21,7 +21,7 @@ server {
 	listen [::]:80;
 
 	# Product Opener needs a root domain + a wildcard for all subdomains
-	server_name *.pro.openfoodfacts.org;
+	server_name pro.openfoodfacts.org *.pro.openfoodfacts.org;
 
 	root /srv/off-pro/html;
 
