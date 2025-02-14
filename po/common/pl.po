@@ -4838,7 +4838,7 @@ msgstr ""
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr ""
+msgstr "Niski wpływ na środowisko (Green-Score)"
 
 msgctxt "attribute_environmental_score_setting_note"
 msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
@@ -4851,7 +4851,7 @@ msgstr ""
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr ""
+msgstr "Niski wpływ na środowisko (Green-Score)"
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
@@ -4864,11 +4864,11 @@ msgstr ""
 
 msgctxt "attribute_environmental_score_a_plus_description_short"
 msgid "Very low environmental impact"
-msgstr ""
+msgstr "Bardzo niski wpływ na środowisko"
 
 msgctxt "attribute_environmental_score_a_description_short"
 msgid "Very low environmental impact"
-msgstr ""
+msgstr "Bardzo niski wpływ na środowisko"
 
 msgctxt "attribute_environmental_score_b_description_short"
 msgid "Low environmental impact"
@@ -4876,19 +4876,19 @@ msgstr "Niski wpływ na środowisko"
 
 msgctxt "attribute_environmental_score_c_description_short"
 msgid "Moderate environmental impact"
-msgstr ""
+msgstr "Umiarkowany wpływ na środowisko"
 
 msgctxt "attribute_environmental_score_d_description_short"
 msgid "High environmental impact"
-msgstr ""
+msgstr "Duży wpływ na środowisko"
 
 msgctxt "attribute_environmental_score_e_description_short"
 msgid "Very high environmental impact"
-msgstr ""
+msgstr "Bardzo duży wpływ na środowisko"
 
 msgctxt "attribute_environmental_score_f_description_short"
 msgid "Very high environmental impact"
-msgstr ""
+msgstr "Bardzo duży wpływ na środowisko"
 
 # keep the %s, it will be replaced by an allergen
 msgctxt "contains_s"
@@ -5354,7 +5354,7 @@ msgstr "Produkty z najlepszym wynikiem Nutri-Score"
 
 msgctxt "sort_by_environmental_score_score"
 msgid "Products with the best Green-Score"
-msgstr ""
+msgstr "Produkty z najlepszym wynikiem Green-Score"
 
 msgctxt "sort_by_created_t"
 msgid "Recently added products"
@@ -5417,23 +5417,23 @@ msgstr ""
 # variable names between { } must not be translated
 msgctxt "f_attribute_environmental_score_not_applicable_description"
 msgid "Not yet applicable for the category: {category}"
-msgstr ""
+msgstr "Jeszcze nie dotyczy kategorii: {category}"
 
 msgctxt "environmental_score_not_applicable_coming_soon"
 msgid "The Green-Score is not yet applicable for this category, but we are working on adding support for it."
-msgstr ""
+msgstr "Ocena Green-Score nie ma jeszcze zastosowania w wybranej kategorii, ale pracujemy nad dodaniem jej do niej."
 
 msgctxt "attribute_environmental_score_unknown_title"
 msgid "Green-Score not computed"
-msgstr ""
+msgstr "Etykieta Green-Score nie została obliczona"
 
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
-msgstr ""
+msgstr "Nieznany wpływ na środowisko"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
-msgstr ""
+msgstr "Nie mogliśmy obliczyć wskaźnika Green-Score tego produktu, ponieważ brakuje w nim niektórych danych. Czy możesz pomóc go uzupełnić?"
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
@@ -5563,73 +5563,73 @@ msgstr "Ślad leśny jest obliczany, biorąc pod uwagę składniki, których pro
 
 msgctxt "environmental_score_agribalyse_match_warning"
 msgid "The Green-Score can only be calculated if the product has a sufficiently precise category."
-msgstr ""
+msgstr "Green-Score jest obliczany tylko wtedy, gdy produkt ma wystarczająco dokładną kategorię."
 
 msgctxt "environmental_score_add_more_precise_category"
 msgid "You can modify the product page to add a more precise category."
-msgstr ""
+msgstr "Możesz zmodyfikować stronę produktu, aby dodać bardziej precyzyjną kategorię."
 
 msgctxt "environmental_score_platform_promo"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
-msgstr ""
+msgstr "Jeśli jesteś producentem tego produktu, możesz przesłać nam informacje za pomocą <a href=\"https://world.pro.openfoodfacts.org\"> naszej bezpłatnej platformy</a>."
 
 msgctxt "environmental_score_warning_missing_information"
 msgid "Warning: some information necessary to calculate the Green-Score with precision is not provided (see the details of the calculation below)."
-msgstr ""
+msgstr "Ostrzeżenie: nie podano niektórych informacji niezbędnych do dokładnego obliczenia Green-Score (patrz: szczegóły obliczeń poniżej)."
 
 msgctxt "environmental_score_add_missing_information"
 msgid "You can edit the product to add the missing information."
-msgstr ""
+msgstr "Możesz edytować produkt, aby uzupełnić brakujące informacje."
 
 msgctxt "environmental_score_product_category_reference_score"
 msgid "Baseline score of the product category"
-msgstr ""
+msgstr "Wynik bazowy kategorii produktu"
 
 msgctxt "environmental_score_panel_lca"
 msgid "Lifecyle Analysis (LCA)"
-msgstr ""
+msgstr "Analiza Cyklu Życia (ACŻ; ang. LCA)"
 
 # do not translate Agribalyse
 msgctxt "environmental_score_agribalyse_category"
 msgid "Agribalyse category"
-msgstr ""
+msgstr "Kategoria Agribalyse"
 
 msgctxt "environmental_score_category_proxy_match"
 msgid "Approximate match with the product category"
-msgstr ""
+msgstr "Przybliżone dopasowania do kategorii produktu"
 
 msgctxt "environmental_score_category_exact_match"
 msgid "Exact match with the product category"
-msgstr ""
+msgstr "Dokładne dopasowania do kategorii produktu"
 
 msgctxt "environmental_score_pef_environmental_score"
 msgid "PEF environmental score"
-msgstr ""
+msgstr "Ocena środowiskowa PEF"
 
 msgctxt "environmental_score_incl_climate_change_impact"
 msgid "including impact on climate change"
-msgstr ""
+msgstr "w tym wpływ na zmiany klimatu"
 
 msgctxt "environmental_score_impact_detail_by_stages"
 msgid "Details of the impacts by stages of the life cycle"
-msgstr ""
+msgstr "Szczegóły wpływu według cyklu życia"
 
 # stage meaning step
 msgctxt "environmental_score_stage"
 msgid "Stage"
-msgstr ""
+msgstr "Etap"
 
 msgctxt "environmental_score_impact"
 msgid "Impact"
-msgstr ""
+msgstr "Wpływ"
 
 msgctxt "environmental_score_agriculture"
 msgid "Agriculture"
-msgstr "Agrokultura"
+msgstr "Rolnictwo"
 
 msgctxt "environmental_score_processing"
 msgid "Processing"
-msgstr ""
+msgstr "Przetwórstwo"
 
 msgctxt "environmental_score_packaging"
 msgid "Packaging"
@@ -5637,59 +5637,59 @@ msgstr "Opakowanie"
 
 msgctxt "environmental_score_transportation"
 msgid "Transportation"
-msgstr ""
+msgstr "Transport"
 
 msgctxt "environmental_score_distribution"
 msgid "Distribution"
-msgstr ""
+msgstr "Dystrybucja"
 
 msgctxt "environmental_score_consumption"
 msgid "Consumption"
-msgstr ""
+msgstr "Konsumpcja"
 
 msgctxt "environmental_score_lca_score_out_of_100"
 msgid "LCA score out of 100"
-msgstr ""
+msgstr "Wynik ACŻ na 100"
 
 msgctxt "environmental_score_no_agribalyse_category_match"
 msgid "No match between product categories and Agribalyse categories."
-msgstr ""
+msgstr "Brak dopasowania między kategoriami produktów a kategoriami Agribalyse."
 
 msgctxt "environmental_score_edit_category_to_more_granular"
 msgid "You can modify the product page to add a more granular category."
-msgstr ""
+msgstr "Możesz zmodyfikować stronę produktu, aby dodać bardziej precyzyjną kategorię."
 
 msgctxt "environmental_score_additional_bonuses_and_maluses"
 msgid "Additional bonuses and maluses"
-msgstr ""
+msgstr "Dodatkowe wady i zalety"
 
 msgctxt "environmental_score_production_system"
 msgid "Production mode"
-msgstr ""
+msgstr "Produkcja"
 
 msgctxt "environmental_score_no_labels_taken_into_account"
 msgid "No labels taken into account for the production system."
-msgstr ""
+msgstr "Brak etykiet uwzględnionych w systemie produkcyjnym."
 
 msgctxt "environmental_score_please_add_the_labels"
 msgid "If this product has a label characterizing the production system (organic, fair trade, Label Rouge, Bleu Blanc Coeur etc.), you can modify the product sheet to add it."
-msgstr ""
+msgstr "Jeśli ten produkt posiada etykietę charakteryzującą system produkcji (organiczny, fair trade, Label Rouge, Bleu Blanc Coeur itd.), możesz ją dodać."
 
 msgctxt "environmental_score_origins_of_ingredients"
 msgid "Origins of ingredients"
-msgstr ""
+msgstr "Pochodzenie składników"
 
 msgctxt "environmental_score_ingredients_not_indicated"
 msgid "The origins of the ingredients of this product are not indicated."
-msgstr ""
+msgstr "Pochodzenie składników tego produktu nie zostało wskazane."
 
 msgctxt "environmental_score_please_add_the_ingredients"
 msgid "If they are indicated on the packaging, you can modify the product sheet and add them."
-msgstr ""
+msgstr "Jeśli są wskazane na opakowaniu, możesz je dodać."
 
 msgctxt "environmental_score_environmental_policy"
 msgid "Environmental policy"
-msgstr ""
+msgstr "Polityka ochrony środowiska"
 
 msgctxt "environmental_score_threatened_species"
 msgid "Threatened species"
@@ -5697,87 +5697,87 @@ msgstr "Gatunki zagrożone"
 
 msgctxt "environmental_score_ingredients_whose_cultivation_threatens_species"
 msgid "Ingredients that threatens species"
-msgstr ""
+msgstr "Składniki zagrażające przyrodzie"
 
 msgctxt "environmental_score_no_species_threatening_ingredients"
 msgid "No ingredients that threaten species"
-msgstr ""
+msgstr "Brak składników zagrażających przyrodzie"
 
 msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
-msgstr ""
+msgstr "Składniki tego produktu nie zostały podane."
 
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr ""
+msgstr "Aby uzyskać dokładniejsze obliczenie Green-Score, możesz edytować stronę produktu i je dodać."
 
 msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
-msgstr ""
+msgstr "stosunek"
 
 msgctxt "environmental_score_packaging_score"
 msgid "score"
-msgstr ""
+msgstr "wynik"
 
 msgctxt "environmental_score_score_of_all_components"
 msgid "Score of all components"
-msgstr ""
+msgstr "Wynik wszystkich komponentów"
 
 msgctxt "environmental_score_no_packaging_information"
 msgid "The information about the packaging of this product is not filled in."
-msgstr ""
+msgstr "Informacje o opakowaniu tego produktu nie są podane."
 
 msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
-msgstr ""
+msgstr "Informacje o opakowaniu tego produktu nie są wystarczająco precyzyjne (dokładne kształty i materiały wszystkich elementów opakowania)."
 
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
-msgstr ""
+msgstr "Aby uzyskać dokładniejsze obliczenie Green-Score, możesz edytować stronę produktu i je dodać."
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
-msgstr ""
+msgstr "Wynik końcowy"
 
 msgctxt "environmental_score_lower_the_score_lower_the_impact"
 msgid "(the lower the score, the lower the impact)"
-msgstr ""
+msgstr "(im niższy wynik, tym mniejszy wpływ = tym lepiej)"
 
 msgctxt "environmental_score_kg_co2_eq_kg_product"
 msgid "kg CO2 eq/kg of product"
-msgstr ""
+msgstr "kg ekwiwalentu CO2/kg produktu"
 
 # do not translate the link
 msgctxt "environmental_score_platform_prompt_environmental_score_modal"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
-msgstr ""
+msgstr "Jeśli jesteś producentem tego produktu, możesz przesłać nam informacje za pomocą <a href=\"https://world.pro.openfoodfacts.org\"> naszej bezpłatnej platformy</a>."
 
 # do not translate Green-Score and the link
 msgctxt "environmental_score_description"
 msgid "The <a href=\"/green-score\">Green-Score</a> is an experimental score that summarizes the environmental impacts of food products."
-msgstr ""
+msgstr "<a href=\"/green-score\">Green-Score</a> to wykaz, który podsumowuje wpływ produktów spożywczych na środowisko."
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_fr"
 msgid "The Green-Score formula is subject to change as it is regularly improved to make it more precise."
-msgstr ""
+msgstr "Formuła Green-Score może ulec zmianie, gdyż jest regularnie ulepszana, aby była bardziej precyzyjna."
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
 msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr ""
+msgstr "Green-Score został początkowo opracowany dla Francji i jest rozszerzany na inne kraje europejskie. Formuła Green-Score może ulec zmianie, gdyż jest regularnie ulepszana, aby była coraz bardziej precyzyjna i lepiej dopasowana do każdego kraju."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
-msgstr ""
+msgstr "Wybierz kraj, aby ocenić pełny wpływ procesu transportu."
 
 msgctxt "environmental_score_warning_transportation"
 msgid "The full impact of transportation to your country is currently unknown."
-msgstr ""
+msgstr "Wpływ transportu do Twojego kraju jest obecnie niedostępny."
 
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Green-Score and more!"
-msgstr ""
+msgstr "Skanuj kody kreskowe, aby uzyskać Nutri-Score, Green-Score i o wiele więcej!"
 
 msgctxt "org_gs1_product_name_is_abbreviated"
 msgid "GS1 product names for this manufacturer are abbreviated."
@@ -5810,35 +5810,35 @@ msgstr "Usunięcie lub zmiana dostarczonych danych będzie możliwa tylko przez 
 
 msgctxt "environmental_score_packaging_impact_high"
 msgid "Packaging with a high impact"
-msgstr ""
+msgstr "Opakowanie o wysokim wpływie"
 
 msgctxt "environmental_score_packaging_impact_medium"
 msgid "Packaging with a medium impact"
-msgstr ""
+msgstr "Opakowanie o przeciętnym wpływie"
 
 msgctxt "environmental_score_packaging_impact_low"
 msgid "Packaging with a low impact"
-msgstr ""
+msgstr "Opakowanie o małym wpływie"
 
 msgctxt "environmental_score_packaging_missing_information"
 msgid "Missing packaging information for this product"
-msgstr ""
+msgstr "Brak informacji o opakowaniu tego produktu"
 
 msgctxt "environmental_score_origins_of_ingredients_impact_high"
 msgid "Origins of ingredients with a high impact"
-msgstr ""
+msgstr "Pochodzenie składników o dużym wpływie"
 
 msgctxt "environmental_score_origins_of_ingredients_impact_medium"
 msgid "Origins of ingredients with a medium impact"
-msgstr ""
+msgstr "Pochodzenie składników o średnim wpływie"
 
 msgctxt "environmental_score_origins_of_ingredients_impact_low"
 msgid "Origins of ingredients with a low impact"
-msgstr ""
+msgstr "Pochodzenie składników o niewielkim wpływie"
 
 msgctxt "environmental_score_origins_of_ingredients_missing_information"
 msgid "Missing origins of ingredients information"
-msgstr ""
+msgstr "Brak informacji o pochodzeniu składników"
 
 msgctxt "percent_of_ingredients"
 msgid "% of ingredients"
@@ -5919,19 +5919,19 @@ msgstr "Podaruj"
 
 msgctxt "environmental_score_production_system_no_labels_with_environmental_benefits"
 msgid "No labels with environmental benefits"
-msgstr ""
+msgstr "Brak etykiet z korzyściami dla środowiska"
 
 msgctxt "environmental_score_production_system_labels_with_environmental_benefits"
 msgid "Labels with environmental benefits"
-msgstr ""
+msgstr "Etykiet z korzyściami dla środowiska"
 
 msgctxt "environmental_score_production_system_labels_with_environmental_benefits_high"
 msgid "Labels with high environmental benefits"
-msgstr ""
+msgstr "Etykiet z dużymi korzyściami dla środowiska"
 
 msgctxt "environmental_score_production_system_labels_with_environmental_benefits_very_high"
 msgid "Labels with very high environmental benefits"
-msgstr ""
+msgstr "Etykiet z ogromnymi korzyściami dla środowiska"
 
 msgctxt "other"
 msgid "Other"
@@ -6023,11 +6023,11 @@ msgstr "Analiza cyklu życia produktu"
 
 msgctxt "environmental_score_bonuses_and_maluses"
 msgid "Bonuses and maluses"
-msgstr ""
+msgstr "Wady i zalety"
 
 msgctxt "environmental_score_for_this_product"
 msgid "Green-Score for this product"
-msgstr ""
+msgstr "Ocena Green-Score dla tego produktu"
 
 msgctxt "average_impact_of_the_category"
 msgid "Average impact of products of the same category"
@@ -6035,15 +6035,15 @@ msgstr "Średni wpływ produktów z tej samej kategorii"
 
 msgctxt "environmental_score_sum_of_bonuses_and_maluses"
 msgid "Sum of bonuses and maluses"
-msgstr ""
+msgstr "Suma wad i zalet"
 
 msgctxt "environmental_score_sum_of_bonuses_and_maluses_is_capped"
 msgid "The sum of bonuses and maluses is capped at +25."
-msgstr ""
+msgstr "Suma wad i zalet jest ograniczona do +25."
 
 msgctxt "environmental_score_lca_score"
 msgid "Life cycle analysis score"
-msgstr ""
+msgstr "Wynik analizy cyklu życia produktu"
 
 msgctxt "impact_for_this_product"
 msgid "Impact for this product"
@@ -6051,7 +6051,7 @@ msgstr "Wpływ na ten produkt"
 
 msgctxt "environmental_score_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
-msgstr ""
+msgstr "Punktacja produktów z nienadających się do recyklingu i biodegradowalnych materiałów opakowaniowych jest ograniczona do 79 (klasa B)."
 
 msgctxt "nutriscore_not_applicable"
 msgid "Nutri-Score not applicable for this product category."
@@ -6286,7 +6286,7 @@ msgstr "Dowiedz się więcej o Nutri-Score"
 
 msgctxt "environmental_score_learn_more"
 msgid "Learn more about the Green-Score"
-msgstr ""
+msgstr "Dowiedz się więcej o Green-Score"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
@@ -6324,7 +6324,7 @@ msgstr "Użyj domyślnych ustawień"
 
 msgctxt "reset_preferences_details"
 msgid "Nutri-Score, Green-Score and food processing level (NOVA)"
-msgstr ""
+msgstr "Nutri-Score, Green-Score i poziom przetwarzania żywności (NOVA)"
 
 msgctxt "actions_add_ingredients"
 msgid "Could you add the ingredients list?"
@@ -6336,7 +6336,7 @@ msgstr "Czy mógłbyś dodać informacje potrzebne do obliczenia Nutri-Score?"
 
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
-msgstr ""
+msgstr "Czy możesz dodać precyzyjną kategorię produktu, abyśmy mogli obliczyć Green-Score?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
