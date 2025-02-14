@@ -1395,7 +1395,10 @@ CSS
 	}
 
 	# In all cases, if we have data, we will check the checkbox.
-	if ($nutrition_data_exists{""}) {
+	# We also check the "as sold" checkbox for petfood products,
+	# as we don't display the checkboxes to indicate the presence of nutrition data for "as sold" and "prepared" for petfood products
+	# (they can only have "as sold" nutrition data)
+	if (($nutrition_data_exists{""}) or ($options{product_type} eq "petfood")) {
 		$product_ref->{nutrition_data} = "on";
 	}
 
