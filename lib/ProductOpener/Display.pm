@@ -114,6 +114,7 @@ BEGIN {
 		$images_subdomain
 		$static_subdomain
 		$producers_platform_url
+		$public_platform_url
 		$test
 		@lcs
 		$country
@@ -345,6 +346,7 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{server_options_private_products} = $server_options{private_products};
 	$template_data_ref->{server_options_producers_platform} = $server_options{producers_platform};
 	$template_data_ref->{producers_platform_url} = $producers_platform_url;
+	$template_data_ref->{public_platform_url} = $public_platform_url;
 	$template_data_ref->{server_domain} = $server_domain;
 	$template_data_ref->{static_subdomain} = $static_subdomain;
 	$template_data_ref->{images_subdomain} = $images_subdomain;
@@ -805,10 +807,18 @@ sub init_request ($request_ref = {}) {
 		}
 	}
 
-	# select the nutriment table format according to the country
-	$nutriment_table = $cc_nutriment_table{default};
-	if (exists $cc_nutriment_table{$cc}) {
-		$nutriment_table = $cc_nutriment_table{$cc};
+	if ($options{product_type} eq "petfood") {
+		$nutriment_table = $cc_nutriment_table{"opff_default"};
+		if (exists $cc_nutriment_table{"opff_" . $cc}) {
+			$nutriment_table = $cc_nutriment_table{"opff_" . $cc};
+		}
+	}
+	# food
+	else {
+		$nutriment_table = $cc_nutriment_table{"off_default"};
+		if (exists $cc_nutriment_table{"off_" . $cc}) {
+			$nutriment_table = $cc_nutriment_table{"off_" . $cc};
+		}
 	}
 
 	if ($test) {
@@ -907,10 +917,15 @@ CSS
 	# call format_subdomain($subdomain) only once
 	$formatted_subdomain = format_subdomain($subdomain);
 	$producers_platform_url = $formatted_subdomain . '/';
+	$public_platform_url = $formatted_subdomain . '/';
 
 	# If we are not already on the producers platform: add .pro
 	if ($producers_platform_url !~ /\.pro\.open/) {
 		$producers_platform_url =~ s/\.open/\.pro\.open/;
+	}
+	# and the contrary for public platform
+	if ($public_platform_url =~ /\.pro\.open/) {
+		$public_platform_url =~ s/\.pro\.open/\.open/;
 	}
 
 	# Enable or disable user food preferences: used to compute attributes and to display
@@ -7997,12 +8012,10 @@ JS
 			$product_ref->{environmental_score_data});
 	}
 
-	# 2025/01 - For moderators, determine which packaging components are in contact with food, so that we can display them
+	# 2025/02 - Determine which packaging components are in contact with food, so that we can display them
 	# This is for initial development of the feature, once finalized, we could compute and store this data in the product
 
-	if ($User{moderator}) {
-		ProductOpener::PackagingFoodContact::determine_food_contact_of_packaging_components_service($product_ref);
-	}
+	ProductOpener::PackagingFoodContact::determine_food_contact_of_packaging_components_service($product_ref);
 
 	# Activate knowledge panels for all users
 
@@ -9673,18 +9686,35 @@ Reference to a data structure with needed data to display.
 
 sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_ref) {
 
+	my $template_data_ref = {};
 	# This function populates a data structure that is used by the template to display the nutrition facts table
-	my $template_data_ref = {
+	if ((defined $product_ref->{product_type}) && ($product_ref->{product_type} eq "petfood")) {
+		$template_data_ref = {
 
-		nutrition_table => {
-			id => "nutrition",
-			header => {
-				name => lang('nutrition_data_table'),
-				columns => [],
+			nutrition_table => {
+				id => "analytical_constituents",
+				header => {
+					name => lang('analytical_constituents'),
+					columns => [],
+				},
+				rows => [],
 			},
-			rows => [],
-		},
-	};
+		};
+	}
+	# food
+	else {
+		$template_data_ref = {
+
+			nutrition_table => {
+				id => "nutrition",
+				header => {
+					name => lang('nutrition_data_table'),
+					columns => [],
+				},
+				rows => [],
+			},
+		};
+	}
 
 	# List of columns
 	my @cols = ();
@@ -9715,13 +9745,24 @@ sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_re
 			$col_name = lang("prepared_product");
 		}
 
+		# only for 100g, petfood is diplayed per 1kg
+		# update header name here
+		# update value later
+		my $name_per_xxg;
+		if ((defined $product_ref->{product_type}) && ($product_ref->{product_type} eq "petfood")) {
+			$name_per_xxg = $col_name . "<br>" . lang("analytical_constituents_per_1kg");
+		}
+		else {
+			$name_per_xxg = $col_name . "<br>" . lang("nutrition_data_per_100g");
+		}
 		$columns{$product_type . "100g"} = {
 			scope => "product",
 			product_type => $product_type,
 			per => "100g",
-			name => $col_name . "<br>" . lang("nutrition_data_per_100g"),
+			name => $name_per_xxg,
 			short_name => "100g",
 		};
+
 		$columns{$product_type . "serving"} = {
 			scope => "product",
 			product_type => $product_type,
@@ -9770,6 +9811,7 @@ sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_re
 			}
 		}
 	}
+	# }
 
 	# Comparisons with other products, categories, recommended daily values etc.
 
@@ -10141,7 +10183,20 @@ CSS
 							$value = $product_ref->{nutriments}{$nid . "_" . $col_id};
 						}
 						else {
-							$value = $decf->format(g_to_unit($product_ref->{nutriments}{$nid . "_" . $col_id}, $unit));
+							# only for 100g, petfood is diplayed per 1kg
+							# update header above
+							# update value here
+							if (   (defined $product_ref->{product_type})
+								&& ($product_ref->{product_type} eq "petfood")
+								&& ($unit ne "%"))
+							{
+								$value = $decf->format(
+									g_to_unit($product_ref->{nutriments}{$nid . "_" . $col_id} * 10, $unit));
+							}
+							else {
+								$value
+									= $decf->format(g_to_unit($product_ref->{nutriments}{$nid . "_" . $col_id}, $unit));
+							}
 						}
 
 						# too small values are converted to e notation: 7.18e-05

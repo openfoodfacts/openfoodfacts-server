@@ -1,4 +1,6 @@
-﻿stopwords:en:ingredients, from, with, of, by, the, verified, certified, approved, 100%, pure, product, guaranty, guaranteed, standard
+##### Add translations in all European, Asian languages (and more)
+
+stopwords:en: ingredients, from, with, of, by, the, verified, certified, approved, 100%, pure, product, guaranty, guaranteed, standard
 stopwords:fr: ingrédients, issus, de, l', convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit, sas
 stopwords:es: por, la, las, los, el, apto, para, certificado, controlado, registrado, 100%
 
@@ -39,6 +41,108 @@ es: 100% natural
 fr: 100% naturel
 nl: 100% natuurlijk
 nl_be: 100% natuurlijk
+
+en: Without PEG
+fr: Sans PEG
+
+en: Without PPD
+fr: Sans PPD
+
+en: Without propellant gas
+fr: Sans gaz propulseur
+
+en: Without butane
+fr: Sans butane
+
+en: Without propane
+fr: Sans propane
+
+en: Without camphor
+fr: Sans camphre
+
+en: Without synthetic camphor
+fr: Sans camphre synthetique
+
+en: Without rinsing
+fr: sans rincage
+
+en: Without sodium laureth sulfate
+fr: sans sodium-laureth-sulfate, sans sodium-lauryl-laureth-sulfate, sans sodium-laureth-sulfates
+
+en: Without titanium dioxide
+de: Ohne Titandioxid
+es: Sin dióxido de titanio
+fr: Sans dioxyde de titane
+it: Senza biossido di titanio
+ja: 酸化チタン不使用
+ko: 이산화 티타늄 없음
+nl: Zonder titaniumdioxide
+pt: Sem dióxido de titânio
+zh-CN: 不含二氧化钛
+zh-TW: 不含二氧化鈦
+
+en: Without toluene
+de: Ohne Toluol
+es: Sin tolueno
+fr: Sans toluene
+it: Senza toluene
+ja: トルエン不使用
+ko: 톨루엔 없음
+nl: Zonder tolueen
+pt: Sem tolueno
+zh-CN: 不含甲苯
+zh-TW: 不含甲苯
+
+en: Without methylisothiazolinone
+fr: Sans methylisothiazolinone
+
+en: Without aluminum chlorohydrate
+fr: Sans aluminium chlorohydrate
+
+en: Without cotton
+fr: Sans Coton
+
+en: Without soda
+fr: Sans soude
+
+en: Without sodium lauryl sulfates
+fr: Sans sodium lauryl sulfates
+
+en: Without alkaline soap
+fr: Sans savon alcalin
+
+en: Without soap
+fr: Sans savon
+
+en: Without resorcinol
+fr: Sans resorcine
+
+en: Without synthetic antiperspirant
+fr: Sans anti transpirant synthetique
+
+en: Without picramic acid
+de: Ohne Pikraminsäure
+es: Sin ácido picrámico
+fr: Sans acide picramique
+it: Senza acido picramico
+ja: ピクラミン酸不使用
+ko: 피크람산 없음
+nl: Zonder picraminezuur
+pt: Sem ácido pícrico
+zh-CN: 不含苦味酸
+zh-TW: 不含苦味酸
+
+en: Without SLS SLES
+fr: Sans SLS SLES
+
+en: Without metallic salts
+fr: Sans sels metalliques
+
+en: Without peroxides
+fr: Sans peroxydes, sans peroxyde, sans peroxide d'hydrogene
+
+en: Without chlorine bleaching
+fr: Sans blanchissement au chlore
 
 en: Carbon compensated product, carbon neutral
 fr: Produit compensé carbone, Carbone neutre, neutre en carbone, carbone compensé
@@ -126,6 +230,22 @@ de: Ohne paraben, Parabenfrei
 es: Sin Parabenos
 fr: Sans paraben, Sans parabenes, 0 parabens, 0 paraben, Sans parabene, Sans parabens, Zero paraben
 nl: Zonder parabeen
+pt: Sem parabenos, livre de parabenos
+
+en: Without paraffins
+fr: Sans paraffines, sans paraffine
+
+en: Without EDTA, EDTA free, No EDTA
+de: Ohne EDTA
+es: Sin EDTA
+fr: Sans EDTA
+it: Senza EDTA
+ja: EDTA不使用
+ko: EDTA 없음
+nl: Zonder EDTA
+pt: Sem EDTA
+zh-CN: 不含EDTA
+zh-TW: 不含EDTA
 
 en: Organic
 de: Bio, Öko, Biologisch, Ökologisch, Kontrolliert biologisch, Kontrolliert ökologisch, biologische Landwirtschaft, ökologische Landwirtschaft, biologischer Landbau, ökologischer Landbau
@@ -1238,6 +1358,30 @@ wikidata:en: Q748367
 en: No animal derived ingredients
 fr: Pas de composant animal, Sans matière animale
 
+en: Without animal fat
+de: Ohne tierisches Fett
+es: Sin grasa animal
+fr: Sans graisse animale, sans graisses animales
+it: Senza grassi animali
+ja: 動物性脂肪不使用
+ko: 동물성 지방 없음
+nl: Zonder dierlijk vet
+pt: Sem gordura animal
+zh-CN: 不含动物脂肪
+zh-TW: 不含動物脂肪
+
+en: Without bisphenol
+de: Ohne Bisphenol
+es: Sin bisfenol
+fr: Sans bisphenol
+it: Senza bisfenolo
+ja: ビスフェノール不使用
+ko: 비스페놀 없음
+nl: Zonder bisfenol
+pt: Sem bisfenol
+zh-CN: 不含双酚
+zh-TW: 不含雙酚
+
 en: PEFC, Pan European Forest Certification, Program for the Endorsement of Forest Certification, Program for the Endorsement of Forest Certification schemes
 fr: PEFC
 
@@ -1338,8 +1482,15 @@ en: Nordic Ecolabel
 
 en: Hypoallergenic
 de: Hypoallergen
+es: Hipoalergénico
 fr: Hypoallergénique
+it: Ipoallergenico
+ja: 低刺激性
+ko: 저자극성
 nl: Hypoallergeen
+pt: Hipoalergênico
+zh-CN: 低过敏性
+zh-TW: 低過敏性
 
 # already in food labels.txt
 # en: Green point
@@ -1360,6 +1511,7 @@ nl: Neutrale pH-waarde voor de huid, neutrale pH-waarde, pH-waarde neutraal voor
 
 en: Dermatologically tested, Dermatologically approved, Tested by dermatologists, Dermo tested
 fr: Testé dermatologiquement, Testé dermatologiquemment, Testé sous controle dermatologique, Tolérance testée sous controle dermatologique, Tolerance-cutanee-testee-dermatologiquement, Tolerance-cutanee-testee-sous-controle-dermatologique, testée dermatologiquement, testées dermatologiquement, Approuvé dermatologiquement, dermato-testé
+pt: Dermatologicamente testado
 
 en: Fully recyclable packaging
 de: Vollständig recycelbare Verpackung
@@ -1368,13 +1520,81 @@ fr: Packaging entièrement recyclable
 nl: Volledig recyclebare verpakking
 
 en: Easily flammable
+zh-CN: 易燃
+zh-TW: 易燃
+ar: قابل للاشتعال بسهولة
+az: Asanlıqla alışan
+bg: Лесно запалим
+bn: সহজে দাহ্য
+cs: Snadno hořlavé
+da: Letantændelig
 de: Leicht entflammbar
+el: Εύφλεκτο
 es: Fácilmente inflamable
+et: Kergesti süttiv
+fa: به راحتی قابل اشتعال
+fi: Helposti syttyvä
 fr: Facilement inflammable
+ga: Inlasta go héasca
+gu: સરળતાથી જ્વલનશીલ
+he: דליק בקלות
+hr: Lako zapaljivo
+hu: Könnyen gyúlékony
+id: Mudah terbakar
+is: Eldfimt
+it: Facilmente infiammabile
+ja: 可燃性
+ka: ადვილად აალებადი
+kk: Оңай тұтанатын
+km: ងាយឆេះ
+kn: ಸುಲಭವಾಗಿ ಉರಿಯುವ
+ko: 가연성
+ky: Оңой күйүүчү
+lt: Lengvai užsidegantis
+lv: Viegli uzliesmojošs
+ml: എളുപ്പത്തിൽ കത്തുന്ന
+mn: Шатамхай
+mr: सहजपणे ज्वलनशील
+ms: Mudah terbakar
+mt: Faċilment jaqbad
+ne: सजिलै जल्ने
 nl: Makkelijk ontvlambaar
+no: Lettantennelig
+or: ସହଜରେ ଜ୍ୱଳନଶୀଳ
+pa: ਆਸਾਨੀ ਨਾਲ ਜਲਣਸ਼ੀਲ
+pl: Łatwopalny
+pt: Facilmente inflamável
+ro: Ușor inflamabil
+ru: Легковоспламеняющийся
+si: පහසුවෙන් ගිනි ඇවිලෙන
+sk: Ľahko horľavé
+sl: Lahko vnetljivo
+sq: Lehtësisht i ndezshëm
+sr: Lako zapaljivo
+sv: Lättantändlig
+sw: Huwaka kwa urahisi
+ta: எளிதில் தீப்பற்றக்கூடிய
+te: సులభంగా మండే
+tg: Ба осонӣ оташгиранда
+th: ติดไฟง่าย
+tk: Aňsatlyk bilen ot alýan
+tl: Madaling magliyab
+tr: Kolay alevlenir
+uk: Легкозаймистий
+uz: Oson yonuvchi
+vi: Dễ cháy
 
 en: Without phthalates, without phtalates, 0 phthalates
+de: Ohne Phthalate
+es: Sin ftalatos
 fr: Sans phtalates, Sans phtalate, 0 phtalate, zero phtalate
+it: Senza ftalati
+ja: フタル酸エステル不使用
+ko: 프탈레이트 없음
+nl: Zonder ftalaten
+pt: Sem ftalatos
+zh-CN: 不含邻苯二甲酸酯
+zh-TW: 不含鄰苯二甲酸酯
 
 en: No colorings, without colorings, no colourings, without colourings, no colour, no color
 fr: Sans colorants, pas de colorants, 0 colorant, zero colorant
@@ -1388,13 +1608,25 @@ en: Without soap, soap free
 de: Ohne Seife
 es: Sin jabón
 fr: Sans savon
+it: Senza sapone
+ja: 石鹸不使用
+ko: 비누 없음
 nl: Zonder zeep
+pt: Sem sabão
+zh-CN: 不含皂
+zh-TW: 不含皂
 
 en: Without perfume, no perfume, perfume free
 de: Ohne Parfüm
 es: Sin perfume
 fr: Sans parfum
+it: Senza profumo
+ja: 無香料
+ko: 향료 없음
 nl: Zonder parfum
+pt: Sem perfume
+zh-CN: 无香精
+zh-TW: 無香精
 
 en: Synthetic scent free, free from synthesis fragrance, synthesis fragrance free, free from synthetic fragrances, synthetic fragrances free
 de: Ohne synthetischen Duft, frei von synthetischen Duftstoffen, synthetische Duftstoffe frei
@@ -1409,12 +1641,71 @@ fr: Sans phenoxyethanol
 nl: Zonder fenoxyethanol
 
 en: Without aluminium salts
+zh-CN: 不含铝盐
+zh-TW: 不含鋁鹽
+ar: بدون أملاح الألومنيوم
+az: Alüminium duzları olmadan
+bg: Без алуминиеви соли
+bn: অ্যালুমিনিয়াম লবণ ছাড়া
+cs: Bez hlinitých solí
+da: Uden aluminiumsalte
 de: Ohne Aluminiumsalze
+el: Χωρίς άλατα αλουμινίου
 es: Sin sales de aluminio
+et: Ilma alumiiniumisooladeta
+fa: بدون نمک آلومینیوم
+fi: Ilman alumiinisuoloja
 fr: Sans sels d'aluminium
+ga: Gan salainn alúmanaim
+gu: એલ્યુમિનિયમ ક્ષાર વગર
+he: ללא מלחי אלומיניום
+hr: Bez aluminijevih soli
+hu: Alumíniumsók nélkül
+id: Tanpa garam aluminium
+is: Án álsöltum
+it: Senza Sali di alluminio
+ja: アルミニウム塩不使用
+ka: ალუმინის მარილების გარეშე
+kk: Алюминий тұздарынсыз
+km: គ្មានអំបិលអាលុយមីញ៉ូម
+kn: ಅಲ್ಯೂಮಿನಿಯಂ ಲವಣಗಳಿಲ್ಲದೆ
+ko: 알루미늄 염 없음
+ky: Алюминий туздары жок
+lt: Be aliuminio druskų
+lv: Bez alumīnija sāļiem
+ml: അലുമിനിയം ലവണങ്ങൾ ഇല്ലാതെ
+mn: Хөнгөн цагааны давсгүй
+mr: ॲल्युमिनियम लवणांशिवाय
+ms: Tanpa garam aluminium
+mt: Mingħajr imluħa tal-aluminju
+ne: आल्मुनियम नुन बिना
 nl: Zonder aluminiumzouten
+no: Uten aluminiumsalter
+or: ଆଲୁମିନିୟମ ଲବଣ ବିନା
+pa: ਐਲੂਮੀਨੀਅਮ ਲੂਣ ਤੋਂ ਬਿਨਾਂ
+pl: Bez soli glinu
+pt: Sem sais de alumínio
+ro: Fără săruri de aluminiu
+ru: Без солей алюминия
+si: ඇලුමිනියම් ලවණ රහිතයි
+sk: Bez hliníkových solí
+sl: Brez aluminijevih soli
+sq: Pa kripëra alumini
+sr: Bez aluminijumskih soli
+sv: Utan aluminiumsalter
+sw: Bila chumvi za alumini
+ta: அலுமினிய உப்புகள் இல்லாமல்
+te: అల్యూమినియం లవణాలు లేకుండా
+tg: Бе намакҳои алюминий
+th: ไม่มีเกลืออลูมิเนียม
+tk: Alýumin duzlary ýok
+tl: Walang mga asin ng aluminyo
+tr: Alüminyum tuzları içermez
+uk: Без солей алюмінію
+uz: Alyuminiy tuzlarisiz
+vi: Không chứa muối nhôm
 
-en: Without silicon, Silicon free
+en: Without silicon, Silicon free, Without silicone
 de: Ohne Silikon
 es: Sin silicona
 fr: Sans silicone, 0 silicones, Sans silicones
@@ -1422,11 +1713,25 @@ it: Senza silicone
 nl: Zonder silicone
 pt: Sem silicone
 
+fr: sans huile de silicone
+
 en: Without acetone
 de: Ohne Aceton
 es: Sin acetona
 fr: Sans acétone
 nl: Zonder aceton
+
+en: Condom compatible
+de: Kondomfreundlich
+es: Compatible con preservativos, Compatible con condones
+fr: Compatible avec les preservatifs
+it: Compatibile con i preservativi
+ja: コンドームとの併用可
+ko: 콘돔과 함께 사용 가능
+nl: Condoomvriendelijk
+pt: Compatível com preservativos
+zh-CN: 可与避孕套一起使用
+zh-TW: 可與保險套一起使用
 
 # already in food labels.txt
 # fr: Sans alcool, Pas d'alcool
@@ -1457,13 +1762,132 @@ en: Without ammonia
 de: Ohne Ammoniak
 es: Sin amoníaco
 fr: Sans ammoniaque
+it: Senza ammoniaca
+ja: アンモニアフリー
+ko: 암모니아 없음
 nl: Zonder ammoniak
+pt: Sem amônia
+zh-CN: 不含氨
+
+en: Without ammonium
+fr: Sans ammonium
 
 en: Without triclosan, Triclosan free, No triclosan
 de: Ohne Triclosan
 es: Sin triclosán
 fr: Sans triclosan
+it: Senza triclosan
+ja: トリクロサン不使用
+ko: 트리클로산 없음
 nl: Zonder triclosan
+pt: Sem triclosan
+zh-CN: 不含三氯生
+
+en: Without mineral oil, Mineral oil free, No mineral oil
+de: Ohne Mineralöl
+es: Sin aceite mineral
+fr: Sans huile minérale
+it: Senza olio minerale
+ja: ミネラルオイル不使用
+ko: 미네랄 오일 없음
+nl: Zonder minerale olie
+pt: Sem óleo mineral
+zh-CN: 不含矿物油
+zh-TW: 不含礦物油
+
+en: Without ingredients derived from petroleum
+fr: Sans ingredients issus du pétrole, sans derive du pétrole
+
+en: Without microplastics, Microplastic free, No microplastics
+de: Ohne Mikroplastik
+es: Sin microplásticos
+fr: Sans microplastiques
+it: Senza microplastiche
+ja: マイクロプラスチックフリー
+ko: 미세 플라스틱 없음
+nl: Zonder microplastics
+pt: Sem microplásticos
+zh-CN: 不含微塑料
+zh-TW: 不含微塑膠
+
+en: Without plastic microbeads
+fr: sans-microbilles-de-plastique, sans-mirobilles-de-plastique, sans-micro-billes-de-plastique, formule-sans-microplastique
+
+en: Without binder
+fr: Sans agent liant
+
+en: Ophthalmologically tested, Ophthalmologist tested
+de: Augenärztlich getestet
+es: Oftalmológicamente probado, Probado oftalmológicamente
+fr: Testé ophtalmologiquement
+it: Testato oftalmologicamente
+ja: 眼科医によるテスト済み
+ko: 안과 의사 테스트 완료
+nl: Oftalmologisch getest
+pt: Testado oftalmologicamente
+zh-CN: 经眼科医生测试
+zh-TW: 經眼科醫生測試
+
+en: Tested under ophthalmological control
+de: Unter augenärztlicher Kontrolle getestet
+es: Testado bajo control oftalmológico
+fr: Testé sous contrôle ophtalmologique
+it: Testato sotto controllo oftalmologico
+ja: 眼科医の管理下でテスト済み
+ko: 안과 전문의의 관리하에 테스트됨
+nl: Getest onder oogheelkundige controle
+pt: Testado sob controle oftalmológico
+zh-CN: 经眼科医生监控测试
+zh-TW: 經眼科醫生監控測試
+
+en: Tested under gynecological control
+de: Unter gynäkologischer Kontrolle getestet
+es: Testado bajo control ginecológico
+it: Testato sotto controllo ginecologico
+ja: 婦人科医の管理下でテスト済み
+ko: 산부인과 전문의의 관리하에 테스트됨
+nl: Getest onder gynaecologische controle
+pt: Testado sob controle ginecológico
+zh-CN: 经妇科医生监控测试
+zh-TW: 經婦科醫生監控測試
+
+en: Gynecologically tested
+de: Gynäkologisch getestet
+es: Ginecológicamente probado
+it: Testato ginecologicamente
+ja: 婦人科医によるテスト済み
+ko: 산부인과 전문의 테스트 완료
+nl: Gynaecologisch getest
+pt: Testado ginecologicamente
+zh-CN: 经妇科医生测试
+zh-TW: 經婦科醫生測試
+
+en: Clinically tested
+de: Klinisch getestet
+es: Clínicamente probado
+fr: Testé cliniquement
+it: Clinicamente testato
+ja: 臨床的にテスト済み
+ko: 임상적으로 테스트됨
+nl: Klinisch getest
+pt: Testado clinicamente
+zh-CN: 经临床测试
+zh-TW: 經臨床測試
+
+en: Without essential oil
+fr: Sans huile essentielle
+
+en: Without menthol
+fr: Sans menthol
+
+en: Without mint
+fr: Sans menthe
+
+en: Without lotion
+fr: Sans lotion
+
+en: Without ionization
+fr: Sans ionisation
 
 # already in food labels.txt
 # en:Palm oil free, Without palm oil, No palm oil
@@ -1487,6 +1911,13 @@ nl: Prikt niet in de ogen, Geen tranen, Geen tranen formule
 
 fr: Non comédogène, Non obstruant les pores
 en: Non comedogenic, Non pore-clogging
+de: Nicht komedogen, Nicht porenverstopfend
+es: No comedogénico, No obstruye los poros
+it: Non comedogenico, Non ostruisce i pori
+ja: ノンコメドジェニック、毛穴を詰まらせない
+ko: 논코메도제닉, 모공을 막지 않음
+pt: Nao comedogenico
+zh-CN: 非致粉刺性，不堵塞毛孔
 
 # already in food labels.txt
 # fr:Sans conservateurs, sans conservateur, 0 conservateur

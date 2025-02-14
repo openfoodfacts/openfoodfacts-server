@@ -1,0 +1,20 @@
+{
+    "level": "info",
+    "topics": [
+        "health"
+    ],
+    "expanded": true,
+    "title_element": {
+        "title":"[% lang("ingredient_information") %]",
+    },
+    "elements": [
+        [% FOREACH ingredient_panel_id IN panel.ingredients_panels_ids %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "[% ingredient_panel_id %]",
+            }
+        },            
+        [% END %]
+    ]
+}
