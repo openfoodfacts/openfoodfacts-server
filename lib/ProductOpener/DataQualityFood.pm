@@ -1506,7 +1506,7 @@ Checks related to the ingredients list and ingredients analysis.
 
 # note: we need common ingredients words that exist only in 1 language
 my %ingredients_in_languages_regexps = (
-	"en" => qr/\b(sugar|water|salt|flour)\b/i,
+	"en" => qr/\b(sugar|salt|flour)\b/i,
 	"es" => qr/\b(azucar|agua|harina)\b/i,
 	"de" => qr/\b(zutaten|Zucker|Salz|Wasser|Mehl)\b/i,
 	"fr" => qr/\b(ingrédients|sucre|eau|sel|farine)\b/i,
