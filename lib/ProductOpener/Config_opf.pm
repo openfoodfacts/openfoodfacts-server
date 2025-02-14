@@ -69,7 +69,7 @@ BEGIN {
 
 		$memd_servers
 
-		$google_analytics
+		$analytics
 
 		$thumb_size
 		$crop_size
@@ -268,7 +268,27 @@ $small_size = 200;
 $display_size = 400;
 $zoom_size = 800;
 
-$google_analytics = <<HTML
+$analytics = <<HTML
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+  _paq.push(["setCookieDomain", "*.openproductsfacts.org"]);
+  _paq.push(["setDomains", ["*.openproductsfacts.org"]]);
+  _paq.push(["setDoNotTrack", true]);
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//analytics.openfoodfacts.org/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '11']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.openfoodfacts.org/matomo.php?idsite=11&amp;rec=1" style="border:0;" alt="" /></p></noscript>
 HTML
 	;
 
@@ -355,9 +375,6 @@ HTML
 	conservation_conditions
 	recycling_instructions_to_recycle
 	recycling_instructions_to_discard
-	nutrition_grade_fr_producer
-	nutriscore_score_producer
-	nutriscore_grade_producer
 	recipe_idea
 	origin
 	customer_service
@@ -408,9 +425,6 @@ HTML
 # If adding to this list ensure that the tables are being replicated to Postgres in the openfoodfacts-query repo
 
 @drilldown_fields = qw(
-	nutrition_grades
-	nova_groups
-	ecoscore
 	brands
 	categories
 	labels
@@ -419,12 +433,6 @@ HTML
 	manufacturing_places
 	emb_codes
 	ingredients
-	additives
-	vitamins
-	minerals
-	amino_acids
-	nucleotides
-	other_nutritional_substances
 	allergens
 	traces
 	misc
@@ -468,20 +476,10 @@ HTML
 	traces
 	serving_size
 	serving_quantity
-	no_nutrition_data
 	additives_n
 	additives
-	nutriscore_score
-	nutriscore_grade
-	nova_group
-	pnns_groups_1
-	pnns_groups_2
-	food_groups
 	states
 	brand_owner
-	ecoscore_score
-	ecoscore_grade
-	nutrient_levels_tags
 	product_quantity
 	owner
 	data_quality_errors_tags
@@ -543,39 +541,9 @@ $options{attribute_default_preferences_json}
 
 );
 
-# allow moving products to other instances of Product Opener on the same server
-# e.g. OFF -> OBF
-
-$options{current_server} = "opf";
-
-$options{other_servers} = {
-	obf => {
-		name => "Open Beauty Facts",
-		data_root => "/srv/obf",
-		www_root => "/srv/obf/html",
-		mongodb => "obf",
-		domain => "openbeautyfacts.org",
-	},
-	off => {
-		name => "Open Food Facts",
-		data_root => "/srv/off",
-		www_root => "/srv/off/html",
-		mongodb => "off",
-		domain => "openfoodfacts.org",
-	},
-	opff => {
-		prefix => "opff",
-		name => "Open Pet Food Facts",
-		data_root => "/srv/opff",
-		www_root => "/srv/opff/html",
-		mongodb => "opff",
-		domain => "openpetfoodfacts.org",
-	}
-};
-
 $options{no_nutrition_table} = 1;
 
 # Name of the Redis stream to which product updates are published
-$options{redis_stream_name} = "product_updates_opf";
+$options{redis_stream_name} = "product_updates";
 
 1;

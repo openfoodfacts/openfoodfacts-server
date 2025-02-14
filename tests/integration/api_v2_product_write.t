@@ -120,6 +120,7 @@ my $tests_ref = [
 			quantity => "250 g",
 			serving_size => '20 g',
 			ingredients_text => "Pork meat, salt",
+			traces => "Moutarde, milk, abcd",
 		}
 	},
 	{

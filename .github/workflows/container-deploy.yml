@@ -39,6 +39,7 @@ jobs:
         echo "GEOLITE2_PATH=/usr/local/share/GeoLite2-Country/GeoLite2-Country.mmdb" >> $GITHUB_ENV
         echo "INFLUXDB_HOST=10.1.0.200" >> $GITHUB_ENV
         echo "FACETS_KP_URL=https://facets-kp.openfoodfacts.net/render-to-html" >> $GITHUB_ENV
+        echo "NUTRIPATROL_URL=nutripatrol.openfoodfacts.net" >> $GITHUB_ENV
         # deploy target
         echo "SSH_HOST=10.1.0.200" >> $GITHUB_ENV
         echo "SSH_PROXY_HOST=ovh1.openfoodfacts.org" >> $GITHUB_ENV
@@ -146,6 +147,7 @@ jobs:
           echo "COMPOSE_PROJECT_NAME=po" >> .env
           echo "COMPOSE_PATH_SEPARATOR=;" >> .env
           echo "COMPOSE_FILE=docker-compose.yml;docker/prod.yml;docker/geolite2.yml;docker/monitor.yml" >> .env
+          echo "COMPOSE_FILE_BUILD=docker-compose.yml;docker/prod.yml" >> .env
           echo "COMPOSE_PROFILES=off" >> .env
           echo "PRODUCT_OPENER_EXPOSE=" >> .env
           echo "ADMIN_EXPOSE=" >> .env
@@ -167,6 +169,7 @@ jobs:
           echo "QUERY_URL=${{ env.QUERY_URL }}" >> .env
           echo "REDIS_URL=${{ env.REDIS_URL }}" >> .env
           echo "FACETS_KP_URL=${{ env.FACETS_KP_URL }}" >> .env
+          echo "NUTRIPATROL_URL=${{ env.NUTRIPATROL_URL }}" >> .env
           echo "GOOGLE_CLOUD_VISION_API_KEY=${{ secrets.GOOGLE_CLOUD_VISION_API_KEY }}" >> .env
           echo "CROWDIN_PROJECT_IDENTIFIER=${{ env.CROWDIN_PROJECT_IDENTIFIER }}" >> .env
           echo "CROWDIN_PROJECT_KEY=${{ secrets.CROWDIN_PROJECT_KEY }}" >> .env
@@ -242,6 +245,7 @@ jobs:
           cd ${{ matrix.env }} && \
           make init_backend
 
+    # NOTE: the mongodb and redis containers are deployed by openfoodfacts-shared-services 
     - name: Start services
       uses: appleboy/ssh-action@master
       with:

@@ -2,23 +2,32 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "22000",
+         "ecobalyse_code" : "egg-indoor-code3",
          "id" : "en:egg",
          "ingredients" : [
             {
-               "id" : "fr:d-elevage-au-sol",
-               "is_in_taxonomy" : 0,
+               "ciqual_food_code" : "22000",
+               "ecobalyse_code" : "egg-indoor-code3",
+               "id" : "en:barn-eggs",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 66.6666666666667,
                "percent_max" : 100,
                "percent_min" : 33.3333333333333,
-               "text" : "d'élevage au sol"
+               "text" : "d'élevage au sol",
+               "vegan" : "no",
+               "vegetarian" : "yes"
             },
             {
-               "id" : "fr:suisse",
-               "is_in_taxonomy" : 0,
+               "ciqual_food_code" : "22000",
+               "ecobalyse_code" : "egg-indoor-code3",
+               "id" : "en:eggs-from-switzerland",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 16.6666666666667,
                "percent_max" : 50,
                "percent_min" : 0,
-               "text" : "Suisse"
+               "text" : "Suisse",
+               "vegan" : "no",
+               "vegetarian" : "yes"
             },
             {
                "id" : "fr:france",
@@ -40,21 +49,17 @@
    ],
    "ingredients_analysis" : {
       "en:non-vegan" : [
-         "en:egg"
+         "en:egg",
+         "en:barn-eggs",
+         "en:eggs-from-switzerland"
       ],
       "en:palm-oil-content-unknown" : [
-         "fr:d-elevage-au-sol",
-         "fr:suisse",
          "fr:france"
       ],
       "en:vegan-status-unknown" : [
-         "fr:d-elevage-au-sol",
-         "fr:suisse",
          "fr:france"
       ],
       "en:vegetarian-status-unknown" : [
-         "fr:d-elevage-au-sol",
-         "fr:suisse",
          "fr:france"
       ]
    },
@@ -65,10 +70,11 @@
    ],
    "ingredients_hierarchy" : [
       "en:egg",
-      "fr:d-elevage-au-sol",
-      "fr:suisse",
+      "en:barn-eggs",
+      "en:eggs-from-switzerland",
       "fr:france"
    ],
+   "ingredients_lc" : "fr",
    "ingredients_n" : 4,
    "ingredients_n_tags" : [
       "4",
@@ -76,15 +82,15 @@
    ],
    "ingredients_original_tags" : [
       "en:egg",
-      "fr:d-elevage-au-sol",
-      "fr:suisse",
+      "en:barn-eggs",
+      "en:eggs-from-switzerland",
       "fr:france"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
       "en:egg",
-      "fr:d-elevage-au-sol",
-      "fr:suisse",
+      "en:barn-eggs",
+      "en:eggs-from-switzerland",
       "fr:france"
    ],
    "ingredients_text" : "oeufs (d'élevage au sol, Suisse, France)",
@@ -93,12 +99,14 @@
    "ingredients_with_unspecified_percent_n" : 3,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "fr:d-elevage-au-sol",
-      "fr:france",
-      "fr:suisse"
+      "fr:france"
    ],
-   "ingredients_without_ciqual_codes_n" : 3,
-   "known_ingredients_n" : 1,
+   "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [
+      "fr:france"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
+   "known_ingredients_n" : 3,
    "lc" : "fr",
    "nutriments" : {
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
@@ -106,5 +114,5 @@
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
-   "unknown_ingredients_n" : 3
+   "unknown_ingredients_n" : 1
 }

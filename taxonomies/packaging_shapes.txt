@@ -244,8 +244,13 @@ pt: garrafão
 
 #fr:Bouteille / Flacon in data from Les Mousquetaires
 en: Bottle or vial, Vial or bottle
+bg: Бутилка или флакон, флакон или бутилка
+de: Flasche oder Fläschchen, Fläschchen oder Flasche
+es: Botella o frasco, frasco o botella
 fr: Bouteille ou Flacon, Flacon ou bouteille
 it: Bottiglia o flacona, flacone o bottigia
+nl: Fles of flacon, flacon of fles
+pt: Garrafa ou frasco, frasco ou garrafa
 
 < en:Bottle or vial
 en: Bottle, bottles
@@ -504,8 +509,13 @@ description:nl: Slappe, vormeloze verpakking
 # image:xx:sac-sachet-poche-3.svg (sachet fin)
 
 en: Handle, handles
+bg: Дръжка, дръжки
+de: Griff, Griffe, Handgriff, Handgriffe
+es: Asa, Asas, Manija, Manijas
 fr: Poignée, poignées
 it: maniglia, maniglie
+nl: Handvat, handvaten
+pt: Alça, alças, pega, pegas, manípulo, manípulos
 
 # <en:Bag
 # fr:Sachet à frites cartonné
@@ -624,7 +634,10 @@ wikidata:en: Q1440281
 # for salt and pepper
 < en:Lid or cap
 en: Grinder cap
+de: Mühlenverschluss
+es: Tapa molinillo
 fr: Bouchon broyeur, bouchons broyeurs
+it: Tappo macinino
 
 < en:Lid or cap
 fr: Capsule à vis, bouchon à vis
@@ -701,6 +714,7 @@ wikidata:en: Q4236462
 
 < en:Coffee capsule
 en: Nespresso-compatible capsules
+bg: Кафе капсули съвместими с Nespresso
 de: Nespresso-kompatible Kapseln
 es: Cápsulas compatibles con Nespresso
 fi: Nespresso-yhteensopivat kapselit
@@ -709,6 +723,7 @@ fr: Dosettes compatible Nespresso, Dosettes Nespresso, Capsules Nespresso
 it: Capsule compatibili Nespresso
 lt: Nespresso kapsulės
 nl: Nespresso-compatibele Capsules, Nespresso
+pt: Cápsulas compatíveis com Nespresso
 
 < en:Coffee capsule
 en: Tassimo-compatible capsules, T-Disc capsules
@@ -731,14 +746,47 @@ nl: Dolce Gusto-compatibele Capsules, Dolce Gusto
 # related_categories:en: fr:Dosettes Dolce Gusto
 
 en: Tea capsules
+ar: كبسولات شاي
+az: Çay kapsulları
 bg: Чайни капсули
+bn: চা ক্যাপসুল
+ca: Càpsules de te
+cs: Čajové kapsle
+da: Te kapsler
 de: Tee-Kapseln
+el: Κάψουλες τσαγιού
 es: Cápsulas de té
+et: Teekapslid
+fa: کپسول های چای
+fi: Teekapselit
 fr: Capsules de thé
+he: קפסולות תה
+hi: चाय कैप्सूल
+hr: Kapsule za čaj
 hu: Tea kapszulák
+id: Kapsul teh
 it: Capsule di tè
+ja: ティーカプセル
+ko: 차 캡슐
+lt: Arbatos kapsulės
+lv: Tējas kapsulas
+ms: Kapsul teh
 nl: Theecapsules
+no: Te-kapsler
+pl: Kapsułki do herbaty
 pt: Cápsulas de chá
+ro: Capsule de ceai
+ru: Чайные капсулы
+sk: Čajové kapsuly
+sl: Čajne kapsule
+sq: Kapsula çaji
+sr: Чајне капсуле
+sv: Te kapslar
+th: แคปซูลชา
+tr: Çay kapsülleri
+uk: Чайні капсули
+vi: Viên nang trà
+zh: 茶胶囊
 
 en: coffee pad, coffee pads
 de: Kaffeepad, Kaffeepads
@@ -1252,8 +1300,12 @@ wikidata:en: Q3737688
 
 < en:Bottle or vial
 en: squeeze bottle
+de: Quetschflasche, Drückflasche
+es: botella exprimible, botella de apretar
 fr: flacon souple, flacon pressable, flacon à presser, squeezer
+it: flacone a pressione, flacone spremibile
 nl: Knijpfles, knijpflessen
+pt: frasco de apertar, frasco de espremer
 # suggest:packaging_materials:en: en:plastic
 
 en: Aerosol can, aerosol cans, aerosol spray
@@ -1264,7 +1316,10 @@ wikidata:en: Q659495
 # image:xx:aerosol.svg
 
 en: Ball flask, Roll-on bottle
+de: Kugelflasche, Roll-on-Flasche
+es: Frascos de bola, Botella roll-on
 fr: Flacon à bille, Roll
+nl: Balflacon, Roll-on fles
 wikidata:en: Q115170160
 # image:xx:flacon-bille-roll.svg
 # suggest:packaging_materials:en: en:plastic, en:glass

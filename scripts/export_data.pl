@@ -152,9 +152,9 @@ if ((defined $extra_fields) and ($extra_fields ne "")) {
 }
 
 # select the nutriment table format according to the country
-$nutriment_table = $cc_nutriment_table{default};
-if (exists $cc_nutriment_table{$cc}) {
-	$nutriment_table = $cc_nutriment_table{$cc};
+$nutriment_table = $cc_nutriment_table{off_default};
+if (exists $cc_nutriment_table{"off_" . $cc}) {
+	$nutriment_table = $cc_nutriment_table{"off_" . $cc};
 }
 $subdomain = $cc;
 

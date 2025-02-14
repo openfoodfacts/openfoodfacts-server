@@ -74,14 +74,13 @@ While testing your applications, **make all API requests to the staging environm
 
 ## Authentication
 
-We ask you to **always use a custom User-Agent to identify you** (to not risk being identified as a bot). The User-Agent should be in the form of `AppName/Version (ContactEmail)`. For example,
+We ask you to **always use a custom User-Agent to identify your app** (to not risk being identified as a bot). The User-Agent should be in the form of `AppName/Version (ContactEmail)`. For example,
 `MyApp/1.0 (myapp@example.com)`.
 
 - READ operations (getting info about a product, etc...) do not require authentication other than the custom User-Agent.
-
 - WRITE operations (Editing an Existing Product, Uploading images…) **require authentication**. We do this as another layer of protection against spam.
 
-Create an account on the [Open Food Facts app](https://world.openfoodfacts.org/). From there, you have two options:
+Create an account on the [Open Food Facts app](https://world.openfoodfacts.org/) for your app (and notify reuse@openfoodfacts.org of the account name, so that we grant it special app privileges). From there, you have two options:
 
 - **The preferred one**:
   Use the login API to get a session cookie and use this cookie for authentication in your subsequent requests. However, the session must always be used from the same IP address, and there's a limit on sessions per user (currently 10) with older sessions being automatically logged out to stay within the limit.
@@ -89,7 +88,14 @@ Create an account on the [Open Food Facts app](https://world.openfoodfacts.org/)
 
 You can create a global account to allow your app users to contribute without registering individual accounts on the Open Food Facts website. This way, we know that these contributions came from your application.
 
+We however ask that you send the [`app_name`, `app_version` and `app_uuid` parameters](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#post-/cgi/product_jqm2.pl) in your write queries. 
+* `app_name=MyApp` 
+* `app_version=1.1` 
+* `app_uuid=xxxx`: a salted random uuid for the user so that Open Food Facts moderators can selectively ban any problematic user without banning your whole app account.
+
 > Production and staging have different account databases, so **the account you create in the production environment will only work for production requests**. If you want to query (WRITE requests) the staging environment, you'll need to create another account there too.
+
+> Note: we're currently moving to a modern Auth system (Keycloak), so we will have new Auth options, hopefully this year.
 
 ## Reference Documentation (OpenAPI)
 

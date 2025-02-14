@@ -1,4 +1,5 @@
 type: object
+title: product
 description: |
   This is all the fields describing a product and how to display it on a page.
 
@@ -7,25 +8,27 @@ description: |
   * [Product Base](#cmp--schemas-product-base): Base fields of a product
   * [Product Misc](#cmp--schemas-product-misc): Miscellaneous but important fields of a product
   * [Product Tags](#cmp--schemas-product-tags): Tags fields on a product
-  * [Product Nutrition](#cmp--schemas-product-nutrition): Nutrition fields of a product
-  * [Product Ingredients](#cmp--schemas-product-ingredients): Fields about ingredients of a product
   * [Product Images](#cmp--schemas-product-images): Information about Images of a product
-  * [Product Eco-Score](#cmp--schemas-product-images): Fields related to Eco-Score for a product
-  * [Product Metadata](#cmp--schemas-product-ecoscore): Metadata of a product (author, editors, etc.)
+  * [Product Eco-Score](#cmp--schemas-product-ecoscore): Fields related to Eco-Score for a product
+  * [Product Ingredients](#cmp--schemas-product-ingredients): Fields about ingredients of a product
+  * [Product Nutrition](#cmp--schemas-product-nutrition): Nutrition fields of a product
   * [Product Data Quality](#cmp--schemas-product-quality): fields related to data quality for a product
+  * [Product Extended](#cmp--schemas-product-extended): TODO
+  * [Product Metadata](#cmp--schemas-product-meta): Metadata of a product (author, editors, etc.)
   * [Product Knowledge Panels](#cmp--schemas-product-knowledge-panels): Knowledge panels for a product
   * [Product Attribute Groups](#cmp--schemas-product-attribute-groups): Attribute groups for personal product matching
 
 allOf:
-  - $ref: './product_base.yaml'
-  - $ref: './product_misc.yaml'
-  - $ref: './product_tags.yaml'
-  - $ref: './product_images.yaml'
-  - $ref: './product_ecoscore.yaml'
-  - $ref: './product_ingredients.yaml'
-  - $ref: './product_nutrition.yaml'
-  - $ref: './product_quality.yaml'
-  - $ref: './product_extended.yaml'
-  - $ref: './product_meta.yaml'
-  - $ref: './product_knowledge_panels.yaml'
-  - $ref: './product_attribute_groups.yaml'
+  - $ref: "../api.yml#/components/schemas/Product-Base"
+  - $ref: "../api.yml#/components/schemas/Product-Misc"
+  - $ref: "../api.yml#/components/schemas/Product-Tags"
+  - $ref: "../api.yml#/components/schemas/Product-Images"
+  - $ref: "../api.yml#/components/schemas/Product-Eco-Score"
+  - $ref: "../api.yml#/components/schemas/Product-Ingredients"
+  - $ref: "../api.yml#/components/schemas/Product-Nutrition"
+  - $ref: "../api.yml#/components/schemas/Product-Nutriscore"
+  - $ref: "../api.yml#/components/schemas/Product-Data-Quality"
+  - $ref: "../api.yml#/components/schemas/Product-Extended"
+  - $ref: "../api.yml#/components/schemas/Product-Metadata"
+  - $ref: "../api.yml#/components/schemas/Product-Knowledge-Panels"
+  - $ref: "../api.yml#/components/schemas/Product-Attribute-Groups"

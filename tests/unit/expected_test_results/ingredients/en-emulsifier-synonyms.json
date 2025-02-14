@@ -88,6 +88,7 @@
       "en:e412",
       "en:e410"
    ],
+   "ingredients_lc" : "en",
    "ingredients_n" : 6,
    "ingredients_n_tags" : [
       "6",
@@ -124,6 +125,15 @@
       "en:stabiliser"
    ],
    "ingredients_without_ciqual_codes_n" : 6,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:e410",
+      "en:e412",
+      "en:e471",
+      "en:e477",
+      "en:emulsifier",
+      "en:stabiliser"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 6,
    "known_ingredients_n" : 6,
    "lc" : "en",
    "nutriments" : {

@@ -1101,7 +1101,7 @@ lv: E133, Briljantzilais FCF
 mt: E133, Blu brillanti FCF
 nb: E133, briljantblà FCF
 nl: E133, Briljantblauw FCF, Briljantblauw
-pl: E133, Błękit brylantowy FCF
+pl: E133, Błękit brylantowy FCF, Błękit brylantowy
 pt: E133, Azul brilhante FCF
 ro: E133, Albastru briliant FCF
 sh: E133, Brilijantno plavo FCF
@@ -2271,6 +2271,7 @@ e_number:en: 160b
 < en:E160b
 en: E160b(ii), Annatto norbixin, Norbixin
 xx: E160b(ii)
+fr: E160b(ii), norbixine de rocou
 additives_classes:en: en:colour
 e_number:en: 160b
 
@@ -8177,7 +8178,7 @@ xx: E331
 ca: E331, Citrats de sodi, Citrat de sodi
 cs: E331, E331 food additive
 da: E331, Natriumcitrater
-de: E331, Natriumcitraten, natriumcitrate
+de: E331, Natriumcitrate, Natriumcitraten
 el: E331
 es: E331, Citratos de sodio
 et: E331, Naatriumtsitraadid
@@ -8298,14 +8299,14 @@ e_number:en: 331
 # Other sodium citrates are not in the additives list in Japan https://www.ffcr.or.jp/tenka/list/post-11.html
 
 
-#comment:en:E332 should be in plural, the specific form can be entered under i or ii. The singlar variant is ii.
+#comment:en:E332 should be in plural, the specific form can be entered under i or ii. The singular variant is ii.
 en: E332, Potassium citrates
 xx: E332
 bg: E332, Потасиеви цитрати
 ca: E332, Citrats de potassi
 cs: E332, Citronan draselný
 da: E332, Kaliumcitrat
-de: E332, Kaliumcitraten
+de: E332, Kaliumcitrate, Kaliumcitraten
 el: E332, Κιτρικά κάλια
 es: E332, Citratos de potasio
 et: E332, Kaaliumtsitraadid
@@ -14246,6 +14247,7 @@ vegetarian:en: maybe
 < en:E470a
 en: E470a(i), Sodium salts of fatty acids
 xx: E470a(i)
+de: E470a(i), Natriumsalze der Speisefettsäuren
 fi: E470a(i), Rasvahappojen natriumsuolat, Rasvahappojen natriumsuoloja
 hu: E470a(i), Zsírsavak nátriumsói
 it: E470a(i), Sali di sodio degli acidi grassi
@@ -14256,6 +14258,7 @@ e_number:en: 470a
 < en:E470a
 en: E470a(ii), Potassium salts of fatty acids
 xx: E470a(ii)
+de: E470a(ii), Kaliumsalze der Speisefettsäuren
 fi: E470a(ii), Rasvahappojen kaliumsuolat, Rasvahappojen kaliumsuoloja
 hu: E470a(ii), Zsírsavak káliumsói
 it: E470a(ii), Sali di potassio degli acidi grassi
@@ -14266,6 +14269,7 @@ e_number:en: 470a
 < en:E470a
 en: E470a(iii), Calcium salts of fatty acids
 xx: E470a(iii)
+de: E470a(iii), Calciumsalze der Speisefettsäuren
 fi: E470a(iii), Rasvahappojen kalsiumsuolat, Rasvahappojen kalsiumsuoloja
 hu: E470a(iii), Zsírsavak kalciumsói
 it: E470a(iii), Sali di calcio degli acidi grassi
@@ -15780,7 +15784,7 @@ bg: E501, калиеви карбонати
 ca: E501, carbonats de potassi
 cs: E501, E501 food additive
 da: E501, Kaliumcarbonater
-de: E501, Kaliumcarbonaten
+de: E501, Kaliumcarbonate, Kaliumcarbonaten
 el: E501, ανθρακικά άλατα καλίου
 es: E501, Carbonatos de potasio
 et: E501, kaaliumkarbonaadid
@@ -21941,7 +21945,7 @@ sk: E950, Acesulfám k, Acesulfám draselný
 sl: E950, Acesulfam k, acesulfam K, Kalijev acesulfam
 sr: E950, acesulfam K
 sv: E950, Acesulfam k, Acesulfame k, Acesulfamkalium
-th: E950, แอซีซัลเฟมโพแทสเซียม
+th: E950, แอซีซัลเฟมโพแทสเซียม, อะซิซัลแฟม-เค
 uk: E950, Ацесульфам
 vi: E950, Acesulfame K
 zh: E950, 乙酰磺胺酸钾
@@ -22114,7 +22118,7 @@ lv: E953, Izomalts
 mt: E953, Isomalt
 nb: E953, Isomalt
 nl: E953, Isomalt
-pl: E953, Isomalt
+pl: E953, Isomalt, Izomalt
 pt: E953, Isomalte
 ro: E953, Izomalt, isomalt
 ru: E953, изомальтит

@@ -60,25 +60,25 @@
    "data_quality_errors_tags" : [],
    "data_quality_info_tags" : [
       "en:packaging-data-incomplete",
-      "en:ecoscore-extended-data-not-computed",
+      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown"
    ],
    "data_quality_tags" : [
       "en:packaging-data-incomplete",
-      "en:ecoscore-extended-data-not-computed",
+      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown",
-      "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-      "en:ecoscore-production-system-no-label",
-      "en:ecoscore-threatened-species-ingredients-missing"
+      "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+      "en:environmental-score-production-system-no-label",
+      "en:environmental-score-threatened-species-ingredients-missing"
    ],
    "data_quality_warnings_tags" : [
-      "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-      "en:ecoscore-production-system-no-label",
-      "en:ecoscore-threatened-species-ingredients-missing"
+      "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+      "en:environmental-score-production-system-no-label",
+      "en:environmental-score-threatened-species-ingredients-missing"
    ],
    "data_sources" : "Producers, Producer - test-org",
    "data_sources_imported" : "Producers, Producer - test-org",
@@ -86,7 +86,14 @@
       "producers",
       "producer-test-org"
    ],
-   "ecoscore_data" : {
+   "ecoscore_tags" : [
+      "unknown"
+   ],
+   "editors_tags" : [
+      "test-user"
+   ],
+   "entry_dates_tags" : "--ignore--",
+   "environmental_score_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
             "aggregated_origins" : [
@@ -304,16 +311,16 @@
             "non_recyclable_and_non_biodegradable_materials" : 0,
             "packagings" : [
                {
-                  "ecoscore_material_score" : 92,
-                  "ecoscore_shape_ratio" : 1,
+                  "environmental_score_material_score" : 92,
+                  "environmental_score_shape_ratio" : 1,
                   "material" : "en:non-corrugated-cardboard",
                   "number_of_units" : 1,
                   "shape" : "en:tray",
                   "weight_specified" : 13.4
                },
                {
-                  "ecoscore_material_score" : 21,
-                  "ecoscore_shape_ratio" : 1,
+                  "environmental_score_material_score" : 21,
+                  "environmental_score_shape_ratio" : 1,
                   "material" : "en:pet-1-polyethylene-terephthalate",
                   "non_recyclable_and_non_biodegradable" : "no",
                   "number_of_units" : 1,
@@ -321,16 +328,16 @@
                   "weight_specified" : 13.4
                },
                {
-                  "ecoscore_material_score" : 92,
-                  "ecoscore_shape_ratio" : 1,
+                  "environmental_score_material_score" : 92,
+                  "environmental_score_shape_ratio" : 1,
                   "material" : "en:non-corrugated-cardboard",
                   "number_of_units" : 1,
                   "shape" : "en:sleeve",
                   "weight_specified" : 32.3
                },
                {
-                  "ecoscore_material_score" : 21,
-                  "ecoscore_shape_ratio" : 1,
+                  "environmental_score_material_score" : 21,
+                  "environmental_score_shape_ratio" : 1,
                   "material" : "en:pp-5-polypropylene",
                   "non_recyclable_and_non_biodegradable" : "no",
                   "number_of_units" : 1,
@@ -353,6 +360,7 @@
       "agribalyse" : {
          "warning" : "missing_agribalyse_match"
       },
+      "grade" : "unknown",
       "missing" : {
          "categories" : 1,
          "ingredients" : 1,
@@ -362,20 +370,15 @@
       "missing_agribalyse_match_warning" : 1,
       "status" : "unknown"
    },
-   "ecoscore_grade" : "unknown",
-   "ecoscore_tags" : [
+   "environmental_score_grade" : "unknown",
+   "environmental_score_tags" : [
       "unknown"
    ],
-   "editors_tags" : [
-      "test-user"
-   ],
-   "entry_dates_tags" : "--ignore--",
    "food_groups_tags" : [],
    "id" : "3250390024866",
    "informers_tags" : [
       "test-user"
    ],
-   "ingredients_lc" : "fr",
    "interface_version_created" : "import_csv_file - version 2019/09/17",
    "lang" : "fr",
    "lang_imported" : "fr",
@@ -401,8 +404,7 @@
    "lc_imported" : "fr",
    "main_countries_tags" : [],
    "misc_tags" : [
-      "en:ecoscore-extended-data-not-computed",
-      "en:ecoscore-not-computed",
+      "en:environmental-score-not-computed",
       "en:nutriscore-missing-category",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-energy",
@@ -485,7 +487,7 @@
    "nutriscore_tags" : [
       "unknown"
    ],
-   "nutriscore_version" : "2021",
+   "nutriscore_version" : "2023",
    "nutrition_data_per" : "100g",
    "nutrition_data_prepared_per" : "100g",
    "nutrition_grade_fr" : "unknown",
@@ -513,24 +515,28 @@
    ],
    "packagings" : [
       {
+         "food_contact" : 1,
          "material" : "en:non-corrugated-cardboard",
          "number_of_units" : 1,
          "shape" : "en:tray",
          "weight_specified" : 13.4
       },
       {
+         "food_contact" : 1,
          "material" : "en:pet-1-polyethylene-terephthalate",
          "number_of_units" : 1,
          "shape" : "en:tray",
          "weight_specified" : 13.4
       },
       {
+         "food_contact" : 0,
          "material" : "en:non-corrugated-cardboard",
          "number_of_units" : 1,
          "shape" : "en:sleeve",
          "weight_specified" : 32.3
       },
       {
+         "food_contact" : 0,
          "material" : "en:pp-5-polypropylene",
          "number_of_units" : 1,
          "shape" : "en:bag",

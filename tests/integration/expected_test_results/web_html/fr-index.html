@@ -37,7 +37,10 @@
 .show-when-logged-in {display:none}
 
     </style>
-    <!-- Matomo -->
+</head>
+<body class="products_page">
+
+	<!-- Matomo -->
 <script>
   var _paq = window._paq = window._paq || [];
   /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
@@ -60,11 +63,13 @@
 <!-- End Matomo Code -->
 
 
-</head>
-<body class="products_page">
+
+	
 	<div class="skip"><a href="#content" tabindex="0">Aller au contenu</a></div>
+	
 
 	<div id="page">
+		
 		<div class="upper-nav contain-to-grid"  id="upNav">
 			<nav class="top-bar " data-topbar role="navigation">
 				
@@ -137,9 +142,11 @@
 				</section>
 			</nav>
 		</div>
+		
 
 		<div id="main_container" style="position:relative" class="block_latte">
-			
+		
+		
 		<div class="topbarsticky">
 			<div class="contain-to-grid " id="offNav" >
 				<nav class="top-bar" data-topbar role="navigation" >
@@ -217,58 +224,28 @@
 				</form>
 			</div>
 		</nav>
+		
 
 		<div id="content" class="off-canvas-wrap block_latte" data-offcanvas>
 			<div class="inner-wrap">
 			
 				<a class="exit-off-canvas"></a>
+
+				
 				
 				<!-- full width banner on mobile -->
 				
 				
 
+				
+
 				<div class="main block_light">
 					<div id="main_column">
+
+						
 						
 							
 							
-								
-								<!-- start templates/web/common/includes/off_days_2024_banner.tt.html -->
-
-
-								
-
-<a href="//connect.openfoodfacts.org/fr/event/open-food-facts-days-2024-22/register">
-    <section id="off-days-2024-banner-top" class="off-days-banner off-days-banner__FR">
-    </section>
-</a>
-
-<script>
-    const offDaysBannerID = document.getElementById('off-days-2024-banner-top');
-
-    function getBannerCookie(bcname) {
-        const name = bcname + '=';
-        const decodedCookies = decodeURIComponent(document.cookie);
-        const cookies = decodedCookies.split(';');
-        for (const cookie of cookies) {
-        let c = cookie;
-        while (c.charAt(0) == ' ') { c = c.substring(1); }
-        if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
-        }
-        
-        return '';
-    }
-
-    if (getBannerCookie('off_donation_banner_2023_a') !== '') {
-        console.log('cookie found');
-        offDaysBannerID.style.display = 'flex';
-    } else {
-        console.log('cookie not found');
-        offDaysBannerID.style.display = 'none';
-    }
-</script>
-
-
 								<!-- start templates/web/common/includes/donate_banner.tt.html -->
 
 
@@ -280,22 +257,60 @@
 
 								
 
-<section id="donation-banner-top" class="donation-banner">
-  <span class="donation-banner__logo"></span>
-  <span class="donation-banner__hand"></span>
-  <div class="donation-banner__content">
-    <p class="donation-banner__main-text">
-        <span role="heading">Aidez-nous à faire de la transparence alimentaire la norme !</span>
-    </p>
+<section id="donation-banner-top" class="donation-banner row">
+  <div class="donation-banner__left-aside">
+    <div class="donation-banner__hook-section">
+      <p>Aidez-nous à informer des millions de consommateurs à travers le monde sur ce qu'ils mangent</p>
+    </div>
+    <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="group photo donation 2024" />
+  </div>
+  <div>
     <div class="donation-banner__aside">
-      <div>
-        <p class="donation-banner__secondary-text">En tant qu'organisation à but non lucratif, nous dépendons de vos dons pour continuer à informer les consommateurs du monde entier sur ce qu'ils mangent.</p>
-        <p class="donation-banner__tertiary-text">La révolution alimentaire commence avec vous !</p>
+      <div class="donation-banner__main-section">
+        <img
+          width="50"
+          height="50"
+          src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
+          alt="open food facts logo"
+        />
+        <h3 class="donation-banner__main-title">Merci de contribuer à notre collecte de fonds 2024</h3>
       </div>
-      <a class="donation-banner__donate" href="//fr.openfoodfacts.org/faire-un-don-a-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2023-a&utm_term=en-text-button">Faire un don</a>
+      <div style="padding:1rem;">
+        <p>Vos dons financent le fonctionnement quotidien de notre association à but non lucratif :</p>
+        <ul>
+          <li>
+            garder notre base de données ouverte et accessible à tous,
+            <ul>
+              <li>infrastructure technique (site web/application mobile) et une petite équipe permanente</li>
+            </ul>
+          </li>
+          <li>
+            <p>rester indépendant de l'industrie alimentaire,</p>
+          </li>
+          <li>
+            <p>mobiliser une communauté de citoyens engagés,</p>
+          </li>
+          <li>
+            <p>soutenir l’avancement de la recherche en santé publique.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="donation-banner__actions-section">
+      <div class="donation-banner__actions-section__financial">
+        <p>
+          
+          (déductible à 66 % de vos impôts: ex. un don de 20€ vous reviendra à 6,80€)
+          
+        </p>
+      </div>
+      <div class="donation-banner__actions-section__donate-button">
+        <a href="//open-food-facts.assoconnect.com/collect/description/476750-c-faire-un-don-a-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2024-a&utm_term=en-text-button">
+          <button>JE SOUTIENS</button>
+        </a>
+      </div>
     </div>
   </div>
-  <div class="donation-banner__image" role="img" aria-label="Photo of the project team"></div>
   <div class="donation-banner__close">
     <button id="hide-donate-banner" class="material-icons modest" onclick="DonationButton();" onkeypress="DonationButton();">close</button>
   </div>
@@ -328,11 +343,11 @@
   }
 
   function DonationButton() {
-    setBannerCookie('off_donation_banner_2023_a', 1, 180);
+    setBannerCookie('off_donation_banner_2024_a', 1, 180);
     bannerID.style.display = 'none';
   }
 
-  if (getBannerCookie('off_donation_banner_2023_a') !== '') {
+  if (getBannerCookie('off_donation_banner_2024_a') !== '') {
     bannerID.style.display = 'none';
   } else { 
     bannerID.style.display = 'flex';
@@ -341,6 +356,7 @@
 
 
 							
+						
 						
             			
 						
@@ -429,7 +445,7 @@
             </li>
         
             <li>
-              <a href="?sort_by=ecoscore_score" onclick="$.cookie('last_sort_by', 'ecoscore_score', { expires: 180, path: '/' });">Produits avec le meilleur Eco-Score</a>
+              <a href="?sort_by=environmental_score_score" onclick="$.cookie('last_sort_by', 'environmental_score_score', { expires: 180, path: '/' });">Produits avec le meilleur Green-Score</a>
             </li>
         
             <li>
@@ -460,7 +476,7 @@
             </li>
           
             <li>
-              <a href="/eco-score">Eco-Score</a>
+              <a href="/environmental-score">Green-Score</a>
             </li>
           
             <li>
@@ -528,7 +544,7 @@
             </li>
           
             <li>
-              <a href="/misc"></a>
+              <a href="/misc">Divers</a>
             </li>
           
             <li>
@@ -608,8 +624,7 @@
   </div>
       
     
-	</ul>
-
+	
   </div>
 </div>
 
@@ -624,6 +639,7 @@
 		</div>
 		</div>
 
+		
 		<footer>
 			<div class="block_light bg-white" id="install_the_app_block">
 				<div class="row">
@@ -661,22 +677,56 @@
 
 				
 
-<section class="donation-banner-footer">
-  <span class="donation-banner-footer__logo"></span>
-  <span class="donation-banner-footer__hand"></span>
-  <div class="donation-banner-footer__content">
-    <p class="donation-banner-footer__main-text">
-      <span>Aidez-nous à faire de la transparence alimentaire la norme !</span>
-    </p>
-    <div class="donation-banner-footer__aside">
-      <div>
-        <p class="donation-banner-footer__secondary-text">En tant qu'organisation à but non lucratif, nous dépendons de vos dons pour continuer à informer les consommateurs du monde entier sur ce qu'ils mangent.</p>
-        <p class="donation-banner-footer__tertiary-text">La révolution alimentaire commence avec vous !</p>
+<section class="donation-banner-footer row">
+  <div class="donation-banner-footer__left-aside">
+    <div class="donation-banner-footer__hook-section">
+      <p>Aidez-nous à informer des millions de consommateurs à travers le monde sur ce qu'ils mangent</p>
+    </div>
+    <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="group photo donation 2024" />
+  </div>
+  <div>
+    <div>
+      <div class="donation-banner-footer__main-section">
+        <img
+          width="50"
+          height="50"
+          src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
+          alt="open food facts logo"
+        />
+        <h3 class="donation-banner-footer__main-title">Merci de contribuer à notre collecte de fonds 2024</h3>
       </div>
-      <a class="donation-banner-footer__donate" href="//fr.openfoodfacts.org/faire-un-don-a-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2023-a&utm_term=en-text-button">Faire un don</a>
+      <p>Vos dons financent le fonctionnement quotidien de notre association à but non lucratif :</p>
+      <ul>
+        <li>
+          garder notre base de données ouverte et accessible à tous,
+          <ul>
+            <li>infrastructure technique (site web/application mobile) et une petite équipe permanente</li>
+          </ul>
+        </li>
+        <li>
+          <p>rester indépendant de l'industrie alimentaire,</p>
+        </li>
+        <li>
+          <p>mobiliser une communauté de citoyens engagés,</p>
+        </li>
+        <li>
+          <p>soutenir l’avancement de la recherche en santé publique.</p>
+        </li>
+      </ul>
+    </div>
+    <div class="donation-banner-footer__actions-section">
+      <div class="donation-banner-footer__actions-section__financial">
+        <p>
+          Chaque don compte ! Nous apprécions votre soutien pour une plus grande transparence alimentaire dans le monde.
+        </p>
+      </div>
+      <div class="donation-banner-footer__actions-section__donate-button">
+        <a href="//open-food-facts.assoconnect.com/collect/description/476750-c-faire-un-don-a-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2024-a&utm_term=en-text-button">
+          <button>JE SOUTIENS</button>
+        </a>
+      </div>
     </div>
   </div>
-  <div class="donation-banner-footer__image" role="img" aria-label="Photo of the project team"></div>
 </section>
 
 
@@ -744,6 +794,7 @@
 				</div>
 			</div>
 		</footer>
+		
 
 	</div>
 
@@ -784,15 +835,15 @@ var products = [
             "attributes":[
                {
                   "description":"",
-                  "description_short":"Qualité nutritionnelle moyenne",
-                  "grade":"c",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-c.svg",
+                  "description_short":"Moins bonne qualité nutritionnelle",
+                  "grade":"d",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d-new-fr.svg",
                   "id":"nutriscore",
-                  "match":43.1111111111111,
+                  "match":29.4444444444444,
                   "name":"Nutri-Score",
-                  "panel_id":"nutriscore",
+                  "panel_id":"nutriscore_2023",
                   "status":"known",
-                  "title":"Nutri-Score C"
+                  "title":"Nutri-Score D"
                },
                {
                   "grade":"unknown",
@@ -1019,8 +1070,6 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"",
-                  "description_short":"Aliments transformés",
                   "grade":"b",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
                   "id":"nova",
@@ -1028,7 +1077,7 @@ var products = [
                   "name":"Groupe NOVA",
                   "panel_id":"nova",
                   "status":"known",
-                  "title":"NOVA 3"
+                  "title":"Aliments transformés"
                },
                {
                   "grade":"c",
@@ -1050,13 +1099,13 @@ var products = [
                   "description":"",
                   "description_short":"Faible impact environnemental",
                   "grade":"b",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-b.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-b.svg",
                   "id":"ecoscore",
-                  "match":71,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "match":70,
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"known",
-                  "title":"Eco-Score B"
+                  "title":"Green-Score B"
                },
                {
                   "description":"",
@@ -1115,11 +1164,11 @@ var products = [
                   "description":"",
                   "description_short":"Données manquantes pour calculer le Nutri-Score",
                   "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown-new-fr.svg",
                   "id":"nutriscore",
                   "match":0,
                   "name":"Nutri-Score",
-                  "panel_id":"nutriscore",
+                  "panel_id":"nutriscore_2023",
                   "status":"unknown",
                   "title":"Nutri-Score inconnu"
                },
@@ -1348,8 +1397,6 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"",
-                  "description_short":"Aliments ultra-transformés",
                   "grade":"e",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-4.svg",
                   "id":"nova",
@@ -1357,7 +1404,7 @@ var products = [
                   "name":"Groupe NOVA",
                   "panel_id":"nova",
                   "status":"known",
-                  "title":"NOVA 4"
+                  "title":"Aliments ultra-transformés"
                },
                {
                   "grade":"b",
@@ -1379,13 +1426,13 @@ var products = [
                   "description":"",
                   "description_short":"Impact environnemental inconnu",
                   "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-unknown.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-unknown.svg",
                   "id":"ecoscore",
                   "match":0,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"unknown",
-                  "title":"Eco-Score non calculé"
+                  "title":"Green-Score non calculé"
                },
                {
                   "description":"",
@@ -1443,11 +1490,11 @@ var products = [
                   "description":"",
                   "description_short":"Qualité nutritionnelle moyenne",
                   "grade":"c",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-c.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-c-new-fr.svg",
                   "id":"nutriscore",
-                  "match":50.5,
+                  "match":41,
                   "name":"Nutri-Score",
-                  "panel_id":"nutriscore",
+                  "panel_id":"nutriscore_2023",
                   "status":"known",
                   "title":"Nutri-Score C"
                },
@@ -1677,8 +1724,6 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"",
-                  "description_short":"Aliments non transformés ou minimalement transformés",
                   "grade":"a",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-1.svg",
                   "id":"nova",
@@ -1686,7 +1731,7 @@ var products = [
                   "name":"Groupe NOVA",
                   "panel_id":"nova",
                   "status":"known",
-                  "title":"NOVA 1"
+                  "title":"Aliments non transformés ou minimalement transformés"
                },
                {
                   "grade":"a",
@@ -1708,13 +1753,13 @@ var products = [
                   "description":"",
                   "description_short":"Impact modéré sur l'environnement",
                   "grade":"c",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg",
                   "id":"ecoscore",
-                  "match":51,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "match":50,
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"known",
-                  "title":"Eco-Score C"
+                  "title":"Green-Score C"
                },
                {
                   "description":"",
@@ -1771,12 +1816,12 @@ var products = [
                {
                   "description":"",
                   "description_short":"Qualité nutritionnelle moyenne",
-                  "grade":"c",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-c.svg",
+                  "grade":"d",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-c-new-fr.svg",
                   "id":"nutriscore",
-                  "match":50.5,
+                  "match":35.25,
                   "name":"Nutri-Score",
-                  "panel_id":"nutriscore",
+                  "panel_id":"nutriscore_2023",
                   "status":"known",
                   "title":"Nutri-Score C"
                },
@@ -2006,8 +2051,6 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"",
-                  "description_short":"Aliments non transformés ou minimalement transformés",
                   "grade":"a",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-1.svg",
                   "id":"nova",
@@ -2015,7 +2058,7 @@ var products = [
                   "name":"Groupe NOVA",
                   "panel_id":"nova",
                   "status":"known",
-                  "title":"NOVA 1"
+                  "title":"Aliments non transformés ou minimalement transformés"
                },
                {
                   "grade":"a",
@@ -2037,13 +2080,13 @@ var products = [
                   "description":"",
                   "description_short":"Impact modéré sur l'environnement",
                   "grade":"c",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg",
                   "id":"ecoscore",
-                  "match":51,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "match":50,
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"known",
-                  "title":"Eco-Score C"
+                  "title":"Green-Score C"
                },
                {
                   "description":"",
@@ -2101,11 +2144,11 @@ var products = [
                   "description":"",
                   "description_short":"Données manquantes pour calculer le Nutri-Score",
                   "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown-new-fr.svg",
                   "id":"nutriscore",
                   "match":0,
                   "name":"Nutri-Score",
-                  "panel_id":"nutriscore",
+                  "panel_id":"nutriscore_2023",
                   "status":"unknown",
                   "title":"Nutri-Score inconnu"
                },
@@ -2335,8 +2378,6 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"",
-                  "description_short":"Aliments transformés",
                   "grade":"b",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
                   "id":"nova",
@@ -2344,7 +2385,7 @@ var products = [
                   "name":"Groupe NOVA",
                   "panel_id":"nova",
                   "status":"known",
-                  "title":"NOVA 3"
+                  "title":"Aliments transformés"
                },
                {
                   "grade":"a",
@@ -2366,13 +2407,13 @@ var products = [
                   "description":"",
                   "description_short":"Faible impact environnemental",
                   "grade":"b",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-b.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-b.svg",
                   "id":"ecoscore",
-                  "match":68,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "match":67,
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"known",
-                  "title":"Eco-Score B"
+                  "title":"Green-Score B"
                },
                {
                   "description":"",
@@ -2430,11 +2471,11 @@ var products = [
                   "description":"",
                   "description_short":"Données manquantes pour calculer le Nutri-Score",
                   "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown-new-fr.svg",
                   "id":"nutriscore",
                   "match":0,
                   "name":"Nutri-Score",
-                  "panel_id":"nutriscore",
+                  "panel_id":"nutriscore_2023",
                   "status":"unknown",
                   "title":"Nutri-Score inconnu"
                },
@@ -2664,8 +2705,6 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"",
-                  "description_short":"Aliments transformés",
                   "grade":"b",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
                   "id":"nova",
@@ -2673,7 +2712,7 @@ var products = [
                   "name":"Groupe NOVA",
                   "panel_id":"nova",
                   "status":"known",
-                  "title":"NOVA 3"
+                  "title":"Aliments transformés"
                },
                {
                   "grade":"a",
@@ -2695,13 +2734,13 @@ var products = [
                   "description":"",
                   "description_short":"Impact environnemental inconnu",
                   "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-unknown.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-unknown.svg",
                   "id":"ecoscore",
                   "match":0,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"unknown",
-                  "title":"Eco-Score non calculé"
+                  "title":"Green-Score non calculé"
                },
                {
                   "description":"",
@@ -2757,13 +2796,13 @@ var products = [
             "attributes":[
                {
                   "description":"",
-                  "description_short":"Mauvaise qualité nutritionnelle",
+                  "description_short":"Moins bonne qualité nutritionnelle",
                   "grade":"d",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d-new-fr.svg",
                   "id":"nutriscore",
-                  "match":35.7777777777778,
+                  "match":27.3333333333333,
                   "name":"Nutri-Score",
-                  "panel_id":"nutriscore",
+                  "panel_id":"nutriscore_2023",
                   "status":"known",
                   "title":"Nutri-Score D"
                },
@@ -2993,8 +3032,6 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"",
-                  "description_short":"Aliments transformés",
                   "grade":"b",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
                   "id":"nova",
@@ -3002,7 +3039,7 @@ var products = [
                   "name":"Groupe NOVA",
                   "panel_id":"nova",
                   "status":"known",
-                  "title":"NOVA 3"
+                  "title":"Aliments transformés"
                },
                {
                   "grade":"c",
@@ -3023,14 +3060,14 @@ var products = [
                {
                   "description":"",
                   "description_short":"Faible impact environnemental",
-                  "grade":"b",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-b.svg",
+                  "grade":"c",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-b.svg",
                   "id":"ecoscore",
-                  "match":61,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "match":60,
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"known",
-                  "title":"Eco-Score B"
+                  "title":"Green-Score B"
                },
                {
                   "description":"",
