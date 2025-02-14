@@ -4,34 +4,34 @@
 
 # Data quality errors should not contain false positive, as opposed to data quality warnings
 en: Data quality errors
+ar: أخطاء جودة البيانات
 de: Datenqualitätsfehler
 es: Errores de calidad de datos
 fr: Erreurs de qualité des données
 it: Errori di qualità dei dati
-pt: Erros de qualidade de dados
-nl: Fouten in de gegevenskwaliteit
-pl: Błędy jakości danych
-ru: Ошибки качества данных
-zh: 数据质量错误
 ja: データ品質エラー
 ko: 데이터 품질 오류
-ar: أخطاء جودة البيانات
+nl: Fouten in de gegevenskwaliteit
+pl: Błędy jakości danych
+pt: Erros de qualidade de dados
+ru: Ошибки качества данных
+zh: 数据质量错误
 description:en: Error detected on data
 
 < en:Data quality errors
 en: Nutrition errors
+ar: أخطاء التغذية
+de: Ernährungsfehler
 es: Errores de nutrición
 fr: Erreurs nutritionnelles
-de: Ernährungsfehler
 it: Errori nutrizionali
-pt: Erros de nutrição
-nl: Voedingsfouten
-pl: Błędy żywieniowe
-ru: Ошибки в питании
-zh: 营养错误
 ja: 栄養に関するエラー
 ko: 영양 오류
-ar: أخطاء التغذية
+nl: Voedingsfouten
+pl: Błędy żywieniowe
+pt: Erros de nutrição
+ru: Ошибки в питании
+zh: 营养错误
 description:en: Error on nutrition data (nutrients)
 fix_action:en: add_nutrition_facts
 marker_type:en: error
@@ -159,18 +159,18 @@ description:en: Alcohol value is over 1000g per 100g, which is impossible.
 
 < en:Nutrition errors
 en: Nutrition value over 1000 - Alpha-linolenic acid
+ar: القيمة الغذائية فوق 1000 - حمض ألفا لينولينيك
 de: Nährwert über 1000 - Alpha-Linolensäure
 es: Valor nutricional superior a 1000 - Ácido alfa-linolénico
 fr: Valeur nutritionnelle supérieure à 1000 - Acide alpha-linolénique
 it: Valore nutrizionale superiore a 1000 - Acido alfa-linolenico
+ja: 栄養価が1000を超える - α-リノレン酸
+ko: 영양가가 1000을 초과 - 알파-리놀렌산
 nl: Voedingswaarde boven 1000 - Alfa-linoleenzuur
 pl: Wartość odżywcza powyżej 1000 - Kwas alfa-linolenowy
 pt: Valor nutricional acima de 1000 - Ácido alfa-linolênico
 ru: Пищевая ценность выше 1000 - Альфа-линоленовая кислота
 zh: 营养价值超过1000 - α-亚麻酸
-ja: 栄養価が1000を超える - α-リノレン酸
-ko: 영양가가 1000을 초과 - 알파-리놀렌산
-ar: القيمة الغذائية فوق 1000 - حمض ألفا لينولينيك
 description:en: Alpha-linolenic acid value is over 1000g per 100g, which is impossible.
 
 < en:Nutrition errors
@@ -195,32 +195,32 @@ description:en: Arachidonic acid value is over 1000g per 100g, which is impossib
 
 < en:Nutrition errors
 en: Nutrition value over 1000 - Behenic acid
+ar: القيمة الغذائية فوق 1000 - حمض البهينيك
 de: Nährwert über 1000 - Behensäure
 es: Valor nutricional superior a 1000 - Ácido behénico
 fr: Valeur nutritionnelle supérieure à 1000 - Acide béhénique
 it: Valore nutrizionale superiore a 1000 - Acido beenico
+ja: 栄養価が1000を超える - ベヘン酸
+ko: 영양가가 1000을 초과 - 베헨산
 nl: Voedingswaarde boven 1000 - Beheenzuur
 pt: Valor nutricional acima de 1000 - Ácido behênico
 ru: Пищевая ценность выше 1000 - Бегеновая кислота
 zh: 营养价值超过1000 - 山嵛酸
-ja: 栄養価が1000を超える - ベヘン酸
-ko: 영양가가 1000을 초과 - 베헨산
-ar: القيمة الغذائية فوق 1000 - حمض البهينيك
 description:en: Behenic acid value is over 1000g per 100g, which is impossible.
 
 < en:Nutrition errors
 en: Nutrition value over 1000 - Biotin
+ar: القيمة الغذائية فوق 1000 - بيوتين
 de: Nährwert über 1000 - Biotin
 es: Valor nutricional superior a 1000 - Biotina
 fr: Valeur nutritionnelle supérieure à 1000 - Biotine
 it: Valore nutrizionale superiore a 1000 - Biotina
+ja: 栄養価が1000を超える - ビオチン
+ko: 영양가가 1000을 초과 - 비오틴
 nl: Voedingswaarde boven 1000 - Biotine
 pt: Valor nutricional acima de 1000 - Biotina
 ru: Пищевая ценность выше 1000 - Биотин
 zh: 营养价值超过1000 - 生物素
-ja: 栄養価が1000を超える - ビオチン
-ko: 영양가가 1000을 초과 - 비오틴
-ar: القيمة الغذائية فوق 1000 - بيوتين
 description:en: Biotin value is over 1000g per 100g, which is impossible.
 
 < en:Nutrition errors
@@ -3508,9 +3508,9 @@ fr: Quantité du produit supérieure à 30 kg
 it: Quantità del prodotto superiore a 30 kg
 nl: Producthoeveelheid boven 30 kg
 pt: Quantidade do produto acima de 30 kg
+description:en: Product quantity is above 30kg, which is very unlikely.
 description:ar: كمية المنتج تزيد عن 30 كجم ، وهو أمر غير مرجح للغاية.
 description:de: Die Produktmenge beträgt über 30 kg, was sehr unwahrscheinlich ist.
-description:en: Product quantity is above 30kg, which is very unlikely.
 description:es: La cantidad del producto es superior a 30 kg, lo cual es muy poco probable.
 description:fr: La quantité du produit est supérieure à 30 kg, ce qui est très improbable.
 description:it: La quantità del prodotto è superiore a 30 kg, il che è molto improbabile.
@@ -3519,9 +3519,9 @@ description:pt: A quantidade do produto é superior a 30 kg, o que é muito impr
 
 < en:Data quality warnings
 en: Quantity and serving warnings
+description:en: Potential issues on quantities or serving size
 description:ar: مشاكل محتملة في الكميات أو حجم الحصة
 description:de: Mögliche Probleme mit Mengen oder Portionsgröße
-description:en: Potential issues on quantities or serving size
 description:es: Problemas potenciales en las cantidades o el tamaño de la porción
 description:fr: Problèmes potentiels sur les quantités ou la portion
 description:it: Potenziali problemi sulle quantità o sulla porzione
