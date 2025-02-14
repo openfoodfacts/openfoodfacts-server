@@ -2,6 +2,7 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "12115",
+         "ecobalyse_code" : "74314f2e-aa88-4ac1-aa78-bb29dceebf0b",
          "id" : "en:emmental",
          "is_in_taxonomy" : 1,
          "origins" : "en:germany,en:france,en:netherlands",
@@ -31,6 +32,7 @@
       "en:dairy",
       "en:cheese"
    ],
+   "ingredients_lc" : "fr",
    "ingredients_n" : 1,
    "ingredients_n_tags" : [
       "1",
@@ -52,6 +54,8 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 3,
    "lc" : "fr",
    "nutriments" : {

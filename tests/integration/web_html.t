@@ -544,6 +544,32 @@ my $tests_ref = [
 			'Cache-Control' => 'no-cache',
 		},
 	},
+	# request with a group_by tagtype in English
+	# e.g. https://es.openfoodfacts.org/ingredients
+	{
+		test_case => 'es-ingredients',
+		subdomain => 'es',
+		path => '/ingredients',
+		expected_type => 'html',
+	},
+	# /products with multiple products
+	{
+		test_case => 'world-products-multiple-codes',
+		path => '/products/3300000000001,3300000000002',
+		expected_type => 'html',
+	},
+	# Request a page with ?content_only=1 to remove the header and footer
+	{
+		test_case => 'world-product-content-only',
+		path => '/product/3300000000001/apple-pie-bob-s-pies?content_only=1',
+		expected_type => 'html',
+	},
+	# Use ?user_agent=smoothie to test the smoothie user agent
+	{
+		test_case => 'world-product-smoothie',
+		path => '/product/3300000000001/apple-pie-bob-s-pies?user_agent=smoothie',
+		expected_type => 'html',
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);

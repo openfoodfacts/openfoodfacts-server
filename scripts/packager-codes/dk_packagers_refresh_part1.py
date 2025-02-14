@@ -1,7 +1,7 @@
 '''
 This file is part of Product Opener.
 Product Opener
-Copyright (C) 2011-2023 Association Open Food Facts
+Copyright (C) 2011-2024 Association Open Food Facts
 Contact: contact@openfoodfacts.org
 Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 Product Opener is free software: you can redistribute it and/or modify
@@ -60,7 +60,8 @@ def read_input_file(file_name: str) -> pd.core.frame.DataFrame:
     # ignore two first tabs
     ids = [i for i in range(2, 21)]
     # skip first few rows (~page header)
-    excel_file = pd.read_excel('Autoriserede_Foedevarevirksomheder_Excel(1).xlsx', sheet_name=ids, skiprows=5)
+    excel_file = pd.read_excel(
+        'Autoriserede_Foedevarevirksomheder_Excel(1).xlsx', sheet_name=ids, skiprows=5)
     # take only first three columns (code, name, address)
     filtered_dfs = [df.iloc[:, :3] for df in excel_file.values()]
     # combine all tabs into single one
@@ -79,7 +80,7 @@ def read_input_file(file_name: str) -> pd.core.frame.DataFrame:
     # some approval number became float (60.0)
     df['code'] = df['code'].apply(lambda x: str(x).replace('.0', ''))
 
-    # append prefix DF and suffix EK 
+    # append prefix DF and suffix EK
     # at the end of the packaging codes
     df['code'] = df['code'].str.strip()
     df['code'] = df['code'].apply(lambda x: f"DK {x} EF")
@@ -88,7 +89,6 @@ def read_input_file(file_name: str) -> pd.core.frame.DataFrame:
     df.drop_duplicates(subset="code", keep="first", inplace=True)
 
     return df
-
 
 
 if __name__ == "__main__":

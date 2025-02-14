@@ -1,6 +1,4 @@
-﻿version: "3.7"
-
-x-backend-conf: &backend-conf
+﻿x-backend-conf: &backend-conf
   image: openfoodfacts-server/backend:dev
   build:
     context: .
@@ -24,7 +22,7 @@ x-backend-conf: &backend-conf
     - ./sftp:/mnt/podata/sftp/
   # Allow the container to connect to the host when using Linux.
   # This is needed to access other services that are running outside of Docker
-  # e.g. when developing with Robotoff or openfoodfacts-query
+  # e.g. when developing with openfoodfacts-query
   extra_hosts:
     - "host.docker.internal:host-gateway"
 

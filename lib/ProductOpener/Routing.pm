@@ -265,7 +265,7 @@ sub org_route($request_ref) {
 			return;
 		}
 		if (scalar @errors eq 0) {
-			set_owner_id();
+			set_owner_id($request_ref);
 			# will save the pro_moderator_owner field
 			store_user($moderator);
 		}
@@ -292,8 +292,8 @@ sub org_route($request_ref) {
 # api/v0/search
 sub api_route($request_ref) {
 	my @components = @{$request_ref->{components}};
-	my $api = $components[1];    # v0
-	my $api_version = $api =~ /v(\d+)/ ? $1 : 0;
+	my $api = $components[1];    # v0, v3.1
+	my $api_version = $api =~ /v(\d+(\.\d+)?)/ ? $1 : 0;
 	my $api_action = $components[2];    # product
 
 	# If the api_action is different than "search", check if it is the local path for "product"
@@ -319,8 +319,8 @@ sub api_route($request_ref) {
 		param("tagid", $components[4]);
 		$request_ref->{tagid} = $components[4];
 	}
-	elsif ($api_action eq "geoip") {    # api/v3/geoip/[ip]
-		$request_ref->{ip} = $components[3];
+	elsif ($api_action eq "geoip") {    # api/v3/geoip/
+		$request_ref->{geoip_ip} = remote_addr();
 	}
 
 	# If return format is not xml or jqm or jsonp, default to json
@@ -355,6 +355,11 @@ sub api_route($request_ref) {
 	set_request_stats_value($request_ref->{stats}, "api_method", $request_ref->{api_method});
 	set_request_stats_value($request_ref->{stats}, "api_version", $request_ref->{api_version});
 
+	if ($api_action eq "product") {
+		$request_ref->{rate_limiter_bucket} = "product";
+	}
+
+	$log->debug("api_route", {request_ref => $request_ref}) if $log->is_debug();
 	return 1;
 }
 
@@ -363,6 +368,7 @@ sub api_route($request_ref) {
 sub search_route($request_ref) {
 	$request_ref->{search} = 1;
 	set_request_stats_value($request_ref->{stats}, "route", "search");
+	$request_ref->{rate_limiter_bucket} = "search";
 	return 1;
 }
 
@@ -386,7 +392,7 @@ sub properties_route($request_ref) {
 # products/[code](+[code])*
 # e.g. /8024884500403+3263855093192
 sub products_route($request_ref) {
-	param("code", $request_ref->{components}[0]);
+	param("code", $request_ref->{components}[1]);
 	$request_ref->{search} = 1;
 	set_request_stats_value($request_ref->{stats}, "route", "search");
 	return 1;
@@ -408,6 +414,7 @@ sub product_route($request_ref) {
 		$request_ref->{product} = 1;
 		$request_ref->{code} = $request_ref->{components}[1];
 		$request_ref->{titleid} = $request_ref->{components}[2] // '';
+		$request_ref->{rate_limiter_bucket} = "product";
 		set_request_stats_value($request_ref->{stats}, "route", "product");
 	}
 	else {
@@ -546,10 +553,12 @@ sub facets_route($request_ref) {
 	$request_ref->{canon_rel_url} .= $canon_rel_url_suffix;
 
 	if (defined $request_ref->{groupby_tagtype}) {
+		$request_ref->{rate_limiter_bucket} = "facet_tags";
 		set_request_stats_value($request_ref->{stats}, "route", "facets_tags");
 		set_request_stats_value($request_ref->{stats}, "groupby_tagtype", $request_ref->{groupby_tagtype});
 	}
 	else {
+		$request_ref->{rate_limiter_bucket} = "facet_products";
 		set_request_stats_value($request_ref->{stats}, "route", "facets_products");
 	}
 	set_request_stats_value($request_ref->{stats}, "facets_tags", (scalar @{$request_ref->{tags}}));
@@ -613,7 +622,13 @@ sub register_route($routes_to_register) {
 		}
 		else {
 			# use a hash key for fast match
-			$routes{$pattern} = {handler => $handler, opt => $opt};
+			# do not overwrite existing routes (e.g. a text route that matches a well known route)
+			if (exists $routes{$pattern}) {
+				$log->warn("route already exists", {pattern => $pattern}) if $log->is_warn();
+			}
+			else {
+				$routes{$pattern} = {handler => $handler, opt => $opt};
+			}
 		}
 	}
 	return 1;
@@ -936,28 +951,47 @@ sub set_rate_limit_attributes ($request_ref, $ip) {
 	$request_ref->{rate_limiter_limit} = undef;
 	$request_ref->{rate_limiter_blocking} = 0;
 
-	my $api_action = $request_ref->{api_action};
-	if (not defined $api_action) {
-		# The request is not an API request, we don't need to check the rate-limiter
+	my $rate_limit_bucket = $request_ref->{rate_limiter_bucket};
+
+	if (not defined $rate_limit_bucket) {
+		# The request is not rate-limited
 		return;
 	}
-	$request_ref->{rate_limiter_user_requests} = get_rate_limit_user_requests($ip, $api_action);
+	$request_ref->{rate_limiter_user_requests} = get_rate_limit_user_requests($ip, $rate_limit_bucket);
 
 	my $limit;
-	if (($api_action eq "search") or ($request_ref->{search})) {
+	if ($rate_limit_bucket eq "search") {
 		$limit = $options{rate_limit_search};
 	}
-	elsif ($api_action eq "product") {
+	elsif ($rate_limit_bucket eq "product") {
 		$limit = $options{rate_limit_product};
 	}
-	else {
-		# No rate-limit is defined for this API action
-		return;
+	elsif ($rate_limit_bucket eq "facet_products") {
+		if ($request_ref->{is_crawl_bot}) {
+			$limit = $options{rate_limit_facet_products_crawl_bot};
+		}
+		elsif (defined $request_ref->{user_id}) {
+			$limit = $options{rate_limit_facet_products_registered};
+		}
+		else {
+			$limit = $options{rate_limit_facet_products_unregistered};
+		}
+	}
+	elsif ($rate_limit_bucket eq "facet_tags") {
+		if ($request_ref->{is_crawl_bot}) {
+			$limit = $options{rate_limit_facet_tags_crawl_bot};
+		}
+		elsif (defined $request_ref->{user_id}) {
+			$limit = $options{rate_limit_facet_tags_registered};
+		}
+		else {
+			$limit = $options{rate_limit_facet_tags_unregistered};
+		}
 	}
 	$request_ref->{rate_limiter_limit} = $limit;
 
 	if (
-		# if $limit is not defined, the rate-limiter is disabled for this API action
+		# if $limit is not defined, the rate-limiter is disabled for this route and/or user
 		defined $limit
 		and defined $request_ref->{rate_limiter_user_requests}
 		and $request_ref->{rate_limiter_user_requests} >= $limit
@@ -971,6 +1005,12 @@ sub set_rate_limit_attributes ($request_ref, $ip) {
 				# The IP address is local, we don't block the request
 				$block_message
 					= "Rate-limiter blocking is disabled for local IP addresses, but the user has reached the rate-limit";
+			}
+			# Check that the ip is not in the OFF private network
+			elsif ($ip =~ /^10\.1\./) {
+				# The IP address is in the OFF private network, we don't block the request
+				$block_message
+					= "Rate-limiter blocking is disabled for the OFF private network, but the user has reached the rate-limit";
 			}
 			# Check that the IP address is not in the allow list
 			elsif (defined $options{rate_limit_allow_list}{$ip}) {
@@ -991,9 +1031,10 @@ sub set_rate_limit_attributes ($request_ref, $ip) {
 			$block_message,
 			{
 				ip => $ip,
-				api_action => $api_action,
+				rate_limit_bucket => $rate_limit_bucket,
 				user_requests => $request_ref->{rate_limiter_user_requests},
-				limit => $limit
+				limit => $limit,
+				user_agent => $request_ref->{user_agent},
 			}
 		) if $ratelimiter_log->is_info();
 	}
@@ -1006,11 +1047,10 @@ sub check_and_update_rate_limits($request_ref) {
 		my $ip_address = remote_addr();
 		# Set rate-limiter related request attributes
 		set_rate_limit_attributes($request_ref, $ip_address);
-		my $api_action = $request_ref->{api_action};
 
-		if (defined $api_action) {
+		if (defined $request_ref->{rate_limiter_bucket}) {
 			# Increment the number of requests performed by the user for the current minute
-			increment_rate_limit_requests($ip_address, $api_action);
+			increment_rate_limit_requests($ip_address, $request_ref->{rate_limiter_bucket});
 		}
 	}
 	return;

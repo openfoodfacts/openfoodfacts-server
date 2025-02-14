@@ -1,7 +1,7 @@
 // This file is part of Product Opener.
 //
 // Product Opener
-// Copyright (C) 2011-2023 Association Open Food Facts
+// Copyright (C) 2011-2024 Association Open Food Facts
 // Contact: contact@openfoodfacts.org
 // Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 //
@@ -146,22 +146,19 @@ function select_nutriment(event, ui) {
         unitElement.show();
         percentElement.hide();
 
-        for (let entryIndex = 0; entryIndex < units.length; ++entryIndex) {
-            const entry = units[entryIndex];
-            for (let unitIndex = 0; unitIndex < entry.length; ++unitIndex) {
-                const unitEntry = entry[unitIndex].toLowerCase();
-                if (unitEntry == unit) {
+        for (const entry of units) {
+            for (const unitEntry of entry) {
+                if (unitEntry.toLowerCase() == unit) {
                     const domElement = unitElement[0];
                     domElement.options.length = 0; // Remove current entries.
-                    for (let itemIndex = 0; itemIndex < entry.length; ++itemIndex) {
-                        const unitValue = entry[itemIndex];
+                    for (const unitValue of entry) {
                         domElement.options[domElement.options.length] = new Option(unitValue, unitValue, false, unitValue.toLowerCase() == unit);
                     }
-
+        
                     if (ui.item.iu) {
                         domElement.options[domElement.options.length] = new Option('IU', 'IU', false, 'iu' == unit);
                     }
-
+        
                     return;
                 }
             }
@@ -589,7 +586,7 @@ function initializeTagifyInput(el) {
                     then((RES) => RES.json()).
                     then(function (json) {
                         const lc = (/^\w\w:/).exec(value);
-                        let whitelist = json.suggestions;
+                        let whitelist = Object.values(json.matched_synonyms);
                         if (lc) {
                             whitelist = whitelist.map(function (e) {
                                 return {"value": lc + e, "searchBy": e};

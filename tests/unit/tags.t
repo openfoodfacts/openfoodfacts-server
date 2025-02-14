@@ -615,13 +615,45 @@ is(
 	$tag_ref,
 	{
 		'css_class' => 'tag user_defined ',
-		'display' => 'some unknown label',
+		'display' => 'Some unknown label',
 		'display_lc' => 'fr',
 		'html_lang' => ' lang="fr"',
 		'known' => 0,
 		'tagid' => 'fr:some unknown label',
 		'tagurl' => 'some-unknown-label'
 	}
+
+) or diag Dumper $tag_ref;
+
+# Test we have the right links for xx: entries
+$tag_ref = get_taxonomy_tag_and_link_for_lang("fr", "test", "en:smartphones");
+is(
+	$tag_ref,
+	{
+		'tagurl' => 'telephones-intelligents',
+		'tagid' => 'en:smartphones',
+		'display_lc' => 'fr',
+		'known' => 1,
+		'css_class' => 'tag known ',
+		'display' => "T\x{e9}l\x{e9}phones intelligents",
+		'html_lang' => ' lang="fr"'
+	}
+
+) or diag Dumper $tag_ref;
+
+$tag_ref = get_taxonomy_tag_and_link_for_lang("de", "test", "en:smartphones");
+is(
+	$tag_ref,
+	{
+		'display' => 'Smartphones',
+		'css_class' => 'tag known ',
+		'html_lang' => ' lang="de"',
+		'known' => 1,
+		'display_lc' => 'de',
+		'tagid' => 'en:smartphones',
+		'tagurl' => 'smartphones'
+	}
+
 ) or diag Dumper $tag_ref;
 
 # check that %tags_texts is populated on demand

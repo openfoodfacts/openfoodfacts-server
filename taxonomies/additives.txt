@@ -1101,7 +1101,7 @@ lv: E133, Briljantzilais FCF
 mt: E133, Blu brillanti FCF
 nb: E133, briljantblà FCF
 nl: E133, Briljantblauw FCF, Briljantblauw
-pl: E133, Błękit brylantowy FCF
+pl: E133, Błękit brylantowy FCF, Błękit brylantowy
 pt: E133, Azul brilhante FCF
 ro: E133, Albastru briliant FCF
 sh: E133, Brilijantno plavo FCF
@@ -2271,6 +2271,7 @@ e_number:en: 160b
 < en:E160b
 en: E160b(ii), Annatto norbixin, Norbixin
 xx: E160b(ii)
+fr: E160b(ii), norbixine de rocou
 additives_classes:en: en:colour
 e_number:en: 160b
 
@@ -3283,7 +3284,7 @@ ca: E170(i), Carbonat de calci
 cs: E170(i), Uhličitan vápenatý, CI bílý pigment 18
 cy: E170(i), calsiwm carbonad
 da: E170(i), Calciumcarbonat, CI Pigment White 18
-de: E170(i), Calciumcarbonat, Pigment White 18, Kalk
+de: E170(i), Calciumcarbonat, Pigment White 18, Kalk, Calcium-carbonat, Kalziumkarbonat
 el: E170(i), Ανθρακικο ασβεστιο, Λευκό CI Pigment 18
 eo: E170(i), kalcia karbonato
 es: E170(i), Carbonato de calcio, CI Pigment White 18, Carbonato cálcico
@@ -3438,7 +3439,7 @@ ms: E171, Titanium dioksida
 mt: E171, Diossidu tat-titanju
 nb: E171, titandioxid
 nl: E171, Titaandioxide, Titanium(IV)oxide, Titaniumoxide, Titaniumdioxide, Titanium dioxide, Titaanwit
-pl: E171, Dwutlenek tytanu, tlenek tytanu(IV), ditlenek tytanu, biel tytanowa
+pl: E171, Dwutlenek tytanu, tlenek tytanu(IV), ditlenek tytanu, biel tytanowa, tytanu dwutlenek
 pt: E171, Dióxido de titânio, Óxido de titânio
 ro: E171, Dioxid de titan, Bioxid de titan
 ru: E171, Титана диоксид, оксид титана(IV), TiO2, двуокись титана, оксид титана, белила титановые, титановые белила, диоксид титана
@@ -7793,6 +7794,7 @@ wikidata:en: Q241595
 
 en: E322a, Oat lecithin
 xx: E322a
+it: E322a, lecitina di avena
 e_number:en: 322a
 
 en: E323, E323 food additive
@@ -8176,7 +8178,7 @@ xx: E331
 ca: E331, Citrats de sodi, Citrat de sodi
 cs: E331, E331 food additive
 da: E331, Natriumcitrater
-de: E331, Natriumcitraten, natriumcitrate
+de: E331, Natriumcitrate, Natriumcitraten
 el: E331
 es: E331, Citratos de sodio
 et: E331, Naatriumtsitraadid
@@ -8297,14 +8299,14 @@ e_number:en: 331
 # Other sodium citrates are not in the additives list in Japan https://www.ffcr.or.jp/tenka/list/post-11.html
 
 
-#comment:en:E332 should be in plural, the specific form can be entered under i or ii. The singlar variant is ii.
+#comment:en:E332 should be in plural, the specific form can be entered under i or ii. The singular variant is ii.
 en: E332, Potassium citrates
 xx: E332
 bg: E332, Потасиеви цитрати
 ca: E332, Citrats de potassi
 cs: E332, Citronan draselný
 da: E332, Kaliumcitrat
-de: E332, Kaliumcitraten
+de: E332, Kaliumcitrate, Kaliumcitraten
 el: E332, Κιτρικά κάλια
 es: E332, Citratos de potasio
 et: E332, Kaaliumtsitraadid
@@ -8899,7 +8901,7 @@ bg: E339, Натриеви фосфати, натриев фосфат
 ca: E339, Fosfati de sodi, Fosfats de sodi
 cs: E339, Fosforečnan sodný
 da: E339, Natriumphosphate, Natriumphosphat
-de: E339, Natriumphosphaten, Natriumphosphat
+de: E339, Natriumphosphaten, Natriumphosphat, Natriumphosphate
 el: E339, Φωσφορικο νατριο
 eo: E339, Natria fosfato
 es: E339, Fosfatos de sodio, Fosfatos sodicos, Ortofosfatos de sodio, Fosfato de sodio, Fosfato sódico
@@ -14245,8 +14247,10 @@ vegetarian:en: maybe
 < en:E470a
 en: E470a(i), Sodium salts of fatty acids
 xx: E470a(i)
+de: E470a(i), Natriumsalze der Speisefettsäuren
 fi: E470a(i), Rasvahappojen natriumsuolat, Rasvahappojen natriumsuoloja
 hu: E470a(i), Zsírsavak nátriumsói
+it: E470a(i), Sali di sodio degli acidi grassi
 ro: E470a(i), Săruri de sodiu ale acizilor grași
 additives_classes:en: en:emulsifier, en:stabiliser, en:thickener
 e_number:en: 470a
@@ -14254,8 +14258,10 @@ e_number:en: 470a
 < en:E470a
 en: E470a(ii), Potassium salts of fatty acids
 xx: E470a(ii)
+de: E470a(ii), Kaliumsalze der Speisefettsäuren
 fi: E470a(ii), Rasvahappojen kaliumsuolat, Rasvahappojen kaliumsuoloja
 hu: E470a(ii), Zsírsavak káliumsói
+it: E470a(ii), Sali di potassio degli acidi grassi
 ro: E470a(ii), Săruri de potasiu ale acizilor grași
 additives_classes:en: en:emulsifier, en:stabiliser, en:thickener
 e_number:en: 470a
@@ -14263,8 +14269,10 @@ e_number:en: 470a
 < en:E470a
 en: E470a(iii), Calcium salts of fatty acids
 xx: E470a(iii)
+de: E470a(iii), Calciumsalze der Speisefettsäuren
 fi: E470a(iii), Rasvahappojen kalsiumsuolat, Rasvahappojen kalsiumsuoloja
 hu: E470a(iii), Zsírsavak kalciumsói
+it: E470a(iii), Sali di calcio degli acidi grassi
 ro: E470a(iii), Săruri de calciu ale acizilor grași
 additives_classes:en: en:emulsifier, en:stabiliser, en:thickener
 e_number:en: 470a
@@ -15776,7 +15784,7 @@ bg: E501, калиеви карбонати
 ca: E501, carbonats de potassi
 cs: E501, E501 food additive
 da: E501, Kaliumcarbonater
-de: E501, Kaliumcarbonaten
+de: E501, Kaliumcarbonate, Kaliumcarbonaten
 el: E501, ανθρακικά άλατα καλίου
 es: E501, Carbonatos de potasio
 et: E501, kaaliumkarbonaadid
@@ -17802,6 +17810,7 @@ vegetarian:en: yes
 < en:E553a
 en: E553a(i), Synthetic magnesium silicate
 xx: E553a(i)
+it: E553a(i), Magnesio silicato sintetico
 sv: E553a(i), syntetisk Magnesiumsilikat
 additives_classes:en: en:thickener
 e_number:en: 553a
@@ -21936,7 +21945,7 @@ sk: E950, Acesulfám k, Acesulfám draselný
 sl: E950, Acesulfam k, acesulfam K, Kalijev acesulfam
 sr: E950, acesulfam K
 sv: E950, Acesulfam k, Acesulfame k, Acesulfamkalium
-th: E950, แอซีซัลเฟมโพแทสเซียม
+th: E950, แอซีซัลเฟมโพแทสเซียม, อะซิซัลแฟม-เค
 uk: E950, Ацесульфам
 vi: E950, Acesulfame K
 zh: E950, 乙酰磺胺酸钾
@@ -22109,7 +22118,7 @@ lv: E953, Izomalts
 mt: E953, Isomalt
 nb: E953, Isomalt
 nl: E953, Isomalt
-pl: E953, Isomalt
+pl: E953, Isomalt, Izomalt
 pt: E953, Isomalte
 ro: E953, Izomalt, isomalt
 ru: E953, изомальтит
@@ -22388,7 +22397,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Neohesperidin_dihydrochalcone
 
 en: E960, Steviol glycosides, Steviol glycoside, stevia rebaudiana extract, stevia leaf extract, steviol
 xx: E960
-bg: E960, Стевиол гликозиди, листа от стевия, листа стевия
+bg: E960, Стевиол гликозиди, листа от стевия, листа стевия, растителен екстракт на стевия
 ca: E960, Glicòsid d'esteviol, Glicòsids d'esteviol
 cs: E960, Steviol-glykosidy
 da: E960, Steviolglycosider
@@ -24626,6 +24635,7 @@ en: potassium iodide
 es: yoduro potásico
 hr: kalijev jodid
 hu: kálium-jodid
+it: ioduro di potassio
 wikidata:en: Q121874
 wikipedia:en: https://en.wikipedia.org/wiki/Potassium_iodide
 
@@ -24640,14 +24650,18 @@ wikipedia:en: https://en.wikipedia.org/wiki/Potassium_iodide
 # They are labeled in form of 「調味料({category name})」, or 「調味料({dominant category name}等)」 if more than two categories are included.
 
 en: Amino acids
+it: Amminoacidi
 ja: アミノ酸, アミノ酸等
 
 en: Nucleic acids
+it: Acidi nucleici
 ja: 核酸
 
 en: Organic acids
+it: Acidi organici
 ja: 有機酸
 
 en: Inorganic salts
+it: Sali inorganici
 ja: 無機塩
 

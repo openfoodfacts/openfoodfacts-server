@@ -276,10 +276,14 @@ $expected_product_ref = {
 	'nutrition_data_prepared' => 'on',
 	'nutrition_data_prepared_per' => 'serving',
 	'product_quantity' => 100,
+	'product_quantity_unit' => 'g',
 	'quantity' => '100 g',
 	'serving_quantity' => 25,
+	'serving_quantity_unit' => 'g',
 	'serving_size' => '25 g'
 };
+
+is($product_ref, $expected_product_ref) or diag Dumper($product_ref);
 
 # Unknown nutrient
 
@@ -573,5 +577,88 @@ delete $product_ref->{ingredients_text};
 specific_processes_for_food_product($product_ref);
 
 ok((not has_tag($product_ref, 'additives', 'en:e330')), 'should not have en:330') || diag Dumper $product_ref;
+
+# same logic as in process_product_edit_rules.t:
+# the single_param function in Display is overwritten (monkey patch)
+# to allow to run the function assign_nid_modifier_value_and_unit
+# otherwise the following line prevent tests to run as expected:
+# "next if (not defined single_param("nutriment_${enid}${product_type}"));"
+my @tests = (
+	{
+		id => "rm insignificants digits",
+		desc => "Should round floats",
+		form => {
+			'nutriment_energy-kj' => '0.40000000596046',
+			'nutriment_energy_unit' => 'kJ',
+			'nutriment_fat' => '3.99999',
+			'nutriment_fat_unit' => 'g',
+			'nutriment_salt' => '1.000001',
+			'nutriment_salt_unit' => 'g',
+		},
+		nutriment_table => "off_europe",
+		product_ref => {
+			'nutriments' => {}
+		},
+		expected_product_ref => {
+			'nutriments' => {
+				'energy' => '0.4',
+				'energy_100g' => '0.4',
+				'energy_unit' => 'kJ',
+				'energy_value' => '0.4',
+				'energy-kj' => '0.4',
+				'energy-kj_100g' => '0.4',
+				'energy-kj_unit' => 'kJ',
+				'energy-kj_value' => '0.4',
+				'fat' => '4',
+				'fat_100g' => '4',
+				'fat_unit' => 'g',
+				'fat_value' => '4',
+				'salt' => '1',
+				'salt_100g' => '1',
+				'salt_unit' => 'g',
+				'salt_value' => '1'
+			},
+			nutrition_data_per => "100g",
+			nutrition_data_prepared_per => "100g",
+		},
+	}
+);
+my %form = ();
+{
+	# monkey patch single_param
+	my $display_module = mock 'ProductOpener::Display' => (
+		override => [
+			single_param => sub {
+				my ($name) = @_;
+				return scalar $form{$name};
+			}
+		]
+	);
+	# because this is a direct import in Food we have to monkey patch here too
+	my $products_module = mock 'ProductOpener::Food' => (
+		override => [
+			single_param => sub {
+				my ($name) = @_;
+				return scalar $form{$name};
+			}
+		]
+	);
+	foreach my $test_ref (@tests) {
+		eval {
+			my $id = $test_ref->{id};
+			my $desc = $test_ref->{desc};
+			my %product = %{$test_ref->{product_ref}};
+			%form = %{$test_ref->{form}};
+			assign_nutriments_values_from_request_parameters(\%product, $test_ref->{nutriment_table});
+			compute_nutrition_data_per_100g_and_per_serving(\%product);
+
+			is(\%product, $test_ref->{expected_product_ref}, "Result for $id - $desc") || diag Dumper \%product;
+
+		};
+		if ($@) {
+			diag("Error running test: $@");
+		}
+	}
+}
 
 done_testing();

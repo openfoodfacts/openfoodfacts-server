@@ -447,6 +447,7 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 	}
 
 	if ($request_ref->{admin}) {
+		$user_ref->{crm_user_id} = remove_tags_and_quote(decode utf8 => single_param('crm_user_id')) || undef;
 
 		# Org
 		check_user_org($user_ref, remove_tags_and_quote(decode utf8 => single_param('org')));
@@ -1326,12 +1327,12 @@ sub init_user ($request_ref) {
 		%Org = ();
 	}
 
-	set_owner_id();
+	set_owner_id($request_ref);
 
 	return 0;
 }
 
-sub set_owner_id () {
+sub set_owner_id ($request_ref) {
 	# if products are private, select the owner used to restrict the product set with the owners_tags field
 	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
 
@@ -1367,6 +1368,10 @@ sub set_owner_id () {
 	}
 	else {
 		$Owner_id = undef;
+	}
+
+	if (defined $Owner_id) {
+		$request_ref->{owner_id} = $Owner_id;
 	}
 
 	return;

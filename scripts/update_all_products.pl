@@ -36,8 +36,10 @@ it is likely that the MongoDB cursor of products to be updated will expire, and 
 
 --count		do not do any processing, just count the number of products matching the --query options
 --just-print-codes	do not do any processing, just print the barcodes
---query some_field=some_value (e.g. categories_tags=en:beers)	filter the products
+--query some_field=some_value (e.g. categories_tags=en:beers)	filter the products (--query parameters can be repeated to have multiple filters)
 --query some_field=-some_value	match products that don't have some_value for some_field
+--query some_field=value1,value2	match products that have value1 and value2 for some_field (must be a _tags field)
+--query some_field=value1\|value2	match products that have value1 or value2 for some_field (must be a _tags field)
 --analyze-and-enrich-product-data	run all the analysis and enrichments
 --process-ingredients	compute allergens, additives detection
 --clean-ingredients	remove nutrition facts, conservation conditions etc.
@@ -72,7 +74,7 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/check_quality/;
 use ProductOpener::Data qw/get_products_collection/;
-use ProductOpener::Ecoscore qw(compute_ecoscore);
+use ProductOpener::EnvironmentalScore qw(compute_environmental_score);
 use ProductOpener::Packaging
 	qw(analyze_and_combine_packaging_data guess_language_of_packaging_text init_packaging_taxonomies_regexps);
 use ProductOpener::ForestFootprint qw(compute_forest_footprint);
@@ -136,7 +138,7 @@ my $mark_as_obsolete_since_date = '';
 my $reassign_energy_kcal = '';
 my $delete_old_fields = '';
 my $mongodb_to_mongodb = '';
-my $compute_ecoscore = '';
+my $compute_environmental_score = '';
 my $compute_forest_footprint = '';
 my $fix_nutrition_data_per = '';
 my $fix_nutrition_data = '';
@@ -149,12 +151,13 @@ my $assign_ciqual_codes = '';
 my $obsolete = 0;
 my $fix_obsolete;
 my $fix_last_modified_t;    # Will set the update key and ensure last_updated_t is initialised
+my $add_product_type = '';    # Add product type to products that don't have it, based on off/opf/obf/opff flavor
 
-my $query_ref = {};    # filters for mongodb query
+my $query_params_ref = {};    # filters for mongodb query
 
 GetOptions(
 	"key=s" => \$key,    # string
-	"query=s%" => $query_ref,
+	"query=s%" => $query_params_ref,
 	"count" => \$count,
 	"just-print-codes" => \$just_print_codes,
 	"fields=s" => \@fields_to_update,
@@ -173,7 +176,7 @@ GetOptions(
 	"compute-nova" => \$compute_nova,
 	"compute-codes" => \$compute_codes,
 	"compute-carbon" => \$compute_carbon,
-	"compute-ecoscore" => \$compute_ecoscore,
+	"compute-environmental_score" => \$compute_environmental_score,
 	"compute-forest-footprint" => \$compute_forest_footprint,
 	"check-quality" => \$check_quality,
 	"compute-sort-key" => \$compute_sort_key,
@@ -210,6 +213,7 @@ GetOptions(
 	"obsolete" => \$obsolete,
 	"fix-obsolete" => \$fix_obsolete,
 	"fix-last-modified-t" => \$fix_last_modified_t,
+	"add-product-type" => \$add_product_type,
 ) or die("Error in command line arguments:\n\n$usage");
 
 use Data::Dumper;
@@ -276,7 +280,7 @@ if (    (not $process_ingredients)
 	and (not $delete_debug_tags)
 	and (not $compute_codes)
 	and (not $compute_carbon)
-	and (not $compute_ecoscore)
+	and (not $compute_environmental_score)
 	and (not $compute_forest_footprint)
 	and (not $process_packagings)
 	and (not $check_quality)
@@ -287,6 +291,7 @@ if (    (not $process_ingredients)
 	and (not $assign_ciqual_codes)
 	and (not $fix_obsolete)
 	and (not $fix_last_modified_t)
+	and (not $add_product_type)
 	and (not $analyze_and_enrich_product_data))
 {
 	die("Missing fields to update or --count option:\n$usage");
@@ -304,42 +309,10 @@ load_data();
 # Get a list of all products not yet updated
 # Use query filters entered using --query categories_tags=en:plant-milks
 
-use boolean;
+# Build the mongodb query from the --query parameters
+my $query_ref = {};
 
-foreach my $field (sort keys %{$query_ref}) {
-
-	my $not = 0;
-
-	if ($query_ref->{$field} =~ /^-/) {
-		$query_ref->{$field} = $';
-		$not = 1;
-	}
-
-	if ($query_ref->{$field} eq 'null') {
-		# $query_ref->{$field} = { '$exists' => false };
-		$query_ref->{$field} = undef;
-	}
-	elsif ($query_ref->{$field} eq 'exists') {
-		$query_ref->{$field} = {'$exists' => true};
-	}
-	elsif ($field =~ /_t$/) {    # created_t, last_modified_t etc.
-		$query_ref->{$field} += 0;
-	}
-	# Multiple values separated by commas
-	elsif ($query_ref->{$field} =~ /,/) {
-		my @tagids = split(/,/, $query_ref->{$field});
-
-		if ($not) {
-			$query_ref->{$field} = {'$nin' => \@tagids};
-		}
-		else {
-			$query_ref->{$field} = {'$in' => \@tagids};
-		}
-	}
-	elsif ($not) {
-		$query_ref->{$field} = {'$ne' => $query_ref->{$field}};
-	}
-}
+add_params_to_query($query_params_ref, $query_ref);
 
 # Query products that have the _id field stored as a number
 if ($fix_non_string_ids) {
@@ -1283,8 +1256,8 @@ while (my $product_ref = $cursor->next) {
 			analyze_and_combine_packaging_data($product_ref, $response_ref);
 		}
 
-		if ($compute_ecoscore) {
-			compute_ecoscore($product_ref);
+		if ($compute_environmental_score) {
+			compute_environmental_score($product_ref);
 		}
 
 		if ($compute_forest_footprint) {
@@ -1395,6 +1368,15 @@ while (my $product_ref = $cursor->next) {
 			}
 		}
 
+		# Add product type
+		if (($add_product_type) and (not defined $product_ref->{product_type})) {
+			$product_ref->{product_type} = $options{product_type};
+			# Silent update: we also change the original_product
+			# in order not to push the product to Redis
+			$original_product->{product_type} = $product_ref->{product_type};
+			# $product_values_changed = 1;
+		}
+
 		if ($assign_ciqual_codes) {
 			assign_ciqual_codes($product_ref);
 		}
@@ -1482,7 +1464,7 @@ while (my $product_ref = $cursor->next) {
 					else {
 						$products_pushed_to_redis++;
 						print STDERR ". Pushed to Redis stream";
-						push_to_redis_stream('update_all_products', $product_ref, "updated", $comment, {});
+						push_to_redis_stream('update_all_products', $product_ref, "reprocessed", $comment, {});
 					}
 				}
 				else {

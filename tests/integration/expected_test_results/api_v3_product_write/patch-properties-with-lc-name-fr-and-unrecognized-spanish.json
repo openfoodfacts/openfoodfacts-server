@@ -4,6 +4,7 @@
    "product" : {
       "packagings" : [
          {
+            "food_contact" : 1,
             "material" : {
                "id" : "en:paper",
                "lc_name" : "Papier"
@@ -15,7 +16,7 @@
             },
             "shape" : {
                "id" : "es:Something in Spanish",
-               "lc_name" : "es:Something in Spanish"
+               "lc_name" : "Something in Spanish"
             }
          }
       ]

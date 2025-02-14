@@ -3,8 +3,7 @@
    "errors" : [],
    "product" : {
       "misc_tags" : [
-         "en:ecoscore-extended-data-not-computed",
-         "en:ecoscore-not-computed",
+         "en:environmental-score-not-computed",
          "en:nutriscore-missing-category",
          "en:nutriscore-missing-nutrition-data",
          "en:nutriscore-missing-nutrition-data-energy",
@@ -26,6 +25,7 @@
       ],
       "packagings" : [
          {
+            "food_contact" : 1,
             "material" : {
                "id" : "en:plastic",
                "lc_name" : "Plastique"
@@ -33,7 +33,7 @@
             "number_of_units" : 2,
             "recycling" : {
                "id" : "en:strange value",
-               "lc_name" : "en:strange value"
+               "lc_name" : "strange value"
             },
             "shape" : {
                "id" : "en:bottle",
@@ -41,6 +41,7 @@
             }
          },
          {
+            "food_contact" : 0,
             "material" : {
                "id" : "en:cardboard",
                "lc_name" : "Carton"
@@ -56,6 +57,7 @@
             }
          },
          {
+            "food_contact" : 1,
             "material" : {
                "id" : "en:plastic",
                "lc_name" : "Plastique"
@@ -67,6 +69,7 @@
             }
          },
          {
+            "food_contact" : 1,
             "material" : {
                "id" : "en:glass",
                "lc_name" : "Verre"

@@ -15,6 +15,76 @@ msgstr ""
 "X-Crowdin-Language: bg\n"
 "X-Crowdin-File-ID: 3123\n"
 
+msgctxt "site_description_off"
+msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
+msgstr "Съвместна, безплатна и отворена база данни със съставки, хранителни стойности и информация за хранителни продукти от цял свят"
+
+msgctxt "tagline_off"
+msgid "Open Food Facts gathers information and data on food products from around the world."
+msgstr "Open Food Facts събира информация и данни за хранителни продукти от цял свят."
+
+msgctxt "footer_tagline_off"
+msgid "A collaborative, free and open database of food products from around the world."
+msgstr "Съвместна, безплатна и отворена база данни за съставки и информация за хранителни продукти от света."
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_off"
+msgid "/open-food-facts-mobile-app"
+msgstr "/open-food-facts-mobile-app"
+
+msgctxt "site_description_obf"
+msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
+msgstr "Съвместна, безплатна и отворена база данни за съставки и информация за козметични продукти от света"
+
+msgctxt "tagline_obf"
+msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
+msgstr "Open Beauty Facts събира информация и данни за козметични продукти от цял свят."
+
+msgctxt "footer_tagline_obf"
+msgid "A collaborative, free and open database of cosmetic products from around the world."
+msgstr "Съвместна, безплатна и отворена база данни за съставки и информация за козметични продукти от света."
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_obf"
+msgid "/open-beauty-facts-mobile-app"
+msgstr "/open-beauty-facts-mobile-app"
+
+msgctxt "footer_and_the_facebook_group_obf"
+msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
+msgstr "и <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook групата за сътрудници</a>"
+
+msgctxt "search_description_opensearch_obf"
+msgid "Open Beauty Facts product search"
+msgstr "Open Beauty Facts търсачка за продукти"
+
+msgctxt "warning_not_complete_obf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "Тази продуктова страница не е пълна. Можеш да помогнеш, като я редактираш и добавиш повече данни от снимките, които имаме, или като направиш още снимки с помощта на приложението за <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> или <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Благодаря ти!"
+
+msgctxt "brands_example_beauty"
+msgid "Nivea, Nivea Men"
+msgstr "Nivea, Nivea Men"
+
+msgctxt "categories_example_beauty"
+msgid "Anti-dandruff shampoo, Whitening toothpaste"
+msgstr "Шампоан против пърхот, избелваща паста за зъби"
+
+msgctxt "emb_codes_example_beauty"
+msgid "EMB 53062"
+msgstr "EMB 53062"
+
+msgctxt "generic_name_example_beauty"
+msgid "Anti-dandruff shampoo"
+msgstr "Шампоан против пърхот"
+
+msgctxt "product_name_example_beauty"
+msgid "Anti-Perspirant Stress Protect"
+msgstr "Защита против стрес"
+
+msgctxt "ingredients_text_example_beauty"
+msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+msgstr "ВОДА, НАТРИЕВ ЛАУРЕТ СУЛФАТ, ДИНАТРИЕВ КОКОАМФОДИАЦЕТАТ, ГЛИКОЛ ДИСТЕАРАТ, КОКАМИД МЕА"
+
 msgctxt "1_product"
 msgid "1 product"
 msgstr "1 продукт"
@@ -4745,40 +4815,48 @@ msgctxt "attribute_group_environment_name"
 msgid "Environment"
 msgstr "Околна среда"
 
-msgctxt "attribute_ecoscore_name"
-msgid "Eco-Score"
-msgstr "Eco-Score"
+msgctxt "attribute_environmental_score_name"
+msgid "Green-Score"
+msgstr "Green-Score"
 
-msgctxt "attribute_ecoscore_setting_name"
-msgid "Low environmental impact (Eco-Score)"
-msgstr "Ниско въздействие върху околната среда (Eco-Score)"
+msgctxt "attribute_environmental_score_setting_name"
+msgid "Low environmental impact (Green-Score)"
+msgstr "Ниско въздействие върху околната среда (Green-Score)"
 
-msgctxt "attribute_ecoscore_setting_note"
-msgid "The Eco-Score is an environmental score (ecoscore) from A to E which makes it easy to compare the impact of food products on the environment."
+msgctxt "attribute_environmental_score_setting_note"
+msgid "The Green-Score is an environmental score (environmental_score) from A to E which makes it easy to compare the impact of food products on the environment."
 msgstr "Еко-Оценка е екологична оценка (екооценка) от A до E, която улеснява сравняването на въздействието на хранителните продукти върху околната среда."
 
-# keep %s, it will be replaced by the letter A, B, C, D or E
-msgctxt "attribute_ecoscore_grade_title"
-msgid "Eco-Score %s"
-msgstr "Eco-Score %s"
+# keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
+msgctxt "attribute_environmental_score_grade_title"
+msgid "Green-Score %s"
+msgstr "Green-Score %s"
 
-msgctxt "attribute_ecoscore_a_description_short"
+msgctxt "attribute_environmental_score_a_plus_description_short"
 msgid "Very low environmental impact"
 msgstr "Много ниско въздействие върху околната среда"
 
-msgctxt "attribute_ecoscore_b_description_short"
+msgctxt "attribute_environmental_score_a_description_short"
+msgid "Very low environmental impact"
+msgstr "Много ниско въздействие върху околната среда"
+
+msgctxt "attribute_environmental_score_b_description_short"
 msgid "Low environmental impact"
 msgstr "Ниско въздействие върху околната среда"
 
-msgctxt "attribute_ecoscore_c_description_short"
+msgctxt "attribute_environmental_score_c_description_short"
 msgid "Moderate environmental impact"
 msgstr "Умерено въздействие върху околната среда"
 
-msgctxt "attribute_ecoscore_d_description_short"
+msgctxt "attribute_environmental_score_d_description_short"
 msgid "High environmental impact"
 msgstr "Силно въздействие върху околната среда"
 
-msgctxt "attribute_ecoscore_e_description_short"
+msgctxt "attribute_environmental_score_e_description_short"
+msgid "Very high environmental impact"
+msgstr "Много силно въздействие върху околната среда"
+
+msgctxt "attribute_environmental_score_f_description_short"
 msgid "Very high environmental impact"
 msgstr "Много силно въздействие върху околната среда"
 
@@ -4906,10 +4984,6 @@ msgctxt "number_of_members"
 msgid "Number of Members"
 msgstr ""
 
-msgctxt "serial_no"
-msgid "S.No"
-msgstr ""
-
 msgctxt "contact_form"
 msgid "Contact form"
 msgstr "Форма за контакт"
@@ -4936,40 +5010,40 @@ msgid "Environmental impact"
 msgstr "Влияние върху околната среда"
 
 # Numerical score for the Eco-score (do not translate Eco-score)
-msgctxt "ecoscore_score"
+msgctxt "environmental_score_score"
 msgid "Eco-score score"
 msgstr "Eco-score резултат"
 
 # Letter grade from A to E for the Eco-score (do not translate Eco-score)
-msgctxt "ecoscore_grade"
+msgctxt "environmental_score_grade"
 msgid "Eco-score grade"
 msgstr "Eco-score оценка"
 
 # do not translate Eco-score
-msgctxt "ecoscore_calculation_details"
+msgctxt "environmental_score_calculation_details"
 msgid "Details of the calculation of the Eco-score"
-msgstr "Подробности за изчисляването на Eco-Score"
+msgstr "Подробности за изчисляването на Green-Score"
 
 # do not translate Eco-score
-msgctxt "ecoscore_information"
+msgctxt "environmental_score_information"
 msgid "Information about the Eco-score"
 msgstr "Информация за Eco-score"
-
-msgctxt "preferences_edit_your_food_preferences"
-msgid "Edit your food preferences"
-msgstr "Редактирай хранителните предпочитания"
-
-msgctxt "preferences_your_preferences"
-msgid "Your food preferences"
-msgstr "Твоите хранителни предпочитания"
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
 msgstr "Избрани в момента предпочитания"
 
 msgctxt "preferences_locally_saved"
-msgid "Your food preferences are kept in your browser and never sent to Open Food Facts or anyone else."
-msgstr "Твоите хранителни предпочитания се съхраняват в твоя браузър и никога не се изпращат до Open Food Facts или някой друг."
+msgid "Your preferences are kept in your browser and never sent to Open Food Facts or anyone else."
+msgstr ""
+
+msgctxt "preferences_edit_your_preferences"
+msgid "Edit your preferences"
+msgstr ""
+
+msgctxt "preferences_your_preferences"
+msgid "Your preferences"
+msgstr ""
 
 # used in phrases like "salt in unknown quantity"
 msgctxt "unknown_quantity"
@@ -4984,13 +5058,13 @@ msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr "Липсващи хранителни стойности"
 
-msgctxt "ecoscore_p"
-msgid "Eco-Score"
-msgstr "Eco-Score"
+msgctxt "environmental_score_p"
+msgid "Green-Score"
+msgstr "Green-Score"
 
-msgctxt "ecoscore_s"
-msgid "Eco-Score"
-msgstr "Eco-Score"
+msgctxt "environmental_score_s"
+msgid "Green-Score"
+msgstr "Green-Score"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5232,9 +5306,9 @@ msgctxt "sort_by_nutriscore_score"
 msgid "Products with the best Nutri-Score"
 msgstr "Продукти с най-добър Nutri-Score"
 
-msgctxt "sort_by_ecoscore_score"
-msgid "Products with the best Eco-Score"
-msgstr "Продукти с най-добър Eco-Score"
+msgctxt "sort_by_environmental_score_score"
+msgid "Products with the best Green-Score"
+msgstr "Продукти с най-добър Green-Score"
 
 msgctxt "sort_by_created_t"
 msgid "Recently added products"
@@ -5286,34 +5360,34 @@ msgctxt "delete_user_process"
 msgid "User is being deleted. This may take a few minutes."
 msgstr "Потребителят се изтрива. Това може да отнеме няколко минути."
 
-msgctxt "attribute_ecoscore_not_applicable_title"
-msgid "Eco-Score not yet applicable"
-msgstr "Eco-Score все още не е приложим"
+msgctxt "attribute_environmental_score_not_applicable_title"
+msgid "Green-Score not yet applicable"
+msgstr "Green-Score все още не е приложим"
 
-msgctxt "attribute_ecoscore_not_applicable_description_short"
+msgctxt "attribute_environmental_score_not_applicable_description_short"
 msgid "Not yet applicable for the category"
 msgstr "Все още не е приложимо за категорията"
 
 # variable names between { } must not be translated
-msgctxt "f_attribute_ecoscore_not_applicable_description"
+msgctxt "f_attribute_environmental_score_not_applicable_description"
 msgid "Not yet applicable for the category: {category}"
 msgstr "Все още не е приложимо за категория: {category}"
 
-msgctxt "ecoscore_not_applicable_coming_soon"
-msgid "The Eco-Score is not yet applicable for this category, but we are working on adding support for it."
-msgstr "Eco-Score все още не е приложим за тази категория към момента, но работим по въпроса."
+msgctxt "environmental_score_not_applicable_coming_soon"
+msgid "The Green-Score is not yet applicable for this category, but we are working on adding support for it."
+msgstr "Green-Score все още не е приложим за тази категория към момента, но работим по въпроса."
 
-msgctxt "attribute_ecoscore_unknown_title"
-msgid "Eco-Score not computed"
-msgstr "Eco-Score не е изчислен"
+msgctxt "attribute_environmental_score_unknown_title"
+msgid "Green-Score not computed"
+msgstr "Green-Score не е изчислен"
 
-msgctxt "attribute_ecoscore_unknown_description_short"
+msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr "Неизвестно въздействие върху околната среда"
 
-msgctxt "ecoscore_unknown_call_to_help"
-msgid "We could not compute the Eco-Score of this product as it is missing some data, could you help complete it?"
-msgstr "Не можахме да изчислим Eco-Score на този продукт, тъй като липсват някои данни, би ли помогнал да ги попълниш?"
+msgctxt "environmental_score_unknown_call_to_help"
+msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
+msgstr "Не можахме да изчислим Green-Score на този продукт, тъй като липсват някои данни, би ли помогнал да ги попълниш?"
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
@@ -5441,223 +5515,223 @@ msgctxt "forest_footprint_one_line_explanation"
 msgid "The forest footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
 msgstr "Горският отпечатък се изчислява, като се вземат предвид съставките, чието производство изисква соя, чието отглеждане е свързано с обезлесяване."
 
-msgctxt "ecoscore_agribalyse_match_warning"
-msgid "The Eco-Score can only be calculated if the product has a sufficiently precise category."
-msgstr "Eco-Score може да се изчисли само ако продуктът има достатъчно точна категория."
+msgctxt "environmental_score_agribalyse_match_warning"
+msgid "The Green-Score can only be calculated if the product has a sufficiently precise category."
+msgstr "Green-Score може да се изчисли само ако продуктът има достатъчно точна категория."
 
-msgctxt "ecoscore_add_more_precise_category"
+msgctxt "environmental_score_add_more_precise_category"
 msgid "You can modify the product page to add a more precise category."
 msgstr "Можеш да промениш продуктовата страница, за да добавиш по-прецизна категория."
 
-msgctxt "ecoscore_platform_promo"
+msgctxt "environmental_score_platform_promo"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
 msgstr "Ако сте производителят на този продукт, можете да ни изпратите информацията с нашата <a href=\"https://world.pro.openfoodfacts.org\">безплатна платформа за производители</a>."
 
-msgctxt "ecoscore_warning_missing_information"
-msgid "Warning: some information necessary to calculate the Eco-Score with precision is not provided (see the details of the calculation below)."
-msgstr "Предупреждение: някои нужни информации за изчисляване на Eco-Score с точност, не са предоставени (виж подробностите за изчислението по-долу)."
+msgctxt "environmental_score_warning_missing_information"
+msgid "Warning: some information necessary to calculate the Green-Score with precision is not provided (see the details of the calculation below)."
+msgstr "Предупреждение: някои нужни информации за изчисляване на Green-Score с точност, не са предоставени (виж подробностите за изчислението по-долу)."
 
-msgctxt "ecoscore_add_missing_information"
+msgctxt "environmental_score_add_missing_information"
 msgid "You can edit the product to add the missing information."
 msgstr "Можеш да редактираш продукта, за да добавиш липсващата информация."
 
-msgctxt "ecoscore_product_category_reference_score"
+msgctxt "environmental_score_product_category_reference_score"
 msgid "Baseline score of the product category"
 msgstr "Базов резултат на продуктовата категория"
 
-msgctxt "ecoscore_panel_lca"
+msgctxt "environmental_score_panel_lca"
 msgid "Lifecyle Analysis (LCA)"
 msgstr "Оценка на жизнения цикъл (LCA)"
 
 # do not translate Agribalyse
-msgctxt "ecoscore_agribalyse_category"
+msgctxt "environmental_score_agribalyse_category"
 msgid "Agribalyse category"
 msgstr "Категория Agribalyse"
 
-msgctxt "ecoscore_category_proxy_match"
+msgctxt "environmental_score_category_proxy_match"
 msgid "Approximate match with the product category"
 msgstr "Приблизително съвпадение с категорията на продукта"
 
-msgctxt "ecoscore_category_exact_match"
+msgctxt "environmental_score_category_exact_match"
 msgid "Exact match with the product category"
 msgstr "Точно съвпадение с продуктовата категория"
 
-msgctxt "ecoscore_pef_environmental_score"
+msgctxt "environmental_score_pef_environmental_score"
 msgid "PEF environmental score"
 msgstr "PEF оценка за околната среда"
 
-msgctxt "ecoscore_incl_climate_change_impact"
+msgctxt "environmental_score_incl_climate_change_impact"
 msgid "including impact on climate change"
 msgstr "включително въздействието върху изменението на климата"
 
-msgctxt "ecoscore_impact_detail_by_stages"
+msgctxt "environmental_score_impact_detail_by_stages"
 msgid "Details of the impacts by stages of the life cycle"
 msgstr "Подробности за въздействията по етапи от жизнения цикъл"
 
 # stage meaning step
-msgctxt "ecoscore_stage"
+msgctxt "environmental_score_stage"
 msgid "Stage"
 msgstr "Етап"
 
-msgctxt "ecoscore_impact"
+msgctxt "environmental_score_impact"
 msgid "Impact"
 msgstr "Въздействие"
 
-msgctxt "ecoscore_agriculture"
+msgctxt "environmental_score_agriculture"
 msgid "Agriculture"
 msgstr "Земеделие"
 
-msgctxt "ecoscore_processing"
+msgctxt "environmental_score_processing"
 msgid "Processing"
 msgstr "Преработка"
 
-msgctxt "ecoscore_packaging"
+msgctxt "environmental_score_packaging"
 msgid "Packaging"
 msgstr "Опаковка"
 
-msgctxt "ecoscore_transportation"
+msgctxt "environmental_score_transportation"
 msgid "Transportation"
 msgstr "Транспортиране"
 
-msgctxt "ecoscore_distribution"
+msgctxt "environmental_score_distribution"
 msgid "Distribution"
 msgstr "Дистрибуция"
 
-msgctxt "ecoscore_consumption"
+msgctxt "environmental_score_consumption"
 msgid "Consumption"
 msgstr "Потребление"
 
-msgctxt "ecoscore_lca_score_out_of_100"
+msgctxt "environmental_score_lca_score_out_of_100"
 msgid "LCA score out of 100"
 msgstr "LCA резултат от 100"
 
-msgctxt "ecoscore_no_agribalyse_category_match"
+msgctxt "environmental_score_no_agribalyse_category_match"
 msgid "No match between product categories and Agribalyse categories."
 msgstr "Няма съвпадение между категориите продукти и категориите на Agribalyse."
 
-msgctxt "ecoscore_edit_category_to_more_granular"
+msgctxt "environmental_score_edit_category_to_more_granular"
 msgid "You can modify the product page to add a more granular category."
 msgstr "Можете да промените продуктовата страница, за да добавите по-подробна категория."
 
-msgctxt "ecoscore_additional_bonuses_and_maluses"
+msgctxt "environmental_score_additional_bonuses_and_maluses"
 msgid "Additional bonuses and maluses"
 msgstr "Допълнителни бонуси и малуси"
 
-msgctxt "ecoscore_production_system"
+msgctxt "environmental_score_production_system"
 msgid "Production mode"
 msgstr "Начин на производство"
 
-msgctxt "ecoscore_no_labels_taken_into_account"
+msgctxt "environmental_score_no_labels_taken_into_account"
 msgid "No labels taken into account for the production system."
 msgstr "Няма етикети, които да се вземат предвид за производствената система."
 
-msgctxt "ecoscore_please_add_the_labels"
+msgctxt "environmental_score_please_add_the_labels"
 msgid "If this product has a label characterizing the production system (organic, fair trade, Label Rouge, Bleu Blanc Coeur etc.), you can modify the product sheet to add it."
 msgstr "Ако този продукт има етикет, характеризиращ производствената система (биологична, справедлива търговия, Label Rouge, Bleu Blanc Coeur и др.), можете да промените продуктовия лист, за да го добавите."
 
-msgctxt "ecoscore_origins_of_ingredients"
+msgctxt "environmental_score_origins_of_ingredients"
 msgid "Origins of ingredients"
 msgstr "Произход на съставките"
 
-msgctxt "ecoscore_ingredients_not_indicated"
+msgctxt "environmental_score_ingredients_not_indicated"
 msgid "The origins of the ingredients of this product are not indicated."
 msgstr "Произходът на съставките на този продукт не е посочен."
 
-msgctxt "ecoscore_please_add_the_ingredients"
+msgctxt "environmental_score_please_add_the_ingredients"
 msgid "If they are indicated on the packaging, you can modify the product sheet and add them."
 msgstr "Ако е посочено на опаковката, можеш да редактираш продуктовия лист и да ги добавиш."
 
-msgctxt "ecoscore_environmental_policy"
+msgctxt "environmental_score_environmental_policy"
 msgid "Environmental policy"
 msgstr "Политика за околната среда"
 
-msgctxt "ecoscore_threatened_species"
+msgctxt "environmental_score_threatened_species"
 msgid "Threatened species"
 msgstr "Застрашени видове"
 
-msgctxt "ecoscore_ingredients_whose_cultivation_threatens_species"
+msgctxt "environmental_score_ingredients_whose_cultivation_threatens_species"
 msgid "Ingredients that threatens species"
 msgstr "Съставки, които застрашават животински видове"
 
-msgctxt "ecoscore_no_species_threatening_ingredients"
+msgctxt "environmental_score_no_species_threatening_ingredients"
 msgid "No ingredients that threaten species"
 msgstr "Няма съставки, които застрашават животински видове"
 
-msgctxt "ecoscore_ingredients_unknown"
+msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
 msgstr "Информацията за съставките на този продукт не е дадена."
 
-msgctxt "ecoscore_edit_for_more_precise_ecoscore"
-msgid "For a more precise calculation of the Eco-Score, you can edit the product page and add them."
-msgstr "За по-точно изчисляване на Eco-Score, можеш да редактираш страницата на продукта и да ги добавиш."
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
+msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
+msgstr "За по-точно изчисляване на Green-Score, можеш да редактираш страницата на продукта и да ги добавиш."
 
-msgctxt "ecoscore_packaging_ratio"
+msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
 msgstr "съотношение"
 
-msgctxt "ecoscore_packaging_score"
+msgctxt "environmental_score_packaging_score"
 msgid "score"
 msgstr "резултат"
 
-msgctxt "ecoscore_score_of_all_components"
+msgctxt "environmental_score_score_of_all_components"
 msgid "Score of all components"
 msgstr "Оценка на всички компоненти"
 
-msgctxt "ecoscore_no_packaging_information"
+msgctxt "environmental_score_no_packaging_information"
 msgid "The information about the packaging of this product is not filled in."
 msgstr "Информацията за опаковката на този продукт не е попълнена."
 
-msgctxt "ecoscore_unprecise_packaging_information"
+msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
 msgstr "Информацията за опаковката на този продукт не е достатъчно точна (точни форми и материали на всички компоненти на опаковката)."
 
-msgctxt "ecoscore_edit_for_more_precise_ecoscore"
-msgid "For a more precise calculation of the Eco-Score, you can modify the product page and add them."
-msgstr "За по-точно изчисляване на Eco-Score, можеш да промениш страницата на продукта и да ги добавиш."
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
+msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
+msgstr "За по-точно изчисляване на Green-Score, можеш да промениш страницата на продукта и да ги добавиш."
 
-msgctxt "ecoscore_final_score"
+msgctxt "environmental_score_final_score"
 msgid "Final score"
 msgstr "Краен резултат"
 
-msgctxt "ecoscore_lower_the_score_lower_the_impact"
+msgctxt "environmental_score_lower_the_score_lower_the_impact"
 msgid "(the lower the score, the lower the impact)"
 msgstr "(колкото по-нисък е резултатът, толкова по-ниско е въздействието)"
 
-msgctxt "ecoscore_kg_co2_eq_kg_product"
+msgctxt "environmental_score_kg_co2_eq_kg_product"
 msgid "kg CO2 eq/kg of product"
 msgstr "кг CO2 екв./кг продукт"
 
 # do not translate the link
-msgctxt "ecoscore_platform_prompt_ecoscore_modal"
+msgctxt "environmental_score_platform_prompt_environmental_score_modal"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
 msgstr "Ако сте производителят на този продукт, можете да ни изпратите информацията с нашата <a href=\"https://world.pro.openfoodfacts.org\">безплатна платформа за производители</a>."
 
-# do not translate Eco-Score and the link
-msgctxt "ecoscore_description"
-msgid "The <a href=\"/ecoscore\">Eco-Score</a> is an experimental score that summarizes the environmental impacts of food products."
-msgstr "<a href=\"/ecoscore\">Eco-Score</a> е експериментален резултат, който обобщава въздействието върху околната среда на хранителните продукти."
+# do not translate Green-Score and the link
+msgctxt "environmental_score_description"
+msgid "The <a href=\"/green-score\">Green-Score</a> is an experimental score that summarizes the environmental impacts of food products."
+msgstr "<a href=\"/green-score\">Green-Score</a> е експериментален резултат, който обобщава въздействието върху околната среда на хранителните продукти."
 
-# do not translate Eco-Score
-msgctxt "ecoscore_warning_fr"
-msgid "The Eco-Score formula is subject to change as it is regularly improved to make it more precise."
-msgstr "Формулата на Eco-Score подлежи на промяна, тъй като редовно се подобрява, за да стане по-точна."
+# do not translate Green-Score
+msgctxt "environmental_score_warning_fr"
+msgid "The Green-Score formula is subject to change as it is regularly improved to make it more precise."
+msgstr "Формулата на Green-Score подлежи на промяна, тъй като редовно се подобрява, за да стане по-точна."
 
-# do not translate Eco-Score
-msgctxt "ecoscore_warning_international"
-msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "Първоначално Eco-Score е разработен за Франция и се разширява и в други европейски страни. Формулата на Eco-Score подлежи на промяна, тъй като редовно се подобрява, за да бъде по-точна и по-подходяща за всяка страна."
+# do not translate Green-Score
+msgctxt "environmental_score_warning_international"
+msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgstr "Първоначално Green-Score е разработен за Франция и се разширява и в други европейски страни. Формулата на Green-Score подлежи на промяна, тъй като редовно се подобрява, за да бъде по-точна и по-подходяща за всяка страна."
 
-msgctxt "ecoscore_warning_transportation_world"
+msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
 msgstr "Избери страна, за да включиш пълното въздействие на транспорта."
 
-msgctxt "ecoscore_warning_transportation"
+msgctxt "environmental_score_warning_transportation"
 msgid "The full impact of transportation to your country is currently unknown."
 msgstr "Понастоящем не е известно пълното въздействие на транспорта до твоята страна."
 
 msgctxt "app_banner_text"
-msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
-msgstr "Сканирай баркодове, за да получиш Nutri-Score, Eco-Score и други!"
+msgid "Scan barcodes to get the Nutri-Score, the Green-Score and more!"
+msgstr "Сканирай баркодове, за да получиш Nutri-Score, Green-Score и други!"
 
 msgctxt "org_gs1_product_name_is_abbreviated"
 msgid "GS1 product names for this manufacturer are abbreviated."
@@ -5688,35 +5762,35 @@ msgctxt "org_protect_data_note"
 msgid "Removing or changing the provided data will be possible only by experimented contributors on the web site."
 msgstr "Премахването или промяната на предоставените данни ще бъде възможно само от опитни сътрудници на уеб сайта."
 
-msgctxt "ecoscore_packaging_impact_high"
+msgctxt "environmental_score_packaging_impact_high"
 msgid "Packaging with a high impact"
 msgstr "Опаковка с високо въздействие"
 
-msgctxt "ecoscore_packaging_impact_medium"
+msgctxt "environmental_score_packaging_impact_medium"
 msgid "Packaging with a medium impact"
 msgstr "Опаковка със средно въздействие"
 
-msgctxt "ecoscore_packaging_impact_low"
+msgctxt "environmental_score_packaging_impact_low"
 msgid "Packaging with a low impact"
 msgstr "Опаковка с ниско въздействие"
 
-msgctxt "ecoscore_packaging_missing_information"
+msgctxt "environmental_score_packaging_missing_information"
 msgid "Missing packaging information for this product"
 msgstr "Липсва информация за опаковката на този продукт"
 
-msgctxt "ecoscore_origins_of_ingredients_impact_high"
+msgctxt "environmental_score_origins_of_ingredients_impact_high"
 msgid "Origins of ingredients with a high impact"
 msgstr "Произход на съставки с високо въздействие"
 
-msgctxt "ecoscore_origins_of_ingredients_impact_medium"
+msgctxt "environmental_score_origins_of_ingredients_impact_medium"
 msgid "Origins of ingredients with a medium impact"
 msgstr "Произход на съставки със средно въздействие"
 
-msgctxt "ecoscore_origins_of_ingredients_impact_low"
+msgctxt "environmental_score_origins_of_ingredients_impact_low"
 msgid "Origins of ingredients with a low impact"
 msgstr "Произход на съставки с ниско въздействие"
 
-msgctxt "ecoscore_origins_of_ingredients_missing_information"
+msgctxt "environmental_score_origins_of_ingredients_missing_information"
 msgid "Missing origins of ingredients information"
 msgstr "Липсва информация за произхода на съставките"
 
@@ -5753,23 +5827,63 @@ msgctxt "donation_text_2023_tertiary"
 msgid "The food revolution starts with you!"
 msgstr "Хранителната революция започва с теб!"
 
+msgctxt "donation_hook_2024"
+msgid "Help us inform millions of consumers around the world about what they eat"
+msgstr ""
+
+msgctxt "donation_title_2024"
+msgid "Please give to our 2024 Fundraiser"
+msgstr ""
+
+msgctxt "donation_list_2024_main"
+msgid "Your donations fund the day-to-day operations of our non-profit association:"
+msgstr ""
+
+msgctxt "donation_list_2024_first"
+msgid "keeping our database open & available to all,"
+msgstr ""
+
+msgctxt "donation_list_2024_first_sub"
+msgid "technical infrastructure (website/mobile app) & a small permanent team"
+msgstr ""
+
+msgctxt "donation_list_2024_second"
+msgid "remain independent of the food industry,"
+msgstr ""
+
+msgctxt "donation_list_2024_third"
+msgid "engage a community of committed citizens,"
+msgstr ""
+
+msgctxt "donation_list_2024_fourth"
+msgid "support the advancement of public health research."
+msgstr ""
+
+msgctxt "donation_financial_2024_text"
+msgid "Each donation counts! We appreciate your support in bringing further food transparency in the world."
+msgstr ""
+
+msgctxt "donation_button_2024_text"
+msgid "I SUPPORT"
+msgstr ""
+
 msgctxt "donation_cta"
 msgid "Donate"
 msgstr "Дари"
 
-msgctxt "ecoscore_production_system_no_labels_with_environmental_benefits"
+msgctxt "environmental_score_production_system_no_labels_with_environmental_benefits"
 msgid "No labels with environmental benefits"
 msgstr "Няма етикети с ползи за околната среда"
 
-msgctxt "ecoscore_production_system_labels_with_environmental_benefits"
+msgctxt "environmental_score_production_system_labels_with_environmental_benefits"
 msgid "Labels with environmental benefits"
 msgstr "Етикети с ползи за околната среда"
 
-msgctxt "ecoscore_production_system_labels_with_environmental_benefits_high"
+msgctxt "environmental_score_production_system_labels_with_environmental_benefits_high"
 msgid "Labels with high environmental benefits"
 msgstr "Етикети с високи ползи за околната среда"
 
-msgctxt "ecoscore_production_system_labels_with_environmental_benefits_very_high"
+msgctxt "environmental_score_production_system_labels_with_environmental_benefits_very_high"
 msgid "Labels with very high environmental benefits"
 msgstr "Етикети с много високи ползи за околната среда"
 
@@ -5800,8 +5914,21 @@ msgstr "Въглероден отпечатък"
 
 # variable names between { } must not be translated
 msgctxt "f_carbon_footprint_per_100g_of_product"
-msgid "{grams} g CO² per 100g of product"
-msgstr "{grams} г CO² на 100 г продукт"
+msgid "{grams} g CO₂e per 100g of product"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_carbon_footprint_per_unit"
+msgid "{kilograms} kg CO₂e per unit"
+msgstr ""
+
+msgctxt "average_for_the_category"
+msgid "average for the category"
+msgstr ""
+
+msgctxt "data_source_and_detailed_carbon_impact"
+msgid "Data source and detailed carbon impact"
+msgstr ""
 
 # variable names between { } must not be translated
 msgctxt "f_equal_to_driving_km_in_a_petrol_car"
@@ -5848,27 +5975,27 @@ msgctxt "life_cycle_analysis"
 msgid "Life cycle analysis"
 msgstr "Анализ на жизнения цикъл"
 
-msgctxt "ecoscore_bonuses_and_maluses"
+msgctxt "environmental_score_bonuses_and_maluses"
 msgid "Bonuses and maluses"
 msgstr "Бонуси и малуси"
 
-msgctxt "ecoscore_for_this_product"
-msgid "Eco-Score for this product"
-msgstr "Eco-Score за този продукт"
+msgctxt "environmental_score_for_this_product"
+msgid "Green-Score for this product"
+msgstr "Green-Score за този продукт"
 
 msgctxt "average_impact_of_the_category"
 msgid "Average impact of products of the same category"
 msgstr "Средно въздействие на продукти от същата категория"
 
-msgctxt "ecoscore_sum_of_bonuses_and_maluses"
+msgctxt "environmental_score_sum_of_bonuses_and_maluses"
 msgid "Sum of bonuses and maluses"
 msgstr "Сбор от бонуси и малуси"
 
-msgctxt "ecoscore_sum_of_bonuses_and_maluses_is_capped"
+msgctxt "environmental_score_sum_of_bonuses_and_maluses_is_capped"
 msgid "The sum of bonuses and maluses is capped at +25."
 msgstr "Сбора на бонусите и малусите е ограничена до +25."
 
-msgctxt "ecoscore_lca_score"
+msgctxt "environmental_score_lca_score"
 msgid "Life cycle analysis score"
 msgstr "Оценка за анализ на жизнения цикъл"
 
@@ -5876,7 +6003,7 @@ msgctxt "impact_for_this_product"
 msgid "Impact for this product"
 msgstr "Въздействие на този продукт"
 
-msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
+msgctxt "environmental_score_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
 msgstr "Резултатът от продукти с нерециклируеми и неразграждащи се опаковъчни материали е ограничен до 79 (степен B)."
 
@@ -5891,6 +6018,10 @@ msgstr "Категорията на продукта трябва да бъде 
 msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "Хранителните стойности на продукта трябва да бъдат посочени, за да се изчисли Nutri-Score."
+
+msgctxt "nutriscore_missing_nutrition_data_details"
+msgid "Missing nutrition facts:"
+msgstr ""
 
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
@@ -6107,9 +6238,9 @@ msgctxt "nutriscore_learn_more"
 msgid "Learn more about the Nutri-Score"
 msgstr "Благодаря ти"
 
-msgctxt "ecoscore_learn_more"
-msgid "Learn more about the Eco-Score"
-msgstr "Научи повече за Eco-Score"
+msgctxt "environmental_score_learn_more"
+msgid "Learn more about the Green-Score"
+msgstr "Научи повече за Green-Score"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
@@ -6146,8 +6277,8 @@ msgid "Use default preferences"
 msgstr "Използвай настройките по подразбиране"
 
 msgctxt "reset_preferences_details"
-msgid "Nutri-Score, Eco-Score and food processing level (NOVA)"
-msgstr "Nutri-Score, Eco-Score и ниво на обработка на храни (NOVA)"
+msgid "Nutri-Score, Green-Score and food processing level (NOVA)"
+msgstr "Nutri-Score, Green-Score и ниво на обработка на храни (NOVA)"
 
 msgctxt "actions_add_ingredients"
 msgid "Could you add the ingredients list?"
@@ -6157,9 +6288,9 @@ msgctxt "actions_to_compute_nutriscore"
 msgid "Could you add the information needed to compute the Nutri-Score?"
 msgstr "Може ли да добавиш необходимата информация, за изчисляването на Nutri-Score?"
 
-msgctxt "actions_to_compute_ecoscore"
-msgid "Could you add a precise product category so that we can compute the Eco-Score?"
-msgstr "Би ли добавил точна продуктова категория, за да можем да изчислим Eco-Score?"
+msgctxt "actions_to_compute_environmental_score"
+msgid "Could you add a precise product category so that we can compute the Green-Score?"
+msgstr "Би ли добавил точна продуктова категория, за да можем да изчислим Green-Score?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -6820,6 +6951,10 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr ""
 
+msgctxt "report_problem_navigation"
+msgid "Report a problem."
+msgstr ""
+
 msgctxt "incomplete_or_incorrect_data_title"
 msgid "Incomplete or incorrect information?"
 msgstr ""
@@ -6840,77 +6975,266 @@ msgctxt "description"
 msgid "Description"
 msgstr ""
 
-msgctxt "site_description_off"
-msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr ""
-
-msgctxt "tagline_off"
-msgid "Open Food Facts gathers information and data on food products from around the world."
-msgstr "Open Food Facts събира информация и данни за хранителни продукти от цял свят."
-
-msgctxt "footer_tagline_off"
-msgid "A collaborative, free and open database of food products from around the world."
-msgstr "Съвместна, безплатна и отворена база данни за съставки и информация за хранителни продукти от света."
-
-#. make sure the text file exists for your language, otherwise ask @teolemon 
-msgctxt "get_the_app_link_off"
-msgid "/open-food-facts-mobile-app"
-msgstr "/open-food-facts-mobile-app"
-
-msgctxt "site_description_obf"
-msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
-msgstr "Съвместна, безплатна и отворена база данни за съставки и информация за козметични продукти от света"
-
-msgctxt "tagline_obf"
-msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
-msgstr "Open Beauty Facts събира информация и данни за козметични продукти от цял свят."
-
-msgctxt "footer_tagline_obf"
-msgid "A collaborative, free and open database of cosmetic products from around the world."
-msgstr "Съвместна, безплатна и отворена база данни за съставки и информация за козметични продукти от света."
-
-#. make sure the text file exists for your language, otherwise ask @teolemon 
-msgctxt "get_the_app_link_obf"
-msgid "/open-beauty-facts-mobile-app"
-msgstr "/open-beauty-facts-mobile-app"
-
-msgctxt "footer_and_the_facebook_group_obf"
-msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
-msgstr "и <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook групата за сътрудници</a>"
-
-msgctxt "search_description_opensearch_obf"
-msgid "Open Beauty Facts product search"
-msgstr "Open Beauty Facts търсачка за продукти"
-
-msgctxt "warning_not_complete_obf"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr "Тази продуктова страница не е пълна. Можеш да помогнеш, като я редактираш и добавиш повече данни от снимките, които имаме, или като направиш още снимки с помощта на приложението за <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> или <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Благодаря ти!"
-
-msgctxt "brands_example_beauty"
-msgid "Nivea, Nivea Men"
-msgstr "Nivea, Nivea Men"
-
-msgctxt "categories_example_beauty"
-msgid "Anti-dandruff shampoo, Whitening toothpaste"
-msgstr "Шампоан против пърхот, избелваща паста за зъби"
-
-msgctxt "emb_codes_example_beauty"
-msgid "EMB 53062"
-msgstr "EMB 53062"
-
-msgctxt "generic_name_example_beauty"
-msgid "Anti-dandruff shampoo"
-msgstr "Шампоан против пърхот"
-
-msgctxt "product_name_example_beauty"
-msgid "Anti-Perspirant Stress Protect"
-msgstr "Защита против стрес"
-
-msgctxt "ingredients_text_example_beauty"
-msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
-msgstr "ВОДА, НАТРИЕВ ЛАУРЕТ СУЛФАТ, ДИНАТРИЕВ КОКОАМФОДИАЦЕТАТ, ГЛИКОЛ ДИСТЕАРАТ, КОКАМИД МЕА"
-
+# duplicate with "report_problem_panel_title"
 msgctxt "report_problem_navigation"
 msgid "Report a problem"
+msgstr ""
+
+msgctxt "enter_main_contact_username"
+msgid "Enter main contact's username :"
+msgstr ""
+
+msgctxt "change_main_contact"
+msgid "Change main contact"
+msgstr ""
+
+msgctxt "main_contact_updated"
+msgid "Main contact updated"
+msgstr ""
+
+msgctxt "error_unknown_member"
+msgid "This user is not a member of the organization."
+msgstr ""
+
+msgctxt "skip_to_content"
+msgid "Skip to Content"
+msgstr ""
+
+msgctxt "cant_delete_main_contact"
+msgid "You cannot remove the main contact. Change it first."
+msgstr ""
+
+msgctxt "open_in_crm"
+msgid "Open in CRM"
+msgstr ""
+
+msgctxt "information_provided_by_the_manufacturer"
+msgid "Information provided by the manufacturer"
+msgstr ""
+
+msgctxt "information_provided_by_the_manufacturer_edit_form"
+msgid "Information identified by a factory icon has been provided by the manufacturer. It can be changed only by the manufacturer and moderators. If it is out of date or incorrect, please let us know."
+msgstr ""
+
+msgctxt "knowledge_panels_did_you_know"
+msgid "Did you know?"
+msgstr ""
+
+msgctxt "knowledge_panels_why_it_matters"
+msgid "Why it matters"
+msgstr ""
+
+msgctxt "knowledge_panels_what_you_can_do"
+msgid "What you can do"
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_title"
+msgid "Good for agricultural biodiversity"
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_subtitle"
+msgid "Contains neglected or underutilized crops:"
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_did_you_know"
+msgid "Since 1900, 75% of plant diversity has been lost as farmers around the world have abandoned local varieties for high-yielding varieties adapted to mass industrial processing. As a result, 60 % of human energy intake in the world comes from only 3 species: wheat, rice and corn."
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_why_it_matters"
+msgid "The lack of variety of crops makes our food supply more vulnerable to pests, diseases and climate change."
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do"
+msgid "Consuming diverse cereals, legumes, vegetables and fruits contributes to:"
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_1"
+msgid "preserving neglected and underutilized species"
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_2"
+msgid "rural development and support of local farmers and companies"
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_3"
+msgid "preserving of diversified landscapes"
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_4"
+msgid "food security"
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_5"
+msgid "and your health!"
+msgstr ""
+
+msgctxt "created_by"
+msgid "Created by"
+msgstr ""
+
+msgctxt "org_id"
+msgid "Org id"
+msgstr ""
+
+msgctxt "verified_status"
+msgid "Verified status"
+msgstr ""
+
+msgctxt "creation_date"
+msgid "Creation date"
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_divinfood"
+msgid "Open Food Facts participates in the European project <a href=\"https://divinfood.eu/\">DIVINFOOD</a> (funded from European Union’s Horizon 2020 research and innovation programme). DIVINFOOD aims to develop food chains that value under-utilised agrobiodiversity in order to act against the decline of biodiversity and to meet the growing expectations of consumers for healthy, local products that contribute to sustainable food systems."
+msgstr ""
+
+msgctxt "deny"
+msgid "Deny"
+msgstr ""
+
+msgctxt "users_requested_to_join_org"
+msgid "These users have requested to join the organization:"
+msgstr ""
+
+msgctxt "last_login"
+msgid "Last login date"
+msgstr ""
+
+msgctxt "last_import"
+msgid "Last import date"
+msgstr ""
+
+msgctxt "drop_a_file"
+msgid "Drop"
+msgstr ""
+
+msgctxt "select_product_data_file"
+msgid "Select a file with product data"
+msgstr ""
+
+msgctxt "number_of_products_without_nutriscore"
+msgid "Number of products without Nutri-Score"
+msgstr ""
+
+msgctxt "percent_of_products_with_nutriscore"
+msgid "% of products where Nutri-Score is computed"
+msgstr ""
+
+msgctxt "products_to_be_exported"
+msgid "Products to be exported"
+msgstr ""
+
+msgctxt "products_exported"
+msgid "Products exported"
+msgstr ""
+
+msgctxt "opportunities_to_improve_nutriscore"
+msgid "Opp. for Nutri-Score improvements"
+msgstr ""
+
+msgctxt "date_of_last_update"
+msgid "Date of last update"
+msgstr ""
+
+msgctxt "number_of_products_on_public_platform"
+msgid "Number of products on public platform"
+msgstr ""
+
+msgctxt "number_of_products_on_producer_platform"
+msgid "Number of products on producer platform"
+msgstr ""
+
+msgctxt "automated_daily_export_to_public_platform"
+msgid "Automatic daily export to public platform"
+msgstr ""
+
+msgctxt "improvements_navigation"
+msgid "Improvements"
+msgstr ""
+
+msgctxt "products_with_changes_since_last_export"
+msgid "Products with changes since last export"
+msgstr ""
+
+msgctxt "organization_list"
+msgid "Organization list"
+msgstr ""
+
+msgctxt "open_org"
+msgid "Open org"
+msgstr ""
+
+msgctxt "secondhand"
+msgid "Secondhand"
+msgstr ""
+
+msgctxt "donated_products_title"
+msgid "Donations"
+msgstr ""
+
+msgctxt "donated_products_subtitle"
+msgid "Give this product, or search for a similar donated product"
+msgstr ""
+
+msgctxt "used_products_title"
+msgid "Used products"
+msgstr ""
+
+msgctxt "used_products_subtitle"
+msgid "Buy this product used, or search for a similar used product"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_name"
+msgid "Repairability index"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_setting_name"
+msgid "Good repairability"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_setting_note"
+msgid "Mandatory rating in France for certain products since 2021"
+msgstr ""
+
+# keep %s, it will be replaced by the letter A, B, C, D or E
+msgctxt "attribute_repairability_index_france_grade_title"
+msgid "Repairability index %s"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_unknown_title"
+msgid "Repairability index unknown"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_not_applicable_title"
+msgid "Repairability index not-applicable"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_not_applicable_description_short"
+msgid "Not-applicable for the category"
+msgstr "Не е приложимо за категорията"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_repairability_index_france_not_applicable_description"
+msgid "Applicable only for categories: {categories}"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_very_good_description_short"
+msgid "Very good repairability"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_good_description_short"
+msgid "Good repairability"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_average_description_short"
+msgid "Average repairability"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_poor_description_short"
+msgid "Poor repairability"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_bad_description_short"
+msgid "Bad repairability"
 msgstr ""
 
