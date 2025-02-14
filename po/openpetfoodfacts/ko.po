@@ -25,8 +25,8 @@ msgstr "Open Pet Food Facts는 전 세계의 애완 동물 사료 제품에 대�
 
 #. replace by the right country code, and make sure the url works
 msgctxt "android_app_link"
-msgid "https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner&hl=en"
-msgstr "https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner&hl=ko"
+msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
+msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=ko"
 
 msgctxt "brands_example"
 msgid "Purina, Pedigree"
@@ -58,11 +58,7 @@ msgid "https://world.openfoodfacts.org/images/apps/off.apk"
 msgstr "https://world.openfoodfacts.org/images/apps/off.apk"
 
 msgctxt "ios_app_link"
-msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
-msgstr "https://apps.apple.com/kr/app/open-beauty-facts/id1122926380"
-
-msgctxt "windows_phone_app_link"
-msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-environmental_score-and-more/XP8LT18SRPKLRG"
+msgid "https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948"
 msgstr ""
 
 #. make sure the Twitter account exists for your country. Otherwise, ask @stephane to create it
@@ -94,10 +90,6 @@ msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on pet food products from around the world"
 msgstr "세계 각국의 사료에 대한 성분, 영양 정보 및 정보의 무료 공개 협업 데이터베이스"
 
-msgctxt "footer_and_the_facebook_group"
-msgid "and the <a href=\"https://www.facebook.com/groups/OpenFoodFacts/\">Facebook group for contributors</a>"
-msgstr "기여자를 위한 <a href=\"https://www.facebook.com/groups/OpenFoodFacts/\">페이스 북 그룹</a>"
-
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr "세계 각국에서 사료의 협업 무료 오픈 데이터베이스."
@@ -120,6 +112,7 @@ msgctxt "product_js_upload_image_note"
 msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
 msgstr "→ Chrome, Firefox 및 Safari를 사용하면 Ctrl 키를 누른 상태에서 여러 사진 (제품, 재료 등)을 클릭하여 한 번에 모두 추가 할 수 있습니다."
 
+# Still in use. Would be nice to move it to placeholders
 msgctxt "search_description_opensearch"
 msgid "Open Pet Food Facts product search"
 msgstr "Open Pet Food Facts 제품 검색"
