@@ -46,15 +46,15 @@ my $ua = LWP::UserAgent->new();
 $ua->timeout(15);
 
 sub process_file($path, $code) {
-    my $scans_ref = retrieve_json($path. "/scans.json");
-    $scans->{$code} = $scans_ref; 
-    $scan_count++;
+	my $scans_ref = retrieve_json($path . "/scans.json");
+	$scans->{$code} = $scans_ref;
+	$scan_count++;
 
-    if ($scan_count % 1000 == 0) {
-        send_scans();
-        update_checkpoint($checkpoint_file, $path);
+	if ($scan_count % 1000 == 0) {
+		send_scans();
+		update_checkpoint($checkpoint_file, $path);
 		print '[' . localtime() . "] $scan_count products processed.\n";
-    }
+	}
 
 	return 1;
 }
