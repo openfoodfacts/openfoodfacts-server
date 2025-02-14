@@ -203,6 +203,7 @@ $ProductOpener::Config::options{rate_limit_allow_list} = {
 	'213.36.253.206' => 1,    # off1
 	'213.36.253.208' => 1,    # off2
 	'45.147.209.254' => 1,    # Moji server (actually OSM proxy, Moji only has ipv6)
+	'217.182.132.133' => 1,    # ks1
 };
 
 1;

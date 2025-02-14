@@ -69231,14 +69231,14 @@ wikidata:en: Q503
 
 < en:Bananas
 < en:Fresh fruits
-en: Bananas(fresh), Fresh bananas
-de: Bananen(frish), Frische Bananen
-fr: Bananes(fraîche), Bananes fraîches
-nl: Bananen(vers), verse bananen
-opposite:en: en:bananas(frozen)
+en: Fresh bananas, Bananas (fresh)
+de: Frische Bananen
+fr: Bananes fraîches
+nl: verse bananen
+opposite:en: en:frozen-bananas
 
 < en:Bananas
-en: Bananas(frozen), Frozen bananas
+en: Frozen bananas, Bananas (frozen)
 fr: Bananes congélés
 nl: Bananen(diepvries)
 opposite:en: en:bananas(fresh)
@@ -69260,13 +69260,13 @@ pnns_group_2:en: Potatoes
 wikidata:en: Q165449
 
 < en:Bananas
-en: Bananas(Cavendish)
+en: Cavendish Bananas, Bananas Cavendish
 xx: Cavendish
 fr: Bananes Cavendish
-nl: Bananen(Cavendish)
+nl: Cavendish Bananen
 opposite:en: en:plantain-bananas, en:red-bananas, en:baby-bananas
 
-< en:Bananas(Cavendish)
+< en:Bananas
 en: Bananas from the Canary Islands
 es: Plátano de Canarias
 fr: Bananes des Îles Canaries
@@ -69277,18 +69277,18 @@ protected_name_type:en: pgi
 #wikidata:en:
 
 < en:Bananas
-en: Bananas(frécinette), Baby bananas
+en: Frecinette Bananas, Frécinette bananas, Frécinettes bananas, Bananas (frécinette)
 fr: Bananes frécinettes, Bananes fréchinettes
 opposite:en: en:plantain-bananas, en:red-bananas, en:cavendish-bananas
 
 < en:Plantain bananas
-en: Bananas(Matooke), Matooke bananas
+en: Matooke bananas, Bananas (Matooke)
 xx: Matooke
-fr: Matooke, matoke
+fr: Bananes matooke, Matooke, matoke
 wikidata:en: Q101418717
 
 < en:Bananas
-en: Bananas(red), Red bananas
+en: Red bananas, Bananas(red)
 ar: الموز الأحمر
 fr: Bananes rouges
 hr: Crvena banana
@@ -69319,43 +69319,43 @@ lt: Bananų miltai
 nl: Bananenmelen
 comment:en: Bananas is restricted to whole fresh ones
 
-< en:Bananas(Cavendish)
-< en:Bananas(fresh)
 < en:Bulk
-en: Bananas(fresh Cavendish)
-fr: Bananes(fraîche Cavendish)
-nl: Bananen(verse Cavendish), Verse hele Cavendish bananen
+< en:Cavendish Bananas
+< en:Fresh Bananas
+en: Fresh Cavendish Bananas, Bananas (fresh Cavendish)
+fr: Bananes fraîches Cavendish, Bananes Cavendish fraîches
+nl: Verse hele Cavendish bananen, Bananen(verse Cavendish)
 bulk_proxy_category:en: en:bananas
-comment:en: assume that most bananes sold in the shop are fresh Cavendish bananas
+comment:en: assume that most bananas sold in the shop are fresh Cavendish bananas
 expected_ingredients:en: en:banana
 sales_format:en: package, weight, item
 
-< en:Bananas(frecinette)
-< en:Bananas(fresh)
 < en:Bulk
-en: Bananas(fresh frecinette)
-fr: Bananes(fraîche frecinette)
-nl: Bananen(verse frecinette), Verse hele frecinette bananen
-bulk_proxy_category:en: en:bananas(frecinette)
+< en:Frecinette Bananas
+< en:Fresh bananas
+en: Fresh Frecinette Bananas, Bananas (fresh frecinette)
+fr: Bananes frecinettes fraîches
+nl: Verse hele frecinette bananen
+bulk_proxy_category:en: en:frecinette-bananas
 expected_ingredients:en: en:banana
 sales_format:en: package, weight, item
 
-< en:Bananas(fresh)
-< en:Bananas(red)
 < en:Bulk
-en: Bananas(fresh whole red)
-fr: Bananes(fraîche rouge)
+< en:Fresh Bananas
+< en:Red Bananas
+en: Fresh Red Bananas
+fr: Bananes rouges fraîches, Bananes fraîches rouges
 nl: Bananen(verse hele rode), Verse hele rode bananen
-bulk_proxy_category:en: en:bananas(red)
+bulk_proxy_category:en: en:red-bananas
 expected_ingredients:en: en:banana
 sales_format:en: package, weight, item
 
 < en:Bananas from the Canary Islands
-< en:Bananas(fresh)
 < en:Bulk
-en: Bananas(fresh  red from the Canary Islands)
-fr: Bananes(fraîche rouge des Canaries)
-nl: Bananen(verse rode van de Canrische eilanden), Verse hele bananen van de Canarische eilanden
+< en:Fresh bananas
+en: Fresh Bananas from the Canary Islands
+fr: Bananes fraîches des Canaries
+nl: Verse hele bananen van de Canarische eilanden, Bananen(verse rode van de Canrische eilanden)
 bulk_proxy_category:en: en:bananas-from-the-canary-islands
 expected_ingredients:en: en:bananas
 sales_format:en: package, weight, item

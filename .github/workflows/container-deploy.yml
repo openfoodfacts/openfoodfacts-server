@@ -245,6 +245,7 @@ jobs:
           cd ${{ matrix.env }} && \
           make init_backend
 
+    # NOTE: the mongodb and redis containers are deployed by openfoodfacts-shared-services 
     - name: Start services
       uses: appleboy/ssh-action@master
       with:
