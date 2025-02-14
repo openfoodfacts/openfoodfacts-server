@@ -3042,13 +3042,13 @@ sub review_product_type ($product_ref) {
 	else {
 		# We remove the tag en:incorrect-product-type and its children before the product is stored on the server of the new type
 		remove_tag($product_ref, "categories", "en:incorrect-product-type");
-		remove_tags($product_ref, "categories", "en:open-beauty-facts");
-		remove_tags($product_ref, "categories", "en:open-food-facts");
-		remove_tags($product_ref, "categories", "en:open-pet-food-facts");
-		remove_tags($product_ref, "categories", "en:open-products-facts");
-		remove_tags($product_ref, "categories", "en:non-food-products");
-		remove_tags($product_ref, "categories", "en:non-pet-food-products");
-		remove_tags($product_ref, "categories", "en:non-beauty-products");
+		remove_tag($product_ref, "categories", "en:open-beauty-facts");
+		remove_tag($product_ref, "categories", "en:open-food-facts");
+		remove_tag($product_ref, "categories", "en:open-pet-food-facts");
+		remove_tag($product_ref, "categories", "en:open-products-facts");
+		remove_tag($product_ref, "categories", "en:non-food-products");
+		remove_tag($product_ref, "categories", "en:non-pet-food-products");
+		remove_tag($product_ref, "categories", "en:non-beauty-products");
 	}
 
 	return;
