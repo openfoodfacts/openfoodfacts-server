@@ -329,6 +329,7 @@
                   {
                      "environmental_score_material_score" : 50,
                      "environmental_score_shape_ratio" : 1,
+                     "food_contact" : 0,
                      "material" : "en:wood",
                      "number_of_units" : 1,
                      "recycling" : "en:recycle",
@@ -337,6 +338,7 @@
                   {
                      "environmental_score_material_score" : 81,
                      "environmental_score_shape_ratio" : 1,
+                     "food_contact" : 1,
                      "material" : "en:glass",
                      "number_of_units" : 6,
                      "quantity_per_unit" : "25cl",
@@ -348,6 +350,7 @@
                   {
                      "environmental_score_material_score" : 76,
                      "environmental_score_shape_ratio" : 0.2,
+                     "food_contact" : 1,
                      "material" : "en:steel",
                      "number_of_units" : 3,
                      "recycling" : "en:recycle",
@@ -356,6 +359,7 @@
                   {
                      "environmental_score_material_score" : 0,
                      "environmental_score_shape_ratio" : 0.1,
+                     "food_contact" : 0,
                      "material" : "en:plastic",
                      "non_recyclable_and_non_biodegradable" : "maybe",
                      "number_of_units" : 1,
@@ -436,7 +440,7 @@
       "ingredients" : [
          {
             "ciqual_food_code" : "13050",
-            "ecobalyse_code" : "apple-fr",
+            "ecobalyse_code" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
             "id" : "en:apple",
             "is_in_taxonomy" : 1,
             "percent_estimate" : 62.5,
@@ -448,7 +452,7 @@
          },
          {
             "ciqual_proxy_food_code" : "19051",
-            "ecobalyse_code" : "milk",
+            "ecobalyse_code" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
             "id" : "en:milk",
             "is_in_taxonomy" : 1,
             "percent_estimate" : 18.75,
@@ -472,7 +476,7 @@
          },
          {
             "ciqual_food_code" : "16129",
-            "ecobalyse_code" : "refined-palm-oil",
+            "ecobalyse_code" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
             "from_palm_oil" : "yes",
             "id" : "en:palm-oil",
             "is_in_taxonomy" : 1,
@@ -816,12 +820,14 @@
       "packaging_text_en" : "1 wooden box to recycle, 6 25cl glass bottles to reuse, 3 steel lids to recycle, 1 plastic film to discard",
       "packagings" : [
          {
+            "food_contact" : 0,
             "material" : "en:wood",
             "number_of_units" : 1,
             "recycling" : "en:recycle",
             "shape" : "en:box"
          },
          {
+            "food_contact" : 1,
             "material" : "en:glass",
             "number_of_units" : 6,
             "quantity_per_unit" : "25cl",
@@ -831,12 +837,14 @@
             "shape" : "en:bottle"
          },
          {
+            "food_contact" : 1,
             "material" : "en:steel",
             "number_of_units" : 3,
             "recycling" : "en:recycle",
             "shape" : "en:lid"
          },
          {
+            "food_contact" : 0,
             "material" : "en:plastic",
             "number_of_units" : 1,
             "recycling" : "en:discard",
