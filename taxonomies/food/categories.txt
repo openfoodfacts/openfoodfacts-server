@@ -12436,6 +12436,7 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Coffee - Liquid/Ready to Drink
 intake24_category_code:en: CFFS
 pnns_group_2:en: Teas and herbal teas and coffees
+sales_format:en: package, item
 wikidata:en: Q37756327
 
 < en:Coffee drinks
@@ -34555,6 +34556,7 @@ gpc_category_name:en: Bread (Perishable)
 en: Ciabatta
 xx: Ciabatta
 bg: Чабата
+sales_format:en: package, item
 wikidata:en: Q246703
 
 < en:Breads
@@ -35455,6 +35457,7 @@ nl: Bruine broden, Bruinbrood, Bruin brood, Volkoren broden
 ro: Pâine brună, Pâine neagră
 ru: Цельнозерновой хлеб
 intake24_category_code:en: BBRD
+sales_format:en: package, item
 wikidata:en: Q940999
 
 < en:Breads
@@ -35875,6 +35878,7 @@ agribalyse_food_code:en: 7004
 ciqual_food_code:en: 7004
 ciqual_food_name:en: Toasted bread, home-made
 ciqual_food_name:fr: Pain grillé, domestique
+sales_format:en: package, item
 
 < en:Toasts
 en: Wheat rusk slices
@@ -36113,6 +36117,7 @@ fi: maalaisleipä
 fr: Pains de campagne, Pain de campagne
 hr: Pains de campagne
 nl: Boerenbroden, Boerenbrood
+sales_format:en: package, item
 wikidata:en: Q3360595
 
 < en:Breads
@@ -36156,6 +36161,7 @@ lt: Specialios duonos
 nl: Speciale broden, Speciaal brood
 pt: Pães especiais
 zh: 特殊面包
+sales_format:en: package, item
 
 < en:Special breads
 en: Bread Pretzels
@@ -36164,6 +36170,7 @@ fr: Pains Bretzels, Pain bretzel, Pains bretzel
 hr: Pereci za kruh
 nl: Brood Pretzels
 comment:en: Do not confuse these with the small snacks
+sales_format:en: package, item
 wikidata:en: Q160525
 
 < en:Special breads
@@ -39578,7 +39585,7 @@ it: Caramelle
 ja: キャンディ, キャンディー, キャンデー
 lt: Saldainiai
 nl: Snoep
-pl: Cukierki, cukierek, słodkości
+pl: Cukierki, słodycze, cukierek, słodkości
 pt: Rebuçados e gomas
 ru: Сладости
 sv: Godis, Sötsaker
@@ -41978,6 +41985,7 @@ ciqual_food_name:fr: Sarrasin entier, cru
 #zh-hk:蕎麥
 #zh-sg:荞麦
 #zh-tw:蕎麥
+sales_format:en: package, weight
 wikidata:en: Q132734
 
 < en:Plant-based foods
@@ -42106,7 +42114,7 @@ ciqual_food_name:en: Sweet corn, on the cob, cooked
 ciqual_food_name:fr: Maïs doux, en épis, cuit
 
 < en:Corn
-en: corn grain, maize grain
+en: Corn grain, Maize grain
 fr: Maïs en grain
 hr: Zrno kukuruza
 nl: Maiskorrels
@@ -42114,6 +42122,7 @@ agribalyse_food_code:en: 9200
 ciqual_food_code:en: 9200
 ciqual_food_name:en: Corn or maize grain, raw
 ciqual_food_name:fr: Maïs entier, cru
+sales_format:en: package, weight
 
 < en:Corn
 en: Fresh corn, Fresh maize
@@ -42202,6 +42211,7 @@ hr: Zlatne sjemenke lana
 nl: Geel lijnzaad
 pl: Siemię lniane złote
 pt: Linhaça dourada, sementes de linhaça dourada
+sales_format:en: package, weight
 
 < en:Flax seeds
 en: Brown flax seeds, Brown flax, Brown linseeds
@@ -42217,7 +42227,7 @@ agribalyse_food_code:en: 15052
 ciqual_food_code:en: 15052
 ciqual_food_name:en: Flaxseed, brown
 ciqual_food_name:fr: Lin, brun, graine
-
+sales_format:en: package, weight
 
 < en:Flax seeds
 en: Ground flax seeds
@@ -42335,6 +42345,7 @@ agribalyse_food_code:en: 9340_1
 ciqual_food_code:en: 9340
 ciqual_food_name:en: Quinoa, raw
 ciqual_food_name:fr: Quinoa, cru
+sales_format:en: package, weight
 wikidata:en: Q139925
 
 < en:Quinoa
@@ -42354,6 +42365,26 @@ fr: Quinoa rouge
 hr: Crvena kvinoja
 nl: Rode quinoa
 #wikidata:en:
+
+< en:quinoa
+en: Quinoa from France, Quinoa FR raw
+fr: Quinoa de France cru
+hr: Quinoa fr sirova
+nl: Quinoa uit Frankrijk (ongekookt)
+agribalyse_food_code:en: 9340_2
+ciqual_food_code:en: 9340
+ciqual_food_name:en: Quinoa FR, raw
+ciqual_food_name:fr: Quinoa FR, cru
+
+< en:quinoa
+en: Quinoa FR boiled/cooked in water unsalted
+fr: Quinoa FR cuit
+hr: Kvinoja fr kuhana/kuhana u vodi neslanoj
+nl: Quinoa uit Frankrijk (gekookt)
+agribalyse_food_code:en: 9341_2
+ciqual_food_code:en: 9341
+ciqual_food_name:en: Quinoa FR, boiled/cooked in water, unsalted
+ciqual_food_name:fr: Quinoa FR, cuit
 
 < en:Cereal grains
 en: Rices
@@ -42729,6 +42760,7 @@ agribalyse_food_code:en: 9119
 ciqual_food_code:en: 9119
 ciqual_food_name:en: Basmati rice, raw
 ciqual_food_name:fr: Riz thaï ou basmati, cru
+sales_format:en: package, weight
 wikidata:en: Q1649635
 
 < en:Basmati rices
@@ -43025,6 +43057,7 @@ zh: 芝麻
 agribalyse_food_code:en: 15010
 ciqual_food_code:en: 15010
 ciqual_food_name:en: Sesame seed
+sales_format:en: package, weight
 wco_hs_code:en: 1207.40
 wco_hs_heading:en: 12.07
 wikidata:en: Q2763698
@@ -43041,9 +43074,10 @@ lt: Lukštenti sezamai
 agribalyse_food_code:en: 15035
 ciqual_food_code:en: 15035
 ciqual_food_name:en: Sesame seed, husked
+sales_format:en: package, weight
 
 < en:Sesame
-en: Toasted sesame, grilled sesame, husked sesame
+en: Toasted sesame, grilled sesame, husked sesame, Sesame seeds (roasted)
 de: Gerösteter Sesam
 es: Semillas de sésamo tostadas
 fr: Sésame toasté, Graines de sésame toastées
@@ -43054,6 +43088,7 @@ zh: 烤芝麻
 agribalyse_food_code:en: 15038
 ciqual_food_code:en: 15038
 ciqual_food_name:en: Sesame seed, grilled, husked
+sales_format:en: package, weight
 
 < en:Cereal grains
 en: Sorghum, Whole sorghum
@@ -43160,6 +43195,7 @@ hr: Jednozrnate pšenice
 it: Farro piccolo
 la: Triticum monococcum
 nl: Eenkoorn, Eenkoren
+sales_format:en: package, weight
 wikidata:en: Q161397
 
 < en:Wheats
@@ -55478,8 +55514,9 @@ opposite:en: en:salted-nuts
 < en:Nuts
 en: Mixed nuts, Nut mix
 de: Nussmischung
-nl: Notenmelanges, gemengde noten
+nl: Notenmelanges, Gemengde noten
 opposite:en: en:brazil-nuts
+sales_format:en: package, weight
 
 < en:Peanuts
 < en:Salted nuts
@@ -55513,6 +55550,7 @@ zh: 带壳坚果
 
 < en:Seeds
 en: Shelled seeds
+nl: Zaden (gepeld), Gepelde zaden
 
 < en:Shelled nuts
 < en:Shelled seeds
@@ -55569,14 +55607,14 @@ en: Nonpareil almonds
 #sv: Sötmandel
 
 < en:Almonds
-en: Almonds(unshelled), Almonds with shell, Unshelled almonds
+en: Unshelled almonds, Almonds (unshelled), Almonds with shell
 it: Mandorle in guscio
 nl: Amandelen(ongepeld), Ongepelde amandelen
-opposite:en: en:almonds(shelled)
+opposite:en: en:shelled-almonds
 
 < en:Almonds
 < en:Shelled nuts
-en: Almonds(shelled), Shelled almonds
+en: Shelled almonds, Almonds (shelled)
 bg: Белени бадеми
 de: Mandeln ohne Schale
 es: Almendras sin cáscara, Almendra con piel
@@ -55586,8 +55624,9 @@ hr: Oljušteni bademi
 hu: Héjas mandula
 it: Mandorle sgusciate
 lt: Gliaudyti migdolai, lukštenti migdolai
-nl: Amandelen(gepeld), Gepelde amandelen
-opposite:en: en:almonds(unshelled)
+nl: Amandelen (gepeld), Gepelde amandelen
+opposite:en: en:unshelled-almonds
+sales_format:en: package, weight
 wco_hs_code:en: 0802.12
 wco_hs_heading:en: 08.02
 
@@ -55596,7 +55635,7 @@ en: Whole almonds
 de: ganze Mandeln
 fr: Amandes entières
 hr: Cijeli bademi
-nl: Amandelen(heel)
+nl: Amandelen (heel)
 agribalyse_food_code:en: 15000
 ciqual_food_code:en: 15000
 ciqual_food_name:en: Almond (with peel)
@@ -55610,49 +55649,49 @@ sales_format:en: weight, package
 # not many products yet
 
 < en:Shelled almonds
-en: Almonds(blanched), Blanched almonds
+en: Blanched almonds, Almonds (blanched)
 cz: Mandle blanšírované
 es: Almendras repeladas, Almendra pelada, Almendras sin piel, Láminas de almendra
 fr: Amandes blanchies, Amandes émondées
 it: Mandorle pelate
-nl: Amandelen(geblancheerd), Geblancherde amandelen
+nl: Amandelen (geblancheerd), Geblancherde amandelen
 pl: Migdały blanszowane
 pt: Miolo de Amêndoa sem Pele
 ro: Migdale blanșate
-opposite:en: en:almonds(non-blanched)
+opposite:en: en:non-blanched-almonds
 
 < en:Shelled almonds
-en: Almonds(non-blanched), Non-blanched almonds, Unblanched almonds
-nl: Amandelen(niet geblancheerd)
-opposite:en: en:almonds(blanched)
+en: Non-blanched almonds, Almonds (non-blanched), Unblanched almonds
+nl: Amandelen (niet geblancheerd)
+opposite:en: en:blanched-almonds
 
-< en:Almonds(blanched)
+< en:Blanched almonds
 en: Almond flakes
-de: Mandeln(Gehobelt), Gehobelte Mandeln
+de: Mandeln (Gehobelt), Gehobelte Mandeln
 es: Almendras laminas
 fi: Mantelihiutaleet
 fr: Amandes effilées
 hr: Listići badema
 lt: Migdolų drožlės, pjaustyti migdolai, migdolų riekelės
 nl: Amandelschaafsel, Amandelvlokken
-opposite:en: en:almonds(whole)
+opposite:en: en:whole-almonds
 
-< en:Almonds(blanched)
+< en:Blanched almonds
 fr: Amandes hachées
 cz: Mandle jádra
 de: Mandeln(gehackt)
 pl: Migdały siekane
 ro: Migdale mǎrunțite
 
-< en:Almonds(blanched)
-en: Almonds(slivered), Slivered almonds
+< en:Blanched almonds
+en: Slivered almonds, lmonds(slivered)
 de: Mandeln gestiftet
 fr: Amandes allumettes
 it: Mandorle a bastonino
 
 < en:Nut flours
 < en:Shelled almonds
-en: Almonds(ground), Ground almonds, Almond meal, Almond powders, Almond flours
+en: Ground almonds, Almond meal, Almond powders, Almond flours, Almonds(ground)
 de: gemahlene Mandeln, geriebene Mandeln
 es: Almendras en polvo, Almendra en polvo, Harinas de almendra, Harina de almendra
 fi: mantelijauho, Mantelijauhe
@@ -55667,7 +55706,7 @@ agribalyse_proxy_food_name:en: Almond, peeled, unpeeled or blanched
 agribalyse_proxy_food_name:fr: Amande, mondée, émondée ou blanchie
 wikidata:en: Q4733897
 
-< en:Almonds(blanched)
+< en:Blanched almonds
 en: Almond peeled unpeeled or blanched
 fr: Amande mondée émondée blanchie
 agribalyse_food_code:en: 15041
@@ -55675,7 +55714,7 @@ ciqual_food_code:en: 15041
 ciqual_food_name:en: Almond, peeled, unpeeled or blanched
 
 < en:Shelled almonds
-en: Almonds(roasted), Roasted almonds, Grilled almonds, Toasted almonds
+en: Roasted almonds, Grilled almonds, Toasted almonds, Almonds (roasted)
 ca: Ametles torrades
 de: Geröstete Mandeln
 es: Almendra tostada, Almendras fritas
@@ -55684,25 +55723,24 @@ fr: Amandes grillées
 hr: Bademi na žaru
 it: Mandorle Grigliate
 lt: Grilinti migdolai
-nl: Gegrilde amandelen
+nl: Gegrilde amandelen, Amandelen (gegrild)
 agribalyse_proxy_food_code:en: 15042
 agribalyse_proxy_food_name:en: Almond, grilled, salted
 opposite:en: en:almonds(unroasted)
 sales_format:en: weight, package
 
 < en:Shelled almonds
-en: Almonds(unroasted)
-nl: Amandelen(ongegrild)
+en: Unroasted almonds, Almonds (unroasted)
+nl: Amandelen (ongegrild)
 opposite:en: en:almonds(roasted)
 
-< en:Almonds(non-blanched)
-< en:Almonds(unroasted)
-< en:Almonds(unsalted)
-< en:Bulk
+< en:Non-blanched almonds
+< en:Unroasted almonds
+< en:Unsalted almonds
 < en:Whole almonds
-en: Almonds(raw), Raw almonds
+en: Raw almonds, Almonds (raw)
 ca: Ametlles crues
-de: Mandeln(Naturbelassen)
+de: Mandeln (Naturbelassen)
 es: Almendra natural, Almendra cruda, Almendra cruda con piel
 fr: Amandes décortiqués crues, Amandes crues
 ro: Migdale crude
@@ -55710,7 +55748,7 @@ expected_ingredients:en: en:almond
 sales_format:en: weight, package
 
 < en:Shelled almonds
-en: Almonds(salted), Salted almonds
+en: Salted almonds, Almonds (salted)
 de: Gesalzene Mandeln
 es: Almendras saladas, Almendra con sal
 fi: suolatut mantelit
@@ -55719,28 +55757,27 @@ hr: Slani bademi
 hu: Sós mandula, sózott mandula
 it: Mandorle salate
 lt: Sūdyti migdolai, Migdolai su druska
-nl: Amandelen(gezouten), Gezouten amandelen
+nl: Amandelen (gezouten), Gezouten amandelen
 pl: Solone migdały
 pt: Miolo de Amêndoa com sal
 tr: Tuzlu badem
 agribalyse_proxy_food_code:en: 15042
 agribalyse_proxy_food_name:en: Almond, grilled, salted
-opposite:en: en:almonds(unsalted)
+opposite:en: en:unsalted-almonds
 
 < en:Shelled almonds
-en: Almonds(unsalted), Unsalted almonds
+en: Unsalted almonds, Almonds(unsalted)
 fr: Amandes non-salées
 nl: Amandelen(ongezouten), Ongezouten amandelen
-opposite:en: en:almonds(salted)
+opposite:en: en:salted-almonds
 
-< en:Almonds(roasted)
-< en:Almonds(unsalted)
-< en:Bulk
+< en:Roasted almonds
+< en:Unsalted almonds
 en: Almonds(roasted and unsalted)
 fr: Amandes grillées et non-salées
 sales_format:en: weight, package
 
-< en:Almonds(roasted)
+< en:Roasted almonds
 < en:Salted almonds
 en: Roasted and salted almonds, Salted and grilled almonds, Grilled and salted almonds, Almond grilled salted, Roasted salted almonds
 fr: Amandes grillées et salées, Amande grillée salée
@@ -55757,7 +55794,7 @@ nl: Amandelen (gearomatiseerd)
 comment:en: Flavoured almonds has been put outside the Almonds category. Otherwise we had to introduce a non-flavoured category, requiring all 3500 products to edit.
 
 < en: Flavoured almonds
-en: Almonds(smoked), Smoked almonds
+en: Smoked almonds, Almonds(smoked)
 da: Mandler med røgsmag
 fr: Amandes goût fumé, Amandes saveur fumée
 nl: Amandelen(gerookt), Gerookte amandelen
@@ -55929,12 +55966,13 @@ wikidata:en: Q2967779
 
 < en:Chestnuts
 < en:Shelled nuts
-en: Shelled chestnuts
+en: Shelled chestnuts, Chestnuts (shelled)
 de: Maronen mit Schale, Ungeschälte Maronen
 es: Castañas sin cáscara
 fr: Châtaignes décortiquées
 hr: Oljušteni kesteni
-nl: Gepelde kastanjes
+nl: Gepelde kastanjes, Kastanjes (gepeld)
+sales_format:en: package, weight
 wco_hs_code:en: 0802.42
 wco_hs_heading:en: 08.02
 
@@ -56103,6 +56141,7 @@ agribalyse_food_code:en: 15033
 ciqual_food_code:en: 15033
 ciqual_food_name:en: Hazelnut, grilled
 opposite:en: en:raw-hazelnuts
+sales_format:en: package, weight
 
 < en:Roasted hazelnuts
 < en:Shelled hazelnuts with skin
@@ -56133,9 +56172,10 @@ nl: Hazelnoten (geroosterd en gezouten)
 agribalyse_food_code:en: 15050
 ciqual_food_code:en: 15050
 ciqual_food_name:en: Hazelnut, grilled, salted
+sales_format:en: package, weight
 
 < en:Shelled hazelnuts
-en: Hazelnuts (unsalted)
+en: Unsalted hazelnuts, Hazelnuts (unsalted)
 fr: Noisettes sans sel
 nl: Hazelnoten (ongezouten)
 
@@ -56399,36 +56439,36 @@ wco_hs_heading:en: 08.02
 wikidata:en: Q19958754
 
 < en:Pistachios
-en: Plain pistachios, Pistachios(plain)
-nl: Pistachenote(onbehandeld)
+en: Plain pistachios, Pistachios (plain)
+nl: Pistachenote (onbehandeld)
 expected_ingredients:en: en:pistachi
-opposite:en: en:pistachios(roasted), en:pistchios(salted)
+opposite:en: en:roasted-pistachios, en:salted-pistachios
 
 
 < en:Pistachios
 < en:Shelled nuts
-en: Pistachio kernels, Pistachios(shelled), Shelled pistachios
+en: Pistachio kernels, Pistachios (shelled), Shelled pistachios
 el: Φυστίκια κελυφωτά
 es: Pistachos sin cáscara
 fr: Pistaches décortiquées
 hr: Pistacije u ljusci
 hu: Héjas pisztácia, pisztácia héjban
 lt: Gliaudytos pistacijos
-nl: Gepelde pistachenoten
+nl: Gepelde pistachenoten, Pistachenoten (gepeld)
 sl: jedrca pistacije
-opposite:en: en:pistachios(unshelled)
+opposite:en: en:unshelled-pistachios
 wco_hs_code:en: 0802.52
 wco_hs_heading:en: 08.02
 
 < en:Pistachios
-en: Pistachios(unshelled), Unshelled pistachios, Pistachio Nuts in Shells
+en: Unshelled pistachios, Pistachio Nuts in Shells, Pistachios (unshelled)
 fr: Pistaches non décortiquées
 nb: Pistasjnøtter med skall
-nl: Pistachenoten(met schil), Ongepelde pistachenoten
+nl: Pistachenoten (met schil), Ongepelde pistachenoten
 opposite:en: en:pistachio-kernels
 
 < en:Pistachios
-en: Pistachios(roasted), Roasted pistachios, Toasted pistachios
+en: Roasted pistachios, Toasted pistachios, Pistachios (roasted)
 de: Geröstete Pistazien
 es: Pistachos tostados
 et: röstitud ja soolatud pistaatsiapähklid
@@ -56444,6 +56484,7 @@ ru: Жареные фисташки
 agribalyse_food_code:en: 15044
 ciqual_food_code:en: 15044
 ciqual_food_name:en: Pistachio nut, grilled
+sales_format:en: package, weight
 
 < en:Pistachios
 < fr:Fruits à coque salés
@@ -56454,12 +56495,12 @@ hr: Slane pistacije
 it: Pistacchi salati
 lt: Sūdytos pistacijos
 nl: Gezouten pistachenoten
-opposite:en: en:pistachios(unsalted)
+opposite:en: en:unsalted-pistachios
 
 < en:Pistachios
-en: Pistachios(unsalted), Unsalted pistachios
+en: Unsalted pistachios, Pistachios (unsalted)
 fr: Pistaches sans sel
-nl: Pistachenoten(ongezouten)
+nl: Pistachenoten (ongezouten), Ongezouten pistachios
 opposite:en: en:salted-pistachios
 
 < en:Roasted pistachios
@@ -56488,9 +56529,9 @@ en: Pistachios from Bronte
 it: Pistacchi di Bronte, Pistacchi verde di Bronte
 origin:en: en:italy
 
-< en:Pistachios
-en: Pistachio butters(100%)
-de: Pistazienmus(100%)
+< en:Nut butters
+en: Pistachio butters (100%)
+de: Pistazienmus (100%)
 
 < en:Nuts
 en: Brazil nuts, Para nuts
