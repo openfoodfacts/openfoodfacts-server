@@ -4840,7 +4840,7 @@ msgstr "Green-Score"
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr "Низкое воздействие на окружающую среду (Green-Score)"
+msgstr "Низкая экологическая нагрузка (Green-Score)"
 
 msgctxt "attribute_environmental_score_setting_note"
 msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
@@ -4853,7 +4853,7 @@ msgstr "Green-Score"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr "Низкое воздействие на окружающую среду (Green-Score)"
+msgstr "Низкая экологическая нагрузка (Green-Score)"
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
@@ -4866,11 +4866,11 @@ msgstr "Green-Score %s"
 
 msgctxt "attribute_environmental_score_a_plus_description_short"
 msgid "Very low environmental impact"
-msgstr "Низшее экологическое воздействие"
+msgstr "Очень низкое воздействие на окружающую среду"
 
 msgctxt "attribute_environmental_score_a_description_short"
 msgid "Very low environmental impact"
-msgstr "Низшее экологическое воздействие"
+msgstr "Очень низкое воздействие на окружающую среду"
 
 msgctxt "attribute_environmental_score_b_description_short"
 msgid "Low environmental impact"
@@ -4878,19 +4878,19 @@ msgstr "Низкое воздействие на окружающую среду
 
 msgctxt "attribute_environmental_score_c_description_short"
 msgid "Moderate environmental impact"
-msgstr "Умеренное экологическое воздействие"
+msgstr "Умеренное воздействие на окружающую среду"
 
 msgctxt "attribute_environmental_score_d_description_short"
 msgid "High environmental impact"
-msgstr "Высокое экологическое воздействие"
+msgstr "Сильное воздействие на окружающую среду"
 
 msgctxt "attribute_environmental_score_e_description_short"
 msgid "Very high environmental impact"
-msgstr "Высшее экологическое воздействие"
+msgstr "Russian"
 
 msgctxt "attribute_environmental_score_f_description_short"
 msgid "Very high environmental impact"
-msgstr "Высшее экологическое воздействие"
+msgstr "Russian"
 
 # keep the %s, it will be replaced by an allergen
 msgctxt "contains_s"
@@ -5356,7 +5356,7 @@ msgstr "Продукты с лучшими показателями Nutri-Score"
 
 msgctxt "sort_by_environmental_score_score"
 msgid "Products with the best Green-Score"
-msgstr "Продукция с лучшим Green-Score"
+msgstr "Продукты с лучшими показателями Green-Score"
 
 msgctxt "sort_by_created_t"
 msgid "Recently added products"
@@ -5419,23 +5419,23 @@ msgstr "Неприменимо к этой категории"
 # variable names between { } must not be translated
 msgctxt "f_attribute_environmental_score_not_applicable_description"
 msgid "Not yet applicable for the category: {category}"
-msgstr "Пока не применимо для категории: {category}"
+msgstr "Пока не применимо к категории: {category}"
 
 msgctxt "environmental_score_not_applicable_coming_soon"
 msgid "The Green-Score is not yet applicable for this category, but we are working on adding support for it."
-msgstr "Green-Score пока не применим к этой категории, но мы работаем над добавлением её поддержки."
+msgstr "Green-Score еще не применим для этой категории, но мы работаем над его поддержкой."
 
 msgctxt "attribute_environmental_score_unknown_title"
 msgid "Green-Score not computed"
-msgstr "Green-Score не вычислен"
+msgstr "Green-Score не рассчитана"
 
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
-msgstr "Неизвестное экологическое воздействие"
+msgstr "Воздействие на окружающую среду неизвестно"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
-msgstr "Нам не следует вычислять Green-Score для этого продукта из-за недостатка информации, поможете её получить?"
+msgstr "Не получается вычислить Green-Score этого продукта из-за неполных данных, не могли бы вы помочь с их уточнением?"
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
@@ -5569,7 +5569,7 @@ msgstr "Green-Score можно рассчитать только в том сл�
 
 msgctxt "environmental_score_add_more_precise_category"
 msgid "You can modify the product page to add a more precise category."
-msgstr "Вы можете изменять страницу продукта для добавления более точной категории."
+msgstr "Вы можете изменить страницу продукта, чтобы добавить более точную категорию."
 
 msgctxt "environmental_score_platform_promo"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
@@ -5577,7 +5577,7 @@ msgstr "Если вы являетесь производителем этого
 
 msgctxt "environmental_score_warning_missing_information"
 msgid "Warning: some information necessary to calculate the Green-Score with precision is not provided (see the details of the calculation below)."
-msgstr "Внимание: некоторая информация необходимая для точного расчёта Green-Score не предоставлена (Подробности расчёта смотрите ниже)."
+msgstr "Предупреждение: некоторая информация, необходимая для точного расчета Green-Score, не была предоставлена (см. подробности расчета ниже)."
 
 msgctxt "environmental_score_add_missing_information"
 msgid "You can edit the product to add the missing information."
@@ -5606,7 +5606,7 @@ msgstr "Точное соответствие категории продукт�
 
 msgctxt "environmental_score_pef_environmental_score"
 msgid "PEF environmental score"
-msgstr "Экологическая оценка PEF"
+msgstr "Оценка окружающей среды PEF"
 
 msgctxt "environmental_score_incl_climate_change_impact"
 msgid "including impact on climate change"
@@ -5619,7 +5619,7 @@ msgstr "Подробная информация о воздействии по �
 # stage meaning step
 msgctxt "environmental_score_stage"
 msgid "Stage"
-msgstr "Стадия"
+msgstr "Этап"
 
 msgctxt "environmental_score_impact"
 msgid "Impact"
@@ -5639,7 +5639,7 @@ msgstr "Упаковка"
 
 msgctxt "environmental_score_transportation"
 msgid "Transportation"
-msgstr "Перевозка"
+msgstr "Транспорт"
 
 msgctxt "environmental_score_distribution"
 msgid "Distribution"
@@ -5723,7 +5723,7 @@ msgstr "очки"
 
 msgctxt "environmental_score_score_of_all_components"
 msgid "Score of all components"
-msgstr "Оценка всех компонентов"
+msgstr "Очки всех компонентов"
 
 msgctxt "environmental_score_no_packaging_information"
 msgid "The information about the packaging of this product is not filled in."
@@ -5739,11 +5739,11 @@ msgstr "Для более точного расчета Green-Score вы мож�
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
-msgstr "Итоговая оценка"
+msgstr "Суммарный балл"
 
 msgctxt "environmental_score_lower_the_score_lower_the_impact"
 msgid "(the lower the score, the lower the impact)"
-msgstr "(чем ниже оценка, тем меньше воздействие)"
+msgstr "(чем ниже балл, тем меньше влияние)"
 
 msgctxt "environmental_score_kg_co2_eq_kg_product"
 msgid "kg CO2 eq/kg of product"
@@ -5757,7 +5757,7 @@ msgstr "Если вы являетесь производителем этого
 # do not translate Green-Score and the link
 msgctxt "environmental_score_description"
 msgid "The <a href=\"/green-score\">Green-Score</a> is an experimental score that summarizes the environmental impacts of food products."
-msgstr "<a href=\"/ecoscore\">Eco-Score</a> - это экспериментальная оценка, которая подсчитывает воздействие пищевых продуктов на окружающую среду."
+msgstr "<a href=\"/green-score\">Green-Score</a> - это экспериментальная оценка, которая подсчитывает воздействие пищевых продуктов на окружающую среду."
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_fr"
@@ -5779,7 +5779,7 @@ msgstr "Полный эффект от транспортировки в ваш�
 
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Green-Score and more!"
-msgstr "Сканируйте штрихкод, чтобы получить Nutri-Score, Green-Score и многое другое!"
+msgstr "Сканируйте штрихкоды, чтобы получить Nutri-Score, Green-Score и многое другое!"
 
 msgctxt "org_gs1_product_name_is_abbreviated"
 msgid "GS1 product names for this manufacturer are abbreviated."
@@ -5812,11 +5812,11 @@ msgstr "Только опытные участники сайта могут у�
 
 msgctxt "environmental_score_packaging_impact_high"
 msgid "Packaging with a high impact"
-msgstr "Упаковка с высшим воздействием"
+msgstr "Упаковка с высоким воздействием"
 
 msgctxt "environmental_score_packaging_impact_medium"
 msgid "Packaging with a medium impact"
-msgstr "Упаковка с умеренным воздействием"
+msgstr "Упаковка со средним воздействием"
 
 msgctxt "environmental_score_packaging_impact_low"
 msgid "Packaging with a low impact"
@@ -5824,19 +5824,19 @@ msgstr "Упаковка с низким воздействием"
 
 msgctxt "environmental_score_packaging_missing_information"
 msgid "Missing packaging information for this product"
-msgstr "Отсутствует информация упаковки для данного продукта"
+msgstr "Для этого продукта нет информации об упаковке"
 
 msgctxt "environmental_score_origins_of_ingredients_impact_high"
 msgid "Origins of ingredients with a high impact"
-msgstr "Происхождение ингредиентов с высоким воздействием"
+msgstr "Происхождение ингредиентов с низким экологическим воздействием"
 
 msgctxt "environmental_score_origins_of_ingredients_impact_medium"
 msgid "Origins of ingredients with a medium impact"
-msgstr "Происхождение ингредиентов со средним воздействием"
+msgstr "Происхождение ингредиентов со средним уровнем воздействия"
 
 msgctxt "environmental_score_origins_of_ingredients_impact_low"
 msgid "Origins of ingredients with a low impact"
-msgstr "Происхождение ингредиентов с низким воздействием"
+msgstr "Происхождение ингредиентов с низким экологическим воздействием"
 
 msgctxt "environmental_score_origins_of_ingredients_missing_information"
 msgid "Missing origins of ingredients information"
@@ -5921,19 +5921,19 @@ msgstr "Поддержать"
 
 msgctxt "environmental_score_production_system_no_labels_with_environmental_benefits"
 msgid "No labels with environmental benefits"
-msgstr "Нет этикеток с экологическими преимуществами"
+msgstr "Нет этикеток с положительным воздействием на экологию"
 
 msgctxt "environmental_score_production_system_labels_with_environmental_benefits"
 msgid "Labels with environmental benefits"
-msgstr "Этикетки с экологическими преимуществами"
+msgstr "Этикетки с положительным воздействием на экологию"
 
 msgctxt "environmental_score_production_system_labels_with_environmental_benefits_high"
 msgid "Labels with high environmental benefits"
-msgstr "Этикетки с высокими экологическими преимуществами"
+msgstr "Этикетки с высоким уровнем положительного воздействия на экологию"
 
 msgctxt "environmental_score_production_system_labels_with_environmental_benefits_very_high"
 msgid "Labels with very high environmental benefits"
-msgstr "Этикетки с высшими экологическими преимуществами"
+msgstr "Этикетки с очень высоким уровнем положительного воздействия на экологию"
 
 msgctxt "other"
 msgid "Other"
@@ -6025,7 +6025,7 @@ msgstr "Анализ жизненного цикла"
 
 msgctxt "environmental_score_bonuses_and_maluses"
 msgid "Bonuses and maluses"
-msgstr "Бонусы и штрафы"
+msgstr "Положительные и отрицательные баллы"
 
 msgctxt "environmental_score_for_this_product"
 msgid "Green-Score for this product"
@@ -6037,15 +6037,15 @@ msgstr "Среднее влияние продуктов схожей катег
 
 msgctxt "environmental_score_sum_of_bonuses_and_maluses"
 msgid "Sum of bonuses and maluses"
-msgstr "Сумма бонусов и штрафов"
+msgstr "Сумма положительных и отрицательных баллов"
 
 msgctxt "environmental_score_sum_of_bonuses_and_maluses_is_capped"
 msgid "The sum of bonuses and maluses is capped at +25."
-msgstr "Сумма бонусов и штрафов ограничена на +25."
+msgstr "Сумма положительных и отрицательных баллов ограничена +25."
 
 msgctxt "environmental_score_lca_score"
 msgid "Life cycle analysis score"
-msgstr "Оценка анализа жизненного цикла"
+msgstr "Баллы за анализ жизненного цикла"
 
 msgctxt "impact_for_this_product"
 msgid "Impact for this product"
@@ -6053,7 +6053,7 @@ msgstr "Воздействие данного продукта"
 
 msgctxt "environmental_score_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
-msgstr "Балл для продукции с не перерабатываемой и не биоразлагаемой упаковкой ограничен 79 (класс B)."
+msgstr "Балл для продукции с неперерабатываемой и небиоразлагаемой упаковкой ограничен 79 (уровень B)."
 
 msgctxt "nutriscore_not_applicable"
 msgid "Nutri-Score not applicable for this product category."
@@ -6288,7 +6288,7 @@ msgstr "Узнайте больше о Nutri-Score"
 
 msgctxt "environmental_score_learn_more"
 msgid "Learn more about the Green-Score"
-msgstr "Узнайте больше о Green-Score"
+msgstr "Подробнее об Green-Score"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
