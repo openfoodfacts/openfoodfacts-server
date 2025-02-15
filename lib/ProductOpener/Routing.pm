@@ -1007,6 +1007,12 @@ sub set_rate_limit_attributes ($request_ref, $ip) {
 				$block_message
 					= "Rate-limiter blocking is disabled for local IP addresses, but the user has reached the rate-limit";
 			}
+			# Check that the ip is not in the OFF private network
+			elsif ($ip =~ /^10\.1\./) {
+				# The IP address is in the OFF private network, we don't block the request
+				$block_message
+					= "Rate-limiter blocking is disabled for the OFF private network, but the user has reached the rate-limit";
+			}
 			# Check that the IP address is not in the allow list
 			elsif (defined $options{rate_limit_allow_list}{$ip}) {
 				# The IP address is in the allow list, we don't block the request

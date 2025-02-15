@@ -95,6 +95,7 @@ BEGIN {
 		&compute_completeness_and_missing_tags
 		&compute_product_history_and_completeness
 		&compute_languages
+		&review_product_type
 		&compute_changes_diff_text
 		&compute_data_sources
 		&compute_sort_keys
@@ -138,7 +139,7 @@ use ProductOpener::MainCountries qw/compute_main_countries/;
 use ProductOpener::Text qw/remove_email remove_tags_and_quote/;
 use ProductOpener::Display qw/single_param/;
 use ProductOpener::Redis qw/push_to_redis_stream/;
-use ProductOpener::Food qw/%nutriments_lists/;
+use ProductOpener::Food qw/%nutriments_lists %cc_nutriment_table/;
 use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
 
 # needed by analyze_and_enrich_product_data()
@@ -2421,7 +2422,7 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 				}
 			}
 			elsif ($group eq 'nutriments') {
-				@ids = @{$nutriments_lists{europe}};
+				@ids = @{$nutriments_lists{off_europe}};
 			}
 			elsif ($group eq 'packagings') {
 				@ids = ("data", "weights_measured");
@@ -2997,6 +2998,59 @@ sub compute_languages ($product_ref) {
 	$product_ref->{languages_codes} = \%languages_codes;
 	$product_ref->{languages_tags} = \@languages;
 	$product_ref->{languages_hierarchy} = \@languages_hierarchy;
+
+	return;
+}
+
+=head2 review_product_type ( $product_ref )
+
+Reviews the product type based on the presence of specific tags in the categories field.
+Updates the product type if necessary.
+
+=head3 Arguments
+
+=head4 Product reference $product_ref
+
+A reference to a hash containing the product details.
+
+=cut
+
+sub review_product_type ($product_ref) {
+
+	my $error;
+
+	my $expected_type;
+	if (has_tag($product_ref, "categories", "en:open-beauty-facts")) {
+		$expected_type = "beauty";
+	}
+	elsif (has_tag($product_ref, "categories", "en:open-food-facts")) {
+		$expected_type = "food";
+	}
+	elsif (has_tag($product_ref, "categories", "en:open-pet-food-facts")) {
+		$expected_type = "petfood";
+	}
+	elsif (has_tag($product_ref, "categories", "en:open-products-facts")) {
+		$expected_type = "product";
+	}
+
+	if ($expected_type and ($product_ref->{product_type} ne $expected_type)) {
+		$error = change_product_type($product_ref, $expected_type);
+	}
+
+	if ($error) {
+		$log->error("review_product_type - error", {error => $error, product_ref => $product_ref});
+	}
+	else {
+		# We remove the tag en:incorrect-product-type and its children before the product is stored on the server of the new type
+		remove_tag($product_ref, "categories", "en:incorrect-product-type");
+		remove_tag($product_ref, "categories", "en:open-beauty-facts");
+		remove_tag($product_ref, "categories", "en:open-food-facts");
+		remove_tag($product_ref, "categories", "en:open-pet-food-facts");
+		remove_tag($product_ref, "categories", "en:open-products-facts");
+		remove_tag($product_ref, "categories", "en:non-food-products");
+		remove_tag($product_ref, "categories", "en:non-pet-food-products");
+		remove_tag($product_ref, "categories", "en:non-beauty-products");
+	}
 
 	return;
 }
@@ -3724,12 +3778,17 @@ sub analyze_and_enrich_product_data ($product_ref, $response_ref) {
 
 	compute_languages($product_ref);    # need languages for allergens detection and cleaning ingredients
 
+	# change the product type of non-food categorized products (issue #11094)
+	if (has_tag($product_ref, "categories", "en:incorrect-product-type")) {
+		review_product_type($product_ref);
+	}
+
 	# Run special analysis, score calculations that it specific to the product type
 
 	if (($options{product_type} eq "food")) {
 		specific_processes_for_food_product($product_ref);
 	}
-	elsif (($options{product_type} eq "pet_food")) {
+	elsif (($options{product_type} eq "petfood")) {
 		specific_processes_for_pet_food_product($product_ref);
 	}
 	elsif (($options{product_type} eq "beauty")) {

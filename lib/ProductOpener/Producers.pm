@@ -916,7 +916,7 @@ sub init_packaging_columns_names_for_lang ($l) {
 
 sub init_nutrients_columns_names_for_lang ($l) {
 
-	$nutriment_table = $cc_nutriment_table{default};
+	$nutriment_table = $cc_nutriment_table{off_default};
 
 	# Go through all the nutrients in the nutrients taxonomy
 	foreach my $nutrient_tagid (sort(get_all_taxonomy_entries("nutrients"))) {
