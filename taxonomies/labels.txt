@@ -3385,6 +3385,24 @@ pt: Fabricado na Bélgica, feito na Bélgica, produto da Bélgica, produzido na 
 country:en: en:Belgium
 label_categories:en: en:Geographic label
 
+en: Made in Canada
+xx: Made in Canada
+fr: Fait au Canada
+country:en: en:Canada
+description:en: At least 51% of the product's content originates in Canada
+description:fr: Le contenu du produit est originaire du Canada à au moins 51%
+label_categories:en: en:Geographic label
+# https://bureau-concurrence.canada.ca/comment-nous-favorisons-concurrence/education-sensibilisation/publications/indications-produit-canada-fait-canada
+
+en: Product of Canada
+xx: Product of Canada
+fr: Produit du Canada
+country:en: en:Canada
+description:en: At least 98% of the product's content originates in Canada
+description:fr: Le contenu du produit est originaire du Canada à au moins 98%
+label_categories:en: en:Geographic label
+# https://bureau-concurrence.canada.ca/comment-nous-favorisons-concurrence/education-sensibilisation/publications/indications-produit-canada-fait-canada
+
 en: Made in France
 bg: Произведено във Франция
 ca: Fet a França
@@ -22396,8 +22414,10 @@ fr: Biopartenaire, Bio partenaire
 xx: Biopartenaire
 
 fr: Herta s'engage
+xx: Herta s'engage
 
 en: Nestlé Cocoa Plan, Cocoa Plan
+xx: Nestlé Cocoa Plan
 
 en: EU Ecolabel
 xx: EU Ecolabel
@@ -22611,6 +22631,7 @@ fr: Peut avoir des effets indésirables sur l'activité et l'attention chez les 
 
 # https://www.bcorporation.net/
 en: Certified B Corporation, B Corp
+xx: Certified B Corporation, B Corp
 bg: Certified B Corporation, B Corp
 de: Zertifizierte B Corporation, B Corp
 es: Empresa B certificada, B Corp
@@ -22662,18 +22683,18 @@ web:en: https://www.canada.ca/en/health-canada/services/food-nutrition/nutrition
 web:fr: https://www.canada.ca/fr/sante-canada/services/aliments-nutrition/etiquetage-nutritionnel/devant-emballage.html
 
 < en:Canadian front-of-package nutrition symbol
-en: High in Sat fat Sugars and Sodium (Health Canada)
-fr: Élevé en Gras sat., Sucres and Sodium (Santé Canada)
-image:xx: high-in-saturated-fat-sugars-sodium-health-canada-eleve-en-gras-satures-sucres-sodium-sante-canada.171x90.svg
-image:en: high-in-saturated-fat-sugars-sodium-health-canada.120x90.svg
-image:fr: eleve-en-gras-satures-sucres-sodium-sante-canada.120x90.svg
+en: High in Sat fat Sugars and Sodium (Health Canada), High in Saturated fat Sugars and Sodium (Health Canada)
+fr: Élevé en Gras sat. Sucres et Sodium (Santé Canada), Élevé en Gras saturés Sucres et Sodium (Santé Canada)
+image:xx: high-in-sat-fat-sugars-sodium-health-canada-eleve-en-gras-sat-sucres-sodium-sante-canada.171x90.svg
+image:en: high-in-sat-fat-sugars-sodium-health-canada.120x90.svg
+image:fr: eleve-en-gras-sat-sucres-sodium-sante-canada.120x90.svg
 
 < en:Canadian front-of-package nutrition symbol
-en: High in Sat fat and Sugars (Health Canada)
-fr: Élevé en Gras sat. et Sucres (Santé Canada)
-image:xx: high-in-saturated-fat-sugars-health-canada-eleve-en-gras-satures-sucres-sante-canada.171x90.svg
-image:en: high-in-saturated-fat-sugars-health-canada.120x90.svg
-image:fr: eleve-en-gras-satures-sucres-sante-canada.120x90.svg
+en: High in Sat fat and Sugars (Health Canada), High in Saturated fat and Sugars (Health Canada)
+fr: Élevé en Gras sat. et Sucres (Santé Canada), Élevé en Gras saturés et Sucres (Santé Canada)
+image:xx: high-in-sat-fat-sugars-health-canada-eleve-en-gras-sat-sucres-sante-canada.171x90.svg
+image:en: high-in-sat-fat-sugars-health-canada.120x90.svg
+image:fr: eleve-en-gras-sat-sucres-sante-canada.120x90.svg
 
 
 < en:Canadian front-of-package nutrition symbol
@@ -22684,18 +22705,18 @@ image:en: high-in-sugars-sodium-health-canada.120x90.svg
 image:fr: eleve-en-sucres-sodium-sante-canada.120x90.svg
 
 < en:Canadian front-of-package nutrition symbol
-en: High in Sat fat and Sodium (Health Canada)
-fr: Élevé en Gras sat. et Sodium (Santé Canada)
-image:xx: high-in-saturated-fat-sodium-health-canada-eleve-en-gras-satures-sodium-sante-canada.171x90.svg
-image:en: high-in-saturated-fat-sodium-health-canada.120x90.svg
-image:fr: eleve-en-gras-satures-sodium-sante-canada.120x90.svg
+en: High in Sat fat and Sodium (Health Canada), High in Saturated fat and Sodium (Health Canada)
+fr: Élevé en Gras sat. et Sodium (Santé Canada), Élevé en Gras saturés et Sodium (Santé Canada)
+image:xx: high-in-sat-fat-sodium-health-canada-eleve-en-gras-sat-sodium-sante-canada.171x90.svg
+image:en: high-in-sat-fat-sodium-health-canada.120x90.svg
+image:fr: eleve-en-gras-sat-sodium-sante-canada.120x90.svg
 
 < en:Canadian front-of-package nutrition symbol
-en: High in Sat fat (Health Canada)
-fr: Élevé en Gras sat. (Santé Canada)
-image:xx: high-in-saturated-fat-health-canada-eleve-en-gras-satures-sante-canada.171x90.svg
-image:en: high-in-saturated-fat-health-canada.120x90.svg
-image:fr: eleve-en-gras-satures-sante-canada.120x90.svg
+en: High in Sat fat (Health Canada), High in Saturated fat (Health Canada)
+fr: Élevé en Gras sat. (Santé Canada), Élevé en Gras saturés (Santé Canada)
+image:xx: high-in-sat-fat-health-canada-eleve-en-gras-sat-sante-canada.171x90.svg
+image:en: high-in-sat-fat-health-canada.120x90.svg
+image:fr: eleve-en-gras-sat-sante-canada.120x90.svg
 
 < en:Canadian front-of-package nutrition symbol
 en: High in Sugars (Health Canada)
