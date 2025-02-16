@@ -5403,17 +5403,17 @@ msgid "User is being deleted. This may take a few minutes."
 msgstr "L'utilisateur est en cours de suppression. Cela peut prendre quelques minutes."
 
 msgctxt "attribute_environmental_score_not_applicable_title"
-msgid "Green-Score not yet applicable"
-msgstr "Green-Score n'est pas encore applicable"
+msgid "Green-Score not applicable"
+msgstr "Green-Score non applicable"
 
 msgctxt "attribute_environmental_score_not_applicable_description_short"
-msgid "Not yet applicable for the category"
-msgstr "Pas encore applicable pour la catégorie"
+msgid "Not applicable for the category"
+msgstr "Non applicable pour la catégorie"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_environmental_score_not_applicable_description"
-msgid "Not yet applicable for the category: {category}"
-msgstr "Pas encore applicable pour la catégorie : {category}"
+msgid "Not applicable for the category: {category}"
+msgstr "Non applicable pour la catégorie : {category}"
 
 msgctxt "environmental_score_not_applicable_coming_soon"
 msgid "The Green-Score is not yet applicable for this category, but we are working on adding support for it."
@@ -7306,14 +7306,35 @@ msgctxt "attribute_repairability_index_france_bad_description_short"
 msgid "Bad repairability"
 msgstr "Mauvaise réparabilité"
 
+msgctxt "estimate"
+msgid "estimate"
+msgstr "estimation"
+
+# information on several ingredients, in plural in languages like French
+msgctxt "ingredient_information"
+msgid "Ingredient information"
+msgstr "Information sur les ingrédients"
+
 msgctxt "recommendation_limit_ultra_processed_foods_title"
 msgid "Limit ultra-processed foods"
 msgstr "Limiter les aliments ultra-transformés"
 
 msgctxt "recommendation_limit_ultra_processed_foods_subtitle"
-msgid "Ultra-processed foods increase chronic disease risk"
-msgstr "Les aliments ultra-transformés augmentent le risque de maladies chroniques"
+msgid "Limiting ultra-processed foods reduces the risk of noncommunicable chronic diseases"
+msgstr "Limiter les aliments ultra-transformés réduit le risque de maladies chroniques"
 
 msgctxt "recommendation_limit_ultra_processed_foods_text"
-msgid "Several studies have found that a high consumption of ultra-processed foods is associated with an increased risk of noncommunicable chronic diseases, such as obesity, hypertension and diabetes."
-msgstr "Plusieurs études ont montré qu'une consommation élevée d'aliments ultra-transformés est associée à un risque accru de maladies chroniques non transmissibles, telles que l'obésité, l'hypertension et le diabète."
+msgid "Several studies have found that a lower consumption of ultra-processed foods is associated with a reduced risk of noncommunicable chronic diseases, such as obesity, hypertension and diabetes."
+msgstr "Plusieurs études ont montré qu'une consommation plus faible d'aliments ultra-transformés est associée à un risque diminué de maladies chroniques non transmissibles, telles que l'obésité, l'hypertension et le diabète."
+
+msgctxt "discover_the_evolution_of_the_nutriscore_grades_of_your_products"
+msgid "Discover the evolution of the Nutri-Score grades of your products"
+msgstr "Découvrez l'évolution des notes Nutri-Score de vos produits"
+
+msgctxt "add_products_to_discover_the_evolution_of_their_nutriscore_grades"
+msgid "Add products with a category, ingredients list and nutrition facts to discover the evolution of their Nutri-Score grades."
+msgstr "Ajoutez des produits avec une catégorie, une liste d'ingrédients et des informations nutritionnelles pour découvrir l'évolution de leurs notes Nutri-Score."
+
+msgctxt "in_contact_with_food"
+msgid "In contact with food"
+msgstr "En contact avec l'aliment"

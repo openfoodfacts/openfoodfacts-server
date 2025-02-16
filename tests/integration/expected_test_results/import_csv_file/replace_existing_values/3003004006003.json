@@ -310,7 +310,7 @@
                   "non_recyclable_and_non_biodegradable" : "no",
                   "quantity_per_unit" : "1l",
                   "quantity_per_unit_unit" : "l",
-                  "quantity_per_unit_value" : 1,
+                  "quantity_per_unit_value" : "1",
                   "shape" : "en:bottle",
                   "weight_specified" : 42.3
                }
@@ -330,6 +330,7 @@
       "agribalyse" : {
          "warning" : "missing_agribalyse_match"
       },
+      "grade" : "unknown",
       "missing" : {
          "categories" : 1,
          "ingredients" : 1,
@@ -373,7 +374,6 @@
    "lc_imported" : "fr",
    "main_countries_tags" : [],
    "misc_tags" : [
-      "en:environmental-score-extended-data-not-computed",
       "en:environmental-score-not-computed",
       "en:nutriscore-missing-category",
       "en:nutriscore-missing-nutrition-data",
@@ -481,6 +481,7 @@
    ],
    "packagings" : [
       {
+         "food_contact" : 1,
          "material" : "en:rpet-recycled-polyethylene-terephthalate",
          "quantity_per_unit" : "1l",
          "quantity_per_unit_unit" : "l",
@@ -519,7 +520,7 @@
    "product_name_fr_imported" : "Packagings fr g",
    "product_type" : "food",
    "removed_countries_tags" : [],
-   "rev" : 1,
+   "rev" : 2,
    "sources" : [
       {
          "fields" : [
@@ -527,6 +528,15 @@
             "countries",
             "data_sources"
          ],
+         "id" : null,
+         "images" : [],
+         "import_t" : "--ignore--",
+         "manufacturer" : null,
+         "name" : null,
+         "url" : null
+      },
+      {
+         "fields" : [],
          "id" : null,
          "images" : [],
          "import_t" : "--ignore--",

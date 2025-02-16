@@ -751,7 +751,6 @@
    "misc_tags" : [
       "en:environmental-score-changed",
       "en:environmental-score-computed",
-      "en:environmental-score-extended-data-not-computed",
       "en:environmental-score-grade-changed",
       "en:environmental-score-score-above-100",
       "en:nutriscore-missing-nutrition-data",
@@ -959,6 +958,7 @@
    "packaging_text_fr_imported" : "boite carton à recycler",
    "packagings" : [
       {
+         "food_contact" : 1,
          "material" : "en:cardboard",
          "recycling" : "en:recycle",
          "shape" : "en:box"

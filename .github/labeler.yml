@@ -689,7 +689,7 @@ Numbers:
   - any-glob-to-any-file: 'tests/unit/ingredients_nutriscore.t'
   - any-glob-to-any-file: 'tests/unit/ingredients_nutriscore.t'
   - any-glob-to-any-file: 'scripts/add_nutriscore_to_scanbot_csv.pl'
-  - any-glob-to-any-file: 'docs/introduction/get-the-nutriscore.md'
+  - any-glob-to-any-file: 'docs/api/api-tutorials/get-the-nutriscore.md'
   - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​product_nutriscore.yaml'
 
 Nutrients:
@@ -1161,8 +1161,9 @@ OCR:
 Scanbot:
 - changed-files:
   - any-glob-to-any-file: 'scripts/scanbot.pl'
-
-
+  - any-glob-to-any-file: 'scripts/export_scans_to_query.pl'
+  - any-glob-to-any-file: 'scripts/add_nutriscore_to_scanbot_csv.pl'
+  
 # We used to have a nice missions system with badges you'd earn by doing certain contribution tasks. It was disabled when we made Open Food Facts multilingual, and we never got to refactor it.
 # Tracking issue: https://github.com/openfoodfacts/openfoodfacts-server/issues/5516
 # https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Missions.html
@@ -1240,6 +1241,7 @@ Checkbot:
   - any-glob-to-any-file: 'scripts/checkbot.pl'
 
 # https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/APIProductRevert.html
+# Also points to https://nutripatrol.openfoodfacts.org/
 # Tracking issue: 
 👮 Moderation:
 - changed-files:
@@ -1253,7 +1255,7 @@ Checkbot:
   - any-glob-to-any-file: 'lib/ProductOpener/APIProductRevert.pm'
   - any-glob-to-any-file: 'scripts/make_user_moderator.pl'
   - any-glob-to-any-file: 'tests/integration/delete_user.t'
-
+  - any-glob-to-any-file: 'templates/api/knowledge-panels/report_problem/incomplete_or_incorrect_data.tt.json'
 
 # Enabling users to delete account while preserving accountability for edits
 # By default we don't delete products belonging to the user. It only happens for potential spam accounts.

@@ -313,7 +313,7 @@
                   "material" : "en:pet-1-polyethylene-terephthalate",
                   "material_shape" : "en:pet-1-polyethylene-terephthalate.en:bottle",
                   "non_recyclable_and_non_biodegradable" : "no",
-                  "number_of_units" : 1,
+                  "number_of_units" : "1",
                   "shape" : "en:bottle",
                   "weight_measured" : 24.5
                }
@@ -333,6 +333,7 @@
       "agribalyse" : {
          "warning" : "missing_agribalyse_match"
       },
+      "grade" : "unknown",
       "missing" : {
          "categories" : 1,
          "ingredients" : 1,
@@ -376,7 +377,6 @@
    "lc_imported" : "en",
    "main_countries_tags" : [],
    "misc_tags" : [
-      "en:environmental-score-extended-data-not-computed",
       "en:environmental-score-not-computed",
       "en:nutriscore-missing-category",
       "en:nutriscore-missing-nutrition-data",
@@ -484,10 +484,12 @@
    ],
    "packagings" : [
       {
+         "food_contact" : 1,
          "material" : "en:plastic",
          "shape" : "en:bottle"
       },
       {
+         "food_contact" : 1,
          "material" : "en:pet-1-polyethylene-terephthalate",
          "number_of_units" : 1,
          "shape" : "en:bottle",
@@ -523,7 +525,7 @@
    "product_name_fr_imported" : "Packagings en - several components of the same type",
    "product_type" : "food",
    "removed_countries_tags" : [],
-   "rev" : 1,
+   "rev" : 2,
    "sources" : [
       {
          "fields" : [
@@ -531,6 +533,15 @@
             "countries",
             "data_sources"
          ],
+         "id" : null,
+         "images" : [],
+         "import_t" : "--ignore--",
+         "manufacturer" : null,
+         "name" : null,
+         "url" : null
+      },
+      {
+         "fields" : [],
          "id" : null,
          "images" : [],
          "import_t" : "--ignore--",

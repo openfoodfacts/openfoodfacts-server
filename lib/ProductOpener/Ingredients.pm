@@ -1854,7 +1854,7 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref, $
 
 	delete $product_ref->{ingredients};
 
-	# and indicate that the service is creating the "ingredients" structure
+	# indicate that the service is creating the "ingredients" structure
 	$updated_product_fields_ref->{ingredients} = 1;
 
 	my $ingredients_lc = get_or_select_ingredients_lc($product_ref);
@@ -1939,7 +1939,36 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref, $
 	# Extract phrases related to specific ingredients at the end of the ingredients list
 	$text = parse_specific_ingredients_from_text($product_ref, $text, $percent_or_quantity_regexp, $per_100g_regexp);
 
-	my $analyze_ingredients_function = sub ($analyze_ingredients_self, $ingredients_ref, $level, $s) {
+=head2 analyze_ingredient_function($analyze_ingredients_self, $ingredients_ref, $parent_ref, $level, $s)
+
+This function is used to analyze the ingredients text and extract individual ingredients.
+It identifies one ingredient at a time, and calls itself recursively to identify other ingredients and sub ingredients
+
+=head3 Arguments
+
+=head4 $analyze_ingredients_self
+
+Reference to itself in order to call itself recursively
+
+=head4 $ingredients_ref
+
+Reference to an array of ingredients that will be filled with the extracted ingredients
+
+=head4 $parent_ref
+
+Reference to the parent ingredient (if any)
+
+=head4 $level
+
+Level of depth of sub ingredients
+
+=head4 $s
+
+Text to analyze
+
+=cut
+
+	my $analyze_ingredients_function = sub ($analyze_ingredients_self, $ingredients_ref, $parent_ref, $level, $s) {
 
 		# print STDERR "analyze_ingredients level $level: $s\n";
 
@@ -2460,7 +2489,7 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref, $
 					or $ingredients_ref->[$last_ingredient]{ingredients} = [];
 				$analyze_ingredients_self->(
 					$analyze_ingredients_self, $ingredients_ref->[$last_ingredient]{ingredients},
-					$between_level, $between
+					$parent_ref, $between_level, $between
 				);
 			}
 
@@ -2992,6 +3021,47 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref, $
 
 			if (not $skip_ingredient) {
 
+				# If we have a parent ingredient, check if "parent ingredient + child ingredient" is a known ingredient
+				# e.g. "vegetal oil (palm, rapeseed)" -> if we have "palm" as the child, try to transform it in "palm vegetal oil"
+
+				if (defined $parent_ref) {
+
+					# Generate the text for the canonicalized parent ingredient (so that we don't get percentages, labels etc. in it)
+					my $parent_ingredient_text
+						= display_taxonomy_tag($ingredients_lc, "ingredients", $parent_ref->{id});
+
+					my $parent_plus_child_ingredient_text;
+
+					if ($ingredients_lc eq "en") {
+						# oil (palm) -> palm oil
+						$parent_plus_child_ingredient_text = $ingredient . ' ' . $parent_ingredient_text;
+					}
+					else {
+						# huile (palme) -> huile palme
+						$parent_plus_child_ingredient_text = $parent_ingredient_text . ' ' . $ingredient;
+					}
+
+					# Check if the parent + child ingredient is a known ingredient
+					my $exists_in_taxonomy;
+					my $parent_plus_child_ingredient_id
+						= canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $parent_plus_child_ingredient_text,
+						\$exists_in_taxonomy);
+
+					if ($exists_in_taxonomy) {
+						$ingredient_id = $parent_plus_child_ingredient_id;
+						$log->debug(
+							"parse_ingredient_text - parent + child ingredient recognized",
+							{
+								parent => $parent_ingredient_text,
+								child => $ingredient,
+								parent_plus_child_ingredient_text => $parent_plus_child_ingredient_text,
+								parent_plus_child_ingredient_id => $parent_plus_child_ingredient_id
+							}
+
+						) if $log->is_debug();
+					}
+				}
+
 				my %ingredient = (
 					id => get_taxonomyid($ingredients_lc, $ingredient_id),
 					text => $ingredient
@@ -3065,7 +3135,9 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref, $
 							if ((scalar @ingredients) == 0) {
 								$ingredient{ingredients} = [];
 								$analyze_ingredients_self->(
-									$analyze_ingredients_self, $ingredient{ingredients},
+									$analyze_ingredients_self,
+									$ingredient{ingredients},
+									$ingredients_ref->[-1],
 									$between_level, $between
 								);
 							}
@@ -3078,12 +3150,12 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref, $
 		}
 
 		if ($after ne '') {
-			$analyze_ingredients_self->($analyze_ingredients_self, $ingredients_ref, $level, $after);
+			$analyze_ingredients_self->($analyze_ingredients_self, $ingredients_ref, $parent_ref, $level, $after);
 		}
 
 	};
 
-	$analyze_ingredients_function->($analyze_ingredients_function, $product_ref->{ingredients}, 0, $text);
+	$analyze_ingredients_function->($analyze_ingredients_function, $product_ref->{ingredients}, undef, 0, $text);
 
 	$log->debug("ingredients: ", {ingredients => $product_ref->{ingredients}}) if $log->is_debug();
 
@@ -5193,6 +5265,8 @@ my %phrases_after_ingredients_list = (
 		'100 (ml|g) enthalten durchschnittlich',
 		'\d\d\d\sg\s\w*\swerden aus\s\d\d\d\sg\s\w*\shergestellt'
 		,    # 100 g Salami werden aus 120 g Schweinefleisch hergestellt.
+		'Alle Zutaten sind aus biologischem Anbau',
+		'außer die mit * markierten Bestandteile'
 	],
 
 	el => [
@@ -5781,8 +5855,9 @@ sub separate_additive_class ($ingredients_lc, $additive_class, $spaces, $colon, 
 	#print STDERR "separate_additive_class - after 2 : $after\n";
 
 	# also look if we have additive 1 and additive 2
-	my $after2;
+	my ($after1, $after2);
 	if ($after =~ /$and/i) {
+		$after1 = $`;
 		$after2 = $`;
 	}
 
@@ -5791,14 +5866,25 @@ sub separate_additive_class ($ingredients_lc, $additive_class, $spaces, $colon, 
 
 	if (
 		(
-			not exists_taxonomy_tag(
-				"additives", canonicalize_taxonomy_tag($ingredients_lc, "additives", $additive_class . " " . $after)
+			not(
+				exists_taxonomy_tag("ingredients",
+					canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $additive_class . " " . $after))
+				or (
+					(defined $after1)
+					and exists_taxonomy_tag(
+						"ingredients",
+						canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $additive_class . " " . $after1)
+					)
+				)
 			)
 		)
 		and (
-			exists_taxonomy_tag("additives", canonicalize_taxonomy_tag($ingredients_lc, "additives", $after))
+			# we use the ingredients taxonomy here as some additives like "soy lecithin" are currently in the ingredients taxonomy
+			# but not in the additives taxonomy
+			exists_taxonomy_tag("ingredients", canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $after))
 			or ((defined $after2)
-				and exists_taxonomy_tag("additives", canonicalize_taxonomy_tag($ingredients_lc, "additives", $after2)))
+				and
+				exists_taxonomy_tag("ingredients", canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $after2)))
 		)
 		)
 	{
@@ -5934,6 +6020,16 @@ my %ingredients_categories_and_types = (
 		},
 	],
 
+	es => [
+		# oils
+		{
+			categories => ["aceite", "aceite vegetal", "aceites vegetales"],
+			types =>
+				["aguacate", "coco", "colza", "girasol", "linaza", "nabina", "oliva", "palma", "palmiste", "soja",],
+			alternate_names => ["aceite de <type>", "aceite d'<type>"],
+		},
+	],
+
 	fr => [
 		# huiles
 		{
@@ -5943,12 +6039,13 @@ my %ingredients_categories_and_types = (
 			],
 			types => [
 				"arachide", "avocat", "carthame", "chanvre",
-				"coco", "colza", "coton", "illipe",
-				"karité", "lin", "mangue", "noisette",
-				"noix", "noyaux de mangue", "olive", "olive extra",
-				"olive vierge", "olive extra vierge", "olive vierge extra", "palme",
-				"palmiste", "pépins de raisin", "sal", "sésame",
-				"soja", "tournesol", "tournesol oléique",
+				"coco", "colza", "coprah", "coton",
+				"graines de colza", "illipe", "karité", "lin",
+				"mangue", "noisette", "noix", "noyaux de mangue",
+				"olive", "olive extra", "olive vierge", "olive extra vierge",
+				"olive vierge extra", "palme", "palmiste", "pépins de raisin",
+				"sal", "sésame", "soja", "tournesol",
+				"tournesol oléique",
 			],
 			alternate_names => [
 				"huile de <type>",
@@ -8130,6 +8227,7 @@ can be taken into account, whereas crisps which are thin and completely dehydrat
 =cut
 
 my %fruits_vegetables_legumes_eurocodes = (
+	"7.10" => 1,
 	"8.10" => 1,
 	"8.15" => 1,
 	"8.20" => 1,
@@ -8149,7 +8247,7 @@ my %fruits_vegetables_legumes_eurocodes = (
 	"9.40" => 1,
 	"9.50" => 1,
 	"9.60" => 1,
-	"7.10" => 1,
+	"12.20" => 1,    # Herbs
 );
 
 sub is_fruits_vegetables_legumes ($ingredient_id, $processing = undef) {
@@ -8170,7 +8268,7 @@ sub is_fruits_vegetables_legumes ($ingredient_id, $processing = undef) {
 				((defined $eurocode_2_group_1) and ($eurocode_2_group_1 eq "9"))
 					# Vegetables and legumes
 					or ((defined $eurocode_2_group_2)
-					and (exists $fruits_vegetables_legumes_eurocodes{$eurocode_2_group_2}))
+					and ($fruits_vegetables_legumes_eurocodes{$eurocode_2_group_2}))
 			)
 				and (not $is_a_further_processed_ingredient)
 				and (not $further_processed)

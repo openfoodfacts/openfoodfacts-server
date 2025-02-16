@@ -47,6 +47,7 @@ BEGIN {
 		&initialize_knowledge_panels_options
 		&create_knowledge_panels
 		&create_panel_from_json_template
+		&add_taxonomy_properties_in_target_languages_to_object
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -66,6 +67,7 @@ use ProductOpener::Lang qw/f_lang f_lang_in_lc lang lang_in_other_lc/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::EnvironmentalScore qw/is_environmental_score_extended_data_more_precise_than_agribalyse/;
 use ProductOpener::PackagerCodes qw/%packager_codes/;
+use ProductOpener::KnowledgePanelsIngredients qw/create_ingredients_list_panel/;
 use ProductOpener::KnowledgePanelsContribution qw/create_contribution_card_panel/;
 use ProductOpener::KnowledgePanelsReportProblem qw/create_report_problem_card_panel/;
 use ProductOpener::ProductsFeatures qw/feature_enabled/;
@@ -271,6 +273,8 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 Helper function to allow to enter multiline strings in JSON templates.
 The function converts the multiline string into a single line string.
 
+New lines are converted to \n, and quotes " and \ are escaped if not escaped already.
+
 =cut
 
 sub convert_multiline_string_to_singleline ($line) {
@@ -281,6 +285,30 @@ sub convert_multiline_string_to_singleline ($line) {
 
 	# \R will match all Unicode newline sequence
 	$line =~ s/\R/\\n/sg;
+
+	return '"' . $line . '"';
+}
+
+=head2 convert_multiline_string_to_singleline_without_line_breaks_and_extra_spaces($line)
+
+Helper function to allow to enter multiline strings in JSON templates.
+The function converts the multiline string into a single line string.
+
+Line breaks are converted to spaces, and multiple spaces are converted to a single space.
+
+This function is useful in templates where we use IF statements etc. to generate a single value like a title.
+
+=cut
+
+sub convert_multiline_string_to_singleline_without_line_breaks_and_extra_spaces ($line) {
+
+	# Escape " and \ unless they have been escaped already
+	# negative look behind to not convert \n to \\n or \" to \\" or \\ to \\\\
+	$line =~ s/(?<!\\)("|\\)/\\$1/g;
+
+	$line =~ s/\s+/ /g;
+	$line =~ s/^\s+//;
+	$line =~ s/\s+$//;
 
 	return '"' . $line . '"';
 }
@@ -298,6 +326,8 @@ Some special features that are not included in the JSON format are supported:
 2. Multiline strings can be included using backticks ` at the start and end of the multiline strings.
 - The multiline strings will be converted to a single string.
 - Quotes " are automatically escaped unless they are already escaped
+
+Using two backticks at the start and end of the string removes line breaks and extra spaces.
 
 3. Comments can be included by starting a line with //
 - Comments will be removed in the resulting JSON, they are only intended to make the source template easier to understand.
@@ -384,6 +414,8 @@ sub create_panel_from_json_template ($panel_id, $panel_template, $panel_data_ref
 
 		# Also escape quotes " to \"
 
+		$panel_json
+			=~ s/\`\`([^\`]*)\`\`/convert_multiline_string_to_singleline_without_line_breaks_and_extra_spaces($1)/seg;
 		$panel_json =~ s/\`([^\`]*)\`/convert_multiline_string_to_singleline($1)/seg;
 
 		# Remove trailing commas at the end of a string delimited by quotes
@@ -642,9 +674,9 @@ sub create_environmental_score_panel ($product_ref, $target_lc, $target_cc, $opt
 		}
 
 		# We can reuse some strings from the Environmental-Score attribute
-		my $title
-			= sprintf(lang_in_other_lc($target_lc, "attribute_environmental_score_grade_title"), uc($grade)) . ' - '
-			. lang_in_other_lc($target_lc, "attribute_environmental_score_" . $grade_underscore . "_description_short");
+		my $title = sprintf(lang_in_other_lc($target_lc, "attribute_environmental_score_grade_title"), $letter_grade);
+		my $subtitle
+			= lang_in_other_lc($target_lc, "attribute_environmental_score_" . $grade_underscore . "_description_short");
 
 		my $panel_data_ref = {
 			"agribalyse_category_name" => $agribalyse_category_name,
@@ -658,6 +690,7 @@ sub create_environmental_score_panel ($product_ref, $target_lc, $target_cc, $opt
 			"grade_underscore" => $grade_underscore,
 			"letter_grade" => $letter_grade,
 			"title" => $title,
+			"subtitle" => $subtitle,
 			"transportation_warning" => $transportation_warning,
 		};
 
@@ -672,23 +705,6 @@ sub create_environmental_score_panel ($product_ref, $target_lc, $target_cc, $opt
 			"api/knowledge-panels/environment/environmental_score/agribalyse.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref
 		);
-
-		# Create an extra panel for products that have extended environmental_score data from the impact estimator
-
-		# 2022/05/06: disabled as we currently have few products with reliable extended environmental_score data
-
-		# if (defined $product_ref->{environmental_score_extended_data}) {
-
-		#     extract_data_from_impact_estimator_best_recipe($product_ref, $panel_data_ref);
-
-		#     compare_impact_estimator_data_to_category_average($product_ref, $panel_data_ref, $target_cc);
-
-		#     # Display a panel only if we can compare the product extended impact
-		#     if (defined $panel_data_ref->{environmental_score_extended_data_for_category}) {
-		#         create_panel_from_json_template("environmental_score_extended", "api/knowledge-panels/environment/environmental_score/environmental_score_extended.tt.json",
-		#             $panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
-		#     }
-		# }
 
 		create_panel_from_json_template("carbon_footprint",
 			"api/knowledge-panels/environment/carbon_footprint_food.tt.json",
@@ -1038,7 +1054,10 @@ sub create_health_card_panel ($product_ref, $target_lc, $target_cc, $options_ref
 	$log->debug("create health card panel", {code => $product_ref->{code}}) if $log->is_debug();
 
 	# All food, pet food and beauty products have ingredients
-	create_ingredients_panel($product_ref, $target_lc, $target_cc, $options_ref);
+	if (feature_enabled("ingredients")) {
+		create_ingredients_panel($product_ref, $target_lc, $target_cc, $options_ref);
+		create_ingredients_list_panel($product_ref, $target_lc, $target_cc, $options_ref);
+	}
 
 	# Show additives only for food and pet food
 	if (feature_enabled("additives")) {

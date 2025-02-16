@@ -314,6 +314,7 @@
       "agribalyse" : {
          "warning" : "missing_agribalyse_match"
       },
+      "grade" : "unknown",
       "missing" : {
          "categories" : 1,
          "ingredients" : 1,
@@ -449,7 +450,6 @@
    "main_countries_tags" : [],
    "max_imgid" : 3,
    "misc_tags" : [
-      "en:environmental-score-extended-data-not-computed",
       "en:environmental-score-not-computed",
       "en:nutriscore-missing-category",
       "en:nutriscore-missing-nutrition-data",

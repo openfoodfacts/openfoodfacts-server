@@ -337,6 +337,7 @@
       "agribalyse" : {
          "warning" : "missing_agribalyse_match"
       },
+      "grade" : "unknown",
       "missing" : {
          "categories" : 1,
          "ingredients" : 1,
@@ -380,7 +381,6 @@
    "lc_imported" : "en",
    "main_countries_tags" : [],
    "misc_tags" : [
-      "en:environmental-score-extended-data-not-computed",
       "en:environmental-score-not-computed",
       "en:nutriscore-missing-category",
       "en:nutriscore-missing-nutrition-data",
@@ -490,6 +490,7 @@
    ],
    "packagings" : [
       {
+         "food_contact" : 1,
          "material" : "en:glass",
          "number_of_units" : 1,
          "quantity_per_unit" : "15ml",
@@ -500,6 +501,7 @@
          "weight_specified" : 55.2
       },
       {
+         "food_contact" : 1,
          "material" : "en:pet-1-polyethylene-terephthalate",
          "number_of_units" : 1,
          "shape" : "en:lid",

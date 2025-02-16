@@ -3,7 +3,6 @@
    "errors" : [],
    "product" : {
       "misc_tags" : [
-         "en:environmental-score-extended-data-not-computed",
          "en:environmental-score-not-computed",
          "en:nutriscore-missing-category",
          "en:nutriscore-missing-nutrition-data",
@@ -29,6 +28,7 @@
       ],
       "packagings" : [
          {
+            "food_contact" : 1,
             "material" : {
                "id" : "en:pet-1-polyethylene-terephthalate",
                "lc_name" : "PET 1 - Polyethylene terephthalate"
@@ -44,6 +44,7 @@
             "weight_measured" : 10
          },
          {
+            "food_contact" : 0,
             "material" : {
                "id" : "en:wood",
                "lc_name" : "Wood"
@@ -56,6 +57,7 @@
             "weight_specified" : 25.5
          },
          {
+            "food_contact" : 0,
             "material" : {
                "id" : "en:plastic",
                "lc_name" : "Plastic"

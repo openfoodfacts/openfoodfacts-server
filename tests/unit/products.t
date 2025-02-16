@@ -6,6 +6,7 @@ use utf8;
 use Test2::V0;
 use Data::Dumper;
 $Data::Dumper::Terse = 1;
+$Data::Dumper::Sortkeys = 1;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Products qw/:all/;
@@ -41,75 +42,87 @@ is(normalize_code('0100360505082919'),
 	'0360505082919', 'should reduce GS1 AI unbracketed string to GTIN (13 digits, padded with 0)');
 
 # code normalization with GS1 AI
-is(normalize_code_with_gs1_ai('036000291452'), ('0036000291452', undef), 'GS1: should add leading 0 to valid UPC12');
+my $returned_code;
+my $returned_ai_data_str;
+($returned_code, undef) = normalize_code_with_gs1_ai('036000291452');
+is($returned_code, '0036000291452', 'GS1: should add leading 0 to valid UPC12');
+
+($returned_code, undef) = normalize_code_with_gs1_ai('036000291455');
+is($returned_code, '036000291455', 'GS1: should not add 0 to invalid UPC12, just return as-is');
+
+($returned_code, undef) = normalize_code_with_gs1_ai('4015533014963');
+is($returned_code, '4015533014963', 'GS1: should just return invalid EAN13');
+
+($returned_code, undef) = normalize_code_with_gs1_ai(undef);
+ok(!$returned_code, 'GS1: undef should stay undef');
+
+($returned_code, undef) = normalize_code_with_gs1_ai(' just a simple test 4015533014963 here we go ');
+is($returned_code, '4015533014963', 'GS1: barcode should always be cleaned from anything but digits');
+
+($returned_code, undef) = normalize_code_with_gs1_ai(' just a simple test 036000291452 here we go ');
+is($returned_code, '0036000291452', 'GS1: should add leading 0 to cleaned valid UPC12');
+
+($returned_code, undef) = normalize_code_with_gs1_ai(' just a simple test 036000291455 here we go ');
+is($returned_code, '036000291455', 'GS1: should not add leading 0 to cleaned invalid UPC12');
+
+($returned_code, $returned_ai_data_str) = normalize_code_with_gs1_ai('0104044782317112');
+is($returned_code, '4044782317112', 'GS1: should reduce GS1 AI unbracketed string to GTIN - code');
+is($returned_ai_data_str, '(01)04044782317112', 'GS1: should reduce GS1 AI unbracketed string to GTIN - ai');
+
+($returned_code, $returned_ai_data_str) = normalize_code_with_gs1_ai('(01)04044782317112(17)270101');
+is($returned_code, '4044782317112', 'GS1: should reduce GS1 AI bracketed string to GTIN - code');
+is($returned_ai_data_str, '(01)04044782317112(17)270101', 'GS1: should reduce GS1 AI bracketed string to GTIN - ai');
+
+($returned_code, $returned_ai_data_str) = normalize_code_with_gs1_ai('^010404478231711217270101');
+is($returned_code, '4044782317112', 'GS1: should reduce GS1 AI unbracketed string with ^ as FNC1 to GTIN - code');
 is(
-	normalize_code_with_gs1_ai('036000291455'),
-	('036000291455', undef),
-	'GS1: should not add 0 to invalid UPC12, just return as-is'
+	$returned_ai_data_str,
+	'(01)04044782317112(17)270101',
+	'GS1: should reduce GS1 AI unbracketed string with ^ as FNC1 to GTIN - ai'
 );
-is(normalize_code_with_gs1_ai('4015533014963'), ('4015533014963', undef), 'GS1: should just return invalid EAN13');
-ok(!(defined normalize_code_with_gs1_ai(undef)), 'GS1: undef should stay undef');
+
+# switch to double quote to interpret escape sequences
+($returned_code, $returned_ai_data_str) = normalize_code_with_gs1_ai("\x{001d}010404478231711217270101");
+is($returned_code, '4044782317112', 'GS1: should reduce GS1 AI unbracketed string with original FNC1 to GTIN - code');
 is(
-	normalize_code_with_gs1_ai(' just a simple test 4015533014963 here we go '),
-	('4015533014963', undef),
-	'GS1: barcode should always be cleaned from anything but digits'
+	$returned_ai_data_str,
+	'(01)04044782317112(17)270101',
+	'GS1: should reduce GS1 AI unbracketed string with original FNC1 to GTIN - ai'
 );
+
+($returned_code, $returned_ai_data_str) = normalize_code_with_gs1_ai("\x{241d}010404478231711217270101");
+is($returned_code, '4044782317112', 'GS1: should reduce GS1 AI unbracketed string with GS as FNC1 to GTIN - code');
 is(
-	normalize_code_with_gs1_ai(' just a simple test 036000291452 here we go '),
-	('0036000291452', undef),
-	'GS1: should add leading 0 to cleaned valid UPC12'
+	$returned_ai_data_str,
+	'(01)04044782317112(17)270101',
+	'GS1: should reduce GS1 AI unbracketed string with GS as FNC1 to GTIN - ai'
 );
+
+($returned_code, $returned_ai_data_str) = normalize_code_with_gs1_ai('https://id.gs1.org/01/04044782317112/22/2A');
+is($returned_code, '4044782317112', 'GS1: should reduce GS1 Digital Link URI string with ^ as FNC1 to GTIN - code');
+is($returned_ai_data_str, '(01)04044782317112(22)2A',
+	'GS1: should reduce GS1 Digital Link URI string with ^ as FNC1 to GTIN - ai');
+
+($returned_code, $returned_ai_data_str)
+	= normalize_code_with_gs1_ai('https://dalgiardino.com/01/09506000134376/10/ABC/21/123456?17=211200');
+is($returned_code, '9506000134376', 'GS1: should reduce GS1 Digital Link URI to GTIN 1 - code');
 is(
-	normalize_code_with_gs1_ai(' just a simple test 036000291455 here we go '),
-	('036000291455', undef),
-	'GS1: should not add leading 0 to cleaned invalid UPC12'
+	$returned_ai_data_str,
+	'(01)09506000134376(10)ABC(21)123456(17)211200',
+	'GS1: should reduce GS1 Digital Link URI to GTIN 1 - ai'
 );
-is(
-	normalize_code_with_gs1_ai('0104044782317112'),
-	('4044782317112', '(01)04044782317112'),
-	'GS1: should reduce GS1 AI unbracketed string to GTIN'
-);
-is(
-	normalize_code_with_gs1_ai('(01)04044782317112(17)270101'),
-	('4044782317112', '(01)04044782317112(17)270101'),
-	'GS1: should reduce GS1 AI bracketed string to GTIN'
-);
-is(
-	normalize_code_with_gs1_ai('^010404478231711217270101'),
-	('4044782317112', '(01)04044782317112(17)270101'),
-	'GS1: should reduce GS1 AI unbracketed string with ^ as FNC1 to GTIN'
-);
-is(
-	normalize_code_with_gs1_ai("\x{001d}010404478231711217270101"),
-	('4044782317112', '(01)04044782317112(17)270101'),
-	'GS1: should reduce GS1 AI unbracketed string with original FNC1 to GTIN'
-);
-is(
-	normalize_code_with_gs1_ai("\x{241d}010404478231711217270101"),
-	('4044782317112', '(01)04044782317112(17)270101'),
-	'GS1: should reduce GS1 AI unbracketed string with GS as FNC1 to GTIN'
-);
-is(
-	normalize_code_with_gs1_ai('https://id.gs1.org/01/04044782317112/22/2A'),
-	('4044782317112', '(01)04044782317112(22)2A'),
-	'GS1: should reduce GS1 Digital Link URI string with ^ as FNC1 to GTIN'
-);
-is(
-	normalize_code_with_gs1_ai('https://dalgiardino.com/01/09506000134376/10/ABC/21/123456?17=211200'),
-	('9506000134376', '(01)09506000134376(10)ABC(21)123456(17)211200'),
-	'GS1: should reduce GS1 Digital Link URI to GTIN'
-);
-is(
-	normalize_code_with_gs1_ai('https://example.com/01/00012345000058?17=271200'),
-	('0012345000058', '(01)00012345000058(17)271200'),
-	'GS1: should reduce GS1 Digital Link URI to GTIN'
-);
-is(
-	normalize_code_with_gs1_ai('https://world.openfoodfacts.org/'),
-	('', undef),
-	'GS1: non-GS1 URIs should return an empty string'
-);
-is(normalize_code_with_gs1_ai('http://spam.zip/'), ('', undef), 'GS1: non-GS1 URIs should return an empty string');
+
+($returned_code, $returned_ai_data_str) = normalize_code_with_gs1_ai('https://example.com/01/00012345000058?17=271200');
+is($returned_code, '0012345000058', 'GS1: should reduce GS1 Digital Link URI to GTIN 2 - code');
+is($returned_ai_data_str, '(01)00012345000058(17)271200', 'GS1: should reduce GS1 Digital Link URI to GTIN 2 - ai');
+
+($returned_code, $returned_ai_data_str) = normalize_code_with_gs1_ai('https://world.openfoodfacts.org/');
+is($returned_code, '', 'GS1: non-GS1 URIs should return an empty string 1 - code');
+ok(!$returned_ai_data_str, 'GS1: non-GS1 URIs should return an empty string 1 - ai');
+
+($returned_code, $returned_ai_data_str) = normalize_code_with_gs1_ai('http://spam.zip/');
+is($returned_code, '', 'GS1: should reduce GS1 Digital Link URI to GTIN 2 - code');
+ok(!$returned_ai_data_str, 'GS1: non-GS1 URIs should return an empty string 2 - ai');
 
 # product storage path
 is(product_path_from_id('not a real code'), 'invalid', 'non digit code should return "invalid"');
@@ -353,5 +366,34 @@ is(preprocess_product_field('labels', 'email@example.com, Green Dot'), ', Green 
 is(preprocess_product_field('stores', 'Carrefour, abc@gmail.com'), 'Carrefour, ');
 
 is(split_code("26153689"), "000/002/615/3689");
+
+# test review_product_type, to migrate product in other flavor if category tag is provided
+# food to pet food
+$product_ref = {
+	categories_tags => ['en:incorrect-product-type', 'en:non-food-products', 'en:open-pet-food-facts'],
+	product_type => 'food'
+};
+review_product_type($product_ref);
+is($product_ref->{product_type}, 'petfood') || diag Dumper $product_ref;
+# beauty to product
+$product_ref = {
+	categories_tags => ['en:incorrect-product-type', 'en:non-beauty-products', 'en:open-products-facts'],
+	product_type => 'beauty'
+};
+review_product_type($product_ref);
+is($product_ref->{product_type}, 'product') || diag Dumper $product_ref;
+# food to beauty AND product -> move to beauty (handled by alphabetical order)
+$product_ref = {
+	categories_tags =>
+		['en:incorrect-product-type', 'en:non-food-products', 'en:open-beauty-facts', 'en:open-products-facts'],
+	product_type => 'food'
+};
+review_product_type($product_ref);
+is($product_ref->{product_type}, 'beauty') || diag Dumper $product_ref;
+# rerun same test based on result of previous test,
+# will remain beauty because has tag beauty is evaluated first
+# and tag remains after migration
+review_product_type($product_ref);
+is($product_ref->{product_type}, 'beauty') || diag Dumper $product_ref;
 
 done_testing();

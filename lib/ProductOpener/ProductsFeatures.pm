@@ -68,7 +68,7 @@ my %product_type_features = (
 		user_preferences => 1,
 		popularity => 1,    # indicates if we have computed popularity from scan data
 	},
-	pet_food => {
+	petfood => {
 		health_card => 1,
 		ingredients => 1,
 		additives => 1,
