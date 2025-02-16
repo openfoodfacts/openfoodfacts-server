@@ -69,12 +69,7 @@ my $org_ref = retrieve_org($orgid);
 if (not defined $org_ref) {
 	$log->debug("org does not exist", {orgid => $orgid}) if $log->is_debug();
 
-	if ($request_ref->{admin} or $request_ref->{pro_moderator}) {
-		$template_data_ref->{org_does_not_exist} = 1;
-	}
-	else {
-		display_error_and_exit($request_ref, $Lang{error_org_does_not_exist}{$lc}, 404);
-	}
+	$template_data_ref->{org_does_not_exist} = 1;
 }
 
 # Does the user have permission to edit the org profile?
@@ -91,6 +86,10 @@ my @errors = ();
 if ($action eq 'process') {
 
 	if ($type eq 'edit') {
+		# TODO: Add a honeypot field
+
+		# TODO: Set org_id from Name if not set and return an error if the org already exists
+
 		my $delete = single_param('delete') // '';
 		if ($delete eq 'on') {
 			if ($request_ref->{admin}) {
@@ -155,6 +154,9 @@ if ($action eq 'process') {
 			if (not defined $org_ref->{name}) {
 				push @errors, $Lang{error_missing_org_name}{$lc};
 			}
+
+			# TODO: If adding a new org check the org doesn't already exist and return an error if it does
+			# with suggestion to join the existing org
 
 			# Contact sections
 
@@ -376,7 +378,8 @@ if ($action eq 'display') {
 elsif ($action eq 'process') {
 
 	if ($type eq "edit") {
-
+		# TODO: Set main contact to the current user if not an admin or moderator
+		# And add as a member and administrator
 		store_org($org_ref);
 		$template_data_ref->{result} = lang("edit_org_result");
 	}
