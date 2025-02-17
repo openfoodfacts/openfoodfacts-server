@@ -3206,10 +3206,9 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 	$request_ref->{world_current_link} = '/facets';
 
 	my $header_meta_noindex = 0;    # Will be set if one of the tags is related to a user
-	my $redirect_to_canonical_url = 0;    # Will be set if one of the tags is not canonical
+	my $redirect_to_canonical_url = 0;    # Will be set if one of the tags is not canonical
 
 	# Go through the tags filters from the request
-
 	foreach my $tag_ref (@{$request_ref->{tags}}) {
 
 		# the tag name requested in url (in $lc language)
@@ -3261,9 +3260,9 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 
 		$tag_ref->{canon_tagid} = $canon_tagid;
 		$tag_ref->{new_tagid} = $new_tagid;
-		$tag_ref->{new_tagid_path} = $new_tagid_path;
+		$tag_ref->{new_tagid_path} = '/facets' . $new_tagid_path;
 		$tag_ref->{display_tag} = $display_tag;
-		$tag_ref->{tagtype_path} = '/' . $tag_type_plural{$tagtype}{$lc};
+		$tag_ref->{tagtype_path} = '/facets/' . $tag_type_plural{$tagtype}{$lc};
 		$tag_ref->{tagtype_name} = lang_in_other_lc($lc, $tagtype . '_s');
 
 		# We will redirect if the tag is not canonical

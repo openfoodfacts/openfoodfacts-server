@@ -52,14 +52,14 @@ is(display_taxonomy_tag("en", "categories", "en:doesnotexist"), "Doesnotexist");
 is(display_taxonomy_tag("fr", "categories", "en:doesnotexist"), "en:doesnotexist");
 
 is(display_taxonomy_tag_link("fr", "categories", "en:doesnotexist"),
-	'<a href="/categorie/en:doesnotexist" class="tag user_defined" lang="en">en:doesnotexist</a>');
+	'<a href="/facets/categories/en:doesnotexist" class="tag user_defined" lang="en">en:doesnotexist</a>');
 
 is(display_tags_hierarchy_taxonomy("fr", "categories", ["en:doesnotexist"]),
-	'<a href="/categorie/en:doesnotexist" class="tag user_defined" lang="en">en:doesnotexist</a>');
+	'<a href="/facets/categories/en:doesnotexist" class="tag user_defined" lang="en">en:doesnotexist</a>');
 
 is(
 	display_tags_hierarchy_taxonomy("en", "categories", ["en:doesnotexist"]),
-	'<a href="/category/doesnotexist" class="tag user_defined">Doesnotexist</a>'
+	'<a href="/facets/categories/doesnotexist" class="tag user_defined">Doesnotexist</a>'
 );
 
 # test canonicalize_taxonomy_tags
@@ -429,11 +429,11 @@ is(display_taxonomy_tag("en", "ingredients_analysis", "en:non-vegan"), "Non-vega
 
 is(canonicalize_taxonomy_tag("de", "test", "Grünkohl"), "en:kale");
 is(display_taxonomy_tag("de", "test", "en:kale"), "Grünkohl");
-is(display_taxonomy_tag_link("de", "test", "en:kale"), '<a href="//gr%C3%BCnkohl" class="tag well_known">Grünkohl</a>')
+is(display_taxonomy_tag_link("de", "test", "en:kale"), '<a href="/facets//gr%C3%BCnkohl" class="tag well_known">Grünkohl</a>')
 	;    # "test" taxonomy causes warning in Tags.pm
 is(
 	display_tags_hierarchy_taxonomy("de", "test", ["en:kale"]),
-	'<a href="//gr%C3%BCnkohl" class="tag well_known">Grünkohl</a>'
+	'<a href="/facets//gr%C3%BCnkohl" class="tag well_known">Grünkohl</a>'
 );
 is(canonicalize_taxonomy_tag("fr", "test", "Pâte de cacao"), "fr:Pâte de cacao");
 is(display_taxonomy_tag("fr", "test", "fr:Pâte de cacao"), "Pâte de cacao");
@@ -701,21 +701,21 @@ is(
 	display_tags_hierarchy_taxonomy(
 		"fr", "test", ["fr:french-entry", "fr:french-entry-with-default-value", "xx:language-less-entry"]
 	),
-	'<a href="//french-entry" class="tag well_known">French entry</a>, <a href="//french-entry-with-default-value" class="tag well_known">French entry with default value</a>, <a href="//language-less-entry" class="tag well_known">Language-less entry</a>'
+	'<a href="/facets//french-entry" class="tag well_known">French entry</a>, <a href="/facets//french-entry-with-default-value" class="tag well_known">French entry with default value</a>, <a href="/facets//language-less-entry" class="tag well_known">Language-less entry</a>'
 );
 
 is(
 	display_tags_hierarchy_taxonomy(
 		"es", "test", ["fr:french-entry", "fr:french-entry-with-default-value", "xx:language-less-entry"]
 	),
-	'<a href="//fr:french-entry" class="tag user_defined" lang="fr">fr:French entry</a>, <a href="//french-entry-with-default-value" class="tag well_known">French entry with default value</a>, <a href="//language-less-entry" class="tag well_known">Language-less entry</a>'
+	'<a href="/facets//fr:french-entry" class="tag user_defined" lang="fr">fr:French entry</a>, <a href="/facets//french-entry-with-default-value" class="tag well_known">French entry with default value</a>, <a href="/facets//language-less-entry" class="tag well_known">Language-less entry</a>'
 );
 
 is(
 	display_tags_hierarchy_taxonomy(
 		"de", "test", ["fr:french-entry", "fr:french-entry-with-default-value", "xx:language-less-entry"]
 	),
-	'<a href="//special-value-for-german" class="tag well_known">Special value for German</a>, <a href="//special-value-for-german-2" class="tag well_known">Special value for German 2</a>, <a href="//special-value-for-german-3" class="tag well_known">Special value for German 3</a>'
+	'<a href="/facets//special-value-for-german" class="tag well_known">Special value for German</a>, <a href="/facets//special-value-for-german-2" class="tag well_known">Special value for German 2</a>, <a href="/facets//special-value-for-german-3" class="tag well_known">Special value for German 3</a>'
 );
 
 is(display_taxonomy_tag("fr", "test", "es:french-entry-with-default-value"), "French entry with default value");
@@ -724,7 +724,7 @@ my $value = display_tags_hierarchy_taxonomy("fr", "test",
 	["fr:french-entry", "es:french-entry-with-default-value", "xx:language-less-entry"]);
 
 is($value,
-	'<a href="//french-entry" class="tag well_known">French entry</a>, <a href="//french-entry-with-default-value" class="tag well_known">French entry with default value</a>, <a href="//language-less-entry" class="tag well_known">Language-less entry</a>'
+	'<a href="/facets//french-entry" class="tag well_known">French entry</a>, <a href="/facets//french-entry-with-default-value" class="tag well_known">French entry with default value</a>, <a href="/facets//language-less-entry" class="tag well_known">Language-less entry</a>'
 );
 
 # Remove tags
