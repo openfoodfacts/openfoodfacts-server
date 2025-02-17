@@ -131,7 +131,7 @@ msgstr "Bergabung dengan kami di Slack"
 
 msgctxt "add_user_join_the_project"
 msgid "%s is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!"
-msgstr "%s adalah proyek kolaborasi yang lebih dari sekadar produk - produk baru: energi, antusiasme, dan ide Anda!"
+msgstr "%s adalah proyek kolaborasi yang lebih dari sekadar produk-produk baru: energi, antusiasme, dan ide Anda!"
 
 msgctxt "add_user_join_us_on_slack"
 msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
@@ -195,7 +195,7 @@ msgstr "Akun profesional harus memiliki organisasi yang terkait (nama atau merek
 
 msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
-msgstr "Silahkan masukkan nama organisasi Anda (nama atau merek perusahaan)."
+msgstr "Silakan masukkan nama organisasi Anda (nama atau merek perusahaan)."
 
 msgctxt "enter_email_addresses_of_users"
 msgid "Enter email addresses of users to invite (comma-separated):"
@@ -224,7 +224,7 @@ msgstr "Zat aditif makanan yang dilarang di Eropa. Jangan digunakan sama sekali.
 
 msgctxt "additives_p"
 msgid "additives"
-msgstr "zat - zat aditif"
+msgstr "zat-zat aditif"
 
 msgctxt "additives_s"
 msgid "additive"
@@ -265,6 +265,14 @@ msgstr "alergen"
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
 msgstr "Halaman produk juga disunting oleh"
+
+msgctxt "analytical_constituents"
+msgid "Analytical constituents"
+msgstr ""
+
+msgctxt "analytical_constituents_per_1kg"
+msgid "for 1 kg"
+msgstr ""
 
 msgctxt "android_apk_app_icon_url"
 msgid "/images/misc/android-apk.svg"
@@ -4627,13 +4635,15 @@ msgctxt "attribute_nutriscore_c_description_short"
 msgid "Average nutritional quality"
 msgstr "Kualitas nutrisi rata-rata"
 
+# lower: translate to "less good" in some languages (e.g. French: "Moins bonne qualité nutritionnelle")
 msgctxt "attribute_nutriscore_d_description_short"
-msgid "Poor nutritional quality"
-msgstr "Kualitas nutrisi kurang"
+msgid "Lower nutritional quality"
+msgstr "Kualitas nutrisi yang lebih rendah"
 
+# lower: translate to "less good" in some languages (e.g. French: "Moins bonne qualité nutritionnelle")
 msgctxt "attribute_nutriscore_e_description_short"
-msgid "Bad nutritional quality"
-msgstr "Kualitas nutrisi buruk"
+msgid "Lower nutritional quality"
+msgstr "Kualitas nutrisi yang lebih rendah"
 
 msgctxt "attribute_group_processing_name"
 msgid "Food processing"
@@ -4675,6 +4685,15 @@ msgstr "Makanan olahan"
 msgctxt "attribute_nova_4_description_short"
 msgid "Ultra processed foods"
 msgstr "Makanan olahan ultra"
+
+msgctxt "attribute_nova_4_1_marker"
+msgid "1 ultra-processing marker"
+msgstr "1 penanda ultra-pemrosesan"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_nova_4_markers"
+msgid "{number} ultra-processing markers"
+msgstr "{number} penanda ultra-pemrosesan"
 
 msgctxt "export_product_page"
 msgid "Export product to public database"
@@ -4822,8 +4841,21 @@ msgid "Low environmental impact (Green-Score)"
 msgstr "Dampak lingkungan rendah (Green-Score)"
 
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score (environmental_score) from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "Green-Score adalah skor lingkungan (environmental_score) dari kisaran A hingga E yang membuatnya mudah untuk membandingkan dampak produk - produk makanan terhadap lingkungan."
+msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
+msgstr "Green-Score adalah skor lingkungan dari kisaran A hingga E yang membuatnya mudah untuk membandingkan dampak produk - produk makanan terhadap lingkungan."
+
+# Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
+msgctxt "attribute_ecoscore_name"
+msgid "Green-Score"
+msgstr "Green-Score"
+
+msgctxt "attribute_ecoscore_setting_name"
+msgid "Low environmental impact (Green-Score)"
+msgstr "Dampak lingkungan rendah (Green-Score)"
+
+msgctxt "attribute_ecoscore_setting_note"
+msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
+msgstr "Green-Score adalah skor lingkungan dari kisaran A hingga E yang membuatnya mudah untuk membandingkan dampak produk - produk makanan terhadap lingkungan."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5007,25 +5039,25 @@ msgctxt "environmental_impact"
 msgid "Environmental impact"
 msgstr "Dampak lingkungan"
 
-# Numerical score for the Eco-score (do not translate Eco-score)
+# Numerical score for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_score"
-msgid "Eco-score score"
-msgstr "Nilai angka Eco-score"
+msgid "Green-Score score"
+msgstr "Skor Green-Score"
 
-# Letter grade from A to E for the Eco-score (do not translate Eco-score)
+# Letter grade from A to E for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_grade"
-msgid "Eco-score grade"
-msgstr "Nilai huruf Eco-score"
+msgid "Green-Score grade"
+msgstr "Nilai Green-Score"
 
-# do not translate Eco-score
+# do not translate Green-Score
 msgctxt "environmental_score_calculation_details"
-msgid "Details of the calculation of the Eco-score"
-msgstr "Detail perhitungan Eco-score"
+msgid "Details of the calculation of the Green-Score"
+msgstr "Detail penghitungan Green-Score"
 
-# do not translate Eco-score
+# do not translate Green-Score
 msgctxt "environmental_score_information"
-msgid "Information about the Eco-score"
-msgstr "Informasi tentang Eco-score"
+msgid "Information about the Green-Score"
+msgstr "Informasi tentang Green-Score"
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
@@ -5056,6 +5088,14 @@ msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr "Kandungan gizi yang hilang"
 
+msgctxt "ecoscore_p"
+msgid "Green-Score"
+msgstr "Green-Score"
+
+msgctxt "ecoscore_s"
+msgid "Green-Score"
+msgstr "Green-Score"
+
 msgctxt "environmental_score_p"
 msgid "Green-Score"
 msgstr "Green-Score"
@@ -5063,6 +5103,14 @@ msgstr "Green-Score"
 msgctxt "environmental_score_s"
 msgid "Green-Score"
 msgstr "Green-Score"
+
+msgctxt "misc_p"
+msgid "Miscellaneous"
+msgstr "Lain-lain"
+
+msgctxt "misc_s"
+msgid "Miscellaneous"
+msgstr "Lain-lain"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5224,8 +5272,8 @@ msgstr "Platform ini juga menyediakan analisis produk yang mendalam."
 
 # It = the platform
 msgctxt "product_edits_by_producers_indicators"
-msgid "It computes indicators such as the Nutri-Score, NOVA, and the Eco-score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
-msgstr "Ia menghitung indikator seperti Nutri-Score, NOVA, dan ECO-score, dan secara otomatis mengidentifikasi saran untuk meningkatkan mereka (contohnya, semua produk yang akan mendapat nilai Nutri-Score yang lebih baik dengan sedikit perubahan komposisi)."
+msgid "It computes indicators such as the Nutri-Score, NOVA, and the Green-Score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
+msgstr "Platform tersebut menghitung indikator seperti Nutri-Score, NOVA, dan Green-Score, dan secara otomatis mengidentifikasi saran untuk meningkatkan mereka (contohnya, semua produk yang akan mendapat nilai Nutri-Score yang lebih baik dengan sedikit perubahan komposisi)."
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest footprint"
@@ -5359,12 +5407,12 @@ msgid "User is being deleted. This may take a few minutes."
 msgstr "Pengguna sedang dihapus. Ini mungkin memerlukan waktu beberapa menit."
 
 msgctxt "attribute_environmental_score_not_applicable_title"
-msgid "Green-Score not yet applicable"
-msgstr "Green-Score belum dapat diterapkan"
+msgid "Green-Score not applicable"
+msgstr "Green-Score tidak berlaku"
 
 msgctxt "attribute_environmental_score_not_applicable_description_short"
-msgid "Not yet applicable for the category"
-msgstr "Belum berlaku untuk kategori ini"
+msgid "Not applicable for the category"
+msgstr "Tidak berlaku untuk kategori ini"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_environmental_score_not_applicable_description"
@@ -5827,43 +5875,43 @@ msgstr "Revolusi makanan dimulai dari Anda!"
 
 msgctxt "donation_hook_2024"
 msgid "Help us inform millions of consumers around the world about what they eat"
-msgstr ""
+msgstr "Bantu kami menginformasikan kepada jutaan konsumen di seluruh dunia tentang apa yang mereka makan"
 
 msgctxt "donation_title_2024"
 msgid "Please give to our 2024 Fundraiser"
-msgstr ""
+msgstr "Silakan berdonasi ke Penggalangan Dana 2024 kami"
 
 msgctxt "donation_list_2024_main"
 msgid "Your donations fund the day-to-day operations of our non-profit association:"
-msgstr ""
+msgstr "Donasi Anda mendanai operasional sehari-hari asosiasi nirlaba kami:"
 
 msgctxt "donation_list_2024_first"
 msgid "keeping our database open & available to all,"
-msgstr ""
+msgstr "menjaga basis data kami tetap terbuka dan tersedia untuk semua,"
 
 msgctxt "donation_list_2024_first_sub"
 msgid "technical infrastructure (website/mobile app) & a small permanent team"
-msgstr ""
+msgstr "infrastruktur teknis (situs web/aplikasi) & tim permanen kecil"
 
 msgctxt "donation_list_2024_second"
 msgid "remain independent of the food industry,"
-msgstr ""
+msgstr "tetap independen pada industri makanan,"
 
 msgctxt "donation_list_2024_third"
 msgid "engage a community of committed citizens,"
-msgstr ""
+msgstr "melibatkan komunitas warga yang berkomitmen,"
 
 msgctxt "donation_list_2024_fourth"
 msgid "support the advancement of public health research."
-msgstr ""
+msgstr "mendukung kemajuan penelitian kesehatan masyarakat."
 
 msgctxt "donation_financial_2024_text"
 msgid "Each donation counts! We appreciate your support in bringing further food transparency in the world."
-msgstr ""
+msgstr "Setiap donasi sangat berarti! Kami menghargai dukungan Anda dalam mewujudkan transparansi pangan di dunia."
 
 msgctxt "donation_button_2024_text"
 msgid "I SUPPORT"
-msgstr ""
+msgstr "SAYA MENDUKUNG"
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -6373,6 +6421,10 @@ msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
 msgstr "Ambil foto kode penelusuran"
 
+msgctxt "action_report_product_to_nutripatrol"
+msgid "Report this product to our moderators"
+msgstr "Laporkan produk ini ke moderator kami"
+
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
 msgid "What you need to know"
@@ -6518,6 +6570,10 @@ msgctxt "api_result_product_not_found"
 msgid "Product not found"
 msgstr "Produk tidak ditemukan"
 
+msgctxt "api_result_product_found_with_a_different_product_type"
+msgid "Product found with a different product type"
+msgstr "Produk ditemukan dengan jenis produk yang berbeda"
+
 msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr "Produk diperbarui"
@@ -6541,6 +6597,10 @@ msgstr "JSON tidak valid dalam isi permintaan"
 msgctxt "api_message_invalid_code"
 msgid "Invalid code"
 msgstr "Kode tidak valid"
+
+msgctxt "api_message_invalid_product_type"
+msgid "Invalid product type"
+msgstr "Jenis produk tidak valid"
 
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
@@ -6855,6 +6915,18 @@ msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_
 msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
 msgstr "Poin untuk protein tidak dihitung karena poin negatif lebih besar atau sama dengan 11."
 
+msgctxt "nutriscore_new_computation_title"
+msgid "Discover the new Nutri-Score!"
+msgstr "Temukan Nutri-Score yang baru!"
+
+msgctxt "nutriscore_new_computation_description"
+msgid "<p>The computation of the Nutri-Score is evolving to provide better recommendations based on the latest scientific evidence.</p><p>Main improvements:</p><ul><li>Better score for some fatty fish and oils rich in good fats</li><li>Better score for whole products rich in fiber</li><li>Worse score for products containing a lot of salt or sugar</li><li>Worse score for red meat (compared to poultry)</li></ul>"
+msgstr "<p>Perhitungan Nutri-Score terus berkembang untuk memberikan rekomendasi yang lebih baik berdasarkan bukti ilmiah terkini.</p><p>Peningkatan utama:</p><ul><li>Skor yang lebih baik untuk beberapa ikan berlemak dan minyak yang kaya akan lemak baik</li><li>Skor yang lebih baik untuk seluruh produk yang kaya akan serat</li><li>Skor yang lebih buruk untuk produk yang mengandung banyak garam atau gula</li><li>Skor yang lebih buruk untuk daging merah (dibandingkan dengan unggas)</li></ul>"
+
+msgctxt "nutriscore_new_computation_link_text"
+msgid "Discover all the improvements of the new Nutri-Score"
+msgstr "Temukan semua peningkatan Nutri-Score yang baru"
+
 msgctxt "nutriscore_explanation_what_it_is"
 msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
 msgstr "Nutri-Score adalah logo yang menunjukkan kualitas nutrisi produk secara keseluruhan."
@@ -6951,7 +7023,7 @@ msgstr "Laporkan masalah"
 
 msgctxt "report_problem_navigation"
 msgid "Report a problem."
-msgstr ""
+msgstr "Laporkan masalah."
 
 msgctxt "incomplete_or_incorrect_data_title"
 msgid "Incomplete or incorrect information?"
@@ -6968,6 +7040,10 @@ msgstr "Jika informasi tidak sesuai dengan informasi pada kemasan, Anda dapat me
 msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
 msgstr "Open Food Facts merupakan basis data kolaboratif dan setiap kontribusi bermanfaat untuk semua."
+
+msgctxt "report_to_nutripatrol_explain"
+msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
+msgstr "Jika Anda ingin melaporkan vandalisme, konten tidak pantas, atau kesalahan data yang tidak dapat Anda perbaiki, laporkan kepada tim moderator kami."
 
 msgctxt "description"
 msgid "Description"
@@ -7188,24 +7264,24 @@ msgstr "Indeks kemudahan diperbaiki"
 
 msgctxt "attribute_repairability_index_france_setting_name"
 msgid "Good repairability"
-msgstr ""
+msgstr "Tingkat kemudahan diperbaiki bagus"
 
 msgctxt "attribute_repairability_index_france_setting_note"
 msgid "Mandatory rating in France for certain products since 2021"
-msgstr ""
+msgstr "Peringkat wajib di Prancis untuk produk tertentu sejak 2021"
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_repairability_index_france_grade_title"
 msgid "Repairability index %s"
-msgstr ""
+msgstr "Indeks kemudahan diperbaiki %s"
 
 msgctxt "attribute_repairability_index_france_unknown_title"
 msgid "Repairability index unknown"
-msgstr ""
+msgstr "Indeks kemudahan diperbaiki tidak diketahui"
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
 msgid "Repairability index not-applicable"
-msgstr ""
+msgstr "Indeks kemudahan diperbaiki tidak berlaku"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
 msgid "Not-applicable for the category"
@@ -7214,25 +7290,82 @@ msgstr "Tidak berlaku untuk kategori ini"
 # variable names between { } must not be translated
 msgctxt "f_attribute_repairability_index_france_not_applicable_description"
 msgid "Applicable only for categories: {categories}"
-msgstr ""
+msgstr "Hanya berlaku untuk kategori: {categories}"
 
 msgctxt "attribute_repairability_index_france_very_good_description_short"
 msgid "Very good repairability"
-msgstr ""
+msgstr "Tingkat kemudahan diperbaiki sangat bagus"
 
 msgctxt "attribute_repairability_index_france_good_description_short"
 msgid "Good repairability"
-msgstr ""
+msgstr "Tingkat kemudahan diperbaiki bagus"
 
 msgctxt "attribute_repairability_index_france_average_description_short"
 msgid "Average repairability"
-msgstr ""
+msgstr "Tingkat kemudahan diperbaiki rata-rata"
 
 msgctxt "attribute_repairability_index_france_poor_description_short"
 msgid "Poor repairability"
-msgstr ""
+msgstr "Tingkat kemudahan diperbaiki tidak bagus"
 
 msgctxt "attribute_repairability_index_france_bad_description_short"
 msgid "Bad repairability"
+msgstr "Tingkat kemudahan diperbaiki buruk"
+
+msgctxt "estimate"
+msgid "estimate"
 msgstr ""
+
+# information on several ingredients, in plural in languages like French
+msgctxt "ingredient_information"
+msgid "Ingredient information"
+msgstr ""
+
+msgctxt "product_type"
+msgid "Product type"
+msgstr "Tipe produk"
+
+# Food product type
+msgctxt "product_type_food"
+msgid "Food"
+msgstr "Makanan"
+
+# Pet food product type
+msgctxt "product_type_petfood"
+msgid "Pet food"
+msgstr "Makanan hewan"
+
+# Beauty product type
+msgctxt "product_type_beauty"
+msgid "Beauty"
+msgstr "Kecantikan"
+
+# General product product type
+msgctxt "product_type_product"
+msgid "Product"
+msgstr "Produk"
+
+msgctxt "recommendation_limit_ultra_processed_foods_title"
+msgid "Limit ultra-processed foods"
+msgstr "Batasi makanan ultra-proses"
+
+msgctxt "recommendation_limit_ultra_processed_foods_subtitle"
+msgid "Limiting ultra-processed foods reduces the risk of noncommunicable chronic diseases"
+msgstr "Membatasi makanan ultra-proses mengurangi risiko penyakit kronis yang tidak menular"
+
+msgctxt "recommendation_limit_ultra_processed_foods_text"
+msgid "Several studies have found that a lower consumption of ultra-processed foods is associated with a reduced risk of noncommunicable chronic diseases, such as obesity, hypertension and diabetes."
+msgstr "Beberapa penelitian telah menemukan bahwa konsumsi makanan ultra-proses yang tinggi dikaitkan dengan peningkatan risiko penyakit kronis tidak menular, seperti obesitas, hipertensi, dan diabetes."
+
+msgctxt "discover_the_evolution_of_the_nutriscore_grades_of_your_products"
+msgid "Discover the evolution of the Nutri-Score grades of your products"
+msgstr "Temukan evolusi nilai Nutri-Score produk Anda"
+
+msgctxt "add_products_to_discover_the_evolution_of_their_nutriscore_grades"
+msgid "Add products with a category, ingredients list and nutrition facts to discover the evolution of their Nutri-Score grades."
+msgstr "Tambahkan produk dengan kategori, daftar bahan, dan fakta nutrisi untuk mengetahui evolusi nilai Nutri-Score-nya."
+
+msgctxt "in_contact_with_food"
+msgid "In contact with food"
+msgstr "Bersentuhan dengan makanan"
 

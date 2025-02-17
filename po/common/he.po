@@ -266,6 +266,14 @@ msgctxt "also_edited_by"
 msgid "Product page also edited by"
 msgstr "עמוד המוצר נערך גם על ידי"
 
+msgctxt "analytical_constituents"
+msgid "Analytical constituents"
+msgstr ""
+
+msgctxt "analytical_constituents_per_1kg"
+msgid "for 1 kg"
+msgstr ""
+
 msgctxt "android_apk_app_icon_url"
 msgid "/images/misc/android-apk.svg"
 msgstr "/images/misc/android-apk.svg"
@@ -4627,13 +4635,15 @@ msgctxt "attribute_nutriscore_c_description_short"
 msgid "Average nutritional quality"
 msgstr "איכות תזונתית ממוצעת"
 
+# lower: translate to "less good" in some languages (e.g. French: "Moins bonne qualité nutritionnelle")
 msgctxt "attribute_nutriscore_d_description_short"
-msgid "Poor nutritional quality"
-msgstr "איכות תזונתית ירודה"
+msgid "Lower nutritional quality"
+msgstr "איכות תזונתית נחותה"
 
+# lower: translate to "less good" in some languages (e.g. French: "Moins bonne qualité nutritionnelle")
 msgctxt "attribute_nutriscore_e_description_short"
-msgid "Bad nutritional quality"
-msgstr "איכות תזונתית גרועה"
+msgid "Lower nutritional quality"
+msgstr "איכות תזונתית נחותה"
 
 msgctxt "attribute_group_processing_name"
 msgid "Food processing"
@@ -4675,6 +4685,15 @@ msgstr "מזון מעובד"
 msgctxt "attribute_nova_4_description_short"
 msgid "Ultra processed foods"
 msgstr "מזון מעובד מאוד"
+
+msgctxt "attribute_nova_4_1_marker"
+msgid "1 ultra-processing marker"
+msgstr "סימן אולטרא עיבוד אחד"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_nova_4_markers"
+msgid "{number} ultra-processing markers"
+msgstr "{number} סימני אולטרא עיבוד"
 
 msgctxt "export_product_page"
 msgid "Export product to public database"
@@ -4822,7 +4841,20 @@ msgid "Low environmental impact (Green-Score)"
 msgstr "השפעה סביבתית נמוכה (Green-Score)"
 
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score (environmental_score) from A to E which makes it easy to compare the impact of food products on the environment."
+msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
+msgstr "Green-Score הוא ציון סביבתי מ־A עד E שמקל על ההשוואה של מוצרי מזון על הסביבה."
+
+# Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
+msgctxt "attribute_ecoscore_name"
+msgid "Green-Score"
+msgstr "Green-Score"
+
+msgctxt "attribute_ecoscore_setting_name"
+msgid "Low environmental impact (Green-Score)"
+msgstr "השפעה סביבתית נמוכה (Green-Score)"
+
+msgctxt "attribute_ecoscore_setting_note"
+msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
 msgstr "Green-Score הוא ציון סביבתי מ־A עד E שמקל על ההשוואה של מוצרי מזון על הסביבה."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
@@ -5007,24 +5039,24 @@ msgctxt "environmental_impact"
 msgid "Environmental impact"
 msgstr "השפעה על איכות הסביבה"
 
-# Numerical score for the Eco-score (do not translate Eco-score)
+# Numerical score for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_score"
-msgid "Eco-score score"
+msgid "Green-Score score"
 msgstr "ציון Green-Score"
 
-# Letter grade from A to E for the Eco-score (do not translate Eco-score)
+# Letter grade from A to E for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_grade"
-msgid "Eco-score grade"
-msgstr "דירוג Green-Score"
+msgid "Green-Score grade"
+msgstr "דרגת Green-Score"
 
-# do not translate Eco-score
+# do not translate Green-Score
 msgctxt "environmental_score_calculation_details"
-msgid "Details of the calculation of the Eco-score"
+msgid "Details of the calculation of the Green-Score"
 msgstr "פירוט אופן חישוב Green-Score"
 
-# do not translate Eco-score
+# do not translate Green-Score
 msgctxt "environmental_score_information"
-msgid "Information about the Eco-score"
+msgid "Information about the Green-Score"
 msgstr "מידע על Green-Score"
 
 msgctxt "preferences_currently_selected_preferences"
@@ -5056,6 +5088,14 @@ msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr "עובדות תזונתיות חסרות"
 
+msgctxt "ecoscore_p"
+msgid "Green-Score"
+msgstr "Green-Score"
+
+msgctxt "ecoscore_s"
+msgid "Green-Score"
+msgstr "Green-Score"
+
 msgctxt "environmental_score_p"
 msgid "Green-Score"
 msgstr "Green-Score"
@@ -5063,6 +5103,14 @@ msgstr "Green-Score"
 msgctxt "environmental_score_s"
 msgid "Green-Score"
 msgstr "Green-Score"
+
+msgctxt "misc_p"
+msgid "Miscellaneous"
+msgstr "שונות"
+
+msgctxt "misc_s"
+msgid "Miscellaneous"
+msgstr "שונות"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5224,7 +5272,7 @@ msgstr "הפלטפורמה מספקת גם ניתוח מעמיק של המוצר
 
 # It = the platform
 msgctxt "product_edits_by_producers_indicators"
-msgid "It computes indicators such as the Nutri-Score, NOVA, and the Eco-score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
+msgid "It computes indicators such as the Nutri-Score, NOVA, and the Green-Score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
 msgstr "הוא מחשב חיוויים כגון Nutri-Score,‏ NOVA ו־Green-Score ומזהה אוטומטית הצעות כדי לשפר אותם (למשל כל המוצרים שיקבלו ציון Nutri-Score טוב יותר עם שינוי קל בהרכב)."
 
 msgctxt "attribute_forest_footprint_name"
@@ -5359,12 +5407,12 @@ msgid "User is being deleted. This may take a few minutes."
 msgstr "המשתמש נמחק. זה עלול לארוך מספר דקות."
 
 msgctxt "attribute_environmental_score_not_applicable_title"
-msgid "Green-Score not yet applicable"
-msgstr "Green-Score לא חל עדיין"
+msgid "Green-Score not applicable"
+msgstr "Green-Score לא תקף"
 
 msgctxt "attribute_environmental_score_not_applicable_description_short"
-msgid "Not yet applicable for the category"
-msgstr "לא חל עדיין על הקטגוריה"
+msgid "Not applicable for the category"
+msgstr "לא חל על הקטגוריה"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_environmental_score_not_applicable_description"
@@ -6373,6 +6421,10 @@ msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
 msgstr "צילום הקודים של המעקב"
 
+msgctxt "action_report_product_to_nutripatrol"
+msgid "Report this product to our moderators"
+msgstr "דיווח על המוצר הזה למפקחים שלנו"
+
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
 msgid "What you need to know"
@@ -6518,6 +6570,10 @@ msgctxt "api_result_product_not_found"
 msgid "Product not found"
 msgstr "המוצר לא נמצא"
 
+msgctxt "api_result_product_found_with_a_different_product_type"
+msgid "Product found with a different product type"
+msgstr "המוצר נמצא תחת סוג מוצר אחר"
+
 msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr "המוצר עודכן"
@@ -6541,6 +6597,10 @@ msgstr "JSON שגוי בגוף הבקשה"
 msgctxt "api_message_invalid_code"
 msgid "Invalid code"
 msgstr "קוד שגוי"
+
+msgctxt "api_message_invalid_product_type"
+msgid "Invalid product type"
+msgstr "סוג מוצר שגוי"
 
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
@@ -6855,6 +6915,18 @@ msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_
 msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
 msgstr "נקודות לחלבונים לא נספרות כיוון שכמות הנקודות השליליות גדול מאשר או שווה ל־1."
 
+msgctxt "nutriscore_new_computation_title"
+msgid "Discover the new Nutri-Score!"
+msgstr "חשיפת ה־Nutri-Score החדש!"
+
+msgctxt "nutriscore_new_computation_description"
+msgid "<p>The computation of the Nutri-Score is evolving to provide better recommendations based on the latest scientific evidence.</p><p>Main improvements:</p><ul><li>Better score for some fatty fish and oils rich in good fats</li><li>Better score for whole products rich in fiber</li><li>Worse score for products containing a lot of salt or sugar</li><li>Worse score for red meat (compared to poultry)</li></ul>"
+msgstr ""
+
+msgctxt "nutriscore_new_computation_link_text"
+msgid "Discover all the improvements of the new Nutri-Score"
+msgstr "הסבר על כל השיפורים ב־Nutri-Score החדש"
+
 msgctxt "nutriscore_explanation_what_it_is"
 msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
 msgstr "Nutri-Score הוא לוגו שמעיד על איכות תזונתית כוללת של מוצרים."
@@ -6969,6 +7041,10 @@ msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
 msgstr "Open Food Facts הוא מסד נתונים שיתופי, וכל תרומה מועילה לכלל."
 
+msgctxt "report_to_nutripatrol_explain"
+msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
+msgstr "בדיווח על השחתה, תוכן פוגעני או שגוי שאין לך איך לתקן בעצמך, יש לדווח לצוות המפקחים שלנו."
+
 msgctxt "description"
 msgid "Description"
 msgstr "תיאור"
@@ -7036,11 +7112,11 @@ msgstr "מכיל יבולים מוזנחים או לא מנוצלים:"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_did_you_know"
 msgid "Since 1900, 75% of plant diversity has been lost as farmers around the world have abandoned local varieties for high-yielding varieties adapted to mass industrial processing. As a result, 60 % of human energy intake in the world comes from only 3 species: wheat, rice and corn."
-msgstr ""
+msgstr "מאז 1900, 75% ממגוון הצמחייה אבד כיוון שחקלאים מכל רחבי העולם זנחו את הזנים המקומיים לטובת התאמות מניבות יותר שהותאמו לעיבוד תעשייתי בכמויות גדולות. כתוצאה מכך, 60% מתצרוכת האנרגיה בעולם מקורה בשלושה זנים: חיטה, אורז ותירס."
 
 msgctxt "knowledge_panels_ingredients_rare_crops_why_it_matters"
 msgid "The lack of variety of crops makes our food supply more vulnerable to pests, diseases and climate change."
-msgstr ""
+msgstr "המחסור במגוון יבולים הופך את אספקת המזון שלנו לפגיעה יותר למזיקים, מחלות ושינויי אקלים."
 
 msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do"
 msgid "Consuming diverse cereals, legumes, vegetables and fruits contributes to:"
@@ -7084,7 +7160,7 @@ msgstr "תאריך יצירה"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_divinfood"
 msgid "Open Food Facts participates in the European project <a href=\"https://divinfood.eu/\">DIVINFOOD</a> (funded from European Union’s Horizon 2020 research and innovation programme). DIVINFOOD aims to develop food chains that value under-utilised agrobiodiversity in order to act against the decline of biodiversity and to meet the growing expectations of consumers for healthy, local products that contribute to sustainable food systems."
-msgstr ""
+msgstr "Open Food Facts משתתף במיזם האירופי <a href=\"https://divinfood.eu/\">DIVINFOOD</a> (ממומן על ידי תוכנית המחקר והחדשנות Horizon 2020 של האיחוד האירופי). המטרה של DIVINFOOD היא לפתח רשתות מזון שמעריכות מגוון חקלאי-ביולוגי שלא מנוצל לעייפה כדי לפעול כנגד דעיכת המגוון הביולוגי ולענות על הציפיות ההולכות וגדלות של צרכנים למוצרים בריאים ומקומיים שתורמים למערכות מזון בנות קיימא."
 
 msgctxt "deny"
 msgid "Deny"
@@ -7235,4 +7311,61 @@ msgstr "יכולת תיקון ירודה"
 msgctxt "attribute_repairability_index_france_bad_description_short"
 msgid "Bad repairability"
 msgstr "יכולת תיקון גרועה"
+
+msgctxt "estimate"
+msgid "estimate"
+msgstr "הערכה"
+
+# information on several ingredients, in plural in languages like French
+msgctxt "ingredient_information"
+msgid "Ingredient information"
+msgstr "פרטי רכיבים"
+
+msgctxt "product_type"
+msgid "Product type"
+msgstr "סוג המוצר"
+
+# Food product type
+msgctxt "product_type_food"
+msgid "Food"
+msgstr "מזון"
+
+# Pet food product type
+msgctxt "product_type_petfood"
+msgid "Pet food"
+msgstr "מזון לחיות מחמד"
+
+# Beauty product type
+msgctxt "product_type_beauty"
+msgid "Beauty"
+msgstr "טיפול"
+
+# General product product type
+msgctxt "product_type_product"
+msgid "Product"
+msgstr "מוצר"
+
+msgctxt "recommendation_limit_ultra_processed_foods_title"
+msgid "Limit ultra-processed foods"
+msgstr "הגבלת מאכלים אולטרא מעובדים"
+
+msgctxt "recommendation_limit_ultra_processed_foods_subtitle"
+msgid "Limiting ultra-processed foods reduces the risk of noncommunicable chronic diseases"
+msgstr "הגבלת מזון אולטרא מעובד מפחיתה את הסיכון למחלות כרוניות שאינן מדבקות"
+
+msgctxt "recommendation_limit_ultra_processed_foods_text"
+msgid "Several studies have found that a lower consumption of ultra-processed foods is associated with a reduced risk of noncommunicable chronic diseases, such as obesity, hypertension and diabetes."
+msgstr "מספר מחקרים מצאו שצריכה מופחתת של מאכלים אולטרא מעובדים מקושרת לסיכון מופחת למחלות כרוניות שאינן מידבקות, כגון השמנה, לחץ דם גבוה וסוכרת."
+
+msgctxt "discover_the_evolution_of_the_nutriscore_grades_of_your_products"
+msgid "Discover the evolution of the Nutri-Score grades of your products"
+msgstr "הצגת התפתחות ציוני ה־Nutri-Score של המוצרים שלך"
+
+msgctxt "add_products_to_discover_the_evolution_of_their_nutriscore_grades"
+msgid "Add products with a category, ingredients list and nutrition facts to discover the evolution of their Nutri-Score grades."
+msgstr "הוספת מוצרים עם קטגוריה, רשימת מוצרים ועובדות תזונתיות כדי לצפות בהתפתחות ציוני ה־Nutri-Score שלהם."
+
+msgctxt "in_contact_with_food"
+msgid "In contact with food"
+msgstr "במגע עם מזון"
 
