@@ -429,8 +429,8 @@ is(display_taxonomy_tag("en", "ingredients_analysis", "en:non-vegan"), "Non-vega
 
 is(canonicalize_taxonomy_tag("de", "test", "Grünkohl"), "en:kale");
 is(display_taxonomy_tag("de", "test", "en:kale"), "Grünkohl");
-is(display_taxonomy_tag_link("de", "test", "en:kale"), '<a href="/facets//gr%C3%BCnkohl" class="tag well_known">Grünkohl</a>')
-	;    # "test" taxonomy causes warning in Tags.pm
+is(display_taxonomy_tag_link("de", "test", "en:kale"),
+	'<a href="/facets//gr%C3%BCnkohl" class="tag well_known">Grünkohl</a>'); # "test" taxonomy causes warning in Tags.pm
 is(
 	display_tags_hierarchy_taxonomy("de", "test", ["en:kale"]),
 	'<a href="/facets//gr%C3%BCnkohl" class="tag well_known">Grünkohl</a>'

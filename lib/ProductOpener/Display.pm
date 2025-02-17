@@ -2686,12 +2686,13 @@ sub display_list_of_tags_translate ($request_ref, $query_ref) {
 
 			$log->trace("determining main_link for the tag") if $log->is_trace();
 			if (defined $taxonomy_fields{$request_ref->{tagtype}}) {
-				$main_link = canonicalize_taxonomy_tag_link($lc, $request_ref->{tagtype}, $request_ref->{tagid});
+				$main_link
+					= "/facets" . canonicalize_taxonomy_tag_link($lc, $request_ref->{tagtype}, $request_ref->{tagid});
 				$log->debug("main_link determined from the taxonomy tag", {main_link => $main_link})
 					if $log->is_debug();
 			}
 			else {
-				$main_link = canonicalize_tag_link($request_ref->{tagtype}, $request_ref->{tagid});
+				$main_link = "/facets" . canonicalize_tag_link($request_ref->{tagtype}, $request_ref->{tagid});
 				$log->debug("main_link determined from the canonical tag", {main_link => $main_link})
 					if $log->is_debug();
 			}
@@ -8174,10 +8175,10 @@ JS
 						$template_data_ref->{"data_source_database_provider"} = f_lang(
 							"f_data_source_database_provider",
 							{
-								manufacturer => '<a href="/editor/'
+								manufacturer => '<a href="/facets/editors/'
 									. $product_ref->{owner} . '">'
 									. $org_ref->{name} . '</a>',
-								provider => '<a href="/data-source/'
+								provider => '<a href="/facets/data-sources/'
 									. $data_source_tagid . '">'
 									. $database_name . '</a>',
 							}
@@ -8924,7 +8925,7 @@ HTML
 
 			my $info = '';
 
-			$html .= "<li><a href=\"" . $link . "\"$info>" . $tag . "</a></li>\n";
+			$html .= "<li><a href=\"/facets" . $link . "\"$info>" . $tag . "</a></li>\n";
 		}
 		$html .= "</ul></div>";
 
@@ -9635,7 +9636,7 @@ sub compare_product_nutrition_facts_to_categories ($product_ref, $target_cc, $ma
 						{
 						id => $cid,
 						name => display_taxonomy_tag($lc, 'categories', $cid),
-						link => canonicalize_taxonomy_tag_link($lc, 'categories', $cid),
+						link => "/facets" . canonicalize_taxonomy_tag_link($lc, 'categories', $cid),
 						nutriments => compare_nutriments($product_ref, $categories_nutriments_ref->{$cid}),
 						count => $categories_nutriments_ref->{$cid}{count},
 						n => $categories_nutriments_ref->{$cid}{n},
