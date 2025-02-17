@@ -68,8 +68,8 @@ Visit the [website](https://world.openfoodfacts.org) for more info.
 <br><br>
 ## Priorities
 - [Top issues](https://github.com/openfoodfacts/openfoodfacts-server/issues/7374)
-- [P1 problems](https://github.com/openfoodfacts/openfoodfacts-server/labels/P0,P1)
-- [P1 candidates](https://github.com/openfoodfacts/openfoodfacts-server/labels/P1%20candidate)
+- [P1 problems](https://github.com/openfoodfacts/openfoodfacts-server/issues?q=is%3Aopen%20label%3A%22%F0%9F%8E%AF%20P0%22%20OR%20label%3A%22%F0%9F%8E%AF%20P1%22%20)
+- [P1 candidates](https://github.com/openfoodfacts/openfoodfacts-server/issues?q=is%3Aopen%20label%3A%22%F0%9F%8E%AF%20P1%20candidate%22%20)
 <br><br>
 ## How do I get started?
 - Join us on slack at <https://openfoodfacts.slack.com/> in the channels: `#api`, `#productopener`, `#dev`.
@@ -112,7 +112,7 @@ You can help translate the Open Food Facts web version and the app at:
 ## Helping with HTML and CSS
 
 We have [templatized](https://github.com/openfoodfacts/openfoodfacts-server/tree/master/templates) Product Opener, we use Gulp and NPM, but you'll need to run the Product Opener docker to be able to see the result (see the How do I get set started? section).
-In particular, you can [help with issues on the new design](https://github.com/openfoodfacts/openfoodfacts-server/issues?q=is%3Aissue+is%3Aopen+label%3A%22new+design%22).
+In particular, you can [help with issues on the new design](https://github.com/openfoodfacts/openfoodfacts-server/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22%F0%9F%8E%A8%20New%20design%22).
 <br><br>
 ## Who do I talk to?
 
