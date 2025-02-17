@@ -1206,6 +1206,7 @@ sub compute_attribute_nutrient_level ($product_ref, $target_lc, $level, $nid) {
 				lang_in_other_lc($target_lc, "unknown_quantity")
 			);
 			$attribute_ref->{missing} = lang_in_other_lc($target_lc, "missing_nutrition_facts");
+			$attribute_ref->{panel_id} = "nutrition_facts_table";
 		}
 	}
 	else {
@@ -1262,6 +1263,9 @@ sub compute_attribute_nutrient_level ($product_ref, $target_lc, $level, $nid) {
 					$attribute_ref->{description_short}
 						= sprintf(lang_in_other_lc($target_lc, 'g_per_100g'), (sprintf('%.2e', $value) + 0.0));
 				}
+
+				$attribute_ref->{panel_id} = "nutrient_level_" . $nid;
+				$attribute_ref->{panel_id} =~ s/-/_/g;
 			}
 		}
 	}
