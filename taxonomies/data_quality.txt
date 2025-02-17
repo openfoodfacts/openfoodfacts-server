@@ -3097,7 +3097,7 @@ description:en: This product has a barcode with a GS1 future coupon prefix. This
 
 < en:GS1 warnings
 en: GS1 - ISSN prefix
-description:en: The International Standard Serial Number (ISSN) is for serial publications. In other terms, this is not food, and this should be moved to Open Products Facts by inputting OPF in the barcode field at the top of the edit page.
+description:en: The International Standard Serial Number (ISSN) is for serial publications. In other terms, this is not food, and this should be moved to Open Products Facts by inputting OPF in the Categories field.
 
 < en:GS1 warnings
 en: GS1 - coupon prefix
@@ -3105,7 +3105,7 @@ description:en: This product has a barcode which has the format of a GS1 coupon 
 
 < en:GS1 warnings
 en: GS1 - ISBN prefix
-description:en: The International Standard Book Number (ISBN) is for books. In other terms, this is not food, and this should be moved to Open Products Facts by inputting OPF in the barcode field at the top of the edit page.
+description:en: The International Standard Book Number (ISBN) is for books. In other terms, this is not food, and this should be moved to Open Products Facts by inputting OPF in the Categories field.
 
 < en:GS1 warnings
 en: GS1 - refund prefix
@@ -3179,7 +3179,7 @@ description:pt: Todas as bebidas alcoólicas devem ter um valor de % de álcool
 
 < en: Categories warnings
 en: Cosmetic product
-description:en: This product should be moved to Open Beauty Facts by inputting "obf" in the barcode field at the top of the page in the web version.
+description:en: This product should be moved to Open Beauty Facts by inputting "obf" in the Categories field.
 
 < en: Categories warnings
 en: Detected category from brand - Baby Foods
@@ -3190,9 +3190,9 @@ fr: Catégorie détectée à partir de la marque - Aliments pour bébés
 
 < en: Categories warnings
 en: Detected category from brand - Cigarettes
-description:en: Those are likely to be cigarettes, based on the brand. There might be some false positives. All cigarettes should be categorized as non-food products, and moved to Open Products Facts by inputting OPF in the barcode field at the top of the edit page.
-fix_action:en: move_to_opf
-show_to:en: moderators
+description:en: Those are likely to be cigarettes, based on the brand. There might be some false positives. All cigarettes should be categorized as non-food products, and moved to Open Products Facts by inputting OPF in the Categories field.
+fix_action:en: add_categories
+# show_to:en: moderators
 
 < en: Categories warnings
 en: Detected category from name and ingredients may be missing baby milks
@@ -3208,15 +3208,15 @@ fr: Catégories incompatibles - Lait végétal et produits laitiers
 
 < en: Categories warnings
 en: Detected category from brand - Pet Foods
-description:en: Those are likely to be product for Open Pet Food Facts, based on the brand. There might be some false positives. All Pet Food products should be moved to Open Pet Food Facts by inputting OPFF in the barcode field at the top of the edit page.
-fix_action:en: move_to_opff
-show_to:en: moderators
+description:en: Those are likely to be product for Open Pet Food Facts, based on the brand. There might be some false positives. All Pet Food products should be moved to Open Pet Food Facts by inputting OPFF in the Categories field.
+fix_action:en: add_categories
+# show_to:en: moderators
 
 < en: Categories warnings
 en: Detected category from brand - Beauty
-description:en: Those are likely to be product for Open Beauty Facts, based on the brand. There might be some false positives. All Beauty products should be moved to Open Beauty Facts by inputting OBF in the barcode field at the top of the edit page.
-fix_action:en: move_to_obf
-show_to:en: moderators
+description:en: Those are likely to be product for Open Beauty Facts, based on the brand. There might be some false positives. All Beauty products should be moved to Open Beauty Facts by inputting OBF in the Categories field.
+fix_action:en: add_categories
+# show_to:en: moderators
 
 
 
