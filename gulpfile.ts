@@ -84,7 +84,6 @@ export function copyJs() {
     "./node_modules/foundation-sites/js/vendor/*.js",
     "./node_modules/foundation-sites/js/foundation.js",
     "./node_modules/papaparse/papaparse.js",
-    "./node_modules/osm2geojson-lite/dist/osm2geojson-lite.js",
     "./node_modules/leaflet/dist/leaflet.js",
     "./node_modules/leaflet/dist/leaflet-src.esm.js",
     "./node_modules/leaflet.markercluster/dist/leaflet.markercluster.js",
