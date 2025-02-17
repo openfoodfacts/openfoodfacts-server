@@ -26,7 +26,13 @@ properties:
     description: Language code of the last edit for categories
   categories_tags:
     type: array
-    description: An array of indexed categories tag entries (lossy, for search only)
+    description: |
+      An array of indexed categories tag entries.
+      
+      That is the id of categories found in taxonomy + 
+      categories not found in taxonomy (with case / accents / spaces normalized).
+      
+      This is mostly used for search.
     items:
       $ref: ./tags/indexed_taxonomy_tag_entry.yaml      
 
