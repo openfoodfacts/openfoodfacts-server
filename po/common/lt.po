@@ -268,6 +268,14 @@ msgctxt "also_edited_by"
 msgid "Product page also edited by"
 msgstr "Produkto puslapį taip pat redagavo"
 
+msgctxt "analytical_constituents"
+msgid "Analytical constituents"
+msgstr ""
+
+msgctxt "analytical_constituents_per_1kg"
+msgid "for 1 kg"
+msgstr ""
+
 msgctxt "android_apk_app_icon_url"
 msgid "/images/misc/android-apk.svg"
 msgstr "/images/misc/android-apk.svg"
@@ -4628,13 +4636,15 @@ msgctxt "attribute_nutriscore_c_description_short"
 msgid "Average nutritional quality"
 msgstr "Vidutinė maistingumo kokybė"
 
+# lower: translate to "less good" in some languages (e.g. French: "Moins bonne qualité nutritionnelle")
 msgctxt "attribute_nutriscore_d_description_short"
-msgid "Poor nutritional quality"
-msgstr "Prasta maistingumo kokybė"
+msgid "Lower nutritional quality"
+msgstr "Prastos maisto produkto maistingosios savybės"
 
+# lower: translate to "less good" in some languages (e.g. French: "Moins bonne qualité nutritionnelle")
 msgctxt "attribute_nutriscore_e_description_short"
-msgid "Bad nutritional quality"
-msgstr "Bloga maistingumo kokybė"
+msgid "Lower nutritional quality"
+msgstr "Prastos maisto produkto maistingosios savybės"
 
 msgctxt "attribute_group_processing_name"
 msgid "Food processing"
@@ -4676,6 +4686,15 @@ msgstr ""
 msgctxt "attribute_nova_4_description_short"
 msgid "Ultra processed foods"
 msgstr "Ultra perdirbtas maistas"
+
+msgctxt "attribute_nova_4_1_marker"
+msgid "1 ultra-processing marker"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_nova_4_markers"
+msgid "{number} ultra-processing markers"
+msgstr ""
 
 msgctxt "export_product_page"
 msgid "Export product to public database"
@@ -4823,8 +4842,21 @@ msgid "Low environmental impact (Green-Score)"
 msgstr "Mažas poveikis aplinkai (Green-Score)"
 
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score (environmental_score) from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "„Green-Score“ yra aplinkosaugos įvertinimas (environmental_score) nuo A iki E, leidžiantis lengvai palyginti maisto produktų daromą poveikį aplinkai."
+msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
+msgstr "„Green-Score“ – tai aplinkosaugos balas nuo A iki E, kuriuo galima lengvai palyginti maisto produktų daromą poveikį aplinkai."
+
+# Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
+msgctxt "attribute_ecoscore_name"
+msgid "Green-Score"
+msgstr "Green-Score"
+
+msgctxt "attribute_ecoscore_setting_name"
+msgid "Low environmental impact (Green-Score)"
+msgstr "Mažas poveikis aplinkai (Green-Score)"
+
+msgctxt "attribute_ecoscore_setting_note"
+msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
+msgstr "„Green-Score“ – tai aplinkosaugos balas nuo A iki E, kuriuo galima lengvai palyginti maisto produktų daromą poveikį aplinkai."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5008,25 +5040,25 @@ msgctxt "environmental_impact"
 msgid "Environmental impact"
 msgstr "Poveikis aplinkai"
 
-# Numerical score for the Eco-score (do not translate Eco-score)
+# Numerical score for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_score"
-msgid "Eco-score score"
-msgstr "Eco-score balas"
+msgid "Green-Score score"
+msgstr "„Green-Score“ balas"
 
-# Letter grade from A to E for the Eco-score (do not translate Eco-score)
+# Letter grade from A to E for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_grade"
-msgid "Eco-score grade"
-msgstr "Eco-score įvertinimas"
+msgid "Green-Score grade"
+msgstr "„Green-Score“ klasė"
 
-# do not translate Eco-score
+# do not translate Green-Score
 msgctxt "environmental_score_calculation_details"
-msgid "Details of the calculation of the Eco-score"
-msgstr "Išsami informacija apie Eco-score apskaičiavimą"
+msgid "Details of the calculation of the Green-Score"
+msgstr "„Green-Score“ skaičiavimo duomenys"
 
-# do not translate Eco-score
+# do not translate Green-Score
 msgctxt "environmental_score_information"
-msgid "Information about the Eco-score"
-msgstr "Informacija apie Eco-score"
+msgid "Information about the Green-Score"
+msgstr "Informacija apie „Green-Score“"
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
@@ -5057,6 +5089,14 @@ msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr "Trūksta maistingumo"
 
+msgctxt "ecoscore_p"
+msgid "Green-Score"
+msgstr "Green-Score"
+
+msgctxt "ecoscore_s"
+msgid "Green-Score"
+msgstr "Green-Score"
+
 msgctxt "environmental_score_p"
 msgid "Green-Score"
 msgstr "Green-Score"
@@ -5064,6 +5104,14 @@ msgstr "Green-Score"
 msgctxt "environmental_score_s"
 msgid "Green-Score"
 msgstr "Green-Score"
+
+msgctxt "misc_p"
+msgid "Miscellaneous"
+msgstr "Įvairūs"
+
+msgctxt "misc_s"
+msgid "Miscellaneous"
+msgstr "Įvairūs"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5225,8 +5273,8 @@ msgstr "Platformoje taip pat pateikiama išsami produktų analizė."
 
 # It = the platform
 msgctxt "product_edits_by_producers_indicators"
-msgid "It computes indicators such as the Nutri-Score, NOVA, and the Eco-score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
-msgstr "Jis apskaičiuoja tokius rodiklius kaip „Nutri-Score“, „NOVA“ ir „Eco-score“ ir automatiškai nustato pasiūlymus, kaip juos pagerinti (pavyzdžiui, visi produktai, kurių „Nutri-Score“ įvertinimas būtų geresnis, šiek tiek pakeitus sudėtį)."
+msgid "It computes indicators such as the Nutri-Score, NOVA, and the Green-Score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
+msgstr "Juo apskaičiuojami tokie rodikliai kaip „Nutri-Score“, „NOVA“ bei „Green-Score“ ir automatiškai nustatomi pasiūlymai, kaip juos pagerinti (pavyzdžiui, visi produktai, jei šiek tiek pakeistų savo sudėtį, gautų geresnę „Nutri-Score“ klasę)."
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest footprint"
@@ -5360,12 +5408,12 @@ msgid "User is being deleted. This may take a few minutes."
 msgstr "Vartotojas ištrinamas. Tai gali užtrukti kelias minutes."
 
 msgctxt "attribute_environmental_score_not_applicable_title"
-msgid "Green-Score not yet applicable"
-msgstr "Green-Score dar netaikomas"
+msgid "Green-Score not applicable"
+msgstr "„Green Score“ netaikomas"
 
 msgctxt "attribute_environmental_score_not_applicable_description_short"
-msgid "Not yet applicable for the category"
-msgstr "Kol kas netaikoma kategorijai"
+msgid "Not applicable for the category"
+msgstr "Netaikoma kategorijai"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_environmental_score_not_applicable_description"
@@ -6374,6 +6422,10 @@ msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
 msgstr "Nufotografuoti atsekamumo kodus"
 
+msgctxt "action_report_product_to_nutripatrol"
+msgid "Report this product to our moderators"
+msgstr "Pranešti apie šį produktą mūsų moderatoriams"
+
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
 msgid "What you need to know"
@@ -6519,6 +6571,10 @@ msgctxt "api_result_product_not_found"
 msgid "Product not found"
 msgstr "Prekė nerasta"
 
+msgctxt "api_result_product_found_with_a_different_product_type"
+msgid "Product found with a different product type"
+msgstr "Rastas produktas su kitokiu produkto tipu"
+
 msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr "Produktas atnaujintas"
@@ -6542,6 +6598,10 @@ msgstr "Netinkamas JSON užklausos tekste"
 msgctxt "api_message_invalid_code"
 msgid "Invalid code"
 msgstr "Neteisingas kodas"
+
+msgctxt "api_message_invalid_product_type"
+msgid "Invalid product type"
+msgstr "Netinkamas produkto tipas"
 
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
@@ -6856,6 +6916,18 @@ msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_
 msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
 msgstr "Taškai už baltymus neskaičiuojami, nes neigiami taškai yra didesni arba lygūs 11."
 
+msgctxt "nutriscore_new_computation_title"
+msgid "Discover the new Nutri-Score!"
+msgstr "Susipažinkite su „Nutri-Score“!"
+
+msgctxt "nutriscore_new_computation_description"
+msgid "<p>The computation of the Nutri-Score is evolving to provide better recommendations based on the latest scientific evidence.</p><p>Main improvements:</p><ul><li>Better score for some fatty fish and oils rich in good fats</li><li>Better score for whole products rich in fiber</li><li>Worse score for products containing a lot of salt or sugar</li><li>Worse score for red meat (compared to poultry)</li></ul>"
+msgstr "<p>„Nutri-Score“ skaičiavimas tobulinamas, kad būtų pateiktos geresnės rekomendacijos, pagrįstos naujausiais moksliniais įrodymais.</p><p>Pagrindiniai patobulinimai:</p><ul><li>geresnis kai kurių riebiųjų žuvų ir aliejų, kuriuose gausu gerųjų riebalų, balas;</li><li>geresnis visų produktų, kuriuose gausu skaidulų, balas;</li><li>blogesnis produktų, kuriuose yra daug druskos ar cukraus, balas;</li><li>blogesnis raudonos mėsos balas (palyginti su paukštiena)</li></ul>"
+
+msgctxt "nutriscore_new_computation_link_text"
+msgid "Discover all the improvements of the new Nutri-Score"
+msgstr "Susipažinkite su visais naujojo „Nutri-Score“ pakeitimais"
+
 msgctxt "nutriscore_explanation_what_it_is"
 msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
 msgstr "Nutri-Score - tai rodikis, nurodantis bendrą produkto mitybinę vertę."
@@ -6969,6 +7041,10 @@ msgstr "Jei informacija nesutampa su informacija ant pakuotės, galite ją papil
 msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
 msgstr "„Open Food Facts“ – tai bendradarbiavimo duomenų bazė, todėl kiekviena pagalba yra naudinga visiems."
+
+msgctxt "report_to_nutripatrol_explain"
+msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
+msgstr "Jei norite pranešti apie vandalizmą, netinkamą turinį ar klaidingus duomenis, kurių negalite pataisyti patys, praneškite apie tai mūsų moderatorių komandai."
 
 msgctxt "description"
 msgid "Description"
@@ -7236,4 +7312,61 @@ msgstr "Prastas taisomumas"
 msgctxt "attribute_repairability_index_france_bad_description_short"
 msgid "Bad repairability"
 msgstr "Blogas taisomumas"
+
+msgctxt "estimate"
+msgid "estimate"
+msgstr "įvertinti"
+
+# information on several ingredients, in plural in languages like French
+msgctxt "ingredient_information"
+msgid "Ingredient information"
+msgstr "Informacija apie sudedamąsias dalis"
+
+msgctxt "product_type"
+msgid "Product type"
+msgstr "Produkto tipas"
+
+# Food product type
+msgctxt "product_type_food"
+msgid "Food"
+msgstr ""
+
+# Pet food product type
+msgctxt "product_type_petfood"
+msgid "Pet food"
+msgstr ""
+
+# Beauty product type
+msgctxt "product_type_beauty"
+msgid "Beauty"
+msgstr ""
+
+# General product product type
+msgctxt "product_type_product"
+msgid "Product"
+msgstr "Produktas"
+
+msgctxt "recommendation_limit_ultra_processed_foods_title"
+msgid "Limit ultra-processed foods"
+msgstr ""
+
+msgctxt "recommendation_limit_ultra_processed_foods_subtitle"
+msgid "Limiting ultra-processed foods reduces the risk of noncommunicable chronic diseases"
+msgstr "Apribojus labai perdirbtą maistą, sumažėja neužkrečiamųjų lėtinių ligų rizika"
+
+msgctxt "recommendation_limit_ultra_processed_foods_text"
+msgid "Several studies have found that a lower consumption of ultra-processed foods is associated with a reduced risk of noncommunicable chronic diseases, such as obesity, hypertension and diabetes."
+msgstr "Keletas tyrimų parodė, kad mažesnis itin perdirbto maisto vartojimas yra susijęs su sumažėjusia neužkrečiamųjų lėtinių ligų, tokių kaip nutukimas, hipertenzija ir diabetas, rizika."
+
+msgctxt "discover_the_evolution_of_the_nutriscore_grades_of_your_products"
+msgid "Discover the evolution of the Nutri-Score grades of your products"
+msgstr "Sužinokite jūsų produktų „Nutri-Score“ įvertinimų raidą"
+
+msgctxt "add_products_to_discover_the_evolution_of_their_nutriscore_grades"
+msgid "Add products with a category, ingredients list and nutrition facts to discover the evolution of their Nutri-Score grades."
+msgstr "Pridėkite produktų su kategorija, ingredientų sąrašu ir mitybos faktais, kad sužinotumėte apie jų „Nutri-Score“ įvertinimų raidą."
+
+msgctxt "in_contact_with_food"
+msgid "In contact with food"
+msgstr "Sąlytis su maistu"
 
