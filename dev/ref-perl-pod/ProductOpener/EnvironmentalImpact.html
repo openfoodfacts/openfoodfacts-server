@@ -1,4 +1,4 @@
-<html><head><title>ProductOpener::Events</title>
+<html><head><title>ProductOpener::EnvironmentalImpact</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" >
 <link rel="stylesheet" title="simple.min" type="text/css" href="../simple.min.css" media="all" >
 
@@ -28,13 +28,13 @@
   <li class='indexItem indexItem1'><a href='#DESCRIPTION'>DESCRIPTION</a>
   <li class='indexItem indexItem1'><a href='#FUNCTIONS'>FUNCTIONS</a>
   <ul   class='indexList indexList2'>
-    <li class='indexItem indexItem2'><a href='#send_event_(_%24event_ref_)'>send_event ( $event_ref )</a>
+    <li class='indexItem indexItem2'><a href='#estimate_environmental_impact_service_(_%24product_ref%2C_%24updated_product_fields_ref%2C_%24errors_ref_)'>estimate_environmental_impact_service ( $product_ref, $updated_product_fields_ref, $errors_ref )</a>
     <ul   class='indexList indexList3'>
       <li class='indexItem indexItem3'><a href='#Arguments'>Arguments</a>
       <ul   class='indexList indexList4'>
-        <li class='indexItem indexItem4'><a href='#event_type_-_required_-_string'>event_type - required - string</a>
-        <li class='indexItem indexItem4'><a href='#barcode_-_required_-_string'>barcode - required - string</a>
-        <li class='indexItem indexItem4'><a href='#user_id_-_required'>user id - required</a>
+        <li class='indexItem indexItem4'><a href='#%24product_ref'>$product_ref</a>
+        <li class='indexItem indexItem4'><a href='#%24updated_product_fields_ref'>$updated_product_fields_ref</a>
+        <li class='indexItem indexItem4'><a href='#%24errors_ref'>$errors_ref</a>
       </ul>
     </ul>
   </ul>
@@ -45,53 +45,59 @@
 name="NAME"
 >NAME</a></h1>
 
-<p>ProductOpener::Events - Send events to https://events.openfoodfacts.org</p>
+<p>ProductOpener::EnvironmentalImpact - process and analyze products</p>
 
 <h1><a class='u' href='#___top' title='click to go to top of document'
 name="SYNOPSIS"
 >SYNOPSIS</a></h1>
 
-<p><code>ProductOpener::Events</code> is used to create events to https://events.openfoodfacts.org</p>
+<p><code>ProductOpener::EnvironmentalImpact</code> processes products to compute their environmental impact (see french environmental labeling Ecobalyse).</p>
 
-<pre>    use ProductOpener::Events qw/:all/;
+<pre>    use ProductOpener::EnvironmentalImpact qw/:all/;
 
-        # TODO</pre>
+        [..]
+
+        estimate_environmental_impact($product_ref);</pre>
 
 <h1><a class='u' href='#___top' title='click to go to top of document'
 name="DESCRIPTION"
 >DESCRIPTION</a></h1>
 
-<p>See https://github.com/openfoodfacts/openfoodfacts-events</p>
+<p>[..]</p>
 
 <h1><a class='u' href='#___top' title='click to go to top of document'
 name="FUNCTIONS"
 >FUNCTIONS</a></h1>
 
 <h2><a class='u' href='#___top' title='click to go to top of document'
-name="send_event_(_$event_ref_)"
->send_event ( $event_ref )</a></h2>
+name="estimate_environmental_impact_service_(_$product_ref,_$updated_product_fields_ref,_$errors_ref_)"
+>estimate_environmental_impact_service ( $product_ref, $updated_product_fields_ref, $errors_ref )</a></h2>
+
+<p>Compute the environmental impact of a given product (see the french environmental environmental labeling Ecobalyse).</p>
+
+<p>This function is a product service that can be run through ProductOpener::ApiProductServices</p>
 
 <h3><a class='u' href='#___top' title='click to go to top of document'
 name="Arguments"
 >Arguments</a></h3>
 
-<p>Arguments are passed through a single hash reference with the following keys:</p>
+<h4><a class='u' href='#___top' title='click to go to top of document'
+name="$product_ref"
+>$product_ref</a></h4>
+
+<p>product object reference</p>
 
 <h4><a class='u' href='#___top' title='click to go to top of document'
-name="event_type_-_required_-_string"
->event_type - required - string</a></h4>
+name="$updated_product_fields_ref"
+>$updated_product_fields_ref</a></h4>
 
-<p>Type of the event (e.g. &#34;product_edited&#34;)</p>
-
-<h4><a class='u' href='#___top' title='click to go to top of document'
-name="barcode_-_required_-_string"
->barcode - required - string</a></h4>
-
-<p>Barcode of the product.</p>
+<p>reference to a hash of product fields that have been created or updated</p>
 
 <h4><a class='u' href='#___top' title='click to go to top of document'
-name="user_id_-_required"
->user id - required</a></h4>
+name="$errors_ref"
+>$errors_ref</a></h4>
+
+<p>reference to an array of error messages</p>
 <p class="backlinkbottom"><b><a name="___bottom" href="../index.html" title="All Documents">&lt;&lt;</a></b></p>
 
 <!-- end doc -->
