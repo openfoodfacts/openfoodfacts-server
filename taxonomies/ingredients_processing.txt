@@ -18,6 +18,12 @@
 # need to be kept in the taxonomy.
 # Same for things like "jambon cru", "lait cru" in French.
 
+### Properties for ingredients processing
+
+## NOVA groups markers
+
+# nova:en           NOVA group marker (e.g. value "4" means that the ingredient processing is a marker for NOVA 4)
+
 #######################################################################
 #
 #                U N P R O C E S S E D
@@ -786,6 +792,7 @@ zh: 去骨去皮
 < en:boned
 en: machine boned
 hr: strojno otkošteno
+it: disossato meccanicamente
 
 #en:description:To remove the outer covering or shell of something
 en: shelled
@@ -929,6 +936,7 @@ de: kaltextrahiert, kaltextrahierte, kaltextrahierter, kaltextrahiertes, kaltext
 en: cold extracted
 es: extracción en frío, extraído en frío, extraída en frío, extraídos en frío, extraídas en frío
 fr: extraction à froid, extrait à froid, extraite à froid, extraits à froid, extraites à froid
+it: estratto a freddo
 
 en: defatted
 bg: обезмаслено, обезмаслен, обезмаслена, обезмаслени
@@ -1271,6 +1279,7 @@ sv: torrbakad
 en: cured
 ca: curat
 es: curado, curada, curados, curadas
+it: curato, curata, curati, curate
 pl: peklowany, peklowana, peklowane
 pt: curado, curada, curados, curadas
 
@@ -1440,6 +1449,7 @@ sv: extrakt, extrakt av
 #<en:natural
 bg: натурален екстракт от
 fr: extrait naturel de, extrait naturel d'
+it: estratto naturale di
 pl: naturalny ekstrakt, naturalny ekstrakt z, naturalne ekstrakty z, naturalne ekstrakty, naturalny wyciąg, naturalny wyciąg z, naturalne wyciągi z, naturalne wyciągi
 pt: extrato natural, extratos naturais, extracto natural, extractos naturais, extrato natural de, extratos naturais de, extracto natural de, extractos naturais de, extrato natural da, extratos naturais da, extracto natural da, extractos naturais da
 
@@ -1560,6 +1570,7 @@ bg: механично отделено, механично отделен, ме
 es: separada mecánicamente, separadas mecánicamente
 fr: séparée mécaniquement, séparées mécaniquement
 hu: mechanikai úton leválasztott
+it: meccanicamente separato
 pl: oddzielone mechanicznie, oddzielona mechanicznie, oddzielane mechanicznie, oddzielana mechanicznie
 pt: separado mecanicamente, separada mecanicamente, separados mecanicamente, separadas mecanicamente
 sv: maskinurbenat
@@ -2037,6 +2048,7 @@ fr: dessalée, dessalee
 
 #<en:salted
 fr: présalée
+it: presalato, presalata, presalati, presalate
 
 #<en:salted
 en: unsalted, un-salted
@@ -2303,7 +2315,7 @@ hr: rafinirano, djelomično rafinirano
 #fr:Dessucré, partiellement dessucré
 #hr:bez šećera, sa smanjenom količinom šećera
 
-#en:description:Sterilization (or sterilisation) refers to any process that removes, kills, or deactivates all forms of life and other biological agents present in or on a specific surface, object, or fluid. Sterilization can be achieved through various means, including heat, chemicals, irradiation, high pressure, and filtration. 
+#en:description:Sterilization (or sterilisation) refers to any process that removes, kills, or deactivates all forms of life and other biological agents present in or on a specific surface, object, or fluid. Sterilization can be achieved through various means, including heat, chemicals, irradiation, high pressure, and filtration.
 en: sterilized
 bg: стерилизирано, стерилизиран, стерилизирана, стерилизирани
 ca: esterilitzat
@@ -2660,6 +2672,7 @@ hr: hidrolizat, hidrolizirane, hidrolizirano, hidrolizirani
 nl: gehydrolyseerd, gehydrolyseerde
 pl: hydrolizat, hydrolizowane
 sv: hydrolyserat
+nova:en: 4
 
 #en:description:Transformation of unsaturated glycerides into saturated glycerides (of oils and fats)
 en: hydrogenated, hardened, partially hardened
@@ -2675,6 +2688,7 @@ it: idrogenato, idrogenati, idrogenata, idrogenate
 nl: Gehydrogeneerde
 pl: uwodorniony, uwodorniona, uwodornione, utwardzony, utwardzone, utwardzona
 sv: hårdat
+nova:en: 4
 
 #<en:hydrogenated
 en: fully hydrogenated
@@ -2688,6 +2702,7 @@ hr: potpuno hidrogenirana, potpuno hidrogenirane, potpuno hidrogenirano, potpuno
 nb: fullherdet
 pl: całkowicie uwodorniony, całkowicie uwodorniona, całkowicie uwodornione, całkowicie utwardzony, całkowicie utwardzona, całkowicie utwardzone
 sv: fullhärdad
+nova:en: 4
 
 #<en:hydrogenated
 en: partially hydrogenated
@@ -2706,10 +2721,12 @@ pl: częściowo uwodorniony, częściowo uwodorniona, częściowo uwodornione, c
 pt: parcialmente hidrogenada
 ro: parțial hidrogenate
 sv: delvis härdad
+nova:en: 4
 
 en: textured
 de: texturiert, texturierte, texturierter, texturiertes, texturierten, texturiertem
 fr: texturé, texturée
+nova:en: 4
 
 en: processed with alkali
 bg: обработено с щелоч
@@ -2727,6 +2744,26 @@ pl: przetworzone z alkalicznym
 pt: processado com álcali
 ro: prelucrat cu alcali
 sv: behandlad med alkali
+nova:en: 4
+
+en: modified
+bg: модифициран, модифицирана, модифицирани, модифицирани
+ca: modificat, modificada, modificats, modificades
+da: modificeret, modificerede, modificerede, modificerede
+de: modifiziert, modifizierte, modifizierten, modifizierten
+es: modificado, modificada, modificados, modificadas
+fi: muokattu, muokattu, muokatut, muokatut
+fr: modifié, modifiée, modifiés, modifiées
+hr: modificiran, modificirana, modificirani, modificirane
+hu: módosított, módosított, módosítottak, módosítottak
+it: modificato, modificata, modificati, modificate
+nl: gewijzigd, gewijzigde, gewijzigden, gewijzigde
+pl: zmodyfikowany, zmodyfikowana, zmodyfikowani, zmodyfikowane
+pt: modificado, modificada, modificados, modificadas
+ro: modificat, modificată, modificați, modificate
+sv: modifierad, modifierad, modifierade, modifierade
+nova:en: 4
+
 
 en: brewed
 de: gebrühter

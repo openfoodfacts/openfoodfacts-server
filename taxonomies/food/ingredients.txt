@@ -152,7 +152,7 @@ stopwords:hu: tartalmaz, változó arányban, min, zsírtartalom, összetevő, �
 stopwords:id: mengandung
 stopwords:is: úr
 # example: COCCO in proporzione variabile
-stopwords:it: di, del, della, delle, dal, contiene, nella, in proporzione variabile, prodotto, prodotti, il, la, le, i, gli
+stopwords:it: di, del, della, delle, dal, contiene, nella, in proporzione variabile, prodotto, prodotti, il, la, le, i, gli, con, ai, alle, alla, da, dei, per, tra, fra, e, o, minimo, massimo, massima, massime, massimi, può contenere, tracce, in, nel, nei, nella, nelle, aggiunto, aggiunti, aggiunta, aggiunte
 # Japanese stopwords are matched without word boundaries, do not put as stopwords characters or words that could be part of an actual ingredient entry
 stopwords:ja: 等, その他
 stopwords:lt: iš, su, su pridėtiniu, mažiausiai, įskaitant
@@ -23020,8 +23020,9 @@ pl: naturalny aromat czosnku, naturalny aromat czosnkowy
 fr: arôme de malt d'orge
 
 < en:flavouring
-de: Aroma Vanillin
+en: vanillin flavour
 ca: aroma de vanil·lina, aroma natural de vanil·lina
+de: Aroma Vanillin
 fi: vanilliiniaromi
 fr: arôme vanilline
 hu: vanillin aroma
@@ -28561,6 +28562,11 @@ it: farina di soia sgrassata, farina di soia senza grassi
 pl: odtłuszczona mąka sojowa
 ro: făină de soia degrasată, faina de soia degrasata
 
+< en: flour
+en: modified flour
+fr: farine modifiée
+nova:en: 4
+
 < en:corn
 < en:flour
 en: corn flour, maize flour, cornflour
@@ -28610,11 +28616,12 @@ hu: bio kukoricaliszt
 it: Farina di mais biologica
 pt: farinha de milho orgânico
 
+< en: modified flour
 < en:corn
-en: modified cornflour
+en: modified corn flour
 bg: модифицирано царевично брашно
 de: Modifiziertes Maismehl
-fr: Amidon de maïs modifié
+fr: Farine de maïs modifié
 hr: modificirano kukuruzno brašno
 it: Farina di mais modificata
 nl: gemodificeerd maïsmeel
@@ -36456,7 +36463,7 @@ hy: Խմորասնկեր
 id: Khamir
 io: Hefo
 is: Ger
-it: lievito
+it: lievito, crema di lievito
 ja: 酵母, イースト
 jv: Khamir
 ka: საფუარები
@@ -40180,7 +40187,7 @@ fi: luumu
 fr: prune, prunes
 hr: šljiva, šljive
 hu: szilva
-it: prugna
+it: prugna, prugne
 ms: plum, Prun
 nl: pruim, pruimen
 pl: śliwka, śliwki, śliwkowy, śliwkowa, śliwkowe, śliwkowej, śliwkowego, śliwkowych
@@ -40300,6 +40307,7 @@ eurocode_2_group_3:en: 9.20.50
 
 < en:prunus species fruit
 en: Japanese plum, Chinese plum, Susina
+it: Susina, susine
 la: prunus salicina
 eurocode_2_group_3:en: 9.20.55
 
@@ -42039,7 +42047,7 @@ fr: citron, citrons, citron jaune, citrons jaunes
 he: לימון
 hr: limun, limuna, ploda limuna, citrus limon
 hu: citrom
-it: limone
+it: limone, limoni
 ja: レモン
 nb: sitron
 nl: citroen
@@ -45490,7 +45498,7 @@ ha: gweba
 hr: guava
 ht: gwayav
 ia: guayaba
-it: guaiave, guava
+it: guaiave, guaiava, guava
 jv: jambu wiji
 ko: 구아바
 kv: гуайява
@@ -46114,7 +46122,7 @@ ht: Melon dlo
 hu: Görögdinnye
 hy: ձմերուկ
 id: Semangka
-it: anguria
+it: anguria, angurie, cocomero, cocomeri, melone d'acqua, melone da pane
 ja: スイカ, 西瓜
 jv: Semangka
 ka: საზამთრო
@@ -70301,7 +70309,7 @@ hr: pariti
 hu: Matétea
 hy: Մատե
 id: Mate
-it: mate, Erba mate
+it: mate, Erba mate, yerba mate
 ja: マテ茶
 ka: მატე
 ko: 마테차
@@ -91895,7 +91903,7 @@ it: confettura di ribes, confettura di ribes nero, confettura al ribes nero
 en: jam, confiture
 de: Konfitüre
 fr: confiture
-it: confettura
+it: confettura, confetture
 pl: dżem
 ru: джем, повидло, варенье
 vegan:en: maybe
@@ -91920,7 +91928,7 @@ de: Erdbeerkonfitüre, Erdbeer-Konfitüre
 es: mermelada de fresa
 fr: Confiture de fraises
 hr: pripavak jagoda
-it: confettura di fragole, marmellata di fragole, confettura alle fragole
+it: confettura di fragole, marmellata di fragole
 pl: dżem truskawkowy
 
 # <en:compound
@@ -91930,7 +91938,7 @@ bg: конфитюр от малини
 de: Himbeermarmelade
 fr: confiture de framboise
 hr: džem od malina
-it: confettura di lamponi, confettura di lampone, marmellata di lampone, marmellata di lamponi, confettura ai lamponi
+it: confettura di lamponi, marmellata di lamponi
 wikidata:en: Q11962286
 
 # <en:compound
@@ -91940,7 +91948,7 @@ ca: melmelada de llimona
 de: Zitronenmarmelade, Zitronen-Marmelade
 es: mermelada de limón
 hr: marmelada od limuna
-it: marmellata di limone, marmellata di limoni
+it: marmellata di limoni, confettura di limoni
 
 #<en:compound
 en: cocoa spread, cocoa cream

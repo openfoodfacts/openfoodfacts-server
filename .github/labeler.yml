@@ -1087,6 +1087,12 @@ Tags:
   - any-glob-to-any-file: 'lib/ProductOpener/APITagRead.pm'
   - any-glob-to-any-file: 'lib/ProductOpener/TagsEntries.pm'
   - any-glob-to-any-file: 'lib/ProductOpener/KnowledgePanelsTags.pm'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/product_tags.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/tags/input_taxonomy_tag_entry.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/tags/tags-write.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/tags/tagtype.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/tags/taxonomy_tag_entry.yaml'
+  - any-glob-to-any-file: 'po/tags/**/*'
   
 Site layout:
 - changed-files:
