@@ -17,7 +17,7 @@ msgstr ""
 
 msgctxt "site_description_off"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr ""
+msgstr "قاعدة بيانات تعاونية ومجانية ومفتوحة للمكونات وحقائق التغذية ومعلومات عن المنتجات الغذائية من جميع أنحاء العالم"
 
 msgctxt "tagline_off"
 msgid "Open Food Facts gathers information and data on food products from around the world."
@@ -159,15 +159,15 @@ msgstr "طلبك للانضمام إلى المنظمة في انتظار موا
 
 msgctxt "admin_status_updated"
 msgid "Admin Status Updated"
-msgstr ""
+msgstr "تم تحديث حالة المسؤول"
 
 msgctxt "admin_status"
 msgid "Admin Status"
-msgstr ""
+msgstr "حالة المسؤول"
 
 msgctxt "grant_remove_admin_status"
 msgid "Grant/Remove Admin status"
-msgstr ""
+msgstr "منح/إزالة حالة المسؤول"
 
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
@@ -203,11 +203,11 @@ msgstr "الرجاء إدخال اسم مؤسستك (اسم الشركة أو ا
 
 msgctxt "enter_email_addresses_of_users"
 msgid "Enter email addresses of users to invite (comma-separated):"
-msgstr ""
+msgstr "أدخل عناوين البريد الإلكتروني للمستخدمين الذين تريد دعوتهم (مفصولة بفاصلة):"
 
 msgctxt "f_this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
-msgstr ""
+msgstr "هذا الحساب احترافي مرتبط بالمنتج أو العلامة التجارية{org}. لديك إذْن بالدخول إلى منصة المنتجين."
 
 # please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
@@ -248,7 +248,7 @@ msgstr "الإفراط في الشرب مضر بالصحة."
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
-msgstr ""
+msgstr "يرجى ملاحظة أن حسابك الاحترافي لن يكون صالحًا إلا إذا استخدمت عنوان بريدك الإلكتروني المهني. يتحقق فريق الإشراف لدينا من أن اسم النطاق يتوافق مع المنظمة التي ترغب في الانضمام إليها."
 
 msgctxt "all_missions"
 msgid "All missions"
@@ -269,6 +269,14 @@ msgstr "مسببات الحساسية"
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
 msgstr "تم تحرير صفحة المنتج أيضا بواسطة"
+
+msgctxt "analytical_constituents"
+msgid "Analytical constituents"
+msgstr ""
+
+msgctxt "analytical_constituents_per_1kg"
+msgid "for 1 kg"
+msgstr ""
 
 msgctxt "android_apk_app_icon_url"
 msgid "/images/misc/android-apk.svg"
@@ -326,7 +334,7 @@ msgstr "يمكنك أيضًا المساعدة في تمويل مشروع حقا
 
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
-msgstr ""
+msgstr "دليل الإدارة للمنتجين"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
@@ -546,15 +554,15 @@ msgstr "حذف الصور"
 
 msgctxt "delete_user"
 msgid "Delete a user"
-msgstr ""
+msgstr "حذف مستخدم"
 
 msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
-msgstr ""
+msgstr "هذا سوف يحذف معلوماتك الشخصية ويخفي كل مساهماتك. يرجى إدخال أسم المستخدم الخاص بك مرة أخرى للتأكيد."
 
 msgctxt "danger_zone"
 msgid "Danger Zone"
-msgstr ""
+msgstr "منطقة الخطر"
 
 msgctxt "diff_add"
 msgid "Added:"
@@ -642,7 +650,7 @@ msgstr "المحرر"
 
 msgctxt "email"
 msgid "E-mail address"
-msgstr ""
+msgstr "البريد الإلكتروني"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with traceability code %s"
@@ -654,11 +662,11 @@ msgstr "رموز التتبع"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
-msgstr ""
+msgstr "رمز التتبع"
 
 msgctxt "emb_codes"
 msgid "Traceability code"
-msgstr ""
+msgstr "رمز التتبع"
 
 msgctxt "emb_codes_p"
 msgid "traceability codes"
@@ -735,11 +743,11 @@ msgstr "يجب أن يحتوي اسم المستخدم على أحرف وأرق�
 
 msgctxt "error_username_too_long"
 msgid "The user name is too long (maximum 40 characters)."
-msgstr ""
+msgstr "اسم المستخدم طويل جداً (40 حرف ورمز كحد أقصى)."
 
 msgctxt "error_name_too_long"
 msgid "The name is too long (maximum 60 characters)."
-msgstr ""
+msgstr "الاسم طويل جداً (60 حرف أو رمز كحد أقصى)."
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
@@ -817,7 +825,7 @@ msgstr "و<<site_name>> بلوق"
 # Do not translate
 msgctxt "footer_blog_link"
 msgid "https://blog.openfoodfacts.org/en/"
-msgstr ""
+msgstr "https://blog.openfoodfacts.org/en/"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -888,12 +896,12 @@ msgstr "/legal"
 
 msgctxt "footer_privacy"
 msgid "Privacy"
-msgstr ""
+msgstr "الخصوصية"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_privacy_link"
 msgid "/privacy"
-msgstr ""
+msgstr "/privacy"
 
 msgctxt "footer_press"
 msgid "Press"
@@ -942,7 +950,7 @@ msgstr "https://world-ar.openbeautyfacts.org"
 
 msgctxt "footer_pro"
 msgid "Open Food Facts for Producers"
-msgstr ""
+msgstr "حقائق غذائية مفتوحة للمنتجين"
 
 msgctxt "for"
 msgid "for"
@@ -1064,7 +1072,7 @@ msgstr "تفاصيل الصورة ومعلومات اﻹسناد"
 
 msgctxt "invite_user"
 msgid "Invite Users"
-msgstr ""
+msgstr "دعوة مستخدمين"
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
@@ -1088,11 +1096,11 @@ msgstr "المكونات مفقودة"
 
 msgctxt "one_ingredient"
 msgid "1 ingredient"
-msgstr ""
+msgstr "مكوِّن 1"
 
 msgctxt "f_ingredients_with_number"
 msgid "{number} ingredients"
-msgstr ""
+msgstr "{number} مكونات"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
@@ -1172,7 +1180,7 @@ msgstr "العنصر الذي قد يكون من زيت النخيل"
 
 msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
-msgstr ""
+msgstr "المنتجات التي لا تحتوي على المكون %s"
 
 # Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
 msgctxt "ios_app_icon_url"
@@ -1458,7 +1466,7 @@ msgstr "الاشتراك في النشرة الإخبارية (2 رسائل ال
 
 msgctxt "subscribe_to_our_newsletter"
 msgid "Subscribe to our newsletter"
-msgstr ""
+msgstr "اشترك إلى نشرتنا الإخبارية"
 
 msgctxt "next"
 msgid "Next"
@@ -1625,7 +1633,7 @@ msgstr "يسرد الجدول حسب العناصر الغذائية الافت�
 
 msgctxt "nutrition_data_table_asterisk"
 msgid "Essential nutrients to calculate the Nutri-Score."
-msgstr ""
+msgstr "العناصر الغذائية الأساسية لحساب Nutri-Score."
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
@@ -1638,13 +1646,14 @@ msgstr "درجة التغذية"
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
 msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
-msgstr ""
+msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://blog.openfoodfacts.org/en/\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr ""
+msgstr "<p> لمعرفة المزيد عن <<site_name>>, قم بزيارة <a href=\"https://blog.openfoodfacts.org/en/\">مدونتنا</a>!</p>\n"
+"<p>أخبار حديثة:</p>\n"
 
 msgctxt "on_the_blog_title"
 msgid "News"
@@ -1838,11 +1847,11 @@ msgstr "تم حفظ التغييرات."
 
 msgctxt "product_edit_you_contributed"
 msgid "You just helped to improve the world largest open data database."
-msgstr ""
+msgstr "لقد ساعدتم للتو في تحسين أكبر قاعدة بيانات للبيانات المفتوحة في العالم."
 
 msgctxt "product_edit_thank_you"
 msgid "Thank you so much for joining us in our journey to data transparency!"
-msgstr ""
+msgstr "نشكركم جزيل الشكر على الانضمام إلينا في رحلتنا نحو شفافية البيانات!"
 
 msgctxt "product_characteristics"
 msgid "Product characteristics"
@@ -2146,7 +2155,7 @@ msgstr "اختر المنتجات ذات العلامات التجارية ال�
 
 msgctxt "search_description_opensearch"
 msgid "Product search"
-msgstr ""
+msgstr "البحث عن المنتج"
 
 msgctxt "search_does_not_contain"
 msgid "does not contain"
@@ -2372,7 +2381,7 @@ msgstr "راجع صفحة المنتج"
 
 msgctxt "re_edit_product_page"
 msgid "Edit the product again"
-msgstr ""
+msgstr "قم بتعديل المنتج مرة أخرى"
 
 msgctxt "select_country"
 msgid "Country"
@@ -2412,7 +2421,7 @@ msgstr "إذا كان جدول معلومات التغذية يحتوي على �
 
 msgctxt "serving_too_small_for_nutrition_analysis"
 msgid "Serving size is too small (5 g / 5 ml or less) to calculate 100 g / 100 ml values and perform any further nutritional analysis"
-msgstr ""
+msgstr "حجم الحصة صغير جداً (5 جم / 5 مل أو أقل) لحساب قيم 100 جم / 100 مل وإجراء أي تحليل غذائي إضافي"
 
 msgctxt "session_title"
 msgid "Sign-in"
@@ -2621,7 +2630,7 @@ msgstr "المنتجات التي لم تتم إضافتها بواسطة %s"
 
 msgctxt "video_tutorials"
 msgid "Video Tutorials"
-msgstr ""
+msgstr "دروس بوساطة الفيديو"
 
 msgctxt "view"
 msgid "view"
@@ -2629,7 +2638,7 @@ msgstr "عرض"
 
 msgctxt "view_this_revision"
 msgid "View this revision"
-msgstr ""
+msgstr "عرض هذه المراجعة"
 
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
@@ -2646,7 +2655,8 @@ msgstr "عرض النتائج من كل أنحاء العالم"
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"https://support.openfoodfacts.org/help/en-gb/9/27\">Why it matters</a>"
-msgstr ""
+msgstr "يجب أن تأتي المعلومات والبيانات من عُبْوَة المنتج والملصق (وليس من مواقع أخرى أو موقع الشركة المصنعة)، ويجب أن تكون قد التقطت الصور بنفسك.<br/>\n"
+"→ <a href=\"https://support.openfoodfacts.org/help/en-gb/9/27\">ما أهمية ذلك</a>"
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -2682,11 +2692,11 @@ msgstr "تحميل صور أقل دقة (للاتصال البطيء)"
 
 msgctxt "protected_image_message"
 msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
-msgstr ""
+msgstr "تم إرسال صورة من الشركة المصنعة. إذا كنت تعتقد أنه خطأ أو ليس حديث, يرجى منك التواصل معنا."
 
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
-msgstr ""
+msgstr "تحذير: المعلومات الغذائية ليست محددة. تم تقديرها من قائمة المكونات."
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -2702,15 +2712,15 @@ msgstr "تحذير: لم يتم تحديد كمية الفواكه والخضر�
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d"
-msgstr ""
+msgstr "تحذير: كَمّيَّة الفاكهة والخضروات والمكسرات ليست محددة على الملصق، تم تقديرها يدوياً من قائمة المكونات: %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
-msgstr ""
+msgstr "تحذير: كَمّيَّة الفواكه والخضروات والمكسرات ليست محددة على الملصق, تم تقديرها من فئة (%s) المنتج: %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
-msgstr ""
+msgstr "تحذير: كَمّيَّة الفواكه والخضروات والمكسرات ليست محددة على الملصق, تم تقديرها من قائمة المكونات: %d"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -2960,11 +2970,11 @@ msgstr "خطر التعرض المفرط"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_high"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of reaching or exceeding the Acceptable Daily Intake (ADI) for <tag>."
-msgstr ""
+msgstr "لقد قررت هيئة سلامة الغذاء الأوروبية (EFSA) إن تم إعراض بعض المجموعات السكانية في خطر كبير للوصول أو تجاوز المدخول اليومي المقبول (ADI) لـ<tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_moderate"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of reaching or exceeding the Acceptable Daily Intake (ADI) for <tag>."
-msgstr ""
+msgstr "لقد قررت هيئة سلامة الغذاء الأوروبية (EFSA) إن تم إعراض بعض المجموعات السكانية في خطر معتدل للوصول أو تجاوز المدخول اليومي المقبول (ADI) لـ<tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_description"
 msgid "To evaluate your exposure to the <tag> food additive, you can browse our list of products that contain it. See the list of <nb_products> products with <tag> below."
@@ -2992,11 +3002,11 @@ msgstr "لا يوجد خطر, أو خطر منخفض للغاية من التع�
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
 msgid "Risk of reaching or exceeding the acceptable daily intake (ADI)"
-msgstr ""
+msgstr "خطر وصول أو تجاوز المدخول اليومي المقبول (ADI)"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_noael"
 msgid "Risk of reaching exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr ""
+msgstr "خطر وصول أو تجاوز الجرعة القصوى دون أي تأثير سلبي (لم يتم ملاحظة أي مستوى من التأثير السلبي - NOAEL)"
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_adi"
 msgid "Groups with more than 50% of members exceeding the acceptable daily intake (ADI)"
@@ -3016,19 +3026,19 @@ msgstr "المجموعات التي يزيد عدد أعضائها عن 5٪ تج
 
 msgctxt "exposure_title_95th"
 msgid "Moderate risk"
-msgstr ""
+msgstr "مخاطرة معتدلة"
 
 msgctxt "exposure_description_95th"
 msgid "5% of people or more"
-msgstr ""
+msgstr "5% من الناس أو أكثر"
 
 msgctxt "exposure_title_mean"
 msgid "High risk"
-msgstr ""
+msgstr "مخاطر عالية"
 
 msgctxt "exposure_description_mean"
 msgid "50% of people or more"
-msgstr ""
+msgstr "50% من الناس أو أكثر"
 
 msgctxt "wikipedia"
 msgid "Wikipedia"
@@ -4012,7 +4022,7 @@ msgstr "الفاكهة والخضراوات والمكسرات واللفت \\ �
 
 msgctxt "nutriscore_points_for_fiber"
 msgid "Fiber"
-msgstr ""
+msgstr "الألياف"
 
 msgctxt "nutriscore_points_for_proteins"
 msgid "Proteins"
@@ -4083,11 +4093,11 @@ msgstr "لا تزال منصة المنتجين تحت التطوير ونقوم
 
 msgctxt "crm_user_id"
 msgid "Id of corresponding contact in CRM"
-msgstr ""
+msgstr "معرف جهة الاتصال المقابلة في CRM"
 
 msgctxt "crm_org_id"
 msgid "Id of corresponding organization in CRM"
-msgstr ""
+msgstr "معرف المنظمة المقابلة في CRM"
 
 msgctxt "user_groups"
 msgid "Groups"
@@ -4176,7 +4186,7 @@ msgstr "اعتدال منصة المنتجين"
 # variable names between { } must not be translated
 msgctxt "f_pro_moderator_owner_set"
 msgid "You are currently viewing products from {organization}."
-msgstr ""
+msgstr "أنت الآن تعرض منتجات من {organization}."
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
@@ -4189,7 +4199,7 @@ msgstr "لمشاهدة منتجات من مستخدم أو منظمة محددة
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
 msgid "Switch to another organization"
-msgstr ""
+msgstr "التبديل إلى منظمة أخرى"
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
@@ -4258,7 +4268,7 @@ msgstr "إزالة جميع المنتجات"
 
 msgctxt "remove_user"
 msgid "Remove user"
-msgstr ""
+msgstr "حذف المستخدم"
 
 msgctxt "remove_products_from_producers_platform"
 msgid "Remove all your products from the platform for producers"
@@ -4348,15 +4358,15 @@ msgstr "مساهم"
 
 msgctxt "contributor_settings_description"
 msgid "Those settings allow you to personalize some aspects of the website"
-msgstr ""
+msgstr "هذه الإعدادات تسمح لك بتخصيص بعض أوجه الموقع"
 
 msgctxt "display_barcode_in_search"
 msgid "Display barcode in search results"
-msgstr ""
+msgstr "أعرض الباركود في نتائج البحث"
 
 msgctxt "edit_link_in_search"
 msgid "Add an edit link in search results"
-msgstr ""
+msgstr "ضف رابط تعديل في نتائج البحث"
 
 msgctxt "ciqual_food_name"
 msgid "CIQUAL food name"
@@ -4389,7 +4399,7 @@ msgstr "أضف مدخلات أو مرادفات أو ترجمات جديدة إ�
 # Do not translate #ingredients
 msgctxt "help_improve_ingredients_analysis_instructions"
 msgid "Join the #ingredients channel on <a href=\"https://slack.openfoodfacts.org\">our Slack discussion space</a> and/or learn about <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ingredients analysis on our wiki</a>, if you would like to help. Thank you!"
-msgstr ""
+msgstr "انضم في قناة #ingredients في <a href=\"https://slack.openfoodfacts.org\">مساحة مناقشة Slack الخاصة بنا</a> و/أو تعلم عن <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">تحليل المكونات في الـwiki الخاص بنا</a>, إذا تريد المساعدة. شكراً!"
 
 msgctxt "footer_producers_link"
 msgid "https://world.pro.openfoodfacts.org/"
@@ -4459,7 +4469,7 @@ msgstr "يعد توفير فئة مهم للغاية اتسهيل البحث ع�
 
 msgctxt "labels_import_note"
 msgid "Some labels such as the organic label are used to filter and/or rank search results, so it is strongly recommended to specify them."
-msgstr ""
+msgstr "بعض الملصقات مثل الملصق العضوي تُستخدم لتصفية و/أو تنصيف نتائج البحث, لذلك يوصى بشدة بتحديدها."
 
 msgctxt "origins_import_note"
 msgid "This field must contain only a comma separated list of countries of origin of the ingredients"
@@ -4487,7 +4497,7 @@ msgstr ""
 
 msgctxt "mandatory_field"
 msgid "Mandatory field"
-msgstr ""
+msgstr "مساحة إلزامية"
 
 msgctxt "mandatory_field_note"
 msgid "All products should have this information."
@@ -4495,15 +4505,15 @@ msgstr ""
 
 msgctxt "recommended_field"
 msgid "Recommended field"
-msgstr ""
+msgstr "المساحة الموصى بها"
 
 msgctxt "recommended_field_note"
 msgid "If this information exists and is relevant for the product, it is recommended to provide it to make the product easier to search for and the product data more useful."
-msgstr ""
+msgstr "إذا كانت هذه المعلومات موجودة وذات صلة بالمنتج، فمن المستحسن تقديمها لتسهيل البحث عن المنتج ولجعل بيانات المنتج أكثر فائدة."
 
 msgctxt "optional_field"
 msgid "Optional field"
-msgstr ""
+msgstr "مساحة اختيارية"
 
 msgctxt "optional_field_note"
 msgid "If available, this information will be displayed on the product page."
@@ -4623,18 +4633,20 @@ msgstr "نوعية غذائية جيدة جداً"
 
 msgctxt "attribute_nutriscore_b_description_short"
 msgid "Good nutritional quality"
-msgstr ""
+msgstr "جودة غذائية جيدة"
 
 msgctxt "attribute_nutriscore_c_description_short"
 msgid "Average nutritional quality"
-msgstr ""
+msgstr "جودة غذائية متوسطة"
 
+# lower: translate to "less good" in some languages (e.g. French: "Moins bonne qualité nutritionnelle")
 msgctxt "attribute_nutriscore_d_description_short"
-msgid "Poor nutritional quality"
+msgid "Lower nutritional quality"
 msgstr ""
 
+# lower: translate to "less good" in some languages (e.g. French: "Moins bonne qualité nutritionnelle")
 msgctxt "attribute_nutriscore_e_description_short"
-msgid "Bad nutritional quality"
+msgid "Lower nutritional quality"
 msgstr ""
 
 msgctxt "attribute_group_processing_name"
@@ -4678,6 +4690,15 @@ msgctxt "attribute_nova_4_description_short"
 msgid "Ultra processed foods"
 msgstr ""
 
+msgctxt "attribute_nova_4_1_marker"
+msgid "1 ultra-processing marker"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_nova_4_markers"
+msgid "{number} ultra-processing markers"
+msgstr ""
+
 msgctxt "export_product_page"
 msgid "Export product to public database"
 msgstr ""
@@ -4696,7 +4717,7 @@ msgstr "مجموعة NOVA"
 
 msgctxt "error_unknown_org"
 msgid "Unknown organization."
-msgstr ""
+msgstr "منظمة غير معروفة."
 
 msgctxt "error_unknown_user"
 msgid "Unknown user."
@@ -4824,8 +4845,21 @@ msgid "Low environmental impact (Green-Score)"
 msgstr ""
 
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score (environmental_score) from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "النتيجة البيئية هي نتيجة بيئية (ecocore) من A إلى E مما يجعل من السهل مقارنة تأثير المنتجات الغذائية على البيئة."
+msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
+msgstr ""
+
+# Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
+msgctxt "attribute_ecoscore_name"
+msgid "Green-Score"
+msgstr "النتيجة البيئية"
+
+msgctxt "attribute_ecoscore_setting_name"
+msgid "Low environmental impact (Green-Score)"
+msgstr ""
+
+msgctxt "attribute_ecoscore_setting_note"
+msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
+msgstr ""
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5009,24 +5043,24 @@ msgctxt "environmental_impact"
 msgid "Environmental impact"
 msgstr ""
 
-# Numerical score for the Eco-score (do not translate Eco-score)
+# Numerical score for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_score"
-msgid "Eco-score score"
+msgid "Green-Score score"
 msgstr ""
 
-# Letter grade from A to E for the Eco-score (do not translate Eco-score)
+# Letter grade from A to E for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_grade"
-msgid "Eco-score grade"
+msgid "Green-Score grade"
 msgstr ""
 
-# do not translate Eco-score
+# do not translate Green-Score
 msgctxt "environmental_score_calculation_details"
-msgid "Details of the calculation of the Eco-score"
+msgid "Details of the calculation of the Green-Score"
 msgstr ""
 
-# do not translate Eco-score
+# do not translate Green-Score
 msgctxt "environmental_score_information"
-msgid "Information about the Eco-score"
+msgid "Information about the Green-Score"
 msgstr ""
 
 msgctxt "preferences_currently_selected_preferences"
@@ -5058,6 +5092,14 @@ msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr "حقائق غذائية مفقودة"
 
+msgctxt "ecoscore_p"
+msgid "Green-Score"
+msgstr "النتيجة البيئية"
+
+msgctxt "ecoscore_s"
+msgid "Green-Score"
+msgstr "النتيجة البيئية"
+
 msgctxt "environmental_score_p"
 msgid "Green-Score"
 msgstr "النتيجة البيئية"
@@ -5065,6 +5107,14 @@ msgstr "النتيجة البيئية"
 msgctxt "environmental_score_s"
 msgid "Green-Score"
 msgstr "النتيجة البيئية"
+
+msgctxt "misc_p"
+msgid "Miscellaneous"
+msgstr ""
+
+msgctxt "misc_s"
+msgid "Miscellaneous"
+msgstr ""
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5226,7 +5276,7 @@ msgstr ""
 
 # It = the platform
 msgctxt "product_edits_by_producers_indicators"
-msgid "It computes indicators such as the Nutri-Score, NOVA, and the Eco-score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
+msgid "It computes indicators such as the Nutri-Score, NOVA, and the Green-Score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
 msgstr ""
 
 msgctxt "attribute_forest_footprint_name"
@@ -5361,11 +5411,11 @@ msgid "User is being deleted. This may take a few minutes."
 msgstr ""
 
 msgctxt "attribute_environmental_score_not_applicable_title"
-msgid "Green-Score not yet applicable"
+msgid "Green-Score not applicable"
 msgstr ""
 
 msgctxt "attribute_environmental_score_not_applicable_description_short"
-msgid "Not yet applicable for the category"
+msgid "Not applicable for the category"
 msgstr ""
 
 # variable names between { } must not be translated
@@ -6375,6 +6425,10 @@ msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
 msgstr ""
 
+msgctxt "action_report_product_to_nutripatrol"
+msgid "Report this product to our moderators"
+msgstr ""
+
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
 msgid "What you need to know"
@@ -6520,6 +6574,10 @@ msgctxt "api_result_product_not_found"
 msgid "Product not found"
 msgstr ""
 
+msgctxt "api_result_product_found_with_a_different_product_type"
+msgid "Product found with a different product type"
+msgstr ""
+
 msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr ""
@@ -6542,6 +6600,10 @@ msgstr ""
 
 msgctxt "api_message_invalid_code"
 msgid "Invalid code"
+msgstr ""
+
+msgctxt "api_message_invalid_product_type"
+msgid "Invalid product type"
 msgstr ""
 
 msgctxt "api_message_invalid_type_must_be_object"
@@ -6803,7 +6865,7 @@ msgstr ""
 
 msgctxt "nutriscore_component_fiber"
 msgid "Fiber"
-msgstr ""
+msgstr "الألياف"
 
 msgctxt "nutriscore_component_proteins"
 msgid "Proteins"
@@ -6855,6 +6917,18 @@ msgstr ""
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_11"
 msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
+msgstr ""
+
+msgctxt "nutriscore_new_computation_title"
+msgid "Discover the new Nutri-Score!"
+msgstr ""
+
+msgctxt "nutriscore_new_computation_description"
+msgid "<p>The computation of the Nutri-Score is evolving to provide better recommendations based on the latest scientific evidence.</p><p>Main improvements:</p><ul><li>Better score for some fatty fish and oils rich in good fats</li><li>Better score for whole products rich in fiber</li><li>Worse score for products containing a lot of salt or sugar</li><li>Worse score for red meat (compared to poultry)</li></ul>"
+msgstr ""
+
+msgctxt "nutriscore_new_computation_link_text"
+msgid "Discover all the improvements of the new Nutri-Score"
 msgstr ""
 
 msgctxt "nutriscore_explanation_what_it_is"
@@ -6969,6 +7043,10 @@ msgstr ""
 
 msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
+
+msgctxt "report_to_nutripatrol_explain"
+msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
 msgstr ""
 
 msgctxt "description"
@@ -7236,5 +7314,62 @@ msgstr ""
 
 msgctxt "attribute_repairability_index_france_bad_description_short"
 msgid "Bad repairability"
+msgstr ""
+
+msgctxt "estimate"
+msgid "estimate"
+msgstr ""
+
+# information on several ingredients, in plural in languages like French
+msgctxt "ingredient_information"
+msgid "Ingredient information"
+msgstr ""
+
+msgctxt "product_type"
+msgid "Product type"
+msgstr ""
+
+# Food product type
+msgctxt "product_type_food"
+msgid "Food"
+msgstr ""
+
+# Pet food product type
+msgctxt "product_type_petfood"
+msgid "Pet food"
+msgstr ""
+
+# Beauty product type
+msgctxt "product_type_beauty"
+msgid "Beauty"
+msgstr ""
+
+# General product product type
+msgctxt "product_type_product"
+msgid "Product"
+msgstr "نتاج"
+
+msgctxt "recommendation_limit_ultra_processed_foods_title"
+msgid "Limit ultra-processed foods"
+msgstr ""
+
+msgctxt "recommendation_limit_ultra_processed_foods_subtitle"
+msgid "Limiting ultra-processed foods reduces the risk of noncommunicable chronic diseases"
+msgstr ""
+
+msgctxt "recommendation_limit_ultra_processed_foods_text"
+msgid "Several studies have found that a lower consumption of ultra-processed foods is associated with a reduced risk of noncommunicable chronic diseases, such as obesity, hypertension and diabetes."
+msgstr ""
+
+msgctxt "discover_the_evolution_of_the_nutriscore_grades_of_your_products"
+msgid "Discover the evolution of the Nutri-Score grades of your products"
+msgstr ""
+
+msgctxt "add_products_to_discover_the_evolution_of_their_nutriscore_grades"
+msgid "Add products with a category, ingredients list and nutrition facts to discover the evolution of their Nutri-Score grades."
+msgstr ""
+
+msgctxt "in_contact_with_food"
+msgid "In contact with food"
 msgstr ""
 

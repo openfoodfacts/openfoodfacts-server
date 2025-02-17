@@ -46,6 +46,7 @@
                "id" : "low_salt",
                "match" : 83.3333333333333,
                "name" : "Salt",
+               "panel_id" : "nutrient_level_salt",
                "status" : "known",
                "title" : "Salt in low quantity"
             },
@@ -56,6 +57,7 @@
                "id" : "low_fat",
                "match" : 48.2352941176471,
                "name" : "Fat",
+               "panel_id" : "nutrient_level_fat",
                "status" : "known",
                "title" : "Fat in moderate quantity"
             },
@@ -66,6 +68,7 @@
                "id" : "low_sugars",
                "match" : 0,
                "name" : "Sugars",
+               "panel_id" : "nutrient_level_sugars",
                "status" : "known",
                "title" : "Sugars in high quantity"
             },
@@ -76,6 +79,7 @@
                "id" : "low_saturated_fat",
                "match" : 37.1428571428571,
                "name" : "Saturated fat",
+               "panel_id" : "nutrient_level_saturated_fat",
                "status" : "known",
                "title" : "Saturated fat in moderate quantity"
             }
@@ -853,7 +857,7 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "9410",
-         "ecobalyse_code" : "flour",
+         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
          "id" : "en:wheat-flour",
          "is_in_taxonomy" : 1,
          "origins" : "en:united-kingdom",
@@ -866,7 +870,7 @@
       },
       {
          "ciqual_proxy_food_code" : "31016",
-         "ecobalyse_code" : "sugar",
+         "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
          "id" : "en:sugar",
          "is_in_taxonomy" : 1,
          "origins" : "en:paraguay",
@@ -891,7 +895,7 @@
       },
       {
          "ciqual_food_code" : "13014",
-         "ecobalyse_code" : "strawberry-non-eu",
+         "ecobalyse_code" : "e5bf7d33-6afe-46d6-ac06-f69c5769b10e",
          "id" : "en:strawberry",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 10.2272727272727,
@@ -914,7 +918,7 @@
       },
       {
          "ciqual_food_code" : "17130",
-         "ecobalyse_code" : "rapeseed-oil",
+         "ecobalyse_code" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
          "from_palm_oil" : "no",
          "id" : "en:rapeseed-oil",
          "is_in_taxonomy" : 1,

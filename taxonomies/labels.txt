@@ -3385,6 +3385,24 @@ pt: Fabricado na Bélgica, feito na Bélgica, produto da Bélgica, produzido na 
 country:en: en:Belgium
 label_categories:en: en:Geographic label
 
+en: Made in Canada
+xx: Made in Canada
+fr: Fait au Canada
+country:en: en:Canada
+description:en: At least 51% of the product's content originates in Canada
+description:fr: Le contenu du produit est originaire du Canada à au moins 51%
+label_categories:en: en:Geographic label
+# https://bureau-concurrence.canada.ca/comment-nous-favorisons-concurrence/education-sensibilisation/publications/indications-produit-canada-fait-canada
+
+en: Product of Canada
+xx: Product of Canada
+fr: Produit du Canada
+country:en: en:Canada
+description:en: At least 98% of the product's content originates in Canada
+description:fr: Le contenu du produit est originaire du Canada à au moins 98%
+label_categories:en: en:Geographic label
+# https://bureau-concurrence.canada.ca/comment-nous-favorisons-concurrence/education-sensibilisation/publications/indications-produit-canada-fait-canada
+
 en: Made in France
 bg: Произведено във Франция
 ca: Fet a França
@@ -3747,7 +3765,7 @@ fr: Fabriqué dans l'UE, Fabriqué dans l'Union européenne
 he: נעשה באיחוד האירופי, נעשה באיחוד האירופי
 hr: Proizvedeno u EU, Proizvedeno u Europskoj uniji
 hu: Az EU-ban készült, Az Európai Unióban készült, EU-ban készült, Európai Unióban készült
-it: Prodotto nell'UE, Prodotto nell'Unione europea
+it: Prodotto nell'UE, Prodotto nell'EU, Prodotto nell'Unione europea
 nl: Gemaakt in de EU, Gemaakt in de Europese Unie, Geproduceerd in de EU
 pl: Wyprodukowano w UE, Wyprodukowano w Unii Europejskiej
 pt: Feito na UE, fabricado na UE, Feito na UE, Feito na União Europeia, produzido na UE, feito na União Europeia, fabricado na União Europeia, produzido na União Europeia, feito na Europa, fabricado na Europa, produzido na Europa
@@ -5487,7 +5505,7 @@ fi: EU Luomu, EU:n luomu, Euroopan luomu, Euroopan lehti, Euroopan luomulehti
 fr: Bio européen, Label bio européen, bio ce, bio europe, Eurofeuille, Euro-Feuille, Feuille bio
 he: אורגני בתקן אירופאי
 hu: EU Organic, EU bio, EU öko
-it: Biologico UE
+it: Biologico UE, Biologico EU
 ja: EUオーガニック, ヨーロッパオーガニック, ヨーロッパの葉, ヨーロッパのオーガニック葉, EUオーガニック農業
 ko: EU 유기농, 유럽 유기농, 유럽 잎, 유럽 유기농 잎, EU 유기농 농업
 lt: ES ekologiškas, Europos ekologiškas, europinis lapas, Europos ekologiškas lapas, ES ekologinis ūkininkavimas
@@ -5521,7 +5539,7 @@ fr: Agriculture non UE
 he: חקלאות מחוץ לאיחוד האירופי
 hr: poljoprivreda izvan EU
 hu: nem-EU mezőgazdaság
-it: Agricoltura non-UE
+it: Agricoltura non-UE, Agricoltura non-EU
 nl: Non EU landbouw, niet-EU landbouw
 pt: Agricultura não-UE, Agricultura não União Europeia
 ru: не-EU агрокультура
@@ -5538,7 +5556,7 @@ fr: Agriculture UE, Agriculture Union Européeenne
 he: חקלאות האיחוד האירופי
 hr: EU poljoprivreda
 hu: EU mezőgazdaság
-it: Agricoltura dell'Unione Europea
+it: Agricoltura UE, Agricoltura EU, Agricoltura dell'Unione Europea
 lt: ES žemės ūkis, Europos Sąjungos žemės ūkis
 nl: EU landbouw
 pt: Agricultura UE, Agricultura da União Europeia
@@ -5564,7 +5582,7 @@ es: Agricultura UE/no UE
 fi:Tuotettu EU:ssa ja EU:n ulkopuolella
 fr: Agriculture UE/Non UE
 hu: EU/nem-EU mezőgazdaság
-it: Agricoltura EU/non-EU
+it: Agricoltura UE/non-UE, Agricoltura EU/non-EU
 lt: ES / ne ES žemės ūkis, ES ir ne ES žemės ūkis
 nl: EU/Non EU landbouw
 pt: Agricultura EU/não EU, Agricultura da União Europeia EU/não União Europeia
@@ -19506,6 +19524,13 @@ xx: Vege Project Vegetarian, Vege Project Japan Vegetarian
 en: Vege Project Vegan, Vege Project Japan Vegan
 xx: Vege Project Vegan, Vege Project Japan Vegan
 
+< en:Vegan
+en: certified plant based, plant based certified
+xx: certified plant based, plant based certified
+description:en: The Certified Plant Based certification and label - delivered by the National Science Foundation, USA - make it easy for consumers to choose sustainable alternatives to meat, egg and dairy products by providing assurance that the food contains no animal-derived ingredients.
+image:en: certified-plant-based.90x90.png
+website:en: https://www.nsf.org/food-beverage/plant-based-certification
+
 < en:Vegetarian
 en: Vegetarian Society
 xx: Vegetarian Society
@@ -22396,8 +22421,10 @@ fr: Biopartenaire, Bio partenaire
 xx: Biopartenaire
 
 fr: Herta s'engage
+xx: Herta s'engage
 
 en: Nestlé Cocoa Plan, Cocoa Plan
+xx: Nestlé Cocoa Plan
 
 en: EU Ecolabel
 xx: EU Ecolabel
@@ -22611,6 +22638,7 @@ fr: Peut avoir des effets indésirables sur l'activité et l'attention chez les 
 
 # https://www.bcorporation.net/
 en: Certified B Corporation, B Corp
+xx: Certified B Corporation, B Corp
 bg: Certified B Corporation, B Corp
 de: Zertifizierte B Corporation, B Corp
 es: Empresa B certificada, B Corp
@@ -22662,18 +22690,18 @@ web:en: https://www.canada.ca/en/health-canada/services/food-nutrition/nutrition
 web:fr: https://www.canada.ca/fr/sante-canada/services/aliments-nutrition/etiquetage-nutritionnel/devant-emballage.html
 
 < en:Canadian front-of-package nutrition symbol
-en: High in Sat fat Sugars and Sodium (Health Canada)
-fr: Élevé en Gras sat., Sucres and Sodium (Santé Canada)
-image:xx: high-in-saturated-fat-sugars-sodium-health-canada-eleve-en-gras-satures-sucres-sodium-sante-canada.171x90.svg
-image:en: high-in-saturated-fat-sugars-sodium-health-canada.120x90.svg
-image:fr: eleve-en-gras-satures-sucres-sodium-sante-canada.120x90.svg
+en: High in Sat fat Sugars and Sodium (Health Canada), High in Saturated fat Sugars and Sodium (Health Canada)
+fr: Élevé en Gras sat. Sucres et Sodium (Santé Canada), Élevé en Gras saturés Sucres et Sodium (Santé Canada)
+image:xx: high-in-sat-fat-sugars-sodium-health-canada-eleve-en-gras-sat-sucres-sodium-sante-canada.171x90.svg
+image:en: high-in-sat-fat-sugars-sodium-health-canada.120x90.svg
+image:fr: eleve-en-gras-sat-sucres-sodium-sante-canada.120x90.svg
 
 < en:Canadian front-of-package nutrition symbol
-en: High in Sat fat and Sugars (Health Canada)
-fr: Élevé en Gras sat. et Sucres (Santé Canada)
-image:xx: high-in-saturated-fat-sugars-health-canada-eleve-en-gras-satures-sucres-sante-canada.171x90.svg
-image:en: high-in-saturated-fat-sugars-health-canada.120x90.svg
-image:fr: eleve-en-gras-satures-sucres-sante-canada.120x90.svg
+en: High in Sat fat and Sugars (Health Canada), High in Saturated fat and Sugars (Health Canada)
+fr: Élevé en Gras sat. et Sucres (Santé Canada), Élevé en Gras saturés et Sucres (Santé Canada)
+image:xx: high-in-sat-fat-sugars-health-canada-eleve-en-gras-sat-sucres-sante-canada.171x90.svg
+image:en: high-in-sat-fat-sugars-health-canada.120x90.svg
+image:fr: eleve-en-gras-sat-sucres-sante-canada.120x90.svg
 
 
 < en:Canadian front-of-package nutrition symbol
@@ -22684,18 +22712,18 @@ image:en: high-in-sugars-sodium-health-canada.120x90.svg
 image:fr: eleve-en-sucres-sodium-sante-canada.120x90.svg
 
 < en:Canadian front-of-package nutrition symbol
-en: High in Sat fat and Sodium (Health Canada)
-fr: Élevé en Gras sat. et Sodium (Santé Canada)
-image:xx: high-in-saturated-fat-sodium-health-canada-eleve-en-gras-satures-sodium-sante-canada.171x90.svg
-image:en: high-in-saturated-fat-sodium-health-canada.120x90.svg
-image:fr: eleve-en-gras-satures-sodium-sante-canada.120x90.svg
+en: High in Sat fat and Sodium (Health Canada), High in Saturated fat and Sodium (Health Canada)
+fr: Élevé en Gras sat. et Sodium (Santé Canada), Élevé en Gras saturés et Sodium (Santé Canada)
+image:xx: high-in-sat-fat-sodium-health-canada-eleve-en-gras-sat-sodium-sante-canada.171x90.svg
+image:en: high-in-sat-fat-sodium-health-canada.120x90.svg
+image:fr: eleve-en-gras-sat-sodium-sante-canada.120x90.svg
 
 < en:Canadian front-of-package nutrition symbol
-en: High in Sat fat (Health Canada)
-fr: Élevé en Gras sat. (Santé Canada)
-image:xx: high-in-saturated-fat-health-canada-eleve-en-gras-satures-sante-canada.171x90.svg
-image:en: high-in-saturated-fat-health-canada.120x90.svg
-image:fr: eleve-en-gras-satures-sante-canada.120x90.svg
+en: High in Sat fat (Health Canada), High in Saturated fat (Health Canada)
+fr: Élevé en Gras sat. (Santé Canada), Élevé en Gras saturés (Santé Canada)
+image:xx: high-in-sat-fat-health-canada-eleve-en-gras-sat-sante-canada.171x90.svg
+image:en: high-in-sat-fat-health-canada.120x90.svg
+image:fr: eleve-en-gras-sat-sante-canada.120x90.svg
 
 < en:Canadian front-of-package nutrition symbol
 en: High in Sugars (Health Canada)
