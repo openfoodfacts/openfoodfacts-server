@@ -18,7 +18,10 @@ properties:
       This field is mostly used for debugging and testing purposes. Do not use it for display purposes.
   categories_hierarchy:
     type: array
-    description: An array of categories tag entries
+    description: |
+      An array of categories tag entries.
+      
+      It only contains categories found in the taxonomy.
     items:
       $ref: ./tags/taxonomy_tag_entry.yaml      
   categories_lc:
