@@ -67367,7 +67367,7 @@ wikidata:en: Q504893
 
 < en:Apples
 < en:Sweet apples
-en: Gala apples
+en: Gala apples, Apples (Gala)
 de: Gala Äpfel
 es: Manzanas Gala, Manzanas Royal Gala
 fi: Gala-omenat
@@ -67383,7 +67383,7 @@ wikidata:en: Q494259
 
 < en:Apples
 < en:Sweet Apples
-en: Golden Delicious apples, Golden delicious, Golden Apples, Golden
+en: Golden Delicious apples, Golden delicious, Golden Apples, Golden, Apples (Golden Delicious)
 de: Golden Delicious Äpfel, Golden Delicious, Golden Äpfel, Golden
 es: Manzanas Golden Delicious
 fi: Golden Delicious -omenat
@@ -67407,7 +67407,7 @@ ciqual_food_name:fr: Pomme Golden, pulpe et peau, crue
 
 < en:Acidic apples
 < en:Apples
-en: Granny Smith apples, Granny Smith
+en: Granny Smith apples, Granny Smith, Apples (Granny Smith)
 de: Granny Smith Äpfel, Granny Smith
 es: Manzanas Granny Smith
 fr: Pommes Granny Smith
@@ -67430,7 +67430,7 @@ sales_format:en: package, weight
 wikidata:en: Q2117265
 
 < en:Apples
-en: Pink Lady, Cripps Pink
+en: Pink Lady, Cripps Pink, Apples (Pink Lady)
 xx: Pink Lady, Cripps Pink
 sales_format:en: weight, package
 
@@ -67458,7 +67458,7 @@ wikidata:en: Q3353034
 < en:Acidic apples
 < en:Apples
 < en:Russet apples
-en: Canada Reinettes apples, Canada Apples, Canada Reinettes, Canadian Reinettes, Canadian Reinettes Apples, Canada Russet apples
+en: Canada Reinettes apples, Canada Apples, Canada Reinettes, Canadian Reinettes, Canadian Reinettes Apples, Canada Russet apples, Apples (Canada Reinette)
 fr: Pommes Reinettes du Canada, Pommes Canada Grises, Pommes du Canada, Reinettes du Canada
 sales_format:en: weight, package
 wikidata:en: Q1723442
@@ -68207,7 +68207,7 @@ lt: Žaliosios citrinos
 nl: Limoenen
 ro: Lime, Lămâi verzi
 ru: Лаймы, Лайм
-sales_format:en: weight, package
+sales_format:en: weight, package, unit
 
 < en:Limes
 en: Lime pulp
@@ -72154,7 +72154,7 @@ tr: Maydanoz
 agribalyse_proxy_food_code:en: 11014
 agribalyse_proxy_food_name:en: Parsley, fresh
 agribalyse_proxy_food_name:fr: Persil, frais
-sales_format:en: weight, package
+sales_format:en: weight, package, unit
 wikidata:en: Q25284
 
 < en:Fresh aromatic plants
@@ -91016,6 +91016,7 @@ ja: ラム肉
 nl: Schapevlezen
 pl: Jagnięcina
 zh: 羊肉, 羊, 羊羔, 羊羔肉
+sales_format:en: package, weight
 wco_hs_heading:en: 02.04
 wikidata:en: Q643419
 
@@ -106559,12 +106560,12 @@ agribalyse_proxy_food_name:en: Beetroot, raw
 agribalyse_proxy_food_name:fr: Betterave rouge, crue
 intake24_category_code:en: BEET
 intake24_category_code:fr: BEET
-opposite:en: en:beetroot(pickled)
+opposite:en: en:pickled-beetroot
 sales_format:en: weight, package
 #TOCHECK:wikidata:en:Q99548274
 
 < en:Vegetables
-en: Beetroot(raw), Beet(raw), Beet(uncooked), Uncooked beet, Uncooked beetroots
+en: Raw beetroot, Beet (raw), Beet (uncooked), Uncooked beet, Uncooked beetroots, Beetroot (raw)
 bg: Сурово цвекло
 de: Ungekochte rote Beete
 fr: Betteraves crues, Betterave rouge crue
@@ -106574,12 +106575,12 @@ agribalyse_food_code:en: 20091
 ciqual_food_code:en: 20091
 ciqual_food_name:en: Beetroot, raw
 ciqual_food_name:fr: Betterave rouge, crue
-opposite:en: en:beetroot(cooked)
+opposite:en: en:cooked-beetroot
 sales_format:en: weight, package
 
 < en:Beet
 < en:Canned vegetables
-en: Beetroot(canned), Beet(canned), Canned beetroots, Canned beet
+en: Canned beetroot, Beet (canned), Canned beetroots, Canned beet, Beetroot (canned)
 bg: Консервирано цвекло
 de: Rote-Bete-Konserven
 es: Remolacha en conserva
@@ -106591,21 +106592,21 @@ nl: Rode bieten in blik/pot
 ciqual_proxy_food_code:en: 20003
 ciqual_proxy_food_name:en: Beetroot, cooked
 ciqual_proxy_food_name:fr: Betterave rouge, cuite
-opposite:en: en:beetroot(fresh)
+opposite:en: en:fresh-beetroot
 
-< en:Beetroot(raw)
 < en:Fresh vegetables
-en: Beetroot(fresh), Fresh beet, Fresh beetroot
+< en:Raw beetroot
+en: Fresh beetroot, Beetroot (fresh), Fresh beet
 fr: Betteraves fraîches
 hr: Svježa repa
 lt: švieži burokėliai
 expected_ingredients:en: en:beetroot
-opposite:en: en:beetroot(canned), en:beetroot(vacuum-packed)
+opposite:en: en:canned-beetroot, en:vacuum-packed-beetroot
 season_in_country_fr:en: 1,2,3,10,11,12
 
 < en:Beet
 < en:Cooked vegetables
-en: Beetroot(cooked), Beet(cooked), Cooked beet, Cooked beetroots
+en: Cooked beetroots, Beetroot (cooked), Beet (cooked), Cooked beet
 fr: Betteraves rouges cuites
 hr: Kuhana cikla
 lt: Virti burokėliai
@@ -106614,18 +106615,18 @@ agribalyse_food_code:en: 20003
 ciqual_food_code:en: 20003
 ciqual_food_name:en: Beetroot, cooked
 ciqual_food_name:fr: Betterave rouge, cuite
-opposite:en: en:beetroot(raw), en:beetroot(vacuum-packed)
+opposite:en: en:raw-beetroot, en:vacuum-packed-beetroot
 
-< en:Beet(cooked)
-en: Beetroot(vacuum-packed), Beet(vacuum-packed)
-de: Rüben(Vakuumverpackt)
+< en:Cooked beetroots
+en: Vacuum-packed beetroot, Beetroot (vacuum-packed), Beet (vacuum-packed)
+de: Rüben (Vakuumverpackt)
 es: Remolachas envasadas al vacío
 fr: Betteraves sous vide
 it: Barbabietole sottovuoto
 nl: Bieten(Vacuümverpakt)
 pt: Beterraba embalada a vácuo
 expected_ingredients:en: en:beetroot
-opposite:en: en:beetroot(raw), en:beetroot(canned)
+opposite:en: en:raw-beetroot, en:canned-beetroot
 
 < en:Vegetables
 # <en:ingredient:en:vegetable
@@ -107692,7 +107693,7 @@ ciqual_food_name:fr: Ail, cru
 season_in_country_fr:en: 7,8,9,10,11,12
 
 < en:Garlic
-en: Allium neapolitanum
+en: Allium neapolitanum, Naples garlic
 de: Neapolitanischer Lauch
 fr: Ail Blanc
 hr: Napolitanski luk
@@ -108331,7 +108332,7 @@ ciqual_food_name:en: Sweet pepper, green, cooked
 ciqual_food_name:fr: Poivron vert, cuit
 
 < en:Sweet Peppers
-en: Sweet peppers(yellow), Yellow sweet peppers
+en: Yellow sweet peppers, Sweet peppers (yellow)
 bg: Жълти чушки
 es: Pimientos amarillos
 fr: Poivrons jaunes
@@ -108569,7 +108570,7 @@ en: Ostara potatoes
 fr: Pomme de terre Ostara
 
 < en:Potatoes
-en: Grenaille potatoes
+en: Grenaille potatoes, Potatoes (Grenaille)
 de: Grenaille Kartoffeln
 fr: Pomme de terre Grenaille
 hr: Grenaille krumpir
@@ -109107,7 +109108,7 @@ season_in_country_fr:en: 3,4,5,6
 
 
 < en:Radishes
-en: Radishes(red), Red radishes
+en: Red radishes, Radishes (red)
 bg: Червени репички
 es: Rábanos rojos, Rábanos picantes
 fr: Radis rouges, Radis rouge, Radis roses, Radis rose
@@ -109130,7 +109131,7 @@ nl: Verse rode radijs
 expected_ingredients:en: en:red radish
 
 < en:Radishes
-en: Radishes(black), Black radishes, Black radish
+en: Black radishes, Black radish, Radishes (black)
 bg: Черни репички
 fr: Radis noirs
 hr: Crne rotkve
@@ -114244,9 +114245,6 @@ fr: Artichauts hachés surgelés
 hr: Smrznute nasjeckane artičoke
 it: Carciofi tritati congelati
 nl: Diepvries gehakte artisjokken
-
-
-
 
 < en:Brussels sprouts
 < en:Frozen vegetables
