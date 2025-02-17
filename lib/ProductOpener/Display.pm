@@ -1565,7 +1565,7 @@ sub display_mission ($request_ref) {
 	my $html = join('', (<$IN>));
 
 	$request_ref->{content_ref} = \$html;
-	$request_ref->{canon_url} = canonicalize_tag_link("missions", $missionid);
+	$request_ref->{canon_url} = "/facets" . canonicalize_tag_link("missions", $missionid);
 
 	display_page($request_ref);
 	exit();
@@ -4274,16 +4274,16 @@ HTML
 					$user_template_data_ref->{links} = [
 						{
 							text => sprintf(lang('contributors_products'), $user_or_org_ref->{name}),
-							url => canonicalize_tag_link("users", get_string_id_for_lang("no_language", $tagid)),
+							url => "/facets" . canonicalize_tag_link("users", get_string_id_for_lang("no_language", $tagid)),
 						},
 						{
 							text => sprintf(lang('editors_products'), $user_or_org_ref->{name}),
-							url => canonicalize_tag_link("editors", get_string_id_for_lang("no_language", $tagid)),
+							url => "/facets" . canonicalize_tag_link("editors", get_string_id_for_lang("no_language", $tagid)),
 						},
 						{
 							text => sprintf(lang('photographers_products'), $user_or_org_ref->{name}),
 							url =>
-								canonicalize_tag_link("photographers", get_string_id_for_lang("no_language", $tagid)),
+								"/facets" . canonicalize_tag_link("photographers", get_string_id_for_lang("no_language", $tagid)),
 						},
 					];
 
@@ -8519,7 +8519,7 @@ JS
 
 	foreach my $editor (sort @other_editors) {
 		$other_editors
-			.= "<a href=\""
+			.= "<a href=\"/facets"
 			. canonicalize_tag_link("editors", get_string_id_for_lang("no_language", $editor)) . "\">"
 			. $editor
 			. "</a>, ";
@@ -8527,11 +8527,11 @@ JS
 	$other_editors =~ s/, $//;
 
 	my $creator
-		= "<a href=\""
+		= "<a href=\"/facets"
 		. canonicalize_tag_link("editors", get_string_id_for_lang("no_language", $product_ref->{creator})) . "\">"
 		. $product_ref->{creator} . "</a>";
 	my $last_editor
-		= "<a href=\""
+		= "<a href=\"/facets"
 		. canonicalize_tag_link("editors", get_string_id_for_lang("no_language", $product_ref->{last_editor})) . "\">"
 		. $product_ref->{last_editor} . "</a>";
 
@@ -8543,7 +8543,7 @@ JS
 	if ((defined $product_ref->{checked}) and ($product_ref->{checked} eq 'on')) {
 		my $last_checked_date = display_date_tag($product_ref->{last_checked_t});
 		my $last_checker
-			= "<a href=\""
+			= "<a href=\"/facets"
 			. canonicalize_tag_link("editors", get_string_id_for_lang("no_language", $product_ref->{last_checker}))
 			. "\">"
 			. $product_ref->{last_checker} . "</a>";
@@ -11199,7 +11199,7 @@ sub display_change ($change_ref, $diffs) {
 	my $user = "";
 	if (defined $change_ref->{userid}) {
 		$user
-			= "<a href=\""
+			= "<a href=\"/facets"
 			. canonicalize_tag_link("users", get_string_id_for_lang("no_language", $change_ref->{userid})) . "\">"
 			. $change_ref->{userid} . "</a>";
 	}
