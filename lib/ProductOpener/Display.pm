@@ -4274,16 +4274,18 @@ HTML
 					$user_template_data_ref->{links} = [
 						{
 							text => sprintf(lang('contributors_products'), $user_or_org_ref->{name}),
-							url => "/facets" . canonicalize_tag_link("users", get_string_id_for_lang("no_language", $tagid)),
+							url => "/facets"
+								. canonicalize_tag_link("users", get_string_id_for_lang("no_language", $tagid)),
 						},
 						{
 							text => sprintf(lang('editors_products'), $user_or_org_ref->{name}),
-							url => "/facets" . canonicalize_tag_link("editors", get_string_id_for_lang("no_language", $tagid)),
+							url => "/facets"
+								. canonicalize_tag_link("editors", get_string_id_for_lang("no_language", $tagid)),
 						},
 						{
 							text => sprintf(lang('photographers_products'), $user_or_org_ref->{name}),
-							url =>
-								"/facets" . canonicalize_tag_link("photographers", get_string_id_for_lang("no_language", $tagid)),
+							url => "/facets"
+								. canonicalize_tag_link("photographers", get_string_id_for_lang("no_language", $tagid)),
 						},
 					];
 
