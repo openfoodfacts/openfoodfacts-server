@@ -98,6 +98,6 @@ like(
 #checking if the added product has been anonymized
 my $url_product = construct_test_url("/cgi/product.pl?type=edit&code=2000000000001", "world");
 my $response_product = $admin->get($url_product);
-like($response_product->content, qr/\/editor\/anonymous/, "the product has been anonymized");
+like($response_product->content, qr/\/editors\/anonymous/, "the product has been anonymized");
 
 done_testing();
