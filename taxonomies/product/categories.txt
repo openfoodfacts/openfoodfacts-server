@@ -45,6 +45,9 @@ en: Open Pet Food Facts, OPFF
 xx: Open Pet Food Facts, OPFF
 
 en: Furniture
+de: Möbel
+es: Muebles
+fr: Meubles
 
 < en:Furniture
 en: Wooden chair
@@ -162,6 +165,8 @@ unit_name:fr: climatiseur
 
 < en:Appliances
 en: Dishwasher
+de: Geschirrspüler
+es: Lavavajillas
 fr: Lave-vaisselle
 carbon_impact_fr_impactco2:en: 468
 carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/electromenager/lavevaisselle
@@ -181,6 +186,9 @@ en: Freezer
 
 < en:Appliances
 en: Micro-waves
+de: Mikrowellen
+es: Microondas
+fr: Micro-ondes
 
 < en:Appliances
 en: Ovens
@@ -188,23 +196,44 @@ en: Ovens
 en: Cooking equipment
 
 en: Sport equipment
+de: Sportausrüstung
+es: Equipo deportivo
+fr: Équipement de sport
 
 < en:Sport equipment
 en: Bikes
+de: Fahrräder
+es: Bicicletas
+fr: Vélos
 
 < en:Sport equipment
 en: Bike equipment
+de: Fahrradausrüstung
+es: Equipo de bicicleta
+fr: Équipement de vélo
 
 < en:Sport equipment
 en: Swimming equipment
+de: Schwimmausrüstung
+es: Equipo de natación
+fr: Équipement de natation
 
 < en:Sport equipment
 en: Sport clothes
+de: Sportkleidung
+es: Ropa deportiva
+fr: Vêtements de sport
 
 en: Fitness equipment
+de: Fitnessgeräte
+es: Equipos de fitness
+fr: Équipements de fitness
 
 < en:Sport equipment
 en: Sport shoes
+de: Sportschuhe
+es: Zapatillas deportivas
+fr: Chaussures de sport
 
 en: Baby equipment
 
@@ -621,6 +650,9 @@ fr: téléphones portables, téléphones mobiles
 < en: mobile phones
 en: Smartphones
 xx: Smartphones
+de: Smartphones
+es: Teléfonos inteligentes
+fr: Smartphones
 carbon_impact_fr_impactco2:en: 85.9
 carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/numerique/smartphone
 unit_name:xx: smartphone
@@ -802,9 +834,15 @@ zu: Izingubo zabesifazane
 
 < en: Clothes
 en: Men clothes
+de: Herrenbekleidung
+es: Ropa de hombre
+fr: Vêtements pour hommes
 
 < en: Shoes
 en: Women shoes
+de: Damenschuhe
+es: Zapatos de mujer
+fr: Chaussures pour femmes
 
 < en: Shoes
 en: Men shoes
@@ -1362,6 +1400,9 @@ unit_name:en: Coat
 unit_name:fr: Manteau
 
 en: Jewelry
+de: Schmuck
+es: Joyería
+fr: Bijoux
 
 en: Books
 ar: كتب
@@ -1592,26 +1633,15 @@ yo: Siga
 zh: 香烟
 zu: Ugwayi
 
-en: Laundry detergents
-fr: Lessives
-
 en: Christmas trees
+de: Weihnachtsbäume
+es: Árboles de Navidad
 fr: Arbres de Noël
 
 en: Vitamins
 de: Vitamine
 es: Vitaminas
 fr: Vitamines
-
-en: Liquid detergent
-de: Flüssigwaschmittel
-es: Detergentes líquidos
-fr: Lessives liquides
-
-en: Dishwasher tablets
-de: Geschirrspültabs
-es: Pastillas para lavavajillas
-fr: Tablettes pour lave-vaisselle
 
 en: Batteries
 de: Batterien
@@ -1726,6 +1756,41 @@ en: Household chemicals
 de: Haushaltschemikalien
 es: Productos químicos domésticos
 fr: Produits chimiques ménagers
+
+< en: Household chemicals
+en: Bleach
+de: Bleichmittel
+fr: Eau de Javel
+
+< en: Household chemicals
+en: Laundry detergents
+de: Waschmittel
+es: Detergentes para la ropa
+fr: Lessives
+
+< en: Household chemicals
+en: Liquid detergent
+de: Flüssigwaschmittel
+es: Detergentes líquidos
+fr: Lessives liquides
+
+< en: Household chemicals
+en: Dishwasher tablets
+de: Geschirrspültabs
+es: Pastillas para lavavajillas
+fr: Tablettes pour lave-vaisselle
+
+< en: Household chemicals
+en: Detergents
+de: Reinigungsmittel
+es: Detergentes
+fr: Détergents
+
+< en: Household chemicals
+en: Toilet gel
+de: Toilettengel
+es: Gel WC
+fr: Gel WC
 
 en: Inflatable toys
 ar: ألعاب قابلة للنفخ
@@ -2082,14 +2147,4 @@ en: Diapers
 de: Windeln
 es: Pañales
 fr: Couches
-
-en: Detergents
-de: Waschmittel
-es: Detergentes
-fr: Détergents
-
-en: Toilet gel
-de: Toilettengel
-es: Gel WC
-fr: Gel WC
 
