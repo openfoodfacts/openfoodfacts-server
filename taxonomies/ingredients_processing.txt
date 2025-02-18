@@ -18,6 +18,12 @@
 # need to be kept in the taxonomy.
 # Same for things like "jambon cru", "lait cru" in French.
 
+### Properties for ingredients processing
+
+## NOVA groups markers
+
+# nova:en           NOVA group marker (e.g. value "4" means that the ingredient processing is a marker for NOVA 4)
+
 #######################################################################
 #
 #                U N P R O C E S S E D
@@ -2666,6 +2672,7 @@ hr: hidrolizat, hidrolizirane, hidrolizirano, hidrolizirani
 nl: gehydrolyseerd, gehydrolyseerde
 pl: hydrolizat, hydrolizowane
 sv: hydrolyserat
+nova:en: 4
 
 #en:description:Transformation of unsaturated glycerides into saturated glycerides (of oils and fats)
 en: hydrogenated, hardened, partially hardened
@@ -2681,6 +2688,7 @@ it: idrogenato, idrogenati, idrogenata, idrogenate
 nl: Gehydrogeneerde
 pl: uwodorniony, uwodorniona, uwodornione, utwardzony, utwardzone, utwardzona
 sv: hårdat
+nova:en: 4
 
 #<en:hydrogenated
 en: fully hydrogenated
@@ -2694,6 +2702,7 @@ hr: potpuno hidrogenirana, potpuno hidrogenirane, potpuno hidrogenirano, potpuno
 nb: fullherdet
 pl: całkowicie uwodorniony, całkowicie uwodorniona, całkowicie uwodornione, całkowicie utwardzony, całkowicie utwardzona, całkowicie utwardzone
 sv: fullhärdad
+nova:en: 4
 
 #<en:hydrogenated
 en: partially hydrogenated
@@ -2712,10 +2721,12 @@ pl: częściowo uwodorniony, częściowo uwodorniona, częściowo uwodornione, c
 pt: parcialmente hidrogenada
 ro: parțial hidrogenate
 sv: delvis härdad
+nova:en: 4
 
 en: textured
 de: texturiert, texturierte, texturierter, texturiertes, texturierten, texturiertem
 fr: texturé, texturée
+nova:en: 4
 
 en: processed with alkali
 bg: обработено с щелоч
@@ -2733,6 +2744,26 @@ pl: przetworzone z alkalicznym
 pt: processado com álcali
 ro: prelucrat cu alcali
 sv: behandlad med alkali
+nova:en: 4
+
+en: modified
+bg: модифициран, модифицирана, модифицирани, модифицирани
+ca: modificat, modificada, modificats, modificades
+da: modificeret, modificerede, modificerede, modificerede
+de: modifiziert, modifizierte, modifizierten, modifizierten
+es: modificado, modificada, modificados, modificadas
+fi: muokattu, muokattu, muokatut, muokatut
+fr: modifié, modifiée, modifiés, modifiées
+hr: modificiran, modificirana, modificirani, modificirane
+hu: módosított, módosított, módosítottak, módosítottak
+it: modificato, modificata, modificati, modificate
+nl: gewijzigd, gewijzigde, gewijzigden, gewijzigde
+pl: zmodyfikowany, zmodyfikowana, zmodyfikowani, zmodyfikowane
+pt: modificado, modificada, modificados, modificadas
+ro: modificat, modificată, modificați, modificate
+sv: modifierad, modifierad, modifierade, modifierade
+nova:en: 4
+
 
 en: brewed
 de: gebrühter
