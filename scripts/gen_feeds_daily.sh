@@ -47,7 +47,7 @@ fi
 ./gen_top_tags_per_country.pl
 
 # Generate the CSV and RDF exports
-./export_database_nok.pl
+./export_database.pl
 RETURN=$?
 
 if [ $RETURN -ne 0 ];
