@@ -500,7 +500,8 @@ sub facets_route($request_ref) {
 	$request_ref->{canon_rel_url} = '';
 	my $canon_rel_url_suffix = '';
 
-	# check if we use the facet prefix, and however add it to canonical_url
+	# add the facets prefix to the canonical_url
+	# the facets prefix may not be in older facet urls (before we prefixed them with /facets), in which case we don't consume the first component and mark the url obsolete
 	$request_ref->{canon_rel_url} .= "/facets";
 	if ($request_ref->{components}[0] eq "facets") {
 		shift @{$request_ref->{components}};

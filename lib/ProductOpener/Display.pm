@@ -1275,7 +1275,7 @@ sub display_index_for_producer ($request_ref) {
 		if ($count > 0) {
 			push @{$template_data_ref->{facets}},
 				{
-				url => "/facets" . $tag_type_plural{$tagtype}{$lc},
+				url => "/facets/" . $tag_type_plural{$tagtype}{$lc},
 				number_of_products => lang("number_of_products_with_" . $tagtype),
 				count => $count,
 				};
