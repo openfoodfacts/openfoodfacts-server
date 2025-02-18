@@ -52,7 +52,7 @@ RETURN=$?
 
 if [ $RETURN -ne 0 ];
 then
-    echo "export_database.pl not executed successfully - return value: $RETURN"
+    >&2 echo "export_database.pl not executed successfully - return value: $RETURN"
     ERRORS=`expr $ERRORS + 1`
     FAILED_COMMANDS="${FAILED_COMMANDS}export_database.pl
 "
@@ -130,8 +130,8 @@ fi
 # failure e-mail sent to root
 if [ $ERRORS -gt 0 ];
 then
-    echo "$ERRORS ERROR(S) DURING EXECUTION OF gen_fields_daily.sh"
-    echo "FAILED COMMANDS:
+    >&2 echo "$ERRORS ERROR(S) DURING EXECUTION OF gen_fields_daily.sh"
+    >&2 echo "FAILED COMMANDS:
 $FAILED_COMMANDS"
     exit 1
 else
