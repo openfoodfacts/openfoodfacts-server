@@ -76,7 +76,7 @@ my $response_email = $admin->get($url_email);
 #checking if the edit page of the common ua is well deleted
 like($response_email->content, qr/Invalid user\./, "the email edit page is well deleted");
 
-my $url_contributor = construct_test_url("/contributor/tests", "world");
+my $url_contributor = construct_test_url("/facets/contributors/tests", "world");
 my $response_contributor = $admin->get($url_contributor);
 #checking if the edit page of the common ua is well deleted
 like($response_contributor->content, qr/Unknown user\./, "the contributor page of the ua is well deleted");
