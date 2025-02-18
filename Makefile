@@ -163,9 +163,10 @@ down:
 	@echo "🥫 Bringing down containers …"
 	${DOCKER_COMPOSE} down
 
+# Note: we use it in deploy, so we must not use --remove-orphans as it would remove shared-net services
 hdown:
 	@echo "🥫 Bringing down containers and associated volumes …"
-	${DOCKER_COMPOSE} down -v --remove-orphans
+	${DOCKER_COMPOSE} down -v ${args}
 
 reset: hdown up
 
