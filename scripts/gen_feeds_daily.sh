@@ -31,6 +31,9 @@ fi
 
 cd $OFF_SCRIPTS_DIR
 
+ERRORS=0
+FAILED_COMMANDS=""
+
 # off-pro flavor: we don't generate most exports
 # but we have some special processing
 if [ "$PRODUCT_OPENER_FLAVOR_SHORT" == "off-pro" ]; then
@@ -40,13 +43,22 @@ if [ "$PRODUCT_OPENER_FLAVOR_SHORT" == "off-pro" ]; then
     exit 0
 fi
 
-
 ./remove_empty_products.pl
 ./gen_top_tags_per_country.pl
 
 # Generate the CSV and RDF exports
-./export_database.pl
+./export_database_nok.pl
+RETURN=$?
 
+if [ $RETURN -ne 0 ];
+then
+    echo "export_database.pl not executed successfully - return value: $RETURN"
+    ERRORS=`expr $ERRORS + 1`
+    FAILED_COMMANDS="${FAILED_COMMANDS}export_database.pl
+"
+fi
+
+# compress CSV exports
 cd $OFF_PUBLIC_DATA_DIR
 for export in en.$PRODUCT_OPENER_DOMAIN.products.csv fr.$PRODUCT_OPENER_DOMAIN.products.csv en.$PRODUCT_OPENER_DOMAIN.products.rdf fr.$PRODUCT_OPENER_DOMAIN.products.rdf; do
    nice pigz < $export > new.$export.gz
@@ -113,4 +125,17 @@ then
     ./generate_madenearme_pages.sh
 fi
 
+# If there were commands that resulted in errors,
+# echo the list of commands so that it is included in the
+# failure e-mail sent to root
+if [ $ERRORS -gt 0 ];
+then
+    echo "$ERRORS ERROR(S) DURING EXECUTION OF gen_fields_daily.sh"
+    echo "FAILED COMMANDS:
+$FAILED_COMMANDS"
+    exit 1
+else
+    echo "No errors during execution of gen_fields_daily.sh"
+    exit 0
+fi
 
