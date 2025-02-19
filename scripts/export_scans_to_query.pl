@@ -89,34 +89,62 @@ sub send_scans() {
 	return 1;
 }
 
-# because getting products from mongodb won't give 'deleted' ones
-# found that path->visit was slow with full product volume
+# Directory scanning version
 sub find_products($dir, $code) {
-	my $socket_timeout_ms = 2 * 60000;    # 2 mins, instead of 30s default, to not die as easily if mongodb is busy.
-
-	# Collection that will be used to iterate products
-	my $products_collection = get_products_collection({timeout => $socket_timeout_ms});
-
-	# only retrieve important fields
-	my $cursor = $products_collection->query({})->sort({code => 1})->fields({code => 1});
-	$cursor->immortal(1);
-
-	while (my $product_ref = $cursor->next) {
-		my $code = $product_ref->{code};
-		my $product_path = split_code($code);
-		my $file_path = "$dir/$product_path";
+	opendir DH, "$dir" or die "could not open $dir directory: $!\n";
+	my @files = readdir(DH);
+	closedir DH;
+	foreach my $entry (sort @files) {
+		next if $entry =~ /^\.\.?$/;
+		my $file_path = "$dir/$entry";
 
 		if (not $can_process and $file_path eq $last_processed_path) {
 			$can_process = 1;
 			print "Resuming from '$last_processed_path'\n";
 			next;    # we don't want to process the product again
 		}
-		next if not $can_process;
-		process_file($file_path, $code);
+
+		if (-d $file_path and ($can_process or ($last_processed_path =~ m/^\Q$file_path/))) {
+			find_products($file_path, "$code$entry");
+			next;
+		}
+ 		next if not $can_process;
+
+		if ($entry eq 'scans.json') {
+			process_file($dir, $code);
+		}
 	}
 
 	return;
 }
+
+# MongoDB version
+# sub find_products($dir, $code) {
+# 	my $socket_timeout_ms = 2 * 60000;    # 2 mins, instead of 30s default, to not die as easily if mongodb is busy.
+
+# 	# Collection that will be used to iterate products
+# 	my $products_collection = get_products_collection({timeout => $socket_timeout_ms});
+
+# 	# only retrieve important fields
+# 	my $cursor = $products_collection->query({})->sort({code => 1})->fields({code => 1});
+# 	$cursor->immortal(1);
+
+# 	while (my $product_ref = $cursor->next) {
+# 		my $code = $product_ref->{code};
+# 		my $product_path = split_code($code);
+# 		my $file_path = "$dir/$product_path";
+
+# 		if (not $can_process and $file_path eq $last_processed_path) {
+# 			$can_process = 1;
+# 			print "Resuming from '$last_processed_path'\n";
+# 			next;    # we don't want to process the product again
+# 		}
+# 		next if not $can_process;
+# 		process_file($file_path, $code);
+# 	}
+
+# 	return;
+# }
 
 sub open_checkpoint($filename) {
 	if (!-e $filename) {
