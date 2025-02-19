@@ -102,7 +102,6 @@ sub find_products($dir, $code) {
 		}
 
 		if ($can_process and $entry eq 'scans.json') {
-			print "$file_path\n";
 			if ($can_process or ($last_processed_path and $last_processed_path eq $dir)) {
 				process_file($dir, $code);
 			}
