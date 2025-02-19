@@ -64,6 +64,7 @@ sub process_file($path, $code) {
 }
 
 sub send_scans() {
+	print '[' . localtime() . "] $scan_count products processed...";
 	# Remove last comma
 	chop($scans);
 	$scans .= '}';
@@ -82,7 +83,7 @@ sub send_scans() {
 		die;
 	}
 
-	print '[' . localtime() . "] $scan_count products processed.\n";
+	print '[' . localtime() . "] Sent to off-query.\n";
 	$scans = '{';
 
 	return 1;
