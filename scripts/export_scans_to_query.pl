@@ -24,8 +24,9 @@ use ProductOpener::PerlStandards;
 use utf8;
 
 use ProductOpener::Config qw/%options $query_url/;
-use ProductOpener::Store qw/retrieve_json/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Data qw/get_products_collection/;
+use ProductOpener::Products qw/split_code/;
 use LWP::UserAgent;
 use Path::Tiny;
 use File::Slurp;
@@ -46,11 +47,14 @@ my $ua = LWP::UserAgent->new();
 $ua->timeout(15);
 
 sub process_file($path, $code) {
-	my $scans_ref = read_file($path . "/scans.json");
+	my $scans_file = $path . "/scans.json";
+	return if not -e $scans_file;
+	my $scans_ref = read_file($scans_file);
+
 	$scans .= '"' . $code . '":' . $scans_ref . ',';
 	$scan_count++;
 
-	if ($scan_count % 1000 == 0) {
+	if ($scan_count % 60 == 0) {
 		send_scans();
 		update_checkpoint($checkpoint_file, $path);
 	}
@@ -86,29 +90,27 @@ sub send_scans() {
 # because getting products from mongodb won't give 'deleted' ones
 # found that path->visit was slow with full product volume
 sub find_products($dir, $code) {
-	opendir DH, "$dir" or die "could not open $dir directory: $!\n";
-	my @files = readdir(DH);
-	closedir DH;
-	foreach my $entry (sort @files) {
-		next if $entry =~ /^\.\.?$/;
-		my $file_path = "$dir/$entry";
+	my $socket_timeout_ms = 2 * 60000;    # 2 mins, instead of 30s default, to not die as easily if mongodb is busy.
+
+	# Collection that will be used to iterate products
+	my $products_collection = get_products_collection({timeout => $socket_timeout_ms});
+
+	# only retrieve important fields
+	my $cursor = $products_collection->query({})->sort({code => 1})->fields({code => 1});
+	$cursor->immortal(1);
+
+	while (my $product_ref = $cursor->next) {
+		my $code = $product_ref->{code};
+		my $product_path = split_code($code);
+		my $file_path = "$dir/$product_path";
 
 		if (not $can_process and $file_path eq $last_processed_path) {
 			$can_process = 1;
 			print "Resuming from '$last_processed_path'\n";
 			next;    # we don't want to process the product again
 		}
-
-		if (-d $file_path and ($can_process or ($last_processed_path =~ m/^\Q$file_path/))) {
-			find_products($file_path, "$code$entry");
-			next;
-		}
-
-		if ($can_process and $entry eq 'scans.json') {
-			if ($can_process or ($last_processed_path and $last_processed_path eq $dir)) {
-				process_file($dir, $code);
-			}
-		}
+		next if not $can_process;
+		process_file($file_path, $code);
 	}
 
 	return;
