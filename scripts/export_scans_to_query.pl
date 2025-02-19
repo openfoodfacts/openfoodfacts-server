@@ -53,7 +53,6 @@ sub process_file($path, $code) {
 	if ($scan_count % 1000 == 0) {
 		send_scans();
 		update_checkpoint($checkpoint_file, $path);
-		print '[' . localtime() . "] $scan_count products processed.\n";
 	}
 
 	return 1;
@@ -75,6 +74,7 @@ sub send_scans() {
 		die;
 	}
 
+	print '[' . localtime() . "] $scan_count products processed.\n";
 	$scans = {};
 
 	return 1;
@@ -90,12 +90,19 @@ sub find_products($dir, $code) {
 		next if $entry =~ /^\.\.?$/;
 		my $file_path = "$dir/$entry";
 
+		if (not $can_process and $file_path eq $last_processed_path) {
+			$can_process = 1;
+			print "Resuming from '$last_processed_path'\n";
+			next;    # we don't want to process the product again
+		}
+
 		if (-d $file_path and ($can_process or ($last_processed_path =~ m/^\Q$file_path/))) {
 			find_products($file_path, "$code$entry");
 			next;
 		}
 
-		if ($entry eq 'scans.json') {
+		if ($can_process and $entry eq 'scans.json') {
+			print "$file_path\n";
 			if ($can_process or ($last_processed_path and $last_processed_path eq $dir)) {
 				process_file($dir, $code);
 			}
@@ -129,7 +136,7 @@ sub update_checkpoint($checkpoint_file, $dir) {
 
 find_products($BASE_DIRS{PRODUCTS}, '');
 
-if (scalar $scans > 0) {
+if (scalar %$scans > 0) {
 	send_scans();
 }
 
