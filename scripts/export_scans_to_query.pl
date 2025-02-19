@@ -28,7 +28,7 @@ use ProductOpener::Store qw/retrieve_json/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use LWP::UserAgent;
 use Path::Tiny;
-use JSON::MaybeXS;
+use File::Slurp;
 
 # This script recursively visits all scans.json files from the root of the products directory
 # and sends the data to off-query
@@ -36,7 +36,7 @@ use JSON::MaybeXS;
 my ($checkpoint_file, $last_processed_path) = open_checkpoint('export_scans_to_query_checkpoint.tmp');
 my $can_process = $last_processed_path ? 0 : 1;
 
-my $scans = {};
+my $scans = "{";
 my $scan_count = 0;
 
 $query_url =~ s/^\s+|\s+$//g;
@@ -46,8 +46,8 @@ my $ua = LWP::UserAgent->new();
 $ua->timeout(15);
 
 sub process_file($path, $code) {
-	my $scans_ref = retrieve_json($path . "/scans.json");
-	$scans->{$code} = $scans_ref;
+	my $scans_ref = read_file($path . "/scans.json");
+	$scans .= '"' . $code . '":' . $scans_ref . ',';
 	$scan_count++;
 
 	if ($scan_count % 1000 == 0) {
@@ -59,9 +59,12 @@ sub process_file($path, $code) {
 }
 
 sub send_scans() {
+	# Remove last comma
+	chop($scans);
+	$scans .= '}';
 	my $resp = $ua->post(
 		$query_post_url,
-		Content => encode_json($scans),
+		Content => $scans,
 		'Content-Type' => 'application/json; charset=utf-8'
 	);
 	if (!$resp->is_success) {
@@ -75,7 +78,7 @@ sub send_scans() {
 	}
 
 	print '[' . localtime() . "] $scan_count products processed.\n";
-	$scans = {};
+	$scans = '{';
 
 	return 1;
 }
@@ -135,7 +138,7 @@ sub update_checkpoint($checkpoint_file, $dir) {
 
 find_products($BASE_DIRS{PRODUCTS}, '');
 
-if (scalar %$scans > 0) {
+if (length($scans) > 1) {
 	send_scans();
 }
 
