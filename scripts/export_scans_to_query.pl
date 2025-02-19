@@ -34,6 +34,7 @@ use File::Slurp;
 # This script recursively visits all scans.json files from the root of the products directory
 # and sends the data to off-query
 
+my $batch_size = $ARGV[0] // 100;
 my ($checkpoint_file, $last_processed_path) = open_checkpoint('export_scans_to_query_checkpoint.tmp');
 my $can_process = $last_processed_path ? 0 : 1;
 
@@ -54,7 +55,7 @@ sub process_file($path, $code) {
 	$scans .= '"' . $code . '":' . $scans_ref . ',';
 	$scan_count++;
 
-	if ($scan_count % 60 == 0) {
+	if ($scan_count % $batch_size == 0) {
 		send_scans();
 		update_checkpoint($checkpoint_file, $path);
 	}
