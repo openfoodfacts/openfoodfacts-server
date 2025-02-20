@@ -3,7 +3,7 @@
 Everything you need to know about Open Food Facts API.
 
 !!!note "Please read this"
-    👮‍♂️🚥You are going to use our API ?
+    👮‍♂️🚥Are you going to use our API?
     Please **read this documentation entirely** before using it. 
 
 ## Overview
