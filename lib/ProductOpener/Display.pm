@@ -154,7 +154,7 @@ use ProductOpener::Missions qw(:all);
 use ProductOpener::MissionsConfig qw(:all);
 use ProductOpener::URL qw(format_subdomain);
 use ProductOpener::Data
-	qw(execute_aggregate_tags_query execute_count_tags_query execute_query get_products_collection get_recent_changes_collection);
+	qw(execute_aggregate_tags_query execute_count_tags_query execute_product_query execute_query get_products_collection get_recent_changes_collection);
 use ProductOpener::Text
 	qw(escape_char escape_single_quote_and_newlines get_decimal_formatter get_percent_formatter remove_tags_and_quote);
 use ProductOpener::Nutriscore qw(%points_thresholds compute_nutriscore_grade);
@@ -5491,12 +5491,8 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			set_request_stats_time_start($request_ref->{stats}, "mongodb_query");
 			$cursor = execute_query(
 				sub {
-					return get_products_collection(get_products_collection_request_parameters($request_ref))
-						->query($query_ref)
-						->fields($fields_ref)
-						->sort($sort_ref)
-						->limit($limit)
-						->skip($skip);
+					return execute_product_query(get_products_collection_request_parameters($request_ref),
+						$query_ref, $fields_ref, $sort_ref, $limit, $skip);
 				}
 			);
 			$log->debug("MongoDB query ok", {error => $@}) if $log->is_debug();
@@ -6960,9 +6956,8 @@ sub search_and_graph_products ($request_ref, $query_ref, $graph_ref) {
 	eval {
 		$cursor = execute_query(
 			sub {
-				return get_products_collection(get_products_collection_request_parameters($request_ref))
-					->query($query_ref)
-					->fields($fields_ref);
+				return execute_product_query(get_products_collection_request_parameters($request_ref),
+					$query_ref, $fields_ref);
 			}
 		);
 	};
@@ -7271,9 +7266,9 @@ sub search_products_for_map ($request_ref, $query_ref) {
 	eval {
 		$cursor = execute_query(
 			sub {
-				return get_products_collection(get_products_collection_request_parameters($request_ref))
-					->query($query_ref)
-					->fields(
+				return execute_product_query(
+					get_products_collection_request_parameters($request_ref),
+					$query_ref,
 					{
 						code => 1,
 						lc => 1,
@@ -7285,7 +7280,7 @@ sub search_products_for_map ($request_ref, $query_ref) {
 						origins => 1,
 						emb_codes_tags => 1,
 					}
-					);
+				);
 			}
 		);
 	};
@@ -11682,9 +11677,8 @@ sub search_and_analyze_recipes ($request_ref, $query_ref) {
 	eval {
 		$cursor = execute_query(
 			sub {
-				return get_products_collection(get_products_collection_request_parameters($request_ref))
-					->query($query_ref)
-					->fields($fields_ref);
+				return execute_product_query(get_products_collection_request_parameters($request_ref),
+					$query_ref, $fields_ref);
 			}
 		);
 	};

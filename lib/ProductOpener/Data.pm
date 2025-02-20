@@ -45,6 +45,7 @@ BEGIN {
 		&execute_query
 		&execute_aggregate_tags_query
 		&execute_count_tags_query
+		&execute_product_query
 		&get_database
 		&get_collection
 		&get_products_collection
@@ -62,7 +63,9 @@ use vars @EXPORT_OK;
 use experimental 'smartmatch';
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Cursor;
 
+use Storable qw(freeze);
 use MongoDB;
 use JSON::MaybeXS;
 use CGI ':cgi-lib';
@@ -117,6 +120,40 @@ sub execute_aggregate_tags_query ($query) {
 
 sub execute_count_tags_query ($query) {
 	return execute_tags_query('count', $query);
+}
+
+sub execute_product_query ($parameters_ref, $query, $fields, $sort, $limit, $skip) {
+	# Convert sort into an array so that the order oif keys is not ambiguous
+	my @sort_array = ();
+	if ($sort) {
+		foreach my $k ($sort->Keys) {
+			push(@sort_array, ($k, $sort->FETCH($k)));
+		}
+	}
+
+	my $results = execute_tags_query('query', {
+		filter => $query,
+		projection => $fields,
+		sort => \@sort_array,
+		limit => $limit,
+		skip => $skip
+	});
+
+	if (defined $results) {
+		return ProductOpener::Cursor->new($results);
+	}
+
+	my $cursor = get_products_collection($parameters_ref)->query($query)->fields($fields);
+	if ($sort) {
+		$cursor = $cursor->sort($sort);
+	}
+	if ($limit) {
+		$cursor = $cursor->limit($limit);
+	}
+	if ($skip) {
+		$cursor = $cursor->skip($skip);
+	}
+	return $cursor;
 }
 
 # $json_utf8 has utf8 enabled: it decodes UTF8 bytes
