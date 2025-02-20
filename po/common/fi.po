@@ -1497,7 +1497,7 @@ msgstr "Seuraava"
 
 msgctxt "no_barcode"
 msgid "Product without barcode"
-msgstr "Viivakooditon tuote"
+msgstr "Tuote ilman viivakoodia"
 
 msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
@@ -2033,7 +2033,7 @@ msgstr "Lisäämäsi tai muokkaamasi tuotteet"
 
 msgctxt "purchase_places"
 msgid "City, state and country where purchased"
-msgstr "Kaupunki, osavaltio ja maa, jossa ostettu"
+msgstr "Kaupunki, osavaltio ja maa mistä ostettu"
 
 msgctxt "purchase_places_note"
 msgid "Indicate where you bought or saw the product (at least the country)"
@@ -3030,7 +3030,7 @@ msgstr "Riski saavuttaa tai ylittää korkein annos ilman haittavaikutuksia (eng
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_adi"
 msgid "Groups with more than 50% of members exceeding the acceptable daily intake (ADI)"
-msgstr "Ryhmät, joissa yli 50% jäsenistä ylittää hyväksyttävän päiväsaannin (ADI)"
+msgstr "Ryhmät joiden jäsenistä yli 50% ylittää hyväksyttävän päiväsaannin (ADI-arvon)"
 
 msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_adi"
 msgid "Groups with more than 5% of members exceeding the acceptable daily intake (ADI)"
@@ -5437,7 +5437,7 @@ msgstr ""
 
 msgctxt "attribute_environmental_score_not_applicable_description_short"
 msgid "Not applicable for the category"
-msgstr ""
+msgstr "Ei koske kategoriaa"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_environmental_score_not_applicable_description"
@@ -5646,7 +5646,7 @@ msgstr "Vaihe"
 
 msgctxt "environmental_score_impact"
 msgid "Impact"
-msgstr "Vaikutus"
+msgstr "Merkitys"
 
 msgctxt "environmental_score_agriculture"
 msgid "Agriculture"
@@ -6291,7 +6291,7 @@ msgstr "Lue lisää NOVA-luokittelusta"
 
 msgctxt "nova_group_missing_category"
 msgid "The category of the product must be specified in order to determine the NOVA group."
-msgstr "Tuotteen luokka on määritettävä NOVA-ryhmän määrittämiseksi."
+msgstr "Tuotteen kategoria tulee kertoa, jotta NOVA-ryhmä voitaisiin määrittää."
 
 msgctxt "nova_group_missing_ingredients"
 msgid "The ingredients of the product must be specified in order to determine the NOVA group."
