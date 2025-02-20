@@ -108,7 +108,7 @@ sub find_products($dir, $code) {
 			find_products($file_path, "$code$entry");
 			next;
 		}
- 		next if not $can_process;
+		next if not $can_process;
 
 		if ($entry eq 'scans.json') {
 			process_file($dir, $code);
