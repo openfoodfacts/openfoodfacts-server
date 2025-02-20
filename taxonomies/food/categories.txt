@@ -11069,6 +11069,11 @@ gpc_category_name:en: Coffee Substitutes - Capsules/Pods
 
 < en:Instant coffee substitutes
 < en:Plant-based beverages
+en: Liquid chicory
+fr: Chicorée liquide
+
+< en:Instant coffee substitutes
+< en:Plant-based beverages
 en: Instant chicory, Instant chicory powder
 fr: Chicorée soluble, chicorée en poudre, Chicorée en poudre soluble
 hr: Instant cikorija
@@ -34668,6 +34673,10 @@ fr: Pains multicéréales, Pains aux céréales
 nl: Meergranenbroden
 
 < en:Breads
+en: Breads mith malted grains
+fr: Pains de céréales germées
+
+< en:Breads
 en: Breads with corn
 bg: Хляб с царевица
 fr: Pains au maïs
@@ -45190,30 +45199,26 @@ wikidata:en: Q643697
 < en:Cow cheeses
 < en:French cheeses
 < en:Soft cheeses with washed rind
+
+< en:Soft cheeses with washed rind
+en: Soft cheeses with a red rind
+fr: Fromages à croûte rouge
+nl: Kazen met een rode korst
+
+< en:Soft cheeses with a red rind
 en: Munster, Munster cheeses, Munster cheese from cow's milk
 xx: Munsters, Munster
 ar: مونستير
 be: Мюнстэр
 bg: Мюнстер
-ca: Munster
 cv: Мюнстер
 de: Münsterkäse
-es: Munster
-eu: Munster
-fi: Munster
 fr: Munsters, Munster, Munster-Géromé
-hr: Munster
 id: Keju Munster
 ja: マンステール
 ko: 묑스테르
-la: Munster
 ms: Keju Munster
-nb: Munster
-nl: Munster
-pl: Munster
-pt: Munster
 ru: Мюнстер
-sv: Munster
 th: เมิงสแตร์ชีส
 uk: Мюнстер
 zh: 芒斯特芝士
@@ -54246,15 +54251,6 @@ it: Composte di albicocca
 lt: Abrikosų tyrės, Tyrės su abrikosais
 
 < en:Compotes
-en: Rhubarb compotes
-de: Rhabarberkompott
-fr: Compotes de rhubarbe
-hr: Kompoti od rabarbare
-it: Composte di rabarbaro
-lt: Rabarbarų tyrės, Tyrės su rabarbarais
-nl: Rabarbercompotes, Rabarbercompote
-
-< en:Compotes
 en: Mango compotes
 de: Mangokompott
 es: Compotas de mango
@@ -54263,6 +54259,20 @@ hr: Kompoti od manga
 it: Composte di mango
 lt: Mangų tyrės, Tyrės su mangais
 nl: Mangocompotes
+
+< en:Compotes
+en: Prune purees
+fr: Purées de pruneaux
+
+< en:Compotes
+en: Rhubarb compotes
+de: Rhabarberkompott
+fr: Compotes de rhubarbe
+hr: Kompoti od rabarbare
+it: Composte di rabarbaro
+lt: Rabarbarų tyrės, Tyrės su rabarbarais
+nl: Rabarbercompotes, Rabarbercompote
+
 
 < en:Compotes
 en: Pear compotes, Pear compote
@@ -59317,7 +59327,7 @@ hr: Rafinirana kokosova ulja
 it: Olio di noce di cocco raffinato
 lt: Rafinuoti kokosų aliejai
 
-< en: Coconut oils
+< en: Fruit and fruit seed oils
 en: Coprah oils
 fr: Huiles de coprah
 
@@ -113902,6 +113912,10 @@ ciqual_food_name:en: Seaweed, agar, raw
 ciqual_food_name:fr: Agar (algue), cru
 wikidata:en: Q177998
 
+< en: Agar-agar
+en: Agar-agar powder
+fr: Agar agar en poudre
+
 en: Caviar substitutes
 fr: Substituts du caviar
 
@@ -116403,6 +116417,14 @@ ciqual_food_name:fr: Galette de céréales aux légumes (sans soja), préemball�
 < en:Vegetarian patties
 en: Frozen vegetarian patties, frozen vegetarian steaks
 fr: Galettes végétariennes surgelées, Steaks végétariens surgelés
+
+< en:Vegetarian patties
+en: Red bean patties
+fr: Galettes aux haricots rouges
+
+< en:Vegetarian patties
+en: Seitan patties
+fr: Galettes au seitan
 
 < en:Meat analogues
 en: Vegetarian sausages
