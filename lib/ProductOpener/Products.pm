@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2025 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -170,6 +170,10 @@ my $ean_check = CheckDigits('ean');
 
 use Scalar::Util qw(looks_like_number);
 
+BEGIN {
+	no warnings 'once';
+	require GS1::SyntaxEngine::FFI::GS1Encoder;
+}
 use GS1::SyntaxEngine::FFI::GS1Encoder;
 
 =head1 FUNCTIONS
