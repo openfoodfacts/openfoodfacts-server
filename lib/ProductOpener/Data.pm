@@ -123,11 +123,11 @@ sub execute_count_tags_query ($query) {
 }
 
 sub execute_product_query ($parameters_ref, $query, $fields, $sort, $limit, $skip) {
-	# Convert sort into an array so that the order oif keys is not ambiguous
+	# Convert sort into an array so that the order of keys is not ambiguous
 	my @sort_array = ();
 	if ($sort) {
 		foreach my $k ($sort->Keys) {
-			push(@sort_array, ($k, $sort->FETCH($k)));
+			push(@sort_array, [$k, $sort->FETCH($k)]);
 		}
 	}
 
