@@ -1,41 +1,40 @@
-#!/usr/bin/perl
+#!/usr/bin/perl -w
+
+# This file is part of Product Opener.
+#
+# Product Opener
+# Copyright (C) 2011-2025 Association Open Food Facts
+# Contact: contact@openfoodfacts.org
+# Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
+#
+# Product Opener is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use CGI::Carp qw(fatalsToBrowser);
 
 use Modern::Perl '2017';
 use utf8;
 
-use ProductOpener::Data qw/:all/;
+use Log::Any::Adapter ('Stdout');
 
-use LWP::UserAgent;
-my $ua = LWP::UserAgent->new;
-my $server_endpoint = "https://hooks.slack.com/services/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";
+use ProductOpener::Data qw/:all/;
+use ProductOpener::Slack qw/send_slack_message/;
 
 sub send_msg($) {
 
 	my $msg = shift;
 
-	# set custom HTTP request header fields
-	my $req = HTTP::Request->new(POST => $server_endpoint);
-	$req->header('content-type' => 'application/json');
-
-	# add POST data to HTTP request body
-	my $post_data
-		= '{"channel": "#infrastructure", "username": "checkmongodb", "text": "'
-		. $msg
-		. '", "icon_emoji": ":hamster:" }';
-	$req->content_type("text/plain; charset='utf8'");
-	$req->content(Encode::encode_utf8($post_data));
-
-	my $resp = $ua->request($req);
-	if ($resp->is_success) {
-		my $message = $resp->decoded_content;
-		print "Received reply: $message\n";
-	}
-	else {
-		print "HTTP POST error code: " . $resp->code . "\n";
-		print "HTTP POST error message: " . $resp->message . "\n";
-	}
+	send_slack_message('#infrastructure', 'checkmongodb', $msg, ':hamster:');
 
 	return;
 }
