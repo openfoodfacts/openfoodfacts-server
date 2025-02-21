@@ -131,7 +131,7 @@ sub execute_product_query ($parameters_ref, $query, $fields, $sort, $limit, $ski
 		}
 	}
 
-	my $results = execute_tags_query('query', {
+	my $results = execute_tags_query('find', {
 		filter => $query,
 		projection => $fields,
 		sort => \@sort_array,
