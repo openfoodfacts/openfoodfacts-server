@@ -255,8 +255,6 @@ pt: cortado fino, cortada fina, cortados finos, cortadas finas
 
 de: feingeschnitten, fein geschnittenen, feingeschnittener, feingeschnittenes
 
-de: geschrotet
-
 # <en:cut
 nl: zeer fijn gesneden
 
@@ -297,7 +295,7 @@ pt: laminado, laminada, laminados, laminadas, em lâminas, em lâmina, em rodela
 en: chopped
 ca: picat, picada, picats, picades, trossejat, trossejada, trossejades
 da: hakket, hakkede
-de: gehackt, gehackte, gehackter, gehacktes
+de: gehackt, gehackte, gehackter, gehacktes, geschrotet, geschrotete
 es: picada, picado, picadas, picados, trocitos, trocitas, troceado, troceada, troceados, troceadas
 fi: pilkottu, pilkotut
 fr: hâché, hâchée, hâchés, hâchées, haché, hachée, hachés, hachées
@@ -381,7 +379,7 @@ en: grated
 bg: настърган, настъргано, настъргана, настъргани
 ca: ratllat
 cs: strouhaný
-de: gerieben, geriebener, geriebene, geriebenes, geraspelt, geraspelte, geraspelter, geraspeltes
+de: gerieben, geriebener, geriebene, geriebenes, geraspelt, geraspelte, geraspelter, geraspeltes, gerebelt
 es: rallada, rallado, ralladas, rallados, rayada, rayado, rayadas, rayados
 fi: raastettu, raastetut
 # we need both râpé and rapé listed for matching in ingredients analysis
@@ -1286,7 +1284,7 @@ pt: curado, curada, curados, curadas
 #maybe this must be split in firmed and cuttable
 en: firmed
 da: skærefast
-de: schnittfester
+de: schnittfester, schnittfest
 el: σκληρή
 fr: affinée
 nl: Geharde
@@ -2194,6 +2192,9 @@ en: standardized
 bg: стандартизирано
 fr: standardisé, standardisée, standardisés, standardisées
 hr: standardizirano
+
+en: seasoned, with seasoning, with liquid seasoning
+de: gewürzter, gewuerzter, gewürzter, gewuerzter, flüssig gewürzt
 
 #######################################################################
 #

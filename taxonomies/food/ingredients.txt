@@ -213,7 +213,7 @@ en: caramel syrup
 bg: карамелен сироп
 ca: xarop de carmel, caramel liquid
 da: karamelsukkersirup
-de: Karamellsirup, Caramelsirup
+de: Karamellsirup, Caramelsirup, Karamell-Sirup
 es: jarabe de caramelo, sirope de caramelo, caramelo líquido
 fi: Karamellisiirappi
 fr: sirop de caramel, sirop caramel
@@ -234,7 +234,7 @@ en: caramelised sugar syrup, caramel sugar syrup
 bg: сироп от карамелизирана захар, карамелизиран захарен сироп
 ca: xarop de sucre caramelitzat
 da: karamelliseret sukkersirup, karameliseret sukkersirup
-de: Caramelzuckersirup, Karamellzuckersirup, Karamell-Zuckersirup
+de: Caramelzuckersirup, Karamellzuckersirup, Karamell-Zuckersirup, karamellisierter Zuckersirup
 es: jarabe de azúcar caramelizado, sirope de azúcar caramelizado
 et: karamelliseeritud suhkrusiirup
 fi: karamellisoitu sokerisiirappi, karamellisokerisiirappi
@@ -277,7 +277,7 @@ it: preparazione di cioccolato al caramello
 
 # <en:compound
 en: salted butter caramel
-de: gesalzene Karamellbutter
+de: gesalzene Karamellbutter, gesalzenes Butter-Karamell
 es: caramelo a la mantequilla salada
 fi: Suolainen kinuski
 fr: caramel au beurre salé
@@ -290,7 +290,7 @@ nl: gekarameliseerde gezouten boter, karamel en gezouten boter
 
 # <en:compound
 fr: éclats de caramel
-de: Caramelstücke
+de: Caramelstücke, Karamellstücke, Karamellsplitter
 fi: toffeepala
 # ingredient/fr:éclats-de-caramel has 120 products in 3 languages @2019-03-09
 
@@ -497,7 +497,7 @@ bs: emulgator sojin lecitin
 ca: Lecitina de soja, lecitines de soja
 cs: sójový lecitin
 da: sojalecitin, sojalecitiner, sojalecithin, sojalecithiner
-de: Sojalecithine, Sojalecithin, Soja-Lecithine, Emulgator Sojalecithine
+de: Sojalecithine, Sojalecithin, Soja-Lecithine, Emulgator Sojalecithine, Soja-Lecithin, Emulgator Sojalecithin
 el: λεκιθίνη σόγιας
 es: lecitina de soja, lecitina de soya, lecitinas de soja, lecitinas de soya
 et: sojaletsitiin
@@ -4358,7 +4358,7 @@ bg: обезмаслено сухо мляко, обезмаслено мляк�
 ca: llet desnatada en pols, llet en pols desnatada
 cs: Sušené odstředěné mléko
 da: skummetmælkspulver
-de: Magermilchpulver
+de: Magermilchpulver, Magermilch-Pulver, Magermilch-Pulver und Magermilch-Konzentrat
 es: leche desnatada en polvo, leche en polvo desnatada, leche en polvo descremada
 et: lõssipulber, lössipulber, kooritud piimapulber
 fi: rasvaton maitojauhe, rasvatonta maitojauhetta, rasvatonmaitojauhe
@@ -7855,6 +7855,7 @@ bg: Гауда
 ca: formatge gouda
 cv: Гауда
 da: gouda-ost
+de: Gouda, Gouda-Käse
 el: Γκούντα
 eo: Gaŭdo-fromaĝo
 es: queso gouda
@@ -8396,6 +8397,7 @@ cs: mozzarella, sýr mozzarella
 cv: Моцарелла
 cy: Mosarela
 da: mozzarella, mozzarella ost
+de: Mozzarella, Mozzarella-Käse
 el: Μοτσαρέλα, τυρι Μοτσαρέλλα
 eo: Mocarelo
 es: mozzarella, queso mozzarella, queso mozarella
@@ -10758,7 +10760,7 @@ hr: siva sol iz guérande
 < en:sea salt
 en: Fleur de sel
 ca: Flor de sal
-de: Fleur de Sel
+de: Fleur de Sel, Fleur de Sel-Meersalz
 eo: Salfloro
 es: Flor de sal
 fi: Suolankukka
@@ -14430,7 +14432,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Collagen
 en: hydrolyzed collagen, collagen hydrolyzate, collagen hydrolysate
 ar: كولاجين متحلل
 bg: хидролизиран колаген
-de: kollagen-hydrolysat
+de: kollagen-hydrolysat, Kollagenhydrolysat
 es: colágeno hidrolizado
 hr: hidrolizat kolagena
 ja: たん白加水分解物, 蛋白加水分解物
@@ -15352,7 +15354,7 @@ bg: масла и мазнини
 ca: Oli i greix, olis i greixos, matèria grassa, M.G.
 cs: oleji a tuky
 da: olier og fedtstoffer
-de: Speiseöle und -fette
+de: Speiseöle und -fette, Öle und Fette
 el: έλαια και λίπη
 es: aceites y grasas, materia grasa
 et: õlid ja rasvad
@@ -20302,7 +20304,7 @@ bg: пенливо вино
 ca: vi escumós
 cs: sekt
 da: Mousserende vin
-de: Schaumwein
+de: Schaumwein, Perlwein, Sekt
 el: αφρώδης οίνος
 eo: Ŝaŭmvino
 es: vino espumoso
@@ -21515,7 +21517,7 @@ bs: aroma
 ca: Aromes, aroma
 cs: Aroma, aromata
 da: smagsstof, smagstoffer, aroma, aromaer
-de: Aroma, Aromen
+de: Aroma, Aromen, Aromas
 el: αρωματικό
 es: aroma, aromas, aromatizante, aromatizantes, sustancias-aromatizantes, saborizante, saborizantes
 et: lõhna- ja maitseaine, lõhna- ja maitseained, aroomiaine, lõhnaained
@@ -26268,7 +26270,7 @@ sv: hirsfrö
 # 331 in 6 @2101-10-14
 
 < en:millet
-de: Goldhirse, geschälte Hirse
+de: Goldhirse, geschälte Hirse, Gold-Hirse
 fr: millet décortiqué
 
 < en:millet
@@ -27841,7 +27843,7 @@ bs: pšenično brašno
 ca: Farina de ble
 cs: pšeničná mouka
 da: Hvedemel
-de: Weizenmehl, Weizen-mehl
+de: Weizenmehl, Weizen-mehl, Weizenmehl Typ 1050, Weizenmehl Typ 550, Weizenmehl Typ 405
 el: αλεύρι σίτου
 es: harina de trigo, harina de trigo blando
 et: nisujahu
@@ -28295,7 +28297,7 @@ en: rye flour
 bg: ръжено брашно, брашно от ръж, брашно ръжено, ръжено пшенично брашно
 ca: farina de blat de sègol, farina de blat de segol, farina de sègol
 da: Rugmel
-de: Roggenmehl
+de: Roggenmehl, Roggenmehl Typ 1150
 es: harina de centeno
 fi: ruisjauho
 fr: farine de seigle
@@ -28431,7 +28433,7 @@ ciqual_food_name:fr: Farine de millet
 < en:millet flour
 < en:wholemeal flour
 en: whole grain millet flour
-de: Hirsevollkornmehl, Hirse-Vollkornmehl
+de: Hirsevollkornmehl, Hirse-Vollkornmehl, Hirsevollmehl
 hr: brašno od cijelog zrna prosa
 
 
@@ -28742,7 +28744,7 @@ it: Farina di riso bianco
 < en:wholemeal flour
 en: brown rice flour, full rice flour, whole rice flour, whole grain rice flour
 bg: брашно от пълнозърнест ориз
-de: Reisvollkornmehl, braunes Reismehl, volles Reismehl, Vollkornreismehl
+de: Reisvollkornmehl, braunes Reismehl, volles Reismehl, Vollkornreismehl, Reisvollmehl
 es: harina de arroz integral, harina integral de arroz
 fi: tumma riisijauho, täysjyväriisijauho
 fr: farine de riz complet, farine complète de riz, farine de riz complète
@@ -30686,7 +30688,7 @@ en: carob seed flour, carob kernel flour, carob flour
 bg: брашно от рожков, рожково брашно
 cs: Karobová mouka
 da: Johannesbrødkernemel
-de: Johannisbrotkernmehl, Johannisbrotkeimmehl
+de: Johannisbrotkernmehl, Johannisbrotkeimmehl, Stabilisator Johannisbrotkernmehl
 es: Harina de semillas de algarroba, semillas de algarroba
 fi: johanneksenleipäpuujauhe, Johanneksenleipäpuujauhetta
 fr: farine de graines de caroube, farine de graine de caroube, farine de graines de caroubes, graines de caroube, graine de caroube
@@ -33184,7 +33186,7 @@ cs: Bílkoviny
 cv: Шуррисем
 cy: protein
 da: Protein
-de: Protein, Eiweiß, Eiweißstoff
+de: Protein, Eiweiß, Eiweißstoff, Eiweiss
 dv: ޕްރޮޓީން
 el: Πρωτεΐνη
 eo: proteino
@@ -33332,7 +33334,7 @@ bg: растителен протеин, растителни протеини
 ca: Proteïna vegetal
 cs: rostlinné proteiny, rostlinné bílkoviny
 da: vegetabilsk protein
-de: pflanzliches Eiweiß, Pflanzenprotein, Pflanzenproteine, Pflanzliche Protein
+de: pflanzliches Eiweiß, Pflanzenprotein, Pflanzenproteine, Pflanzliche Protein, pflanzliche Eiweißextrakte, pflanzliches Eiweiss
 es: proteína vegetal
 fi: kasviproteiini
 fr: protéines végétales, protéine végétale
@@ -33371,7 +33373,7 @@ bg: грахов протеин
 ca: Proteïna de pèsol
 cs: hrachový protein
 da: Ærteprotein
-de: Erbsenprotein, erbseneiweiß
+de: Erbsenprotein, erbseneiweiß, Erbseneiweiss
 es: Proteína de guisante
 fi: herneproteiini
 fr: protéines de pois, protéine de pois
@@ -33568,7 +33570,7 @@ it: fibre di soia reidratate
 < en:soy protein
 en: dehydrated soy protein
 bg: дехидратиран соев протеин
-de: getrocknetes Sojaprotein
+# de: getrocknetes Sojaprotein # see ingredients_processing.txt
 es: Proteína de soja deshidratada
 fi: dehydratoitu soijaproteiini
 fr: protéines de soja déshydratées
@@ -33930,7 +33932,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Whey_protein
 < en:whey protein
 en: concentrated whey protein
 bg: протеинов концентрат от млечна суроватка
-de: konzentriertes Molkeprotein, Molkeneiweißkonzentrat
+de: konzentriertes Molkeprotein, Molkeneiweißkonzentrat, Molkeneiweiß-Konzentrat
 es: concentrado de proteína de suero
 fi: heraproteiinikonsentraatti
 fr: concentré de protéines de lactosérum, concentré de protéines de sérum
@@ -36897,7 +36899,7 @@ nl: geïnactiveerd tarwedesem
 en: rye sourdough
 bg: ръжена закваска
 da: rugsurdej
-de: Roggensauerteig
+de: Roggensauerteig, Sauerteig dunkel
 es: masa madre de centeno
 fi: ruistaikinanjuuri, ruisjuuri
 fr: levain de seigle
@@ -38388,7 +38390,7 @@ sv: frukt- och grönsakskoncentrat
 < en:fruit
 en: dried fruits
 ca: fruita seca
-de: Trockenfrüchte
+de: Trockenfrüchte, getrocknete Früchte
 #in Spanish dried fruit is fruta seca, nuts are frutos secos
 es: frutas secas, otras frutas secas
 fi: kuivatut hedelmät
@@ -42358,7 +42360,7 @@ fr: jus de citron bio concentré
 
 < en:lemon
 en: concentrated lemon extract
-de: konzentrierter Zitronenextrakt
+# de: konzentrierter Zitronenextrakt, konzentriertes Zitronenextrakt # see ingredients_processing.txt
 fi: tiivistetty sitruunauute
 fr: Extrait de citron concentré
 hr: koncentrirani ekstrakt limuna
@@ -48025,7 +48027,7 @@ bs: Grožđica
 ca: pansa, panses
 cs: rozinka
 da: Rosin
-de: Rosine, Rosinen
+de: Rosine, Rosinen, Weinbeere
 el: Σταφίδα
 eo: sekvinbero
 es: uvas pasas, pasas, uva desecada
@@ -48183,7 +48185,7 @@ hr: kalifornijske grožđice bez sjemenki
 < en:grape
 en: Corinthian raisins
 da: Korend
-de: korinthische Rosinen, Korinthiaki
+de: korinthische Rosinen, Korinthiaki, Korinthe, Korinthen
 es: Pasa de Corinto
 et: Korint
 fa: مویز
@@ -54647,7 +54649,7 @@ ciqual_food_name:fr: Carotte, purée
 
 < en:carrot
 en: carrot concentrate
-de: Karottenkonzentrat
+de: Karottenkonzentrat, färbendes Karottenkonzentrat
 fi: porkkanatiiviste
 fr: concentré de carotte, concentré de carottes
 hr: koncentrat mrkve
@@ -54781,7 +54783,7 @@ sv: svartmorotjuice
 < en:black carrot juice
 en: concentrated black carrot juice
 bg: концентриран сок от черен морков
-de: Schwarzmöhrensaftkonzentrat, konzentrierter Saft aus schwarzer Karotte
+de: Schwarzmöhrensaftkonzentrat, konzentrierter Saft aus schwarzer Karotte, schwarzes Karottensaftkonzentrat
 fr: jus de carotte noire concentré, jus concentré de carotte noire, jus de carotte pourpre concentré, jus concentré de carotte pourpre
 hr: koncentrirani sok crne mrkve
 it: succo di carota nera concentrato, succo di carote nere concentrato, concentrato da succo di carote nere
@@ -56369,12 +56371,13 @@ fr: betteraves rouges entieres cuites
 
 # Sometimes it is indicated as a colour.
 
-#<en:beetroot
-#en:beetroot powder
+< en:beetroot
+en: beetroot powder
 #en:processing:en:powder
 #bg:цвекло на прах
 #ca:remolatxa en pols
 #de:Rote-Bete-Pulver, färbendes Lebensmittel Rote-Bete-Pulver, Rote Beete-Pulver, Randenpulver
+de: färbendes Lebensmittel Rote Bete Pulver
 #es:remolacha en polvo
 #fi:punajuurijauhe
 #fr:poudre de betterave
@@ -57787,7 +57790,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Bird%27s_eye_chili
 en: allspice, all spice, jamaica pepper, myrtle pepper
 bg: бахар
 cs: nové kořeni
-de: Jamaikapfeffer
+de: Jamaikapfeffer, Piment
 es: pimienta de Jamaica
 fi: maustepippuri
 fr: piment de la jamaïque, piment de jamaïque
@@ -62473,7 +62476,7 @@ nl: hazelnootpraliné
 < en:ground hazelnuts
 < fr:éclats de noisettes
 en: nibbed and ground hazelnuts
-de: Haselnüsse gesplittert und gemahlen
+de: Haselnüsse gesplittert und gemahlen, Haselnüsse gemahlen, gemahlene Haselnüsse
 fr: éclats de noisettes et noisettes moulues
 hr: naribane i mljevene lješnjake
 it: nocciole tostate a scaglie
@@ -63768,6 +63771,7 @@ fi: luomu kurpitsansiemen
 
 #<en:pumpkin seed
 #en:chopped pumpkin seed
+#de:geschrotete Kürbiskerne # see ingredients_processing.txt
 #es:semillas de calabaza troceadas
 
 < en:plant
@@ -63968,12 +63972,12 @@ nutriscore_fruits_vegetables_nuts:en: no
 wikidata:en: Q911332
 
 < en:flax seed
-de: Leinsaat geschrotet
+de: Leinsaat geschrotet, geschrotete Leinsaat, geschrotete Leinsamen, Leinsamen geschrotet
 
 < en:flax seed
 en: golden flax seeds, golden linseed, yellow flax seeds
 bg: златно ленено семе
-de: goldgelbe Leinsaat
+de: goldgelbe Leinsaat, Gold-Leinsaat
 es: semillas de lino dorado, lino dorado
 fr: graines de lin doré, graines de lin jaune
 hr: sjemenke zlatnog lana
@@ -65421,7 +65425,7 @@ en: mace
 ca: Macís
 cs: Muškátový květ
 da: muskatblomme
-de: Macis, Muskatblüte
+de: Macis, Muskatblüte, Macisblüte
 eo: Maciso
 es: Macis, maza
 fi: muskotinkukka, muskottikukka
@@ -66780,6 +66784,11 @@ nl: geel mosterdzaad, gele mosterdzaden
 pl: gorczyca biała, gorczycy białej, gorczyca żółta, gorczycy żółtej
 sv: gult senapsfrö
 
+< en:mustard
+en: brown mustard
+de: braunes Senf
+
+< en:brown mustard
 < en:mustard seed
 en: brown mustard seed
 de: Braunsenfsaat
@@ -71150,7 +71159,7 @@ pl: kwiat krokosza barwierskiego, kwiatu krokosza barwierskiego
 
 < en:safflower
 en: safflower concentrate, carthamus concentrate
-de: Saflorkonzentrat, Saflorextrakt
+de: Saflorkonzentrat, Saflorextrakt, färbendes Saflorkonzentrat
 es: concentrado de cártamo
 fi: safloritiiviste, safloriuute, saffloritiiviste
 fr: extrait de carthame, concentré de carthame
@@ -82428,7 +82437,7 @@ en: Psyllium, plantago, psyllium fibre, psyllium husk, psyllium seed husk
 ar: بزر قطونة
 cs: psyllium
 da: Psyllium, psyllium skræl
-de: Psyllium, Flohsamenschalen
+de: Psyllium, Flohsamenschalen, Plantago Psyllium
 es: Psilio, plantago, cáscara de semilla de psyllium
 fa: بارهنگ کتانی
 fi: psyllium, psylliumkuitu, psylliuminsiemenkuori
@@ -84457,7 +84466,7 @@ vegetarian:en: yes
 
 #category/cucumbers
 < en:fruit vegetable
-en: cucumber, cucumbers, baby cucumbers
+en: cucumber, cucumbers, baby cucumbers, pickle
 ar: الخيار
 bg: краставица, краставици
 ca: cogombre
@@ -86991,7 +87000,7 @@ en: eggs yolk powder from free range hens
 < en:egg yolk
 en: pasteurised egg yolk, pasteurized egg yolk
 bg: пастьоризиран яйчен жълтък, пастьоризирани яйчни жълтъци
-de: Pasteurisierter Eigelb Eier, pasteurisiertes Eigelb, pasteurisierter Eidotter
+de: Pasteurisierter Eigelb Eier, pasteurisiertes Eigelb, pasteurisierter Eidotter, pasteurisierte Eimasse
 es: yema de huevo pasteurizada, yemas de huevo pasteurizadas
 fr: jaune d'œuf pasteurisé, jaune d'oeuf pasteurisé
 hr: pasterizirani žumanjak
@@ -92704,7 +92713,7 @@ bn: সয়া সস
 ca: salsa de soia
 cs: sójová omáčka
 da: sojasovs, sojasauce
-de: Sojasauce, Sojasoße, Sojasosse, Soja Sosse, Sojasoßen, Sojasossen, Sojasaucen, Soja soße
+de: Sojasauce, Sojasoße, Sojasosse, Soja Sosse, Sojasoßen, Sojasossen, Sojasaucen, Soja soße, Soja Sauce
 el: Σάλτσα σόγιας
 eo: sojsaŭco
 es: salsa de soya, salsa de soja, shoyu
@@ -93203,7 +93212,7 @@ hr: pripremljeni umak
 < en:sauce
 en: caramel sauce
 bg: карамелен сос
-de: Caramelsauce
+de: Caramelsauce, Karamellsauce
 es: salsa de caramelo
 fi: karamellikastike
 fr: sauce caramel
@@ -93221,7 +93230,7 @@ sv: kolasås
 # category:en:not available @2019-07-01
 < en:caramel sauce
 en: salted butter caramel sauce
-de: gesalzebe Karamellbuttersauce
+de: gesalzebe Karamellbuttersauce, gesalzene Butter-Karamell-Sauce
 fr: sauce au caramel au beurre salé
 hr: slani maslac karamel umak
 # usage:fr:sauce au caramel au beurre salé 1,5% (caramel au beurre salé 0,5% (sucre, lait concentré sucré, beurre salé 0,1% (beurre, sel)), eau, sirop de glucose, amidon modifié de maïs, sucre, sucre caramélisé, émulsifiant : E471, correcteur d´acidité : acide lactique, épaississant : gomme xanthane, arômes naturels)
