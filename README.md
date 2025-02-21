@@ -20,6 +20,7 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/openfoodfacts/openfoodfacts-server)
 ![Github Repo Size](https://img.shields.io/github/repo-size/openfoodfacts/openfoodfacts-server)
 [![OpenSSF Best Practices](https://www.bestpractices.dev/projects/9345/badge)](https://www.bestpractices.dev/projects/9345)
+[![DPG Badge](https://img.shields.io/badge/Verified-DPG%20(Since%20%202024)-3333AB?logo=data:image/svg%2bxml;base64,PHN2ZyB3aWR0aD0iMzEiIGhlaWdodD0iMzMiIHZpZXdCb3g9IjAgMCAzMSAzMyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE0LjIwMDggMjEuMzY3OEwxMC4xNzM2IDE4LjAxMjRMMTEuNTIxOSAxNi40MDAzTDEzLjk5MjggMTguNDU5TDE5LjYyNjkgMTIuMjExMUwyMS4xOTA5IDEzLjYxNkwxNC4yMDA4IDIxLjM2NzhaTTI0LjYyNDEgOS4zNTEyN0wyNC44MDcxIDMuMDcyOTdMMTguODgxIDUuMTg2NjJMMTUuMzMxNCAtMi4zMzA4MmUtMDVMMTEuNzgyMSA1LjE4NjYyTDUuODU2MDEgMy4wNzI5N0w2LjAzOTA2IDkuMzUxMjdMMCAxMS4xMTc3TDMuODQ1MjEgMTYuMDg5NUwwIDIxLjA2MTJMNi4wMzkwNiAyMi44Mjc3TDUuODU2MDEgMjkuMTA2TDExLjc4MjEgMjYuOTkyM0wxNS4zMzE0IDMyLjE3OUwxOC44ODEgMjYuOTkyM0wyNC44MDcxIDI5LjEwNkwyNC42MjQxIDIyLjgyNzdMMzAuNjYzMSAyMS4wNjEyTDI2LjgxNzYgMTYuMDg5NUwzMC42NjMxIDExLjExNzdMMjQuNjI0MSA5LjM1MTI3WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==)](https://digitalpublicgoods.net/r/dpg-slug)
 
 ## Tests
 
@@ -54,13 +55,13 @@ Visit the [website](https://world.openfoodfacts.org) for more info.
 - ![Google Meet](https://img.shields.io/badge/Google%20Meet-00897B?logo=google-meet&logoColor=white) Video call link: https://meet.google.com/nnw-qswu-hza
 - Join by phone: https://tel.meet/nnw-qswu-hza?pin=2111028061202
 - Add the event to your calendar by [adding the Open Food Facts community calendar to your calendar](https://wiki.openfoodfacts.org/Events).
-- [Weekly agenda](https://drive.google.com/open?id=1LL8-aiSF482xaJ1o0AKmhXB5QWfVE0_jzvYakq3VXys): please add the Agenda items as early as you can. 
-- Make sure to check the agenda items in advance of the meeting, so that we have the most informed discussions possible. 
+- [Weekly agenda](https://drive.google.com/open?id=1LL8-aiSF482xaJ1o0AKmhXB5QWfVE0_jzvYakq3VXys): please add the Agenda items as early as you can.
+- Make sure to check the agenda items in advance of the meeting, so that we have the most informed discussions possible.
 - The meeting will handle agenda items first, and if time permits, collaborative bug triage.
 - We strive to timebox the core of the meeting (decision making) to 30 minutes, with an optional free discussion/live debugging afterwards.
 - We take comprehensive notes in the weekly agenda of agenda item discussions and of decisions taken.
 <br><br>
-## Feature Sprint 
+## Feature Sprint
 - We use feature-based sprints, [tracked here](https://github.com/orgs/openfoodfacts/projects/32)
 <br><br>
 ## User Interface
@@ -148,3 +149,12 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 
 Open Food Facts Personal Search project was funded through the <a href="https://nlnet.nl/discovery/">NGI0 Discovery</a> Fund,
 a fund established by NLnet with financial support from the European Commission's <a href="https://ngi.eu">Next Generation Internet</a> programme.
+
+---
+
+<div align="center">
+
+<br />
+<a href="https://www.digitalpublicgoods.net/r/open-food-facts" target="_blank" rel="noopener noreferrer"><img src="https://github.com/DPGAlliance/dpg-resources/blob/main/docs/assets/dpg-badge.png?raw=true" width="100" alt="Digital Public Goods Badge"></a>
+
+</div>
