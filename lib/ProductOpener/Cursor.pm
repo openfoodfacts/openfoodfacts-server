@@ -23,25 +23,25 @@ package ProductOpener::Cursor;
 use ProductOpener::PerlStandards;
 
 sub new ($class, @list) {
-    my $self = {
-        index => -1,
-        list => @list
-    };
+	my $self = {
+		index => -1,
+		list => @list
+	};
 
-    return bless $self, $class;
+	return bless $self, $class;
 }
 
 sub next ($self) {
-    $self->{index}++;
-    if ($self->{index} < scalar $self->{list}) {
-        return $self->{list}[$self->{index}];
-    }
+	$self->{index}++;
+	if ($self->{index} < scalar $self->{list}) {
+		return $self->{list}[$self->{index}];
+	}
 
-    return undef;
+	return undef;
 }
 
 sub all ($self) {
-   return $self->{list};
+	return $self->{list};
 }
 
 1;
