@@ -19,11 +19,14 @@
    ],
    "product" : {
       "brands" : "Some brand",
+      "brands_hierarchy" : [
+         "xx:Some brand"
+      ],
       "brands_tags" : [
-         "some-brand"
+         "xx:some-brand"
       ],
       "brands_tags_en" : [
-         "Some-brand"
+         "some-brand"
       ],
       "categories" : "coffee",
       "categories_hierarchy" : [
@@ -67,7 +70,7 @@
          "Fairtrade International",
          "Vegan",
          "Max Havelaar",
-         "Something-unrecognized"
+         "something-unrecognized"
       ]
    },
    "status" : "success_with_errors",
