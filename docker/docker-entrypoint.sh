@@ -56,7 +56,25 @@ chown www-data:www-data /tmp/env-export.sh && chmod 0400 /tmp/env-export.sh
 # https://github.com/docker-library/httpd/blob/75e85910d1d9954ea0709960c61517376fc9b254/2.4/alpine/httpd-foreground
 set -e
 
-# Apache gets grumpy about PID files pre-existing
-rm -f /usr/local/apache2/logs/httpd.pid
 
-exec "$@"
+if [ "$1" = 'apache2ctl' ]
+then
+  # handle graceful shutdown of apache on sigterm
+  _term () {
+    echo "Caught SIGTERM signal!"
+    while [[ ! -e /run/apache2/apache2.pid ]]
+    do
+      echo "Waiting for apache to be fully started..."
+      sleep 10
+    done
+    echo "Asking apache to gracefully stop"
+    apache2ctl graceful-stop
+  }
+  trap _term SIGTERM
+  # Apache gets grumpy about PID files pre-existing
+  rm -f /usr/local/apache2/logs/httpd.pid /run/apache2/apache2.pid
+  "$@" &  # run apache in the background
+  wait $!
+else
+  exec "$@"
+fi
