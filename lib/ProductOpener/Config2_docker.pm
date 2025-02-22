@@ -64,7 +64,7 @@ BEGIN {
 		$crm_username
 		$crm_db
 		$crm_pwd
-		$slack_webhook_url
+		%slack_hook_urls
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -159,7 +159,17 @@ $crm_username = $ENV{ODOO_CRM_USER};
 $crm_db = $ENV{ODOO_CRM_DB};
 $crm_pwd = $ENV{ODOO_CRM_PASSWORD};
 
-# Slack
-$slack_webhook_url = $ENV{SLACK_WEBHOOK_URL};
+# Slack URLs
+%slack_hook_urls = ();
+
+if ((defined $ENV{SLACK_HOOK_URLS}) and ($ENV{SLACK_HOOK_URLS} ne '')) {
+	foreach my $kvp (split(',', $ENV{SLACK_HOOK_URLS})) {
+		if (not($kvp =~ s/^(?<channel>.+)=(?<url>https?.+)$//)) {
+			next;
+		}
+
+		$slack_hook_urls{$+{channel}} = $+{url};
+	}
+}
 
 1;

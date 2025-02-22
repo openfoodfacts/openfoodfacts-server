@@ -52,7 +52,7 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
-use ProductOpener::Config2 qw/$slack_webhook_url/;
+use ProductOpener::Config2 qw/%slack_hook_urls/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
@@ -72,14 +72,14 @@ C<send_slack_message()> sends a message to a Slack channel.
 =cut
 
 sub send_slack_message ($channel, $username, $text, $icon_emoji) {
-
-	if (not defined $slack_webhook_url or $slack_webhook_url eq '') {
-		$log->warn('Slack webhook URL is not defined, cannot send message to Slack') if $log->is_warn();
+	if (not defined $slack_hook_urls{$channel} or $slack_hook_urls{$channel} eq '') {
+		$log->warn('Slack webhook URL is not defined the channel, cannot send message to Slack', {channel => $channel})
+			if $log->is_warn();
 		return;
 	}
 
 	my $ua = LWP::UserAgent->new;
-	my $req = HTTP::Request->new(POST => $slack_webhook_url);
+	my $req = HTTP::Request->new(POST => $slack_hook_urls{$channel});
 	$req->header('Content-Type' => 'application/json');
 
 	my $post_data = {

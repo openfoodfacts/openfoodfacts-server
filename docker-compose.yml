@@ -34,7 +34,7 @@
     - ODOO_CRM_DB
     - ODOO_CRM_USER
     - ODOO_CRM_PASSWORD
-    - SLACK_HOOK_URL
+    - SLACK_HOOK_URLS
   depends_on:
     - memcached
   volumes:
