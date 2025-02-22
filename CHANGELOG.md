@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.60.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.59.0...v2.60.0) (2025-02-22)
+
+
+### Features
+
+* category translations for Open Beauty Facts ([#11477](https://github.com/openfoodfacts/openfoodfacts-server/issues/11477)) ([b6d7c37](https://github.com/openfoodfacts/openfoodfacts-server/commit/b6d7c37931352dd01554a560bda4526689247ecb))
+
+
+### Bug Fixes
+
+* fix gen_feeds for pro platform ([#11469](https://github.com/openfoodfacts/openfoodfacts-server/issues/11469)) ([0556332](https://github.com/openfoodfacts/openfoodfacts-server/commit/0556332e30291cd0e1c680b61d0492de3890902b))
+* Fix resume from checkpoint code in export scans ([#11460](https://github.com/openfoodfacts/openfoodfacts-server/issues/11460)) ([1d72e42](https://github.com/openfoodfacts/openfoodfacts-server/commit/1d72e427dfdd60c0287a0a3c640ff8dc411223e2))
+* gen_feeds_daily.sh: failure email for export_database.pl ([#11454](https://github.com/openfoodfacts/openfoodfacts-server/issues/11454)) ([3938ce8](https://github.com/openfoodfacts/openfoodfacts-server/commit/3938ce807c1ebc871cc9d37382c1edf79430cf42))
+
 ## [2.59.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.58.0...v2.59.0) (2025-02-18)
 
 
