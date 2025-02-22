@@ -1227,8 +1227,8 @@ sub display_robots_txt_and_exit ($request_ref) {
 			my $tag_value_singular = $tag_type_singular{$type}{$l};
 			my $tag_value_plural = $tag_type_plural{$type}{$l};
 			if (
-					defined $tag_value_singular
-				and length($tag_value_singular) != 0
+					(defined $tag_value_singular)
+				and (length($tag_value_singular) != 0)
 				and not(exists($disallow_paths_localized_set{$tag_value_singular}))
 				# check that it's not one of the exception
 				# we don't perform this check below for list of tags pages as all list of
@@ -1240,9 +1240,8 @@ sub display_robots_txt_and_exit ($request_ref) {
 				push(@{$vars->{disallow_paths_localized}}, $tag_value_singular);
 			}
 			if (
-				defined $tag_value_plural
-				and length($tag_value_plural)
-				!= 0
+					(defined $tag_value_plural)
+				and (length($tag_value_plural) != 0)
 				# environmental_score has the same value for singular and plural, and products should not be disabled
 				and ($type !~ /^environmental_score|products$/)
 				and not(exists($disallow_paths_localized_set{$tag_value_plural}))
@@ -1276,7 +1275,7 @@ sub display_index_for_producer ($request_ref) {
 		if ($count > 0) {
 			push @{$template_data_ref->{facets}},
 				{
-				url => "/" . $tag_type_plural{$tagtype}{$lc},
+				url => "/facets/" . $tag_type_plural{$tagtype}{$lc},
 				number_of_products => lang("number_of_products_with_" . $tagtype),
 				count => $count,
 				};
@@ -1566,7 +1565,7 @@ sub display_mission ($request_ref) {
 	my $html = join('', (<$IN>));
 
 	$request_ref->{content_ref} = \$html;
-	$request_ref->{canon_url} = canonicalize_tag_link("missions", $missionid);
+	$request_ref->{canon_url} = "/facets" . canonicalize_tag_link("missions", $missionid);
 
 	display_page($request_ref);
 	exit();
@@ -1988,6 +1987,7 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 			. "</tr></thead>\n<tbody>\n";
 
 		# To get the root link, we remove the facet name from the current link
+		$log->info("**************** current_link: " . $request_ref->{current_link});
 		my $main_link = $request_ref->{current_link};
 		$main_link =~ s/\/[^\/]+$//;    # Remove the last / and everything after ir
 		my $nofollow = '';
@@ -2002,9 +2002,9 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 		my $i = 0;
 		my $j = 0;
 
-		my $path = $tag_type_singular{$tagtype}{$lc};
+		my $path = $tag_type_plural{$tagtype}{$lc};
 
-		if (not defined $tag_type_singular{$tagtype}{$lc}) {
+		if (not defined $tag_type_plural{$tagtype}{$lc}) {
 			$log->error("no path defined for tagtype", {tagtype => $tagtype, lc => $lc}) if $log->is_error();
 			die();
 		}
@@ -2686,12 +2686,13 @@ sub display_list_of_tags_translate ($request_ref, $query_ref) {
 
 			$log->trace("determining main_link for the tag") if $log->is_trace();
 			if (defined $taxonomy_fields{$request_ref->{tagtype}}) {
-				$main_link = canonicalize_taxonomy_tag_link($lc, $request_ref->{tagtype}, $request_ref->{tagid});
+				$main_link
+					= "/facets" . canonicalize_taxonomy_tag_link($lc, $request_ref->{tagtype}, $request_ref->{tagid});
 				$log->debug("main_link determined from the taxonomy tag", {main_link => $main_link})
 					if $log->is_debug();
 			}
 			else {
-				$main_link = canonicalize_tag_link($request_ref->{tagtype}, $request_ref->{tagid});
+				$main_link = "/facets" . canonicalize_tag_link($request_ref->{tagtype}, $request_ref->{tagid});
 				$log->debug("main_link determined from the canonical tag", {main_link => $main_link})
 					if $log->is_debug();
 			}
@@ -2712,7 +2713,7 @@ sub display_list_of_tags_translate ($request_ref, $query_ref) {
 		my $to_be_translated = 0;
 		my $translated = 0;
 
-		my $path = $tag_type_singular{$tagtype}{$lc};
+		my $path = $tag_type_plural{$tagtype}{$lc};
 
 		my @tagcounts;
 
@@ -3014,7 +3015,7 @@ sub display_points_ranking ($tagtype, $tagid, $request_ref) {
 		$i++;
 
 		my $display_key = $key;
-		my $link = canonicalize_taxonomy_tag_link($lc, $ranktype, $key) . "/points";
+		my $link = '/facets' . canonicalize_taxonomy_tag_link($lc, $ranktype, $key) . "/points";
 
 		if ($ranktype eq "countries") {
 			$display_key = display_taxonomy_tag($lc, "countries", $key);
@@ -3114,9 +3115,10 @@ sub display_points ($request_ref) {
 			if ($new_tagid !~ /^(\w\w):/) {
 				$new_tagid = $lc . ':' . $new_tagid;
 			}
-			$new_tagid_path = canonicalize_taxonomy_tag_link($lc, $tagtype, $new_tagid);
+			$new_tagid_path = '/facets' . canonicalize_taxonomy_tag_link($lc, $tagtype, $new_tagid);
 			$request_ref->{current_link} = $new_tagid_path;
-			$request_ref->{world_current_link} = canonicalize_taxonomy_tag_link($lc, $tagtype, $canon_tagid);
+			$request_ref->{world_current_link}
+				= '/facets' . canonicalize_taxonomy_tag_link($lc, $tagtype, $canon_tagid);
 		}
 		else {
 			$display_tag = canonicalize_tag2($tagtype, $tagid);
@@ -3127,11 +3129,11 @@ sub display_points ($request_ref) {
 				$canon_tagid =~ s/-($ec_code_regexp)$/-ec/ie;
 			}
 			$title = $display_tag;
-			$new_tagid_path = canonicalize_tag_link($tagtype, $new_tagid);
+			$new_tagid_path = '/facets' . canonicalize_tag_link($tagtype, $new_tagid);
 			$request_ref->{current_link} = $new_tagid_path;
 			my $current_lc = $lc;
 			$lc = 'en';
-			$request_ref->{world_current_link} = canonicalize_tag_link($tagtype, $new_tagid);
+			$request_ref->{world_current_link} = '/facets' . canonicalize_tag_link($tagtype, $new_tagid);
 			$lc = $current_lc;
 			$log->debug("displaying points for a normal tag",
 				{canon_tagid => $canon_tagid, new_tagid => $new_tagid, title => $title})
@@ -3209,14 +3211,13 @@ If the requested tags are not canonical, we will redirect to the canonical URL.
 
 sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 
-	$request_ref->{current_link} = '';
-	$request_ref->{world_current_link} = '';
+	$request_ref->{current_link} = '/facets';
+	$request_ref->{world_current_link} = '/facets';
 
 	my $header_meta_noindex = 0;    # Will be set if one of the tags is related to a user
-	my $redirect_to_canonical_url = 0;    # Will be set if one of the tags is not canonical
+	my $redirect_to_canonical_url = 0;    # Will be set if one of the tags is not canonical
 
 	# Go through the tags filters from the request
-
 	foreach my $tag_ref (@{$request_ref->{tags}}) {
 
 		# the tag name requested in url (in $lc language)
@@ -3268,9 +3269,9 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 
 		$tag_ref->{canon_tagid} = $canon_tagid;
 		$tag_ref->{new_tagid} = $new_tagid;
-		$tag_ref->{new_tagid_path} = $new_tagid_path;
+		$tag_ref->{new_tagid_path} = '/facets' . $new_tagid_path;
 		$tag_ref->{display_tag} = $display_tag;
-		$tag_ref->{tagtype_path} = '/' . $tag_type_plural{$tagtype}{$lc};
+		$tag_ref->{tagtype_path} = '/facets/' . $tag_type_plural{$tagtype}{$lc};
 		$tag_ref->{tagtype_name} = lang_in_other_lc($lc, $tagtype . '_s');
 
 		# We will redirect if the tag is not canonical
@@ -4273,16 +4274,18 @@ HTML
 					$user_template_data_ref->{links} = [
 						{
 							text => sprintf(lang('contributors_products'), $user_or_org_ref->{name}),
-							url => canonicalize_tag_link("users", get_string_id_for_lang("no_language", $tagid)),
+							url => "/facets"
+								. canonicalize_tag_link("users", get_string_id_for_lang("no_language", $tagid)),
 						},
 						{
 							text => sprintf(lang('editors_products'), $user_or_org_ref->{name}),
-							url => canonicalize_tag_link("editors", get_string_id_for_lang("no_language", $tagid)),
+							url => "/facets"
+								. canonicalize_tag_link("editors", get_string_id_for_lang("no_language", $tagid)),
 						},
 						{
 							text => sprintf(lang('photographers_products'), $user_or_org_ref->{name}),
-							url =>
-								canonicalize_tag_link("photographers", get_string_id_for_lang("no_language", $tagid)),
+							url => "/facets"
+								. canonicalize_tag_link("photographers", get_string_id_for_lang("no_language", $tagid)),
 						},
 					];
 
@@ -8174,10 +8177,10 @@ JS
 						$template_data_ref->{"data_source_database_provider"} = f_lang(
 							"f_data_source_database_provider",
 							{
-								manufacturer => '<a href="/editor/'
+								manufacturer => '<a href="/facets/editors/'
 									. $product_ref->{owner} . '">'
 									. $org_ref->{name} . '</a>',
-								provider => '<a href="/data-source/'
+								provider => '<a href="/facets/data-sources/'
 									. $data_source_tagid . '">'
 									. $database_name . '</a>',
 							}
@@ -8518,7 +8521,7 @@ JS
 
 	foreach my $editor (sort @other_editors) {
 		$other_editors
-			.= "<a href=\""
+			.= "<a href=\"/facets"
 			. canonicalize_tag_link("editors", get_string_id_for_lang("no_language", $editor)) . "\">"
 			. $editor
 			. "</a>, ";
@@ -8526,11 +8529,11 @@ JS
 	$other_editors =~ s/, $//;
 
 	my $creator
-		= "<a href=\""
+		= "<a href=\"/facets"
 		. canonicalize_tag_link("editors", get_string_id_for_lang("no_language", $product_ref->{creator})) . "\">"
 		. $product_ref->{creator} . "</a>";
 	my $last_editor
-		= "<a href=\""
+		= "<a href=\"/facets"
 		. canonicalize_tag_link("editors", get_string_id_for_lang("no_language", $product_ref->{last_editor})) . "\">"
 		. $product_ref->{last_editor} . "</a>";
 
@@ -8542,7 +8545,7 @@ JS
 	if ((defined $product_ref->{checked}) and ($product_ref->{checked} eq 'on')) {
 		my $last_checked_date = display_date_tag($product_ref->{last_checked_t});
 		my $last_checker
-			= "<a href=\""
+			= "<a href=\"/facets"
 			. canonicalize_tag_link("editors", get_string_id_for_lang("no_language", $product_ref->{last_checker}))
 			. "\">"
 			. $product_ref->{last_checker} . "</a>";
@@ -8924,7 +8927,7 @@ HTML
 
 			my $info = '';
 
-			$html .= "<li><a href=\"" . $link . "\"$info>" . $tag . "</a></li>\n";
+			$html .= "<li><a href=\"/facets" . $link . "\"$info>" . $tag . "</a></li>\n";
 		}
 		$html .= "</ul></div>";
 
@@ -9635,7 +9638,7 @@ sub compare_product_nutrition_facts_to_categories ($product_ref, $target_cc, $ma
 						{
 						id => $cid,
 						name => display_taxonomy_tag($lc, 'categories', $cid),
-						link => canonicalize_taxonomy_tag_link($lc, 'categories', $cid),
+						link => "/facets" . canonicalize_taxonomy_tag_link($lc, 'categories', $cid),
 						nutriments => compare_nutriments($product_ref, $categories_nutriments_ref->{$cid}),
 						count => $categories_nutriments_ref->{$cid}{count},
 						n => $categories_nutriments_ref->{$cid}{n},
@@ -11198,7 +11201,7 @@ sub display_change ($change_ref, $diffs) {
 	my $user = "";
 	if (defined $change_ref->{userid}) {
 		$user
-			= "<a href=\""
+			= "<a href=\"/facets"
 			. canonicalize_tag_link("users", get_string_id_for_lang("no_language", $change_ref->{userid})) . "\">"
 			. $change_ref->{userid} . "</a>";
 	}

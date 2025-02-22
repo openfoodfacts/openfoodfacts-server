@@ -144,9 +144,9 @@
 									[% IF !(server_options_producers_platform) %]
 									<li class="divider"></li>			
 									<li><label>[% lang('your_contributions') %]</label></li>
-									<li><a href="[% canonicalize_taxonomy_tag_link("users", user_id) %]">[% lang('products_added') %]</a></li>
-									<li><a href="[% canonicalize_taxonomy_tag_link("editors", user_id) %]">[% lang('products_edited') %]</a></li>
-									<li><a href="[% canonicalize_taxonomy_tag_link("photographers", user_id) %]">[% lang('products_photographed') %]</a></li>
+									<li><a href="/facets[% canonicalize_taxonomy_tag_link("users", user_id) %]">[% lang('products_added') %]</a></li>
+									<li><a href="/facets[% canonicalize_taxonomy_tag_link("editors", user_id) %]">[% lang('products_edited') %]</a></li>
+									<li><a href="/facets[% canonicalize_taxonomy_tag_link("photographers", user_id) %]">[% lang('products_photographed') %]</a></li>
 									[% END %]
 									<li class="divider"></li>			
 									<li class="has-form">

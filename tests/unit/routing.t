@@ -5,7 +5,7 @@ use utf8;
 
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
 use ProductOpener::Routing qw/analyze_request load_routes/;
-use ProductOpener::Lang qw/$lc /;
+use ProductOpener::Lang qw/$lc/;
 
 use Test2::V0;
 use Mock::Quick;
@@ -41,7 +41,7 @@ my @tests = (
 		input_request => {
 			cc => "world",
 			lc => "en",
-			original_query_string => 'category/breads/no-nutrition-data',
+			original_query_string => 'facets/categories/breads/no-nutrition-data',
 			no_index => '0',
 			is_crawl_bot => '0',
 			rate_limiter_bucket => undef,
@@ -57,7 +57,7 @@ my @tests = (
 		input_request => {
 			cc => "world",
 			lc => "en",
-			original_query_string => 'category/breads',
+			original_query_string => 'facets/categories/breads',
 			no_index => '0',
 			is_crawl_bot => '1',
 			rate_limiter_bucket => undef,
@@ -73,7 +73,7 @@ my @tests = (
 		input_request => {
 			cc => "world",
 			lc => "en",
-			original_query_string => 'category/breads/4',
+			original_query_string => 'facets/categories/breads/4',
 			no_index => '0',
 			is_crawl_bot => '1',
 			rate_limiter_bucket => undef,
@@ -89,7 +89,7 @@ my @tests = (
 		input_request => {
 			cc => "world",
 			lc => "en",
-			original_query_string => 'category/bread/4',
+			original_query_string => 'facets/categories/bread/4',
 			no_index => '0',
 			is_crawl_bot => '0',
 			rate_limiter_bucket => undef,
@@ -138,7 +138,7 @@ my @tests = (
 		input_request => {
 			cc => "world",
 			lc => "en",
-			original_query_string => 'category/breads/ingredients',
+			original_query_string => 'facets/categories/breads/ingredients',
 			no_index => '0',
 			is_crawl_bot => '1',
 			rate_limiter_bucket => undef,
@@ -154,7 +154,7 @@ my @tests = (
 		input_request => {
 			cc => "world",
 			lc => "es",
-			original_query_string => 'category/breads/ingredients',
+			original_query_string => 'facets/categories/breads/ingredients',
 			no_index => '0',
 			is_crawl_bot => '1',
 			rate_limiter_bucket => undef,
@@ -229,6 +229,22 @@ my @tests = (
 			rate_limiter_user_requests => undef
 		}
 	},
+	{
+		id => 'product-french',
+		desc => 'product translated in french',
+		lc => "fr",
+		input_request => {
+			cc => "world",
+			lc => "fr",
+			original_query_string => 'produit/3564703999971',
+			no_index => '0',
+			is_crawl_bot => '0',
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
+		}
+	},
 	# Rate-limit tests
 	{
 		id => 'rate-limit-on-facet-registered-user',
@@ -237,7 +253,7 @@ my @tests = (
 		input_request => {
 			cc => "world",
 			lc => "en",
-			original_query_string => 'category/breads',
+			original_query_string => 'facets/categories/breads',
 			no_index => '0',
 			is_crawl_bot => '0',
 			user_id => "userid",
@@ -247,6 +263,76 @@ my @tests = (
 			rate_limiter_user_requests => undef
 		},
 	},
+	# redirect tests
+	{
+		id => 'redirect-to-plural-tagtype',
+		desc => "Redirect to plural tagtype",
+		lc => "en",
+		input_request => {
+			cc => "world",
+			lc => "en",
+			original_query_string => 'facets/category/breads/brand/lidl',
+			no_index => '0',
+			is_crawl_bot => '0',
+			user_id => "userid",
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
+		},
+	},
+	{
+		id => 'redirect-to-facets-prefix',
+		desc => "Redirect to facets prefix",
+		lc => "en",
+		input_request => {
+			cc => "world",
+			lc => "en",
+			original_query_string => 'categories',
+			no_index => '0',
+			is_crawl_bot => '0',
+			user_id => "userid",
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
+		},
+	},
+	{
+		id => 'redirect-to-facets-prefix-and-plural',
+		desc => "Redirect to facets prefix and plural",
+		lc => "fr",
+		input_request => {
+			cc => "world",
+			lc => "fr",
+			original_query_string => 'categories/pain/brand/lidl',
+			no_index => '0',
+			is_crawl_bot => '0',
+			user_id => "userid",
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
+		},
+	},
+	{
+		id => 'redirect-to-product-normalized-code',
+		desc => "Redirect to product normalized code",
+		lc => "fr",
+		input_request => {
+			cc => "world",
+			lc => "fr",
+			original_query_string => 'product/012345678',
+			no_index => '0',
+			is_crawl_bot => '0',
+			user_id => "userid",
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
+		},
+	},
+
 );
 
 foreach my $test_ref (@tests) {
