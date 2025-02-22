@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2025 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -141,6 +141,7 @@ use ProductOpener::Display qw/single_param/;
 use ProductOpener::Redis qw/push_to_redis_stream/;
 use ProductOpener::Food qw/%nutriments_lists %cc_nutriment_table/;
 use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
+use ProductOpener::Slack qw/send_slack_message/;
 
 # needed by analyze_and_enrich_product_data()
 # may be moved to another module at some point
@@ -3413,40 +3414,7 @@ sub process_product_edit_rules ($product_ref) {
 										$emoji = ":pear:";
 									}
 
-									my $ua = LWP::UserAgent->new;
-									my $server_endpoint
-										= "https://hooks.slack.com/services/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";
-
-									my $msg = $action_log;
-
-									# set custom HTTP request header fields
-									my $req = HTTP::Request->new(POST => $server_endpoint);
-									$req->header('content-type' => 'application/json');
-
-									# add POST data to HTTP request body
-									my $post_data
-										= '{"channel": "#'
-										. $channel
-										. '", "username": "editrules", "text": "'
-										. $msg
-										. '", "icon_emoji": "'
-										. $emoji . '" }';
-									$req->content_type("text/plain; charset='utf8'");
-									$req->content(Encode::encode_utf8($post_data));
-
-									my $resp = $ua->request($req);
-									if ($resp->is_success) {
-										my $message = $resp->decoded_content;
-										$log->info("Notification sent to Slack successfully", {response => $message})
-											if $log->is_info();
-									}
-									else {
-										$log->warn(
-											"Notification could not be sent to Slack",
-											{code => $resp->code, response => $resp->message}
-										) if $log->is_warn();
-									}
-
+									send_slack_message($channel, 'editrules', $action_log, $emoji);
 								}
 							}
 						}
