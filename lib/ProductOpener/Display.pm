@@ -129,7 +129,6 @@ BEGIN {
 		$knowledge_panels_options_ref
 
 		&display_nutriscore_calculation_details_2021
-		&get_owner_pretty_path
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -152,7 +151,7 @@ use ProductOpener::Ingredients qw(flatten_sub_ingredients);
 use ProductOpener::Products qw(:all);
 use ProductOpener::Missions qw(:all);
 use ProductOpener::MissionsConfig qw(:all);
-use ProductOpener::URL qw(format_subdomain);
+use ProductOpener::URL qw(format_subdomain get_owner_pretty_path);
 use ProductOpener::Data
 	qw(execute_aggregate_tags_query execute_count_tags_query execute_query get_products_collection get_recent_changes_collection);
 use ProductOpener::Text
@@ -354,7 +353,7 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	(not defined $template_data_ref->{user_id}) and $template_data_ref->{user_id} = $User_id;
 	(not defined $template_data_ref->{user}) and $template_data_ref->{user} = \%User;
 	(not defined $template_data_ref->{org_id}) and $template_data_ref->{org_id} = $Org_id;
-	$template_data_ref->{owner_pretty_path} = get_owner_pretty_path();
+	$template_data_ref->{owner_pretty_path} = get_owner_pretty_path($Owner_id);
 
 	$template_data_ref->{flavor} = $flavor;
 	$template_data_ref->{options} = \%options;
@@ -1299,7 +1298,6 @@ sub display_index_for_producer ($request_ref) {
 	# Display a message if some product updates have not been published yet
 	# Updates can also be on obsolete products
 
-	$template_data_ref->{owner_pretty_path} = get_owner_pretty_path();
 	$template_data_ref->{count_to_be_exported} = count_products({}, {states_tags => "en:to-be-exported"});
 	$template_data_ref->{count_obsolete_to_be_exported} = count_products({}, {states_tags => "en:to-be-exported"}, 1);
 
@@ -1989,7 +1987,7 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 		# To get the root link, we remove the facet name from the current link
 		$log->info("**************** current_link: " . $request_ref->{current_link});
 		my $main_link = $request_ref->{current_link};
-		$main_link =~ s/\/[^\/]+$//;    # Remove the last / and everything after ir
+		$main_link =~ s/\/[^\/]+$//;    # Remove the last / and everything after it
 		my $nofollow = '';
 		if (defined $request_ref->{tagid}) {
 			$nofollow = ' rel="nofollow"';
@@ -2678,7 +2676,7 @@ sub display_list_of_tags_translate ($request_ref, $query_ref) {
 		#      "Scheme"
 		#    ];
 
-		my $main_link = '';
+		my $main_link = get_owner_pretty_path($Owner_id);
 		my $nofollow = '';
 		if (defined $request_ref->{tagid}) {
 			local $log->context->{tagtype} = $request_ref->{tagtype};
@@ -2687,12 +2685,12 @@ sub display_list_of_tags_translate ($request_ref, $query_ref) {
 			$log->trace("determining main_link for the tag") if $log->is_trace();
 			if (defined $taxonomy_fields{$request_ref->{tagtype}}) {
 				$main_link
-					= "/facets" . canonicalize_taxonomy_tag_link($lc, $request_ref->{tagtype}, $request_ref->{tagid});
+					.= "/facets" . canonicalize_taxonomy_tag_link($lc, $request_ref->{tagtype}, $request_ref->{tagid});
 				$log->debug("main_link determined from the taxonomy tag", {main_link => $main_link})
 					if $log->is_debug();
 			}
 			else {
-				$main_link = "/facets" . canonicalize_tag_link($request_ref->{tagtype}, $request_ref->{tagid});
+				$main_link .= "/facets" . canonicalize_tag_link($request_ref->{tagtype}, $request_ref->{tagid});
 				$log->debug("main_link determined from the canonical tag", {main_link => $main_link})
 					if $log->is_debug();
 			}
@@ -5519,7 +5517,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 				# Add a url field to the product, with the subdomain and path
 				my $url_path = product_url($product_ref);
-				$product_ref->{url} = $formatted_subdomain . get_owner_pretty_path() . $url_path;
+				$product_ref->{url} = $formatted_subdomain . $url_path;
 				# Compute HTML to display the small front image, currently embedded in the HTML of web queries
 				if (not $api) {
 					$product_ref->{image_front_small_html} = display_image_thumb($product_ref, 'front');
@@ -5732,7 +5730,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 					push @{$template_data_ref->{current_drilldown_fields}},
 						{
-						current_link => get_owner_pretty_path() . $request_ref->{current_link},
+						current_link => get_owner_pretty_path($Owner_id) . $request_ref->{current_link},
 						tag_type_plural => $tag_type_plural{$newtagtype}{$lc},
 						nofollow => $nofollow,
 						tagtype => $newtagtype,
@@ -8051,6 +8049,8 @@ JS
 	if ($server_options{producers_platform}) {
 		my $public_product_url = $formatted_subdomain . $product_url;
 		$public_product_url =~ s/\.pro\./\./;
+		# Also remove the /org/[org-id]
+		$public_product_url =~ s/\/org\/[^\/]+//;
 		$template_data_ref->{public_product_url} = $public_product_url;
 	}
 
@@ -11853,19 +11853,6 @@ sub data_to_display_image ($product_ref, $imagetype, $target_lc) {
 	}
 
 	return $image_ref;
-}
-
-=head2 get_owner_pretty_path ()
-
-Returns the pretty path for the organization page 
-or an empty string if not on the producers platform.
-
-/org/[orgid]
-
-=cut
-
-sub get_owner_pretty_path () {
-	return ($server_options{producers_platform} and defined $Owner_id) ? "/org/$Owner_id" : "";
 }
 
 1;

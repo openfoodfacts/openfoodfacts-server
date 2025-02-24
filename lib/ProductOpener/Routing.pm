@@ -47,7 +47,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Products qw/is_valid_code normalize_code product_url/;
 use ProductOpener::Display
-	qw/$formatted_subdomain %index_tag_types_set display_robots_txt_and_exit init_request redirect_to_url single_param get_owner_pretty_path/;
+	qw/$formatted_subdomain %index_tag_types_set display_robots_txt_and_exit init_request redirect_to_url single_param/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/%tag_type_from_plural %tag_type_from_singular %tag_type_plural %tag_type_singular lang/;
 use ProductOpener::API qw/:all/;
@@ -58,6 +58,7 @@ use ProductOpener::Index qw/%texts/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Redis qw/:all/;
 use ProductOpener::RequestStats qw/:all/;
+use ProductOpener::URL qw/get_owner_pretty_path/;
 
 use Encode;
 use CGI qw/:cgi :form escapeHTML/;
@@ -280,7 +281,7 @@ sub org_route($request_ref) {
 	}
 
 	$request_ref->{ownerid} = $Owner_id;
-	$request_ref->{canon_rel_url} = get_owner_pretty_path();
+	$request_ref->{canon_rel_url} = get_owner_pretty_path($Owner_id);
 
 	# remove the org/orgid
 	splice(@{$request_ref->{components}}, 0, 2);
@@ -497,7 +498,8 @@ sub facets_route($request_ref) {
 	my $is_obsolete_url = undef;
 
 	my $target_lc = $request_ref->{lc};
-	$request_ref->{canon_rel_url} = '';
+	# On pro platform, URLs are prefixed with the organization id: /org/org-id
+	$request_ref->{canon_rel_url} = get_owner_pretty_path($Owner_id);
 	my $canon_rel_url_suffix = '';
 
 	# add the facets prefix to the canonical_url
