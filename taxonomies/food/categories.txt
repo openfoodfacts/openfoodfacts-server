@@ -55692,6 +55692,7 @@ tr: Badem
 agribalyse_proxy_food_code:en: 15000
 agribalyse_proxy_food_name:en: Almond, (with peel)
 opposite:en: en:chocolate-covered-almonds, en:almond-butters, en:caramelized-almonds, en:walnuts, en:peanuts, en:hazelnuts
+sales_format:en: weight, package
 wco_hs_code:en: 0802.11
 wco_hs_heading:en: 08.02
 wikidata:en: Q39918
@@ -67316,12 +67317,12 @@ season_in_country_fr:en: 1,2,3,4,8,9,10,11,12
 ########   Apple varieties
 
 < en:Apples
-en: Apples Chantecler
+en: Chantecler apples, Apples (Chatecler), Apples Chantecler
 fr: Pommes Chantecler, Pommes Chantecler Belchard
 sales_format:en: weight, package
 
 < en:Apples
-en: Elstar apples
+en: Elstar apples, Apples (Elstar)
 fr: Pommes Elstar, Elstar
 hr: Elstar jabuke
 nl: Elstar
@@ -67468,7 +67469,7 @@ xx: Pink Lady, Cripps Pink
 sales_format:en: weight, package
 
 < en:Apples
-en: Russet apples
+en: Russet apples, Apples (Russet)
 es: Manzanas reineta
 fr: Pommes reinette
 hr: Riđe jabuke
@@ -68905,6 +68906,7 @@ agribalyse_food_code:en: 13026
 ciqual_food_code:en: 13026
 ciqual_food_name:en: Melon, cantaloupe (ex Cavaillon or Charentais melon), pulp, raw
 ciqual_food_name:fr: Melon cantaloup (par ex.: Charentais, de Cavaillon) pulpe, cru
+sales_format:en: weight, package, item
 wikidata:en: Q81602
 
 < en:Dried plant-based foods
@@ -69197,6 +69199,7 @@ en: Williams pears
 xx: Williams
 de: Williams Christ, Williams Christbirne, Williamsbirne
 fr: Poires Williams, Williams
+sales_format:en: weight, package
 wikidata:en: Q498862
 
 ########### Pear origins
@@ -69945,7 +69948,7 @@ zh: 番木瓜
 agribalyse_proxy_food_code:en: 13035
 agribalyse_proxy_food_name:en: Papaya, pulp, raw
 agribalyse_proxy_food_name:fr: Papaye, pulpe, crue
-sales_format:en: weight, package
+sales_format:en: weight, package, item
 
 < en:Fresh fruits
 < en:Papayas
@@ -71890,6 +71893,7 @@ agribalyse_food_code:en: 11027
 ciqual_food_code:en: 11027
 ciqual_food_name:en: Mint, fresh
 ciqual_food_name:fr: Menthe, fraîche
+sales_format:en: weight, package
 
 < en:Frozen aromatic plants
 < en:Mint
@@ -109748,6 +109752,7 @@ season_in_country_fr:en: 1,2,3,4,5,10,11,12
 < en:Turnip
 en: Golden Ball turnips, Orange Jelly turnips, Golden Ball, Orange Jelly
 fr: Navets jaune boule d'or, Navet jaune boule d'or, Navets jaunes
+sales_format:en: weight, package
 
 < en:Root vegetables
 en: Mashua
@@ -110087,7 +110092,9 @@ wikidata:en: Q158954
 wikipedia:en: https://en.wikipedia.org/wiki/Valerianella_locusta
 
 < en:corn salad
+en: Fresh corn salad
 fr: Mâche fraîche
+sales_format:en: weight, package
 season_in_country_fr:en: 1,2,10,11,12
 
 < en:corn salad

@@ -513,7 +513,7 @@ nb: soyalecitin, soyalecitiner
 nl: sojalecithine, soja lecithine, sojalecithinen
 nn: sojalecitin
 pl: lecytyna sojowa, lecytyny sojowe, lecytyna z soi, lecytyny z soi
-pt: lecitina de soja
+pt: lecitina de soja, lecitinas de soja
 ro: lecitină din soia, lecitina din soia, lecitină de soia, lecitina de soia, lecitine din soia
 ru: соевый лецитин, лецитин соевый, эмульгатор лецитин соевый, эмульгатор соевый лецитин
 sk: sójový lecitin
@@ -1175,7 +1175,7 @@ fi: maitohappokäyte, maitohappokannat, maitohappoviljelmä, elävä jogurttivil
 fr: ferment lactique, ferments lactique, ferments lactiques, ferment lactiques, culture de bactéries lactiques, cultures lactiques, ferment lactique du yaourt, ferments lactiques du yaourt, ferments vivants du yaourt, bactéries lactiques, ferments lactiques naturels, levain lactique
 hr: mljekarska kultura, mljekarske kulture, mlijekarske kulture, sirna kultura, starter kultura, baktrije mliječnog vrenja, bakterije mliječne kiseline, kultura plemenitih plijesni, sirište mljekarske kulture, mezofilna starter kultura, starter kulture, mliječnokiselinske kulture, kultura mliječnih bakterija
 hu: tejsavbaktériumok, tejsavbaktérium, starterkultúra, starter kultúra, tejsavbaktérium-tenyészet, tejsavbaktérium kultúra, joghurtkultúra, joghurtkultúrák, sajtkultúra, sajtkultúrák, tejoltó enzim
-it: fermenti lattici, coltura di batteri acidolattici, fermenti lattici vivi, fermenti latici vivi, fermenti lattici dello yogurt
+it: fermenti lattici, coltura di batteri acidolattici, fermenti lattici vivi, fermenti latici vivi, fermenti lattici dello yogurt, colture di batteri acidolattici
 lt: jogurtinės bakterijos
 nb: melkesyrekultur, starterkultur, yoghurtkultur, yoghurtbakterier, syrekultur
 nl: melkfermenten, melkkiemen, Melkzuurbacteriën, zuursel, yoghurtcultuur, yoghurtculturen
@@ -1856,6 +1856,7 @@ it: caglio microbico, caglio microbiologico
 nb: mikrobiell løpe
 nl: microbieel stremsel, microbieel stremmiddel
 pl: podpuszczka mikrobiologiczna
+pt: coalho microbiano
 ro: cheag microbian
 sv: mikrobiell ostlöpe, ystenzym, mikrobiellt ystenzym, mikrobiellt löpe, mikrobiellt
 # ingredient/microbial-rennet has 537 products in 12 languages @2019-07-08
@@ -5152,7 +5153,7 @@ lv: sūkalu pulveris
 nb: mysepulver, mysepulver av melk
 nl: weipoeder, wei poeder, wei-poeder
 pl: serwatka w proszku, preparat serwatkowy, serwatka w proszku z mleka
-pt: soro de leite em pó, lactossoro em pó, lacto-soro em pó, lactosoro em pó
+pt: soro de leite em pó, lactossoro em pó, lacto-soro em pó, lactosoro em pó, soro lacteo em pó
 ro: zer praf, produs din zer praf, derivat din zer pudră
 ru: сухая молочная сыворотка, сыворотка молочная сухая, сыворотка сухая молочная
 sk: sušená srvátka
@@ -15840,7 +15841,7 @@ lv: piena tauki
 nb: melkefett
 nl: melkvet
 pl: tłuszcz mleczny, tłuszcz z mleka
-pt: gorda do leite
+pt: gorda do leite, gordura de leite
 ro: grasimi din lapte, grăsimi din lapte, grasime din lapte, grăsime din lapte
 sk: mliečny tuk
 sv: mjölkfett
@@ -17267,6 +17268,7 @@ wikipedia:en: Q1922338
 
 < en:rapeseed oil
 en: refined rapeseed oil
+es: aceite refinado de nabina
 hr: rafinirano ulje repice
 lt: rafinuotas rapsų aliejus
 pl: rafinowany olej rzepakowy, olej rzepakowy rafinowany
@@ -26801,6 +26803,7 @@ fr: jus d'avoine, base d'avoine
 hr: sirup od zobi
 it: base de avena
 nl: haverbasis
+pt: base de aveia
 sv: havrebas
 # usage:en:oat base (water, oats)
 # mainIngredient:en:water
@@ -31560,7 +31563,7 @@ hr: kokosov šećer
 hu: kókuszcukor
 id: Gula kelapa
 it: zucchero di fiori di cocco, zucchero di cocco
-nl: kokosbloesemsuiker, kokossuiker
+nl: kokosbloesemsuiker, kokossuiker, kokos bloesem suiker
 nn: kokosnøttsukker
 pl: cukier kokosowy, cukier z kwiatu palmy kokosowej
 su: Gula kalapa
@@ -34187,7 +34190,7 @@ bg: какао с намалено съдържание на мазнини
 ca: cacau desgreixat
 da: fedtfattig kakao
 de: fettarmer Kakao, magerer Kakao
-es: cacao magro, cacao desgrasado
+es: cacao magro, cacao desgrasado, cacao desnatado
 fi: vähärasvainen kaakao
 fr: cacao maigre, cacao dégraissé, cacao réduit en matières grasses
 hr: kakao smanjene masti, nemasni kakao, reducirani kakao
@@ -36186,9 +36189,11 @@ es: zumo de soja, jugo de soja, jugo de soya, base de soja
 fi: soijapohja
 fr: jus de soja
 hr: baza soje
+it: preparazione di soia
 ja: 大豆ベース
 nl: sojabasis
 pl: baza sojowa
+pt: base de soja
 # it:salsa di soia translation error
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-soja
 # 253 products in 7 languages @2018-09-25
@@ -37574,7 +37579,7 @@ ja: ゲランガム
 lt: Gelano derva
 lv: Želena sveķi
 mt: Gomma ġellan
-nl: gellangom
+nl: gellangom, gellan gom
 pl: Guma gellan
 pt: Goma gelana
 ro: Gumă gellan
@@ -55428,7 +55433,7 @@ or: ଆଳୁ
 os: Картоф
 pa: ਆਲੂ
 pl: ziemniak, ziemniaki, ziemniaczana, ziemniaczane, ziemniaczany, ziemniaków, ziemniaka, ziemniaczanego, ziemniaczanych
-pt: batata
+pt: batata, batatas
 rn: Ikiraya
 ro: cartof, cartofi
 ru: картофель, картошка
@@ -56502,7 +56507,10 @@ wikidata:en: Q674443
 < en:flour
 < en:konjac
 en: konjac flour
+es: harina de konjac
 hr: konjac brašno
+nl: konjac meel, konjacbloem
+it: farina di konjac
 
 < en:carrot
 < en:pumpkin
@@ -64848,7 +64856,7 @@ fr: herbe, herbes, plantes aromatiques, plante aromatique, fines herbes, fine he
 he: עשב
 hr: aromatskog bilja
 hu: gyógynövény, gyógynövények
-it: erba, piante aromatiche, erbe aromatiche
+it: erba, piante aromatiche, erbe aromatiche, erbe
 ja: ハーブ
 nb: urt, urte
 nl: Kruiden
@@ -72938,7 +72946,7 @@ fr: algue lithothamnium calcareum, algue marine lithothamnium calcareum
 hr: lithothamnium calcareum
 it: Lithothamnium calcareum
 la: Lithothamnium calcareum
-nl: Lithothamnium calcareum
+nl: Lithothamnium calcareum, zeewier Lithothamnium calcareum
 # ingredient/fr:Lithothamnium-calcareum has 71 products @2020-05-12
 
 
@@ -88587,7 +88595,7 @@ hy: լափշա
 id: mi
 io: nudlo
 is: núðla
-it: noodles
+it: noodles, noodle
 ja: 麺
 jv: mi
 ka: ატრია
