@@ -58,7 +58,7 @@ my @products = (
 			ingredients_text => "wholemeal flour, tomato, mozzarella 20%, olive oil 8%, salt",
 			categories => "pizzas",
 		)
-	},	
+	},
 );
 
 foreach my $product_ref (@products) {
