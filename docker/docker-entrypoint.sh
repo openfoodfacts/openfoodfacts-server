@@ -62,10 +62,12 @@ then
   # handle graceful shutdown of apache on sigterm
   _term () {
     echo "Caught SIGTERM signal!"
-    while [[ ! -e /run/apache2/apache2.pid ]]
+    i=5  # don't wait too much, hard kill is still an option
+    while [[ ( ! -e /run/apache2/apache2.pid && i -gt 0 ) ]]
     do
       echo "Waiting for apache to be fully started..."
       sleep 10
+      ((i--))
     done
     echo "Asking apache to gracefully stop"
     apache2ctl graceful-stop
