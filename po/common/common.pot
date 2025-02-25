@@ -273,6 +273,10 @@ msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
 msgstr ""
 
+msgctxt "alcohol_warning"
+msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
 msgstr ""
@@ -571,16 +575,16 @@ msgctxt "delete_product"
 msgid "Delete a product"
 msgstr ""
 
-msgctxt "delete_product_page"
-msgid "Delete the page"
-msgstr ""
-
 msgctxt "delete_the_images"
 msgid "Delete the images"
 msgstr ""
 
 msgctxt "delete_user"
 msgid "Delete a user"
+msgstr ""
+
+msgctxt "delete_user"
+msgid "Delete the user"
 msgstr ""
 
 msgctxt "delete_confirmation"
@@ -2747,6 +2751,10 @@ msgctxt "delete_product_page"
 msgid "Delete the product page"
 msgstr ""
 
+msgctxt "delete_product_page"
+msgid "Delete the page"
+msgstr ""
+
 msgctxt "deleting_product"
 msgid "Deleting product"
 msgstr ""
@@ -2757,10 +2765,6 @@ msgstr ""
 
 msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
-msgstr ""
-
-msgctxt "delete_user"
-msgid "Delete the user"
 msgstr ""
 
 msgctxt "sources_manufacturer"
@@ -4183,10 +4187,6 @@ msgstr "We need your support!"
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr "Please Donate"
-
-msgctxt "alcohol_warning"
-msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
-msgstr "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
 
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
@@ -5720,10 +5720,6 @@ msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
 msgstr "The information on the ingredients of this product has not been given."
 
-msgctxt "environmental_score_edit_for_more_precise_environmental_score"
-msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-
 msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
 msgstr "ratio"
@@ -5747,6 +5743,10 @@ msgstr "The information about the packaging of this product is not sufficiently 
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
 msgstr "For a more precise calculation of the Green-Score, you can modify the product page and add them."
+
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
+msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
+msgstr "For a more precise calculation of the Green-Score, you can edit the product page and add them."
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
