@@ -188,8 +188,8 @@ my $display_module = mock 'ProductOpener::Display' => (
 
 display_tag($facets_ref);
 
-is($facets_ref->{'current_link'}, '/category/breads/data-quality');
-is($facets_ref->{'redirect'}, '/category/breads/data-quality');
+is($facets_ref->{'current_link'}, '/facets/categories/breads/data-quality');
+is($facets_ref->{'redirect'}, '/facets/categories/breads/data-quality');
 
 $request_ref->{body_json}{labels_tags} = 'en:organic';
 is(request_param($request_ref, 'unexisting_field'), undef);
