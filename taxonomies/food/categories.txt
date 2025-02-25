@@ -55623,6 +55623,7 @@ opposite:en: en:salted-nuts
 < en:Nuts
 en: Mixed nuts, Nut mix
 de: Nussmischung
+fr: Mélanges de fruits à coque
 nl: Notenmelanges, Gemengde noten
 opposite:en: en:brazil-nuts
 sales_format:en: package, weight
@@ -70563,7 +70564,7 @@ nl: Gedroogde mangos
 ru: Манго сушёные, сушёные манго
 
 < en:Dried fruits
-en: Dried mixed fruits
+en: Mixed dried fruits, Dried mixed fruits
 de: Getrocknete Früchtemischung, Getrocknete Früchte-Mix, Trockenfruchtmischung
 es: Mezclas de frutas deshidratadas, Mezclas de frutas secas
 fi: kuivatut hedelmäsekoitukset
@@ -70574,8 +70575,16 @@ lt: Džiovinti įvairūs vaisiai
 nl: Gedroogde fruitmelanges
 pl: Suszona mieszanka owoców
 
+< en:Plant-based foods
+< en:Snacks
+en: Mixed nuts and dried fruits, Nuts with dried fruits, Nuts and dried fruits
+de: Studentenfutter
+fr: Mélanges de fruits secs et de fruits à coque, Mendiants, Mélanges étudiants
+nl: Noten en gedroogd fruit (gemengd), Studentenhavers
+sales_format:en: weight, package
 
-< en:Dried mixed fruits
+< en:Plant-based foods
+< en:Snacks
 en: Mix of grains and dried fruit, Mix of nuts and dried fruit
 fr: Mélange apéritif de graines et fruits séchés
 hr: Mješavina žitarica i suhog voća
@@ -70594,15 +70603,6 @@ agribalyse_food_code:en: 15049
 ciqual_food_code:en: 15049
 ciqual_food_name:en: Mix of unsalted grains/nuts and raisins
 ciqual_food_name:fr: Mélange apéritif de graines (non salées) et raisins secs
-
-< en:Mix of grains and raisins
-< en:Plant-based foods
-< en:Snacks
-en: Nuts with dried fruits, Nuts and dried fruits, Mixed nuts and dried fruits
-de: Studentenfutter
-fr: Mendiants, Mélanges étudiants, Mélanges de fruits secs et de fruits à coque
-nl: Noten en gedroogd fruit (gemengd), Studentenhavers
-sales_format:en: weight, package
 
 < en:Mix of grains and dried fruit
 en: Mix of salted grains and raisins, Mix of salted nuts and raisins
