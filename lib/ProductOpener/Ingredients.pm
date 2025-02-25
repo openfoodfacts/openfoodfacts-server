@@ -190,6 +190,7 @@ my %may_contain_regexps = (
 	cs => "může obsahovat|může obsahovat stopy",
 	da => "produktet kan indeholde|kan indeholde spor af|kan indeholde spor|eventuelle spor|kan indeholde|mulige spor",
 	de => "Kann enthalten|Kann Spuren|Spuren|Kann Anteile|Anteile|Kann auch|Kann|Enthält möglicherweise",
+	el => "Μπορεί να περιέχει ίχνη από",
 	es => "puede contener huellas de|puede contener trazas de|puede contener|trazas|traza",
 	et => "võib sisaldada vähesel määral|võib sisaldada|võib sisalda",
 	fi =>
@@ -198,6 +199,7 @@ my %may_contain_regexps = (
 		"peut également contenir|peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace|Traces éventuelles de|Peut contenir des traces de",
 	hr =>
 		"mogući ostaci|mogući sadržaj|mogući tragovi|može sadržavati|može sadržavati alergene u tragovima|može sadržavati tragove|može sadržavati u tragovima|može sadržati|može sadržati tragove|proizvod može sadržavati|proizvod može sadržavati tragove",
+	hu => "tartalmazhat",
 	is => "getur innihaldið leifar|gæti innihaldið snefil|getur innihaldið",
 	it =>
 		"Pu[òo] contenere tracce di|pu[òo] contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
@@ -209,14 +211,15 @@ my %may_contain_regexps = (
 	nb =>
 		"kan inneholde spor av|kan forekomme spor av|kan inneholde spor|kan forekomme spor|kan inneholde|kan forekomme",
 	pl =>
-		"może zawierać śladowe ilości|produkt może zawierać|może zawierać|możliwa obecność|może zawierać alergeny|możliwa obecność|w produkcie możliwa obecność|wyprodukowano w zakładzie przetwarzającym",
+		"może zawierać śladowe ilości|produkt może zawierać|może zawierać alergeny|może zawierać ślady|może zawierać|możliwa obecność|możliwa obecność|w produkcie możliwa obecność|wyprodukowano w zakładzie przetwarzającym",
 	pt => "pode conter vestígios de|pode conter",
 	ro => "poate con[țţt]ine urme de|poate con[țţt]ine|poate con[țţt]in|produsul poate conţine urme de",
 	rs => "može sadržati tragove",
 	ru => "Могут содержаться следы",
-	sk => "Môže obsahovať",
+	sk => "výrobok môže obsahovat|môže obsahovať",
 	sl => "lahko vsebuje sledi",
-	sv => "kan innehålla små mängder|kan innehålla spår av|innehåller spår av|kan innehålla spår|kan innehålla",
+	sv =>
+		"denna produkt kan innethalla spar av|kan innehålla små mängder|kan innehålla spår av|innehåller spår av|kan innehålla spår|kan innehålla",
 );
 
 my %contains_regexps = (
@@ -230,6 +233,7 @@ my %contains_regexps = (
 	fr => "contient",
 	hr => "sadrže",
 	it => "contengono",
+	lt => "yra",
 	nl => "bevat",
 	pl => "zawiera|zawierają",
 	ro => "con[țţt]ine|con[țţt]in",
@@ -460,7 +464,7 @@ my %and = (
 	oc => " e ",
 	pl => " i ",
 	pt => " e ",
-	ro => " și ",
+	ro => " și | şi | si ",
 	ru => " и ",
 	sk => " a ",
 	sl => " in ",
@@ -560,6 +564,7 @@ my %prepared_with = (
 my %min_regexp = (
 	en => "min|min\.|minimum",
 	ca => "min|min\.|mín|mín\.|mínim|minim",
+	cs => "min|min\.",
 	es => "min|min\.|mín|mín\.|mínimo|minimo|minimum",
 	fr => "min|min\.|mini|minimum",
 	hr => "min|min\.|mini|minimum",
@@ -569,6 +574,7 @@ my %min_regexp = (
 my %max_regexp = (
 	en => "max|max\.|maximum",
 	ca => "max|max\.|màxim",
+	cs => "max|max\.",
 	es => "max|max\.|máximo",
 	fr => "max|max\.|maxi|maximum",
 	hr => "max|max\.|maxi|maximum",
@@ -1341,9 +1347,19 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 
 	my %origin_of_the_regexp_in_lc = (
 		en => "(?:origin of (?:the )?)",
+		al => "(?:vendi i origjinës)",
+		bg => "(?:страна на произход)",
+		cs => "(?:země původu)",
 		ca => "(?:origen)",
 		es => "(?:origen)",
 		fr => "(?:origine (?:de |du |de la |des |de l'))",
+		hr => "(?:zemlja (?:porijekla|podrijetla|porekla))",
+		hu => "(?:származási hely)",
+		it => "(?:paese di (?:molitura|coltivazione del grano))",
+		pl => "(?:kraj pochodzenia)",
+		ro => "(?:tara de origine)",
+		rs => "(?:zemlja porekla)",
+		uk => "(?:kраїна походження)",
 	);
 
 	my $origin_of_the_regexp = $origin_of_the_regexp_in_lc{$ingredients_lc} || $origin_of_the_regexp_in_lc{en};
@@ -2566,7 +2582,7 @@ Text to analyze
 				$ingredient =~ s/\s*(\d+((\,|\.)\d+)?)\s*\%\s*$//;
 
 				# try to remove the origin and store it as property
-				if ($ingredient =~ /\b(de origine|d'origine|origine|origin|alkuperä)\s?:?\s?\b/i) {
+				if ($ingredient =~ /\b(de origine|d'origine|origine|origin|alkuperä|iz)\s?:?\s?\b/i) {
 					$ingredient = $`;
 					my $origin_string = $';
 					# d'origine végétale -> not a geographic origin, add en:vegan
@@ -2786,6 +2802,10 @@ Text to analyze
 								'u promjenljivom odnosu',    # in a variable ratio
 							],
 
+							'bg' => [
+								'mоже да съдържа следи от',    # can contain traces of
+							],
+
 							'da' => [
 								'^Mælkechokoladen indeholder (?:også andre vegetabilske fedtstoffer end kakaosmør og )?mindst',
 							],
@@ -2924,6 +2944,7 @@ Text to analyze
 								'in proporţie variabilă',
 								'Informatiile scrise cu majuscule sunt destinate persoanelor cu intolerante sau alergice',
 								'Ambalat in atmosfera protectoare',
+								'poate con(ț|t)ine urme de',    # can contain traces of
 							],
 
 							'ru' => [
@@ -5211,21 +5232,23 @@ my %phrases_after_ingredients_list = (
 	# TODO: Introduce a common list for kcal
 
 	al => [
-		'të ruhet në',    # store in
+		't(e|ë) ruhet n(e|ë)',    # store in
 	],
 
 	bg => [
 		'да се съхранява (в закрити|на сухо)',    # store in ...
 		'Неотворен',    # before opening ...
+		'След отваряне'    # after opening ...
 	],
 
 	ca => ['envasat en atmosfera protectora', 'conserveu-los en un lloc fresc i sec',],
 
 	cs => [
-		'doporučeny způsob přípravy',
-		'minimální trvanlivost do',    # Expiration date
-		'po otevření',    # After opening
+		'doporu)c|č)eny zp(u|ů)sob p(r|ř)(i|í)pravy',
+		'minim(a|á)ln(i|í) trvanlivost do',    # Expiration date
+		'po otev(r|ř)en(i|í)',    # After opening
 		'V(ý|y)(ž|z)ivov(e|é) (ú|u)daje ve 100 g',
+		'skladujte v suchu',    # keep in dried place
 	],
 
 	da => [
@@ -5255,7 +5278,7 @@ my %phrases_after_ingredients_list = (
 		'(k[uü]hl|bei Zimmertemperatur) und trocken lagern',
 		'Rinde nicht zum Verzehr geeignet.',
 		'Vor W(â|a|ä)rme und Feuchtigkeit sch(u|ü)tzen',
-		'Unge(ö|o)ffnet bei max.',
+		'Unge(ö|o)ffnet (bei max.|unter)',
 		'Unter Schutzatmosphäre verpackt',
 		'verbrauchen bis',
 		'Vor und nach dem Öffnen',    # keep in dried place
@@ -5290,7 +5313,7 @@ my %phrases_after_ingredients_list = (
 		'((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
 		'once opened[,]? (consume|keep|refrigerate|store|use)',
 		'packed in a modified atmosphere',
-		'(Storage( instructions)?[: ]+)?Store in a cool[,]? dry place',
+		'(Storage( instructions| conditions)?[: ]+)?Store in a cool[,]? dry place',
 		'(dist(\.)?|distributed|sold)(\&|and|sold| )* (by|exclusively)',
 		#'See bottom of tin',
 	],
@@ -5304,6 +5327,7 @@ my %phrases_after_ingredients_list = (
 		#'pa(i|í)s de transformaci(o|ó)n',
 		'cons[eé]rv(ar|ese) en( un)? lug[ae]r (fresco y seco|seco y fresco)',
 		'contiene azúcares naturalmente presentes',
+		'distribuido por',    # distributed for
 		'de los cuales az(u|ú)cares',
 		'de las cuales saturadas',
 		'envasado',    # Packaging in protective atmosphere.
@@ -5323,6 +5347,7 @@ my %phrases_after_ingredients_list = (
 
 	fi => [
 		'100 g:aan tuotetta käytetään',
+		'Energiaa per',
 		'Kypsennys',
 		'Makeisten sekoitussuhde voi vaihdella',
 		'Pakattu suojakaasuun',
@@ -5359,6 +5384,7 @@ my %phrases_after_ingredients_list = (
 		'(conseil|conseils) de pr(e|é)paration',
 		'(conditions|conseils) de conservation',
 		'conseil d\'utilisation',
+		'conserver dans un endroit',
 		'conservation[ ]?:',
 		'Croûte en matière plastique non comestible',
 		'dans le compartiment (a|à) gla(c|ç)ons',
@@ -5367,6 +5393,7 @@ my %phrases_after_ingredients_list = (
 		'dont acides (gras|ras) satur(e|é)s',
 		'Fabriquee à partir de fruits entiers',
 		'Fabriqué dans un atelier qui utilise',
+		'garder dans un endroit frais et sec',
 		'information nutritionnelle',
 		'((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
 		'la pr(e|é)sence de vide',    # La présence de vide au fond du pot est due au procédé de fabrication.
@@ -5381,6 +5408,7 @@ my %phrases_after_ingredients_list = (
 		'Nutrition pour 100 (g|ml)',
 		'pensez au tri',
 		'Peux contenir des morceaux de noyaux',
+		'pour en savoir plus',
 		'pr(e|é)paration au four',
 		'Prépar(e|é)e? avec',
 		'(produit )?(a|à) protéger de ',    # humidité, chaleur, lumière etc.
@@ -5422,7 +5450,7 @@ my %phrases_after_ingredients_list = (
 		'prekomjerno konzumiranje',    # excessive consumption can have a laxative effect
 		'preporučuje se',    # preparation
 		'Prijedlog za serviranje',    # Proposal for serving
-		'priprema obroka',    # meal preparation
+		'priprema(:| obroka)',    # meal preparation
 		'proizvod je termički obrađen-pasteriziran',    # pasteurized
 		'proizvod sadrži sumporni dioksid',    # The product contains sulfur dioxide
 		'proizvođač',    # producer
@@ -5439,12 +5467,12 @@ my %phrases_after_ingredients_list = (
 		'vakuumirana',    # Vacuumed
 		'vrijeme kuhanja',    # Cooking time
 		'zbog (mutan|prisutnosti)',    # Due to ...
-		'zemlja (porijekla|podrijetla|porekla)',    # country of origin
 	],
 
 	hu => [
 		'Atlagos tápérték 100g termékben',
 		'((száraz|hűvös|(közvetlen )?napfénytől védett)[, ]*)+helyen tárolandó',    # store in cool/dry/etc
+		'hűvös, száraz helyen, közvetlen napfénytől védve tárolja',    # store in cool dry place away from the sunlight
 		'bontatlan csomagolásban',    # keep in a closed/dark place
 		'tárolás',    # conservation
 	],
@@ -5453,7 +5481,7 @@ my %phrases_after_ingredients_list = (
 
 	it => [
 		'Confezionato in atmosfera protettiva',    # Packaged in a protective atmosphere
-		'Conservare in luogo [fresco e ]asciutto',
+		'(dopo l\'apertura )?Conservare in (frigo|luogo)',
 		'consigli per la preparazione',
 		'Da consumarsi',    # best before
 		'di cui zuccheri',
@@ -5490,7 +5518,7 @@ my %phrases_after_ingredients_list = (
 		'Beter Leven keurmerk 3 sterren',
 		'Bewaren bij kamertemperatuur',
 		'Cacao: ten minste ',
-		'Droog bewaren',
+		'(koel en )?droog bewaren',
 		'E = door EU goedgekeurde hulpstof',
 		'E door EU goedgekeurde hulpstoffen',
 		'"E"-nummers zijn door de EU goedgekeurde hulpstoffen',
@@ -5543,19 +5571,26 @@ my %phrases_after_ingredients_list = (
 	],
 
 	rs => [
-		'(č|Č|c|C|ć|Ć)uvati na (hladnom i suvom mestu|temperaturi od)',    # Store in a cool and dry place
+		'(č|Č|c|C|ć|Ć)uvati na (hladnom|suvom|temperaturi od)',    # Store in a cool and dry place
 		'napomena za potrošače',    # note for consumers
 		'pakovano',    # packed in a protective atmosphere
 		'proizvodi i puni',    # Produced and filled
 		'upotrebljivo',    # keep until
+		'najbolje (upotrijebiti|upotrebiti) do',    # keep until
+	],
+
+	ru => [
+		'xранить в сухом',    # store in a dry place
 	],
 
 	sk => [
 		'skladovanie',    # store at
+		'spotrebujte do',    # keep until
 	],
 
 	sl => [
 		'hraniti',    # Store in a cool and dry place
+		'opozorilo',    # warning
 		'pakirano v kontrolirani atmosferi',    # packed in a ... atmosphere
 		'porabiti',    # keep until
 		'predlog za serviranje ',    # serving suggestion
@@ -5576,6 +5611,11 @@ my %phrases_after_ingredients_list = (
 		'tappat',
 	],
 
+	uk => [
+		'Зберігати в сухому',    # store in dry place
+		'kраще спожити',    # best before
+	],
+
 	vi => ['GI(Á|A) TR(Ị|I) DINH D(Ư|U)(Ỡ|O)NG (TRONG|TRÊN)',],
 );
 
@@ -5590,6 +5630,13 @@ my %ignore_phrases = (
 	],
 	en => ['not applicable',],
 	fr => ['non applicable|non concerné',],
+	hr => [
+		'u gotovom proizvodu',    # 5%* ... % u gotovom proizvodu
+		'za više informacija posjetiti stranicu ra\.org',
+	],
+	hu => [
+		'Valamennyi százalékos adat a késztermékre vonatkozik',    # All percentages refer to the finished product.
+	]
 
 );
 

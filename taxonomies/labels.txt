@@ -1667,7 +1667,7 @@ es: Rico en Omega 3, Alto en Omega 3
 fi: runsaasti omega-3-rasvahappoja, paljon omega-3-rasvahappoja
 fr: Riche en Oméga-3, Riche en omega 3, Riche en acide gras omega 3
 he: עשיר באומגה 3
-hr: visoka vsebnost omega-3 maščob
+hr: visoka vsebnost omega-3 maščob, izvor omega-3 masnih kiselina
 hu: Omega-3 zsírsavakban gazdag
 it: Alto contenuto di Omega 3, ricco di omega 3
 nl: Rijk aan Omega 3
@@ -1711,7 +1711,7 @@ de: proteinquelle
 es: Fuente de proteínas
 fi: Proteiinin lähde
 fr: source de protéines
-hr: izvor proteina
+hr: izvor proteina, izvor bjelančevina
 it: fonte di proteine
 pt: fonte de proteínas
 description:en: In EU, a claim that a food is a source of protein may only be made where at least 12 % of the energy value of the food is provided by protein. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
@@ -3117,7 +3117,7 @@ fi: ei lisättyä sokeria, ilman lisättyä sokeria, ei lisättyjä sokereita
 fr: Sans sucre ajouté, sans sucres ajoutés, sans ajout de sucre
 he: ללא תוספת סוכר
 hi: बिना अतिरिक्त चीनी
-hr: bez dodanog šećera, bez dodatnih šećera, bez dodanih šećera, sadrži prirodno prisutne šećere
+hr: bez dodanog šećera, bez dodatnih šećera, bez dodanih šećera, sadrži prirodno prisutne šećere, sadrži prirodne šećere
 hu: Hozzáadott cukor nélkül, Nincs hozzáadott cukor, hozzáadott cukrot nem tartalmaz
 id: Tanpa tambahan gula
 it: Senza zuccheri aggiunti
@@ -3132,7 +3132,7 @@ pt: Sem açúcares adicionados, sem adição de açúcares, sem açúcar adicion
 ro: Fără zahăr adăugat
 ru: Без добавления сахара
 sk: Bez pridaného cukru
-sl: Brez dodanega sladkorja
+sl: Brez dodanega sladkorja, obsahuje prírodné cukry
 sq: Pa sheqer të shtuar
 sr: Без додатог шећера
 sv: Inget tillsat socker, Utan tillsatt socker
@@ -5347,17 +5347,18 @@ label_categories:en: en:Specific diets
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #en:description:Labels used for identifying products (and ingredients) that have been grown organically.
 
-en: Organic, organically grown, organically produced, ingredient produced organically, from organic farming, From Organic Agriculture, organic ingredients
+en: Organic, organically grown, organically produced, ingredient produced organically, from organic farming, From Organic Agriculture, organic ingredients, from controlled organic agriculture
 bg: Био, биологично земеделие, биологично
 ca: Orgànic, de cultiu ecologic
-cs: Bio
+cs: Bio, z kontrolovane ekologicke produkce, z ekologickeho, z kontrolovaného ekologického zemědělství
+cz: z ekologického zemědělství, z kontrolované ekologické produkce
 da: Økologisk, Økologiske
-de: Bio, Öko, biologisch, biologische, biologischer, biologisches, Ökologisch, Kontrolliert biologisch, Kontrolliert ökologisch, biologische Landwirtschaft, aus biologischer Landwirtschaft, ökologische Landwirtschaft, biologischer Landbau, ökologischer Landbau, aus kontrolliert biologischem Anbau, biologisch gewonnen, aus kontrolliert biologischer landwirtschaft, aus kontrolliert ökologischer erzeugung, aus kontrolliert ökologischer landwirtschaft, aus kontrolliert ökologischem anbau, aus kontrolliert ökologischem landbau, aus kontrollierter biologischer landwirtschaft, aus kontrollierter ökologischer landwirtschaft, kontrolliert biologischer anbau
+de: Bio, Öko, biologisch, biologische, biologischer, biologisches, Ökologisch, Kontrolliert biologisch, Kontrolliert ökologisch, biologische Landwirtschaft, aus biologischer Landwirtschaft, ökologische Landwirtschaft, biologischer Landbau, ökologischer Landbau, aus kontrolliert biologischem Anbau, biologisch gewonnen, aus kontrolliert biologischer landwirtschaft, aus kontrolliert ökologischer erzeugung, aus kontrolliert ökologischer landwirtschaft, aus kontrolliert ökologischem anbau, aus kontrolliert ökologischem landbau, aus kontrollierter biologischer landwirtschaft, aus kontrollierter ökologischer landwirtschaft, kontrolliert biologischer anbau, biologisch zertifiziert
 es: Ecológico, ecológica, Producto ecológico, Biológico, Producto biológico, Orgánico, Producto orgánico, Eco, Bio, Ingredientes ecológicos, Ingrediente ecológico, ingredientes procedentes de la agricultura ecológica, ingrediente procedente de la agricultura ecológica, agricultura ecológica, cumple con el reglamento de agricultura ecológica CE 2092/91, procedentes de la agricultura ecológica, procedente de la agricultura ecológica, de agricultura ecológica, de agricultura ecologica, Procedente e agricultura ecológica, de cultivo ecológico
 fi: Luomu, luomutuotanto, luomutuotantoa, luomuraaka-aine, luonnonmukainen tuotanto, luonnonmukaisesti
-fr: Bio, agriculture biologique, biologique, organic, organique, issu de l'agriculture biologique, issus de l'agriculture biologique, issue de l'agriculture biologique, issues de l'agriculture biologique, ingrédient issu de l'agriculture biologique, ingrédients issus de l'agriculture biologique, Les-ingredients-sont-issus-d-une-agriculture-biologique, ingrédients agricoles issus de l'agriculture biologique, produits issus de l'agriculture biologique, produit issu de l'agriculture biologique, ingrédient agricole issu de l'agriculture biologique, tous les ingrédients agricoles sont issus de l'agriculture biologique, les ingrédients agricoles sont issus de l'agriculture biologique, tous les ingrédients sont issus de l'agriculture biologique, ingrédients bio, ingrédients biologiques, ingrédient bio, ingrédient biologique, issue de l'agriculture biologique controlee
+fr: Bio, agriculture biologique, biologique, organic, organique, issu de l'agriculture biologique, issus de l'agriculture biologique, issus de l'agriculture biologique contrôlée, issue de l'agriculture biologique, issues de l'agriculture biologique, ingrédient issu de l'agriculture biologique, ingrédients issus de l'agriculture biologique, Les-ingredients-sont-issus-d-une-agriculture-biologique, ingrédients agricoles issus de l'agriculture biologique, produits issus de l'agriculture biologique, produit issu de l'agriculture biologique, ingrédient agricole issu de l'agriculture biologique, tous les ingrédients agricoles sont issus de l'agriculture biologique, les ingrédients agricoles sont issus de l'agriculture biologique, tous les ingrédients sont issus de l'agriculture biologique, ingrédients bio, ingrédients biologiques, ingrédient bio, ingrédient biologique, issue de l'agriculture biologique controlee, issu de production biologique
 he: אורגני
-hr: ekološki uzgoj, iz ekološkog uzgoja, iz kontroliranog ekološkog uzgoja, iz kontrolirane ekološke proizvodnje, iz kontroliranog biološkog uzgoja, iz kontroliranog organskog uzgoja
+hr: ekološki uzgoj, iz ekološkog uzgoja, iz kontroliranog ekološkog uzgoja, iz kontrolirane ekološke proizvodnje, iz kontroliranog biološkog uzgoja, iz kontroliranog organskog uzgoja, iz biološkog uzgoja, ekološki
 hu: Bio, Öko, Organikus, biogazdálkodásból, ellenőrzött ökológiai gazdálkodásból
 it: Biologico, biologici, da agricoltura biologica
 ko: 유기농
@@ -5365,6 +5366,9 @@ lt: Ekologiškas, ekologiškai užaugintas, ekologiškai pagamintas, ingredienta
 nl: Biologisch, biologische, van biologische oorsprong, van biologische teelt, van gecontroleerd biologische teelt, afkomstig van biologische productiemethode, van gecontroleerde biologische landbouw
 pl: ekologiczny, bio, ekologiczne, ekologiczna, ekologicznych, ekologicznego, z kontrolowanych upraw ekologicznych, z kontrolowanej produkcji ekologicznej, z kontrolowanego rolnictwa ekologicznego, certyfikowany składnik ekologiczny, składnik ekologiczny, produkt pochodzący z kontrolowanych certyfikowanych upraw ekologicznych
 pt: Orgânico, produção orgânica, produzido de forma orgânica, numa quinta orgânica, de agricultura orgânica, agricultura orgânica
+ro: din agricultură ecologică controlată
+sk: z kontrolovaného ekologického poľnohospodárstva
+sl: iz kontrolirane ekološke pridelave
 sv: Ekologisk, Ekologiskt, Ekologiska
 th: ออร์แกนิค
 tr: Organik
@@ -18556,11 +18560,12 @@ pt: Carne de porco pura, Puro bife, 100% bife, bife puro, pura carne de porco, 1
 en: Rainforest Alliance
 xx: Rainforest Alliance, Rainforest Alliance People & Nature, Rainforest Alliance People and Nature, Rainforest
 ca: Aliança Tropical
-es: Rainforest Alliance, Alianza para Bosques
-fr: Rainforest Alliance, Vérifié Rainforest Alliance, Certifié Rainforest Alliance
-hr: Rainforest Alliance, Certificirano Rainforest Alliance
+cs: certifikováno rainforest alliance, certifikovano rainforest alliance
+es: Alianza para Bosques
+fr: Vérifié Rainforest Alliance, Certifié Rainforest Alliance
+hr: Certificirano Rainforest Alliance
 it: Alleanza della Foresta Pluviale
-sv: Rainforest Alliance, Rainforest Alliance-certifierad
+sv: Rainforest Alliance-certifierad
 auth_url:en: https://www.rainforest-alliance.org
 wikidata:en: Q2034373
 
