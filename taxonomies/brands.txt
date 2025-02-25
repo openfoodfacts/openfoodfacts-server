@@ -1,0 +1,69 @@
+# All brands in the brands taxonomy are language less and use the xx: prefix
+# Brands are not translated, we record what is written on the package, and we display it back as-is
+
+# Adding brands in the taxonomy allows to:
+# - display proper capitalization and accentuation
+# - handle variations using the synonyms (e.g. missing or added separators like ' or spaces, possibly missing 's)
+
+# The brands taxonomy should not be used to:
+# - handle misspelings (do not add misspellings in the taxonomy as synonyms)
+# - handle parent / child brands (too much potential for errors and conflicts, especially in an international setting and with products from different types)
+
+
+xx: Albert Heijn
+
+xx: Aldi
+
+xx: bonÀrea
+
+xx: Carrefour BIO
+
+xx: dmBio, dm Bio
+
+xx: Dr. Oetker
+
+xx: H-E-B, HEB
+wikidata:en: Q830621
+
+xx: Kellogg's, Kelloggs, Kellogg
+
+xx: Leader Price, Leaderprice
+
+xx: Maître CoQ
+
+xx: Marks & Spencers, Marks and Spencers
+wikidata:en: Q714491
+
+xx: Marque Repère
+wikidata:en: Q3294723
+
+# Portuguese version of Marque Repère
+xx: Marca Guia
+
+xx: Bio Village
+
+xx: Chaque Jour Sans Gluten
+
+xx: Délisse
+
+xx: NAT&vie, NAT&vie veggie
+
+xx: Récoltons l'Avenir, Récoltons l'Avenir l'agriculture durable
+
+xx: Soutenons nos agriculteurs
+
+xx: Tokapi
+
+xx: Turini
+
+xx: Nestlé
+wikidata:en: Q160746
+
+xx: Rice Krispies
+
+xx: Sainsbury's, Sainsburys
+
+xx: Special K
+
+xx: Trader Joe's
+

@@ -83,7 +83,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<ul> <li id=\"data-error-en:environmental-score-extended-data-not-computed\"> Environmental-score-extended-data-not-computed </li> <li id=\"data-error-en:food-groups-1-unknown\"> Food groups 1 unknown </li> <li id=\"data-error-en:food-groups-2-unknown\"> Food groups 2 unknown </li> <li id=\"data-error-en:food-groups-3-unknown\"> Food groups 3 unknown </li> <li id=\"data-error-en:ingredients-percent-analysis-ok\"> Ingredients percent analysis OK </li> </ul>"
+                     "html" : "<ul> <li id=\"data-error-en:environmental-score-extended-data-not-computed\"> environmental-score-extended-data-not-computed </li> <li id=\"data-error-en:food-groups-1-unknown\"> Food groups 1 unknown </li> <li id=\"data-error-en:food-groups-2-unknown\"> Food groups 2 unknown </li> <li id=\"data-error-en:food-groups-3-unknown\"> Food groups 3 unknown </li> <li id=\"data-error-en:ingredients-percent-analysis-ok\"> Ingredients percent analysis OK </li> </ul>"
                   }
                }
             ],
@@ -120,7 +120,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<ul> <li id=\"data-error-en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown\"> Environmental-score-origins-of-ingredients-origins-are-100-percent-unknown </li> <li id=\"data-error-en:environmental-score-packaging-packaging-data-missing\"> Environmental-score-packaging-packaging-data-missing </li> <li id=\"data-error-en:environmental-score-production-system-no-label\"> Environmental-score-production-system-no-label </li> </ul>"
+                     "html" : "<ul> <li id=\"data-error-en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown\"> environmental-score-origins-of-ingredients-origins-are-100-percent-unknown </li> <li id=\"data-error-en:environmental-score-packaging-packaging-data-missing\"> environmental-score-packaging-packaging-data-missing </li> <li id=\"data-error-en:environmental-score-production-system-no-label\"> environmental-score-production-system-no-label </li> </ul>"
                   }
                }
             ],
@@ -330,7 +330,7 @@
             "level" : "info",
             "size" : "small",
             "title_element" : {
-               "title" : "Test-ingredient: 25.0% (estimate)"
+               "title" : "test-ingredient: 25.0% (estimate)"
             },
             "topics" : [
                "health"
@@ -449,7 +449,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                \n                    <strong>Unrecognized ingredients:</strong>\n                    Test-ingredient\n                \n                    ",
+                     "html" : "\n                \n                    <strong>Unrecognized ingredients:</strong>\n                    test-ingredient\n                \n                    ",
                      "type" : "summary"
                   }
                },
@@ -478,7 +478,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                \n                    <strong>Unrecognized ingredients:</strong>\n                    Test-ingredient\n                \n                    ",
+                     "html" : "\n                \n                    <strong>Unrecognized ingredients:</strong>\n                    test-ingredient\n                \n                    ",
                      "type" : "summary"
                   }
                },
@@ -507,7 +507,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                \n                    <strong>Unrecognized ingredients:</strong>\n                    Test-ingredient\n                \n                    ",
+                     "html" : "\n                \n                    <strong>Unrecognized ingredients:</strong>\n                    test-ingredient\n                \n                    ",
                      "type" : "summary"
                   }
                },

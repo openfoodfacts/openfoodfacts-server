@@ -3634,6 +3634,11 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref 
 		$tag = $';
 	}
 
+	# Language less taxonomies (e.g. brands): consider the input to be in the xx language
+	if ($tagtype eq "brands") {
+		$tag_lc = "xx";
+	}
+
 	$tag = normalize_percentages($tag, $tag_lc);
 	my $tagid = get_string_id_for_lang($tag_lc, $tag);
 
@@ -4253,7 +4258,6 @@ sub display_taxonomy_tag ($target_lc, $tagtype, $tag) {
 			# we have a translation for the default xx language
 			$display = $translations_to{$taxonomy}{$xx_tagid}{xx};
 		}
-
 		# use tag language
 		elsif ( (defined $translations_to{$taxonomy})
 			and (defined $translations_to{$taxonomy}{$tagid})
@@ -4267,13 +4271,13 @@ sub display_taxonomy_tag ($target_lc, $tagtype, $tag) {
 		else {
 			$display = $tag;
 
-			if ($target_lc ne $tag_lc) {
-				$display = "$tag_lc:$display";
+			# If the tag language is xx:, we don't want to add the language code
+			# This happens for language less taxonomies (e.g. brands) when we don't have a taxonomized entry
+			# So if someone enters SomeUnknownBrand in the brands field, it is normalized to xx:SomeUnknownBrand
+			# and we display it as SomeUnknownBrand
+			if (($target_lc eq $tag_lc) or ($tag_lc eq "xx")) {
+				$display =~ s/^(\w\w)://;
 			}
-			else {
-				$display = ucfirst($display);
-			}
-			# print STDERR "display_taxonomy_tag - no translation available for $taxonomy $tagid in target language $lc or tag language $tag_lc - result: $display\n";
 		}
 	}
 
@@ -4289,7 +4293,6 @@ sub display_taxonomy_tag ($target_lc, $tagtype, $tag) {
 	}
 
 	return $display;
-
 }
 
 =head2 display_taxonomy_tag_name ( $target_lc, $tagtype, $canon_tagid )
@@ -4701,6 +4704,11 @@ sub compute_field_tags ($product_ref, $tag_lc, $field) {
 	# fields that should not have a different normalization (accentuation etc.) based on language
 	if ($field eq "teams") {
 		$tag_lc = "no_language";
+	}
+
+	# brands are a language less taxonomy, the input tag_lc is not used, we use xx instead
+	if ($field eq "brands") {
+		$tag_lc = "xx";
 	}
 
 	init_emb_codes() unless %emb_codes_cities;
