@@ -452,11 +452,10 @@
 <!-- start templates/web/pages/tags_map/map_of_tags.tt.html -->
 
 <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/leaflet.css" />
-<script src="//static.openfoodfacts.localhost/js/dist/leaflet.js"></script>
-<script src="//static.openfoodfacts.localhost/js/dist/osmtogeojson.js"></script>
-<script src="//static.openfoodfacts.localhost/js/dist/display-tag.js"></script>
 
-<script>
+<script type="module">
+  import { displayMap } from '//static.openfoodfacts.localhost/js/dist/display-tag.js';
+  
   document.addEventListener('DOMContentLoaded', function () {
     displayMap([], ["Q13276"]);
   });
