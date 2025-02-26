@@ -4741,6 +4741,9 @@ sub get_products_collection_request_parameters ($request_ref, $additional_parame
 	# for obsolete products
 	$parameters_ref->{obsolete} = request_param($request_ref, "obsolete");
 
+	# Allow the database to be specified. Currently defaults to mongodb but can set to off-query to use that instead
+	$parameters_ref->{database} = request_param($request_ref, "database");
+
 	# Admin users can request a specific query_timeout for MongoDB queries
 	if ($request_ref->{admin}) {
 		$parameters_ref->{timeout} = request_param($request_ref, "timeout");
