@@ -2,13 +2,6 @@ name: Pull Request checks
 
 on:
   pull_request:
-    # we can't do that, because status are required
-    # see https://stackoverflow.com/questions/66751567/return-passing-status-on-github-workflow-when-using-paths-ignore
-    # paths-ignore:
-    #   - "**.md"
-    #   - ".github/CODEOWNERS"
-    #   - ".github/PULL_REQUEST_TEMPLATE.md"
-    #   - ".editorconfig"
   push:
     branches:
     - main
@@ -19,10 +12,18 @@ concurrency:
 
 jobs:
 
+  check_markdown:
+    name: Check for Markdown Files
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.changed_files, '.md')
+    steps:
+    - name: Complete immediately for Markdown files
+      run: echo "Markdown file changed. Completing status."
+
   lint:
     name: 🕵️‍♀️ NPM lint
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
+    if: github.event_name == 'pull_request' && !contains(github.event.pull_request.changed_files, '.md')
     steps:
     - uses: actions/checkout@v4
       with:
@@ -35,14 +36,13 @@ jobs:
     - name: lint
       run: make front_lint
 
-  # this will build the docker image and upload as an artifact for following jobs
   build_backend:
     name: 🏗 Build backend dev image for tests
     runs-on: ubuntu-latest
+    if: !contains(github.event.pull_request.changed_files, '.md')
     steps:
     - uses: actions/checkout@v4
       with:
-        # needs depth to run git log below
         fetch-depth: 50
     - uses: actions/cache@v4
       id: cache
@@ -57,13 +57,10 @@ jobs:
       with:
         image: "openfoodfacts-server/backend:dev"
     - name: Fetch origin/main
-      # we need origin/main to have comparison linting work
       run: |
         git remote set-branches --add origin main
         git fetch --no-tags --prune --progress --no-recurse-submodules --depth=5 origin main
     - name: Restore taxonomies dates
-      # here we first restore dates from git for taxonomies to avoid build them all
-      # see https://stackoverflow.com/a/60984318/2886726
       run: |
         git ls-files taxonomies/ | xargs -I{} git log -1 --date=format:%Y%m%d%H%M.%S --format='touch -t %ad "{}"' "{}" | bash
     - name: Rebuild taxonomies for Open Food Facts (off)
@@ -85,19 +82,16 @@ jobs:
     name: 🐪 Check Perl
     needs: build_backend
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
+    if: github.event_name == 'pull_request' && !contains(github.event.pull_request.changed_files, '.md')
     steps:
     - uses: actions/checkout@v4
       with:
         fetch-depth: 1
     - name: Fetch origin/main
-      # we need origin/main to have comparison linting work
       run: |
         git remote set-branches --add origin main
         git fetch --no-tags --prune --progress --no-recurse-submodules --depth=5 origin main
     - name: Restore taxonomies dates
-      # here we first restore dates from git for taxonomies to avoid build them all
-      # see https://stackoverflow.com/a/60984318/2886726
       run: |
         git ls-files taxonomies/ | xargs -I{} git log -1 --date=format:%Y%m%d%H%M.%S --format='touch -t %ad "{}"' "{}" | bash
     - uses: actions/cache/restore@v4
@@ -111,9 +105,6 @@ jobs:
       uses: ishworkh/container-image-artifact-download@v2.0.0
       with:
         image: "openfoodfacts-server/backend:dev"
-    # downloadbackendimage task loads the image into docker and keeps the original file.
-    # As our runs tend to hit the storage limits for GitHub Actions, manually delete the
-    # downloaded file for now. It's not needed after being loaded into docker.
     - name: Remove downloaded image
       env:
         FILE: "${{ steps.downloadbackendimage.outputs.download_path }}"
@@ -133,6 +124,7 @@ jobs:
     name: 🐪 Perl unit tests
     needs: build_backend
     runs-on: ubuntu-latest
+    if: !contains(github.event.pull_request.changed_files, '.md')
     steps:
     - uses: actions/checkout@v4
       with:
@@ -144,13 +136,10 @@ jobs:
         key: taxonomies-${{ hashFiles('taxonomies/**') }}
         restore-keys: taxonomies-
     - name: Fetch origin/main
-      # we need origin/main to have comparison linting work
       run: |
         git remote set-branches --add origin main
         git fetch --no-tags --prune --progress --no-recurse-submodules --depth=5 origin main
     - name: Restore taxonomies dates
-      # here we first restore dates from git for taxonomies to avoid build them all
-      # see https://stackoverflow.com/a/60984318/2886726
       run: |
         git ls-files taxonomies/ | xargs -I{} git log -1 --date=format:%Y%m%d%H%M.%S --format='touch -t %ad "{}"' "{}" | bash
     - name: Download backend image from artifacts
@@ -158,9 +147,6 @@ jobs:
       uses: ishworkh/container-image-artifact-download@v2.0.0
       with:
         image: "openfoodfacts-server/backend:dev"       
-    # downloadbackendimage task loads the image into docker and keeps the original file.
-    # As our runs tend to hit the storage limits for GitHub Actions, manually delete the
-    # downloaded file for now. It's not needed after being loaded into docker.
     - name: Remove downloaded image
       env:
         FILE: "${{ steps.downloadbackendimage.outputs.download_path }}"
@@ -170,7 +156,6 @@ jobs:
         make codecov_prepare
         make COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' DOCKER_LOCAL_DATA="$(pwd)" tests GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
     - name: generate coverage results
-      # even if tests failed
       if: always()
       run: |
         make coverage_txt
@@ -190,7 +175,7 @@ jobs:
   tests_dev:
     name: 🧪 Test make dev
     needs: build_backend  # only to avoid building taxonomies
-    if: github.event_name == 'pull_request'
+    if: github.event_name == 'pull_request' && !contains(github.event.pull_request.changed_files, '.md')
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -207,9 +192,6 @@ jobs:
       uses: ishworkh/container-image-artifact-download@v2.0.0
       with:
         image: "openfoodfacts-server/backend:dev"
-    # downloadbackendimage task loads the image into docker and keeps the original file.
-    # As our runs tend to hit the storage limits for GitHub Actions, manually delete the
-    # downloaded file for now. It's not needed after being loaded into docker.
     - name: Remove downloaded image
       env:
         FILE: "${{ steps.downloadbackendimage.outputs.download_path }}"
@@ -231,7 +213,7 @@ jobs:
   test_deployment:
     name: 🦾 Some test of deployment tools
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
+    if: github.event_name == 'pull_request' && !contains(github.event.pull_request.changed_files, '.md')
     steps:
     - uses: actions/checkout@v4
       with:
