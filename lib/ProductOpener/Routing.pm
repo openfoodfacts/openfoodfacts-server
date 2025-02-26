@@ -45,8 +45,9 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
+use ProductOpener::Products qw/is_valid_code normalize_code product_url/;
 use ProductOpener::Display
-	qw/$formatted_subdomain %index_tag_types_set display_robots_txt_and_exit init_request redirect_to_url single_param get_owner_pretty_path/;
+	qw/$formatted_subdomain %index_tag_types_set display_robots_txt_and_exit init_request redirect_to_url single_param/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/%tag_type_from_plural %tag_type_from_singular %tag_type_plural %tag_type_singular lang/;
 use ProductOpener::API qw/:all/;
@@ -57,6 +58,7 @@ use ProductOpener::Index qw/%texts/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Redis qw/:all/;
 use ProductOpener::RequestStats qw/:all/;
+use ProductOpener::URL qw/get_owner_pretty_path/;
 
 use Encode;
 use CGI qw/:cgi :form escapeHTML/;
@@ -112,11 +114,13 @@ sub load_routes() {
 		['properties', \&properties_route],
 		['property', \&properties_route],
 		['products', \&products_route],
+		['content', \&content_route],
+		['facets', \&facets_route],
 		# with priority
 		['', \&index_route],
 		['^(?<page>\d+)$', \&index_route, {regex => 1}],
 		['org/[orgid]/', \&org_route],
-		# Known tag type? Catch all if no route matched
+		# Deprecated facet route… Catch all if no route matched
 		['.*', \&facets_route, {regex => 1}],
 	];
 
@@ -277,7 +281,7 @@ sub org_route($request_ref) {
 	}
 
 	$request_ref->{ownerid} = $Owner_id;
-	$request_ref->{canon_rel_url} = get_owner_pretty_path();
+	$request_ref->{canon_rel_url} = get_owner_pretty_path($Owner_id);
 
 	# remove the org/orgid
 	splice(@{$request_ref->{components}}, 0, 2);
@@ -410,9 +414,16 @@ sub mission_route($request_ref) {
 sub product_route($request_ref) {
 	$log->debug("request looks like a product", {components => $request_ref->{components}}) if $log->is_debug();
 
-	if ($request_ref->{components}[1] =~ /^\d/) {
+	if (is_valid_code($request_ref->{components}[1])) {
+		my $code = $request_ref->{components}[1];
+		my $normalized_code = normalize_code($code);
+		if ($code ne $normalized_code) {
+			# redirect to normalized code
+			$request_ref->{redirect} = product_url($normalized_code);
+			return 1;
+		}
 		$request_ref->{product} = 1;
-		$request_ref->{code} = $request_ref->{components}[1];
+		$request_ref->{code} = $code;
 		$request_ref->{titleid} = $request_ref->{components}[2] // '';
 		$request_ref->{rate_limiter_bucket} = "product";
 		set_request_stats_value($request_ref->{stats}, "route", "product");
@@ -454,33 +465,52 @@ sub redirect_text_route($request_ref) {
 		. $options{redirect_texts}{$request_ref->{lc} . '/' . $text};
 	$log->info('redirect_text_route', {textid => $text, redirect => $request_ref->{redirect}})
 		if $log->is_info();
-	redirect_to_url($request_ref, 302, $request_ref->{redirect});
 	return 1;
 }
 
-# lc:product/[code]
-sub lc_product_route($request_ref) {
-	# check the product code looks like a number
-	if ($request_ref->{components}[1] =~ /^\d/) {
-		$request_ref->{redirect}
-			= $formatted_subdomain
-			. $request_ref->{canon_rel_url} . '/'
-			. $tag_type_singular{products}{$request_ref->{lc}} . '/'
-			. $request_ref->{components}[1];
-		redirect_to_url($request_ref, 302, $request_ref->{redirect});
+# small util for facets_route: get the tag type for a facet in singular or plural
+sub _get_facet_tagtype($component, $target_lc) {
+	my $tagtype = undef;
+	my $is_singular = undef;
+	my $lc = $target_lc;
+	# try plural first, this is the target everywhere (in case plural is the same as singular)
+	if (defined $tag_type_from_plural{$target_lc}{$component}) {
+		$tagtype = $tag_type_from_plural{$target_lc}{$component};
 	}
-	else {
-		$request_ref->{status_code} = 404;
-		$request_ref->{error_message} = lang("error_invalid_address");
+	elsif (defined $tag_type_from_plural{"en"}{$component}) {
+		$tagtype = $tag_type_from_plural{"en"}{$component};
+		$lc = "en";
 	}
-	return 1;
+	elsif (defined $tag_type_from_singular{$target_lc}{$component}) {
+		$tagtype = $tag_type_from_singular{$target_lc}{$component};
+		$is_singular = 1;
+	}
+	elsif (defined $tag_type_from_singular{"en"}{$component}) {
+		$tagtype = $tag_type_from_singular{"en"}{$component};
+		$is_singular = 1;
+		$lc = "en";
+	}
+	return ($tagtype, $lc, $is_singular);
 }
 
 sub facets_route($request_ref) {
 
+	my $is_obsolete_url = undef;
+
 	my $target_lc = $request_ref->{lc};
-	$request_ref->{canon_rel_url} = '';
+	# On pro platform, URLs are prefixed with the organization id: /org/org-id
+	$request_ref->{canon_rel_url} = get_owner_pretty_path($Owner_id);
 	my $canon_rel_url_suffix = '';
+
+	# add the facets prefix to the canonical_url
+	# the facets prefix may not be in older facet urls (before we prefixed them with /facets), in which case we don't consume the first component and mark the url obsolete
+	$request_ref->{canon_rel_url} .= "/facets";
+	if ($request_ref->{components}[0] eq "facets") {
+		shift @{$request_ref->{components}};
+	}
+	else {
+		$is_obsolete_url = 1;
+	}
 
 	# We may have a page number
 	if (scalar @{$request_ref->{components}} > 0) {
@@ -494,12 +524,16 @@ sub facets_route($request_ref) {
 	# Extract tag type / tag value pairs and store them in an array $request_ref->{tags}
 	# e.g. /category/breakfast-cereals/label/organic/brand/monoprix
 	extract_tagtype_and_tag_value_pairs_from_components($request_ref);
+	# get is_obsolete_url computation
+	$is_obsolete_url ||= $request_ref->{is_obsolete_url};
+	delete $request_ref->{is_obsolete_url};
 
+	# remaining components that are not in pairs
 	my @components = @{$request_ref->{components}};
 
 	$log->debug("facets_route - components: ", @{$request_ref->{components}}) if $log->is_debug();
 
-	# list of (categories) tags with stats for a nutriment
+	# special case: list of (categories) tags with stats for a nutriment
 	if (    ($#components == 1)
 		and (defined $tag_type_from_plural{$target_lc}{$components[0]})
 		and ($tag_type_from_plural{$target_lc}{$components[0]} eq "categories")
@@ -520,17 +554,11 @@ sub facets_route($request_ref) {
 
 	# if we have at least one component, check if the last component is a plural of a tagtype -> list of tags
 	if (defined $components[-1]) {
-
-		my $lc;
-		if (defined $tag_type_from_plural{$target_lc}{$components[-1]}) {
-			$lc = $target_lc;
-		}
-		elsif (defined $tag_type_from_plural{'en'}{$components[-1]}) {
-			$lc = 'en';
-		}
-
-		if (defined $lc) {
-			$request_ref->{groupby_tagtype} = $tag_type_from_plural{$lc}{pop @components};
+		my ($tagtype, $lc, $is_singular) = _get_facet_tagtype($components[-1], $target_lc);
+		if (defined $tagtype) {
+			$request_ref->{groupby_tagtype} = $tagtype;
+			$is_obsolete_url ||= $is_singular;
+			pop @components;
 			# use $target_lc for canon url
 			$canon_rel_url_suffix .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$target_lc};
 			$log->debug(
@@ -544,19 +572,33 @@ sub facets_route($request_ref) {
 	if ((defined $components[0]) and ($components[0] eq 'points')) {
 		$request_ref->{points} = 1;
 		$request_ref->{canon_rel_url} .= "/points";
+		shift @components;
 	}
 
-	if ($#components >= 0) {
+	$request_ref->{canon_rel_url} .= $canon_rel_url_suffix;
+	$request_ref->{canon_rel_url} .= ("/" . $request_ref->{page}) if (defined $request_ref->{page});
+
+	if (scalar @components >= 1) {
 		# We have a component left, but we don't know what it is
+		# and we know we are the last route
 		$log->warn("facets_route - invalid address, confused by number of components left",
 			{left_components => \@components})
 			if $log->is_warn();
 		$request_ref->{status_code} = 404;
 		$request_ref->{error_message} = lang("error_invalid_address");
+		delete $request_ref->{canon_rel_url};
 		return;
 	}
 
-	$request_ref->{canon_rel_url} .= $canon_rel_url_suffix;
+	if ($is_obsolete_url) {
+		# redirect to the canonical url with some minor modifications:
+		# remove lc: in tags and page number if it's 1
+		my $redirect_url = $request_ref->{canon_rel_url};
+		$redirect_url =~ s!/${target_lc}:!/!g;
+		$redirect_url =~ s!/1$!!;
+		$request_ref->{redirect} = $redirect_url;
+		$request_ref->{redirect_status} = 301;
+	}
 
 	if (defined $request_ref->{groupby_tagtype}) {
 		$request_ref->{rate_limiter_bucket} = "facet_tags";
@@ -782,9 +824,14 @@ sub sanitize_request($request_ref) {
 
 Extract tag type / tag value pairs and store them in an array $request_ref->{tags}
 
-e.g. /category/breakfast-cereals/label/organic/brand/monoprix
+e.g. /categories/breakfast-cereals/labels/organic/brands/monoprix
 
 Tags can be prefixed by a - to indicate that we want products without this tag
+
+Tags that where not recognized are left in $request_ref->{components}
+
+Note that we also handle singular tags types like "brand" or "category",
+but mark them as obsolete (needs a redirect)
 
 =cut
 
@@ -794,31 +841,28 @@ sub extract_tagtype_and_tag_value_pairs_from_components ($request_ref) {
 
 	$request_ref->{tags} = [];
 	my $components_ref = $request_ref->{components};
+	my $is_obsolete_url = undef;
 
-	while (
-		(scalar @$components_ref >= 2)
-		and (  (defined $tag_type_from_singular{$target_lc}{$components_ref->[0]})
-			or (defined $tag_type_from_singular{"en"}{$components_ref->[0]}))
-		)
-	{
-		my $tagtype;
+	# unpacking tags / values pairs
+	my $found = 1;
+	while ((scalar @$components_ref >= 2) and $found) {
+		my ($tagtype, $lc, $is_singular) = _get_facet_tagtype($components_ref->[0], $target_lc);
+		$found = defined $tagtype;
+		next unless $found;
+
+		shift @$components_ref;    # consume tag type
+								   # even one singular make the url obsolete
+		$is_obsolete_url ||= $is_singular;
+
 		my $tag_prefix;
 		my $tag;
 		my $tagid;
 
-		$log->debug("request looks like a singular tag",
-			{lc => $target_lc, tagtype => $components_ref->[0], tagid => $components_ref->[1]})
+		$log->debug("request looks like a tagtype / tag value pair",
+			{lc => $target_lc, tagtype => $tagtype, tagid => $components_ref->[1]})
 			if $log->is_debug();
 
-		# If the first component is a valid singular tag type, use it as the tag type
-		if (defined $tag_type_from_singular{$target_lc}{$components_ref->[0]}) {
-			$tagtype = $tag_type_from_singular{$target_lc}{shift @$components_ref};
-		}
-		# Otherwise, use "en" as the default language and try again
-		else {
-			$tagtype = $tag_type_from_singular{"en"}{shift @$components_ref};
-		}
-
+		# consume
 		$tag = shift @$components_ref;
 
 		# if there is a leading dash - before the tag, it indicates we want products without it
@@ -853,7 +897,7 @@ sub extract_tagtype_and_tag_value_pairs_from_components ($request_ref) {
 		}
 
 		$request_ref->{canon_rel_url}
-			.= "/" . $tag_type_singular{$tagtype}{$target_lc} . "/" . $tag_prefix . $tagid;
+			.= "/" . $tag_type_plural{$tagtype}{$target_lc} . "/" . $tag_prefix . $tagid;
 
 		# Add the tag properties to the list of tags
 		push @{$request_ref->{tags}}, {tagtype => $tagtype, tag => $tagid, tagid => $tagid, tag_prefix => $tag_prefix};
@@ -875,6 +919,8 @@ sub extract_tagtype_and_tag_value_pairs_from_components ($request_ref) {
 			$request_ref->{tag2_prefix} = $tag_prefix;
 		}
 	}
+
+	$request_ref->{is_obsolete_url} = $is_obsolete_url;
 
 	return;
 }

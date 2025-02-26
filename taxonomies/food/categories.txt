@@ -5995,6 +5995,10 @@ protected_name_type:en: gi
 #wikidata:en:
 
 < en:Liqueurs
+en: Raspberry liqueurs
+fr: Crèmes de framboise
+
+< en:Liqueurs
 en: Blackcurrant liqueur
 fr: Crèmes de cassis
 agribalyse_food_code:en: 1021
@@ -8351,6 +8355,11 @@ ciqual_food_code:en: 2367
 ciqual_food_name:en: Guava nectar
 ciqual_food_name:fr: Nectar de goyave
 wikidata:en: Q24054623
+
+< en:Fruit nectars
+en: Lychee nectars
+fr: Nectars de litchi
+nl: Lycheenectars
 
 < en:Fruit nectars
 en: Mango nectars
@@ -11057,6 +11066,11 @@ en: Instant coffee substitute capsules or pods
 gpc_category_code:en: 10008181
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a roasted and ground product designed to taste like coffee but which has no actual coffee content. These products can be produced from a single coffee substitute or a combination of coffee substitutes. Includes coffee bags, filter cups, discs, capsules, pads, pods and tablets. These products are prepared for consumption by the addition of hot water and then brewed. Definition Excludes: Excludes products such as whole bean coffee, roast ground coffee products, coffee substitutes roast ground and instant soluble coffee. Also excludes capsules that contain only chocolate or tea to be used in espresso machines.
 gpc_category_name:en: Coffee Substitutes - Capsules/Pods
+
+< en:Instant coffee substitutes
+< en:Plant-based beverages
+en: Liquid chicory
+fr: Chicorée liquide
 
 < en:Instant coffee substitutes
 < en:Plant-based beverages
@@ -34328,7 +34342,7 @@ hr: Medenjaci
 it: Pan di zenzero
 ja: ジンジャーブレッド
 lt: Imbieriniai sausainiai
-nl: Ontbijtkoeken, Ontbijtkoek, Kruidkoeken, Kruidkoek
+nl: Gemberkoeken
 pt: Bolos de gengibre
 ru: Имбирное печенье и пряники
 sv: Pepparkakor, Pepparkaka
@@ -34339,6 +34353,9 @@ ciqual_food_name:fr: Pain d'épices
 intake24_category_code:en: GING
 oqali_family:en: fr:Biscuits et gateaux industriels - Pains d_epices
 wikidata:en: Q178600
+
+< en:Biscuits and cakes
+nl: Ontbijtkoeken, Ontbijtkoek, Kruidkoeken, Kruidkoek
 
 < en:Gingerbreads
 fr: Pains d'épices au miel
@@ -34654,6 +34671,10 @@ nl: Notenbroden
 < en:Breads
 fr: Pains multicéréales, Pains aux céréales
 nl: Meergranenbroden
+
+< en:Breads
+en: Breads mith malted grains
+fr: Pains de céréales germées
 
 < en:Breads
 en: Breads with corn
@@ -35313,6 +35334,7 @@ ciqual_food_name:en: Bread, French bread, baguette
 ciqual_food_name:fr: Pain, baguette, courante
 sales_format:en: weight, package
 wikidata:en: Q208172
+
 
 < en:Baguettes
 en: Frozen baguettes
@@ -45177,30 +45199,26 @@ wikidata:en: Q643697
 < en:Cow cheeses
 < en:French cheeses
 < en:Soft cheeses with washed rind
+
+< en:Soft cheeses with washed rind
+en: Soft cheeses with a red rind
+fr: Fromages à croûte rouge
+nl: Kazen met een rode korst
+
+< en:Soft cheeses with a red rind
 en: Munster, Munster cheeses, Munster cheese from cow's milk
 xx: Munsters, Munster
 ar: مونستير
 be: Мюнстэр
 bg: Мюнстер
-ca: Munster
 cv: Мюнстер
 de: Münsterkäse
-es: Munster
-eu: Munster
-fi: Munster
 fr: Munsters, Munster, Munster-Géromé
-hr: Munster
 id: Keju Munster
 ja: マンステール
 ko: 묑스테르
-la: Munster
 ms: Keju Munster
-nb: Munster
-nl: Munster
-pl: Munster
-pt: Munster
 ru: Мюнстер
-sv: Munster
 th: เมิงสแตร์ชีส
 uk: Мюнстер
 zh: 芒斯特芝士
@@ -45447,6 +45465,12 @@ agribalyse_food_code:en: 12116
 ciqual_food_code:en: 12116
 ciqual_food_name:en: Hard cheese, emmental-type cheese, reduced fat
 ciqual_food_name:fr: Fromage à pate pressée cuite type emmental ou emmenthal, allégé en matière grasse
+
+< en: Emmentaler
+< en: Sliced cheeses
+en: Emmental slices
+fr: Emmental en tranches
+nl: Emmental in plakjes
 
 < en:Cheeses from Switzerland
 < en:Emmentaler
@@ -53848,7 +53872,7 @@ zh: 巧克力甜品, 巧克力甜点
 wikidata:en: Q47472163
 
 < en:Chocolate desserts
-< en:Dairy Mousses
+< en:Sweet mousses
 en: Chocolate mousses
 de: Mousses au chocolat, Mousse au chocolat
 es: Mousses de chocolate, Mousse de chocolate
@@ -54227,15 +54251,6 @@ it: Composte di albicocca
 lt: Abrikosų tyrės, Tyrės su abrikosais
 
 < en:Compotes
-en: Rhubarb compotes
-de: Rhabarberkompott
-fr: Compotes de rhubarbe
-hr: Kompoti od rabarbare
-it: Composte di rabarbaro
-lt: Rabarbarų tyrės, Tyrės su rabarbarais
-nl: Rabarbercompotes, Rabarbercompote
-
-< en:Compotes
 en: Mango compotes
 de: Mangokompott
 es: Compotas de mango
@@ -54244,6 +54259,20 @@ hr: Kompoti od manga
 it: Composte di mango
 lt: Mangų tyrės, Tyrės su mangais
 nl: Mangocompotes
+
+< en:Compotes
+en: Prune purees
+fr: Purées de pruneaux
+
+< en:Compotes
+en: Rhubarb compotes
+de: Rhabarberkompott
+fr: Compotes de rhubarbe
+hr: Kompoti od rabarbare
+it: Composte di rabarbaro
+lt: Rabarbarų tyrės, Tyrės su rabarbarais
+nl: Rabarbercompotes, Rabarbercompote
+
 
 < en:Compotes
 en: Pear compotes, Pear compote
@@ -55594,6 +55623,7 @@ opposite:en: en:salted-nuts
 < en:Nuts
 en: Mixed nuts, Nut mix
 de: Nussmischung
+fr: Mélanges de fruits à coque
 nl: Notenmelanges, Gemengde noten
 opposite:en: en:brazil-nuts
 sales_format:en: package, weight
@@ -59297,6 +59327,10 @@ fr: Huiles de coco raffinées
 hr: Rafinirana kokosova ulja
 it: Olio di noce di cocco raffinato
 lt: Rafinuoti kokosų aliejai
+
+< en: Fruit and fruit seed oils
+en: Coprah oils
+fr: Huiles de coprah
 
 < en:Fruit and fruit seed oils
 en: Grape seed oils, Grapeseed oils, Grape oils
@@ -70530,7 +70564,7 @@ nl: Gedroogde mangos
 ru: Манго сушёные, сушёные манго
 
 < en:Dried fruits
-en: Dried mixed fruits
+en: Mixed dried fruits, Dried mixed fruits
 de: Getrocknete Früchtemischung, Getrocknete Früchte-Mix, Trockenfruchtmischung
 es: Mezclas de frutas deshidratadas, Mezclas de frutas secas
 fi: kuivatut hedelmäsekoitukset
@@ -70541,8 +70575,16 @@ lt: Džiovinti įvairūs vaisiai
 nl: Gedroogde fruitmelanges
 pl: Suszona mieszanka owoców
 
+< en:Plant-based foods
+< en:Snacks
+en: Mixed nuts and dried fruits, Nuts with dried fruits, Nuts and dried fruits
+de: Studentenfutter
+fr: Mélanges de fruits secs et de fruits à coque, Mendiants, Mélanges étudiants
+nl: Noten en gedroogd fruit (gemengd), Studentenhavers
+sales_format:en: weight, package
 
-< en:Dried mixed fruits
+< en:Plant-based foods
+< en:Snacks
 en: Mix of grains and dried fruit, Mix of nuts and dried fruit
 fr: Mélange apéritif de graines et fruits séchés
 hr: Mješavina žitarica i suhog voća
@@ -70561,15 +70603,6 @@ agribalyse_food_code:en: 15049
 ciqual_food_code:en: 15049
 ciqual_food_name:en: Mix of unsalted grains/nuts and raisins
 ciqual_food_name:fr: Mélange apéritif de graines (non salées) et raisins secs
-
-< en:Mix of grains and raisins
-< en:Plant-based foods
-< en:Snacks
-en: Nuts with dried fruits, Nuts and dried fruits, Mixed nuts and dried fruits
-de: Studentenfutter
-fr: Mendiants, Mélanges étudiants, Mélanges de fruits secs et de fruits à coque
-nl: Noten en gedroogd fruit (gemengd), Studentenhavers
-sales_format:en: weight, package
 
 < en:Mix of grains and dried fruit
 en: Mix of salted grains and raisins, Mix of salted nuts and raisins
@@ -82787,6 +82820,9 @@ agribalyse_food_code:en: 25548
 ciqual_food_code:en: 25548
 ciqual_food_name:en: Pizza, ham cheese and mushrooms
 ciqual_food_name:fr: Pizza jambon fromage champignons ou pizza royale, reine ou regina
+
+< en:Pizzas
+fr: Pizzas savoyardes, Pizza savoyarde
 
 < en:Pizzas
 < en:Vegetarian pizzas
@@ -96463,7 +96499,7 @@ hr: Sendviče
 hu: Szendvicsek
 it: Panini
 ja: サンドイッチ
-nl: Sandwiches
+nl: Sandwiches, Belegde broodjes
 pl: Kanapki, kanapka
 pt: Sanduiches
 ru: Бутерброды
@@ -96521,6 +96557,10 @@ nl: Broodjes op Frans brood, Broodjes gemaakt met Frans brood, Baguette broodjes
 ciqual_food_code:en: 25543
 ciqual_food_name:en: Sandwich on french bread (average)
 ciqual_food_name:fr: Sandwich baguette (aliment moyen)
+
+< en:French bread sandwiches
+en: Healthy french bread sandwiches
+nl: Broodje gezond
 
 < en:Sandwiches
 en: Falafel sandwiches
@@ -113872,6 +113912,10 @@ ciqual_food_name:en: Seaweed, agar, raw
 ciqual_food_name:fr: Agar (algue), cru
 wikidata:en: Q177998
 
+< en: Agar-agar
+en: Agar-agar powder
+fr: Agar agar en poudre
+
 en: Caviar substitutes
 fr: Substituts du caviar
 
@@ -116373,6 +116417,14 @@ ciqual_food_name:fr: Galette de céréales aux légumes (sans soja), préemball�
 < en:Vegetarian patties
 en: Frozen vegetarian patties, frozen vegetarian steaks
 fr: Galettes végétariennes surgelées, Steaks végétariens surgelés
+
+< en:Vegetarian patties
+en: Red bean patties
+fr: Galettes aux haricots rouges
+
+< en:Vegetarian patties
+en: Seitan patties
+fr: Galettes au seitan
 
 < en:Meat analogues
 en: Vegetarian sausages

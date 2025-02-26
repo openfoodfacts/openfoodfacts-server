@@ -1328,23 +1328,34 @@ en: No gluten, Gluten free, Without gluten, Gluten-free-food, free of gluten, Na
 bg: Без глутен
 ca: Lliure de gluten, Sense gluten, No gluten, Aliment sense gluten, Lliure de gluten, Sense gluten d'orígen
 cs: Bez lepku
+cz: Bez lepku
 da: Glutenfri
 de: Glutenfrei
+el: Χωρίς γλουτένη
 es: Sin gluten, Libre de gluten
+et: Gluteenivaba
 fi: gluteeniton, ilman gluteenia, ei gluteenia, gluteenivapaa, luonnollisesti gluteeniton
 fr: Sans gluten
 he: נטול גלוטן
 hr: bez glutena
 hu: Gluténmentes, Glutén nélkül, Gluténmentes élelmiszer, Nem tartalmaz glutént, Glutént nem tartalmaz
 it: Senza glutine
+ja: グルテンフリー
+ko: 글루텐 프리
+lt: Be glitimo
+lv: Bez glutēna
 nb: Uten gluten
 nl: Glutenvrij, Gluten vrij, Vrij van gluten, Zonder gluten
 pl: Bezglutenowy, Bez glutenu, Nie zawiera glutenu
 pt: Sem glúten, isento de glúten
+ro: Fără gluten
 ru: Без глютена
 sk: Bez lepku
+sl: Brez glutena
+sq: Pa gluten
 sv: Glutenfri
 th: ไม่มีกลูเตน
+tr: Glutensiz
 uk: Не містить глютену
 zh: 无麸质
 incompatible_with:en: labels:en:contains-gluten
@@ -1573,17 +1584,40 @@ se: isomaltulos är en källa till glukos och fruktos
 
 en: source of fibre
 xx: source of fibre
+ar: مصدر للألياف
 bg: източник на влакнини
+ca: Font de fibra
+cs: Zdroj vlákniny
 da: Fiberkilde
 de: Ballaststoffquelle
+el: Πηγή φυτικών ινών
 es: Fuente de fibra alimentaria
+et: Kiudaine allikas
 fi: Kuidun lähde
 fr: Source de fibres alimentaires, Source de fibres, Source naturelle de fibres
+he: מקור לסיבים תזונתיים
 hr: izvor vlakana
+hu: Rostforrás
 it: Fonte di fibre
+ja: 食物繊維源
+ko: 섬유질 공급원
+lt: Skaidulų šaltinis
+lv: Šķiedrvielu avots
 nl: Bron van vezels
+no: Kilde til fiber
 pl: Źródło błonnika
-se: Fiberkälla
+pt: Fonte de fibra
+ro: Sursă de fibre
+ru: Источник клетчатки
+sk: Zdroj vlákniny
+sl: Vir vlaknin
+sq: Burim i fibrave
+sr: Izvor vlakana
+sv: Fiberkälla
+th: แหล่งของใยอาหาร
+tr: Lif kaynağı
+uk: Джерело клітковини
+zh: 纤维来源
 description:en: In EU, a claim that a food is a source of fibre may only be made where the product contains at least 3 g of fibre per 100 g or at least 1,5 g of fibre per 100 kcal. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
 < en:source of fibre
@@ -1735,10 +1769,19 @@ description:en: In EU, claim that a food is a source of vitamins and/or minerals
 en: magnesium source, source of magnesium
 xx: magnesium source
 bg: Източник на магнезий
+ca: Font de magnesi
 de: magnesiumquelle
+es: Fuente de magnesio
+fi: magnesiumin lähde
 fr: source de magnésium
 hr: izvor magnezija
+hu: magnéziumforrás
 it: fonte di magnesio
+nl: bron van magnesium
+pl: Źródło magnezu
+pt: Fonte de magnésio
+ru: источник магния
+th: แหล่งแมกนีเซียม
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: zinc source, source of zinc
@@ -2674,26 +2717,52 @@ description:en: In EU, a claim that a food is very low in sodium/salt may only b
 < en:Reduced salt
 en: 10% less salt
 bg: 10% по-малко сол
+ca: 10% menys de sal
+cs: O 10 % méně soli
+da: 10% mindre salt
 de: 10% weniger Salz
+el: 10% λιγότερο αλάτι
 es: 10% menos de sal
 fi: 10% vähemmän suolaa
 fr: Moins 10% de sel, -10% de sel, 10% de sel en moins, Sel réduit de 10%
+he: 10% פחות מלח
+hr: 10% manje soli
 hu: 10%-al csökkentett sótartalmú
 it: 10% in meno di sale
+ja: 塩分10%カット
+ko: 소금 10% 저감
 nl: 10% minder zout
+pl: 10% mniej soli
 pt: 10% menos sal, -10% menos sal, menos 10% sal, 10% menos de sal, -10% menos de sal, menos 10% de sal
+ru: На 10% меньше соли
+sv: 10% mindre salt
+th: ลดปริมาณเกลือลง 10%
+zh: 减少10%的盐
 
 < en:Reduced salt
 en: 15% less salt
 bg: 15% по-малко сол
-de: 15 weniger Salz
+ca: 15% menys de sal
+cs: O 15 % méně soli
+da: 15% mindre salt
+de: 15% weniger Salz
+el: 15% λιγότερο αλάτι
 es: 15% menos de sal
 fi: 15% vähemmän suolaa
 fr: Moins 15% de sel, -15% de sel, 15% de sel en moins, Sel réduit de 15%
+he: 15% פחות מלח
+hr: 15% manje soli
 hu: 15%-al csökkentett sótartalmú
 it: 15% in meno di sale
+ja: 塩分15%カット
+ko: 소금 15% 저감
 nl: 15% minder zout
+pl: 15% mniej soli
 pt: 15% menos sal, -15% menos sal, menos 15% sal, 15% menos de sal, -15% menos de sal, menos 15% de sal
+ru: На 15% меньше соли
+sv: 15% mindre salt
+th: ลดปริมาณเกลือลง 15%
+zh: 减少15%的盐
 
 < en:Reduced salt
 en: 20% less salt
@@ -3034,22 +3103,43 @@ pt: 60% menos açúcar, -60% menos açúcar, menos 60% açúcar, 60% menos de a�
 #instruction:en:Do NOT change the english key.
 en: No added sugar, no sugar added, no added sugars
 xx: no added sugar
+ar: بدون سكر مضاف
 bg: Без добавена захар
 ca: Sense sucre afegit, sense sucres afegits
 cs: Bez přidaného cukru
+da: Uden tilsat sukker
 de: Ohne Zuckerzusatz, Ohne zugesetzten Zucker
+el: Χωρίς προσθήκη ζάχαρης
 es: Sin azúcares añadidos, 0% Azúcares añadidos, Sin azúcar añadido
+et: Ilma lisatud suhkruta
+fa: بدون شکر افزوده
 fi: ei lisättyä sokeria, ilman lisättyä sokeria, ei lisättyjä sokereita
 fr: Sans sucre ajouté, sans sucres ajoutés, sans ajout de sucre
 he: ללא תוספת סוכר
+hi: बिना अतिरिक्त चीनी
 hr: bez dodanog šećera, bez dodatnih šećera, bez dodanih šećera, sadrži prirodno prisutne šećere
 hu: Hozzáadott cukor nélkül, Nincs hozzáadott cukor, hozzáadott cukrot nem tartalmaz
+id: Tanpa tambahan gula
 it: Senza zuccheri aggiunti
+ja: 砂糖不使用
+ko: 설탕 무첨가
+lt: Be pridėtinio cukraus
+lv: Bez pievienota cukura
+ms: Tiada tambahan gula
 nl: Zonder toegevoegde suikers, Geen suiker toegevoegd
 pl: Bez dodatku cukru
 pt: Sem açúcares adicionados, sem adição de açúcares, sem açúcar adicionado, sem adição de açúcar
+ro: Fără zahăr adăugat
+ru: Без добавления сахара
+sk: Bez pridaného cukru
+sl: Brez dodanega sladkorja
+sq: Pa sheqer të shtuar
+sr: Без додатог шећера
 sv: Inget tillsat socker, Utan tillsatt socker
 th: ไม่เติมน้ำตาล
+tr: İlave şeker içermez
+uk: Без додавання цукру
+vi: Không thêm đường
 zh: 无添糖
 description:en: In EU, a claim that a food is with no added sugars may only be made where the product does not contain any added mono- or disaccharides or any other food used for its sweetening properties. If sugars are naturally present in the food, the following indication should also appear on the label: ‘CONTAINS NATURALLY OCCURRING SUGARS’. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
@@ -3406,18 +3496,31 @@ label_categories:en: en:Geographic label
 en: Made in France
 bg: Произведено във Франция
 ca: Fet a França
+cs: Vyrobeno ve Francii
+da: Fremstillet i Frankrig
 de: Hergestellt in Frankreich
+el: Κατασκευασμένο στην Γαλλία
 es: Hecho en Francia
+et: Valmistatud Prantsusmaal
 fi: Valmistettu Ranskassa
 fr: Fabriqué en France, production française, produit de France, fabrication française, élaboré en France, élaboration française
 he: נוצר בצרפת
 hr: proizvedeno u Francuskoj
 hu: Franciaországban készült
 it: Prodotto in Francia, fatto in Francia
+lt: Pagaminta Prancūzijoje
+lv: Ražots Francijā
 nl: Geproduceerd in Frankrijk
 pl: Wyprodukowano we Francji
 pt: Fabricado em França, feito em França, produto de França, produzido em França, originário de França, proveniente de França, fabricado na França, feito na França, produto da França, produzido na França, originário da França, proveniente da França
+ro: Fabricat în Franța
+ru: Произведено во Франции
+sk: Vyrobené vo Francúzsku
+sl: Proizvedeno v Franciji
 sv: Tillverkad i Frankrike
+th: ผลิตในประเทศฝรั่งเศส
+tr: Fransa'da üretilmiştir
+uk: Зроблено у Франції
 zh: 法国制造
 country:en: en:France
 label_categories:en: en:Geographic label
@@ -4050,19 +4153,39 @@ pt: sem xarope de glucose-frutose
 en: No additives, without additives
 bg: Без добавки
 ca: Sense additius
+cs: Bez přidaných látek
+da: Uden tilsætningsstoffer
 de: Ohne Zusätze
+el: Χωρίς πρόσθετα
 es: Sin aditivos
+et: Ilma lisanditeta
 fi: lisäaineeton, ei lisäaineita, ilman lisäaineita
 fr: Sans additifs, Sans additif, aucun additif
 he: ללא תוספים
 hr: bez aditiva
 hu: Adalékanyagmentes, Hozzáadott adalékanyag nélkül, hozzáadott adalékanyagot nem tartalmaz, nincs hozzáadott adalékanyag, hozzáadott adalékok nélkül, hozzáadott adalékanyagok nélkül, adalékok nélkül, adalék nélkül, adalékanyag mentes, adalékmentes
+id: Tanpa bahan tambahan
 it: Nessun additivo
+ja: 添加物なし
+ko: 첨가물 없음
+lt: Be priedų
+lv: Bez piedevām
+ms: Tanpa bahan tambahan
 nl: Zonder toevoegingen
 pl: Bez dodatków, Brak dodatków
 pt: Sem aditivos, sem aditivo
+ro: Fără aditivi
+ru: Без добавок
+sk: Bez prídavných látok
+sl: Brez aditivov
+sq: Pa aditivë
+sr: Bez aditiva
+sv: Utan tillsatser
 th: ไม่มีสารเติมแต่ง
 tr: Katkı Maddesi yok
+uk: Без добавок
+vi: Không có chất phụ gia
+zh: 无添加剂
 incompatible_with:en: labels:en:with-additives
 label_categories:en: en:Health, en:Additives
 opposite:en: en:With additives
@@ -4182,20 +4305,38 @@ label_categories:en: en:Health, en:Additives
 en: No artificial flavors, free of artificial flavor, No artificial flavours
 bg: Без изкуствени аромати
 ca: Sense aromes artificials, Lliure d'aromes artificials
+cs: Bez umělých aromat
+da: Ingen kunstige aromaer
 de: Ohne künstliche Aromen
+el: Χωρίς τεχνητές αρωματικές ουσίες
 es: Sin aromas artificiales
+et: Ilma kunstlike lõhna- ja maitseaineteta
 fi: ei keinotekoisia aromeja, ilman keinotekoisia aromeja
 fr: Sans arômes artificiels, sans arôme artificiel, sans aromatisants artificiels
 he: ללא חומרי טעם מלאכותיים
 hr: Bez umjetnih aroma
 hu: Mesterséges ízesítők nélkül, Mesterséges aromák nélkül, Mesterséges ízesítőt nem tartalmaz, Mesterséges aromát nem tartalmaz, Mesterséges ízesítő nélkül, Mesterséges aroma nélkül
+id: Tanpa perisa buatan
 it: Senza aromi artificiali
+ja: 人工香料不使用
+ko: 인공 향료 무첨가
+lt: Be dirbtinių kvapiųjų medžiagų
+lv: Bez mākslīgām garšvielām
+ms: Tanpa perisa tiruan
 nl: Vrij van kunstmatige smaakstoffen, Zonder kunstmatige smaakstoffen
+no: Uten kunstige smaksstoffer
 pl: Bez sztucznych aromatów
 pt: Sem sabores artificiais, livre de sabor artificial, livre de sabores artificiais, sem aromas artificiais
+ro: Fără arome artificiale
 ru: без искусственных ароматизаторов, без добавления искусственных ароматизаторов
+sk: Bez umelých aróm
+sl: Brez umetnih arom
+sq: Pa aroma artificiale
 sv: Inga artificiella aromämnen
 th: ไม่เติมกลิ่นสังเคราะห์
+tr: Yapay aroma içermez
+uk: Без штучних ароматизаторів
+zh: 无人工香料
 
 fr: Sans arômes ni colorants artificiels
 bg: Без изкуствени аромати и оцветители
@@ -4407,9 +4548,11 @@ label_categories:en: en:Health
 
 #instruction:en:Do NOT change the english key.
 en: No colorings, no added colorings
+ar: بدون ملونات
 bg: Без оцветители
 ca: Sense colorants, sense colorants afegits
 cs: Bez přidaných barviv
+da: Uden farvestoffer
 de: Ohne Farbstoffzusatz, Ohne Zusatz von Farbstoffen, Ohne Farbstoffe
 es: Sin colorantes, Sin colorantes añadidos
 fi: väriaineeton, ei väriaineita, ei lisättyjä väriaineita
@@ -4418,6 +4561,8 @@ he: ללא צבעי מאכל, ללא תוספת צבעי מאכל
 hr: bez bojila
 hu: Hozzáadott színezőanyag nélkül, Színezőanyag nélkül, színezőanyag mentes, színezőanyagmentes, Nincs hozzáadott színezőanyag
 it: Senza coloranti
+ja: 着色料不使用
+ko: 색소 무첨가
 nl: Zonder kleurstoffen
 pl: Bez barwników, bez dodatku barwników
 pt: Sem corantes, sem corantes adicionados, 0% corantes
@@ -4711,28 +4856,44 @@ sv: Laktosfattig
 
 #instruction:en:Do NOT change the english key.
 en: No lactose, lactose-free, Lactose free, without lactose
+ar: خالي من اللاكتوز
 bg: Без лактоза
 ca: Sense lactosa, lliure de lactosa
 cs: Bez laktózy
 cz: Bez laktozy
 da: Laktosefri
 de: Laktosefrei, Lactosefrei
+el: Χωρίς λακτόζη
 es: Sin lactosa
+et: Laktoosivaba
+fa: بدون لاکتوز
 fi: laktoositon, ei laktoosia, ilman laktoosia
 fr: sans lactose
 he: נטול לקטוז
 hr: bez laktoze
 hu: Laktózmentes, laktóz mentes
+id: Bebas laktosa
 it: Senza lattosio, Naturalmente senza lattosio
+ja: ラクトースフリー
+ko: 락토스 프리
+lt: Be laktozės
+lv: Bez laktozes
+ms: Tanpa laktosa
 nb: Laktosefri, Uten laktose, Naturlig laktosefri
 nl: Lactosevrij, Vrij van lactose
 pl: Bez laktozy
 pt: Sem lactose, 0% lactose, livre de lactose
+ro: Fără lactoză
 ru: Без лактозы
 sk: Bez laktozy
+sl: Brez laktoze
+sq: Pa laktozë
 sv: Laktosfri, Laktosfritt
 th: ไม่มีแลคโตส
 tr: Laktozsuz
+uk: Без лактози
+vi: Không chứa lactose
+zh: 无乳糖
 incompatible_with:en: labels:en:contains-lactose
 opposite:en: en:contains-lactose
 
@@ -4833,27 +4994,41 @@ label_categories:en: en:Allergens
 
 #instruction:en:Do NOT change the english key.
 en: No preservatives, no added preservatives, preservatives free
+ar: بدون مواد حافظة
 bg: Без консерванти
 ca: Sense conservants, sense conservants afegits, lliure de conservants artificials
 cs: Bez konzervantů
 da: Uden konserveringsmiddel
 de: Ohne Konservierungsstoffe, Ohne Zusatz von Konservierungsstoffen
+el: Χωρίς συντηρητικά
 es: Sin conservantes, Sin conservantes añadidos, Sin conservadores, Sin conservadores añadidos
+et: Ilma säilitusaineteta
 fi: säilöntäaineeton, ei säilöntäaineita, ilman säilöntäaineita, ei lisättyjä säilöntäaineita, ei sisällä säilöntäaineita
 fr: Sans conservateurs, sans conservateur ajouté, sans ajout de conservateur
 he: ללא משמרים, ללא חומרים משמרים, ללא חומרים משמרים מלאכותיים
 hr: bez konzervansa
 hu: Tartósítószermentes, hozzáadott tartósítószer nélkül, tartósítószert nem tartalmaz
+id: Tanpa bahan pengawet
 it: Senza conservanti, Senza aggiunta di conservanti, Senza conservanti aggiunti
+ja: 防腐剤不使用
+ko: 방부제 없음
 lt: Be konservantų, be pridėtų konservantų
+lv: Bez konservantiem
+ms: Tanpa bahan pengawet
 nl: Conserveermiddelvrij
 pl: Bez konserwantów, bez dodatku konserwantów, bez substancji konserwujących, bez dodatku substancji konserwujących
 pt: Sem conservantes, sem conservantes adicionados, sem conservante, sem conservante adicionado
 ro: Fără conservanți
 ru: Без консервантов
+sk: Bez konzervačných látok
+sl: Brez konzervansov
+sq: Pa konservues
+sr: Bez konzervansa
 sv: Utan konserveringsmedel
 th: ไม่ใช้วัตถุกันเสีย
 tr: Koruyucu yok, Koruyucu madde içermez
+uk: Без консервантів
+vi: Không chất bảo quản
 zh: 无防腐剂
 
 #instruction:en:Do NOT change the english key.
