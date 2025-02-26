@@ -57,7 +57,7 @@ unlink($csv_filename) if -e $csv_filename;
 
 my $script_out = `perl scripts/export_database.pl`;
 
-ProductOpener::Test::compare_csv_file_to_expected_results($csv_filename, $expected_result_dir,
+ProductOpener::Test::compare_csv_file_to_expected_results($csv_filename, $expected_result_dir . "_database",
 	$update_expected_results, "export_database");
 
 # CSV export
