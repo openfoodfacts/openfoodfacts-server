@@ -35,7 +35,7 @@ jobs:
       run: make front_build
     - name: lint
       run: make front_lint
-
+# this will build the docker image and upload as an artifact for following jobs
   build_backend:
     name: 🏗 Build backend dev image for tests
     runs-on: ubuntu-latest
@@ -43,6 +43,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       with:
+      # needs depth to run git log below
         fetch-depth: 50
     - uses: actions/cache@v4
       id: cache
@@ -57,10 +58,13 @@ jobs:
       with:
         image: "openfoodfacts-server/backend:dev"
     - name: Fetch origin/main
+    # we need origin/main to have comparison linting work
       run: |
         git remote set-branches --add origin main
         git fetch --no-tags --prune --progress --no-recurse-submodules --depth=5 origin main
     - name: Restore taxonomies dates
+      # here we first restore dates from git for taxonomies to avoid build them all
+      # see https://stackoverflow.com/a/60984318/2886726
       run: |
         git ls-files taxonomies/ | xargs -I{} git log -1 --date=format:%Y%m%d%H%M.%S --format='touch -t %ad "{}"' "{}" | bash
     - name: Rebuild taxonomies for Open Food Facts (off)
@@ -88,6 +92,7 @@ jobs:
       with:
         fetch-depth: 1
     - name: Fetch origin/main
+    # we need origin/main to have comparison linting work
       run: |
         git remote set-branches --add origin main
         git fetch --no-tags --prune --progress --no-recurse-submodules --depth=5 origin main
@@ -141,6 +146,7 @@ jobs:
         key: taxonomies-${{ hashFiles('taxonomies/**') }}
         restore-keys: taxonomies-
     - name: Fetch origin/main
+    # we need origin/main to have comparison linting work
       run: |
         git remote set-branches --add origin main
         git fetch --no-tags --prune --progress --no-recurse-submodules --depth=5 origin main
