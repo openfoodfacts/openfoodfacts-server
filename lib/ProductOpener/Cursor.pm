@@ -37,11 +37,16 @@ sub next ($self) {
 		return $self->{list}[$self->{index}];
 	}
 
-	return undef;
+	return;
 }
 
 sub all ($self) {
 	return $self->{list};
+}
+
+## NOOP to be compatible with MongoDB cursors
+sub immortal ($self) {
+	return;
 }
 
 1;
