@@ -22,6 +22,10 @@ import * as L from './leaflet-src.esm.js';
 import { MarkerClusterGroup } from './leaflet.markercluster.js';
 
 export function displayMap(containerId, pointers) {
+  if (!containerId || !pointers || pointers.length === 0) {
+    return;
+  }
+
   const map = L.map(containerId, { maxZoom: 12 });
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

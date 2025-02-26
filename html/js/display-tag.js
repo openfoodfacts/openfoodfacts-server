@@ -186,13 +186,15 @@ function displayPointers(pointers) {
 }
 
 export async function displayMap(pointers, wikidataObjects) {
-  if (pointers.length > 0) {
+  if (pointers && pointers.length > 0) {
     displayPointers(pointers);
   }
 
-  for (const wikidataObject of wikidataObjects) {
-    if (wikidataObject !== null) {
-      await addWikidataObjectToMap(wikidataObject); // eslint-disable-line no-await-in-loop
+  if (wikidataObjects) {
+    for (const wikidataObject of wikidataObjects) {
+      if (wikidataObject !== null) {
+        await addWikidataObjectToMap(wikidataObject); // eslint-disable-line no-await-in-loop
+      }
     }
   }
 }
