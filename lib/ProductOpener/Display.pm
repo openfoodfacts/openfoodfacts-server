@@ -4566,7 +4566,14 @@ sub display_search_results ($request_ref) {
 	$current_link =~ s/^\&/\?/;
 	$current_link = "/search" . $current_link;
 
-	if (not($request_ref->{api})) {
+	# Experimental feature to display stats of specific parent ingredients for a set of product
+	# activated by passing the parents_ingredients parameter to a search query
+	if (defined single_param('parent_ingredients')) {
+		my $query_ref = {};
+		$html .= search_and_analyze_recipes($request_ref, $query_ref);
+	}
+	# For non API requests, we let the browser query the search API and display the results
+	elsif (not($request_ref->{api})) {
 
 		# The results will be filtered and ranked on the client side
 
@@ -4622,17 +4629,10 @@ JS
 		}
 	}
 	else {
-
 		# The server generates the search results
 
 		my $query_ref = {};
-
-		if (defined single_param('parent_ingredients')) {
-			$html .= search_and_analyze_recipes($request_ref, $query_ref);
-		}
-		else {
-			$html .= search_and_display_products($request_ref, $query_ref, undef, undef, undef);
-		}
+		$html .= search_and_display_products($request_ref, $query_ref, undef, undef, undef);
 	}
 
 	$request_ref->{content_ref} = \$html;
