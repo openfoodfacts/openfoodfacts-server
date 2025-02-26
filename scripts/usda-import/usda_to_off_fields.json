@@ -1,0 +1,287 @@
+{
+    "available-date": {
+        "column_id": "available-date",
+        "field": "sources_fields_specific",
+        "format": "UNKNOWN",
+        "value_unit": "date"
+    },
+    "biotin-ug-100g": {
+        "column_id": "biotin-ug-100g",
+        "field": "biotin_100g_value_unit",
+        "value_unit": "value_in_mcg"
+    },
+    "brand-owner": {
+        "column_id": "brand-owner",
+        "field": "brand_owner",
+        "value_unit": "string"
+    },
+    "caffeine-mg-100g": {
+        "column_id": "caffeine-mg-100g",
+        "field": "caffeine_100g_value_unit",
+        "value_unit": "value_in_mg"
+    },
+    "calcium-mg-100g": {
+        "column_id": "calcium-mg-100g",
+        "field": "calcium_100g_value_unit",
+        "value_unit": "value_in_mg"
+    },
+    "carbohydrates-g-100g": {
+        "column_id": "carbohydrates-g-100g",
+        "field": "carbohydrates_100g_value_unit",
+        "value_unit": "value_in_g"
+    },
+    "category": {
+        "column_id": "category",
+        "field": "categories",
+        "value_unit": "string (list of?)"
+    },
+    "cholesterol-mg-100g": {
+        "column_id": "cholesterol-mg-100g",
+        "field": "cholesterol_100g_value_unit",
+        "value_unit": "value_in_mg"
+    },
+    "chromium-ug-100g": {
+        "column_id": "chromium-ug-100g",
+        "field": "chromium_100g_value_unit",
+        "value_unit": "value_in_mcg"
+    },
+    "code": {
+        "column_id": "code",
+        "field": "code",
+        "value_unit": "integer"
+    },
+    "copper-mg-100g": {
+        "column_id": "copper-mg-100g",
+        "field": "copper_100g_value_unit",
+        "value_unit": "value_in_mg"
+    },
+    "energy-kcal-100g": {
+        "column_id": "energy-kcal-100g",
+        "field": "energy-kcal_100g_value_unit",
+        "value_unit": "value_in_kcal"
+    },
+    "fat-g-100g": {
+        "column_id": "fat-g-100g",
+        "field": "fat_100g_value_unit",
+        "value_unit": "value_in_g"
+    },
+    "fdc-category": {
+        "column_id": "fdc-category",
+        "field": "sources_fields_specific",
+        "value_unit": "string"
+    },
+    "fdc-category-2": {
+        "column_id": "fdc-category-2",
+        "value_unit": "string"
+    },
+    "fdc-data-source": {
+        "column_id": "fdc-data-source",
+        "field": "sources_fields_specific",
+        "value_unit": "string"
+    },
+    "fdc-id": {
+        "column_id": "fdc-id",
+        "field": "sources_fields_specific",
+        "value_unit": "string/integer"
+    },
+    "fiber-g-100g": {
+        "column_id": "fiber-g-100g",
+        "field": "fiber_100g_value_unit",
+        "value_unit": "value_in_g"
+    },
+    "folates-ug-100g": {
+        "column_id": "folates-ug-100g",
+        "field": "folates_100g_value_unit",
+        "value_unit": "value_in_mcg"
+    },
+    "ingredients-text": {
+        "column_id": "ingredients-text",
+        "field": "ingredients_text_en",
+        "value_unit": "string"
+    },
+    "insoluble-fiber-g-100g": {
+        "column_id": "insoluble-fiber-g-100g",
+        "field": "insoluble-fiber_100g_value_unit",
+        "value_unit": "value_in_g"
+    },
+    "iodine-ug-100g": {
+        "column_id": "iodine-ug-100g",
+        "field": "iodine_100g_value_unit",
+        "value_unit": "value_in_mcg"
+    },
+    "iron-mg-100g": {
+        "column_id": "iron-mg-100g",
+        "field": "iron_100g_value_unit",
+        "value_unit": "value_in_mg"
+    },
+    "magnesium-mg-100g": {
+        "column_id": "magnesium-mg-100g",
+        "field": "magnesium_100g_value_unit",
+        "value_unit": "value_in_mg"
+    },
+    "manganese-mg-100g": {
+        "column_id": "manganese-mg-100g",
+        "field": "manganese_100g_value_unit",
+        "value_unit": "value_in_mg"
+    },
+    "modified-date": {
+        "column_id": "modified-date",
+        "field": "sources_fields_specific",
+        "format": "UNKNOWN",
+        "value_unit": "date"
+    },
+    "molybdenum-ug-100g": {
+        "column_id": "molybdenum-ug-100g",
+        "field": "molybdenum_100g_value_unit",
+        "value_unit": "value_in_mcg"
+    },
+    "monounsaturated-fat-g-100g": {
+        "column_id": "monounsaturated-fat-g-100g",
+        "field": "monounsaturated-fat_100g_value_unit",
+        "value_unit": "value_in_g"
+    },
+    "number-of-products": {
+        "column_id": "number-of-products",
+        "value_unit": "value"
+    },
+    "pantothenic-acid-mg-100g": {
+        "column_id": "pantothenic-acid-mg-100g",
+        "field": "pantothenic-acid_100g_value_unit",
+        "value_unit": "value_in_mg"
+    },
+    "phosphorus-mg-100g": {
+        "column_id": "phosphorus-mg-100g",
+        "field": "phosphorus_100g_value_unit",
+        "value_unit": "value_in_mg"
+    },
+    "phylloquinone-ug-100g": {
+        "column_id": "phylloquinone-ug-100g",
+        "field": "phylloquinone_100g_value_unit",
+        "value_unit": "value_in_mcg"
+    },
+    "polyols-g-100g": {
+        "column_id": "polyols-g-100g",
+        "field": "polyols_100g_value_unit",
+        "value_unit": "value_in_g"
+    },
+    "polyunsaturated-fat-g-100g": {
+        "column_id": "polyunsaturated-fat-g-100g",
+        "field": "polyunsaturated-fat_100g_value_unit",
+        "value_unit": "value_in_g"
+    },
+    "potassium-mg-100g": {
+        "column_id": "potassium-mg-100g",
+        "field": "potassium_100g_value_unit",
+        "value_unit": "value_in_mg"
+    },
+    "product-name": {
+        "column_id": "product-name",
+        "field": "product_name_en",
+        "value_unit": "string"
+    },
+    "proteins-g-100g": {
+        "column_id": "proteins-g-100g",
+        "field": "proteins_100g_value_unit",
+        "value_unit": "value_in_g"
+    },
+    "publication-date": {
+        "column_id": "publication-date",
+        "field": "sources_fields_specific",
+        "format": "UNKNOWN",
+        "value_unit": "date"
+    },
+    "saturated-fat-g-100g": {
+        "column_id": "saturated-fat-g-100g",
+        "field": "saturated-fat_100g_value_unit",
+        "value_unit": "value_in_g"
+    },
+    "selenium-ug-100g": {
+        "column_id": "selenium-ug-100g",
+        "field": "selenium_100g_value_unit",
+        "value_unit": "value_in_mcg"
+    },
+    "serving-size": {
+        "column_id": "serving-size",
+        "field": "serving_size_value_unit",
+        "value_unit": "value_unit"
+    },
+    "serving-size-unit": {
+        "column_id": "serving-size-unit",
+        "field": "serving_size_value_unit",
+        "value_unit": "unit"
+    },
+    "serving-size-value": {
+        "column_id": "serving-size-value",
+        "field": "serving_size_value_unit",
+        "value_unit": "value"
+    },
+    "sodium-mg-100g": {
+        "column_id": "sodium-mg-100g",
+        "field": "sodium_100g_value_unit",
+        "value_unit": "value_in_mg"
+    },
+    "soluble-fiber-g-100g": {
+        "column_id": "soluble-fiber-g-100g",
+        "field": "soluble-fiber_100g_value_unit",
+        "value_unit": "value_in_g"
+    },
+    "sugars-g-100g": {
+        "column_id": "sugars-g-100g",
+        "field": "sugars_100g_value_unit",
+        "value_unit": "value_in_g"
+    },
+    "to-create": {
+        "column_id": "to-create",
+        "value_unit": "unit"
+    },
+    "trans-fat-g-100g": {
+        "column_id": "trans-fat-g-100g",
+        "field": "trans-fat_100g_value_unit",
+        "value_unit": "value_in_g"
+    },
+    "vitamin-a-iu-100g": {
+        "column_id": "vitamin-a-iu-100g",
+        "field": "vitamin-a_100g_value_unit",
+        "value_unit": "value_in_iu"
+    },
+    "vitamin-b1-mg-100g": {
+        "column_id": "vitamin-b1-mg-100g",
+        "field": "vitamin-b1_100g_value_unit",
+        "value_unit": "value_in_mg"
+    },
+    "vitamin-b12-ug-100g": {
+        "column_id": "vitamin-b12-ug-100g",
+        "field": "vitamin-b12_100g_value_unit",
+        "value_unit": "value_in_mcg"
+    },
+    "vitamin-b2-mg-100g": {
+        "column_id": "vitamin-b2-mg-100g",
+        "field": "vitamin-b2_100g_value_unit",
+        "value_unit": "value_in_mg"
+    },
+    "vitamin-b6-mg-100g": {
+        "column_id": "vitamin-b6-mg-100g",
+        "field": "vitamin-b6_100g_value_unit",
+        "value_unit": "value_in_mg"
+    },
+    "vitamin-b9-ug-100g": {
+        "column_id": "vitamin-b9-ug-100g",
+        "field": "vitamin-b9_100g_value_unit",
+        "value_unit": "value_in_mcg"
+    },
+    "vitamin-c-mg-100g": {
+        "column_id": "vitamin-c-mg-100g",
+        "field": "vitamin-c_100g_value_unit",
+        "value_unit": "value_in_mg"
+    },
+    "vitamin-pp-mg-100g": {
+        "column_id": "vitamin-pp-mg-100g",
+        "field": "vitamin-pp_100g_value_unit",
+        "value_unit": "value_in_mg"
+    },
+    "zinc-mg-100g": {
+        "column_id": "zinc-mg-100g",
+        "field": "zinc_100g_value_unit",
+        "value_unit": "value_in_mg"
+    }
+}
