@@ -329,6 +329,11 @@ if ($fix_string_last_modified_t) {
 	$query_ref->{last_modified_t} = {'$type' => "string"};
 }
 
+# Query products that don't have a product_type field
+if ($add_product_type) {
+	$query_ref->{product_type} = {'$exists' => 0};
+}
+
 # On the producers platform, require --query owners_tags to be set, or the --all-owners field to be set.
 
 if ((defined $server_options{private_products}) and ($server_options{private_products})) {
@@ -1371,9 +1376,7 @@ while (my $product_ref = $cursor->next) {
 		# Add product type
 		if (($add_product_type) and (not defined $product_ref->{product_type})) {
 			$product_ref->{product_type} = $options{product_type};
-			# Silent update: we also change the original_product
-			# in order not to push the product to Redis
-			$original_product->{product_type} = $product_ref->{product_type};
+			print STDERR "adding product_type $options{product_type} to product $code\n";
 			# $product_values_changed = 1;
 		}
 
