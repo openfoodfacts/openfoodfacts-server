@@ -105,6 +105,9 @@ jobs:
       uses: ishworkh/container-image-artifact-download@v2.0.0
       with:
         image: "openfoodfacts-server/backend:dev"
+    # downloadbackendimage task loads the image into docker and keeps the original file.
+    # As our runs tend to hit the storage limits for GitHub Actions, manually delete the
+    # downloaded file for now. It's not needed after being loaded into docker.
     - name: Remove downloaded image
       env:
         FILE: "${{ steps.downloadbackendimage.outputs.download_path }}"
