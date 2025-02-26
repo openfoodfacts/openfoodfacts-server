@@ -123,27 +123,30 @@ sub execute_count_tags_query ($query) {
 }
 
 sub execute_product_query ($parameters_ref, $query, $fields, $sort, $limit, $skip) {
-	# Convert sort into an array so that the order of keys is not ambiguous
-	my @sort_array = ();
-	if ($sort) {
-		foreach my $k ($sort->Keys) {
-			push(@sort_array, [$k, $sort->FETCH($k)]);
+	# Currently only send descending popularity_key sorts to off-query
+	if ($sort->FETCH('popularity_key') eq -1) {
+		# Convert sort into an array so that the order of keys is not ambiguous
+		my @sort_array = ();
+		if ($sort) {
+			foreach my $k ($sort->Keys) {
+				push(@sort_array, [$k, $sort->FETCH($k)]);
+			}
 		}
-	}
 
-	my $results = execute_tags_query(
-		'find',
-		{
-			filter => $query,
-			projection => $fields,
-			sort => \@sort_array,
-			limit => $limit,
-			skip => $skip
+		my $results = execute_tags_query(
+			'find',
+			{
+				filter => $query,
+				projection => $fields,
+				sort => \@sort_array,
+				limit => $limit,
+				skip => $skip
+			}
+		);
+
+		if (defined $results) {
+			return ProductOpener::Cursor->new($results);
 		}
-	);
-
-	if (defined $results) {
-		return ProductOpener::Cursor->new($results);
 	}
 
 	my $cursor = get_products_collection($parameters_ref)->query($query)->fields($fields);
