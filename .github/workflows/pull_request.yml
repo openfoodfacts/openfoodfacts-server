@@ -92,6 +92,8 @@ jobs:
         git remote set-branches --add origin main
         git fetch --no-tags --prune --progress --no-recurse-submodules --depth=5 origin main
     - name: Restore taxonomies dates
+      # here we first restore dates from git for taxonomies to avoid build them all
+      # see https://stackoverflow.com/a/60984318/2886726
       run: |
         git ls-files taxonomies/ | xargs -I{} git log -1 --date=format:%Y%m%d%H%M.%S --format='touch -t %ad "{}"' "{}" | bash
     - uses: actions/cache/restore@v4
