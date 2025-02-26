@@ -122,22 +122,21 @@ sub execute_count_tags_query ($query) {
 	return execute_tags_query('count', $query);
 }
 
-sub execute_product_query ($parameters_ref, $query, $fields, $sort, $limit, $skip) {
+sub execute_product_query ($parameters_ref, $query_ref, $fields_ref, $sort_ref, $limit, $skip) {
 	# Currently only send descending popularity_key sorts to off-query
-	if ($sort->FETCH('popularity_key') eq -1) {
+	# Note that $sort_ref is a Tie::IxHash so can't use $sort_ref->{popularity_key}
+	if ($sort_ref && $sort_ref->FETCH('popularity_key') == -1) {
 		# Convert sort into an array so that the order of keys is not ambiguous
 		my @sort_array = ();
-		if ($sort) {
-			foreach my $k ($sort->Keys) {
-				push(@sort_array, [$k, $sort->FETCH($k)]);
-			}
+		foreach my $k ($sort_ref->Keys) {
+			push(@sort_array, [$k, $sort_ref->FETCH($k)]);
 		}
 
 		my $results = execute_tags_query(
 			'find',
 			{
-				filter => $query,
-				projection => $fields,
+				filter => $query_ref,
+				projection => $fields_ref,
 				sort => \@sort_array,
 				limit => $limit,
 				skip => $skip
@@ -149,9 +148,9 @@ sub execute_product_query ($parameters_ref, $query, $fields, $sort, $limit, $ski
 		}
 	}
 
-	my $cursor = get_products_collection($parameters_ref)->query($query)->fields($fields);
-	if ($sort) {
-		$cursor = $cursor->sort($sort);
+	my $cursor = get_products_collection($parameters_ref)->query($query_ref)->fields($fields_ref);
+	if ($sort_ref) {
+		$cursor = $cursor->sort($sort_ref);
 	}
 	if ($limit) {
 		$cursor = $cursor->limit($limit);
