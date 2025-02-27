@@ -1273,7 +1273,9 @@ ca: Begudes
 cs: Nápoje
 da: Drikkevarer
 de: Getränke
+el: Ποτά
 es: Bebidas
+et: Joogid
 fi: Juomat
 fr: Boissons
 he: משקאות
@@ -1281,7 +1283,9 @@ hr: Pića
 hu: Italok
 it: Bevande
 ja: 飲料
+ko: 음료
 lt: Gėrimai
+lv: Dzērieni
 nl: Dranken, Drank
 nl_be: Dranken
 no: Drikkevarer
@@ -1291,9 +1295,12 @@ ro: Băuturi, Bauturi
 rs: Pića
 ru: Напитки
 se: Drycker, dryck
+sk: Nápoje
+sl: Pijače
 sv: Drycker, Dricka, Drickor, Dryck
 th: เครื่องดื่ม
 tr: İçecekler
+uk: Напої
 zh: 饮料, 飲品
 intake24_category_code:en: DRNK
 wikidata:en: Q40050
@@ -1411,22 +1418,45 @@ wikipedia:en: https://en.wikipedia.org/wiki/Kimchi
 < en:Beverages
 < en:Fermented foods
 en: Fermented drinks
+ar: مشروبات مخمرة
+az: ферментləşdirilmiş içkilər
 bg: Ферментирали напитки
+bn: গাঁজনযুক্ত পানীয়
 ca: Begudes fermentades
+cs: Fermentované nápoje
+da: Fermenterede drikkevarer
 de: Fermentierte Getränke
+el: Ζυμωμένα ποτά
+eo: Fermentitaj trinkaĵoj
 es: Bebidas fermentadas
+et: Fermenteeritud joogid
+fa: نوشیدنی های تخمیر شده
 fi: Hapatetut juomat
 fr: Boissons fermentées
+ga: Deochanna coipthe
+he: משקאות מותססים
+hi: किण्वित पेय
 hr: Fermentirana pića
 hu: Fermentált italok, Erejesztett italok
+id: Minuman fermentasi
 it: Bevande fermentate
 ja: 発酵飲料
+ko: 발효 음료
 lt: Rauginti gėrimai
+mr: किण्वित पेय
+ms: Minuman yang ditapai
 nl: Gefermenteerde dranken
 pl: Napoje fermentowane
 pt: Bebidas fermentadas
 ro: Băuturi fermentate, Bauturi fermentate
 ru: Ферментированные напитки
+sr: Ферментисана пића
+sv: Fermenterade drycker
+th: เครื่องดื่มหมัก
+tr: Fermente içecekler
+uk: Ферментовані напої
+vi: Đồ uống lên men
+zh: 发酵饮料
 
 < en:Beverages
 en: Sweetened beverages, Sugared beverages, Beverages with added sugar
@@ -41660,15 +41690,19 @@ gpc_category_name:en: Fruit/Nuts/Seeds Mixes - Prepared/Processed (Shelf Stable)
 
 < en:Plant-based foods
 en: Cereals and potatoes
+bg: Зърнени храни и картофи
 ca: Cereals i patates
+cs: Obiloviny a brambory
 da: Korn og kartofler
 de: Getreide und Kartoffeln
+el: Δημητριακά και πατάτες
 es: Cereales y patatas
-fi: jyvät ja perunat
+fi: Viljat ja perunat
 fr: Céréales et pommes de terre
-he: מדגנים ותפוחי אדמה
+he: דגנים ותפוחי אדמה
 hr: Žitarice i krumpir
-hu: Gabona- és burgonyafélék
+hu: Gabona és burgonyafélék
+id: Sereal dan kentang
 it: Cereali e patate
 ja: 穀物とジャガイモ
 ko: 곡물과 감자
@@ -41677,11 +41711,13 @@ nl: Granen en aardappels
 nl_be: Granen en aardappels
 no: Korn og poteter
 pl: Zboża i ziemniaki
-pt: Cereais e Batatas
+pt: Cereais e batatas
+ro: Cereale și cartofi
 ru: Зерновые и картофель
-sv: Spannmål och Potatisar
+sv: Spannmål och potatis
 th: ธัญพืชและมันฝรั่ง
 tr: Tahıllar ve patates
+uk: Зернові та картопля
 zh: 谷物和土豆
 food_groups:en: en:cereals-and-potatoes
 pnns_group_1:en: Cereals and potatoes
@@ -112913,51 +112949,87 @@ ro: Produse de patiserie, Produs de patiserie
 wikidata:en: Q7811427
 
 en: Plant-based foods and beverages
+af: Plantgebaseerde kosse en drankies
+ar: الأطعمة والمشروبات النباتية
+az: Bitki mənşəli qidalar və içkilər
+be: Раслінныя прадукты і напоі
 bg: Растителни храни и напитки
+bn: উদ্ভিদ-ভিত্তিক খাবার ও পানীয়
 ca: Aliments i begudes amb base vegetal
+cs: Rostlinné potraviny a nápoje
 da: Plantebaserede fødevarer og drikkevarer
 de: Pflanzliche Lebensmittel und Getränke
+el: Τρόφιμα και ποτά φυτικής προέλευσης
+eo: Plant-bazitaj manĝaĵoj kaj trinkaĵoj
 es: Alimentos y bebidas de origen vegetal
+et: Taimsed toidud ja joogid
+fa: غذاها و نوشیدنی‌های گیاهی
 fi: Kasvipohjaiset ruoat ja juomat
 fr: Aliments et boissons à base de végétaux
 he: מזונות ומשקאות על בסיס צמחי
+hi: पौधे आधारित खाद्य पदार्थ और पेय
 hr: Biljne hrane i pića
 hu: Növényi alapú élelmiszerek és italok
+id: Makanan dan minuman nabati
 it: Cibi e bevande a base vegetale
+ja: 植物性食品と飲料
+ko: 식물성 식품 및 음료
 lt: Augalinės kilmės maisto produktai ir gėrimai
+mk: Храна и пијалоци од растително потекло
+ms: Makanan dan minuman berasaskan tumbuhan
 nl: Plantaardige levensmiddelen en dranken
-no: Plantebaserte matvarer og drikkevarer, Plantebaserte mat- og drikkevarer, Plantebasert mat og drikke
+no: Plantebaserte matvarer og drikkevarer
 pl: Żywność i napoje na bazie roślin
 pt: Alimentos e bebidas à base de plantas
 ro: Alimente și băuturi pe bază de plante
 ru: Еда и напитки из растительного сырья
+sk: Rastlinné potraviny a nápoje
+sl: Rastlinska hrana in pijače
 sv: Växtbaserad mat och dryck
-tr: Bitkisel yiyecek ve içecekler, Bitki kaynaklı yiyecek ve içecekler, Bitki yiyecek ve içecekleri
+th: อาหารและเครื่องดื่มจากพืช
+tr: Bitkisel yiyecek ve içecekler
+uk: Їжа та напої на рослинній основі
 zh: 植物性食物与饮品
 
 < en:Plant-based foods and beverages
 en: Plant-based foods
+ar: الأطعمة النباتية
+az: Bitki mənşəli qidalar
 bg: Растителни храни
 ca: Aliments amb base vegetal
+cs: Rostlinné potraviny
 da: Plantebaserede fødevarer
 de: Pflanzliche Lebensmittel
+el: Τρόφιμα φυτικής προέλευσης
+eo: Plant-bazitaj manĝaĵoj
 es: Alimentos de origen vegetal, Alimentos vegetales, Vegetales y derivados
+et: Taimsed toidud
+fa: غذاهای گیاهی
 fi: Kasvipohjaiset ruoat
 fr: Aliments d'origine végétale, Aliments à base de plantes, Végétaux et dérivés
 he: מזונות מהצומח
+hi: पौधे आधारित खाद्य पदार्थ
 hr: Hranu biljnog podrijetla
 hu: Növényialapú élelmiszerek
+id: Makanan nabati
 it: Cibi a base vegetale
+ja: 植物性食品
+ko: 식물성 식품
 lt: Augalinės kilmės maisto produktai
+mk: Храна од растително потекло
+ms: Makanan berasaskan tumbuhan
 nl: Plantaardige levensmiddelen
 no: Plantebasert mat
 pl: Żywność na bazie roślin
 pt: Alimentos à base de plantas
 ro: Alimente pe bază de plante
 ru: Еда из растительного сырья
+sk: Rastlinné potraviny
+sl: Rastlinska hrana
 sv: Växtbaserad mat
 th: ผลิตภัณฑ์จากพืชทั้งหมด
 tr: Bitkisel yiyecekler, Bitki kaynaklı yiyecekler, Bitki yiyecekleri
+uk: Їжа на рослинній основі
 zh: 植物性食物
 
 < en:Plant-based foods and beverages
