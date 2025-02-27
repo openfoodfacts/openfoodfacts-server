@@ -122,7 +122,7 @@ sub execute_count_tags_query ($query) {
 	return execute_tags_query('count', $query);
 }
 
-sub execute_product_query ($parameters_ref, $query_ref, $fields_ref, $sort_ref, $limit, $skip) {
+sub execute_product_query ($parameters_ref, $query_ref, $fields_ref, $sort_ref = undef, $limit = undef, $skip = undef) {
 	# Currently only send descending popularity_key sorts to off-query
 	# Note that $sort_ref is a Tie::IxHash so can't use $sort_ref->{popularity_key}
 	if ($parameters_ref->{database} eq 'off-query' && $sort_ref && $sort_ref->FETCH('popularity_key') == -1) {
