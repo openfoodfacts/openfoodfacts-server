@@ -398,7 +398,7 @@ check_critic:
 	@echo "🥫 Checking with perlcritic"
 	test -z "${TO_CHECK}" || ${DOCKER_COMPOSE_BUILD} run --rm --no-deps backend perlcritic ${TO_CHECK}
 
-TAXONOMIES_TO_CHECK := $(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --name-only | grep  -P 'taxonomies.*/.*\.txt$$' | grep -v '\.result.txt' | xargs ls -d 2>/dev/null | grep -v "^.$$")
+TAXONOMIES_TO_CHECK := $(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --name-only | grep -E 'taxonomies.*/.*\.txt$$' | grep -v '\.result.txt' | xargs ls -d 2>/dev/null | grep -v "^.$$")
 
 # TODO remove --no-sort as soon as we have sorted taxonomies
 check_taxonomies:
