@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barcode Search Result</title>
+    <style>
+        /* CSS styles */
+        .barcode-search-result {
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 20px;
+        }
+
+        #createProductBtn {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #createProductBtn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="barcode-search-result">
+        <!-- Barcode search result display goes here -->
+        <button id="createProductBtn">Create Product</button>
+    </div>
+
+    <script>
+        // JavaScript code for handling button click event
+        document.getElementById('createProductBtn').addEventListener('click', function() {
+            // Perform action when the button is clicked, e.g., send a request to create product
+            createProduct();
+        });
+
+        function createProduct() {
+            // Simulate API request to create product (replace with actual API call)
+            console.log('Creating product...');
+            // Example API call using Fetch API
+            fetch('/api/products', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ barcode: '1234567890' }) // Example barcode data
+            })
+            .then(response => {
+                if (response.ok) {
+                    console.log('Product created successfully');
+                    // Add any success handling here
+                } else {
+                    console.error('Error creating product:', response.statusText);
+                    // Handle error
+                }
+            })
+            .catch(error => {
+                console.error('Error creating product:', error);
+                // Handle error
+            });
+        }
+    </script>
+</body>
+</html>
+
+                
+                
+                #with reactjs 
+                
+                
+                // BarcodeSearchResultPage.js
+
+import React, { useState } from 'react';
+import axios from 'axios';
+
+function BarcodeSearchResultPage({ barcode }) {
+    const [loading, setLoading] = useState(false);
+
+    const createProduct = async () => {
+        setLoading(true);
+        try {
+            // Make API request to create product
+            await axios.post('/api/products', { barcode });
+            // Add any success handling here
+            console.log('Product created successfully');
+        } catch (error) {
+            // Handle error
+            console.error('Error creating product:', error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    return (
+        <div className="barcode-search-result">
+            {/* Display barcode search result here */}
+            <button onClick={createProduct} disabled={loading}>
+                {loading ? 'Creating...' : 'Create Product'}
+            </button>
+        </div>
+    );
+}
+
+export default BarcodeSearchResultPage;
+
+
+#functionality implementation
+
+// server.js
+
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
+const PORT = 3000;
+
+app.use(bodyParser.json());
+
+// Dummy database to store products
+let products = [];
+
+// API endpoint to create a new product
+app.post('/api/products', (req, res) => {
+    const { barcode } = req.body;
+    // Add logic to create product in database
+    const newProduct = {
+        barcode,
+        // Add any other necessary fields for the product
+    };
+    products.push(newProduct);
+    res.status(201).json(newProduct);
+});
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
+
