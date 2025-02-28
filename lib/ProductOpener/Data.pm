@@ -45,6 +45,7 @@ BEGIN {
 		&execute_query
 		&execute_aggregate_tags_query
 		&execute_count_tags_query
+		&execute_product_query
 		&get_database
 		&get_collection
 		&get_products_collection
@@ -62,7 +63,9 @@ use vars @EXPORT_OK;
 use experimental 'smartmatch';
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Cursor;
 
+use Storable qw(freeze);
 use MongoDB;
 use JSON::MaybeXS;
 use CGI ':cgi-lib';
@@ -120,6 +123,45 @@ sub execute_aggregate_tags_query ($query) {
 
 sub execute_count_tags_query ($query) {
 	return execute_tags_query('count', $query);
+}
+
+sub execute_product_query ($parameters_ref, $query_ref, $fields_ref, $sort_ref = undef, $limit = undef, $skip = undef) {
+	# Currently only send descending popularity_key sorts to off-query
+	# Note that $sort_ref is a Tie::IxHash so can't use $sort_ref->{popularity_key}
+	if ($parameters_ref->{database} eq 'off-query' && $sort_ref && $sort_ref->FETCH('popularity_key') == -1) {
+		# Convert sort into an array so that the order of keys is not ambiguous
+		my @sort_array = ();
+		foreach my $k ($sort_ref->Keys) {
+			push(@sort_array, [$k, $sort_ref->FETCH($k)]);
+		}
+
+		my $results = execute_tags_query(
+			'find',
+			{
+				filter => $query_ref,
+				projection => $fields_ref,
+				sort => \@sort_array,
+				limit => $limit,
+				skip => $skip
+			}
+		);
+
+		if (defined $results) {
+			return ProductOpener::Cursor->new($results);
+		}
+	}
+
+	my $cursor = get_products_collection($parameters_ref)->query($query_ref)->fields($fields_ref);
+	if ($sort_ref) {
+		$cursor = $cursor->sort($sort_ref);
+	}
+	if ($limit) {
+		$cursor = $cursor->limit($limit);
+	}
+	if ($skip) {
+		$cursor = $cursor->skip($skip);
+	}
+	return $cursor;
 }
 
 # $json_utf8 has utf8 enabled: it decodes UTF8 bytes

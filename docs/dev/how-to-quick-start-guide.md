@@ -18,6 +18,7 @@ Docker provides an isolated environment, very close to a Virtual Machine. This e
 > **_NOTE:_**  New to Perl? Check [how to learn perl](how-to-learn-perl.md)!
 
 **Installation steps:**
+- GIT version >= 2.25.0
 - [Install Docker CE](https://docs.docker.com/engine/install/)
 > If you run e.g. Debian, don't forget to add your user to the `docker` group!
 
@@ -41,9 +42,9 @@ Make sure you also activated the [Developer mode](https://learn.microsoft.com/en
 
 ### Windows Subsystem for Linux (WSL) Prerequisites
 
-Ensure that you have WSL installed on your Windows machine. For instructions on how to do so, you can follow [Microsoft's guide to install WSL](https://learn.microsoft.com/en-us/windows/wsl/install). 
+Ensure that you have WSL installed on your Windows machine. For instructions on how to do so, you can follow [Microsoft's guide to install WSL](https://learn.microsoft.com/en-us/windows/wsl/install).
 
-After succcessfully installing WSL, you need to set up your Linux distribution and install Docker on it: 
+After succcessfully installing WSL, you need to set up your Linux distribution and install Docker on it:
 - Go to the Microsoft Store and install [Ubuntu](https://www.microsoft.com/store/productId/9PDXGNCFSCZV?ocid=pdpshare) as your Linux distribution
 - Open Ubuntu and execute the commands/instructions specified in [Installing Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/) (**NOTE: this is NOT the same thing as Docker for Desktop)
 - Restart your computer to ensure all changes take effect and WSL can properly integrate with Docker
@@ -60,7 +61,7 @@ If you use Docker Desktop:
 
 > _You must have a GitHub account and fork the project if you want to contribute to Open Food Facts development, but it’s not required if you just want to see how it works._
 
-> _Cloning Open Food Facts server with the default options downloads 2.23 GiB (as of 2024-03). See [Shallow Clone](#shallow-clone) if this might be a problem for you._ 
+> _Cloning Open Food Facts server with the default options downloads 2.23 GiB (as of 2024-03). See [Shallow Clone](#shallow-clone) if this might be a problem for you._
 
 ### Fork the repository
 
@@ -184,7 +185,7 @@ make dev
 ```
 
 > **Note:**
-> 
+>
 > If you are using Windows, you may encounter issues regarding this command. Take a look at the **Troubleshooting** section further in this tutorial.
 
 > **Note:**
@@ -246,7 +247,7 @@ When running `make dev`:
 bash: make: command not found
 ```
 
-**Solution (if using Windows):** 
+**Solution (if using Windows):**
 Click the Windows button, then type “environment properties” into the search bar and hit Enter. Click Environment Variables, then under System variables choose Path and click Edit. Click New and insert C:\Program Files (x86)\GnuWin32\bin, then save the changes. Open a new terminal and test that the command works.
 (See [Make Windows](https://pakstech.com/blog/make-windows/) for more.)
 
@@ -306,7 +307,7 @@ When running `make dev`:
 docker compose --env-file=.env  build   2>&1
 open /.docker/buildx/current: permission denied
 make: *** [build] Error 1
-openfoodfacts-server % 
+openfoodfacts-server %
 ```
 
 **Solution:**
@@ -318,7 +319,7 @@ If there is a file that is not owned by user with root instead of USER:
 ```console
 -rw-------   1 root    staff   48 Apr 28 17:04 current
 ```
-Then Run 
+Then Run
 ```console
 sudo chown -R USER:USER /Users/USER/.docker/buildx
 ```
@@ -343,7 +344,7 @@ make (e=2): The system cannot find the file specified.
 
 You need to install [wget for windows](https://eternallybored.org/misc/wget/). The referenced version is able to use the Windows Certificate Store, whereas the standard [gnuwin32 version](https://gnuwin32.sourceforge.net/packages/wget.htm) will give errors about not being able to verify the server certificate.
 
-### make: *** [Makefile:154: import_sample_data] Error 22 
+### make: *** [Makefile:154: import_sample_data] Error 22
 
 When running `make import_sample_data`
 
@@ -367,7 +368,7 @@ make: *** [Makefile:154: import_sample data] Error 22
 ```
 
 **Solution:**
-The cause of this issue is that you already have the mongodb database server running on your local machine at port 27017. 
+The cause of this issue is that you already have the mongodb database server running on your local machine at port 27017.
 
 *For Linux users:*
 
@@ -386,7 +387,7 @@ systemctl status mongod | grep Active
 
 Then, execute this:
 ```console
-docker compose up 
+docker compose up
 ```
 > **Note:**
 > To know more about docker compose commands do read [this guide](how-to-develop-using-docker.md)

@@ -106,6 +106,9 @@ requires 'Module::Load';
 # To measure the time taken by requests
 requires 'Time::Monotonic';
 
+# To measure similarity between words and find possible typo
+requires 'Text::Levenshtein';
+
 # OpenTelemetry
 requires 'OpenTelemetry', '>= 0.027';
 requires 'OpenTelemetry::SDK', '>= 0.025';

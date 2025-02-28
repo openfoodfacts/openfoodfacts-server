@@ -28,6 +28,7 @@
       ],
       "packagings" : [
          {
+            "food_contact" : 1,
             "material" : {
                "id" : "en:pet-1-polyethylene-terephthalate",
                "lc_name" : "PET 1 - Polyethylene terephthalate"
@@ -43,6 +44,7 @@
             "weight_measured" : 10
          },
          {
+            "food_contact" : 0,
             "material" : {
                "id" : "en:wood",
                "lc_name" : "Wood"

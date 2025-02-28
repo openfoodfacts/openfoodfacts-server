@@ -2070,4 +2070,38 @@ ok(
 	'insoluble-fiber_100g larger than fiber_100g'
 ) or diag Dumper $product_ref;
 
+# Product with ingredients in multiple languages
+
+$product_ref = {
+	ingredients_text => 'wheat flour, water, eau, wasser, agua, acqua, farine de maïs',
+	ingredients_lc => 'en',
+};
+
+ProductOpener::DataQuality::check_quality($product_ref);
+
+ok(has_tag($product_ref, 'data_quality', 'en:ingredients-number-of-languages-5'), 'Multiple languages in ingredients')
+	or diag Dumper $product_ref;
+ok(has_tag($product_ref, 'data_quality', 'en:ingredients-language-mismatch-en-contains-fr'),
+	'Ingredients language mismatch: en contains fr')
+	or diag Dumper $product_ref;
+ok(has_tag($product_ref, 'data_quality', 'en:ingredients-language-mismatch-en-contains-de'),
+	'Ingredients language mismatch: en contains de')
+	or diag Dumper $product_ref;
+ok(has_tag($product_ref, 'data_quality', 'en:ingredients-language-mismatch-en-contains-es'),
+	'Ingredients language mismatch: en contains es')
+	or diag Dumper $product_ref;
+
+# Product with ingredients in wrong language
+
+$product_ref = {
+	ingredients_text => 'wheat flour, water',
+	ingredients_lc => 'fr',
+};
+
+ProductOpener::DataQuality::check_quality($product_ref);
+
+ok(has_tag($product_ref, 'data_quality', 'en:ingredients-language-mismatch-fr-contains-en'),
+	'Ingredients language mismatch: fr contains en')
+	or diag Dumper $product_ref;
+
 done_testing();

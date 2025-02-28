@@ -1,4 +1,4 @@
-# How to release
+# How to deploy a release
 
 ## Staging environment
 
@@ -18,7 +18,7 @@ Product Opener is deployed on a container in Proxmox.
 The container is a debian server, it must follow the `backend` container version.
 
 In the command lines, I use $SERVICE and $VERSION variables,
-corresponding to the service short name (off, opf, etc.) and the version tag.
+corresponding to the service short name (off, off-pro, obf, opf, opff) and the version tag (including the letter "v", e.g. "v2.55.0")
 
 To deploy you need to execute the following steps:
 1. merge the Release Please pull request.

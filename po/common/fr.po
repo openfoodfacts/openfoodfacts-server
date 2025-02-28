@@ -266,6 +266,14 @@ msgctxt "also_edited_by"
 msgid "Product page also edited by"
 msgstr "Fiche produit également modifiée par"
 
+msgctxt "analytical_constituents"
+msgid "Analytical constituents"
+msgstr "Constituants analytiques"
+
+msgctxt "analytical_constituents_per_1kg"
+msgid "for 1 kg"
+msgstr "pour 1 kg"
+
 msgctxt "android_apk_app_icon_url"
 msgid "/images/misc/android-apk.svg"
 msgstr "/images/misc/android-apk.svg"
@@ -1695,7 +1703,7 @@ msgstr "Les produits dont l'origine des ingrédients n'est pas %s"
 
 msgctxt "packaging"
 msgid "Packaging"
-msgstr "Conditionnement"
+msgstr "Emballage"
 
 msgctxt "packaging_example"
 msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
@@ -4837,8 +4845,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr "Faible impact environnemental (Green-Score)"
 
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score (environmental_score) from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "Le Green-Score est un score environnemental (écoscore) de A à E qui permet de comparer facilement l'impact des produits alimentaires sur l'environnement."
+msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
+msgstr "Le Green-Score est un score environnemental de A à E qui permet de comparer facilement l'impact des produits alimentaires sur l'environnement."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -4851,7 +4859,7 @@ msgstr "Faible impact environnemental (Green-Score)"
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "Le Green-Score est un score environnemental (écoscore) de A à E qui permet de comparer facilement l'impact des produits alimentaires sur l'environnement."
+msgstr "Le Green-Score est un score environnemental de A à E qui permet de comparer facilement l'impact des produits alimentaires sur l'environnement."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5053,7 +5061,7 @@ msgstr "Détails du calcul du Green-Score"
 # do not translate Green-Score
 msgctxt "environmental_score_information"
 msgid "Information about the Green-Score"
-msgstr "Information sur le Green-Score"
+msgstr "Informations à propos du Green-Score"
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
@@ -5412,8 +5420,8 @@ msgstr "Non applicable pour la catégorie"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_environmental_score_not_applicable_description"
-msgid "Not applicable for the category: {category}"
-msgstr "Non applicable pour la catégorie : {category}"
+msgid "Not yet applicable for the category: {category}"
+msgstr "Pas encore calculable pour la catégorie : {category}"
 
 msgctxt "environmental_score_not_applicable_coming_soon"
 msgid "The Green-Score is not yet applicable for this category, but we are working on adding support for it."
@@ -5653,7 +5661,7 @@ msgstr "Pas de correspondance entre les catégories du produit et les catégorie
 
 msgctxt "environmental_score_edit_category_to_more_granular"
 msgid "You can modify the product page to add a more granular category."
-msgstr "Vous pouvez modifier la fiche produit pour ajouter une catégorie plus fine."
+msgstr "Vous pouvez modifier la fiche produit pour ajouter une catégorie plus précise."
 
 msgctxt "environmental_score_additional_bonuses_and_maluses"
 msgid "Additional bonuses and maluses"
@@ -5697,7 +5705,7 @@ msgstr "Ingrédients qui menacent des espèces"
 
 msgctxt "environmental_score_no_species_threatening_ingredients"
 msgid "No ingredients that threaten species"
-msgstr "Aucun ingrédient qui menace une espèce"
+msgstr "Aucun ingrédient ne menace une espèce animale"
 
 msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
@@ -6417,6 +6425,10 @@ msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
 msgstr "Prendre une photo des codes de traçabilité"
 
+msgctxt "action_report_product_to_nutripatrol"
+msgid "Report this product to our moderators"
+msgstr "Signaler ce produit à nos modérateurs"
+
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
 msgid "What you need to know"
@@ -6562,6 +6574,10 @@ msgctxt "api_result_product_not_found"
 msgid "Product not found"
 msgstr "Produit introuvable"
 
+msgctxt "api_result_product_found_with_a_different_product_type"
+msgid "Product found with a different product type"
+msgstr "Produit trouvé avec un type de produit différent"
+
 msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr "Produit mis à jour"
@@ -6585,6 +6601,10 @@ msgstr "JSON invalide dans le corps de la requête"
 msgctxt "api_message_invalid_code"
 msgid "Invalid code"
 msgstr "Code invalide"
+
+msgctxt "api_message_invalid_product_type"
+msgid "Invalid product type"
+msgstr "Type de produit non valide"
 
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
@@ -6904,22 +6924,8 @@ msgid "Discover the new Nutri-Score!"
 msgstr "Découvrez le nouveau Nutri-Score !"
 
 msgctxt "nutriscore_new_computation_description"
-msgid "<p>The computation of the Nutri-Score is evolving to provide better recommendations based on the latest scientific evidence.</p>"
-"<p>Main improvements:</p>"
-"<ul>"
-"<li>Better score for some fatty fish and oils rich in good fats</li>"
-"<li>Better score for whole products rich in fiber</li>"
-"<li>Worse score for products containing a lot of salt or sugar</li>"
-"<li>Worse score for red meat (compared to poultry)</li>"
-"</ul>"
-msgstr "<p>Le calcul du Nutri-Score évolue pour fournir de meilleures recommandations basées sur les dernières preuves scientifiques.</p>"
-"<p>Principales améliorations :</p>"
-"<ul>"
-"<li>Meilleur score pour certains poissons gras et huiles riches en bonnes graisses</li>"
-"<li>Meilleur score pour les produits complets riches en fibres</li>"
-"<li>Moins bon score pour les produits contenant beaucoup de sel ou de sucre</li>"
-"<li>Moins bon score pour la viande rouge (comparée à la volaille)</li>"
-"</ul>"
+msgid "<p>The computation of the Nutri-Score is evolving to provide better recommendations based on the latest scientific evidence.</p><p>Main improvements:</p><ul><li>Better score for some fatty fish and oils rich in good fats</li><li>Better score for whole products rich in fiber</li><li>Worse score for products containing a lot of salt or sugar</li><li>Worse score for red meat (compared to poultry)</li></ul>"
+msgstr "<p>Le calcul du Nutri-Score évolue pour fournir de meilleures recommandations basées sur les dernières preuves scientifiques.</p><p>Principales améliorations :</p><ul><li>Meilleur score pour certains poissons gras et huiles riches en bonnes graisses</li><li>Meilleur score pour les produits complets riches en fibres</li><li>Moins bon score pour les produits contenant beaucoup de sel ou de sucre</li><li>Moins bon score pour la viande rouge (comparée à la volaille)</li></ul>"
 
 msgctxt "nutriscore_new_computation_link_text"
 msgid "Discover all the improvements of the new Nutri-Score"
@@ -7038,6 +7044,10 @@ msgstr "Si les informations ne correspondent pas à celles figurant sur l'emball
 msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
 msgstr "Open Food Facts est une base de données collaborative, et chaque contribution est utile pour tous."
+
+msgctxt "report_to_nutripatrol_explain"
+msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
+msgstr "Si vous souhaitez signaler un acte de vandalisme, un contenu inapproprié ou des données erronées que vous ne pouvez pas corriger vous-même, signalez-le à notre équipe de modérateurs."
 
 msgctxt "description"
 msgid "Description"
@@ -7174,7 +7184,7 @@ msgstr "Dernière importation"
 
 msgctxt "drop_a_file"
 msgid "Drop"
-msgstr ""
+msgstr "Glisser"
 
 msgctxt "select_product_data_file"
 msgid "Select a file with product data"
@@ -7230,7 +7240,7 @@ msgstr "Liste des organisations"
 
 msgctxt "open_org"
 msgid "Open org"
-msgstr ""
+msgstr "Ouvrir l'orga"
 
 msgctxt "secondhand"
 msgid "Secondhand"
@@ -7306,6 +7316,39 @@ msgctxt "attribute_repairability_index_france_bad_description_short"
 msgid "Bad repairability"
 msgstr "Mauvaise réparabilité"
 
+msgctxt "estimate"
+msgid "estimate"
+msgstr "estimation"
+
+# information on several ingredients, in plural in languages like French
+msgctxt "ingredient_information"
+msgid "Ingredient information"
+msgstr "Information sur les ingrédients"
+
+msgctxt "product_type"
+msgid "Product type"
+msgstr "Type de produit"
+
+# Food product type
+msgctxt "product_type_food"
+msgid "Food"
+msgstr "Nourriture"
+
+# Pet food product type
+msgctxt "product_type_petfood"
+msgid "Pet food"
+msgstr "Nourriture pour animaux de compagnie"
+
+# Beauty product type
+msgctxt "product_type_beauty"
+msgid "Beauty"
+msgstr "Beauté"
+
+# General product product type
+msgctxt "product_type_product"
+msgid "Product"
+msgstr "Produit"
+
 msgctxt "recommendation_limit_ultra_processed_foods_title"
 msgid "Limit ultra-processed foods"
 msgstr "Limiter les aliments ultra-transformés"
@@ -7329,3 +7372,4 @@ msgstr "Ajoutez des produits avec une catégorie, une liste d'ingrédients et de
 msgctxt "in_contact_with_food"
 msgid "In contact with food"
 msgstr "En contact avec l'aliment"
+

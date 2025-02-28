@@ -154,17 +154,19 @@ _up:run_deps
 up: build create_folders _up
 
 # Used by staging so that shared services are not created
+# Shared services are started by the github workflow of openfoodfacts-shared-services
 prod_up: build create_folders
 	@echo "🥫 Starting containers …"
-	${DOCKER_COMPOSE_BUILD} up -d 2>&1
+	${DOCKER_COMPOSE} up -d 2>&1
 
 down:
 	@echo "🥫 Bringing down containers …"
-	${DOCKER_COMPOSE_BUILD} down
+	${DOCKER_COMPOSE} down
 
+# Note: we use it in deploy, so we must not use --remove-orphans as it would remove shared-net services
 hdown:
 	@echo "🥫 Bringing down containers and associated volumes …"
-	${DOCKER_COMPOSE_BUILD} down -v
+	${DOCKER_COMPOSE} down -v ${args}
 
 reset: hdown up
 

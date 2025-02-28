@@ -58,7 +58,7 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "18066",
-         "ecobalyse_code" : "tap-water",
+         "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
          "id" : "en:water",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 89.95,
@@ -70,7 +70,7 @@
       },
       {
          "ciqual_proxy_food_code" : "31016",
-         "ecobalyse_code" : "sugar",
+         "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
          "id" : "en:sugar",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 2.85,
@@ -126,12 +126,15 @@
          "id" : "en:black-tea-extract",
          "ingredients" : [
             {
-               "id" : "fr:l",
-               "is_in_taxonomy" : 0,
+               "ciqual_food_code" : "18154",
+               "id" : "en:black-tea-extract",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 1.2,
                "percent_max" : 1.2,
                "percent_min" : 1.2,
-               "text" : "l"
+               "text" : "l",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             }
          ],
          "is_in_taxonomy" : 1,
@@ -144,7 +147,7 @@
          "vegetarian" : "yes"
       },
       {
-         "ecobalyse_code" : "peach-eu",
+         "ecobalyse_code" : "fa9e9f34-acc9-4974-89c4-003d2428f502",
          "id" : "en:peach",
          "is_in_taxonomy" : 1,
          "percent" : 0.1,
@@ -188,14 +191,12 @@
          "id" : "en:antioxidant",
          "ingredients" : [
             {
-               "id" : "en:e300",
+               "id" : "en:vitamin-c",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 0.05,
                "percent_max" : 0.1,
                "percent_min" : 0,
-               "text" : "acide ascorbique",
-               "vegan" : "yes",
-               "vegetarian" : "yes"
+               "text" : "acide ascorbique"
             }
          ],
          "is_in_taxonomy" : 1,
@@ -226,16 +227,13 @@
       }
    ],
    "ingredients_analysis" : {
-      "en:palm-oil-content-unknown" : [
-         "fr:l"
-      ],
       "en:vegan-status-unknown" : [
-         "fr:l",
-         "en:sodium-citrate"
+         "en:sodium-citrate",
+         "en:vitamin-c"
       ],
       "en:vegetarian-status-unknown" : [
-         "fr:l",
-         "en:sodium-citrate"
+         "en:sodium-citrate",
+         "en:vitamin-c"
       ]
    },
    "ingredients_analysis_tags" : [
@@ -264,11 +262,10 @@
       "en:sweetener",
       "en:e330",
       "en:e296",
-      "fr:l",
       "en:sodium-citrate",
       "en:minerals",
       "en:sodium",
-      "en:e300",
+      "en:vitamin-c",
       "en:e960"
    ],
    "ingredients_lc" : "fr",
@@ -291,9 +288,9 @@
       "en:sweetener",
       "en:e330",
       "en:e296",
-      "fr:l",
+      "en:black-tea-extract",
       "en:sodium-citrate",
-      "en:e300",
+      "en:vitamin-c",
       "en:e960"
    ],
    "ingredients_percent_analysis" : 1,
@@ -319,11 +316,10 @@
       "en:sweetener",
       "en:e330",
       "en:e296",
-      "fr:l",
       "en:sodium-citrate",
       "en:minerals",
       "en:sodium",
-      "en:e300",
+      "en:vitamin-c",
       "en:e960"
    ],
    "ingredients_text" : "Eau, sucre, fructose, acidifiants (acide citrique, acide malique), extrait de the noir (1,2g/l), jus de pêche à base de concentré (0,1%), correcteur d'acidité (citrate trisodique), arômes, antioxydant (acide ascorbique), édulcorant (glycosides de steviol)",
@@ -336,32 +332,30 @@
       "en:acidity-regulator",
       "en:antioxidant",
       "en:e296",
-      "en:e300",
       "en:e330",
       "en:e960",
       "en:flavouring",
       "en:peach",
       "en:sodium-citrate",
       "en:sweetener",
-      "fr:l"
+      "en:vitamin-c"
    ],
-   "ingredients_without_ciqual_codes_n" : 12,
+   "ingredients_without_ciqual_codes_n" : 11,
    "ingredients_without_ecobalyse_ids" : [
       "en:acid",
       "en:acidity-regulator",
       "en:antioxidant",
       "en:black-tea-extract",
       "en:e296",
-      "en:e300",
       "en:e330",
       "en:e960",
       "en:flavouring",
       "en:fructose",
       "en:sodium-citrate",
       "en:sweetener",
-      "fr:l"
+      "en:vitamin-c"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 13,
+   "ingredients_without_ecobalyse_ids_n" : 12,
    "known_ingredients_n" : 25,
    "lc" : "fr",
    "minerals_tags" : [],
@@ -749,7 +743,7 @@
    "traces_from_user" : "(fr) ",
    "traces_hierarchy" : [],
    "traces_tags" : [],
-   "unknown_ingredients_n" : 1,
+   "unknown_ingredients_n" : 0,
    "unknown_nutrients_tags" : [],
    "vitamins_tags" : []
 }

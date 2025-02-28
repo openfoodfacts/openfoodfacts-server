@@ -166,9 +166,9 @@
 									
 									<li class="divider"></li>			
 									<li><label>Vos contributions</label></li>
-									<li><a href="/contributeur/tests">Produits ajoutés</a></li>
-									<li><a href="/editeur/tests">Produits modifiés</a></li>
-									<li><a href="/photographe/tests">Produits photographiés</a></li>
+									<li><a href="/facets/contributeurs/tests">Produits ajoutés</a></li>
+									<li><a href="/facets/editeurs/tests">Produits modifiés</a></li>
+									<li><a href="/facets/photographes/tests">Produits photographiés</a></li>
 									
 									<li class="divider"></li>			
 									<li class="has-form">
@@ -438,7 +438,7 @@
                             <li><a class="nav-link scrollto button small round white-button" href="#product_characteristics"><span>Caractéristiques du produit</span></a></li>
                             <li><a class="nav-link scrollto button small round white-button" href="#ingredients"><span>Ingrédients</span></a></li>
                             <li><a class="nav-link scrollto button small round white-button" href="#nutrition"><span>Nutrition</span></a></li>
-                            <li><a class="nav-link scrollto button small round white-button" href="#packaging_section"><span>Conditionnement</span></a></li>
+                            <li><a class="nav-link scrollto button small round white-button" href="#packaging_section"><span>Emballage</span></a></li>
                         </ul>
                     </nav><!-- .navbar -->
                 </div>
@@ -459,7 +459,7 @@
 
 
         
-
+        
         
 
         
@@ -1970,27 +1970,30 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
 
 
 
+                    <!-- petfood nutriment are as sold only -->
                     
-                        <!-- extra field suffixed with _displayed to allow detecting when a box is unchecked -->
-                        <input type="hidden" name="nutrition_data_displayed" value="1" />
-                        <input type="checkbox" id="nutrition_data" name="nutrition_data" checked="checked" />
-                        <label for="nutrition_data" class="checkbox_label">Les informations nutritionnelles sont mentionnées pour le produit tel que vendu.</label> &nbsp;
-                        <input type="radio" id="nutrition_data_per_100g" value="100g" name="nutrition_data_per" checked="checked" />
-                        <label for="nutrition_data_per_100g">pour 100 g / 100 ml</label>
-                        <input type="radio" id="nutrition_data_per_serving" value="serving" name="nutrition_data_per"  />
-                        <label for="nutrition_data_per_serving">par portion</label><br/>
-
                         
-                    
-                        <!-- extra field suffixed with _displayed to allow detecting when a box is unchecked -->
-                        <input type="hidden" name="nutrition_data_prepared_displayed" value="1" />
-                        <input type="checkbox" id="nutrition_data_prepared" name="nutrition_data_prepared"  />
-                        <label for="nutrition_data_prepared" class="checkbox_label">Les informations nutritionnelles sont mentionnées pour le produit préparé.</label> &nbsp;
-                        <input type="radio" id="nutrition_data_prepared_per_100g" value="100g" name="nutrition_data_prepared_per" checked="checked" />
-                        <label for="nutrition_data_prepared_per_100g">pour 100 g / 100 ml</label>
-                        <input type="radio" id="nutrition_data_prepared_per_serving" value="serving" name="nutrition_data_prepared_per"  />
-                        <label for="nutrition_data_prepared_per_serving">par portion</label><br/>
+                            <!-- extra field suffixed with _displayed to allow detecting when a box is unchecked -->
+                            <input type="hidden" name="nutrition_data_displayed" value="1" />
+                            <input type="checkbox" id="nutrition_data" name="nutrition_data" checked="checked" />
+                            <label for="nutrition_data" class="checkbox_label">Les informations nutritionnelles sont mentionnées pour le produit tel que vendu.</label> &nbsp;
+                            <input type="radio" id="nutrition_data_per_100g" value="100g" name="nutrition_data_per" checked="checked" />
+                            <label for="nutrition_data_per_100g">pour 100 g / 100 ml</label>
+                            <input type="radio" id="nutrition_data_per_serving" value="serving" name="nutrition_data_per"  />
+                            <label for="nutrition_data_per_serving">par portion</label><br/>
 
+                            
+                        
+                            <!-- extra field suffixed with _displayed to allow detecting when a box is unchecked -->
+                            <input type="hidden" name="nutrition_data_prepared_displayed" value="1" />
+                            <input type="checkbox" id="nutrition_data_prepared" name="nutrition_data_prepared"  />
+                            <label for="nutrition_data_prepared" class="checkbox_label">Les informations nutritionnelles sont mentionnées pour le produit préparé.</label> &nbsp;
+                            <input type="radio" id="nutrition_data_prepared_per_100g" value="100g" name="nutrition_data_prepared_per" checked="checked" />
+                            <label for="nutrition_data_prepared_per_100g">pour 100 g / 100 ml</label>
+                            <input type="radio" id="nutrition_data_prepared_per_serving" value="serving" name="nutrition_data_prepared_per"  />
+                            <label for="nutrition_data_prepared_per_serving">par portion</label><br/>
+
+                            
                         
                     
 
@@ -1999,12 +2002,16 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                         <table id="nutrition_data_table" class="data_table" style="display: table;" aria-label="nutrition table">
                             <thead class="nutriment_header">
                                 <th id="col_1">
-                                    Tableau nutritionnel
+                                    
+                                        Tableau nutritionnel
+                                    
                                 </th>
                                 <th id="col_2" class="nutriment_col" >
                                     Tel que vendu<br/>
-                                    <span id="nutrition_data_100g" >pour 100 g / 100 ml</span>
-                                    <span id="nutrition_data_serving"  style="display:none">par portion</span>
+                                    
+                                        <span id="nutrition_data_100g" >pour 100 g / 100 ml</span>
+                                        <span id="nutrition_data_serving"  style="display:none">par portion</span>
+                                    
                                 </th>
                                 <th id="col_3" class="nutriment_col_prepared" style="display:none">
                                     Préparé<br/>
@@ -2046,6 +2053,8 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                 <input  class="nutriment_value nutriment_value_prepared" id="nutriment_energy-kj_prepared" name="nutriment_energy-kj_prepared" value=""  autocomplete="off"/>
                                             </td>
 
+                                            <!-- food -->
+                                            <!-- petfood -->
                                             
                                                 <td>
                                                     <span class="nutriment_unit">kJ</span>
@@ -2082,6 +2091,8 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                 <input  class="nutriment_value nutriment_value_prepared" id="nutriment_energy-kcal_prepared" name="nutriment_energy-kcal_prepared" value=""  autocomplete="off"/>
                                             </td>
 
+                                            <!-- food -->
+                                            <!-- petfood -->
                                             
                                                 <td>
                                                     <span class="nutriment_unit">kcal</span>
@@ -2124,6 +2135,8 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                 <input  class="nutriment_value nutriment_value_prepared" id="nutriment_fat_prepared" name="nutriment_fat_prepared" value=""  autocomplete="off"/>
                                             </td>
 
+                                            <!-- food -->
+                                            <!-- petfood -->
                                             
                                                 <td>
                                                     <span class="nutriment_unit_percent" id="nutriment_fat_unit_percent" style="display:none">%</span>
@@ -2170,6 +2183,8 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                 <input  class="nutriment_value nutriment_value_prepared" id="nutriment_saturated-fat_prepared" name="nutriment_saturated-fat_prepared" value=""  autocomplete="off"/>
                                             </td>
 
+                                            <!-- food -->
+                                            <!-- petfood -->
                                             
                                                 <td>
                                                     <span class="nutriment_unit_percent" id="nutriment_saturated-fat_unit_percent" style="display:none">%</span>
@@ -2354,6 +2369,8 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                 <input  class="nutriment_value nutriment_value_prepared" id="nutriment_carbohydrates_prepared" name="nutriment_carbohydrates_prepared" value=""  autocomplete="off"/>
                                             </td>
 
+                                            <!-- food -->
+                                            <!-- petfood -->
                                             
                                                 <td>
                                                     <span class="nutriment_unit_percent" id="nutriment_carbohydrates_unit_percent" style="display:none">%</span>
@@ -2400,6 +2417,8 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                 <input  class="nutriment_value nutriment_value_prepared" id="nutriment_sugars_prepared" name="nutriment_sugars_prepared" value=""  autocomplete="off"/>
                                             </td>
 
+                                            <!-- food -->
+                                            <!-- petfood -->
                                             
                                                 <td>
                                                     <span class="nutriment_unit_percent" id="nutriment_sugars_unit_percent" style="display:none">%</span>
@@ -2486,6 +2505,8 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                 <input  class="nutriment_value nutriment_value_prepared" id="nutriment_fiber_prepared" name="nutriment_fiber_prepared" value=""  autocomplete="off"/>
                                             </td>
 
+                                            <!-- food -->
+                                            <!-- petfood -->
                                             
                                                 <td>
                                                     <span class="nutriment_unit_percent" id="nutriment_fiber_unit_percent" style="display:none">%</span>
@@ -2540,6 +2561,8 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                 <input  class="nutriment_value nutriment_value_prepared" id="nutriment_proteins_prepared" name="nutriment_proteins_prepared" value=""  autocomplete="off"/>
                                             </td>
 
+                                            <!-- food -->
+                                            <!-- petfood -->
                                             
                                                 <td>
                                                     <span class="nutriment_unit_percent" id="nutriment_proteins_unit_percent" style="display:none">%</span>
@@ -2598,6 +2621,8 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                 <input  class="nutriment_value nutriment_value_prepared" id="nutriment_salt_prepared" name="nutriment_salt_prepared" value=""  autocomplete="off"/>
                                             </td>
 
+                                            <!-- food -->
+                                            <!-- petfood -->
                                             
                                                 <td>
                                                     <span class="nutriment_unit_percent" id="nutriment_salt_unit_percent" style="display:none">%</span>
@@ -2646,6 +2671,8 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                 <input  class="nutriment_value nutriment_value_prepared" id="nutriment_sodium_prepared" name="nutriment_sodium_prepared" value=""  autocomplete="off"/>
                                             </td>
 
+                                            <!-- food -->
+                                            <!-- petfood -->
                                             
                                                 <td>
                                                     <span class="nutriment_unit_percent" id="nutriment_sodium_unit_percent" style="display:none">%</span>
@@ -2690,6 +2717,8 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                 <input  class="nutriment_value nutriment_value_prepared" id="nutriment_alcohol_prepared" name="nutriment_alcohol_prepared" value=""  autocomplete="off"/>
                                             </td>
 
+                                            <!-- food -->
+                                            <!-- petfood -->
                                             
                                                 <td>
                                                     <span class="nutriment_unit">% vol / °</span>
@@ -2930,6 +2959,8 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                 <input  class="nutriment_value nutriment_value_prepared" id="nutriment_new_0_prepared" name="nutriment_new_0_prepared" value=""  autocomplete="off"/>
                                             </td>
 
+                                            <!-- food -->
+                                            <!-- petfood -->
                                             
                                                 <td>
                                                     <span class="nutriment_unit_percent" id="nutriment_new_0_unit_percent" style="display:none">%</span>
@@ -2974,6 +3005,8 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                 <input  class="nutriment_value nutriment_value_prepared" id="nutriment_new_1_prepared" name="nutriment_new_1_prepared" value=""  autocomplete="off"/>
                                             </td>
 
+                                            <!-- food -->
+                                            <!-- petfood -->
                                             
                                                 <td>
                                                     <span class="nutriment_unit_percent" id="nutriment_new_1_unit_percent" style="display:none">%</span>
@@ -3007,7 +3040,9 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
 
                 
 
-                <p class="asterisk">&rarr;* :Nutriments essentiels pour calculer le Nutri-Score.</p>
+                
+                    <p class="asterisk">&rarr;* :Nutriments essentiels pour calculer le Nutri-Score.</p>
+                
                 <p class="note">&rarr; Le tableau liste par défaut les nutriments les plus couramment indiqués. Laissez le champ vide s'il n'est pas présent sur l'emballage.<br />Vous pouvez ajouter d'autres nutriments
 (vitamines, minéraux, cholestérol, oméga 3 et 6 etc.) en tapant les premières lettres de leur nom dans la dernière ligne du tableau.</p>
                 </div>
@@ -3018,7 +3053,7 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
         <!--packaging field-->
         <section id="packaging_section" class="card fieldset">
             <div class="card-section">
-                <legend>Conditionnement</legend>
+                <legend>Emballage</legend>
                 <!-- start templates/web/pages/product_edit/display_input_tabs.tt.html -->
 
 <!--html tab header starts-->
@@ -3511,7 +3546,7 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
 <ul id="history_list">
   
   <li>
-    <time datetime="--ignore--">--ignore--</time> - <a href="/editeur/tests" lang="no_language">tests</a> Données (Ajout : product_type, code, lang, product_name, quantity, brands, categories, labels, link, countries, nutrition_data_per, nutrition_data_prepared_per, serving_size, ingredients_text, generic_name_en, ingredients_text_en, origin_en, product_name_en, ingredients_text_fr, product_name_fr) -- Nutriments (Ajout : nutrition-score-fr)   - (app)  &nbsp;
+    <time datetime="--ignore--">--ignore--</time> - <a href="/facets/editeurs/tests" lang="no_language">tests</a> Données (Ajout : product_type, code, lang, product_name, quantity, brands, categories, labels, link, countries, nutrition_data_per, nutrition_data_prepared_per, serving_size, ingredients_text, generic_name_en, ingredients_text_en, origin_en, product_name_en, ingredients_text_fr, product_name_fr) -- Nutriments (Ajout : nutrition-score-fr)   - (app)  &nbsp;
     <a href="/produit/3300000000002/tarte-aux-pommes-et-aux-framboise-bio-les-tartes-de-robert?rev=1" class="button tiny">Voir cette révision</a>
     
   </li>
