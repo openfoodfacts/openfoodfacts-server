@@ -369,10 +369,10 @@ check_translations:
 # IMPORTANT: We exclude some files that are in .check_perl_excludes
 check_perl:
 	@echo "🥫 Checking all perl files"
-	@if grep -P '^\s*$$' .check_perl_excludes; then echo "No blank line accepted in .check_perl_excludes, fix it"; false; fi
 	ALL_PERL_FILES=$$(find . -regex ".*\.\(p[lm]\|t\)"|grep -v "/\."|grep -v "/obsolete/"| grep -vFf .check_perl_excludes) ; \
 	${DOCKER_COMPOSE_BUILD} run --rm --no-deps backend make -j ${CPU_COUNT} $$ALL_PERL_FILES  || \
 	  ( echo "Perl syntax errors! Look at 'failed--compilation' in above logs" && false )
+	@if grep -E '^\s*$$' .check_perl_excludes; then echo "No blank line accepted in .check_perl_excludes, fix it"; false; fi
 
 # check with perltidy
 # we exclude files that are in .perltidy_excludes
@@ -380,13 +380,13 @@ check_perl:
 TO_TIDY_CHECK := $(shell echo ${TO_CHECK}| tr " " "\n" | grep -vFf .perltidy_excludes)
 check_perltidy:
 	@echo "🥫 Checking with perltidy ${TO_TIDY_CHECK}"
-	@if grep -P '^\s*$$' .perltidy_excludes; then echo "No blank line accepted in .perltidy_excludes, fix it"; false; fi
+	@if grep -E '^\s*$$' .perltidy_excludes; then echo "No blank line accepted in .perltidy_excludes, fix it"; false; fi
 	test -z "${TO_TIDY_CHECK}" || ${DOCKER_COMPOSE_BUILD} run --rm --no-deps backend perltidy --assert-tidy -opath=/tmp/ --standard-error-output ${TO_TIDY_CHECK}
 
 # same as check_perltidy, but this time applying changes
 lint_perltidy:
 	@echo "🥫 Linting with perltidy ${TO_TIDY_CHECK}"
-	@if grep -P '^\s*$$' .perltidy_excludes; then echo "No blank line accepted in .perltidy_excludes, fix it"; false; fi
+	@if grep -E '^\s*$$' .perltidy_excludes; then echo "No blank line accepted in .perltidy_excludes, fix it"; false; fi
 	test -z "${TO_TIDY_CHECK}" || ${DOCKER_COMPOSE_BUILD} run --rm --no-deps backend perltidy --standard-error-output -b -bext=/ ${TO_TIDY_CHECK}
 
 
