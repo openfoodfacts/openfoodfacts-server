@@ -152,7 +152,7 @@ async function getOpenStreetMapFromWikidata(id) {
 
 async function getGeoJsonFromOsmRelation(id) {
   const response = await fetch(`https://polygons.openstreetmap.fr/get_geojson.py?params=0&id=${encodeURIComponent(id)}`);
-  const data = response.json();
+  const data = await response.json();
   const geoJsonRewind = new GeoJSONRewind();
 
   return geoJsonRewind.rewind(data);
