@@ -6,16 +6,19 @@ taxonomy
  another language, update the text defining the tags
  - finally, update the products
 
-To use a virtual environment (it depends on the OS:
-  https://python.land/virtual-environments/virtualenv)
-```python3.xx -m venv venv```
-```source venv/bin/activate```
-```pip install requests```
-```pip install duckdb```
-```pip install numpy```
-```pip install pandas```
 
-- add your username and password in the variable
+To use a virtual environment, open a terminal and run:
+$ sudo mkdir /usr/bin/uv
+$ sudo curl -LsSf https://astral.sh/uv/install.sh | sudo env UV_INSTALL_DIR="/usr/bin/uv" sh
+$ source /usr/bin/uv/env
+$ uv --version
+$ uv venv --python=3.11
+$ source .venv/bin/activate
+$ uv pip install -r tags_and_languages_requirements.txt
+
+- add your username and password as environment variables. In a terminal, run:
+$ export USER_ID='your_user_id'
+$ export PASSWORD='your_password'
 
 - run the code with:
 ```python3 tags_per_languages.py```
@@ -23,21 +26,28 @@ To use a virtual environment (it depends on the OS:
 
 from datetime import datetime
 import duckdb
+import os
 import re
 import requests
 import sys
 import unicodedata
 
-data = {
-    'user_id': "TODO",
-    'password': "TODO",
+USER_ID = os.getenv('USER_ID')
+PASSWORD = os.getenv('PASSWORD')
+
+if USER_ID is None or PASSWORD is None:
+    raise ValueError("Environment variables USER_ID and PASSWORD must be set")
+
+BASE_DATA = {
+    'user_id': USER_ID,
+    'password': PASSWORD,
 }
 
 # tag_types = ["countries", "traces"] # "countries" and "traces" are missing in parquet file from hf. Only "countries_tags" and "traces_tags" are there
-# tag_types = ["categories", "labels", "origins"]
+tag_types = ["categories", "labels", "origins"]
 # tag_types = ["categories"]
 # tag_types = ["labels"]
-tag_types = ["origins"]
+# tag_types = ["origins"]
 
 # country is needed otherwise <tag_type>_lc will be "en"
 post_call_url = "https://{country}.openfoodfacts.org/cgi/product_jqm2.pl"
@@ -50,9 +60,11 @@ headers = {
 
 mapping_languages_countries = {
     "aa": "dj",
+    "af": "za",
     "ar": "world",  # ar but categories are en:<french name>
     "be": "by",
     "bg": "bg",
+    "bn": "bd",
     "br": "fr",
     "bs": "ba",
     "ca": "fr",
@@ -67,14 +79,20 @@ mapping_languages_countries = {
     "fa": "ir",
     "fi": "fi",
     "fr": "fr",
+    "he": "il",
     "hr": "hr",
+    "hu": "hu",
     "id": "id",
     "is": "is",
     "it": "it",
+    "iw": "il",
     "ja": "jp",
+    "ko": "kr",
     "lt": "lt",
+    "lv": "lv",
     "ms": "my",
     "nb": "no",
+    "no": "no",
     "nl": "nl",
     "pl": "pl",
     "pt": "pt",
@@ -82,13 +100,85 @@ mapping_languages_countries = {
     "ru": "ru",
     "sk": "sk",
     "sl": "si",
+    "sq": "al",
     "sr": "rs",
     "sv": "se",
     "th": "th",
+    "ti": "et",
+    "tr": "tr",
+    "ug": "cn",
+    "uk": "ua",
+    "uz": "uz",
     "zh": "cn",
 }
 
 conn = duckdb.connect(database=':memory:', read_only=False) # it takes ~30 sec to get from static url in memory
+
+sql_query = '''
+    WITH 
+    
+    -- fetch all products from the last dataset in hugging face
+    products_tags AS (
+        SELECT
+            hf_dataset.code, -- example: 0201441508005
+            hf_dataset.lang, -- example: en
+            hf_dataset.{tag_type}, -- example: Cambozola
+
+            -- unnest all tags to have multiple row per product with 1 tag per row 
+            --   instead of a single row and a list of tags
+            unnest(hf_dataset.{tag_type}_tags) AS {tag_type}_lc_and_tag, -- example: ['Cambozola'] -> en:cambozola
+
+            -- same but remove the language code, i.e. en:breakfasts -> breakfasts
+            str_split(unnest(hf_dataset.{tag_type}_tags), ':')[2] AS {tag_type}_tag -- example: ['Cambozola'] -> cambozola
+
+        FROM 'hf://datasets/openfoodfacts/product-database/food.parquet' hf_dataset
+
+        -- skip products without tags
+        WHERE {tag_type}_tags IS NOT NULL
+    ),
+
+    -- from the previous CTE, retrieve the tags that are not in the taxonomy
+    products_unknown_tags AS (
+        SELECT
+            products_tags.code, -- example: 0201441508005
+            products_tags.lang, -- example: en
+            products_tags.{tag_type}, -- example: Cambozola
+            products_tags.{tag_type}_lc_and_tag, -- example: ['Cambozola'] -> en:cambozola
+            products_tags.{tag_type}_tag -- example: ['Cambozola'] -> cambozola
+        FROM products_tags
+        LEFT JOIN {tag_type}_tags taxonomy_tags
+        ON products_tags.{tag_type}_lc_and_tag = taxonomy_tags.tag
+
+        WHERE taxonomy_tags.lc_tag_name IS NULL
+    )
+
+    -- from the previous CTE, retrieve the tags existing in another language
+    SELECT
+        products_unknown_tags.code AS products_code, -- example: 0201441508005
+        products_unknown_tags.lang AS products_lang, -- example: en
+        products_unknown_tags.{tag_type} AS products_{tag_type}, -- example: Cambozola
+        products_unknown_tags.{tag_type}_lc_and_tag AS products_{tag_type}_unknown_tag, -- example: ['Cambozola'] -> en:cambozola
+        products_unknown_tags.{tag_type}_tag AS products_{tag_type}_unknown_tag_name, -- example: ['Cambozola'] -> cambozola
+
+        taxonomy_tags.tag AS taxonomy_tag_id, -- example: de:cambozola
+        taxonomy_tags.lc AS taxonomy_tag_lc, -- example: de
+        taxonomy_tags.lc_tag_name AS taxonomy_tag_name, -- example: cambozola
+        taxonomy_tags.lc_tag_name_concat AS taxonomy_tag -- example: de:cambozola
+
+    FROM products_unknown_tags
+    LEFT JOIN {tag_type}_tags taxonomy_tags
+    ON products_unknown_tags.{tag_type}_tag = taxonomy_tags.lc_tag_name
+    
+    -- keep only rows for which unknown tag is found in another language
+    WHERE taxonomy_tags.lc_tag_name IS NOT NULL
+
+    -- ignore if language code is xx because it means that it is the name for any language
+    AND taxonomy_tags.lc != 'xx'
+
+    -- prevent "fr:angleterre" and "fr:angleterre"
+    AND products_unknown_tags.{tag_type}_lc_and_tag != taxonomy_tags.lc_tag_name_concat
+'''
+
 
 
 def retrieve_taxonomy_tag(tag_type: str) -> None:
@@ -194,66 +284,16 @@ def update_tags(tags_text: str, old_tag_with_lc: str, old_tag: str, new_tag: str
     return updated_tags_text, updated
 
 
-time_start = datetime.now()
+def retrieve_tags_to_update(conn, tag_type):
+    """Retrieve tags to update from the database."""
+    tags_to_update = conn.execute(sql_query.format(tag_type=tag_type)).fetchall()
 
-for tag_type in tag_types:
-    print(f"retrieve_taxonomy_tag from static url - time {datetime.now()-time_start}")
-    retrieve_taxonomy_tag(tag_type)
+    return tags_to_update
 
 
-    print(f"call products from hf - time {datetime.now()-time_start}")
-    tags_to_update_df = conn.execute(f'''
-    WITH products_tags AS (
-        SELECT
-            hf_dataset.code,
-            hf_dataset.lang,
-            hf_dataset.{tag_type},
-            unnest(hf_dataset.{tag_type}_tags) AS {tag_type}_lc_and_tag,
-            str_split(unnest(hf_dataset.{tag_type}_tags), ':')[2] AS {tag_type}_tag
-        FROM 'hf://datasets/openfoodfacts/product-database/food.parquet' hf_dataset
-        WHERE {tag_type}_tags IS NOT NULL
-    ),
-    products_unknown_tags AS (
-        SELECT
-            products_tags.code,
-            products_tags.lang,
-            products_tags.{tag_type},
-            products_tags.{tag_type}_lc_and_tag,
-            products_tags.{tag_type}_tag,
-            taxonomy_tags.tag,
-            taxonomy_tags.lc,
-            taxonomy_tags.lc_tag_name,
-            taxonomy_tags.lc_tag_name_concat
-        FROM products_tags
-        LEFT JOIN {tag_type}_tags taxonomy_tags
-        ON products_tags.{tag_type}_lc_and_tag = taxonomy_tags.tag
-        WHERE taxonomy_tags.lc_tag_name IS NULL
-    )
-    SELECT
-        products_unknown_tags.code AS products_code,
-        products_unknown_tags.lang AS products_lang,
-        products_unknown_tags.{tag_type} AS products_{tag_type},
-        products_unknown_tags.{tag_type}_lc_and_tag AS products_{tag_type}_unknown_tag,
-        products_unknown_tags.{tag_type}_tag AS products_{tag_type}_unknown_tag_name,
-        taxonomy_tags.tag AS taxonomy_tag_id,
-        taxonomy_tags.lc AS taxonomy_tag_lc,
-        taxonomy_tags.lc_tag_name AS taxonomy_tag_name,
-        taxonomy_tags.lc_tag_name_concat AS taxonomy_tag
-    FROM products_unknown_tags
-    LEFT JOIN {tag_type}_tags taxonomy_tags
-    ON products_unknown_tags.{tag_type}_tag = taxonomy_tags.lc_tag_name
-    WHERE taxonomy_tags.lc_tag_name IS NOT NULL
-    AND taxonomy_tags.lc != 'xx'
-    AND products_unknown_tags.{tag_type}_lc_and_tag != taxonomy_tags.lc_tag_name_concat
-    ''').df()
-    # remark:
-    #   AND products_unknown_tags.{tag_type}_lc_and_tag != taxonomy_tags.lc_tag_name_concat -> to prevent fr:angleterre and fr:angleterre
-
-    print(f"prepare log table - time {datetime.now()-time_start}")
-    conn_db = duckdb.connect(database='tags_and_languages.db', read_only=False)
-    conn_db.execute(f'''
-    DROP TABLE IF EXISTS products_to_update_{tag_type}
-    ''')
+def create_and_populate_table(conn_db, tag_type, tags_to_update):
+    """Create and populate the products_to_update_{tag_type} table if it doesn't exist."""
+    
     conn_db.execute(f'''
     CREATE TABLE products_to_update_{tag_type} (
         code TEXT,
@@ -264,58 +304,67 @@ for tag_type in tag_types:
         updated BOOLEAN
     )
     ''')
-    for _, row in tags_to_update_df.iterrows():
-        code = row[0]
-        lang = row[1]
-        
-        existing_row = conn_db.execute(f"SELECT * FROM products_to_update_{tag_type} WHERE code = '{code}'").fetchone()
-        
-        if existing_row:
-            # Update the existing row
-            # existing_row[2] is tags as text already updated
-            # row[3] is unknown tag with lc
-            # row[4] is unknown tag
-            # row[8] is row[4] tag found in another language
-            new_tags_text, updated_tags_text = update_tags(existing_row[3], row[3], row[4], row[8])
 
+    for row in tags_to_update:
+        products_code = row[0]
+        products_lang = row[1]
+        products_categories = row[2]
+        products_categories_unknown_tag = row[3]
+        products_categories_unknown_tag_name = row[4]
+        taxonomy_tag = row[8]
+
+        existing_row = conn_db.execute(f"SELECT * FROM products_to_update_{tag_type} WHERE code = '{products_code}'").fetchone()
+
+        if existing_row:
+            new_tags_text = existing_row[3]
+
+            new_tags_text, updated_tags_text = update_tags(
+                tags_text=new_tags_text, 
+                old_tag_with_lc=products_categories_unknown_tag, 
+                old_tag=products_categories_unknown_tag_name, 
+                new_tag=taxonomy_tag
+            )
             conn_db.execute(f'''
             UPDATE products_to_update_{tag_type}
-            SET new_tags_text = ?, updated_tags_text = CASE 
-                                    WHEN updated_tags_text = TRUE THEN TRUE 
-                                    ELSE ? 
+            SET new_tags_text = ?, updated_tags_text = CASE
+                                    WHEN updated_tags_text = TRUE THEN TRUE
+                                    ELSE ?
                                 END
             WHERE code = ?
-            ''', [new_tags_text, updated_tags_text, code])
+            ''', [new_tags_text, updated_tags_text, products_code])
         else:
-            # Insert a new row
-            # row[2] is tags as text
-            # row[3] is unknown tag with lc
-            # row[4] is unknown tag
-            # row[8] is row[4] tag found in another language
-            new_tags_text, updated_tags_text = update_tags(row[2], row[3], row[4], row[8])
-
+            new_tags_text, updated_tags_text = update_tags(
+                tags_text=products_categories, 
+                old_tag_with_lc=products_categories_unknown_tag, 
+                old_tag=products_categories_unknown_tag_name, 
+                new_tag=taxonomy_tag
+            )
             conn_db.execute(f'''
             INSERT INTO products_to_update_{tag_type} (code, lang, old_tags_text, new_tags_text, updated_tags_text, updated)
             VALUES (?, ?, ?, ?, ?, ?)
-            ''', [code, lang, row[2], new_tags_text, updated_tags_text, False])
+            ''', [products_code, products_lang, products_categories, new_tags_text, updated_tags_text, False])
 
-    print(f"finally update products - time {datetime.now()-time_start}")
-    all_rows = conn_db.execute(f"SELECT * products_to_update_{tag_type}").fetchall()
 
-    for row in all_rows:
-        code = row[0]
-        lang = row[1]
+def run_modifications(conn_db, tag_type, mapping_languages_countries, post_call_url, headers):
+    """Run modifications for the given tag type."""
+
+    # resume job by filtering by updated = false
+    all_rows = conn_db.execute(f"SELECT * FROM products_to_update_{tag_type} WHERE updated = FALSE").fetchall()
+    print(f"There are {len(all_rows)} products to update")
+
+    for row_to_update in all_rows:
+        code = row_to_update[0]
+        lang = row_to_update[1]
+        updated_tag_field = row_to_update[3]
 
         try:
             country = mapping_languages_countries[lang]
         except KeyError:
-            print(f"ERROR: language {lang} is not referenced in mapping_languages_countries")
+            print(f"ERROR: language {lang} is not referenced in mapping_languages_countries", file=sys.stderr)
             sys.exit()
 
-        data.update({
-            'code': code,
-            tag_type: row[3],
-        })
+        data = dict(BASE_DATA, code=code, tag_type=updated_tag_field)
+
         try:
             post_call_url_res = requests.post(
                 post_call_url.format(country=country),
@@ -327,8 +376,8 @@ for tag_type in tag_types:
                 print(f"ERROR: when updating product {code}. Received {post_call_url_res.status_code} status code")
                 sys.exit()
 
-            conn.execute(f'''
-                UPDATE products_to_update_{tag_type} 
+            conn_db.execute(f'''
+                UPDATE products_to_update_{tag_type}
                 SET updated = true
                 WHERE code = ?
             ''', [code])
@@ -336,3 +385,31 @@ for tag_type in tag_types:
         except requests.RequestException as e:
             print(f"Request failed for code {code}: {e}")
             continue
+
+
+# Main execution loop
+time_start = datetime.now()
+for tag_type in tag_types:
+
+    table_name = f"products_to_update_{tag_type}"
+    
+    # Check if the table already exists in DuckDB
+    conn_db = duckdb.connect(database='tags_and_languages_updated.db', read_only=False)
+    
+    if not conn_db.execute(f"""
+    SELECT table_name
+    FROM information_schema.tables
+    WHERE table_name = '{table_name}'
+    """).fetchone():
+        print(f"\nretrieve_taxonomy_tag from static url {tag_type} - time {datetime.now()-time_start}")
+        retrieve_taxonomy_tag(tag_type)
+
+        print(f"call products from hf {tag_type} - time {datetime.now()-time_start}")
+        tags_to_update = retrieve_tags_to_update(conn, tag_type)
+
+        print(f"prepare log table {tag_type} - time {datetime.now()-time_start}")
+        create_and_populate_table(conn_db, tag_type, tags_to_update)
+
+    print(f"update products {tag_type} - time {datetime.now()-time_start}")
+    run_modifications(conn_db, tag_type, mapping_languages_countries, post_call_url, headers)
+
