@@ -91,10 +91,10 @@ https://world.openfoodfacts.org/api/v2/search?code=3263859883713,8437011606013,6
 
 The v3 API provides suggestions based on taxonomy fields such as synonyms, categories, and packaging shapes.
 
-## Reference documentation:
+# Reference documentation:
 https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v3/#get-/api/v3/taxonomy_suggestions
 
-## Example requests:
+# Example requests:
 Get suggestions from synonyms
 ```text
 https://world.openfoodfacts.org/api/v3/taxonomy_suggestions?tagtype=labels&lc=fr&string=f&get_synonyms=1
