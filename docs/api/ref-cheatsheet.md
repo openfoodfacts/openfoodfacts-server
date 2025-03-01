@@ -87,14 +87,14 @@ You can use comma to separate multiple values of a query parameter. This allows 
 https://world.openfoodfacts.org/api/v2/search?code=3263859883713,8437011606013,6111069000451&fields=code,product_name
 ```
 
-### Get taxonomy-based suggestions (v3 API)
+## Get taxonomy-based suggestions (v3 API)
 
 The v3 API provides suggestions based on taxonomy fields such as synonyms, categories, and packaging shapes.
 
-# Reference documentation:
+### Reference documentation:
 https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v3/#get-/api/v3/taxonomy_suggestions
 
-# Example requests:
+### Example requests:
 Get suggestions from synonyms
 ```text
 https://world.openfoodfacts.org/api/v3/taxonomy_suggestions?tagtype=labels&lc=fr&string=f&get_synonyms=1
