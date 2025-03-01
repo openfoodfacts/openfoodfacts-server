@@ -166,11 +166,9 @@ sql_query = '''
         taxonomy_tags.lc_tag_name_concat AS taxonomy_tag -- example: de:cambozola
 
     FROM products_unknown_tags
-    LEFT JOIN {tag_type}_tags taxonomy_tags
+    -- use inner join to keep only rows for which unknown tag is found in another language
+    INNER JOIN {tag_type}_tags taxonomy_tags
     ON products_unknown_tags.{tag_type}_tag = taxonomy_tags.lc_tag_name
-    
-    -- keep only rows for which unknown tag is found in another language
-    WHERE taxonomy_tags.lc_tag_name IS NOT NULL
 
     -- ignore if language code is xx because it means that it is the name for any language
     AND taxonomy_tags.lc != 'xx'
