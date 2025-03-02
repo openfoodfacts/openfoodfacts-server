@@ -393,7 +393,7 @@ $product_ref = {
 	ingredients_text_pl =>
 		"69% mąka pszenna, woda, olej rzepakowy, stabilizator: glicerol; gluten pszenny, regulator kwasowości: kwas jabłkowy; sól, emuglator: mono - i diglicerydy kwasów tłuszczowych; glukoza, substancja spulchniająca: węglany sodu; substancje konserwujące: propionian wapnia, sorbinian potasu ; środek do przetwarzania mąki: L-cysteina.",
 	ingredients_text_ro =>
-		"69% făină de grâu, apă, ulei de rapiță, stabilizator: glicerol; gluten din grâu, corector de aciditate: acid malic; sare, emulsifiant: mono - şi digliceride ale acizilor graşi; dextroză, agent de afanare: carbonați de sodiu ; conservanți: propionat de calciu, sorbat de potasiu; agent de tratare a făinii: L-cisteină.",
+		"69% făină de grâu, apă, ulei de rapiță, stabilizator: glicerol; gluten din grâu, corector de aciditate: acid malic; sare, emulsifiant: mono - ti digliceride ale acizilor graşi; dextroză, agent de afanare: carbonați de sodiu ; conservanți: propionat de calciu, sorbat de potasiu; agent de tratare a făinii: L-cisteină.",
 	ingredients_text_sk =>
 		"69% pšeničná múka, pitná voda, repkový olej, stabilizátor: glycerol; pšeničný glutén, regulátor kyslosti: kyselina jablčná; jedlá soľ, emulgátor: mono - a diglyceridy mastných kyselín; dextróza, kypriaca látka: uhličitany sodné; konzervačné látky: propionan vápenatý, sorban draselný; múku upravujúca látka: L-cystein.",
 	ingredients_text_sl =>
@@ -444,7 +444,7 @@ ok(
 	has_tag(
 		$product_ref,
 		"taxonomies_enhancer",
-		"ingredients-ro-mono-şi-digliceride-ale-acizilor-graşi-is-possible-typo-for-ro-mono-și-digliceride-ale-acizilor-grași"
+		"ingredients-ro-monoti-digliceride-ale-acizilor-graşi-is-possible-typo-for-ro-mono-și-digliceride-ale-acizilor-grași"
 	),
 	'cs-hr-hu-pl-ro-sk-sl, ro typo or synonym'
 ) or diag Dumper $product_ref;
