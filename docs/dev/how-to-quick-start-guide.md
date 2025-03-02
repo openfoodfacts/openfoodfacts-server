@@ -22,6 +22,69 @@ Docker provides an isolated environment, very close to a Virtual Machine. This e
 - [Install Docker CE](https://docs.docker.com/engine/install/)
 > If you run e.g. Debian, don't forget to add your user to the `docker` group!
 
+### macOS: Installing GNU grep for Full Regex Support
+
+On macOS, the default version of **grep** is BSD grep, which does not support certain GNU-specific options—most notably, the `-P` flag for Perl-compatible regular expressions. If you encounter errors like:
+
+```console
+grep: invalid option -- P
+usage: grep [-abcdDEFGHhIiJLlMmnOopqRSsUVvwXxZz] [-A num] [-B num] [-C[num]] …
+```
+
+you can resolve the issue by installing GNU grep and prioritizing it in your shell's PATH.
+
+#### Steps to Install GNU grep
+
+1. **Install GNU grep via Homebrew:**
+
+   ```console
+   brew install grep
+   ```
+
+2. **Update Your PATH:**
+
+   Add the following line to your `~/.zshrc` (or your shell’s configuration file):
+
+   ```console
+   export PATH="$(brew --prefix grep)/libexec/gnubin:$PATH"
+   ```
+
+   This ensures that the GNU version (often available as `ggrep`) is used by default instead of BSD grep.
+
+3. **Apply the Changes:**
+
+   Restart your terminal or run:
+
+   ```console
+   source ~/.zshrc
+   ```
+
+4. **Verify Installed Version:**
+
+Run the following command to ensure that GNU grep is installed and properly configured:
+
+```console
+grep --version
+```
+
+You should see an output similar to the example below, indicating that GNU grep (with Homebrew packaging) is active and supports the `-P` option via PCRE2:
+
+```console
+grep (GNU grep) 3.11
+Packaged by Homebrew
+Copyright (C) 2023 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Mike Haertel and others; see
+<https://git.savannah.gnu.org/cgit/grep.git/tree/AUTHORS>.
+
+grep -P uses PCRE2 10.44 2024-06-07
+```
+
+After completing these steps, running grep commands (for example, as part of `make log`) will use GNU grep with full support for options like `-P`.
+
 ### Windows Prerequisites
 
 When running with Windows, install [Docker Desktop](https://www.docker.com/products/docker-desktop/) **which will cover all of the above**.
