@@ -20,9 +20,9 @@ Docker provides an isolated environment, very close to a Virtual Machine. This e
 **Installation steps:**
 - GIT version >= 2.25.0
 - [Install Docker CE](https://docs.docker.com/engine/install/)
-> If you run e.g. Debian, don't forget to add your user to the `docker` group!
+> If you run e.g. Debian, don't forget to add your user to the `docker` group!  
 
-### macOS: Installing GNU grep for Full Regex Support
+### MacOS Prerequisites: Installing GNU grep for Full Regex Support
 
 On macOS, the default version of **grep** is BSD grep, which does not support certain GNU-specific options—most notably, the `-P` flag for Perl-compatible regular expressions. If you encounter errors like:
 
@@ -31,7 +31,7 @@ grep: invalid option -- P
 usage: grep [-abcdDEFGHhIiJLlMmnOopqRSsUVvwXxZz] [-A num] [-B num] [-C[num]] …
 ```
 
-you can resolve the issue by installing GNU grep and prioritizing it in your shell's PATH.
+You can resolve the issue by installing GNU grep and prioritizing it in your shell's PATH.
 
 #### Steps to Install GNU grep
 
