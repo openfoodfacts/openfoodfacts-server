@@ -1640,8 +1640,14 @@ sub set_cache_results ($key, $results) {
 }
 
 sub can_use_query_cache() {
-	return (    ((not defined single_param("no_cache")) or (not single_param("no_cache")))
-			and (not $server_options{producers_platform}));
+	return (
+		(
+				   (not defined single_param("no_cache"))
+				or (not single_param("no_cache"))
+				or (single_param("database") eq "off-query")
+		)
+			and (not $server_options{producers_platform})
+	);
 }
 
 sub generate_query_cache_key ($name, $context_ref, $request_ref) {
