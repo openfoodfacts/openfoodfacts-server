@@ -153,7 +153,7 @@ use ProductOpener::Missions qw(:all);
 use ProductOpener::MissionsConfig qw(:all);
 use ProductOpener::URL qw(format_subdomain get_owner_pretty_path);
 use ProductOpener::Data
-	qw(execute_aggregate_tags_query execute_count_tags_query execute_query get_products_collection get_recent_changes_collection);
+	qw(execute_aggregate_tags_query execute_count_tags_query execute_product_query execute_query get_products_collection get_recent_changes_collection);
 use ProductOpener::Text
 	qw(escape_char escape_single_quote_and_newlines get_decimal_formatter get_percent_formatter remove_tags_and_quote);
 use ProductOpener::Nutriscore qw(%points_thresholds compute_nutriscore_grade);
@@ -1640,8 +1640,14 @@ sub set_cache_results ($key, $results) {
 }
 
 sub can_use_query_cache() {
-	return (    ((not defined single_param("no_cache")) or (not single_param("no_cache")))
-			and (not $server_options{producers_platform}));
+	return (
+		(
+				   (not defined single_param("no_cache"))
+				or (not single_param("no_cache"))
+				or (single_param("database") eq "off-query")
+		)
+			and (not $server_options{producers_platform})
+	);
 }
 
 sub generate_query_cache_key ($name, $context_ref, $request_ref) {
@@ -4566,7 +4572,14 @@ sub display_search_results ($request_ref) {
 	$current_link =~ s/^\&/\?/;
 	$current_link = "/search" . $current_link;
 
-	if (not($request_ref->{api})) {
+	# Experimental feature to display stats of specific parent ingredients for a set of product
+	# activated by passing the parents_ingredients parameter to a search query
+	if (defined single_param('parent_ingredients')) {
+		my $query_ref = {};
+		$html .= search_and_analyze_recipes($request_ref, $query_ref);
+	}
+	# For non API requests, we let the browser query the search API and display the results
+	elsif (not($request_ref->{api})) {
 
 		# The results will be filtered and ranked on the client side
 
@@ -4622,17 +4635,10 @@ JS
 		}
 	}
 	else {
-
 		# The server generates the search results
 
 		my $query_ref = {};
-
-		if (defined single_param('parent_ingredients')) {
-			$html .= search_and_analyze_recipes($request_ref, $query_ref);
-		}
-		else {
-			$html .= search_and_display_products($request_ref, $query_ref, undef, undef, undef);
-		}
+		$html .= search_and_display_products($request_ref, $query_ref, undef, undef, undef);
 	}
 
 	$request_ref->{content_ref} = \$html;
@@ -4740,6 +4746,9 @@ sub get_products_collection_request_parameters ($request_ref, $additional_parame
 	# If the request is for obsolete products, we will select a specific products collection
 	# for obsolete products
 	$parameters_ref->{obsolete} = request_param($request_ref, "obsolete");
+
+	# Allow the database to be specified. Currently defaults to mongodb but can set to off-query to use that instead
+	$parameters_ref->{database} = request_param($request_ref, "database");
 
 	# Admin users can request a specific query_timeout for MongoDB queries
 	if ($request_ref->{admin}) {
@@ -5492,12 +5501,8 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			set_request_stats_time_start($request_ref->{stats}, "mongodb_query");
 			$cursor = execute_query(
 				sub {
-					return get_products_collection(get_products_collection_request_parameters($request_ref))
-						->query($query_ref)
-						->fields($fields_ref)
-						->sort($sort_ref)
-						->limit($limit)
-						->skip($skip);
+					return execute_product_query(get_products_collection_request_parameters($request_ref),
+						$query_ref, $fields_ref, $sort_ref, $limit, $skip);
 				}
 			);
 			$log->debug("MongoDB query ok", {error => $@}) if $log->is_debug();
@@ -6961,9 +6966,8 @@ sub search_and_graph_products ($request_ref, $query_ref, $graph_ref) {
 	eval {
 		$cursor = execute_query(
 			sub {
-				return get_products_collection(get_products_collection_request_parameters($request_ref))
-					->query($query_ref)
-					->fields($fields_ref);
+				return execute_product_query(get_products_collection_request_parameters($request_ref),
+					$query_ref, $fields_ref);
 			}
 		);
 	};
@@ -7272,9 +7276,9 @@ sub search_products_for_map ($request_ref, $query_ref) {
 	eval {
 		$cursor = execute_query(
 			sub {
-				return get_products_collection(get_products_collection_request_parameters($request_ref))
-					->query($query_ref)
-					->fields(
+				return execute_product_query(
+					get_products_collection_request_parameters($request_ref),
+					$query_ref,
 					{
 						code => 1,
 						lc => 1,
@@ -7286,7 +7290,7 @@ sub search_products_for_map ($request_ref, $query_ref) {
 						origins => 1,
 						emb_codes_tags => 1,
 					}
-					);
+				);
 			}
 		);
 	};
@@ -11685,9 +11689,8 @@ sub search_and_analyze_recipes ($request_ref, $query_ref) {
 	eval {
 		$cursor = execute_query(
 			sub {
-				return get_products_collection(get_products_collection_request_parameters($request_ref))
-					->query($query_ref)
-					->fields($fields_ref);
+				return execute_product_query(get_products_collection_request_parameters($request_ref),
+					$query_ref, $fields_ref);
 			}
 		);
 	};

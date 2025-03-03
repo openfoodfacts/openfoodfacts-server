@@ -8819,6 +8819,7 @@ nl: Kruidentheeën, Kruidenthee
 pl: Herbaty ziołowe
 pt: Chás de ervas, infusões de ervas, infusões
 ru: Травяные чаи и настойки
+sv: Örtte
 agribalyse_proxy_food_code:en: 18020
 agribalyse_proxy_food_name:en: Tea, brewed, without sugar
 gpc_category_code:en: 10000119
@@ -8828,6 +8829,7 @@ wikidata:en: Q379932
 
 < en:Herbal teas
 en: Herbal teas in tea bags, Herbal teas in bags
+da: Urtete i poser
 de: Kräutertee aus Teebeuteln
 es: Plantas para infusiones en bolsitas, Infusiones en bolsitas, Tisanas en bolsitas
 fi: Yrttipussiteet
@@ -8839,6 +8841,7 @@ lt: Žolelių arbatos maišeliuose
 nl: Kruidenthee in zakjes, Kruidenthee in buidels
 pl: Herbatki ziołowe w torebkach, Herbaty ziołowe w torebkach
 ru: Чай в пакетиках
+sv: Örtte i pås
 # should not be in pnns_group_2:en:Teas and herbal teas and coffees
 pnns_group_2:en: unknown
 # should not be in food_groups:en: en:Teas and herbal teas and coffees
@@ -9797,6 +9800,7 @@ pl: Zielona herbata, Herbata zielona
 pt: Chás verdes
 ro: Ceauri verzi, Ceai verde
 ru: Зелёный чай
+sv: Grönt te
 tr: Yeşil çay
 zh: 绿茶
 agribalyse_proxy_food_code:en: 18155
@@ -37427,6 +37431,7 @@ hr: Trešnja clafoutis
 nl: Kersenclafoutis, Kersenclafouti
 
 < en:Brioches
+< en:Festive foods
 en: Panettone
 xx: Panettone
 de: Panettone
@@ -37435,7 +37440,7 @@ fi: Panettone
 fr: Panettone, Panettones, Panetonnes, Panetonne
 he: פנטונה
 hr: Panettone
-it: Panetonne
+it: Panettone
 ja: パネットーネ, パネトーネ
 lt: Panetone, Panetonne
 nl: Panettones, Panettone, panetonnes, panetonne
@@ -37453,6 +37458,7 @@ fr: Panettone au chocolat
 fr: Panettone sans gluten
 
 < en:Brioches
+< en:Festive foods
 en: Pandoro
 xx: Pandoro
 fr: Pandoro
@@ -37461,11 +37467,12 @@ it: Pandoro
 ja: パンドーロ
 
 < en:Brioches
+< en:Festive foods
 en: Colomba
 xx: Colomba
 fr: Colomba
 hr: Colomba
-it: Colomba
+it: Colomba, Colomba Pasquale, Colomba di Pasqua
 ja: コロンバ
 
 < en:Brioches
@@ -38268,7 +38275,7 @@ pl: Czekolada mleczna
 pt: Chocolates de leite, chocolate de leite
 ro: Ciocolată cu lapte
 ru: Молочный шоколад, Шоколад молочный
-sv: Mjölkchoklad
+sv: Mjölkchoklad, ljus choklad
 tr: Sütlü çikolata
 zh: 牛奶巧克力
 agribalyse_proxy_food_code:en: 31004
@@ -50737,10 +50744,12 @@ pl: Skyr owocowy
 xx: Viili, Filmjölk
 fi: Viili
 se: Filmjölk, filbunke
+sv: Filmjölk
 
 < en:Fermented dairy desserts with fruits
 < fi:Viili
 se: Filmjölk med frukt
+sv: Filmjölk med frukt
 
 < en:Fermented milk products
 # <en:ingredient:en:cheese
@@ -55623,6 +55632,7 @@ opposite:en: en:salted-nuts
 < en:Nuts
 en: Mixed nuts, Nut mix
 de: Nussmischung
+fr: Mélanges de fruits à coque
 nl: Notenmelanges, Gemengde noten
 opposite:en: en:brazil-nuts
 sales_format:en: package, weight
@@ -70563,7 +70573,7 @@ nl: Gedroogde mangos
 ru: Манго сушёные, сушёные манго
 
 < en:Dried fruits
-en: Dried mixed fruits
+en: Mixed dried fruits, Dried mixed fruits
 de: Getrocknete Früchtemischung, Getrocknete Früchte-Mix, Trockenfruchtmischung
 es: Mezclas de frutas deshidratadas, Mezclas de frutas secas
 fi: kuivatut hedelmäsekoitukset
@@ -70574,8 +70584,16 @@ lt: Džiovinti įvairūs vaisiai
 nl: Gedroogde fruitmelanges
 pl: Suszona mieszanka owoców
 
+< en:Plant-based foods
+< en:Snacks
+en: Mixed nuts and dried fruits, Nuts with dried fruits, Nuts and dried fruits
+de: Studentenfutter
+fr: Mélanges de fruits secs et de fruits à coque, Mendiants, Mélanges étudiants
+nl: Noten en gedroogd fruit (gemengd), Studentenhavers
+sales_format:en: weight, package
 
-< en:Dried mixed fruits
+< en:Plant-based foods
+< en:Snacks
 en: Mix of grains and dried fruit, Mix of nuts and dried fruit
 fr: Mélange apéritif de graines et fruits séchés
 hr: Mješavina žitarica i suhog voća
@@ -70594,15 +70612,6 @@ agribalyse_food_code:en: 15049
 ciqual_food_code:en: 15049
 ciqual_food_name:en: Mix of unsalted grains/nuts and raisins
 ciqual_food_name:fr: Mélange apéritif de graines (non salées) et raisins secs
-
-< en:Mix of grains and raisins
-< en:Plant-based foods
-< en:Snacks
-en: Nuts with dried fruits, Nuts and dried fruits, Mixed nuts and dried fruits
-de: Studentenfutter
-fr: Mendiants, Mélanges étudiants, Mélanges de fruits secs et de fruits à coque
-nl: Noten en gedroogd fruit (gemengd), Studentenhavers
-sales_format:en: weight, package
 
 < en:Mix of grains and dried fruit
 en: Mix of salted grains and raisins, Mix of salted nuts and raisins
@@ -90246,7 +90255,7 @@ ciqual_food_code:en: 30789
 ciqual_food_name:en: Mortadella
 wikidata:en: Q169757
 
-< fr:Charcuteries cuites
+< en:Mortadella
 en: Mortadella pure pork
 fr: Mortadelle pur porc
 hr: Mortadela čista svinjska
@@ -90255,14 +90264,14 @@ agribalyse_food_code:en: 30790
 ciqual_food_code:en: 30790
 ciqual_food_name:en: Mortadella, pure pork
 
-< fr:Charcuteries cuites
+< en:Mortadella
 en: Pork and beef mortadella
 fr: Mortadelle porc et boeuf
 agribalyse_food_code:en: 30791
 ciqual_food_code:en: 30791
 ciqual_food_name:en: Pork and beef mortadella
 
-< fr:Charcuteries cuites
+< en:Mortadella
 en: Mortadella with pistachios pure pork
 fr: Mortadelle pistachée pur porc
 agribalyse_food_code:en: 30797
@@ -90578,7 +90587,12 @@ hr: Nduja
 it: Nduja
 wikidata:en: Q1505085
 
-< en:Prepared meats
+# Ersatz of foie gras containing foie gras and another meat
+< en:Meat spreads
+< en:Salted spreads
+en: Spreads with foie gras
+fr: Tartinables au foie gras
+
 < en:Salted spreads
 en: Savory mousses, savory mousse, savoury mousses, savoury mousse
 de: Fleischpasteten, Fleischaufstrich
@@ -90589,6 +90603,7 @@ hr: Slane pjenice
 it: mousse salate
 nl: Smeerworsten
 
+< en:Meat spreads
 < en:Savory mousses
 en: Duck mousse
 fr: Mousses de canard, mousses de canards, mousse de canards, mousse de canard
@@ -90601,10 +90616,10 @@ ciqual_food_name:en: Duck mousse
 < en:Duck mousse
 fr: Mousses de canard au porto
 
+< en:Meat spreads
 < en:Savory mousses
 fr: Mousses de foies, mousses de foie, mousse de foies, mousse de foie
 nl: Smeerleverworsten, Leverpasteien, Levermoussen, Saksische leverworsten
-
 
 < fr:Mousses de foies
 fr: Mousses de foies de volailles, mousses de foie de volaille, mousses de foies de volaille, mousse de foie de volailles
@@ -102208,11 +102223,20 @@ nl: Veganistische producten
 < en:Plant-based spreads
 < en:Salted spreads
 < en:Vegan products
+de: Veganes Zwiebelschmalz
+
+< en:Plant-based spreads
+< en:Salted spreads
+< en:Vegan products
 en: Vegan vegetable spreads, Vegan vegetable spread
 fr: Tartinades véganes aux légumes
 hr: Veganski povrtni namazi
 nl: Veganistische groentespreads
 pl: Wegańskie pasty warzywne
+
+< en:Salted spreads
+en: Vegetarian vegetable and cheese spreads
+fr: Tartinades végétariennes aux légumes et fromage
 
 < en:Plant-based spreads
 < en:Spreadable fats
@@ -119659,4 +119683,3 @@ fr: Spirales de blé dur complet
 
 en: Semi whole durum wheat spirals
 fr: Spirales de blé dur semi-complet
-
