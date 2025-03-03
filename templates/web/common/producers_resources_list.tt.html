@@ -29,3 +29,13 @@ Example: <ul> ... INCLUDE 'web/common/producers_resources_list.tt.html' ... </ul
         [% lang('faq_for_producers') %]
     </a>
 </li>
+<li>
+
+    <a href="[% IF lc == "fr" %]
+            https://connect.openfoodfacts.org/support-pro-fr
+            [% ELSE %]
+            https://connect.openfoodfacts.org/support-pro-en
+            [% END %]">
+        [% lang('contact_us_producers') %]
+    </a>
+</li>
