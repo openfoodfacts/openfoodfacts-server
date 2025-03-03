@@ -491,7 +491,7 @@ wikidata:en: Q53792073
 
 # nova:en:lecithin
 < en:E322i
-en: soya lecithin, soy lecithin, soybean lecithin
+en: soya lecithin, soy lecithin, soybean lecithin, emulsifer soya lecithin
 bg: соев лецитин, соеви лецитини
 bs: emulgator sojin lecitin
 ca: Lecitina de soja, lecitines de soja
@@ -15648,7 +15648,7 @@ so: dux
 sq: yndyra
 sr: масти
 su: lemak
-sv: fett, fet, matfett
+sv: fett, fet, matfett, fetter
 ta: கொழுப்பு
 te: కొలెస్టరాల్‌
 th: ไขมัน
@@ -16647,6 +16647,7 @@ nl: geheel geharde palm, geheel geharde palmolie
 pl: całkowicie utwardzony olej palmowy, olej roślinny palmowy całkowicie utwardzony
 ro: unt de palmier complet hidrogenat
 sl: popolnoma hidrogenirano palmino olje
+sv: helt hydrerad palmolja
 
 < en:hydrogenated palm oil
 en: partially hydrogenated palm oil
@@ -18257,7 +18258,7 @@ sk: Slnečnicový olej
 sl: Sončnično olje
 sq: Vaji i lulediellit
 sr: сунцокретово уље
-sv: solrosolja
+sv: solrosolja, vegetabilisk solrosolja
 te: పొద్దుతిరుగుడు నూనె
 th: น้ำมันดอกทานตะวัน
 tr: Ayçiçek yağı
@@ -19000,7 +19001,7 @@ pl: ocet winny, octu winnego
 pt: vinagre de vinho
 ro: oțet din vin, otet din vin, oţet de vin
 ru: Винный уксус
-sv: vinsvinäger, vinättika, vinäger av vin
+sv: vinsvinäger, vinättika, vinäger av vin, vinvinäger
 carbon_footprint_fr_foodges_ingredient:fr: Vinaigre de vin
 carbon_footprint_fr_foodges_value:fr: 4.2
 
@@ -26649,7 +26650,7 @@ nn: fullkornshavregryn
 pl: płatki owsiane z pełnego przemiału, płatki owsiane pełnoziarniste, pełnoziarniste płatki owsiane, płatki z pełnego ziarna owsa
 pt: flocos de aveia integral
 sl: ovseni polnozrnati kosmiči
-sv: fullkornshavregryn
+sv: fullkornshavregryn, fullkorn havregryn
 
 < en:whole grain oat flakes
 en: british wholegrain oat flakes
@@ -29261,7 +29262,7 @@ it: fiocchi di mais, cornflakes
 nl: maïsvlokken, cornflakes
 pl: płatki kukurydziane
 pt: flocos de milho
-sv: majsflingor
+sv: majsflingor, cornflakes
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/cornflakes
 # 11 products in 2 languages @2018-09-23
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/corn-flakes
@@ -30525,6 +30526,11 @@ sv: riskrisp, puffat ris
 # ingredient/fr:riz-soufflé has 180 products in 10 languages @2018-12-19
 # ingredient/fr:riz-croustillant has 44 products in 2 languages @2018-12-19
 # usage:en:crisped rice (Rice, Sugar, Salt, Barley Malt Extract)
+
+< en:corn
+< en:puffed rice
+en: puffed rice and corn, rice and corn crisps
+sv: ris- och majskrisp
 
 < en:rice
 fr: galette de riz
@@ -34473,6 +34479,10 @@ hr: obrani kakao prah
 it: Polvere di cacao magra
 ja: 脱脂ココアパウダー
 ru: обезжиренный какаопорошок, сухой обезжиренный остаток какао
+
+< en:cocoa powder
+en: cocoa powder with reduced cocoa butter content
+sv: kakaopulver med reducerad kakaosmörhalt
 
 < en:cocoa
 en: cocoa solids
@@ -73913,7 +73923,7 @@ pt: cogumelos-de-Paris, Champignon
 qu: Champiñun
 ru: Шампиньон двуспоровый, шампиньоны сушеные
 sl: Dvotrosni kukmak
-sv: Portabello, champinjon, champinjoner, vit champinjon, vita champinjoner
+sv: Portabello, champinjon, champinjoner, vit champinjon, vita champinjoner, champinjon agaricus bisporus
 ta: அகாரிகஸ் பைஸ்போரஸ்
 uk: Печериця садова
 zh: 雙孢蘑菇
