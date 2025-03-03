@@ -27,7 +27,7 @@ allOf:
   - $ref: "../api.yml#/components/schemas/Product-Ingredients"
   - $ref: "../api.yml#/components/schemas/Product-Nutrition"
   - $ref: "../api.yml#/components/schemas/Product-Nutriscore"
-  - $ref: "../api.yml#/components/schemas/Product-Data-Quality"
+  - $ref: "../api.yml#/components/schemas/Product-Quality"
   - $ref: "../api.yml#/components/schemas/Product-Extended"
   - $ref: "../api.yml#/components/schemas/Product-Metadata"
   - $ref: "../api.yml#/components/schemas/Product-Knowledge-Panels"
