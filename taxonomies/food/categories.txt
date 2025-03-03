@@ -90255,7 +90255,7 @@ ciqual_food_code:en: 30789
 ciqual_food_name:en: Mortadella
 wikidata:en: Q169757
 
-< fr:Charcuteries cuites
+< en:Mortadella
 en: Mortadella pure pork
 fr: Mortadelle pur porc
 hr: Mortadela čista svinjska
@@ -90264,14 +90264,14 @@ agribalyse_food_code:en: 30790
 ciqual_food_code:en: 30790
 ciqual_food_name:en: Mortadella, pure pork
 
-< fr:Charcuteries cuites
+< en:Mortadella
 en: Pork and beef mortadella
 fr: Mortadelle porc et boeuf
 agribalyse_food_code:en: 30791
 ciqual_food_code:en: 30791
 ciqual_food_name:en: Pork and beef mortadella
 
-< fr:Charcuteries cuites
+< en:Mortadella
 en: Mortadella with pistachios pure pork
 fr: Mortadelle pistachée pur porc
 agribalyse_food_code:en: 30797
@@ -90587,7 +90587,12 @@ hr: Nduja
 it: Nduja
 wikidata:en: Q1505085
 
-< en:Prepared meats
+# Ersatz of foie gras containing foie gras and another meat
+< en:Meat spreads
+< en:Salted spreads
+en: Spreads with foie gras
+fr: Tartinables au foie gras
+
 < en:Salted spreads
 en: Savory mousses, savory mousse, savoury mousses, savoury mousse
 de: Fleischpasteten, Fleischaufstrich
@@ -90598,6 +90603,7 @@ hr: Slane pjenice
 it: mousse salate
 nl: Smeerworsten
 
+< en:Meat spreads
 < en:Savory mousses
 en: Duck mousse
 fr: Mousses de canard, mousses de canards, mousse de canards, mousse de canard
@@ -90610,10 +90616,10 @@ ciqual_food_name:en: Duck mousse
 < en:Duck mousse
 fr: Mousses de canard au porto
 
+< en:Meat spreads
 < en:Savory mousses
 fr: Mousses de foies, mousses de foie, mousse de foies, mousse de foie
 nl: Smeerleverworsten, Leverpasteien, Levermoussen, Saksische leverworsten
-
 
 < fr:Mousses de foies
 fr: Mousses de foies de volailles, mousses de foie de volaille, mousses de foies de volaille, mousse de foie de volailles
@@ -102217,11 +102223,20 @@ nl: Veganistische producten
 < en:Plant-based spreads
 < en:Salted spreads
 < en:Vegan products
+de: Veganes Zwiebelschmalz
+
+< en:Plant-based spreads
+< en:Salted spreads
+< en:Vegan products
 en: Vegan vegetable spreads, Vegan vegetable spread
 fr: Tartinades véganes aux légumes
 hr: Veganski povrtni namazi
 nl: Veganistische groentespreads
 pl: Wegańskie pasty warzywne
+
+< en:Salted spreads
+en: Vegetarian vegetable and cheese spreads
+fr: Tartinades végétariennes aux légumes et fromage
 
 < en:Plant-based spreads
 < en:Spreadable fats
