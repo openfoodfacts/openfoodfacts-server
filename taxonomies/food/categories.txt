@@ -38000,7 +38000,7 @@ en: Nut-based snacks
 < en:flavoured-nuts
 en: Flavoured pistachios, flavored pistachios
 fr: Pistaches aromatisées
-nl: Pistachenoten(gearomatiseerd)
+nl: Gearomatiseerde pistachenoten, Pistachenoten (gearomatiseerd)
 
 < en:Snacks
 en: Sweet snacks, Sugary snacks
@@ -56491,40 +56491,40 @@ wco_hs_heading:en: 08.02
 wikidata:en: Q333877
 
 < en:Pecan nuts
-en: Pecan nuts(salted), Salted pecan nuts, Salted pecan nut
+en: Salted pecan nuts, Salted pecan nut, Pecan nuts (salted)
 fr: Noix de pécan salées, Noix de pécan salée
 agribalyse_food_code:en: 15046
 ciqual_food_code:en: 15046
 ciqual_food_name:en: Pecan nut, salted
 ciqual_food_name:fr: Noix de pécan, salées
-opposite:en: en:pecan-nuts(plain)
+opposite:en: en:plain-pecan-nuts
 
 < en:Pecan nuts
-en: Pecan nuts(roasted), Roasted pecan nuts
+en: Roasted pecan nuts, Pecan nuts (roasted)
 #expected_ingredients:en: en:pecan-nut, en:oil
-opposite:en: en:pecan-nuts(plain)
+opposite:en: en:plain-pecan-nuts
 
 < en:Pecan nuts(roasted)
 < en:Salted pecan nuts
-en: Pecan nuts(roasted and salted)
+en: Roasted and salted pecan nuts, Pecan nuts (roasted and salted)
 es: Nueces pecanas fritas y saladas
 fr: Noix de Pécan grillées et salées
 #expected_ingredients:en: en:pecan-nut, en:salt
 
 #for nuts that have not been salted nor roasted
 < en:Pecan nuts
-en: Pecan nuts(plain), Plain pecan nuts
+en: Plain pecan nuts, Pecan nuts (plain)
 de: Pekannüsse(naturbelassen)
 es: Nuez pecana natural, nuex pecana cruda
 fr: Noix de pécan naturels
-nl: Pecannoten(natuurlijk)
+nl: Pecannoten (natuurlijk)
 pt: Noz pecana natural
 agribalyse_food_code:en: 15026
 ciqual_food_code:en: 15026
 ciqual_food_name:en: Pecan nut
 ciqual_food_name:fr: Noix de pécan
 expected_ingredients:en: en:pecan-nut
-opposite:en: en:pecan-nuts(roasted), en:pecan-nuts(salted)
+opposite:en: en:roasted-pecan-nuts, en:salted-pecan-nuts
 
 < en:Nuts
 en: Pistachios
@@ -56559,7 +56559,7 @@ wikidata:en: Q19958754
 
 < en:Pistachios
 en: Plain pistachios, Pistachios (plain)
-nl: Pistachenote (onbehandeld)
+nl: Pistachenoten (onbehandeld)
 expected_ingredients:en: en:pistachi
 opposite:en: en:roasted-pistachios, en:salted-pistachios
 
@@ -56613,7 +56613,7 @@ fr: Pistaches salées
 hr: Slane pistacije
 it: Pistacchi salati
 lt: Sūdytos pistacijos
-nl: Gezouten pistachenoten
+nl: Gezouten pistachenoten, Pistachenoten (gezouten)
 opposite:en: en:unsalted-pistachios
 
 < en:Pistachios
@@ -56683,7 +56683,7 @@ fi: Kuoritut parapähkinät
 fr: Noix du Brésil décortiquées
 hr: Oljušteni brazilski orasi
 lt: Gliaudyti Braziliški riešutai
-nl: Paranoten(gepeld), Gepelde paranoten
+nl: Gepelde paranoten, Paranoten (gepeld)
 opposite:en: en:unshelled-brazil-nuts
 wco_hs_code:en: 0801.22
 wco_hs_heading:en: 08.01
@@ -56691,19 +56691,19 @@ wco_hs_heading:en: 08.01
 < en:Brazil nuts
 < en:Unshelled nuts
 en: Unshelled Brazil nuts
-nl: Paranoten(ongepeld), Ongepelde paranoten
+nl: Ongepelde paranoten, Paranoten (ongepeld)
 opposite:en: en:shelled-brazil-nuts
 
 < en:brazil-nuts
-en: Brazil nuts(salted)
-nl: Paranoten(gezouten)
-opposite:en: en:brazil-nuts(unsalted)
+en: Salted brazil nuts, Brazil nuts (salted)
+nl: Gezouten paranoten, Paranoten (gezouten)
+opposite:en: en:unsalted-brazil-nuts
 
 < en:brazil-nuts
-en: Brazil nuts(unsalted)
-nl: Paranoten(ongezouten)
+en: Unsalted brazil nuts, Brazil nuts (unsalted)
+nl: Ongezouten paranoten, Paranoten (ongezouten)
 expected_ingredients:en: en:brazil-nut
-opposite:en: en:brazil-nuts(salted)
+opposite:en: en:salted-brazil-nuts
 
 < en:Nuts
 en: Pine nuts, Conifer nuts
@@ -104022,9 +104022,9 @@ hr: Pečene oljuštene sjemenke bundeve
 nl: Geroosterde gepelde pompoenpitten
 
 < en:Roasted shelled pumpkin seeds
-en: Pumpkin seeds(non-roasted/shelled/unsalted), Non-roasted unsalted shelled pumpkin seeds
-fr: Graines de courge(non-grillées/non-salées/décortiquées)
-nl: Pompoenpitten(gepeld/ongeroosterd/ongezouten)
+en: Non-roasted unsalted shelled pumpkin seeds, Pumpkin seeds (non-roasted/shelled/unsalted)
+fr: Graines de courge (non-grillées/non-salées/décortiquées)
+nl: Pompoenpitten (gepeld/ongeroosterd/ongezouten)
 sales_format:en: weight, package
 
 < en:Seeds
@@ -106678,7 +106678,7 @@ de: Rüben (Vakuumverpackt)
 es: Remolachas envasadas al vacío
 fr: Betteraves sous vide
 it: Barbabietole sottovuoto
-nl: Bieten(Vacuümverpakt)
+nl: Bieten (Vacuümverpakt), Vacuümverpakte bieten
 pt: Beterraba embalada a vácuo
 expected_ingredients:en: en:beetroot
 opposite:en: en:raw-beetroot, en:canned-beetroot
