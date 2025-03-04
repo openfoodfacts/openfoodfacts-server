@@ -71,8 +71,8 @@ stopwords:de: und, mit, von
 # For categories for which a minimum amount of specific ingredients is required in some countries
 # we put expected_minimal_amount_specific_ingredients:en followed by the specific ingredient,
 #   the quantity in g and the country where it applies.
-# additional countries can be added separated by a semi colon (";"). Example for en:fruit, 35g, in EU and en:fruit, 35g in en:other-country:
-# expected_minimal_amount_specific_ingredients:en: en:fruit, 35, en:eu;  en:fruit, 35, en:other-country
+# additional countries can be added separated by a semi colon (";"). Example for en:fruit, 45g, in EU and en:fruit, 45g in en:other-country:
+# expected_minimal_amount_specific_ingredients:en: en:fruit, 45, en:eu;  en:fruit, 45, en:other-country
 
 # if two labels are not compatible, they can be assigned the property 'incompatible_with:en:'
 # for example
@@ -67963,7 +67963,7 @@ protected_name_type:en: pgi
 
 
 # in eu, Blackcurrants jams/jellies should have specific
-# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02001L0113-20131118
+# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 < en:Berries
 en: Blackcurrants, black currant
 bg: Касис
@@ -102374,7 +102374,7 @@ fr: Tartinades de gingembre
 < en:Ginger preserves
 en: Ginger jams
 fr: Confitures de gingembre
-expected_minimal_amount_specific_ingredients:en: en:fruit, 15, en:eu
+expected_minimal_amount_specific_ingredients:en: en:fruit, 18, en:eu
 
 < en:Plant-based spreads
 < en:Sweet spreads
@@ -102414,7 +102414,7 @@ sv: Rårörda lingon
 wikidata:en: Q10658749
 
 # in eu, jams should have specific
-# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02001L0113-20131118
+# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 #   otherwise it should have another name than jam
 #   remark: marmelade = citrus jam
 #   remark: jam = mixture, brought to a suitable gelled consistency, of sugars,
@@ -102457,12 +102457,12 @@ agribalyse_proxy_food_code:en: 31024
 ciqual_proxy_food_code:en: 31024
 ciqual_proxy_food_name:en: Jam, strawberry
 ciqual_proxy_food_name:fr: Confiture de fraise (extra ou classique)
-expected_minimal_amount_specific_ingredients:en: en:fruit, 35, en:eu
+expected_minimal_amount_specific_ingredients:en: en:fruit, 45, en:eu
 intake24_category_code:en: JAMS
 wikidata:en: Q8752059
 
 # in eu, extra-jams should have specific
-# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02001L0113-20131118
+# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 #   that is high amount of fruit than jams
 #   otherwise it should have another name than extra-jam
 #   remark: marmelade = citrus jam
@@ -102494,7 +102494,7 @@ ro: Gemul de calitate superioară
 sk: Extra džem
 sl: Ekstra džem
 sv: Extra sylt
-expected_minimal_amount_specific_ingredients:en: en:fruit, 45, en:eu
+expected_minimal_amount_specific_ingredients:en: en:fruit, 50, en:eu
 
 < en:Jams
 en: Shelf-stable jams
@@ -102682,7 +102682,7 @@ hr: Džemovi od crnog ribiza
 hu: Fekete ribizli lekvár
 it: Confetture di ribes nero, Marmellate di ribes nero
 nl: Cassisjams
-expected_minimal_amount_specific_ingredients:en: en:fruit, 25, en:eu
+expected_minimal_amount_specific_ingredients:en: en:fruit, 35, en:eu
 
 < en:Berry jams
 en: Blackberry jams
@@ -102716,7 +102716,7 @@ en: Forest berry jams
 nl: Bosvruchtenjams
 
 # in eu, redcurrents jams/jellies should have specific
-# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02001L0113-20131118
+# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 < en:Berry jams
 en: Redcurrants jams
 de: Rote Johannisbeere Konfitüren
@@ -102727,7 +102727,7 @@ hu: Vörös ribizli lekvár
 it: Confetture di ribes, Marmellate di ribes, Confetture di ribes rosso, Marmellate di ribes rosso
 nl: Aalbessenjams
 pt: Doces de groselha
-expected_minimal_amount_specific_ingredients:en: en:fruit, 25, en:eu
+expected_minimal_amount_specific_ingredients:en: en:fruit, 35, en:eu
 
 < en:Berry jams
 en: Gooseberries jams, gooseberry jams
@@ -102985,7 +102985,7 @@ es: cabello de ángel
 fr: Cabell d'àngel
 
 # in eu, quince jams/jellies should have specific
-# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02001L0113-20131118
+# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 < en:Jams
 en: Quince jams
 bg: Конфитюр от дюли
@@ -102999,7 +102999,7 @@ agribalyse_proxy_food_code:en: 31037
 ciqual_proxy_food_code:en: 31037
 ciqual_proxy_food_name:en: Jam, apricot
 ciqual_proxy_food_name:fr: Confiture d'abricot (extra ou classique)
-expected_minimal_amount_specific_ingredients:en: en:fruit, 25, en:eu
+expected_minimal_amount_specific_ingredients:en: en:fruit, 35, en:eu
 wikidata:en: Q6855605
 
 < en:Jams
@@ -103016,7 +103016,7 @@ pt: Doces de ruibarbo
 wikidata:en: Q89999895
 
 # in eu, rosehip jams/jellies should have specific
-# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02001L0113-20131118
+# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 < en:Jams
 en: Rosehip jams, rosehip jam
 bg: Шипков мармалад
@@ -103027,10 +103027,10 @@ hu: Csipkebogyó lekvár
 it: Confetture di rosa canina, Marmellate di rosa canina
 nl: Rozenbotteljam
 sv: Nyponsylter
-expected_minimal_amount_specific_ingredients:en: en:fruit, 25, en:eu
+expected_minimal_amount_specific_ingredients:en: en:fruit, 35, en:eu
 
 # in eu, Sea-buckthorn jams/jellies should have specific
-# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02001L0113-20131118
+# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 < en:Jams
 en: Sea-buckthorn jams
 de: Sanddorn Konfitüren
@@ -103039,7 +103039,7 @@ fi: Tyrnihillot
 fr: Confitures d'argousiers
 hr: Džemovi od krkavine
 it: Confetture di olivello spinoso, Marmellate di olivello spinoso
-expected_minimal_amount_specific_ingredients:en: en:fruit, 25, en:eu
+expected_minimal_amount_specific_ingredients:en: en:fruit, 35, en:eu
 
 < en:Jams
 en: Sweet pepper jams
@@ -103201,7 +103201,7 @@ expected_minimal_amount_specific_ingredients:en: en:fruit, 20, en:eu
 wikidata:en: Q5834964
 
 # in eu, citrus jams (marmalades) should have specific
-# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02001L0113-20131118
+# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 # remark: marmalade = citrus jam + peel and pulp
 # usually, actual "filtered" citrus jams-only are not commercialised, but the marmalade/jam term is used interchangeably
 < en:Citrus jams
@@ -103293,7 +103293,7 @@ it: Marmellate di mandarini tangerini, Confetture di mandarini tangerini
 
 #################### jellies and extra jellies in alphebetical order for English ####################
 # in eu, jellies should have specific
-# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02001L0113-20131118
+# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 # same amount as jams
 < en:Fruit and vegetable preserves
 en: Fruit jellies, jellies, jelly
@@ -103326,7 +103326,7 @@ ciqual_proxy_food_name:en: Jam, strawberry
 ciqual_proxy_food_name:fr: Confiture de fraise (extra ou classique)
 
 # in eu, extra-jellies should have specific
-# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02001L0113-20131118
+# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 # same amount as extra-jams
 < en:Fruit and vegetable preserves
 en: extra fruit jellies, extra jellies, extra jelly
@@ -103379,7 +103379,7 @@ nl: Zwarte bessengeleien
 sv: Björnbärsgeléer
 
 # in eu, Blackcurrants jams/jellies should have specific
-# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02001L0113-20131118
+# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 < en:Fruit jellies
 en: Blackcurrants jellies
 de: Schwarze Johannisbeere Gelees
@@ -103387,7 +103387,7 @@ fi: Mustaherukkahyytelöt
 fr: Gelées de cassis
 hr: Žele od crnog ribiza
 sv: Svartvinbärsgeléer, Svartvinbärsgelé
-expected_minimal_amount_specific_ingredients:en: en:fruit, 25, en:eu
+expected_minimal_amount_specific_ingredients:en: en:fruit, 35, en:eu
 
 < en:Fruit jellies
 en: Elderberry jellies
@@ -103438,10 +103438,10 @@ ja: パッションフルーツゼリー
 nl: Passievruchtgeleien
 pt: Geleias de maracujá
 sv: Passionsfruktgeléer
-expected_minimal_amount_specific_ingredients:en: en:fruit, 6, en:eu
+expected_minimal_amount_specific_ingredients:en: en:fruit, 8, en:eu
 
 # in eu, quince jams/jellies should have specific
-# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02001L0113-20131118
+# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 < en:Fruit jellies
 en: Quince jellies
 de: Quitten Gelees, Quitten-Gelee
@@ -103451,7 +103451,7 @@ hr: Žele od dunja
 nl: Kweepeergeleien
 pt: Geleias de marmelo
 sv: Kvittengeléer
-expected_minimal_amount_specific_ingredients:en: en:fruit, 25, en:eu
+expected_minimal_amount_specific_ingredients:en: en:fruit, 35, en:eu
 
 < en:Fruit jellies
 en: Raspberry jellies
@@ -103465,7 +103465,7 @@ pt: Geleias de framboesa
 sv: Hallongeléer
 
 # in eu, redcurrents jams/jellies should have specific
-# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02001L0113-20131118
+# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 < en:Fruit jellies
 en: Redcurrants jellies
 de: Rote Johannisbeere Gelees
@@ -103476,17 +103476,17 @@ hr: Žele od crvenog ribiza
 nl: Aalbessengeleien
 pt: Geleias de groselha
 sv: Vinbärsgeléer
-expected_minimal_amount_specific_ingredients:en: en:fruit, 25, en:eu
+expected_minimal_amount_specific_ingredients:en: en:fruit, 35, en:eu
 
 # in eu, Sea-buckthorn jams/jellies should have specific
-# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02001L0113-20131118
+# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 < en:Fruit jellies
 en: Sea-buckthorn jellies
 de: Sanddorn Gelees
 fi: Tyrnihyytelöt
 fr: Gelées d'argousiers
 hr: Žele od krkavine
-expected_minimal_amount_specific_ingredients:en: en:fruit, 25, en:eu
+expected_minimal_amount_specific_ingredients:en: en:fruit, 35, en:eu
 
 < en:Fruit jellies
 en: Wine jellies, wine gelees
@@ -103496,7 +103496,7 @@ pt: Geleias de vinho
 
 #################### Sweetened chestnut purée ####################
 # in eu, Sweetened chestnut purée should have specific
-# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02001L0113-20131118
+# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 < en:Nuts and their products
 < en:Plant-based spreads
 en: Chestnut spreads, Chestnut purees, Creme de marrons, Cremes de marrons, Chestnut jams, Chestnut cream, Sweetened chestnut purée
@@ -119683,3 +119683,4 @@ fr: Spirales de blé dur complet
 
 en: Semi whole durum wheat spirals
 fr: Spirales de blé dur semi-complet
+
