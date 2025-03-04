@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.61.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.60.0...v2.61.0) (2025-03-04)
+
+
+### Features
+
+* dq correct wrong language for tags v2 ([#11407](https://github.com/openfoodfacts/openfoodfacts-server/issues/11407)) ([6363fae](https://github.com/openfoodfacts/openfoodfacts-server/commit/6363fae0e60af8b4bfc32b42bf454f615ec84fa8))
+* Send more queries to off-query ([#11482](https://github.com/openfoodfacts/openfoodfacts-server/issues/11482)) ([e368745](https://github.com/openfoodfacts/openfoodfacts-server/commit/e368745f44009279910a53565d80196a68d87b30))
+* Update assetlinks.json to enable credential sharing ([#11530](https://github.com/openfoodfacts/openfoodfacts-server/issues/11530)) ([28d53f4](https://github.com/openfoodfacts/openfoodfacts-server/commit/28d53f4b18420fdb60583352a0ae02268b07c59a))
+
+
+### Bug Fixes
+
+* Override no_cache parameter if database is explicitly set to off-query ([#11528](https://github.com/openfoodfacts/openfoodfacts-server/issues/11528)) ([fb6239f](https://github.com/openfoodfacts/openfoodfacts-server/commit/fb6239f6a7f15387fe24f972d94541025e788394))
+
 ## [2.60.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.59.0...v2.60.0) (2025-02-26)
 
 
