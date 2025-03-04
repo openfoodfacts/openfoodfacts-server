@@ -1,5 +1,12 @@
 # Changelog
 
+
+## [2.62.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.61.0...v2.62.0) (2025-03-05)
+
+## Features
+
+* Integrate `robotoff-question` from [openfoodfacts-webcomponents](https://github.com/openfoodfacts/openfoodfacts-webcomponents/blob/main/CHANGELOG.md) to display questions of product from Robotoff in the product page. ([#11545](https://github.com/openfoodfacts/openfoodfacts-server/pull/11545))
+
 ## [2.61.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.60.0...v2.61.0) (2025-03-04)
 
 
