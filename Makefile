@@ -1,5 +1,11 @@
 #!/usr/bin/make
 
+# Check if GNU grep is installed (Homebrew installs it as "ggrep")
+GNU_GREP := $(shell command -v ggrep 2>/dev/null)
+ifeq ($(GNU_GREP),)
+  $(error "GNU grep (ggrep) is not installed. Please run 'brew install grep' and add its gnubin directory to your PATH. For example, add: export PATH=\"$(shell brew --prefix grep)/libexec/gnubin:$$PATH\" to your ~/.zshrc")
+endif
+
 ifeq ($(findstring cmd.exe,$(SHELL)),cmd.exe)
     $(error "We do not suppport using cmd.exe on Windows, please run in a 'git bash' console")
 endif
