@@ -1418,6 +1418,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#make-dev-error-build-error-1-failed-to-solve-process-binsh-c-usermod-uid-user_uid-www-data-groupmod-gid-user_gid-www-data-did-not-complete-successfully-exit-code-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      make dev error: [build] Error 1 - failed to solve: process "/bin/sh -c usermod --uid $USER_UID www-data &amp;&amp; groupmod --gid $USER_GID www-data" did not complete successfully: exit code: 4
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2055,6 +2064,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#make-dev-error-build-error-1-failed-to-solve-process-binsh-c-usermod-uid-user_uid-www-data-groupmod-gid-user_gid-www-data-did-not-complete-successfully-exit-code-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      make dev error: [build] Error 1 - failed to solve: process "/bin/sh -c usermod --uid $USER_UID www-data &amp;&amp; groupmod --gid $USER_GID www-data" did not complete successfully: exit code: 4
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2481,6 +2499,35 @@ To know more about docker compose commands do read <a href="../how-to-develop-us
 </code></pre></div>
 <p><strong>Solution:</strong></p>
 <p>Use the powershell/cmd to run the make dev commands in windows.</p>
+<h3 id="make-dev-error-build-error-1-failed-to-solve-process-binsh-c-usermod-uid-user_uid-www-data-groupmod-gid-user_gid-www-data-did-not-complete-successfully-exit-code-4">make dev error: [build] Error 1 - failed to solve: process "/bin/sh -c usermod --uid $USER_UID www-data &amp;&amp; groupmod --gid $USER_GID www-data" did not complete successfully: exit code: 4<a class="headerlink" href="#make-dev-error-build-error-1-failed-to-solve-process-binsh-c-usermod-uid-user_uid-www-data-groupmod-gid-user_gid-www-data-did-not-complete-successfully-exit-code-4" title="Permanent link">#</a></h3>
+<p><strong>On WSL(for root user)</strong>
+When using <code>make dev</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="go">&lt;p&gt;</span>
+<span class="go">------</span>
+<span class="go"> &gt; [backend modperl 5/5] RUN usermod --uid 0 www-data &amp;&amp;     groupmod --gid 1000 www-data:</span>
+<span class="go">0.492 usermod: UID &#39;0&#39; already exists</span>
+<span class="go">------</span>
+<span class="go">failed to solve: process &quot;/bin/sh -c usermod --uid $USER_UID www-data &amp;&amp;     groupmod --gid $USER_GID www-data&quot; did not complete successfully: exit code: 4</span>
+<span class="go">&lt;/p&gt;</span>
+<span class="go">make: *** [Makefile:147: build] Error 1</span>
+</code></pre></div>
+<p><strong>Solution:</strong></p>
+<p>Reason for the error: 
+"usermod: UID '0' already exists" means that the user is being assigned UID 0, which is already used by the root user.</p>
+<p>To solve it create an environment variable(USER_UID=1000) inside .envrc using direnv. Steps to do that:</p>
+<p>Install direnv
+<div class="highlight"><pre><span></span><code><span class="go">sudo apt install direnv</span>
+</code></pre></div></p>
+<p>Enable direnv for Your Shell
+<div class="highlight"><pre><span></span><code><span class="go">echo &#39;eval &quot;$(direnv hook bash)&quot;&#39; &gt;&gt; ~/.bashrc</span>
+<span class="go">source ~/.bashrc</span>
+</code></pre></div></p>
+<p>Create a .envrc File in Your Project
+<div class="highlight"><pre><span></span><code><span class="go">echo &#39;USER_UID=1000&#39; &gt; .envrc</span>
+</code></pre></div></p>
+<p>Finally, run this to allow .envrc:
+<div class="highlight"><pre><span></span><code><span class="go">direnv allow</span>
+</code></pre></div></p>
 
 
 
