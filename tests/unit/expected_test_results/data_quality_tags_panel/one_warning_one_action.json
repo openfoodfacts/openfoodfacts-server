@@ -13,7 +13,7 @@
       "level" : "info",
       "title_element" : {
          "icon_color_from_evaluation" : true,
-         "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/data-warning.svg",
+         "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/data-warning.svg",
          "subtitle" : "We have detected some potential issues or potential improvements, could you check if some apply ?",
          "title" : "Potential issues"
       },
