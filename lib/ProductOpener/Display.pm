@@ -1639,9 +1639,15 @@ sub set_cache_results ($key, $results) {
 	return;
 }
 
-sub can_use_query_cache() {
-	return (    ((not defined single_param("no_cache")) or (not single_param("no_cache")))
-			and (not $server_options{producers_platform}));
+sub can_use_off_query() {
+	return (
+		(
+				   (not defined single_param("no_cache"))
+				or (not single_param("no_cache"))
+				or (single_param("off_query"))
+		)
+			and (not $server_options{producers_platform})
+	);
 }
 
 sub generate_query_cache_key ($name, $context_ref, $request_ref) {
@@ -1773,7 +1779,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 		$results = undef;
 		# do not use the postgres cache if ?no_cache=1
 		# or if we are on the producers platform
-		if (can_use_query_cache()) {
+		if (can_use_off_query()) {
 			set_request_stats_time_start($request_ref->{stats}, "off_query_aggregate_tags_query");
 			$results = execute_aggregate_tags_query($aggregate_parameters);
 			set_request_stats_time_end($request_ref->{stats}, "off_query_aggregate_tags_query");
@@ -1846,7 +1852,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 			my $count_results;
 			# do not use the smaller postgres cache if ?no_cache=1
 			# or if we are on the producers platform
-			if (can_use_query_cache()) {
+			if (can_use_off_query()) {
 				set_request_stats_time_start($request_ref->{stats}, "off_query_aggregate_tags_query");
 				$count_results = execute_aggregate_tags_query($aggregate_count_parameters);
 				set_request_stats_time_end($request_ref->{stats}, "off_query_aggregate_tags_query");
@@ -4741,8 +4747,8 @@ sub get_products_collection_request_parameters ($request_ref, $additional_parame
 	# for obsolete products
 	$parameters_ref->{obsolete} = request_param($request_ref, "obsolete");
 
-	# Allow the database to be specified. Currently defaults to mongodb but can set to off-query to use that instead
-	$parameters_ref->{database} = request_param($request_ref, "database");
+	# Allow the source to be specified. Currently defaults to mongodb but can set to use off-query instead
+	$parameters_ref->{off_query} = request_param($request_ref, "off_query");
 
 	# Admin users can request a specific query_timeout for MongoDB queries
 	if ($request_ref->{admin}) {
@@ -5824,7 +5830,7 @@ sub estimate_result_count ($request_ref, $query_ref, $cache_results_flag) {
 			$log->debug("count not in cache for query", {key => $key_count}) if $log->is_debug();
 
 			# Count queries are very expensive, if possible, execute them on the postgres cache
-			if (can_use_query_cache()) {
+			if (can_use_off_query()) {
 				set_request_stats_time_start($request_ref->{stats}, "off_query_count_tags_query");
 				$count = execute_count_tags_query($query_ref);
 				set_request_stats_time_end($request_ref->{stats}, "off_query_count_tags_query");
