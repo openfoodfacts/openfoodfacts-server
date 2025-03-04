@@ -41,27 +41,17 @@ if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 	load_forest_footprint_data();
 }
 
-my $converted_csv_file = "/tmp/import_convert_carrefour_france.csv";
+my $input_csv_file = "tests/integration/inputs/import_systemeu/SUYQD_AKENEO_PU_02.csv";
+my $converted_csv_file = "/tmp/import_systemeu_converted.csv";
+my $exported_csv_file = "/tmp/import_systemeu_export.csv";
 
-open(my $converted_csv, ">:encoding(UTF-8)", $converted_csv_file) or die("Could not create $converted_csv_file: $!\n");
+my $script_out = `perl scripts/imports/systemeu/convert_systemeu_csv_to_off_csv.pl $input_csv_file $converted_csv_file`;
 
-my @files = ();
-opendir(my $dh, $test_dir . "/inputs/import_convert_carrefour_france")
-	or die("Cannot read $test_dir" . "/inputs/import_convert_carrefour_france");
-foreach my $file (sort {$a cmp $b} readdir($dh)) {
-
-	if ($file =~ /\.xml$/) {
-		push @files, $test_dir . "/inputs/import_convert_carrefour_france/" . $file;
-	}
-}
-
-convert_carrefour_france_files($converted_csv, \@files);
-
-close($converted_csv);
+print STDERR $script_out;
 
 my $import_args_ref = {
-	user_id => "carrefour-france",
-	csv_file => "/tmp/import_convert_carrefour_france.csv",
+	user_id => "systeme-u",
+	csv_file => $converted_csv_file,
 	no_source => 1,
 };
 
@@ -74,7 +64,7 @@ my $separator = "\t";
 
 # CSV export
 
-my $exported_csv_file = "/tmp/import_convert_carrefour_france_export.csv";
+
 open(my $exported_csv, ">:encoding(UTF-8)", $exported_csv_file) or die("Could not create $exported_csv_file: $!\n");
 
 my $export_args_ref = {filehandle => $exported_csv, separator => $separator, query => $query_ref, cc => "fr"};
@@ -84,6 +74,6 @@ export_csv($export_args_ref);
 close($exported_csv);
 
 ProductOpener::Test::compare_csv_file_to_expected_results($exported_csv_file, $expected_result_dir,
-	$update_expected_results, "carrefour-france");
+	$update_expected_results, "systeme-u");
 
 done_testing();
