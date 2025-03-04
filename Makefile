@@ -1,9 +1,13 @@
 #!/usr/bin/make
 
-# Check if GNU grep is installed (Homebrew installs it as "ggrep")
-GNU_GREP := $(shell command -v ggrep 2>/dev/null)
-ifeq ($(GNU_GREP),)
-  $(error "GNU grep (ggrep) is not installed. Please run 'brew install grep' and add its gnubin directory to your PATH. For example, add: export PATH=\"$(shell brew --prefix grep)/libexec/gnubin:$$PATH\" to your ~/.zshrc")
+# Gives Warning in MacOs of version check of Grep FreeBSD / GNU
+OS := $(shell uname)
+
+ifeq ($(OS), Darwin)
+    GNU_GREP := $(shell command -v ggrep 2>/dev/null)
+    ifeq ($(GNU_GREP),)
+        $(warning "GNU grep (ggrep) is not installed. Some GNU-specific options (like -p) may not work. Consider installing it via 'brew install grep' and adding its gnubin directory to your PATH: export PATH=\"$(shell brew --prefix grep)/libexec/gnubin:$$PATH\"")
+    endif
 endif
 
 ifeq ($(findstring cmd.exe,$(SHELL)),cmd.exe)
