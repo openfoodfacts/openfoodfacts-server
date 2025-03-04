@@ -1642,9 +1642,9 @@ $product_ref = {
 		{
 			id => "en:fruit",
 			ingredient => "fruit",
-			quantity => "30 g",
-			quantity_g => 30,
-			text => "Prepared with 30g of fruit per 100g",
+			quantity => "40 g",
+			quantity_g => 40,
+			text => "Prepared with 40g of fruit per 100g",
 		},
 	]
 };
