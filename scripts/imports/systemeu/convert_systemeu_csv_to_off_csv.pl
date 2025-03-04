@@ -84,35 +84,6 @@ my $output_csv = Text::CSV->new(
 	}
 ) or die "Cannot use CSV: " . Text::CSV->error_diag();
 
-open(my $output_csv_fh, ">:encoding(UTF-8)", $output_csv_file) or die "Could not open $output_csv_file: $!";
-
-my @output_fields = qw(
-	code
-	lc
-	cc
-	product_name_fr
-	generic_name_fr
-	brands
-	categories
-	labels
-	quantity
-	ingredients_text_fr
-	allergens
-	traces
-);
-
-# Add fields for nutrients, with nid suffixed by _value, _unit, and _modifier
-foreach my $per ("100g", "serving") {
-	foreach my $nid (@{$nutriments_tables{off_europe}}) {
-		push @output_fields, $nid . "_" . $per . "_value";
-		push @output_fields, $nid . "_" . $per . "_unit";
-		push @output_fields, $nid . "_" . $per . "_modifier";
-	}
-}
-
-# Print the header line with fields names
-$output_csv->print($output_csv_fh, \@output_fields);
-
 $lc = "fr";
 $country = "en:france";
 
@@ -432,6 +403,12 @@ $input_csv->column_names($input_csv->getline($io));
 # SULFITES;;"A conserver dans un endroit sec, à température ambiante et à l'abri de la lumière.";;;;;;;;0348028402820000;
 # "Epicerie salée";Assaisonnement;"Vinaigre et jus de citron"
 
+# We first process all products and store them in memory
+# so that we can see which fields are present (in particular which nutrients)
+# to output them in the CSV
+
+my @products = ();
+
 while (my $imported_product_ref = $input_csv->getline_hr($io)) {
 
 	$i++;
@@ -585,6 +562,8 @@ while (my $imported_product_ref = $input_csv->getline_hr($io)) {
 	# Gourdes allégée en sucres pomme fraise U MAT&LOU 6x90g
 
 	my $ugc_libecommerce = $imported_product_ref->{UGC_libEcommerce};
+
+	# some products have brand names in UGC_libEcommerce
 
 	# fix typos
 	$ugc_libecommerce
@@ -796,6 +775,12 @@ while (my $imported_product_ref = $input_csv->getline_hr($io)) {
 		print STDERR "unrecognized format for ugc_libecommerce: $ugc_libecommerce\n";
 		print "unrecognized format for ugc_libecommerce: $ugc_libecommerce\n";
 		$product_ref->{product_name_fr} = $ugc_libecommerce;
+	}
+
+	# brand code in UGC_libMarque
+	my $ugc_libmarque = $imported_product_ref->{UGC_libMarque};
+	if (defined $u_brands{$ugc_libmarque}) {
+		$product_ref->{brands} = $u_brands{$ugc_libmarque};
 	}
 
 	$product_ref->{product_name_fr} =~ s/\s+$//;
@@ -1181,12 +1166,57 @@ TXT
 		}
 	}
 
+	push @products, $product_ref;
+
+}
+
+# Output the CSV file
+
+open(my $output_csv_fh, ">:encoding(UTF-8)", $output_csv_file) or die "Could not open $output_csv_file: $!";
+
+my @output_fields = qw(
+	code
+	lc
+	countries
+	product_name_fr
+	generic_name_fr
+	brands
+	categories
+	labels
+	quantity
+	ingredients_text_fr
+	allergens
+	traces
+);
+
+# Add fields for nutrients, with nid suffixed by _value, _unit, and _modifier
+
+my %nutrient_fields = ();
+
+foreach my $product_ref (@products) {
+	foreach my $nid (keys %{$product_ref->{nutriments}}) {
+		$nutrient_fields{$nid} = 1;
+	}
+}
+
+my @sorted_nutrients_fields = sort keys %nutrient_fields;
+
+my @all_fields = (@output_fields, @sorted_nutrients_fields);
+
+# Print the header line with fields names
+$output_csv->print($output_csv_fh, \@all_fields);
+
+foreach my $product_ref (@products) {
+
 	my @output_values = ();
 	foreach my $field (@output_fields) {
 		push @output_values, $product_ref->{$field};
 	}
+	# add nutrients
+	foreach my $field (@sorted_nutrients_fields) {
+		push @output_values, $product_ref->{nutriments}{$field};
+	}
 	$output_csv->print($output_csv_fh, \@output_values);
-
 }
 
 print "\n\nlabels:\n";

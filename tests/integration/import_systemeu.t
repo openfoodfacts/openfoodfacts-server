@@ -64,7 +64,6 @@ my $separator = "\t";
 
 # CSV export
 
-
 open(my $exported_csv, ">:encoding(UTF-8)", $exported_csv_file) or die("Could not create $exported_csv_file: $!\n");
 
 my $export_args_ref = {filehandle => $exported_csv, separator => $separator, query => $query_ref, cc => "fr"};
