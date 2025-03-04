@@ -474,3 +474,49 @@ make: *** [Makefile:126: build_lang] Error 13
 **Solution:**
 
 Use the powershell/cmd to run the make dev commands in windows.
+
+
+### make dev error: [build] Error 1 - failed to solve: process "/bin/sh -c usermod --uid $USER_UID www-data && groupmod --gid $USER_GID www-data" did not complete successfully: exit code: 4
+
+**On WSL(for root user)**
+When using `make dev`:
+
+```console
+<p>
+------
+ > [backend modperl 5/5] RUN usermod --uid 0 www-data &&     groupmod --gid 1000 www-data:
+0.492 usermod: UID '0' already exists
+------
+failed to solve: process "/bin/sh -c usermod --uid $USER_UID www-data &&     groupmod --gid $USER_GID www-data" did not complete successfully: exit code: 4
+</p>
+make: *** [Makefile:147: build] Error 1
+```
+
+**Solution:**
+
+Reason for the error: 
+"usermod: UID '0' already exists" means that the user is being assigned UID 0, which is already used by the root user.
+
+
+To solve it create an environment variable(USER_UID=1000) inside .envrc using direnv. Steps to do that:
+
+Install direnv
+```console
+sudo apt install direnv
+```
+
+Enable direnv for Your Shell
+```console
+echo 'eval "$(direnv hook bash)"' >> ~/.bashrc
+source ~/.bashrc
+```
+
+Create a .envrc File in Your Project
+```console
+echo 'USER_UID=1000' > .envrc
+```
+
+Finally, run this to allow .envrc:
+```console
+direnv allow
+```
