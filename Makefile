@@ -1,15 +1,5 @@
 #!/usr/bin/make
 
-# Gives Warning in MacOs of version check of Grep FreeBSD / GNU
-OS := $(shell uname)
-
-ifeq ($(OS), Darwin)
-    GNU_GREP := $(shell command -v ggrep 2>/dev/null)
-    ifeq ($(GNU_GREP),)
-        $(warning "GNU grep (ggrep) is not installed. Some GNU-specific options (like -p) may not work. Consider installing it via 'brew install grep' and adding its gnubin directory to your PATH: export PATH=\"$(shell brew --prefix grep)/libexec/gnubin:$$PATH\"")
-    endif
-endif
-
 ifeq ($(findstring cmd.exe,$(SHELL)),cmd.exe)
     $(error "We do not suppport using cmd.exe on Windows, please run in a 'git bash' console")
 endif
@@ -26,6 +16,15 @@ DOCKER_LOCAL_DATA_DEFAULT = /srv/off/docker_data
 DOCKER_LOCAL_DATA ?= $(DOCKER_LOCAL_DATA_DEFAULT)
 OS := $(shell uname)
 
+# Gives Warning in MacOs of version check of Grep FreeBSD / GNU
+
+ifeq ($(OS), Darwin)
+    GNU_GREP := $(shell command -v ggrep 2>/dev/null)
+    ifeq ($(GNU_GREP),)
+        $(warning "GNU grep (ggrep) is not installed. Some GNU-specific options (like -p) may not work. Consider installing it via 'brew install grep' and adding its gnubin directory to your PATH: export PATH=\"$(shell brew --prefix grep)/libexec/gnubin:$$PATH\"")
+    endif
+endif
+
 # mount point for shared data (default to the one on staging)
 NFS_VOLUMES_ADDRESS ?= 10.0.0.3
 NFS_VOLUMES_BASE_PATH ?= /rpool/staging-clones
@@ -39,6 +38,7 @@ ifeq ($(OS), Darwin)
 else
   export CPU_COUNT=$(shell nproc || echo 1)
 endif
+
 
 # tell gitbash not to complete path
 export MSYS_NO_PATHCONV=1
