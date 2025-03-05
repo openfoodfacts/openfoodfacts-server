@@ -1081,7 +1081,6 @@ sub set_rate_limit_attributes ($request_ref, $ip) {
 						$request_ref->{rate_limiter_blocking} = 0;
 						$block_message
 							= "Rate-limiter blocking is disabled for the user (in block $block), but the user has reached the rate-limit and the IP address is in an allowed block";
-						last;
 					}
 				}
 			}
