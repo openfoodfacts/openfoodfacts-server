@@ -114,7 +114,7 @@
                            "id" : "agriculture",
                            "values" : [
                               {
-                                 "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/agriculture.svg",
+                                 "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/agriculture.svg",
                                  "text" : "Agriculture"
                               },
                               {
@@ -127,7 +127,7 @@
                            "id" : "processing",
                            "values" : [
                               {
-                                 "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/processing.svg",
+                                 "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/processing.svg",
                                  "text" : "Processing"
                               },
                               {
@@ -140,7 +140,7 @@
                            "id" : "packaging",
                            "values" : [
                               {
-                                 "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/packaging.svg",
+                                 "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
                                  "text" : "Packaging"
                               },
                               {
@@ -153,7 +153,7 @@
                            "id" : "transportation",
                            "values" : [
                               {
-                                 "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/transportation.svg",
+                                 "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/transportation.svg",
                                  "text" : "Transportation"
                               },
                               {
@@ -166,7 +166,7 @@
                            "id" : "distribution",
                            "values" : [
                               {
-                                 "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/distribution.svg",
+                                 "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/distribution.svg",
                                  "text" : "Distribution"
                               },
                               {
@@ -179,7 +179,7 @@
                            "id" : "consumption",
                            "values" : [
                               {
-                                 "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/consumption.svg",
+                                 "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/consumption.svg",
                                  "text" : "Consumption"
                               },
                               {
@@ -199,7 +199,7 @@
             "level" : "info",
             "title_element" : {
                "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/car.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/car.svg",
                "subtitle" : "286 g CO₂e per 100g of product",
                "title" : "Equal to driving 1.5 km in a petrol car"
             },
@@ -274,7 +274,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "The <a href=\"http://world.openfoodfacts.localhost:8080/green-score\">Green-Score</a> is an experimental score that summarizes the environmental impacts of food products."
+                     "html" : "The <a href=\"http://world.openfoodfacts.localhost/green-score\">Green-Score</a> is an experimental score that summarizes the environmental impacts of food products."
                   }
                },
                {
@@ -316,14 +316,14 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost:8080/green-score\">Learn more about the Green-Score</a></p>\n"
+                     "html" : "\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost/green-score\">Learn more about the Green-Score</a></p>\n"
                   }
                }
             ],
             "level" : "info",
             "title_element" : {
                "grade" : "c",
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/attributes/dist/green-score-c.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg",
                "name" : "Green-Score",
                "subtitle" : "Moderate environmental impact",
                "title" : "Green-Score C",
@@ -361,7 +361,7 @@
                            "id" : "agriculture",
                            "values" : [
                               {
-                                 "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/agriculture.svg",
+                                 "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/agriculture.svg",
                                  "text" : "Agriculture"
                               },
                               {
@@ -374,7 +374,7 @@
                            "id" : "processing",
                            "values" : [
                               {
-                                 "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/processing.svg",
+                                 "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/processing.svg",
                                  "text" : "Processing"
                               },
                               {
@@ -387,7 +387,7 @@
                            "id" : "packaging",
                            "values" : [
                               {
-                                 "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/packaging.svg",
+                                 "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
                                  "text" : "Packaging"
                               },
                               {
@@ -400,7 +400,7 @@
                            "id" : "transportation",
                            "values" : [
                               {
-                                 "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/transportation.svg",
+                                 "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/transportation.svg",
                                  "text" : "Transportation"
                               },
                               {
@@ -413,7 +413,7 @@
                            "id" : "distribution",
                            "values" : [
                               {
-                                 "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/distribution.svg",
+                                 "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/distribution.svg",
                                  "text" : "Distribution"
                               },
                               {
@@ -426,7 +426,7 @@
                            "id" : "consumption",
                            "values" : [
                               {
-                                 "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/consumption.svg",
+                                 "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/consumption.svg",
                                  "text" : "Consumption"
                               },
                               {
@@ -446,7 +446,7 @@
                "grade" : "b",
                "icon_color_from_evaluation" : true,
                "icon_size" : "small",
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/lca.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/lca.svg",
                "subtitle" : "Category: Biscuit (cookie)",
                "title" : "Average impact of products of the same category: B (Score: 70/100)",
                "type" : "grade"
@@ -470,7 +470,7 @@
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_size" : "small",
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/public.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/public.svg",
                "subtitle" : "Malus: -5",
                "title" : "Missing origins of ingredients information"
             },
@@ -584,7 +584,7 @@
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_size" : "small",
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/packaging.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
                "subtitle" : "Malus: -8",
                "title" : "Packaging with a medium impact"
             },
@@ -598,7 +598,7 @@
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_size" : "small",
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/agriculture.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/agriculture.svg",
                "title" : "No labels with environmental benefits"
             },
             "topics" : [
@@ -620,7 +620,7 @@
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_size" : "small",
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/monkey_unhappy.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/monkey_unhappy.svg",
                "subtitle" : "Malus: -10",
                "title" : "Ingredients that threatens species"
             },
@@ -641,7 +641,7 @@
             "level" : "info",
             "title_element" : {
                "grade" : "c",
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/attributes/dist/green-score-c.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg",
                "subtitle" : "Product: Some product - 100 g",
                "title" : "Impact for this product: C (Score: 47/100)",
                "type" : "grade"
@@ -759,7 +759,7 @@
             "expand_for" : "large",
             "level" : "info",
             "title_element" : {
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/logos/off-logo-icon-light.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/logos/off-logo-icon-light.svg",
                "subtitle" : "Category, labels, ingredients, allergens, nutritional information, photos etc.",
                "title" : "Incomplete or incorrect information?"
             },
@@ -887,7 +887,7 @@
             "level" : "info",
             "title_element" : {
                "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/ingredients.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/ingredients.svg",
                "title" : "8 ingredients"
             },
             "topics" : [
@@ -955,7 +955,7 @@
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_size" : "small",
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/off-magnifying-glass.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/off-magnifying-glass.svg",
                "title" : "Details of the analysis of the ingredients"
             },
             "topics" : [
@@ -978,7 +978,7 @@
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_size" : "small",
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/leaf.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/leaf.svg",
                "title" : "Non-vegan"
             },
             "topics" : [
@@ -1001,7 +1001,7 @@
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_size" : "small",
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/palm-oil.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/palm-oil.svg",
                "title" : "Palm oil"
             },
             "topics" : [
@@ -1024,7 +1024,7 @@
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_size" : "small",
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/vegetarian.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/vegetarian.svg",
                "title" : "Vegetarian"
             },
             "topics" : [
@@ -1108,13 +1108,13 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n<p>Food products are classified into 4 groups according to their degree of processing:</p>\n<ol>\n<li>Unprocessed or minimally processed foods</li>\n<li>Processed culinary ingredients</li>\n<li>Processed foods</li>\n<li>Ultra-processed foods</li>\n</ol>\n<br>\n<p>The determination of the group is based on the category of the product and on the ingredients it contains.</p>\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost:8080/nova\">Learn more about the NOVA classification</a></p>\n"
+                     "html" : "\n<p>Food products are classified into 4 groups according to their degree of processing:</p>\n<ol>\n<li>Unprocessed or minimally processed foods</li>\n<li>Processed culinary ingredients</li>\n<li>Processed foods</li>\n<li>Ultra-processed foods</li>\n</ol>\n<br>\n<p>The determination of the group is based on the category of the product and on the ingredients it contains.</p>\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost/nova\">Learn more about the NOVA classification</a></p>\n"
                   }
                }
             ],
             "level" : "info",
             "title_element" : {
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/attributes/dist/nova-group-4.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-4.svg",
                "subtitle" : "4 ultra-processing markers",
                "title" : "Ultra-processed foods"
             },
@@ -1138,7 +1138,7 @@
             "level" : "info",
             "title_element" : {
                "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/nutrition.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/nutrition.svg",
                "title" : "Nutrient levels"
             },
             "topics" : [
@@ -1179,7 +1179,7 @@
             "level" : "info",
             "title_element" : {
                "grade" : "unknown",
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/attributes/dist/nutriscore-unknown-new-en.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown-new-en.svg",
                "subtitle" : "Missing nutrition facts",
                "title" : "Nutri-Score UNKNOWN",
                "type" : "grade"
@@ -1200,14 +1200,14 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost:8080/nutriscore\">Learn more about the Nutri-Score</a></p>\n"
+                     "html" : "\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost/nutriscore\">Learn more about the Nutri-Score</a></p>\n"
                   }
                }
             ],
             "level" : "info",
             "title_element" : {
                "icon_size" : "small",
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/info.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/info.svg",
                "title" : "What is the Nutri-Score?",
                "type" : "info"
             },
@@ -1227,14 +1227,14 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost:8080/nutriscore-v2\">Discover all the improvements of the new Nutri-Score</a></p>\n"
+                     "html" : "\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost/nutriscore-v2\">Discover all the improvements of the new Nutri-Score</a></p>\n"
                   }
                }
             ],
             "level" : "info",
             "title_element" : {
                "icon_size" : "small",
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/info.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/info.svg",
                "title" : "Discover the new Nutri-Score!",
                "type" : "info"
             },
@@ -1401,7 +1401,7 @@
             "level" : "info",
             "title_element" : {
                "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/scale-balance.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/scale-balance.svg",
                "title" : "Nutrition facts"
             },
             "topics" : [
@@ -1432,7 +1432,7 @@
             "level" : "info",
             "title_element" : {
                "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/public.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/public.svg",
                "subtitle" : "Missing origins of ingredients information",
                "title" : "Origins of ingredients"
             },
@@ -1449,7 +1449,7 @@
                      "html" : "\n                        \n                            \n                                1 x \n                                <strong>\n                                    Box\n                                    \n                                </strong>\n                                    \n                                        (Wood)\n                                    \n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                                3 x \n                                <strong>\n                                    Lid\n                                    \n                                </strong>\n                                    \n                                        (Steel)\n                                    \n                                    \n                                        - In contact with food\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                        ",
                      "icon_alt" : "Recycle",
                      "icon_color_from_evaluation" : true,
-                     "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/recycle-variant.svg",
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/recycle-variant.svg",
                      "type" : "summary"
                   }
                },
@@ -1460,7 +1460,7 @@
                      "html" : "\n                        \n                            \n                        \n                            \n                        \n                            \n                        \n                            \n                                1 x \n                                <strong>\n                                    Film\n                                    \n                                </strong>\n                                    \n                                        (Plastic)\n                                    \n                                    \n                                    <br>\n                            \n                        \n                        ",
                      "icon_alt" : "Discard",
                      "icon_color_from_evaluation" : true,
-                     "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/delete.svg",
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/delete.svg",
                      "type" : "summary"
                   }
                },
@@ -1471,7 +1471,7 @@
                      "html" : "\n                        \n                            \n                        \n                            \n                                6 x \n                                <strong>\n                                    Bottle\n                                    25cl \n                                </strong>\n                                    \n                                        (Glass)\n                                    \n                                    \n                                        - In contact with food\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                        \n                        ",
                      "icon_alt" : "Unknown",
                      "icon_color_from_evaluation" : true,
-                     "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/help.svg",
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/help.svg",
                      "type" : "summary"
                   }
                }
@@ -1609,7 +1609,7 @@
             "level" : "info",
             "title_element" : {
                "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/packaging.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
                "title" : "Packaging with a medium impact"
             },
             "topics" : [
@@ -1630,7 +1630,7 @@
             "level" : "info",
             "title_element" : {
                "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/palm-oil.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/palm-oil.svg",
                "subtitle" : "Drives deforestation and threatens species such as the orangutan",
                "title" : "Contains palm oil"
             },
@@ -1656,7 +1656,7 @@
             "title_element" : {
                "evaluation" : "bad",
                "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/arrow-bottom-right-thick.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/arrow-bottom-right-thick.svg",
                "subtitle" : "Limiting ultra-processed foods reduces the risk of noncommunicable chronic diseases",
                "title" : "Limit ultra-processed foods"
             },

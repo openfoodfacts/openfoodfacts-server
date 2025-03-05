@@ -55,7 +55,7 @@
             "level" : "info",
             "title_element" : {
                "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/data-error.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/data-error.svg",
                "subtitle" : "Help us improve quality of our data by contributing fixes",
                "title" : "Detected Errors"
             },
@@ -92,7 +92,7 @@
             "level" : "info",
             "title_element" : {
                "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/data-info.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/data-info.svg",
                "subtitle" : "Some infos about data quality on this product",
                "title" : "Data Quality infos"
             },
@@ -129,7 +129,7 @@
             "level" : "info",
             "title_element" : {
                "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/data-warning.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/data-warning.svg",
                "subtitle" : "We have detected some potential issues or potential improvements, could you check if some apply ?",
                "title" : "Potential issues"
             },
@@ -196,7 +196,7 @@
             "level" : "info",
             "title_element" : {
                "grade" : "unknown",
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/attributes/dist/green-score-unknown.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-unknown.svg",
                "subtitle" : "Unknown environmental impact",
                "title" : "Green-Score not computed",
                "type" : "grade"
@@ -306,7 +306,7 @@
             "expand_for" : "large",
             "level" : "info",
             "title_element" : {
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/logos/off-logo-icon-light.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/logos/off-logo-icon-light.svg",
                "subtitle" : "Category, labels, ingredients, allergens, nutritional information, photos etc.",
                "title" : "Incomplete or incorrect information?"
             },
@@ -362,7 +362,7 @@
             "level" : "info",
             "title_element" : {
                "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/ingredients.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/ingredients.svg",
                "title" : "2 ingredients"
             },
             "topics" : [
@@ -436,7 +436,7 @@
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_size" : "small",
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/off-magnifying-glass.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/off-magnifying-glass.svg",
                "subtitle" : "We need your help!",
                "title" : "Details of the analysis of the ingredients"
             },
@@ -466,7 +466,7 @@
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_size" : "small",
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/palm-oil.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/palm-oil.svg",
                "title" : "Palm oil content unknown"
             },
             "topics" : [
@@ -495,7 +495,7 @@
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_size" : "small",
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/leaf.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/leaf.svg",
                "title" : "Vegan status unknown"
             },
             "topics" : [
@@ -524,7 +524,7 @@
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_size" : "small",
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/vegetarian.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/vegetarian.svg",
                "title" : "Vegetarian status unknown"
             },
             "topics" : [
@@ -589,13 +589,13 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n<p>Food products are classified into 4 groups according to their degree of processing:</p>\n<ol>\n<li>Unprocessed or minimally processed foods</li>\n<li>Processed culinary ingredients</li>\n<li>Processed foods</li>\n<li>Ultra-processed foods</li>\n</ol>\n<br>\n<p>The determination of the group is based on the category of the product and on the ingredients it contains.</p>\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost:8080/nova\">Learn more about the NOVA classification</a></p>\n"
+                     "html" : "\n<p>Food products are classified into 4 groups according to their degree of processing:</p>\n<ol>\n<li>Unprocessed or minimally processed foods</li>\n<li>Processed culinary ingredients</li>\n<li>Processed foods</li>\n<li>Ultra-processed foods</li>\n</ol>\n<br>\n<p>The determination of the group is based on the category of the product and on the ingredients it contains.</p>\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost/nova\">Learn more about the NOVA classification</a></p>\n"
                   }
                }
             ],
             "level" : "info",
             "title_element" : {
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/attributes/dist/nova-group-1.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-1.svg",
                "title" : "Unprocessed or minimally processed foods"
             },
             "topics" : [
@@ -638,7 +638,7 @@
             "size" : "small",
             "title_element" : {
                "icon_size" : "small",
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/misc/high.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/misc/high.svg",
                "name" : "Salt",
                "title" : "Salt in high quantity (120%)",
                "type" : "percentage",
@@ -666,7 +666,7 @@
             "level" : "info",
             "title_element" : {
                "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/nutrition.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/nutrition.svg",
                "title" : "Nutrient levels"
             },
             "topics" : [
@@ -707,7 +707,7 @@
             "level" : "info",
             "title_element" : {
                "grade" : "unknown",
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/attributes/dist/nutriscore-unknown-new-en.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown-new-en.svg",
                "subtitle" : "Missing nutrition facts",
                "title" : "Nutri-Score UNKNOWN",
                "type" : "grade"
@@ -728,14 +728,14 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost:8080/nutriscore\">Learn more about the Nutri-Score</a></p>\n"
+                     "html" : "\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost/nutriscore\">Learn more about the Nutri-Score</a></p>\n"
                   }
                }
             ],
             "level" : "info",
             "title_element" : {
                "icon_size" : "small",
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/info.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/info.svg",
                "title" : "What is the Nutri-Score?",
                "type" : "info"
             },
@@ -755,14 +755,14 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost:8080/new-nutriscore\">Discover all the improvements of the new Nutri-Score</a></p>\n"
+                     "html" : "\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost/new-nutriscore\">Discover all the improvements of the new Nutri-Score</a></p>\n"
                   }
                }
             ],
             "level" : "info",
             "title_element" : {
                "icon_size" : "small",
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/info.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/info.svg",
                "title" : "Discover the new Nutri-Score!",
                "type" : "info"
             },
@@ -944,7 +944,7 @@
             "level" : "info",
             "title_element" : {
                "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/scale-balance.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/scale-balance.svg",
                "title" : "Nutrition facts"
             },
             "topics" : [
@@ -975,7 +975,7 @@
             "level" : "info",
             "title_element" : {
                "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/public.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/public.svg",
                "subtitle" : "Missing origins of ingredients information",
                "title" : "Origins of ingredients"
             },
@@ -1056,7 +1056,7 @@
             "title_element" : {
                "evaluation" : "neutral",
                "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost:8080/images/icons/dist/packaging.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
                "title" : "Missing packaging information for this product"
             },
             "topics" : [
