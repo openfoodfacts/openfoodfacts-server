@@ -677,7 +677,7 @@ while (my $imported_product_ref = $input_csv->getline_hr($io)) {
 	}
 
 	if ($product_ref->{brands} ne 'U') {
-		$products_ref->{$brands} .= ", U";
+		$product_ref->{brands} .= ", U";
 	}	
 
 	$product_ref->{product_name_fr} =~ s/\s+$//;
