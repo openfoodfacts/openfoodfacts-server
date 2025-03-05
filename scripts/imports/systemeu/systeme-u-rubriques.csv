@@ -1,3 +1,508 @@
+# we use this file to match Systeme U categories (with 3 levels: "category1 - category2 - category3") to OFF categories
+# if we don't have a match, we check if category3, category2 or category 1 exist in the OFF taxonomy
+
+# categories with no match:
+
+categories with no mapping to OFF categories:
+Viandes, poissons - Boucherie - Saucisse, paupiette et farce	46
+Bio - Produits frais bio - Yaourts, desserts et compotes	46
+Univers bébé - Repas - Plats complets	46
+Epicerie sucrée - Pâte à tartiner, confiture et miel - Confitures, gelées, marmelades	44
+Epicerie salée - Apéritifs et chips - Crackers, gressins et bretzels	39
+Produits frais - Desserts et compotes - Crèmes desserts, mousses et liégeois	38
+Viandes, poissons - Traiteur de la mer - Saumons et poissons fumés	37
+Bio - Epicerie salée bio - Pâtes, riz et féculents	34
+Epicerie salée - Soupes et croûtons - Soupes en brique et en bouteille	34
+Produits frais - Yaourts et fromages blancs - Yaourts aux fruits et aromatisés	31
+Fruits et Légumes - Prêts à consommer - Fruits séchés et Fruits secs	29
+Produits frais - Desserts et compotes - Desserts gourmands	29
+Bio - Produits frais bio - Traiteur, traiteur de la mer	29
+Epicerie salée - Apéritifs et chips - Biscuits soufflés	29
+Bio - Epicerie salée bio - Conserves de légumes et de poissons	27
+Charcuterie, traiteur - Apéritif - Apéritif de la mer	26
+Nutrition et régimes alimentaires - Sans gluten - Sans gluten	26
+Bio - Surgelés bio - Légumes, pommes de terre, pizzas	25
+Epicerie salée - Pâtes, riz, purées, féculents - Pâtes spécialités	25
+Fruits et Légumes - Prêts à consommer - Salades et crudités prêtes à l'emploi	24
+Bio - Epicerie salée bio - Apéritifs, chips et tartinables	23
+Produits frais - Desserts et compotes - Compotes et desserts fruitiers	23
+Epicerie sucrée - Tablettes et chocolat - Tablette de chocolat noir	23
+Bio - Epicerie salée bio - Sauces et condiments	22
+Produits frais - Fromages à cuisiner, apéritifs et râpés - Mozzarella, feta, mascarpone	22
+Produits frais - Yaourts et fromages blancs - Yaourts et fromages blancs natures	22
+Pains, Viennoiseries et Pâtisseries - Pains de mie, pains pré-emballés - Biscottes et pains grillés	21
+Viandes, poissons - Poissonnerie - Crevettes et coquillages	20
+Epicerie salée - Apéritifs et chips - Saucisson sec, chorizo	20
+Epicerie salée - Produits du monde - Epicerie mexicaine	19
+Produits frais - Fromages à cuisiner, apéritifs et râpés - Raclette, tartiflette et fromage chaud	19
+Bio - Epicerie sucrée bio - Tablettes de chocolat	19
+Produits frais - Fromages à déguster - Spécialités crémeuses	19
+Bio - Epicerie sucrée bio - Confitures, miels et pâtes à tartiner	19
+Bières, vins, alcools - Apéritifs et Spiritueux - Liqueurs, digestifs et crèmes	19
+Produits frais - Yaourts et fromages blancs - Skyr, bien-être et 0%	19
+Viandes, poissons - Traiteur de la mer - Poissons cuisinés	19
+Produits frais - Fromages à déguster - Comté, emmental, gouda et autres	19
+Epicerie salée - Produits du monde - Epicerie asiatique	19
+Produits frais - Fromages à cuisiner, apéritifs et râpés - Fromages râpés et parmesan	18
+Produits frais - Fromages à cuisiner, apéritifs et râpés - Fromages en tranches et burger	18
+Viandes, poissons - Boucherie - Veau, agneau et abat	18
+Bio - Epicerie sucrée bio - Farines, sucres et pâtisserie	18
+Bio - Epicerie sucrée bio - Compotes et desserts	17
+Produits frais - Yaourts et fromages blancs - Yaourts enfants	17
+Epicerie sucrée - Tablettes et chocolat - Moulages	17
+Produits frais - Fromages à déguster - Chèvres et brebis	16
+Pains, Viennoiseries et Pâtisseries - Gâteaux moelleux et biscuiterie - Madeleines et gâteaux individuels	16
+Bio - Epicerie sucrée bio - Biscottes, pains grillés, tartines et galettes	16
+Charcuterie, traiteur - Sandwich et repas express - Burger, croque monsieur et box de pâtes	15
+Produits frais - Yaourts et fromages blancs - Chèvres et brebis	14
+Nutrition et régimes alimentaires - Végétal - Plats et accompagnements végétaux	14
+Viandes, poissons - Poissonnerie - Filets, pavés et poissons entiers	14
+Charcuterie, traiteur - Apéritif - Tartinable et blinis	14
+Bières, vins, alcools - Apéritifs et Spiritueux - Rhums, arrangés et assimilés	13
+Charcuterie, traiteur - Plat cuisiné et cuisine du monde - Plat cuisiné à base de poisson et autre	13
+Bio - Epicerie salée bio - Huiles et vinaigres	13
+Bières, vins, alcools - Champagnes et effervescents - Crémants et autres AOP	13
+Epicerie salée - Sauces, condiments - Sauces chaudes à napper, à cuisiner, déshydratées	13
+Epicerie sucrée - Pâte à tartiner, confiture et miel - Miels, sirops d'érable	13
+Produits frais - Fromages à déguster - Camemberts, coulommiers et bries	13
+Bières, vins, alcools - Bières, cidres - Sans alcool et Panachés	13
+Viandes, poissons - Traiteur de la mer - Apéritif et crevettes décortiquées	12
+Epicerie sucrée - Gâteaux moelleux - Gâteaux individuels	12
+Bio - Epicerie sucrée bio - Thés et infusions	12
+Produits frais - Desserts et compotes - Flans, riz et semoules au lait	12
+Bio - Epicerie sucrée bio - Céréales et mueslis	12
+Epicerie salée - Apéritifs et chips - Cacahuètes, pistaches et noix de cajou	12
+Charcuterie, traiteur - Salade et entrée - Crudité	11
+Epicerie sucrée - Pâte à tartiner, confiture et miel - Pâte à tartiner, crème de marrons	11
+Epicerie salée - Apéritifs et chips - Mélange graines et fruits	11
+Bières, vins, alcools - Apéritifs et Spiritueux - Apéritifs à base de vin	11
+Bio - Epicerie salée bio - Soupes et potages	11
+Epicerie salée - Apéritifs et chips - Pistaches, noix de cajou	11
+Epicerie salée - Apéritifs et chips - Saucisses cocktail, olives et tartinables	10
+Epicerie sucrée - Tablettes et chocolat - Assortiments et ballotins	10
+Epicerie sucrée - Tablettes et chocolat - Chocolats festifs	10
+Pains, Viennoiseries et Pâtisseries - Pains de mie, pains pré-emballés - Pains de mie complets et céréales	10
+Pains, Viennoiseries et Pâtisseries - Viennoiseries et brioches - Brioches, gâches et spécialités	10
+Epicerie salée - Produits du monde - Epicerie orientale	10
+Bières, vins, alcools - Apéritifs et Spiritueux - Portos, vins doux et amers	10
+Viandes, poissons - Boucherie - Viande cuisinée et marinée	10
+Produits frais - Fromages à déguster - Roquefort et bleu	10
+Epicerie salée - Produits du monde - Epicerie espagnole et portugaise	9
+Produits frais - Beurres, crèmes et oeufs - Crèmes longue conservation	9
+Bio - Produits frais bio - Crèmes et beurres	9
+Bio - Surgelés bio - Viandes, poissons, fruits de mer	9
+Charcuterie, traiteur - Plat cuisiné et cuisine du monde - Asiatique et produit du monde	9
+Epicerie salée - Pâtes, riz, purées, féculents - Sachets express	9
+Bio - Boissons bio - Sirops et sodas	9
+Epicerie salée - Apéritifs et chips - Tuiles, tortillas et sauces	9
+Bio - Surgelés bio - Glaces et desserts	9
+Pains, Viennoiseries et Pâtisseries - Gâteaux moelleux et biscuiterie - Gâteaux à partager	9
+Produits frais - Fromages à déguster - Morbier, Saint Nectaire et tommes	8
+Pains, Viennoiseries et Pâtisseries - Viennoiseries et brioches - Briochettes et pains au lait	8
+Epicerie sucrée - Tablettes et chocolat - Tablette de chocolat pâtissier	8
+Charcuterie, traiteur - Pizza, quiche, pâte fraîche, crêpe - Quiche et tarte salée8
+Pains, Viennoiseries et Pâtisseries - Gâteaux moelleux et biscuiterie - Gaufres et crêpes	8
+Produits frais - Fromages à cuisiner, apéritifs et râpés - Fromages apéritifs et salades	8
+Charcuterie, traiteur - Salade et entrée - Taboulé et autres recettes	8
+Bières, vins, alcools - Apéritifs et Spiritueux - Whiskies et assimilés	8
+Bio - Boissons bio - Bières, vins et cidres	8
+Produits frais - Fromages à cuisiner, apéritifs et râpés - Fromages frais à tartiner	7
+Charcuterie, traiteur - Salade et entrée - Feuilleté et pâté en croute	7
+Bio - Epicerie sucrée bio - Pains, pains de mie et viennoiseries	7
+Pains, Viennoiseries et Pâtisseries - Pains de mie, pains pré-emballés - Pains burger et à garnir	7
+Charcuterie, traiteur - Pizza, quiche, pâte fraîche, crêpe - Gnocchi et quenelle	7
+Bières, vins, alcools - Bières, cidres - Blondes en bouteille	6
+Bières, vins, alcools - Bières, cidres - Spécialités (ambrées, brunes,...)	6
+Epicerie salée - Conserves de viandes et poissons - Autres poissons et fruits de mer	6
+Pains, Viennoiseries et Pâtisseries - Viennoiseries et brioches - Galettes, Couronnes et autres	6
+Viandes, poissons - Traiteur de la mer - Soupes de poisson, sauces et jus de citron6
+Pains, Viennoiseries et Pâtisseries - Pains de mie, pains pré-emballés - Pains de mie natures	6
+Epicerie sucrée - Sucre, farine, pâtisserie - Sucre, édulcorant	6
+Charcuterie, traiteur - Apéritif - Cake, pain surprise et préfou	5
+Pains, Viennoiseries et Pâtisseries - Pains de mie, pains pré-emballés - Pains précuits ou à cuire	5
+Epicerie sucrée - Tablettes et chocolat - Truffes, marrons glacés, pâtes de fruits et nougats	5
+Nutrition et régimes alimentaires - Végétal - Aides culinaires végétales	5
+Produits frais - Beurres, crèmes et oeufs - Sauces et Chantilly	5
+Bières, vins, alcools - Apéritifs et Spiritueux - Vodka, Gin, Tequila et assimilés5
+Bières, vins, alcools - Apéritifs et Spiritueux - Punchs et cocktails	5
+Produits frais - Fromages à cuisiner, apéritifs et râpés - Fromages enfant et portions individuelles	4
+Bières, vins, alcools - Apéritifs et Spiritueux - Apéritifs sans alcool	4
+Epicerie sucrée - Compotes et desserts - Crèmes dessert, riz au lait	4
+Charcuterie, traiteur - Sandwich et repas express - Salade repas	4
+Nutrition et régimes alimentaires - Minceur et sport - Minceur et sport	4
+Epicerie salée - Apéritifs et chips - Amandes, noisettes et mélanges	4
+Produits frais - Desserts et compotes - Desserts enfants	4
+Produits frais - Beurres, crèmes et oeufs - Margarines et matières grasses	4
+Bières, vins, alcools - Apéritifs et Spiritueux - Pastis et anisés	4
+Pains, Viennoiseries et Pâtisseries - Pains de mie, pains pré-emballés - Canapés et toasts	4
+Bio - Epicerie sucrée bio - Cafés et poudres chocolatées	4
+Epicerie sucrée - Gâteaux moelleux - Marbrés, quatre-quarts, cakes	3
+Viandes, poissons - Traiteur de la mer - Panés	3
+Pains, Viennoiseries et Pâtisseries - Viennoiseries et brioches - Pancakes, beignets et muffins	3
+Epicerie salée - Produits du monde - Epicerie italienne	3
+Pains, Viennoiseries et Pâtisseries - Viennoiseries et brioches - Pains au chocolat, croissants, feuilletés	3
+Epicerie salée - Pâtes, riz, purées, féculents - Purées, polentas	3
+Produits frais - Pâte à tarte et autre pâte - Autres pâtes	3
+Epicerie sucrée - Gâteaux moelleux - Brownies, pain d'épices	3
+Charcuterie, traiteur - Salade et entrée - Salade repas	3
+Charcuterie, traiteur - Apéritif - Charcuterie apéritive	3
+Epicerie salée - Apéritifs et chips - Assortiment	3
+Univers bébé - Desserts, goûters - Biscuits, jus	2
+Bières, vins, alcools - Bières, cidres - Blondes en boîte	2
+Produits frais - Fromages à déguster - Fromages à la coupe	2
+Pains, Viennoiseries et Pâtisseries - Gâteaux moelleux et biscuiterie - Biscuiterie2
+Bières, vins, alcools - Champagnes et effervescents - Effervescents étrangers	2
+Bio - Epicerie salée bio - Plats cuisinés, galettes et tofus	1
+Viandes, poissons - Préparé sur place par nos poissonniers - Crevettes, coquillages et crustacés	1
+Epicerie salée - Céréales, légumes secs - Sachets micro ondables	1
+
+
+# top categories in 2025
+Viandes, poissons - Volaille - Poulet	90  fr:poulets
+Viandes, poissons - Boucherie - Saucisse, paupiette et farce	46  fr:charcuterie
+Univers bébé - Repas - Plats complets	46  fr: Plats principaux pour bébé
+Bio - Produits frais bio - Yaourts, desserts et compotes	46
+Epicerie sucrée - Pâte à tartiner, confiture et miel - Confitures, gelées, marmelades	44
+Bio - Boissons bio - Jus de fruits et légumes	44
+Viandes, poissons - Boucherie - Boeuf	41
+Epicerie salée - Apéritifs et chips - Crackers, gressins et bretzels	39
+Epicerie salée - Conserves de légumes - Légumes verts	39
+Surgelés - Légumes surgelés - Légumes natures	39
+Epicerie sucrée - Compotes et desserts - Compotes	39
+Produits frais - Desserts et compotes - Crèmes desserts, mousses et liégeois	38
+Viandes, poissons - Traiteur de la mer - Saumons et poissons fumés	37
+Epicerie sucrée - Biscuits - Assortiments biscuits, fins, boudoirs	37
+Bio - Epicerie sucrée bio - Biscuits et gâteaux	35
+Charcuterie, traiteur - Charcuterie - Pâté, rillette, foie gras	35
+Epicerie salée - Pâtes, riz, purées, féculents - Pâtes	35
+Bio - Epicerie salée bio - Pâtes, riz et féculents	34
+Epicerie salée - Soupes et croûtons - Soupes en brique et en bouteille	34
+Epicerie sucrée - Biscuits - Biscuits au chocolat	34
+Viandes, poissons - Boucherie - Porc	33
+Boissons sans alcool - Sirops et concentrés - Sirops	33
+Viandes, poissons - Volaille - Canard et Lapin	32  fr:viande
+Produits frais - Yaourts et fromages blancs - Yaourts aux fruits et aromatisés	31
+Bières, vins, alcools - Fontaines à vin - Vins rouges	31
+Charcuterie, traiteur - Charcuterie - Knack, saucisse, boudin, saucisson cuit	30
+Produits frais - Desserts et compotes - Desserts gourmands	29
+Charcuterie, traiteur - Charcuterie - Lardon, dés, poitrine	29
+Bio - Produits frais bio - Traiteur, traiteur de la mer	29
+Epicerie salée - Apéritifs et chips - Biscuits soufflés	29
+Fruits et Légumes - Prêts à consommer - Fruits séchés et Fruits secs	29
+Bières, vins, alcools - Fontaines à vin - Vins rosés	29
+Surgelés - Apéritifs, entrées et snacks - Apéritifs, petits fours	28
+Boissons sans alcool - Cafés - Cafés dosettes et capsules	27
+Epicerie salée - Conserves de légumes - Légumes à cuisiner	27
+Bio - Epicerie salée bio - Conserves de légumes et de poissons	27
+Bio - Produits frais bio - Fromages	27
+Fruits et Légumes - Fruits - Oranges, Citrons, Agrumes	26
+Epicerie salée - Conserves de viandes et poissons - Thon	26
+Nutrition et régimes alimentaires - Sans gluten - Sans gluten	26
+Charcuterie, traiteur - Apéritif - Apéritif de la mer	26
+Epicerie sucrée - Biscuits - Biscuits et sablés	26
+Surgelés - Desserts, viennoiseries et fruits - Desserts glacés	26
+Charcuterie, traiteur - Charcuterie - Jambon blanc et rôti	26
+Epicerie salée - Pâtes, riz, purées, féculents - Pâtes spécialités	25
+Viandes, poissons - Boucherie - Viande hachée	25
+Bio - Surgelés bio - Légumes, pommes de terre, pizzas	25
+Epicerie sucrée - Compotes et desserts - Fruits au sirop	24
+Epicerie salée - Conserves de légumes - Légumes froids	24
+Fruits et Légumes - Prêts à consommer - Salades et crudités prêtes à l'emploi	24
+Boissons sans alcool - Cafés - Cafés moulus	23
+Epicerie sucrée - Tablettes et chocolat - Tablette de chocolat noir	23
+Produits frais - Beurres, crèmes et oeufs - Beurres	23
+Bio - Epicerie salée bio - Apéritifs, chips et tartinables	23
+Produits frais - Desserts et compotes - Compotes et desserts fruitiers	23
+Produits frais - Fromages à cuisiner, apéritifs et râpés - Mozzarella, feta, mascarpone	22
+Bio - Epicerie salée bio - Sauces et condiments	22
+Produits frais - Yaourts et fromages blancs - Yaourts et fromages blancs natures	22
+Viandes, poissons - Volaille - Pintade, caille, abats	22
+Pains, Viennoiseries et Pâtisseries - Pains de mie, pains pré-emballés - Biscottes et pains grillés	21
+Boissons sans alcool - Jus de fruits et de légumes - Autres jus de fruits	20
+Epicerie salée - Apéritifs et chips - Saucisson sec, chorizo	20
+Epicerie salée - Apéritifs et chips - Chips	20
+Viandes, poissons - Poissonnerie - Crevettes et coquillages	20
+Epicerie salée - Produits du monde - Epicerie asiatique	19
+Viandes, poissons - Traiteur de la mer - Poissons cuisinés	19
+Nutrition et régimes alimentaires - Végétal - Boissons végétales	19
+Charcuterie, traiteur - Charcuterie - Charcuterie tranchée et apéritive	19
+Bio - Epicerie sucrée bio - Tablettes de chocolat	19
+Charcuterie, traiteur - Charcuterie - Jambon et roti de volaille	19
+Produits frais - Fromages à déguster - Comté, emmental, gouda et autres	19
+Produits frais - Fromages à déguster - Spécialités crémeuses	19
+Produits frais - Fromages à cuisiner, apéritifs et râpés - Raclette, tartiflette et fromage chaud	19
+Produits frais - Yaourts et fromages blancs - Skyr, bien-être et 0%	19
+Epicerie salée - Produits du monde - Epicerie mexicaine	19
+Bières, vins, alcools - Apéritifs et Spiritueux - Liqueurs, digestifs et crèmes	19
+Bio - Epicerie sucrée bio - Confitures, miels et pâtes à tartiner	19
+Epicerie sucrée - Tablettes et chocolat - Tablette de chocolat lait	19
+Viandes, poissons - Boucherie - Veau, agneau et abat	18
+Produits frais - Fromages à cuisiner, apéritifs et râpés - Fromages en tranches et burger	18
+Produits frais - Fromages à cuisiner, apéritifs et râpés - Fromages râpés et parmesan	18
+Epicerie salée - Conserves de légumes - Lentilles et légumes secs	18
+Bio - Epicerie sucrée bio - Farines, sucres et pâtisserie	18
+Boissons sans alcool - Jus de fruits et de légumes - Jus d'orange	18
+Surgelés - Légumes surgelés - Légumes cuisinés, poêlés	18
+Surgelés - Légumes surgelés - Gratins et galettes de légumes	18
+Bio - Produits frais bio - Charcuterie	17
+Univers bébé - Desserts, goûters - Desserts aux fruits	17
+Bio - Epicerie sucrée bio - Compotes et desserts	17
+Charcuterie, traiteur - Pizza, quiche, pâte fraîche, crêpe - Pâte fraiche	17
+Boissons sans alcool - Jus de fruits et de légumes - Jus frais	17
+Epicerie salée - Pâtes, riz, purées, féculents - Riz	17
+Boissons sans alcool - Sodas et boissons aux fruits - Boissons plates aux fruits	17
+Produits frais - Yaourts et fromages blancs - Yaourts enfants	17
+Surgelés - Poissons et fruits de mer - Fruits de mer, crustacés	17
+Viandes, poissons - Volaille - Volaille cuisinée, marinée	17
+Epicerie sucrée - Tablettes et chocolat - Moulages	17
+Surgelés - Glaces et sorbets - Cônes	16
+Produits frais - Fromages à déguster - Chèvres et brebis	16
+Bio - Epicerie sucrée bio - Biscottes, pains grillés, tartines et galettes	16
+Viandes, poissons - Volaille - Dinde	16
+Pains, Viennoiseries et Pâtisseries - Gâteaux moelleux et biscuiterie - Madeleines et gâteaux individuels	16
+Charcuterie, traiteur - Sandwich et repas express - Sandwich	16
+Surgelés - Pizzas, quiches et tartes - Pizzas pâte fine	16
+Charcuterie, traiteur - Sandwich et repas express - Burger, croque monsieur et box de pâtes	15
+Surgelés - Poissons et fruits de mer - Poissons natures	15
+Surgelés - Plats cuisinés - Plats cuisinés familiaux et pour deux	15
+Epicerie salée - Conserves de légumes - Légumes cuisinés	15
+Charcuterie, traiteur - Pizza, quiche, pâte fraîche, crêpe - Pizza	15
+Fruits et Légumes - Fruits - Pommes, Poires	15
+Epicerie sucrée - Bonbons - Menthe, réglisse, pastilles	15
+Bières, vins, alcools - Vins rouges - Languedoc-Roussillon	15
+Bières, vins, alcools - Bières, cidres - Cidres	15
+Boissons sans alcool - Jus de fruits et de légumes - Jus de pommes, raisins	15
+Viandes, poissons - Volaille - Panés, nuggets, grignottes	14
+Surgelés - Glaces et sorbets - Bacs sorbets et crèmes glacées	14
+Boissons sans alcool - Cafés - Décaféinés, cappuccinos et spécialités	14
+Epicerie sucrée - Aide culinaire sucrée - Fruits secs, aide pâtissière	14
+Epicerie sucrée - Compotes et desserts - Préparation pour desserts	14
+Produits frais - Yaourts et fromages blancs - Chèvres et brebis	14
+Nutrition et régimes alimentaires - Végétal - Plats et accompagnements végétaux	14
+Surgelés - Poissons et fruits de mer - Poissons cuisinés	14
+Bières, vins, alcools - Vins rouges - Bordeaux	14
+Viandes, poissons - Poissonnerie - Filets, pavés et poissons entiers	14
+Boissons sans alcool - Jus de fruits et de légumes - Jus multifruits	14
+Charcuterie, traiteur - Apéritif - Tartinable et blinis	14
+Bières, vins, alcools - Bières, cidres - Sans alcool et Panachés	13
+Epicerie salée - Conserves de viandes et poissons - Sardines	13
+Bières, vins, alcools - Apéritifs et Spiritueux - Rhums, arrangés et assimilés	13
+Epicerie salée - Sauces, condiments - Sauces chaudes à napper, à cuisiner, déshydratées	13
+Bières, vins, alcools - Champagnes et effervescents - Crémants et autres AOP	13
+Charcuterie, traiteur - Plat cuisiné et cuisine du monde - Plat cuisiné à base de poisson et autre	13
+Epicerie sucrée - Pâte à tartiner, confiture et miel - Miels, sirops d'érable	13
+Produits frais - Fromages à déguster - Camemberts, coulommiers et bries	13
+Bio - Epicerie salée bio - Huiles et vinaigres	13
+Bières, vins, alcools - Vins rosés - Languedoc-Roussillon	12
+Boissons sans alcool - Eaux - Eaux plates	12
+Epicerie sucrée - Céréales - Enfants chocolatées	12
+Boissons sans alcool - Sodas et boissons aux fruits - Boissons à base de thé	12
+Charcuterie, traiteur - Salade et entrée - Salade composée	12
+Surgelés - Glaces et sorbets - Glaces enfants	12
+Bio - Epicerie sucrée bio - Céréales et mueslis	12
+Produits frais - Desserts et compotes - Flans, riz et semoules au lait	12
+Surgelés - Plats cuisinés - Plats cuisinés individuels	12
+Viandes, poissons - Traiteur de la mer - Apéritif et crevettes décortiquées	12
+Epicerie sucrée - Gâteaux moelleux - Gâteaux individuels	12
+Epicerie salée - Apéritifs et chips - Cacahuètes, pistaches et noix de cajou	12
+Charcuterie, traiteur - Charcuterie - Jambon cru et sec	12
+Bio - Epicerie sucrée bio - Thés et infusions	12
+Charcuterie, traiteur - Salade et entrée - Crudité	11
+Bières, vins, alcools - Vins blancs - Bordeaux - Sud-ouest	11
+Boissons sans alcool - Sodas et boissons aux fruits - Petits formats	11
+Epicerie salée - Apéritifs et chips - Mélange graines et fruits	11
+Bières, vins, alcools - Apéritifs et Spiritueux - Apéritifs à base de vin	11
+Epicerie sucrée - Pâte à tartiner, confiture et miel - Pâte à tartiner, crème de marrons	11
+Surgelés - Glaces et sorbets - Sorbets bacs	11
+Surgelés - Poissons et fruits de mer - Poissons panés	11
+Epicerie salée - Apéritifs et chips - Pistaches, noix de cajou	11
+Bio - Epicerie salée bio - Soupes et potages	11
+Surgelés - Glaces et sorbets - Bâtonnets	11
+Bières, vins, alcools - Champagnes et effervescents - Champagnes	10
+Epicerie sucrée - Tablettes et chocolat - Chocolats festifs	10
+Epicerie salée - Apéritifs et chips - Saucisses cocktail, olives et tartinables	10
+Bières, vins, alcools - Apéritifs et Spiritueux - Portos, vins doux et amers	10
+Epicerie salée - Produits du monde - Epicerie orientale	10
+Bières, vins, alcools - Fontaines à vin - Vins blancs	10
+Produits frais - Fromages à déguster - Roquefort et bleu	10
+Epicerie sucrée - Tablettes et chocolat - Assortiments et ballotins	10
+Boissons sans alcool - Eaux - Petits formats	10
+Surgelés - Apéritifs, entrées et snacks - Feuilletés, crêpes	10
+Charcuterie, traiteur - Plat cuisiné et cuisine du monde - Plat cuisiné à base de viande	10
+Viandes, poissons - Boucherie - Viande cuisinée et marinée	10
+Pains, Viennoiseries et Pâtisseries - Viennoiseries et brioches - Brioches, gâches et spécialités	10
+Boissons sans alcool - Thés et chocolats en poudre - Thés	10
+Pains, Viennoiseries et Pâtisseries - Pains de mie, pains pré-emballés - Pains de mie complets et céréales	10
+Surgelés - Desserts, viennoiseries et fruits - Pâtisseries, viennoiseries	10
+Univers bébé - Desserts, goûters - Desserts lactés	10
+Epicerie salée - Pâtes, riz, purées, féculents - Sachets express	9
+Viandes, poissons - Traiteur de la mer - Surimis	9
+Bio - Surgelés bio - Glaces et desserts	9
+Bio - Boissons bio - Sirops et sodas	9
+Produits frais - Beurres, crèmes et oeufs - Crèmes longue conservation	9
+Pains, Viennoiseries et Pâtisseries - Gâteaux moelleux et biscuiterie - Gâteaux à partager	9
+Boissons sans alcool - Thés et chocolats en poudre - Infusions	9
+Boissons sans alcool - Jus de fruits et de légumes - Petits formats	9
+Boissons sans alcool - Sodas et boissons aux fruits - Colas	9
+Epicerie salée - Apéritifs et chips - Tuiles, tortillas et sauces	9
+Charcuterie, traiteur - Pizza, quiche, pâte fraîche, crêpe - Crêpe et galette	9
+Epicerie salée - Produits du monde - Epicerie espagnole et portugaise	9
+Epicerie sucrée - Biscuits - Biscuits aux fruits	9
+Produits frais - Le végétal - Desserts végétaux	9
+Bio - Surgelés bio - Viandes, poissons, fruits de mer	9
+Epicerie sucrée - Sucre, farine, pâtisserie - Farine	9
+Charcuterie, traiteur - Plat cuisiné et cuisine du monde - Asiatique et produit du monde	9
+Bio - Produits frais bio - Crèmes et beurres	9
+Epicerie salée - Conserves de légumes - Autres légumes	9
+Produits frais - Fromages à déguster - Morbier, Saint Nectaire et tommes	8
+Bières, vins, alcools - Apéritifs et Spiritueux - Whiskies et assimilés	8
+Boissons sans alcool - Cafés - Cafés en grains	8
+Charcuterie, traiteur - Salade et entrée - Taboulé et autres recettes	8
+Epicerie salée - Conserves de viandes et poissons - Maquereaux	8
+Produits frais - Beurres, crèmes et oeufs - Oeufs	8
+Pains, Viennoiseries et Pâtisseries - Viennoiseries et brioches - Briochettes et pains au lait	8
+Bières, vins, alcools - Vins rouges - Sud-ouest	8
+Epicerie sucrée - Aide culinaire sucrée - Levure, sucre vanille, arômes	8
+Surgelés - Légumes surgelés - Purées	8
+Epicerie sucrée - Tablettes et chocolat - Tablette de chocolat pâtissier	8
+Produits frais - Fromages à cuisiner, apéritifs et râpés - Fromages apéritifs et salades	8
+Bières, vins, alcools - Vins rouges - Beaujolais	8
+Charcuterie, traiteur - Pizza, quiche, pâte fraîche, crêpe - Quiche et tarte salée8
+Surgelés - Viandes - Volailles, panés de volailles, autres	8
+Produits frais - Beurres, crèmes et oeufs - Crèmes fraiches	8
+Pains, Viennoiseries et Pâtisseries - Gâteaux moelleux et biscuiterie - Gaufres et crêpes	8
+Bières, vins, alcools - Vins rouges - Rhône	8
+Bio - Boissons bio - Bières, vins et cidres	8
+Charcuterie, traiteur - Charcuterie - Rôti	8
+Boissons sans alcool - Cafés - Cafés solubles et chicorées	7
+Boissons sans alcool - Laits et boissons végétales - Laits demi-écrémé	7
+Surgelés - Viandes - Steaks, viandes hachées	7
+Boissons sans alcool - Sodas et boissons aux fruits - Boissons gazeuses aux fruits7
+Charcuterie, traiteur - Pizza, quiche, pâte fraîche, crêpe - Gnocchi et quenelle	7
+Charcuterie, traiteur - Salade et entrée - Feuilleté et pâté en croute	7
+Epicerie sucrée - Bonbons - Caramel, pâtes de fruits, nougats	7
+Pains, Viennoiseries et Pâtisseries - Pains de mie, pains pré-emballés - Pains burger et à garnir	7
+Bio - Epicerie sucrée bio - Pains, pains de mie et viennoiseries	7
+Surgelés - Pommes de terre et frites - Frites au four et micro-ondes	7
+Bières, vins, alcools - Vins blancs - Languedoc - Provence -Corse	7
+Bières, vins, alcools - Vins blancs - Alsace	7
+Produits frais - Fromages à cuisiner, apéritifs et râpés - Fromages frais à tartiner	7
+Bières, vins, alcools - Bières, cidres - Blondes en bouteille	6
+Pains, Viennoiseries et Pâtisseries - Pains de mie, pains pré-emballés - Pains de mie natures	6
+Bières, vins, alcools - Vins rosés - Bordeaux - Sud-ouest	6
+Bières, vins, alcools - Vins rosés - Provence - Corse - Côte d'Azur	6
+Surgelés - Desserts, viennoiseries et fruits - Fruits, coulis	6
+Epicerie salée - Conserves de viandes et poissons - Rillettes de poissons	6
+Bières, vins, alcools - Bières, cidres - Spécialités (ambrées, brunes,...)	6
+Epicerie sucrée - Sucre, farine, pâtisserie - Sucre, édulcorant	6
+Epicerie sucrée - Gâteaux moelleux - Madeleines	6
+Viandes, poissons - Traiteur de la mer - Soupes de poisson, sauces et jus de citron6
+Surgelés - Pizzas, quiches et tartes - Quiches, tartes	6
+Epicerie salée - Conserves de viandes et poissons - Autres poissons et fruits de mer	6
+Pains, Viennoiseries et Pâtisseries - Viennoiseries et brioches - Galettes, Couronnes et autres	6
+Boissons sans alcool - Sodas et boissons aux fruits - Limonades, tonics et limes	5
+Boissons sans alcool - Thés et chocolats en poudre - Poudres chocolatées	5
+Surgelés - Plats cuisinés - Plats cuisinés à partager	5
+Charcuterie, traiteur - Apéritif - Cake, pain surprise et préfou	5
+Boissons sans alcool - Jus de fruits et de légumes - Jus d'agrumes	5
+Bières, vins, alcools - Vins rosés - Rhône	5
+Surgelés - Pommes de terre et frites - Potatoes, rostis, autres	5
+Epicerie sucrée - Biscuits - Biscuits petit déjeuner	5
+Pains, Viennoiseries et Pâtisseries - Pains de mie, pains pré-emballés - Pains précuits ou à cuire	5
+Bières, vins, alcools - Vins rouges - Loire	5
+Bio - Boissons bio - Lait	5
+Epicerie salée - Soupes et croûtons - Croûtons	5
+Bières, vins, alcools - Apéritifs et Spiritueux - Punchs et cocktails	5
+Bières, vins, alcools - Apéritifs et Spiritueux - Vodka, Gin, Tequila et assimilés5
+Nutrition et régimes alimentaires - Végétal - Aides culinaires végétales	5
+Produits frais - Beurres, crèmes et oeufs - Sauces et Chantilly	5
+Epicerie sucrée - Tablettes et chocolat - Confiseries chocolatées	5
+Fruits et Légumes - Légumes - Choux, Brocolis	5
+Epicerie sucrée - Tablettes et chocolat - Truffes, marrons glacés, pâtes de fruits et nougats	5
+Produits frais - Pâte à tarte et autre pâte - Pâte feuilletée	5
+Fruits et Légumes - Légumes - Ail, Oignons, Echalotes	5
+Epicerie sucrée - Tablettes et chocolat - Tablette de chocolat blanc	4
+Epicerie sucrée - Compotes et desserts - Crèmes dessert, riz au lait	4
+Boissons sans alcool - Jus de fruits et de légumes - Jus de fruits exotiques	4
+Surgelés - Pommes de terre et frites - Noisettes, dauphines, duchesses	4
+Bières, vins, alcools - Vins rosés - Loire	4
+Boissons sans alcool - Laits et boissons végétales - Laits concentrés et en poudre4
+Produits frais - Beurres, crèmes et oeufs - Margarines et matières grasses	4
+Pains, Viennoiseries et Pâtisseries - Pains de mie, pains pré-emballés - Canapés et toasts	4
+Bio - Produits frais bio - Oeufs	4
+Bières, vins, alcools - Vins blancs - Bourgogne - Beaujolais	4
+Nutrition et régimes alimentaires - Minceur et sport - Minceur et sport	4
+Bio - Epicerie sucrée bio - Cafés et poudres chocolatées	4
+Surgelés - Apéritifs, entrées et snacks - Coquilles et escargots	4
+Bières, vins, alcools - Apéritifs et Spiritueux - Apéritifs sans alcool	4
+Surgelés - Glaces et sorbets - Les minis	4
+Epicerie salée - Apéritifs et chips - Amandes, noisettes et mélanges	4
+Produits frais - Fromages à cuisiner, apéritifs et râpés - Fromages enfant et portions individuelles	4
+Bières, vins, alcools - Apéritifs et Spiritueux - Pastis et anisés	4
+Epicerie sucrée - Tablettes et chocolat - Barres chocolatées	4
+Surgelés - Pommes de terre et frites - Pommes rissolées, sautées	4
+Produits frais - Desserts et compotes - Desserts enfants	4
+Bières, vins, alcools - Vins blancs - Loire	4
+Charcuterie, traiteur - Sandwich et repas express - Salade repas	4
+Surgelés - Glaces et sorbets - Pots, mini-pots	4
+Epicerie sucrée - Gâteaux moelleux - Brownies, pain d'épices	3
+Boissons sans alcool - Laits et boissons végétales - Laits entiers	3
+Charcuterie, traiteur - Salade et entrée - Salade repas	3
+Epicerie sucrée - Viennoiseries - Brioches tranchées	3
+Pains, Viennoiseries et Pâtisseries - Viennoiseries et brioches - Pains au chocolat, croissants, feuilletés	3
+Surgelés - Pommes de terre et frites - Frites pour friteuse	3
+Pains, Viennoiseries et Pâtisseries - Viennoiseries et brioches - Pancakes, beignets et muffins	3
+Epicerie salée - Produits du monde - Epicerie italienne	3
+Produits frais - Pâte à tarte et autre pâte - Autres pâtes	3
+Viandes, poissons - Traiteur de la mer - Panés	3
+Univers bébé - Laits et petit déjeuner - Laits de croissance	3
+Epicerie sucrée - Gâteaux moelleux - Marbrés, quatre-quarts, cakes	3
+Bières, vins, alcools - Champagnes et effervescents - Mousseux	3
+Boissons sans alcool - Jus de fruits et de légumes - Jus de légumes	3
+Epicerie salée - Pâtes, riz, purées, féculents - Purées, polentas	3
+Boissons sans alcool - Sirops et concentrés - Concentrés	3
+Surgelés - Pizzas, quiches et tartes - Pizzas pâte épaisse	3
+Produits frais - Pâte à tarte et autre pâte - Pâte à pizza	3
+Charcuterie, traiteur - Apéritif - Charcuterie apéritive	3
+Produits frais - Pâte à tarte et autre pâte - Pâte brisée	3
+Viandes, poissons - Traiteur de la mer - Sushis	3
+Epicerie salée - Apéritifs et chips - Assortiment	3
+Univers bébé - Laits et petit déjeuner - Céréales	3
+Produits frais - Fromages à déguster - Fromages à la coupe	2
+Bières, vins, alcools - Bières, cidres - Blondes en boîte	2
+Surgelés - Glaces et sorbets - Barres et bouchées glacées	2
+Pains, Viennoiseries et Pâtisseries - Gâteaux moelleux et biscuiterie - Biscuiterie2
+Boissons sans alcool - Laits et boissons végétales - Laits aromatisés	2
+Boissons sans alcool - Laits et boissons végétales - Laits frais	2
+Viandes, poissons - Volaille - Chapon, poularde, oie	2
+Bières, vins, alcools - Vins blancs - Rhône	2
+Fruits et Légumes - Fruits - Bananes, Kiwis, Fruits exotiques	2
+Boissons sans alcool - Laits et boissons végétales - Laits facile à digérer, écrémés	2
+Fruits et Légumes - Légumes - Légumes apéritifs	2
+Bières, vins, alcools - Vins de cuisine - Vins de cuisine	2
+Boissons sans alcool - Eaux - Eaux gazeuses	2
+Fruits et Légumes - Légumes - Courgettes, Aubergines, Poivrons	2
+Univers bébé - Desserts, goûters - Biscuits, jus	2
+Bières, vins, alcools - Champagnes et effervescents - Effervescents étrangers	2
+Epicerie salée - Céréales, légumes secs - Sachets micro ondables	1
+Fruits et Légumes - Légumes - Poireaux, Céleris, Navets	1
+Bières, vins, alcools - Vins rouges - VSIG (Vins sans indication géographique)	1
+Fruits et Légumes - Légumes - Tomates, Concombres, Radis	1
+Bières, vins, alcools - Vins blancs - VSIG (Vins sans indication géographique)	1
+Bières, vins, alcools - Vins rouges - Alsace - Jura - Savoie	1
+Bières, vins, alcools - Vins rosés - VSIG (Vins sans indication géographique)	1
+Viandes, poissons - Préparé sur place par nos poissonniers - Crevettes, coquillages et crustacés	1
+Epicerie sucrée - Boissons chaudes - Café soluble et chicorée	1
+Bio - Epicerie salée bio - Plats cuisinés, galettes et tofus	1
+Fruits et Légumes - Légumes - Légumes bio	1
+Bières, vins, alcools - Vins rosés - Vins étrangers	1
+Epicerie salée - Terrines - Conserves de viande	1
+Bières, vins, alcools - Vins rouges - Vins étrangers	1
+
+
+
+# top categories before 2025
+
 Epicerie salée - Assaisonnement - Epices, herbes        94	fr:Epicerie		
 Produits frais - Volaille - Poulet      79	fr:Poulets		
 Produits frais - Boucherie - Boeuf      74	fr:Boeuf		

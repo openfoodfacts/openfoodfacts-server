@@ -260,6 +260,9 @@ open(my $io3, '<:encoding(UTF-8)', $categories_csv_file) or die("Could not open 
 while (my $line = <$io3>) {
 
 	chomp($line);
+	$line =~ /^#/ and next;
+	# Convert the tab before the number of products to a space
+	$line =~ s/\t(\d+)/ $1/;
 	my ($rubriques, $category) = split(/\t/, $line);
 
 	$rubriques =~ s/\s+\d+$//;
@@ -296,7 +299,9 @@ $input_csv->column_names($input_csv->getline($io));
 my @products = ();
 
 # keep track of the number of products in each category, brands etc. to prioritize the creation of mapping tables
-my %unknown_categories = ();    
+my %unknown_categories = ();
+my %unverified_categories = ();	# we have a taxonomy match, but it could be incorrect or not specific enough
+my %unverified_categories_matches = ();
 my %unknown_brands = ();
 
 while (my $imported_product_ref = $input_csv->getline_hr($io)) {
@@ -377,8 +382,25 @@ while (my $imported_product_ref = $input_csv->getline_hr($io)) {
 		print "assigning category $category from rubriques $imported_product_ref->{rubriques}\n";
 	}
 	else {
+		# check if the Systeme U categories exist in the OFF categories taxonomy, starting with the most specific
+		my @rubriques = split(/ - /, $imported_product_ref->{rubriques});
+		foreach my $rubrique (reverse @rubriques) {
+			my $exists_in_taxonomy;
+			my $category_id = canonicalize_taxonomy_tag("fr", "categories", $rubrique, \$exists_in_taxonomy);
+			if ($exists_in_taxonomy) {
+				my $category = $rubrique;
+				$product_ref->{categories} = $category;
+				$unverified_categories{$rubrique}++;
+				$unverified_categories_matches{$rubrique} = $category;
+				print "assigning category $category_id from rubrique $rubrique ($imported_product_ref->{rubriques})\n";
+				last;
+			}
+		}
+
 		# Keeping track of rubriques that are not mapped to OFF categories
-		$unknown_categories{$imported_product_ref->{rubriques}}++;
+		if (not defined $product_ref->{categories}) {
+			$unknown_categories{$imported_product_ref->{rubriques}}++;
+		}
 	}
 
 	# allergens
@@ -494,16 +516,24 @@ while (my $imported_product_ref = $input_csv->getline_hr($io)) {
 
 	my %u_brands = (
 		U => "U",
+		SDSAV => "U Saveurs",
 		U_SAVEURS => "U Saveurs",
 		U_BIO => "U Bio",
+		BIO_U => "U Bio",
 		NOR_U => "Nor U",
 		U_OXYGN => "U Oxygn",
+		U46MAT => "U Mat & Lou",
 		U_MAT_ET_LOU => "U Mat & Lou",
+		U46VEG => "U Bon & Végétarien",
 		U_BON_ET_VEGETARIEN => "U Bon & Végétarien",
 		U_TOUT_PETITS => "U Tout Petits",
+		U46TPB => "U Tout Petits Bio",
+		DANRE => "Danremont",
 		DANREMONT => "Danremont",
+		U46SGL => "U Sans Gluten",
 		U_SANS_GLUTEN => "U Sans Gluten",
 		U_CUISINES_ET_DECOUVERTES => "U Cuisines et Découvertes",
+		UDNR => "U de nos Régions"
 	);
 
 	# Fromage double crème au lait pasteurisé U, 30%MG, 200g
@@ -678,7 +708,7 @@ while (my $imported_product_ref = $input_csv->getline_hr($io)) {
 
 	if ($product_ref->{brands} ne 'U') {
 		$product_ref->{brands} .= ", U";
-	}	
+	}
 
 	$product_ref->{product_name_fr} =~ s/\s+$//;
 	$product_ref->{brands} =~ s/\s+$//;
@@ -1139,6 +1169,13 @@ foreach my $allergen (sort {$allergens_count{$b} <=> $allergens_count{$a}} keys 
 		$taxonomy_tag = $allergens_codes{$allergen};
 	}
 	print $allergen . "\t" . $allergens_count{$allergen} . "\t" . $taxonomy_tag . "\n";
+}
+
+print "\n\ncategories with unverified taxonomy matches:\n";
+
+foreach my $category (sort {$unverified_categories{$b} <=> $unverified_categories{$a}} keys %unverified_categories) {
+
+	print $category . "\t" . $unverified_categories{$category} . "\t" . $unverified_categories_matches{$category} . "\n";
 }
 
 print "\n\ncategories with no mapping to OFF categories:\n";
