@@ -294,7 +294,10 @@ $input_csv->column_names($input_csv->getline($io));
 # to output them in the CSV
 
 my @products = ();
-my %rubriques = ();    # keep track of the number of products in each category, to create a mapping table
+
+# keep track of the number of products in each category, brands etc. to prioritize the creation of mapping tables
+my %unknown_categories = ();    
+my %unknown_brands = ();
 
 while (my $imported_product_ref = $input_csv->getline_hr($io)) {
 
@@ -305,7 +308,6 @@ while (my $imported_product_ref = $input_csv->getline_hr($io)) {
 		= $imported_product_ref->{SVE_cdRubriqueN1} . " - "
 		. $imported_product_ref->{SVE_cdRubriqueN2} . " - "
 		. $imported_product_ref->{SVE_cdRubriqueN3};
-	$rubriques{$imported_product_ref->{rubriques}}++;
 
 	#print $json;
 
@@ -373,6 +375,10 @@ while (my $imported_product_ref = $input_csv->getline_hr($io)) {
 		$category =~ s/^fr://;
 		$product_ref->{categories} = $category;
 		print "assigning category $category from rubriques $imported_product_ref->{rubriques}\n";
+	}
+	else {
+		# Keeping track of rubriques that are not mapped to OFF categories
+		$unknown_categories{$imported_product_ref->{rubriques}}++;
 	}
 
 	# allergens
@@ -522,9 +528,6 @@ while (my $imported_product_ref = $input_csv->getline_hr($io)) {
 
 		my ($name, $brand, $quantity) = ($1, $3, $5);
 		my $brands = $u_brands{$brand};
-		if ($brands ne 'U') {
-			$brands .= ", U";
-		}
 
 		my %u_packaging = (
 			bte => "boite",
@@ -669,6 +672,13 @@ while (my $imported_product_ref = $input_csv->getline_hr($io)) {
 	if (defined $u_brands{$ugc_libmarque}) {
 		$product_ref->{brands} = $u_brands{$ugc_libmarque};
 	}
+	else {
+		$unknown_brands{$ugc_libmarque}++;
+	}
+
+	if ($product_ref->{brands} ne 'U') {
+		$products_ref->{$brands} .= ", U";
+	}	
 
 	$product_ref->{product_name_fr} =~ s/\s+$//;
 	$product_ref->{brands} =~ s/\s+$//;
@@ -1131,9 +1141,18 @@ foreach my $allergen (sort {$allergens_count{$b} <=> $allergens_count{$a}} keys 
 	print $allergen . "\t" . $allergens_count{$allergen} . "\t" . $taxonomy_tag . "\n";
 }
 
-foreach my $rubrique (sort {$rubriques{$b} <=> $rubriques{$a}} keys %rubriques) {
+print "\n\ncategories with no mapping to OFF categories:\n";
 
-	print $rubrique . "\t" . $rubriques{$rubrique} . "\n";
+foreach my $category (sort {$unknown_categories{$b} <=> $unknown_categories{$a}} keys %unknown_categories) {
+
+	print $category . "\t" . $unknown_categories{$category} . "\n";
+}
+
+print "\n\nbrands with no mapping to OFF brands:\n";
+
+foreach my $brand (sort {$unknown_brands{$b} <=> $unknown_brands{$a}} keys %unknown_brands) {
+
+	print $brand . "\t" . $unknown_brands{$brand} . "\n";
 }
 
 #print "\n\nlist of nutrient names:\n\n";
