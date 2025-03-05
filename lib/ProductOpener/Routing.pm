@@ -64,6 +64,7 @@ use Encode;
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Log::Any qw($log);
+use Net::CIDR qw/cidrlookup/;
 
 # Specific logger to track rate-limiter operations
 our $ratelimiter_log = Log::Any->get_logger(category => 'ratelimiter');
@@ -1073,6 +1074,16 @@ sub set_rate_limit_attributes ($request_ref, $ip) {
 			else {
 				# The user has reached the rate-limit, we block the request
 				$request_ref->{rate_limiter_blocking} = 1;
+
+				# Unless the IP is in an allowed block
+				if (defined $options{rate_limit_allow_list_blocks}) {
+					if (Net::CIDR::cidrlookup($ip, @{$options{rate_limit_allow_list_blocks}})) {
+						$request_ref->{rate_limiter_blocking} = 0;
+						$block_message
+							= "Rate-limiter blocking is disabled for the user (in block $block), but the user has reached the rate-limit and the IP address is in an allowed block";
+						last;
+					}
+				}
 			}
 		}
 		else {
