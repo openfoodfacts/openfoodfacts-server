@@ -65,7 +65,7 @@ for file in $DATA_TMP_DIR/data/*.csv; do
 done
 
 # Remove the files from the sftp when they have been successfully processed
-find $OFF_SFTP_HOME_DIR/systemeu/data -mtime -$IMPORT_SINCE -type f -name "*.csv*" -exec mv {} $DATA_TMP_DIR/data/ \;
+find $OFF_SFTP_HOME_DIR/systemeu/data -mtime -$IMPORT_SINCE -type f -name "*.csv" -exec mv {} $DATA_TMP_DIR/data/ \;
 
 # Copy ZIP files containing images
 find $OFF_SFTP_HOME_DIR/systemeu/data -mtime -$IMPORT_SINCE -type f -name "*.zip" -exec cp {} $DATA_TMP_DIR/data/ \;
@@ -81,6 +81,9 @@ for file in $DATA_TMP_DIR/data/*.zip; do
     ./scripts/imports/systemeu/convert_systemeu_images_to_off_csv.pl $IMAGES_TMP_DIR $file.images.converted
     ./scripts/import_csv_file.pl --csv_file $file.images.converted --user_id systemeu --comment "Import Systeme U - Images" --source_id "systemeu" --source_name "Systeme U" --source_url "https://www.magasins-u.com/" --manufacturer --org_id systeme-u --define lc=fr --images_dir $IMAGES_TMP_DIR/tmp
 done
+
+# Remove the files from the sftp when they have been successfully processed
+find $OFF_SFTP_HOME_DIR/systemeu/data -mtime -$IMPORT_SINCE -type f -name "*.zip" -exec mv {} $DATA_TMP_DIR/data/ \;
 
 # mark successful run
 mark_successful_run $SUCCESS_FILE_PATH

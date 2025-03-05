@@ -40,7 +40,7 @@ use ProductOpener::Units qw/unit_to_g/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
-use ProductOpener::ImportConvert qw/%global_params @fields clean_fields extract_nutrition_facts_from_text/;
+use ProductOpener::ImportConvert qw/clean_fields extract_nutrition_facts_from_text/;
 use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 
@@ -87,129 +87,15 @@ my $output_csv = Text::CSV->new(
 $lc = "fr";
 $country = "en:france";
 
-$User_id = 'systeme-u';
-
-my $editor_user_id = 'systeme-u';
-
-$User_id = $editor_user_id;
-my $photo_user_id = $editor_user_id;
-$editor_user_id = $editor_user_id;
-
-not defined $photo_user_id and die;
-
+# We use a mapping table to convert Systeme U categories to OFF categories when possible
 my $categories_csv_file = $BASE_DIRS{SCRIPTS} . "/imports/systemeu/systeme-u-rubriques.csv";
-my $imagedir;
-#$imagedir = "/srv2/off/imports/systemeu/images";
-#$imagedir = "/srv2/off/imports/systemeu/images1/images";
-#$imagedir = "/srv2/off/imports/systemeu/images2";
-my $products_without_ingredients_lists = "/srv2/off/imports/systemeu/systeme-u-products-without-ingredients-lists.txt";
 
-#my $csv_file = "/home/systemeu/SUYQD_AKENEO_PU_08.csv";
-#my $categories_csv_file = "/home/systemeu/systeme-u-rubriques.csv";
-#my $imagedir = "/home/systemeu/all_product_images";
-#my $products_without_ingredients_lists = "/home/systemeu/systeme-u-products-without-ingredients-lists.txt";
-
-print "converting csv_file: $input_csv_file, image_dir: $imagedir -- output_csv_file: $output_csv_file\n";
-
-# Images
-
-# d : ingredients
-# e : nutrition
-
-# 3256225094547_0_d.jpg
-# 3256225094547_0_e.jpg
-# 3256225094547.jpg
-
-#-rwx------ 1 root root   229339 avril 20 15:44 3256225425105_D.jpg
-#-rwx------ 1 root root   320218 avril 20 15:44 3256225425105_E.jpg
-#-rwx------ 1 root root   410014 avril 20 15:44 3256225425617_a_E.jpg
-#-rwx------ 1 root root   374778 avril 20 15:44 3256225425617_b_E.jpg
-#-rwx------ 1 root root   213484 avril 20 15:45 3256225426560_a_D.jpg
-
-# 03368957378571_C0N1_S02_ETUI_USAV_SAUMO_ANETH_CITRO.jpg
-
-my $images_ref = {};
-
-my %rubriques = ();
-
-print "Opening image dir $imagedir\n";
-
-if (opendir(DH, "$imagedir")) {
-	foreach my $file (sort {$a cmp $b} readdir(DH)) {
-
-		# systeme-u archives includes files starting with ._
-		# that contain metadata, skip them
-
-		next if ($file =~ /^._/);
-
-		if ($file =~ /(\d+)(.*)\.(jpg|jpeg|png)/i) {
-
-			my $code = $1;
-			my $suffix = $2;
-			my $imagefield = "other";
-			((not defined $suffix) or ($suffix eq "")) and $imagefield = "front";
-			($suffix =~ /^(_mp)?(_(\d+))?_d(.*)$/i) and $imagefield = "ingredients";
-			($suffix =~ /^(_mp)?(_(\d+))?_e(.*)$/i) and $imagefield = "nutrition";
-
-			print "FOUND IMAGE FOR PRODUCT CODE ($code) - file ($file) - imagefield: ($imagefield)\n";
-
-			# 03368953216518_C0N1_S01_ETUI_USAV_CREVE_LABEL_ROUGE_400G.jpg
-			if ($code =~ /^0(\d{13})/) {
-				$code = $1;
-			}
-
-			(defined $images_ref->{$code}) or $images_ref->{$code} = {};
-
-			$images_ref->{$code}{$imagefield} = $file;
-
-		}
-
-	}
-}
-
-closedir(DH);
+print "converting csv_file: $input_csv_file -- output_csv_file: $output_csv_file\n";
 
 my $i = 0;
 my $j = 0;
-my %codes = ();
-my $current_code = undef;
-my $previous_code = undef;
-my $last_imgid = undef;
-
-my $current_product_ref = undef;
-
-my @param_sorted_langs = qw(fr);
-
-my %global_params = (
-	lc => 'fr',
-	lang => 'fr',
-	countries => "France",
-	brands => "U",
-	stores => "Magasins U",
-);
 
 $lc = 'fr';
-
-my $comment = "Systeme U direct data import";
-
-my $time = time();
-
-my $existing = 0;
-my $new = 0;
-my $differing = 0;
-my %differing_fields = ();
-my @edited = ();
-my %edited = ();
-
-my $testing = 0;
-my $testing_allergens = 0;
-# my $testing = 1;
-
-print STDERR "importing labels\n";
-
-print STDERR "importing products\n";
-
-my %missing_nids = ();
 
 my %allergens = (
 	'UFS' => 'OEUFS',
@@ -386,7 +272,7 @@ while (my $line = <$io3>) {
 
 close($io3);
 
-print STDERR "importing products\n";
+print STDERR "converting products\n";
 
 open(my $io, '<:encoding(UTF-8)', $input_csv_file) or die("Could not open  $input_csv_file: $!");
 
@@ -408,6 +294,7 @@ $input_csv->column_names($input_csv->getline($io));
 # to output them in the CSV
 
 my @products = ();
+my %rubriques = ();    # keep track of the number of products in each category, to create a mapping table
 
 while (my $imported_product_ref = $input_csv->getline_hr($io)) {
 
@@ -1187,6 +1074,7 @@ my @output_fields = qw(
 	ingredients_text_fr
 	allergens
 	traces
+	nutrition_data_per
 );
 
 # Add fields for nutrients, with nid suffixed by _value, _unit, and _modifier
