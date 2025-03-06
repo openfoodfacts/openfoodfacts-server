@@ -39,9 +39,9 @@
 		[% IF ! content_only %]
 		<div class="upper-nav contain-to-grid"  id="upNav">
 			<nav class="top-bar " data-topbar role="navigation">
-				
+
 				<section class="top-bar-section">
-					
+
 					<!-- Left Nav Section -->
 					<ul class="left">
 
@@ -51,7 +51,7 @@
 									menu
 								</span>
 							</a>
-							<ul class="dropdown">				
+							<ul class="dropdown">
 								[% IF !(server_options_producers_platform) %]
 									<li><a href="[% edq(lang('menu_discover_link')) %]">[% lang('menu_discover') %]</a></li>
 									<li><a href="[% edq(lang('menu_contribute_link')) %]">[% lang('menu_contribute') %]</a></li>
@@ -90,7 +90,7 @@
 								[% END %]
 							</ul>
 						</li>
-						
+
 						<li>
 							<ul class="country_language_selection">
 								<li class="has-form has-dropdown" id="select_country_li">
@@ -110,7 +110,7 @@
 
 
 					<!-- Right Nav Section -->
-					
+
 					<ul class="right">
 						[% IF not user_id.defined %]
 							<li class="h-space-tiny has-form">
@@ -131,7 +131,7 @@
 									<li><a href="/cgi/user.pl?type=edit&userid=[% user_id %]"><span class="material-icons">settings</span> [% lang('edit_user') %]</a></li>
 
 									[% IF org_id %]
-										<li class="divider"></li>			
+										<li class="divider"></li>
 										<li><label>[% lang('organization') %]</label></li>
 										[%# No need to show the link to the organization page on the producers platform as there are only products from that organization %]
 										[% IF !server_options_producers_platform %]
@@ -142,13 +142,13 @@
 
 									[%# Do not show individual contributions on the producers platform %]
 									[% IF !(server_options_producers_platform) %]
-									<li class="divider"></li>			
+									<li class="divider"></li>
 									<li><label>[% lang('your_contributions') %]</label></li>
 									<li><a href="/facets[% canonicalize_taxonomy_tag_link("users", user_id) %]">[% lang('products_added') %]</a></li>
 									<li><a href="/facets[% canonicalize_taxonomy_tag_link("editors", user_id) %]">[% lang('products_edited') %]</a></li>
 									<li><a href="/facets[% canonicalize_taxonomy_tag_link("photographers", user_id) %]">[% lang('products_photographed') %]</a></li>
 									[% END %]
-									<li class="divider"></li>			
+									<li class="divider"></li>
 									<li class="has-form">
 										<form method="post" action="/cgi/session.pl">
 											<input type="hidden" name="length" value="logout">
@@ -165,7 +165,7 @@
 		[% END %]
 
 		<div id="main_container" style="position:relative" class="block_latte">
-		
+
 		[% IF ! content_only %]
 		<div class="topbarsticky">
 			<div class="contain-to-grid " id="offNav" >
@@ -187,10 +187,10 @@
 					[%# Show the search bar on the producers platform only when the producer is logged in %]
 					[% IF !(server_options_producers_platform) || (user_id.defined) %]
 					<section class="top-bar-section">
-					
+
 						<ul class="left small-4" style="margin-right:2rem;">
 							<li class="search-li">
-							
+
 								<form action="/cgi/search.pl">
 								<div class="row"><div class="small-12">
 								<div class="row collapse postfix-round">
@@ -252,13 +252,13 @@
 
 		<div id="content" class="off-canvas-wrap block_latte" data-offcanvas>
 			<div class="inner-wrap">
-			
+
 				<a class="exit-off-canvas"></a>
 
 				[% IF ! content_only %]
-				
+
 				<!-- full width banner on mobile -->
-				
+
 				[% IF mobile %]
         <!-- For reference: mobile.link = https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner -->
 					<a href="[% mobile.link %]&utm_campaign=mobile-app-top-banner-[% language %]" id="mobile-app-top-banner" class="button large expand success">
@@ -275,7 +275,7 @@
 							[% ELSIF mobile.system == "windows" %]
 									<img src="[% edq(lang('windows_phone_app_icon_url')) %]" alt="[% edq(lang('windows_phone_app_icon_alt_text')) %]">
 							[% END %]
-						
+
 						</div>
 					</div>
 					</a>
@@ -290,7 +290,7 @@
 						[% IF ! server_options_producers_platform %]
 							[%# for now, display the packagings banner in all cases %]
 							[% IF 1 == 0 %]
-								[% INCLUDE 'web/common/includes/offdays_banner.tt.html' %]							
+								[% INCLUDE 'web/common/includes/offdays_banner.tt.html' %]
 							[% ELSIF 1 == 2 %]
 								[% INCLUDE 'web/common/includes/packagings_banner.tt.html' %]
 							[% ELSIF 2 == 3 %]
@@ -305,7 +305,7 @@
 							[% END %]
 						[% END %]
 						[% END %]
-            			
+
 						[% IF page_format == "banner" %]
 							<!-- banner pages such as product, product edit form and landing pages have their own h1 title -->
 							[% content %]
@@ -322,7 +322,7 @@
 								</div>
 							[% ELSE %]
 								<div class="row">
-                  <div class="small-12 column"> 
+                  <div class="small-12 column">
 										<h1 class="if-empty-dnone">[% title %]</h1>
 									</div>
 								</div>
@@ -372,7 +372,7 @@
       			[% PROCESS 'web/common/includes/donate_banner.tt.html' %]
 				[% banner_footer %]
 			[% END %]
-      		
+
 			<div class="block_light block_cappucino" id="contribute_and_discover_links_block">
 				<div class="row">
 					<div class="small-12 large-6 columns v-space-normal block_off">
@@ -381,7 +381,7 @@
 						<p>[% f_lang('f_join_us_on_slack', { url => "https://slack.openfoodfacts.org" } ) %]</p>
 						<p><a href="https://forum.openfoodfacts.org/">Forum</a></p>
 						<p id="footer_social_icons">[% f_lang('f_footer_follow_us_links', { links => '
-							<a href="https://twitter.com/' _ twitter_account _ '"><img src="/images/icons/dist/twitter.svg" class="footer_social_icon" alt="Twitter"></a>
+							<a href="https://x.com/' _ twitter_account _ '"><img src="/images/icons/dist/x.svg" class="footer_social_icon" alt="X"></a>
 							<a href="' _ facebook_page_url _ '"><img src="/images/icons/dist/facebook.svg" class="footer_social_icon" alt="Facebook"></a>
 							<a href="https://www.instagram.com/open.food.facts/"><img src="/images/icons/dist/instagram.svg" class="footer_social_icon" alt="Instagram"></a>
 							'
@@ -419,7 +419,7 @@
 								<a href="/" style="font-size:1rem;"><img id="logo" src="[% static_subdomain %]/images/logos/[% flavor %]-logo-horizontal-mono-white.svg" alt="[% options.site_name %]" style="margin:8px;height:48px;width:auto;"></a>
 
 								<p>[% lang_flavor('footer_tagline') %]</p>
-								
+
 								<ul class="inline-list text-center text-small">
 									<li><a href="[% edq(lang('footer_legal_link')) %]">[% lang('footer_legal') %]</a></li>
 									<li><a href="[% edq(lang('footer_privacy_link')) %]">[% lang('footer_privacy') %]</a></li>
@@ -448,7 +448,7 @@
 <script src="[% static_subdomain %]/js/dist/display.js"></script>
 <script src="[% static_subdomain %]/js/dist/stikelem.js"></script>
 <script src="[% static_subdomain %]/js/dist/scrollNav.js"></script>
-  
+
 
 <script>
 \$(function() {
