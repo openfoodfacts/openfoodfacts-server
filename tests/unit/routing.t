@@ -8,7 +8,6 @@ use ProductOpener::Routing qw/analyze_request load_routes/;
 use ProductOpener::Lang qw/$lc/;
 
 use Test2::V0;
-use Mock::Quick;
 use Data::Dumper;
 $Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
@@ -345,6 +344,54 @@ foreach my $test_ref (@tests) {
 		"$expected_result_dir/$test_ref->{id}.json",
 		$update_expected_results, $test_ref
 	);
+}
+
+# Test rate limit whitelist
+
+{
+
+	my $request_ref = {rate_limiter_bucket => "search",};
+
+	# mock download image to fetch image in inputs_dir
+	my $tag_module = mock 'ProductOpener::Tags' => (
+		override => [
+			# a fake remove stopwords
+			# we prefer to use a mock for we do not have control
+			# over what the original function does as it is governed by the content of the stopwords
+			# global hash (also we can save time avoiding to load full taxonomies just for this test)
+			remove_stopwords => sub {
+				my $tagtype = shift;
+				my $lc = shift;
+				my $tagid = shift;
+
+				# naivly remove "the" at start
+				$tagid =~ s/the-*//i;
+
+				return $tagid;
+			}
+
+		]
+	);
+
+	my $redis_module = mock 'ProductOpener::Redis' => (
+		override => [
+			get_rate_limit_user_requests => sub {
+				my $bucket = shift;
+				my $user_id = shift;
+				print "bucket: $bucket, user_id: $user_id\n";
+				return 100;
+			}
+		]
+	);
+
+	print ProductOpener::Redis::get_rate_limit_user_requests("test", 33);
+
+	ProductOpener::Routing::set_rate_limit_attributes($request_ref, "1.2.3.4");
+	is($request_ref, {}, "Rate limit whitelist");
+
+	ProductOpener::Routing::set_rate_limit_attributes($request_ref, "163.5.3.4");
+	is($request_ref, {}, "Rate limit whitelist");
+
 }
 
 done_testing();
