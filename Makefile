@@ -16,15 +16,6 @@ DOCKER_LOCAL_DATA_DEFAULT = /srv/off/docker_data
 DOCKER_LOCAL_DATA ?= $(DOCKER_LOCAL_DATA_DEFAULT)
 OS := $(shell uname)
 
-# Gives Warning in MacOs of version check of Grep FreeBSD / GNU
-
-ifeq ($(OS), Darwin)
-    GNU_GREP := $(shell command -v ggrep 2>/dev/null)
-    ifeq ($(GNU_GREP),)
-        $(warning "GNU grep (ggrep) is not installed. Some GNU-specific options (like -p) may not work. Consider installing it via 'brew install grep' and adding its gnubin directory to your PATH: export PATH=\"$(shell brew --prefix grep)/libexec/gnubin:$$PATH\"")
-    endif
-endif
-
 # mount point for shared data (default to the one on staging)
 NFS_VOLUMES_ADDRESS ?= 10.0.0.3
 NFS_VOLUMES_BASE_PATH ?= /rpool/staging-clones
@@ -55,7 +46,6 @@ ifneq (${EXTRA_ENV_FILE},'')
     -include ${EXTRA_ENV_FILE}
     export
 endif
-
 
 HOSTS=127.0.0.1 world.productopener.localhost fr.productopener.localhost static.productopener.localhost ssl-api.productopener.localhost fr-en.productopener.localhost
 # commands aliases
@@ -379,10 +369,10 @@ check_translations:
 # IMPORTANT: We exclude some files that are in .check_perl_excludes
 check_perl:
 	@echo "🥫 Checking all perl files"
-	@if grep -P '^\s*$$' .check_perl_excludes; then echo "No blank line accepted in .check_perl_excludes, fix it"; false; fi
 	ALL_PERL_FILES=$$(find . -regex ".*\.\(p[lm]\|t\)"|grep -v "/\."|grep -v "/obsolete/"| grep -vFf .check_perl_excludes) ; \
 	${DOCKER_COMPOSE_BUILD} run --rm --no-deps backend make -j ${CPU_COUNT} $$ALL_PERL_FILES  || \
 	  ( echo "Perl syntax errors! Look at 'failed--compilation' in above logs" && false )
+	@if grep -E '^\s*$$' .check_perl_excludes; then echo "No blank line accepted in .check_perl_excludes, fix it"; false; fi
 
 # check with perltidy
 # we exclude files that are in .perltidy_excludes
@@ -390,13 +380,13 @@ check_perl:
 TO_TIDY_CHECK := $(shell echo ${TO_CHECK}| tr " " "\n" | grep -vFf .perltidy_excludes)
 check_perltidy:
 	@echo "🥫 Checking with perltidy ${TO_TIDY_CHECK}"
-	@if grep -P '^\s*$$' .perltidy_excludes; then echo "No blank line accepted in .perltidy_excludes, fix it"; false; fi
+	@if grep -E '^\s*$$' .perltidy_excludes; then echo "No blank line accepted in .perltidy_excludes, fix it"; false; fi
 	test -z "${TO_TIDY_CHECK}" || ${DOCKER_COMPOSE_BUILD} run --rm --no-deps backend perltidy --assert-tidy -opath=/tmp/ --standard-error-output ${TO_TIDY_CHECK}
 
 # same as check_perltidy, but this time applying changes
 lint_perltidy:
 	@echo "🥫 Linting with perltidy ${TO_TIDY_CHECK}"
-	@if grep -P '^\s*$$' .perltidy_excludes; then echo "No blank line accepted in .perltidy_excludes, fix it"; false; fi
+	@if grep -E '^\s*$$' .perltidy_excludes; then echo "No blank line accepted in .perltidy_excludes, fix it"; false; fi
 	test -z "${TO_TIDY_CHECK}" || ${DOCKER_COMPOSE_BUILD} run --rm --no-deps backend perltidy --standard-error-output -b -bext=/ ${TO_TIDY_CHECK}
 
 
@@ -408,7 +398,7 @@ check_critic:
 	@echo "🥫 Checking with perlcritic"
 	test -z "${TO_CHECK}" || ${DOCKER_COMPOSE_BUILD} run --rm --no-deps backend perlcritic ${TO_CHECK}
 
-TAXONOMIES_TO_CHECK := $(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --name-only | grep  -P 'taxonomies.*/.*\.txt$$' | grep -v '\.result.txt' | xargs ls -d 2>/dev/null | grep -v "^.$$")
+TAXONOMIES_TO_CHECK := $(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --name-only | grep -E 'taxonomies.*/.*\.txt$$' | grep -v '\.result.txt' | xargs ls -d 2>/dev/null | grep -v "^.$$")
 
 # TODO remove --no-sort as soon as we have sorted taxonomies
 check_taxonomies:
@@ -518,11 +508,11 @@ create_external_networks:
 #---------#
 prune:
 	@echo "🥫 Pruning unused Docker artifacts (save space) …"
-	docker system prune -af
+	docker system prune -af --filter "label=com.docker.compose.project=${COMPOSE_PROJECT_NAME}"
 
 prune_cache:
 	@echo "🥫 Pruning Docker builder cache …"
-	docker builder prune -f
+	docker builder prune -f --filter "label=com.docker.compose.project=${COMPOSE_PROJECT_NAME}" 
 
 clean_folders: clean_logs
 	( rm html/images/products || true )
@@ -535,8 +525,7 @@ clean_folders: clean_logs
 clean_logs:
 	( rm -f logs/* logs/apache2/* logs/nginx/* || true )
 
-
-clean: goodbye hdown prune prune_cache clean_folders
+clean: goodbye hdown prune prune_deps prune_cache clean_folders
 
 # Run dependent projects
 run_deps: clone_deps
@@ -558,6 +547,13 @@ clone_deps:
 		else \
 			cd ${DEPS_DIR}/$$dep && git pull; \
 		fi; \
+	done
+
+# Prune dependent projects
+prune_deps: clone_deps
+	@for dep in ${DEPS} ; do \
+		echo "🥫 Pruning $$dep..."; \
+		cd ${DEPS_DIR}/$$dep && $(MAKE) prune; \
 	done
 
 #-----------#
