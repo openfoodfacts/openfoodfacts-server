@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2024 Association Open Food Facts
+# Copyright (C) 2011-2025 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -27,6 +27,7 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		$nutripatrol_url
+		%slack_hook_urls
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -34,5 +35,18 @@ use vars @EXPORT_OK;    # no 'my' keyword for these
 
 $nutripatrol_url = $ENV{NUTRIPATROL_URL};
 $nutripatrol_url =~ s/\/$//;    # remove trailing slash if there is one
+
+# Slack URLs
+%slack_hook_urls = ();
+
+if ((defined $ENV{SLACK_HOOK_URLS}) and ($ENV{SLACK_HOOK_URLS} ne '')) {
+	foreach my $kvp (split(',', $ENV{SLACK_HOOK_URLS})) {
+		if (not($kvp =~ s/^(?<channel>.+)=(?<url>https?.+)$//)) {
+			next;
+		}
+
+		$slack_hook_urls{$+{channel}} = $+{url};
+	}
+}
 
 1;
