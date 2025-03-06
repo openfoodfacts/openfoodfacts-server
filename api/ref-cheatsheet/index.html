@@ -601,6 +601,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#get-taxonomy-based-suggestions-v3-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get taxonomy-based suggestions (v3 API)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Get taxonomy-based suggestions (v3 API)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reference-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reference documentation:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-requests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example requests:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1778,6 +1811,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#get-taxonomy-based-suggestions-v3-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get taxonomy-based suggestions (v3 API)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Get taxonomy-based suggestions (v3 API)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reference-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reference documentation:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-requests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example requests:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1870,6 +1936,20 @@ You can also use the classic suggest.pl route</p>
 <p>You can use comma to separate multiple values of a query parameter. This allows you to make bulk requests. The product result can also be limited to specified data using <code>fields</code>.</p>
 <div class="highlight"><pre><span></span><code>https://world.openfoodfacts.org/api/v2/search?code=3263859883713,8437011606013,6111069000451&amp;fields=code,product_name
 </code></pre></div>
+<h2 id="get-taxonomy-based-suggestions-v3-api">Get taxonomy-based suggestions (v3 API)<a class="headerlink" href="#get-taxonomy-based-suggestions-v3-api" title="Permanent link">#</a></h2>
+<p>The v3 API provides suggestions based on taxonomy fields such as synonyms, categories, and packaging shapes.</p>
+<h3 id="reference-documentation">Reference documentation:<a class="headerlink" href="#reference-documentation" title="Permanent link">#</a></h3>
+<p>https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v3/#get-/api/v3/taxonomy_suggestions</p>
+<h3 id="example-requests">Example requests:<a class="headerlink" href="#example-requests" title="Permanent link">#</a></h3>
+<p>Get suggestions from synonyms
+<div class="highlight"><pre><span></span><code>https://world.openfoodfacts.org/api/v3/taxonomy_suggestions?tagtype=labels&amp;lc=fr&amp;string=f&amp;get_synonyms=1
+</code></pre></div>
+Get suggestions for a specific category
+<div class="highlight"><pre><span></span><code>https://world.openfoodfacts.org/api/v3/taxonomy_suggestions?tagtype=categories&amp;string=organic
+</code></pre></div>
+Get suggestions based on packaging shape
+<div class="highlight"><pre><span></span><code>https://world.openfoodfacts.org/api/v3/taxonomy_suggestions?tagtype=packaging_materials&amp;shape=box
+</code></pre></div></p>
 
 
 
