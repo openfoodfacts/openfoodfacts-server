@@ -894,7 +894,7 @@ es: cera de abejas blanca y amarilla
 et: toonitamata ja toonitatud meevaha
 fi: mehiläisvaha valkoinen ja keltainen
 fr: cire d'abeille blanche et jaune
-hr: bijeli i žuti pčelinji vosak
+hr: bijeli i žuti pčelinji vosak, pčelinji vosak bijeli i žuti
 hu: fehér és sárga méhviasz
 it: cera d'api bianca e gialla
 lv: bišu vasks baltais un dzeltenais
@@ -1173,7 +1173,7 @@ es: fermentos lácticos, fermentos lácteos, cultivos lácticos, ferments del yo
 et: juuretis
 fi: maitohappokäyte, maitohappokannat, maitohappoviljelmä, elävä jogurttiviljelmä, elävä jogurttibakteeriviljelmä, elävät jogurttibakteeriviljelmät, maitohappobakteeriviljelmä, maitohappobakteeriviljelmät, maitohappobakteerit, maitohappobakteerikanta, maitohappobakteerikannat, juustoviljelmä, juustoviljelmät, hapankulttuuri, jogurttihapate, maitohappobakteeri, käynnistin kulttuuri
 fr: ferment lactique, ferments lactique, ferments lactiques, ferment lactiques, culture de bactéries lactiques, cultures lactiques, ferment lactique du yaourt, ferments lactiques du yaourt, ferments vivants du yaourt, bactéries lactiques, ferments lactiques naturels, levain lactique
-hr: mljekarska kultura, mljekarske kulture, mlijekarske kulture, sirna kultura, starter kultura, baktrije mliječnog vrenja, bakterije mliječne kiseline, kultura plemenitih plijesni, sirište mljekarske kulture, mezofilna starter kultura, starter kulture, mliječnokiselinske kulture, kultura mliječnih bakterija
+hr: mljekarska kultura, mljekarske kulture, mlijekarske kulture, sirna kultura, sirne kulture, starter kultura, baktrije mliječnog vrenja, bakterije mliječne kiseline, kultura plemenitih plijesni, sirište mljekarske kulture, mezofilna starter kultura, starter kulture, mliječnokiselinske kulture, kultura mliječnih bakterija, mliječno-kiselinske bakterije, mliječno-kiselinske kulture
 hu: tejsavbaktériumok, tejsavbaktérium, starterkultúra, starter kultúra, tejsavbaktérium-tenyészet, tejsavbaktérium kultúra, joghurtkultúra, joghurtkultúrák, sajtkultúra, sajtkultúrák, tejoltó enzim
 it: fermenti lattici, coltura di batteri acidolattici, fermenti lattici vivi, fermenti latici vivi, fermenti lattici dello yogurt
 lt: jogurtinės bakterijos
@@ -1602,8 +1602,10 @@ hr: kulture za zrenje
 # ingredient/fr:ferments-de-maturation has 88 products in french @2019-07-08
 
 < en:ferment
-fr: ferments d'affinage
+en: maturing ferments
 de: Reifungskulturen, Reifekulturen
+fr: ferments d'affinage
+it: fermenti di stagionatura
 # ingredient/fr:ferments-d’affinage has 34 products in french @2019-07-08
 
 < en:ferment
@@ -8329,7 +8331,7 @@ da: mascarpone
 de: Mascarpone, Mascarpone Frischkäse
 el: μασκαρπόνε
 eo: Maskarpono
-es: mascarpone
+es: mascarpone, queso mascarpone
 et: mascarpone
 fa: ماسکارپونه
 fi: mascarpone, mascarponejuusto
@@ -9053,7 +9055,7 @@ fr: ricotta, fromage ricotta
 fy: ricotta
 he: ריקוטה
 hr: ricotta, sir ricotta
-hu: ricotta, ricotta sajt
+hu: ricotta, ricotta sajt, ricotta savósajt
 hy: Ռիկոտա
 id: Ricotta
 is: Ricotta
@@ -10990,6 +10992,7 @@ en: non-iodised salt
 de: salz unjodiert, Speisesalz unjodiert
 fr: sel non iodé
 hr: nejodirana sol
+sl: nejodirana sol
 
 < en:non-iodised salt
 en: non-iodised sea salt
@@ -22551,6 +22554,19 @@ tr: ketçap aroması
 uk: смак кетчупу
 
 < en:flavouring
+< en:preparation
+en: pizza seasoning
+al: erëza të picês
+cs: ochucující složka Pizza
+hr: začinska mješavina s okusom pizze
+hu: pizza ízesítés
+pl: przyprawa o smaku pizzy
+ro: condiment Pizza
+ru: вкусоароматическая добавка Пицца
+sr: mešavina za aromatizovanje sa ukusom pice
+uk: приправа для пици на
+
+< en:flavouring
 en: tarragon flavouring
 de: Tarragon-Aroma
 es: aroma de estragón
@@ -23483,7 +23499,7 @@ pl: naturalny aromat czosnku, naturalny aromat czosnkowy
 fr: arôme de malt d'orge
 
 < en:flavouring
-en: vanillin flavour
+en: vanillin flavour, natural identical vanillin
 ca: aroma de vanil·lina, aroma natural de vanil·lina
 de: Aroma Vanillin
 fi: vanilliiniaromi
@@ -23496,6 +23512,7 @@ sv: vanillinarom
 
 < en:flavouring
 en: caffeine flavour, caffeine flavor, caffeine aroma
+bg: ароматизант кофеин
 da: koffein aroma
 de: Koffeinaroma, Aroma Koffein
 es: aroma de cafeína
@@ -26340,7 +26357,7 @@ es: extracto de malta de cebada, extracto de cebada malteada, jarabe de cebada m
 et: odralinnaseekstrakt
 fi: ohramallasuute, ohramallasuutetta
 fr: extrait de malte d'orge, extrait d'orge malté, extrait d'orge maltée, extrait de malt d'orge
-hr: ekstrakt ječmenog slada
+hr: ekstrakt ječmenog slada, ječmenog ekstrakt slada
 hu: árpamaláta kivonat
 it: estratto di malto d'orzo
 lt: miežių salyklo ekstraktas
@@ -26585,13 +26602,14 @@ fi: tattarijauho
 fr: farine de sarrasin, farine de blé noir
 hr: heljdino brašno
 hu: hajdinaliszt
-it: farina di grano saraceno
+it: farina di grano saraceno, farina di saraceno
 ja: 蕎麦粉, そば粉
 nb: bokhvetemel
 nl: boekweitmeel
 pl: mąka gryczana
 pt: farinha de trigo mourisco
 ru: мука гречневая
+sl: ajdova moka
 sv: bovetemjöl
 ciqual_food_code:en: 9540
 ciqual_food_name:en: Buckwheat flour
@@ -28032,7 +28050,7 @@ hr: biserni farro
 it: farro perlato
 
 < en:cereal flour
-en: spelt flour
+en: spelt flour, spelt wheat flour
 bg: брашно от спелта
 ca: farina d'espelta, farina de blat d'espelta
 de: Dinkelmehl, Dinkelweizenmehl
@@ -28418,9 +28436,10 @@ it: farina di cereali misti
 < en:cereal flour
 en: malt flour
 bg: брашно от малц, малцово брашно
+da: maltet mel
 de: Malzmehl
 es: harina de malta
-fi: mallasjauho
+fi: mallasjauho, mallastettu sekaviljajauho
 fr: farine de malt
 hr: sladno brašno
 it: Farina di malto
@@ -28469,7 +28488,7 @@ pt: farinha de trigo
 ro: făină de grâu, faina de grau, făină din grâu, faina din grau
 ru: Пшеничная мука, мука пшеничная хлебопекарная высшего сорта, мука пшеничная высшего сорта, мука пшеничная, мука пшеничная хлебопекарная первого сорта, мука пшеничная хлебопекарная высший сорт, мука пшеничная хлебопекарная второго сорта, мука пшеничная 1 сорта, мука пшеничная первого сорта, мука пшеничная хлебопекарная первый сорт, мука пшеничная общего назначения
 sa: गोधूमपिष्टम्
-sk: pšeničná múka
+sk: pšeničná múka, pšeničná mouka
 sl: psenicna moka, pšenična moka
 sq: pšenično brašno
 sv: vetemjöl, vete mjöl
@@ -28655,6 +28674,7 @@ es: Harina de trigo enriquecida segun ley 25630, Harina de trigo enriquecida s/l
 en: durum wheat flour, durum flour
 bg: брашно от твърда пшеница
 de: Hartweizenmehl
+ee: durum nisujahu
 es: harina de trigo duro
 fi: durumvehnäjauho
 fr: farine de blé dur
@@ -28981,7 +29001,7 @@ de: Roggenvollkornmehl
 es: flor de harina integral de centeno, harina integral de centeno
 fi: täysjyväruisjauho, täysjyväruisjauhoa
 fr: farine de seigle complète, farine complète de seigle, farine de seigle complet
-hr: integralno raženo brašno, brašno od cjelovitog zrna raži, brašno od integralni raži, raženo brašno iz cijelog zrna, brašno iz cijelog zrna raži
+hr: integralno raženo brašno, brašno od cjelovitog zrna raži, brašno od integralni raži, raženo brašno od cijelog zrna, raženo brašno iz cijelog zrna, brašno iz cijelog zrna raži
 hu: teljes kiőrlésű rozsliszt
 it: farina di segale integrale
 nb: fullkornsrugmel
@@ -29274,7 +29294,7 @@ fi: valkoinen maissijauho
 fr: Farine de maïs blanc
 hr: bijelo kukuruzno brašno
 hu: fehér kukoricaliszt
-it: farina di mais bianco
+it: farina di mais bianco, farina di mais bianco masa
 nb: hvitt maismel
 nl: wit maïsmeel
 sv: vitt majsmjöl
@@ -29369,10 +29389,10 @@ it: Farina di riso bianco
 < en:wholemeal flour
 en: brown rice flour, full rice flour, whole rice flour, whole grain rice flour
 bg: брашно от пълнозърнест ориз
-de: Reisvollkornmehl, braunes Reismehl, volles Reismehl, Vollkornreismehl, Reisvollmehl
+de: Reisvollkornmehl, braunes Reismehl, volles Reismehl, Vollkornreismehl, Reisvollmehl, braunes vollkorn reismehl
 es: harina de arroz integral, harina integral de arroz
-fi: tumma riisijauho, täysjyväriisijauho
-fr: farine de riz complet, farine complète de riz, farine de riz complète
+fi: tumma riisijauho, täysjyväriisijauho, ruskea riisijauho
+fr: farine de riz complet, farine complète de riz, farine de riz complète, farine de riz brun
 hr: integralno rižino brašno
 hu: barnariszliszt
 it: Farina di riso nero
@@ -29798,6 +29818,7 @@ pl: melasa kukurydziana
 < en:malt
 en: corn malt
 de: Maismalz
+fi: maissimallasta
 fr: malt de maïs
 hr: kukuruzni slad
 it: malto di mais
@@ -29808,7 +29829,7 @@ en: extract of corn malt
 de: Maismalzextrakt
 es: extracto de malta de maiz
 fr: extrait de malt de maïs
-hr: ekstrakt kukuruznog slada
+hr: ekstrakt kukuruznog slada, ekstrakt slada kukuruznog
 it: estratto di malto di mais
 pt: extrato de malte de milho, extracto de malte de milho
 
@@ -31532,7 +31553,7 @@ ht: Sik
 hu: cukor
 id: gula
 is: sykur, matarsykur
-it: zucchero, zuccheri
+it: zucchero, zuccheri, lo zucchero
 iu: ᓱᑲᒃ
 ja: 砂糖, 糖類
 jv: Gula
@@ -36867,6 +36888,7 @@ nl: Sojaboon, sojabonen
 nn: Soyabønne
 pl: Soja warzywna, ziarna soi, ziaren soi, ziarno soi, nasiona soi
 pt: grão de soja, grãos de soja
+ro: boabe de soia
 ru: соевые бобы
 sk: Sója fazuľová, sójové bôby
 sl: zrnje soje
@@ -37704,6 +37726,7 @@ nl: geïnactiveerde desempoeder
 en: wheat sourdough
 bg: пшенична закваска, пшеничен квас
 ca: massa mare de blat, massa mare natural de blat
+cs: pšeničny kvas
 de: Weizensauerteig
 es: masa madre de trigo, masa madre natural de trigo
 fi: vehnätaikinanjuuri, vehnähapantaikina
@@ -38959,7 +38982,7 @@ es: Fruta, frutas
 et: Puuvili
 eu: fruitu
 fa: میوه
-fi: hedelmä, hedelmiä
+fi: hedelmä, hedelmiä, hedelmät
 fr: fruit
 gl: Froita
 he: פרי
@@ -44117,10 +44140,10 @@ ca: pell de taronja
 cs: Pomerančová kůra
 da: orangeskal
 de: Orangenschale, Orangenschalen
-es: cáscara de naranja, corteza de naranja, ralladura de naranja
+es: cáscara de naranja, corteza de naranja, ralladura de naranja, cáscara de naranja natural
 et: apelsinikoor
 fi: appelsiininkuori, appelsiinikuori
-fr: zeste d'orange, zestes d'orange, écorce d'orange, écorces d'orange, écorces d'oranges
+fr: zeste d'orange, zestes d'orange, écorce d'orange, écorces d'orange, écorces d'oranges, écorce naturelle d'orange
 hr: narančina korica, narančina kora, kora od naranča, kora gorke naranče, korica naranče, kore naranče
 hu: narancshéj
 it: scorza d'arancia, scorze di arancia, scorze d'arancia, buccla d'arancia
@@ -44802,6 +44825,12 @@ pl: borówka czarna, jagoda, jagoda czarna, czarna jagoda, czarne jagody, czarne
 eurocode_2_group_3:en: 9.30.42
 wikidata:en: Q5413585
 wikipedia:en: https://en.wikipedia.org/wiki/Vaccinium_myrtillus
+
+< en:blueberry
+en: cultivated blueberry
+da: Blåbærsorter
+de: Kulturheidelbeeren
+wikidata:en: Q1791749
 
 #comment:en:
 < en:blueberry
@@ -45900,7 +45929,7 @@ de: Kokosnusschips, Kokosnuss-Chips, Kokoschips
 es: chips de coco
 fi: kookoslastu, kookoslastut
 fr: Chips de coco
-hr: kokos čips
+hr: kokos čips, kokosov čips
 it: Scaglie di cocco
 sv: kokoschips
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:kookoslastu
@@ -48587,6 +48616,7 @@ pl: nadzienie truskawkowe, wsad truskawkowy, nadzienie o smaku truskawkowym
 
 < en:preparation
 en: strawberry preparation
+fr: préparation de fraise
 hr: pripravak od jagoda, pripravak od jagode
 it: preparazione di fragole
 
@@ -58162,7 +58192,7 @@ ciqual_food_name:fr: Radis noir, cru
 < en:radish
 en: Red radish
 fr: Radis rouge
-hr: crvena rotkva
+hr: crvena rotkva, crvena rotkvica
 it: ravanello rosso
 ja: ラディッシュ
 pl: rzodkiew czerwona, czerwona rzodkiew, czerwonej rzodkwi
@@ -60114,7 +60144,7 @@ ga: Puimcín
 gu: કોળું
 he: דלעת
 hi: कुम्हड़ा
-hr: bundeva
+hr: bundeva, bundeve
 hu: Tök
 id: waluh
 io: Kukurbito
@@ -63305,7 +63335,7 @@ bg: кашу
 ca: anacards
 cs: kešu ořechy
 da: cashewnødder
-de: Cashewkerne, Kaschunüsse, Cashewnüsse, Cashew, Cashewnuss
+de: Cashewkerne, Kaschunüsse, Cashewnüsse, Cashew, Cashewnuss, cashews
 el: καρύδια κάσιους
 es: anacardos, nueces de anacardos, castañas de cajú
 et: kašupähklid, India pähkel, kašupähkleid
@@ -65113,7 +65143,7 @@ de: Kürbiskerne
 es: semillas de calabaza
 fi: kurpitsansiemen, kurpitsansiemenet
 fr: graine de courge, graines de courge, graines de potiron, graines de citrouille
-hr: bučine koštice, bučine sjemenke, sjemenke buče, bučine golice, sjemenke bundeve
+hr: bučine koštice, bučine sjemenke, sjemenke buče, bučine golice, sjemenke bundeve, Koštice bundeve
 hu: tökmag
 it: semi di zucca
 ja: かぼちゃの種
@@ -65630,7 +65660,7 @@ de: schwarze Pfefferkörner
 es: pimienta negra en grano
 fi: Kokonainen mustapippuri, kokonaisia mustapippureita, kokonaiset mustapippurit
 fr: graines de poivre noir, poivre noir en grains
-hr: zrna crnog papra
+hr: zrna crnog papra, papar crni zrno
 it: pepe nero in grani
 nl: zwarte peperkorrels
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/black-peppercorns
@@ -66189,7 +66219,7 @@ nb: krydder, krydderi, krydderier
 nl: specerijen, specerij
 no: krydder
 pl: Przyprawa, przyprawy
-pt: Tempero, temperos, especiaria
+pt: Tempero, temperos, especiaria, especiarias
 ro: Picant
 ru: Специи, пряности
 sl: začimbe
@@ -71036,7 +71066,7 @@ da: humle
 de: Hopfen
 el: λυκίσκος
 eo: lupolo
-es: lúpulo, lupulo
+es: lúpulo, lupulo, lúpolo
 et: humal, humalad
 fi: humala
 fr: houblon
@@ -73770,7 +73800,7 @@ it: baccello di vaniglia Bourbon macinato esausto
 < en:vanilla pod
 en: Bourbon vanilla beans, vanilla bean Bourbon, bourbon vanilla bean, Bourbon vanilla pods
 bg: Бурбонски ванилени шушулки
-de: Bourbon-Vanilleschote
+de: Bourbon-Vanilleschote, bourbon vanilleschoten
 fi: bourbon-vaniljakodat
 fr: gousses de vanille bourbon, fève de vanille bourbon
 hr: sjemenke bourbon vanilije, vanilija štapić bourbon
@@ -73781,8 +73811,8 @@ it: baccello di vaniglia Bourbon, bacche di vaniglia Bourbon, bourbon vanilla be
 fr: vanille bourbon naturelle en gousse
 # ingredient/fr:vanille-bourbon-naturelle-en-gousse has 27 products in french @2019-02-24
 
-< en:Bourbon vanilla beans
-de: gemahlene Bourbon-Vanilleschoten, Bourbon-Vanilleschote gemahlen
+# < en:Bourbon vanilla beans
+# de: gemahlene Bourbon-Vanilleschoten, Bourbon-Vanilleschote gemahlen  # see ingredients_processing.txt
 # ingredient/de:Bourbon-Vanilleschote-gemahlen has 7 products in 4 languages @2019-02-24
 
 < en:Bourbon vanilla beans
@@ -90093,6 +90123,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Pasta
 
 < en:pasta
 en: durum wheat semolina pasta
+bg: паста от грис от твърда пшеница
 de: Teigwaren aus Hartweizengrieß
 fr: Pâtes alimentaires de semoule de blé dur, pâtes alimentaires de blé dur.
 hr: tjestenina od durum pšenice

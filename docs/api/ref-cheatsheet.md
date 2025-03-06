@@ -86,3 +86,24 @@ You can use comma to separate multiple values of a query parameter. This allows 
 ```text
 https://world.openfoodfacts.org/api/v2/search?code=3263859883713,8437011606013,6111069000451&fields=code,product_name
 ```
+
+## Get taxonomy-based suggestions (v3 API)
+
+The v3 API provides suggestions based on taxonomy fields such as synonyms, categories, and packaging shapes.
+
+### Reference documentation:
+https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v3/#get-/api/v3/taxonomy_suggestions
+
+### Example requests:
+Get suggestions from synonyms
+```text
+https://world.openfoodfacts.org/api/v3/taxonomy_suggestions?tagtype=labels&lc=fr&string=f&get_synonyms=1
+```
+Get suggestions for a specific category
+```text
+https://world.openfoodfacts.org/api/v3/taxonomy_suggestions?tagtype=categories&string=organic
+```
+Get suggestions based on packaging shape
+```text
+https://world.openfoodfacts.org/api/v3/taxonomy_suggestions?tagtype=packaging_materials&shape=box
+```
