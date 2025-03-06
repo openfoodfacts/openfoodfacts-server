@@ -46,7 +46,6 @@ ifneq (${EXTRA_ENV_FILE},'')
     export
 endif
 
-
 HOSTS=127.0.0.1 world.productopener.localhost fr.productopener.localhost static.productopener.localhost ssl-api.productopener.localhost fr-en.productopener.localhost
 # commands aliases
 DOCKER_COMPOSE=docker compose --env-file=${ENV_FILE} ${LOAD_EXTRA_ENV_FILE}
@@ -508,11 +507,11 @@ create_external_networks:
 #---------#
 prune:
 	@echo "🥫 Pruning unused Docker artifacts (save space) …"
-	docker system prune -af
+	docker system prune -af --filter "label=com.docker.compose.project=${COMPOSE_PROJECT_NAME}"
 
 prune_cache:
 	@echo "🥫 Pruning Docker builder cache …"
-	docker builder prune -f
+	docker builder prune -f --filter "label=com.docker.compose.project=${COMPOSE_PROJECT_NAME}" 
 
 clean_folders: clean_logs
 	( rm html/images/products || true )
@@ -525,8 +524,7 @@ clean_folders: clean_logs
 clean_logs:
 	( rm -f logs/* logs/apache2/* logs/nginx/* || true )
 
-
-clean: goodbye hdown prune prune_cache clean_folders
+clean: goodbye hdown prune prune_deps prune_cache clean_folders
 
 # Run dependent projects
 run_deps: clone_deps
@@ -548,6 +546,13 @@ clone_deps:
 		else \
 			cd ${DEPS_DIR}/$$dep && git pull; \
 		fi; \
+	done
+
+# Prune dependent projects
+prune_deps: clone_deps
+	@for dep in ${DEPS} ; do \
+		echo "🥫 Pruning $$dep..."; \
+		cd ${DEPS_DIR}/$$dep && $(MAKE) prune; \
 	done
 
 #-----------#
