@@ -64,18 +64,18 @@
             <div class="form-wrapper">
                 <div class="form-container" style="width: 80%;margin-right: 20px;">
                 [% FOREACH field IN section.fields %]
-                    
+
                     [% IF field.field == 'crm_user_id' AND crm_contact_url != "" %]
                         <label for="[% field.field %]">[% field.label %]</label>
                         <div class="form-field-with-btn">
                             <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]"/>
-                            <a type="button" class="button" id="crm_button" href="[% crm_contact_url %]" target="_blank" rel="noopener">[% lang("open_in_crm") %]</a> 
+                            <a type="button" class="button" id="crm_button" href="[% crm_contact_url %]" target="_blank" rel="noopener">[% lang("open_in_crm") %]</a>
                         </div>
                     [% ELSIF field.field == 'org' AND org_url != "" %]
                         <label for="[% field.field %]">[% field.label %]</label>
                         <div class="form-field-with-btn">
                             <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]"/>
-                            <a type="button" class="button" id="" href="[% org_url %]" target="_blank" rel="noopener">[% lang("open_org") %]</a> 
+                            <a type="button" class="button" id="" href="[% org_url %]" target="_blank" rel="noopener">[% lang("open_org") %]</a>
                         </div>
 					[% ELSIF field.field == 'userid' %]
                         [% IF type == 'edit' %]
@@ -137,12 +137,12 @@
                 <!-- show video about account creation beside user form section-->
                 [% IF server_options_producers_platform AND section.id == "user" AND type != "edit" %]
                     <div class="video-container" style="width:70%">
-    
+
                         <iframe width="560" height="315" src="https://www.youtube.com/embed/RXKxDuuKYV0"
                         title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen style="margin-top: 20px;max-width: 100%;"></iframe>
-    
+
                     </div>
                 [% END %]
             </div>
@@ -253,16 +253,25 @@
 
     [% IF type == 'add' || type == 'edit' %]
 
-        <!-- Do not display donate link on producers platform -->
+    <!-- Do not display donate link on producers platform -->
 
-        [% IF !(server_options_producers_platform) %]
-            [% IF lc == "en" or lc == "fr" %]
-                <h3>[% lang("you_can_also_help_us") %]</h3>
-                <p>[% lang("bottom_content") %]</p>
-            [% END %]
+    [% IF !(server_options_producers_platform) %]
+        [% IF lc == "en" or lc == "fr" %]
+            <h3>[% lang("you_can_also_help_us") %]</h3>
+            <a href="{{localized_donate_url}}?utm_source=login-open-food-facts">
+                <img src="https://static.openfoodfacts.org/images/svg/donate-icon.svg" alt="{{cta_donate}}" />
+            </a>
+            <p>
+                [% lang("bottom_content_part1") %]
+                [% IF lc == 'fr' %]
+                    [% lang("bottom_content_part2") %]
+                [% END %]
+                <br/><b>[% lang("thank_you") %]</b>
+            </p>
         [% END %]
-
     [% END %]
+
+[% END %]
 
 [% END %]
 
