@@ -18,10 +18,10 @@ $ uv pip install -r tags_and_languages_requirements.txt
 
 - add your username and password as environment variables. In a terminal, run:
 $ export USER_ID='your_user_id'
-$ export PASSWORD='your_password'
+$ echo "Type your password:"; read -s PASSWORD; export PASSWORD
 
 - run the code with:
-```python3 tags_per_languages.py```
+```python3 tags_and_languages.py```
 """
 
 from datetime import datetime
@@ -31,6 +31,13 @@ import re
 import requests
 import sys
 import unicodedata
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--nb', type=int, default=10000, help='Number of products')
+parser.add_argument('-m', '--modify', action='store_true', help='Allow modifications')
+args = parser.parse_args()
+limit = f"LIMIT {args.nb}"
 
 USER_ID = os.getenv('USER_ID')
 PASSWORD = os.getenv('PASSWORD')
@@ -135,6 +142,7 @@ sql_query = '''
 
         -- skip products without tags
         WHERE {tag_type}_tags IS NOT NULL
+        {limit}
     ),
 
     -- from the previous CTE, retrieve the tags that are not in the taxonomy
@@ -284,7 +292,7 @@ def update_tags(tags_text: str, old_tag_with_lc: str, old_tag: str, new_tag: str
 
 def retrieve_tags_to_update(conn, tag_type):
     """Retrieve tags to update from the database."""
-    tags_to_update = conn.execute(sql_query.format(tag_type=tag_type)).fetchall()
+    tags_to_update = conn.execute(sql_query.format(tag_type=tag_type,limit=limit)).fetchall()
 
     return tags_to_update
 
@@ -351,6 +359,8 @@ def run_modifications(conn_db, tag_type, mapping_languages_countries, post_call_
     print(f"There are {len(all_rows)} products to update")
 
     for row_to_update in all_rows:
+        product_number = all_rows.index(row_to_update) + 1
+        print(f"\rProcessing product {product_number}/{len(all_rows)} with code {row_to_update[0]}", end="", flush=True)
         code = row_to_update[0]
         lang = row_to_update[1]
         updated_tag_field = row_to_update[3]
@@ -387,6 +397,14 @@ def run_modifications(conn_db, tag_type, mapping_languages_countries, post_call_
 
 # Main execution loop
 time_start = datetime.now()
+print(f"start time {time_start}")
+print(f"Be aware this script can take dozens of minutes to run...")
+print(f"It produces a local DB which might take a few MB of space")
+if args.modify:
+    print("-m or --modify parameter allows to modify products.")
+else:
+    print("Without -m or --modify parameter, no modification will be done.")
+
 for tag_type in tag_types:
 
     table_name = f"products_to_update_{tag_type}"
@@ -408,6 +426,9 @@ for tag_type in tag_types:
         print(f"prepare log table {tag_type} - time {datetime.now()-time_start}")
         create_and_populate_table(conn_db, tag_type, tags_to_update)
 
-    print(f"update products {tag_type} - time {datetime.now()-time_start}")
-    run_modifications(conn_db, tag_type, mapping_languages_countries, post_call_url, headers)
-
+    if args.modify:
+        print(f"update products {tag_type} - time {datetime.now()-time_start}")
+        run_modifications(conn_db, tag_type, mapping_languages_countries, post_call_url, headers)
+    else:
+        all_rows = conn_db.execute(f"SELECT * FROM products_to_update_{tag_type} WHERE updated = FALSE").fetchall()
+        print(f"There are {len(all_rows)} products to be updated for {tag_type}")
