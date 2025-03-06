@@ -94,6 +94,9 @@ sub sanitize_field_content {
 	return $content;
 }
 
+# Record if the script had errors
+my $errors = 0;
+
 my %tags_fields = (
 	packaging => 1,
 	brands => 1,
@@ -130,7 +133,7 @@ $fields_ref->{nutriments} = 1;
 $fields_ref->{ingredients} = 1;
 $fields_ref->{images} = 1;
 $fields_ref->{lc} = 1;
-$fields_ref->{ecoscore_data} = 1;
+$fields_ref->{environmental_score_data} = 1;
 
 # Current date, used for RDF dcterms:modified: 2019-02-07
 my ($sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdst) = localtime();
@@ -239,7 +242,7 @@ XML
 
 	my @nutrients_to_export = ();
 
-	foreach my $nid (@{$nutriments_tables{"europe"}}) {
+	foreach my $nid (@{$nutriments_tables{"off_europe"}}) {
 
 		$nid =~ /^#/ and next;
 
@@ -302,7 +305,7 @@ XML
 			$code < 1 and next;
 
 			$count++;
-			print "$count \n" if ($count % 1000 == 0);    # print number of products each 1000
+			print "$count \n" if ($count % 10000 == 0);    # print number of products each 10000
 
 			foreach my $field (@export_fields) {
 
@@ -330,9 +333,11 @@ XML
 					$field_value = $product_ref->{$field . "_" . $l};
 				}
 
-				# Eco-Score data is stored in ecoscore_data.(grades|scores).(language code)
-				if (($field =~ /^ecoscore_(score|grade)_(\w\w)/) and (defined $product_ref->{ecoscore_data})) {
-					$field_value = ($product_ref->{ecoscore_data}{$1 . "s"}{$2} // "");
+				# Environmental-Score data is stored in environmental_score_data.(grades|scores).(language code)
+				if (    ($field =~ /^environmental_score_(score|grade)_(\w\w)/)
+					and (defined $product_ref->{environmental_score_data}))
+				{
+					$field_value = ($product_ref->{environmental_score_data}{$1 . "s"}{$2} // "");
 				}
 
 				if ($field_value ne '') {
@@ -532,6 +537,7 @@ XML
 	else {
 		print STDERR "Not overwriting previous CSV. Old size = $csv_size_old, new size = $csv_size_new.\n";
 		unlink "$csv_filename.temp2";
+		$errors++;
 	}
 
 	my %links = ();
@@ -589,8 +595,9 @@ XML
 	else {
 		print STDERR "Not overwriting previous RDF. Old size = $rdf_size_old, new size = $rdf_size_new.\n";
 		unlink "$rdf_filename.temp";
+		$errors++;
 	}
 
 }
 
-exit(0);
+exit($errors);

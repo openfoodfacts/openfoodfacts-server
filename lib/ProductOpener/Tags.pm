@@ -177,7 +177,7 @@ use vars @EXPORT_OK;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die get_files_for_taxonomy get_path_for_taxonomy_file/;
-use ProductOpener::Lang qw/$lc  %Lang %tag_type_singular lang/;
+use ProductOpener::Lang qw/$lc  %Lang %tag_type_plural %tag_type_singular lang/;
 use ProductOpener::Text qw/normalize_percentages regexp_escape/;
 use ProductOpener::PackagerCodes qw/localize_packager_code normalize_packager_codes/;
 use ProductOpener::Index qw/$lang_dir/;
@@ -235,7 +235,7 @@ To this initial list, taxonomized fields will be added by retrieve_tags_taxonomy
 	teams => 1,
 	categories_properties => 1,
 	owners => 1,
-	ecoscore => 1,
+	environmental_score => 1,
 	# users tags:
 	editors => 1,
 	photographers => 1,
@@ -936,6 +936,13 @@ sub remove_stopwords ($tagtype, $lc, $tagid) {
 
 		my $uppercased_stopwords_overrides = 0;
 
+		if ($lc eq 'en') {
+			# in English, "a" is a stopwords for ingredients, but we do not want to remove it at the end of a tag
+			# e.g. "Cochineal Red A" -> "cochineal-red-a" --> "a" should not be a stopword
+			$tagid =~ s/a$/A/;
+			$uppercased_stopwords_overrides = 1;
+		}
+
 		if ($lc eq 'fr') {
 			# "Dés de tomates" -> "des-de-tomates" --> "dés" should not be a stopword
 			$tagid =~ s/\bdes-de\b/DES-DE/g;
@@ -1099,7 +1106,7 @@ sub get_file_from_cache ($source, $target) {
 # e.g. if the taxonomy building algorithm or configuration has changed
 # This needs to be done also when the unaccenting parameters for languages set in Config.pm are changed
 
-my $BUILD_TAGS_VERSION = "20240828 - new [tagtype].extended.json format with normalized extended synonyms";
+my $BUILD_TAGS_VERSION = "20241206 - the letter A at the end of an entry should not be a stopword in English";
 
 sub get_from_cache ($tagtype, @files) {
 	# If the full set of cached files can't be found then returns the hash to be used
@@ -2996,7 +3003,7 @@ sub display_tag_link ($tagtype, $tag) {
 
 	$tag = canonicalize_tag2($tagtype, $tag);
 
-	my $path = $tag_type_singular{$tagtype}{$lc};
+	my $path = $tag_type_plural{$tagtype}{$lc};
 
 	my $tag_lc = $lc;
 	if ($tag =~ /^(\w\w):/) {
@@ -3015,10 +3022,10 @@ sub display_tag_link ($tagtype, $tag) {
 
 	my $html;
 	if ((defined $tag_lc) and ($tag_lc ne $lc)) {
-		$html = "<a href=\"/$path/$tagurl\" lang=\"$tag_lc\">$display_tag</a>";
+		$html = "<a href=\"/facets/$path/$tagurl\" lang=\"$tag_lc\">$display_tag</a>";
 	}
 	else {
-		$html = "<a href=\"/$path/$tagurl\">$display_tag</a>";
+		$html = "<a href=\"/facets/$path/$tagurl\">$display_tag</a>";
 	}
 
 	if ($tagtype eq 'emb_codes') {
@@ -3055,7 +3062,7 @@ sub canonicalize_taxonomy_tag_link ($target_lc, $tagtype, $tag, $tag_prefix = un
 	$tag = display_taxonomy_tag($target_lc, $tagtype, $tag);
 	my $tagurl = get_taxonomyurl($target_lc, $tag);
 
-	my $path = $tag_type_singular{$tagtype}{$target_lc};
+	my $path = $tag_type_plural{$tagtype}{$target_lc};
 	return "/$path/" . ($tag_prefix // '') . "$tagurl";
 }
 
@@ -3077,16 +3084,16 @@ sub display_taxonomy_tag_link ($target_lc, $tagtype, $tag) {
 		$tag = $';
 	}
 
-	my $path = $tag_type_singular{$tagtype}{$target_lc} // '';
+	my $path = $tag_type_plural{$tagtype}{$target_lc} // '';
 
 	my $css_class = get_tag_css_class($target_lc, $tagtype, $tag);
 
 	my $html;
 	if ((defined $tag_lc) and ($tag_lc ne $target_lc)) {
-		$html = "<a href=\"/$path/$tagurl\" class=\"$css_class\" lang=\"$tag_lc\">$tag_lc:$tag</a>";
+		$html = "<a href=\"/facets/$path/$tagurl\" class=\"$css_class\" lang=\"$tag_lc\">$tag_lc:$tag</a>";
 	}
 	else {
-		$html = "<a href=\"/$path/$tagurl\" class=\"$css_class\">$tag</a>";
+		$html = "<a href=\"/facets/$path/$tagurl\" class=\"$css_class\">$tag</a>";
 	}
 
 	if ($tagtype eq 'emb_codes') {
@@ -4339,9 +4346,9 @@ sub canonicalize_tag_link ($tagtype, $tagid, $tag_prefix = undef) {
 		}
 	}
 
-	my $path = $tag_type_singular{$tagtype}{$lc};
+	my $path = $tag_type_plural{$tagtype}{$lc};
 	if (not defined $path) {
-		$path = $tag_type_singular{$tagtype}{en};
+		$path = $tag_type_plural{$tagtype}{en};
 	}
 
 	my $link = "/$path/" . ($tag_prefix // '') . URI::Escape::XS::encodeURIComponent($tagid);
@@ -4404,7 +4411,7 @@ GEXF
 			$graph->add_node(
 				name => $tagid,
 				label => canonicalize_tag2($tagtype, $tagid),
-				URL => "http://$lc.openfoodfacts.org/" . $tag_type_singular{$tagtype}{$lc} . "/" . $tagid
+				URL => "http://$lc.openfoodfacts.org/facets/" . $tag_type_plural{$tagtype}{$lc} . "/" . $tagid
 			);
 
 			if (defined $tags_direct_parents{$lc}{$tagtype}{$tagid}) {

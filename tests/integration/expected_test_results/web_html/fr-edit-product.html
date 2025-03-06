@@ -56,7 +56,10 @@
 }
 
     </style>
-    <!-- Matomo -->
+</head>
+<body class="product_edit_page">
+
+	<!-- Matomo -->
 <script>
   var _paq = window._paq = window._paq || [];
   /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
@@ -79,11 +82,13 @@
 <!-- End Matomo Code -->
 
 
-</head>
-<body class="product_edit_page">
+
+	
 	<div class="skip"><a href="#content" tabindex="0">Aller au contenu</a></div>
+	
 
 	<div id="page">
+		
 		<div class="upper-nav contain-to-grid"  id="upNav">
 			<nav class="top-bar " data-topbar role="navigation">
 				
@@ -161,9 +166,9 @@
 									
 									<li class="divider"></li>			
 									<li><label>Vos contributions</label></li>
-									<li><a href="/contributeur/tests">Produits ajoutés</a></li>
-									<li><a href="/editeur/tests">Produits modifiés</a></li>
-									<li><a href="/photographe/tests">Produits photographiés</a></li>
+									<li><a href="/facets/contributeurs/tests">Produits ajoutés</a></li>
+									<li><a href="/facets/editeurs/tests">Produits modifiés</a></li>
+									<li><a href="/facets/photographes/tests">Produits photographiés</a></li>
 									
 									<li class="divider"></li>			
 									<li class="has-form">
@@ -179,9 +184,11 @@
 				</section>
 			</nav>
 		</div>
+		
 
 		<div id="main_container" style="position:relative" class="block_latte">
-			
+		
+		
 		<div class="topbarsticky">
 			<div class="contain-to-grid " id="offNav" >
 				<nav class="top-bar" data-topbar role="navigation" >
@@ -259,18 +266,25 @@
 				</form>
 			</div>
 		</nav>
+		
 
 		<div id="content" class="off-canvas-wrap block_latte" data-offcanvas>
 			<div class="inner-wrap">
 			
 				<a class="exit-off-canvas"></a>
+
+				
 				
 				<!-- full width banner on mobile -->
 				
 				
 
+				
+
 				<div class="main block_light">
 					<div id="main_column">
+
+						
 						
 							
 							
@@ -288,7 +302,7 @@
 <section id="donation-banner-top" class="donation-banner row">
   <div class="donation-banner__left-aside">
     <div class="donation-banner__hook-section">
-      <p>Aidez-nous à informer des millions de consommateurs à travers le monde sur ce qu’ils mangent</p>
+      <p>Aidez-nous à informer des millions de consommateurs à travers le monde sur ce qu'ils mangent</p>
     </div>
     <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="group photo donation 2024" />
   </div>
@@ -296,30 +310,30 @@
     <div class="donation-banner__aside">
       <div class="donation-banner__main-section">
         <img
-          width="50px"
-          height="50px"
+          width="50"
+          height="50"
           src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
           alt="open food facts logo"
         />
-        <h3 class="donation-banner__main-title">Participez à notre Collecte de Dons 2024</h3>
+        <h3 class="donation-banner__main-title">Merci de contribuer à notre collecte de fonds 2024</h3>
       </div>
       <div style="padding:1rem;">
-        <p>Vos dons financent les opérations quotidiennes de notre association :</p>
+        <p>Vos dons financent le fonctionnement quotidien de notre association à but non lucratif :</p>
         <ul>
           <li>
-            maintenir notre base de données ouverte et disponible à tou.te.s,
+            garder notre base de données ouverte et accessible à tous,
             <ul>
-              <li>infrastructure technique et une petite équipe permanente</li>
+              <li>infrastructure technique (site web/application mobile) et une petite équipe permanente</li>
             </ul>
           </li>
           <li>
-            <p>rester indépendante de l’industrie agro-alimentaire,</p>
+            <p>rester indépendant de l'industrie alimentaire,</p>
           </li>
           <li>
-            <p>animer une communauté de citoyen.ne.s engagé.e.s,</p>
+            <p>mobiliser une communauté de citoyens engagés,</p>
           </li>
           <li>
-            <p>soutenir l’avancement des recherches en santé publique.</p>
+            <p>soutenir l’avancement de la recherche en santé publique.</p>
           </li>
         </ul>
       </div>
@@ -385,6 +399,7 @@
 
 							
 						
+						
             			
 						
 							<!-- banner pages such as product, product edit form and landing pages have their own h1 title -->
@@ -423,7 +438,7 @@
                             <li><a class="nav-link scrollto button small round white-button" href="#product_characteristics"><span>Caractéristiques du produit</span></a></li>
                             <li><a class="nav-link scrollto button small round white-button" href="#ingredients"><span>Ingrédients</span></a></li>
                             <li><a class="nav-link scrollto button small round white-button" href="#nutrition"><span>Nutrition</span></a></li>
-                            <li><a class="nav-link scrollto button small round white-button" href="#packaging_section"><span>Conditionnement</span></a></li>
+                            <li><a class="nav-link scrollto button small round white-button" href="#packaging_section"><span>Emballage</span></a></li>
                         </ul>
                     </nav><!-- .navbar -->
                 </div>
@@ -443,6 +458,8 @@
                 </p>
 
 
+        
+        
         
 
         
@@ -1953,27 +1970,30 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
 
 
 
+                    <!-- petfood nutriment are as sold only -->
                     
-                        <!-- extra field suffixed with _displayed to allow detecting when a box is unchecked -->
-                        <input type="hidden" name="nutrition_data_displayed" value="1" />
-                        <input type="checkbox" id="nutrition_data" name="nutrition_data" checked="checked" />
-                        <label for="nutrition_data" class="checkbox_label">Les informations nutritionnelles sont mentionnées pour le produit tel que vendu.</label> &nbsp;
-                        <input type="radio" id="nutrition_data_per_100g" value="100g" name="nutrition_data_per" checked="checked" />
-                        <label for="nutrition_data_per_100g">pour 100 g / 100 ml</label>
-                        <input type="radio" id="nutrition_data_per_serving" value="serving" name="nutrition_data_per"  />
-                        <label for="nutrition_data_per_serving">par portion</label><br/>
-
                         
-                    
-                        <!-- extra field suffixed with _displayed to allow detecting when a box is unchecked -->
-                        <input type="hidden" name="nutrition_data_prepared_displayed" value="1" />
-                        <input type="checkbox" id="nutrition_data_prepared" name="nutrition_data_prepared"  />
-                        <label for="nutrition_data_prepared" class="checkbox_label">Les informations nutritionnelles sont mentionnées pour le produit préparé.</label> &nbsp;
-                        <input type="radio" id="nutrition_data_prepared_per_100g" value="100g" name="nutrition_data_prepared_per" checked="checked" />
-                        <label for="nutrition_data_prepared_per_100g">pour 100 g / 100 ml</label>
-                        <input type="radio" id="nutrition_data_prepared_per_serving" value="serving" name="nutrition_data_prepared_per"  />
-                        <label for="nutrition_data_prepared_per_serving">par portion</label><br/>
+                            <!-- extra field suffixed with _displayed to allow detecting when a box is unchecked -->
+                            <input type="hidden" name="nutrition_data_displayed" value="1" />
+                            <input type="checkbox" id="nutrition_data" name="nutrition_data" checked="checked" />
+                            <label for="nutrition_data" class="checkbox_label">Les informations nutritionnelles sont mentionnées pour le produit tel que vendu.</label> &nbsp;
+                            <input type="radio" id="nutrition_data_per_100g" value="100g" name="nutrition_data_per" checked="checked" />
+                            <label for="nutrition_data_per_100g">pour 100 g / 100 ml</label>
+                            <input type="radio" id="nutrition_data_per_serving" value="serving" name="nutrition_data_per"  />
+                            <label for="nutrition_data_per_serving">par portion</label><br/>
 
+                            
+                        
+                            <!-- extra field suffixed with _displayed to allow detecting when a box is unchecked -->
+                            <input type="hidden" name="nutrition_data_prepared_displayed" value="1" />
+                            <input type="checkbox" id="nutrition_data_prepared" name="nutrition_data_prepared"  />
+                            <label for="nutrition_data_prepared" class="checkbox_label">Les informations nutritionnelles sont mentionnées pour le produit préparé.</label> &nbsp;
+                            <input type="radio" id="nutrition_data_prepared_per_100g" value="100g" name="nutrition_data_prepared_per" checked="checked" />
+                            <label for="nutrition_data_prepared_per_100g">pour 100 g / 100 ml</label>
+                            <input type="radio" id="nutrition_data_prepared_per_serving" value="serving" name="nutrition_data_prepared_per"  />
+                            <label for="nutrition_data_prepared_per_serving">par portion</label><br/>
+
+                            
                         
                     
 
@@ -1982,12 +2002,16 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                         <table id="nutrition_data_table" class="data_table" style="display: table;" aria-label="nutrition table">
                             <thead class="nutriment_header">
                                 <th id="col_1">
-                                    Tableau nutritionnel
+                                    
+                                        Tableau nutritionnel
+                                    
                                 </th>
                                 <th id="col_2" class="nutriment_col" >
                                     Tel que vendu<br/>
-                                    <span id="nutrition_data_100g" >pour 100 g / 100 ml</span>
-                                    <span id="nutrition_data_serving"  style="display:none">par portion</span>
+                                    
+                                        <span id="nutrition_data_100g" >pour 100 g / 100 ml</span>
+                                        <span id="nutrition_data_serving"  style="display:none">par portion</span>
+                                    
                                 </th>
                                 <th id="col_3" class="nutriment_col_prepared" style="display:none">
                                     Préparé<br/>
@@ -2029,6 +2053,8 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                 <input  class="nutriment_value nutriment_value_prepared" id="nutriment_energy-kj_prepared" name="nutriment_energy-kj_prepared" value=""  autocomplete="off"/>
                                             </td>
 
+                                            <!-- food -->
+                                            <!-- petfood -->
                                             
                                                 <td>
                                                     <span class="nutriment_unit">kJ</span>
@@ -2065,6 +2091,8 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                 <input  class="nutriment_value nutriment_value_prepared" id="nutriment_energy-kcal_prepared" name="nutriment_energy-kcal_prepared" value=""  autocomplete="off"/>
                                             </td>
 
+                                            <!-- food -->
+                                            <!-- petfood -->
                                             
                                                 <td>
                                                     <span class="nutriment_unit">kcal</span>
@@ -2107,6 +2135,8 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                 <input  class="nutriment_value nutriment_value_prepared" id="nutriment_fat_prepared" name="nutriment_fat_prepared" value=""  autocomplete="off"/>
                                             </td>
 
+                                            <!-- food -->
+                                            <!-- petfood -->
                                             
                                                 <td>
                                                     <span class="nutriment_unit_percent" id="nutriment_fat_unit_percent" style="display:none">%</span>
@@ -2153,6 +2183,8 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                 <input  class="nutriment_value nutriment_value_prepared" id="nutriment_saturated-fat_prepared" name="nutriment_saturated-fat_prepared" value=""  autocomplete="off"/>
                                             </td>
 
+                                            <!-- food -->
+                                            <!-- petfood -->
                                             
                                                 <td>
                                                     <span class="nutriment_unit_percent" id="nutriment_saturated-fat_unit_percent" style="display:none">%</span>
@@ -2337,6 +2369,8 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                 <input  class="nutriment_value nutriment_value_prepared" id="nutriment_carbohydrates_prepared" name="nutriment_carbohydrates_prepared" value=""  autocomplete="off"/>
                                             </td>
 
+                                            <!-- food -->
+                                            <!-- petfood -->
                                             
                                                 <td>
                                                     <span class="nutriment_unit_percent" id="nutriment_carbohydrates_unit_percent" style="display:none">%</span>
@@ -2383,6 +2417,8 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                 <input  class="nutriment_value nutriment_value_prepared" id="nutriment_sugars_prepared" name="nutriment_sugars_prepared" value=""  autocomplete="off"/>
                                             </td>
 
+                                            <!-- food -->
+                                            <!-- petfood -->
                                             
                                                 <td>
                                                     <span class="nutriment_unit_percent" id="nutriment_sugars_unit_percent" style="display:none">%</span>
@@ -2469,6 +2505,8 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                 <input  class="nutriment_value nutriment_value_prepared" id="nutriment_fiber_prepared" name="nutriment_fiber_prepared" value=""  autocomplete="off"/>
                                             </td>
 
+                                            <!-- food -->
+                                            <!-- petfood -->
                                             
                                                 <td>
                                                     <span class="nutriment_unit_percent" id="nutriment_fiber_unit_percent" style="display:none">%</span>
@@ -2523,6 +2561,8 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                 <input  class="nutriment_value nutriment_value_prepared" id="nutriment_proteins_prepared" name="nutriment_proteins_prepared" value=""  autocomplete="off"/>
                                             </td>
 
+                                            <!-- food -->
+                                            <!-- petfood -->
                                             
                                                 <td>
                                                     <span class="nutriment_unit_percent" id="nutriment_proteins_unit_percent" style="display:none">%</span>
@@ -2581,6 +2621,8 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                 <input  class="nutriment_value nutriment_value_prepared" id="nutriment_salt_prepared" name="nutriment_salt_prepared" value=""  autocomplete="off"/>
                                             </td>
 
+                                            <!-- food -->
+                                            <!-- petfood -->
                                             
                                                 <td>
                                                     <span class="nutriment_unit_percent" id="nutriment_salt_unit_percent" style="display:none">%</span>
@@ -2629,6 +2671,8 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                 <input  class="nutriment_value nutriment_value_prepared" id="nutriment_sodium_prepared" name="nutriment_sodium_prepared" value=""  autocomplete="off"/>
                                             </td>
 
+                                            <!-- food -->
+                                            <!-- petfood -->
                                             
                                                 <td>
                                                     <span class="nutriment_unit_percent" id="nutriment_sodium_unit_percent" style="display:none">%</span>
@@ -2673,6 +2717,8 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                 <input  class="nutriment_value nutriment_value_prepared" id="nutriment_alcohol_prepared" name="nutriment_alcohol_prepared" value=""  autocomplete="off"/>
                                             </td>
 
+                                            <!-- food -->
+                                            <!-- petfood -->
                                             
                                                 <td>
                                                     <span class="nutriment_unit">% vol / °</span>
@@ -2913,6 +2959,8 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                 <input  class="nutriment_value nutriment_value_prepared" id="nutriment_new_0_prepared" name="nutriment_new_0_prepared" value=""  autocomplete="off"/>
                                             </td>
 
+                                            <!-- food -->
+                                            <!-- petfood -->
                                             
                                                 <td>
                                                     <span class="nutriment_unit_percent" id="nutriment_new_0_unit_percent" style="display:none">%</span>
@@ -2957,6 +3005,8 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                 <input  class="nutriment_value nutriment_value_prepared" id="nutriment_new_1_prepared" name="nutriment_new_1_prepared" value=""  autocomplete="off"/>
                                             </td>
 
+                                            <!-- food -->
+                                            <!-- petfood -->
                                             
                                                 <td>
                                                     <span class="nutriment_unit_percent" id="nutriment_new_1_unit_percent" style="display:none">%</span>
@@ -2990,7 +3040,9 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
 
                 
 
-                <p class="asterisk">&rarr;* :Nutriments essentiels pour calculer le Nutri-Score.</p>
+                
+                    <p class="asterisk">&rarr;* :Nutriments essentiels pour calculer le Nutri-Score.</p>
+                
                 <p class="note">&rarr; Le tableau liste par défaut les nutriments les plus couramment indiqués. Laissez le champ vide s'il n'est pas présent sur l'emballage.<br />Vous pouvez ajouter d'autres nutriments
 (vitamines, minéraux, cholestérol, oméga 3 et 6 etc.) en tapant les premières lettres de leur nom dans la dernière ligne du tableau.</p>
                 </div>
@@ -3001,7 +3053,7 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
         <!--packaging field-->
         <section id="packaging_section" class="card fieldset">
             <div class="card-section">
-                <legend>Conditionnement</legend>
+                <legend>Emballage</legend>
                 <!-- start templates/web/pages/product_edit/display_input_tabs.tt.html -->
 
 <!--html tab header starts-->
@@ -3468,6 +3520,10 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
             
 
                 <div class="row">
+                    
+                        
+                        
+                    
                     <div class="small-12 medium-12 large-8 xlarge-8 columns" style="margin-bottom:0.5rem;">
                         <input id="comment" name="comment" placeholder="Description de vos changements" value="" type="text" class="text" style="margin:0" />
                     </div>
@@ -3481,6 +3537,7 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                             <svg xmlns="//www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon" aria-hidden="true" focusable="false"><path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"/><path d="M0 0h24v24H0z" fill="none"/></svg> Annuler
                         </button>
                     </div>
+                    
                 </div>
 
             
@@ -3494,8 +3551,8 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
 <ul id="history_list">
   
   <li>
-    <time datetime="--ignore--">--ignore--</time> - <a href="/editeur/tests" lang="no_language">tests</a> Données (Ajout : code, lang, product_name, quantity, brands, categories, labels, link, countries, nutrition_data_per, nutrition_data_prepared_per, serving_size, ingredients_text, generic_name_en, ingredients_text_en, origin_en, product_name_en, ingredients_text_fr, product_name_fr) -- Nutriments (Ajout : nutrition-score-fr)   - (app)  &nbsp;
-    <a href="/produit/3300000000002/tarte-aux-pommes-et-aux-framboise-bio-les-tartes-de-robert?rev=1" class="button tiny">View this revision</a>
+    <time datetime="--ignore--">--ignore--</time> - <a href="/facets/editeurs/tests" lang="no_language">tests</a> Données (Ajout : product_type, code, lang, product_name, quantity, brands, categories, labels, link, countries, nutrition_data_per, nutrition_data_prepared_per, serving_size, ingredients_text, generic_name_en, ingredients_text_en, origin_en, product_name_en, ingredients_text_fr, product_name_fr) -- Nutriments (Ajout : nutrition-score-fr)   - (app)  &nbsp;
+    <a href="/produit/3300000000002/tarte-aux-pommes-et-aux-framboise-bio-les-tartes-de-robert?rev=1" class="button tiny">Voir cette révision</a>
     
   </li>
   
@@ -3565,6 +3622,7 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
 		</div>
 		</div>
 
+		
 		<footer>
 			<div class="block_light bg-white" id="install_the_app_block">
 				<div class="row">
@@ -3605,7 +3663,7 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
 <section class="donation-banner-footer row">
   <div class="donation-banner-footer__left-aside">
     <div class="donation-banner-footer__hook-section">
-      <p>Aidez-nous à informer des millions de consommateurs à travers le monde sur ce qu’ils mangent</p>
+      <p>Aidez-nous à informer des millions de consommateurs à travers le monde sur ce qu'ils mangent</p>
     </div>
     <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="group photo donation 2024" />
   </div>
@@ -3613,40 +3671,40 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
     <div>
       <div class="donation-banner-footer__main-section">
         <img
-          width="50px"
-          height="50px"
+          width="50"
+          height="50"
           src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
           alt="open food facts logo"
         />
-        <h3 class="donation-banner-footer__main-title">Participez à notre Collecte de Dons 2024</h3>
+        <h3 class="donation-banner-footer__main-title">Merci de contribuer à notre collecte de fonds 2024</h3>
       </div>
-      <p>Vos dons financent les opérations quotidiennes de notre association :</p>
+      <p>Vos dons financent le fonctionnement quotidien de notre association à but non lucratif :</p>
       <ul>
         <li>
-          maintenir notre base de données ouverte et disponible à tou.te.s,
+          garder notre base de données ouverte et accessible à tous,
           <ul>
-            <li>infrastructure technique et une petite équipe permanente</li>
+            <li>infrastructure technique (site web/application mobile) et une petite équipe permanente</li>
           </ul>
         </li>
         <li>
-          <p>rester indépendante de l’industrie agro-alimentaire,</p>
+          <p>rester indépendant de l'industrie alimentaire,</p>
         </li>
         <li>
-          <p>animer une communauté de citoyen.ne.s engagé.e.s,</p>
+          <p>mobiliser une communauté de citoyens engagés,</p>
         </li>
         <li>
-          <p>soutenir l’avancement des recherches en santé publique.</p>
+          <p>soutenir l’avancement de la recherche en santé publique.</p>
         </li>
       </ul>
     </div>
     <div class="donation-banner-footer__actions-section">
       <div class="donation-banner-footer__actions-section__financial">
         <p>
-          Each donation counts! We appreciate your support in bringing further food transparency in the world.
+          Chaque don compte ! Nous apprécions votre soutien pour une plus grande transparence alimentaire dans le monde.
         </p>
       </div>
       <div class="donation-banner-footer__actions-section__donate-button">
-        <a href="//open-food-facts.assoconnect.com/collect/description/476750-c-faire-un-don-a-open-food-facts//fr.openfoodfacts.org/faire-un-don-a-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2024-a&utm_term=en-text-button">
+        <a href="//open-food-facts.assoconnect.com/collect/description/476750-c-faire-un-don-a-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2024-a&utm_term=en-text-button">
           <button>JE SOUTIENS</button>
         </a>
       </div>
@@ -3719,6 +3777,7 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
 				</div>
 			</div>
 		</footer>
+		
 
 	</div>
 

@@ -6,7 +6,7 @@
          "ingredients" : [
             {
                "ciqual_food_code" : "16129",
-               "ecobalyse_code" : "refined-palm-oil",
+               "ecobalyse_code" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
                "from_palm_oil" : "yes",
                "id" : "en:palm-oil",
                "is_in_taxonomy" : 1,
@@ -20,7 +20,7 @@
             },
             {
                "ciqual_food_code" : "17130",
-               "ecobalyse_code" : "rapeseed-oil",
+               "ecobalyse_code" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
                "from_palm_oil" : "no",
                "id" : "en:colza-oil",
                "is_in_taxonomy" : 1,
@@ -61,6 +61,7 @@
       "en:colza-oil",
       "en:rapeseed-oil"
    ],
+   "ingredients_lc" : "fr",
    "ingredients_n" : 3,
    "ingredients_n_tags" : [
       "3",

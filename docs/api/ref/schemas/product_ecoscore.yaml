@@ -14,6 +14,7 @@ properties:
       and complementary data of interest.
     properties:
       adjustments:
+        title: product_ecoscore_adjustments
         type: object
         properties:
           origins_of_ingredients:
@@ -25,10 +26,16 @@ properties:
                   title: adjustments_origin_of_ingredient_aggregated
                   type: object
                   properties:
+                    epi_score:
+                      type: string #TODO: should be integer
                     origin:
                       type: string
                     percent:
                       type: integer
+                    transportation_score:
+                      type:
+                        - "null"
+                        - "integer"
               epi_score:
                 type: integer
               epi_value:
@@ -41,31 +48,18 @@ properties:
                 type: array
                 items:
                   type: string
+              transportation_score:
+                type: integer
               transportation_scores:
-                type: object
-                properties:
-                  world:
-                    type: integer
-                patternProperties:
-                  (?<country_code>\w\w):
-                    type: integer
+                $ref: "./ecoscore-country-code.yaml#/components/schemas/EcoscoreCountryValues"
+              transportation_value:
+                type: integer
               transportation_values:
-                type: object
-                properties:
-                  world:
-                    type: integer
-                patternProperties:
-                  (?<country_code>\w\w):
-                    type: integer
-
+                $ref: "./ecoscore-country-code.yaml#/components/schemas/EcoscoreCountryValues"
+              value:
+                type: integer
               values:
-                type: object
-                properties:
-                  world:
-                    type: integer
-                patternProperties:
-                  (?<country_code>\w\w):
-                    type: integer
+                $ref: "./ecoscore-country-code.yaml#/components/schemas/EcoscoreCountryValues"
               warning:
                 type: string
           packaging:
@@ -87,6 +81,24 @@ properties:
                       type: string
                     shape:
                       type: string
+                    number_of_units:
+                      type: integer
+                      examples: [1]
+                    quantity_per_unit:
+                      type: string
+                      examples: ["33 cL"]
+                    quantity_per_unit_unit:
+                      type: string
+                      examples: ["cl"]
+                    quantity_per_unit_value:
+                      type: number
+                      examples: [33]
+                    recycling:
+                      type: string
+                      examples: ["en:recycle-in-sorting-bin"]
+                    weight_measured:
+                      type: number
+                      examples: [12.08]
               score:
                 type: integer
               value:
@@ -98,7 +110,10 @@ properties:
             properties:
               labels:
                 type: array
-                example: "vegan, fat free, Kosher"
+                examples:
+                  - - vegan
+                    - fat free
+                    - Kosher
                 items:
                   type: string
               value:

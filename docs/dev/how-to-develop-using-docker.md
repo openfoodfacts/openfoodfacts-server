@@ -226,14 +226,10 @@ You will need:
   * `.env.off` : configuration for Open Food Facts dev env.
   * `.env.off-pro` : configuration for Open Food Facts Producer's Platform dev env.
   * `.env.obf`: configuration for Open Beauty Facts dev env.
-  * `.env.opff`: configuration for Open Ped Food Facts dev env.
+  * `.env.opff`: configuration for Open Pet Food Facts dev env.
 
 
-* `COMPOSE_PROJECT_NAME` set to different values in each `.env` file, so that container names across deployments are unique.
-
-* `FRONTEND_PORT` and `MONGODB_PORT` 
-  set to different values in each `.env` file, 
-  so that frontend containers don't port-conflict with each other.
+* `COMPOSE_PROJECT_NAME`, `COMPOSE_PROFILES`,  `PRODUCT_OPENER_DOMAIN`, `PRODUCT_OPENER_PORT`, `PRODUCT_OPENER_FLAVOR` and `PRODUCT_OPENER_FLAVOR_SHORT` set to different values in each `.env` file, so that container names across deployments are unique and frontend containers don't port-conflict with each other. See example below.
 
 To switch between configurations, set `ENV_FILE` before running `make` commands,
 (or `docker compose` command):
@@ -281,3 +277,28 @@ A good strategy is to have multiple terminals open, one for each deployment:
   ```
 
 **Note:** the above case of 4 deployments is ***a bit ambitious***, since ProductOpener's `backend` container takes about ~6GB of RAM to run, meaning that the above 4 deployments would require a total of 24GB of RAM available.
+
+**Example:** if you already have Open Food Facts up and running and you would like to have Open Beauty Facts as well. Then, copy `.env` to `.env.obf` and modify the following variables:
+```
+COMPOSE_PROJECT_NAME=po_off
+COMPOSE_PROFILES=off
+PRODUCT_OPENER_DOMAIN=openfoodfacts.localhost
+PRODUCT_OPENER_PORT=80
+PRODUCT_OPENER_FLAVOR=openfoodfacts
+PRODUCT_OPENER_FLAVOR_SHORT=off
+```
+to
+```
+COMPOSE_PROJECT_NAME=po_obf
+COMPOSE_PROFILES=obf
+PRODUCT_OPENER_DOMAIN=openbeautyfacts.localhost
+PRODUCT_OPENER_PORT=81
+PRODUCT_OPENER_FLAVOR=openbeautyfacts
+PRODUCT_OPENER_FLAVOR_SHORT=obf
+```
+Run:
+```
+export ENV_FILE=.env.obf
+make dev
+```
+If you have error like `Errors in the labels taxonomy definition at /opt/product-opener/lib/ProductOpener/Tags.pm line 1622.`, due to conflict between taxonomies, a small hack is to comment the lines (it appears 2 times in the file) raising error in the **Tags.pm** file. 

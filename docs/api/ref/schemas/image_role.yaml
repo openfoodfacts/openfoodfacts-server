@@ -1,7 +1,5 @@
 components:
   schemas:
-    ImageSize:
-      $ref: ./image_size.yaml
     ImageRole:
       title: image_role
       type: object
@@ -29,7 +27,10 @@ components:
           #  - type: "boolean"
           #  - type: "string"
           #    enum: ["true", "false"]
-          type: "null"
+          type:
+            - "string"
+            - "boolean"
+            - "null"
           examples:
             - null
             - "false"
@@ -46,13 +47,13 @@ components:
             while the full images have `full` as the key.
           properties:
             "100":
-              $ref: "#/components/schemas/ImageSize"
+              $ref: ./image_size.yaml
             "200":
-              $ref: "#/components/schemas/ImageSize"
+              $ref: ./image_size.yaml
             "400":
-              $ref: "#/components/schemas/ImageSize"
+              $ref: ./image_size.yaml
             full:
-              $ref: "#/components/schemas/ImageSize"
+              $ref: ./image_size.yaml
         white_magic:
           #TODO: should be replaced by something like this once full supported by generator
           #oneOf:
@@ -60,7 +61,10 @@ components:
           #  - type: "boolean"
           #  - type: "string"
           #    enum: ["true", "false"]
-          type: "null"
+          type:
+            - "string"
+            - "boolean"
+            - "null"
           examples:
             - null
             - "false"

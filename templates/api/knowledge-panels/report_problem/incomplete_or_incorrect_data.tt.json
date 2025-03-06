@@ -17,7 +17,7 @@
                 "html": `
                 [% lang('incomplete_or_incorrect_data_content_correct') %]
                 [% lang('incomplete_or_incorrect_data_content_correct_off') %]
-                `
+                `         
             },
         },
         {
@@ -26,6 +26,23 @@
                 "html": "",
                 "actions": ["edit_product"]
             }
-        }          
+        },
+        [% IF panel.nutripatrol_enabled %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `
+                [% lang('report_to_nutripatrol_explain') %]
+                `
+            },
+        },
+        {
+            "element_type": "action",
+            "action_element": {
+                "html": "",
+                "actions": ["report_product_to_nutripatrol"]
+            }
+        },
+        [% END %]
     ]
 }

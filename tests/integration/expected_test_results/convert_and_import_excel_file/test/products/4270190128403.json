@@ -10,7 +10,7 @@
    "additives_tags" : [],
    "allergens" : "",
    "allergens_from_ingredients" : "",
-   "allergens_from_user" : "(fr) ",
+   "allergens_from_user" : "(en) ",
    "allergens_hierarchy" : [],
    "allergens_tags" : [],
    "amino_acids_tags" : [],
@@ -71,7 +71,7 @@
    "data_quality_info_tags" : [
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
-      "en:ecoscore-extended-data-not-computed",
+      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown"
@@ -79,24 +79,24 @@
    "data_quality_tags" : [
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
-      "en:ecoscore-extended-data-not-computed",
+      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown",
       "en:ingredients-unknown-score-above-0",
       "en:ingredients-100-percent-unknown",
       "en:nutri-score-grade-from-producer-does-not-match-calculated-grade",
-      "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-      "en:ecoscore-packaging-packaging-data-missing",
-      "en:ecoscore-production-system-no-label"
+      "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+      "en:environmental-score-packaging-packaging-data-missing",
+      "en:environmental-score-production-system-no-label"
    ],
    "data_quality_warnings_tags" : [
       "en:ingredients-unknown-score-above-0",
       "en:ingredients-100-percent-unknown",
       "en:nutri-score-grade-from-producer-does-not-match-calculated-grade",
-      "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-      "en:ecoscore-packaging-packaging-data-missing",
-      "en:ecoscore-production-system-no-label"
+      "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+      "en:environmental-score-packaging-packaging-data-missing",
+      "en:environmental-score-production-system-no-label"
    ],
    "data_sources" : "Producers, Producer - test-food-company",
    "data_sources_imported" : "Producers, Producer - test-food-company",
@@ -104,7 +104,14 @@
       "producers",
       "producer-test-food-company"
    ],
-   "ecoscore_data" : {
+   "ecoscore_tags" : [
+      "unknown"
+   ],
+   "editors_tags" : [
+      "test-user"
+   ],
+   "entry_dates_tags" : "--ignore--",
+   "environmental_score_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
             "aggregated_origins" : [
@@ -332,6 +339,7 @@
       "agribalyse" : {
          "warning" : "missing_agribalyse_match"
       },
+      "grade" : "unknown",
       "missing" : {
          "agb_category" : 1,
          "labels" : 1,
@@ -342,14 +350,10 @@
       "missing_key_data" : 1,
       "status" : "unknown"
    },
-   "ecoscore_grade" : "unknown",
-   "ecoscore_tags" : [
+   "environmental_score_grade" : "unknown",
+   "environmental_score_tags" : [
       "unknown"
    ],
-   "editors_tags" : [
-      "test-user"
-   ],
-   "entry_dates_tags" : "--ignore--",
    "food_groups_tags" : [],
    "id" : "4270190128403",
    "informers_tags" : [
@@ -459,8 +463,7 @@
    "main_countries_tags" : [],
    "minerals_tags" : [],
    "misc_tags" : [
-      "en:ecoscore-extended-data-not-computed",
-      "en:ecoscore-not-computed",
+      "en:environmental-score-not-computed",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-fat",
       "en:nutriscore-missing-nutrition-data-proteins",
@@ -555,7 +558,7 @@
    "nutriscore_tags" : [
       "unknown"
    ],
-   "nutriscore_version" : "2021",
+   "nutriscore_version" : "2023",
    "nutrition_data" : "on",
    "nutrition_data_per" : "100g",
    "nutrition_data_prepared_per" : "100g",
@@ -651,7 +654,7 @@
    ],
    "traces" : "",
    "traces_from_ingredients" : "",
-   "traces_from_user" : "(fr) ",
+   "traces_from_user" : "(en) ",
    "traces_hierarchy" : [],
    "traces_tags" : [],
    "unknown_ingredients_n" : 2,

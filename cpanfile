@@ -110,6 +110,9 @@ requires 'Module::Load';
 # To measure the time taken by requests
 requires 'Time::Monotonic';
 
+# To measure similarity between words and find possible typo
+requires 'Text::Levenshtein';
+
 on 'test' => sub {
   requires 'Test2::V0';
   requires 'Mock::Quick';
@@ -142,6 +145,7 @@ on 'develop' => sub {
   requires 'Devel::Cover::Report::Codecov';
   requires 'Devel::Cover::Report::Codecovbash';
   requires 'Test2::Harness';
+  requires 'Test2::Harness::Renderer::JUnit';
 };
 
 feature "off_server_dev_tools", "Optional development tools" => sub {

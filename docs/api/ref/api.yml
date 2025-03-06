@@ -5,6 +5,8 @@ info:
     As a developer, the Open Food Facts API allows you to get information
     and contribute to the products database. You can create great apps to
     help people make better food choices and also provide data to enhance the database.
+
+    **IMPORTANT**: Please read the [API introduction](https://openfoodfacts.github.io/openfoodfacts-server/api/) before using this API.
   termsOfService: "https://world.openfoodfacts.org/terms-of-use"
   contact:
     name: Open Food Facts
@@ -18,7 +20,7 @@ info:
   version: "2"
 externalDocs:
   description: |
-    Please read the API introduction before using this API.
+    **IMPORTANT**: Please read the API introduction before using this API.
   url: https://openfoodfacts.github.io/openfoodfacts-server/api/
 servers:
   - description: dev
@@ -47,14 +49,10 @@ paths:
           explode: false
           schema:
             type: string
-            example: "3017620422003"
-        - name: fields
-          in: query
-          description: Specific fields to return. Use 'knowledge_panels' for Knowledge Panels only.
-          required: false
-          schema:
-            type: string
-            enum: [knowledge_panels]
+            examples:
+              - "3017620422003"
+        - $ref: "./parameters/requested_product_type.yaml#/components/parameters/RequestedProductType"
+        - $ref: "#/components/parameters/fields"
       responses:
         "200":
           description: OK
@@ -76,7 +74,18 @@ paths:
                   $ref: "./examples/get_product_by_barcode_spread.yaml"
                 knowledge-panels:
                   $ref: "./examples/get_product_by_barcode_knowledge_panels.yaml" # You'll need to create this example
-
+        "302":
+          description: Redirect to the correct server for the product type of the requested product
+          headers:
+            Location:
+              schema:
+                type: string
+                description: URL to the correct server
+              examples:
+                redirect:
+                  value: "https://world.openbeautyfacts.org/api/v2/product/8710447445990"
+        "404":
+          description: Product not found
   /cgi/product_image_upload.pl:
     post:
       tags:
@@ -516,10 +525,10 @@ components:
       $ref: ./schemas/product_ingredients.yaml
     "Product-Nutrition":
       $ref: ./schemas/product_nutrition.yaml
+    "Product-Nutriscore":
+      $ref: "./schemas/product_nutriscore.yaml#/components/schemas/NutriscoreAll"
     "Product-Quality":
       $ref: ./schemas/product_quality.yaml
-    "Product-Data-Quality":
-      $ref: ./schemas/product_knowledge_panels.yaml
     "Product-Extended":
       $ref: ./schemas/product_extended.yaml
     "Product-Metadata":
@@ -531,8 +540,11 @@ components:
     Product:
       $ref: ./schemas/product.yaml
     Ingredient:
-      # Added to fix some generator errors on $ref
+      # Added to fix some generator errors on recursive $ref
       $ref: "./schemas/ingredient.yaml#/components/schemas/Ingredient"
+    Nutrient:
+      # Added to fix some generator errors on recursive $ref
+      $ref: "./schemas/nutrients.yaml#/components/schemas/Nutrient"
   parameters:
     id:
       schema:
@@ -640,14 +652,7 @@ components:
         * `created_t`, `last_modified_t`, are about creation and modification dates
         * `nothing`, tells not to sort at all (because if you do not provide the sort_by argument we default to sorting on popularity (for food) or last modification date)
     fields:
-      schema:
-        type: string
-        example: "code,product_name"
-      in: query
-      name: fields
-      description: |
-        The fields to be returned from the product object can also be limited.
-        If not specified, it returns the entire product object response.
+      $ref: ./parameters/product_available_fields.yaml#/components/parameters/ProductAvailableFields
     knowledge_panels_included:
       schema:
         type: string

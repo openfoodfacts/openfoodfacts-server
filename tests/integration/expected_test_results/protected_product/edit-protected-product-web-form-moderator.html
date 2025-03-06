@@ -37,7 +37,10 @@
 .hide-when-logged-in {display:none}
 
     </style>
-    <!-- Matomo -->
+</head>
+<body class="other_page">
+
+	<!-- Matomo -->
 <script>
   var _paq = window._paq = window._paq || [];
   /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
@@ -60,11 +63,13 @@
 <!-- End Matomo Code -->
 
 
-</head>
-<body class="other_page">
+
+	
 	<div class="skip"><a href="#content" tabindex="0">Aller au contenu</a></div>
+	
 
 	<div id="page">
+		
 		<div class="upper-nav contain-to-grid"  id="upNav">
 			<nav class="top-bar " data-topbar role="navigation">
 				
@@ -142,9 +147,9 @@
 									
 									<li class="divider"></li>			
 									<li><label>Vos contributions</label></li>
-									<li><a href="/contributeur/moderator">Produits ajoutés</a></li>
-									<li><a href="/editeur/moderator">Produits modifiés</a></li>
-									<li><a href="/photographe/moderator">Produits photographiés</a></li>
+									<li><a href="/facets/contributeurs/moderator">Produits ajoutés</a></li>
+									<li><a href="/facets/editeurs/moderator">Produits modifiés</a></li>
+									<li><a href="/facets/photographes/moderator">Produits photographiés</a></li>
 									
 									<li class="divider"></li>			
 									<li class="has-form">
@@ -160,9 +165,11 @@
 				</section>
 			</nav>
 		</div>
+		
 
 		<div id="main_container" style="position:relative" class="block_latte">
-			
+		
+		
 		<div class="topbarsticky">
 			<div class="contain-to-grid " id="offNav" >
 				<nav class="top-bar" data-topbar role="navigation" >
@@ -240,18 +247,25 @@
 				</form>
 			</div>
 		</nav>
+		
 
 		<div id="content" class="off-canvas-wrap block_latte" data-offcanvas>
 			<div class="inner-wrap">
 			
 				<a class="exit-off-canvas"></a>
+
+				
 				
 				<!-- full width banner on mobile -->
 				
 				
 
+				
+
 				<div class="main block_light">
 					<div id="main_column">
+
+						
 						
 							
 							
@@ -269,7 +283,7 @@
 <section id="donation-banner-top" class="donation-banner row">
   <div class="donation-banner__left-aside">
     <div class="donation-banner__hook-section">
-      <p>Aidez-nous à informer des millions de consommateurs à travers le monde sur ce qu’ils mangent</p>
+      <p>Aidez-nous à informer des millions de consommateurs à travers le monde sur ce qu'ils mangent</p>
     </div>
     <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="group photo donation 2024" />
   </div>
@@ -277,30 +291,30 @@
     <div class="donation-banner__aside">
       <div class="donation-banner__main-section">
         <img
-          width="50px"
-          height="50px"
+          width="50"
+          height="50"
           src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
           alt="open food facts logo"
         />
-        <h3 class="donation-banner__main-title">Participez à notre Collecte de Dons 2024</h3>
+        <h3 class="donation-banner__main-title">Merci de contribuer à notre collecte de fonds 2024</h3>
       </div>
       <div style="padding:1rem;">
-        <p>Vos dons financent les opérations quotidiennes de notre association :</p>
+        <p>Vos dons financent le fonctionnement quotidien de notre association à but non lucratif :</p>
         <ul>
           <li>
-            maintenir notre base de données ouverte et disponible à tou.te.s,
+            garder notre base de données ouverte et accessible à tous,
             <ul>
-              <li>infrastructure technique et une petite équipe permanente</li>
+              <li>infrastructure technique (site web/application mobile) et une petite équipe permanente</li>
             </ul>
           </li>
           <li>
-            <p>rester indépendante de l’industrie agro-alimentaire,</p>
+            <p>rester indépendant de l'industrie alimentaire,</p>
           </li>
           <li>
-            <p>animer une communauté de citoyen.ne.s engagé.e.s,</p>
+            <p>mobiliser une communauté de citoyens engagés,</p>
           </li>
           <li>
-            <p>soutenir l’avancement des recherches en santé publique.</p>
+            <p>soutenir l’avancement de la recherche en santé publique.</p>
           </li>
         </ul>
       </div>
@@ -309,7 +323,7 @@
       <div class="donation-banner__actions-section__financial">
         <p>
           
-          Each donation counts! We appreciate your support in bringing further food transparency in the world.  
+          Chaque don compte ! Nous apprécions votre soutien pour une plus grande transparence alimentaire dans le monde.  
           
         </p>
       </div>
@@ -366,6 +380,7 @@
 
 							
 						
+						
             			
 						
 							<div class="row">
@@ -391,7 +406,7 @@
                             <img src="//static.openfoodfacts.localhost/images/icons/dist/volunteer_activism.svg" style="height:72px;float:left;margin-right:1rem;" alt="icon" class="filter-grey">
                             <div>
                                 <p>Vous venez de contribuer à améliorer la plus grande base de données ouverte du monde.</p>
-                                <p>Merci beaucoup de nous avoir rejoints dans notre voyage vers la transparence des données !</p>
+                                <p>Merci beaucoup de nous avoir rejoints dans notre voyage vers la transparence des données !</p>
                             </div>
                         </div>
                         <div>
@@ -513,7 +528,7 @@
 
     
            <div class="panel_text">
-             <ul> <li id="data-error-en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown"> en:EcoScore origins of ingredients origins are 100 percent unknown <br><span class="description">Origins of ingredients are one of the Eco-Score components. They are currently extracted from the ingredient list and the Origins field.</span> </li> </ul>
+             <ul> <li id="data-error-en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown"> en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown </li> </ul>
            </div>
     
 
@@ -521,23 +536,6 @@
     </div>
 
     
-    </div>
-              <div style="margin-bottom:0.5rem">
-       <div>
-    
-
-    
-
-    
-        <div>
-            <a class="button small action-add_origins"
-                href="/cgi/product.pl?type=edit&code=0200000000335#origins">
-                Ajouter les origines des ingrédients pour ce produit
-            </a>
-        </div>
-    
-
-    </div>
     </div>
 	   	 </div>
 	
@@ -630,7 +628,7 @@
 
     
            <div class="panel_text">
-             <ul> <li id="data-error-en:ecoscore-extended-data-not-computed"> EcoScore - Données étendues - Non calculées </li> <li id="data-error-en:food-groups-1-unknown"> en:Food groups 1 unknown </li> <li id="data-error-en:food-groups-2-unknown"> en:Food groups 2 unknown </li> <li id="data-error-en:food-groups-3-unknown"> en:Food groups 3 unknown </li> <li id="data-error-en:ingredients-percent-analysis-ok"> Analyse des pourcentages d'ingrédients OK </li> </ul>
+             <ul> <li id="data-error-en:environmental-score-extended-data-not-computed"> en:environmental-score-extended-data-not-computed </li> <li id="data-error-en:food-groups-1-unknown"> en:Food groups 1 unknown </li> <li id="data-error-en:food-groups-2-unknown"> en:Food groups 2 unknown </li> <li id="data-error-en:food-groups-3-unknown"> en:Food groups 3 unknown </li> <li id="data-error-en:ingredients-percent-analysis-ok"> Analyse des pourcentages d'ingrédients OK </li> </ul>
            </div>
     
 
@@ -668,6 +666,7 @@
 		</div>
 		</div>
 
+		
 		<footer>
 			<div class="block_light bg-white" id="install_the_app_block">
 				<div class="row">
@@ -708,7 +707,7 @@
 <section class="donation-banner-footer row">
   <div class="donation-banner-footer__left-aside">
     <div class="donation-banner-footer__hook-section">
-      <p>Aidez-nous à informer des millions de consommateurs à travers le monde sur ce qu’ils mangent</p>
+      <p>Aidez-nous à informer des millions de consommateurs à travers le monde sur ce qu'ils mangent</p>
     </div>
     <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="group photo donation 2024" />
   </div>
@@ -716,40 +715,40 @@
     <div>
       <div class="donation-banner-footer__main-section">
         <img
-          width="50px"
-          height="50px"
+          width="50"
+          height="50"
           src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
           alt="open food facts logo"
         />
-        <h3 class="donation-banner-footer__main-title">Participez à notre Collecte de Dons 2024</h3>
+        <h3 class="donation-banner-footer__main-title">Merci de contribuer à notre collecte de fonds 2024</h3>
       </div>
-      <p>Vos dons financent les opérations quotidiennes de notre association :</p>
+      <p>Vos dons financent le fonctionnement quotidien de notre association à but non lucratif :</p>
       <ul>
         <li>
-          maintenir notre base de données ouverte et disponible à tou.te.s,
+          garder notre base de données ouverte et accessible à tous,
           <ul>
-            <li>infrastructure technique et une petite équipe permanente</li>
+            <li>infrastructure technique (site web/application mobile) et une petite équipe permanente</li>
           </ul>
         </li>
         <li>
-          <p>rester indépendante de l’industrie agro-alimentaire,</p>
+          <p>rester indépendant de l'industrie alimentaire,</p>
         </li>
         <li>
-          <p>animer une communauté de citoyen.ne.s engagé.e.s,</p>
+          <p>mobiliser une communauté de citoyens engagés,</p>
         </li>
         <li>
-          <p>soutenir l’avancement des recherches en santé publique.</p>
+          <p>soutenir l’avancement de la recherche en santé publique.</p>
         </li>
       </ul>
     </div>
     <div class="donation-banner-footer__actions-section">
       <div class="donation-banner-footer__actions-section__financial">
         <p>
-          Each donation counts! We appreciate your support in bringing further food transparency in the world.
+          Chaque don compte ! Nous apprécions votre soutien pour une plus grande transparence alimentaire dans le monde.
         </p>
       </div>
       <div class="donation-banner-footer__actions-section__donate-button">
-        <a href="//open-food-facts.assoconnect.com/collect/description/476750-c-faire-un-don-a-open-food-facts//fr.openfoodfacts.org/faire-un-don-a-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2024-a&utm_term=en-text-button">
+        <a href="//open-food-facts.assoconnect.com/collect/description/476750-c-faire-un-don-a-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2024-a&utm_term=en-text-button">
           <button>JE SOUTIENS</button>
         </a>
       </div>
@@ -822,6 +821,7 @@
 				</div>
 			</div>
 		</footer>
+		
 
 	</div>
 

@@ -37,7 +37,10 @@
 .hide-when-logged-in {display:none}
 
     </style>
-    <!-- Matomo -->
+</head>
+<body class="products_page">
+
+	<!-- Matomo -->
 <script>
   var _paq = window._paq = window._paq || [];
   /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
@@ -60,11 +63,13 @@
 <!-- End Matomo Code -->
 
 
-</head>
-<body class="products_page">
+
+	
 	<div class="skip"><a href="#content" tabindex="0">Skip to Content</a></div>
+	
 
 	<div id="page">
+		
 		<div class="upper-nav contain-to-grid"  id="upNav">
 			<nav class="top-bar " data-topbar role="navigation">
 				
@@ -142,9 +147,9 @@
 									
 									<li class="divider"></li>			
 									<li><label>Your contributions</label></li>
-									<li><a href="/contributor/tests">Products added</a></li>
-									<li><a href="/editor/tests">Products edited</a></li>
-									<li><a href="/photographer/tests">Products photographed</a></li>
+									<li><a href="/facets/contributors/tests">Products added</a></li>
+									<li><a href="/facets/editors/tests">Products edited</a></li>
+									<li><a href="/facets/photographers/tests">Products photographed</a></li>
 									
 									<li class="divider"></li>			
 									<li class="has-form">
@@ -160,9 +165,11 @@
 				</section>
 			</nav>
 		</div>
+		
 
 		<div id="main_container" style="position:relative" class="block_latte">
-			
+		
+		
 		<div class="topbarsticky">
 			<div class="contain-to-grid " id="offNav" >
 				<nav class="top-bar" data-topbar role="navigation" >
@@ -240,18 +247,25 @@
 				</form>
 			</div>
 		</nav>
+		
 
 		<div id="content" class="off-canvas-wrap block_latte" data-offcanvas>
 			<div class="inner-wrap">
 			
 				<a class="exit-off-canvas"></a>
+
+				
 				
 				<!-- full width banner on mobile -->
 				
 				
 
+				
+
 				<div class="main block_light">
 					<div id="main_column">
+
+						
 						
 							
 							
@@ -277,8 +291,8 @@
     <div class="donation-banner__aside">
       <div class="donation-banner__main-section">
         <img
-          width="50px"
-          height="50px"
+          width="50"
+          height="50"
           src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
           alt="open food facts logo"
         />
@@ -366,6 +380,7 @@
 
 							
 						
+						
             			
 						
 							
@@ -451,7 +466,7 @@
             </li>
         
             <li>
-              <a href="?sort_by=ecoscore_score" onclick="$.cookie('last_sort_by', 'ecoscore_score', { expires: 180, path: '/' });">Products with the best Eco-Score</a>
+              <a href="?sort_by=environmental_score_score" onclick="$.cookie('last_sort_by', 'environmental_score_score', { expires: 180, path: '/' });">Products with the best Green-Score</a>
             </li>
         
             <li>
@@ -486,7 +501,7 @@
             </li>
           
             <li>
-              <a href="/eco-score">Eco-Score</a>
+              <a href="/environmental-score">Green-Score</a>
             </li>
           
             <li>
@@ -554,7 +569,7 @@
             </li>
           
             <li>
-              <a href="/misc"></a>
+              <a href="/misc">Miscellaneous</a>
             </li>
           
             <li>
@@ -646,8 +661,7 @@
   </div>
       
     
-	</ul>
-
+	
   </div>
 </div>
 
@@ -662,6 +676,7 @@
 		</div>
 		</div>
 
+		
 		<footer>
 			<div class="block_light bg-white" id="install_the_app_block">
 				<div class="row">
@@ -710,8 +725,8 @@
     <div>
       <div class="donation-banner-footer__main-section">
         <img
-          width="50px"
-          height="50px"
+          width="50"
+          height="50"
           src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
           alt="open food facts logo"
         />
@@ -743,7 +758,7 @@
         </p>
       </div>
       <div class="donation-banner-footer__actions-section__donate-button">
-        <a href="//world.openfoodfacts.org/donate-to-open-food-facts//world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2024-a&utm_term=en-text-button">
+        <a href="//world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2024-a&utm_term=en-text-button">
           <button>I SUPPORT</button>
         </a>
       </div>
@@ -816,6 +831,7 @@
 				</div>
 			</div>
 		</footer>
+		
 
 	</div>
 
@@ -856,7 +872,7 @@ var products = [
             "attributes":[
                {
                   "description":"",
-                  "description_short":"Poor nutritional quality",
+                  "description_short":"Lower nutritional quality",
                   "grade":"d",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d-new-en.svg",
                   "id":"nutriscore",
@@ -872,6 +888,7 @@ var products = [
                   "id":"low_salt",
                   "missing":"Missing nutrition facts",
                   "name":"Salt",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Salt in unknown quantity"
                },
@@ -881,6 +898,7 @@ var products = [
                   "id":"low_fat",
                   "missing":"Missing nutrition facts",
                   "name":"Fat",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Fat in unknown quantity"
                },
@@ -890,6 +908,7 @@ var products = [
                   "id":"low_sugars",
                   "missing":"Missing nutrition facts",
                   "name":"Sugars",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Sugars in unknown quantity"
                },
@@ -899,6 +918,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "missing":"Missing nutrition facts",
                   "name":"Saturated fat",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Saturated fat in unknown quantity"
                }
@@ -1091,8 +1111,6 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"",
-                  "description_short":"Processed foods",
                   "grade":"b",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
                   "id":"nova",
@@ -1100,7 +1118,7 @@ var products = [
                   "name":"NOVA group",
                   "panel_id":"nova",
                   "status":"known",
-                  "title":"NOVA 3"
+                  "title":"Processed foods"
                },
                {
                   "grade":"c",
@@ -1122,13 +1140,13 @@ var products = [
                   "description":"",
                   "description_short":"Low environmental impact",
                   "grade":"b",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-b.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-b.svg",
                   "id":"ecoscore",
                   "match":70,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"known",
-                  "title":"Eco-Score B"
+                  "title":"Green-Score B"
                },
                {
                   "description":"",
@@ -1185,7 +1203,7 @@ var products = [
             "attributes":[
                {
                   "description":"",
-                  "description_short":"Bad nutritional quality",
+                  "description_short":"Lower nutritional quality",
                   "grade":"e",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-e-new-en.svg",
                   "id":"nutriscore",
@@ -1201,6 +1219,7 @@ var products = [
                   "id":"low_salt",
                   "missing":"Missing nutrition facts",
                   "name":"Salt",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Salt in unknown quantity"
                },
@@ -1210,6 +1229,7 @@ var products = [
                   "id":"low_fat",
                   "missing":"Missing nutrition facts",
                   "name":"Fat",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Fat in unknown quantity"
                },
@@ -1219,6 +1239,7 @@ var products = [
                   "id":"low_sugars",
                   "missing":"Missing nutrition facts",
                   "name":"Sugars",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Sugars in unknown quantity"
                },
@@ -1228,6 +1249,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "missing":"Missing nutrition facts",
                   "name":"Saturated fat",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Saturated fat in unknown quantity"
                }
@@ -1421,8 +1443,6 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"",
-                  "description_short":"Processed foods",
                   "grade":"b",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
                   "id":"nova",
@@ -1430,7 +1450,7 @@ var products = [
                   "name":"NOVA group",
                   "panel_id":"nova",
                   "status":"known",
-                  "title":"NOVA 3"
+                  "title":"Processed foods"
                },
                {
                   "grade":"a",
@@ -1452,13 +1472,13 @@ var products = [
                   "description":"",
                   "description_short":"Unknown environmental impact",
                   "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-unknown.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-unknown.svg",
                   "id":"ecoscore",
                   "match":0,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"unknown",
-                  "title":"Eco-Score not computed"
+                  "title":"Green-Score not computed"
                },
                {
                   "description":"",
@@ -1530,6 +1550,7 @@ var products = [
                   "id":"low_salt",
                   "missing":"Missing nutrition facts",
                   "name":"Salt",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Salt in unknown quantity"
                },
@@ -1539,6 +1560,7 @@ var products = [
                   "id":"low_fat",
                   "missing":"Missing nutrition facts",
                   "name":"Fat",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Fat in unknown quantity"
                },
@@ -1548,6 +1570,7 @@ var products = [
                   "id":"low_sugars",
                   "missing":"Missing nutrition facts",
                   "name":"Sugars",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Sugars in unknown quantity"
                },
@@ -1557,6 +1580,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "missing":"Missing nutrition facts",
                   "name":"Saturated fat",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Saturated fat in unknown quantity"
                }
@@ -1749,8 +1773,6 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"",
-                  "description_short":"Ultra processed foods",
                   "grade":"e",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-4.svg",
                   "id":"nova",
@@ -1758,7 +1780,7 @@ var products = [
                   "name":"NOVA group",
                   "panel_id":"nova",
                   "status":"known",
-                  "title":"NOVA 4"
+                  "title":"Ultra-processed foods"
                },
                {
                   "grade":"b",
@@ -1780,13 +1802,13 @@ var products = [
                   "description":"",
                   "description_short":"Unknown environmental impact",
                   "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-unknown.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-unknown.svg",
                   "id":"ecoscore",
                   "match":0,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"unknown",
-                  "title":"Eco-Score not computed"
+                  "title":"Green-Score not computed"
                },
                {
                   "description":"",
@@ -1858,6 +1880,7 @@ var products = [
                   "id":"low_salt",
                   "missing":"Missing nutrition facts",
                   "name":"Salt",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Salt in unknown quantity"
                },
@@ -1867,6 +1890,7 @@ var products = [
                   "id":"low_fat",
                   "missing":"Missing nutrition facts",
                   "name":"Fat",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Fat in unknown quantity"
                },
@@ -1876,6 +1900,7 @@ var products = [
                   "id":"low_sugars",
                   "missing":"Missing nutrition facts",
                   "name":"Sugars",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Sugars in unknown quantity"
                },
@@ -1885,6 +1910,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "missing":"Missing nutrition facts",
                   "name":"Saturated fat",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Saturated fat in unknown quantity"
                }
@@ -2078,8 +2104,6 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"",
-                  "description_short":"Ultra processed foods",
                   "grade":"e",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-4.svg",
                   "id":"nova",
@@ -2087,7 +2111,7 @@ var products = [
                   "name":"NOVA group",
                   "panel_id":"nova",
                   "status":"known",
-                  "title":"NOVA 4"
+                  "title":"Ultra-processed foods"
                },
                {
                   "grade":"a",
@@ -2106,16 +2130,15 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"Not yet applicable for the category: Sodas",
-                  "description_short":"Not yet applicable for the category",
+                  "description_short":"Not yet applicable for the category: Sodas",
                   "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-not-applicable.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-not-applicable.svg",
                   "id":"ecoscore",
                   "match":0,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"unknown",
-                  "title":"Eco-Score not yet applicable"
+                  "title":"Green-Score not applicable"
                },
                {
                   "description":"",
@@ -2171,7 +2194,7 @@ var products = [
             "attributes":[
                {
                   "description":"",
-                  "description_short":"Poor nutritional quality",
+                  "description_short":"Lower nutritional quality",
                   "grade":"d",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d-new-en.svg",
                   "id":"nutriscore",
@@ -2187,6 +2210,7 @@ var products = [
                   "id":"low_salt",
                   "missing":"Missing nutrition facts",
                   "name":"Salt",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Salt in unknown quantity"
                },
@@ -2196,6 +2220,7 @@ var products = [
                   "id":"low_fat",
                   "missing":"Missing nutrition facts",
                   "name":"Fat",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Fat in unknown quantity"
                },
@@ -2205,6 +2230,7 @@ var products = [
                   "id":"low_sugars",
                   "missing":"Missing nutrition facts",
                   "name":"Sugars",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Sugars in unknown quantity"
                },
@@ -2214,6 +2240,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "missing":"Missing nutrition facts",
                   "name":"Saturated fat",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Saturated fat in unknown quantity"
                }
@@ -2407,8 +2434,6 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"",
-                  "description_short":"Processed foods",
                   "grade":"b",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
                   "id":"nova",
@@ -2416,7 +2441,7 @@ var products = [
                   "name":"NOVA group",
                   "panel_id":"nova",
                   "status":"known",
-                  "title":"NOVA 3"
+                  "title":"Processed foods"
                },
                {
                   "grade":"c",
@@ -2438,13 +2463,13 @@ var products = [
                   "description":"",
                   "description_short":"Unknown environmental impact",
                   "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-unknown.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-unknown.svg",
                   "id":"ecoscore",
                   "match":0,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"unknown",
-                  "title":"Eco-Score not computed"
+                  "title":"Green-Score not computed"
                },
                {
                   "description":"",
@@ -2516,6 +2541,7 @@ var products = [
                   "id":"low_salt",
                   "missing":"Missing nutrition facts",
                   "name":"Salt",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Salt in unknown quantity"
                },
@@ -2525,6 +2551,7 @@ var products = [
                   "id":"low_fat",
                   "missing":"Missing nutrition facts",
                   "name":"Fat",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Fat in unknown quantity"
                },
@@ -2534,6 +2561,7 @@ var products = [
                   "id":"low_sugars",
                   "missing":"Missing nutrition facts",
                   "name":"Sugars",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Sugars in unknown quantity"
                },
@@ -2543,6 +2571,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "missing":"Missing nutrition facts",
                   "name":"Saturated fat",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Saturated fat in unknown quantity"
                }
@@ -2736,8 +2765,6 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"",
-                  "description_short":"Unprocessed or minimally processed foods",
                   "grade":"a",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-1.svg",
                   "id":"nova",
@@ -2745,7 +2772,7 @@ var products = [
                   "name":"NOVA group",
                   "panel_id":"nova",
                   "status":"known",
-                  "title":"NOVA 1"
+                  "title":"Unprocessed or minimally processed foods"
                },
                {
                   "grade":"a",
@@ -2767,13 +2794,13 @@ var products = [
                   "description":"",
                   "description_short":"Moderate environmental impact",
                   "grade":"c",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg",
                   "id":"ecoscore",
                   "match":50,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"known",
-                  "title":"Eco-Score C"
+                  "title":"Green-Score C"
                },
                {
                   "description":"",
@@ -2845,6 +2872,7 @@ var products = [
                   "id":"low_salt",
                   "missing":"Missing nutrition facts",
                   "name":"Salt",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Salt in unknown quantity"
                },
@@ -2854,6 +2882,7 @@ var products = [
                   "id":"low_fat",
                   "missing":"Missing nutrition facts",
                   "name":"Fat",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Fat in unknown quantity"
                },
@@ -2863,6 +2892,7 @@ var products = [
                   "id":"low_sugars",
                   "missing":"Missing nutrition facts",
                   "name":"Sugars",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Sugars in unknown quantity"
                },
@@ -2872,6 +2902,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "missing":"Missing nutrition facts",
                   "name":"Saturated fat",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Saturated fat in unknown quantity"
                }
@@ -3065,8 +3096,6 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"",
-                  "description_short":"Unprocessed or minimally processed foods",
                   "grade":"a",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-1.svg",
                   "id":"nova",
@@ -3074,7 +3103,7 @@ var products = [
                   "name":"NOVA group",
                   "panel_id":"nova",
                   "status":"known",
-                  "title":"NOVA 1"
+                  "title":"Unprocessed or minimally processed foods"
                },
                {
                   "grade":"a",
@@ -3096,13 +3125,13 @@ var products = [
                   "description":"",
                   "description_short":"Moderate environmental impact",
                   "grade":"c",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg",
                   "id":"ecoscore",
                   "match":50,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"known",
-                  "title":"Eco-Score C"
+                  "title":"Green-Score C"
                },
                {
                   "description":"",
@@ -3174,6 +3203,7 @@ var products = [
                   "id":"low_salt",
                   "missing":"Missing nutrition facts",
                   "name":"Salt",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Salt in unknown quantity"
                },
@@ -3183,6 +3213,7 @@ var products = [
                   "id":"low_fat",
                   "missing":"Missing nutrition facts",
                   "name":"Fat",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Fat in unknown quantity"
                },
@@ -3192,6 +3223,7 @@ var products = [
                   "id":"low_sugars",
                   "missing":"Missing nutrition facts",
                   "name":"Sugars",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Sugars in unknown quantity"
                },
@@ -3201,6 +3233,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "missing":"Missing nutrition facts",
                   "name":"Saturated fat",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Saturated fat in unknown quantity"
                }
@@ -3394,8 +3427,6 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"",
-                  "description_short":"Processed foods",
                   "grade":"b",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
                   "id":"nova",
@@ -3403,7 +3434,7 @@ var products = [
                   "name":"NOVA group",
                   "panel_id":"nova",
                   "status":"known",
-                  "title":"NOVA 3"
+                  "title":"Processed foods"
                },
                {
                   "grade":"a",
@@ -3425,13 +3456,13 @@ var products = [
                   "description":"",
                   "description_short":"High environmental impact",
                   "grade":"c",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-d.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-d.svg",
                   "id":"ecoscore",
                   "match":41,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"known",
-                  "title":"Eco-Score D"
+                  "title":"Green-Score D"
                },
                {
                   "description":"",
@@ -3503,6 +3534,7 @@ var products = [
                   "id":"low_salt",
                   "missing":"Missing nutrition facts",
                   "name":"Salt",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Salt in unknown quantity"
                },
@@ -3512,6 +3544,7 @@ var products = [
                   "id":"low_fat",
                   "missing":"Missing nutrition facts",
                   "name":"Fat",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Fat in unknown quantity"
                },
@@ -3521,6 +3554,7 @@ var products = [
                   "id":"low_sugars",
                   "missing":"Missing nutrition facts",
                   "name":"Sugars",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Sugars in unknown quantity"
                },
@@ -3530,6 +3564,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "missing":"Missing nutrition facts",
                   "name":"Saturated fat",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Saturated fat in unknown quantity"
                }
@@ -3723,8 +3758,6 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"",
-                  "description_short":"Processed foods",
                   "grade":"b",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
                   "id":"nova",
@@ -3732,7 +3765,7 @@ var products = [
                   "name":"NOVA group",
                   "panel_id":"nova",
                   "status":"known",
-                  "title":"NOVA 3"
+                  "title":"Processed foods"
                },
                {
                   "grade":"a",
@@ -3754,13 +3787,13 @@ var products = [
                   "description":"",
                   "description_short":"Low environmental impact",
                   "grade":"b",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-b.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-b.svg",
                   "id":"ecoscore",
                   "match":67,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"known",
-                  "title":"Eco-Score B"
+                  "title":"Green-Score B"
                },
                {
                   "description":"",
@@ -3832,6 +3865,7 @@ var products = [
                   "id":"low_salt",
                   "missing":"Missing nutrition facts",
                   "name":"Salt",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Salt in unknown quantity"
                },
@@ -3841,6 +3875,7 @@ var products = [
                   "id":"low_fat",
                   "missing":"Missing nutrition facts",
                   "name":"Fat",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Fat in unknown quantity"
                },
@@ -3850,6 +3885,7 @@ var products = [
                   "id":"low_sugars",
                   "missing":"Missing nutrition facts",
                   "name":"Sugars",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Sugars in unknown quantity"
                },
@@ -3859,6 +3895,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "missing":"Missing nutrition facts",
                   "name":"Saturated fat",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Saturated fat in unknown quantity"
                }
@@ -4052,8 +4089,6 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"",
-                  "description_short":"Ultra processed foods",
                   "grade":"e",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-4.svg",
                   "id":"nova",
@@ -4061,7 +4096,7 @@ var products = [
                   "name":"NOVA group",
                   "panel_id":"nova",
                   "status":"known",
-                  "title":"NOVA 4"
+                  "title":"Ultra-processed foods"
                },
                {
                   "grade":"e",
@@ -4083,13 +4118,13 @@ var products = [
                   "description":"",
                   "description_short":"Low environmental impact",
                   "grade":"b",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-b.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-b.svg",
                   "id":"ecoscore",
                   "match":67,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"known",
-                  "title":"Eco-Score B"
+                  "title":"Green-Score B"
                },
                {
                   "description":"",
@@ -4161,6 +4196,7 @@ var products = [
                   "id":"low_salt",
                   "missing":"Missing nutrition facts",
                   "name":"Salt",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Salt in unknown quantity"
                },
@@ -4170,6 +4206,7 @@ var products = [
                   "id":"low_fat",
                   "missing":"Missing nutrition facts",
                   "name":"Fat",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Fat in unknown quantity"
                },
@@ -4179,6 +4216,7 @@ var products = [
                   "id":"low_sugars",
                   "missing":"Missing nutrition facts",
                   "name":"Sugars",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Sugars in unknown quantity"
                },
@@ -4188,6 +4226,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "missing":"Missing nutrition facts",
                   "name":"Saturated fat",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Saturated fat in unknown quantity"
                }
@@ -4381,8 +4420,6 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"",
-                  "description_short":"Processed foods",
                   "grade":"b",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
                   "id":"nova",
@@ -4390,7 +4427,7 @@ var products = [
                   "name":"NOVA group",
                   "panel_id":"nova",
                   "status":"known",
-                  "title":"NOVA 3"
+                  "title":"Processed foods"
                },
                {
                   "grade":"a",
@@ -4412,13 +4449,13 @@ var products = [
                   "description":"",
                   "description_short":"Unknown environmental impact",
                   "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-unknown.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-unknown.svg",
                   "id":"ecoscore",
                   "match":0,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"unknown",
-                  "title":"Eco-Score not computed"
+                  "title":"Green-Score not computed"
                },
                {
                   "description":"",
@@ -4474,7 +4511,7 @@ var products = [
             "attributes":[
                {
                   "description":"",
-                  "description_short":"Poor nutritional quality",
+                  "description_short":"Lower nutritional quality",
                   "grade":"d",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d-new-en.svg",
                   "id":"nutriscore",
@@ -4490,6 +4527,7 @@ var products = [
                   "id":"low_salt",
                   "missing":"Missing nutrition facts",
                   "name":"Salt",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Salt in unknown quantity"
                },
@@ -4499,6 +4537,7 @@ var products = [
                   "id":"low_fat",
                   "missing":"Missing nutrition facts",
                   "name":"Fat",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Fat in unknown quantity"
                },
@@ -4508,6 +4547,7 @@ var products = [
                   "id":"low_sugars",
                   "missing":"Missing nutrition facts",
                   "name":"Sugars",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Sugars in unknown quantity"
                },
@@ -4517,6 +4557,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "missing":"Missing nutrition facts",
                   "name":"Saturated fat",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Saturated fat in unknown quantity"
                }
@@ -4710,8 +4751,6 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"",
-                  "description_short":"Processed foods",
                   "grade":"b",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
                   "id":"nova",
@@ -4719,7 +4758,7 @@ var products = [
                   "name":"NOVA group",
                   "panel_id":"nova",
                   "status":"known",
-                  "title":"NOVA 3"
+                  "title":"Processed foods"
                },
                {
                   "grade":"c",
@@ -4741,13 +4780,13 @@ var products = [
                   "description":"",
                   "description_short":"Low environmental impact",
                   "grade":"c",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-b.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-b.svg",
                   "id":"ecoscore",
                   "match":60,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"known",
-                  "title":"Eco-Score B"
+                  "title":"Green-Score B"
                },
                {
                   "description":"",
@@ -4803,7 +4842,7 @@ var products = [
             "attributes":[
                {
                   "description":"",
-                  "description_short":"Poor nutritional quality",
+                  "description_short":"Lower nutritional quality",
                   "grade":"d",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d-new-en.svg",
                   "id":"nutriscore",
@@ -4819,6 +4858,7 @@ var products = [
                   "id":"low_salt",
                   "missing":"Missing nutrition facts",
                   "name":"Salt",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Salt in unknown quantity"
                },
@@ -4828,6 +4868,7 @@ var products = [
                   "id":"low_fat",
                   "missing":"Missing nutrition facts",
                   "name":"Fat",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Fat in unknown quantity"
                },
@@ -4837,6 +4878,7 @@ var products = [
                   "id":"low_sugars",
                   "missing":"Missing nutrition facts",
                   "name":"Sugars",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Sugars in unknown quantity"
                },
@@ -4846,6 +4888,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "missing":"Missing nutrition facts",
                   "name":"Saturated fat",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Saturated fat in unknown quantity"
                }
@@ -5039,8 +5082,6 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"",
-                  "description_short":"Processed foods",
                   "grade":"b",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
                   "id":"nova",
@@ -5048,7 +5089,7 @@ var products = [
                   "name":"NOVA group",
                   "panel_id":"nova",
                   "status":"known",
-                  "title":"NOVA 3"
+                  "title":"Processed foods"
                },
                {
                   "grade":"c",
@@ -5070,13 +5111,13 @@ var products = [
                   "description":"",
                   "description_short":"Low environmental impact",
                   "grade":"c",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-b.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-b.svg",
                   "id":"ecoscore",
                   "match":60,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"known",
-                  "title":"Eco-Score B"
+                  "title":"Green-Score B"
                },
                {
                   "description":"",

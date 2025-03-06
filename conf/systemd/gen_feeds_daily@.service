@@ -12,6 +12,6 @@ Environment=PERL5LIB=/srv/%i/lib/:/usr/local/share/perl/5.32.1/:/usr/lib/perl5
 # Apache needs some environment variables like PRODUCT_OPENER_FLAVOR_SHORT
 EnvironmentFile=/srv/%i/env/env.%i
 WorkingDirectory=/srv/%i
-ExecStart=/srv/%i/scripts/gen_feeds_daily_%i.sh
+ExecStart=/srv/%i/scripts/gen_feeds_daily.sh
 
 

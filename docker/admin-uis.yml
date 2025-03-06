@@ -1,5 +1,4 @@
-﻿version: "3.7"
-services:
+﻿services:
   mongoku:
     image: huggingface/mongoku:1.3.0
     depends_on:

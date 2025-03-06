@@ -87,7 +87,7 @@
       "data_quality_info_tags" : [
          "en:no-packaging-data",
          "en:ingredients-percent-analysis-ok",
-         "en:ecoscore-extended-data-not-computed",
+         "en:environmental-score-extended-data-not-computed",
          "en:food-groups-1-known",
          "en:food-groups-2-known",
          "en:food-groups-3-unknown"
@@ -95,23 +95,23 @@
       "data_quality_tags" : [
          "en:no-packaging-data",
          "en:ingredients-percent-analysis-ok",
-         "en:ecoscore-extended-data-not-computed",
+         "en:environmental-score-extended-data-not-computed",
          "en:food-groups-1-known",
          "en:food-groups-2-known",
          "en:food-groups-3-unknown",
-         "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-         "en:ecoscore-packaging-packaging-data-missing"
+         "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+         "en:environmental-score-packaging-packaging-data-missing"
       ],
       "data_quality_warnings_tags" : [
-         "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-         "en:ecoscore-packaging-packaging-data-missing"
+         "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+         "en:environmental-score-packaging-packaging-data-missing"
       ],
       "ecoscore_data" : {
          "adjustments" : {
             "origins_of_ingredients" : {
                "aggregated_origins" : [
                   {
-                     "epi_score" : 0,
+                     "epi_score" : "0",
                      "origin" : "en:unknown",
                      "percent" : 100,
                      "transportation_score" : 0
@@ -522,7 +522,7 @@
       "ingredients" : [
          {
             "ciqual_proxy_food_code" : "9410",
-            "ecobalyse_code" : "flour",
+            "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
             "id" : "en:wheat-flour",
             "is_in_taxonomy" : 1,
             "percent_estimate" : 62.5,
@@ -534,7 +534,7 @@
          },
          {
             "ciqual_food_code" : "18066",
-            "ecobalyse_code" : "tap-water",
+            "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
             "id" : "en:water",
             "is_in_taxonomy" : 1,
             "percent_estimate" : 18.75,
@@ -557,7 +557,7 @@
          },
          {
             "ciqual_proxy_food_code" : "31016",
-            "ecobalyse_code" : "sugar",
+            "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
             "id" : "en:sugar",
             "is_in_taxonomy" : 1,
             "percent_estimate" : 9.375,
@@ -665,14 +665,13 @@
       "main_countries_tags" : [],
       "minerals_tags" : [],
       "misc_tags" : [
-         "en:ecoscore-changed",
-         "en:ecoscore-computed",
-         "en:ecoscore-extended-data-not-computed",
-         "en:ecoscore-grade-changed",
-         "en:ecoscore-missing-data-no-packagings",
-         "en:ecoscore-missing-data-origins",
-         "en:ecoscore-missing-data-packagings",
-         "en:ecoscore-missing-data-warning",
+         "en:environmental-score-changed",
+         "en:environmental-score-computed",
+         "en:environmental-score-grade-changed",
+         "en:environmental-score-missing-data-no-packagings",
+         "en:environmental-score-missing-data-origins",
+         "en:environmental-score-missing-data-packagings",
+         "en:environmental-score-missing-data-warning",
          "en:nutriscore-missing-nutrition-data",
          "en:nutriscore-missing-nutrition-data-energy",
          "en:nutriscore-missing-nutrition-data-fat",
@@ -844,7 +843,7 @@
       "nutriscore_tags" : [
          "unknown"
       ],
-      "nutriscore_version" : "2021",
+      "nutriscore_version" : "2023",
       "nutrition_data" : "on",
       "nutrition_data_per" : "100g",
       "nutrition_data_prepared_per" : "100g",

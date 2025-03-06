@@ -29,6 +29,7 @@
                "id" : "low_salt",
                "missing" : "Données nutritionnelles manquantes",
                "name" : "Sel",
+               "panel_id" : "nutrition_facts_table",
                "status" : "unknown",
                "title" : "Sel en quantité inconnue"
             },
@@ -38,6 +39,7 @@
                "id" : "low_fat",
                "missing" : "Données nutritionnelles manquantes",
                "name" : "Matières grasses",
+               "panel_id" : "nutrition_facts_table",
                "status" : "unknown",
                "title" : "Matières grasses en quantité inconnue"
             },
@@ -47,6 +49,7 @@
                "id" : "low_sugars",
                "missing" : "Données nutritionnelles manquantes",
                "name" : "Sucres",
+               "panel_id" : "nutrition_facts_table",
                "status" : "unknown",
                "title" : "Sucres en quantité inconnue"
             },
@@ -56,6 +59,7 @@
                "id" : "low_saturated_fat",
                "missing" : "Données nutritionnelles manquantes",
                "name" : "Acides gras saturés",
+               "panel_id" : "nutrition_facts_table",
                "status" : "unknown",
                "title" : "Acides gras saturés en quantité inconnue"
             }
@@ -280,13 +284,13 @@
                "description" : "",
                "description_short" : "Impact environnemental inconnu",
                "grade" : "unknown",
-               "icon_url" : "https://server_domain/images/attributes/dist/ecoscore-unknown.svg",
+               "icon_url" : "https://server_domain/images/attributes/dist/green-score-unknown.svg",
                "id" : "ecoscore",
                "match" : 0,
-               "name" : "Eco-Score",
-               "panel_id" : "ecoscore",
+               "name" : "Green-Score",
+               "panel_id" : "environmental_score",
                "status" : "unknown",
-               "title" : "Eco-Score non calculé"
+               "title" : "Green-Score non calculé"
             },
             {
                "description" : "",
@@ -348,7 +352,7 @@
    "data_quality_info_tags" : [
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
-      "en:ecoscore-extended-data-not-computed",
+      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown"
@@ -359,20 +363,23 @@
       "en:created-missing",
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
-      "en:ecoscore-extended-data-not-computed",
+      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown",
-      "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-      "en:ecoscore-packaging-packaging-data-missing",
-      "en:ecoscore-production-system-no-label"
+      "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+      "en:environmental-score-packaging-packaging-data-missing",
+      "en:environmental-score-production-system-no-label"
    ],
    "data_quality_warnings_tags" : [
-      "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-      "en:ecoscore-packaging-packaging-data-missing",
-      "en:ecoscore-production-system-no-label"
+      "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+      "en:environmental-score-packaging-packaging-data-missing",
+      "en:environmental-score-production-system-no-label"
    ],
-   "ecoscore_data" : {
+   "ecoscore_tags" : [
+      "unknown"
+   ],
+   "environmental_score_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
             "aggregated_origins" : [
@@ -603,6 +610,7 @@
       "agribalyse" : {
          "warning" : "missing_agribalyse_match"
       },
+      "grade" : "unknown",
       "missing" : {
          "categories" : 1,
          "labels" : 1,
@@ -613,8 +621,8 @@
       "missing_key_data" : 1,
       "status" : "unknown"
    },
-   "ecoscore_grade" : "unknown",
-   "ecoscore_tags" : [
+   "environmental_score_grade" : "unknown",
+   "environmental_score_tags" : [
       "unknown"
    ],
    "food_groups_tags" : [],
@@ -633,7 +641,7 @@
       },
       {
          "ciqual_food_code" : "16129",
-         "ecobalyse_code" : "refined-palm-oil",
+         "ecobalyse_code" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
          "from_palm_oil" : "yes",
          "id" : "en:palm-oil",
          "is_in_taxonomy" : 1,
@@ -707,8 +715,7 @@
    "lc" : "fr",
    "minerals_tags" : [],
    "misc_tags" : [
-      "en:ecoscore-extended-data-not-computed",
-      "en:ecoscore-not-computed",
+      "en:environmental-score-not-computed",
       "en:nutriscore-missing-category",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-energy",
@@ -842,7 +849,7 @@
    "nutriscore_tags" : [
       "unknown"
    ],
-   "nutriscore_version" : "2021",
+   "nutriscore_version" : "2023",
    "nutrition_data_per" : "100g",
    "nutrition_data_prepared_per" : "100g",
    "nutrition_grade_fr" : "unknown",

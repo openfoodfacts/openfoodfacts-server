@@ -2,7 +2,7 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "9410",
-         "ecobalyse_code" : "flour",
+         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
          "id" : "en:wheat-flour",
          "is_in_taxonomy" : 1,
          "labels" : "fr:crc",
@@ -27,7 +27,7 @@
       },
       {
          "ciqual_proxy_food_code" : "9410",
-         "ecobalyse_proxy_code" : "flour",
+         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
          "id" : "en:flour",
          "is_in_taxonomy" : 1,
          "labels" : "en:no-gluten",
@@ -66,6 +66,7 @@
       "en:corn",
       "en:einkorn-wheat"
    ],
+   "ingredients_lc" : "fr",
    "ingredients_n" : 4,
    "ingredients_n_tags" : [
       "4",

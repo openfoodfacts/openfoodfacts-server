@@ -5,7 +5,7 @@
          "ingredients" : [
             {
                "ciqual_food_code" : "13050",
-               "ecobalyse_code" : "apple-fr",
+               "ecobalyse_code" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
                "id" : "en:apple",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 45.8333333333333,
@@ -17,7 +17,7 @@
             },
             {
                "ciqual_food_code" : "13005",
-               "ecobalyse_code" : "banana-non-eu",
+               "ecobalyse_code" : "f79d155e-3f9e-4882-8dd0-b03f28c1ff76",
                "id" : "en:banana",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 14.5833333333333,
@@ -29,7 +29,7 @@
             },
             {
                "ciqual_food_code" : "13008",
-               "ecobalyse_code" : "cherry-tr",
+               "ecobalyse_code" : "4e13ea5f-4ad1-4009-ae91-842cb18bd4dd",
                "id" : "en:cherry",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 14.5833333333333,
@@ -109,6 +109,7 @@
       "en:taproot-vegetable",
       "en:radish"
    ],
+   "ingredients_lc" : "en",
    "ingredients_n" : 7,
    "ingredients_n_tags" : [
       "7",
