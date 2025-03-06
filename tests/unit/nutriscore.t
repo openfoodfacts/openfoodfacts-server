@@ -15,7 +15,7 @@ use ProductOpener::FoodProducts qw/:all/;
 use ProductOpener::ProducersFood qw/:all/;
 use ProductOpener::Ingredients qw/extract_additives_from_text extract_ingredients_from_text/;
 use ProductOpener::Nutriscore
-	qw/compute_nutriscore_grade get_value_with_one_less_negative_point_2023 get_value_with_one_more_positive_point_2023/;
+	qw/compute_nutriscore_grade_2023 get_value_with_one_less_negative_point_2023 get_value_with_one_more_positive_point_2023/;
 use ProductOpener::NutritionCiqual qw/load_ciqual_data/;
 use ProductOpener::NutritionEstimation qw/:all/;
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
@@ -950,7 +950,7 @@ foreach my $test_ref (@tests) {
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
 }
 
-is(compute_nutriscore_grade(1.56, 1, 0), "c");
+is(compute_nutriscore_grade_2023(1.56, 1, 0, 0), "b");
 
 # Tests for detecting possible improvements
 
