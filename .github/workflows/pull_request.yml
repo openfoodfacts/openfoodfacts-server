@@ -18,6 +18,29 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  filter:
+    name: "Filter changed paths"
+    runs-on: ubuntu-latest
+    outputs:
+      docs_changed: ${{ steps.filter.outputs.docs }}
+      code_changed: ${{ steps.filter.outputs.code }}
+    steps:
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            docs:
+              - '**/*.md'
+              - 'docs/**'
+            code:
+              - '**/*.pl'
+              - '**/*.pm'
+              - '**/*.js'
+              - '**/*.scss'
+              - 'conf/**'
+              - 'lib/**'
+              - 'scripts/**'
+              - 'tests/**'
 
   lint:
     name: 🕵️‍♀️ NPM lint
@@ -85,7 +108,7 @@ jobs:
     name: 🐪 Check Perl
     needs: build_backend
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
+    if: github.event_name == 'pull_request' && needs.filter.outputs.code_changed == 'true'
     steps:
     - uses: actions/checkout@v4
       with:
