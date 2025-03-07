@@ -10,13 +10,7 @@
     [% END %]
 [% END %]
 
-
-[% IF (robotoff_url.defined) && (robotoff_url.length > 0) %]
-    <!-- Anonymous users will only be able to vote see AnnotationVote in robotoff,
-        the voter uniqueness is based on a hash of its ip address
-    -->
-	<robotoff-asker url='[% robotoff_url %]' code='[% code %]' lang='[% lc %]' style='display: none;' caption-yes='[% esq(lang("button_caption_yes")) %]' caption-no='[% esq(lang("button_caption_no")) %]' caption-skip='[% esq(lang("button_caption_skip")) %]'></robotoff-asker>
-[% END %]
+[% INCLUDE web/common/includes/off_webcomponents_configuration.tt.html language_code = lc robotoff_domain = robotoff_url images_domain = images_subdomain %]
 
 <a href="#upNav" class="back-to-top scrollto button">
     <span class="material-icons size-20 ">
@@ -198,10 +192,16 @@
                         
                         [% product_fields %]
 
+                        [% IF (robotoff_url.defined) && (robotoff_url.length > 0) %]
+                            <!-- Anonymous users will only be able to vote see AnnotationVote in robotoff,
+                                the voter uniqueness is based on a hash of its ip address -->
+                            [% INCLUDE web/common/includes/robotoff_question.tt.html product_code = code id = "robotoff-question"  %]
+                        [% END %]
+
                     [% IF front_image.defined %]
                             </div>
                         </div>
-                    [% END %]   
+                    [% END %]
 
                     </div>
                 </div>

@@ -194,6 +194,7 @@ $ProductOpener::Config::options{rate_limit_product} = 100;
 
 # Rate limit allow list
 $ProductOpener::Config::options{rate_limit_allow_list} = {
+	# Internal servers
 	'146.59.148.140' => 1,    # OVH1
 	'51.210.154.203' => 1,    # OVH2
 	'51.210.32.79' => 1,    # OVH3
@@ -204,6 +205,14 @@ $ProductOpener::Config::options{rate_limit_allow_list} = {
 	'213.36.253.208' => 1,    # off2
 	'45.147.209.254' => 1,    # Moji server (actually OSM proxy, Moji only has ipv6)
 	'217.182.132.133' => 1,    # ks1
+							   # Journalists
+	'194.51.35.103' => 1,    # FranceTV
 };
+
+# Rate limit allow list blocks
+$ProductOpener::Config::options{rate_limit_allow_list_blocks} = [
+	# Schools
+	'163.5.0.0/16'    # EPITECH https://bgpview.io/prefix/163.5.0.0/16
+];
 
 1;
