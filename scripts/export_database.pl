@@ -94,6 +94,9 @@ sub sanitize_field_content {
 	return $content;
 }
 
+# Record if the script had errors
+my $errors = 0;
+
 my %tags_fields = (
 	packaging => 1,
 	brands => 1,
@@ -239,7 +242,7 @@ XML
 
 	my @nutrients_to_export = ();
 
-	foreach my $nid (@{$nutriments_tables{"europe"}}) {
+	foreach my $nid (@{$nutriments_tables{"off_europe"}}) {
 
 		$nid =~ /^#/ and next;
 
@@ -534,6 +537,7 @@ XML
 	else {
 		print STDERR "Not overwriting previous CSV. Old size = $csv_size_old, new size = $csv_size_new.\n";
 		unlink "$csv_filename.temp2";
+		$errors++;
 	}
 
 	my %links = ();
@@ -591,8 +595,9 @@ XML
 	else {
 		print STDERR "Not overwriting previous RDF. Old size = $rdf_size_old, new size = $rdf_size_new.\n";
 		unlink "$rdf_filename.temp";
+		$errors++;
 	}
 
 }
 
-exit(0);
+exit($errors);

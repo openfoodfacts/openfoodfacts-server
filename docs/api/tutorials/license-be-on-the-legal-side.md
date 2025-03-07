@@ -8,7 +8,7 @@
 * Please read our [simple summary of the OdBL and our licence on the wiki](https://wiki.openfoodfacts.org/ODBL_License)
 * Please read our [attribution guidelines (how to) on the wiki](https://wiki.openfoodfacts.org/ODBL_License)
 * Please [check that your app is not in the non-compliance shamelist](https://wiki.openfoodfacts.org/ODBL_non-compliance). If so, please get in touch at [reuse@openfoodfacts.org](mailto:reuse@openfoodfacts.org) or on the Slack so that we can fix it together.
-* Please read the API FAQ, which includes legal questions as well. If your question is not answered, please send it to [reuse@openfoodfacts.org](mailto:reuse@openfoodfacts.org)
+* Please read the [API FAQ]([url](https://support.openfoodfacts.org/help/en-gb/12-api)), which includes legal questions as well. If your question is not answered, please send it to [reuse@openfoodfacts.org](mailto:reuse@openfoodfacts.org)
 
 ## Getting in touch
 
