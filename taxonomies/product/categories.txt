@@ -1775,6 +1775,10 @@ de: Waschmittel
 es: Detergentes para la ropa
 fr: Lessives
 
+en: Detergents
+es: Detergentes
+fr: Détergents
+
 < en: Household chemicals
 en: Liquid detergent
 de: Flüssigwaschmittel
@@ -2154,11 +2158,6 @@ en: Diapers
 de: Windeln
 es: Pañales
 fr: Couches
-
-en: Detergents
-de: Waschmittel
-es: Detergentes
-fr: Détergents
 
 en: Toilet gel
 de: Toilettengel
@@ -2866,7 +2865,7 @@ qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/magnetoscope
 unit_name:en: VCR
 unit_name:fr: Magnétoscope
 
-#< en: placeholder parent category
+#< en: Toys
 en: Electronic toy
 fr: Jouet électronique
 qfdmofr_tag:fr: Jouet electronique
@@ -4704,14 +4703,6 @@ unit_name:en: Bottle rack unit
 unit_name:fr: Meuble range-bouteilles
 
 #< en: placeholder parent category
-en: Worktop
-fr: Plan de travail
-qfdmofr_tag:fr: Plan de travail
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/plan-de-travail
-unit_name:en: Worktop
-unit_name:fr: Plan de travail
-
-#< en: placeholder parent category
 en: Furniture plinth
 fr: Plinthe de meuble
 qfdmofr_tag:fr: Plinthe de meuble
@@ -4736,8 +4727,16 @@ unit_name:en: Cutlery tray
 unit_name:fr: Range-couvert
 
 #< en: placeholder parent category
-en: Furniture covering (cupboard doors, worktop...)
-fr: revêtement de meuble (portes de placard, plan de travail...)
+en: Worktop
+fr: Plan de travail
+qfdmofr_tag:fr: Plan de travail
+qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/plan-de-travail
+unit_name:en: Worktop
+unit_name:fr: Plan de travail
+
+#< en: placeholder parent category
+en: Furniture covering
+fr: revêtement de meuble
 qfdmofr_tag:fr: revetement de meuble (portes de placard, plan de travail...)
 qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/revetement-de-meuble-portes-de-placard-plan-de-travail
 unit_name:en: Furniture covering (cupboard doors, worktop...)
@@ -5096,8 +5095,8 @@ unit_name:en: PC
 unit_name:fr: PC
 
 #< en: placeholder parent category
-en: Electric tool (DIY, gardening)
-fr: Outil électrique (bricolage, jardinage)
+en: Electric tool
+fr: Outil électrique
 qfdmofr_tag:fr: Outil electrique (bricolage, jardinage)
 qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/outil-electrique-bricolage-jardinage
 unit_name:en: Electric tool (DIY, gardening)
@@ -6342,8 +6341,8 @@ unit_name:en: Scooter accessory (wheel, handle, other plastic component)
 unit_name:fr: Accessoire de trottinette (roue, poignée, autre composant plastique)
 
 < en: Sporting goods
-en: Bicycle accessory (lock, luggage, basket, bell, pump, water bottle, bottle cage)
-fr: Accessoire de vélo (antivol, bagagerie, panier, sonnette, pompe, gourde, bidon et porte-bidon)
+en: Bicycle accessory
+fr: Accessoire de vélo
 qfdmofr_tag:fr: Accessoire de velo (antivol, bagagerie, panier, sonnette, pompe, gourde, bidon et porte-bidon)
 qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/accessoire-de-velo-antivol-bagagerie-panier-sonnette-pompe-gourde-bidon-et-porte-bidon
 unit_name:en: Bicycle accessory (lock, luggage, basket, bell, pump, water bottle, bottle cage)
@@ -6502,16 +6501,16 @@ unit_name:en: Windsurf Mast
 unit_name:fr: Mât de windsurf
 
 < en: Sporting goods
-en: Athletics equipment (hurdle, starting block, baton, javelin, shot put, discus, hammer, equipment for long jump and high jump...)
-fr: Matériel d'athlétisme (haie, starting-block, bâton, témoin, javelot, poids, disque, marteau, matériel pour saut en longueur et hauteur…)
+en: Athletics equipment
+fr: Matériel d'athlétisme
 qfdmofr_tag:fr: Materiel d'athletisme (haie, starting-block, baton, temoin, javelot, poids, disque, marteau, materiel pour saut en longueur et hauteur…)
 qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/materiel-d-athletisme-haie-starting-block-baton-temoin-javelot-poids-disque-marteau-materiel-pour-saut-en-longueur-et-hauteur
 unit_name:en: Athletics Equipment
 unit_name:fr: Matériel d'athlétisme
 
 < en: Sporting goods
-en: Sports training equipment (mini-hurdle, ground marking, stud, sports cone...)
-fr: Matériel d'entraînement sportif (mini-haie, marquage au sol, plot, cône de sport…)
+en: Sports training equipment
+fr: Matériel d'entraînement sportif
 qfdmofr_tag:fr: Materiel d'entrainement sportif (mini-haie, marquage au sol, plot, cone de sport…)
 qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/materiel-d-entrainement-sportif-mini-haie-marquage-au-sol-plot-cone-de-sport
 unit_name:en: Sports Training Equipment
@@ -6821,140 +6820,6 @@ qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/materiel-d-aquagym
 unit_name:en: Aquagym equipment
 unit_name:fr: Matériel d'aquagym
 
-#< en: Sport equipment
-en: Nose clip (swimming)
-fr: Pince-nez (piscine)
-qfdmofr_tag:fr: Pince-nez (piscine)
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/pince-nez-piscine-0  *Duplicate, already exists*
-unit_name:en: Nose clip (swimming)
-unit_name:fr: Pince-nez (piscine)
-
-#< en: Sport equipment
-en: Swimming article
-fr: Article de natation
-qfdmofr_tag:fr: Article de natation
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/article-de-natation-0  *Duplicate, already exists*
-unit_name:en: Swimming article
-unit_name:fr: Article de natation
-
-#< en: Sport equipment
-en: Swimming cap
-fr: Bonnet de bain
-qfdmofr_tag:fr: Bonnet de bain
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/bonnet-de-bain-0 *Duplicate, already exists*
-unit_name:en: Swimming cap
-unit_name:fr: Bonnet de bain
-
-#< en: Sport equipment
-en: Foosball table
-fr: Babyfoot
-qfdmofr_tag:fr: Babyfoot
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/babyfoot-0 *Duplicate, already exists*
-unit_name:en: Foosball table
-unit_name:fr: Babyfoot
-
-#< en: Sport equipment
-en: Boomerang
-fr: Boomerang
-qfdmofr_tag:fr: Boomerang
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/boomerang-0 *Duplicate, already exists*
-unit_name:en: Boomerang
-unit_name:fr: Boomerang
-
-#< en: Sport equipment
-en: Frisbee
-fr: Frisbee
-qfdmofr_tag:fr: Frisbee
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/frisbee-0 *Duplicate, already exists*
-unit_name:en: Frisbee
-unit_name:fr: Frisbee
-
-#< en: Sport equipment
-en: Vortex
-fr: Vortex
-qfdmofr_tag:fr: Vortex
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/vortex-0 *Duplicate, already exists*
-unit_name:en: Vortex
-unit_name:fr: Vortex
-#< en: Sport equipment
-en: Boxing shield (Pad)
-fr: Bouclier (Pad) de boxe
-qfdmofr_tag:fr: Bouclier (Pad) de boxe
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/bouclier-pad-de-boxe-0 *Duplicate, already exists*
-unit_name:en: Boxing shield (Pad)
-unit_name:fr: Bouclier (Pad) de boxe
-
-#< en: Sport equipment
-en: Judo belt
-fr: Ceinture de judo
-qfdmofr_tag:fr: Ceinture de judo
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/ceinture-de-judo-0  *Duplicate, already exists*
-unit_name:en: Judo belt
-unit_name:fr: Ceinture de judo
-
-#< en: Sport equipment
-en: Basketball hoop
-fr: Cercle de basket
-qfdmofr_tag:fr: Cercle de basket
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/cercle-de-basket-0 *Duplicate, already exists*
-unit_name:en: Basketball hoop
-unit_name:fr: Cercle de basket
-
-#< en: Sport equipment
-en: Ski touring equipment (shovel, probe...)
-fr: Equipement de ski de randonnée (pelle, sonde...)
-qfdmofr_tag:fr: Equipement de ski de randonnee (pelle, sonde...)
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/equipement-de-ski-de-randonnee-pelle-sonde-0 *Duplicate fixed*
-unit_name:en: Ski Touring Equipment
-unit_name:fr: Equipement de ski de randonnée
-
-#< en: Sport equipment
-en: Elliptical trainer
-fr: Elliptique
-qfdmofr_tag:fr: Elliptique
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/elliptique-0 *Duplicate fixed*
-unit_name:en: Elliptical Trainer
-unit_name:fr: Elliptique
-
-#< en: Sport equipment
-en: Resistance band
-fr: Elastiband
-qfdmofr_tag:fr: Elastiband
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/elastiband-0 *Duplicate fixed*
-unit_name:en: Resistance Band
-unit_name:fr: Elastiband
-
-#< en: Sport equipment
-en: Fitness tube
-fr: Fitness tube
-qfdmofr_tag:fr: Fitness tube
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/fitness-tube-0 *Duplicate fixed*
-unit_name:en: Fitness Tube
-unit_name:fr: Fitness tube
-
-#< en: Sport equipment
-en: Sports net and posts
-fr: Filet et poteaux de sport
-qfdmofr_tag:fr: Filet et poteaux de sport
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/filet-et-poteaux-de-sport-0 *Duplicate fixed*
-unit_name:en: Sports Net and Posts
-unit_name:fr: Filet et poteaux de sport
-
-#< en: Sport equipment
-en: Racket case (tennis, badminton, squash, table tennis...)
-fr: Etui de raquette (tennis, badminton, squash, table tennis...)
-qfdmofr_tag:fr: Etui de raquette (tennis, badminton, squash, tennis de table...)
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/etui-de-raquette-tennis-badminton-squash-tennis-de-table-0 *Duplicate Fixed*
-unit_name:en: Racket Case
-unit_name:fr: Etui de raquette
-
-#< en: Sport equipment
-en: Foil (windsurf, kitesurf...)
-fr: Foil (windsurf, kitesurf...)
-qfdmofr_tag:fr: Foil (windsurf, kitesurf...)
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/foil-windsurf-kitesurf-0 *Duplicate fixed*
-unit_name:en: Foil
-unit_name:fr: Foil
 #< en: Sport equipment
 en: Paddle
 fr: Pagaie
@@ -7411,14 +7276,6 @@ qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/piolet-de-sport
 unit_name:en: Sport Ice Axe
 unit_name:fr: Piolet de sport
 
-#< en: Biking equipment
-en: Bicycle tire
-fr: Pneu de vélo
-qfdmofr_tag:fr: Pneu de velo
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/pneu-de-velo-0 *Duplicate fixed*
-unit_name:en: Bicycle Tire
-unit_name:fr: Pneu de vélo
-
 #< en: Sport equipment
 en: Shin guard
 fr: Protège-tibia
@@ -7442,14 +7299,6 @@ qfdmofr_tag:fr: Protege-poignet
 qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/protege-poignet
 unit_name:en: Wrist guard
 unit_name:fr: Protège-poignet
-
-< en: Sporting goods
-en: Protective shell (sport)
-fr: Coque de protection (sport)
-qfdmofr_tag:fr: Coque de protection (sport)
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/coque-de-protection-sport-0 *Duplicate fixed*
-unit_name:en: Protective shell (sport)
-unit_name:fr: Coque de protection (sport)
 
 < en: Sporting goods
 en: Lanyard for sports (climbing, canicross)
@@ -7490,22 +7339,6 @@ qfdmofr_tag:fr: Materiel d'alpinisme
 qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/materiel-d-alpinisme
 unit_name:en: Alpinism equipment
 unit_name:fr: Matériel d'alpinisme
-
-< en: Sporting goods
-en: Caving equipment
-fr: Matériel de Varappe
-qfdmofr_tag:fr: Materiel de Varappe
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/materiel-de-varappe *Duplicate - BUT different tag and link*
-unit_name:en: Caving equipment
-unit_name:fr: Matériel de Varappe
-
-< en: Sporting goods
-en: Canyoning equipment
-fr: Matériel de canyoning
-qfdmofr_tag:fr: Materiel de canyoning
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/materiel-de-canyoning *Duplicate - BUT different tag and link*
-unit_name:en: Canyoning equipment
-unit_name:fr: Matériel de canyoning
 
 < en: Sporting goods
 en: Sports mask
@@ -7722,14 +7555,6 @@ qfdmofr_tag:fr: Tapis d'eveil
 qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/tapis-d-eveil
 unit_name:en: Play Mat
 unit_name:fr: Tapis d'éveil
-
-#< en: placeholder parent category
-en: Baby nest
-fr: Turbulette
-qfdmofr_tag:fr: Turbulette
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/turbulette-0 *duplicate, fixed*
-unit_name:en: Baby Nest
-unit_name:fr: Turbulette
 
 #< en: placeholder parent category
 en: Pillow
@@ -8260,14 +8085,6 @@ unit_name:en: Reusable Building Material
 unit_name:fr: Matériau du bâtiment réemployable
 
 #< en: placeholder parent category
-en: Toy
-fr: Jouet
-qfdmofr_tag:fr: Jouet
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/jouet-0  *Duplicate fixed again.  This one was subtle!*
-unit_name:en: Toy
-unit_name:fr: Jouet
-
-#< en: placeholder parent category
 en: Board game
 fr: Jeu de société
 qfdmofr_tag:fr: Jeu de societe
@@ -8370,195 +8187,3 @@ qfdmofr_tag:fr: Fauteuil roulant, bequilles, brancard, lit medicalise, deambulat
 qfdmo_fr_link:fr:https://quefairedemesobjets.ademe.fr/dechet/fauteuil-roulant-bequilles-brancard-lit-medicalise-deambulateur
 unit_name:en: Wheelchair, Crutches, Stretcher, Hospital Bed, Walker
 unit_name:fr: Fauteuil roulant, béquilles, brancard, lit médicalisé, déambulateur
-
-#< en: placeholder parent category
-en: Jewelry box
-fr: Ecrin à bijoux
-qfdmofr_tag:fr: Ecrin a bijoux
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/ecrin-a-bijoux-0 *Duplicate fixed*
-unit_name:en: Jewelry Box
-unit_name:fr: Ecrin à bijoux
-
-#< en: placeholder parent category
-en: Jewelry box
-fr: Boîte à bijoux
-qfdmofr_tag:fr: Boite a bijoux
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/boite-a-bijoux-0 *Duplicate fixed*
-unit_name:en: Jewelry Box
-unit_name:fr: Boîte à bijoux
-
-#< en: placeholder parent category
-en: Walking shoes
-fr: Chaussures de marche
-qfdmofr_tag:fr: Chaussures de marche
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/chaussures-de-marche-0 *Duplicate fixed*
-unit_name:en: Walking Shoes
-unit_name:fr: Chaussures de marche
-
-#< en: placeholder parent category
-en: Hiking boots
-fr: Chaussures de randonnée
-qfdmofr_tag:fr: Chaussures de randonnee
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/chaussures-de-randonnee-0 *Duplicate Fixed*
-unit_name:en: Hiking Boots
-unit_name:fr: Chaussures de randonnée
-
-#< en: placeholder parent category
-en: Backpack
-fr: Sac à dos
-qfdmofr_tag:fr: Sac a dos
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/sac-a-dos-0 *Duplicate fixed*
-unit_name:en: Backpack
-unit_name:fr: Sac à dos
-
-#< en: placeholder parent category
-en: Electronic device
-fr: Appareil électronique
-qfdmofr_tag:fr: Appareil electronique
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/appareil-electronique-0 *Duplicate fixed*
-unit_name:en: Electronic Device
-unit_name:fr: Appareil électronique
-
-#< en: placeholder parent category
-en: DIY tool
-fr: Outil de bricolage
-qfdmofr_tag:fr: Outil de bricolage
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/outil-de-bricolage-0 *Duplicate Fixed*
-unit_name:en: DIY Tool
-unit_name:fr: Outil de bricolage
-
-#< en: placeholder parent category
-en: Gardening tool
-fr: Outil de jardinage
-qfdmofr_tag:fr: Outil de jardinage
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/outil-de-jardinage-0 *Duplicate Fixed*
-unit_name:en: Gardening Tool
-unit_name:fr: Outil de jardinage
-
-#< en: placeholder parent category
-en: Garden accessory
-fr: Accessoire de jardin
-qfdmofr_tag:fr: Accessoire de jardin
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/accessoire-de-jardin-0 *Duplicate fixed*
-unit_name:en: Garden Accessory
-unit_name:fr: Accessoire de jardin
-
-#< en: placeholder parent category
-en: Garden furniture
-fr: Meuble de jardin
-qfdmofr_tag:fr: Meuble de jardin
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/meuble-de-jardin-0 *Duplicate Fixed*
-unit_name:en: Garden Furniture
-unit_name:fr: Meuble de jardin
-
-#< en: placeholder parent category
-en: Hi-fi equipment
-fr: Matériel hifi
-qfdmofr_tag:fr: Materiel hifi
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/materiel-hifi-0 *Duplicate fixed*
-unit_name:en: Hi-fi equipment
-unit_name:fr: Matériel hifi
-
-#< en: placeholder parent category
-en: Video equipment
-fr: Matériel vidéo
-qfdmofr_tag:fr: Materiel video
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/materiel-video-0  *Duplicate Fixed*
-unit_name:en: Video equipment
-unit_name:fr: Matériel vidéo
-
-#< en: placeholder parent category
-en: Jewelry
-fr: Bijou
-qfdmofr_tag:fr: Bijou
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/bijou-0 *Duplicate fixed*
-unit_name:en: Jewelry
-unit_name:fr: Bijou
-
-#< en: placeholder parent category
-en: Watch
-fr: Montre
-qfdmofr_tag:fr: Montre
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/montre-0 *Duplicate fixed*
-unit_name:en: Watch
-unit_name:fr: Montre
-
-#< en: placeholder parent category
-en: Photo equipment
-fr: Matériel photo
-qfdmofr_tag:fr: Materiel photo
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/materiel-photo-0 *Duplicate Fixed*
-unit_name:en: Photo equipment
-unit_name:fr: Matériel photo
-
-#< en: placeholder parent category
-en: Cinema equipment
-fr: Matériel cinéma
-qfdmofr_tag:fr: Materiel cinema
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/materiel-cinema-0 *Duplicate fixed*
-unit_name:en: Cinema equipment
-unit_name:fr: Matériel cinéma
-
-#< en: placeholder parent category
-en: Sport shoes
-fr: Chaussures de sport
-qfdmofr_tag:fr: Chaussures de sport
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/chaussures-de-sport-0 *Duplicate Fixed*
-unit_name:en: Sport shoes
-unit_name:fr: Chaussures de sport
-
-#< en: placeholder parent category
-en: Bracelet (jewelry)
-fr: Bracelet (bijou)
-qfdmofr_tag:fr: Bracelet (bijou)
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/bracelet-bijou-0 *Duplicate fixed*
-unit_name:en: Bracelet (jewelry)
-unit_name:fr: Bracelet (bijou)
-
-#< en: placeholder parent category
-en: Skis
-fr: skis
-qfdmofr_tag:fr: skis
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/skis-0 *Duplicate fixed*
-unit_name:en: Skis
-unit_name:fr: skis
-
-#< en: placeholder parent category
-en: Baseball accessory
-fr: Accessoire de baseball
-qfdmofr_tag:fr: Accessoire de baseball
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/accessoire-de-baseball-0 *Duplicate Fixed*
-unit_name:en: Baseball Accessory
-unit_name:fr: Accessoire de baseball
-
-#< en: placeholder parent category
-en: Ceiling light
-fr: Plafonnier
-qfdmofr_tag:fr: Plafonnier
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/plafonnier-0 *Duplicate fixed*
-unit_name:en: Ceiling Light
-unit_name:fr: Plafonnier
-
-#< en: placeholder parent category
-en: Audio headset
-fr: Casque audio
-qfdmofr_tag:fr: Casque audio
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/casque-audio-0 *Duplicate Fixed*
-unit_name:en: Audio Headset
-unit_name:fr: Casque audio
-
-#< en: placeholder parent category
-en: Reusable building material
-fr: Matériau de construction réemployable
-qfdmofr_tag:fr: Materiau de construction reemployable
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/materiau-de-construction-reemployable-0 *Duplicate Fixed*
-unit_name:en: Reusable Building Material
-unit_name:fr: Matériau de construction réemployable
-
-#< en: placeholder parent category
-en: Reusable building material
-fr: Matériau du bâtiment réemployable
-qfdmofr_tag:fr: Materiau du batiment reemployable
-qfdmo_fr_link:fr: https://quefairedemesobjets.ademe.fr/dechet/materiau-du-batiment-reemployable-0 *Duplicate fixed*
-unit_name:en: Reusable Building Material
-unit_name:fr: Matériau du bâtiment réemployable
