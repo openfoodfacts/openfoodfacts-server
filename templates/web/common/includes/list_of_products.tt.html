@@ -3,7 +3,18 @@
 <div class="row">
   <div class="small-12 columns"> 
     [% IF error %]
-      <p>[% error %]</p>
+      <h4>[% error %] </h4>
+      <p>[% lang('add_product_to_our_database') %]</p>
+      <form method="post" action="/cgi/product.pl" enctype="multipart/form-data">
+        <input type="hidden" name="code" placeholder="or Barcode" value="[% search_terms %]" >
+        <div class="small-2 medium-2 large-2 xlarge-2 columns" style="padding-left: 0;min-width: 100px;">
+            <input type="submit" value="[% lang('add')%]" class="button postfix">
+        </div>
+        <input type="hidden" name="action" value="process">
+        <input type="hidden" name="type" value="search_or_add">
+      </form>
+      <br>
+      <br>
     [% END %]
     [% IF (current_link.defined) && !(jqm.defined) %]
       [% IF !(server_options_producers_platform) %]
