@@ -300,9 +300,10 @@ my @products = ();
 
 # keep track of the number of products in each category, brands etc. to prioritize the creation of mapping tables
 my %unknown_categories = ();
-my %unverified_categories = ();	# we have a taxonomy match, but it could be incorrect or not specific enough
+my %unverified_categories = ();    # we have a taxonomy match, but it could be incorrect or not specific enough
 my %unverified_categories_matches = ();
 my %unknown_brands = ();
+my %unknown_labels = ();
 
 while (my $imported_product_ref = $input_csv->getline_hr($io)) {
 
@@ -359,6 +360,9 @@ while (my $imported_product_ref = $input_csv->getline_hr($io)) {
 
 		if (defined $labels{$ugc_typo}) {
 			push @labels, $labels{$ugc_typo};
+		}
+		else {
+			$unknown_labels{$ugc_typo}++;
 		}
 	}
 
@@ -756,6 +760,9 @@ while (my $imported_product_ref = $input_csv->getline_hr($io)) {
 	foreach my $field (sort keys %ingredients_fields) {
 
 		if ((defined $imported_product_ref->{$field}) and ($imported_product_ref->{$field} ne '')) {
+
+			$imported_product_ref->{$field} =~ s/\bUF\b/ŒUF/g;
+			$imported_product_ref->{$field} =~ s/\bUFS\b/ŒUFS/g;
 			# cleaning
 			# in 2018 there were extra commas in the ingredients, this might be fixed now
 			$imported_product_ref->{$field} =~ s/ ( +)/ /g;
@@ -780,6 +787,19 @@ while (my $imported_product_ref = $input_csv->getline_hr($io)) {
 			$product_ref->{$ingredients_fields{$field}} = $imported_product_ref->{$field};
 			print STDERR "setting ingredients, field $field -> $ingredients_fields{$field}, value: "
 				. $imported_product_ref->{$field} . "\n";
+		}
+	}
+
+	# A lot of products have origins at the end of the ingredients list
+	# e.g.  [..] caramel (sucre, eau), arôme naturel. Traces éventuelles de soja, lait et fruits à coque. Origines : Avoine UE/non UE. Blé UE. Cacao non UE.
+	# We will extract them and store them in the origins field
+	if ((defined $product_ref->{ingredients_text_fr}) and ($product_ref->{ingredients_text_fr} ne "")) {
+		# we could have Origins inside the ingredients list, for a specific ingredient
+		# in order to avoid matching those, look for a . before the word Origine
+		if ($product_ref->{ingredients_text_fr} =~ /\. Origine(?:s)? : (.*)/i) {
+			$product_ref->{origin_fr} = $1;
+			$product_ref->{ingredients_text_fr} = $`;
+			print STDERR "found origins: " . $product_ref->{origins} . "\n";
 		}
 	}
 
@@ -1112,6 +1132,7 @@ my @output_fields = qw(
 	labels
 	quantity
 	ingredients_text_fr
+	origin_fr
 	allergens
 	traces
 	nutrition_data_per
@@ -1147,14 +1168,6 @@ foreach my $product_ref (@products) {
 	$output_csv->print($output_csv_fh, \@output_values);
 }
 
-print "\n\nlabels:\n";
-
-foreach my $label (sort {$labels_count{$b} <=> $labels_count{$a}} keys %labels_count) {
-
-	defined $labels{$label} or $labels{$label} = "";
-	print $label . "\t" . $labels_count{$label} . "\t" . $labels{$label} . "\n";
-}
-
 print "\n\nallergens:\n";
 
 foreach my $allergen (sort {$allergens_count{$b} <=> $allergens_count{$a}} keys %allergens_count) {
@@ -1175,7 +1188,9 @@ print "\n\ncategories with unverified taxonomy matches:\n";
 
 foreach my $category (sort {$unverified_categories{$b} <=> $unverified_categories{$a}} keys %unverified_categories) {
 
-	print $category . "\t" . $unverified_categories{$category} . "\t" . $unverified_categories_matches{$category} . "\n";
+	print $category . "\t"
+		. $unverified_categories{$category} . "\t"
+		. $unverified_categories_matches{$category} . "\n";
 }
 
 print "\n\ncategories with no mapping to OFF categories:\n";
@@ -1190,6 +1205,13 @@ print "\n\nbrands with no mapping to OFF brands:\n";
 foreach my $brand (sort {$unknown_brands{$b} <=> $unknown_brands{$a}} keys %unknown_brands) {
 
 	print $brand . "\t" . $unknown_brands{$brand} . "\n";
+}
+
+print "\n\nlabels with no mapping to OFF labels:\n";
+
+foreach my $label (sort {$unknown_labels{$b} <=> $unknown_labels{$a}} keys %unknown_labels) {
+
+	print $label . "\t" . $unknown_labels{$label} . "\n";
 }
 
 #print "\n\nlist of nutrient names:\n\n";

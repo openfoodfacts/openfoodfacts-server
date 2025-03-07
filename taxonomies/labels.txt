@@ -1230,12 +1230,16 @@ xx: PEFC, Programme for the Endorsement of Forest Certification
 de: PEFC, Programme for the Endorsement of Forest Certification, Zertifizierungssystem für nachhaltige Waldbewirtschaftung
 es: PEFC, Programme for the Endorsement of Forest Certification, Programa para el Reconocimiento de Certificación Forestal
 fi: PEFC, Programme for the Endorsement of Forest Certification, Euroopan laajuinen metsäsertifikaatti
-fr: PEFC, Programme for the Endorsement of Forest Certification, Programme de reconnaissance des certifications forestières
+fr: PEFC, Programme for the Endorsement of Forest Certification, Programme de reconnaissance des certifications forestières, PEFC France, emballage PEFC
 hu: PEFC, Programme for the Endorsement of Forest Certification, Páneurópai Erdő Tanúsítás
 pt: PEFC, Programme for the Endorsement of Forest Certification, Programa para o Reconhecimento de Certificação Forestal, certificado PEFC
 label_categories:en: en:Packaging
+web:fr: https://www.pefc-france.org/
 wikidata:en: Q2112204
 # associated_materials:en: en:paper, en:cardboard
+
+en: 100% recyclable packaging, 100% recyclable
+fr: Emballage recyclable à 100%, Recyclable à 100%
 
 en: Green Dot, The Green Dot
 xx: Green Dot, The Green Dot
@@ -20072,6 +20076,12 @@ origins:en: en:france
 fr: Bleu Blanc Cœur, Filière Qualité Bleu Blanc Cœur, Filière nutrition oméga 3 naturels Association Bleu-Blanc-Cœur, Bleu Blanc Cœur Oméga 3 Naturels, BBC
 auth_url:fr: https://www.bleu-blanc-coeur.org
 
+< fr: Bleu Blanc Cœur
+fr: Bleu Blanc Cœur Viande, BBC viande
+
+< fr:Bleu Blanc Cœur
+fr: Bleu Blanc Cœur Volaille, BBC volaille, voilaille BBC
+
 < fr:Bleu Blanc Cœur
 fr: Bleu Blanc Cœur Poulet, BBC poulet, poulet BBC
 
@@ -20096,6 +20106,9 @@ label_categories:en: en:Health, en:Quality, en:Environment
 web:en: https://demainlaterre.org/en/producer-community/demain-la-terre-label
 
 fr: Nouvelle Agriculture
+
+< fr: Nouvelle Agriculture
+fr: Nouvelle Agriculture Lapin
 
 en: Smoked with beech wood
 ca: Fumat amb fusta de faig
@@ -22960,4 +22973,20 @@ fr: Élevé en Sodium (Santé Canada)
 image:xx: high-in-sodium-health-canada-eleve-en-sodium-sante-canada.171x90.svg
 image:en: high-in-sodium-health-canada.120x90.svg
 image:fr: eleve-en-sodium-sante-canada.120x90.svg
+
+< en:Sustainable farming
+fr: Blé issu d'une culture maitrisée
+ingredients:en: en:wheat
+
+< en:Sustainable farming
+fr: Maïs issu d'une culture maitrisée
+ingredients:en: en:corn
+
+< en:Sustainable farming
+fr: Agri Confiance, AgriConfiance, Agri Confiance Coopérative Engagée
+web:fr: https://www.agriconfiance.coop/
+
+< en:Sustainable fishing
+en: Fishing of a well-managed species
+fr: Pêche d'une espèce bien gérée
 
