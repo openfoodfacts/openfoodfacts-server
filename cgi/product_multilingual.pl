@@ -43,7 +43,7 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::KnowledgePanels qw/initialize_knowledge_panels_options/;
 use ProductOpener::KnowledgePanelsContribution qw/create_contribution_card_panel/;
-use ProductOpener::URL qw/:all/;
+use ProductOpener::URL qw(format_subdomain);
 use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::Packaging
@@ -1680,8 +1680,7 @@ MAIL
 		display_product(\%request);
 	}
 
-	$template_data_ref_process->{edited_product_url}
-		= $url_prefix . get_owner_pretty_path() . product_url($product_ref);
+	$template_data_ref_process->{edited_product_url} = $url_prefix . product_url($product_ref);
 	$template_data_ref_process->{edit_product_url} = $url_prefix . product_action_url($product_ref->{code});
 
 	if ($type ne 'delete') {

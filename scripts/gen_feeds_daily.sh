@@ -21,7 +21,7 @@ export PERL5LIB=lib:$PERL5LIB
 . <(perl -e 'use ProductOpener::Paths qw/:all/; print base_paths_loading_script()')
 
 # load PRODUCT_OPENER_DOMAIN and MONGODB_HOST
-. <(perl -e 'use ProductOpener::Config qw/:all/; print "export PRODUCT_OPENER_DOMAIN=$server_domain\nexport MONGODB_HOST=$mongodb_host";')
+. <(perl -e 'use ProductOpener::Config qw/:all/; print "export PRODUCT_OPENER_DOMAIN=$server_domain\nexport MONGODB_HOST=$mongodb_host\n";print("IS_PRO_PLATFORM=1\n") if $server_options{producers_platform};')
 
 # we should now have PRODUCT_OPENER_DOMAIN set (from Config.pm in production mode), check it
 if [ -z "$PRODUCT_OPENER_DOMAIN" ]; then
@@ -36,7 +36,7 @@ FAILED_COMMANDS=""
 
 # off-pro flavor: we don't generate most exports
 # but we have some special processing
-if [ "$PRODUCT_OPENER_FLAVOR_SHORT" == "off-pro" ]; then
+if [ -n "$IS_PRO_PLATFORM" ]; then
     echo "Generating feeds for off-pro flavor"
     ./save_org_product_data_daily_off_pro.pl
     echo "Skipping exports for off-pro flavor"

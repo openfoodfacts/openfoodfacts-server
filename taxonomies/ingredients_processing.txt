@@ -119,6 +119,7 @@ sv: vald, valda, valt, valda
 en: unfiltered
 bg: непречистен, нефилтриран
 ca: no filtrat
+cs: nefiltrovana
 de: naturtrüb, naturtrüber
 es: no filtrado
 fr: non filtré, trouble
@@ -255,8 +256,6 @@ pt: cortado fino, cortada fina, cortados finos, cortadas finas
 
 de: feingeschnitten, fein geschnittenen, feingeschnittener, feingeschnittenes
 
-de: geschrotet
-
 # <en:cut
 nl: zeer fijn gesneden
 
@@ -297,7 +296,7 @@ pt: laminado, laminada, laminados, laminadas, em lâminas, em lâmina, em rodela
 en: chopped
 ca: picat, picada, picats, picades, trossejat, trossejada, trossejades
 da: hakket, hakkede
-de: gehackt, gehackte, gehackter, gehacktes
+de: gehackt, gehackte, gehackter, gehacktes, geschrotet, geschrotete
 es: picada, picado, picadas, picados, trocitos, trocitas, troceado, troceada, troceados, troceadas
 fi: pilkottu, pilkotut
 fr: hâché, hâchée, hâchés, hâchées, haché, hachée, hachés, hachées
@@ -381,7 +380,7 @@ en: grated
 bg: настърган, настъргано, настъргана, настъргани
 ca: ratllat
 cs: strouhaný
-de: gerieben, geriebener, geriebene, geriebenes, geraspelt, geraspelte, geraspelter, geraspeltes
+de: gerieben, geriebener, geriebene, geriebenes, geraspelt, geraspelte, geraspelter, geraspeltes, gerebelt
 es: rallada, rallado, ralladas, rallados, rayada, rayado, rayadas, rayados
 fi: raastettu, raastetut
 # we need both râpé and rapé listed for matching in ingredients analysis
@@ -445,6 +444,7 @@ sv: mald, malda, malen
 # en:wiktionary:grind
 
 # <en:ground
+en: finely ground
 de: fein gemahlen, fein gemahlene, fein gemahlener, fein gemahlenes
 hr: fino mljeveno
 hu: finomra őrölt
@@ -572,7 +572,7 @@ de: Brösel
 es: migaja, migajas
 # fi:rouhe, rouheet
 fr: miette, miettes
-hr: mrvica, mrvica od
+hr: mrvica, mrvica od, mrvice
 hu: zsemlemorzsa, zsemlemorzsák
 it: briciola, briciole
 ja: パン粉
@@ -1286,7 +1286,7 @@ pt: curado, curada, curados, curadas
 #maybe this must be split in firmed and cuttable
 en: firmed
 da: skærefast
-de: schnittfester
+de: schnittfester, schnittfest
 el: σκληρή
 fr: affinée
 nl: Geharde
@@ -1810,6 +1810,7 @@ it: soffiato, soffiati, soffiata, soffiate
 nl: gepoft, gepofte
 pl: dmuchany, dmuchane, dmuchana, preparowany, preparowana, preparowane, ekspandowany, ekspandowane, ekspandowana
 se: puffat
+sv: puffat, puffad, krisp
 
 en: pre-fried, prefried
 bg: предварително пържени, предварително пържено, предварително пържена, предварително пържени
@@ -1934,7 +1935,7 @@ ca: fos
 de: geschmolzen, geschmolzene, geschmolzenes
 es: fundido, fundida, fundidos, fundidas
 fr: fondu, fondue, fondus, fondues
-hr: topljenih
+hr: topljenih, topljeni
 it: fuso, fusa, fusi, fuse
 ja: 溶けた
 nl: gesmolten
@@ -2194,6 +2195,9 @@ en: standardized
 bg: стандартизирано
 fr: standardisé, standardisée, standardisés, standardisées
 hr: standardizirano
+
+en: seasoned, with seasoning, with liquid seasoning
+de: gewürzter, gewuerzter, gewürzter, gewuerzter, flüssig gewürzt
 
 #######################################################################
 #
@@ -2661,7 +2665,7 @@ it: non idrogenato, non idrogenati
 nl: niet gehydrogeneerd, niet gehydrogeneerde
 pl: nieuwodorniony, nieutwardzony, nieutwardzone
 pt: nâo hidrogenada
-ro: nehidrogenate
+ro: nehidrogenate, nehidrogenat
 sv: ohärdad
 
 #en:description:Breakdown into simpler chemical constituents by appropriate treatment with water and possibly either enzymes or acid/alkali
