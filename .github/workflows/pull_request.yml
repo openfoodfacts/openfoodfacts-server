@@ -19,7 +19,7 @@ concurrency:
 
 jobs:
   filter:
-    name: "Filter changed paths"
+    name: "Doc file changed"
     runs-on: ubuntu-latest
     outputs:
       docs_changed: ${{ steps.filter.outputs.docs }}
