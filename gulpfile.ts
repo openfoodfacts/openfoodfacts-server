@@ -81,6 +81,7 @@ export function css() {
 export function copyJs() {
   const processed = src([
     "./node_modules/@webcomponents/**/webcomponentsjs/**/*.js",
+    "./node_modules/@openfoodfacts/openfoodfacts-webcomponents/dist/**/*.js",
     "./node_modules/foundation-sites/js/vendor/*.js",
     "./node_modules/foundation-sites/js/foundation.js",
     "./node_modules/papaparse/papaparse.js",
