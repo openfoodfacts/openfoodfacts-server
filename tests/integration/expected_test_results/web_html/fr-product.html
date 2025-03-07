@@ -376,12 +376,13 @@
 <script src="//static.openfoodfacts.localhost/js/dist/JsBarcode.all.min.js"></script>
 
 
-
-
-    <!-- Anonymous users will only be able to vote see AnnotationVote in robotoff,
-        the voter uniqueness is based on a hash of its ip address
-    -->
-	<robotoff-asker url='//backend:8881/' code='3300000000001' lang='fr' style='display: none;' caption-yes='Oui' caption-no='Non' caption-skip='Ignorer'></robotoff-asker>
+<off-webcomponents-configuration
+  language-code="fr"
+  robotoff-configuration='{
+    "apiUrl": "//backend:8881//api/v1",
+    "imgUrl": "//images.openfoodfacts.localhost/images/products"
+}'
+></off-webcomponents-configuration>
 
 
 <a href="#upNav" class="back-to-top scrollto button">
@@ -520,7 +521,7 @@
 
 <p id="field_brands">
     <span class="field">Marques : </span>
-    <span class="field_value" id="field_brands_value"><a itemprop="brand" href="/marque/bob-s-pies">Bob's pies</a></span>
+    <span class="field_value" id="field_brands_value"><a itemprop="brand" href="/facets/marques/bob-s-pies">Bob's pies</a></span>
 </p>
 
 <!-- end templates/web/common/includes/display_field.tt.html -->
@@ -528,7 +529,7 @@
 
 <p id="field_categories">
     <span class="field">Catégories : </span>
-    <span class="field_value" id="field_categories_value"><a href="/categorie/desserts" class="tag well_known">Desserts</a>, <a href="/categorie/tartes" class="tag well_known">Tartes</a>, <a href="/categorie/tartes-sucrees" class="tag well_known">Tartes sucrées</a>, <a href="/categorie/tartes-aux-pommes" class="tag well_known">Tartes aux pommes</a></span>
+    <span class="field_value" id="field_categories_value"><a href="/facets/categories/desserts" class="tag well_known">Desserts</a>, <a href="/facets/categories/tartes" class="tag well_known">Tartes</a>, <a href="/facets/categories/tartes-sucrees" class="tag well_known">Tartes sucrées</a>, <a href="/facets/categories/tartes-aux-pommes" class="tag well_known">Tartes aux pommes</a></span>
 </p>
 
 <!-- end templates/web/common/includes/display_field.tt.html -->
@@ -536,7 +537,7 @@
 
 <p id="field_labels">
     <span class="field">Labels, certifications, récompenses : </span>
-    <span class="field_value" id="field_labels_value"><a href="/label/commerce-equitable" class="tag well_known">Commerce équitable</a><br /><img src="/images/lang/fr/labels/commerce-equitable.96x90.png" width="96" height="90"/ style="display:inline" alt="Commerce équitable">
+    <span class="field_value" id="field_labels_value"><a href="/facets/labels/commerce-equitable" class="tag well_known">Commerce équitable</a><br /><img src="/images/lang/fr/labels/commerce-equitable.96x90.png" width="96" height="90"/ style="display:inline" alt="Commerce équitable">
 </span>
 </p>
 
@@ -561,13 +562,45 @@
 
 <p id="field_countries">
     <span class="field">Pays de vente : </span>
-    <span class="field_value" id="field_countries_value"><a href="/pays/inde" class="tag well_known">Inde</a>, <a href="/pays/japon" class="tag well_known">Japon</a>, <a href="/pays/etats-unis" class="tag well_known">États-Unis</a></span>
+    <span class="field_value" id="field_countries_value"><a href="/facets/pays/inde" class="tag well_known">Inde</a>, <a href="/facets/pays/japon" class="tag well_known">Japon</a>, <a href="/facets/pays/etats-unis" class="tag well_known">États-Unis</a></span>
 </p>
 
 <!-- end templates/web/common/includes/display_field.tt.html -->
 
 
-                       
+                        
+                            <!-- Anonymous users will only be able to vote see AnnotationVote in robotoff,
+                                the voter uniqueness is based on a hash of its ip address -->
+                            <div class="alert-box" style="background-color: #0064c8">
+  <robotoff-question
+    product-code="3300000000001"
+    options='{"showMessage": true, "showLoading": true, "showError": true, "showImage": false}'
+    id="robotoff-question"
+  ></robotoff-question>
+</div>
+<script>
+  const robotoffQuestion = document.getElementById("robotoff-question");
+  const robotoffQuestionParent = robotoffQuestion.parentElement;
+  // Hide the alert until we have questions
+  robotoffQuestionParent.style.display = "none";
+
+  robotoffQuestion.addEventListener("question-state", function (event) {
+    if (event.detail.numberOfQuestions === 0) {
+      robotoffQuestionParent.style.display = "none";
+    } else if (event.detail.index === event.detail.numberOfQuestions) {
+      // Hide the alert after the last question
+      setTimeout(function () {
+        robotoffQuestionParent.style.display = "none";
+      }, 3000);
+    } else {
+      robotoffQuestionParent.style.display = "block";
+    }
+  });
+</script>
+
+                        
+
+                    
 
                     </div>
                 </div>
@@ -4945,8 +4978,8 @@ un outil de la Direction générale de la concurrence, de la consommation et de 
 
 
         <p class="details">
-            Produit ajouté le <time datetime="--ignore--">--ignore--</time> par <a href="/editeur/tests">tests</a><br>
-            Dernière modification de la page produit le <time datetime="--ignore--">--ignore--</time> par <a href="/editeur/tests">tests</a>.
+            Produit ajouté le <time datetime="--ignore--">--ignore--</time> par <a href="/facets/editeurs/tests">tests</a><br>
+            Dernière modification de la page produit le <time datetime="--ignore--">--ignore--</time> par <a href="/facets/editeurs/tests">tests</a>.
             
             
         </p>
@@ -5190,8 +5223,8 @@ display_product_summary("#product_summary", product);
 <script src="//static.openfoodfacts.localhost/js/dist/jquery.cookie.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/select2.min.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
-<script src="//static.openfoodfacts.localhost/js/dist/display-product.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/product-history.js"></script>
+<script type="module" src="//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js"></script>
 <script type="text/javascript">
 var page_type = "product";
 var default_preferences = {"ecoscore":"important","nova":"important","nutriscore":"very_important"};

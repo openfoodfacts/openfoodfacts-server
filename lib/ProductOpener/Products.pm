@@ -133,7 +133,7 @@ use ProductOpener::Orgs qw/retrieve_org/;
 use ProductOpener::Lang qw/$lc %tag_type_singular lang/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Mail qw/send_email/;
-use ProductOpener::URL qw/format_subdomain/;
+use ProductOpener::URL qw(format_subdomain get_owner_pretty_path);
 use ProductOpener::Data qw/execute_query get_products_collection get_recent_changes_collection/;
 use ProductOpener::MainCountries qw/compute_main_countries/;
 use ProductOpener::Text qw/remove_email remove_tags_and_quote/;
@@ -1160,6 +1160,12 @@ sub store_product ($user_id, $product_ref, $comment) {
 			}
 		}
 		delete $product_ref->{server};
+	}
+
+	# If we do not have a product_type, we set it to the default product_type of the current server
+	# This can happen if we are reverting a product to a previous version that did not have a product_type
+	if (not defined $product_ref->{product_type}) {
+		$product_ref->{product_type} = $options{product_type};
 	}
 
 	# In case we need to move a product from OFF to OBF etc.
@@ -2800,7 +2806,7 @@ sub product_url ($code_or_ref) {
 	}
 
 	$code = ($code // "");
-	return "/$path/$code" . $titleid;
+	return get_owner_pretty_path($Owner_id) . "/$path/$code" . $titleid;
 }
 
 =head2 product_action_url ( $code, $action )

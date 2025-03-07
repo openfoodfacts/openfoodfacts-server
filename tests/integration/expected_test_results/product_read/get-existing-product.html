@@ -10,7 +10,7 @@
 	<meta property="fb:app_id" content="219331381518041">
     <meta property="og:type" content="food">
     <meta property="og:title" content="">
-    <meta property="og:url" content="//world.openfoodfacts.localhost/product/0200000000034/some-product">
+    <meta property="og:url" content="//world.openfoodfacts.localhost/product/2000000000034/some-product">
     
     <meta property="og:image" content="//static.openfoodfacts.org/images/logos/off-logo-vertical-white-social-media-preview.png">
     <meta property="og:description" content="">
@@ -25,7 +25,7 @@
 <meta name="theme-color" content="#ffffff">
 
 	<meta name="apple-itunes-app" content="app-id=588797948">
-    <link rel="canonical" href="//world.openfoodfacts.localhost/product/0200000000034/some-product">
+    <link rel="canonical" href="//world.openfoodfacts.localhost/product/2000000000034/some-product">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/app-ltr.css?v=--ignore--" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/select2.min.css">
@@ -47,7 +47,7 @@
 
     </style>
 </head>
-<body about="/product/0200000000034/some-product" typeof="food:foodProduct" class="product_page">
+<body about="/product/2000000000034/some-product" typeof="food:foodProduct" class="product_page">
 
 	<!-- Matomo -->
 <script>
@@ -374,12 +374,13 @@
 <script src="//static.openfoodfacts.localhost/js/dist/JsBarcode.all.min.js"></script>
 
 
-
-
-    <!-- Anonymous users will only be able to vote see AnnotationVote in robotoff,
-        the voter uniqueness is based on a hash of its ip address
-    -->
-	<robotoff-asker url='//backend:8881/' code='0200000000034' lang='en' style='display: none;' caption-yes='Yes' caption-no='No' caption-skip='Skip'></robotoff-asker>
+<off-webcomponents-configuration
+  language-code="en"
+  robotoff-configuration='{
+    "apiUrl": "//backend:8881//api/v1",
+    "imgUrl": "//images.openfoodfacts.localhost/images/products"
+}'
+></off-webcomponents-configuration>
 
 
 <a href="#upNav" class="back-to-top scrollto button">
@@ -395,7 +396,7 @@
                 <div class="buttons_prod">
                     <!-- Edit product page -->
                     <div class="edit_button">
-                        <a href="/cgi/product.pl?type=edit&code=0200000000034" class="button small white-button round" title="Edit the page">
+                        <a href="/cgi/product.pl?type=edit&code=2000000000034" class="button small white-button round" title="Edit the page">
                             <span class="material-icons size-20 ">
                             edit
                             </span>
@@ -405,7 +406,7 @@
 
                     <!-- Share -->
                     <div class="share_button" style="display:none;">
-                        <a href="//world.openfoodfacts.localhost/product/0200000000034/some-product" class="button small" title="Some product - 100 g">
+                        <a href="//world.openfoodfacts.localhost/product/2000000000034/some-product" class="button small" title="Some product - 100 g">
                             <span class="material-icons size-20 ">
                             share
                             </span>
@@ -479,23 +480,8 @@
                     
                     <!-- Display UPC code if the EAN starts with 0 -->
                         
-                            <div id="barcode_div">
-                                <!-- Display only text of the code if mobile -->
-                                <div id="barcode_div_code">
-                                    <p id="barcode_paragraph">Barcode: <br id="barcode_br"><span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">0200000000034</span>(EAN / EAN-13) 200000000034 (UPC / UPC-A)</p>
-                                </div>
-                                <!-- Display with SVG if not mobile -->
-                                <div id="barcode_div_svg">
-                                    <svg id="barcode_svg"
-                                        jsbarcode-format="auto"
-                                        jsbarcode-value="0200000000034"
-                                        jsbarcode-displayValue="false"
-                                        jsbarcode-height="40">
-                                    </svg>
-                                </div>
-                            </div>
-                            <script>if (screen && screen.width >= 600) JsBarcode("#barcode_svg").init()</script>
-                            <div property="gr:hasEAN_UCC-13" content="0200000000034" datatype="xsd:string"></div>
+                         
+                          <span id="barcode"  style="display: none;">2000000000034</span>
                         
                         
                         <!-- start templates/web/common/includes/display_field.tt.html -->
@@ -518,7 +504,7 @@
 
 <p id="field_categories">
     <span class="field">Categories: </span>
-    <span class="field_value" id="field_categories_value"><a href="/category/snacks" class="tag well_known">Snacks</a>, <a href="/category/sweet-snacks" class="tag well_known">Sweet snacks</a>, <a href="/category/biscuits-and-cakes" class="tag well_known">Biscuits and cakes</a>, <a href="/category/biscuits-and-crackers" class="tag well_known">Biscuits and crackers</a>, <a href="/category/biscuits" class="tag well_known">Biscuits</a></span>
+    <span class="field_value" id="field_categories_value"><a href="/facets/categories/snacks" class="tag well_known">Snacks</a>, <a href="/facets/categories/sweet-snacks" class="tag well_known">Sweet snacks</a>, <a href="/facets/categories/biscuits-and-cakes" class="tag well_known">Biscuits and cakes</a>, <a href="/facets/categories/biscuits-and-crackers" class="tag well_known">Biscuits and crackers</a>, <a href="/facets/categories/biscuits" class="tag well_known">Biscuits</a></span>
 </p>
 
 <!-- end templates/web/common/includes/display_field.tt.html -->
@@ -526,7 +512,7 @@
 
 <p id="field_labels">
     <span class="field">Labels, certifications, awards: </span>
-    <span class="field_value" id="field_labels_value"><a href="/label/organic" class="tag well_known">Organic</a></span>
+    <span class="field_value" id="field_labels_value"><a href="/facets/labels/organic" class="tag well_known">Organic</a></span>
 </p>
 
 <!-- end templates/web/common/includes/display_field.tt.html -->
@@ -548,7 +534,39 @@
 <!-- end templates/web/common/includes/display_field.tt.html -->
 
 
-                       
+                        
+                            <!-- Anonymous users will only be able to vote see AnnotationVote in robotoff,
+                                the voter uniqueness is based on a hash of its ip address -->
+                            <div class="alert-box" style="background-color: #0064c8">
+  <robotoff-question
+    product-code="2000000000034"
+    options='{"showMessage": true, "showLoading": true, "showError": true, "showImage": false}'
+    id="robotoff-question"
+  ></robotoff-question>
+</div>
+<script>
+  const robotoffQuestion = document.getElementById("robotoff-question");
+  const robotoffQuestionParent = robotoffQuestion.parentElement;
+  // Hide the alert until we have questions
+  robotoffQuestionParent.style.display = "none";
+
+  robotoffQuestion.addEventListener("question-state", function (event) {
+    if (event.detail.numberOfQuestions === 0) {
+      robotoffQuestionParent.style.display = "none";
+    } else if (event.detail.index === event.detail.numberOfQuestions) {
+      // Hide the alert after the last question
+      setTimeout(function () {
+        robotoffQuestionParent.style.display = "none";
+      }, 3000);
+    } else {
+      robotoffQuestionParent.style.display = "block";
+    }
+  });
+</script>
+
+                        
+
+                    
 
                     </div>
                 </div>
@@ -4744,7 +4762,7 @@ The score is calculated from the data of the nutrition facts table and the compo
     
         <div>
             <a class="button small action-add_origins"
-                href="/cgi/product.pl?type=edit&code=0200000000034#origins">
+                href="/cgi/product.pl?type=edit&code=2000000000034#origins">
                 Add the origins of ingredients for this product
             </a>
         </div>
@@ -4962,7 +4980,7 @@ The score is calculated from the data of the nutrition facts table and the compo
     
         <div>
             <a class="button small action-edit_product"
-                href="/cgi/product.pl?type=edit&code=0200000000034">
+                href="/cgi/product.pl?type=edit&code=2000000000034">
                 Complete or correct product information
             </a>
         </div>
@@ -4998,7 +5016,7 @@ The score is calculated from the data of the nutrition facts table and the compo
     
         <div>
             <a class="button small action-report_product_to_nutripatrol"
-                href="//nutripatrol.localhost/flag/product/?barcode=0200000000034&source=web&flavor=off">
+                href="//nutripatrol.localhost/flag/product/?barcode=2000000000034&source=web&flavor=off">
                 Report this product to our moderators
             </a>
         </div>
@@ -5047,8 +5065,8 @@ The score is calculated from the data of the nutrition facts table and the compo
 
 
         <p class="details">
-            Product added on <time datetime="--ignore--">--ignore--</time> by <a href="/editor/tests">tests</a><br>
-            Last edit of product page on <time datetime="--ignore--">--ignore--</time> by <a href="/editor/tests">tests</a>.
+            Product added on <time datetime="--ignore--">--ignore--</time> by <a href="/facets/editors/tests">tests</a><br>
+            Last edit of product page on <time datetime="--ignore--">--ignore--</time> by <a href="/facets/editors/tests">tests</a>.
             
             
         </p>
@@ -5078,7 +5096,7 @@ The score is calculated from the data of the nutrition facts table and the compo
 
 
         <div class="edit_button center text-center" >
-            <a href="/cgi/product.pl?type=edit&code=0200000000034" class="button small">
+            <a href="/cgi/product.pl?type=edit&code=2000000000034" class="button small">
                 <svg xmlns="//www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon" aria-hidden="true" focusable="false"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
                 Edit the page
             </a>
@@ -5292,8 +5310,8 @@ display_product_summary("#product_summary", product);
 <script src="//static.openfoodfacts.localhost/js/dist/jquery.cookie.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/select2.min.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
-<script src="//static.openfoodfacts.localhost/js/dist/display-product.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/product-history.js"></script>
+<script type="module" src="//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js"></script>
 <script type="text/javascript">
 var page_type = "product";
 var default_preferences = {"ecoscore":"important","nova":"important","nutriscore":"very_important"};
