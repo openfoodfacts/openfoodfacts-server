@@ -39,7 +39,6 @@ requires 'Email::Valid', '>= 1.202, < 2.0'; # libemail-valid-perl
 requires 'Path::Tiny', '>= 0.118'; # libpath-tiny-perl
 requires 'XML::RPC', '== 2'; # libxml-rpc-fast-perl
 
-
 # Probably not available as Debian/Ubuntu packages
 requires 'MongoDB', '>= 2.2.2, < 2.3'; # libmongodb-perl has 1.8.1/2.0.3 vs 2.2.2. deps: libauthen-sasl-saslprep-perl, libbson-perl, libauthen-scram-perl, libclass-xsaccessor-perl, libdigest-hmac-perl, libsafe-isa-perl, libconfig-autoconf-perl, libpath-tiny-perl
 # we fix this because MongoDB depends on it, and 0.023 does not install correctly
@@ -112,6 +111,9 @@ requires 'Time::Monotonic';
 
 # To measure similarity between words and find possible typo
 requires 'Text::Levenshtein';
+
+# To handle IP and IP blocks white lists
+requires 'Net::CIDR'; # libnet-cidr-perl
 
 on 'test' => sub {
   requires 'Test2::V0';
