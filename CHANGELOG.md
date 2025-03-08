@@ -1,5 +1,27 @@
 # Changelog
 
+## [2.62.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.61.0...v2.62.0) (2025-03-08)
+
+
+### Features
+
+* Add 'Contact Us' in producers_resources_list ([#11529](https://github.com/openfoodfacts/openfoodfacts-server/issues/11529)) ([8dda322](https://github.com/openfoodfacts/openfoodfacts-server/commit/8dda322265a5386c065bc3e4b0ac10d664ed74a8))
+* Add 'delete' button in edit mode for mods ([#11544](https://github.com/openfoodfacts/openfoodfacts-server/issues/11544)) ([fcf3593](https://github.com/openfoodfacts/openfoodfacts-server/commit/fcf3593726bddaf5236b5dd3a72b6e103702e427))
+* cosmetic categories translations ([4290d56](https://github.com/openfoodfacts/openfoodfacts-server/commit/4290d56c9f7fb4e9ed139509a725350a7522a98f))
+* cosmetic categories translations ([#11554](https://github.com/openfoodfacts/openfoodfacts-server/issues/11554)) ([4290d56](https://github.com/openfoodfacts/openfoodfacts-server/commit/4290d56c9f7fb4e9ed139509a725350a7522a98f))
+* integrate `robotoff-question` from off-webcomponents ([#11545](https://github.com/openfoodfacts/openfoodfacts-server/issues/11545)) ([2f6708a](https://github.com/openfoodfacts/openfoodfacts-server/commit/2f6708a5c2a4505a7ae4d9323842c56366ea798b))
+* whitelist IP blocks for rate limiting ([#11542](https://github.com/openfoodfacts/openfoodfacts-server/issues/11542)) ([e2613e2](https://github.com/openfoodfacts/openfoodfacts-server/commit/e2613e2a2fb3e4b288e42467d55bb020e8798d3d))
+
+
+### Bug Fixes
+
+* Added a GNU grep dependency check to Makefile ([#11534](https://github.com/openfoodfacts/openfoodfacts-server/issues/11534)) ([d363915](https://github.com/openfoodfacts/openfoodfacts-server/commit/d363915d50db079d992641d3db72a017cff32155))
+* agena3000 + equadis SVG logos ([#11541](https://github.com/openfoodfacts/openfoodfacts-server/issues/11541)) ([042fff6](https://github.com/openfoodfacts/openfoodfacts-server/commit/042fff64c39747c2df180d455f31b5d81aacc6b7))
+* data quality label threshold source of vitamins and minerals ([#11536](https://github.com/openfoodfacts/openfoodfacts-server/issues/11536)) ([51d9b27](https://github.com/openfoodfacts/openfoodfacts-server/commit/51d9b276ed770aa5bf5dd9f592785033c78f3752))
+* Makefile improvements for better DX ([#11502](https://github.com/openfoodfacts/openfoodfacts-server/issues/11502)) ([2a9498d](https://github.com/openfoodfacts/openfoodfacts-server/commit/2a9498d81dd3a9f118b69884307a89aa3b3fa689))
+* Update-link-user-guide-pro ([#11497](https://github.com/openfoodfacts/openfoodfacts-server/issues/11497)) ([3c5ec4a](https://github.com/openfoodfacts/openfoodfacts-server/commit/3c5ec4a142cd5279fa8aefd277a3a384430ed71d))
+* Use off_query parameter to not clash with existing database parameter ([#11533](https://github.com/openfoodfacts/openfoodfacts-server/issues/11533)) ([7feb0a5](https://github.com/openfoodfacts/openfoodfacts-server/commit/7feb0a5717d82549adb9ddb9b9917459fb32c184))
+
 ## [2.61.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.60.0...v2.61.0) (2025-03-04)
 
 
