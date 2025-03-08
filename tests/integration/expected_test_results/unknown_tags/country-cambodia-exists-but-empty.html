@@ -483,7 +483,18 @@
 <div class="row">
   <div class="small-12 columns"> 
     
-      <p>No products.</p>
+      <h4>No products. </h4>
+      <p></p>
+      <form method="post" action="/cgi/product.pl" enctype="multipart/form-data">
+        <input type="hidden" name="code" placeholder="or Barcode" value="" >
+        <div class="small-2 medium-2 large-2 xlarge-2 columns" style="padding-left: 0;min-width: 100px;">
+            <input type="submit" value="Add" class="button postfix">
+        </div>
+        <input type="hidden" name="action" value="process">
+        <input type="hidden" name="type" value="search_or_add">
+      </form>
+      <br>
+      <br>
     
     
       
