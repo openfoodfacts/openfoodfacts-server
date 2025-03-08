@@ -112,6 +112,11 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request'
     steps:
+    - uses: actions/checkout@v4
+      # only run if code changes
+      if: env.run_tests == 'true'
+      with:
+        fetch-depth: 1
       #Below code is for skipping the job if no code changes
     - name: Check if code changes require running this job
       id: check_code_changes
@@ -130,11 +135,6 @@ jobs:
         exit 0
 
         # above code is for skipping the job if no code changes
-    - uses: actions/checkout@v4
-      # only run if code changes
-      if: env.run_tests == 'true'
-      with:
-        fetch-depth: 1
     - name: Fetch origin/main
       # we need origin/main to have comparison linting work
       run: |
