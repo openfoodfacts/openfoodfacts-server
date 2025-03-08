@@ -292,6 +292,7 @@ nl: gekarameliseerde gezouten boter, karamel en gezouten boter
 fr: éclats de caramel
 de: Caramelstücke, Karamellstücke, Karamellsplitter
 fi: toffeepala
+sv: karamellbitar
 # ingredient/fr:éclats-de-caramel has 120 products in 3 languages @2019-03-09
 
 # <en:compound
@@ -58274,8 +58275,18 @@ carbon_footprint_fr_foodges_value:fr: 0.8
 wikipedia:en: https://en.wikipedia.org/wiki/Salad
 
 < en:salad
+en: batavia
 fr: batavia
+sv: batavia
 # ingredient/fr:batavia has 21 products in french @2019-02-26
+
+< en:batavia
+en: green baby batavia
+sv: grön babybatavia
+
+< en:batavia
+en: red baby batavia
+sv: röd babybatavia
 
 # description:en:ROCKET is an edible annual plant in the family Brassicaceae used as a leaf vegetable for its fresh, tart, bitter, and peppery flavor.
 # comment:en:The wikidata entry is confused between  popular salad name, plant name and latin name.
@@ -63119,6 +63130,7 @@ sv: mandelpulver
 en: prepacked Almond paste
 fr: Pâte d'amande préemballée
 it: pasta di mandorle preconfezionata
+sv: mandelpasta
 ciqual_food_code:en: 15201
 ciqual_food_name:en: Almond paste or marzipan, prepacked
 ciqual_food_name:fr: Pâte d'amande, préemballée
