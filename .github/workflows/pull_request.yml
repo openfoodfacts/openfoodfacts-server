@@ -134,7 +134,6 @@ jobs:
         echo "No relevant code changes detected. Marking as success."
         exit 0
 
-        # above code is for skipping the job if no code changes
     - name: Fetch origin/main
       # we need origin/main to have comparison linting work
       run: |
