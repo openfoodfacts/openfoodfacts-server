@@ -22,8 +22,8 @@ jobs:
     name: "Filter changed paths"
     runs-on: ubuntu-latest
     outputs:
-      docs_changed: ${{ steps.filter.outputs.docs }}
       code_changed: ${{ steps.filter.outputs.code }}
+      taxonomies_changed: ${{ steps.filter.outputs.taxonomies }}
     steps:
       - uses: dorny/paths-filter@v2
         id: filter
@@ -41,6 +41,8 @@ jobs:
               - 'lib/**'
               - 'scripts/**'
               - 'tests/**'
+            taxonomies:
+              - 'taxonomies/**/*'
 
   lint:
     name: 🕵️‍♀️ NPM lint
@@ -108,9 +110,29 @@ jobs:
     name: 🐪 Check Perl
     needs: build_backend
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' && needs.filter.outputs.code_changed == 'true'
+    if: github.event_name == 'pull_request'
     steps:
+      #Below code is for skipping the job if no code changes
+    - name: Check if code changes require running this job
+      id: check_code_changes
+      run: |
+        if [[ "${{ needs.filter.outputs.code_changed }}" == "true" ]]; then
+          echo "run_tests=true" >> $GITHUB_ENV
+        else
+          echo "Skipping Check Perl as no code changes detected."
+          echo "run_tests=false" >> $GITHUB_ENV
+        fi
+
+    - name: Exit Successfully if No Code Changes
+      if: env.run_tests == 'false'
+      run: |
+        echo "No relevant code changes detected. Marking as success."
+        exit 0
+
+        # above code is for skipping the job if no code changes
     - uses: actions/checkout@v4
+      # only run if code changes
+      if: env.run_tests == 'true'
       with:
         fetch-depth: 1
     - name: Fetch origin/main
@@ -146,16 +168,23 @@ jobs:
     - name: check taxonomies
       run: make check_taxonomies
     - name: check perltidy
+    # only run if code changes
+      if: env.run_tests == 'true' 
       run: make check_perltidy
     - name: check perlcritic
+    # only run if code changes
+      if: env.run_tests == 'true' 
       run: make check_critic
     - name: check perl
+    # only run if code changes
+      if: env.run_tests == 'true'
       run: make check_perl
 
   tests:
     name: 🐪 Perl unit tests
     needs: build_backend
     runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && needs.filter.outputs.code_changed == 'true'
     steps:
     - uses: actions/checkout@v4
       with:
@@ -215,6 +244,7 @@ jobs:
     needs: build_backend  # only to avoid building taxonomies
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
+    
     steps:
     - uses: actions/checkout@v4
       with:
