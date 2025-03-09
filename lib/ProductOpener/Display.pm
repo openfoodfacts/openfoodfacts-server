@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2025 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -3884,6 +3884,7 @@ sub display_tag ($request_ref) {
 
 	my $weblinks_html = '';
 	my @wikidata_objects = ();
+	my @osm_relations = ();
 	if (    (defined $tagtype && $tagtype ne 'additives')
 		and (not defined $request_ref->{groupby_tagtype}))
 	{
@@ -3903,6 +3904,10 @@ sub display_tag ($request_ref) {
 
 			if ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$canon_tagid}{'wikidata:en'})) {
 				push @wikidata_objects, $properties{$tagtype}{$canon_tagid}{'wikidata:en'};
+			}
+
+			if ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$canon_tagid}{'osm_relation:en'})) {
+				push @osm_relations, $properties{$tagtype}{$canon_tagid}{'osm_relation:en'};
 			}
 		}
 
@@ -4167,8 +4172,9 @@ HTML
 		}
 
 		my $map_html;
-		if (((scalar @wikidata_objects) > 0) or ((scalar @markers) > 0)) {
+		if (((scalar @osm_relations) > 0) or ((scalar @wikidata_objects) > 0) or ((scalar @markers) > 0)) {
 			my $map_template_data_ref = {
+				osm => \@osm_relations,
 				wikidata => \@wikidata_objects,
 				pointers => \@markers
 			};

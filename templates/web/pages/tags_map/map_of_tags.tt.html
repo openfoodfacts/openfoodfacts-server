@@ -6,7 +6,7 @@
   import { displayMap } from '[% static_subdomain %]/js/dist/display-tag.js';
   
   document.addEventListener('DOMContentLoaded', function () {
-    displayMap([% encode_json(pointers) %], [% encode_json(wikidata) %]);
+    displayMap([% encode_json(osm) %], [% encode_json(wikidata) %], [% encode_json(pointers) %]);
   });
 </script>
 

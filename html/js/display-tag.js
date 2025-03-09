@@ -57,19 +57,7 @@ function fitBoundsToAllLayers(map, bounds) {
   map.fitBounds(bounds, { padding: 50 });
 }
 
-async function addWikidataObjectToMap(id) {
-  const wikidata_result = await getOpenStreetMapFromWikidata(id);
-  const bindings = wikidata_result.results.bindings;
-  if (bindings.length === 0) {
-    return;
-  }
-
-  const binding = bindings[0];
-  const relationId = binding.OpenStreetMap_Relations_ID.value;
-  if (!relationId) {
-    return;
-  }
-
+async function addOsmObjectToMap(relationId) {
   const geoJson = await getGeoJsonFromOsmRelation(relationId);
   if (geoJson) {
     const map = createMaplibreMap();
@@ -92,6 +80,22 @@ async function addWikidataObjectToMap(id) {
       zoomMapToCentroidOfGeoJson(map, geoJson);
     });
   }
+}
+
+async function addWikidataObjectToMap(id) {
+  const wikidata_result = await getOpenStreetMapFromWikidata(id);
+  const bindings = wikidata_result.results.bindings;
+  if (bindings.length === 0) {
+    return;
+  }
+
+  const binding = bindings[0];
+  const relationId = binding.OpenStreetMap_Relations_ID.value;
+  if (!relationId) {
+    return;
+  }
+
+  await addWikidataObjectToMap(relationId);
 }
 
 async function getOpenStreetMapFromWikidata(id) {
@@ -144,16 +148,26 @@ function displayPointers(pointers) {
   }
 }
 
-export async function displayMap(pointers, wikidataObjects) {
-  if (pointers && pointers.length > 0) {
-    displayPointers(pointers);
+export async function displayMap(osmRelations, wikidataObjects, pointers) {
+  if (osmRelations) {
+    for (const osmRelation of osmRelations) {
+      if (osmRelation !== null) {
+        await addOsmObjectToMap(osmRelation); // eslint-disable-line no-await-in-loop
+      }
+    }
   }
 
-  if (wikidataObjects) {
+  // If we have Wikidata objects, we can use them to get the OSM relations,
+  // but we don't want to display them twice
+  if (!osmRelations && wikidataObjects) {
     for (const wikidataObject of wikidataObjects) {
       if (wikidataObject !== null) {
         await addWikidataObjectToMap(wikidataObject); // eslint-disable-line no-await-in-loop
       }
     }
+  }
+
+  if (pointers && pointers.length > 0) {
+    displayPointers(pointers);
   }
 }
