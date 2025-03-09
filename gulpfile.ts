@@ -107,7 +107,10 @@ export function copyJs() {
     pipe(gzip()).
     pipe(dest("./html/js/dist"));
 
-  const copied = src(["./node_modules/maplibre-gl/dist/maplibre-gl.js"]).
+  const copied = src([
+    "./node_modules/maplibre-gl/dist/maplibre-gl.js",
+    "./node_modules/@turf/turf/turf.min.js",
+  ]).
       pipe(init()).
       pipe(write(".")).
       pipe(dest("./html/js/dist"));

@@ -18,69 +18,11 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import * as L from './leaflet-src.esm.js';
+/* global maplibregl turf */
+import './maplibre-gl.js';
+import './turf.min.js';
 
-/* (c) mapstertech https://github.com/mapstertech/mapster-right-hand-rule-fixer/blob/d374e4153ba26c2100b509f59e5a5fe616e267dd/lib/rewind-browser.js */
-class GeoJSONRewind {
-
-  static rewindRing(ring, dir) {
-    let area = 0,
-      err = 0;
-    // eslint-disable-next-line no-plusplus
-    for (let i = 0, len = ring.length, j = len - 1; i < len; j = i++) {
-      const k = (ring[i][0] - ring[j][0]) * (ring[j][1] + ring[i][1]);
-      const m = area + k;
-      err += Math.abs(area) >= Math.abs(k) ? area - m + k : k - m + area;
-      area = m;
-    }
-    // eslint-disable-next-line no-mixed-operators
-    if (area + err >= 0 !== Boolean(dir)) {
-      ring.reverse();
-    }
-  }
-
-  rewindRings(rings, outer) {
-    if (rings.length === 0) {
-      return;
-    }
-
-    this.rewindRing(rings[0], outer);
-    for (let i = 1; i < rings.length; i++) {
-      this.rewindRing(rings[i], !outer);
-    }
-  }
-
-  rewind(gj, outer) {
-    const type = gj?.type;
-    let i;
-
-    if (type === 'FeatureCollection') {
-      for (i = 0; i < gj.features.length; i++) {
-        this.rewind(gj.features[i], outer);
-      }
-
-    } else if (type === 'GeometryCollection') {
-      for (i = 0; i < gj.geometries.length; i++) {
-        this.rewind(gj.geometries[i], outer);
-      }
-
-    } else if (type === 'Feature') {
-      this.rewind(gj.geometry, outer);
-
-    } else if (type === 'Polygon') {
-      this.rewindRings(gj.coordinates, outer);
-
-    } else if (type === 'MultiPolygon') {
-      for (i = 0; i < gj.coordinates.length; i++) {
-        this.rewindRings(gj.coordinates[i], outer);
-      }
-    }
-
-    return gj;
-  }
-}
-
-function createLeafletMap() {
+function createMaplibreMap() {
   const tagDescription = document.getElementById('tag_description');
   if (tagDescription) {
     tagDescription.classList.remove('large-12');
@@ -92,26 +34,23 @@ function createLeafletMap() {
     tagMap.style.display = '';
   }
 
-  const map = L.map('container');
+  const map = new maplibregl.Map({
+    container: 'container',
+    style: 'https://demotiles.maplibre.org/style.json',
+    zoom: 3
+  });
 
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-  }).addTo(map);
+  // Add navigation control
+  map.addControl(new maplibregl.NavigationControl({ showCompass: false }));
 
   return map;
 }
 
-function fitBoundsToAllLayers(mapToUpdate) {
-  const latlngbounds = new L.latLngBounds();
-
-  mapToUpdate.eachLayer(function (l) {
-    if (typeof l.getBounds === "function") {
-      latlngbounds.extend(l.getBounds());
-    }
-  });
-
-  mapToUpdate.fitBounds(latlngbounds);
+function fitBoundsToAllLayers(map, geoJson) {
+  const centre = turf.centroid(geoJson);
+  if (centre) {
+    map.flyTo({ center: centre.geometry.coordinates, zoom: 4 });
+  }
 }
 
 async function addWikidataObjectToMap(id) {
@@ -129,9 +68,25 @@ async function addWikidataObjectToMap(id) {
 
   const geoJson = await getGeoJsonFromOsmRelation(relationId);
   if (geoJson) {
-    const map = createLeafletMap();
-    L.geoJSON(geoJson).addTo(map);
-    fitBoundsToAllLayers(map);
+    const map = createMaplibreMap();
+    map.on('load', () => {
+      map.addSource('area', {
+        type: 'geojson',
+        data: geoJson
+      });
+
+      map.addLayer({
+        id: 'area-layer',
+        type: 'fill',
+        source: 'area',
+        paint: {
+          'fill-color': '#ff8714',
+          'fill-opacity': 0.75
+        }
+      });
+
+      fitBoundsToAllLayers(map, geoJson);
+    });
   }
 }
 
@@ -152,36 +107,36 @@ async function getOpenStreetMapFromWikidata(id) {
 
 async function getGeoJsonFromOsmRelation(id) {
   const response = await fetch(`https://polygons.openstreetmap.fr/get_geojson.py?params=0&id=${encodeURIComponent(id)}`);
-  const data = response.json();
-  const geoJsonRewind = new GeoJSONRewind();
+  const data = await response.json();
 
-  return geoJsonRewind.rewind(data);
+  return data;
 }
 
 function displayPointers(pointers) {
-  const map = createLeafletMap();
-  const markers = [];
+  const map = createMaplibreMap();
+  const bounds = new maplibregl.LngLatBounds();
+
   for (const pointer of pointers) {
     let coordinates;
 
     // If pointer is an array, it just contains (lat, lng) geo coordinates
     if (Array.isArray(pointer)) {
-      coordinates = pointer;
+      coordinates = [pointer[1], pointer[0]]; // MapLibre uses [lng, lat] order
     }
     // Otherwise we have a structured object
-    // e.g. from a map element of a knowledge panel
     else {
-      coordinates = [pointer.geo.lat, pointer.geo.lng];
+      coordinates = [pointer.geo.lng, pointer.geo.lat];
     }
 
-    const marker = new L.marker(coordinates);
-    markers.push(marker);
+    new maplibregl.Marker().
+      setLngLat(coordinates).
+      addTo(map);
+
+    bounds.extend(coordinates);
   }
 
-  if (markers.length > 0) {
-    L.featureGroup(markers).addTo(map);
-    fitBoundsToAllLayers(map);
-    map.setZoom(8);
+  if (!bounds.isEmpty()) {
+    fitBoundsToAllLayers(map, bounds);
   }
 }
 
