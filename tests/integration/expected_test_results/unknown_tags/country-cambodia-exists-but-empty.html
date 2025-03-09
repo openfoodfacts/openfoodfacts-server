@@ -405,13 +405,13 @@
 </div>
 <!-- start templates/web/pages/tags_map/map_of_tags.tt.html -->
 
-<link rel="stylesheet" href="[% static_subdomain %]/css/dist/maplibre-gl.css">
+<link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/maplibre-gl.css">
 
 <script type="module">
   import { displayMap } from '//static.openfoodfacts.localhost/js/dist/display-tag.js';
   
   document.addEventListener('DOMContentLoaded', function () {
-    displayMap([], ["Q424"]);
+    displayMap(["49898"], ["Q424"], []);
   });
 </script>
 
