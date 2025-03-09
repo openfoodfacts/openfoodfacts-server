@@ -46,11 +46,15 @@ function createMaplibreMap() {
   return map;
 }
 
-function fitBoundsToAllLayers(map, geoJson) {
+function zoomMapToCentroidOfGeoJson(map, geoJson) {
   const centre = turf.centroid(geoJson);
   if (centre) {
     map.flyTo({ center: centre.geometry.coordinates, zoom: 4 });
   }
+}
+
+function fitBoundsToAllLayers(map, bounds) {
+  map.fitBounds(bounds, { padding: 50 });
 }
 
 async function addWikidataObjectToMap(id) {
@@ -85,7 +89,7 @@ async function addWikidataObjectToMap(id) {
         }
       });
 
-      fitBoundsToAllLayers(map, geoJson);
+      zoomMapToCentroidOfGeoJson(map, geoJson);
     });
   }
 }
