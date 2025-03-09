@@ -5,13 +5,13 @@
 <head>
     <meta charset="utf-8">
     <title>Edit a product</title>
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta property="fb:app_id" content="219331381518041">
     <meta property="og:type" content="food">
     <meta property="og:title" content="">
     <meta property="og:url" content="//world.openfoodfacts.localhost">
-    
+
     <meta property="og:image" content="//static.openfoodfacts.org/images/logos/off-logo-vertical-white-social-media-preview.png">
     <meta property="og:description" content="">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/off/apple-touch-icon.png">
@@ -34,7 +34,7 @@
 <link rel="stylesheet" type="text/css" href="/css/dist/tagify.css" />
 
     <style media="all">
-        
+
         .show-when-no-access-to-producers-platform {display:none}
 .hide-when-logged-in {display:none}
 .ui-selectable li {
@@ -51,7 +51,7 @@
 	font-weight:normal;
 	font-size:0.8rem;
 }
-.select_manage .ui-selectable li { 
+.select_manage .ui-selectable li {
 	height: 180px
 }
 
@@ -83,17 +83,17 @@
 
 
 
-	
+
 	<div class="skip"><a href="#content" tabindex="0">Skip to Content</a></div>
-	
+
 
 	<div id="page">
-		
+
 		<div class="upper-nav contain-to-grid"  id="upNav">
 			<nav class="top-bar " data-topbar role="navigation">
-				
+
 				<section class="top-bar-section">
-					
+
 					<!-- Left Nav Section -->
 					<ul class="left">
 
@@ -103,8 +103,8 @@
 									menu
 								</span>
 							</a>
-							<ul class="dropdown">				
-								
+							<ul class="dropdown">
+
 									<li><a href="/discover">Discover</a></li>
 									<li><a href="/contribute">Contribute</a></li>
 									<li class="divider"></li>
@@ -112,7 +112,7 @@
                 <!-- For reference: get_the_app_link_off" = /open-food-facts-mobile-app" -->
 									<li><a href="/open-food-facts-mobile-app?utm_source=off&utf_medium=web&utm_campaign=pro_platform_install_the_app_to_add_products_en">Install the app to add products</a></li>
 									<li><a href="/cgi/product.pl?type=search_or_add&action=display">Add a product</a></li>
-								
+
 
 								<li class="divider"></li>
 								<li><label>Search and analyze products</label></li>
@@ -123,10 +123,10 @@
 								<li>
 									<a href="/cgi/search.pl?graph=1">Graphs and maps</a>
 								</li>
-								
+
 							</ul>
 						</li>
-						
+
 						<li>
 							<ul class="country_language_selection">
 								<li class="has-form has-dropdown" id="select_country_li">
@@ -138,7 +138,7 @@
 									<a href="//world.openfoodfacts.localhost/">English</a>
 
 									<ul class="dropdown">
-										
+
 									</ul>
 								</li>
 							</ul>
@@ -147,9 +147,9 @@
 
 
 					<!-- Right Nav Section -->
-					
+
 					<ul class="right">
-						
+
 							<li class="has-dropdown">
 								<a href="#" class="userlink h-space-tiny">
 									<span class="material-icons">
@@ -160,17 +160,17 @@
 								<ul class="dropdown">
 									<li><a href="/cgi/user.pl?type=edit&userid=tests"><span class="material-icons">settings</span> Account parameters</a></li>
 
-									
 
-									
-									
-									<li class="divider"></li>			
+
+
+
+									<li class="divider"></li>
 									<li><label>Your contributions</label></li>
 									<li><a href="/facets/contributors/tests">Products added</a></li>
 									<li><a href="/facets/editors/tests">Products edited</a></li>
 									<li><a href="/facets/photographers/tests">Products photographed</a></li>
-									
-									<li class="divider"></li>			
+
+									<li class="divider"></li>
 									<li class="has-form">
 										<form method="post" action="/cgi/session.pl">
 											<input type="hidden" name="length" value="logout">
@@ -179,16 +179,16 @@
 									</li>
 								</ul>
 							</li>
-						
+
 					</ul>
 				</section>
 			</nav>
 		</div>
-		
+
 
 		<div id="main_container" style="position:relative" class="block_latte">
-		
-		
+
+
 		<div class="topbarsticky">
 			<div class="contain-to-grid " id="offNav" >
 				<nav class="top-bar" data-topbar role="navigation" >
@@ -198,19 +198,19 @@
 							<div style="position:relative;max-width:292px;">
 								<a href="/">
 								<img id="logo" src="//static.openfoodfacts.localhost/images/logos/off-logo-horizontal-light.svg" alt="Open Food Facts" style="margin:8px;height:48px;width:auto;">
-								
+
 							</a>
 							</div>
 						</li>
 					</ul>
 
-					
-					
+
+
 					<section class="top-bar-section">
-					
+
 						<ul class="left small-4" style="margin-right:2rem;">
 							<li class="search-li">
-							
+
 								<form action="/cgi/search.pl">
 								<div class="row"><div class="small-12">
 								<div class="row collapse postfix-round">
@@ -235,13 +235,13 @@
 				<!-- For reference: get_the_app_link_off" = /open-food-facts-mobile-app" -->
           </ul>
 					</section>
-					
+
 				</nav>
 			</div>
 		</div>
 
-	
-	
+
+
 		<nav class="tab-bar hide">
 			<div class="left-small">
 				<a href="#idOfLeftMenu" role="button" aria-controls="idOfLeftMenu" aria-expanded="false" class="left-off-canvas-toggle button postfix loggedin">
@@ -266,28 +266,28 @@
 				</form>
 			</div>
 		</nav>
-		
+
 
 		<div id="content" class="off-canvas-wrap block_latte" data-offcanvas>
 			<div class="inner-wrap">
-			
+
 				<a class="exit-off-canvas"></a>
 
-				
-				
-				<!-- full width banner on mobile -->
-				
-				
 
-				
+
+				<!-- full width banner on mobile -->
+
+
+
+
 
 				<div class="main block_light">
 					<div id="main_column">
 
-						
-						
-							
-							
+
+
+
+
 								<!-- start templates/web/common/includes/donate_banner.tt.html -->
 
 
@@ -297,7 +297,7 @@
 
 <!-- end templates/web/common/includes/donate_banner.tt.html -->
 
-								
+
 
 <section id="donation-banner-top" class="donation-banner row">
   <div class="donation-banner__left-aside">
@@ -341,9 +341,9 @@
     <div class="donation-banner__actions-section">
       <div class="donation-banner__actions-section__financial">
         <p>
-          
-          Each donation counts! We appreciate your support in bringing further food transparency in the world.  
-          
+
+          Each donation counts! We appreciate your support in bringing further food transparency in the world.
+
         </p>
       </div>
       <div class="donation-banner__actions-section__donate-button">
@@ -370,7 +370,7 @@
     let domain = 'domain=.' + getDomain.slice(1).join('.');
     document.cookie = bcname + '=' + bcval + ';' + expires + ';' + domain + ';SameSite=None;Secure;path=/';
   }
-  
+
   function getBannerCookie(bcname) {
     const name = bcname + '=';
     const decodedCookies = decodeURIComponent(document.cookie);
@@ -380,7 +380,7 @@
       while (c.charAt(0) == ' ') { c = c.substring(1); }
       if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
     }
-    
+
     return '';
   }
 
@@ -391,17 +391,17 @@
 
   if (getBannerCookie('off_donation_banner_2024_a') !== '') {
     bannerID.style.display = 'none';
-  } else { 
+  } else {
     bannerID.style.display = 'flex';
   }
 </script>
 
 
-							
-						
-						
-            			
-						
+
+
+
+
+
 							<!-- banner pages such as product, product edit form and landing pages have their own h1 title -->
 							<!-- start templates/web/pages/product_edit/product_edit_form.tt.html -->
 
@@ -424,9 +424,9 @@
     </div>
 </div>
 
-    
 
-    
+
+
 
     <form id="product_form" action="/cgi/product.pl" method="POST" enctype="multipart/form-data">
 
@@ -458,20 +458,20 @@
                 </p>
 
 
-        
-        
-        
 
-        
 
-        
-        
+
+
+
+
+
+
         <div data-alert class="alert-box info store-state" id="warning_3rd_party_content" style="display:none;">
             <span>Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>
 → <a href="//support.openfoodfacts.org/help/en-gb/9/27">Why it matters</a></span>
              <a href="#" class="close">&times;</a>
         </div>
-        
+
 
         <div data-alert class="alert-box secondary store-state" id="licence_accept" style="display:none;">
             <span>By adding information, data and/or images, you accept to place irrevocably your contribution under the <a href="//opendatacommons.org/licenses/dbcl/1.0/">Database Contents Licence 1.0</a> licence
@@ -480,9 +480,9 @@ You accept to be credited by re-users by a link to the product your are contribu
              <a href="#" class="close">&times;</a>
         </div>
 
-        
 
-        
+
+
 
             </div>
         </section>
@@ -494,425 +494,425 @@ You accept to be credited by re-users by a link to the product your are contribu
 
                 <label for="lang"> Main language </label>
                 <select name="lang" id="lang">
-                    
+
                         <option value="ab" >Abkhaz</option>
-                    
+
                         <option value="aa" >Afar</option>
-                    
+
                         <option value="af" >Afrikaans</option>
-                    
+
                         <option value="ak" >Akan</option>
-                    
+
                         <option value="sq" >Albanian</option>
-                    
+
                         <option value="am" >Amharic</option>
-                    
+
                         <option value="ar" >Arabic</option>
-                    
+
                         <option value="an" >Aragonese</option>
-                    
+
                         <option value="hy" >Armenian</option>
-                    
+
                         <option value="as" >Assamese</option>
-                    
+
                         <option value="av" >Avar</option>
-                    
+
                         <option value="ae" >Avestan</option>
-                    
+
                         <option value="ay" >Aymara</option>
-                    
+
                         <option value="az" >Azerbaijani</option>
-                    
+
                         <option value="bm" >Bambara</option>
-                    
+
                         <option value="ba" >Bashkir</option>
-                    
+
                         <option value="eu" >Basque</option>
-                    
+
                         <option value="be" >Belarusian</option>
-                    
+
                         <option value="bn" >Bengali</option>
-                    
+
                         <option value="bh" >Bihari languages</option>
-                    
+
                         <option value="bi" >Bislama</option>
-                    
+
                         <option value="nb" >Bokmål</option>
-                    
+
                         <option value="bs" >Bosnian</option>
-                    
+
                         <option value="br" >Breton</option>
-                    
+
                         <option value="bg" >Bulgarian</option>
-                    
+
                         <option value="my" >Burmese</option>
-                    
+
                         <option value="ca" >Catalan</option>
-                    
+
                         <option value="ch" >Chamorro</option>
-                    
+
                         <option value="ce" >Chechen</option>
-                    
+
                         <option value="ny" >Chewa</option>
-                    
+
                         <option value="zh" >Chinese</option>
-                    
+
                         <option value="cu" >Church Slavonic</option>
-                    
+
                         <option value="cv" >Chuvash</option>
-                    
+
                         <option value="kw" >Cornish</option>
-                    
+
                         <option value="co" >Corsican</option>
-                    
+
                         <option value="cr" >Cree</option>
-                    
+
                         <option value="hr" >Croatian</option>
-                    
+
                         <option value="cs" >Czech</option>
-                    
+
                         <option value="da" >Danish</option>
-                    
+
                         <option value="nl" >Dutch</option>
-                    
+
                         <option value="dz" >Dzongkha language</option>
-                    
+
                         <option value="en"  selected="selected" >English</option>
-                    
+
                         <option value="eo" >Esperanto</option>
-                    
+
                         <option value="et" >Estonian</option>
-                    
+
                         <option value="ee" >Ewe</option>
-                    
+
                         <option value="fo" >Faroese</option>
-                    
+
                         <option value="fj" >Fijian language</option>
-                    
+
                         <option value="fi" >Finnish</option>
-                    
+
                         <option value="fr" >French</option>
-                    
+
                         <option value="ff" >Fula language</option>
-                    
+
                         <option value="gl" >Galician</option>
-                    
+
                         <option value="ka" >Georgian</option>
-                    
+
                         <option value="de" >German</option>
-                    
+
                         <option value="ki" >Gikuyu</option>
-                    
+
                         <option value="el" >Greek</option>
-                    
+
                         <option value="kl" >Greenlandic</option>
-                    
+
                         <option value="gn" >Guarani</option>
-                    
+
                         <option value="gu" >Gujarati</option>
-                    
+
                         <option value="ht" >Haitian Creole</option>
-                    
+
                         <option value="ha" >Hausa</option>
-                    
+
                         <option value="he" >Hebrew</option>
-                    
+
                         <option value="hz" >Herero</option>
-                    
+
                         <option value="hi" >Hindi</option>
-                    
+
                         <option value="ho" >Hiri Motu</option>
-                    
+
                         <option value="hu" >Hungarian</option>
-                    
+
                         <option value="is" >Icelandic</option>
-                    
+
                         <option value="io" >Ido</option>
-                    
+
                         <option value="ig" >Igbo language</option>
-                    
+
                         <option value="id" >Indonesian</option>
-                    
+
                         <option value="ia" >Interlingua</option>
-                    
+
                         <option value="ie" >Interlingue</option>
-                    
+
                         <option value="iu" >Inuktitut</option>
-                    
+
                         <option value="ik" >Inupiat language</option>
-                    
+
                         <option value="ga" >Irish</option>
-                    
+
                         <option value="it" >Italian</option>
-                    
+
                         <option value="ja" >Japanese</option>
-                    
+
                         <option value="jv" >Javanese</option>
-                    
+
                         <option value="kn" >Kannada</option>
-                    
+
                         <option value="kr" >Kanuri</option>
-                    
+
                         <option value="ks" >Kashmiri</option>
-                    
+
                         <option value="kk" >Kazakh</option>
-                    
+
                         <option value="km" >Khmer</option>
-                    
+
                         <option value="rw" >Kinyarwanda</option>
-                    
+
                         <option value="rn" >Kirundi</option>
-                    
+
                         <option value="kv" >Komi</option>
-                    
+
                         <option value="kg" >Kongo language</option>
-                    
+
                         <option value="ko" >Korean</option>
-                    
+
                         <option value="ku" >Kurdish</option>
-                    
+
                         <option value="kj" >Kwanyama</option>
-                    
+
                         <option value="ky" >Kyrgyz</option>
-                    
+
                         <option value="lo" >Lao</option>
-                    
+
                         <option value="la" >Latin</option>
-                    
+
                         <option value="lv" >Latvian</option>
-                    
+
                         <option value="li" >Limburgish language</option>
-                    
+
                         <option value="ln" >Lingala language</option>
-                    
+
                         <option value="lt" >Lithuanian</option>
-                    
+
                         <option value="lu" >Luba-Katanga language</option>
-                    
+
                         <option value="lg" >Luganda</option>
-                    
+
                         <option value="lb" >Luxembourgish</option>
-                    
+
                         <option value="mk" >Macedonian</option>
-                    
+
                         <option value="mg" >Malagasy</option>
-                    
+
                         <option value="ms" >Malay</option>
-                    
+
                         <option value="ml" >Malayalam</option>
-                    
+
                         <option value="dv" >Maldivian language</option>
-                    
+
                         <option value="mt" >Maltese</option>
-                    
+
                         <option value="gv" >Manx</option>
-                    
+
                         <option value="mi" >Māori</option>
-                    
+
                         <option value="mr" >Marathi</option>
-                    
+
                         <option value="mh" >Marshallese</option>
-                    
+
                         <option value="mo" >Moldovan</option>
-                    
+
                         <option value="mn" >Mongolian</option>
-                    
+
                         <option value="me" >Montenegrin</option>
-                    
+
                         <option value="na" >Nauruan</option>
-                    
+
                         <option value="nv" >Navajo</option>
-                    
+
                         <option value="ng" >Ndonga dialect</option>
-                    
+
                         <option value="ne" >Nepali</option>
-                    
+
                         <option value="nd" >Northern Ndebele language</option>
-                    
+
                         <option value="se" >Northern Sami</option>
-                    
+
                         <option value="no" >Norwegian</option>
-                    
+
                         <option value="ii" >Nuosu language</option>
-                    
+
                         <option value="nn" >Nynorsk</option>
-                    
+
                         <option value="oc" >Occitan</option>
-                    
+
                         <option value="or" >Odia</option>
-                    
+
                         <option value="oj" >Ojibwe</option>
-                    
+
                         <option value="om" >Oromo</option>
-                    
+
                         <option value="os" >Ossetian</option>
-                    
+
                         <option value="pi" >Pali</option>
-                    
+
                         <option value="ps" >Pashto</option>
-                    
+
                         <option value="fa" >Persian</option>
-                    
+
                         <option value="pl" >Polish</option>
-                    
+
                         <option value="pt" >Portuguese</option>
-                    
+
                         <option value="pa" >Punjabi</option>
-                    
+
                         <option value="qu" >Quechua languages</option>
-                    
+
                         <option value="ro" >Romanian</option>
-                    
+
                         <option value="rm" >Romansh</option>
-                    
+
                         <option value="ru" >Russian</option>
-                    
+
                         <option value="ry" >Rusyn</option>
-                    
+
                         <option value="sm" >Samoan</option>
-                    
+
                         <option value="sg" >Sango</option>
-                    
+
                         <option value="sa" >Sanskrit</option>
-                    
+
                         <option value="sc" >Sardinian language</option>
-                    
+
                         <option value="gd" >Scottish Gaelic</option>
-                    
+
                         <option value="sr" >Serbian</option>
-                    
+
                         <option value="sh" >Serbo-Croatian</option>
-                    
+
                         <option value="sn" >Shona</option>
-                    
+
                         <option value="sd" >Sindhi</option>
-                    
+
                         <option value="si" >Sinhala</option>
-                    
+
                         <option value="sk" >Slovak</option>
-                    
+
                         <option value="sl" >Slovene</option>
-                    
+
                         <option value="so" >Somali</option>
-                    
+
                         <option value="st" >Sotho</option>
-                    
+
                         <option value="nr" >Southern Ndebele</option>
-                    
+
                         <option value="es" >Spanish</option>
-                    
+
                         <option value="su" >Sundanese language</option>
-                    
+
                         <option value="sw" >Swahili</option>
-                    
+
                         <option value="ss" >Swazi</option>
-                    
+
                         <option value="sv" >Swedish</option>
-                    
+
                         <option value="tl" >Tagalog</option>
-                    
+
                         <option value="ty" >Tahitian</option>
-                    
+
                         <option value="tg" >Tajik</option>
-                    
+
                         <option value="ta" >Tamil</option>
-                    
+
                         <option value="tt" >Tatar</option>
-                    
+
                         <option value="te" >Telugu</option>
-                    
+
                         <option value="th" >Thai</option>
-                    
+
                         <option value="bo" >Tibetan language</option>
-                    
+
                         <option value="ti" >Tigrinya</option>
-                    
+
                         <option value="to" >Tongan language</option>
-                    
+
                         <option value="ts" >Tsonga</option>
-                    
+
                         <option value="tn" >Tswana</option>
-                    
+
                         <option value="tr" >Turkish</option>
-                    
+
                         <option value="tk" >Turkmen</option>
-                    
+
                         <option value="tw" >Twi</option>
-                    
+
                         <option value="uk" >Ukrainian</option>
-                    
+
                         <option value="xx" >Unknown language</option>
-                    
+
                         <option value="ur" >Urdu</option>
-                    
+
                         <option value="ug" >Uyghur</option>
-                    
+
                         <option value="uz" >Uzbek</option>
-                    
+
                         <option value="ve" >Venda</option>
-                    
+
                         <option value="vi" >Vietnamese</option>
-                    
+
                         <option value="vo" >Volapük</option>
-                    
+
                         <option value="wa" >Walloon</option>
-                    
+
                         <option value="cy" >Welsh</option>
-                    
+
                         <option value="fy" >West Frisian</option>
-                    
+
                         <option value="wo" >Wolof</option>
-                    
+
                         <option value="xh" >Xhosa</option>
-                    
+
                         <option value="yi" >Yiddish</option>
-                    
+
                         <option value="yo" >Yoruba</option>
-                    
+
                         <option value="za" >Zhuang languages</option>
-                    
+
                         <option value="zu" >Zulu</option>
-                    
+
                 </select>
 
                 <!-- start templates/web/pages/product_edit/display_input_tabs.tt.html -->
 
 <!--html tab header starts-->
 <ul id="tabs_front_image" class="tabs" data-tab>
-    
-        
+
+
             <li class="tabs tab-title active tabs_en" id="tabs_front_image_en_tab" data-language="en"><a href="#tabs_front_image_en" class="tab_language">English</a></li>
-        
-    
-        
+
+
+
             <li class="tabs tab-title tabs_fr" id="tabs_front_image_fr_tab" data-language="fr"><a href="#tabs_front_image_fr" class="tab_language">French</a></li>
-        
-    
-        
+
+
+
             <li class="tabs tab-title new_lc hide tabs_new_lc" id="tabs_front_image_new_lc_tab" data-language="new_lc"><a href="#tabs_front_image_new_lc" class="tab_language"></a></li>
-        
-    
-        
+
+
+
             <li class="tabs tab-title new tabs_new">
                 <select class="select_add_language" style="width:100%">
                     <option></option>
                 </select>
             </li>
-        
-    
+
+
 </ul>
 <!--html tab header ends-->
 
 <!--The content tab starts-->
 <div id="tabs_content_front_image" class="tabs-content">
-    
-        
-            <div class="tabs content active tabs_en" id="tabs_front_image_en">
-                
-                                 
 
-                
-                    
+
+            <div class="tabs content active tabs_en" id="tabs_front_image_en">
+
+
+
+
+
                     	<label for="front_en">Front picture (<span class="tab_language">English</span>)</label>
 
 <div class="select_crop" id="front_en"></div>
@@ -924,18 +924,18 @@ You accept to be credited by re-users by a link to the product your are contribu
 <input type="hidden" name="front_en_y2" id="front_en_y2" value="" />
 <input type="hidden" name="front_en_display_url" id="front_en_display_url" value="" />
 
-                
+
 
             </div>
-        
-    
-        
-            <div class="tabs content tabs_fr" id="tabs_front_image_fr">
-                
-                                 
 
-                
-                    
+
+
+            <div class="tabs content tabs_fr" id="tabs_front_image_fr">
+
+
+
+
+
                     	<label for="front_fr">Front picture (<span class="tab_language">French</span>)</label>
 
 <div class="select_crop" id="front_fr"></div>
@@ -947,18 +947,18 @@ You accept to be credited by re-users by a link to the product your are contribu
 <input type="hidden" name="front_fr_y2" id="front_fr_y2" value="" />
 <input type="hidden" name="front_fr_display_url" id="front_fr_display_url" value="" />
 
-                
+
 
             </div>
-        
-    
-        
-            <div class="tabs content new_lc hide tabs_new_lc" id="tabs_front_image_new_lc">
-                
-                                 
 
-                
-                    
+
+
+            <div class="tabs content new_lc hide tabs_new_lc" id="tabs_front_image_new_lc">
+
+
+
+
+
                     	<label for="front_new_lc">Front picture (<span class="tab_language"></span>)</label>
 
 <div class="select_crop" id="front_new_lc"></div>
@@ -970,13 +970,13 @@ You accept to be credited by re-users by a link to the product your are contribu
 <input type="hidden" name="front_new_lc_y2" id="front_new_lc_y2" value="" />
 <input type="hidden" name="front_new_lc_display_url" id="front_new_lc_display_url" value="" />
 
-                
+
 
             </div>
-        
-    
-        
-    
+
+
+
+
 </div>
 <!--The content tab ends-->
 
@@ -992,47 +992,47 @@ You accept to be credited by re-users by a link to the product your are contribu
 
 <!--html tab header starts-->
 <ul id="tabs_product" class="tabs" data-tab>
-    
-        
+
+
             <li class="tabs tab-title active tabs_en" id="tabs_product_en_tab" data-language="en"><a href="#tabs_product_en" class="tab_language">English</a></li>
-        
-    
-        
+
+
+
             <li class="tabs tab-title tabs_fr" id="tabs_product_fr_tab" data-language="fr"><a href="#tabs_product_fr" class="tab_language">French</a></li>
-        
-    
-        
+
+
+
             <li class="tabs tab-title new_lc hide tabs_new_lc" id="tabs_product_new_lc_tab" data-language="new_lc"><a href="#tabs_product_new_lc" class="tab_language"></a></li>
-        
-    
-        
+
+
+
             <li class="tabs tab-title new tabs_new">
                 <select class="select_add_language" style="width:100%">
                     <option></option>
                 </select>
             </li>
-        
-    
+
+
 </ul>
 <!--html tab header ends-->
 
 <!--The content tab starts-->
 <div id="tabs_content_product" class="tabs-content">
-    
-        
-            <div class="tabs content active tabs_en" id="tabs_product_en">
-                
-                                 
 
-                
-                    
+
+            <div class="tabs content active tabs_en" id="tabs_product_en">
+
+
+
+
+
                     <!-- start templates/web/pages/product_edit/display_input_field.tt.html -->
 <label for="product_name_en">
     Product name
-    
+
         (<span class="tab_language">English</span>)
-    
-    
+
+
 </label>
 
 
@@ -1049,15 +1049,15 @@ You accept to be credited by re-users by a link to the product your are contribu
 <!-- end templates/web/pages/product_edit/display_input_field.tt.html -->
 
 
-                
-                    
+
+
                     <!-- start templates/web/pages/product_edit/display_input_field.tt.html -->
 <label for="generic_name_en">
     Common name
-    
+
         (<span class="tab_language">English</span>)
-    
-    
+
+
 </label>
 
 
@@ -1074,25 +1074,25 @@ You accept to be credited by re-users by a link to the product your are contribu
 <!-- end templates/web/pages/product_edit/display_input_field.tt.html -->
 
 
-                
+
 
             </div>
-        
-    
-        
-            <div class="tabs content tabs_fr" id="tabs_product_fr">
-                
-                                 
 
-                
-                    
+
+
+            <div class="tabs content tabs_fr" id="tabs_product_fr">
+
+
+
+
+
                     <!-- start templates/web/pages/product_edit/display_input_field.tt.html -->
 <label for="product_name_fr">
     Product name
-    
+
         (<span class="tab_language">French</span>)
-    
-    
+
+
 </label>
 
 
@@ -1109,15 +1109,15 @@ You accept to be credited by re-users by a link to the product your are contribu
 <!-- end templates/web/pages/product_edit/display_input_field.tt.html -->
 
 
-                
-                    
+
+
                     <!-- start templates/web/pages/product_edit/display_input_field.tt.html -->
 <label for="generic_name_fr">
     Common name
-    
+
         (<span class="tab_language">French</span>)
-    
-    
+
+
 </label>
 
 
@@ -1134,25 +1134,25 @@ You accept to be credited by re-users by a link to the product your are contribu
 <!-- end templates/web/pages/product_edit/display_input_field.tt.html -->
 
 
-                
+
 
             </div>
-        
-    
-        
-            <div class="tabs content new_lc hide tabs_new_lc" id="tabs_product_new_lc">
-                
-                                 
 
-                
-                    
+
+
+            <div class="tabs content new_lc hide tabs_new_lc" id="tabs_product_new_lc">
+
+
+
+
+
                     <!-- start templates/web/pages/product_edit/display_input_field.tt.html -->
 <label for="product_name_new_lc">
     Product name
-    
+
         (<span class="tab_language"></span>)
-    
-    
+
+
 </label>
 
 
@@ -1169,15 +1169,15 @@ You accept to be credited by re-users by a link to the product your are contribu
 <!-- end templates/web/pages/product_edit/display_input_field.tt.html -->
 
 
-                
-                    
+
+
                     <!-- start templates/web/pages/product_edit/display_input_field.tt.html -->
 <label for="generic_name_new_lc">
     Common name
-    
+
         (<span class="tab_language"></span>)
-    
-    
+
+
 </label>
 
 
@@ -1194,24 +1194,24 @@ You accept to be credited by re-users by a link to the product your are contribu
 <!-- end templates/web/pages/product_edit/display_input_field.tt.html -->
 
 
-                
+
 
             </div>
-        
-    
-        
-    
+
+
+
+
 </div>
 <!--The content tab ends-->
 
 <!-- end templates/web/pages/product_edit/display_input_tabs.tt.html -->
 
-                
+
                     <!-- start templates/web/pages/product_edit/display_input_field.tt.html -->
 <label for="quantity">
     Quantity
-    
-    
+
+
 </label>
 
 
@@ -1228,12 +1228,12 @@ You accept to be credited by re-users by a link to the product your are contribu
 <!-- end templates/web/pages/product_edit/display_input_field.tt.html -->
 
 
-                
+
                     <!-- start templates/web/pages/product_edit/display_input_field.tt.html -->
 <label for="brands">
     Brands
-    
-    
+
+
 </label>
 
 
@@ -1250,12 +1250,12 @@ You accept to be credited by re-users by a link to the product your are contribu
 <!-- end templates/web/pages/product_edit/display_input_field.tt.html -->
 
 
-                
+
                     <!-- start templates/web/pages/product_edit/display_input_field.tt.html -->
 <label for="categories">
     Categories
-    
-    
+
+
 </label>
 
 
@@ -1264,9 +1264,9 @@ You accept to be credited by re-users by a link to the product your are contribu
 
 
 
-    
+
         <p class="note">&rarr; Indicate only the most specific category. "Parents" categories will be automatically added.</p>
-    
+
 
 
 
@@ -1276,12 +1276,12 @@ You accept to be credited by re-users by a link to the product your are contribu
 <!-- end templates/web/pages/product_edit/display_input_field.tt.html -->
 
 
-                
+
                     <!-- start templates/web/pages/product_edit/display_input_field.tt.html -->
 <label for="labels">
     Labels, certifications, awards
-    
-    
+
+
 </label>
 
 
@@ -1290,9 +1290,9 @@ You accept to be credited by re-users by a link to the product your are contribu
 
 
 
-    
+
         <p class="note">&rarr; Indicate only the most specific labels. "Parents" labels will be added automatically.</p>
-    
+
 
 
 
@@ -1302,12 +1302,12 @@ You accept to be credited by re-users by a link to the product your are contribu
 <!-- end templates/web/pages/product_edit/display_input_field.tt.html -->
 
 
-                
+
                     <!-- start templates/web/pages/product_edit/display_input_field.tt.html -->
 <label for="manufacturing_places">
     Manufacturing or processing places
-    
-    
+
+
 </label>
 
 
@@ -1324,12 +1324,12 @@ You accept to be credited by re-users by a link to the product your are contribu
 <!-- end templates/web/pages/product_edit/display_input_field.tt.html -->
 
 
-                
+
                     <!-- start templates/web/pages/product_edit/display_input_field.tt.html -->
 <label for="emb_codes">
     Traceability code
-    
-    
+
+
 </label>
 
 
@@ -1338,9 +1338,9 @@ You accept to be credited by re-users by a link to the product your are contribu
 
 
 
-    
+
         <p class="note">&rarr; In Europe, the code is in an ellipse with the 2 country initials followed by a number and CE.</p>
-    
+
 
 
 
@@ -1350,12 +1350,12 @@ You accept to be credited by re-users by a link to the product your are contribu
 <!-- end templates/web/pages/product_edit/display_input_field.tt.html -->
 
 
-                
+
                     <!-- start templates/web/pages/product_edit/display_input_field.tt.html -->
 <label for="link">
     Link to the product page on the official site of the producer
-    
-    
+
+
 </label>
 
 
@@ -1370,12 +1370,12 @@ You accept to be credited by re-users by a link to the product your are contribu
 <!-- end templates/web/pages/product_edit/display_input_field.tt.html -->
 
 
-                
+
                     <!-- start templates/web/pages/product_edit/display_input_field.tt.html -->
 <label for="expiration_date">
     Best before date
-    
-    
+
+
 </label>
 
 
@@ -1384,9 +1384,9 @@ You accept to be credited by re-users by a link to the product your are contribu
 
 
 
-    
+
         <p class="note">&rarr; The expiration date is a way to track product changes over time and to identify the most recent version.</p>
-    
+
 
 
 
@@ -1394,12 +1394,12 @@ You accept to be credited by re-users by a link to the product your are contribu
 <!-- end templates/web/pages/product_edit/display_input_field.tt.html -->
 
 
-                
+
                     <!-- start templates/web/pages/product_edit/display_input_field.tt.html -->
 <label for="purchase_places">
     City, state and country where purchased
-    
-    
+
+
 </label>
 
 
@@ -1408,9 +1408,9 @@ You accept to be credited by re-users by a link to the product your are contribu
 
 
 
-    
+
         <p class="note">&rarr; Indicate where you bought or saw the product (at least the country)</p>
-    
+
 
 
 
@@ -1418,12 +1418,12 @@ You accept to be credited by re-users by a link to the product your are contribu
 <!-- end templates/web/pages/product_edit/display_input_field.tt.html -->
 
 
-                
+
                     <!-- start templates/web/pages/product_edit/display_input_field.tt.html -->
 <label for="stores">
     Stores
-    
-    
+
+
 </label>
 
 
@@ -1432,9 +1432,9 @@ You accept to be credited by re-users by a link to the product your are contribu
 
 
 
-    
+
         <p class="note">&rarr; Name of the shop or supermarket chain</p>
-    
+
 
 
 
@@ -1442,12 +1442,12 @@ You accept to be credited by re-users by a link to the product your are contribu
 <!-- end templates/web/pages/product_edit/display_input_field.tt.html -->
 
 
-                
+
                     <!-- start templates/web/pages/product_edit/display_input_field.tt.html -->
 <label for="countries">
     Countries where sold
-    
-    
+
+
 </label>
 
 
@@ -1456,9 +1456,9 @@ You accept to be credited by re-users by a link to the product your are contribu
 
 
 
-    
+
         <p class="note">&rarr; Countries where the product is widely available (not including stores specialising in foreign products)</p>
-    
+
 
 
 
@@ -1466,7 +1466,7 @@ You accept to be credited by re-users by a link to the product your are contribu
 <!-- end templates/web/pages/product_edit/display_input_field.tt.html -->
 
 
-                
+
             </div>
         </section>
 
@@ -1477,40 +1477,40 @@ You accept to be credited by re-users by a link to the product your are contribu
 
 <!--html tab header starts-->
 <ul id="tabs_ingredients_image" class="tabs" data-tab>
-    
-        
+
+
             <li class="tabs tab-title active tabs_en" id="tabs_ingredients_image_en_tab" data-language="en"><a href="#tabs_ingredients_image_en" class="tab_language">English</a></li>
-        
-    
-        
+
+
+
             <li class="tabs tab-title tabs_fr" id="tabs_ingredients_image_fr_tab" data-language="fr"><a href="#tabs_ingredients_image_fr" class="tab_language">French</a></li>
-        
-    
-        
+
+
+
             <li class="tabs tab-title new_lc hide tabs_new_lc" id="tabs_ingredients_image_new_lc_tab" data-language="new_lc"><a href="#tabs_ingredients_image_new_lc" class="tab_language"></a></li>
-        
-    
-        
+
+
+
             <li class="tabs tab-title new tabs_new">
                 <select class="select_add_language" style="width:100%">
                     <option></option>
                 </select>
             </li>
-        
-    
+
+
 </ul>
 <!--html tab header ends-->
 
 <!--The content tab starts-->
 <div id="tabs_content_ingredients_image" class="tabs-content">
-    
-        
-            <div class="tabs content active tabs_en" id="tabs_ingredients_image_en">
-                
-                                 
 
-                
-                    
+
+            <div class="tabs content active tabs_en" id="tabs_ingredients_image_en">
+
+
+
+
+
                     	<label for="ingredients_en">Ingredients picture (<span class="tab_language">English</span>)</label>
 <p class="note">&rarr; If the picture is neat enough, the ingredients can be extracted automatically</p>
 <div class="select_crop" id="ingredients_en"></div>
@@ -1522,17 +1522,17 @@ You accept to be credited by re-users by a link to the product your are contribu
 <input type="hidden" name="ingredients_en_y2" id="ingredients_en_y2" value="" />
 <input type="hidden" name="ingredients_en_display_url" id="ingredients_en_display_url" value="" />
 
-                
-                    
+
+
                         <div id="ingredients_en_image_full"></div>
-                    
+
                     <!-- start templates/web/pages/product_edit/display_input_field.tt.html -->
 <label for="ingredients_text_en">
     Ingredients list
-    
+
         (<span class="tab_language">English</span>)
-    
-    
+
+
 </label>
 
 
@@ -1541,9 +1541,9 @@ You accept to be credited by re-users by a link to the product your are contribu
 
 
 
-    
+
         <p class="note">&rarr; Keep the order, indicate the % when specified, separate with a comma or - , use ( ) for ingredients of an ingredient, surround allergens with _ e.g. _milk_</p>
-    
+
 
 
 
@@ -1553,15 +1553,15 @@ You accept to be credited by re-users by a link to the product your are contribu
 <!-- end templates/web/pages/product_edit/display_input_field.tt.html -->
 
 
-                
-                    
+
+
                     <!-- start templates/web/pages/product_edit/display_input_field.tt.html -->
 <label for="origin_en">
     Origin of the product and/or its ingredients
-    
+
         (<span class="tab_language">English</span>)
-    
-    
+
+
 </label>
 
 
@@ -1570,9 +1570,9 @@ You accept to be credited by re-users by a link to the product your are contribu
 
 
 
-    
+
         <p class="note">&rarr; Packaging mentions that indicate the manufacturing place and/or the origins of the ingredients</p>
-    
+
 
 
 
@@ -1582,18 +1582,18 @@ You accept to be credited by re-users by a link to the product your are contribu
 <!-- end templates/web/pages/product_edit/display_input_field.tt.html -->
 
 
-                
+
 
             </div>
-        
-    
-        
-            <div class="tabs content tabs_fr" id="tabs_ingredients_image_fr">
-                
-                                 
 
-                
-                    
+
+
+            <div class="tabs content tabs_fr" id="tabs_ingredients_image_fr">
+
+
+
+
+
                     	<label for="ingredients_fr">Ingredients picture (<span class="tab_language">French</span>)</label>
 <p class="note">&rarr; If the picture is neat enough, the ingredients can be extracted automatically</p>
 <div class="select_crop" id="ingredients_fr"></div>
@@ -1605,17 +1605,17 @@ You accept to be credited by re-users by a link to the product your are contribu
 <input type="hidden" name="ingredients_fr_y2" id="ingredients_fr_y2" value="" />
 <input type="hidden" name="ingredients_fr_display_url" id="ingredients_fr_display_url" value="" />
 
-                
-                    
+
+
                         <div id="ingredients_fr_image_full"></div>
-                    
+
                     <!-- start templates/web/pages/product_edit/display_input_field.tt.html -->
 <label for="ingredients_text_fr">
     Ingredients list
-    
+
         (<span class="tab_language">French</span>)
-    
-    
+
+
 </label>
 
 
@@ -1624,9 +1624,9 @@ You accept to be credited by re-users by a link to the product your are contribu
 
 
 
-    
+
         <p class="note">&rarr; Keep the order, indicate the % when specified, separate with a comma or - , use ( ) for ingredients of an ingredient, surround allergens with _ e.g. _milk_</p>
-    
+
 
 
 
@@ -1636,15 +1636,15 @@ You accept to be credited by re-users by a link to the product your are contribu
 <!-- end templates/web/pages/product_edit/display_input_field.tt.html -->
 
 
-                
-                    
+
+
                     <!-- start templates/web/pages/product_edit/display_input_field.tt.html -->
 <label for="origin_fr">
     Origin of the product and/or its ingredients
-    
+
         (<span class="tab_language">French</span>)
-    
-    
+
+
 </label>
 
 
@@ -1653,9 +1653,9 @@ You accept to be credited by re-users by a link to the product your are contribu
 
 
 
-    
+
         <p class="note">&rarr; Packaging mentions that indicate the manufacturing place and/or the origins of the ingredients</p>
-    
+
 
 
 
@@ -1665,18 +1665,18 @@ You accept to be credited by re-users by a link to the product your are contribu
 <!-- end templates/web/pages/product_edit/display_input_field.tt.html -->
 
 
-                
+
 
             </div>
-        
-    
-        
-            <div class="tabs content new_lc hide tabs_new_lc" id="tabs_ingredients_image_new_lc">
-                
-                                 
 
-                
-                    
+
+
+            <div class="tabs content new_lc hide tabs_new_lc" id="tabs_ingredients_image_new_lc">
+
+
+
+
+
                     	<label for="ingredients_new_lc">Ingredients picture (<span class="tab_language"></span>)</label>
 <p class="note">&rarr; If the picture is neat enough, the ingredients can be extracted automatically</p>
 <div class="select_crop" id="ingredients_new_lc"></div>
@@ -1688,17 +1688,17 @@ You accept to be credited by re-users by a link to the product your are contribu
 <input type="hidden" name="ingredients_new_lc_y2" id="ingredients_new_lc_y2" value="" />
 <input type="hidden" name="ingredients_new_lc_display_url" id="ingredients_new_lc_display_url" value="" />
 
-                
-                    
+
+
                         <div id="ingredients_new_lc_image_full"></div>
-                    
+
                     <!-- start templates/web/pages/product_edit/display_input_field.tt.html -->
 <label for="ingredients_text_new_lc">
     Ingredients list
-    
+
         (<span class="tab_language"></span>)
-    
-    
+
+
 </label>
 
 
@@ -1707,9 +1707,9 @@ You accept to be credited by re-users by a link to the product your are contribu
 
 
 
-    
+
         <p class="note">&rarr; Keep the order, indicate the % when specified, separate with a comma or - , use ( ) for ingredients of an ingredient, surround allergens with _ e.g. _milk_</p>
-    
+
 
 
 
@@ -1719,15 +1719,15 @@ You accept to be credited by re-users by a link to the product your are contribu
 <!-- end templates/web/pages/product_edit/display_input_field.tt.html -->
 
 
-                
-                    
+
+
                     <!-- start templates/web/pages/product_edit/display_input_field.tt.html -->
 <label for="origin_new_lc">
     Origin of the product and/or its ingredients
-    
+
         (<span class="tab_language"></span>)
-    
-    
+
+
 </label>
 
 
@@ -1736,9 +1736,9 @@ You accept to be credited by re-users by a link to the product your are contribu
 
 
 
-    
+
         <p class="note">&rarr; Packaging mentions that indicate the manufacturing place and/or the origins of the ingredients</p>
-    
+
 
 
 
@@ -1748,13 +1748,13 @@ You accept to be credited by re-users by a link to the product your are contribu
 <!-- end templates/web/pages/product_edit/display_input_field.tt.html -->
 
 
-                
+
 
             </div>
-        
-    
-        
-    
+
+
+
+
 </div>
 <!--The content tab ends-->
 
@@ -1762,8 +1762,8 @@ You accept to be credited by re-users by a link to the product your are contribu
                 <!-- start templates/web/pages/product_edit/display_input_field.tt.html -->
 <label for="allergens">
     Substances or products causing allergies or intolerances
-    
-    
+
+
 </label>
 
 
@@ -1781,8 +1781,8 @@ You accept to be credited by re-users by a link to the product your are contribu
                 <!-- start templates/web/pages/product_edit/display_input_field.tt.html -->
 <label for="traces">
     Traces
-    
-    
+
+
 </label>
 
 
@@ -1791,9 +1791,9 @@ You accept to be credited by re-users by a link to the product your are contribu
 
 
 
-    
+
         <p class="note">&rarr; Indicate ingredients from mentions like "May contain traces of", "Made in a factory that also uses" etc.</p>
-    
+
 
 
 
@@ -1806,8 +1806,8 @@ You accept to be credited by re-users by a link to the product your are contribu
                 <!-- start templates/web/pages/product_edit/display_input_field.tt.html -->
 <label for="origins">
     Origin of ingredients
-    
-    
+
+
 </label>
 
 
@@ -1840,40 +1840,40 @@ You accept to be credited by re-users by a link to the product your are contribu
 
 <!--html tab header starts-->
 <ul id="tabs_nutrition_image" class="tabs" data-tab>
-    
-        
+
+
             <li class="tabs tab-title active tabs_en" id="tabs_nutrition_image_en_tab" data-language="en"><a href="#tabs_nutrition_image_en" class="tab_language">English</a></li>
-        
-    
-        
+
+
+
             <li class="tabs tab-title tabs_fr" id="tabs_nutrition_image_fr_tab" data-language="fr"><a href="#tabs_nutrition_image_fr" class="tab_language">French</a></li>
-        
-    
-        
+
+
+
             <li class="tabs tab-title new_lc hide tabs_new_lc" id="tabs_nutrition_image_new_lc_tab" data-language="new_lc"><a href="#tabs_nutrition_image_new_lc" class="tab_language"></a></li>
-        
-    
-        
+
+
+
             <li class="tabs tab-title new tabs_new">
                 <select class="select_add_language" style="width:100%">
                     <option></option>
                 </select>
             </li>
-        
-    
+
+
 </ul>
 <!--html tab header ends-->
 
 <!--The content tab starts-->
 <div id="tabs_content_nutrition_image" class="tabs-content">
-    
-        
-            <div class="tabs content active tabs_en" id="tabs_nutrition_image_en">
-                
-                                 
 
-                
-                    
+
+            <div class="tabs content active tabs_en" id="tabs_nutrition_image_en">
+
+
+
+
+
                     	<label for="nutrition_en">Nutrition facts picture (<span class="tab_language">English</span>)</label>
 
 <div class="select_crop" id="nutrition_en"></div>
@@ -1885,18 +1885,18 @@ You accept to be credited by re-users by a link to the product your are contribu
 <input type="hidden" name="nutrition_en_y2" id="nutrition_en_y2" value="" />
 <input type="hidden" name="nutrition_en_display_url" id="nutrition_en_display_url" value="" />
 
-                
+
 
             </div>
-        
-    
-        
-            <div class="tabs content tabs_fr" id="tabs_nutrition_image_fr">
-                
-                                 
 
-                
-                    
+
+
+            <div class="tabs content tabs_fr" id="tabs_nutrition_image_fr">
+
+
+
+
+
                     	<label for="nutrition_fr">Nutrition facts picture (<span class="tab_language">French</span>)</label>
 
 <div class="select_crop" id="nutrition_fr"></div>
@@ -1908,18 +1908,18 @@ You accept to be credited by re-users by a link to the product your are contribu
 <input type="hidden" name="nutrition_fr_y2" id="nutrition_fr_y2" value="" />
 <input type="hidden" name="nutrition_fr_display_url" id="nutrition_fr_display_url" value="" />
 
-                
+
 
             </div>
-        
-    
-        
-            <div class="tabs content new_lc hide tabs_new_lc" id="tabs_nutrition_image_new_lc">
-                
-                                 
 
-                
-                    
+
+
+            <div class="tabs content new_lc hide tabs_new_lc" id="tabs_nutrition_image_new_lc">
+
+
+
+
+
                     	<label for="nutrition_new_lc">Nutrition facts picture (<span class="tab_language"></span>)</label>
 
 <div class="select_crop" id="nutrition_new_lc"></div>
@@ -1931,13 +1931,13 @@ You accept to be credited by re-users by a link to the product your are contribu
 <input type="hidden" name="nutrition_new_lc_y2" id="nutrition_new_lc_y2" value="" />
 <input type="hidden" name="nutrition_new_lc_display_url" id="nutrition_new_lc_display_url" value="" />
 
-                
+
 
             </div>
-        
-    
-        
-    
+
+
+
+
 </div>
 <!--The content tab ends-->
 
@@ -1945,8 +1945,8 @@ You accept to be credited by re-users by a link to the product your are contribu
                     <!-- start templates/web/pages/product_edit/display_input_field.tt.html -->
 <label for="serving_size">
     Serving size
-    
-    
+
+
 </label>
 
 
@@ -1955,9 +1955,9 @@ You accept to be credited by re-users by a link to the product your are contribu
 
 
 
-    
+
         <p class="note">&rarr; If the nutrition facts table contains values for the prepared product, indicate the total serving size of the prepared product (including added water or milk).</p>
-    
+
 
 
 
@@ -1969,8 +1969,8 @@ You accept to be credited by re-users by a link to the product your are contribu
 
 
                     <!-- petfood nutriment are as sold only -->
-                    
-                        
+
+
                             <!-- extra field suffixed with _displayed to allow detecting when a box is unchecked -->
                             <input type="hidden" name="nutrition_data_displayed" value="1" />
                             <input type="checkbox" id="nutrition_data" name="nutrition_data" checked="checked" />
@@ -1980,8 +1980,8 @@ You accept to be credited by re-users by a link to the product your are contribu
                             <input type="radio" id="nutrition_data_per_serving" value="serving" name="nutrition_data_per"  />
                             <label for="nutrition_data_per_serving">per serving</label><br/>
 
-                            
-                        
+
+
                             <!-- extra field suffixed with _displayed to allow detecting when a box is unchecked -->
                             <input type="hidden" name="nutrition_data_prepared_displayed" value="1" />
                             <input type="checkbox" id="nutrition_data_prepared" name="nutrition_data_prepared"  />
@@ -1991,25 +1991,25 @@ You accept to be credited by re-users by a link to the product your are contribu
                             <input type="radio" id="nutrition_data_prepared_per_serving" value="serving" name="nutrition_data_prepared_per"  />
                             <label for="nutrition_data_prepared_per_serving">per serving</label><br/>
 
-                            
-                        
-                    
+
+
+
 
                     <div style="position:relative">
 
                         <table id="nutrition_data_table" class="data_table" style="display: table;" aria-label="nutrition table">
                             <thead class="nutriment_header">
                                 <th id="col_1">
-                                    
+
                                         Nutrition facts
-                                    
+
                                 </th>
                                 <th id="col_2" class="nutriment_col" >
                                     As sold<br/>
-                                    
+
                                         <span id="nutrition_data_100g" >for 100 g / 100 ml</span>
                                         <span id="nutrition_data_serving"  style="display:none">per serving</span>
-                                    
+
                                 </th>
                                 <th id="col_3" class="nutriment_col_prepared" style="display:none">
                                     Prepared<br/>
@@ -2023,22 +2023,22 @@ You accept to be credited by re-users by a link to the product your are contribu
 
                             <tbody>
 
-                                
 
-                                    
+
+
                                         <tr id="nutriment_energy-kj_tr" class="nutriment_main">
 
                                     <td>
                                         <!--label starts-->
-                                        
+
                                             <label class="nutriment_label" for="nutriment_energy-kj">
                                                 Energy (kJ)
-                                                
+
                                                 *
-                                                
-                                                
+
+
                                             </label>
-                                        
+
                                         <!--label ends-->
                                     </td>
 
@@ -2053,30 +2053,30 @@ You accept to be credited by re-users by a link to the product your are contribu
 
                                             <!-- food -->
                                             <!-- petfood -->
-                                            
+
                                                 <td>
                                                     <span class="nutriment_unit">kJ</span>
 
-                                            
+
                                                     </td>
                                             </tr>
 
-                                    
 
-                                
 
-                                    
+
+
+
                                         <tr id="nutriment_energy-kcal_tr" class="nutriment_main">
 
                                     <td>
                                         <!--label starts-->
-                                        
+
                                             <label class="nutriment_label" for="nutriment_energy-kcal">
                                                 Energy (kcal)
-                                                
-                                                
+
+
                                             </label>
-                                        
+
                                         <!--label ends-->
                                     </td>
 
@@ -2091,36 +2091,36 @@ You accept to be credited by re-users by a link to the product your are contribu
 
                                             <!-- food -->
                                             <!-- petfood -->
-                                            
+
                                                 <td>
                                                     <span class="nutriment_unit">kcal</span>
 
-                                            
+
                                                     </td>
                                             </tr>
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
+
+
+
+
+
                                         <tr id="nutriment_fat_tr" class="nutriment_main">
 
                                     <td>
                                         <!--label starts-->
-                                        
+
                                             <label class="nutriment_label" for="nutriment_fat">
                                                 Fat
-                                                
+
                                                 *
-                                                
-                                                
+
+
                                             </label>
-                                        
+
                                         <!--label ends-->
                                     </td>
 
@@ -2135,40 +2135,40 @@ You accept to be credited by re-users by a link to the product your are contribu
 
                                             <!-- food -->
                                             <!-- petfood -->
-                                            
+
                                                 <td>
                                                     <span class="nutriment_unit_percent" id="nutriment_fat_unit_percent" style="display:none">%</span>
                                                     <select class="nutriment_unit" id="nutriment_fat_unit" name="nutriment_fat_unit" >
-                                                        
+
                                                             <option value="g" selected="selected" >g</option>
-                                                        
+
                                                             <option value="mg" >mg</option>
-                                                        
+
                                                             <option value="µg" >mcg/µg</option>
-                                                        
+
                                                         </select>
-                                            
+
                                                     </td>
                                             </tr>
 
-                                    
 
-                                
 
-                                    
+
+
+
                                         <tr id="nutriment_saturated-fat_tr" class="nutriment_sub">
 
                                     <td>
                                         <!--label starts-->
-                                        
+
                                             <label class="nutriment_label" for="nutriment_saturated-fat">
                                                 Saturated fat
-                                                
+
                                                 *
-                                                
-                                                
+
+
                                             </label>
-                                        
+
                                         <!--label ends-->
                                     </td>
 
@@ -2183,178 +2183,178 @@ You accept to be credited by re-users by a link to the product your are contribu
 
                                             <!-- food -->
                                             <!-- petfood -->
-                                            
+
                                                 <td>
                                                     <span class="nutriment_unit_percent" id="nutriment_saturated-fat_unit_percent" style="display:none">%</span>
                                                     <select class="nutriment_unit" id="nutriment_saturated-fat_unit" name="nutriment_saturated-fat_unit" >
-                                                        
+
                                                             <option value="g" selected="selected" >g</option>
-                                                        
+
                                                             <option value="mg" >mg</option>
-                                                        
+
                                                             <option value="µg" >mcg/µg</option>
-                                                        
+
                                                         </select>
-                                            
+
                                                     </td>
                                             </tr>
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                         <tr id="nutriment_carbohydrates_tr" class="nutriment_main">
 
                                     <td>
                                         <!--label starts-->
-                                        
+
                                             <label class="nutriment_label" for="nutriment_carbohydrates">
                                                 Carbohydrates
-                                                
-                                                
+
+
                                             </label>
-                                        
+
                                         <!--label ends-->
                                     </td>
 
@@ -2369,40 +2369,40 @@ You accept to be credited by re-users by a link to the product your are contribu
 
                                             <!-- food -->
                                             <!-- petfood -->
-                                            
+
                                                 <td>
                                                     <span class="nutriment_unit_percent" id="nutriment_carbohydrates_unit_percent" style="display:none">%</span>
                                                     <select class="nutriment_unit" id="nutriment_carbohydrates_unit" name="nutriment_carbohydrates_unit" >
-                                                        
+
                                                             <option value="g" selected="selected" >g</option>
-                                                        
+
                                                             <option value="mg" >mg</option>
-                                                        
+
                                                             <option value="µg" >mcg/µg</option>
-                                                        
+
                                                         </select>
-                                            
+
                                                     </td>
                                             </tr>
 
-                                    
 
-                                
 
-                                    
+
+
+
                                         <tr id="nutriment_sugars_tr" class="nutriment_sub">
 
                                     <td>
                                         <!--label starts-->
-                                        
+
                                             <label class="nutriment_label" for="nutriment_sugars">
                                                 Sugars
-                                                
+
                                                 *
-                                                
-                                                
+
+
                                             </label>
-                                        
+
                                         <!--label ends-->
                                     </td>
 
@@ -2417,80 +2417,80 @@ You accept to be credited by re-users by a link to the product your are contribu
 
                                             <!-- food -->
                                             <!-- petfood -->
-                                            
+
                                                 <td>
                                                     <span class="nutriment_unit_percent" id="nutriment_sugars_unit_percent" style="display:none">%</span>
                                                     <select class="nutriment_unit" id="nutriment_sugars_unit" name="nutriment_sugars_unit" >
-                                                        
+
                                                             <option value="g" selected="selected" >g</option>
-                                                        
+
                                                             <option value="mg" >mg</option>
-                                                        
+
                                                             <option value="µg" >mcg/µg</option>
-                                                        
+
                                                         </select>
-                                            
+
                                                     </td>
                                             </tr>
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                         <tr id="nutriment_fiber_tr" class="nutriment_main">
 
                                     <td>
                                         <!--label starts-->
-                                        
+
                                             <label class="nutriment_label" for="nutriment_fiber">
                                                 Fiber
-                                                
+
                                                 *
-                                                
-                                                
+
+
                                             </label>
-                                        
+
                                         <!--label ends-->
                                     </td>
 
@@ -2505,48 +2505,48 @@ You accept to be credited by re-users by a link to the product your are contribu
 
                                             <!-- food -->
                                             <!-- petfood -->
-                                            
+
                                                 <td>
                                                     <span class="nutriment_unit_percent" id="nutriment_fiber_unit_percent" style="display:none">%</span>
                                                     <select class="nutriment_unit" id="nutriment_fiber_unit" name="nutriment_fiber_unit" >
-                                                        
+
                                                             <option value="g" selected="selected" >g</option>
-                                                        
+
                                                             <option value="mg" >mg</option>
-                                                        
+
                                                             <option value="µg" >mcg/µg</option>
-                                                        
+
                                                         </select>
-                                            
+
                                                     </td>
                                             </tr>
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
+
+
+
+
+
+
+
                                         <tr id="nutriment_proteins_tr" class="nutriment_main">
 
                                     <td>
                                         <!--label starts-->
-                                        
+
                                             <label class="nutriment_label" for="nutriment_proteins">
                                                 Proteins
-                                                
+
                                                 *
-                                                
-                                                
+
+
                                             </label>
-                                        
+
                                         <!--label ends-->
                                     </td>
 
@@ -2561,52 +2561,52 @@ You accept to be credited by re-users by a link to the product your are contribu
 
                                             <!-- food -->
                                             <!-- petfood -->
-                                            
+
                                                 <td>
                                                     <span class="nutriment_unit_percent" id="nutriment_proteins_unit_percent" style="display:none">%</span>
                                                     <select class="nutriment_unit" id="nutriment_proteins_unit" name="nutriment_proteins_unit" >
-                                                        
+
                                                             <option value="g" selected="selected" >g</option>
-                                                        
+
                                                             <option value="mg" >mg</option>
-                                                        
+
                                                             <option value="µg" >mcg/µg</option>
-                                                        
+
                                                         </select>
-                                            
+
                                                     </td>
                                             </tr>
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
+
+
+
+
+
+
+
+
+
                                         <tr id="nutriment_salt_tr" class="nutriment_main">
 
                                     <td>
                                         <!--label starts-->
-                                        
+
                                             <label class="nutriment_label" for="nutriment_salt">
                                                 Salt
-                                                
+
                                                 *
-                                                
-                                                
+
+
                                             </label>
-                                        
+
                                         <!--label ends-->
                                     </td>
 
@@ -2621,42 +2621,42 @@ You accept to be credited by re-users by a link to the product your are contribu
 
                                             <!-- food -->
                                             <!-- petfood -->
-                                            
+
                                                 <td>
                                                     <span class="nutriment_unit_percent" id="nutriment_salt_unit_percent" style="display:none">%</span>
                                                     <select class="nutriment_unit" id="nutriment_salt_unit" name="nutriment_salt_unit" >
-                                                        
+
                                                             <option value="g" selected="selected" >g</option>
-                                                        
+
                                                             <option value="mg" >mg</option>
-                                                        
+
                                                             <option value="µg" >mcg/µg</option>
-                                                        
+
                                                         </select>
-                                            
+
                                                     </td>
                                             </tr>
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
+
+
+
+
+
                                         <tr id="nutriment_sodium_tr" class="nutriment_main">
 
                                     <td>
                                         <!--label starts-->
-                                        
+
                                             <label class="nutriment_label" for="nutriment_sodium">
                                                 Sodium
-                                                
-                                                
+
+
                                             </label>
-                                        
+
                                         <!--label ends-->
                                     </td>
 
@@ -2671,38 +2671,38 @@ You accept to be credited by re-users by a link to the product your are contribu
 
                                             <!-- food -->
                                             <!-- petfood -->
-                                            
+
                                                 <td>
                                                     <span class="nutriment_unit_percent" id="nutriment_sodium_unit_percent" style="display:none">%</span>
                                                     <select class="nutriment_unit" id="nutriment_sodium_unit" name="nutriment_sodium_unit" >
-                                                        
+
                                                             <option value="g" selected="selected" >g</option>
-                                                        
+
                                                             <option value="mg" >mg</option>
-                                                        
+
                                                             <option value="µg" >mcg/µg</option>
-                                                        
+
                                                         </select>
-                                            
+
                                                     </td>
                                             </tr>
 
-                                    
 
-                                
 
-                                    
+
+
+
                                         <tr id="nutriment_alcohol_tr" class="nutriment_main">
 
                                     <td>
                                         <!--label starts-->
-                                        
+
                                             <label class="nutriment_label" for="nutriment_alcohol">
                                                 Alcohol
-                                                
-                                                
+
+
                                             </label>
-                                        
+
                                         <!--label ends-->
                                     </td>
 
@@ -2717,234 +2717,234 @@ You accept to be credited by re-users by a link to the product your are contribu
 
                                             <!-- food -->
                                             <!-- petfood -->
-                                            
+
                                                 <td>
                                                     <span class="nutriment_unit">% vol / °</span>
 
-                                            
+
                                                     </td>
                                             </tr>
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
 
-                                
 
-                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                         <tr id="nutriment_new_0_tr" class="nutriment_main" style="display:none">
 
                                     <td>
                                         <!--label starts-->
-                                        
+
                                             <input class="nutriment_label" id="nutriment_new_0_label" name="nutriment_new_0_label" placeholder="Add a nutrient"/>
-                                        
+
                                         <!--label ends-->
                                     </td>
 
@@ -2959,38 +2959,38 @@ You accept to be credited by re-users by a link to the product your are contribu
 
                                             <!-- food -->
                                             <!-- petfood -->
-                                            
+
                                                 <td>
                                                     <span class="nutriment_unit_percent" id="nutriment_new_0_unit_percent" style="display:none">%</span>
                                                     <select class="nutriment_unit" id="nutriment_new_0_unit" name="nutriment_new_0_unit" >
-                                                        
+
                                                             <option value="g" selected="selected" >g</option>
-                                                        
+
                                                             <option value="mg" >mg</option>
-                                                        
+
                                                             <option value="µg" >mcg/µg</option>
-                                                        
+
                                                             <option value="% DV" >% DV</option>
-                                                        
+
                                                             <option value="IU" >IU</option>
-                                                        
+
                                                         </select>
-                                            
+
                                                     </td>
                                             </tr>
 
-                                    
 
-                                
 
-                                    
+
+
+
                                         <tr id="nutriment_new_1_tr" class="nutriment_main">
 
                                     <td>
                                         <!--label starts-->
-                                        
+
                                             <input class="nutriment_label" id="nutriment_new_1_label" name="nutriment_new_1_label" placeholder="Add a nutrient"/>
-                                        
+
                                         <!--label ends-->
                                     </td>
 
@@ -3005,29 +3005,29 @@ You accept to be credited by re-users by a link to the product your are contribu
 
                                             <!-- food -->
                                             <!-- petfood -->
-                                            
+
                                                 <td>
                                                     <span class="nutriment_unit_percent" id="nutriment_new_1_unit_percent" style="display:none">%</span>
                                                     <select class="nutriment_unit" id="nutriment_new_1_unit" name="nutriment_new_1_unit" >
-                                                        
+
                                                             <option value="g" selected="selected" >g</option>
-                                                        
+
                                                             <option value="mg" >mg</option>
-                                                        
+
                                                             <option value="µg" >mcg/µg</option>
-                                                        
+
                                                             <option value="% DV" >% DV</option>
-                                                        
+
                                                             <option value="IU" >IU</option>
-                                                        
+
                                                         </select>
-                                            
+
                                                     </td>
                                             </tr>
 
-                                    
 
-                                
+
+
 
                             </tbody>
                         </table>
@@ -3036,11 +3036,11 @@ You accept to be credited by re-users by a link to the product your are contribu
                         <div id="nutrition_image_copy" style="position:absolute;bottom:0;"></div>
                     </div>
 
-                
 
-                
+
+
                     <p class="asterisk">&rarr;*:Essential nutrients to calculate the Nutri-Score.</p>
-                
+
                 <p class="note">&rarr; The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)
 by typing the first letters of their name in the last row of the table.</p>
                 </div>
@@ -3056,40 +3056,40 @@ by typing the first letters of their name in the last row of the table.</p>
 
 <!--html tab header starts-->
 <ul id="tabs_packaging_image" class="tabs" data-tab>
-    
-        
+
+
             <li class="tabs tab-title active tabs_en" id="tabs_packaging_image_en_tab" data-language="en"><a href="#tabs_packaging_image_en" class="tab_language">English</a></li>
-        
-    
-        
+
+
+
             <li class="tabs tab-title tabs_fr" id="tabs_packaging_image_fr_tab" data-language="fr"><a href="#tabs_packaging_image_fr" class="tab_language">French</a></li>
-        
-    
-        
+
+
+
             <li class="tabs tab-title new_lc hide tabs_new_lc" id="tabs_packaging_image_new_lc_tab" data-language="new_lc"><a href="#tabs_packaging_image_new_lc" class="tab_language"></a></li>
-        
-    
-        
+
+
+
             <li class="tabs tab-title new tabs_new">
                 <select class="select_add_language" style="width:100%">
                     <option></option>
                 </select>
             </li>
-        
-    
+
+
 </ul>
 <!--html tab header ends-->
 
 <!--The content tab starts-->
 <div id="tabs_content_packaging_image" class="tabs-content">
-    
-        
-            <div class="tabs content active tabs_en" id="tabs_packaging_image_en">
-                
-                                 
 
-                
-                    
+
+            <div class="tabs content active tabs_en" id="tabs_packaging_image_en">
+
+
+
+
+
                     	<label for="packaging_en">Recycling instructions and/or packaging information picture (<span class="tab_language">English</span>)</label>
 
 <div class="select_crop" id="packaging_en"></div>
@@ -3101,15 +3101,15 @@ by typing the first letters of their name in the last row of the table.</p>
 <input type="hidden" name="packaging_en_y2" id="packaging_en_y2" value="" />
 <input type="hidden" name="packaging_en_display_url" id="packaging_en_display_url" value="" />
 
-                
-                    
+
+
                     <!-- start templates/web/pages/product_edit/display_input_field.tt.html -->
 <label for="packaging_text_en">
     Recycling instructions and/or packaging information
-    
+
         (<span class="tab_language">English</span>)
-    
-    
+
+
 </label>
 
 
@@ -3118,17 +3118,17 @@ by typing the first letters of their name in the last row of the table.</p>
 
 
 
-    
+
         <p class="note">&rarr; List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions.</p>
-    
 
-    
+
+
         <p class="note">&rarr; Try to be as specific as possible. For plastic, please indicate if it is opaque or transparent, colored, PET or PEHD.</p>
-    
 
-    
+
+
         <p class="note">&rarr; Data from this field will be combined with any data provided for each packaging part. It is possible to provide one or the other, or both.</p>
-    
+
 
 
 
@@ -3138,18 +3138,18 @@ by typing the first letters of their name in the last row of the table.</p>
 <!-- end templates/web/pages/product_edit/display_input_field.tt.html -->
 
 
-                
+
 
             </div>
-        
-    
-        
-            <div class="tabs content tabs_fr" id="tabs_packaging_image_fr">
-                
-                                 
 
-                
-                    
+
+
+            <div class="tabs content tabs_fr" id="tabs_packaging_image_fr">
+
+
+
+
+
                     	<label for="packaging_fr">Recycling instructions and/or packaging information picture (<span class="tab_language">French</span>)</label>
 
 <div class="select_crop" id="packaging_fr"></div>
@@ -3161,15 +3161,15 @@ by typing the first letters of their name in the last row of the table.</p>
 <input type="hidden" name="packaging_fr_y2" id="packaging_fr_y2" value="" />
 <input type="hidden" name="packaging_fr_display_url" id="packaging_fr_display_url" value="" />
 
-                
-                    
+
+
                     <!-- start templates/web/pages/product_edit/display_input_field.tt.html -->
 <label for="packaging_text_fr">
     Recycling instructions and/or packaging information
-    
+
         (<span class="tab_language">French</span>)
-    
-    
+
+
 </label>
 
 
@@ -3178,17 +3178,17 @@ by typing the first letters of their name in the last row of the table.</p>
 
 
 
-    
+
         <p class="note">&rarr; List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions.</p>
-    
 
-    
+
+
         <p class="note">&rarr; Try to be as specific as possible. For plastic, please indicate if it is opaque or transparent, colored, PET or PEHD.</p>
-    
 
-    
+
+
         <p class="note">&rarr; Data from this field will be combined with any data provided for each packaging part. It is possible to provide one or the other, or both.</p>
-    
+
 
 
 
@@ -3198,18 +3198,18 @@ by typing the first letters of their name in the last row of the table.</p>
 <!-- end templates/web/pages/product_edit/display_input_field.tt.html -->
 
 
-                
+
 
             </div>
-        
-    
-        
-            <div class="tabs content new_lc hide tabs_new_lc" id="tabs_packaging_image_new_lc">
-                
-                                 
 
-                
-                    
+
+
+            <div class="tabs content new_lc hide tabs_new_lc" id="tabs_packaging_image_new_lc">
+
+
+
+
+
                     	<label for="packaging_new_lc">Recycling instructions and/or packaging information picture (<span class="tab_language"></span>)</label>
 
 <div class="select_crop" id="packaging_new_lc"></div>
@@ -3221,15 +3221,15 @@ by typing the first letters of their name in the last row of the table.</p>
 <input type="hidden" name="packaging_new_lc_y2" id="packaging_new_lc_y2" value="" />
 <input type="hidden" name="packaging_new_lc_display_url" id="packaging_new_lc_display_url" value="" />
 
-                
-                    
+
+
                     <!-- start templates/web/pages/product_edit/display_input_field.tt.html -->
 <label for="packaging_text_new_lc">
     Recycling instructions and/or packaging information
-    
+
         (<span class="tab_language"></span>)
-    
-    
+
+
 </label>
 
 
@@ -3238,17 +3238,17 @@ by typing the first letters of their name in the last row of the table.</p>
 
 
 
-    
+
         <p class="note">&rarr; List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions.</p>
-    
 
-    
+
+
         <p class="note">&rarr; Try to be as specific as possible. For plastic, please indicate if it is opaque or transparent, colored, PET or PEHD.</p>
-    
 
-    
+
+
         <p class="note">&rarr; Data from this field will be combined with any data provided for each packaging part. It is possible to provide one or the other, or both.</p>
-    
+
 
 
 
@@ -3258,13 +3258,13 @@ by typing the first letters of their name in the last row of the table.</p>
 <!-- end templates/web/pages/product_edit/display_input_field.tt.html -->
 
 
-                
+
 
             </div>
-        
-    
-        
-    
+
+
+
+
 </div>
 <!--The content tab ends-->
 
@@ -3272,7 +3272,7 @@ by typing the first letters of their name in the last row of the table.</p>
 
                 <!-- start templates/web/pages/product_edit/product_edit_form_display.tt.html -->
 <p>Packaging parts</p>
-    
+
 <div id="packagings_components_edit">
 
     <ul>
@@ -3295,7 +3295,7 @@ by typing the first letters of their name in the last row of the table.</p>
     </div>
 
 
-    
+
     <div class="row packagings_components_edit_row" id="packaging_0_row">
         <div class="small-12 large-1 columns">
 
@@ -3317,13 +3317,13 @@ by typing the first letters of their name in the last row of the table.</p>
             </div>
         </div>
 
-        
 
-            
-                
-            
 
-            
+
+
+
+
+
 
             <div class="small-12 large-3 columns">
                 <label class="hide-for-large-up" for="packaging_0_shape">Shape</label>
@@ -3333,15 +3333,15 @@ by typing the first letters of their name in the last row of the table.</p>
             </div>
 
             <!-- row 0 is a template for new row, we do not populate it -->
-            
-                
-        
 
-            
-                
-            
 
-            
+
+
+
+
+
+
+
 
             <div class="small-12 large-3 columns">
                 <label class="hide-for-large-up" for="packaging_0_material">Material</label>
@@ -3351,15 +3351,15 @@ by typing the first letters of their name in the last row of the table.</p>
             </div>
 
             <!-- row 0 is a template for new row, we do not populate it -->
-            
-                
-        
 
-            
-                
-            
 
-            
+
+
+
+
+
+
+
 
             <div class="small-12 large-3 columns">
                 <label class="hide-for-large-up" for="packaging_0_recycling">Recycling</label>
@@ -3369,28 +3369,28 @@ by typing the first letters of their name in the last row of the table.</p>
             </div>
 
             <!-- row 0 is a template for new row, we do not populate it -->
-            
-                
-        
+
+
+
 
         <div class="small-12 large-1 columns">
             <label class="hide-for-large-up" for="packaging_0_weight_measured">Weight of one empty unit (g)</label>
-            
-            
+
+
                 <input id="packaging_0_weight_measured" name="packaging_0_weight_measured" type="text" value="" %]">
-            
+
         </div>
 
         <div class="small-12 large-1 columns">
             <label class="hide-for-large-up" for="packaging_0_quantity_per_unit">Quantity of product contained per unit</label>
             <input id="packaging_0_quantity_per_unit" name="packaging_0_quantity_per_unit" type="text" value="" %]">
-        </div>        
+        </div>
 
     </div>
 
-    
 
-    
+
+
     <div class="row packagings_components_edit_row" id="packaging_1_row">
         <div class="small-12 large-1 columns">
 
@@ -3412,13 +3412,13 @@ by typing the first letters of their name in the last row of the table.</p>
             </div>
         </div>
 
-        
 
-            
-                
-            
 
-            
+
+
+
+
+
 
             <div class="small-12 large-3 columns">
                 <label class="hide-for-large-up" for="packaging_1_shape">Shape</label>
@@ -3428,17 +3428,17 @@ by typing the first letters of their name in the last row of the table.</p>
             </div>
 
             <!-- row 0 is a template for new row, we do not populate it -->
-            
-                
-            
-                
-        
 
-            
-                
-            
 
-            
+
+
+
+
+
+
+
+
+
 
             <div class="small-12 large-3 columns">
                 <label class="hide-for-large-up" for="packaging_1_material">Material</label>
@@ -3448,17 +3448,17 @@ by typing the first letters of their name in the last row of the table.</p>
             </div>
 
             <!-- row 0 is a template for new row, we do not populate it -->
-            
-                
-            
-                
-        
 
-            
-                
-            
 
-            
+
+
+
+
+
+
+
+
+
 
             <div class="small-12 large-3 columns">
                 <label class="hide-for-large-up" for="packaging_1_recycling">Recycling</label>
@@ -3468,28 +3468,28 @@ by typing the first letters of their name in the last row of the table.</p>
             </div>
 
             <!-- row 0 is a template for new row, we do not populate it -->
-            
-                
-            
-                
-        
+
+
+
+
+
 
         <div class="small-12 large-1 columns">
             <label class="hide-for-large-up" for="packaging_1_weight_measured">Weight of one empty unit (g)</label>
-            
-            
+
+
                 <input id="packaging_1_weight_measured" name="packaging_1_weight_measured" type="text" value="" %]">
-            
+
         </div>
 
         <div class="small-12 large-1 columns">
             <label class="hide-for-large-up" for="packaging_1_quantity_per_unit">Quantity of product contained per unit</label>
             <input id="packaging_1_quantity_per_unit" name="packaging_1_quantity_per_unit" type="text" value="" %]">
-        </div>        
+        </div>
 
     </div>
 
-    
+
 
 
 <input type="hidden" name="packaging_max" value="1">
@@ -3500,28 +3500,28 @@ by typing the first letters of their name in the last row of the table.</p>
 
 <input type="checkbox" id="packagings_complete" name="packagings_complete"  />
 <label for="packagings_complete" class="checkbox_label">All the packaging parts of the product are listed.</label><br/>
-    
+
 <!-- end templates/web/pages/product_edit/product_edit_form_display.tt.html -->
 
             </div>
         </section>
 
-        
 
-        
+
+
 
         <input type="hidden" name="type" value="edit">
         <input type="hidden" id="code" name="code" value="3300000000001">
         <input type="hidden" name="action" value="process">
 
         <div id="fixed_bar" class="bottom-validation">
-            
+
 
                 <div class="row">
-                    
-                        
-                        
-                    
+
+
+
+
                     <div class="small-12 medium-12 large-8 xlarge-8 columns" style="margin-bottom:0.5rem;">
                         <input id="comment" name="comment" placeholder="Changes summary" value="" type="text" class="text" style="margin:0" />
                     </div>
@@ -3535,10 +3535,10 @@ by typing the first letters of their name in the last row of the table.</p>
                             <svg xmlns="//www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon" aria-hidden="true" focusable="false"><path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"/><path d="M0 0h24v24H0z" fill="none"/></svg> Cancel
                         </button>
                     </div>
-                    
+
                 </div>
 
-            
+
         </div>
 
         <!-- start templates/web/pages/product/includes/edit_history.tt.html -->
@@ -3547,13 +3547,13 @@ by typing the first letters of their name in the last row of the table.</p>
 
 <h2 id="history">Changes history</h2>
 <ul id="history_list">
-  
+
   <li>
     <time datetime="--ignore--">--ignore--</time> - <a href="/facets/editors/tests" lang="no_language">tests</a> Data (Added: product_type, code, lang, product_name, generic_name, quantity, brands, categories, labels, link, countries, origin, nutrition_data_per, nutrition_data_prepared_per, serving_size, ingredients_text, generic_name_en, ingredients_text_en, origin_en, product_name_en, ingredients_text_fr) -- Nutriments (Added: nutrition-score-fr)   - (app)  &nbsp;
     <a href="/product/3300000000001/apple-pie-bob-s-pies?rev=1" class="button tiny">View this revision</a>
-    
+
   </li>
-  
+
 </ul>
 
 <script>var revert_confirm_message = "Revert to this product revision?";</script>
@@ -3613,14 +3613,14 @@ by typing the first letters of their name in the last row of the table.</p>
 
 <!-- end templates/web/pages/product_edit/product_edit_form_display.tt.html -->
 
-						
+
 					</div>
 				</div>
 			</div>
 		</div>
 		</div>
 
-		
+
 		<footer>
 			<div class="block_light bg-white" id="install_the_app_block">
 				<div class="row">
@@ -3646,7 +3646,7 @@ by typing the first letters of their name in the last row of the table.</p>
 				</div>
 			</div>
 
-			
+
       			<!-- start templates/web/common/includes/donate_banner.tt.html -->
 
 
@@ -3656,7 +3656,7 @@ by typing the first letters of their name in the last row of the table.</p>
 
 <!-- end templates/web/common/includes/donate_banner.tt.html -->
 
-				
+
 
 <section class="donation-banner-footer row">
   <div class="donation-banner-footer__left-aside">
@@ -3711,8 +3711,8 @@ by typing the first letters of their name in the last row of the table.</p>
 </section>
 
 
-			
-      		
+
+
 			<div class="block_light block_cappucino" id="contribute_and_discover_links_block">
 				<div class="row">
 					<div class="small-12 large-6 columns v-space-normal block_off">
@@ -3720,11 +3720,11 @@ by typing the first letters of their name in the last row of the table.</p>
 						<p>Discover our <a href="/code-of-conduct">Code of conduct</a></p>
 						<p>Join us on <a href="//slack.openfoodfacts.org">Slack</a></p>
 						<p><a href="//forum.openfoodfacts.org/">Forum</a></p>
-						<p id="footer_social_icons">Follow us: 
-							<a href="//twitter.com/OpenFoodFacts"><img src="/images/icons/dist/twitter.svg" class="footer_social_icon" alt="Twitter"></a>
+						<p id="footer_social_icons">Follow us:
+							<a href="//twitter.com/OpenFoodFacts"><img src="/images/icons/dist/x.svg" class="footer_social_icon" alt="X"></a>
 							<a href="//www.facebook.com/OpenFoodFacts?utm_source=off&utf_medium=web"><img src="/images/icons/dist/facebook.svg" class="footer_social_icon" alt="Facebook"></a>
 							<a href="//www.instagram.com/open.food.facts/"><img src="/images/icons/dist/instagram.svg" class="footer_social_icon" alt="Instagram"></a>
-							
+
 						</p>
 						<p><a href="//link.openfoodfacts.org/newsletter-en">Subscribe to our newsletter</a></p>
 					</div>
@@ -3757,7 +3757,7 @@ by typing the first letters of their name in the last row of the table.</p>
 								<a href="/" style="font-size:1rem;"><img id="logo" src="//static.openfoodfacts.localhost/images/logos/off-logo-horizontal-mono-white.svg" alt="Open Food Facts" style="margin:8px;height:48px;width:auto;"></a>
 
 								<p>A collaborative, free and open database of food products from around the world.</p>
-								
+
 								<ul class="inline-list text-center text-small">
 									<li><a href="/legal">Legal</a></li>
 									<li><a href="/privacy">Privacy</a></li>
@@ -3775,7 +3775,7 @@ by typing the first letters of their name in the last row of the table.</p>
 				</div>
 			</div>
 		</footer>
-		
+
 
 	</div>
 
@@ -3786,13 +3786,13 @@ by typing the first letters of their name in the last row of the table.</p>
 <script src="//static.openfoodfacts.localhost/js/dist/display.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/stikelem.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/scrollNav.js"></script>
-  
+
 
 <script>
 $(function() {
 
 	$([]).selectcrop('init_images', [
-		
+
 	]);
 	$(".select_crop").selectcrop('init', {img_path : "//images.openfoodfacts.localhost/images/products/330/000/000/0001/"});
 	$(".select_crop").selectcrop('show');
@@ -3800,34 +3800,34 @@ $(function() {
 
                     configure_packaging_select2("packaging_1_shape", "packaging_shapes", "Shape" )
 
-                    
+
 
                     $("#packaging_1_delete").click(function(event) {
                         event.stopPropagation();
                         event.preventDefault();
                         $("#packaging_1_row").remove();
                     });
-                
+
                     configure_packaging_select2("packaging_1_material", "packaging_materials", "Material" )
 
-                    
+
 
                     $("#packaging_1_delete").click(function(event) {
                         event.stopPropagation();
                         event.preventDefault();
                         $("#packaging_1_row").remove();
                     });
-                
+
                     configure_packaging_select2("packaging_1_recycling", "packaging_recycling", "Recycling" )
 
-                    
+
 
                     $("#packaging_1_delete").click(function(event) {
                         event.stopPropagation();
                         event.preventDefault();
                         $("#packaging_1_row").remove();
                     });
-                
+
 // defined by the FOREACH loop above
 var packaging_max = 1;
 
@@ -3835,7 +3835,7 @@ var packaging_max = 1;
  * Configure the select2 dropdown with autocomplete for shape, material and recycling
  */
 function configure_packaging_select2(select2_id, taxonomy, placeholder) {
-    
+
     $("#" + select2_id).select2({
         placeholder: placeholder,
         allowClear:true,
@@ -3845,7 +3845,7 @@ function configure_packaging_select2(select2_id, taxonomy, placeholder) {
             data: function (params) {
                 // tagify has values in a JSON array, parse it and convert it to a commas separated list
                 var categories_json = $("#categories").val()
-                
+
                 var query = {
                     string: params.term,
                 }
@@ -3856,7 +3856,7 @@ function configure_packaging_select2(select2_id, taxonomy, placeholder) {
                 }
                 // If the select2 is for the material, send the corresponding selected shape
                 if (taxonomy == "packaging_materials") {
-                    
+
                     var shape_select2_id = select2_id.replace('_material', '_shape');
                     query.shape = $("#" + shape_select2_id).val();
                 }
@@ -3866,7 +3866,7 @@ function configure_packaging_select2(select2_id, taxonomy, placeholder) {
                 if (data.suggestions) {
                     return {
                         // transform the simple array of suggestions in array of objects expected by select2
-                        results: Array.from(data.suggestions, function (element) { return {"id": element, "text": element}; }) 
+                        results: Array.from(data.suggestions, function (element) { return {"id": element, "text": element}; })
                     };
                 }
             }
@@ -3891,40 +3891,40 @@ function add_packaging() {
     // row 0 is our template row
     var new_packaging_html = $("#packaging_0_row")[0].outerHTML;
     new_packaging_html = new_packaging_html.replaceAll("packaging_0", new_packaging_id);
-    
+
     $("#packagings_components_edit").append(new_packaging_html);
 
-    
 
-        
-            
-        
-        
+
+
+
+
+
          configure_packaging_select2(new_packaging_id + "_shape", "packaging_shapes", "Shape");
 
-    
 
-        
-            
-        
-        
+
+
+
+
+
          configure_packaging_select2(new_packaging_id + "_material", "packaging_materials", "Material");
 
-    
 
-        
-            
-        
-        
+
+
+
+
+
          configure_packaging_select2(new_packaging_id + "_recycling", "packaging_recycling", "Recycling");
 
-    
+
 
     $("#" + new_packaging_id + "_delete").click(function(event) {
         event.stopPropagation();
         event.preventDefault();
         $("#" + new_packaging_id + "_row").remove();
-    }).hide();    
+    }).hide();
 
     $("#" + new_packaging_id + "_shape").on('select2:select', add_packaging);
 }
