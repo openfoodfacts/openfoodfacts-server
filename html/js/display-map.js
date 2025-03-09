@@ -28,7 +28,25 @@ export function displayMap(containerId, pointers) {
 
   const map = new maplibregl.Map({
     container: containerId,
-    style: 'https://demotiles.maplibre.org/style.json',
+    style: {
+      version: 8,
+      sources: {
+        osm: {
+          type: 'raster',
+          tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
+          tileSize: 256,
+          attribution: '&copy; OpenStreetMap Contributors',
+          maxzoom: 19
+        }
+      },
+      layers: [
+        {
+          id: 'osm',
+          type: 'raster',
+          source: 'osm'
+        }
+      ]
+    },
     zoom: 3
   });
 
@@ -49,7 +67,7 @@ export function displayMap(containerId, pointers) {
   }
 
   // Add navigation control
-  map.addControl(new maplibregl.NavigationControl());  
+  map.addControl(new maplibregl.NavigationControl());
 
   // Fit map to bounds of all markers
   if (!bounds.isEmpty()) {
