@@ -18,33 +18,41 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import * as L from './leaflet-src.esm.js';
-import { MarkerClusterGroup } from './leaflet.markercluster.js';
+/* global maplibregl */
+import './maplibre-gl.js';
 
 export function displayMap(containerId, pointers) {
   if (!containerId || !pointers || pointers.length === 0) {
     return;
   }
 
-  const map = L.map(containerId, { maxZoom: 12 });
+  const map = new maplibregl.Map({
+    container: containerId,
+    style: 'https://demotiles.maplibre.org/style.json',
+    zoom: 3
+  });
 
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-  }).addTo(map);
-
-
-  const markers = new MarkerClusterGroup({ singleMarkerMode: true });
-  const layers = [];
+  const bounds = new maplibregl.LngLatBounds();
 
   for (const pointer of pointers) {
-    const marker = new L.marker(pointer.geo);
-    marker.bindPopup('<a href="' + pointer.url + '">' + pointer.product_name + '</a><br>' + pointer.brands + "<br>" + '<a href="' + pointer.url + '">' + pointer.img + '</a><br>' + pointer.origins);
-    layers.push(marker);
+    new maplibregl.Marker().
+      setLngLat([pointer.geo[1], pointer.geo[0]]). // MapLibre uses [lng, lat] order
+      setPopup(new maplibregl.Popup().setHTML(
+        `<a href="${pointer.url}">${pointer.product_name}</a><br>
+         ${pointer.brands}<br>
+         <a href="${pointer.url}">${pointer.img}</a><br>
+         ${pointer.origins}`
+      )).
+      addTo(map);
+
+    bounds.extend([pointer.geo[1], pointer.geo[0]]);
   }
 
-  markers.addLayers(layers);
+  // Add navigation control
+  map.addControl(new maplibregl.NavigationControl());  
 
-  map.addLayer(markers);
-  map.fitBounds(markers.getBounds());
+  // Fit map to bounds of all markers
+  if (!bounds.isEmpty()) {
+    map.fitBounds(bounds, { padding: 50 });
+  }
 }

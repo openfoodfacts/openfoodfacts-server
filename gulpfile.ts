@@ -79,14 +79,11 @@ export function css() {
 }
 
 export function copyJs() {
-  const processed = src([
+  const minified = src([
     "./node_modules/@webcomponents/**/webcomponentsjs/**/*.js",
     "./node_modules/foundation-sites/js/vendor/*.js",
     "./node_modules/foundation-sites/js/foundation.js",
     "./node_modules/papaparse/papaparse.js",
-    "./node_modules/leaflet/dist/leaflet.js",
-    "./node_modules/leaflet/dist/leaflet-src.esm.js",
-    "./node_modules/leaflet.markercluster/dist/leaflet.markercluster.js",
     "./node_modules/blueimp-tmpl/js/tmpl.js",
     "./node_modules/blueimp-load-image/js/load-image.all.min.js",
     "./node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js",
@@ -106,11 +103,20 @@ export function copyJs() {
     pipe(write(".")).
     pipe(dest("./html/js/dist"));
 
-  const compressed = processed.
+  const compressedMinified = minified.
     pipe(gzip()).
     pipe(dest("./html/js/dist"));
 
-  return processed && compressed;
+  const copied = src(["./node_modules/maplibre-gl/dist/maplibre-gl.js"]).
+      pipe(init()).
+      pipe(write(".")).
+      pipe(dest("./html/js/dist"));
+
+  const copiedMinified = copied.
+      pipe(gzip()).
+      pipe(dest("./html/js/dist"));
+
+  return minified && compressedMinified && copied && copiedMinified;
 }
 
 export function buildJs() {
@@ -176,9 +182,7 @@ function jQueryUiThemes() {
 
 function copyCss() {
   const processed = src([
-    "./node_modules/leaflet/dist/leaflet.css",
-    "./node_modules/leaflet.markercluster/dist/MarkerCluster.css",
-    "./node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css",
+    "./node_modules/maplibre-gl/dist/maplibre-gl.css",
     "./node_modules/@yaireo/tagify/dist/tagify.css",
     "./node_modules/cropperjs/dist/cropper.css",
     "./node_modules/select2/dist/css/select2.min.css",

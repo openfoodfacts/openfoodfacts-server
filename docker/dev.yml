@@ -88,6 +88,15 @@ services:
             - world.openfoodfacts.localhost
             - static.openfoodfacts.localhost
             - images.openfoodfacts.localhost
+            - es.openfoodfacts.localhost
+            - fr.openfoodfacts.localhost
+            - de.openfoodfacts.localhost
+            - fr.pro.openfoodfacts.localhost
+            - ch-it.openfoodfacts.localhost
+            - es-it.openfoodfacts.localhost
+            - world-it.openfoodfacts.localhost
+            - world.pro.openfoodfacts.localhost
+            - ssl-api.openfoodfacts.localhost
 
 volumes:
   product_images:

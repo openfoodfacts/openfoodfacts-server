@@ -259,7 +259,7 @@ import_prod_data: run_deps
 #--------#
 
 front_npm_update:
-	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker compose run --rm dynamicfront  npm update
+	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker compose run --rm dynamicfront  npm install --save-dev @wesselkuipers/leaflet.markercluster
 
 front_lint:
 	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker compose run --rm dynamicfront  npm run lint
@@ -289,7 +289,7 @@ integration_test: create_folders
 # we launch the server and run tests within same container
 # we also need dynamicfront for some assets to exists
 # this is the place where variables are important
-	${DOCKER_COMPOSE_INT_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion redis
+	${DOCKER_COMPOSE_INT_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion redis frontend
 # note: we need the -T option for ci (non tty environment)
 	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/integration/outputs/junit.xml" -e PO_EAGER_LOAD_DATA=1 -T backend yath --renderer=Formatter --renderer=JUnit -PProductOpener::LoadData tests/integration
 	${DOCKER_COMPOSE_INT_TEST} stop
@@ -314,7 +314,7 @@ test-unit: guard-test create_folders
 # you can also add args= to pass more options to your test command
 test-int: guard-test create_folders
 	@echo "🥫 Running test: 'tests/integration/${test}' …"
-	${DOCKER_COMPOSE_INT_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion redis
+	${DOCKER_COMPOSE_INT_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion redis frontend
 	${DOCKER_COMPOSE_INT_TEST} exec -e PO_EAGER_LOAD_DATA=1 backend ${TEST_CMD} ${args} tests/integration/${test}
 # better shutdown, for if we do a modification of the code, we need a restart
 	${DOCKER_COMPOSE_INT_TEST} stop backend
@@ -329,7 +329,7 @@ clean_tests:
 
 update_tests_results: build_taxonomies_test build_lang_test
 	@echo "🥫 Updated expected test results with actuals for easy Git diff"
-	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron
+	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron frontend
 	${DOCKER_COMPOSE_TEST} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
 	${DOCKER_COMPOSE_TEST} run --rm backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 	${DOCKER_COMPOSE_TEST} exec -T -w /opt/product-opener/tests backend bash update_tests_results.sh
