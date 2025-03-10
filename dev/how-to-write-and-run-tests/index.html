@@ -1795,6 +1795,7 @@
   (the <code>::</code> tell the yath test runner that following arguments are for the test, not for yath)</li>
 </ul>
 <p>If you regenerate test results, be sure to check carefully that the changes in your commit are expected.</p>
+<p><strong>NOTE:</strong> When making changes to language files (.pot, .po). Make sure to run <code>make build_lang_test</code> so that the language files are rebuild in test environment, before regenerating expected results for integration test.</p>
 <h2 id="debugging-with-tests">Debugging with tests<a class="headerlink" href="#debugging-with-tests" title="Permanent link">#</a></h2>
 <p>Launching a test is a very effective way to understand what's going on in the code using the debugger.</p>
 <p>This is done calling the test with <code>perl -d</code>.
