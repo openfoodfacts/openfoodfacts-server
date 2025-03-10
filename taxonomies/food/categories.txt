@@ -67371,6 +67371,7 @@ ciqual_food_name:fr: Kumquat, sans pépin, cru
 
 < en:Fruits
 en: Apples
+da: Æbler
 de: Äpfel, Apfel
 es: Manzanas
 fi: omenat
@@ -67384,6 +67385,7 @@ nl: Appels
 pt: Maçâs
 ro: Mere
 ru: Яблоки
+sv: Äpplen
 agribalyse_proxy_food_code:en: 13085
 agribalyse_proxy_food_name:en: Apple, Canada, pulp, raw
 agribalyse_proxy_food_name:fr: Pomme Canada, pulpe, crue
@@ -67542,6 +67544,11 @@ lt: Granny Smith obuoliai
 nl: Granny Smith appels
 sales_format:en: weight, package
 wikidata:en: Q506040
+
+< en:Apples
+en: Idared apples
+sv: Idared äpplen
+wikidata:en: Q494432
 
 < en:Apples
 en: Red Delicious apples, Red Delicious
@@ -104181,7 +104188,7 @@ bg: Слънчогледови семки, слънчогледово семе
 ca: Pipes de gira-sol, Llavors de gira-sol
 de: Sonnenblumenkerne
 es: Semillas de girasol, Pipas de girasol
-fi: auringonkukan siemenet
+fi: Auringonkukansiemen, auringonkukan siemenet
 fr: Graines de tournesol
 hr: Sjemenke suncokreta
 hu: Naprafogómagok
@@ -104191,6 +104198,7 @@ nl: Zonnebloempitten
 pl: Pestki słonecznika, Pestki słonecznikowe, Nasiona słonecznika
 pt: Sementes de girassol
 ru: Семена подсолнечника, Подсолнечные семечки, Семечки подсолнечника
+sv: Solroskärnor
 tr: Ayçiçeği çekirdeği, Ayçiçek çekirdeği
 agribalyse_food_code:en: 15011
 ciqual_food_code:en: 15011
@@ -112387,14 +112395,17 @@ fr: Tofu nature
 hr: Obični tofu
 nl: Tofu natuur
 pl: Tofu naturalne
+sv: Tofu naturell
 
 < en:Tofu
 en: Smoked tofu
 bg: Пушено тофу
+da: Røget tofu
 fr: Tofu fumé
 hr: Dimljeni tofu
 nl: Gerookte tofu
 pl: Tofu wędzone
+sv: Rökt tofu, tofu rökt
 agribalyse_food_code:en: 20912
 
 < en:Legumes and their products
