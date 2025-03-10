@@ -761,6 +761,10 @@ while (my $imported_product_ref = $input_csv->getline_hr($io)) {
 
 		if ((defined $imported_product_ref->{$field}) and ($imported_product_ref->{$field} ne '')) {
 
+			# Message about ingredients that can be replaced during the Ukraine war
+			# Suite aux difficultés d'approvisionnement sur certaines matières premières liées à la guerre en Ukraine, des changements ont été apportés dans la recette du produit. L'information donnée sur le produit peut être en décalage avec la recette. Une dérogation d'étiquetage a été accordée par la DGCCRF. Vous trouverez le détail des modifications opérées sur : https://www.economie.gouv.fr/dgccrf/rechercher-produit-recette-temporairement-modifiee (EAN/Code-barre : 3256226086497)
+			$imported_product_ref->{$field} =~ s/Suite aux difficultés.*//i;
+
 			$imported_product_ref->{$field} =~ s/\bUF\b/ŒUF/g;
 			$imported_product_ref->{$field} =~ s/\bUFS\b/ŒUFS/g;
 			# cleaning
