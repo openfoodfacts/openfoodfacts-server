@@ -55,7 +55,7 @@ echo "Convert and import data"
 # Enable nullglob to prevent errors when no files are found
 shopt -s nullglob
 
-for file in $DATA_TMP_DIR/data/*.csv; do
+for file in $DATA_TMP_DIR/data/*AKENEO*.csv; do
     # Intermarche files have a BOM at the start of the file, which confuses Text::CSV
     # Remove it if there is one
     sed -i '1s/^\xEF\xBB\xBF//' $file
