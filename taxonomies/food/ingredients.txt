@@ -164,7 +164,7 @@ stopwords:pl: w tym, zawiera, z, zawierają, łącznie z, jadalna, jadalne, inne
 stopwords:pt: de, da, do, das, dos, com, e, ou, em, do qual, dos quais, contém, produzido com, mínimo, máximo, min., mín., máx., max., incluindo, variedade, cultivo, de cultivo
 stopwords:sk: obsahuje
 stopwords:sl: vsebuje, sestavine
-stopwords:sv: av, från, med, innehåller, inklusive, bl a, bland annat, minimum, maximum, varav, certifierad, tillsatt, valio
+stopwords:sv: av, från, med, innehåller, inklusive, bl a, bland annat, minimum, maximum, varav, certifierad, tillsatt, valio, några, droppar, en, liten, skvätt
 stopwords:zh: :配料
 
 
@@ -292,6 +292,7 @@ nl: gekarameliseerde gezouten boter, karamel en gezouten boter
 fr: éclats de caramel
 de: Caramelstücke, Karamellstücke, Karamellsplitter
 fi: toffeepala
+sv: karamellbitar
 # ingredient/fr:éclats-de-caramel has 120 products in 3 languages @2019-03-09
 
 # <en:compound
@@ -42293,6 +42294,10 @@ sv: naturlig citronarom
 < en:citrus fruit
 fr: agrumes à base de concentré
 
+< en:citrus fruit
+en: citrus oil
+sv: citrusolja
+
 ###################################################################################################
 #
 #                                cashew apples
@@ -43139,6 +43144,7 @@ fr: zestes de citron confits, zeste de citron confit
 it: scorza di limone candita
 # Is this the oil from the rind?
 
+< en:citrus oil
 < en:lemon
 en: lemon oil
 bg: лимоново масло
@@ -43566,6 +43572,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Mandarin_orange
 en: tangerine, tangerines
 hr: crvena mandarina
 
+< en:citrus oil
 < en:tangerine
 en: tangerine oil
 de: Mandarinenöl
@@ -51334,6 +51341,7 @@ fr: jeunes pousses de laitue rouge
 en: Red leaf lettuce
 it: lattuga rossa
 ja: サニーレタス, アカチリメンチシャ, 赤チリメンチシャ
+sv: rödbladig sallad
 wikidata:en: Q7305343
 wikipedia:en: https://en.wikipedia.org/wiki/Red_leaf_lettuce
 
@@ -51914,6 +51922,16 @@ ciqual_food_name:en: Dandelion, raw
 ciqual_food_name:fr: Pissenlit, cru
 #100 @2021-10-06
 eurocode_2_group_3:en: 8.10.44
+
+#description:en:Frillice iceberg lettuce is a cross of curly endive and iceberg lettuce, with the taste and texture of iceberg and the frilly top of the curly endive.
+
+< en:lettuce
+en: frillice iceberg lettuce, frillice lettuce
+sv: krispsallad
+
+< en:frillice iceberg lettuce
+en: green frillice iceberg lettuce
+sv: grön krispsallad
 
 ###################################################################################################
 #
@@ -58236,8 +58254,19 @@ carbon_footprint_fr_foodges_value:fr: 0.8
 wikipedia:en: https://en.wikipedia.org/wiki/Salad
 
 < en:salad
+en: batavia
 fr: batavia
+sv: batavia
 # ingredient/fr:batavia has 21 products in french @2019-02-26
+
+< en:batavia
+en: green baby batavia
+sv: grön babybatavia
+
+< en:batavia
+< en:red leaf lettuce
+en: red baby batavia
+sv: röd babybatavia
 
 # description:en:ROCKET is an edible annual plant in the family Brassicaceae used as a leaf vegetable for its fresh, tart, bitter, and peppery flavor.
 # comment:en:The wikidata entry is confused between  popular salad name, plant name and latin name.
@@ -63048,6 +63077,7 @@ sv: mandelpulver
 en: prepacked Almond paste
 fr: Pâte d'amande préemballée
 it: pasta di mandorle preconfezionata
+sv: mandelpasta
 ciqual_food_code:en: 15201
 ciqual_food_name:en: Almond paste or marzipan, prepacked
 ciqual_food_name:fr: Pâte d'amande, préemballée
