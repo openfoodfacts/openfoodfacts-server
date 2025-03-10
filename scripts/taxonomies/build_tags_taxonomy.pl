@@ -36,11 +36,14 @@ if ($tagtype eq '*') {
 	my $errors_ref = ProductOpener::Tags::build_all_taxonomies($publish);
 	foreach my $taxonomy (keys %{$errors_ref}) {
 		if (@{$errors_ref->{$taxonomy}}) {
-			print STDERR "::error::" . (scalar @{$errors_ref->{$taxonomy}}) . " errors while building $taxonomy taxonomy\n";
+			print STDERR "::error::"
+				. (scalar @{$errors_ref->{$taxonomy}})
+				. " errors while building $taxonomy taxonomy\n";
 		}
 	}
 	print "::endgroup::\n";
-} else {
+}
+else {
 	print "::group::Building $tagtype taxonomy\n";
 	my @errors = ProductOpener::Tags::build_tags_taxonomy($tagtype, $publish);
 	if (@errors) {
