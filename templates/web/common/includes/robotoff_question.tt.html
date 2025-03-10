@@ -1,4 +1,4 @@
-<div class="alert-box" style="background-color: #0064c8">
+<div class="alert-box block_blue">
   <robotoff-question
     product-code="[% product_code %]"
     options='{"showMessage": true, "showLoading": true, "showError": true, "showImage": false}'
@@ -6,21 +6,7 @@
   ></robotoff-question>
 </div>
 <script>
-  const robotoffQuestion = document.getElementById("[% id %]");
-  const robotoffQuestionParent = robotoffQuestion.parentElement;
-  // Hide the alert until we have questions
-  robotoffQuestionParent.style.display = "none";
-
-  robotoffQuestion.addEventListener("question-state", function (event) {
-    if (event.detail.numberOfQuestions === 0) {
-      robotoffQuestionParent.style.display = "none";
-    } else if (event.detail.index === event.detail.numberOfQuestions) {
-      // Hide the alert after the last question
-      setTimeout(function () {
-        robotoffQuestionParent.style.display = "none";
-      }, 3000);
-    } else {
-      robotoffQuestionParent.style.display = "block";
-    }
+  document.addEventListener("DOMContentLoaded", () => {
+    window.listenEventToShowHideAlert("question-state", "[% id %]");
   });
 </script>

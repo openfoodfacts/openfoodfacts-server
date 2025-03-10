@@ -10,7 +10,7 @@
     [% END %]
 [% END %]
 
-[% INCLUDE web/common/includes/off_webcomponents_configuration.tt.html language_code = lc robotoff_domain = robotoff_url images_domain = images_subdomain %]
+[% INCLUDE web/common/includes/off_webcomponents_configuration.tt.html language_code = lc robotoff_domain = "https://robotoff.openfoodfacts.net" images_domain = "https://images.openfoodfacts.net" %]
 
 <a href="#upNav" class="back-to-top scrollto button">
     <span class="material-icons size-20 ">
@@ -209,6 +209,9 @@
         </div>
     </section>
 
+   
+    [% INCLUDE web/common/includes/robotoff_nutrients.tt.html product_code = "50184453"  %]
+
 [% IF user_preferences %]
     <!-- product summary -->
     <section class="row" id="match">
@@ -253,6 +256,7 @@
             </div>
         </div>
     </section>
+    lol
 
 <!-- other fields -->
 [% IF other_fields != "" %]
