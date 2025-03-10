@@ -37,6 +37,7 @@ assignees: ""
 <!-- 
 - Browser: name (ie. Firefox or Safari) and version (eg. 91.0.2)
 - Data export (eg. MongoDB, CSV)
+- Operating System  Eg. Linux( Ubantu, Fedora, Arch, etc ), MacOS, Windows.      It's Mainly for developers issues related.
 - REST-API
 - Other
  --> 
