@@ -666,7 +666,7 @@ while (my $imported_product_ref = $input_csv->getline_hr($io)) {
 		$product_ref->{quantity} = $quantity;
 		$product_ref->{packaging} =~ s/^, //;
 
-		print "set product_name to $product_ref->{product_name_fr}\n";
+		print STDERR "set product_name to $product_ref->{product_name_fr}\n";
 
 	}
 	elsif ($ugc_libecommerce
@@ -685,12 +685,11 @@ while (my $imported_product_ref = $input_csv->getline_hr($io)) {
 		$product_ref->{product_name_fr} = $name;
 		$product_ref->{brands} = $brands;
 
-		print "set product_name to $product_ref->{product_name_fr}\n";
+		print STDERR "set product_name to $product_ref->{product_name_fr}\n";
 	}
 	else {
 
-		print STDERR "unrecognized format for ugc_libecommerce: $ugc_libecommerce\n";
-		print "unrecognized format for ugc_libecommerce: $ugc_libecommerce\n";
+		print STDERR "no brand found in ugc_libecommerce: $ugc_libecommerce\n";
 		$product_ref->{product_name_fr} = $ugc_libecommerce;
 	}
 
@@ -709,13 +708,13 @@ while (my $imported_product_ref = $input_csv->getline_hr($io)) {
 
 	$product_ref->{product_name_fr} =~ s/\s+$//;
 	$product_ref->{brands} =~ s/\s+$//;
-	$product_ref->{quantity} =~ s/\s+$//;
-	$product_ref->{packaging} =~ s/\s+$//;
+	defined $product_ref->{quantity} and $product_ref->{quantity} =~ s/\s+$//;
+	defined $product_ref->{packaging} and $product_ref->{packaging} =~ s/\s+$//;
 
 	$product_ref->{product_name_fr} =~ s/^\s+//;
 	$product_ref->{brands} =~ s/^\s+//;
-	$product_ref->{quantity} =~ s/^\s+//;
-	$product_ref->{packaging} =~ s/^\s+//;
+	defined $product_ref->{quantity} and $product_ref->{quantity} =~ s/^\s+//;
+	defined $product_ref->{packaging} and $product_ref->{packaging} =~ s/^\s+//;
 
 	# if no quantity was found in the libelle, use the mesure fields
 	# UGC_MesureNette	UGC_uniteMesureNette
