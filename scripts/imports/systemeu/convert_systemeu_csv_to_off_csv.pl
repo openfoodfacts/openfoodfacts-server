@@ -315,13 +315,6 @@ while (my $imported_product_ref = $input_csv->getline_hr($io)) {
 		. $imported_product_ref->{SVE_cdRubriqueN2} . " - "
 		. $imported_product_ref->{SVE_cdRubriqueN3};
 
-	#print $json;
-
-	my $modified = 0;
-
-	my @modified_fields;
-	my @images_ids;
-
 	my $code = $imported_product_ref->{UGC_ean};
 
 	# 253048000000 -> missing leading 0
@@ -1109,11 +1102,8 @@ TXT
 
 					print STDERR "Setting $nid to $value $unit\n";
 
-					$modified++;
 				}
-
 			}
-
 		}
 	}
 
