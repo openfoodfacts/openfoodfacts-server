@@ -1737,6 +1737,7 @@ nl: Eiwitrijk, Rijk aan protéines, Rijk aan Eiwit
 pl: Wysoka zawartość białka, Bogaty w białko
 pt: Proteínas altas
 ru: Обогащено протеинами
+sv: Proteinrik
 th: โปรตีนสูง
 description:en: In EU, a claim that a food is high in protein may only be made where at least 20 % of the energy value of the food is provided by protein. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
@@ -1768,6 +1769,7 @@ nl: Bron van Calcium
 pl: Źródło wapnia
 pt: Fonte de cálcio
 ru: источник кальция
+sv: Källa till kalcium
 th: แหล่งของแคลเซียม
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
@@ -3720,6 +3722,19 @@ pl: Wyprodukowano w Hiszpanii
 pt: Feito em Espanha, produzido em Espanha, fabricado em Espanha
 country:en: en:Spain
 label_categories:en: en:Geographic label
+
+# Sweden
+xx: Från Sverige
+sv: Från Sverige
+image:en: fran_sverige.90x90.svg
+label_categories:en: en:Geographic label
+origins:en: en:sweden
+web:sv: https://fransverige.se/
+
+en: Manufactured in Sweden
+sv: Tillverkad i Sverige
+label_categories:en: en:Geographic label
+manufacturing_places:en: en:sweden
 
 en: Made in Swiss, made in Switzerland, swiss made
 bg: Произведено в Швейцария
@@ -19778,6 +19793,7 @@ fr: Ovo-végétarien
 hu: Ovo-vegetáriánus
 it: Ovo-vegetariano
 pt: Ovo-vegetariano
+sv: Ovo-vegetarisk, ovovegetarisk, ovovegetarianer
 wikidata:en: Q3543760
 
 < en:Lacto-vegetarian
@@ -19791,7 +19807,7 @@ fr: Ovo-lacto-végétarien
 hu: Ovo-lakto-vegetáriánus, Lakto-ovo-vegetáriánus
 it: Ovo-latto-vegetariano
 pt: Ovo-lacto-vegetariano
-sv: Lakto-ovovegetarianer
+sv: Lakto-ovovegetarisk, lakto-ovovegetarianer
 wikidata:en: Q3544800
 
 en: Lacto-vegetarian
@@ -19803,6 +19819,7 @@ fr: Lacto-végétarien
 hu: Lakto-vegetáriánus
 it: Latto-vegetariano
 pt: Latto-vegetariano
+sv: Lakto-vegetarisk
 wikidata:en: Q3496076
 
 # non English needs the English synonyms too so that "European V-Label Végétarien" can be recognized too
