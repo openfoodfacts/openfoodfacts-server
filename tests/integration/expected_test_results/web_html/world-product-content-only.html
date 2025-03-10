@@ -102,12 +102,13 @@
 <script src="//static.openfoodfacts.localhost/js/dist/JsBarcode.all.min.js"></script>
 
 
-
-
-    <!-- Anonymous users will only be able to vote see AnnotationVote in robotoff,
-        the voter uniqueness is based on a hash of its ip address
-    -->
-	<robotoff-asker url='//backend:8881/' code='3300000000001' lang='en' style='display: none;' caption-yes='Yes' caption-no='No' caption-skip='Skip'></robotoff-asker>
+<off-webcomponents-configuration
+  language-code="en"
+  robotoff-configuration='{
+    "apiUrl": "//backend:8881//api/v1",
+    "imgUrl": "//images.openfoodfacts.localhost/images/products"
+}'
+></off-webcomponents-configuration>
 
 
 <a href="#upNav" class="back-to-top scrollto button">
@@ -292,7 +293,39 @@
 <!-- end templates/web/common/includes/display_field.tt.html -->
 
 
-                       
+                        
+                            <!-- Anonymous users will only be able to vote see AnnotationVote in robotoff,
+                                the voter uniqueness is based on a hash of its ip address -->
+                            <div class="alert-box" style="background-color: #0064c8">
+  <robotoff-question
+    product-code="3300000000001"
+    options='{"showMessage": true, "showLoading": true, "showError": true, "showImage": false}'
+    id="robotoff-question"
+  ></robotoff-question>
+</div>
+<script>
+  const robotoffQuestion = document.getElementById("robotoff-question");
+  const robotoffQuestionParent = robotoffQuestion.parentElement;
+  // Hide the alert until we have questions
+  robotoffQuestionParent.style.display = "none";
+
+  robotoffQuestion.addEventListener("question-state", function (event) {
+    if (event.detail.numberOfQuestions === 0) {
+      robotoffQuestionParent.style.display = "none";
+    } else if (event.detail.index === event.detail.numberOfQuestions) {
+      // Hide the alert after the last question
+      setTimeout(function () {
+        robotoffQuestionParent.style.display = "none";
+      }, 3000);
+    } else {
+      robotoffQuestionParent.style.display = "block";
+    }
+  });
+</script>
+
+                        
+
+                    
 
                     </div>
                 </div>
@@ -4697,8 +4730,8 @@ display_product_summary("#product_summary", product);
 <script src="//static.openfoodfacts.localhost/js/dist/jquery.cookie.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/select2.min.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
-<script src="//static.openfoodfacts.localhost/js/dist/display-product.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/product-history.js"></script>
+<script type="module" src="//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js"></script>
 <script type="text/javascript">
 var page_type = "product";
 var default_preferences = {"ecoscore":"important","nova":"important","nutriscore":"very_important"};
