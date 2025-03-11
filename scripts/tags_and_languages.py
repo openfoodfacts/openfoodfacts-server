@@ -33,7 +33,8 @@ import sys
 import unicodedata
 import argparse
 
-parser = argparse.ArgumentParser()
+usage, epilog = __doc__.split("\n\n", 1)
+parser = argparse.ArgumentParser(usage=usage, epilog=epilog)
 parser.add_argument('--nb', type=int, default=10000, help='Number of products')
 parser.add_argument('-m', '--modify', action='store_true', help='Allow modifications')
 args = parser.parse_args()
