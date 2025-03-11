@@ -1,10 +1,11 @@
 """
-This Python code: 
- - compare tags on products (using hugging face dataset) together with the 
-taxonomy
+This script:
+ - compare tags on products together with the taxonomy, using Hugging Face
+   parquet dataset and Open Food Facts' taxonomies (-c or --compare argument)
  - for all tags being unknown but having a known element in the taxonomy for 
- another language, update the text defining the tags
- - finally, update the products
+   another language, update the text defining the tags
+ - finally, update the products (-m or --modify argument) using Open Food 
+   Facts API
 
 
 To use a virtual environment, open a terminal and run:
@@ -16,9 +17,9 @@ $ uv venv --python=3.11
 $ source .venv/bin/activate
 $ uv pip install -r tags_and_languages_requirements.txt
 
-- add your username and password as environment variables. In a terminal, run:
-$ export USER_ID='your_user_id'
-$ echo "Type your password:"; read -s PASSWORD; export PASSWORD
+- add a username and password as environment variables. In a terminal, run:
+$ export USER_ID='user_id' # please use a dedicated bot account, not your personal account
+$ echo "Type password:"; read -s PASSWORD; export PASSWORD
 
 - run the code with:
 ```python3 tags_and_languages.py```
@@ -33,11 +34,24 @@ import sys
 import unicodedata
 import argparse
 
+# Use script header as documentation; see -h or --help or no argument
 usage, epilog = __doc__.split("\n\n", 1)
-parser = argparse.ArgumentParser(usage=usage, epilog=epilog)
-parser.add_argument('--nb', type=int, default=10000, help='Number of products')
+parser = argparse.ArgumentParser(
+    usage=usage,
+    epilog=epilog,
+    formatter_class=argparse.RawTextHelpFormatter
+)
+parser.add_argument('--nb', type=int, default=10000, help='Number of products (default: 10000)')
+parser.add_argument('-c', '--compare', action='store_true', help='Compare mode (no modification)')
 parser.add_argument('-m', '--modify', action='store_true', help='Allow modifications')
 args = parser.parse_args()
+if args.modify and args.compare:
+    parser.print_help()
+    sys.exit("\nError: -m and -c cannot be used together.")
+if not args.modify and not args.compare:
+    parser.print_help()
+    sys.exit("\nError: Either -m or -c must be used.")
+
 limit = f"LIMIT {args.nb}"
 
 USER_ID = os.getenv('USER_ID')
@@ -293,6 +307,8 @@ def update_tags(tags_text: str, old_tag_with_lc: str, old_tag: str, new_tag: str
 
 def retrieve_tags_to_update(conn, tag_type):
     """Retrieve tags to update from the database."""
+    # This query can be long, but there is no simple way to display progress
+    # https://github.com/duckdb/duckdb/discussions/11923
     tags_to_update = conn.execute(sql_query.format(tag_type=tag_type,limit=limit)).fetchall()
 
     return tags_to_update
@@ -433,3 +449,5 @@ for tag_type in tag_types:
     else:
         all_rows = conn_db.execute(f"SELECT * FROM products_to_update_{tag_type} WHERE updated = FALSE").fetchall()
         print(f"There are {len(all_rows)} products to be updated for {tag_type}")
+        print(f"$ duckdb tags_and_languages_updated.db \"SELECT * FROM products_to_update_{tag_type} "
+            f"WHERE updated = FALSE LIMIT 5\"")
