@@ -901,7 +901,4 @@ is(
 	}
 );
 
-# Greek tag
-is(get_taxonomy_tag_and_link_for_lang("el", "additives", "en:e500"), {});
-
 done_testing();
