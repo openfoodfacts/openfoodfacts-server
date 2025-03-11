@@ -25,7 +25,7 @@ create_user($ua, \%create_user_args);
 # Note: expected results are stored in json files, see execute_api_tests
 my $tests_ref = [
 	{
-		test_case => 'post-product',
+		test_case => 'post-product-anonymous',
 		method => 'POST',
 		path => '/cgi/product_jqm_multilingual.pl',
 		form => {
@@ -41,12 +41,13 @@ my $tests_ref = [
 			nutriment_salt => '50.2',
 			nutriment_salt_unit => 'mg',
 			nutriment_sugars => '12.5',
-		}
+		},
 	},
 	{
-		test_case => 'get-product',
+		test_case => 'get-product-anonymous',
 		method => 'GET',
 		path => '/api/v2/product/1234567890001',
+		expected_status_code => 404,
 	},
 	# Test authentication
 	{
@@ -110,6 +111,8 @@ my $tests_ref = [
 		method => 'POST',
 		path => '/cgi/product_jqm_multilingual.pl',
 		form => {
+			user_id => "tests",
+			password => "testtest",
 			cc => "uk",
 			lc => "en",    # lc is the language of the interface
 			lang => "fr",    # lang is the main language of the product
