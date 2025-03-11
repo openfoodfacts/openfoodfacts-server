@@ -33,6 +33,7 @@ import requests
 import sys
 import unicodedata
 import argparse
+import time
 
 # Use script header as documentation; see -h or --help or no argument
 usage, epilog = __doc__.split("\n\n", 1)
@@ -41,7 +42,7 @@ parser = argparse.ArgumentParser(
     epilog=epilog,
     formatter_class=argparse.RawTextHelpFormatter
 )
-parser.add_argument('--nb', type=int, default=10000, help='Number of products (default: 10000)')
+parser.add_argument('--nb', type=int, default=10000, help='Number of products to be processed (per tag; default: 10000)')
 parser.add_argument('-c', '--compare', action='store_true', help='Compare mode (no modification)')
 parser.add_argument('-m', '--modify', action='store_true', help='Allow modifications')
 args = parser.parse_args()
@@ -377,6 +378,9 @@ def run_modifications(conn_db, tag_type, mapping_languages_countries, post_call_
 
     for row_to_update in all_rows:
         product_number = all_rows.index(row_to_update) + 1
+        if product_number > args.nb:
+            print("\nReached maximum modifications. Stopping...\n")
+            break
         print(f"\rProcessing product {product_number}/{len(all_rows)} with code {row_to_update[0]}", end="", flush=True)
         code = row_to_update[0]
         lang = row_to_update[1]
@@ -396,6 +400,7 @@ def run_modifications(conn_db, tag_type, mapping_languages_countries, post_call_
                 data=data,
                 headers=headers,
             )
+            time.sleep(1) # sleep 1 sec to avoid server overload
 
             if post_call_url_res.status_code != 200:
                 print(f"ERROR: when updating product {code}. Received {post_call_url_res.status_code} status code")
