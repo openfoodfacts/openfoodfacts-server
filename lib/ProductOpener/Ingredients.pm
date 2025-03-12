@@ -5219,9 +5219,9 @@ my %phrases_before_ingredients_list_uppercase = (
 
 	nl => ['INGREDI(E|Ë)NTEN(\s*)', 'INGREDIENSER', 'SAMENSTELLING',],
 
-	no => ['SAMMENSETNING',]
+	no => ['SAMMENSETNING',],
 
-		pl => ['SKŁADNIKI(\s*)', 'SKŁAD',],
+	pl => ['SKŁADNIKI(\s*)', 'SKŁAD',],
 
 	pt => ['COMPOSIÇÃO', 'INGREDIENTES(\s*)', 'COMPOSIÇÃO',],
 
@@ -5542,11 +5542,11 @@ my %phrases_after_ingredients_list = (
 
 	lv => [
 		'analītiskā sastāva',    # pet food
-		]
+	],
 
-		mk => [
+	mk => [
 		'Да се чува на темно место и на температура до',    # Store in a dark place at a temperature of up to
-		],
+	],
 
 	nb => ['netto(?:innhold|vekt)', 'oppbevar(?:ing|es)', 'næringsinnh[oa]ld', 'kjølevare',],
 
