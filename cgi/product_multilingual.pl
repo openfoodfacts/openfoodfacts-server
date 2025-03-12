@@ -43,7 +43,7 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::KnowledgePanels qw/initialize_knowledge_panels_options/;
 use ProductOpener::KnowledgePanelsContribution qw/create_contribution_card_panel/;
-use ProductOpener::URL qw/:all/;
+use ProductOpener::URL qw(format_subdomain);
 use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::Packaging
@@ -1395,7 +1395,10 @@ CSS
 	}
 
 	# In all cases, if we have data, we will check the checkbox.
-	if ($nutrition_data_exists{""}) {
+	# We also check the "as sold" checkbox for petfood products,
+	# as we don't display the checkboxes to indicate the presence of nutrition data for "as sold" and "prepared" for petfood products
+	# (they can only have "as sold" nutrition data)
+	if (($nutrition_data_exists{""}) or ($options{product_type} eq "petfood")) {
 		$product_ref->{nutrition_data} = "on";
 	}
 
@@ -1677,8 +1680,7 @@ MAIL
 		display_product(\%request);
 	}
 
-	$template_data_ref_process->{edited_product_url}
-		= $url_prefix . get_owner_pretty_path() . product_url($product_ref);
+	$template_data_ref_process->{edited_product_url} = $url_prefix . product_url($product_ref);
 	$template_data_ref_process->{edit_product_url} = $url_prefix . product_action_url($product_ref->{code});
 
 	if ($type ne 'delete') {

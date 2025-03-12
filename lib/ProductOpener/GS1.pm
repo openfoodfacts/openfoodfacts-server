@@ -268,6 +268,7 @@ my %gs1_maps = (
 		"BLEU_BLANC_COEUR" => "fr:bleu-blanc-coeur",
 		"BIO_LABEL_GERMAN" => "de:EG-Öko-Verordnung",
 		"BIO_PARTENAIRE" => "fr:biopartenaire",
+		"CERTIFIED_PLANT_BASED" => "en:certified plant based",
 		"CROSSED_GRAIN_SYMBOL" => "en:crossed-grain-symbol",
 		"DEMETER" => "en:demeter",
 		"DEMETER_LABEL" => "en:demeter",

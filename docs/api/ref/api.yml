@@ -5,6 +5,8 @@ info:
     As a developer, the Open Food Facts API allows you to get information
     and contribute to the products database. You can create great apps to
     help people make better food choices and also provide data to enhance the database.
+
+    **IMPORTANT**: Please read the [API introduction](https://openfoodfacts.github.io/openfoodfacts-server/api/) before using this API.
   termsOfService: "https://world.openfoodfacts.org/terms-of-use"
   contact:
     name: Open Food Facts
@@ -18,7 +20,7 @@ info:
   version: "2"
 externalDocs:
   description: |
-    Please read the API introduction before using this API.
+    **IMPORTANT**: Please read the API introduction before using this API.
   url: https://openfoodfacts.github.io/openfoodfacts-server/api/
 servers:
   - description: dev
@@ -527,8 +529,6 @@ components:
       $ref: "./schemas/product_nutriscore.yaml#/components/schemas/NutriscoreAll"
     "Product-Quality":
       $ref: ./schemas/product_quality.yaml
-    "Product-Data-Quality":
-      $ref: ./schemas/product_knowledge_panels.yaml
     "Product-Extended":
       $ref: ./schemas/product_extended.yaml
     "Product-Metadata":

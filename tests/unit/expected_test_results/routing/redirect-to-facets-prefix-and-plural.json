@@ -1,0 +1,42 @@
+{
+   "api" : "v0",
+   "canon_rel_url" : "/facets/categories/fr:pain/marques/fr:lidl/1",
+   "cc" : "world",
+   "components" : [],
+   "is_crawl_bot" : "0",
+   "lc" : "fr",
+   "no_index" : "0",
+   "original_query_string" : "categories/pain/brand/lidl",
+   "page" : "1",
+   "param" : {},
+   "query_string" : "categories/pain/brand/lidl",
+   "rate_limiter_blocking" : 0,
+   "rate_limiter_bucket" : "facet_products",
+   "rate_limiter_limit" : 10,
+   "rate_limiter_user_requests" : null,
+   "redirect" : "/facets/categories/pain/marques/lidl",
+   "redirect_status" : 301,
+   "tag" : "fr:pain",
+   "tag2" : "fr:lidl",
+   "tag2_prefix" : "",
+   "tag_prefix" : "",
+   "tagid" : "fr:pain",
+   "tagid2" : "fr:lidl",
+   "tags" : [
+      {
+         "tag" : "fr:pain",
+         "tag_prefix" : "",
+         "tagid" : "fr:pain",
+         "tagtype" : "categories"
+      },
+      {
+         "tag" : "fr:lidl",
+         "tag_prefix" : "",
+         "tagid" : "fr:lidl",
+         "tagtype" : "brands"
+      }
+   ],
+   "tagtype" : "categories",
+   "tagtype2" : "brands",
+   "user_id" : "userid"
+}
