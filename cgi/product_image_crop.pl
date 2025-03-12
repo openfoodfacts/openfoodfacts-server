@@ -27,7 +27,7 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
-use ProductOpener::Display qw/init_request single_param/;
+use ProductOpener::Display qw/init_request single_param write_cors_headers/;
 use ProductOpener::HTTP qw/write_cors_headers/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/$Owner_id $User_id %User/;
@@ -42,6 +42,8 @@ use JSON::MaybeXS;
 use Log::Any qw($log);
 
 my $request_ref = ProductOpener::Display::init_request();
+
+write_cors_headers();
 
 my $type = single_param('type') || 'add';
 my $action = single_param('action') || 'display';
@@ -137,13 +139,8 @@ $log->debug("JSON data output", {data => $data}) if $log->is_debug();
 
 write_cors_headers();
 print header(
-	-type => 'application/json', 
-	-charset => 'utf-8',
-	#CHORS headers 
-	-access_control_allow_origin => '*', 
-    -access_control_allow_methods => 'GET, POST, OPTIONS',  
-    -access_control_allow_headers => 'Content-Type, Authorization', 
-    -access_control_max_age => '86400' 
+    -type => 'application/json', 
+    -charset => 'utf-8',
 ) . $data;
 
 exit(0);
