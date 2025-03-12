@@ -69,3 +69,4 @@ $log->debug("JSON data output", {data => $data}) if $log->is_debug();
 print header(-type => 'application/json', -charset => 'utf-8') . $data;
 
 exit(0);
+
