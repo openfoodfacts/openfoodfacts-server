@@ -28,7 +28,7 @@ use ProductOpener::Producers qw/import_products_categories_from_public_database_
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Nutriscore qw/:all/;
-use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::MainCountries qw/:all/;

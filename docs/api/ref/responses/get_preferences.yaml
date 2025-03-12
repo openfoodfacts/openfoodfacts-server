@@ -1,4 +1,5 @@
 type: array
+title: get_preferences_response
 description: |
   Rules to apply to compute personal ranking of a product,
   based upon the setting value of each attribute.
@@ -9,10 +10,10 @@ items:
       type: string
       description: id for the setting value
       enum:
-      - "not_important"
-      - "important"
-      - "very_important"
-      - "mandatory"
+        - "not_important"
+        - "important"
+        - "very_important"
+        - "mandatory"
     name:
       type: string
       description: name for the setting value, translated according to `lc` parameter

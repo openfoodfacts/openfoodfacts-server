@@ -18,6 +18,7 @@
    "page" : 1,
    "query_string" : "api/v3/product/https%3A%2F%2Fid.gs1.org%2F01%2F03564703999971%2F10%2FABC%2F21%2F123456%3F17%3D211200",
    "rate_limiter_blocking" : 0,
+   "rate_limiter_bucket" : "product",
    "rate_limiter_limit" : 100,
    "rate_limiter_user_requests" : null
 }

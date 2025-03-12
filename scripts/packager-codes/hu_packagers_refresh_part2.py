@@ -1,7 +1,7 @@
 '''
 This file is part of Product Opener.
 Product Opener
-Copyright (C) 2011-2023 Association Open Food Facts
+Copyright (C) 2011-2024 Association Open Food Facts
 Contact: contact@openfoodfacts.org
 Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 Product Opener is free software: you can redistribute it and/or modify
@@ -40,11 +40,10 @@ def extract_address_components(address_to_convert):
     elif len(address_split) == 2:
         print("info, exactly 1 comma", address_split)
         # postcode and town are first
-        post_and_town, street = address_split[0].strip(), address_split[1].strip()
+        post_and_town, street = address_split[0].strip(
+        ), address_split[1].strip()
     else:
         print("info, more than 1 comma", address_split)
-
-
 
     if post_and_town:
         # type 626 Harta -> 6326 Harta
@@ -54,7 +53,7 @@ def extract_address_components(address_to_convert):
             postal_code = post_and_town[:4]
             town = post_and_town[5:]
         # sometimes spaces between all characters
-        # 2 0 2 4  K i s o r o s z i 
+        # 2 0 2 4  K i s o r o s z i
         elif post_and_town.replace(' ', '')[:4].isdigit():
             postal_code = post_and_town.replace(' ', '')[:4]
             town_no_space = post_and_town.replace(' ', '')[4:]
@@ -65,7 +64,8 @@ def extract_address_components(address_to_convert):
                 else:
                     town += ch
         else:
-            print("warning, could not extract postal code, set whole element as town", post_and_town)
+            print(
+                "warning, could not extract postal code, set whole element as town", post_and_town)
             town = post_and_town
 
     print(f"street: {street}, postal_code: {postal_code}, town: {town}")
@@ -113,7 +113,6 @@ def convert_address_to_lat_lng(address_to_convert: str) -> list:
                     url_3 = url_2.replace(f"city={town}&", "")
                     print("info, drop town")
 
-                    
                     try:
                         print("url_3", url_3)
                         response = requests.get(url_3)
@@ -125,7 +124,8 @@ def convert_address_to_lat_lng(address_to_convert: str) -> list:
 
                             # postalcode typo
                             # 8927 Nemessándorháza -> 8925 Nemessándorháza
-                            url_4 = url_3.replace(f"postalcode={postal_code}", f"city={town}")
+                            url_4 = url_3.replace(
+                                f"postalcode={postal_code}", f"city={town}")
                             print("info, replace postalcode by town")
 
                             try:
@@ -135,7 +135,8 @@ def convert_address_to_lat_lng(address_to_convert: str) -> list:
                                 if data != []:
                                     lat, lng = data[0]['lat'], data[0]['lon']
                                 else:
-                                    print(f'Empty response for: {address_to_convert}, {url_4}')
+                                    print(f'Empty response for: {
+                                          address_to_convert}, {url_4}')
                                     sys.exit(1)
                             except (requests.exceptions.RequestException, KeyError, IndexError) as e:
                                 print(f"Error: {e}, url: {url}")
@@ -153,14 +154,14 @@ def convert_address_to_lat_lng(address_to_convert: str) -> list:
     return [lat, lng]
 
 
-
 if __name__ == "__main__":
     country_code = 'HU'
     country_name = 'Hungary'
     source_file = f'{country_code}-merge-UTF-8_no_coord.csv'
     target_file = f'{country_code}-merge-UTF-8.csv'
-    index_last_line_processed = f'{country_code.lower()}_packagers_refresh_part2_index_tmp.txt'
-    api_key = "" # TODO remove
+    index_last_line_processed = f'{
+        country_code.lower()}_packagers_refresh_part2_index_tmp.txt'
+    api_key = ""  # TODO remove
 
     data = []
     try:
@@ -187,7 +188,7 @@ if __name__ == "__main__":
                     row += ['lat', 'lng']
                 else:
                     row += convert_address_to_lat_lng(row[2])
-                    
+
                 writer.writerow(row)
 
                 with open(index_last_line_processed, 'w') as f:

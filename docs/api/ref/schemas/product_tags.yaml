@@ -2,7 +2,6 @@ type: object
 description: |
   Data about a product which is represented as tags
 properties:
-
   brands:
     type: string
     description: List of brands (not taxonomized)
@@ -14,23 +13,40 @@ properties:
 
   categories:
     type: string
+    description: |
+      Comma separated list of categories (not taxonomized), in the last language used to edit it (recorded in categories_lc)
+      This field is mostly used for debugging and testing purposes. Do not use it for display purposes.
   categories_hierarchy:
     type: array
+    description: |
+      An array of categories tag entries (for display and editing).
+      
+      That is the id of categories found in taxonomy + 
+      categories not found in taxonomy (as-is, with no normalization).
+      
+      This is the field that should be used for display purposes, as it is not lossy.
     items:
-      type: string
+      $ref: ./tags/taxonomy_tag_entry.yaml      
   categories_lc:
     type: string
-    description: Categories language code
+    description: Language code of the last edit for categories
   categories_tags:
     type: array
+    description: |
+      An array of indexed categories tag entries (for search).
+      
+      That is the id of categories found in taxonomy + 
+      categories not found in taxonomy (with case / accents / spaces normalized).
+      
+      This is mostly used for search as the normalization of entries not in the taxonomy is lossy.
     items:
-      type: string
+      $ref: ./tags/indexed_taxonomy_tag_entry.yaml      
 
   checkers_tags:
     type: array
     items:
       type: string
-      description:  List of checkers (users who checked the product) tags
+      description: List of checkers (users who checked the product) tags
   cities:
     type: string
   cities_tags:
@@ -79,7 +95,6 @@ properties:
     items:
       type: object
 
-
   labels:
     type: string
   labels_hierarchy:
@@ -99,7 +114,10 @@ properties:
     type: array
     items:
       type: string
-    example: ["2016-03-11","2016-03","2016"]
+    examples:
+      - - "2016-03-11"
+        - "2016-03"
+        - "2016"
 
   manufacturing_places:
     type: string
@@ -108,7 +126,7 @@ properties:
   manufacturing_places_tags:
     type: array
     items:
-      type: object
+      type: "string"
   nova_groups_tags:
     type: array
     items:

@@ -1,1482 +1,3166 @@
-﻿stopwords:en:ingredients, from, with, of, by, the, verified, certified, approved, 100%, pure, product, guaranty, guaranteed, standard
-stopwords:fr:ingrédients, issus, de, l', convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit, sas
-stopwords:es:por, la, las, los, el, apto, para, certificado, controlado, registrado, 100%
+##### Add translations in all European, Asian languages (and more)
 
-synonyms:en:coloring, colouring, color, colour
+stopwords:en: ingredients, from, with, of, by, the, verified, certified, approved, 100%, pure, product, guaranty, guaranteed, standard
+stopwords:fr: ingrédients, issus, de, l', convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit, sas
+stopwords:es: por, la, las, los, el, apto, para, certificado, controlado, registrado, 100%
 
-synonyms:en:GMOs, Genetically Modified Organisms
+synonyms:en: coloring, colouring, color, colour
 
-synonyms:en:without, 0%
-synonyms:es:sin, 0%
-synonyms:fr:sans, 0%
+synonyms:en: GMOs, Genetically Modified Organisms
 
-synonyms:fr:ajout, adjonction
+synonyms:en: without, 0%
+synonyms:es: sin, 0%
+synonyms:fr: sans, 0%
 
-synonyms:fr:carbone, co2
-synonyms:en:carbon, co2
+# already in food labels.txt
+# synonyms:fr: ajout, adjonction
 
-synonyms:fr:durable, soutenable, responsable
+# already in food labels.txt
+# synonyms:fr: carbone, co2
+# synonyms:en: carbon, co2
 
-synonyms:fr:fabrication, production
+# already in food labels.txt
+# synonyms:fr: durable, soutenable, responsable
 
-synonyms:fr:fabrique, produit
+synonyms:fr: fabrication, production
 
-synonyms:fr:naturel, d'origine naturelle, origine naturelle
+# already in food labels.txt
+# synonyms:fr: fabrique, produit
 
-synonyms:fr:testé, formule testée
+# already in food labels.txt
+# synonyms:fr: naturel, d'origine naturelle, origine naturelle
 
-en:1% for the planet, 1 percent for the planet, one percent for the planet
-es:1% para el planeta
-fr:1% pour la planète
+synonyms:fr: testé, formule testée
 
-en:100% natural
-es:100% natural
-fr:100% naturel
-nl_be:100% natuurlijk
-nl:100% natuurlijk
+en: Ocean tested
 
-en:Carbon compensated product, carbon neutral
-fr:Produit compensé carbone, Carbone neutre, neutre en carbone, carbone compensé
+en: Sensitive skin
+fr: Peaux sensibles
 
-en:Carbon footprint, carbon emissions, product that specifies the carbon footprint
-de:CO2-Emissionen
-es:Huella de carbono, Emisiones de CO2
-fr:Empreinte carbone, émissions de carbone
-it:Emissioni di CO2, impronta climatica
-pt:Pegada de carbono, Emissões de CO2
-wikidata:en:Q310667
+en: 1% for the planet, 1 percent for the planet, one percent for the planet
+es: 1% para el planeta
+fr: 1% pour la planète
 
-en:Cooperative product
-es:Producto de cooperativa
-fr:Produit en coopérative, produit de coopérative
-wikidata:en:Q4539
+en: 100% natural
+es: 100% natural
+fr: 100% naturel
+nl: 100% natuurlijk
+nl_be: 100% natuurlijk
 
-en:ISO 9001
-it:Iso 9001, Uni en iso 9001, Sistema di qualita certificato iso 9001
-fr:Iso 9001, Certifie iso 9001, La certification qualite iso 9001
+en: Without PEG
+de: Ohne PEG
+es: Sin PEG
+fr: Sans PEG
+it: Senza PEG
+ja: PEG不使用
+ko: PEG 없음
+nl: Zonder PEG
+pt: Sem PEG
+zh-CN: 不含聚乙二醇
+zh-TW: 不含聚乙二醇
+
+en: Without PPD
+fr: Sans PPD
+
+en: Without propellant gas
+fr: Sans gaz propulseur
+
+en: Without butane
+fr: Sans butane
+
+en: Without propane
+fr: Sans propane
+
+en: Without camphor
+de: Ohne Kampfer
+es: Sin alcanfor
+fr: Sans camphre
+it: Senza canfora
+ja: カンフル不使用
+ko: 캠퍼 없음
+nl: Zonder kamfer
+pt: Sem cânfora
+zh-CN: 不含樟脑
+zh-TW: 不含樟腦
+
+en: Without synthetic camphor
+de: Ohne synthetischen Kampfer
+es: Sin alcanfor sintético
+fr: Sans camphre synthetique
+it: Senza canfora sintetica
+ja: 合成樟脳不使用
+ko: 합성 장뇌 없음
+nl: Zonder synthetische kamfer
+pt: Sem cânfora sintética
+zh-CN: 不含合成樟脑
+zh-TW: 不含合成樟腦
+
+en: Without rinsing
+fr: sans rincage
+
+en: Without sodium laureth sulfate
+fr: sans sodium-laureth-sulfate, sans sodium-lauryl-laureth-sulfate, sans sodium-laureth-sulfates
+
+en: Without titanium dioxide
+de: Ohne Titandioxid
+es: Sin dióxido de titanio
+fr: Sans dioxyde de titane
+it: Senza biossido di titanio
+ja: 酸化チタン不使用
+ko: 이산화 티타늄 없음
+nl: Zonder titaniumdioxide
+pt: Sem dióxido de titânio
+zh-CN: 不含二氧化钛
+zh-TW: 不含二氧化鈦
+
+en: Without toluene
+de: Ohne Toluol
+es: Sin tolueno
+fr: Sans toluene
+it: Senza toluene
+ja: トルエン不使用
+ko: 톨루엔 없음
+nl: Zonder tolueen
+pt: Sem tolueno
+zh-CN: 不含甲苯
+zh-TW: 不含甲苯
+
+en: Without methylisothiazolinone
+fr: Sans methylisothiazolinone
+
+en: Without aluminum chlorohydrate
+fr: Sans aluminium chlorohydrate
+
+en: Without cotton
+fr: Sans Coton
+
+en: Without soda
+fr: Sans soude
+
+en: Without sodium lauryl sulfates
+fr: Sans sodium lauryl sulfates
+
+en: Without alkaline soap
+fr: Sans savon alcalin
+
+en: Without soap
+ar: بدون صابون
+az: Sabunsuz
+bg: Без сапун
+bn: সাবান ছাড়া
+cs: Bez mýdla
+da: Uden sæbe
+de: Ohne Seife
+el: Χωρίς σαπούνι
+es: Sin jabón
+et: Seebivaba
+fa: بدون صابون
+fi: Ilman saippuaa
+fr: Sans savon
+ga: Gan gallúnach
+gu: સાબુ વગર
+he: ללא סבון
+hr: Bez sapuna
+hu: Szappan nélkül
+id: Tanpa sabun
+is: Án sápu
+it: Senza sapone
+ja: 石鹸不使用
+ka: საპნის გარეშე
+kk: Сабынсыз
+km: គ្មានសាប៊ូ
+kn: ಸೋಪು ಇಲ್ಲದೆ
+ko: 비누 없음
+ky: Самынсыз
+lt: Be muilo
+lv: Bez ziepēm
+ml: സോപ്പ് ഇല്ലാതെ
+mn: Савангүй
+mr: साबणाशिवाय
+ms: Tanpa sabun
+mt: Mingħajr sapun
+ne: साबुन बिना
+nl: Zonder zeep
+no: Uten såpe
+or: ସାବୁନ ବିନା
+pa: ਸਾਬਣ ਤੋਂ ਬਿਨਾਂ
+pl: Bez mydła
+pt: Sem sabão
+ro: Fără săpun
+ru: Без мыла
+si: සබන් රහිත
+sk: Bez mydla
+sl: Brez mila
+sq: Pa sapun
+sr: Bez sapuna
+sv: Utan tvål
+sw: Bila sabuni
+ta: சோப்பு இல்லாமல்
+te: సబ్బు లేకుండా
+tg: Бе собун
+th: ไม่มีสบู่
+tk: Sabynsyz
+tl: Walang sabon
+tr: Sabunsuz
+uk: Без мила
+uz: Sovunsiz
+vi: Không xà phòng
+zh-CN: 不含皂
+zh-TW: 不含皂
+
+en: Without resorcinol
+fr: Sans resorcine
+
+en: Without synthetic antiperspirant
+fr: Sans anti transpirant synthetique
+
+en: Without picramic acid
+de: Ohne Pikraminsäure
+es: Sin ácido picrámico
+fr: Sans acide picramique
+it: Senza acido picramico
+ja: ピクラミン酸不使用
+ko: 피크람산 없음
+nl: Zonder picraminezuur
+pt: Sem ácido pícrico
+zh-CN: 不含苦味酸
+zh-TW: 不含苦味酸
+
+en: Without SLS SLES
+fr: Sans SLS SLES
+
+en: Without metallic salts
+ar: بدون أملاح معدنية
+az: Metal duzları olmadan
+bg: Без метални соли
+bn: ধাতব লবণ ছাড়া
+cs: Bez kovových solí
+da: Uden metalsalte
+de: Ohne Metallsalze
+el: Χωρίς μεταλλικά άλατα
+es: Sin sales metálicas
+et: Ilma metallisooladeta
+fa: بدون نمک های فلزی
+fi: Ilman metallisuoloja
+fr: Sans sels metalliques
+ga: Gan salainn mhiotalacha
+gu: ધાતુના ક્ષાર વગર
+he: ללא מלחי מתכת
+hr: Bez metalnih soli
+hu: Fém sók nélkül
+id: Tanpa garam logam
+is: Án málmsalta
+it: Senza sali metallici
+ja: 金属塩不使用
+ka: ლითონის მარილების გარეშე
+kk: Металл тұздарынсыз
+km: គ្មានអំបិលលោហធាតុ
+kn: ಲೋಹೀಯ ಲವಣಗಳಿಲ್ಲದೆ
+ko: 금속염 없음
+ky: Металл туздары жок
+lt: Be metalo druskų
+lv: Bez metālu sāļiem
+ml: ലോഹ ലവണങ്ങൾ ഇല്ലാതെ
+mn: Металлын давсгүй
+mr: धातूच्या क्षारांशिवाय
+ms: Tanpa garam logam
+mt: Mingħajr imluħa metalliċi
+ne: धातुको नुन बिना
+nl: Zonder metaalzouten
+no: Uten metallsalter
+or: ଧାତବ ଲବଣ ବିନା
+pa: ਧਾਤੂ ਲੂਣ ਤੋਂ ਬਿਨਾਂ
+pl: Bez soli metali
+pt: Sem sais metálicos
+ro: Fără săruri metalice
+ru: Без металлических солей
+si: ලෝහ ලවණ රහිත
+sk: Bez kovových solí
+sl: Brez kovinskih soli
+sq: Pa kripëra metalike
+sr: Bez metalnih soli
+sv: Utan metallsalter
+sw: Bila chumvi za metali
+ta: உலோக உப்புகள் இல்லாமல்
+te: లోహ లవణాలు లేకుండా
+tg: Бе намакҳои металлӣ
+th: ไม่มีเกลือโลหะ
+tk: Metal duzlary bolmazdan
+tl: Walang mga metal na asing-gamot
+tr: Metal tuzları olmadan
+uk: Без металевих солей
+uz: Metall tuzlarisiz
+vi: Không chứa muối kim loại
+zh-CN: 不含金属盐
+zh-TW: 不含金屬鹽
+
+en: Without peroxides
+fr: Sans peroxydes, sans peroxyde, sans peroxide d'hydrogene
+
+en: Without chlorine bleaching
+ar: بدون تبييض الكلور
+az: Xlor ağartma olmadan
+bg: Без хлорна белина
+bn: ক্লোরিন ব্লিচিং ছাড়া
+cs: Bez chlórového bělení
+da: Uden klorblegning
+de: Ohne Chlorbleiche
+el: Χωρίς λεύκανση με χλώριο
+es: Sin blanqueamiento con cloro
+et: Ilma kloorvalgendamiseta
+fa: بدون سفید کننده کلر
+fi: Ilman kloorivalkaisua
+fr: Sans blanchissement au chlore
+ga: Gan tuaradh clóirín
+gu: ક્લોરિન બ્લીચિંગ વગર
+he: ללא הלבנת כלור
+hr: Bez izbjeljivanja klorom
+hu: Klórmentesítés nélkül
+id: Tanpa pemutihan klorin
+is: Án klórbleikingar
+it: Senza candeggio al cloro
+ja: 塩素漂白なし
+ka: ქლორის გაუფერულების გარეშე
+kk: Хлорлы ағартқышсыз
+km: គ្មានសារធាតុ bleach ក្លរីន
+kn: ಕ್ಲೋರಿನ್ ಬ್ಲೀಚಿಂಗ್ ಇಲ್ಲದೆ
+ko: 염소 표백 없이
+ky: Хлорсуз агартуу
+lt: Be chloro baliklio
+lv: Bez hlora balināšanas
+ml: ക്ലോറിൻ ബ്ലീച്ചിംഗ് ഇല്ലാതെ
+mn: Хлоргүй цайруулалт
+mr: क्लोरीन ब्लीचिंगशिवाय
+ms: Tanpa pelunturan klorin
+mt: Mingħajr bliċ tal-klorin
+ne: क्लोरीन ब्लीच बिना
+nl: Zonder chloorbleekmiddel
+no: Uten klorbleking
+or: କ୍ଲୋରିନ୍ ବ୍ଲିଚିଂ ବିନା
+pa: ਕਲੋਰੀਨ ਬਲੀਚਿੰਗ ਤੋਂ ਬਿਨਾਂ
+pl: Bez wybielania chlorem
+pt: Sem branqueamento com cloro
+ro: Fără albire cu clor
+ru: Без хлорного отбеливания
+si: ක්ලෝරීන් විරංජනයකින් තොරව
+sk: Bez chlórového bielenia
+sl: Brez beljenja s klorom
+sq: Pa zbardhues klori
+sr: Bez izbeljivanja hlorom
+sv: Utan klorblekning
+sw: Bila bleach ya klorini
+ta: குளோரின் ப்ளீச்சிங் இல்லாமல்
+te: క్లోరిన్ బ్లీచింగ్ లేకుండా
+tg: Бе сафедкунии хлор
+th: ไม่มีสารฟอกขาวคลอรีน
+tk: Hlorsyz agartma
+tl: Walang chlorine bleaching
+tr: Klorlu ağartma olmadan
+uk: Без хлорного відбілювання
+uz: Xlorsiz oqartirish
+vi: Không tẩy trắng bằng clo
+zh-CN: 无氯漂白
+zh-TW: 無氯漂白
+
+en: Carbon compensated product, carbon neutral
+fr: Produit compensé carbone, Carbone neutre, neutre en carbone, carbone compensé
+
+# already in food labels.txt
+# en: Carbon footprint, carbon emissions, product that specifies the carbon footprint
+# de: CO2-Emissionen
+# es: Huella de carbono, Emisiones de CO2
+# fr: Empreinte carbone, émissions de carbone
+# it: Emissioni di CO2, impronta climatica
+# pt: Pegada de carbono, Emissões de CO2
+# wikidata:en: Q310667
+
+en: Cooperative product
+es: Producto de cooperativa
+fr: Produit en coopérative, produit de coopérative
+wikidata:en: Q4539
+
+en: ISO 9001
+fr: Iso 9001, Certifie iso 9001, La certification qualite iso 9001
+it: Iso 9001, Uni en iso 9001, Sistema di qualita certificato iso 9001
 #xx:ISO 9001
 
-<en:ISO 9001
-en:ISO-9001-2008, ISO 9001 2008 certified qms
-it:Iso-9001-2008
-fr:Iso-9001-2008
+< en:ISO 9001
+en: ISO-9001-2008, ISO 9001 2008 certified qms
+fr: Iso-9001-2008
+it: Iso-9001-2008
 #xx:ISO-9001-2008
 
-en:EU Agriculture, European Union agriculture
-es:Agricultura UE, Agricultura Unión Europea
-fr:Agriculture UE, Agriculture Union Européeenne
-de:EU-Landwirtschaft
-
-en:Fair trade
-es:Comercio justo, Fairtrade-Comercio Justo
-fr:Commerce équitable, équitable
-wikidata:en:Q188485
-
-<en:Fair trade
-en:Fairtrade International, Fairtrade, FLO international, FLO
-es:Fairtrade International, Fairtrade, FLO international, FLO
-fr:Fairtrade International, Fairtrade, FLO international, FLO
-
-<en:Fair trade
-en:Max Havelaar, Max Havelar, Fairtrade/Max Havelaar
-nl_be:Fair trade
-nl:Fair trade
-wikidata:en:Q694008
-
-<en:Max Havelaar
-fr:Max Havelaar Belgique
-nl_be:Max Havelaar Belgie
-nl:Max Havelaar Nederland
-
-<en:Max Havelaar
-fr:Max Havelaar France
-
-<en:Fair trade
-en:TransFer, TransFer Canada
-
-en:In braille
-es:En braille, Producto en braille
-fr:Produit en braille
-de:In Brailleschrift
-nl:In braille
-it:In braille
-wikidata:en:Q79894
-
-en:Incorrect data on label, Incorrect data
-fr:Informations incorrectes sur l'emballage, Informations incorrectes
-de:Falsche Angaben auf der Verpackung
-es:Datos incorrectos en la etiqueta, Datos incorrectos
-nl:Onjuiste gegevens op het etiket, Onjuiste gegevens
-it:Dati errati sull'etichetta, Dati errati
-
-
-en:Without paraben, Paraben-free, No paraben, No parabens
-fr:Sans paraben, Sans parabenes, 0 parabens, 0 paraben, Sans parabene, Sans parabens, Zero paraben
-de:Ohne paraben, Parabenfrei
-nl:Zonder parabeen
-es:Sin Parabenos
-
-en:Organic
-de:Bio, Öko, Biologisch, Ökologisch, Kontrolliert biologisch, Kontrolliert ökologisch, biologische Landwirtschaft, ökologische Landwirtschaft, biologischer Landbau, ökologischer Landbau
-es:Ecológico, Producto ecológico, Biológico, Producto biológico, Orgánico, Producto orgánico, Eco, Bio
-fr:Bio, agriculture biologique, biologique, organic, organique, issu de l'agriculture biologique, ingrédients issus de l'agriculture biologique, Les-ingredients-sont-issus-d-une-agriculture-biologique
-it:Biologico
-wikidata:en:Q380778
-
-<en:Organic
-en:Biodynamic agriculture
-es:Agricultura biodinámica
-fr:Bio-dynamie, biodynamie, agriculture biodynamique, agriculture bio-dynamique, bio-dynamique
-de:Biodynamische Landwirtschaft, Biodynamisch
-wikidata:en:Q847611
-
-<en:Biodynamic agriculture
-en:Demeter
-fr:Demeter, Association Demeter, Demeter France, Association Demeter France
-de:Demeter
-wikidata:en:Q939877
-
-<en:Organic
-en:BO-BIO-126
-
-<en:Organic
-en:India Organic
-
-<en:Organic
-en:EU Organic, European Organic
-de:EG-Öko-Verordnung, EU-Öko-Verordnung, Europäische Öko-Verordnung, EU Ökologische
-es:Ecológico UE, Ecológico U.E., Producto ecológico europeo
-fr:Bio européen, Label bio européen, bio ce, bio europe
-it:Biologico UE
-wikidata:en:Q380448
-
-<en:Organic
-de:Deutsches Bio-Siegel, Deutsches staatliches Bio-Siegel
-
-<en:EU Organic
-en:AT-BIO-004
-country:Austria
-
-<en:EU Organic
-en:AT-BIO-301
-country:Austria
-
-<en:EU Organic
-en:AT-BIO-401
-country:Austria
+en: EU Agriculture, European Union agriculture
+de: EU-Landwirtschaft
+es: Agricultura UE, Agricultura Unión Europea
+fr: Agriculture UE, Agriculture Union Européeenne
+
+en: Fair trade
+es: Comercio justo, Fairtrade-Comercio Justo
+fr: Commerce équitable, équitable
+wikidata:en: Q188485
+
+< en:Fair trade
+en: Fairtrade International, Fairtrade, FLO international, FLO
+es: Fairtrade International, Fairtrade, FLO international, FLO
+fr: Fairtrade International, Fairtrade, FLO international, FLO
+
+# already in food labels.txt
+# < en:Fair trade
+# en: Max Havelaar, Max Havelar, Fairtrade/Max Havelaar
+# nl: Fair trade
+# nl_be: Fair trade
+# wikidata:en: Q694008
+
+# already in food labels.txt
+# < en:Max Havelaar
+# fr: Max Havelaar Belgique
+# nl: Max Havelaar Nederland
+# nl_be: Max Havelaar Belgie
+
+# already in food labels.txt
+# < en:Max Havelaar
+# fr: Max Havelaar France
+
+< en:Fair trade
+en: TransFer, TransFer Canada
+
+# already in food labels.txt
+# en: In braille
+# de: In Brailleschrift
+# es: En braille, Producto en braille
+# fr: Produit en braille
+# it: In braille
+# nl: In braille
+# wikidata:en: Q79894
+
+# already in food labels.txt
+# en: Incorrect data on label, Incorrect data
+# de: Falsche Angaben auf der Verpackung
+# es: Datos incorrectos en la etiqueta, Datos incorrectos
+# fr: Informations incorrectes sur l'emballage, Informations incorrectes
+# it: Dati errati sull'etichetta, Dati errati
+# nl: Onjuiste gegevens op het etiket, Onjuiste gegevens
+
+
+en: Without paraben, Paraben-free, No paraben, No parabens
+de: Ohne paraben, Parabenfrei
+es: Sin Parabenos
+fr: Sans paraben, Sans parabenes, 0 parabens, 0 paraben, Sans parabene, Sans parabens, Zero paraben
+nl: Zonder parabeen
+pt: Sem parabenos, livre de parabenos
+
+en: Without paraffins
+ar: بدون بارافين
+az: Parafinsiz
+bg: Без парафини
+bn: প্যারাফিন ছাড়া
+cs: Bez parafínů
+da: Uden paraffiner
+de: Ohne Paraffine
+el: Χωρίς παραφίνες
+es: Sin parafinas
+et: Parafiinivaba
+fa: بدون پارافین
+fi: Ilman parafiineja
+fr: Sans paraffines, sans paraffine
+ga: Gan paraifíní
+gu: પેરાફીન વગર
+he: ללא פרפינים
+hr: Bez parafina
+hu: Paraffin nélkül
+id: Tanpa parafin
+is: Án paraffíns
+it: Senza paraffina
+ja: パラフィン不使用
+ka: პარაფინის გარეშე
+kk: Парафинсіз
+km: គ្មានប៉ារ៉ាហ្វីន
+kn: ಪ್ಯಾರಾಫಿನ್ ಇಲ್ಲದೆ
+ko: 파라핀 없음
+ky: Парафинсиз
+lt: Be parafino
+lv: Bez parafīna
+ml: പാരാഫിനുകൾ ഇല്ലാതെ
+mn: Парафин байхгүй
+mr: पॅराफिनशिवाय
+ms: Tanpa parafin
+mt: Mingħajr paraffini
+ne: प्याराफिन बिना
+nl: Zonder paraffine
+no: Uten parafin
+or: ପାରାଫିନ୍ ବିନା
+pa: ਪੈਰਾਫ਼ਿਨ ਤੋਂ ਬਿਨਾਂ
+pl: Bez parafiny
+pt: Sem parafina
+ro: Fără parafină
+ru: Без парафина
+si: පැරෆින් රහිත
+sk: Bez parafínu
+sl: Brez parafina
+sq: Pa parafinë
+sr: Bez parafina
+sv: Utan paraffin
+sw: Bila parafini
+ta: பாரஃபின் இல்லாமல்
+te: పారాఫిన్ లేకుండా
+tg: Бе парафин
+th: ไม่มีพาราฟิน
+tk: Parafinsiz
+tl: Walang paraffin
+tr: Parafinsiz
+uk: Без парафіну
+uz: Parafinsiz
+vi: Không chứa parafin
+zh-CN: 不含石蜡
+zh-TW: 不含石蠟
+
+en: Without EDTA, EDTA free, No EDTA
+de: Ohne EDTA
+es: Sin EDTA
+fr: Sans EDTA
+it: Senza EDTA
+ja: EDTA不使用
+ko: EDTA 없음
+nl: Zonder EDTA
+pt: Sem EDTA
+zh-CN: 不含EDTA
+zh-TW: 不含EDTA
+
+en: Organic
+de: Bio, Öko, Biologisch, Ökologisch, Kontrolliert biologisch, Kontrolliert ökologisch, biologische Landwirtschaft, ökologische Landwirtschaft, biologischer Landbau, ökologischer Landbau
+es: Ecológico, Producto ecológico, Biológico, Producto biológico, Orgánico, Producto orgánico, Eco, Bio
+fr: Bio, agriculture biologique, biologique, organic, organique, issu de l'agriculture biologique, ingrédients issus de l'agriculture biologique, Les-ingredients-sont-issus-d-une-agriculture-biologique
+it: Biologico
+wikidata:en: Q380778
+
+< en:Organic
+en: Biodynamic agriculture
+de: Biodynamische Landwirtschaft, Biodynamisch
+es: Agricultura biodinámica
+fr: Bio-dynamie, biodynamie, agriculture biodynamique, agriculture bio-dynamique, bio-dynamique
+wikidata:en: Q847611
+
+< en:Biodynamic agriculture
+en: Demeter
+de: Demeter
+fr: Demeter, Association Demeter, Demeter France, Association Demeter France
+wikidata:en: Q939877
+
+< en:Organic
+en: BO-BIO-126
+
+< en:Organic
+en: India Organic
+
+# already in food labels.txt
+# < en:Organic
+# en: EU Organic, European Organic
+# de: EG-Öko-Verordnung, EU-Öko-Verordnung, Europäische Öko-Verordnung, EU Ökologische
+# es: Ecológico UE, Ecológico U.E., Producto ecológico europeo
+# fr: Bio européen, Label bio européen, bio ce, bio europe
+# it: Biologico UE
+# wikidata:en: Q380448
+
+# already in food labels.txt
+# < en:Organic
+# de: Deutsches Bio-Siegel, Deutsches staatliches Bio-Siegel
+
+< en:EU Organic
+en: AT-BIO-004
+country: Austria
+
+< en:EU Organic
+en: AT-BIO-301
+country: Austria
+
+< en:EU Organic
+en: AT-BIO-401
+country: Austria
+
+< en:EU Organic
+en: AT-BIO-402
+country: Austria
+
+< en:EU Organic
+en: AT-BIO-501
+country: Austria
+
+< en:EU Organic
+en: AT-BIO-701
+country: Austria
+
+< en:EU Organic
+en: AT-BIO-901
+
+< en:EU Organic
+en: AT-BIO-902
+country: Austria
+
+< en:EU Organic
+en: BE-BIO-01, Certisys BE-BIO-01
+country: Belgium
+
+< en:EU Organic
+en: BE-BIO-02
+country: Belgium
+
+< en:EU Organic
+en: BE-BIO-03
+country: Belgium
+
+< en:EU Organic
+en: BE-BIO-04
+country: Belgium
+
+< en:EU Organic
+en: BG-BIO-02
+country: Bulgaria
+
+< en:EU Organic
+en: BG-BIO-03
+country: Bulgaria
+
+< en:EU Organic
+en: BG-BIO-04
+country: Bulgaria
+
+< en:EU Organic
+en: BG-BIO-05
+country: Bulgaria
+
+< en:EU Organic
+en: BG-BIO-06
+country: Bulgaria
+
+< en:EU Organic
+en: BG-BIO-07
+country: Bulgaria
+
+< en:EU Organic
+en: BG-BIO-08
+country: Bulgaria
+
+< en:EU Organic
+en: BG-BIO-10
+country: Bulgaria
+
+< en:EU Organic
+en: BG-BIO-12
+country: Bulgaria
+
+< en:EU Organic
+en: BG-BIO-13
+country: Bulgaria
+
+< en:EU Organic
+en: BG-BIO-14
+country: Bulgaria
+
+< en:EU Organic
+en: BG-BIO-15
+country: Bulgaria
+
+< en:EU Organic
+en: BG-BIO-16
+country: Bulgaria
+
+< en:EU Organic
+en: CH-BIO-004
+country: Switzerland
+
+< en:EU Organic
+en: CH-BIO-006, ch-bio-scesp-006
+country: Switzerland
+
+< en:EU Organic
+en: CH-Bio-038
+country: Switzerland
+
+< en:EU Organic
+en: CH-Bio-086
+country: Switzerland
+
+< en:EU Organic
+en: CY-BIO-001
+country: Cyprus
+
+< en:EU Organic
+en: CY-BIO-002
+country: Cyprus
+
+< en:EU Organic
+en: CZ-BIO-001
+
+< en:EU Organic
+en: CZ-BIO-002
+
+< en:EU Organic
+en: CZ-BIO-003
+
+< en:EU Organic
+en: CZ-BIO-004
+
+< en:EU Organic
+en: DE-ÖKO-001
+country: Germany
+
+< en:EU Organic
+en: DE-ÖKO-003
+country: Germany
+
+< en:EU Organic
+en: DE-ÖKO-005
+country: Germany
+
+< en:EU Organic
+en: DE-ÖKO-006
+country: Germany
+
+< en:EU Organic
+en: DE-ÖKO-007
+country: Germany
+
+< en:EU Organic
+en: DE-ÖKO-009
+country: Germany
+
+< en:EU Organic
+en: DE-ÖKO-012
+country: Germany
+
+< en:EU Organic
+en: DE-ÖKO-013
+country: Germany
+
+< en:EU Organic
+en: DE-ÖKO-021
+country: Germany
+
+< en:EU Organic
+en: DE-ÖKO-022
+country: Germany
+
+< en:EU Organic
+en: DE-ÖKO-024
+country: Germany
+
+< en:EU Organic
+en: DE-ÖKO-034
+country: Germany
+
+< en:EU Organic
+en: DE-ÖKO-037
+country: Germany
+
+< en:EU Organic
+en: DE-ÖKO-039
+country: Germany
+
+< en:EU Organic
+en: DE-ÖKO-044
+country: Germany
+
+< en:EU Organic
+en: DE-ÖKO-060
+country: Germany
+
+< en:EU Organic
+en: DE-ÖKO-064
+country: Germany
+
+< en:EU Organic
+en: DE-ÖKO-070
+country: Germany
+
+< en:EU Organic
+en: DK-ØKO-050
+
+< en:EU Organic
+en: DK-ØKO-100
+
+< en:EU Organic
+en: DK-ØKO-200
+
+< en:EU Organic
+en: DK-ØKO-300
+
+< en:EU Organic
+en: EE-ÖKO-01
+
+< en:EU Organic
+en: EE-ÖKO-02
+
+< en:EU Organic
+en: ES-EC0-017-AN
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-001
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-001-AN
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-001-CL
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-001-CM
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-002
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-002-AN
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-002-AR
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-002-CL
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-002-CM
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-003-AN
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-004
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-004-AN
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-004-AR
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-005
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-005-AN
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-005-AR
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-006-AR
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-007-AR
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-008-AR
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-009-AR
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-010-AN
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-010-AR
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-011-AN
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-011-AR
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-011-CM
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-012-AS
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-013-IB
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-014-IC
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-015-CN
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-016-CL
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-017
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-017-CL
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-017-CM
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-019-CT
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-020-CV
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-021-EX
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-022-GA
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-023-MA
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-024-MU
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-025-NA
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-026-VAS
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-027-RI
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-028-AN
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-028-AR
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-028-CL
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-028-CM
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-029-AN
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-029-AR
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-029-CL
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-030-AN
+country: Spain
+
+< en:EU Organic
+en: ES-ECO-031-CL
+country: Spain
+
+< en:EU Organic
+en: FI-EKO-101
+country: Finland
+
+< en:EU Organic
+en: FI-EKO-102
+country: Finland
+
+< en:EU Organic
+en: FI-EKO-103
+country: Finland
+
+< en:EU Organic
+en: FI-EKO-104
+country: Finland
+
+< en:EU Organic
+en: FI-EKO-105
+country: Finland
+
+< en:EU Organic
+en: FI-EKO-106
+country: Finland
+
+< en:EU Organic
+en: FI-EKO-107
+country: Finland
+
+< en:EU Organic
+en: FI-EKO-108
+country: Finland
+
+< en:EU Organic
+en: FI-EKO-109
+country: Finland
+
+< en:EU Organic
+en: FI-EKO-110
+country: Finland
+
+< en:EU Organic
+en: FI-EKO-111
+country: Finland
+
+< en:EU Organic
+en: FI-EKO-112
+country: Finland
+
+< en:EU Organic
+en: FI-EKO-113
+country: Finland
+
+< en:EU Organic
+en: FI-EKO-114
+country: Finland
+
+< en:EU Organic
+en: FI-EKO-115
+country: Finland
+
+< en:EU Organic
+en: FI-EKO-201
+country: Finland
+
+< en:EU Organic
+en: FI-EKO-301
+country: Finland
+
+< en:EU Organic
+en: FI-EKO-401
+country: Finland
+
+< en:EU Organic
+en: FR-BIO-01
+country: France
+
+< en:EU Organic
+en: FR-BIO-07
+country: France
+
+< en:EU Organic
+en: FR-BIO-09
+country: France
+
+< en:EU Organic
+en: FR-BIO-10
+country: France
+
+< en:EU Organic
+en: FR-BIO-12
+country: France
+
+< en:EU Organic
+en: FR-BIO-13
+country: France
+
+< en:EU Organic
+en: FR-BIO-15
+country: France
+
+< en:EU Organic
+en: FR-BIO-16
+country: France
+
+< en:EU Organic
+en: GB-ORG-01
+country: United Kingdom
+
+< en:EU Organic
+en: GB-ORG-02
+country: United Kingdom
+
+< en:EU Organic
+en: GB-ORG-03
+country: United Kingdom
+
+< en:EU Organic
+en: GB-ORG-04
+country: United Kingdom
+
+< en:EU Organic
+en: GB-ORG-05
+country: United Kingdom
+
+< en:EU Organic
+en: GB-ORG-06
+country: United Kingdom
+
+< en:EU Organic
+en: GB-ORG-07
+country: United Kingdom
+
+< en:EU Organic
+en: GB-ORG-09
+country: United Kingdom
+
+< en:EU Organic
+en: GB-ORG-13
+country: United Kingdom
+
+< en:EU Organic
+en: GB-ORG-16
+country: United Kingdom
+
+< en:EU Organic
+en: GB-ORG-17
+country: United Kingdom
+
+< en:EU Organic
+en: GR-BIO-01
+country: Greece
+
+< en:EU Organic
+en: GR-BIO-02
+country: Greece
+
+< en:EU Organic
+en: GR-BIO-03
+country: Greece
+
+< en:EU Organic
+en: GR-BIO-04
+country: Greece
+
+< en:EU Organic
+en: GR-BIO-05
+country: Greece
+
+< en:EU Organic
+en: GR-BIO-06
+country: Greece
+
+< en:EU Organic
+en: GR-BIO-07
+country: Greece
+
+< en:EU Organic
+en: GR-BIO-08
+country: Greece
+
+< en:EU Organic
+en: GR-BIO-10
+country: Greece
+
+< en:EU Organic
+en: GR-BIO-12
+country: Greece
+
+< en:EU Organic
+en: GR-BIO-13
+country: Greece
+
+< en:EU Organic
+en: GR-BIO-14
+country: Greece
+
+< en:EU Organic
+en: GR-BIO-15
+country: Greece
+
+< en:EU Organic
+en: GR-BIO-16
+country: Greece
+
+< en:EU Organic
+en: GR-BIO-17
+country: Greece
+
+< en:EU Organic
+en: GR-BIO-18
+country: Greece
+
+< en:EU Organic
+en: HR-EKO-01
+
+< en:EU Organic
+en: HR-EKO-02
+
+< en:EU Organic
+en: HR-EKO-03
+
+< en:EU Organic
+en: HR-EKO-04
+
+< en:EU Organic
+en: HR-EKO-05
+
+< en:EU Organic
+en: HR-EKO-06
+
+< en:EU Organic
+en: HR-EKO-07
+
+< en:EU Organic
+en: HR-EKO-08
+
+< en:EU Organic
+en: HU-ÖKO-01
+
+< en:EU Organic
+en: HU-ÖKO-02
+
+< en:EU Organic
+en: IE-ORG-01
+country: Ireland
+
+< en:EU Organic
+en: IE-ORG-02
+country: Ireland
+
+< en:EU Organic
+en: IE-ORG-03
+country: Ireland
+
+< en:EU Organic
+en: IE-ORG-04
+country: Ireland
+
+< en:EU Organic
+en: IE-ORG-05
+country: Ireland
+
+< en:EU Organic
+en: IT-BIO-001-BZ
+country: Italy
+
+< en:EU Organic
+en: IT-BIO-002
+country: Italy
+
+< en:EU Organic
+en: IT-BIO-002-BZ
+
+< en:EU Organic
+en: IT-BIO-003
+country: Italy
+
+< en:EU Organic
+en: IT-BIO-003-BZ
+
+< en:EU Organic
+en: IT-BIO-004
+country: Italy
+
+< en:EU Organic
+en: IT-BIO-005
+country: Italy
+
+< en:EU Organic
+en: IT-BIO-006
+country: Italy
+
+< en:EU Organic
+en: IT-BIO-007
+country: Italy
+
+< en:EU Organic
+en: IT-BIO-008
+country: Italy
+
+< en:EU Organic
+en: IT-BIO-009
+country: Italy
+
+< en:EU Organic
+en: IT-BIO-010
+country: Italy
+
+< en:EU Organic
+en: IT-BIO-011
+country: Italy
+
+< en:EU Organic
+en: IT-BIO-012
+country: Italy
+
+< en:EU Organic
+en: IT-BIO-013
+country: Italy
+
+< en:EU Organic
+en: IT-BIO-014
+country: Italy
+
+< en:EU Organic
+en: IT-BIO-015
+country: Italy
+
+< en:EU Organic
+en: li-bio-969
+
+< en:EU Organic
+en: LT-EKO-001
+
+< en:EU Organic
+en: LU-BIO-01
+
+< en:EU Organic
+en: LU-BIO-04
+
+< en:EU Organic
+en: LU-BIO-05
+
+< en:EU Organic
+en: LU-BIO-06
+
+< en:EU Organic
+en: LU-BIO-07
+
+< en:EU Organic
+en: LV-BIO-01
+
+< en:EU Organic
+en: LV-BIO-02
+
+< en:EU Organic
+en: MT-ORG-01
+
+< en:EU Organic
+en: NL-BIO-01
+
+< en:EU Organic
+en: NO-ØKO-01
+
+< en:EU Organic
+en: PL-EKO-01
+country: Poland
+
+< en:EU Organic
+en: PL-EKO-02
+country: Poland
+
+< en:EU Organic
+en: PL-EKO-03
+country: Poland
+
+< en:EU Organic
+en: PL-EKO-04
+country: Poland
+
+< en:EU Organic
+en: PL-EKO-05
+country: Poland
+
+< en:EU Organic
+en: PL-EKO-06
+country: Poland
+
+< en:EU Organic
+en: PL-EKO-07
+country: Poland
+
+< en:EU Organic
+en: PL-EKO-08
+country: Poland
+
+< en:EU Organic
+en: PL-EKO-09
+country: Poland
+
+< en:EU Organic
+en: PL-EKO-10
+country: Poland
+
+< en:EU Organic
+en: PT-BIO 01
+country: Portugal
+
+< en:EU Organic
+en: PT-BIO-02
+country: Portugal
+
+< en:EU Organic
+en: PT-BIO-03
+country: Portugal
 
-<en:EU Organic
-en:AT-BIO-402
-country:Austria
+< en:EU Organic
+en: PT-BIO-04
+country: Portugal
 
-<en:EU Organic
-en:AT-BIO-501
-country:Austria
+< en:EU Organic
+en: PT-BIO-05
+country: Portugal
 
-<en:EU Organic
-en:AT-BIO-701
-country:Austria
+< en:EU Organic
+en: PT-BIO-06
+country: Portugal
 
-<en:EU Organic
-en:AT-BIO-901
+< en:EU Organic
+en: PT-BIO-07
+country: Portugal
 
-<en:EU Organic
-en:AT-BIO-902
-country:Austria
+< en:EU Organic
+en: PT-BIO-08
+country: Portugal
 
-<en:EU Organic
-en:BE-BIO-01, Certisys BE-BIO-01
-country:Belgium
+< en:EU Organic
+en: PT-BIO-09
+country: Portugal
 
-<en:EU Organic
-en:BE-BIO-02
-country:Belgium
+< en:EU Organic
+en: PT-BIO-10
+country: Portugal
 
-<en:EU Organic
-en:BE-BIO-03
-country:Belgium
+< en:EU Organic
+en: PT-BIO-11
+country: Portugal
 
-<en:EU Organic
-en:BE-BIO-04
-country:Belgium
+< en:EU Organic
+en: RO-ECO-001
+country: Romania
 
-<en:EU Organic
-en:BG-BIO-02
-country:Bulgaria
+< en:EU Organic
+en: RO-ECO-005
+country: Romania
 
-<en:EU Organic
-en:BG-BIO-03
-country:Bulgaria
+< en:EU Organic
+en: RO-ECO-007
+country: Romania
 
-<en:EU Organic
-en:BG-BIO-04
-country:Bulgaria
+< en:EU Organic
+en: RO-ECO-008
+country: Romania
 
-<en:EU Organic
-en:BG-BIO-05
-country:Bulgaria
+< en:EU Organic
+en: RO-ECO-009
+country: Romania
 
-<en:EU Organic
-en:BG-BIO-06
-country:Bulgaria
+< en:EU Organic
+en: RO-ECO-010
+country: Romania
 
-<en:EU Organic
-en:BG-BIO-07
-country:Bulgaria
+< en:EU Organic
+en: RO-ECO-014
+country: Romania
 
-<en:EU Organic
-en:BG-BIO-08
-country:Bulgaria
+< en:EU Organic
+en: RO-ECO-015
+country: Romania
 
-<en:EU Organic
-en:BG-BIO-10
-country:Bulgaria
+< en:EU Organic
+en: RO-ECO-016
+country: Romania
 
-<en:EU Organic
-en:BG-BIO-12
-country:Bulgaria
+< en:EU Organic
+en: RO-ECO-018
+country: Romania
 
-<en:EU Organic
-en:BG-BIO-13
-country:Bulgaria
+< en:EU Organic
+en: RO-ECO-021
+country: Romania
 
-<en:EU Organic
-en:BG-BIO-14
-country:Bulgaria
+< en:EU Organic
+en: RO-ECO-022
+country: Romania
 
-<en:EU Organic
-en:BG-BIO-15
-country:Bulgaria
+< en:EU Organic
+en: RO-ECO-023
+country: Romania
 
-<en:EU Organic
-en:BG-BIO-16
-country:Bulgaria
+< en:EU Organic
+en: SE-EKO-01
 
-<en:EU Organic
-en:CH-BIO-004
-country:Switzerland
+< en:EU Organic
+en: SE-EKO-03
 
-<en:EU Organic
-en:CH-BIO-006, ch-bio-scesp-006
-country:Switzerland
+< en:EU Organic
+en: SE-EKO-04
 
-<en:EU Organic
-en:CH-Bio-038
-country:Switzerland
+< en:EU Organic
+en: SE-EKO-05
 
-<en:EU Organic
-en:CH-Bio-086
-country:Switzerland
+< en:EU Organic
+en: SE-EKO-07
+
+< en:EU Organic
+en: SE-EKO-08
+
+< en:EU Organic
+en: SI-EKO-001
+
+< en:EU Organic
+en: SI-EKO-002
+
+< en:EU Organic
+en: SI-EKO-003
+
+< en:EU Organic
+en: SK-BIO-002
+
+< en:EU Organic
+en: SK-BIO-003
+
+< en:Fair trade
+< en:Organic
+fr: Bio-équitable, bioéquitable
+
+< en:Organic
+en: Soil Association Organic, Soil Association
+wikidata:en: Q7554873
+
+< en:Organic
+en: USDA Organic
+wikidata:en: Q3336915
+
+< en:USDA Organic
+en: CCOF certified organic, certified CCOF organic, California Certified Organic Farmers
+
+< en:Organic
+en: Canada Organic, Biologique Canada Organic, Biologique Canada Canada Organic, Canada Organic Biologique Canada
+fr: Biologique Canada, Biologique Canada Organic, Biologique Canada Canada Organic, Canada Organic Biologique Canada
+
+< en:Organic
+fr: Bio-Cohérence
+
+< en:Organic
+fr: Bio-Solidaire, biosolidaire
+
+< en:Organic
+en: Bioland
+de: Bioland
+wikidata:en: Q864442
+
+< en:Organic
+en: Naturland
+de: Naturland
+wikidata:en: Q1970376
+
+< en:Organic
+en: Biokreis
+de: Biokreis
+fr: Biokreis
+wikidata:en: Q864429
+
+< en:Organic
+de: Bio 7 Initiative, BIO7 Initiative, Bio7, BIO 7
+
+
+en: Sustainable farming
+fr: Agriculture durable
+
+< en:Sustainable farming
+en: UTZ Certified, UTZ
+wikidata:en: Q2305872
+
+# already in food labels.txt
+# < en:UTZ Certified
+# en: UTZ Certified Cacao, UTZ Certified Cocoa
+# de: UTZ Certified Kakao
+
+< en:UTZ Certified
+en: UTZ Certified Coffee
+de: UTZ Certified Kaffee
+
+en: Vegetarian, Suitable for vegetarians
+de: Vegetarisch
+es: Vegetariano, Producto vegetariano, Apto para vegetarianos, Vegetarian
+fr: Végétarien, Convient aux végétariens, Adapté au régime végétarien
+it: Vegetariano
+nl: Vegetarisch
+pt: Vegetariano
+
+< en:Vegetarian
+en: Green Dot India, India Green Dot, Indian Green Dot, vegetarian mark India
+
+< en:Vegetarian
+en: Vegan, Suitable for vegans
+de: Vegan
+es: Vegano, Producto vegano, Vegan
+fr: Végétalien, Végan, végétal
+it: Vegano, Vegan
+nl: Veganistisch
+pt: Vegano, Producto vegano, Vegan
+th: สูตรเจ
+
+< en:Vegan
+en: Vegan Action
+wikidata:en: Q7918275
+
+# already in food labels.txt
+# < en:Vegan
+# en: Vegan Society
+# wikidata:en: Q1855049
+
+< en:Vegan
+es: UVE Vegano, Unión Vegetariana Española Vegano, Certificado UVE Vegano
+
+< en:Vegetarian
+en: Vegetarian Society
+wikidata:en: Q2154954
+
+en: FSC, Forest Stewardship Council
+es: FSC, Forest Stewardship Council, Consejo de Administración Forestal
+wikidata:en: Q748367
+
+< en:Vegetarian
+en: No animal derived ingredients
+ar: بدون مكونات مشتقة من الحيوانات
+az: Heyvan mənşəli inqrediyent yoxdur
+bg: Без съставки от животински произход
+bn: কোন প্রাণী থেকে উদ্ভূত উপাদান নেই
+cs: Bez složek živočišného původu
+da: Ingen animalske ingredienser
+de: Keine Inhaltsstoffe tierischen Ursprungs
+el: Χωρίς συστατικά ζωικής προέλευσης
+es: Sin ingredientes derivados de animales
+et: Ei ole loomset päritolu koostisosi
+fa: بدون مواد مشتق شده از حیوانات
+fi: Ei eläinperäisiä ainesosia
+fr: Pas de composant animal, Sans matière animale
+ga: Gan comhábhair a dhíorthaítear ó ainmhithe
+gu: કોઈ પ્રાણીમાંથી મેળવેલ ઘટકો નથી
+he: ללא רכיבים שמקורם מן החי
+hr: Bez sastojaka životinjskog podrijetla
+hu: Nincsenek állati eredetű összetevők
+id: Tidak ada bahan yang berasal dari hewan
+is: Engin innihaldsefni úr dýrum
+it: Nessun ingrediente di origine animale
+ja: 動物由来の成分は含まれていません
+ka: ცხოველური წარმოშობის ინგრედიენტების გარეშე
+kk: Жануарлардан алынған ингредиенттер жоқ
+km: គ្មានគ្រឿងផ្សំដែលបានមកពីសត្វ
+kn: ಯಾವುದೇ ಪ್ರಾಣಿಗಳಿಂದ ಪಡೆದ ಪದಾರ್ಥಗಳಿಲ್ಲ
+ko: 동물 유래 성분 없음
+ky: Жаныбарлардан алынган ингредиенттер жок
+lt: Be gyvūninės kilmės ingredientų
+lv: Bez dzīvnieku izcelsmes sastāvdaļām
+ml: മൃഗങ്ങളിൽ നിന്ന് ഉത്പാദിപ്പിക്കുന്ന ചേരുവകൾ ഇല്ല
+mn: Амьтнаас гаралтай орц байхгүй
+mr: कोणत्याही प्राणीजन्य घटकांशिवाय
+ms: Tiada bahan terbitan haiwan
+mt: L-ebda ingredjenti derivati mill-annimali
+ne: कुनै पनि जनावरबाट प्राप्त सामग्रीहरू छैनन्
+nl: Geen ingrediënten van dierlijke oorsprong
+no: Ingen animalske ingredienser
+or: କୌଣସି ପଶୁ ଉତ୍ପାଦିତ ଉପାଦାନ ନାହିଁ
+pa: ਕੋਈ ਜਾਨਵਰਾਂ ਤੋਂ ਪ੍ਰਾਪਤ ਕੀਤੀ ਸਮੱਗਰੀ ਨਹੀਂ ਹੈ
+pl: Bez składników pochodzenia zwierzęcego
+pt: Sem ingredientes derivados de animais
+ro: Fără ingrediente derivate din animale
+ru: Без ингредиентов животного происхождения
+si: සත්ව සම්භවයක් ඇති අමුද්‍රව්‍ය නොමැත
+sk: Bez zložiek živočíšneho pôvodu
+sl: Brez sestavin živalskega izvora
+sq: Pa përbërës me origjinë shtazore
+sr: Bez sastojaka životinjskog porekla
+sv: Inga ingredienser från djur
+sw: Hakuna viambato vinavyotokana na wanyama
+ta: எந்த விலங்குகளிடமிருந்து பெறப்பட்ட பொருட்களும் இல்லை
+te: జంతువుల నుండి పొందిన పదార్థాలు లేవు
+tg: Ҳеҷ гуна компонентҳои аз ҳайвонот гирифташуда нест
+th: ไม่มีส่วนผสมที่มาจากสัตว์
+tk: Haýwanlardan alynýan maddalar ýok
+tl: Walang sangkap na nagmula sa hayop
+tr: Hayvansal kaynaklı içerik yok
+uk: Без інгредієнтів тваринного походження
+uz: Hayvonlardan olingan ingredientlar yo'q
+vi: Không có thành phần có nguồn gốc từ động vật
+zh-CN: 不含动物来源成分
+zh-TW: 不含動物來源成分
+
+en: Without animal fat
+de: Ohne tierisches Fett
+es: Sin grasa animal
+fr: Sans graisse animale, sans graisses animales
+it: Senza grassi animali
+ja: 動物性脂肪不使用
+ko: 동물성 지방 없음
+nl: Zonder dierlijk vet
+pt: Sem gordura animal
+zh-CN: 不含动物脂肪
+zh-TW: 不含動物脂肪
+
+en: Without bisphenol
+ar: بدون بيسفينول
+az: Bisfenolsiz
+bg: Без бисфенол
+bn: বিসফেনল ছাড়া
+cs: Bez bisfenolu
+da: Uden bisphenol
+de: Ohne Bisphenol
+el: Χωρίς δισφαινόλη
+es: Sin bisfenol
+et: Bisfenoolivaba
+fa: بدون بیسفنول
+fi: Ilman bisfenolia
+fr: Sans bisphenol
+ga: Gan bisphenol
+gu: બિસ્ફેનોલ વગર
+he: ללא ביספנול
+hr: Bez bisfenola
+hu: Biszfenol nélkül
+id: Tanpa bisfenol
+is: Án bisfenóls
+it: Senza bisfenolo
+ja: ビスフェノール不使用
+ka: ბისფენოლის გარეშე
+kk: Бисфенолсыз
+km: គ្មានប៊ីសហ្វេណុល
+kn: ಬಿಸ್ಫೆನಾಲ್ ಇಲ್ಲದೆ
+ko: 비스페놀 없음
+ky: Бисфенолсуз
+lt: Be bisfenolio
+lv: Bez bisfenola
+ml: ബിസ്ഫെനോൾ ഇല്ലാതെ
+mn: Бисфенолгүй
+mr: बिस्फेनॉलशिवाय
+ms: Tanpa bisfenol
+mt: Mingħajr bisfenol
+ne: बिस्फेनोल बिना
+nl: Zonder bisfenol
+no: Uten bisfenol
+or: ବିସଫେନଲ୍ ବିନା
+pa: ਬਿਸਫੇਨੋਲ ਤੋਂ ਬਿਨਾਂ
+pl: Bez bisfenolu
+pt: Sem bisfenol
+ro: Fără bisfenol
+ru: Без бисфенола
+si: බිස්ෆෙනෝල් රහිත
+sk: Bez bisfenolu
+sl: Brez bisfenola
+sq: Pa bisfenol
+sr: Bez bisfenola
+sv: Utan bisfenol
+sw: Bila bisphenoli
+ta: பிஸ்பெனால் இல்லாமல்
+te: బిస్ఫెనాల్ లేకుండా
+tg: Бе бисфенол
+th: ไม่มีบิสฟีนอล
+tk: Bisfenolsyz
+tl: Walang bisphenol
+tr: Bisfenol olmadan
+uk: Без бісфенолу
+uz: Bisfenolsiz
+vi: Không chứa bisphenol
+zh-CN: 不含双酚
+zh-TW: 不含雙酚
+
+en: PEFC, Pan European Forest Certification, Program for the Endorsement of Forest Certification, Program for the Endorsement of Forest Certification schemes
+fr: PEFC
+
+fr: Imprim'Vert
+
+< en:FSC
+en: FSC Mix
+fr: FSC Mix, FSC Mixte
+
+< en:FSC
+en: FSC Recycling
+
+< en:FSC
+en: FSC-C017170
+
+< en:FSC
+en: FSC-C002324
+
+< en:FSC
+en: FSC-C066504
+
+< en:FSC
+en: FSC-C014047
+
+< en:FSC
+en: FSC-C014207
+
+< en:FSC
+en: FSC-C016627
+
+< en:FSC
+en: FSC-C020428
+
+< en:FSC
+en: FSC-C022488
+
+< en:FSC
+en: FSC-C074707
+
+< en:FSC
+en: FSC-C081801
+
+< en:FSC
+en: FSC-C100482
+
+< en:FSC
+en: FSC-C104258
+
+< en:FSC
+en: FSC-C104752
+
+< en:FSC
+en: FSC-C107894
+
+< en:FSC
+en: FSC-C109331
+
+< en:FSC
+en: FSC-C115560
+
+< en:FSC
+en: FSC-C117156
+
+< en:organic
+fr: Cosmétique Bio - Charte Cosmebio, Cosmébio, Charte Cosmebio
+
+fr: Cosmétique Eco - Charte Cosmebio, Cosméco, Charte Cosméco
+
+# already in food labels.txt
+# fr: Nature & Progrès, Nature et Progrès
+
+en: BDIH
+fr: BDIH, Cosmétiques naturels certifiés BDIH, BDIH Cosmétiques naturels certifiés
+
+en: NaTrue
+
+# already in food labels.txt
+# < en:organic
+# de: Austria Bio Garantie
+
+en: One Voice
+fr: One Voice, One Voice - pour une éthique animale et planétaire
+
+en: Ecolabel
+
+< en:Ecolabel
+en: EU Ecolabel
+fr: EU Ecolabel, Ecolabel EU, Ecolabel européen
+
+< en:Ecolabel
+en: Nordic Ecolabel
+
+# already in food labels.txt
+# fr: Ecocert Equitable, Equitable Ecocert
+
+# already in food labels.txt
+# fr: Ecocert
+
+en: Hypoallergenic
+de: Hypoallergen
+es: Hipoalergénico
+fr: Hypoallergénique
+it: Ipoallergenico
+ja: 低刺激性
+ko: 저자극성
+nl: Hypoallergeen
+pt: Hipoalergênico
+zh-CN: 低过敏性
+zh-TW: 低過敏性
+
+# already in food labels.txt
+# en: Green point
+# de: Grüner punkt
+# fr: Point vert
+
+en: Not tested on animals
+ar: لم يتم اختباره على الحيوانات
+az: Heyvanlar üzərində sınaqdan keçirilməyib
+bg: Не е тествано върху животни
+bn: পশুদের উপর পরীক্ষিত নয়
+cs: Netestováno na zvířatech
+da: Ikke testet på dyr
+de: Nicht an Tieren getestet
+el: Δεν έχει δοκιμαστεί σε ζώα
+es: No testado en animales
+et: Loomadel testimata
+fa: روی حیوانات آزمایش نشده است
+fi: Ei testattu eläimillä
+fr: Non testé sur les animaux, non testé sur des animaux
+ga: Níl sé tástáilte ar ainmhithe
+gu: પ્રાણીઓ પર પરીક્ષણ કરાયેલ નથી
+he: לא נוסה על בעלי חיים
+hr: Nije testirano na životinjama
+hu: Nem tesztelték állatokon
+id: Tidak diuji pada hewan
+is: Ekki prófað á dýrum
+it: Non testato su animali
+ja: 動物実験は行われていません
+ka: არ არის გამოცდილი ცხოველებზე
+kk: Жануарларда сыналмаған
+km: មិនបានធ្វើតេស្តលើសត្វ
+kn: ಪ್ರಾಣಿಗಳ ಮೇಲೆ ಪರೀಕ್ಷಿಸಲಾಗಿಲ್ಲ
+ko: 동물 실험을 하지 않음
+ky: Жаныбарларда сыналган эмес
+lt: Nebandyta su gyvūnais
+lv: Nav testēts uz dzīvniekiem
+ml: മൃഗങ്ങളിൽ പരീക്ഷിച്ചിട്ടില്ല
+mn: Амьтанд туршигдаагүй
+mr: जनावरांवर चाचणी केलेली नाही
+ms: Tidak diuji pada haiwan
+mt: Mhux ittestjat fuq l-annimali
+ne: जनावरहरूमा परीक्षण गरिएको छैन
+nl: Niet getest op dieren
+no: Ikke testet på dyr
+or: ପଶୁମାନଙ୍କ ଉପରେ ପରୀକ୍ଷା କରାଯାଇନାହିଁ
+pa: ਜਾਨਵਰਾਂ 'ਤੇ ਟੈਸਟ ਨਹੀਂ ਕੀਤਾ ਗਿਆ
+pl: Nietestowane na zwierzętach
+pt: Não testado em animais
+ro: Netestat pe animale
+ru: Не тестировалось на животных
+si: සතුන් මත පරීක්ෂා කර නොමැත
+sk: Netestované na zvieratách
+sl: Ni testirano na živalih
+sq: Nuk është testuar në kafshë
+sr: Nije testirano na životinjama
+sv: Inte testat på djur
+sw: Haijaribiwa kwa wanyama
+ta: விலங்குகளிடம் சோதனை செய்யப்படவில்லை
+te: జంతువులపై పరీక్షించబడలేదు
+tg: Дар ҳайвонот озмуда нашудааст
+th: ไม่ได้ทดสอบในสัตว์
+tk: Haýwanlarda synagdan geçirilmedi
+tl: Hindi nasubukan sa mga hayop
+tr: Hayvanlar üzerinde test edilmemiştir
+uk: Не тестувалося на тваринах
+uz: Hayvonlarda sinovdan o'tkazilmagan
+vi: Không thử nghiệm trên động vật
+zh-CN: 未经动物测试
+zh-TW: 未經動物測試
+
+en: Neutral pH for the skin, neutral pH, ph skin neutral
+ar: درجة الحموضة محايدة للبشرة، درجة الحموضة محايدة، درجة الحموضة محايدة للبشرة
+az: Dəri üçün neytral pH, neytral pH, dəri üçün neytral pH
+bg: Неутрално pH за кожата, неутрално pH, pH неутрално за кожата
+bn: ত্বকের জন্য নিরপেক্ষ পিএইচ, নিরপেক্ষ পিএইচ, ত্বকের জন্য পিএইচ নিরপেক্ষ
+cs: Neutrální pH pro pokožku, neutrální pH, pH neutrální pro pokožku
+da: Neutral pH for huden, neutral pH, pH hudneutral
+de: Neutraler pH-Wert für die Haut, neutraler pH-Wert, pH-Wert neutral für die Haut
+el: Ουδέτερο pH για το δέρμα, ουδέτερο pH, pH ουδέτερο για το δέρμα
+es: pH neutro para la piel, pH neutro, pH equilibrado para la piel
+et: Neutraalne pH nahale, neutraalne pH, pH neutraalne nahale
+fa: PH خنثی برای پوست، PH خنثی، PH خنثی برای پوست
+fi: Neutraali pH iholle, neutraali pH, pH iholle neutraali
+fr: pH neutre pour la peau, pH neutre, pH respectueux
+ga: pH neodrach don chraiceann, pH neodrach, pH neodrach don chraiceann
+gu: ત્વચા માટે તટસ્થ પીએચ, તટસ્થ પીએચ, ત્વચા માટે પીએચ તટસ્થ
+he: רמת חומציות ניטרלית לעור, רמת חומציות ניטרלית, רמת חומציות ניטרלית לעור
+hr: Neutralni pH za kožu, neutralni pH, pH neutralan za kožu
+hu: Semleges pH a bőr számára, semleges pH, pH semleges a bőr számára
+id: pH netral untuk kulit, pH netral, pH netral untuk kulit
+is: Hlutlaust pH fyrir húðina, hlutlaust pH, pH hlutlaust fyrir húðina
+it: pH neutro per la pelle, pH neutro, pH neutro per la pelle
+ja: 肌にやさしいpH、中性pH、pHスキンニュートラル
+ka: ნეიტრალური pH კანისთვის, ნეიტრალური pH, pH ნეიტრალური კანისთვის
+kk: Тері үшін бейтарап pH, бейтарап pH, тері үшін pH бейтарап
+km: pH អព្យាក្រឹតសម្រាប់ស្បែក, pH អព្យាក្រឹត, pH អព្យាក្រឹតសម្រាប់ស្បែក
+kn: ಚರ್ಮಕ್ಕೆ ತಟಸ್ಥ pH, ತಟಸ್ಥ pH, ಚರ್ಮಕ್ಕೆ pH ತಟಸ್ಥ
+ko: 피부에 중성 pH, 중성 pH, 피부에 pH 중성
+ky: Тери үчүн нейтралдуу pH, нейтралдуу pH, тери үчүн pH нейтралдуу
+lt: Neutralus pH odai, neutralus pH, pH neutralus odai
+lv: Neitrāls pH ādai, neitrāls pH, pH neitrāls ādai
+ml: ചർമ്മത്തിന് ന്യൂട്രൽ pH, ന്യൂട്രൽ pH, ചർമ്മത്തിന് pH ന്യൂട്രൽ
+mn: Арьсны рН-ийг саармагжуулах, рН-ийг саармагжуулах, арьсны рН-ийг саармагжуулах
+mr: त्वचेसाठी तटस्थ पीएच, तटस्थ पीएच, त्वचेसाठी पीएच तटस्थ
+ms: pH neutral untuk kulit, pH neutral, pH neutral untuk kulit
+mt: pH newtrali għall-ġilda, pH newtrali, pH newtrali għall-ġilda
+ne: छालाको लागि तटस्थ पीएच, तटस्थ पीएच, छालाको लागि पीएच तटस्थ
+nl: Neutrale pH-waarde voor de huid, neutrale pH-waarde, pH-waarde neutraal voor de huid
+no: Nøytral pH for huden, nøytral pH, pH hudnøytral
+or: ଚର୍ମ ପାଇଁ ଉଦାସୀନ pH, ଉଦାସୀନ pH, ଚର୍ମ ପାଇଁ pH ଉଦାସୀନ
+pa: ਚਮੜੀ ਲਈ ਨਿਰਪੱਖ pH, ਨਿਰਪੱਖ pH, ਚਮੜੀ ਲਈ pH ਨਿਰਪੱਖ
+pl: Neutralne pH dla skóry, neutralne pH, pH neutralne dla skóry
+pt: pH neutro para a pele, pH neutro, pH neutro para a pele
+ro: pH neutru pentru piele, pH neutru, pH neutru pentru piele
+ru: Нейтральный pH для кожи, нейтральный pH, pH нейтральный для кожи
+si: සම සඳහා උදාසීන pH, උදාසීන pH, සම සඳහා pH උදාසීන
+sk: Neutrálne pH pre pokožku, neutrálne pH, pH neutrálne pre pokožku
+sl: Nevtralni pH za kožo, nevtralni pH, pH nevtralen za kožo
+sq: pH neutral për lëkurën, pH neutral, pH neutral për lëkurën
+sr: Neutralni pH za kožu, neutralni pH, pH neutralan za kožu
+sv: Neutralt pH-värde för huden, neutralt pH-värde, pH-värde neutralt för huden
+sw: pH нейтральная для кожи, нейтральная pH, pH нейтральная для кожи
+ta: சருமத்திற்கு நடுநிலையான pH, நடுநிலையான pH, சருமத்திற்கு pH நடுநிலையானது
+te: చర్మానికి తటస్థ pH, తటస్థ pH, చర్మానికి pH తటస్థంగా ఉంటుంది
+tg: PH-и бетараф барои пӯст, PH-и бетараф, PH-и бетараф барои пӯст
+th: ค่า pH เป็นกลางสำหรับผิว, ค่า pH เป็นกลาง, ค่า pH เป็นกลางสำหรับผิว
+tk: Deri üçin neýtral pH, neýtral pH, deri üçin pH neýtral
+tl: Neutral na pH para sa balat, neutral na pH, pH neutral para sa balat
+tr: Cilt için nötr pH, nötr pH, cilt için pH nötr
+uk: Нейтральний pH для шкіри, нейтральний pH, pH нейтральний для шкіри
+uz: Teri uchun neytral pH, neytral pH, teri uchun pH neytral
+vi: Độ pH trung tính cho da, độ pH trung tính, độ pH trung tính cho da
+zh-CN: 皮肤中性pH值，中性pH值，皮肤pH值中性
+zh-TW: 皮膚中性pH值，中性pH值，皮膚pH值中性
+
+en: Dermatologically tested, Dermatologically approved, Tested by dermatologists, Dermo tested
+ar: تم اختباره من قبل أطباء الجلدية
+az: Dermatoloji testindən keçmişdir
+bg: Дерматологично тестван
+bn: চর্মরোগ বিশেষজ্ঞ দ্বারা পরীক্ষিত
+cs: Dermatologicky testováno
+da: Dermatologisk testet
+de: Dermatologisch getestet, Dermatologisch geprüft
+el: Δερματολογικά ελεγμένο
+es: Dermatológicamente testado, Testado dermatológicamente
+et: Dermatoloogiliselt testitud
+fa: تست شده توسط متخصصین پوست
+fi: Dermatologisesti testattu
+fr: Testé dermatologiquement, Testé dermatologiquemment, Testé sous controle dermatologique, Tolérance testée sous controle dermatologique, Tolerance-cutanee-testee-dermatologiquement, Tolerance-cutanee-testee-sous-controle-dermatologique, testée dermatologiquement, testées dermatologiquement, Approuvé dermatologiquement, dermato-testé
+ga: Tástáladh deirmeolaíochta air
+gu: ત્વચારોગ વિજ્ઞાની દ્વારા પરીક્ષણ કરાયેલ
+he: נבדק דרמטולוגית
+hr: Dermatološki testirano
+hu: Bőrgyógyászatilag tesztelt
+id: Telah diuji secara dermatologis
+is: Húðfræðilega prófað
+it: Dermatologicamente testato
+ja: 皮膚科学的にテスト済み
+ka: დერმატოლოგიურად შემოწმებულია
+kk: Дерматологиялық тексеруден өткен
+km: បានធ្វើតេស្តដោយអ្នកជំនាញខាងស្បែក
+kn: ಚರ್ಮರೋಗ ತಜ್ಞರಿಂದ ಪರೀಕ್ಷಿಸಲ್ಪಟ್ಟಿದೆ
+ko: 피부과 테스트 완료
+ky: Дерматологиялык жактан текшерилген
+lt: Dermatologiškai patikrintas
+lv: Dermatoloģiski testēts
+ml: ഡെർമറ്റോളജിക്കൽ ആയി പരീക്ഷിച്ചു
+mn: Арьсны эмчийн хяналтаар шалгагдсан
+mr: त्वचाविज्ञानदृष्ट्या चाचणी केली
+ms: Diuji secara dermatologi
+mt: Ittestjat dermatoloġikament
+ne: छाला रोग विशेषज्ञ द्वारा परीक्षण गरिएको
+nl: Dermatologisch getest
+no: Dermatologisk testet
+or: ଚର୍ମରୋଗ ବିଶେଷଜ୍ଞଙ୍କ ଦ୍ୱାରା ପରୀକ୍ଷିତ
+pa: ਚਮੜੀ ਵਿਗਿਆਨੀ ਦੁਆਰਾ ਪਰਖਿਆ ਗਿਆ
+pl: Przebadano dermatologicznie
+pt: Dermatologicamente testado
+ro: Testat dermatologic
+ru: Протестировано дерматологами
+si: චර්ම රෝග විශේෂඥ වෛද්‍යවරයෙකු විසින් පරීක්ෂා කරන ලදී
+sk: Dermatologicky testované
+sl: Dermatološko preizkušeno
+sq: Testuar dermatologjikisht
+sr: Dermatološki testirano
+sv: Dermatologiskt testad
+sw: Imejaribiwa kidermatolojia
+ta: தோல் மருத்துவ சோதனை செய்யப்பட்டது
+te: చర్మవ్యాధి నిపుణులచే పరీక్షించబడింది
+tg: Аз тарафи дерматологҳо санҷида шудааст
+th: ผ่านการทดสอบโดยแพทย์ผิวหนัง
+tk: Dermatologik barlagdan geçirilen
+tl: Sinubukan ng mga dermatologist
+tr: Dermatolojik olarak test edilmiştir
+uk: Дерматологічно протестовано
+uz: Dermatologik tekshiruvdan o'tgan
+vi: Đã được kiểm nghiệm da liễu
+zh-CN: 经皮肤科医生测试
+zh-TW: 經皮膚科醫生測試
+
+en: Fully recyclable packaging
+de: Vollständig recycelbare Verpackung
+es: Embalaje completamente reciclable
+fr: Packaging entièrement recyclable
+it: Imballaggio completamente riciclabile
+ja: 完全にリサイクル可能な包装
+ko: 완전 재활용 가능 포장재
+nl: Volledig recyclebare verpakking
+pt: Embalagem totalmente reciclável
+zh-CN: 完全可回收包装
+zh-TW: 完全可回收包裝
+
+en: Easily flammable
+zh-CN: 易燃
+zh-TW: 易燃
+ar: قابل للاشتعال بسهولة
+az: Asanlıqla alışan
+bg: Лесно запалим
+bn: সহজে দাহ্য
+cs: Snadno hořlavé
+da: Letantændelig
+de: Leicht entflammbar
+el: Εύφλεκτο
+es: Fácilmente inflamable
+et: Kergesti süttiv
+fa: به راحتی قابل اشتعال
+fi: Helposti syttyvä
+fr: Facilement inflammable
+ga: Inlasta go héasca
+gu: સરળતાથી જ્વલનશીલ
+he: דליק בקלות
+hr: Lako zapaljivo
+hu: Könnyen gyúlékony
+id: Mudah terbakar
+is: Eldfimt
+it: Facilmente infiammabile
+ja: 可燃性
+ka: ადვილად აალებადი
+kk: Оңай тұтанатын
+km: ងាយឆេះ
+kn: ಸುಲಭವಾಗಿ ಉರಿಯುವ
+ko: 가연성
+ky: Оңой күйүүчү
+lt: Lengvai užsidegantis
+lv: Viegli uzliesmojošs
+ml: എളുപ്പത്തിൽ കത്തുന്ന
+mn: Шатамхай
+mr: सहजपणे ज्वलनशील
+ms: Mudah terbakar
+mt: Faċilment jaqbad
+ne: सजिलै जल्ने
+nl: Makkelijk ontvlambaar
+no: Lettantennelig
+or: ସହଜରେ ଜ୍ୱଳନଶୀଳ
+pa: ਆਸਾਨੀ ਨਾਲ ਜਲਣਸ਼ੀਲ
+pl: Łatwopalny
+pt: Facilmente inflamável
+ro: Ușor inflamabil
+ru: Легковоспламеняющийся
+si: පහසුවෙන් ගිනි ඇවිලෙන
+sk: Ľahko horľavé
+sl: Lahko vnetljivo
+sq: Lehtësisht i ndezshëm
+sr: Lako zapaljivo
+sv: Lättantändlig
+sw: Huwaka kwa urahisi
+ta: எளிதில் தீப்பற்றக்கூடிய
+te: సులభంగా మండే
+tg: Ба осонӣ оташгиранда
+th: ติดไฟง่าย
+tk: Aňsatlyk bilen ot alýan
+tl: Madaling magliyab
+tr: Kolay alevlenir
+uk: Легкозаймистий
+uz: Oson yonuvchi
+vi: Dễ cháy
+
+en: Without phthalates, without phtalates, 0 phthalates
+de: Ohne Phthalate
+es: Sin ftalatos
+fr: Sans phtalates, Sans phtalate, 0 phtalate, zero phtalate
+it: Senza ftalati
+ja: フタル酸エステル不使用
+ko: 프탈레이트 없음
+nl: Zonder ftalaten
+pt: Sem ftalatos
+zh-CN: 不含邻苯二甲酸酯
+zh-TW: 不含鄰苯二甲酸酯
+
+en: No colorings, without colorings, no colourings, without colourings, no colour, no color
+fr: Sans colorants, pas de colorants, 0 colorant, zero colorant
+
+fr: Sans colorant de synthese, 0 colorant de synthese
+de: Ohne synthetische Farbstoffe, 0 synthetische Farbstoffe
+es: Sin colorante sintético, 0 colorante sintético
+nl: Zonder synthetische kleurstoffen, 0 synthetische kleurstoffen
+
+en: Without soap, soap free
+de: Ohne Seife
+es: Sin jabón
+fr: Sans savon
+it: Senza sapone
+ja: 石鹸不使用
+ko: 비누 없음
+nl: Zonder zeep
+pt: Sem sabão
+zh-CN: 不含皂
+zh-TW: 不含皂
+
+en: Without perfume, no perfume, perfume free
+de: Ohne Parfüm
+es: Sin perfume
+fr: Sans parfum
+it: Senza profumo
+ja: 無香料
+ko: 향료 없음
+nl: Zonder parfum
+pt: Sem perfume
+zh-CN: 无香精
+zh-TW: 無香精
+
+en: Synthetic scent free, free from synthesis fragrance, synthesis fragrance free, free from synthetic fragrances, synthetic fragrances free
+de: Ohne synthetischen Duft, frei von synthetischen Duftstoffen, synthetische Duftstoffe frei
+es: Sin fragancia sintética, libre de fragancia de síntesis, sin fragancias sintéticas
+fr: Sans parfum de synthèse
+nl: Zonder synthetische geur, vrij van synthetische geurstoffen, synthetische geurstoffen vrij
+
+en: Without phenoxyethanol, Phenoxyethanol free
+ar: بدون فينوكسي إيثانول
+az: Fenoksietanolsiz
+bg: Без феноксиетанол
+bn: ফেনক্সিইথানল ছাড়া
+cs: Bez fenoxyethanolu
+da: Uden phenoxyethanol
+de: Ohne Phenoxyethanol
+el: Χωρίς φαινοξυαιθανόλη
+es: Sin fenoxietanol
+et: Ilma fenoksüetanoolita
+fa: بدون فنوکسی اتانول
+fi: Ilman fenoksietanolia
+fr: Sans phenoxyethanol
+ga: Gan feinocsaeatánól
+gu: ફેનોક્સાઇથેનોલ વગર
+he: ללא פנוקסיאתנול
+hr: Bez fenoksietanola
+hu: Fenoxietanol nélkül
+id: Tanpa fenoksietanol
+is: Án fenoxýetanóls
+it: Senza fenossietanolo
+ja: フェノキシエタノール不使用
+ka: ფენოქსიეთანოლის გარეშე
+kk: Феноксиэтанолсыз
+km: គ្មាន Phenoxyethanol
+kn: ಫೆನಾಕ್ಸಿಥೆನಾಲ್ ಇಲ್ಲದೆ
+ko: 페녹시에탄올 없음
+ky: Феноксиэтанолсуз
+lt: Be fenoksietanolio
+lv: Bez fenoksietanola
+ml: ഫെനോക്സി എത്തനോൾ ഇല്ലാതെ
+mn: Феноксиэтанолгүй
+mr: फेनोक्सीएथेनॉलशिवाय
+ms: Tanpa fenoksietanol
+mt: Mingħajr phenoxyethanol
+ne: फेनोक्सीथेनोल बिना
+nl: Zonder fenoxyethanol
+no: Uten fenoksyetanol
+or: ଫେନକ୍ସିଏଥାନୋଲ୍ ବିନା
+pa: ਫੀਨੋਕਸਾਈਥੇਨੌਲ ਤੋਂ ਬਿਨਾਂ
+pl: Bez fenoksyetanolu
+pt: Sem fenoxietanol
+ro: Fără fenoxietanol
+ru: Без феноксиэтанола
+si: ෆීනොක්සිඑතනෝල් රහිත
+sk: Bez fenoxyetanolu
+sl: Brez fenoksietanola
+sq: Pa fenoksietanol
+sr: Bez fenoksietanola
+sv: Utan fenoxietanol
+sw: Bila phenoxyethanol
+ta: பீனாக்சிஎத்தனால் இல்லாமல்
+te: ఫినోక్సిథనాల్ లేకుండా
+tg: Бе феноксиэтанол
+th: ไม่มีฟีโนซีเอทานอล
+tk: Fenoksietanolsyz
+tl: Walang phenoxyethanol
+tr: Fenoksietanol olmadan
+uk: Без феноксиетанолу
+uz: Fenoksietanolsiz
+vi: Không chứa phenoxyethanol
+zh-CN: 不含苯氧乙醇
+zh-TW: 不含苯氧乙醇
+
+en: Without aluminium salts
+zh-CN: 不含铝盐
+zh-TW: 不含鋁鹽
+ar: بدون أملاح الألومنيوم
+az: Alüminium duzları olmadan
+bg: Без алуминиеви соли
+bn: অ্যালুমিনিয়াম লবণ ছাড়া
+cs: Bez hlinitých solí
+da: Uden aluminiumsalte
+de: Ohne Aluminiumsalze
+el: Χωρίς άλατα αλουμινίου
+es: Sin sales de aluminio
+et: Ilma alumiiniumisooladeta
+fa: بدون نمک آلومینیوم
+fi: Ilman alumiinisuoloja
+fr: Sans sels d'aluminium
+ga: Gan salainn alúmanaim
+gu: એલ્યુમિનિયમ ક્ષાર વગર
+he: ללא מלחי אלומיניום
+hr: Bez aluminijevih soli
+hu: Alumíniumsók nélkül
+id: Tanpa garam aluminium
+is: Án álsöltum
+it: Senza Sali di alluminio
+ja: アルミニウム塩不使用
+ka: ალუმინის მარილების გარეშე
+kk: Алюминий тұздарынсыз
+km: គ្មានអំបិលអាលុយមីញ៉ូម
+kn: ಅಲ್ಯೂಮಿನಿಯಂ ಲವಣಗಳಿಲ್ಲದೆ
+ko: 알루미늄 염 없음
+ky: Алюминий туздары жок
+lt: Be aliuminio druskų
+lv: Bez alumīnija sāļiem
+ml: അലുമിനിയം ലവണങ്ങൾ ഇല്ലാതെ
+mn: Хөнгөн цагааны давсгүй
+mr: ॲल्युमिनियम लवणांशिवाय
+ms: Tanpa garam aluminium
+mt: Mingħajr imluħa tal-aluminju
+ne: आल्मुनियम नुन बिना
+nl: Zonder aluminiumzouten
+no: Uten aluminiumsalter
+or: ଆଲୁମିନିୟମ ଲବଣ ବିନା
+pa: ਐਲੂਮੀਨੀਅਮ ਲੂਣ ਤੋਂ ਬਿਨਾਂ
+pl: Bez soli glinu
+pt: Sem sais de alumínio
+ro: Fără săruri de aluminiu
+ru: Без солей алюминия
+si: ඇලුමිනියම් ලවණ රහිතයි
+sk: Bez hliníkových solí
+sl: Brez aluminijevih soli
+sq: Pa kripëra alumini
+sr: Bez aluminijumskih soli
+sv: Utan aluminiumsalter
+sw: Bila chumvi za alumini
+ta: அலுமினிய உப்புகள் இல்லாமல்
+te: అల్యూమినియం లవణాలు లేకుండా
+tg: Бе намакҳои алюминий
+th: ไม่มีเกลืออลูมิเนียม
+tk: Alýumin duzlary ýok
+tl: Walang mga asin ng aluminyo
+tr: Alüminyum tuzları içermez
+uk: Без солей алюмінію
+uz: Alyuminiy tuzlarisiz
+vi: Không chứa muối nhôm
+
+en: Without silicon, Silicon free, Without silicone
+ar: بدون سيليكون
+az: Silikonsuz
+bg: Без силикон
+bn: সিলিকন ছাড়া
+cs: Bez silikonu
+da: Uden silikone
+de: Ohne Silikon
+el: Χωρίς σιλικόνη
+es: Sin silicona
+et: Ilma silikoonita
+fa: بدون سیلیکون
+fi: Ilman silikonia
+fr: Sans silicone, 0 silicones, Sans silicones
+ga: Gan sileacón
+gu: સિલિકોન વગર
+he: ללא סיליקון
+hr: Bez silikona
+hu: Szilikon nélkül
+id: Tanpa silikon
+is: Án silíkons
+it: Senza silicone
+ja: シリコン不使用
+ka: სილიკონის გარეშე
+kk: Силиконсыз
+km: គ្មានស៊ីលីកូន
+kn: ಸಿಲಿಕಾನ್ ಇಲ್ಲದೆ
+ko: 실리콘 없음
+ky: Силиконсуз
+lt: Be silikono
+lv: Bez silikona
+ml: സിലിക്കൺ ഇല്ലാതെ
+mn: Силиконгүй
+mr: सिलिकॉनशिवाय
+ms: Tanpa silikon
+mt: Mingħajr silikon
+ne: सिलिकन बिना
+nl: Zonder silicone
+no: Uten silikon
+or: ସିଲିକନ୍ ବିନା
+pa: ਸਿਲੀਕੋਨ ਤੋਂ ਬਿਨਾਂ
+pl: Bez silikonu
+pt: Sem silicone
+ro: Fără silicon
+ru: Без силикона
+si: සිලිකන් රහිත
+sk: Bez silikónu
+sl: Brez silikona
+sq: Pa silikon
+sr: Bez silikona
+sv: Utan silikon
+sw: Bila silikoni
+ta: சிலிகான் இல்லாமல்
+te: సిలికాన్ లేకుండా
+tg: Бе силикон
+th: ไม่มีซิลิโคน
+tk: Silikonsyz
+tl: Walang silicone
+tr: Silikonsuz
+uk: Без силікону
+uz: Silikonsiz
+vi: Không chứa silicone
+zh-CN: 不含硅
+zh-TW: 不含矽靈
+
+fr: sans huile de silicone
+
+en: Without acetone
+ar: بدون أسيتون
+az: Asetonsuz
+bg: Без ацетон
+bn: অ্যাসিটোন ছাড়া
+cs: Bez acetonu
+da: Uden acetone
+de: Ohne Aceton
+el: Χωρίς ακετόνη
+es: Sin acetona
+et: Atsetoonivaba
+fa: بدون استون
+fi: Ilman asetonia
+fr: Sans acétone
+ga: Gan aicéatón
+gu: એસિટોન વગર
+he: ללא אצטון
+hr: Bez acetona
+hu: Aceton nélkül
+id: Tanpa aseton
+is: Án asetóns
+it: Senza acetone
+ja: アセトン不使用
+ka: აცეტონის გარეშე
+kk: Ацетонсыз
+km: គ្មានអាសេតូន
+kn: ಅಸಿಟೋನ್ ಇಲ್ಲದೆ
+ko: 아세톤 없음
+ky: Ацетонсуз
+lt: Be acetono
+lv: Bez acetona
+ml: അസെറ്റോൺ ഇല്ലാതെ
+mn: Ацетон байхгүй
+mr: ऍसिटोनशिवाय
+ms: Tanpa aseton
+mt: Mingħajr aċetun
+ne: एसीटोन बिना
+nl: Zonder aceton
+no: Uten aceton
+or: ଏସିଟୋନ୍ ବିନା
+pa: ਐਸੀਟੋਨ ਤੋਂ ਬਿਨਾਂ
+pl: Bez acetonu
+pt: Sem acetona
+ro: Fără acetonă
+ru: Без ацетона
+si: ඇසිටෝන් රහිත
+sk: Bez acetónu
+sl: Brez acetona
+sq: Pa aceton
+sr: Bez acetona
+sv: Utan aceton
+sw: Bila asetoni
+ta: அசிட்டோன் இல்லாமல்
+te: ఎసిటోన్ లేకుండా
+tg: Бе ацетон
+th: ไม่มีอะซิโตน
+tk: Asetonsyz
+tl: Walang acetone
+tr: Asetonsuz
+uk: Без ацетону
+uz: Acetonsiz
+vi: Không chứa axeton
+zh-CN: 不含丙酮
+zh-TW: 不含丙酮
+
+en: Condom compatible
+de: Kondomfreundlich
+es: Compatible con preservativos, Compatible con condones
+fr: Compatible avec les preservatifs
+it: Compatibile con i preservativi
+ja: コンドームとの併用可
+ko: 콘돔과 함께 사용 가능
+nl: Condoomvriendelijk
+pt: Compatível com preservativos
+zh-CN: 可与避孕套一起使用
+zh-TW: 可與保險套一起使用
+
+# already in food labels.txt
+# fr: Sans alcool, Pas d'alcool
+# en: No alcohol, 0 alcohol, without alcohol, alcohol free
+# de: Ohne Alkohol, Kein Alkohol, alkoholfrei
+# es: Sin alcohol, 0 alcohol, sin contenido de alcohol, libre de alcohol
+# nl: Zonder alcohol, Geen alcohol, alcoholvrij
+
+en: Without glycol ethers
+ar: بدون إيثرات الجليكول
+az: Qlikol efirləri olmadan
+bg: Без гликолови естери
+bn: গ্লাইকল ইথার ছাড়া
+cs: Bez glykoléterů
+da: Uden glycolethere
+de: Ohne Glykolether
+el: Χωρίς γλυκολαιθέρες
+es: Sin éteres de glicol
+et: Ilma glükoolieetriteta
+fa: بدون اترهای گلیکول
+fi: Ilman glykolieettereitä
+fr: Sans ethers de glycol
+ga: Gan éitear glycol
+gu: ગ્લાયકોલ ઇથર્સ વગર
+he: ללא אתרי גליקול
+hr: Bez glikol etera
+hu: Glikol-éterek nélkül
+id: Tanpa eter glikol
+is: Án glýkóletera
+it: Senza eteri di glicole
+ja: グリコールエーテル不使用
+ka: გლიკოლის ეთერების გარეშე
+kk: Гликоль эфирлерінсіз
+km: គ្មាន glycol ethers
+kn: ಗ್ಲೈಕಾಲ್ ಈಥರ್‌ಗಳಿಲ್ಲದೆ
+ko: 글리콜 에테르 없음
+ky: Гликол эфирлери жок
+lt: Be glikolio eterių
+lv: Bez glikola ēteriem
+ml: ഗ്ലൈക്കോൾ ഈഥറുകൾ ഇല്ലാതെ
+mn: Гликолийн эфиргүй
+mr: ग्लायकोल इथरशिवाय
+ms: Tanpa glikol eter
+mt: Mingħajr eteri tal-glikol
+ne: ग्लाइकोल ईथर बिना
+nl: Zonder glycolethers
+no: Uten glykoletere
+or: ଗ୍ଲାଇକଲ୍ ଇଥର ବିନା
+pa: ਗਲਾਈਕੋਲ ਈਥਰ ਤੋਂ ਬਿਨਾਂ
+pl: Bez eterów glikolowych
+pt: Sem éteres de glicol
+ro: Fără eteri glicolici
+ru: Без гликолевых эфиров
+si: ග්ලයිකෝල් ඊතර් නොමැතිව
+sk: Bez glykoléterov
+sl: Brez glikol etrov
+sq: Pa eterë glikoli
+sr: Bez glikol etara
+sv: Utan glykoletrar
+sw: Bila ethers za glikoli
+ta: கிளைகோல் ஈதர்கள் இல்லாமல்
+te: గ్లైకాల్ ఈథర్‌లు లేకుండా
+tg: Бе эфирҳои гликол
+th: ไม่มีไกลคอลอีเทอร์
+tk: Glikol efirleri bolmazdan
+tl: Walang glycol ethers
+tr: Glikol eterleri olmadan
+uk: Без гліколевих ефірів
+uz: Glikol efirlarisiz
+vi: Không có glycol ete
+zh-CN: 不含乙二醇醚
+zh-TW: 不含乙二醇醚
+
+en: Without formaldehyde
+ar: بدون الفورمالديهايد
+az: Formaldehidsiz
+bg: Без формалдехид
+bn: ফর্মালডিহাইড ছাড়া
+cs: Bez formaldehydu
+da: Uden formaldehyd
+de: Ohne Formaldehyd
+el: Χωρίς φορμαλδεΰδη
+es: Sin formaldehído
+et: Ilma formaldehüüdita
+fa: بدون فرمالدئید
+fi: Ilman formaldehydiä
+fr: Sans formaldehyde
+ga: Gan formaildéad
+gu: ફોર્માલ્ડીહાઈડ વગર
+he: ללא פורמלדהיד
+hr: Bez formaldehida
+hu: Formaldehid nélkül
+id: Tanpa formaldehida
+is: Án formaldehýðs
+it: Senza formaldeide
+ja: ホルムアルデヒド不使用
+ka: ფორმალდეჰიდის გარეშე
+kk: Формальдегидсіз
+km: គ្មានសារធាតុ Formaldehyde
+kn: ಫಾರ್ಮಾಲ್ಡಿಹೈಡ್ ಇಲ್ಲದೆ
+ko: 포름알데히드 없음
+ky: Формальдегидсиз
+lt: Be formaldehido
+lv: Bez formaldehīda
+ml: ഫോർമാൽഡിഹൈഡ് ഇല്ലാതെ
+mn: Формальдегидгүй
+mr: फॉर्मल्डिहाइडशिवाय
+ms: Tanpa formaldehid
+mt: Mingħajr formaldehyde
+ne: फॉर्मल्डिहाइड बिना
+nl: Zonder formaldehyde
+no: Uten formaldehyd
+or: ଫର୍ମାଲଡିହାଇଡ୍ ବିନା
+pa: ਫਾਰਮਲਡੀਹਾਈਡ ਤੋਂ ਬਿਨਾਂ
+pl: Bez formaldehydu
+pt: Sem formaldeído
+ro: Fără formaldehidă
+ru: Без формальдегида
+si: ෆෝමල්ඩිහයිඩ් රහිත
+sk: Bez formaldehydu
+sl: Brez formaldehida
+sq: Pa formaldehid
+sr: Bez formaldehida
+sv: Utan formaldehyd
+sw: Bila formaldehyde
+ta: பார்மால்டிஹைடு இல்லாமல்
+te: ఫార్మాల్డిహైడ్ లేకుండా
+tg: Бе формальдегид
+th: ไม่มีสารฟอร์มาลดีไฮด์
+tk: Formaldegitsiz
+tl: Walang formaldehyde
+tr: Formaldehit içermez
+uk: Без формальдегіду
+uz: Formaldegidsiz
+vi: Không chứa formaldehyde
+zh-CN: 不含甲醛
+zh-TW: 不含甲醛
+
+en: Sulfate free, No sulfate, Without sulfate
+ar: بدون كبريتات
+az: Sulfatsız
+bg: Без сулфати
+bn: সালফেট মুক্ত
+cs: Bez sulfátů
+da: Uden sulfater
+de: Ohne Sulfate
+el: Χωρίς θειικά άλατα
+es: Sin sulfatos
+et: Sulfaadivaba
+fa: بدون سولفات
+fi: Sulfaatiton
+fr: Sans sulfates, Sans sulphates
+ga: Saor ó shulfáit
+gu: સલ્ફેટ મુક્ત
+he: ללא סולפט
+hr: Bez sulfata
+hu: Szulfátmentes
+id: Bebas sulfat
+is: Súlfatlaust
+it: Senza solfati
+ja: 硫酸塩フリー
+ka: სულფატების გარეშე
+kk: Сульфатсыз
+km: គ្មានស៊ុលហ្វាត
+kn: ಸಲ್ಫೇಟ್ ಮುಕ್ತ
+ko: 황산염 없음
+ky: Сульфатсыз
+lt: Be sulfatų
+lv: Bez sulfātiem
+ml: സൾഫേറ്റ് രഹിതം
+mn: Сульфатгүй
+mr: सल्फेट मुक्त
+ms: Bebas sulfat
+mt: Ħieles mis-sulfat
+ne: सल्फेट मुक्त
+nl: Zonder sulfaten
+no: Uten sulfater
+or: ସଲଫେଟ୍ ମୁକ୍ତ
+pa: ਸਲਫੇਟ ਮੁਕਤ
+pl: Bez siarczanów
+pt: Sem sulfatos
+ro: Fără sulfați
+ru: Без сульфатов
+si: සල්ෆේට් රහිත
+sk: Bez sulfátov
+sl: Brez sulfatov
+sq: Pa sulfate
+sr: Bez sulfata
+sv: Utan sulfater
+sw: Haina salfati
+ta: சல்பேட் இல்லாதது
+te: సల్ఫేట్ లేనిది
+tg: Бе сулфатҳо
+th: ไม่มีซัลเฟต
+tk: Sulfatsyz
+tl: Walang sulfate
+tr: Sülfatsız
+uk: Без сульфатів
+uz: Sulfatsiz
+vi: Không chứa sulfat
+zh-CN: 无硫酸盐
+zh-TW: 無硫酸鹽
+
+en: Without ammonia
+de: Ohne Ammoniak
+es: Sin amoníaco
+fr: Sans ammoniaque
+it: Senza ammoniaca
+ja: アンモニアフリー
+ko: 암모니아 없음
+nl: Zonder ammoniak
+pt: Sem amônia
+zh-CN: 不含氨
+
+en: Without ammonium
+fr: Sans ammonium
+
+en: Without triclosan, Triclosan free, No triclosan
+de: Ohne Triclosan
+es: Sin triclosán
+fr: Sans triclosan
+it: Senza triclosan
+ja: トリクロサン不使用
+ko: 트리클로산 없음
+nl: Zonder triclosan
+pt: Sem triclosan
+zh-CN: 不含三氯生
+
+en: Without mineral oil, Mineral oil free, No mineral oil
+de: Ohne Mineralöl
+es: Sin aceite mineral
+fr: Sans huile minérale
+it: Senza olio minerale
+ja: ミネラルオイル不使用
+ko: 미네랄 오일 없음
+nl: Zonder minerale olie
+pt: Sem óleo mineral
+zh-CN: 不含矿物油
+zh-TW: 不含礦物油
+
+en: Without ingredients derived from petroleum
+ar: بدون مكونات مشتقة من البترول
+az: Neftdən əldə edilən inqrediyentlər olmadan
+bg: Без съставки, получени от нефт
+bn: পেট্রোলিয়াম থেকে উদ্ভূত উপাদান ছাড়া
+cs: Bez složek pocházejících z ropy
+da: Uden ingredienser udvundet af petroleum
+de: Ohne Inhaltsstoffe aus Erdöl
+el: Χωρίς συστατικά που προέρχονται από πετρέλαιο
+es: Sin ingredientes derivados del petróleo
+et: Ilma naftast saadud koostisosadeta
+fa: بدون مواد مشتق شده از نفت
+fi: Ilman öljystä johdettuja ainesosia
+fr: Sans ingredients issus du pétrole, sans derive du pétrole
+ga: Gan comhábhair a dhíorthaítear ó pheitriliam
+gu: પેટ્રોલિયમમાંથી મેળવેલા ઘટકો વગર
+he: ללא רכיבים שמקורם מנפט
+hr: Bez sastojaka dobivenih iz nafte
+hu: Kőolajból származó összetevők nélkül
+id: Tanpa bahan yang berasal dari petroleum
+is: Án innihaldsefna unnin úr jarðolíu
+it: Senza ingredienti derivati ​​dal petrolio
+ja: 石油由来の成分は含まれていません
+ka: ნავთობიდან მიღებული ინგრედიენტების გარეშე
+kk: Мұнайдан алынған ингредиенттерсіз
+km: គ្មានគ្រឿងផ្សំដែលបានមកពីប្រេងកាត
+kn: ಪೆಟ್ರೋಲಿಯಂನಿಂದ ಪಡೆದ ಪದಾರ್ಥಗಳಿಲ್ಲದೆ
+ko: 석유에서 추출한 성분 없음
+ky: Нефтьден алынган ингредиенттерсиз
+lt: Be ingredientų, gautų iš naftos
+lv: Bez sastāvdaļām, kas iegūtas no naftas
+ml: പെട്രോളിയത്തിൽ നിന്ന് ഉത്പാദിപ്പിക്കുന്ന ചേരുവകൾ ഇല്ലാതെ
+mn: Нефть боловсруулсан орцгүй
+mr: पेट्रोलियमपासून बनवलेल्या घटकांशिवाय
+ms: Tanpa bahan yang diperoleh daripada petroleum
+mt: Mingħajr ingredjenti derivati miż-żejt
+ne: पेट्रोलियमबाट प्राप्त सामग्रीहरू बिना
+nl: Zonder ingrediënten afkomstig van aardolie
+no: Uten ingredienser utvunnet av petroleum
+or: ପେଟ୍ରୋଲିୟମରୁ ଉତ୍ପାଦିତ ଉପାଦାନ ବିନା
+pa: ਪੈਟਰੋਲੀਅਮ ਤੋਂ ਪ੍ਰਾਪਤ ਕੀਤੀ ਸਮੱਗਰੀ ਤੋਂ ਬਿਨਾਂ
+pl: Bez składników pochodzących z ropy naftowej
+pt: Sem ingredientes derivados de petróleo
+ro: Fără ingrediente derivate din petrol
+ru: Без ингредиентов, полученных из нефти
+si: ඛනිජ තෙල් වලින් ලබාගත් අමුද්‍රව්‍ය නොමැත
+sk: Bez zložiek získaných z ropy
+sl: Brez sestavin, pridobljenih iz nafte
+sq: Pa përbërës të nxjerrë nga nafta
+sr: Bez sastojaka dobijenih od nafte
+sv: Inga ingredienser från petroleum
+sw: Bila viambato vinavyotokana na petroli
+ta: பெட்ரோலியத்திலிருந்து பெறப்பட்ட பொருட்கள் இல்லாமல்
+te: పెట్రోలియం నుండి పొందిన పదార్థాలు లేకుండా
+tg: Бе компонентҳои аз нафт гирифташуда
+th: ไม่มีส่วนผสมที่ได้จากปิโตรเลียม
+tk: Nebitden alnan ingredientler bolmazdan
+tl: Walang sangkap na nagmula sa petrolyo
+tr: Petrol türevi içerik olmadan
+uk: Без інгредієнтів, отриманих з нафти
+uz: Neftdan olingan ingredientlarsiz
+vi: Không có thành phần có nguồn gốc từ dầu mỏ
+zh-CN: 不含石油衍生成分
+zh-TW: 不含石油衍生成分
+
+en: Without microplastics, Microplastic free, No microplastics
+de: Ohne Mikroplastik
+es: Sin microplásticos
+fr: Sans microplastiques
+it: Senza microplastiche
+ja: マイクロプラスチックフリー
+ko: 미세 플라스틱 없음
+nl: Zonder microplastics
+pt: Sem microplásticos
+zh-CN: 不含微塑料
+zh-TW: 不含微塑膠
+
+en: Without plastic microbeads
+ar: بدون حبيبات بلاستيكية دقيقة
+az: Plastik mikroşarlarsız
+bg: Без пластмасови микрочастици
+bn: প্লাস্টিকের মাইক্রোবিড ছাড়া
+cs: Bez plastových mikročástic
+da: Uden plastikmikroperler
+de: Ohne Plastik-Mikroperlen
+el: Χωρίς πλαστικά μικροσφαιρίδια
+es: Sin microesferas de plástico
+et: Ilma plastmassist mikrohelmesteta
+fa: بدون میکروبیدهای پلاستیکی
+fi: Ilman muovisia mikromuoveja
+fr: sans-microbilles-de-plastique, sans-mirobilles-de-plastique, sans-micro-billes-de-plastique, formule-sans-microplastique
+ga: Gan micrea-bhealaí plaisteacha
+gu: પ્લાસ્ટિક માઇક્રોબીડ્સ વિના
+he: ללא מיקרו-חרוזי פלסטיק
+hr: Bez plastičnih mikrogranula
+hu: Műanyag mikrogömbök nélkül
+id: Tanpa mikroba plastik
+is: Án plastíks örsmár
+ja: プラスチックマイクロビーズ不使用
+ka: პლასტმასის მიკრომარცვლების გარეშე
+kk: Пластик микросферасыз
+km: គ្មានមីក្រូប៊ីតប្លាស្ទិក
+kn: ಪ್ಲಾಸ್ಟಿಕ್ ಮೈಕ್ರೋಬೀಡ್ಸ್ ಇಲ್ಲದೆ
+ko: 플라스틱 마이크로비드 없음
+ky: Пластик микросфералары жок
+lt: Be plastikinių mikrogranulių
+lv: Bez plastmasas mikrodaļiņām
+ml: പ്ലാസ്റ്റിക് മൈക്രോബീഡുകൾ ഇല്ലാതെ
+mn: Хуванцар бичил бөмбөлөггүй
+mr: प्लास्टिक मायक्रोबीड्सशिवाय
+ms: Tanpa manik mikro plastik
+mt: Mingħajr mikrożibeġ tal-plastik
+ne: प्लास्टिक माइक्रोबीड्स बिना
+nl: Zonder plastic microbolletjes
+no: Uten plastmikroperler
+or: ପ୍ଲାଷ୍ଟିକ୍ ମାଇକ୍ରୋବିଡ୍ସ ବିନା
+pa: ਪਲਾਸਟਿਕ ਮਾਈਕ੍ਰੋਬੀਡ ਤੋਂ ਬਿਨਾਂ
+pl: Bez plastikowych mikrogranulek
+pt: Sem microesferas de plástico
+ro: Fără microbile de plastic
+ru: Без пластиковых микрогранул
+si: ප්ලාස්ටික් ක්ෂුද්‍ර පබළු රහිත
+sk: Bez plastových mikročastíc
+sl: Brez plastičnih mikrodelcev
+sq: Pa mikrorruaza plastike
+sr: Bez plastičnih mikrogranula
+sv: Utan plastmikroplaster
+sw: Bila chembechembe za plastiki
+ta: பிளாஸ்டிக் மைக்ரோபீட்ஸ் இல்லாமல்
+te: ప్లాస్టిక్ మైక్రోబీడ్స్ లేకుండా
+tg: Бе микрогранулҳои пластикӣ
+th: ไม่มีไมโครบีดพลาสติก
+tk: Plastik mikrobölejikleri ýok
+tl: Walang mga plastic microbeads
+tr: Plastik mikro boncuksuz
+uk: Без пластикових мікрогранул
+uz: Plastik mikroburchaklarsiz
+vi: Không có hạt vi nhựa
+zh-CN: 不含塑料微珠
+zh-TW: 不含塑膠微粒
+
+en: Without binder
+fr: Sans agent liant
+
+en: Ophthalmologically tested, Ophthalmologist tested
+de: Augenärztlich getestet
+es: Oftalmológicamente probado, Probado oftalmológicamente
+fr: Testé ophtalmologiquement
+it: Testato oftalmologicamente
+ja: 眼科医によるテスト済み
+ko: 안과 의사 테스트 완료
+nl: Oftalmologisch getest
+pt: Testado oftalmologicamente
+zh-CN: 经眼科医生测试
+zh-TW: 經眼科醫生測試
+
+en: Tested under ophthalmological control
+de: Unter augenärztlicher Kontrolle getestet
+es: Testado bajo control oftalmológico
+fr: Testé sous contrôle ophtalmologique
+it: Testato sotto controllo oftalmologico
+ja: 眼科医の管理下でテスト済み
+ko: 안과 전문의의 관리하에 테스트됨
+nl: Getest onder oogheelkundige controle
+pt: Testado sob controle oftalmológico
+zh-CN: 经眼科医生监控测试
+zh-TW: 經眼科醫生監控測試
+
+en: Tested under gynecological control
+zh-CN: 经妇科医生监控测试
+zh-TW: 經婦科醫生監控測試
+ar: تم اختباره تحت إشراف أطباء النساء
+az: Ginekoloq nəzarəti altında test edilmişdir
+bg: Тестван под гинекологичен контрол
+bn: স্ত্রীরোগ বিশেষজ্ঞের তত্ত্বাবধানে পরীক্ষিত
+cs: Testováno pod gynekologickou kontrolou
+da: Testet under gynækologisk kontrol
+de: Unter gynäkologischer Kontrolle getestet
+el: Δοκιμασμένο υπό γυναικολογικό έλεγχο
+es: Testado bajo control ginecológico
+et: Testitud günekoloogi järelevalve all
+fa: تست شده تحت نظر متخصص زنان
+fi: Testattu gynekologin valvonnassa
+fr: Testé sous contrôle gynécologique
+ga: Tástáladh faoi rialú gínéiceolaíoch
+gu: સ્ત્રીરોગવિજ્ઞાની નિયંત્રણ હેઠળ પરીક્ષણ કરાયેલ
+he: נבדק תחת פיקוח גינקולוגי
+hr: Testirano pod ginekološkim nadzorom
+hu: Nőgyógyászati ellenőrzés mellett tesztelve
+id: Diuji di bawah pengawasan ginekologi
+is: Prófað undir kvensjúkdómafræðilegu eftirliti
+it: Testato sotto controllo ginecologico
+ja: 婦人科医の管理下でテスト済み
+ka: შემოწმებულია გინეკოლოგის კონტროლის ქვეშ
+kk: Гинекологиялық бақылауда тексерілген
+km: ត្រូវបានធ្វើតេស្តក្រោមការត្រួតពិនិត្យរោគស្ត្រី
+kn: ಸ್ತ್ರೀರೋಗತಜ್ಞರ ನಿಯಂತ್ರಣದಲ್ಲಿ ಪರೀಕ್ಷಿಸಲಾಗಿದೆ
+ko: 산부인과 전문의의 관리하에 테스트됨
+ky: Гинекологдун көзөмөлүндө текшерилген
+lt: Ištirta prižiūrint ginekologui
+lv: Pārbaudīts ginekologa uzraudzībā
+ml: ഗൈനക്കോളജിക്കൽ നിയന്ത്രണത്തിൽ പരീക്ഷിച്ചു
+mn: Эмэгтэйчүүдийн эмчийн хяналтан дор туршигдсан
+mr: स्त्रीरोगतज्ज्ञांच्या नियंत्रणाखाली चाचणी केली जाते
+ms: Diuji di bawah kawalan ginekologi
+mt: Ittestjat taħt kontroll ġinekoloġiku
+ne: स्त्री रोग विशेषज्ञको नियन्त्रणमा परीक्षण गरिएको
+nl: Getest onder gynaecologische controle
+no: Testet under gynekologisk kontroll
+or: ସ୍ତ୍ରୀ ରୋଗ ବିଶେଷଜ୍ଞଙ୍କ ତତ୍ତ୍ଵାବଧାନରେ ପରୀକ୍ଷିତ
+pa: ਗਾਇਨੀਕੋਲੋਜੀਕਲ ਨਿਯੰਤਰਣ ਅਧੀਨ ਟੈਸਟ ਕੀਤਾ ਗਿਆ
+pl: Testowane pod kontrolą ginekologiczną
+pt: Testado sob controle ginecológico
+ro: Testat sub control ginecologic
+ru: Протестировано под гинекологическим контролем
+si: නාරිවේද පාලනය යටතේ පරීක්ෂා කරන ලදී
+sk: Testované pod gynekologickou kontrolou
+sl: Testirano pod ginekološkim nadzorom
+sq: Testuar nën kontrollin gjinekologjik
+sr: Testirano pod ginekološkom kontrolom
+sv: Testad under gynekologisk kontroll
+sw: Imejaribiwa chini ya udhibiti wa gynecological
+ta: பெண்ணோயியல் கட்டுப்பாட்டின் கீழ் சோதனை செய்யப்பட்டது
+te: గైనకాలజీ నియంత్రణలో పరీక్షించబడింది
+tg: Таҳти назорати гинекологӣ санҷида шудааст
+th: ทดสอบภายใต้การควบคุมทางนรีเวชวิทยา
+tk: Ginekolog gözegçiliginde synagdan geçirilen
+tl: Nasubukan sa ilalim ng kontrol ng gynecological
+tr: Jinekolojik kontrol altında test edilmiştir
+uk: Перевірено під гінекологічним контролем
+uz: Ginekologik nazorat ostida sinovdan o'tgan
+vi: Đã kiểm nghiệm dưới sự kiểm soát của bác sĩ phụ khoa
+
+en: Gynecologically tested
+de: Gynäkologisch getestet
+es: Ginecológicamente probado
+it: Testato ginecologicamente
+ja: 婦人科医によるテスト済み
+ko: 산부인과 전문의 테스트 완료
+nl: Gynaecologisch getest
+pt: Testado ginecologicamente
+zh-CN: 经妇科医生测试
+zh-TW: 經婦科醫生測試
+
+en: Clinically tested
+de: Klinisch getestet
+es: Clínicamente probado
+fr: Testé cliniquement
+it: Clinicamente testato
+ja: 臨床的にテスト済み
+ko: 임상적으로 테스트됨
+nl: Klinisch getest
+pt: Testado clinicamente
+zh-CN: 经临床测试
+zh-TW: 經臨床測試
+
+en: Without essential oil
+ar: بدون زيت عطري
+az: Efir yağı olmadan
+bg: Без етерично масло
+bn: অপরিহার্য তেল ছাড়া
+cs: Bez esenciálního oleje
+da: Uden æterisk olie
+de: Ohne ätherisches Öl
+el: Χωρίς αιθέριο έλαιο
+es: Sin aceite esencial
+et: Ilma eeterliku õlita
+fa: بدون روغن اساسی
+fi: Ilman eteeristä öljyä
+fr: Sans huile essentielle
+ga: Gan ola riachtanach
+gu: આવશ્યક તેલ વગર
+he: ללא שמן אתרי
+hr: Bez eteričnog ulja
+hu: Illóolaj nélkül
+id: Tanpa minyak esensial
+is: Án ilmkjarnaolíu
+it: Senza olio essenziale
+ja: エッセンシャルオイル不使用
+ka: ეთერზეთის გარეშე
+kk: Эфир майынсыз
+km: គ្មានប្រេងសំខាន់ៗ
+kn: ಸಾರಭೂತ ತೈಲವಿಲ್ಲದೆ
+ko: 에센셜 오일 없음
+ky: Эфир майы жок
+lt: Be eterinio aliejaus
+lv: Bez ēteriskās eļļas
+ml: എസ്സെൻഷ്യൽ ഓയിൽ ഇല്ലാതെ
+mn: Чухал тосгүй
+mr: आवश्यक तेलाशिवाय
+ms: Tanpa minyak pati
+mt: Mingħajr żejt essenzjali
+ne: आवश्यक तेल बिना
+nl: Zonder essentiële olie
+no: Uten eterisk olje
+or: ଅତ୍ୟାବଶ୍ୟକ ତେଲ ବିନା
+pa: ਜ਼ਰੂਰੀ ਤੇਲ ਤੋਂ ਬਿਨਾਂ
+pl: Bez olejku eterycznego
+pt: Sem óleo essencial
+ro: Fără ulei esențial
+ru: Без эфирного масла
+si: සගන්ධ තෙල් රහිත
+sk: Bez esenciálneho oleja
+sl: Brez eteričnega olja
+sq: Pa vaj esencial
+sr: Bez eteričnog ulja
+sv: Utan eterisk olja
+sw: Bila mafuta muhimu
+ta: அத்தியாவசிய எண்ணெய் இல்லாமல்
+te: ముఖ్యమైన నూనె లేకుండా
+tg: Бе равғани эфирӣ
+th: ไม่มีน้ำมันหอมระเหย
+tk: Efir ýagy bolmazdan
+tl: Walang mahahalagang langis
+tr: Esansiyel yağsız
+uk: Без ефірної олії
+uz: Efir moyisiz
+vi: Không có tinh dầu
+zh-CN: 不含精油
+zh-TW: 不含精油
+
+en: Without menthol
+fr: Sans menthol
+
+en: Without mint
+fr: Sans menthe
+
+en: Without lotion
+fr: Sans lotion
+
+en: Without ionization
+fr: Sans ionisation
+
+# already in food labels.txt
+# en:Palm oil free, Without palm oil, No palm oil
+# es:Sin aceite de palma
+# fr:Sans huile de palme
+# de:Ohne Palmöl
+# nl:Zonder palmolie
+
+# already in food labels.txt
+# en:Sustainable Palm Oil, Certified Sustainable Palm Oil, RSPO
+# fr:Huile de palme durable, Huile de palme certifiée durable, RSPO
+# es:Aceite de palma sostenible, Aceite de palma certificado sostenible, RSPO
+# de:Nachhaltiges Palmöl, Zertifiziertes nachhaltiges Palmöl, RSPO
+# nl:Duurzame palmolie, Gecertificeerde duurzame palmolie, RSPO
+
+fr: Ne pique pas les yeux
+en: Does not sting the eyes, No more tears, No tears, No tears formula
+de: Brennt nicht in den Augen, Keine Tränen, Tränenfrei, Keine Tränen-Formel
+es: No irrita los ojos, Sin lágrimas, Fórmula sin lágrimas
+nl: Prikt niet in de ogen, Geen tranen, Geen tranen formule
+
+fr: Non comédogène, Non obstruant les pores
+en: Non comedogenic, Non pore-clogging
+de: Nicht komedogen, Nicht porenverstopfend
+es: No comedogénico, No obstruye los poros
+it: Non comedogenico, Non ostruisce i pori
+ja: ノンコメドジェニック、毛穴を詰まらせない
+ko: 논코메도제닉, 모공을 막지 않음
+pt: Nao comedogenico
+zh-CN: 非致粉刺性，不堵塞毛孔
+
+# already in food labels.txt
+# fr:Sans conservateurs, sans conservateur, 0 conservateur
+# en:No preservatives, Preservatives free
+# es:Sin conservantes, libre de conservantes
+# de:Ohne Konservierungsstoffe, Konservierungsstoffe frei
+# nl:Zonder conserveermiddelen, conserveermiddelvrij
+
+en: Waterproof, splashproof, water resistant
+ar: ضد للماء, مقاوم للرذاذ, مقاوم للمياه
+az: Su keçirməz, sıçrayışa davamlı, suya davamlı
+bg: Водоустойчив, устойчив на пръски, водоустойчив
+bn: জলরোধী, স্প্ল্যাশপ্রুফ, জল প্রতিরোধী
+cs: Voděodolný, odolný proti stříkající vodě, voděodolný
+da: Vandtæt, stænktæt, vandafvisende
+de: Wasserdicht, spritzwassergeschützt, wasserfest
+el: Αδιάβροχο, ανθεκτικό στο πιτσίλισμα, αδιάβροχο
+es: Resistente al agua, a prueba de salpicaduras, resistente al agua
+et: Veekindel, pritsmekindel, veekindel
+fa: ضد آب, مقاوم در برابر پاشش, مقاوم در برابر آب
+fi: Vedenpitävä, roisketiivis, vettähylkivä
+fr: Résiste à l'eau, Résistant à l'eau
+ga: Uiscedhíonach, splancdhíonach, uisce-resistant
+gu: વોટરપ્રૂફ, સ્પ્લેશપ્રૂફ, વોટર રેઝિસ્ટન્ટ
+he: עמיד במים, עמיד בפני התזה, עמיד במים
+hr: Vodootporan, otporan na prskanje, vodootporan
+hu: Vízálló, cseppálló, vízálló
+id: Tahan air, tahan percikan, tahan air
+is: Vatnsheldur, skvettaþolinn, vatnsheldur
+it: Impermeabile, resistente agli spruzzi, resistente all'acqua
+ja: 防水, 防滴, 耐水性
+ka: წყალგაუმტარი, შხეფებისგან დამცავი, წყალგამძლე
+kk: Су өткізбейтін, шашырауға төзімді, суға төзімді
+km: មិនជ្រាបទឹក, ធន់នឹងការខ្ទាត, ធន់នឹងទឹក
+kn: ಜಲನಿರೋಧಕ, ಸ್ಪ್ಲಾಶ್‌ಪ್ರೂಫ್, ವಾಟರ್ ರೆಸಿಸ್ಟೆಂಟ್
+ko: 방수, 생활 방수, 내수성
+ky: Суу өткөрбөйт, чачырандыга чыдамдуу, сууга чыдамдуу
+lt: Atsparus vandeniui, atsparus purslams, atsparus vandeniui
+lv: Ūdensizturīgs, noturīgs pret šļakatām, ūdensizturīgs
+ml: വാട്ടർപ്രൂഫ്, സ്പ്ലാഷ് പ്രൂഫ്, വാട്ടർ റെസിസ്റ്റന്റ്
+mn: Усны хамгаалалттай, цацралын хамгаалалттай, усны хамгаалалттай
+mr: जलरोधक, स्प्लॅशप्रूफ, जलरोधक
+ms: Kalis air, kalis percikan, kalis air
+mt: Ma jgħaddix ilma, reżistenti għat-titjir, reżistenti għall-ilma
+ne: वाटरप्रूफ, स्प्ल्याशप्रूफ, पानी प्रतिरोधी
+nl: Waterdicht, spatwaterdicht, waterbestendig
+no: Vanntett, sprutsikker, vannavstøtende
+or: ଜଳରୋଧୀ, ସ୍ପ୍ଲାସ୍ ପ୍ରୁଫ୍, ଜଳ ପ୍ରତିରୋଧକ
+pa: ਵਾਟਰਪ੍ਰੂਫ਼, ਸਪਲੈਸ਼ਪਰੂਫ਼, ਵਾਟਰ ਰੈਜ਼ਿਸਟੈਂਟ
+pl: Wodoodporny, odporny na zachlapania, wodoodporny
+pt: À prova de água, à prova de salpicos, resistente à água
+ro: Impermeabil, rezistent la stropi, rezistent la apă
+ru: Водонепроницаемый, брызгозащищенный, водостойкий
+si: ජල ආරක්ෂිත, විසිරීම් ආරක්ෂිත, ජල ප්රතිරෝධී
+sk: Vodotesný, odolný voči striekajúcej vode, vodoodolný
+sl: Vodoodporen, odporen proti brizganju, vodoodporen
+sq: I papërshkueshëm nga uji, rezistent ndaj spërkatjeve, rezistent ndaj ujit
+sr: Водоотпоран, отпоран на прскање, водоотпоран
+sv: Vattentät, stänksäker, vattentålig
+sw: Haipitishi maji, haipitishi maji, hustahimili maji
+ta: நீர்ப்புகா, தெறிக்காத, நீர் எதிர்ப்பு
+te: నీటిని నిరోధించే, స్ప్లాష్ ప్రూఫ్, నీటి నిరోధకత
+tg: Обногузар, ба пошидан тобовар, обногузар
+th: กันน้ำ, กันน้ำกระเซ็น, ทนน้ำ
+tk: Suw geçirmeýän, suw sepilmegine çydamly, suwa çydamly
+tl: Hindi tinatagusan ng tubig, splashproof, water resistant
+tr: Su geçirmez, sıçramaya dayanıklı, suya dayanıklı
+uk: Водонепроникний, стійкий до бризок, водостійкий
+uz: Suv o'tkazmaydigan, sachrashga chidamli, suvga chidamli
+vi: Chống thấm nước, chống bắn tóe, chịu nước
+zh-CN: 防水, 防溅, 耐水
+zh-TW: 防水, 防潑濺, 耐水
+
+fr: Anti-traces, anti-trace
 
-<en:EU Organic
-en:CY-BIO-001
-country:Cyprus
-
-<en:EU Organic
-en:CY-BIO-002
-country:Cyprus
-
-<en:EU Organic
-en:CZ-BIO-001
-
-<en:EU Organic
-en:CZ-BIO-002
-
-<en:EU Organic
-en:CZ-BIO-003
-
-<en:EU Organic
-en:CZ-BIO-004
-
-<en:EU Organic
-en:DE-ÖKO-001
-country:Germany
-
-<en:EU Organic
-en:DE-ÖKO-003
-country:Germany
-
-<en:EU Organic
-en:DE-ÖKO-005
-country:Germany
-
-<en:EU Organic
-en:DE-ÖKO-006
-country:Germany
-
-<en:EU Organic
-en:DE-ÖKO-007
-country:Germany
-
-<en:EU Organic
-en:DE-ÖKO-009
-country:Germany
-
-<en:EU Organic
-en:DE-ÖKO-012
-country:Germany
-
-<en:EU Organic
-en:DE-ÖKO-013
-country:Germany
-
-<en:EU Organic
-en:DE-ÖKO-021
-country:Germany
-
-<en:EU Organic
-en:DE-ÖKO-022
-country:Germany
-
-<en:EU Organic
-en:DE-ÖKO-024
-country:Germany
-
-<en:EU Organic
-en:DE-ÖKO-034
-country:Germany
-
-<en:EU Organic
-en:DE-ÖKO-037
-country:Germany
-
-<en:EU Organic
-en:DE-ÖKO-039
-country:Germany
-
-<en:EU Organic
-en:DE-ÖKO-044
-country:Germany
-
-<en:EU Organic
-en:DE-ÖKO-060
-country:Germany
-
-<en:EU Organic
-en:DE-ÖKO-064
-country:Germany
-
-<en:EU Organic
-en:DE-ÖKO-070
-country:Germany
-
-<en:EU Organic
-en:DK-ØKO-050
-
-<en:EU Organic
-en:DK-ØKO-100
-
-<en:EU Organic
-en:DK-ØKO-200
-
-<en:EU Organic
-en:DK-ØKO-300
-
-<en:EU Organic
-en:EE-ÖKO-01
-
-<en:EU Organic
-en:EE-ÖKO-02
-
-<en:EU Organic
-en:ES-EC0-017-AN
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-001
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-001-AN
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-001-CL
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-001-CM
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-002
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-002-AN
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-002-AR
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-002-CL
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-002-CM
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-003-AN
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-004
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-004-AN
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-004-AR
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-005
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-005-AN
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-005-AR
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-006-AR
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-007-AR
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-008-AR
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-009-AR
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-010-AN
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-010-AR
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-011-AN
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-011-AR
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-011-CM
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-012-AS
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-013-IB
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-014-IC
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-015-CN
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-016-CL
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-017
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-017-CL
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-017-CM
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-019-CT
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-020-CV
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-021-EX
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-022-GA
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-023-MA
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-024-MU
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-025-NA
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-026-VAS
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-027-RI
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-028-AN
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-028-AR
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-028-CL
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-028-CM
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-029-AN
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-029-AR
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-029-CL
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-030-AN
-country:Spain
-
-<en:EU Organic
-en:ES-ECO-031-CL
-country:Spain
-
-<en:EU Organic
-en:FI-EKO-101
-country:Finland
-
-<en:EU Organic
-en:FI-EKO-102
-country:Finland
-
-<en:EU Organic
-en:FI-EKO-103
-country:Finland
-
-<en:EU Organic
-en:FI-EKO-104
-country:Finland
-
-<en:EU Organic
-en:FI-EKO-105
-country:Finland
-
-<en:EU Organic
-en:FI-EKO-106
-country:Finland
-
-<en:EU Organic
-en:FI-EKO-107
-country:Finland
-
-<en:EU Organic
-en:FI-EKO-108
-country:Finland
-
-<en:EU Organic
-en:FI-EKO-109
-country:Finland
-
-<en:EU Organic
-en:FI-EKO-110
-country:Finland
-
-<en:EU Organic
-en:FI-EKO-111
-country:Finland
-
-<en:EU Organic
-en:FI-EKO-112
-country:Finland
-
-<en:EU Organic
-en:FI-EKO-113
-country:Finland
-
-<en:EU Organic
-en:FI-EKO-114
-country:Finland
-
-<en:EU Organic
-en:FI-EKO-115
-country:Finland
-
-<en:EU Organic
-en:FI-EKO-201
-country:Finland
-
-<en:EU Organic
-en:FI-EKO-301
-country:Finland
-
-<en:EU Organic
-en:FI-EKO-401
-country:Finland
-
-<en:EU Organic
-en:FR-BIO-01
-country:France
-
-<en:EU Organic
-en:FR-BIO-07
-country:France
-
-<en:EU Organic
-en:FR-BIO-09
-country:France
-
-<en:EU Organic
-en:FR-BIO-10
-country:France
-
-<en:EU Organic
-en:FR-BIO-12
-country:France
-
-<en:EU Organic
-en:FR-BIO-13
-country:France
-
-<en:EU Organic
-en:FR-BIO-15
-country:France
-
-<en:EU Organic
-en:FR-BIO-16
-country:France
-
-<en:EU Organic
-en:GB-ORG-01
-country:United Kingdom
-
-<en:EU Organic
-en:GB-ORG-02
-country:United Kingdom
-
-<en:EU Organic
-en:GB-ORG-03
-country:United Kingdom
-
-<en:EU Organic
-en:GB-ORG-04
-country:United Kingdom
-
-<en:EU Organic
-en:GB-ORG-05
-country:United Kingdom
-
-<en:EU Organic
-en:GB-ORG-06
-country:United Kingdom
-
-<en:EU Organic
-en:GB-ORG-07
-country:United Kingdom
-
-<en:EU Organic
-en:GB-ORG-09
-country:United Kingdom
-
-<en:EU Organic
-en:GB-ORG-13
-country:United Kingdom
-
-<en:EU Organic
-en:GB-ORG-16
-country:United Kingdom
-
-<en:EU Organic
-en:GB-ORG-17
-country:United Kingdom
-
-<en:EU Organic
-en:GR-BIO-01
-country:Greece
-
-<en:EU Organic
-en:GR-BIO-02
-country:Greece
-
-<en:EU Organic
-en:GR-BIO-03
-country:Greece
-
-<en:EU Organic
-en:GR-BIO-04
-country:Greece
-
-<en:EU Organic
-en:GR-BIO-05
-country:Greece
-
-<en:EU Organic
-en:GR-BIO-06
-country:Greece
-
-<en:EU Organic
-en:GR-BIO-07
-country:Greece
-
-<en:EU Organic
-en:GR-BIO-08
-country:Greece
-
-<en:EU Organic
-en:GR-BIO-10
-country:Greece
-
-<en:EU Organic
-en:GR-BIO-12
-country:Greece
-
-<en:EU Organic
-en:GR-BIO-13
-country:Greece
-
-<en:EU Organic
-en:GR-BIO-14
-country:Greece
-
-<en:EU Organic
-en:GR-BIO-15
-country:Greece
-
-<en:EU Organic
-en:GR-BIO-16
-country:Greece
-
-<en:EU Organic
-en:GR-BIO-17
-country:Greece
-
-<en:EU Organic
-en:GR-BIO-18
-country:Greece
-
-<en:EU Organic
-en:HR-EKO-01
-
-<en:EU Organic
-en:HR-EKO-02
-
-<en:EU Organic
-en:HR-EKO-03
-
-<en:EU Organic
-en:HR-EKO-04
-
-<en:EU Organic
-en:HR-EKO-05
-
-<en:EU Organic
-en:HR-EKO-06
-
-<en:EU Organic
-en:HR-EKO-07
-
-<en:EU Organic
-en:HR-EKO-08
-
-<en:EU Organic
-en:HU-ÖKO-01
-
-<en:EU Organic
-en:HU-ÖKO-02
-
-<en:EU Organic
-en:IE-ORG-01
-country:Ireland
-
-<en:EU Organic
-en:IE-ORG-02
-country:Ireland
-
-<en:EU Organic
-en:IE-ORG-03
-country:Ireland
-
-<en:EU Organic
-en:IE-ORG-04
-country:Ireland
-
-<en:EU Organic
-en:IE-ORG-05
-country:Ireland
-
-<en:EU Organic
-en:IT-BIO-001-BZ
-country:Italy
-
-<en:EU Organic
-en:IT-BIO-002
-country:Italy
-
-<en:EU Organic
-en:IT-BIO-002-BZ
-
-<en:EU Organic
-en:IT-BIO-003
-country:Italy
-
-<en:EU Organic
-en:IT-BIO-003-BZ
-
-<en:EU Organic
-en:IT-BIO-004
-country:Italy
-
-<en:EU Organic
-en:IT-BIO-005
-country:Italy
-
-<en:EU Organic
-en:IT-BIO-006
-country:Italy
-
-<en:EU Organic
-en:IT-BIO-007
-country:Italy
-
-<en:EU Organic
-en:IT-BIO-008
-country:Italy
-
-<en:EU Organic
-en:IT-BIO-009
-country:Italy
-
-<en:EU Organic
-en:IT-BIO-010
-country:Italy
-
-<en:EU Organic
-en:IT-BIO-011
-country:Italy
-
-<en:EU Organic
-en:IT-BIO-012
-country:Italy
-
-<en:EU Organic
-en:IT-BIO-013
-country:Italy
-
-<en:EU Organic
-en:IT-BIO-014
-country:Italy
-
-<en:EU Organic
-en:IT-BIO-015
-country:Italy
-
-<en:EU Organic
-en:li-bio-969
-
-<en:EU Organic
-en:LT-EKO-001
-
-<en:EU Organic
-en:LU-BIO-01
-
-<en:EU Organic
-en:LU-BIO-04
-
-<en:EU Organic
-en:LU-BIO-05
-
-<en:EU Organic
-en:LU-BIO-06
-
-<en:EU Organic
-en:LU-BIO-07
-
-<en:EU Organic
-en:LV-BIO-01
-
-<en:EU Organic
-en:LV-BIO-02
-
-<en:EU Organic
-en:MT-ORG-01
-
-<en:EU Organic
-en:NL-BIO-01
-
-<en:EU Organic
-en:NO-ØKO-01
-
-<en:EU Organic
-en:PL-EKO-01
-country:Poland
-
-<en:EU Organic
-en:PL-EKO-02
-country:Poland
-
-<en:EU Organic
-en:PL-EKO-03
-country:Poland
-
-<en:EU Organic
-en:PL-EKO-04
-country:Poland
-
-<en:EU Organic
-en:PL-EKO-05
-country:Poland
-
-<en:EU Organic
-en:PL-EKO-06
-country:Poland
-
-<en:EU Organic
-en:PL-EKO-07
-country:Poland
-
-<en:EU Organic
-en:PL-EKO-08
-country:Poland
-
-<en:EU Organic
-en:PL-EKO-09
-country:Poland
-
-<en:EU Organic
-en:PL-EKO-10
-country:Poland
-
-<en:EU Organic
-en:PT-BIO 01
-country:Portugal
-
-<en:EU Organic
-en:PT-BIO-02
-country:Portugal
-
-<en:EU Organic
-en:PT-BIO-03
-country:Portugal
-
-<en:EU Organic
-en:PT-BIO-04
-country:Portugal
-
-<en:EU Organic
-en:PT-BIO-05
-country:Portugal
-
-<en:EU Organic
-en:PT-BIO-06
-country:Portugal
-
-<en:EU Organic
-en:PT-BIO-07
-country:Portugal
-
-<en:EU Organic
-en:PT-BIO-08
-country:Portugal
-
-<en:EU Organic
-en:PT-BIO-09
-country:Portugal
-
-<en:EU Organic
-en:PT-BIO-10
-country:Portugal
-
-<en:EU Organic
-en:PT-BIO-11
-country:Portugal
-
-<en:EU Organic
-en:RO-ECO-001
-country:Romania
-
-<en:EU Organic
-en:RO-ECO-005
-country:Romania
-
-<en:EU Organic
-en:RO-ECO-007
-country:Romania
-
-<en:EU Organic
-en:RO-ECO-008
-country:Romania
-
-<en:EU Organic
-en:RO-ECO-009
-country:Romania
-
-<en:EU Organic
-en:RO-ECO-010
-country:Romania
-
-<en:EU Organic
-en:RO-ECO-014
-country:Romania
-
-<en:EU Organic
-en:RO-ECO-015
-country:Romania
-
-<en:EU Organic
-en:RO-ECO-016
-country:Romania
-
-<en:EU Organic
-en:RO-ECO-018
-country:Romania
-
-<en:EU Organic
-en:RO-ECO-021
-country:Romania
-
-<en:EU Organic
-en:RO-ECO-022
-country:Romania
-
-<en:EU Organic
-en:RO-ECO-023
-country:Romania
-
-<en:EU Organic
-en:SE-EKO-01
-
-<en:EU Organic
-en:SE-EKO-03
-
-<en:EU Organic
-en:SE-EKO-04
-
-<en:EU Organic
-en:SE-EKO-05
-
-<en:EU Organic
-en:SE-EKO-07
-
-<en:EU Organic
-en:SE-EKO-08
-
-<en:EU Organic
-en:SI-EKO-001
-
-<en:EU Organic
-en:SI-EKO-002
-
-<en:EU Organic
-en:SI-EKO-003
-
-<en:EU Organic
-en:SK-BIO-002
-
-<en:EU Organic
-en:SK-BIO-003
-
-<en:Fair trade
-<en:Organic
-fr:Bio-équitable, bioéquitable
-
-<en:Organic
-en:Soil Association Organic, Soil Association
-wikidata:en:Q7554873
-
-<en:Organic
-en:USDA Organic
-wikidata:en:Q3336915
-
-<en:USDA Organic
-en:CCOF certified organic, certified CCOF organic, California Certified Organic Farmers
-
-<en:Organic
-en:Canada Organic, Biologique Canada Organic, Biologique Canada Canada Organic, Canada Organic Biologique Canada
-fr:Biologique Canada, Biologique Canada Organic, Biologique Canada Canada Organic, Canada Organic Biologique Canada
-
-<en:Organic
-fr:Bio-Cohérence
-
-<en:Organic
-fr:Bio-Solidaire, biosolidaire
-
-<en:Organic
-en:Bioland
-de:Bioland
-wikidata:en:Q864442
-
-<en:Organic
-en:Naturland
-de:Naturland
-wikidata:en:Q1970376
-
-<en:Organic
-en:Biokreis
-de:Biokreis
-fr:Biokreis
-wikidata:en:Q864429
-
-<en:Organic
-de:Bio 7 Initiative, BIO7 Initiative, Bio7, BIO 7
-
-
-en:Sustainable farming
-fr:Agriculture durable
-
-<en:Sustainable farming
-en:UTZ Certified, UTZ
-wikidata:en:Q2305872
-
-<en:UTZ Certified
-en:UTZ Certified Cacao, UTZ Certified Cocoa
-de:UTZ Certified Kakao
-
-<en:UTZ Certified
-en:UTZ Certified Coffee
-de:UTZ Certified Kaffee
-
-en:Vegetarian, Suitable for vegetarians
-de:Vegetarisch
-es:Vegetariano, Producto vegetariano, Apto para vegetarianos, Vegetarian
-fr:Végétarien, Convient aux végétariens, Adapté au régime végétarien
-it:Vegetariano
-nl:Vegetarisch
-pt:Vegetariano
-
-<en:Vegetarian
-en:Green Dot India, India Green Dot, Indian Green Dot, vegetarian mark India
-
-<en:Vegetarian
-en:Vegan, Suitable for vegans
-de:Vegan
-es:Vegano, Producto vegano, Vegan
-fr:Végétalien, Végan, végétal
-it:Vegano, Vegan
-nl:Veganistisch
-pt:Vegano, Producto vegano, Vegan
-th:สูตรเจ
-
-<en:Vegan
-en:Vegan Action
-wikidata:en:Q7918275
-
-<en:Vegan
-en:Vegan Society
-wikidata:en:Q1855049
-
-<en:Vegan
-es:UVE Vegano, Unión Vegetariana Española Vegano, Certificado UVE Vegano
-
-<en:Vegetarian
-en:Vegetarian Society
-wikidata:en:Q2154954
-en:FSC, Forest Stewardship Council
-es:FSC, Forest Stewardship Council, Consejo de Administración Forestal
-wikidata:en:Q748367
-
-<en:Vegetarian
-en:No animal derived ingredients
-fr:Pas de composant animal, Sans matière animale
-
-en:PEFC, Pan European Forest Certification, Program for the Endorsement of Forest Certification, Program for the Endorsement of Forest Certification schemes
-fr:PEFC
-
-fr:Imprim'Vert
-
-<en:FSC
-en:FSC Mix
-fr:FSC Mix, FSC Mixte
-
-<en:FSC
-en:FSC Recycling
-
-<en:FSC
-en:FSC-C017170
-
-<en:FSC
-en:FSC-C002324
-
-<en:FSC
-en:FSC-C066504
-
-<en:FSC
-en:FSC-C014047
-
-<en:FSC
-en:FSC-C014207
-
-<en:FSC
-en:FSC-C016627
-
-<en:FSC
-en:FSC-C020428
-
-<en:FSC
-en:FSC-C022488
-
-<en:FSC
-en:FSC-C074707
-
-<en:FSC
-en:FSC-C081801
-
-<en:FSC
-en:FSC-C100482
-
-<en:FSC
-en:FSC-C104258
-
-<en:FSC
-en:FSC-C104752
-
-<en:FSC
-en:FSC-C107894
-
-<en:FSC
-en:FSC-C109331
-
-<en:FSC
-en:FSC-C115560
-
-<en:FSC
-en:FSC-C117156
-
-<en:organic
-fr:Cosmétique Bio - Charte Cosmebio, Cosmébio, Charte Cosmebio
-
-fr:Cosmétique Eco - Charte Cosmebio, Cosméco, Charte Cosméco
-
-fr:Nature & Progrès, Nature et Progrès
-
-en:BDIH
-fr:BDIH, Cosmétiques naturels certifiés BDIH, BDIH Cosmétiques naturels certifiés
-
-en:NaTrue
-
-<en:organic
-de:Austria Bio Garantie
-
-en:One Voice
-fr:One Voice, One Voice - pour une éthique animale et planétaire
-
-en:Ecolabel
-
-<en:Ecolabel
-en:EU Ecolabel
-fr:EU Ecolabel, Ecolabel EU, Ecolabel européen
-
-<en:Ecolabel
-en:Nordic Ecolabel
-
-fr:Ecocert Equitable, Equitable Ecocert
-
-fr:Ecocert
-
-en:Hypoallergenic
-fr:Hypoallergénique
-nl:Hypoallergeen
-de:Hypoallergen
-
-en:Green point
-de:Grüner punkt
-fr:Point vert
-
-en:Not tested on animals
-fr:Non testé sur les animaux, non testé sur des animaux
-es:No testado en animales
-de:Nicht an Tieren getestet
-nl:Niet getest op dieren
-
-en:Neutral pH for the skin, neutral pH, ph skin neutral
-fr:pH neutre pour la peau, pH neutre, pH respectueux
-es:pH neutro para la piel, pH neutro, pH equilibrado para la piel
-de:Neutraler pH-Wert für die Haut, neutraler pH-Wert, pH-Wert neutral für die Haut
-nl:Neutrale pH-waarde voor de huid, neutrale pH-waarde, pH-waarde neutraal voor de huid
-
-en:Dermatologically tested, Dermatologically approved, Tested by dermatologists, Dermo tested
-fr:Testé dermatologiquement, Testé dermatologiquemment, Testé sous controle dermatologique, Tolérance testée sous controle dermatologique, Tolerance-cutanee-testee-dermatologiquement, Tolerance-cutanee-testee-sous-controle-dermatologique, testée dermatologiquement, testées dermatologiquement, Approuvé dermatologiquement, dermato-testé
-
-en:Fully recyclable packaging
-fr:Packaging entièrement recyclable
-es:Embalaje completamente reciclable
-de:Vollständig recycelbare Verpackung
-nl:Volledig recyclebare verpakking
-
-en:Easily flammable
-fr:Facilement inflammable
-es:Fácilmente inflamable
-de:Leicht entflammbar
-nl:Makkelijk ontvlambaar
-
-en:Without phthalates, without phtalates, 0 phthalates
-fr:Sans phtalates, Sans phtalate, 0 phtalate, zero phtalate
-
-en:No colorings, without colorings, no colourings, without colourings, no colour, no color
-fr:Sans colorants, pas de colorants, 0 colorant, zero colorant
-
-fr:Sans colorant de synthese,0 colorant de synthese 
-es:Sin colorante sintético,0 colorante sintético
-de:Ohne synthetische Farbstoffe,0 synthetische Farbstoffe
-nl:Zonder synthetische kleurstoffen,0 synthetische kleurstoffen
-
-en:Without soap, soap free
-fr:Sans savon
-es:Sin jabón
-de:Ohne Seife
-nl:Zonder zeep
-
-en:Without perfume, no perfume, perfume free
-fr:Sans parfum
-es:Sin perfume
-de:Ohne Parfüm
-nl:Zonder parfum
-
-en:Synthetic scent free, free from synthesis fragrance, synthesis fragrance free, free from synthetic fragrances, synthetic fragrances free
-fr:Sans parfum de synthèse
-es:Sin fragancia sintética, libre de fragancia de síntesis, sin fragancias sintéticas
-de:Ohne synthetischen Duft, frei von synthetischen Duftstoffen, synthetische Duftstoffe frei
-nl:Zonder synthetische geur, vrij van synthetische geurstoffen, synthetische geurstoffen vrij
-
-en:Without phenoxyethanol, Phenoxyethanol free
-fr:Sans phenoxyethanol
-es:Sin fenoxietanol
-de:Ohne Phenoxyethanol
-nl:Zonder fenoxyethanol
-
-en:Without aluminium salts
-fr:Sans sels d'aluminium
-de:Ohne Aluminiumsalze
-es:Sin sales de aluminio
-nl:Zonder aluminiumzouten
-
-en:Without silicon, Silicon free
-fr:Sans silicone, 0 silicones, Sans silicones
-de:Ohne Silikon
-nl:Zonder silicone
-es:Sin silicona
-it:Senza silicone
-pt:Sem silicone
-
-en:Without acetone
-fr:Sans acétone
-es:Sin acetona
-de:Ohne Aceton
-nl:Zonder aceton
-
-fr:Sans alcool, Pas d'alcool
-en:No alcohol, 0 alcohol, without alcohol, alcohol free
-es:Sin alcohol, 0 alcohol, sin contenido de alcohol, libre de alcohol
-de:Ohne Alkohol, Kein Alkohol, alkoholfrei
-nl:Zonder alcohol, Geen alcohol, alcoholvrij
-
-en:Without glycol ethers
-fr:Sans ethers de glycol
-es:Sin éteres de glicol
-de:Ohne Glykolether
-nl:Zonder glycolethers
-
-en:Without formaldehyde
-fr:Sans formaldehyde
-es:Sin formaldehído
-de:Ohne Formaldehyd
-nl:Zonder formaldehyde
-
-en:Sulfate free, No sulfate, Without sulfate
-fr:Sans sulfates, Sans sulphates
-es:Sin sulfatos
-de:Ohne Sulfate
-nl:Zonder sulfaten
-
-en:Without ammonia
-fr:Sans ammoniaque
-es:Sin amoníaco
-de:Ohne Ammoniak
-nl:Zonder ammoniak
-
-en:Without triclosan, Triclosan free, No triclosan
-fr:Sans triclosan
-es:Sin triclosán
-de:Ohne Triclosan
-nl:Zonder triclosan
-
-en:Palm oil free, Without palm oil, No palm oil
-es:Sin aceite de palma
-fr:Sans huile de palme
-de:Ohne Palmöl
-nl:Zonder palmolie
-
-en:Sustainable Palm Oil, Certified Sustainable Palm Oil, RSPO
-fr:Huile de palme durable, Huile de palme certifiée durable, RSPO
-es:Aceite de palma sostenible, Aceite de palma certificado sostenible, RSPO
-de:Nachhaltiges Palmöl, Zertifiziertes nachhaltiges Palmöl, RSPO
-nl:Duurzame palmolie, Gecertificeerde duurzame palmolie, RSPO
-
-fr:Ne pique pas les yeux
-en:Does not sting the eyes, No more tears, No tears, No tears formula
-es:No irrita los ojos, Sin lágrimas, Fórmula sin lágrimas
-de:Brennt nicht in den Augen, Keine Tränen, Tränenfrei, Keine Tränen-Formel
-nl:Prikt niet in de ogen, Geen tranen, Geen tranen formule
-
-fr:Non comédogène, Non obstruant les pores
-en:Non comedogenic, Non pore-clogging
-
-fr:Sans conservateurs, sans conservateur, 0 conservateur
-en:No preservatives, Preservatives free
-es:Sin conservantes, libre de conservantes
-de:Ohne Konservierungsstoffe, Konservierungsstoffe frei
-nl:Zonder conserveermiddelen, conserveermiddelvrij
-
-fr:Résiste à l'eau, Résistant à l'eau
-en:Waterproof, splashproof, water resistant
-es:Resistente al agua, a prueba de salpicaduras, resistente al agua
-de:Wasserdicht, spritzwassergeschützt, wasserfest
-nl:Waterdicht, spatwaterdicht, waterbestendig
-
-fr:Anti-traces, anti-trace
-
-fr:UFSBD
-en:UFSBD

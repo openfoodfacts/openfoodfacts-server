@@ -69,7 +69,7 @@ BEGIN {
 
 		$memd_servers
 
-		$google_analytics
+		$analytics
 
 		$thumb_size
 		$crop_size
@@ -177,10 +177,25 @@ $flavor = "opff";
 	product_type => "petfood",
 	og_image_url => "https://world.openpetfoodfacts.org/images/misc/openpetfoodfacts-logo-en.png",
 	#android_apk_app_link => "https://world.openbeautyfacts.org/images/apps/obf.apk",
-	#android_app_link => "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner",
-	#ios_app_link => "https://apps.apple.com/app/open-beauty-facts/id1122926380",
-	#facebook_page_url => "https://www.facebook.com/openbeautyfacts",
+	#android_app_link => "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&utm_source=opff&utf_medium=web",
+	#ios_app_link => "https://apps.apple.com/app/open-beauty-facts/id1122926380?utm_source=opff&utf_medium=web",
+	#facebook_page_url => "https://www.facebook.com/openbeautyfacts?utm_source=opff&utf_medium=web",
 	#twitter_account => "OpenBeautyFacts",
+	default_preferences =>
+		'{ "nova" : "important", "labels_organic" : "important", "labels_fair_trade" : "important" }',
+	# favicon HTML and images generated with https://realfavicongenerator.net/ using the SVG icon
+	favicons => <<HTML
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/opff/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/opff/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/opff/favicon-16x16.png">
+<link rel="manifest" href="/images/favicon/opff/site.webmanifest">
+<link rel="mask-icon" href="/images/favicon/opff/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/images/favicon/opff/favicon.ico">
+<meta name="msapplication-TileColor" content="#00aba9">
+<meta name="msapplication-config" content="/images/favicon/opff/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+HTML
+	,
 );
 
 $options{export_limit} = 10000;
@@ -255,7 +270,27 @@ $small_size = 200;
 $display_size = 400;
 $zoom_size = 800;
 
-$google_analytics = <<HTML
+$analytics = <<HTML
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+  _paq.push(["setCookieDomain", "*.openpetfoodfacts.org"]);
+  _paq.push(["setDomains", ["*.openpetfoodfacts.org"]]);
+  _paq.push(["setDoNotTrack", true]);
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//analytics.openfoodfacts.org/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '9']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.openfoodfacts.org/matomo.php?idsite=9&amp;rec=1" style="border:0;" alt="" /></p></noscript>
 HTML
 	;
 
@@ -347,7 +382,7 @@ XML
 );
 
 # tag types (=facets) that should be indexed by web crawlers, all other tag types are not indexable
-@index_tag_types = qw(brands categories labels additives nova_groups ecoscore nutrition_grades products);
+@index_tag_types = qw(brands categories labels additives nova_groups environmental_score nutrition_grades products);
 
 # fields in product edit form, above ingredients and nutrition facts
 
@@ -429,7 +464,7 @@ XML
 @drilldown_fields = qw(
 	nutrition_grades
 	nova_groups
-	ecoscore
+	environmental_score
 	brands
 	categories
 	labels
@@ -498,8 +533,8 @@ XML
 	food_groups
 	states
 	brand_owner
-	ecoscore_score
-	ecoscore_grade
+	environmental_score_score
+	environmental_score_grade
 	nutrient_levels_tags
 	product_quantity
 	owner
@@ -509,6 +544,20 @@ XML
 	completeness
 	last_image_t
 );
+
+# Used to generate the list of possible product attributes, which is
+# used to display the possible choices for user preferences
+$options{attribute_groups} = [["labels", ["labels_organic", "labels_fair_trade"]],];
+
+# default preferences for attributes
+$options{attribute_default_preferences} = {
+	"labels_organic" => "important",
+	"labels_fair_trade" => "important",
+};
+
+use JSON::MaybeXS;
+$options{attribute_default_preferences_json}
+	= JSON->new->utf8->canonical->encode($options{attribute_default_preferences});
 
 # for ingredients OCR, we use tesseract-ocr
 # on debian, dictionaries are in /usr/share/tesseract-ocr/tessdata
@@ -546,37 +595,7 @@ XML
 
 );
 
-# allow moving products to other instances of Product Opener on the same server
-# e.g. OFF -> OBF
-
-$options{current_server} = "opff";
-
-$options{other_servers} = {
-	obf => {
-		name => "Open Beauty Facts",
-		data_root => "/srv/obf",
-		www_root => "/srv/obf/html",
-		mongodb => "obf",
-		domain => "openbeautyfacts.org",
-	},
-	off => {
-		name => "Open Food Facts",
-		data_root => "/srv/off",
-		www_root => "/srv/off/html",
-		mongodb => "off",
-		domain => "openfoodfacts.org",
-	},
-	opf => {
-		prefix => "opf",
-		name => "Open Products Facts",
-		data_root => "/srv/opf",
-		www_root => "/srv/opf/html",
-		mongodb => "opf",
-		domain => "openproductsfacts.org",
-	}
-};
-
 # Name of the Redis stream to which product updates are published
-$options{redis_stream_name} = "product_updates_opff";
+$options{redis_stream_name} = "product_updates";
 
 1;

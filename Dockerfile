@@ -11,7 +11,8 @@ ARG CPANMOPTS=
 FROM debian:bullseye AS modperl
 
 # Install cpm to install cpanfile dependencies
-RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
+    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
     apt update && \
     apt install -y \
         apache2 \
@@ -80,7 +81,12 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         # NB: not available in ubuntu 1804 LTS:
         libgeoip2-perl \
         libemail-valid-perl
-RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
+    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
+    # rerun apt update, because last RUN might be in cache
+    ( ( [ ! -e /var/cache/apt/pkgcache.bin ] || [ $(($(date +%s) - $(stat --format=%Y /var/cache/apt/pkgcache.bin))) -gt 3600 ] ) && \
+      apt update || true \
+    ) && \
     apt install -y \
         #
         # cpan dependencies that can be satisfied by apt even if the package itself can't:
@@ -158,6 +164,8 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         libperl-dev \
         # needed to build Apache2::Connection::XForwardedFor
         libapache2-mod-perl2-dev \
+        # needed for  Imager::File::WEBP
+        libwebpmux3 \
         # Imager::zxing - build deps
         cmake \
         pkg-config \
@@ -201,7 +209,15 @@ WORKDIR /tmp
 # Install Product Opener from the workdir.
 COPY ./cpanfile* /tmp/
 # Add ProductOpener runtime dependencies from cpan
-RUN --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
+# we also add apt cache as some libraries might be installed from apt
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
+    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt \
+    --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
+    set -x && \
+    # also run apt update if needed because some package might need to apt install
+    ( ( [ ! -e /var/cache/apt/pkgcache.bin ] || [ $(($(date +%s) - $(stat --format=%Y /var/cache/apt/pkgcache.bin))) -gt 3600 ] ) && \
+      apt update || true \
+    ) && \
     # first install some dependencies that are not well handled
     cpanm --notest --quiet --skip-satisfied --local-lib /tmp/local/ "Apache::Bootstrap" && \
     cpanm $CPANMOPTS --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps . \

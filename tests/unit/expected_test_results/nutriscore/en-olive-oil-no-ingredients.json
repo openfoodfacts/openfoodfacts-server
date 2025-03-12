@@ -44,7 +44,6 @@
       "en:fats-and-sauces",
       "en:fats"
    ],
-   "ingredients_lc" : "en",
    "lc" : "en",
    "misc_tags" : [
       "en:nutriscore-computed",
@@ -89,8 +88,8 @@
       "nova-group" : 2,
       "nova-group_100g" : 2,
       "nova-group_serving" : 2,
-      "nutrition-score-fr" : 7,
-      "nutrition-score-fr_100g" : 7,
+      "nutrition-score-fr" : 2,
+      "nutrition-score-fr_100g" : 2,
       "proteins_100g" : 0,
       "salt_100g" : "0",
       "salt_value" : "0",
@@ -98,7 +97,7 @@
       "sodium" : 0,
       "sodium_100g" : 0,
       "sodium_unit" : "g",
-      "sodium_value" : 0,
+      "sodium_value" : "0",
       "sugars_100g" : "0"
    },
    "nutriscore" : {
@@ -228,51 +227,85 @@
       "b"
    ],
    "nutriscore_data" : {
-      "energy" : 3367,
-      "energy_points" : 10,
-      "energy_value" : 3367,
-      "fat" : 91,
-      "fiber" : 0,
-      "fiber_points" : 0,
-      "fiber_value" : 0,
-      "fruits_vegetables_nuts_colza_walnut_olive_oils" : "100",
-      "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 5,
-      "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 100,
-      "grade" : "c",
+      "components" : {
+         "negative" : [
+            {
+               "id" : "energy_from_saturated_fat",
+               "points" : 5,
+               "points_max" : 10,
+               "unit" : "kJ",
+               "value" : 629
+            },
+            {
+               "id" : "sugars",
+               "points" : 0,
+               "points_max" : 15,
+               "unit" : "g",
+               "value" : 0
+            },
+            {
+               "id" : "saturated_fat_ratio",
+               "points" : 2,
+               "points_max" : 10,
+               "unit" : "%",
+               "value" : 18.7
+            },
+            {
+               "id" : "salt",
+               "points" : 0,
+               "points_max" : 20,
+               "unit" : "g",
+               "value" : 0
+            }
+         ],
+         "positive" : [
+            {
+               "id" : "fiber",
+               "points" : 0,
+               "points_max" : 5,
+               "unit" : "g",
+               "value" : 0
+            },
+            {
+               "id" : "fruits_vegetables_legumes",
+               "points" : 5,
+               "points_max" : 5,
+               "unit" : "%",
+               "value" : 100
+            }
+         ]
+      },
+      "count_proteins" : 0,
+      "count_proteins_reason" : "negative_points_greater_than_or_equal_to_7",
+      "grade" : "b",
       "is_beverage" : 0,
       "is_cheese" : 0,
-      "is_fat" : 1,
+      "is_fat_oil_nuts_seeds" : 1,
+      "is_red_meat_product" : 0,
       "is_water" : 0,
-      "negative_points" : 12,
+      "negative_points" : 7,
+      "negative_points_max" : 55,
+      "positive_nutrients" : [
+         "fiber",
+         "fruits_vegetables_legumes"
+      ],
       "positive_points" : 5,
-      "proteins" : 0,
-      "proteins_points" : 0,
-      "proteins_value" : 0,
-      "saturated_fat" : 17,
-      "saturated_fat_ratio" : 18.6813186813187,
-      "saturated_fat_ratio_points" : 2,
-      "saturated_fat_ratio_value" : 18.7,
-      "score" : 7,
-      "sodium" : 0,
-      "sodium_points" : 0,
-      "sodium_value" : 0,
-      "sugars" : 0,
-      "sugars_points" : 0,
-      "sugars_value" : 0
+      "positive_points_max" : 10,
+      "score" : 2
    },
-   "nutriscore_grade" : "c",
-   "nutriscore_score" : 7,
-   "nutriscore_score_opposite" : -7,
+   "nutriscore_grade" : "b",
+   "nutriscore_score" : 2,
+   "nutriscore_score_opposite" : -2,
    "nutriscore_tags" : [
-      "c"
+      "b"
    ],
-   "nutriscore_version" : "2021",
+   "nutriscore_version" : "2023",
    "nutrition_data_per" : "100g",
    "nutrition_data_prepared_per" : "100g",
-   "nutrition_grade_fr" : "c",
-   "nutrition_grades" : "c",
+   "nutrition_grade_fr" : "b",
+   "nutrition_grades" : "b",
    "nutrition_grades_tags" : [
-      "c"
+      "b"
    ],
    "nutrition_score_beverage" : 0,
    "nutrition_score_debug" : "",

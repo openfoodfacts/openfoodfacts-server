@@ -123,11 +123,13 @@ $material-icons: "Material Icons";
 }
 
 // background colors for attributes and panels
+$grade-a-plus-color: #219653;
 $grade-a-color: #219653;
 $grade-b-color: #60ac0e;
 $grade-c-color: #c88f01;
 $grade-d-color: #e07312;
 $grade-e-color: #eb5757;
+$grade-f-color: #bf3122;
 $grade-unknown-color: #4f4f4f;
 $evaluation-good-color: #219653;
 $evaluation-average-color: #f2994a;
@@ -318,6 +320,7 @@ ul.products {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   height: 50px;
   overflow: hidden;
 }
@@ -453,6 +456,7 @@ nav.tab-bar > div {
 p.details {
   color: gray;
   font-size: 0.8em;
+  word-wrap: break-word;
 }
 
 .select2-dropdown.select2-dropdown--below {
@@ -751,6 +755,7 @@ html[dir="rtl"] {
   border-radius: 8px;
   padding: 10px;
   display: block;
+  word-wrap: break-word;
 }
 
 #product_banner {
@@ -1097,6 +1102,18 @@ a.grade_unknown:hover {
   color: $grade-unknown-color;
 }
 
+.grade_a_plus {
+  background-color: rgba($grade-a-plus-color, 0.1) !important;
+}
+
+a.grade_a_plus:hover {
+  background-color: rgba($grade-a-plus-color, 0.2) !important;
+}
+
+.grade_a_plus_title {
+  color: $grade-a-plus-color;
+}
+
 .grade_a {
   background-color: rgba($grade-a-color, 0.1) !important;
 }
@@ -1157,6 +1174,18 @@ a.grade_e:hover {
   color: $grade-e-color;
 }
 
+.grade_f {
+  background-color: rgba($grade-f-color, 0.1) !important;
+}
+
+a.grade_f:hover {
+  background-color: rgba($grade-f-color, 0.2) !important;
+}
+
+.grade_f_title {
+  color: $grade-f-color;
+}
+
 #main_column {
   padding-bottom: 2rem;
 }
@@ -1209,17 +1238,17 @@ $section-cyan: #008c8c;
 $section-sand: #FFFAF1;
 $background-orange: #FF8714;
 $font-green: #008c8c;
+$border-pink: #ff6e78;
 
 .off-days-banner {
   background-color: $section-cyan;
-  // background-image: url('/images/misc/banners/FR.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   height: 300px;
   @media #{$small-only} {
     background-size: contain;
-    height: 25vw; ;
+    height: 25vw;
   }
   &__FR {
     background-image: url('/images/misc/banners/FR.png');
@@ -1231,18 +1260,20 @@ $font-green: #008c8c;
 
 .donation-banner,
 .donation-banner-footer {
-  overflow: hidden;
   position: relative;
   display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  padding: .5rem 2rem;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  border: 10px solid $border-pink;
   width: 100%;
-  gap: 1rem;
-  background-color: $section-sand;
+  background-color: white;
   @media #{$small-only} {
     flex-direction: column;
-    padding: 1rem;
+    padding: 20px 10px;
+  }
+  &__group-photo{
+    border-radius: 5px;
   }
   &__close {
     button {
@@ -1254,101 +1285,90 @@ $font-green: #008c8c;
       color: inherit;
     }
   }
-  &__hand {
-    position: absolute;
-    bottom: -40px;
-    left: 40%;
-    background-image: url(/images/illustrations/donate-hearth.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 100px;
-    height: 100px;
-    @media #{$small-only} {
-      left: 65%;
-    }
-  }
-  &__content {
+  &__hook-section{
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    flex: 5;
-    padding: 1rem;
-  }
-  &__main-text {
-    span {
-      background-color: $background-orange;
-      text-transform: uppercase;
-      color: $white;
-      font-size: 30px;
-      font-family: 'Montserrat', sans-serif;
+    align-items: center;
+    background-color: $section-cyan;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    z-index: 1;
+    p {
+      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-size: 25px;
       font-weight: 700;
-      border-radius: 5px;
-      padding: .7rem .5rem;
-      margin-bottom: 1rem;
-      -webkit-box-decoration-break: clone;
-      box-decoration-break: clone;
-      line-height: 3.3rem;
+      line-height: 35px;
+      text-transform: uppercase;
       @media #{$small-only} {
-        font-size: 20px;
-        line-height: 2.2rem;
+        font-size: 15px;
+        line-height: 20px;
       }
     }
   }
-  &__aside {
+  &__left-aside{
+    width: 60%;
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img {
+      transform: translatey(-15px);
+    }
+  }
+  &__aside{
+    display: flex;
+    flex-direction: column;
+  }
+  &__main-title{
+    color: $border-pink;
+    font-weight: 800;
+    font-size: 25px;
+  }
+  &__main-section{
     display: flex;
     align-items: center;
-    gap: .5rem;
   }
-  &__secondary-text,
-  &__tertiary-text {
-    color: $font-green;
-    font-weight: 700;
-    font-family: 'Farro', sans-serif;
-  }
-  &__secondary-text {
-    font-size: 18px;
-    @media #{$small-only} {
-      font-size: 12px;
-    }
-  }
-  &__tertiary-text {
-    font-size: 16px;
-    @media #{$small-only} {
-      font-size: 12px;
-    }
-  }
-  &__donate {
-    padding: 1rem 1.7rem;
-    text-transform: uppercase;
-    background-color: $font-green;
-    color: $white;
-    border-radius: 10px;
+  &__actions-section{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    gap: 15px;
+    padding: 0 10px;
     @media #{$small-only} {
-      padding: .5rem .85rem;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 10px;
     }
-    &:hover {
-      opacity: 0.9;
-      color: $white;
+    &__financial{
+      width: 50%;
+      @media #{$small-only} {
+        width: 90%;
+      }
+      p{
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 15px;
+        color: #008c8c;
+        font-weight: bolder;
+      }
     }
-  }
-  &__image {
-    height: auto;
-    flex: 4;
-    background-image: url(/images/misc/group_photo_2023.jpeg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center calc(50% + 30px);
+    &__donate-button{
+      width: 40%;
+      a button{
+        background-color: $border-pink;
+        border-radius: 30px;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 20px;
+        font-weight: 900;
+        &:hover{
+          background-color: rgba($border-pink, 0.8);
+        }
+      }
+    }
   }
 }
 
-.donation-banner-footer {
-  &__content {
-    @media #{$small-only} { margin-top: 0; }
-  }
-}
 
 // Top banner to download mobile app
 #mobile-app-top-banner {
@@ -1912,7 +1932,7 @@ a.panel_title {
   visibility: visible;
 }
 
-div.open-in-crm {
+div.form-field-with-btn {
   display:flex;
   justify-content: center;
   align-items: center;

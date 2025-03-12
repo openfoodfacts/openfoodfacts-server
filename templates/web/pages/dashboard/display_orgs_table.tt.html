@@ -24,7 +24,7 @@
         <option value="rejected" [% IF valid_org == 'rejected' %]selected[% END %]>Rejected</option>
     </select>
     
-    <button type="submit">[% lang("search") %]</button>
+    <button style="margin-bottom: 30px;" type="submit">[% lang("search") %]</button>
 </form>
 
 [% IF has_orgs %]
@@ -59,7 +59,7 @@
         <tr>
             <td>[% count %]</td>
 	    <td><a href="https://world.openfoodfacts.org/owner/[% org.org_id %]">[% org.name %]</a></td>
-            <td>[% org.creator %]</td>
+            <td>[% org.creator_email %]</td>
 	    <td>
 		    <a href="/org/[% org.org_id %]">[% org.org_id %]</a>
 		    <a href="/cgi/org.pl?type=edit&orgid=[% org.org_id %]">
@@ -67,7 +67,7 @@
 		    </a>
 	    </td>
             <td>[% org.valid_org %]</td>
-            <td>[% display_date_ymd(org.created_t) %]</td>
+	    <td>[% IF org.created_t %][% display_date_ymd(org.created_t) %][% END %]</td>
             <td>
                 [% IF org.last_logged_member_t %]
                     [% display_date_ymd(org.last_logged_member_t) %]

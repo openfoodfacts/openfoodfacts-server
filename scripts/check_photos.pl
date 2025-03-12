@@ -34,7 +34,7 @@ use ProductOpener::Users qw/$User_id/;
 use ProductOpener::Images qw/scan_code/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/:all/;
-use ProductOpener::Products qw/product_exists/;
+use ProductOpener::Products qw/retrieve_product/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
@@ -88,7 +88,7 @@ if (opendir(DH, "$dir")) {
 
 					$j++;
 
-					my $product_ref = product_exists($code);
+					my $product_ref = retrieve_product($code);
 					if ($product_ref) {
 						$exists++;
 						print "code $code exists\n";

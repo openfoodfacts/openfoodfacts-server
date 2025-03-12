@@ -6,7 +6,7 @@ stopwords:en: a, an, for, added, to, as, for, with, added
 stopwords:fr: l, la, les, des, du, de, d, un, une, ajouté, ajoutés, ajoutée, ajoutées, pour, avec
 stopwords:es: de, del, la, las, los, una
 
-en: Acid, Acidifier, Acidulant, tartness, provides tartness
+en: Acid, Acidifier, Acidulant, tartness, provides tartness, Food acid
 bg: Киселина
 ca: Àcid, Acidulant
 cs: Kyselina
@@ -237,6 +237,7 @@ ro: antioxidant
 ru: Антиоксидант, антиокислитель, антиокислители
 sl: Antioksidant
 sv: Antioxidationsmedel, Antioxidantmedel, Antioxidant
+th: สารป้องกันการเกิดออกซิเดชัน
 description:en: Antioxidants are substances which prolong the shelf-life of foods by protecting them against deterioration caused by oxidation, such as fat rancidity and colour changes.
 description:cs: Antioxidanty se rozumějí látky, které prodlužují trvanlivost potravin tím, že je chrání proti zkáze způsobené oxidací, například proti žluknutí tuků a barevným změnám.
 description:da: Antioxidanter: stoffer, som forlænger en fødevares holdbarhed ved at beskytte den mod ødelæggelse ved iltning som f.eks. fedtharskning og misfarvning.
@@ -260,6 +261,31 @@ wikidata:en: Q133948
 
 < en:antioxidant
 en: natural antioxidant
+bg: естествен антиоксидант
+ca: antioxidant natural
+cs: přírodní antioxidant
+da: naturlig antioxidant
+de: natürlicher Antioxidant
+el: φυσικό αντιοξειδωτικό
+es: antioxidante natural
+et: looduslik antioksüdant
+fi: luonnollinen antioksidantti
+fr: antioxydant naturel
+ga: frithocsaídeoir nádúrtha
+hr: prirodni antioksidans
+hu: természetes antioxidáns
+it: antiossidanti naturali, antiossidante naturale
+lt: natūralus antioksidantas
+lv: dabīgs antioksidants
+mt: antiossidant naturali
+nl: natuurlijke antioxidant
+pl: naturalny przeciwutleniacz
+pt: antioxidante natural
+ro: antioxidant natural
+ru: натуральный антиоксидант
+sk: prírodný antioxidant
+sl: naravni antioksidant
+sv: naturlig antioxidant
 
 
 en: release agent
@@ -270,6 +296,7 @@ es: Decolorante, blanqueador, blanqueadores
 fi: Valkaisuaine, Valkaisuainetta, Valkaisuaineet, Valkaisuaineita
 fr: Agent de blanchiment
 hu: Fehérítőszer
+it: Sbiancante, decolorante, agente di sbiancamento
 description:en: A food additive (non-flour use) used to decolourize food. Bleaching agents do not include pigments.
 description:es: Aditivos alimentarios utilizados (no en las harinas) para decolorar un alimento. Los decolorantes no contienen pigmentos.
 description:fr: Additif alimentaire utilisé pour décolorer des denrées alimentaires (mais pas la farine). Les pigments ne sont pas des agents de blanchiment.
@@ -337,8 +364,35 @@ es: agente de carbonatación
 fi: Karbonointiaine, Karbonointiainetta, Karbonointiaineet, Karbonointiaineita
 fr: Agent de carbonation
 description:en: A food additive used to provide carbonation in a food.
+description:bg: Хранителна добавка, използвана за осигуряване на карбонизация в храната.
+description:ca: Additiu alimentari utilitzat per proporcionar carbonatació en un aliment.
+description:cs: Potravinářská přísada používaná k zajištění karbonizace v potravině.
+description:da: En fødevaretilsætningsstof, der bruges til at give kulsyre i en fødevare.
+description:de: Ein Lebensmittelzusatzstoff, der zur Karbonisierung eines Lebensmittels verwendet wird.
+description:el: Πρόσθετο τροφίμων που χρησιμοποιείται για την παροχή ανθρακικού σε ένα τρόφιμο.
 description:es: Aditivos alimentarios utilizados para introducir dióxido de carbono en un alimento.
+description:et: Toidulisand, mida kasutatakse toidu karboniseerimiseks.
+description:fi: Elintarvikelisäaine, jota käytetään hiilihapotuksen aikaansaamiseksi elintarvikkeessa.
 description:fr: Additif alimentaire utilisé pour apporter du dioxyde de carbone à une denrée alimentaire.
+description:ga: Breiseán bia a úsáidtear chun carbónáitiú a sholáthar i mbia.
+description:hr: Dodatak prehrani koji se koristi za karbonizaciju hrane.
+description:hu: Élelmiszer-adalékanyag, amelyet az élelmiszer karbonizálására használnak.
+description:is: Matvælaaukefni sem notað er til að veita kolsýru í matvæli.
+description:it: Additivo alimentare utilizzato per fornire carbonatazione in un alimento.
+description:ja: 食品に炭酸を供給するために使用される食品添加物。
+description:lt: Maisto priedas, naudojamas maisto karbonizacijai užtikrinti.
+description:lv: Pārtikas piedeva, ko izmanto, lai nodrošinātu karbonizāciju pārtikā.
+description:mt: Addittiv tal-ikel użat biex jipprovdi karbonazzjoni f'ikel.
+description:nl: Een voedseladditief dat wordt gebruikt om koolzuur in een voedingsmiddel te brengen.
+description:no: Et tilsetningsstoff som brukes til å gi karbonatisering i mat.
+description:pl: Dodatek do żywności używany do zapewnienia karbonizacji w żywności.
+description:pt: Aditivo alimentar utilizado para fornecer carbonatação em um alimento.
+description:ro: Un aditiv alimentar utilizat pentru a asigura carbonatarea unui aliment.
+description:ru: Пищевая добавка, используемая для карбонизации пищи.
+description:sk: Potravinárska prísada používaná na zabezpečenie karbonizácie v potravinách.
+description:sl: Živilski dodatek, ki se uporablja za karbonizacijo hrane.
+description:sv: Ett livsmedelstillsats som används för att ge kolsyrning i en livsmedelsprodukt.
+description:zh: 用于食品碳酸化的食品添加剂。
 
 
 en: Carrier, carrier solvant, diluent for other food additives, encapsulating agent, nutrient carrier
@@ -358,10 +412,10 @@ el: Χρωστική ουσία
 es: Colorante, colorantes, color, colorante de superficie, pigmentos de coloración y decoración, pigmentos de coloración, pigmentos de decoración, colorantes alimentarios, colorante alimentario
 et: Toiduvärv
 fi: Väri, Väriä, Värit, Värejä, Väriaine, Väriainetta, Väriaineet, Väriaineita, Elintarvikeväri, värjäävät elintarvikkeet
-fr: Colorant, colorant de surface, pigment décoratif, pigment colorant, colorants, colorant alimentaire, colorants alimentaires
+fr: Colorant, colorant de surface, pigment décoratif, pigment colorant, colorants, colorant alimentaire, colorants alimentaires, aliments colorants
 ga: Dath
 he: צבע
-hr: boja, bojila, bojilo, bojenje, namirnice za bojanje, hrana za bojenje
+hr: boja, bojila, bojilo, bojenje, namirnice za bojanje, hrana za bojenje, hrana za bojanje
 hu: Színezék, mesterséges színezék, színezőanyag, színezékek, színezőanyagok, színező anyag
 is: Litarefni
 it: Colorante, coloranti, alimento colorante
@@ -491,7 +545,7 @@ ro: Emulsifiant, Emulgator, emulsifianți
 ru: Эмульгатор, эмульгаторы
 sk: Emulgátor
 sl: Emulgator
-sv: Emulgeringsmedel, Emulgering
+sv: Emulgeringsmedel, Emulgering, emulgator
 description:en: Emulsifiers are substances which make it possible to form or maintain a homogenous mixture of two or more immiscible phases such as oil and water in a foodstuff.
 description:cs: Emulgátory se rozumějí látky, které umožňují vytvořit nebo uchovat v potravině stejnorodou směs dvou nebo více nemísitelných fází, například oleje a vody.
 description:da: Emulgatorer: stoffer, hvormed man kan danne eller opretholde en homogen blanding af to eller flere ikke-blandbare faser som f.eks. olie og vand i en fødevare.
@@ -515,6 +569,7 @@ wikidata:en: Q907356
 
 < en:emulsifier
 en: natural emulsifier
+it: emulsionanti naturali, emulsionante naturale
 
 en: Emulsifying salts, emulsifying salt synergist, melding salt, Emulsifying salt, melting salt
 bg: Емулгаторни соли
@@ -704,7 +759,7 @@ wikidata:en: Q898745
 
 
 en: Flour treatment agent, dough conditioner, dough strengthening agent, flour bleaching agent, flour improver, flour treatment agent
-bg: Агент за обработка на брашното, агент за третиране на брашното
+bg: Агент за обработка на брашното, агент за третиране на брашното, агенти за обработка на брашна
 ca: Agent de tractament de la farina, agents de tractament de la farina
 cs: Látka zlepšující mouku
 da: Melbehandlingsmiddel
@@ -1063,6 +1118,7 @@ fr: conservateur de fruit, conservateur du fruit
 < en:preservative
 en: natural preservative
 hr: prirodno sredstvo za konzerviranje
+it: conservante naturale
 
 
 # comment:en:do not mix with packaging gas.
@@ -1274,6 +1330,13 @@ wikidata:en: Q7595716
 
 < en:stabiliser
 en: natural stabilizer
+da: naturlig stabilisator
+it: stabilizzante naturale
+
+< en:stabiliser
+en: colour stabiliser, color stabilizer
+da: farvestabilisator
+sv: färgstabilisator
 
 # nova:en:sweetener
 en: Sweetener, bulk sweetener, intense sweetener, natural sweetener
@@ -1281,7 +1344,7 @@ bg: Подсладител, подсладители
 ca: Edulcorant, esdulcorants
 cs: Sladidlo
 da: Sødestof, Sødestoffer, Kunstigt sødemiddel, sødemiddel
-de: süßungsmittel, süssungsmittel, sußungsmittel
+de: süßungsmittel, süssungsmittel, sußungsmittel, Süßstoffe
 el: Γλυκαντικό
 es: Edulcorante, Endulzante, edulcorante intenso, edulcorante masivo, edulcorante natural
 et: Magusaine
@@ -1470,6 +1533,7 @@ sv: Mineraler
 < en:Minerals
 < en:Vitamins
 en: vitamin and mineral blend, vitamin and mineral mix
+it: vitamine e minerali misti
 ru: витаминно минеральный премикс, витаминный премикс
 
 en: Amino acids, amino acid

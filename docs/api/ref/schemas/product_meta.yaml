@@ -8,7 +8,7 @@ properties:
     description: |
       Date when the product was added (UNIX timestamp format).
       See also `entry_dates_tags`
-    example:
+    example: |
       1457680652
   creator:
     type: string
@@ -86,6 +86,7 @@ properties:
     type: array
     items:
       type: object
+      title: product_meta_source
       properties:
         fields:
           type: array
@@ -111,10 +112,11 @@ properties:
           type: string
         url:
           type:
-            - "null"
-            - string
+            - 'null'
+            - 'string'
   sources_fields:
     type: object
+    title: product_meta_source_fields
     properties:
       org-gs1:
         type: object

@@ -154,6 +154,7 @@ nl: Pot, Potten, Bokaal, Bokaalen
 pl: Słoik
 pt: Jarro, jarros, jarra, jarras
 ro: Borcan
+sv: burk
 # suggest:packaging_materials:nl: en:glass
 description:nl: Cilindervormig voorwerp van glas of aardewerk
 # image:xx:bocal-verre.svg (looks like the Nutella jar)
@@ -185,6 +186,8 @@ nl: Eierdoos
 en: egg carton, egg box
 de: Eierkarton
 fr: Boîte à œufs
+# image:xx:boite-boitier-4.svg
+it: scatola di uova, scatola delle uova
 ja: 卵パック
 pl: Wytłaczanka, Wytłoczka
 tr: Yumurta kartonu
@@ -192,7 +195,6 @@ tr: Yumurta kartonu
 # suggest:category: en:eggs
 description:nl: Kartonnen of geschuimd kunststoffen doos met holtes om eieren in te verpakken zonder dat deze elkaar raken
 wikidata:en: Q959287
-# image:xx:boite-boitier-4.svg
 
 # <en:Box
 # fr:Boîte à hamburger
@@ -230,18 +232,26 @@ pt: Engradado, engradados
 # fr:Bidon / Bonbonne used by Les Mousquetaires
 en: Jug or canister, canister or jug
 fr: Bidon ou bonbonne, bonbonne ou bidon
+it: Caraffa o barattolo, lattina o caraffa
 
 < en:Jug or canister
 en: Jug, jugs
 de: Kanne
 fr: Bidon, bidons
+# associated_packagings: en:cap
+it: Caraffa
 nl: Kruik, kruiken
 pt: garrafão
-# associated_packagings: en:cap
 
 #fr:Bouteille / Flacon in data from Les Mousquetaires
 en: Bottle or vial, Vial or bottle
+bg: Бутилка или флакон, флакон или бутилка
+de: Flasche oder Fläschchen, Fläschchen oder Flasche
+es: Botella o frasco, frasco o botella
 fr: Bouteille ou Flacon, Flacon ou bouteille
+it: Bottiglia o flacona, flacone o bottigia
+nl: Fles of flacon, flacon of fles
+pt: Garrafa ou frasco, frasco ou garrafa
 
 < en:Bottle or vial
 en: Bottle, bottles
@@ -257,6 +267,7 @@ it: Bottiglia
 nl: Fles, Flessen
 pl: Butelka
 pt: Garrafa, garrafas
+sv: Flaska
 # suggest:packaging_materials:nl: en:glass
 # associated_packagings: en:cap
 description:nl: Een langgerekt, cilindrisch en meestal van glas vervaardigd vat met een nauwe hals die met een dop of kurk af te sluiten is
@@ -420,7 +431,7 @@ pt: Pote individual, potes individuais, boião individual, boiões individuais
 
 # <en:pot
 # fr:salière
-# image:xx:pot-5.svg 
+# image:xx:pot-5.svg
 # (image looks like a salière)
 # suggest:category: en:salts, en:peppers
 
@@ -436,12 +447,13 @@ en: Tube, tubes
 de: Tube, Tuben
 fr: Tube, tubes
 hu: Tubus, tubusok, Cső, csövek, cső alakú
+# image:xx:tube-1.svg
+# suggest:packaging_materials: en:cardboard, en:metal, en:glass, en:plastic, en:others
+# associated_packagings: en:cap
+it: Tubo, tubi
 nl: Tube, Tubes
 pt: Bisnaga, bisnagas, tubo de bisnaga, tubos de bisnagas
 describtion:nl: Een verpakking in kokervorm gemaakt van metaal of plastic gevuld met een halfvloeibare stof
-# image:xx:tube-1.svg 
-# suggest:packaging_materials: en:cardboard, en:metal, en:glass, en:plastic, en:others
-# associated_packagings: en:cap
 
 # <en:Tube
 # fr:Tube avec bouchon dévissable
@@ -450,13 +462,14 @@ describtion:nl: Een verpakking in kokervorm gemaakt van metaal of plastic gevuld
 
 # <en:Tube
 # fr:Tube avec bouchon refermable
-# image:xx:tube-2.svg 
+# image:xx:tube-2.svg
 # associated_packagings: en:cap
 
 en: Fastener, clip
 bg: Клипса
 fr: Attache
 hu: Rögzítő, kapocs, csipesz
+it: laccetto, laccio
 nl: clip, klemmetje
 pt: Atilho, atilhos, presilha, presilhas, fita, fitas, cordão, cordões, atadura, ataduras, fecho, fechos, fexo, feixo, fexos, feixos, fio, fios
 description:fr: Ce qui sert à relier deux ou plusieurs pièces d'un ouvrage ou à le fixer.
@@ -465,11 +478,12 @@ description:nl: Een klein werktuig waarin iets door samendrukken bijeengehouden 
 # fr:Liens ( collier , ficelle , ruban , ruban adhésif , bolduc , feuillard , bande , cordon , fil , elastique , bracelet…) in data from Les Mousquetaires
 en: Tie, knot
 fr: Lien, noeud, Liens, noeuds, Liens ( collier - ficelle - ruban - ruban adhésif - bolduc - feuillard - bande - cordon - fil - elastique - bracelet…)
+# associated_packagings: en:bag
+it: nodo, fiocco
 nl: Knoop, strik
 description:fr: Ce qui sert à lier, à attacher des objets ou des parties ensemble.
 description:nl: Een vastgetrokken lus in garen, draad, koord of touw
 weight:en: light
-# associated_packagings: en:bag
 
 # fr:Poche / Pochette / Pochon in data from Les Mousquetaires
 # fr:Sac / Sachet / Flowpack in data from Les Mousquetaires
@@ -484,6 +498,7 @@ hu: Zacskó, zacskók, tasak, tasakos
 it: Sacco, sacchetto, sacchettino
 nl: Zak, Sachet, Tas, verzendzak, Zakken, Zakje, Zakjes
 pt: Saco, sacos, saquinho, saquinhos, saqueta, saquetas
+sv: Väska, väskor
 description:nl: Slappe, vormeloze verpakking
 
 # image:xx:sac-sachet-poche-1.svg (sachet avec poignée)
@@ -497,7 +512,13 @@ description:nl: Slappe, vormeloze verpakking
 # image:xx:sac-sachet-poche-3.svg (sachet fin)
 
 en: Handle, handles
+bg: Дръжка, дръжки
+de: Griff, Griffe, Handgriff, Handgriffe
+es: Asa, Asas, Manija, Manijas
 fr: Poignée, poignées
+it: maniglia, maniglie
+nl: Handvat, handvaten
+pt: Alça, alças, pega, pegas, manípulo, manípulos
 
 # <en:Bag
 # fr:Sachet à frites cartonné
@@ -577,6 +598,7 @@ fr: Bouchon solidaire, bouchons solidaires, bouchon attaché, bouchons attachés
 # fr:Bouchon (non solidaire) / Capsule / Couvercle : in data from Les Mousquetaires
 en: Lid or cap, cap or lid
 fr: Bouchon ou couvercle, Couvercle ou bouchon, Bouchon (non solidaire) / Capsule / Couvercle
+it: Coperchio o tappo, tappo o coperchio
 
 # covering on top of wine bottle caps
 en: overcap, over cap, over capsule
@@ -584,36 +606,43 @@ fr: coiffe, coiffes
 
 < en:Lid or cap
 en: Lid, cover, lids, covers
+da: Låg
 de: Deckel
 el: Καπάκι
 fr: Couvercle, couvercles
 hu: Fedél, tető, fedő
-nb: Lokk
-nl: Deksel, deksels
-pl: Nakrętka, Zakrętka, Pokrywka, Wieczko, Wieko
-pt: Tampa, tampas
 # image:xx:couvercle-1.svg (cloche)
 # image:xx:couvercle-2.svg (couvercle)
 # image:xx:couvercle-3.svg (couvercle)
 # suggest:packaging_materials:en: en:metal, en:cardboard, en:glass, en:others
 # associated_packagings: en:jar, en:bottle
+it: coperchio
+nb: Lokk
+nl: Deksel, deksels
+pl: Nakrętka, Zakrętka, Pokrywka, Wieczko, Wieko
+pt: Tampa, tampas
+sv: Lock
 
 < en:Lid or cap
 en: Bottle cap, bottle top, cap, top, bottle caps, bottle tops, caps, tops
 bg: Капачка, капачка за бутилка, капачки
 fr: Bouchon, bouchons, Bouchon de bouteille, bouchons de bouteilles, bouchons
 hu: Kupak, borosdugó, dugó
+# image:xx:bouchon-1.svg
+# associated_packagings: en:bottle
+it: tappo di bottiglia
 nl: Dop, Doppen
 pl: Kapsel
 pt: Cápsula de garrafa, cápsulas de garrafa, tampa de garrafa, tampas de garrafa, rolha, rolhas, rolha de garrafa, rolhas de garrafa, rolha de cortiça, rolhas de cortiça, rolha de plástico, rolhas de plástico, carica, caricas, cápsula de rosca, cápsulas de rosca
 wikidata:en: Q1440281
-# image:xx:bouchon-1.svg
-# associated_packagings: en:bottle
 
 # for salt and pepper
 < en:Lid or cap
 en: Grinder cap
+de: Mühlenverschluss
+es: Tapa molinillo
 fr: Bouchon broyeur, bouchons broyeurs
+it: Tappo macinino
 
 < en:Lid or cap
 fr: Capsule à vis, bouchon à vis
@@ -631,11 +660,12 @@ en: Wine cork, wine bottle cork, wine corks, wine bottle corks
 bg: Коркова тапа, Корк за вино
 fr: bouchon de bouteille de vin, bouchons de bouteilles de vin, bouchon de vin
 hr: pluteni čep
+# image:xx:bouchon-2.svg (wine cork)
+# suggest:packaging_materials:en: en:plastic, en:cork
+it: tappo di sughero, tappo di vino, tappo di bottiglia di vino
 nl: Wijnkurk, wijnkurken, Wijn kurk
 pl: Korek do wina
 wikidata:en: Q86511715
-# image:xx:bouchon-2.svg (wine cork)
-# suggest:packaging_materials:en: en:plastic, en:cork
 
 < en:Wine cork
 en: Champagne cork
@@ -689,6 +719,7 @@ wikidata:en: Q4236462
 
 < en:Coffee capsule
 en: Nespresso-compatible capsules
+bg: Кафе капсули съвместими с Nespresso
 de: Nespresso-kompatible Kapseln
 es: Cápsulas compatibles con Nespresso
 fi: Nespresso-yhteensopivat kapselit
@@ -697,6 +728,7 @@ fr: Dosettes compatible Nespresso, Dosettes Nespresso, Capsules Nespresso
 it: Capsule compatibili Nespresso
 lt: Nespresso kapsulės
 nl: Nespresso-compatibele Capsules, Nespresso
+pt: Cápsulas compatíveis com Nespresso
 
 < en:Coffee capsule
 en: Tassimo-compatible capsules, T-Disc capsules
@@ -719,14 +751,47 @@ nl: Dolce Gusto-compatibele Capsules, Dolce Gusto
 # related_categories:en: fr:Dosettes Dolce Gusto
 
 en: Tea capsules
+ar: كبسولات شاي
+az: Çay kapsulları
 bg: Чайни капсули
+bn: চা ক্যাপসুল
+ca: Càpsules de te
+cs: Čajové kapsle
+da: Te kapsler
 de: Tee-Kapseln
+el: Κάψουλες τσαγιού
 es: Cápsulas de té
+et: Teekapslid
+fa: کپسول های چای
+fi: Teekapselit
 fr: Capsules de thé
+he: קפסולות תה
+hi: चाय कैप्सूल
+hr: Kapsule za čaj
 hu: Tea kapszulák
+id: Kapsul teh
 it: Capsule di tè
+ja: ティーカプセル
+ko: 차 캡슐
+lt: Arbatos kapsulės
+lv: Tējas kapsulas
+ms: Kapsul teh
 nl: Theecapsules
+no: Te-kapsler
+pl: Kapsułki do herbaty
 pt: Cápsulas de chá
+ro: Capsule de ceai
+ru: Чайные капсулы
+sk: Čajové kapsuly
+sl: Čajne kapsule
+sq: Kapsula çaji
+sr: Чајне капсуле
+sv: Te kapslar
+th: แคปซูลชา
+tr: Çay kapsülleri
+uk: Чайні капсули
+vi: Viên nang trà
+zh: 茶胶囊
 
 en: coffee pad, coffee pads
 de: Kaffeepad, Kaffeepads
@@ -751,9 +816,12 @@ pt: Cápsulas de café compatíveis com Senseo
 
 en: Tea bag
 bg: Чаена торбичка
-nl: Theezakje
+da: Tepose, teposer
 # suggest:packaging_materials:en: en:paper
 # related_categories:en: en:Tea bags
+it: bustina di tè, bustina di te, bustina
+nl: Theezakje
+sv: Tepåse, tepåsar
 
 # keep the plural as the main name
 # fr:Baguettes / Couverts / Paille -> entry from Les Mousquetaires
@@ -772,6 +840,7 @@ bg: Съдове за хранене
 da: Bestik
 de: Besteck
 fr: Couverts, couvert
+it: Posate, posata
 pl: Sztućce
 
 # keep the plural
@@ -802,9 +871,11 @@ de: Messer
 fr: Couteau, couteaux
 hr: nož
 hu: kés, kések
+it: coltello, coltelli, coltellino, coltellini
 nl: Mes, messen
 pl: Nóż, noże
 pt: Faca, facas
+sv: Kniv
 wikidata:en: Q32489
 
 < en:Cutlery
@@ -815,9 +886,11 @@ de: Gabel, Gabeln
 fr: Fourchette, fourchettes
 hr: vilica
 hu: villa, villák
+it: forchetta, forchette, forchettina, forchettine
 nl: Vork, vorken
 pl: Widelec, widelce
 pt: Garfo, garfos
+sv: Gaffel
 wikidata:en: Q81881
 
 < en:Cutlery
@@ -843,16 +916,22 @@ wikidata:en: Q81895
 < en:Spoon
 en: teaspoon
 bg: чаена лъжичка, чаена лъжица
+da: teske, teskeer
 fr: cuillère à café
+it: cucchiaino da tè
 nl: theelepel
 pl: Łyżeczki, Łyżeczka
+sv: tesked, teskedar
 wikidata:en: Q216425
 
 < en:Spoon
 en: tablespoon
 bg: супена лъжица
+da: spiseske, spiseskeer
 fr: cuillère à soupe
+it: cucchiaino
 nl: soeplepel
+sv: matsked, matskedar
 wikidata:en: Q2002583
 
 # fr:Plaque / Intercalaire in data from Les Mousquetaires
@@ -1109,12 +1188,12 @@ fr: Rouleau, Bobine, Mandrin, Mandrin / Rouleau
 
 # <en:Roll
 # fr:rouleau de sopalin
-# image:xx:bobine-rouleau-1.svg 
+# image:xx:bobine-rouleau-1.svg
 # suggest:packaging_materials:en: en:cardboard, en:paper
 
 # <en:Roll
 # fr:rouleau de papier toilette
-# image:xx:bobine-rouleau-2.svg 
+# image:xx:bobine-rouleau-2.svg
 # suggest:packaging_materials:en: en:cardboard, en:paper
 
 < en:Jug or canister
@@ -1193,10 +1272,12 @@ fr: Gaine, gaines, manchon, manchons, sleever, sleevers
 
 en: envelope
 bg: плик
+da: konvolut
 es: sobre
 fr: enveloppe
 it: busta
 nl: wikkel, vensterenvelop, sleeve
+sv: kuvert
 # suggest:packaging_materials:en: en:cardboard, en:paper
 # image:xx:enveloppe-papier.svg
 # image:xx:enveloppe-carton.svg
@@ -1234,8 +1315,12 @@ wikidata:en: Q3737688
 
 < en:Bottle or vial
 en: squeeze bottle
+de: Quetschflasche, Drückflasche
+es: botella exprimible, botella de apretar
 fr: flacon souple, flacon pressable, flacon à presser, squeezer
+it: flacone a pressione, flacone spremibile
 nl: Knijpfles, knijpflessen
+pt: frasco de apertar, frasco de espremer
 # suggest:packaging_materials:en: en:plastic
 
 en: Aerosol can, aerosol cans, aerosol spray
@@ -1246,7 +1331,10 @@ wikidata:en: Q659495
 # image:xx:aerosol.svg
 
 en: Ball flask, Roll-on bottle
+de: Kugelflasche, Roll-on-Flasche
+es: Frascos de bola, Botella roll-on
 fr: Flacon à bille, Roll
+nl: Balflacon, Roll-on fles
 wikidata:en: Q115170160
 # image:xx:flacon-bille-roll.svg
 # suggest:packaging_materials:en: en:plastic, en:glass
@@ -1341,6 +1429,7 @@ wikidata:en: Q47107
 
 < en:bucket
 en: small bucket
+da: lille spand
 nl: emmertje
 pl: wiaderko
 

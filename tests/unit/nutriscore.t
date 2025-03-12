@@ -880,6 +880,45 @@ my @tests = (
 			},
 		}
 	],
+
+	# orange
+	[
+		"en-orange",
+		{
+			lc => "en",
+			categories => "oranges",
+			ingredients_text => "orange",
+		}
+	],
+
+	# pickled vegetable with water and dill: water should not be counted in fruits/vegetables
+	# dill should be counted
+	[
+		"pl-pickled-vegetables",
+		{
+			lc => "pl",
+			categories => "pickled vegetables",
+			ingredients_text => "52% rzodkiew biała, woda, koper, 0,6% czosnek, sól, chrzan",
+			nutriments => {
+				energy_100g => 53,
+				fat_100g => 0.1,
+				"saturated-fat_100g" => 0,
+				sugars_100g => 0,
+				sodium_100g => 2,
+				proteins_100g => 0.7,
+			},
+		}
+	],
+
+	# dill
+	[
+		"en-dill",
+		{
+			lc => "en",
+			categories => "dill",
+			ingredients_text => "dill",
+		}
+	],
 );
 
 my $json = JSON->new->allow_nonref->canonical;
@@ -908,7 +947,8 @@ foreach my $test_ref (@tests) {
 	# Detect possible improvements
 	detect_possible_improvements_nutriscore($product_ref, 2023);
 
-	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
+	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json",
+		$update_expected_results, {id => $testid});
 }
 
 is(compute_nutriscore_grade(1.56, 1, 0), "c");

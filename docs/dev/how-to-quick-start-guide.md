@@ -18,8 +18,72 @@ Docker provides an isolated environment, very close to a Virtual Machine. This e
 > **_NOTE:_**  New to Perl? Check [how to learn perl](how-to-learn-perl.md)!
 
 **Installation steps:**
+- GIT version >= 2.25.0
 - [Install Docker CE](https://docs.docker.com/engine/install/)
-> If you run e.g. Debian, don't forget to add your user to the `docker` group!
+> If you run e.g. Debian, don't forget to add your user to the `docker` group!  
+
+### MacOS Prerequisites: Installing GNU grep for Full Regex Support
+
+On macOS, the default version of **grep** is BSD grep, which does not support certain GNU-specific options—most notably, the `-P` flag for Perl-compatible regular expressions. If you encounter errors like:
+
+```console
+grep: invalid option -- P
+usage: grep [-abcdDEFGHhIiJLlMmnOopqRSsUVvwXxZz] [-A num] [-B num] [-C[num]] …
+```
+
+You can resolve the issue by installing GNU grep and prioritizing it in your shell's PATH.
+
+#### Steps to Install GNU grep
+
+1. **Install GNU grep via Homebrew:**
+
+   ```console
+   brew install grep
+   ```
+
+2. **Update Your PATH:**
+
+   Add the following line to your `~/.zshrc` (or your shell’s configuration file):
+
+   ```console
+   export PATH="$(brew --prefix grep)/libexec/gnubin:$PATH"
+   ```
+
+   This ensures that the GNU version (often available as `ggrep`) is used by default instead of BSD grep.
+
+3. **Apply the Changes:**
+
+   Restart your terminal or run:
+
+   ```console
+   source ~/.zshrc
+   ```
+
+4. **Verify Installed Version:**
+
+Run the following command to ensure that GNU grep is installed and properly configured:
+
+```console
+grep --version
+```
+
+You should see an output similar to the example below, indicating that GNU grep (with Homebrew packaging) is active and supports the `-P` option via PCRE2:
+
+```console
+grep (GNU grep) 3.11
+Packaged by Homebrew
+Copyright (C) 2023 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Mike Haertel and others; see
+<https://git.savannah.gnu.org/cgit/grep.git/tree/AUTHORS>.
+
+grep -P uses PCRE2 10.44 2024-06-07
+```
+
+After completing these steps, running grep commands (for example, as part of `make log`) will use GNU grep with full support for options like `-P`.
 
 ### Windows Prerequisites
 
@@ -39,21 +103,28 @@ The process of cloning the repository will create a number of symbolic links whi
 Make sure you also activated the [Developer mode](https://learn.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development) on your device.
 
 
-### Windows Subsystem for Linux (WSL) Prequisites
+### Windows Subsystem for Linux (WSL) Prerequisites
 
-Ensure that you have WSL installed on your Windows machine. For instructions on how to do so, you can follow [Microsoft's guide to install WSL](https://learn.microsoft.com/en-us/windows/wsl/install). 
+Ensure that you have WSL installed on your Windows machine. For instructions on how to do so, you can follow [Microsoft's guide to install WSL](https://learn.microsoft.com/en-us/windows/wsl/install).
 
-After succcessfully installing WSL, you need to set up your Linux distribution and install Docker on it: 
+After succcessfully installing WSL, you need to set up your Linux distribution and install Docker on it:
 - Go to the Microsoft Store and install [Ubuntu](https://www.microsoft.com/store/productId/9PDXGNCFSCZV?ocid=pdpshare) as your Linux distribution
 - Open Ubuntu and execute the commands/instructions specified in [Installing Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/) (**NOTE: this is NOT the same thing as Docker for Desktop)
-- Restart your computer to ensure all changes take effect and WSL can properly integrate with Docker 
+- Restart your computer to ensure all changes take effect and WSL can properly integrate with Docker
+
+### Docker Desktop Prerequisite
+
+If you use Docker Desktop:
+
+- ensure you allow enough memory for your VMs (at least 4G)
+- ensure you Enabled host networking (in Resources / Network)
 
 
 ## 2. Fork and clone the repository from GitHub
 
 > _You must have a GitHub account and fork the project if you want to contribute to Open Food Facts development, but it’s not required if you just want to see how it works._
 
-> _Cloning Open Food Facts server with the default options downloads 2.23 GiB (as of 2024-03). See [Shallow Clone](#shallow-clone) if this might be a problem for you._ 
+> _Cloning Open Food Facts server with the default options downloads 2.23 GiB (as of 2024-03). See [Shallow Clone](#shallow-clone) if this might be a problem for you._
 
 ### Fork the repository
 
@@ -177,7 +248,7 @@ make dev
 ```
 
 > **Note:**
-> 
+>
 > If you are using Windows, you may encounter issues regarding this command. Take a look at the **Troubleshooting** section further in this tutorial.
 
 > **Note:**
@@ -239,7 +310,7 @@ When running `make dev`:
 bash: make: command not found
 ```
 
-**Solution (if using Windows):** 
+**Solution (if using Windows):**
 Click the Windows button, then type “environment properties” into the search bar and hit Enter. Click Environment Variables, then under System variables choose Path and click Edit. Click New and insert C:\Program Files (x86)\GnuWin32\bin, then save the changes. Open a new terminal and test that the command works.
 (See [Make Windows](https://pakstech.com/blog/make-windows/) for more.)
 
@@ -299,7 +370,7 @@ When running `make dev`:
 docker compose --env-file=.env  build   2>&1
 open /.docker/buildx/current: permission denied
 make: *** [build] Error 1
-openfoodfacts-server % 
+openfoodfacts-server %
 ```
 
 **Solution:**
@@ -311,7 +382,7 @@ If there is a file that is not owned by user with root instead of USER:
 ```console
 -rw-------   1 root    staff   48 Apr 28 17:04 current
 ```
-Then Run 
+Then Run
 ```console
 sudo chown -R USER:USER /Users/USER/.docker/buildx
 ```
@@ -336,7 +407,7 @@ make (e=2): The system cannot find the file specified.
 
 You need to install [wget for windows](https://eternallybored.org/misc/wget/). The referenced version is able to use the Windows Certificate Store, whereas the standard [gnuwin32 version](https://gnuwin32.sourceforge.net/packages/wget.htm) will give errors about not being able to verify the server certificate.
 
-### make: *** [Makefile:154: import_sample_data] Error 22 
+### make: *** [Makefile:154: import_sample_data] Error 22
 
 When running `make import_sample_data`
 
@@ -360,7 +431,7 @@ make: *** [Makefile:154: import_sample data] Error 22
 ```
 
 **Solution:**
-The cause of this issue is that you already have the mongodb database server running on your local machine at port 27017. 
+The cause of this issue is that you already have the mongodb database server running on your local machine at port 27017.
 
 *For Linux users:*
 
@@ -379,7 +450,7 @@ systemctl status mongod | grep Active
 
 Then, execute this:
 ```console
-docker compose up 
+docker compose up
 ```
 > **Note:**
 > To know more about docker compose commands do read [this guide](how-to-develop-using-docker.md)
@@ -403,3 +474,49 @@ make: *** [Makefile:126: build_lang] Error 13
 **Solution:**
 
 Use the powershell/cmd to run the make dev commands in windows.
+
+
+### make dev error: [build] Error 1 - failed to solve: process "/bin/sh -c usermod --uid $USER_UID www-data && groupmod --gid $USER_GID www-data" did not complete successfully: exit code: 4
+
+**On WSL(for root user)**
+When using `make dev`:
+
+```console
+<p>
+------
+ > [backend modperl 5/5] RUN usermod --uid 0 www-data &&     groupmod --gid 1000 www-data:
+0.492 usermod: UID '0' already exists
+------
+failed to solve: process "/bin/sh -c usermod --uid $USER_UID www-data &&     groupmod --gid $USER_GID www-data" did not complete successfully: exit code: 4
+</p>
+make: *** [Makefile:147: build] Error 1
+```
+
+**Solution:**
+
+Reason for the error: 
+"usermod: UID '0' already exists" means that the user is being assigned UID 0, which is already used by the root user.
+
+
+To solve it create an environment variable(USER_UID=1000) inside .envrc using direnv. Steps to do that:
+
+Install direnv
+```console
+sudo apt install direnv
+```
+
+Enable direnv for Your Shell
+```console
+echo 'eval "$(direnv hook bash)"' >> ~/.bashrc
+source ~/.bashrc
+```
+
+Create a .envrc File in Your Project
+```console
+echo 'USER_UID=1000' > .envrc
+```
+
+Finally, run this to allow .envrc:
+```console
+direnv allow
+```

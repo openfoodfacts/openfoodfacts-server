@@ -5,10 +5,9 @@ use utf8;
 
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
 use ProductOpener::Routing qw/analyze_request load_routes/;
-use ProductOpener::Lang qw/$lc /;
+use ProductOpener::Lang qw/$lc/;
 
 use Test2::V0;
-use Mock::Quick;
 use Data::Dumper;
 $Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
@@ -27,7 +26,11 @@ my @tests = (
 			lc => "en",
 			original_query_string => 'api/v0/attribute_groups',
 			no_index => '0',
-			is_crawl_bot => '1'
+			is_crawl_bot => '1',
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
 		},
 	},
 	{
@@ -37,9 +40,13 @@ my @tests = (
 		input_request => {
 			cc => "world",
 			lc => "en",
-			original_query_string => 'category/breads/no-nutrition-data',
+			original_query_string => 'facets/categories/breads/no-nutrition-data',
 			no_index => '0',
-			is_crawl_bot => '0'
+			is_crawl_bot => '0',
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
 		},
 	},
 	{
@@ -49,9 +56,13 @@ my @tests = (
 		input_request => {
 			cc => "world",
 			lc => "en",
-			original_query_string => 'category/breads',
+			original_query_string => 'facets/categories/breads',
 			no_index => '0',
-			is_crawl_bot => '1'
+			is_crawl_bot => '1',
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
 		},
 	},
 	{
@@ -61,9 +72,13 @@ my @tests = (
 		input_request => {
 			cc => "world",
 			lc => "en",
-			original_query_string => 'category/breads/4',
+			original_query_string => 'facets/categories/breads/4',
 			no_index => '0',
-			is_crawl_bot => '1'
+			is_crawl_bot => '1',
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
 		},
 	},
 	{
@@ -73,9 +88,13 @@ my @tests = (
 		input_request => {
 			cc => "world",
 			lc => "en",
-			original_query_string => 'category/bread/4',
+			original_query_string => 'facets/categories/bread/4',
 			no_index => '0',
-			is_crawl_bot => '0'
+			is_crawl_bot => '0',
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
 		},
 	},
 	{
@@ -87,7 +106,11 @@ my @tests = (
 			lc => "en",
 			original_query_string => 'api/v3/product/03564703999971',
 			no_index => '0',
-			is_crawl_bot => '0'
+			is_crawl_bot => '0',
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
 		},
 	},
 	{
@@ -100,7 +123,11 @@ my @tests = (
 			original_query_string =>
 				'api/v3/product/https%3A%2F%2Fid.gs1.org%2F01%2F03564703999971%2F10%2FABC%2F21%2F123456%3F17%3D211200',
 			no_index => '0',
-			is_crawl_bot => '0'
+			is_crawl_bot => '0',
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
 		},
 	},
 	{
@@ -110,9 +137,13 @@ my @tests = (
 		input_request => {
 			cc => "world",
 			lc => "en",
-			original_query_string => 'category/breads/ingredients',
+			original_query_string => 'facets/categories/breads/ingredients',
 			no_index => '0',
-			is_crawl_bot => '1'
+			is_crawl_bot => '1',
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
 		},
 	},
 	{
@@ -122,9 +153,13 @@ my @tests = (
 		input_request => {
 			cc => "world",
 			lc => "es",
-			original_query_string => 'category/breads/ingredients',
+			original_query_string => 'facets/categories/breads/ingredients',
 			no_index => '0',
-			is_crawl_bot => '1'
+			is_crawl_bot => '1',
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
 		},
 	},
 	{
@@ -136,6 +171,10 @@ my @tests = (
 			original_query_string => 'api/v3/geopip/12.45.23.45',
 			no_index => '0',
 			is_crawl_bot => '0',
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
 		}
 	},
 	{
@@ -148,9 +187,151 @@ my @tests = (
 			original_query_string => 'api/v3/geopip/2001:ac8:25:3b::e01d',
 			no_index => '0',
 			is_crawl_bot => '0',
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
 
 		},
 	},
+	# /products
+	{
+		id => 'products-code',
+		desc => 'products with a single barcode',
+		lc => "en",
+		input_request => {
+			cc => "world",
+			lc => "en",
+			original_query_string => 'products/3564703999971',
+			no_index => '0',
+			is_crawl_bot => '0',
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
+		}
+	},
+	# /products with multiple barcodes
+	{
+		id => 'products-codes',
+		desc => 'products with multiple barcodes',
+		lc => "en",
+		input_request => {
+			cc => "world",
+			lc => "en",
+			original_query_string => 'products/3564703999971,3564703999972',
+			no_index => '0',
+			is_crawl_bot => '0',
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
+		}
+	},
+	{
+		id => 'product-french',
+		desc => 'product translated in french',
+		lc => "fr",
+		input_request => {
+			cc => "world",
+			lc => "fr",
+			original_query_string => 'produit/3564703999971',
+			no_index => '0',
+			is_crawl_bot => '0',
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
+		}
+	},
+	# Rate-limit tests
+	{
+		id => 'rate-limit-on-facet-registered-user',
+		desc => "Rate limit on facet for registered user",
+		lc => "en",
+		input_request => {
+			cc => "world",
+			lc => "en",
+			original_query_string => 'facets/categories/breads',
+			no_index => '0',
+			is_crawl_bot => '0',
+			user_id => "userid",
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
+		},
+	},
+	# redirect tests
+	{
+		id => 'redirect-to-plural-tagtype',
+		desc => "Redirect to plural tagtype",
+		lc => "en",
+		input_request => {
+			cc => "world",
+			lc => "en",
+			original_query_string => 'facets/category/breads/brand/lidl',
+			no_index => '0',
+			is_crawl_bot => '0',
+			user_id => "userid",
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
+		},
+	},
+	{
+		id => 'redirect-to-facets-prefix',
+		desc => "Redirect to facets prefix",
+		lc => "en",
+		input_request => {
+			cc => "world",
+			lc => "en",
+			original_query_string => 'categories',
+			no_index => '0',
+			is_crawl_bot => '0',
+			user_id => "userid",
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
+		},
+	},
+	{
+		id => 'redirect-to-facets-prefix-and-plural',
+		desc => "Redirect to facets prefix and plural",
+		lc => "fr",
+		input_request => {
+			cc => "world",
+			lc => "fr",
+			original_query_string => 'categories/pain/brand/lidl',
+			no_index => '0',
+			is_crawl_bot => '0',
+			user_id => "userid",
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
+		},
+	},
+	{
+		id => 'redirect-to-product-normalized-code',
+		desc => "Redirect to product normalized code",
+		lc => "fr",
+		input_request => {
+			cc => "world",
+			lc => "fr",
+			original_query_string => 'product/012345678',
+			no_index => '0',
+			is_crawl_bot => '0',
+			user_id => "userid",
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
+		},
+	},
+
 );
 
 foreach my $test_ref (@tests) {
@@ -163,6 +344,34 @@ foreach my $test_ref (@tests) {
 		"$expected_result_dir/$test_ref->{id}.json",
 		$update_expected_results, $test_ref
 	);
+}
+
+# Test rate limit whitelist
+
+{
+
+	my $request_ref = {rate_limiter_bucket => "search",};
+
+	# Mock the get_rate_limit_user_requests method called in set_rate_limit_attributes()
+	# Note: even though the original method is in ProductOpener::Redis,
+	# we need to mock the method in ProductOpener::Routing
+	my $redis_module = mock 'ProductOpener::Routing' => (
+		override => [
+			get_rate_limit_user_requests => sub {
+				my $bucket = shift;
+				my $user_id = shift;
+				print "bucket: $bucket, user_id: $user_id\n";
+				return 100;
+			}
+		]
+	);
+
+	ProductOpener::Routing::set_rate_limit_attributes($request_ref, "1.2.3.4");
+	is($request_ref->{rate_limiter_blocking}, 1, "IP not in rate limit whitelist");
+
+	ProductOpener::Routing::set_rate_limit_attributes($request_ref, "163.5.3.4");
+	is($request_ref->{rate_limiter_blocking}, 0, "IP in rate limit whitelist");
+
 }
 
 done_testing();
