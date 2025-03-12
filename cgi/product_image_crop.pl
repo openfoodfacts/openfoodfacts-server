@@ -136,7 +136,15 @@ my $data = encode_json(
 $log->debug("JSON data output", {data => $data}) if $log->is_debug();
 
 write_cors_headers();
-print header(-type => 'application/json', -charset => 'utf-8') . $data;
+print header(
+	-type => 'application/json', 
+	-charset => 'utf-8',
+	#CHORS headers 
+	-access_control_allow_origin => '*', 
+    -access_control_allow_methods => 'GET, POST, OPTIONS',  
+    -access_control_allow_headers => 'Content-Type, Authorization', 
+    -access_control_max_age => '86400' 
+) . $data;
 
 exit(0);
 
