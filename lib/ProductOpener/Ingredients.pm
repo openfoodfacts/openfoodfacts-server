@@ -5658,12 +5658,12 @@ my %phrases_after_ingredients_list = (
 
 	tr => [
 		'analitik bileşenler',    # pet food
-		]
+	],
 
-		uk => [
+	uk => [
 		'Зберігати в сухому',    # store in dry place
 		'kраще спожити',    # best before
-		],
+	],
 
 	vi => ['GI(Á|A) TR(Ị|I) DINH D(Ư|U)(Ỡ|O)NG (TRONG|TRÊN)',],
 );
