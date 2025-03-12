@@ -28,7 +28,6 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/init_request single_param/;
-use ProductOpener::HTTP qw/write_cors_headers/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/$Owner_id $User_id %User/;
 use ProductOpener::Images qw/is_protected_image process_image_unselect/;
@@ -67,13 +66,6 @@ my $data = encode_json({status_code => 0, status => 'status ok', imagefield => $
 
 $log->debug("JSON data output", {data => $data}) if $log->is_debug();
 
-
-write_cors_headers();
-
-print header(
-    -type => 'application/json', 
-    -charset => 'utf-8',
-) . $data;
+print header(-type => 'application/json', -charset => 'utf-8') . $data;
 
 exit(0);
-
