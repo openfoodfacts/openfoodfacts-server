@@ -8,23 +8,25 @@
       
       
       
-        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/">
+        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/dev/how-to-debug-minion-import-and-export-tasks/">
       
       
+        <link rel="prev" href="../">
       
-        <link rel="next" href="api/">
+      
+        <link rel="next" href="../how-to-develop-producer-platform/">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
     
     
       
-        <title>Product Opener (Open Food Facts Server)</title>
+        <title>How to debug Minion import and export tasks - Product Opener (Open Food Facts Server)</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.d7758b05.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.d7758b05.min.css">
       
       
 
@@ -43,7 +45,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -62,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#product-opener-open-food-facts-web-server-documentation" class="md-skip">
+        <a href="#how-to-debug-minion-import-and-export-tasks" class="md-skip">
           Skip to content
         </a>
       
@@ -78,7 +80,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Product Opener (Open Food Facts Server)" class="md-header__button md-logo" aria-label="Product Opener (Open Food Facts Server)" data-md-component="logo">
+    <a href="../.." title="Product Opener (Open Food Facts Server)" class="md-header__button md-logo" aria-label="Product Opener (Open Food Facts Server)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -98,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Product Opener (Open Food Facts web server) documentation
+              How to debug Minion import and export tasks
             
           </span>
         </div>
@@ -185,7 +187,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Product Opener (Open Food Facts Server)" class="md-nav__button md-logo" aria-label="Product Opener (Open Food Facts Server)" data-md-component="logo">
+    <a href="../.." title="Product Opener (Open Food Facts Server)" class="md-nav__button md-logo" aria-label="Product Opener (Open Food Facts Server)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -212,31 +214,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Product Opener (Open Food Facts web server) documentation
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -246,35 +227,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#documentation-organization" class="md-nav__link">
-    <span class="md-ellipsis">
-      Documentation organization
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -322,7 +274,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/" class="md-nav__link">
+      <a href="../../api/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -344,7 +296,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/intro-robotoff/" class="md-nav__link">
+      <a href="../../api/intro-robotoff/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -366,7 +318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/tutorial-dev-journey/" class="md-nav__link">
+      <a href="../../api/tutorial-dev-journey/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -388,7 +340,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/tutorial-off-api/" class="md-nav__link">
+      <a href="../../api/tutorial-off-api/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -410,7 +362,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/tutorial-uploading-photo-to-a-product/" class="md-nav__link">
+      <a href="../../api/tutorial-uploading-photo-to-a-product/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -432,7 +384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/how-to-download-images/" class="md-nav__link">
+      <a href="../../api/how-to-download-images/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -454,7 +406,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/explain-knowledge-panels/" class="md-nav__link">
+      <a href="../../api/explain-knowledge-panels/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -476,7 +428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/ref-barcode-normalization/" class="md-nav__link">
+      <a href="../../api/ref-barcode-normalization/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -498,7 +450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/ref-cheatsheet/" class="md-nav__link">
+      <a href="../../api/ref-cheatsheet/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -520,7 +472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/ref-v2/" class="md-nav__link">
+      <a href="../../api/ref-v2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -542,7 +494,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/ref-v3/" class="md-nav__link">
+      <a href="../../api/ref-v3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -564,7 +516,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/aws-images-dataset/" class="md-nav__link">
+      <a href="../../api/aws-images-dataset/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -586,7 +538,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/leveraging-links-to-wikidata/" class="md-nav__link">
+      <a href="../../api/leveraging-links-to-wikidata/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -644,7 +596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/api-tutorials/get-the-nutriscore/" class="md-nav__link">
+      <a href="../../api/api-tutorials/get-the-nutriscore/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -710,7 +662,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/tutorials/adding-missing-products/" class="md-nav__link">
+      <a href="../../api/tutorials/adding-missing-products/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -732,7 +684,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/tutorials/comparing-sodas/" class="md-nav__link">
+      <a href="../../api/tutorials/comparing-sodas/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -754,7 +706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/tutorials/creating-a-local-cache-of-open-food-facts-data/" class="md-nav__link">
+      <a href="../../api/tutorials/creating-a-local-cache-of-open-food-facts-data/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -776,7 +728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/tutorials/finding-healthy-cereals/" class="md-nav__link">
+      <a href="../../api/tutorials/finding-healthy-cereals/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -798,7 +750,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/tutorials/folksonomy-engine/" class="md-nav__link">
+      <a href="../../api/tutorials/folksonomy-engine/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -820,7 +772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/tutorials/get-in-touch-with-openfoodfacts/" class="md-nav__link">
+      <a href="../../api/tutorials/get-in-touch-with-openfoodfacts/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -842,7 +794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/tutorials/get-ingredient-related-analysis/" class="md-nav__link">
+      <a href="../../api/tutorials/get-ingredient-related-analysis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -864,7 +816,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/tutorials/get-the-green-score/" class="md-nav__link">
+      <a href="../../api/tutorials/get-the-green-score/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -886,7 +838,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/tutorials/get-the-nutriscore/" class="md-nav__link">
+      <a href="../../api/tutorials/get-the-nutriscore/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -908,7 +860,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/tutorials/how-to-create-data-quality-controls-in-your-app/" class="md-nav__link">
+      <a href="../../api/tutorials/how-to-create-data-quality-controls-in-your-app/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -930,7 +882,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/tutorials/license-be-on-the-legal-side/" class="md-nav__link">
+      <a href="../../api/tutorials/license-be-on-the-legal-side/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -952,7 +904,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/tutorials/product-prices/" class="md-nav__link">
+      <a href="../../api/tutorials/product-prices/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -974,7 +926,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/tutorials/reporting-issues-with-nutripatrol/" class="md-nav__link">
+      <a href="../../api/tutorials/reporting-issues-with-nutripatrol/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -996,7 +948,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/tutorials/scanning-cosmetics-pet-food-and-other-products/" class="md-nav__link">
+      <a href="../../api/tutorials/scanning-cosmetics-pet-food-and-other-products/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1018,7 +970,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/tutorials/working-with-facets/" class="md-nav__link">
+      <a href="../../api/tutorials/working-with-facets/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1052,17 +1004,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -1077,7 +1031,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Dev
@@ -1091,7 +1045,7 @@
   
   
     <li class="md-nav__item">
-      <a href="dev/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1110,10 +1064,31 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="dev/how-to-debug-minion-import-and-export-tasks/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    How to debug Minion import and export tasks
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1123,6 +1098,53 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#log-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Log files
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checking-the-status-of-minion-tasks-jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Checking the status of Minion tasks (jobs)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-failed-import-of-pro-platform-data-on-public-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debugging failed import of pro platform data on public platform
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1135,7 +1157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="dev/how-to-develop-producer-platform/" class="md-nav__link">
+      <a href="../how-to-develop-producer-platform/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1157,7 +1179,7 @@
   
   
     <li class="md-nav__item">
-      <a href="dev/how-to-develop-using-docker/" class="md-nav__link">
+      <a href="../how-to-develop-using-docker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1179,7 +1201,7 @@
   
   
     <li class="md-nav__item">
-      <a href="dev/how-to-learn-perl/" class="md-nav__link">
+      <a href="../how-to-learn-perl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1201,7 +1223,7 @@
   
   
     <li class="md-nav__item">
-      <a href="dev/how-to-quick-start-guide/" class="md-nav__link">
+      <a href="../how-to-quick-start-guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1223,7 +1245,7 @@
   
   
     <li class="md-nav__item">
-      <a href="dev/how-to-release/" class="md-nav__link">
+      <a href="../how-to-release/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1245,7 +1267,7 @@
   
   
     <li class="md-nav__item">
-      <a href="dev/how-to-update-agribalyse-ecoscore/" class="md-nav__link">
+      <a href="../how-to-update-agribalyse-ecoscore/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1267,7 +1289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="dev/how-to-use-direnv/" class="md-nav__link">
+      <a href="../how-to-use-direnv/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1289,7 +1311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="dev/how-to-use-gitpod/" class="md-nav__link">
+      <a href="../how-to-use-gitpod/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1311,7 +1333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="dev/how-to-use-pages-from-openfoodfacts-web/" class="md-nav__link">
+      <a href="../how-to-use-pages-from-openfoodfacts-web/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1333,7 +1355,7 @@
   
   
     <li class="md-nav__item">
-      <a href="dev/how-to-use-repl/" class="md-nav__link">
+      <a href="../how-to-use-repl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1355,7 +1377,7 @@
   
   
     <li class="md-nav__item">
-      <a href="dev/how-to-use-vscode/" class="md-nav__link">
+      <a href="../how-to-use-vscode/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1377,7 +1399,7 @@
   
   
     <li class="md-nav__item">
-      <a href="dev/how-to-write-and-run-tests/" class="md-nav__link">
+      <a href="../how-to-write-and-run-tests/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1399,7 +1421,7 @@
   
   
     <li class="md-nav__item">
-      <a href="dev/explain-nutrition-data/" class="md-nav__link">
+      <a href="../explain-nutrition-data/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1421,7 +1443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="dev/explain-packaging-data/" class="md-nav__link">
+      <a href="../explain-packaging-data/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1443,7 +1465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="dev/explain-personal-search/" class="md-nav__link">
+      <a href="../explain-personal-search/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1465,7 +1487,7 @@
   
   
     <li class="md-nav__item">
-      <a href="dev/explain-pro-dev-setup/" class="md-nav__link">
+      <a href="../explain-pro-dev-setup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1487,7 +1509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="dev/explain-taxonomy-build-cache/" class="md-nav__link">
+      <a href="../explain-taxonomy-build-cache/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1509,7 +1531,7 @@
   
   
     <li class="md-nav__item">
-      <a href="dev/ref-docker-commands/" class="md-nav__link">
+      <a href="../ref-docker-commands/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1531,7 +1553,7 @@
   
   
     <li class="md-nav__item">
-      <a href="dev/ref-perl-pod/" class="md-nav__link">
+      <a href="../ref-perl-pod/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1553,7 +1575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="dev/ref-perl/" class="md-nav__link">
+      <a href="../ref-perl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1602,9 +1624,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#documentation-organization" class="md-nav__link">
+  <a href="#log-files" class="md-nav__link">
     <span class="md-ellipsis">
-      Documentation organization
+      Log files
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checking-the-status-of-minion-tasks-jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Checking the status of Minion tasks (jobs)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-failed-import-of-pro-platform-data-on-public-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debugging failed import of pro platform data on public platform
     </span>
   </a>
   
@@ -1629,27 +1669,71 @@
   
 
 
-<h1 id="product-opener-open-food-facts-web-server-documentation">Product Opener (Open Food Facts web server) documentation<a class="headerlink" href="#product-opener-open-food-facts-web-server-documentation" title="Permanent link">#</a></h1>
-<p>Welcome to the documentation of <strong>Product Opener</strong>, the web server at the heart of <strong><a href="https://world.openfoodfacts.org/">Open Food Facts</a></strong> project. </p>
-<p>It also powers the sibling <strong>Open [<a href="https://world.openbeautyfacts.org/">Beauty</a>|<a href="https://world.openpetfoodfacts.org/">Pet Food</a>|<a href="https://world.openproductsfacts.org/">Products</a>] Facts</strong> projects</p>
+<h1 id="how-to-debug-minion-import-and-export-tasks">How to debug Minion import and export tasks<a class="headerlink" href="#how-to-debug-minion-import-and-export-tasks" title="Permanent link">#</a></h1>
+<p>For imports on the pro platform, and exports from the pro platform and imports on the public platform, we use Minion tasks.</p>
+<p>Those tasks are run by a Minion worker service, which is configured in /etc/systemd/system/minion\@off.service</p>
+<h2 id="log-files">Log files<a class="headerlink" href="#log-files" title="Permanent link">#</a></h2>
+<p>in the logs directory, we have:</p>
 <ul>
-<li>If you want to use the API or are interested in the data, look at <a href="api/">API documentation</a></li>
+<li>minion.log - states which tasks are started</li>
+<li>minion_log4perl.log - debug messages from the Perl code that implements the Minion tasks</li>
 </ul>
-<ul>
-<li>If you are a developer, look at <a href="dev/">Developer documentation</a></li>
-</ul>
-<p>The repository for the project is at https://github.com/openfoodfacts/openfoodfacts-server/</p>
-<p>Do not hesitate to contribute to this documentation, this is highly appreciated.</p>
-<h2 id="documentation-organization">Documentation organization<a class="headerlink" href="#documentation-organization" title="Permanent link">#</a></h2>
-<p>The documentation is split between API documentation (for re-users, third party developers) and Developer documentation (for contributors).</p>
-<p>The documentation follows the <a href="https://diataxis.fr/">Diátaxis framework</a>.</p>
-<p>Page titles should start with:</p>
-<ul>
-<li><em>tutorial on</em> - tutorials aimed at learning</li>
-<li><em>how to…</em> - how to guides to reach a specific goal</li>
-<li><em>explain…</em> - explanation to understand a topic</li>
-<li><em>reference…</em> - providing detailed information</li>
-</ul>
+<h2 id="checking-the-status-of-minion-tasks-jobs">Checking the status of Minion tasks (jobs)<a class="headerlink" href="#checking-the-status-of-minion-tasks-jobs" title="Permanent link">#</a></h2>
+<div class="highlight"><pre><span></span><code>off@off:/srv/off$ (off) ./scripts/minion_producers.pl minion job 
+[..]
+132132  inactive  pro.openfoodfacts.org  update_export_status_for_csv_file
+132131  failed    openfoodfacts.org      import_csv_file
+132130  finished  pro.openfoodfacts.org  export_csv_file
+</code></pre></div>
+<h2 id="debugging-failed-import-of-pro-platform-data-on-public-platform">Debugging failed import of pro platform data on public platform<a class="headerlink" href="#debugging-failed-import-of-pro-platform-data-on-public-platform" title="Permanent link">#</a></h2>
+<p>The following are notes on how a specific issue was debugged in production:</p>
+<p>We now are loading automatically Systeme U (a big French retailer) imports in the producers platform.</p>
+<p>The checkbox in the Systeme U organization (admin field) to automatically export new products is checked, but the products have not been loaded on the producers platform.</p>
+<p>We can launch the export and import manually:</p>
+<p>off@off-pro:/srv/off-pro$ (off-pro) scripts/export_and_import_to_public_database.pl --query states_tags=en:to-be-exported --owner org-systeme-u</p>
+<p>And we can see the details of the corresponding minion jobs:</p>
+<div class="highlight"><pre><span></span><code>off@off-pro:/srv/off-pro$ (off-pro) ./scripts/minion_producers.pl minion job
+[..]
+132132  inactive  pro.openfoodfacts.org  update_export_status_for_csv_file
+132131  failed    openfoodfacts.org      import_csv_file
+132130  finished  pro.openfoodfacts.org  export_csv_file
+</code></pre></div>
+<p>In the off container, there is little useful information in the logs:</p>
+<p>/srv/off/logs/minion.log:</p>
+<div class="highlight"><pre><span></span><code>import_csv_file_task - job: 132131 started - args: {&quot;comment&quot;:&quot;Import from producers platform&quot;,&quot;csv_file&quot;:&quot;/srv/off-pro/export_files/org-systeme-u/export.1741792171.exported.csv&quot;,&quot;global_values&quot;:{&quot;data_sources&quot;:&quot;Producers, Producer - systeme-u&quot;},&quot;query&quot;:{&quot;owner&quot;:&quot;org-systeme-u&quot;,&quot;states_tags&quot;:&quot;en:to-be-exported&quot;,&quot;data_quality_errors_producers_tags.0&quot;:{&quot;$exists&quot;:false},&quot;code&quot;:&quot;3256221408515&quot;},&quot;export_job_id&quot;:132130,&quot;source_id&quot;:&quot;org-systeme-u&quot;,&quot;manufacturer&quot;:1,&quot;org_id&quot;:&quot;systeme-u&quot;,&quot;export_id&quot;:1741792171,&quot;include_images_paths&quot;:1,&quot;user_id&quot;:&quot;org-systeme-u&quot;,&quot;source_name&quot;:&quot;systeme-u&quot;,&quot;include_obsolete_products&quot;:1,&quot;exported_t&quot;:1741792171,&quot;owner_id&quot;:&quot;org-systeme-u&quot;}
+</code></pre></div>
+<p>To get more data (debug level) in minion_log4perl.log:</p>
+<p>We can stop the minion daemon</p>
+<p>as the root user: <code>systemctl stop minion@off.service</code></p>
+<p>And run it manually as a normal process</p>
+<p>as the off user:
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>off<span class="w"> </span>bash
+<span class="nb">source</span><span class="w"> </span>env/setenv<span class="w"> </span>off
+<span class="nv">TAP_LOG_FILTER</span><span class="o">=</span>none<span class="w"> </span>perl<span class="w"> </span>scripts/minion_producers.pl<span class="w"> </span>minion<span class="w"> </span>worker<span class="w"> </span>-m<span class="w"> </span>production
+</code></pre></div></p>
+<p>The <code>TAP_LOG_FILTER</code> environment variable is used to set the log level for Log4Perl. Setting it to <code>none</code> prints messages for all log levels.</p>
+<p>I added a print STDERR in Import.pm to see if a specific product is causing the problem:</p>
+<div class="highlight"><pre><span></span><code>Import.pm - org: systeme-u - code: 3256221408515
+</code></pre></div>
+<p>Trying to export this single product indeed fails.</p>
+<p>Last lines in minion_log4perl.log:</p>
+<div class="highlight"><pre><span></span><code>[24193] /srv/off/lib/ProductOpener/TaxonomiesEnhancer.pm 257 ProductOpener.TaxonomiesEnhancer {} check_ingredients_between_languages &gt; detect_missing_stop_words_before_list -   first ingredient in ingredients1 (fr:ble-dur-precuit-concasse) is unknown (is_in_taxonomy =&gt; 1) or first ingredient in ingredients2 is known (is_in_taxonomy =&gt; 1)
+[24193] /srv/off/lib/ProductOpener/TaxonomiesEnhancer.pm 356 ProductOpener.TaxonomiesEnhancer {} check_ingredients_between_languages &gt; detect_missing_stop_words_after_list - start, lang1: fr, lang2: en
+[60104] scripts/minion_producers.pl 87 main {minion_backend =&gt; [..] minion producers workers stopped
+</code></pre></div>
+<p>Unfortunately there's no clearer error message.</p>
+<p>To debug it, I added print STDERR statements in TaxonomiesEnhancer.pm, to try to see where it stopped.</p>
+<p>The following line is the error:</p>
+<div class="highlight"><pre><span></span><code>                $log-&gt;debug(
+                        &quot;check_ingredients_between_languages &gt; detect_missing_stop_words_after_list -   too much difference between languages to raise warning. diff/total &gt; tolerance: $translation_difference_count / $#$ingredients1 = &quot;
+                                . $translation_difference_count / $#$ingredients1 . &quot; &gt; &quot;
+                                . $translation_difference_accepted_percentage)
+                        if $log-&gt;is_debug();
+</code></pre></div>
+<p><code>$#array</code> is equal to <code>0</code> when <code>@array</code> contains 1 element, so it makes a <code>division by 0 error</code> and the task fails. But unfortunately I could not find any log where this division by zero error was reported, the only thing we get from Minion is that the task failed...</p>
+<p><strong>Finally:</strong> don't forget to <strong>restart the minion service</strong> !</p>
+<p>```bash
+sudo systemctl start minion@off.service</p>
 
 
 
@@ -1696,10 +1780,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.f1b6f286.min.js"></script>
+      <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
       
     
   </body>
