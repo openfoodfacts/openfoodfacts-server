@@ -51,7 +51,7 @@ $log->debug("display.pl - start", {env_query_string => $env_query_string, reques
 	if $log->is_debug();
 
 # Special behaviors for API v3 requests, starting by /api/v3 or on pro platform /org/org-id/api/v3
-my $api_pattern = qr/^(?:\/org\/[^\/]+)?\/?api\/v(3(\.\d+)?)\//;
+my $api_pattern = qr!^(?:/org/[^/]+)?/?api/v(3(\.\d+)?)/!;
 my $method_pattern = qr/^(POST|PUT|PATCH)$/;
 
 if ($env_query_string =~ $api_pattern) {
