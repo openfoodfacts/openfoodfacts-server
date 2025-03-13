@@ -4,7 +4,7 @@ For imports on the pro platform, and exports from the pro platform and imports o
 
 Those tasks are run by a Minion worker service, which is configured in /etc/systemd/system/minion\@off.service
 
-## Log files
+## Log files
 
 in the logs directory, we have:
 - minion.log - states which tasks are started
@@ -52,21 +52,24 @@ import_csv_file_task - job: 132131 started - args: {"comment":"Import from produ
 
 To get more data (debug level) in minion_log4perl.log:
 
-W can stop the minion daemon
+We can stop the minion daemon
 
-as the root user:
+as the root user: `systemctl stop minion@off.service`
 
 And run it manually as a normal process
 
 as the off user:
-
+```bash
+sudo -u off bash
 source env/setenv off
-
-off@off:/srv/off/logs$ (off) TAP_LOG_FILTER=none perl scripts/minion_producers.pl minion worker -m production
+TAP_LOG_FILTER=none perl scripts/minion_producers.pl minion worker -m production
+```
 
 I added a print STDERR in Import.pm to see if a specific product is causing the problem:
 
+```
 Import.pm - org: systeme-u - code: 3256221408515
+```
 
 Trying to export this single product indeed fails.
 
@@ -92,11 +95,10 @@ The following line is the error:
                         if $log->is_debug();
 ````
 
-$#array is equal to 0 when @array contains 1 element, so it makes a division by 0 error and the task fails. But unfortunately I could not find any log where this division by zero error was reported, the only thing we get from Minion is that the task failed...
+`$#array` is equal to `0` when `@array` contains 1 element, so it makes a `division by 0 error` and the task fails. But unfortunately I could not find any log where this division by zero error was reported, the only thing we get from Minion is that the task failed...
 
 
+**Finally:** don't forget to **restart the minion service** !
 
-
-
-
-
+```bash
+sudo systemctl start minion@off.service
