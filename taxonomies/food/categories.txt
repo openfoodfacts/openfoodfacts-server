@@ -85,6 +85,7 @@ stopwords:de: und, mit, von
 en: Incorrect product type
 bg: Неправилен product type
 ca: Tipus de producte incorrecte
+da: Forkert produkttype
 de: Falscher product type
 es: Tipo de producto incorrecto
 fi: Väärä product type
@@ -129,11 +130,13 @@ wikidata:en: Q1521410
 < en:Open Products Facts
 en: books
 bg: книги
+da: bøger, bog
 de: Bücher
 fr: livres
 hr: knjige, knjiga
 ja: 本
 nl: Boeken
+sv: böcker, bok
 wikidata:en: Q571
 
 < en:Open Products Facts
@@ -1164,6 +1167,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Royal_jelly
 
 < en:Bee products
 en: Pollens
+da: Pollen
 de: Pollen
 es: Polen
 fr: Pollens
@@ -1181,6 +1185,7 @@ wikidata:en: Q79932
 
 < en:Pollens
 en: Partially dried pollen
+da: Delvist tørret pollen
 de: Teilweise getrockneter Pollen
 es: Polen parcialmente seco
 fr: Pollen partiellement séché
@@ -1193,6 +1198,7 @@ ciqual_food_name:fr: Pollen, partiellement séché
 
 < en:Pollens
 en: Fresh pollen
+da: Frisk pollen
 de: Frischer Pollen
 es: Polen fresco
 fr: Pollen frais
@@ -1725,18 +1731,15 @@ wikidata:en: Q16976
 wikipedia:en: https://en.wikipedia.org/wiki/Pastis
 
 < en:Alcoholic beverages
+xx: Sake
 en: Sake, Rice wines
 bg: Саке
-de: Sake
-fi: Sake
 fr: Saké, Alcools de riz
-hr: Sake
-hu: Szaké, Sake
+hu: Szaké
 it: Sake, Sakè
 ja: 日本酒, にほんしゅ
 nl: Saké
 pl: Sake, Wina ryżowe
-ro: Sake
 agribalyse_food_code:en: 1026
 ciqual_food_code:en: 1026
 ciqual_food_name:en: Sake or rice wine
@@ -2219,6 +2222,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Smoked_beer
 
 < en:Beers
 en: Christmas beers
+da: juleøl
 de: Weihnachtsbiere
 es: Cervezas de Navidad
 fr: Bières de Noël
@@ -2360,6 +2364,7 @@ wikidata:en: Q260417
 < en:Beers
 en: Wheat beers, Wheat beer, White beer, White beers
 xx: Witbier
+da: Hvedeøl
 de: Weißbier, Weizenbier
 dk: Hvedeöl
 es: Cerveza blanca
@@ -2524,6 +2529,7 @@ description:en: Festbier is a German lager that is lighter in color and is consi
 < en:Lagers
 en: Pilsners, Pilsner, Pilsner beers, Pils
 xx: Pilsners, Pilsner, Pils
+da: pilsnere
 nl: Pilseners
 wikidata:en: Q152281
 wikipedia:en: https://en.wikipedia.org/wiki/Pilsner
@@ -2609,6 +2615,7 @@ wikidata:en: Q1234364
 < en:Products without gluten
 en: Beers without gluten, gluten free beers
 bg: Бира без глутен
+da: glutenfrie øl
 de: Glutenfreies Bier
 es: Cervezas sin gluten
 fr: Bières sans gluten
@@ -2666,6 +2673,7 @@ lt: Šaliai būdingas alus
 
 < en:Country specific beers
 en: American beers, Beers from the USA
+da: amerikanske øl
 fr: Bières américaines, Bières des Etats-Unis, Bières des USA
 hr: Američka piva
 it: Birre americane, Birre dagli USA, Birre dagli Stati Uniti d'America
@@ -2677,6 +2685,7 @@ wikidata:en: Q15146313
 
 < en:Country specific beers
 en: Dutch beers, Beers from the Netherlands
+da: hollandske øl
 de: Niederländische Biere, Biere aus den Niederlanden
 es: Cervezas holandesas, Cervezas de los Países Bajos
 fr: Bières néerlandaises, Bières des Pays-Bas
@@ -2688,6 +2697,7 @@ wikidata:en: Q2247929
 
 < en:Country specific beers
 en: Finnish beers, Beers from Finland
+da: finske øl
 es: Cervezas finlandesas, Cervezas de Finlandia
 fr: Bières finnoises, bières finlandaises, Bières de Finlande
 hr: Finska piva
@@ -2706,6 +2716,7 @@ wikidata:en: Q3042275
 < en:Country specific beers
 en: French beers, Beers from France
 bg: Френска бира
+da: franske øl
 de: Französische Biere
 es: Cervezas francesas, Cervezas de Francia
 fi: ranskalaiset oluet
@@ -2744,6 +2755,7 @@ wikidata:en: Q2905049
 
 < en:Country specific beers
 en: Irish beers, Beers from Ireland
+da: irske øl
 de: Irische Biere
 fr: Bières irlandaises
 hr: Irska piva
@@ -2759,6 +2771,7 @@ wikidata:en: Q4880005
 
 < en:Country specific beers
 en: Italian beers, Beers from Italy
+da: italienske øl
 de: Italienische Biere
 fi: Italialaiset oluet, Oluet Italiasta
 fr: Bières italiennes
@@ -2774,6 +2787,7 @@ wikidata:en: Q3640378
 
 < en:Country specific beers
 en: Latvian beers, Beers from Latvia
+da: lettiske øl
 de: Lettische Biere, Bier aus Lettland
 es: Cervezas letonas, Cervezas de Letonia
 fi: latvialaiset oluet, oluet Latviasta
@@ -2789,6 +2803,7 @@ wikidata:en: Q15873100
 < en:Country specific beers
 en: Lithuanian beers, Beers from Lithuania
 bg: Литовски бири, Бири от Литва
+da: litauiske øl
 de: Litauische Biere
 es: Cervezas lituanas
 fi: liettualaiset oluet
@@ -2812,6 +2827,7 @@ protected_name_type:en: pgi
 < en:Country specific beers
 en: Belgian beers, Beers from Belgium
 bg: Белгийска бира
+da: belgiske øl
 de: Belgische Biere
 es: Cervezas belgas
 fi: belgialaiset oluet
@@ -3004,6 +3020,7 @@ protected_name_type:en: pgi
 < en:Country specific beers
 en: Danish beers, Beers from Denmark
 bg: Датска бира
+da: danske øl, øl fra Danmark
 hr: Danska piva
 lt: Daniškas alus, alus iš Danijos
 wikidata:en: Q3655862
@@ -3011,6 +3028,7 @@ wikidata:en: Q3655862
 < en:Country specific beers
 en: Estonian beers, Beers from Estonia
 bg: Естонска бира
+da: estiske øl
 fr: Bières estoniennes
 hr: Estonska piva
 lt: Estiškas alus, alus iš Estijos
@@ -3019,6 +3037,7 @@ wikidata:en: Q15392318
 < en:Country specific beers
 en: Beers from Germany, German beers
 bg: Германска бира
+da: tyske øl
 de: Deutsche Biere
 es: Cervezas de alemania
 fi: saksalaiset oluet
@@ -3119,6 +3138,7 @@ wikidata:en: Q880640
 < en:Country specific beers
 en: Norwegian beers
 bg: Норвежка бира
+da: norske øl
 hr: Norveška piva
 lt: Norvegiškas alus
 wikidata:en: Q3655589
@@ -3126,6 +3146,7 @@ wikidata:en: Q3655589
 < en:Country specific beers
 en: Beers from Poland, Polish beers
 bg: Полска бира
+da: polske øl
 de: Biere aus Polen
 fr: Bières polonaises
 hr: Piva iz Poljske
@@ -3139,6 +3160,7 @@ wikidata:en: Q4880014
 < en:Country specific beers
 en: Spanish beers
 bg: Испанска бира
+da: spanske øl
 de: Spanische Biere
 fr: Bières espagnoles
 hr: Španjolska piva
@@ -3150,6 +3172,7 @@ wikidata:en: Q4550225
 < en:Country specific beers
 en: Swedish beers
 bg: Шведска бира
+da: svenske øl
 de: Schwedische Biere
 es: Cervezas suecas
 fr: Bières suédoises
@@ -3161,6 +3184,7 @@ wikidata:en: Q3655894
 
 < en:Country specific beers
 en: Ukrainian beers, Beers from Ukraine
+da: ukrainske øl
 lt: Ukrainietiškas alus, alus iš Ukrainos
 wikidata:en: Q4880025
 
@@ -3196,6 +3220,7 @@ protected_name_type:en: pgi
 
 < en:Beers from United Kingdom
 en: Scottish beers
+da: skotske øl
 de: Schottische Biere
 es: Cervezas escocesas
 fr: Bières écossaises
@@ -6942,6 +6967,7 @@ zh: 植物性饮料
 < en:Plant-based beverages
 en: Coconut waters, coconut water
 bg: Кокосова вода
+da: kokosvand
 de: Kokoswasser
 es: Agua de coco
 fi: kookosvedet
@@ -6953,6 +6979,7 @@ lt: Kokosų vanduo
 nl: Kokoswater
 pl: Woda kokosowa
 pt: Águas de coco
+sv: kokosvatten
 agribalyse_food_code:en: 18011
 ciqual_food_code:en: 18011
 ciqual_food_name:en: Coconut water
@@ -7104,6 +7131,7 @@ ciqual_food_name:fr: Boisson au soja et jus de fruits concentrés
 < en:Plant-based beverages
 en: Smoothies
 bg: Смути
+da: Smoothies
 de: Smoothies
 es: Smoothies
 fi: smoothiet
@@ -9693,6 +9721,7 @@ wikidata:en: Q863250
 < en:Teas
 en: Black teas, black tea
 bg: Черен чай
+da: sort te
 de: Schwarze Tees, Schwarztees
 es: Tés negros
 fi: mustat teet
@@ -9705,6 +9734,7 @@ nl: Zwarte theeën, Zwarte thee
 pl: Czarna herbata, Herbata czarna
 ro: Ceauri negre, Ceai negru
 ru: Чай чёрный, Чёрный чай, Чай черный, Черный чай
+sv: svarta teer, svart te
 tr: Siyah çay
 zh: 黑茶
 wikidata:en: Q203415
@@ -52112,6 +52142,7 @@ nl: Gierstdranken
 en: Oat-based drinks, Oat milks, Oat drinks, Plain oat-based drinks
 bg: Напитка с овес
 ca: Beguda de civada
+da: havredrikke, havremælk
 de: Hafermilch, Hafermilche, Hafermilchen, Hafer-Drinks, Hafer-Drink, Haferdrink, Haferdrinks
 es: Bebidas de avena, Leches de avena
 fi: kaurajuomat
@@ -52143,6 +52174,7 @@ fr: Boissons végétales d'avoine nature sucrées
 < en:Oat-based drinks
 en: Cocoa oat-based drinks, Cocoa oat milks
 fr: Boissons végétales d'avoine au cacao
+sv: chokladhavredryck, kakaohavredryck, havredryck choklad
 
 < en:Oat-based drinks
 en: Vanilla oat-based drinks, Vanilla oat milks
@@ -52166,6 +52198,7 @@ pt: Bebidas de quinoa
 en: Rice-based drinks, Rice milks, Rice drinks
 bg: Напитка с ориз
 ca: Beguda d'arròs
+da: risdrikke, rismælk
 de: Reismilch, Reismilche, Reismilchen, Reis-Drinks, Reis-Drink, Reisdrink, Reisdrinks
 es: Bebidas de arroz, Leches de arroz
 fi: riisijuomat
@@ -52179,6 +52212,7 @@ lt: Ryžių pienas
 nl: Rijstdranken
 pl: Mleka ryżowe
 pt: Bebidas de arroz
+sv: Risdryckor
 agribalyse_food_code:en: 18904
 ciqual_food_code:en: 18904
 ciqual_food_name:en: Rice-based drink, plain
@@ -52333,6 +52367,7 @@ pt: Leites de legumes
 en: Soy-based drinks, Soy milks, Soya milks, Soya drinks, Soy drinks
 bg: Соево мляко
 ca: Beguda de soja
+da: sojadrikke, sojamælk
 de: Sojamilch, Sojamilche, Sojamilchen, Soja-Drinks, Soja-Drink, Sojadrink, Sojadrinks
 es: Bebidas de soja, bebida de soya, Leches de soja
 fi: soijajuomat
@@ -52387,6 +52422,7 @@ pt: Bebidas de soja com baunilha
 
 < en:Soy-based drinks
 en: Chocolate soy-based drinks, Chocolate soy milks, Cocoa soy milks, Cocoa soy drinks, Chocolate soy drinks
+da: chokoladesojamælk
 de: Schokoladensojamilch
 es: Bebidas de soja con cacao, Bebidas de soja con chocolate, Leches de soja con cacao, Leches de soja con chocolate
 fi: Soijakaakaot
@@ -52445,6 +52481,7 @@ pt: Leites de mistura de plantas
 en: Nut-based drinks, Nut milks, Nut drinks
 bg: Ядкови млека, ядково мляко
 ca: Beguda de fruits secs
+da: nødemælk
 de: Nussmilch, Nussmilche, Nussmilchen, Nuss-Drinks, Nuss-Drink, Nussdrink, Nussdrinks
 es: Leches de frutos de cáscara, Bebidas de frutos de cáscara, Bebidas de frutos secos, Leches de frutos secos
 fi: pähkinäjuomat
@@ -52470,6 +52507,7 @@ intake24_category_code:fr: 19NMLK
 en: Almond-based drinks, Almond milks, Almond drinks
 bg: Бадемово мляко
 ca: Beguda d'ametlla
+da: mandelmælk
 de: Mandelmilch, Mandelmilche, Mandelmilchen, Mandel-Drinks, Mandel-Drink, Mandeldrink, Mandeldrinks
 es: Leches de almendras, Bebidas de almendras
 fi: mantelijuomat
@@ -52534,6 +52572,7 @@ nl: Kastanjedranken
 
 < en:Nut-based drinks
 en: Hazelnut-based drinks, Hazelnut milks, Hazelnut drinks
+da: hasselnødemælk
 de: Haselnussmilch, Haselnussmilche, Haselnussmilchen, Haselnuss-Drinks, Haselnuss-Drink, Haselnussdrink, Haselnussdrinks
 es: Leches de avellanas, Bebidas de avellanas
 fi: Hasselpähkinäjuomat, Hasselpähkinämaidot
@@ -52587,6 +52626,7 @@ hr: Smrznuti horchatas de chufa
 
 < en:Frozen vegetables
 en: Frozen peas and carrots, Frozen garden peas and carrots
+da: frosne ærter och gulerødder
 fr: Petits pois et carottes surgelés
 hr: Smrznuti grašak i mrkva
 lt: Šaldyti žirneliai ir morkos
@@ -52606,6 +52646,7 @@ ciqual_food_name:fr: Petits pois et carottes, surgelés, cuits
 
 < en:Frozen vegetables
 en: Frozen mixed vegetables for ratatouille
+da: frosne blandede grøntsager til ratatouille
 fr: Légumes pour ratatouille surgelés
 agribalyse_food_code:en: 20266
 ciqual_food_code:en: 20266
@@ -52614,6 +52655,7 @@ ciqual_food_name:fr: Légumes pour ratatouille, surgelés
 
 < en:Frozen vegetables
 en: Frozen mixed vegetables for couscous
+da: frosne blandede grøntsager til couscous
 fr: Légumes pour couscous surgelés
 agribalyse_food_code:en: 20496
 ciqual_food_code:en: 20496
@@ -67331,6 +67373,7 @@ ciqual_food_name:fr: Kumquat, sans pépin, cru
 
 < en:Fruits
 en: Apples
+da: Æbler
 de: Äpfel, Apfel
 es: Manzanas
 fi: omenat
@@ -67344,6 +67387,7 @@ nl: Appels
 pt: Maçâs
 ro: Mere
 ru: Яблоки
+sv: Äpplen
 agribalyse_proxy_food_code:en: 13085
 agribalyse_proxy_food_name:en: Apple, Canada, pulp, raw
 agribalyse_proxy_food_name:fr: Pomme Canada, pulpe, crue
@@ -67502,6 +67546,11 @@ lt: Granny Smith obuoliai
 nl: Granny Smith appels
 sales_format:en: weight, package
 wikidata:en: Q506040
+
+< en:Apples
+en: Idared apples
+sv: Idared äpplen
+wikidata:en: Q494432
 
 < en:Apples
 en: Red Delicious apples, Red Delicious
@@ -71988,6 +72037,16 @@ hr: Buhača
 la: Mentha pulegium
 nl: Polei
 wikidata:en: Q161235
+
+< en:Aromatic herbs
+en: Moringa
+xx: Moringa
+la: Moringa oleifera
+
+< en: Moringa
+en: Moringa leaves
+fr: feuille de Moringa
+nl: Moringa blad
 
 < en:Mint
 en: Peppermint
@@ -104131,7 +104190,7 @@ bg: Слънчогледови семки, слънчогледово семе
 ca: Pipes de gira-sol, Llavors de gira-sol
 de: Sonnenblumenkerne
 es: Semillas de girasol, Pipas de girasol
-fi: auringonkukan siemenet
+fi: Auringonkukansiemen, auringonkukan siemenet
 fr: Graines de tournesol
 hr: Sjemenke suncokreta
 hu: Naprafogómagok
@@ -104141,6 +104200,7 @@ nl: Zonnebloempitten
 pl: Pestki słonecznika, Pestki słonecznikowe, Nasiona słonecznika
 pt: Sementes de girassol
 ru: Семена подсолнечника, Подсолнечные семечки, Семечки подсолнечника
+sv: Solroskärnor
 tr: Ayçiçeği çekirdeği, Ayçiçek çekirdeği
 agribalyse_food_code:en: 15011
 ciqual_food_code:en: 15011
@@ -104162,6 +104222,7 @@ hr: Pržene sjemenke suncokreta
 it: Semi di girasole tostati
 nl: Geroosterde zonnebloempitten
 ru: Семена подсолнечника обжаренные, Обжаренные семена подсолнечника Подсолнечные семечки обжаренные, Обжаренные семечки подсолнечника, Семена подсолнечника жареные, Жареные семена подсолнечника Подсолнечные семечки жареные, Жареные семечки подсолнечника
+sv: rostade solroskärnor
 
 < en:Sunflower seeds
 en: Shelled sunflower seeds
@@ -104173,6 +104234,7 @@ fr: Graines de tournesol décortiquées
 hr: Oljuštene sjemenke suncokreta
 it: Semi di girasole sgusciati
 nl: Gepelde zonnebloempitten
+sv: skallade solroskärnor
 tr: Kabuklu ayçiçeği çekirdeği
 
 < en:Sunflower seeds
@@ -104184,6 +104246,7 @@ fr: Graines de tournesol en coque
 hr: Sjemenke suncokreta bez ljuske
 nl: Ongepelde zonnebloempitten
 ru: Ядра семян подсолнечника очищенные, Семена подсолнечника очищенные
+sv: oskallade solroskärnor
 
 < en:Roasted sunflower seeds
 < en:Unshelled sunflower seeds
@@ -104192,6 +104255,7 @@ es: Semillas de girasol con cáscara tostadas, Pipas de girasol con cáscara tos
 fr: Graines de tournesol en coque grillées
 hr: Pržene sjemenke suncokreta bez ljuske
 nl: Geroosterde ongepelde zonnebloempitten
+sv: rostade oskallade solroskärnor
 
 < en:Roasted sunflower seeds
 < en:Shelled sunflower seeds
@@ -104202,10 +104266,12 @@ fr: Graines de tournesol décortiquées grillées
 hr: Pržene oljuštene sjemenke suncokreta
 it: Semi di frutti di mare sgusciati arrosto
 nl: Geroosterde gepelde zonnebloempitten
+sv: rostade skallade solroskärnor
 
 < en:Roasted sunflower seeds
 en: Sunflower seed grilled and salted
 fr: Graines de tournesol grillées et salées
+sv: rostade saltade solroskärnor
 agribalyse_food_code:en: 15045
 ciqual_food_code:en: 15045
 ciqual_food_name:en: Sunflower seed, grilled, salted
@@ -109532,8 +109598,10 @@ sales_format:en: package, weight
 season_in_country_fr:en: 1,2,3,4,5,9,10,11,12
 
 < en:Fresh spinachs
-en: Spinach young leaves
+en: Spinach young leaves, Baby spinach
+da: babyspinat
 fr: Jeunes pousses d'épinards pour salades
+sv: babyspenat
 agribalyse_food_code:en: 20270
 ciqual_food_code:en: 20270
 ciqual_food_name:en: Spinach, young leaves, raw
@@ -112337,14 +112405,17 @@ fr: Tofu nature
 hr: Obični tofu
 nl: Tofu natuur
 pl: Tofu naturalne
+sv: Tofu naturell
 
 < en:Tofu
 en: Smoked tofu
 bg: Пушено тофу
+da: Røget tofu
 fr: Tofu fumé
 hr: Dimljeni tofu
 nl: Gerookte tofu
 pl: Tofu wędzone
+sv: Rökt tofu, tofu rökt
 agribalyse_food_code:en: 20912
 
 < en:Legumes and their products
@@ -113155,6 +113226,7 @@ protected_name_type:en: pdo
 < en:Olives
 en: Black olives
 bg: Черни маслини
+da: sorte oliven
 de: schwarze Oliven
 es: Aceitunas negras
 fi: mustat oliivit
@@ -113167,6 +113239,7 @@ pl: Czarne oliwki
 pt: Azeitonas pretas
 ro: Măsline negre
 ru: Маслины чёрные, Чёрные маслины, Оливки чёрные, Чёрные оливки
+sv: svarta oliver
 tr: Siyah zeytin
 
 < en:Black olives
@@ -113414,6 +113487,7 @@ hr: Masline bez koštice
 it: Olive snocciolate, Olive denocciolate
 nl: Ontpitte olijven
 ru: Оливки без косточки, Маслины без косточки
+sv: urkärnade oliver
 
 < en:Black olives
 < en:Pitted olives
@@ -113427,6 +113501,7 @@ hr: Crne masline bez koštice
 it: Olive nere snocciolate
 nl: Zwarte ontpitte olijven
 ru: Чёрные маслины без косточки, Чёрные оливки без косточки, Оливки чёрные без косточки, Маслины чёрные без косточки
+sv: urkärnade svarta oliver, svarta urkärnade oliver
 
 < en:Black olives
 fr: Olives noires de la Vallée des Baux-de-Provence
@@ -113444,6 +113519,7 @@ nl: Halfrijpe olijven
 
 < en:Olives
 en: Stuffed olives
+da: fyldte oliven
 de: Gefüllte Oliven
 es: Aceitunas rellenas
 fi: täytetyt oliivit

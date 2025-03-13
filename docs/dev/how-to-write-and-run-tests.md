@@ -94,6 +94,8 @@ If you made a change that affects stored expected results, you can use:
 
 If you regenerate test results, be sure to check carefully that the changes in your commit are expected.
 
+**NOTE:** When making changes to language files (.pot, .po). Make sure to run `make build_lang_test` so that the language files are rebuild in test environment, before regenerating expected results for integration test.
+
 
 ## Debugging with tests
 
