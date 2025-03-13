@@ -241,7 +241,8 @@ is canonicalize_taxonomy_tag('en', 'brands', 'xx:some-brand'), 'xx:some-brand';
 is canonicalize_taxonomy_tag('en', 'brands', 'xx:Some brand'), 'xx:Some brand';
 is canonicalize_taxonomy_tag('xx', 'brands', 'some brand'), 'xx:some brand';
 is get_taxonomyid("en", "some brand"), "some-brand";
-is [gen_tags_hierarchy_taxonomy("en", "brands", "some brand, xx:some-other-brand")], ['xx:some brand', 'xx:some-other-brand'];
+is [gen_tags_hierarchy_taxonomy("en", "brands", "some brand, xx:some-other-brand")],
+	['xx:some brand', 'xx:some-other-brand'];
 
 is(
 	$product_ref,
