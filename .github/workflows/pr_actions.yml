@@ -14,7 +14,7 @@ jobs:
       (github.event.comment.body == '/lint')
     runs-on: ubuntu-latest
     steps:
-    - name: Get repostiory, owner and branch name
+    - name: Get repository, owner and branch name
       # see https://github.com/actions/checkout/issues/331
       id: get-branch
       run: |
@@ -65,7 +65,7 @@ jobs:
       (github.event.comment.body == '/update_tests_results')
     runs-on: ubuntu-latest
     steps:
-    - name: Get repostiory, owner and branch name
+    - name: Get repository, owner and branch name
       # see https://github.com/actions/checkout/issues/331
       id: get-branch
       run: |
