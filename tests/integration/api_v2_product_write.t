@@ -24,7 +24,10 @@ create_user($ua, \%create_user_args);
 
 # Note: expected results are stored in json files, see execute_api_tests
 my $tests_ref = [
+	# Test anonymous contribution, this should fail
 	{
+		# it will fail with code 200
+		# but failure message is in the expected result json
 		test_case => 'post-product-anonymous',
 		method => 'POST',
 		path => '/cgi/product_jqm_multilingual.pl',
