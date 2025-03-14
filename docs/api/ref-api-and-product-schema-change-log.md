@@ -58,7 +58,7 @@ Breaking changes:
 Breaking changes:
 - The ingredients structure is now a nested structure, with sub-ingredients in the "ingredients" field of each ingredient. Previously sub-ingredients were listed at the end of ingredients.
 
-### Product version 997 - API version 1
+### Product version 997 - API version 1
 
 Breaking changes:
 - For product READ requests, if the product does not exist, we return HTTP status code 404 instead of 200.
