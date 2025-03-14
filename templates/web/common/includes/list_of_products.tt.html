@@ -5,7 +5,7 @@
     [% IF error %]
       <h4>[% error %] </h4>
       [% IF code %]
-        <p>[% lang('add_product_to_our_database') %]</p>
+        <p>[% add_product_message %]</p>
         <form method="post" action="/cgi/product.pl" enctype="multipart/form-data">
           <input type="hidden" name="code" placeholder="or Barcode" value="[% code %]" >
           <div class="small-2 medium-2 large-2 xlarge-2 columns" style="padding-left: 0;min-width: 100px;">
