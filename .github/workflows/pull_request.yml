@@ -23,7 +23,9 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       code_changed: ${{ steps.filter.outputs.code }}
-      taxonomies_changed: ${{ steps.filter.outputs.taxonomies }}
+      docs_changed: ${{ steps.filter.outputs.docs }}
+      only_docs_changed: ${{ steps.filter.outputs.docs == 'true' && steps.filter.outputs.code != 'true' }}
+
     steps:
       - uses: dorny/paths-filter@v2
         id: filter
@@ -48,7 +50,7 @@ jobs:
   lint:
     name: 🕵️‍♀️ NPM lint
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' && needs.filter.outputs.code_changed == 'true'
+    if: github.event_name == 'pull_request' && needs.filter.outputs.only_docs_changed == 'true'
     steps:
     - uses: actions/checkout@v4
       with:
@@ -65,6 +67,7 @@ jobs:
   build_backend:
     name: 🏗 Build backend dev image for tests
     runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && needs.filter.outputs.only_docs_changed == 'true'
     steps:
     - uses: actions/checkout@v4
       with:
@@ -111,7 +114,7 @@ jobs:
     name: 🐪 Check Perl
     needs: build_backend
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' && needs.filter.outputs.code_changed == 'true'
+    if: github.event_name == 'pull_request' && needs.filter.outputs.only_docs_changed == 'true'
     steps:
     - uses: actions/checkout@v4
       with:
@@ -159,7 +162,7 @@ jobs:
     name: 🐪 Perl unit tests
     needs: build_backend
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' && needs.filter.outputs.code_changed == 'true'
+    if: github.event_name == 'pull_request' && needs.filter.outputs.only_docs_changed == 'true'
     steps:
     - uses: actions/checkout@v4
       with:
@@ -217,7 +220,7 @@ jobs:
   tests_dev:
     name: 🧪 Test make dev
     needs: build_backend  # only to avoid building taxonomies
-    if: github.event_name == 'pull_request' && needs.filter.outputs.code_changed == 'true'
+    if: github.event_name == 'pull_request' && needs.filter.outputs.only_docs_changed == 'true'
     runs-on: ubuntu-latest
     
     steps:
@@ -259,7 +262,7 @@ jobs:
   test_deployment:
     name: 🦾 Some test of deployment tools
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' && needs.filter.outputs.code_changed == 'true'
+    if: github.event_name == 'pull_request' && needs.filter.outputs.only_docs_changed == 'true'
     steps:
     - uses: actions/checkout@v4
       with:
