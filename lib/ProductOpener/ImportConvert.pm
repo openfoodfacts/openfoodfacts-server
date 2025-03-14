@@ -857,7 +857,7 @@ sub clean_fields ($product_ref) {
 	# Populate the quantity / weight fields from their quantity_value_unit, quantity_value, quantity_unit etc. components
 	clean_weights($product_ref);
 
-	foreach my $field (keys %{$product_ref}) {
+	foreach my $field (sort keys %{$product_ref}) {
 
 		# Split the generic name from the ingredient list
 		# Warning: this should be done only once, on the producers platform, when we import product data from a producer
@@ -886,7 +886,7 @@ sub clean_fields ($product_ref) {
 		}
 	}
 
-	foreach my $field (keys %{$product_ref}) {
+	foreach my $field (sort keys %{$product_ref}) {
 
 		$log->debug("clean_fields", {field => $field, value => $product_ref->{$field}}) if $log->is_debug();
 
