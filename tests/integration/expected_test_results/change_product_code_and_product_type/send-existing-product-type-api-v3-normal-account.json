@@ -1,7 +1,9 @@
 {
    "code" : "1234567890300",
    "errors" : [],
-   "product" : {},
+   "product" : {
+      "schema_version" : 999
+   },
    "status" : "success",
    "warnings" : []
 }

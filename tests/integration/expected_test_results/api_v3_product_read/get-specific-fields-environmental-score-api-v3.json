@@ -2,7 +2,7 @@
    "code" : "4260392550101",
    "errors" : [],
    "product" : {
-      "ecoscore_data" : {
+      "environmental_score_data" : {
          "adjustments" : {
             "origins_of_ingredients" : {
                "aggregated_origins" : [
@@ -437,8 +437,9 @@
          },
          "status" : "known"
       },
-      "ecoscore_grade" : "c",
-      "ecoscore_score" : 47
+      "environmental_score_grade" : "c",
+      "environmental_score_score" : 47,
+      "schema_version" : 999
    },
    "result" : {
       "id" : "product_found",

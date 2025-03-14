@@ -36,7 +36,9 @@
    "fields" : [
       "updated"
    ],
-   "product" : {},
+   "product" : {
+      "schema_version" : 999
+   },
    "services" : [
       "parse_ingredients_text"
    ],
