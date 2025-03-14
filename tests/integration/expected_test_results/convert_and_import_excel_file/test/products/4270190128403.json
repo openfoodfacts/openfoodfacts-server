@@ -396,10 +396,6 @@
       "en:vegan-status-unknown",
       "en:vegetarian-status-unknown"
    ],
-   "ingredients_hierarchy" : [
-      "fr:white-peaches",
-      "fr:high-fructose-corn-syrup"
-   ],
    "ingredients_lc" : "fr",
    "ingredients_n" : 2,
    "ingredients_n_tags" : [
@@ -600,6 +596,7 @@
    "product_type" : "food",
    "removed_countries_tags" : [],
    "rev" : 1,
+   "schema_version" : 1001,
    "sources" : [
       {
          "fields" : [
