@@ -37,6 +37,7 @@ jobs:
               - '**/*.pm'
               - '**/*.js'
               - '**/*.scss'
+              - '**/*.html'
               - 'conf/**'
               - 'lib/**'
               - 'scripts/**'
