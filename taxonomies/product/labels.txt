@@ -1,7 +1,8 @@
 # Labels specific for Open Product Facts (generic products: not food, pet food or beauty)
 
-en: CE marking
-fr: Marquage CE
+xx: CE
+en: CE, CE marking
+fr: CE, Marquage CE
 
 en: Energy Star
 fr: Energy Star
@@ -9,14 +10,28 @@ fr: Energy Star
 en: EPEAT
 fr: EPEAT
 
-en: FCC certification
-fr: Certification FCC
+xx: FCC
+en: FCC, FCC certification
+fr: FCC, Certification FCC
 
-en: RoHS compliant
-fr: Conforme RoHS
+xx: RoHS
+en: RoHS, RoHS compliant
+fr: RoHS, Conforme RoHS
 
 en: WEEE
 fr: DEEE
+
+xx: UKCA, UK Conformity Assessed
+en: UKCA, UKCA marking
+de: UKCA, UKCA-Kennzeichnung
+image:en: ukca.90x90.svg
+web:en: https://www.gov.uk/guidance/using-the-ukca-marking
+wikidata:en: Q101220997
+
+xx: UKNI, UK(NI)
+en: UKNI, UKNI marking
+image:en: ukni.90x90.png
+web:en: https://www.gov.uk/guidance/using-the-ukni-marking
 
 en: Battery included
 fr: Pile incluse
