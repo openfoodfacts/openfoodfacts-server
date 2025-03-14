@@ -118,9 +118,9 @@ pt: O valor energético em kcal é maior do que em kJ
 ru: Энергетическая ценность в ккал больше, чем в кДж
 zh: 能量值以千卡为单位大于以千焦为单位
 description:en: The energy value in kJ must be about 4.2 times greater than the value in kcal. The values could be reversed.
-description:fr: La valeur de l'énergie en kJ doit être environ 4\,2  fois plus grande que la valeur en kcal. Les valeurs sont peut être inversées.
 description:de: Der Energiewert in kJ muss etwa 4\,2 -mal größer sein als der Wert in kcal. Die Werte könnten vertauscht sein.
 description:es: El valor energético en kJ debe ser aproximadamente 4.2 veces mayor que el valor en kcal. Los valores podrían estar invertidos.
+description:fr: La valeur de l'énergie en kJ doit être environ 4\,2  fois plus grande que la valeur en kcal. Les valeurs sont peut être inversées.
 description:it: Il valore energetico in kJ deve essere circa 4\,2  volte maggiore del valore in kcal. I valori potrebbero essere invertiti.
 description:nl: De energiewaarde in kJ moet ongeveer 4\,2  keer groter zijn dan de waarde in kcal. De waarden zijn mogelijk omgekeerd.
 description:pl: Wartość energetyczna w kJ musi być około 4\,2  razy większa niż wartość w kcal. Wartości mogą być odwrócone.
@@ -134,6 +134,7 @@ de: Energiewert in kcal und kJ sind vertauscht
 es: El valor energético en kcal y kj están invertidos
 fr: La valeur énergétique en kcal et kj sont inversées
 it: Il valore energetico in kcal e kJ sono invertiti
+description:en: The energy value in kJ must be about 4.2 times greater than the value in kcal. The values seems to be reversed.
 description:ar: يجب أن تكون قيمة الطاقة بالكيلوجول أكبر بحوالي 4.2 مرة من القيمة بالكيلو كالوري. يبدو أن القيم معكوسة.
 description:bg: Стойността на енергията в kJ трябва да бъде около 4\,2  пъти по-голяма от стойността в kcal. Стойностите изглежда са обърнати.
 description:ca: El valor energètic en kJ ha de ser aproximadament 4\,2  vegades més gran que el valor en kcal. Els valors semblen invertits.
@@ -141,7 +142,6 @@ description:cs: Hodnota energie v kJ by měla být přibližně 4\,2 krát vět�
 description:da: Energiværdien i kJ skal være ca. 4\,2  gange større end værdien i kcal. Værdierne ser ud til at være omvendte.
 description:de: Der Energiewert in kJ muss etwa 4\,2 -mal größer sein als der Wert in kcal. Die Werte scheinen vertauscht zu sein.
 description:el: Η ενεργειακή αξία σε kJ πρέπει να είναι περίπου 4\,2  φορές μεγαλύτερη από την τιμή σε kcal. Οι τιμές φαίνεται να είναι αντίστροφες.
-description:en: The energy value in kJ must be about 4.2 times greater than the value in kcal. The values seems to be reversed.
 description:es: El valor energético en kJ debe ser aproximadamente 4.2 veces mayor que el valor en kcal. Los valores parecen estar invertidos.
 description:et: Energia väärtus kJ-des peab olema umbes 4\,2  korda suurem kui väärtus kcal-des. Väärtused näivad olevat vastupidised.
 description:fi: Energian arvon kJ:oissa on oltava noin 4\,2  kertaa suurempi kuin arvo kcal:oissa. Arvot näyttävät olevan päinvastaiset.
@@ -167,7 +167,6 @@ description:sv: Energivärdet i kJ måste vara cirka 4\,2  gånger större än v
 description:th: ค่าพลังงานในหน่วย kJ ต้องมากกว่าค่าในหน่วย kcal ประมาณ 4.2 เท่า ค่าต่างๆ ดูเหมือนจะกลับกัน
 description:tr: kJ cinsinden enerji değeri, kcal cinsinden değerin yaklaşık 4\,2  katı olmalıdır. Değerler tersine çevrilmiş gibi görünüyor.
 description:uk: Значення енергії в кДж має бути приблизно в 4\,2  рази більшим, ніж значення в ккал. Значення, здається, переплутані.
-
 
 < en:Nutrition errors
 en: Energy value in kJ does not match value computed from other nutrients
@@ -176,6 +175,7 @@ es: El valor energético en kJ no coincide con el valor calculado a partir de ot
 fr: Valeur énergétique en kJ ne correspondant pas à la valeur calculée à partir des autres nutriments
 it: Il valore energetico in kJ non corrisponde al valore calcolato dagli altri nutrienti
 pt: O valor energético em kJ não corresponde ao valor calculado a partir de outros nutrientes
+description:en: The energy value in kJ must be about 4.2 times greater than the value in kcal. The values seems to be reversed.
 description:ar: يجب أن تكون قيمة الطاقة بالكيلوجول أكبر بحوالي 4.2 مرة من القيمة بالكيلو كالوري. يبدو أن القيم معكوسة.
 description:bg: Стойността на енергията в kJ трябва да бъде около 4\,2  пъти по-голяма от стойността в kcal. Стойностите изглежда са обърнати.
 description:ca: El valor energètic en kJ ha de ser aproximadament 4\,2  vegades més gran que el valor en kcal. Els valors semblen invertits.
@@ -183,7 +183,6 @@ description:cs: Hodnota energie v kJ by měla být přibližně 4\,2 krát vět�
 description:da: Energiværdien i kJ skal være ca. 4\,2  gange større end værdien i kcal. Værdierne ser ud til at være omvendte.
 description:de: Der Energiewert in kJ muss etwa 4\,2 -mal größer sein als der Wert in kcal. Die Werte scheinen vertauscht zu sein.
 description:el: Η ενεργειακή αξία σε kJ πρέπει να είναι περίπου 4\,2  φορές μεγαλύτερη από την τιμή σε kcal. Οι τιμές φαίνεται να είναι αντίστροφες.
-description:en: The energy value in kJ must be about 4.2 times greater than the value in kcal. The values seems to be reversed.
 description:es: El valor energético en kJ debe ser aproximadamente 4.2 veces mayor que el valor en kcal. Los valores parecen estar invertidos.
 description:et: Energia väärtus kJ-des peab olema umbes 4\,2  korda suurem kui väärtus kcal-des. Väärtused näivad olevat vastupidised.
 description:fi: Energian arvon kJ:oissa on oltava noin 4\,2  kertaa suurempi kuin arvo kcal:oissa. Arvot näyttävät olevan päinvastaiset.
@@ -209,8 +208,6 @@ description:sv: Energivärdet i kJ måste vara cirka 4\,2  gånger större än v
 description:th: ค่าพลังงานในหน่วย kJ ต้องมากกว่าค่าในหน่วย kcal ประมาณ 4.2 เท่า ค่าต่างๆ ดูเหมือนจะกลับกัน
 description:tr: kJ cinsinden enerji değeri, kcal cinsinden değerin yaklaşık 4\,2  katı olmalıdır. Değerler tersine çevrilmiş gibi görünüyor.
 description:uk: Значення енергії в кДж має бути приблизно в 4\,2  рази більшим, ніж значення в ккал. Значення, здається, переплутані.
-
-
 < en:Nutrition errors
 en: Nutrition - Sugars plus starch greater than carbohydrates
 de: Ernährung - Zucker plus Stärke größer als Kohlenhydrate
@@ -1081,6 +1078,7 @@ de: Nährwert über 105 - Kalium
 es: Valor nutricional superior a 105 - Potasio
 fr: Valeur nutritionnelle supérieure à 105 - Potassium
 it: Valore nutrizionale superiore a 105 - Potassio
+description:en: Potassium value is over 105g per 100g\,which is impossible.
 description:ar: قيمة البوتاسيوم تزيد عن 105 جرام لكل 100 جرام، وهو أمر مستحيل.
 description:bg: Стойността на калия е над 105 g на 100 g\,което е невъзможно.
 description:ca: El valor del potassi és superior a 105 g per 100 g\,cosa que és impossible.
@@ -1088,7 +1086,6 @@ description:cs: Hodnota draslíku je vyšší než 105 g na 100 g\,což je nemo�
 description:da: Kaliumværdien er over 105 g pr. 100 g\,hvilket er umuligt.
 description:de: Der Kaliumwert liegt über 105 g pro 100 g\,was unmöglich ist.
 description:el: Η τιμή καλίου είναι πάνω από 105 g ανά 100 g\,κάτι που είναι αδύνατο.
-description:en: Potassium value is over 105g per 100g\,which is impossible.
 description:es: El valor del potasio es superior a 105 g por 100 g\,lo cual es imposible.
 description:et: Kaaliumi väärtus on üle 105 g 100 g kohta\, mis on võimatu.
 description:fi: Kaliumin arvo on yli 105 g per 100 g\,mikä on mahdotonta.
@@ -1268,7 +1265,6 @@ description:en: Sodium prepared value is over 105g per 100g\,which is impossible
 
 < en:Nutrition errors
 en: Nutrition value over 105 - Starch
-description:en: Starch value is over 105g per 100g\,which is impossible.
 ar: قيمة النشا تزيد عن 105 جرام لكل 100 جرام ، وهو أمر مستحيل.
 bg: Стойността на нишестето е над 105 g на 100 g\,което е невъзможно.
 ca: El valor del midó és superior a 105 g per 100 g\,cosa que és impossible.
@@ -1302,6 +1298,7 @@ th: ค่าแป้งสูงเกิน 105 กรัมต่อ 100 ก
 tr: Nişasta değeri 100g başına 105g'ın üzerindedir\, bu imkansızdır.
 uk: Значення крохмалю перевищує 105 г на 100 г\, що неможливо.
 zh: 淀粉的含量超过100克/105克，这是不可能的。
+description:en: Starch value is over 105g per 100g\,which is impossible.
 
 < en:Nutrition errors
 en: Nutrition value over 105 - Stearic acid
@@ -1991,6 +1988,7 @@ zh: 互斥标签
 
 < en:Mutually exclusive tags
 en: mutually exclusive tags for labels contains-alcohol and labels no-alcohol
+description:en: These two labels cannot both appear on the same product.
 description:ar: لا يمكن أن تظهر هاتان العلامتان على نفس المنتج.
 description:bg: И двата етикета не могат да се появят на един и същ продукт.
 description:ca: Aquestes dues etiquetes no poden aparèixer al mateix producte.
@@ -1998,7 +1996,6 @@ description:cs: Tyto dvě značky se nemohou objevit na stejném produktu.
 description:da: Disse to etiketter kan ikke begge vises på det samme produkt.
 description:de: Diese beiden Kennzeichnungen können nicht auf demselben Produkt erscheinen.
 description:el: Αυτές οι δύο ετικέτες δεν μπορούν να εμφανιστούν στο ίδιο προϊόν.
-description:en: These two labels cannot both appear on the same product.
 description:es: Estas dos etiquetas no pueden aparecer en el mismo producto.
 description:et: Need kaks silti ei saa mõlemad samal tootel ilmuda.
 description:fi: Nämä kaksi etikettiä eivät voi molemmat olla samassa tuotteessa.
