@@ -98,7 +98,7 @@ It should be structured as: user-agent + user-id.
 ## Leveraging Robotoff ML predictions to simplify life for your users
 
 Leveraging [Robotoff prediction](../intro-robotoff.md) to simplify life for your users.
-You can get a category prediction from images (useful for Nutri-Score and Eco-Score), you can get quality labels prediction, brand predictions, weight predictions from images.
+You can get a category prediction from images (useful for Nutri-Score and Eco-Score), you can get quality labels prediction, brand predictions, weight predictions from images. You can also get an automatic extraction of ingredients and nutrition facts from an image.
 To achieve this you need the upload image section above. Adding data like product name, ingredients and nutrition can help, but some predictions can be done with just images.
 
 ## Getting your users to check ingredients OCR in an autonomous fashion
