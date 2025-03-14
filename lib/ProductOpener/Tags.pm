@@ -193,6 +193,7 @@ use File::Copy;
 use MIME::Base64 qw(encode_base64);
 use POSIX qw(strftime);
 use LWP::UserAgent ();
+use OpenTelemetry::Integration 'LWP::UserAgent';
 use Encode;
 
 use GraphViz2;
