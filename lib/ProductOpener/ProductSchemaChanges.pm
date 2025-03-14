@@ -97,13 +97,13 @@ sub convert_product_schema ($product_ref, $to_version) {
 }
 
 %upgrade_functions = (
-	999 =>  \&convert_schema_999_to_1000_rename_ecoscore_fields_to_environmental_score,
-	1000 =>  \&convert_schema_1000_to_1001_remove_ingredients_hierarchy,
+	999 => \&convert_schema_999_to_1000_rename_ecoscore_fields_to_environmental_score,
+	1000 => \&convert_schema_1000_to_1001_remove_ingredients_hierarchy,
 );
 
 %downgrade_functions = (
-	1000 =>  \&convert_schema_1000_to_999_rename_environmental_score_fields_to_ecoscore,
-	1001 =>  \&convert_schema_1001_to_1000_add_ingredients_hierarchy,
+	1000 => \&convert_schema_1000_to_999_rename_environmental_score_fields_to_ecoscore,
+	1001 => \&convert_schema_1001_to_1000_add_ingredients_hierarchy,
 );
 
 =headd2 999 to 1000 - Rename ecoscore fields to environmental_score fields - API v3.1

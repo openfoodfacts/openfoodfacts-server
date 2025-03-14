@@ -27,14 +27,14 @@ my @tests = (
 			ingredients_hierarchy => ["en:fruit", "en:banana"],
 		}
 	],
-	
+
 	[
 		'1001-to-1000-add-ingredients-hierarchy',
 		1000,
 		{
 			schema_version => 1001,
 			lc => "en",
-			ingredients_text_en => "Banana",			
+			ingredients_text_en => "Banana",
 			ingredients_tags => ["en:fruit", "en:banana"],
 		}
 	],
