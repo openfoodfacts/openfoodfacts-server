@@ -232,21 +232,33 @@ is(
 
 $product_ref = {lc => "fr",};
 
-add_tags_to_field($product_ref, "fr", "brands", "Baba, Bobo");
+add_tags_to_field($product_ref, "fr", "brands", "Baba, Bobo, nestlé, kelloggs");
+
+# 2024/08: brands are now taxonomized using the xx: prefix
+
+is canonicalize_taxonomy_tag('en', 'brands', 'some brand'), 'xx:some brand';
+is canonicalize_taxonomy_tag('en', 'brands', 'xx:some-brand'), 'xx:some-brand';
+is canonicalize_taxonomy_tag('en', 'brands', 'xx:Some brand'), 'xx:Some brand';
+is canonicalize_taxonomy_tag('xx', 'brands', 'some brand'), 'xx:some brand';
+is get_taxonomyid("en", "some brand"), "some-brand";
+is [gen_tags_hierarchy_taxonomy("en", "brands", "some brand, xx:some-other-brand")],
+	['xx:some brand', 'xx:some-other-brand'];
 
 is(
 	$product_ref,
 	{
-		'brands' => 'Baba, Bobo',
-		'brands_tags' => ['baba', 'bobo'],
-
+		'brands' => 'Baba, Bobo, nestlé, kelloggs',
+		'brands_lc' => 'xx',
+		'brands_tags' => ['xx:kellogg-s', 'xx:nestle', 'xx:baba', 'xx:bobo'],
+		'brands_hierarchy' => ['xx:kellogg-s', 'xx:nestle', 'xx:Baba', 'xx:Bobo'],
 		'lc' => 'fr'
 	}
 ) or diag Dumper($product_ref);
 
 compute_field_tags($product_ref, "fr", "brands");
 
-is($product_ref->{brands_tags}, ['baba', 'bobo',]) or diag Dumper $product_ref->{brands_tags};
+is($product_ref->{brands_tags}, ['xx:kellogg-s', 'xx:nestle', 'xx:baba', 'xx:bobo'])
+	or diag Dumper $product_ref->{brands_tags};
 
 add_tags_to_field($product_ref, "fr", "brands", "Bibi");
 
@@ -255,9 +267,10 @@ delete $product_ref->{brands_debug_tags};
 is(
 	$product_ref,
 	{
-		'brands' => 'Baba, Bobo, Bibi',
-		'brands_tags' => ['baba', 'bobo', 'bibi',],
-
+		'brands' => 'Kellogg\'s, Nestlé, Baba, Bobo, Bibi',
+		'brands_lc' => 'xx',
+		'brands_tags' => ['xx:kellogg-s', 'xx:nestle', 'xx:baba', 'xx:bibi', 'xx:bobo'],
+		'brands_hierarchy' => ['xx:kellogg-s', 'xx:nestle', 'xx:Baba', 'xx:Bibi', 'xx:Bobo'],
 		'lc' => 'fr'
 	}
 ) or diag Dumper($product_ref);
@@ -266,7 +279,8 @@ compute_field_tags($product_ref, "fr", "brands");
 
 delete $product_ref->{brands_debug_tags};
 
-is($product_ref->{brands_tags}, ['baba', 'bobo', 'bibi',]) or diag Dumper $product_ref->{brands_tags};
+is($product_ref->{brands_tags}, ['xx:kellogg-s', 'xx:nestle', 'xx:baba', 'xx:bibi', 'xx:bobo'])
+	or diag Dumper $product_ref->{brands_tags};
 
 my @tags = ();
 

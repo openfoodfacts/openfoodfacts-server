@@ -5005,7 +5005,8 @@ sub add_params_to_query ($params_ref, $query_ref) {
 							($tagid eq get_string_id_for_lang($tag_lc, lang("unknown")))
 							or (
 								$tagid eq (
-									$tag_lc . ":"
+									# brands are always taxonomized with the xx: prefix
+									($tagtype eq "brands" ? "xx" : $tag_lc) . ":"
 										. get_string_id_for_lang($tag_lc, lang_in_other_lc($tag_lc, "unknown"))
 								)
 							)
