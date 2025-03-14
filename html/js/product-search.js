@@ -339,7 +339,7 @@ function display_products(target, product_groups, user_prefs) {
 
 		$("#products_tabs_content").append(
 			'<div class="tabs content' + active + '" id="products_' + product_group_id + '">'
-			+ '<ul class="search_results small-block-grid-1 medium-block-grid-4 large-block-grid-6 xlarge-block-grid-8 xxlarge-block-grid-10" id="products_match_' + product_group_id + '" style="list-style:none">'
+			+ '<ul class="search_results small-block-grid-1 medium-block-grid-4 large-block-grid-5 xlarge-block-grid-8 xxlarge-block-grid-10" id="products_match_' + product_group_id + '" style="list-style:none">'
 			+ products_html.join("")
 			+ '</ul>'
 		);
