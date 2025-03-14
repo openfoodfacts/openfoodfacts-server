@@ -433,7 +433,7 @@ sub process_api_request ($request_ref) {
 	my $response_ref = $request_ref->{api_response};
 
 	# Check if we already have errors (e.g. authentification error, invalid JSON body)
-	if ((scalar @{$response_ref->{errors}}) > 0) {
+	if ((defined $response_ref->{errors}) and ((scalar @{$response_ref->{errors}}) > 0)) {
 		$log->warn("process_api_request - we already have errors, skipping processing", {request => $request_ref})
 			if $log->is_warn();
 	}
