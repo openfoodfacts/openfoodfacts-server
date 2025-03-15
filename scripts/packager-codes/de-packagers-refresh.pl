@@ -290,7 +290,7 @@ sub write_nolatlong {
 
 	# it's useful to have a list of addresses that weren't geocoded
 	# no critic (RequireInterpolationOfMetachars)
-	my $nolatlong_table = $t->match_pattern_hash('!$_{lat} || !$_{lng}'); 
+	my $nolatlong_table = $t->match_pattern_hash('!$_{lat} || !$_{lng}');
 
 	print {$nolatlong_fh} $nolatlong_table->html;
 

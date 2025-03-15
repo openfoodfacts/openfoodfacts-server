@@ -242,7 +242,7 @@ my $tables_f = fmap_scalar {
 
 	my $ht_ref = $te_ref->first_table_found;
 	my @headers = build_headers @{clean_row([$ht_ref->hrow])};
-	my @rows = map {clean_row $_ } $ht_ref->rows;
+	my @rows = map {clean_row $_} $ht_ref->rows;
 
 	my $t_ref = Data::Table->new(\@rows, \@headers, 0);
 	$t_ref->addCol(undef, $_) for qw( lat lng );
