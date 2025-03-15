@@ -18,16 +18,19 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # FIXME: not used yet
   filter:
     name: "Filter changed paths"
     runs-on: ubuntu-latest
     outputs:
       code_modified: ${{ steps.filter.outputs.code }}
-
     steps:
       - uses: dorny/paths-filter@v2
         id: filter
         with:
+          # FIXME: we need to consider more than these files
+          # We need to consider every file in the repository and have it in a category
+          # Maybe using negative match: https://github.com/micromatch/picomatch?tab=readme-ov-file#advanced-globbing
           filters: |
             code:
             - '**/*'       # Catch everything else
