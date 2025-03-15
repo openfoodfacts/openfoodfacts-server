@@ -329,8 +329,7 @@ close $ofh;
 open my $nolatlong_fh, '>:encoding(utf-8)', $nolatlongfile;
 
 # it's useful to have a list of addresses that weren't geocoded
-my $nolatlong_table
-	= $merged_table->match_pattern_hash('!$_{lat} || !$_{lng}');    ## no critic (RequireInterpolationOfMetachars)
+my $nolatlong_table = $merged_table->match_pattern_hash('!$_{lat} || !$_{lng}');    ## no critic (RequireInterpolationOfMetachars)
 
 print {$nolatlong_fh} $nolatlong_table->html;
 
