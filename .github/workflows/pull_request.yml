@@ -49,6 +49,13 @@ jobs:
     - uses: actions/setup-node@v4
       with:
         node-version: '22.x'
+    - name: Cache node modules
+      uses: actions/cache@v4
+      with:
+        path: node_modules
+        key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
     - name: gulp build
       run: make front_build
     - name: lint
