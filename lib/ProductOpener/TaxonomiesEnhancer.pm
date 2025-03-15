@@ -371,12 +371,13 @@ sub detect_missing_stop_words_after_list {
 			}
 		}
 	}
-	if (scalar(@{$ingredients1}) > 0
-		&& $translation_difference_count / scalar(@{$ingredients1}) > $translation_difference_accepted_percentage)
+	my $ingredients1_length = scalar(@{$ingredients1});
+	if (   $ingredients1_length > 0
+		&& $translation_difference_count / $ingredients1_length > $translation_difference_accepted_percentage)
 	{
 		$log->debug(
-			"check_ingredients_between_languages > detect_missing_stop_words_after_list -   too much difference between languages to raise warning. diff/total > tolerance: $translation_difference_count / $#$ingredients1 = "
-				. $translation_difference_count / $#$ingredients1 . " > "
+			"check_ingredients_between_languages > detect_missing_stop_words_after_list -   too much difference between languages to raise warning. diff/total > tolerance: $translation_difference_count / $ingredients1_length = "
+				. $translation_difference_count / $ingredients1_length . " > "
 				. $translation_difference_accepted_percentage)
 			if $log->is_debug();
 		return;

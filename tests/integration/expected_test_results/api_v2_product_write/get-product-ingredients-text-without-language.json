@@ -65,7 +65,7 @@
          "en:united-kingdom"
       ],
       "created_t" : "--ignore--",
-      "creator" : "openfoodfacts-contributors",
+      "creator" : "tests",
       "data_quality_bugs_tags" : [],
       "data_quality_errors_tags" : [],
       "data_quality_info_tags" : [
@@ -342,7 +342,7 @@
          "unknown"
       ],
       "editors_tags" : [
-         "openfoodfacts-contributors"
+         "tests"
       ],
       "entry_dates_tags" : "--ignore--",
       "food_groups" : "en:processed-meat",
@@ -352,7 +352,7 @@
       ],
       "id" : "1234567890004",
       "informers_tags" : [
-         "openfoodfacts-contributors"
+         "tests"
       ],
       "ingredients" : [
          {
@@ -451,6 +451,8 @@
          "en:1"
       ],
       "last_edit_dates_tags" : "--ignore--",
+      "last_editor" : "tests",
+      "last_modified_by" : "tests",
       "last_modified_t" : "--ignore--",
       "last_updated_t" : "--ignore--",
       "lc" : "fr",

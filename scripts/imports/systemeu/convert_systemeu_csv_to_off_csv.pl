@@ -25,8 +25,6 @@ use utf8;
 
 use CGI::Carp qw(fatalsToBrowser);
 
-binmode(STDOUT, ":encoding(UTF-8)");
-
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/get_fileid get_string_id_for_lang/;
 use ProductOpener::Index qw/:all/;
@@ -42,8 +40,9 @@ use ProductOpener::Units qw/unit_to_g/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
-use ProductOpener::ImportConvert qw/%global_params @fields clean_fields extract_nutrition_facts_from_text/;
+use ProductOpener::ImportConvert qw/clean_fields extract_nutrition_facts_from_text/;
 use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 
 use Log::Any qw($log);
 use Log::Any::Adapter 'TAP', filter => "none";
@@ -58,148 +57,45 @@ use Data::Dumper;
 
 use Text::CSV;
 
-my $csv = Text::CSV->new({binary => 1, sep_char => "\t"})    # should set binary attribute.
+binmode(STDOUT, ":encoding(UTF-8)");
+binmode(STDERR, ":encoding(UTF-8)");
+
+# Usage:
+# ./convert_systemeu_csv_to_off_csv.pl [input CSV file in Systeme U / AKENEO format] [output CSV file in OFF format]
+
+# Check we have a CSV file passed as argument and that it exists, and that we have an output CSV file name or print usage and exit
+if (scalar @ARGV != 2) {
+	print STDERR "Usage: $0 [input CSV file in Systeme U / AKENEO format] [output CSV file in OFF format]\n";
+	exit 1;
+}
+
+my $input_csv_file = $ARGV[0];
+my $output_csv_file = $ARGV[1];
+
+my $input_csv = Text::CSV->new({binary => 1, sep_char => ";"})    # should set binary attribute.
 	or die "Cannot use CSV: " . Text::CSV->error_diag();
+
+my $output_csv = Text::CSV->new(
+	{
+		eol => "\n",
+		sep => "\t",
+		quote_space => 0,
+		binary => 1
+	}
+) or die "Cannot use CSV: " . Text::CSV->error_diag();
 
 $lc = "fr";
 $country = "en:france";
 
-$User_id = 'systeme-u';
+# We use a mapping table to convert Systeme U categories to OFF categories when possible
+my $categories_csv_file = $BASE_DIRS{SCRIPTS} . "/imports/systemeu/systeme-u-rubriques.csv";
 
-my $editor_user_id = 'systeme-u';
-
-$User_id = $editor_user_id;
-my $photo_user_id = $editor_user_id;
-$editor_user_id = $editor_user_id;
-
-not defined $photo_user_id and die;
-
-my $csv_file = "/srv2/off/imports/systemeu/data/SUYQD_AKENEO_PU_09_2020.csv";
-my $categories_csv_file = "/srv2/off/imports/systemeu/systeme-u-rubriques.csv";
-my $imagedir;
-#$imagedir = "/srv2/off/imports/systemeu/images";
-#$imagedir = "/srv2/off/imports/systemeu/images1/images";
-#$imagedir = "/srv2/off/imports/systemeu/images2";
-my $products_without_ingredients_lists = "/srv2/off/imports/systemeu/systeme-u-products-without-ingredients-lists.txt";
-
-#my $csv_file = "/home/systemeu/SUYQD_AKENEO_PU_08.csv";
-#my $categories_csv_file = "/home/systemeu/systeme-u-rubriques.csv";
-#my $imagedir = "/home/systemeu/all_product_images";
-#my $products_without_ingredients_lists = "/home/systemeu/systeme-u-products-without-ingredients-lists.txt";
-
-print "uploading csv_file: $csv_file, image_dir: $imagedir\n";
-
-my %products_without_ingredients_lists = ();
-
-open(my $fh, '<:encoding(UTF-8)', $products_without_ingredients_lists)
-	or die("Could not open $products_without_ingredients_lists: $!");
-while (<$fh>) {
-	my $code = $_;
-	chomp($code);
-	$code =~ s/\D//;
-	$code += 0;
-	$products_without_ingredients_lists{$code} = 1;
-}
-
-# Images
-
-# d : ingredients
-# e : nutrition
-
-# 3256225094547_0_d.jpg
-# 3256225094547_0_e.jpg
-# 3256225094547.jpg
-
-#-rwx------ 1 root root   229339 avril 20 15:44 3256225425105_D.jpg
-#-rwx------ 1 root root   320218 avril 20 15:44 3256225425105_E.jpg
-#-rwx------ 1 root root   410014 avril 20 15:44 3256225425617_a_E.jpg
-#-rwx------ 1 root root   374778 avril 20 15:44 3256225425617_b_E.jpg
-#-rwx------ 1 root root   213484 avril 20 15:45 3256225426560_a_D.jpg
-
-# 03368957378571_C0N1_S02_ETUI_USAV_SAUMO_ANETH_CITRO.jpg
-
-my $images_ref = {};
-
-my %rubriques = ();
-
-print "Opening image dir $imagedir\n";
-
-if (opendir(DH, "$imagedir")) {
-	foreach my $file (sort {$a cmp $b} readdir(DH)) {
-
-		# systeme-u archives includes files starting with ._
-		# that contain metadata, skip them
-
-		next if ($file =~ /^._/);
-
-		if ($file =~ /(\d+)(.*)\.(jpg|jpeg|png)/i) {
-
-			my $code = $1;
-			my $suffix = $2;
-			my $imagefield = "other";
-			((not defined $suffix) or ($suffix eq "")) and $imagefield = "front";
-			($suffix =~ /^(_mp)?(_(\d+))?_d(.*)$/i) and $imagefield = "ingredients";
-			($suffix =~ /^(_mp)?(_(\d+))?_e(.*)$/i) and $imagefield = "nutrition";
-
-			print "FOUND IMAGE FOR PRODUCT CODE ($code) - file ($file) - imagefield: ($imagefield)\n";
-
-			# 03368953216518_C0N1_S01_ETUI_USAV_CREVE_LABEL_ROUGE_400G.jpg
-			if ($code =~ /^0(\d{13})/) {
-				$code = $1;
-			}
-
-			(defined $images_ref->{$code}) or $images_ref->{$code} = {};
-
-			$images_ref->{$code}{$imagefield} = $file;
-
-		}
-
-	}
-}
-
-closedir(DH);
+print "converting csv_file: $input_csv_file -- output_csv_file: $output_csv_file\n";
 
 my $i = 0;
 my $j = 0;
-my %codes = ();
-my $current_code = undef;
-my $previous_code = undef;
-my $last_imgid = undef;
-
-my $current_product_ref = undef;
-
-my @param_sorted_langs = qw(fr);
-
-my %global_params = (
-	lc => 'fr',
-	lang => 'fr',
-	countries => "France",
-	brands => "U",
-	stores => "Magasins U",
-);
 
 $lc = 'fr';
-
-my $comment = "Systeme U direct data import";
-
-my $time = time();
-
-my $existing = 0;
-my $new = 0;
-my $differing = 0;
-my %differing_fields = ();
-my @edited = ();
-my %edited = ();
-
-my $testing = 0;
-my $testing_allergens = 0;
-# my $testing = 1;
-
-print STDERR "importing labels\n";
-
-print STDERR "importing products\n";
-
-my %missing_nids = ();
 
 my %allergens = (
 	'UFS' => 'OEUFS',
@@ -359,11 +255,14 @@ my %labels_count = ();
 
 my %rubriques_category = ();
 
-open(my $io3, '<:encoding(UTF-8)', $categories_csv_file) or die("Could not open $csv_file: $!");
+open(my $io3, '<:encoding(UTF-8)', $categories_csv_file) or die("Could not open $categories_csv_file: $!");
 
 while (my $line = <$io3>) {
 
 	chomp($line);
+	$line =~ /^#/ and next;
+	# Convert the tab before the number of products to a space
+	$line =~ s/\t(\d+)/ $1/;
 	my ($rubriques, $category) = split(/\t/, $line);
 
 	$rubriques =~ s/\s+\d+$//;
@@ -376,11 +275,11 @@ while (my $line = <$io3>) {
 
 close($io3);
 
-print STDERR "importing products\n";
+print STDERR "converting products\n";
 
-open(my $io, '<:encoding(UTF-8)', $csv_file) or die("Could not open $csv_file: $!");
+open(my $io, '<:encoding(UTF-8)', $input_csv_file) or die("Could not open  $input_csv_file: $!");
 
-$csv->column_names($csv->getline($io));
+$input_csv->column_names($input_csv->getline($io));
 
 # sku;UGC_ean;UGC_libEcommerce;UGC_libMarque;UGC_nomGestion;
 # UGC_MesureNette;UGC_uniteMesureNette;UGC_Typo;
@@ -393,7 +292,20 @@ $csv->column_names($csv->getline($io));
 # SULFITES;;"A conserver dans un endroit sec, à température ambiante et à l'abri de la lumière.";;;;;;;;0348028402820000;
 # "Epicerie salée";Assaisonnement;"Vinaigre et jus de citron"
 
-while (my $imported_product_ref = $csv->getline_hr($io)) {
+# We first process all products and store them in memory
+# so that we can see which fields are present (in particular which nutrients)
+# to output them in the CSV
+
+my @products = ();
+
+# keep track of the number of products in each category, brands etc. to prioritize the creation of mapping tables
+my %unknown_categories = ();
+my %unverified_categories = ();    # we have a taxonomy match, but it could be incorrect or not specific enough
+my %unverified_categories_matches = ();
+my %unknown_brands = ();
+my %unknown_labels = ();
+
+while (my $imported_product_ref = $input_csv->getline_hr($io)) {
 
 	$i++;
 
@@ -402,14 +314,6 @@ while (my $imported_product_ref = $csv->getline_hr($io)) {
 		= $imported_product_ref->{SVE_cdRubriqueN1} . " - "
 		. $imported_product_ref->{SVE_cdRubriqueN2} . " - "
 		. $imported_product_ref->{SVE_cdRubriqueN3};
-	$rubriques{$imported_product_ref->{rubriques}}++;
-
-	#print $json;
-
-	my $modified = 0;
-
-	my @modified_fields;
-	my @images_ids;
 
 	my $code = $imported_product_ref->{UGC_ean};
 
@@ -426,174 +330,44 @@ while (my $imported_product_ref = $csv->getline_hr($io)) {
 		next;
 	}
 
-	#next if ($code ne "3256220067515");
-
-	# next if ($i < 2665);
+	# We may have images for front / ingredients / nutrition
+	# We will need to output their path in the CSV file so that they can be imported by import_csv_file.pl
 
 	print "PRODUCT LINE NUMBER $i - CODE $code\n";
 
-	if (not defined $images_ref->{$code}) {
-		print "MISSING IMAGES ALL - PRODUCT CODE $code\n";
-	}
-	if (not defined $images_ref->{$code}{front}) {
-		print "MISSING IMAGES FRONT - PRODUCT CODE $code\n";
-	}
-	if (not defined $images_ref->{$code}{ingredients}) {
-		print "MISSING IMAGES INGREDIENTS - PRODUCT CODE $code\n";
-	}
-	if (not defined $images_ref->{$code}{nutrition}) {
-		print "MISSING IMAGES NUTRITION - PRODUCT CODE $code\n";
-	}
-
-	if (
-		   (not defined $images_ref->{$code})
-		or (not defined $images_ref->{$code}{front})
-		or (    (not defined $images_ref->{$code}{ingredients})
-			and (not exists $products_without_ingredients_lists{$code}))
-		)
-	{
-		print "MISSING IMAGES SOME - PRODUCT CODE $code\n";
-		#next;
-	}
+	# $images_ref->{$code}
+	# $images_ref->{$code}{front}
+	# $images_ref->{$code}{ingredients}
+	# $images_ref->{$code}{nutrition}
 
 	print "product $i - code: $code\n";
 
-	my $product_ref = retrieve_product("org-systeme-u/" . $code);    # returns 0 if not
+	my $product_ref = init_product($User_id, "systeme-u", $code, $country);
 
-	if (not $product_ref) {
-		print "- does not exist in OFF yet\n";
-		$new++;
-		if (1 and (not $product_ref)) {
-			print "product code $code does not exist yet, creating product\n";
-			$User_id = $photo_user_id;
-			$product_ref = init_product($User_id, "systeme-u", $code, $country);
-			$product_ref->{interface_version_created} = "import_systemeu.pl - version 2019/12/13";
-			$product_ref->{lc} = $global_params{lc};
-			delete $product_ref->{countries};
-			delete $product_ref->{countries_tags};
-			delete $product_ref->{countries_hierarchy};
-			store_product($User_id, $product_ref, "Creating product (import_systemeu.pl bulk upload) - " . $comment);
-		}
-
-	}
-	else {
-		print "- already exists in OFF\n";
-		$existing++;
-	}
-
-	# First load the global params, then apply the product params on top
-	my %params = %global_params;
-
-	if (not $testing) {
-		print STDERR "uploading images for product code $code\n";
-
-		if (defined $images_ref->{$code}) {
-
-			print STDERR "we have some images for product code $code\n";
-
-			foreach my $imagefield ('front', 'ingredients', 'nutrition', 'other') {
-
-				if (not defined $images_ref->{$code}{$imagefield}) {
-					print STDERR "no images for code $code - imagefield $imagefield\n";
-					next;
-				}
-				else {
-					print STDERR
-						"found image for code $code - imagefield $imagefield: $images_ref->{$code}{$imagefield}\n";
-				}
-
-				my $current_max_imgid = -1;
-
-				if (defined $product_ref->{images}) {
-					foreach my $imgid (keys %{$product_ref->{images}}) {
-						if (($imgid =~ /^\d/) and ($imgid > $current_max_imgid)) {
-							$current_max_imgid = $imgid;
-						}
-					}
-				}
-
-				my $imported_image_file = $images_ref->{$code}{$imagefield};
-
-				# upload the image
-				my $file = $imported_image_file;
-				if (-e "$imagedir/$file") {
-					print "found image file $imagedir/$file\n";
-
-					# upload a photo
-					my $imgid;
-					my $debug;
-					my $return_code = process_image_upload("org-systeme-u/" . $code,
-						"$imagedir/$file", $User_id, undef, $comment, \$imgid, \$debug);
-					print "process_image_upload - file: $file - return code: $return_code - imgid: $imgid\n";
-
-					if (($imgid > 0) and ($imgid > $current_max_imgid) and ($imagefield ne 'other')) {
-
-						print STDERR "assigning image $imgid to ${imagefield}_fr\n";
-						eval {
-							process_image_crop(
-								$User_id,
-								"org-systeme-u/" . $code,
-								$imagefield . "_fr",
-								$imgid, 0, undef, undef, -1, -1, -1, -1, "full"
-							);
-						};
-						# $modified++;
-
-					}
-					else {
-						print STDERR
-							"returned imgid $imgid not greater than the previous max imgid: $current_max_imgid\n";
-
-						# overwrite already selected images
-						if (    ($imgid > 0)
-							and (exists $product_ref->{images})
-							and (exists $product_ref->{images}{$imagefield . "_fr"})
-							and ($product_ref->{images}{$imagefield . "_fr"}{imgid} != $imgid))
-						{
-							print STDERR "re-assigning image $imgid to ${imagefield}_fr\n";
-							eval {
-								process_image_crop(
-									$User_id,
-									"org-systeme-u/" . $code,
-									$imagefield . "_fr",
-									$imgid, 0, undef, undef, -1, -1, -1, -1, "full"
-								);
-							};
-							# $modified++;
-						}
-
-					}
-
-				}
-				else {
-					print "did not find image file $imagedir/$file\n";
-				}
-
-			}
-
-		}
-
-		# reload the product (changed by image upload)
-		$product_ref = retrieve_product("org-systeme-u/" . $code);
-	}
+	# Labels
+	my @labels = ();
 
 	foreach my $ugc_typo (split(/,/, $imported_product_ref->{UGC_Typo})) {
 
 		$labels_count{$ugc_typo}++;
 
 		if (defined $labels{$ugc_typo}) {
-			$params{labels} .= ", " . $labels{$ugc_typo};
+			push @labels, $labels{$ugc_typo};
 		}
-
+		else {
+			$unknown_labels{$ugc_typo}++;
+		}
 	}
 
 	if ($imported_product_ref->{UGC_libEcommerce} =~ /\bBIO\b/i) {
-		$params{labels} .= ", " . "Bio";
+		push @labels, "Bio";
 	}
 
-	$params{labels} =~ s/^, //;
+	if (scalar @labels) {
+		$product_ref->{labels} = join(", ", @labels);
+	}
 
-	print STDERR "labels for product code $code : " . $params{labels} . "\n";
+	print STDERR "labels for product code $code : " . $product_ref->{labels} . "\n";
 
 	if (    (defined $imported_product_ref->{rubriques})
 		and ($imported_product_ref->{rubriques} ne "")
@@ -601,8 +375,29 @@ while (my $imported_product_ref = $csv->getline_hr($io)) {
 	{
 		my $category = $rubriques_category{$imported_product_ref->{rubriques}};
 		$category =~ s/^fr://;
-		$params{categories} = $category;
+		$product_ref->{categories} = $category;
 		print "assigning category $category from rubriques $imported_product_ref->{rubriques}\n";
+	}
+	else {
+		# check if the Systeme U categories exist in the OFF categories taxonomy, starting with the most specific
+		my @rubriques = split(/ - /, $imported_product_ref->{rubriques});
+		foreach my $rubrique (reverse @rubriques) {
+			my $exists_in_taxonomy;
+			my $category_id = canonicalize_taxonomy_tag("fr", "categories", $rubrique, \$exists_in_taxonomy);
+			if ($exists_in_taxonomy) {
+				my $category = $rubrique;
+				$product_ref->{categories} = $category;
+				$unverified_categories{$rubrique}++;
+				$unverified_categories_matches{$rubrique} = $category;
+				print "assigning category $category_id from rubrique $rubrique ($imported_product_ref->{rubriques})\n";
+				last;
+			}
+		}
+
+		# Keeping track of rubriques that are not mapped to OFF categories
+		if (not defined $product_ref->{categories}) {
+			$unknown_categories{$imported_product_ref->{rubriques}}++;
+		}
 	}
 
 	# allergens
@@ -618,6 +413,7 @@ while (my $imported_product_ref = $csv->getline_hr($io)) {
 	# CREME, LAIT
 
 	my $allergens_import = "";
+	my @allergens = "";
 
 	foreach my $ugc_allergen (split(/,|;/, $imported_product_ref->{UGC_allergenStatement})) {
 
@@ -628,7 +424,7 @@ while (my $imported_product_ref = $csv->getline_hr($io)) {
 		next if $ugc_allergen eq "MSC";
 
 		if (defined $allergens{$ugc_allergen}) {
-			$params{allergens} .= ", " . $allergens{$ugc_allergen};
+			push @allergens, $allergens{$ugc_allergen};
 			print "new known allergen for product code $code : " . $allergens{$ugc_allergen} . "\n";
 
 			$allergens_count{$allergens{$ugc_allergen}}++;
@@ -636,7 +432,7 @@ while (my $imported_product_ref = $csv->getline_hr($io)) {
 
 		}
 		else {
-			$params{allergens} .= ", " . $ugc_allergen;
+			push @allergens, $ugc_allergen;
 			print "new unknown allergen for product code $code : " . $ugc_allergen . "\n";
 
 			$allergens_count{$ugc_allergen}++;
@@ -646,11 +442,11 @@ while (my $imported_product_ref = $csv->getline_hr($io)) {
 
 	}
 
-	$params{allergens} =~ s/^, //;
+	$product_ref->{allergens} = join(", ", @allergens);
 
-	$allergens_import = $params{allergens};
+	$allergens_import = $product_ref->{allergens};
 
-	print "allergens for product code $code : " . $params{allergens} . "\n";
+	print "allergens for product code $code : " . $product_ref->{allergens} . "\n";
 
 	# Vinaigre de vin de Xérès U SAVEURS bouteille 25cl
 	# Pur jus de grenade U BIO bocal 75cl
@@ -678,6 +474,8 @@ while (my $imported_product_ref = $csv->getline_hr($io)) {
 	# Gourdes allégée en sucres pomme fraise U MAT&LOU 6x90g
 
 	my $ugc_libecommerce = $imported_product_ref->{UGC_libEcommerce};
+
+	# some products have brand names in UGC_libEcommerce
 
 	# fix typos
 	$ugc_libecommerce
@@ -715,16 +513,24 @@ while (my $imported_product_ref = $csv->getline_hr($io)) {
 
 	my %u_brands = (
 		U => "U",
+		SDSAV => "U Saveurs",
 		U_SAVEURS => "U Saveurs",
 		U_BIO => "U Bio",
+		BIO_U => "U Bio",
 		NOR_U => "Nor U",
 		U_OXYGN => "U Oxygn",
+		U46MAT => "U Mat & Lou",
 		U_MAT_ET_LOU => "U Mat & Lou",
+		U46VEG => "U Bon & Végétarien",
 		U_BON_ET_VEGETARIEN => "U Bon & Végétarien",
 		U_TOUT_PETITS => "U Tout Petits",
+		U46TPB => "U Tout Petits Bio",
+		DANRE => "Danremont",
 		DANREMONT => "Danremont",
+		U46SGL => "U Sans Gluten",
 		U_SANS_GLUTEN => "U Sans Gluten",
 		U_CUISINES_ET_DECOUVERTES => "U Cuisines et Découvertes",
+		UDNR => "U de nos Régions"
 	);
 
 	# Fromage double crème au lait pasteurisé U, 30%MG, 200g
@@ -736,11 +542,12 @@ while (my $imported_product_ref = $csv->getline_hr($io)) {
 	# Emincés de veau, U, France
 
 	if ($ugc_libecommerce =~ /,\s?(France|Belgique|Espagne|Italie|Allemagne|Portugal)/i) {
-		$params{origins} = $1;
-		print STDERR "found origins: " . $params{origins} . "\n";
+		$product_ref->{origins} = $1;
+		print STDERR "found origins: " . $product_ref->{origins} . "\n";
 		$ugc_libecommerce =~ s/,\s?(France|Belgique|Espagne|Italie|Allemagne|Portugal)//i;
 	}
 
+	# Note: the format has changed, we don't get the brand in the UGC_libEcommerce field anymore
 	if ($ugc_libecommerce
 		=~ /(.+)( |,)+(U_BIO|U_SAVEURS|NOR_U|U_OXYGN|U_MAT_ET_LOU|U_BON_ET_VEGETARIEN|U_TOUT_PETITS|DANREMONT|U_SANS_GLUTEN|U_CUISINES_ET_DECOUVERTES|U)( |,)+(.*)$/i
 		)
@@ -748,9 +555,6 @@ while (my $imported_product_ref = $csv->getline_hr($io)) {
 
 		my ($name, $brand, $quantity) = ($1, $3, $5);
 		my $brands = $u_brands{$brand};
-		if ($brands ne 'U') {
-			$brands .= ", U";
-		}
 
 		my %u_packaging = (
 			bte => "boite",
@@ -802,7 +606,7 @@ while (my $imported_product_ref = $csv->getline_hr($io)) {
 
 		while ($quantity =~ /\b(film neutre)(( |,)*)/i) {
 
-			$params{packaging} .= ", " . $1;
+			$product_ref->{packaging} .= ", " . $1;
 
 			$quantity =~ s/\b(film neutre)(( |,)*)//i;
 		}
@@ -838,34 +642,32 @@ while (my $imported_product_ref = $csv->getline_hr($io)) {
 			if (defined $u_packaging{$packaging}) {
 				$packaging = $u_packaging{$packaging};
 			}
-			$params{packaging} =~ s/°//g;
-			$params{packaging} =~ s/\%//g;
-			$params{packaging} .= ", " . $packaging;
+			$product_ref->{packaging} =~ s/°//g;
+			$product_ref->{packaging} =~ s/\%//g;
+			$product_ref->{packaging} .= ", " . $packaging;
 		}
 
 		if (    (defined $imported_product_ref->{SVE_cdRubriqueN1})
 			and ($imported_product_ref->{SVE_cdRubriqueN1} eq "Surgelés"))
 		{
-			$params{packaging} .= ", Surgelés";
+			$product_ref->{packaging} .= ", Surgelés";
 		}
 
 		if (    (defined $imported_product_ref->{SVE_cdRubriqueN1})
 			and ($imported_product_ref->{SVE_cdRubriqueN1} eq "Produits frais"))
 		{
-			$params{packaging} .= ", Frais";
+			$product_ref->{packaging} .= ", Frais";
 		}
 
 		$quantity =~ s/^(,|\s)*//;
 
-		$params{product_name} = $name;
-		$params{brands} = $brands;
-		$params{quantity} = $quantity;
-		$params{packaging} =~ s/^, //;
+		$product_ref->{product_name_fr} = $name;
+		$product_ref->{brands} = $brands;
+		$product_ref->{quantity} = $quantity;
+		$product_ref->{packaging} =~ s/^, //;
 
-		print "set product_name to $params{product_name}\n";
+		print STDERR "set product_name to $product_ref->{product_name_fr}\n";
 
-		# copy value to main language
-		$params{"product_name_" . $global_params{lc}} = $params{product_name};
 	}
 	elsif ($ugc_libecommerce
 		=~ /(.+)( |,)+(U_BIO|U_SAVEURS|NOR_U|U_OXYGN|U_MAT_ET_LOU|U_BON_ET_VEGETARIEN|U_TOUT_PETITS|DANREMONT|U_SANS_GLUTEN|U_CUISINES_ET_DECOUVERTES|U)( |,)*$/
@@ -880,54 +682,46 @@ while (my $imported_product_ref = $csv->getline_hr($io)) {
 			$brands .= ", U";
 		}
 
-		$params{product_name} = $name;
-		$params{brands} = $brands;
+		$product_ref->{product_name_fr} = $name;
+		$product_ref->{brands} = $brands;
 
-		print "set product_name to $params{product_name}\n";
-
-		# copy value to main language
-		$params{"product_name_" . $global_params{lc}} = $params{product_name};
-	}
-	elsif (($code eq "3256220178334")
-		or ($code eq "3256220879040"))
-	{
-
-		my $name = $ugc_libecommerce;
-		my $brands = "U";
-
-		$params{product_name} = $name;
-		$params{brands} = $brands;
-
-		print "no brand - set product_name to $params{product_name}\n";
-
-		# copy value to main language
-		$params{"product_name_" . $global_params{lc}} = $params{product_name};
-
+		print STDERR "set product_name to $product_ref->{product_name_fr}\n";
 	}
 	else {
 
-		print STDERR "unrecognized format for ugc_libecommerce: $ugc_libecommerce\n";
-		print "unrecognized format for ugc_libecommerce: $ugc_libecommerce\n";
-		next;
-
+		print STDERR "no brand found in ugc_libecommerce: $ugc_libecommerce\n";
+		$product_ref->{product_name_fr} = $ugc_libecommerce;
 	}
 
-	$params{product_name} =~ s/\s+$//;
-	$params{brands} =~ s/\s+$//;
-	$params{quantity} =~ s/\s+$//;
-	$params{packaging} =~ s/\s+$//;
+	# brand code in UGC_libMarque
+	my $ugc_libmarque = $imported_product_ref->{UGC_libMarque};
+	if (defined $u_brands{$ugc_libmarque}) {
+		$product_ref->{brands} = $u_brands{$ugc_libmarque};
+	}
+	else {
+		$unknown_brands{$ugc_libmarque}++;
+	}
 
-	$params{product_name} =~ s/^\s+//;
-	$params{brands} =~ s/^\s+//;
-	$params{quantity} =~ s/^\s+//;
-	$params{packaging} =~ s/^\s+//;
+	if ($product_ref->{brands} ne 'U') {
+		$product_ref->{brands} .= ", U";
+	}
+
+	$product_ref->{product_name_fr} =~ s/\s+$//;
+	$product_ref->{brands} =~ s/\s+$//;
+	defined $product_ref->{quantity} and $product_ref->{quantity} =~ s/\s+$//;
+	defined $product_ref->{packaging} and $product_ref->{packaging} =~ s/\s+$//;
+
+	$product_ref->{product_name_fr} =~ s/^\s+//;
+	$product_ref->{brands} =~ s/^\s+//;
+	defined $product_ref->{quantity} and $product_ref->{quantity} =~ s/^\s+//;
+	defined $product_ref->{packaging} and $product_ref->{packaging} =~ s/^\s+//;
 
 	# if no quantity was found in the libelle, use the mesure fields
 	# UGC_MesureNette	UGC_uniteMesureNette
 
-	if (   (not defined $params{quantity})
-		or ($params{quantity} eq "")
-		or ($params{quantity} !~ /( |\d)(\s)?(mg|g|kg|l|litre|litres|dl|cl|ml)\b/i))
+	if (   (not defined $product_ref->{quantity})
+		or ($product_ref->{quantity} eq "")
+		or ($product_ref->{quantity} !~ /( |\d)(\s)?(mg|g|kg|l|litre|litres|dl|cl|ml)\b/i))
 	{
 		if ((defined $imported_product_ref->{UGC_MesureNette}) and ($imported_product_ref->{UGC_MesureNette} ne "")) {
 			my $quantity
@@ -943,11 +737,11 @@ while (my $imported_product_ref = $csv->getline_hr($io)) {
 			if ($quantity =~ /^0.(\d+) kg$/i) {
 				$quantity = (("0." . $1) * 1000) . " g";
 			}
-			if ((defined $params{quantity}) and ($params{quantity} ne "")) {
-				$params{quantity} .= ", " . $quantity;
+			if ((defined $product_ref->{quantity}) and ($product_ref->{quantity} ne "")) {
+				$product_ref->{quantity} .= ", " . $quantity;
 			}
 			else {
-				$params{quantity} = $quantity;
+				$product_ref->{quantity} = $quantity;
 			}
 			print STDERR "setting quantity from UGC_MesureNette: $quantity\n";
 		}
@@ -958,7 +752,15 @@ while (my $imported_product_ref = $csv->getline_hr($io)) {
 	foreach my $field (sort keys %ingredients_fields) {
 
 		if ((defined $imported_product_ref->{$field}) and ($imported_product_ref->{$field} ne '')) {
+
+			# Message about ingredients that can be replaced during the Ukraine war
+			# Suite aux difficultés d'approvisionnement sur certaines matières premières liées à la guerre en Ukraine, des changements ont été apportés dans la recette du produit. L'information donnée sur le produit peut être en décalage avec la recette. Une dérogation d'étiquetage a été accordée par la DGCCRF. Vous trouverez le détail des modifications opérées sur : https://www.economie.gouv.fr/dgccrf/rechercher-produit-recette-temporairement-modifiee (EAN/Code-barre : 3256226086497)
+			$imported_product_ref->{$field} =~ s/Suite aux difficultés.*//i;
+
+			$imported_product_ref->{$field} =~ s/\bUF\b/ŒUF/g;
+			$imported_product_ref->{$field} =~ s/\bUFS\b/ŒUFS/g;
 			# cleaning
+			# in 2018 there were extra commas in the ingredients, this might be fixed now
 			$imported_product_ref->{$field} =~ s/ ( +)/ /g;
 			$imported_product_ref->{$field} =~ s/ce produits/ce produit/g;
 			$imported_product_ref->{$field} =~ s/proviennen, t/proviennent/g;
@@ -978,13 +780,26 @@ while (my $imported_product_ref = $csv->getline_hr($io)) {
 			$imported_product_ref->{$field} =~ s/ ( +)/ /g;
 
 			$imported_product_ref->{$field} =~ s/(\s|\/|\/|_|-)+$//is;
-			$params{$ingredients_fields{$field}} = $imported_product_ref->{$field};
+			$product_ref->{$ingredients_fields{$field}} = $imported_product_ref->{$field};
 			print STDERR "setting ingredients, field $field -> $ingredients_fields{$field}, value: "
 				. $imported_product_ref->{$field} . "\n";
 		}
 	}
 
-	# $params{ingredients_text} = $params{ingredients_text_fr};
+	# A lot of products have origins at the end of the ingredients list
+	# e.g.  [..] caramel (sucre, eau), arôme naturel. Traces éventuelles de soja, lait et fruits à coque. Origines : Avoine UE/non UE. Blé UE. Cacao non UE.
+	# We will extract them and store them in the origins field
+	if ((defined $product_ref->{ingredients_text_fr}) and ($product_ref->{ingredients_text_fr} ne "")) {
+		# we could have Origins inside the ingredients list, for a specific ingredient
+		# in order to avoid matching those, look for a . before the word Origine
+		if ($product_ref->{ingredients_text_fr} =~ /\. Origine(?:s)? : (.*)/i) {
+			$product_ref->{origin_fr} = $1;
+			$product_ref->{ingredients_text_fr} = $`;
+			print STDERR "found origins: " . $product_ref->{origins} . "\n";
+		}
+	}
+
+	# $product_ref->{ingredients_text} = $product_ref->{ingredients_text_fr};
 
 	if (    (defined $imported_product_ref->{UGC_nutritionalValuesPerPackage})
 		and ($imported_product_ref->{UGC_nutritionalValuesPerPackage} ne ""))
@@ -1007,257 +822,13 @@ while (my $imported_product_ref = $csv->getline_hr($io)) {
 			$debug =~ s/:.*//isg;
 			if ($serving ne "") {
 				print "PORTION -- $serving\t-- $debug\n";
-				$params{serving_size} = $serving;
+				$product_ref->{serving_size} = $serving;
 			}
 		}
 
 	}
 
-	my $args_ref = {"import_lc" => "fr"};
-	my %stats = ();
-
-	# Create or update fields
-
-	my @param_fields = ();
-
-	foreach my $field ('lc', 'lang', 'product_name', 'generic_name', @ProductOpener::Config::product_fields,
-		'serving_size', 'ingredients_text', 'allergens', 'traces')
-	{
-
-		if (defined $language_fields{$field}) {
-			foreach my $display_lc (@param_sorted_langs) {
-				push @param_fields, $field . "_" . $display_lc;
-			}
-		}
-		else {
-			push @param_fields, $field;
-		}
-	}
-
-	# Clean the fields to be imported
-
-	$params{lc} = "fr";
-	@fields = @param_fields;
-	clean_fields(\%params);
-
-	foreach my $field (@param_fields) {
-
-		if ((defined $params{$field}) and ($params{$field} ne "")) {
-
-			print STDERR "defined value for field $field : " . $params{$field} . "\n";
-			$imported_product_ref->{$field} = $params{$field};
-
-			# for tag fields, only add entries to it, do not remove other entries
-
-			if (defined $tags_fields{$field}) {
-
-				my $current_field = $product_ref->{$field};
-
-				# we may want to replace brands completely at some point
-				# disabling for now
-
-				#if ($field eq 'brands') {
-				#	$product_ref->{$field} = "";
-				#	delete $product_ref->{$field . "_tags"};
-				#}
-
-				# If we are on the producers platform, remove existing values for brands
-				if (($server_options{producers_platform}) and ($field eq "brands")) {
-					$product_ref->{$field} = "";
-					delete $product_ref->{$field . "_tags"};
-				}
-
-				my %existing = ();
-				if (defined $product_ref->{$field . "_tags"}) {
-					foreach my $tagid (@{$product_ref->{$field . "_tags"}}) {
-						$existing{$tagid} = 1;
-					}
-				}
-
-				foreach my $tag (split(/,/, $imported_product_ref->{$field})) {
-
-					my $tagid;
-
-					next if $tag =~ /^(\s|,|-|\%|;|_|°)*$/;
-					next
-						if $tag
-						=~ /^\s*((n(\/|\.)?a(\.)?)|(not applicable)|none|aucun|aucune|unknown|inconnu|inconnue|non|non renseigné|non applicable|nr|n\/r|no)\s*$/i;
-
-					$tag =~ s/^\s+//;
-					$tag =~ s/\s+$//;
-
-					if ($field eq 'emb_codes') {
-						$tag = normalize_packager_codes($tag);
-					}
-
-					if (defined $taxonomy_fields{$field}) {
-						$tagid = get_taxonomyid($imported_product_ref->{lc},
-							canonicalize_taxonomy_tag($imported_product_ref->{lc}, $field, $tag));
-					}
-					else {
-						$tagid = get_string_id_for_lang("no_language", $tag);
-					}
-
-					if (not exists $existing{$tagid}) {
-						$log->debug("adding tagid to field", {field => $field, tagid => $tagid}) if $log->is_debug();
-						$product_ref->{$field} .= ", $tag";
-						$existing{$tagid} = 1;
-					}
-					else {
-						#print "- $tagid already in $field\n";
-						# update the case (e.g. for brands)
-						if ($field eq "brands") {
-							my $regexp = $tag;
-							$regexp =~ s/( |-)/\( \|-\)/g;
-							$product_ref->{$field} =~ s/\b$tagid\b/$tag/i;
-							$product_ref->{$field} =~ s/\b$regexp\b/$tag/i;
-						}
-					}
-				}
-
-				if ((defined $product_ref->{$field}) and ($product_ref->{$field} =~ /^, /)) {
-					$product_ref->{$field} = $';
-				}
-
-				my $tag_lc = $product_ref->{lc};
-
-				# If an import_lc was passed as a parameter, assume the imported values are in the import_lc language
-				if (defined $args_ref->{import_lc}) {
-					$tag_lc = $args_ref->{import_lc};
-				}
-
-				if ($field eq 'emb_codes') {
-					# French emb codes
-					$product_ref->{emb_codes_orig} = $product_ref->{emb_codes};
-					$product_ref->{emb_codes} = normalize_packager_codes($product_ref->{emb_codes});
-				}
-				if (not defined $current_field) {
-					$log->debug("added value to field", {field => $field, value => $product_ref->{$field}})
-						if $log->is_debug();
-					compute_field_tags($product_ref, $tag_lc, $field);
-					push @modified_fields, $field;
-					$modified++;
-					$stats{products_info_added}{$code} = 1;
-				}
-				elsif ($current_field ne $product_ref->{$field}) {
-					$log->debug("changed value for field",
-						{field => $field, value => $product_ref->{$field}, old_value => $current_field})
-						if $log->is_debug();
-					compute_field_tags($product_ref, $tag_lc, $field);
-					push @modified_fields, $field;
-					$modified++;
-					$stats{products_info_changed}{$code} = 1;
-				}
-				elsif ($field eq "brands") {    # we removed it earlier
-					compute_field_tags($product_ref, $tag_lc, $field);
-				}
-			}
-			else {
-				# non-tag field
-				my $new_field_value = $params{$field};
-
-				$new_field_value =~ s/\s+$//;
-				$new_field_value =~ s/^\s+//;
-
-				if (($field eq 'quantity') or ($field eq 'serving_size')) {
-
-					# openfood.ch now seems to round values to the 1st decimal, e.g. 28.0 g
-					$new_field_value =~ s/\.0 / /;
-
-					# 6x90g
-					$new_field_value =~ s/(\d)(\s*)x(\s*)(\d)/$1 x $4/i;
-
-					$new_field_value =~ s/(\d)( )?(g|gramme|grammes|gr)(\.)?/$1 g/i;
-					$new_field_value =~ s/(\d)( )?(ml|millilitres)(\.)?/$1 ml/i;
-					#$new_field_value =~ s/(\d)( )?cl/${1}0 ml/i;
-					#$new_field_value =~ s/(\d)( )?dl/${1}00 ml/i;
-					$new_field_value =~ s/litre|litres|liter|liters/l/i;
-					#$new_field_value =~ s/(0)(,|\.)(\d)( )?(l)(\.)?/${3}00 ml/i;
-					#$new_field_value =~ s/(\d)(,|\.)(\d)( )?(l)(\.)?/${1}${3}00 ml/i;
-					#$new_field_value =~ s/(\d)( )?(l)(\.)?/${1}000 ml/i;
-					$new_field_value =~ s/kilogramme|kilogrammes|kgs/kg/i;
-					#$new_field_value =~ s/(0)(,|\.)(\d)( )?(kg)(\.)?/${3}00 g/i;
-					#$new_field_value =~ s/(\d)(,|\.)(\d)( )?(kg)(\.)?/${1}${3}00 g/i;
-					#$new_field_value =~ s/(\d)( )?(kg)(\.)?/${1}000 g/i;
-				}
-
-				$new_field_value =~ s/\s+$//g;
-				$new_field_value =~ s/^\s+//g;
-
-				next if $new_field_value eq "";
-
-				my $normalized_new_field_value = $new_field_value;
-
-				# existing value?
-				if ((defined $product_ref->{$field}) and ($product_ref->{$field} !~ /^\s*$/)) {
-					my $current_value = $product_ref->{$field};
-					$current_value =~ s/\s+$//g;
-					$current_value =~ s/^\s+//g;
-
-					# normalize current value
-					if (($field eq 'quantity') or ($field eq 'serving_size')) {
-
-						$current_value =~ s/(\d)( )?(g|gramme|grammes|gr)(\.)?/$1 g/i;
-						$current_value =~ s/(\d)( )?(ml|millilitres)(\.)?/$1 ml/i;
-						#$current_value =~ s/(\d)( )?cl/${1}0 ml/i;
-						#$current_value =~ s/(\d)( )?dl/${1}00 ml/i;
-						$current_value =~ s/litre|litres|liter|liters/l/i;
-						#$current_value =~ s/(0)(,|\.)(\d)( )?(l)(\.)?/${3}00 ml/i;
-						#$current_value =~ s/(\d)(,|\.)(\d)( )?(l)(\.)?/${1}${3}00 ml/i;
-						#$current_value =~ s/(\d)( )?(l)(\.)?/${1}000 ml/i;
-						$current_value =~ s/kilogramme|kilogrammes|kgs/kg/i;
-						#$current_value =~ s/(0)(,|\.)(\d)( )?(kg)(\.)?/${3}00 g/i;
-						#$current_value =~ s/(\d)(,|\.)(\d)( )?(kg)(\.)?/${1}${3}00 g/i;
-						#$current_value =~ s/(\d)( )?(kg)(\.)?/${1}000 g/i;
-					}
-
-					if ($field =~ /ingredients/) {
-
-						#$current_value = get_fileid(lc($current_value));
-						#$current_value =~ s/\W+//g;
-						#$normalized_new_field_value = get_fileid(lc($normalized_new_field_value));
-						#$normalized_new_field_value =~ s/\W+//g;
-
-					}
-
-					if (lc($current_value) ne lc($normalized_new_field_value)) {
-						print
-							"differing value for product code $code - field $field - existing value: $product_ref->{$field} (normalized: $current_value) - new value: $new_field_value - https://world.openfoodfacts.org/product/$code \n";
-						$differing++;
-						$differing_fields{$field}++;
-
-						print
-							"changing previously existing value for product code $code - field $field - value: $new_field_value\n";
-						$product_ref->{$field} = $new_field_value;
-						push @modified_fields, $field;
-						$modified++;
-					}
-					elsif (($field eq 'quantity') and ($product_ref->{$field} ne $new_field_value)) {
-						# normalize quantity
-						$log->debug(
-							"normalizing quantity",
-							{
-								field => $field,
-								existing_value => $product_ref->{$field},
-								new_value => $new_field_value
-							}
-						) if $log->is_debug();
-						$product_ref->{$field} = $new_field_value;
-						push @modified_fields, $field;
-						$modified++;
-					}
-
-				}
-				else {
-					print
-						"setting previously unexisting value for product code $code - field $field - value: $new_field_value\n";
-					$product_ref->{$field} = $new_field_value;
-					push @modified_fields, $field;
-					$modified++;
-				}
-			}
-		}
-	}
+	clean_fields($product_ref);
 
 	# Nutrients
 
@@ -1396,7 +967,6 @@ TXT
 		)
 	{
 		$product_ref->{nutrition_facts_100g_fr_imported} = $imported_product_ref->{UGC_nutritionalValues};
-		$modified++;
 	}
 	if (
 		(
@@ -1410,7 +980,6 @@ TXT
 		)
 	{
 		$product_ref->{nutrition_facts_serving_fr_imported} = $imported_product_ref->{UGC_nutritionalValuesPerPackage};
-		$modified++;
 	}
 
 	if (    (defined $imported_product_ref->{UGC_nutritionalValues})
@@ -1446,13 +1015,11 @@ TXT
 
 			if ((defined $serving_size) and ($serving_size ne "") and ($product_ref->{serving_size} ne $serving_size)) {
 				$product_ref->{serving_size} = $serving_size;
-				$modified++;
 			}
 			if (   (not defined $product_ref->{nutrition_data_per})
 				or ($product_ref->{nutrition_data_per} ne $nutrition_data_per))
 			{
 				$product_ref->{nutrition_data_per} = $nutrition_data_per;
-				$modified++;
 			}
 		}
 
@@ -1534,83 +1101,65 @@ TXT
 
 					print STDERR "Setting $nid to $value $unit\n";
 
-					$modified++;
 				}
-
 			}
-
 		}
-
-	}    # if nutrient are not empty in the csv
-
-	# Skip further processing if we have not modified any of the fields
-
-	print STDERR "product code $code - number of modifications - $modified\n";
-	if ($modified == 0) {
-		print STDERR "skipping product code $code - no modifications\n";
-		next;
-	}
-	#exit;
-
-	# Process the fields
-
-	$User_id = $editor_user_id;
-
-	my $response_ref = {};
-	analyze_and_enrich_product_data($product_ref, $response_ref);
-
-	if (not defined $product_ref->{sources}) {
-		$product_ref->{sources} = [];
 	}
 
-	push @{$product_ref->{sources}},
-		{
-		id => "systemeu",
-		name => "Systeme U",
-		url => "https://www.magasins-u.com/",
-		manufacturer => 1,
-		import_t => time(),
-		fields => \@modified_fields,
-		images => \@images_ids,
-		};
+	push @products, $product_ref;
 
-	if ((not $testing) and (not $testing_allergens)) {
-
-		$product_ref->{owner} = "org-systeme-u";
-		$product_ref->{owners_tags} = ["org-systeme-u"];
-
-		store_product($User_id, $product_ref, "Editing product (import_systemeu.pl bulk import) - " . $comment);
-
-		push @edited, $code;
-		$edited{$code}++;
-
-		$j++;
-		#$j > 10 and last;
-		#last;
-	}
-
-	#last;
-}    # if $file =~ json
-
-print "$i products\n";
-print "$new new products\n";
-print "$existing existing products\n";
-print "$differing differing values\n\n";
-
-print((scalar @edited) . " edited products\n");
-print((scalar keys %edited) . " editions\n");
-
-foreach my $field (sort keys %differing_fields) {
-	print "field $field - $differing_fields{$field} differing values\n";
 }
 
-print "\n\nlabels:\n";
+# Output the CSV file
 
-#foreach my $label (sort { $labels_count{$b} <=> $labels_count{$a}} keys %labels_count ) {
+open(my $output_csv_fh, ">:encoding(UTF-8)", $output_csv_file) or die "Could not open $output_csv_file: $!";
 
-#defined $labels{$label} or $labels{$label} = "";
-#print $label . "\t" . $labels_count{$label} . "\t" .  $labels{$label} . "\n";
-#}
+my @output_fields = qw(
+	code
+	lc
+	countries
+	product_name_fr
+	generic_name_fr
+	brands
+	categories
+	labels
+	quantity
+	ingredients_text_fr
+	origin_fr
+	allergens
+	traces
+	nutrition_data_per
+);
+
+# Add fields for nutrients, with nid suffixed by _value, _unit, and _modifier
+
+my %nutrient_fields = ();
+
+foreach my $product_ref (@products) {
+	foreach my $nid (keys %{$product_ref->{nutriments}}) {
+		$nutrient_fields{$nid} = 1;
+	}
+}
+
+my @sorted_nutrients_fields = sort keys %nutrient_fields;
+
+my @all_fields = (@output_fields, @sorted_nutrients_fields);
+
+# Print the header line with fields names
+$output_csv->print($output_csv_fh, \@all_fields);
+
+foreach my $product_ref (@products) {
+
+	my @output_values = ();
+	foreach my $field (@output_fields) {
+		push @output_values, $product_ref->{$field};
+	}
+	# add nutrients
+	foreach my $field (@sorted_nutrients_fields) {
+		push @output_values, $product_ref->{nutriments}{$field};
+	}
+	$output_csv->print($output_csv_fh, \@output_values);
+}
 
 print "\n\nallergens:\n";
 
@@ -1628,10 +1177,35 @@ foreach my $allergen (sort {$allergens_count{$b} <=> $allergens_count{$a}} keys 
 	print $allergen . "\t" . $allergens_count{$allergen} . "\t" . $taxonomy_tag . "\n";
 }
 
-#foreach my $rubrique (sort { $rubriques{$b} <=> $rubriques{$a}} keys %rubriques ) {
-#
-#	print $rubrique . "\t" . $rubriques{$rubrique} . "\n";
-#}
+print "\n\ncategories with unverified taxonomy matches:\n";
+
+foreach my $category (sort {$unverified_categories{$b} <=> $unverified_categories{$a}} keys %unverified_categories) {
+
+	print $category . "\t"
+		. $unverified_categories{$category} . "\t"
+		. $unverified_categories_matches{$category} . "\n";
+}
+
+print "\n\ncategories with no mapping to OFF categories:\n";
+
+foreach my $category (sort {$unknown_categories{$b} <=> $unknown_categories{$a}} keys %unknown_categories) {
+
+	print $category . "\t" . $unknown_categories{$category} . "\n";
+}
+
+print "\n\nbrands with no mapping to OFF brands:\n";
+
+foreach my $brand (sort {$unknown_brands{$b} <=> $unknown_brands{$a}} keys %unknown_brands) {
+
+	print $brand . "\t" . $unknown_brands{$brand} . "\n";
+}
+
+print "\n\nlabels with no mapping to OFF labels:\n";
+
+foreach my $label (sort {$unknown_labels{$b} <=> $unknown_labels{$a}} keys %unknown_labels) {
+
+	print $label . "\t" . $unknown_labels{$label} . "\n";
+}
 
 #print "\n\nlist of nutrient names:\n\n";
 #foreach my $name (sort keys %nutrients_names) {

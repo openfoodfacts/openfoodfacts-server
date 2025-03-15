@@ -13,6 +13,7 @@ PRODUCERS=(
     agena3000
     carrefour
     intermarche
+    systemeu
 )
 for PRODUCER in "${PRODUCERS[@]}"
 do

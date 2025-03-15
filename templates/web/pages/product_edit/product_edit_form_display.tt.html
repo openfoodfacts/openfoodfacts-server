@@ -62,13 +62,13 @@
                 </p>
 
 
-        [% IF moderator %]
+        [% IF has_permission('product_change_product_code') %]
             <label for="new_code" id="label_new_code" class="moderator-only">[% label_new_code %]</label>
             <input type="text" name="new_code" id="new_code" class="text" value="" /><br/>
         [% END %]
         
-        [% IF moderator || owner_id %]
-            <label for="product_type" id="label_product_type" class="moderator-only">[% lang("product_type") %]</label>
+        [% IF has_permission('product_change_product_type') %]
+            <label for="product_type" id="label_product_type">[% lang("product_type") %]</label>
             <select name="product_type" id="product_type">
                 [% FOREACH available_product_type IN product_types %]
                     <option value="[% available_product_type %]" [% IF product.product_type == available_product_type %] selected="selected" [% END %]>[% lang("product_type_" _ available_product_type) %]</option>
@@ -76,7 +76,7 @@
             </select>
         [% END %]
 
-        [% IF moderator || owner_id %]
+        [% IF has_permission('product_change_obsolete') %]
             <input type="checkbox" id="obsolete" name="obsolete" [% obsolete_checked %]/>
             <label for="obsolete" class="checkbox_label moderator-only">[% lang("obsolete") %]</label>
             [% display_field_obsolete %]

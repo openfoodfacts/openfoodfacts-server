@@ -43,4 +43,10 @@ is(get_string_id_for_lang("fr", "Pâte de cacao"), "pate-de-cacao");
 # accents with one character, or unaccented character + unicode accent mark
 is(get_string_id_for_lang("es", "arándanos, arándanos"), "arandanos-arandanos");
 
+# Greek
+is(get_string_id_for_lang("en", "string with spaces"), "string-with-spaces");
+is(get_string_id_for_lang("el", "string with spaces"), "string-with-spaces");
+is(get_string_id_for_lang("en", "E420 - Σορβιτολη"), "e420-σορβιτολη");
+is(get_string_id_for_lang("el", "E420 - Σορβιτολη"), "e420-σορβιτολη");
+
 done_testing();

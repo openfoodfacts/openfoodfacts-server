@@ -5094,24 +5094,24 @@ my %phrases_before_ingredients_list = (
 
 	cs => ['složení',],
 
-	da => ['ingredienser', 'indeholder',],
+	da => ['ingredienser', 'indeholder', 'Sammensætning',],
 
 	de => ['Zusammensetzung', 'zutat(en)?',],
 
-	el => ['Συστατικά',],
+	el => ['Συστατικά', 'Σύνθεση',],
 
 	en => ['composition', 'ingredient(s?)',],
 
 	es => ['composición', 'ingredientes',],
 
-	et => ['koostisosad',],
+	et => ['koostisosad', 'Koostis',],
 
-	fi => ['aine(?:kse|s?osa)t(?:\s*\/\s*ingredienser)?', 'ainesosia', 'valmistusaineet', 'koostumus',],
+	fi => ['aine(?:kse|s?osa)t(?:\s*\/\s*ingredienser)?', 'ainesosia', 'valmistusaineet', 'Kokoonpano', 'koostumus',],
 
 	fr => [
 		'ingr(e|é)dient(s?)',
 		'Quels Ingr(e|é)dients ?',    # In Casino packagings
-		'composition',
+		'composition',    # pet food
 	],
 
 	hr =>
@@ -5145,29 +5145,31 @@ my %phrases_before_ingredients_list = (
 
 	nb => ['Ingredienser',],
 
+	no => ['Sammensetning',],
+
 	pl => ['sk[łl]adniki', 'skład',],
 
 	pt => ['ingredientes', 'composição',],
 
-	ro => ['(I|i)ngrediente', 'compoziţie',],
+	ro => ['(I|i)ngrediente', 'compozi(ţ|ț)ie',],
 
 	ru => ['состав', 'coctab', 'Ингредиенты',],
 
 	sk => ['obsahuje', 'zloženie',],
 
-	sl => ['(S|s)estavine',],
+	sl => ['(S|s)estavine', 'Sestava',],
 
 	sq => ['P[eë]rb[eë]r[eë]sit',],
 
 	sr => ['Sastojci',],
 
-	sv => ['ingredienser', 'innehåll(er)?',],
+	sv => ['ingredienser', 'innehåll(er)?', 'Sammansättning',],
 
 	tg => ['Таркиб',],
 
 	th => ['ส่วนประกอบ', 'ส่วนประกอบที่สำคัญ',],
 
-	tr => ['(İ|i)çindekiler', 'içeriği',],
+	tr => ['Bileşim', '(İ|i)çindekiler', 'içeriği',],
 
 	uz => ['tarkib', 'Mahsulot tarkibi',],
 
@@ -5179,45 +5181,61 @@ my %phrases_before_ingredients_list = (
 
 my %phrases_before_ingredients_list_uppercase = (
 
-	en => ['INGREDIENT(S)?',],
+	en => ['INGREDIENT(S)?', 'COMPOSITION',],
+
+	bg => ['СЪСТАВ',],
 
 	ca => ['INGREDIENT(S)?',],
 
 	cs => ['SLOŽENÍ',],
 
-	da => ['INGREDIENSER',],
+	da => ['INGREDIENSER', 'ZUSAMMENSETZUNG', 'SAMMENSÆTNING',],
 
-	de => ['ZUTAT(EN)?',],
+	de => ['ZUTAT(EN)?', 'ZUSAMMENSETZUNG',],
 
-	el => ['ΣΥΣΤΑΤΙΚΑ'],
+	el => ['ΣΥΣΤΑΤΙΚΑ', 'ΣΎΝΘΕΣΗ',],
 
-	es => ['INGREDIENTE(S)?',],
+	es => ['COMPOSICIÓN', 'INGREDIENTE(S)?',],
 
-	fi => ['AINE(?:KSE|S?OSA)T(?:\s*\/\s*INGREDIENSER)?', 'VALMISTUSAINEET',],
+	et => ['KOOSTIS',],
 
-	fr => ['INGR(E|É)(D|0|O)IENTS',],
+	fi => ['AINE(?:KSE|S?OSA)T(?:\s*\/\s*INGREDIENSER)?', 'KOKOONPANO', 'VALMISTUSAINEET',],
 
-	hu => ['(Ö|O|0)SSZETEVOK',],
+	fr => ['INGR(E|É)(D|0|O)IENTS', 'COMPOSITION'],
+
+	hr => ['SASTAV',],
+
+	hu => ['(Ö|O|0)SSZETEVOK', 'ÖSSZETÉTEL',],
 
 	is => ['INNIHALD(?:SLÝSING|SEFNI)?', 'INNEALD',],
 
-	it => ['INGREDIENTI(\s*)',],
+	it => ['INGREDIENTI(\s*)', 'COMPOSIZIONE'],
+
+	lt => ['SUDĖTIS',],
+
+	lv => ['SASTĀVS',],
 
 	nb => ['INGREDIENSER',],
 
-	nl => ['INGREDI(E|Ë)NTEN(\s*)',],
+	nl => ['INGREDI(E|Ë)NTEN(\s*)', 'INGREDIENSER', 'SAMENSTELLING',],
 
-	nl => ['INGREDIENSER',],
+	no => ['SAMMENSETNING',],
 
-	pl => ['SKŁADNIKI(\s*)',],
+	pl => ['SKŁADNIKI(\s*)', 'SKŁAD',],
 
-	pt => ['INGREDIENTES(\s*)',],
+	pt => ['COMPOSIÇÃO', 'INGREDIENTES(\s*)', 'COMPOSIÇÃO',],
 
-	ru => ['COCTАB',],
+	ro => ['COMPOZIȚIE',],
 
-	sl => ['SESTAVINE',],
+	ru => ['COCTАB', 'СОСТАВ',],
 
-	sv => ['INGREDIENSER', 'INNEHÅLL(ER)?',],
+	sk => ['ZLOŽENIE',],
+
+	sl => ['SESTAVINE', 'SESTAVA',],
+
+	sv => ['INGREDIENSER', 'INNEHÅLL(ER)?', 'SAMMANSÄTTNING',],
+
+	tr => ['BİLEŞİM',],
 
 	uz => ['ІHГРЕДІЄНТИ',],
 
@@ -5237,6 +5255,7 @@ my %phrases_after_ingredients_list = (
 
 	bg => [
 		'да се съхранява (в закрити|на сухо)',    # store in ...
+		'Аналитични съставки',    # pet food
 		'Неотворен',    # before opening ...
 		'След отваряне'    # after opening ...
 	],
@@ -5244,6 +5263,7 @@ my %phrases_after_ingredients_list = (
 	ca => ['envasat en atmosfera protectora', 'conserveu-los en un lloc fresc i sec',],
 
 	cs => [
+		'analytické složky',    # pet food
 		'doporu)c|č)eny zp(u|ů)sob p(r|ř)(i|í)pravy',
 		'minim(a|á)ln(i|í) trvanlivost do',    # Expiration date
 		'po otev(r|ř)en(i|í)',    # After opening
@@ -5252,7 +5272,9 @@ my %phrases_after_ingredients_list = (
 	],
 
 	da => [
-		'(?:gennemsnitlig )?n(æ|ae)rings(?:indhold|værdi|deklaration)', 'beskyttes',
+		'(?:gennemsnitlig )?n(æ|ae)rings(?:indhold|værdi|deklaration)',
+		'analytiske bestanddele',    # pet food
+		'beskyttes',
 		'nettovægt', 'åbnet',
 		'holdbarhed efter åbning', 'mindst holdbar til',
 		'opbevar(?:ing|res)?', '(?:for )?allergener',
@@ -5260,6 +5282,7 @@ my %phrases_after_ingredients_list = (
 	],
 
 	de => [
+		'analytische bestandteile',    # pet food
 		'Ern(â|a|ä)hrungswerte',
 		'Mindestens altbar bis',
 		'Mindestens haltbar bis',
@@ -5293,6 +5316,7 @@ my %phrases_after_ingredients_list = (
 	],
 
 	el => [
+		'Αναλυτικές συστατικές',    # pet food
 		'ΔΙΑΘΡΕΠΤΙΚΗ ΕΠΙΣΗΜΑΝΣΗ',    #Nutritional labelling
 		'ΔΙΤΡΟΦΙΚΕΣ ΠΗΡΟΦΟΡΙΕΣ',
 	],
@@ -5300,7 +5324,8 @@ my %phrases_after_ingredients_list = (
 	en => [
 		'adds a trivial amount',    # e.g. adds a trivial amount of added sugars per serving
 		'after opening',
-		#'Best before',
+		'analytical constituents',    # pet food
+									  #'Best before',
 		'keep cool and dry',
 		'Can be stored unopened at room temperature',
 		'instruction',
@@ -5319,6 +5344,7 @@ my %phrases_after_ingredients_list = (
 	],
 
 	es => [
+		'componentes analíticos',    # pet food
 		'valores nutricionales',
 		'modo de preparacion',
 		'informaci(o|ó)n nutricional',
@@ -5342,11 +5368,13 @@ my %phrases_after_ingredients_list = (
 	],
 
 	et => [
+		'analüütilised komponendid',    # pet food
 		'parim enne',    # best before
 	],
 
 	fi => [
 		'100 g:aan tuotetta käytetään',
+		'analyyttiset ainesosat',    # pet food
 		'Energiaa per',
 		'Kypsennys',
 		'Makeisten sekoitussuhde voi vaihdella',
@@ -5362,6 +5390,7 @@ my %phrases_after_ingredients_list = (
 	],
 
 	fr => [
+		'constituants analytiques',    # pet food
 		'valeur(s?) (e|é)nerg(e|é)tique',
 		'valeur(s?) nutritives',
 		'valeur nutritive',
@@ -5438,6 +5467,7 @@ my %phrases_after_ingredients_list = (
 
 	hr => [
 		'(prije otvaranja )?((č|Č|c|C|ć|Ć)uvati|(č|Č|c|C|ć|Ć)uvajte)',    # store in...
+		'analitički sastav',    # pet food
 		'izvaditi',    # remove from the refrigerator half an hour before consumption
 		'način pripreme',    # preparation
 		'(najbolje )upotrijebiti',    # best before
@@ -5472,6 +5502,7 @@ my %phrases_after_ingredients_list = (
 	hu => [
 		'Atlagos tápérték 100g termékben',
 		'((száraz|hűvös|(közvetlen )?napfénytől védett)[, ]*)+helyen tárolandó',    # store in cool/dry/etc
+		'elemzési összetevők',    # pet food
 		'hűvös, száraz helyen, közvetlen napfénytől védve tárolja',    # store in cool dry place away from the sunlight
 		'bontatlan csomagolásban',    # keep in a closed/dark place
 		'tárolás',    # conservation
@@ -5480,6 +5511,7 @@ my %phrases_after_ingredients_list = (
 	is => ['n(æ|ae)ringargildi', 'geymi(st|ð) á', 'eftir opnum', 'aðferð',],
 
 	it => [
+		'componenti analitici',    # pet food
 		'Confezionato in atmosfera protettiva',    # Packaged in a protective atmosphere
 		'(dopo l\'apertura )?Conservare in (frigo|luogo)',
 		'consigli per la preparazione',
@@ -5500,11 +5532,16 @@ my %phrases_after_ingredients_list = (
 	],
 
 	lt => [
+		'analizinės sudėties',    # pet food
 		'geriausias iki',    # best before
 		'tinka vartoti iki',    # valid until
 		'data ant pakuotės',    #date on package
 		'laikyti sausoje vietoje',    #Keep in dry place
 		'',
+	],
+
+	lv => [
+		'analītiskā sastāva',    # pet food
 	],
 
 	mk => [
@@ -5514,6 +5551,7 @@ my %phrases_after_ingredients_list = (
 	nb => ['netto(?:innhold|vekt)', 'oppbevar(?:ing|es)', 'næringsinnh[oa]ld', 'kjølevare',],
 
 	nl => [
+		'analytische bestanddelen',    # pet food
 		'Beter Leven keurmerk 1 ster.',
 		'Beter Leven keurmerk 3 sterren',
 		'Bewaren bij kamertemperatuur',
@@ -5546,9 +5584,11 @@ my %phrases_after_ingredients_list = (
 		'n(a|o)jlepiej spożyć przed',    #Best before
 		'Przechowywanie',
 		'pakowan(o|y|e) w atmosferze ochronnej',    # Packaged in protective environment
+		'składniki analityczne',    # pet food
 	],
 
 	pt => [
+		'constituintes analíticos',    # pet food
 		'conservar em local (seco e )?fresco',
 		'conservar em lugar fresco',
 		'dos quais a(ç|c)(u|ü)ares',
@@ -5561,6 +5601,7 @@ my %phrases_after_ingredients_list = (
 	],
 
 	ro => [
+		'constituenți analitici',    # pet food
 		'declaratie nutritional(a|ă)',
 		'a si pastra la frigider dup(a|ă) deschidere',
 		'a se agita inainte de deschidere',
@@ -5580,15 +5621,18 @@ my %phrases_after_ingredients_list = (
 	],
 
 	ru => [
+		'Аналитические компоненты',    # pet food
 		'xранить в сухом',    # store in a dry place
 	],
 
 	sk => [
+		'analytické zložky',    # pet food
 		'skladovanie',    # store at
 		'spotrebujte do',    # keep until
 	],
 
 	sl => [
+		'analitska sestava',    # pet food
 		'hraniti',    # Store in a cool and dry place
 		'opozorilo',    # warning
 		'pakirano v kontrolirani atmosferi',    # packed in a ... atmosphere
@@ -5599,6 +5643,7 @@ my %phrases_after_ingredients_list = (
 	],
 
 	sv => [
+		'analytiska beståndsdelar',    # pet food
 		'närings(?:deklaration|innehåll|värde)', '(?:bör )?förvar(?:ing|as?)',
 		'till(?:agning|redning)', 'produkten innehåller',
 		'serveringsförslag', 'produkterna bör',
@@ -5609,6 +5654,10 @@ my %phrases_after_ingredients_list = (
 		'upptining', 'o?öppnad',
 		'bevaras', 'kylvara',
 		'tappat',
+	],
+
+	tr => [
+		'analitik bileşenler',    # pet food
 	],
 
 	uk => [

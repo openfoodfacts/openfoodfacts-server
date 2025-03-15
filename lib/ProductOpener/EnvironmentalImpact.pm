@@ -147,7 +147,7 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	}
 
 	# API URL
-	my $url_recipe = "https://staging-ecobalyse.incubateur.net/api/food";
+	my $url_recipe = "https://ecobalyse.beta.gouv.fr/api/food";
 
 	# Create a UserAgent object to make the API request
 	my $ua = LWP::UserAgent->new();

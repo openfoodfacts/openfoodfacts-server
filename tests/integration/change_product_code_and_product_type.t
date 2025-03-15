@@ -209,13 +209,27 @@ my $tests_ref = [
 		},
 		ua => $ua,
 	},
+	# Test setup - Create a product
+	{
+		setup => 1,
+		test_case => 'setup-create-product-b',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890202',
+		body => '{
+			"tags_lc": "en",
+			"product": {
+				"product_name_en": "Test product 1",
+				"countries_tags": ["en:france"]
+			}
+		}',
+	},
 	# Send product_type=beauty to move product to Open Beauty Facts, normal account
 	{
 		test_case => 'change-product-type-to-beauty-api-v2-normal-account',
 		method => 'POST',
 		path => '/cgi/product_jqm_multilingual.pl',
 		form => {
-			code => "1234567890102",
+			code => "1234567890202",
 			product_type => "beauty",
 		},
 		ua => $ua,
@@ -452,11 +466,25 @@ my $tests_ref = [
 		ua => $ua,
 		expected_status_code => 200,
 	},
+	# Create a new product
+	{
+		setup => 1,
+		test_case => 'setup-create-product-3b',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890302',
+		body => '{
+			"product": {
+				"product_name_en": "Test product 3",
+				"lang": "en",
+				"countries_tags": ["en:france"]
+			}
+		}',
+	},
 	# Change the product_type field to petfood, with API v3, normal account
 	{
 		test_case => 'change-product-type-to-opff-api-v3-normal-account',
 		method => 'PATCH',
-		path => '/api/v3/product/1234567890300',
+		path => '/api/v3/product/1234567890302',
 		body => '{
 			"tags_lc": "en",
 			"product": {
@@ -464,7 +492,6 @@ my $tests_ref = [
 			}
 		}',
 		ua => $ua,
-		expected_status_code => 403,
 	},
 	# Change the product_type field to petfood, with API v3, moderator account
 	{

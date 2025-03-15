@@ -11,9 +11,9 @@ use File::Basename "dirname";
 
 use Storable qw(dclone);
 
-#remove_all_users();
+remove_all_users();
 
-#remove_all_products();
+remove_all_products();
 
 wait_application_ready();
 
