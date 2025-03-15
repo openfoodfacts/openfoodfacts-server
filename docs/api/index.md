@@ -2,6 +2,10 @@
 
 Everything you need to know about Open Food Facts API.
 
+!!!note "Please read this"
+    👮‍♂️🚥Are you going to use our API?
+    Please **read this documentation entirely** before using it. 
+
 ## Overview
 
 Open Food Facts is a food products database made by everyone, for everyone, that can help you make better choices about what you eat. Being open data, anyone can reuse it for any purpose.

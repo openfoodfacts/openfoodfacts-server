@@ -18,18 +18,49 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # FIXME: not used yet
+  filter:
+    name: "Filter changed paths"
+    runs-on: ubuntu-latest
+    outputs:
+      code_changed: ${{ steps.filter.outputs.code }}
+      docs_changed: ${{ steps.filter.outputs.docs }}
+      only_docs_changed: ${{ steps.filter.outputs.docs == 'true' && steps.filter.outputs.code != 'true' }}
+
+    steps:
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          # FIXME: we need to consider more than these files
+          # We need to consider every file in the repository and have it in a category
+          # Maybe using negative match: https://github.com/micromatch/picomatch?tab=readme-ov-file#advanced-globbing
+          filters: |
+            docs:
+              - '**/*.md'
+              - 'docs/**'
+            code:
+              - '**/*.pl'
+              - '**/*.pm'
+              - '**/*.js'
+              - '**/*.scss'
+              - '**/*.html'
+              - 'conf/**'
+              - 'lib/**'
+              - 'scripts/**'
+              - 'tests/**'
+            taxonomies:
+              - 'taxonomies/**/*'
 
   lint:
     name: 🕵️‍♀️ NPM lint
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
     steps:
     - uses: actions/checkout@v4
       with:
         fetch-depth: 1
     - uses: actions/setup-node@v4
       with:
-        node-version: '12.x'
+        node-version: '22.x'
     - name: gulp build
       run: make front_build
     - name: lint
@@ -85,7 +116,6 @@ jobs:
     name: 🐪 Check Perl
     needs: build_backend
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
     steps:
     - uses: actions/checkout@v4
       with:
@@ -190,8 +220,8 @@ jobs:
   tests_dev:
     name: 🧪 Test make dev
     needs: build_backend  # only to avoid building taxonomies
-    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
+    
     steps:
     - uses: actions/checkout@v4
       with:
@@ -231,7 +261,6 @@ jobs:
   test_deployment:
     name: 🦾 Some test of deployment tools
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
     steps:
     - uses: actions/checkout@v4
       with:

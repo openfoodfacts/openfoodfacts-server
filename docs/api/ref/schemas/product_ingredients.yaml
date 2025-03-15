@@ -66,6 +66,12 @@ properties:
       type: string
   ingredients_percent_analysis:
     type: integer
+    description: |
+      Indicates the result of ingredients analysis processing
+      
+      * not present -> we didn't run ingredient percent analysis (e.g. we have no ingredients)
+      * 1: we estimated the ingredients percent.
+      * -1 : we tried to estimate the ingredients, but the values were impossible. (e.g. if the sum of % is above 100%)
   ingredients_sweeteners_n:
     type: integer
     description: |
