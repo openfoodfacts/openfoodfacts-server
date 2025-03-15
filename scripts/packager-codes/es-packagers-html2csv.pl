@@ -81,7 +81,7 @@ sub clean_col {
 sub clean_row {
 	my ($row_ref) = @_;
 
-	return [map {clean_col $_ } @{$row_ref}];
+	return [map {clean_col $_} @{$row_ref}];
 }
 
 sub build_headers {
