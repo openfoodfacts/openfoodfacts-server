@@ -180,7 +180,7 @@ $flavor = "opf";
 	#android_app_link => "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&utm_source=opf&utf_medium=web",
 	#ios_app_link => "https://apps.apple.com/app/open-beauty-facts/id1122926380?utm_source=opf&utf_medium=web",
 	#facebook_page_url => "https://www.facebook.com/openbeautyfacts?&utm_source=opf&utf_medium=web",
-	#twitter_account => "OpenBeautyFacts",
+	#x_account => "OpenBeautyFacts",
 	# favicon HTML and images generated with https://realfavicongenerator.net/ using the SVG icon
 	favicons => <<HTML
 <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/opf/apple-touch-icon.png">

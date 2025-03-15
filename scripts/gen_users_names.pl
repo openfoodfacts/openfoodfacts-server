@@ -50,8 +50,8 @@ foreach my $userid (@userids) {
 		print lc($user_ref->{email}) . "\t$userid\t" . $user_ref->{name} . "\n";
 	}
 
-	if ($user_ref->{twitter} ne '') {
-		#		print "\@" . $user_ref->{twitter} . " ";
+	if ($user_ref->{x} ne '') {
+		#		print "\@" . $user_ref->{x} . " ";
 	}
 }
 

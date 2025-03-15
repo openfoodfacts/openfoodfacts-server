@@ -7548,10 +7548,10 @@ sub display_page ($request_ref) {
 	my $join_us_on_slack
 		= sprintf($Lang{footer_join_us_on}{$lc}, '<a href="https://slack.openfoodfacts.org">Slack</a>');
 
-	# Twitter account and Facebook page url from Config.pm
-	# Allow to have language specific Twitter accounts and Facebook page url, suffixed by the language code
-	my $twitter_account = $options{"twitter_account_$lc"} || $options{twitter_account};
-	$template_data_ref->{twitter_account} = $twitter_account;
+	# x account and Facebook page url from Config.pm
+	# Allow to have language specific x accounts and Facebook page url, suffixed by the language code
+	my $x_account = $options{"x_account_$lc"} || $options{x_account};
+	$template_data_ref->{x_account} = $x_account;
 	my $facebook_page = $options{"facebook_page_url_$lc"} || $options{facebook_page_url};
 	$template_data_ref->{facebook_page_url} = $facebook_page;
 
@@ -7661,14 +7661,14 @@ sub display_page ($request_ref) {
 		|| ($html = "template error: " . $tt->error());
 
 	# disable equalizer
-	# e.g. for product edit form, pages that load iframes (twitter embeds etc.)
+	# e.g. for product edit form, pages that load iframes (x embeds etc.)
 	if ($html =~ /<!-- disable_equalizer -->/) {
 
 		$html =~ s/data-equalizer(-watch)?//g;
 	}
 
-	# Twitter account
-	$html =~ s/<twitter_account>/$twitter_account/g;
+	# x account
+	$html =~ s/<x_account>/$x_account/g;
 
 	my $status_code = $request_ref->{status_code} // 200;
 
@@ -8575,35 +8575,35 @@ JS
 	$template_data_ref->{display_product_history} = display_product_history($request_ref, $code, $product_ref)
 		if $User{moderator};
 
-	# Twitter card
+	# x card
 
 	# example:
 
-	#<meta name="twitter:card" content="product">
-	#<meta name="twitter:site" content="@iHeartRadio">
-	#<meta name="twitter:creator" content="@iHeartRadio">
-	#<meta name="twitter:title" content="24/7 Beatles — Celebrating 50 years of Beatlemania">
-	#<meta name="twitter:image" content="http://radioedit.iheart.com/service/img/nop()/assets/images/05fbb21d-e5c6-4dfc-af2b-b1056e82a745.png">
-	#<meta name="twitter:label1" content="Genre">
-	#<meta name="twitter:data1" content="Classic Rock">
-	#<meta name="twitter:label2" content="Location">
-	#<meta name="twitter:data2" content="National">
+	#<meta name="x:card" content="product">
+	#<meta name="x:site" content="@iHeartRadio">
+	#<meta name="x:creator" content="@iHeartRadio">
+	#<meta name="x:title" content="24/7 Beatles — Celebrating 50 years of Beatlemania">
+	#<meta name="x:image" content="http://radioedit.iheart.com/service/img/nop()/assets/images/05fbb21d-e5c6-4dfc-af2b-b1056e82a745.png">
+	#<meta name="x:label1" content="Genre">
+	#<meta name="x:data1" content="Classic Rock">
+	#<meta name="x:label2" content="Location">
+	#<meta name="x:data2" content="National">
 
 	my $meta_product_image_url = "";
 	if (defined $product_image_url) {
 		$meta_product_image_url = <<HTML
-<meta name="twitter:image" content="$product_image_url">
+<meta name="x:image" content="$product_image_url">
 <meta property="og:image" content="$product_image_url">
 HTML
 			;
 	}
 
 	$request_ref->{header} .= <<HTML
-<meta name="twitter:card" content="product">
-<meta name="twitter:site" content="@<twitter_account>">
-<meta name="twitter:creator" content="@<twitter_account>">
-<meta name="twitter:title" content="$title">
-<meta name="twitter:description" content="$description">
+<meta name="x:card" content="product">
+<meta name="x:site" content="@<x_account>">
+<meta name="x:creator" content="@<x_account>">
+<meta name="x:title" content="$title">
+<meta name="x:description" content="$description">
 HTML
 		;
 
@@ -8611,8 +8611,8 @@ HTML
 		# print only first brand if multiple exist.
 		my @brands = split(',', $product_ref->{brands});
 		$request_ref->{header} .= <<HTML
-<meta name="twitter:label1" content="$Lang{brands_s}{$lc}">
-<meta name="twitter:data1" content="$brands[0]">
+<meta name="x:label1" content="$Lang{brands_s}{$lc}">
+<meta name="x:data1" content="$brands[0]">
 HTML
 			;
 	}
@@ -8621,8 +8621,8 @@ HTML
 	my $data2 = display_taxonomy_tag($lc, "categories", $product_ref->{categories_tags}[-1]);
 	if ($data2) {
 		$request_ref->{header} .= <<HTML
-<meta name="twitter:label2" content="$Lang{categories_s}{$lc}">
-<meta name="twitter:data2" content="$data2">
+<meta name="x:label2" content="$Lang{categories_s}{$lc}">
+<meta name="x:data2" content="$data2">
 HTML
 			;
 	}
@@ -9064,7 +9064,7 @@ HTML
 
 	my $creator = $product_ref->{creator};
 
-	# Remove links for iOS (issues with twitter / facebook badges loading in separate windows..)
+	# Remove links for iOS (issues with x / facebook badges loading in separate windows..)
 	$html =~ s/<a ([^>]*)href="([^"]+)"([^>]*)>/<span $1$3>/g
 		;    # replace with a span to keep class for color of additives etc.
 	$html =~ s/<\/a>/<\/span>/g;
