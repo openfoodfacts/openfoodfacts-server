@@ -22,33 +22,23 @@ jobs:
     name: "Filter changed paths"
     runs-on: ubuntu-latest
     outputs:
-      code_changed: ${{ steps.filter.outputs.code }}
-      taxonomies_changed: ${{ steps.filter.outputs.taxonomies }}
+      code_modified: ${{ steps.filter.outputs.code }}
+
     steps:
       - uses: dorny/paths-filter@v2
         id: filter
         with:
           filters: |
-            docs:
-              - '**/*.md'
-              - 'docs/**'
             code:
-              - '**/*.pl'
-              - '**/*.pm'
-              - '**/*.js'
-              - '**/*.scss'
-              - '**/*.html'
-              - 'conf/**'
-              - 'lib/**'
-              - 'scripts/**'
-              - 'tests/**'
-            taxonomies:
-              - 'taxonomies/**/*'
+            - '**/*'       # Catch everything else
+            - '!**/*.md'   # Exclude all Markdown files
+            - '!docs/**'   # Exclude docs/ folder
 
   lint:
     name: 🕵️‍♀️ NPM lint
+    needs: filter
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' && needs.filter.outputs.code_changed == 'true'
+    if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     steps:
     - uses: actions/checkout@v4
       with:
@@ -64,7 +54,9 @@ jobs:
   # this will build the docker image and upload as an artifact for following jobs
   build_backend:
     name: 🏗 Build backend dev image for tests
+    needs: filter
     runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     steps:
     - uses: actions/checkout@v4
       with:
@@ -109,9 +101,9 @@ jobs:
 
   check_perl:
     name: 🐪 Check Perl
-    needs: build_backend
+    needs: [filter, build_backend]
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' && needs.filter.outputs.code_changed == 'true'
+    if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     steps:
     - uses: actions/checkout@v4
       with:
@@ -157,9 +149,9 @@ jobs:
 
   tests:
     name: 🐪 Perl unit tests
-    needs: build_backend
+    needs: [filter, build_backend]
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' && needs.filter.outputs.code_changed == 'true'
+    if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     steps:
     - uses: actions/checkout@v4
       with:
@@ -216,8 +208,8 @@ jobs:
 
   tests_dev:
     name: 🧪 Test make dev
-    needs: build_backend  # only to avoid building taxonomies
-    if: github.event_name == 'pull_request' && needs.filter.outputs.code_changed == 'true'
+    needs: [filter, build_backend]  # build_backend - only to avoid building taxonomies
+    if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     runs-on: ubuntu-latest
     
     steps:
@@ -258,8 +250,9 @@ jobs:
 
   test_deployment:
     name: 🦾 Some test of deployment tools
+    needs: filter
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' && needs.filter.outputs.code_changed == 'true'
+    if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     steps:
     - uses: actions/checkout@v4
       with:
