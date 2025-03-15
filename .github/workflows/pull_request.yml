@@ -77,16 +77,8 @@ jobs:
       uses: ishworkh/container-image-artifact-upload@v2.0.0
       with:
         image: "openfoodfacts-server/backend:dev"
-    - name: Fetch origin/main
-      # we need origin/main to have comparison linting work
-      run: |
-        git remote set-branches --add origin main
-        git fetch --no-tags --prune --progress --no-recurse-submodules --depth=5 origin main
-    - name: Restore taxonomies dates
-      # here we first restore dates from git for taxonomies to avoid build them all
-      # see https://stackoverflow.com/a/60984318/2886726
-      run: |
-        git ls-files taxonomies/ | xargs -I{} git log -1 --date=format:%Y%m%d%H%M.%S --format='touch -t %ad "{}"' "{}" | bash
+    - name: Setup Git and Restore Taxonomies
+      run: ./.github/scripts/setup_git.sh
     - name: Rebuild taxonomies for Open Food Facts (off)
       run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
     - name: Rebuild taxonomies for Open Beauty Facts (obf)
@@ -111,16 +103,8 @@ jobs:
     - uses: actions/checkout@v4
       with:
         fetch-depth: 1
-    - name: Fetch origin/main
-      # we need origin/main to have comparison linting work
-      run: |
-        git remote set-branches --add origin main
-        git fetch --no-tags --prune --progress --no-recurse-submodules --depth=5 origin main
-    - name: Restore taxonomies dates
-      # here we first restore dates from git for taxonomies to avoid build them all
-      # see https://stackoverflow.com/a/60984318/2886726
-      run: |
-        git ls-files taxonomies/ | xargs -I{} git log -1 --date=format:%Y%m%d%H%M.%S --format='touch -t %ad "{}"' "{}" | bash
+    - name: Setup Git and Restore Taxonomies
+      run: ./.github/scripts/setup_git.sh
     - uses: actions/cache/restore@v4
       id: cache
       with:
@@ -165,16 +149,8 @@ jobs:
         path: ./build-cache
         key: taxonomies-${{ hashFiles('taxonomies/**') }}
         restore-keys: taxonomies-
-    - name: Fetch origin/main
-      # we need origin/main to have comparison linting work
-      run: |
-        git remote set-branches --add origin main
-        git fetch --no-tags --prune --progress --no-recurse-submodules --depth=5 origin main
-    - name: Restore taxonomies dates
-      # here we first restore dates from git for taxonomies to avoid build them all
-      # see https://stackoverflow.com/a/60984318/2886726
-      run: |
-        git ls-files taxonomies/ | xargs -I{} git log -1 --date=format:%Y%m%d%H%M.%S --format='touch -t %ad "{}"' "{}" | bash
+    - name: Setup Git and Restore Taxonomies
+      run: ./.github/scripts/setup_git.sh
     - name: Download backend image from artifacts
       id: downloadbackendimage
       uses: ishworkh/container-image-artifact-download@v2.0.0
