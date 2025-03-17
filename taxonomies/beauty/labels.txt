@@ -9,8 +9,10 @@ synonyms:en: coloring, colouring, color, colour
 synonyms:en: GMOs, Genetically Modified Organisms
 
 synonyms:en: without, 0%
+synonyms:da: uden, 0%
 synonyms:es: sin, 0%
 synonyms:fr: sans, 0%
+synonyms:sv: utan, 0%
 
 # already in food labels.txt
 # synonyms:fr: ajout, adjonction
@@ -1594,6 +1596,7 @@ en: UTZ Certified Coffee
 de: UTZ Certified Kaffee
 
 en: Vegetarian, Suitable for vegetarians
+da: Vegetarisk
 de: Vegetarisch
 es: Vegetariano, Producto vegetariano, Apto para vegetarianos, Vegetarian
 fr: Végétarien, Convient aux végétariens, Adapté au régime végétarien
@@ -1606,6 +1609,7 @@ en: Green Dot India, India Green Dot, Indian Green Dot, vegetarian mark India
 
 < en:Vegetarian
 en: Vegan, Suitable for vegans
+da: Vegansk
 de: Vegan
 es: Vegano, Producto vegano, Vegan
 fr: Végétalien, Végan, végétal
@@ -1862,12 +1866,29 @@ fr: One Voice, One Voice - pour une éthique animale et planétaire
 
 en: Ecolabel
 
-< en:Ecolabel
-en: EU Ecolabel
-fr: EU Ecolabel, Ecolabel EU, Ecolabel européen
+# already in food labels.txt
+#< en:Ecolabel
+#en: EU Ecolabel
+#fr: EU Ecolabel, Ecolabel EU, Ecolabel européen
 
 < en:Ecolabel
-en: Nordic Ecolabel
+xx: Nordic Swan Ecolabel, Nordic Ecolabel
+en: Nordic Swan Ecolabel, Nordic Ecolabel
+da: Svanemærket
+fi: Joutsenmerkki, pohjoismainen ympäristömerkki, ympäristömerkki, ympäristömerkki miljömärkt
+is: Svansmerkið, Svanurinn, Umhverfismerkið Svanurinn
+nb: Svanemerket, miljømerket
+sv: Svanenmärkt, Svanen, Svanenmärkt miljömärkt
+image:en: nordic-swan-ecolabel.90x90.svg
+image:da: svanemaerket.90x90.svg
+image:sv: svanenmarkt.90x90.svg
+web:en: https://www.nordic-swan-ecolabel.org/
+web:da: https://www.svanemaerket.dk/
+web:fi: https://joutsenmerkki.fi/
+web:is: https://svanurinn.is/
+web:nb: https://svanemerket.no/
+web:sv: https://www.svanen.se/
+wikidata:en: Q3054668
 
 # already in food labels.txt
 # fr: Ecocert Equitable, Equitable Ecocert
@@ -1886,6 +1907,12 @@ nl: Hypoallergeen
 pt: Hipoalergênico
 zh-CN: 低过敏性
 zh-TW: 低過敏性
+
+< en: Hypoallergenic
+xx: Asthma Allergy Nordic
+en: Asthma Allergy Nordic
+image:en: asthma-allergy-nordic.90x90.png
+web:en: https://www.asthmaallergynordic.com/
 
 # already in food labels.txt
 # en: Green point
@@ -2197,6 +2224,7 @@ zh-CN: 不含皂
 zh-TW: 不含皂
 
 en: Without perfume, no perfume, perfume free
+da: Uden parfume
 de: Ohne Parfüm
 es: Sin perfume
 fr: Sans parfum
@@ -2205,6 +2233,7 @@ ja: 無香料
 ko: 향료 없음
 nl: Zonder parfum
 pt: Sem perfume
+sv: Utan parfym
 zh-CN: 无香精
 zh-TW: 無香精
 
