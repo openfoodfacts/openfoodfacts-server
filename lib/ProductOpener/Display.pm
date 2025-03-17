@@ -1579,7 +1579,7 @@ sub get_cache_results ($key, $request_ref) {
 	# or if we are on the producers platform
 	# or if we are sent the HTTP header Cache-Control: no-cache
 	my $param_no_cache = single_param("no_cache");
-	if ((not $param_no_cache) and (not $server_options{producers_platform})) {
+	if (not $param_no_cache) {
 		my $cache_control = get_http_request_header("Cache-Control");
 		if ((defined $cache_control) and ($cache_control =~ /no-cache/)) {
 			$log->debug("get_cache_results - HTTP Cache-Control no-cache header, skip caching", {key => $key})
@@ -1587,7 +1587,7 @@ sub get_cache_results ($key, $request_ref) {
 			$param_no_cache = 1;
 		}
 	}
-	if ($param_no_cache) {
+	if (($param_no_cache) and (not $server_options{producers_platform})) {
 		$log->debug("MongoDB no_cache parameter, skip caching", {key => $key}) if $log->is_debug();
 		$mongodb_log->info("get_cache_results - skip - key: $key") if $mongodb_log->is_info();
 
@@ -1642,8 +1642,8 @@ sub set_cache_results ($key, $results) {
 sub can_use_off_query() {
 	return (
 		(
-				   (not defined single_param("no_cache"))
-				or (not single_param("no_cache"))
+				   (not defined single_param("no_off_query"))
+				or (not single_param("no_off_query"))
 				or (single_param("off_query"))
 		)
 			and (not $server_options{producers_platform})
@@ -7887,8 +7887,8 @@ sub display_product ($request_ref) {
 
 	$request_ref->{scripts} .= <<SCRIPTS
 <script src="$static_subdomain/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
-<script src="$static_subdomain/js/dist/display-product.js"></script>
 <script src="$static_subdomain/js/dist/product-history.js"></script>
+<script type="module" src="$static_subdomain/js/dist/off-webcomponents.bundled.js"></script>
 SCRIPTS
 		;
 
