@@ -23,7 +23,7 @@ jobs:
     name: "Filter changed paths"
     runs-on: ubuntu-latest
     outputs:
-      code_modified: ${{ steps.filter.outputs.code }}
+      code_modified: ${{ steps.filter.outputs.code_modified }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
