@@ -135,21 +135,33 @@ fi: Tuntematon
 fr: Inconnu, inconnue, inconnus, inconnues
 he: לא ידוע
 hi: अज्ञात
+hr: Nepoznato
 hu: Ismeretlen
 id: Tidak diketahui
+is: Óþekkt
 it: Sconosciuta, Sconosciuto
 ja: 不明
 ko: 알 수 없음
+lt: Nežinomas
+lv: Nezināms
+mk: Непознат
+ms: Tidak diketahui
 nl: Onbekend
+no: Ukjent
 pl: Nieznany, Nieznane
 pt: Desconhecido
 ro: Necunoscut
 ru: Неизвестно
+sk: Neznámy
+sl: Neznano
 sq: Panjohur
 sr: Непознато
 sv: Okänd
+th: ไม่รู้จัก
 tr: Bilinmiyor
 uk: Невідомо
+ur: نامعلوم
+vi: Không xác định
 zh: 未知
 
 en: Unspecified, not specified, non specified, nonspecified, not available, n/a
@@ -184,23 +196,50 @@ zh: 未指定，不可用，未指定
 # World regions
 
 en: Africa
+af: Afrika
 ar: أفريقيا
 az: Afrika
+be: Афрыка
 bg: Африка
 bn: আফ্রিকা
 ca: Àfrica
+cs: Afrika
 da: Afrika
 de: Afrika
+el: Αφρική
 es: África
+et: Aafrika
+fa: آفریقا
+fi: Afrikka
 fr: Afrique
+he: אפריקה
+hi: अफ्रीका
+hr: Afrika
 hu: Afrika
+id: Afrika
 it: Africa
 ja: アフリカ
+ko: 아프리카
+lt: Afrika
+lv: Āfrika
+mk: Африка
 nl: Afrika
+no: Afrika
 pl: Afryka
 pt: África
+ro: Africa
 ru: Африка
+sk: Afrika
+sl: Afrika
+sq: Afrikë
+sr: Африка
+sv: Afrika
+sw: Afrika
+th: แอฟริกา
 tr: Afrika
+uk: Африка
+ur: افریقہ
+vi: Châu Phi
 zh: 非洲
 
 < en:Africa
@@ -227,21 +266,47 @@ zh: 西非
 en: Latin America
 ar: أمريكا اللاتينية
 az: Latın Amerika
+be: Лацінская Амерыка
 bg: Латинска Америка
 bn: ল্যাটিন আমেরিকা
 ca: Amèrica Llatina
+cs: Latinská Amerika
 da: Latinamerika
 de: Lateinamerika
+el: Λατινική Αμερική
 es: América Latina
+et: Ladina-Ameerika
+fa: آمریکای لاتین
+fi: Latinalainen Amerikka
 fr: Amérique Latine
+he: אמריקה הלטינית
+hi: लैटिन अमेरिका
+hr: Latinska Amerika
 hu: Latin-Amerika
+id: Amerika Latin
 it: America Latina
 ja: ラテンアメリカ
+ko: 라틴 아메리카
+lt: Lotynų Amerika
+lv: Latīņamerika
+mk: Латинска Америка
+ms: Amerika Latin
 nl: Latijns-Amerika
+no: Latin-Amerika
 pl: Ameryka Łacińska
 pt: América Latina
+ro: America Latină
 ru: Латинская Америка
+sk: Latinská Amerika
+sl: Latinska Amerika
+sq: Amerika Latine
+sr: Латинска Америка
+sv: Latinamerika
+th: ละตินอเมริกา
 tr: Latin Amerika
+uk: Латинська Америка
+ur: لاطینی امریکہ
+vi: Mỹ Latinh
 zh: 拉丁美洲
 
 en: Central America
@@ -265,23 +330,44 @@ tr: Orta Amerika
 zh: 中美洲
 
 en: North-America
+af: Noord-Amerika
 ar: أمريكا الشمالية
 az: Şimali Amerika
+be: Паўночная Амерыка
 bg: Северна Америка
 bn: উত্তর আমেরিকা
 ca: Amèrica del Nord
+cs: Severní Amerika
 da: Nordamerika
 de: Nordamerika
+el: Βόρεια Αμερική
 es: América del Norte
+et: Põhja-Ameerika
+fa: آمریکای شمالی
+fi: Pohjois-Amerikka
 fr: Amérique du Nord
+he: צפון אמריקה
+hi: उत्तरी अमेरिका
+hr: Sjeverna Amerika
 hu: Észak-Amerika
+id: Amerika Utara
 it: America del Nord
 ja: 北アメリカ
+ko: 북아메리카
+lt: Šiaurės Amerika
+lv: Ziemeļamerika
 nl: Noord-Amerika
 pl: Ameryka Północna
 pt: América do Norte
+ro: America de Nord
 ru: Северная Америка
+sk: Severná Amerika
+sl: Severna Amerika
+sq: Amerika e Veriut
+sr: Северна Америка
+sv: Nordamerika
 tr: Kuzey Amerika
+uk: Північна Америка
 zh: 北美洲
 
 en: South-America
@@ -305,18 +391,49 @@ tr: Güney Amerika
 zh: 南美洲
 
 en: Asia
+af: Asië
+ar: آسيا
+az: Asiya
+be: Азія
 bg: Азия
+bn: এশিয়া
 ca: Àsia
+cs: Asie
 da: Asien
 de: Asien
+el: Ασία
 es: Asia
+et: Aasia
+fa: آسیا
+fi: Aasia
 fr: Asie
+he: אסיה
+hi: एशिया
+hr: Azija
 hu: Ázsia
+id: Asia
 it: Asia
+ja: アジア
+ko: 아시아
+lt: Azija
+lv: Āzija
 nl: Azië
 pl: Azja
 pt: Ásia
+ro: Asia
+ru: Азия
+sk: Ázia
+sl: Azija
+sq: Azi
+sr: Азија
+sv: Asien
+sw: Asia
+th: เอเชีย
 tr: Asya
+uk: Азія
+ur: ایشیا
+vi: Châu Á
+zh: 亚洲
 
 < en:Japan
 en: Chiba Prefecture
@@ -3892,60 +4009,177 @@ wikidata:en: Q1318603
 en: outside japan
 ja: 外国, 輸入
 
+en: Outside France
+fr: Hors France
+
 en: Europe
 xx: Europa
+af: Europa
+ar: أوروبا
+az: Avropa
+be: Еўропа
 bg: Европа
+bn: ইউরোপ
+ca: Europa
+cs: Evropa
+da: Europa
+de: Europa
+el: Ευρώπη
+eo: Eŭropo
+es: Europa
+et: Euroopa
+fa: اروپا
+fi: Eurooppa
 fr: Europe
+he: אירופה
+hi: यूरोप
+hr: Europa
 hu: Európa
+id: Eropa
 it: Europa
+ja: ヨーロッパ
+ko: 유럽
+lt: Europa
+lv: Eiropa
+mk: Европа
+ms: Eropah
 nl: Europa
+no: Europa
+pl: Europa
+pt: Europa
+ro: Europa
 ru: Европа
+sk: Európa
+sl: Evropa
+sq: Evropa
+sr: Европа
+sv: Europa
+sw: Ulaya
+th: ยุโรป
+tr: Avrupa
 uk: Європа
+ur: یورپ
+vi: Châu Âu
+zh: 欧洲
 
 en: European Union, EU
+af: Europese Unie, EU
+ar: الاتحاد الأوروبي, الاتحاد الأوربي, EU
+az: Avropa İttifaqı, Aİ
+be: Еўрапейскі саюз, ЕС
 bg: Европейски съюз, ЕС
+bn: ইউরোপীয় ইউনিয়ন, ইইউ
 ca: Unió Europea, UE
+cs: Evropská unie, EU
 da: Den Europæiske Union, EU
 de: Europäische Union, EU
 ee: Euroopa Liit, EL
+el: Ευρωπαϊκή Ένωση, ΕΕ
+eo: Eŭropa Unio, EU
 es: Unión Europea, UE
+et: Euroopa Liit, EL
+eu: Europar Batasuna, EB
+fa: اتحادیه اروپا, EU
 fi: Euroopan unioni, EU
 fr: Union Européenne, UE
-hr: u EU
+he: האיחוד האירופי, EU
+hi: यूरोपीय संघ, ईयू
+hr: Europska Unija, EU, u EU
 hu: Európai Unió, EU
+id: Uni Eropa, UE
 it: Unione Europea, EU
+ja: 欧州連合, EU
+ko: 유럽 연합, EU
+lt: Europos Sąjunga, ES
+lv: Eiropas Savienība, ES
+mk: Европска Унија, ЕУ
+ms: Kesatuan Eropah, EU
 nl: Europese Unie, EU
 pl: Unia Europejska, UE, EU
 pt: União Europeia, UE
 ro: Uniunea Europeană, UE
 ru: Европейский союз, ЕС
+sk: Európska únia, EÚ
+sl: Evropska unija, EU
+sq: Bashkimi Evropian, BE
+sr: Европска Унија, ЕУ
 sv: Europeiska unionen, EU
+th: สหภาพยุโรป, EU
+tr: Avrupa Birliği, AB
 uk: Європейський союз, ЄС
+ur: یورپی یونین, EU
+vi: Liên minh Châu Âu, EU
+zh: 欧盟, EU
 
 en: Non European Union, Non EU
 xx: Non European Union, Non EU
+af: Nie-Europese Unie, Nie-EU
+ar: خارج الاتحاد الأوروبي, غير عضو في الاتحاد الأوروبي
+az: Avropa Birliyinə daxil olmayan, AB-dən kənar
+be: Не член Еўрапейскага Саюза, па-за межамі ЕС
 bg: Извън Европейския съюз, Извън ЕС
+bn: ইউরোপীয় ইউনিয়নের বাইরে, ইইউ নয়
 ca: No Unió Europea, No UE
+cs: Ne Evropská unie, mimo EU
 da: Ikke-EU
 de: Nicht-Europäische Union, Nicht-EU
 ee: mitte EL
+el: Εκτός Ευρωπαϊκής Ένωσης, εκτός ΕΕ
+es: No Unión Europea, No UE
+et: Mitte Euroopa Liidu, mitte EL
 fi: ei-EU
-fr: Non Union Européenne, Non UE
+fr: Non Union Européenne, Non UE, Hors Union Européenne
+he: לא חבר באיחוד האירופי, לא באיחוד האירופי
+hi: गैर यूरोपीय संघ, गैर ईयू
 hr: izvan EU
 hu: Nem Európai Unió, Nem-EU, EU-n kívüli, Európai Unión kívüli
+id: Bukan Uni Eropa, Non-UE
 it: Non UE
+ja: 非ヨーロッパ連合, 非EU
+ko: 비 유럽 연합, 비 EU
 nl: Buiten Europese Unie, Non EU, Niet EU Landbouw
 pl: spoza Unii Europejskiej, spoza UE
 pt: Fora da União Europeia
+ru: Не входит в Европейский Союз, не является членом ЕС
+sq: Jo Bashkimi Evropian, Jo BE
+sr: Изван Европске Уније, није чланица ЕУ
+sv: Icke-Europeiska Unionen, Icke-EU
+tr: Avrupa Birliği üyesi olmayan, AB üyesi olmayan
+uk: Не є членом Європейського Союзу, не є членом ЄС
+zh: 非欧盟国家，非欧盟
 
 en: European Union and Non European Union, EU and non EU, EU non EU
+af: Europese Unie en Nie-Europese Unie, EU en nie-EU
+ar: الاتحاد الأوروبي وخارج الاتحاد الأوروبي ، الاتحاد الأوروبي وغير الاتحاد الأوروبي
+az: Avropa Birliyi və Avropa Birliyinə daxil olmayan, AB və AB xaricində
 bg: Европейски съюз и Извън Европейския съюз, ЕС и извън ЕС
 ca: Unió Europea i no Unió Europea, UE i no UE
+cs: Evropská unie a země mimo Evropskou unii, EU a mimo EU
+da: EU og ikke-EU, EU og ikke EU
+de: Europäische Union und Nicht-Europäische Union, EU und Nicht-EU
+el: Ευρωπαϊκή Ένωση και μη Ευρωπαϊκή Ένωση, ΕΕ και μη ΕΕ
+es: Unión Europea y no Unión Europea, UE y no UE
+et: Euroopa Liit ja mitte Euroopa Liit, EL ja mitte EL
+fi: Euroopan unioni ja muu kuin Euroopan unioni, EU ja muu kuin EU
 fr: Union Européenne et Non Union Européenne, UE et non UE, UE non UE
+he: האיחוד האירופי ולא האיחוד האירופי, האיחוד האירופי ולא האיחוד האירופי
 hr: u/izvan EU
 hu: EU és Nem-EU, Európai Unió és nem Európai Unió
+id: Uni Eropa dan Non Uni Eropa, UE dan non UE
 it: UE e non UE, UE non UE
+ja: 欧州連合と非欧州連合、EUと非EU
+ko: 유럽 연합 및 비 유럽 연합, EU 및 비 EU
+nl: Europese Unie en niet-Europese Unie, EU en niet-EU
 pl: Unia Europejska i spoza Unii Europejskiej
+pt: União Europeia e não União Europeia, UE e não UE
+ro: Uniunea Europeană și non-Uniunea Europeană, UE și non-UE
+ru: Европейский союз и не входящие в Европейский союз страны, ЕС и не-ЕС
+sk: Európska únia a krajiny mimo Európskej únie, EÚ a mimo EÚ
+sq: Bashkimi Evropian dhe jo Bashkimi Evropian, BE dhe jo BE
+sv: Europeiska unionen och icke-europeiska unionen, EU och icke-EU
+tr: Avrupa Birliği ve Avrupa Birliği üyesi olmayan ülkeler, AB ve AB üyesi olmayan ülkeler
+uk: Європейський Союз та країни, що не входять до Європейського Союзу, ЄС та не-ЄС
+zh: 欧盟和非欧盟国家，欧盟和非欧盟
 
 # ************************************************************
 
@@ -5645,6 +5879,17 @@ es: Castilla y León
 
 
 
+# Sweden origins
+
+< en:sweden
+xx: Tibro
+en: Tibro
+sv: Tibro
+wikidata:en: Q1017565
+wikipedia:sv: https://sv.wikipedia.org/wiki/Tibro
+
+
+
 # UK origins
 
 < en:united-kingdom
@@ -6369,41 +6614,138 @@ xx: FAO 8, FAO 08
 
 en: Arctic sea
 xx: FAO 18
+ar: بحر القطب الشمالي
+az: Arktik dənizi
+bg: Арктически океан
+ca: Mar Àrtic
+cs: Severní ledový oceán, Arktický oceán
+da: Arktiske Ocean
+de: Arktisches Meer, Arktischer Ozean
+el: Αρκτικός Ωκεανός
+eo: Arkta maro
+es: Océano Ártico, Mar Ártico
+et: Arktika meri
+fa: دریای قطب شمال
+fi: Jäämeri, Pohjoinen jäämeri
+fr: Océan Arctique, Mer Arctique
+he: האוקיינוס הארקטי
+hi: आर्कटिक सागर
+hr: Arktičko more, Arktički ocean
+hu: Jeges-tenger, Északi-sarkvidéki tenger
+id: Laut Arktik
+it: Mar Glaciale Artico, Oceano Artico
+ja: 北極海
+ko: 북극해
+lt: Arkties vandenynas
+lv: Ziemeļu Ledus okeāns
+nl: Noordelijke IJszee, Arctische Zee
+pl: Ocean Arktyczny, Morze Arktyczne
+pt: Oceano Ártico, Mar Ártico
+ro: Oceanul Arctic
+ru: Северный Ледовитый океан
+sk: Severný ľadový oceán
+sl: Arktično morje, Severno ledeno morje
+sq: Oqeani Arktik
+sr: Северно ледено море, Арктички океан
+sv: Arktiska oceanen, Norra ishavet
+th: มหาสมุทรอาร์กติก
+tr: Arktik Denizi, Kuzey Buz Denizi
+uk: Північний Льодовитий океан
+ur: بحر منجمد شمالی
+vi: Bắc Băng Dương
+zh: 北冰洋
 wikidata:en: Q788
 
 en: Atlantic Ocean, Atlantic
+af: Atlantiese Oseaan
+ar: المحيط الأطلسي
+az: Atlantik okeanı
 bg: Атлантически океан
+ca: Oceà Atlàntic
 cs: Atlantský oceán, Atlantik
+da: Atlantiske Ocean
 de: Atlantischer Ozean, Atlantik
+el: Ατλαντικός Ωκεανός
+eo: Atlantika Oceano
 es: Océano Atlántico, Atlántico
+et: Atlandi ookean
+fa: اقیانوس اطلس
 fi: Atlantin valtameri, Atlantti
 fr: Océan Atlantique, Atlantique
+he: האוקיינוס האטלנטי
+hi: अटलांटिक महासागर
 hr: Atlantski ocean, Atlantik
 hu: Atlanti-óceán
+id: Samudra Atlantik
 it: Oceano Atlantico, Atlantico
+ja: 大西洋
+ko: 대서양
 lt: Atlanto vandenynas, Atlantas
 lv: Atlantijas okeāns, Atlantiskais okeāns
+mk: Атлантски Океан
+ms: Lautan Atlantik
 nl: Atlantische Oceaan
+no: Atlanterhavet
 pl: Ocean Atlantycki, Atlantyk
 pt: Oceano Atlântico, Atlântico
 ro: Oceanul Atlantic, Atlantic
+ru: Атлантический океан
 sk: Atlantický oceán, Atlantik
 sl: Atlantski ocean, Atlantik
+sq: Oqeani Atlantik
+sr: Атлантски океан
 sv: Atlanten, Atlantiska oceanen
+th: มหาสมุทรแอตแลนติก
+tr: Atlantik Okyanusu
+uk: Атлантичний океан
+ur: بحر اوقیانوس
+vi: Đại Tây Dương
+zh: 大西洋
 wikidata:en: Q97
 
 < en:Atlantic Ocean
 en: North Atlantic Ocean
+af: Noord-Atlantiese Oseaan
+ar: شمال المحيط الأطلسي
+az: Şimali Atlantik Okeanı
 bg: Северен Атлантически океан
+ca: Oceà Atlàntic Nord
 cs: Severní Atlantský oceán
 da: Nordatlanten
 de: Nordatlantik
 el: Βόρειος Ατλαντικός Ωκεανός
 es: Océano Atlántico Norte
 et: Põhja-Atlandi ookean
+fa: اقیانوس اطلس شمالی
+fi: Pohjoinen Atlantin valtameri
 fr: Océan Atlantique Nord
+he: צפון האוקיינוס האטלנטי
+hi: उत्तरी अटलांटिक महासागर
 hr: Sjeverni Atlantski ocean
+hu: Észak-Atlanti-óceán
+id: Samudra Atlantik Utara
+it: Oceano Atlantico settentrionale
+ja: 北大西洋
+ko: 북대서양
+lt: Šiaurės Atlanto vandenynas
+lv: Ziemeļu Atlantijas okeāns
 nl: Noord-Atlantische Oceaan
+no: Nord-Atlanteren
+pl: Ocean Atlantycki Północny
+pt: Oceano Atlântico Norte
+ro: Oceanul Atlantic de Nord
+ru: Северный Атлантический океан
+sk: Severný Atlantický oceán
+sl: Severnoatlantski ocean
+sq: Oqeani Atlantik Verior
+sr: Северни Атлантски океан
+sv: Nordatlanten
+th: มหาสมุทรแอตแลนติกเหนือ
+tr: Kuzey Atlantik Okyanusu
+uk: Північна Атлантика
+ur: شمالی بحر اوقیانوس
+vi: Bắc Đại Tây Dương
+zh: 北大西洋
 wikidata:en: Q350134
 
 < en:Atlantic Ocean
@@ -6434,7 +6776,37 @@ wikidata:en: Q1482804
 < en:Atlantic Ocean
 en: Northwest Atlantic Ocean
 xx: FAO 21
+ar: شمال غرب المحيط الأطلسي
+az: Şimal-Qərb Atlantik Okeanı
+bg: Северозападен Атлантически океан
+ca: Oceà Atlàntic del Nord-oest
+cs: Severozápadní Atlantický oceán
+da: Nordvestlige Atlanterhav
+de: Nordwestatlantik
+el: Βορειοδυτικός Ατλαντικός Ωκεανός
+es: Océano Atlántico Noroeste
+et: Loode-Atlandi ookean
+fi: Luoteis-Atlantin valtameri
 fr: Océan Atlantique Nord-Ouest, Atlantique Nord-Ouest
+hi: उत्तर पश्चिमी अटलांटिक महासागर
+hr: Sjeverozapadni Atlantski ocean
+hu: Északnyugati Atlanti-óceán
+it: Oceano Atlantico nord-occidentale
+ja: 北西大西洋
+ko: 북서 대서양
+lt: Šiaurės Vakarų Atlanto vandenynas
+nl: Noordwestelijke Atlantische Oceaan
+pl: Północno-Zachodni Ocean Atlantycki
+pt: Noroeste do Oceano Atlântico
+ro: Oceanul Atlantic de Nord-Vest
+ru: Северо-Западная Атлантика
+sk: Severozápadný Atlantický oceán
+sl: Severozahodni Atlantski ocean
+sq: Oqeani Atlantik Veri-Perëndimor
+sv: Nordvästra Atlanten
+tr: Kuzeybatı Atlantik Okyanusu
+uk: Північно-Західна Атлантика
+zh: 西北 大西洋
 
 < en:Atlantic Ocean
 en: North-East Atlantic Ocean, North-East Atlantic, Northeast Atlantic
@@ -6447,7 +6819,7 @@ el: Βορειο-ανατολικος Ατλαντικος
 es: Atlántico Nororiental
 et: Atlandi Ookeani Kirdeosa
 fi: Koillis-atlanti
-fr: Océan Atlantique Nord-Est, Atlantique Nord-Est, FAO 27, FAO N°27, zone FAO 27, Atlantique Du Nord-est
+fr: Océan Atlantique Nord-Est, Atlantique Nord-Est, FAO 27, FAO N°27, zone FAO 27, Atlantique Du Nord-est, Atlantique Nord Est, Océan Atlantique Nord Est
 hr: Sjeveroistočni Atlantik
 hu: Atlanti-óceán Északkeleti Része
 it: Atlantico Nord-orientale
@@ -6831,13 +7203,51 @@ en: Antartic Atlantic Ocean
 xx: FAO 48
 
 en: Indian Ocean
+af: Indiese Oseaan
+ar: المحيط الهندي
+az: Hind okeanı
 bg: Индийски океан
+ca: Oceà Índic
+cs: Indický oceán
+da: Indiske Ocean
 de: Indischer Ozean
-es: Océano Indio, Océano Índico
+el: Ινδικός Ωκεανός
+eo: Hinda Oceano
+es: Océano Índico, Océano Indio
+et: India ookean
+fa: اقیانوس هند
+fi: Intian valtameri
 fr: Océan Indien
+he: האוקיינוס ההודי
+hi: हिंद महासागर
+hr: Indijski ocean
 hu: Indiai-óceán
+id: Samudra Hindia
+it: Oceano Indiano
+ja: インド洋
+ko: 인도양
+lt: Indijos vandenynas
+lv: Indijas okeāns
+mk: Индиски Океан
+ms: Lautan Hindi
 nl: Indische Oceaan
+no: Indiahavet
 pl: Ocean Indyjski
+pt: Oceano Índico
+ro: Oceanul Indian
+ru: Индийский океан
+sk: Indický oceán
+sl: Indijski ocean
+sq: Oqeani Indian
+sr: Индијски океан
+sv: Indiska oceanen
+sw: Bahari Hindi
+th: มหาสมุทรอินเดีย
+tr: Hint Okyanusu
+uk: Індійський океан
+ur: بحرِ ہند
+vi: Ấn Độ Dương
+zh: 印度洋
 wikidata:en: Q1239
 
 < en:Indian Ocean
@@ -6895,38 +7305,87 @@ tr: Antarktika ve Güney Hint Okyanusu
 uk: Антарктика і Південний Індійський океан
 
 en: Pacific Ocean
+af: Stille Oseaan
+ar: المحيط الهادئ
+az: Sakit okean
 bg: Тихи океан
 ca: Oceà Pacífic
+cs: Tichý oceán
+da: Stillehavet
 de: Pazifischer Ozean, Pazifische Ozean
+el: Ειρηνικός Ωκεανός
 es: Océano Pacífico
+et: Vaikne ookean
+fa: اقیانوس آرام
+fi: Tyynimeri
 fr: Océan Pacifique, Pacifique
+he: האוקיינוס השקט
+hi: प्रशांत महासागर
+hr: Tihi ocean
 hu: Csendes-óceán
+id: Samudra Pasifik
 it: Oceano Pacifico
+ja: 太平洋
+ko: 태평양
+lt: Ramusis vandenynas
+lv: Klusais okeāns
 nl: Grote Oceaan, Pacifische Oceaan, Stille Oceaan
 pl: Ocean Spokojny
 pt: Oceano Pacífico
 ro: Oceanul Pacific
 ru: Тихий океан
+sk: Tichý oceán
+sl: Tihi ocean
+sq: Oqeani Paqësor
+sr: Тихи океан
+sv: Stilla havet
+th: มหาสมุทรแปซิฟิก
 tr: Pasifik Okyanusu
 uk: Тихий океан
+ur: بحر الکاہل
+vi: Thái Bình Dương
+zh: 太平洋
 wikidata:en: Q98
 
 < en:Pacific Ocean
 en: North Pacific Ocean
 bg: Северен Тихи океан
 ca: Oceà Pacífic Nord
+cs: Severní Tichý oceán
+da: Det nordlige Stillehav
 de: Nordpazifik
+el: Βόρειος Ειρηνικός Ωκεανός
 es: Océano Pacífico Norte
+et: Põhja-Vaikne ookean
+fa: اقیانوس آرام شمالی
+fi: Pohjoinen Tyynimeri
 fr: Océan Pacifique Nord, Nord de l'Océan Pacifique
+he: צפון האוקיינוס השקט
+hi: उत्तरी प्रशांत महासागर
+hr: Sjeverni Tihi ocean
 hu: Északi Csendes-óceán
+id: Samudra Pasifik Utara
 it: Oceano Pacifico Settentrionale
+ja: 北太平洋
+ko: 북태평양
+lt: Šiaurės Ramusis vandenynas
+lv: Ziemeļu Klusais okeāns
 nl: Noordelijke Grote Oceaan
+no: Nordlige Stillehavet
 pl: Północny Ocean Spokojny, Północny Pacyfik
 pt: Oceano Pacífico Norte
 ro: Oceanul Pacific de Nord
 ru: Северный Тихий океан
+sk: Severný Tichý oceán
+sl: Severni Tihi ocean
+sq: Oqeani Paqësor Verior
+sr: Северни Тихи океан
+sv: Norra Stilla havet
+th: มหาสมุทรแปซิฟิกเหนือ
 tr: Kuzey Pasifik Okyanusu
 uk: Північний Тихий океан
+ur: شمالی بحرالکاہل
+vi: Bắc Thái Bình Dương
 wikidata:en: Q12353254
 
 < en:Pacific Ocean

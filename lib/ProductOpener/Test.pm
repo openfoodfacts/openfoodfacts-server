@@ -532,6 +532,8 @@ Compare an array containing product data (e.g. the result of a CSV export) to ex
 The expected results are stored as individual JSON files for each of the product,
 in files named [barcode].json, with a flat key/value pairs structure corresponding to the CSV columns.
 
+We normalize some fields like creation dates that change for each test run.
+
 This is so that we can easily see diffs with git diffs:
 - we know how many products are affected
 - we see individual diffs with the field name
@@ -559,6 +561,8 @@ sub compare_array_to_expected_results ($array_ref, $expected_results_dir, $updat
 	my %codes = ();
 
 	foreach my $product_ref (@$array_ref) {
+
+		normalize_product_for_test_comparison($product_ref);
 
 		my $code = $product_ref->{code};
 		$codes{$code} = 1;
@@ -741,6 +745,7 @@ sub normalize_product_for_test_comparison ($product_ref) {
 				last_modified_t last_updated_t created_t owner_fields
 				entry_dates_tags last_edit_dates_tags
 				last_image_t last_image_dates_tags images.*.uploaded_t sources.*.import_t
+				created_datetime last_modified_datetime last_updated_datetime
 			)
 		],
 		fields_sort => ["_keywords"],

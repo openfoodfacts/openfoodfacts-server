@@ -71,8 +71,8 @@ stopwords:de: und, mit, von
 # For categories for which a minimum amount of specific ingredients is required in some countries
 # we put expected_minimal_amount_specific_ingredients:en followed by the specific ingredient,
 #   the quantity in g and the country where it applies.
-# additional countries can be added separated by a semi colon (";"). Example for en:fruit, 35g, in EU and en:fruit, 35g in en:other-country:
-# expected_minimal_amount_specific_ingredients:en: en:fruit, 35, en:eu;  en:fruit, 35, en:other-country
+# additional countries can be added separated by a semi colon (";"). Example for en:fruit, 45g, in EU and en:fruit, 45g in en:other-country:
+# expected_minimal_amount_specific_ingredients:en: en:fruit, 45, en:eu;  en:fruit, 45, en:other-country
 
 # if two labels are not compatible, they can be assigned the property 'incompatible_with:en:'
 # for example
@@ -85,6 +85,7 @@ stopwords:de: und, mit, von
 en: Incorrect product type
 bg: Неправилен product type
 ca: Tipus de producte incorrecte
+da: Forkert produkttype
 de: Falscher product type
 es: Tipo de producto incorrecto
 fi: Väärä product type
@@ -129,11 +130,13 @@ wikidata:en: Q1521410
 < en:Open Products Facts
 en: books
 bg: книги
+da: bøger, bog
 de: Bücher
 fr: livres
 hr: knjige, knjiga
 ja: 本
 nl: Boeken
+sv: böcker, bok
 wikidata:en: Q571
 
 < en:Open Products Facts
@@ -1164,6 +1167,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Royal_jelly
 
 < en:Bee products
 en: Pollens
+da: Pollen
 de: Pollen
 es: Polen
 fr: Pollens
@@ -1181,6 +1185,7 @@ wikidata:en: Q79932
 
 < en:Pollens
 en: Partially dried pollen
+da: Delvist tørret pollen
 de: Teilweise getrockneter Pollen
 es: Polen parcialmente seco
 fr: Pollen partiellement séché
@@ -1193,6 +1198,7 @@ ciqual_food_name:fr: Pollen, partiellement séché
 
 < en:Pollens
 en: Fresh pollen
+da: Frisk pollen
 de: Frischer Pollen
 es: Polen fresco
 fr: Pollen frais
@@ -1273,7 +1279,9 @@ ca: Begudes
 cs: Nápoje
 da: Drikkevarer
 de: Getränke
+el: Ποτά
 es: Bebidas
+et: Joogid
 fi: Juomat
 fr: Boissons
 he: משקאות
@@ -1281,7 +1289,9 @@ hr: Pića
 hu: Italok
 it: Bevande
 ja: 飲料
+ko: 음료
 lt: Gėrimai
+lv: Dzērieni
 nl: Dranken, Drank
 nl_be: Dranken
 no: Drikkevarer
@@ -1291,9 +1301,12 @@ ro: Băuturi, Bauturi
 rs: Pića
 ru: Напитки
 se: Drycker, dryck
+sk: Nápoje
+sl: Pijače
 sv: Drycker, Dricka, Drickor, Dryck
 th: เครื่องดื่ม
 tr: İçecekler
+uk: Напої
 zh: 饮料, 飲品
 intake24_category_code:en: DRNK
 wikidata:en: Q40050
@@ -1411,22 +1424,45 @@ wikipedia:en: https://en.wikipedia.org/wiki/Kimchi
 < en:Beverages
 < en:Fermented foods
 en: Fermented drinks
+ar: مشروبات مخمرة
+az: ферментləşdirilmiş içkilər
 bg: Ферментирали напитки
+bn: গাঁজনযুক্ত পানীয়
 ca: Begudes fermentades
+cs: Fermentované nápoje
+da: Fermenterede drikkevarer
 de: Fermentierte Getränke
+el: Ζυμωμένα ποτά
+eo: Fermentitaj trinkaĵoj
 es: Bebidas fermentadas
+et: Fermenteeritud joogid
+fa: نوشیدنی های تخمیر شده
 fi: Hapatetut juomat
 fr: Boissons fermentées
+ga: Deochanna coipthe
+he: משקאות מותססים
+hi: किण्वित पेय
 hr: Fermentirana pića
 hu: Fermentált italok, Erejesztett italok
+id: Minuman fermentasi
 it: Bevande fermentate
 ja: 発酵飲料
+ko: 발효 음료
 lt: Rauginti gėrimai
+mr: किण्वित पेय
+ms: Minuman yang ditapai
 nl: Gefermenteerde dranken
 pl: Napoje fermentowane
 pt: Bebidas fermentadas
 ro: Băuturi fermentate, Bauturi fermentate
 ru: Ферментированные напитки
+sr: Ферментисана пића
+sv: Fermenterade drycker
+th: เครื่องดื่มหมัก
+tr: Fermente içecekler
+uk: Ферментовані напої
+vi: Đồ uống lên men
+zh: 发酵饮料
 
 < en:Beverages
 en: Sweetened beverages, Sugared beverages, Beverages with added sugar
@@ -1695,18 +1731,15 @@ wikidata:en: Q16976
 wikipedia:en: https://en.wikipedia.org/wiki/Pastis
 
 < en:Alcoholic beverages
+xx: Sake
 en: Sake, Rice wines
 bg: Саке
-de: Sake
-fi: Sake
 fr: Saké, Alcools de riz
-hr: Sake
-hu: Szaké, Sake
+hu: Szaké
 it: Sake, Sakè
 ja: 日本酒, にほんしゅ
 nl: Saké
 pl: Sake, Wina ryżowe
-ro: Sake
 agribalyse_food_code:en: 1026
 ciqual_food_code:en: 1026
 ciqual_food_name:en: Sake or rice wine
@@ -2189,6 +2222,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Smoked_beer
 
 < en:Beers
 en: Christmas beers
+da: juleøl
 de: Weihnachtsbiere
 es: Cervezas de Navidad
 fr: Bières de Noël
@@ -2330,6 +2364,7 @@ wikidata:en: Q260417
 < en:Beers
 en: Wheat beers, Wheat beer, White beer, White beers
 xx: Witbier
+da: Hvedeøl
 de: Weißbier, Weizenbier
 dk: Hvedeöl
 es: Cerveza blanca
@@ -2494,6 +2529,7 @@ description:en: Festbier is a German lager that is lighter in color and is consi
 < en:Lagers
 en: Pilsners, Pilsner, Pilsner beers, Pils
 xx: Pilsners, Pilsner, Pils
+da: pilsnere
 nl: Pilseners
 wikidata:en: Q152281
 wikipedia:en: https://en.wikipedia.org/wiki/Pilsner
@@ -2579,6 +2615,7 @@ wikidata:en: Q1234364
 < en:Products without gluten
 en: Beers without gluten, gluten free beers
 bg: Бира без глутен
+da: glutenfrie øl
 de: Glutenfreies Bier
 es: Cervezas sin gluten
 fr: Bières sans gluten
@@ -2636,6 +2673,7 @@ lt: Šaliai būdingas alus
 
 < en:Country specific beers
 en: American beers, Beers from the USA
+da: amerikanske øl
 fr: Bières américaines, Bières des Etats-Unis, Bières des USA
 hr: Američka piva
 it: Birre americane, Birre dagli USA, Birre dagli Stati Uniti d'America
@@ -2647,6 +2685,7 @@ wikidata:en: Q15146313
 
 < en:Country specific beers
 en: Dutch beers, Beers from the Netherlands
+da: hollandske øl
 de: Niederländische Biere, Biere aus den Niederlanden
 es: Cervezas holandesas, Cervezas de los Países Bajos
 fr: Bières néerlandaises, Bières des Pays-Bas
@@ -2658,6 +2697,7 @@ wikidata:en: Q2247929
 
 < en:Country specific beers
 en: Finnish beers, Beers from Finland
+da: finske øl
 es: Cervezas finlandesas, Cervezas de Finlandia
 fr: Bières finnoises, bières finlandaises, Bières de Finlande
 hr: Finska piva
@@ -2676,6 +2716,7 @@ wikidata:en: Q3042275
 < en:Country specific beers
 en: French beers, Beers from France
 bg: Френска бира
+da: franske øl
 de: Französische Biere
 es: Cervezas francesas, Cervezas de Francia
 fi: ranskalaiset oluet
@@ -2714,6 +2755,7 @@ wikidata:en: Q2905049
 
 < en:Country specific beers
 en: Irish beers, Beers from Ireland
+da: irske øl
 de: Irische Biere
 fr: Bières irlandaises
 hr: Irska piva
@@ -2729,6 +2771,7 @@ wikidata:en: Q4880005
 
 < en:Country specific beers
 en: Italian beers, Beers from Italy
+da: italienske øl
 de: Italienische Biere
 fi: Italialaiset oluet, Oluet Italiasta
 fr: Bières italiennes
@@ -2744,6 +2787,7 @@ wikidata:en: Q3640378
 
 < en:Country specific beers
 en: Latvian beers, Beers from Latvia
+da: lettiske øl
 de: Lettische Biere, Bier aus Lettland
 es: Cervezas letonas, Cervezas de Letonia
 fi: latvialaiset oluet, oluet Latviasta
@@ -2759,6 +2803,7 @@ wikidata:en: Q15873100
 < en:Country specific beers
 en: Lithuanian beers, Beers from Lithuania
 bg: Литовски бири, Бири от Литва
+da: litauiske øl
 de: Litauische Biere
 es: Cervezas lituanas
 fi: liettualaiset oluet
@@ -2782,6 +2827,7 @@ protected_name_type:en: pgi
 < en:Country specific beers
 en: Belgian beers, Beers from Belgium
 bg: Белгийска бира
+da: belgiske øl
 de: Belgische Biere
 es: Cervezas belgas
 fi: belgialaiset oluet
@@ -2974,6 +3020,7 @@ protected_name_type:en: pgi
 < en:Country specific beers
 en: Danish beers, Beers from Denmark
 bg: Датска бира
+da: danske øl, øl fra Danmark
 hr: Danska piva
 lt: Daniškas alus, alus iš Danijos
 wikidata:en: Q3655862
@@ -2981,6 +3028,7 @@ wikidata:en: Q3655862
 < en:Country specific beers
 en: Estonian beers, Beers from Estonia
 bg: Естонска бира
+da: estiske øl
 fr: Bières estoniennes
 hr: Estonska piva
 lt: Estiškas alus, alus iš Estijos
@@ -2989,6 +3037,7 @@ wikidata:en: Q15392318
 < en:Country specific beers
 en: Beers from Germany, German beers
 bg: Германска бира
+da: tyske øl
 de: Deutsche Biere
 es: Cervezas de alemania
 fi: saksalaiset oluet
@@ -3089,6 +3138,7 @@ wikidata:en: Q880640
 < en:Country specific beers
 en: Norwegian beers
 bg: Норвежка бира
+da: norske øl
 hr: Norveška piva
 lt: Norvegiškas alus
 wikidata:en: Q3655589
@@ -3096,6 +3146,7 @@ wikidata:en: Q3655589
 < en:Country specific beers
 en: Beers from Poland, Polish beers
 bg: Полска бира
+da: polske øl
 de: Biere aus Polen
 fr: Bières polonaises
 hr: Piva iz Poljske
@@ -3109,6 +3160,7 @@ wikidata:en: Q4880014
 < en:Country specific beers
 en: Spanish beers
 bg: Испанска бира
+da: spanske øl
 de: Spanische Biere
 fr: Bières espagnoles
 hr: Španjolska piva
@@ -3120,6 +3172,7 @@ wikidata:en: Q4550225
 < en:Country specific beers
 en: Swedish beers
 bg: Шведска бира
+da: svenske øl
 de: Schwedische Biere
 es: Cervezas suecas
 fr: Bières suédoises
@@ -3131,6 +3184,7 @@ wikidata:en: Q3655894
 
 < en:Country specific beers
 en: Ukrainian beers, Beers from Ukraine
+da: ukrainske øl
 lt: Ukrainietiškas alus, alus iš Ukrainos
 wikidata:en: Q4880025
 
@@ -3166,6 +3220,7 @@ protected_name_type:en: pgi
 
 < en:Beers from United Kingdom
 en: Scottish beers
+da: skotske øl
 de: Schottische Biere
 es: Cervezas escocesas
 fr: Bières écossaises
@@ -3263,6 +3318,7 @@ labels:en: en:organic
 < en:Non-alcoholic beers
 en: Non-alcoholic radler beers, Non-alcoholic radler
 lt: Nealkoholinis radler alus, Nealkoholinis radleris
+nl: Radlers (alcoholvrij), Alcoholvrije radlers
 
 < en:Non-alcoholic beers
 en: Non-alcoholic wheat beers, Non-alcoholic wheat beer
@@ -5995,6 +6051,10 @@ protected_name_type:en: gi
 #wikidata:en:
 
 < en:Liqueurs
+en: Raspberry liqueurs
+fr: Crèmes de framboise
+
+< en:Liqueurs
 en: Blackcurrant liqueur
 fr: Crèmes de cassis
 agribalyse_food_code:en: 1021
@@ -6907,6 +6967,7 @@ zh: 植物性饮料
 < en:Plant-based beverages
 en: Coconut waters, coconut water
 bg: Кокосова вода
+da: kokosvand
 de: Kokoswasser
 es: Agua de coco
 fi: kookosvedet
@@ -6918,6 +6979,7 @@ lt: Kokosų vanduo
 nl: Kokoswater
 pl: Woda kokosowa
 pt: Águas de coco
+sv: kokosvatten
 agribalyse_food_code:en: 18011
 ciqual_food_code:en: 18011
 ciqual_food_name:en: Coconut water
@@ -7069,6 +7131,7 @@ ciqual_food_name:fr: Boisson au soja et jus de fruits concentrés
 < en:Plant-based beverages
 en: Smoothies
 bg: Смути
+da: Smoothies
 de: Smoothies
 es: Smoothies
 fi: smoothiet
@@ -8353,6 +8416,11 @@ ciqual_food_name:fr: Nectar de goyave
 wikidata:en: Q24054623
 
 < en:Fruit nectars
+en: Lychee nectars
+fr: Nectars de litchi
+nl: Lycheenectars
+
+< en:Fruit nectars
 en: Mango nectars
 bg: Нектар от манго
 de: Mangonektare
@@ -8810,6 +8878,7 @@ nl: Kruidentheeën, Kruidenthee
 pl: Herbaty ziołowe
 pt: Chás de ervas, infusões de ervas, infusões
 ru: Травяные чаи и настойки
+sv: Örtte
 agribalyse_proxy_food_code:en: 18020
 agribalyse_proxy_food_name:en: Tea, brewed, without sugar
 gpc_category_code:en: 10000119
@@ -8819,6 +8888,7 @@ wikidata:en: Q379932
 
 < en:Herbal teas
 en: Herbal teas in tea bags, Herbal teas in bags
+da: Urtete i poser
 de: Kräutertee aus Teebeuteln
 es: Plantas para infusiones en bolsitas, Infusiones en bolsitas, Tisanas en bolsitas
 fi: Yrttipussiteet
@@ -8830,6 +8900,7 @@ lt: Žolelių arbatos maišeliuose
 nl: Kruidenthee in zakjes, Kruidenthee in buidels
 pl: Herbatki ziołowe w torebkach, Herbaty ziołowe w torebkach
 ru: Чай в пакетиках
+sv: Örtte i pås
 # should not be in pnns_group_2:en:Teas and herbal teas and coffees
 pnns_group_2:en: unknown
 # should not be in food_groups:en: en:Teas and herbal teas and coffees
@@ -9650,6 +9721,7 @@ wikidata:en: Q863250
 < en:Teas
 en: Black teas, black tea
 bg: Черен чай
+da: sort te
 de: Schwarze Tees, Schwarztees
 es: Tés negros
 fi: mustat teet
@@ -9662,6 +9734,7 @@ nl: Zwarte theeën, Zwarte thee
 pl: Czarna herbata, Herbata czarna
 ro: Ceauri negre, Ceai negru
 ru: Чай чёрный, Чёрный чай, Чай черный, Черный чай
+sv: svarta teer, svart te
 tr: Siyah çay
 zh: 黑茶
 wikidata:en: Q203415
@@ -9788,6 +9861,7 @@ pl: Zielona herbata, Herbata zielona
 pt: Chás verdes
 ro: Ceauri verzi, Ceai verde
 ru: Зелёный чай
+sv: Grönt te
 tr: Yeşil çay
 zh: 绿茶
 agribalyse_proxy_food_code:en: 18155
@@ -11057,6 +11131,11 @@ en: Instant coffee substitute capsules or pods
 gpc_category_code:en: 10008181
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a roasted and ground product designed to taste like coffee but which has no actual coffee content. These products can be produced from a single coffee substitute or a combination of coffee substitutes. Includes coffee bags, filter cups, discs, capsules, pads, pods and tablets. These products are prepared for consumption by the addition of hot water and then brewed. Definition Excludes: Excludes products such as whole bean coffee, roast ground coffee products, coffee substitutes roast ground and instant soluble coffee. Also excludes capsules that contain only chocolate or tea to be used in espresso machines.
 gpc_category_name:en: Coffee Substitutes - Capsules/Pods
+
+< en:Instant coffee substitutes
+< en:Plant-based beverages
+en: Liquid chicory
+fr: Chicorée liquide
 
 < en:Instant coffee substitutes
 < en:Plant-based beverages
@@ -34328,7 +34407,7 @@ hr: Medenjaci
 it: Pan di zenzero
 ja: ジンジャーブレッド
 lt: Imbieriniai sausainiai
-nl: Ontbijtkoeken, Ontbijtkoek, Kruidkoeken, Kruidkoek
+nl: Gemberkoeken
 pt: Bolos de gengibre
 ru: Имбирное печенье и пряники
 sv: Pepparkakor, Pepparkaka
@@ -34339,6 +34418,9 @@ ciqual_food_name:fr: Pain d'épices
 intake24_category_code:en: GING
 oqali_family:en: fr:Biscuits et gateaux industriels - Pains d_epices
 wikidata:en: Q178600
+
+< en:Biscuits and cakes
+nl: Ontbijtkoeken, Ontbijtkoek, Kruidkoeken, Kruidkoek
 
 < en:Gingerbreads
 fr: Pains d'épices au miel
@@ -34654,6 +34736,10 @@ nl: Notenbroden
 < en:Breads
 fr: Pains multicéréales, Pains aux céréales
 nl: Meergranenbroden
+
+< en:Breads
+en: Breads mith malted grains
+fr: Pains de céréales germées
 
 < en:Breads
 en: Breads with corn
@@ -35313,6 +35399,7 @@ ciqual_food_name:en: Bread, French bread, baguette
 ciqual_food_name:fr: Pain, baguette, courante
 sales_format:en: weight, package
 wikidata:en: Q208172
+
 
 < en:Baguettes
 en: Frozen baguettes
@@ -37405,6 +37492,7 @@ hr: Trešnja clafoutis
 nl: Kersenclafoutis, Kersenclafouti
 
 < en:Brioches
+< en:Festive foods
 en: Panettone
 xx: Panettone
 de: Panettone
@@ -37413,7 +37501,7 @@ fi: Panettone
 fr: Panettone, Panettones, Panetonnes, Panetonne
 he: פנטונה
 hr: Panettone
-it: Panetonne
+it: Panettone
 ja: パネットーネ, パネトーネ
 lt: Panetone, Panetonne
 nl: Panettones, Panettone, panetonnes, panetonne
@@ -37431,6 +37519,7 @@ fr: Panettone au chocolat
 fr: Panettone sans gluten
 
 < en:Brioches
+< en:Festive foods
 en: Pandoro
 xx: Pandoro
 fr: Pandoro
@@ -37439,11 +37528,12 @@ it: Pandoro
 ja: パンドーロ
 
 < en:Brioches
+< en:Festive foods
 en: Colomba
 xx: Colomba
 fr: Colomba
 hr: Colomba
-it: Colomba
+it: Colomba, Colomba Pasquale, Colomba di Pasqua
 ja: コロンバ
 
 < en:Brioches
@@ -37974,7 +38064,7 @@ en: Nut-based snacks
 < en:flavoured-nuts
 en: Flavoured pistachios, flavored pistachios
 fr: Pistaches aromatisées
-nl: Pistachenoten(gearomatiseerd)
+nl: Gearomatiseerde pistachenoten, Pistachenoten (gearomatiseerd)
 
 < en:Snacks
 en: Sweet snacks, Sugary snacks
@@ -38246,7 +38336,7 @@ pl: Czekolada mleczna
 pt: Chocolates de leite, chocolate de leite
 ro: Ciocolată cu lapte
 ru: Молочный шоколад, Шоколад молочный
-sv: Mjölkchoklad
+sv: Mjölkchoklad, ljus choklad
 tr: Sütlü çikolata
 zh: 牛奶巧克力
 agribalyse_proxy_food_code:en: 31004
@@ -41638,15 +41728,19 @@ gpc_category_name:en: Fruit/Nuts/Seeds Mixes - Prepared/Processed (Shelf Stable)
 
 < en:Plant-based foods
 en: Cereals and potatoes
+bg: Зърнени храни и картофи
 ca: Cereals i patates
+cs: Obiloviny a brambory
 da: Korn og kartofler
 de: Getreide und Kartoffeln
+el: Δημητριακά και πατάτες
 es: Cereales y patatas
-fi: jyvät ja perunat
+fi: Viljat ja perunat
 fr: Céréales et pommes de terre
-he: מדגנים ותפוחי אדמה
+he: דגנים ותפוחי אדמה
 hr: Žitarice i krumpir
-hu: Gabona- és burgonyafélék
+hu: Gabona és burgonyafélék
+id: Sereal dan kentang
 it: Cereali e patate
 ja: 穀物とジャガイモ
 ko: 곡물과 감자
@@ -41655,11 +41749,13 @@ nl: Granen en aardappels
 nl_be: Granen en aardappels
 no: Korn og poteter
 pl: Zboża i ziemniaki
-pt: Cereais e Batatas
+pt: Cereais e batatas
+ro: Cereale și cartofi
 ru: Зерновые и картофель
-sv: Spannmål och Potatisar
+sv: Spannmål och potatis
 th: ธัญพืชและมันฝรั่ง
 tr: Tahıllar ve patates
+uk: Зернові та картопля
 zh: 谷物和土豆
 food_groups:en: en:cereals-and-potatoes
 pnns_group_1:en: Cereals and potatoes
@@ -45177,30 +45273,26 @@ wikidata:en: Q643697
 < en:Cow cheeses
 < en:French cheeses
 < en:Soft cheeses with washed rind
+
+< en:Soft cheeses with washed rind
+en: Soft cheeses with a red rind
+fr: Fromages à croûte rouge
+nl: Kazen met een rode korst
+
+< en:Soft cheeses with a red rind
 en: Munster, Munster cheeses, Munster cheese from cow's milk
 xx: Munsters, Munster
 ar: مونستير
 be: Мюнстэр
 bg: Мюнстер
-ca: Munster
 cv: Мюнстер
 de: Münsterkäse
-es: Munster
-eu: Munster
-fi: Munster
 fr: Munsters, Munster, Munster-Géromé
-hr: Munster
 id: Keju Munster
 ja: マンステール
 ko: 묑스테르
-la: Munster
 ms: Keju Munster
-nb: Munster
-nl: Munster
-pl: Munster
-pt: Munster
 ru: Мюнстер
-sv: Munster
 th: เมิงสแตร์ชีส
 uk: Мюнстер
 zh: 芒斯特芝士
@@ -45447,6 +45539,12 @@ agribalyse_food_code:en: 12116
 ciqual_food_code:en: 12116
 ciqual_food_name:en: Hard cheese, emmental-type cheese, reduced fat
 ciqual_food_name:fr: Fromage à pate pressée cuite type emmental ou emmenthal, allégé en matière grasse
+
+< en: Emmentaler
+< en: Sliced cheeses
+en: Emmental slices
+fr: Emmental en tranches
+nl: Emmental in plakjes
 
 < en:Cheeses from Switzerland
 < en:Emmentaler
@@ -50713,10 +50811,12 @@ pl: Skyr owocowy
 xx: Viili, Filmjölk
 fi: Viili
 se: Filmjölk, filbunke
+sv: Filmjölk
 
 < en:Fermented dairy desserts with fruits
 < fi:Viili
 se: Filmjölk med frukt
+sv: Filmjölk med frukt
 
 < en:Fermented milk products
 # <en:ingredient:en:cheese
@@ -52042,6 +52142,7 @@ nl: Gierstdranken
 en: Oat-based drinks, Oat milks, Oat drinks, Plain oat-based drinks
 bg: Напитка с овес
 ca: Beguda de civada
+da: havredrikke, havremælk
 de: Hafermilch, Hafermilche, Hafermilchen, Hafer-Drinks, Hafer-Drink, Haferdrink, Haferdrinks
 es: Bebidas de avena, Leches de avena
 fi: kaurajuomat
@@ -52073,6 +52174,7 @@ fr: Boissons végétales d'avoine nature sucrées
 < en:Oat-based drinks
 en: Cocoa oat-based drinks, Cocoa oat milks
 fr: Boissons végétales d'avoine au cacao
+sv: chokladhavredryck, kakaohavredryck, havredryck choklad
 
 < en:Oat-based drinks
 en: Vanilla oat-based drinks, Vanilla oat milks
@@ -52096,6 +52198,7 @@ pt: Bebidas de quinoa
 en: Rice-based drinks, Rice milks, Rice drinks
 bg: Напитка с ориз
 ca: Beguda d'arròs
+da: risdrikke, rismælk
 de: Reismilch, Reismilche, Reismilchen, Reis-Drinks, Reis-Drink, Reisdrink, Reisdrinks
 es: Bebidas de arroz, Leches de arroz
 fi: riisijuomat
@@ -52109,6 +52212,7 @@ lt: Ryžių pienas
 nl: Rijstdranken
 pl: Mleka ryżowe
 pt: Bebidas de arroz
+sv: Risdryckor
 agribalyse_food_code:en: 18904
 ciqual_food_code:en: 18904
 ciqual_food_name:en: Rice-based drink, plain
@@ -52226,7 +52330,7 @@ hr: Pića na bazi kokosa
 hu: Kókusz tej
 ja: ココナッツミルク, ココナツミルク
 lt: Kokosų pienas
-nl: Kokosnootmelken
+nl: Kokosmelken, Kokosnootmelken
 pl: Mleka kokosowe
 pt: Bebidas de coco
 ru: Кокосовое молоко
@@ -52263,6 +52367,7 @@ pt: Leites de legumes
 en: Soy-based drinks, Soy milks, Soya milks, Soya drinks, Soy drinks
 bg: Соево мляко
 ca: Beguda de soja
+da: sojadrikke, sojamælk
 de: Sojamilch, Sojamilche, Sojamilchen, Soja-Drinks, Soja-Drink, Sojadrink, Sojadrinks
 es: Bebidas de soja, bebida de soya, Leches de soja
 fi: soijajuomat
@@ -52317,6 +52422,7 @@ pt: Bebidas de soja com baunilha
 
 < en:Soy-based drinks
 en: Chocolate soy-based drinks, Chocolate soy milks, Cocoa soy milks, Cocoa soy drinks, Chocolate soy drinks
+da: chokoladesojamælk
 de: Schokoladensojamilch
 es: Bebidas de soja con cacao, Bebidas de soja con chocolate, Leches de soja con cacao, Leches de soja con chocolate
 fi: Soijakaakaot
@@ -52375,6 +52481,7 @@ pt: Leites de mistura de plantas
 en: Nut-based drinks, Nut milks, Nut drinks
 bg: Ядкови млека, ядково мляко
 ca: Beguda de fruits secs
+da: nødemælk
 de: Nussmilch, Nussmilche, Nussmilchen, Nuss-Drinks, Nuss-Drink, Nussdrink, Nussdrinks
 es: Leches de frutos de cáscara, Bebidas de frutos de cáscara, Bebidas de frutos secos, Leches de frutos secos
 fi: pähkinäjuomat
@@ -52400,6 +52507,7 @@ intake24_category_code:fr: 19NMLK
 en: Almond-based drinks, Almond milks, Almond drinks
 bg: Бадемово мляко
 ca: Beguda d'ametlla
+da: mandelmælk
 de: Mandelmilch, Mandelmilche, Mandelmilchen, Mandel-Drinks, Mandel-Drink, Mandeldrink, Mandeldrinks
 es: Leches de almendras, Bebidas de almendras
 fi: mantelijuomat
@@ -52464,6 +52572,7 @@ nl: Kastanjedranken
 
 < en:Nut-based drinks
 en: Hazelnut-based drinks, Hazelnut milks, Hazelnut drinks
+da: hasselnødemælk
 de: Haselnussmilch, Haselnussmilche, Haselnussmilchen, Haselnuss-Drinks, Haselnuss-Drink, Haselnussdrink, Haselnussdrinks
 es: Leches de avellanas, Bebidas de avellanas
 fi: Hasselpähkinäjuomat, Hasselpähkinämaidot
@@ -52517,6 +52626,7 @@ hr: Smrznuti horchatas de chufa
 
 < en:Frozen vegetables
 en: Frozen peas and carrots, Frozen garden peas and carrots
+da: frosne ærter och gulerødder
 fr: Petits pois et carottes surgelés
 hr: Smrznuti grašak i mrkva
 lt: Šaldyti žirneliai ir morkos
@@ -52536,6 +52646,7 @@ ciqual_food_name:fr: Petits pois et carottes, surgelés, cuits
 
 < en:Frozen vegetables
 en: Frozen mixed vegetables for ratatouille
+da: frosne blandede grøntsager til ratatouille
 fr: Légumes pour ratatouille surgelés
 agribalyse_food_code:en: 20266
 ciqual_food_code:en: 20266
@@ -52544,6 +52655,7 @@ ciqual_food_name:fr: Légumes pour ratatouille, surgelés
 
 < en:Frozen vegetables
 en: Frozen mixed vegetables for couscous
+da: frosne blandede grøntsager til couscous
 fr: Légumes pour couscous surgelés
 agribalyse_food_code:en: 20496
 ciqual_food_code:en: 20496
@@ -52888,7 +53000,7 @@ intake24_category_code:en: YOGD
 intake24_category_code:fr: YOGD
 
 < en: Yogurt drinks
-en: Flavoured yogurt drinks, Yoghurt drinks(flavoured)
+en: Flavoured yogurt drinks, Yoghurt drinks (flavoured)
 nl: Yoghurtdranken met smaak
 
 < en:Flavoured yogurt drinks
@@ -52906,33 +53018,38 @@ fr: Yaourts à boire goût chocolat
 nl: Yoghurt dranken met chocolade
 
 < en:Flavoured yogurt drinks
-en: Raspberry drinkable yogurts
-fr: Yaourts à boire goût framboise
-hr: Pitki jogurti od maline
-nl: Framboosdrinkyoghurts
-
-< en:Flavoured yogurt drinks
 en: Fruit flavoured yogurt drinks
 nl: Fruitdrinkyoghurts, Drinkyoghurts met fruitsmaak
 
 < en:Fruit flavoured yogurt drinks
-en: Strawberry yogurt drinks
+en: Strawberry yogurt drinks, Yoghurt drinks (strawberry)
 fr: Yaourts à boire goût fraise, Yaourts à boire fraise, Yaourts à boire saveur fraise
 hr: Napitci od jogurta od jagode
 lt: Braškiniai jogurto gėrimai
 nl: Aardbeiendrinkyoghurts
 ciqual_food_code:en: 19535
+opposite:en: en:raspberry-drinkable-yogurts
+
+< en:Fruit flavoured yogurt drinks
+en: Raspberry drinkable yogurts, Yoghurt drinks (raspberry)
+fr: Yaourts à boire goût framboise
+hr: Pitki jogurti od maline
+nl: Framboosdrinkyoghurts
+opposite:en: en:strawberry-yogurt-drinks
 
 < en:Yogurt drinks
 en: Yogurt drinks without sugar
 fr: Yaourts à boire sans sucres
 nl: Yoghurtdranken zonder suiker
+opposite:en: en:yogurt-drinks-with-sugar
+
 # A verifier ajoute depuis Nutrinet
 
 < en:Yogurt drinks
 en: Yogurt drinks with sugar
 fr: Yaourts à boire avec sucre
 nl: Yoghurtdranken met suiker
+opposite:en: en:yogurt-drinks-without-sugar
 # A verifier ajoute depuis Nutrinet
 
 < en:Flavoured fermented dairy desserts
@@ -53848,7 +53965,7 @@ zh: 巧克力甜品, 巧克力甜点
 wikidata:en: Q47472163
 
 < en:Chocolate desserts
-< en:Dairy Mousses
+< en:Sweet mousses
 en: Chocolate mousses
 de: Mousses au chocolat, Mousse au chocolat
 es: Mousses de chocolate, Mousse de chocolate
@@ -54227,15 +54344,6 @@ it: Composte di albicocca
 lt: Abrikosų tyrės, Tyrės su abrikosais
 
 < en:Compotes
-en: Rhubarb compotes
-de: Rhabarberkompott
-fr: Compotes de rhubarbe
-hr: Kompoti od rabarbare
-it: Composte di rabarbaro
-lt: Rabarbarų tyrės, Tyrės su rabarbarais
-nl: Rabarbercompotes, Rabarbercompote
-
-< en:Compotes
 en: Mango compotes
 de: Mangokompott
 es: Compotas de mango
@@ -54244,6 +54352,20 @@ hr: Kompoti od manga
 it: Composte di mango
 lt: Mangų tyrės, Tyrės su mangais
 nl: Mangocompotes
+
+< en:Compotes
+en: Prune purees
+fr: Purées de pruneaux
+
+< en:Compotes
+en: Rhubarb compotes
+de: Rhabarberkompott
+fr: Compotes de rhubarbe
+hr: Kompoti od rabarbare
+it: Composte di rabarbaro
+lt: Rabarbarų tyrės, Tyrės su rabarbarais
+nl: Rabarbercompotes, Rabarbercompote
+
 
 < en:Compotes
 en: Pear compotes, Pear compote
@@ -55594,6 +55716,7 @@ opposite:en: en:salted-nuts
 < en:Nuts
 en: Mixed nuts, Nut mix
 de: Nussmischung
+fr: Mélanges de fruits à coque
 nl: Notenmelanges, Gemengde noten
 opposite:en: en:brazil-nuts
 sales_format:en: package, weight
@@ -56452,40 +56575,40 @@ wco_hs_heading:en: 08.02
 wikidata:en: Q333877
 
 < en:Pecan nuts
-en: Pecan nuts(salted), Salted pecan nuts, Salted pecan nut
+en: Salted pecan nuts, Salted pecan nut, Pecan nuts (salted)
 fr: Noix de pécan salées, Noix de pécan salée
 agribalyse_food_code:en: 15046
 ciqual_food_code:en: 15046
 ciqual_food_name:en: Pecan nut, salted
 ciqual_food_name:fr: Noix de pécan, salées
-opposite:en: en:pecan-nuts(plain)
+opposite:en: en:plain-pecan-nuts
 
 < en:Pecan nuts
-en: Pecan nuts(roasted), Roasted pecan nuts
+en: Roasted pecan nuts, Pecan nuts (roasted)
 #expected_ingredients:en: en:pecan-nut, en:oil
-opposite:en: en:pecan-nuts(plain)
+opposite:en: en:plain-pecan-nuts
 
 < en:Pecan nuts(roasted)
 < en:Salted pecan nuts
-en: Pecan nuts(roasted and salted)
+en: Roasted and salted pecan nuts, Pecan nuts (roasted and salted)
 es: Nueces pecanas fritas y saladas
 fr: Noix de Pécan grillées et salées
 #expected_ingredients:en: en:pecan-nut, en:salt
 
 #for nuts that have not been salted nor roasted
 < en:Pecan nuts
-en: Pecan nuts(plain), Plain pecan nuts
+en: Plain pecan nuts, Pecan nuts (plain)
 de: Pekannüsse(naturbelassen)
 es: Nuez pecana natural, nuex pecana cruda
 fr: Noix de pécan naturels
-nl: Pecannoten(natuurlijk)
+nl: Pecannoten (natuurlijk)
 pt: Noz pecana natural
 agribalyse_food_code:en: 15026
 ciqual_food_code:en: 15026
 ciqual_food_name:en: Pecan nut
 ciqual_food_name:fr: Noix de pécan
 expected_ingredients:en: en:pecan-nut
-opposite:en: en:pecan-nuts(roasted), en:pecan-nuts(salted)
+opposite:en: en:roasted-pecan-nuts, en:salted-pecan-nuts
 
 < en:Nuts
 en: Pistachios
@@ -56520,7 +56643,7 @@ wikidata:en: Q19958754
 
 < en:Pistachios
 en: Plain pistachios, Pistachios (plain)
-nl: Pistachenote (onbehandeld)
+nl: Pistachenoten (onbehandeld)
 expected_ingredients:en: en:pistachi
 opposite:en: en:roasted-pistachios, en:salted-pistachios
 
@@ -56574,7 +56697,7 @@ fr: Pistaches salées
 hr: Slane pistacije
 it: Pistacchi salati
 lt: Sūdytos pistacijos
-nl: Gezouten pistachenoten
+nl: Gezouten pistachenoten, Pistachenoten (gezouten)
 opposite:en: en:unsalted-pistachios
 
 < en:Pistachios
@@ -56644,7 +56767,7 @@ fi: Kuoritut parapähkinät
 fr: Noix du Brésil décortiquées
 hr: Oljušteni brazilski orasi
 lt: Gliaudyti Braziliški riešutai
-nl: Paranoten(gepeld), Gepelde paranoten
+nl: Gepelde paranoten, Paranoten (gepeld)
 opposite:en: en:unshelled-brazil-nuts
 wco_hs_code:en: 0801.22
 wco_hs_heading:en: 08.01
@@ -56652,19 +56775,19 @@ wco_hs_heading:en: 08.01
 < en:Brazil nuts
 < en:Unshelled nuts
 en: Unshelled Brazil nuts
-nl: Paranoten(ongepeld), Ongepelde paranoten
+nl: Ongepelde paranoten, Paranoten (ongepeld)
 opposite:en: en:shelled-brazil-nuts
 
 < en:brazil-nuts
-en: Brazil nuts(salted)
-nl: Paranoten(gezouten)
-opposite:en: en:brazil-nuts(unsalted)
+en: Salted brazil nuts, Brazil nuts (salted)
+nl: Gezouten paranoten, Paranoten (gezouten)
+opposite:en: en:unsalted-brazil-nuts
 
 < en:brazil-nuts
-en: Brazil nuts(unsalted)
-nl: Paranoten(ongezouten)
+en: Unsalted brazil nuts, Brazil nuts (unsalted)
+nl: Ongezouten paranoten, Paranoten (ongezouten)
 expected_ingredients:en: en:brazil-nut
-opposite:en: en:brazil-nuts(salted)
+opposite:en: en:salted-brazil-nuts
 
 < en:Nuts
 en: Pine nuts, Conifer nuts
@@ -59297,6 +59420,10 @@ fr: Huiles de coco raffinées
 hr: Rafinirana kokosova ulja
 it: Olio di noce di cocco raffinato
 lt: Rafinuoti kokosų aliejai
+
+< en: Fruit and fruit seed oils
+en: Coprah oils
+fr: Huiles de coprah
 
 < en:Fruit and fruit seed oils
 en: Grape seed oils, Grapeseed oils, Grape oils
@@ -67246,6 +67373,7 @@ ciqual_food_name:fr: Kumquat, sans pépin, cru
 
 < en:Fruits
 en: Apples
+da: Æbler
 de: Äpfel, Apfel
 es: Manzanas
 fi: omenat
@@ -67259,6 +67387,7 @@ nl: Appels
 pt: Maçâs
 ro: Mere
 ru: Яблоки
+sv: Äpplen
 agribalyse_proxy_food_code:en: 13085
 agribalyse_proxy_food_name:en: Apple, Canada, pulp, raw
 agribalyse_proxy_food_name:fr: Pomme Canada, pulpe, crue
@@ -67417,6 +67546,11 @@ lt: Granny Smith obuoliai
 nl: Granny Smith appels
 sales_format:en: weight, package
 wikidata:en: Q506040
+
+< en:Apples
+en: Idared apples
+sv: Idared äpplen
+wikidata:en: Q494432
 
 < en:Apples
 en: Red Delicious apples, Red Delicious
@@ -67920,7 +68054,7 @@ protected_name_type:en: pgi
 
 
 # in eu, Blackcurrants jams/jellies should have specific
-# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02001L0113-20131118
+# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 < en:Berries
 en: Blackcurrants, black currant
 bg: Касис
@@ -70530,7 +70664,7 @@ nl: Gedroogde mangos
 ru: Манго сушёные, сушёные манго
 
 < en:Dried fruits
-en: Dried mixed fruits
+en: Mixed dried fruits, Dried mixed fruits
 de: Getrocknete Früchtemischung, Getrocknete Früchte-Mix, Trockenfruchtmischung
 es: Mezclas de frutas deshidratadas, Mezclas de frutas secas
 fi: kuivatut hedelmäsekoitukset
@@ -70541,8 +70675,16 @@ lt: Džiovinti įvairūs vaisiai
 nl: Gedroogde fruitmelanges
 pl: Suszona mieszanka owoców
 
+< en:Plant-based foods
+< en:Snacks
+en: Mixed nuts and dried fruits, Nuts with dried fruits, Nuts and dried fruits
+de: Studentenfutter
+fr: Mélanges de fruits secs et de fruits à coque, Mendiants, Mélanges étudiants
+nl: Noten en gedroogd fruit (gemengd), Studentenhavers
+sales_format:en: weight, package
 
-< en:Dried mixed fruits
+< en:Plant-based foods
+< en:Snacks
 en: Mix of grains and dried fruit, Mix of nuts and dried fruit
 fr: Mélange apéritif de graines et fruits séchés
 hr: Mješavina žitarica i suhog voća
@@ -70561,15 +70703,6 @@ agribalyse_food_code:en: 15049
 ciqual_food_code:en: 15049
 ciqual_food_name:en: Mix of unsalted grains/nuts and raisins
 ciqual_food_name:fr: Mélange apéritif de graines (non salées) et raisins secs
-
-< en:Mix of grains and raisins
-< en:Plant-based foods
-< en:Snacks
-en: Nuts with dried fruits, Nuts and dried fruits, Mixed nuts and dried fruits
-de: Studentenfutter
-fr: Mendiants, Mélanges étudiants, Mélanges de fruits secs et de fruits à coque
-nl: Noten en gedroogd fruit (gemengd), Studentenhavers
-sales_format:en: weight, package
 
 < en:Mix of grains and dried fruit
 en: Mix of salted grains and raisins, Mix of salted nuts and raisins
@@ -71008,6 +71141,9 @@ agribalyse_food_code:en: 13735
 ciqual_food_code:en: 13735
 ciqual_food_name:en: Pear, canned in light syrup, not drained
 ciqual_food_name:fr: Poire au sirop léger, appertisée, non égouttée
+
+< en: Pears in syrup
+nl: Gestoofde peren op siroop
 
 < en:Fruits in syrup
 en: Grapefruits in syrup
@@ -71901,6 +72037,16 @@ hr: Buhača
 la: Mentha pulegium
 nl: Polei
 wikidata:en: Q161235
+
+< en:Aromatic herbs
+en: Moringa
+xx: Moringa
+la: Moringa oleifera
+
+< en: Moringa
+en: Moringa leaves
+fr: feuille de Moringa
+nl: Moringa blad
 
 < en:Mint
 en: Peppermint
@@ -82789,6 +82935,9 @@ ciqual_food_name:en: Pizza, ham cheese and mushrooms
 ciqual_food_name:fr: Pizza jambon fromage champignons ou pizza royale, reine ou regina
 
 < en:Pizzas
+fr: Pizzas savoyardes, Pizza savoyarde
+
+< en:Pizzas
 < en:Vegetarian pizzas
 en: Cheese and mushrooms pizza
 fr: Pizza champignons fromage
@@ -90210,7 +90359,7 @@ ciqual_food_code:en: 30789
 ciqual_food_name:en: Mortadella
 wikidata:en: Q169757
 
-< fr:Charcuteries cuites
+< en:Mortadella
 en: Mortadella pure pork
 fr: Mortadelle pur porc
 hr: Mortadela čista svinjska
@@ -90219,14 +90368,14 @@ agribalyse_food_code:en: 30790
 ciqual_food_code:en: 30790
 ciqual_food_name:en: Mortadella, pure pork
 
-< fr:Charcuteries cuites
+< en:Mortadella
 en: Pork and beef mortadella
 fr: Mortadelle porc et boeuf
 agribalyse_food_code:en: 30791
 ciqual_food_code:en: 30791
 ciqual_food_name:en: Pork and beef mortadella
 
-< fr:Charcuteries cuites
+< en:Mortadella
 en: Mortadella with pistachios pure pork
 fr: Mortadelle pistachée pur porc
 agribalyse_food_code:en: 30797
@@ -90542,7 +90691,12 @@ hr: Nduja
 it: Nduja
 wikidata:en: Q1505085
 
-< en:Prepared meats
+# Ersatz of foie gras containing foie gras and another meat
+< en:Meat spreads
+< en:Salted spreads
+en: Spreads with foie gras
+fr: Tartinables au foie gras
+
 < en:Salted spreads
 en: Savory mousses, savory mousse, savoury mousses, savoury mousse
 de: Fleischpasteten, Fleischaufstrich
@@ -90553,6 +90707,7 @@ hr: Slane pjenice
 it: mousse salate
 nl: Smeerworsten
 
+< en:Meat spreads
 < en:Savory mousses
 en: Duck mousse
 fr: Mousses de canard, mousses de canards, mousse de canards, mousse de canard
@@ -90565,10 +90720,10 @@ ciqual_food_name:en: Duck mousse
 < en:Duck mousse
 fr: Mousses de canard au porto
 
+< en:Meat spreads
 < en:Savory mousses
 fr: Mousses de foies, mousses de foie, mousse de foies, mousse de foie
 nl: Smeerleverworsten, Leverpasteien, Levermoussen, Saksische leverworsten
-
 
 < fr:Mousses de foies
 fr: Mousses de foies de volailles, mousses de foie de volaille, mousses de foies de volaille, mousse de foie de volailles
@@ -96463,7 +96618,7 @@ hr: Sendviče
 hu: Szendvicsek
 it: Panini
 ja: サンドイッチ
-nl: Sandwiches
+nl: Sandwiches, Belegde broodjes
 pl: Kanapki, kanapka
 pt: Sanduiches
 ru: Бутерброды
@@ -96521,6 +96676,10 @@ nl: Broodjes op Frans brood, Broodjes gemaakt met Frans brood, Baguette broodjes
 ciqual_food_code:en: 25543
 ciqual_food_name:en: Sandwich on french bread (average)
 ciqual_food_name:fr: Sandwich baguette (aliment moyen)
+
+< en:French bread sandwiches
+en: Healthy french bread sandwiches
+nl: Broodje gezond
 
 < en:Sandwiches
 en: Falafel sandwiches
@@ -102168,11 +102327,20 @@ nl: Veganistische producten
 < en:Plant-based spreads
 < en:Salted spreads
 < en:Vegan products
+de: Veganes Zwiebelschmalz
+
+< en:Plant-based spreads
+< en:Salted spreads
+< en:Vegan products
 en: Vegan vegetable spreads, Vegan vegetable spread
 fr: Tartinades véganes aux légumes
 hr: Veganski povrtni namazi
 nl: Veganistische groentespreads
 pl: Wegańskie pasty warzywne
+
+< en:Salted spreads
+en: Vegetarian vegetable and cheese spreads
+fr: Tartinades végétariennes aux légumes et fromage
 
 < en:Plant-based spreads
 < en:Spreadable fats
@@ -102310,7 +102478,7 @@ fr: Tartinades de gingembre
 < en:Ginger preserves
 en: Ginger jams
 fr: Confitures de gingembre
-expected_minimal_amount_specific_ingredients:en: en:fruit, 15, en:eu
+expected_minimal_amount_specific_ingredients:en: en:fruit, 18, en:eu
 
 < en:Plant-based spreads
 < en:Sweet spreads
@@ -102350,7 +102518,7 @@ sv: Rårörda lingon
 wikidata:en: Q10658749
 
 # in eu, jams should have specific
-# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02001L0113-20131118
+# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 #   otherwise it should have another name than jam
 #   remark: marmelade = citrus jam
 #   remark: jam = mixture, brought to a suitable gelled consistency, of sugars,
@@ -102393,12 +102561,12 @@ agribalyse_proxy_food_code:en: 31024
 ciqual_proxy_food_code:en: 31024
 ciqual_proxy_food_name:en: Jam, strawberry
 ciqual_proxy_food_name:fr: Confiture de fraise (extra ou classique)
-expected_minimal_amount_specific_ingredients:en: en:fruit, 35, en:eu
+expected_minimal_amount_specific_ingredients:en: en:fruit, 45, en:eu
 intake24_category_code:en: JAMS
 wikidata:en: Q8752059
 
 # in eu, extra-jams should have specific
-# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02001L0113-20131118
+# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 #   that is high amount of fruit than jams
 #   otherwise it should have another name than extra-jam
 #   remark: marmelade = citrus jam
@@ -102430,7 +102598,7 @@ ro: Gemul de calitate superioară
 sk: Extra džem
 sl: Ekstra džem
 sv: Extra sylt
-expected_minimal_amount_specific_ingredients:en: en:fruit, 45, en:eu
+expected_minimal_amount_specific_ingredients:en: en:fruit, 50, en:eu
 
 < en:Jams
 en: Shelf-stable jams
@@ -102618,7 +102786,7 @@ hr: Džemovi od crnog ribiza
 hu: Fekete ribizli lekvár
 it: Confetture di ribes nero, Marmellate di ribes nero
 nl: Cassisjams
-expected_minimal_amount_specific_ingredients:en: en:fruit, 25, en:eu
+expected_minimal_amount_specific_ingredients:en: en:fruit, 35, en:eu
 
 < en:Berry jams
 en: Blackberry jams
@@ -102652,7 +102820,7 @@ en: Forest berry jams
 nl: Bosvruchtenjams
 
 # in eu, redcurrents jams/jellies should have specific
-# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02001L0113-20131118
+# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 < en:Berry jams
 en: Redcurrants jams
 de: Rote Johannisbeere Konfitüren
@@ -102663,7 +102831,7 @@ hu: Vörös ribizli lekvár
 it: Confetture di ribes, Marmellate di ribes, Confetture di ribes rosso, Marmellate di ribes rosso
 nl: Aalbessenjams
 pt: Doces de groselha
-expected_minimal_amount_specific_ingredients:en: en:fruit, 25, en:eu
+expected_minimal_amount_specific_ingredients:en: en:fruit, 35, en:eu
 
 < en:Berry jams
 en: Gooseberries jams, gooseberry jams
@@ -102921,7 +103089,7 @@ es: cabello de ángel
 fr: Cabell d'àngel
 
 # in eu, quince jams/jellies should have specific
-# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02001L0113-20131118
+# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 < en:Jams
 en: Quince jams
 bg: Конфитюр от дюли
@@ -102935,7 +103103,7 @@ agribalyse_proxy_food_code:en: 31037
 ciqual_proxy_food_code:en: 31037
 ciqual_proxy_food_name:en: Jam, apricot
 ciqual_proxy_food_name:fr: Confiture d'abricot (extra ou classique)
-expected_minimal_amount_specific_ingredients:en: en:fruit, 25, en:eu
+expected_minimal_amount_specific_ingredients:en: en:fruit, 35, en:eu
 wikidata:en: Q6855605
 
 < en:Jams
@@ -102952,7 +103120,7 @@ pt: Doces de ruibarbo
 wikidata:en: Q89999895
 
 # in eu, rosehip jams/jellies should have specific
-# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02001L0113-20131118
+# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 < en:Jams
 en: Rosehip jams, rosehip jam
 bg: Шипков мармалад
@@ -102963,10 +103131,10 @@ hu: Csipkebogyó lekvár
 it: Confetture di rosa canina, Marmellate di rosa canina
 nl: Rozenbotteljam
 sv: Nyponsylter
-expected_minimal_amount_specific_ingredients:en: en:fruit, 25, en:eu
+expected_minimal_amount_specific_ingredients:en: en:fruit, 35, en:eu
 
 # in eu, Sea-buckthorn jams/jellies should have specific
-# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02001L0113-20131118
+# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 < en:Jams
 en: Sea-buckthorn jams
 de: Sanddorn Konfitüren
@@ -102975,7 +103143,7 @@ fi: Tyrnihillot
 fr: Confitures d'argousiers
 hr: Džemovi od krkavine
 it: Confetture di olivello spinoso, Marmellate di olivello spinoso
-expected_minimal_amount_specific_ingredients:en: en:fruit, 25, en:eu
+expected_minimal_amount_specific_ingredients:en: en:fruit, 35, en:eu
 
 < en:Jams
 en: Sweet pepper jams
@@ -103137,7 +103305,7 @@ expected_minimal_amount_specific_ingredients:en: en:fruit, 20, en:eu
 wikidata:en: Q5834964
 
 # in eu, citrus jams (marmalades) should have specific
-# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02001L0113-20131118
+# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 # remark: marmalade = citrus jam + peel and pulp
 # usually, actual "filtered" citrus jams-only are not commercialised, but the marmalade/jam term is used interchangeably
 < en:Citrus jams
@@ -103229,7 +103397,7 @@ it: Marmellate di mandarini tangerini, Confetture di mandarini tangerini
 
 #################### jellies and extra jellies in alphebetical order for English ####################
 # in eu, jellies should have specific
-# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02001L0113-20131118
+# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 # same amount as jams
 < en:Fruit and vegetable preserves
 en: Fruit jellies, jellies, jelly
@@ -103262,7 +103430,7 @@ ciqual_proxy_food_name:en: Jam, strawberry
 ciqual_proxy_food_name:fr: Confiture de fraise (extra ou classique)
 
 # in eu, extra-jellies should have specific
-# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02001L0113-20131118
+# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 # same amount as extra-jams
 < en:Fruit and vegetable preserves
 en: extra fruit jellies, extra jellies, extra jelly
@@ -103315,7 +103483,7 @@ nl: Zwarte bessengeleien
 sv: Björnbärsgeléer
 
 # in eu, Blackcurrants jams/jellies should have specific
-# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02001L0113-20131118
+# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 < en:Fruit jellies
 en: Blackcurrants jellies
 de: Schwarze Johannisbeere Gelees
@@ -103323,7 +103491,7 @@ fi: Mustaherukkahyytelöt
 fr: Gelées de cassis
 hr: Žele od crnog ribiza
 sv: Svartvinbärsgeléer, Svartvinbärsgelé
-expected_minimal_amount_specific_ingredients:en: en:fruit, 25, en:eu
+expected_minimal_amount_specific_ingredients:en: en:fruit, 35, en:eu
 
 < en:Fruit jellies
 en: Elderberry jellies
@@ -103374,10 +103542,10 @@ ja: パッションフルーツゼリー
 nl: Passievruchtgeleien
 pt: Geleias de maracujá
 sv: Passionsfruktgeléer
-expected_minimal_amount_specific_ingredients:en: en:fruit, 6, en:eu
+expected_minimal_amount_specific_ingredients:en: en:fruit, 8, en:eu
 
 # in eu, quince jams/jellies should have specific
-# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02001L0113-20131118
+# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 < en:Fruit jellies
 en: Quince jellies
 de: Quitten Gelees, Quitten-Gelee
@@ -103387,7 +103555,7 @@ hr: Žele od dunja
 nl: Kweepeergeleien
 pt: Geleias de marmelo
 sv: Kvittengeléer
-expected_minimal_amount_specific_ingredients:en: en:fruit, 25, en:eu
+expected_minimal_amount_specific_ingredients:en: en:fruit, 35, en:eu
 
 < en:Fruit jellies
 en: Raspberry jellies
@@ -103401,7 +103569,7 @@ pt: Geleias de framboesa
 sv: Hallongeléer
 
 # in eu, redcurrents jams/jellies should have specific
-# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02001L0113-20131118
+# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 < en:Fruit jellies
 en: Redcurrants jellies
 de: Rote Johannisbeere Gelees
@@ -103412,17 +103580,17 @@ hr: Žele od crvenog ribiza
 nl: Aalbessengeleien
 pt: Geleias de groselha
 sv: Vinbärsgeléer
-expected_minimal_amount_specific_ingredients:en: en:fruit, 25, en:eu
+expected_minimal_amount_specific_ingredients:en: en:fruit, 35, en:eu
 
 # in eu, Sea-buckthorn jams/jellies should have specific
-# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02001L0113-20131118
+# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 < en:Fruit jellies
 en: Sea-buckthorn jellies
 de: Sanddorn Gelees
 fi: Tyrnihyytelöt
 fr: Gelées d'argousiers
 hr: Žele od krkavine
-expected_minimal_amount_specific_ingredients:en: en:fruit, 25, en:eu
+expected_minimal_amount_specific_ingredients:en: en:fruit, 35, en:eu
 
 < en:Fruit jellies
 en: Wine jellies, wine gelees
@@ -103432,7 +103600,7 @@ pt: Geleias de vinho
 
 #################### Sweetened chestnut purée ####################
 # in eu, Sweetened chestnut purée should have specific
-# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02001L0113-20131118
+# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 < en:Nuts and their products
 < en:Plant-based spreads
 en: Chestnut spreads, Chestnut purees, Creme de marrons, Cremes de marrons, Chestnut jams, Chestnut cream, Sweetened chestnut purée
@@ -103970,9 +104138,9 @@ hr: Pečene oljuštene sjemenke bundeve
 nl: Geroosterde gepelde pompoenpitten
 
 < en:Roasted shelled pumpkin seeds
-en: Pumpkin seeds(non-roasted/shelled/unsalted), Non-roasted unsalted shelled pumpkin seeds
-fr: Graines de courge(non-grillées/non-salées/décortiquées)
-nl: Pompoenpitten(gepeld/ongeroosterd/ongezouten)
+en: Non-roasted unsalted shelled pumpkin seeds, Pumpkin seeds (non-roasted/shelled/unsalted)
+fr: Graines de courge (non-grillées/non-salées/décortiquées)
+nl: Pompoenpitten (gepeld/ongeroosterd/ongezouten)
 sales_format:en: weight, package
 
 < en:Seeds
@@ -104022,7 +104190,7 @@ bg: Слънчогледови семки, слънчогледово семе
 ca: Pipes de gira-sol, Llavors de gira-sol
 de: Sonnenblumenkerne
 es: Semillas de girasol, Pipas de girasol
-fi: auringonkukan siemenet
+fi: Auringonkukansiemen, auringonkukan siemenet
 fr: Graines de tournesol
 hr: Sjemenke suncokreta
 hu: Naprafogómagok
@@ -104032,6 +104200,7 @@ nl: Zonnebloempitten
 pl: Pestki słonecznika, Pestki słonecznikowe, Nasiona słonecznika
 pt: Sementes de girassol
 ru: Семена подсолнечника, Подсолнечные семечки, Семечки подсолнечника
+sv: Solroskärnor
 tr: Ayçiçeği çekirdeği, Ayçiçek çekirdeği
 agribalyse_food_code:en: 15011
 ciqual_food_code:en: 15011
@@ -104053,6 +104222,7 @@ hr: Pržene sjemenke suncokreta
 it: Semi di girasole tostati
 nl: Geroosterde zonnebloempitten
 ru: Семена подсолнечника обжаренные, Обжаренные семена подсолнечника Подсолнечные семечки обжаренные, Обжаренные семечки подсолнечника, Семена подсолнечника жареные, Жареные семена подсолнечника Подсолнечные семечки жареные, Жареные семечки подсолнечника
+sv: rostade solroskärnor
 
 < en:Sunflower seeds
 en: Shelled sunflower seeds
@@ -104064,6 +104234,7 @@ fr: Graines de tournesol décortiquées
 hr: Oljuštene sjemenke suncokreta
 it: Semi di girasole sgusciati
 nl: Gepelde zonnebloempitten
+sv: skallade solroskärnor
 tr: Kabuklu ayçiçeği çekirdeği
 
 < en:Sunflower seeds
@@ -104075,6 +104246,7 @@ fr: Graines de tournesol en coque
 hr: Sjemenke suncokreta bez ljuske
 nl: Ongepelde zonnebloempitten
 ru: Ядра семян подсолнечника очищенные, Семена подсолнечника очищенные
+sv: oskallade solroskärnor
 
 < en:Roasted sunflower seeds
 < en:Unshelled sunflower seeds
@@ -104083,6 +104255,7 @@ es: Semillas de girasol con cáscara tostadas, Pipas de girasol con cáscara tos
 fr: Graines de tournesol en coque grillées
 hr: Pržene sjemenke suncokreta bez ljuske
 nl: Geroosterde ongepelde zonnebloempitten
+sv: rostade oskallade solroskärnor
 
 < en:Roasted sunflower seeds
 < en:Shelled sunflower seeds
@@ -104093,10 +104266,12 @@ fr: Graines de tournesol décortiquées grillées
 hr: Pržene oljuštene sjemenke suncokreta
 it: Semi di frutti di mare sgusciati arrosto
 nl: Geroosterde gepelde zonnebloempitten
+sv: rostade skallade solroskärnor
 
 < en:Roasted sunflower seeds
 en: Sunflower seed grilled and salted
 fr: Graines de tournesol grillées et salées
+sv: rostade saltade solroskärnor
 agribalyse_food_code:en: 15045
 ciqual_food_code:en: 15045
 ciqual_food_name:en: Sunflower seed, grilled, salted
@@ -106626,7 +106801,7 @@ de: Rüben (Vakuumverpackt)
 es: Remolachas envasadas al vacío
 fr: Betteraves sous vide
 it: Barbabietole sottovuoto
-nl: Bieten(Vacuümverpakt)
+nl: Bieten (Vacuümverpakt), Vacuümverpakte bieten
 pt: Beterraba embalada a vácuo
 expected_ingredients:en: en:beetroot
 opposite:en: en:raw-beetroot, en:canned-beetroot
@@ -109423,8 +109598,10 @@ sales_format:en: package, weight
 season_in_country_fr:en: 1,2,3,4,5,9,10,11,12
 
 < en:Fresh spinachs
-en: Spinach young leaves
+en: Spinach young leaves, Baby spinach
+da: babyspinat
 fr: Jeunes pousses d'épinards pour salades
+sv: babyspenat
 agribalyse_food_code:en: 20270
 ciqual_food_code:en: 20270
 ciqual_food_name:en: Spinach, young leaves, raw
@@ -110279,8 +110456,9 @@ who_id:en: 16
 
 < en:Dried vegetables
 < en:Tomatoes and their products
-en: Dried tomatoes, Sun-Dried tomatoes, Dried tomato, Sun-Dried tomato
+en: Dried tomatoes, Sun-dried tomatoes, Dried tomato, Sun-dried tomato
 bg: Сушени домати
+da: soltørrede tomater
 de: Getrocknete Tomaten
 es: Tomates secos, Tomates deshidratados, Tomates desecados
 fi: kuivatut tomaatit
@@ -110290,10 +110468,12 @@ it: Pomodori essiccati
 ja: 干しトマト, ドライトマト
 nl: Gedroogde tomaten
 pl: Pomidory suszone
+sv: soltorkade tomater
 agribalyse_food_code:en: 20189
 ciqual_food_code:en: 20189
 ciqual_food_name:en: Tomato, dried
 ciqual_food_name:fr: Tomate, séchée
+wikidata:en: Q978399
 
 < en:Dried tomatoes
 en: Natural dried tomatoes
@@ -110304,8 +110484,9 @@ nl: Natuurlijk gedroogde tomaten
 pl: Naturalne pomidory suszone
 
 < en:Dried tomatoes
-en: Dried tomato in oil, Dried tomatoes in oil, Sun-Dried tomato in oil, Sun-Dried tomatoes in oil, Rehydrated dried tomatoes in oil
+en: Dried tomato in oil, Dried tomatoes in oil, Sun-dried tomato in oil, Sun-dried tomatoes in oil, Rehydrated dried tomatoes in oil
 bg: Сушени домати в олио
+da: soltørrede tomater i olie
 de: getrocknete Tomaten in Öl
 es: Tomates secos en aceite, Tomates secos rehidratados en aceite
 fi: kuivattuja tomaatteja öljyssä
@@ -110314,6 +110495,7 @@ hr: Sušene rajčice u ulju
 it: Pomodoro essiccato sott'olio
 nl: Gedroogde tomaten op olie
 pl: Pomidory suszone w oleju
+sv: soltorkade tomater i olja
 agribalyse_food_code:en: 20256
 ciqual_food_code:en: 20256
 ciqual_food_name:en: Tomato, dried, in oil
@@ -112228,14 +112410,17 @@ fr: Tofu nature
 hr: Obični tofu
 nl: Tofu natuur
 pl: Tofu naturalne
+sv: Tofu naturell
 
 < en:Tofu
 en: Smoked tofu
 bg: Пушено тофу
+da: Røget tofu
 fr: Tofu fumé
 hr: Dimljeni tofu
 nl: Gerookte tofu
 pl: Tofu wędzone
+sv: Rökt tofu, tofu rökt
 agribalyse_food_code:en: 20912
 
 < en:Legumes and their products
@@ -112873,51 +113058,87 @@ ro: Produse de patiserie, Produs de patiserie
 wikidata:en: Q7811427
 
 en: Plant-based foods and beverages
+af: Plantgebaseerde kosse en drankies
+ar: الأطعمة والمشروبات النباتية
+az: Bitki mənşəli qidalar və içkilər
+be: Раслінныя прадукты і напоі
 bg: Растителни храни и напитки
+bn: উদ্ভিদ-ভিত্তিক খাবার ও পানীয়
 ca: Aliments i begudes amb base vegetal
+cs: Rostlinné potraviny a nápoje
 da: Plantebaserede fødevarer og drikkevarer
 de: Pflanzliche Lebensmittel und Getränke
+el: Τρόφιμα και ποτά φυτικής προέλευσης
+eo: Plant-bazitaj manĝaĵoj kaj trinkaĵoj
 es: Alimentos y bebidas de origen vegetal
+et: Taimsed toidud ja joogid
+fa: غذاها و نوشیدنی‌های گیاهی
 fi: Kasvipohjaiset ruoat ja juomat
 fr: Aliments et boissons à base de végétaux
 he: מזונות ומשקאות על בסיס צמחי
+hi: पौधे आधारित खाद्य पदार्थ और पेय
 hr: Biljne hrane i pića
 hu: Növényi alapú élelmiszerek és italok
+id: Makanan dan minuman nabati
 it: Cibi e bevande a base vegetale
+ja: 植物性食品と飲料
+ko: 식물성 식품 및 음료
 lt: Augalinės kilmės maisto produktai ir gėrimai
+mk: Храна и пијалоци од растително потекло
+ms: Makanan dan minuman berasaskan tumbuhan
 nl: Plantaardige levensmiddelen en dranken
 no: Plantebaserte matvarer og drikkevarer, Plantebaserte mat- og drikkevarer, Plantebasert mat og drikke
 pl: Żywność i napoje na bazie roślin
 pt: Alimentos e bebidas à base de plantas
 ro: Alimente și băuturi pe bază de plante
 ru: Еда и напитки из растительного сырья
+sk: Rastlinné potraviny a nápoje
+sl: Rastlinska hrana in pijače
 sv: Växtbaserad mat och dryck
+th: อาหารและเครื่องดื่มจากพืช
 tr: Bitkisel yiyecek ve içecekler, Bitki kaynaklı yiyecek ve içecekler, Bitki yiyecek ve içecekleri
+uk: Їжа та напої на рослинній основі
 zh: 植物性食物与饮品
 
 < en:Plant-based foods and beverages
 en: Plant-based foods
+ar: الأطعمة النباتية
+az: Bitki mənşəli qidalar
 bg: Растителни храни
 ca: Aliments amb base vegetal
+cs: Rostlinné potraviny
 da: Plantebaserede fødevarer
 de: Pflanzliche Lebensmittel
+el: Τρόφιμα φυτικής προέλευσης
+eo: Plant-bazitaj manĝaĵoj
 es: Alimentos de origen vegetal, Alimentos vegetales, Vegetales y derivados
+et: Taimsed toidud
+fa: غذاهای گیاهی
 fi: Kasvipohjaiset ruoat
 fr: Aliments d'origine végétale, Aliments à base de plantes, Végétaux et dérivés
 he: מזונות מהצומח
+hi: पौधे आधारित खाद्य पदार्थ
 hr: Hranu biljnog podrijetla
 hu: Növényialapú élelmiszerek
+id: Makanan nabati
 it: Cibi a base vegetale
+ja: 植物性食品
+ko: 식물성 식품
 lt: Augalinės kilmės maisto produktai
+mk: Храна од растително потекло
+ms: Makanan berasaskan tumbuhan
 nl: Plantaardige levensmiddelen
 no: Plantebasert mat
 pl: Żywność na bazie roślin
 pt: Alimentos à base de plantas
 ro: Alimente pe bază de plante
 ru: Еда из растительного сырья
+sk: Rastlinné potraviny
+sl: Rastlinska hrana
 sv: Växtbaserad mat
 th: ผลิตภัณฑ์จากพืชทั้งหมด
 tr: Bitkisel yiyecekler, Bitki kaynaklı yiyecekler, Bitki yiyecekleri
+uk: Їжа на рослинній основі
 zh: 植物性食物
 
 < en:Plant-based foods and beverages
@@ -113010,6 +113231,7 @@ protected_name_type:en: pdo
 < en:Olives
 en: Black olives
 bg: Черни маслини
+da: sorte oliven
 de: schwarze Oliven
 es: Aceitunas negras
 fi: mustat oliivit
@@ -113022,6 +113244,7 @@ pl: Czarne oliwki
 pt: Azeitonas pretas
 ro: Măsline negre
 ru: Маслины чёрные, Чёрные маслины, Оливки чёрные, Чёрные оливки
+sv: svarta oliver
 tr: Siyah zeytin
 
 < en:Black olives
@@ -113269,6 +113492,7 @@ hr: Masline bez koštice
 it: Olive snocciolate, Olive denocciolate
 nl: Ontpitte olijven
 ru: Оливки без косточки, Маслины без косточки
+sv: urkärnade oliver
 
 < en:Black olives
 < en:Pitted olives
@@ -113282,6 +113506,7 @@ hr: Crne masline bez koštice
 it: Olive nere snocciolate
 nl: Zwarte ontpitte olijven
 ru: Чёрные маслины без косточки, Чёрные оливки без косточки, Оливки чёрные без косточки, Маслины чёрные без косточки
+sv: urkärnade svarta oliver, svarta urkärnade oliver
 
 < en:Black olives
 fr: Olives noires de la Vallée des Baux-de-Provence
@@ -113299,6 +113524,7 @@ nl: Halfrijpe olijven
 
 < en:Olives
 en: Stuffed olives
+da: fyldte oliven
 de: Gefüllte Oliven
 es: Aceitunas rellenas
 fi: täytetyt oliivit
@@ -113871,6 +114097,10 @@ ciqual_food_code:en: 11084
 ciqual_food_name:en: Seaweed, agar, raw
 ciqual_food_name:fr: Agar (algue), cru
 wikidata:en: Q177998
+
+< en: Agar-agar
+en: Agar-agar powder
+fr: Agar agar en poudre
 
 en: Caviar substitutes
 fr: Substituts du caviar
@@ -116373,6 +116603,14 @@ ciqual_food_name:fr: Galette de céréales aux légumes (sans soja), préemball�
 < en:Vegetarian patties
 en: Frozen vegetarian patties, frozen vegetarian steaks
 fr: Galettes végétariennes surgelées, Steaks végétariens surgelés
+
+< en:Vegetarian patties
+en: Red bean patties
+fr: Galettes aux haricots rouges
+
+< en:Vegetarian patties
+en: Seitan patties
+fr: Galettes au seitan
 
 < en:Meat analogues
 en: Vegetarian sausages

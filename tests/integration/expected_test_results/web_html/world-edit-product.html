@@ -166,9 +166,9 @@
 									
 									<li class="divider"></li>			
 									<li><label>Your contributions</label></li>
-									<li><a href="/contributor/tests">Products added</a></li>
-									<li><a href="/editor/tests">Products edited</a></li>
-									<li><a href="/photographer/tests">Products photographed</a></li>
+									<li><a href="/facets/contributors/tests">Products added</a></li>
+									<li><a href="/facets/editors/tests">Products edited</a></li>
+									<li><a href="/facets/photographers/tests">Products photographed</a></li>
 									
 									<li class="divider"></li>			
 									<li class="has-form">
@@ -460,6 +460,19 @@
 
         
         
+        
+            <label for="product_type" id="label_product_type">Product type</label>
+            <select name="product_type" id="product_type">
+                
+                    <option value="food"  selected="selected" >Food</option>
+                
+                    <option value="petfood" >Pet food</option>
+                
+                    <option value="beauty" >Beauty</option>
+                
+                    <option value="product" >Product</option>
+                
+            </select>
         
 
         
@@ -3518,6 +3531,10 @@ by typing the first letters of their name in the last row of the table.</p>
             
 
                 <div class="row">
+                    
+                        
+                        
+                    
                     <div class="small-12 medium-12 large-8 xlarge-8 columns" style="margin-bottom:0.5rem;">
                         <input id="comment" name="comment" placeholder="Changes summary" value="" type="text" class="text" style="margin:0" />
                     </div>
@@ -3531,6 +3548,7 @@ by typing the first letters of their name in the last row of the table.</p>
                             <svg xmlns="//www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon" aria-hidden="true" focusable="false"><path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"/><path d="M0 0h24v24H0z" fill="none"/></svg> Cancel
                         </button>
                     </div>
+                    
                 </div>
 
             
@@ -3544,7 +3562,7 @@ by typing the first letters of their name in the last row of the table.</p>
 <ul id="history_list">
   
   <li>
-    <time datetime="--ignore--">--ignore--</time> - <a href="/editor/tests" lang="no_language">tests</a> Data (Added: product_type, code, lang, product_name, generic_name, quantity, brands, categories, labels, link, countries, origin, nutrition_data_per, nutrition_data_prepared_per, serving_size, ingredients_text, generic_name_en, ingredients_text_en, origin_en, product_name_en, ingredients_text_fr) -- Nutriments (Added: nutrition-score-fr)   - (app)  &nbsp;
+    <time datetime="--ignore--">--ignore--</time> - <a href="/facets/editors/tests" lang="no_language">tests</a> Data (Added: product_type, code, lang, product_name, generic_name, quantity, brands, categories, labels, link, countries, origin, nutrition_data_per, nutrition_data_prepared_per, serving_size, ingredients_text, generic_name_en, ingredients_text_en, origin_en, product_name_en, ingredients_text_fr) -- Nutriments (Added: nutrition-score-fr)   - (app)  &nbsp;
     <a href="/product/3300000000001/apple-pie-bob-s-pies?rev=1" class="button tiny">View this revision</a>
     
   </li>
