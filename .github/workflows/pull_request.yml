@@ -23,10 +23,7 @@ jobs:
     name: "Filter changed paths"
     runs-on: ubuntu-latest
     outputs:
-      code_changed: ${{ steps.filter.outputs.code }}
-      docs_changed: ${{ steps.filter.outputs.docs }}
-      only_docs_changed: ${{ steps.filter.outputs.docs == 'true' && steps.filter.outputs.code != 'true' }}
-
+      code_modified: ${{ steps.filter.outputs.code }}
     steps:
       - uses: dorny/paths-filter@v2
         id: filter
@@ -35,25 +32,16 @@ jobs:
           # We need to consider every file in the repository and have it in a category
           # Maybe using negative match: https://github.com/micromatch/picomatch?tab=readme-ov-file#advanced-globbing
           filters: |
-            docs:
-              - '**/*.md'
-              - 'docs/**'
             code:
-              - '**/*.pl'
-              - '**/*.pm'
-              - '**/*.js'
-              - '**/*.scss'
-              - '**/*.html'
-              - 'conf/**'
-              - 'lib/**'
-              - 'scripts/**'
-              - 'tests/**'
-            taxonomies:
-              - 'taxonomies/**/*'
+            - '**/*'       # Catch everything else
+            - '!**/*.md'   # Exclude all Markdown files
+            - '!docs/**'   # Exclude docs/ folder
 
   lint:
     name: 🕵️‍♀️ NPM lint
+    needs: filter
     runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     steps:
     - uses: actions/checkout@v4
       with:
@@ -61,6 +49,13 @@ jobs:
     - uses: actions/setup-node@v4
       with:
         node-version: '22.x'
+    - name: Cache node modules
+      uses: actions/cache@v4
+      with:
+        path: node_modules
+        key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
     - name: gulp build
       run: make front_build
     - name: lint
@@ -69,7 +64,9 @@ jobs:
   # this will build the docker image and upload as an artifact for following jobs
   build_backend:
     name: 🏗 Build backend dev image for tests
+    needs: filter
     runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     steps:
     - uses: actions/checkout@v4
       with:
@@ -87,16 +84,8 @@ jobs:
       uses: ishworkh/container-image-artifact-upload@v2.0.0
       with:
         image: "openfoodfacts-server/backend:dev"
-    - name: Fetch origin/main
-      # we need origin/main to have comparison linting work
-      run: |
-        git remote set-branches --add origin main
-        git fetch --no-tags --prune --progress --no-recurse-submodules --depth=5 origin main
-    - name: Restore taxonomies dates
-      # here we first restore dates from git for taxonomies to avoid build them all
-      # see https://stackoverflow.com/a/60984318/2886726
-      run: |
-        git ls-files taxonomies/ | xargs -I{} git log -1 --date=format:%Y%m%d%H%M.%S --format='touch -t %ad "{}"' "{}" | bash
+    - name: Setup Git and Restore Taxonomies
+      run: ./.github/scripts/setup_git.sh
     - name: Rebuild taxonomies for Open Food Facts (off)
       run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
     - name: Rebuild taxonomies for Open Beauty Facts (obf)
@@ -114,22 +103,15 @@ jobs:
 
   check_perl:
     name: 🐪 Check Perl
-    needs: build_backend
+    needs: [filter, build_backend]
     runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     steps:
     - uses: actions/checkout@v4
       with:
         fetch-depth: 1
-    - name: Fetch origin/main
-      # we need origin/main to have comparison linting work
-      run: |
-        git remote set-branches --add origin main
-        git fetch --no-tags --prune --progress --no-recurse-submodules --depth=5 origin main
-    - name: Restore taxonomies dates
-      # here we first restore dates from git for taxonomies to avoid build them all
-      # see https://stackoverflow.com/a/60984318/2886726
-      run: |
-        git ls-files taxonomies/ | xargs -I{} git log -1 --date=format:%Y%m%d%H%M.%S --format='touch -t %ad "{}"' "{}" | bash
+    - name: Setup Git and Restore Taxonomies
+      run: ./.github/scripts/setup_git.sh
     - uses: actions/cache/restore@v4
       id: cache
       with:
@@ -161,8 +143,9 @@ jobs:
 
   tests:
     name: 🐪 Perl unit tests
-    needs: build_backend
+    needs: [filter, build_backend]
     runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     steps:
     - uses: actions/checkout@v4
       with:
@@ -173,16 +156,8 @@ jobs:
         path: ./build-cache
         key: taxonomies-${{ hashFiles('taxonomies/**') }}
         restore-keys: taxonomies-
-    - name: Fetch origin/main
-      # we need origin/main to have comparison linting work
-      run: |
-        git remote set-branches --add origin main
-        git fetch --no-tags --prune --progress --no-recurse-submodules --depth=5 origin main
-    - name: Restore taxonomies dates
-      # here we first restore dates from git for taxonomies to avoid build them all
-      # see https://stackoverflow.com/a/60984318/2886726
-      run: |
-        git ls-files taxonomies/ | xargs -I{} git log -1 --date=format:%Y%m%d%H%M.%S --format='touch -t %ad "{}"' "{}" | bash
+    - name: Setup Git and Restore Taxonomies
+      run: ./.github/scripts/setup_git.sh
     - name: Download backend image from artifacts
       id: downloadbackendimage
       uses: ishworkh/container-image-artifact-download@v2.0.0
@@ -219,7 +194,8 @@ jobs:
 
   tests_dev:
     name: 🧪 Test make dev
-    needs: build_backend  # only to avoid building taxonomies
+    needs: [filter, build_backend]  # build_backend - only to avoid building taxonomies
+    if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     runs-on: ubuntu-latest
     
     steps:
@@ -260,7 +236,9 @@ jobs:
 
   test_deployment:
     name: 🦾 Some test of deployment tools
+    needs: filter
     runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     steps:
     - uses: actions/checkout@v4
       with:
