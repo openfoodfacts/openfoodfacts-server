@@ -25,7 +25,7 @@ jobs:
     outputs:
       code_modified: ${{ steps.filter.outputs.code }}
     steps:
-      - uses: dorny/paths-filter@v2
+      - uses: dorny/paths-filter@v3
         id: filter
         with:
           # FIXME: we need to consider more than these files
