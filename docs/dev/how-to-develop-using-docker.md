@@ -226,7 +226,7 @@ You will need:
   * `.env.off` : configuration for Open Food Facts dev env.
   * `.env.off-pro` : configuration for Open Food Facts Producer's Platform dev env.
   * `.env.obf`: configuration for Open Beauty Facts dev env.
-  * `.env.opff`: configuration for Open Ped Food Facts dev env.
+  * `.env.opff`: configuration for Open Pet Food Facts dev env.
 
 
 * `COMPOSE_PROJECT_NAME`, `COMPOSE_PROFILES`,  `PRODUCT_OPENER_DOMAIN`, `PRODUCT_OPENER_PORT`, `PRODUCT_OPENER_FLAVOR` and `PRODUCT_OPENER_FLAVOR_SHORT` set to different values in each `.env` file, so that container names across deployments are unique and frontend containers don't port-conflict with each other. See example below.

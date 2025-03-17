@@ -95,6 +95,7 @@ BEGIN {
 		&compute_completeness_and_missing_tags
 		&compute_product_history_and_completeness
 		&compute_languages
+		&review_product_type
 		&compute_changes_diff_text
 		&compute_data_sources
 		&compute_sort_keys
@@ -132,7 +133,7 @@ use ProductOpener::Orgs qw/retrieve_org/;
 use ProductOpener::Lang qw/$lc %tag_type_singular lang/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Mail qw/send_email/;
-use ProductOpener::URL qw/format_subdomain/;
+use ProductOpener::URL qw(format_subdomain get_owner_pretty_path);
 use ProductOpener::Data qw/execute_query get_products_collection get_recent_changes_collection/;
 use ProductOpener::MainCountries qw/compute_main_countries/;
 use ProductOpener::Text qw/remove_email remove_tags_and_quote/;
@@ -145,6 +146,7 @@ use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
 # may be moved to another module at some point
 use ProductOpener::Packaging qw/analyze_and_combine_packaging_data/;
 use ProductOpener::DataQuality qw/check_quality/;
+use ProductOpener::TaxonomiesEnhancer qw/check_ingredients_between_languages/;
 
 # Specific to the product type
 use ProductOpener::FoodProducts qw/specific_processes_for_food_product/;
@@ -1157,6 +1159,12 @@ sub store_product ($user_id, $product_ref, $comment) {
 			}
 		}
 		delete $product_ref->{server};
+	}
+
+	# If we do not have a product_type, we set it to the default product_type of the current server
+	# This can happen if we are reverting a product to a previous version that did not have a product_type
+	if (not defined $product_ref->{product_type}) {
+		$product_ref->{product_type} = $options{product_type};
 	}
 
 	# In case we need to move a product from OFF to OBF etc.
@@ -2797,7 +2805,7 @@ sub product_url ($code_or_ref) {
 	}
 
 	$code = ($code // "");
-	return "/$path/$code" . $titleid;
+	return get_owner_pretty_path($Owner_id) . "/$path/$code" . $titleid;
 }
 
 =head2 product_action_url ( $code, $action )
@@ -2996,6 +3004,59 @@ sub compute_languages ($product_ref) {
 	$product_ref->{languages_codes} = \%languages_codes;
 	$product_ref->{languages_tags} = \@languages;
 	$product_ref->{languages_hierarchy} = \@languages_hierarchy;
+
+	return;
+}
+
+=head2 review_product_type ( $product_ref )
+
+Reviews the product type based on the presence of specific tags in the categories field.
+Updates the product type if necessary.
+
+=head3 Arguments
+
+=head4 Product reference $product_ref
+
+A reference to a hash containing the product details.
+
+=cut
+
+sub review_product_type ($product_ref) {
+
+	my $error;
+
+	my $expected_type;
+	if (has_tag($product_ref, "categories", "en:open-beauty-facts")) {
+		$expected_type = "beauty";
+	}
+	elsif (has_tag($product_ref, "categories", "en:open-food-facts")) {
+		$expected_type = "food";
+	}
+	elsif (has_tag($product_ref, "categories", "en:open-pet-food-facts")) {
+		$expected_type = "petfood";
+	}
+	elsif (has_tag($product_ref, "categories", "en:open-products-facts")) {
+		$expected_type = "product";
+	}
+
+	if ($expected_type and ($product_ref->{product_type} ne $expected_type)) {
+		$error = change_product_type($product_ref, $expected_type);
+	}
+
+	if ($error) {
+		$log->error("review_product_type - error", {error => $error, product_ref => $product_ref});
+	}
+	else {
+		# We remove the tag en:incorrect-product-type and its children before the product is stored on the server of the new type
+		remove_tag($product_ref, "categories", "en:incorrect-product-type");
+		remove_tag($product_ref, "categories", "en:open-beauty-facts");
+		remove_tag($product_ref, "categories", "en:open-food-facts");
+		remove_tag($product_ref, "categories", "en:open-pet-food-facts");
+		remove_tag($product_ref, "categories", "en:open-products-facts");
+		remove_tag($product_ref, "categories", "en:non-food-products");
+		remove_tag($product_ref, "categories", "en:non-pet-food-products");
+		remove_tag($product_ref, "categories", "en:non-beauty-products");
+	}
 
 	return;
 }
@@ -3723,6 +3784,11 @@ sub analyze_and_enrich_product_data ($product_ref, $response_ref) {
 
 	compute_languages($product_ref);    # need languages for allergens detection and cleaning ingredients
 
+	# change the product type of non-food categorized products (issue #11094)
+	if (has_tag($product_ref, "categories", "en:incorrect-product-type")) {
+		review_product_type($product_ref);
+	}
+
 	# Run special analysis, score calculations that it specific to the product type
 
 	if (($options{product_type} eq "food")) {
@@ -3736,6 +3802,10 @@ sub analyze_and_enrich_product_data ($product_ref, $response_ref) {
 	}
 
 	ProductOpener::DataQuality::check_quality($product_ref);
+
+	if (defined $taxonomy_fields{'ingredients'}) {
+		check_ingredients_between_languages($product_ref);
+	}
 
 	# Sort misc_tags in order to have a consistent order
 	if (defined $product_ref->{misc_tags}) {

@@ -154,6 +154,7 @@ nl: Pot, Potten, Bokaal, Bokaalen
 pl: Słoik
 pt: Jarro, jarros, jarra, jarras
 ro: Borcan
+sv: burk
 # suggest:packaging_materials:nl: en:glass
 description:nl: Cilindervormig voorwerp van glas of aardewerk
 # image:xx:bocal-verre.svg (looks like the Nutella jar)
@@ -266,6 +267,7 @@ it: Bottiglia
 nl: Fles, Flessen
 pl: Butelka
 pt: Garrafa, garrafas
+sv: Flaska
 # suggest:packaging_materials:nl: en:glass
 # associated_packagings: en:cap
 description:nl: Een langgerekt, cilindrisch en meestal van glas vervaardigd vat met een nauwe hals die met een dop of kurk af te sluiten is
@@ -429,7 +431,7 @@ pt: Pote individual, potes individuais, boião individual, boiões individuais
 
 # <en:pot
 # fr:salière
-# image:xx:pot-5.svg 
+# image:xx:pot-5.svg
 # (image looks like a salière)
 # suggest:category: en:salts, en:peppers
 
@@ -445,7 +447,7 @@ en: Tube, tubes
 de: Tube, Tuben
 fr: Tube, tubes
 hu: Tubus, tubusok, Cső, csövek, cső alakú
-# image:xx:tube-1.svg 
+# image:xx:tube-1.svg
 # suggest:packaging_materials: en:cardboard, en:metal, en:glass, en:plastic, en:others
 # associated_packagings: en:cap
 it: Tubo, tubi
@@ -460,7 +462,7 @@ describtion:nl: Een verpakking in kokervorm gemaakt van metaal of plastic gevuld
 
 # <en:Tube
 # fr:Tube avec bouchon refermable
-# image:xx:tube-2.svg 
+# image:xx:tube-2.svg
 # associated_packagings: en:cap
 
 en: Fastener, clip
@@ -496,6 +498,7 @@ hu: Zacskó, zacskók, tasak, tasakos
 it: Sacco, sacchetto, sacchettino
 nl: Zak, Sachet, Tas, verzendzak, Zakken, Zakje, Zakjes
 pt: Saco, sacos, saquinho, saquinhos, saqueta, saquetas
+sv: Väska, väskor
 description:nl: Slappe, vormeloze verpakking
 
 # image:xx:sac-sachet-poche-1.svg (sachet avec poignée)
@@ -603,6 +606,7 @@ fr: coiffe, coiffes
 
 < en:Lid or cap
 en: Lid, cover, lids, covers
+da: Låg
 de: Deckel
 el: Καπάκι
 fr: Couvercle, couvercles
@@ -617,6 +621,7 @@ nb: Lokk
 nl: Deksel, deksels
 pl: Nakrętka, Zakrętka, Pokrywka, Wieczko, Wieko
 pt: Tampa, tampas
+sv: Lock
 
 < en:Lid or cap
 en: Bottle cap, bottle top, cap, top, bottle caps, bottle tops, caps, tops
@@ -811,10 +816,12 @@ pt: Cápsulas de café compatíveis com Senseo
 
 en: Tea bag
 bg: Чаена торбичка
+da: Tepose, teposer
 # suggest:packaging_materials:en: en:paper
 # related_categories:en: en:Tea bags
 it: bustina di tè, bustina di te, bustina
 nl: Theezakje
+sv: Tepåse, tepåsar
 
 # keep the plural as the main name
 # fr:Baguettes / Couverts / Paille -> entry from Les Mousquetaires
@@ -903,6 +910,7 @@ it: coltello, coltelli, coltellino, coltellini
 nl: Mes, messen
 pl: Nóż, noże
 pt: Faca, facas
+sv: Kniv
 wikidata:en: Q32489
 
 < en:Cutlery
@@ -917,6 +925,7 @@ it: forchetta, forchette, forchettina, forchettine
 nl: Vork, vorken
 pl: Widelec, widelce
 pt: Garfo, garfos
+sv: Gaffel
 wikidata:en: Q81881
 
 < en:Cutlery
@@ -942,18 +951,22 @@ wikidata:en: Q81895
 < en:Spoon
 en: teaspoon
 bg: чаена лъжичка, чаена лъжица
+da: teske, teskeer
 fr: cuillère à café
 it: cucchiaino da tè
 nl: theelepel
 pl: Łyżeczki, Łyżeczka
+sv: tesked, teskedar
 wikidata:en: Q216425
 
 < en:Spoon
 en: tablespoon
 bg: супена лъжица
+da: spiseske, spiseskeer
 fr: cuillère à soupe
 it: cucchiaino
 nl: soeplepel
+sv: matsked, matskedar
 wikidata:en: Q2002583
 
 # fr:Plaque / Intercalaire in data from Les Mousquetaires
@@ -1210,12 +1223,12 @@ fr: Rouleau, Bobine, Mandrin, Mandrin / Rouleau
 
 # <en:Roll
 # fr:rouleau de sopalin
-# image:xx:bobine-rouleau-1.svg 
+# image:xx:bobine-rouleau-1.svg
 # suggest:packaging_materials:en: en:cardboard, en:paper
 
 # <en:Roll
 # fr:rouleau de papier toilette
-# image:xx:bobine-rouleau-2.svg 
+# image:xx:bobine-rouleau-2.svg
 # suggest:packaging_materials:en: en:cardboard, en:paper
 
 < en:Jug or canister
@@ -1294,10 +1307,12 @@ fr: Gaine, gaines, manchon, manchons, sleever, sleevers
 
 en: envelope
 bg: плик
+da: konvolut
 es: sobre
 fr: enveloppe
 it: busta
 nl: wikkel, vensterenvelop, sleeve
+sv: kuvert
 # suggest:packaging_materials:en: en:cardboard, en:paper
 # image:xx:enveloppe-papier.svg
 # image:xx:enveloppe-carton.svg
@@ -1511,6 +1526,7 @@ wikidata:en: Q47107
 
 < en:bucket
 en: small bucket
+da: lille spand
 nl: emmertje
 pl: wiaderko
 

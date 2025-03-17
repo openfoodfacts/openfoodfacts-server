@@ -1728,6 +1728,7 @@ nl: Metaal, Metalen
 pl: Metal, Metale
 pt: Metais
 ru: Металл
+sv: metall
 description:en: All metals can be reused, if returned properly.
 description:de: Alle Metalle können bei ordnungsgemäßer Rückgabe wiederverwendet werden.
 description:es: Todos los metales se pueden reutilizar, si se devuelven correctamente.
@@ -2256,6 +2257,16 @@ uk: Прозоре скло
 wikidata:en: Q28869937
 
 < en:Glass
+en: Uncoloured Glass, Uncolored Glass
+da: ufarvet glas
+sv: ofärgat glas
+
+< en:Glass
+en: Coloured Glass, Colored Glass
+da: farvet glas
+sv: färgat glas
+
+< en:Coloured Glass
 en: Green Glass
 xx: 71 GL, GL 71, 71GL, GL71, 71 GLS, GLS 71, 71GLS, GLS71
 bg: Зелено стъкло
@@ -2289,7 +2300,7 @@ sv: grönt glas
 tr: Yeşil cam
 uk: зелене скло
 
-< en:Glass
+< en:Coloured Glass
 en: Brown Glass
 xx: 72 GL, GL 72, 72GL, GL72, 72 GLS, GLS 72, 72GLS, GLS72
 bg: Кафяво стъкло

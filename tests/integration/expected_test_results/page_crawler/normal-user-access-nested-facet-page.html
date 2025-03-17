@@ -10,7 +10,7 @@
 	<meta property="fb:app_id" content="219331381518041">
     <meta property="og:type" content="food">
     <meta property="og:title" content="">
-    <meta property="og:url" content="//world.openfoodfacts.localhost/category/en:hazelnut-spreads/brand/nutella">
+    <meta property="og:url" content="//world.openfoodfacts.localhost/facets/categories/en:hazelnut-spreads/brands/nutella/1">
     
     <meta property="og:image" content="//static.openfoodfacts.org/images/logos/off-logo-vertical-white-social-media-preview.png">
     <meta property="og:description" content="">
@@ -25,7 +25,7 @@
 <meta name="theme-color" content="#ffffff">
 
 	<meta name="apple-itunes-app" content="app-id=588797948">
-    <link rel="canonical" href="//world.openfoodfacts.localhost/category/en:hazelnut-spreads/brand/nutella">
+    <link rel="canonical" href="//world.openfoodfacts.localhost/facets/categories/en:hazelnut-spreads/brands/nutella/1">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/app-ltr.css?v=--ignore--" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/select2.min.css">
@@ -375,12 +375,12 @@
 
             <div class="tag_navigation">
                 
-                    <a href="/categories">Category</a>:
-                    <a href="/category/hazelnut-spreads">Hazelnut spreads</a>
+                    <a href="/facets/categories">Category</a>:
+                    <a href="/facets/categories/hazelnut-spreads">Hazelnut spreads</a>
                      / 
                 
-                    <a href="/brands">Brand</a>:
-                    <a href="/brand/nutella">Nutella</a>
+                    <a href="/facets/brands">Brand</a>:
+                    <a href="/facets/brands/nutella">Nutella</a>
                     
                 
             </div>
@@ -490,23 +490,23 @@
           <ul id="drop_sort" data-dropdown-content class="f-dropdown" aria-hidden="true">
           
             <li>
-              <a href="/category/hazelnut-spreads/brand/nutella?sort_by=popularity" onclick="$.cookie('last_sort_by', 'popularity', { expires: 180, path: '/' });">Most scanned products</a>
+              <a href="/facets/categories/hazelnut-spreads/brands/nutella?sort_by=popularity" onclick="$.cookie('last_sort_by', 'popularity', { expires: 180, path: '/' });">Most scanned products</a>
             </li>
         
             <li>
-              <a href="/category/hazelnut-spreads/brand/nutella?sort_by=nutriscore_score" onclick="$.cookie('last_sort_by', 'nutriscore_score', { expires: 180, path: '/' });">Products with the best Nutri-Score</a>
+              <a href="/facets/categories/hazelnut-spreads/brands/nutella?sort_by=nutriscore_score" onclick="$.cookie('last_sort_by', 'nutriscore_score', { expires: 180, path: '/' });">Products with the best Nutri-Score</a>
             </li>
         
             <li>
-              <a href="/category/hazelnut-spreads/brand/nutella?sort_by=environmental_score_score" onclick="$.cookie('last_sort_by', 'environmental_score_score', { expires: 180, path: '/' });">Products with the best Green-Score</a>
+              <a href="/facets/categories/hazelnut-spreads/brands/nutella?sort_by=environmental_score_score" onclick="$.cookie('last_sort_by', 'environmental_score_score', { expires: 180, path: '/' });">Products with the best Green-Score</a>
             </li>
         
             <li>
-              <a href="/category/hazelnut-spreads/brand/nutella?sort_by=created_t" onclick="$.cookie('last_sort_by', 'created_t', { expires: 180, path: '/' });">Recently added products</a>
+              <a href="/facets/categories/hazelnut-spreads/brands/nutella?sort_by=created_t" onclick="$.cookie('last_sort_by', 'created_t', { expires: 180, path: '/' });">Recently added products</a>
             </li>
         
             <li>
-              <a href="/category/hazelnut-spreads/brand/nutella?sort_by=last_modified_t" onclick="$.cookie('last_sort_by', 'last_modified_t', { expires: 180, path: '/' });">Recently modified products</a>
+              <a href="/facets/categories/hazelnut-spreads/brands/nutella?sort_by=last_modified_t" onclick="$.cookie('last_sort_by', 'last_modified_t', { expires: 180, path: '/' });">Recently modified products</a>
             </li>
         
           </ul>
@@ -771,6 +771,7 @@ var products = [
                   "id":"low_salt",
                   "missing":"Missing nutrition facts",
                   "name":"Salt",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Salt in unknown quantity"
                },
@@ -780,6 +781,7 @@ var products = [
                   "id":"low_fat",
                   "missing":"Missing nutrition facts",
                   "name":"Fat",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Fat in unknown quantity"
                },
@@ -789,6 +791,7 @@ var products = [
                   "id":"low_sugars",
                   "missing":"Missing nutrition facts",
                   "name":"Sugars",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Sugars in unknown quantity"
                },
@@ -798,6 +801,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "missing":"Missing nutrition facts",
                   "name":"Saturated fat",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Saturated fat in unknown quantity"
                }
