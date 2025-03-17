@@ -482,6 +482,14 @@ zh: 肥皂
 wikidata:en: Q34396
 
 < en:Soaps
+en: Scented soaps
+incompatible_with:en: categories:en:unscented-soaps
+
+< en:Soaps
+en: Unscented soaps
+incompatible_with:en: categories:en:scented-soaps
+
+< en:Soaps
 en: Marseille soaps, Marseille soap
 fr: Savons de Marseille, Savon de Marseille
 wikidata:en: Q908677
@@ -589,7 +597,17 @@ uk: Рідке мило
 uz: Suyuq sovunlar
 vi: Xà phòng lỏng
 zh: 液体皂
+incompatible_with:en: categories:en:bar-soaps
 wikidata:en: Q97925317
+
+< en:Soaps
+en: Bar soaps
+incompatible_with:en: categories:en:liquid-soaps
+wikidata:en: Q27883554
+
+< en:Bar soaps
+< en:Scented soaps
+en: Scented bar soaps
 
 < en:Hygiene
 en: Hydro-alcoholic gels, alcohol-based gels
@@ -6876,3 +6894,9 @@ uz: Bolalar uchun nam salfetkalar
 vi: Khăn ướt cho bé
 zh: 婴儿湿巾
 
+en: Cotton buds, Cotton swabs
+da: Vatpinde
+de: Wattestäbchen
+nb: Bomullspinner
+sv: Bomullspinnar
+wikidata:en: Q12201
