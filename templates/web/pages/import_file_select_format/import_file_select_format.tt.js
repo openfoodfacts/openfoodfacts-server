@@ -38,7 +38,7 @@ function init_select_field_option(col) {
 
 			if (field ==  "[% tagtype %]_specific") {
 
-				var input = '<input id="select_field_option_tag_' + col + '" name="select_field_option_tag_' + col +  '" placeholder= "[% lang("${tagtype}_s") %]" style="width:150px;margin-bottom:0;height:28px;">';
+				var input = '<input id="select_field_option_tag_' + col + '" name="select_field_option_tag_' + col +  '" placeholder= "[% edq(lang("${tagtype}_s")) %]" style="width:150px;margin-bottom:0;height:28px;">';
 
 				\$("#select_field_option_" + col).html(input);
 
@@ -54,7 +54,7 @@ function init_select_field_option(col) {
 					columns_fields[column]["tag"] = \$(this).val();
 				});
 
-				instructions += "<p>[% lang('${tagtype}_specific_tag') %]</p>" + "<p>[% lang('${tagtype}_specific_tag_value') %]</p>";
+				instructions += "<p>[% edq(lang('${tagtype}_specific_tag')) %]</p>" + "<p>[% edq(lang('${tagtype}_specific_tag_value')) %]</p>";
 		
 			}
 		[% END %]
@@ -80,7 +80,7 @@ function init_select_field_option(col) {
 
 			// setup a select2 widget
 			\$('#select_field_option_lc_' + col).select2({
-				placeholder: "[% lang('specify') %]"
+				placeholder: "[% edq(lang('specify')) %]"
 			}).on("select2:select", function(e) {
 				var id = e.params.data.id;
 				var col = this.id.replace(/select_field_option_lc_/, '');
@@ -96,36 +96,36 @@ function init_select_field_option(col) {
 			+ '<option></option>';
 
 			if (field.match(/^energy/)) {
-				select += "<option value='value_in_kj'>[% lang('value_in_kj') %]</option>"
+				select += "<option value='value_in_kj'>[% edq(lang('value_in_kj')) %]</option>"
 				+ "<option value='value_in_kcal'>[% lang('value_in_kcal') %]</option>";
 			}
 			else if (field.match(/weight/)) {
-				select += "<option value='value_in_g'>[% lang('value_in_g') %]</option>";
+				select += "<option value='value_in_g'>[% edq(lang('value_in_g')) %]</option>";
 			}
 			else if (field.match(/volume/)) {
-				select += "<option value='value_in_l'>[% lang('value_in_l') %]</option>"
-				+ "<option value='value_in_dl'>[% lang('value_in_dl') %]</option>"
-				+ "<option value='value_in_cl'>[% lang('value_in_cl') %]</option>"
-				+ "<option value='value_in_ml'>[% lang('value_in_ml') %]</option>";
+				select += "<option value='value_in_l'>[% edq(lang('value_in_l')) %]</option>"
+				+ "<option value='value_in_dl'>[% edq(lang('value_in_dl')) %]</option>"
+				+ "<option value='value_in_cl'>[% edq(lang('value_in_cl')) %]</option>"
+				+ "<option value='value_in_ml'>[% edq(lang('value_in_ml')) %]</option>";
 			}
 			else if (field.match(/quantity/)) {
-				select += "<option value='value_in_g'>[% lang('value_in_g') %]</option>"
-				+ "<option value='value_in_l'>[% lang('value_in_l') %]</option>"
-				+ "<option value='value_in_dl'>[% lang('value_in_dl') %]</option>"
-				+ "<option value='value_in_cl'>[% lang('value_in_cl') %]</option>"
-				+ "<option value='value_in_ml'>[% lang('value_in_ml') %]</option>";
+				select += "<option value='value_in_g'>[% edq(lang('value_in_g')) %]</option>"
+				+ "<option value='value_in_l'>[% edq(lang('value_in_l')) %]</option>"
+				+ "<option value='value_in_dl'>[% edq(lang('value_in_dl')) %]</option>"
+				+ "<option value='value_in_cl'>[% edq(lang('value_in_cl')) %]</option>"
+				+ "<option value='value_in_ml'>[% edq(lang('value_in_ml')) %]</option>";
 			}
 			else {
-				select += "<option value='value_in_g'>[% lang('value_in_g') %]</option>"
-				+ "<option value='value_in_mg'>[% lang('value_in_mg') %]</option>"
-				+ "<option value='value_in_mcg'>[% lang('value_in_mcg') %]</option>"
-				+ "<option value='value_in_iu'>[% lang('value_in_iu') %]</option>"
-				+ "<option value='value_in_percent'>[% lang('value_in_percent') %]</option>";
+				select += "<option value='value_in_g'>[% edq(lang('value_in_g')) %]</option>"
+				+ "<option value='value_in_mg'>[% edq(lang('value_in_mg')) %]</option>"
+				+ "<option value='value_in_mcg'>[% edq(lang('value_in_mcg')) %]</option>"
+				+ "<option value='value_in_iu'>[% edq(lang('value_in_iu')) %]</option>"
+				+ "<option value='value_in_percent'>[% edq(lang('value_in_percent')) %]</option>";
 			}
 
-			select += "<option value='value_unit'>[% lang('value_unit') %]</option>"
-			+ "<option value='value'>[% lang('value') %]</option>"
-			+ "<option value='unit'>[% lang('unit') %]</option>"
+			select += "<option value='value_unit'>[% edq(lang('value_unit')) %]</option>"
+			+ "<option value='value'>[% edq(lang('value')) %]</option>"
+			+ "<option value='unit'>[% edq(lang('unit')) %]</option>"
 			+ "</select>";
 
 			\$("#select_field_option_" + col).html(select);
@@ -135,7 +135,7 @@ function init_select_field_option(col) {
 			}
 
 			\$('#select_field_option_value_unit_' + col).select2({
-				placeholder: "[% lang('specify') %]"
+				placeholder: "[% edq(lang('specify')) %]"
 			}).on("select2:select", function(e) {
 				var id = e.params.data.id;
 				var col = this.id.replace(/select_field_option_value_unit_/, '');
@@ -144,7 +144,7 @@ function init_select_field_option(col) {
 			}).on("select2:unselect", function(e) {
 			});
 
-			instructions += "<p>[% lang('value_unit_dropdown') %]'</p>"
+			instructions += "<p>[% edq(lang('value_unit_dropdown')) %]'</p>"
 			+ "<ul>"
 			+ "<li>[% lang('value_unit_dropdown_value_specific_unit') %]</li>"
 			+ "<li>[% lang('value_unit_dropdown_value_unit') %]</li>"
@@ -158,7 +158,7 @@ function init_select_field_option(col) {
 
 function init_select_field() {
 	var options = {
-		placeholder: "[% lang('select_a_field') %]",
+		placeholder: "[% edq(lang('select_a_field')) %]",
 		data:select2_options,
 		allowClear: true
 	};

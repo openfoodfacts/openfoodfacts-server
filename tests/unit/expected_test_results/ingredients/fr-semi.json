@@ -2,7 +2,9 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "9520",
+         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
          "id" : "en:semi-wholemeal-rice-flour",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 75,
          "percent_max" : 100,
          "percent_min" : 50,
@@ -11,7 +13,10 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "9410",
+         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
          "id" : "en:semi-wholemeal-wheat-flour",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 25,
          "percent_max" : 50,
          "percent_min" : 0,
@@ -38,6 +43,7 @@
       "en:wheat",
       "en:wheat-flour"
    ],
+   "ingredients_lc" : "fr",
    "ingredients_n" : 2,
    "ingredients_n_tags" : [
       "2",
@@ -65,10 +71,10 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 2,
    "ingredients_with_unspecified_percent_sum" : 100,
-   "ingredients_without_ciqual_codes" : [
-      "en:semi-wholemeal-wheat-flour"
-   ],
-   "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 10,
    "lc" : "fr",
    "nutriments" : {

@@ -1,4 +1,3 @@
-version: "3.7"
 services:
   memcached:
     restart: always
@@ -43,8 +42,11 @@ volumes:
   podata:
     external: true
     name: ${COMPOSE_PROJECT_NAME}_podata
-  # not external, for wiping it will avoid keeping too much cached data
+  export_files:
+    external: true
+    name: ${COMPOSE_PROJECT_NAME}_export_files
   build_cache:
+    external: true
     name: ${COMPOSE_PROJECT_NAME}_build_cache
 
 networks:

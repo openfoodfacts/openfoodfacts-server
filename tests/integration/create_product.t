@@ -2,10 +2,14 @@
 
 use ProductOpener::PerlStandards;
 
-use Test::More;
-use ProductOpener::APITest qw/:all/;
-use ProductOpener::Test qw/:all/;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
+use ProductOpener::APITest qw/construct_test_url create_user edit_product new_client wait_application_ready/;
+use ProductOpener::Test qw/remove_all_products remove_all_users/;
+use ProductOpener::TestDefaults qw/%default_user_form/;
 
+remove_all_users();
 remove_all_products();
 wait_application_ready();
 
@@ -29,17 +33,16 @@ my %product_fields = (
 );
 
 # Test creating a product as a registered user: the product should be created
-create_user($user_ua, {});
+my %create_user_args = (%default_user_form, (email => 'bob@test.com'));
+create_user($user_ua, \%create_user_args);
 edit_product($user_ua, \%product_fields);
-my $response = $anon_ua->get(construct_test_url("/cgi/product.pl?type=edit&code=200000000098"));
-is($response->{_rc}, 200) or diag explain $response;
+my $response = $user_ua->get(construct_test_url("/cgi/product.pl?type=edit&code=200000000098"));
+is($response->{_rc}, 200) or diag Dumper $response;
 
 # Test creating a product without a user: the product should not be created
 $product_fields{code} = "200000000099";
-edit_product($anon_ua, \%product_fields);
-$response = $anon_ua->get(construct_test_url("/cgi/product.pl?type=edit&code=200000000099"));
-
-# TODO: the product is in fact created, need to investigated if this behavior is wanted or not
-#is($response->{_rc}, 404) or diag explain $response;
+edit_product($anon_ua, \%product_fields, 1);    # $ok_to_fail = 1, as we expect this to fail
+$response = $user_ua->get(construct_test_url("/cgi/product.pl?type=edit&code=200000000099"));
+is($response->{_rc}, 404) or diag Dumper $response;
 
 done_testing();

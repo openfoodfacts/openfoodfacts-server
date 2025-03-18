@@ -47,7 +47,11 @@ An array list of services to perform.
 Currently implemented services:
 
 - echo : does nothing, mostly for testing
+- parse_ingredients_text : parse the ingredients text list and return an ingredients object
+- extend_ingredients : extend the ingredients object with additional information
 - estimate_ingredients_percent : compute percent_min, percent_max, percent_estimate for each ingredient in the ingredients object
+- analyze_ingredients : analyze the ingredients object and return a summary object
+- estimate_environmental_cost_ingredients : estimate the environmental cost of a given product (see Ecobalyse)
 
 =head4 product
 
@@ -82,30 +86,41 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/:all/;
+use ProductOpener::Display qw/request_param/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::API qw/:all/;
+use ProductOpener::API qw/add_error customize_response_for_product/;
+use ProductOpener::EnvironmentalImpact;
 
 use Encode;
 
-=head2 echo_service ($product_ref)
+=head2 echo_service ($product_ref, $updated_product_fields_ref, $errors_ref)
 
 Echo service that returns the input product unchanged.
 
 =cut
 
-sub echo_service ($product_ref, $updated_product_fields_ref) {
+sub echo_service ($product_ref, $updated_product_fields_ref, $errors_ref) {
 
 	return;
 }
 
+=head2 Service function handlers
+
+They will be called with the input product object, a reference to the updated fields hash, and a reference to the errors array.
+
+=cut
+
 my %service_functions = (
 	echo => \&echo_service,
 	parse_ingredients_text => \&ProductOpener::Ingredients::parse_ingredients_text_service,
+	extend_ingredients => \&ProductOpener::Ingredients::extend_ingredients_service,
 	estimate_ingredients_percent => \&ProductOpener::Ingredients::estimate_ingredients_percent_service,
 	analyze_ingredients => \&ProductOpener::Ingredients::analyze_ingredients_service,
+	estimate_environmental_impact => \&ProductOpener::EnvironmentalImpact::estimate_environmental_impact_service,
+	determine_food_contact_of_packaging_components =>
+		\&ProductOpener::PackagingFoodContact::determine_food_contact_of_packaging_components_service,
 );
 
 sub check_product_services_api_input ($request_ref) {
@@ -169,7 +184,7 @@ sub check_product_services_api_input ($request_ref) {
 	return $error;
 }
 
-=head2 product_services_api()
+=head2 product_services_api($request_ref)
 
 Process API v3 product services requests.
 
@@ -190,6 +205,12 @@ sub product_services_api ($request_ref) {
 	if (not $error) {
 
 		my $product_ref = $request_body_ref->{product};
+		# Normalization of some fields like lc / lang
+		normalize_product_data($product_ref);
+
+		# TODO: check that the product object is valid
+		# any input product data can be sent, and most of the services expect a specific structure
+		# they may crash and return a 500 error if the input data is not as expected (e.g. hash instead of array)
 
 		# We will track of fields updated by the services so that we can return only those fields
 		# if the fields parameter value is "updated"
@@ -198,7 +219,7 @@ sub product_services_api ($request_ref) {
 		foreach my $service (@{$request_body_ref->{services}}) {
 			my $service_function = $service_functions{$service};
 			if (defined $service_function) {
-				&$service_function($product_ref, $request_ref->{updated_product_fields});
+				&$service_function($product_ref, $request_ref->{updated_product_fields}, $response_ref->{errors});
 			}
 			else {
 				add_error(

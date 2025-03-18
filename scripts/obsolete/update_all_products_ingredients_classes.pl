@@ -26,6 +26,7 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -44,7 +45,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 
 # Get a list of all products
@@ -68,14 +69,14 @@ my $cursor = $products_collection->query({})->fields({ code => 1 })->sort({code 
 		$product_ref = retrieve_product($code);
 		
 		# Update
-		extract_ingredients_classes_from_text($product_ref);
+		extract_additives_from_text($product_ref);
 
 		# Store
 		
 		next if $path =~ /invalid/;
 
-		if ( -e "$data_root/products/$path/product.sto" ) {
-			store( "$data_root/products/$path/product.sto", $product_ref );
+		if ( -e "$BASE_DIRS{PRODUCTS}/$path/product.sto" ) {
+			store( "$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref );
 			$products_collection->save($product_ref);
 
 			if (defined $product_ref->{old_additives_tags}) {

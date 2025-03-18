@@ -45,12 +45,14 @@ BEGIN {
 		&execute_query
 		&execute_aggregate_tags_query
 		&execute_count_tags_query
+		&execute_product_query
 		&get_database
 		&get_collection
 		&get_products_collection
 		&get_emb_codes_collection
 		&get_recent_changes_collection
 		&remove_documents_by_ids
+		&get_orgs_collection
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -61,10 +63,11 @@ use vars @EXPORT_OK;
 use experimental 'smartmatch';
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Cursor;
 
+use Storable qw(freeze);
 use MongoDB;
-use Tie::IxHash;
-use JSON::PP;
+use JSON::MaybeXS;
 use CGI ':cgi-lib';
 use Log::Any qw($log);
 
@@ -119,6 +122,48 @@ sub execute_count_tags_query ($query) {
 	return execute_tags_query('count', $query);
 }
 
+sub execute_product_query ($parameters_ref, $query_ref, $fields_ref, $sort_ref = undef, $limit = undef, $skip = undef) {
+	# Currently only send descending popularity_key sorts to off-query
+	# Note that $sort_ref is a Tie::IxHash so can't use $sort_ref->{popularity_key}
+	if ($parameters_ref->{off_query} && $sort_ref && $sort_ref->FETCH('popularity_key') == -1) {
+		# Convert sort into an array so that the order of keys is not ambiguous
+		my @sort_array = ();
+		foreach my $k ($sort_ref->Keys) {
+			push(@sort_array, [$k, $sort_ref->FETCH($k)]);
+		}
+
+		my $results = execute_tags_query(
+			'find',
+			{
+				filter => $query_ref,
+				projection => $fields_ref,
+				sort => \@sort_array,
+				limit => $limit,
+				skip => $skip
+			}
+		);
+
+		if (defined $results) {
+			return ProductOpener::Cursor->new($results);
+		}
+	}
+
+	my $cursor = get_products_collection($parameters_ref)->query($query_ref)->fields($fields_ref);
+	if ($sort_ref) {
+		$cursor = $cursor->sort($sort_ref);
+	}
+	if ($limit) {
+		$cursor = $cursor->limit($limit);
+	}
+	if ($skip) {
+		$cursor = $cursor->skip($skip);
+	}
+	return $cursor;
+}
+
+# $json_utf8 has utf8 enabled: it decodes UTF8 bytes
+my $json_utf8 = JSON::MaybeXS->new->utf8(1)->allow_nonref->canonical;
+
 sub execute_tags_query ($type, $query) {
 	if ((defined $query_url) and (length($query_url) > 0)) {
 		$query_url =~ s/^\s+|\s+$//g;
@@ -137,7 +182,7 @@ sub execute_tags_query ($type, $query) {
 			'Content-Type' => 'application/json; charset=utf-8'
 		);
 		if ($resp->is_success) {
-			return decode_json($resp->decoded_content);
+			return $json_utf8->decode($resp->decoded_content);
 		}
 		else {
 			$log->warn(
@@ -201,6 +246,10 @@ sub get_emb_codes_collection ($timeout = undef) {
 
 sub get_recent_changes_collection ($timeout = undef) {
 	return get_collection($mongodb, 'recent_changes', $timeout);
+}
+
+sub get_orgs_collection ($timeout = undef) {
+	return get_collection($mongodb, 'orgs', $timeout);
 }
 
 sub get_collection ($database, $collection, $timeout = undef) {
@@ -273,12 +322,14 @@ correspond to the _id field
 =head3 Return values
 
 Returns a hash with:
-<dl>
-  <dt>removed</dt>
-  <dd>int - number of effectively removed items</dd>
-  <dt>errors</dt>
-  <dd>ref to a list of errors</dd>
-</dl>
+
+	<dl>
+	  <dt>removed</dt>
+	  <dd>int - number of effectively removed items</dd>
+	  <dt>errors</dt>
+	  <dd>ref to a list of errors</dd>
+	</dl>
+
 =cut
 
 sub remove_documents_by_ids ($ids_to_remove_ref, $coll, $bulk_write_size = 100) {

@@ -61,9 +61,6 @@ BEGIN {
 
 		&export_and_import_to_public_database
 
-		&import_csv_file_task
-		&export_csv_file_task
-		&update_export_status_for_csv_file_task
 		&import_products_categories_from_public_database_task
 
 	);    # symbols to export on request
@@ -73,23 +70,26 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created ensure_dir_created_or_die/;
+use ProductOpener::Store qw/get_string_id_for_lang retrieve store/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Food qw/:all/;
+use ProductOpener::Food qw/%cc_nutriment_table %nutriments_tables/;
 use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Lang qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Export qw/:all/;
-use ProductOpener::Import qw/:all/;
-use ProductOpener::ImportConvert qw/:all/;
-use ProductOpener::Users qw/:all/;
+use ProductOpener::Lang qw/$lc %Lang lang/;
+use ProductOpener::Display qw/$nutriment_table/;
+use ProductOpener::Export qw/export_csv/;
+use ProductOpener::Import
+	qw/$IMPORT_MAX_PACKAGING_COMPONENTS import_csv_file import_products_categories_from_public_database/;
+use ProductOpener::ImportConvert qw/clean_fields/;
+use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
+use ProductOpener::Orgs qw/update_export_date/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Time::Local;
 use Data::Dumper;
 use Text::CSV();
@@ -99,12 +99,15 @@ use Minion;
 my $minion;
 
 =head2 get_minion()
+
 Function to get the backend minion
 
 =head3 Arguments
+
 None
 
 =head3 Return values
+
 The backend minion $minion
 
 =cut
@@ -225,12 +228,14 @@ sub load_csv_or_excel_file ($file) {    # path and file name
 				}
 			}
 			# Remove rows with a value for only one column, and do not use that value for non empty columns
+			# Those can be "comment" rows added at the top of the file
 			if ($non_empty_values >= 2) {
 				push @original_rows, $row_ref;
 
 				for (my $i = 0; $i < scalar(@$row_ref); $i++) {
 					if ((defined $row_ref->[$i]) and ($row_ref->[$i] ne "")) {
-						$non_empty_columns[$i] = 1;
+						not defined $non_empty_columns[$i] and $non_empty_columns[$i] = 0;
+						$non_empty_columns[$i]++;
 					}
 				}
 			}
@@ -240,21 +245,38 @@ sub load_csv_or_excel_file ($file) {    # path and file name
 			{number_of_original_rows => scalar(@original_rows), non_empty_columns => \@non_empty_columns})
 			if $log->is_debug();
 
+		# Check if the file contains a "Description" row and a header "Row"
+		# in that case, the first column contains an empty cell, then "Description:" and "Example:" (possibly translated)
+		my $has_description_and_example_rows = 0;
+		if (    ($original_rows[0][0] eq "")
+			and ($non_empty_columns[0] == 2)
+			and ($original_rows[1][0] ne "")
+			and ($original_rows[2][0] ne ""))
+		{
+			$has_description_and_example_rows = 1;
+		}
+
 		# Copy non empty columns and rows
 
 		my $seen_header = 0;
 
 		foreach my $row_ref (@original_rows) {
+			# If we have a description and example row, skip rows that have a value only in the first column (description and example title)
+			if (($has_description_and_example_rows) and ($row_ref->[0] ne "")) {
+				next;
+			}
+
 			my @new_row = ();
 			for (my $i = 0; $i < scalar(@$row_ref); $i++) {
-				if ($non_empty_columns[$i]) {
+				# Skip empty columns + the first column if there are description and example rows
+				if (($non_empty_columns[$i]) and not(($i == 0) and $has_description_and_example_rows)) {
 					push @new_row, $row_ref->[$i];
 				}
 			}
 
 			$log->debug("new_row", {new_row => \@new_row}) if $log->is_debug();
 
-			# Is it a header? (column 1 or 2 should not be empty)
+			# Is it a header? (column 1 and 2 should not be empty)
 			if (not $seen_header) {
 
 				if ((defined $new_row[0]) and ($new_row[0] ne "") and (defined $new_row[1]) and ($new_row[1] ne "")) {
@@ -852,13 +874,9 @@ sub init_fields_columns_names_for_lang ($l) {
 	}
 	$fields_columns_names_for_lang{$l}{"kj"} = {field => "energy-kj_100g_value_unit", value_unit => "value_in_kj"};
 
-	if (!-e "$data_root/debug") {
-		mkdir("$data_root/debug", 0755)
-			or $log->warn("Could not create debug dir", {dir => "$data_root/debug", error => $!})
-			if $log->is_warn();
-	}
+	ensure_dir_created($BASE_DIRS{CACHE_DEBUG});
 
-	store("$data_root/debug/fields_columns_names_$l.sto", $fields_columns_names_for_lang{$l});
+	store("$BASE_DIRS{CACHE_DEBUG}/fields_columns_names_$l.sto", $fields_columns_names_for_lang{$l});
 
 	return $fields_columns_names_for_lang{$l};
 }
@@ -928,7 +946,7 @@ sub init_packaging_columns_names_for_lang ($l) {
 
 sub init_nutrients_columns_names_for_lang ($l) {
 
-	$nutriment_table = $cc_nutriment_table{default};
+	$nutriment_table = $cc_nutriment_table{off_default};
 
 	# Go through all the nutrients in the nutrients taxonomy
 	foreach my $nutrient_tagid (sort(get_all_taxonomy_entries("nutrients"))) {
@@ -1443,7 +1461,7 @@ sub init_columns_fields_match ($input_headers_ref, $rows_ref) {
 	my $all_columns_fields_ref = {};
 
 	if (defined $Owner_id) {
-		$all_columns_fields_ref = retrieve("$data_root/import_files/${Owner_id}/all_columns_fields.sto");
+		$all_columns_fields_ref = retrieve("$BASE_DIRS{IMPORT_FILES}/${Owner_id}/all_columns_fields.sto");
 	}
 
 	# Match known column names to OFF fields
@@ -1480,7 +1498,12 @@ sub init_columns_fields_match ($input_headers_ref, $rows_ref) {
 
 			$log->debug(
 				"before match_column_name_to_field",
-				{lc => $lc, column => $column, column_id => $column_id, column_field => $columns_fields_ref->{$column}}
+				{
+					lc => $lc,
+					column => $column,
+					column_id => $column_id,
+					column_field => $columns_fields_ref->{$column}
+				}
 			) if $log->is_debug();
 
 			$columns_fields_ref->{$column}
@@ -1489,7 +1512,12 @@ sub init_columns_fields_match ($input_headers_ref, $rows_ref) {
 
 			$log->debug(
 				"after match_column_name_to_field",
-				{lc => $lc, column => $column, column_id => $column_id, column_field => $columns_fields_ref->{$column}}
+				{
+					lc => $lc,
+					column => $column,
+					column_id => $column_id,
+					column_field => $columns_fields_ref->{$column}
+				}
 			) if $log->is_debug();
 
 			# If we don't know if the column contains value + unit, value, or unit,
@@ -1800,12 +1828,15 @@ sub export_and_import_to_public_database ($args_ref) {
 	my $started_t = time();
 	my $export_id = $started_t;
 
-	my $exports_ref = retrieve("$data_root/export_files/${Owner_id}/exports.sto");
+	# sync CRM
+	update_export_date($Org_id, $started_t);
+
+	my $exports_ref = retrieve("$BASE_DIRS{EXPORT_FILES}/${Owner_id}/exports.sto");
 	if (not defined $exports_ref) {
 		$exports_ref = {};
 	}
 
-	my $exported_file = "$data_root/export_files/${Owner_id}/export.$export_id.exported.csv";
+	my $exported_file = "$BASE_DIRS{EXPORT_FILES}/${Owner_id}/export.$export_id.exported.csv";
 
 	$exports_ref->{$export_id} = {
 		started_t => $started_t,
@@ -1891,10 +1922,9 @@ sub export_and_import_to_public_database ($args_ref) {
 	$exports_ref->{$export_id}{remote_import_job_id} = $remote_import_job_id;
 	$exports_ref->{$export_id}{local_export_status_job_id} = $local_export_status_job_id;
 
-	(-e "$data_root/export_files") or mkdir("$data_root/export_files", 0755);
-	(-e "$data_root/export_files/${Owner_id}") or mkdir("$data_root/export_files/${Owner_id}", 0755);
+	ensure_dir_created_or_die("$BASE_DIRS{EXPORT_FILES}/${Owner_id}");
 
-	store("$data_root/export_files/${Owner_id}/exports.sto", $exports_ref);
+	store("$BASE_DIRS{EXPORT_FILES}/${Owner_id}/exports.sto", $exports_ref);
 
 	return {
 		export_id => $export_id,
@@ -1937,7 +1967,7 @@ sub import_csv_file_task ($job, $args_ref) {
 
 	my $job_id = $job->{id};
 
-	open(my $log, ">>", "$data_root/logs/minion.log");
+	open(my $log, ">>", "$BASE_DIRS{LOGS}/minion.log");
 	print $log "import_csv_file_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
 	close($log);
 
@@ -1958,7 +1988,7 @@ sub export_csv_file_task ($job, $args_ref) {
 
 	my $job_id = $job->{id};
 
-	open(my $minion_log, ">>", "$data_root/logs/minion.log");
+	open(my $minion_log, ">>", "$BASE_DIRS{LOGS}/minion.log");
 	print $minion_log "export_csv_file_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
 	close($minion_log);
 
@@ -1978,7 +2008,7 @@ sub export_csv_file_task ($job, $args_ref) {
 
 	print STDERR "export_csv_file_task - job: $job_id - done\n";
 
-	open(my $log, ">>", "$data_root/logs/minion.log");
+	open(my $log, ">>", "$BASE_DIRS{LOGS}/minion.log");
 	print $log "export_csv_file_task - job: $job_id done\n";
 	close($log);
 
@@ -1993,7 +2023,7 @@ sub import_products_categories_from_public_database_task ($job, $args_ref) {
 
 	my $job_id = $job->{id};
 
-	open(my $minion_log, ">>", "$data_root/logs/minion.log");
+	open(my $minion_log, ">>", "$BASE_DIRS{LOGS}/minion.log");
 	print $minion_log "import_products_categories_from_public_database_file_task - job: $job_id started - args: "
 		. encode_json($args_ref) . "\n";
 	close($minion_log);
@@ -2005,7 +2035,7 @@ sub import_products_categories_from_public_database_task ($job, $args_ref) {
 
 	print STDERR "import_products_categories_from_public_database_file_task - job: $job_id - done\n";
 
-	open(my $log, ">>", "$data_root/logs/minion.log");
+	open(my $log, ">>", "$BASE_DIRS{LOGS}/minion.log");
 	print $log "import_products_categories_from_public_database_file_task - job: $job_id done\n";
 	close($log);
 
@@ -2020,7 +2050,7 @@ sub update_export_status_for_csv_file_task ($job, $args_ref) {
 
 	my $job_id = $job->{id};
 
-	open(my $minion_log, ">>", "$data_root/logs/minion.log");
+	open(my $minion_log, ">>", "$BASE_DIRS{LOGS}/minion.log");
 	print $minion_log "update_export_status_for_csv_file_task - job: $job_id started - args: "
 		. encode_json($args_ref) . "\n";
 	close($minion_log);
@@ -2032,7 +2062,7 @@ sub update_export_status_for_csv_file_task ($job, $args_ref) {
 
 	print STDERR "update_export_status_for_csv_file_task - job: $job_id - done\n";
 
-	open(my $log, ">>", "$data_root/logs/minion.log");
+	open(my $log, ">>", "$BASE_DIRS{LOGS}/minion.log");
 	print $log "update_export_status_file_task - job: $job_id done\n";
 	close($log);
 

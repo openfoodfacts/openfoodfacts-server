@@ -25,32 +25,39 @@ use ProductOpener::PerlStandards;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Web qw/:all/;
+use ProductOpener::Web qw/display_knowledge_panel get_languages_options_list/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Users qw/:all/;
+use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
-use ProductOpener::Mail qw/:all/;
+use ProductOpener::Mail qw/send_email_to_admin/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Food qw/:all/;
-use ProductOpener::Units qw/:all/;
+use ProductOpener::Food
+	qw/%nutriments_tables %other_nutriments_lists assign_nutriments_values_from_request_parameters compute_nutrition_data_per_100g_and_per_serving get_nutrient_unit has_category_that_should_have_prepared_nutrition_data/;
+use ProductOpener::Units qw/g_to_unit mmoll_to_unit/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::KnowledgePanels qw/:all/;
-use ProductOpener::KnowledgePanelsContribution qw/:all/;
-use ProductOpener::URL qw/:all/;
+use ProductOpener::KnowledgePanels qw/initialize_knowledge_panels_options/;
+use ProductOpener::KnowledgePanelsContribution qw/create_contribution_card_panel/;
+use ProductOpener::URL qw(format_subdomain);
 use ProductOpener::DataQuality qw/:all/;
-use ProductOpener::Ecoscore qw/:all/;
-use ProductOpener::Packaging qw/:all/;
+use ProductOpener::EnvironmentalScore qw/:all/;
+use ProductOpener::Packaging
+	qw/apply_rules_to_augment_packaging_component_data get_checked_and_taxonomized_packaging_component_data/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Web qw(get_languages_options_list);
-use ProductOpener::Text qw/:all/;
-use ProductOpener::Events qw/:all/;
-use ProductOpener::API qw/:all/;
-use ProductOpener::APIProductWrite qw/:all/;
+use ProductOpener::Text qw/remove_tags_and_quote/;
+use ProductOpener::Events qw/send_event/;
+use ProductOpener::API qw/get_initialized_response/;
+use ProductOpener::APIProductWrite qw/skip_protected_field/;
+use ProductOpener::ProductsFeatures qw/feature_enabled/;
+use ProductOpener::Orgs qw/update_import_date update_last_import_type/;
+use ProductOpener::APIProductWrite
+	qw/process_change_product_type_request_if_we_have_one process_change_product_code_request_if_we_have_one/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -59,7 +66,7 @@ use CGI qw/:cgi :form escapeHTML :cgi-lib/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Log::Any qw($log);
 use File::Copy qw(move);
 use Data::Dumper;
@@ -67,20 +74,21 @@ use Data::Dumper;
 # Function to display a form to add a product with a specific barcode (either typed in a field, or extracted from a barcode photo)
 # or without a barcode
 
-sub display_search_or_add_form() {
+sub display_search_or_add_form($request_ref) {
 
 	# Producer platform and no org or not admin: do not offer to add products
 	if (($server_options{producers_platform})
 		and not((defined $Owner_id) and (($Owner_id =~ /^org-/) or ($User{moderator}) or $User{pro_moderator})))
 	{
-		display_error_and_exit(lang("no_owner_defined"), 200);
+		display_error_and_exit($request_ref, lang("no_owner_defined"), 200);
 	}
 
 	my $html = '';
 	my $template_data_ref_content = {};
 
-	$template_data_ref_content->{display_search_image_form} = display_search_image_form("block_side");
-	process_template('web/common/includes/display_product_search_or_add.tt.html', $template_data_ref_content, \$html)
+	$template_data_ref_content->{display_search_image_form} = display_search_image_form("block_side", $request_ref);
+	process_template('web/common/includes/display_product_search_or_add.tt.html',
+		$template_data_ref_content, \$html, $request_ref)
 		|| ($html = "template error: " . $tt->error());
 
 	# Producers platform: display an addition import products block
@@ -92,7 +100,7 @@ sub display_search_or_add_form() {
 		process_template(
 			'web/common/includes/display_product_search_or_add_producer.tt.html',
 			$template_data_ref_content_producer,
-			\$html_producer
+			\$html_producer, $request_ref
 		) || ($html_producer = "template error: " . $tt->error());
 
 		$html .= $html_producer;
@@ -166,6 +174,7 @@ my $request_ref = ProductOpener::Display::init_request();
 
 if ($User_id eq 'unwanted-user-french') {
 	display_error_and_exit(
+		$request_ref,
 		"<b>Il y a des problèmes avec les modifications de produits que vous avez effectuées. Ce compte est temporairement bloqué, merci de nous contacter.</b>",
 		403
 	);
@@ -174,7 +183,7 @@ if ($User_id eq 'unwanted-user-french') {
 # Response structure to keep track of warnings and errors
 # Note: currently some warnings and errors are added,
 # but we do not yet do anything with them
-my $response_ref = get_initialized_response();
+my $response_ref = ProductOpener::API::get_initialized_response();
 
 my $type = single_param('type') || 'search_or_add';
 my $action = single_param('action') || 'display';
@@ -205,7 +214,7 @@ if ($type eq 'search_or_add') {
 
 		my $title = lang("add_product");
 
-		$html = display_search_or_add_form();
+		$html = display_search_or_add_form($request_ref);
 
 		$request_ref->{title} = lang('add_product');
 		$request_ref->{content_ref} = \$html;
@@ -219,8 +228,8 @@ if ($type eq 'search_or_add') {
 		if ((not defined $code) or ($code eq "")) {
 			$code = process_search_image_form(\$filename);
 		}
-		elsif ($code !~ /^\d{4,24}$/) {
-			display_error_and_exit($Lang{invalid_barcode}{$lang}, 403);
+		elsif (not is_valid_code($code)) {
+			display_error_and_exit($request_ref, $Lang{invalid_barcode}{$lc}, 403);
 		}
 
 		my $r = Apache2::RequestUtil->request();
@@ -242,7 +251,7 @@ if ($type eq 'search_or_add') {
 			$product_id = product_id_for_owner($Owner_id, $code);
 			$log->debug("we have a code", {code => $code, product_id => $product_id}) if $log->is_debug();
 
-			$product_ref = product_exists($product_id);    # returns 0 if not
+			$product_ref = retrieve_product($product_id);
 
 			if ($product_ref) {
 				$log->info("product exists, redirecting to page", {code => $code}) if $log->is_info();
@@ -266,6 +275,12 @@ if ($type eq 'search_or_add') {
 				$product_ref = init_product($User_id, $Org_id, $code, $country);
 				$product_ref->{interface_version_created} = $interface_version;
 				store_product($User_id, $product_ref, 'product_created');
+
+				# sync crm
+				if (defined $Org_id) {
+					update_import_date($Org_id, $product_ref->{created_t});
+					update_last_import_type($Org_id, 'Manual import');
+				}
 
 				$type = 'add';
 				$action = 'display';
@@ -312,28 +327,41 @@ if ($type eq 'search_or_add') {
 else {
 	# We should have a code
 	if ((not defined $code) or ($code eq '')) {
-		display_error_and_exit($Lang{missing_barcode}{$lang}, 403);
+		display_error_and_exit($request_ref, $Lang{missing_barcode}{$lc}, 403);
 	}
-	elsif ($code !~ /^\d{4,24}$/) {
-		display_error_and_exit($Lang{invalid_barcode}{$lang}, 403);
+	elsif (not is_valid_code($code)) {
+		display_error_and_exit($request_ref, $Lang{invalid_barcode}{$lc}, 403);
 	}
 	else {
 		if (    ((defined $server_options{private_products}) and ($server_options{private_products}))
 			and (not defined $Owner_id))
 		{
 
-			display_error_and_exit(lang("no_owner_defined"), 200);
+			display_error_and_exit($request_ref, lang("no_owner_defined"), 200);
 		}
 		$product_id = product_id_for_owner($Owner_id, $code);
-		$product_ref = retrieve_product_or_deleted_product($product_id, $User{moderator});
+		$product_ref = retrieve_product($product_id, $User{moderator});
 		if (not defined $product_ref) {
-			display_error_and_exit(sprintf(lang("no_product_for_barcode"), $code), 404);
+			display_error_and_exit($request_ref, sprintf(lang("no_product_for_barcode"), $code), 404);
+		}
+		else {
+			# There is an existing product
+			# If the product has a product_type and it is not the product_type of the server, redirect to the correct server
+			# unless we are on the pro platform
+			# We use a 302 redirect so that browsers issue a GET request to display the form (even if we received a POST request)
+			if (    (not $server_options{private_products})
+				and (defined $product_ref->{product_type})
+				and ($product_ref->{product_type} ne $options{product_type}))
+			{
+				redirect_to_url($request_ref, 302,
+					format_subdomain($subdomain, $product_ref->{product_type}) . '/cgi/product.pl?code=' . $code);
+			}
 		}
 	}
 }
 
 if (($type eq 'delete') and (not $User{moderator})) {
-	display_error_and_exit($Lang{error_no_permission}{$lang}, 403);
+	display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
 }
 
 if ($User_id eq 'unwanted-bot-id') {
@@ -354,12 +382,12 @@ if (($type eq 'add') or ($type eq 'edit') or ($type eq 'delete')) {
 
 $template_data_ref->{user_id} = $User_id;
 $template_data_ref->{code} = $code;
-process_template('web/pages/product_edit/product_edit_form.tt.html', $template_data_ref, \$html)
+process_template('web/pages/product_edit/product_edit_form.tt.html', $template_data_ref, \$html, $request_ref)
 	or $html = "<p>" . $tt->error() . "</p>";
 
 my @fields = @ProductOpener::Config::product_fields;
 
-if ($admin) {
+if ($request_ref->{admin}) {
 
 	# Let admins edit any other fields
 	if (defined single_param("fields")) {
@@ -379,19 +407,21 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	if (not $proceed_with_edit) {
 
-		display_error_and_exit("Edit against edit rules", 403);
+		display_error_and_exit($request_ref, "Edit against edit rules", 403);
 	}
 
 	$log->debug("phase 1", {code => $code, type => $type}) if $log->is_debug();
 
 	exists $product_ref->{new_server} and delete $product_ref->{new_server};
 
-	# 26/01/2017 - disallow barcode changes until we fix bug #677
-	if ($User{moderator} and (defined single_param("new_code")) and (single_param("new_code") ne "")) {
+	# Check if the request is for changing the product code or the product type, if so process it
 
-		change_product_server_or_code($product_ref, single_param("new_code"), \@errors);
-		$code = $product_ref->{code};
-	}
+	process_change_product_code_request_if_we_have_one($request_ref, $response_ref, $product_ref,
+		single_param("new_code"));
+	$code = $product_ref->{code};
+
+	process_change_product_type_request_if_we_have_one($request_ref, $response_ref, $product_ref,
+		single_param("product_type"));
 
 	my @param_fields = ();
 
@@ -534,12 +564,12 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 							foreach my $max ($thumb_size, $small_size, $display_size, "full") {
 								my $from_file
-									= "$www_root/images/products/$path/"
+									= "$BASE_DIRS{PRODUCTS_IMAGES}/$path/"
 									. $from_imageid . "."
 									. $rev . "."
 									. $max . ".jpg";
 								my $to_file
-									= "$www_root/images/products/$path/"
+									= "$BASE_DIRS{PRODUCTS_IMAGES}/$path/"
 									. $to_imageid . "."
 									. $rev . "."
 									. $max . ".jpg";
@@ -579,7 +609,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 			}
 			else {
 				# infocards set by admins can contain HTML
-				if (($admin) and ($field =~ /infocard/)) {
+				if (($request_ref->{admin}) and ($field =~ /infocard/)) {
 					$product_ref->{$field} = decode utf8 => single_param($field);
 				}
 				else {
@@ -663,7 +693,7 @@ my %remember_fields = ('purchase_places' => 1, 'stores' => 1);
 
 # Display each field
 
-sub display_input_field ($product_ref, $field, $language) {
+sub display_input_field ($product_ref, $field, $language, $request_ref) {
 	# $field can be in %language_fields and suffixed by _[lc]
 
 	my $fieldtype = $field;
@@ -709,7 +739,9 @@ sub display_input_field ($product_ref, $field, $language) {
 	$template_data_ref_field->{value} = $value;
 	$template_data_ref_field->{display_lc} = $display_lc;
 	$template_data_ref_field->{autocomplete} = $autocomplete;
-	$template_data_ref_field->{fieldtype} = $Lang{$fieldtype}{$lang};
+	$template_data_ref_field->{fieldtype} = $Lang{$fieldtype}{$lc};
+	$template_data_ref_field->{owner_field} = is_owner_field($product_ref, $field);
+	$template_data_ref_field->{protected_field} = skip_protected_field($product_ref, $field, $User{moderator});
 
 	my $html_field = '';
 
@@ -722,12 +754,12 @@ sub display_input_field ($product_ref, $field, $language) {
 	}
 
 	foreach my $note ("_note", "_note_2", "_note_3") {
-		if (defined $Lang{$fieldtype . $note}{$lang}) {
+		if (defined $Lang{$fieldtype . $note}{$lc}) {
 
 			push(
 				@field_notes,
 				{
-					note => $Lang{$fieldtype . $note}{$lang},
+					note => $Lang{$fieldtype . $note}{$lc},
 				}
 			);
 
@@ -736,17 +768,22 @@ sub display_input_field ($product_ref, $field, $language) {
 
 	$template_data_ref_field->{field_notes} = \@field_notes;
 
-	if (defined $Lang{$fieldtype . "_example"}{$lang}) {
+	# We can have product type specific examples (e.g. for OBF)
+	my $field_type_examples
+		= $Lang{$fieldtype . "_example" . "_" . $options{product_type}}{$lc} || $Lang{$fieldtype . "_example"}{$lc};
 
-		my $examples = $Lang{example}{$lang};
-		if ($Lang{$fieldtype . "_example"}{$lang} =~ /,/) {
-			$examples = $Lang{examples}{$lang};
+	if ($field_type_examples) {
+
+		my $examples = $Lang{example}{$lc};
+		if ($Lang{$fieldtype . "_example"}{$lc} =~ /,/) {
+			$examples = $Lang{examples}{$lc};
 		}
 		$template_data_ref_field->{examples} = $examples;
-		$template_data_ref_field->{field_type_examples} = $Lang{$fieldtype . "_example"}{$lang};
+		$template_data_ref_field->{field_type_examples} = $field_type_examples;
 	}
 
-	process_template('web/pages/product_edit/display_input_field.tt.html', $template_data_ref_field, \$html_field)
+	process_template('web/pages/product_edit/display_input_field.tt.html',
+		$template_data_ref_field, \$html_field, $request_ref)
 		or $html_field = "<p>" . $tt->error() . "</p>";
 
 	return $html_field;
@@ -755,10 +792,9 @@ sub display_input_field ($product_ref, $field, $language) {
 if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	# Populate the energy-kcal or energy-kj field from the energy field if it exists
-	compute_serving_size_data($product_ref);
+	compute_nutrition_data_per_100g_and_per_serving($product_ref);
 
 	my $template_data_ref_display = {};
-	my $js;
 
 	$log->debug("displaying product", {code => $code}) if $log->is_debug();
 
@@ -769,33 +805,34 @@ if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 		$moderator = 1;
 	}
 
-	$header .= <<HTML
+	$request_ref->{header} .= <<HTML
 <link rel="stylesheet" type="text/css" href="/css/dist/cropper.css" />
 <link rel="stylesheet" type="text/css" href="/css/dist/tagify.css" />
 HTML
 		;
 
-	$scripts .= <<HTML
-<script type="text/javascript" src="/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
-<script type="text/javascript" src="/js/dist/cropper.js"></script>
-<script type="text/javascript" src="/js/dist/jquery-cropper.js"></script>
-<script type="text/javascript" src="/js/dist/jquery.form.js"></script>
-<script type="text/javascript" src="/js/dist/tagify.min.js"></script>
-<script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
-<script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
-<script type="text/javascript" src="/js/dist/load-image.all.min.js"></script>
-<script type="text/javascript" src="/js/dist/canvas-to-blob.js"></script>
+	$request_ref->{scripts} .= <<HTML
+<script type="text/javascript" src="$static_subdomain/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
+<script type="text/javascript" src="$static_subdomain/js/dist/cropper.js"></script>
+<script type="text/javascript" src="$static_subdomain/js/dist/jquery-cropper.js"></script>
+<script type="text/javascript" src="$static_subdomain/js/dist/jquery.form.js"></script>
+<script type="text/javascript" src="$static_subdomain/js/dist/tagify.js"></script>
+<script type="text/javascript" src="$static_subdomain/js/dist/jquery.iframe-transport.js"></script>
+<script type="text/javascript" src="$static_subdomain/js/dist/jquery.fileupload.js"></script>
+<script type="text/javascript" src="$static_subdomain/js/dist/load-image.all.min.js"></script>
+<script type="text/javascript" src="$static_subdomain/js/dist/canvas-to-blob.js"></script>
 <script type="text/javascript">
 var admin = $moderator;
 </script>
-<script type="text/javascript" src="/js/dist/product-multilingual.js?v=$file_timestamps{'js/dist/product-multilingual.js'}"></script>
+<script type="text/javascript" src="$static_subdomain/js/dist/product-multilingual.js?v=$file_timestamps{'js/dist/product-multilingual.js'}"></script>
+<script type="text/javascript" src="$static_subdomain/js/dist/product-history.js"></script>
 
 HTML
 		;
 
 	my $thumb_selectable_size = $thumb_size + 20;
 
-	$styles .= <<CSS
+	$request_ref->{styles} .= <<CSS
 .ui-selectable li {
 	margin: 3px;
 	padding: 0px;
@@ -826,15 +863,13 @@ CSS
 	$template_data_ref_display->{errors_index} = $#errors;
 	$template_data_ref_display->{errors} = \@errors;
 
-	my $label_new_code = $Lang{new_code}{$lang};
-
-	# 26/01/2017 - disallow barcode changes until we fix bug #677
-	if ($User{moderator}) {
-	}
+	my $label_new_code = $Lang{new_code}{$lc};
 
 	$template_data_ref_display->{org_id} = $Org_id;
 	$template_data_ref_display->{label_new_code} = $label_new_code;
 	$template_data_ref_display->{owner_id} = $Owner_id;
+
+	$template_data_ref_display->{product_types} = $options{product_types};
 
 	# obsolete products: restrict to admin on public site
 	# authorize owners on producers platform
@@ -847,12 +882,12 @@ CSS
 
 		$template_data_ref_display->{obsolete_checked} = $checked;
 		$template_data_ref_display->{display_field_obsolete}
-			= display_input_field($product_ref, "obsolete_since_date", undef);
+			= display_input_field($product_ref, "obsolete_since_date", undef, $request_ref);
 
 	}
 
 	# Main language
-	my $lang_value = $lang;
+	my $lang_value = $lc;
 	if (defined $product_ref->{lc}) {
 		$lang_value = $product_ref->{lc};
 	}
@@ -877,7 +912,9 @@ CSS
 
 	$template_data_ref_display->{product_ref_sorted_langs} = join(',', @{$product_ref->{sorted_langs}});
 
-	sub display_input_tabs ($product_ref, $tabsid, $tabsids_array_ref, $tabsids_hash_ref, $fields_array_ref) {
+	sub display_input_tabs ($product_ref, $tabsid, $tabsids_array_ref, $tabsids_hash_ref, $fields_array_ref,
+		$request_ref)
+	{
 
 		my $template_data_ref_tab = {};
 		my @display_tabs;
@@ -925,16 +962,18 @@ CSS
 					if ($field =~ /^(.*)_image/) {
 
 						my $image_field = $1 . "_" . $display_lc;
-						$display_div = display_select_crop($product_ref, $image_field, $language);
+						$display_div = display_select_crop($product_ref, $image_field, $language, $request_ref);
 					}
 					elsif ($field eq 'ingredients_text') {
 						$image_full_id = "ingredients_" . ${display_lc} . "_image_full";
-						$display_div = display_input_field($product_ref, $field . "_" . $display_lc, $language);
+						$display_div
+							= display_input_field($product_ref, $field . "_" . $display_lc, $language, $request_ref);
 					}
 					else {
 						$log->debug("display_field", {field_name => $field, field_value => $product_ref->{$field}})
 							if $log->is_debug();
-						$display_div = display_input_field($product_ref, $field . "_" . $display_lc, $language);
+						$display_div
+							= display_input_field($product_ref, $field . "_" . $display_lc, $language, $request_ref);
 					}
 
 					push(
@@ -948,26 +987,27 @@ CSS
 				}
 
 				$display_tab_ref->{fields} = \@fields_arr;
-			}
 
-			# For moderators, add a checkbox to move all data and photos to the main language
-			# this needs to be below the "add (language name) in all field labels" above, so that it does not change this label.
-			if (($User{moderator}) and ($tabsid eq "front_image")) {
+				# For moderators, add a checkbox to move all data and photos to the main language
+				# this needs to be below the "add (language name) in all field labels" above, so that it does not change this label.
+				if (($User{moderator}) and ($tabsid eq "front_image")) {
 
-				my $msg = f_lang(
-					"f_move_data_and_photos_to_main_language",
-					{
-						language => '<span class="tab_language">' . $language . '</span>',
-						main_language => '<span class="main_language">'
-							. lang("lang_" . $product_ref->{lc})
-							. '</span>'
-					}
-				);
+					my $msg = f_lang(
+						"f_move_data_and_photos_to_main_language",
+						{
+							language => '<span class="tab_language">' . $language . '</span>',
+							main_language => '<span class="main_language">'
+								. lang("lang_" . $product_ref->{lc})
+								. '</span>'
+						}
+					);
 
-				my $moveid = "move_" . $tabid . "_data_and_images_to_main_language";
+					my $moveid = "move_" . $tabid . "_data_and_images_to_main_language";
 
-				$display_tab_ref->{moveid} = $moveid;
-				$display_tab_ref->{msg} = $msg;
+					$display_tab_ref->{moveid} = $moveid;
+					$display_tab_ref->{msg} = $msg;
+				}
+
 			}
 
 			push(@display_tabs, $display_tab_ref);
@@ -980,24 +1020,26 @@ CSS
 		$template_data_ref_tab->{display_tabs} = \@display_tabs;
 
 		my $html_tab = '';
-		process_template('web/pages/product_edit/display_input_tabs.tt.html', $template_data_ref_tab, \$html_tab)
+		process_template('web/pages/product_edit/display_input_tabs.tt.html',
+			$template_data_ref_tab, \$html_tab, $request_ref)
 			or $html_tab = "<p>" . $tt->error() . "</p>";
 
 		return $html_tab;
 	}
 
 	$template_data_ref_display->{display_tab_product_picture}
-		= display_input_tabs($product_ref, "front_image", $product_ref->{sorted_langs}, \%Langs, ["front_image"]);
+		= display_input_tabs($product_ref, "front_image", $product_ref->{sorted_langs},
+		\%Langs, ["front_image"], $request_ref);
 	$template_data_ref_display->{display_tab_product_characteristics}
 		= display_input_tabs($product_ref, "product", $product_ref->{sorted_langs},
-		\%Langs, ["product_name", "generic_name"]);
+		\%Langs, ["product_name", "generic_name"], $request_ref);
 
 	my @display_fields_arr;
 	foreach my $field (@fields) {
 		# hide packaging field & origins are now displayed below allergens and traces in the ingredients section
 		next if $field eq "origins" || $field eq "packaging";
 		$log->debug("display_field", {field_name => $field, field_value => $product_ref->{$field}}) if $log->is_debug();
-		my $display_field = display_input_field($product_ref, $field, undef);
+		my $display_field = display_input_field($product_ref, $field, undef, $request_ref);
 		push(@display_fields_arr, $display_field);
 	}
 
@@ -1016,115 +1058,31 @@ CSS
 	$template_data_ref_display->{nutrition_checked} = $checked;
 	$template_data_ref_display->{display_tab_ingredients_image}
 		= display_input_tabs($product_ref, "ingredients_image", $product_ref->{sorted_langs},
-		\%Langs, \@ingredients_fields);
-	$template_data_ref_display->{display_field_allergens} = display_input_field($product_ref, "allergens", undef);
-	$template_data_ref_display->{display_field_traces} = display_input_field($product_ref, "traces", undef);
-	$template_data_ref_display->{display_field_origins} = display_input_field($product_ref, "origins", undef);
+		\%Langs, \@ingredients_fields, $request_ref);
+	$template_data_ref_display->{display_field_allergens}
+		= display_input_field($product_ref, "allergens", undef, $request_ref);
+	$template_data_ref_display->{display_field_traces}
+		= display_input_field($product_ref, "traces", undef, $request_ref);
+	$template_data_ref_display->{display_field_origins}
+		= display_input_field($product_ref, "origins", undef, $request_ref);
 	$template_data_ref_display->{display_tab_nutrition_image}
-		= display_input_tabs($product_ref, "nutrition_image", $product_ref->{sorted_langs}, \%Langs,
-		["nutrition_image"]);
-	$template_data_ref_display->{display_field_serving_size} = display_input_field($product_ref, "serving_size", undef);
+		= display_input_tabs($product_ref, "nutrition_image", $product_ref->{sorted_langs},
+		\%Langs, ["nutrition_image"], $request_ref);
 
-	$initjs .= display_select_crop_init($product_ref);
+	# only food products can have serving_size on the product
+	if ($options{product_type} eq "food") {
+		$template_data_ref_display->{display_field_serving_size}
+			= display_input_field($product_ref, "serving_size", undef, $request_ref);
+	}
+
+	$request_ref->{initjs} .= display_select_crop_init($product_ref);
 
 	my $hidden_inputs = '';
 
-	#<p class="note">&rarr; $Lang{nutrition_data_table_note}{$lang}</p>
+	#<p class="note">&rarr; $Lang{nutrition_data_table_note}{$lc}</p>
 
-	# Display 2 checkbox to indicate the nutrition values present on the product
-
-	if (not defined $product_ref->{nutrition_data}) {
-		# by default, display the nutrition data entry column for the product as sold
-		$product_ref->{nutrition_data} = "on";
-	}
-	if (not defined $product_ref->{nutrition_data_prepared}) {
-		# by default, do not display the nutrition data entry column for the prepared product
-		$product_ref->{nutrition_data_prepared} = "";
-	}
-
-	my %column_display_style = ();
-	my %nutrition_data_per_display_style = ();
-	my @nutrition_products;
-
-	# keep existing field ids for the product as sold, and append _prepared_product for the product after it has been prepared
-	foreach my $product_type ("", "_prepared") {
-
-		my $nutrition_data = "nutrition_data" . $product_type;
-		my $nutrition_data_exists = "nutrition_data" . $product_type . "_exists";
-		my $nutrition_data_instructions = "nutrition_data" . $product_type . "_instructions";
-
-		my $checked = '';
-		$column_display_style{$nutrition_data} = '';
-		my $hidden = '';
-		if (($product_ref->{$nutrition_data} eq 'on')) {
-			$checked = 'checked="checked"';
-		}
-		else {
-			$column_display_style{$nutrition_data} = 'style="display:none"';
-			$hidden = 'style="display:none"';
-		}
-
-		my $checked_per_serving = '';
-		my $checked_per_100g = 'checked="checked"';
-		$nutrition_data_per_display_style{$nutrition_data . "_serving"} = ' style="display:none"';
-		$nutrition_data_per_display_style{$nutrition_data . "_100g"} = '';
-
-		my $nutrition_data_per = "nutrition_data" . $product_type . "_per";
-
-		if (
-			($product_ref->{$nutrition_data_per} eq 'serving')
-			# display by serving by default for the prepared product
-			or (($product_type eq '_prepared') and (not defined $product_ref->{nutrition_data_prepared_per}))
-			)
-		{
-			$checked_per_serving = 'checked="checked"';
-			$checked_per_100g = '';
-			$nutrition_data_per_display_style{$nutrition_data . "_serving"} = '';
-			$nutrition_data_per_display_style{$nutrition_data . "_100g"} = ' style="display:none"';
-		}
-
-		my $nutriment_col_class = "nutriment_col" . $product_type;
-
-		my $product_type_as_sold_or_prepared = "as_sold";
-		if ($product_type eq "_prepared") {
-			$product_type_as_sold_or_prepared = "prepared";
-		}
-
-		push(
-			@nutrition_products,
-			{
-				checked => $checked,
-				nutrition_data => $nutrition_data,
-				nutrition_data_exists => $Lang{$nutrition_data_exists}{$lang},
-				nutrition_data_per => $nutrition_data_per,
-				checked_per_100g => $checked_per_100g,
-				checked_per_serving => $checked_per_serving,
-				nutrition_data_instructions => $nutrition_data_instructions,
-				nutrition_data_instructions_check => $Lang{$nutrition_data_instructions},
-				nutrition_data_instructions_lang => $Lang{$nutrition_data_instructions}{$lang},
-				hidden => $hidden,
-				nutriment_col_class => $nutriment_col_class,
-				product_type_as_sold_or_prepared => $product_type_as_sold_or_prepared,
-				checkmate => $product_ref->{$nutrition_data_per},
-			}
-		);
-
-	}
-
-	$template_data_ref_display->{nutrition_products} = \@nutrition_products;
-
-	$template_data_ref_display->{column_display_style_nutrition_data} = $column_display_style{"nutrition_data"};
-	$template_data_ref_display->{column_display_style_nutrition_data_prepared}
-		= $column_display_style{"nutrition_data_prepared"};
-	$template_data_ref_display->{nutrition_data_100g_style} = $nutrition_data_per_display_style{"nutrition_data_100g"};
-	$template_data_ref_display->{nutrition_data_serving_style}
-		= $nutrition_data_per_display_style{"nutrition_data_serving"};
-	$template_data_ref_display->{nutrition_data_prepared_100g_style}
-		= $nutrition_data_per_display_style{"nutrition_data_prepared_100g"};
-	$template_data_ref_display->{nutrition_data_prepared_serving_style}
-		= $nutrition_data_per_display_style{"nutrition_data_prepared_serving"};
-
-	$template_data_ref_display->{tablestyle} = $tablestyle;
+	# We first go through all nutrients, so that we can see the ones for which we have data
+	# as we will check the nutrition_data checkbox if we have data for at least one nutrient
 
 	defined $product_ref->{nutriments} or $product_ref->{nutriments} = {};
 
@@ -1147,6 +1105,9 @@ CSS
 		}
 	}
 
+	# Go through all nutrients
+
+	my %nutrition_data_exists = ();
 	my @nutriments;
 	foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}, @unknown_nutriments, 'new_0', 'new_1') {
 
@@ -1183,11 +1144,12 @@ CSS
 			$shown = 1;
 		}
 
-		if (($shown) and ($nutriment =~ /^-/)) {
+		# Nutrients starting with a - are sub-nutrients
+		# They may be prefixed with a ! to indicate that the nutrient is always shown when displaying the nutrition facts table
+		if (($shown) and ($nutriment =~ /^!?-/)) {
 			$class = 'sub';
-			$prefix = $Lang{nutrition_data_table_sub}{$lang} . " ";
 			if ($nutriment =~ /^--/) {
-				$prefix = "&nbsp; " . $prefix;
+				$prefix = "&nbsp; ";
 			}
 		}
 
@@ -1203,7 +1165,7 @@ CSS
 		my $enidp = encodeURIComponent($nidp);
 
 		$nutriment_ref->{label_value} = $product_ref->{nutriments}{$nid . "_label"};
-		$nutriment_ref->{product_add_nutrient} = $Lang{product_add_nutrient}{$lang};
+		$nutriment_ref->{product_add_nutrient} = $Lang{product_add_nutrient}{$lc};
 		$nutriment_ref->{prefix} = $prefix;
 
 		my $unit = "g";
@@ -1211,8 +1173,7 @@ CSS
 		if (exists_taxonomy_tag("nutrients", "zz:$nid")) {
 			$nutriment_ref->{name} = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
 			# We may have a unit specific to the country (e.g. US nutrition facts table using the International Unit for this nutrient, and Europe using mg)
-			$unit = get_property("nutrients", "zz:$nid", "unit_$cc:en")
-				// get_property("nutrients", "zz:$nid", "unit:en") // 'g';
+			$unit = get_nutrient_unit($nid, $request_ref->{cc});
 		}
 		else {
 			if (defined $product_ref->{nutriments}{$nid . "_unit"}) {
@@ -1247,6 +1208,14 @@ CSS
 			if (defined $product_ref->{nutriments}{$nidp . "_value"}) {
 				$valuep = $product_ref->{nutriments}{$nidp . "_value"};
 			}
+		}
+
+		# Record that we have a value for at least one nutrient for the product as sold or prepared
+		if (defined $value) {
+			$nutrition_data_exists{""} = 1;
+		}
+		if (defined $valuep) {
+			$nutrition_data_exists{"_prepared"} = 1;
 		}
 
 		# Add modifiers
@@ -1292,7 +1261,7 @@ CSS
 		}
 
 		if (($nid eq 'alcohol') or ($nid eq 'energy-kj') or ($nid eq 'energy-kcal')) {
-			my $unit = '';
+			$unit = '';
 
 			if (($nid eq 'alcohol')) {$unit = '% vol / °';}    # alcohol in % vol / °
 			elsif (($nid eq 'energy-kj')) {$unit = 'kJ';}
@@ -1300,6 +1269,15 @@ CSS
 
 			$nutriment_ref->{nutriment_unit} = $unit;
 
+		}
+		# make sure pet nutrients (analytical_constituents) are always in percent
+		elsif (($nid eq 'crude-fat')
+			or ($nid eq 'crude-protein')
+			or ($nid eq 'crude-ash')
+			or ($nid eq 'crude-fibre')
+			or ($nid eq 'moisture'))
+		{
+			$nutriment_ref->{nutriment_unit} = '%';
 		}
 		else {
 
@@ -1376,6 +1354,12 @@ CSS
 
 		}
 
+		# Determine which field has a value from the manufacturer and if it is protected
+		$nutriment_ref->{owner_field} = is_owner_field($product_ref, $nid);
+		$nutriment_ref->{protected_field} = skip_protected_field($product_ref, $nid, $User{moderator});
+		$nutriment_ref->{protected_field_prepared}
+			= skip_protected_field($product_ref, $nid . "_prepared", $User{moderator});
+
 		$nutriment_ref->{shown} = $shown;
 		$nutriment_ref->{enid} = $enid;
 		$nutriment_ref->{enidp} = $enidp;
@@ -1390,6 +1374,135 @@ CSS
 	}
 
 	$template_data_ref_display->{nutriments} = \@nutriments;
+
+	# Display 2 checkbox to indicate the nutrition values present on the product
+
+	if (not defined $product_ref->{nutrition_data}) {
+		# by default, display the nutrition data entry column for the product as sold
+
+		$product_ref->{nutrition_data} = "on";
+	}
+
+	if (not defined $product_ref->{nutrition_data_prepared}) {
+		# by default, do not display the nutrition data entry column for the prepared product
+		# unless if it is in a category that should have prepared data
+		if (has_category_that_should_have_prepared_nutrition_data($product_ref)) {
+			$product_ref->{nutrition_data_prepared} = "on";
+		}
+		else {
+			$product_ref->{nutrition_data_prepared} = "";
+		}
+	}
+
+	# In all cases, if we have data, we will check the checkbox.
+	# We also check the "as sold" checkbox for petfood products,
+	# as we don't display the checkboxes to indicate the presence of nutrition data for "as sold" and "prepared" for petfood products
+	# (they can only have "as sold" nutrition data)
+	if (($nutrition_data_exists{""}) or ($options{product_type} eq "petfood")) {
+		$product_ref->{nutrition_data} = "on";
+	}
+
+	# only food products can have prepared product (dehydrated for example)
+	if (    ($options{product_type} eq "food")
+		and ($nutrition_data_exists{"_prepared"}))
+	{
+		$product_ref->{nutrition_data_prepared} = "on";
+	}
+
+	my %column_display_style = ();
+	my %nutrition_data_per_display_style = ();
+
+	# We can display 2 nutrition facts columns, one for the product as sold, and one for the prepared product
+	my @nutrition_product_types = ();
+
+	# keep existing field ids for the product as sold, and append _prepared_product for the product after it has been prepared
+	foreach my $product_type ("", "_prepared") {
+
+		my $nutrition_data = "nutrition_data" . $product_type;
+		my $nutrition_data_exists = "nutrition_data" . $product_type . "_exists";
+		my $nutrition_data_instructions = "nutrition_data" . $product_type . "_instructions";
+
+		my $checked = '';
+		$column_display_style{$nutrition_data} = '';
+		my $hidden = '';
+		if (($product_ref->{$nutrition_data} eq 'on')) {
+			$checked = 'checked="checked"';
+		}
+		else {
+			$column_display_style{$nutrition_data} = 'style="display:none"';
+			$hidden = 'style="display:none"';
+		}
+
+		my $checked_per_serving = '';
+		my $checked_per_xxg = 'checked="checked"';
+		$nutrition_data_per_display_style{$nutrition_data . "_serving"} = ' style="display:none"';
+		$nutrition_data_per_display_style{$nutrition_data . "_xxg"} = '';
+
+		my $nutrition_data_per = "nutrition_data" . $product_type . "_per";
+
+		if (
+			# petfood products are always "as sold" (not per a given quantity)
+			$options{product_type} eq "food"
+			)
+		{
+			if (
+				(
+					($product_ref->{$nutrition_data_per} eq 'serving')
+					# display by serving by default for the prepared product
+					or (($product_type eq '_prepared') and (not defined $product_ref->{nutrition_data_prepared_per}))
+				)
+				)
+			{
+				$checked_per_serving = 'checked="checked"';
+				$checked_per_xxg = '';
+				$nutrition_data_per_display_style{$nutrition_data . "_serving"} = '';
+				$nutrition_data_per_display_style{$nutrition_data . "_xxg"} = ' style="display:none"';
+			}
+
+			my $nutriment_col_class = "nutriment_col" . $product_type;
+
+			my $product_type_as_sold_or_prepared = "as_sold";
+			if ($product_type eq "_prepared") {
+				$product_type_as_sold_or_prepared = "prepared";
+			}
+
+			push(
+				@nutrition_product_types,
+				{
+					checked => $checked,
+					nutrition_data => $nutrition_data,
+					nutrition_data_exists => $Lang{$nutrition_data_exists}{$lc},
+					nutrition_data_per => $nutrition_data_per,
+					checked_per_xxg => $checked_per_xxg,
+					checked_per_serving => $checked_per_serving,
+					nutrition_data_instructions => $nutrition_data_instructions,
+					nutrition_data_instructions_check => $Lang{$nutrition_data_instructions},
+					nutrition_data_instructions_lang => $Lang{$nutrition_data_instructions}{$lc},
+					hidden => $hidden,
+					nutriment_col_class => $nutriment_col_class,
+					product_type_as_sold_or_prepared => $product_type_as_sold_or_prepared,
+					checkmate => $product_ref->{$nutrition_data_per},
+				}
+			);
+		}
+	}
+
+	# nutrition table differs between flavors (food and petfood)
+
+	$template_data_ref_display->{nutrition_product_types} = \@nutrition_product_types;
+
+	$template_data_ref_display->{column_display_style_nutrition_data} = $column_display_style{"nutrition_data"};
+	$template_data_ref_display->{column_display_style_nutrition_data_prepared}
+		= $column_display_style{"nutrition_data_prepared"};
+	$template_data_ref_display->{nutrition_data_xxg_style} = $nutrition_data_per_display_style{"nutrition_data_xxg"};
+	$template_data_ref_display->{nutrition_data_serving_style}
+		= $nutrition_data_per_display_style{"nutrition_data_serving"};
+	$template_data_ref_display->{nutrition_data_prepared_xxg_style}
+		= $nutrition_data_per_display_style{"nutrition_data_prepared_xxg"};
+	$template_data_ref_display->{nutrition_data_prepared_serving_style}
+		= $nutrition_data_per_display_style{"nutrition_data_prepared_serving"};
+
+	$template_data_ref_display->{tablestyle} = $tablestyle;
 
 	# Compute a list of nutrients that will not be displayed in the nutrition facts table in the product edit form
 	# because they are not set for the product, and are not displayed by default in the user's country.
@@ -1410,7 +1523,7 @@ CSS
 				$supports_iu = "true";
 			}
 
-			my $other_nutriment_unit = get_property("nutrients", "zz:$nid", "unit:en");
+			my $other_nutriment_unit = get_property("nutrients", "zz:$nid", "unit:en") || '';
 			$other_nutriments
 				.= '{ "value" : "'
 				. $other_nutriment_value
@@ -1424,7 +1537,7 @@ CSS
 	$nutriments =~ s/,\n$//s;
 	$other_nutriments =~ s/,\n$//s;
 
-	$scripts .= <<HTML
+	$request_ref->{scripts} .= <<HTML
 <script type="text/javascript">
 var nutriments = {
 $nutriments
@@ -1442,8 +1555,8 @@ HTML
 	my @packaging_fields = ("packaging_image", "packaging_text");
 
 	$template_data_ref_display->{display_tab_packaging}
-		= display_input_tabs($product_ref, "packaging_image", $product_ref->{sorted_langs}, \%Langs,
-		\@packaging_fields);
+		= display_input_tabs($product_ref, "packaging_image", $product_ref->{sorted_langs},
+		\%Langs, \@packaging_fields, $request_ref);
 
 	# Add an empty packaging element to the form, that will be hidden and duplicated when the user adds new packaging items,
 	# and another empty packaging element at the end
@@ -1459,12 +1572,12 @@ HTML
 
 	if ($User{moderator}) {
 		my $checked = '';
-		my $label = $Lang{i_checked_the_photos_and_data}{$lang};
+		my $label = $Lang{i_checked_the_photos_and_data}{$lc};
 		my $recheck_html = "";
 
 		if ((defined $product_ref->{checked}) and ($product_ref->{checked} eq 'on')) {
 			$checked = 'checked="checked"';
-			$label = $Lang{photos_and_data_checked}{$lang};
+			$label = $Lang{photos_and_data_checked}{$lc};
 		}
 
 		$template_data_ref_display->{product_ref_checked} = $product_ref->{checked};
@@ -1476,13 +1589,13 @@ HTML
 	$template_data_ref_display->{param_fields} = single_param("fields");
 	$template_data_ref_display->{type} = $type;
 	$template_data_ref_display->{code} = $code;
-	$template_data_ref_display->{display_product_history} = display_product_history($code, $product_ref);
+	$template_data_ref_display->{display_product_history} = display_product_history($request_ref, $code, $product_ref);
 	$template_data_ref_display->{product} = $product_ref;
 
-	process_template('web/pages/product_edit/product_edit_form_display.tt.html', $template_data_ref_display, \$html)
+	process_template('web/pages/product_edit/product_edit_form_display.tt.html',
+		$template_data_ref_display, \$html, $request_ref)
 		or $html = "<p>" . $tt->error() . "</p>";
-	process_template('web/pages/product_edit/product_edit_form_display.tt.js', $template_data_ref_display, \$js);
-	$initjs .= $js;
+
 	$request_ref->{page_type} = "product_edit";
 	$request_ref->{page_format} = "banner";
 
@@ -1498,7 +1611,7 @@ elsif (($action eq 'display') and ($type eq 'delete') and ($User{moderator})) {
 	$template_data_ref_moderator->{code} = $code;
 
 	process_template('web/pages/product_edit/product_edit_form_display_user-moderator.tt.html',
-		$template_data_ref_moderator, \$html)
+		$template_data_ref_moderator, \$html, $request_ref)
 		or $html = "<p>" . $tt->error() . "</p>";
 
 }
@@ -1568,7 +1681,7 @@ MAIL
 	}
 
 	$template_data_ref_process->{edited_product_url} = $url_prefix . product_url($product_ref);
-	$template_data_ref_process->{edit_product_url} = $url_prefix . product_action_url($product_ref->{code}, "");
+	$template_data_ref_process->{edit_product_url} = $url_prefix . product_action_url($product_ref->{code});
 
 	if ($type ne 'delete') {
 		# adding contribution card
@@ -1577,12 +1690,13 @@ MAIL
 		$knowledge_panels_options_ref = {};
 		initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_ref);
 		$knowledge_panels_options_ref->{knowledge_panels_client} = "web";
-		create_contribution_card_panel($product_ref, $lc, $cc, $knowledge_panels_options_ref);
+		create_contribution_card_panel($product_ref, $lc, $request_ref->{cc}, $knowledge_panels_options_ref);
 		$template_data_ref_process->{contribution_card_panel}
 			= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "contribution_card");
 	}
 	$template_data_ref_process->{code} = $product_ref->{code};
-	process_template('web/pages/product_edit/product_edit_form_process.tt.html', $template_data_ref_process, \$html)
+	process_template('web/pages/product_edit/product_edit_form_process.tt.html',
+		$template_data_ref_process, \$html, $request_ref)
 		or $html = "<p>" . $tt->error() . "</p>";
 
 }
