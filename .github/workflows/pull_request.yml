@@ -23,19 +23,18 @@ jobs:
     name: "Filter changed paths"
     runs-on: ubuntu-latest
     outputs:
-      code_modified: ${{ steps.filter.outputs.code }}
+      code_modified: ${{ steps.filter.outputs.code_modified }}
     steps:
-      - uses: dorny/paths-filter@v2
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Get changed files
+        uses: tj-actions/changed-files@v45
+        id: changed_files
+
+      - name: Filter non-markdown and non-docs files
         id: filter
-        with:
-          # FIXME: we need to consider more than these files
-          # We need to consider every file in the repository and have it in a category
-          # Maybe using negative match: https://github.com/micromatch/picomatch?tab=readme-ov-file#advanced-globbing
-          filters: |
-            code:
-            - '**/*'       # Catch everything else
-            - '!**/*.md'   # Exclude all Markdown files
-            - '!docs/**'   # Exclude docs/ folder
+        run: ./.github/scripts/path-filter.sh "${{ steps.changed_files.outputs.all_changed_files }}"
 
   lint:
     name: 🕵️‍♀️ NPM lint
