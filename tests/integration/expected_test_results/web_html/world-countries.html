@@ -10,7 +10,7 @@
 	<meta property="fb:app_id" content="219331381518041">
     <meta property="og:type" content="food">
     <meta property="og:title" content="">
-    <meta property="og:url" content="//world.openfoodfacts.localhost/countries">
+    <meta property="og:url" content="//world.openfoodfacts.localhost/facets/countries/1">
     
     <meta property="og:image" content="//static.openfoodfacts.org/images/logos/off-logo-vertical-white-social-media-preview.png">
     <meta property="og:description" content="">
@@ -25,7 +25,7 @@
 <meta name="theme-color" content="#ffffff">
 
 	<meta name="apple-itunes-app" content="app-id=588797948">
-    <link rel="canonical" href="//world.openfoodfacts.localhost/countries">
+    <link rel="canonical" href="//world.openfoodfacts.localhost/facets/countries/1">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/app-ltr.css?v=--ignore--" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/select2.min.css">
@@ -38,7 +38,10 @@
 .show-when-logged-in {display:none}
 
     </style>
-    <!-- Matomo -->
+</head>
+<body class="list_of_tags_page">
+
+	<!-- Matomo -->
 <script>
   var _paq = window._paq = window._paq || [];
   /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
@@ -61,11 +64,13 @@
 <!-- End Matomo Code -->
 
 
-</head>
-<body class="list_of_tags_page">
+
+	
 	<div class="skip"><a href="#content" tabindex="0">Skip to Content</a></div>
+	
 
 	<div id="page">
+		
 		<div class="upper-nav contain-to-grid"  id="upNav">
 			<nav class="top-bar " data-topbar role="navigation">
 				
@@ -138,9 +143,11 @@
 				</section>
 			</nav>
 		</div>
+		
 
 		<div id="main_container" style="position:relative" class="block_latte">
-			
+		
+		
 		<div class="topbarsticky">
 			<div class="contain-to-grid " id="offNav" >
 				<nav class="top-bar" data-topbar role="navigation" >
@@ -218,58 +225,28 @@
 				</form>
 			</div>
 		</nav>
+		
 
 		<div id="content" class="off-canvas-wrap block_latte" data-offcanvas>
 			<div class="inner-wrap">
 			
 				<a class="exit-off-canvas"></a>
+
+				
 				
 				<!-- full width banner on mobile -->
 				
 				
 
+				
+
 				<div class="main block_light">
 					<div id="main_column">
+
+						
 						
 							
 							
-								
-								<!-- start templates/web/common/includes/off_days_2024_banner.tt.html -->
-
-
-								
-
-<a href="//connect.openfoodfacts.org/event/open-food-facts-days-2024-22/register">
-    <section id="off-days-2024-banner-top" class="off-days-banner off-days-banner__ENG">
-    </section>
-</a>
-
-<script>
-    const offDaysBannerID = document.getElementById('off-days-2024-banner-top');
-
-    function getBannerCookie(bcname) {
-        const name = bcname + '=';
-        const decodedCookies = decodeURIComponent(document.cookie);
-        const cookies = decodedCookies.split(';');
-        for (const cookie of cookies) {
-        let c = cookie;
-        while (c.charAt(0) == ' ') { c = c.substring(1); }
-        if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
-        }
-        
-        return '';
-    }
-
-    if (getBannerCookie('off_donation_banner_2023_a') !== '') {
-        console.log('cookie found');
-        offDaysBannerID.style.display = 'flex';
-    } else {
-        console.log('cookie not found');
-        offDaysBannerID.style.display = 'none';
-    }
-</script>
-
-
 								<!-- start templates/web/common/includes/donate_banner.tt.html -->
 
 
@@ -281,22 +258,60 @@
 
 								
 
-<section id="donation-banner-top" class="donation-banner">
-  <span class="donation-banner__logo"></span>
-  <span class="donation-banner__hand"></span>
-  <div class="donation-banner__content">
-    <p class="donation-banner__main-text">
-        <span role="heading">Help us make food transparency the norm!</span>
-    </p>
+<section id="donation-banner-top" class="donation-banner row">
+  <div class="donation-banner__left-aside">
+    <div class="donation-banner__hook-section">
+      <p>Help us inform millions of consumers around the world about what they eat</p>
+    </div>
+    <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="group photo donation 2024" />
+  </div>
+  <div>
     <div class="donation-banner__aside">
-      <div>
-        <p class="donation-banner__secondary-text">As a non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat.</p>
-        <p class="donation-banner__tertiary-text">The food revolution starts with you!</p>
+      <div class="donation-banner__main-section">
+        <img
+          width="50"
+          height="50"
+          src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
+          alt="open food facts logo"
+        />
+        <h3 class="donation-banner__main-title">Please give to our 2024 Fundraiser</h3>
       </div>
-      <a class="donation-banner__donate" href="//world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2023-a&utm_term=en-text-button">Donate</a>
+      <div style="padding:1rem;">
+        <p>Your donations fund the day-to-day operations of our non-profit association:</p>
+        <ul>
+          <li>
+            keeping our database open & available to all,
+            <ul>
+              <li>technical infrastructure (website/mobile app) & a small permanent team</li>
+            </ul>
+          </li>
+          <li>
+            <p>remain independent of the food industry,</p>
+          </li>
+          <li>
+            <p>engage a community of committed citizens,</p>
+          </li>
+          <li>
+            <p>support the advancement of public health research.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="donation-banner__actions-section">
+      <div class="donation-banner__actions-section__financial">
+        <p>
+          
+          Each donation counts! We appreciate your support in bringing further food transparency in the world.  
+          
+        </p>
+      </div>
+      <div class="donation-banner__actions-section__donate-button">
+        <a href="//world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2024-a&utm_term=en-text-button">
+          <button>I SUPPORT</button>
+        </a>
+      </div>
     </div>
   </div>
-  <div class="donation-banner__image" role="img" aria-label="Photo of the project team"></div>
   <div class="donation-banner__close">
     <button id="hide-donate-banner" class="material-icons modest" onclick="DonationButton();" onkeypress="DonationButton();">close</button>
   </div>
@@ -329,11 +344,11 @@
   }
 
   function DonationButton() {
-    setBannerCookie('off_donation_banner_2023_a', 1, 180);
+    setBannerCookie('off_donation_banner_2024_a', 1, 180);
     bannerID.style.display = 'none';
   }
 
-  if (getBannerCookie('off_donation_banner_2023_a') !== '') {
+  if (getBannerCookie('off_donation_banner_2024_a') !== '') {
     bannerID.style.display = 'none';
   } else { 
     bannerID.style.display = 'flex';
@@ -342,6 +357,7 @@
 
 
 							
+						
 						
             			
 						
@@ -374,36 +390,36 @@
 <p>15 countries:</p><div style="max-width:600px;"><table id="tagstable">
 <thead><tr><th>Country</th><th>Products</th><th>*</th></tr></thead>
 <tbody>
-<tr><td><a href="/country/france" class="tag known">France</a></td>
-<td style="text-align:right"><a href="/country/france" class="tag known">7</a></td><td></td></tr>
-<tr><td><a href="/country/germany" class="tag known">Germany</a></td>
-<td style="text-align:right"><a href="/country/germany" class="tag known">5</a></td><td></td></tr>
-<tr><td><a href="/country/united-kingdom" class="tag known">United Kingdom</a></td>
-<td style="text-align:right"><a href="/country/united-kingdom" class="tag known">5</a></td><td></td></tr>
-<tr><td><a href="/country/italy" class="tag known">Italy</a></td>
-<td style="text-align:right"><a href="/country/italy" class="tag known">4</a></td><td></td></tr>
-<tr><td><a href="/country/spain" class="tag known">Spain</a></td>
-<td style="text-align:right"><a href="/country/spain" class="tag known">4</a></td><td></td></tr>
-<tr><td><a href="/country/japan" class="tag known">Japan</a></td>
-<td style="text-align:right"><a href="/country/japan" class="tag known">2</a></td><td></td></tr>
-<tr><td><a href="/country/united-states" class="tag known">United States</a></td>
-<td style="text-align:right"><a href="/country/united-states" class="tag known">2</a></td><td></td></tr>
-<tr><td><a href="/country/argentina" class="tag known">Argentina</a></td>
-<td style="text-align:right"><a href="/country/argentina" class="tag known">1</a></td><td></td></tr>
-<tr><td><a href="/country/belgium" class="tag known">Belgium</a></td>
-<td style="text-align:right"><a href="/country/belgium" class="tag known">1</a></td><td></td></tr>
-<tr><td><a href="/country/canada" class="tag known">Canada</a></td>
-<td style="text-align:right"><a href="/country/canada" class="tag known">1</a></td><td></td></tr>
-<tr><td><a href="/country/greece" class="tag known">Greece</a></td>
-<td style="text-align:right"><a href="/country/greece" class="tag known">1</a></td><td></td></tr>
-<tr><td><a href="/country/india" class="tag known">India</a></td>
-<td style="text-align:right"><a href="/country/india" class="tag known">1</a></td><td></td></tr>
-<tr><td><a href="/country/mexico" class="tag known">Mexico</a></td>
-<td style="text-align:right"><a href="/country/mexico" class="tag known">1</a></td><td></td></tr>
-<tr><td><a href="/country/portugal" class="tag known">Portugal</a></td>
-<td style="text-align:right"><a href="/country/portugal" class="tag known">1</a></td><td></td></tr>
-<tr><td><a href="/country/switzerland" class="tag known">Switzerland</a></td>
-<td style="text-align:right"><a href="/country/switzerland" class="tag known">1</a></td><td></td></tr>
+<tr><td><a href="/facets/countries/france" class="tag known">France</a></td>
+<td style="text-align:right"><a href="/facets/countries/france" class="tag known">7</a></td><td></td></tr>
+<tr><td><a href="/facets/countries/germany" class="tag known">Germany</a></td>
+<td style="text-align:right"><a href="/facets/countries/germany" class="tag known">5</a></td><td></td></tr>
+<tr><td><a href="/facets/countries/united-kingdom" class="tag known">United Kingdom</a></td>
+<td style="text-align:right"><a href="/facets/countries/united-kingdom" class="tag known">5</a></td><td></td></tr>
+<tr><td><a href="/facets/countries/italy" class="tag known">Italy</a></td>
+<td style="text-align:right"><a href="/facets/countries/italy" class="tag known">4</a></td><td></td></tr>
+<tr><td><a href="/facets/countries/spain" class="tag known">Spain</a></td>
+<td style="text-align:right"><a href="/facets/countries/spain" class="tag known">4</a></td><td></td></tr>
+<tr><td><a href="/facets/countries/japan" class="tag known">Japan</a></td>
+<td style="text-align:right"><a href="/facets/countries/japan" class="tag known">2</a></td><td></td></tr>
+<tr><td><a href="/facets/countries/united-states" class="tag known">United States</a></td>
+<td style="text-align:right"><a href="/facets/countries/united-states" class="tag known">2</a></td><td></td></tr>
+<tr><td><a href="/facets/countries/argentina" class="tag known">Argentina</a></td>
+<td style="text-align:right"><a href="/facets/countries/argentina" class="tag known">1</a></td><td></td></tr>
+<tr><td><a href="/facets/countries/belgium" class="tag known">Belgium</a></td>
+<td style="text-align:right"><a href="/facets/countries/belgium" class="tag known">1</a></td><td></td></tr>
+<tr><td><a href="/facets/countries/canada" class="tag known">Canada</a></td>
+<td style="text-align:right"><a href="/facets/countries/canada" class="tag known">1</a></td><td></td></tr>
+<tr><td><a href="/facets/countries/greece" class="tag known">Greece</a></td>
+<td style="text-align:right"><a href="/facets/countries/greece" class="tag known">1</a></td><td></td></tr>
+<tr><td><a href="/facets/countries/india" class="tag known">India</a></td>
+<td style="text-align:right"><a href="/facets/countries/india" class="tag known">1</a></td><td></td></tr>
+<tr><td><a href="/facets/countries/mexico" class="tag known">Mexico</a></td>
+<td style="text-align:right"><a href="/facets/countries/mexico" class="tag known">1</a></td><td></td></tr>
+<tr><td><a href="/facets/countries/portugal" class="tag known">Portugal</a></td>
+<td style="text-align:right"><a href="/facets/countries/portugal" class="tag known">1</a></td><td></td></tr>
+<tr><td><a href="/facets/countries/switzerland" class="tag known">Switzerland</a></td>
+<td style="text-align:right"><a href="/facets/countries/switzerland" class="tag known">1</a></td><td></td></tr>
 </tbody></table></div>
 								</div>
 							</div>
@@ -414,6 +430,7 @@
 		</div>
 		</div>
 
+		
 		<footer>
 			<div class="block_light bg-white" id="install_the_app_block">
 				<div class="row">
@@ -451,22 +468,56 @@
 
 				
 
-<section class="donation-banner-footer">
-  <span class="donation-banner-footer__logo"></span>
-  <span class="donation-banner-footer__hand"></span>
-  <div class="donation-banner-footer__content">
-    <p class="donation-banner-footer__main-text">
-      <span>Help us make food transparency the norm!</span>
-    </p>
-    <div class="donation-banner-footer__aside">
-      <div>
-        <p class="donation-banner-footer__secondary-text">As a non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat.</p>
-        <p class="donation-banner-footer__tertiary-text">The food revolution starts with you!</p>
+<section class="donation-banner-footer row">
+  <div class="donation-banner-footer__left-aside">
+    <div class="donation-banner-footer__hook-section">
+      <p>Help us inform millions of consumers around the world about what they eat</p>
+    </div>
+    <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="group photo donation 2024" />
+  </div>
+  <div>
+    <div>
+      <div class="donation-banner-footer__main-section">
+        <img
+          width="50"
+          height="50"
+          src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
+          alt="open food facts logo"
+        />
+        <h3 class="donation-banner-footer__main-title">Please give to our 2024 Fundraiser</h3>
       </div>
-      <a class="donation-banner-footer__donate" href="//world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2023-a&utm_term=en-text-button">Donate</a>
+      <p>Your donations fund the day-to-day operations of our non-profit association:</p>
+      <ul>
+        <li>
+          keeping our database open & available to all,
+          <ul>
+            <li>technical infrastructure (website/mobile app) & a small permanent team</li>
+          </ul>
+        </li>
+        <li>
+          <p>remain independent of the food industry,</p>
+        </li>
+        <li>
+          <p>engage a community of committed citizens,</p>
+        </li>
+        <li>
+          <p>support the advancement of public health research.</p>
+        </li>
+      </ul>
+    </div>
+    <div class="donation-banner-footer__actions-section">
+      <div class="donation-banner-footer__actions-section__financial">
+        <p>
+          Each donation counts! We appreciate your support in bringing further food transparency in the world.
+        </p>
+      </div>
+      <div class="donation-banner-footer__actions-section__donate-button">
+        <a href="//world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2024-a&utm_term=en-text-button">
+          <button>I SUPPORT</button>
+        </a>
+      </div>
     </div>
   </div>
-  <div class="donation-banner-footer__image" role="img" aria-label="Photo of the project team"></div>
 </section>
 
 
@@ -534,6 +585,7 @@
 				</div>
 			</div>
 		</footer>
+		
 
 	</div>
 
@@ -548,7 +600,7 @@
 
 <script>
 $(function() {
-var countries_map_data=JSON.parse("{\"AR\":1,\"BE\":1,\"CA\":1,\"CH\":1,\"DE\":5,\"ES\":4,\"FR\":7,\"GB\":5,\"GR\":1,\"IN\":1,\"IT\":4,\"JP\":2,\"MX\":1,\"PT\":1,\"US\":2}");var countries_map_links=JSON.parse("{\"AR\":\"/country/argentina\",\"BE\":\"/country/belgium\",\"CA\":\"/country/canada\",\"CH\":\"/country/switzerland\",\"DE\":\"/country/germany\",\"ES\":\"/country/spain\",\"FR\":\"/country/france\",\"GB\":\"/country/united-kingdom\",\"GR\":\"/country/greece\",\"IN\":\"/country/india\",\"IT\":\"/country/italy\",\"JP\":\"/country/japan\",\"MX\":\"/country/mexico\",\"PT\":\"/country/portugal\",\"US\":\"/country/united-states\"}");var countries_map_names=JSON.parse("{\"AR\":\"Argentina\",\"BE\":\"Belgium\",\"CA\":\"Canada\",\"CH\":\"Switzerland\",\"DE\":\"Germany\",\"ES\":\"Spain\",\"FR\":\"France\",\"GB\":\"United Kingdom\",\"GR\":\"Greece\",\"IN\":\"India\",\"IT\":\"Italy\",\"JP\":\"Japan\",\"MX\":\"Mexico\",\"PT\":\"Portugal\",\"US\":\"United States\"}");displayWorldMap('#world-map', { 'data': countries_map_data, 'links': countries_map_links, 'names': countries_map_names });
+var countries_map_data=JSON.parse("{\"AR\":1,\"BE\":1,\"CA\":1,\"CH\":1,\"DE\":5,\"ES\":4,\"FR\":7,\"GB\":5,\"GR\":1,\"IN\":1,\"IT\":4,\"JP\":2,\"MX\":1,\"PT\":1,\"US\":2}");var countries_map_links=JSON.parse("{\"AR\":\"/facets/countries/argentina\",\"BE\":\"/facets/countries/belgium\",\"CA\":\"/facets/countries/canada\",\"CH\":\"/facets/countries/switzerland\",\"DE\":\"/facets/countries/germany\",\"ES\":\"/facets/countries/spain\",\"FR\":\"/facets/countries/france\",\"GB\":\"/facets/countries/united-kingdom\",\"GR\":\"/facets/countries/greece\",\"IN\":\"/facets/countries/india\",\"IT\":\"/facets/countries/italy\",\"JP\":\"/facets/countries/japan\",\"MX\":\"/facets/countries/mexico\",\"PT\":\"/facets/countries/portugal\",\"US\":\"/facets/countries/united-states\"}");var countries_map_names=JSON.parse("{\"AR\":\"Argentina\",\"BE\":\"Belgium\",\"CA\":\"Canada\",\"CH\":\"Switzerland\",\"DE\":\"Germany\",\"ES\":\"Spain\",\"FR\":\"France\",\"GB\":\"United Kingdom\",\"GR\":\"Greece\",\"IN\":\"India\",\"IT\":\"Italy\",\"JP\":\"Japan\",\"MX\":\"Mexico\",\"PT\":\"Portugal\",\"US\":\"United States\"}");displayWorldMap('#world-map', { 'data': countries_map_data, 'links': countries_map_links, 'names': countries_map_names });
 let oTable = $('#tagstable').DataTable({
 	language: {
 		search: "Search:",

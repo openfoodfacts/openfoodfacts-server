@@ -74,7 +74,7 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/check_quality/;
 use ProductOpener::Data qw/get_products_collection/;
-use ProductOpener::Ecoscore qw(compute_ecoscore);
+use ProductOpener::EnvironmentalScore qw(compute_environmental_score);
 use ProductOpener::Packaging
 	qw(analyze_and_combine_packaging_data guess_language_of_packaging_text init_packaging_taxonomies_regexps);
 use ProductOpener::ForestFootprint qw(compute_forest_footprint);
@@ -138,7 +138,7 @@ my $mark_as_obsolete_since_date = '';
 my $reassign_energy_kcal = '';
 my $delete_old_fields = '';
 my $mongodb_to_mongodb = '';
-my $compute_ecoscore = '';
+my $compute_environmental_score = '';
 my $compute_forest_footprint = '';
 my $fix_nutrition_data_per = '';
 my $fix_nutrition_data = '';
@@ -176,7 +176,7 @@ GetOptions(
 	"compute-nova" => \$compute_nova,
 	"compute-codes" => \$compute_codes,
 	"compute-carbon" => \$compute_carbon,
-	"compute-ecoscore" => \$compute_ecoscore,
+	"compute-environmental_score" => \$compute_environmental_score,
 	"compute-forest-footprint" => \$compute_forest_footprint,
 	"check-quality" => \$check_quality,
 	"compute-sort-key" => \$compute_sort_key,
@@ -280,7 +280,7 @@ if (    (not $process_ingredients)
 	and (not $delete_debug_tags)
 	and (not $compute_codes)
 	and (not $compute_carbon)
-	and (not $compute_ecoscore)
+	and (not $compute_environmental_score)
 	and (not $compute_forest_footprint)
 	and (not $process_packagings)
 	and (not $check_quality)
@@ -327,6 +327,11 @@ if ($fix_non_string_codes) {
 # Query products that have the last_modified_t field stored as a number
 if ($fix_string_last_modified_t) {
 	$query_ref->{last_modified_t} = {'$type' => "string"};
+}
+
+# Query products that don't have a product_type field
+if ($add_product_type) {
+	$query_ref->{product_type} = {'$exists' => 0};
 }
 
 # On the producers platform, require --query owners_tags to be set, or the --all-owners field to be set.
@@ -1256,8 +1261,8 @@ while (my $product_ref = $cursor->next) {
 			analyze_and_combine_packaging_data($product_ref, $response_ref);
 		}
 
-		if ($compute_ecoscore) {
-			compute_ecoscore($product_ref);
+		if ($compute_environmental_score) {
+			compute_environmental_score($product_ref);
 		}
 
 		if ($compute_forest_footprint) {
@@ -1371,14 +1376,18 @@ while (my $product_ref = $cursor->next) {
 		# Add product type
 		if (($add_product_type) and (not defined $product_ref->{product_type})) {
 			$product_ref->{product_type} = $options{product_type};
-			# Silent update: we also change the original_product
-			# in order not to push the product to Redis
-			$original_product->{product_type} = $product_ref->{product_type};
+			print STDERR "adding product_type $options{product_type} to product $code\n";
 			# $product_values_changed = 1;
 		}
 
 		if ($assign_ciqual_codes) {
 			assign_ciqual_codes($product_ref);
+		}
+
+		# if we have an old_product_type (if change_product_type() was called),
+		# we need to use store_product() so that the product is removed from the old MongoDB collection and added to the new one
+		if (defined $product_ref->{old_product_type}) {
+			$product_values_changed = 1;
 		}
 
 		my $any_change = $product_values_changed;

@@ -29,6 +29,7 @@
                "id" : "low_salt",
                "missing" : "Missing nutrition facts",
                "name" : "Salt",
+               "panel_id" : "nutrition_facts_table",
                "status" : "unknown",
                "title" : "Salt in unknown quantity"
             },
@@ -38,6 +39,7 @@
                "id" : "low_fat",
                "missing" : "Missing nutrition facts",
                "name" : "Fat",
+               "panel_id" : "nutrition_facts_table",
                "status" : "unknown",
                "title" : "Fat in unknown quantity"
             },
@@ -47,6 +49,7 @@
                "id" : "low_sugars",
                "missing" : "Missing nutrition facts",
                "name" : "Sugars",
+               "panel_id" : "nutrition_facts_table",
                "status" : "unknown",
                "title" : "Sugars in unknown quantity"
             },
@@ -56,6 +59,7 @@
                "id" : "low_saturated_fat",
                "missing" : "Missing nutrition facts",
                "name" : "Saturated fat",
+               "panel_id" : "nutrition_facts_table",
                "status" : "unknown",
                "title" : "Saturated fat in unknown quantity"
             }
@@ -277,13 +281,13 @@
                "description" : "",
                "description_short" : "High environmental impact",
                "grade" : "d",
-               "icon_url" : "https://server_domain/images/attributes/dist/ecoscore-d.svg",
+               "icon_url" : "https://server_domain/images/attributes/dist/green-score-d.svg",
                "id" : "ecoscore",
-               "match" : 36,
-               "name" : "Eco-Score",
-               "panel_id" : "ecoscore",
+               "match" : 35,
+               "name" : "Green-Score",
+               "panel_id" : "environmental_score",
                "status" : "known",
-               "title" : "Eco-Score D"
+               "title" : "Green-Score D"
             },
             {
                "description" : "",
@@ -356,7 +360,7 @@
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
       "en:all-but-one-ingredient-with-specified-percent",
-      "en:ecoscore-extended-data-not-computed",
+      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-known",
       "en:food-groups-2-known",
       "en:food-groups-3-unknown"
@@ -368,24 +372,27 @@
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
       "en:all-but-one-ingredient-with-specified-percent",
-      "en:ecoscore-extended-data-not-computed",
+      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-known",
       "en:food-groups-2-known",
       "en:food-groups-3-unknown",
       "en:ingredients-unknown-score-above-0",
       "en:ingredients-100-percent-unknown",
-      "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-      "en:ecoscore-packaging-packaging-data-missing",
-      "en:ecoscore-production-system-no-label"
+      "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+      "en:environmental-score-packaging-packaging-data-missing",
+      "en:environmental-score-production-system-no-label"
    ],
    "data_quality_warnings_tags" : [
       "en:ingredients-unknown-score-above-0",
       "en:ingredients-100-percent-unknown",
-      "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-      "en:ecoscore-packaging-packaging-data-missing",
-      "en:ecoscore-production-system-no-label"
+      "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+      "en:environmental-score-packaging-packaging-data-missing",
+      "en:environmental-score-production-system-no-label"
    ],
-   "ecoscore_data" : {
+   "ecoscore_tags" : [
+      "d"
+   ],
+   "environmental_score_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
             "aggregated_origins" : [
@@ -600,7 +607,6 @@
             "warning" : "origins_are_100_percent_unknown"
          },
          "packaging" : {
-            "non_recyclable_and_non_biodegradable_materials" : 1,
             "value" : -15,
             "warning" : "packaging_data_missing"
          },
@@ -776,9 +782,9 @@
       },
       "status" : "known"
    },
-   "ecoscore_grade" : "d",
-   "ecoscore_score" : 35,
-   "ecoscore_tags" : [
+   "environmental_score_grade" : "d",
+   "environmental_score_score" : 35,
+   "environmental_score_tags" : [
       "d"
    ],
    "food_groups" : "en:cheese",
@@ -839,6 +845,10 @@
       "en:some-ingredient-that-we-do-not-recognize"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:some-ingredient-that-we-do-not-recognize"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 0,
    "languages" : {},
    "languages_codes" : {},
@@ -849,15 +859,14 @@
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
-      "en:ecoscore-changed",
-      "en:ecoscore-computed",
-      "en:ecoscore-extended-data-not-computed",
-      "en:ecoscore-grade-changed",
-      "en:ecoscore-missing-data-labels",
-      "en:ecoscore-missing-data-no-packagings",
-      "en:ecoscore-missing-data-origins",
-      "en:ecoscore-missing-data-packagings",
-      "en:ecoscore-missing-data-warning",
+      "en:environmental-score-changed",
+      "en:environmental-score-computed",
+      "en:environmental-score-grade-changed",
+      "en:environmental-score-missing-data-labels",
+      "en:environmental-score-missing-data-no-packagings",
+      "en:environmental-score-missing-data-origins",
+      "en:environmental-score-missing-data-packagings",
+      "en:environmental-score-missing-data-warning",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-energy",
       "en:nutriscore-missing-nutrition-data-fat",
@@ -942,7 +951,7 @@
    "nutriscore_tags" : [
       "unknown"
    ],
-   "nutriscore_version" : "2021",
+   "nutriscore_version" : "2023",
    "nutrition_data_per" : "100g",
    "nutrition_data_prepared_per" : "100g",
    "nutrition_grade_fr" : "unknown",

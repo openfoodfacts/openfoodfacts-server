@@ -10,7 +10,7 @@
 	<meta property="fb:app_id" content="219331381518041">
     <meta property="og:type" content="food">
     <meta property="og:title" content="">
-    <meta property="og:url" content="//world.openfoodfacts.localhost/label/en:organic">
+    <meta property="og:url" content="//world.openfoodfacts.localhost/facets/labels/en:organic/1">
     
     <meta property="og:image" content="//static.openfoodfacts.org/images/logos/off-logo-vertical-white-social-media-preview.png">
     <meta property="og:description" content="">
@@ -25,7 +25,7 @@
 <meta name="theme-color" content="#ffffff">
 
 	<meta name="apple-itunes-app" content="app-id=588797948">
-    <link rel="canonical" href="//world.openfoodfacts.localhost/label/en:organic">
+    <link rel="canonical" href="//world.openfoodfacts.localhost/facets/labels/en:organic/1">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/app-ltr.css?v=--ignore--" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/select2.min.css">
@@ -37,7 +37,10 @@
 .show-when-logged-in {display:none}
 
     </style>
-    <!-- Matomo -->
+</head>
+<body class="products_page">
+
+	<!-- Matomo -->
 <script>
   var _paq = window._paq = window._paq || [];
   /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
@@ -60,11 +63,13 @@
 <!-- End Matomo Code -->
 
 
-</head>
-<body class="products_page">
+
+	
 	<div class="skip"><a href="#content" tabindex="0">Skip to Content</a></div>
+	
 
 	<div id="page">
+		
 		<div class="upper-nav contain-to-grid"  id="upNav">
 			<nav class="top-bar " data-topbar role="navigation">
 				
@@ -137,9 +142,11 @@
 				</section>
 			</nav>
 		</div>
+		
 
 		<div id="main_container" style="position:relative" class="block_latte">
-			
+		
+		
 		<div class="topbarsticky">
 			<div class="contain-to-grid " id="offNav" >
 				<nav class="top-bar" data-topbar role="navigation" >
@@ -217,58 +224,28 @@
 				</form>
 			</div>
 		</nav>
+		
 
 		<div id="content" class="off-canvas-wrap block_latte" data-offcanvas>
 			<div class="inner-wrap">
 			
 				<a class="exit-off-canvas"></a>
+
+				
 				
 				<!-- full width banner on mobile -->
 				
 				
 
+				
+
 				<div class="main block_light">
 					<div id="main_column">
+
+						
 						
 							
 							
-								
-								<!-- start templates/web/common/includes/off_days_2024_banner.tt.html -->
-
-
-								
-
-<a href="//connect.openfoodfacts.org/event/open-food-facts-days-2024-22/register">
-    <section id="off-days-2024-banner-top" class="off-days-banner off-days-banner__ENG">
-    </section>
-</a>
-
-<script>
-    const offDaysBannerID = document.getElementById('off-days-2024-banner-top');
-
-    function getBannerCookie(bcname) {
-        const name = bcname + '=';
-        const decodedCookies = decodeURIComponent(document.cookie);
-        const cookies = decodedCookies.split(';');
-        for (const cookie of cookies) {
-        let c = cookie;
-        while (c.charAt(0) == ' ') { c = c.substring(1); }
-        if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
-        }
-        
-        return '';
-    }
-
-    if (getBannerCookie('off_donation_banner_2023_a') !== '') {
-        console.log('cookie found');
-        offDaysBannerID.style.display = 'flex';
-    } else {
-        console.log('cookie not found');
-        offDaysBannerID.style.display = 'none';
-    }
-</script>
-
-
 								<!-- start templates/web/common/includes/donate_banner.tt.html -->
 
 
@@ -280,22 +257,60 @@
 
 								
 
-<section id="donation-banner-top" class="donation-banner">
-  <span class="donation-banner__logo"></span>
-  <span class="donation-banner__hand"></span>
-  <div class="donation-banner__content">
-    <p class="donation-banner__main-text">
-        <span role="heading">Help us make food transparency the norm!</span>
-    </p>
+<section id="donation-banner-top" class="donation-banner row">
+  <div class="donation-banner__left-aside">
+    <div class="donation-banner__hook-section">
+      <p>Help us inform millions of consumers around the world about what they eat</p>
+    </div>
+    <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="group photo donation 2024" />
+  </div>
+  <div>
     <div class="donation-banner__aside">
-      <div>
-        <p class="donation-banner__secondary-text">As a non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat.</p>
-        <p class="donation-banner__tertiary-text">The food revolution starts with you!</p>
+      <div class="donation-banner__main-section">
+        <img
+          width="50"
+          height="50"
+          src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
+          alt="open food facts logo"
+        />
+        <h3 class="donation-banner__main-title">Please give to our 2024 Fundraiser</h3>
       </div>
-      <a class="donation-banner__donate" href="//world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2023-a&utm_term=en-text-button">Donate</a>
+      <div style="padding:1rem;">
+        <p>Your donations fund the day-to-day operations of our non-profit association:</p>
+        <ul>
+          <li>
+            keeping our database open & available to all,
+            <ul>
+              <li>technical infrastructure (website/mobile app) & a small permanent team</li>
+            </ul>
+          </li>
+          <li>
+            <p>remain independent of the food industry,</p>
+          </li>
+          <li>
+            <p>engage a community of committed citizens,</p>
+          </li>
+          <li>
+            <p>support the advancement of public health research.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="donation-banner__actions-section">
+      <div class="donation-banner__actions-section__financial">
+        <p>
+          
+          Each donation counts! We appreciate your support in bringing further food transparency in the world.  
+          
+        </p>
+      </div>
+      <div class="donation-banner__actions-section__donate-button">
+        <a href="//world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2024-a&utm_term=en-text-button">
+          <button>I SUPPORT</button>
+        </a>
+      </div>
     </div>
   </div>
-  <div class="donation-banner__image" role="img" aria-label="Photo of the project team"></div>
   <div class="donation-banner__close">
     <button id="hide-donate-banner" class="material-icons modest" onclick="DonationButton();" onkeypress="DonationButton();">close</button>
   </div>
@@ -328,11 +343,11 @@
   }
 
   function DonationButton() {
-    setBannerCookie('off_donation_banner_2023_a', 1, 180);
+    setBannerCookie('off_donation_banner_2024_a', 1, 180);
     bannerID.style.display = 'none';
   }
 
-  if (getBannerCookie('off_donation_banner_2023_a') !== '') {
+  if (getBannerCookie('off_donation_banner_2024_a') !== '') {
     bannerID.style.display = 'none';
   } else { 
     bannerID.style.display = 'flex';
@@ -341,6 +356,7 @@
 
 
 							
+						
 						
             			
 						
@@ -359,8 +375,8 @@
 
             <div class="tag_navigation">
                 
-                    <a href="/labels">Label</a>:
-                    <a href="/label/organic">Organic</a>
+                    <a href="/facets/labels">Label</a>:
+                    <a href="/facets/labels/organic">Organic</a>
                     
                 
             </div>
@@ -376,48 +392,48 @@
                 
                 <div class="parents_and_children">
                     <p>Contains:</p><ul>
-<li><a href="/label/de:bio-7-initiative" class="tag user_defined" lang="de">de:Bio 7 Initiative</a></li>
-<li><a href="/label/austria-bio-garantie" class="tag well_known">Austria Bio Garantie</a></li>
-<li><a href="/label/bio-austria" class="tag well_known">Bio Austria</a></li>
-<li><a href="/label/bio-suisse" class="tag well_known">Bio Suisse</a></li>
-<li><a href="/label/biodynamic-agriculture" class="tag well_known">Biodynamic agriculture</a></li>
-<li><a href="/label/biogarantie" class="tag well_known">Biogarantie</a></li>
-<li><a href="/label/biokreis" class="tag well_known">Biokreis</a></li>
-<li><a href="/label/bioland" class="tag well_known">Bioland</a></li>
-<li><a href="/label/canada-organic" class="tag well_known">Canada Organic</a></li>
-<li><a href="/label/catalan-council-of-organic-production" class="tag well_known">Catalan Council of Organic Production</a></li>
-<li><a href="/label/danish-state-controlled-organic" class="tag well_known">Danish state-controlled organic</a></li>
-<li><a href="/label/debio-organic" class="tag well_known">Debio organic</a></li>
-<li><a href="/label/ecoveg" class="tag well_known">EcoVeg</a></li>
-<li><a href="/label/eu-organic" class="tag well_known">EU Organic</a></li>
-<li><a href="/label/fair-trade-organic" class="tag well_known">Fair-Trade Organic</a></li>
-<li><a href="/label/farm-verified-organic" class="tag well_known">Farm Verified Organic</a></li>
-<li><a href="/label/finnish-organic-association" class="tag well_known">Finnish organic association</a></li>
-<li><a href="/label/india-organic" class="tag well_known">India Organic</a></li>
-<li><a href="/label/luomu-controlled-organic-production" class="tag well_known">Luomu - controlled organic production</a></li>
-<li><a href="/label/migros-bio" class="tag well_known">Migros Bio</a></li>
-<li><a href="/label/naturaplan" class="tag well_known">Naturaplan</a></li>
-<li><a href="/label/naturland" class="tag well_known">Naturland</a></li>
-<li><a href="/label/soil-association-organic" class="tag well_known">Soil Association Organic</a></li>
-<li><a href="/label/tun-certified-organic" class="tag well_known">Tún certified organic</a></li>
-<li><a href="/label/usda-organic" class="tag well_known">USDA Organic</a></li>
-<li><a href="/label/es:comite-aragones-de-agricultura-ecologica" class="tag user_defined" lang="es">es:Comité Aragonés de Agricultura Ecologica</a></li>
-<li><a href="/label/es:comite-de-agricultura-ecologica" class="tag user_defined" lang="es">es:Comité de Agricultura Ecologica</a></li>
-<li><a href="/label/es:comite-de-agricultura-ecologica-de-la-comunidad-de-madrid" class="tag user_defined" lang="es">es:Comité de Agricultura Ecologica de la Comunidad de Madrid</a></li>
-<li><a href="/label/es:comite-de-agricultura-ecologica-de-la-comunitat-valenciana" class="tag user_defined" lang="es">es:Comité de Agricultura Ecológica de la Comunitat Valenciana</a></li>
-<li><a href="/label/es:consejo-de-agricultura-ecologica-de-la-region-de-murcia" class="tag user_defined" lang="es">es:Consejo de Agricultura Ecologica de la Región de Murcia</a></li>
-<li><a href="/label/es:organico-argentina" class="tag user_defined" lang="es">es:Orgánico Argentina</a></li>
-<li><a href="/label/fr:bio-coherence" class="tag user_defined" lang="fr">fr:Bio-Cohérence</a></li>
-<li><a href="/label/fr:bio-equitable" class="tag user_defined" lang="fr">fr:Bio-équitable</a></li>
-<li><a href="/label/fr:bio-equitable-en-france" class="tag user_defined" lang="fr">fr:Bio équitable en France</a></li>
-<li><a href="/label/fr:bio-solidaire" class="tag user_defined" lang="fr">fr:Bio-Solidaire</a></li>
-<li><a href="/label/biopartenaire" class="tag well_known">Biopartenaire</a></li>
-<li><a href="/label/fr:nature-et-progres" class="tag user_defined" lang="fr">fr:Nature et Progrès</a></li>
-<li><a href="/label/icea-bio-vegan" class="tag well_known">ICEA Bio Vegan</a></li>
-<li><a href="/label/icea-bio-vegetariano" class="tag well_known">ICEA Bio Vegetariano</a></li>
-<li><a href="/label/icea-biologico" class="tag well_known">ICEA Biologico</a></li>
-<li><a href="/label/pt:produto-organico-brasil" class="tag user_defined" lang="pt">pt:Produto Orgânico Brasil</a></li>
-<li><a href="/label/krav" class="tag well_known">KRAV</a></li>
+<li><a href="/facets/labels/de:bio-7-initiative" class="tag user_defined" lang="de">de:Bio 7 Initiative</a></li>
+<li><a href="/facets/labels/austria-bio-garantie" class="tag well_known">Austria Bio Garantie</a></li>
+<li><a href="/facets/labels/bio-austria" class="tag well_known">Bio Austria</a></li>
+<li><a href="/facets/labels/bio-suisse" class="tag well_known">Bio Suisse</a></li>
+<li><a href="/facets/labels/biodynamic-agriculture" class="tag well_known">Biodynamic agriculture</a></li>
+<li><a href="/facets/labels/biogarantie" class="tag well_known">Biogarantie</a></li>
+<li><a href="/facets/labels/biokreis" class="tag well_known">Biokreis</a></li>
+<li><a href="/facets/labels/bioland" class="tag well_known">Bioland</a></li>
+<li><a href="/facets/labels/canada-organic" class="tag well_known">Canada Organic</a></li>
+<li><a href="/facets/labels/catalan-council-of-organic-production" class="tag well_known">Catalan Council of Organic Production</a></li>
+<li><a href="/facets/labels/danish-state-controlled-organic" class="tag well_known">Danish state-controlled organic</a></li>
+<li><a href="/facets/labels/debio-organic" class="tag well_known">Debio organic</a></li>
+<li><a href="/facets/labels/ecoveg" class="tag well_known">EcoVeg</a></li>
+<li><a href="/facets/labels/eu-organic" class="tag well_known">EU Organic</a></li>
+<li><a href="/facets/labels/fair-trade-organic" class="tag well_known">Fair-Trade Organic</a></li>
+<li><a href="/facets/labels/farm-verified-organic" class="tag well_known">Farm Verified Organic</a></li>
+<li><a href="/facets/labels/finnish-organic-association" class="tag well_known">Finnish organic association</a></li>
+<li><a href="/facets/labels/india-organic" class="tag well_known">India Organic</a></li>
+<li><a href="/facets/labels/luomu-controlled-organic-production" class="tag well_known">Luomu - controlled organic production</a></li>
+<li><a href="/facets/labels/migros-bio" class="tag well_known">Migros Bio</a></li>
+<li><a href="/facets/labels/naturaplan" class="tag well_known">Naturaplan</a></li>
+<li><a href="/facets/labels/naturland" class="tag well_known">Naturland</a></li>
+<li><a href="/facets/labels/soil-association-organic" class="tag well_known">Soil Association Organic</a></li>
+<li><a href="/facets/labels/tun-certified-organic" class="tag well_known">Tún certified organic</a></li>
+<li><a href="/facets/labels/usda-organic" class="tag well_known">USDA Organic</a></li>
+<li><a href="/facets/labels/es:comite-aragones-de-agricultura-ecologica" class="tag user_defined" lang="es">es:Comité Aragonés de Agricultura Ecologica</a></li>
+<li><a href="/facets/labels/es:comite-de-agricultura-ecologica" class="tag user_defined" lang="es">es:Comité de Agricultura Ecologica</a></li>
+<li><a href="/facets/labels/es:comite-de-agricultura-ecologica-de-la-comunidad-de-madrid" class="tag user_defined" lang="es">es:Comité de Agricultura Ecologica de la Comunidad de Madrid</a></li>
+<li><a href="/facets/labels/es:comite-de-agricultura-ecologica-de-la-comunitat-valenciana" class="tag user_defined" lang="es">es:Comité de Agricultura Ecológica de la Comunitat Valenciana</a></li>
+<li><a href="/facets/labels/es:consejo-de-agricultura-ecologica-de-la-region-de-murcia" class="tag user_defined" lang="es">es:Consejo de Agricultura Ecologica de la Región de Murcia</a></li>
+<li><a href="/facets/labels/es:organico-argentina" class="tag user_defined" lang="es">es:Orgánico Argentina</a></li>
+<li><a href="/facets/labels/fr:bio-coherence" class="tag user_defined" lang="fr">fr:Bio-Cohérence</a></li>
+<li><a href="/facets/labels/fr:bio-equitable" class="tag user_defined" lang="fr">fr:Bio-équitable</a></li>
+<li><a href="/facets/labels/fr:bio-equitable-en-france" class="tag user_defined" lang="fr">fr:Bio équitable en France</a></li>
+<li><a href="/facets/labels/fr:bio-solidaire" class="tag user_defined" lang="fr">fr:Bio-Solidaire</a></li>
+<li><a href="/facets/labels/biopartenaire" class="tag well_known">Biopartenaire</a></li>
+<li><a href="/facets/labels/fr:nature-et-progres" class="tag user_defined" lang="fr">fr:Nature et Progrès</a></li>
+<li><a href="/facets/labels/icea-bio-vegan" class="tag well_known">ICEA Bio Vegan</a></li>
+<li><a href="/facets/labels/icea-bio-vegetariano" class="tag well_known">ICEA Bio Vegetariano</a></li>
+<li><a href="/facets/labels/icea-biologico" class="tag well_known">ICEA Biologico</a></li>
+<li><a href="/facets/labels/pt:produto-organico-brasil" class="tag user_defined" lang="pt">pt:Produto Orgânico Brasil</a></li>
+<li><a href="/facets/labels/krav" class="tag well_known">KRAV</a></li>
 </ul>
 
                 </div>
@@ -546,23 +562,23 @@
           <ul id="drop_sort" data-dropdown-content class="f-dropdown" aria-hidden="true">
           
             <li>
-              <a href="/label/organic?sort_by=popularity" onclick="$.cookie('last_sort_by', 'popularity', { expires: 180, path: '/' });">Most scanned products</a>
+              <a href="/facets/labels/organic?sort_by=popularity" onclick="$.cookie('last_sort_by', 'popularity', { expires: 180, path: '/' });">Most scanned products</a>
             </li>
         
             <li>
-              <a href="/label/organic?sort_by=nutriscore_score" onclick="$.cookie('last_sort_by', 'nutriscore_score', { expires: 180, path: '/' });">Products with the best Nutri-Score</a>
+              <a href="/facets/labels/organic?sort_by=nutriscore_score" onclick="$.cookie('last_sort_by', 'nutriscore_score', { expires: 180, path: '/' });">Products with the best Nutri-Score</a>
             </li>
         
             <li>
-              <a href="/label/organic?sort_by=ecoscore_score" onclick="$.cookie('last_sort_by', 'ecoscore_score', { expires: 180, path: '/' });">Products with the best Eco-Score</a>
+              <a href="/facets/labels/organic?sort_by=environmental_score_score" onclick="$.cookie('last_sort_by', 'environmental_score_score', { expires: 180, path: '/' });">Products with the best Green-Score</a>
             </li>
         
             <li>
-              <a href="/label/organic?sort_by=created_t" onclick="$.cookie('last_sort_by', 'created_t', { expires: 180, path: '/' });">Recently added products</a>
+              <a href="/facets/labels/organic?sort_by=created_t" onclick="$.cookie('last_sort_by', 'created_t', { expires: 180, path: '/' });">Recently added products</a>
             </li>
         
             <li>
-              <a href="/label/organic?sort_by=last_modified_t" onclick="$.cookie('last_sort_by', 'last_modified_t', { expires: 180, path: '/' });">Recently modified products</a>
+              <a href="/facets/labels/organic?sort_by=last_modified_t" onclick="$.cookie('last_sort_by', 'last_modified_t', { expires: 180, path: '/' });">Recently modified products</a>
             </li>
         
           </ul>
@@ -577,119 +593,119 @@
           <ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true">
           
             <li>
-              <a href="/label/organic/countries" rel="nofollow">Countries</a>
+              <a href="/facets/labels/organic/countries" rel="nofollow">Countries</a>
             </li>
           
             <li>
-              <a href="/label/organic/nutrition-grades" rel="nofollow">Nutrition grades</a>
+              <a href="/facets/labels/organic/nutrition-grades" rel="nofollow">Nutrition grades</a>
             </li>
           
             <li>
-              <a href="/label/organic/nova-groups" rel="nofollow">NOVA groups</a>
+              <a href="/facets/labels/organic/nova-groups" rel="nofollow">NOVA groups</a>
             </li>
           
             <li>
-              <a href="/label/organic/eco-score" rel="nofollow">Eco-Score</a>
+              <a href="/facets/labels/organic/environmental-score" rel="nofollow">Green-Score</a>
             </li>
           
             <li>
-              <a href="/label/organic/brands" rel="nofollow">Brands</a>
+              <a href="/facets/labels/organic/brands" rel="nofollow">Brands</a>
             </li>
           
             <li>
-              <a href="/label/organic/categories" rel="nofollow">Categories</a>
+              <a href="/facets/labels/organic/categories" rel="nofollow">Categories</a>
             </li>
           
             <li>
-              <a href="/label/organic/labels" rel="nofollow">Labels</a>
+              <a href="/facets/labels/organic/labels" rel="nofollow">Labels</a>
             </li>
           
             <li>
-              <a href="/label/organic/packaging" rel="nofollow">Packaging</a>
+              <a href="/facets/labels/organic/packaging" rel="nofollow">Packaging</a>
             </li>
           
             <li>
-              <a href="/label/organic/origins" rel="nofollow">Origins of ingredients</a>
+              <a href="/facets/labels/organic/origins" rel="nofollow">Origins of ingredients</a>
             </li>
           
             <li>
-              <a href="/label/organic/manufacturing-places" rel="nofollow">Manufacturing or processing places</a>
+              <a href="/facets/labels/organic/manufacturing-places" rel="nofollow">Manufacturing or processing places</a>
             </li>
           
             <li>
-              <a href="/label/organic/packager-codes" rel="nofollow">Traceability codes</a>
+              <a href="/facets/labels/organic/packager-codes" rel="nofollow">Traceability codes</a>
             </li>
           
             <li>
-              <a href="/label/organic/ingredients" rel="nofollow">Ingredients</a>
+              <a href="/facets/labels/organic/ingredients" rel="nofollow">Ingredients</a>
             </li>
           
             <li>
-              <a href="/label/organic/additives" rel="nofollow">Additives</a>
+              <a href="/facets/labels/organic/additives" rel="nofollow">Additives</a>
             </li>
           
             <li>
-              <a href="/label/organic/vitamins" rel="nofollow">Added vitamins</a>
+              <a href="/facets/labels/organic/vitamins" rel="nofollow">Added vitamins</a>
             </li>
           
             <li>
-              <a href="/label/organic/minerals" rel="nofollow">Added minerals</a>
+              <a href="/facets/labels/organic/minerals" rel="nofollow">Added minerals</a>
             </li>
           
             <li>
-              <a href="/label/organic/amino-acids" rel="nofollow">Added amino acids</a>
+              <a href="/facets/labels/organic/amino-acids" rel="nofollow">Added amino acids</a>
             </li>
           
             <li>
-              <a href="/label/organic/nucleotides" rel="nofollow">Added nucleotides</a>
+              <a href="/facets/labels/organic/nucleotides" rel="nofollow">Added nucleotides</a>
             </li>
           
             <li>
-              <a href="/label/organic/other-nutritional-substances" rel="nofollow">Other nutritional substances added</a>
+              <a href="/facets/labels/organic/other-nutritional-substances" rel="nofollow">Other nutritional substances added</a>
             </li>
           
             <li>
-              <a href="/label/organic/allergens" rel="nofollow">Allergens</a>
+              <a href="/facets/labels/organic/allergens" rel="nofollow">Allergens</a>
             </li>
           
             <li>
-              <a href="/label/organic/traces" rel="nofollow">Traces</a>
+              <a href="/facets/labels/organic/traces" rel="nofollow">Traces</a>
             </li>
           
             <li>
-              <a href="/label/organic/misc" rel="nofollow"></a>
+              <a href="/facets/labels/organic/misc" rel="nofollow">Miscellaneous</a>
             </li>
           
             <li>
-              <a href="/label/organic/languages" rel="nofollow">Languages</a>
+              <a href="/facets/labels/organic/languages" rel="nofollow">Languages</a>
             </li>
           
             <li>
-              <a href="/label/organic/contributors" rel="nofollow">Contributors</a>
+              <a href="/facets/labels/organic/contributors" rel="nofollow">Contributors</a>
             </li>
           
             <li>
-              <a href="/label/organic/states" rel="nofollow">States</a>
+              <a href="/facets/labels/organic/states" rel="nofollow">States</a>
             </li>
           
             <li>
-              <a href="/label/organic/data-sources" rel="nofollow">Data sources</a>
+              <a href="/facets/labels/organic/data-sources" rel="nofollow">Data sources</a>
             </li>
           
             <li>
-              <a href="/label/organic/entry-dates" rel="nofollow">Entry dates</a>
+              <a href="/facets/labels/organic/entry-dates" rel="nofollow">Entry dates</a>
             </li>
           
             <li>
-              <a href="/label/organic/last-edit-dates" rel="nofollow">Last edit dates</a>
+              <a href="/facets/labels/organic/last-edit-dates" rel="nofollow">Last edit dates</a>
             </li>
           
             <li>
-              <a href="/label/organic/last-check-dates" rel="nofollow">Last check dates</a>
+              <a href="/facets/labels/organic/last-check-dates" rel="nofollow">Last check dates</a>
             </li>
           
             <li>
-              <a href="/label/organic/teams" rel="nofollow">Teams</a>
+              <a href="/facets/labels/organic/teams" rel="nofollow">Teams</a>
             </li>
           
           </ul>
@@ -733,8 +749,7 @@
   </div>
       
     
-	</ul>
-
+	
   </div>
 </div>
 
@@ -750,6 +765,7 @@
 		</div>
 		</div>
 
+		
 		<footer>
 			<div class="block_light bg-white" id="install_the_app_block">
 				<div class="row">
@@ -787,22 +803,56 @@
 
 				
 
-<section class="donation-banner-footer">
-  <span class="donation-banner-footer__logo"></span>
-  <span class="donation-banner-footer__hand"></span>
-  <div class="donation-banner-footer__content">
-    <p class="donation-banner-footer__main-text">
-      <span>Help us make food transparency the norm!</span>
-    </p>
-    <div class="donation-banner-footer__aside">
-      <div>
-        <p class="donation-banner-footer__secondary-text">As a non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat.</p>
-        <p class="donation-banner-footer__tertiary-text">The food revolution starts with you!</p>
+<section class="donation-banner-footer row">
+  <div class="donation-banner-footer__left-aside">
+    <div class="donation-banner-footer__hook-section">
+      <p>Help us inform millions of consumers around the world about what they eat</p>
+    </div>
+    <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="group photo donation 2024" />
+  </div>
+  <div>
+    <div>
+      <div class="donation-banner-footer__main-section">
+        <img
+          width="50"
+          height="50"
+          src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
+          alt="open food facts logo"
+        />
+        <h3 class="donation-banner-footer__main-title">Please give to our 2024 Fundraiser</h3>
       </div>
-      <a class="donation-banner-footer__donate" href="//world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2023-a&utm_term=en-text-button">Donate</a>
+      <p>Your donations fund the day-to-day operations of our non-profit association:</p>
+      <ul>
+        <li>
+          keeping our database open & available to all,
+          <ul>
+            <li>technical infrastructure (website/mobile app) & a small permanent team</li>
+          </ul>
+        </li>
+        <li>
+          <p>remain independent of the food industry,</p>
+        </li>
+        <li>
+          <p>engage a community of committed citizens,</p>
+        </li>
+        <li>
+          <p>support the advancement of public health research.</p>
+        </li>
+      </ul>
+    </div>
+    <div class="donation-banner-footer__actions-section">
+      <div class="donation-banner-footer__actions-section__financial">
+        <p>
+          Each donation counts! We appreciate your support in bringing further food transparency in the world.
+        </p>
+      </div>
+      <div class="donation-banner-footer__actions-section__donate-button">
+        <a href="//world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2024-a&utm_term=en-text-button">
+          <button>I SUPPORT</button>
+        </a>
+      </div>
     </div>
   </div>
-  <div class="donation-banner-footer__image" role="img" aria-label="Photo of the project team"></div>
 </section>
 
 
@@ -870,6 +920,7 @@
 				</div>
 			</div>
 		</footer>
+		
 
 	</div>
 
@@ -910,7 +961,7 @@ var products = [
             "attributes":[
                {
                   "description":"",
-                  "description_short":"Poor nutritional quality",
+                  "description_short":"Lower nutritional quality",
                   "grade":"d",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d-new-en.svg",
                   "id":"nutriscore",
@@ -926,6 +977,7 @@ var products = [
                   "id":"low_salt",
                   "missing":"Missing nutrition facts",
                   "name":"Salt",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Salt in unknown quantity"
                },
@@ -935,6 +987,7 @@ var products = [
                   "id":"low_fat",
                   "missing":"Missing nutrition facts",
                   "name":"Fat",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Fat in unknown quantity"
                },
@@ -944,6 +997,7 @@ var products = [
                   "id":"low_sugars",
                   "missing":"Missing nutrition facts",
                   "name":"Sugars",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Sugars in unknown quantity"
                },
@@ -953,6 +1007,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "missing":"Missing nutrition facts",
                   "name":"Saturated fat",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Saturated fat in unknown quantity"
                }
@@ -1145,8 +1200,6 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"",
-                  "description_short":"Processed foods",
                   "grade":"b",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
                   "id":"nova",
@@ -1154,7 +1207,7 @@ var products = [
                   "name":"NOVA group",
                   "panel_id":"nova",
                   "status":"known",
-                  "title":"NOVA 3"
+                  "title":"Processed foods"
                },
                {
                   "grade":"c",
@@ -1176,13 +1229,13 @@ var products = [
                   "description":"",
                   "description_short":"Low environmental impact",
                   "grade":"b",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-b.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-b.svg",
                   "id":"ecoscore",
-                  "match":71,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "match":70,
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"known",
-                  "title":"Eco-Score B"
+                  "title":"Green-Score B"
                },
                {
                   "description":"",
@@ -1239,7 +1292,7 @@ var products = [
             "attributes":[
                {
                   "description":"",
-                  "description_short":"Poor nutritional quality",
+                  "description_short":"Lower nutritional quality",
                   "grade":"d",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d-new-en.svg",
                   "id":"nutriscore",
@@ -1255,6 +1308,7 @@ var products = [
                   "id":"low_salt",
                   "missing":"Missing nutrition facts",
                   "name":"Salt",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Salt in unknown quantity"
                },
@@ -1264,6 +1318,7 @@ var products = [
                   "id":"low_fat",
                   "missing":"Missing nutrition facts",
                   "name":"Fat",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Fat in unknown quantity"
                },
@@ -1273,6 +1328,7 @@ var products = [
                   "id":"low_sugars",
                   "missing":"Missing nutrition facts",
                   "name":"Sugars",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Sugars in unknown quantity"
                },
@@ -1282,6 +1338,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "missing":"Missing nutrition facts",
                   "name":"Saturated fat",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Saturated fat in unknown quantity"
                }
@@ -1475,8 +1532,6 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"",
-                  "description_short":"Processed foods",
                   "grade":"b",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
                   "id":"nova",
@@ -1484,7 +1539,7 @@ var products = [
                   "name":"NOVA group",
                   "panel_id":"nova",
                   "status":"known",
-                  "title":"NOVA 3"
+                  "title":"Processed foods"
                },
                {
                   "grade":"c",
@@ -1505,14 +1560,14 @@ var products = [
                {
                   "description":"",
                   "description_short":"Low environmental impact",
-                  "grade":"b",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-b.svg",
+                  "grade":"c",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-b.svg",
                   "id":"ecoscore",
-                  "match":61,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "match":60,
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"known",
-                  "title":"Eco-Score B"
+                  "title":"Green-Score B"
                },
                {
                   "description":"",
@@ -1584,6 +1639,7 @@ var products = [
                   "id":"low_salt",
                   "missing":"Missing nutrition facts",
                   "name":"Salt",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Salt in unknown quantity"
                },
@@ -1593,6 +1649,7 @@ var products = [
                   "id":"low_fat",
                   "missing":"Missing nutrition facts",
                   "name":"Fat",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Fat in unknown quantity"
                },
@@ -1602,6 +1659,7 @@ var products = [
                   "id":"low_sugars",
                   "missing":"Missing nutrition facts",
                   "name":"Sugars",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Sugars in unknown quantity"
                },
@@ -1611,6 +1669,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "missing":"Missing nutrition facts",
                   "name":"Saturated fat",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Saturated fat in unknown quantity"
                }
@@ -1804,8 +1863,6 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"",
-                  "description_short":"Unprocessed or minimally processed foods",
                   "grade":"a",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-1.svg",
                   "id":"nova",
@@ -1813,7 +1870,7 @@ var products = [
                   "name":"NOVA group",
                   "panel_id":"nova",
                   "status":"known",
-                  "title":"NOVA 1"
+                  "title":"Unprocessed or minimally processed foods"
                },
                {
                   "grade":"a",
@@ -1835,13 +1892,13 @@ var products = [
                   "description":"",
                   "description_short":"Moderate environmental impact",
                   "grade":"c",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg",
                   "id":"ecoscore",
-                  "match":51,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "match":50,
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"known",
-                  "title":"Eco-Score C"
+                  "title":"Green-Score C"
                },
                {
                   "description":"",
@@ -1913,6 +1970,7 @@ var products = [
                   "id":"low_salt",
                   "missing":"Missing nutrition facts",
                   "name":"Salt",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Salt in unknown quantity"
                },
@@ -1922,6 +1980,7 @@ var products = [
                   "id":"low_fat",
                   "missing":"Missing nutrition facts",
                   "name":"Fat",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Fat in unknown quantity"
                },
@@ -1931,6 +1990,7 @@ var products = [
                   "id":"low_sugars",
                   "missing":"Missing nutrition facts",
                   "name":"Sugars",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Sugars in unknown quantity"
                },
@@ -1940,6 +2000,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "missing":"Missing nutrition facts",
                   "name":"Saturated fat",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Saturated fat in unknown quantity"
                }
@@ -2133,8 +2194,6 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"",
-                  "description_short":"Unprocessed or minimally processed foods",
                   "grade":"a",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-1.svg",
                   "id":"nova",
@@ -2142,7 +2201,7 @@ var products = [
                   "name":"NOVA group",
                   "panel_id":"nova",
                   "status":"known",
-                  "title":"NOVA 1"
+                  "title":"Unprocessed or minimally processed foods"
                },
                {
                   "grade":"a",
@@ -2164,13 +2223,13 @@ var products = [
                   "description":"",
                   "description_short":"Moderate environmental impact",
                   "grade":"c",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg",
                   "id":"ecoscore",
-                  "match":51,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "match":50,
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"known",
-                  "title":"Eco-Score C"
+                  "title":"Green-Score C"
                },
                {
                   "description":"",
@@ -2226,7 +2285,7 @@ var products = [
             "attributes":[
                {
                   "description":"",
-                  "description_short":"Bad nutritional quality",
+                  "description_short":"Lower nutritional quality",
                   "grade":"e",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-e-new-en.svg",
                   "id":"nutriscore",
@@ -2242,6 +2301,7 @@ var products = [
                   "id":"low_salt",
                   "missing":"Missing nutrition facts",
                   "name":"Salt",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Salt in unknown quantity"
                },
@@ -2251,6 +2311,7 @@ var products = [
                   "id":"low_fat",
                   "missing":"Missing nutrition facts",
                   "name":"Fat",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Fat in unknown quantity"
                },
@@ -2260,6 +2321,7 @@ var products = [
                   "id":"low_sugars",
                   "missing":"Missing nutrition facts",
                   "name":"Sugars",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Sugars in unknown quantity"
                },
@@ -2269,6 +2331,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "missing":"Missing nutrition facts",
                   "name":"Saturated fat",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Saturated fat in unknown quantity"
                }
@@ -2462,8 +2525,6 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"",
-                  "description_short":"Processed foods",
                   "grade":"b",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
                   "id":"nova",
@@ -2471,7 +2532,7 @@ var products = [
                   "name":"NOVA group",
                   "panel_id":"nova",
                   "status":"known",
-                  "title":"NOVA 3"
+                  "title":"Processed foods"
                },
                {
                   "grade":"a",
@@ -2493,13 +2554,13 @@ var products = [
                   "description":"",
                   "description_short":"Unknown environmental impact",
                   "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-unknown.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-unknown.svg",
                   "id":"ecoscore",
                   "match":0,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"unknown",
-                  "title":"Eco-Score not computed"
+                  "title":"Green-Score not computed"
                },
                {
                   "description":"",

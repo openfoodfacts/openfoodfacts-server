@@ -2,7 +2,7 @@
 
 # adaptated from Tar-Minyatur/gettext-validation, (MIT License)
 
-echo "Checking .po files in po/..."
+echo "Checking .po and .pot files in po/..."
 if ! (which gettext)
 then
     >2 echo "you must install gettext to run this script"
@@ -10,7 +10,7 @@ then
 fi
 ERRORS=0
 tmplog=$(mktemp --suffix "-check-translations.log")
-for filename in $(find po/ -type f -name \*.po)
+for filename in $(find po/ -type f \( -name \*.po -o -name \*.pot \))
 do
     file_basename=$(basename "$filename")
     # exception for lol.po (crowdin ids tracking)

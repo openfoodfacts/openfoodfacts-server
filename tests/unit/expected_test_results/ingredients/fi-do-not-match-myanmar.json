@@ -99,6 +99,7 @@
       "en:mustard-seed",
       "en:mustard"
    ],
+   "ingredients_lc" : "fi",
    "ingredients_n" : 7,
    "ingredients_n_tags" : [
       "7",
@@ -141,13 +142,23 @@
       "en:spice-or-bell-pepper"
    ],
    "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:coriander",
+      "en:garlic",
+      "en:ginger",
+      "en:mustard-seed",
+      "en:spice",
+      "en:spice-or-bell-pepper",
+      "en:turmeric"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 7,
    "known_ingredients_n" : 14,
    "lc" : "fi",
    "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 5.20833333333333,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 5.20833333333333,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 5.20833333333333,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 5.20833333333333
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 7.81249999999999,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 7.81249999999999,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 7.81249999999999,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 7.81249999999999
    },
    "unknown_ingredients_n" : 0
 }

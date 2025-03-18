@@ -26,12 +26,17 @@
         [% lang("css") %]
         [% styles %]
     </style>
-    [% google_analytics %]
 </head>
 <body[% bodyabout %] class="[% page_type %]_page">
+
+	[% analytics %]
+
+	[% IF ! content_only %]
 	<div class="skip"><a href="#content" tabindex="0">[% lang('skip_to_content') %]</a></div>
+	[% END %]
 
 	<div id="page">
+		[% IF ! content_only %]
 		<div class="upper-nav contain-to-grid"  id="upNav">
 			<nav class="top-bar " data-topbar role="navigation">
 				
@@ -139,9 +144,9 @@
 									[% IF !(server_options_producers_platform) %]
 									<li class="divider"></li>			
 									<li><label>[% lang('your_contributions') %]</label></li>
-									<li><a href="[% canonicalize_taxonomy_tag_link("users", user_id) %]">[% lang('products_added') %]</a></li>
-									<li><a href="[% canonicalize_taxonomy_tag_link("editors", user_id) %]">[% lang('products_edited') %]</a></li>
-									<li><a href="[% canonicalize_taxonomy_tag_link("photographers", user_id) %]">[% lang('products_photographed') %]</a></li>
+									<li><a href="/facets[% canonicalize_taxonomy_tag_link("users", user_id) %]">[% lang('products_added') %]</a></li>
+									<li><a href="/facets[% canonicalize_taxonomy_tag_link("editors", user_id) %]">[% lang('products_edited') %]</a></li>
+									<li><a href="/facets[% canonicalize_taxonomy_tag_link("photographers", user_id) %]">[% lang('products_photographed') %]</a></li>
 									[% END %]
 									<li class="divider"></li>			
 									<li class="has-form">
@@ -157,9 +162,11 @@
 				</section>
 			</nav>
 		</div>
+		[% END %]
 
 		<div id="main_container" style="position:relative" class="block_latte">
-			
+		
+		[% IF ! content_only %]
 		<div class="topbarsticky">
 			<div class="contain-to-grid " id="offNav" >
 				<nav class="top-bar" data-topbar role="navigation" >
@@ -241,11 +248,14 @@
 				</form>
 			</div>
 		</nav>
+		[% END %]
 
 		<div id="content" class="off-canvas-wrap block_latte" data-offcanvas>
 			<div class="inner-wrap">
 			
 				<a class="exit-off-canvas"></a>
+
+				[% IF ! content_only %]
 				
 				<!-- full width banner on mobile -->
 				
@@ -271,21 +281,29 @@
 					</a>
 				[% END %]
 
+				[% END %]
+
 				<div class="main block_light">
 					<div id="main_column">
+
+						[% IF ! content_only %]
 						[% IF ! server_options_producers_platform %]
 							[%# for now, display the packagings banner in all cases %]
 							[% IF 1 == 0 %]
 								[% INCLUDE 'web/common/includes/offdays_banner.tt.html' %]							
 							[% ELSIF 1 == 2 %]
 								[% INCLUDE 'web/common/includes/packagings_banner.tt.html' %]
-							[% ELSE %]
+							[% ELSIF 2 == 3 %]
 								[%# we keep the old code so that we can easily put back the donation banner %]
 								[% PROCESS 'web/common/includes/off_days_2024_banner.tt.html' %]
 								[% banner_off_days_2024_top %]
 								[% PROCESS 'web/common/includes/donate_banner.tt.html' %]
 								[% banner_main %]
+							[% ELSE %]
+								[% PROCESS 'web/common/includes/donate_banner.tt.html' %]
+								[% banner_main %]
 							[% END %]
+						[% END %]
 						[% END %]
             			
 						[% IF page_format == "banner" %]
@@ -324,6 +342,7 @@
 		</div>
 		</div>
 
+		[% IF ! content_only %]
 		<footer>
 			<div class="block_light bg-white" id="install_the_app_block">
 				<div class="row">
@@ -418,6 +437,7 @@
 				</div>
 			</div>
 		</footer>
+		[% END %]
 
 	</div>
 

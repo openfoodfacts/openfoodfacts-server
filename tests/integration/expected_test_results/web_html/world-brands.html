@@ -10,7 +10,7 @@
 	<meta property="fb:app_id" content="219331381518041">
     <meta property="og:type" content="food">
     <meta property="og:title" content="">
-    <meta property="og:url" content="//world.openfoodfacts.localhost/brands">
+    <meta property="og:url" content="//world.openfoodfacts.localhost/facets/brands/1">
     
     <meta property="og:image" content="//static.openfoodfacts.org/images/logos/off-logo-vertical-white-social-media-preview.png">
     <meta property="og:description" content="">
@@ -25,7 +25,7 @@
 <meta name="theme-color" content="#ffffff">
 
 	<meta name="apple-itunes-app" content="app-id=588797948">
-    <link rel="canonical" href="//world.openfoodfacts.localhost/brands">
+    <link rel="canonical" href="//world.openfoodfacts.localhost/facets/brands/1">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/app-ltr.css?v=--ignore--" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/select2.min.css">
@@ -38,7 +38,10 @@
 .show-when-logged-in {display:none}
 
     </style>
-    <!-- Matomo -->
+</head>
+<body class="list_of_tags_page">
+
+	<!-- Matomo -->
 <script>
   var _paq = window._paq = window._paq || [];
   /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
@@ -61,11 +64,13 @@
 <!-- End Matomo Code -->
 
 
-</head>
-<body class="list_of_tags_page">
+
+	
 	<div class="skip"><a href="#content" tabindex="0">Skip to Content</a></div>
+	
 
 	<div id="page">
+		
 		<div class="upper-nav contain-to-grid"  id="upNav">
 			<nav class="top-bar " data-topbar role="navigation">
 				
@@ -138,9 +143,11 @@
 				</section>
 			</nav>
 		</div>
+		
 
 		<div id="main_container" style="position:relative" class="block_latte">
-			
+		
+		
 		<div class="topbarsticky">
 			<div class="contain-to-grid " id="offNav" >
 				<nav class="top-bar" data-topbar role="navigation" >
@@ -218,58 +225,28 @@
 				</form>
 			</div>
 		</nav>
+		
 
 		<div id="content" class="off-canvas-wrap block_latte" data-offcanvas>
 			<div class="inner-wrap">
 			
 				<a class="exit-off-canvas"></a>
+
+				
 				
 				<!-- full width banner on mobile -->
 				
 				
 
+				
+
 				<div class="main block_light">
 					<div id="main_column">
+
+						
 						
 							
 							
-								
-								<!-- start templates/web/common/includes/off_days_2024_banner.tt.html -->
-
-
-								
-
-<a href="//connect.openfoodfacts.org/event/open-food-facts-days-2024-22/register">
-    <section id="off-days-2024-banner-top" class="off-days-banner off-days-banner__ENG">
-    </section>
-</a>
-
-<script>
-    const offDaysBannerID = document.getElementById('off-days-2024-banner-top');
-
-    function getBannerCookie(bcname) {
-        const name = bcname + '=';
-        const decodedCookies = decodeURIComponent(document.cookie);
-        const cookies = decodedCookies.split(';');
-        for (const cookie of cookies) {
-        let c = cookie;
-        while (c.charAt(0) == ' ') { c = c.substring(1); }
-        if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
-        }
-        
-        return '';
-    }
-
-    if (getBannerCookie('off_donation_banner_2023_a') !== '') {
-        console.log('cookie found');
-        offDaysBannerID.style.display = 'flex';
-    } else {
-        console.log('cookie not found');
-        offDaysBannerID.style.display = 'none';
-    }
-</script>
-
-
 								<!-- start templates/web/common/includes/donate_banner.tt.html -->
 
 
@@ -281,22 +258,60 @@
 
 								
 
-<section id="donation-banner-top" class="donation-banner">
-  <span class="donation-banner__logo"></span>
-  <span class="donation-banner__hand"></span>
-  <div class="donation-banner__content">
-    <p class="donation-banner__main-text">
-        <span role="heading">Help us make food transparency the norm!</span>
-    </p>
+<section id="donation-banner-top" class="donation-banner row">
+  <div class="donation-banner__left-aside">
+    <div class="donation-banner__hook-section">
+      <p>Help us inform millions of consumers around the world about what they eat</p>
+    </div>
+    <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="group photo donation 2024" />
+  </div>
+  <div>
     <div class="donation-banner__aside">
-      <div>
-        <p class="donation-banner__secondary-text">As a non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat.</p>
-        <p class="donation-banner__tertiary-text">The food revolution starts with you!</p>
+      <div class="donation-banner__main-section">
+        <img
+          width="50"
+          height="50"
+          src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
+          alt="open food facts logo"
+        />
+        <h3 class="donation-banner__main-title">Please give to our 2024 Fundraiser</h3>
       </div>
-      <a class="donation-banner__donate" href="//world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2023-a&utm_term=en-text-button">Donate</a>
+      <div style="padding:1rem;">
+        <p>Your donations fund the day-to-day operations of our non-profit association:</p>
+        <ul>
+          <li>
+            keeping our database open & available to all,
+            <ul>
+              <li>technical infrastructure (website/mobile app) & a small permanent team</li>
+            </ul>
+          </li>
+          <li>
+            <p>remain independent of the food industry,</p>
+          </li>
+          <li>
+            <p>engage a community of committed citizens,</p>
+          </li>
+          <li>
+            <p>support the advancement of public health research.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="donation-banner__actions-section">
+      <div class="donation-banner__actions-section__financial">
+        <p>
+          
+          Each donation counts! We appreciate your support in bringing further food transparency in the world.  
+          
+        </p>
+      </div>
+      <div class="donation-banner__actions-section__donate-button">
+        <a href="//world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2024-a&utm_term=en-text-button">
+          <button>I SUPPORT</button>
+        </a>
+      </div>
     </div>
   </div>
-  <div class="donation-banner__image" role="img" aria-label="Photo of the project team"></div>
   <div class="donation-banner__close">
     <button id="hide-donate-banner" class="material-icons modest" onclick="DonationButton();" onkeypress="DonationButton();">close</button>
   </div>
@@ -329,11 +344,11 @@
   }
 
   function DonationButton() {
-    setBannerCookie('off_donation_banner_2023_a', 1, 180);
+    setBannerCookie('off_donation_banner_2024_a', 1, 180);
     bannerID.style.display = 'none';
   }
 
-  if (getBannerCookie('off_donation_banner_2023_a') !== '') {
+  if (getBannerCookie('off_donation_banner_2024_a') !== '') {
     bannerID.style.display = 'none';
   } else { 
     bannerID.style.display = 'flex';
@@ -342,6 +357,7 @@
 
 
 							
+						
 						
             			
 						
@@ -370,30 +386,30 @@
 
 <!-- end templates/web/pages/tag/tag.tt.html -->
 <p>11 brands:</p><div style="max-width:600px;"><table id="tagstable">
-<thead><tr><th>Brand</th><th>Products</th></tr></thead>
+<thead><tr><th>Brand</th><th>Products</th><th>*</th></tr></thead>
 <tbody>
-<tr><td><a href="/brand/bob-s-juices" class="tag">Bob-s-juices</a></td>
-<td style="text-align:right"><a href="/brand/bob-s-juices" class="tag">2</a></td></tr>
-<tr><td><a href="/brand/les-tartes-de-robert" class="tag">Les-tartes-de-robert</a></td>
-<td style="text-align:right"><a href="/brand/les-tartes-de-robert" class="tag">2</a></td></tr>
-<tr><td><a href="/brand/alice-s-ice-creams" class="tag">Alice-s-ice-creams</a></td>
-<td style="text-align:right"><a href="/brand/alice-s-ice-creams" class="tag">1</a></td></tr>
-<tr><td><a href="/brand/bob-s-creme" class="tag">Bob-s-creme</a></td>
-<td style="text-align:right"><a href="/brand/bob-s-creme" class="tag">1</a></td></tr>
-<tr><td><a href="/brand/bob-s-ice-creams" class="tag">Bob-s-ice-creams</a></td>
-<td style="text-align:right"><a href="/brand/bob-s-ice-creams" class="tag">1</a></td></tr>
-<tr><td><a href="/brand/bob-s-pies" class="tag">Bob-s-pies</a></td>
-<td style="text-align:right"><a href="/brand/bob-s-pies" class="tag">1</a></td></tr>
-<tr><td><a href="/brand/bob-s-pizzas" class="tag">Bob-s-pizzas</a></td>
-<td style="text-align:right"><a href="/brand/bob-s-pizzas" class="tag">1</a></td></tr>
-<tr><td><a href="/brand/bob-s-salads" class="tag">Bob-s-salads</a></td>
-<td style="text-align:right"><a href="/brand/bob-s-salads" class="tag">1</a></td></tr>
-<tr><td><a href="/brand/mario-s-olive-oils" class="tag">Mario-s-olive-oils</a></td>
-<td style="text-align:right"><a href="/brand/mario-s-olive-oils" class="tag">1</a></td></tr>
-<tr><td><a href="/brand/pablo-s-tartas" class="tag">Pablo-s-tartas</a></td>
-<td style="text-align:right"><a href="/brand/pablo-s-tartas" class="tag">1</a></td></tr>
-<tr><td><a href="/brand/%E3%83%A9%E3%83%A0%E3%83%8D" class="tag">ラムネ</a></td>
-<td style="text-align:right"><a href="/brand/%E3%83%A9%E3%83%A0%E3%83%8D" class="tag">1</a></td></tr>
+<tr><td><a href="/facets/brands/bob-s-juices" class="tag user_defined">bob-s-juices</a></td>
+<td style="text-align:right"><a href="/facets/brands/bob-s-juices" class="tag user_defined">2</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/les-tartes-de-robert" class="tag user_defined">les-tartes-de-robert</a></td>
+<td style="text-align:right"><a href="/facets/brands/les-tartes-de-robert" class="tag user_defined">2</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/alice-s-ice-creams" class="tag user_defined">alice-s-ice-creams</a></td>
+<td style="text-align:right"><a href="/facets/brands/alice-s-ice-creams" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/bob-s-creme" class="tag user_defined">bob-s-creme</a></td>
+<td style="text-align:right"><a href="/facets/brands/bob-s-creme" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/bob-s-ice-creams" class="tag user_defined">bob-s-ice-creams</a></td>
+<td style="text-align:right"><a href="/facets/brands/bob-s-ice-creams" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/bob-s-pies" class="tag user_defined">bob-s-pies</a></td>
+<td style="text-align:right"><a href="/facets/brands/bob-s-pies" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/bob-s-pizzas" class="tag user_defined">bob-s-pizzas</a></td>
+<td style="text-align:right"><a href="/facets/brands/bob-s-pizzas" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/bob-s-salads" class="tag user_defined">bob-s-salads</a></td>
+<td style="text-align:right"><a href="/facets/brands/bob-s-salads" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/mario-s-olive-oils" class="tag user_defined">mario-s-olive-oils</a></td>
+<td style="text-align:right"><a href="/facets/brands/mario-s-olive-oils" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/pablo-s-tartas" class="tag user_defined">pablo-s-tartas</a></td>
+<td style="text-align:right"><a href="/facets/brands/pablo-s-tartas" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/%E3%83%A9%E3%83%A0%E3%83%8D" class="tag user_defined">ラムネ</a></td>
+<td style="text-align:right"><a href="/facets/brands/%E3%83%A9%E3%83%A0%E3%83%8D" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
 </tbody></table></div>
 								</div>
 							</div>
@@ -404,6 +420,7 @@
 		</div>
 		</div>
 
+		
 		<footer>
 			<div class="block_light bg-white" id="install_the_app_block">
 				<div class="row">
@@ -441,22 +458,56 @@
 
 				
 
-<section class="donation-banner-footer">
-  <span class="donation-banner-footer__logo"></span>
-  <span class="donation-banner-footer__hand"></span>
-  <div class="donation-banner-footer__content">
-    <p class="donation-banner-footer__main-text">
-      <span>Help us make food transparency the norm!</span>
-    </p>
-    <div class="donation-banner-footer__aside">
-      <div>
-        <p class="donation-banner-footer__secondary-text">As a non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat.</p>
-        <p class="donation-banner-footer__tertiary-text">The food revolution starts with you!</p>
+<section class="donation-banner-footer row">
+  <div class="donation-banner-footer__left-aside">
+    <div class="donation-banner-footer__hook-section">
+      <p>Help us inform millions of consumers around the world about what they eat</p>
+    </div>
+    <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="group photo donation 2024" />
+  </div>
+  <div>
+    <div>
+      <div class="donation-banner-footer__main-section">
+        <img
+          width="50"
+          height="50"
+          src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
+          alt="open food facts logo"
+        />
+        <h3 class="donation-banner-footer__main-title">Please give to our 2024 Fundraiser</h3>
       </div>
-      <a class="donation-banner-footer__donate" href="//world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2023-a&utm_term=en-text-button">Donate</a>
+      <p>Your donations fund the day-to-day operations of our non-profit association:</p>
+      <ul>
+        <li>
+          keeping our database open & available to all,
+          <ul>
+            <li>technical infrastructure (website/mobile app) & a small permanent team</li>
+          </ul>
+        </li>
+        <li>
+          <p>remain independent of the food industry,</p>
+        </li>
+        <li>
+          <p>engage a community of committed citizens,</p>
+        </li>
+        <li>
+          <p>support the advancement of public health research.</p>
+        </li>
+      </ul>
+    </div>
+    <div class="donation-banner-footer__actions-section">
+      <div class="donation-banner-footer__actions-section__financial">
+        <p>
+          Each donation counts! We appreciate your support in bringing further food transparency in the world.
+        </p>
+      </div>
+      <div class="donation-banner-footer__actions-section__donate-button">
+        <a href="//world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2024-a&utm_term=en-text-button">
+          <button>I SUPPORT</button>
+        </a>
+      </div>
     </div>
   </div>
-  <div class="donation-banner-footer__image" role="img" aria-label="Photo of the project team"></div>
 </section>
 
 
@@ -524,6 +575,7 @@
 				</div>
 			</div>
 		</footer>
+		
 
 	</div>
 
@@ -548,7 +600,7 @@ let oTable = $('#tagstable').DataTable({
 	order: [[ 1, "desc" ]],
 	columns: [
 		null,
-		{"searchable": false} 
+		{"searchable": false} , {"searchable": false}
 	]
 });
 

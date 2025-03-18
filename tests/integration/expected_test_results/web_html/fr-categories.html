@@ -10,7 +10,7 @@
 	<meta property="fb:app_id" content="219331381518041">
     <meta property="og:type" content="food">
     <meta property="og:title" content="">
-    <meta property="og:url" content="//fr.openfoodfacts.localhost/categorie/fr:desserts">
+    <meta property="og:url" content="//fr.openfoodfacts.localhost/facets/categories/fr:desserts/1">
     
     <meta property="og:image" content="//static.openfoodfacts.org/images/logos/off-logo-vertical-white-social-media-preview.png">
     <meta property="og:description" content="">
@@ -25,7 +25,7 @@
 <meta name="theme-color" content="#ffffff">
 
 	<meta name="apple-itunes-app" content="app-id=588797948">
-    <link rel="canonical" href="//fr.openfoodfacts.localhost/categorie/fr:desserts">
+    <link rel="canonical" href="//fr.openfoodfacts.localhost/facets/categories/fr:desserts/1">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/app-ltr.css?v=--ignore--" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/select2.min.css">
@@ -37,7 +37,10 @@
 .show-when-logged-in {display:none}
 
     </style>
-    <!-- Matomo -->
+</head>
+<body class="products_page">
+
+	<!-- Matomo -->
 <script>
   var _paq = window._paq = window._paq || [];
   /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
@@ -60,11 +63,13 @@
 <!-- End Matomo Code -->
 
 
-</head>
-<body class="products_page">
+
+	
 	<div class="skip"><a href="#content" tabindex="0">Aller au contenu</a></div>
+	
 
 	<div id="page">
+		
 		<div class="upper-nav contain-to-grid"  id="upNav">
 			<nav class="top-bar " data-topbar role="navigation">
 				
@@ -137,9 +142,11 @@
 				</section>
 			</nav>
 		</div>
+		
 
 		<div id="main_container" style="position:relative" class="block_latte">
-			
+		
+		
 		<div class="topbarsticky">
 			<div class="contain-to-grid " id="offNav" >
 				<nav class="top-bar" data-topbar role="navigation" >
@@ -217,58 +224,28 @@
 				</form>
 			</div>
 		</nav>
+		
 
 		<div id="content" class="off-canvas-wrap block_latte" data-offcanvas>
 			<div class="inner-wrap">
 			
 				<a class="exit-off-canvas"></a>
+
+				
 				
 				<!-- full width banner on mobile -->
 				
 				
 
+				
+
 				<div class="main block_light">
 					<div id="main_column">
+
+						
 						
 							
 							
-								
-								<!-- start templates/web/common/includes/off_days_2024_banner.tt.html -->
-
-
-								
-
-<a href="//connect.openfoodfacts.org/fr/event/open-food-facts-days-2024-22/register">
-    <section id="off-days-2024-banner-top" class="off-days-banner off-days-banner__FR">
-    </section>
-</a>
-
-<script>
-    const offDaysBannerID = document.getElementById('off-days-2024-banner-top');
-
-    function getBannerCookie(bcname) {
-        const name = bcname + '=';
-        const decodedCookies = decodeURIComponent(document.cookie);
-        const cookies = decodedCookies.split(';');
-        for (const cookie of cookies) {
-        let c = cookie;
-        while (c.charAt(0) == ' ') { c = c.substring(1); }
-        if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
-        }
-        
-        return '';
-    }
-
-    if (getBannerCookie('off_donation_banner_2023_a') !== '') {
-        console.log('cookie found');
-        offDaysBannerID.style.display = 'flex';
-    } else {
-        console.log('cookie not found');
-        offDaysBannerID.style.display = 'none';
-    }
-</script>
-
-
 								<!-- start templates/web/common/includes/donate_banner.tt.html -->
 
 
@@ -280,22 +257,60 @@
 
 								
 
-<section id="donation-banner-top" class="donation-banner">
-  <span class="donation-banner__logo"></span>
-  <span class="donation-banner__hand"></span>
-  <div class="donation-banner__content">
-    <p class="donation-banner__main-text">
-        <span role="heading">Aidez-nous à faire de la transparence alimentaire la norme !</span>
-    </p>
+<section id="donation-banner-top" class="donation-banner row">
+  <div class="donation-banner__left-aside">
+    <div class="donation-banner__hook-section">
+      <p>Aidez-nous à informer des millions de consommateurs à travers le monde sur ce qu'ils mangent</p>
+    </div>
+    <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="group photo donation 2024" />
+  </div>
+  <div>
     <div class="donation-banner__aside">
-      <div>
-        <p class="donation-banner__secondary-text">En tant qu'organisation à but non lucratif, nous dépendons de vos dons pour continuer à informer les consommateurs du monde entier sur ce qu'ils mangent.</p>
-        <p class="donation-banner__tertiary-text">La révolution alimentaire commence avec vous !</p>
+      <div class="donation-banner__main-section">
+        <img
+          width="50"
+          height="50"
+          src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
+          alt="open food facts logo"
+        />
+        <h3 class="donation-banner__main-title">Merci de contribuer à notre collecte de fonds 2024</h3>
       </div>
-      <a class="donation-banner__donate" href="//fr.openfoodfacts.org/faire-un-don-a-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2023-a&utm_term=en-text-button">Faire un don</a>
+      <div style="padding:1rem;">
+        <p>Vos dons financent le fonctionnement quotidien de notre association à but non lucratif :</p>
+        <ul>
+          <li>
+            garder notre base de données ouverte et accessible à tous,
+            <ul>
+              <li>infrastructure technique (site web/application mobile) et une petite équipe permanente</li>
+            </ul>
+          </li>
+          <li>
+            <p>rester indépendant de l'industrie alimentaire,</p>
+          </li>
+          <li>
+            <p>mobiliser une communauté de citoyens engagés,</p>
+          </li>
+          <li>
+            <p>soutenir l’avancement de la recherche en santé publique.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="donation-banner__actions-section">
+      <div class="donation-banner__actions-section__financial">
+        <p>
+          
+          (déductible à 66 % de vos impôts: ex. un don de 20€ vous reviendra à 6,80€)
+          
+        </p>
+      </div>
+      <div class="donation-banner__actions-section__donate-button">
+        <a href="//open-food-facts.assoconnect.com/collect/description/476750-c-faire-un-don-a-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2024-a&utm_term=en-text-button">
+          <button>JE SOUTIENS</button>
+        </a>
+      </div>
     </div>
   </div>
-  <div class="donation-banner__image" role="img" aria-label="Photo of the project team"></div>
   <div class="donation-banner__close">
     <button id="hide-donate-banner" class="material-icons modest" onclick="DonationButton();" onkeypress="DonationButton();">close</button>
   </div>
@@ -328,11 +343,11 @@
   }
 
   function DonationButton() {
-    setBannerCookie('off_donation_banner_2023_a', 1, 180);
+    setBannerCookie('off_donation_banner_2024_a', 1, 180);
     bannerID.style.display = 'none';
   }
 
-  if (getBannerCookie('off_donation_banner_2023_a') !== '') {
+  if (getBannerCookie('off_donation_banner_2024_a') !== '') {
     bannerID.style.display = 'none';
   } else { 
     bannerID.style.display = 'flex';
@@ -341,6 +356,7 @@
 
 
 							
+						
 						
             			
 						
@@ -359,8 +375,8 @@
 
             <div class="tag_navigation">
                 
-                    <a href="/categories">Catégorie</a> :
-                    <a href="/categorie/desserts">Desserts</a>
+                    <a href="/facets/categories">Catégorie</a> :
+                    <a href="/facets/categories/desserts">Desserts</a>
                     
                 
             </div>
@@ -376,54 +392,56 @@
                 
                 <div class="parents_and_children">
                     <p>Contient :</p><ul>
-<li><a href="/categorie/baklava" class="tag well_known">Baklava</a></li>
-<li><a href="/categorie/foret-noires" class="tag well_known">Forêt-noires</a></li>
-<li><a href="/categorie/charlottes" class="tag well_known">Charlottes</a></li>
-<li><a href="/categorie/desserts-au-chocolat" class="tag well_known">Desserts au chocolat</a></li>
-<li><a href="/categorie/gateau-moelleux-au-chocolat" class="tag well_known">Gâteau moelleux au chocolat</a></li>
-<li><a href="/categorie/clafoutis" class="tag well_known">Clafoutis</a></li>
-<li><a href="/categorie/desserts-au-cafe" class="tag well_known">Desserts au café</a></li>
-<li><a href="/categorie/compotes" class="tag well_known">Compotes</a></li>
-<li><a href="/categorie/crumbles" class="tag well_known">Crumbles</a></li>
-<li><a href="/categorie/desserts-lactes" class="tag well_known">Desserts lactés</a></li>
-<li><a href="/categorie/ile-flottante" class="tag well_known">Ile flottante</a></li>
-<li><a href="/categorie/pain-perdu" class="tag well_known">Pain perdu</a></li>
-<li><a href="/categorie/desserts-glaces" class="tag well_known">Desserts glacés</a></li>
-<li><a href="/categorie/liegeois-aux-fruits" class="tag well_known">Liégeois aux fruits</a></li>
-<li><a href="/categorie/compote-de-fruits-allegee-en-sucres" class="tag well_known">Compote de fruits allégée en sucres</a></li>
-<li><a href="/categorie/desserts-de-fruits" class="tag well_known">Desserts de fruits</a></li>
-<li><a href="/categorie/fruits-au-sirop" class="tag well_known">Fruits au sirop</a></li>
-<li><a href="/categorie/puree-de-fruits-sans-sucres-ajoutes" class="tag well_known">Purée de fruits sans sucres ajoutés</a></li>
-<li><a href="/categorie/corne-de-gazelle" class="tag well_known">Corne de gazelle</a></li>
-<li><a href="/categorie/coupe-glacee-parfum-poire-belle-helene" class="tag well_known">Coupe glacée parfum poire Belle-Hélène</a></li>
-<li><a href="/categorie/coupe-glacee-au-chocolat" class="tag well_known">Coupe glacée au chocolat</a></li>
-<li><a href="/categorie/coupe-glacee-au-cafe" class="tag well_known">Coupe glacée au café</a></li>
-<li><a href="/categorie/coupe-glacee-parfum-peche-melba" class="tag well_known">Coupe glacée parfum pêche Melba</a></li>
-<li><a href="/categorie/desserts-gelifies" class="tag well_known">Desserts gélifiés</a></li>
-<li><a href="/categorie/kadayif" class="tag well_known">Kadayif</a></li>
-<li><a href="/categorie/liegeois" class="tag well_known">Liégeois</a></li>
-<li><a href="/categorie/macarons" class="tag well_known">Macarons</a></li>
-<li><a href="/categorie/en:meringue-roulades" class="tag well_known" lang="en">en:Meringue roulades</a></li>
-<li><a href="/categorie/mochi" class="tag well_known">Mochi</a></li>
-<li><a href="/categorie/desserts-vegetaliens" class="tag well_known">Desserts végétaliens</a></li>
-<li><a href="/categorie/panforte" class="tag well_known">Panforte</a></li>
-<li><a href="/categorie/peche-melba" class="tag well_known">Pêche melba</a></li>
-<li><a href="/categorie/puddings" class="tag well_known">Puddings</a></li>
-<li><a href="/categorie/en:refrigerated-desserts" class="tag well_known" lang="en">en:Refrigerated desserts</a></li>
-<li><a href="/categorie/en:shelf-stable-desserts" class="tag well_known" lang="en">en:Shelf stable desserts</a></li>
-<li><a href="/categorie/gateau-moelleux-fourre-au-chocolat" class="tag well_known">Gâteau moelleux fourré au chocolat</a></li>
-<li><a href="/categorie/biscuit-moelleux-fourre-a-l-orange-et-enrobe-de-sucre-glace" class="tag well_known">Biscuit moelleux fourré à l'orange et enrobé de sucre glace</a></li>
-<li><a href="/categorie/bavarois-aux-fruits" class="tag well_known">Bavarois aux fruits</a></li>
-<li><a href="/categorie/genoise" class="tag well_known">Génoise</a></li>
-<li><a href="/categorie/en:sponge-puddings" class="tag well_known" lang="en">en:Sponge puddings</a></li>
-<li><a href="/categorie/en:sushki" class="tag well_known" lang="en">en:Sushki</a></li>
-<li><a href="/categorie/mousses-sucrees" class="tag well_known">Mousses sucrées</a></li>
-<li><a href="/categorie/tartufo" class="tag well_known">Tartufo</a></li>
-<li><a href="/categorie/en:trifles" class="tag well_known" lang="en">en:Trifles</a></li>
-<li><a href="/categorie/gateaux-des-rois" class="tag well_known">Gâteaux des rois</a></li>
-<li><a href="/categorie/fi:m%C3%A4mmi" class="tag user_defined" lang="fi">fi:Mämmi</a></li>
-<li><a href="/categorie/buches-patissieres" class="tag well_known">Bûches pâtissières</a></li>
-<li><a href="/categorie/pastel-de-nata" class="tag well_known">Pastel de nata</a></li>
+<li><a href="/facets/categories/baklava" class="tag well_known">Baklava</a></li>
+<li><a href="/facets/categories/foret-noires" class="tag well_known">Forêt-noires</a></li>
+<li><a href="/facets/categories/charlottes" class="tag well_known">Charlottes</a></li>
+<li><a href="/facets/categories/desserts-au-chocolat" class="tag well_known">Desserts au chocolat</a></li>
+<li><a href="/facets/categories/gateau-moelleux-au-chocolat" class="tag well_known">Gâteau moelleux au chocolat</a></li>
+<li><a href="/facets/categories/clafoutis" class="tag well_known">Clafoutis</a></li>
+<li><a href="/facets/categories/desserts-au-cafe" class="tag well_known">Desserts au café</a></li>
+<li><a href="/facets/categories/compotes" class="tag well_known">Compotes</a></li>
+<li><a href="/facets/categories/crumbles" class="tag well_known">Crumbles</a></li>
+<li><a href="/facets/categories/desserts-lactes" class="tag well_known">Desserts lactés</a></li>
+<li><a href="/facets/categories/ile-flottante" class="tag well_known">Ile flottante</a></li>
+<li><a href="/facets/categories/pain-perdu" class="tag well_known">Pain perdu</a></li>
+<li><a href="/facets/categories/desserts-glaces" class="tag well_known">Desserts glacés</a></li>
+<li><a href="/facets/categories/liegeois-aux-fruits" class="tag well_known">Liégeois aux fruits</a></li>
+<li><a href="/facets/categories/compote-de-fruits-allegee-en-sucres" class="tag well_known">Compote de fruits allégée en sucres</a></li>
+<li><a href="/facets/categories/desserts-de-fruits" class="tag well_known">Desserts de fruits</a></li>
+<li><a href="/facets/categories/fruits-au-sirop" class="tag well_known">Fruits au sirop</a></li>
+<li><a href="/facets/categories/puree-de-fruits-sans-sucres-ajoutes" class="tag well_known">Purée de fruits sans sucres ajoutés</a></li>
+<li><a href="/facets/categories/corne-de-gazelle" class="tag well_known">Corne de gazelle</a></li>
+<li><a href="/facets/categories/coupe-glacee-parfum-poire-belle-helene" class="tag well_known">Coupe glacée parfum poire Belle-Hélène</a></li>
+<li><a href="/facets/categories/coupe-glacee-au-chocolat" class="tag well_known">Coupe glacée au chocolat</a></li>
+<li><a href="/facets/categories/coupe-glacee-au-cafe" class="tag well_known">Coupe glacée au café</a></li>
+<li><a href="/facets/categories/coupe-glacee-parfum-peche-melba" class="tag well_known">Coupe glacée parfum pêche Melba</a></li>
+<li><a href="/facets/categories/desserts-gelifies" class="tag well_known">Desserts gélifiés</a></li>
+<li><a href="/facets/categories/kadayif" class="tag well_known">Kadayif</a></li>
+<li><a href="/facets/categories/liegeois" class="tag well_known">Liégeois</a></li>
+<li><a href="/facets/categories/macarons" class="tag well_known">Macarons</a></li>
+<li><a href="/facets/categories/en:meringue-roulades" class="tag well_known" lang="en">en:Meringue roulades</a></li>
+<li><a href="/facets/categories/mochi" class="tag well_known">Mochi</a></li>
+<li><a href="/facets/categories/desserts-vegetaliens" class="tag well_known">Desserts végétaliens</a></li>
+<li><a href="/facets/categories/macarons-aux-fruits-a-coques" class="tag well_known">Macarons aux fruits à coques</a></li>
+<li><a href="/facets/categories/panforte" class="tag well_known">Panforte</a></li>
+<li><a href="/facets/categories/peche-melba" class="tag well_known">Pêche melba</a></li>
+<li><a href="/facets/categories/puddings" class="tag well_known">Puddings</a></li>
+<li><a href="/facets/categories/en:refrigerated-desserts" class="tag well_known" lang="en">en:Refrigerated desserts</a></li>
+<li><a href="/facets/categories/en:shelf-stable-desserts" class="tag well_known" lang="en">en:Shelf stable desserts</a></li>
+<li><a href="/facets/categories/gateau-moelleux-fourre-au-chocolat" class="tag well_known">Gâteau moelleux fourré au chocolat</a></li>
+<li><a href="/facets/categories/biscuit-moelleux-fourre-a-l-orange-et-enrobe-de-sucre-glace" class="tag well_known">Biscuit moelleux fourré à l'orange et enrobé de sucre glace</a></li>
+<li><a href="/facets/categories/bavarois-aux-fruits" class="tag well_known">Bavarois aux fruits</a></li>
+<li><a href="/facets/categories/genoise" class="tag well_known">Génoise</a></li>
+<li><a href="/facets/categories/en:sponge-puddings" class="tag well_known" lang="en">en:Sponge puddings</a></li>
+<li><a href="/facets/categories/en:sushki" class="tag well_known" lang="en">en:Sushki</a></li>
+<li><a href="/facets/categories/mousses-sucrees" class="tag well_known">Mousses sucrées</a></li>
+<li><a href="/facets/categories/tartufo" class="tag well_known">Tartufo</a></li>
+<li><a href="/facets/categories/en:trifles" class="tag well_known" lang="en">en:Trifles</a></li>
+<li><a href="/facets/categories/gateaux-des-rois" class="tag well_known">Gâteaux des rois</a></li>
+<li><a href="/facets/categories/fi:m%C3%A4mmi" class="tag user_defined" lang="fi">fi:Mämmi</a></li>
+<li><a href="/facets/categories/buches-patissieres" class="tag well_known">Bûches pâtissières</a></li>
+<li><a href="/facets/categories/entremets-macaron-framboise" class="tag well_known">Entremets macaron framboise</a></li>
+<li><a href="/facets/categories/pastel-de-nata" class="tag well_known">Pastel de nata</a></li>
 </ul>
 
                 </div>
@@ -465,7 +483,7 @@
 
             
             <p>Pays : France
-                - <a href="//world-fr.openfoodfacts.localhost/categorie/desserts">Voir les produits correspondants du monde entier</a>
+                - <a href="//world-fr.openfoodfacts.localhost/facets/categories/desserts">Voir les produits correspondants du monde entier</a>
             </p>
             
 
@@ -528,7 +546,7 @@
     
       
       
-        <p>&rarr; <a href= "//world-fr.openfoodfacts.localhost/categorie/desserts"> Voir les résultats du monde entier</a></p>
+        <p>&rarr; <a href= "//world-fr.openfoodfacts.localhost/facets/categories/desserts"> Voir les résultats du monde entier</a></p>
       
       
       <!-- display a permalink if the url is for a script that may have POST parameters -->
@@ -558,23 +576,23 @@
           <ul id="drop_sort" data-dropdown-content class="f-dropdown" aria-hidden="true">
           
             <li>
-              <a href="/categorie/desserts?sort_by=popularity" onclick="$.cookie('last_sort_by', 'popularity', { expires: 180, path: '/' });">Produits les plus scannés</a>
+              <a href="/facets/categories/desserts?sort_by=popularity" onclick="$.cookie('last_sort_by', 'popularity', { expires: 180, path: '/' });">Produits les plus scannés</a>
             </li>
         
             <li>
-              <a href="/categorie/desserts?sort_by=nutriscore_score" onclick="$.cookie('last_sort_by', 'nutriscore_score', { expires: 180, path: '/' });">Produits avec le meilleur Nutri-Score</a>
+              <a href="/facets/categories/desserts?sort_by=nutriscore_score" onclick="$.cookie('last_sort_by', 'nutriscore_score', { expires: 180, path: '/' });">Produits avec le meilleur Nutri-Score</a>
             </li>
         
             <li>
-              <a href="/categorie/desserts?sort_by=ecoscore_score" onclick="$.cookie('last_sort_by', 'ecoscore_score', { expires: 180, path: '/' });">Produits avec le meilleur Eco-Score</a>
+              <a href="/facets/categories/desserts?sort_by=environmental_score_score" onclick="$.cookie('last_sort_by', 'environmental_score_score', { expires: 180, path: '/' });">Produits avec le meilleur Green-Score</a>
             </li>
         
             <li>
-              <a href="/categorie/desserts?sort_by=created_t" onclick="$.cookie('last_sort_by', 'created_t', { expires: 180, path: '/' });">Produits récemment ajoutés</a>
+              <a href="/facets/categories/desserts?sort_by=created_t" onclick="$.cookie('last_sort_by', 'created_t', { expires: 180, path: '/' });">Produits récemment ajoutés</a>
             </li>
         
             <li>
-              <a href="/categorie/desserts?sort_by=last_modified_t" onclick="$.cookie('last_sort_by', 'last_modified_t', { expires: 180, path: '/' });">Produits récemment modifiés</a>
+              <a href="/facets/categories/desserts?sort_by=last_modified_t" onclick="$.cookie('last_sort_by', 'last_modified_t', { expires: 180, path: '/' });">Produits récemment modifiés</a>
             </li>
         
           </ul>
@@ -615,8 +633,7 @@
   </div>
       
     
-	</ul>
-
+	
   </div>
 </div>
 
@@ -632,6 +649,7 @@
 		</div>
 		</div>
 
+		
 		<footer>
 			<div class="block_light bg-white" id="install_the_app_block">
 				<div class="row">
@@ -669,22 +687,56 @@
 
 				
 
-<section class="donation-banner-footer">
-  <span class="donation-banner-footer__logo"></span>
-  <span class="donation-banner-footer__hand"></span>
-  <div class="donation-banner-footer__content">
-    <p class="donation-banner-footer__main-text">
-      <span>Aidez-nous à faire de la transparence alimentaire la norme !</span>
-    </p>
-    <div class="donation-banner-footer__aside">
-      <div>
-        <p class="donation-banner-footer__secondary-text">En tant qu'organisation à but non lucratif, nous dépendons de vos dons pour continuer à informer les consommateurs du monde entier sur ce qu'ils mangent.</p>
-        <p class="donation-banner-footer__tertiary-text">La révolution alimentaire commence avec vous !</p>
+<section class="donation-banner-footer row">
+  <div class="donation-banner-footer__left-aside">
+    <div class="donation-banner-footer__hook-section">
+      <p>Aidez-nous à informer des millions de consommateurs à travers le monde sur ce qu'ils mangent</p>
+    </div>
+    <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="group photo donation 2024" />
+  </div>
+  <div>
+    <div>
+      <div class="donation-banner-footer__main-section">
+        <img
+          width="50"
+          height="50"
+          src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
+          alt="open food facts logo"
+        />
+        <h3 class="donation-banner-footer__main-title">Merci de contribuer à notre collecte de fonds 2024</h3>
       </div>
-      <a class="donation-banner-footer__donate" href="//fr.openfoodfacts.org/faire-un-don-a-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2023-a&utm_term=en-text-button">Faire un don</a>
+      <p>Vos dons financent le fonctionnement quotidien de notre association à but non lucratif :</p>
+      <ul>
+        <li>
+          garder notre base de données ouverte et accessible à tous,
+          <ul>
+            <li>infrastructure technique (site web/application mobile) et une petite équipe permanente</li>
+          </ul>
+        </li>
+        <li>
+          <p>rester indépendant de l'industrie alimentaire,</p>
+        </li>
+        <li>
+          <p>mobiliser une communauté de citoyens engagés,</p>
+        </li>
+        <li>
+          <p>soutenir l’avancement de la recherche en santé publique.</p>
+        </li>
+      </ul>
+    </div>
+    <div class="donation-banner-footer__actions-section">
+      <div class="donation-banner-footer__actions-section__financial">
+        <p>
+          Chaque don compte ! Nous apprécions votre soutien pour une plus grande transparence alimentaire dans le monde.
+        </p>
+      </div>
+      <div class="donation-banner-footer__actions-section__donate-button">
+        <a href="//open-food-facts.assoconnect.com/collect/description/476750-c-faire-un-don-a-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2024-a&utm_term=en-text-button">
+          <button>JE SOUTIENS</button>
+        </a>
+      </div>
     </div>
   </div>
-  <div class="donation-banner-footer__image" role="img" aria-label="Photo of the project team"></div>
 </section>
 
 
@@ -752,6 +804,7 @@
 				</div>
 			</div>
 		</footer>
+		
 
 	</div>
 
@@ -792,15 +845,15 @@ var products = [
             "attributes":[
                {
                   "description":"",
-                  "description_short":"Qualité nutritionnelle moyenne",
-                  "grade":"c",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-c.svg",
+                  "description_short":"Moins bonne qualité nutritionnelle",
+                  "grade":"d",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d-new-fr.svg",
                   "id":"nutriscore",
-                  "match":43.1111111111111,
+                  "match":29.4444444444444,
                   "name":"Nutri-Score",
-                  "panel_id":"nutriscore",
+                  "panel_id":"nutriscore_2023",
                   "status":"known",
-                  "title":"Nutri-Score C"
+                  "title":"Nutri-Score D"
                },
                {
                   "grade":"unknown",
@@ -808,6 +861,7 @@ var products = [
                   "id":"low_salt",
                   "missing":"Données nutritionnelles manquantes",
                   "name":"Sel",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Sel en quantité inconnue"
                },
@@ -817,6 +871,7 @@ var products = [
                   "id":"low_fat",
                   "missing":"Données nutritionnelles manquantes",
                   "name":"Matières grasses",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Matières grasses en quantité inconnue"
                },
@@ -826,6 +881,7 @@ var products = [
                   "id":"low_sugars",
                   "missing":"Données nutritionnelles manquantes",
                   "name":"Sucres",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Sucres en quantité inconnue"
                },
@@ -835,6 +891,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "missing":"Données nutritionnelles manquantes",
                   "name":"Acides gras saturés",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Acides gras saturés en quantité inconnue"
                }
@@ -1027,8 +1084,6 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"",
-                  "description_short":"Aliments transformés",
                   "grade":"b",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
                   "id":"nova",
@@ -1036,7 +1091,7 @@ var products = [
                   "name":"Groupe NOVA",
                   "panel_id":"nova",
                   "status":"known",
-                  "title":"NOVA 3"
+                  "title":"Aliments transformés"
                },
                {
                   "grade":"c",
@@ -1058,13 +1113,13 @@ var products = [
                   "description":"",
                   "description_short":"Faible impact environnemental",
                   "grade":"b",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-b.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-b.svg",
                   "id":"ecoscore",
-                  "match":71,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "match":70,
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"known",
-                  "title":"Eco-Score B"
+                  "title":"Green-Score B"
                },
                {
                   "description":"",
@@ -1121,13 +1176,13 @@ var products = [
             "attributes":[
                {
                   "description":"",
-                  "description_short":"Mauvaise qualité nutritionnelle",
+                  "description_short":"Moins bonne qualité nutritionnelle",
                   "grade":"d",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d-new-fr.svg",
                   "id":"nutriscore",
-                  "match":35.7777777777778,
+                  "match":27.3333333333333,
                   "name":"Nutri-Score",
-                  "panel_id":"nutriscore",
+                  "panel_id":"nutriscore_2023",
                   "status":"known",
                   "title":"Nutri-Score D"
                },
@@ -1137,6 +1192,7 @@ var products = [
                   "id":"low_salt",
                   "missing":"Données nutritionnelles manquantes",
                   "name":"Sel",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Sel en quantité inconnue"
                },
@@ -1146,6 +1202,7 @@ var products = [
                   "id":"low_fat",
                   "missing":"Données nutritionnelles manquantes",
                   "name":"Matières grasses",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Matières grasses en quantité inconnue"
                },
@@ -1155,6 +1212,7 @@ var products = [
                   "id":"low_sugars",
                   "missing":"Données nutritionnelles manquantes",
                   "name":"Sucres",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Sucres en quantité inconnue"
                },
@@ -1164,6 +1222,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "missing":"Données nutritionnelles manquantes",
                   "name":"Acides gras saturés",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Acides gras saturés en quantité inconnue"
                }
@@ -1357,8 +1416,6 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"",
-                  "description_short":"Aliments transformés",
                   "grade":"b",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
                   "id":"nova",
@@ -1366,7 +1423,7 @@ var products = [
                   "name":"Groupe NOVA",
                   "panel_id":"nova",
                   "status":"known",
-                  "title":"NOVA 3"
+                  "title":"Aliments transformés"
                },
                {
                   "grade":"c",
@@ -1387,14 +1444,14 @@ var products = [
                {
                   "description":"",
                   "description_short":"Faible impact environnemental",
-                  "grade":"b",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-b.svg",
+                  "grade":"c",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-b.svg",
                   "id":"ecoscore",
-                  "match":61,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "match":60,
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"known",
-                  "title":"Eco-Score B"
+                  "title":"Green-Score B"
                },
                {
                   "description":"",
@@ -1452,11 +1509,11 @@ var products = [
                   "description":"",
                   "description_short":"Données manquantes pour calculer le Nutri-Score",
                   "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown-new-fr.svg",
                   "id":"nutriscore",
                   "match":0,
                   "name":"Nutri-Score",
-                  "panel_id":"nutriscore",
+                  "panel_id":"nutriscore_2023",
                   "status":"unknown",
                   "title":"Nutri-Score inconnu"
                },
@@ -1466,6 +1523,7 @@ var products = [
                   "id":"low_salt",
                   "missing":"Données nutritionnelles manquantes",
                   "name":"Sel",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Sel en quantité inconnue"
                },
@@ -1475,6 +1533,7 @@ var products = [
                   "id":"low_fat",
                   "missing":"Données nutritionnelles manquantes",
                   "name":"Matières grasses",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Matières grasses en quantité inconnue"
                },
@@ -1484,6 +1543,7 @@ var products = [
                   "id":"low_sugars",
                   "missing":"Données nutritionnelles manquantes",
                   "name":"Sucres",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Sucres en quantité inconnue"
                },
@@ -1493,6 +1553,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "missing":"Données nutritionnelles manquantes",
                   "name":"Acides gras saturés",
+                  "panel_id":"nutrition_facts_table",
                   "status":"unknown",
                   "title":"Acides gras saturés en quantité inconnue"
                }
@@ -1686,8 +1747,6 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"",
-                  "description_short":"Aliments transformés",
                   "grade":"b",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
                   "id":"nova",
@@ -1695,7 +1754,7 @@ var products = [
                   "name":"Groupe NOVA",
                   "panel_id":"nova",
                   "status":"known",
-                  "title":"NOVA 3"
+                  "title":"Aliments transformés"
                },
                {
                   "grade":"a",
@@ -1717,13 +1776,13 @@ var products = [
                   "description":"",
                   "description_short":"Faible impact environnemental",
                   "grade":"b",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-b.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-b.svg",
                   "id":"ecoscore",
-                  "match":68,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "match":67,
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"known",
-                  "title":"Eco-Score B"
+                  "title":"Green-Score B"
                },
                {
                   "description":"",

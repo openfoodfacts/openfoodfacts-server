@@ -46,6 +46,15 @@ server {
 	index index.html index.htm index.nginx-debian.html;
 
 	location ~ ^/images/products/ {
+        # 2024/10/03 - temporary redirects as we changed the path of images
+        # for barcodes that are 8 digits or less
+        rewrite ^/images/products/(....)/([^/]*)$ /images/products/000/000/000/$1/$2 break;
+        rewrite ^/images/products/(.)(....)/([^/]*)$ /images/products/000/000/00$1/$2/$3 break;
+        rewrite ^/images/products/(..)(....)/([^/]*)$ /images/products/000/000/0$1/$2/$3 break;
+        rewrite ^/images/products/(...)(....)/([^/]*)$ /images/products/000/000/$1/$2/$3 break;
+        rewrite ^/images/products/(.)(...)(....)/([^/]*)$ /images/products/000/00$1/$2/$3/$4 break;
+        rewrite ^/images/products/(..)(...)(....)/([^/]*)$ /images/products/000/0$1/$2/$3/$4 break;
+
 		include snippets/off.cors-headers.include;
 		include snippets/expiry-headers.include;
 		add_header Link "<http://creativecommons.org/licenses/by-sa/3.0/>; rel='license'; title='CC-BY-SA 3.0'";
@@ -53,8 +62,6 @@ server {
 		gzip_static always;
 		gunzip on;
 	}
-
-	if ($http_referer ~* (jobothoniel.com) ) { return 403; } # blocked since 2021-07-13
 
 	# the app requests /1.json to get the product count...
 	# the commented code below is to serve a static copy
@@ -119,7 +126,7 @@ server {
 		access_log /var/log/nginx/proxy-obf-access.log proxied_requests buffer=256K flush=1s;
 		error_log /var/log/nginx/proxy-obf-error.log;
 
-		proxy_pass http://127.0.0.1:8002/cgi/display.pl?;
+		proxy_pass http://127.0.0.1:8001/cgi/display.pl?;
 	}
 
 	location /cgi/ {
@@ -130,7 +137,7 @@ server {
 		access_log /var/log/nginx/proxy-obf-access.log proxied_requests buffer=256K flush=1s;
 		error_log /var/log/nginx/proxy-obf-error.log;
 
-		proxy_pass http://127.0.0.1:8002;
+		proxy_pass http://127.0.0.1:8001;
 	}
 }
 

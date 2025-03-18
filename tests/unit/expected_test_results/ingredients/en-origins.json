@@ -13,6 +13,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ecobalyse_code" : "fa9e9f34-acc9-4974-89c4-003d2428f502",
          "id" : "en:peach",
          "is_in_taxonomy" : 1,
          "origins" : "en:south-carolina",
@@ -25,6 +26,7 @@
       },
       {
          "ciqual_food_code" : "13186",
+         "ecobalyse_code" : "olive-eu",
          "id" : "en:black-olive",
          "is_in_taxonomy" : 1,
          "origins" : "en:south-carolina",
@@ -37,6 +39,7 @@
       },
       {
          "ciqual_food_code" : "20047",
+         "ecobalyse_code" : "tomato-heated-greenhouse-eu",
          "id" : "en:fresh-tomatoes",
          "is_in_taxonomy" : 1,
          "origins" : "en:california",
@@ -49,6 +52,7 @@
       },
       {
          "ciqual_proxy_food_code" : "13034",
+         "ecobalyse_code" : "f3c21efc-5e7b-4c24-a7f6-6ffbcb34d5b1",
          "id" : "en:orange",
          "is_in_taxonomy" : 1,
          "origins" : "en:florida,en:united-states",
@@ -61,6 +65,7 @@
       },
       {
          "ciqual_proxy_food_code" : "2070",
+         "ecobalyse_code" : "f3c21efc-5e7b-4c24-a7f6-6ffbcb34d5b1",
          "id" : "en:orange-juice",
          "is_in_taxonomy" : 1,
          "origins" : "en:florida",
@@ -98,6 +103,7 @@
       "en:juice",
       "en:fruit-juice"
    ],
+   "ingredients_lc" : "en",
    "ingredients_n" : 6,
    "ingredients_n_tags" : [
       "6",
@@ -140,6 +146,10 @@
       "en:peach"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:almond"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 17,
    "lc" : "en",
    "nutriments" : {

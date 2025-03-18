@@ -1,0 +1,45 @@
+{
+   "categories_tags" : [
+      "en:chocolates"
+   ],
+   "lc" : "en",
+   "misc_tags" : [
+      "en:packagings-number-of-components-3",
+      "en:packagings-not-complete",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-not-empty"
+   ],
+   "packaging_materials_tags" : [
+      "en:aluminium",
+      "en:cardboard",
+      "en:paper"
+   ],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [
+      "en:film",
+      "en:label",
+      "en:sleeve"
+   ],
+   "packaging_text" : "cardboard sleeve, aluminium foil, paper label",
+   "packagings" : [
+      {
+         "material" : "en:cardboard",
+         "shape" : "en:sleeve"
+      },
+      {
+         "food_contact" : 1,
+         "material" : "en:aluminium",
+         "shape" : "en:film"
+      },
+      {
+         "material" : "en:paper",
+         "shape" : "en:label"
+      }
+   ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:metal" : {},
+      "en:paper-or-cardboard" : {}
+   },
+   "packagings_n" : 3
+}

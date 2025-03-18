@@ -90,8 +90,7 @@ $conf_root = "/opt/product-opener/conf";
 $sftp_root = "/mnt/podata/sftp";
 $geolite2_path = $ENV{GEOLITE2_PATH};
 
-my $mongodb_url = $ENV{MONGODB_HOST} || "mongodb";
-$mongodb_host = "mongodb://$mongodb_url:27017";
+$mongodb_host = $ENV{MONGODB_HOST} || "mongodb";
 $mongodb = $producers_platform ? "off-pro" : "off";
 $mongodb_timeout_ms = 50000;    # config option max_time_ms/maxTimeMS
 

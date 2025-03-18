@@ -67,7 +67,6 @@ function folskonomy_engine_init() {
 @import url("https://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css");
 
 .feus {
-  background-color: #f7edf8;
   margin-bottom: 1rem;
 }
 
@@ -151,8 +150,9 @@ function displayFolksonomyPropertyValues() {
     $("div#main-product").append(
         String('<!-- ---- Folksonomy Engine panel ----- -->' +
         '<section class="row">' +
-        '<div id="free_properties_1" class="feus row card ">' +
-        '<div class="column large-12 h-space-tiny ">' +
+        '<div id="free_properties_1" class="large-12 column feus">' +
+        '<div class="card">' +
+        '<div class="card-section h-space-tiny">' +
         '<h2>Personalized properties (<span data-tooltip aria-haspopup="true" class="has-tip" data-position="top" data-alignment="left" title="Be aware the data model might be modified. Use at your own risk.">beta</span>)</h2>' +
         '<p id="fe_login_info"></p>' +
         "<p>These properties are created and filed by users for any kind of usages. Feel free to add your own. " +
@@ -165,9 +165,10 @@ function displayFolksonomyPropertyValues() {
         '<form id="free_properties_form">' +
         '<table>' +
         '<tr>' +
-        '<th> </th>' +
-        '<th class="prop_title">Property <a href="https://wiki.openfoodfacts.org/Folksonomy/Property">🛈</a></th>' +
-        '<th class="val_title">Value</th>' +
+        '<th class="fe_tag_version_title">&nbsp;</th>' +
+        '<th class="fe_prop_doc_link_title">&nbsp;</th>' +
+        '<th class="fe_prop_title">Property <a href="https://wiki.openfoodfacts.org/Folksonomy/Property">🛈</a></th>' +
+        '<th class="fe_val_title">Value</th>' +
         '</tr>' +
         '<tbody id="free_prop_body">') +
         '</tbody>' +
@@ -188,6 +189,7 @@ function displayFolksonomyPropertyValues() {
         '</tr>' +
         '</table>' +
         '</form>' +
+        '</div>' +
         '</div>' +
         '</div>' +
         '</section>' +

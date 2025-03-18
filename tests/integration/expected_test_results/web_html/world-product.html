@@ -48,7 +48,10 @@
 .show-when-logged-in {display:none}
 
     </style>
-    <!-- Matomo -->
+</head>
+<body about="/product/3300000000001/apple-pie-bob-s-pies" typeof="food:foodProduct" class="product_page">
+
+	<!-- Matomo -->
 <script>
   var _paq = window._paq = window._paq || [];
   /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
@@ -71,11 +74,13 @@
 <!-- End Matomo Code -->
 
 
-</head>
-<body about="/product/3300000000001/apple-pie-bob-s-pies" typeof="food:foodProduct" class="product_page">
+
+	
 	<div class="skip"><a href="#content" tabindex="0">Skip to Content</a></div>
+	
 
 	<div id="page">
+		
 		<div class="upper-nav contain-to-grid"  id="upNav">
 			<nav class="top-bar " data-topbar role="navigation">
 				
@@ -148,9 +153,11 @@
 				</section>
 			</nav>
 		</div>
+		
 
 		<div id="main_container" style="position:relative" class="block_latte">
-			
+		
+		
 		<div class="topbarsticky">
 			<div class="contain-to-grid " id="offNav" >
 				<nav class="top-bar" data-topbar role="navigation" >
@@ -228,58 +235,28 @@
 				</form>
 			</div>
 		</nav>
+		
 
 		<div id="content" class="off-canvas-wrap block_latte" data-offcanvas>
 			<div class="inner-wrap">
 			
 				<a class="exit-off-canvas"></a>
+
+				
 				
 				<!-- full width banner on mobile -->
 				
 				
 
+				
+
 				<div class="main block_light">
 					<div id="main_column">
+
+						
 						
 							
 							
-								
-								<!-- start templates/web/common/includes/off_days_2024_banner.tt.html -->
-
-
-								
-
-<a href="//connect.openfoodfacts.org/event/open-food-facts-days-2024-22/register">
-    <section id="off-days-2024-banner-top" class="off-days-banner off-days-banner__ENG">
-    </section>
-</a>
-
-<script>
-    const offDaysBannerID = document.getElementById('off-days-2024-banner-top');
-
-    function getBannerCookie(bcname) {
-        const name = bcname + '=';
-        const decodedCookies = decodeURIComponent(document.cookie);
-        const cookies = decodedCookies.split(';');
-        for (const cookie of cookies) {
-        let c = cookie;
-        while (c.charAt(0) == ' ') { c = c.substring(1); }
-        if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
-        }
-        
-        return '';
-    }
-
-    if (getBannerCookie('off_donation_banner_2023_a') !== '') {
-        console.log('cookie found');
-        offDaysBannerID.style.display = 'flex';
-    } else {
-        console.log('cookie not found');
-        offDaysBannerID.style.display = 'none';
-    }
-</script>
-
-
 								<!-- start templates/web/common/includes/donate_banner.tt.html -->
 
 
@@ -291,22 +268,60 @@
 
 								
 
-<section id="donation-banner-top" class="donation-banner">
-  <span class="donation-banner__logo"></span>
-  <span class="donation-banner__hand"></span>
-  <div class="donation-banner__content">
-    <p class="donation-banner__main-text">
-        <span role="heading">Help us make food transparency the norm!</span>
-    </p>
+<section id="donation-banner-top" class="donation-banner row">
+  <div class="donation-banner__left-aside">
+    <div class="donation-banner__hook-section">
+      <p>Help us inform millions of consumers around the world about what they eat</p>
+    </div>
+    <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="group photo donation 2024" />
+  </div>
+  <div>
     <div class="donation-banner__aside">
-      <div>
-        <p class="donation-banner__secondary-text">As a non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat.</p>
-        <p class="donation-banner__tertiary-text">The food revolution starts with you!</p>
+      <div class="donation-banner__main-section">
+        <img
+          width="50"
+          height="50"
+          src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
+          alt="open food facts logo"
+        />
+        <h3 class="donation-banner__main-title">Please give to our 2024 Fundraiser</h3>
       </div>
-      <a class="donation-banner__donate" href="//world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2023-a&utm_term=en-text-button">Donate</a>
+      <div style="padding:1rem;">
+        <p>Your donations fund the day-to-day operations of our non-profit association:</p>
+        <ul>
+          <li>
+            keeping our database open & available to all,
+            <ul>
+              <li>technical infrastructure (website/mobile app) & a small permanent team</li>
+            </ul>
+          </li>
+          <li>
+            <p>remain independent of the food industry,</p>
+          </li>
+          <li>
+            <p>engage a community of committed citizens,</p>
+          </li>
+          <li>
+            <p>support the advancement of public health research.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="donation-banner__actions-section">
+      <div class="donation-banner__actions-section__financial">
+        <p>
+          
+          Each donation counts! We appreciate your support in bringing further food transparency in the world.  
+          
+        </p>
+      </div>
+      <div class="donation-banner__actions-section__donate-button">
+        <a href="//world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2024-a&utm_term=en-text-button">
+          <button>I SUPPORT</button>
+        </a>
+      </div>
     </div>
   </div>
-  <div class="donation-banner__image" role="img" aria-label="Photo of the project team"></div>
   <div class="donation-banner__close">
     <button id="hide-donate-banner" class="material-icons modest" onclick="DonationButton();" onkeypress="DonationButton();">close</button>
   </div>
@@ -339,11 +354,11 @@
   }
 
   function DonationButton() {
-    setBannerCookie('off_donation_banner_2023_a', 1, 180);
+    setBannerCookie('off_donation_banner_2024_a', 1, 180);
     bannerID.style.display = 'none';
   }
 
-  if (getBannerCookie('off_donation_banner_2023_a') !== '') {
+  if (getBannerCookie('off_donation_banner_2024_a') !== '') {
     bannerID.style.display = 'none';
   } else { 
     bannerID.style.display = 'flex';
@@ -353,6 +368,7 @@
 
 							
 						
+						
             			
 						
 							<!-- banner pages such as product, product edit form and landing pages have their own h1 title -->
@@ -360,12 +376,13 @@
 <script src="//static.openfoodfacts.localhost/js/dist/JsBarcode.all.min.js"></script>
 
 
-
-
-    <!-- Anonymous users will only be able to vote see AnnotationVote in robotoff,
-        the voter uniqueness is based on a hash of its ip address
-    -->
-	<robotoff-asker url='//backend:8881/' code='3300000000001' lang='en' style='display: none;' caption-yes='Yes' caption-no='No' caption-skip='Skip'></robotoff-asker>
+<off-webcomponents-configuration
+  language-code="en"
+  robotoff-configuration='{
+    "apiUrl": "//backend:8881//api/v1",
+    "imgUrl": "//images.openfoodfacts.localhost/images/products"
+}'
+></off-webcomponents-configuration>
 
 
 <a href="#upNav" class="back-to-top scrollto button">
@@ -504,7 +521,7 @@
 
 <p id="field_brands">
     <span class="field">Brands: </span>
-    <span class="field_value" id="field_brands_value"><a itemprop="brand" href="/brand/bob-s-pies">Bob's pies</a></span>
+    <span class="field_value" id="field_brands_value"><a itemprop="brand" href="/facets/brands/bob-s-pies" class="tag user_defined">Bob's pies</a></span>
 </p>
 
 <!-- end templates/web/common/includes/display_field.tt.html -->
@@ -512,7 +529,7 @@
 
 <p id="field_categories">
     <span class="field">Categories: </span>
-    <span class="field_value" id="field_categories_value"><a href="/category/desserts" class="tag well_known">Desserts</a>, <a href="/category/pies" class="tag well_known">Pies</a>, <a href="/category/sweet-pies" class="tag well_known">Sweet pies</a>, <a href="/category/apple-pies" class="tag well_known">Apple pies</a></span>
+    <span class="field_value" id="field_categories_value"><a href="/facets/categories/desserts" class="tag well_known">Desserts</a>, <a href="/facets/categories/pies" class="tag well_known">Pies</a>, <a href="/facets/categories/sweet-pies" class="tag well_known">Sweet pies</a>, <a href="/facets/categories/apple-pies" class="tag well_known">Apple pies</a></span>
 </p>
 
 <!-- end templates/web/common/includes/display_field.tt.html -->
@@ -520,7 +537,7 @@
 
 <p id="field_labels">
     <span class="field">Labels, certifications, awards: </span>
-    <span class="field_value" id="field_labels_value"><a href="/label/fair-trade" class="tag well_known">Fair trade</a></span>
+    <span class="field_value" id="field_labels_value"><a href="/facets/labels/fair-trade" class="tag well_known">Fair trade</a></span>
 </p>
 
 <!-- end templates/web/common/includes/display_field.tt.html -->
@@ -544,13 +561,45 @@
 
 <p id="field_countries">
     <span class="field">Countries where sold: </span>
-    <span class="field_value" id="field_countries_value"><a href="/country/india" class="tag well_known">India</a>, <a href="/country/japan" class="tag well_known">Japan</a>, <a href="/country/united-states" class="tag well_known">United States</a></span>
+    <span class="field_value" id="field_countries_value"><a href="/facets/countries/india" class="tag well_known">India</a>, <a href="/facets/countries/japan" class="tag well_known">Japan</a>, <a href="/facets/countries/united-states" class="tag well_known">United States</a></span>
 </p>
 
 <!-- end templates/web/common/includes/display_field.tt.html -->
 
 
-                       
+                        
+                            <!-- Anonymous users will only be able to vote see AnnotationVote in robotoff,
+                                the voter uniqueness is based on a hash of its ip address -->
+                            <div class="alert-box" style="background-color: #0064c8">
+  <robotoff-question
+    product-code="3300000000001"
+    options='{"showMessage": true, "showLoading": true, "showError": true, "showImage": false}'
+    id="robotoff-question"
+  ></robotoff-question>
+</div>
+<script>
+  const robotoffQuestion = document.getElementById("robotoff-question");
+  const robotoffQuestionParent = robotoffQuestion.parentElement;
+  // Hide the alert until we have questions
+  robotoffQuestionParent.style.display = "none";
+
+  robotoffQuestion.addEventListener("question-state", function (event) {
+    if (event.detail.numberOfQuestions === 0) {
+      robotoffQuestionParent.style.display = "none";
+    } else if (event.detail.index === event.detail.numberOfQuestions) {
+      // Hide the alert after the last question
+      setTimeout(function () {
+        robotoffQuestionParent.style.display = "none";
+      }, 3000);
+    } else {
+      robotoffQuestionParent.style.display = "block";
+    }
+  });
+</script>
+
+                        
+
+                    
 
                     </div>
                 </div>
@@ -649,7 +698,7 @@
                 Nutri-Score D
             </h4>
             
-                <span >Poor nutritional quality</span>
+                <span >Lower nutritional quality</span>
             
             <hr class="floatclear">
         </a>
@@ -694,6 +743,88 @@
 
     
     </div>
+              
+
+	<!-- start templates/web/panels/panel.tt.html - panel_id: nutriscore_new_computation -->
+
+	<ul data-accordion class="panel_accordion accordion" id="panel_nutriscore_new_computation"
+    
+        style="margin-top:0.5rem;margin-bottom:1.5rem;"
+    
+>
+<li class="accordion-navigation">
+
+    
+        <a href="#panel_nutriscore_new_computation_content" class="panel_title"
+            
+        >
+            
+            <img src="//static.openfoodfacts.localhost/images/icons/dist/info.svg"
+                style="height:36px;float:left;margin-right:1rem;"
+                alt="icon"
+                
+            >
+            
+            <h4 
+                
+                
+            >
+                
+                Discover the new Nutri-Score!
+            </h4>
+            
+            <hr class="floatclear">
+        </a>
+    
+
+	   	 <div
+	   	    id="panel_nutriscore_new_computation_content"
+	   	    class="content panel_content"
+	   	  >
+          
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
+
+
+    
+           <div class="panel_text">
+             <p>The computation of the Nutri-Score is evolving to provide better recommendations based on the latest scientific evidence.</p><p>Main improvements:</p><ul><li>Better score for some fatty fish and oils rich in good fats</li><li>Better score for whole products rich in fiber</li><li>Worse score for products containing a lot of salt or sugar</li><li>Worse score for red meat (compared to poultry)</li></ul>
+                
+           </div>
+    
+
+    
+    </div>
+
+    
+    </div>
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
+
+
+    
+           <div class="panel_text">
+             
+<p>&rarr; <a href="//world.openfoodfacts.localhost/new-nutriscore">Discover all the improvements of the new Nutri-Score</a></p>
+
+           </div>
+    
+
+    
+    </div>
+
+    
+    </div>
+	   	 </div>
+	
+</li>
+</ul>
+
+	<!-- end templates/web/panels/panel.tt.html - panel_id: nutriscore_new_computation -->
               
 
 	<!-- start templates/web/panels/panel.tt.html - panel_id: nutriscore_description -->
@@ -830,7 +961,7 @@ The score is calculated from the data of the nutrition facts table and the compo
                 style="font-size:1.1rem;"
             >
                 
-                Calories
+                Energy
             </h4>
             
                 <span style="font-size:0.9rem;">3/10 points (1249.03kJ)</span>
@@ -1941,6 +2072,496 @@ The score is calculated from the data of the nutrition facts table and the compo
 
     
     </div>
+              
+
+	<!-- start templates/web/panels/panel.tt.html - panel_id: ingredients_list -->
+
+	<ul data-accordion class="panel_accordion accordion" id="panel_ingredients_list"
+    
+        style="margin-top:0.5rem;margin-bottom:1.5rem;"
+    
+>
+<li class="accordion-navigation">
+
+    
+        <a href="#panel_ingredients_list_content" class="panel_title"
+            
+        >
+            
+            <h4 
+                
+                
+            >
+                
+                Ingredient information
+            </h4>
+            
+            <hr class="floatclear">
+        </a>
+    
+
+	   	 <div
+	   	    id="panel_ingredients_list_content"
+	   	    class="content panel_content active"
+	   	  >
+          
+              
+
+	<!-- start templates/web/panels/panel.tt.html - panel_id: ingredient_1 -->
+
+	<ul data-accordion class="panel_accordion accordion" id="panel_ingredient_1"
+    
+        style="margin-top:0.2rem;margin-bottom:0.2rem;"
+    
+>
+<li class="accordion-navigation accordion-navigation-inactive">
+
+    
+        <div href="#panel_ingredient_1_content" class="panel_title"
+            
+                style="padding:0.1rem;padding-left:1rem;"
+            
+        >
+            
+            <h4 
+                
+                style="font-size:1.1rem;"
+            >
+                
+                Wheat flour: 55.6% (estimate)
+            </h4>
+            
+            <hr class="floatclear">
+        </div>
+    
+
+	   	 <div
+	   	    id="panel_ingredient_1_content"
+	   	    class="content panel_content"
+	   	  >
+          
+	   	 </div>
+	
+</li>
+</ul>
+
+	<!-- end templates/web/panels/panel.tt.html - panel_id: ingredient_1 -->
+              
+
+	<!-- start templates/web/panels/panel.tt.html - panel_id: ingredient_2 -->
+
+	<ul data-accordion class="panel_accordion accordion" id="panel_ingredient_2"
+    
+        style="margin-top:0.2rem;margin-bottom:0.2rem;"
+    
+>
+<li class="accordion-navigation accordion-navigation-inactive">
+
+    
+        <div href="#panel_ingredient_2_content" class="panel_title"
+            
+                style="padding:0.1rem;padding-left:1rem;"
+            
+        >
+            
+            <h4 
+                
+                style="font-size:1.1rem;"
+            >
+                
+                Apple: 22.2% (estimate)
+            </h4>
+            
+            <hr class="floatclear">
+        </div>
+    
+
+	   	 <div
+	   	    id="panel_ingredient_2_content"
+	   	    class="content panel_content"
+	   	  >
+          
+	   	 </div>
+	
+</li>
+</ul>
+
+	<!-- end templates/web/panels/panel.tt.html - panel_id: ingredient_2 -->
+              
+
+	<!-- start templates/web/panels/panel.tt.html - panel_id: ingredient_3 -->
+
+	<ul data-accordion class="panel_accordion accordion" id="panel_ingredient_3"
+    
+        style="margin-top:0.2rem;margin-bottom:0.2rem;"
+    
+>
+<li class="accordion-navigation accordion-navigation-inactive">
+
+    
+        <div href="#panel_ingredient_3_content" class="panel_title"
+            
+                style="padding:0.1rem;padding-left:1rem;"
+            
+        >
+            
+            <h4 
+                
+                style="font-size:1.1rem;"
+            >
+                
+                Sugar: 11.1% (estimate)
+            </h4>
+            
+            <hr class="floatclear">
+        </div>
+    
+
+	   	 <div
+	   	    id="panel_ingredient_3_content"
+	   	    class="content panel_content"
+	   	  >
+          
+	   	 </div>
+	
+</li>
+</ul>
+
+	<!-- end templates/web/panels/panel.tt.html - panel_id: ingredient_3 -->
+              
+
+	<!-- start templates/web/panels/panel.tt.html - panel_id: ingredient_4 -->
+
+	<ul data-accordion class="panel_accordion accordion" id="panel_ingredient_4"
+    
+        style="margin-top:0.2rem;margin-bottom:0.2rem;"
+    
+>
+<li class="accordion-navigation accordion-navigation-inactive">
+
+    
+        <div href="#panel_ingredient_4_content" class="panel_title"
+            
+                style="padding:0.1rem;padding-left:1rem;"
+            
+        >
+            
+            <h4 
+                
+                style="font-size:1.1rem;"
+            >
+                
+                Butter: 5.6% (estimate)
+            </h4>
+            
+            <hr class="floatclear">
+        </div>
+    
+
+	   	 <div
+	   	    id="panel_ingredient_4_content"
+	   	    class="content panel_content"
+	   	  >
+          
+	   	 </div>
+	
+</li>
+</ul>
+
+	<!-- end templates/web/panels/panel.tt.html - panel_id: ingredient_4 -->
+              
+
+	<!-- start templates/web/panels/panel.tt.html - panel_id: ingredient_5 -->
+
+	<ul data-accordion class="panel_accordion accordion" id="panel_ingredient_5"
+    
+        style="margin-top:0.2rem;margin-bottom:0.2rem;"
+    
+>
+<li class="accordion-navigation accordion-navigation-inactive">
+
+    
+        <div href="#panel_ingredient_5_content" class="panel_title"
+            
+                style="padding:0.1rem;padding-left:1rem;"
+            
+        >
+            
+            <h4 
+                
+                style="font-size:1.1rem;"
+            >
+                
+                Egg: 2.8% (estimate)
+            </h4>
+            
+            <hr class="floatclear">
+        </div>
+    
+
+	   	 <div
+	   	    id="panel_ingredient_5_content"
+	   	    class="content panel_content"
+	   	  >
+          
+	   	 </div>
+	
+</li>
+</ul>
+
+	<!-- end templates/web/panels/panel.tt.html - panel_id: ingredient_5 -->
+              
+
+	<!-- start templates/web/panels/panel.tt.html - panel_id: ingredient_6 -->
+
+	<ul data-accordion class="panel_accordion accordion" id="panel_ingredient_6"
+    
+        style="margin-top:0.2rem;margin-bottom:0.2rem;"
+    
+>
+<li class="accordion-navigation accordion-navigation-inactive">
+
+    
+        <div href="#panel_ingredient_6_content" class="panel_title"
+            
+                style="padding:0.1rem;padding-left:1rem;"
+            
+        >
+            
+            <h4 
+                
+                style="font-size:1.1rem;"
+            >
+                
+                Salt: < 2% (estimate)
+            </h4>
+            
+            <hr class="floatclear">
+        </div>
+    
+
+	   	 <div
+	   	    id="panel_ingredient_6_content"
+	   	    class="content panel_content"
+	   	  >
+          
+	   	 </div>
+	
+</li>
+</ul>
+
+	<!-- end templates/web/panels/panel.tt.html - panel_id: ingredient_6 -->
+              
+
+	<!-- start templates/web/panels/panel.tt.html - panel_id: ingredient_7 -->
+
+	<ul data-accordion class="panel_accordion accordion" id="panel_ingredient_7"
+    
+        style="margin-top:0.2rem;margin-bottom:0.2rem;"
+    
+>
+<li class="accordion-navigation accordion-navigation-inactive">
+
+    
+        <div href="#panel_ingredient_7_content" class="panel_title"
+            
+                style="padding:0.1rem;padding-left:1rem;"
+            
+        >
+            
+            <h4 
+                
+                style="font-size:1.1rem;"
+            >
+                
+                Palm oil: < 2% (estimate)
+            </h4>
+            
+            <hr class="floatclear">
+        </div>
+    
+
+	   	 <div
+	   	    id="panel_ingredient_7_content"
+	   	    class="content panel_content"
+	   	  >
+          
+	   	 </div>
+	
+</li>
+</ul>
+
+	<!-- end templates/web/panels/panel.tt.html - panel_id: ingredient_7 -->
+              
+
+	<!-- start templates/web/panels/panel.tt.html - panel_id: ingredient_8 -->
+
+	<ul data-accordion class="panel_accordion accordion" id="panel_ingredient_8"
+    
+        style="margin-top:0.2rem;margin-bottom:0.2rem;"
+    
+>
+<li class="accordion-navigation accordion-navigation-inactive">
+
+    
+        <div href="#panel_ingredient_8_content" class="panel_title"
+            
+                style="padding:0.1rem;padding-left:1rem;"
+            
+        >
+            
+            <h4 
+                
+                style="font-size:1.1rem;"
+            >
+                
+                Acid: < 2% (estimate)
+            </h4>
+            
+            <hr class="floatclear">
+        </div>
+    
+
+	   	 <div
+	   	    id="panel_ingredient_8_content"
+	   	    class="content panel_content"
+	   	  >
+          
+	   	 </div>
+	
+</li>
+</ul>
+
+	<!-- end templates/web/panels/panel.tt.html - panel_id: ingredient_8 -->
+              
+
+	<!-- start templates/web/panels/panel.tt.html - panel_id: ingredient_9 -->
+
+	<ul data-accordion class="panel_accordion accordion" id="panel_ingredient_9"
+    
+        style="margin-top:0.2rem;margin-bottom:0.2rem;"
+    
+>
+<li class="accordion-navigation accordion-navigation-inactive">
+
+    
+        <div href="#panel_ingredient_9_content" class="panel_title"
+            
+                style="padding:0.1rem;padding-left:1rem;"
+            
+        >
+            
+            <h4 
+                
+                style="font-size:1.1rem;"
+            >
+                
+                — E330: < 2% (estimate)
+            </h4>
+            
+            <hr class="floatclear">
+        </div>
+    
+
+	   	 <div
+	   	    id="panel_ingredient_9_content"
+	   	    class="content panel_content"
+	   	  >
+          
+	   	 </div>
+	
+</li>
+</ul>
+
+	<!-- end templates/web/panels/panel.tt.html - panel_id: ingredient_9 -->
+              
+
+	<!-- start templates/web/panels/panel.tt.html - panel_id: ingredient_10 -->
+
+	<ul data-accordion class="panel_accordion accordion" id="panel_ingredient_10"
+    
+        style="margin-top:0.2rem;margin-bottom:0.2rem;"
+    
+>
+<li class="accordion-navigation accordion-navigation-inactive">
+
+    
+        <div href="#panel_ingredient_10_content" class="panel_title"
+            
+                style="padding:0.1rem;padding-left:1rem;"
+            
+        >
+            
+            <h4 
+                
+                style="font-size:1.1rem;"
+            >
+                
+                Raising agent: < 2% (estimate)
+            </h4>
+            
+            <hr class="floatclear">
+        </div>
+    
+
+	   	 <div
+	   	    id="panel_ingredient_10_content"
+	   	    class="content panel_content"
+	   	  >
+          
+	   	 </div>
+	
+</li>
+</ul>
+
+	<!-- end templates/web/panels/panel.tt.html - panel_id: ingredient_10 -->
+              
+
+	<!-- start templates/web/panels/panel.tt.html - panel_id: ingredient_11 -->
+
+	<ul data-accordion class="panel_accordion accordion" id="panel_ingredient_11"
+    
+        style="margin-top:0.2rem;margin-bottom:0.2rem;"
+    
+>
+<li class="accordion-navigation accordion-navigation-inactive">
+
+    
+        <div href="#panel_ingredient_11_content" class="panel_title"
+            
+                style="padding:0.1rem;padding-left:1rem;"
+            
+        >
+            
+            <h4 
+                
+                style="font-size:1.1rem;"
+            >
+                
+                — E500ii: < 2% (estimate)
+            </h4>
+            
+            <hr class="floatclear">
+        </div>
+    
+
+	   	 <div
+	   	    id="panel_ingredient_11_content"
+	   	    class="content panel_content"
+	   	  >
+          
+	   	 </div>
+	
+</li>
+</ul>
+
+	<!-- end templates/web/panels/panel.tt.html - panel_id: ingredient_11 -->
+	   	 </div>
+	
+</li>
+</ul>
+
+	<!-- end templates/web/panels/panel.tt.html - panel_id: ingredients_list -->
 	   	 </div>
 	
 </li>
@@ -2051,7 +2672,7 @@ The score is calculated from the data of the nutrition facts table and the compo
 <li>Unprocessed or minimally processed foods</li>
 <li>Processed culinary ingredients</li>
 <li>Processed foods</li>
-<li>Ultra processed foods</li>
+<li>Ultra-processed foods</li>
 </ol>
 <br>
 <p>The determination of the group is based on the category of the product and on the ingredients it contains.</p>
@@ -2735,9 +3356,9 @@ The score is calculated from the data of the nutrition facts table and the compo
           
               
 
-	<!-- start templates/web/panels/panel.tt.html - panel_id: ecoscore -->
+	<!-- start templates/web/panels/panel.tt.html - panel_id: environmental_score -->
 
-	<ul data-accordion class="panel_accordion accordion" id="panel_ecoscore"
+	<ul data-accordion class="panel_accordion accordion" id="panel_environmental_score"
     
         style="margin-top:0.5rem;margin-bottom:1.5rem;"
     
@@ -2745,11 +3366,11 @@ The score is calculated from the data of the nutrition facts table and the compo
 <li class="accordion-navigation">
 
     
-        <a href="#panel_ecoscore_content" class="panel_title grade_b"
+        <a href="#panel_environmental_score_content" class="panel_title grade_b"
             
         >
             
-            <img src="//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-b.svg"
+            <img src="//static.openfoodfacts.localhost/images/attributes/dist/green-score-b.svg"
                 style="height:72px;float:left;margin-right:1rem;"
                 alt="icon"
                 
@@ -2760,15 +3381,17 @@ The score is calculated from the data of the nutrition facts table and the compo
                 
             >
                 
-                Eco-Score B - Low environmental impact
+                Green-Score B
             </h4>
+            
+                <span >Low environmental impact</span>
             
             <hr class="floatclear">
         </a>
     
 
 	   	 <div
-	   	    id="panel_ecoscore_content"
+	   	    id="panel_environmental_score_content"
 	   	    class="content panel_content"
 	   	  >
           
@@ -2796,7 +3419,7 @@ The score is calculated from the data of the nutrition facts table and the compo
 
     
            <div class="panel_text">
-             The <a href="//world.openfoodfacts.localhost/ecoscore">Eco-Score</a> is an experimental score that summarizes the environmental impacts of food products.
+             The <a href="//world.openfoodfacts.localhost/green-score">Green-Score</a> is an experimental score that summarizes the environmental impacts of food products.
            </div>
     
 
@@ -2815,7 +3438,7 @@ The score is calculated from the data of the nutrition facts table and the compo
            <div class="panel_text panel_text_note">→
              
                     
-                        The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country.
+                        The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country.
                                     
                 
            </div>
@@ -2839,9 +3462,9 @@ The score is calculated from the data of the nutrition facts table and the compo
         
             
 
-	<!-- start templates/web/panels/panel.tt.html - panel_id: ecoscore_agribalyse -->
+	<!-- start templates/web/panels/panel.tt.html - panel_id: environmental_score_agribalyse -->
 
-	<ul data-accordion class="panel_accordion accordion" id="panel_ecoscore_agribalyse"
+	<ul data-accordion class="panel_accordion accordion" id="panel_environmental_score_agribalyse"
     
         style="margin-top:0.5rem;margin-bottom:1.5rem;"
     
@@ -2849,7 +3472,7 @@ The score is calculated from the data of the nutrition facts table and the compo
 <li class="accordion-navigation">
 
     
-        <a href="#panel_ecoscore_agribalyse_content" class="panel_title grade_a"
+        <a href="#panel_environmental_score_agribalyse_content" class="panel_title grade_a_plus"
             
         >
             
@@ -2861,12 +3484,12 @@ The score is calculated from the data of the nutrition facts table and the compo
                 
             >
             
-            <h4 class="grade_a_title"
+            <h4 class="grade_a_plus_title"
                 
                 
             >
                 
-                Average impact of products of the same category: A (Score: 90/100)
+                Average impact of products of the same category: A+ (Score: 90/100)
             </h4>
             
                 <span >Category: Apple tart</span>
@@ -2876,7 +3499,7 @@ The score is calculated from the data of the nutrition facts table and the compo
     
 
 	   	 <div
-	   	    id="panel_ecoscore_agribalyse_content"
+	   	    id="panel_environmental_score_agribalyse_content"
 	   	    class="content panel_content"
 	   	  >
           
@@ -3135,7 +3758,7 @@ The score is calculated from the data of the nutrition facts table and the compo
 </li>
 </ul>
 
-	<!-- end templates/web/panels/panel.tt.html - panel_id: ecoscore_agribalyse -->
+	<!-- end templates/web/panels/panel.tt.html - panel_id: environmental_score_agribalyse -->
         
 
                         
@@ -3155,9 +3778,9 @@ The score is calculated from the data of the nutrition facts table and the compo
         
             
 
-	<!-- start templates/web/panels/panel.tt.html - panel_id: ecoscore_origins_of_ingredients -->
+	<!-- start templates/web/panels/panel.tt.html - panel_id: environmental_score_origins_of_ingredients -->
 
-	<ul data-accordion class="panel_accordion accordion" id="panel_ecoscore_origins_of_ingredients"
+	<ul data-accordion class="panel_accordion accordion" id="panel_environmental_score_origins_of_ingredients"
     
         style="margin-top:0.5rem;margin-bottom:1.5rem;"
     
@@ -3165,7 +3788,7 @@ The score is calculated from the data of the nutrition facts table and the compo
 <li class="accordion-navigation">
 
     
-        <a href="#panel_ecoscore_origins_of_ingredients_content" class="panel_title"
+        <a href="#panel_environmental_score_origins_of_ingredients_content" class="panel_title"
             
         >
             
@@ -3192,7 +3815,7 @@ The score is calculated from the data of the nutrition facts table and the compo
     
 
 	   	 <div
-	   	    id="panel_ecoscore_origins_of_ingredients_content"
+	   	    id="panel_environmental_score_origins_of_ingredients_content"
 	   	    class="content panel_content"
 	   	  >
           
@@ -3221,13 +3844,13 @@ The score is calculated from the data of the nutrition facts table and the compo
 </li>
 </ul>
 
-	<!-- end templates/web/panels/panel.tt.html - panel_id: ecoscore_origins_of_ingredients -->
+	<!-- end templates/web/panels/panel.tt.html - panel_id: environmental_score_origins_of_ingredients -->
         
             
 
-	<!-- start templates/web/panels/panel.tt.html - panel_id: ecoscore_threatened_species -->
+	<!-- start templates/web/panels/panel.tt.html - panel_id: environmental_score_threatened_species -->
 
-	<ul data-accordion class="panel_accordion accordion" id="panel_ecoscore_threatened_species"
+	<ul data-accordion class="panel_accordion accordion" id="panel_environmental_score_threatened_species"
     
         style="margin-top:0.5rem;margin-bottom:1.5rem;"
     
@@ -3235,7 +3858,7 @@ The score is calculated from the data of the nutrition facts table and the compo
 <li class="accordion-navigation">
 
     
-        <a href="#panel_ecoscore_threatened_species_content" class="panel_title"
+        <a href="#panel_environmental_score_threatened_species_content" class="panel_title"
             
         >
             
@@ -3262,7 +3885,7 @@ The score is calculated from the data of the nutrition facts table and the compo
     
 
 	   	 <div
-	   	    id="panel_ecoscore_threatened_species_content"
+	   	    id="panel_environmental_score_threatened_species_content"
 	   	    class="content panel_content"
 	   	  >
           
@@ -3291,13 +3914,13 @@ The score is calculated from the data of the nutrition facts table and the compo
 </li>
 </ul>
 
-	<!-- end templates/web/panels/panel.tt.html - panel_id: ecoscore_threatened_species -->
+	<!-- end templates/web/panels/panel.tt.html - panel_id: environmental_score_threatened_species -->
         
             
 
-	<!-- start templates/web/panels/panel.tt.html - panel_id: ecoscore_packaging -->
+	<!-- start templates/web/panels/panel.tt.html - panel_id: environmental_score_packaging -->
 
-	<ul data-accordion class="panel_accordion accordion" id="panel_ecoscore_packaging"
+	<ul data-accordion class="panel_accordion accordion" id="panel_environmental_score_packaging"
     
         style="margin-top:0.5rem;margin-bottom:1.5rem;"
     
@@ -3305,7 +3928,7 @@ The score is calculated from the data of the nutrition facts table and the compo
 <li class="accordion-navigation">
 
     
-        <a href="#panel_ecoscore_packaging_content" class="panel_title"
+        <a href="#panel_environmental_score_packaging_content" class="panel_title"
             
         >
             
@@ -3332,7 +3955,7 @@ The score is calculated from the data of the nutrition facts table and the compo
     
 
 	   	 <div
-	   	    id="panel_ecoscore_packaging_content"
+	   	    id="panel_environmental_score_packaging_content"
 	   	    class="content panel_content"
 	   	  >
           
@@ -3363,7 +3986,7 @@ The score is calculated from the data of the nutrition facts table and the compo
     
            <div class="panel_text panel_text_warning">⚠
              ️
-                For a more precise calculation of the Eco-Score, you can modify the product page and add them.
+                For a more precise calculation of the Green-Score, you can modify the product page and add them.
                 <br><br>
                 If you are the manufacturer of this product, you can send us the information with our <a href="//world.pro.openfoodfacts.org">free platform for producers</a>.
                     
@@ -3379,7 +4002,7 @@ The score is calculated from the data of the nutrition facts table and the compo
 </li>
 </ul>
 
-	<!-- end templates/web/panels/panel.tt.html - panel_id: ecoscore_packaging -->
+	<!-- end templates/web/panels/panel.tt.html - panel_id: environmental_score_packaging -->
         
 
                         
@@ -3393,15 +4016,15 @@ The score is calculated from the data of the nutrition facts table and the compo
                         
 
         
-            <h3 class="panel_title_">Eco-Score for this product</h3>
+            <h3 class="panel_title_">Green-Score for this product</h3>
         
 
         
             
 
-	<!-- start templates/web/panels/panel.tt.html - panel_id: ecoscore_total -->
+	<!-- start templates/web/panels/panel.tt.html - panel_id: environmental_score_total -->
 
-	<ul data-accordion class="panel_accordion accordion" id="panel_ecoscore_total"
+	<ul data-accordion class="panel_accordion accordion" id="panel_environmental_score_total"
     
         style="margin-top:0.5rem;margin-bottom:1.5rem;"
     
@@ -3409,11 +4032,11 @@ The score is calculated from the data of the nutrition facts table and the compo
 <li class="accordion-navigation">
 
     
-        <a href="#panel_ecoscore_total_content" class="panel_title grade_b"
+        <a href="#panel_environmental_score_total_content" class="panel_title grade_b"
             
         >
             
-            <img src="//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-b.svg"
+            <img src="//static.openfoodfacts.localhost/images/attributes/dist/green-score-b.svg"
                 style="height:72px;float:left;margin-right:1rem;"
                 alt="icon"
                 
@@ -3434,7 +4057,7 @@ The score is calculated from the data of the nutrition facts table and the compo
     
 
 	   	 <div
-	   	    id="panel_ecoscore_total_content"
+	   	    id="panel_environmental_score_total_content"
 	   	    class="content panel_content"
 	   	  >
           
@@ -3454,7 +4077,6 @@ The score is calculated from the data of the nutrition facts table and the compo
                     <br><br>
                 Final score: 60/100
                 
-                
            </div>
     
 
@@ -3468,7 +4090,7 @@ The score is calculated from the data of the nutrition facts table and the compo
 </li>
 </ul>
 
-	<!-- end templates/web/panels/panel.tt.html - panel_id: ecoscore_total -->
+	<!-- end templates/web/panels/panel.tt.html - panel_id: environmental_score_total -->
         
 
                         
@@ -3483,7 +4105,7 @@ The score is calculated from the data of the nutrition facts table and the compo
     
            <div class="panel_text">
              
-<p>&rarr; <a href="//world.openfoodfacts.localhost/eco-score-the-environmental-impact-of-food-products">Learn more about the Eco-Score</a></p>
+<p>&rarr; <a href="//world.openfoodfacts.localhost/green-score">Learn more about the Green-Score</a></p>
 
            </div>
     
@@ -3498,7 +4120,7 @@ The score is calculated from the data of the nutrition facts table and the compo
 </li>
 </ul>
 
-	<!-- end templates/web/panels/panel.tt.html - panel_id: ecoscore -->
+	<!-- end templates/web/panels/panel.tt.html - panel_id: environmental_score -->
               
     <div class="panel_group">
 
@@ -4215,6 +4837,42 @@ The score is calculated from the data of the nutrition facts table and the compo
 
     </div>
     </div>
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
+
+
+    
+           <div class="panel_text">
+             
+                If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team.
+                
+           </div>
+    
+
+    
+    </div>
+
+    
+    </div>
+              <div style="margin-bottom:0.5rem">
+       <div>
+    
+
+    
+
+    
+        <div>
+            <a class="button small action-report_product_to_nutripatrol"
+                href="//nutripatrol.localhost/flag/product/?barcode=3300000000001&source=web&flavor=off">
+                Report this product to our moderators
+            </a>
+        </div>
+    
+
+    </div>
+    </div>
 	   	 </div>
 	
 </li>
@@ -4256,8 +4914,8 @@ The score is calculated from the data of the nutrition facts table and the compo
 
 
         <p class="details">
-            Product added on <time datetime="--ignore--">--ignore--</time> by <a href="/editor/tests">tests</a><br>
-            Last edit of product page on <time datetime="--ignore--">--ignore--</time> by <a href="/editor/tests">tests</a>.
+            Product added on <time datetime="--ignore--">--ignore--</time> by <a href="/facets/editors/tests">tests</a><br>
+            Last edit of product page on <time datetime="--ignore--">--ignore--</time> by <a href="/facets/editors/tests">tests</a>.
             
             
         </p>
@@ -4312,6 +4970,7 @@ The score is calculated from the data of the nutrition facts table and the compo
 		</div>
 		</div>
 
+		
 		<footer>
 			<div class="block_light bg-white" id="install_the_app_block">
 				<div class="row">
@@ -4349,22 +5008,56 @@ The score is calculated from the data of the nutrition facts table and the compo
 
 				
 
-<section class="donation-banner-footer">
-  <span class="donation-banner-footer__logo"></span>
-  <span class="donation-banner-footer__hand"></span>
-  <div class="donation-banner-footer__content">
-    <p class="donation-banner-footer__main-text">
-      <span>Help us make food transparency the norm!</span>
-    </p>
-    <div class="donation-banner-footer__aside">
-      <div>
-        <p class="donation-banner-footer__secondary-text">As a non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat.</p>
-        <p class="donation-banner-footer__tertiary-text">The food revolution starts with you!</p>
+<section class="donation-banner-footer row">
+  <div class="donation-banner-footer__left-aside">
+    <div class="donation-banner-footer__hook-section">
+      <p>Help us inform millions of consumers around the world about what they eat</p>
+    </div>
+    <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="group photo donation 2024" />
+  </div>
+  <div>
+    <div>
+      <div class="donation-banner-footer__main-section">
+        <img
+          width="50"
+          height="50"
+          src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
+          alt="open food facts logo"
+        />
+        <h3 class="donation-banner-footer__main-title">Please give to our 2024 Fundraiser</h3>
       </div>
-      <a class="donation-banner-footer__donate" href="//world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2023-a&utm_term=en-text-button">Donate</a>
+      <p>Your donations fund the day-to-day operations of our non-profit association:</p>
+      <ul>
+        <li>
+          keeping our database open & available to all,
+          <ul>
+            <li>technical infrastructure (website/mobile app) & a small permanent team</li>
+          </ul>
+        </li>
+        <li>
+          <p>remain independent of the food industry,</p>
+        </li>
+        <li>
+          <p>engage a community of committed citizens,</p>
+        </li>
+        <li>
+          <p>support the advancement of public health research.</p>
+        </li>
+      </ul>
+    </div>
+    <div class="donation-banner-footer__actions-section">
+      <div class="donation-banner-footer__actions-section__financial">
+        <p>
+          Each donation counts! We appreciate your support in bringing further food transparency in the world.
+        </p>
+      </div>
+      <div class="donation-banner-footer__actions-section__donate-button">
+        <a href="//world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2024-a&utm_term=en-text-button">
+          <button>I SUPPORT</button>
+        </a>
+      </div>
     </div>
   </div>
-  <div class="donation-banner-footer__image" role="img" aria-label="Photo of the project team"></div>
 </section>
 
 
@@ -4432,6 +5125,7 @@ The score is calculated from the data of the nutrition facts table and the compo
 				</div>
 			</div>
 		</footer>
+		
 
 	</div>
 
@@ -4465,13 +5159,13 @@ display_product_summary("#product_summary", product);
 <script src="//static.openfoodfacts.localhost/js/dist/jquery.cookie.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/select2.min.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
-<script src="//static.openfoodfacts.localhost/js/dist/display-product.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/product-history.js"></script>
+<script type="module" src="//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js"></script>
 <script type="text/javascript">
 var page_type = "product";
 var default_preferences = {"ecoscore":"important","nova":"important","nutriscore":"very_important"};
 var preferences_text = "Classify products according to your preferences";
-var product = {"attribute_groups":[{"attributes":[{"description":"","description_short":"Poor nutritional quality","grade":"d","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d-new-en.svg","id":"nutriscore","match":27.3333333333333,"name":"Nutri-Score","panel_id":"nutriscore_2023","status":"known","title":"Nutri-Score D"},{"grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-unknown.svg","id":"low_salt","missing":"Missing nutrition facts","name":"Salt","status":"unknown","title":"Salt in unknown quantity"},{"grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-unknown.svg","id":"low_fat","missing":"Missing nutrition facts","name":"Fat","status":"unknown","title":"Fat in unknown quantity"},{"grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-unknown.svg","id":"low_sugars","missing":"Missing nutrition facts","name":"Sugars","status":"unknown","title":"Sugars in unknown quantity"},{"grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-unknown.svg","id":"low_saturated_fat","missing":"Missing nutrition facts","name":"Saturated fat","status":"unknown","title":"Saturated fat in unknown quantity"}],"id":"nutritional_quality","name":"Nutritional quality"},{"attributes":[{"debug":"en:gluten in allergens","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/contains-gluten.svg","id":"allergens_no_gluten","match":0,"name":"Gluten","status":"known","title":"Contains: Gluten"},{"debug":"en:milk in allergens","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/contains-milk.svg","id":"allergens_no_milk","match":0,"name":"Milk","status":"known","title":"Contains: Milk"},{"debug":"en:eggs in allergens","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/contains-eggs.svg","id":"allergens_no_eggs","match":0,"name":"Eggs","status":"known","title":"Contains: Eggs"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-nuts.svg","id":"allergens_no_nuts","match":100,"name":"Nuts","status":"known","title":"Does not contain: Nuts"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-peanuts.svg","id":"allergens_no_peanuts","match":100,"name":"Peanuts","status":"known","title":"Does not contain: Peanuts"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-sesame-seeds.svg","id":"allergens_no_sesame_seeds","match":100,"name":"Sesame seeds","status":"known","title":"Does not contain: Sesame seeds"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-soybeans.svg","id":"allergens_no_soybeans","match":100,"name":"Soybeans","status":"known","title":"Does not contain: Soybeans"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-celery.svg","id":"allergens_no_celery","match":100,"name":"Celery","status":"known","title":"Does not contain: Celery"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-mustard.svg","id":"allergens_no_mustard","match":100,"name":"Mustard","status":"known","title":"Does not contain: Mustard"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-lupin.svg","id":"allergens_no_lupin","match":100,"name":"Lupin","status":"known","title":"Does not contain: Lupin"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-fish.svg","id":"allergens_no_fish","match":100,"name":"Fish","status":"known","title":"Does not contain: Fish"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-crustaceans.svg","id":"allergens_no_crustaceans","match":100,"name":"Crustaceans","status":"known","title":"Does not contain: Crustaceans"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-molluscs.svg","id":"allergens_no_molluscs","match":100,"name":"Molluscs","status":"known","title":"Does not contain: Molluscs"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-sulphur-dioxide-and-sulphites.svg","id":"allergens_no_sulphur_dioxide_and_sulphites","match":100,"name":"Sulphur dioxide and sulphites","status":"known","title":"Does not contain: Sulphur dioxide and sulphites"}],"id":"allergens","name":"Allergens","warning":"There is always a possibility that data about allergens may be missing, incomplete, incorrect or that the product's composition has changed. If you are allergic, always check the information on the actual product packaging."},{"attributes":[{"grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/non-vegan.svg","id":"vegan","match":0,"name":"Vegan","panel_id":"ingredients_analysis_en:non-vegan","status":"known","title":"Non-vegan"},{"grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/vegetarian.svg","id":"vegetarian","match":100,"name":"Vegetarian","panel_id":"ingredients_analysis_en:vegetarian","status":"known","title":"Vegetarian"},{"grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/contains-palm-oil.svg","id":"palm_oil_free","match":0,"name":"Palm oil free","panel_id":"ingredients_analysis_en:palm-oil","status":"known","title":"Palm oil"}],"id":"ingredients_analysis","name":"Ingredients"},{"attributes":[{"description":"","description_short":"Processed foods","grade":"b","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg","id":"nova","match":75,"name":"NOVA group","panel_id":"nova","status":"known","title":"NOVA 3"},{"grade":"c","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/2-additives.svg","id":"additives","match":60,"name":"Additives","panel_id":"additives","status":"known","title":"2 additives"}],"id":"processing","name":"Food processing"},{"attributes":[{"description":"","description_short":"Low environmental impact","grade":"b","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-b.svg","id":"ecoscore","match":61,"name":"Eco-Score","panel_id":"ecoscore","status":"known","title":"Eco-Score B"},{"description":"","description_short":"Almost no risk of deforestation","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-a.svg","id":"forest_footprint","match":99.9118518518518,"name":"Forest footprint","status":"known","title":"Very small forest footprint"}],"id":"environment","name":"Environment"},{"attributes":[{"description":"Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives.","description_short":"Organic products promote ecological sustainability and biodiversity.","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/not-organic.svg","id":"labels_organic","match":0,"name":"Organic farming","status":"known","title":"Not an organic product"},{"description":"When you buy fair trade products, producers in developing countries are paid an higher and fairer price, which helps them improve and sustain higher social and often environmental standards.","description_short":"Helps producers in developing countries.","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/fair-trade.svg","id":"labels_fair_trade","match":100,"name":"Fair trade","status":"known","title":"Fair trade product"}],"id":"labels","name":"Labels"}]};
+var product = {"attribute_groups":[{"attributes":[{"description":"","description_short":"Lower nutritional quality","grade":"d","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d-new-en.svg","id":"nutriscore","match":27.3333333333333,"name":"Nutri-Score","panel_id":"nutriscore_2023","status":"known","title":"Nutri-Score D"},{"grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-unknown.svg","id":"low_salt","missing":"Missing nutrition facts","name":"Salt","panel_id":"nutrition_facts_table","status":"unknown","title":"Salt in unknown quantity"},{"grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-unknown.svg","id":"low_fat","missing":"Missing nutrition facts","name":"Fat","panel_id":"nutrition_facts_table","status":"unknown","title":"Fat in unknown quantity"},{"grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-unknown.svg","id":"low_sugars","missing":"Missing nutrition facts","name":"Sugars","panel_id":"nutrition_facts_table","status":"unknown","title":"Sugars in unknown quantity"},{"grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-unknown.svg","id":"low_saturated_fat","missing":"Missing nutrition facts","name":"Saturated fat","panel_id":"nutrition_facts_table","status":"unknown","title":"Saturated fat in unknown quantity"}],"id":"nutritional_quality","name":"Nutritional quality"},{"attributes":[{"debug":"en:gluten in allergens","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/contains-gluten.svg","id":"allergens_no_gluten","match":0,"name":"Gluten","status":"known","title":"Contains: Gluten"},{"debug":"en:milk in allergens","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/contains-milk.svg","id":"allergens_no_milk","match":0,"name":"Milk","status":"known","title":"Contains: Milk"},{"debug":"en:eggs in allergens","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/contains-eggs.svg","id":"allergens_no_eggs","match":0,"name":"Eggs","status":"known","title":"Contains: Eggs"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-nuts.svg","id":"allergens_no_nuts","match":100,"name":"Nuts","status":"known","title":"Does not contain: Nuts"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-peanuts.svg","id":"allergens_no_peanuts","match":100,"name":"Peanuts","status":"known","title":"Does not contain: Peanuts"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-sesame-seeds.svg","id":"allergens_no_sesame_seeds","match":100,"name":"Sesame seeds","status":"known","title":"Does not contain: Sesame seeds"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-soybeans.svg","id":"allergens_no_soybeans","match":100,"name":"Soybeans","status":"known","title":"Does not contain: Soybeans"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-celery.svg","id":"allergens_no_celery","match":100,"name":"Celery","status":"known","title":"Does not contain: Celery"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-mustard.svg","id":"allergens_no_mustard","match":100,"name":"Mustard","status":"known","title":"Does not contain: Mustard"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-lupin.svg","id":"allergens_no_lupin","match":100,"name":"Lupin","status":"known","title":"Does not contain: Lupin"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-fish.svg","id":"allergens_no_fish","match":100,"name":"Fish","status":"known","title":"Does not contain: Fish"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-crustaceans.svg","id":"allergens_no_crustaceans","match":100,"name":"Crustaceans","status":"known","title":"Does not contain: Crustaceans"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-molluscs.svg","id":"allergens_no_molluscs","match":100,"name":"Molluscs","status":"known","title":"Does not contain: Molluscs"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-sulphur-dioxide-and-sulphites.svg","id":"allergens_no_sulphur_dioxide_and_sulphites","match":100,"name":"Sulphur dioxide and sulphites","status":"known","title":"Does not contain: Sulphur dioxide and sulphites"}],"id":"allergens","name":"Allergens","warning":"There is always a possibility that data about allergens may be missing, incomplete, incorrect or that the product's composition has changed. If you are allergic, always check the information on the actual product packaging."},{"attributes":[{"grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/non-vegan.svg","id":"vegan","match":0,"name":"Vegan","panel_id":"ingredients_analysis_en:non-vegan","status":"known","title":"Non-vegan"},{"grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/vegetarian.svg","id":"vegetarian","match":100,"name":"Vegetarian","panel_id":"ingredients_analysis_en:vegetarian","status":"known","title":"Vegetarian"},{"grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/contains-palm-oil.svg","id":"palm_oil_free","match":0,"name":"Palm oil free","panel_id":"ingredients_analysis_en:palm-oil","status":"known","title":"Palm oil"}],"id":"ingredients_analysis","name":"Ingredients"},{"attributes":[{"grade":"b","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg","id":"nova","match":75,"name":"NOVA group","panel_id":"nova","status":"known","title":"Processed foods"},{"grade":"c","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/2-additives.svg","id":"additives","match":60,"name":"Additives","panel_id":"additives","status":"known","title":"2 additives"}],"id":"processing","name":"Food processing"},{"attributes":[{"description":"","description_short":"Low environmental impact","grade":"c","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-b.svg","id":"ecoscore","match":60,"name":"Green-Score","panel_id":"environmental_score","status":"known","title":"Green-Score B"},{"description":"","description_short":"Almost no risk of deforestation","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-a.svg","id":"forest_footprint","match":99.9118518518518,"name":"Forest footprint","status":"known","title":"Very small forest footprint"}],"id":"environment","name":"Environment"},{"attributes":[{"description":"Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives.","description_short":"Organic products promote ecological sustainability and biodiversity.","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/not-organic.svg","id":"labels_organic","match":0,"name":"Organic farming","status":"known","title":"Not an organic product"},{"description":"When you buy fair trade products, producers in developing countries are paid an higher and fairer price, which helps them improve and sustain higher social and often environmental standards.","description_short":"Helps producers in developing countries.","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/fair-trade.svg","id":"labels_fair_trade","match":100,"name":"Fair trade","status":"known","title":"Fair trade product"}],"id":"labels","name":"Labels"}]};
 </script>
 
 <script src="//static.openfoodfacts.localhost/js/product-preferences.js"></script>

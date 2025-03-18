@@ -2,7 +2,7 @@
 name: Bug report
 description: Create a report to help us improve the Open Food Facts server, API or web app
 about: Create a report to help us improve the Open Food Facts server, API or web app
-labels: ["bug"]
+type: '🐛 Bug'
 title: ""
 assignees: ""
 ---
@@ -37,6 +37,7 @@ assignees: ""
 <!-- 
 - Browser: name (ie. Firefox or Safari) and version (eg. 91.0.2)
 - Data export (eg. MongoDB, CSV)
+- Operating System:  eg. Linux (Ubuntu, Fedora, Arch, etc ), MacOS, Windows.      This is mainly for issues related to your toolchain.
 - REST-API
 - Other
  --> 

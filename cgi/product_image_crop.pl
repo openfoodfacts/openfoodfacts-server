@@ -136,7 +136,11 @@ my $data = encode_json(
 $log->debug("JSON data output", {data => $data}) if $log->is_debug();
 
 write_cors_headers();
-print header(-type => 'application/json', -charset => 'utf-8') . $data;
+
+print header(
+	-type => 'application/json',
+	-charset => 'utf-8',
+) . $data;
 
 exit(0);
 

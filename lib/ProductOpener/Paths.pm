@@ -74,6 +74,14 @@ A hashmap containing references to base directories
 
 %BASE_DIRS = ();
 
+=head3 $BASE_DIRS{SCRIPTS}
+
+Directory for scripts
+
+=cut
+
+$BASE_DIRS{SCRIPTS} = _source_dir() . "/scripts";
+
 =head3 $BASE_DIRS{LOGS}
 
 Directory for logging
@@ -290,43 +298,7 @@ my @PRO_ONLY_PATHS = qw(SFTP_HOME);
 
 =head1 FUNCTIONS
 
-=head2 products_dir($server_name)
-
-products directory for a foreign server
-
-=head3 Arguments
-
-=head4 $server_name - off/obf/opf/opff…
-
-=head3 Return
-
-String of path to base directory containing products sto
-
 =cut
-
-sub products_dir ($server_name) {
-	my $server_data_root = $options{other_servers}{$server_name}{data_root};
-	return "$server_data_root/products";
-}
-
-=head2 products_images_dir($server_name)
-
-products images directory for a foreign server
-
-=head3 Arguments
-
-=head4 $server_name - off/obf/opf/opff…
-
-=head3 Return
-
-String of path to base directory containing products images
-
-=cut
-
-sub products_images_dir ($server_name) {
-	my $server_www_root = $options{other_servers}{$server_name}{www_root};
-	return "$server_www_root/images/products";
-}
 
 sub _source_dir() {
 	# compute $src_root
@@ -384,15 +356,6 @@ sub base_paths() {
 	my %paths = (%BASE_DIRS);
 	if (!$server_options{producers_platform}) {
 		# on non pro instances,
-		# also add foreign projects dirs for products migrations
-		my $servers_options = $options{other_servers};
-		foreach my $server_name (keys %{$servers_options}) {
-			if ($server_name eq $options{current_server}) {
-				next;
-			}
-			$paths{uc($server_name) . "_PRODUCTS_DIR"} = products_dir($server_name);
-			$paths{uc($server_name) . "_PRODUCTS_IMAGES_DIR"} = products_images_dir($server_name);
-		}
 		# remove some paths
 		foreach my $path (@PRO_ONLY_PATHS) {
 			delete $paths{$path};
