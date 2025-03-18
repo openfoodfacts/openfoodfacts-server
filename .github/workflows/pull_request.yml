@@ -145,6 +145,11 @@ jobs:
     needs: [filter, build_backend]
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
+    # strategy is used to run unit and integration tests in parallel
+    strategy:
+      fail-fast: false
+      matrix:
+        test-type: [unit, integration]
     steps:
     - uses: actions/checkout@v4
       with:
@@ -169,10 +174,10 @@ jobs:
       env:
         FILE: "${{ steps.downloadbackendimage.outputs.download_path }}"
       run: rm $FILE
-    - name: tests
+    - name: Run ${{ matrix.test-type }} tests
       run: |
         make codecov_prepare
-        make COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' DOCKER_LOCAL_DATA="$(pwd)" tests GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+        make COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' DOCKER_LOCAL_DATA="$(pwd)" ${{ matrix.test-type }}_test GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
     - name: generate coverage results
       # even if tests failed
       if: always()
