@@ -368,26 +368,6 @@
 								</div>
 								<!-- start templates/web/common/includes/list_of_products.tt.html --> 
 
-<!-- data_debug: data_debug start
-platform: public
-can_use_cache: 1
-cache_miss
-platform: public
-can_use_cache: 1
-cache_miss
-no_off_query: 
-off_query: 
-platform: public
-query_url://query.openfoodfacts.org
-can_use_off_query: 1
-count tags using off_query
-set_cache_results: updated
-off_query parameter not set, or not sorting by popularity_key: not using off_query
-got results from MongoDB
-set_cache_results: updated
--->
- 
-
 <div class="row">
   <div class="small-12 columns"> 
     
@@ -434,7 +414,7 @@ set_cache_results: updated
       <div>
         <span class="filterProducts__results">
           <span class="material-icons" aria-hidden="true">search</span>
-          6 585 produits
+          2 produits
         </span>
       </div>
       <div class="filterProducts__buttons">
@@ -501,8 +481,7 @@ set_cache_results: updated
   </div>
       
     
-	<ul id="pages" class="pagination"><li class="unavailable">Pages :</li><li class="current"><a href="">1</a></li><li><a href="/cgi/search.pl?action=process&search_terms=tarte&sort_by=unique_scans_n&page_size=50&page=2">2</a></li><li><a href="/cgi/search.pl?action=process&search_terms=tarte&sort_by=unique_scans_n&page_size=50&page=3">3</a></li><li><a href="/cgi/search.pl?action=process&search_terms=tarte&sort_by=unique_scans_n&page_size=50&page=4">4</a></li><li class="unavailable">&hellip;</li><li><a href="/cgi/search.pl?action=process&search_terms=tarte&sort_by=unique_scans_n&page_size=50&page=130">130</a></li><li><a href="/cgi/search.pl?action=process&search_terms=tarte&sort_by=unique_scans_n&page_size=50&page=131">131</a></li><li><a href="/cgi/search.pl?action=process&search_terms=tarte&sort_by=unique_scans_n&page_size=50&page=132">132</a></li><li><a href="/cgi/search.pl?action=process&search_terms=tarte&sort_by=unique_scans_n&page_size=50&page=2" rel="next$nofollow">Suivant</a></li><li class="unavailable">(50 produits par page)</li></ul>
-
+	
   </div>
 </div>
 
@@ -1423,5 +1402,25 @@ $(document).foundation({
 
 </body>
 </html>
+
+<!-- data_debug: data_debug start
+platform: public
+can_use_cache: 1
+cache_miss
+platform: public
+can_use_cache: 1
+cache_miss
+no_off_query: 
+off_query: 
+platform: public
+query_url: //query:5510
+can_use_off_query: 1
+count tags using off_query
+count_documents using MongoDB
+set_cache_results: updated
+off_query parameter not set, or not sorting by popularity_key: not using off_query
+got results from MongoDB
+set_cache_results: updated
+-->
 
 <!-- end templates/web/common/site_layout.tt.html -->

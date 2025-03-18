@@ -480,28 +480,10 @@
 <!-- end templates/web/pages/tag/tag.tt.html -->
 <!-- start templates/web/common/includes/list_of_products.tt.html --> 
 
-<!-- data_debug: data_debug start
-platform: public
-can_use_cache: 1
-cache_miss
-platform: public
-can_use_cache: 1
-cache_miss
-no_off_query: 
-off_query: 
-platform: public
-query_url://query.openfoodfacts.org
-can_use_off_query: 1
-count tags using off_query
-set_cache_results: updated
-off_query parameter not set, or not sorting by popularity_key: not using off_query
-got results from MongoDB
-set_cache_results: updated
--->
- 
-
 <div class="row">
   <div class="small-12 columns"> 
+    
+      <p>No products.</p>
     
     
       
@@ -514,207 +496,6 @@ set_cache_results: updated
   </div>
 </div>
 
- 
-
-<div class="block short block_ristreto">
-  <div class="row">
-    <div class="small-12 columns filterProducts">
-      <div>
-        <span class="filterProducts__results">
-          <span class="material-icons" aria-hidden="true">search</span>
-          410 products
-        </span>
-      </div>
-      <div class="filterProducts__buttons">
-        <div>
-          <button href="#" data-dropdown="drop_sort" aria-controls="drop_sort" aria-expanded="false" class="button round dropdown small secondary unmarged">
-            <span class="material-icons">swap_vert</span>
-            
-          </button>
-          <ul id="drop_sort" data-dropdown-content class="f-dropdown" aria-hidden="true">
-          
-            <li>
-              <a href="/facets/countries/cambodia?sort_by=popularity" onclick="$.cookie('last_sort_by', 'popularity', { expires: 180, path: '/' });">Most scanned products</a>
-            </li>
-        
-            <li>
-              <a href="/facets/countries/cambodia?sort_by=nutriscore_score" onclick="$.cookie('last_sort_by', 'nutriscore_score', { expires: 180, path: '/' });">Products with the best Nutri-Score</a>
-            </li>
-        
-            <li>
-              <a href="/facets/countries/cambodia?sort_by=environmental_score_score" onclick="$.cookie('last_sort_by', 'environmental_score_score', { expires: 180, path: '/' });">Products with the best Green-Score</a>
-            </li>
-        
-            <li>
-              <a href="/facets/countries/cambodia?sort_by=created_t" onclick="$.cookie('last_sort_by', 'created_t', { expires: 180, path: '/' });">Recently added products</a>
-            </li>
-        
-            <li>
-              <a href="/facets/countries/cambodia?sort_by=last_modified_t" onclick="$.cookie('last_sort_by', 'last_modified_t', { expires: 180, path: '/' });">Recently modified products</a>
-            </li>
-        
-          </ul>
-        </div>
-        
-        
-        <div>
-          <button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button round dropdown small secondary unmarged">
-            <span class="material-icons">sort</span>
-            Explore products by...
-          </button>
-          <ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true">
-          
-            <li>
-              <a href="/facets/countries/cambodia/countries" rel="nofollow">Countries</a>
-            </li>
-          
-            <li>
-              <a href="/facets/countries/cambodia/nutrition-grades" rel="nofollow">Nutrition grades</a>
-            </li>
-          
-            <li>
-              <a href="/facets/countries/cambodia/nova-groups" rel="nofollow">NOVA groups</a>
-            </li>
-          
-            <li>
-              <a href="/facets/countries/cambodia/environmental-score" rel="nofollow">Green-Score</a>
-            </li>
-          
-            <li>
-              <a href="/facets/countries/cambodia/brands" rel="nofollow">Brands</a>
-            </li>
-          
-            <li>
-              <a href="/facets/countries/cambodia/categories" rel="nofollow">Categories</a>
-            </li>
-          
-            <li>
-              <a href="/facets/countries/cambodia/labels" rel="nofollow">Labels</a>
-            </li>
-          
-            <li>
-              <a href="/facets/countries/cambodia/packaging" rel="nofollow">Packaging</a>
-            </li>
-          
-            <li>
-              <a href="/facets/countries/cambodia/origins" rel="nofollow">Origins of ingredients</a>
-            </li>
-          
-            <li>
-              <a href="/facets/countries/cambodia/manufacturing-places" rel="nofollow">Manufacturing or processing places</a>
-            </li>
-          
-            <li>
-              <a href="/facets/countries/cambodia/packager-codes" rel="nofollow">Traceability codes</a>
-            </li>
-          
-            <li>
-              <a href="/facets/countries/cambodia/ingredients" rel="nofollow">Ingredients</a>
-            </li>
-          
-            <li>
-              <a href="/facets/countries/cambodia/additives" rel="nofollow">Additives</a>
-            </li>
-          
-            <li>
-              <a href="/facets/countries/cambodia/vitamins" rel="nofollow">Added vitamins</a>
-            </li>
-          
-            <li>
-              <a href="/facets/countries/cambodia/minerals" rel="nofollow">Added minerals</a>
-            </li>
-          
-            <li>
-              <a href="/facets/countries/cambodia/amino-acids" rel="nofollow">Added amino acids</a>
-            </li>
-          
-            <li>
-              <a href="/facets/countries/cambodia/nucleotides" rel="nofollow">Added nucleotides</a>
-            </li>
-          
-            <li>
-              <a href="/facets/countries/cambodia/other-nutritional-substances" rel="nofollow">Other nutritional substances added</a>
-            </li>
-          
-            <li>
-              <a href="/facets/countries/cambodia/allergens" rel="nofollow">Allergens</a>
-            </li>
-          
-            <li>
-              <a href="/facets/countries/cambodia/traces" rel="nofollow">Traces</a>
-            </li>
-          
-            <li>
-              <a href="/facets/countries/cambodia/misc" rel="nofollow">Miscellaneous</a>
-            </li>
-          
-            <li>
-              <a href="/facets/countries/cambodia/languages" rel="nofollow">Languages</a>
-            </li>
-          
-            <li>
-              <a href="/facets/countries/cambodia/contributors" rel="nofollow">Contributors</a>
-            </li>
-          
-            <li>
-              <a href="/facets/countries/cambodia/states" rel="nofollow">States</a>
-            </li>
-          
-            <li>
-              <a href="/facets/countries/cambodia/data-sources" rel="nofollow">Data sources</a>
-            </li>
-          
-            <li>
-              <a href="/facets/countries/cambodia/entry-dates" rel="nofollow">Entry dates</a>
-            </li>
-          
-            <li>
-              <a href="/facets/countries/cambodia/last-edit-dates" rel="nofollow">Last edit dates</a>
-            </li>
-          
-            <li>
-              <a href="/facets/countries/cambodia/last-check-dates" rel="nofollow">Last check dates</a>
-            </li>
-          
-            <li>
-              <a href="/facets/countries/cambodia/teams" rel="nofollow">Teams</a>
-            </li>
-          
-          </ul>
-        </div>
-        
-        
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="row">
-	<div class="small-12 columns">
-    <div id="preferences_selected" class="small-12 flex-grid v-space-short v-align-center direction-row full-width v-align-between"></div>
-    <div id="preferences_selection_form" style="display:none"></div>
-  </div>
-</div>
-
-	 
-<div class="row">
-<div class="large-12 columns">
-    
-    <div id="search_results" style="clear:left;">
-        <ul class="products">
-    
-    
-    
-    
-		</ul>
-  </div>
-      
-    
-	<ul id="pages" class="pagination"><li class="unavailable">Pages:</li><li class="current"><a href="">1</a></li><li><a href="/facets/countries/cambodia/2">2</a></li><li><a href="/facets/countries/cambodia/3">3</a></li><li><a href="/facets/countries/cambodia/4">4</a></li><li class="unavailable">&hellip;</li><li><a href="/facets/countries/cambodia/7">7</a></li><li><a href="/facets/countries/cambodia/8">8</a></li><li><a href="/facets/countries/cambodia/9">9</a></li><li><a href="/facets/countries/cambodia/2" rel="next$nofollow">Next</a></li><li class="unavailable">(50 products per page)</li></ul>
-
-  </div>
-</div>
 
 
 <!-- end templates/web/common/includes/list_of_products.tt.html -->
@@ -966,5 +747,25 @@ $(document).foundation({
 
 </body>
 </html>
+
+<!-- data_debug: data_debug start
+platform: public
+can_use_cache: 1
+cache_miss
+platform: public
+can_use_cache: 1
+cache_miss
+no_off_query: 
+off_query: 
+platform: public
+query_url: //query:5510
+can_use_off_query: 1
+count tags using off_query
+count_documents using MongoDB
+set_cache_results: updated
+off_query parameter not set, or not sorting by popularity_key: not using off_query
+got results from MongoDB
+set_cache_results: updated
+-->
 
 <!-- end templates/web/common/site_layout.tt.html -->

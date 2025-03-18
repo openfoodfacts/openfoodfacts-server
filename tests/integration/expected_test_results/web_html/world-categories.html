@@ -536,26 +536,6 @@
 <!-- end templates/web/pages/tag/tag.tt.html -->
 <!-- start templates/web/common/includes/list_of_products.tt.html --> 
 
-<!-- data_debug: data_debug start
-platform: public
-can_use_cache: 1
-cache_miss
-platform: public
-can_use_cache: 1
-cache_miss
-no_off_query: 
-off_query: 
-platform: public
-query_url://query.openfoodfacts.org
-can_use_off_query: 1
-count tags using off_query
-set_cache_results: updated
-off_query parameter not set, or not sorting by popularity_key: not using off_query
-got results from MongoDB
-set_cache_results: updated
--->
- 
-
 <div class="row">
   <div class="small-12 columns"> 
     
@@ -578,7 +558,7 @@ set_cache_results: updated
       <div>
         <span class="filterProducts__results">
           <span class="material-icons" aria-hidden="true">search</span>
-          93,762 products
+          6 products
         </span>
       </div>
       <div class="filterProducts__buttons">
@@ -779,8 +759,7 @@ set_cache_results: updated
   </div>
       
     
-	<ul id="pages" class="pagination"><li class="unavailable">Pages:</li><li class="current"><a href="">1</a></li><li><a href="/facets/categories/desserts/2">2</a></li><li><a href="/facets/categories/desserts/3">3</a></li><li><a href="/facets/categories/desserts/4">4</a></li><li class="unavailable">&hellip;</li><li><a href="/facets/categories/desserts/1874">1874</a></li><li><a href="/facets/categories/desserts/1875">1875</a></li><li><a href="/facets/categories/desserts/1876">1876</a></li><li><a href="/facets/categories/desserts/2" rel="next$nofollow">Next</a></li><li class="unavailable">(50 products per page)</li></ul>
-
+	
   </div>
 </div>
 
@@ -3021,5 +3000,25 @@ $(document).foundation({
 
 </body>
 </html>
+
+<!-- data_debug: data_debug start
+platform: public
+can_use_cache: 1
+cache_miss
+platform: public
+can_use_cache: 1
+cache_miss
+no_off_query: 
+off_query: 
+platform: public
+query_url: //query:5510
+can_use_off_query: 1
+count tags using off_query
+count_documents using MongoDB
+set_cache_results: updated
+off_query parameter not set, or not sorting by popularity_key: not using off_query
+got results from MongoDB
+set_cache_results: updated
+-->
 
 <!-- end templates/web/common/site_layout.tt.html -->

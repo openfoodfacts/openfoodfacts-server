@@ -400,28 +400,10 @@
 </div>
 <!-- start templates/web/common/includes/list_of_products.tt.html --> 
 
-<!-- data_debug: data_debug start
-platform: public
-can_use_cache: 1
-cache_miss
-platform: public
-can_use_cache: 1
-cache_miss
-no_off_query: 
-off_query: 
-platform: public
-query_url://query.openfoodfacts.org
-can_use_off_query: 1
-count tags using off_query
-set_cache_results: updated
-off_query parameter not set, or not sorting by popularity_key: not using off_query
-got results from MongoDB
-set_cache_results: updated
--->
- 
-
 <div class="row">
   <div class="small-12 columns"> 
+    
+      <p>No hay productos.</p>
     
     
       
@@ -436,203 +418,6 @@ set_cache_results: updated
   </div>
 </div>
 
- 
-
-<div class="block short block_ristreto">
-  <div class="row">
-    <div class="small-12 columns filterProducts">
-      <div>
-        <span class="filterProducts__results">
-          <span class="material-icons" aria-hidden="true">search</span>
-          96.220 productos
-        </span>
-      </div>
-      <div class="filterProducts__buttons">
-        <div>
-          <button href="#" data-dropdown="drop_sort" aria-controls="drop_sort" aria-expanded="false" class="button round dropdown small secondary unmarged">
-            <span class="material-icons">swap_vert</span>
-            Productos más escaneados
-          </button>
-          <ul id="drop_sort" data-dropdown-content class="f-dropdown" aria-hidden="true">
-          
-            <li>
-              <a href="?sort_by=popularity" onclick="$.cookie('last_sort_by', 'popularity', { expires: 180, path: '/' });">Productos más escaneados</a>
-            </li>
-        
-            <li>
-              <a href="?sort_by=nutriscore_score" onclick="$.cookie('last_sort_by', 'nutriscore_score', { expires: 180, path: '/' });">Productos con la mejor puntuación Nutri-Score</a>
-            </li>
-        
-            <li>
-              <a href="?sort_by=environmental_score_score" onclick="$.cookie('last_sort_by', 'environmental_score_score', { expires: 180, path: '/' });">Productos con la mejor puntuación Green-Score</a>
-            </li>
-        
-            <li>
-              <a href="?sort_by=created_t" onclick="$.cookie('last_sort_by', 'created_t', { expires: 180, path: '/' });">Productos añadidos recientemente</a>
-            </li>
-        
-            <li>
-              <a href="?sort_by=last_modified_t" onclick="$.cookie('last_sort_by', 'last_modified_t', { expires: 180, path: '/' });">Productos modificados recientemente</a>
-            </li>
-        
-          </ul>
-        </div>
-        
-        
-        <div>
-          <button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button round dropdown small secondary unmarged">
-            <span class="material-icons">sort</span>
-            Explorar productos por...
-          </button>
-          <ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true">
-          
-            <li>
-              <a href="/grados-nutricionales">Grados de nutrición</a>
-            </li>
-          
-            <li>
-              <a href="/grupos-nova">Grupos Nova</a>
-            </li>
-          
-            <li>
-              <a href="/environmental-score">Green-Score</a>
-            </li>
-          
-            <li>
-              <a href="/marcas">Marcas</a>
-            </li>
-          
-            <li>
-              <a href="/categorias">Categorías</a>
-            </li>
-          
-            <li>
-              <a href="/etiquetas">Etiquetas</a>
-            </li>
-          
-            <li>
-              <a href="/envase">Envase</a>
-            </li>
-          
-            <li>
-              <a href="/origenes">Orígenes</a>
-            </li>
-          
-            <li>
-              <a href="/lugares-de-fabricacion">Lugares de fabricación o de transformación</a>
-            </li>
-          
-            <li>
-              <a href="/codigos-de-envasadores">Códigos de trazabilidad</a>
-            </li>
-          
-            <li>
-              <a href="/ingredientes">Ingredientes</a>
-            </li>
-          
-            <li>
-              <a href="/aditivos">Aditivos</a>
-            </li>
-          
-            <li>
-              <a href="/vitaminas">Vitaminas añadidas</a>
-            </li>
-          
-            <li>
-              <a href="/minerales">Minerales añadidos</a>
-            </li>
-          
-            <li>
-              <a href="/aminoacidos">Aminoácidos añadidos</a>
-            </li>
-          
-            <li>
-              <a href="/nucleotides">Nucleótidos añadidos</a>
-            </li>
-          
-            <li>
-              <a href="/otras-sustancias-nutricionales">Otras sustancias nutricionales añadidas</a>
-            </li>
-          
-            <li>
-              <a href="/alergenos">Alérgenos</a>
-            </li>
-          
-            <li>
-              <a href="/trazas">Trazas</a>
-            </li>
-          
-            <li>
-              <a href="/misceláneos">Miscelánea</a>
-            </li>
-          
-            <li>
-              <a href="/idiomas">Idiomas</a>
-            </li>
-          
-            <li>
-              <a href="/contribuyentes">Colaboradores</a>
-            </li>
-          
-            <li>
-              <a href="/estados">Estados</a>
-            </li>
-          
-            <li>
-              <a href="/data-sources">Fuentes de datos</a>
-            </li>
-          
-            <li>
-              <a href="/fechas-de-entrada">Fechas de entrada</a>
-            </li>
-          
-            <li>
-              <a href="/fechas-ultima-edicion">Última edición de fechas</a>
-            </li>
-          
-            <li>
-              <a href="/last-check-dates">Últimas fechas de comprobación</a>
-            </li>
-          
-            <li>
-              <a href="/teams">Equipos</a>
-            </li>
-          
-          </ul>
-        </div>
-        
-        
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="row">
-	<div class="small-12 columns">
-    <div id="preferences_selected" class="small-12 flex-grid v-space-short v-align-center direction-row full-width v-align-between"></div>
-    <div id="preferences_selection_form" style="display:none"></div>
-  </div>
-</div>
-
-	 
-<div class="row">
-<div class="large-12 columns">
-    
-    <div id="search_results" style="clear:left;">
-        <ul class="products">
-    
-    
-    
-    
-		</ul>
-  </div>
-      
-    
-	<ul id="pages" class="pagination"><li class="unavailable">Páginas:</li><li class="current"><a href="">1</a></li><li><a href="/2">2</a></li><li><a href="/3">3</a></li><li><a href="/4">4</a></li><li class="unavailable">&hellip;</li><li><a href="/1923">1923</a></li><li><a href="/1924">1924</a></li><li><a href="/1925">1925</a></li><li><a href="/2" rel="next$nofollow">Siguiente</a></li><li class="unavailable">(50 productos por página)</li></ul>
-
-  </div>
-</div>
 
 
 <!-- end templates/web/common/includes/list_of_products.tt.html -->
@@ -883,5 +668,25 @@ $(document).foundation({
 
 </body>
 </html>
+
+<!-- data_debug: data_debug start
+platform: public
+can_use_cache: 1
+cache_miss
+platform: public
+can_use_cache: 1
+cache_miss
+no_off_query: 
+off_query: 
+platform: public
+query_url: //query:5510
+can_use_off_query: 1
+count tags using off_query
+count_documents using MongoDB
+set_cache_results: updated
+off_query parameter not set, or not sorting by popularity_key: not using off_query
+got results from MongoDB
+set_cache_results: updated
+-->
 
 <!-- end templates/web/common/site_layout.tt.html -->
