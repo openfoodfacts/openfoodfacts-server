@@ -7996,7 +7996,6 @@ JS
 
 	my $product_url = product_url($product_ref);
 	$template_data_ref->{this_product_url} = $product_url;
-
 	# Environmental impact and Environmental-Score
 	# Limit to the countries for which we have computed the Environmental-Score
 	# for alpha test to moderators, display eco-score for all countries
