@@ -18,23 +18,24 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # FIXME: not used yet
   filter:
     name: "Filter changed paths"
     runs-on: ubuntu-latest
     outputs:
       code_modified: ${{ steps.filter.outputs.code_modified }}
+      docker_modified: ${{ steps.docker_filter.outputs.docker_modified }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
       - name: Get changed files
         uses: tj-actions/changed-files@v45
         id: changed_files
-
       - name: Filter non-markdown and non-docs files
         id: filter
         run: ./.github/scripts/path-filter.sh "${{ steps.changed_files.outputs.all_changed_files }}"
+      - name: Check if Docker-related files changed
+        id: docker_filter
+        run: ./.github/scripts/docker-filter.sh "${{ steps.changed_files.outputs.all_changed_files }}"
 
   lint:
     name: 🕵️‍♀️ NPM lint
@@ -77,8 +78,14 @@ jobs:
         path: ./build-cache
         key: taxonomies-${{ hashFiles('taxonomies/**') }}
         restore-keys: taxonomies-
-    - name: build
+    - name: Build Docker image if needed
+      if: needs.filter.outputs.docker_modified == 'true'
       run: make build container=backend
+    - name: Pull Doker image form main branch
+      if: needs.filter.outputs.docker_modified != 'true'
+      run: |
+        docker pull ghcr.io/openfoodfacts/openfoodfacts-server/backend:latest || true
+        docker tag ghcr.io/openfoodfacts/openfoodfacts-server/backend:latest openfoodfacts-server/backend:dev || make build container=backend
     - name: push backend image as artifact
       uses: ishworkh/container-image-artifact-upload@v2.0.0
       with:
@@ -205,7 +212,6 @@ jobs:
     needs: [filter, build_backend]  # build_backend - only to avoid building taxonomies
     if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     runs-on: ubuntu-latest
-    
     steps:
     - uses: actions/checkout@v4
       with:
