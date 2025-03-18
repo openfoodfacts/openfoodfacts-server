@@ -141,7 +141,7 @@ jobs:
       run: make check_perl
 
   tests:
-    name: 🐪 Perl unit tests
+    name: 🐪 Perl Tests
     needs: [filter, build_backend]
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
@@ -194,7 +194,7 @@ jobs:
       uses: codecov/test-results-action@v1
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
-        files: ./tests/unit/outputs/junit.xml,./tests/integration/outputs/junit.xml
+        files: ./tests/${{ matrix.test-type }}/outputs/junit.xml
 
   tests_dev:
     name: 🧪 Test make dev
