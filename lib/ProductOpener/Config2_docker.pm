@@ -118,6 +118,7 @@ $robotoff_url = $ENV{ROBOTOFF_URL};
 # Set this to your instance of https://github.com/openfoodfacts/openfoodfacts-query/ to
 # enable product counts and aggregations / facets
 $query_url = $ENV{QUERY_URL};
+$query_url = "https://query.openfoodfacts.org";
 
 # Set this to your instance of https://github.com/openfoodfacts/openfoodfacts-events
 # enable creating events for some actions (e.g. when a product is edited)

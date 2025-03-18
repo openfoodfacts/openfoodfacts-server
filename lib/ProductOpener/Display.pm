@@ -137,7 +137,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::HTTP
-	qw(write_cors_headers set_http_response_header write_http_response_headers get_http_request_header);
+	qw(write_cors_headers set_http_response_header write_http_response_headers get_http_request_header redirect_to_url single_param request_param);
 use ProductOpener::Store qw(get_string_id_for_lang retrieve);
 use ProductOpener::Config qw(:all);
 use ProductOpener::Paths qw/%BASE_DIRS/;
@@ -152,8 +152,7 @@ use ProductOpener::Products qw(:all);
 use ProductOpener::Missions qw(:all);
 use ProductOpener::MissionsConfig qw(:all);
 use ProductOpener::URL qw(format_subdomain get_owner_pretty_path);
-use ProductOpener::Data
-	qw(execute_aggregate_tags_query execute_count_tags_query execute_product_query execute_query get_products_collection get_recent_changes_collection);
+use ProductOpener::Data qw(:all);
 use ProductOpener::Text
 	qw(escape_char escape_single_quote_and_newlines get_decimal_formatter get_percent_formatter remove_tags_and_quote);
 use ProductOpener::Nutriscore qw(%points_thresholds compute_nutriscore_grade);
@@ -170,7 +169,7 @@ use ProductOpener::PackagerCodes
 use ProductOpener::Export qw(export_csv);
 use ProductOpener::API qw(add_error customize_response_for_product process_api_request);
 use ProductOpener::Units qw/g_to_unit/;
-use ProductOpener::Cache qw/$max_memcached_object_size $memd generate_cache_key/;
+use ProductOpener::Cache qw/$max_memcached_object_size $memd generate_cache_key get_cache_results set_cache_results/;
 use ProductOpener::Permissions qw/has_permission/;
 use ProductOpener::ProductsFeatures qw(feature_enabled);
 use ProductOpener::RequestStats qw(:all);
@@ -203,10 +202,6 @@ use LWP::UserAgent;
 use Tie::IxHash;
 
 use Log::Any '$log', default_adapter => 'Stderr';
-
-# special logger to make it easy to measure memcached hit and miss rates
-our $mongodb_log = Log::Any->get_logger(category => 'mongodb');
-$mongodb_log->info("start") if $mongodb_log->is_info();
 
 use Apache2::RequestUtil ();
 use Apache2::RequestRec ();
@@ -441,94 +436,6 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	};
 
 	return ($tt->process($template_filename, $template_data_ref, $result_content_ref));
-}
-
-=head2 redirect_to_url($request_ref, $status_code, $redirect_url)
-
-This function instructs mod_perl to print redirect HTTP header (Location) and to terminate the request immediately.
-The mod_perl process is not terminated and will continue to serve future requests.
-
-=head3 Arguments
-
-=head4 Request object $request_ref
-
-The request object may contain a cookie.
-
-=head4 Status code $status_code
-
-e.g. 302 for a temporary redirect
-
-=head4 Redirect url $redirect_url
-
-=cut
-
-sub redirect_to_url ($request_ref, $status_code, $redirect_url) {
-
-	my $r = Apache2::RequestUtil->request();
-
-	$r->headers_out->set(Location => $redirect_url);
-
-	if (defined $request_ref->{cookie}) {
-		# Note: mod_perl will not output the Set-Cookie header on a 302 response
-		# unless it is set with err_headers_out instead of headers_out
-		# https://perl.apache.org/docs/2.0/api/Apache2/RequestRec.html#C_err_headers_out_
-		$r->err_headers_out->set("Set-Cookie" => $request_ref->{cookie});
-	}
-
-	$r->status($status_code);
-
-	log_request_stats($request_ref->{stats});
-
-	# note: under mod_perl, exit() will end the request without terminating the Apache mod_perl process
-	exit();
-}
-
-=head2 single_param ($param_name)
-
-CGI.pm param() function returns a list when called in a list context
-(e.g. when param() is an argument of a function, or the value of a field in a hash).
-This causes issues for function signatures that expect a scalar, and that may get passed an empty list
-if the parameter is not set.
-
-So instead of calling CGI.pm param() directly, we call single_param() to prefix it with scalar.
-
-=head3 Arguments
-
-=head4 CGI parameter name $param_name
-
-=head3 Return value
-
-A scalar value for the parameter, or undef if the parameter is not defined.
-
-=cut
-
-sub single_param ($param_name) {
-	return scalar param($param_name);
-}
-
-=head2 request_param ($request_ref, $param_name)
-
-Return a request parameter. The parameter can be passed in the query string,
-as a POST multipart form data parameter, or in a POST JSON body
-
-=head3 Arguments
-
-=head4 Parameter name $param_name
-
-=head3 Return value
-
-A scalar value for the parameter, or undef if the parameter is not defined.
-
-=cut
-
-sub request_param ($request_ref, $param_name) {
-	my $cgi_param = scalar param($param_name);
-	if (defined $cgi_param) {
-		return decode utf8 => $cgi_param;
-	}
-	else {
-		return deep_get($request_ref, "body_json", $param_name);
-	}
 }
 
 =head2 init_request ()
@@ -1569,87 +1476,6 @@ sub display_mission ($request_ref) {
 	exit();
 }
 
-sub get_cache_results ($key, $request_ref) {
-
-	my $results;
-
-	$log->debug("MongoDB hashed query key", {key => $key}) if $log->is_debug();
-
-	# disable caching if ?no_cache=1
-	# or if we are on the producers platform
-	# or if we are sent the HTTP header Cache-Control: no-cache
-	my $param_no_cache = single_param("no_cache");
-	if (not $param_no_cache) {
-		my $cache_control = get_http_request_header("Cache-Control");
-		if ((defined $cache_control) and ($cache_control =~ /no-cache/)) {
-			$log->debug("get_cache_results - HTTP Cache-Control no-cache header, skip caching", {key => $key})
-				if $log->is_debug();
-			$param_no_cache = 1;
-		}
-	}
-	if (($param_no_cache) and (not $server_options{producers_platform})) {
-		$log->debug("MongoDB no_cache parameter, skip caching", {key => $key}) if $log->is_debug();
-		$mongodb_log->info("get_cache_results - skip - key: $key") if $mongodb_log->is_info();
-
-	}
-	else {
-		$log->debug("Retrieving value for MongoDB query key", {key => $key}) if $log->is_debug();
-		$results = $memd->get($key);
-		if (not defined $results) {
-			$log->debug("Did not find a value for MongoDB query key", {key => $key}) if $log->is_debug();
-			$mongodb_log->info("get_cache_results - miss - key: $key") if $mongodb_log->is_info();
-		}
-		else {
-			$log->debug("Found a value for MongoDB query key", {key => $key}) if $log->is_debug();
-			$mongodb_log->info("get_cache_results - hit - key: $key") if $mongodb_log->is_info();
-		}
-	}
-	return $results;
-}
-
-sub set_cache_results ($key, $results) {
-
-	$log->debug("Setting value for MongoDB query key", {key => $key}) if $log->is_debug();
-	my $result_size = total_size($results);
-
-	# $max_memcached_object_size is defined is Cache.pm
-	# we assume that compression will reduce the size by at least 50%
-	my $factor = 2;
-	if ($result_size >= $max_memcached_object_size * $factor) {
-		$mongodb_log->info(
-			"set_cache_results - skipping - setting value - key: $key (uncompressed total_size: $result_size > max size * $factor ($max_memcached_object_size * $factor))"
-		);
-		return;
-	}
-
-	if ($mongodb_log->is_info()) {
-		$mongodb_log->info("set_cache_results - setting value - key: $key - uncompressed total_size: $result_size");
-	}
-
-	if ($memd->set($key, $results, 3600)) {
-		$mongodb_log->info("set_cache_results - updated - key: $key - uncompressed total_size: $result_size")
-			if $mongodb_log->is_info();
-	}
-	else {
-		$log->debug("Could not set value for MongoDB query key", {key => $key});
-		$mongodb_log->info("set_cache_results - error - key: $key - uncompressed total_size: $result_size")
-			if $mongodb_log->is_info();
-	}
-
-	return;
-}
-
-sub can_use_off_query() {
-	return (
-		(
-				   (not defined single_param("no_off_query"))
-				or (not single_param("no_off_query"))
-				or (single_param("off_query"))
-		)
-			and (not $server_options{producers_platform})
-	);
-}
-
 sub generate_query_cache_key ($name, $context_ref, $request_ref) {
 	# Generates a cache key taking the obsolete parameter into account
 	if (scalar request_param($request_ref, "obsolete")) {
@@ -1773,13 +1599,15 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 	#get cache results for aggregate query
 	my $key = generate_query_cache_key("aggregate", $aggregate_parameters, $request_ref);
 	$log->debug("MongoDB query key", {key => $key}) if $log->is_debug();
-	my $results = get_cache_results($key, $request_ref);
+
+	$request_ref->{data_debug} = init_data_debug();
+	my $results = get_cache_results(\$request_ref->{data_debug}, $key);
 
 	if ((not defined $results) or (ref($results) ne "ARRAY") or (not defined $results->[0])) {
 		$results = undef;
 		# do not use the postgres cache if ?no_cache=1
 		# or if we are on the producers platform
-		if (can_use_off_query()) {
+		if (can_use_off_query(\$request_ref->{data_debug})) {
 			set_request_stats_time_start($request_ref->{stats}, "off_query_aggregate_tags_query");
 			$results = execute_aggregate_tags_query($aggregate_parameters);
 			set_request_stats_time_end($request_ref->{stats}, "off_query_aggregate_tags_query");
@@ -1817,7 +1645,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 
 		if (defined $results) {
 			if (defined $results->[0] and $cache_results_flag) {
-				set_cache_results($key, $results);
+				set_cache_results(\$request_ref->{data_debug}, $key, $results);
 			}
 		}
 		else {
@@ -1845,14 +1673,14 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 		#get total count for aggregate (without limit) and put result in cache
 		my $key_count = generate_query_cache_key("aggregate_count", $aggregate_count_parameters, $request_ref);
 		$log->debug("MongoDB aggregate count query key", {key => $key_count}) if $log->is_debug();
-		my $results_count = get_cache_results($key_count, $request_ref);
+		my $results_count = get_cache_results(\$request_ref->{data_debug}, $key_count);
 
 		if (not defined $results_count) {
 
 			my $count_results;
 			# do not use the smaller postgres cache if ?no_cache=1
 			# or if we are on the producers platform
-			if (can_use_off_query()) {
+			if (can_use_off_query(\$request_ref->{data_debug})) {
 				set_request_stats_time_start($request_ref->{stats}, "off_query_aggregate_tags_query");
 				$count_results = execute_aggregate_tags_query($aggregate_count_parameters);
 				set_request_stats_time_end($request_ref->{stats}, "off_query_aggregate_tags_query");
@@ -1879,7 +1707,8 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 				$request_ref->{structured_response}{count} = $count_results->{$group_field_name};
 
 				if ($cache_results_flag) {
-					set_cache_results($key_count, $request_ref->{structured_response}{count});
+					set_cache_results(\$request_ref->{data_debug},
+						$key_count, $request_ref->{structured_response}{count});
 					$log->debug(
 						"Set cached aggregate count for query key",
 						{
@@ -5478,7 +5307,10 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 	$log->debug("MongoDB query key - search_products", {key => $key}) if $log->is_debug();
 
-	$request_ref->{structured_response} = get_cache_results($key, $request_ref);
+	my $request_parameters_ref = get_products_collection_request_parameters($request_ref);
+
+	$request_ref->{data_debug} = init_data_debug();
+	$request_ref->{structured_response} = get_cache_results(\$request_ref->{data_debug}, $key);
 
 	if (not defined $request_ref->{structured_response}) {
 
@@ -5501,8 +5333,8 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			set_request_stats_time_start($request_ref->{stats}, "mongodb_query");
 			$cursor = execute_query(
 				sub {
-					return execute_product_query(get_products_collection_request_parameters($request_ref),
-						$query_ref, $fields_ref, $sort_ref, $limit, $skip);
+					return execute_product_query(\$request_ref->{data_debug},
+						$request_parameters_ref, $query_ref, $fields_ref, $sort_ref, $limit, $skip);
 				}
 			);
 			$log->debug("MongoDB query ok", {error => $@}) if $log->is_debug();
@@ -5564,7 +5396,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 			# Don't set the cache if no_count was set
 			if (not single_param('no_count') and $cache_results_flag) {
-				set_cache_results($key, $request_ref->{structured_response});
+				set_cache_results(\$request_ref->{data_debug}, $key, $request_ref->{structured_response});
 				# For debugging, it can be useful to examine the structured response
 				#ProductOpener::Store::store($BASE_DIRS{CACHE_DEBUG} . "/structured_response.sto",
 				#	$request_ref->{structured_response});
@@ -5824,13 +5656,15 @@ sub estimate_result_count ($request_ref, $query_ref, $cache_results_flag) {
 		#check if count results is in cache
 		my $key_count = generate_query_cache_key("search_products_count", $query_ref, $request_ref);
 		$log->debug("MongoDB query key - search_products_count", {key => $key_count}) if $log->is_debug();
-		$count = get_cache_results($key_count, $request_ref);
+		defined $request_ref->{data_debug} or $request_ref->{data_debug} = init_data_debug();
+		$count = get_cache_results(\$request_ref->{data_debug}, $key_count);
 		if (not defined $count) {
 
 			$log->debug("count not in cache for query", {key => $key_count}) if $log->is_debug();
 
 			# Count queries are very expensive, if possible, execute them on the postgres cache
-			if (can_use_off_query()) {
+			if (can_use_off_query(\$request_ref->{data_debug})) {
+				$request_ref->{data_debug} .= "count tags using off_query\n";
 				set_request_stats_time_start($request_ref->{stats}, "off_query_count_tags_query");
 				$count = execute_count_tags_query($query_ref);
 				set_request_stats_time_end($request_ref->{stats}, "off_query_count_tags_query");
@@ -5842,6 +5676,7 @@ sub estimate_result_count ($request_ref, $query_ref, $cache_results_flag) {
 					sub {
 						$log->debug("count_documents on complete products collection", {key => $key_count})
 							if $log->is_debug();
+						$request_ref->{data_debug} .= "count_documents using MongoDB\n";
 						return get_products_collection(get_products_collection_request_parameters($request_ref))
 							->count_documents($query_ref);
 					}
@@ -5856,7 +5691,7 @@ sub estimate_result_count ($request_ref, $query_ref, $cache_results_flag) {
 			if ((defined $count) and $cache_results_flag) {
 				$log->debug("count query complete, setting cache", {key => $key_count, count => $count})
 					if $log->is_debug();
-				set_cache_results($key_count, $count);
+				set_cache_results(\$request_ref->{data_debug}, $key_count, $count);
 			}
 		}
 		else {
@@ -5872,6 +5707,7 @@ sub estimate_result_count ($request_ref, $query_ref, $cache_results_flag) {
 			sub {
 				$log->debug("empty query_ref, use estimated_document_count fot better performance", {})
 					if $log->is_debug();
+				$request_ref->{data_debug} .= "estimated_document_count using MongoDB\n";
 				return get_products_collection(get_products_collection_request_parameters($request_ref))
 					->estimated_document_count();
 			}
@@ -6963,11 +6799,16 @@ sub search_and_graph_products ($request_ref, $query_ref, $graph_ref) {
 		$fields_ref->{"labels_tags"} = 1;
 	}
 
+	$request_ref->{data_debug} = init_data_debug();
+
 	eval {
 		$cursor = execute_query(
 			sub {
-				return execute_product_query(get_products_collection_request_parameters($request_ref),
-					$query_ref, $fields_ref);
+				return execute_product_query(
+					\$request_ref->{data_debug},
+					get_products_collection_request_parameters($request_ref),
+					$query_ref, $fields_ref
+				);
 			}
 		);
 	};
@@ -7273,10 +7114,13 @@ sub search_products_for_map ($request_ref, $query_ref) {
 
 	$log->debug("retrieving products from MongoDB to display them in a map") if $log->is_debug();
 
+	$request_ref->{data_debug} = init_data_debug();
+
 	eval {
 		$cursor = execute_query(
 			sub {
 				return execute_product_query(
+					\$request_ref->{data_debug},
 					get_products_collection_request_parameters($request_ref),
 					$query_ref,
 					{
@@ -11686,11 +11530,16 @@ sub search_and_analyze_recipes ($request_ref, $query_ref) {
 		$fields_ref->{owner} = 1;
 	}
 
+	$request_ref->{data_debug} = init_data_debug();
+
 	eval {
 		$cursor = execute_query(
 			sub {
-				return execute_product_query(get_products_collection_request_parameters($request_ref),
-					$query_ref, $fields_ref);
+				return execute_product_query(
+					\$request_ref->{data_debug},
+					get_products_collection_request_parameters($request_ref),
+					$query_ref, $fields_ref
+				);
 			}
 		);
 	};
