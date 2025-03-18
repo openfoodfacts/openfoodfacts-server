@@ -4,13 +4,13 @@
 <html class="no-js" lang="en" data-serverdomain="openfoodfacts.localhost" dir="ltr">
 <head>
     <meta charset="utf-8">
-    <title>List of labels - World</title>
+    <title>Error</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta property="fb:app_id" content="219331381518041">
     <meta property="og:type" content="food">
     <meta property="og:title" content="">
-    <meta property="og:url" content="//world.openfoodfacts.localhost/facets/ingredients/en:someunknowningredient/labels/1">
+    <meta property="og:url" content="//world.openfoodfacts.localhost">
     
     <meta property="og:image" content="//static.openfoodfacts.org/images/logos/off-logo-vertical-white-social-media-preview.png">
     <meta property="og:description" content="">
@@ -25,13 +25,12 @@
 <meta name="theme-color" content="#ffffff">
 
 	<meta name="apple-itunes-app" content="app-id=588797948">
-    <link rel="canonical" href="//world.openfoodfacts.localhost/facets/ingredients/en:someunknowningredient/labels/1">
+    <link rel="canonical" href="//world.openfoodfacts.localhost">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/app-ltr.css?v=--ignore--" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/select2.min.css">
     <link rel="search" href="//world.openfoodfacts.localhost/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="Open Food Facts">
-	<link rel="stylesheet" href="//static.openfoodfacts.localhost/js/datatables.min.css">
-
+	
     <style media="all">
         
         .show-when-no-access-to-producers-platform {display:none}
@@ -39,7 +38,7 @@
 
     </style>
 </head>
-<body class="list_of_tags_page">
+<body class="error_page">
 
 	<!-- Matomo -->
 <script>
@@ -363,81 +362,8 @@
 						
 							<div class="row">
 								<div class="small-12 column">
-									<h1 class="if-empty-dnone">List of labels - World</h1>
-									<!-- start templates/web/pages/tag/tag.tt.html -->
-<div class="tag">
-    <div class="row">
-        <div class="large-6 column">
-
-            <div class="tag_navigation">
-                
-                    <a href="/facets/ingredients">Ingredient</a>:
-                    <a href="/facets/ingredients/someunknowningredient">Someunknowningredient</a>
-                    
-                
-            </div>
-
-            
-
-            
-
-            
-        </div>
-
-        
-            
-
-            <div class="large-6 column">                
-            <!-- injecting facet-knowledge-panel -->
-            <div id="facet-knowledge-panel" style="margin-left: 70px; z-index: 1;">
-                <h2 id="facet_panels_title"></h2>
-                <div id="facet_panels_content"></div>
-            </div>
-            <!-- Fetching facet knowledge panel -->                
-            <script>
-                    let facet_kp = "//facets-kp.openfoodfacts.org/render-to-html";
-                    let params = "?facet_tag=ingredients&value_tag=en:someunknowningredient";
-                    if ("") {
-                        params += "&sec_facet_tag=&sec_value_tag="
-                    }
-
-                    // Adding language code to get translated data
-                    params += "&lang_code=en&country=world";
-
-                    fetch(facet_kp + params)
-                        .then((response) => {
-                            if (response.ok) {
-                                return response.text();
-                            }
-                            else {
-                                throw new Error("Network Response Error while fetching facet kp");
-
-                            }
-                        })
-                        .then(data => {
-                            let title = document.getElementById("facet_panels_title");
-                            title.innerHTML = "Facet knowledge panel";
-                            let knowledgepanel = document.getElementById("facet_panels_content");
-                            knowledgepanel.innerHTML = data;
-                            // Keeping Hungergames and Lastedits panel open by default
-                            jQuery("#HungerGames").attr("open", true);
-                            jQuery("#LastEdits").attr("open", true);
-
-                        })
-                </script>
-            </div>
-            
-        
-    </div>
-</div>
-
-<!-- end templates/web/pages/tag/tag.tt.html -->
-<p>1 labels:</p><div style="max-width:600px;"><table id="tagstable">
-<thead><tr><th>Label</th><th>Products</th><th>*</th></tr></thead>
-<tbody>
-<tr><td><a href="/facets/ingredients/someunknowningredient/labels/organic" class="tag known" rel="nofollow">Organic</a></td>
-<td style="text-align:right"><a href="/facets/ingredients/someunknowningredient/labels/organic" class="tag known" rel="nofollow">1</a></td><td></td></tr>
-</tbody></table></div>
+									<h1 class="if-empty-dnone">Error</h1>
+									<p>No products.</p>
 								</div>
 							</div>
 						
@@ -617,19 +543,6 @@
 
 <script>
 $(function() {
-let oTable = $('#tagstable').DataTable({
-	language: {
-		search: "Search:",
-		info: "_TOTAL_ labels",
-		infoFiltered: " - out of _MAX_"
-	},
-	paging: false,
-	order: [[ 1, "desc" ]],
-	columns: [
-		null,
-		{"searchable": false} , {"searchable": false}
-	]
-});
 
 
 });
@@ -640,7 +553,6 @@ let oTable = $('#tagstable').DataTable({
 <script src="//static.openfoodfacts.localhost/js/dist/foundation.js" data-base-layout="true"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/jquery.cookie.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/select2.min.js"></script>
-<script src="//static.openfoodfacts.localhost/js/datatables.min.js"></script>
 
 <script>
 $(document).foundation({

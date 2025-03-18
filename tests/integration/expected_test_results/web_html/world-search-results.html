@@ -368,6 +368,26 @@
 								</div>
 								<!-- start templates/web/common/includes/list_of_products.tt.html --> 
 
+<!-- data_debug: data_debug start
+platform: public
+can_use_cache: 1
+cache_miss
+platform: public
+can_use_cache: 1
+cache_miss
+no_off_query: 
+off_query: 
+platform: public
+query_url://query.openfoodfacts.org
+can_use_off_query: 1
+count tags using off_query
+set_cache_results: updated
+off_query parameter not set, or not sorting by popularity_key: not using off_query
+got results from MongoDB
+set_cache_results: updated
+-->
+ 
+
 <div class="row">
   <div class="small-12 columns"> 
     
@@ -391,17 +411,6 @@
     <div class="small-12 columns"> 
       <p>&rarr;Download results in XLSX or CSV format. Please note that for performance reasons, you can download up to 10.000 results only.</p>
       
-      <ul>
-        <li>
-          <a href="/cgi/search.pl?action=process&search_terms=apple&sort_by=unique_scans_n&page_size=50&download=on&format=xlsx">XLSX format</a>
-          (Excel or LibreOffice)
-        </li>
-        <li>
-          <a href="/cgi/search.pl?action=process&search_terms=apple&sort_by=unique_scans_n&page_size=50&download=on&format=csv">CSV format</a>
-          (Character set: Unicode (UTF-8) - Separator: tabulation (tab))
-        </li>
-      </ul>
-      
     </div>
   </div>
 
@@ -412,7 +421,7 @@
       <div>
         <span class="filterProducts__results">
           <span class="material-icons" aria-hidden="true">search</span>
-          5 products
+          20,318 products
         </span>
       </div>
       <div class="filterProducts__buttons">
@@ -485,7 +494,8 @@
   </div>
       
     
-	
+	<ul id="pages" class="pagination"><li class="unavailable">Pages:</li><li class="current"><a href="">1</a></li><li><a href="/cgi/search.pl?action=process&search_terms=apple&sort_by=unique_scans_n&page_size=50&page=2">2</a></li><li><a href="/cgi/search.pl?action=process&search_terms=apple&sort_by=unique_scans_n&page_size=50&page=3">3</a></li><li><a href="/cgi/search.pl?action=process&search_terms=apple&sort_by=unique_scans_n&page_size=50&page=4">4</a></li><li class="unavailable">&hellip;</li><li><a href="/cgi/search.pl?action=process&search_terms=apple&sort_by=unique_scans_n&page_size=50&page=405">405</a></li><li><a href="/cgi/search.pl?action=process&search_terms=apple&sort_by=unique_scans_n&page_size=50&page=406">406</a></li><li><a href="/cgi/search.pl?action=process&search_terms=apple&sort_by=unique_scans_n&page_size=50&page=407">407</a></li><li><a href="/cgi/search.pl?action=process&search_terms=apple&sort_by=unique_scans_n&page_size=50&page=2" rel="next$nofollow">Next</a></li><li class="unavailable">(50 products per page)</li></ul>
+
   </div>
 </div>
 

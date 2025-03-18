@@ -528,6 +528,26 @@
 <!-- end templates/web/pages/tag/tag.tt.html -->
 <!-- start templates/web/common/includes/list_of_products.tt.html --> 
 
+<!-- data_debug: data_debug start
+platform: public
+can_use_cache: 1
+cache_miss
+platform: public
+can_use_cache: 1
+cache_miss
+no_off_query: 
+off_query: 
+platform: public
+query_url://query.openfoodfacts.org
+can_use_off_query: 1
+count tags using off_query
+set_cache_results: updated
+off_query parameter not set, or not sorting by popularity_key: not using off_query
+got results from MongoDB
+set_cache_results: updated
+-->
+ 
+
 <div class="row">
   <div class="small-12 columns"> 
     
@@ -550,7 +570,7 @@
       <div>
         <span class="filterProducts__results">
           <span class="material-icons" aria-hidden="true">search</span>
-          5 products
+          259,108 products
         </span>
       </div>
       <div class="filterProducts__buttons">
@@ -749,7 +769,8 @@
   </div>
       
     
-	
+	<ul id="pages" class="pagination"><li class="unavailable">Pages:</li><li class="current"><a href="">1</a></li><li><a href="/facets/labels/organic/2">2</a></li><li><a href="/facets/labels/organic/3">3</a></li><li><a href="/facets/labels/organic/4">4</a></li><li class="unavailable">&hellip;</li><li><a href="/facets/labels/organic/5181">5181</a></li><li><a href="/facets/labels/organic/5182">5182</a></li><li><a href="/facets/labels/organic/5183">5183</a></li><li><a href="/facets/labels/organic/2" rel="next$nofollow">Next</a></li><li class="unavailable">(50 products per page)</li></ul>
+
   </div>
 </div>
 
