@@ -5,6 +5,7 @@ use utf8;
 
 use Test2::V0;
 use Data::Dumper;
+use Log::Any::Adapter 'TAP';
 $Data::Dumper::Terse = 1;    # rm variable name
 $Data::Dumper::Indent = 1;
 $Data::Dumper::Sortkeys = 1;
@@ -393,7 +394,7 @@ $product_ref = {
 	ingredients_text_pl =>
 		"69% mąka pszenna, woda, olej rzepakowy, stabilizator: glicerol; gluten pszenny, regulator kwasowości: kwas jabłkowy; sól, emuglator: mono - i diglicerydy kwasów tłuszczowych; glukoza, substancja spulchniająca: węglany sodu; substancje konserwujące: propionian wapnia, sorbinian potasu ; środek do przetwarzania mąki: L-cysteina.",
 	ingredients_text_ro =>
-		"69% făină de grâu, apă, ulei de rapiță, stabilizator: glicerol; gluten din grâu, corector de aciditate: acid malic; sare, emulsifiant: mono - şi digliceride ale acizilor graşi; dextroză, agent de afanare: carbonați de sodiu ; conservanți: propionat de calciu, sorbat de potasiu; agent de tratare a făinii: L-cisteină.",
+		"69% făină de grâu, apă, ulei de rapiță, stabilizator: glicerol; gluten din grâu, corector de aciditate: acid malic; sare, emulsifiant: mono - ti digliceride ale acizilor graşi; dextroză, agent de afanare: carbonați de sodiu ; conservanți: propionat de calciu, sorbat de potasiu; agent de tratare a făinii: L-cisteină.",
 	ingredients_text_sk =>
 		"69% pšeničná múka, pitná voda, repkový olej, stabilizátor: glycerol; pšeničný glutén, regulátor kyslosti: kyselina jablčná; jedlá soľ, emulgátor: mono - a diglyceridy mastných kyselín; dextróza, kypriaca látka: uhličitany sodné; konzervačné látky: propionan vápenatý, sorban draselný; múku upravujúca látka: L-cystein.",
 	ingredients_text_sl =>
@@ -444,7 +445,7 @@ ok(
 	has_tag(
 		$product_ref,
 		"taxonomies_enhancer",
-		"ingredients-ro-mono-şi-digliceride-ale-acizilor-graşi-is-possible-typo-for-ro-mono-și-digliceride-ale-acizilor-grași"
+		"ingredients-ro-monoti-digliceride-ale-acizilor-graşi-is-possible-typo-for-ro-mono-și-digliceride-ale-acizilor-grași"
 	),
 	'cs-hr-hu-pl-ro-sk-sl, ro typo or synonym'
 ) or diag Dumper $product_ref;
@@ -531,5 +532,18 @@ ok(
 	),
 	'cs-da-de-en-es-fi-fr-it-nl-pt-ru-sv, typo in da based on fi as well as en'
 ) or diag Dumper $product_ref;
+
+# Division by zero bug from product: https://fr.openfoodfacts.org/produit/3256221408515/boulgour-etui-500g-u-bio?rev=74
+# (Stéphane) this product triggered a division by zero in the Minion that imported this product (which runs with debug logs enabled)
+# I was not able to replicate this behavior in the test, even when running it with the same debug logs enabled.
+# www-data@728a936cd5a9:/opt/product-opener$ perl tests/unit/taxonomies_enhancer.t
+$product_ref = {
+	lc => "fr",
+	ingredients_lc => "fr",
+	ingredients_text_en => "100 % durum wheat bulgur precooked*,* ingredient from organic farming,",
+	ingredients_text_fr =>
+		"100% BLE dur concassé précuit*. * ingrédient issu de l'agriculture biologique. Traces éventuelles de SOJA.",
+};
+check_ingredients_between_languages($product_ref);    # Should not crash
 
 done_testing();

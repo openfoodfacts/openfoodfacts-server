@@ -63,13 +63,13 @@ sub process_file($path, $code) {
 	return 1;
 }
 
-sub send_scans() {
+sub send_scans($fully_loaded = 0) {
 	print '[' . localtime() . "] $scan_count products processed...";
 	# Remove last comma
 	chop($scans);
 	$scans .= '}';
 	my $resp = $ua->post(
-		$query_post_url,
+		$query_post_url . ($fully_loaded ? '?fullyloaded=1' : ''),
 		Content => $scans,
 		'Content-Type' => 'application/json; charset=utf-8'
 	);
@@ -170,8 +170,7 @@ sub update_checkpoint($checkpoint_file, $dir) {
 
 find_products($BASE_DIRS{PRODUCTS}, '');
 
-if (length($scans) > 1) {
-	send_scans();
-}
+# Always send last batch even if no scans to indicate all loaded
+send_scans(1);
 
 close $checkpoint_file;

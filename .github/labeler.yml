@@ -1357,12 +1357,12 @@ Nutrition estimation:
   - any-glob-to-any-file: 'cgi/sso.pl'
 
 # Robotoff is our ML system. It lives at https://github.com/openfoodfacts/robotoff
-# It distributes Yes/No questions for products, which are displayed as a banner on the product page. 
-# Anonymous users answering it will be one of three votes required to apply an edit. 
-# Logged in users answering it will provoke an immediate attributed edit.
+# To interface with it, we have a package that includes web components: https://github.com/openfoodfacts/openfoodfacts-webcomponents
+# It give multiple components to interact with Robotoff, like the one used in the product interface to answer questions
 🤖 Robotoff:
 - changed-files:
-  - any-glob-to-any-file: 'html/js/display-product.js'
+  - any-glob-to-any-file: 'templates/web/common/includes/off_webcomponents_configuration.tt.html'
+  - any-glob-to-any-file: 'templates/web/common/includes/robotoff_question.tt.html'
 
 # https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/TaxonomySuggestions.html
 # Providing autosuggest for taxonomized fields. Mostly used in editing scenarii

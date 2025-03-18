@@ -1,5 +1,38 @@
 # Changelog
 
+## [2.61.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.60.0...v2.61.0) (2025-03-04)
+
+
+### Features
+
+* dq correct wrong language for tags v2 ([#11407](https://github.com/openfoodfacts/openfoodfacts-server/issues/11407)) ([6363fae](https://github.com/openfoodfacts/openfoodfacts-server/commit/6363fae0e60af8b4bfc32b42bf454f615ec84fa8))
+* Send more queries to off-query ([#11482](https://github.com/openfoodfacts/openfoodfacts-server/issues/11482)) ([e368745](https://github.com/openfoodfacts/openfoodfacts-server/commit/e368745f44009279910a53565d80196a68d87b30))
+* Update assetlinks.json to enable credential sharing ([#11530](https://github.com/openfoodfacts/openfoodfacts-server/issues/11530)) ([28d53f4](https://github.com/openfoodfacts/openfoodfacts-server/commit/28d53f4b18420fdb60583352a0ae02268b07c59a))
+
+
+### Bug Fixes
+
+* Override no_cache parameter if database is explicitly set to off-query ([#11528](https://github.com/openfoodfacts/openfoodfacts-server/issues/11528)) ([fb6239f](https://github.com/openfoodfacts/openfoodfacts-server/commit/fb6239f6a7f15387fe24f972d94541025e788394))
+
+## [2.60.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.59.0...v2.60.0) (2025-02-26)
+
+
+### Features
+
+* adding a prefix to facets ([#11387](https://github.com/openfoodfacts/openfoodfacts-server/issues/11387)) ([c539f06](https://github.com/openfoodfacts/openfoodfacts-server/commit/c539f065fe659312914952aafdcd54b737366b7f))
+* category translations for Open Beauty Facts ([#11477](https://github.com/openfoodfacts/openfoodfacts-server/issues/11477)) ([b6d7c37](https://github.com/openfoodfacts/openfoodfacts-server/commit/b6d7c37931352dd01554a560bda4526689247ecb))
+
+
+### Bug Fixes
+
+* add missing product_type field to products,  ([#11495](https://github.com/openfoodfacts/openfoodfacts-server/issues/11495)) ([2a81308](https://github.com/openfoodfacts/openfoodfacts-server/commit/2a81308e0715d242d73f95db43f188ed3cfa0cc1)), closes [#11492](https://github.com/openfoodfacts/openfoodfacts-server/issues/11492)
+* fix gen_feeds for pro platform ([#11469](https://github.com/openfoodfacts/openfoodfacts-server/issues/11469)) ([0556332](https://github.com/openfoodfacts/openfoodfacts-server/commit/0556332e30291cd0e1c680b61d0492de3890902b))
+* Fix resume from checkpoint code in export scans ([#11460](https://github.com/openfoodfacts/openfoodfacts-server/issues/11460)) ([1d72e42](https://github.com/openfoodfacts/openfoodfacts-server/commit/1d72e427dfdd60c0287a0a3c640ff8dc411223e2))
+* gen_feeds_daily.sh: failure email for export_database.pl ([#11454](https://github.com/openfoodfacts/openfoodfacts-server/issues/11454)) ([3938ce8](https://github.com/openfoodfacts/openfoodfacts-server/commit/3938ce807c1ebc871cc9d37382c1edf79430cf42))
+* parents ingredients recipes stats for set of products ([#11485](https://github.com/openfoodfacts/openfoodfacts-server/issues/11485)) ([b0b191b](https://github.com/openfoodfacts/openfoodfacts-server/commit/b0b191bbcfa7cca95be1becec5c6bb147c3f5e21))
+* put back nutrients in CSV export ([#11490](https://github.com/openfoodfacts/openfoodfacts-server/issues/11490)) ([a498b32](https://github.com/openfoodfacts/openfoodfacts-server/commit/a498b32092b146ad1650e3e2cf55050fd5adf984))
+* typo ([#11436](https://github.com/openfoodfacts/openfoodfacts-server/issues/11436)) ([f06c438](https://github.com/openfoodfacts/openfoodfacts-server/commit/f06c438c5afb747c6455fe9aa37cfbecb4bf4158))
+
 ## [2.59.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.58.0...v2.59.0) (2025-02-18)
 
 

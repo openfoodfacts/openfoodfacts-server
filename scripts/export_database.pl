@@ -242,7 +242,7 @@ XML
 
 	my @nutrients_to_export = ();
 
-	foreach my $nid (@{$nutriments_tables{"europe"}}) {
+	foreach my $nid (@{$nutriments_tables{"off_europe"}}) {
 
 		$nid =~ /^#/ and next;
 

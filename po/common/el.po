@@ -44,6 +44,32 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "Μια συνεργατική, δωρεάν και ανοιχτή βάση δεδομένων καλλυντικών προϊόντων από όλο τον κόσμο."
 
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
+msgstr "Μια συνεργατική, δωρεάν και ανοιχτή βάση δεδομένων συστατικών και πληροφοριών για διάφορα προϊόντα από όλο τον κόσμο."
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr "Το Open Products Facts συγκεντρώνει πληροφορίες και δεδομένα για ένα ευρύ φάσμα προϊόντων από όλο τον κόσμο."
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr "Μια συνεργατική, δωρεάν και ανοιχτή βάση δεδομένων με διάφορα προϊόντα από όλο τον κόσμο."
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr "Μια συνεργατική, δωρεάν και ανοιχτή βάση δεδομένων συστατικών, διατροφικών στοιχείων και πληροφοριών για προϊόντα τροφών για κατοικίδια από όλο τον κόσμο."
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr "Το Open Pet Food Facts συγκεντρώνει πληροφορίες και δεδομένα για προϊόντα τροφών για κατοικίδια από όλο τον κόσμο."
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr "Μια συνεργατική, δωρεάν και ανοιχτή βάση δεδομένων προϊόντων τροφών για κατοικίδια από όλο τον κόσμο."
+
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
@@ -280,7 +306,7 @@ msgstr "/images/misc/android-apk.svg"
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
-msgstr ""
+msgstr "Android APK"
 
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
@@ -289,7 +315,7 @@ msgstr ""
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
-msgstr ""
+msgstr "Αποκτήστε το στο Google Play"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -2518,7 +2544,7 @@ msgstr "Ανήκει σε:"
 
 msgctxt "tag_contains"
 msgid "Contains:"
-msgstr "Περιέχει :"
+msgstr "Περιέχει:"
 
 msgctxt "tag_weblinks"
 msgid "Weblinks"
@@ -3355,7 +3381,7 @@ msgstr "ανάλυση συστατικών"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
-msgstr ""
+msgstr "Ανάλυση συστατικών"
 
 msgctxt "ingredients_analysis_disclaimer"
 msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
@@ -4064,7 +4090,7 @@ msgstr "<a href=\"\">Χρειαζόμαστε τη βοήθεια και τις 
 
 msgctxt "thank_you"
 msgid "Thank you!"
-msgstr ""
+msgstr "Ευχαριστούμε!"
 
 msgctxt "thank_you_very_much"
 msgid "Thank you very much!"
@@ -4684,7 +4710,7 @@ msgid "Processed foods"
 msgstr "Επεξεργασμένα τρόφιμα"
 
 msgctxt "attribute_nova_4_description_short"
-msgid "Ultra processed foods"
+msgid "Ultra-processed foods"
 msgstr "Υπερεπεξεργασμένα τρόφιμα"
 
 msgctxt "attribute_nova_4_1_marker"
@@ -5694,7 +5720,7 @@ msgstr "Περιβαλλοντική πολιτική"
 
 msgctxt "environmental_score_threatened_species"
 msgid "Threatened species"
-msgstr ""
+msgstr "Απειλούμενα είδη"
 
 msgctxt "environmental_score_ingredients_whose_cultivation_threatens_species"
 msgid "Ingredients that threatens species"
@@ -5957,7 +5983,7 @@ msgstr "Το προϊόν διαγράφηκε."
 
 msgctxt "carbon_footprint"
 msgid "Carbon footprint"
-msgstr ""
+msgstr "Αποτύπωμα άνθρακα"
 
 # variable names between { } must not be translated
 msgctxt "f_carbon_footprint_per_100g_of_product"
@@ -6076,7 +6102,7 @@ msgstr "Η κατηγορία και τα διατροφικά στοιχεία 
 
 msgctxt "health"
 msgid "Health"
-msgstr ""
+msgstr "Υγεία"
 
 msgctxt "contribution_panel_title"
 msgid "Contribution"
@@ -6633,7 +6659,7 @@ msgstr "Μη αναγνωρισμένη αξία"
 
 msgctxt "api_impact_none"
 msgid "None"
-msgstr ""
+msgstr "Κανένα"
 
 msgctxt "api_impact_warning"
 msgid "Warning"
@@ -7369,4 +7395,12 @@ msgstr "Προσθέστε προϊόντα με κατηγορία, λίστα 
 msgctxt "in_contact_with_food"
 msgid "In contact with food"
 msgstr "Σε επαφή με τρόφιμα"
+
+msgctxt "contact_us_producers"
+msgid "Contact Us"
+msgstr ""
+
+msgctxt "delete"
+msgid "Delete"
+msgstr "Διαγραφή"
 

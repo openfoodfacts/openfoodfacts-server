@@ -1161,6 +1161,12 @@ sub store_product ($user_id, $product_ref, $comment) {
 		delete $product_ref->{server};
 	}
 
+	# If we do not have a product_type, we set it to the default product_type of the current server
+	# This can happen if we are reverting a product to a previous version that did not have a product_type
+	if (not defined $product_ref->{product_type}) {
+		$product_ref->{product_type} = $options{product_type};
+	}
+
 	# In case we need to move a product from OFF to OBF etc.
 	# we will have a old_product_type field
 

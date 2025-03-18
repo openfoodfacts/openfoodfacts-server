@@ -153,7 +153,7 @@ use ProductOpener::Missions qw(:all);
 use ProductOpener::MissionsConfig qw(:all);
 use ProductOpener::URL qw(format_subdomain get_owner_pretty_path);
 use ProductOpener::Data
-	qw(execute_aggregate_tags_query execute_count_tags_query execute_query get_products_collection get_recent_changes_collection);
+	qw(execute_aggregate_tags_query execute_count_tags_query execute_product_query execute_query get_products_collection get_recent_changes_collection);
 use ProductOpener::Text
 	qw(escape_char escape_single_quote_and_newlines get_decimal_formatter get_percent_formatter remove_tags_and_quote);
 use ProductOpener::Nutriscore qw(%points_thresholds compute_nutriscore_grade);
@@ -1579,7 +1579,7 @@ sub get_cache_results ($key, $request_ref) {
 	# or if we are on the producers platform
 	# or if we are sent the HTTP header Cache-Control: no-cache
 	my $param_no_cache = single_param("no_cache");
-	if ((not $param_no_cache) and (not $server_options{producers_platform})) {
+	if (not $param_no_cache) {
 		my $cache_control = get_http_request_header("Cache-Control");
 		if ((defined $cache_control) and ($cache_control =~ /no-cache/)) {
 			$log->debug("get_cache_results - HTTP Cache-Control no-cache header, skip caching", {key => $key})
@@ -1587,7 +1587,7 @@ sub get_cache_results ($key, $request_ref) {
 			$param_no_cache = 1;
 		}
 	}
-	if ($param_no_cache) {
+	if (($param_no_cache) and (not $server_options{producers_platform})) {
 		$log->debug("MongoDB no_cache parameter, skip caching", {key => $key}) if $log->is_debug();
 		$mongodb_log->info("get_cache_results - skip - key: $key") if $mongodb_log->is_info();
 
@@ -1639,9 +1639,15 @@ sub set_cache_results ($key, $results) {
 	return;
 }
 
-sub can_use_query_cache() {
-	return (    ((not defined single_param("no_cache")) or (not single_param("no_cache")))
-			and (not $server_options{producers_platform}));
+sub can_use_off_query() {
+	return (
+		(
+				   (not defined single_param("no_off_query"))
+				or (not single_param("no_off_query"))
+				or (single_param("off_query"))
+		)
+			and (not $server_options{producers_platform})
+	);
 }
 
 sub generate_query_cache_key ($name, $context_ref, $request_ref) {
@@ -1773,7 +1779,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 		$results = undef;
 		# do not use the postgres cache if ?no_cache=1
 		# or if we are on the producers platform
-		if (can_use_query_cache()) {
+		if (can_use_off_query()) {
 			set_request_stats_time_start($request_ref->{stats}, "off_query_aggregate_tags_query");
 			$results = execute_aggregate_tags_query($aggregate_parameters);
 			set_request_stats_time_end($request_ref->{stats}, "off_query_aggregate_tags_query");
@@ -1846,7 +1852,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 			my $count_results;
 			# do not use the smaller postgres cache if ?no_cache=1
 			# or if we are on the producers platform
-			if (can_use_query_cache()) {
+			if (can_use_off_query()) {
 				set_request_stats_time_start($request_ref->{stats}, "off_query_aggregate_tags_query");
 				$count_results = execute_aggregate_tags_query($aggregate_count_parameters);
 				set_request_stats_time_end($request_ref->{stats}, "off_query_aggregate_tags_query");
@@ -4566,7 +4572,14 @@ sub display_search_results ($request_ref) {
 	$current_link =~ s/^\&/\?/;
 	$current_link = "/search" . $current_link;
 
-	if (not($request_ref->{api})) {
+	# Experimental feature to display stats of specific parent ingredients for a set of product
+	# activated by passing the parents_ingredients parameter to a search query
+	if (defined single_param('parent_ingredients')) {
+		my $query_ref = {};
+		$html .= search_and_analyze_recipes($request_ref, $query_ref);
+	}
+	# For non API requests, we let the browser query the search API and display the results
+	elsif (not($request_ref->{api})) {
 
 		# The results will be filtered and ranked on the client side
 
@@ -4622,17 +4635,10 @@ JS
 		}
 	}
 	else {
-
 		# The server generates the search results
 
 		my $query_ref = {};
-
-		if (defined single_param('parent_ingredients')) {
-			$html .= search_and_analyze_recipes($request_ref, $query_ref);
-		}
-		else {
-			$html .= search_and_display_products($request_ref, $query_ref, undef, undef, undef);
-		}
+		$html .= search_and_display_products($request_ref, $query_ref, undef, undef, undef);
 	}
 
 	$request_ref->{content_ref} = \$html;
@@ -4740,6 +4746,9 @@ sub get_products_collection_request_parameters ($request_ref, $additional_parame
 	# If the request is for obsolete products, we will select a specific products collection
 	# for obsolete products
 	$parameters_ref->{obsolete} = request_param($request_ref, "obsolete");
+
+	# Allow the source to be specified. Currently defaults to mongodb but can set to use off-query instead
+	$parameters_ref->{off_query} = request_param($request_ref, "off_query");
 
 	# Admin users can request a specific query_timeout for MongoDB queries
 	if ($request_ref->{admin}) {
@@ -4996,7 +5005,8 @@ sub add_params_to_query ($params_ref, $query_ref) {
 							($tagid eq get_string_id_for_lang($tag_lc, lang("unknown")))
 							or (
 								$tagid eq (
-									$tag_lc . ":"
+									# brands are always taxonomized with the xx: prefix
+									($tagtype eq "brands" ? "xx" : $tag_lc) . ":"
 										. get_string_id_for_lang($tag_lc, lang_in_other_lc($tag_lc, "unknown"))
 								)
 							)
@@ -5492,12 +5502,8 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			set_request_stats_time_start($request_ref->{stats}, "mongodb_query");
 			$cursor = execute_query(
 				sub {
-					return get_products_collection(get_products_collection_request_parameters($request_ref))
-						->query($query_ref)
-						->fields($fields_ref)
-						->sort($sort_ref)
-						->limit($limit)
-						->skip($skip);
+					return execute_product_query(get_products_collection_request_parameters($request_ref),
+						$query_ref, $fields_ref, $sort_ref, $limit, $skip);
 				}
 			);
 			$log->debug("MongoDB query ok", {error => $@}) if $log->is_debug();
@@ -5825,7 +5831,7 @@ sub estimate_result_count ($request_ref, $query_ref, $cache_results_flag) {
 			$log->debug("count not in cache for query", {key => $key_count}) if $log->is_debug();
 
 			# Count queries are very expensive, if possible, execute them on the postgres cache
-			if (can_use_query_cache()) {
+			if (can_use_off_query()) {
 				set_request_stats_time_start($request_ref->{stats}, "off_query_count_tags_query");
 				$count = execute_count_tags_query($query_ref);
 				set_request_stats_time_end($request_ref->{stats}, "off_query_count_tags_query");
@@ -6961,9 +6967,8 @@ sub search_and_graph_products ($request_ref, $query_ref, $graph_ref) {
 	eval {
 		$cursor = execute_query(
 			sub {
-				return get_products_collection(get_products_collection_request_parameters($request_ref))
-					->query($query_ref)
-					->fields($fields_ref);
+				return execute_product_query(get_products_collection_request_parameters($request_ref),
+					$query_ref, $fields_ref);
 			}
 		);
 	};
@@ -7272,9 +7277,9 @@ sub search_products_for_map ($request_ref, $query_ref) {
 	eval {
 		$cursor = execute_query(
 			sub {
-				return get_products_collection(get_products_collection_request_parameters($request_ref))
-					->query($query_ref)
-					->fields(
+				return execute_product_query(
+					get_products_collection_request_parameters($request_ref),
+					$query_ref,
 					{
 						code => 1,
 						lc => 1,
@@ -7286,7 +7291,7 @@ sub search_products_for_map ($request_ref, $query_ref) {
 						origins => 1,
 						emb_codes_tags => 1,
 					}
-					);
+				);
 			}
 		);
 	};
@@ -7883,8 +7888,8 @@ sub display_product ($request_ref) {
 
 	$request_ref->{scripts} .= <<SCRIPTS
 <script src="$static_subdomain/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
-<script src="$static_subdomain/js/dist/display-product.js"></script>
 <script src="$static_subdomain/js/dist/product-history.js"></script>
+<script type="module" src="$static_subdomain/js/dist/off-webcomponents.bundled.js"></script>
 SCRIPTS
 		;
 
@@ -11685,9 +11690,8 @@ sub search_and_analyze_recipes ($request_ref, $query_ref) {
 	eval {
 		$cursor = execute_query(
 			sub {
-				return get_products_collection(get_products_collection_request_parameters($request_ref))
-					->query($query_ref)
-					->fields($fields_ref);
+				return execute_product_query(get_products_collection_request_parameters($request_ref),
+					$query_ref, $fields_ref);
 			}
 		);
 	};
