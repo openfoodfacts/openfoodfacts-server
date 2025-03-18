@@ -35,7 +35,7 @@ jobs:
         run: ./.github/scripts/path-filter.sh "${{ steps.changed_files.outputs.all_changed_files }}"
       - name: Check if Docker-related files changed
         id: docker_filter
-        run: ./.github/scripts/docker-filter.sh "${{ steps.changed_files.outputs.all_changed_files }}"
+        run: ./.github/scripts/docker-modification.sh "${{ steps.changed_files.outputs.all_changed_files }}"
 
   lint:
     name: 🕵️‍♀️ NPM lint
