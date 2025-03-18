@@ -1,3 +1,16 @@
+/**
+ * This is related to robotoff insight validation.
+ * 
+ * It enables showing / hiding the div containing the web component.
+ *
+ * @param eventToListenTo - event emited by the web-component, 
+ * with a state attribute. we react to "has-data" (show) and "annotated" (hide)
+ *
+ * @param elementId - the web component id
+ *
+ * @param parentSelector - a web selector of the containing div. 
+ * If omitted, we will only id the web-component.
+ */
 window.listenEventToShowHideAlert = function (
   eventToListenTo,
   elementId,
