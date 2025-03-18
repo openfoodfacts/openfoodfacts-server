@@ -6,12 +6,12 @@ As a developer, it can be better not to think too much about setting the right e
 As a quick guide as an openfoodfacts developer:
 
 - install direnv on your system using the usual package manager
-- in your .bashrc add:
-    ```bash
-    # direnv
-    eval "$(direnv hook bash)"
-    ```
-  You have to adapt the direnv line according to what you use; see [direnv doc](https://direnv.net/docs/hook.html).
+- For Mac users you need to know if you are in zsh, bash or something else, since 10.15 (Catalina) zsh is set by default but to be sure type in terminal
+  ```bash
+  echo $SHELL
+  ```
+
+- You have to adapt the direnv line according to what you use -> follow this official [direnv doc](https://direnv.net/docs/hook.html).
 - in your project directory add a file, where you override variables from `.env`
   that you want to:
 
