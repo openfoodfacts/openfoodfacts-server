@@ -1,7 +1,7 @@
 /**
  * This is related to robotoff insight validation.
  *
- * It enables showing / hiding the div containing the web component.
+ * It enables showing / hiding the div containing the web component with is_hidden css class.
  *
  * @param eventToListenTo - event emited by the web-component,
  * with a state attribute. we react to "has-data" (show) and "annotated" (hide)
