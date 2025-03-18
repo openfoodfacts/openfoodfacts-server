@@ -30,12 +30,9 @@ jobs:
       - name: Get changed files
         uses: tj-actions/changed-files@v45
         id: changed_files
-      - name: Filter non-markdown and non-docs files
+      - name: Filter non-markdown and non-docs files & Check if Docker-related files changed
         id: filter
-        run: ./.github/scripts/path-filter.sh "${{ steps.changed_files.outputs.all_changed_files }}"
-      - name: Check if Docker-related files changed
-        id: docker_filter
-        run: ./.github/scripts/docker-modification.sh "${{ steps.changed_files.outputs.all_changed_files }}"
+        run: ./.github/scripts/path-filter.sh "${{ steps.changed_files.outputs.all_changed_files }}" && ./.github/scripts/docker-modification.sh "${{ steps.changed_files.outputs.all_changed_files }}"
 
   lint:
     name: 🕵️‍♀️ NPM lint
