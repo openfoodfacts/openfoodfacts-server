@@ -10,8 +10,7 @@
     [% END %]
 [% END %]
 
-[% INCLUDE web/common/includes/off_webcomponents_configuration.tt.html language_code = lc robotoff_domain = "https://robotoff.openfoodfacts.net" images_domain = "https://images.openfoodfacts.net" %]
-
+[% INCLUDE web/common/includes/off_webcomponents_configuration.tt.html language_code = lc robotoff_domain = robotoff_url images_domain = images_subdomain %]
 <a href="#upNav" class="back-to-top scrollto button">
     <span class="material-icons size-20 ">
         arrow_upward
@@ -209,9 +208,9 @@
         </div>
     </section>
 
-   
-    [% INCLUDE web/common/includes/robotoff_nutrients.tt.html product_code = "50184453"  %]
-
+    [% IF (user_id.defined) && (robotoff_url.defined) && (robotoff_url.length > 0) %]
+    [% INCLUDE web/common/includes/robotoff_nutrients.tt.html product_code = code  %]
+    [% END %]
 [% IF user_preferences %]
     <!-- product summary -->
     <section class="row" id="match">
