@@ -146,7 +146,7 @@ jobs:
         # Ensure Docker container can write to these directories
         chmod -R 777 lib/ProductOpener html/dump html/exports html/files
     - name: build taxonomies (should use cache)
-      run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+      run: make DOCKER_OPTS="-u 0" DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
     - name: check taxonomies
       run: make check_taxonomies
     - name: check perltidy
@@ -203,7 +203,7 @@ jobs:
     - name: Run ${{ matrix.test-type }} tests
       run: |
         make codecov_prepare
-        make COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' DOCKER_LOCAL_DATA="$(pwd)" ${{ matrix.test-type }}_test GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+        make DOCKER_OPTS="-u 0" COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' DOCKER_LOCAL_DATA="$(pwd)" ${{ matrix.test-type }}_test GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
     - name: generate coverage results
       # even if tests failed
       if: always()
@@ -230,7 +230,8 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       with:
-        fetch-depth: 1
+        fetch-depth: 50 # We need depth to get more history
+        ref: ${{ github.event.pull_request.head.sha }}  # Ensure correct branch checkout
     - uses: actions/cache/restore@v4
       id: cache
       with:
@@ -262,7 +263,7 @@ jobs:
         echo "export USER_GID=$(id -g)" >> .envrc
     - name: Test make dev
       run: |
-        make DOCKER_LOCAL_DATA="$(pwd)" SKIP_SAMPLE_IMAGES=1 dev_no_build
+        make DOCKER_OPTS="-u 0" DOCKER_LOCAL_DATA="$(pwd)" SKIP_SAMPLE_IMAGES=1 dev_no_build
         make status
     - name: Test all is running
       run: make livecheck || ( tail -n 300 logs/apache2/*error*log; docker compose logs; false )
