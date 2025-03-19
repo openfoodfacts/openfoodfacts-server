@@ -3,13 +3,12 @@
  *
  * It enables showing / hiding the div containing the web component with is_hidden css class.
  *
- * @param eventToListenTo - event emited by the web-component,
- * with a state attribute. we react to "has-data" (show) and "annotated" (hide)
- *
- * @param elementId - the web component id
- *
- * @param parentSelector - a web selector of the containing div.
+ * @param {Event} eventToListenTo - Event emitted by the web-component,
+ * with a state attribute. We react to "has-data" (show) and "annotated" (hide).
+ * @param {string} elementId - The web component id.
+ * @param {string} parentSelector - A web selector of the containing div.
  * If omitted, we will only id the web-component.
+ * @returns {void}
  */
 window.listenEventToShowHideAlert = function (
   eventToListenTo,
@@ -17,7 +16,7 @@ window.listenEventToShowHideAlert = function (
   parentSelector
 ) {
   const element = document.getElementById(elementId);
-  let parentElement = parentSelector
+  const parentElement = parentSelector
     ? document.querySelector(parentSelector)
     : element.parentElement;
   parentElement.classList.add("is_hidden");
