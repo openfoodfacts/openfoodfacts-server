@@ -3,8 +3,7 @@ $productsGutter:12;
 .search_results {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: #{productsGutter}px;
+    justify-content: space-between;
     margin: 0;
     li {
         position: relative;
@@ -20,7 +19,7 @@ $productsGutter:12;
             margin-bottom: #{$productsGutter}px;
         }
         @media #{$xlarge-up} {
-            width: calc((100% - ($productsGutter * 5px)) / 5);
+            width: calc((100% - ($productsGutter * 5px)) / 6);
             margin-bottom: #{$productsGutter}px;
         }
     }
@@ -45,7 +44,7 @@ $productsGutter:12;
       margin-bottom: #{$productsGutter}px;
   }
   @media #{$xlarge-up} {
-      width: calc((100% - ($productsGutter * 5px)) / 5);
+      width: calc((100% - ($productsGutter * 5px)) / 6);
       margin-bottom: #{$productsGutter}px;
   }
 }
