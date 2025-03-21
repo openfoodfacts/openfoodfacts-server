@@ -12,6 +12,8 @@ We consider new fields to be non-breaking changes. When reading product data, ma
 
 We consider changed fields to be breaking changes. To maintain backward compatibility, we increase the API version number when there is a breaking change, and we try to serve the old structure when a lower API version is requested by a client.
 
+The API may return undocumented fields. You should not rely on fields that are not documented, as they may be internal fields that could change or be removed. If you want to use some documented fields, please ask first on the #API channel. We do not consider changes to undocumented fields breaking changes, and added/changed/removed undocumented fields will often not be listed in this change log.
+
 ## Product schema version
 
 The product schema version is an integer that is incremented each time there is a change.
@@ -28,15 +30,14 @@ When a client makes a request with a specific API version, we do our best to con
 
 ## Schema version and API version change log
 
-### 2025-03-12 - Product version 1001 - API version 3.2 - Removed ingredients_hierarchy, added schema_version
+### 2025-03-12 - Product version 1001 - API version 3.2 - Removed ingredients_hierarchy, added schema_version, made brands a taxonomized field.
 
 Breaking changes:
-- ingredients_hierarchy array has been removed (its content is identical to the ingredients_tags array)
+- Ingredients_hierarchy array has been removed (its content is identical to the ingredients_tags array) - [PR](https://github.com/openfoodfacts/openfoodfacts-server/pull/11615)
+- The brands field is now taxonomized. brands_tags entries are prefixed with the language-less xx: prefix, and there is a new brands_hierarchy field ([see tags schema](../api/ref/schemas/product_tags.yaml)) - [PR](https://github.com/openfoodfacts/openfoodfacts-server/pull/11606)
 
 Non-breaking changes:
-- added schema_version field
-
-PR: https://github.com/openfoodfacts/openfoodfacts-server/pull/11615
+- Added schema_version field
 
 ### 2024-12-12 - Product version 1000 - API version 3.1 - Renamed ecoscore_* fields to environmental_score_*
 

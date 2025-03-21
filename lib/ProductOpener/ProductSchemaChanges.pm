@@ -100,12 +100,12 @@ sub convert_product_schema ($product_ref, $to_version) {
 
 %upgrade_functions = (
 	999 => \&convert_schema_999_to_1000_rename_ecoscore_fields_to_environmental_score,
-	1000 => \&convert_schema_1000_to_1001_remove_ingredients_hierarchy,
+	1000 => \&convert_schema_1000_to_1001_remove_ingredients_hierarchy_taxonomize_brands,
 );
 
 %downgrade_functions = (
 	1000 => \&convert_schema_1000_to_999_rename_environmental_score_fields_to_ecoscore,
-	1001 => \&convert_schema_1001_to_1000_add_ingredients_hierarchy,
+	1001 => \&convert_schema_1001_to_1000_remove_ingredients_hierarchy_taxonomize_brands,
 );
 
 =headd2 999 to 1000 - Rename ecoscore fields to environmental_score fields - API v3.1
@@ -145,23 +145,37 @@ sub convert_schema_1000_to_999_rename_environmental_score_fields_to_ecoscore ($p
 
 =head2 1000 to 1001 - Remove the ingredients_hierarchy field - API v3.2
 
-2012/03/14 - Remove the ingredients_hierarchy field, which was a duplicate of the ingredients_tags field
+2012/03/14
+
+- Remove the ingredients_hierarchy field, which was a duplicate of the ingredients_tags field
+- Taxonomize brands
 
 =cut
 
-sub convert_schema_1000_to_1001_remove_ingredients_hierarchy ($product_ref) {
+sub convert_schema_1000_to_1001_remove_ingredients_hierarchy_taxonomize_brands ($product_ref) {
 
+	# The ingredients_hierarchy array contained exactly the same data as the ingredients_tags array
 	delete $product_ref->{ingredients_hierarchy};
+
+	# Taxonomize brands
+	# we use the main language of the product, but the brands taxonomy is language-less
+	# (all canonical entries use the language less xx: prefix) so any language would give the same result
+	compute_field_tags($product_ref, $product_ref->{lang}, "brands");
 
 	return;
 }
 
-sub convert_schema_1001_to_1000_add_ingredients_hierarchy ($product_ref) {
+sub convert_schema_1001_to_1000_remove_ingredients_hierarchy_taxonomize_brands ($product_ref) {
 
 	# The ingredients_hierarchy array contained exactly the same data as the ingredients_tags array
 	if (exists $product_ref->{ingredients_tags}) {
 		$product_ref->{ingredients_hierarchy} = $product_ref->{ingredients_tags};
 	}
+
+	# remove brands_lc and brands_hierarchy
+	delete $product_ref->{brands_lc};
+	delete $product_ref->{brands_hierarchy};
+	# brands should already contain the list of brands, so we do not need to regenerate it from brands_hierarchy
 
 	return;
 }
