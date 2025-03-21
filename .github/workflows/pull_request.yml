@@ -83,12 +83,6 @@ jobs:
       run: |
         docker pull ghcr.io/openfoodfacts/openfoodfacts-server/backend:buildcache || true
         docker tag ghcr.io/openfoodfacts/openfoodfacts-server/backend:buildcache openfoodfacts-server/backend:dev || make build container=backend
-    - name: Setup directory permissions for Pulled Docker image
-      if: needs.filter.outputs.docker_modified != 'true'
-      run: |
-        mkdir -p lib/ProductOpener html/dump html/exports html/files
-        # Ensure Docker container can write to these directories
-        chmod -R 777 lib/ProductOpener html/dump html/exports html/files
     - name: push backend image as artifact
       uses: ishworkh/container-image-artifact-upload@v2.0.0
       with:
