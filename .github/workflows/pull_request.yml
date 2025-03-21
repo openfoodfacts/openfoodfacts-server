@@ -145,7 +145,7 @@ jobs:
       if: needs.filter.outputs.docker_modified != 'true'
       run: |
         mkdir -p lib/ProductOpener html/dump html/exports html/files
-        chmod -R 777 lib/ProductOpener html/dump html/exports html/files
+        sudo chmod -R 777 lib/ProductOpener html/dump html/exports html/files
         echo "DOCKER_UID=$(id -u):$(id -g)" >> $GITHUB_ENV
     - name: build taxonomies (should use cache)
       run: make DOCKER_OPTS="-u 0" DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
