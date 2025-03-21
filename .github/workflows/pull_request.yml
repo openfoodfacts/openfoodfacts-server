@@ -139,6 +139,8 @@ jobs:
       env:
         FILE: "${{ steps.downloadbackendimage.outputs.download_path }}"
       run: rm $FILE
+    - name: Fix file permissions
+      run: sudo chown -R $(id -u):$(id -g) .
     - name: Setup directory permissions for Pulled Docker image
       if: needs.filter.outputs.docker_modified != 'true'
       run: |
