@@ -18,12 +18,12 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # FIXME: not used yet
   filter:
     name: "Filter changed paths"
     runs-on: ubuntu-latest
     outputs:
       code_modified: ${{ steps.filter.outputs.code_modified }}
+      docker_modified: ${{ steps.filter.outputs.docker_modified }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -32,9 +32,9 @@ jobs:
         uses: tj-actions/changed-files@v45
         id: changed_files
 
-      - name: Filter non-markdown and non-docs files
+      - name: Filter non-markdown and non-docs files & Check if Docker-related files changed
         id: filter
-        run: ./.github/scripts/path-filter.sh "${{ steps.changed_files.outputs.all_changed_files }}"
+        run: ./.github/scripts/path-filter.sh "${{ steps.changed_files.outputs.all_changed_files }}" && ./.github/scripts/docker-modification.sh "${{ steps.changed_files.outputs.all_changed_files }}"
 
   lint:
     name: 🕵️‍♀️ NPM lint
@@ -141,10 +141,14 @@ jobs:
       run: make check_perl
 
   tests:
-    name: 🐪 Perl unit tests
+    name: 🐪 Perl Tests
     needs: [filter, build_backend]
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
+    strategy:
+      fail-fast: false
+      matrix:
+        test: [unit, integration]
     steps:
     - uses: actions/checkout@v4
       with:
@@ -169,7 +173,7 @@ jobs:
       env:
         FILE: "${{ steps.downloadbackendimage.outputs.download_path }}"
       run: rm $FILE
-    - name: tests
+    - name: Run ${{ matrix.test-type }} tests
       run: |
         make codecov_prepare
         make COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' DOCKER_LOCAL_DATA="$(pwd)" tests GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
@@ -189,7 +193,7 @@ jobs:
       uses: codecov/test-results-action@v1
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
-        files: ./tests/unit/outputs/junit.xml,./tests/integration/outputs/junit.xml
+        files: ./tests/${{ matrix.test-type }}/outputs/junit.xml
 
   tests_dev:
     name: 🧪 Test make dev
