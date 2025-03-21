@@ -279,7 +279,7 @@ unit_test: create_folders
 	@echo "🥫 Running unit tests …"
 	mkdir -p tests/unit/outputs/
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit.xml" -e PO_EAGER_LOAD_DATA=1 -T --rm ${DOCKER_OPTS} backend bash -c "which yath || cpanm -n Test2::Harness Test2::Harness::Renderer::JUnit && yath test --renderer=Formatter --renderer=JUnit --job-count=${CPU_COUNT} -PProductOpener::LoadData  tests/unit"
+	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit.xml" -e PO_EAGER_LOAD_DATA=1 -T --rm backend yath test --renderer=Formatter --renderer=JUnit --job-count=${CPU_COUNT} -PProductOpener::LoadData  tests/unit
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 unit tests success"
 
@@ -291,7 +291,7 @@ integration_test: create_folders
 # this is the place where variables are important
 	${DOCKER_COMPOSE_INT_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion redis
 # note: we need the -T option for ci (non tty environment)
-	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/integration/outputs/junit.xml" -e PO_EAGER_LOAD_DATA=1 -T ${DOCKER_OPTS} backend bash -c "which yath || cpanm -n Test2::Harness && yath --renderer=Formatter --renderer=JUnit -PProductOpener::LoadData tests/integration"
+	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/integration/outputs/junit.xml" -e PO_EAGER_LOAD_DATA=1 -T backend yath --renderer=Formatter --renderer=JUnit -PProductOpener::LoadData tests/integration
 	${DOCKER_COMPOSE_INT_TEST} stop
 	@echo "🥫 integration tests success"
 
@@ -381,7 +381,7 @@ TO_TIDY_CHECK := $(shell echo ${TO_CHECK}| tr " " "\n" | grep -vFf .perltidy_exc
 check_perltidy:
 	@echo "🥫 Checking with perltidy ${TO_TIDY_CHECK}"
 	@if grep -E '^\s*$$' .perltidy_excludes; then echo "No blank line accepted in .perltidy_excludes, fix it"; false; fi
-	test -z "${TO_TIDY_CHECK}" || ${DOCKER_COMPOSE_BUILD} run --rm --no-deps ${DOCKER_OPTS} backend bash -c "which perltidy || find / -name perltidy 2>/dev/null || echo 'Not found'; cpanm -n Perl::Tidy && perltidy --assert-tidy -opath=/tmp/ --standard-error-output ${TO_TIDY_CHECK}"
+	test -z "${TO_TIDY_CHECK}" || ${DOCKER_COMPOSE_BUILD} run --rm --no-deps backend perltidy --assert-tidy -opath=/tmp/ --standard-error-output ${TO_TIDY_CHECK}
 
 # same as check_perltidy, but this time applying changes
 lint_perltidy:
@@ -396,7 +396,7 @@ lint_perltidy:
 # find . -regex ".*\.\(p[lM]\|t\)"|grep -v "/\."|grep -v "/obsolete/"|xargs docker compose run --rm --no-deps -T backend perlcritic
 check_critic:
 	@echo "🥫 Checking with perlcritic"
-	test -z "${TO_CHECK}" || ${DOCKER_COMPOSE_BUILD} run --rm --no-deps ${DOCKER_OPTS} backend bash -c "which perlcritic || cpanm -n Perl::Critic && perlcritic ${TO_CHECK}"
+	test -z "${TO_CHECK}" || ${DOCKER_COMPOSE_BUILD} run --rm --no-deps backend perlcritic ${TO_CHECK}
 
 TAXONOMIES_TO_CHECK := $(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --name-only | grep -E 'taxonomies.*/.*\.txt$$' | grep -v '\.result.txt' | xargs ls -d 2>/dev/null | grep -v "^.$$")
 
@@ -436,7 +436,7 @@ build_taxonomies: create_folders
 	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache _bind_local
 	@echo "🥫 build taxonomies"
 # GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
-	${DOCKER_COMPOSE_BUILD} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} ${DOCKER_OPTS} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
+	${DOCKER_COMPOSE_BUILD} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
 
 # a version where we force building without using cache
 # use it when you are developing in Tags.pm and want to iterate
@@ -449,7 +449,7 @@ build_taxonomies_test: create_folders
 	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache PROJECT_SUFFIX=_test _bind_local
 	@echo "🥫 build taxonomies"
 # GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
-	${DOCKER_COMPOSE_TEST} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} ${DOCKER_OPTS} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
+	${DOCKER_COMPOSE_TEST} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
 
 
 _clean_old_external_volumes:
@@ -565,4 +565,3 @@ guard-%: # guard clause for targets that require an environment variable (usuall
    		echo "Environment variable '$*' is not set"; \
    		exit 1; \
 	fi;
-
