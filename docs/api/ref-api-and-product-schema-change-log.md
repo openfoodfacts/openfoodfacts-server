@@ -26,7 +26,7 @@ For each of those API version, we have a corresponding product schema version.
 
 When a client makes a request with a specific API version, we do our best to convert the response to the corresponding product schema version.
 
-## Schema version and API version change log
+## Schema version and API version change log
 
 ### 2025-03-12 - Product version 1001 - API version 3.2 - Removed ingredients_hierarchy, added schema_version
 

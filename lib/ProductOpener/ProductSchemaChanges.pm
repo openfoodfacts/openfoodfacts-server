@@ -77,6 +77,7 @@ sub convert_product_schema ($product_ref, $to_version) {
 	my $from_version = $product_ref->{schema_version} // 999;
 
 	if ($from_version < $to_version) {
+		# incrementally upgrade schema
 		for (my $schema_version = $from_version; $schema_version < $to_version; $schema_version++) {
 			if (exists $upgrade_functions{$schema_version}) {
 				$upgrade_functions{$schema_version}->($product_ref);
@@ -84,6 +85,7 @@ sub convert_product_schema ($product_ref, $to_version) {
 		}
 	}
 	elsif ($from_version > $to_version) {
+		# incrementally downgrade version
 		for (my $schema_version = $from_version; $schema_version > $to_version; $schema_version--) {
 			if (exists $downgrade_functions{$schema_version}) {
 				$downgrade_functions{$schema_version}->($product_ref);
