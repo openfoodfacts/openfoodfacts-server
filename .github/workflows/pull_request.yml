@@ -77,8 +77,14 @@ jobs:
         path: ./build-cache
         key: taxonomies-${{ hashFiles('taxonomies/**') }}
         restore-keys: taxonomies-
-    - name: build
+    - name: Build Docker image if needed
+      if: needs.filter.outputs.docker_modified == 'true'
       run: make build container=backend
+    - name: Pull Doker image form main branch
+      if: needs.filter.outputs.docker_modified != 'true'
+      run: |
+        docker pull ghcr.io/jagjeevanak/openfoodfacts-backend:latest || true
+        docker tag ghcr.io/jagjeevanak/openfoodfacts-backend:latest openfoodfacts-server/backend:dev || make build container=backend
     - name: push backend image as artifact
       uses: ishworkh/container-image-artifact-upload@v2.0.0
       with:
