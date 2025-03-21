@@ -181,7 +181,8 @@ $flavor = 'off';
 	site_name => "Open Food Facts",
 	product_type => "food",
 	og_image_url => "https://static.openfoodfacts.org/images/logos/off-logo-vertical-white-social-media-preview.png",
-	android_apk_app_link => "https://world.openfoodfacts.org/files/off.apk?utm_source=off&utf_medium=web",
+	android_apk_app_link => "https://github.com/openfoodfacts/smooth-app/releases/latest",
+	f_droid_app_link => "https://f-droid.org/packages/openfoodfacts.github.scrachx.openfood",
 	android_app_link =>
 		"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=off&utf_medium=web",
 	ios_app_link => "https://apps.apple.com/app/open-food-facts/id588797948?utm_source=off&utf_medium=web",
