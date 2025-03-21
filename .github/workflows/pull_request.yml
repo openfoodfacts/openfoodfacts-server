@@ -154,7 +154,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        test: [unit, integration]
+        test-type: [unit, integration]
     steps:
     - uses: actions/checkout@v4
       with:
