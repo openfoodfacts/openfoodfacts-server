@@ -148,11 +148,11 @@ jobs:
     - name: check taxonomies
       run: make check_taxonomies
     - name: check perltidy
-      run: make check_perltidy
+      run: make DOCKER_OPTS="-u 0" check_perltidy
     - name: check perlcritic
-      run: make check_critic
+      run: make DOCKER_OPTS="-u 0" check_critic
     - name: check perl
-      run: make check_perl
+      run: make DOCKER_OPTS="-u 0" check_perl
 
   tests:
     name: 🐪 Perl Tests
@@ -207,7 +207,7 @@ jobs:
       if: always()
       run: |
         make coverage_txt
-        make codecov
+        make DOCKER_OPTS="-u 0" codecov
     - uses: codecov/codecov-action@v5
       if: always()
       with:
@@ -254,19 +254,14 @@ jobs:
         mkdir -p lib/ProductOpener html/dump html/exports html/files
         # Ensure Docker container can write to these directories
         chmod -R 777 lib/ProductOpener html/dump html/exports html/files
-    - name: set right UID and GID in .envrc
-      run: |
-        rm -f .envrc
-        echo "export USER_UID=$(id -u)" >> .envrc
-        echo "export USER_GID=$(id -g)" >> .envrc
     - name: Test make dev
       run: |
         make DOCKER_OPTS="-u 0" DOCKER_LOCAL_DATA="$(pwd)" SKIP_SAMPLE_IMAGES=1 dev_no_build
         make status
     - name: Test all is running
-      run: make livecheck || ( tail -n 300 logs/apache2/*error*log; docker compose logs; false )
+      run: make DOCKER_OPTS="-u 0" livecheck || ( tail -n 300 logs/apache2/*error*log; docker compose logs; false )
     - name: test clean
-      run: make hdown
+      run: make DOCKER_OPTS="-u 0" hdown
 
   test_deployment:
     name: 🦾 Some test of deployment tools
