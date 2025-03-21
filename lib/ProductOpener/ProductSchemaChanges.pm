@@ -60,6 +60,8 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
+use ProductOpener::Tags qw/compute_field_tags/;
+
 $current_schema_version = 1001;
 
 my (%upgrade_functions, %downgrade_functions);
