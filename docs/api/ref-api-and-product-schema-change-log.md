@@ -64,3 +64,5 @@ Breaking changes:
 - For product READ requests, if the product does not exist, we return HTTP status code 404 instead of 200.
 
 ### Product version 996 - API version 0
+
+This is considered the initial version.
