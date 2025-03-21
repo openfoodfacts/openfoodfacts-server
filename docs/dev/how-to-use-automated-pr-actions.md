@@ -22,3 +22,10 @@ If you do a change that affects the API or HTML rendering, the tests might fail
 Issue `/update_tests_results` in a comment to have the test refresh their expectation.
 
 Beware that you must check for the changes after that to be sure, changes are correct and that you didn't introduce a bug.
+
+## Debugging
+
+Normally after the action finishes, it commits to your PR and it relaunch the checks.
+
+If it does not happens, you can see the result of actions in the actions tab, [selecting pr_actions workflow](https://github.com/openfoodfacts/openfoodfacts-server/actions/workflows/pr_actions.yml)
+
