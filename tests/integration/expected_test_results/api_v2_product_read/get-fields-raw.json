@@ -702,24 +702,6 @@
          "en:non-vegan",
          "en:vegetarian"
       ],
-      "ingredients_hierarchy" : [
-         "en:apple",
-         "en:fruit",
-         "en:malaceous-fruit",
-         "en:milk",
-         "en:dairy",
-         "en:egg",
-         "en:palm-oil",
-         "en:oil-and-fat",
-         "en:vegetable-oil-and-fat",
-         "en:palm-oil-and-fat",
-         "en:colour",
-         "en:emulsifier",
-         "en:e100",
-         "en:soya-lecithin",
-         "en:e322",
-         "en:e322i"
-      ],
       "ingredients_lc" : "en",
       "ingredients_n" : 8,
       "ingredients_n_tags" : [
@@ -780,7 +762,7 @@
       "ingredients_without_ecobalyse_ids_n" : 4,
       "interface_version_created" : "20150316.jqm2",
       "interface_version_modified" : "20150316.jqm2",
-      "known_ingredients_n" : 16,
+      "known_ingredients_n" : 8,
       "labels" : "organic",
       "labels_hierarchy" : [
          "en:organic"
@@ -1245,6 +1227,7 @@
       "quantity" : "100 g",
       "removed_countries_tags" : [],
       "rev" : 1,
+      "schema_version" : 1001,
       "serving_quantity" : "10",
       "serving_quantity_unit" : "g",
       "serving_size" : "10 g",

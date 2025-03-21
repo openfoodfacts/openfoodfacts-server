@@ -124,6 +124,7 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
+use ProductOpener::ProductSchemaChanges qw/$current_schema_version convert_product_schema/;
 use ProductOpener::Store qw/get_string_id_for_lang get_url_id_for_lang retrieve store/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::ConfigEnv qw/:all/;
@@ -1132,6 +1133,9 @@ sub store_product ($user_id, $product_ref, $comment) {
 	my $path = product_path($product_ref);
 	my $rev = $product_ref->{rev};
 	my $action = "updated";
+
+	# Update product schema version
+	$product_ref->{schema_version} = $current_schema_version;
 
 	$log->debug(
 		"store_product - start",
