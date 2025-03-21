@@ -279,7 +279,7 @@ unit_test: create_folders
 	@echo "🥫 Running unit tests …"
 	mkdir -p tests/unit/outputs/
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit.xml" -e PO_EAGER_LOAD_DATA=1 -T --rm ${DOCKER_OPTS} backend bash -c "which yath || cpanm -n Test2::Harness && yath test --renderer=Formatter --renderer=JUnit --job-count=${CPU_COUNT} -PProductOpener::LoadData  tests/unit"
+	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit.xml" -e PO_EAGER_LOAD_DATA=1 -T --rm ${DOCKER_OPTS} backend bash -c "which yath || cpanm -n Test2::Harness Test2::Harness::Renderer::JUnit && yath test --renderer=Formatter --renderer=JUnit --job-count=${CPU_COUNT} -PProductOpener::LoadData  tests/unit"
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 unit tests success"
 
