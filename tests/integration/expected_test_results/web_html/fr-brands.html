@@ -390,18 +390,18 @@
 
 <!-- end templates/web/pages/tag/tag.tt.html -->
 <p>5 marques :</p><div style="max-width:600px;"><table id="tagstable">
-<thead><tr><th>Marque</th><th>Produits</th></tr></thead>
+<thead><tr><th>Marque</th><th>Produits</th><th>*</th></tr></thead>
 <tbody>
-<tr><td><a href="/facets/marques/bob-s-juices" class="tag">Bob-s-juices</a></td>
-<td style="text-align:right"><a href="/facets/marques/bob-s-juices" class="tag">2</a></td></tr>
-<tr><td><a href="/facets/marques/les-tartes-de-robert" class="tag">Les-tartes-de-robert</a></td>
-<td style="text-align:right"><a href="/facets/marques/les-tartes-de-robert" class="tag">2</a></td></tr>
-<tr><td><a href="/facets/marques/alice-s-ice-creams" class="tag">Alice-s-ice-creams</a></td>
-<td style="text-align:right"><a href="/facets/marques/alice-s-ice-creams" class="tag">1</a></td></tr>
-<tr><td><a href="/facets/marques/bob-s-creme" class="tag">Bob-s-creme</a></td>
-<td style="text-align:right"><a href="/facets/marques/bob-s-creme" class="tag">1</a></td></tr>
-<tr><td><a href="/facets/marques/bob-s-salads" class="tag">Bob-s-salads</a></td>
-<td style="text-align:right"><a href="/facets/marques/bob-s-salads" class="tag">1</a></td></tr>
+<tr><td><a href="/facets/marques/bob-s-juices" class="tag user_defined">bob-s-juices</a></td>
+<td style="text-align:right"><a href="/facets/marques/bob-s-juices" class="tag user_defined">2</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/marques/les-tartes-de-robert" class="tag user_defined">les-tartes-de-robert</a></td>
+<td style="text-align:right"><a href="/facets/marques/les-tartes-de-robert" class="tag user_defined">2</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/marques/alice-s-ice-creams" class="tag user_defined">alice-s-ice-creams</a></td>
+<td style="text-align:right"><a href="/facets/marques/alice-s-ice-creams" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/marques/bob-s-creme" class="tag user_defined">bob-s-creme</a></td>
+<td style="text-align:right"><a href="/facets/marques/bob-s-creme" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/marques/bob-s-salads" class="tag user_defined">bob-s-salads</a></td>
+<td style="text-align:right"><a href="/facets/marques/bob-s-salads" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
 </tbody></table></div>
 								</div>
 							</div>
@@ -598,7 +598,7 @@ let oTable = $('#tagstable').DataTable({
 	order: [[ 1, "desc" ]],
 	columns: [
 		null,
-		{"searchable": false} 
+		{"searchable": false} , {"searchable": false}
 	]
 });
 
