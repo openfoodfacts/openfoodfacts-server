@@ -1,7 +1,6 @@
 #!/usr/bin/perl -w
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use Test2::V0;
 use Log::Any::Adapter 'TAP';
