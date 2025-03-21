@@ -46,8 +46,8 @@ use vars @EXPORT_OK;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Products qw/is_valid_code normalize_code product_url/;
-use ProductOpener::Display
-	qw/$formatted_subdomain %index_tag_types_set display_robots_txt_and_exit init_request redirect_to_url single_param/;
+use ProductOpener::Display qw/$formatted_subdomain %index_tag_types_set display_robots_txt_and_exit init_request/;
+use ProductOpener::HTTP qw/redirect_to_url single_param/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/%tag_type_from_plural %tag_type_from_singular %tag_type_plural %tag_type_singular lang/;
 use ProductOpener::API qw/:all/;

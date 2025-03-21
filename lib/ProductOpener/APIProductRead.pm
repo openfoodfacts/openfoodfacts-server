@@ -45,7 +45,8 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
-use ProductOpener::Display qw/$subdomain redirect_to_url request_param single_param/;
+use ProductOpener::Display qw/$subdomain/;
+use ProductOpener::HTTP qw/request_param single_param redirect_to_url/;
 use ProductOpener::Users qw/$Owner_id/;
 use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Products qw/:all/;
