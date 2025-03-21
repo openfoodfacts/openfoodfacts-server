@@ -379,9 +379,9 @@ check_perl:
 # see %.pl %.pm %.t rule above that compiles files individually
 TO_TIDY_CHECK := $(shell echo ${TO_CHECK}| tr " " "\n" | grep -vFf .perltidy_excludes)
 check_perltidy:
-    @echo "🥫 Checking with perltidy ${TO_TIDY_CHECK}"
-    @if grep -E '^\s*$$' .perltidy_excludes; then echo "No blank line accepted in .perltidy_excludes, fix it"; false; fi
-    test -z "${TO_TIDY_CHECK}" || ${DOCKER_COMPOSE_BUILD} run --rm --no-deps ${DOCKER_OPTS} backend bash -c "which perltidy || find / -name perltidy 2>/dev/null || echo 'Not found'; cpanm -n Perl::Tidy && perltidy --assert-tidy -opath=/tmp/ --standard-error-output ${TO_TIDY_CHECK}"
+	@echo "🥫 Checking with perltidy ${TO_TIDY_CHECK}"
+	@if grep -E '^\s*$$' .perltidy_excludes; then echo "No blank line accepted in .perltidy_excludes, fix it"; false; fi
+	test -z "${TO_TIDY_CHECK}" || ${DOCKER_COMPOSE_BUILD} run --rm --no-deps ${DOCKER_OPTS} backend bash -c "which perltidy || find / -name perltidy 2>/dev/null || echo 'Not found'; cpanm -n Perl::Tidy && perltidy --assert-tidy -opath=/tmp/ --standard-error-output ${TO_TIDY_CHECK}"
 
 # same as check_perltidy, but this time applying changes
 lint_perltidy:
