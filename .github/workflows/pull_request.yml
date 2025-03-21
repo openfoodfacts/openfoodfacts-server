@@ -81,8 +81,8 @@ jobs:
     - name: Pull Doker image form main branch
       if: needs.filter.outputs.docker_modified != 'true'
       run: |
-        docker pull ghcr.io/openfoodfacts/openfoodfacts-server/backend:main || true
-        docker tag ghcr.io/openfoodfacts/openfoodfacts-server/backend:main openfoodfacts-server/backend:dev || make build container=backend
+        docker pull ghcr.io/openfoodfacts/openfoodfacts-server/backend:buildcache || true
+        docker tag ghcr.io/openfoodfacts/openfoodfacts-server/backend:buildcache openfoodfacts-server/backend:dev || make build container=backend
     - name: Setup directory permissions for Pulled Docker image
       if: needs.filter.outputs.docker_modified != 'true'
       run: |
