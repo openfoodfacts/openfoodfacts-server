@@ -90,7 +90,7 @@ jobs:
     - name: Setup Git and Restore Taxonomies
       run: ./.github/scripts/setup_git.sh
     - name: Rebuild taxonomies for Open Food Facts (off)
-      run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+      run: make TAG="main" DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
     - name: Rebuild taxonomies for Open Beauty Facts (obf)
       run: |
         source env/setenv.sh obf
