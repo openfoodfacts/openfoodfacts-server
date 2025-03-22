@@ -131,7 +131,7 @@ jobs:
 
   check_perl:
     name: 🐪 Check Perl
-    needs: [filter, build_backend]
+    needs: [filter, build_backend, taxonomies]
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     steps:
