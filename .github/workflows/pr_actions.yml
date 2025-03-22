@@ -48,7 +48,7 @@ jobs:
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
         commit_message: "chore: Linting changes"
-        branch: ${{ github.event.pull_request.head.ref }}
+        branch: "${{ steps.get-branch.outputs.branch }}"
         commit_user_name: Open Food Facts Bot
         commit_user_email: contact@openfoodfacts.org
         commit_author: Open Food Facts Bot <contact@openfoodfacts.org>
@@ -94,7 +94,7 @@ jobs:
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
         commit_message: "test: Update tests results"
-        branch: ${{ github.event.pull_request.head.ref }}
+        branch: "${{ steps.get-branch.outputs.branch }}"
         commit_user_name: Open Food Facts Bot
         commit_user_email: contact@openfoodfacts.org
         commit_author: Open Food Facts Bot <contact@openfoodfacts.org>
