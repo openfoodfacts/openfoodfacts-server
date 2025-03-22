@@ -60,6 +60,29 @@ jobs:
     - name: lint
       run: make front_lint
 
+
+  taxonomies:
+    name: "Build and Cache Taxonomies"
+    needs: filter 
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Git and Environment
+        uses: ./.github/scripts/setup_git.sh
+      - name: Build Taxonomies for All Projects
+        run: |
+          make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+            source env/setenv.sh obf && make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+            source env/setenv.sh opf && make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+            source env/setenv.sh opff && make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+      - name: Upload Taxonomy Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: taxonomies
+          path: ${{ env.DOCKER_LOCAL_DATA }}/build-cache
+
   # this will build the docker image and upload as an artifact for following jobs
   build_backend:
     name: 🏗 Build backend dev image for tests
@@ -135,6 +158,10 @@ jobs:
       env:
         FILE: "${{ steps.downloadbackendimage.outputs.download_path }}"
       run: rm $FILE
+    - name: Download Taxonomy Artifacts
+      uses: actions/download-artifact@v3
+      with:
+        name: taxonomies
     - name: build taxonomies (should use cache)
       run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
     - name: check taxonomies
