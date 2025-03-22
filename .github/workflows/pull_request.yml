@@ -60,37 +60,6 @@ jobs:
     - name: lint
       run: make front_lint
 
-
-  taxonomies:
-    name: "Build and Cache Taxonomies"
-    needs: filter 
-    runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 50
-      - uses: actions/cache@v4
-        id: cache
-        with:
-          path: ./build-cache
-          key: taxonomies-${{ hashFiles('taxonomies/**') }}
-          restore-keys: taxonomies-
-      - name: Setup Git and Environment
-        run: ./.github/scripts/setup_git.sh
-      - name: Build Taxonomies for All Projects
-        run: |
-          make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
-            source env/setenv.sh obf && make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
-            source env/setenv.sh opf && make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
-            source env/setenv.sh opff && make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
-      - name: Upload Taxonomy Artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: taxonomies
-          path: ${{ env.DOCKER_LOCAL_DATA }}/build-cache
-
   # this will build the docker image and upload as an artifact for following jobs
   build_backend:
     name: 🏗 Build backend dev image for tests
@@ -120,26 +89,26 @@ jobs:
       uses: ishworkh/container-image-artifact-upload@v2.0.0
       with:
         image: "openfoodfacts-server/backend:dev"
-    # - name: Setup Git and Restore Taxonomies
-    #   run: ./.github/scripts/setup_git.sh
-    # - name: Rebuild taxonomies for Open Food Facts (off)
-    #   run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
-    # - name: Rebuild taxonomies for Open Beauty Facts (obf)
-    #   run: |
-    #     source env/setenv.sh obf
-    #     make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
-    # - name: Rebuild taxonomies for Open Products Facts (opf)
-    #   run: |
-    #     source env/setenv.sh opf
-    #     make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
-    # - name: Rebuild taxonomies for Open Pet Food Facts (opff)
-    #   run: |
-    #     source env/setenv.sh opff
-    #     make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+    - name: Setup Git and Restore Taxonomies
+      run: ./.github/scripts/setup_git.sh
+    - name: Rebuild taxonomies for Open Food Facts (off)
+      run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+    - name: Rebuild taxonomies for Open Beauty Facts (obf)
+      run: |
+        source env/setenv.sh obf
+        make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+    - name: Rebuild taxonomies for Open Products Facts (opf)
+      run: |
+        source env/setenv.sh opf
+        make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+    - name: Rebuild taxonomies for Open Pet Food Facts (opff)
+      run: |
+        source env/setenv.sh opff
+        make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
 
   check_perl:
     name: 🐪 Check Perl
-    needs: [filter, build_backend, taxonomies]
+    needs: [filter, build_backend]
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     steps:
@@ -166,10 +135,6 @@ jobs:
       env:
         FILE: "${{ steps.downloadbackendimage.outputs.download_path }}"
       run: rm $FILE
-    - name: Download Taxonomy Artifacts
-      uses: actions/download-artifact@v4
-      with:
-        name: taxonomies
     - name: build taxonomies (should use cache)
       run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
     - name: check taxonomies
