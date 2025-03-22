@@ -611,8 +611,8 @@
 					
 					
 					$("#score").html('' + total + ' / ' + maxpoints);
-					$("#score_share").html('<p>Share your score on Twitter:<br/>' +
-'<iframe allowtransparency="true" frameborder="0" scrolling="no" role="presentation" src="http://platform.twitter.com/widgets/tweet_button.html?via=OpenFoodFactsUK&amp;size=large&amp;count=none&amp;lang=en&amp;text='
+					$("#score_share").html('<p>Share your score on x:<br/>' +
+'<iframe allowtransparency="true" frameborder="0" scrolling="no" role="presentation" src="http://platform.x.com/widgets/tweet_button.html?via=OpenFoodFactsUK&amp;size=large&amp;count=none&amp;lang=en&amp;text='
 + total + "%2F" + maxpoints + "!%20Guessing%20how%20much%20sugar%20food%20products%20contain%20is%20a%20piece%20of%20cake!%20Try%20it!"
 + '&amp;url=http%3A%2F%2Fhowmuchsugar.in" style="width:200px;height:30px;"></iframe></p>'
 					);
