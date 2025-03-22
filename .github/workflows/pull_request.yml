@@ -69,6 +69,14 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 50
+      - uses: actions/cache@v4
+        id: cache
+        with:
+          path: ./build-cache
+          key: taxonomies-${{ hashFiles('taxonomies/**') }}
+          restore-keys: taxonomies-
       - name: Setup Git and Environment
         run: ./.github/scripts/setup_git.sh
       - name: Build Taxonomies for All Projects
