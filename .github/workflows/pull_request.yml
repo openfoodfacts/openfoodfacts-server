@@ -70,7 +70,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Setup Git and Environment
-        uses: ./.github/scripts/setup_git.sh
+        run: ./.github/scripts/setup_git.sh
       - name: Build Taxonomies for All Projects
         run: |
           make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
