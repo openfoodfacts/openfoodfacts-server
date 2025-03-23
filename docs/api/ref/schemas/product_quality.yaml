@@ -6,22 +6,42 @@ properties:
     type: array
     items:
       type: object
+      description: |
+        Each data quality gug describes a data quality bug on the product.
+
+        Refer to the [data quality taxonomy](https://static.openfoodfacts.net/data/taxonomies/data_quality.json)
   data_quality_errors_tags:
     type: array
     items:
       type: object
+      description: |
+        Each Data Quality Error describes a data quality error on the product.
+
+        Refer to the [data quality taxonomy](https://static.openfoodfacts.net/data/taxonomies/data_quality.json)
   data_quality_info_tags:
     type: array
     items:
       type: string
+      description: |
+        Each Data Quality Info describes a data quality info on the product.
+
+        Refer to the [data quality taxonomy](https://static.openfoodfacts.net/data/taxonomies/data_quality.json)
   data_quality_tags:
     type: array
     items:
       type: string
+      description: |
+        Each Data Quality tag describes a data quality issue on the product.
+
+        Refer to the [data quality taxonomy](https://static.openfoodfacts.net/data/taxonomies/data_quality.json)
   data_quality_warnings_tags:
     type: array
     items:
       type: string
+      description: |
+        Each Data Quality warning tag describes a data quality warning on the product.
+
+        Refer to the [data quality taxonomy](https://static.openfoodfacts.net/data/taxonomies/data_quality.json)
   data_sources:
     type: string
     description: |
@@ -61,6 +81,7 @@ properties:
   misc_tags:
     description: |
       Information about different aspect of the product
+        Refer to [misc taxonomy](https://static.openfoodfacts.net/data/taxonomies/misc.json)
     type: array
     items:
       type: string
