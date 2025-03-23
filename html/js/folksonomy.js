@@ -463,15 +463,16 @@ function displayAllProperties() {
  * Intended For:
  *   Guest users who are not authenticated.
  *   This ensures that while guests can view all properties, they cannot add, edit, or delete any entries.
+ * @returns {void}
  */
 function restrictFolksonomyForGuests() {
     console.log("Enforcing read-only mode for non-logged-in users.");
 
     setTimeout(() => {
 
-        document.querySelectorAll(".fe_edit_kv, .fe_del_kv, #new_kv_button").forEach(btn => {
+        document.querySelectorAll(".fe_edit_kv, .fe_del_kv, #new_kv_button").forEach((btn) => {
             // Remove any existing event listeners to prevent conflicts.
-            let newBtn = btn.cloneNode(true);
+            const newBtn = btn.cloneNode(true);
             btn.parentNode.replaceChild(newBtn, btn);
 
             // Block action and show the login modal instead.
@@ -483,6 +484,8 @@ function restrictFolksonomyForGuests() {
 
     }, 500); // Delay ensures buttons are available before modifying them.
 }
+document.addEventListener("DOMContentLoaded", restrictFolksonomyForGuests);
+
 
 /**
  * enforceLoginForPropertiesPage()
@@ -494,6 +497,7 @@ function restrictFolksonomyForGuests() {
  * Intended For:
  *   Guest users who have not logged in.
  *   Logged-in users bypass this check and access the /properties page normally.
+ * @returns {void}
  */
 function enforceLoginForPropertiesPage() {
     // Only enforce on /properties route:
@@ -872,9 +876,7 @@ function isPageType() {
         }
         
         // Append custom CSS for modal styling.
-        $("<style>")
-            .prop("type", "text/css")
-            .html(`
+        $("<style>").prop("type", "text/css").html(`
                 #loginModal {
                     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
                     text-align: center;
@@ -895,13 +897,10 @@ function isPageType() {
                     border-radius: 5px;
                     border: none;
                 }
-            `)
-            .appendTo("head");
+            `).appendTo("head");
         
         // Create and open the dialog.
-        $("<div id='loginModal' title='Login Required'>")
-            .html("You need to log in to add or edit properties.<br><br>Please click 'Login' to go to the login page.")
-            .dialog({
+        $("<div id='loginModal' title='Login Required'>").html("You need to log in to add or edit properties.<br><br>Please click 'Login' to go to the login page.").dialog({
                 modal: true,
                 resizable: false,
                 draggable: false,
