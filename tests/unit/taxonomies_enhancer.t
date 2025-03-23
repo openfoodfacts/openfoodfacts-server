@@ -5,6 +5,7 @@ use utf8;
 
 use Test2::V0;
 use Data::Dumper;
+use Log::Any::Adapter 'TAP';
 $Data::Dumper::Terse = 1;    # rm variable name
 $Data::Dumper::Indent = 1;
 $Data::Dumper::Sortkeys = 1;
@@ -531,5 +532,18 @@ ok(
 	),
 	'cs-da-de-en-es-fi-fr-it-nl-pt-ru-sv, typo in da based on fi as well as en'
 ) or diag Dumper $product_ref;
+
+# Division by zero bug from product: https://fr.openfoodfacts.org/produit/3256221408515/boulgour-etui-500g-u-bio?rev=74
+# (Stéphane) this product triggered a division by zero in the Minion that imported this product (which runs with debug logs enabled)
+# I was not able to replicate this behavior in the test, even when running it with the same debug logs enabled.
+# www-data@728a936cd5a9:/opt/product-opener$ perl tests/unit/taxonomies_enhancer.t
+$product_ref = {
+	lc => "fr",
+	ingredients_lc => "fr",
+	ingredients_text_en => "100 % durum wheat bulgur precooked*,* ingredient from organic farming,",
+	ingredients_text_fr =>
+		"100% BLE dur concassé précuit*. * ingrédient issu de l'agriculture biologique. Traces éventuelles de SOJA.",
+};
+check_ingredients_between_languages($product_ref);    # Should not crash
 
 done_testing();
