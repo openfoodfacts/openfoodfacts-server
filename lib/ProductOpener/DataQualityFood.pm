@@ -1243,7 +1243,7 @@ sub check_nutrition_data ($product_ref) {
 					and not(defined $product_ref->{nutriments}{"starch_modifier"})
 				)
 				or
-				# with "<" symbo, check only that sugar or starch are not greater than carbohydrates
+				# with "<" symbol, check only that sugar or starch are not greater than carbohydrates
 				(
 					(
 						(
@@ -1278,6 +1278,86 @@ sub check_nutrition_data ($product_ref) {
 
 			push @{$product_ref->{data_quality_errors_tags}},
 				"en:nutrition-sugars-plus-starch-greater-than-carbohydrates";
+		}
+
+		# TODO total carbo = carbo + fiber (sugar + starch + fiber cannot be greater than carbohydrates)
+		# sugar + starch + fiber cannot be greater than total carbohydrates
+		# do not raise error if sugar, starch or fiber contains "<" symbol (see issue #9267)
+		if (
+			(defined $product_ref->{nutriments}{"total-carbohydrates_100g"})
+			and (
+				# without "<" symbol, check sum of sugar, starch and fiber is not greater than carbohydrates
+				(
+					(
+						(
+							(
+								(defined $product_ref->{nutriments}{"sugars_100g"})
+								? $product_ref->{nutriments}{"sugars_100g"}
+								: 0
+							) + (
+								(defined $product_ref->{nutriments}{"starch_100g"})
+								? $product_ref->{nutriments}{"starch_100g"}
+								: 0
+							) + (
+								(defined $product_ref->{nutriments}{"fiber_100g"})
+								? $product_ref->{nutriments}{"fiber_100g"}
+								: 0
+							)
+						) > ($product_ref->{nutriments}{"total-carbohydrates_100g"}) + 0.001
+					)
+					and not(defined $product_ref->{nutriments}{"sugar_modifier"})
+					and not(defined $product_ref->{nutriments}{"starch_modifier"})
+					and not(defined $product_ref->{nutriments}{"fiber_modifier"})
+				)
+				or
+				# with "<" symbol, check only that sugar, starch or fiber are not greater than carbohydrates
+				(
+					(
+						(
+								(defined $product_ref->{nutriments}{"sugar_modifier"})
+							and ($product_ref->{nutriments}{"sugar_modifier"} eq "<")
+						)
+						and (
+							(
+								(defined $product_ref->{nutriments}{"sugars_100g"})
+								? $product_ref->{nutriments}{"sugars_100g"}
+								: 0
+							) > ($product_ref->{nutriments}{"total-carbohydrates_100g"}) + 0.001
+						)
+					)
+					or (
+						(
+								(defined $product_ref->{nutriments}{"starch_modifier"})
+							and ($product_ref->{nutriments}{"starch_modifier"} eq "<")
+						)
+						and (
+							(
+								(defined $product_ref->{nutriments}{"starch_100g"})
+								? $product_ref->{nutriments}{"starch_100g"}
+								: 0
+							) > ($product_ref->{nutriments}{"total-carbohydrates_100g"}) + 0.001
+						)
+					)
+					or (
+						(
+								(defined $product_ref->{nutriments}{"fiber_modifier"})
+							and ($product_ref->{nutriments}{"fiber_modifier"} eq "<")
+						)
+						and (
+							(
+								(defined $product_ref->{nutriments}{"fiber_100g"})
+								? $product_ref->{nutriments}{"fiber_100g"}
+								: 0
+							) > ($product_ref->{nutriments}{"total-carbohydrates_100g"}) + 0.001
+						)
+					)
+				)
+			)
+			)
+		{
+
+			push @{$product_ref->{data_quality_errors_tags}},
+				"en:nutrition-sugars-plus-starch-plus-fiber-greater-than-total-carbohydrates";
 		}
 
 		# sum of nutriments that compose sugar can not be greater than sugar value
