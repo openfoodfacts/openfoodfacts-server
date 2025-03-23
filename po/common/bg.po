@@ -44,6 +44,32 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "Съвместна, безплатна и отворена база данни за съставки и информация за козметични продукти от света."
 
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
+msgstr "Съвместна, безплатна и отворена база данни със съставки и информация за различни продукти от цял свят."
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr "Open Products Facts събира информация и данни за широка гама от продукти от цял свят."
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr "Съвместна, безплатна и отворена база данни за различни продукти от цял свят."
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr "Съвместна, безплатна и отворена база данни със съставки, хранителни факти и информация за хранителни продукти за домашни любимци от цял свят."
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr "Open Pet Food Facts събира информация и данни за хранителни продукти за домашни любимци от цял свят."
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr "Съвместна, безплатна и отворена база данни за съставки и информация за хранителни продукти за домашни любимци от света."
+
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
@@ -268,11 +294,11 @@ msgstr "страница на продукта е редактирана от"
 
 msgctxt "analytical_constituents"
 msgid "Analytical constituents"
-msgstr ""
+msgstr "Аналитични съставки"
 
 msgctxt "analytical_constituents_per_1kg"
 msgid "for 1 kg"
-msgstr ""
+msgstr "за 1 кг"
 
 msgctxt "android_apk_app_icon_url"
 msgid "/images/misc/android-apk.svg"
@@ -5071,11 +5097,11 @@ msgstr "Предпочитанията ви се съхраняват във в�
 
 msgctxt "preferences_edit_your_preferences"
 msgid "Edit your preferences"
-msgstr ""
+msgstr "Редактирайте вашите предпочитания"
 
 msgctxt "preferences_your_preferences"
 msgid "Your preferences"
-msgstr ""
+msgstr "Вашите предпочитания"
 
 # used in phrases like "salt in unknown quantity"
 msgctxt "unknown_quantity"
@@ -5250,7 +5276,7 @@ msgstr "Брой продукти с промени от последния из
 
 msgctxt "number_of_products_withdrawn_from_the_market_since_last_export"
 msgid "Number of products withdrawn from the market since last export"
-msgstr ""
+msgstr "Брой продукти, изтеглени от пазара след последния износ"
 
 msgctxt "only_export_products_with_changes"
 msgid "Only export products with changes"
@@ -5275,7 +5301,7 @@ msgstr "Платформата предоставя и задълбочен ан
 # It = the platform
 msgctxt "product_edits_by_producers_indicators"
 msgid "It computes indicators such as the Nutri-Score, NOVA, and the Green-Score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
-msgstr ""
+msgstr "Той изчислява показатели като Nutri-Score, NOVA и Green-Score и автоматично открива предложения за подобряването им (например всички продукти, които биха получили по-добра Nutri-Score оценка с лека промяна на състава)."
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest footprint"
@@ -7370,4 +7396,12 @@ msgstr ""
 msgctxt "in_contact_with_food"
 msgid "In contact with food"
 msgstr ""
+
+msgctxt "contact_us_producers"
+msgid "Contact Us"
+msgstr ""
+
+msgctxt "delete"
+msgid "Delete"
+msgstr "Изтрий"
 
