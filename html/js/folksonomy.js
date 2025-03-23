@@ -46,7 +46,7 @@ const authrenewal = 1 * 5 * 60 * 60 * 1000;
 
 
 // eslint-disable-next-line no-unused-vars
-function folskonomy_engine_init() {
+function folksonomy_engine_init() {
     const pageType = isPageType(); // test page type
     console.log("FEUS - Folksonomy Engine User Script - 2021-11-19T16:49 - mode: " + pageType);
 
