@@ -1,1 +1,97 @@
-../food/ingredients.txt
+### Properties for ingredients
+
+## Description
+
+# description:en:SOYBEAN OIL is a vegetable oil extracted from the seeds of the soybean (Glycine max).
+
+## Ingredients analysis properties
+
+# vegan:en          can have values yes, no, maybe - in the case of maybe, if the ingredient has sub-ingredients, then only its sub-ingredients are considered
+# vegetarian:en     can have values yes, no, maybe - in the case of maybe, if the ingredient has sub-ingredients, then only its sub-ingredients are considered
+# from_palm_oil:en  can have values yes, no, maybe - in the case of maybe, if the ingredient has sub-ingredients, then only its sub-ingredients are considered
+
+# Links to other databases
+
+# wikidata:en:Q421576
+# wikipedia:en:https://en.wikipedia.org/wiki/Enilconazole
+
+#comment:en:These are synonyms of ingredients
+
+# Synonyms must be separated with an empty line.
+# If a term is also in the taxonomy, it must come first. e.g. "en:hydrolysed"
+
+# comment:en:These are words that occur inside the name of one ingredient, that can be considered as synonyms for matching the ingredient with entries in the taxonomy
+# note: synonyms should not be ingredients themselves, if we have an ingredient entry with synonyms, they should not be listed in the synonyms below as well
+
+# synonyms:en: fiber, fibre
+
+# synonyms:en: hydrolysed, hydrolyzed
+
+# comment:en:These are words that occur inside the name of one ingredient, but that can be removed for matching the ingredient with entries in the taxonomy
+
+# stopwords:ca: i, de
+
+< en:fish oil
+en: Salmon Oil
+da: Lakseolie
+de: Lachsöl
+el: Έλαιο σολομού
+et: Lõheõli
+fi: Lohiöljy
+fr: Huile de saumon
+hr: Lososovo ulje
+it: Olio di salmone
+lv: Laša ella
+nl: Zalmolie
+no: Lakseolje
+pt: Óleo de salmão
+ru: Лососевый жир
+sl: Lososovo olje
+sv: Laxolja
+
+< en:crustacean
+en: krill
+xx: krill
+et: Krilli
+fi: Krilli
+hr: krila
+lv: Krila
+ru: криля
+sl: Krilova
+
+< en:animal
+< en:meat
+en: Meat and animal derivatives
+da: Kød og dyriske biprodukter
+de: Fleisch und tierische Nebenerzeugnisse
+el: Κρέας και παράγωγα ζώων
+et: Liha ja loomsete toiduainete saadused
+fi: Liha ja eläinperäiset jalosteet
+fr: Viande et sous-produits animaux
+hr: Meso i životinjski proizvodi
+it: Carne e sottoprodotti di origine animale
+lv: Gaļa un dzīvnieku produkti
+nl: Vlees en dierlijke bijproducten
+no: Kjøtt og dyriske biprodukter
+pt: Carne e subprodutos de origem animal
+ru: Мясо и продукты животного происхождения
+sl: Meso in živalski izdelki
+sv: Kött och djuriska biprodukter
+
+< en:vegetable
+en: Derivatives of vegetable origin
+da: Planteprodukter
+de: Pflanzliche Nebenerzeugnisse
+el: Παράγωγα φυτικής προέλευσης
+et: Taimsete päritolu saadused
+fi: Kasviperäiset jalosteet
+fr: Sous-produits d'origine végétale
+hr: Biljni proizvodi
+it: Sottoprodotti di origine vegetale
+lv: Augu produkti
+nl: Plantafval
+no: Planteprodukter
+pt: Subprodutos de origem vegetal
+ru: Продукты растительного происхождения
+sl: Rastlinski izdelki
+sv: Växtprodukter
