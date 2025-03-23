@@ -1,7 +1,8 @@
 # Labels specific for Open Product Facts (generic products: not food, pet food or beauty)
 
-en: CE marking
-fr: Marquage CE
+xx: CE
+en: CE, CE marking
+fr: CE, Marquage CE
 
 en: Energy Star
 fr: Energy Star
@@ -9,14 +10,28 @@ fr: Energy Star
 en: EPEAT
 fr: EPEAT
 
-en: FCC certification
-fr: Certification FCC
+xx: FCC
+en: FCC, FCC certification
+fr: FCC, Certification FCC
 
-en: RoHS compliant
-fr: Conforme RoHS
+xx: RoHS
+en: RoHS, RoHS compliant
+fr: RoHS, Conforme RoHS
 
 en: WEEE
 fr: DEEE
+
+xx: UKCA, UK Conformity Assessed
+en: UKCA, UKCA marking
+de: UKCA, UKCA-Kennzeichnung
+image:en: ukca.90x90.svg
+web:en: https://www.gov.uk/guidance/using-the-ukca-marking
+wikidata:en: Q101220997
+
+xx: UKNI, UK(NI)
+en: UKNI, UKNI marking
+image:en: ukni.90x90.png
+web:en: https://www.gov.uk/guidance/using-the-ukni-marking
 
 en: Battery included
 fr: Pile incluse
@@ -24,14 +39,73 @@ fr: Pile incluse
 en: Contains rechargeable battery
 fr: Contient une batterie rechargeable
 
+en: Made in China
+ar: صنع في الصين
+de: Hergestellt in China
+es: Hecho en China
+fr: Fabriqué en Chine
+it: Fatto in Cina
+ja: 中国製
+ko: 중국산
+nl: Gemaakt in China
+pl: Wyprodukowano w Chinach
+pt: Feito na China
+ru: Сделано в Китае
+zh: 中国制造
+
 en: Assembled in Europe
+ar: جمع في أوروبا
+de: Zusammengebaut in Europa
+es: Montado en Europa
 fr: Assemblé en Europe
+it: Assemblato in Europa
+ja: ヨーロッパで組み立て
+ko: 유럽에서 조립
+nl: Geassembleerd in Europa
+pl: Zmontowano w Europie
+pt: Montado na Europa
+ru: Собрано в Европе
+zh: 欧洲组装
 
 en: Assembled in Germany
+de: Zusammengebaut in Deutschland
+es: Montado en Alemania
 fr: Assemblé en Allemagne
+it: Assemblato in Germania
+ja: ドイツで組み立て
+ko: 독일에서 조립
+nl: Geassembleerd in Duitsland
+pl: Zmontowano w Niemczech
+pt: Montado na Alemanha
+ru: Собрано в Германии
+zh: 德国组装
 
 en: Assembled in France
+ar: جمع في فرنسا
+de: Zusammengebaut in Frankreich
+es: Montado en Francia
 fr: Assemblé en France
+it: Assemblato in Francia
+ja: フランスで組み立て
+ko: 프랑스에서 조립
+nl: Geassembleerd in Frankrijk
+pl: Zmontowano we Francji
+pt: Montado na França
+ru: Собрано во Франции
+zh: 法国组装
+
+# Video Games
+# https://en.wikipedia.org/wiki/PEGI
+
+en: PEGI 3
+
+en: PEGI 7
+
+en: PEGI 12
+
+en: PEGI 16
+
+en: PEGI 18
 
 # Smartphone specific labels, quality schemes and common claims
 
@@ -64,7 +138,18 @@ fr: Indice de réparabilité 0
 repairability_index_france_value:en: 0
 
 en: Repairability index 0.1 - France
+ar: مؤشر قابلية الإصلاح 0.1 - فرنسا
+de: Reparierbarkeitsindex 0.1 - Frankreich
+es: Índice de reparabilidad 0.1 - Francia
 fr: Indice de réparabilité 0.1
+it: Indice di riparabilità 0.1 - Francia
+ja: 修理可能性指標 0.1 - フランス
+ko: 수리 용이성 지수 0.1 - 프랑스
+nl: Repareerbaarheid index 0.1 - Frankrijk
+pl: Wskaźnik naprawialności 0.1 - Francja
+pt: Índice de reparabilidade 0.1 - França
+ru: Индекс ремонтопригодности 0.1 - Франция
+zh: 可修复性指数 0.1 - 法国
 repairability_index_france_value:en: 0.1
 
 en: Repairability index 0.2 - France
