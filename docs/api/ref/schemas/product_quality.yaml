@@ -5,7 +5,7 @@ properties:
   data_quality_bugs_tags:
     type: array
     items:
-      type: object
+      type: string
       description: |
         Each data quality bug describes a data quality bug on the product.
 
