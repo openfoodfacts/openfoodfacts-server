@@ -38,6 +38,29 @@ my @tests = (
 		}
 	],
 
+	[
+		'1000-to-1001-taxonomize-brands',
+		1001,
+		{
+			# schema_version field exists only for version 1001+
+			lc => "en",
+			brands => "Carrefour, Nestlé, Brând Not In Taxonomy",
+			brands_tags => ["carrefour", "nestle"],
+		}
+	],
+
+	[
+		'1001-to-1000-untaxonomize-brands',
+		1000,
+		{
+			schema_version => 1001,
+			lc => "en",
+			brands => "Carrefour, Nestlé, Brând Not In Taxonomy",
+			brands_tags => ["xx:carrefour", "xx:nestle", "xx:brand-not-in-taxonomy"],
+			brands_hierarchy => ["xx:Carrefour", "xx:nestle", "xx:Brând Not In Taxonomy"],
+		}
+	],
+
 );
 
 foreach my $test_ref (@tests) {

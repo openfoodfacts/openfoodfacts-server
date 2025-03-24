@@ -76,7 +76,12 @@ Convert product data between different schema versions.
 
 sub convert_product_schema ($product_ref, $to_version) {
 
+	# If the product data does not have a schema_version field, it is 1000 or lower
+	# If the product data contains environmental_score_grade, it is 1000, otherwise we set it to 999
 	my $from_version = $product_ref->{schema_version} // 999;
+	if ($from_version < 1000 and exists $product_ref->{environmental_score_grade}) {
+		$from_version = 1000;
+	}
 
 	if ($from_version < $to_version) {
 		# incrementally upgrade schema
@@ -106,7 +111,7 @@ sub convert_product_schema ($product_ref, $to_version) {
 );
 
 %downgrade_functions = (
-	1000 => \&convert_schema_1000_to_999_rename_environmental_score_fields_to_ecoscore,
+	1000 => \&convert_schema_1000_to_999_rename_ecoscore_fields_to_environmental_score,
 	1001 => \&convert_schema_1001_to_1000_remove_ingredients_hierarchy_taxonomize_brands,
 );
 
@@ -132,7 +137,7 @@ sub convert_schema_999_to_1000_rename_ecoscore_fields_to_environmental_score ($p
 	return;
 }
 
-sub convert_schema_1000_to_999_rename_environmental_score_fields_to_ecoscore ($product_ref) {
+sub convert_schema_1000_to_999_rename_ecoscore_fields_to_environmental_score ($product_ref) {
 
 	# 2024/12: ecoscore fields were renamed to environmental_score
 	foreach my $subfield (qw/data grade score tags/) {
@@ -178,6 +183,10 @@ sub convert_schema_1001_to_1000_remove_ingredients_hierarchy_taxonomize_brands (
 	delete $product_ref->{brands_lc};
 	delete $product_ref->{brands_hierarchy};
 	# brands should already contain the list of brands, so we do not need to regenerate it from brands_hierarchy
+	# brands_tags contains xx: prefixed tags, we can remove the xx: prefix to get the non-taxonomized canonical tags we had before
+	if (exists $product_ref->{brands_tags}) {
+		$product_ref->{brands_tags} = [map { s/^xx://; $_ } @{$product_ref->{brands_tags}}];
+	}
 
 	return;
 }
