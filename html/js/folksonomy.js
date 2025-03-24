@@ -486,31 +486,6 @@ function restrictFolksonomyForGuests() {
 }
 document.addEventListener("DOMContentLoaded", restrictFolksonomyForGuests);
 
-
-/**
- * enforceLoginForPropertiesPage()
- * Use Case:
- *   Used to restrict access to the /properties page for non-logged-in users.
- *   When a user who is not authenticated (guest) navigates to the /properties route,
- *   they are immediately redirected to the login page (/cgi/user.pl).
- * 
- * Intended For:
- *   Guest users who have not logged in.
- *   Logged-in users bypass this check and access the /properties page normally.
- * @returns {void}
- */
-function enforceLoginForPropertiesPage() {
-    // Only enforce on /properties route:
-    if (isPageType() === "properties") {
-        if (!isWellLoggedIn()) {
-            // redirect immediately...
-            window.location.href = "/cgi/user.pl";
-        }
-    }
-}
-enforceLoginForPropertiesPage();
-
-
 function delPropertyValue(_this) {
 
     /* curl -X 'DELETE' \
