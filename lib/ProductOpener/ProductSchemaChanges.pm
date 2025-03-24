@@ -115,7 +115,7 @@ sub convert_product_schema ($product_ref, $to_version) {
 	1001 => \&convert_schema_1001_to_1000_remove_ingredients_hierarchy_taxonomize_brands,
 );
 
-=headd2 999 to 1000 - Rename ecoscore fields to environmental_score fields - API v3.1
+=head2 999 to 1000 - Rename ecoscore fields to environmental_score fields - API v3.1
 
 2024/12/12 - 
 
@@ -185,7 +185,7 @@ sub convert_schema_1001_to_1000_remove_ingredients_hierarchy_taxonomize_brands (
 	# brands should already contain the list of brands, so we do not need to regenerate it from brands_hierarchy
 	# brands_tags contains xx: prefixed tags, we can remove the xx: prefix to get the non-taxonomized canonical tags we had before
 	if (exists $product_ref->{brands_tags}) {
-		$product_ref->{brands_tags} = [map { s/^xx://; $_ } @{$product_ref->{brands_tags}}];
+		$product_ref->{brands_tags} = [map {s/^xx://; $_} @{$product_ref->{brands_tags}}];
 	}
 
 	return;
