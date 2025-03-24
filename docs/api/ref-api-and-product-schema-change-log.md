@@ -50,22 +50,26 @@ Breaking changes:
 
 There were lots of non-breaking changes (new fields) from 2012 to 2024. Those changes did not trigger a change to the API version, and their history has not been listed.
 
-### Product version 999 - API version 3
+### Product version 999 - Changed barcode normalization
+
+The normalization of leading 0s has been changed. See [Barcode normalization](/ref-barcode-normalization.md)
+
+### Product version 998 - API version 3
 
 Breaking changes:
 - All v3 responses (including product READ requests that use the route /api/v3/product/[barcode]) follow the same structure to indicate status (success or failure), errors and warnings.
 - The shape, material and recycling properties of each packaging component are localized: we return a hash with an id and a lc_name field, instead of just an id.
 
-### Product version 998 - API version 2
+### Product version 997 - API version 2
 
 Breaking changes:
 - The ingredients structure is now a nested structure, with sub-ingredients in the "ingredients" field of each ingredient. Previously sub-ingredients were listed at the end of ingredients.
 
-### Product version 997 - API version 1
+### Product version 996 - API version 1
 
 Breaking changes:
 - For product READ requests, if the product does not exist, we return HTTP status code 404 instead of 200.
 
-### Product version 996 - API version 0
+### Product version 995 - API version 0
 
 This is considered the initial version.

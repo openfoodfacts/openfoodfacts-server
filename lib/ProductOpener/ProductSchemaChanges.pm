@@ -61,6 +61,8 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Tags qw/compute_field_tags/;
+use ProductOpener::Products qw/normalize_code/;
+use ProductOpener::Config qw/:all/;
 
 $current_schema_version = 1001;
 
@@ -77,7 +79,8 @@ Convert product data between different schema versions.
 sub convert_product_schema ($product_ref, $to_version) {
 
 	# If the product data does not have a schema_version field, it is 1000 or lower
-	# If the product data contains environmental_score_grade, it is 1000, otherwise we set it to 999
+	# If the product data contains environmental_score_grade, it is 1000, otherwise we set it to 998
+	# so that we can run the 998 to 999 upgrade function (barcode normalization)
 	my $from_version = $product_ref->{schema_version} // 999;
 	if ($from_version < 1000 and exists $product_ref->{environmental_score_grade}) {
 		$from_version = 1000;
@@ -106,6 +109,7 @@ sub convert_product_schema ($product_ref, $to_version) {
 }
 
 %upgrade_functions = (
+	998 => \&convert_schema_998_to_999_change_barcode_normalization,
 	999 => \&convert_schema_999_to_1000_rename_ecoscore_fields_to_environmental_score,
 	1000 => \&convert_schema_1000_to_1001_remove_ingredients_hierarchy_taxonomize_brands,
 );
@@ -114,6 +118,29 @@ sub convert_product_schema ($product_ref, $to_version) {
 	1000 => \&convert_schema_1000_to_999_rename_ecoscore_fields_to_environmental_score,
 	1001 => \&convert_schema_1001_to_1000_remove_ingredients_hierarchy_taxonomize_brands,
 );
+
+=head2 998 to 999 - Change in barcode normalization
+
+Change in normalization of leading 0s.
+
+=cut
+
+sub convert_schema_998_to_999_change_barcode_normalization ($product_ref) {
+
+	my $code = normalize_code($product_ref->{code});
+	$product_ref->{code} = $code;
+	if (defined $product_ref->{id}) {
+		$product_ref->{id} = $code;
+	}
+	if ($server_options{private_products}) {
+		$product_ref->{_id} = $product_ref->{owner} . "/" . $code;
+	}
+	else {
+		$product_ref->{_id} = $code;
+	}
+
+	return;
+}
 
 =head2 999 to 1000 - Rename ecoscore fields to environmental_score fields - API v3.1
 
