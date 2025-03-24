@@ -47,32 +47,23 @@
         .show-when-no-access-to-producers-platform {display:none}
 .show-when-logged-in {display:none}
 
-		#badge-1{
-			height: 56px;
-			object-fit: cover;
+		
+		.badge-container{
+			margin: 0 auto;
 		}
 
-		#badge-2{
-			height: 57px;
-    		width: 134px;
-    		margin: 0 -0.5rem;
+		.badge-container img{
+			margin: 5px;
 		}
-
-		@media only screen and (max-width: 498px) {
+		@media only screen and (max-width: 537px ) and (min-width: 280px) {
 			.badge-container{
-				margin-left:25%;
-				width: 75%;
-			}	
-		}
-
-		@media only screen and (max-width: 335px) {
-			.badge-container img{
-				margin-bottom: 0.5rem;
+				width: 280px;
 			}
-			#badge-2{
-				width: 136px;
-				margin: -1.3rem -0.6rem -0.1rem;
-			}	
+		}
+		@media only screen and (max-width: 279px ){
+			.badge-container{
+				width: 130px;
+			}
 		}
     </style>
 </head>
