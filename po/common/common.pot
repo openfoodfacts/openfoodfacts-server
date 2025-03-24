@@ -313,9 +313,9 @@ msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
 msgstr ""
 
-# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
+# Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
-msgid "/images/misc/playstore/img/latest/output2.svg"
+msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
 msgstr ""
 
 msgctxt "android_app_icon_alt_text"
@@ -7434,10 +7434,10 @@ msgctxt "delete"
 msgid "Delete"
 msgstr "Delete"
 
-# Please change get-it-on-en.png to get-it-on-XX.png. check the url https://static.openfoodfacts.org/images/misc/f-droid/get-it-on-en.png
+# Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
 msgctxt "f_droid_app_icon_url"
-msgid "/images/misc/f-droid/svg/get-it-on.svg"
-msgstr "/images/misc/f-droid/svg/get-it-on.svg"
+msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
+msgstr "/images/misc/f-droid/svg/get-it-on-en.svg"
 
 msgctxt "f_droid_app_icon_alt_text"
 msgid "Available on F-Droid"
