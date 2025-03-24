@@ -8,25 +8,25 @@
       
       
       
-        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/api/tutorials/scanning-cosmetics-pet-food-and-other-products/">
+        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/dev/how-to-use-automated-pr-actions/">
       
       
-        <link rel="prev" href="../reporting-issues-with-nutripatrol/">
+        <link rel="prev" href="../how-to-update-agribalyse-ecoscore/">
       
       
-        <link rel="next" href="../working-with-facets/">
+        <link rel="next" href="../how-to-use-direnv/">
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
     
     
       
-        <title>Scanning cosmetics pet food and other products - Product Opener (Open Food Facts Server)</title>
+        <title>How to use automated pull request actions - Product Opener (Open Food Facts Server)</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.d7758b05.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.d7758b05.min.css">
       
       
 
@@ -45,7 +45,7 @@
       
     
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#open-beauty-facts-open-pet-food-facts-open-products-facts-experimental-and-specific-apis" class="md-skip">
+        <a href="#how-to-use-automated-pull-request-actions" class="md-skip">
           Skip to content
         </a>
       
@@ -80,7 +80,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Product Opener (Open Food Facts Server)" class="md-header__button md-logo" aria-label="Product Opener (Open Food Facts Server)" data-md-component="logo">
+    <a href="../.." title="Product Opener (Open Food Facts Server)" class="md-header__button md-logo" aria-label="Product Opener (Open Food Facts Server)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Scanning cosmetics pet food and other products
+              How to use automated pull request actions
             
           </span>
         </div>
@@ -187,7 +187,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Product Opener (Open Food Facts Server)" class="md-nav__button md-logo" aria-label="Product Opener (Open Food Facts Server)" data-md-component="logo">
+    <a href="../.." title="Product Opener (Open Food Facts Server)" class="md-nav__button md-logo" aria-label="Product Opener (Open Food Facts Server)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -217,7 +217,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -235,19 +235,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -262,7 +260,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Api
@@ -276,7 +274,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../" class="md-nav__link">
+      <a href="../../api/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -298,7 +296,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../intro-robotoff/" class="md-nav__link">
+      <a href="../../api/intro-robotoff/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -320,7 +318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorial-dev-journey/" class="md-nav__link">
+      <a href="../../api/tutorial-dev-journey/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -342,7 +340,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorial-off-api/" class="md-nav__link">
+      <a href="../../api/tutorial-off-api/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -364,7 +362,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorial-uploading-photo-to-a-product/" class="md-nav__link">
+      <a href="../../api/tutorial-uploading-photo-to-a-product/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -386,7 +384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../how-to-download-images/" class="md-nav__link">
+      <a href="../../api/how-to-download-images/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -408,7 +406,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../explain-knowledge-panels/" class="md-nav__link">
+      <a href="../../api/explain-knowledge-panels/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -430,7 +428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ref-barcode-normalization/" class="md-nav__link">
+      <a href="../../api/ref-barcode-normalization/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -452,7 +450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ref-cheatsheet/" class="md-nav__link">
+      <a href="../../api/ref-cheatsheet/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -474,7 +472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ref-v2/" class="md-nav__link">
+      <a href="../../api/ref-v2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -496,7 +494,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ref-v3/" class="md-nav__link">
+      <a href="../../api/ref-v3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -518,7 +516,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws-images-dataset/" class="md-nav__link">
+      <a href="../../api/aws-images-dataset/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -540,7 +538,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../leveraging-links-to-wikidata/" class="md-nav__link">
+      <a href="../../api/leveraging-links-to-wikidata/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -598,7 +596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api-tutorials/get-the-nutriscore/" class="md-nav__link">
+      <a href="../../api/api-tutorials/get-the-nutriscore/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -625,19 +623,17 @@
                 
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_15" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_15" >
         
           
           <label class="md-nav__link" for="__nav_2_15" id="__nav_2_15_label" tabindex="0">
@@ -652,7 +648,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_15_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_15_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_15">
             <span class="md-nav__icon md-icon"></span>
             Tutorials
@@ -666,7 +662,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../adding-missing-products/" class="md-nav__link">
+      <a href="../../api/tutorials/adding-missing-products/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -688,7 +684,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../comparing-sodas/" class="md-nav__link">
+      <a href="../../api/tutorials/comparing-sodas/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -710,7 +706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../creating-a-local-cache-of-open-food-facts-data/" class="md-nav__link">
+      <a href="../../api/tutorials/creating-a-local-cache-of-open-food-facts-data/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -732,7 +728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../finding-healthy-cereals/" class="md-nav__link">
+      <a href="../../api/tutorials/finding-healthy-cereals/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -754,7 +750,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../folksonomy-engine/" class="md-nav__link">
+      <a href="../../api/tutorials/folksonomy-engine/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -776,7 +772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../get-in-touch-with-openfoodfacts/" class="md-nav__link">
+      <a href="../../api/tutorials/get-in-touch-with-openfoodfacts/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -798,7 +794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../get-ingredient-related-analysis/" class="md-nav__link">
+      <a href="../../api/tutorials/get-ingredient-related-analysis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -820,7 +816,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../get-the-green-score/" class="md-nav__link">
+      <a href="../../api/tutorials/get-the-green-score/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -842,7 +838,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../get-the-nutriscore/" class="md-nav__link">
+      <a href="../../api/tutorials/get-the-nutriscore/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -864,7 +860,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-to-create-data-quality-controls-in-your-app/" class="md-nav__link">
+      <a href="../../api/tutorials/how-to-create-data-quality-controls-in-your-app/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -886,7 +882,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../license-be-on-the-legal-side/" class="md-nav__link">
+      <a href="../../api/tutorials/license-be-on-the-legal-side/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -908,7 +904,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../product-prices/" class="md-nav__link">
+      <a href="../../api/tutorials/product-prices/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -930,7 +926,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reporting-issues-with-nutripatrol/" class="md-nav__link">
+      <a href="../../api/tutorials/reporting-issues-with-nutripatrol/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -949,29 +945,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Scanning cosmetics pet food and other products
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../api/tutorials/scanning-cosmetics-pet-food-and-other-products/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -981,177 +958,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#open-beauty-facts-open-pet-food-facts-open-products-facts-experimental-and-specific-apis" class="md-nav__link">
-    <span class="md-ellipsis">
-      Open Beauty Facts, Open Pet Food Facts, Open Products Facts experimental and specific APIs
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Open Beauty Facts, Open Pet Food Facts, Open Products Facts experimental and specific APIs">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#specific-base-urls" class="md-nav__link">
-    <span class="md-ellipsis">
-      Specific base URLs
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#different-behaviours-common-to-open-beauty-facts-open-pet-food-facts-open-products-facts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Different behaviours common to Open Beauty Facts, Open Pet Food Facts, Open Products Facts
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#specificities-of-open-beauty-facts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Specificities of Open Beauty Facts
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#specificities-of-open-pet-food-facts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Specificities of Open Pet Food Facts
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#specificities-of-open-products-facts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Specificities of Open Products Facts
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#important-apis-if-you-want-to-scan-any-kind-of-product-or-help-your-users-avoid-adding-cosmetics-by-mistake-in-open-food-facts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Important APIs if you want to scan any kind of product (or help your users avoid adding cosmetics by mistake in Open Food Facts)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#api-roadmap-and-multi-project-behaviour" class="md-nav__link">
-    <span class="md-ellipsis">
-      API Roadmap and multi-project behaviour
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sample-outputs" class="md-nav__link">
-    <span class="md-ellipsis">
-      Sample outputs
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Sample outputs">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#product-in-open-beauty-facts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Product in Open Beauty Facts
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ingredients" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ingredients
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Ingredients">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#list-of-ingredients-detected-by-the-current-experimental-parser" class="md-nav__link">
-    <span class="md-ellipsis">
-      List of ingredients detected by the current experimental parser
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#products-where-the-current-experimental-parser-could-not-detect-aluminium-salts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Products where the current experimental parser could not detect aluminium salts
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#products-where-the-current-experimental-parser-could-detect-aluminium-salts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Products where the current experimental parser could detect aluminium salts
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#periods-after-opening" class="md-nav__link">
-    <span class="md-ellipsis">
-      Periods after Opening
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1164,7 +970,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../working-with-facets/" class="md-nav__link">
+      <a href="../../api/tutorials/working-with-facets/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1198,17 +1004,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -1223,7 +1031,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Dev
@@ -1237,7 +1045,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1259,7 +1067,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/how-to-debug-minion-import-and-export-tasks/" class="md-nav__link">
+      <a href="../how-to-debug-minion-import-and-export-tasks/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1281,7 +1089,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/how-to-develop-producer-platform/" class="md-nav__link">
+      <a href="../how-to-develop-producer-platform/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1303,7 +1111,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/how-to-develop-using-docker/" class="md-nav__link">
+      <a href="../how-to-develop-using-docker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1325,7 +1133,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/how-to-learn-perl/" class="md-nav__link">
+      <a href="../how-to-learn-perl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1347,7 +1155,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/how-to-quick-start-guide/" class="md-nav__link">
+      <a href="../how-to-quick-start-guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1369,7 +1177,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/how-to-release/" class="md-nav__link">
+      <a href="../how-to-release/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1391,7 +1199,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/how-to-update-agribalyse-ecoscore/" class="md-nav__link">
+      <a href="../how-to-update-agribalyse-ecoscore/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1410,10 +1218,31 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../dev/how-to-use-automated-pr-actions/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    How to use automated pull request actions
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1423,6 +1252,62 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#important-if-you-are-on-a-pr-from-a-fork" class="md-nav__link">
+    <span class="md-ellipsis">
+      (IMPORTANT) If you are on a PR from a fork
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-tests-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updating tests results
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debugging
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1435,7 +1320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/how-to-use-direnv/" class="md-nav__link">
+      <a href="../how-to-use-direnv/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1457,7 +1342,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/how-to-use-gitpod/" class="md-nav__link">
+      <a href="../how-to-use-gitpod/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1479,7 +1364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/how-to-use-pages-from-openfoodfacts-web/" class="md-nav__link">
+      <a href="../how-to-use-pages-from-openfoodfacts-web/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1501,7 +1386,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/how-to-use-repl/" class="md-nav__link">
+      <a href="../how-to-use-repl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1523,7 +1408,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/how-to-use-vscode/" class="md-nav__link">
+      <a href="../how-to-use-vscode/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1545,7 +1430,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/how-to-write-and-run-tests/" class="md-nav__link">
+      <a href="../how-to-write-and-run-tests/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1567,7 +1452,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/explain-nutrition-data/" class="md-nav__link">
+      <a href="../explain-nutrition-data/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1589,7 +1474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/explain-packaging-data/" class="md-nav__link">
+      <a href="../explain-packaging-data/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1611,7 +1496,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/explain-personal-search/" class="md-nav__link">
+      <a href="../explain-personal-search/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1633,7 +1518,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/explain-pro-dev-setup/" class="md-nav__link">
+      <a href="../explain-pro-dev-setup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1655,7 +1540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/explain-taxonomy-build-cache/" class="md-nav__link">
+      <a href="../explain-taxonomy-build-cache/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1677,7 +1562,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/ref-docker-commands/" class="md-nav__link">
+      <a href="../ref-docker-commands/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1699,7 +1584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/ref-perl-pod/" class="md-nav__link">
+      <a href="../ref-perl-pod/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1721,7 +1606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dev/ref-perl/" class="md-nav__link">
+      <a href="../ref-perl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1760,6 +1645,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1768,155 +1655,38 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#open-beauty-facts-open-pet-food-facts-open-products-facts-experimental-and-specific-apis" class="md-nav__link">
+  <a href="#important-if-you-are-on-a-pr-from-a-fork" class="md-nav__link">
     <span class="md-ellipsis">
-      Open Beauty Facts, Open Pet Food Facts, Open Products Facts experimental and specific APIs
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Open Beauty Facts, Open Pet Food Facts, Open Products Facts experimental and specific APIs">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#specific-base-urls" class="md-nav__link">
-    <span class="md-ellipsis">
-      Specific base URLs
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#different-behaviours-common-to-open-beauty-facts-open-pet-food-facts-open-products-facts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Different behaviours common to Open Beauty Facts, Open Pet Food Facts, Open Products Facts
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#specificities-of-open-beauty-facts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Specificities of Open Beauty Facts
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#specificities-of-open-pet-food-facts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Specificities of Open Pet Food Facts
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#specificities-of-open-products-facts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Specificities of Open Products Facts
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#important-apis-if-you-want-to-scan-any-kind-of-product-or-help-your-users-avoid-adding-cosmetics-by-mistake-in-open-food-facts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Important APIs if you want to scan any kind of product (or help your users avoid adding cosmetics by mistake in Open Food Facts)
+      (IMPORTANT) If you are on a PR from a fork
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#api-roadmap-and-multi-project-behaviour" class="md-nav__link">
+  <a href="#linting" class="md-nav__link">
     <span class="md-ellipsis">
-      API Roadmap and multi-project behaviour
+      Linting
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sample-outputs" class="md-nav__link">
+  <a href="#updating-tests-results" class="md-nav__link">
     <span class="md-ellipsis">
-      Sample outputs
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Sample outputs">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#product-in-open-beauty-facts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Product in Open Beauty Facts
+      Updating tests results
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#ingredients" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#debugging" class="md-nav__link">
     <span class="md-ellipsis">
-      Ingredients
+      Debugging
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Ingredients">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#list-of-ingredients-detected-by-the-current-experimental-parser" class="md-nav__link">
-    <span class="md-ellipsis">
-      List of ingredients detected by the current experimental parser
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#products-where-the-current-experimental-parser-could-not-detect-aluminium-salts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Products where the current experimental parser could not detect aluminium salts
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#products-where-the-current-experimental-parser-could-detect-aluminium-salts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Products where the current experimental parser could detect aluminium salts
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#periods-after-opening" class="md-nav__link">
-    <span class="md-ellipsis">
-      Periods after Opening
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1939,73 +1709,22 @@
   
 
 
-  <h1>Scanning cosmetics pet food and other products</h1>
-
-<h3 id="open-beauty-facts-open-pet-food-facts-open-products-facts-experimental-and-specific-apis">Open Beauty Facts, Open Pet Food Facts, Open Products Facts experimental and specific APIs<a class="headerlink" href="#open-beauty-facts-open-pet-food-facts-open-products-facts-experimental-and-specific-apis" title="Permanent link">#</a></h3>
-<ul>
-<li>Open Beauty Facts, Open Pet Food Facts, Open Products Facts behave mostly like Open Food Facts. Behaviours may change over time, as we tweak it.</li>
-</ul>
-<h4 id="specific-base-urls">Specific base URLs<a class="headerlink" href="#specific-base-urls" title="Permanent link">#</a></h4>
-<ul>
-<li>Cosmetics: The base URL is openbeautyfacts.org instead of openfoodfacts.org</li>
-<li>Pet Food: The base URL is openpetfoodfacts.org instead of openfoodfacts.org</li>
-<li>Other type of products: The base URL is openproductsfacts.org instead of openfoodfacts.org</li>
-</ul>
-<h4 id="different-behaviours-common-to-open-beauty-facts-open-pet-food-facts-open-products-facts">Different behaviours common to Open Beauty Facts, Open Pet Food Facts, Open Products Facts<a class="headerlink" href="#different-behaviours-common-to-open-beauty-facts-open-pet-food-facts-open-products-facts" title="Permanent link">#</a></h4>
-<ul>
-<li>The same codebase: Knowledge panels are supported, the new packaging API is supported</li>
-<li>Search-a-licious, Open Prices, Folksonomy Engine, Nutri-Patrol not supported yet</li>
-<li>No Robotoff questions yet</li>
-</ul>
-<h4 id="specificities-of-open-beauty-facts">Specificities of Open Beauty Facts<a class="headerlink" href="#specificities-of-open-beauty-facts" title="Permanent link">#</a></h4>
-<ul>
-<li>No nutrition table</li>
-<li>No Eco-Score, Nutri-Score or NOVA level for ultra-processing</li>
-</ul>
-<h4 id="specificities-of-open-pet-food-facts">Specificities of Open Pet Food Facts<a class="headerlink" href="#specificities-of-open-pet-food-facts" title="Permanent link">#</a></h4>
-<ul>
-<li>No Eco-Score, Nutri-Score or NOVA level for ultra-processing</li>
-</ul>
-<h4 id="specificities-of-open-products-facts">Specificities of Open Products Facts<a class="headerlink" href="#specificities-of-open-products-facts" title="Permanent link">#</a></h4>
-<ul>
-<li>No nutrition table</li>
-<li>No Eco-Score, Nutri-Score or NOVA level for ultra-processing</li>
-<li>Most data will be modelled using the <a href="docs/reference/api-tutorials/folksonomy-engine.md">Folksonomy Engine</a></li>
-</ul>
-<h3 id="important-apis-if-you-want-to-scan-any-kind-of-product-or-help-your-users-avoid-adding-cosmetics-by-mistake-in-open-food-facts">Important APIs if you want to scan any kind of product (or help your users avoid adding cosmetics by mistake in Open Food Facts)<a class="headerlink" href="#important-apis-if-you-want-to-scan-any-kind-of-product-or-help-your-users-avoid-adding-cosmetics-by-mistake-in-open-food-facts" title="Permanent link">#</a></h3>
-<ul>
-<li>We have a universal barcode scanning API, where you scan a barcode, and you get a result from either Open Food Facts, Open Pet Food Facts, Open Beauty Facts or Open Products Facts with a <code>product_type</code>, you can use the <code>product_type=all</code> parameter. Asked on any instance, it will redirect you to the right instance if a product exists and is on another instance (eg: asking for a beauty barcode on food instance). See <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/product/-barcode-">reference documentation</a>.</li>
-<li>If no result is found in any of the 4 databases, you will have to ask the type of product to your users, and use the classic product addition API on the right project.</li>
-<li>If (it can happen) the product appears on the wrong project, we suggest you use the NutriPatrol API to let your users report it to the moderators, and the proceed to a product addition on the right project. The moderators will then move the existing data to the right project. Eventually, project categorization errors should be infinitesimal.</li>
-</ul>
-<h3 id="api-roadmap-and-multi-project-behaviour">API Roadmap and multi-project behaviour<a class="headerlink" href="#api-roadmap-and-multi-project-behaviour" title="Permanent link">#</a></h3>
-<ul>
-<li>We plan to bring the APIs mentionned above to Open Beauty Facts (Search-a-licious, Knowledge Panels, Open Prices, Robotoff, Folksonomy Engine)</li>
-</ul>
-<h3 id="sample-outputs">Sample outputs<a class="headerlink" href="#sample-outputs" title="Permanent link">#</a></h3>
-<ul>
-<li>Please use the Open Food Facts API reference for most operations (data and photo addition, ingredient lists, categories, labels…)</li>
-</ul>
-<h4 id="product-in-open-beauty-facts">Product in Open Beauty Facts<a class="headerlink" href="#product-in-open-beauty-facts" title="Permanent link">#</a></h4>
-<ul>
-<li>https://world.openbeautyfacts.org/api/v2/product/3560070791460.json</li>
-</ul>
-<h4 id="ingredients">Ingredients<a class="headerlink" href="#ingredients" title="Permanent link">#</a></h4>
-<p><em>Very experimental. Do not rely on this for allergen or ingredient parsing yet.</em></p>
-<h5 id="list-of-ingredients-detected-by-the-current-experimental-parser">List of ingredients detected by the current experimental parser<a class="headerlink" href="#list-of-ingredients-detected-by-the-current-experimental-parser" title="Permanent link">#</a></h5>
-<ul>
-<li>https://world.openbeautyfacts.org/ingredients.json</li>
-</ul>
-<h5 id="products-where-the-current-experimental-parser-could-not-detect-aluminium-salts">Products where the current experimental parser could not detect aluminium salts<a class="headerlink" href="#products-where-the-current-experimental-parser-could-not-detect-aluminium-salts" title="Permanent link">#</a></h5>
-<ul>
-<li>https://world.openbeautyfacts.org/ingredient/-aluminum-salts.json</li>
-</ul>
-<h5 id="products-where-the-current-experimental-parser-could-detect-aluminium-salts">Products where the current experimental parser could detect aluminium salts<a class="headerlink" href="#products-where-the-current-experimental-parser-could-detect-aluminium-salts" title="Permanent link">#</a></h5>
-<ul>
-<li>https://world.openbeautyfacts.org/ingredient/aluminum-salts.json</li>
-</ul>
-<h4 id="periods-after-opening">Periods after Opening<a class="headerlink" href="#periods-after-opening" title="Permanent link">#</a></h4>
-<p>[https://en.wiki.openbeautyfacts.org/Global_period_after_opening_taxonomy Periods after opening taxonomy]</p>
+<h1 id="how-to-use-automated-pull-request-actions">How to use automated pull request actions<a class="headerlink" href="#how-to-use-automated-pull-request-actions" title="Permanent link">#</a></h1>
+<p>We have github actions workflow that tries to help doing tedious tasks on pull-request. (see <code>pr_actions.yml</code>)</p>
+<h2 id="important-if-you-are-on-a-pr-from-a-fork">(IMPORTANT) If you are on a PR from a fork<a class="headerlink" href="#important-if-you-are-on-a-pr-from-a-fork" title="Permanent link">#</a></h2>
+<p>The actions will try to commit changes to your PR, with the openfoodfacts-bot user.
+For this to happen you must let maintainers commit to your PR (see <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork">github documentation</a>)</p>
+<h2 id="linting">Linting<a class="headerlink" href="#linting" title="Permanent link">#</a></h2>
+<p>We try to keep the same format on perl files and taxonomies.</p>
+<p>Issue <code>/lint</code> in a comment on the PR, the linting actions will be launched in the background.</p>
+<p>Of course you can also run <code>make lint</code> locally and commit changes. </p>
+<h2 id="updating-tests-results">Updating tests results<a class="headerlink" href="#updating-tests-results" title="Permanent link">#</a></h2>
+<p>If you do a change that affects the API or HTML rendering, the tests might fail because they compare old stored results with newly generated one and find a difference.</p>
+<p>Issue <code>/update_tests_results</code> in a comment to have the test refresh their expectation.</p>
+<p>Beware that you must check for the changes after that to be sure, changes are correct and that you didn't introduce a bug.</p>
+<h2 id="debugging">Debugging<a class="headerlink" href="#debugging" title="Permanent link">#</a></h2>
+<p>Normally after the action finishes, it commits to your PR and it relaunch the checks.</p>
+<p>If it does not happens, you can see the result of actions in the actions tab, <a href="https://github.com/openfoodfacts/openfoodfacts-server/actions/workflows/pr_actions.yml">selecting pr_actions workflow</a></p>
 
 
 
@@ -2052,10 +1771,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
       
     
   </body>
