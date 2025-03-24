@@ -11360,6 +11360,8 @@ ca: carn de vaca
 cs: Hovězí
 da: oksekød
 de: Rind, Rinderfleisch
+el: Μοσχάρι
+et: Veiseliha
 fi: nauta, naudan, härkä, härän
 fr: bœuf, boeuf, Boeufs
 hr: goveđa, goveđi, govedi, govedina
@@ -11459,10 +11461,13 @@ hr: goveđe meso, govede meso
 hu: marhahús
 it: carne di manzo, carne bovina, carne di bovino
 ja: 牛肉, ぎゅうにく, ぎゅう肉, 牛にく
+lv: Govju gaļa
 nb: kjøtt av storfe
 nl: Rundvlees
+no: Oksekjøtt
 pl: Mięso wołowe
 ro: carne de vită, carne de vita
+sl: Goveje meso
 tr: Sığır eti
 zh: 牛肉
 carbon_footprint_fr_foodges_ingredient:fr: Viande de bœuf moyen France
@@ -15223,10 +15228,6 @@ nova:en: 4
 wikidata:en: Q415766
 wikipedia:en: https://en.wikipedia.org/wiki/Modified_starch
 
-< en:starch
-en: pea starch
-it: amido di pisello, amido di piselli
-
 # description:en:Corn starch or maize starch is the starch derived from the corn (maize) grain.
 
 #category/corn starch
@@ -15561,12 +15562,21 @@ fi: muunnettu maissi- ja tapiokatärkkelys
 < en:starch
 en: pea starch
 bg: грахово нишесте
+da: Ærtestivelse
 de: Erbsenstärke
+el: Άμυλο μπιζελιού
+et: Herne tärklis
 fi: hernetärkkelys
 fr: Amidon de pois
-hr: škrob od graška
+hr: škrob od graška, škrob graška
+it: amido di pisello, amido di piselli
+lv: Zirņu ciete
 nl: erwtenzetmeel
+no: Ærtestivelse
 pl: skrobia grochowa, skrobia z grochu, skrobi grochowej, skrobi z grochu
+pt: Amido de ervilha
+ru: Гороховый крахмал
+sl: Škrob graha
 sv: ärtstärkelse
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:hernet%C3%A4rkkelys
 # 1 entry @ 2019-11-02
@@ -15648,9 +15658,9 @@ en: oil and fat, oils and fats
 bg: масла и мазнини
 ca: Oli i greix, olis i greixos, matèria grassa, M.G.
 cs: oleji a tuky
-da: olier og fedtstoffer
+da: olier og fedtstoffer, Olie og fedt
 de: Speiseöle und -fette, Öle und Fette
-el: έλαια και λίπη
+el: έλαια και λίπη, Έλαια και λιπαρά
 es: aceites y grasas, materia grasa
 et: õlid ja rasvad
 fi: öljy ja rasva, öljyt ja rasvat
@@ -15664,13 +15674,14 @@ lv: Eļļas un tauki
 mt: żjut u xaħmijiet
 nb: olje og fett, oljer of fett
 nl: oliën en vetten, vetstoffen
+no: Olje og fett
 pl: oleje i tłuszcze, tłuszcze i oleje
 pt: óleos e gorduras
 ro: uleiuri și grăsimi
-ru: растительным и животным жирам
+ru: растительным и животным жирам, Масла и жиры
 sk: Oleje a tuky
 sl: olja in maščobe
-sv: oljor och fetter
+sv: oljor och fetter, Oljor och fett
 uk: Олія і жир
 from_palm_oil:en: maybe
 vegan:en: maybe
@@ -24418,18 +24429,22 @@ da: Korn
 de: Getreide
 el: δημητριακό, δημητριακά
 es: cereales
-fi: vilja, viljat
+et: Teraviljad
+fi: vilja, viljat, Viljatuotteet
 fr: céréale, céréales
 ga: céréeale, céréales
 he: דגן
 hr: žita, žitarica, žitarice, proizvodi od žitarica
 hu: gabona, gabonafélék
 it: cereali
+lv: Graudaugi
 nl: granen, gemaakt van granen
+no: Korn
 pl: zboża, zboże, płatki zbożowe
 pt: cereais
 ru: Зерновые культуры, зерновые продукты, злаков
-sv: spannmål, sädesslag
+sl: Žitarice
+sv: spannmål, sädesslag, Säd
 carbon_footprint_fr_foodges_ingredient:fr: Mélange de céréales
 carbon_footprint_fr_foodges_value:fr: 0.3
 vegan:en: yes
@@ -31513,7 +31528,7 @@ zh: 单糖
 
 # nova
 < en:disaccharide
-en: sugar
+en: sugar, various sugars
 af: Suikers
 am: ስኳር
 an: Zucre
@@ -31532,16 +31547,16 @@ ce: Шекар
 cs: Cukr
 cv: Сахăр
 cy: Siwgr
-da: Sukker
-de: Zucker
-el: Ζάχαρη
+da: Sukker, diverse sukkerarter
+de: Zucker, verschiedene Zuckerarten
+el: Ζάχαρη, Διάφορα είδη ζάχαρης
 eo: Sukero
 es: azúcar, azúcares
-et: suhkur, suhkrud
+et: suhkur, suhkrud, erinevad suhkrud
 eu: Azukre
 fa: شکر
-fi: sokeri, sokeria
-fr: sucre
+fi: sokeri, sokeria, eri hienot sokerit
+fr: sucre, divers sucres
 fy: sûker
 ga: Siúcra
 gd: Siùcar
@@ -31549,12 +31564,12 @@ gl: Azucre
 gn: Eiratã
 he: סוכר
 hi: शर्करा
-hr: šećeri, šećer
+hr: šećeri, šećer, različiti šećeri
 ht: Sik
 hu: cukor
 id: gula
 is: sykur, matarsykur
-it: zucchero, zuccheri, lo zucchero
+it: zucchero, zuccheri, lo zucchero, diversi zuccheri
 iu: ᓱᑲᒃ
 ja: 砂糖, 糖類
 jv: Gula
@@ -31568,7 +31583,7 @@ la: Saccharum
 li: Sókker
 ln: Sukáli
 lt: Cukrus
-lv: Cukurs
+lv: Cukurs, dažādi cukuri
 mk: Шеќер
 ml: പഞ്ചസാര
 mn: Элсэн чихэр
@@ -31576,32 +31591,32 @@ ms: Gula
 my: သကြား
 nb: Sukker
 ne: चिनी
-nl: suiker, Tafelsuiker
+nl: suiker, Tafelsuiker, diverse suikersoorten
 nn: Sukker
-no: sukker
+no: sukker, diverse sukkertyper
 nv: Áshįįh łikan
 oc: Sucre
 or: ଚିନି
 pa: ਸ਼ੱਕਰ
 pl: cukier, cukier spożywczy, cukry
 ps: بوره
-pt: Açúcar
+pt: Açúcar, diversos açúcares
 qu: Asukar
 ro: Zahăr, zahar, zaharuri
-ru: Сахар, сахар песок, сахара
+ru: Сахар, сахар песок, сахара, pазличные сахара
 rw: Isukari
 sa: शर्करा
 sd: کنڊ
 sh: Šećer
 si: සීනි
 sk: Cukor
-sl: Sladkor
+sl: Sladkor, različni sladkorji
 sn: Shuga
 so: Sonkor
 sq: Sheqeri, sheqer
 sr: Шећер, šećer
 su: Gula
-sv: Socker
+sv: Socker, diverse sockerarter
 sw: Sukari
 ta: சீனி
 te: చక్కెర
@@ -33894,12 +33909,16 @@ wikipedia:en: https://en.wikipedia.org/wiki/Isomaltooligosaccharide
 
 # description:en:FRUCTOOLIGOSACCHARIDES (FOS) also sometimes called oligofructose or oligofructan, are oligosaccharide fructans, used as an alternative sweetener. FOS is extracted from the blue Agave plant as well as fruits and vegetables such as bananas, onions, chicory root, garlic, asparagus, jícama, and leeks.
 
+< en:prebiotics
 < en:sweetener
-en: Fructooligosaccharide, fructo-oligosaccharide
+en: Fructooligosaccharide, fructo-oligosaccharide, Fructooligosaccharid
+xx: FOS
 ar: قليل السكاريد الفركتوزي
 bg: Фруктоолигозахарид
 ca: Fructooligosacàrid
-de: Oligofructose
+da: oligofruktose, oligofruktose
+de: Oligofructose, Fructooligosaccharid
+el: Φρουκτοολιγοσακχαρίτες
 es: Fructooligosacárido, Fructoligosacáridos
 et: Frukto-oligosahhariidid, Fruktooligosahhariidid
 eu: Fruktooligosakarido
@@ -33926,6 +33945,16 @@ zh: 果寡糖
 wikidata:en: Q418945
 wikipedia:en: https://en.wikipedia.org/wiki/Fructooligosaccharide
 # ingredient/fructooligosaccharide has 139 products in 7 languages @2019-05-06
+
+< en:prebiotics
+< en:sweetener
+en: mannan oligosaccharides
+xx: MOS
+da: mannan oligosaccharider
+de: Mannan-Oligosaccharid
+el: Ολιγοσακχαρίτες mannan
+et: Mannano oligosahhariidid
+it: Mannano oligo saccaridi
 
 < en:sweetener
 en: monk fruit extract
@@ -37311,13 +37340,13 @@ gd: Beirm
 gl: Lévedo
 he: שמרים
 hi: खमीर
-hr: kvasac, majčin kvasac, kvasca, kvaščev, kvasa
+hr: kvasac, majčin kvasac, kvasca, kvaščev, kvasa, kvasci
 hu: élesztő
 hy: Խմորասնկեր
 id: Khamir
 io: Hefo
 is: Ger
-it: lievito, crema di lievito
+it: lievito, crema di lievito, lieviti
 ja: 酵母, イースト
 jv: Khamir
 ka: საფუარები
@@ -37325,23 +37354,23 @@ kk: Ашытқылар
 ko: 효모
 ku: Meya
 lt: Mielės
-lv: Raugs
+lv: Raugs, Raugu produkti
 mk: Квасец
 ml: യീസ്റ്റ്
 ms: Yis
 nb: Gjær
-nl: gist
+nl: gist, gisten
 nn: Gjær
 no: gjær
 pa: ਖ਼ਮੀਰ
 pl: Drożdże, drożdżowe, drożdżowego, drożdżowy, drożdżowych, drożdży
-pt: Levedura
+pt: Levedura, Leveduras
 qu: Qunchu
 ro: Drojdie
 ru: Дрожжи
 sh: Kvasac
 sk: Kvasinka
-sl: Kvasovka
+sl: Kvasovka, Kvasi
 sn: Mbiriso
 sr: kvasac, Квасац
 sv: Jäst
@@ -56265,7 +56294,7 @@ lg: Lumonde awusse
 ln: Libɛngɛ́
 lo: ມັນດ້າງ
 lt: Batatas
-lv: batāte
+lv: batāte, Saldie kartupeļi
 mk: Сладок компир
 ml: മധുരക്കിഴങ്ങ്
 mr: रताळे
@@ -56286,7 +56315,7 @@ sd: ناڙو
 sh: Batat
 si: බතල
 sk: Povojník batatový
-sl: Batata
+sl: Batata, Sladki krompir
 sn: Mbambaira
 so: Sonkor qadi
 sq: patatja e ëmbël
@@ -56639,6 +56668,7 @@ ks: اولُو
 la: Patata
 li: Aerpel
 lt: bulvė, bulvės
+lv: kartupeli
 mg: Ovy
 mk: компир
 mr: बटाटा
@@ -56646,6 +56676,7 @@ nb: potet, poteter
 ne: आलु
 nl: aardappel, aardappelen
 nn: potet, poteter
+no: potet
 nv: Nímasii
 or: ଆଳୁ
 os: Картоф
@@ -57525,11 +57556,21 @@ sv: akaciafiber, akaciefiber
 
 
 en: prebiotics
+da: Præbiotiske
 de: Präbiotikum
+el: Πρεβιοτικά
 es: prebióticos
+fi: Prebiootti
 fr: Prébiotiques
-hr: prebiotici
+hr: prebiotici, Prebiotik
 it: prebiotici
+lv: Prebiotika
+nl: Prebioticum
+no: Prebiotika
+pt: Prebiótico
+ru: Пребиотик
+sl: Prebiotik
+sv: Prebiotika
 
 # description:en:Galacto-oligosaccharides (GOS), also known as oligogalactosyllactose, oligogalactose, oligolactose or transgalactooligosaccharides (TOS), belong to the group of prebiotics.
 
@@ -74258,40 +74299,25 @@ wikipedia:en: https://en.wikipedia.org/wiki/Chlorella
 
 < en:algae
 en: spirulina
+xx: spirulina
 ar: سبيرولنا
 bg: Спирулина
 bn: স্পিরুলিনা
-ca: Spirulina
-cs: spirulina
-da: spirulina
-de: Spirulina
 el: Σπιρουλίνα
 eo: Spirulino
-es: spirulina
 fi: spirulina, spirulinaa, spirulina-levä, spiruliinaa
 fr: spirulina, spiruline
 he: ספירולינה
-hr: spirulina
-it: spirulina
 ja: スピルリナ
 ko: 스피룰리나
 la: Spirulina platensis
-mk: spirulina
 ml: സ്പൈറുലിന
-ms: Spirulina
 my: စပီရူလိုင်းနား
-nb: spirulina
-nl: spirulina
 pl: spirulina, spiruliny
-pt: spirulina
 ro: Spirulia
 ru: Спирулина
-sl: spirulina
-sv: spirulina
 ta: நீலப்பச்சைப்பாசி
 te: స్పైరులీనా
-th: Spirulina
-tr: Spirulina
 vi: Tảo xoắn
 zh: 螺旋藻
 # en-ca:Spirulina
@@ -76795,14 +76821,24 @@ nb: feit fisk, fet fisk. oljete fisk
 < en:fish
 en: white fish
 bg: бяла риба
+da: Hvid fisk
 de: Weißfisch, weißer Fisch
+el: Λευκό ψάρι
 es: pescado blanco
+et: Valge kala
+fi: Valkokala
 fr: poisson blanc, poissons blancs
 hr: bijela riba
 it: Pesce bianco
+lv: Bure baltā zivs
 nb: hvit fisk
 nl: witte vis
+no: Hvitfisk
 pl: ryby białe, ryb białych
+pt: Peixe branco
+ru: Белая рыба
+sl: Bela riba
+sv: Vitfisk
 # ingredient/fr:poisson-blanc has 59 products @2019-03-11
 # Theragra chalcogramma ou Merluccius productus ou Merluccius gayi ou Merluccius hubbsi
 ciqual_food_code:en: 26249
@@ -79062,8 +79098,9 @@ bg: Сьомга
 bs: losos
 ca: salmó
 cs: losos
-da: Laks
+da: Laks, lakse
 de: Lachs, Lachse
+el: σολομού
 eo: Salmo
 es: salmón
 eu: Izokin
@@ -79075,7 +79112,7 @@ ga: Bradán, bradáin
 gd: Bradan
 gl: Salmoninos
 he: אלתית
-hr: losos
+hr: losos, lososa
 ht: Somon
 hu: lazac
 id: Salmon
@@ -79087,17 +79124,19 @@ jv: Iwak Salmon
 kk: Лососъ
 kn: ಸಾಲ್ಮನ್‌
 la: Salmoninae
-lv: Lašu apakšdzimta
+lv: Lašu apakšdzimta, Laša
 ms: Salmon
 my: ဆယ်လမွန်ငါး
 nb: laksefisker
 nl: zalm
+no: lakse
 pa: سالمن
 pl: Łosoś
 ps: سالمون
 pt: salmão
 ro: Lostriță
-ru: Лососёвые
+ru: Лососёвые, лосося
+sl: Lososova
 sr: лосос
 su: Salmon
 sv: Laxfiskar, lax
@@ -80394,11 +80433,13 @@ ja: サバ, さば, 鯖
 ka: სკუმბრია
 kk: Скумбрия
 la: Scomber
+lv: Makrele
 mk: Скуша
 mr: बांगडा
 nb: Makrell
 nl: makreel
 nn: Makrell
+no: Makrell
 oc: Vairat
 pl: makrela, makreli, makrele, makrelowa, makrelowe, makrelowy
 pt: Cavala
