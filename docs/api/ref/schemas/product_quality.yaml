@@ -13,7 +13,7 @@ properties:
   data_quality_errors_tags:
     type: array
     items:
-      type: object
+      type: string
       description: |
         Each Data Quality Error describes a data quality error on the product.
 
