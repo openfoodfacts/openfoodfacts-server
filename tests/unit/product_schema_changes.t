@@ -61,6 +61,15 @@ my @tests = (
 		}
 	],
 
+	[
+		'998-to-1000-barcode-normalization',
+		998,
+		{
+			lc => "en",
+			_id => "093270067481501",
+			code => "093270067481501",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {
