@@ -25,32 +25,23 @@
     <style media="all">
         [% lang("css") %]
         [% styles %]
-		#badge-1{
-			height: 56px;
-			object-fit: cover;
+		
+		.badge-container{
+			margin: 0 auto;
 		}
 
-		#badge-2{
-			height: 57px;
-    		width: 134px;
-    		margin: 0 -0.5rem;
+		.badge-container img{
+			margin: 5px;
 		}
-
-		@media only screen and (max-width: 498px) {
+		@media only screen and (max-width: 537px ) and (min-width: 280px) {
 			.badge-container{
-				margin-left:25%;
-				width: 75%;
-			}	
-		}
-
-		@media only screen and (max-width: 335px) {
-			.badge-container img{
-				margin-bottom: 0.5rem;
+				width: 280px;
 			}
-			#badge-2{
-				width: 136px;
-				margin: -1.3rem -0.6rem -0.1rem;
-			}	
+		}
+		@media only screen and (max-width: 279px ){
+			.badge-container{
+				width: 130px;
+			}
 		}
     </style>
 </head>
@@ -386,15 +377,15 @@
 						<div class="row">
 							<div class="small-12 medium-12 large-12 v-space-normal column badge-container">
 								<!-- android_app_link - https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en -->
-								<a  href="[% options.android_app_link %]&utm_campaign=install_the_app_android_footer_[% language %]"><img id="badge-1" src="https://static.openfoodfacts.org[% edq(lang('android_app_icon_url')) %]" alt="[% edq(lang('android_app_icon_alt_text')) %]" loading="lazy" height="40" width="120"></a>
+								<a  href="[% options.android_app_link %]&utm_campaign=install_the_app_android_footer_[% language %]"><img src="[% edq(lang('android_app_icon_url')) %]" alt="[% edq(lang('android_app_icon_alt_text')) %]" loading="lazy" height="40" width="120"></a>
 								
-								<a href="[% options.f_droid_app_link %]"><img id="badge-2" src="https://static.openfoodfacts.org[% edq(lang('f_droid_app_icon_url')) %]" alt="[% edq(lang('f_droid_app_icon_alt_text')) %]" loading="lazy" height="40" width="120"></a>
+								<a href="[% options.f_droid_app_link %]"><img src="[% edq(lang('f_droid_app_icon_url')) %]" alt="[% edq(lang('f_droid_app_icon_alt_text')) %]" loading="lazy" height="40" width="120"></a>
 
 								<!-- android_apk_app_link - https://world.openfoodfacts.org/images/apps/off.apk -->
-								<a href="[% options.android_apk_app_link %]?utm_source=off&utf_medium=web&utm_campaign=install_the_app_apk_footer_[% language %]"><img id="badge-3" src="https://static.openfoodfacts.org[% edq(lang('android_apk_app_icon_url')) %]" alt="[% edq(lang('android_apk_app_icon_alt_text')) %]" loading="lazy" height="40" width="120"></a>
+								<a href="[% options.android_apk_app_link %]?utm_source=off&utf_medium=web&utm_campaign=install_the_app_apk_footer_[% language %]"><img src="[% edq(lang('android_apk_app_icon_url')) %]" alt="[% edq(lang('android_apk_app_icon_alt_text')) %]" loading="lazy" height="40" width="120"></a>
 								
 								<!-- msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380" -->
-								<a href="[% options.ios_app_link %]&utm_campaign=install_the_app_ios_footer_[% language %]"><img id="badge-4" src="[% edq(lang('ios_app_icon_url')) %]" alt="[% edq(lang('ios_app_icon_alt_text')) %]"  loading="lazy" height="40" width="120"></a>
+								<a href="[% options.ios_app_link %]&utm_campaign=install_the_app_ios_footer_[% language %]"><img src="[% edq(lang('ios_app_icon_url')) %]" alt="[% edq(lang('ios_app_icon_alt_text')) %]"  loading="lazy" height="40" width="120"></a>
 							</div>
 						</div>
 					</div>
