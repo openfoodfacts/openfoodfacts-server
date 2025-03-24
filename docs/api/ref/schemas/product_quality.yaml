@@ -7,7 +7,7 @@ properties:
     items:
       type: object
       description: |
-        Each data quality gug describes a data quality bug on the product.
+        Each data quality bug describes a data quality bug on the product.
 
         Refer to the [data quality taxonomy](https://static.openfoodfacts.net/data/taxonomies/data_quality.json)
   data_quality_errors_tags:
