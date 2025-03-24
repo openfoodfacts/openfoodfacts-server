@@ -48,7 +48,7 @@ jobs:
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
         commit_message: "chore: Linting changes"
-        branch: ${{ github.event.pull_request.head.ref }}
+        branch: "${{ steps.get-branch.outputs.branch }}"
         commit_user_name: Open Food Facts Bot
         commit_user_email: contact@openfoodfacts.org
         commit_author: Open Food Facts Bot <contact@openfoodfacts.org>
@@ -69,9 +69,9 @@ jobs:
       # see https://github.com/actions/checkout/issues/331
       id: get-branch
       run: |
-        echo echo branch=$(gh pr view $PR_NO --repo $REPO --json headRefName --jq '.headRefName') >> $GITHUB_OUTPUT
-        echo echo owner=$(gh pr view $PR_NO --repo $REPO --json headRepositoryOwner --jq '.headRepositoryOwner.login')  >> $GITHUB_OUTPUT
-        echo echo repository=$(gh pr view $PR_NO --repo $REPO --json headRepositoryOwner,headRepository --jq '.headRepositoryOwner.login + "/" + .headRepository.name')  >> $GITHUB_OUTPUT
+        echo branch=$(gh pr view $PR_NO --repo $REPO --json headRefName --jq '.headRefName') >> $GITHUB_OUTPUT
+        echo owner=$(gh pr view $PR_NO --repo $REPO --json headRepositoryOwner --jq '.headRepositoryOwner.login')  >> $GITHUB_OUTPUT
+        echo repository=$(gh pr view $PR_NO --repo $REPO --json headRepositoryOwner,headRepository --jq '.headRepositoryOwner.login + "/" + .headRepository.name')  >> $GITHUB_OUTPUT
       env:
         REPO: ${{ github.repository }}
         PR_NO: ${{ github.event.issue.number }}
@@ -94,7 +94,7 @@ jobs:
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
         commit_message: "test: Update tests results"
-        branch: ${{ github.event.pull_request.head.ref }}
+        branch: "${{ steps.get-branch.outputs.branch }}"
         commit_user_name: Open Food Facts Bot
         commit_user_email: contact@openfoodfacts.org
         commit_author: Open Food Facts Bot <contact@openfoodfacts.org>

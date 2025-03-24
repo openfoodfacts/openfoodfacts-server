@@ -184,7 +184,7 @@ my %may_contain_regexps = (
 
 	en =>
 		"it may contain traces of|possible traces|traces|may also contain|also may contain|may contain|may be present|Produced in a factory handling",
-	bg => "продуктът може да съдържа следи от|може да съдържа следи от|може да съдържа",
+	bg => "продуктът може да съдържа следи от|mоже да съдържа следи от|може да съдържа",
 	bs => "može da sadrži",
 	ca => "pot contenir",
 	cs => "může obsahovat|může obsahovat stopy",
@@ -204,7 +204,7 @@ my %may_contain_regexps = (
 	it =>
 		"Pu[òo] contenere tracce di|pu[òo] contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
 	lt => "sudėtyje gali būti|gali būti",
-	lv => "var saturēt",
+	lv => "var saturēt|sastāva var but",
 	mk => "Производот може да содржи",
 	nl =>
 		"Dit product kan sporen van|bevat mogelijk sporen van|Kan sporen bevatten van|Kan sporen van|bevat mogelijk|sporen van|Geproduceerd in ruimtes waar",
@@ -2800,10 +2800,6 @@ Text to analyze
 						my %ignore_regexps = (
 							'bs' => [
 								'u promjenljivom odnosu',    # in a variable ratio
-							],
-
-							'bg' => [
-								'mоже да съдържа следи от',    # can contain traces of
 							],
 
 							'da' => [
@@ -5439,7 +5435,7 @@ my %phrases_after_ingredients_list = (
 		'(produit )?conditionn(e|é) sous atmosph(e|è)re protectrice',
 		'N(o|ò)us vous conseillons',
 		'Non ouvert,',
-		'Sans conservateur',
+		'Sans conservateur',    # remark: also label
 		'(Utilisation: |Préparation: )?Servir frais',
 		'Temps de Cuisson',
 		'tenir à l\'abri',
@@ -5536,6 +5532,7 @@ my %phrases_after_ingredients_list = (
 	],
 
 	lv => [
+		'uzglabāt sausā vēsā vietā',    # keep in dry place
 		'analītiskā sastāva',    # pet food
 	],
 
@@ -5561,6 +5558,7 @@ my %phrases_after_ingredients_list = (
 		'Na openen beperkt houdbaar',
 		'Ongeopend, ten minste houdbaar tot:',
 		'o.a.',
+		'te bewaren op een koele en droge plaats',    # keep in dry place
 		'ten minste',
 		'ten minste houdbaar tot',
 		'Van nature rijk aan vezels',
@@ -5576,6 +5574,7 @@ my %phrases_after_ingredients_list = (
 
 	pl => [
 		'przechowywać w chlodnym i ciemnym miejscu',    #keep in a dry and dark place
+		'przechowywać w chłodnym i suchym miejscu',    #keep in a dry place
 		'n(a|o)jlepiej spożyć przed',    #Best before
 		'Przechowywanie',
 		'pakowan(o|y|e) w atmosferze ochronnej',    # Packaged in protective environment
