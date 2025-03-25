@@ -194,7 +194,9 @@ sub convert_schema_1000_to_1001_remove_ingredients_hierarchy_taxonomize_brands (
 	# Taxonomize brands
 	# we use the main language of the product, but the brands taxonomy is language-less
 	# (all canonical entries use the language less xx: prefix) so any language would give the same result
-	compute_field_tags($product_ref, $product_ref->{lang}, "brands");
+	if (defined $product_ref->{brands}) {
+		compute_field_tags($product_ref, $product_ref->{lang}, "brands");
+	}
 
 	return;
 }
@@ -212,7 +214,9 @@ sub convert_schema_1001_to_1000_remove_ingredients_hierarchy_taxonomize_brands (
 	# brands should already contain the list of brands, so we do not need to regenerate it from brands_hierarchy
 	# brands_tags contains xx: prefixed tags, we can remove the xx: prefix to get the non-taxonomized canonical tags we had before
 	if (exists $product_ref->{brands_tags}) {
-		$product_ref->{brands_tags} = [map {s/^xx://; $_} @{$product_ref->{brands_tags}}];
+		for my $brand_tag (@{$product_ref->{brands_tags}}) {
+			$brand_tag =~ s/^xx://;
+		}
 	}
 
 	return;
