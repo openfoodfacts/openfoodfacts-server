@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-barcode-normalization/">
+        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-api-and-product-schema-change-log/">
       
       
-        <link rel="prev" href="../ref-api-and-product-schema-change-log/">
+        <link rel="prev" href="../explain-knowledge-panels/">
       
       
-        <link rel="next" href="../ref-cheatsheet/">
+        <link rel="next" href="../ref-barcode-normalization/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Reference: Barcode Normalization - Product Opener (Open Food Facts Server)</title>
+        <title>Reference: API and product schema change log - Product Opener (Open Food Facts Server)</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#reference-barcode-normalization" class="md-skip">
+        <a href="#reference-api-and-product-schema-change-log" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Reference: Barcode Normalization
+              Reference: API and product schema change log
             
           </span>
         </div>
@@ -427,28 +427,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../ref-api-and-product-schema-change-log/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Reference: API and product schema change log
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -465,7 +443,7 @@
           
   
   <span class="md-ellipsis">
-    Reference: Barcode Normalization
+    Reference: API and product schema change log
     
   </span>
   
@@ -477,7 +455,7 @@
         
   
   <span class="md-ellipsis">
-    Reference: Barcode Normalization
+    Reference: API and product schema change log
     
   </span>
   
@@ -500,28 +478,109 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#the-problem-barcodes-may-be-prefixed-by-a-varying-number-of-0s" class="md-nav__link">
+  <a href="#introduction" class="md-nav__link">
     <span class="md-ellipsis">
-      The problem: barcodes may be prefixed by a varying number of 0s
+      Introduction
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-solution-barcode-normalization" class="md-nav__link">
+  <a href="#product-schema-version" class="md-nav__link">
     <span class="md-ellipsis">
-      The solution: barcode normalization
+      Product schema version
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="The solution: barcode normalization">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      API version
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schema-version-and-api-version-change-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schema version and API version change log
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Schema version and API version change log">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#normalization-of-barcodes-in-the-api" class="md-nav__link">
+  <a href="#2025-03-12-product-version-1001-api-version-32-removed-ingredients_hierarchy-added-schema_version-made-brands-a-taxonomized-field" class="md-nav__link">
     <span class="md-ellipsis">
-      Normalization of barcodes in the API
+      2025-03-12 - Product version 1001 - API version 3.2 - Removed ingredients_hierarchy, added schema_version, made brands a taxonomized field.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2024-12-12-product-version-1000-api-version-31-renamed-ecoscore_-fields-to-environmental_score_" class="md-nav__link">
+    <span class="md-ellipsis">
+      2024-12-12 - Product version 1000 - API version 3.1 - Renamed ecoscore_ fields to environmental_score_
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#warning-non-breaking-changes-not-indicated-in-change-logs-below" class="md-nav__link">
+    <span class="md-ellipsis">
+      Warning: non-breaking changes not indicated in change logs below
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#product-version-999-changed-barcode-normalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Product version 999 - Changed barcode normalization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#product-version-998-api-version-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Product version 998 - API version 3
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#product-version-997-api-version-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Product version 997 - API version 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#product-version-996-api-version-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Product version 996 - API version 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#product-version-995-api-version-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      Product version 995 - API version 0
     </span>
   </a>
   
@@ -536,6 +595,28 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ref-barcode-normalization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reference: Barcode Normalization
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1674,28 +1755,109 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#the-problem-barcodes-may-be-prefixed-by-a-varying-number-of-0s" class="md-nav__link">
+  <a href="#introduction" class="md-nav__link">
     <span class="md-ellipsis">
-      The problem: barcodes may be prefixed by a varying number of 0s
+      Introduction
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-solution-barcode-normalization" class="md-nav__link">
+  <a href="#product-schema-version" class="md-nav__link">
     <span class="md-ellipsis">
-      The solution: barcode normalization
+      Product schema version
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="The solution: barcode normalization">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      API version
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schema-version-and-api-version-change-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schema version and API version change log
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Schema version and API version change log">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#normalization-of-barcodes-in-the-api" class="md-nav__link">
+  <a href="#2025-03-12-product-version-1001-api-version-32-removed-ingredients_hierarchy-added-schema_version-made-brands-a-taxonomized-field" class="md-nav__link">
     <span class="md-ellipsis">
-      Normalization of barcodes in the API
+      2025-03-12 - Product version 1001 - API version 3.2 - Removed ingredients_hierarchy, added schema_version, made brands a taxonomized field.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2024-12-12-product-version-1000-api-version-31-renamed-ecoscore_-fields-to-environmental_score_" class="md-nav__link">
+    <span class="md-ellipsis">
+      2024-12-12 - Product version 1000 - API version 3.1 - Renamed ecoscore_ fields to environmental_score_
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#warning-non-breaking-changes-not-indicated-in-change-logs-below" class="md-nav__link">
+    <span class="md-ellipsis">
+      Warning: non-breaking changes not indicated in change logs below
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#product-version-999-changed-barcode-normalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Product version 999 - Changed barcode normalization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#product-version-998-api-version-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Product version 998 - API version 3
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#product-version-997-api-version-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Product version 997 - API version 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#product-version-996-api-version-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Product version 996 - API version 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#product-version-995-api-version-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      Product version 995 - API version 0
     </span>
   </a>
   
@@ -1725,28 +1887,65 @@
   
 
 
-<h1 id="reference-barcode-normalization">Reference: Barcode Normalization<a class="headerlink" href="#reference-barcode-normalization" title="Permanent link">#</a></h1>
-<p>This reference describes how barcodes are normalized in Open Food Facts.</p>
-<h2 id="the-problem-barcodes-may-be-prefixed-by-a-varying-number-of-0s">The problem: barcodes may be prefixed by a varying number of 0s<a class="headerlink" href="#the-problem-barcodes-may-be-prefixed-by-a-varying-number-of-0s" title="Permanent link">#</a></h2>
-<p>Different types of barcodes can be found on products. The most common are:</p>
+<h1 id="reference-api-and-product-schema-change-log">Reference: API and product schema change log<a class="headerlink" href="#reference-api-and-product-schema-change-log" title="Permanent link">#</a></h1>
+<p>This reference lists changes to the API and/or the product schema.</p>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
+<p>The schema of product data in the Open Food Facts database changes over time:</p>
 <ul>
-<li>EAN-13 / GTIN-13: 13 digit barcode</li>
-<li>EAN-8: 8 digit barcode, short version of EAN-13 barcodes that have 5 leading 0s</li>
-<li>UPC-A / UPC-12: 12 digit barcode that were used mostly in the US and Canada. A leading 0 can be added to get the corresponding EAN-13.</li>
-<li>UPC-E: 7 digit barcode, short version of UPC-A</li>
-<li>EAN-14 / GTIN-14: used for non-consumer facing products (e.g. a case of individal products). a leading 0 can be added to EAN-13 to get the corresponding EAN-14.</li>
+<li>We often add new raw data fields (e.g. packaging data), or new computed fields (e.g. health and environmental scores).</li>
+<li>Occasionally, we refactor some fields to improve how we structure some data (e.g. in the beginning we had a flat list of ingredients, then we added a nested ingredients structure to better represent sub-ingredients).</li>
 </ul>
-<p>The same code could be printed on products with a different number of leading 0s.
-Additionally, some barcode scanners may add or remove leading 0s.</p>
-<p>As the barcode is used as the key in Open Food Facts, we can end up with duplicate products that just differ by the number of leading 0s.</p>
-<h2 id="the-solution-barcode-normalization">The solution: barcode normalization<a class="headerlink" href="#the-solution-barcode-normalization" title="Permanent link">#</a></h2>
-<p>In Open Food Facts, we choose to fix the number of leading 0s in this way:</p>
-<p>All barcodes with 7 digits or less (after leading 0s are removed) are padded with leading 0s so that they have 8 digits.</p>
-<p>All barcodes with 9 to 12 digits are padded with leading 0s so that they have 13 digits.</p>
-<p>The "code" field in the product database, database dumps and exports is normalized in this way.</p>
-<h3 id="normalization-of-barcodes-in-the-api">Normalization of barcodes in the API<a class="headerlink" href="#normalization-of-barcodes-in-the-api" title="Permanent link">#</a></h3>
-<p>The Open Food Facts API automatically normalize the barcode passed in the "code" field for both READ and WRITE requests.</p>
-<p>So a request for the 12 digit barcode 034000470693 will return the product saved with "code" 0034000470693.</p>
+<p>We consider new fields to be non-breaking changes. When reading product data, make sure that your implementation will ignore new fields and not break.</p>
+<p>We consider changed fields to be breaking changes. To maintain backward compatibility, we increase the API version number when there is a breaking change, and we try to serve the old structure when a lower API version is requested by a client.</p>
+<p>The API may return undocumented fields. You should not rely on fields that are not documented, as they may be internal fields that could change or be removed. If you want to use some documented fields, please ask first on the #API channel. We do not consider changes to undocumented fields breaking changes, and added/changed/removed undocumented fields will often not be listed in this change log.</p>
+<h2 id="product-schema-version">Product schema version<a class="headerlink" href="#product-schema-version" title="Permanent link">#</a></h2>
+<p>The product schema version is an integer that is incremented each time there is a change.
+It was introduced in March 2025, with a value of 1001.
+For products updated after March 2025, the product schema version is saved in the schema_version field of the product object.
+For earlier products (or earlier product revisions), the product schema version is 1000 or below. It is not stored in the database, but it can be returned for API requests with an API version lesser than 3.2.</p>
+<h2 id="api-version">API version<a class="headerlink" href="#api-version" title="Permanent link">#</a></h2>
+<p>Since 2012, we have used API versions like 0, 1, 2, 3 and 3.1.
+For each of those API version, we have a corresponding product schema version.</p>
+<p>When a client makes a request with a specific API version, we do our best to convert the response to the corresponding product schema version.</p>
+<p>Note: API v3 is under active development, and the API and corresponding product schema may change frequently.</p>
+<h2 id="schema-version-and-api-version-change-log">Schema version and API version change log<a class="headerlink" href="#schema-version-and-api-version-change-log" title="Permanent link">#</a></h2>
+<h3 id="2025-03-12-product-version-1001-api-version-32-removed-ingredients_hierarchy-added-schema_version-made-brands-a-taxonomized-field">2025-03-12 - Product version 1001 - API version 3.2 - Removed ingredients_hierarchy, added schema_version, made brands a taxonomized field.<a class="headerlink" href="#2025-03-12-product-version-1001-api-version-32-removed-ingredients_hierarchy-added-schema_version-made-brands-a-taxonomized-field" title="Permanent link">#</a></h3>
+<p>Breaking changes:</p>
+<ul>
+<li>Ingredients_hierarchy array has been removed (its content is identical to the ingredients_tags array) - <a href="https://github.com/openfoodfacts/openfoodfacts-server/pull/11615">PR</a></li>
+<li>The brands field is now taxonomized. brands_tags entries are prefixed with the language-less xx: prefix, and there is a new brands_hierarchy field (<a href="../ref/schemas/product_tags.yaml">see tags schema</a>) - <a href="https://github.com/openfoodfacts/openfoodfacts-server/pull/11606">PR</a></li>
+</ul>
+<p>Non-breaking changes:</p>
+<ul>
+<li>Added schema_version field</li>
+</ul>
+<h3 id="2024-12-12-product-version-1000-api-version-31-renamed-ecoscore_-fields-to-environmental_score_">2024-12-12 - Product version 1000 - API version 3.1 - Renamed ecoscore_<em> fields to environmental_score_</em><a class="headerlink" href="#2024-12-12-product-version-1000-api-version-31-renamed-ecoscore_-fields-to-environmental_score_" title="Permanent link">#</a></h3>
+<p>Breaking changes:</p>
+<ul>
+<li>For legal reasons, we had to rename the Eco-Score to Green-Score. To make sure we won't have to update the schema again, we renamed the corresponding fields from ecoscore_<em> to the generic name environmental_score_</em></li>
+</ul>
+<h3 id="warning-non-breaking-changes-not-indicated-in-change-logs-below">Warning: non-breaking changes not indicated in change logs below<a class="headerlink" href="#warning-non-breaking-changes-not-indicated-in-change-logs-below" title="Permanent link">#</a></h3>
+<p>There were lots of non-breaking changes (new fields) from 2012 to 2024. Those changes did not trigger a change to the API version, and their history has not been listed.</p>
+<h3 id="product-version-999-changed-barcode-normalization">Product version 999 - Changed barcode normalization<a class="headerlink" href="#product-version-999-changed-barcode-normalization" title="Permanent link">#</a></h3>
+<p>The normalization of leading 0s has been changed. See <a href="/ref-barcode-normalization.md">Barcode normalization</a></p>
+<h3 id="product-version-998-api-version-3">Product version 998 - API version 3<a class="headerlink" href="#product-version-998-api-version-3" title="Permanent link">#</a></h3>
+<p>Breaking changes:</p>
+<ul>
+<li>All v3 responses (including product READ requests that use the route /api/v3/product/[barcode]) follow the same structure to indicate status (success or failure), errors and warnings.</li>
+<li>The shape, material and recycling properties of each packaging component are localized: we return a hash with an id and a lc_name field, instead of just an id.</li>
+</ul>
+<h3 id="product-version-997-api-version-2">Product version 997 - API version 2<a class="headerlink" href="#product-version-997-api-version-2" title="Permanent link">#</a></h3>
+<p>Breaking changes:</p>
+<ul>
+<li>The ingredients structure is now a nested structure, with sub-ingredients in the "ingredients" field of each ingredient. Previously sub-ingredients were listed at the end of ingredients.</li>
+</ul>
+<h3 id="product-version-996-api-version-1">Product version 996 - API version 1<a class="headerlink" href="#product-version-996-api-version-1" title="Permanent link">#</a></h3>
+<p>Breaking changes:</p>
+<ul>
+<li>For product READ requests, if the product does not exist, we return HTTP status code 404 instead of 200.</li>
+</ul>
+<h3 id="product-version-995-api-version-0">Product version 995 - API version 0<a class="headerlink" href="#product-version-995-api-version-0" title="Permanent link">#</a></h3>
+<p>This is considered the initial version.</p>
 
 
 
