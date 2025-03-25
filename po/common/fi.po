@@ -44,6 +44,32 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "Yhteistyöhön perustuva, vapaa ja avoin tietokanta kosmetiikkatuotteista joka puolelta maailmaa."
 
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
+msgstr ""
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr ""
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr ""
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr ""
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr ""
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr "Yhteistyöhön perustuva, vapaa ja avoin tietokanta lemmikkien elintarvikkeista joka puolelta maailmaa."
+
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
@@ -275,16 +301,16 @@ msgid "for 1 kg"
 msgstr ""
 
 msgctxt "android_apk_app_icon_url"
-msgid "/images/misc/android-apk.svg"
-msgstr "/images/misc/android-apk.svg"
+msgid "/images/misc/app-landing-page/download-apk/download-apk_en.svg"
+msgstr ""
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
 msgstr "Android APK"
 
-# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
+# Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
-msgid "/images/misc/playstore/img/en_get.svg"
+msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
 msgstr ""
 
 msgctxt "android_app_icon_alt_text"
@@ -326,7 +352,7 @@ msgstr "Viivakoodin numero:"
 
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
-msgstr "Voit myös auttaa rahoittamaan Open Food Facts -hanketta"
+msgstr "Voit myös auttaa Open Food Facts -projektin rahoituksessa"
 
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
@@ -1471,7 +1497,7 @@ msgstr "Seuraava"
 
 msgctxt "no_barcode"
 msgid "Product without barcode"
-msgstr "Viivakooditon tuote"
+msgstr "Tuote ilman viivakoodia"
 
 msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
@@ -2007,7 +2033,7 @@ msgstr "Lisäämäsi tai muokkaamasi tuotteet"
 
 msgctxt "purchase_places"
 msgid "City, state and country where purchased"
-msgstr "Kaupunki, osavaltio ja maa, jossa ostettu"
+msgstr "Kaupunki, osavaltio ja maa mistä ostettu"
 
 msgctxt "purchase_places_note"
 msgid "Indicate where you bought or saw the product (at least the country)"
@@ -3004,7 +3030,7 @@ msgstr "Riski saavuttaa tai ylittää korkein annos ilman haittavaikutuksia (eng
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_adi"
 msgid "Groups with more than 50% of members exceeding the acceptable daily intake (ADI)"
-msgstr "Ryhmät, joissa yli 50% jäsenistä ylittää hyväksyttävän päiväsaannin (ADI)"
+msgstr "Ryhmät joiden jäsenistä yli 50% ylittää hyväksyttävän päiväsaannin (ADI-arvon)"
 
 msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_adi"
 msgid "Groups with more than 5% of members exceeding the acceptable daily intake (ADI)"
@@ -5411,7 +5437,7 @@ msgstr ""
 
 msgctxt "attribute_environmental_score_not_applicable_description_short"
 msgid "Not applicable for the category"
-msgstr ""
+msgstr "Ei koske kategoriaa"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_environmental_score_not_applicable_description"
@@ -5620,7 +5646,7 @@ msgstr "Vaihe"
 
 msgctxt "environmental_score_impact"
 msgid "Impact"
-msgstr "Vaikutus"
+msgstr "Merkitys"
 
 msgctxt "environmental_score_agriculture"
 msgid "Agriculture"
@@ -6265,7 +6291,7 @@ msgstr "Lue lisää NOVA-luokittelusta"
 
 msgctxt "nova_group_missing_category"
 msgid "The category of the product must be specified in order to determine the NOVA group."
-msgstr "Tuotteen luokka on määritettävä NOVA-ryhmän määrittämiseksi."
+msgstr "Tuotteen kategoria tulee kertoa, jotta NOVA-ryhmä voitaisiin määrittää."
 
 msgctxt "nova_group_missing_ingredients"
 msgid "The ingredients of the product must be specified in order to determine the NOVA group."
@@ -7367,4 +7393,21 @@ msgstr ""
 msgctxt "in_contact_with_food"
 msgid "In contact with food"
 msgstr ""
+
+msgctxt "contact_us_producers"
+msgid "Contact Us"
+msgstr ""
+
+msgctxt "delete"
+msgid "Delete"
+msgstr "Poista"
+
+# Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
+msgctxt "f_droid_app_icon_url"
+msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
+msgstr ""
+
+msgctxt "f_droid_app_icon_alt_text"
+msgid "Available on F-Droid"
+msgstr "Saatavilla F-Droidissa"
 
