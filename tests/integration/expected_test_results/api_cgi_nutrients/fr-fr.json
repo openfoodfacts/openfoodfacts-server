@@ -296,10 +296,17 @@
          "unit" : "g"
       },
       {
+         "display_in_edit_form" : false,
+         "id" : "total-carbohydrates",
+         "important" : false,
+         "name" : "Glucides totaux (inclut les fibres)",
+         "unit" : "g"
+      },
+      {
          "display_in_edit_form" : true,
          "id" : "carbohydrates",
          "important" : true,
-         "name" : "Glucides",
+         "name" : "Glucides (sans fibres)",
          "nutrients" : [
             {
                "display_in_edit_form" : true,
