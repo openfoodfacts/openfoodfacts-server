@@ -4232,7 +4232,7 @@ HTML
 
 				$title = $app_user;
 				$display_tag = $app_user;
-				$creator_promo = $display_creator_promo;
+				my $creator_promo = $display_creator_promo;
 			}
 			else {
 
