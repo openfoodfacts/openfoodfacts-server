@@ -44,6 +44,32 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "Dünyanın dört bir yanından kozmetik ürünlerin bulunduğu işbirliğine dayalı, özgür ve açık bir veritabanı."
 
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
+msgstr ""
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr ""
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr ""
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr ""
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr ""
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr "Dünyanın dört bir yanından evcil hayvan besinleriyle bulunduğu katılımcı, özgür ve açık bir veritabanı."
+
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
@@ -267,17 +293,25 @@ msgctxt "also_edited_by"
 msgid "Product page also edited by"
 msgstr "Ürün sayfasını da düzenleyen"
 
+msgctxt "analytical_constituents"
+msgid "Analytical constituents"
+msgstr ""
+
+msgctxt "analytical_constituents_per_1kg"
+msgid "for 1 kg"
+msgstr ""
+
 msgctxt "android_apk_app_icon_url"
-msgid "/images/misc/android-apk.svg"
-msgstr "/images/misc/android-apk.svg"
+msgid "/images/misc/app-landing-page/download-apk/download-apk_en.svg"
+msgstr ""
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
 msgstr "Android APK"
 
-# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
+# Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
-msgid "/images/misc/playstore/img/en_get.svg"
+msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
 msgstr ""
 
 msgctxt "android_app_icon_alt_text"
@@ -1077,7 +1111,7 @@ msgstr "muhbir"
 
 msgctxt "ingredients"
 msgid "Ingredients"
-msgstr "İçindekiler"
+msgstr "Malzemeler"
 
 msgctxt "no_ingredient"
 msgid "Ingredients are missing"
@@ -1093,7 +1127,7 @@ msgstr "{number} bileşen"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
-msgstr "İçindekiler"
+msgstr "Malzemeler"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
@@ -2231,7 +2265,7 @@ msgstr "Kayıtsız"
 
 msgctxt "search_ingredients"
 msgid "Ingredients"
-msgstr "İçindekiler"
+msgstr "Malzemeler"
 
 msgctxt "search_link"
 msgid "Permanent link to these results, shareable by e-mail and on social networks"
@@ -3432,7 +3466,7 @@ msgstr "Kökenleri"
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
-msgstr "İçindekiler"
+msgstr "Malzemeler"
 
 msgctxt "fields_group_nutrition"
 msgid "Nutrition facts"
@@ -4625,13 +4659,15 @@ msgctxt "attribute_nutriscore_c_description_short"
 msgid "Average nutritional quality"
 msgstr "Ortalama beslenme kalitesi"
 
+# lower: translate to "less good" in some languages (e.g. French: "Moins bonne qualité nutritionnelle")
 msgctxt "attribute_nutriscore_d_description_short"
-msgid "Poor nutritional quality"
-msgstr "Kötü beslenme kalitesi"
+msgid "Lower nutritional quality"
+msgstr ""
 
+# lower: translate to "less good" in some languages (e.g. French: "Moins bonne qualité nutritionnelle")
 msgctxt "attribute_nutriscore_e_description_short"
-msgid "Bad nutritional quality"
-msgstr "Çok kötü beslenme kalitesi"
+msgid "Lower nutritional quality"
+msgstr ""
 
 msgctxt "attribute_group_processing_name"
 msgid "Food processing"
@@ -4672,7 +4708,16 @@ msgstr "İşlenmiş gıdalar"
 
 msgctxt "attribute_nova_4_description_short"
 msgid "Ultra-processed foods"
-msgstr "Üst düzey işlemden geçmiş yiyecekler"
+msgstr "Aşırı işlenmiş gıdalar"
+
+msgctxt "attribute_nova_4_1_marker"
+msgid "1 ultra-processing marker"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_nova_4_markers"
+msgid "{number} ultra-processing markers"
+msgstr ""
 
 msgctxt "export_product_page"
 msgid "Export product to public database"
@@ -4813,20 +4858,33 @@ msgstr "Çevre"
 
 msgctxt "attribute_environmental_score_name"
 msgid "Green-Score"
-msgstr "Green-Score"
+msgstr ""
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
 msgstr "Düşük çevresel etki (Eko-Skor)"
 
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score (environmental_score) from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "Green-Score gıda ürünlerinin çevre üzerindeki etkisini karşılaştırmayı kolaylaştıran A'dan E'ye bir çevresel puandır (ekopuan)."
+msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
+msgstr ""
+
+# Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
+msgctxt "attribute_ecoscore_name"
+msgid "Green-Score"
+msgstr ""
+
+msgctxt "attribute_ecoscore_setting_name"
+msgid "Low environmental impact (Green-Score)"
+msgstr "Düşük çevresel etki (Eko-Skor)"
+
+msgctxt "attribute_ecoscore_setting_note"
+msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
+msgstr ""
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
 msgid "Green-Score %s"
-msgstr "Green-Score %s"
+msgstr ""
 
 msgctxt "attribute_environmental_score_a_plus_description_short"
 msgid "Very low environmental impact"
@@ -4994,7 +5052,7 @@ msgstr "Kullanıcı profilinizi düzenleyin"
 
 msgctxt "attribute_group_ingredients_analysis_name"
 msgid "Ingredients"
-msgstr "İçindekiler"
+msgstr "Malzemeler"
 
 # keep the %s, it will be replaced by an allergen
 msgctxt "presence_unknown_s"
@@ -5005,25 +5063,25 @@ msgctxt "environmental_impact"
 msgid "Environmental impact"
 msgstr "Çevresel etki"
 
-# Numerical score for the Eco-score (do not translate Eco-score)
+# Numerical score for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_score"
-msgid "Eco-score score"
-msgstr "Eko-skor puanı"
+msgid "Green-Score score"
+msgstr ""
 
-# Letter grade from A to E for the Eco-score (do not translate Eco-score)
+# Letter grade from A to E for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_grade"
-msgid "Eco-score grade"
-msgstr "Eko-skor puanı"
+msgid "Green-Score grade"
+msgstr ""
 
-# do not translate Eco-score
+# do not translate Green-Score
 msgctxt "environmental_score_calculation_details"
-msgid "Details of the calculation of the Eco-score"
-msgstr "Green-Score hesaplamasının ayrıntıları"
+msgid "Details of the calculation of the Green-Score"
+msgstr ""
 
-# do not translate Eco-score
+# do not translate Green-Score
 msgctxt "environmental_score_information"
-msgid "Information about the Eco-score"
-msgstr "Eko-skor hakkında bilgi"
+msgid "Information about the Green-Score"
+msgstr ""
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
@@ -5031,15 +5089,15 @@ msgstr "Şu anda seçili tercihler"
 
 msgctxt "preferences_locally_saved"
 msgid "Your preferences are kept in your browser and never sent to Open Food Facts or anyone else."
-msgstr ""
+msgstr "Tercihleriniz tarayıcınızda tutulur ve asla Open Food Facts'e veya başka birine gönderilmez."
 
 msgctxt "preferences_edit_your_preferences"
 msgid "Edit your preferences"
-msgstr ""
+msgstr "Tercihlerinizi düzenleyin"
 
 msgctxt "preferences_your_preferences"
 msgid "Your preferences"
-msgstr ""
+msgstr "Tercihleriniz"
 
 # used in phrases like "salt in unknown quantity"
 msgctxt "unknown_quantity"
@@ -5054,13 +5112,29 @@ msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr "Eksik besin değerleri"
 
+msgctxt "ecoscore_p"
+msgid "Green-Score"
+msgstr ""
+
+msgctxt "ecoscore_s"
+msgid "Green-Score"
+msgstr ""
+
 msgctxt "environmental_score_p"
 msgid "Green-Score"
-msgstr "Green-Score"
+msgstr ""
 
 msgctxt "environmental_score_s"
 msgid "Green-Score"
-msgstr "Green-Score"
+msgstr ""
+
+msgctxt "misc_p"
+msgid "Miscellaneous"
+msgstr "Çeşitli"
+
+msgctxt "misc_s"
+msgid "Miscellaneous"
+msgstr "Çeşitli"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5222,8 +5296,8 @@ msgstr "Platform aynı zamanda ürünlerin derinlemesine analizini de sağlıyor
 
 # It = the platform
 msgctxt "product_edits_by_producers_indicators"
-msgid "It computes indicators such as the Nutri-Score, NOVA, and the Eco-score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
-msgstr "Nutri-Score, NOVA ve Eco-score gibi göstergeleri hesaplar ve bunları iyileştirmeye yönelik önerileri otomatik olarak belirler (örneğin, hafif bir bileşim değişikliği ile daha iyi bir Nutri-Score derecesi elde edecek tüm ürünler)."
+msgid "It computes indicators such as the Nutri-Score, NOVA, and the Green-Score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest footprint"
@@ -5357,12 +5431,12 @@ msgid "User is being deleted. This may take a few minutes."
 msgstr "Kullanıcı siliniyor. Bu bir kaç dakika alabilir."
 
 msgctxt "attribute_environmental_score_not_applicable_title"
-msgid "Green-Score not yet applicable"
-msgstr "Eko-Skor henüz geçerli değil"
+msgid "Green-Score not applicable"
+msgstr ""
 
 msgctxt "attribute_environmental_score_not_applicable_description_short"
-msgid "Not yet applicable for the category"
-msgstr "Kategori için henüz geçerli değil"
+msgid "Not applicable for the category"
+msgstr ""
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_environmental_score_not_applicable_description"
@@ -5825,15 +5899,15 @@ msgstr "Gıda devrimi sizinle başlıyor!"
 
 msgctxt "donation_hook_2024"
 msgid "Help us inform millions of consumers around the world about what they eat"
-msgstr ""
+msgstr "Dünya çapında milyonlarca tüketiciyi ne yedikleri konusunda bilgilendirmemize yardımcı olun"
 
 msgctxt "donation_title_2024"
 msgid "Please give to our 2024 Fundraiser"
-msgstr ""
+msgstr "Lütfen 2024 Bağış Kampanyamıza bağış yapın"
 
 msgctxt "donation_list_2024_main"
 msgid "Your donations fund the day-to-day operations of our non-profit association:"
-msgstr ""
+msgstr "Bağışlarınız, kâr amacı gütmeyen derneğimizin günlük faaliyetlerini finanse ediyor:"
 
 msgctxt "donation_list_2024_first"
 msgid "keeping our database open & available to all,"
@@ -5861,7 +5935,7 @@ msgstr ""
 
 msgctxt "donation_button_2024_text"
 msgid "I SUPPORT"
-msgstr ""
+msgstr "DESTEKLİYORUM"
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -5911,12 +5985,12 @@ msgstr "Karbon Ayakizi"
 # variable names between { } must not be translated
 msgctxt "f_carbon_footprint_per_100g_of_product"
 msgid "{grams} g CO₂e per 100g of product"
-msgstr ""
+msgstr "100 g ürün başına {grams} g CO²"
 
 # variable names between { } must not be translated
 msgctxt "f_carbon_footprint_per_unit"
 msgid "{kilograms} kg CO₂e per unit"
-msgstr ""
+msgstr "{kilograms} kg CO₂e birim başına"
 
 msgctxt "average_for_the_category"
 msgid "average for the category"
@@ -6371,6 +6445,10 @@ msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
 msgstr "İzlenebilirlik kodlarının fotoğrafını çekin"
 
+msgctxt "action_report_product_to_nutripatrol"
+msgid "Report this product to our moderators"
+msgstr ""
+
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
 msgid "What you need to know"
@@ -6516,6 +6594,10 @@ msgctxt "api_result_product_not_found"
 msgid "Product not found"
 msgstr "Ürün bulunamadı"
 
+msgctxt "api_result_product_found_with_a_different_product_type"
+msgid "Product found with a different product type"
+msgstr ""
+
 msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr "Ürün güncellendi"
@@ -6539,6 +6621,10 @@ msgstr "İstek gövdesinde geçersiz JSON"
 msgctxt "api_message_invalid_code"
 msgid "Invalid code"
 msgstr "Geçersiz kod"
+
+msgctxt "api_message_invalid_product_type"
+msgid "Invalid product type"
+msgstr ""
 
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
@@ -6853,6 +6939,18 @@ msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_
 msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
 msgstr "Proteinlere ilişkin puanlar sayılmaz çünkü negatif puanlar 11'den büyük veya ona eşittir."
 
+msgctxt "nutriscore_new_computation_title"
+msgid "Discover the new Nutri-Score!"
+msgstr ""
+
+msgctxt "nutriscore_new_computation_description"
+msgid "<p>The computation of the Nutri-Score is evolving to provide better recommendations based on the latest scientific evidence.</p><p>Main improvements:</p><ul><li>Better score for some fatty fish and oils rich in good fats</li><li>Better score for whole products rich in fiber</li><li>Worse score for products containing a lot of salt or sugar</li><li>Worse score for red meat (compared to poultry)</li></ul>"
+msgstr ""
+
+msgctxt "nutriscore_new_computation_link_text"
+msgid "Discover all the improvements of the new Nutri-Score"
+msgstr ""
+
 msgctxt "nutriscore_explanation_what_it_is"
 msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
 msgstr "Nutri-Score, ürünlerin genel besin kalitesine ilişkin bir logodur."
@@ -6949,7 +7047,7 @@ msgstr "Bir sorun bildir"
 
 msgctxt "report_problem_navigation"
 msgid "Report a problem."
-msgstr ""
+msgstr "Bir sorun bildir."
 
 msgctxt "incomplete_or_incorrect_data_title"
 msgid "Incomplete or incorrect information?"
@@ -6966,6 +7064,10 @@ msgstr "Eğer bilgiler ambalaj üzerindeki bilgilerle eşleşmiyorsa tamamlayabi
 msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
 msgstr "Open Food Facts ortak çalışmaya dayalı bir veri tabanıdır ve her katkı herkes için faydalıdır."
+
+msgctxt "report_to_nutripatrol_explain"
+msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
+msgstr ""
 
 msgctxt "description"
 msgid "Description"
@@ -7006,7 +7108,7 @@ msgstr "CRM'de açın"
 
 msgctxt "information_provided_by_the_manufacturer"
 msgid "Information provided by the manufacturer"
-msgstr ""
+msgstr "Üretici tarafından sağlanan bilgiler"
 
 msgctxt "information_provided_by_the_manufacturer_edit_form"
 msgid "Information identified by a factory icon has been provided by the manufacturer. It can be changed only by the manufacturer and moderators. If it is out of date or incorrect, please let us know."
@@ -7074,7 +7176,7 @@ msgstr "Kuruluş kimliği"
 
 msgctxt "verified_status"
 msgid "Verified status"
-msgstr ""
+msgstr "Doğrulanmış durum"
 
 msgctxt "creation_date"
 msgid "Creation date"
@@ -7086,7 +7188,7 @@ msgstr ""
 
 msgctxt "deny"
 msgid "Deny"
-msgstr ""
+msgstr "Reddet"
 
 msgctxt "users_requested_to_join_org"
 msgid "These users have requested to join the organization:"
@@ -7130,19 +7232,19 @@ msgstr ""
 
 msgctxt "date_of_last_update"
 msgid "Date of last update"
-msgstr ""
+msgstr "Son güncelleme tarihi"
 
 msgctxt "number_of_products_on_public_platform"
 msgid "Number of products on public platform"
-msgstr ""
+msgstr "Herkese açık platformdaki ürün sayısı"
 
 msgctxt "number_of_products_on_producer_platform"
 msgid "Number of products on producer platform"
-msgstr ""
+msgstr "Üretici platformundaki ürün sayısı"
 
 msgctxt "automated_daily_export_to_public_platform"
 msgid "Automatic daily export to public platform"
-msgstr ""
+msgstr "Herkese açık platforma otomatik günlük aktarım"
 
 msgctxt "improvements_navigation"
 msgid "Improvements"
@@ -7154,7 +7256,7 @@ msgstr ""
 
 msgctxt "organization_list"
 msgid "Organization list"
-msgstr ""
+msgstr "Organizasyon listesi"
 
 msgctxt "open_org"
 msgid "Open org"
@@ -7162,48 +7264,48 @@ msgstr ""
 
 msgctxt "secondhand"
 msgid "Secondhand"
-msgstr ""
+msgstr "İkinci el"
 
 msgctxt "donated_products_title"
 msgid "Donations"
-msgstr ""
+msgstr "Bağışlar"
 
 msgctxt "donated_products_subtitle"
 msgid "Give this product, or search for a similar donated product"
-msgstr ""
+msgstr "Bu ürünü verin veya bağışlanan benzer bir ürünü arayın"
 
 msgctxt "used_products_title"
 msgid "Used products"
-msgstr ""
+msgstr "Kullanılmış ürünler"
 
 msgctxt "used_products_subtitle"
 msgid "Buy this product used, or search for a similar used product"
-msgstr ""
+msgstr "Bu ürünü ikinci el olarak satın alın veya benzer bir ikinci el ürün arayın"
 
 msgctxt "attribute_repairability_index_france_name"
 msgid "Repairability index"
-msgstr ""
+msgstr "Onarılabilirlik indeksi"
 
 msgctxt "attribute_repairability_index_france_setting_name"
 msgid "Good repairability"
-msgstr ""
+msgstr "İyi onarılabilirlik"
 
 msgctxt "attribute_repairability_index_france_setting_note"
 msgid "Mandatory rating in France for certain products since 2021"
-msgstr ""
+msgstr "Fransa'da 2021'den beri belirli ürünler için zorunlu derecelendirme"
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_repairability_index_france_grade_title"
 msgid "Repairability index %s"
-msgstr ""
+msgstr "Onarılabilirlik indeksi %s"
 
 msgctxt "attribute_repairability_index_france_unknown_title"
 msgid "Repairability index unknown"
-msgstr ""
+msgstr "Onarılabilirlik indeksi bilinmiyor"
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
 msgid "Repairability index not-applicable"
-msgstr ""
+msgstr "Onarılabilirlik indeksi geçerli değil"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
 msgid "Not-applicable for the category"
@@ -7212,25 +7314,99 @@ msgstr "Kategori için geçerli değil"
 # variable names between { } must not be translated
 msgctxt "f_attribute_repairability_index_france_not_applicable_description"
 msgid "Applicable only for categories: {categories}"
-msgstr ""
+msgstr "Yalnızca şu kategoriler için geçerlidir: {categories}"
 
 msgctxt "attribute_repairability_index_france_very_good_description_short"
 msgid "Very good repairability"
-msgstr ""
+msgstr "Çok iyi onarılabilirlik"
 
 msgctxt "attribute_repairability_index_france_good_description_short"
 msgid "Good repairability"
-msgstr ""
+msgstr "İyi onarılabilirlik"
 
 msgctxt "attribute_repairability_index_france_average_description_short"
 msgid "Average repairability"
-msgstr ""
+msgstr "Ortalama onarılabilirlik"
 
 msgctxt "attribute_repairability_index_france_poor_description_short"
 msgid "Poor repairability"
-msgstr ""
+msgstr "Zayıf onarılabilirlik"
 
 msgctxt "attribute_repairability_index_france_bad_description_short"
 msgid "Bad repairability"
+msgstr "Kötü onarılabilirlik"
+
+msgctxt "estimate"
+msgid "estimate"
 msgstr ""
+
+# information on several ingredients, in plural in languages like French
+msgctxt "ingredient_information"
+msgid "Ingredient information"
+msgstr ""
+
+msgctxt "product_type"
+msgid "Product type"
+msgstr ""
+
+# Food product type
+msgctxt "product_type_food"
+msgid "Food"
+msgstr "Gıda"
+
+# Pet food product type
+msgctxt "product_type_petfood"
+msgid "Pet food"
+msgstr "Evcil hayvan maması"
+
+# Beauty product type
+msgctxt "product_type_beauty"
+msgid "Beauty"
+msgstr "Güzellik"
+
+# General product product type
+msgctxt "product_type_product"
+msgid "Product"
+msgstr "Ürün"
+
+msgctxt "recommendation_limit_ultra_processed_foods_title"
+msgid "Limit ultra-processed foods"
+msgstr ""
+
+msgctxt "recommendation_limit_ultra_processed_foods_subtitle"
+msgid "Limiting ultra-processed foods reduces the risk of noncommunicable chronic diseases"
+msgstr ""
+
+msgctxt "recommendation_limit_ultra_processed_foods_text"
+msgid "Several studies have found that a lower consumption of ultra-processed foods is associated with a reduced risk of noncommunicable chronic diseases, such as obesity, hypertension and diabetes."
+msgstr ""
+
+msgctxt "discover_the_evolution_of_the_nutriscore_grades_of_your_products"
+msgid "Discover the evolution of the Nutri-Score grades of your products"
+msgstr ""
+
+msgctxt "add_products_to_discover_the_evolution_of_their_nutriscore_grades"
+msgid "Add products with a category, ingredients list and nutrition facts to discover the evolution of their Nutri-Score grades."
+msgstr ""
+
+msgctxt "in_contact_with_food"
+msgid "In contact with food"
+msgstr ""
+
+msgctxt "contact_us_producers"
+msgid "Contact Us"
+msgstr ""
+
+msgctxt "delete"
+msgid "Delete"
+msgstr "Sil"
+
+# Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
+msgctxt "f_droid_app_icon_url"
+msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
+msgstr ""
+
+msgctxt "f_droid_app_icon_alt_text"
+msgid "Available on F-Droid"
+msgstr "F-Droid'de mevcut"
 
