@@ -4225,8 +4225,14 @@ HTML
 				my $app_name = deep_get(\%options, "apps_names", $appid) || $appid;
 				my $app_user = f_lang("f_app_user", {app_name => $app_name});
 
+				# Append promotional text to encourage use of the Write API
+    			my $display_creator_promo = $app_user;
+    			my $promo = " (app – <a href='https://docs.openfoodfacts.org/write-api' target='_blank'>learn how your app can contribute too</a>)";
+    			$display_creator_promo .= $promo;
+
 				$title = $app_user;
 				$display_tag = $app_user;
+				$creator_promo = $display_creator_promo;
 			}
 			else {
 
