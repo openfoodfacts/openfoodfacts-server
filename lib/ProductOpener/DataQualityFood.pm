@@ -1280,7 +1280,6 @@ sub check_nutrition_data ($product_ref) {
 				"en:nutrition-sugars-plus-starch-greater-than-carbohydrates";
 		}
 
-		# TODO total carbo = carbo + fiber (sugar + starch + fiber cannot be greater than carbohydrates)
 		# sugar + starch + fiber cannot be greater than total carbohydrates
 		# do not raise error if sugar, starch or fiber contains "<" symbol (see issue #9267)
 		if (
