@@ -47130,11 +47130,13 @@ hr: Mlade gaude
 it: Gouda giovane
 nl: Jonge Goudas
 comment:en: ripings process < 4 weeks
+opposite:en: en:young-matured-goudas, en:matured-gouda, en:extra-matured-gouda, en:old-goudas, en:extra-old-goudas
 
 
 < en:Gouda
 en: Young matured Goudas
 nl: Jong belegen Goudas
+opposite:en: en:young-goudas, en:extra-matured-gouda, en:old-goudas, en:extra-old-goudas
 comment:en: ripings process 8 <-> 10 weeks
 
 < en:Gouda
@@ -47145,11 +47147,13 @@ fr: Goudas mi-vieux
 hr: Zrela gauda
 nl: Belegen Gouda
 comment:en: ripings process 16 <-> 18 weeks
+opposite:en: en:young-goudas, en:young-matured-goudas, en:extra-matured-gouda, en:old-goudas, en:extra-old-goudas
 
 < en:Gouda
 en: Extra matured Gouda
 nl: Extra belegen Gouda
 comment:en: ripings process 7 <-> 9 months
+opposite:en: en:young-goudas, en:young-matured-goudas, en:matured-gouda, en:old-goudas, en:extra-old-goudas
 
 < en:Gouda
 en: Old Goudas
@@ -47158,12 +47162,15 @@ fr: Goudas vieux
 hr: Stare gaude
 nl: Oude Goudas
 comment:en: ripings process 10 <-> 12 months
+opposite:en: en:young-goudas, en:young-matured-goudas, en:matured-gouda, en:extra-matured-gouda, en:extra-old-goudas
 
 < en:Gouda
-fr: Goudas extra-vieux, Goudas de Noël
+en: Extra old Goudas
 de: Extra alte Goudas
+fr: Goudas extra-vieux, Goudas de Noël
 nl: Goudas extra oud, Overjarige Gouda
 comment:en: ripings process > 12 months
+opposite:en: en:young-goudas, en:young-matured-goudas, en:matured-gouda, en:extra-matured-gouda, en:old-goudas
 
 < en:Young Goudas
 en: Young Goudas with herbs
