@@ -136,7 +136,7 @@ sub revert_product_api ($request_ref) {
 			}
 			else {
 				# Check if the revision exists
-				my $revision_ref = retrieve_product_rev($product_id, $rev);
+				my $revision_ref = retrieve_product($product_id, 0, $rev);
 
 				if (not defined $revision_ref) {
 					$log->info("revision not found", {code => $code, rev => $rev}) if $log->is_info();

@@ -22,7 +22,9 @@ $ export USER_ID='user_id' # please use a dedicated bot account, not your person
 $ echo "Type password:"; read -s PASSWORD; export PASSWORD
 
 - run the code with:
-```python3 tags_and_languages.py```
+```python3 tags_and_languages.py -c --nb 10000```
+or
+```python3 tags_and_languages.py -m```
 """
 
 from datetime import datetime
@@ -42,7 +44,7 @@ parser = argparse.ArgumentParser(
     epilog=epilog,
     formatter_class=argparse.RawTextHelpFormatter
 )
-parser.add_argument('--nb', type=int, default=10000, help='Number of products to be processed (per tag; default: 10000)')
+parser.add_argument('--nb', type=int, default=10, help='Number of products to be processed (per tag; default: 10)')
 parser.add_argument('-c', '--compare', action='store_true', help='Compare mode (no modification)')
 parser.add_argument('-m', '--modify', action='store_true', help='Allow modifications')
 args = parser.parse_args()
@@ -52,8 +54,6 @@ if args.modify and args.compare:
 if not args.modify and not args.compare:
     parser.print_help()
     sys.exit("\nError: Either -m or -c must be used.")
-
-limit = f"LIMIT {args.nb}"
 
 USER_ID = os.getenv('USER_ID')
 PASSWORD = os.getenv('PASSWORD')
@@ -74,7 +74,6 @@ tag_types = ["categories", "labels", "origins"]
 
 # country is needed otherwise <tag_type>_lc will be "en"
 post_call_url = "https://{country}.openfoodfacts.org/cgi/product_jqm2.pl"
-
 
 headers = {
     'Accept': 'application/json',
@@ -158,7 +157,6 @@ sql_query = '''
 
         -- skip products without tags
         WHERE {tag_type}_tags IS NOT NULL
-        {limit}
     ),
 
     -- from the previous CTE, retrieve the tags that are not in the taxonomy
@@ -174,31 +172,45 @@ sql_query = '''
         ON products_tags.{tag_type}_lc_and_tag = taxonomy_tags.tag
 
         WHERE taxonomy_tags.lc_tag_name IS NULL
-    )
+    ),
 
     -- from the previous CTE, retrieve the tags existing in another language
-    SELECT
-        products_unknown_tags.code AS products_code, -- example: 0201441508005
-        products_unknown_tags.lang AS products_lang, -- example: en
-        products_unknown_tags.{tag_type} AS products_{tag_type}, -- example: Cambozola
-        products_unknown_tags.{tag_type}_lc_and_tag AS products_{tag_type}_unknown_tag, -- example: ['Cambozola'] -> en:cambozola
-        products_unknown_tags.{tag_type}_tag AS products_{tag_type}_unknown_tag_name, -- example: ['Cambozola'] -> cambozola
+    numbered_rows AS (
+        SELECT
+            products_unknown_tags.code AS products_code, -- example: 0201441508005
+            products_unknown_tags.lang AS products_lang, -- example: en
+            products_unknown_tags.{tag_type} AS products_{tag_type}, -- example: Cambozola
+            products_unknown_tags.{tag_type}_lc_and_tag AS products_{tag_type}_unknown_tag, -- example: ['Cambozola'] -> en:cambozola
+            products_unknown_tags.{tag_type}_tag AS products_{tag_type}_unknown_tag_name, -- example: ['Cambozola'] -> cambozola
 
-        taxonomy_tags.tag AS taxonomy_tag_id, -- example: de:cambozola
-        taxonomy_tags.lc AS taxonomy_tag_lc, -- example: de
-        taxonomy_tags.lc_tag_name AS taxonomy_tag_name, -- example: cambozola
-        taxonomy_tags.lc_tag_name_concat AS taxonomy_tag -- example: de:cambozola
+            taxonomy_tags.tag AS taxonomy_tag_id, -- example: de:cambozola
+            taxonomy_tags.lc AS taxonomy_tag_lc, -- example: de
+            taxonomy_tags.lc_tag_name AS taxonomy_tag_name, -- example: cambozola
+            taxonomy_tags.lc_tag_name_concat AS taxonomy_tag, -- example: de:cambozola
 
-    FROM products_unknown_tags
-    -- use inner join to keep only rows for which unknown tag is found in another language
-    INNER JOIN {tag_type}_tags taxonomy_tags
-    ON products_unknown_tags.{tag_type}_tag = taxonomy_tags.lc_tag_name
+            -- assign row numbers to each row within the same group (for example:
+            --   en:bio would be mapped with single existing tag instead of all)
+            ROW_NUMBER() OVER (
+                PARTITION BY products_unknown_tags.code, products_unknown_tags.lang, products_unknown_tags.{tag_type}, products_unknown_tags.{tag_type}_lc_and_tag, products_unknown_tags.{tag_type}_tag
+                ORDER BY taxonomy_tags.lc  -- You can change the ORDER BY clause to determine which row to keep
+            ) AS row_num
 
-    -- ignore if language code is xx because it means that it is the name for any language
-    AND taxonomy_tags.lc != 'xx'
+        FROM products_unknown_tags
+        -- use inner join to keep only rows for which unknown tag is found in another language
+        INNER JOIN {tag_type}_tags taxonomy_tags
+        ON products_unknown_tags.{tag_type}_tag = taxonomy_tags.lc_tag_name
 
-    -- prevent "fr:angleterre" and "fr:angleterre"
-    AND products_unknown_tags.{tag_type}_lc_and_tag != taxonomy_tags.lc_tag_name_concat
+        -- ignore if language code is xx because it means that it is the name for any language
+        AND taxonomy_tags.lc != 'xx'
+
+        -- prevent "fr:angleterre" and "fr:angleterre"
+        AND products_unknown_tags.{tag_type}_lc_and_tag != taxonomy_tags.lc_tag_name_concat
+    )
+
+    SELECT *
+    FROM numbered_rows
+    WHERE row_num = 1;
+
 '''
 
 
@@ -310,7 +322,7 @@ def retrieve_tags_to_update(conn, tag_type):
     """Retrieve tags to update from the database."""
     # This query can be long, but there is no simple way to display progress
     # https://github.com/duckdb/duckdb/discussions/11923
-    tags_to_update = conn.execute(sql_query.format(tag_type=tag_type,limit=limit)).fetchall()
+    tags_to_update = conn.execute(sql_query.format(tag_type=tag_type)).fetchall()
 
     return tags_to_update
 
@@ -380,8 +392,8 @@ def run_modifications(conn_db, tag_type, mapping_languages_countries, post_call_
         product_number = all_rows.index(row_to_update) + 1
         if product_number > args.nb:
             print("\nReached maximum modifications. Stopping...\n")
-            break
-        print(f"\rProcessing product {product_number}/{len(all_rows)} with code {row_to_update[0]}", end="", flush=True)
+            return
+        print(f"\rProcessing product {product_number}/{len(all_rows)} with code {row_to_update[0]}", flush=True)
         code = row_to_update[0]
         lang = row_to_update[1]
         updated_tag_field = row_to_update[3]
@@ -392,7 +404,7 @@ def run_modifications(conn_db, tag_type, mapping_languages_countries, post_call_
             print(f"ERROR: language {lang} is not referenced in mapping_languages_countries", file=sys.stderr)
             sys.exit()
 
-        data = dict(BASE_DATA, code=code, tag_type=updated_tag_field)
+        data = {**BASE_DATA, 'code': code, tag_type: updated_tag_field, 'comment': post_comment}
 
         try:
             post_call_url_res = requests.post(
@@ -400,7 +412,6 @@ def run_modifications(conn_db, tag_type, mapping_languages_countries, post_call_
                 data=data,
                 headers=headers,
             )
-            time.sleep(1) # sleep 1 sec to avoid server overload
 
             if post_call_url_res.status_code != 200:
                 print(f"ERROR: when updating product {code}. Received {post_call_url_res.status_code} status code")
@@ -411,6 +422,8 @@ def run_modifications(conn_db, tag_type, mapping_languages_countries, post_call_
                 SET updated = true
                 WHERE code = ?
             ''', [code])
+
+            time.sleep(1) # sleep 1 sec to avoid server overload
 
         except requests.RequestException as e:
             print(f"Request failed for code {code}: {e}")
@@ -428,6 +441,7 @@ else:
     print("Without -m or --modify parameter, no modification will be done.")
 
 for tag_type in tag_types:
+    post_comment = f"[tags_and_languages.py] correct tag language for {tag_type}"
 
     table_name = f"products_to_update_{tag_type}"
     
