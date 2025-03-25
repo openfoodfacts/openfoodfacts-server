@@ -117,7 +117,7 @@ sub read_product_api ($request_ref) {
 		my $rev = single_param("rev");
 		local $log->context->{rev} = $rev;
 		if (defined $rev) {
-			$product_ref = retrieve_product_rev($product_id, $rev);
+			$product_ref = retrieve_product($product_id, 0, $rev);
 		}
 		else {
 			$product_ref = retrieve_product($product_id);

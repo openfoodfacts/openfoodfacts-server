@@ -7760,7 +7760,7 @@ JS
 	local $log->context->{rev} = $rev;
 	if (defined $rev) {
 		$log->debug("displaying product revision") if $log->is_debug();
-		$product_ref = retrieve_product_rev($product_id, $rev);
+		$product_ref = retrieve_product($product_id, 0, $rev);
 		$request_ref->{header} .= '<meta name="robots" content="noindex,follow">';
 	}
 	else {
@@ -8557,7 +8557,7 @@ sub display_product_jqm ($request_ref) {    # jquerymobile
 	local $log->context->{rev} = $rev;
 	if (defined $rev) {
 		$log->debug("displaying product revision on jquery mobile") if $log->is_debug();
-		$product_ref = retrieve_product_rev($product_id, $rev);
+		$product_ref = retrieve_product($product_id, 0, $rev);
 	}
 	else {
 		$product_ref = retrieve_product($product_id);
@@ -10485,7 +10485,7 @@ sub display_product_api ($request_ref) {
 	local $log->context->{rev} = $rev;
 	if (defined $rev) {
 		$log->debug("displaying product revision") if $log->is_debug();
-		$product_ref = retrieve_product_rev($product_id, $rev);
+		$product_ref = retrieve_product($product_id, 0, $rev);
 	}
 	else {
 		$product_ref = retrieve_product($product_id);
