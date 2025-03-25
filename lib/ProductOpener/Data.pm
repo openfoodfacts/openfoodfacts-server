@@ -130,6 +130,11 @@ Determine if we can use cached results:
 - no_cache parameter is not set
 - we are not on the producers platform
 - Cache-Control header is not set to no-cache
+=head3 parameters
+
+=head4 $data_debug_ref - ref string
+
+This parameter is modified to add debug information.
 
 =cut
 
