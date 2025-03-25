@@ -97,15 +97,15 @@ sub generate_cache_key ($name, $context_ref) {
 	return $key;
 }
 
-=head2 get_cache_results ($data_debug_ref, $key)
+=head2 get_cache_results ($key, $data_debug_ref)
 
 Get the results of a query from the cache.
 
 =head3 Arguments
 
-=head4 $data_debug_ref Reference to a string that will be appended with debug information
-
 =head4 $key
+
+=head4 $data_debug_ref Reference to a string that will be appended with debug information
 
 =head3 Return values
 
@@ -113,7 +113,7 @@ The results of the query, or undef if the query was not found in the cache.
 
 =cut
 
-sub get_cache_results ($data_debug_ref, $key) {
+sub get_cache_results ($key, $data_debug_ref) {
 
 	my $results;
 
@@ -136,23 +136,23 @@ sub get_cache_results ($data_debug_ref, $key) {
 	return $results;
 }
 
-=head2 set_cache_results ($data_debug_ref, $key, $results)
+=head2 set_cache_results ($key, $results, $data_debug_ref)
 
 Set the results of a query in the cache.
 
 =head3 Arguments
 
-=head4 $data_debug_ref Reference to a string that will be appended with debug information
-
 =head4 $key
 
 =head4 $results
+
+=head4 $data_debug_ref Reference to a string that will be appended with debug information
 
 =head3 Return values
 
 =cut
 
-sub set_cache_results ($data_debug_ref, $key, $results) {
+sub set_cache_results ($key, $results, $data_debug_ref) {
 
 	$log->debug("Setting value for cache query key", {key => $key}) if $log->is_debug();
 	my $result_size = total_size($results);

@@ -44,9 +44,6 @@ BEGIN {
 		%index_tag_types_set
 
 		&init_request
-		&redirect_to_url
-		&single_param
-		&request_param
 
 		&display_date
 		&display_date_tag
@@ -873,6 +870,8 @@ CSS
 		}
 	) if $log->is_debug();
 
+	# Query parameters
+
 	set_request_stats_value($request_ref->{stats}, "cc", $request_ref->{cc});
 	set_request_stats_value($request_ref->{stats}, "lc", $request_ref->{lc});
 	set_request_stats_value($request_ref->{stats}, "hostname", $hostname);
@@ -1601,7 +1600,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 	$log->debug("MongoDB query key", {key => $key}) if $log->is_debug();
 
 	$request_ref->{data_debug} = init_data_debug();
-	my $results = get_cache_results(\$request_ref->{data_debug}, $key);
+	my $results = get_cache_results($key, \$request_ref->{data_debug});
 
 	if ((not defined $results) or (ref($results) ne "ARRAY") or (not defined $results->[0])) {
 		$results = undef;
@@ -1645,7 +1644,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 
 		if (defined $results) {
 			if (defined $results->[0] and $cache_results_flag) {
-				set_cache_results(\$request_ref->{data_debug}, $key, $results);
+				set_cache_results($key, $results, \$request_ref->{data_debug});
 			}
 		}
 		else {
@@ -1673,7 +1672,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 		#get total count for aggregate (without limit) and put result in cache
 		my $key_count = generate_query_cache_key("aggregate_count", $aggregate_count_parameters, $request_ref);
 		$log->debug("MongoDB aggregate count query key", {key => $key_count}) if $log->is_debug();
-		my $results_count = get_cache_results(\$request_ref->{data_debug}, $key_count);
+		my $results_count = get_cache_results($key_count, \$request_ref->{data_debug});
 
 		if (not defined $results_count) {
 
@@ -1707,8 +1706,11 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 				$request_ref->{structured_response}{count} = $count_results->{$group_field_name};
 
 				if ($cache_results_flag) {
-					set_cache_results(\$request_ref->{data_debug},
-						$key_count, $request_ref->{structured_response}{count});
+					set_cache_results(
+						$key_count,
+						$request_ref->{structured_response}{count},
+						\$request_ref->{data_debug}
+					);
 					$log->debug(
 						"Set cached aggregate count for query key",
 						{
@@ -5334,8 +5336,8 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			set_request_stats_time_start($request_ref->{stats}, "mongodb_query");
 			$cursor = execute_query(
 				sub {
-					return execute_product_query(\$request_ref->{data_debug},
-						$request_parameters_ref, $query_ref, $fields_ref, $sort_ref, $limit, $skip);
+					return execute_product_query($request_parameters_ref, $query_ref, $fields_ref, $sort_ref, $limit,
+						$skip, \$request_ref->{data_debug});
 				}
 			);
 			$log->debug("MongoDB query ok", {error => $@}) if $log->is_debug();
@@ -6805,11 +6807,8 @@ sub search_and_graph_products ($request_ref, $query_ref, $graph_ref) {
 	eval {
 		$cursor = execute_query(
 			sub {
-				return execute_product_query(
-					\$request_ref->{data_debug},
-					get_products_collection_request_parameters($request_ref),
-					$query_ref, $fields_ref
-				);
+				return execute_product_query(get_products_collection_request_parameters($request_ref),
+					$query_ref, $fields_ref, undef, undef, undef, \$request_ref->{data_debug});
 			}
 		);
 	};
@@ -7121,7 +7120,6 @@ sub search_products_for_map ($request_ref, $query_ref) {
 		$cursor = execute_query(
 			sub {
 				return execute_product_query(
-					\$request_ref->{data_debug},
 					get_products_collection_request_parameters($request_ref),
 					$query_ref,
 					{
@@ -7134,7 +7132,9 @@ sub search_products_for_map ($request_ref, $query_ref) {
 						manufacturing_places => 1,
 						origins => 1,
 						emb_codes_tags => 1,
-					}
+					},
+					undef, undef, undef,
+					\$request_ref->{data_debug}
 				);
 			}
 		);
@@ -11536,11 +11536,8 @@ sub search_and_analyze_recipes ($request_ref, $query_ref) {
 	eval {
 		$cursor = execute_query(
 			sub {
-				return execute_product_query(
-					\$request_ref->{data_debug},
-					get_products_collection_request_parameters($request_ref),
-					$query_ref, $fields_ref
-				);
+				return execute_product_query(get_products_collection_request_parameters($request_ref),
+					$query_ref, $fields_ref, undef, undef, undef, \$request_ref->{data_debug});
 			}
 		);
 	};

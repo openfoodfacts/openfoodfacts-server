@@ -107,6 +107,7 @@ Determine if we can use off_query backend:
 
 sub can_use_off_query ($data_debug_ref) {
 
+	# TODO: pass parameters inside $request_ref instead, so that we don't have to call single_param() here
 	my $param_no_off_query = single_param("no_off_query") || '';
 	my $param_off_query = single_param("off_query") || '';
 	my $platform = $server_options{producers_platform} ? "producers" : "public";
@@ -117,15 +118,7 @@ sub can_use_off_query ($data_debug_ref) {
 	$$data_debug_ref .= "query_url: " . ($query_url || '') . "\n";
 
 	# use !! operator to convert to boolean
-	my $can_use_off_query = !!(
-		(
-			   (not defined single_param("no_off_query"))
-			or (not single_param("no_off_query"))
-			or (single_param("off_query"))
-		)
-		and (not $server_options{producers_platform})
-		and ($query_url)
-	);
+	my $can_use_off_query = !!(((not $param_no_off_query) or ($param_off_query)) and (not $platform) and ($query_url));
 
 	$$data_debug_ref .= "can_use_off_query: $can_use_off_query\n";
 	return $can_use_off_query;
@@ -202,13 +195,7 @@ sub execute_count_tags_query ($query) {
 	return execute_tags_query('count', $query);
 }
 
-sub execute_product_query (
-	$data_debug_ref, $parameters_ref, $query_ref, $fields_ref,
-	$sort_ref = undef,
-	$limit = undef,
-	$skip = undef
-	)
-{
+sub execute_product_query ($parameters_ref, $query_ref, $fields_ref, $sort_ref, $limit, $skip, $data_debug_ref) {
 
 	defined $$data_debug_ref or $$data_debug_ref = "data_debug start\n";
 
