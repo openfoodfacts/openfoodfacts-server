@@ -44,6 +44,32 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr ""
 
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
+msgstr "உலகெங்கிலும் உள்ள பல்வேறு தயாரிப்புகள்பற்றிய தகவல்கள் மற்றும் மூலப்பொருட்களின் கூட்டு, இலவச மற்றும் திறந்த தரவுத்தளம்."
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr "திறந்த தயாரிப்பு உண்மைகள் உலகெங்கிலும் உள்ள பல்வேறு வகையானதயாரிப்புகள்பற்றியய தகவல்களையும் தரவையும் சேகரிக்கிறது."
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr "உலகெங்கிலும் உள்ள பல்வேறு தயாரிப்புகள்பற்றிய தகவல்கள் மற்றும் மூலப்பொருட்களின் கூட்டு, இலவச மற்றும் திறந்த தரவுத்தளம்."
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr "உலகெங்கிலும் உள்ள பொருட்கள், ஊட்டச்சத்து உண்மைகள் மற்றும் செல்லப்பிராணி உணவுப் பொருட்கள்பற்றிய தகவல்களின் கூட்டு, இலவச மற்றும் திறந்த தரவுத்தளம்."
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr "திறந்த தயாரிப்பு உண்மைகள் உலகெங்கிலும் உள்ள பல்வேறு வகையான தயாரிப்புகள்பற்றிய தகவல்களையும் தரவையும் சேகரிக்கிறது."
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr ""
+
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
@@ -266,17 +292,25 @@ msgctxt "also_edited_by"
 msgid "Product page also edited by"
 msgstr "தயாரிப்பு பக்கத்தையும் திருத்தியது"
 
+msgctxt "analytical_constituents"
+msgid "Analytical constituents"
+msgstr ""
+
+msgctxt "analytical_constituents_per_1kg"
+msgid "for 1 kg"
+msgstr ""
+
 msgctxt "android_apk_app_icon_url"
-msgid "/images/misc/android-apk.svg"
+msgid "/images/misc/app-landing-page/download-apk/download-apk_en.svg"
 msgstr ""
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
 msgstr ""
 
-# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
+# Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
-msgid "/images/misc/playstore/img/en_get.svg"
+msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
 msgstr ""
 
 msgctxt "android_app_icon_alt_text"
@@ -4609,12 +4643,14 @@ msgctxt "attribute_nutriscore_c_description_short"
 msgid "Average nutritional quality"
 msgstr ""
 
+# lower: translate to "less good" in some languages (e.g. French: "Moins bonne qualité nutritionnelle")
 msgctxt "attribute_nutriscore_d_description_short"
-msgid "Poor nutritional quality"
+msgid "Lower nutritional quality"
 msgstr ""
 
+# lower: translate to "less good" in some languages (e.g. French: "Moins bonne qualité nutritionnelle")
 msgctxt "attribute_nutriscore_e_description_short"
-msgid "Bad nutritional quality"
+msgid "Lower nutritional quality"
 msgstr ""
 
 msgctxt "attribute_group_processing_name"
@@ -4656,6 +4692,15 @@ msgstr ""
 
 msgctxt "attribute_nova_4_description_short"
 msgid "Ultra-processed foods"
+msgstr ""
+
+msgctxt "attribute_nova_4_1_marker"
+msgid "1 ultra-processing marker"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_nova_4_markers"
+msgid "{number} ultra-processing markers"
 msgstr ""
 
 msgctxt "export_product_page"
@@ -4797,28 +4842,41 @@ msgstr "சுற்றுச்சூழல்"
 
 msgctxt "attribute_environmental_score_name"
 msgid "Green-Score"
-msgstr ""
+msgstr "பச்சை-ஸ்கோர்"
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr ""
+msgstr "குறைந்த சுற்றுச்சூழல் பாதிப்பு (பச்சை ஸ்கோர்)"
 
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score (environmental_score) from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr ""
+msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
+msgstr "பசுமை ஸ்கோர் என்பது A முதல் E வரையிலான சுற்றுச்சூழல் ஸ்கோர் ஆகும், இது சுற்றுச்சூழலில் உணவுப் பொருட்களின் தாக்கத்தை ஒப்பிட்டுப் பார்ப்பதை எளிதாக்குகிறது."
+
+# Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
+msgctxt "attribute_ecoscore_name"
+msgid "Green-Score"
+msgstr "பச்சை-ஸ்கோர்"
+
+msgctxt "attribute_ecoscore_setting_name"
+msgid "Low environmental impact (Green-Score)"
+msgstr "குறைந்த சுற்றுச்சூழல் பாதிப்பு (பச்சை ஸ்கோர்)"
+
+msgctxt "attribute_ecoscore_setting_note"
+msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
+msgstr "பசுமை ஸ்கோர் என்பது A முதல் E வரையிலான சுற்றுச்சூழல் ஸ்கோர் ஆகும், இது சுற்றுச்சூழலில் உணவுப் பொருட்களின் தாக்கத்தை ஒப்பிட்டுப் பார்ப்பதை எளிதாக்குகிறது."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
 msgid "Green-Score %s"
-msgstr ""
+msgstr "பச்சை-ஸ்கோர் %s"
 
 msgctxt "attribute_environmental_score_a_plus_description_short"
 msgid "Very low environmental impact"
-msgstr ""
+msgstr "மிகக் குறைந்த சுற்றுச்சூழல் பாதிப்பு"
 
 msgctxt "attribute_environmental_score_a_description_short"
 msgid "Very low environmental impact"
-msgstr ""
+msgstr "மிகக் குறைந்த சுற்றுச்சூழல் பாதிப்பு"
 
 msgctxt "attribute_environmental_score_b_description_short"
 msgid "Low environmental impact"
@@ -4826,19 +4884,19 @@ msgstr ""
 
 msgctxt "attribute_environmental_score_c_description_short"
 msgid "Moderate environmental impact"
-msgstr ""
+msgstr "மிகக் குறைந்த சுற்றுச்சூழல் பாதிப்பு"
 
 msgctxt "attribute_environmental_score_d_description_short"
 msgid "High environmental impact"
-msgstr ""
+msgstr "மிகக் குறைந்த சுற்றுச்சூழல் பாதிப்பு"
 
 msgctxt "attribute_environmental_score_e_description_short"
 msgid "Very high environmental impact"
-msgstr ""
+msgstr "மிகக் குறைந்த சுற்றுச்சூழல் பாதிப்பு"
 
 msgctxt "attribute_environmental_score_f_description_short"
 msgid "Very high environmental impact"
-msgstr ""
+msgstr "மிகக் குறைந்த சுற்றுச்சூழல் பாதிப்பு"
 
 # keep the %s, it will be replaced by an allergen
 msgctxt "contains_s"
@@ -4989,25 +5047,25 @@ msgctxt "environmental_impact"
 msgid "Environmental impact"
 msgstr ""
 
-# Numerical score for the Eco-score (do not translate Eco-score)
+# Numerical score for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_score"
-msgid "Eco-score score"
-msgstr ""
+msgid "Green-Score score"
+msgstr "பச்சை-ஸ்கோர் ஸ்கோர்"
 
-# Letter grade from A to E for the Eco-score (do not translate Eco-score)
+# Letter grade from A to E for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_grade"
-msgid "Eco-score grade"
-msgstr ""
+msgid "Green-Score grade"
+msgstr "பச்சை-ஸ்கோர் தரம் "
 
-# do not translate Eco-score
+# do not translate Green-Score
 msgctxt "environmental_score_calculation_details"
-msgid "Details of the calculation of the Eco-score"
-msgstr ""
+msgid "Details of the calculation of the Green-Score"
+msgstr "கிரீன் ஸ்கோரின் கணக்கீட்டின் விவரங்கள்"
 
-# do not translate Eco-score
+# do not translate Green-Score
 msgctxt "environmental_score_information"
-msgid "Information about the Eco-score"
-msgstr ""
+msgid "Information about the Green-Score"
+msgstr "கிரீன்-ஸ்கோர் பற்றிய தகவல்"
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
@@ -5038,12 +5096,28 @@ msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr ""
 
+msgctxt "ecoscore_p"
+msgid "Green-Score"
+msgstr "பச்சை-ஸ்கோர்"
+
+msgctxt "ecoscore_s"
+msgid "Green-Score"
+msgstr "பச்சை-ஸ்கோர்"
+
 msgctxt "environmental_score_p"
 msgid "Green-Score"
-msgstr ""
+msgstr "பச்சை-ஸ்கோர்"
 
 msgctxt "environmental_score_s"
 msgid "Green-Score"
+msgstr "பச்சை-ஸ்கோர்"
+
+msgctxt "misc_p"
+msgid "Miscellaneous"
+msgstr ""
+
+msgctxt "misc_s"
+msgid "Miscellaneous"
 msgstr ""
 
 msgctxt "packaging_parts"
@@ -5206,8 +5280,8 @@ msgstr ""
 
 # It = the platform
 msgctxt "product_edits_by_producers_indicators"
-msgid "It computes indicators such as the Nutri-Score, NOVA, and the Eco-score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
-msgstr ""
+msgid "It computes indicators such as the Nutri-Score, NOVA, and the Green-Score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
+msgstr "இது நியூட்ரி-ஸ்கோர், நோவா மற்றும் கிரீன்-ஸ்கோர் போன்ற குறிகாட்டிகளைக் கணக்கிடுகிறது, மேலும் அவற்றை மேம்படுத்துவதற்கான பரிந்துரைகளை தானாகவே அடையாளம் காட்டுகிறது (உதாரணமாக, சிறிய கலவை மாற்றத்துடன் சிறந்த நியூட்ரி-ஸ்கோர் தரத்தைப் பெறும் அனைத்து தயாரிப்புகளும்)."
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest footprint"
@@ -5288,7 +5362,7 @@ msgstr ""
 
 msgctxt "sort_by_environmental_score_score"
 msgid "Products with the best Green-Score"
-msgstr ""
+msgstr "சிறந்த பசுமை ஸ்கோர் கொண்ட தயாரிப்புகள்"
 
 msgctxt "sort_by_created_t"
 msgid "Recently added products"
@@ -5341,33 +5415,33 @@ msgid "User is being deleted. This may take a few minutes."
 msgstr "பயனர் நீக்கப்படுகிறார். இதற்குச் சில நிமிடங்கள் ஆகலாம்."
 
 msgctxt "attribute_environmental_score_not_applicable_title"
-msgid "Green-Score not yet applicable"
+msgid "Green-Score not applicable"
 msgstr ""
 
 msgctxt "attribute_environmental_score_not_applicable_description_short"
-msgid "Not yet applicable for the category"
+msgid "Not applicable for the category"
 msgstr ""
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_environmental_score_not_applicable_description"
 msgid "Not yet applicable for the category: {category}"
-msgstr ""
+msgstr "இந்த வகைக்கு இன்னும் பொருந்தவில்லை: {category}"
 
 msgctxt "environmental_score_not_applicable_coming_soon"
 msgid "The Green-Score is not yet applicable for this category, but we are working on adding support for it."
-msgstr ""
+msgstr "இந்த வகைக்கு கிரீன்-ஸ்கோர் இன்னும் பொருந்தவில்லை, ஆனால் அதற்கான ஆதரவைச் சேர்க்கும் பணியில் ஈடுபட்டுள்ளோம்."
 
 msgctxt "attribute_environmental_score_unknown_title"
 msgid "Green-Score not computed"
-msgstr ""
+msgstr "பச்சை-ஸ்கோர் கணக்கிடப்படவில்லை"
 
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
-msgstr ""
+msgstr "மிகக் குறைந்த சுற்றுச்சூழல் பாதிப்பு"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
-msgstr ""
+msgstr "இந்தத் தயாரிப்பில் சில தரவு இல்லாததால், அதன் கிரீன் ஸ்கோரை எங்களால் கணக்கிட முடியவில்லை, அதை முடிக்க உதவ முடியுமா?"
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
@@ -5497,19 +5571,19 @@ msgstr ""
 
 msgctxt "environmental_score_agribalyse_match_warning"
 msgid "The Green-Score can only be calculated if the product has a sufficiently precise category."
-msgstr ""
+msgstr "தயாரிப்பு போதுமான துல்லியமான வகையைக் கொண்டிருந்தால் மட்டுமே கிரீன் ஸ்கோரைக் கணக்கிட முடியும்."
 
 msgctxt "environmental_score_add_more_precise_category"
 msgid "You can modify the product page to add a more precise category."
-msgstr ""
+msgstr "மேலும் துல்லியமான வகையைச் சேர்க்க, நீங்கள் தயாரிப்புப் பக்கத்தை மாற்றலாம்."
 
 msgctxt "environmental_score_platform_promo"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
-msgstr ""
+msgstr "நீங்கள் இந்தத் தயாரிப்பின் உற்பத்தியாளராக இருந்தால், உற்பத்தியாளர்களுக்கான எங்கள் <a href=\"https://world.pro.openfoodfacts.org\">இலவச தளமான</a>மூலம் தகவலை எங்களுக்கு அனுப்பலாம்."
 
 msgctxt "environmental_score_warning_missing_information"
 msgid "Warning: some information necessary to calculate the Green-Score with precision is not provided (see the details of the calculation below)."
-msgstr ""
+msgstr "எச்சரிக்கை: கிரீன் ஸ்கோரைத் துல்லியமாகக் கணக்கிடத் தேவையான சில தகவல்கள் வழங்கப்படவில்லை (கீழே உள்ள கணக்கீட்டின் விவரங்களைப் பார்க்கவும்)."
 
 msgctxt "environmental_score_add_missing_information"
 msgid "You can edit the product to add the missing information."
@@ -5684,12 +5758,12 @@ msgstr ""
 # do not translate the link
 msgctxt "environmental_score_platform_prompt_environmental_score_modal"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
-msgstr ""
+msgstr "நீங்கள் இந்தத் தயாரிப்பின் உற்பத்தியாளராக இருந்தால், உற்பத்தியாளர்களுக்கான எங்கள் <a href=\"https://world.pro.openfoodfacts.org\">இலவச தளமான</a>மூலம் தகவலை எங்களுக்கு அனுப்பலாம்."
 
 # do not translate Green-Score and the link
 msgctxt "environmental_score_description"
 msgid "The <a href=\"/green-score\">Green-Score</a> is an experimental score that summarizes the environmental impacts of food products."
-msgstr ""
+msgstr "<a href=\"/பச்சை-ஸ்கோர்\">பச்சை-ஸ்கோர்</a> என்பது உணவுப் பொருட்களின் சுற்றுச்சூழல் தாக்கங்களைச் சுருக்கமாகக் கூறும் ஒரு சோதனை மதிப்பெண் ஆகும்."
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_fr"
@@ -6355,6 +6429,10 @@ msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
 msgstr ""
 
+msgctxt "action_report_product_to_nutripatrol"
+msgid "Report this product to our moderators"
+msgstr ""
+
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
 msgid "What you need to know"
@@ -6500,6 +6578,10 @@ msgctxt "api_result_product_not_found"
 msgid "Product not found"
 msgstr ""
 
+msgctxt "api_result_product_found_with_a_different_product_type"
+msgid "Product found with a different product type"
+msgstr ""
+
 msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr ""
@@ -6522,6 +6604,10 @@ msgstr ""
 
 msgctxt "api_message_invalid_code"
 msgid "Invalid code"
+msgstr ""
+
+msgctxt "api_message_invalid_product_type"
+msgid "Invalid product type"
 msgstr ""
 
 msgctxt "api_message_invalid_type_must_be_object"
@@ -6837,6 +6923,18 @@ msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_
 msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
 msgstr ""
 
+msgctxt "nutriscore_new_computation_title"
+msgid "Discover the new Nutri-Score!"
+msgstr "புதிய நியூட்ரி-ஸ்கோரைக் கண்டறியவும்!"
+
+msgctxt "nutriscore_new_computation_description"
+msgid "<p>The computation of the Nutri-Score is evolving to provide better recommendations based on the latest scientific evidence.</p><p>Main improvements:</p><ul><li>Better score for some fatty fish and oils rich in good fats</li><li>Better score for whole products rich in fiber</li><li>Worse score for products containing a lot of salt or sugar</li><li>Worse score for red meat (compared to poultry)</li></ul>"
+msgstr ""
+
+msgctxt "nutriscore_new_computation_link_text"
+msgid "Discover all the improvements of the new Nutri-Score"
+msgstr "புதிய நியூட்ரி-ஸ்கோரின் அனைத்து மேம்பாடுகளையும் கண்டறியவும்"
+
 msgctxt "nutriscore_explanation_what_it_is"
 msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
 msgstr ""
@@ -6949,6 +7047,10 @@ msgstr ""
 
 msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
+
+msgctxt "report_to_nutripatrol_explain"
+msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
 msgstr ""
 
 msgctxt "description"
@@ -7217,4 +7319,78 @@ msgstr ""
 msgctxt "attribute_repairability_index_france_bad_description_short"
 msgid "Bad repairability"
 msgstr ""
+
+msgctxt "estimate"
+msgid "estimate"
+msgstr ""
+
+# information on several ingredients, in plural in languages like French
+msgctxt "ingredient_information"
+msgid "Ingredient information"
+msgstr ""
+
+msgctxt "product_type"
+msgid "Product type"
+msgstr ""
+
+# Food product type
+msgctxt "product_type_food"
+msgid "Food"
+msgstr ""
+
+# Pet food product type
+msgctxt "product_type_petfood"
+msgid "Pet food"
+msgstr ""
+
+# Beauty product type
+msgctxt "product_type_beauty"
+msgid "Beauty"
+msgstr ""
+
+# General product product type
+msgctxt "product_type_product"
+msgid "Product"
+msgstr ""
+
+msgctxt "recommendation_limit_ultra_processed_foods_title"
+msgid "Limit ultra-processed foods"
+msgstr ""
+
+msgctxt "recommendation_limit_ultra_processed_foods_subtitle"
+msgid "Limiting ultra-processed foods reduces the risk of noncommunicable chronic diseases"
+msgstr ""
+
+msgctxt "recommendation_limit_ultra_processed_foods_text"
+msgid "Several studies have found that a lower consumption of ultra-processed foods is associated with a reduced risk of noncommunicable chronic diseases, such as obesity, hypertension and diabetes."
+msgstr ""
+
+msgctxt "discover_the_evolution_of_the_nutriscore_grades_of_your_products"
+msgid "Discover the evolution of the Nutri-Score grades of your products"
+msgstr ""
+
+msgctxt "add_products_to_discover_the_evolution_of_their_nutriscore_grades"
+msgid "Add products with a category, ingredients list and nutrition facts to discover the evolution of their Nutri-Score grades."
+msgstr ""
+
+msgctxt "in_contact_with_food"
+msgid "In contact with food"
+msgstr "உணவுடன் தொடர்பில்"
+
+msgctxt "contact_us_producers"
+msgid "Contact Us"
+msgstr ""
+
+msgctxt "delete"
+msgid "Delete"
+msgstr "நீக்கு"
+
+# Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
+msgctxt "f_droid_app_icon_url"
+msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
+msgstr ""
+
+msgctxt "f_droid_app_icon_alt_text"
+msgid "Available on F-Droid"
+msgstr "F-Droid இல் கிடைக்கிறது"
 
