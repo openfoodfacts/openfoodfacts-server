@@ -5313,7 +5313,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 	my $request_parameters_ref = get_products_collection_request_parameters($request_ref);
 
 	$request_ref->{data_debug} = init_data_debug();
-	$request_ref->{structured_response} = get_cache_results(\$request_ref->{data_debug}, $key);
+	$request_ref->{structured_response} = get_cache_results($key, \$request_ref->{data_debug});
 
 	if (not defined $request_ref->{structured_response}) {
 
@@ -5399,7 +5399,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 			# Don't set the cache if no_count was set
 			if (not single_param('no_count') and $cache_results_flag) {
-				set_cache_results(\$request_ref->{data_debug}, $key, $request_ref->{structured_response});
+				set_cache_results($key, $request_ref->{structured_response}, \$request_ref->{data_debug});
 				# For debugging, it can be useful to examine the structured response
 				#ProductOpener::Store::store($BASE_DIRS{CACHE_DEBUG} . "/structured_response.sto",
 				#	$request_ref->{structured_response});
@@ -5660,7 +5660,7 @@ sub estimate_result_count ($request_ref, $query_ref, $cache_results_flag) {
 		my $key_count = generate_query_cache_key("search_products_count", $query_ref, $request_ref);
 		$log->debug("MongoDB query key - search_products_count", {key => $key_count}) if $log->is_debug();
 		defined $request_ref->{data_debug} or $request_ref->{data_debug} = init_data_debug();
-		$count = get_cache_results(\$request_ref->{data_debug}, $key_count);
+		$count = get_cache_results($key_count, \$request_ref->{data_debug});
 		if (not defined $count) {
 
 			$log->debug("count not in cache for query", {key => $key_count}) if $log->is_debug();
@@ -5694,7 +5694,7 @@ sub estimate_result_count ($request_ref, $query_ref, $cache_results_flag) {
 			if ((defined $count) and $cache_results_flag) {
 				$log->debug("count query complete, setting cache", {key => $key_count, count => $count})
 					if $log->is_debug();
-				set_cache_results(\$request_ref->{data_debug}, $key_count, $count);
+				set_cache_results($key_count, $count, \$request_ref->{data_debug});
 			}
 		}
 		else {
