@@ -31,8 +31,8 @@
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/select2.min.css">
     <link rel="search" href="//fr.openfoodfacts.localhost/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="Open Food Facts">
 	<meta name="x:card" content="product">
-<meta name="x:site" content="@OpenFoodFactsFr">
-<meta name="x:creator" content="@OpenFoodFactsFr">
+<meta name="x:site" content="@OpenFoodFactsfr">
+<meta name="x:creator" content="@OpenFoodFactsfr">
 <meta name="x:title" content="Apple pie - Bob's pies - 100 g">
 <meta name="x:description" content="Ingrédients, allergènes, additifs, composition nutritionnelle, labels, origine des ingrédients et informations du produit Apple pie - Bob's pies - 100 g">
 <meta name="x:label1" content="marque">
@@ -402,7 +402,6 @@
 }'
 ></off-webcomponents-configuration>
 
-
 <a href="#upNav" class="back-to-top scrollto button">
     <span class="material-icons size-20 ">
         arrow_upward
@@ -589,7 +588,7 @@
                         
                             <!-- Anonymous users will only be able to vote see AnnotationVote in robotoff,
                                 the voter uniqueness is based on a hash of its ip address -->
-                            <div class="alert-box" style="background-color: #0064c8">
+                            <div class="alert-box block_blue is_hidden">
   <robotoff-question
     product-code="3300000000001"
     options='{"showMessage": true, "showLoading": true, "showError": true, "showImage": false}'
@@ -597,22 +596,8 @@
   ></robotoff-question>
 </div>
 <script>
-  const robotoffQuestion = document.getElementById("robotoff-question");
-  const robotoffQuestionParent = robotoffQuestion.parentElement;
-  // Hide the alert until we have questions
-  robotoffQuestionParent.style.display = "none";
-
-  robotoffQuestion.addEventListener("question-state", function (event) {
-    if (event.detail.numberOfQuestions === 0) {
-      robotoffQuestionParent.style.display = "none";
-    } else if (event.detail.index === event.detail.numberOfQuestions) {
-      // Hide the alert after the last question
-      setTimeout(function () {
-        robotoffQuestionParent.style.display = "none";
-      }, 3000);
-    } else {
-      robotoffQuestionParent.style.display = "block";
-    }
+  document.addEventListener("DOMContentLoaded", () => {
+    window.listenEventToShowHideAlert("question-state", "robotoff-question");
   });
 </script>
 
@@ -626,6 +611,7 @@
         </div>
     </section>
 
+    
 
     <!-- product summary -->
     <section class="row" id="match">
@@ -5159,7 +5145,7 @@ un outil de la Direction générale de la concurrence, de la consommation et de 
 						<p>Rejoignez-nous sur <a href="//slack.openfoodfacts.org">Slack</a></p>
 						<p><a href="//forum.openfoodfacts.org/">Forum</a></p>
 						<p id="footer_social_icons">Suivez-nous : 
-							<a href="//x.com/OpenFoodFactsFr"><img src="/images/icons/dist/x.svg" class="footer_social_icon" alt="x"></a>
+							<a href="//x.com/OpenFoodFactsfr"><img src="/images/icons/dist/x.svg" class="footer_social_icon" alt="x"></a>
 							<a href="//www.facebook.com/OpenFoodFacts.fr"><img src="/images/icons/dist/facebook.svg" class="footer_social_icon" alt="Facebook"></a>
 							<a href="//www.instagram.com/open.food.facts/"><img src="/images/icons/dist/instagram.svg" class="footer_social_icon" alt="Instagram"></a>
 							
@@ -5248,6 +5234,7 @@ display_product_summary("#product_summary", product);
 <script src="//static.openfoodfacts.localhost/js/dist/select2.min.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/product-history.js"></script>
+<script src="//static.openfoodfacts.localhost/js/dist/off-webcomponents-utils.js"></script>
 <script type="module" src="//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js"></script>
 <script type="text/javascript">
 var page_type = "product";
@@ -5292,7 +5279,7 @@ $(document).foundation({
 	"url": "//fr.openfoodfacts.localhost",
 	"logo": "//static.openfoodfacts.localhost/images/logos/off-logo-vertical-light.svg",
 	"name": "Open Food Facts",
-	"sameAs" : ["//www.facebook.com/OpenFoodFacts.fr", "//x.com/OpenFoodFactsFr"]
+	"sameAs" : ["//www.facebook.com/OpenFoodFacts.fr", "//x.com/OpenFoodFactsfr"]
 }
 </script>
 

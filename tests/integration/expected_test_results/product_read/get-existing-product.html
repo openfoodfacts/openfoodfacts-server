@@ -400,7 +400,6 @@
 }'
 ></off-webcomponents-configuration>
 
-
 <a href="#upNav" class="back-to-top scrollto button">
     <span class="material-icons size-20 ">
         arrow_upward
@@ -555,7 +554,7 @@
                         
                             <!-- Anonymous users will only be able to vote see AnnotationVote in robotoff,
                                 the voter uniqueness is based on a hash of its ip address -->
-                            <div class="alert-box" style="background-color: #0064c8">
+                            <div class="alert-box block_blue is_hidden">
   <robotoff-question
     product-code="2000000000034"
     options='{"showMessage": true, "showLoading": true, "showError": true, "showImage": false}'
@@ -563,22 +562,8 @@
   ></robotoff-question>
 </div>
 <script>
-  const robotoffQuestion = document.getElementById("robotoff-question");
-  const robotoffQuestionParent = robotoffQuestion.parentElement;
-  // Hide the alert until we have questions
-  robotoffQuestionParent.style.display = "none";
-
-  robotoffQuestion.addEventListener("question-state", function (event) {
-    if (event.detail.numberOfQuestions === 0) {
-      robotoffQuestionParent.style.display = "none";
-    } else if (event.detail.index === event.detail.numberOfQuestions) {
-      // Hide the alert after the last question
-      setTimeout(function () {
-        robotoffQuestionParent.style.display = "none";
-      }, 3000);
-    } else {
-      robotoffQuestionParent.style.display = "block";
-    }
+  document.addEventListener("DOMContentLoaded", () => {
+    window.listenEventToShowHideAlert("question-state", "robotoff-question");
   });
 </script>
 
@@ -592,6 +577,7 @@
         </div>
     </section>
 
+    
 
     <!-- product summary -->
     <section class="row" id="match">
@@ -5335,6 +5321,7 @@ display_product_summary("#product_summary", product);
 <script src="//static.openfoodfacts.localhost/js/dist/select2.min.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/product-history.js"></script>
+<script src="//static.openfoodfacts.localhost/js/dist/off-webcomponents-utils.js"></script>
 <script type="module" src="//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js"></script>
 <script type="text/javascript">
 var page_type = "product";
