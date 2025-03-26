@@ -23,7 +23,16 @@ const jsSrc = [
 
 const sassSrc = "./scss/**/*.scss";
 
-const imagesSrc = ["./node_modules/leaflet/dist/**/*.png"];
+// Added function to handle multiple image formats
+function handleMultipleImageFormats(path: string) {
+  return [".png", ".jpg", ".jpeg", ".webp", ".svg"].map((ext) => path + ext);
+}
+const imagesSrc = [
+  "./node_modules/leaflet/dist/**/*.png",
+  ...handleMultipleImageFormats(
+    "./node_modules/@openfoodfacts/openfoodfacts-webcomponents/dist/assets/**/*"
+  ),
+];
 
 // nginx needs both uncompressed and compressed files as we use try_files with gzip_static always & gunzip
 
