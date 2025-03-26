@@ -656,13 +656,6 @@
       "en:vegan",
       "en:vegetarian"
    ],
-   "ingredients_hierarchy" : [
-      "en:green-lentils",
-      "en:vegetable",
-      "en:legume",
-      "en:pulse",
-      "en:lentils"
-   ],
    "ingredients_lc" : "fr",
    "ingredients_n" : 1,
    "ingredients_n_tags" : [
@@ -696,7 +689,7 @@
    "ingredients_without_ecobalyse_ids" : [],
    "ingredients_without_ecobalyse_ids_n" : 0,
    "interface_version_created" : "import_csv_file - version 2019/09/17",
-   "known_ingredients_n" : 5,
+   "known_ingredients_n" : 1,
    "labels" : "Organic, EU Organic, FR-BIO-01, AB Agriculture Biologique, Agriculture France",
    "labels_hierarchy" : [
       "en:organic",
@@ -1007,6 +1000,7 @@
    "product_type" : "food",
    "removed_countries_tags" : [],
    "rev" : 3,
+   "schema_version" : 1001,
    "sources" : [
       {
          "fields" : [

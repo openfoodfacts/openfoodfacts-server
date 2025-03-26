@@ -80,7 +80,6 @@ BEGIN {
 		&normalize_product_data
 		&init_product
 		&retrieve_product
-		&retrieve_product_rev
 		&store_product
 		&product_name_brand
 		&product_name_brand_quantity
@@ -124,6 +123,7 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
+use ProductOpener::ProductSchemaChanges qw/$current_schema_version convert_product_schema/;
 use ProductOpener::Store qw/get_string_id_for_lang get_url_id_for_lang retrieve store/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::ConfigEnv qw/:all/;
@@ -873,16 +873,28 @@ sub init_product ($userid, $orgid, $code, $countryid) {
 	return $product_ref;
 }
 
-sub retrieve_product ($product_id, $include_deleted = 0) {
+sub retrieve_product ($product_id, $include_deleted = 0, $rev = undef) {
 
 	my $path = product_path_from_id($product_id);
 
-	my $full_product_path = "$BASE_DIRS{PRODUCTS}/$path/product.sto";
+	my $full_product_path;
+
+	if (defined $rev) {
+		# check that $rev is a number
+		if ($rev !~ /^\d+$/) {
+			return;
+		}
+		$full_product_path = "$BASE_DIRS{PRODUCTS}/$path/$rev.sto";
+	}
+	else {
+		$full_product_path = "$BASE_DIRS{PRODUCTS}/$path/product.sto";
+	}
 
 	$log->debug(
 		"retrieve_product",
 		{
 			product_id => $product_id,
+			rev => $rev,
 			full_product_path => $full_product_path
 		}
 	) if $log->is_debug();
@@ -926,37 +938,9 @@ sub retrieve_product ($product_id, $include_deleted = 0) {
 		}
 	}
 
-	normalize_product_data($product_ref);
-
-	return $product_ref;
-}
-
-sub retrieve_product_rev ($product_id, $rev, $include_deleted = 0) {
-
-	if ($rev !~ /^\d+$/) {
-		return;
-	}
-
-	my $path = product_path_from_id($product_id);
-
-	my $product_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/$rev.sto");
-
-	if (defined $product_ref) {
-
-		if (($product_ref->{deleted}) and (not $include_deleted)) {
-			return;
-		}
-
-		# If the product is on another server, set the server field so that it will be saved in the other server if we save it
-		my $server = server_for_product_type($product_ref->{product_type});
-		if (defined $server) {
-			$product_ref->{server} = $server;
-		}
-		else {
-			# If the product was moved previously, it may have a server field, remove it
-			delete $product_ref->{server};
-		}
-	}
+	# We may read a product file that was saved with an old version of the schema
+	# If so, we convert it to the current schema
+	convert_product_schema($product_ref, $current_schema_version);
 
 	normalize_product_data($product_ref);
 
@@ -1132,6 +1116,9 @@ sub store_product ($user_id, $product_ref, $comment) {
 	my $path = product_path($product_ref);
 	my $rev = $product_ref->{rev};
 	my $action = "updated";
+
+	# Update product schema version
+	$product_ref->{schema_version} = $current_schema_version;
 
 	$log->debug(
 		"store_product - start",
