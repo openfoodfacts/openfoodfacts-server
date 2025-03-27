@@ -648,7 +648,7 @@
             "title_element" : {
                "grade" : "c",
                "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg",
-               "subtitle" : "Produit : Some product - 100 g",
+               "subtitle" : "Produit : Some product – 100 g",
                "title" : "Impact pour ce produit: C (Score: 47/100)",
                "type" : "grade"
             },
@@ -946,7 +946,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<ol id=\"ordered_ingredients_list\">\n<li><span>apple</span> -> en:apple - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;13050 - percent_min:&nbsp;16.6666666666667 - percent_max:&nbsp;100</li>\n<li><span>milk</span> -> en:milk - vegan:&nbsp;no - vegetarian:&nbsp;yes - ciqual_proxy_food_code:&nbsp;19051 - percent_min:&nbsp;0 - percent_max:&nbsp;50</li>\n<li><span>eggs</span> -> en:egg - vegan:&nbsp;no - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;22000 - percent_min:&nbsp;0 - percent_max:&nbsp;33.3333333333333</li>\n<li><span>palm oil</span> -> en:palm-oil - vegan:&nbsp;yes - vegetarian:&nbsp;yes - from_palm_oil:&nbsp;yes - ciqual_food_code:&nbsp;16129 - percent_min:&nbsp;0 - percent_max:&nbsp;25</li>\n<li><span>coloring</span> -> en:colour - percent_min:&nbsp;0 - percent_max:&nbsp;20<ol id=\"ordered_ingredients_list\">\n<li><span>curcumin</span> -> en:e100 - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;20</li>\n</ol>\n</li>\n<li><span>emulsifier</span> -> en:emulsifier - percent_min:&nbsp;0 - percent_max:&nbsp;16.6666666666667<ol id=\"ordered_ingredients_list\">\n<li><span>soy lecithin</span> -> en:soya-lecithin - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;42200 - percent_min:&nbsp;0 - percent_max:&nbsp;16.6666666666667</li>\n</ol>\n</li>\n</ol>\n"
+                     "html" : "<ol id=\"ordered_ingredients_list\">\n<li><span>apple</span> -> en:apple – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;13050 – percent_min:&nbsp;16.6666666666667 – percent_max:&nbsp;100</li>\n<li><span>milk</span> -> en:milk – vegan:&nbsp;no – vegetarian:&nbsp;yes – ciqual_proxy_food_code:&nbsp;19051 – percent_min:&nbsp;0 – percent_max:&nbsp;50</li>\n<li><span>eggs</span> -> en:egg – vegan:&nbsp;no – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;22000 – percent_min:&nbsp;0 – percent_max:&nbsp;33.3333333333333</li>\n<li><span>palm oil</span> -> en:palm-oil – vegan:&nbsp;yes – vegetarian:&nbsp;yes – from_palm_oil:&nbsp;yes – ciqual_food_code:&nbsp;16129 – percent_min:&nbsp;0 – percent_max:&nbsp;25</li>\n<li><span>coloring</span> -> en:colour – percent_min:&nbsp;0 – percent_max:&nbsp;20<ol id=\"ordered_ingredients_list\">\n<li><span>curcumin</span> -> en:e100 – vegan:&nbsp;yes – vegetarian:&nbsp;yes – percent_min:&nbsp;0 – percent_max:&nbsp;20</li>\n</ol>\n</li>\n<li><span>emulsifier</span> -> en:emulsifier – percent_min:&nbsp;0 – percent_max:&nbsp;16.6666666666667<ol id=\"ordered_ingredients_list\">\n<li><span>soy lecithin</span> -> en:soya-lecithin – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;42200 – percent_min:&nbsp;0 – percent_max:&nbsp;16.6666666666667</li>\n</ol>\n</li>\n</ol>\n"
                   }
                },
                {
