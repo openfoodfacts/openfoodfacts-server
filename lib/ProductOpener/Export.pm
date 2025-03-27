@@ -92,14 +92,16 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Store qw/:all/;
-use ProductOpener::Lang qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Food qw/:all/;
-use ProductOpener::Data qw/:all/;
-use ProductOpener::Products qw/:all/;
-use ProductOpener::Ecoscore qw/localize_ecoscore/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Store qw/retrieve_json/;
+use ProductOpener::Lang qw/$lc/;
+use ProductOpener::Tags qw/%language_fields %tags_fields %taxonomy_fields list_taxonomy_tags_in_language/;
+use ProductOpener::Display qw/search_and_export_products/;
+use ProductOpener::Food qw/%nutriments_tables/;
+use ProductOpener::Data qw/get_products_collection/;
+use ProductOpener::Products qw/add_images_urls_to_product product_path/;
+use ProductOpener::EnvironmentalScore qw/localize_environmental_score/;
+use ProductOpener::ProductsFeatures qw(feature_enabled);
 
 use Text::CSV;
 use Excel::Writer::XLSX;
@@ -186,7 +188,7 @@ sub export_csv ($args_ref) {
 		= $args_ref->{export_computed_fields};    # Fields like the Nutri-Score score computed by OFF
 	my $export_canonicalized_tags_fields
 		= $args_ref->{export_canonicalized_tags_fields};    # e.g. include "categories_tags" and not only "categories"
-	my $export_cc = $args_ref->{cc} || "world";    # used to localize Eco-Score fields
+	my $export_cc = $args_ref->{cc} || "world";    # used to localize Environmental-Score fields
 
 	$log->debug("export_csv - start", {args_ref => $args_ref}) if $log->is_debug();
 
@@ -206,7 +208,23 @@ sub export_csv ($args_ref) {
 
 	# We will have one cursor for each collection
 	# We store cursors because we will iterate them twice
+	# (or only once if the fields to export are specified)
 	my %cursors = ();
+
+	foreach my $collection (@collections) {
+
+		my $obsolete = ($collection eq "products_obsolete") ? 1 : 0;
+
+		my $count = get_products_collection({obsolete => $obsolete})->count_documents($query_ref);
+
+		$log->debug("export_csv - documents to export", {count => $count, collection => $collection})
+			if $log->is_debug();
+
+		$cursors{$collection} = get_products_collection({obsolete => $obsolete})->find($query_ref);
+		$cursors{$collection}->immortal(1);
+	}
+
+	# First pass to determine which fields should be exported
 
 	if (defined $fields_ref) {
 		# The fields to export are specified by the fields parameter
@@ -216,23 +234,12 @@ sub export_csv ($args_ref) {
 
 		# First pass - go through products to see which fields are populated,
 		# unless the fields to export are specified with the fields parameter.
-
 		# %populated_fields will contain the field name as the key,
 		# and a sort key as the value so that the CSV columns are in the order of $options{import_export_fields_groups}
 		my %populated_fields = ();
 
 		# Loop on collections
 		foreach my $collection (@collections) {
-
-			my $obsolete = ($collection eq "products_obsolete") ? 1 : 0;
-
-			my $count = get_products_collection({obsolete => $obsolete})->count_documents($query_ref);
-
-			$log->debug("export_csv - documents to export", {count => $count, collection => $collection})
-				if $log->is_debug();
-
-			$cursors{$collection} = get_products_collection({obsolete => $obsolete})->find($query_ref);
-			$cursors{$collection}->immortal(1);
 
 			while (my $product_ref = $cursors{$collection}->next) {
 
@@ -269,7 +276,7 @@ sub export_csv ($args_ref) {
 						next if not defined $product_ref->{nutriments};
 
 						# Go through the nutriment table
-						foreach my $nutriment (@{$nutriments_tables{europe}}) {
+						foreach my $nutriment (@{$nutriments_tables{off_europe}}) {
 
 							next if $nutriment =~ /^\#/;
 							my $nid = $nutriment;
@@ -383,14 +390,14 @@ sub export_csv ($args_ref) {
 							}
 							else {
 								my $key = $field;
-								# Special case for ecoscore_data.adjustments.origins_of_ingredients.value
-								# which is only present if the Eco-Score fields have been localized (done only once after)
+								# Special case for environmental_score_data.adjustments.origins_of_ingredients.value
+								# which is only present if the Environmental-Score fields have been localized (done only once after)
 								# we check for .values (with an s) instead
-								if ($field eq "ecoscore_data.adjustments.origins_of_ingredients.value") {
+								if ($field eq "environmental_score_data.adjustments.origins_of_ingredients.value") {
 									$key = $key . "s";
 								}
 								# Allow returning fields that are not at the root of the product structure
-								# e.g. ecoscore_data.agribalyse.score  -> $product_ref->{ecoscore_data}{agribalyse}{score}
+								# e.g. environmental_score_data.agribalyse.score  -> $product_ref->{environmental_score_data}{agribalyse}{score}
 								if (deep_exists($product_ref, split(/\./, $key))) {
 									$populated_fields{$group_prefix . $field} = $field_sort_key;
 								}
@@ -508,8 +515,8 @@ sub export_csv ($args_ref) {
 
 			my $scans_ref;
 
-			# If an ecoscore_* field is requested, we will localize all the Eco-Score fields once
-			my $ecoscore_localized = 0;
+			# If an environmental_score_* field is requested, we will localize all the Environmental-Score fields once
+			my $environmental_score_localized = 0;
 
 			foreach my $field (@sorted_populated_fields) {
 
@@ -520,10 +527,13 @@ sub export_csv ($args_ref) {
 				# Remove the off: prefix for fields computed by OFF, as we don't have the prefix in the product structure
 				$field =~ s/^off://;
 
-				# Localize the Eco-Score fields that depend on the country of the request
-				if (($field =~ /^ecoscore/) and (not $ecoscore_localized)) {
-					localize_ecoscore($export_cc, $product_ref);
-					$ecoscore_localized = 1;
+				# Localize the Environmental-Score fields that depend on the country of the request
+				if (    feature_enabled("environmental_score", $product_ref)
+					and ($field =~ /^environmental_score/)
+					and (not $environmental_score_localized))
+				{
+					localize_environmental_score($export_cc, $product_ref);
+					$environmental_score_localized = 1;
 				}
 
 				# Scans must be loaded separately
@@ -533,7 +543,7 @@ sub export_csv ($args_ref) {
 
 					if (not defined $scans_ref) {
 						# Load the scan data
-						$scans_ref = retrieve_json("$data_root/products/$product_path/scans.json");
+						$scans_ref = retrieve_json("$BASE_DIRS{PRODUCTS}/$product_path/scans.json");
 					}
 					if (not defined $scans_ref) {
 						$scans_ref = {};
@@ -588,13 +598,13 @@ sub export_csv ($args_ref) {
 
 							if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$imagefield})) {
 								$value
-									= "$www_root/images/products/"
+									= "$BASE_DIRS{PRODUCTS_IMAGES}/"
 									. $product_path . "/"
 									. $product_ref->{images}{$imagefield}{imgid} . ".jpg";
 							}
 							elsif (defined $other_images{$product_ref->{code} . "." . $imagefield}) {
 								$value
-									= "$www_root/images/products/"
+									= "$BASE_DIRS{PRODUCTS_IMAGES}/"
 									. $product_path . "/"
 									. $other_images{$product_ref->{code} . "." . $imagefield}{imgid} . ".jpg";
 							}
@@ -639,7 +649,7 @@ sub export_csv ($args_ref) {
 							$value = deep_get($product_ref, ("packagings", $index, $property));
 						}
 						# Allow returning fields that are not at the root of the product structure
-						# e.g. ecoscore_data.agribalyse.score  -> $product_ref->{ecoscore_data}{agribalyse}{score}
+						# e.g. environmental_score_data.agribalyse.score  -> $product_ref->{environmental_score_data}{agribalyse}{score}
 						elsif ($field =~ /\./) {
 							$value = deep_get($product_ref, split(/\./, $field));
 						}

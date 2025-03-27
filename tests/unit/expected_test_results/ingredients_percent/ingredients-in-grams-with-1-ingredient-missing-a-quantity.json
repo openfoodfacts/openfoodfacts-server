@@ -1,6 +1,7 @@
 [
    {
       "id" : "en:milk",
+      "is_in_taxonomy" : 1,
       "percent_estimate" : 72.5,
       "percent_max" : 100,
       "percent_min" : 45,
@@ -10,6 +11,7 @@
    },
    {
       "id" : "en:sugar",
+      "is_in_taxonomy" : 1,
       "percent_estimate" : 13.75,
       "percent_max" : 50,
       "percent_min" : 0,
@@ -19,6 +21,7 @@
    },
    {
       "id" : "en:lemon-flavouring",
+      "is_in_taxonomy" : 1,
       "percent_estimate" : 13.75,
       "percent_max" : "5",
       "percent_min" : 0,

@@ -2,7 +2,9 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "20047",
+         "ecobalyse_code" : "tomato-heated-greenhouse-eu",
          "id" : "en:tomato",
+         "is_in_taxonomy" : 1,
          "percent" : 42.5287356321839,
          "percent_estimate" : 42.5287356321839,
          "quantity" : "148 g",
@@ -13,6 +15,7 @@
       },
       {
          "id" : "en:pork",
+         "is_in_taxonomy" : 1,
          "percent" : 57.4712643678161,
          "percent_estimate" : 57.4712643678161,
          "quantity" : "200 g",
@@ -35,13 +38,7 @@
       "en:non-vegan",
       "en:non-vegetarian"
    ],
-   "ingredients_hierarchy" : [
-      "en:tomato",
-      "en:vegetable",
-      "en:fruit-vegetable",
-      "en:pork",
-      "en:animal"
-   ],
+   "ingredients_lc" : "fr",
    "ingredients_n" : 2,
    "ingredients_n_tags" : [
       "2",
@@ -68,8 +65,16 @@
       "en:pork"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
-   "known_ingredients_n" : 5,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:pork"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
+   "known_ingredients_n" : 2,
    "lc" : "fr",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
+      "en:all-ingredients-with-specified-percent"
+   ],
    "nutriments" : {
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 42.5287356321839,
       "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 42.5287356321839,

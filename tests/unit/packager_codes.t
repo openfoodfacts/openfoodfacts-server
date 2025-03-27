@@ -5,11 +5,10 @@ use warnings;
 
 use utf8;
 
-use Test::More;
-use Test::Number::Delta relative => 1.001;
+use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::PackagerCodes qw/:all/;
+use ProductOpener::PackagerCodes qw/localize_packager_code normalize_packager_codes/;
 
 # initial tests
 is(normalize_packager_codes("emb54253"), "EMB 54253");

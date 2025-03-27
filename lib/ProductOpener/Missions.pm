@@ -35,14 +35,15 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/get_string_id_for_lang retrieve store/;
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Users qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
+use ProductOpener::Users qw/retrieve_user retrieve_userids store_user_session/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::MissionsConfig qw/:all/;
-use ProductOpener::Lang qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::MissionsConfig qw/%Missions %Missions_by_lang/;
+use ProductOpener::Lang qw/$lc %Lang lang/;
+use ProductOpener::Tags qw/%taxonomy_fields canonicalize_tag_link canonicalize_taxonomy_tag get_taxonomyid/;
 
 use Log::Any qw($log);
 
@@ -52,7 +53,8 @@ sub gen_missions_html() {
 
 	foreach my $l (keys %Missions_by_lang) {
 
-		$lang = $l;
+		my $mission_lang_dir = "$BASE_DIRS{PUBLIC_DATA}/missions/$l";
+		ensure_dir_created_or_die($mission_lang_dir);
 
 		my $html = '<ul id="missions" style="list-style-type:none">';
 
@@ -68,7 +70,7 @@ sub gen_missions_html() {
 					= " &rarr; <a href=\""
 					. canonicalize_tag_link("missions", $missionid)
 					. "\" style=\"font-size:0.9em\">"
-					. sprintf($Lang{mission_accomplished_by_n}{$lang}, $n) . "</a>";
+					. sprintf($Lang{mission_accomplished_by_n}{$l}, $n) . "</a>";
 				if ($n == 1) {
 					$n_persons =~ s/s\.</.</;
 				}
@@ -93,15 +95,15 @@ sub gen_missions_html() {
 					.= "<img id=\"og_image\" src=\"/images/misc/$Missions{$missionid}{image}\" alt=\"$Missions{$missionid}{name}\" style=\"float:left;margin-right:20px;margin-bottom:20px;\" />\n";
 			}
 
-			$html2 .= "<p id=\"description\"><b>$Lang{mission_goal}{$lang}</b> " . $Missions{$missionid}{goal} . "</p>";
+			$html2 .= "<p id=\"description\"><b>$Lang{mission_goal}{$l}</b> " . $Missions{$missionid}{goal} . "</p>";
 			if (defined $Missions{$missionid}{description}) {
 				$html2 .= "<p>$Missions{$missionid}{description}</p>";
 			}
 			if ($n == 0) {
-				$html2 .= "<p>$Lang{mission_accomplished_by_nobody}{$lang}</p>";
+				$html2 .= "<p>$Lang{mission_accomplished_by_nobody}{$l}</p>";
 			}
 			elsif ($n > 0) {
-				$html2 .= "<p>$Lang{mission_accomplished_by}{$lang}</p>";
+				$html2 .= "<p>$Lang{mission_accomplished_by}{$l}</p>";
 				foreach my $userid (
 					sort {$missions_ref->{$missionid}{$a} <=> $missions_ref->{$missionid}{$b}}
 					keys %{$missions_ref->{$missionid}}
@@ -122,18 +124,22 @@ sub gen_missions_html() {
 			$html2
 				.= "<p>&rarr; <a href=\"/"
 				. get_string_id_for_lang("no_language", lang("missions"))
-				. "\">$Lang{all_missions}{$lang}</a></p>";
+				. "\">$Lang{all_missions}{$l}</a></p>";
 
 			$missionid =~ s/(.*)\.//;
-			(-e "$data_root/lang/$lang/missions") or mkdir("$data_root/lang/$lang/missions", 0755);
-			open(my $OUT, ">:encoding(UTF-8)", "$data_root/lang/$lang/missions/$missionid.html");
+			open(my $OUT, ">:encoding(UTF-8)", "$mission_lang_dir/$missionid.html");
 			print $OUT $html2;
 			close $OUT;
 		}
 
 		$html .= "</ul>";
 
-		open(my $OUT, ">:encoding(UTF-8)", "$data_root/lang/$lang/texts/missions_list.html");
+		# FIXME: to reactivate missions list functionality,
+		# we would need to add a symlink to missions_list in openfoodfacts-web,
+		# or change display_text or display.pl to fetch file in the right directory
+		# for now it's disabled
+		die("FIX: see comment to reactivate missions list functionality");
+		open(my $OUT, ">:encoding(UTF-8)", "$mission_lang_dir/missions_list.html");
 		print $OUT $html;
 		close $OUT;
 	}
@@ -143,27 +149,17 @@ sub gen_missions_html() {
 
 sub compute_missions() {
 
-	opendir DH, "$data_root/users" or die "Couldn't open the current directory: $!";
-	my @userids = sort(readdir(DH));
-	closedir(DH);
+	my @userids = retrieve_userids();
 
 	my $missions_ref = {};
 
 	foreach my $userid (@userids) {
-		next if $userid eq "." or $userid eq "..";
-		next if $userid eq 'all';
-
-		$log->debug("userid with extension", {userid => $userid}) if $log->is_debug();
-
-		$userid =~ s/\.sto$//;
-
-		$log->debug("userid without extension", {userid => $userid}) if $log->is_debug();
-
-		my $user_ref = retrieve("$data_root/users/$userid.sto");
+		my $user_ref = retrieve_user($userid);
 
 		compute_missions_for_user($user_ref);
 
-		store("$data_root/users/$userid.sto", $user_ref);
+		# This assumes email is not affectd and will not update Keycloak
+		store_user_session($user_ref);
 
 		foreach my $missionid (keys %{$user_ref->{missions}}) {
 			(defined $missions_ref->{$missionid}) or $missions_ref->{$missionid} = {};

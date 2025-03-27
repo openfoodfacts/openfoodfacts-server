@@ -25,11 +25,11 @@ use utf8;
 
 use CGI::Carp qw(fatalsToBrowser);
 
-use ProductOpener::Display qw/:all/;
+use ProductOpener::Display qw/get_packager_code_coordinates/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Data qw/:all/;
-use ProductOpener::PackagerCodes qw/:all/;
+use ProductOpener::Data qw/get_emb_codes_collection/;
+use ProductOpener::PackagerCodes qw/%packager_codes/;
 
 my $emb_codes_collection = get_emb_codes_collection();
 

@@ -23,7 +23,7 @@
 use Modern::Perl '2017';
 use utf8;
 
-use ProductOpener::GeoIP qw/:all/;
+use ProductOpener::GeoIP qw/get_country_for_ip/;
 
 while (<STDIN>) {
 	my $ip = $_;

@@ -25,10 +25,11 @@ use ProductOpener::PerlStandards;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Products qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Users qw/:all/;
+use ProductOpener::Products qw/normalize_code product_id_for_owner product_path_from_id/;
+use ProductOpener::Display qw/init_request single_param/;
+use ProductOpener::Users qw/$Owner_id/;
 
 use Apache2::Const qw(OK HTTP_BAD_REQUEST HTTP_NOT_FOUND HTTP_INTERNAL_SERVER_ERROR);
 use CGI qw/:cgi :form escapeHTML/;
@@ -61,10 +62,10 @@ if (
 }
 
 my $image = Image::Magick->new;
-my $x = $image->Read("$www_root/images/products/$path/$imgid.${crop_size}.jpg");
+my $x = $image->Read("$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.${crop_size}.jpg");
 if ("$x") {
 	$log->error('could not read image',
-		{path => "$www_root/images/products/$path/$imgid.${crop_size}.jpg", status => $x})
+		{path => "$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.${crop_size}.jpg", status => $x})
 		if $log->is_error();    ## no critic (ProhibitPostfixControls)
 	$r->status(HTTP_NOT_FOUND);
 	return OK;

@@ -1,57 +1,86 @@
 # Preservation methods
 
-en:fresh
-de:frisch, frische, frischen, frisches, frischer
-bg:пресно, пресен, пресна, пресни
-es:fresco,frescos,fresca,frescas
-fr:frais, fraîche, fraîches
-nl:vers
+en: fresh
+bg: пресно, пресен, пресна, пресни
+de: frisch, frische, frischen, frisches, frischer
+es: fresco, frescos, fresca, frescas
+fr: frais, fraîche, fraîches
+it: fresco, freschi, fresca, fresche
+nl: vers
+pt: fresco, frescos, fresca, frescas
+ru: свежий, свежая, свежие
 
-en:refrigerated
-de:gekühlt, gekühltes, gekühlter, gekühlten, gekühlte 
-bg:охладено, охладена, охладени
-es:refrigerado, refrigerada, refrigerados, refrigeradas
-fr:réfrigéré, réfrigérés, réfrigérée, réfrigérées
-nl:gekoeld
+en: refrigerated
+bg: охладено, охладена, охладени
+de: gekühlt, gekühltes, gekühlter, gekühlten, gekühlte
+es: refrigerado, refrigerada, refrigerados, refrigeradas
+fr: réfrigéré, réfrigérés, réfrigérée, réfrigérées
+it: refrigerato, refrigerata, refrigerati, refrigerate
+nl: gekoeld
+pt: refrigerado, refrigerada, refrigerados, refrigeradas
+ru: охлажденный, охлажденная, охлажденные, охлажденное
 
-en:frozen
-de:tiefgekühlt, tiefgekühlter, tiefgekühltes, tiefgekühlten, tiefgekühlte, tiefgefroren, tiefgefrorenes, tiefgefrorener, tiefgefrorene, tiefgefrorenen, gefroren, gefrorener, gefrorenes, gefrorenen, gefrorene, eingefroren, eingefrorener, eingefrorenes, eingefrorene, eingefrorenen, tiefgefrostet, tiefgefrosteter, tiefgefrostetes, tiefgefrostete, tiefgefrosteten
-bg:замръзено, замразена, замразени
-es:congelado, congelada, congelados, congeladas, ultracongelado, ultracongelada, ultracongelados, ultracongeladas
-fr:surgelé, surgelés, surgelée, surgelées, congelé, congelés, congelée, congelées
-it:surgelato
-nl:bevroren, ingevroren
+en: frozen
+bg: замръзено, замразена, замразени
+de: tiefgekühlt, tiefgekühlter, tiefgekühltes, tiefgekühlten, tiefgekühlte, tiefgefroren, tiefgefrorenes, tiefgefrorener, tiefgefrorene, tiefgefrorenen, gefroren, gefrorener, gefrorenes, gefrorenen, gefrorene, eingefroren, eingefrorener, eingefrorenes, eingefrorene, eingefrorenen, tiefgefrostet, tiefgefrosteter, tiefgefrostetes, tiefgefrostete, tiefgefrosteten
+es: congelado, congelada, congelados, congeladas, ultracongelado, ultracongelada, ultracongelados, ultracongeladas
+fr: surgelé, surgelés, surgelée, surgelées, congelé, congelés, congelée, congelées
+it: surgelato
+nl: bevroren, ingevroren
 
-en:unfrozen
-de:ungefroren, ungefrorenes, ungefrorener, ungefrorene, ungefrorenen
-bg:размразено, размразен, размразена, размразени
-fr:décongelé, décongelés, décongelée, décongelées
-nl:ongevroren
+en: unfrozen
+bg: размразено, размразен, размразена, размразени
+de: ungefroren, ungefrorenes, ungefrorener, ungefrorene, ungefrorenen
+es: descongelado, descongelada
+fr: décongelé, décongelés, décongelée, décongelées
+it: scongelato, scongelata, scongelati, scongelate
+nl: ongevroren
+pt: descongelado, descongelada, descongelados, descongeladas
+ru: размороженный, размороженная, размороженные, размороженное
 
-en:dry
-de:getrocknet, getrocknete, getrocknetes, getrockneten, trocken, trockenes, trockener, trockenen
-bg:сухо, сух, суха
-fr:sec
-nl:droog
+en: dry
+bg: сухо, сух, суха
+de: getrocknet, getrocknete, getrocknetes, getrockneten, trocken, trockenes, trockener, trockenen
+es: seco, secado
+fr: sec
+it: secco, essiccato
+nl: droog
+pt: seco, desidratado
+ru: сухой, сухая, сухие, сухое
 
-en:vacuum-packed, vacuum-sealed, sous-vide, vacuum
-bg:вакуумно опаковано, под вакум
-es:al vacío, envasado al vacío 
-fr:sous-vide
-it:sottovuoto
-nl:vacuum verpakt, vacuum
+en: vacuum-packed, vacuum-sealed, sous-vide, vacuum
+bg: вакуумно опаковано, под вакум
+ca: al buit, envasat al buit
+de: vakuumverpackt, vakuumversiegelt
+es: al vacío, envasado al vacío
+fr: sous-vide
+it: sottovuoto
+nl: vacuum verpakt, vacuum
+pt: embalado a vácuo, embalado a vácuo
+ru: вакуумная упаковка, вакуумная упаковка, су-вид, вакуум
 
-en:canned, appertized
-bg:консерва, в консерва
-de:Konserve
-es:conserva, en conserva, enlatado, enlatada
-fr:conserve, en conserve, appertisé, appertisés, appertisée, appertisées
-nl:ingeblikt, geappertiseerd
+en: canned, appertized
+bg: консерва, в консерва, консервиран, консервирана, консервирано
+ca: conserva, en conserva, en llauna, enllaunat
+de: Konserve
+es: conserva, en conserva, enlatado, enlatada
+fr: conserve, en conserve, appertisé, appertisés, appertisée, appertisées
+it: in scatola, in lattina
+nl: ingeblikt, geappertiseerd
+pt: enlatado, enlatada
+ru: консервированный, консервированная, консервированные, консервированное
 
-en:protective gas, protective atmosphere
-de:schutzatmosphäre
-es:atmósfera protectora, Envasado en atmósfera protectora
-fr:sous atmosphère protectrice, atmosphère protectrice, conditionné sous atmosphère protectrice
-it:atmosfera protettiva, in atmosfera protettiva, confezionato in atmosfera protettiva
-nl:in beschermde atmosfeer
+en: protective gas, protective atmosphere
+bg: опаковано в защитна атмосфера
+de: schutzatmosphäre
+es: atmósfera protectora, Envasado en atmósfera protectora
+fr: sous atmosphère protectrice, atmosphère protectrice, conditionné sous atmosphère protectrice
+it: atmosfera protettiva, in atmosfera protettiva, confezionato in atmosfera protettiva
+nl: in beschermde atmosfeer
+
+en: candied
+ca: confitat, confitats
+es: confitado, confitados
+it: candito
+description:en: cook with fat/oils to medium temperature for preservation
 

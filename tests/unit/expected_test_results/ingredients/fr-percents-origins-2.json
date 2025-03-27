@@ -4,18 +4,31 @@
          "id" : "en:emulsifier",
          "ingredients" : [
             {
-               "id" : "en:sunflower-lecithin",
+               "id" : "en:e322",
+               "ingredients" : [
+                  {
+                     "id" : "en:sunflower-lecithin",
+                     "is_in_taxonomy" : 1,
+                     "percent_estimate" : 50,
+                     "text" : "lécithines de tournesol",
+                     "vegan" : "yes",
+                     "vegetarian" : "yes"
+                  }
+               ],
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 50,
-               "text" : "lécithines de tournesol",
-               "vegan" : "yes",
-               "vegetarian" : "yes"
+               "text" : "lécithines",
+               "vegan" : "maybe",
+               "vegetarian" : "maybe"
             }
          ],
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 50,
          "text" : "émulsifiant"
       },
       {
          "id" : "en:flavouring",
+         "is_in_taxonomy" : 1,
          "origins" : "en:european-union",
          "percent_estimate" : 25,
          "text" : "arôme",
@@ -23,7 +36,10 @@
          "vegetarian" : "maybe"
       },
       {
+         "ciqual_proxy_food_code" : "9410",
+         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
          "id" : "en:wheat-flour",
+         "is_in_taxonomy" : 1,
          "origins" : "en:france",
          "percent" : 33,
          "percent_estimate" : 25,
@@ -32,15 +48,20 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "31016",
+         "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
          "id" : "en:sugar",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 0,
          "text" : "sucre",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
-         "from_palm_oil" : "maybe",
+         "ciqual_food_code" : "16401",
+         "from_palm_oil" : "no",
          "id" : "en:butterfat",
+         "is_in_taxonomy" : 1,
          "origins" : "en:france",
          "percent" : 6.5,
          "percent_estimate" : 0,
@@ -50,9 +71,6 @@
       }
    ],
    "ingredients_analysis" : {
-      "en:may-contain-palm-oil" : [
-         "en:butterfat"
-      ],
       "en:maybe-vegetarian" : [
          "en:flavouring"
       ],
@@ -61,33 +79,14 @@
       ]
    },
    "ingredients_analysis_tags" : [
-      "en:may-contain-palm-oil",
+      "en:palm-oil-free",
       "en:non-vegan",
       "en:maybe-vegetarian"
    ],
-   "ingredients_hierarchy" : [
-      "en:emulsifier",
-      "en:flavouring",
-      "en:wheat-flour",
-      "en:cereal",
-      "en:flour",
-      "en:wheat",
-      "en:cereal-flour",
-      "en:sugar",
-      "en:added-sugar",
-      "en:disaccharide",
-      "en:butterfat",
-      "en:dairy",
-      "en:oil-and-fat",
-      "en:fat",
-      "en:milkfat",
-      "en:sunflower-lecithin",
-      "en:e322",
-      "en:e322i"
-   ],
-   "ingredients_n" : 6,
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 7,
    "ingredients_n_tags" : [
-      "6",
+      "7",
       "1-10"
    ],
    "ingredients_original_tags" : [
@@ -96,6 +95,7 @@
       "en:wheat-flour",
       "en:sugar",
       "en:butterfat",
+      "en:e322",
       "en:sunflower-lecithin"
    ],
    "ingredients_percent_analysis" : -1,
@@ -115,8 +115,8 @@
       "en:oil-and-fat",
       "en:fat",
       "en:milkfat",
-      "en:sunflower-lecithin",
       "en:e322",
+      "en:sunflower-lecithin",
       "en:e322i"
    ],
    "ingredients_text" : "émulsifiant : lécithines (tournesol), arôme)(UE), farine de blé 33% (France), sucre, beurre concentré* 6,5% (France)",
@@ -125,15 +125,25 @@
    "ingredients_with_unspecified_percent_n" : 3,
    "ingredients_with_unspecified_percent_sum" : 75,
    "ingredients_without_ciqual_codes" : [
-      "en:butterfat",
+      "en:e322",
+      "en:emulsifier",
       "en:flavouring",
-      "en:sugar",
-      "en:sunflower-lecithin",
-      "en:wheat-flour"
+      "en:sunflower-lecithin"
    ],
-   "ingredients_without_ciqual_codes_n" : 5,
-   "known_ingredients_n" : 18,
+   "ingredients_without_ciqual_codes_n" : 4,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:butterfat",
+      "en:e322",
+      "en:emulsifier",
+      "en:flavouring",
+      "en:sunflower-lecithin"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 5,
+   "known_ingredients_n" : 7,
    "lc" : "fr",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent"
+   ],
    "nutriments" : {
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,

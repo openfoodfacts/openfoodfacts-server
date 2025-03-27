@@ -1,0 +1,95 @@
+{
+   "allergens" : "en:milk",
+   "ingredients" : [
+      {
+         "ciqual_proxy_food_code" : "16400",
+         "ecobalyse_code" : "bbda834e-1548-4682-a461-c367dc1ce517",
+         "id" : "en:butter",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 75,
+         "percent_max" : 100,
+         "percent_min" : 50,
+         "text" : "beurre",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "12999",
+         "id" : "en:cheese",
+         "ingredients" : [
+            {
+               "ciqual_food_code" : "12120",
+               "id" : "en:parmigiano-reggiano",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 25,
+               "percent_max" : 50,
+               "percent_min" : 0,
+               "text" : "parmesan",
+               "vegan" : "no",
+               "vegetarian" : "maybe"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 25,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "fromage",
+         "vegan" : "no",
+         "vegetarian" : "maybe"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:maybe-vegetarian" : [
+         "en:parmigiano-reggiano"
+      ],
+      "en:non-vegan" : [
+         "en:butter",
+         "en:cheese",
+         "en:parmigiano-reggiano"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:maybe-vegetarian"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 3,
+   "ingredients_n_tags" : [
+      "3",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:butter",
+      "en:cheese",
+      "en:parmigiano-reggiano"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:butter",
+      "en:dairy",
+      "en:cheese",
+      "en:parmigiano-reggiano"
+   ],
+   "ingredients_text" : "beurre (lait), fromage (parmesan)",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 2,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:cheese",
+      "en:parmigiano-reggiano"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 2,
+   "known_ingredients_n" : 3,
+   "lc" : "fr",
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
+   },
+   "unknown_ingredients_n" : 0
+}

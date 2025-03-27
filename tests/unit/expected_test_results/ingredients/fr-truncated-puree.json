@@ -2,7 +2,9 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "20170",
+         "ecobalyse_code" : "tomato-heated-greenhouse-eu",
          "id" : "en:tomato-puree",
+         "is_in_taxonomy" : 1,
          "percent" : 7.48031496062992,
          "percent_estimate" : 7.48031496062992,
          "text" : "purée de tomate",
@@ -11,6 +13,7 @@
       },
       {
          "id" : "en:beef",
+         "is_in_taxonomy" : 1,
          "percent" : 35.4330708661417,
          "percent_estimate" : 35.4330708661417,
          "text" : "boeuf",
@@ -19,6 +22,7 @@
       },
       {
          "id" : "en:fruit-juice",
+         "is_in_taxonomy" : 1,
          "percent" : 39.3700787401575,
          "percent_estimate" : 39.3700787401575,
          "processing" : "en:pure",
@@ -29,6 +33,7 @@
       {
          "from_palm_oil" : "maybe",
          "id" : "en:oil-and-fat",
+         "is_in_taxonomy" : 1,
          "percent" : 17.7165354330709,
          "percent_estimate" : 17.7165354330709,
          "text" : "matière grasses",
@@ -52,18 +57,7 @@
       "en:non-vegan",
       "en:non-vegetarian"
    ],
-   "ingredients_hierarchy" : [
-      "en:tomato-puree",
-      "en:vegetable",
-      "en:fruit-vegetable",
-      "en:tomato",
-      "en:beef",
-      "en:animal",
-      "en:fruit-juice",
-      "en:fruit",
-      "en:juice",
-      "en:oil-and-fat"
-   ],
+   "ingredients_lc" : "fr",
    "ingredients_n" : 4,
    "ingredients_n_tags" : [
       "4",
@@ -99,8 +93,18 @@
       "en:oil-and-fat"
    ],
    "ingredients_without_ciqual_codes_n" : 3,
-   "known_ingredients_n" : 10,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:beef",
+      "en:fruit-juice",
+      "en:oil-and-fat"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 3,
+   "known_ingredients_n" : 4,
    "lc" : "fr",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
+      "en:all-ingredients-with-specified-percent"
+   ],
    "nutriments" : {
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 46.8503937007874,
       "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 46.8503937007874,

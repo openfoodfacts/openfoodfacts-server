@@ -7,6 +7,15 @@ logs
 debug/
 perl-language-server.log
 
+# tests outputs
+tests/unit/outputs/
+tests/integration/outputs/
+
+openfoodfacts-mongodbdump.tar.gz
+openfoodfacts-products.jsonl.gz
+en.openfoodfacts.org.products.csv
+en.openfoodfacts.org.products.csv.gz
+
 html/images/misc/openfoodfacts-visual-decision-05-03-13.pdf
 html/images/misc/20130416_QUOz.pdf
 html/images/misc/assemblee-constitutive-off-v1.pdf

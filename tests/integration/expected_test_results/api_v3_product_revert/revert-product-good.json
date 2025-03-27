@@ -1,0 +1,28 @@
+{
+   "code" : "1234567890100",
+   "errors" : [],
+   "product" : {
+      "brands_tags" : [
+         "xx:test-brand"
+      ],
+      "categories_tags" : [
+         "en:beverages-and-beverages-preparations",
+         "en:plant-based-foods-and-beverages",
+         "en:beverages",
+         "en:hot-beverages",
+         "en:plant-based-beverages",
+         "en:teas"
+      ],
+      "code" : "1234567890100",
+      "product_name_en" : "Test product",
+      "rev" : 3,
+      "schema_version" : 999
+   },
+   "result" : {
+      "id" : "product_reverted",
+      "lc_name" : "Product reverted to the specified revision",
+      "name" : "Product reverted to the specified revision"
+   },
+   "status" : "success",
+   "warnings" : []
+}

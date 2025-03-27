@@ -36,7 +36,6 @@ use Log::Any qw($log);
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-
 		&unit_to_g
 		&g_to_unit
 
@@ -47,6 +46,8 @@ BEGIN {
 
 		&normalize_serving_size
 		&normalize_quantity
+		&extract_standard_unit
+		&normalize_product_quantity_and_serving_size
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -54,9 +55,9 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
-use ProductOpener::Numbers qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::Text qw/:all/;
+use ProductOpener::Numbers qw/$number_regexp convert_string_to_number/;
+use ProductOpener::Tags qw/%translations_to get_all_taxonomy_entries get_property get_taxonomy_tag_synonyms/;
+use ProductOpener::Text qw/regexp_escape/;
 
 =head1 FUNCTIONS
 
@@ -129,8 +130,6 @@ sub init_units_names() {
 
 	return;
 }
-
-init_units_names();
 
 =head2 unit_to_g($value, $unit)
 
@@ -222,6 +221,49 @@ sub mmoll_to_unit ($value, $unit) {
 	return g_to_unit($value, $unit);
 }
 
+=head2 parse_quantity_unit($quantity)
+
+Returns the quantity ($q), the multiplicator ($m, optional) and the unit ($u)
+that may be found in the quantity field entered by contributors
+
+parse_quantity_unit(1 barquette de 40g) returns (40, 1, g)
+parse_quantity_unit(20 tranches 500g)   returns (500, 20, g)
+parse_quantity_unit(6x90g)              returns (90, 6, g)
+parse_quantity_unit(2kg)                returns (2, undef, kg)
+
+Returns (undef, undef, undef) if no quantity was detected.
+
+=cut
+
+sub parse_quantity_unit ($quantity, $standard_unit_bool = undef) {
+
+	my $q = undef;
+	my $m = undef;
+	my $u = undef;
+
+	# 12 pots x125 g
+	# 6 bouteilles de 33 cl
+	# 6 bricks de 1 l
+	# 10 unités, 170 g
+	# 4 bouteilles en verre de 20cl
+	if (defined $quantity) {
+		if ($quantity
+			=~ /(?<number>\d+)(\s(\p{Letter}| )+)?(\s)?( de | of |x|\*)(\s)?(?<quantity>$number_regexp)(\s)?(?<unit>$units_regexp)\b/i
+			)
+		{
+			$m = $+{number};
+			$q = lc($+{quantity});
+			$u = $+{unit};
+		}
+		elsif ($quantity =~ /(?<quantity>$number_regexp)(\s)?(?<unit>$units_regexp)\s*\b/i) {
+			$q = lc($+{quantity});
+			$u = $+{unit};
+		}
+	}
+
+	return ($q, $m, $u);
+}
+
 =head2 normalize_quantity($quantity)
 
 Returns the size in g or ml for the whole product. Eg.:
@@ -234,34 +276,51 @@ Returns undef if no quantity was detected.
 
 =cut
 
-sub normalize_quantity ($quantity) {
+sub normalize_quantity ($quantity_field) {
 
-	my $q = undef;
-	my $u = undef;
+	my ($quantity, $multiplier, $unit) = parse_quantity_unit($quantity_field);
 
-	# 12 pots x125 g
-	# 6 bouteilles de 33 cl
-	# 6 bricks de 1 l
-	# 10 unités, 170 g
-	# 4 bouteilles en verre de 20cl
-	if ($quantity
-		=~ /(?<number>\d+)(\s(\p{Letter}| )+)?(\s)?( de | of |x|\*)(\s)?(?<quantity>(\d+)(\.|,)?(\d+)?)(\s)?(?<unit>$units_regexp)\b/i
-		)
-	{
-		my $m = $+{number};
-		$q = lc($+{quantity});
-		$u = $+{unit};
-		$q = convert_string_to_number($q);
-		$q = unit_to_g($q * $m, $u);
+	$quantity = convert_string_to_number($quantity);
+
+	if (defined $multiplier) {
+		$quantity = unit_to_g($quantity * $multiplier, $unit);
 	}
-	elsif ($quantity =~ /(?<quantity>(\d+)(\.|,)?(\d+)?)(\s)?(?<unit>$units_regexp)\s*\b/i) {
-		$q = lc($+{quantity});
-		$u = $+{unit};
-		$q = convert_string_to_number($q);
-		$q = unit_to_g($q, $u);
+	else {
+		$quantity = unit_to_g($quantity, $unit);
+	}
+	return $quantity;
+}
+
+=head2 extract_standard_unit($quantity)
+
+Returns the standard_unit corresponding to the extracted unit
+
+extract_standard_unit(1 barquette de 40g, 1) returns g
+extract_standard_unit(2kg)                   returns g
+extract_standard_unit(33cl)                  returns ml
+
+Returns undef if no unit was detected.
+
+=cut
+
+sub extract_standard_unit ($quantity_field) {
+
+	my $standard_unit = undef;
+
+	my (undef, undef, $unit) = parse_quantity_unit($quantity_field);
+
+	if (defined $unit) {
+
+		# search in the map of all synonyms in all languages ($units_names)
+		$unit = lc($unit);
+		my $unit_id = $units_names{$unit};    # $unit_id can be undefined
+		if (defined $unit_id) {
+
+			$standard_unit = $units{$unit_id}{standard_unit};    # standard_unit can be undefined
+		}
 	}
 
-	return $q;
+	return $standard_unit;
 }
 
 =head2 normalize_serving_size($serving)
@@ -276,17 +335,62 @@ sub normalize_serving_size ($serving) {
 
 	# Regex captures any <number>( )?<unit-identifier> group, but leaves allowances for a preceding
 	# token to allow for patterns like "One bag (32g)", "1 small bottle (180ml)" etc
-	if ($serving =~ /^(.*[ \(])?(?<quantity>(\d+)(\.|,)?(\d+)?)( )?(?<unit>$units_regexp)\b/i) {
+	if ((defined $serving) and ($serving =~ /^(.*[ \(])?(?<quantity>$number_regexp)( )?(?<unit>$units_regexp)\b/i)) {
 		my $q = $+{quantity};
 		my $u = $+{unit};
 		$q = convert_string_to_number($q);
 
 		return unit_to_g($q, $u);
 	}
-
-	#$log->trace("serving size normalized", { serving => $serving, q => $q, u => $u }) if $log->is_trace();
 	return;
 }
+
+=head2 normalize_product_quantity_and_serving_size ($product_ref)
+
+Normalize the product quantity and serving size fields.
+
+=head3 Parameters
+
+=head4 $product_ref
+
+Reference to a product.
+
+=cut
+
+sub normalize_product_quantity_and_serving_size ($product_ref) {
+
+	(defined $product_ref->{product_quantity}) and delete $product_ref->{product_quantity};
+	(defined $product_ref->{product_quantity_unit}) and delete $product_ref->{product_quantity_unit};
+	if ((defined $product_ref->{quantity}) and ($product_ref->{quantity} ne "")) {
+		my $product_quantity = normalize_quantity($product_ref->{quantity});
+		if (defined $product_quantity) {
+			$product_ref->{product_quantity} = $product_quantity;
+		}
+		my $product_quantity_unit = extract_standard_unit($product_ref->{quantity});
+		if (defined $product_quantity_unit) {
+			$product_ref->{product_quantity_unit} = $product_quantity_unit;
+		}
+	}
+
+	if ((defined $product_ref->{serving_size}) and ($product_ref->{serving_size} ne "")) {
+		$product_ref->{serving_quantity} = normalize_serving_size($product_ref->{serving_size});
+
+		my $serving_quantity_unit = extract_standard_unit($product_ref->{serving_size});
+		if (defined $serving_quantity_unit) {
+			$product_ref->{serving_quantity_unit} = $serving_quantity_unit;
+		}
+	}
+	else {
+		(defined $product_ref->{serving_quantity}) and delete $product_ref->{serving_quantity};
+		(defined $product_ref->{serving_size})
+			and ($product_ref->{serving_size} eq "")
+			and delete $product_ref->{serving_size};
+	}
+
+	return;
+}
+
+init_units_names();
 
 1;
 

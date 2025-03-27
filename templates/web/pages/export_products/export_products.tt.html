@@ -22,7 +22,6 @@
 	</ul>
 
 	[% IF allow_submit %]
-
 		<label for="export_photos">
 			<input type="checkbox" id="export_photos" name="export_photos" [% export_photos_value %]>
 			[% lang('export_photos') %]
@@ -48,7 +47,7 @@
 		[% END %]
 	[% END %]
 		
-	<input type="submit" class="button small" value="[% lang('export_product_data_photos') %]">
+	<input type="submit" class="button small" value="[% edq(lang('export_product_data_photos')) %]">
 		
 </form>
 

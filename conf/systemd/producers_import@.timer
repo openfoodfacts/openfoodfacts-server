@@ -1,0 +1,11 @@
+[Unit]
+Description=Import producers data for %i
+
+[Timer]
+# every day
+OnCalendar=3:15
+# service instance name "%i" is off / obf / opff / opf
+Unit=producers_import@%i.service
+
+[Install]
+WantedBy=multi-user.target

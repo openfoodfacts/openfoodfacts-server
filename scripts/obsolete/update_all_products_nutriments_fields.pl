@@ -26,6 +26,7 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -44,7 +45,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 
 # Get a list of all products
@@ -65,20 +66,20 @@ my $cursor = $products_collection->query({})->fields({ code => 1 });
 		
 		
 		# Update
-		#extract_ingredients_classes_from_text($product_ref);
+		#extract_additives_from_text($product_ref);
 		
 		if ($product_ref->{lc}) {
 			$lc = $product_ref->{lc};
 			$lang = $product_ref->{lc};
 		}
 		
-		compute_serving_size_data($product_ref);
+		compute_nutrition_data_per_100g_and_per_serving($product_ref);
 		
 		compute_nutrient_levels($product_ref);
 
 		# Store
 
-		store( "$data_root/products/$path/product.sto", $product_ref );
+		store( "$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref );
 		$products_collection->save($product_ref);
 	}
 

@@ -117,28 +117,18 @@ $decalTop:48px;
         border-radius: 0 0 8px 8px  ;
     }
 }
-// valign arrow only on manages images accordion
-#manage_images_accordion .accordion-navigation {
-  &::after {
-    display: none;
-  }
-  & > a {
-    display: flex;
-    align-items: center;
 
-    &::after {
-      content:"\E5c5";
-      display:block;
-      margin-left: auto;
-      font-family: 'Material Icons', sans-serif;
-      font-size: 24px;
-      pointer-events:none;
-    }
-  }
-  &.active a::after {
-    content:"\e5c7";
-  }
+li.accordion-navigation.accordion-navigation-inactive:after {
+    display: none;
 }
+
+// align dropdown only on manages images accordion
+#manage_images_accordion .accordion-navigation {
+    &:after {
+        top: 11px;
+    }
+}
+
 #preferences_selection_form {
     margin:1rem;
 }
@@ -270,3 +260,22 @@ html[dir="rtl"] .image_box figure figcaption {
 .allergen {
 	font-weight:bold;
 }
+
+.tagify {
+    // HACK: The default was changed from flex to inline-flex in https://github.com/yairEO/tagify/commit/4060b04b25d9505a6ac946f1477d581d596fed50
+    // This breaks the layout of the tags in the product page. This is a temporary fix until the issue is resolved.
+    display: flex !important;
+}
+
+// It is hides SVG barcode when mobile and shows when desktop
+#barcode_div_code,#barcode_div_svg{
+    display: inline-block;
+    vertical-align: top;
+}
+
+@media only screen and (max-width: 600px) {
+    #barcode_div_svg,#barcode_br {
+        display: none;
+    }
+}
+  

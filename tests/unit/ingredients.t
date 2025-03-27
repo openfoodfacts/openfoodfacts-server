@@ -3,16 +3,15 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
+use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
 use JSON;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::TagsEntries qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Test qw/:all/;
+use ProductOpener::Tags qw/compute_field_tags/;
+use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
+use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
@@ -491,6 +490,14 @@ Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of A
 		}
 	],
 
+	[
+		"en-origin-and",
+		{
+			lc => "en",
+			ingredients_text => "Tomatoes (France and Italy)",
+		}
+	],
+
 	# Origins : French - X from Y
 	[
 		"fr-origin-ingredient-origin-and-origin",
@@ -503,6 +510,14 @@ Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of A
 			origin_fr =>
 				"Pomme de Terre de France, Porc de France, Lait demi-écrémé de France, Crème liquide de France, Eau de France, Beurre de France, 
 				Moutarde à l'ancienne de France, Crème de France, Moutarde de Dijon de France, Miel de fleurs de France, Epices : Inde, Bouillon de France, Sel fin de France",
+		}
+	],
+
+	[
+		"fr-origin-and",
+		{
+			lc => "fr",
+			ingredients_text => "Pomme de Terre (France et Italie)",
 		}
 	],
 
@@ -530,6 +545,33 @@ Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of A
 			ingredients_text => "砂糖、小麦粉、全粉乳、カカオマス、ショートニング、植物油脂、ココアバター、小麦全粒粉、小麦ふすま、食塩、小麦胚芽 ／ 加工デンプン、乳化剤（大豆由来）、膨脹剤、香料",
 		}
 	],
+	# origins
+	[
+		"ja-origins",
+		{
+			lc => "ja",
+			ingredients_text => "塩(国産), 
+クレームフレーシュ(国内製造), 
+肉(オーストラリア),
+オリーブ油(ブラジル産、エチオピア産),
+白ワインビネガー(オーストラリア又はフィンランド又はその他),
+麦芽(国内製造又は韓国製造),
+糖類(外国製造又は国内製造),
+ココア(輸入又は国産 (5%未満)),
+えだまめ(北海道産).
+パンの実(三陸産),
+クレメンタイン(九州産)"
+		}
+	],
+
+	[
+		"ja-origin-and",
+		{
+			lc => "ja",
+			ingredients_text => "トマト(ときがわ町])",
+		}
+	],
+
 	# U+00B7 "·" (Middle Dot) is a character found in ingredient forsome countries (Catalan)
 	[
 		"ca-middle-dot",
@@ -703,6 +745,158 @@ puffed orange and caramelized unknown_fruit4.",
 				"fruits (apple, banana and dried cherry), vegetables (pitted avocado, peeled black radish).",
 		}
 	],
+	# category / types enumeration
+	[
+		"en-category-types",
+		{
+			lc => "de",
+			ingredients_text => "pflanzliche Öle und Fette (Raps, Palm, Shea, Sonnenblumen)",
+		}
+	],
+	[
+		"fr-viande-de-boeuf-issue-d-animaux-nourris-sans-ogm",
+		{
+			lc => "fr",
+			ingredients_text => "Viande de boeuf issue d'animaux nourris sans OGM",
+		}
+	],
+	# French ingredient
+	[
+		"fr-oignon-francais-tomate-francaise",
+		{
+			lc => "fr",
+			ingredients_text => "Oignon français, tomate française",
+		}
+	],
+	[
+		'fr-legumes-issus-de-l-agriculture-durable',
+		{
+			lc => "fr",
+			ingredients_text => "Légumes issus de l'agriculture durable",
+		}
+	],
+	[
+		"fr-farines-labels-and-processes",
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Farine de blé CRC, farine de maïs fermentée, farine sans gluten, farine de petit épeautre fortifiée",
+		}
+	],
+	# Label in a list of ingredients: the product should have labels organic and gluten-free.
+	[
+		"en-wheat-flour-organic-gluten-free",
+		{
+			lc => "en",
+			ingredients_text => "wheat flour. MSC (fish). organic. gluten-free",
+		}
+	],
+	# Removing a label with stopwords without removing the stopwords in origins
+	[
+		"fr-cacao-issu-de-l-agriculture-biologique-de-madagascar",
+		{
+			lc => "fr",
+			ingredients_text => "cacao issu de l'agriculture biologique de Madagascar",
+		}
+	],
+	# Allergens in parenthesis
+	[
+		"en-allergens-in-parenthesis",
+		{
+			lc => "en",
+			ingredients_text =>
+				"butter (milk), surimi (fish), wheat flour (gluten), dough (flour, gluten, salt, water)",
+		}
+	],
+	# Japanese allergens in parenthesis
+	[
+		"ja-allergens-in-parenthesis",
+		{
+			lc => "ja",
+			ingredients_text => "香料 (ラッカセイ, 種実類, 魚).",
+		}
+	],
+	# Ingredients in parenthesis that are in the allergens taxonomy
+	# Those ingredients should not be removed from the ingredients list
+	# e.g. if we have "butter (milk)", we may want to consider that milk is not a sub ingredient, but an indication of an allergen
+	# but if we have "cheese (parmigiano reggiano)", we definitely want to keep "parmigiano reggiano" as a sub ingredient
+	[
+		"en-ingredients-in-parenthesis-that-are-in-the-allergens-taxonomy",
+		{
+			lc => "en",
+			ingredients_text => "butter (milk), cheese (parmigiano reggiano)",
+		}
+	],
+	[
+		"fr-ingredients-in-parenthesis-that-are-in-the-allergens-taxonomy",
+		{
+			lc => "fr",
+			ingredients_text => "beurre (lait), fromage (parmesan)",
+		}
+	],
+	# Infinite loop https://github.com/openfoodfacts/openfoodfacts-server/issues/9755
+	[
+		"fr-infinite-loop-allergens",
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Sucre, LAIT* entier en poudre 25%, graisse végétale (palme, palmiste), beurre de cacao1, pâte de cacao1, LAIT* écrémé en poudre 3%, huile de tournesol, émulsifiant: lécithines, arômes de vanille. Traces éventuelles de fruits à coque et de céréales contenant du gluten. Cacao: 30% minimum dans le chocolat au lait. *Lait: origine UE et/ou non UE (Royaume-Uni)",
+		}
+	],
+	# , and salt
+	[
+		"en-comma-and-pepper",
+		{
+			lc => "en",
+			ingredients_text => "sugar, salt, and pepper",
+		}
+	],
+	# some unknown ingredient and a known one
+	[
+		"en-some-unknown-ingredient-and-salt",
+		{
+			lc => "en",
+			ingredients_text => "some unknown ingredient and salt",
+		}
+	],
+
+	# Do not consider A at the end of the string to be a stopword
+	# https://github.com/openfoodfacts/openfoodfacts-server/pull/11095
+	[
+		"en-ingredient-ending-with-a",
+		{
+			lc => "en",
+			ingredients_text => "E124, Ponceau 4R, Cochineal Red A, Cochineal Red, a pear",
+		}
+	],
+
+	# Vegetable oils with one unrecognized oil
+	[
+		"en-vegetable-oils-with-one-unrecognized-oil",
+		{
+			lc => "en",
+			ingredients_text => "vegetable oils (sunflower, soy, something strange)",
+		}
+	],
+
+	# émulsifiant : lécithines (tournesol)
+	[
+		"fr-emulsifiant-lecithines-tournesol",
+		{
+			lc => "fr",
+			ingredients_text => "émulsifiant : lécithines (tournesol)",
+		}
+	],
+
+	# émulsifiant e471
+	[
+		"fr-emulsifiant-e471-emulsifiant-lecithine-de-soja",
+		{
+			lc => "fr",
+			ingredients_text => "émulsifiant e471, émulsifiant lécithine de soja",
+		}
+	]
+
 );
 
 foreach my $test_ref (@tests) {
