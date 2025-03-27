@@ -2732,7 +2732,7 @@ sub product_name_brand ($ref) {
 		my $brandid = '–' . get_string_id_for_lang($lc, $brand) . '–';
 		my $full_name_id = '–' . get_string_id_for_lang($lc, $full_name) . '–';
 		if (($brandid ne '') and ($full_name_id !~ /$brandid/i)) {
-			$full_name .= lang("title_separator") . $brand;
+			$full_name .= ' – ' . $brand;
 		}
 	}
 
@@ -2763,7 +2763,7 @@ sub product_name_brand_quantity ($ref) {
 		if (($quantity ne '') and ($full_name_id !~ /$quantityid/i)) {
 			# Put non breaking spaces between numbers and units
 			$quantity =~ s/(\d) (\w)/$1\xA0$2/g;
-			$full_name .= lang("title_separator") . $quantity;
+			$full_name .= ' – ' . $quantity;
 		}
 	}
 
