@@ -749,7 +749,7 @@ sub sanitize_request($request_ref) {
 
 	# Remove ref and utm_* parameters
 	# Examples:
-	# https://world.openfoodfacts.org/?utm_content=bufferbd4aa&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer
+	# https://world.openfoodfacts.org/?utm_content=bufferbd4aa&utm_medium=social&utm_source=x.com&utm_campaign=buffer
 	# https://world.openfoodfacts.org/?ref=producthunt
 
 	if ($request_ref->{query_string} =~ /(\&|\?)(utm_|ref=)/) {

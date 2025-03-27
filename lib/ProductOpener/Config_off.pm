@@ -188,8 +188,8 @@ $flavor = 'off';
 	ios_app_link => "https://apps.apple.com/app/open-food-facts/id588797948?utm_source=off&utf_medium=web",
 	facebook_page_url => "https://www.facebook.com/OpenFoodFacts?utm_source=off&utf_medium=web",
 	facebook_page_url_fr => "https://www.facebook.com/OpenFoodFacts.fr",
-	twitter_account => "OpenFoodFacts",
-	twitter_account_fr => "OpenFoodFactsFr",
+	x_account => "OpenFoodFacts",
+	x_account_fr => "OpenFoodFactsfr",
 	# favicon HTML and images generated with https://realfavicongenerator.net/ using the SVG icon
 	favicons => <<HTML
 <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/off/apple-touch-icon.png">

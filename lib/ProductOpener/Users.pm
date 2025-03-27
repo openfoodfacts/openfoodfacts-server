@@ -710,7 +710,7 @@ Inscription d'un utilisateur :
 
 name: $user_ref->{name}
 email: $user_ref->{email}
-twitter: https://twitter.com/$user_ref->{twitter}
+x: https://x.com/$user_ref->{x}
 newsletter: $user_ref->{newsletter}
 discussion: $user_ref->{discussion}
 lc: $user_ref->{initial_lc}
