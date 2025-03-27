@@ -2692,6 +2692,18 @@ sub normalize_search_terms ($term) {
 	return $term;
 }
 
+=head2 product_name_brand ( $ref )
+
+Returns a product full name, which is a combination of product name and first brand.
+
+We use a small dash – (instead of a minus -) as a separator between the product name and the brand.
+
+=head3 Parameters
+
+=head4 Reference to product object $ref
+
+=cut
+
 sub product_name_brand ($ref) {
 
 	my $full_name = '';
@@ -2717,27 +2729,37 @@ sub product_name_brand ($ref) {
 	if (defined $ref->{brands}) {
 		my $brand = $ref->{brands};
 		$brand =~ s/,.*//;    # take the first brand
-		my $brandid = '-' . get_string_id_for_lang($lc, $brand) . '-';
-		my $full_name_id = '-' . get_string_id_for_lang($lc, $full_name) . '-';
+		my $brandid = '–' . get_string_id_for_lang($lc, $brand) . '–';
+		my $full_name_id = '–' . get_string_id_for_lang($lc, $full_name) . '–';
 		if (($brandid ne '') and ($full_name_id !~ /$brandid/i)) {
 			$full_name .= lang("title_separator") . $brand;
 		}
 	}
 
-	$full_name =~ s/^ - //;
+	$full_name =~ s/^ – //;
 	return $full_name;
 }
 
-# product full name is a combination of product name, first brand and quantity
+=head2 product_name_brand_quantity ( $ref )
+
+Returns a product full name, which is a combination of product name, first brand and quantity.
+
+We use a small dash – (instead of a minus -) as a separator between the product name and the brand.
+
+=head3 Parameters
+
+=head4 Reference to product object $ref
+
+=cut
 
 sub product_name_brand_quantity ($ref) {
 
 	my $full_name = product_name_brand($ref);
-	my $full_name_id = '-' . get_string_id_for_lang($lc, $full_name) . '-';
+	my $full_name_id = '–' . get_string_id_for_lang($lc, $full_name) . '–';
 
 	if (defined $ref->{quantity}) {
 		my $quantity = $ref->{quantity};
-		my $quantityid = '-' . get_string_id_for_lang($lc, $quantity) . '-';
+		my $quantityid = '–' . get_string_id_for_lang($lc, $quantity) . '–';
 		if (($quantity ne '') and ($full_name_id !~ /$quantityid/i)) {
 			# Put non breaking spaces between numbers and units
 			$quantity =~ s/(\d) (\w)/$1\xA0$2/g;
@@ -2745,7 +2767,7 @@ sub product_name_brand_quantity ($ref) {
 		}
 	}
 
-	$full_name =~ s/^ - //;
+	$full_name =~ s/^ – //;
 	return $full_name;
 }
 
