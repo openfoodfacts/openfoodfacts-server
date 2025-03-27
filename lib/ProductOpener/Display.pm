@@ -7899,6 +7899,7 @@ sub display_product ($request_ref) {
 	$request_ref->{scripts} .= <<SCRIPTS
 <script src="$static_subdomain/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
 <script src="$static_subdomain/js/dist/product-history.js"></script>
+<script src="$static_subdomain/js/dist/off-webcomponents-utils.js"></script>
 <script type="module" src="$static_subdomain/js/dist/off-webcomponents.bundled.js"></script>
 SCRIPTS
 		;
@@ -8005,7 +8006,6 @@ JS
 
 	my $product_url = product_url($product_ref);
 	$template_data_ref->{this_product_url} = $product_url;
-
 	# Environmental impact and Environmental-Score
 	# Limit to the countries for which we have computed the Environmental-Score
 	# for alpha test to moderators, display eco-score for all countries
