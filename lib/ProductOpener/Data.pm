@@ -118,7 +118,8 @@ sub can_use_off_query ($data_debug_ref) {
 	$$data_debug_ref .= "query_url: " . ($query_url || '') . "\n";
 
 	# use !! operator to convert to boolean
-	my $can_use_off_query = !!(((not $param_no_off_query) or ($param_off_query)) and (not $platform) and ($query_url));
+	my $can_use_off_query
+		= !!(((not $param_no_off_query) or ($param_off_query)) and (not $platform eq 'producers') and ($query_url));
 
 	$$data_debug_ref .= "can_use_off_query: $can_use_off_query\n";
 	return $can_use_off_query;
@@ -149,7 +150,7 @@ sub can_use_cache_results ($data_debug_ref) {
 	$$data_debug_ref .= "no_cache: $param_no_cache\n" if defined $param_no_cache;
 	$$data_debug_ref .= "platform: $platform\n";
 
-	my $can_use_cache = not(($server_options{producers_platform})
+	my $can_use_cache = not(($platform eq 'producers')
 		or ($param_no_cache)
 		or ((defined $cache_control) and ($cache_control =~ /no-cache/i)));
 
