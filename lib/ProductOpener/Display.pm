@@ -4807,6 +4807,8 @@ sub add_params_to_query ($params_ref, $query_ref) {
 						# so that we can find products that have not been reprocessed yet and that still have the old tag
 						if ($tag =~ /^([a-z]{2}:.*)!$/) {
 							$tagid = $1;
+							# Hack to be able to target untaxonomized tags when a field becomes taxonomized but products have not been updated
+							$tagid =~ s/^zz://;
 						}
 						else {
 							$tagid = get_taxonomyid($tag_lc, canonicalize_taxonomy_tag($tag_lc, $tagtype, $tag));
