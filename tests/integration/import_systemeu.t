@@ -42,7 +42,7 @@ if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 	load_forest_footprint_data();
 }
 
-my $input_csv_file = "tests/integration/inputs/import_systemeu/SUYQD_AKENEO_PU_02.csv";
+my $input_csv_file = "$test_dir/inputs/import_systemeu/SUYQD_AKENEO_PU_02.csv";
 my $converted_csv_file = "/tmp/import_systemeu_converted.csv";
 my $exported_csv_file = "/tmp/import_systemeu_export.csv";
 
