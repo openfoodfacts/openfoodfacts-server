@@ -23,13 +23,14 @@
          "percent_max" : 50,
          "percent_min" : 0,
          "text" : "sugar",
-         "vegan" : "yes",
+         "vegan" : "maybe",
          "vegetarian" : "yes"
       }
    ],
    "ingredients_analysis" : {
       "en:non-vegan" : [
-         "en:milk"
+         "en:milk",
+         "en:sugar"
       ]
    },
    "ingredients_analysis_tags" : [

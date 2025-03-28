@@ -15,7 +15,10 @@ use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
 
 my @tests = (
 	[{lc => "fr", ingredients_text => ""}, undef],
-	[{lc => "fr", ingredients_text => "eau, sucre, noisettes"}, ["en:palm-oil-free", "en:vegan", "en:vegetarian"]],
+	[
+		{lc => "fr", ingredients_text => "eau, sucre, noisettes"},
+		["en:palm-oil-free", "en:maybe-vegan", "en:vegetarian"]
+	],
 	[{lc => "fr", ingredients_text => "lait demi-écrémé 67%"}, ["en:palm-oil-free", "en:non-vegan", "en:vegetarian"]],
 	[
 		{lc => "fr", ingredients_text => "viande de boeuf, lait, sel"},
