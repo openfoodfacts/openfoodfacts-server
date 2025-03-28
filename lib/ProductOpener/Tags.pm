@@ -5182,7 +5182,7 @@ sub get_knowledge_content ($tagtype, $tagid, $target_lc, $target_cc) {
 	# en:250 -> en_250
 	$tagid =~ s/:/_/g;
 
-	my $base_dir = "$lang_dir/$target_lc/knowledge_panels/$tagtype";
+	my $base_dir = "$lang_dir/$flavor/$target_lc/knowledge_panels/$tagtype";
 
 	foreach my $cc ($target_cc, "world") {
 		my $file_path = "$base_dir/$tagid" . "_" . "$cc.html";
