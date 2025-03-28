@@ -606,6 +606,7 @@ foreach my $test_ref (@tests) {
 	}
 
 	# Remove any temporary OCR fields that might cause test failures
+	# Those fields can be added by clean_ingredients_text()
 	foreach my $key (keys %{$product_ref}) {
 		if ($key =~ /^ingredients_text_.*ocr_\d+/) {
 			delete $product_ref->{$key};
