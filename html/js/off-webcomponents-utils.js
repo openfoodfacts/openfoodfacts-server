@@ -13,7 +13,8 @@
 window.listenEventToShowHideAlert = function (
   eventToListenTo,
   elementId,
-  parentSelector
+  parentSelector,
+  reloadOnAnnotated = false
 ) {
   const element = document.getElementById(elementId);
   const parentElement = parentSelector
@@ -24,9 +25,15 @@ window.listenEventToShowHideAlert = function (
     if (event.detail.state === "has-data") {
       parentElement.classList.remove("is_hidden");
     } else if (event.detail.state === "annotated") {
-      setTimeout(function () {
-        parentElement.classList.add("is_hidden");
-      }, 3000);
+      // reload the page to show the new insight
+      if (reloadOnAnnotated) {
+        window.location.reload();
+      } else {
+        // hide the element after 3 seconds
+        setTimeout(function () {
+          parentElement.classList.add("is_hidden");
+        }, 3000);
+      }
     } else {
       parentElement.classList.add("is_hidden");
     }
