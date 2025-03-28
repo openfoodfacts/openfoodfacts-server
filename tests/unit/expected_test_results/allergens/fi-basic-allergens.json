@@ -1,0 +1,60 @@
+{
+   "allergens" : "",
+   "allergens_from_ingredients" : "kananmunat, äyriäiset, selleri, nilviäisiä, MAITO, KALA, MAITO, KALA, VEHNÄjauho, sinappi, pähkinöitä",
+   "allergens_hierarchy" : [
+      "en:celery",
+      "en:crustaceans",
+      "en:eggs",
+      "en:fish",
+      "en:gluten",
+      "en:milk",
+      "en:molluscs",
+      "en:mustard",
+      "en:nuts"
+   ],
+   "allergens_tags" : [
+      "en:celery",
+      "en:crustaceans",
+      "en:eggs",
+      "en:fish",
+      "en:gluten",
+      "en:milk",
+      "en:molluscs",
+      "en:mustard",
+      "en:nuts"
+   ],
+   "ingredients_lc" : "fi",
+   "ingredients_text" : "Vesi, MAITO, VEHNÄjauho, sokeri, suola, _kananmunat_, sinappi, _äyriäiset_, pähkinöitä, _selleri_, KALA, _nilviäisiä_. Saattaa sisältää pieniä määriä LUPIINEJA, maapähkinöitä, _soijaa_ ja seesamia ",
+   "ingredients_text_fi" : "Vesi, MAITO, VEHNÄjauho, sokeri, suola, _kananmunat_, sinappi, _äyriäiset_, pähkinöitä, _selleri_, KALA, _nilviäisiä_. Saattaa sisältää pieniä määriä LUPIINEJA, maapähkinöitä, _soijaa_ ja seesamia ",
+   "ingredients_text_with_allergens" : "Vesi, <span class=\"allergen\">MAITO</span>, <span class=\"allergen\">VEHNÄjauho</span>, sokeri, suola, <span class=\"allergen\">kananmunat</span>, <span class=\"allergen\">sinappi</span>, <span class=\"allergen\">äyriäiset</span>, <span class=\"allergen\">pähkinöitä</span>, <span class=\"allergen\">selleri</span>, <span class=\"allergen\">KALA</span>, <span class=\"allergen\">nilviäisiä</span>. Saattaa sisältää pieniä määriä <span class=\"allergen\">LUPIINEJA</span>, <span class=\"allergen\">maapähkinöitä</span>, <span class=\"allergen\">soijaa</span> ja <span class=\"allergen\">seesamia</span> ",
+   "ingredients_text_with_allergens_fi" : "Vesi, <span class=\"allergen\">MAITO</span>, <span class=\"allergen\">VEHNÄjauho</span>, sokeri, suola, <span class=\"allergen\">kananmunat</span>, <span class=\"allergen\">sinappi</span>, <span class=\"allergen\">äyriäiset</span>, <span class=\"allergen\">pähkinöitä</span>, <span class=\"allergen\">selleri</span>, <span class=\"allergen\">KALA</span>, <span class=\"allergen\">nilviäisiä</span>. Saattaa sisältää pieniä määriä <span class=\"allergen\">LUPIINEJA</span>, <span class=\"allergen\">maapähkinöitä</span>, <span class=\"allergen\">soijaa</span> ja <span class=\"allergen\">seesamia</span> ",
+   "lang" : "fi",
+   "languages" : {
+      "en:finnish" : 1
+   },
+   "languages_codes" : {
+      "fi" : 1
+   },
+   "languages_hierarchy" : [
+      "en:finnish"
+   ],
+   "languages_tags" : [
+      "en:finnish",
+      "en:1"
+   ],
+   "lc" : "fi",
+   "traces" : "",
+   "traces_from_ingredients" : "soijaa, LUPIINEJA, LUPIINEJA, maapähkinöitä, seesamia",
+   "traces_hierarchy" : [
+      "en:lupin",
+      "en:peanuts",
+      "en:sesame-seeds",
+      "en:soybeans"
+   ],
+   "traces_tags" : [
+      "en:lupin",
+      "en:peanuts",
+      "en:sesame-seeds",
+      "en:soybeans"
+   ]
+}
