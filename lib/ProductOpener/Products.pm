@@ -2696,7 +2696,7 @@ sub normalize_search_terms ($term) {
 
 Returns a product full name, which is a combination of product name and first brand.
 
-We use a small dash – (instead of a minus -) as a separator between the product name and the brand.
+We use a small dash (instead of a minus -) as a separator between the product name and the brand.
 
 =head3 Parameters
 
@@ -2744,7 +2744,7 @@ sub product_name_brand ($ref) {
 
 Returns a product full name, which is a combination of product name, first brand and quantity.
 
-We use a small dash – (instead of a minus -) as a separator between the product name and the brand.
+We use a small dash (instead of a minus -) as a separator between the product name and the brand.
 
 =head3 Parameters
 
