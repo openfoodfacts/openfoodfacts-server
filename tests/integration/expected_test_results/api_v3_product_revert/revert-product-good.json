@@ -3,7 +3,7 @@
    "errors" : [],
    "product" : {
       "brands_tags" : [
-         "test-brand"
+         "xx:test-brand"
       ],
       "categories_tags" : [
          "en:beverages-and-beverages-preparations",
@@ -15,7 +15,8 @@
       ],
       "code" : "1234567890100",
       "product_name_en" : "Test product",
-      "rev" : 3
+      "rev" : 3,
+      "schema_version" : 999
    },
    "result" : {
       "id" : "product_reverted",

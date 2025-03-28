@@ -5,60 +5,645 @@
 # - carbon_impact_fr_impactco2:en: co2 equivalent in kg per unit (1 product) from https://impactco2.fr/
 # - carbon_impact_fr_impactco2_link:en: URL for the category on https://impactco2.fr/
 
+en: Incorrect product type
+bg: Неправилен product type
+ca: Tipus de producte incorrecte
+da: Forkert produkttype
+de: Falscher product type
+es: Tipo de producto incorrecto
+fi: Väärä product type
+fr: Mauvais product type
+hr: Pogrešan product type
+it: Tipo di prodotto errato
+nl: Verkeerd product type
+pt: Tipo de produto incorreto
+ru: Неправильный product type
+sv: Fel produkttyp
+
+< en: Incorrect product type
+en: Non open products facts
+bg: Неприложими open products facts, Неприложими факти за неотворени продукти
+ca: No open products facts
+de: Nicht open products facts
+es: No open products facts
+fi: Ei open products facts
+fr: Non open products facts
+hr: Ne open products facts
+it: Non open products facts
+nl: Niet open products facts
+pt: Não open products facts
+ru: Не open products facts, Факты о неоткрытых продуктах
+
+< en:Non open products facts
+en: Open Beauty Facts, OBF, Cosmetics, Hygiene
+xx: Open Beauty Facts, OBF
+
+< en:Non open products facts
+en: Open Food Facts, OFF
+xx: Open Food Facts, OFF
+
+< en:Non open products facts
+en: Open Pet Food Facts, OPFF
+xx: Open Pet Food Facts, OPFF
+
 en: Furniture
+da: Møbler
+de: Möbel
+es: Muebles
+fr: Meubles
+sv: Möbler
+
+< en:Furniture
+en: Wooden chair
+fr: Chaise en bois
+carbon_impact_fr_impactco2:en: 18.6
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/mobilier/chaiseenbois
+unit_name:en: Wooden chair
+unit_name:fr: Chaise en bois
+
+< en:Furniture
+en: Wooden table
+fr: Table en bois
+carbon_impact_fr_impactco2:en: 80.2
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/mobilier/tableenbois
+unit_name:en: Wooden table
+unit_name:fr: Table en bois
+
+< en:Furniture
+en: Textile sofa
+fr: Canapé en textile
+carbon_impact_fr_impactco2:en: 179
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/mobilier/canapetextile
+unit_name:en: Textile sofa
+unit_name:fr: Canapé en textile
+
+< en:Furniture
+en: Convertible sofa
+fr: Canapé convertible
+carbon_impact_fr_impactco2:en: 198
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/mobilier/canapeconvertible
+unit_name:en: Convertible sofa
+unit_name:fr: Canapé convertible
+
+< en:Furniture
+en: Bed
+da: Seng
+fr: Lit
+sv: Säng
+carbon_impact_fr_impactco2:en: 444
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/mobilier/lit
+unit_name:en: bed
+unit_name:fr: lit
+
+< en:Furniture
+en: Wardrobe
+fr: Armoire
+carbon_impact_fr_impactco2:en: 907
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/mobilier/armoire
+unit_name:en: wardrobe
+unit_name:fr: armoire
 
 en: Appliances
 
 < en:Appliances
-en: Fridge
+en: Kettle
+fr: Bouilloire
+carbon_impact_fr_impactco2:en: 40.9
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/electromenager/bouilloire
+unit_name:en: kettle
+unit_name:fr: bouilloire
+
+< en:Appliances
+en: Vacuum cleaner
+da: Støvsuger
+fr: Aspirateur
+sv: Dammsugare
+carbon_impact_fr_impactco2:en: 47.3
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/electromenager/aspirateur
+unit_name:en: vacuum cleaner
+unit_name:fr: aspirateur
+
+< en:Appliances
+en: Filter coffee maker
+fr: Cafetière filtre
+carbon_impact_fr_impactco2:en: 198
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/electromenager/cafetierefiltre
+unit_name:en: filter coffee maker
+unit_name:fr: cafetière filtre
+
+< en:Appliances
+en: Espresso machine
+fr: Cafetière expresso
+carbon_impact_fr_impactco2:en: 212
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/electromenager/cafetiereexpresso
+unit_name:en: espresso machine
+unit_name:fr: cafetière expresso
+
+< en:Appliances
+en: Pod coffee machine
+fr: Cafetière à dosettes
+carbon_impact_fr_impactco2:en: 251
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/electromenager/cafetieredosette
+unit_name:en: pod coffee machine
+unit_name:fr: cafetière à dosettes
+
+< en:Appliances
+en: Electric oven
+fr: Four électrique
+carbon_impact_fr_impactco2:en: 263
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/electromenager/fourelectrique
+unit_name:en: electric oven
+unit_name:fr: four électrique
+
+< en:Appliances
+en: Refrigerator, Fridge
+da: Køleskab
+fr: Réfrigérateur
+sv: Kylskåp, kyl
+carbon_impact_fr_impactco2:en: 325
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/electromenager/refrigirateur
+unit_name:en: refrigerator
+unit_name:fr: réfrigérateur
+
+< en:Appliances
+en: Air conditioner
+fr: Climatiseur
+carbon_impact_fr_impactco2:en: 414
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/electromenager/climatiseur
+unit_name:en: air conditioner
+unit_name:fr: climatiseur
+
+< en:Appliances
+en: Dishwasher
+de: Geschirrspüler
+es: Lavavajillas
+fr: Lave-vaisselle
+carbon_impact_fr_impactco2:en: 468
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/electromenager/lavevaisselle
+unit_name:en: dishwasher
+unit_name:fr: lave-vaisselle
+
+< en:Appliances
+en: Washing machine
+fr: Lave-linge
+carbon_impact_fr_impactco2:en: 510
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/electromenager/lavelinge
+unit_name:en: washing machine
+unit_name:fr: lave-linge
 
 < en:Appliances
 en: Freezer
 
 < en:Appliances
-en: Dishwasher
-
-< en:Appliances
 en: Micro-waves
+de: Mikrowellen
+es: Microondas
+fr: Micro-ondes
 
 < en:Appliances
 en: Ovens
+da: Ovne
+sv: Ugnar
 
 en: Cooking equipment
 
 en: Sport equipment
+de: Sportausrüstung
+es: Equipo deportivo
+fr: Équipement de sport
 
 < en:Sport equipment
 en: Bikes
+da: Cykler
+de: Fahrräder
+es: Bicicletas
+fr: Vélos
+sv: Cykler
 
 < en:Sport equipment
 en: Bike equipment
+de: Fahrradausrüstung
+es: Equipo de bicicleta
+fr: Équipement de vélo
 
 < en:Sport equipment
 en: Swimming equipment
+de: Schwimmausrüstung
+es: Equipo de natación
+fr: Équipement de natation
 
 < en:Sport equipment
 en: Sport clothes
+de: Sportkleidung
+es: Ropa deportiva
+fr: Vêtements de sport
 
 en: Fitness equipment
+de: Fitnessgeräte
+es: Equipos de fitness
+fr: Équipements de fitness
 
 < en:Sport equipment
 en: Sport shoes
+de: Sportschuhe
+es: Zapatillas deportivas
+fr: Chaussures de sport
 
 en: Baby equipment
 
 en: Electronic products, electronics
+ar: منتجات إلكترونية ، إلكترونيات
+as: বৈদ্যুতিন সামগ্ৰী, ইলেক্ট্ৰনিক্স
+az: Elektron məhsulları, elektronika
+be: Электронныя прадукты, электроніка
+bg: Електронни продукти, електроника
+bn: বৈদ্যুতিন পণ্য, ইলেকট্রনিক্স
+cs: Elektronické výrobky, elektronika
+da: Elektroniske produkter, elektronik
+de: Elektronische Produkte, Elektronik
+el: Ηλεκτρονικά προϊόντα, ηλεκτρονικά
+es: Productos electrónicos, electrónica
+et: Elektroonilised tooted, elektroonika
+fa: محصولات الکترونیکی، الکترونیک
+fi: Elektroniset tuotteet, elektroniikka
 fr: Appareils électroniques
+ga: Táirgí leictreonacha, leictreonaic
+gu: ઇલેક્ટ્રોનિક ઉત્પાદનો, ઇલેક્ટ્રોનિક્સ
+hi: इलेक्ट्रॉनिक उत्पाद, इलेक्ट्रॉनिक्स
+hr: Elektronički proizvodi, elektronika
+hu: Elektronikus termékek, elektronika
+hy: Էլեկտրոնային արտադրանք, էլեկտրոնիկա
+id: Produk elektronik, elektronik
+is: Rafeindavörur, rafeindatækni
+it: Prodotti elettronici, elettronica
+ja: 電子製品、エレクトロニクス
+jw: Produk elektronik, elektronik
+ka: ელექტრონული პროდუქტები, ელექტრონიკა
+kk: Электрондық өнімдер, электроника
+km: ផលិតផលអេឡិចត្រូនិច, គ្រឿងអេឡិចត្រូនិច
+kn: ಎಲೆಕ್ಟ್ರಾನಿಕ್ ಉತ್ಪನ್ನಗಳು, ಎಲೆಕ್ಟ್ರಾನಿಕ್ಸ್
+ko: 전자 제품, 전자 제품
+ky: Электрондук өнүмдөр, электроника
+lt: Elektroniniai produktai, elektronika
+lv: Elektroniskie produkti, elektronika
+mk: Електронски производи, електроника
+ml: ഇലക്ട്രോണിക് ഉൽപ്പന്നങ്ങൾ, ഇലക്ട്രോണിക്സ്
+mn: Цахилгаан бараа, цахилгаан хэрэгсэл
+mr: इलेक्ट्रॉनिक उत्पादने, इलेक्ट्रॉनिक्स
+ms: Produk elektronik, elektronik
+mt: Prodotti elettroniċi, elettronika
+my: အီလက်ထရောနစ်ပစ္စည်းများ၊ အီလက်ထရောနစ်
+ne: इलेक्ट्रोनिक उत्पादनहरू, इलेक्ट्रोनिक्स
+nl: Elektronische producten, elektronica
+no: Elektroniske produkter, elektronikk
+or: ଇଲେକ୍ଟ୍ରୋନିକ୍ ଉତ୍ପାଦ, ଇଲେକ୍ଟ୍ରୋନିକ୍ସ
+pa: ਇਲੈਕਟ੍ਰਾਨਿਕ ਉਤਪਾਦ, ਇਲੈਕਟ੍ਰਾਨਿਕਸ
+pl: Produkty elektroniczne, elektronika
+ps: برېښنایی محصولات، برېښنا
+pt: Produtos eletrónicos, eletrónica
+ro: Produse electronice, electronice
+ru: Электронные продукты, электроника
+sd: اليڪٽرانڪ شيون، اليڪٽرانڪس
+si: විද්‍යුත් නිෂ්පාදන, ඉලෙක්ට්‍රොනික උපකරණ
+sk: Elektronické výrobky, elektronika
+sl: Elektronski izdelki, elektronika
+so: Alaabooyinka elektarooniga ah, elektarooniga
+sq: Produkte elektronike, elektronikë
+sr: Електронски производи, електроника
+sv: Elektroniska produkter, elektronik
+sw: Bidhaa za elektroniki, elektroniki
+ta: மின்னணு பொருட்கள், மின்னணுவியல்
+te: ఎలక్ట్రానిక్ ఉత్పత్తులు, ఎలక్ట్రానిక్స్
+tg: Маҳсулоти электронӣ, электроника
+th: ผลิตภัณฑ์อิเล็กทรอนิกส์, อิเล็กทรอนิกส์
+tk: Elektron önümler, elektronika
+tl: Mga produktong elektroniko, elektronika
+tr: Elektronik ürünler, elektronik
+uk: Електронні продукти, електроніка
+ur: الیکٹرانک مصنوعات، الیکٹرانکس
+uz: Elektron mahsulotlar, elektronika
+vi: Sản phẩm điện tử, điện tử
+xh: Iimveliso ze-elektroniki, i-elektroniki
+yo: Awọn ọja itanna, ẹrọ itanna
+zh: 电子产品，电子
+zu: Imikhiqizo ye-elekthronikhi, i-elekthronikhi
 secondhand_used:en: backmarket
 
 < en: Electronic products
-en: TVs
+en: Smartphone external power supply
+fr: Alimentation externe pour smartphone ou tablette
+carbon_impact_fr_impactco2:en: 0.4
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/numerique/alimentationsmartphone
+unit_name:en: Smartphone external power supply
+unit_name:fr: Alimentation externe pour smartphone ou tablette
+
+< en: Electronic products
+en: USB key
+da: USB-nøgle
+fr: Clef usb
+carbon_impact_fr_impactco2:en: 2.9
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/numerique/clefusb
+unit_name:en: USB key
+unit_name:fr: Clef usb
+
+< en: Electronic products
+en: Laptop external power supply
+fr: Alimentation externe pour ordinateur portable
+carbon_impact_fr_impactco2:en: 4.1
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/numerique/alimentationordinateur
+unit_name:en: Laptop external power supply
+unit_name:fr: Alimentation externe pour ordinateur portable
+
+< en: Electronic products
+en: External hard drive
+fr: Disque dur externe
+carbon_impact_fr_impactco2:en: 11.9
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/numerique/disquedur
+unit_name:en: External hard drive
+unit_name:fr: Disque dur externe
+
+< en: Electronic products
+en: Basic phone
+fr: Téléphone basique
+carbon_impact_fr_impactco2:en: 23.4
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/numerique/telephonebasique
+unit_name:en: Basic phone
+unit_name:fr: Téléphone basique
+
+< en: Electronic products
+en: Smart speaker
+fr: Enceinte connectée
+carbon_impact_fr_impactco2:en: 26.5
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/numerique/enceintebluetooth
+unit_name:en: Smart speaker
+unit_name:fr: Enceinte connectée
+
+< en: Electronic products
+en: Virtual reality headset
+fr: Casque de réalité virtuelle
+carbon_impact_fr_impactco2:en: 72.3
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/numerique/casquevr
+unit_name:en: Virtual reality headset
+unit_name:fr: Casque de réalité virtuelle
+
+< en: Electronic products
+en: Router
+fr: Box
+carbon_impact_fr_impactco2:en: 82
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/numerique/box
+unit_name:en: Router
+unit_name:fr: Box
+
+< en: Electronic products
+en: Computer screen
+ar: شاشة الكمبيوتر ، جهاز عرض
+as: কম্পিউটাৰৰ পৰ্দা, মনিটৰ
+az: Kompüter ekranı, Monitor
+be: Экран кампутара, Манітор
+bg: Компютърен екран, Монитор
+bn: কম্পিউটার স্ক্রিন, মনিটর
+cs: Obrazovka počítače, Monitor
+da: Computerskærm, Monitor
+de: Computerbildschirm, Bildschirm
+el: Οθόνη υπολογιστή, Οθόνη
+es: Pantalla de ordenador, Monitor
+et: Arvutiekraan, Monitor
+fa: صفحه کامپیوتر، مانیتور
+fi: Tietokoneen näyttö, Monitori
+fr: Écran d'ordinateur
+ga: Scáileán ríomhaire, Monatóir
+gu: કમ્પ્યુટર સ્ક્રીન, મોનિટર
+hi: कंप्यूटर स्क्रीन, मॉनिटर
+hr: Zaslon računala, Monitor
+hu: Számítógép képernyő, Monitor
+hy: Համակարգչի էկրան, Մոնիտոր
+id: Layar komputer, Monitor
+is: Tölvuskjár, Skjár
+it: Schermo del computer, Monitor
+ja: コンピュータ画面, モニター
+jw: Layar komputer, Monitor
+ka: კომპიუტერის ეკრანი, მონიტორი
+kk: Компьютер экраны, Монитор
+km: អេក្រង់កុំព្យូទ័រ, ម៉ូនីទ័រ
+kn: ಗಣಕತೆರೆ, ಮಾನಿಟರ್
+ko: 컴퓨터 화면, 모니터
+ky: Компьютер экраны, Монитор
+lt: Kompiuterio ekranas, Monitorius
+lv: Datora ekrāns, Monitors
+mk: Екран на компјутерот, Монитор
+ml: കമ്പ്യൂട്ടർ സ്ക്രീൻ, മോണിറ്റർ
+mn: Компьютерийн дэлгэц, Хяналтын самбар
+mr: काँप्युटर स्क्रीन, मॉनिटर
+ms: Skrin komputer, Monitor
+mt: Skrin tal-kompjuter, Monitor
+my: ကွန်ပျူတာ မျက်နှာပြင်၊ မော်နီတာ
+ne: कम्प्युटर स्क्रिन, मनिटर
+nl: Computerscherm, Monitor
+no: Dataskjerm, Skjerm
+or: କମ୍ପ୍ୟୁଟର ସ୍କ୍ରିନ୍, ମନିଟର
+pa: ਕੰਪਿਊਟਰ ਸਕਰੀਨ, ਮਾਨੀਟਰ
+pl: Ekran komputera, Monitor
+ps: د کمپیوټر سکرین، مانیټر
+pt: Tela do computador, Monitor
+ro: Ecran de computer, Monitor
+ru: Экран компьютера, Монитор
+sd: ڪمپيوٽر اسڪرين، مانيٽر
+si: පරිගණක තිරය, මොනිටරය
+sk: Obrazovka počítača, Monitor
+sl: Računalni zaslon, Monitor
+so: Shaashadda kombuyuutarka, Kormeeraha
+sq: Ekrani i kompjuterit, Monitor
+sr: Екран рачунара, Монитор
+sv: Datorskärm, Monitor
+sw: Skrini ya kompyuta, Monitor
+ta: கணினி திரை, மானிட்டர்
+te: కంప్యూటర్ స్క్రీన్, మానిటర్
+tg: Экрани компютер, Монитор
+th: หน้าจอคอมพิวเตอร์, จอภาพ
+tk: Kompýuter ekrany, Monitor
+tl: Screen ng computer, Monitor
+tr: Bilgisayar ekranı, Monitör
+uk: Екран комп'ютера, Монітор
+ur: کمپیوٹر سکرین، مانیٹر
+uz: Kompyuter ekrani, Monitor
+vi: Màn hình máy tính, Màn hình
+xh: Iskrini sekhompyutha, Hlola
+yo: Iboju kọmputa, Atẹle
+zh: 电脑屏幕, 监视器
+zu: Isikrini sekhompyutha, Qapha
+carbon_impact_fr_impactco2:en: 91.4
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/numerique/ecran
+unit_name:en: Computer screen
+unit_name:fr: Écran d'ordinateur
+
+< en: Electronic products
+en: Laptop
+fr: Ordinateur portable
+carbon_impact_fr_impactco2:en: 193
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/numerique/ordinateurportable
+unit_name:en: Laptop
+unit_name:fr: Ordinateur portable
+
+< en: Electronic products
+en: Desktop computer without screen (professional)
+fr: Ordinateur fixe sans écran (professionnel)
+carbon_impact_fr_impactco2:en: 258
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/numerique/ordinateurfixeprofessionnel
+unit_name:en: Desktop computer without screen (professional)
+unit_name:fr: Ordinateur fixe sans écran (professionnel)
+
+< en: Electronic products
+en: Desktop computer without screen (personal)
+fr: Ordinateur fixe sans écran (particulier)
+carbon_impact_fr_impactco2:en: 299
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/numerique/ordinateurfixeparticulier
+unit_name:en: Desktop computer without screen (personal)
+unit_name:fr: Ordinateur fixe sans écran (particulier)
+
+< en: Electronic products
+en: Television, TVs
+fr: Télévision, TVs
+carbon_impact_fr_impactco2:en: 472
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/numerique/television
+unit_name:en: Television
+unit_name:fr: Télévision
 
 < en: Electronic products
 en: Printers
+ar: طابعات
+az: Printerlər
+be: Прынтэры
+bg: Принтери
+cs: Tiskárny
+da: Printere
+de: Drucker
+el: Εκτυπωτές
+es: Impresoras
+et: Printerid
+fi: Tulostimet
+fr: Imprimantes
+ga: Printéirí
+hi: प्रिंटर
+hr: Pisači
+hu: Nyomtatók
+hy: Տպիչներ
+is: Prentarar
+it: Stampanti
+ja: プリンター
+ka: პრინტერები
+kk: Принтерлер
+ko: 프린터
+ky: Принтерлер
+lt: Spausdintuvai
+lv: Printeri
+mk: Печатари
+mn: Хэвлэгч
+mt: Printers
+nl: Printers
+no: Skrivere
+pl: Drukarki
+ps: چاپګر
+pt: Impressoras
+ro: Imprimante
+ru: Принтеры
+sd: پرنٽر
+si: මුද්‍රණ යන්ත්‍ර
+sk: Tlačiarne
+sl: Tiskalniki
+so: Daabacayaasha
+sq: Printera
+sr: Штампачи
+sv: Skrivare
+sw: Vichapishaji
+tg: Принтерҳо
+th: เครื่องพิมพ์
+tk: Çap edijiler
+tr: Yazıcılar
+uk: Принтери
+uz: Printerlar
+vi: Máy in
+xh: Abashicileli
+yo: Awọn akọwe
+zh: 打印机
+zu: Amaphrinta
 
 < en: Electronic products
 en: USB cables
+ar: كابلات USB
+as: ইউএছবি কেবলসমূহ
+az: USB kabelləri
+be: USB кабелі
+bg: USB кабели
+bn: ইউএসবি কেবল
+cs: USB kabely
+da: USB-kabler
+de: USB-Kabel
+el: Καλώδια USB
+es: Cables USB
+et: USB-kaablid
+fa: کابل های USB
+fi: USB-kaapelit
+fr: Câbles USB
+ga: Cáblaí USB
+gu: યુએસબી કેબલ્સ
+hi: यूएसबी केबल
+hr: USB kabeli
+hu: USB-kábelek
+hy: USB մալուխներ
+id: Kabel USB
+is: USB snúrur
+it: Cavi USB
+ja: USBケーブル
+jw: Kabel USB
+ka: USB კაბელები
+kk: USB кабельдері
+km: ខ្សែ USB
+kn: ಯುಎಸ್ಬಿ ಕೇಬಲ್ಗಳು
+ko: USB 케이블
+ky: USB кабелдери
+lt: USB kabeliai
+lv: USB kabeļi
+mk: УСБ кабли
+ml: യുഎസ്ബി കേബിളുകൾ
+mn: USB кабелууд
+mr: यूएसबी केबल्स
+ms: Kabel USB
+mt: Kejbils USB
+my: ယူအက်စ်ဘီ ကေဘယ်လ်များ
+ne: यूएसबी केबलहरू
+nl: USB-kabels
+no: USB-kabler
+or: USB କେବୁଲ୍
+pa: USB ਕੇਬਲ
+pl: Kable USB
+ps: د USB کیبلونه
+pt: Cabos USB
+ro: Cabluri USB
+ru: USB-кабели
+sd: يو ايس بي ڪيبل
+si: USB කේබල්
+sk: USB káble
+sl: USB kabli
+so: Fiilooyinka USB
+sq: Kabllo USB
+sr: УСБ каблови
+sv: USB-kablar
+sw: Kebo za USB
+ta: யூஎஸ்பி கேபிள்கள்
+te: USB కేబుల్స్
+tg: Кабелҳои USB
+th: สาย USB
+tk: USB kabelleri
+tl: Mga USB cable
+tr: USB kabloları
+uk: USB кабелі
+ur: USB کیبلز
+uz: USB kabellari
+vi: Cáp USB
+xh: Iintambo ze-USB
+yo: Awọn kebulu USB
+zh: USB线
+zu: Izintambo ze-USB
 
 < en: Electronic products
 en: Headphones
@@ -73,11 +658,17 @@ unit_name:fr: tablette numérique
 
 < en: electronic products
 en: mobile phones, cell phones
+da: Mobiltelefoner
+de: Mobiltelefone, Handys
+es: teléfonos móviles, celulares
 fr: téléphones portables, téléphones mobiles
 
 < en: mobile phones
 en: Smartphones
 xx: Smartphones
+de: Smartphones
+es: Teléfonos inteligentes
+fr: Smartphones
 carbon_impact_fr_impactco2:en: 85.9
 carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/numerique/smartphone
 unit_name:xx: smartphone
@@ -93,9 +684,95 @@ xx: iPhone, iPhones
 fr: Smartphones iPhone
 
 en: Clothes, Clothing
+ar: ملابس
+as: কাপোৰ
+az: Geyim
+be: Адзенне
+bg: Дрехи, Облекло
+bn: পোশাক
+cs: Oblečení
+da: Tøj
 de: Bekleidung
+el: Ρούχα, Ένδυση
 es: Ropa
+et: Riided
+fa: لباس
+fi: Vaatteet
 fr: Vêtements
+ga: Éadaí
+gu: કપડાં
+hi: कपड़े
+hr: Odjeća
+hu: Ruházat
+hy: Հագուստ
+id: Pakaian
+is: Föt
+it: Vestiti, Abbigliamento
+ja: 服
+jw: Sandhangan
+ka: ტანსაცმელი
+kk: Киім
+km: សម្លៀកបំពាក់
+kn: ಬಟ್ಟೆಗಳು
+ko: 옷
+ky: Кийим
+lt: Drabužiai
+lv: Apģērbs
+mk: Облека
+ml: വസ്ത്രങ്ങൾ
+mn: Хувцас
+mr: कपडे
+ms: Pakaian
+mt: Ħwejjeġ
+my: အဝတ်အစား
+ne: लुगा
+nl: Kleding
+no: Klær
+or: ପୋଷାକ
+pa: ਕੱਪੜੇ
+pl: Ubrania, Odzież
+ps: کالي
+pt: Roupas, Vestuário
+ro: Haine, Îmbrăcăminte
+ru: Одежда
+sd: ڪپڙا
+si: ඇඳුම්
+sk: Oblečenie
+sl: Oblačila
+so: Dharka
+sq: Rroba
+sr: Одећа
+sv: Kläder
+sw: Nguo
+ta: உடைகள்
+te: దుస్తులు
+tg: Либос
+th: เสื้อผ้า
+tk: Eşik
+tl: Damit
+tr: Giysi, Kıyafet
+uk: Одяг
+ur: کپڑے
+uz: Kiyim
+vi: Quần áo
+xh: Iimpahla
+yo: Aṣọ
+zh: 衣服
+zu: Izingubo
+
+< en: Clothes
+en: Hats
+da: Hatte
+sv: Hattar
+
+< en: Hats
+en: Flat Caps
+wikidata:en: Q15603247
+
+< en: Clothes
+en: Shoes
+da: Sko
+sv: Skor
 
 < en: Clothes
 en: T-shirts
@@ -107,17 +784,105 @@ unit_name:en: t-shirt
 
 < en: Clothes
 en: Women clothes
+ar: ملابس نسائية
+as: মহিলাৰ কাপোৰ
+az: Qadın geyimləri
+be: Жаночая вопратка
+bg: Дамско облекло
+bn: মহিলাদের পোশাক
+cs: Dámské oblečení
+da: Dametøj
+de: Damenbekleidung
+el: Γυναικεία ρούχα
+es: Ropa de mujer
+et: Naiste riided
+fa: لباس زنانه
+fi: Naisten vaatteet
+fr: Vêtements pour femmes
+ga: Éadaí na mban
+gu: મહિલાઓના કપડાં
+hi: महिलाओं के कपड़े
+hr: Ženska odjeća
+hu: Női ruházat
+hy: Կանացի հագուստ
+id: Pakaian wanita
+is: Kvenfatnaður
+it: Abbigliamento da donna
+ja: レディース服
+jw: Sandhangan wanita
+ka: ქალის ტანსაცმელი
+kk: Әйелдер киімі
+km: សំលៀកបំពាក់នារី
+kn: ಮಹಿಳೆಯರ ಉಡುಪು
+ko: 여성 의류
+ky: Аялдар кийими
+lt: Moteriški drabužiai
+lv: Sieviešu apģērbs
+mk: Женска облека
+ml: സ്ത്രീകളുടെ വസ്ത്രങ്ങൾ
+mn: Эмэгтэйчүүдийн хувцас
+mr: महिलांचे कपडे
+ms: Pakaian wanita
+mt: Ħwejjeġ tan-nisa
+my: အမျိုးသမီးများ၏ အဝတ်အစား
+ne: महिलाको लुगा
+nl: Dameskleding
+no: Dameklær
+or: ମହିଳାମାନଙ୍କ ପୋଷାକ
+pa: ਔਰਤਾਂ ਦੇ ਕੱਪੜੇ
+pl: Odzież damska
+ps: د ښځو کالي
+pt: Roupa de mulher
+ro: Haine pentru femei
+ru: Женская одежда
+sd: عورتن جا ڪپڙا
+si: කාන්තා ඇඳුම්
+sk: Dámske oblečenie
+sl: Ženska oblačila
+so: Dharka haweenka
+sq: Rroba grash
+sr: Женска одећа
+sv: Damkläder
+sw: Nguo za wanawake
+ta: பெண்களுக்கான ஆடைகள்
+te: మహిళల దుస్తులు
+tg: Либоси занона
+th: เสื้อผ้าผู้หญิง
+tk: Aýal eşikleri
+tl: Damit pambabae
+tr: Kadın giyim
+uk: Жіночий одяг
+ur: خواتین کے کپڑے
+uz: Ayollar kiyimi
+vi: Quần áo phụ nữ
+xh: Iimpahla zabasetyhini
+yo: Aṣọ awọn obinrin
+zh: 女装
+zu: Izingubo zabesifazane
 
 < en: Clothes
 en: Men clothes
+da: Herretøj
+de: Herrenbekleidung
+es: Ropa de hombre
+fr: Vêtements pour hommes
 
+< en: Shoes
 en: Women shoes
+da: Damesko
+de: Damenschuhe
+es: Zapatos de mujer
+fr: Chaussures pour femmes
+
+< en: Men clothes
+< en: Shoes
+en: Men shoes
+da: Herresko
 
 < en: Clothes
 en: Socks
-
-< en: Clothes
-en: Jeans
+da: Sokker
+fr: Chaussettes
 
 < en: Clothes
 en: Skirts
@@ -128,54 +893,876 @@ en: Dresses
 < en: Clothes
 en: Pull-Over
 
+< en: T-shirts
+en: Polyester T-shirt
+fr: T-shirt en polyester
+carbon_impact_fr_impactco2:en: 6.21
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/habillement/tshirtenpolyester
+unit_name:xx: polyester t-shirt
+unit_name:en: polyester t-shirt
+
+< en: T-shirts
+en: Cotton T-shirt
+ar: تي شيرت قطني
+as: কপাহী টি-চাৰ্ট
+az: Pambıq köynək
+be: Баваўняная футболка
+bg: Памучна тениска
+bn: কটন টি-শার্ট
+cs: Bavlněné tričko
+da: Bomulds T-shirt
+de: Baumwoll-T-Shirt
+el: Βαμβακερό μπλουζάκι
+es: Camiseta de algodón
+et: Puuvillane T-särk
+fa: تی شرت نخی
+fi: Puuvilla-T-paita
+fr: T-shirt en coton
+ga: T-léine cadáis
+gu: કોટન ટી-શર્ટ
+hi: सूती टी-शर्ट
+hr: Pamučna majica
+hu: Pamut póló
+hy: Բամբակյա շապիկ
+id: Kaos katun
+is: Bómullarbolur
+it: Maglietta di cotone
+ja: 綿Tシャツ
+jw: Kaos katun
+ka: ბამბის მაისური
+kk: Мақта футболка
+km: អាវយឺតកប្បាស
+kn: ಹತ್ತಿ ಟೀ ಶರ್ಟ್
+ko: 면 티셔츠
+ky: Пахта футболка
+lt: Medvilniniai marškinėliai
+lv: Kokvilnas T-krekls
+mk: Памучна маица
+ml: കോട്ടൺ ടി-ഷർട്ട്
+mn: Хөвөн даавуун футболка
+mr: सुती टी-शर्ट
+ms: T-shirt kapas
+mt: T-shirt tal-qoton
+my: ဝါဂွမ်း တီရှပ်
+ne: सुती टिसर्ट
+nl: Katoenen T-shirt
+no: Bomulls-T-skjorte
+or: କଟନ୍ ଟି-ସାର୍ଟ
+pa: ਸੂਤੀ ਟੀ-ਸ਼ਰਟ
+pl: Bawełniana koszulka
+ps: پنبې ټي شرټ
+pt: Camiseta de algodão
+ro: Tricou de bumbac
+ru: Хлопковая футболка
+sd: ڪپهه ٽي شرٽ
+si: කපු ටී ෂර්ට්
+sk: Bavlnené tričko
+sl: Bombažna majica
+so: Shaati suuf ah
+sq: Bluza pambuku
+sr: Памучна мајица
+sv: Bomulls-T-shirt
+sw: T-shati ya pamba
+ta: பருத்தி டி-ஷர்ட்
+te: కాటన్ టీ-షర్ట్
+tg: Футболкаи пахтагӣ
+th: เสื้อยืดผ้าฝ้าย
+tk: Pagta köýnek
+tl: T-shirt na koton
+tr: Pamuklu tişört
+uk: Бавовняна футболка
+ur: سوتی ٹی شرٹ
+uz: Paxta futbolka
+vi: Áo thun cotton
+xh: I-T-shirt yomqhaphu
+yo: Ṣéèti owu
+zh: 棉质T恤
+zu: I-T-shirt kakotini
+carbon_impact_fr_impactco2:en: 6.43
+carbon_impact_fr_impactco2_link:en:
+unit_name:xx: cotton t-shirt
+unit_name:en: cotton t-shirt
+unit_name:fr: T-shirt en coton
+
+< en: Clothes
+en: Polo shirt
+da: Polo-skjorte, Poloskjorte
+fr: Polo
+carbon_impact_fr_impactco2:en: 10.2
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/habillement/polo
+unit_name:xx: Polo
+unit_name:en: Polo shirt
+
+< en: Clothes
+en: Viscose shirt
+fr: Chemise en viscose
+carbon_impact_fr_impactco2:en: 12.1
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/habillement/chemiseenviscose
+unit_name:xx:
+unit_name:en: Viscose shirt
+unit_name:fr: Chemise en viscose
+
+
+< en: Pull-Over
+en: Recycled cotton sweater
+fr: Pull en coton recyclé
+carbon_impact_fr_impactco2:en: 13.2
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/habillement/pullencotonrecycle
+unit_name:xx:
+unit_name:en: Recycled cotton sweater
+unit_name:fr: Pull en coton recyclé
+
+< en: Clothes
+en: Cotton shirt
+fr: Chemise en coton
+carbon_impact_fr_impactco2:en: 13.2
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/habillement/chemiseencoton
+unit_name:xx:
+unit_name:en: Cotton shirt
+unit_name:fr: Chemise en coton
+
+< en: Shoes
+en: Leather shoes
+ar: أحذية جلدية
+as: চামৰাৰ জোতা
+az: Dəri ayaqqabılar
+be: Скураныя туфлі
+bg: Кожени обувки
+bn: চামড়ার জুতা
+cs: Kožené boty
+da: Lædersko
+de: Lederschuhe
+el: Δερμάτινα παπούτσια
+es: Zapatos de cuero
+et: Nahast kingad
+fa: کفش های چرمی
+fi: Nahkakengät
+fr: Paire de chaussures en cuir
+ga: Bróga leathair
+gu: ચામડાના જૂતા
+hi: चमड़े के जूते
+hr: Kožne cipele
+hu: Bőrcipők
+hy: Կաշվե կոշիկներ
+id: Sepatu kulit
+is: Leðurskór
+it: Scarpe di pelle
+ja: 革靴
+jw: Sepatu kulit
+ka: ტყავის ფეხსაცმელი
+kk: Тері аяқ киім
+km: ស្បែកជើងស្បែក
+kn: ಚರ್ಮದ ಬೂಟುಗಳು
+ko: 가죽 신발
+ky: Булгаары бут кийим
+lt: Odiniai batai
+lv: Ādas apavi
+mk: Кожни чевли
+ml: തുകൽ പാദരക്ഷകൾ
+mn: Савхин гутал
+mr: चामड्याचे बूट
+ms: Kasut kulit
+mt: Żraben tal-ġilda
+my: သားရေဖိနပ်
+ne: छालाको जुत्ता
+nl: Leren schoenen
+no: Lærsko
+or: ଚମଡ଼ା ଜୋତା
+pa: ਚਮੜੇ ਦੇ ਜੁੱਤੇ
+pl: Buty skórzane
+ps: څرمن بوټان
+pt: Sapatos de couro
+ro: Pantofi de piele
+ru: Кожаные туфли
+sd: چمڙي جا بوٽ
+si: සම් සපත්තු
+sk: Kožené topánky
+sl: Usnjeni čevlji
+so: Kabo jilicsan
+sq: Këpucë lëkure
+sr: Кожне ципеле
+sv: Läderskor
+sw: Viatu vya ngozi
+ta: தோல் காலணிகள்
+te: తోలు చెప్పులు
+tg: Туфлиҳои чармӣ
+th: รองเท้าหนัง
+tk: Deri köwüşler
+tl: Sapatos na katad
+tr: Deri ayakkabılar
+uk: Шкіряні туфлі
+ur: چمڑے کے جوتے
+uz: Charm poyabzal
+vi: Giày da
+xh: Izihlangu zesikhumba
+yo: Bàtà alawọ
+zh: 皮鞋
+zu: Izicathulo zesikhumba
+carbon_impact_fr_impactco2:en: 15
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/habillement/chaussuresencuir
+unit_name:xx:
+unit_name:en: Leather shoes
+unit_name:fr: Paire de chaussures en cuir
+
+< en: Shoes
+en: Fabric shoes
+ar: أحذية قماشية
+as: কাপোৰৰ জোতা
+az: Parça ayaqqabılar
+be: Тканевыя туфлі
+bg: Текстилни обувки
+bn: কাপড়ের জুতা
+cs: Látkové boty
+da: Stofsko
+de: Stoffschuhe
+el: Υφασμάτινα παπούτσια
+es: Zapatos de tela
+et: Riidest kingad
+fa: کفش پارچه ای
+fi: Kangaskengät
+fr: Paire de chaussures en tissu
+ga: Bróga fabraice
+gu: કાપડના જૂતા
+hi: कपड़े के जूते
+hr: Cipele od tkanine
+hu: Szövet cipők
+hy: Գործվածքե կոշիկներ
+id: Sepatu kain
+is: Dúkskór
+it: Scarpe di tessuto
+ja: 布の靴
+jw: Sepatu kain
+ka: ნაჭრის ფეხსაცმელი
+kk: Мата аяқ киім
+km: ស្បែកជើងក្រណាត់
+kn: ಬಟ್ಟೆ ಬೂಟುಗಳು
+ko: 천 신발
+ky: Кездеме бут кийим
+lt: Tekstiliniai batai
+lv: Auduma apavi
+mk: Чевли од ткаенина
+ml: തുണികൊണ്ടുള്ള ഷൂസുകൾ
+mn: Даавуун гутал
+mr: कापडी शूज
+ms: Kasut kain
+mt: Żraben tad-drapp
+my: အထည်ဖိနပ်
+ne: कपडाको जुत्ता
+nl: Stoffen schoenen
+no: Tøysko
+or: କପଡା ଜୋତା
+pa: ਕੱਪੜੇ ਦੇ ਜੁੱਤੇ
+pl: Buty z materiału
+ps: ټوکر بوټان
+pt: Sapatos de tecido
+ro: Pantofi din material textil
+ru: Тканевые туфли
+sd: ڪپڙي جا بوٽ
+si: රෙදි සපත්තු
+sk: Látkové topánky
+sl: Čevlji iz blaga
+so: Kabo dhar ah
+sq: Këpucë pëlhure
+sr: Ципеле од тканине
+sv: Tygskor
+sw: Viatu vya kitambaa
+ta: துணி காலணிகள்
+te: గుడ్డ చెప్పులు
+tg: Пойафзоли матоъӣ
+th: รองเท้าผ้าใบ
+tk: Mata köwüşler
+tl: Sapatos na tela
+tr: Kumaş ayakkabılar
+uk: Тканинні туфлі
+ur: کپڑے کے جوتے
+uz: Mato poyabzal
+vi: Giày vải
+xh: Izihlangu zelaphu
+yo: Bàtà asọ
+zh: 布鞋
+zu: Izicathulo zendwangu
+carbon_impact_fr_impactco2:en: 18.5
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/habillement/chaussuresentissu
+unit_name:xx:
+unit_name:en: Fabric shoes
+unit_name:fr: Paire de chaussures en tissu
+
+< en: Shoes
+en: Sport shoes
+ar: أحذية رياضية
+as: ক্ৰীড়াৰ জোতা
+az: İdman ayaqqabıları
+be: Спартыўныя чаравікі
+bg: Спортни обувки
+bn: খেলার জুতা
+cs: Sportovní obuv
+da: Sportssko
+de: Sportschuhe
+el: Αθλητικά παπούτσια
+es: Zapatillas deportivas
+et: Spordijalatsid
+fa: کفش ورزشی
+fi: Urheilukengät
+fr: Paire de chaussures de sport
+ga: Bróga spóirt
+gu: રમતના જૂતા
+hi: खेल के जूते
+hr: Sportske cipele
+hu: Sportcipők
+hy: Սպորտային կոշիկներ
+id: Sepatu olahraga
+is: Íþróttaskór
+it: Scarpe sportive
+ja: 運動靴
+jw: Sepatu olahraga
+ka: სპორტული ფეხსაცმელი
+kk: Спорттық аяқ киім
+km: ស្បែកជើងកីឡា
+kn: ಕ್ರೀಡಾ ಬೂಟುಗಳು
+ko: 운동화
+ky: Спорттук бут кийим
+lt: Sportiniai batai
+lv: Sporta apavi
+mk: Спортски чевли
+ml: സ്പോർട്സ് ഷൂസുകൾ
+mn: Спортын гутал
+mr: खेळाचे बूट
+ms: Kasut sukan
+mt: Żraben sportivi
+my: အားကစားဖိနပ်
+ne: खेलकुद जुत्ता
+nl: Sportschoenen
+no: Sportssko
+or: କ୍ରୀଡା ଜୋତା
+pa: ਖੇਡਾਂ ਦੇ ਜੁੱਤੇ
+pl: Buty sportowe
+ps: سپورټي بوټان
+pt: Sapatos de desporto
+ro: Pantofi sport
+ru: Спортивная обувь
+sd: راندين جا بوٽ
+si: ක්රීඩා සපත්තු
+sk: Športová obuv
+sl: Športni čevlji
+so: Kabaha isboortiga
+sq: Këpucë sportive
+sr: Спортске ципеле
+sv: Sportskor
+sw: Viatu vya michezo
+ta: விளையாட்டு காலணிகள்
+te: క్రీడా బూట్లు
+tg: Кроссовкаҳо
+th: รองเท้ากีฬา
+tk: Sport köwüşleri
+tl: Sapatos na pang-isports
+tr: Spor ayakkabıları
+uk: Спортивне взуття
+ur: کھیلوں کے جوتے
+uz: Sport poyabzali
+vi: Giày thể thao
+xh: Izihlangu zemidlalo
+yo: Bata idaraya
+zh: 运动鞋
+zu: Izicathulo zezemidlalo
+carbon_impact_fr_impactco2:en: 20.1
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/habillement/chaussuresdesport
+unit_name:xx:
+unit_name:en: Sport shoes
+unit_name:fr: Paire de chaussures de sport
+
+< en: Clothes
+xx: Jeans
+en: Jeans
+carbon_impact_fr_impactco2:en: 25.1
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/habillement/jeans
+unit_name:xx:
+unit_name:en: Jeans
+unit_name:fr: Jeans
+
+< en: Clothes
+en: Faux leather jacket
+fr: Veste simili-cuir
+carbon_impact_fr_impactco2:en: 26.8
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/habillement/vestesimilicuir
+unit_name:xx:
+unit_name:en: Faux leather jacket
+unit_name:fr: Veste simili-cuir
+
+< en: Pull-Over
+en: Acrylic sweater
+ar: سترة أكريليك
+as: এক্ৰাইলিক চোৱেটাৰ
+az: Akril sviter
+be: Акрылавы швэдар
+bg: Акрилен пуловер
+bn: এক্রাইলিক সোয়েটার
+cs: Akrylový svetr
+da: Akryl sweater
+de: Acrylpullover
+el: Ακρυλικό πουλόβερ
+es: Suéter acrílico
+et: Akrüülkampsun
+fa: ژاکت اکریلیک
+fi: Akryylipusero
+fr: Pull en acrylique
+ga: Geansaí aicrileach
+gu: એક્રેલિક સ્વેટર
+hi: एक्रिलिक स्वेटर
+hr: Akrilni džemper
+hu: Akril pulóver
+hy: Ակրիլային վերնաշապիկ
+id: Sweter akrilik
+is: Akrýlpeysa
+it: Maglione acrilico
+ja: アクリルセーター
+jw: Sweter akrilik
+ka: აკრილის სვიტერი
+kk: Акрилді жемпір
+km: អាវយឺតអាគ្រីលីក
+kn: ಅಕ್ರಿಲಿಕ್ ಸ್ವೆಟರ್
+ko: 아크릴 스웨터
+ky: Акрил свитер
+lt: Akrilinis megztinis
+lv: Akrila džemperis
+mk: Акрилен џемпер
+ml: അക്രിലിക് സ്വെറ്റർ
+mn: Нийлэг цамц
+mr: ऍक्रेलिक स्वेटर
+ms: Baju sejuk akrilik
+mt: Ġerżi akriliku
+my: အခရီလစ်ဆွယ်တာ
+ne: एक्रिलिक स्वेटर
+nl: Acryl trui
+no: Akrylgenser
+or: ଏକ୍ରିଲିକ୍ ସ୍ sweater େଟର୍
+pa: ਐਕਰੀਲਿਕ ਸਵੈਟਰ
+pl: Sweter akrylowy
+ps: اکریلیک سویټر
+pt: Camisola acrílica
+ro: Pulover acrilic
+ru: Акриловый свитер
+sd: ايڪريلڪ سويٽر
+si: ඇක්රිලික් ස්ෙවටර්
+sk: Akrylový sveter
+sl: Akrilni pulover
+so: Suwitar akrilik ah
+sq: Triko akrilik
+sr: Акрилни џемпер
+sv: Akryltröja
+sw: Sweta ya akriliki
+ta: அக்ரிலிக் ஸ்வெட்டர்
+te: ఎక్రిలిక్ స్వెటర్
+tg: Свитеры акрилӣ
+th: เสื้อสเวตเตอร์อะคริลิค
+tk: Akril switer
+tl: Sweter na akrilik
+tr: Akrilik kazak
+uk: Акриловий светр
+ur: ایکریلک سویٹر
+uz: Akril sviter
+vi: Áo len acrylic
+xh: Ibhatyi ye-acrylic
+yo: Siweta akiriliki
+zh: 腈纶毛衣
+zu: Ijezi le-acrylic
+carbon_impact_fr_impactco2:en: 29
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/habillement/pullenacrylique
+unit_name:xx:
+unit_name:en:
+
+< en: Clothes
+en: Cotton sweatshirt
+fr: Sweat en coton
+carbon_impact_fr_impactco2:en: 32.5
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/habillement/sweatencoton
+unit_name:xx:
+unit_name:en: Cotton sweatshirt
+unit_name:fr: Sweat en coton
+
+< en: Clothes
+en: Waterproof jacket
+fr: Veste imperméable
+carbon_impact_fr_impactco2:en: 41.1
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/habillement/vesteimpermeable
+unit_name:xx:
+unit_name:en: Waterproof jacket
+unit_name:fr: Veste imperméable
+
+< en: Clothes
+en: Viscose dress
+fr: Robe en viscose
+carbon_impact_fr_impactco2:en: 52.5
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/habillement/robeenviscose
+unit_name:xx:
+unit_name:en: Viscose dress
+unit_name:fr: Robe en viscose
+
+< en: Pull-Over
+en: Wool sweater
+fr: Pull en laine
+carbon_impact_fr_impactco2:en: 56.7
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/habillement/pullenlaine
+unit_name:xx:
+unit_name:en: Wool sweater
+unit_name:fr: Pull en laine
+
+< en: Clothes
+en: Cotton dress
+fr: Robe en coton
+carbon_impact_fr_impactco2:en: 56.9
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/habillement/robeencoton
+unit_name:xx:
+unit_name:en: Cotton dress
+unit_name:fr: Robe en coton
+
+< en: Clothes
+en: Polyester dress
+fr: Robe en polyester
+carbon_impact_fr_impactco2:en: 58.3
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/habillement/robeenpolyester
+unit_name:xx:
+unit_name:en: Polyester dress
+unit_name:fr: Robe en polyester
+
+< en: Clothes
+en: Coat
+fr: Manteau
+carbon_impact_fr_impactco2:en: 101
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/habillement/manteau
+unit_name:xx:
+unit_name:en: Coat
+unit_name:fr: Manteau
+
 en: Jewelry
+de: Schmuck
+es: Joyería
+fr: Bijoux
 
 en: Books
+ar: كتب
+as: কিতাপ
+az: Kitablar
+be: Кнігі
+bg: Книги
+bn: বই
+cs: Knihy
+da: Bøger
 de: Bücher
+el: Βιβλία
 es: Libros
+et: Raamatud
+fa: کتاب ها
+fi: Kirjat
 fr: Livres
+ga: Leabhair
+gu: પુસ્તકો
+hi: पुस्तकें
+hr: Knjige
+hu: Könyvek
+hy: Գրքեր
+id: Buku
+is: Bækur
+it: Libri
+ja: 本
+jw: Buku
+ka: წიგნები
+kk: Кітаптар
+km: សៀវភៅ
+kn: ಪುಸ್ತಕಗಳು
+ko: 책
+ky: Китептер
+lt: Knygos
+lv: Grāmatas
+mk: Книги
+ml: പുസ്തകങ്ങൾ
+mn: Ном
+mr: पुस्तके
+ms: Buku
+mt: Kotba
+my: စာအုပ်များ
+ne: किताबहरु
+nl: Boeken
+no: Bøker
+or: ବହି
+pa: ਕਿਤਾਬਾਂ
+pl: Książki
+pt: Livros
+ro: Cărți
+ru: Книги
+sk: Knihy
+sl: Knjige
+sq: Libra
+sr: Књиге
+sv: Böcker
+ta: புத்தகங்கள்
+te: పుస్తకాలు
+tg: Китобҳо
+th: หนังสือ
+tk: Kitaplar
+tl: Mga libro
+tr: Kitaplar
+uk: Книги
+ur: کتابیں
+uz: Kitoblar
+vi: Sách
+zh: 书籍
 
 en: Papers
+da: Papirer
 fr: Papiers
+sv: Papper
 
 < en: Papers
 en: Origami papers, origami craft papers
 
 en: Toilet papers, toilet tissues, toilet rolls
+ar: ورق التواليت ، لفات ورق التواليت
+as: শৌচাগাৰৰ কাগজ, শৌচাগাৰৰ ৰোল
+az: Tualet kağızı, tualet rulonları
+be: Туалетная папера, туалетныя рулоны
+bg: Тоалетна хартия, ролки тоалетна хартия
+bn: টয়লেট পেপার, টয়লেট রোল
+cs: Toaletní papír, role toaletního papíru
+da: Toiletpapir, toiletpapirruller
+de: Toilettenpapier, Toilettenrollen
+el: Χαρτί υγείας, ρολά χαρτιού υγείας
+es: Papel higiénico, rollos de papel higiénico
+et: Tualettpaber, tualettpaberi rullid
+fa: کاغذ توالت، رول کاغذ توالت
+fi: WC-paperi, WC-paperirullat
 fr: Papiers toilette, papier toilette, papier hygiénique, papiers hygiéniques
+ga: Páipéar leithris, rollaí páipéir leithris
+gu: ટોઇલેટ પેપર, ટોઇલેટ રોલ
+hi: टॉयलेट पेपर, टॉयलेट रोल
+hr: Toaletni papir, role toaletnog papira
+hu: WC-papír, WC-papírtekercsek
+hy: Զուգարանի թուղթ, զուգարանի թղթի գլանակներ
+id: Kertas toilet, gulungan kertas toilet
+is: Klósettpappír, klósettpappírsrúllur
+it: Carta igienica, rotoli di carta igienica
+ja: トイレットペーパー、トイレットロール
+jw: Kertas jamban, gulungan kertas jamban
+ka: ტუალეტის ქაღალდი, ტუალეტის რულონები
+kk: Дәретхана қағазы, дәретхана қағазының орамдары
+km: ក្រដាសបង្គន់, ក្រដាសបង្គន់
+kn: ಶೌಚಾಲಯ ಕಾಗದ, ಶೌಚಾಲಯ ರೋಲ್ಗಳು
+ko: 화장지, 화장지 롤
+ky: Даараткана кагазы, даараткана кагазынын түрмөктөрү
+lt: Tualetinis popierius, tualetinio popieriaus ritinėliai
+lv: Tualetes papīrs, tualetes papīra ruļļi
+mk: Тоалетна хартија, ролни тоалетна хартија
+ml: ടോയ്‌ലറ്റ് പേപ്പർ, ടോയ്‌ലറ്റ് റോളുകൾ
+mn: Ариун цэврийн цаас, ариун цэврийн цаасны ороомог
+mr: टॉयलेट पेपर, टॉयलेट रोल
+ms: Kertas tandas, gulungan kertas tandas
+mt: Karta tat-twaletta, rollijiet tal-karta tat-twaletta
+my: အိမ်သာသုံးစက္ကူ၊ အိမ်သာသုံးလိပ်များ
+ne: ट्वाइलेट पेपर, ट्वाइलेट रोलहरू
+nl: Toiletpapier, wc-rollen
+no: Toalettpapir, toalettpapirruller
+or: ଟଏଲେଟ୍ ପେପର, ଟଏଲେଟ୍ ରୋଲ୍
+pa: ਟਾਇਲਟ ਪੇਪਰ, ਟਾਇਲਟ ਰੋਲ
+pl: Papier toaletowy, rolki papieru toaletowego
+ps: تشناب کاغذونه، تشناب رولونه
+pt: Papel higiénico, rolos de papel higiênico
+ro: Hârtie igienică, role de hârtie igienică
+ru: Туалетная бумага, туалетные рулоны
+sd: ٽوائلٽ پيپر، ٽوائلٽ رول
+si: වැසිකිලි කඩදාසි, වැසිකිලි රෝල්
+sk: Toaletný papier, rolky toaletného papiera
+sl: Toaletni papir, zvitki toaletnega papirja
+so: Warqadaha musqusha, duubka warqadaha musqusha
+sq: Letër higjienike, rrotulla letre higjienike
+sr: Тоалет папир, ролне тоалет папира
+sv: Toalettpapper, toalettpappersrullar
+sw: Karatasi za choo, roll za karatasi za choo
+ta: கழிப்பறை காகிதம், கழிப்பறை சுருள்கள்
+te: టాయిలెట్ పేపర్, టాయిలెట్ రోల్స్
+tg: Коғази ҳоҷатхона, ғелоқҳои коғази ҳоҷатхона
+th: กระดาษชำระ, กระดาษชำระม้วน
+tk: Hajathana kagyzlary, hajathana kagyzlarynyň rulonlary
+tl: Papel de banyo, rolyo ng papel de banyo
+tr: Tuvalet kağıdı, tuvalet rulosu
+uk: Туалетний папір, рулони туалетного паперу
+ur: ٹوائلٹ پیپر، ٹوائلٹ رولز
+uz: Hojatxona qog'ozi, hojatxona qog'ozi rulonlari
+vi: Giấy vệ sinh, cuộn giấy vệ sinh
+xh: Amaphepha angasese, imiqulu yamaphepha angasese
+yo: Iwe ile-igbọnsẹ, awọn yipo iwe ile-igbọnsẹ
+zh: 卫生纸，卫生卷纸
+zu: Amaphepha angasese, imiqulu yephepha langasese
 
 en: Cigarettes
+ar: سجائر
+as: চিগাৰেট
+az: Siqaretlər
+be: Цыгарэты
+bg: Цигари
+bn: সিগারেট
+cs: Cigarety
+da: Cigaretter
+de: Zigaretten
+el: Τσιγάρα
+es: Cigarrillos
+et: Sigaretid
+fa: سیگار
+fi: Savukkeet
 fr: Cigarettes
-
-en: Laundry detergents
-fr: Lessives
+ga: Toitíní
+gu: સિગારેટ
+hi: सिगरेट
+hr: Cigarete
+hu: Cigaretták
+hy: Ծխախոտ
+id: Rokok
+is: Sígarettur
+it: Sigarette
+ja: 煙草
+jw: Rokok
+ka: სიგარეტი
+kk: Темекі
+km: បារី
+kn: ಸಿಗರೇಟುಗಳು
+ko: 담배
+ky: Тамеки
+lt: Cigaretes
+lv: Cigaretes
+mk: Цигари
+ml: സിഗരറ്റുകൾ
+mn: Тамхи
+mr: सिगारेट
+ms: Rokok
+mt: Sigaretti
+my: စီးကရက်
+ne: चुरोट
+nl: Sigaretten
+no: Sigaretter
+or: ସିଗାରେଟ୍
+pa: ਸਿਗਰਟ
+pl: Papierosy
+ps: سګرټ
+pt: Cigarros
+ro: Țigări
+ru: Сигареты
+sd: سگريٽ
+si: සිගරට්
+sk: Cigarety
+sl: Cigarete
+so: Sigaar
+sq: Cigarete
+sr: Цигарете
+sv: Cigaretter
+sw: Sigara
+ta: சிகரெட்
+te: సిగరెట్లు
+tg: Сигарет
+th: บุหรี่
+tk: Temmäki
+tl: Sigarilyo
+tr: Sigara
+uk: Цигарки
+ur: سگریٹ
+uz: Sigaret
+vi: Thuốc lá
+xh: Icuba
+yo: Siga
+zh: 香烟
+zu: Ugwayi
 
 en: Christmas trees
+da: Juletræer
+de: Weihnachtsbäume
+es: Árboles de Navidad
 fr: Arbres de Noël
 
 en: Vitamins
+da: Vitaminer
 de: Vitamine
 es: Vitaminas
 fr: Vitamines
 
-en: Liquid detergent
-de: Flüssigwaschmittel
-es: Detergentes líquidos
-fr: Lessives liquides
-
-en: Dishwasher tablets
-de: Geschirrspültabs
-es: Pastillas para lavavajillas
-fr: Tablettes pour lave-vaisselle
-
 en: Batteries
+da: Batterier
 de: Batterien
 es: Pilas, Baterías
 fr: Piles
 
 en: Bleach
+ar: مبيض
+as: ব্লিচ
+az: Ağardıcı
+be: Адбельвальнік
+bg: Белина
+bn: ব্লিচ
+cs: Bělidlo
+da: Blegemiddel
 de: Bleichmittel
+el: Χλωρίνη
+es: Lejía
+et: Valgendi
+fa: سفید کننده
+fi: Valkaisuaine
 fr: Eau de Javel
+ga: Tuarthóir
+gu: બ્લીચ
+hi: ब्लीच
+hr: Izbjeljivač
+hu: Fehérítő
+hy: Սպիտակեցնող միջոց
+id: Pemutih
+is: Bleikja
+it: Candeggina
+ja: 漂白剤
+jw: Pemutih
+ka: მათეთრებელი
+kk: Ағартқыш
+km: ទឹកសាប៊ូ
+kn: బ్లీಚ್
+ko: 표백제
+ky: Агартуучу
+lt: Baliklis
+lv: Balinātājs
+mk: Белило
+ml: ബ്ലീച്ച്
+mn: Цайруулагч
+mr: ब्लीच
+ms: Peluntur
+mt: Bliċ
+my: အရောင်ချွတ်ဆေး
+ne: ब्लीच
+nl: Bleekmiddel
+no: Blekemiddel
+or: ବ୍ଲିଚ୍
+pa: ਬਲੀਚ
+pl: Wybielacz
+ps: بلیچ
+pt: Lixívia
+ro: Înălbitor
+ru: Отбеливатель
+sd: بلچ
+si: විරංජන
+sk: Bielidlo
+sl: Belilo
+so: Daawada caddeysa
+sq: Zbardhues
+sr: Избељивач
+sv: Blekmedel
+sw: Blechi
+ta: ப்ளீச்
+te: బ్లీచ్
+tg: Сафедкунанда
+th: สารฟอกขาว
+tk: Agardyjy
+tl: Paputi
+tr: Çamaşır suyu
+uk: Відбілювач
+ur: بلیچ
+uz: Oqartiruvchi
+vi: Thuốc tẩy
+xh: I-bleach
+yo: Bilisi
+zh: 漂白剂
+zu: I-bleach
 
 # To move into OBF
 en: Personal care products
@@ -209,10 +1796,117 @@ de: Haushaltschemikalien
 es: Productos químicos domésticos
 fr: Produits chimiques ménagers
 
+< en: Household chemicals
+en: Bleach
+de: Bleichmittel
+fr: Eau de Javel
+
+< en: Household chemicals
+en: Laundry detergents
+de: Waschmittel
+es: Detergentes para la ropa
+fr: Lessives
+
+< en: Household chemicals
+en: Liquid detergent
+de: Flüssigwaschmittel
+es: Detergentes líquidos
+fr: Lessives liquides
+
+< en: Household chemicals
+en: Dishwasher tablets
+de: Geschirrspültabs
+es: Pastillas para lavavajillas
+fr: Tablettes pour lave-vaisselle
+
+< en: Household chemicals
+en: Detergents
+de: Reinigungsmittel
+es: Detergentes
+fr: Détergents
+
+< en: Household chemicals
+en: Toilet gel
+de: Toilettengel
+es: Gel WC
+fr: Gel WC
+
 en: Inflatable toys
+ar: ألعاب قابلة للنفخ
+as: ফুলাব পৰা খেলনা
+az: Şişmə oyuncaqlar
+be: Надзіманыя цацкі
+bg: Надуваеми играчки
+bn: ইনফ্ল্যাটেবল খেলনা
+cs: Nafukovací hračky
+da: Oppusteligt legetøj
 de: Aufblasbares Spielzeug
+el: Φουσκωτά παιχνίδια
 es: Juguetes inflables
+et: Täispuhutavad mänguasjad
+fa: اسباب بازی های بادی
+fi: Puhallettavat lelut
 fr: Jouets gonflables
+ga: Bréagáin inséidte
+gu: ફુલાવી શકાય તેવા રમકડાં
+hi: inflatable खिलौने
+hr: Igračke na napuhavanje
+hu: Felfújható játékok
+hy: Փչովի խաղալիքներ
+id: Mainan tiup
+is: Uppblásanlegt leikföng
+it: Giocattoli gonfiabili
+ja: インフレータブルおもちゃ
+jw: Dolanan kembung
+ka: გასაბერი სათამაშოები
+kk: Үрлемелі ойыншықтар
+km: ប្រដាប់ប្រដាក្មេងលេងដែលអាចបំប៉ោងបាន
+kn: ಗಾಳಿ ತುಂಬುವ ಆಟಿಕೆಗಳು
+ko: 팽창식 장난감
+ky: Үйлөмө оюнчуктар
+lt: Pripučiamos žaislai
+lv: Piepūšamās rotaļlietas
+mk: Играчки на надувување
+ml: കാറ്റിൽ നിറയ്ക്കാവുന്ന കളിപ്പാട്ടങ്ങൾ
+mn: Үлээдэг тоглоомууд
+mr: फुगवता येणारे खेळणी
+ms: Mainan kembung
+mt: Ġugarelli li jintefħu
+my: လေထိုးအရုပ်များ
+ne: हावा भर्ने खेलौनाहरू
+nl: Opblaasbaar speelgoed
+no: Oppblåsbare leker
+or: ଫୁଲାଇବା ଯୋଗ୍ୟ ଖେଳନା
+pa: ਇਨਫਲੇਟੇਬਲ ਖਿਡੌਣੇ
+pl: Nadmuchiwane zabawki
+ps: د پړسوب وړ لوبو
+pt: Brinquedos infláveis
+ro: Jucării gonflabile
+ru: Надувные игрушки
+sd: انفليٽيبل رانديون
+si: පිම්බෙන සෙල්ලම් බඩු
+sk: Nafukovacie hračky
+sl: Napihljive igrače
+so: Alaabta lagu buufiyo
+sq: Lodra të fryra
+sr: Играчке на надувавање
+sv: Uppblåsbara leksaker
+sw: Vinyago vinavyoweza kuingizwa hewa
+ta: ஊதக்கூடிய பொம்மைகள்
+te: గాలితో నింపబడిన బొమ్మలు
+tg: Бозичаҳои пуфшаванда
+th: ของเล่นเป่าลม
+tk: Püşürilýän oýunjaklar
+tl: Mga laruang inflatable
+tr: Şişme oyuncaklar
+uk: Надувні іграшки
+ur: افراط پذیر کھلونے
+uz: Shishiriladigan o'yinchoqlar
+vi: Đồ chơi bơm hơi
+xh: Amathoyizi anokufakwa umoya
+yo: Awọn nkan isere inflatable
+zh: 充气玩具
+zu: Amathoyizi angeniswayo
 
 en: Pet litter
 de: Tierstreu
@@ -220,9 +1914,11 @@ es: Arena para mascotas
 fr: Litière pour animaux
 
 en: Medicine
+da: Medicin, lægemiddel
 de: Medizin
 es: Medicina
 fr: Médicament
+sv: Medicin, läkemedel
 
 en: Sanitary napkins
 de: Damenbinden
@@ -240,24 +1936,243 @@ es: Gomas para el pelo
 fr: Élastiques pour les cheveux
 
 en: Toys
+ar: ألعاب
+as: খেলনা
+az: Oyuncaqlar
+be: Цацкі
+bg: Играчки
+bn: খেলনা
+cs: Hračky
+da: Legetøj
 de: Spielzeug
+el: Παιχνίδια
 es: Juguetes
+et: Mänguasjad
+fa: اسباب بازی
+fi: Lelut
 fr: Jouets
+ga: Bréagáin
+gu: રમકડાં
+hi: खिलौने
+hr: Igračke
+hu: Játékok
+hy: Խաղալիքներ
+id: Mainan
+is: Leikföng
+it: Giocattoli
+ja: おもちゃ
+jw: Dolanan
+ka: სათამაშოები
+kk: Ойыншықтар
+km: ប្រដាប់ក្មេងលេង
+kn: ಆಟಿಕೆಗಳು
+ko: 장난감
+ky: Оюнчуктар
+lt: Žaislai
+lv: Rotaļlietas
+mk: Играчки
+ml: കളിപ്പാട്ടങ്ങൾ
+mn: Тоглоом
+mr: खेळणी
+ms: Mainan
+mt: Ġugarelli
+my: အရုပ်များ
+ne: खेलौनाहरू
+nl: Speelgoed
+no: Leker
+or: ଖେଳନା
+pa: ਖਿਡੌਣੇ
+pl: Zabawki
+ps: لوبو
+pt: Brinquedos
+ro: Jucării
+ru: Игрушки
+sd: راندڪا
+si: සෙල්ලම් බඩු
+sk: Hračky
+sl: Igrače
+so: Alaabta carruurtu ku ciyaarto
+sq: Lodra
+sr: Играчке
+sv: Leksaker
+sw: Vinyago
+ta: பொம்மைகள்
+te: బొమ్మలు
+tg: Бозичаҳо
+th: ของเล่น
+tk: Oýunjaklar
+tl: Mga laruan
+tr: Oyuncaklar
+uk: Іграшки
+ur: کھلونے
+uz: O'yinchoqlar
+vi: Đồ chơi
+xh: Amathoyizi
+yo: Awọn nkan isere
+zh: 玩具
+zu: Amathoyizi
 
 en: Video games
+ar: ألعاب الفيديو
+as: ভিডিঅ' গেম
+az: Videooyunlar
+be: Відэагульні
+bg: Видеоигри
+bn: ভিডিও গেম
+cs: Videohry
+da: Videospil
 de: Videospiele
+el: Βιντεοπαιχνίδια
 es: Videojuegos
+et: Videomängud
+fa: بازی های ویدیویی
+fi: Videopelit
 fr: Jeux vidéo
+ga: Físchluichí
+gu: વિડિઓ ગેમ્સ
+hi: वीडियो गेम
+hr: Videoigre
+hu: Videójátékok
+hy: Տեսախաղեր
+id: Permainan video
+is: Tölvuleikir
+it: Videogiochi
+ja: ビデオゲーム
+jw: Video game
+ka: ვიდეო თამაშები
+kk: Бейне ойындар
+km: ហ្គេមវីដេអូ
+kn: ವೀಡಿಯೊ ಗೇಮ್‌ಗಳು
+ko: 비디오 게임
+ky: Видео оюндары
+lt: Vaizdo žaidimai
+lv: Videospēles
+mk: Видеоигри
+ml: വീഡിയോ ഗെയിമുകൾ
+mn: Видео тоглоом
+mr: व्हिडिओ गेम्स
+ms: Permainan video
+mt: Logħob tal-vidjo
+my: ဗီဒီယိုဂိမ်းများ
+ne: भिडियो खेलहरू
+nl: Videogames
+no: Videospill
+or: ଭିଡିଓ ଗେମ୍ସ
+pa: ਵੀਡੀਓ ਗੇਮਾਂ
+pl: Gry wideo
+ps: ویډیو لوبې
+pt: Jogos de vídeo
+ro: Jocuri video
+ru: Видеоигры
+sd: وڊيو گيمز
+si: වීඩියෝ ක්‍රීඩා
+sk: Videohry
+sl: Videoigre
+so: Ciyaaraha fiidiyowga
+sq: Lojëra video
+sr: Видео игре
+sv: Videospel
+sw: Michezo ya video
+ta: நிகழ்பட விளையாட்டுகள்
+te: వీడియో గేమ్స్
+tg: Бозиҳои видеоӣ
+th: วิดีโอเกม
+tk: Wideooýunlar
+tl: Mga larong bidyo
+tr: Video oyunları
+uk: Відеоігри
+ur: ویڈیو گیمز
+uz: Videoo'yinlar
+vi: Trò chơi điện tử
+xh: Imidlalo yevidiyo
+yo: Awọn ere fidio
+zh: 电子游戏
+zu: Imidlalo yevidiyo
 
 en: DVDs
 
-en: Blue-Ray
+en: Blu-Ray
 
 en: VHS
 
 en: CDs
 
 en: Music instruments
+ar: آلات موسيقية
+as: বাদ্যযন্ত্ৰ
+az: Musiqi alətləri
+be: Музычныя інструменты
+bg: Музикални инструменти
+bn: বাদ্যযন্ত্র
+cs: Hudební nástroje
+da: Musikinstrumenter
+de: Musikinstrumente
+el: Μουσικά όργανα
+es: Instrumentos musicales
+et: Muusikariistad
+fa: آلات موسیقی
+fi: Soittimet
+fr: Instruments de musique
+ga: Uirlisí ceoil
+gu: સંગીતનાં સાધનો
+hi: संगीत वाद्ययंत्र
+hr: Glazbeni instrumenti
+hu: Hangszerek
+hy: Երաժշտական գործիքներ
+id: Alat musik
+is: Hljóðfæri
+it: Strumenti musicali
+ja: 楽器
+jw: Piranti musik
+ka: მუსიკალური ინსტრუმენტები
+kk: Музыкалық аспаптар
+km: ឧបករណ៍ភ្លេង
+kn: ಸಂಗೀತ ವಾದ್ಯಗಳು
+ko: 악기
+ky: Музыкалык аспаптар
+lt: Muzikos instrumentai
+lv: Mūzikas instrumenti
+mk: Музички инструменти
+ml: സംഗീതോപകരണങ്ങൾ
+mn: Хөгжмийн зэмсэг
+mr: संगीत वाद्ये
+ms: Alat muzik
+mt: Strumenti mużikali
+my: တူရိယာများ
+ne: संगीत वाद्ययन्त्रहरू
+nl: Muziekinstrumenten
+no: Musikkinstrumenter
+or: ସଙ୍ଗୀତ ବାଦ୍ୟଯନ୍ତ୍ର
+pa: ਸੰਗੀਤਕ ਸਾਜ਼
+pl: Instrumenty muzyczne
+ps: د موسیقۍ وسایل
+pt: Instrumentos musicais
+ro: Instrumente muzicale
+ru: Музыкальные инструменты
+sd: موسيقي جا اوزار
+si: සංගීත භාණ්ඩ
+sk: Hudobné nástroje
+sl: Glasbeni instrumenti
+so: Qalabka muusikada
+sq: Instrumente muzikore
+sr: Музички инструменти
+sv: Musikinstrument
+sw: Vyombo vya muziki
+ta: இசை கருவிகள்
+te: సంగీత వాయిద్యాలు
+tg: Асбобҳои мусиқӣ
+th: เครื่องดนตรี
+tk: Saz gurallary
+tl: Mga instrumentong pangmusika
+tr: Müzik aletleri
+uk: Музичні інструменти
+ur: موسیقی کے آلات
+uz: Musiqa asboblari
+vi: Nhạc cụ
+xh: Izixhobo zomculo
+yo: Awọn ohun èlò orin
+zh: 乐器
+zu: Izinsimbi zomculo
 
 en: Paper pads
 de: Notizblöcke
@@ -273,14 +2188,4 @@ en: Diapers
 de: Windeln
 es: Pañales
 fr: Couches
-
-en: Detergents
-de: Waschmittel
-es: Detergentes
-fr: Détergents
-
-en: Toilet gel
-de: Toilettengel
-es: Gel WC
-fr: Gel WC
 

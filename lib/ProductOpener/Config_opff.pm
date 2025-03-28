@@ -180,7 +180,7 @@ $flavor = "opff";
 	#android_app_link => "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&utm_source=opff&utf_medium=web",
 	#ios_app_link => "https://apps.apple.com/app/open-beauty-facts/id1122926380?utm_source=opff&utf_medium=web",
 	#facebook_page_url => "https://www.facebook.com/openbeautyfacts?utm_source=opff&utf_medium=web",
-	#twitter_account => "OpenBeautyFacts",
+	#x_account => "OpenBeautyFacts",
 	default_preferences =>
 		'{ "nova" : "important", "labels_organic" : "important", "labels_fair_trade" : "important" }',
 	# favicon HTML and images generated with https://realfavicongenerator.net/ using the SVG icon
@@ -379,6 +379,7 @@ XML
 	periods_after_opening
 	data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors data_quality_warnings_producers data_quality_errors_producers
 	improvements
+	brands
 );
 
 # tag types (=facets) that should be indexed by web crawlers, all other tag types are not indexable

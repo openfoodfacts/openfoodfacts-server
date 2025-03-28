@@ -2,16 +2,110 @@ stopwords:fr: aux, au, de, le, du, la, a, et, avec, pour
 
 synonyms:en: flavoured, flavored
 
+en: Incorrect product type
+bg: Неправилен product type
+ca: Tipus de producte incorrecte
+da: Forkert produkttype
+de: Falscher product type
+es: Tipo de producto incorrecto
+fi: Väärä product type
+fr: Mauvais product type
+hr: Pogrešan product type
+it: Tipo di prodotto errato
+nl: Verkeerd product type
+pt: Tipo de produto incorreto
+ru: Неправильный product type
+sv: Fel produkttyp
+
+< en: Incorrect product type
+en: Non beauty products
+bg: Некозметични продукти
+ca: Productes no de bellesa
+de: Non-Beauty-Produkte, Non Beauty Produkte
+es: Productos no de belleza
+fi: ei kauneustuote
+fr: Non beauté
+hr: Neprehrambeni proizvodi za ljepotu
+it: Prodotti non di bellezza
+nl: Non-beauty
+pt: Produtos não de beleza
+ru: Непродукты для красоты, Не косметические продукты
+
+< en:Non beauty products
+en: Open Food Facts, OFF
+xx: Open Food Facts, OFF
+
+< en:Non beauty products
+en: Open Pet Food Facts, OPFF
+xx: Open Pet Food Facts, OPFF
+
+< en:Non beauty products
+en: Open Products Facts, OPF
+xx: Open Products Facts, OPF
+
 # Can you add translations in all European, Asian languages (and more), following alphabetical order for language ordering, except for english which comes first ?
+
 
 ###### CATEGORIE HYGIENE
 
 en: Hygiene
+ar: نظافة
+az: Gigiyena
+bg: Хигиена
+bn: স্বাস্থ্যবিধি
+ca: Higiene
+cs: Hygiena
+da: Hygiejne
+de: Hygiene
+el: Υγιεινή
+es: Higiene
+et: Hügieen
+fa: بهداشت
+fi: Hygienia
 fr: Hygiène
+ga: Sláinteachas
+he: היגיינה
+hr: Higijena
+hu: Higiénia
+hy: Հիգիենա
+id: Kebersihan
+is: Hreinlæti
+it: Igiene
+ja: 衛生
+ka: ჰიგიენა
+kk: Гигиена
+km: អនាម័យ
+ko: 위생
+ky: Гигиена
+lt: Higiena
+lv: Higiēna
+mk: Хигиена
+ms: Kebersihan
+mt: Iġjene
 nl: Hygiëne
+no: Hygiene
+pl: Higiena
+pt: Higiene
+ro: Igienă
+ru: Гигиена
+sk: Hygiena
+sl: Higiena
+sq: Higjiena
+sr: Хигијена
+sv: Hygien
+sw: Usafi
+tg: Гигиена
+th: สุขอนามัย
+tk: Arassaçylyk
+tr: Hijyen
+uk: Гігієна
+ur: حفظان صحت
+uz: Gigiyena
+vi: Vệ sinh
+zh: 卫生
 
 < en:Hygiene
-en: Mouthwash
+en: Mouthwash, Mouthwashes
 ar: غسول الفم
 az: Ağız yaxalama
 bg: Вода за уста
@@ -224,13 +318,113 @@ zh: 美白牙膏
 
 < en:Toothpastes
 en: Tartar control toothpastes
+ar: معجون أسنان للسيطرة على الجير
+az: Diş daşına nəzarət pastaları
+bg: Пасти за зъби за контрол на зъбния камък
+ca: Pasta de dents per al control del carrall
+cs: Zubní pasty pro kontrolu zubního kamene
+da: Tandpasta til kontrol af tandsten
+de: Zahncremes zur Zahnsteinkontrolle
+el: Οδοντόκρεμες ελέγχου της τρυγίας
+es: Pastas de dientes para el control del sarro
+et: Hambakivi kontrolli hambapastad
+fa: خمیر دندان کنترل کننده جرم
+fi: Hammaskiven hallintatahnata
 fr: Dentifrices anti-tartre, Dentifrice anti-tartre
+ga: Taos fiacla rialaithe tartar
+hr: Paste za zube za kontrolu kamenca
+hu: Fogkő elleni fogkrémek
+hy: Ատամի քարի դեմ պայքարող ատամի մածուկներ
+id: Pasta gigi pengontrol tartar
+is: Tannkrem til að stjórna tannsteini
+it: Dentifrici per il controllo del tartaro
+ja: 歯石コントロール歯磨き粉
+ka: კბილის ქვის კონტროლის კბილის პასტები
+kk: Тіс тасын бақылауға арналған тіс пасталары
+km: ថ្នាំដុសធ្មេញគ្រប់គ្រង Tartar
+ko: 치석 조절 치약
+ky: Тиш ташын көзөмөлдөөчү тиш пасталары
+lv: Zobu pastas zobakmens kontrolei
+mk: Пасти за заби за контрола на забен камен
+ms: Ubat gigi kawalan tartar
+mt: Toothpastes għall-kontroll tat-tartru
+nl: Tandpasta's voor tandsteencontrole
+no: Tannkremer for kontroll av tannstein
+pl: Pasty do zębów kontrolujące kamień nazębny
+pt: Pastas de dentes para controlo do tártaro
+ro: Paste de dinți pentru controlul tartrului
+ru: Зубные пасты для контроля зубного камня
+sk: Zubné pasty na kontrolu zubného kameňa
+sl: Zobne paste za nadzor zobnega kamna
+sq: Pasta dhëmbësh për kontrollin e tartarit
+sr: Пасте за зубе за контролу каменца
+sv: Tandkräm för kontroll av tandsten
+sw: Dawa za meno za kudhibiti tartar
+tg: Хамираҳои дандон барои назорати санги дандон
+th: ยาสีฟันควบคุมหินปูน
+tk: Diş daşyny gözegçilik pastalary
+tr: Tartar kontrolü diş macunları
+uk: Зубні пасти для контролю зубного каменю
+ur: ٹارٹر کنٹرول ٹوتھ پیسٹ
+uz: Tish toshini nazorat qilish pastalari
+vi: Kem đánh răng kiểm soát cao răng
+zh: 牙垢控制牙膏
 
 < en:Toothpastes
 en: Sensitivity Toothpastes
+ar: معجون أسنان للحساسية
+az: Həssas dişlər üçün diş pastaları
+bg: Пасти за чувствителни зъби
+bn: সংবেদনশীল দাঁতের জন্য টুথপেস্ট
+ca: Pasta de dents per a dents sensibles
+cs: Zubní pasta pro citlivé zuby
+da: Tandpasta til følsomme tænder
 de: Zahnpasta für empfindliche Zähne
+el: Οδοντόκρεμες για ευαίσθητα δόντια
+es: Pasta de dientes para dientes sensibles
+et: Tundlike hammaste hambapastad
+fa: خمیر دندان برای دندان های حساس
+fi: Hammastahna herkille hampaille
 fr: Dentifrices dents sensibles
+ga: Taos fiacla íogaireachta
+hr: Paste za osjetljive zube
+hu: Fogkrém érzékeny fogakra
+hy: Զգայուն ատամների համար նախատեսված ատամի մածուկներ
+id: Pasta gigi untuk gigi sensitif
+is: Tannkrem fyrir viðkvæmar tennur
+it: Dentifrici per denti sensibili
+ja: 知覚過敏歯磨き粉
+ka: პასტები მგრძნობიარე კბილებისთვის
+kk: Сезімтал тістерге арналған тіс пасталары
+km: ថ្នាំដុសធ្មេញសម្រាប់ធ្មេញដែលងាយប្រតិកម្ម
+ko: 민감성 치약
+ky: Сезимтал тиштер үчүн тиш пасталары
+lt: Dantų pasta jautriems dantims
+lv: Zobu pastas jutīgiem zobiem
+mk: Пасти за чувствителни заби
+ms: Ubat gigi untuk gigi sensitif
+mt: Toothpastes għal snien sensittivi
 nl: Tandpasta voor gevoelige tanden
+no: Tannkrem for sensitive tenner
+pl: Pasty do zębów wrażliwych
+pt: Pastas de dentes para dentes sensíveis
+ro: Paste de dinți pentru dinți sensibili
+ru: Зубные пасты для чувствительных зубов
+sk: Zubné pasty pre citlivé zuby
+sl: Zobne paste za občutljive zobe
+sq: Pasta dhëmbësh për dhëmbë të ndjeshëm
+sr: Пасте за осетљиве зубе
+sv: Tandkräm för känsliga tänder
+sw: Dawa ya meno kwa meno nyeti
+tg: Хамираи дандон барои дандонҳои ҳассос
+th: ยาสีฟันสำหรับฟันที่บอบบาง
+tk: Duýgur dişler üçin diş pastalary
+tr: Hassas dişler için diş macunları
+uk: Зубні пасти для чутливих зубів
+ur: حساس دانتوں کے لیے ٹوتھ پیسٹ
+uz: Sezgir tishlar uchun tish pastalari
+vi: Kem đánh răng cho răng nhạy cảm
+zh: 敏感牙膏
 
 #### Savons
 
@@ -286,6 +480,14 @@ uz: Sovunlar
 vi: Xà phòng
 zh: 肥皂
 wikidata:en: Q34396
+
+< en:Soaps
+en: Scented soaps
+incompatible_with:en: categories:en:unscented-soaps
+
+< en:Soaps
+en: Unscented soaps
+incompatible_with:en: categories:en:scented-soaps
 
 < en:Soaps
 en: Marseille soaps, Marseille soap
@@ -346,13 +548,118 @@ zh: 皮肤科香皂
 
 < en:Soaps
 en: Liquid soaps
+ar: صابون سائل
+az: Maye sabunlar
+bg: Течни сапуни
+cs: Tekutá mýdla
+da: Flydende sæber
+de: Flüssigseifen
+el: Υγρά σαπούνια
+es: Jabones líquidos
+et: Vedelseebid
+fa: صابون مایع
+fi: Nestesaippuat
 fr: Savons liquides, Savon liquide
+ga: Gallúnacha leachtacha
+hr: Tekući sapuni
+hu: Folyékony szappanok
+hy: Հեղուկ օճառներ
+id: Sabun cair
+is: Fljótandi sápur
+it: Saponi liquidi
+ja: 液体石鹸
+ka: თხევადი საპნები
+kk: Сұйық сабындар
+ko: 액체 비누
+ky: Суюк самындар
+lt: Skysti muilai
+lv: Šķidrās ziepes
+mk: Течни сапуни
+ms: Sabun cecair
+mt: Sapun likwidu
 nl: Vloeibare zepen, vloeibare zeep
+no: Flytende såper
+pl: Mydła w płynie
+pt: Sabonetes líquidos
+ro: Săpunuri lichide
+ru: Жидкое мыло
+sk: Tekuté mydlá
+sl: Tekoča mila
+sq: Sapunë të lëngshëm
+sr: Течни сапуни
+sv: Flytande tvål
+sw: Sabuni za maji
+tg: Соуни моеъ
+th: สบู่เหลว
+tk: Suwuk sabynlar
+tr: Sıvı sabunlar
+uk: Рідке мило
+uz: Suyuq sovunlar
+vi: Xà phòng lỏng
+zh: 液体皂
+incompatible_with:en: categories:en:bar-soaps
 wikidata:en: Q97925317
+
+< en:Soaps
+en: Bar soaps
+incompatible_with:en: categories:en:liquid-soaps
+wikidata:en: Q27883554
+
+< en:Bar soaps
+< en:Scented soaps
+en: Scented bar soaps
 
 < en:Hygiene
 en: Hydro-alcoholic gels, alcohol-based gels
+ar: جل كحولي مائي
+az: Hidro-spirtli gellər
+bg: Хидроалкохолни гелове
+cs: Hydroalkoholické gely
+da: Hydroalkoholiske geler
+de: Hydroalkoholische Gele
+el: Υδροαλκοολικά ζελέ
+es: Geles hidroalcohólicos
+et: Hüdroalkohoolsed geelid
+fa: ژل های هیدروالکلی
+fi: Hydroalkoholiset geelit
 fr: Gels hydro-alcooliques, Solutions hydro-alcooliques
+ga: Gels hiodrálacha-alcólacha
+hr: Hidroalkoholni gelovi
+hu: Hidroalkoholos gélek
+hy: Հիդրոալկոհոլային գելեր
+id: Gel hidro-alkohol
+is: Vatnsalkóhólhlaup
+it: Gel idroalcolici
+ja: ハイドロアルコールジェル
+ka: ჰიდროალკოჰოლური გელები
+kk: Гидроалкогольді гельдер
+ko: 하이드로 알코올 젤
+ky: Гидроалкоголдук гелдер
+lt: Hidroalkoholiniai geliai
+lv: Hidroalkoholiskie geli
+mk: Хидроалкохолни гелови
+ms: Gel hidro-alkohol
+mt: Ġellijiet idro-alkoħoliċi
+nl: Hydroalcoholische gels
+no: Hydro-alkoholiske geler
+pl: Żele hydroalkoholowe
+pt: Géis hidroalcoólicos
+ro: Geluri hidroalcoolice
+ru: Гидроспиртовые гели
+sk: Hydroalkoholické gély
+sl: Hidroalkoholni geli
+sq: Xhel hidroalkoolike
+sr: Хидроалкохолни гелови
+sv: Hydroalkoholiska geler
+sw: Geli za hidro-alkoholi
+tg: Гелҳои гидроалкохолӣ
+th: เจลล้างมือแอลกอฮอล์
+tk: Gidroalkogolly geller
+tr: Hidro-alkolik jeller
+uk: Гідроспиртові гелі
+uz: Gidroalkogolli gellar
+vi: Gel hydro-alcoholic
+zh: гидро спиртовые гели
 wikidata:en: Q520181
 
 #### Douches et bains
@@ -411,11 +718,117 @@ zh: 淋浴和浴缸
 
 < en:Showers and baths
 en: Bubble baths, foaming baths
+ar: حمامات الفقاعات ، حمامات الرغوة
+az: Köpüklü vannalar
+bg: Вани с пяна
+bn: বাবল বাথ, ফোমিং বাথ
+ca: Banys d'escuma
+cs: Pěnové koupele
+da: Boblebade, skumbade
+de: Schaumbäder
+el: Αφρόλουτρα
+es: Baños de burbujas, baños de espuma
+et: Mullivannid, vahuvannid
+fa: حمام حباب، حمام کف کننده
+fi: Vaahtokylvyt
 fr: Bains moussants, Bain moussant, Bains moussant
+ga: Folcadáin mboilgeog, folcadáin cúr
+he: אמבטיות בועות, אמבטיות קצף
+hr: Kupke s mjehurićima, kupke za pjenjenje
+hu: Habfürdők
+hy: Փրփուրով լոգանքներ
+id: Mandi busa
+is: Froðuböð
+it: Bagni di schiuma
+ja: 泡風呂
+ka: აბაზანები ბუშტებით
+kk: Көпіршікті ванналар
+km: ងូតទឹកពពុះ, ងូតទឹកមានពពុះ
+ko: 거품 목욕
+ky: Көбүктүү ванналар
+lt: Putų vonios
+lv: Burbuļvannas
+mk: Кади со пена
+ms: Mandian buih
+mt: Banjijiet tal-bżieżaq, banjijiet tal-fowm
+nl: Schuimbaden
+no: Boblebad, skumbad
+pl: Kąpiele w pianie
+pt: Banhos de espuma
+ro: Băi cu spumă
+ru: Пенные ванны
+sk: Penové kúpele
+sl: Kopeli z mehurčki
+sq: Banjo me flluska
+sr: Купке са мехурићима
+sv: Bubbelbad, skumbad
+sw: Bafu za Bubble, bafu za povu
+tg: Ваннаҳои ҳубобӣ
+th: อ่างอาบน้ำฟอง
+tk: Köpükli wannalar
+tr: Köpük banyoları
+uk: Ванни з піною
+ur: بلبلا غسل، جھاگ والا غسل
+uz: Ko'pikli vannalar
+vi: Bồn tắm bong bóng
+zh: 泡泡浴
 
 < en:Showers and baths
 en: Bath salts
+ar: أملاح الاستحمام
+az: Vanna duzları
+bg: Соли за вана
+bn: বাথ সল্ট
+ca: Sals de bany
+cs: Koupelové soli
+da: Badesalte
+de: Badesalze
+el: Άλατα μπάνιου
+es: Sales de baño
+et: Vannisoolad
+fa: نمک حمام
+fi: Kylpysuolat
 fr: Sels de bain
+ga: Salainn folctha
+he: מלחי אמבט
+hr: Sol za kupanje
+hu: Fürdősók
+hy: Լոգանքի աղեր
+id: Garam mandi
+is: Baðsölt
+it: Sali da bagno
+ja: バスソルト
+ka: აბაზანის მარილები
+kk: Ваннаға арналған тұздар
+km: អំបិលងូតទឹក
+ko: 입욕제
+ky: Ванна үчүн туздар
+lt: Vonios druskos
+lv: Vannas sāļi
+mk: Соли за капење
+ms: Garam mandian
+mt: Mlieħ tal-banju
+nl: Badzouten
+no: Badesalter
+pl: Sole do kąpieli
+pt: Sais de banho
+ro: Săruri de baie
+ru: Соли для ванн
+sk: Kúpeľové soli
+sl: Soli za kopel
+sq: Kripëra banjo
+sr: Соли за купатило
+sv: Bad salt
+sw: Chumvi za kuoga
+tg: Намакҳои ванна
+th: เกลือแช่ตัว
+tk: Wanna duzlary
+tr: Banyo tuzları
+uk: Сіль для ванн
+ur: نہانے کے نمکیات
+uz: Vanna tuzlari
+vi: Muối tắm
+zh: 浴盐
 wikidata:en: Q798972
 
 < en:Showers and baths
@@ -487,9 +900,60 @@ zh: 个人卫生
 
 < en:Intimate hygiene
 en: Tampons
-es: tampón higiénico
+ar: سدادات قطنية
+az: Tamponlar
+bg: Тампони
+bn: ট্যাম্পন
+ca: Tampons
+cs: Tampony
+da: Tamponer
+de: Tampons
+el: Ταμπόν
+es: Tampón higiénico
+et: Tamponid
+fa: تامپون
+fi: Tamponit
 fr: Tampons hygiéniques, Tampons
+ga: Tamponí
+he: טמפונים
+hr: Tamponi
+hu: Tamponok
+hy: Տամպոններ
+id: Tampon
+is: Tamponar
+it: Tamponi
+ja: タンポン
+ka: ტამპონები
+kk: Тампондар
+km: tampons
+ko: 탐폰
+ky: Тампондор
+lt: Tamponai
+lv: Tamponi
+mk: Тампони
+ms: Tampon
+mt: Tampons
 nl: Tampons
+no: Tamponer
+pl: Tampony
+pt: Tampões
+ro: Tampoane
+ru: Тампоны
+sk: Tampóny
+sl: Tamponi
+sq: Tamponë
+sr: Тампони
+sv: Tamponger
+sw: Tamponi
+tg: Тампонҳо
+th: ผ้าอนามัยแบบสอด
+tk: Tamponlar
+tr: Tamponlar
+uk: Тампони
+ur: ٹیمپون
+uz: Tamponlar
+vi: Tampon
+zh: 卫生棉条
 wikidata:en: Q976338
 
 < fr:Tampons hygiéniques
@@ -497,28 +961,290 @@ fr: Tampons réguliers
 
 < en:Intimate hygiene
 en: Intimate wash gels
+ar: جل غسول للمناطق الحساسة
+az: Intim gigiyena üçün gellər
+bg: Интимни душ гелове
+bn: অন্তরঙ্গ ধোয়ার জেল
+ca: Gels per a la higiene íntima
+cs: Intimní mycí gely
+da: Intimvaskegel
 de: Intimwaschgele
+el: Ζελ για την ευαίσθητη περιοχή
+es: Geles para la higiene íntima
+et: Intiimpesugeelid
+fa: ژل شستشوی بهداشتی
+fi: Intiimipesugeelit
 fr: Gels pour la toilette intime
+ga: Gels nigh intí
+he: ג'ל לשטיפה אינטימית
+hr: Gelovi za intimnu njegu
+hu: Intim mosakodó gélek
+hy: Ինտիմ հիգիենայի գելեր
+id: Gel pembersih area intim
+is: Intimþvottahlaup
+it: Gel per l'igiene intima
+ja: デリケートゾーン用ウォッシュジェル
+ka: ინტიმური დაბანის გელები
+kk: Интимдік гигиенаға арналған гельдер
+km: ជែលលាងសម្អាតសំរាប់តំបន់សំងាត់
+ko: 여성 청결제
+ky: Интимдик гигиена үчүн гельдер
+lt: Intymios higienos prausikliai
+lv: Intīmās higiēnas želejas
+mk: Гелови за интимна хигиена
+ms: Gel cucian intim
+mt: Ġellijiet tal-ħasil intimi
 nl: Intieme wasgels
+no: Intimvaskegeler
+pl: Żele do higieny intymnej
+pt: Géis para a higiene íntima
+ro: Geluri pentru igiena intimă
+ru: Гели для интимной гигиены
+sk: Intímne umývacie gély
+sl: Geli za intimno umivanje
+sq: Xhel për larje intime
+sr: Гелови за интимну хигијену
+sv: Intimtvättsgel
+sw: Jeli za kuogea sehemu za siri
+tg: Гелҳо барои гигиенаи маҳрамона
+th: เจลทำความสะอาดจุดซ่อนเร้น
+tk: Intim gigiýena üçin geller
+tr: İntim yıkama jelleri
+uk: Гелі для інтимної гігієни
+ur: انٹی میٹ واش جیل
+uz: Intim gigiyena uchun gellar
+vi: Gel rửa vệ sinh phụ nữ
+zh: 私处洗液
 
 #### Déodorants
 
 < en:Hygiene
 en: Deodorants
+ar: مزيلات العرق
+az: Deodorantlar
+bg: Дезодоранти
+bn: ডিওডোরেন্ট
+ca: Desodorants
+cs: Deodoranty
+da: Deodoranter
 de: Deodorante, Deodorants, Deo
+el: Αποσμητικά
+es: Desodorantes
+et: Deodorandid
+fa: دئودورانت
+fi: Deodorantit
 fr: Déodorants, Déos, Déo
+ga: Díbholaí
+he: דאודורנטים
+hr: Dezodoransi
+hu: Dezodorok
+hy: Դեզոդորանտներ
+id: Deodoran
+is: Svitalyktareyðar
+it: Deodoranti
+ja: デオドラント
+ka: დეზოდორანტები
+kk: Дезодоранттар
+km: ផលិតផល​កម្ចាត់​ក្លិន
+ko: 데오도란트
+ky: Дезодоранттар
+lt: Dezodorantai
+lv: Dezodoranti
+mk: Дезодоранси
+ms: Deodoran
+mt: Deodoranti
 nl: Deodorant, deodorants, deo
+no: Deodoranter
+pl: Dezodoranty
+pt: Desodorizantes
+ro: Deodorante
+ru: Дезодоранты
+sk: Deodoranty
+sl: Dezodoranti
+sq: Deodorantët
+sr: Дезодоранси
+sv: Deodoranter
+sw: Deodorant
+tg: Дезодорантҳо
+th: ผลิตภัณฑ์ระงับกลิ่นกาย
+tk: Dezodorantlar
+tr: Deodorantlar
+uk: Дезодоранти
+ur: ڈیوڈورینٹ
+uz: Dezodorantlar
+vi: Chất khử mùi
+zh: 除臭剂
 wikidata:en: Q309035
 
 < en:Deodorants
 en: Anti-perspirants
+ar: مضادات التعرق
+az: Terləməyə qarşı vasitələr
+bg: Антиперспиранти
+bn: অ্যান্টি-পারস্পিরেন্ট
+ca: Antitranspirants
+cs: Antiperspiranty
+da: Antiperspiranter
+de: Antitranspirante
+el: Αντιιδρωτικά
+es: Antitranspirantes
+et: Antiperspirandid
+fa: ضد تعریق
+fi: Antiperspirantit
 fr: Déodorants anti-transpirants, Déodorant anti-transpirant, Anti-transpirant
+ga: Frithbhealaí
+he: אנטי-פרספירנטים
+hr: Antiperspiranti
+hu: Izzadásgátlók
+hy: Հակաքրտնագեղձեր
+id: Anti-perspiran
+is: Andsvörunarefni
+it: Antitraspiranti
+ja: 制汗剤
+ka: ანტიპერსპირანტები
+kk: Терге қарсы заттар
+km: ថ្នាំបំបាត់ញើស
+ko: 땀 억제제
+ky: Терге каршы каражаттар
+lt: Antiperspirantai
+lv: Antiperspiranti
+mk: Антиперспиранти
+ms: Anti-perspirant
+mt: Antiprespiranti
+nl: Anti-transpiranten
+no: Antiperspiranter
+pl: Antyperspiranty
+pt: Antitranspirantes
+ro: Antiperspirante
+ru: Антиперспиранты
+sk: Antiperspiranty
+sl: Antiperspiranti
+sq: Antiperspirantët
+sr: Антиперспиранти
+sv: Antiperspiranter
+sw: Vizuia jasho
+tg: Антиперспирантҳо
+th: สารระงับเหงื่อ
+tk: Derlemek garşy serişdeler
+tr: Ter önleyiciler
+uk: Антиперспіранти
+ur: اینٹی پرسپیرنٹ
+uz: Terlashga qarshi vositalar
+vi: Chất chống mồ hôi
+zh: 止汗剂
 
 < en:Deodorants
+en: Foot deodorants, Foot deodorant
+ar: مزيلات العرق للقدمين
+az: Ayaq deodorantları
+bg: Дезодоранти за крака
+bn: পায়ের ডিওডোরেন্ট
+ca: Desodorants per als peus
+cs: Deodoranty na nohy
+da: Fod deodoranter
+de: Fußdeodorants
+el: Αποσμητικά ποδιών
+es: Desodorantes para pies
+et: Jalgade deodorandid
+fa: دئودورانت پا
+fi: Jalkadeodorantit
 fr: Déodorants pieds, Déodorant pied
+ga: Díbholaí coise
+he: דאודורנטים לרגליים
+hr: Dezodoransi za stopala
+hu: Lábdezodorok
+hy: Ոտքերի դեզոդորանտներ
+id: Deodoran kaki
+is: Fótadeodorant
+it: Deodoranti per piedi
+ja: 足用消臭剤
+ka: ფეხის დეზოდორანტები
+kk: Аяққа арналған дезодоранттар
+km: ផលិតផល​កម្ចាត់​ក្លិន​ជើង
+ko: 발 데오도란트
+ky: Бут үчүн дезодоранттар
+lt: Kojų dezodorantai
+lv: Kāju dezodoranti
+mk: Дезодоранси за нозе
+ms: Deodoran kaki
+mt: Deodoranti tas-saqajn
+nl: Voetdeodorants
+no: Fotdeodoranter
+pl: Dezodoranty do stóp
+pt: Desodorizantes para pés
+ro: Deodorante pentru picioare
+ru: Дезодоранты для ног
+sk: Dezodoranty na nohy
+sl: Dezodoranti za noge
+sq: Deodorantë për këmbët
+sr: Дезодоранси за стопала
+sv: Fotdeodoranter
+sw: Deodorant za miguu
+tg: Дезодорантҳои пой
+th: ผลิตภัณฑ์ระงับกลิ่นเท้า
+tk: Aýak üçin dezodorantlar
+tr: Ayak deodorantları
+uk: Дезодоранти для ніг
+ur: پاؤں کے ڈیوڈورنٹ
+uz: Oyoq uchun dezodorantlar
+vi: Chất khử mùi cho chân
+zh: 足部除臭剂
 
 < en:Deodorants
+en: Deodorants sticks, Deodorant stick
+ar: مزيلات العرق الصلبة
+az: Bərk dezodorantlar
+bg: Дезодоранти стик
+bn: ডিওডোরেন্ট স্টিক
+ca: Desodorants en barra
+cs: Tuhé deodoranty
+da: Deodorant sticks
+de: Deodorant-Sticks
+el: Αποσμητικά στικ
+es: Desodorantes en barra
+et: Deodorantpulgad
+fa: استیک های دئودورانت
+fi: Deodoranttistickit
 fr: Déodorants sticks, Déodorant stick
+ga: Bataí díbholaí
+he: סטיקים של דאודורנט
+hr: Dezodoransi u stiku
+hu: Stift dezodorok
+hy: Դեզոդորանտներ ստիկներ
+id: Deodoran stik
+is: Svitalyktareyðarstifti
+it: Deodoranti stick
+ja: デオドラントスティック
+ka: დეზოდორანტის ჩხირები
+kk: Дезодорант таяқшалары
+km: ដុំ​លាប​ក្លៀក
+ko: 데오도란트 스틱
+ky: Дезодорант таякчалары
+lt: Dezodorantų pieštukai
+lv: Dezodorantu zīmuļi
+mk: Дезодоранси во стик
+ms: Deodoran batang
+mt: Stikek tad-deodorant
+nl: Deodorant sticks
+no: Deodorant-stifter
+pl: Dezodoranty w sztyfcie
+pt: Desodorizantes em stick
+ro: Deodorante stick
+ru: Твердые дезодоранты
+sk: Tuhé dezodoranty
+sl: Dezodoranti v stiku
+sq: Deodorantë shkop
+sr: Дезодоранси у стику
+sv: Deodorant-stick
+sw: Vijiti vya deodorant
+tg: Дезодорантҳои сахт
+th: สติ๊กระงับกลิ่นกาย
+tk: Gaty dezodorantlar
+tr: Stick deodorantlar
+uk: Тверді дезодоранти
+ur: ڈیوڈورنٹ اسٹکس
+uz: Qattiq dezodorantlar
+zh: 除臭棒
 
 < en:Deodorants
 en: Roll-on deodorants
@@ -569,7 +1295,6 @@ tk: Roликli dezodorantlar
 tr: Roll-on deodorantlar
 uk: Кулькові дезодоранти
 uz: Rolikli dezodorantlar
-vi: Lăn khử mùi
 zh: 滚珠除臭剂
 
 < en:Deodorants
@@ -628,19 +1353,222 @@ zh: 明矾石除臭剂
 
 < en:Hygiene
 en: Hair removal, Depilation
+ar: إزالة الشعر
+az: Tüklərin təmizlənməsi
+bg: Обезкосмяване, Депилация
+bn: চুল অপসারণ, Depilation
+ca: Depilació
+cs: Odstraňování chloupků, Depilace
+da: Hårfjerning, Depilation
+de: Haarentfernung, Enthaarung
+el: Αποτρίχωση
+es: Depilación
+et: Karvade eemaldamine
+fa: رفع مو، دپیلاسیون
+fi: Karvanpoisto
 fr: Épilation
+ga: Baint gruaige
+he: הסרת שיער
+hr: Uklanjanje dlaka, Depilacija
+hu: Szőrtelenítés
+hy: Մազահեռացում
+id: Penghilangan rambut
+is: Hárfelling
+it: Depilazione
+ja: 脱毛
+ka: თმის მოცილება
+kk: Шаш алу
+km: ការដកសក់
+ko: 제모
+ky: Түктөрдү тазалоо
+lt: Plaukų šalinimas
+lv: Apmatojuma likvidēšana
+mk: Отстранување на влакна
+ms: Penyingkiran rambut
+mt: Tneħħija tax-xagħar
+nl: Ontharing
+no: Hårfjerning
+pl: Depilacja
+pt: Depilação
+ro: Epilare
+ru: Удаление волос
+sk: Odstraňovanie chĺpkov
+sl: Odstranjevanje dlak
+sq: Heqja e qimeve
+sr: Уклањање длака
+sv: Hårborttagning
+sw: Uondoaji wa nywele
+tg: Мӯйҳои барзиёд
+th: การกำจัดขน
+tk: Tüýleri aýyrmak
+tr: Epilasyon
+uk: Видалення волосся
+ur: بالوں کو ہٹانا
+uz: Soch olib tashlash
+vi: Tẩy lông
+zh: 脱毛
 wikidata:en: Q625145
 
 < en:Hair removal
+en: Bleaching gels
+ar: جل تبييض الشعر
+az: Rəngsizləşdirici gellər
+bg: Избелващи гелове
+bn: চুল অপসারণ জেল
+ca: Gels decolorants
+cs: Odbarvovací gely
+da: Afblegningsgeler
+de: Bleichgele
+el: Ζελέ αποχρωματισμού
+es: Geles decolorantes
+et: Pleegitusgeelid
+fa: ژل های سفید کننده مو
+fi: Värinpoistogeelit
 fr: Gels décolorants, gel décolorant
+ga: Gels tuaradh
+he: ג'ל להבהרת שיער
+hr: Gelovi za izbjeljivanje kose
+hu: Szőkítő gélek
+hy: Մազերի գունաթափման գելեր
+id: Gel pemutih rambut
+is: Bleikigel
+it: Gel decoloranti
+ja: 髪の漂白ジェル
+ka: მათეთრებელი გელები
+kk: Ағартқыш гельдер
+km: ជែលលុបបំបាត់សក់
+ko: 탈색 젤
+ky: Агартуучу гельдер
+lt: Balinimo geliai
+lv: Balināšanas želejas
+mk: Гелови за белење на коса
+ms: Gel peluntur rambut
+mt: Ġellijiet li jbajdu x-xagħar
+nl: Bleekgels
+no: Bleikegeler
+pl: Żele rozjaśniające
+pt: Géis descolorantes
+ro: Geluri decolorante
+ru: Обесцвечивающие гели
+sk: Odfarbovacie gély
+sl: Geli za beljenje las
+sq: Xhel zbardhues
+sr: Гелови за избељивање косе
+sv: Blekmedel
+sw: Geli za bleach
+tg: Гелҳои сафедкунандаи мӯй
+th: เจลฟอกสีผม
+tk: Reňksizlendiriji geller
+tr: Saç açıcı jeller
+uk: Гелі для знебарвлення волосся
+ur: بلیچنگ جیل
+uz: Oqartiruvchi gellar
+vi: Gel tẩy tóc
+zh: 漂白凝胶
 
 < en:Hair removal
 en: Post-epilation lotion
+ar: غسول بعد إزالة الشعر
+az: Epilyasiyadan sonra losyon
+bg: Лосион след епилация
+cs: Pleťová voda po depilaci
+da: Lotion efter hårfjerning
+de: Lotion nach der Haarentfernung
+el: Λοσιόν μετά την αποτρίχωση
+es: Loción para después de la depilación
+et: Losjoon pärast depilatsiooni
+fa: لوسیون بعد از اپیلاسیون
+fi: Ihonpoiston jälkeinen lotion
 fr: Lotion post-épilation
+ga: Lóis tar éis epilation
+hr: Losion poslije depilacije
+hu: Epilálás utáni testápoló
+hy: Մազահեռացումից հետո լոսյոն
+id: Losion setelah epilasi
+is: Rakstur eftir háreyðingu
+it: Lozione post-epilazione
+ja: 脱毛後ローション
+ka: ეპილაციის შემდგომი ლოსიონი
+kk: Эпиляциядан кейінгі лосьон
+ko: 제모 후 로션
+ky: Эпиляциядан кийинки лосьон
+lt: Losjonas po depiliacijos
+lv: Losjons pēc epilācijas
+mk: Лосион после депилација
+ms: Losen selepas epilasi
+mt: Lozjoni wara l-epilazzjoni
+nl: Lotion na het ontharen
+no: Lotion etter hårfjerning
+pl: Balsam po depilacji
+pt: Loção pós-depilação
+ro: Loțiune după epilare
+ru: Лосьон после эпиляции
+sk: Pleťová voda po depilácii
+sl: Losjon po depilaciji
+sq: Losion pas depilimit
+sr: Лосион после депилације
+sv: Lotion efter epilering
+sw: Losheni baada ya kuondoa nywele
+tg: Лосьон пас аз эпиляция
+th: โลชั่นหลังการกำจัดขน
+tk: Epilýasiýadan soň losýon
+tr: Epilasyon sonrası losyon
+uk: Лосьйон після епіляції
+uz: Epilasyondan keyin loson
+vi: Sữa dưỡng thể sau tẩy lông
+zh: 脱毛后乳液
 
 < en:Hair removal
 en: Depilatory wax
+ar: شمع مزيل للشعر
+az: Depilýasiya mumu
+bg: Кола маска
+cs: Depilační vosk
+da: Voks til hårfjerning
+de: Enthaarungswachs
+el: Αποτριχωτικό κερί
+es: Cera depilatoria
+et: Depilatsioonivaha
+fa: موم موبر
+fi: Ihokarvojen poistovaha
 fr: Cire épilatoire
+ga: Céir bhaint gruaige
+hr: Vosak za depilaciju
+hu: Gyantázó viasz
+hy: Մազահեռացման մոմ
+id: Lilin waxing
+is: Vax til háreyðingar
+it: Cera depilatoria
+ja: 脱毛ワックス
+ka: ეპილაციის ცვილი
+kk: Эпиляциялық балауыз
+ko: 제모 왁스
+ky: Депиляциялык мом
+lt: Depiliacinis vaškas
+lv: Depilācijas vasks
+mk: Восок за депилација
+ms: Lilin depilatori
+mt: Xama depilatorja
+nl: Hars
+no: Voks
+pl: Wosk do depilacji
+pt: Cera depilatória
+ro: Ceară depilatoare
+ru: Воск для депиляции
+sk: Depilačný vosk
+sl: Vosek za depilacijo
+sq: Dylli depilues
+sr: Восак за депилацију
+sv: Hårvax
+sw: Nta ya kunyolea
+tg: Муми депилятсионӣ
+th: แว็กซ์กำจัดขน
+tk: Depilýasiýa mumy
+tr: Ağda
+uk: Віск для депіляції
+uz: Depilyatsiya mumi
+vi: Sáp tẩy lông
+zh: 脱毛蜡
 wikidata:en: Q47471797
 
 < en:Depilatory wax
@@ -653,7 +1581,60 @@ en: Face depilatory wax
 #### Rasage
 
 en: Shaving
+ar: حلاقة
+az: Qırxmaq
+bg: Бръснене
+bn: কামানো
+ca: Afaitat
+cs: Holení
+da: Barbering
+de: Rasur
+el: Ξύρισμα
+es: Afeitado
+et: Raseerimine
+fa: اصلاح
+fi: Parraajo
 fr: Rasage
+ga: Bearradh
+he: גילוח
+hr: Brijanje
+hu: Borotválkozás
+hy: Սափրվել
+id: Bercukur
+is: Rakstur
+it: Rasatura
+ja: シェービング
+ka: გაპარსვა
+kk: Сақал қыру
+km: កោរសក់
+ko: 면도
+ky: Кырынуу
+lt: Skutimosi
+lv: Skūšanās
+mk: Бричење
+ms: Bercukur
+mt: Tqaxxir
+nl: Scheren
+no: Barbering
+pl: Golenie
+pt: Barbear
+ro: Bărbierit
+ru: Бритьё
+sk: Holenie
+sl: Britje
+sq: Rroje
+sr: Бриjaње
+sv: Rakning
+sw: Kunyoa
+tg: Риш тарошидан
+th: การโกน
+tk: Syrmak
+tr: Tıraş
+uk: Гоління
+ur: شیو
+uz: Soqol olish
+vi: Cạo râu
+zh: 剃须
 
 < en:Shaving
 fr: Avant rasage
@@ -665,25 +1646,278 @@ wikidata:en: Q1545022
 
 < en:Aftershaves
 fr: Lotion post-rasage
+ar: غسول بعد الحلاقة
+az: Tıraşdan sonra losyon
+bg: Лосион след бръснене
+bn: আফটারশেভ লোশন
+ca: Locions per després de l'afaitat
+cs: Voda po holení
+da: Aftershave lotion
+de: Aftershave-Lotion
+el: Λοσιόν για μετά το ξύρισμα
+es: Loción para después del afeitado
+et: Pärast raseerimist losjoon
+fa: لوسیون بعد از اصلاح
+fi: Parranajon jälkeen käytettävä lotion
+ga: Lóis iar-bhearrtha
+he: תחליב לאחר גילוח
+hr: Losion poslije brijanja
+hu: Borotválkozás utáni arcszesz
+hy: Սափրվելուց հետո լոսյոն
+id: Losion setelah bercukur
+it: Lozione dopobarba
+ja: アフターシェーブローション
+ka: პარსვის შემდგომი ლოსიონი
+kk: Сақалдан кейінгі лосьон
+km: ឡេលាបក្រោយកោរ
+ko: 애프터 셰이브 로션
+ky: Кырынгандан кийинки лосьон
+lt: Losjonas po skutimosi
+lv: Losjons pēc skūšanās
+mk: Лосион после бричење
+ms: Losen selepas bercukur
+mt: Lozjoni ta' wara l-leħja
+nl: Aftershavelotion
+no: Aftershave lotion
+pt: Loção pós-barba
+ro: Loțiune după ras
+ru: Лосьон после бритья
+sk: Voda po holení
+sl: Losjon po britju
+sq: Losion pas rroje
+sr: Лосион после бријања
+sv: Aftershavelotion
+sw: Losheni baada ya kunyoa
+tg: Лосьон баъди риш
+th: โลชั่นหลังการโกนหนวด
+tk: Syrylandan soň losýon
+tr: Tıraş sonrası losyon
+uk: Лосьйон після гоління
+ur: آفٹر شیو لوشن
+uz: Soqol olishdan keyin loson
+vi: Sữa dưỡng sau khi cạo râu
+zh: 剃须后乳液
 
 < en:Aftershaves
 fr: Baumes Après-rasage, Lotion Après-rasage, Baume Après-rasage
+ar: بلسم بعد الحلاقة
+az: Tıraşdan sonra balzam
+bg: Балсам след бръснене
+bn: আফটারশেভ বাম
+ca: Bàlsam per després de l'afaitat
+cs: Balzám po holení
+da: Aftershave balsam
+de: Aftershave-Balsam
+el: Βάλσαμο για μετά το ξύρισμα
+es: Bálsamo para después del afeitado
+et: Pärast raseerimist palsam
+fa: بالم بعد از اصلاح
+fi: Parranajon jälkeen käytettävä balsami
+ga: Balm iar-bhearrtha
+he: באלם לאחר גילוח
+hr: Balzam poslije brijanja
+hu: Borotválkozás utáni balzsam
+hy: Սափրվելուց հետո բալզամ
+id: Balsam setelah bercukur
+it: Balsamo dopobarba
+ja: アフターシェーブバーム
+ka: პარსვის შემდგომი ბალზამი
+kk: Сақалдан кейінгі бальзам
+km: បាមបន្ទាប់ពីកោរ
+ko: 애프터 셰이브 밤
+ky: Кырынгандан кийинки бальзам
+lt: Balzamas po skutimosi
+lv: Balzams pēc skūšanās
+mk: Балсам после бричење
+ms: Balm selepas bercukur
+mt: Balzmu ta' wara l-leħja
+nl: Aftershavebalsem
+no: Aftershave balm
+pt: Bálsamo pós-barba
+ro: Balsam după ras
+ru: Бальзам после бритья
+sk: Balzam po holení
+sl: Balzam po britju
+sq: Balsam pas rroje
+sr: Балзам после бријања
+sv: Aftershave balm
+sw: Balsamu baada ya kunyoa
+tg: Балзам баъди риш
+th: บาล์มหลังการโกนหนวด
+tk: Syrylandan soň balzam
+tr: Tıraş sonrası balsam
+uk: Бальзам після гоління
+ur: آفٹر شیو بام
+uz: Soqol olishdan keyin balzam
+vi: Dưỡng chất sau khi cạo râu
+zh: 剃须后香膏
 
 < en:Shaving
 en: Shaving gel
+ar: جل الحلاقة
+az: Tıraş geli
+bg: Гел за бръснене
+cs: Gel na holení
+da: Barbergel
 de: Rasierschaum
+el: Τζελ ξυρίσματος
+es: Gel de afeitado
+et: Raseerimisgeel
+fa: ژل اصلاح
+fi: Parranajogeeli
 fr: Gel de rasage
+ga: Glóthach bearrtha
+hr: Gel za brijanje
+hu: Borotvazselé
+hy: Սափրվելու գել
+id: Gel cukur
+is: Rakgel
+it: Gel da barba
+ja: シェービングジェル
+ka: პარსვის გელი
+kk: Сақал алуға арналған гель
+ko: 쉐이빙 젤
+ky: Кыруу гели
+lt: Skutimosi gelis
+lv: Skūšanās želeja
+mk: Гел за бричење
+ms: Gel pencukur
+mt: Ġel tal-leħja
 nl: Scheergel
+no: Barbergele
+pl: Żel do golenia
+pt: Gel de barbear
+ro: Gel de ras
+ru: Гель для бритья
+sk: Gél na holenie
+sl: Gel za britje
+sq: Xhel rroje
+sr: Гел за бријање
+sv: Raggel
+sw: Gel ya kunyoa
+tg: Гели ришдоркунӣ
+th: เจลโกนหนวด
+tk: Syrmak üçin gel
+tr: Tıraş jeli
+uk: Гель для гоління
+uz: Soqol olish geli
+vi: Gel cạo râu
+zh: 剃须啫喱
 
 < en:Shaving
 en: Shaving foam
+ar: رغوة حلاقة
+az: Tıraş köpüyü
+bg: Пяна за бръснене
+bn: শেভিং ফোম
+ca: Escuma d'afaitar
+cs: Pěna na holení
+da: Barberskum
+el: Αφρός ξυρίσματος
+es: Espuma de afeitar
+et: Habemeajamiskreem
+fa: فوم اصلاح
+fi: Parranajovaahto
 fr: Mousse à raser, crème à raser
+ga: Cúm bearrtha
+he: קצף גילוח
+hr: Pjena za brijanje
+hu: Borotvahab
+hy: Սափրվելու փրփուր
+id: Busa cukur
+is: Rakfroða
+it: Schiuma da barba
+ja: シェービングフォーム
+ka: პარსვის ქაფი
+kk: Сақал алуға арналған көбік
+km: ហ្វូមកោរ
+ko: 쉐이빙 폼
+ky: Кыруу көбүгү
+lt: Skutimosi putos
+lv: Skūšanās putas
+mk: Пена за бричење
+ms: Buih pencukur
+mt: Fowm tal-leħja
+nl: Scheerschuim
+no: Barberskum
+pl: Pianka do golenia
+pt: Espuma de barbear
+ro: Spumă de ras
+ru: Пена для бритья
+sk: Pena na holenie
+sl: Pena za britje
+sq: Shkumë rroje
+sr: Пена за бријање
+sv: Raktvål
+sw: Povu la kunyoa
+tg: Кафки риштарошӣ
+th: โฟมโกนหนวด
+tk: Syrmak köpügi
+tr: Tıraş köpüğü
+uk: Піна для гоління
+ur: شیو کرنے والا جھاگ
+uz: Soqol olish uchun ko'pik
+vi: Bọt cạo râu
+zh: 剃须泡沫
 wikidata:en: Q413152
 
 < en:Shaving
 < en:Soaps
 en: Shaving soaps, Shaving soap
+ar: صابون الحلاقة
+az: Tıraş sabunları
+bg: Сапуни за бръснене
+bn: শেভিং সাবান
+ca: Sabons d'afaitar
+cs: Mýdla na holení
+da: Barbersæber
+de: Rasierseifen
+el: Σαπούνια ξυρίσματος
+es: Jabones de afeitar
+et: Raseerimisseebid
+fa: صابون اصلاح
+fi: Parranajosaippuat
 fr: Savons à raser, Savon à raser, Savons à barbe, Savon à barbe
+ga: Gallúnacha bearrtha
+he: סבוני גילוח
+hr: Sapuni za brijanje
+hu: Borotvaszappanok
+hy: Սափրվելու օճառներ
+id: Sabun cukur
+is: Rakburðarsápur
+it: Saponi da barba
+ja: シェービングソープ
+ka: პარსვის საპნები
+kk: Сақал алу сабындары
+km: សាប៊ូកោរ
+ko: 면도 비누
+ky: Кыруу самындары
+lt: Skutimosi muilai
+lv: Skūšanās ziepes
+mk: Сапуни за бричење
+ms: Sabun pencukur
+mt: Sapun tas-shaving
+nl: Scheerzepen
+no: Barbersåper
+pl: Mydła do golenia
+pt: Sabões de barbear
+ro: Săpunuri de ras
+ru: Мыло для бритья
+sk: Mydlá na holenie
+sl: Mila za britje
+sq: Sapunë rroje
+sr: Сапуни за бријање
+sv: Raklödder
+sw: Sabuni za kunyoa
+tg: Соуни риштарошӣ
+th: สบู่โกนหนวด
+tk: Syrmak sabynlary
+tr: Tıraş sabunları
+uk: Мило для гоління
+ur: شیو کرنے والے صابن
+uz: Soqol olish sovunlari
+vi: Xà phòng cạo râu
+zh: 剃须皂
 wikidata:en: Q1189777
 
 
@@ -695,30 +1929,317 @@ nl: Lichaam
 
 < en:Body
 en: Body milks
+ar: حليب الجسم
+az: Bədən sütləri
+bg: Мляко за тяло
+bn: বডি মিল্ক
+ca: Llets corporals
+cs: Tělová mléka
+da: Bodylotion
+de: Körpermilch
+el: Γαλακτώματα σώματος
+es: Leches corporales
+et: Kehapiimad
+fa: شیر بدن
 fr: Laits pour le corps, laits corporels, Lait pour le corps, Lait corporel
+ga: Bainne coirp
+he: חלב גוף
+hr: Mlijeko za tijelo
+hu: Testápoló tejek
+hy: Մարմնի կաթ
+id: Susu tubuh
+it: Latti per il corpo
+ja: ボディミルク
+ka: ტანის რძე
+kk: Дене сүті
+km: ទឹកដោះគោ
+ko: 바디 밀크
+ky: Дене сүтү
+lt: Kūno pienelis
+lv: Ķermeņa pieniņš
+mk: Млеко за тело
+ms: Susu badan
+mt: Ħalib tal-ġisem
 nl: Bodymelk, bodymelken
+no: Kroppsmelk
+pl: Mleczka do ciała
+pt: Leites corporais
+ro: Lapte de corp
+ru: Молочко для тела
+sk: Telové mlieka
+sl: Mleko za telo
+sq: Qumësht për trupin
+sr: Млеко за тело
+sv: Kroppsmjölk
+sw: Maziwa ya mwili
+tg: Шири бадан
+th: บอดี้มิลค์
+tk: Ten süýdi
+tr: Vücut sütleri
+uk: Молочко для тіла
+ur: باڈی ملک
+uz: Tana suti
+vi: Sữa dưỡng thể
+zh: 身体乳
 wikidata:en: Q18011764
 
 < en:Body
 en: Body creams
+ar: كريمات الجسم
+az: Bədən kremləri
+bg: Кремове за тяло
+cs: Tělové krémy
+da: Bodycremer
+de: Körpercremes
+el: Κρέμες σώματος
+es: Cremas corporales
+et: Kehakreemid
+fa: کرم های بدن
 fr: Crèmes pour le corps, crèmes corporelles, Crème pour le corps, Crème corporelle
+ga: Uachtair choirp
+hr: Kreme za tijelo
+hu: Testápolók
+hy: Մարմնի կրեմներ
+id: Krim tubuh
+it: Creme per il corpo
+ja: ボディクリーム
+ka: ტანის კრემები
+kk: Денеге арналған кремдер
+ko: 바디 크림
+ky: Дене кремдери
+lt: Kūno kremai
+lv: Ķermeņa krēmi
+mk: Креми за тело
+ms: Krim badan
+mt: Kremi tal-ġisem
+nl: Bodycrèmes
+no: Kroppskremer
+pl: Kremy do ciała
+pt: Cremes corporais
+ro: Creme de corp
+ru: Кремы для тела
+sk: Telové krémy
+sl: Kreme za telo
+sq: Krema për trupin
+sr: Креме за тело
+sv: Kroppskrämer
+sw: Losheni za mwili
+tg: Кремҳои бадан
+th: ครีมทาผิว
+tk: Ten kremleri
+tr: Vücut kremleri
+uk: Креми для тіла
+uz: Tana kremlari
+vi: Kem dưỡng thể
+zh: 身体乳霜
 
 < en:Body creams
+ar: كريمات للقدم
+az: Ayaq kremləri
+bg: Кремове за крака
+cs: Krémy na nohy
+da: Fodcremer
+de: Fußcremes
+el: Κρέμες ποδιών
+es: Cremas para pies
+et: Jalgade kreemid
+fa: کرم های پا
+fi: Jalkavoiteet
 fr: Crèmes pour les pieds, Crème pour les pieds
+ga: Uachtair coise
+hr: Kreme za stopala
+hu: Lábkrémek
+hy: Ոտքերի կրեմներ
+id: Krim kaki
+is: Fótkrem
+it: Creme per i piedi
+ja: フットクリーム
+ka: ფეხის კრემები
+kk: Аяққа арналған кремдер
+ko: 발 크림
+ky: Бут кремдери
+lt: Kojų kremai
+lv: Kāju krēmi
+mk: Креми за нозе
+ms: Krim kaki
+mt: Kremi tas-saqajn
 nl: Voetencrèmes
+no: Fotkremer
+pl: Kremy do stóp
+pt: Cremes para os pés
+ro: Creme pentru picioare
+ru: Кремы для ног
+sk: Krémy na nohy
+sl: Kreme za noge
+sq: Krema për këmbët
+sr: Креме за стопала
+sv: Fotkrämer
+sw: Losheni za miguu
+tg: Кремҳои пой
+th: ครีมทาเท้า
+tk: Aýak kremleri
+tr: Ayak kremleri
+uk: Креми для ніг
+uz: Oyoq kremlari
+vi: Kem dưỡng da chân
+zh: 护脚霜
 
 < en:Body creams
 fr: Baumes et beurres pour le corps, baumes et beurres corporels
 
 < en:Body creams
+ar: كريمات مرطبة
+az: Nəmləndirici kremlər
+bg: Хидратиращи кремове
+cs: Hydratační krémy
+da: Fugtighedscremer
+de: Feuchtigkeitscremes
+el: Ενυδατικές κρέμες
+es: Cremas hidratantes
+et: Niisutavad kreemid
+fa: کرم های مرطوب کننده
+fi: Kosteusvoiteet
 fr: Crèmes hydratantes, Crème hydratante
+ga: Uachtair taise
+hr: Hidratantne kreme
+hu: Hidratáló krémek
+hy: Խոնավեցնող կրեմներ
+id: Krim pelembab
+is: Rakakrem
+it: Creme idratanti
+ja: 保湿クリーム
+ka: დამატენიანებელი კრემები
+kk: Ылғалдандыратын кремдер
+ko: 보습 크림
+ky: Нымдандыруучу кремдер
+lt: Drėkinamieji kremai
+lv: Mitrinoši krēmi
+mk: Хидратантни креми
+ms: Krim pelembap
+mt: Kremi idratanti
+nl: Hydraterende crèmes
+no: Fuktighetskremer
+pl: Kremy nawilżające
+pt: Cremes hidratantes
+ro: Creme hidratante
+ru: Увлажняющие кремы
+sk: Hydratačné krémy
+sl: Vlažilne kreme
+sq: Kremra hidratuese
+sr: Хидратантне креме
+sv: Fuktkrämer
+sw: Losheni za kulainisha
+tg: Кремҳои намноккунанда
+th: ครีมให้ความชุ่มชื้น
+tk: Çyglylandyryjy kremler
+tr: Nemlendirici kremler
+uk: Зволожуючі креми
+uz: Namlovchi kremlar
+vi: Kem dưỡng ẩm
+zh: 保湿霜
 
 < en:Body
 en: Body oils
+ar: زيوت الجسم
+az: Bədən yağları
+bg: Масла за тяло
+cs: Tělové oleje
+da: Kropsolier
+de: Körperöle
+el: Λάδια σώματος
+es: Aceites corporales
+et: Kehaõlid
+fa: روغن های بدن
+fi: Vartaloöljyt
 fr: Huiles pour le corps, huiles corporelles, Huile pour le corps, Huile corporelle
+ga: Ola choirp
+hr: Ulja za tijelo
+hu: Testolajok
+hy: Մարմնի յուղեր
+id: Minyak tubuh
+is: Líkamolíur
+it: Oli per il corpo
+ja: ボディオイル
+ka: ტანის ზეთები
+kk: Дене майлары
+ko: 바디오일
+ky: Дене майлары
+lt: Kūno aliejai
+lv: Ķermeņa eļļas
+mk: Масла за тело
+ms: Minyak badan
+mt: Żjut tal-ġisem
+nl: Bodyoliën
+no: Kroppsoljer
+pl: Olejki do ciała
+pt: Óleos corporais
+ro: Uleiuri de corp
+ru: Масла для тела
+sk: Telové oleje
+sl: Olja za telo
+sq: Vajra për trupin
+sr: Уља за тело
+sv: Kroppsoljor
+sw: Mafuta ya mwili
+tg: Равғанҳои бадан
+th: น้ำมันทาผิว
+tk: Ten ýaglary
+tr: Vücut yağları
+uk: Олії для тіла
+uz: Tana yog'lari
+vi: Dầu dưỡng thể
+zh: 身体油
 
 < en:Body oils
+ar: زيت التدليك
+az: Masaj yağı
+bg: Масажно олио
+cs: Masážní olej
+da: Massageolie
+de: Massageöl
+el: Λάδι μασάζ
+es: Aceite de masaje
+et: Massaažiõli
+fa: روغن ماساژ
+fi: Hierojaöljy
 fr: Huile de massage
+ga: Ola suathaireachta
+hr: Ulje za masažu
+hu: Masszázsolaj
+hy: Մերսման յուղ
+id: Minyak pijat
+is: Nuddaolía
+it: Olio da massaggio
+ja: マッサージオイル
+ka: მასაჟის ზეთი
+kk: Массаж майы
+ko: 마사지 오일
+ky: Массаж майы
+lt: Masažinis aliejus
+lv: Masāžas eļļa
+mk: Масло за масажа
+ms: Minyak urut
+mt: Żejt tal-massaġġi
+nl: Massageolie
+no: Massasjeolje
+pl: Olejek do masażu
+pt: Óleo de massagem
+ro: Ulei de masaj
+ru: Массажное масло
+sk: Masážny olej
+sl: Masažno olje
+sq: Vaj masazhi
+sr: Уље за масажу
+sv: Massageolja
+sw: Mafuta ya masaji
+tg: Равғани масҳ
+th: น้ำมันนวด
+tk: Massaž ýagy
+tr: Masaj yağı
+uk: Масажна олія
+uz: Massaj yog'i
+vi: Dầu mát-xa
+zh: 按摩油
 
 < fr:Huile de massage
 fr: Huile de massage comestible
@@ -742,6 +2263,59 @@ fr: Gommages pour le corps, Gommages corporels, Gommage pour le corps, Gommage c
 
 < en:Body
 fr: Soins pour les jambes, Soin pour les jambes
+ar: العناية بالساقين
+az: Ayaq baxımı
+bg: Грижа за краката
+bn: পায়ের যত্ন
+ca: Cura de les cames
+cs: Péče o nohy
+da: Benpleje
+de: Beine Pflege
+el: Φροντίδα ποδιών
+es: Cuidado de las piernas
+et: Jalgade hooldus
+fa: مراقبت از پا
+fi: Jalkojen hoito
+ga: Cúram cos
+he: טיפוח רגליים
+hr: Njega stopala
+hu: Lábápolás
+hy: Ոտքերի խնամք
+id: Perawatan kaki
+is: Fótaaðgát
+it: Cura delle gambe
+ja: 脚のケア
+ka: ფეხის მოვლა
+kk: Аяқ күтімі
+km: ការថែរក្សាជើង
+ko: 다리 관리
+ky: Бутту күтүү
+lt: Kojų priežiūra
+lv: Kāju kopšana
+mk: Нега на нозете
+ms: Penjagaan kaki
+mt: Kura tas-saqajn
+nl: Beenverzorging
+no: Benpleie
+pl: Pielęgnacja nóg
+pt: Cuidados com as pernas
+ro: Îngrijirea picioarelor
+ru: Уход за ногами
+sk: Starostlivosť o nohy
+sl: Nega stopal
+sq: Kujdesi i këmbëve
+sr: Нега стопала
+sv: Benvård
+sw: Utunzaji wa miguu
+tg: Нигоҳубини пойҳо
+th: การดูแลขา
+tk: Aýak idegi
+tr: Bacak bakımı
+uk: Догляд за ногами
+ur: ٹانگوں کی دیکھ بھال
+uz: Oyoq parvarishi
+vi: Chăm sóc chân
+zh: 腿部护理
 
 < en:Body
 en: Bust, Bust care
@@ -749,9 +2323,55 @@ fr: Buste, Soins du buste, Soin du buste
 
 < en:Body
 en: Hand creams
+ar: كريمات اليد
+az: Əl kremləri
+bg: Кремове за ръце
+cs: Krémy na ruce
+da: Håndcremer
 de: Handcremes
+el: Κρέμες χεριών
+es: Cremas de manos
+et: Kätekreemid
+fa: کرم دست
+fi: Käsivoiteet
 fr: Crèmes pour les mains, Crème pour les mains, crèmes mains, crème mains
+ga: Uachtair láimhe
+hr: Kreme za ruke
+hu: Kézkrémek
+hy: Ձեռքի կրեմներ
+id: Krim tangan
+is: Handáburður
+it: Creme per le mani
+ja: ハンドクリーム
+ka: ხელის კრემები
+kk: Қолға арналған кремдер
+ko: 핸드 크림
+ky: Кол кремдери
+lt: Rankų kremai
+lv: Roku krēmi
+mk: Креми за раце
+ms: Krim tangan
+mt: Kremi tal-idejn
 nl: Handcrèmes
+no: Håndkremer
+pl: Kremy do rąk
+pt: Cremes para as mãos
+ro: Creme de mâini
+ru: Кремы для рук
+sk: Krémy na ruky
+sl: Kreme za roke
+sq: Krema për duar
+sr: Креме за руке
+sv: Handkrämer
+sw: Losheni za mikono
+tg: Кремҳои дастӣ
+th: ครีมทามือ
+tk: El kremleri
+tr: El kremleri
+uk: Креми для рук
+uz: Qo'l kremlari
+vi: Kem dưỡng da tay
+zh: 护手霜
 
 ###### CATEGORIE VISAGE
 
@@ -763,23 +2383,221 @@ nl: Gezicht
 
 < en:Face
 en: Facial creams, face creams
+ar: كريمات للوجه
+az: Üz kremləri
+bg: Кремове за лице
+bn: মুখের ক্রিম
+ca: Cremes facials
+cs: Pleťové krémy
+da: Ansigtscremer
 de: Gesichtscremes
+el: Κρέμες προσώπου
+es: Cremas faciales
+et: Näokreemid
+fa: کرم های صورت
+fi: Kasvovoiteet
 fr: Crèmes pour le visage, Crème pour le visage, crèmes visage, crème visage
+ga: Uachtair facial
+he: קרמי פנים
+hr: Kreme za lice
+hu: Arckrémek
+hy: Դեմքի կրեմներ
+id: Krim wajah
+is: Andlitskrem
+it: Creme per il viso
+ja: フェイシャルクリーム
+ka: სახის კრემები
+kk: Бетке арналған кремдер
+km: ក្រែមលាបមុខ
+ko: 얼굴 크림
+ky: Бет креми
+lt: Veido kremai
+lv: Sejas krēmi
+mk: Креми за лице
+ms: Krim muka
+mt: Kremi tal-wiċċ
 nl: Gezichtscrèmes
+no: Ansiktskremer
+pl: Kremy do twarzy
+pt: Cremes faciais
+ro: Creme de față
+ru: Кремы для лица
+sk: Pleťové krémy
+sl: Kreme za obraz
+sq: Krema për fytyrën
+sr: Креме за лице
+sv: Ansiktskrämer
+sw: Losheni za uso
+tg: Кремҳои рӯй
+th: ครีมทาหน้า
+tk: Ýüz kremleri
+tr: Yüz kremleri
+uk: Креми для обличчя
+ur: چہرے کی کریمیں
+uz: Yuz kremlari
+vi: Kem dưỡng da mặt
+zh: 面霜
 
 < en:Facial creams
 en: Day creams
+ar: كريمات النهار
+az: Gündüz kremləri
+bg: Дневни кремове
+cs: Denní krémy
+da: Dagcremer
+de: Tagescremes
+el: Κρέμες ημέρας
+es: Cremas de día
+et: Päevakreemid
+fa: کرم های روز
+fi: Päivävoiteet
 fr: Crèmes de jour, Crème de jour
+ga: Uachtair lae
+hr: Dnevne kreme
+hu: Nappali krémek
+hy: Ցերեկային կրեմներ
+id: Krim siang
+is: Dagkrem
+it: Creme da giorno
+ja: デイクリーム
+ka: დღის კრემები
+kk: Күндізгі кремдер
+ko: 데이 크림
+ky: Күндүзгү кремдер
+lt: Dieniniai kremai
+lv: Dienas krēmi
+mk: Дневни креми
+ms: Krim siang
+mt: Kremi ta' matul il-jum
 nl: Dagcrèmes
+no: Dagkremer
+pl: Kremy na dzień
+pt: Cremes de dia
+ro: Creme de zi
+ru: Дневные кремы
+sk: Denné krémy
+sl: Dnevne kreme
+sq: Krema dite
+sr: Дневне креме
+sv: Dagkrämer
+sw: Losheni za mchana
+tg: Кремҳои рӯзона
+th: เดย์ครีม
+tk: Gündiz kremleri
+tr: Gündüz kremleri
+uk: Денні креми
+uz: Kunduzgi kremlar
+vi: Kem dưỡng da ban ngày
+zh: 日霜
 
 < en:Facial creams
 en: Night creams
+ar: كريمات ليلية
+az: Gecə kremləri
+bg: Нощни кремове
+cs: Noční krémy
+da: Natcremer
+de: Nachtcremes
+el: Κρέμες νύχτας
+es: Cremas de noche
+et: Öökreemid
+fa: کرم های شب
+fi: Yövoiteet
 fr: Crèmes de nuit, Crème de nuit, Soin de nuit
+ga: Uachtair oíche
+hr: Noćne kreme
+hu: Éjszakai krémek
+hy: Գիշերային կրեմներ
+id: Krim malam
+is: Næturkrem
+it: Creme da notte
+ja: ナイトクリーム
+ka: ღამის კრემები
+kk: Түнгі кремдер
+ko: 나이트 크림
+ky: Түнкү кремдер
+lt: Naktiniai kremai
+lv: Nakts krēmi
+mk: Ноќни креми
+ms: Krim malam
+mt: Kremi ta' bil-lejl
 nl: Nachtcrèmes
+no: Nattkremer
+pl: Kremy na noc
+pt: Cremes noturnos
+ro: Creme de noapte
+ru: Ночные кремы
+sk: Nočné krémy
+sl: Nočne kreme
+sq: Krema nate
+sr: Ноћне креме
+sv: Nattkrämer
+sw: Losheni za usiku
+tg: Кремҳои шабона
+th: ไนท์ครีม
+tk: Gijeki kremler
+tr: Gece kremleri
+uk: Нічні креми
+uz: Tunik kremlar
+vi: Kem đêm
+zh: 晚霜
 
 < en:Facial creams
 en: Day and night creams
+ar: كريمات النهار والليل
+az: Gündüz və gecə kremləri
+bg: Дневни и нощни кремове
+bn: দিন ও রাতের ক্রিম
+ca: Cremes de dia i de nit
+cs: Denní a noční krémy
+da: Dag- og natcremer
+de: Tages- und Nachtcremes
+el: Κρέμες ημέρας και νύχτας
+es: Cremas de día y de noche
+et: Päeva- ja öökreemid
+fa: کرم های روز و شب
+fi: Päivä- ja yövoiteet
 fr: Crèmes jour et nuit, Crèmes jour et nuit, Soin jour et nuit
+ga: Uachtair lae agus oíche
+he: קרמי יום ולילה
+hr: Dnevne i noćne kreme
+hu: Nappali és éjszakai krémek
+hy: Ցերեկային և գիշերային կրեմներ
+id: Krim siang dan malam
+is: Dag- og næturkrem
+it: Creme giorno e notte
+ja: デイ＆ナイトクリーム
+ka: დღისა და ღამის კრემები
+kk: Күндізгі және түнгі кремдер
+km: ក្រែមថ្ងៃនិងយប់
+ko: 데이 앤 나이트 크림
+ky: Күндүзгү жана түнкү кремдер
+lt: Dieniniai ir naktiniai kremai
+lv: Dienas un nakts krēmi
+mk: Дневни и ноќни креми
+ms: Krim siang dan malam
+mt: Kremi ta' nhar u ta' billejl
+nl: Dag- en nachtcrèmes
+no: Dag- og nattkremer
+pl: Kremy na dzień i na noc
+pt: Cremes de dia e de noite
+ro: Creme de zi și de noapte
+ru: Дневные и ночные кремы
+sk: Denné a nočné krémy
+sl: Dnevne in nočne kreme
+sq: Krema dite dhe nate
+sr: Дневне и ноћне креме
+sv: Dag- och nattkrämer
+sw: Krimu za mchana na usiku
+tg: Кремҳои рӯзона ва шабона
+th: ครีมบำรุงผิวหน้ากลางวันและกลางคืน
+tk: Gündiz we gije kremleri
+tr: Gündüz ve gece kremleri
+uk: Денні та нічні креми
+ur: دن اور رات کی کریمیں
+uz: Kunduzgi va tungi kremlar
+vi: Kem ngày và đêm
+zh: 日霜和晚霜
 
 < en:Facial creams
 en: Anti-aging face care products
@@ -787,7 +2605,55 @@ fr: Soins anti-âge visage, Crête anti-âge visage
 
 < en:Anti-aging face care products
 en: Anti-wrinkles creams
+ar: كريمات مضادة للتجاعيد
+az: Qırışlara qarşı kremlər
+bg: Кремове против бръчки
+cs: Krémy proti vráskám
+da: Anti-rynkecremer
+de: Anti-Falten-Cremes
+el: Κρέμες κατά των ρυτίδων
+es: Cremas antiarrugas
+et: Kortsudevastased kreemid
+fa: کرم های ضد چروک
+fi: Ryppyvoiteet
 fr: Crèmes anti-rides, Crème anti-rides, Soins anti-rides
+ga: Uachtair frithroctha
+hr: Kreme protiv bora
+hu: Ránctalanító krémek
+hy: Կնճիռների դեմ կրեմներ
+id: Krim anti kerut
+is: Hrukkuvarnarkrem
+it: Creme antirughe
+ja: しわ防止クリーム
+ka: ნაოჭების საწინააღმდეგო კრემები
+kk: Әжімге қарсы кремдер
+ko: 주름 방지 크림
+ky: Бырышка каршы кремдер
+lt: Kremai nuo raukšlių
+lv: Pretmīmikas krēmi
+mk: Креми против брчки
+ms: Krim anti kedut
+mt: Kremi kontra t-tikmix
+nl: Anti-rimpelcrèmes
+no: Anti-rynkekremer
+pl: Kremy przeciwzmarszczkowe
+pt: Cremes anti-rugas
+ro: Creme anti-rid
+ru: Кремы против морщин
+sk: Krémy proti vráskam
+sl: Kreme proti gubam
+sq: Krema kundër rrudhave
+sr: Креме против бора
+sv: Anti-rynkkrämer
+sw: Krimu za kuzuia mikunjo
+tg: Кремҳои зидди узвҳо
+th: ครีมลดเลือนริ้วรอย
+tk: Gyrmyza garşy kremler
+tr: Kırışıklık karşıtı kremler
+uk: Креми проти зморшок
+uz: Ajinlarga qarshi kremlar
+vi: Kem chống nhăn
+zh: 抗皱霜
 
 ####
 
@@ -800,16 +2666,173 @@ fr: Gommages visage, Gommage visage
 
 < en:Face
 en: Face masks
+ar: أقنعة الوجه
+az: Üz maskaları
+bg: Маски за лице
+bn: মুখের মাস্ক
+ca: Màscares facials
+cs: Pleťové masky
+da: Ansigtsmasker
+de: Gesichtsmasken
+el: Μάσκες προσώπου
+es: Mascarillas faciales
+et: Näomaskid
+fa: ماسک صورت
+fi: Kasvonaamiot
 fr: Masques visage, Masque visage
+ga: Mascanna aghaidhe
+he: מסכות פנים
+hr: Maske za lice
+hu: Arcmaszkok
+hy: Դիմակի դիմակներ
+id: Masker wajah
+is: Andlitsmaskar
+it: Maschere per il viso
+ja: フェイスマスク
+ka: სახის ნიღბები
+kk: Бет маскалары
+km: ម៉ាសបិទមុខ
+ko: 마스크팩
+ky: Бет маскалары
+lt: Veido kaukės
+lv: Sejas maskas
+mk: Маски за лице
+ms: Topeng muka
+mt: Maskri tal-wiċċ
 nl: Gezichtmasker, gezichtmaskers
+no: Ansiktsmasker
+pl: Maseczki do twarzy
+pt: Máscaras faciais
+ro: Măști de față
+ru: Маски для лица
+sk: Pleťové masky
+sl: Maske za obraz
+sq: Maskë fytyre
+sr: Маске за лице
+sv: Ansiktsmasker
+sw: Maski za uso
+tg: Ниқобҳои рӯй
+th: มาส์กหน้า
+tk: Ýüz maskalary
+tr: Yüz maskeleri
+uk: Маски для обличчя
+ur: چہرے کے ماسک
+uz: Yuz maskalari
+vi: Mặt nạ
+zh: 面膜
 
 < en:Face
 en: Lip balms, lip cares
+ar: مرطبات شفاه
+az: Dodaq balzamları
+bg: Балсами за устни
+bn: লিপ বাম, লিপ কেয়ার
+ca: Bàlsams labials
+cs: Balzámy na rty
+da: Læbepomader
+de: Lippenpflegestifte, Lippenschutzstifte, Lippenpflegestift
+el: Βάλσαμα για χείλη
+es: Bálsamos labiales
+et: Huulepalsamid
+fa: بالم لب
+fi: Huulivoiteet
 fr: Baumes à lèvres, Baume à lèvres, Soins des lèvres, Soin des lèvres, Soin à lèvres, Soins à lèvres
+ga: Balm liopaí
+he: משחות שפתיים
+hr: Balzami za usne
+hu: Ajakbalzsamok
+hy: Շրթունքի բալզամներ
+id: Pelembap bibir
+is: Varasalvar
+it: Balsami per labbra
+ja: リップクリーム
+ka: ტუჩის ბალზამები
+kk: Ерін бальзамдары
+km: ក្រែមលាបមាត់
+ko: 립밤
+ky: Эрин бальзамдары
+lt: Lūpų balzamai
+lv: Lūpu balzami
+mk: Балсами за усни
+ms: Balm bibir
+mt: Balzmi tax-xufftejn
+nl: Lippenbalsem
+no: Leppepomader
+pl: Balsamy do ust
+pt: Bálsamos labiais
+ro: Balsamuri de buze
+ru: Бальзамы для губ
+sk: Balzamy na pery
+sl: Balzami za ustnice
+sq: Balsame për buzë
+sr: Балзами за усне
+sv: Läppbalsam
+sw: Mafuta ya midomo
+tg: Балзамҳои лаб
+th: ลิปบาล์ม
+tk: Dodak melhemleri
+tr: Dudak balmları
+uk: Бальзами для губ
+ur: ہونٹ بام
+uz: Lab balzamlari
+vi: Son dưỡng môi
+zh: 润唇膏
 
 < en:Face
 en: Cleansers, makeup removers
+ar: منظفات ، مزيلات المكياج
+az: Təmizləyicilər, makiyaj təmizləyiciləri
+bg: Почистващи препарати, препарати за премахване на грим
+bn: ক্লিনজার, মেকআপ রিমুভার
+ca: Netegadors, desmaquillants
+cs: Čisticí prostředky, odličovače
+da: Rensemidler, makeupfjernere
+de: Reiniger, Make-up-Entferner
+el: Καθαριστικά, ντεμακιγιάζ
+es: Limpiadores, desmaquillantes
+et: Puhastusvahendid, meigieemaldajad
+fa: پاک کننده ها، پاک کننده های آرایش
+fi: Puhdistusaineet, meikinpoistoaineet
 fr: Démaquillants
+ga: Glantóirí, bainisteoirí smididh
+he: תכשירי ניקוי, מסיר איפור
+hr: Sredstva za čišćenje, sredstva za uklanjanje šminke
+hu: Arctisztítók, sminklemosók
+hy: Մաքրող միջոցներ, դիմահարդարման հեռացնող միջոցներ
+id: Pembersih, penghapus riasan
+is: Hreinsiefni, förðunarfjarlægir
+it: Detergenti, struccanti
+ja: クレンザー、メーク落とし
+ka: გამწმენდი საშუალებები, მაკიაჟის მოსაშორებელი საშუალებები
+kk: Тазалағыштар, макияж тазалағыштар
+km: សារធាតុសម្អាត, ឧបករណ៍ដកគ្រឿងសម្អាង
+ko: 클렌저, 메이크업 리무버
+ky: Тазалоочу каражаттар, макияжды тазалоочу каражаттар
+lt: Valikliai, makiažo valikliai
+lv: Attīrīšanas līdzekļi, kosmētikas noņēmēji
+mk: Средства за чистење, отстранувачи на шминка
+ms: Pembersih, penanggal solekan
+mt: Cleaners, removers tal-make-up
+nl: Reinigers, make-up removers
+no: Rensemidler, sminkefjernere
+pl: Oczyszczacze, zmywacze do makijażu
+pt: Produtos de limpeza, removedores de maquiagem
+ro: Demachiante, demachiante
+ru: Очищающие средства, средства для снятия макияжа
+sk: Čistiace prostriedky, odličovače
+sl: Čistila, odstranjevalci ličil
+sq: Pastrues, heqës të grimit
+sr: Средства за чишћење, средства за уклањање шминке
+sv: Rengöringsmedel, sminkborttagare
+sw: Visafishaji, viondoa vipodozi
+tg: Тозакунакҳо, тозакунакҳои ороиш
+th: คลีนเซอร์, ที่ล้างเครื่องสำอาง
+tk: Arassalaýjylar, makýaž arassalaýjylar
+tr: Temizleyiciler, makyaj temizleyicileri
+uk: Засоби для чищення, засоби для зняття макіяжу
+ur: صاف کرنے والے، میک اپ ہٹانے والے
+uz: Tozalovchilar, makiyaj tozalovchilar
+zh: 洁面乳，卸妆液
 wikidata:en: Q2549529
 
 < en:Cleansers
@@ -918,16 +2941,174 @@ zh: 胶束水
 
 < en:Cleansers
 en: Cleansing milks, Cleansing milk
+ar: حليب منظف
+az: Təmizləyici südlər
+bg: Почистващо мляко
+bn: পরিষ্কারক দুধ
+ca: Llets netejadores
+cs: Čisticí mléka
+da: Rensemælk
+de: Reinigungsmilch
+el: Γαλάκτωμα καθαρισμού
+es: Leches limpiadoras
+et: Puhastuspiimad
+fa: شیر پاک کننده
+fi: Puhdistusmaidot
 fr: Laits démaquillants, laits démaquillant
+ga: Bainne glantacháin
+he: חלב ניקוי
+hr: Mlijeko za čišćenje
+hu: Arctej
+hy: Մաքրող կաթ
+id: Susu pembersih
+is: Hreinsimjólk
+it: Latti detergenti
+ja: クレンジングミルク
+ka: გამწმენდი რძე
+kk: Тазартқыш сүт
+km: ទឹកដោះគោសំអាត
+ko: 클렌징 밀크
+ky: Тазалоочу сүт
+lt: Valomasis pienelis
+lv: Attīrošs piens
+mk: Млеко за чистење
+ms: Susu pembersih
+mt: Ħalib tat-tindif
+nl: Reinigingsmelk
+no: Rensemelk
+pl: Mleczka oczyszczające
+pt: Leites de limpeza
+ro: Lapte demachiant
+ru: Очищающее молочко
+sk: Čistiace mlieka
+sl: Mleko za čiščenje
+sq: Qumësht pastrues
+sr: Млеко за чишћење
+sv: Rengöringsmjölk
+sw: Maziwa ya kusafisha
+tg: Шири тозакунанда
+th: น้ำนมทำความสะอาดผิวหน้า
+tk: Arassalaýjy süýt
+tr: Temizleme sütleri
+uk: Молочко для зняття макіяжу
+ur: صاف کرنے والا دودھ
+uz: Tozalovchi sut
+zh: 洁面乳
 
 < en:Cleansers
 en: Nail polish remover, Nail varnish remover
+ar: مزيل طلاء الأظافر
+az: Dırnaq lakını təmizləyən vasitə
+bg: Лакочистител
+bn: নেইল পলিশ রিমুভার
+ca: Removedor d'esmalt d'ungles
+cs: Odličovač laku na nehty
+da: Neglelakfjerner
+de: Nagellackentferner
+el: Αφαιρετικό βερνικιού νυχιών
+es: Quitaesmalte
+et: Küünelakieemaldaja
+fa: پاک کننده لاک ناخن
+fi: Kynsilakanpoistoaine
 fr: Dissolvants
+ga: Bainisteoir snas ingne
+he: מסיר לק
+hr: Odstranjivač laka za nokte
+hu: Körömlakklemosó
+hy: Եղունգների լաքը հեռացնող միջոց
+id: Penghapus cat kuku
+is: Naglalakkahreinsir
+it: Levasmalto
+ja: 除光液
+ka: ფრჩხილის ლაქის მოსაშორებელი
+kk: Тырнақ бояуын кетіргіш
+km: ឧបករណ៍​លុប​ពណ៌ក្រចក
+ko: 매니큐어 리무버
+ky: Тырмак боёгун кетиргич
+lt: Nagų lako valiklis
+lv: Nagu lakas noņēmējs
+mk: Отстранувач на лак за нокти
+ms: Penanggal pengilat kuku
+mt: Remover tal-lustrar tad-dwiefer
+nl: Nagellakremover
+no: Neglelakkfjerner
+pl: Zmywacz do paznokci
+pt: Removedor de verniz
+ro: Dizolvant de unghii
+ru: Жидкость для снятия лака
+sk: Odličovač laku na nechty
+sl: Odstranjevalec laka za nohte
+sq: Heqës i llakut të thonjve
+sr: Скидач лака за нокте
+sv: Nagellacksremover
+sw: Kiondoa rangi ya kucha
+tg: Тозакунандаи лаки нохун
+th: น้ำยาล้างเล็บ
+tk: Dyrnak lakyny aýyryjy
+tr: Aseton
+uk: Засіб для зняття лаку
+ur: ناخن پالش ہٹانے والا
+uz: Tirnoq lakini tozalash vositasi
+vi: Nước tẩy sơn móng tay
+zh: 洗甲水
 wikidata:en: Q1963534
 
 < en:Cleansers
 en: Eye makeup remover
+ar: مزيل مكياج العيون
+az: Göz makiyajı təmizləyicisi
+bg: Препарат за премахване на грим от очите
+bn: চোখের মেকআপ রিমুভার
+ca: Desmaquillant d'ulls
+cs: Odličovač očí
+da: Øjenmakeupfjerner
+de: Augen Make-up Entferner
+el: Ντεμακιγιάζ ματιών
+es: Desmaquillante de ojos
+et: Silmameigi eemaldaja
+fa: پاک کننده آرایش چشم
+fi: Silmämeikinpoistoaine
 fr: Démaquillants yeux, Démaquillant yeux
+ga: Bainisteoir smididh súl
+he: מסיר איפור עיניים
+hr: Sredstvo za uklanjanje šminke s očiju
+hu: Szemfestéklemosó
+hy: Աչքերի դիմահարդարման հեռացնող միջոց
+id: Pembersih riasan mata
+is: Augnfarðahreinsir
+it: Struccante occhi
+ja: アイメイク落とし
+ka: თვალის მაკიაჟის მოსაშორებელი საშუალება
+kk: Көз макияжын тазалағыш
+km: ឧបករណ៍ដកគ្រឿងសម្អាងភ្នែក
+ko: 아이 메이크업 리무버
+ky: Көз макияжын тазалоочу каражат
+lt: Akių makiažo valiklis
+lv: Acu kosmētikas noņēmējs
+mk: Отстранувач на шминка за очи
+ms: Penanggal solek mata
+mt: Remover tal-make-up tal-għajnejn
+nl: Oogmake-up remover
+no: Øyesminkefjerner
+pl: Zmywacz do makijażu oczu
+pt: Removedor de maquiagem para os olhos
+ro: Demachiant pentru ochi
+ru: Средство для снятия макияжа с глаз
+sk: Odličovač očí
+sl: Odstranjevalec ličil za oči
+sq: Pastrues grimi për sy
+sr: Средство за уклањање шминке са очију
+sv: Ögonmakeupborttagning
+sw: Kiondoa vipodozi vya macho
+tg: Тозакунандаи ороиши чашм
+th: ผลิตภัณฑ์ล้างเครื่องสำอางรอบดวงตา
+tk: Göz makýažyny aýyryjy
+tr: Göz makyajı temizleyicisi
+uk: Засіб для зняття макіяжу з очей
+ur: آنکھوں کا میک اپ ہٹانے والا
+uz: Ko'z makiyajini tozalash vositasi
+vi: Nước tẩy trang mắt
+zh: 眼部卸妆液
 
 < en:Cleansers
 en: Nose strips
@@ -988,63 +3169,698 @@ fr: Lotions visage, Lotion visage
 ###### CATEGORIE CHEVEUX
 
 en: Hair, Hair products
+ar: شعر، منتجات الشعر
+az: Saç, saç məhsulları
+bg: Коса, продукти за коса
+bn: চুল, চুলের পণ্য
+ca: Cabell, productes per al cabell
+cs: Vlasy, vlasové produkty
+da: Hår, hårprodukter
+de: Haar, Haarprodukte
+el: Μαλλιά, προϊόντα μαλλιών
+es: Cabello, productos para el cabello
+et: Juuksed, juuksetooted
+fa: مو، محصولات مو
+fi: Hiukset, hiustuotteet
 fr: Cheveux, produits pour cheveux, produits pour les cheveux, produits capillaires, produits coiffants, produits capilaires
+ga: Gruaig, táirgí gruaige
+he: שיער, מוצרי שיער
+hr: Kosa, proizvodi za kosu
+hu: Haj, hajtermékek
+hy: Մազեր, մազերի արտադրանք
+id: Rambut, produk rambut
+is: Hár, hárvörur
+it: Capelli, prodotti per capelli
+ja: 髪、ヘア製品
+ka: თმა, თმის პროდუქტები
+kk: Шаш, шаш өнімдері
+km: សក់, ផលិតផលសក់
+ko: 머리카락, 헤어 제품
+ky: Чач, чач буюмдары
+lt: Plaukai, plaukų produktai
+lv: Mati, matu produkti
+mk: Коса, производи за коса
+ms: Rambut, produk rambut
+mt: Xagħar, prodotti tax-xagħar
 nl: Haar, haarproducten
+no: Hår, hårprodukter
+pl: Włosy, produkty do włosów
+pt: Cabelo, produtos para o cabelo
+ro: Păr, produse de păr
+ru: Волосы, продукты для волос
+sk: Vlasy, vlasové produkty
+sl: Lasje, izdelki za lase
+sq: Flokë, produkte flokësh
+sr: Коса, производи за косу
+sv: Hår, hårprodukter
+sw: Nywele, bidhaa za nywele
+tg: Мӯй, маҳсулоти мӯй
+th: ผม, ผลิตภัณฑ์ดูแลผม
+tk: Saç, saç önümleri
+tr: Saç, saç ürünleri
+uk: Волосся, засоби для волосся
+ur: بال، بالوں کی مصنوعات
+uz: Soch, soch mahsulotlari
+vi: Tóc, sản phẩm tóc
+zh: 头发，头发产品
 
 < en:Hair
 en: Hair conditioners
+ar: مكيفات الشعر
+az: Saç kondisionerləri
+bg: Балсами за коса
+cs: Kondicionéry na vlasy
+da: Hårbalsam
+de: Haarspülungen, Haarspülung
+el: Μαλακτικά μαλλιών
+es: Acondicionadores para el cabello
+et: Juuksepalsamid
+fa: نرم کننده های مو
+fi: Hoitoaineet
 fr: Après-shampoings, Après-shampoing, Après-shampooings, Après shampooing
+ga: Oiriúntóirí gruaige
+hr: Regeneratori za kosu
+hu: Hajbalzsamok
+hy: Մազի կոնդիցիոներներ
+id: Kondisioner rambut
+is: Hárnæring
+it: Balsami per capelli
+ja: ヘアコンディショナー
+ka: თმის კონდიციონერები
+kk: Шашқа арналған кондиционерлер
+ko: 헤어 컨디셔너
+ky: Чач кондиционерлери
+lt: Plaukų kondicionieriai
+lv: Matu kondicionieri
+mk: Регенератори за коса
+ms: Perapi rambut
+mt: Kondizzjonaturi tax-xagħar
+nl: Conditioners
+no: Balsam
+pl: Odżywki do włosów
+pt: Condicionadores de cabelo
+ro: Balsamuri de păr
+ru: Кондиционеры для волос
+sk: Kondicionéry na vlasy
+sl: Balzami za lase
+sq: Balsam për flokë
+sr: Регенератори за косу
+sv: Hårbalsam
+sw: Vipodozi vya nywele
+tg: Кондитсионерҳои мӯй
+th: ครีมนวดผม
+tk: Saç kondisionerleri
+tr: Saç kremleri
+uk: Кондиціонери для волосся
+uz: Soch konditsionerlari
+vi: Dầu xả
+zh: 护发素
 wikidata:en: Q1056607
 
 < en:Hair conditioners
 en: Anti-dandruff hair conditioners
+ar: بلسم ضد القشرة
+az: Kəpəyə qarşı saç kremləri
+bg: Балсами против пърхот
+cs: Kondicionéry proti lupům
+da: Balsam mod skæl
+de: Anti-Schuppen-Haarspülungen
+el: Μαλακτικά μαλλιών κατά της πιτυρίδας
+es: Acondicionadores anticaspa
+et: Kõõmavastased palsamid
+fa: نرم کننده مو ضد شوره
+fi: Hilseenestobalsamit
 fr: Après-shampoings antipelliculaires, Après-shampoing antipelliculaire
+ga: Oiriúntóirí gruaige frith-dandruff
+hr: Regeneratori protiv peruti
+hu: Korpa elleni hajbalzsamok
+hy: Թեփի դեմ մազերի կոնդիցիոներներ
+id: Kondisioner anti ketombe
+is: Hárnæring gegn flösu
+it: Balsami antiforfora
+ja: ふけ防止ヘアコンディショナー
+ka: ქერტლის საწინააღმდეგო თმის კონდიციონერები
+kk: Қауызғаққа қарсы шаш кондиционерлері
+ko: 비듬 방지 헤어 컨디셔너
+ky: Какачты кетирүүчү чач кондиционерлери
+lt: Kondicionieriai nuo pleiskanų
+lv: Matu kondicionieri pret blaugznām
+mk: Регенератори против првут
+ms: Perapi rambut anti kelemumur
+mt: Kondizzjonaturi tax-xagħar kontra l-brija
+nl: Anti-roos conditioners
+no: Balsam mot flass
+pl: Odżywki przeciwłupieżowe
+pt: Condicionadores anti-caspa
+ro: Balsam de păr anti-mătreață
+ru: Кондиционеры против перхоти
+sk: Kondicionéry proti lupinám
+sl: Balzami proti prhljaju
+sq: Balsam kundër zbokthit
+sr: Регенератори против перути
+sv: Hårbalsam mot mjäll
+sw: Vipodozi vya nywele vya kuzuia mba
+tg: Кондитсионерҳои зидди сабӯсак
+th: ครีมนวดผมขจัดรังแค
+tk: Kepege garşy saç kremleri
+tr: Kepek önleyici saç kremleri
+uk: Кондиціонери проти лупи
+uz: Qazg'oqqa qarshi soch kremlari
+vi: Dầu xả trị gàu
+zh: 去屑护发素
 
 < en:Hair conditioners
 en: Hair conditioners for colored hair
+ar: بلسم للشعر المصبوغ
+az: Rənglənmiş saçlar üçün saç kremləri
+bg: Балсами за боядисана коса
+cs: Kondicionéry pro barvené vlasy
+da: Balsam til farvet hår
+de: Haarspülungen für coloriertes Haar
+el: Μαλακτικά μαλλιών για βαμμένα μαλλιά
+es: Acondicionadores para cabello teñido
+et: Värvitud juuste palsamid
+fa: نرم کننده مو برای موهای رنگ شده
+fi: Hoitoaineet värjätyille hiuksille
 fr: Après-shampoings pour cheveux colorés
+ga: Oiriúntóirí gruaige do ghruaig daite
+hr: Regeneratori za obojenu kosu
+hu: Hajbalzsam festett hajra
+hy: Մազերի կոնդիցիոներներ ներկված մազերի համար
+id: Kondisioner rambut untuk rambut diwarnai
+is: Hárnæring fyrir litað hár
+it: Balsami per capelli colorati
+ja: カラーリングヘア用ヘアコンディショナー
+ka: კონდიციონერები შეღებილი თმისთვის
+kk: Боялған шашқа арналған шаш кондиционерлері
+ko: 염색 모발용 헤어 컨디셔너
+ky: Боёлгон чачтар үчүн чач кондиционерлери
+lt: Kondicionieriai dažytiems plaukams
+lv: Matu kondicionieri krāsotiem matiem
+mk: Регенератори за фарбана коса
+ms: Perapi rambut untuk rambut berwarna
+mt: Kondizzjonaturi tax-xagħar għal xagħar ikkulurit
+nl: Conditioners voor geverfd haar
+no: Balsam for farget hår
+pl: Odżywki do włosów farbowanych
+pt: Condicionadores para cabelos tingidos
+ro: Balsam de păr pentru păr vopsit
+ru: Кондиционеры для окрашенных волос
+sk: Kondicionéry pre farbené vlasy
+sl: Balzami za barvane lase
+sq: Balsam për flokë të lyer
+sr: Регенератори за фарбану косу
+sv: Hårbalsam för färgat hår
+sw: Vipodozi vya nywele kwa nywele zilizopakwa rangi
+tg: Кондитсионерҳо барои мӯйҳои рангшуда
+th: ครีมนวดผมสำหรับผมทำสี
+tk: Reňklenen saçlar üçin saç kremleri
+tr: Boyalı saçlar için saç kremleri
+uk: Кондиціонери для фарбованого волосся
+uz: Bo'yalgan sochlar uchun soch kremlari
+vi: Dầu xả cho tóc nhuộm
+zh: 染发护发素
 
 < en:Hair conditioners
 en: Hair conditioners for greasy hair
+ar: بلسم للشعر الدهني
+az: Yağlı saçlar üçün saç kremləri
+bg: Балсами за мазна коса
+cs: Kondicionéry pro mastné vlasy
+da: Balsam til fedtet hår
+de: Haarspülungen für fettiges Haar
+el: Μαλακτικά μαλλιών για λιπαρά μαλλιά
+es: Acondicionadores para cabello graso
+et: Rasvaste juuste palsamid
+fa: نرم کننده مو برای موهای چرب
+fi: Hoitoaineet rasvoittuville hiuksille
 fr: Après-shampoings pour cheveux gras
+ga: Oiriúntóirí gruaige do ghruaig olacha
+hr: Regeneratori za masnu kosu
+hu: Hajbalzsam zsíros hajra
+hy: Մազերի կոնդիցիոներներ յուղոտ մազերի համար
+id: Kondisioner rambut untuk rambut berminyak
+is: Hárnæring fyrir feitt hár
+it: Balsami per capelli grassi
+ja: オイリーヘア用ヘアコンディショナー
+ka: კონდიციონერები ცხიმიანი თმისთვის
+kk: Майлы шашқа арналған шаш кондиционерлері
+ko: 지성 모발용 헤어 컨디셔너
+ky: Майлуу чачтар үчүн чач кондиционерлери
+lt: Kondicionieriai riebiems plaukams
+lv: Matu kondicionieri taukainiem matiem
+mk: Регенератори за мрсна коса
+ms: Perapi rambut untuk rambut berminyak
+mt: Kondizzjonaturi tax-xagħar għal xagħar żejtni
+nl: Conditioners voor vet haar
+no: Balsam for fett hår
+pl: Odżywki do włosów przetłuszczających się
+pt: Condicionadores para cabelos oleosos
+ro: Balsam de păr pentru păr gras
+ru: Кондиционеры для жирных волос
+sk: Kondicionéry pre mastné vlasy
+sl: Balzami za mastne lase
+sq: Balsam për flokë të yndyrshëm
+sr: Регенератори за масну косу
+sv: Hårbalsam för fett hår
+sw: Vipodozi vya nywele kwa nywele zenye mafuta
+tg: Кондитсионерҳо барои мӯйҳои равғанӣ
+th: ครีมนวดผมสำหรับผมมัน
+tk: Ýagly saçlar üçin saç kremleri
+tr: Yağlı saçlar için saç kremleri
+uk: Кондиціонери для жирного волосся
+uz: Yog'li sochlar uchun soch kremlari
+vi: Dầu xả cho tóc dầu
+zh: 油性发质护发素
 
 < en:Hair conditioners
 en: Hair conditioners for regular hair
+ar: بلسم للشعر العادي
+az: Normal saçlar üçün saç kremləri
+bg: Балсами за нормална коса
+cs: Kondicionéry pro normální vlasy
+da: Balsam til normalt hår
+de: Haarspülungen für normales Haar
+el: Μαλακτικά μαλλιών για κανονικά μαλλιά
+es: Acondicionadores para cabello normal
+et: Tavaliste juuste palsamid
+fa: نرم کننده مو برای موهای معمولی
+fi: Hoitoaineet normaaleille hiuksille
 fr: Après-shampoings pour cheveux normaux
+ga: Oiriúntóirí gruaige do ghnáthghruaig
+hr: Regeneratori za normalnu kosu
+hu: Hajbalzsam normál hajra
+hy: Մազերի կոնդիցիոներներ նորմալ մազերի համար
+id: Kondisioner rambut untuk rambut normal
+is: Hárnæring fyrir venjulegt hár
+it: Balsami per capelli normali
+ja: 普通の髪用ヘアコンディショナー
+ka: კონდიციონერები ნორმალური თმისთვის
+kk: Қалыпты шашқа арналған шаш кондиционерлері
+ko: 일반 모발용 헤어 컨디셔너
+ky: Нормалдуу чачтар үчүн чач кондиционерлери
+lt: Kondicionieriai normaliems plaukams
+lv: Matu kondicionieri normāliem matiem
+mk: Регенератори за нормална коса
+ms: Perapi rambut untuk rambut biasa
+mt: Kondizzjonaturi tax-xagħar għal xagħar normali
+nl: Conditioners voor normaal haar
+no: Balsam for normalt hår
+pl: Odżywki do włosów normalnych
+pt: Condicionadores para cabelos normais
+ro: Balsam de păr pentru păr normal
+ru: Кондиционеры для нормальных волос
+sk: Kondicionéry pre normálne vlasy
+sl: Balzami za normalne lase
+sq: Balsam për flokë normalë
+sr: Регенератори за нормалну косу
+sv: Hårbalsam för normalt hår
+sw: Vipodozi vya nywele kwa nywele za kawaida
+tg: Кондитсионерҳо барои мӯйҳои муқаррарӣ
+th: ครีมนวดผมสำหรับผมธรรมดา
+tk: Adaty saçlar üçin saç kremleri
+tr: Normal saçlar için saç kremleri
+uk: Кондиціонери для нормального волосся
+uz: Normal sochlar uchun soch kremlari
+vi: Dầu xả cho tóc thường
+zh: 中性发质护发素
 
 < en:Hair conditioners
 en: Hair conditioners for dry hair
+ar: بلسم للشعر الجاف
+az: Quru saçlar üçün saç kremləri
+bg: Балсами за суха коса
+cs: Kondicionéry pro suché vlasy
+da: Balsam til tørt hår
+de: Haarspülungen für trockenes Haar
+el: Μαλακτικά μαλλιών για ξηρά μαλλιά
+es: Acondicionadores para cabello seco
+et: Kuivade juuste palsamid
+fa: نرم کننده مو برای موهای خشک
+fi: Hoitoaineet kuiville hiuksille
 fr: Après-shampoings pour cheveux secs
+ga: Oiriúntóirí gruaige do ghruaig thirim
+hr: Regeneratori za suhu kosu
+hu: Hajbalzsam száraz hajra
+hy: Մազերի կոնդիցիոներներ չոր մազերի համար
+id: Kondisioner rambut untuk rambut kering
+is: Hárnæring fyrir þurrt hár
+it: Balsami per capelli secchi
+ja: ドライヘア用ヘアコンディショナー
+ka: კონდიციონერები მშრალი თმისთვის
+kk: Құрғақ шашқа арналған шаш кондиционерлері
+ko: 건성 모발용 헤어 컨디셔너
+ky: Кургак чачтар үчүн чач кондиционерлери
+lt: Kondicionieriai sausiems plaukams
+lv: Matu kondicionieri sausiem matiem
+mk: Регенератори за сува коса
+ms: Perapi rambut untuk rambut kering
+mt: Kondizzjonaturi tax-xagħar għal xagħar niexef
+nl: Conditioners voor droog haar
+no: Balsam for tørt hår
+pl: Odżywki do włosów suchych
+pt: Condicionadores para cabelos secos
+ro: Balsam de păr pentru păr uscat
+ru: Кондиционеры для сухих волос
+sk: Kondicionéry pre suché vlasy
+sl: Balzami za suhe lase
+sq: Balsam për flokë të thatë
+sr: Регенератори за суву косу
+sv: Hårbalsam för torrt hår
+sw: Vipodozi vya nywele kwa nywele kavu
+tg: Кондитсионерҳо барои мӯйҳои хушк
+th: ครีมนวดผมสำหรับผมแห้ง
+tk: Gury saçlar üçin saç kremleri
+tr: Kuru saçlar için saç kremleri
+uk: Кондиціонери для сухого волосся
+uz: Quruq sochlar uchun soch kremlari
+vi: Dầu xả cho tóc khô
+zh: 干性发质护发素
 
 < en:Hair conditioners
+en: Hair conditioners for damaged hair
+ar: بلسم للشعر التالف
+az: Zədələnmiş saçlar üçün saç kremləri
+bg: Балсами за увредена коса
+cs: Kondicionéry pro poškozené vlasy
+da: Balsam til skadet hår
+de: Haarspülungen für strapaziertes Haar
+el: Μαλακτικά μαλλιών για ταλαιπωρημένα μαλλιά
+es: Acondicionadores para cabello dañado
+et: Kahjustatud juuste palsamid
+fa: نرم کننده مو برای موهای آسیب دیده
+fi: Hoitoaineet vaurioituneille hiuksille
 fr: Après-shampoings pour cheveux abimés
+ga: Oiriúntóirí gruaige do ghruaig millte
+hr: Regeneratori za oštećenu kosu
+hu: Hajbalzsam sérült hajra
+hy: Մազերի կոնդիցիոներներ վնասված մազերի համար
+id: Kondisioner rambut untuk rambut rusak
+is: Hárnæring fyrir skemmt hár
+it: Balsami per capelli danneggiati
+ja: ダメージヘア用ヘアコンディショナー
+ka: კონდიციონერები დაზიანებული თმისთვის
+kk: Зақымдалған шашқа арналған шаш кондиционерлері
+ko: 손상된 모발용 헤어 컨디셔너
+ky: Бузулган чачтар үчүн чач кондиционерлери
+lt: Kondicionieriai pažeistiems plaukams
+lv: Matu kondicionieri bojātiem matiem
+mk: Регенератори за оштетена коса
+ms: Perapi rambut untuk rambut rosak
+mt: Kondizzjonaturi tax-xagħar għal xagħar bil-ħsara
+nl: Conditioners voor beschadigd haar
+no: Balsam for skadet hår
+pl: Odżywki do włosów zniszczonych
+pt: Condicionadores para cabelos danificados
+ro: Balsam de păr pentru păr deteriorat
+ru: Кондиционеры для поврежденных волос
+sk: Kondicionéry pre poškodené vlasy
+sl: Balzami za poškodovane lase
+sq: Balsam për flokë të dëmtuar
+sr: Регенератори за оштећену косу
+sv: Hårbalsam för skadat hår
+sw: Vipodozi vya nywele kwa nywele zilizoharibika
+tg: Кондитсионерҳо барои мӯйҳои осебдида
+th: ครีมนวดผมสำหรับผมเสีย
+tk: Zeperlenen saçlar üçin saç kremleri
+tr: Yıpranmış saçlar için saç kremleri
+uk: Кондиціонери для пошкодженого волосся
+uz: Shikastlangan sochlar uchun soch kremlari
+vi: Dầu xả cho tóc hư tổn
+zh: 损伤发质护发素
 
 < en:Hair conditioners
 en: Hair conditioners for children
+ar: بلسم للأطفال
+az: Uşaqlar üçün saç kremləri
+bg: Балсами за деца
+cs: Kondicionéry pro děti
+da: Balsam til børn
+de: Haarspülungen für Kinder
+el: Μαλακτικά μαλλιών για παιδιά
+es: Acondicionadores para niños
+et: Laste juuksepalsamid
+fa: نرم کننده مو برای کودکان
+fi: Hoitoaineet lapsille
 fr: Après-shampoings pour enfant
+ga: Oiriúntóirí gruaige do pháistí
+hr: Regeneratori za djecu
+hu: Hajbalzsamok gyerekeknek
+hy: Մազի կոնդիցիոներներ երեխաների համար
+id: Kondisioner rambut untuk anak-anak
+is: Hárnæring fyrir börn
+it: Balsami per capelli per bambini
+ja: 子供用ヘアコンディショナー
+ka: თმის კონდიციონერები ბავშვებისთვის
+kk: Балаларға арналған шаш кондиционерлері
+ko: 어린이용 헤어 컨디셔너
+ky: Балдар үчүн чач кондиционерлери
+lt: Plaukų kondicionieriai vaikams
+lv: Matu kondicionieri bērniem
+mk: Регенератори за деца
+ms: Perapi rambut untuk kanak-kanak
+mt: Kondizzjonaturi tax-xagħar għat-tfal
+nl: Conditioners voor kinderen
+no: Balsam for barn
+pl: Odżywki do włosów dla dzieci
+pt: Condicionadores de cabelo para crianças
+ro: Balsam de păr pentru copii
+ru: Кондиционеры для волос для детей
+sk: Kondicionéry pre deti
+sl: Balzami za lase za otroke
+sq: Balsam për flokë për fëmijë
+sr: Регенератори за децу
+sv: Hårbalsam för barn
+sw: Vipodozi vya nywele kwa watoto
+tg: Кондитсионерҳо барои кӯдакон
+th: ครีมนวดผมสำหรับเด็ก
+tk: Çagalar üçin saç kremleri
+tr: Çocuklar için saç kremleri
+uk: Кондиціонери для волосся для дітей
+uz: Bolalar uchun soch kremlari
+vi: Dầu xả cho trẻ em
+zh: 儿童护发素
 
-#### Shampoings 
+#### Shampoings
 
 < en:Hair
 en: Shampoos
 ar: شامبو
+az: Şampunlar
+bg: Шампоани
+cs: Šampony
+da: Shampoo
 de: Haarwaschmittel
+el: Σαμπουάν
+es: Champús
+et: Šampoonid
+fa: شامپو
+fi: Shampoot
 fr: Shampoings, Shampooings
+ga: Seampúnna
+hr: Šamponi
+hu: Samponok
+hy: Շամպուններ
+id: Sampo
+is: Sjampó
+it: Shampoo
+ja: シャンプー
+ka: შამპუნები
+kk: Шампуньдер
+ko: 샴푸
+ky: Шампунь
+lt: Šampūnai
+lv: Šampūni
+mk: Шампони
+ms: Syampu
+mt: Xampù
 nl: Shampoos
+no: Sjampo
+pl: Szampony
+pt: Champôs
+ro: Șampoane
+ru: Шампуни
+sk: Šampóny
+sl: Šamponi
+sq: Shampo
+sr: Шампони
+sv: Schampo
+sw: Shampoo
+tg: Шампунҳо
+th: แชมพู
+tk: Şampunlar
+tr: Şampuanlar
+uk: Шампуні
+uz: Shampunlar
+vi: Dầu gội
+zh: 洗发水
 wikidata:en: Q180204
 
 < en:Shampoos
 en: 2-in-1 Shampoos, Shampoos 2-in-1
+ar: شامبو 2 في 1
+az: 2-si-1-də şampunlar
+bg: Шампоани 2 в 1
+cs: Šampony 2 v 1
+da: 2-i-1 shampoo
+de: 2-in-1 Shampoos
+el: Σαμπουάν 2 σε 1
+es: Champús 2 en 1
+et: 2-in-1 šampoonid
+fa: شامپو 2 در 1
+fi: 2-in-1 Shampoot
 fr: Shampoings 2-en-1
+ga: Seampúnna 2-in-1
+hr: Šamponi 2-u-1
+hu: 2 az 1-ben samponok
+hy: 2-ը 1-ում շամպուններ
+id: Sampo 2-in-1
+is: 2-í-1 sjampó
+it: Shampoo 2 in 1
+ja: 2-in-1 シャンプー
+ka: 2-ში 1 შამპუნები
+kk: 2-і 1-де шампуньдер
+ko: 2-in-1 샴푸
+ky: 2-в-1 шампунь
+lt: 2-in-1 šampūnai
+lv: 2-in-1 šampūni
+mk: Шампони 2 во 1
+ms: Syampu 2 dalam 1
+mt: Xampù 2-in-1
+nl: 2-in-1 Shampoos
+no: 2-i-1 sjampo
+pl: Szampony 2 w 1
+pt: Champôs 2 em 1
+ro: Șampoane 2 în 1
+ru: Шампуни 2 в 1
+sk: Šampóny 2 v 1
+sl: Šamponi 2 v 1
+sq: Shampo 2 në 1
+sr: Шампони 2 у 1
+sv: 2-i-1 schampo
+sw: Shampoo 2 kwa 1
+tg: Шампунҳои 2 дар 1
+th: แชมพู 2 อิน 1
+tk: 2-si-1-de şampunlar
+tr: 2'si 1 arada şampuanlar
+uk: Шампуні 2 в 1
+uz: 2-si-1 da shampunlar
+vi: Dầu gội 2 trong 1
+zh: 二合一洗发水
 
 < en:2-in-1 Shampoos
 < en:Hair conditioners
 en: Shampoos + Conditioners
+ar: شامبو + بلسم
+az: Şampunlar + Kondisionerler
+bg: Шампоани + Балсами
+bn: শ্যাম্পু + কন্ডিশনার
+ca: Xampús + Condicionadors
+cs: Šampony + Kondicionéry
+da: Shampoo + Balsam
+de: Shampoos + Conditioner
+el: Σαμπουάν + μαλακτικό
+es: Champús + Acondicionadores
+et: Šampoonid + Palsamid
+fa: شامپو + نرم کننده
+fi: Shampoot + Hoitoaineet
 fr: Shampoings + Après-shampoings
+ga: Seampúnna + Oiriúntóirí
+hr: Šamponi + Regeneratori
+hu: Samponok + Balzsamok
+hy: Շամպուններ + Կոնդիցիոներներ
+id: Sampo + Kondisioner
+is: Sjampó + Hárnæring
+it: Shampoo + Balsamo
+ja: シャンプー+コンディショナー
+ka: შამპუნები + კონდიციონერები
+kk: Шампуньдер + Кондиционерлер
+km: សាប៊ូកក់សក់ + ក្រែមបន្ទន់សក់
+ko: 샴푸 + 린스
+ky: Шампунь + Кондиционер
+lt: Šampūnai + Kondicionieriai
+lv: Šampūni + Kondicionieri
+mk: Шампони + Регенератори
+ms: Syampu + Perapi
+mt: Xampù + Kondizzjonaturi
+nl: Shampoos + Conditioners
+no: Sjampo + Balsam
+pl: Szampony + Odżywki
+pt: Champôs + Condicionadores
+ro: Șampoane + Balsamuri
+ru: Шампуни + Кондиционеры
+sk: Šampóny + Kondicionéry
+sl: Šamponi + Balzami
+sq: Shampo + Balsamë
+sr: Шампони + Регенератори
+sv: Schampo + Balsam
+sw: Shampoo + Vipodozi
+tg: Шампунҳо + Кондитсионерҳо
+th: แชมพู + ครีมนวดผม
+tk: Şampunlar + Kondisionerler
+tr: Şampuanlar + Saç Kremleri
+uk: Шампуні + Кондиціонери
+ur: شیمپو + کنڈیشنر
+uz: Shampunlar + Konditsionerlar
+vi: Dầu gội + Dầu xả
+zh: 洗发水+护发素
 
 < en:2-in-1 Shampoos
 en: Shampoos + Shower gels
+ar: شامبو + جل الاستحمام
+az: Şampunlar + Duş gelləri
+bg: Шампоани + Душ гелове
+bn: শ্যাম্পু + শাওয়ার জেল
+ca: Xampús + Gels de dutxa
+cs: Šampony + Sprchové gely
+da: Shampoo + Shower gels
+de: Shampoos + Duschgels
+el: Σαμπουάν + Αφρόλουτρα
+es: Champús + Geles de ducha
+et: Šampoonid + Dušigeelid
+fa: شامپو + ژل دوش
+fi: Shampoot + Suihkugeelit
 fr: Shampoings + Gels douche, Shampoings douche
+ga: Seampúnna + Gels cithfholcadáin
+he: שמפו + ג'ל רחצה
+hr: Šamponi + Gelovi za tuširanje
+hu: Samponok + Tusfürdők
+hy: Շամպուններ + Ցնցուղի գելեր
+id: Sampo + Gel Mandi
+is: Sjampó + sturtugel
+it: Shampoo + Gel doccia
+ja: シャンプー+シャワージェル
+ka: შამპუნები + შხაპის გელები
+kk: Шампуньдер + Душқа арналған гельдер
+km: សាប៊ូកក់សក់ + ជែលដុសខ្លួន
+ko: 샴푸 + 샤워 젤
+ky: Шампунь + Душ гелдери
+lt: Šampūnai + Dušo želė
+lv: Šampūni + Dušas želejas
+mk: Шампони + Гелови за туширање
+ms: Syampu + Gel Mandi
+mt: Xampù + Ġellijiet tad-doċċa
+nl: Shampoos + Douchegels
+no: Sjampo + Dusjsåper
+pl: Szampony + Żele pod prysznic
+pt: Champôs + Géis de duche
+ro: Șampoane + Geluri de duș
+ru: Шампуни + Гели для душа
+sk: Šampóny + Sprchovacie gély
+sl: Šamponi + Geli za prhanje
+sq: Shampo + Xhel Dushi
+sr: Шампони + Гелови за туширање
+sv: Schampo + Duschgel
+sw: Shampoo + Geli za kuoga
+tg: Шампунҳо + Гелҳои душ
+th: แชมพู + เจลอาบน้ำ
+tk: Şampunlar + Duş gelleri
+tr: Şampuanlar + Duş jelleri
+uk: Шампуні + Гелі для душу
+ur: شیمپو + شاور جیل
+uz: Shampunlar + Dush gellari
+vi: Dầu gội + Sữa tắm
+zh: 洗发水+沐浴露
 
 < en:Shampoos
 en: Dry shampoos
@@ -1101,15 +3917,159 @@ wikidata:en: Q11322916
 
 < en:Shampoos
 en: Shampoos for colored hair
+ar: شامبو للشعر المصبوغ
+az: Rənglənmiş saçlar üçün şampunlar
+bg: Шампоани за боядисана коса
+cs: Šampony pro barvené vlasy
+da: Shampoo til farvet hår
+de: Shampoo für coloriertes Haar
+el: Σαμπουάν για βαμμένα μαλλιά
+es: Champús para cabello teñido
+et: Šampoonid värvitud juustele
+fa: شامپو برای موهای رنگ شده
+fi: Shampoot värjätyille hiuksille
 fr: Shampoings pour cheveux colorés, Shampooings pour cheveux colorés
+ga: Seampúnna do ghruaig daite
+hr: Šamponi za obojenu kosu
+hu: Sampon festett hajra
+hy: Շամպուններ ներկված մազերի համար
+id: Sampo untuk rambut diwarnai
+is: Sjampó fyrir litað hár
+it: Shampoo per capelli colorati
+ja: カラーリングヘア用シャンプー
+ka: შამპუნები შეღებილი თმისთვის
+kk: Боялған шашқа арналған шампуньдер
+ko: 염색 모발용 샴푸
+ky: Боёлгон чачтар үчүн шампунь
+lt: Šampūnai dažytiems plaukams
+lv: Šampūni krāsotiem matiem
+mk: Шампони за фарбана коса
+ms: Syampu untuk rambut berwarna
+mt: Xampù għal xagħar ikkulurit
+nl: Shampoos voor geverfd haar
+no: Sjampo for farget hår
+pl: Szampony do włosów farbowanych
+pt: Champôs para cabelos tingidos
+ro: Șampoane pentru păr vopsit
+ru: Шампуни для окрашенных волос
+sk: Šampóny pre farbené vlasy
+sl: Šamponi za barvane lase
+sq: Shampo për flokë të lyer
+sr: Шампони за фарбану косу
+sv: Schampo för färgat hår
+sw: Shampoo kwa nywele zilizopakwa rangi
+tg: Шампунҳо барои мӯйҳои рангшуда
+th: แชมพูสำหรับผมทำสี
+tk: Reňklenen saçlar üçin şampunlar
+tr: Boyalı saçlar için şampuanlar
+uk: Шампуні для фарбованого волосся
+uz: Bo'yalgan sochlar uchun shampunlar
+vi: Dầu gội cho tóc nhuộm
+zh: 染发洗发水
 
 < en:Shampoos
 en: Shampoo for dry hair
+ar: شامبو للشعر الجاف
+az: Quru saçlar üçün şampunlar
+bg: Шампоани за суха коса
+cs: Šampony pro suché vlasy
+da: Shampoo til tørt hår
+de: Shampoo für trockenes Haar
+el: Σαμπουάν για ξηρά μαλλιά
+es: Champús para cabello seco
+et: Šampoonid kuivadele juustele
+fa: شامپو برای موهای خشک
+fi: Kuivien hiusten shampoot
 fr: Shampoings pour cheveux secs, Shampooings pour cheveux secs
+ga: Seampúnna do ghruaig thirim
+hr: Šamponi za suhu kosu
+hu: Samponok száraz hajra
+hy: Շամպուններ չոր մազերի համար
+id: Sampo untuk rambut kering
+is: Sjampó fyrir þurrt hár
+it: Shampoo per capelli secchi
+ja: ドライヘア用シャンプー
+ka: შამპუნები მშრალი თმისთვის
+kk: Құрғақ шашқа арналған шампуньдер
+ko: 건성 모발용 샴푸
+ky: Кургак чачтар үчүн шампунь
+lt: Šampūnai sausiems plaukams
+lv: Šampūni sausiem matiem
+mk: Шампони за сува коса
+ms: Syampu untuk rambut kering
+mt: Xampù għal xagħar niexef
+nl: Shampoos voor droog haar
+no: Sjampo for tørt hår
+pl: Szampony do włosów suchych
+pt: Champôs para cabelos secos
+ro: Șampoane pentru păr uscat
+ru: Шампуни для сухих волос
+sk: Šampóny pre suché vlasy
+sl: Šamponi za suhe lase
+sq: Shampo për flokë të thatë
+sr: Шампони за суву косу
+sv: Schampo för torrt hår
+sw: Shampoo kwa nywele kavu
+tg: Шампунҳо барои мӯйҳои хушк
+th: แชมพูสำหรับผมแห้ง
+tk: Gury saçlar üçin şampunlar
+tr: Kuru saçlar için şampuanlar
+uk: Шампуні для сухого волосся
+uz: Quruq sochlar uchun shampunlar
+vi: Dầu gội cho tóc khô
+zh: 干性发质洗发水
 
 < en:Shampoos
 en: Shampoos for oily hair
+ar: شامبو للشعر الدهني
+az: Yağlı saçlar üçün şampunlar
+bg: Шампоани за мазна коса
+cs: Šampony pro mastné vlasy
+da: Shampoo til fedtet hår
+de: Shampoo für fettiges Haar
+el: Σαμπουάν για λιπαρά μαλλιά
+es: Champús para cabello graso
+et: Šampoonid rasustele juustele
+fa: شامپو برای موهای چرب
+fi: Shampoot rasvoittuville hiuksille
 fr: Shampoings pour cheveux gras, Shampooings pour cheveux gras
+ga: Seampúnna do ghruaig olacha
+hr: Šamponi za masnu kosu
+hu: Samponok zsíros hajra
+hy: Շամպուններ յուղոտ մազերի համար
+id: Sampo untuk rambut berminyak
+is: Sjampó fyrir feitt hár
+it: Shampoo per capelli grassi
+ja: オイリーヘア用シャンプー
+ka: შამპუნები ცხიმიანი თმისთვის
+kk: Майлы шашқа арналған шампуньдер
+ko: 지성 모발용 샴푸
+ky: Майлуу чачтар үчүн шампунь
+lt: Šampūnai riebiems plaukams
+lv: Šampūni taukainiem matiem
+mk: Шампони за мрсна коса
+ms: Syampu untuk rambut berminyak
+mt: Xampù għal xagħar żejtni
+nl: Shampoos voor vet haar
+no: Sjampo for fett hår
+pl: Szampony do włosów przetłuszczających się
+pt: Champôs para cabelos oleosos
+ro: Șampoane pentru păr gras
+ru: Шампуни для жирных волос
+sk: Šampóny pre mastné vlasy
+sl: Šamponi za mastne lase
+sq: Shampo për flokë të yndyrshëm
+sr: Шампони за масну косу
+sv: Schampo för fett hår
+sw: Shampoo kwa nywele zenye mafuta
+tg: Шампунҳо барои мӯйҳои равғанӣ
+th: แชมพูสำหรับผมมัน
+tk: Ýagly saçlar üçin şampunlar
+tr: Yağlı saçlar için şampuanlar
+uk: Шампуні для жирного волосся
+uz: Yog'li sochlar uchun shampunlar
+vi: Dầu gội cho tóc dầu
+zh: 油性发质洗发水
 
 < en:Shampoos
 en: Anti-lice shampoos
@@ -1165,27 +4125,261 @@ zh: 防虱洗发水
 
 < en:Shampoos
 en: Anti-dandruff shampoos
+ar: شامبو ضد القشرة
+az: Kəpəyə qarşı şampunlar
+bg: Шампоани против пърхот
+cs: Šampony proti lupům
+da: Skælshampoo
+de: Anti-Schuppen-Shampoos
+el: Σαμπουάν κατά της πιτυρίδας
+es: Champús anticaspa
+et: Kõõmavastased šampoonid
+fa: شامپو ضد شوره
+fi: Hilseilevät shampoot
 fr: Shampoings anti-pelliculaires, Shampoings antipelliculaires, Shampooings anti-pelliculaires, Shampooings antipelliculaires
+ga: Seampú frith-dandruff
+hr: Šamponi protiv peruti
+hu: Korpásodás elleni samponok
+hy: Թեփի դեմ շամպուններ
+id: Sampo anti ketombe
+is: Flasa sjampó
+it: Shampoo antiforfora
+ja: ふけ防止シャンプー
+ka: ქერტლის საწინააღმდეგო შამპუნები
+kk: Қауызғаққа қарсы шампуньдер
+ko: 비듬 방지 샴푸
+ky: Какачты кетирүүчү шампунь
+lt: Šampūnai nuo pleiskanų
+lv: Šampūni pret blaugznām
+mk: Шампони против првут
+ms: Syampu anti kelemumur
+mt: Xampù kontra l-brija
+nl: Anti-roos shampoo
+no: Flass sjampo
+pl: Szampony przeciwłupieżowe
+pt: Champôs anti-caspa
+ro: Șampoane anti-mătreață
+ru: Шампуни против перхоти
+sk: Šampóny proti lupinám
+sl: Šamponi proti prhljaju
+sq: Shampo kundër zbokthit
+sr: Шампони против перути
+sv: Mjällschampo
+sw: Shampoo ya kuzuia mba
+tg: Шампунҳои зидди сабӯсак
+th: แชมพูป้องกันรังแค
+tk: Kepege garşy şampunlar
+tr: Kepek önleyici şampuanlar
+uk: Шампуні проти лупи
+uz: Qazg'oqqa qarshi shampunlar
+vi: Dầu gội trị gàu
+
 
 < en:Shampoos
 en: Shampoos for children
+ar: شامبو للأطفال
+az: Uşaqlar üçün şampunlar
+bg: Шампоани за деца
+cs: Šampony pro děti
+da: Shampoo til børn
+de: Shampoos für Kinder
+el: Σαμπουάν για παιδιά
+es: Champús para niños
+et: Šampoonid lastele
+fa: شامپو برای کودکان
+fi: Lasten shampoot
 fr: Shampoings pour enfants, Shampooings pour enfants
+hr: Šamponi za djecu
+hu: Samponok gyerekeknek
+hy: Շամպուններ երեխաների համար
+id: Sampo untuk anak-anak
+it: Shampoo per bambini
+ja: 子供用シャンプー
+ka: შამპუნები ბავშვებისთვის
+kk: Балаларға арналған шампуньдер
+ko: 어린이용 샴푸
+ky: Балдар үчүн шампунь
+lt: Šampūnai vaikams
+lv: Šampūni bērniem
+mk: Шампони за деца
+ms: Syampu untuk kanak-kanak
+mt: Xampù għat-tfal
+nl: Shampoos voor kinderen
+no: Sjampo for barn
+pl: Szampony dla dzieci
+pt: Champôs para crianças
+ro: Șampoane pentru copii
+ru: Шампуни для детей
+sk: Šampóny pre deti
+sl: Šamponi za otroke
+sq: Shampo për fëmijë
+sr: Шампони за децу
+sv: Schampo för barn
+sw: Shampoo kwa watoto
+th: แชมพูสำหรับเด็ก
+tk: Çagalar üçin şampunlar
+tr: Çocuklar için şampuanlar
+uk: Шампуні для дітей
+uz: Bolalar uchun shampunlar
+vi: Dầu gội cho trẻ em
+zh: 儿童洗发水
 
 < en:Shampoos
 en: Shampoos for babies
+ar: شامبو للأطفال الرضع
+az: Körpələr üçün şampunlar
+bg: Шампоани за бебета
+cs: Šampony pro kojence
+da: Shampoo til babyer
 de: Shampoos für Babys
+el: Σαμπουάν για μωρά
 es: Champús para bebés
+et: Šampoonid beebidele
+fa: شامپو برای نوزادان
+fi: Vauvojen shampoot
 fr: Shampoings pour bébé, Shampooings pour bébé
+hr: Šamponi za bebe
+hu: Samponok babáknak
+hy: Շամպուններ նորածինների համար
+id: Sampo untuk bayi
+it: Shampoo per neonati
+ja: 赤ちゃん用シャンプー
+ka: შამპუნები ჩვილებისთვის
+kk: Нәрестелерге арналған шампуньдер
+ko: 아기 샴푸
+ky: Ымыркайлар үчүн шампунь
+lt: Šampūnai kūdikiams
+lv: Šampūni zīdaiņiem
+mk: Шампони за бебиња
+ms: Syampu untuk bayi
+mt: Xampù għat-trabi
 nl: Shampoos voor baby's
+no: Sjampo for babyer
+pl: Szampony dla niemowląt
+pt: Champôs para bebés
+ro: Șampoane pentru bebeluși
+ru: Шампуни для младенцев
+sk: Šampóny pre bábätká
+sl: Šamponi za dojenčke
+sq: Shampo për foshnje
+sr: Шампони за бебе
+sv: Schampo för spädbarn
+sw: Shampoo kwa watoto wachanga
+th: แชมพูสำหรับเด็กทารก
+tk: Körpeler üçin şampunlar
+tr: Bebek şampuanları
+uk: Шампуні для немовлят
+uz: Go'daklar uchun shampunlar
+vi: Dầu gội cho trẻ sơ sinh
+zh: 婴儿洗发水
 
 < en:Shampoos
 en: Natural extract shampoos
+ar: شامبو بخلاصة طبيعية
+az: Təbii ekstraktlı şampunlar
+bg: Шампоани с натурални екстракти
+cs: Šampony s přírodními výtažky
+da: Shampoo med naturlige ekstrakter
 de: Shampoos mit natürlichen Extrakten
+el: Σαμπουάν με φυσικά εκχυλίσματα
 es: Champús con extractos naturales
+et: Looduslike ekstraktidega šampoonid
+fa: شامپو با عصاره های طبیعی
+fi: Luonnonuuteshampoot
 fr: Shampooings aux extraits naturels
+ga: Seampúnaí le sleachta nádúrtha
+hr: Šamponi s prirodnim ekstraktima
+hu: Természetes kivonatokat tartalmazó samponok
+hy: Բնական մզվածքներով շամպուններ
+id: Sampo ekstrak alami
+is: Sjampó með náttúrulegum útdrætti
+it: Shampoo con estratti naturali
+ja: 天然抽出物配合シャンプー
+ka: ნატურალური ექსტრაქტების შამპუნები
+kk: Табиғи сығындылары бар шампуньдер
+ko: 천연 추출물 샴푸
+ky: Табигый экстракттары бар шампуньдар
+lt: Šampūnai su natūraliais ekstraktais
+lv: Šampūni ar dabīgiem ekstraktiem
+mk: Шампони со природни екстракти
+ms: Syampu dengan ekstrak semula jadi
+mt: Xampù b'estratti naturali
+nl: Shampoos met natuurlijke extracten
+no: Sjampo med naturlige ekstrakter
+pl: Szampony z naturalnymi ekstraktami
+pt: Champôs com extratos naturais
+ro: Șampoane cu extracte naturale
+ru: Шампуни с натуральными экстрактами
+sk: Šampóny s prírodnými výťažkami
+sl: Šamponi z naravnimi izvlečki
+sq: Shampoo me ekstrakte natyrale
+sr: Шампони са природним екстрактима
+sv: Schampon med naturliga extrakt
+sw: Shampoo zenye dondoo asilia
+tg: Шампунҳои дорои экстрактҳои табиӣ
+th: แชมพูผสมสารสกัดจากธรรมชาติ
+tk: Tebigy ekstraktly şampunlar
+tr: Doğal özlü şampuanlar
+uk: Шампуні з натуральними екстрактами
+uz: Tabiiy ekstraktli shampunlar
+vi: Dầu gội có chiết xuất tự nhiên
+zh: 天然提取物洗发水
 
 < fr:Shampooings aux extraits naturels
+ar: شامبو بخلاصة الزيزفون
+az: Şampunlar cövhəri ilə
+bg: Шампоани с екстракт от липа
+bn: লিন্ডেন নির্যাস সহ শ্যাম্পু
+ca: Xampús amb extracte de til·ler
+cs: Šampony s lipovým extraktem
+da: Shampoo med lind ekstrakt
+de: Shampoos mit Lindenblütenextrakt
+el: Σαμπουάν με εκχύλισμα φλαμουριάς
+es: Champús con extracto de tilo
+et: Pärnaekstraktiga šampoonid
+fa: شامپو با عصاره درخت لیندن
+fi: Sampoot, joissa on lehmusuutetta
 fr: Shampooings au tilleul
+ga: Seampú le sliocht tilia
+he: שמפו עם תמצית טיליה
+hr: Šamponi s ekstraktom lipe
+hu: Hárskivonatot tartalmazó samponok
+hy: Շամպուններ լորենու մզվածքով
+id: Sampo dengan ekstrak linden
+is: Sjampó með lindenuppdrátt
+it: Shampoo con estratto di tiglio
+ja: シナノキ抽出物配合シャンプー
+ka: შამპუნები ცაცხვის ექსტრაქტით
+kk: Жусан сығындысы бар шампуньдер
+km: សាប៊ូកក់សក់ជាមួយសារធាតុចម្រាញ់ពី Linden
+ko: 보리수 추출물 샴푸
+ky: Липа экстракты кошулган шампунь
+lt: Šampūnai su liepų ekstraktu
+lv: Šampūni ar liepu ekstraktu
+mk: Шампони со екстракт од липа
+ms: Syampu dengan ekstrak linden
+mt: Xampù bl-estratt tal-linden
+nl: Shampoos met lindebloesemextract
+no: Sjampo med lind ekstrakt
+pl: Szampony z ekstraktem z lipy
+pt: Champôs com extrato de tília
+ro: Șampoane cu extract de tei
+ru: Шампуни с экстрактом липы
+sk: Šampóny s lipovým extraktom
+sl: Šamponi z izvlečkom lipe
+sq: Shampo me ekstrakt të blirit
+sr: Шампони са екстрактом липе
+sv: Schampon med lindextrakt
+sw: Shampoo na dondoo la linden
+tg: Шампунҳо бо иқтибоси линден
+th: แชมพูที่มีสารสกัดจาก Linden
+tk: Lipa ekstrakty bilen şampunlar
+tr: Ihlamur özlü şampuanlar
+uk: Шампуні з екстрактом липи
+ur: لنڈن کے عرق کے ساتھ شیمپو
+uz: Linden ekstrakti bilan shampunlar
+vi: Dầu gội có chiết xuất từ cây Linden
+zh: 菩提树提取物洗发水
 
 < fr:Shampooings aux extraits naturels
 fr: Shampooings à l'ortie
@@ -1201,46 +4395,540 @@ fr: Shampooings au miel, shampooings au miel de fleurs
 
 < en:Shampoos
 en: Fortifying shampoos
+ar: شامبو مقوي
+az: Möhkəmləndirici şampunlar
+bg: Подсилващи шампоани
+cs: Posilující šampony
+da: Styrkende shampooer
+de: Kräftigende Shampoos
+el: Ενισχυτικά σαμπουάν
+es: Champús fortificantes
+et: Tugevdavad šampoonid
+fa: شامپوهای تقویت کننده
+fi: Vahvistavat shampoot
 fr: Shampooing fortifiant
+ga: Seampú neartaithe
+hr: Jačanje šampona
+hu: Erősítő samponok
+hy: Ամրացնող շամպուններ
+id: Sampo penguat
+is: Styrkjandi sjampó
+it: Shampoo fortificante
+ja: 強化シャンプー
+ka: გამაძლიერებელი შამპუნები
+kk: Нығайтатын шампуньдер
+ko: 강화 샴푸
+ky: Бекемдөөчү шампуньдар
+lt: Stiprinantys šampūnai
+lv: Stiprinoši šampūni
+mk: Зајакнувачки шампони
+ms: Syampu menguatkan
+mt: Xampù li jsaħħaħ
+nl: Versterkende shampoos
+no: Styrkende sjampoer
+pl: Szampony wzmacniające
+pt: Champôs fortificantes
+ro: Șampoane fortifiante
+ru: Укрепляющие шампуни
+sk: Posilňujúce šampóny
+sl: Krepilni šamponi
+sq: Shampoo forcues
+sr: Шампони за јачање
+sv: Stärkande schampon
+sw: Shampoo za kuimarisha
+tg: Шампунҳои мустаҳкамкунанда
+th: แชมพูเสริมความแข็งแรง
+tk: Güýçlendiriji şampunlar
+tr: Güçlendirici şampuanlar
+uk: Зміцнюючі шампуні
+uz: Mustahkamlovchi shampunlar
+vi: Dầu gội tăng cường sức mạnh
+zh: 强韧洗发水
 
 < en:Shampoos
 en: Untangling shampoos, Detangling shampoos
+ar: شامبو فك التشابك
+az: Düyün açan şampunlar
+bg: Шампоани за разплитане
+cs: Šampony pro rozčesávání
+da: Shampoo til udredning
+de: Entwirr-Shampoos
+el: Σαμπουάν ξεμπερδέματος
+es: Champús desenredantes
+et: Pusade harutamise šampoonid
+fa: شامپوهای باز کننده گره
+fi: Selvittävät shampoot
 fr: Shampooing démêlant
+ga: Seampú dí-thadhlaí
+hr: Šamponi za raščešljavanje
+hu: Kibontó samponok
+hy: Մազերը հեշտ սանրելու համար նախատեսված շամպուններ
+id: Sampo pengurai rambut kusut
+is: Sjampó til að greiða úr flækjum
+it: Shampoo districante
+ja: もつれをほぐすシャンプー
+ka: შამპუნები კულულების გასასწორებლად
+kk: Шашты ағытатын шампуньдер
+ko: 엉킴 방지 샴푸
+ky: Чачты чечүүчү шампуньдар
+lt: Šampūnai lengvinantys iššukavimą
+lv: Šampūni matu atšķetināšanai
+mk: Шампони за расчешлување
+ms: Syampu menguraikan rambut
+mt: Xampù li jħoll ix-xagħar
+nl: Ontwarrende shampoos
+no: Sjampo for floker
+pl: Szampony ułatwiające rozczesywanie
+pt: Champôs desembaraçantes
+ro: Șampoane pentru descurcarea părului
+ru: Шампуни для распутывания волос
+sk: Šampóny na rozčesávanie
+sl: Šamponi za razčesavanje
+sq: Shampo për krehje të lehtë
+sr: Шампони за рашчишћавање
+sv: Schampo för att reda ut tovor
+sw: Shampoo za kufungua mafundo
+tg: Шампунҳои кушодани гиреҳҳо
+th: แชมพูแก้ผมพันกัน
+tk: Saçy aňsat çözmek üçin şampunlar
+tr: Saç açıcı şampuanlar
+uk: Шампуні для розплутування волосся
+uz: Sochni oson tarash uchun shampunlar
+vi: Dầu gội gỡ rối tóc
+zh: 柔顺洗发水
 
 < en:Shampoos
-fr: Shampoings anti-dessèchement
+ar: شامبو مضاد للجفاف
+az: Quruluğa qarşı şampunlar
+bg: Шампоани против изсушаване
+cs: Šampony proti vysoušení
+da: Shampoo mod udtørring
+de: Shampoos gegen Austrocknung
+el: Σαμπουάν κατά της ξηρότητας
+es: Champús anti-sequedad
+et: Kuivusevastased šampoonid
+fa: شامپو ضد خشکی
+fi: Kuivumista estävät shampoot
+fr: Shampooings anti-dessèchement
+ga: Seampú frith-thriomú
+hr: Šamponi protiv isušivanja
+hu: Szárazság elleni samponok
+hy: Չորության դեմ շամպուններ
+id: Sampo anti kekeringan
+is: Sjampó gegn þurrki
+it: Shampoo anti-secchezza
+ja: 乾燥防止シャンプー
+ka: შამპუნები გამოშრობის წინააღმდეგ
+kk: Құрғаққа қарсы шампуньдер
+ko: 건조 방지 샴푸
+ky: Кургактыкка каршы шампунь
+lt: Šampūnai nuo sausumo
+lv: Šampūni pret sausumu
+mk: Шампони против сушење
+ms: Syampu anti kekeringan
+mt: Xampù kontra n-nixfa
+nl: Anti-droogshampoos
+no: Sjampo mot tørrhet
+pl: Szampony przeciw wysuszaniu
+pt: Champôs anti-secura
+ro: Șampoane anti-uscare
+ru: Шампуни против сухости
+sk: Šampóny proti vysúšaniu
+sl: Šamponi proti izsuševanju
+sq: Shampo kundër tharjes
+sr: Шампони против исушивања
+sv: Schampo mot torrhet
+sw: Shampoo ya kuzuia ukavu
+tg: Шампунҳо барои пешгирии хушкӣ
+th: แชมพูป้องกันผมแห้ง
+tk: Guraklyga garşy şampunlar
+tr: Kuruluğa karşı şampuanlar
+uk: Шампуні проти сухості
+uz: Quruqlikka qarshi shampunlar
+vi: Dầu gội chống khô
+zh: 防干燥洗发水
 
 < en:Shampoos
+ar: شامبو ضد تساقط الشعر
+az: Saç tökülməsinə qarşı şampunlar
+bg: Шампоани против косопад
+cs: Šampony proti vypadávání vlasů
+da: Shampoo mod hårtab
+de: Shampoos gegen Haarausfall
+el: Σαμπουάν κατά της τριχόπτωσης
+es: Champús anticaída
+et: Juuste väljalangemise vastased šampoonid
+fa: شامپو ضد ریزش مو
+fi: Hiustenlähtöä ehkäisevät shampoot
 fr: Shampooings anti-chute
+ga: Seampúnna frith-chaillteanas gruaige
+hr: Šamponi protiv ispadanja kose
+hu: Hajhullás elleni samponok
+hy: Մազաթափման դեմ շամպուններ
+id: Sampo anti rambut rontok
+is: Sjampó gegn hárlosi
+it: Shampoo anticaduta
+ja: 抜け毛防止シャンプー
+ka: თმის ცვენის საწინააღმდეგო შამპუნები
+kk: Шаш түсуге қарсы шампуньдер
+ko: 탈모 방지 샴푸
+ky: Чач түшүүгө каршы шампунь
+lt: Šampūnai nuo plaukų slinkimo
+lv: Šampūni pret matu izkrišanu
+mk: Шампони против опаѓање на коса
+ms: Syampu anti keguguran rambut
+mt: Xampù kontra t-telf ta' xagħar
+nl: Anti-haaruitval shampoos
+no: Sjampo mot hårtap
+pl: Szampony przeciw wypadaniu włosów
+pt: Champôs antiqueda
+ro: Șampoane anti-cădere
+ru: Шампуни против выпадения волос
+sk: Šampóny proti vypadávaniu vlasov
+sl: Šamponi proti izpadanju las
+sq: Shampo kundër rënies së flokëve
+sr: Шампони против опадања косе
+sv: Schampo mot håravfall
+sw: Shampoo ya kuzuia upotezaji wa nywele
+tg: Шампунҳо барои пешгирии рехтани мӯй
+th: แชมพูป้องกันผมร่วง
+tk: Saç dökülmesine garşy şampunlar
+tr: Saç dökülmesine karşı şampuanlar
+uk: Шампуні проти випадіння волосся
+uz: Soch to'kilishiga qarshi shampunlar
+vi: Dầu gội chống rụng tóc
+zh: 防脱发香波
 
 ####
 
 < en:Hair
 en: Hair care
+ar: العناية بالشعر
+az: Saça qulluq
+bg: Грижа за косата
+bn: চুলের যত্ন
+ca: Cura del cabell
+cs: Péče o vlasy
+da: Hårpleje
+de: Haarpflege
+el: Περιποίηση μαλλιών
+es: Cuidado del cabello
+et: Juuksehooldus
+fa: مراقبت از مو
+fi: Hiustenhoito
 fr: Soins cheveux, Soin cheveux
+ga: Cúram gruaige
+he: טיפוח שיער
+hr: Njega kose
+hu: Hajápolás
+hy: Մազերի խնամք
+id: Perawatan rambut
+is: Hárgreiðsla
+it: Cura dei capelli
+ja: ヘアケア
+ka: თმის მოვლა
+kk: Шаш күтімі
+km: ការថែរក្សាសក់
+ko: 헤어 케어
+ky: Чачты күтүү
+lt: Plaukų priežiūra
+lv: Matu kopšana
+mk: Нега на коса
+ms: Penjagaan rambut
+mt: Kura tax-xagħar
+nl: Haarverzorging
+no: Hårpleie
+pl: Pielęgnacja włosów
+pt: Cuidados com o cabelo
+ro: Îngrijirea părului
+ru: Уход за волосами
+sk: Starostlivosť o vlasy
+sl: Nega las
+sq: Kujdesi për flokët
+sr: Нега косе
+sv: Hårvård
+sw: Utunzaji wa nywele
+tg: Нигоҳубини мӯй
+th: การดูแลเส้นผม
+tk: Saç idegi
+tr: Saç bakımı
+uk: Догляд за волоссям
+ur: بالوں کی دیکھ بھال
+uz: Soch parvarishi
+vi: Chăm sóc tóc
+zh: 头发护理
 
 < en:Hair care
 en: Hair masks
+ar: أقنعة الشعر
+az: Saç maskaları
+bg: Маски за коса
+bn: চুলের মাস্ক
+ca: Màscares per al cabell
+cs: Vlasové masky
+da: Hårmasker
+de: Haarmasken
+el: Μάσκες μαλλιών
+es: Mascarillas para el cabello
+et: Juuksemaskid
+fa: ماسک مو
+fi: Hiusnaamiot
 fr: Masques capillaires, masques pour cheveux
+ga: Mascanna gruaige
+he: מסכות שיער
+hr: Maske za kosu
+hu: Hajmaszkok
+hy: Մազի դիմակներ
+id: Masker rambut
+is: Hármaskar
+it: Maschere per capelli
+ja: ヘアマスク
+ka: თმის ნიღბები
+kk: Шашқа арналған маскалар
+km: ម៉ាសសក់
+ko: 헤어 마스크
+ky: Чач маскалары
+lt: Plaukų kaukės
+lv: Matu maskas
+mk: Маски за коса
+ms: Topeng rambut
+mt: Maskri tax-xagħar
+nl: Haarmaskers
+no: Hårmasker
+pl: Maski do włosów
+pt: Máscaras capilares
+ro: Măști de păr
+ru: Маски для волос
+sk: Vlasové masky
+sl: Maske za lase
+sq: Maskë për flokë
+sr: Маске за косу
+sv: Hårmasker
+sw: Maski za nywele
+tg: Ниқобҳои мӯй
+th: มาส์กผม
+tk: Saç maskalary
+tr: Saç maskeleri
+uk: Маски для волосся
+ur: بالوں کے ماسک
+uz: Soch maskalari
+vi: Mặt nạ tóc
+zh: 发膜
 
 < en:Hair
 en: Hair dyes
+ar: صبغات الشعر
+az: Saç boyaları
+bg: Бои за коса
+cs: Barvy na vlasy
+da: Hårfarver
+de: Haarfärbemittel
+el: Βαφές μαλλιών
+es: Tintes para el cabello
+et: Juuksevärvid
+fa: رنگ مو
+fi: Hiusten värit
 fr: Colorations capillaires, colorations
+ga: Ruaimeanna gruaige
+hr: Boje za kosu
+hu: Hajfestékek
+hy: Մազերի ներկեր
+id: Pewarna rambut
+is: Hár litarefni
+it: Tinture per capelli
+ja: 染毛剤
+ka: თმის საღებავები
+kk: Шаш бояғыштары
+ko: 염색약
+ky: Чач боёктору
+lt: Plaukų dažai
+lv: Matu krāsas
+mk: Бои за коса
+ms: Pewarna rambut
+mt: Żebgħa tax-xagħar
+nl: Haarverf
+no: Hårfarger
+pl: Farby do włosów
+pt: Tintas de cabelo
+ro: Vopsele de păr
+ru: Краски для волос
+sk: Farby na vlasy
+sl: Barve za lase
+sq: Ngjyra e flokëve
+sr: Боје за косу
+sv: Hårfärgningsmedel
+sw: Rangi za nywele
+tg: Рангҳои мӯй
+th: สีย้อมผม
+tk: Saç reňkleri
+tr: Saç boyaları
+uk: Фарби для волосся
+uz: Soch bo'yoqlari
+vi: Thuốc nhuộm tóc
+zh: 染发剂
 
 < en:Hair
 en: Hair straightening
+ar: فرد الشعر
+az: Saç düzləşdirmə
+bg: Изправяне на косата
+bn: চুল সোজা করা
+ca: Allisat de cabells
+cs: Narovnávání vlasů
+da: Glatning af hår
+de: Haarglättung
+el: Ίσιωμα μαλλιών
+es: Alisado del cabello
+et: Juuste sirgendamine
+fa: صاف کردن مو
+fi: Hius suoristus
 fr: Défrisage
+ga: Gruaig a dhíriú
+he: החלקת שיער
+hr: Ravnanje kose
+hu: Hajkiegyenesítés
+hy: Մազերի ուղղում
+id: Pelurusan rambut
+is: Sléttun hárs
+it: Stiratura dei capelli
+ja: 縮毛矯正
+ka: თმის გასწორება
+kk: Шашты түзеу
+km: ការកែសក់
+ko: 머리 스트레이트
+ky: Чачты түздөө
+lt: Plaukų tiesinimas
+lv: Matu taisnošana
+mk: Исправање на косата
+ms: Meluruskan rambut
+mt: Iddrittar tax-xagħar
+nl: Haar stijlen
+no: Hår retting
+pl: Prostowanie włosów
+pt: Alisamento capilar
+ro: Îndreptarea părului
+ru: Выпрямление волос
+sk: Vyrovnávanie vlasov
+sl: Ravnanje las
+sq: Drejtimi i flokëve
+sr: Исправљање косе
+sv: Rakt hår
+sw: Kunyoosha nywele
+tg: Рост кардани мӯй
+th: การยืดผม
+tk: Saçyň düzedilmegi
+tr: Saç düzleştirme
+uk: Випрямлення волосся
+ur: بالوں کو سیدھا کرنا
+uz: Sochni tekislash
+vi: Duỗi tóc
+zh: 拉直头发
 
 < en:Hair
 fr: Coiffants
 
 < fr:Coiffants
 en: Hair Gel
+ar: جل للشعر
+az: Saç geli
+bg: Гел за коса
+cs: Gel na vlasy
+da: Hårgel
+de: Haargel
+el: Τζελ μαλλιών
+es: Gel para el cabello
+et: Juuksegeel
+fa: ژل مو
+fi: Hiusten geeli
 fr: Gels pour les cheveux, Gel pour les cheveux
+ga: Glóthach gruaige
+hr: Gel za kosu
+hu: Hajzselé
+hy: Մազի գել
+id: Gel rambut
+is: Hárgel
+it: Gel per capelli
+ja: ヘアジェル
+ka: თმის გელი
+kk: Шашқа арналған гель
+ko: 헤어 젤
+ky: Чач гели
+lt: Plaukų gelis
+lv: Matu želeja
+mk: Гел за коса
+ms: Gel rambut
+mt: Ġel tax-xagħar
+nl: Haargel
+no: Hårgele
+pl: Żel do włosów
+pt: Gel para cabelo
+ro: Gel de păr
+ru: Гель для волос
+sk: Gél na vlasy
+sl: Gel za lase
+sq: Xhel për flokë
+sr: Гел за косу
+sv: Hårgel
+sw: Gel ya nywele
+tg: Гели мӯй
+th: เจลใส่ผม
+tk: Saç üçin gel
+tr: Saç jölesi
+uk: Гель для волосся
+uz: Soch geli
+vi: Gel vuốt tóc
 
 < fr:Coiffants
 en: Hair sprays, Hairsprays
+ar: مثبتات الشعر
+az: Saç lakları
+bg: Лакове за коса
+cs: Laky na vlasy
+da: Hårsprays
+de: Haarsprays
+el: Λακ μαλλιών
+es: Laca para el cabello
+et: Juukselakid
+fa: اسپری مو
+fi: Hiuslakat
 fr: Laques pour les cheveux, Laque pour les cheveux, laque à cheveux
+ga: Spraeanna gruaige
+hr: Lakovi za kosu
+hu: Hajlakkok
+hy: Մազի լաքեր
+id: Semprotan rambut
+is: Hársprey
+it: Lacche per capelli
+ja: ヘアスプレー
+ka: თმის ლაქები
+kk: Шашқа арналған лактар
+ko: 헤어 스프레이
+ky: Чач лактары
+lt: Plaukų lakas
+lv: Matu lakas
+mk: Лак за коса
+ms: Semburan rambut
+mt: Sprejs tax-xagħar
+nl: Haarlak
+no: Hårspray
+pl: Lakiery do włosów
+pt: Sprays de cabelo
+ro: Fixativ de păr
+ru: Лаки для волос
+sk: Laky na vlasy
+sl: Laki za lase
+sq: Sprej për flokë
+sr: Лак за косу
+sv: Hårspray
+sw: Dawa ya kunyunyizia nywele
+tg: Лаки мӯй
+th: สเปรย์ฉีดผม
+tk: Saç spreyleri
+tr: Saç spreyleri
+uk: Лаки для волосся
+uz: Soch spreyi
+vi: Keo xịt tóc
+zh: 发胶
 
 ###### CATEGORIE MAQUILLAGE
 
@@ -1295,15 +4983,59 @@ uz: Makiyaj
 vi: Trang điểm
 zh: 化妆品
 
-
 #### Maquillage pour les yeux
 
 < en:Makeup
 en: Eyes makeup
+ar: مكياج العيون
+az: Göz makiyajı
+bg: Грим за очи
+cs: Líčení očí
+da: Øjenmakeup
 de: Augen-Make-up
+el: Μακιγιάζ ματιών
 es: Maquillaje de ojos
+et: Silmameik
+fa: آرایش چشم
+fi: Silmämeikki
 fr: Maquillage pour les yeux
-nl: Oogmake-up
+ga: Smideadh súl
+hr: Šminka za oči
+hu: Szemsmink
+hy: Աչքերի դիմահարդարում
+id: Rias mata
+is: Augnförðun
+it: Make up per occhio, Trucco occhi
+ja: アイメイク
+ka: თვალის მაკიაჟი
+kk: Көз макияжы
+ko: 아이 메이크업
+ky: Көз макияжы
+lt: Akių makiažas
+lv: Acu grims
+mk: Шминка за очи
+ms: Solek mata
+mt: Mejkapp tal-għajnejn
+nl: Oogmake-up, Oog make-up
+no: Øyesminke
+pl: Makijaż oczu
+pt: Maquilhagem para olhos
+ro: Machiaj pentru ochi
+ru: Макияж для глаз, косметика для глаз
+sk: Líčenie očí
+sl: Ličenje oči
+sq: Grim për sy
+sr: Шминка за очи
+sv: Ögonmakeup
+sw: Vipodozi vya macho
+tg: Ороиши чашм
+th: แต่งหน้าดวงตา
+tk: Göz makýažy
+tr: Göz makyajı
+uk: Макіяж для очей
+uz: Ko'z makiyaji
+vi: Trang điểm mắt
+zh: 眼妆
 
 < en:Eyes makeup
 en: Mascara
@@ -1317,37 +5049,322 @@ wikidata:en: Q8243409
 
 < en:Eyes makeup
 en: Eyeshadows, Eyes shadows
+ar: ظلال العيون
+az: Göz kölgələri
+bg: Сенки за очи
+bn: চোখের ছায়া
+ca: Ombres d'ulls
+cs: Oční stíny
+da: Øjenskygger
+de: Lidschatten
+el: Σκιές ματιών
+es: Sombras de ojos
+et: Lauvärvid
+fa: سایه چشم
+fi: Luomivärit
 fr: Fards à paupières
+ga: Scáth súl
+he: צלליות
+hr: Sjenila za oči
+hu: Szemhéjpúderek
+hy: Ստվերաներկեր
+id: Perona mata
+is: Augnskuggar
+it: Ombretti
+ja: アイシャドウ
+ka: თვალის ჩრდილები
+kk: Көз бояуы
+km: ស្រមោលភ្នែក
+ko: 아이섀도
+ky: Көз боёгу
+lt: Akių šešėliai
+lv: Acu ēnas
+mk: Сенки за очи
+ms: Pembayang mata
+mt: Dellijiet tal-għajnejn
 nl: Oogschaduw
+no: Øyenskygger
+pl: Cienie do powiek
+pt: Sombras de olhos
+ro: Farduri de pleoape
+ru: Тени для век
+sk: Očné tiene
+sl: Senčila za oči
+sq: Hije sysh
+sr: Сенке за очи
+sv: Ögonskuggor
+sw: Vivuli vya macho
+tg: Сояҳои чашм
+th: อายแชโดว์
+tk: Göz kölegeleri
+tr: Göz farları
+uk: Тіні для повік
+ur: آئی شیڈو
+uz: Ko'z soyalari
+vi: Phấn mắt
+zh: 眼影
 wikidata:en: Q964307
 
 < en:Eyes makeup
 en: Eye pencils
+ar: أقلام العيون
+az: Göz qələmləri
+bg: Моливи за очи
+cs: Tužky na oči
+da: Øjenblyanter
+de: Augenstifte
+el: Μολύβια ματιών
+es: Lápices de ojos
+et: Silmapliiatsid
+fa: مداد چشم
+fi: Silmäkynät
 fr: Crayons yeux, Crayon yeux
+ga: Peann luaidhe súl
+hr: Olovke za oči
+hu: Szemceruzák
+hy: Աչքի մատիտներ
+id: Pensil mata
+is: Augnblýantar
+it: Matite per occhi
+ja: アイペンシル
+ka: თვალის ფანქრები
+kk: Көз қарындаштары
+ko: 아이 펜슬
+ky: Көз карандаштары
+lt: Akių pieštukai
+lv: Acu zīmuļi
+mk: Моливи за очи
+ms: Pensel mata
+mt: Lapsijiet tal-għajnejn
 nl: Oogpotloden, oogpotlood
+no: Øyeblyanter
+pl: Ołówki do oczu
+pt: Lápis de olhos
+ro: Creioane de ochi
+ru: Карандаши для глаз
+sk: Ceruzky na oči
+sl: Svinčniki za oči
+sq: Lapsa për sy
+sr: Оловке за очи
+sv: Ögonpennor
+sw: Penseli za macho
+tg: Қаламҳои чашм
+tk: Göz galamlary
+tr: Göz kalemleri
+uk: Олівці для очей
+uz: Ko'z qalamlari
+vi: Bút chì kẻ mắt
+zh: 眼线笔
 
 < en:Eye pencils
 en: Kohl pencils
+ar: أقلام كحل
+az: Sürmə qələmləri
+bg: Моливи за очи с кохл
+bn: কাজল পেন্সিল
+ca: Llapis de kohl
+cs: Kajalové tužky
+da: Kohl blyanter
+de: Kajalstifte
+el: Μολύβια καγιάλ
+es: Lápices de kohl
+et: Kohl pliiatsid
+fa: مداد سرمه
+fi: Kajal-kynät
 fr: Crayons khôl, Crayon khôl
+ga: Peann luaidhe Kohl
+he: עפרונות כחל
+hr: Olovke za oči s kohlom
+hu: Kajal szemceruzák
+hy: Սուրմա մատիտներ
+id: Pensil Kohl
+is: Kólblýantar
+it: Matite kajal
+ja: コールペンシル
+ka: სურმის ფანქრები
+kk: Көмірлі қарындаштар
+km: ខ្មៅដៃ Kohl
+ko: 콜 펜슬
+ky: Карандаши кохль
+lt: Kohlio pieštukai
+lv: Akmens ogļu zīmuļi
+mk: Моливи за очи со кохл
+ms: Pensel Kohl
+mt: Lapsijiet Kohl
+nl: Kohlpotloden
+no: Kohl blyanter
+pl: Ołówki do oczu Kohl
+pt: Lápis de kohl
+ro: Creioane kajal
+ru: Карандаши для глаз с кохлем
+sk: Kajalové ceruzky
+sl: Svinčniki za oči s kohlom
+sq: Lapsa Kohl
+sr: Оловке за очи са кохлом
+sv: Kohlpennor
+sw: Penseli za Kohl
+tg: Қаламҳои коҳл
+tk: Köhli galamlar
+tr: Sürme kalemleri
+uk: Олівці для очей з кохлем
+ur: کاجل پنسل
+uz: Ko'mirli qalamlar
+vi: Bút chì Kohl
+zh: 煤精铅笔
 
 #### Maquillage pour le teint
 
 < en:Makeup
 en: Face Makeup
+ar: مكياج الوجه
+az: Üz makiyajı
+bg: Грим за лице
+cs: Make-up na obličej
+da: Ansigtsmakeup
 de: Gesichtsmakeup
+el: Μακιγιάζ προσώπου
 es: Maquillaje facial
+et: Näomeik
+fa: آرایش صورت
+fi: Kasvomeikki
 fr: Maquillage pour le teint
+ga: Smideadh aghaidhe
+hr: Šminka za lice
+hu: Arcsmink
+hy: Դեմքի դիմահարդարում
+is: Andlitsförðun
+it: Trucco per il viso
+ja: フェイスメイク
+ka: სახის მაკიაჟი
+kk: Бет макияжы
+ko: 페이스 메이크업
+ky: Бет макияжы
+lt: Veido makiažas
+lv: Sejas grims
+mk: Шминка за лице
+ms: Solek muka
+mt: Mejkapp tal-wiċċ
 nl: Gezichtsmake-up
+no: Ansiktsminke
+pl: Makijaż twarzy
+pt: Maquilhagem facial
+ro: Machiaj pentru față
+ru: Макияж лица
+sk: Make-up na tvár
+sl: Ličenje obraza
+sq: Grim për fytyrë
+sr: Шминка за лице
+sv: Ansiktsmakeup
+sw: Vipodozi vya uso
+tg: Ороиши рӯй
+tk: Ýüz makýažy
+tr: Yüz makyajı
+uk: Макіяж для обличчя
+uz: Yuz makiyaji
+vi: Trang điểm mặt
+zh: 脸部彩妆
 
 < en:Face Makeup
+az: Tonal krem
+bg: Фон дьо тен
+da: Foundation
+de: Foundation
+es: Base de maquillaje
+et: Jumestuskreem
+fa: کرم پودر
+fi: Meikkivoide
 fr: Fonds de teint
+ga: Fondúireacht
+hr: Podloga
+hu: Alapozó
+hy: Տոնային քսուք
+id: Alas bedak
+is: Undirstaða
+it: Fondotinta
+ja: ファンデーション
+ka: ტონალური კრემი
+kk: Тоналды крем
+ko: 파운데이션
+ky: Тоналдык крем
+lt: Makiažo pagrindas
+lv: Tonālais krēms
+mk: Пудра
+ms: Krim asas
+mt: Fondazzjoni
+nl: Foundation
+no: Foundation
+pl: Podkład
+pt: Base
+ro: Fond de ten
+ru: Тональный крем
+sl: Podlaga
+sq: Pudër
+sr: Пудер
+sv: Foundation
+sw: Msingi
+tg: Креми тоналӣ
+th: รองพื้น
+tk: Tonal krem
+tr: Fondöten
+uk: Тональний крем
+uz: Tonal krem
+vi: Kem nền
+zh: 粉底
 wikidata:en: Q1418455
 
 < fr:Fonds de teint
 fr: Fond de teint poudre
 
 < fr:Fonds de teint
+ar: كريم أساس سائل
+az: Maye tonal krem
+bg: Течен фон дьо тен
+cs: Tekutý make-up
+da: Flydende foundation
+de: Flüssige Foundation
+el: Υγρό make-up
+es: Base de maquillaje líquida
+et: Vedel jumestuskreem
+fa: کرم پودر مایع
+fi: Nestemäinen meikkivoide
 fr: Fond de teint liquide
+ga: Fondúireacht leachtach
+hr: Tekući puder
+hu: Folyékony alapozó
+hy: Հեղուկ տոնային քսուք
+id: Alas bedak cair
+is: Fljótandi undirstaða
+it: Fondotinta liquido
+ja: リキッドファンデーション
+ka: თხევადი ტონალური კრემი
+kk: Сұйық тоналды крем
+ko: 액체 파운데이션
+ky: Суюк тоналдык крем
+lt: Skystas makiažo pagrindas
+lv: Šķidrais tonālais krēms
+mk: Течна пудра
+ms: Krim asas cecair
+mt: Fondazzjoni likwida
+nl: Vloeibare foundation
+no: Flytende foundation
+pl: Podkład w płynie
+pt: Base líquida
+ro: Fond de ten lichid
+ru: Жидкий тональный крем
+sk: Tekutý make-up
+sl: Tekoča podlaga
+sq: Pudër likuide
+sr: Течни пудер
+sv: Flytande foundation
+sw: Msingi wa maji
+tg: Креми тоналӣ моеъ
+th: รองพื้นชนิดน้ำ
+tk: Suwuk tonal krem
+tr: Likit fondöten
+uk: Рідкий тональний крем
+uz: Suyuq tonal krem
+vi: Kem nền dạng lỏng
+zh: 粉底液
 
 < en:Face Makeup
 fr: Poudres bronzantes
@@ -1391,9 +5408,55 @@ fr: Maquillage pour les ongles
 
 < en:Nail makeup
 en: Nail polish
+ar: طلاء الأظافر
+az: Dırnaq lakı
+bg: Лак за нокти
+cs: Lak na nehty
+da: Neglelak
+de: Nagellack
+el: Βερνίκι νυχιών
+es: Esmalte de uñas
+et: Küünelakk
+fa: لاک ناخن
+fi: Kynsilakka
 fr: Vernis à ongles
+ga: Snas ingne
+hr: Lak za nokte
+hu: Körömlakk
+hy: Եղունգների լաք
+id: Cat kuku
+is: Naglalakk
+it: Smalto per unghie
+ja: マニキュア
+ka: ფრჩხილის ლაქი
+kk: Тырнақ лагы
+ko: 매니큐어
+ky: Тырмак боёгу
+lt: Nagų lakas
+lv: Nagu laka
+mk: Лак за нокти
+ms: Pengilat kuku
+mt: Verniċ tad-dwiefer
 nl: Nagellak
+no: Neglelakk
+pl: Lakier do paznokci
+pt: Verniz para unhas
+ro: Lac de unghii
 ru: Лак для ногтей
+sk: Lak na nechty
+sl: Lak za nohte
+sq: Llaku i thonjve
+sr: Лак за нокте
+sv: Nagellack
+sw: Rangi ya kucha
+tg: Лаки нохун
+th: น้ำยาทาเล็บ
+tk: Dyrnak üçin lak
+tr: Oje
+uk: Лак для нігтів
+uz: Tirnoq uchun lak
+vi: Sơn móng tay
+zh: 指甲油
 wikidata:en: Q223807
 
 < en:Nail polish
@@ -1402,10 +5465,61 @@ fr: Top Coat
 nl: Top Coat
 
 < en:Nail makeup
-fr: Durcisseur pour les ongles, Durcisseur pour ongles
+en: Nail hardener
+ar: مقوي الأظافر
+az: Dırnaq bərkidici
+bg: Заздравител за нокти
+bn: নখের শক্তিবর্ধক
+ca: Enduridor d'ungles
+cs: Zpevňovač nehtů
+da: Negleforstærker
 de: Nagelhärter
+el: Σκληρυντικό νυχιών
 es: Endurecedor de uñas
+et: Küünetugevdaja
+fa: سفت کننده ناخن
+fi: Kynnenkovettaja
+fr: Durcisseur pour les ongles, Durcisseur pour ongles
+ga: Cruaiteoir ingne
+he: מחזק ציפורניים
+hr: Učvršćivač za nokte
+hu: Körömerősítő
+hy: Եղունգների ամրացուցիչ
+id: Pengeras kuku
+is: Naglahertir
+it: Indurente per unghie
+ja: 爪硬化剤
+ka: ფრჩხილის გამაგრებელი
+kk: Тирнақ қаттылатқышы
+km: ឧបករណ៍​ធ្វើ​ក្រចក​ឲ្យ​រឹងមាំ
+ko: 손톱 강화제
+ky: Тырмак катыргыч
+lt: Nagų stipriklis
+lv: Nagu stiprinātājs
+mk: Зацврстувач за нокти
+ms: Pengeras kuku
+mt: Iebes tad-dwiefer
 nl: Nagelverharder
+no: Negleforsterker
+pl: Utwardzacz do paznokci
+pt: Endurecedor de unhas
+ro: Întăritor de unghii
+ru: Укрепитель для ногтей
+sk: Spevňovač nechtov
+sl: Utrjevalec za nohte
+sq: Fortësues thonjsh
+sr: Учвршћивач за нокте
+sv: Nagelhärdare
+sw: Ngumu ya kucha
+tg: Сахткунандаи нохун
+th: น้ำยาเคลือบแข็งเล็บ
+tk: Dyrnak gatyldyjysy
+tr: Tırnak sertleştirici
+uk: Зміцнювач для нігтів
+ur: ناخن سخت کرنے والا
+uz: Tirnoq qotirgich
+vi: Chất làm cứng móng
+zh: 指甲硬化剂
 
 < en:Nail makeup
 en: Nail patch, nail stickers
@@ -1415,14 +5529,105 @@ fr: Nail patch, Stickers pour les ongles
 
 < en:Makeup
 en: Lip Makeup
+ar: مكياج الشفاه
+az: Dodaq makiyajı
+bg: Грим за устни
+cs: Líčení rtů
+da: Læbemakeup
 de: Lippen-Make-up
+el: Μακιγιάζ χειλιών
 es: Maquillaje labial
+et: Huulemeik
+fa: آرایش لب
+fi: Huulimeikki
 fr: Maquillage pour les lèvres
+ga: Smideadh liopaí
+hr: Šminka za usne
+hu: Ajaksmink
+hy: Շրթունքների դիմահարդարում
+id: Rias bibir
+is: Varalita förðun
+it: Trucco labbra
+ja: リップメイク
+ka: ტუჩის მაკიაჟი
+kk: Ерін макияжы
+ko: 립 메이크업
+ky: Эрин макияжы
+lt: Lūpų makiažas
+lv: Lūpu grims
+mk: Шминка за усни
+ms: Solek bibir
+mt: Mejkapp tax-xufftejn
 nl: Lippenmake-up
+no: Leppesminke
+pl: Makijaż ust
+pt: Maquilhagem labial
+ro: Machiaj pentru buze
+ru: Макияж губ
+sk: Líčenie pier
+sl: Ličenje ustnic
+sq: Grim për buzë
+sr: Шминка за усне
+sv: Läppsmink
+sw: Vipodozi vya midomo
+tg: Ороиши лаб
+th: แต่งหน้าริมฝีปาก
+tk: Dodak makýažy
+tr: Dudak makyajı
+uk: Макіяж для губ
+uz: Lablar uchun makiyaj
+vi: Trang điểm môi
+zh: 唇妆
 
 < en:Lip Makeup
 en: Lip pencils
+ar: أقلام تحديد الشفاه
+az: Dodaq qələmləri
+bg: Моливи за устни
+cs: Tužky na rty
+da: Læbeblyanter
+el: Μολύβια χειλιών
+es: Lápices de labios
+et: Huulepliiatsid
+fa: مداد لب
+fi: Huultenrajauskynät
 fr: Crayons à lèvres
+ga: Peann luaidhe liopaí
+hr: Olovke za usne
+hu: Ajakceruzák
+hy: Շրթունքների մատիտներ
+id: Pensil bibir
+is: Varablýantar
+it: Matite labbra
+ja: リップペンシル
+ka: ტუჩის ფანქრები
+kk: Ерінге арналған қарындаштар
+ko: 립 펜슬
+ky: Эрин карандаштары
+lt: Lūpų pieštukai
+lv: Lūpu zīmuļi
+mk: Моливи за усни
+ms: Pensel bibir
+mt: Lapsijiet tax-xufftejn
+nl: Lippenpotloden
+no: Lipplepper
+pl: Konturówki do ust
+pt: Lápis labiais
+ro: Creioane de buze
+ru: Карандаши для губ
+sk: Ceruzky na pery
+sl: Svinčniki za ustnice
+sq: Lapsa për buzë
+sr: Оловке за усне
+sv: Läppennor
+sw: Penseli za midomo
+tg: Қаламҳои лаб
+th: ดินสอเขียนขอบปาก
+tk: Dodak galamlary
+tr: Dudak kalemleri
+uk: Олівці для губ
+vi: Bút chì kẻ môi
+zh: 唇线笔
 wikidata:en: Q875981
 
 < en:Lip pencils
@@ -1433,7 +5638,53 @@ fr: Crayons à lèvres et joues
 
 < en:Lip Makeup
 en: Lipsticks
+ar: أحمر شفاه
+az: Dodaq boyası
+bg: Червила
+cs: Rtěnky
+da: Læbestift
+el: Κραγιόν
+es: Labiales, pintalabios
+et: Huulepulgad
+fa: رژ لب
+fi: Huulipunat
 fr: Rouges à lèvres, Rouge à lèvres
+ga: Lipstick
+hr: Ruževi za usne
+hu: Rúzsok
+hy: Շրթներկներ
+id: Lipstik
+is: Varalitur
+it: Rossetti
+ja: 口紅
+ka: პომადები
+kk: Далап ерін далабы
+ko: 립스틱
+ky: Эрин боёгу
+lt: Lūpų dažai
+lv: Lūpu krāsas
+mk: Кармини за усни
+ms: Gincu bibir
+mt: Lipsticks
+nl: Lippenstift
+no: Leppestift
+pl: Szminki
+pt: Batons
+ro: Rujuri
+ru: Губная помада
+sk: Rúže
+sl: Šminke za ustnice
+sq: Buzëkuq
+sr: Кармини
+sv: Läppstift
+sw: Lipstick
+tg: Помада
+th: ลิปสติก
+tk: Dodak boýagy
+tr: Rujlar
+uk: Губна помада
+vi: Son môi
+zh: 口红
 wikidata:en: Q184191
 
 < en:Lip Makeup
@@ -1443,7 +5694,55 @@ wikidata:en: Q747675
 
 < en:Lip Makeup
 en: Lip stickers
+ar: ملصقات الشفاه
+az: Dodaq stikerləri
+bg: Стикери за устни
+cs: Samolepky na rty
+da: Læbeklistermærker
+de: Lippenaufkleber
+el: Αυτοκόλλητα χειλιών
+es: Pegatinas para labios
+et: Huulekleepsud
+fa: برچسب لب
+fi: Huulitarrat
 fr: Stickers à lèvres, Sticker à lèvres
+ga: Greamáin liopaí
+hr: Naljepnice za usne
+hu: Ajakmatricák
+hy: Շրթունքների կպչուն պիտակներ
+id: Stiker bibir
+is: Varalímmi
+it: Adesivi per labbra
+ja: リップステッカー
+ka: ტუჩის სტიკერები
+kk: Ерінге арналған стикерлер
+ko: 입술 스티커
+ky: Эрин стикерлери
+lt: Lūpų lipdukai
+lv: Lūpu uzlīmes
+mk: Налепници за усни
+ms: Pelekat bibir
+mt: Stikers tax-xufftejn
+nl: Lipstickers
+no: Leppeklistremerker
+pl: Naklejki na usta
+pt: Autocolantes para lábios
+ro: Autocolante pentru buze
+ru: Наклейки для губ
+sk: Nálepky na pery
+sl: Nalepke za ustnice
+sq: Ngjitëse buzësh
+sr: Налепнице за усне
+sv: Läppstickers
+sw: Vibandiko vya midomo
+tg: Стикерҳои лаб
+th: สติกเกอร์ติดริมฝีปาก
+tk: Dodak stikerleri
+tr: Dudak çıkartmaları
+uk: Наліпки для губ
+uz: Lab stikerlari
+vi: Miếng dán môi
+zh: 唇部贴纸
 
 ######## CATEGORIE Solaire
 
@@ -1452,53 +5751,603 @@ fr: Solaire
 
 < en:Suncare
 en: In-sun protections
+ar: واقيات الشمس
+az: Günəşdən qoruyucu vasitələr
+bg: Слънцезащитни продукти
+bn: ইন-সান সুরক্ষা
+ca: Proteccions solars
+cs: Ochrana proti slunci
+da: Solbeskyttelse
+de: Sonnenschutz
+el: Αντηλιακή προστασία
+es: Protección solar
+et: Päikesekaitse
+fa: محافظت در برابر آفتاب
+fi: Aurinkosuojat
 fr: Protections solaires
+ga: Cosaintí gréine
+he: הגנות שמש
+hr: Zaštita od sunca
+hu: Napvédő termékek
+hy: Արևապաշտպան միջոցներ
+id: Perlindungan dari matahari
+is: Sólarvarnir
+it: Protezioni solari
+ka: მზისგან დამცავი საშუალებები
+kk: Күннен қорғау
+km: ការពារកម្តៅថ្ងៃ
+ko: 자외선 차단제
+ky: Күндөн коргоо
+lt: Apsauga nuo saulės
+lv: Aizsardzība pret sauli
+mk: Заштита од сонце
+ms: Perlindungan matahari
+mt: Protezzjonijiet mix-xemx
+nl: Zonbescherming
+no: Solbeskyttelse
+pl: Ochrona przed słońcem
+pt: Protetores solares
+ro: Protecții solare
+ru: Солнцезащитные средства
+sk: Ochrana pred slnkom
+sl: Zaščita pred soncem
+sq: Mbrojtje nga dielli
+sr: Заштита од сунца
+sv: Solskydd
+sw: Kinga dhidi ya jua
+tg: Муҳофизат аз офтоб
+th: ผลิตภัณฑ์ป้องกันแสงแดด
+tk: Günden goraýyş
+tr: Güneşten korunma
+uk: Захист від сонця
+ur: سورج سے تحفظ
+uz: Quyoshdan himoya
+vi: Chống nắng
 
 < en:In-sun protections
 en: Sunscreen, Sunblock
+ar: واقي شمسي
+az: Günəş kremi
+bg: Слънцезащитен крем
+bn: সানস্ক্রিন, সানব্লক
+ca: Protector solar
+cs: Opalovací krém
+da: Solcreme
 de: Sonnencremes
+el: Αντηλιακό
+es: Protector solar
+et: Päikesekaitsekreem
+fa: کرم ضد آفتاب
+fi: Aurinkovoide
 fr: Crèmes solaire, crème solaire
+ga: Grianchosaint
+he: קרם הגנה
+hr: Krema za sunčanje
+hu: Naptej
+hy: Արևապաշտպան քսուք
+id: Tabir surya
+is: Sólarvörn
+it: Crema solare
+ka: მზისგან დამცავი კრემი
+kk: Күннен қорғайтын крем
+km: ឡេការពារកម្តៅថ្ងៃ
+ko: 선크림
+ky: Күндөн коргоочу крем
+lt: Apsauginis kremas nuo saulės
+lv: Sauļošanās krēms
+mk: Крем за сончање
+ms: Pelindung matahari
+mt: Protezzjoni mix-xemx
+nl: Zonnebrandcrème
+no: Solkrem
+pl: Krem przeciwsłoneczny
+pt: Protetor solar
+ro: Cremă de protecție solară
+ru: Солнцезащитный крем
+sk: Opaľovací krém
+sl: Krema za sončenje
+sq: Krem kundër diellit
+sr: Крем за сунчање
+sv: Solkräm
+sw: Kinga ya jua
+tg: Креми муҳофизаткунандаи офтоб
+th: ครีมกันแดด
+tk: Günden goraýjy krem
+tr: Güneş kremi
+uk: Сонцезахисний крем
+ur: سن سکرین
+uz: Quyoshdan himoya kremi
+vi: Kem chống nắng
 wikidata:en: Q827658
 
 < en:Suncare
 fr: Après-solaires
 en: After Sun Care
+ar: العناية بعد التعرض للشمس
+az: Günəşdən sonra qulluq
+bg: Грижа след слънце
+bn: সূর্যের পরে যত্ন
+ca: Cura després del sol
+cs: Péče po opalování
+da: Efter solpleje
+de: After-Sun-Pflege
+el: Περιποίηση μετά τον ήλιο
+es: Cuidado para después del sol
+et: Pärast päikest hooldus
+fa: مراقبت بعد از آفتاب
+fi: Auringonoton jälkeinen hoito
+ga: Cúram Iar-Ghréine
+hr: Njega poslije sunčanja
+hu: Napozás utáni ápolás
+hy: Արևայրուքից հետո խնամք
+id: Perawatan Setelah Terpapar Matahari
+is: Eftir sól umhirðu
+it: Doposole
+ja: アフターサンケア
+ka: მზის შემდგომი მოვლა
+kk: Күннен кейінгі күтім
+km: ការថែទាំក្រោយពេលថ្ងៃ
+ko: 애프터 선 케어
+ky: Күндөн кийинки кароо
+lt: Priežiūra po saulės
+lv: Kopšana pēc sauļošanās
+mk: Нега после сончање
+ms: Penjagaan Selepas Matahari
+mt: Kura ta' wara x-Xemx
+nl: Aftersun
+no: Etter solpleie
+pl: Pielęgnacja po opalaniu
+pt: After Sun
+ro: Îngrijire după plajă
+ru: Уход после загара
+sk: Starostlivosť po opaľovaní
+sl: Nega po sončenju
+sq: Kujdes pas diellit
+sr: Нега после сунчања
+sv: After Sun
+sw: Utunzaji Baada ya Jua
+tg: Нигоҳубини баъди офтоб
+th: ผลิตภัณฑ์ดูแลผิวหลังออกแดด
+tk: Güneşden soň ideg
+tr: Güneş sonrası bakım
+uk: Догляд після засмаги
+ur: سورج کے بعد کی دیکھ بھال
+uz: Quyoshdan keyin parvarish
+vi: Chăm sóc sau khi tắm nắng
+zh: 晒后护理
 
 < en:Suncare
 en: Self-tanner, Self-tanning lotion
+ar: لوشن تسمير ذاتي
+az: Özünqaraldıcı losyon
+bg: Лосион за автобронзиране
+cs: Samoopalovací přípravek
+da: Selvbruner
+de: Selbstbräuner
+el: Αυτομαυριστικό λοσιόν
+es: Autobronceador
+et: Isepruunistav losjoon
+fa: لوسیون برنزه کننده
+fi: Itseruskettava
 fr: Autobronzants
+ga: Lóis féin-tanaithe
+hr: Losion za samotamnjenje
+hu: Önbarnító krém
+hy: Ինքնաներկող լոսյոն
+id: Losion penyamakan kulit
+is: Sjálfbrúnkulosjon
+it: Autoabbronzante
+ja: セルフタンニングローション
+ka: ავტორუჯის ლოსიონი
+kk: Өздігінен қоңырландырғыш лосьон
+ko: 셀프 태닝 로션
+ky: Өзүн-өзү күйгүзүүчү лосьон
+lt: Savaiminio įdegio losjonas
+lv: Paštonējošs losjons
+mk: Лосион за самопотемнување
+ms: Losen penyamakan sendiri
+mt: Lozjon li jikkunza waħdu
+nl: Zelfbruiner
+no: Selvbruningskrem
+pl: Balsam samoopalający
+pt: Autobronzeador
+ro: Loțiune autobronzantă
+ru: Автозагар
+sk: Samoopaľovací prípravok
+sl: Losjon za samoporjavitev
+sq: Losion për vetë-nxirje
+sr: Лосион за самопотамњивање
+sv: Brun utan sol
+sw: Losheni ya kujichubua
+tg: Лосёни худтанкунӣ
+th: โลชั่นผิวสีแทน
+tk: Öz-özünden garaldyryjy losýon
+tr: Bronzlaştırıcı losyon
+uk: Лосьйон для автозасмаги
+uz: O'z-o'zidan qoraytiruvchi loson
+vi: Kem làm nâu da
+zh: 自晒黑乳液
 wikidata:en: Q995634
 
 < en:Suncare
 en: Tan Preparers, Tan Preparer, Tanning lotions, Tanning lotion
+ar: مستحضرات تحضير البشرة للبرونزاج
+az: Qaralmağa hazırlayıcı vasitələr
+bg: Продукти за подготовка за тен
+bn: ট্যান প্রস্তুতি
+ca: Preparadors del bronzejat
+cs: Přípravky pro přípravu na opalování
+da: Forberedelse til solbadning
+de: Bräunungsbeschleuniger
+el: Προπαρασκευαστικά μαυρίσματος
+es: Preparadores del bronceado
+et: Päevituseelne ettevalmistus
+fa: آماده سازی برنزه کننده
+fi: Rusketuksen valmisteluaineet
 fr: Préparateurs de bronzage
+ga: Ullmhóirí tan
+hr: Pripravci za samotamnjenje
+hu: Barnulást elősegítő készítmények
+hy: Արևայրուքին նախապատրաստող միջոցներ
+id: Persiapan sebelum berjemur
+is: Undirbúningur fyrir brúnku
+it: Preparatori per l'abbronzatura
+ja: 日焼け準備剤
+ka: გარუჯვის მოსამზადებელი საშუალებები
+kk: Күнге күюге дайындық
+km: ផលិតផលត្រៀមសម្រាប់ការ sunburn
+ko: 태닝 준비제
+ky: Күнгө күйүүгө даярдоочу каражаттар
+lt: Pasiruošimas įdegiui
+lv: Gatavošanās sauļošanai
+mk: Подготовка за сончање
+ms: Persediaan penyamakan
+mt: Preparazzjoni għall-ikkunzar
+nl: Bruiningsvoorbereiding
+no: Forberedelse til soling
+pl: Preparaty przygotowujące do opalania
+pt: Preparadores de bronzeamento
+ro: Preparate pentru bronzare
+ru: Подготовка к загару
+sk: Prípravky na prípravu na opaľovanie
+sl: Priprava na sončenje
+sq: Përgatitës për nxirje
+sr: Припреме за сунчање
+sv: Förberedelser för solning
+sw: Maandalizi ya ngozi kwa ajili ya kuchubua
+tg: Омодагӣ барои офтобпарастӣ
+th: ผลิตภัณฑ์เตรียมผิวก่อนอาบแดด
+tk: Günüň täsirine taýýarlyk
+tr: Bronzlaşmaya hazırlık ürünleri
+uk: Підготовка до засмаги
+ur: ٹین کی تیاری
+uz: Qorayishga tayyorgarlik
+vi: Chuẩn bị trước khi tắm nắng
+zh: 晒黑准备
 
 ######## CATEGORIE Parfums
 
 en: Perfumes, Fragrances
+ar: عطور
+az: Ətirlər
+bg: Парфюми
+cs: Parfémy
+da: Parfumer
+de: Parfüms
+el: Αρώματα
+es: Perfumes
+et: Parfüümid
+fa: عطر
+fi: Hajuvedet
 fr: Parfums
+ga: Cumhráin
+hr: Parfemi
+hu: Parfümök
+hy: Օծանելիքներ
+id: Parfum
+is: Ilmvötn
+it: Profumi
+ja: 香水
+ka: სუნამოები
+kk: Әтірлер
+ko: 향수
+ky: Атырлар
+lt: Kvepalai
+lv: Smaržas
+mk: Парфеми
+ms: Minyak wangi
+mt: Fwejjaħ
 nl: Parfums
+no: Parfymer
+pl: Perfumy
+pt: Perfumes
+ro: Parfumuri
+ru: Духи
+sk: Parfémy
+sl: Parfumi
+sq: Parfume
+sr: Парфеми
+sv: Parfymer
+sw: Manukato
+tg: Аттор
+th: น้ำหอม
+tk: Atyrlar
+tr: Parfümler
+uk: Парфуми
+uz: Atirlar
+vi: Nước hoa
+zh: 香水
 
 < en:Perfumes
 en: Men perfumes, Men perfume, Men fragrances, Men fragrance, Male perfume, Male perfumes
+ar: عطور رجالية
+az: Kişi ətirləri
+bg: Мъжки парфюми
+cs: Pánské parfémy
+da: Herreparfumer
+de: Herrenparfums
+el: Ανδρικά αρώματα
+es: Perfumes de hombre
+et: Meeste parfüümid
+fa: عطر مردانه
+fi: Miesten parfyymit
 fr: Parfums homme, Parfums hommes, Parfum homme, Parfum hommes
+ga: Cumhráin fir
+hr: Muški parfemi
+hu: Férfi parfümök
+hy: Տղամարդու օծանելիքներ
+id: Parfum pria
+is: Herrailmvatn
+it: Profumi da uomo
+ja: 男性用香水
+ka: მამაკაცის სუნამოები
+kk: Ерлерге арналған парфюмерия
+ko: 남성 향수
+ky: Эркектердин атырлары
+lt: Vyriški kvepalai
+lv: Vīriešu smaržas
+mk: Машки парфеми
+ms: Minyak wangi lelaki
+mt: Fwejjaħ tal-irġiel
+nl: Herenparfums
+no: Parfymer for menn
+pl: Perfumy męskie
+pt: Perfumes masculinos
+ro: Parfumuri pentru bărbați
+ru: Мужские духи
+sk: Pánske parfémy
+sl: Moški parfumi
+sq: Parfume për burra
+sr: Мушки парфеми
+sv: Parfymer för män
+sw: Manukato ya wanaume
+tg: Атторҳои мардона
+th: น้ำหอมสำหรับผู้ชาย
+tk: Erkek atyrlary
+tr: Erkek parfümleri
+uk: Чоловічі парфуми
+uz: Erkaklar uchun atirlar
+vi: Nước hoa nam
+zh: 男士香水
 
 < en:Perfumes
-en: Women perfumes, Women fragrances, Female perfumes
-fr: Parfums femme
+en: Women perfumes, Women perfume, Women fragrances, Women fragrance, Female perfume, Female perfumes
+ar: عطور نسائية
+az: Qadın ətirləri
+bg: Дамски парфюми
+cs: Dámské parfémy
+da: Dameparfumer
+de: Damenparfums
+el: Γυναικεία αρώματα
+es: Perfumes de mujer
+et: Naiste parfüümid
+fa: عطر زنانه
+fi: Naisten parfyymit
+fr: Parfums femme, Parfum femmes, Parfum femme, Parfum femmes
+ga: Cumhráin ban
+hr: Ženski parfemi
+hu: Női parfümök
+hy: Կանացի օծանելիքներ
+id: Parfum wanita
+is: Kvenna ilmvatn
+it: Profumi da donna
+ja: 女性用香水
+ka: ქალის სუნამოები
+kk: Әйелдерге арналған парфюмерия
+ko: 여성 향수
+ky: Аялдардын атырлары
+lt: Moteriški kvepalai
+lv: Sieviešu smaržas
+mk: Женски парфеми
+ms: Minyak wangi wanita
+mt: Fwejjaħ tan-nisa
+nl: Damesparfums
+no: Parfymer for kvinner
+pl: Perfumy damskie
+pt: Perfumes femininos
+ro: Parfumuri pentru femei
+ru: Женские духи
+sk: Dámske parfémy
+sl: Ženski parfumi
+sq: Parfume për femra
+sr: Женски парфеми
+sv: Parfymer för kvinnor
+sw: Manukato ya wanawake
+tg: Атторҳои занона
+th: น้ำหอมสำหรับผู้หญิง
+tk: Aýal atyrlary
+tr: Kadın parfümleri
+uk: Жіночі парфуми
+uz: Ayollar uchun atirlar
+vi: Nước hoa nữ
+zh: 女士香水
 
 < en:Perfumes
 en: Kids perfumes, Kids fragrances
+ar: عطور للأطفال
+az: Uşaq ətirləri
+bg: Детски парфюми
+cs: Dětské parfémy
+da: Børneparfymer
+de: Kinderparfüms
+el: Παιδικά αρώματα
+es: Perfumes para niños
+et: Lasteparfüümid
+fa: عطر کودکانه
+fi: Lasten hajuvedet
 fr: Parfums enfants, Parfum enfants, Parfum enfant, Parfum enfant
+ga: Cumhráin páistí
+hr: Dječji parfemi
+hu: Gyerekparfümök
+hy: Մանկական օծանելիքներ
+id: Parfum anak-anak
+is: Barna ilmvatn
+it: Profumi per bambini
+ja: 子供用香水
+ka: საბავშვო სუნამოები
+kk: Балаларға арналған парфюмерия
+ko: 어린이 향수
+ky: Балдар үчүн атырлар
+lt: Vaikiški kvepalai
+lv: Bērnu smaržas
+mk: Детски парфеми
+ms: Minyak wangi kanak-kanak
+mt: Fwejjaħ tat-tfal
+nl: Kinderparfums
+no: Parfymer for barn
+pl: Perfumy dla dzieci
+pt: Perfumes infantis
+ro: Parfumuri pentru copii
+ru: Детские духи
+sk: Detské parfémy
+sl: Otroški parfumi
+sq: Parfume për fëmijë
+sr: Дечји парфеми
+sv: Parfymer för barn
+sw: Manukato ya watoto
+tg: Атторҳои бачагона
+th: น้ำหอมสำหรับเด็ก
+tk: Çagalar üçin atyrlar
+tr: Çocuk parfümleri
+uk: Дитячі парфуми
+uz: Bolalar uchun atirlar
+vi: Nước hoa trẻ em
+zh: 儿童香水
 
 < en:Perfumes
 en: Eau de toilette
+ar: ماء تواليت
+az: Tualet suyu
+bg: Тоалетна вода
+bn: টয়লেট জল
+ca: Aigua de tocador
+cs: Toaletní voda
+da: Eau de toilette
+de: Eau de Toilette
+el: Eau de toilette
+es: Eau de toilette
+et: Tualettvesi
+fa: ادو تویلت
+fi: Eau de toilette
 fr: Eaux de toilette, Eau de toilette
+ga: Eau de toilette
+he: או דה טואלט
+hr: Toaletna voda
+hu: Eau de toilette
+hy: Զուգարանի ջուր
+id: Eau de toilette
+is: Eau de toilette
+it: Eau de toilette
+ja: オードトワレ
+ka: ტუალეტის წყალი
+kk: Әтір суы
+km: Eau de toilette
+ko: 오 드 뚜왈렛
+ky: Туалет суусу
+lt: Tualetinis vanduo
+lv: Tualetes ūdens
+mk: Тоалетна вода
+ms: Eau de toilette
+mt: Eau de toilette
+nl: Eau de toilette
+no: Eau de toilette
+pl: Woda toaletowa
+pt: Eau de toilette
+ro: Apă de toaletă
+ru: Туалетная вода
+sk: Toaletná voda
+sl: Toaletna voda
+sq: Eau de tualetit
+sr: Тоалетна вода
+sv: Eau de toilette
+sw: Eau de toilette
+tg: Оби ҳоҷатхона
+th: โอเดอทอยเลตต์
+tk: Tualet suwy
+tr: Eau de toilette
+uk: Туалетна вода
+ur: ایو ڈی ٹوائلٹ
+uz: Tualet suvi
+vi: Eau de toilette
+zh: 淡香水
 wikidata:en: Q2605029
 
 < en:Perfumes
 en: Cologne, Eau de Cologne
+ar: كولونيا ، ماء كولونيا
+az: Köln, odekolon
+bg: Кьолнска вода, одеколон
+bn: কোলোন, ও ডি কোলোন
+ca: Colònia, Aigua de Colònia
+cs: Kolínská voda
+da: Köln, Eau de Cologne
+de: Kölnisch Wasser, Eau de Cologne
+el: Κολόνια, Eau de Cologne
+es: Colonia, Agua de Colonia
+et: Kölni vesi, odekolonn
+fa: ادکلن، ادوکلن
+fi: Kölninvettä, Eau de Cologne
 fr: Eaux de Cologne, Eau de Cologne
+ga: Köln, Eau de Cologne
+he: קלן, או דה קלן
+hr: Kolonjska voda
+hu: Kölni, Eau de Cologne
+hy: Օդեկոլոն
+id: Cologne, Eau de Cologne
+is: Kölnarvatn
+it: Acqua di Colonia
+ja: オーデコロン
+ka: ოდეკოლონი
+kk: Кёльн суы, одеколон
+km: កូឡាជែន, អូដឺកូឡូន
+ko: 콜론, 오드 콜로뉴
+ky: Кельн суусу, одеколон
+lt: Kelnas, odekolonas
+lv: Ķelnes ūdens, odekolons
+mk: Келнска вода, колонска вода
+ms: Cologne, Eau de Cologne
+mt: Cologne, Eau de Cologne
+nl: Keulen, Eau de Cologne
+no: Köln, Eau de Cologne
+pl: Woda kolońska
+pt: Colônia, Água de Colônia
+ro: Colonie, apă de colonie
+ru: Кёльнская вода, одеколон
+sk: Kolínska voda
+sl: Kolonjska voda
+sq: Kolonjë, Eau de Cologne
+sr: Келнска вода, колонска вода
+sv: Köln, Eau de Cologne
+sw: Cologne, Eau de Cologne
+tg: Кёльн, одеколони
+th: โคโลญ, โอเดอโคโลญจน์
+tk: Köln, atyr
+tr: Kolonya, Eau de Cologne
+uk: Кельнська вода, одеколон
+ur: کولون، ایو ڈی کولون
+uz: Köln, odekolon
+vi: Cô-lô-nhơ, Eau de Cologne
+zh: 科隆香水
 wikidata:en: Q2863
 
 < en:Perfumes
@@ -1507,9 +6356,60 @@ fr: Brumes corporelles, Brumes corporelle, Brume corporelles, Brume corporelle
 ######## CATEGORIE Accessoires
 
 en: Accessories
+ar: إكسسوارات
+az: Aksesuarlar
+bg: Аксесоари
+bn: আনুষাঙ্গিক
+ca: Accessoris
+cs: Příslušenství
+da: Tilbehør
 de: Zubehör
+el: Αξεσουάρ
 es: Accesorios
+et: Tarvikud
+fa: لوازم جانبی
+fi: Lisätarvikkeet
 fr: Accessoires
+ga: Gabhálais
+he: אביזרים
+hr: Pribor
+hu: Kiegészítők
+hy: Պարագաներ
+id: Aksesori
+is: Aukahlutir
+it: Accessori
+ja: アクセサリー
+ka: აქსესუარები
+kk: Аксессуарлар
+km: គ្រឿងបន្លាស់
+ko: 액세서리
+ky: Аксессуарлар
+lt: Priedai
+lv: Aksesuāri
+mk: Додатоци
+ms: Aksesori
+mt: Aċċessorji
+nl: Accessoires
+no: Tilbehør
+pl: Akcesoria
+pt: Acessórios
+ro: Accesorii
+ru: Аксессуары
+sk: Príslušenstvo
+sl: Dodatki
+sq: Aksesorë
+sr: Додатна опрема
+sv: Tillbehör
+sw: Vifaa
+tg: Лавозимот
+th: เครื่องประดับ
+tk: Esbaplar
+tr: Aksesuarlar
+uk: Аксесуари
+ur: لوازمات
+uz: Aksessuarlar
+vi: Phụ kiện
+zh: 配件
 
 < en:Accessories
 en: Tablets
@@ -1517,19 +6417,163 @@ fr: Comprimés à avaler
 
 < en:Accessories
 en: Razors
+ar: شفرات حلاقة
+az: Ülgüclər
+bg: Бръсначи
+cs: Holicí strojky
+da: Barberskrabere
 de: Rasierer
+el: Ξυραφάκια
+es: Maquinillas de afeitar
+et: Žiletid
+fa: خودتراش
+fi: Partahöylät
 fr: Rasoirs
+ga: Rásúir
+hr: Britvice
+hu: Borotvák
+hy: Սափրվելու ածելիներ
+id: Alat cukur
+is: Rakvélar
+it: Rasoi
+ja: カミソリ
+ka: საპარსები
+kk: Ұстаралар
+ko: 면도기
+ky: Сакал алгычтар
+lt: Skustuvai
+lv: Skuvekļi
+mk: Брич
+ms: Pisau cukur
+mt: Imwieħ
+nl: Scheermessen
+no: Barberhøvler
+pl: Maszynki do golenia
+pt: Navalhas
+ro: Aparate de ras
+ru: Бритвы
+sk: Holiace strojčeky
+sl: Britvice
+sq: Brisk
+sr: Бриjaчи
+sv: Rakhyvlar
+sw: Wembe
+tg: Теғҳои тарошидан
+th: มีดโกน
+tk: Pyçaklar
+uk: Бритви
+uz: Ustara
+vi: Dao cạo râu
+zh: 剃须刀
 wikidata:en: Q13422881
 
 < en:Razors
 en: Razor blades, razorblades
+ar: شفرات الحلاقة
+az: Ülgüc ülgücləri
+bg: Ножчета за бръснене
+cs: Žiletky
+da: Barberblade
 de: Rasierklingen
+el: Λεπίδες ξυραφιού
+es: Hojas de afeitar
+et: Žiletiterad
+fa: تیغ های ریش تراش
+fi: Partaterät
 fr: Lames de rasoir
+ga: Lannaí rásúir
+hr: Oštrice za brijanje
+hu: Penge
+hy: Սափրվելու շեղբեր
+id: Pisau cukur
+is: Rakvélarblöð
+it: Lamette da barba
+ja: カミソリの刃
+ka: საპარსი პირები
+kk: Ұстара жүздері
+ko: 면도날
+ky: Сакал алгычтын бычактары
+lt: Skutimosi peiliukai
+lv: Skuvekļu asmeņi
+mk: Сечила за бричење
+ms: Bilah pisau cukur
+mt: Xfafar tal-leħja
+nl: Scheermesjes
+no: Barberblad
+pl: Ostrza do golenia
+pt: Lâminas de barbear
+ro: Lame de ras
+ru: Лезвия для бритья
+sk: Žiletky
+sl: Rezila za britje
+sq: Tehe brisk
+sr: Сечива за бријање
+sv: Rakblad
+sw: Visu vya wembe
+tg: Теғҳои устара
+th: ใบมีดโกน
+tk: Pyçaklary syrmak
+uk: Леза для гоління
+uz: Ustaralar
+vi: Lưỡi dao cạo
+zh: 剃须刀片
 wikidata:en: Q11625433
 
 < en:Accessories
 en: Moist wipes
+ar: مناديل مبللة
+az: Nəm salfetlər
+bg: Мокри кърпички
+bn: ভেজা ওয়াইপ
+ca: Tovalloletes humides
+cs: Vlhčené ubrousky
+da: Vådservietter
+de: Feuchttücher
+el: Υγρά μαντηλάκια
+es: Toallitas húmedas
+et: Niisked salvrätikud
+fa: دستمال مرطوب
+fi: Kosteuspyyhkeet
 fr: Lingettes imprégnées
+ga: Tuáillíní fliucha
+he: מגבונים לחים
+hr: Vlažne maramice
+hu: Nedves törlőkendők
+hy: Թաց անձեռոցիկներ
+id: Tisu basah
+it: Salviette umidificate
+ja: ウェットティッシュ
+ka: სველი ხელსახოცები
+kk: Дымқыл майлықтар
+km: ក្រណាត់សើម
+ko: 물티슈
+ky: Нымдуу салфеткалар
+lt: Drėgnos servetėlės
+lv: Mitrās salvetes
+mk: Влажни марамчиња
+ms: Tisu basah
+mt: Wipes niedja
+nl: Vochtige doekjes
+no: Våtservietter
+pl: Chusteczki nawilżane
+pt: Toalhetes húmidos
+ro: Șervețele umede
+ru: Влажные салфетки
+sk: Vlhčené utierky
+sl: Vlažilni robčki
+sq: Pëlhura të lagura
+sr: Влажне марамице
+sv: Våtservetter
+sw: Vifuta maji
+tg: Салфеткаҳои тар
+th: ผ้าเปียก
+tk: Çygly süpürgiçler
+tr: Islak mendil
+uk: Вологі серветки
+ur: نم مسح
+uz: Nam salfetkalar
+vi: Khăn ướt
+zh: 湿巾
 wikidata:en: Q2916237
 
 < en:Accessories
@@ -1692,17 +6736,167 @@ wikidata:en: Q864088
 
 < en:Accessories
 en: Lubricating gels, lubricants
+ar: مواد تشحيم ، جل تزليق
+az: Yağlayıcı gellər, sürtkü yağları
+bg: Смазочни гелове, лубриканти
+cs: Lubrikační gely, lubrikanty
+da: Smøremidler, smøregeler
 de: Gleitgele, Schmiermittel
+el: Λιπαντικά τζελ, λιπαντικά
 es: Geles lubricantes, lubricantes
+et: Libestavad geelid, määrdeained
+fa: ژل های روان کننده، روان کننده ها
+fi: Liukuvoiteet, liukasteet
 fr: Gels lubrifiants, lubrifiants
+ga: Gels bealaithe, bealaí
+hr: Lubrikantni gelovi, lubrikanti
+hu: Síkosító gélek, kenőanyagok
+hy: Քսող գելեր, քսանյութեր
+id: Gel pelumas, pelumas
+is: Smurningshlaup, smurefni
+it: Gel lubrificanti, lubrificanti
+ja: 潤滑剤、潤滑剤ゲル
+ka: საპოხი გელები, საპოხი მასალები
+kk: Майлау гельдері, майлағыштар
+ko: 윤활 젤, 윤활제
+ky: Майлоочу гельдер, майлоочу майлар
+lt: Lubrikantai, tepalai
+lv: Smērvielas, smērvielu želejas
+mk: Лубрикантни гелови, лубриканти
+ms: Gel pelincir, pelincir
+mt: Ġellijiet lubrifikanti, lubrifikanti
+nl: Glijmiddelen, glijmiddelen
+no: Smøremidler, smøregeler
+pl: Żele nawilżające, lubrykanty
+pt: Géis lubrificantes, lubrificantes
+ro: Geluri lubrifiante, lubrifianți
+ru: Смазочные гели, смазки
+sk: Lubrikačné gély, lubrikanty
+sl: Mazalni geli, maziva
+sq: Xhel lubrifikantë, lubrifikantë
+sr: Лубрикантни гелови, лубриканти
+sv: Smörjmedel, glidmedel
+sw: Geli za kulainisha, vilainishi
+tg: Гелҳои молиданӣ, равғанҳои молиданӣ
+th: เจลหล่อลื่น, สารหล่อลื่น
+tk: Ýaglaýjy geller, ýaglaýjylar
+tr: Kayganlaştırıcı jeller, kaydırıcılar
+uk: Змащувальні гелі, мастила
+uz: Moylash gellari, moylash materiallari
+vi: Gel bôi trơn, chất bôi trơn
+zh: 润滑凝胶、润滑剂
 
 < en:Accessories
 en: Massage candle
+ar: شمعة التدليك
+az: Masaj şamı
+bg: Свещ за масаж
+cs: Masážní svíčka
+da: Massage stearinlys
 de: Massagekerze
+el: Κερί μασάζ
 es: Vela de masaje
+et: Massaažiküünal
+fa: شمع ماساژ
+fi: Hierontakynttilä
 fr: Bougie pour massage
+ga: Coinneal suathaireachta
+hr: Svijeća za masažu
+hu: Masszázs gyertya
+hy: Մերսման մոմ
+id: Lilin pijat
+is: Nuddkerti
+it: Candela da massaggio
+ja: マッサージキャンドル
+ka: მასაჟის სანთელი
+kk: Массаж шамы
+ko: 마사지 양초
+ky: Массаж шам
+lt: Masažinė žvakė
+lv: Masāžas svece
+mk: Свеќа за масажа
+ms: Lilin urut
+mt: Xemgħa tal-massaġġi
+nl: Massagekaars
+no: Massasjelys
+pl: Świeca do masażu
+pt: Vela de massagem
+ro: Lumânare de masaj
+ru: Свеча для массажа
+sk: Masážna sviečka
+sl: Masažna sveča
+sq: Qiri masazhi
+sr: Свећа за масажу
+sv: Massageljus
+sw: Mshumaa wa masaji
+tg: Шамъи массаж
+th: เทียนนวด
+tk: Massaž şemi
+tr: Masaj mumu
+uk: Свічка для масажу
+uz: Massaj sham
+vi: Nến massage
+zh: 按摩蜡烛
 
 < en:Moist wipes
 en: Baby wipes
+ar: مناديل مبللة للأطفال
+az: Uşaq salfetləri
+bg: Бебешки мокри кърпички
+bn: বেবি ওয়াইপ
+ca: Tovalloletes per a nadons
+cs: Dětské vlhčené ubrousky
+da: Vådservietter til babyer
+de: Feuchttücher für Babys
+el: Μωρομάντηλα
+es: Toallitas húmedas para bebés
+et: Niisked salvrätikud beebidele
+fa: دستمال مرطوب کودک
+fi: Vauvojen kosteuspyyhkeet
 fr: Lingettes pour bébé, Lingettes bébé, Lingettes bébés, Lingette bébés, Lingette bébés
+ga: Tuáillíní fliucha do leanaí
+he: מגבונים לחים לתינוקות
+hr: Vlažne maramice za bebe
+hu: Babatörlőkendők
+hy: Մանկական թաց անձեռոցիկներ
+id: Tisu basah bayi
+it: Salviettine umidificate per bambini
+ja: ベビーワイプ
+ka: ბავშვის სველი ხელსახოცები
+kk: Балаларға арналған дымқыл майлықтар
+km: ក្រណាត់សើមសម្រាប់ទារក
+ko: 아기 물티슈
+ky: Ымыркайлар үчүн нымдуу салфеткалар
+lt: Drėgnos servetėlės kūdikiams
+lv: Mitrās salvetes zīdaiņiem
+mk: Влажни марамчиња за бебиња
+ms: Tisu basah bayi
+mt: Wipes niedja tat-trabi
+nl: Babydoekjes
+no: Våtservietter for babyer
+pl: Chusteczki nawilżane dla dzieci
+pt: Toalhetes húmidos para bebés
+ro: Șervețele umede pentru bebeluși
+ru: Детские влажные салфетки
+sk: Vlhčené utierky pre deti
+sl: Vlažilni robčki za dojenčke
+sq: Pëlhura të lagura për fëmijë
+sr: Влажне марамице за бебе
+sv: Våtservetter för barn
+sw: Vifuta vya watoto
+tg: Салфеткаҳои тар барои кӯдакон
+th: ผ้าเปียกสำหรับเด็ก
+tk: Balamyjyklar üçin çygly süpürgiçler
+tr: Bebek mendilleri
+uk: Вологі серветки для дітей
+ur: بچوں کے لیے گیلے مسح
+uz: Bolalar uchun nam salfetkalar
+vi: Khăn ướt cho bé
+zh: 婴儿湿巾
 
+en: Cotton buds, Cotton swabs
+da: Vatpinde
+de: Wattestäbchen
+nb: Bomullspinner
+sv: Bomullspinnar
+wikidata:en: Q12201

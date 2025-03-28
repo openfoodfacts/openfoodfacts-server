@@ -28,12 +28,14 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Ingredients
 	qw/clean_ingredients_text extract_additives_from_text extract_ingredients_from_text preparse_ingredients_text/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
+use ProductOpener::EnvironmentalImpact qw/estimate_environmental_impact_service/;
 
 use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
@@ -85,6 +87,16 @@ if ($action eq 'process') {
 
 	my $json = JSON::MaybeXS->new->pretty->encode($product_ref->{ingredients});
 	$template_data_ref->{json} = $json;
+
+	# Environmental impact
+	my $errors_ref = [];
+	estimate_environmental_impact_service($product_ref, {}, $errors_ref);
+
+	$template_data_ref->{ecobalyse_request_json}
+		= JSON::MaybeXS->new->pretty->encode($product_ref->{environmental_impact}{ecobalyse_request} || {});
+	# If there was an error, we have ecobalyse_response, otherwise we have ecobalyse_response_data
+	$template_data_ref->{ecobalyse_response_json}
+		= JSON::MaybeXS->new->pretty->encode($product_ref->{environmental_impact} || {});
 }
 
 process_template('web/pages/test_ingredients/test_ingredients_analysis.tt.html', $template_data_ref, \$html)

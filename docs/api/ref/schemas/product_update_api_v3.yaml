@@ -19,8 +19,5 @@ properties:
     type: string
   serving_size:
     type: string
-  categories_tags:
-    type: array
-    description: An array of categories
-    items:
-      $ref: ./packagings/input_taxonomy_tag.yaml
+  tags:
+    $ref: ./tags/tags-write.yaml

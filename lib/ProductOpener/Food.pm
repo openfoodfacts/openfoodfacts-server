@@ -113,7 +113,7 @@ use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::FoodGroups qw/compute_food_groups/;
 use ProductOpener::Units qw/:all/;
 use ProductOpener::Products qw(&remove_fields);
-use ProductOpener::Display qw/single_param/;
+use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::APIProductWrite qw/skip_protected_field/;
 use ProductOpener::NutritionEstimation qw/estimate_nutrients_from_ingredients/;
 
@@ -2716,6 +2716,26 @@ sub compute_nova_group ($product_ref) {
 				if (defined $nova_group) {
 					push @{$matching_tags_for_groups{$nova_group + 0}}, [$tagtype, $tagid];
 				}
+			}
+		}
+	}
+
+	# Go through the nested ingredients structure to check if some ingredients
+	# have a processing that has a nova:en: property
+	if (defined $product_ref->{ingredients}) {
+		# Create a copy of the ingredients structure to avoid modifying the original one
+		my $ingredients_ref = dclone($product_ref->{ingredients});
+		while (my $ingredient_ref = shift @{$ingredients_ref}) {
+			if (defined $ingredient_ref->{processing}) {
+				foreach my $processing (split(/,/, $ingredient_ref->{processing})) {
+					my $nova_group = get_property("ingredients_processing", $processing, "nova:en");
+					if (defined $nova_group) {
+						push @{$matching_tags_for_groups{$nova_group + 0}}, ["ingredients", $ingredient_ref->{id}];
+					}
+				}
+			}
+			if (defined $ingredient_ref->{ingredients}) {
+				push @{$ingredients_ref}, @{$ingredient_ref->{ingredients}};
 			}
 		}
 	}
