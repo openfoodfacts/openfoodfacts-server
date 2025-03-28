@@ -313,35 +313,40 @@
       },
       {
          "display_in_edit_form" : true,
-         "id" : "carbohydrates",
+         "id" : "total-carbohydrates",
          "important" : true,
-         "name" : "Carbohydrates",
+         "name" : "Total carbohydrates (includes fiber)",
          "nutrients" : [
             {
-               "display_in_edit_form" : true,
+               "display_in_edit_form" : false,
                "id" : "fiber",
                "important" : false,
                "name" : "Fiber",
-               "nutrients" : [
-                  {
-                     "display_in_edit_form" : false,
-                     "id" : "soluble-fiber",
-                     "important" : false,
-                     "name" : "Soluble fiber",
-                     "unit" : "g"
-                  },
-                  {
-                     "display_in_edit_form" : false,
-                     "id" : "insoluble-fiber",
-                     "important" : false,
-                     "name" : "Insoluble fiber",
-                     "unit" : "g"
-                  }
-               ],
                "unit" : "g"
             },
             {
-               "display_in_edit_form" : true,
+               "display_in_edit_form" : false,
+               "id" : "soluble-fiber",
+               "important" : false,
+               "name" : "Soluble fiber",
+               "unit" : "g"
+            },
+            {
+               "display_in_edit_form" : false,
+               "id" : "insoluble-fiber",
+               "important" : false,
+               "name" : "Insoluble fiber",
+               "unit" : "g"
+            },
+            {
+               "display_in_edit_form" : false,
+               "id" : "carbohydrates",
+               "important" : false,
+               "name" : "Carbohydrates (without fiber)",
+               "unit" : "g"
+            },
+            {
+               "display_in_edit_form" : false,
                "id" : "sugars",
                "important" : false,
                "name" : "Sugars",

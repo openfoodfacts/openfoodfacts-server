@@ -296,10 +296,17 @@
          "unit" : "g"
       },
       {
+         "display_in_edit_form" : false,
+         "id" : "total-carbohydrates",
+         "important" : false,
+         "name" : "Total carbohydrates (includes fiber)",
+         "unit" : "g"
+      },
+      {
          "display_in_edit_form" : true,
          "id" : "carbohydrates",
          "important" : true,
-         "name" : "Carbohydrates",
+         "name" : "Carbohydrates (without fiber)",
          "nutrients" : [
             {
                "display_in_edit_form" : true,

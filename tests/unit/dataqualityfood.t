@@ -1498,6 +1498,72 @@ ok(!has_tag($product_ref, 'data_quality', 'en:nutrition-sugars-plus-starch-great
 	'sum of sugars and starch greater carbohydrates')
 	or diag Dumper $product_ref;
 
+# Nutrition errors - sugar + starch + fiber > totral-carbohydrates
+## without "<" symbol
+$product_ref = {
+	nutriments => {
+		"total-carbohydrates_100g" => 1,
+		"sugars_100g" => 2,
+		"starch_100g" => 3,
+		"fiber_100g" => 1,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag(
+		$product_ref, 'data_quality', 'en:nutrition-sugars-plus-starch-plus-fiber-greater-than-total-carbohydrates'
+	),
+	'sum of sugars, starch and fiber greater total carbohydrates'
+) or diag Dumper $product_ref;
+## with "<" symbol
+$product_ref = {
+	nutriments => {
+		"total-carbohydrates_100g" => 1,
+		"sugars_100g" => 1,
+		"sugars_modifier" => "<",
+		"starch_100g" => 1,
+		"starch_modifier" => "<",
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag(
+		$product_ref, 'data_quality', 'en:nutrition-sugars-plus-starch-plus-fiber-greater-than-total-carbohydrates'
+	),
+	'sum of sugars, starch and fiber greater total carbohydrates, presence of "<" symbol,  and sugars, starch or fiber is smaller than total carbohydrates'
+) or diag Dumper $product_ref;
+## sugar, starch or fiber is greater than total carbohydrates, with "<" symbol
+$product_ref = {
+	nutriments => {
+		"total-carbohydrates_100g" => 3,
+		"sugars_100g" => 1,
+		"starch_100g" => 5,
+		"starch_modifier" => "<",
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag(
+		$product_ref, 'data_quality', 'en:nutrition-sugars-plus-starch-plus-fiber-greater-than-total-carbohydrates'
+	),
+	'sum of sugars, starch and fiber greater total carbohydrates, presence of "<" symbol, and sugars, starch or fiber is greater than total carbohydrates'
+) or diag Dumper $product_ref;
+## should not be triggered
+$product_ref = {
+	nutriments => {
+		"total-carbohydrates_100g" => 3,
+		"sugars_100g" => 2,
+		"starch_100g" => 1,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag(
+		$product_ref, 'data_quality', 'en:nutrition-sugars-plus-starch-plus-fiber-greater-than-total-carbohydrates'
+	),
+	'sum of sugars, starch and fiber greater total carbohydrates'
+) or diag Dumper $product_ref;
+
 # unexpected character in ingredients
 $product_ref = {
 	languages_codes => {
