@@ -110,6 +110,9 @@
          "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
          "en:environmental-score-production-system-no-label"
       ],
+      "ecoscore_tags" : [
+         "c"
+      ],
       "editors_tags" : [
          "tests"
       ],
@@ -776,7 +779,7 @@
       "ingredients_without_ecobalyse_ids_n" : 4,
       "interface_version_created" : "20150316.jqm2",
       "interface_version_modified" : "20150316.jqm2",
-      "known_ingredients_n" : 16,
+      "known_ingredients_n" : 8,
       "labels" : "organic",
       "labels_hierarchy" : [
          "en:organic"
@@ -1055,6 +1058,7 @@
       "quantity" : "100 g",
       "removed_countries_tags" : [],
       "rev" : 1,
+      "schema_version" : 1000,
       "serving_quantity" : "10",
       "serving_quantity_unit" : "g",
       "serving_size" : "10 g",

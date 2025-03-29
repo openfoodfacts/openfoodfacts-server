@@ -113,6 +113,12 @@ requires 'Module::Load';
 # To measure the time taken by requests
 requires 'Time::Monotonic';
 
+# To measure similarity between words and find possible typo
+requires 'Text::Levenshtein';
+
+# To handle IP and IP blocks white lists
+requires 'Net::CIDR'; # libnet-cidr-perl
+
 on 'test' => sub {
   requires 'Test2::V0';
   requires 'Mock::Quick';

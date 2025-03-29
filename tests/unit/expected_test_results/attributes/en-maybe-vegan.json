@@ -29,6 +29,7 @@
                "id" : "low_salt",
                "missing" : "Missing nutrition facts",
                "name" : "Salt",
+               "panel_id" : "nutrition_facts_table",
                "status" : "unknown",
                "title" : "Salt in unknown quantity"
             },
@@ -38,6 +39,7 @@
                "id" : "low_fat",
                "missing" : "Missing nutrition facts",
                "name" : "Fat",
+               "panel_id" : "nutrition_facts_table",
                "status" : "unknown",
                "title" : "Fat in unknown quantity"
             },
@@ -47,6 +49,7 @@
                "id" : "low_sugars",
                "missing" : "Missing nutrition facts",
                "name" : "Sugars",
+               "panel_id" : "nutrition_facts_table",
                "status" : "unknown",
                "title" : "Sugars in unknown quantity"
             },
@@ -56,6 +59,7 @@
                "id" : "low_saturated_fat",
                "missing" : "Missing nutrition facts",
                "name" : "Saturated fat",
+               "panel_id" : "nutrition_facts_table",
                "status" : "unknown",
                "title" : "Saturated fat in unknown quantity"
             }
@@ -676,15 +680,6 @@
       "en:maybe-vegan",
       "en:maybe-vegetarian"
    ],
-   "ingredients_hierarchy" : [
-      "en:tapioca",
-      "en:starch",
-      "en:palm-oil",
-      "en:oil-and-fat",
-      "en:vegetable-oil-and-fat",
-      "en:palm-oil-and-fat",
-      "en:enzyme"
-   ],
    "ingredients_lc" : "en",
    "ingredients_n" : 3,
    "ingredients_n_tags" : [
@@ -722,7 +717,7 @@
       "en:tapioca"
    ],
    "ingredients_without_ecobalyse_ids_n" : 2,
-   "known_ingredients_n" : 7,
+   "known_ingredients_n" : 3,
    "languages" : {},
    "languages_codes" : {},
    "languages_hierarchy" : [],

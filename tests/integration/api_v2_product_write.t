@@ -31,8 +31,11 @@ $log->debug('test token', {token => $token}) if $log->is_debug();
 
 # Note: expected results are stored in json files, see execute_api_tests
 my $tests_ref = [
+	# Test anonymous contribution, this should fail
 	{
-		test_case => 'post-product',
+		# it will fail with code 200
+		# but failure message is in the expected result json
+		test_case => 'post-product-anonymous',
 		method => 'POST',
 		path => '/cgi/product_jqm_multilingual.pl',
 		form => {
@@ -48,12 +51,13 @@ my $tests_ref = [
 			nutriment_salt => '50.2',
 			nutriment_salt_unit => 'mg',
 			nutriment_sugars => '12.5',
-		}
+		},
 	},
 	{
-		test_case => 'get-product',
+		test_case => 'get-product-anonymous',
 		method => 'GET',
 		path => '/api/v2/product/1234567890001',
+		expected_status_code => 404,
 	},
 	# Test that we use the language of the interface (lc) for language fields without a language suffix
 	{

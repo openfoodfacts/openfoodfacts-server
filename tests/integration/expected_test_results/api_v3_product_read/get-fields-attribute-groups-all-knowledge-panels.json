@@ -58,6 +58,7 @@
                   "id" : "low_salt",
                   "missing" : "Missing nutrition facts",
                   "name" : "Salt",
+                  "panel_id" : "nutrition_facts_table",
                   "status" : "unknown",
                   "title" : "Salt in unknown quantity"
                },
@@ -67,6 +68,7 @@
                   "id" : "low_fat",
                   "missing" : "Missing nutrition facts",
                   "name" : "Fat",
+                  "panel_id" : "nutrition_facts_table",
                   "status" : "unknown",
                   "title" : "Fat in unknown quantity"
                },
@@ -76,6 +78,7 @@
                   "id" : "low_sugars",
                   "missing" : "Missing nutrition facts",
                   "name" : "Sugars",
+                  "panel_id" : "nutrition_facts_table",
                   "status" : "unknown",
                   "title" : "Sugars in unknown quantity"
                },
@@ -85,6 +88,7 @@
                   "id" : "low_saturated_fat",
                   "missing" : "Missing nutrition facts",
                   "name" : "Saturated fat",
+                  "panel_id" : "nutrition_facts_table",
                   "status" : "unknown",
                   "title" : "Saturated fat in unknown quantity"
                }
@@ -381,6 +385,7 @@
                   "id" : "low_salt",
                   "missing" : "Missing nutrition facts",
                   "name" : "Salt",
+                  "panel_id" : "nutrition_facts_table",
                   "status" : "unknown",
                   "title" : "Salt in unknown quantity"
                },
@@ -390,6 +395,7 @@
                   "id" : "low_fat",
                   "missing" : "Missing nutrition facts",
                   "name" : "Fat",
+                  "panel_id" : "nutrition_facts_table",
                   "status" : "unknown",
                   "title" : "Fat in unknown quantity"
                },
@@ -399,6 +405,7 @@
                   "id" : "low_sugars",
                   "missing" : "Missing nutrition facts",
                   "name" : "Sugars",
+                  "panel_id" : "nutrition_facts_table",
                   "status" : "unknown",
                   "title" : "Sugars in unknown quantity"
                },
@@ -408,6 +415,7 @@
                   "id" : "low_saturated_fat",
                   "missing" : "Missing nutrition facts",
                   "name" : "Saturated fat",
+                  "panel_id" : "nutrition_facts_table",
                   "status" : "unknown",
                   "title" : "Saturated fat in unknown quantity"
                }
@@ -3143,7 +3151,7 @@
             "type" : "inline"
          }
       },
-      "known_ingredients_n" : 16,
+      "known_ingredients_n" : 8,
       "labels" : "organic",
       "labels_hierarchy" : [
          "en:organic"
@@ -3422,6 +3430,7 @@
       "quantity" : "100 g",
       "removed_countries_tags" : [],
       "rev" : 1,
+      "schema_version" : 999,
       "serving_quantity" : 10,
       "serving_quantity_unit" : "g",
       "serving_size" : "10 g",

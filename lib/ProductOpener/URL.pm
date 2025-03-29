@@ -51,7 +51,7 @@ BEGIN {
 	@EXPORT_OK = qw(
 		&format_subdomain
 		&get_cookie_domain
-
+		&get_owner_pretty_path
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -155,6 +155,19 @@ sub get_cookie_domain() {
 	}
 
 	return $cookie_domain;
+}
+
+=head2 get_owner_pretty_path ($owner_id)
+
+Returns the pretty path for the organization page 
+or an empty string if not on the producers platform.
+
+/org/[orgid]
+
+=cut
+
+sub get_owner_pretty_path ($owner_id) {
+	return ($server_options{producers_platform} and defined $owner_id) ? "/org/$owner_id" : "";
 }
 
 1;

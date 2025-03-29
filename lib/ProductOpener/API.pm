@@ -62,7 +62,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/write_cors_headers/;
+use ProductOpener::HTTP qw/write_cors_headers request_param/;
 use ProductOpener::Auth qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/$lc lang_in_other_lc/;
@@ -78,6 +78,8 @@ use ProductOpener::Permissions qw/has_permission/;
 use ProductOpener::GeoIP qw/get_country_for_ip_api/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
+use ProductOpener::ProductSchemaChanges qw/$current_schema_version convert_product_schema/;
+use ProductOpener::ProductsFeatures qw(feature_enabled);
 
 use ProductOpener::APIProductRead qw/read_product_api/;
 use ProductOpener::APIProductWrite qw/write_product_api/;
@@ -85,7 +87,6 @@ use ProductOpener::APIProductRevert qw/revert_product_api/;
 use ProductOpener::APIProductServices qw/product_services_api/;
 use ProductOpener::APITagRead qw/read_tag_api/;
 use ProductOpener::APITaxonomySuggestions qw/taxonomy_suggestions_api/;
-use ProductOpener::ProductsFeatures qw(feature_enabled);
 
 use CGI qw/:cgi :form escapeHTML/;
 use Apache2::RequestIO();
@@ -436,7 +437,7 @@ sub process_api_request ($request_ref) {
 	my $response_ref = $request_ref->{api_response};
 
 	# Check if we already have errors (e.g. authentification error, invalid JSON body)
-	if ((scalar @{$response_ref->{errors}}) > 0) {
+	if ((defined $response_ref->{errors}) and ((scalar @{$response_ref->{errors}}) > 0)) {
 		$log->warn("process_api_request - we already have errors, skipping processing", {request => $request_ref})
 			if $log->is_warn();
 	}
@@ -656,7 +657,7 @@ sub api_compatibility_for_field ($field, $api_version) {
 =head2 api_compatibility_for_product_input ($product_ref)
 
 The product objects saved in the database or in the .sto files may have different schema over time.
-This function updates the product object to the latest revision, for some fields, when possible,
+This function updates the product object to the latest schema version, for some fields, when possible,
 so that we can read older revisions of products, or when all products are not migrated yet.
 
 =cut
@@ -665,15 +666,7 @@ sub api_compatibility_for_product_input ($product_ref) {
 
 	$log->debug("api_compatibility_for_product_input - start") if $log->is_debug();
 
-	# 2024/12: ecoscore fields were renamed to environmental_score
-	foreach my $subfield (qw/data grade score tags/) {
-		if (defined $product_ref->{"ecoscore_" . $subfield}) {
-			if (not defined $product_ref->{"environmental_score_" . $subfield}) {
-				$product_ref->{"environmental_score_" . $subfield} = $product_ref->{"ecoscore_" . $subfield};
-			}
-			delete $product_ref->{"ecoscore_" . $subfield};
-		}
-	}
+	convert_product_schema($product_ref, $current_schema_version);
 
 	return $product_ref;
 }
@@ -684,24 +677,27 @@ The response schema can change between API versions. This function transforms th
 
 =cut
 
+my %api_version_to_schema_version = (
+	"0" => 996,
+	"1" => 997,
+	"2" => 998,
+	"3" => 999,
+	"3.0" => 999,
+	"3.1" => 1000,
+	"3.2" => 1001,
+);
+
 sub api_compatibility_for_product_response ($product_ref, $api_version) {
 
 	$log->debug("api_compatibility_for_product_response - start", {api_version => $api_version}) if $log->is_debug();
 
-	# no requested version, return the product as is
+	# no requested version, return the latest schema version, no conversion needed
 	if (not defined $api_version) {
 		return $product_ref;
 	}
 
-	# API 3.1 - 2024/12/18 - ecoscore* fields have been renamed to environmental_score*
-	if ($api_version < 3.1) {
-		foreach my $subfield (qw/data grade score tags/) {
-			if (defined $product_ref->{"environmental_score_" . $subfield}) {
-				$product_ref->{"ecoscore_" . $subfield} = $product_ref->{"environmental_score_" . $subfield};
-				delete $product_ref->{"environmental_score_" . $subfield};
-			}
-		}
-	}
+	my $target_schema_version = $api_version_to_schema_version{$api_version} || $current_schema_version;
+	convert_product_schema($product_ref, $target_schema_version);
 
 	return $product_ref;
 }

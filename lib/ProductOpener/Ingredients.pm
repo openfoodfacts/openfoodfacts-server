@@ -184,12 +184,13 @@ my %may_contain_regexps = (
 
 	en =>
 		"it may contain traces of|possible traces|traces|may also contain|also may contain|may contain|may be present|Produced in a factory handling",
-	bg => "продуктът може да съдържа следи от|може да съдържа следи от|може да съдържа",
+	bg => "продуктът може да съдържа следи от|mоже да съдържа следи от|може да съдържа",
 	bs => "može da sadrži",
 	ca => "pot contenir",
 	cs => "může obsahovat|může obsahovat stopy",
 	da => "produktet kan indeholde|kan indeholde spor af|kan indeholde spor|eventuelle spor|kan indeholde|mulige spor",
 	de => "Kann enthalten|Kann Spuren|Spuren|Kann Anteile|Anteile|Kann auch|Kann|Enthält möglicherweise",
+	el => "Μπορεί να περιέχει ίχνη από",
 	es => "puede contener huellas de|puede contener trazas de|puede contener|trazas|traza",
 	et => "võib sisaldada vähesel määral|võib sisaldada|võib sisalda",
 	fi =>
@@ -198,25 +199,27 @@ my %may_contain_regexps = (
 		"peut également contenir|peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace|Traces éventuelles de|Peut contenir des traces de",
 	hr =>
 		"mogući ostaci|mogući sadržaj|mogući tragovi|može sadržavati|može sadržavati alergene u tragovima|može sadržavati tragove|može sadržavati u tragovima|može sadržati|može sadržati tragove|proizvod može sadržavati|proizvod može sadržavati tragove",
+	hu => "tartalmazhat",
 	is => "getur innihaldið leifar|gæti innihaldið snefil|getur innihaldið",
 	it =>
 		"Pu[òo] contenere tracce di|pu[òo] contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
 	lt => "sudėtyje gali būti|gali būti",
-	lv => "var saturēt",
+	lv => "var saturēt|sastāva var but",
 	mk => "Производот може да содржи",
 	nl =>
 		"Dit product kan sporen van|bevat mogelijk sporen van|Kan sporen bevatten van|Kan sporen van|bevat mogelijk|sporen van|Geproduceerd in ruimtes waar",
 	nb =>
 		"kan inneholde spor av|kan forekomme spor av|kan inneholde spor|kan forekomme spor|kan inneholde|kan forekomme",
 	pl =>
-		"może zawierać śladowe ilości|produkt może zawierać|może zawierać|możliwa obecność|może zawierać alergeny|możliwa obecność|w produkcie możliwa obecność|wyprodukowano w zakładzie przetwarzającym",
+		"może zawierać śladowe ilości|produkt może zawierać|może zawierać alergeny|może zawierać ślady|może zawierać|możliwa obecność|możliwa obecność|w produkcie możliwa obecność|wyprodukowano w zakładzie przetwarzającym",
 	pt => "pode conter vestígios de|pode conter",
 	ro => "poate con[țţt]ine urme de|poate con[țţt]ine|poate con[țţt]in|produsul poate conţine urme de",
 	rs => "može sadržati tragove",
 	ru => "Могут содержаться следы",
-	sk => "Môže obsahovať",
+	sk => "výrobok môže obsahovat|môže obsahovať",
 	sl => "lahko vsebuje sledi",
-	sv => "kan innehålla små mängder|kan innehålla spår av|innehåller spår av|kan innehålla spår|kan innehålla",
+	sv =>
+		"denna produkt kan innethalla spar av|kan innehålla små mängder|kan innehålla spår av|innehåller spår av|kan innehålla spår|kan innehålla",
 );
 
 my %contains_regexps = (
@@ -230,6 +233,7 @@ my %contains_regexps = (
 	fr => "contient",
 	hr => "sadrže",
 	it => "contengono",
+	lt => "yra",
 	nl => "bevat",
 	pl => "zawiera|zawierają",
 	ro => "con[țţt]ine|con[țţt]in",
@@ -460,7 +464,7 @@ my %and = (
 	oc => " e ",
 	pl => " i ",
 	pt => " e ",
-	ro => " și ",
+	ro => " și | şi ",
 	ru => " и ",
 	sk => " a ",
 	sl => " in ",
@@ -560,6 +564,7 @@ my %prepared_with = (
 my %min_regexp = (
 	en => "min|min\.|minimum",
 	ca => "min|min\.|mín|mín\.|mínim|minim",
+	cs => "min|min\.",
 	es => "min|min\.|mín|mín\.|mínimo|minimo|minimum",
 	fr => "min|min\.|mini|minimum",
 	hr => "min|min\.|mini|minimum",
@@ -569,6 +574,7 @@ my %min_regexp = (
 my %max_regexp = (
 	en => "max|max\.|maximum",
 	ca => "max|max\.|màxim",
+	cs => "max|max\.",
 	es => "max|max\.|máximo",
 	fr => "max|max\.|maxi|maximum",
 	hr => "max|max\.|maxi|maximum",
@@ -1341,9 +1347,19 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 
 	my %origin_of_the_regexp_in_lc = (
 		en => "(?:origin of (?:the )?)",
+		al => "(?:vendi i origjinës)",
+		bg => "(?:страна на произход)",
+		cs => "(?:země původu)",
 		ca => "(?:origen)",
 		es => "(?:origen)",
 		fr => "(?:origine (?:de |du |de la |des |de l'))",
+		hr => "(?:zemlja (?:porijekla|podrijetla|porekla))",
+		hu => "(?:származási hely)",
+		it => "(?:paese di (?:molitura|coltivazione del grano))",
+		pl => "(?:kraj pochodzenia)",
+		ro => "(?:tara de origine)",
+		rs => "(?:zemlja porekla)",
+		uk => "(?:kраїна походження)",
 	);
 
 	my $origin_of_the_regexp = $origin_of_the_regexp_in_lc{$ingredients_lc} || $origin_of_the_regexp_in_lc{en};
@@ -2566,7 +2582,7 @@ Text to analyze
 				$ingredient =~ s/\s*(\d+((\,|\.)\d+)?)\s*\%\s*$//;
 
 				# try to remove the origin and store it as property
-				if ($ingredient =~ /\b(de origine|d'origine|origine|origin|alkuperä)\s?:?\s?\b/i) {
+				if ($ingredient =~ /\b(de origine|d'origine|origine|origin|alkuperä|iz)\s?:?\s?\b/i) {
 					$ingredient = $`;
 					my $origin_string = $';
 					# d'origine végétale -> not a geographic origin, add en:vegan
@@ -2924,6 +2940,7 @@ Text to analyze
 								'in proporţie variabilă',
 								'Informatiile scrise cu majuscule sunt destinate persoanelor cu intolerante sau alergice',
 								'Ambalat in atmosfera protectoare',
+								'poate con(ț|t)ine urme de',    # can contain traces of
 							],
 
 							'ru' => [
@@ -3283,11 +3300,18 @@ sub compute_ingredients_tags ($product_ref) {
 
 	my @ingredients = @{$product_ref->{ingredients}};
 
+	my $ingredients_n = 0;
+	my $known_ingredients_n = 0;
+
 	while (@ingredients) {
 
 		my $ingredient_ref = shift @ingredients;
 
-		push @{$product_ref->{ingredients_tags}}, $ingredient_ref->{id};
+		push @{$product_ref->{ingredients_original_tags}}, $ingredient_ref->{id};
+
+		# Count ingredients and unknown ingredients
+		$ingredients_n += 1;
+		$known_ingredients_n += $ingredient_ref->{is_in_taxonomy};
 
 		if (defined $ingredient_ref->{ingredients}) {
 
@@ -3308,37 +3332,24 @@ sub compute_ingredients_tags ($product_ref) {
 		}
 	}
 
-	my $field = "ingredients";
+	$product_ref->{ingredients_n} = $ingredients_n;
+	$product_ref->{known_ingredients_n} = $known_ingredients_n;
+	$product_ref->{unknown_ingredients_n} = $ingredients_n - $known_ingredients_n;
 
-	$product_ref->{ingredients_original_tags} = $product_ref->{ingredients_tags};
+	# ingredients_original_tags contains the ingredients that are listed in the ingredients list
+	# ingredients_tags also contains the parent ingredients (from the ingredients taxonomy)
+	# Note: we used to also compute a field ingredients_hierarchy that contained exactly the same information as ingredients_tags
+	# we now remove it, and the API will add it back for backward compatibility depending on API version
+
 	my $ingredients_lc = get_or_select_ingredients_lc($product_ref);
 
-	if (defined $taxonomy_fields{$field}) {
-		$product_ref->{$field . "_hierarchy"} = [
-			gen_ingredients_tags_hierarchy_taxonomy(
-				$ingredients_lc, join(", ", @{$product_ref->{ingredients_original_tags}})
-			)
-		];
-		$product_ref->{$field . "_tags"} = [];
-		my $unknown = 0;
-		my $known = 0;
-		foreach my $tag (@{$product_ref->{$field . "_hierarchy"}}) {
-			my $tagid = get_taxonomyid($ingredients_lc, $tag);
-			push @{$product_ref->{$field . "_tags"}}, $tagid;
-			if (exists_taxonomy_tag("ingredients", $tagid)) {
-				$known++;
-			}
-			else {
-				$unknown++;
-			}
-		}
-		$product_ref->{"known_ingredients_n"} = $known;
-		$product_ref->{"unknown_ingredients_n"} = $unknown;
-	}
+	$product_ref->{"ingredients_tags"} = [
+		gen_ingredients_tags_hierarchy_taxonomy(
+			$ingredients_lc, join(", ", @{$product_ref->{ingredients_original_tags}})
+		)
+	];
 
 	if ($product_ref->{ingredients_text} ne "") {
-
-		$product_ref->{ingredients_n} = scalar @{$product_ref->{ingredients_original_tags}};
 
 		my $d = int(($product_ref->{ingredients_n} - 1) / 10);
 		my $start = $d * 10 + 1;
@@ -3348,6 +3359,7 @@ sub compute_ingredients_tags ($product_ref) {
 		# ensure $product_ref->{ingredients_n} is last used as an int so that it is not saved as a strings
 		$product_ref->{ingredients_n} += 0;
 	}
+
 	return;
 }
 
@@ -5073,24 +5085,24 @@ my %phrases_before_ingredients_list = (
 
 	cs => ['složení',],
 
-	da => ['ingredienser', 'indeholder',],
+	da => ['ingredienser', 'indeholder', 'Sammensætning',],
 
 	de => ['Zusammensetzung', 'zutat(en)?',],
 
-	el => ['Συστατικά',],
+	el => ['Συστατικά', 'Σύνθεση',],
 
 	en => ['composition', 'ingredient(s?)',],
 
 	es => ['composición', 'ingredientes',],
 
-	et => ['koostisosad',],
+	et => ['koostisosad', 'Koostis',],
 
-	fi => ['aine(?:kse|s?osa)t(?:\s*\/\s*ingredienser)?', 'ainesosia', 'valmistusaineet', 'koostumus',],
+	fi => ['aine(?:kse|s?osa)t(?:\s*\/\s*ingredienser)?', 'ainesosia', 'valmistusaineet', 'Kokoonpano', 'koostumus',],
 
 	fr => [
 		'ingr(e|é)dient(s?)',
 		'Quels Ingr(e|é)dients ?',    # In Casino packagings
-		'composition',
+		'composition',    # pet food
 	],
 
 	hr =>
@@ -5124,29 +5136,31 @@ my %phrases_before_ingredients_list = (
 
 	nb => ['Ingredienser',],
 
+	no => ['Sammensetning',],
+
 	pl => ['sk[łl]adniki', 'skład',],
 
 	pt => ['ingredientes', 'composição',],
 
-	ro => ['(I|i)ngrediente', 'compoziţie',],
+	ro => ['(I|i)ngrediente', 'compozi(ţ|ț)ie',],
 
 	ru => ['состав', 'coctab', 'Ингредиенты',],
 
 	sk => ['obsahuje', 'zloženie',],
 
-	sl => ['(S|s)estavine',],
+	sl => ['(S|s)estavine', 'Sestava',],
 
 	sq => ['P[eë]rb[eë]r[eë]sit',],
 
 	sr => ['Sastojci',],
 
-	sv => ['ingredienser', 'innehåll(er)?',],
+	sv => ['ingredienser', 'innehåll(er)?', 'Sammansättning',],
 
 	tg => ['Таркиб',],
 
 	th => ['ส่วนประกอบ', 'ส่วนประกอบที่สำคัญ',],
 
-	tr => ['(İ|i)çindekiler', 'içeriği',],
+	tr => ['Bileşim', '(İ|i)çindekiler', 'içeriği',],
 
 	uz => ['tarkib', 'Mahsulot tarkibi',],
 
@@ -5158,45 +5172,61 @@ my %phrases_before_ingredients_list = (
 
 my %phrases_before_ingredients_list_uppercase = (
 
-	en => ['INGREDIENT(S)?',],
+	en => ['INGREDIENT(S)?', 'COMPOSITION',],
+
+	bg => ['СЪСТАВ',],
 
 	ca => ['INGREDIENT(S)?',],
 
 	cs => ['SLOŽENÍ',],
 
-	da => ['INGREDIENSER',],
+	da => ['INGREDIENSER', 'ZUSAMMENSETZUNG', 'SAMMENSÆTNING',],
 
-	de => ['ZUTAT(EN)?',],
+	de => ['ZUTAT(EN)?', 'ZUSAMMENSETZUNG',],
 
-	el => ['ΣΥΣΤΑΤΙΚΑ'],
+	el => ['ΣΥΣΤΑΤΙΚΑ', 'ΣΎΝΘΕΣΗ',],
 
-	es => ['INGREDIENTE(S)?',],
+	es => ['COMPOSICIÓN', 'INGREDIENTE(S)?',],
 
-	fi => ['AINE(?:KSE|S?OSA)T(?:\s*\/\s*INGREDIENSER)?', 'VALMISTUSAINEET',],
+	et => ['KOOSTIS',],
 
-	fr => ['INGR(E|É)(D|0|O)IENTS',],
+	fi => ['AINE(?:KSE|S?OSA)T(?:\s*\/\s*INGREDIENSER)?', 'KOKOONPANO', 'VALMISTUSAINEET',],
 
-	hu => ['(Ö|O|0)SSZETEVOK',],
+	fr => ['INGR(E|É)(D|0|O)IENTS', 'COMPOSITION'],
+
+	hr => ['SASTAV',],
+
+	hu => ['(Ö|O|0)SSZETEVOK', 'ÖSSZETÉTEL',],
 
 	is => ['INNIHALD(?:SLÝSING|SEFNI)?', 'INNEALD',],
 
-	it => ['INGREDIENTI(\s*)',],
+	it => ['INGREDIENTI(\s*)', 'COMPOSIZIONE'],
+
+	lt => ['SUDĖTIS',],
+
+	lv => ['SASTĀVS',],
 
 	nb => ['INGREDIENSER',],
 
-	nl => ['INGREDI(E|Ë)NTEN(\s*)',],
+	nl => ['INGREDI(E|Ë)NTEN(\s*)', 'INGREDIENSER', 'SAMENSTELLING',],
 
-	nl => ['INGREDIENSER',],
+	no => ['SAMMENSETNING',],
 
-	pl => ['SKŁADNIKI(\s*)',],
+	pl => ['SKŁADNIKI(\s*)', 'SKŁAD',],
 
-	pt => ['INGREDIENTES(\s*)',],
+	pt => ['COMPOSIÇÃO', 'INGREDIENTES(\s*)', 'COMPOSIÇÃO',],
 
-	ru => ['COCTАB',],
+	ro => ['COMPOZIȚIE',],
 
-	sl => ['SESTAVINE',],
+	ru => ['COCTАB', 'СОСТАВ',],
 
-	sv => ['INGREDIENSER', 'INNEHÅLL(ER)?',],
+	sk => ['ZLOŽENIE',],
+
+	sl => ['SESTAVINE', 'SESTAVA',],
+
+	sv => ['INGREDIENSER', 'INNEHÅLL(ER)?', 'SAMMANSÄTTNING',],
+
+	tr => ['BİLEŞİM',],
 
 	uz => ['ІHГРЕДІЄНТИ',],
 
@@ -5211,25 +5241,31 @@ my %phrases_after_ingredients_list = (
 	# TODO: Introduce a common list for kcal
 
 	al => [
-		'të ruhet në',    # store in
+		't(e|ë) ruhet n(e|ë)',    # store in
 	],
 
 	bg => [
 		'да се съхранява (в закрити|на сухо)',    # store in ...
+		'Аналитични съставки',    # pet food
 		'Неотворен',    # before opening ...
+		'След отваряне'    # after opening ...
 	],
 
 	ca => ['envasat en atmosfera protectora', 'conserveu-los en un lloc fresc i sec',],
 
 	cs => [
-		'doporučeny způsob přípravy',
-		'minimální trvanlivost do',    # Expiration date
-		'po otevření',    # After opening
+		'analytické složky',    # pet food
+		'doporu)c|č)eny zp(u|ů)sob p(r|ř)(i|í)pravy',
+		'minim(a|á)ln(i|í) trvanlivost do',    # Expiration date
+		'po otev(r|ř)en(i|í)',    # After opening
 		'V(ý|y)(ž|z)ivov(e|é) (ú|u)daje ve 100 g',
+		'skladujte v suchu',    # keep in dried place
 	],
 
 	da => [
-		'(?:gennemsnitlig )?n(æ|ae)rings(?:indhold|værdi|deklaration)', 'beskyttes',
+		'(?:gennemsnitlig )?n(æ|ae)rings(?:indhold|værdi|deklaration)',
+		'analytiske bestanddele',    # pet food
+		'beskyttes',
 		'nettovægt', 'åbnet',
 		'holdbarhed efter åbning', 'mindst holdbar til',
 		'opbevar(?:ing|res)?', '(?:for )?allergener',
@@ -5237,6 +5273,7 @@ my %phrases_after_ingredients_list = (
 	],
 
 	de => [
+		'analytische bestandteile',    # pet food
 		'Ern(â|a|ä)hrungswerte',
 		'Mindestens altbar bis',
 		'Mindestens haltbar bis',
@@ -5255,7 +5292,7 @@ my %phrases_after_ingredients_list = (
 		'(k[uü]hl|bei Zimmertemperatur) und trocken lagern',
 		'Rinde nicht zum Verzehr geeignet.',
 		'Vor W(â|a|ä)rme und Feuchtigkeit sch(u|ü)tzen',
-		'Unge(ö|o)ffnet bei max.',
+		'Unge(ö|o)ffnet (bei max.|unter)',
 		'Unter Schutzatmosphäre verpackt',
 		'verbrauchen bis',
 		'Vor und nach dem Öffnen',    # keep in dried place
@@ -5270,6 +5307,7 @@ my %phrases_after_ingredients_list = (
 	],
 
 	el => [
+		'Αναλυτικές συστατικές',    # pet food
 		'ΔΙΑΘΡΕΠΤΙΚΗ ΕΠΙΣΗΜΑΝΣΗ',    #Nutritional labelling
 		'ΔΙΤΡΟΦΙΚΕΣ ΠΗΡΟΦΟΡΙΕΣ',
 	],
@@ -5277,7 +5315,8 @@ my %phrases_after_ingredients_list = (
 	en => [
 		'adds a trivial amount',    # e.g. adds a trivial amount of added sugars per serving
 		'after opening',
-		#'Best before',
+		'analytical constituents',    # pet food
+									  #'Best before',
 		'keep cool and dry',
 		'Can be stored unopened at room temperature',
 		'instruction',
@@ -5290,12 +5329,13 @@ my %phrases_after_ingredients_list = (
 		'((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
 		'once opened[,]? (consume|keep|refrigerate|store|use)',
 		'packed in a modified atmosphere',
-		'(Storage( instructions)?[: ]+)?Store in a cool[,]? dry place',
+		'(Storage( instructions| conditions)?[: ]+)?Store in a cool[,]? dry place',
 		'(dist(\.)?|distributed|sold)(\&|and|sold| )* (by|exclusively)',
 		#'See bottom of tin',
 	],
 
 	es => [
+		'componentes analíticos',    # pet food
 		'valores nutricionales',
 		'modo de preparacion',
 		'informaci(o|ó)n nutricional',
@@ -5304,6 +5344,7 @@ my %phrases_after_ingredients_list = (
 		#'pa(i|í)s de transformaci(o|ó)n',
 		'cons[eé]rv(ar|ese) en( un)? lug[ae]r (fresco y seco|seco y fresco)',
 		'contiene azúcares naturalmente presentes',
+		'distribuido por',    # distributed for
 		'de los cuales az(u|ú)cares',
 		'de las cuales saturadas',
 		'envasado',    # Packaging in protective atmosphere.
@@ -5318,11 +5359,14 @@ my %phrases_after_ingredients_list = (
 	],
 
 	et => [
+		'analüütilised komponendid',    # pet food
 		'parim enne',    # best before
 	],
 
 	fi => [
 		'100 g:aan tuotetta käytetään',
+		'analyyttiset ainesosat',    # pet food
+		'Energiaa per',
 		'Kypsennys',
 		'Makeisten sekoitussuhde voi vaihdella',
 		'Pakattu suojakaasuun',
@@ -5337,6 +5381,7 @@ my %phrases_after_ingredients_list = (
 	],
 
 	fr => [
+		'constituants analytiques',    # pet food
 		'valeur(s?) (e|é)nerg(e|é)tique',
 		'valeur(s?) nutritives',
 		'valeur nutritive',
@@ -5359,6 +5404,7 @@ my %phrases_after_ingredients_list = (
 		'(conseil|conseils) de pr(e|é)paration',
 		'(conditions|conseils) de conservation',
 		'conseil d\'utilisation',
+		'conserver dans un endroit',
 		'conservation[ ]?:',
 		'Croûte en matière plastique non comestible',
 		'dans le compartiment (a|à) gla(c|ç)ons',
@@ -5367,6 +5413,7 @@ my %phrases_after_ingredients_list = (
 		'dont acides (gras|ras) satur(e|é)s',
 		'Fabriquee à partir de fruits entiers',
 		'Fabriqué dans un atelier qui utilise',
+		'garder dans un endroit frais et sec',
 		'information nutritionnelle',
 		'((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
 		'la pr(e|é)sence de vide',    # La présence de vide au fond du pot est due au procédé de fabrication.
@@ -5381,13 +5428,14 @@ my %phrases_after_ingredients_list = (
 		'Nutrition pour 100 (g|ml)',
 		'pensez au tri',
 		'Peux contenir des morceaux de noyaux',
+		'pour en savoir plus',
 		'pr(e|é)paration au four',
 		'Prépar(e|é)e? avec',
 		'(produit )?(a|à) protéger de ',    # humidité, chaleur, lumière etc.
 		'(produit )?conditionn(e|é) sous atmosph(e|è)re protectrice',
 		'N(o|ò)us vous conseillons',
 		'Non ouvert,',
-		'Sans conservateur',
+		'Sans conservateur',    # remark: also label
 		'(Utilisation: |Préparation: )?Servir frais',
 		'Temps de Cuisson',
 		'tenir à l\'abri',
@@ -5409,7 +5457,8 @@ my %phrases_after_ingredients_list = (
 	],
 
 	hr => [
-		'[prije otvaranja ](č|Č|c|C|ć|Ć)uvati|(č|Č|c|C|ć|Ć)uvajte',    # store in...
+		'(prije otvaranja )?((č|Č|c|C|ć|Ć)uvati|(č|Č|c|C|ć|Ć)uvajte)',    # store in...
+		'analitički sastav',    # pet food
 		'izvaditi',    # remove from the refrigerator half an hour before consumption
 		'način pripreme',    # preparation
 		'(najbolje )upotrijebiti',    # best before
@@ -5422,7 +5471,7 @@ my %phrases_after_ingredients_list = (
 		'prekomjerno konzumiranje',    # excessive consumption can have a laxative effect
 		'preporučuje se',    # preparation
 		'Prijedlog za serviranje',    # Proposal for serving
-		'priprema obroka',    # meal preparation
+		'priprema(:| obroka)',    # meal preparation
 		'proizvod je termički obrađen-pasteriziran',    # pasteurized
 		'proizvod sadrži sumporni dioksid',    # The product contains sulfur dioxide
 		'proizvođač',    # producer
@@ -5439,12 +5488,13 @@ my %phrases_after_ingredients_list = (
 		'vakuumirana',    # Vacuumed
 		'vrijeme kuhanja',    # Cooking time
 		'zbog (mutan|prisutnosti)',    # Due to ...
-		'zemlja (porijekla|podrijetla|porekla)',    # country of origin
 	],
 
 	hu => [
 		'Atlagos tápérték 100g termékben',
 		'((száraz|hűvös|(közvetlen )?napfénytől védett)[, ]*)+helyen tárolandó',    # store in cool/dry/etc
+		'elemzési összetevők',    # pet food
+		'hűvös, száraz helyen, közvetlen napfénytől védve tárolja',    # store in cool dry place away from the sunlight
 		'bontatlan csomagolásban',    # keep in a closed/dark place
 		'tárolás',    # conservation
 	],
@@ -5452,8 +5502,9 @@ my %phrases_after_ingredients_list = (
 	is => ['n(æ|ae)ringargildi', 'geymi(st|ð) á', 'eftir opnum', 'aðferð',],
 
 	it => [
+		'componenti analitici',    # pet food
 		'Confezionato in atmosfera protettiva',    # Packaged in a protective atmosphere
-		'Conservare in luogo [fresco e ]asciutto',
+		'(dopo l\'apertura )?Conservare in (frigo|luogo)',
 		'consigli per la preparazione',
 		'Da consumarsi',    # best before
 		'di cui zuccheri',
@@ -5472,11 +5523,17 @@ my %phrases_after_ingredients_list = (
 	],
 
 	lt => [
+		'analizinės sudėties',    # pet food
 		'geriausias iki',    # best before
 		'tinka vartoti iki',    # valid until
 		'data ant pakuotės',    #date on package
 		'laikyti sausoje vietoje',    #Keep in dry place
 		'',
+	],
+
+	lv => [
+		'uzglabāt sausā vēsā vietā',    # keep in dry place
+		'analītiskā sastāva',    # pet food
 	],
 
 	mk => [
@@ -5486,11 +5543,12 @@ my %phrases_after_ingredients_list = (
 	nb => ['netto(?:innhold|vekt)', 'oppbevar(?:ing|es)', 'næringsinnh[oa]ld', 'kjølevare',],
 
 	nl => [
+		'analytische bestanddelen',    # pet food
 		'Beter Leven keurmerk 1 ster.',
 		'Beter Leven keurmerk 3 sterren',
 		'Bewaren bij kamertemperatuur',
 		'Cacao: ten minste ',
-		'Droog bewaren',
+		'(koel en )?droog bewaren',
 		'E = door EU goedgekeurde hulpstof',
 		'E door EU goedgekeurde hulpstoffen',
 		'"E"-nummers zijn door de EU goedgekeurde hulpstoffen',
@@ -5500,6 +5558,7 @@ my %phrases_after_ingredients_list = (
 		'Na openen beperkt houdbaar',
 		'Ongeopend, ten minste houdbaar tot:',
 		'o.a.',
+		'te bewaren op een koele en droge plaats',    # keep in dry place
 		'ten minste',
 		'ten minste houdbaar tot',
 		'Van nature rijk aan vezels',
@@ -5515,12 +5574,15 @@ my %phrases_after_ingredients_list = (
 
 	pl => [
 		'przechowywać w chlodnym i ciemnym miejscu',    #keep in a dry and dark place
+		'przechowywać w chłodnym i suchym miejscu',    #keep in a dry place
 		'n(a|o)jlepiej spożyć przed',    #Best before
 		'Przechowywanie',
 		'pakowan(o|y|e) w atmosferze ochronnej',    # Packaged in protective environment
+		'składniki analityczne',    # pet food
 	],
 
 	pt => [
+		'constituintes analíticos',    # pet food
 		'conservar em local (seco e )?fresco',
 		'conservar em lugar fresco',
 		'dos quais a(ç|c)(u|ü)ares',
@@ -5533,6 +5595,7 @@ my %phrases_after_ingredients_list = (
 	],
 
 	ro => [
+		'constituenți analitici',    # pet food
 		'declaratie nutritional(a|ă)',
 		'a si pastra la frigider dup(a|ă) deschidere',
 		'a se agita inainte de deschidere',
@@ -5543,19 +5606,29 @@ my %phrases_after_ingredients_list = (
 	],
 
 	rs => [
-		'(č|Č|c|C|ć|Ć)uvati na (hladnom i suvom mestu|temperaturi od)',    # Store in a cool and dry place
+		'(č|Č|c|C|ć|Ć)uvati na (hladnom|suvom|temperaturi od)',    # Store in a cool and dry place
 		'napomena za potrošače',    # note for consumers
 		'pakovano',    # packed in a protective atmosphere
 		'proizvodi i puni',    # Produced and filled
 		'upotrebljivo',    # keep until
+		'najbolje (upotrijebiti|upotrebiti) do',    # keep until
+	],
+
+	ru => [
+		'Аналитические компоненты',    # pet food
+		'xранить в сухом',    # store in a dry place
 	],
 
 	sk => [
+		'analytické zložky',    # pet food
 		'skladovanie',    # store at
+		'spotrebujte do',    # keep until
 	],
 
 	sl => [
+		'analitska sestava',    # pet food
 		'hraniti',    # Store in a cool and dry place
+		'opozorilo',    # warning
 		'pakirano v kontrolirani atmosferi',    # packed in a ... atmosphere
 		'porabiti',    # keep until
 		'predlog za serviranje ',    # serving suggestion
@@ -5564,6 +5637,7 @@ my %phrases_after_ingredients_list = (
 	],
 
 	sv => [
+		'analytiska beståndsdelar',    # pet food
 		'närings(?:deklaration|innehåll|värde)', '(?:bör )?förvar(?:ing|as?)',
 		'till(?:agning|redning)', 'produkten innehåller',
 		'serveringsförslag', 'produkterna bör',
@@ -5574,6 +5648,15 @@ my %phrases_after_ingredients_list = (
 		'upptining', 'o?öppnad',
 		'bevaras', 'kylvara',
 		'tappat',
+	],
+
+	tr => [
+		'analitik bileşenler',    # pet food
+	],
+
+	uk => [
+		'Зберігати в сухому',    # store in dry place
+		'kраще спожити',    # best before
 	],
 
 	vi => ['GI(Á|A) TR(Ị|I) DINH D(Ư|U)(Ỡ|O)NG (TRONG|TRÊN)',],
@@ -5590,6 +5673,13 @@ my %ignore_phrases = (
 	],
 	en => ['not applicable',],
 	fr => ['non applicable|non concerné',],
+	hr => [
+		'u gotovom proizvodu',    # 5%* ... % u gotovom proizvodu
+		'za više informacija posjetiti stranicu ra\.org',
+	],
+	hu => [
+		'Valamennyi százalékos adat a késztermékre vonatkozik',    # All percentages refer to the finished product.
+	]
 
 );
 

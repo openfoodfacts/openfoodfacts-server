@@ -28,6 +28,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Users qw/$User_id retrieve_user/;
 use ProductOpener::Lang qw/lang/;
 use ProductOpener::Auth qw/password_signin access_to_protected_resource/;

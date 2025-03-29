@@ -112,7 +112,7 @@ function compute_expected_links {
   EXPECTED_LINKS["$REPO_PATH/log.conf"]="$REPO_PATH/conf/$SERVICE-log.conf"
   EXPECTED_LINKS["$REPO_PATH/minion_log.conf"]="$REPO_PATH/conf/$SERVICE-minion_log.conf"
   # config
-  EXPECTED_LINKS["$REPO_PATH/po/site-specific"]="$REPO_PATH/po/$SERVICE_LONG_NAME"
+  EXPECTED_LINKS["$REPO_PATH/po/site-specific"]="REMOVED"
   # off-web
   EXPECTED_LINKS["$REPO_PATH/lang"]="/srv/openfoodfacts-web/lang"
   EXPECTED_LINKS["$REPO_PATH/html/off_web_html"]="/srv/openfoodfacts-web/html"
@@ -236,6 +236,19 @@ function check_links {
   for target in ${!EXPECTED_LINKS[@]}
   do
     destination=${EXPECTED_LINKS[$target]}
+    # links that should be removed
+    if [[ $destination = "REMOVED" ]]
+    then
+      if [[ -e $target ]]
+      then
+        GOT_ERROR=1
+	current_destination=$(readlink -f $target)
+        >&2 echo "ERROR: link $target (currently links to $current_destination ) should be removed"
+      else
+        [[ -n "$VERBOSE" ]] && echo "    OK removed link does not exist: $target"
+      fi
+      continue
+    fi
     if [[ ! $(readlink -f $destination) = $(readlink -f $target) ]]
     then
       GOT_ERROR=1
