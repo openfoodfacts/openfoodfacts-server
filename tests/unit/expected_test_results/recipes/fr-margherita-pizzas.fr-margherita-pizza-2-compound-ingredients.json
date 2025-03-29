@@ -93,24 +93,23 @@
          "percent_estimate" : 30,
          "percent_max" : 30,
          "percent_min" : 30,
-         "text" : "Pâte à pizza"
+         "text" : "Pâte à pizza",
+         "vegan" : "maybe",
+         "vegetarian" : "yes"
       }
    ],
    "ingredients_analysis" : {
-      "en:non-vegan" : [
+      "en:maybe-vegetarian" : [
          "en:cheese"
       ],
-      "en:vegan-status-unknown" : [
-         "en:pizza-dough"
-      ],
-      "en:vegetarian-status-unknown" : [
-         "en:pizza-dough"
+      "en:non-vegan" : [
+         "en:cheese"
       ]
    },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
       "en:non-vegan",
-      "en:vegetarian-status-unknown"
+      "en:maybe-vegetarian"
    ],
    "ingredients_lc" : "fr",
    "ingredients_n" : 8,
