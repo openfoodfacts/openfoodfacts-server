@@ -1,13 +1,17 @@
 # Referenced when running locally
 
 services:
+  frontend:
+    networks:
+      # Needed to access OTel collector
+      shared_network:
   backend:
     networks:
-      # Needed to access MongoDB and Redis
+      # Needed to access MongoDB, Redis, and OTel collector
       shared_network:
   minion:
     networks:
-      # Needed to access MongoDB and Redis
+      # Needed to access MongoDB, Redis, and OTel collector
       shared_network:
 
 networks:
