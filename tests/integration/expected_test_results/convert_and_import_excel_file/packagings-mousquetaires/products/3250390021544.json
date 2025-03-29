@@ -16,9 +16,13 @@
    "allergens_hierarchy" : [],
    "allergens_tags" : [],
    "brands" : "Odyssee",
+   "brands_hierarchy" : [
+      "xx:Odyssee"
+   ],
    "brands_imported" : "Odyssee",
+   "brands_lc" : "xx",
    "brands_tags" : [
-      "odyssee"
+      "xx:odyssee"
    ],
    "categories_properties" : {},
    "categories_properties_tags" : [
@@ -544,6 +548,7 @@
    "product_type" : "food",
    "removed_countries_tags" : [],
    "rev" : 1,
+   "schema_version" : 1001,
    "sources" : [
       {
          "fields" : [

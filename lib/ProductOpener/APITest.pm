@@ -152,7 +152,7 @@ sub wait_application_ready() {
 
 =head2 new_client()
 
-Reset user agent
+Reset user agent with a cookie jar to store session cookies
 
 =head3 return value
 
@@ -286,9 +286,14 @@ Call the API to edit a product. If the product does not exist, it will be create
 
 Reference of a hash of product fields to pass to the API
 
+=head4 $ok_to_fail
+
+If set to 1, the function will not die using confess() if the request fails. Default is 0.
+This is useful when you want to test the failure of a request.
+
 =cut
 
-sub edit_product ($ua, $product_fields) {
+sub edit_product ($ua, $product_fields, $ok_to_fail = 0) {
 	my %fields;
 	while (my ($key, $value) = each %{$product_fields}) {
 		$fields{$key} = $value;
@@ -298,7 +303,24 @@ sub edit_product ($ua, $product_fields) {
 	if (not $response->is_success) {
 		diag("Couldn't create product with " . Dumper(\%fields) . "\n");
 		diag Dumper $response;
-		confess("Resuming");
+		$ok_to_fail or confess("Failed to create product");
+	}
+	else {
+		# check that we have a JSON response and "status": 1 is the response
+		my $decoded_json;
+		eval {
+			$decoded_json = decode_json($response->decoded_content);
+			1;
+		} or do {
+			my $json_decode_error = $@;
+			diag("Edit product request got a response that is not valid JSON: $json_decode_error");
+			diag("Response content: " . $response->decoded_content);
+			$ok_to_fail or confess("Failed to create product");
+		};
+		if ($decoded_json->{status} != 1) {
+			diag("Edit product request got a response that is not successful: " . Dumper($decoded_json));
+			$ok_to_fail or confess("Failed to create product");
+		}
 	}
 	return $response;
 }
