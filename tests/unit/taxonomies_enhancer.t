@@ -501,7 +501,7 @@ ok(has_tag($product_ref, "taxonomies_enhancer", "ingredients-es-acido-citico-is-
 #   };
 $product_ref = {
 	ingredients_text_cs => "",
-	ingredients_text_da => "Pasteuriseret _komælk_, salt, microbiel løbe, surhedsregulerende middel: citronsyre.",
+	ingredients_text_da => "Pasteuriseret _komælk_, salt, new-word, surhedsregulerende middel: citronsyre.",
 	ingredients_text_de => "Pasteurisierte _Milch_, Salz, Lab, Säuerungsmittel: Citronensäure.",
 	ingredients_text_en => "Pasteurised _milk_, salt, vegetarian coagulant, acidity regulator: citric acid.",
 	ingredients_text_es => "_Leche_, sal, coagulante microbiano y corrector de acidez (ácido cítrico).",
@@ -522,7 +522,7 @@ ok(
 	),
 	'cs-da-de-en-es-fi-fr-it-nl-pt-ru-sv, new word for da based on sv as well as en'
 ) or diag Dumper $product_ref;
-ok(has_tag($product_ref, "taxonomies_enhancer", "ingredients-da-microbiel-løbe-is-new-translation-for-en-coagulant"),
+ok(has_tag($product_ref, "taxonomies_enhancer", "ingredients-da-new-word-is-new-translation-for-en-coagulant"),
 	'cs-da-de-en-es-fi-fr-it-nl-pt-ru-sv, new word for da based on es as well as en')
 	or diag Dumper $product_ref;
 ok(
