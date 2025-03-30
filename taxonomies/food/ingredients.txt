@@ -505,10 +505,14 @@ et: sojaletsitiin
 fi: soijalesitiini, soijalesitiiniä, soijalesitiinit, E322 soijasta
 fr: lécithine de soja, lécithines de soja, lécithine de soja e322
 he: לציטין סויה
+hi: सोया लेसिथिन
 hr: emulgator soja lecitin, emulgator sojin lecitin, soja lecitin, emulgatori sojin lecitin, sojin lecithin, sojin lecitin, sojini lecitini
 hu: szójalecitin, szójalecitinek
+id: lesitin kedelai
 is: sojalesitin
 it: lecitina di soia
+ja: 大豆レシチン
+ko: 대두 레시틴
 lt: sojos lecitinas, sojų lecitinai, sojų pupelių lecitinai, emulsikliai sojos lecitinas
 nb: soyalecitin, soyalecitiner
 nl: sojalecithine, soja lecithine, sojalecithinen
@@ -523,6 +527,7 @@ sr: sojin lecitin
 sv: sojalecitin, sojalecitiner, sojalecithin, sojabönslecitin
 tr: soya lesitini
 uk: Соєвий лецитин
+zh: 大豆卵磷脂
 allergens:en: en:soybeans
 ciqual_food_code:en: 42200
 ciqual_food_name:en: Soy lecithin
@@ -568,7 +573,7 @@ pt: lecitina de girassol
 ro: lecitina de florarea-soarelui, lecitine din floarea soarelui
 ru: лецитин подсолнечный
 sk: slnečnicový lecitín
-sv: solroslecitin, solroslecithin, solroslecitiner
+sv: solroslecitin, solroslecithin, solroslecitiner, solros lecitin
 # fr:lécithine-de-tournesol has 5218 products in 20 languages @2018-11-10
 vegan:en: yes
 vegetarian:en: yes
@@ -4314,6 +4319,7 @@ da: mælkepulver
 de: Milchpulver
 el: γάλα σε σκόνη
 es: Leche en polvo
+et: piimapulber
 fi: maitojauhe
 fr: lait en poudre, poudre de lait
 he: אבקת חלב
@@ -4322,15 +4328,20 @@ hu: tejpor
 is: mjólkurduft
 it: latte in polvere
 ja: 粉乳
+ko: 분유
 lt: pieniniai milteliai, pieno milteliai
+lv: piena pulveris
 nb: melkepulver, pulvermelk, tørrmelk
 nl: melkpoeder
 pl: mleko w proszku
 pt: leite em pó
 ro: lapte praf
 ru: сухое молоко, молоко сухое, сухие молочные продукты
+sk: sušené mlieko
 sv: mjölkpulver
 tr: Süt tozu
+uk: сухе молоко
+zh: 奶粉
 ciqual_proxy_food_code:en: 19044
 ciqual_proxy_food_name:en: Milk, powder, semi-skimmed
 ciqual_proxy_food_name:fr: Lait en poudre, demi-écrémé
@@ -10730,24 +10741,29 @@ wikipedia:en: https://en.wikipedia.org/wiki/Kosher_salt
 
 < en:salt
 en: sea salt, bay salt, solar salt, natural sea salt, pure sea salt, mineral sea salt
+af: seesout
 ar: ملح البحر
+az: dəniz duzu
 bg: морска сол
 ca: Sal marina, sal maria de taula
 cs: Mořská sůl
 da: Havsalt
 de: Meersalz
+el: θαλασσινό αλάτι
+eo: maro salo
 es: Sal marina, sal marina de mesa, sal del mar
-eu: Marsalo
+eu: itsas gatza
 fa: نمک دریایی
 fi: Merisuola
 fr: sel marin, sel de mer, sels minéraux de mer, sel marin de table
 gl: Sal mariño
 he: מלח ים
 hr: morska sol
-hu: Tengeri só
+hu: tengeri só
 id: Garam laut
 is: Sjávarsalt
 it: sale marino
+ja: 海塩
 ko: 천일염
 ms: Garam laut
 nb: havsalt
@@ -10757,6 +10773,7 @@ pt: Sal marinho
 ro: Sare de mare
 ru: Морская соль, Соль морская
 sd: سامونڊي لوڻ
+sk: morská soľ
 sv: Havssalt
 th: เกลือสมุทร
 tr: deniz tuzu
@@ -15212,6 +15229,7 @@ hu: Módosított keményítő
 is: umbreytt sterkja
 it: amido modificato, Amidi modificati
 ja: 加工デンプン
+ko: 가공 전분
 lt: modifikuotas krakmolas
 lv: Modificēta ciete
 mt: Lamtu mmodifikat
@@ -15220,9 +15238,11 @@ nl: gemodificeerd zetmeel, Gemodificeerde zetmelen
 pl: modyfikowana skrobia, skrobia modyfikowana, modyfikowane skrobie, skrobie modyfikowane
 pt: amido modificado
 ro: amidon modificat
+ru: Модифицированный крахмал
 sk: Modifikovaný škrob
 sl: modificiran skrob, modificirani škrob
 sv: modifierad stärkelse
+th: แป้งดัดแปร
 zh: 化製澱粉
 nova:en: 4
 wikidata:en: Q415766
@@ -17576,34 +17596,66 @@ pl: rafinowana oliwa z wytłoczyn z oliwek, rafinowana oliwa z wytłoczyn oliwek
 
 < en:vegetable oil and fat
 en: rapeseed oil, rapeseed fat, rapeseed oil and fat, rapeseed vegetable oil
+af: raapsaadolie
+ar: زيت بذور اللفت
+az: Raps yağı
+be: Рапсавы алей
 bg: рапично масло
 ca: oli de nabina, oli vegetal de nabina
 cs: řepkový olej, olej řepkový
 da: rapsolie
 de: Rapsöl, Rapsol
+el: κραμβέλαιο
 eo: rapoleo
 es: aceite de nabina, aceite vegetal de nabina
 et: rapsiõli, rapsiseemneõli, rüpsiõli
+eu: Koltza-olio
+fa: روغن کلزا
 fi: rapsiöljy, rapsirasva, rapsiöljy ja -rasva
 fr: Huile de navette
+ga: Ola ráibe
+gl: Aceite de colza
 he: שמן לפתית
+hi: रेपसीड तेल
 hr: repičino ulje, repicino ulje, repičina mast, repičina biljna mast, repičino biljna ulja
 hu: repceolaj, repcemagolaj, repcemagolajak, repcemagzsír, repce étolaj
+hy: Կռնչենու յուղ
+id: Minyak lobak
 is: repjuolía
 it: Olio di colza
 ja: 菜種油
+ka: რაფსის ზეთი
+kk: Рапс майы
+kn: ರೇಪ್ಸೀಡ್ ಎಣ್ಣೆ
 ko: 유채유
+ky: Рапс майы
 lt: rapsų aliejus, augaliniai aliejai rapsų
 lv: rapšu eļļa, rapšu ella
+mk: Масло од репка
+ml: റാപ്സീഡ് ഓയിൽ
+mr: रेपसीड तेल
+ms: Minyak rapeseed
+mt: Żejt tal-kolza
 nb: rapsolje
 nl: raapolie, raapzaad, raap, raapzaadolie, gedeeltelijk geharde raapzaadolie
-no: rapsolje
+nn: rapsolje
 pl: olej roślinny rzepakowy, olej rzepakowy, olej z rzepaku, oleje roślinne rzepakowy, tłuszcz rzepakowy, tłuszcze roślinne rzepakowy, tłuszcz roślinny rzepakowy
+pt: óleo de colza
 ro: ulei de rapiță, ulei vegetal de rapiță, ulei de rapita
 ru: Рапсовое масло
 sk: repkový olej
-sq: repičino ulje
+sq: Vaj repice
+sr: Уље репице
 sv: Rapsolja, rybsolja, Rapsfett, rypsolja
+ta: ராப்சீட் எண்ணெய்
+te: రేప్సీడ్ నూనె
+th: น้ำมันเรพซีด
+tr: Kolza yağı
+uk: Ріпакова олія
+ur: ریپسیڈ تیل
+uz: Rapeseed yog'i
+vi: Dầu hạt cải
+zh: 菜籽油
 # 62.151 in 35 @2021-08-23
 ciqual_food_code:en: 17130
 ciqual_food_name:fr: Huile de colza
@@ -28423,22 +28475,53 @@ it: miscela di farine integrali
 
 < en:flour
 en: cereal flour
+af: graanmeel
+al: miell drithërash
+ar: دقيق الحبوب
+az: dənli bitkilər unu
+bg: брашно от зърнени култури
 ca: farina de cereal
 cs: obilná mouka
 da: kornmel
 de: Getreidemehl, Getreidemehle
+el: αλεύρι δημητριακών
 es: harina de cereales
+et: teraviljajahu
+eu: zereal-irina
 fi: viljajauho
 fr: farine de céréales, farines de céréales
+ga: plúr gránach
+gl: fariña de cereais
 he: קמח דגנים
 hr: brašno žitarica
 hu: gabonaliszt
+hy: հացահատիկի ալյուր
+id: tepung sereal
+is: kornmjöl
 it: farine di cereali
+ja: 穀物粉
+kk: жарма ұны
+ko: 곡물 가루
+lt: grūdų miltai
+lv: graudu milti
+mk: брашно од житарки
+ms: tepung bijirin
 nl: granenmeel
 pl: Mąka zbożowa
 pt: Farinha de cereais
 ro: Făină din cereale
+ru: зерновая мука
+sk: obilná múka
+sl: žitna moka
+sq: miell drithërash
+sr: брашно од житарица
 sv: spannmålsmjöl
+th: แป้งธัญพืช
+tr: tahıl unu
+uk: борошно зернове
+ur: اناج کا آٹا
+vi: bột ngũ cốc
+zh: 谷物粉
 
 < en:cereal flour
 en: mixed cereal flour, mixed cereal flours
@@ -31498,30 +31581,118 @@ it: Gomma xanthan e gomma di guar
 
 #comment:en:Is used as a generic descriptor for (natural) sugar
 en: added sugar
+af: bygevoegde suiker
+ar: سكر مضاف
+az: əlavə edilmiş şəkər
+be: дададзены цукар
 bg: добавена захар
+bn: যোগ করা চিনি
+bs: dodani šećer
 ca: sucres afegits
+cs: přidaný cukr
+cy: siwgr ychwanegol
+da: tilsat sukker
 de: zugesetzter Zucker
+el: πρόσθετη ζάχαρη
+eo: aldonita sukero
 es: azúcares añadidos, azúcar añadido
+et: lisatud suhkur
+eu: gehitutako azukrea
+fa: شکر افزوده
 fi: lisätty sokeri
 fr: sucre ajouté, sucres ajoutés
+ga: siúcra breise
+gl: azucre engadido
+he: סוכר שנוסף
+hi: अतिरिक्त चीनी
 hr: dodan šećer
+hu: hozzáadott cukor
+hy: ավելացված շաքարավազ
+id: gula tambahan
+is: viðbættur sykur
 it: zucchero aggiunto
+ja: 添加糖
+jv: gula tambahan
+ka: დამატებული შაქარი
+kk: қосылған қант
+ko: 첨가당
+ku: şekirê zêdekirî
+ky: кошулган шекер
+la: saccharum additum
+lt: pridėtinis cukrus
+lv: pievienotais cukurs
+mk: додаден шеќер
+ms: gula tambahan
 nl: toegevoegde suiker
+nn: tilsett sukker
+no: tilsatt sukker
 pl: cukier dodany, cukry dodane
 pt: açúcar adicionado
+ro: zahăr adăugat
+ru: добавленный сахар
+sk: pridaný cukor
+sl: dodani sladkor
+sq: sheqer i shtuar
+sr: додатни шећер
 sv: tillsatt socker
+th: น้ำตาลที่เพิ่ม
+tr: ilave şeker
+uk: доданий цукор
+ur: اضافی چینی
+uz: qo'shilgan shakar
+vi: đường thêm vào
+zh: 添加糖
 
 < en:added sugar
 en: monosaccharide
+af: monosakkaried
+ar: سكر أحادي
+az: Monosakkarid
+be: Манацукрыд
+bg: Монозахарид
+ca: monosacàrid
+cs: monosacharid
+cy: Monosacarid
+da: monosaccharid
 de: Monosaccharide
+el: μονοσακχαρίτης
+eo: Monosakarido
 es: monosacáridos
+et: Monosahhariid
+eu: Monosakarido
+fi: monosakkaridi
 fr: monosaccharides
+ga: Monaisiúicríd
+gl: Monosacárido
+he: חד-סוכר
 hr: monosaharid
+hu: Monoszacharid
+id: Monosakarida
+is: Einlyfja
 it: monosaccaridi
+ja: 単糖
+jv: Monosakarida
+ko: 단당류
+la: Monosaccharide
+lt: Monosacharidas
+lv: Monosaharīds
+mk: Моносахарид
+ms: Monosakarida
 nl: monosachariden
+no: Monosakkarid
 pl: cukry proste, monosacharydy
 pt: monossacarídeos
+ro: Monozaharidă
 ru: моносахариды
+sk: Monosacharid
+sl: Monosaharid
+sq: Monosakarid
+sr: Моносахарид
+sv: Monosackarid
+th: Monosaccharide
+tr: Monosakkarit
+uk: Моносахарид
+vi: Monosaccharide
 zh: 单糖
 
 # description:en:SUGAR is the generic name for sweet-tasting, soluble carbohydrates
@@ -31839,18 +32010,63 @@ pt: açúcar caramelizado em pó
 
 < en:sugar
 en: white sugar
+af: wit suiker
+ar: سكر أبيض
+az: ağ şəkər
+be: белы цукар
 bg: бяла захар
+ca: sucre blanc
+cs: bílý cukr
+cy: siwgr gwyn
+da: hvidt sukker
 de: weißer Zucker, Weißzucker
+el: άσπρη ζάχαρη
+eo: blanka sukero
 es: Azúcar blanco, Azúcar blanco comun, azúcar blanquilla
+et: valge suhkur
+eu: azukre zuria
 fi: valkoinen sokeri
 fr: sucre blanc
+ga: siúcra bán
+gl: azucre branco
 he: סוכר לבן
+hi: सफेद चीनी
 hr: bijeli šečer
 hu: fehér cukor
+hy: սպիտակ շաքարավազ
+id: gula putih
+is: hvítur sykur
 it: Zucchero bianco
+ja: 白砂糖
+jv: gula putih
+ka: თეთრი შაქარი
+kk: ақ қант
+ko: 흰 설탕
+ku: şekirê spî
+ky: ак кант
+lt: baltasis cukrus
+lv: baltais cukurs
+mk: бел шеќер
+ms: gula putih
 nl: witte suiker
+nn: kvitt sukker
+no: hvitt sukker
 pl: biały cukier, cukier biały
+pt: açúcar branco
+ro: zahăr alb
 ru: сахар белый
+sk: biely cukor
+sl: beli sladkor
+sq: sheqer i bardhë
+sr: бели шећер
+sv: vitt socker
+th: น้ำตาลทรายขาว
+tr: beyaz şeker
+uk: білий цукор
+ur: سفید شکر
+uz: oq shakar
+vi: đường trắng
+zh: 白糖
 ciqual_food_code:en: 31016
 ciqual_food_name:en: Sugar, white
 ciqual_food_name:fr: Sucre blanc
@@ -33373,30 +33589,53 @@ it: sciroppo di canna corevaporato
 
 < en:disaccharide
 en: corn syrup
+af: mieliestroop
 ar: شراب الذرة
+az: qarğıdalı siropu
 be: Кукурузны сіроп
 bg: царевичен сироп
+bs: kukuruzni sirup
 ca: Xarop de blat de moro
 cs: Kukuřičný sirup
+cy: Sîrop ŷd
 da: majssirup
 de: Maissirup
+el: σιρόπι καλαμποκιού
 eo: Maiza siropo
 es: Jarabe de maíz, sirope de maíz
+et: maisisiirup
+fa: شربت ذرت
 fi: maissisiirappi
 fr: sirop de maïs
 he: סירופ תירס
 hr: kukuruzni sirup
 hu: kukoricaszirup
+id: sirup jagung
+is: maíssíróp
 it: sciroppo di mais
 ja: コーンシロップ, コーンシラップ
 ko: 옥수수 시럽
+lt: kukurūzų sirupas
+lv: kukurūzas sīrups
+mk: пченкарен сируп
+ms: sirap jagung
 nl: Maïsstroop
+nn: mais sirup
+no: mais sirup
 pl: Syrop kukurydziany
 pt: xarope de milho
+ro: sirop de porumb
 ru: Кукурузный сироп
+sk: kukuričný sirup
+sl: koruzni sirup
+sq: shurup misri
+sr: кукурузни сируп
 sv: majssirap
+th: น้ำเชื่อมข้าวโพด
 tr: Mısır şurubu
 uk: Кукурудзяний сироп
+uz: makkajo'xori siropi
+vi: siro ngô
 zh: 玉米糖漿
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/corn-syrup 19402 products in 7 languages @2018-09-24
 # probably not a very good proxy, but the closest one in Ciqual
@@ -35252,7 +35491,7 @@ pt: cacau magro em pó
 ro: cacao pudra degresata, pudră de cacao cu conţinut redus de grăsime
 ru: какао порошок с пониженным содержанием жира
 sk: kakaový prášok so zníženým množstvom tuku
-sv: fettreducerat kakaopulver, fettreducerad kakaopulver, skummet kakaopulver, fettreduserat kakaopulver, avfettat kakaopulver, fettfattigt kakaopulver, lågfett kakaopulver
+sv: fettreducerat kakaopulver, fettreducerad kakaopulver, skummet kakaopulver, fettreduserat kakaopulver, avfettat kakaopulver, fettfattigt kakaopulver, fettfattig kakaopulver, lågfett kakaopulver
 # ingredient/fr:poudre-de-cacao-maigre has 843 products in 8 languages @2019-05-25
 
 #<en:cocoa powder
@@ -37049,6 +37288,11 @@ fi: soijaleseet
 fr: son de soja
 hr: sojine mekinje
 it: crusca di soia
+
+< en:soya bean
+< en:vegetable fiber
+en: soya bean fiber
+sv: sojabönfiber, sojabönfibrer
 
 #process:en: en:concentrated
 #<en:soya bean

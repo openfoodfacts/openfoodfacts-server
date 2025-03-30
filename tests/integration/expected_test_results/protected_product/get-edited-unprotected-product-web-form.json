@@ -33,12 +33,8 @@
       ],
       "amino_acids_tags" : [],
       "brands" : "Test brand",
-      "brands_hierarchy" : [
-         "xx:Test brand"
-      ],
-      "brands_lc" : "xx",
       "brands_tags" : [
-         "xx:test-brand"
+         "test-brand"
       ],
       "categories" : "Changed category",
       "categories_hierarchy" : [
@@ -559,7 +555,7 @@
       "ingredients_without_ecobalyse_ids_n" : 0,
       "interface_version_created" : "20150316.jqm2",
       "interface_version_modified" : "20190830",
-      "known_ingredients_n" : 10,
+      "known_ingredients_n" : 4,
       "labels" : "Bio, Max Havelaar",
       "labels_hierarchy" : [
          "en:fair-trade",
@@ -882,6 +878,7 @@
       "quantity" : "250 g",
       "removed_countries_tags" : [],
       "rev" : 2,
+      "schema_version" : 998,
       "serving_quantity" : "20",
       "serving_quantity_unit" : "g",
       "serving_size" : "20 g",
