@@ -8,6 +8,7 @@
 en: Incorrect product type
 bg: Неправилен product type
 ca: Tipus de producte incorrecte
+da: Forkert produkttype
 de: Falscher product type
 es: Tipo de producto incorrecto
 fi: Väärä product type
@@ -17,6 +18,7 @@ it: Tipo di prodotto errato
 nl: Verkeerd product type
 pt: Tipo de produto incorreto
 ru: Неправильный product type
+sv: Fel produkttyp
 
 < en: Incorrect product type
 en: Non open products facts
@@ -45,9 +47,11 @@ en: Open Pet Food Facts, OPFF
 xx: Open Pet Food Facts, OPFF
 
 en: Furniture
+da: Møbler
 de: Möbel
 es: Muebles
 fr: Meubles
+sv: Möbler
 
 < en:Furniture
 en: Wooden chair
@@ -83,7 +87,9 @@ unit_name:fr: Canapé convertible
 
 < en:Furniture
 en: Bed
+da: Seng
 fr: Lit
+sv: Säng
 carbon_impact_fr_impactco2:en: 444
 carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/mobilier/lit
 unit_name:en: bed
@@ -109,7 +115,9 @@ unit_name:fr: bouilloire
 
 < en:Appliances
 en: Vacuum cleaner
+da: Støvsuger
 fr: Aspirateur
+sv: Dammsugare
 carbon_impact_fr_impactco2:en: 47.3
 carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/electromenager/aspirateur
 unit_name:en: vacuum cleaner
@@ -149,7 +157,9 @@ unit_name:fr: four électrique
 
 < en:Appliances
 en: Refrigerator, Fridge
+da: Køleskab
 fr: Réfrigérateur
+sv: Kylskåp, kyl
 carbon_impact_fr_impactco2:en: 325
 carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/electromenager/refrigirateur
 unit_name:en: refrigerator
@@ -192,6 +202,8 @@ fr: Micro-ondes
 
 < en:Appliances
 en: Ovens
+da: Ovne
+sv: Ugnar
 
 en: Cooking equipment
 
@@ -202,9 +214,11 @@ fr: Équipement de sport
 
 < en:Sport equipment
 en: Bikes
+da: Cykler
 de: Fahrräder
 es: Bicicletas
 fr: Vélos
+sv: Cykler
 
 < en:Sport equipment
 en: Bike equipment
@@ -325,6 +339,7 @@ unit_name:fr: Alimentation externe pour smartphone ou tablette
 
 < en: Electronic products
 en: USB key
+da: USB-nøgle
 fr: Clef usb
 carbon_impact_fr_impactco2:en: 2.9
 carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/numerique/clefusb
@@ -643,6 +658,7 @@ unit_name:fr: tablette numérique
 
 < en: electronic products
 en: mobile phones, cell phones
+da: Mobiltelefoner
 de: Mobiltelefone, Handys
 es: teléfonos móviles, celulares
 fr: téléphones portables, téléphones mobiles
@@ -744,7 +760,19 @@ yo: Aṣọ
 zh: 衣服
 zu: Izingubo
 
+< en: Clothes
+en: Hats
+da: Hatte
+sv: Hattar
+
+< en: Hats
+en: Flat Caps
+wikidata:en: Q15603247
+
+< en: Clothes
 en: Shoes
+da: Sko
+sv: Skor
 
 < en: Clothes
 en: T-shirts
@@ -834,21 +862,26 @@ zu: Izingubo zabesifazane
 
 < en: Clothes
 en: Men clothes
+da: Herretøj
 de: Herrenbekleidung
 es: Ropa de hombre
 fr: Vêtements pour hommes
 
 < en: Shoes
 en: Women shoes
+da: Damesko
 de: Damenschuhe
 es: Zapatos de mujer
 fr: Chaussures pour femmes
 
+< en: Men clothes
 < en: Shoes
 en: Men shoes
+da: Herresko
 
 < en: Clothes
 en: Socks
+da: Sokker
 fr: Chaussettes
 
 < en: Clothes
@@ -860,7 +893,7 @@ en: Dresses
 < en: Clothes
 en: Pull-Over
 
-< en: Clothes
+< en: T-shirts
 en: Polyester T-shirt
 fr: T-shirt en polyester
 carbon_impact_fr_impactco2:en: 6.21
@@ -868,7 +901,7 @@ carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/habillement/tshi
 unit_name:xx: polyester t-shirt
 unit_name:en: polyester t-shirt
 
-< en: Clothes
+< en: T-shirts
 en: Cotton T-shirt
 ar: تي شيرت قطني
 as: কপাহী টি-চাৰ্ট
@@ -953,6 +986,7 @@ unit_name:fr: T-shirt en coton
 
 < en: Clothes
 en: Polo shirt
+da: Polo-skjorte, Poloskjorte
 fr: Polo
 carbon_impact_fr_impactco2:en: 10.2
 carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/habillement/polo
@@ -1237,8 +1271,8 @@ unit_name:en: Sport shoes
 unit_name:fr: Paire de chaussures de sport
 
 < en: Clothes
+xx: Jeans
 en: Jeans
-fr: Jeans
 carbon_impact_fr_impactco2:en: 25.1
 carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/habillement/jeans
 unit_name:xx:
@@ -1474,7 +1508,9 @@ vi: Sách
 zh: 书籍
 
 en: Papers
+da: Papirer
 fr: Papiers
+sv: Papper
 
 < en: Papers
 en: Origami papers, origami craft papers
@@ -1634,16 +1670,19 @@ zh: 香烟
 zu: Ugwayi
 
 en: Christmas trees
+da: Juletræer
 de: Weihnachtsbäume
 es: Árboles de Navidad
 fr: Arbres de Noël
 
 en: Vitamins
+da: Vitaminer
 de: Vitamine
 es: Vitaminas
 fr: Vitamines
 
 en: Batteries
+da: Batterier
 de: Batterien
 es: Pilas, Baterías
 fr: Piles
@@ -1875,9 +1914,11 @@ es: Arena para mascotas
 fr: Litière pour animaux
 
 en: Medicine
+da: Medicin, lægemiddel
 de: Medizin
 es: Medicina
 fr: Médicament
+sv: Medicin, läkemedel
 
 en: Sanitary napkins
 de: Damenbinden

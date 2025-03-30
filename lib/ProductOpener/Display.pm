@@ -44,9 +44,6 @@ BEGIN {
 		%index_tag_types_set
 
 		&init_request
-		&redirect_to_url
-		&single_param
-		&request_param
 
 		&display_date
 		&display_date_tag
@@ -137,7 +134,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::HTTP
-	qw(write_cors_headers set_http_response_header write_http_response_headers get_http_request_header);
+	qw(write_cors_headers set_http_response_header write_http_response_headers get_http_request_header redirect_to_url single_param request_param);
 use ProductOpener::Store qw(get_string_id_for_lang retrieve);
 use ProductOpener::Config qw(:all);
 use ProductOpener::Paths qw/%BASE_DIRS/;
@@ -152,8 +149,7 @@ use ProductOpener::Products qw(:all);
 use ProductOpener::Missions qw(:all);
 use ProductOpener::MissionsConfig qw(:all);
 use ProductOpener::URL qw(format_subdomain get_owner_pretty_path);
-use ProductOpener::Data
-	qw(execute_aggregate_tags_query execute_count_tags_query execute_product_query execute_query get_products_collection get_recent_changes_collection);
+use ProductOpener::Data qw(:all);
 use ProductOpener::Text
 	qw(escape_char escape_single_quote_and_newlines get_decimal_formatter get_percent_formatter remove_tags_and_quote);
 use ProductOpener::Nutriscore qw(%points_thresholds compute_nutriscore_grade);
@@ -170,7 +166,7 @@ use ProductOpener::PackagerCodes
 use ProductOpener::Export qw(export_csv);
 use ProductOpener::API qw(add_error customize_response_for_product process_api_request);
 use ProductOpener::Units qw/g_to_unit/;
-use ProductOpener::Cache qw/$max_memcached_object_size $memd generate_cache_key/;
+use ProductOpener::Cache qw/$max_memcached_object_size $memd generate_cache_key get_cache_results set_cache_results/;
 use ProductOpener::Permissions qw/has_permission/;
 use ProductOpener::ProductsFeatures qw(feature_enabled);
 use ProductOpener::RequestStats qw(:all);
@@ -203,10 +199,6 @@ use LWP::UserAgent;
 use Tie::IxHash;
 
 use Log::Any '$log', default_adapter => 'Stderr';
-
-# special logger to make it easy to measure memcached hit and miss rates
-our $mongodb_log = Log::Any->get_logger(category => 'mongodb');
-$mongodb_log->info("start") if $mongodb_log->is_info();
 
 use Apache2::RequestUtil ();
 use Apache2::RequestRec ();
@@ -441,94 +433,6 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	};
 
 	return ($tt->process($template_filename, $template_data_ref, $result_content_ref));
-}
-
-=head2 redirect_to_url($request_ref, $status_code, $redirect_url)
-
-This function instructs mod_perl to print redirect HTTP header (Location) and to terminate the request immediately.
-The mod_perl process is not terminated and will continue to serve future requests.
-
-=head3 Arguments
-
-=head4 Request object $request_ref
-
-The request object may contain a cookie.
-
-=head4 Status code $status_code
-
-e.g. 302 for a temporary redirect
-
-=head4 Redirect url $redirect_url
-
-=cut
-
-sub redirect_to_url ($request_ref, $status_code, $redirect_url) {
-
-	my $r = Apache2::RequestUtil->request();
-
-	$r->headers_out->set(Location => $redirect_url);
-
-	if (defined $request_ref->{cookie}) {
-		# Note: mod_perl will not output the Set-Cookie header on a 302 response
-		# unless it is set with err_headers_out instead of headers_out
-		# https://perl.apache.org/docs/2.0/api/Apache2/RequestRec.html#C_err_headers_out_
-		$r->err_headers_out->set("Set-Cookie" => $request_ref->{cookie});
-	}
-
-	$r->status($status_code);
-
-	log_request_stats($request_ref->{stats});
-
-	# note: under mod_perl, exit() will end the request without terminating the Apache mod_perl process
-	exit();
-}
-
-=head2 single_param ($param_name)
-
-CGI.pm param() function returns a list when called in a list context
-(e.g. when param() is an argument of a function, or the value of a field in a hash).
-This causes issues for function signatures that expect a scalar, and that may get passed an empty list
-if the parameter is not set.
-
-So instead of calling CGI.pm param() directly, we call single_param() to prefix it with scalar.
-
-=head3 Arguments
-
-=head4 CGI parameter name $param_name
-
-=head3 Return value
-
-A scalar value for the parameter, or undef if the parameter is not defined.
-
-=cut
-
-sub single_param ($param_name) {
-	return scalar param($param_name);
-}
-
-=head2 request_param ($request_ref, $param_name)
-
-Return a request parameter. The parameter can be passed in the query string,
-as a POST multipart form data parameter, or in a POST JSON body
-
-=head3 Arguments
-
-=head4 Parameter name $param_name
-
-=head3 Return value
-
-A scalar value for the parameter, or undef if the parameter is not defined.
-
-=cut
-
-sub request_param ($request_ref, $param_name) {
-	my $cgi_param = scalar param($param_name);
-	if (defined $cgi_param) {
-		return decode utf8 => $cgi_param;
-	}
-	else {
-		return deep_get($request_ref, "body_json", $param_name);
-	}
 }
 
 =head2 init_request ()
@@ -965,6 +869,8 @@ CSS
 			org_id => $Org_id
 		}
 	) if $log->is_debug();
+
+	# Query parameters
 
 	set_request_stats_value($request_ref->{stats}, "cc", $request_ref->{cc});
 	set_request_stats_value($request_ref->{stats}, "lc", $request_ref->{lc});
@@ -1569,87 +1475,6 @@ sub display_mission ($request_ref) {
 	exit();
 }
 
-sub get_cache_results ($key, $request_ref) {
-
-	my $results;
-
-	$log->debug("MongoDB hashed query key", {key => $key}) if $log->is_debug();
-
-	# disable caching if ?no_cache=1
-	# or if we are on the producers platform
-	# or if we are sent the HTTP header Cache-Control: no-cache
-	my $param_no_cache = single_param("no_cache");
-	if ((not $param_no_cache) and (not $server_options{producers_platform})) {
-		my $cache_control = get_http_request_header("Cache-Control");
-		if ((defined $cache_control) and ($cache_control =~ /no-cache/)) {
-			$log->debug("get_cache_results - HTTP Cache-Control no-cache header, skip caching", {key => $key})
-				if $log->is_debug();
-			$param_no_cache = 1;
-		}
-	}
-	if ($param_no_cache) {
-		$log->debug("MongoDB no_cache parameter, skip caching", {key => $key}) if $log->is_debug();
-		$mongodb_log->info("get_cache_results - skip - key: $key") if $mongodb_log->is_info();
-
-	}
-	else {
-		$log->debug("Retrieving value for MongoDB query key", {key => $key}) if $log->is_debug();
-		$results = $memd->get($key);
-		if (not defined $results) {
-			$log->debug("Did not find a value for MongoDB query key", {key => $key}) if $log->is_debug();
-			$mongodb_log->info("get_cache_results - miss - key: $key") if $mongodb_log->is_info();
-		}
-		else {
-			$log->debug("Found a value for MongoDB query key", {key => $key}) if $log->is_debug();
-			$mongodb_log->info("get_cache_results - hit - key: $key") if $mongodb_log->is_info();
-		}
-	}
-	return $results;
-}
-
-sub set_cache_results ($key, $results) {
-
-	$log->debug("Setting value for MongoDB query key", {key => $key}) if $log->is_debug();
-	my $result_size = total_size($results);
-
-	# $max_memcached_object_size is defined is Cache.pm
-	# we assume that compression will reduce the size by at least 50%
-	my $factor = 2;
-	if ($result_size >= $max_memcached_object_size * $factor) {
-		$mongodb_log->info(
-			"set_cache_results - skipping - setting value - key: $key (uncompressed total_size: $result_size > max size * $factor ($max_memcached_object_size * $factor))"
-		);
-		return;
-	}
-
-	if ($mongodb_log->is_info()) {
-		$mongodb_log->info("set_cache_results - setting value - key: $key - uncompressed total_size: $result_size");
-	}
-
-	if ($memd->set($key, $results, 3600)) {
-		$mongodb_log->info("set_cache_results - updated - key: $key - uncompressed total_size: $result_size")
-			if $mongodb_log->is_info();
-	}
-	else {
-		$log->debug("Could not set value for MongoDB query key", {key => $key});
-		$mongodb_log->info("set_cache_results - error - key: $key - uncompressed total_size: $result_size")
-			if $mongodb_log->is_info();
-	}
-
-	return;
-}
-
-sub can_use_off_query() {
-	return (
-		(
-				   (not defined single_param("no_cache"))
-				or (not single_param("no_cache"))
-				or (single_param("off_query"))
-		)
-			and (not $server_options{producers_platform})
-	);
-}
-
 sub generate_query_cache_key ($name, $context_ref, $request_ref) {
 	# Generates a cache key taking the obsolete parameter into account
 	if (scalar request_param($request_ref, "obsolete")) {
@@ -1773,13 +1598,15 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 	#get cache results for aggregate query
 	my $key = generate_query_cache_key("aggregate", $aggregate_parameters, $request_ref);
 	$log->debug("MongoDB query key", {key => $key}) if $log->is_debug();
-	my $results = get_cache_results($key, $request_ref);
+
+	$request_ref->{data_debug} = init_data_debug();
+	my $results = get_cache_results($key, \$request_ref->{data_debug});
 
 	if ((not defined $results) or (ref($results) ne "ARRAY") or (not defined $results->[0])) {
 		$results = undef;
 		# do not use the postgres cache if ?no_cache=1
 		# or if we are on the producers platform
-		if (can_use_off_query()) {
+		if (can_use_off_query(\$request_ref->{data_debug})) {
 			set_request_stats_time_start($request_ref->{stats}, "off_query_aggregate_tags_query");
 			$results = execute_aggregate_tags_query($aggregate_parameters);
 			set_request_stats_time_end($request_ref->{stats}, "off_query_aggregate_tags_query");
@@ -1817,7 +1644,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 
 		if (defined $results) {
 			if (defined $results->[0] and $cache_results_flag) {
-				set_cache_results($key, $results);
+				set_cache_results($key, $results, \$request_ref->{data_debug});
 			}
 		}
 		else {
@@ -1845,14 +1672,14 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 		#get total count for aggregate (without limit) and put result in cache
 		my $key_count = generate_query_cache_key("aggregate_count", $aggregate_count_parameters, $request_ref);
 		$log->debug("MongoDB aggregate count query key", {key => $key_count}) if $log->is_debug();
-		my $results_count = get_cache_results($key_count, $request_ref);
+		my $results_count = get_cache_results($key_count, \$request_ref->{data_debug});
 
 		if (not defined $results_count) {
 
 			my $count_results;
 			# do not use the smaller postgres cache if ?no_cache=1
 			# or if we are on the producers platform
-			if (can_use_off_query()) {
+			if (can_use_off_query(\$request_ref->{data_debug})) {
 				set_request_stats_time_start($request_ref->{stats}, "off_query_aggregate_tags_query");
 				$count_results = execute_aggregate_tags_query($aggregate_count_parameters);
 				set_request_stats_time_end($request_ref->{stats}, "off_query_aggregate_tags_query");
@@ -1879,7 +1706,11 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 				$request_ref->{structured_response}{count} = $count_results->{$group_field_name};
 
 				if ($cache_results_flag) {
-					set_cache_results($key_count, $request_ref->{structured_response}{count});
+					set_cache_results(
+						$key_count,
+						$request_ref->{structured_response}{count},
+						\$request_ref->{data_debug}
+					);
 					$log->debug(
 						"Set cached aggregate count for query key",
 						{
@@ -4982,6 +4813,8 @@ sub add_params_to_query ($params_ref, $query_ref) {
 						# so that we can find products that have not been reprocessed yet and that still have the old tag
 						if ($tag =~ /^([a-z]{2}:.*)!$/) {
 							$tagid = $1;
+							# Hack to be able to target untaxonomized tags when a field becomes taxonomized but products have not been updated
+							$tagid =~ s/^zz://;
 						}
 						else {
 							$tagid = get_taxonomyid($tag_lc, canonicalize_taxonomy_tag($tag_lc, $tagtype, $tag));
@@ -5011,7 +4844,8 @@ sub add_params_to_query ($params_ref, $query_ref) {
 							($tagid eq get_string_id_for_lang($tag_lc, lang("unknown")))
 							or (
 								$tagid eq (
-									$tag_lc . ":"
+									# brands are always taxonomized with the xx: prefix
+									($tagtype eq "brands" ? "xx" : $tag_lc) . ":"
 										. get_string_id_for_lang($tag_lc, lang_in_other_lc($tag_lc, "unknown"))
 								)
 							)
@@ -5484,7 +5318,10 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 	$log->debug("MongoDB query key - search_products", {key => $key}) if $log->is_debug();
 
-	$request_ref->{structured_response} = get_cache_results($key, $request_ref);
+	my $request_parameters_ref = get_products_collection_request_parameters($request_ref);
+
+	$request_ref->{data_debug} = init_data_debug();
+	$request_ref->{structured_response} = get_cache_results($key, \$request_ref->{data_debug});
 
 	if (not defined $request_ref->{structured_response}) {
 
@@ -5507,8 +5344,8 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			set_request_stats_time_start($request_ref->{stats}, "mongodb_query");
 			$cursor = execute_query(
 				sub {
-					return execute_product_query(get_products_collection_request_parameters($request_ref),
-						$query_ref, $fields_ref, $sort_ref, $limit, $skip);
+					return execute_product_query($request_parameters_ref, $query_ref, $fields_ref, $sort_ref, $limit,
+						$skip, \$request_ref->{data_debug});
 				}
 			);
 			$log->debug("MongoDB query ok", {error => $@}) if $log->is_debug();
@@ -5570,7 +5407,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 			# Don't set the cache if no_count was set
 			if (not single_param('no_count') and $cache_results_flag) {
-				set_cache_results($key, $request_ref->{structured_response});
+				set_cache_results($key, $request_ref->{structured_response}, \$request_ref->{data_debug});
 				# For debugging, it can be useful to examine the structured response
 				#ProductOpener::Store::store($BASE_DIRS{CACHE_DEBUG} . "/structured_response.sto",
 				#	$request_ref->{structured_response});
@@ -5830,13 +5667,15 @@ sub estimate_result_count ($request_ref, $query_ref, $cache_results_flag) {
 		#check if count results is in cache
 		my $key_count = generate_query_cache_key("search_products_count", $query_ref, $request_ref);
 		$log->debug("MongoDB query key - search_products_count", {key => $key_count}) if $log->is_debug();
-		$count = get_cache_results($key_count, $request_ref);
+		defined $request_ref->{data_debug} or $request_ref->{data_debug} = init_data_debug();
+		$count = get_cache_results($key_count, \$request_ref->{data_debug});
 		if (not defined $count) {
 
 			$log->debug("count not in cache for query", {key => $key_count}) if $log->is_debug();
 
 			# Count queries are very expensive, if possible, execute them on the postgres cache
-			if (can_use_off_query()) {
+			if (can_use_off_query(\$request_ref->{data_debug})) {
+				$request_ref->{data_debug} .= "count tags using off_query\n";
 				set_request_stats_time_start($request_ref->{stats}, "off_query_count_tags_query");
 				$count = execute_count_tags_query($query_ref);
 				set_request_stats_time_end($request_ref->{stats}, "off_query_count_tags_query");
@@ -5848,6 +5687,7 @@ sub estimate_result_count ($request_ref, $query_ref, $cache_results_flag) {
 					sub {
 						$log->debug("count_documents on complete products collection", {key => $key_count})
 							if $log->is_debug();
+						$request_ref->{data_debug} .= "count_documents using MongoDB\n";
 						return get_products_collection(get_products_collection_request_parameters($request_ref))
 							->count_documents($query_ref);
 					}
@@ -5862,7 +5702,7 @@ sub estimate_result_count ($request_ref, $query_ref, $cache_results_flag) {
 			if ((defined $count) and $cache_results_flag) {
 				$log->debug("count query complete, setting cache", {key => $key_count, count => $count})
 					if $log->is_debug();
-				set_cache_results($key_count, $count);
+				set_cache_results($key_count, $count, \$request_ref->{data_debug});
 			}
 		}
 		else {
@@ -5878,6 +5718,7 @@ sub estimate_result_count ($request_ref, $query_ref, $cache_results_flag) {
 			sub {
 				$log->debug("empty query_ref, use estimated_document_count fot better performance", {})
 					if $log->is_debug();
+				$request_ref->{data_debug} .= "estimated_document_count using MongoDB\n";
 				return get_products_collection(get_products_collection_request_parameters($request_ref))
 					->estimated_document_count();
 			}
@@ -6969,11 +6810,13 @@ sub search_and_graph_products ($request_ref, $query_ref, $graph_ref) {
 		$fields_ref->{"labels_tags"} = 1;
 	}
 
+	$request_ref->{data_debug} = init_data_debug();
+
 	eval {
 		$cursor = execute_query(
 			sub {
 				return execute_product_query(get_products_collection_request_parameters($request_ref),
-					$query_ref, $fields_ref);
+					$query_ref, $fields_ref, undef, undef, undef, \$request_ref->{data_debug});
 			}
 		);
 	};
@@ -7279,6 +7122,8 @@ sub search_products_for_map ($request_ref, $query_ref) {
 
 	$log->debug("retrieving products from MongoDB to display them in a map") if $log->is_debug();
 
+	$request_ref->{data_debug} = init_data_debug();
+
 	eval {
 		$cursor = execute_query(
 			sub {
@@ -7295,7 +7140,9 @@ sub search_products_for_map ($request_ref, $query_ref) {
 						manufacturing_places => 1,
 						origins => 1,
 						emb_codes_tags => 1,
-					}
+					},
+					undef, undef, undef,
+					\$request_ref->{data_debug}
 				);
 			}
 		);
@@ -7554,10 +7401,10 @@ sub display_page ($request_ref) {
 	my $join_us_on_slack
 		= sprintf($Lang{footer_join_us_on}{$lc}, '<a href="https://slack.openfoodfacts.org">Slack</a>');
 
-	# Twitter account and Facebook page url from Config.pm
-	# Allow to have language specific Twitter accounts and Facebook page url, suffixed by the language code
-	my $twitter_account = $options{"twitter_account_$lc"} || $options{twitter_account};
-	$template_data_ref->{twitter_account} = $twitter_account;
+	# x account and Facebook page url from Config.pm
+	# Allow to have language specific x accounts and Facebook page url, suffixed by the language code
+	my $x_account = $options{"x_account_$lc"} || $options{x_account};
+	$template_data_ref->{x_account} = $x_account;
 	my $facebook_page = $options{"facebook_page_url_$lc"} || $options{facebook_page_url};
 	$template_data_ref->{facebook_page_url} = $facebook_page;
 
@@ -7667,14 +7514,14 @@ sub display_page ($request_ref) {
 		|| ($html = "template error: " . $tt->error());
 
 	# disable equalizer
-	# e.g. for product edit form, pages that load iframes (twitter embeds etc.)
+	# e.g. for product edit form, pages that load iframes (x embeds etc.)
 	if ($html =~ /<!-- disable_equalizer -->/) {
 
 		$html =~ s/data-equalizer(-watch)?//g;
 	}
 
-	# Twitter account
-	$html =~ s/<twitter_account>/$twitter_account/g;
+	# x account
+	$html =~ s/<x_account>/$x_account/g;
 
 	my $status_code = $request_ref->{status_code} // 200;
 
@@ -7894,6 +7741,7 @@ sub display_product ($request_ref) {
 	$request_ref->{scripts} .= <<SCRIPTS
 <script src="$static_subdomain/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
 <script src="$static_subdomain/js/dist/product-history.js"></script>
+<script src="$static_subdomain/js/dist/off-webcomponents-utils.js"></script>
 <script type="module" src="$static_subdomain/js/dist/off-webcomponents.bundled.js"></script>
 SCRIPTS
 		;
@@ -7921,7 +7769,7 @@ JS
 	local $log->context->{rev} = $rev;
 	if (defined $rev) {
 		$log->debug("displaying product revision") if $log->is_debug();
-		$product_ref = retrieve_product_rev($product_id, $rev);
+		$product_ref = retrieve_product($product_id, 0, $rev);
 		$request_ref->{header} .= '<meta name="robots" content="noindex,follow">';
 	}
 	else {
@@ -8000,7 +7848,6 @@ JS
 
 	my $product_url = product_url($product_ref);
 	$template_data_ref->{this_product_url} = $product_url;
-
 	# Environmental impact and Environmental-Score
 	# Limit to the countries for which we have computed the Environmental-Score
 	# for alpha test to moderators, display eco-score for all countries
@@ -8581,35 +8428,35 @@ JS
 	$template_data_ref->{display_product_history} = display_product_history($request_ref, $code, $product_ref)
 		if $User{moderator};
 
-	# Twitter card
+	# x card
 
 	# example:
 
-	#<meta name="twitter:card" content="product">
-	#<meta name="twitter:site" content="@iHeartRadio">
-	#<meta name="twitter:creator" content="@iHeartRadio">
-	#<meta name="twitter:title" content="24/7 Beatles — Celebrating 50 years of Beatlemania">
-	#<meta name="twitter:image" content="http://radioedit.iheart.com/service/img/nop()/assets/images/05fbb21d-e5c6-4dfc-af2b-b1056e82a745.png">
-	#<meta name="twitter:label1" content="Genre">
-	#<meta name="twitter:data1" content="Classic Rock">
-	#<meta name="twitter:label2" content="Location">
-	#<meta name="twitter:data2" content="National">
+	#<meta name="x:card" content="product">
+	#<meta name="x:site" content="@iHeartRadio">
+	#<meta name="x:creator" content="@iHeartRadio">
+	#<meta name="x:title" content="24/7 Beatles — Celebrating 50 years of Beatlemania">
+	#<meta name="x:image" content="http://radioedit.iheart.com/service/img/nop()/assets/images/05fbb21d-e5c6-4dfc-af2b-b1056e82a745.png">
+	#<meta name="x:label1" content="Genre">
+	#<meta name="x:data1" content="Classic Rock">
+	#<meta name="x:label2" content="Location">
+	#<meta name="x:data2" content="National">
 
 	my $meta_product_image_url = "";
 	if (defined $product_image_url) {
 		$meta_product_image_url = <<HTML
-<meta name="twitter:image" content="$product_image_url">
+<meta name="x:image" content="$product_image_url">
 <meta property="og:image" content="$product_image_url">
 HTML
 			;
 	}
 
 	$request_ref->{header} .= <<HTML
-<meta name="twitter:card" content="product">
-<meta name="twitter:site" content="@<twitter_account>">
-<meta name="twitter:creator" content="@<twitter_account>">
-<meta name="twitter:title" content="$title">
-<meta name="twitter:description" content="$description">
+<meta name="x:card" content="product">
+<meta name="x:site" content="@<x_account>">
+<meta name="x:creator" content="@<x_account>">
+<meta name="x:title" content="$title">
+<meta name="x:description" content="$description">
 HTML
 		;
 
@@ -8617,8 +8464,8 @@ HTML
 		# print only first brand if multiple exist.
 		my @brands = split(',', $product_ref->{brands});
 		$request_ref->{header} .= <<HTML
-<meta name="twitter:label1" content="$Lang{brands_s}{$lc}">
-<meta name="twitter:data1" content="$brands[0]">
+<meta name="x:label1" content="$Lang{brands_s}{$lc}">
+<meta name="x:data1" content="$brands[0]">
 HTML
 			;
 	}
@@ -8627,8 +8474,8 @@ HTML
 	my $data2 = display_taxonomy_tag($lc, "categories", $product_ref->{categories_tags}[-1]);
 	if ($data2) {
 		$request_ref->{header} .= <<HTML
-<meta name="twitter:label2" content="$Lang{categories_s}{$lc}">
-<meta name="twitter:data2" content="$data2">
+<meta name="x:label2" content="$Lang{categories_s}{$lc}">
+<meta name="x:data2" content="$data2">
 HTML
 			;
 	}
@@ -8718,7 +8565,7 @@ sub display_product_jqm ($request_ref) {    # jquerymobile
 	local $log->context->{rev} = $rev;
 	if (defined $rev) {
 		$log->debug("displaying product revision on jquery mobile") if $log->is_debug();
-		$product_ref = retrieve_product_rev($product_id, $rev);
+		$product_ref = retrieve_product($product_id, 0, $rev);
 	}
 	else {
 		$product_ref = retrieve_product($product_id);
@@ -9070,7 +8917,7 @@ HTML
 
 	my $creator = $product_ref->{creator};
 
-	# Remove links for iOS (issues with twitter / facebook badges loading in separate windows..)
+	# Remove links for iOS (issues with x / facebook badges loading in separate windows..)
 	$html =~ s/<a ([^>]*)href="([^"]+)"([^>]*)>/<span $1$3>/g
 		;    # replace with a span to keep class for color of additives etc.
 	$html =~ s/<\/a>/<\/span>/g;
@@ -10646,7 +10493,7 @@ sub display_product_api ($request_ref) {
 	local $log->context->{rev} = $rev;
 	if (defined $rev) {
 		$log->debug("displaying product revision") if $log->is_debug();
-		$product_ref = retrieve_product_rev($product_id, $rev);
+		$product_ref = retrieve_product($product_id, 0, $rev);
 	}
 	else {
 		$product_ref = retrieve_product($product_id);
@@ -11692,11 +11539,13 @@ sub search_and_analyze_recipes ($request_ref, $query_ref) {
 		$fields_ref->{owner} = 1;
 	}
 
+	$request_ref->{data_debug} = init_data_debug();
+
 	eval {
 		$cursor = execute_query(
 			sub {
 				return execute_product_query(get_products_collection_request_parameters($request_ref),
-					$query_ref, $fields_ref);
+					$query_ref, $fields_ref, undef, undef, undef, \$request_ref->{data_debug});
 			}
 		);
 	};
