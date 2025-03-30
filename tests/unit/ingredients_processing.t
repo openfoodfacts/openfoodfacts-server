@@ -2328,13 +2328,13 @@ my @tests = (
 		{
 			lc => "nb",
 			ingredients_text =>
-				"stekt ris, rispulver, kokt ris, kokte poteter, kokt potet, poteter, tørkede poteter, kuttede poteter, potetpulver, potetpuré, frosne poteter, malte poteter, melkefaststoffer, potetekstrakt, bakt potet, ufrosne bakte poteter, stekt ananas , ristede bananer, dehydrert gressløk, rehydrerte bananer",
+				"stekt ris, rispulver, kokt ris, kokte poteter, kokt potet, poteter, tørkede poteter, kuttede poteter, potetpulver, potetpuré, frosne poteter, malte poteter, melkefaststoffer, potetekstrakt, bakt potet, ufrosne bakte poteter, stekt ananas, ristede bananer, dehydrert gressløk, rehydrerte bananer",
 		},
 		[
 			{
 				'id' => 'en:rice',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:cooked',
+				'processing' => 'en:fried',
 				'text' => 'ris'
 			},
 			{
@@ -2422,9 +2422,10 @@ my @tests = (
 				'text' => 'ufrosne bakte poteter'
 			},
 			{
-				'id' => 'nb:stekt-ananas',
-				'is_in_taxonomy' => 0,
-				'text' => 'stekt ananas'
+				'id' => 'en:pineapple',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:fried',
+				'text' => 'ananas'
 			},
 			{
 				'id' => 'en:banana',
