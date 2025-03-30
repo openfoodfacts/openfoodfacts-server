@@ -54,9 +54,9 @@ my $tests_ref = [
 		},
 	},
 	{
-		test_case => 'get-product-anonymous',
+		test_case => 'get-product-auth-bad-user-password',
 		method => 'GET',
-		path => '/api/v2/product/1234567890001',
+		path => '/api/v2/product/1234567890003',
 		expected_status_code => 404,
 	},
 	# Test that we use the language of the interface (lc) for language fields without a language suffix
@@ -65,6 +65,8 @@ my $tests_ref = [
 		method => 'POST',
 		path => '/cgi/product_jqm_multilingual.pl',
 		form => {
+			user_id => "tests",
+			password => '!!!TestTest1!!!',
 			cc => "uk",
 			lc => "en",    # lc is the language of the interface
 			lang => "fr",    # lang is the main language of the product
@@ -75,7 +77,7 @@ my $tests_ref = [
 			quantity => "250 g",
 			serving_size => '20 g',
 			ingredients_text => "Pork meat, salt",
-			ingredients_text => "Pork meat, salt",
+			traces => "Moutarde, milk, abcd",
 		}
 	},
 	{

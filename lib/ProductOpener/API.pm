@@ -76,8 +76,6 @@ use ProductOpener::EnvironmentalScore qw/localize_environmental_score/;
 use ProductOpener::Packaging qw/%packaging_taxonomies/;
 use ProductOpener::Permissions qw/has_permission/;
 use ProductOpener::GeoIP qw/get_country_for_ip_api/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Store qw/:all/;
 use ProductOpener::ProductSchemaChanges qw/$current_schema_version convert_product_schema/;
 use ProductOpener::ProductsFeatures qw(feature_enabled);
 
