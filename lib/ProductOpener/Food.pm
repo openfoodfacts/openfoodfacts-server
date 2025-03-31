@@ -113,7 +113,7 @@ use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::FoodGroups qw/compute_food_groups/;
 use ProductOpener::Units qw/:all/;
 use ProductOpener::Products qw(&remove_fields);
-use ProductOpener::Display qw/single_param/;
+use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::APIProductWrite qw/skip_protected_field/;
 use ProductOpener::NutritionEstimation qw/estimate_nutrients_from_ingredients/;
 

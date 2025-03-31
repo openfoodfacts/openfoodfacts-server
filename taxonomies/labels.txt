@@ -131,6 +131,7 @@ synonyms:fr: naturel, d'origine naturelle, origine naturelle
 synonyms:fi: luontainen, luonnollinen
 synonyms:it: naturale, di origine naturale, origine naturale
 synonyms:pt: natural, de origem natural, origem natural
+synonyms:sv: naturlig, naturligt
 
 synonyms:fr: élevé, élevée, élevés, élevées
 synonyms:pt: elevado, elevados
@@ -4890,6 +4891,11 @@ web:de: https://gentechnikfrei.at
 # dedicated, widely used symbol of http://www.gentechnikfrei.at/
 
 < en:No GMOs
+en: No GMO soy
+ingredients:en: en:soya
+label_categories:en: en:Soy
+
+< en:No GMOs
 < fr:Soja Français
 en: French soy without GMOs
 bg: Френска соя без ГМО
@@ -4937,7 +4943,7 @@ ru: Без лактозы
 sk: Bez laktozy
 sl: Brez laktoze
 sq: Pa laktozë
-sv: Laktosfri, Laktosfritt
+sv: Laktosfri, Laktosfritt, Naturligt laktosfri
 th: ไม่มีแลคโตส
 tr: Laktozsuz
 uk: Без лактози
@@ -19903,6 +19909,23 @@ pl: V-Label Vegan, V-Label wegańskie
 pt: União Vegetariana Europeia Vegano, European Vegetarian Union Vegan, União Vegetariana Europeia - Vegano, European Vegetarian Union - Vegan
 sv: Europeiska Vegetariska Unionen Vegan, Europeiska Vegetariska Unionen - Vegan, EVU Vegan
 image:en: european-vegetarian-union-vegan.68x90.png
+
+< en:Vegetarian
+en: V-Label International, V-LABEL.COM
+xx: V-Label International, V-LABEL.COM
+image:en: v-label-nocategory.90x90.svg
+website:en: https://www.v-label.com/
+
+< en:V-Label International
+en: V-Label International Vegetarian
+xx: V-Label International Vegetarian
+image:en: v-label-vegetarian.76x90.svg
+
+< en:V-Label International
+< en:Vegan
+en: V-Label International Vegan
+xx: V-Label International Vegan
+image:en: v-label-vegan.68x90.svg
 
 < en:No palm oil
 #https://znakv.pl/wp-content/uploads/2021/08/vivaR.svg
