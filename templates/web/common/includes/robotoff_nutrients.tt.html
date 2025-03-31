@@ -18,12 +18,10 @@
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     // display the section only if we have data to validate
-    window.listenEventToShowHideAlert(
-      "nutrient-state",
-      "robotoff-nutrients",
-      "#row-nutrients",
-      true
-    );
+    window.listenEventToShowHideAlert("nutrient-state", "robotoff-nutrients", {
+      parentSelector: "#row-nutrients",
+      reloadOnAnnotated: true,
+    });
   });
 </script>
 
