@@ -7274,7 +7274,7 @@ sub display_page ($request_ref) {
 		$title =~ s/<([^>]*)>//g;
 
 		$title = remove_tags_and_quote($title);
-		$canon_title = $title; 
+		$canon_title = $title;
 	}
 
 	my $canon_description = '';
