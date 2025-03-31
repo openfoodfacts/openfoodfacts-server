@@ -342,7 +342,7 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{static_subdomain} = $static_subdomain;
 	$template_data_ref->{images_subdomain} = $images_subdomain;
 	$template_data_ref->{formatted_subdomain} = $formatted_subdomain;
-	
+
 	# Read's Release version from version.txt file & Link's the relsease notes of openfoodfacts-bot
 
 	my $version = "";
@@ -352,11 +352,11 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 		close $fh;
 	}
 	else {
-		$version = "Cannot open version file: $!";  
+		$version = "Cannot open version file: $!";
 	}
 	my $owner = 'openfoodfacts';
 	my $repo = 'openfoodfacts-server';
-	$version = 'v'.$version;
+	$version = 'v' . $version;
 
 	# Construct a custom URL to the release tag
 	my $custom_url = "https://github.com/$owner/$repo/releases/tag/$version";
@@ -365,7 +365,7 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	my $anchor = qq{<a href="$custom_url">View Release $version</a>};
 
 	$template_data_ref->{version} = $anchor;
-	
+
 	(not defined $template_data_ref->{user_id}) and $template_data_ref->{user_id} = $User_id;
 	(not defined $template_data_ref->{user}) and $template_data_ref->{user} = \%User;
 	(not defined $template_data_ref->{org_id}) and $template_data_ref->{org_id} = $Org_id;
