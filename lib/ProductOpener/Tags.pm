@@ -177,7 +177,7 @@ use vars @EXPORT_OK;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die get_files_for_taxonomy get_path_for_taxonomy_file/;
-use ProductOpener::Lang qw/$lc  %Lang %tag_type_singular lang/;
+use ProductOpener::Lang qw/$lc  %Lang %tag_type_plural %tag_type_singular lang/;
 use ProductOpener::Text qw/normalize_percentages regexp_escape/;
 use ProductOpener::PackagerCodes qw/localize_packager_code normalize_packager_codes/;
 use ProductOpener::Index qw/$lang_dir/;
@@ -2584,6 +2584,8 @@ sub generate_tags_taxonomy_extract ($tagtype, $tags_ref, $options_ref, $lcs_ref)
 
 sub retrieve_tags_taxonomy ($tagtype, $die_if_taxonomy_cannot_be_loaded = 0) {
 
+	print STDERR "retrieve_tags_taxonomy - tagtype: $tagtype\n";
+
 	$taxonomy_fields{$tagtype} = $tagtype;
 	$tags_fields{$tagtype} = 1;
 
@@ -2833,8 +2835,8 @@ sub gen_tags_hierarchy_taxonomy ($tag_lc, $tagtype, $tags_list) {
 		return ();
 	}
 
-	if (not defined $all_parents{$tagtype}) {
-		$log->warning("all_parents{\$tagtype} not defined", {tagtype => $tagtype}) if $log->is_warning();
+	if (not exists $all_parents{$tagtype}) {
+		$log->error("all_parents{\$tagtype} does not exists", {tagtype => $tagtype}) if $log->is_warning();
 		return (split(/\s*,\s*/, $tags_list));
 	}
 
@@ -3003,7 +3005,7 @@ sub display_tag_link ($tagtype, $tag) {
 
 	$tag = canonicalize_tag2($tagtype, $tag);
 
-	my $path = $tag_type_singular{$tagtype}{$lc};
+	my $path = $tag_type_plural{$tagtype}{$lc};
 
 	my $tag_lc = $lc;
 	if ($tag =~ /^(\w\w):/) {
@@ -3022,10 +3024,10 @@ sub display_tag_link ($tagtype, $tag) {
 
 	my $html;
 	if ((defined $tag_lc) and ($tag_lc ne $lc)) {
-		$html = "<a href=\"/$path/$tagurl\" lang=\"$tag_lc\">$display_tag</a>";
+		$html = "<a href=\"/facets/$path/$tagurl\" lang=\"$tag_lc\">$display_tag</a>";
 	}
 	else {
-		$html = "<a href=\"/$path/$tagurl\">$display_tag</a>";
+		$html = "<a href=\"/facets/$path/$tagurl\">$display_tag</a>";
 	}
 
 	if ($tagtype eq 'emb_codes') {
@@ -3062,7 +3064,7 @@ sub canonicalize_taxonomy_tag_link ($target_lc, $tagtype, $tag, $tag_prefix = un
 	$tag = display_taxonomy_tag($target_lc, $tagtype, $tag);
 	my $tagurl = get_taxonomyurl($target_lc, $tag);
 
-	my $path = $tag_type_singular{$tagtype}{$target_lc};
+	my $path = $tag_type_plural{$tagtype}{$target_lc};
 	return "/$path/" . ($tag_prefix // '') . "$tagurl";
 }
 
@@ -3084,16 +3086,16 @@ sub display_taxonomy_tag_link ($target_lc, $tagtype, $tag) {
 		$tag = $';
 	}
 
-	my $path = $tag_type_singular{$tagtype}{$target_lc} // '';
+	my $path = $tag_type_plural{$tagtype}{$target_lc} // '';
 
 	my $css_class = get_tag_css_class($target_lc, $tagtype, $tag);
 
 	my $html;
 	if ((defined $tag_lc) and ($tag_lc ne $target_lc)) {
-		$html = "<a href=\"/$path/$tagurl\" class=\"$css_class\" lang=\"$tag_lc\">$tag_lc:$tag</a>";
+		$html = "<a href=\"/facets/$path/$tagurl\" class=\"$css_class\" lang=\"$tag_lc\">$tag_lc:$tag</a>";
 	}
 	else {
-		$html = "<a href=\"/$path/$tagurl\" class=\"$css_class\">$tag</a>";
+		$html = "<a href=\"/facets/$path/$tagurl\" class=\"$css_class\">$tag</a>";
 	}
 
 	if ($tagtype eq 'emb_codes') {
@@ -3632,6 +3634,11 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref 
 	if ($tag =~ /^(\w\w):/) {
 		$tag_lc = $1;
 		$tag = $';
+	}
+
+	# Language less taxonomies (e.g. brands): consider the input to be in the xx language
+	if ($tagtype eq "brands") {
+		$tag_lc = "xx";
 	}
 
 	$tag = normalize_percentages($tag, $tag_lc);
@@ -4268,7 +4275,13 @@ sub display_taxonomy_tag ($target_lc, $tagtype, $tag) {
 			$display = $tag;
 
 			if ($target_lc ne $tag_lc) {
-				$display = "$tag_lc:$display";
+				# If the tag language is xx:, we don't want to add the language code
+				# This happens for language less taxonomies (e.g. brands) when we don't have a taxonomized entry
+				# So if someone enters SomeUnknownBrand in the brands field, it is normalized to xx:SomeUnknownBrand
+				# and we display it as SomeUnknownBrand
+				if ($tag_lc ne 'xx') {
+					$display = "$tag_lc:$display";
+				}
 			}
 			else {
 				$display = ucfirst($display);
@@ -4346,9 +4359,9 @@ sub canonicalize_tag_link ($tagtype, $tagid, $tag_prefix = undef) {
 		}
 	}
 
-	my $path = $tag_type_singular{$tagtype}{$lc};
+	my $path = $tag_type_plural{$tagtype}{$lc};
 	if (not defined $path) {
-		$path = $tag_type_singular{$tagtype}{en};
+		$path = $tag_type_plural{$tagtype}{en};
 	}
 
 	my $link = "/$path/" . ($tag_prefix // '') . URI::Escape::XS::encodeURIComponent($tagid);
@@ -4411,7 +4424,7 @@ GEXF
 			$graph->add_node(
 				name => $tagid,
 				label => canonicalize_tag2($tagtype, $tagid),
-				URL => "http://$lc.openfoodfacts.org/" . $tag_type_singular{$tagtype}{$lc} . "/" . $tagid
+				URL => "http://$lc.openfoodfacts.org/facets/" . $tag_type_plural{$tagtype}{$lc} . "/" . $tagid
 			);
 
 			if (defined $tags_direct_parents{$lc}{$tagtype}{$tagid}) {
@@ -4701,6 +4714,11 @@ sub compute_field_tags ($product_ref, $tag_lc, $field) {
 	# fields that should not have a different normalization (accentuation etc.) based on language
 	if ($field eq "teams") {
 		$tag_lc = "no_language";
+	}
+
+	# brands are a language less taxonomy, the input tag_lc is not used, we use xx instead
+	if ($field eq "brands") {
+		$tag_lc = "xx";
 	}
 
 	init_emb_codes() unless %emb_codes_cities;

@@ -16,9 +16,13 @@
    "allergens_hierarchy" : [],
    "allergens_tags" : [],
    "brands" : "Testo",
+   "brands_hierarchy" : [
+      "xx:Testo"
+   ],
    "brands_imported" : "Testo",
+   "brands_lc" : "xx",
    "brands_tags" : [
-      "testo"
+      "xx:testo"
    ],
    "categories" : "Test products",
    "categories_hierarchy" : [
@@ -514,6 +518,7 @@
    "product_type" : "food",
    "removed_countries_tags" : [],
    "rev" : 1,
+   "schema_version" : 1001,
    "serving_size_value" : "33",
    "serving_size_value_imported" : "33",
    "sources" : [

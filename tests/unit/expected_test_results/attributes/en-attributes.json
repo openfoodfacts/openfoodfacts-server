@@ -46,6 +46,7 @@
                "id" : "low_salt",
                "match" : 83.3333333333333,
                "name" : "Salt",
+               "panel_id" : "nutrient_level_salt",
                "status" : "known",
                "title" : "Salt in low quantity"
             },
@@ -56,6 +57,7 @@
                "id" : "low_fat",
                "match" : 48.2352941176471,
                "name" : "Fat",
+               "panel_id" : "nutrient_level_fat",
                "status" : "known",
                "title" : "Fat in moderate quantity"
             },
@@ -66,6 +68,7 @@
                "id" : "low_sugars",
                "match" : 0,
                "name" : "Sugars",
+               "panel_id" : "nutrient_level_sugars",
                "status" : "known",
                "title" : "Sugars in high quantity"
             },
@@ -76,6 +79,7 @@
                "id" : "low_saturated_fat",
                "match" : 37.1428571428571,
                "name" : "Saturated fat",
+               "panel_id" : "nutrient_level_saturated_fat",
                "status" : "known",
                "title" : "Saturated fat in moderate quantity"
             }
@@ -993,38 +997,6 @@
       "en:non-vegan",
       "en:non-vegetarian"
    ],
-   "ingredients_hierarchy" : [
-      "en:wheat-flour",
-      "en:cereal",
-      "en:flour",
-      "en:wheat",
-      "en:cereal-flour",
-      "en:sugar",
-      "en:added-sugar",
-      "en:disaccharide",
-      "en:egg",
-      "en:strawberry",
-      "en:fruit",
-      "en:berries",
-      "en:high-fructose-corn-syrup",
-      "en:monosaccharide",
-      "en:fructose",
-      "en:glucose",
-      "en:corn-syrup",
-      "en:glucose-fructose-syrup",
-      "en:rapeseed-oil",
-      "en:oil-and-fat",
-      "en:vegetable-oil-and-fat",
-      "en:macadamia-nut",
-      "en:nut",
-      "en:tree-nut",
-      "en:milk-proteins",
-      "en:protein",
-      "en:animal-protein",
-      "en:salt",
-      "en:e102",
-      "en:e120"
-   ],
    "ingredients_lc" : "en",
    "ingredients_n" : 11,
    "ingredients_n_tags" : [
@@ -1099,7 +1071,7 @@
       "en:salt"
    ],
    "ingredients_without_ecobalyse_ids_n" : 6,
-   "known_ingredients_n" : 30,
+   "known_ingredients_n" : 11,
    "labels_tags" : [
       "en:organic",
       "en:fair-trade"

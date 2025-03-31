@@ -23,6 +23,7 @@
                   "id" : "low_salt",
                   "missing" : "Données nutritionnelles manquantes",
                   "name" : "Sel",
+                  "panel_id" : "nutrition_facts_table",
                   "status" : "unknown",
                   "title" : "Sel en quantité inconnue"
                },
@@ -32,6 +33,7 @@
                   "id" : "low_fat",
                   "missing" : "Données nutritionnelles manquantes",
                   "name" : "Matières grasses",
+                  "panel_id" : "nutrition_facts_table",
                   "status" : "unknown",
                   "title" : "Matières grasses en quantité inconnue"
                },
@@ -41,6 +43,7 @@
                   "id" : "low_sugars",
                   "missing" : "Données nutritionnelles manquantes",
                   "name" : "Sucres",
+                  "panel_id" : "nutrition_facts_table",
                   "status" : "unknown",
                   "title" : "Sucres en quantité inconnue"
                },
@@ -50,6 +53,7 @@
                   "id" : "low_saturated_fat",
                   "missing" : "Données nutritionnelles manquantes",
                   "name" : "Acides gras saturés",
+                  "panel_id" : "nutrition_facts_table",
                   "status" : "unknown",
                   "title" : "Acides gras saturés en quantité inconnue"
                }
@@ -324,7 +328,8 @@
             "id" : "labels",
             "name" : "Labels"
          }
-      ]
+      ],
+      "schema_version" : 999
    },
    "result" : {
       "id" : "product_found",

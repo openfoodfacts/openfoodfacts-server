@@ -154,6 +154,7 @@ nl: Pot, Potten, Bokaal, Bokaalen
 pl: Słoik
 pt: Jarro, jarros, jarra, jarras
 ro: Borcan
+sv: burk
 # suggest:packaging_materials:nl: en:glass
 description:nl: Cilindervormig voorwerp van glas of aardewerk
 # image:xx:bocal-verre.svg (looks like the Nutella jar)
@@ -266,6 +267,7 @@ it: Bottiglia
 nl: Fles, Flessen
 pl: Butelka
 pt: Garrafa, garrafas
+sv: Flaska
 # suggest:packaging_materials:nl: en:glass
 # associated_packagings: en:cap
 description:nl: Een langgerekt, cilindrisch en meestal van glas vervaardigd vat met een nauwe hals die met een dop of kurk af te sluiten is
@@ -429,7 +431,7 @@ pt: Pote individual, potes individuais, boião individual, boiões individuais
 
 # <en:pot
 # fr:salière
-# image:xx:pot-5.svg 
+# image:xx:pot-5.svg
 # (image looks like a salière)
 # suggest:category: en:salts, en:peppers
 
@@ -445,7 +447,7 @@ en: Tube, tubes
 de: Tube, Tuben
 fr: Tube, tubes
 hu: Tubus, tubusok, Cső, csövek, cső alakú
-# image:xx:tube-1.svg 
+# image:xx:tube-1.svg
 # suggest:packaging_materials: en:cardboard, en:metal, en:glass, en:plastic, en:others
 # associated_packagings: en:cap
 it: Tubo, tubi
@@ -460,7 +462,7 @@ describtion:nl: Een verpakking in kokervorm gemaakt van metaal of plastic gevuld
 
 # <en:Tube
 # fr:Tube avec bouchon refermable
-# image:xx:tube-2.svg 
+# image:xx:tube-2.svg
 # associated_packagings: en:cap
 
 en: Fastener, clip
@@ -496,6 +498,7 @@ hu: Zacskó, zacskók, tasak, tasakos
 it: Sacco, sacchetto, sacchettino
 nl: Zak, Sachet, Tas, verzendzak, Zakken, Zakje, Zakjes
 pt: Saco, sacos, saquinho, saquinhos, saqueta, saquetas
+sv: Väska, väskor
 description:nl: Slappe, vormeloze verpakking
 
 # image:xx:sac-sachet-poche-1.svg (sachet avec poignée)
@@ -603,6 +606,7 @@ fr: coiffe, coiffes
 
 < en:Lid or cap
 en: Lid, cover, lids, covers
+da: Låg
 de: Deckel
 el: Καπάκι
 fr: Couvercle, couvercles
@@ -617,6 +621,7 @@ nb: Lokk
 nl: Deksel, deksels
 pl: Nakrętka, Zakrętka, Pokrywka, Wieczko, Wieko
 pt: Tampa, tampas
+sv: Lock
 
 < en:Lid or cap
 en: Bottle cap, bottle top, cap, top, bottle caps, bottle tops, caps, tops
@@ -811,10 +816,12 @@ pt: Cápsulas de café compatíveis com Senseo
 
 en: Tea bag
 bg: Чаена торбичка
+da: Tepose, teposer
 # suggest:packaging_materials:en: en:paper
 # related_categories:en: en:Tea bags
 it: bustina di tè, bustina di te, bustina
 nl: Theezakje
+sv: Tepåse, tepåsar
 
 # keep the plural as the main name
 # fr:Baguettes / Couverts / Paille -> entry from Les Mousquetaires
@@ -829,12 +836,44 @@ pt: Talheres, talher
 
 < en:Eating utensils
 en: Cutlery
+ar: أدوات المائدة
+az: Süfrə dəsti
 bg: Съдове за хранене
+bn: কাটলারি
+ca: Coberteria
+cs: Příbory
 da: Bestik
 de: Besteck
+el: μαχαιροπίρουνα
+es: Cubiertos
+et: Söögiriistad
+fa: کارد و چنگال
+fi: Ruokailuvälineet
 fr: Couverts, couvert
+he: סכו"ם
+hi: कटलरी
+hr: Pribor za jelo
+id: Alat makan
 it: Posate, posata
+ja: カトラリー
+ko: 칼붙이
+lt: Stalo įrankiai
+lv: Galda piederumi
+ms: Kutleri
 pl: Sztućce
+ro: Tacâmuri
+ru: Столовые приборы
+sk: Príbory
+sl: Jedilni pribor
+sq: Takëm
+sr: Прибор за јело
+sv: Bestick
+th: ช้อนส้อม
+tr: Çatal bıçak takımı
+uk: Столові прибори
+ur: کٹلری
+vi: Dao kéo
+zh: 餐具
 
 # keep the plural
 < en:Eating utensils
@@ -868,6 +907,7 @@ it: coltello, coltelli, coltellino, coltellini
 nl: Mes, messen
 pl: Nóż, noże
 pt: Faca, facas
+sv: Kniv
 wikidata:en: Q32489
 
 < en:Cutlery
@@ -882,6 +922,7 @@ it: forchetta, forchette, forchettina, forchettine
 nl: Vork, vorken
 pl: Widelec, widelce
 pt: Garfo, garfos
+sv: Gaffel
 wikidata:en: Q81881
 
 < en:Cutlery
@@ -907,18 +948,22 @@ wikidata:en: Q81895
 < en:Spoon
 en: teaspoon
 bg: чаена лъжичка, чаена лъжица
+da: teske, teskeer
 fr: cuillère à café
 it: cucchiaino da tè
 nl: theelepel
 pl: Łyżeczki, Łyżeczka
+sv: tesked, teskedar
 wikidata:en: Q216425
 
 < en:Spoon
 en: tablespoon
 bg: супена лъжица
+da: spiseske, spiseskeer
 fr: cuillère à soupe
 it: cucchiaino
 nl: soeplepel
+sv: matsked, matskedar
 wikidata:en: Q2002583
 
 # fr:Plaque / Intercalaire in data from Les Mousquetaires
@@ -1175,12 +1220,12 @@ fr: Rouleau, Bobine, Mandrin, Mandrin / Rouleau
 
 # <en:Roll
 # fr:rouleau de sopalin
-# image:xx:bobine-rouleau-1.svg 
+# image:xx:bobine-rouleau-1.svg
 # suggest:packaging_materials:en: en:cardboard, en:paper
 
 # <en:Roll
 # fr:rouleau de papier toilette
-# image:xx:bobine-rouleau-2.svg 
+# image:xx:bobine-rouleau-2.svg
 # suggest:packaging_materials:en: en:cardboard, en:paper
 
 < en:Jug or canister
@@ -1259,10 +1304,12 @@ fr: Gaine, gaines, manchon, manchons, sleever, sleevers
 
 en: envelope
 bg: плик
+da: konvolut
 es: sobre
 fr: enveloppe
 it: busta
 nl: wikkel, vensterenvelop, sleeve
+sv: kuvert
 # suggest:packaging_materials:en: en:cardboard, en:paper
 # image:xx:enveloppe-papier.svg
 # image:xx:enveloppe-carton.svg
@@ -1275,10 +1322,39 @@ fr: ficelle, ficelles, ruban, rubans
 # suggest:packaging_materials:en: en:cardboard, en:paper, en:metal, en:others
 
 en: individual dose, Individual capsule
+ar: جرعة فردية، كبسولة فردية
+az: fərdi doza, fərdi kapsul
+bg: индивидуална доза, индивидуална капсула
+bn: পৃথক ডোজ, পৃথক ক্যাপসুল
+ca: dosi individual, càpsula individual
+cs: jednotlivá dávka, jednotlivá kapsle
 de: Einzeldosis, Einzelkapsel
+el: μεμονωμένη δόση, μεμονωμένη κάψουλα
 es: dosis individual, cápsula individual
+et: individuaalne annus, individuaalne kapsel
+fa: دوز فردی، کپسول فردی
+fi: yksittäinen annos, yksittäinen kapseli
 fr: dose invididuelle, doses individuelles, dosette, dosettes
+he: מנה אישית, קפסולה אישית
+hi: व्यक्तिगत खुराक, व्यक्तिगत कैप्सूल
+hu: egyedi adag, egyedi kapszula
+id: dosis individual, kapsul individual
+it: dose individuale, capsula individuale
+ja: 個別用量、個別カプセル
+ko: 개별 용량, 개별 캡슐
+lt: individuali dozė, individuali kapsulė
 nl: individuele dosis, individuele capsule
+pl: dawka indywidualna, kapsułka indywidualna
+pt: dose individual, cápsula individual
+ro: doza individuală, capsulă individuală
+ru: индивидуальная доза, индивидуальная капсула
+sk: individuálna dávka, individuálna kapsula
+sq: dozë individuale, kapsulë individuale
+sv: individuell dos, individuell kapsel
+th: ปริมาณต่อหน่วย, แคปซูลเดี่ยว
+tr: bireysel doz, bireysel kapsül
+uk: індивідуальна доза, індивідуальна капсула
+zh: 独立剂量，独立胶囊
 # suggest:packaging_materials:en: en:paper, en:cardboard, en:other
 # dose-individuelle-papier.svg (looks like a sugar individual dose)
 # dose-individuelle-autre.svg (looks like a small doypack)
@@ -1309,8 +1385,40 @@ pt: frasco de apertar, frasco de espremer
 # suggest:packaging_materials:en: en:plastic
 
 en: Aerosol can, aerosol cans, aerosol spray
+ar: علبة رذاذ, علب رذاذ, رذاذ الهباء الجوي
+az: Aerozol qutusu, aerozol qutuları, aerozol spreyi
+bg: Аерозолен спрей, аерозолни спрейове, аерозолен флакон
+bn: অ্যারোসল ক্যান, অ্যারোসল ক্যান, অ্যারোসল স্প্রে
+ca: Aerosol, aerosols
+cs: Aerosolová dóza, aerosolové dózy, aerosolový sprej
+da: Aerosoldåse, aerosoldåser, aerosolspray
 de: Sprühdose
+el: Αεροζόλ, δοχεία αεροζόλ, σπρέι αεροζόλ
+es: Aerosol, aerosoles
+et: Aerosoolpurk, aerosoolpurgid, aerosoolpihusti
+fa: قوطی آئروسل، قوطی های آئروسل، اسپری آئروسل
+fi: Aerosolitölkki, aerosolitölkit, aerosolisuihke
 fr: Aérosol, aérosols
+he: מיכל אירוסול, מכלי אירוסול, תרסיס אירוסול
+hi: एरोसोल कैन, एरोसोल कैन, एरोसोल स्प्रे
+hr: Aerosolna limenka, aerosolne limenke, aerosolni sprej
+hu: Aeroszolos doboz, aeroszolos dobozok, aeroszolos spray
+id: Kaleng aerosol, kaleng aerosol, semprotan aerosol
+it: Bomboletta spray, bombolette spray
+ja: エアゾール缶、エアゾール缶、エアゾールスプレー
+ko: 에어로졸 캔, 에어로졸 캔, 에어로졸 스프레이
+lt: Aerozolinis flakonas, aerozoliniai flakonai, aerozolinis purškalas
+pl: Aerozol, aerozole
+pt: Aerossol, aerossóis
+ro: Aerosol, aerosoli
+ru: Аэрозольный баллон, аэрозольные баллоны, аэрозольный спрей
+sk: Aerosólová nádoba, aerosólové nádoby, aerosólový sprej
+sq: Sprej aerosol, kanaçe aerosol, aerosole
+sv: Aerosolburk, aerosolburkar, aerosolspray
+th: กระป๋องสเปรย์, สเปรย์
+tr: Aerosol kutusu, aerosol kutuları, aerosol spreyi
+uk: Аерозольний балон, аерозольні балони, аерозольний спрей
+zh: 气雾罐，气雾罐，气雾喷雾
 wikidata:en: Q659495
 # suggest:packaging_materials:en: en:plastic, en:metal
 # image:xx:aerosol.svg
@@ -1414,6 +1522,7 @@ wikidata:en: Q47107
 
 < en:bucket
 en: small bucket
+da: lille spand
 nl: emmertje
 pl: wiaderko
 
@@ -1445,8 +1554,48 @@ wikidata:en: Q10289
 # image:xx:tonneau-tonnelet-carton.svg
 
 en: Bubble wrap
+ar: غلاف فقاعي
+az: Köpüklü qablaşdırma
+bg: Фолио с мехурчета
+bn: বাবলWrap
+ca: Embolcall de bombolles
+cs: Bublinková fólie
+da: Bobleplast
+de: Luftpolsterfolie
+el: Αεροπλάστ
+eo: Bobelplasto
+es: Plástico de burbujas
+et: Mullkile
+fa: بسته بندی حبابدار
+fi: Kuplamuovi
 fr: Film à bulles
+he: ניילון בועות
+hi: बबल रैप
+hr: Folija s mjehurićima
+hu: Buborékfólia
+id: Bungkus gelembung
+it: Pluriball
+ja: 気泡緩衝材
+ko: 버블 랩
+lt: Burbulinė plėvelė
+lv: Burbuļplēve
+ms: Balut gelembung
 nl: Bubbeltjesfilm
+no: Bobleplast
+pl: Folia bąbelkowa
+pt: Plástico bolha
+ro: Folie cu bule
+ru: Пузырчатая плёнка
+sk: Bublinková fólia
+sl: Mehurčkasta folija
+sq: Mbështjellës me flluska
+sr: Мехураста фолија
+sv: Bubbelplast
+th: บับเบิ้ลแรป
+tr: Balonlu ambalaj
+uk: Повітряно-пухирчаста плівка
+vi: Giấy gói bong bóng
+zh: 气泡膜
 # suggest:packaging_materials:en: en:plastic
 wikidata:en: Q19806
 
@@ -1592,14 +1741,40 @@ description:nl: schenkpijp aan een kan of ketel
 wikidata:en: Q2893427
 #wikidata:en:Q54803638
 
-fr: Bouchon verseur
 en: Pouring cap
+ar: غطاء صب
+az: tökmə qapağı
+bg: Капачка за наливане
+ca: Tapa abocadora
+cs: Nalévací víčko
+da: Hældetud
 de: Ausgießkappe
+el: Καπάκι έκχυσης
 es: Tapa vertedora
+et: Valamiskork
+fa: درب ریختن
+fi: Kaatonuppi
+fr: Bouchon verseur
+he: מכסה מזיגה
+hi: उँडेलने वाला ढक्कन
+hr: Poklopac za izlijevanje
+hu: Öntőfedél
+id: Tutup penuang
 it: Tappo versatore
+ja: 注ぎ口キャップ
+ko: 붓는 뚜껑
+lt: Pilamas dangtelis
 nl: Schroefdop met schenktuit
+pl: Korek do nalewania
 pt: Tampa de despejo
+ro: Capac de turnare
 ru: Носик для наливания
+sk: Nalievanie viečka
+sq: Kapaku i derdhjes
+sv: Hällkork
+th: ฝาเท
+tr: Dökme kapağı
+uk: Кришка для наливання
 zh: 倒口盖
 wikidata:en: Q2921384
 

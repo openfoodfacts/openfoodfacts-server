@@ -51,6 +51,7 @@ Currently implemented services:
 - extend_ingredients : extend the ingredients object with additional information
 - estimate_ingredients_percent : compute percent_min, percent_max, percent_estimate for each ingredient in the ingredients object
 - analyze_ingredients : analyze the ingredients object and return a summary object
+- estimate_environmental_cost_ingredients : estimate the environmental cost of a given product (see Ecobalyse)
 
 =head4 product
 
@@ -85,11 +86,12 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/request_param/;
+use ProductOpener::HTTP qw/request_param/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::API qw/add_error customize_response_for_product/;
+use ProductOpener::EnvironmentalImpact;
 
 use Encode;
 
@@ -116,6 +118,7 @@ my %service_functions = (
 	extend_ingredients => \&ProductOpener::Ingredients::extend_ingredients_service,
 	estimate_ingredients_percent => \&ProductOpener::Ingredients::estimate_ingredients_percent_service,
 	analyze_ingredients => \&ProductOpener::Ingredients::analyze_ingredients_service,
+	estimate_environmental_impact => \&ProductOpener::EnvironmentalImpact::estimate_environmental_impact_service,
 	determine_food_contact_of_packaging_components =>
 		\&ProductOpener::PackagingFoodContact::determine_food_contact_of_packaging_components_service,
 );
