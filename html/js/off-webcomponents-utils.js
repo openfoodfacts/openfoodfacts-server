@@ -8,6 +8,7 @@
  * @param {string} elementId - The web component id.
  * @param {string} parentSelector - A web selector of the containing div.
  * If omitted, we will only id the web-component.
+ * @param {boolean} reloadOnAnnotated - If true, we reload the page when the insight is annotated.
  * @returns {void}
  */
 window.listenEventToShowHideAlert = function (
