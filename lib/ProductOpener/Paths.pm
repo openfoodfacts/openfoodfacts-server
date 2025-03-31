@@ -132,7 +132,7 @@ $BASE_DIRS{CONF} = _source_dir() . "/conf";
 
 =head2 $BASE_DIRS{RELEASE_VERSION}
 
-File containing Github release version
+File containing GitHub release version
 
 =cut
 
