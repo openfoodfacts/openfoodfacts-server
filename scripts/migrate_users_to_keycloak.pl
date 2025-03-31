@@ -45,22 +45,39 @@ my $keycloak_partialimport_endpoint
 	. '/partialImport';
 
 my $user_emails = undef;
-my ($checkpoint_file, $checkpoint) = open_checkpoint('checkpoint.tmp');
+my ($checkpoint_file, $checkpoint) = open_checkpoint('migrate_users_to_keycloak_checkpoint.tmp');
 
 sub create_user_in_keycloak_with_scrypt_credential ($keycloak_user_ref) {
 	my $json = encode_json($keycloak_user_ref);
 	my $userid = $keycloak_user_ref->{username};
 
 	my $request_token = $keycloak->get_or_refresh_token();
-	my $create_user_request = HTTP::Request->new(POST => $keycloak->{users_endpoint});
-	$create_user_request->header('Content-Type' => 'application/json');
-	$create_user_request->header(
+	my $get_user_request = HTTP::Request->new(
+		GET => $keycloak->{users_endpoint} . '?briefRepresentation=true&exact=true&username=' . $userid);
+	$get_user_request->header('Authorization' => $request_token->{token_type} . ' ' . $request_token->{access_token});
+	my $get_user_response = LWP::UserAgent::Plugin->new->request($get_user_request);
+	unless ($get_user_response->is_success) {
+		$log->error($userid . ": " . $get_user_response->content);
+		return;
+	}
+	my $existing_user = decode_json($get_user_response->content);
+	my $upsert_user_request;
+	if (scalar @$existing_user) {
+		my $keycloak_id = $existing_user->[0]->{id};
+		$upsert_user_request = HTTP::Request->new(PUT => $keycloak->{users_endpoint} . '/' . $keycloak_id);
+	}
+	else {
+		$upsert_user_request = HTTP::Request->new(POST => $keycloak->{users_endpoint});
+	}
+
+	$upsert_user_request->header('Content-Type' => 'application/json');
+	$upsert_user_request->header(
 		'Authorization' => $request_token->{token_type} . ' ' . $request_token->{access_token});
-	$create_user_request->content($json);
-	my $new_user_response = LWP::UserAgent::Plugin->new->request($create_user_request);
-	unless ($new_user_response->is_success) {
+	$upsert_user_request->content($json);
+	my $upsert_user_response = LWP::UserAgent::Plugin->new->request($upsert_user_request);
+	unless ($upsert_user_response->is_success) {
 		print "$json\n";
-		$log->error($userid . ": " . $new_user_response->content);
+		$log->error($userid . ": " . $upsert_user_response->content);
 		return;
 	}
 
@@ -283,7 +300,8 @@ sub update_checkpoint($checkpoint_file, $checkpoint) {
 	return 1;
 }
 
-my $importtype = 'realm-batch';
+# Default to api-multi as realm-batch can be a bit flakey and can't do updates
+my $importtype = 'api-multi';
 if ((scalar @ARGV) > 0 and (length($ARGV[0]) > 0)) {
 	$importtype = $ARGV[0];
 }
@@ -332,6 +350,7 @@ elsif ($importtype eq 'api-multi') {
 		my @files = readdir($dh);
 		closedir $dh;
 		my $count = 0;
+		print '[' . localtime() . "] Starting migration\n";
 		foreach my $file (sort @files) {
 			$count++;
 			next if $file le $checkpoint;
@@ -340,9 +359,10 @@ elsif ($importtype eq 'api-multi') {
 				migrate_user(substr($file, 0, -4), $anonymize);
 			}
 			if ($count % 10000 == 0) {
-				print "Migrated $count / " . scalar @files . "\n";
+				print '[' . localtime() . "] Migrated $count / " . scalar @files . "\n";
 			}
 		}
+		print '[' . localtime() . "] Migrated $count / " . scalar @files . "\n";
 	}
 }
 elsif ($importtype eq 'api-single') {
