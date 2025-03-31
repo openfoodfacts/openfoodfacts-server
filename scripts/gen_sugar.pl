@@ -26,21 +26,21 @@ use utf8;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Store qw/:all/;
-use ProductOpener::Paths qw/:all/;
+use ProductOpener::Store qw/get_string_id_for_lang store/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Index qw/:all/;
-use ProductOpener::Display qw/:all/;
+use ProductOpener::Display qw/$static_subdomain/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
-use ProductOpener::Images qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Images qw/display_image/;
+use ProductOpener::Lang qw/$lc  %Lang %lang_lc lang/;
 use ProductOpener::Mail qw/:all/;
-use ProductOpener::Products qw/:all/;
+use ProductOpener::Products qw/product_url/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
-use ProductOpener::Data qw/:all/;
+use ProductOpener::Data qw/get_products_collection/;
 
 use URI::Escape::XS qw/uri_escape uri_unescape/;
 
@@ -48,7 +48,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 print STDERR ("Please fix this script before using it:\n"
 		. "1- do not write to lang/ (its git controlled)\n"
@@ -91,7 +91,6 @@ my @fields = qw (
 foreach my $l ('en') {
 
 	$lc = $l;
-	$lang = $l;
 
 	my $fields_ref = {code => 1, product_name => 1, brands => 1, quantity => 1, nutriments => 1};
 	my %tags = ();
@@ -109,15 +108,15 @@ foreach my $l ('en') {
 <initjs>
     oTable = \$('#tagstable').DataTable({
 	language: {
-		search: "$Lang{tagstable_search}{$lang}",
+		search: "$Lang{tagstable_search}{$lc}",
 		info: "_TOTAL_ ",
-		infoFiltered: " - $Lang{tagstable_filtered}{$lang}"
+		infoFiltered: " - $Lang{tagstable_filtered}{$lc}"
 	},
 	paging: false
     });
 </initjs>
 <scripts>
-<script src="/js/datatables.min.js"></script>
+<script src="$static_subdomain/js/datatables.min.js"></script>
 </scripts>
 <header>
 <link rel="stylesheet" href="/js/datatables.min.css" />
@@ -525,7 +524,7 @@ $zoom
 <div id="sharebuttons">
 <div style="float:left;margin-right:15px;width:150px;color:darkblue;background:white;padding:10px;">See if your friends know the answer!</div>
 <div style="float:left;padding-right:15px;" class="sharebutton"><iframe allowtransparency="true" frameborder="0" scrolling="no" role="presentation"
-src="https://platform.twitter.com/widgets/tweet_button.html?via=OpenFoodFactsUK&amp;count=vertical&amp;lang=fr&amp;text=How%20much%20sugar%20in%20$escapedname%20%3F" style="width:65px; height:63px;"></iframe></div>
+src="https://platform.x.com/widgets/tweet_button.html?via=OpenFoodFactsUK&amp;count=vertical&amp;lang=fr&amp;text=How%20much%20sugar%20in%20$escapedname%20%3F" style="width:65px; height:63px;"></iframe></div>
 <div style="float:left;padding-right:15px;" class="sharebutton"><fb:like href="https://howmuchsugar.in/$id" layout="box_count"></fb:like></div>
 <div style="float:left;padding-right:15px;padding-bottom:10px;" class="sharebutton"><g:plusone size="tall" count="true" href="https://howmuchsugar.in/$id"></g:plusone></div>
 </div>
@@ -631,7 +630,7 @@ HTML
 
 	$html .= "</tbody></table>";
 
-	open(my $OUT, ">:encoding(UTF-8)", "$BASE_DIRS{LANG}/$lang/texts/sugar.html");
+	open(my $OUT, ">:encoding(UTF-8)", "$BASE_DIRS{LANG}/$l/texts/sugar.html");
 	print $OUT $html;
 	close $OUT;
 

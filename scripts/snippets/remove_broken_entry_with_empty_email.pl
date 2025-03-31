@@ -6,6 +6,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 
+# TODO: This script probably won't be needed with Keycloak
 my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");
 
 if (defined $emails_ref->{''}) {

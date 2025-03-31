@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use utf8;
 
-use Test::More;
+use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
 use File::Basename "dirname";
@@ -52,7 +52,7 @@ my @expected_headers = (
 );
 
 # we have headers
-is_deeply($results_ref->{headers}, \@expected_headers,);
+is($results_ref->{headers}, \@expected_headers,);
 # we have 3 rows
 my @rows = @{$results_ref->{rows}};
 is(scalar @rows, 3);

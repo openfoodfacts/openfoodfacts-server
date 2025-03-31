@@ -3,7 +3,9 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "31016",
+         "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
          "id" : "en:sugar",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 53.3333333333333,
          "percent_max" : 100,
          "percent_min" : 6.66666666666667,
@@ -13,7 +15,9 @@
       },
       {
          "ciqual_proxy_food_code" : "9410",
+         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
          "id" : "en:wheat-flour",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 23.3333333333333,
          "percent_max" : 50,
          "percent_min" : 0,
@@ -23,7 +27,9 @@
       },
       {
          "ciqual_food_code" : "19021",
+         "ecobalyse_code" : "b6776a28-ec84-4bf3-988c-07b3c29f6136",
          "id" : "en:whole-milk-powder",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 11.6666666666667,
          "percent_max" : 33.3333333333333,
          "percent_min" : 0,
@@ -34,6 +40,7 @@
       {
          "ciqual_proxy_food_code" : "16030",
          "id" : "en:cocoa-paste",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 5.83333333333333,
          "percent_max" : 25,
          "percent_min" : 0,
@@ -44,6 +51,7 @@
       {
          "from_palm_oil" : "maybe",
          "id" : "en:fat",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 2.91666666666666,
          "percent_max" : 20,
          "percent_min" : 0,
@@ -54,6 +62,7 @@
       {
          "from_palm_oil" : "maybe",
          "id" : "en:vegetable-oil-and-fat",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 1.45833333333333,
          "percent_max" : 16.6666666666667,
          "percent_min" : 0,
@@ -64,6 +73,7 @@
       {
          "ciqual_food_code" : "16030",
          "id" : "en:cocoa-butter",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 0.729166666666664,
          "percent_max" : 14.2857142857143,
          "percent_min" : 0,
@@ -73,7 +83,9 @@
       },
       {
          "ciqual_proxy_food_code" : "9410",
+         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
          "id" : "en:whole-wheat-flour",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 0.364583333333329,
          "percent_max" : 12.5,
          "percent_min" : 0,
@@ -84,6 +96,7 @@
       {
          "ciqual_food_code" : "9621",
          "id" : "en:wheat-bran",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 0.182291666666664,
          "percent_max" : 11.1111111111111,
          "percent_min" : 0,
@@ -94,6 +107,7 @@
       {
          "ciqual_food_code" : "11058",
          "id" : "en:salt",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 0.0911458333333286,
          "percent_max" : 10,
          "percent_min" : 0,
@@ -103,6 +117,7 @@
       },
       {
          "id" : "ja:小麦胚芽",
+         "is_in_taxonomy" : 0,
          "percent_estimate" : 0.0455729166666643,
          "percent_max" : 9.09090909090909,
          "percent_min" : 0,
@@ -111,6 +126,7 @@
       {
          "ciqual_proxy_food_code" : "9510",
          "id" : "en:modified-starch",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 0.0227864583333286,
          "percent_max" : 8.33333333333333,
          "percent_min" : 0,
@@ -120,6 +136,7 @@
       },
       {
          "id" : "en:emulsifier",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 0.0113932291666643,
          "percent_max" : 7.69230769230769,
          "percent_min" : 0,
@@ -127,6 +144,7 @@
       },
       {
          "id" : "en:raising-agent",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 0.0056966145833286,
          "percent_max" : 7.14285714285714,
          "percent_min" : 0,
@@ -134,6 +152,7 @@
       },
       {
          "id" : "en:flavouring",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 0.0056966145833286,
          "percent_max" : "5",
          "percent_min" : 0,
@@ -162,36 +181,7 @@
       "en:non-vegan",
       "en:vegetarian-status-unknown"
    ],
-   "ingredients_hierarchy" : [
-      "en:sugar",
-      "en:added-sugar",
-      "en:disaccharide",
-      "en:wheat-flour",
-      "en:cereal",
-      "en:flour",
-      "en:wheat",
-      "en:cereal-flour",
-      "en:whole-milk-powder",
-      "en:dairy",
-      "en:milk-powder",
-      "en:cocoa-paste",
-      "en:plant",
-      "en:cocoa",
-      "en:fat",
-      "en:oil-and-fat",
-      "en:vegetable-oil-and-fat",
-      "en:cocoa-butter",
-      "en:whole-wheat-flour",
-      "en:wholemeal-flour",
-      "en:wheat-bran",
-      "en:salt",
-      "ja:小麦胚芽",
-      "en:modified-starch",
-      "en:starch",
-      "en:emulsifier",
-      "en:raising-agent",
-      "en:flavouring"
-   ],
+   "ingredients_lc" : "ja",
    "ingredients_n" : 15,
    "ingredients_n_tags" : [
       "15",
@@ -259,7 +249,21 @@
       "ja:小麦胚芽"
    ],
    "ingredients_without_ciqual_codes_n" : 6,
-   "known_ingredients_n" : 27,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:cocoa-butter",
+      "en:cocoa-paste",
+      "en:emulsifier",
+      "en:fat",
+      "en:flavouring",
+      "en:modified-starch",
+      "en:raising-agent",
+      "en:salt",
+      "en:vegetable-oil-and-fat",
+      "en:wheat-bran",
+      "ja:小麦胚芽"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 11,
+   "known_ingredients_n" : 14,
    "lc" : "ja",
    "nutriments" : {
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,

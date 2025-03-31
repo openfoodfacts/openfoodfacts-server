@@ -1,3 +1,7 @@
+# TODO: some translations are out of place and are duplicated. They need to be checked.
+# To avoid duplicates, some entries were commented out, but it is possible that the other entry
+# should have been removed instead.
+
 en: Abrasive
 cs: Abrazivum
 da: Slibende
@@ -5,7 +9,7 @@ de: Abrasiv
 el: Λειοτριπτικό
 es: Abrasivo
 et: Abrasiiv
-fi: Hankaava aine
+#fi: Hankaava aine
 fr: Agent abrasif
 hu: Koptató anyag
 it: Abrasivo
@@ -19,14 +23,14 @@ sl: Abraziv
 sv: Slipande
 description:en: Removes materials from various body surfaces or aids mechanical tooth cleaning or improves gloss.
 description:cs: Odstraňuje materiály z různých povrchů různých částí těla nebo usnadňuje mechanické čištění zubů či zvýšení lesku.
-description:da: Tillader faste partikler at flyde frit og forhindrer sammenklumpning af og dannelse af klumper i kosmetiske produkter i pulverform. 
-description:de: Nimmt wasser- und/oder öllösliche aufgelöste oder fein dispergierte Stoffe auf. 
+description:da: Tillader faste partikler at flyde frit og forhindrer sammenklumpning af og dannelse af klumper i kosmetiske produkter i pulverform.
+description:de: Nimmt wasser- und/oder öllösliche aufgelöste oder fein dispergierte Stoffe auf.
 description:el: Μειώνουν τη διαφάνεια ή την ημιδιαφάνεια των καλλυντικών προϊόντων.
 description:es: Elimina sustancias en diversas superficies corporales o ayuda a la limpieza dental mecánica o mejora el brillo.
 description:et: ärsib hapniku toimel tekkivaid reaktsioone ja aitab selle abil vältida oksüdeerumist ja räästumist.
 description:fi: Ainesosalla voi olla useita tehtäviä.
 description:fr: Débarrasse diverses surfaces corporelles de matières qui s'y trouvent, ou facilite le brossage mécanique des dents où en améliore la brillance.
-description:hu: Meggátolja az oxigén részvételével zajló kémiai reakciókat, és ezáltal kiküszöböli az oxidációt és avasodást. 
+description:hu: Meggátolja az oxigén részvételével zajló kémiai reakciókat, és ezáltal kiküszöböli az oxidációt és avasodást.
 description:it: Elimina le impurità da varie parti del corpo o favorisce la pulizia meccanica dei denti o ne aumenta la lucentezza.
 description:lt: Šalina medžiagas nuo įvairių kūno paviršių arba padeda mechaniškai valyti dantis, arba pagerina blizgesį.
 description:lv: Noņem materiālus no dažādām ķermeņa virsmām vai palīdz mehāniski tīrīt zobus, vai uzlabo spīdumu.
@@ -52,7 +56,7 @@ pl: Wchłaniająca
 pt: Absorvente
 sv: Absorberande
 description:en: Takes up water and/or oil soluble dissolved or finely dispersed substances.
-description:cs: Absorbuje látky, které jsou rozpuštěny ve vodě nebo v tucích nebo jemně dispergovány. 
+description:cs: Absorbuje látky, které jsou rozpuštěny ve vodě nebo v tucích nebo jemně dispergovány.
 description:da: Forhindrer reaktioner, som fremmes af oxygen, hvorved oxidering og harskning undgås. æmmer svedproduktionen. ANTIPLAK Hjælper mod plak. ANTISEBORREISK
 description:de: rmöglicht den freien Fluss von Feststoffen und verhindert so das Zusammenbacken pulverförmiger kosmetischer Mittel zu Klumpen oder harten Massen. ANTIMIKROBIELL
 description:el: Μεταβάλλουν τη χημική φύση άλλης ουσίας με την προσθήκη υδρογόνου ή την αφαίρεση οξυγόνου.
@@ -60,7 +64,7 @@ description:es: Recoge (empapa) agua y/o sustancias liposolubles disueltas o fin
 description:et: Vähendab staatilist elektrilaengut pindmiste laengute neutraliseerimise teel.
 description:fr: Absorbe des substances hydrosolubles et/ou liposolubles qui seraient dissoutes ou finement dispersées.
 description:hu: egíti a mikroorganizmusok bőrön történő elszaporodásának meggátolását.
-description:it: Aumenta o diminuisce la viscosità del cosmetico. 
+description:it: Aumenta o diminuisce la viscosità del cosmetico.
 description:lt: Sugeria vandenį ir (arba) riebaluose ištirpusias tirpiąsias arba visiškai susiskaidžiusias medžiagas.
 description:lv: Uzsūc ūdenī un/vai eļļā šķīstošas izšķīdinātas vai disperģētas vielas.
 description:pl: Wchłania substancje rozpuszczalne w wodzie i/lub oleju, które są rozpuszczone lub dobrze zdyspergowane.
@@ -90,9 +94,9 @@ sl: Sredstvo proti sprijemanju
 sv: Klumpförebyggande
 description:en: Allows free flow of solid particles and thus avoids agglomeration of powdered cosmetics into lumps or hard masses.
 description:cs: mezuje růst mikroorganismů na kůži.
-description:da: Reducerer statisk elektricitet ved at neutralisere elektrisk ladning på overfladen. 
-description:de: Hemmt Reaktionen, die durch Sauerstoff gefördert werden, und verhindert so Oxidation und Ranzigwerden. 
-description:el: Περιορίζουν τη δημιουργία αφρού κατά την παραγωγή ή μειώνουν την τάση των ετοίμων προϊόντων να αφρίζουν. 
+description:da: Reducerer statisk elektricitet ved at neutralisere elektrisk ladning på overfladen.
+description:de: Hemmt Reaktionen, die durch Sauerstoff gefördert werden, und verhindert so Oxidation und Ranzigwerden.
+description:el: Περιορίζουν τη δημιουργία αφρού κατά την παραγωγή ή μειώνουν την τάση των ετοίμων προϊόντων να αφρίζουν.
 description:es: Permite el libre flujo de partículas sólidas y así evita la aglomeración de los cosméticos en polvo en grumos o masas endurecidas.
 description:et: Annab kosmeetikavahendile ebameeldiva maitse. Enamasti lisatakse etüülalkoholi sisaldavatele kosmeetikavahenditele.
 description:fr: Permet l'écoulement libre de particules solides et, ainsi, évite l'agglomération en grumeaux ou en paquets des produits cosmétiques sous forme de poudre.
@@ -127,22 +131,35 @@ sk: Antikorózna látka
 sl: Antikoroziv
 sv: Korrosionshämmande
 description:en: Prevents corrosion of the packaging.
+description:ar: يمنع تآكل العبوة.
+description:bg: Предотвратява корозията на опаковката.
 description:cs: Zpomaluje reakce vyvolané kyslíkem, a tedy zamezuje oxidaci a žluknutí.
 description:da: inder bestanddele i kosmetiske produkter sammen. BLEGEMIDDEL
 description:de: erringert die statische Elektrizität, indem die elektrische Aufladung an der Oberfläche neutralisiert wird. BINDEND
 description:el: ειώνουν την εφίδρωση.
 description:es: Previene la corrosión de los envases.
 description:et: Aitab kehalt eemaldada soovimatuid karvu.
+description:fi: Estää pakkauksen korroosiota.
 description:fr: Prévient la corrosion de l'emballage.
-description:hu: Sötétíti a bőrt, ultraibolya sugárzás hatására vagy anélkül. 
+description:he: מונע קורוזיה של האריזה.
+description:hi: पैकेजिंग के क्षरण को रोकता है।
+description:hu: Sötétíti a bőrt, ultraibolya sugárzás hatására vagy anélkül.
+description:id: Mencegah korosi pada kemasan.
 description:it: Previene la corrosione del recipiente.
+description:ja: 包装の腐食を防ぎます。
+description:ko: 포장의 부식을 방지합니다.
 description:lt: Apsaugo pakuotę nuo rūdijimo.
 description:lv: Samazina statisko elektrību, neitralizējot elektrisko lādiņu uz virsmas.
+description:nl: Voorkomt corrosie van de verpakking.
 description:pl: Zapobiega korozji opakowania.
 description:pt: Previne a corrosão da embalagem.
+description:ro: Previne coroziunea ambalajului.
+description:ru: Предотвращает коррозию упаковки.
 description:sk: Zabraňuje korózii obalu.
 description:sl: Preprečuje korozijo embalaže.
-description:sv: Gör färgtonen på hår eller hud ljusare. /MED SOL
+description:sv: Förhindrar korrosion av förpackningen.
+description:tr: Ambalajın korozyonunu önler.
+description:zh: 防止包装腐蚀。
 
 en: Antidandruff
 cs: Přísada proti lupům
@@ -175,7 +192,7 @@ description:hu: Élvezhetetlen ízt ad a kozmetikumoknak. Főleg etil-alkoholt t
 description:it: Favorisce il controllo della forfora.
 description:lt: Padeda mažinti pleiskanojimą.
 description:lv: Samazina kosmētikas līdzekļa tilpuma blīvumu.
-description:nl: 
+description:nl:
 description:pl: Pomaga w zwalczaniu łupieżu.
 description:pt: Ajuda a controlar a caspa.
 description:sk: Pomáha obmedzovať tvorbu lupín.
@@ -201,7 +218,7 @@ sk: Protipenivá látka
 sl: Sredstvo proti penjenju
 sv: Antiskumbildare
 description:en: Suppresses foam during manufacturing or reduces the tendency of finished products to generate foam.
-description:cs: Snižuje statickou elektřinu odstraněním povrchového elektrického náboje. 
+description:cs: Snižuje statickou elektřinu odstraněním povrchového elektrického náboje.
 description:da: eagerer og danner komplekser med metalioner, der ellers kunne påvirke stabiliteten og/eller udseendet af produktet.
 description:de: eagiert und bildet Komplexe mit Metallionen, welche die Stabilität und/oder das Aussehen der kosmetischen Mittel beeinflussen könnten. DESODORIEREND
 description:el: Αναστέλλουν αντιδράσεις που προκαλούνται από το οξυγόνο ώστε να αποφεύγεται, με τον τρόπο αυτό, η οξείδωση και η τάγγιση. οηθούν στον έλεγχο της πιτυρίδας.
@@ -211,14 +228,16 @@ description:fr: Élimine la mousse en cours de fabrication ou réduit la tendanc
 description:hu: lősegíti az egymással egyébként nem elegyedő folyadékok keverékének létrejöttét a felületközi feszültség megváltoztatása révén.
 description:it: Favorisce il controllo della crescita dei microrganismi sulla pelle.
 description:lt: Sustabdo gaminių putojimą gamybos metu arba susilpnina gatavo gaminio putojimą.
-description:lv: Mazina vai likvidē matu sapīšanos, kas radusies mata virsmas izmaiņu vai bojājumu dēļ, un tādējādi atvieglo matu ķemmēšanu. 
+description:lv: Mazina vai likvidē matu sapīšanos, kas radusies mata virsmas izmaiņu vai bojājumu dēļ, un tādējādi atvieglo matu ķemmēšanu.
 description:pl: Tłumi pianę podczas produkcji lub zmniejsza tendencję wyrobów gotowych do tworzenia piany.
 description:pt: Evita a formação da espuma durante a preparação, ou reduz a tendência de formação de espuma nos produtos acabados.
 description:sk: Potláča tvorbu peny počas výroby alebo znižuje penivosť konečných výrobkov.
 description:sl: manjšuje penjenje izdelkov ali zavira penjenje med njihovo izdelavo.
-description:sv: Gör kosmetika illasmakande. Tillsätts vanligen kosmetika som innehåller etylalkohol. 
+description:sv: Gör kosmetika illasmakande. Tillsätts vanligen kosmetika som innehåller etylalkohol.
 
 en: Antimicrobial
+ar: مضاد للميكروبات
+bg: Антимикробен
 cs: Antimikrobiální přísada
 da: Antimikrobiel
 de: Antimikrobiell
@@ -227,25 +246,34 @@ es: Antimicrobiano
 et: Mikroobivastane aine
 fi: Antimikrobinen aine
 fr: Agent antimicrobien
+he: אנטי מיקרוביאלי
+hi: सूक्ष्म जीवाणुरोधी
 hu: Baktériumelleni szer
+id: Antimikroba
 it: Antimicrobico
+ja: 抗菌
+ko: 항균제
 lt: Antimikrobinė medžiaga
 lv: Pretmikrobu viela
 nl: Antimicrobieel
 pl: Przeciwdrobnoustrojowa
 pt: Antimicrobiano
+ro: Antimicrobian
+ru: Антимикробный
 sk: Antimikrobiálna látka
 sl: Protimikrobno sredstvo
 sv: Antimikrobiell
+tr: Antimikrobiyal
+zh: 抗菌剂
 description:en: Helps control the growth of micro organisms on the skin.
-description:cs: Slouží k barvení vlasů. 
-description:da: Tilsættes ethylalkohol for at give den en så dårlig smag, at den bliver udrikkelig. 
+description:cs: Slouží k barvení vlasů.
+description:da: Tilsættes ethylalkohol for at give den en så dårlig smag, at den bliver udrikkelig.
 description:de: ördert die Bildung von innigen Gemischen nicht mischbarer Flüssigkeiten durch Änderung ihrer Grenzflächenspannung.
 description:el: ειώνουν το στατικό ηλεκτρισμό με την εξουδετέρωση του επιφανειακού ηλεκτρικού φορτίου.
 description:es: Ayuda a controlar el crecimiento de microorganismos en la piel.
 description:et: Soodustab emulsiooni teket, suurendab emulsiooni püsivust ja pikendab selle säilimisaega.
 description:fr: Aide à contrôler le développement des micro-organismes sur la peau.
-description:hu: Elősegíti az emulgeálási folyamatot, és javítja az emulzió stabilitását, illetve az eltarthatóságot. 
+description:hu: Elősegíti az emulgeálási folyamatot, és javítja az emulzió stabilitását, illetve az eltarthatóságot.
 description:it: Impedisce le reazioni attivate dall’ossigeno, evitando così l’ossidazione e l’irrancidimento.
 description:lt: Padeda sustabdyti mikroorganizmų vystymąsi ant odos.
 description:lv: alīdz novērst ārējo faktoru nelabvēlīgu iedarbību uz ādu.
@@ -257,31 +285,47 @@ description:sl: Pripomore k zaviranju rasti mikroorganizmov na koži.
 description:sv: Skapar tryck i aerosolförpackningar och driver ut innehållet när ventilen öppnas. Vissa drivmedel i vätskeform kan fungera som lösningsmedel.
 
 en: Antioxidant
+ar: مضاد للأكسدة
+bg: Антиоксидант
+cs: Antioxidant
+da: Antioxidant
+de: Antioxidationsmittel
 el: Αντιοξειδωτικό
 es: Antioxidante
 et: Antioksüdant
 fi: Antioksidantti
 fr: Antioxydant
+he: נוגד חמצון
+hi: एंटीऑक्सीडेंट
 hu: Antioxidáns
+id: Antioksidan
 it: Antiossidante
+ja: 抗酸化剤
+ko: 항산화제
 lt: Antioksidatorius
 lv: Antioksidants
-pl: Przeciwutleniająca
+nl: Antioxidant
+pl: Przeciwutleniająca, Przeciwutleniacz
 pt: Antioxidante
+ro: Antioxidant
+ru: Антиоксидант
+sk: Antioxidant
 sl: Antioksidant
 sv: Antioxiderande
+tr: Antioksidan
+zh: 抗氧化剂
 description:en: Inhibits reactions promoted by oxygen, thus avoiding oxidation and rancidity.
 description:cs: působuje nepoživatelnost kosmetických prostředků.
 description:da: Skaber tryk i en aerosolbeholder og driver indholdet ud, når ventilen åbnes. Visse flydende drivmidler kan også fungere som opløsningsmiddel.
-description:de: Unterstützt die Emulsionsbildung und verbessert die Emulsionsbeständigkeit und -haltbarkeit. 
+description:de: Unterstützt die Emulsionsbildung und verbessert die Emulsionsbeständigkeit und -haltbarkeit.
 description:el: Επιτρέπουν την ελεύθερη ροή στερεών σωματιδίων, αποτρέποντας έτσι τη συσσωμάτωση των καλλυντικών σε μορφή σκόνης, σε σβώλους ή σκληρές μάζες.
 description:es: Inhibe las reacciones provocadas por el oxígeno, evitando de esta forma la oxidación y el enranciamiento.
-description:et: Muudab vedela valmistise geeliks (elastseks pooltahkeks valmistiseks). 
+description:et: Muudab vedela valmistise geeliks (elastseks pooltahkeks valmistiseks).
 description:fr: Inhibe les réactions développées par l'oxygène afin d'empêcher l'oxydation et le rancissement.
 description:hu: sökkenti a kozmetikumok felületi feszültségét, valamint használatkor segíti a termék egyenletes felvitelét. FILMKÉPZŐ ANYAG
 description:it: Favorisce la protezione contro la placca.
 description:lt: Stabdo deguonies sukeliamas reakcijas ir taip padeda išvengti oksidacijos ir apkartimo.
-description:lv: Palīdz izlīdzināt ādas virsmu, mazinot tās raupjumu un nelīdzenumus. 
+description:lv: Palīdz izlīdzināt ādas virsmu, mazinot tās raupjumu un nelīdzenumus.
 description:nl: Remt door zuurstof bevorderde reacties en voorkomt zo oxidatie en ranzigheid.
 description:pl: Powstrzymuje reakcje wywoływane przez tlen, przeciwdziałając utlenianiu i jełczeniu.
 description:pt: Inibe reacções promovidas pelo oxigénio, evitando a oxidação e o ranço.
@@ -290,7 +334,6 @@ description:sl: Zavira reakcije, ki jih spodbuja kisik, in s tem prepreči oksid
 description:sv: Främjar bildandet av blandningar av icke-blandbara vätskor genom att förändra ytspänningen mellan dem.
 
 en: Antiperspirant
-da: Emulgerende
 de: Entfernt unerwünschte körperhaare.
 el: Απορροφητικα
 es: Antitranspirante
@@ -300,12 +343,11 @@ hu: A termék alkalmazása után a bőrön, a hajon vagy a körmön összefügg�
 it: Antischiuma
 lt: Antiperspirantas
 lv: Uztur ādu labā stāvoklī. ādu nomierinoša viela
-nl: Antiroos
+#nl: Antiroos
 pl: Przeciwpotowa
 pt: Antitranspirante
 sk: Antiperspiračná látka
 sl: Sredstvo proti znojenju
-sv: Emulsionsstabiliserande
 description:en: Reduces perspiration.
 description:da: Fremmer dannelsen af en emulsion af ikke-blandbare væsker ved at ændre grænsefladespændingen.
 description:de: erleiht der Haut eine angenehme Frische.
@@ -325,7 +367,6 @@ description:sv: Underlättar emulgeringsprocessen och förbättrar emulsionens s
 
 en: Antiplaque
 cs: Deodorační přísada
-da: Emulsionsstabiliserende
 de: Geschmeidig machend
 el: Αποσμητικα
 es: Antiplaca
@@ -334,22 +375,21 @@ fr: Agent antiplaque
 hu: Kellemes frissességet kölcsönöz a bőrnek.
 lt: Medžiaga nuo dantų akmenų susidarymo
 lv: Balinoša viela
-nl: Antischuim
+#nl: Antischuim
 pl: Zapobiegająca powstawaniu płytki nazębnej
 pt: Antiplaca
 sk: Látka proti tvorbe plaku
 sl: Sredstvo proti zobnim oblogam
-sv: Filmbildande
 description:en: Helps protect against plaque.
 description:cs: Omezuje nebo maskuje nepříjemné tělesné pachy.
 description:da: Fremmer emulgeringsprocessen og forbedrer emulsionens stabilitet og holdbarhed.
-description:de: Macht die Haut geschmeidig und glättet sie. 
+description:de: Macht die Haut geschmeidig und glättet sie.
 description:el: Μειώνουν ή συγκαλύπτουν δυσάρεστες οσμές του σώματος.
 description:es: Ayuda a proteger contra la placa dental.
 description:et: Suurendab vees vähe lahustuvate ainete lahustuvust.
 description:fr: Aide à protéger contre la plaque.
 description:hu: olyadékkészítménynek géles állagot (némileg rugalmas, félig szilárd készítmény) ad.
-description:it: 
+description:it:
 description:lt: Saugo nuo dantų akmenų susidarymo.
 description:lv: Padara gaišāku matu vai ādas toni.
 description:pl: Wspomaga ochronę przed powstawaniem płytki nazębnej.
@@ -359,6 +399,8 @@ description:sl: Pripomore k zaščiti pred zobnimi oblogami.
 description:sv: Ger efter applicering en sammanhängande hinna på hud, hår eller naglar.
 
 en: Antiseborrhoeic
+ar: مضاد للزهم
+bg: Антисебореен
 cs: Přísada proti mazotoku
 da: Antiseborreisk
 de: Antiseborrhoeisch
@@ -366,36 +408,60 @@ el: Αντισμηγματορροϊκό
 es: Antiseborreico
 et: Seborröavastane aine
 fi: Rasvoittumista estävä aine
-fr: Agent de gélification
+fr: Antiséborrhéique
+he: אנטי סבוריאה
+hi: एंटीसेबोरहाइक
 hu: Faggyúképződés-gátló anyag
+id: Anti-seboroik
 it: Antiseborroico
+ja: 抗脂漏性
+ko: 항지루성
 lt: Antiriebalinė medžiaga
 lv: Pretseborejas viela
 nl: Sebumwerende stof
 pl: Przeciwłojotokowa
 pt: Anti-seborreico
+ro: Anti-seborrheic
+ru: Антисеборейный
 sk: Látka proti tvorbe kožného mazu
 sl: Antiseboroik
 sv: Antiseborreisk
+tr: Antiseboreik
+zh: 抗皮脂溢
 description:en: Helps control sebum production.
-description:cs: Odstraňuje nežádoucí tělesné ochlupení.
-description:da: Supplerer lipiderne i håret eller i det øverste lag af huden.
-description:de: Erhöht den Wassergehalt der Haut und hält sie weich und glatt. 
-description:el: Αφαιρούν την ανεπιθύμητη τριχοφυΐα.
+description:ar: يساعد على التحكم في إنتاج الزهم.
+description:bg: Помага за контролиране на производството на себум.
+description:cs: Pomáhá kontrolovat produkci kožního mazu.
+description:da: Hjælper med at kontrollere sebumproduktionen.
+description:de: Hilft, die Talgproduktion zu kontrollieren.
+description:el: Βοηθά στον έλεγχο της παραγωγής σμήγματος.
 description:es: Ayuda a controlar la producción de sebo.
-description:et: Aitab hoida juukseid soengus.
+description:et: Aitab kontrollida rasu tootmist.
+description:fi: Auttaa kontrolloimaan talin tuotantoa.
 description:fr: Aide à contrôler la production de sébum.
-description:hu: Csökkenti vagy kiküszöböli a hajszálak felületének megváltozása vagy sérülése miatti gubancosodást, és így javítja a fésülhetőséget. 
-description:lt: Padeda reguliuoti riebalų susidarymą.
-description:lv: Stabilizē kosmētikas līdzekļa pH.
-description:nl: 
-description:pl: Pomaga w ograniczaniu wydzielania łoju.
+description:he: עוזר לשלוט בייצור החֵלֶב.
+description:hi: सीबम उत्पादन को नियंत्रित करने में मदद करता है।
+description:hu: Segít szabályozni a faggyútermelést.
+description:id: Membantu mengendalikan produksi sebum.
+description:it: Aiuta a controllare la produzione di sebo.
+description:ja: 皮脂の生成を抑制するのに役立ちます。
+description:ko: 피지 생성을 조절하는 데 도움이 됩니다.
+description:lt: Padeda kontroliuoti sebumo gamybą.
+description:lv: Palīdz kontrolēt sebuma veidošanos.
+description:nl: Helpt de talgproductie onder controle te houden.
+description:pl: Pomaga kontrolować produkcję sebum.
 description:pt: Ajuda a controlar a produção de sebo.
+description:ro: Ajută la controlul producției de sebum.
+description:ru: Помогает контролировать выработку кожного сала.
 description:sk: Pomáha regulovať tvorbu kožného mazu.
-description:sl: Pripomore k obvladovanju delovanja žlez lojnic.
-description:sv: kar hudens vattenhalt och bibehåller den mjuk och slät.
+description:sl: Pomaga nadzorovati proizvodnjo sebuma.
+description:sv: Hjälper till att kontrollera sebumproduktionen.
+description:tr: Sebum üretimini kontrol etmeye yardımcı olur.
+description:zh: 帮助控制皮脂的产生。
 
 en: Antistatic
+ar: مضاد للكهرباء الساكنة
+bg: Антистатичен
 cs: Antistatická přísada
 da: Antistatisk
 de: Antistatisch
@@ -404,31 +470,55 @@ es: Antiestático
 et: Antistaatik
 fi: Antistaattinen aine
 fr: Agent antistatique
+he: אנטיסטטי
+hi: एंटीस्टैटिक
 hu: Antisztatizáló szer
+id: Antistatik
 it: Antistatico
+ja: 静電気防止剤
+ko: 정전기 방지제
 lt: Antistatikas
 lv: Antistatiska viela
 nl: Antistatisch
 pl: Antystatyczna
 pt: Antiestático
+ro: Antistatic
+ru: Антистатик
 sk: Antistatická látka
 sl: Antistatik
 sv: Antistatisk
+tr: Antistatik
+zh: 抗静电
 description:en: Reduces static electricity by neutralising electrical charge on a surface.
-description:cs: Podporuje tvorbu dokonalých směsí nemísitelných kapalin změnou mezifázového napětí.
-description:da: Dannelse af en sammenhængende hinde på hud, hår eller negle.
-description:de: erleiht einer flüssigen Zubereitung die Konsistenz eines Gels (eine halbfeste Zubereitung mit einer gewissen Elastizität).
-description:el: Παγιδεύουν πολλές μικρές φυσαλίδες αέρα ή άλλων αερίων σε ένα μικρό όγκο υγρού, μέσω της τροποποίησης της επιφανειακής τάσης του υγρού.
+description:ar: يقلل من الكهرباء الساكنة عن طريق تحييد الشحنة الكهربائية على السطح.
+description:bg: Намалява статичното електричество чрез неутрализиране на електрическия заряд на повърхността.
+description:cs: Snižuje statickou elektřinu odstraněním povrchového elektrického náboje.
+description:da: Reducerer statisk elektricitet ved at neutralisere elektrisk ladning på overfladen.
+description:de: Verringert die statische Elektrizität, indem die elektrische Aufladung an der Oberfläche neutralisiert wird.
+description:el: Μειώνει τον στατικό ηλεκτρισμό εξουδετερώνοντας το ηλεκτρικό φορτίο στην επιφάνεια.
 description:es: Reduce la electricidad estática, neutralizando la carga eléctrica superficial.
+description:et: Vähendab staatilist elektrit, neutraliseerides elektrilaengu pinnal.
+description:fi: Vähentää staattista sähköä neutraloimalla sähkövarauksen pinnalla.
 description:fr: Réduit l'électricité statique en neutralisant la charge électrique présente sur une surface donnée.
-description:hu: avítja egy rendszer által előállított hab minőségét úgy, hogy a következő tulajdonságok közül egyet vagy többet megnövel: térfogat, textúra, illetve stabilitás.
+description:he: מפחית חשמל סטטי על ידי ניטרול מטען חשמלי על פני השטח.
+description:hi: सतह पर विद्युत आवेश को निष्क्रिय करके स्थिर बिजली को कम करता है।
+description:hu: Csökkenti a statikus elektromosságot a felületi elektromos töltés semlegesítésével.
+description:id: Mengurangi listrik statis dengan menetralkan muatan listrik pada permukaan.
 description:it: Riduce l’elettricità statica neutralizzando la carica elettrica superficiale.
-description:lt: Mažina statinį paviršiaus krūvį. 
-description:lv: Piešķir kosmētikas līdzeklim nepatīkamu garšu. Visbiežāk pievieno kosmētikas līdzekļiem, kas satur etilspirtu.
+description:ja: 表面の電荷を中和することにより、静電気を低減します。
+description:ko: 표면의 전하를 중화하여 정전기를 줄입니다.
+description:lt: Mažina statinį elektros krūvį neutralizuodamas elektrinį krūvį paviršiuje.
+description:lv: Samazina statisko elektrību, neitralizējot elektrisko lādiņu uz virsmas.
+description:nl: Vermindert statische elektriciteit door het neutraliseren van elektrische lading op een oppervlak.
 description:pl: Ogranicza elektryczność statyczną poprzez zobojętnienie ładunków elektrycznych na powierzchni.
+description:pt: Reduz a eletricidade estática neutralizando a carga elétrica na superfície.
+description:ro: Reduce electricitatea statică prin neutralizarea încărcării electrice de la suprafață.
+description:ru: Снижает статическое электричество путем нейтрализации электрического заряда на поверхности.
 description:sk: Znižuje statickú elektrinu odstránením povrchového elektrického náboja.
 description:sl: Zmanjša statično elektriko z nevtralizacijo električnega naboja na površini.
-description:sv: Gör att en vätskeblandning får konsistensen av en gel (en halvfast beredning med viss elasticitet). 
+description:sv: Minskar statisk elektricitet genom att neutralisera elektrisk laddning på en yta.
+description:tr: Bir yüzeydeki elektrik yükünü nötralize ederek statik elektriği azaltır.
+description:zh: 通过中和表面的电荷来减少静电。
 
 en: Astringent
 cs: Astringentní přísada
@@ -452,14 +542,12 @@ sv: Adstringerande
 description:en: Contracts the skin.
 description:cs: Po aplikaci vytváří souvislou vrstvu na kůži, na vlasech nebo na nehtech.
 description:da: Holder på fugtigheden.
-description:de: Strebt eine ebene Hautoberfläche durch Verringerung von Rauigkeit und Unregelmäßigkeiten an. 
+description:de: Strebt eine ebene Hautoberfläche durch Verringerung von Rauigkeit und Unregelmäßigkeiten an.
 description:el: Χρωματίζουν τα μαλλιά.
 description:es: Contrae la piel.
-description:et: 
 description:fr: Resserre la peau.
 description:hu: A folyadék felületi feszültségének megváltoztatásával elősegíti, hogy kis folyadéktérfogat nagyszámú buborékot (levegő vagy más gáz) fogjon be.
 description:it: Riduce la traspirazione.
-description:lt: 
 description:lv: Noņem nevēlamu ķermeņa apmatojumu.
 description:nl: Vermindert transpiratie.
 description:pl: Ściąga skórę.
@@ -492,7 +580,6 @@ description:da: Øger vandindholdet i huden og bevarer huden blød og glat.
 description:de: rmöglicht die Formgestaltung von Frisuren.
 description:el: Διευκολύνουν το σχηματισμό ομογενών μειγμάτων μη αναμείξιμων υγρών τροποποιώντας τη διεπιφανειακή τάση.
 description:es: Proporcionan cohesión a los cosméticos.
-description:et: 
 description:fr: Confère une cohésion accrue au produit cosmétique.
 description:hu: A gyártás során visszaszorítja a habzást, vagy csökkenti a késztermék habosodási hajlamát. zínessé teszi a hajat. HAJFIXÁLÓ ANYAG
 description:lv: Samazina vai maskē nepatīkamu ķermeņa smaržu.
@@ -501,7 +588,7 @@ description:pl: Zapewnienia spójność kosmetyków.
 description:pt: Contrai a pele.
 description:sk: Zabezpečuje súdržnosť kozmetických výrobkov.
 description:sl: Daje kozmetičnim izdelkom večjo kohezivnost.
-description:sv: Hjälper till att undvika skadliga effekter av yttre faktorer på huden. 
+description:sv: Hjälper till att undvika skadliga effekter av yttre faktorer på huden.
 
 en: Bleaching
 cs: Odbarvovací přísada
@@ -515,7 +602,7 @@ fr: Agent de blanchiment
 hu: Fehérítő anyag
 it: Depigmentante
 lt: Baliklis
-lv: Balinoša viela
+#lv: Balinoša viela
 nl: Bleekmiddel
 pl: Rozjaśniająca
 pt: Descolorante
@@ -523,21 +610,35 @@ sk: Bieliaca látka
 sl: Belilo
 sv: Blekande
 description:en: Lightens the shade of hair or skin.
-description:da: Giver en væskeblanding gelkonsistens (et halvfast præparat med nogen elasticitet). 
-description:de: Macht das Haar leicht kämmbar, geschmeidig, weich und glänzend und/oder verleiht ihm Volumen, Geschmeidigkeit, Glanz usw.
-description:el: Διαλύουν άλλα συστατικά. 
+description:ar: يفتح لون الشعر أو الجلد.
+description:bg: Изсветлява нюанса на косата или кожата.
+description:cs: Zesvětluje odstín vlasů nebo pokožky.
+description:da: Giver en væskeblanding gelkonsistens (et halvfast præparat med nogen elasticitet).
+description:de: Macht das Haar oder die Haut heller von Farbe.
+description:el: Ανοίγει τον τόνο των μαλλιών ή του δέρματος.
 description:es: Aclara el tono del cabello o la piel.
+description:et: Heledamaks muudab juuste või naha tooni.
+description:fi: Vaalentaa hiusten tai ihon sävyä.
 description:fr: Éclaircit la teinte des cheveux ou de la peau.
-description:hu: ódosítja a haj kémiai szerkezetét, lehetővé téve a kívánt frizura kialakítását.
-description:it: 
+description:he: מבהיר את גוון השיער או העור.
+description:hi: बालों या त्वचा के रंग को हल्का करता है।
+description:hu: Világosítja a haj vagy a bőr színárnyalatát.
+description:id: Mencerahkan warna rambut atau kulit.
+description:it: Schiarisce il tono dei capelli o della pelle.
+description:ja: 髪や肌の色を明るくします。
+description:ko: 머리카락이나 피부의 색조를 밝게합니다.
 description:lt: Šviesina plaukų ar odos atspalvį.
-description:lv: Veicina grūti samaisāmu šķidrumu sajaukšanos, mainot spraigumu starp virsmām.
-description:nl: Maakt het haar of de huid lichter van kleur.
+description:lv: Padara gaišāku matu vai ādas toni.
+description:nl: Maakt de kleur van haar of huid lichter.
 description:pl: Rozjaśnia odcień włosów lub skóry.
-description:pt: Confere coesão nos cosméticos.
+description:pt: Aclara o tom do cabelo ou pele.
+description:ro: Deschide nuanța părului sau a pielii.
+description:ru: Осветляет оттенок волос или кожи.
 description:sk: Zosvetľuje odtieň farby vlasov alebo pokožky.
 description:sl: Posvetli dlake ali kožo.
-description:sv: edger fysisk kontroll av frisyren.
+description:sv: Ljusnar hår eller hudton.
+description:tr: Saç veya cilt tonunu açar.
+description:zh: 提亮头发或皮肤的颜色。
 
 en: Buffering
 da: Bevarer huden i god stand.
@@ -547,17 +648,16 @@ et: Kelaativaine
 fr: Agent tampon
 hu: Hajkondicionáló anyag
 lt: Buferinės medžiagos
-lv: Emulsijas stabilizators
 nl: Buffer
 pl: Buforująca
-pt: Descolorante
+#pt: Descolorante
 sk: Pufračná látka
 sl: Pufer
 sv: Hårfärgande färgar håret.
 description:en: Stabilises the pH of cosmetics.
 description:cs: Některé kapalné hnací plyny mohou mít funkci rozpouštědel.
 description:da: odvirker skader på huden forårsaget af udefrakommende faktorer.
-description:de: Verändert die chemische Struktur des Haars, um die gewünschte Frisur zu ermöglichen. 
+description:de: Verändert die chemische Struktur des Haars, um die gewünschte Frisur zu ermöglichen.
 description:es: Estabiliza el pH de los cosméticos.
 description:et: Moodustab metallüoonidega reageerides komplekse, mis muudavad kosmeetikavahendite stabiilsust ja/või välimust.
 description:fr: Stabilise le pH des produits cosmétiques.
@@ -598,7 +698,7 @@ description:el: Αυξάνουν την περιεκτικότητα σε νερ
 description:es: Controla la densidad del cosmético terminado.
 description:et: Tekitab nahale, juustele või küüntele kandmisel ühtlase kelme.
 description:fr: Réduit la densité apparente des produits cosmétiques.
-description:hu: Aeroszolos flakonban nyomást hoz létre, és a szelep megnyitásakor kihajtja annak tartalmát. Egyes cseppfolyósított hajtógázok oldószerként is viselkedhetnek. 
+description:hu: Aeroszolos flakonban nyomást hoz létre, és a szelep megnyitásakor kihajtja annak tartalmát. Egyes cseppfolyósított hajtógázok oldószerként is viselkedhetnek.
 description:it: Riduce le secrezioni tissutali.
 description:lt: Mažina kosmetikos gaminio tūrinį tankį.
 description:lv: Šķidram preparātam piešķir gēla konsistenci (pusciets stāvoklis, kam raksturīgs zināms elastīgums).
@@ -607,7 +707,7 @@ description:pl: Zmniejsza gęstość produktów kosmetycznych.
 description:pt: Estabiliza o pH de cosméticos.
 description:sk: Znižuje objemovú hmotnosť kozmetických výrobkov.
 description:sl: Zmanjša nasipno gostoto kozmetičnih izdelkov.
-description:sv: Förändrar hårets kemiska struktur så att det kan formas till önskad frisyr. 
+description:sv: Förändrar hårets kemiska struktur så att det kan formas till önskad frisyr.
 
 en: Chelating
 cs: Chelatační činidlo
@@ -634,12 +734,12 @@ description:da: Gør håret smidigt, blødt og skinnende og let at rede og/eller
 description:de: erringert oder verhindert die Verwirrung der Haare aufgrund von Veränderungen oder Schädigungen an der Haaroberfläche und verbessert so die Kämmbarkeit.
 description:el: Μειώνουν την επιφανειακή τάση των καλλυντικών καθώς και διευκολύνουν την ομοιόμορφη κατανομή των καλλυντικών προϊόντων κατά τη χρήση.
 description:es: Reacciona y forma complejos con los iones metálicos que podrían afectar la estabilidad y/o el aspecto de los cosméticos.
-description:et: Aitab eemaldada stratum corneum'i (sarvkihi) surnud rakkusid. 
+description:et: Aitab eemaldada stratum corneum'i (sarvkihi) surnud rakkusid.
 description:fr: Réagit et forme des complexes avec des ions métalliques susceptibles d'affecter la stabilité et/ou l'aspect des produits cosmétiques.
 description:hu: eakcióba lép és komplex vegyületeket alkot fémionokkal, ami hatással lehet a kozmetikai termékek stabilitására és/vagy külső megjelenésére. KÉPLÉKENYÍTŐSZER
 description:it: Reagisce e forma complessi con ioni metallici che potrebbero alterare la stabilità e/o l’aspetto dei cosmetici stessi.
 description:lt: Sukelia reakciją ir sudaro junginius su metalų jonais, galinčiais turėti įtakos kosmetikos gaminių stabilumui ir (arba) išvaizdai, medžiagos.
-description:lv: Reaģē un veido kompleksus ar metāla joniem, kas var ietekmēt kosmētikas līdzekļa stabilitāti un/vai izskatu. 
+description:lv: Reaģē un veido kompleksus ar metāla joniem, kas var ietekmēt kosmētikas līdzekļa stabilitāti un/vai izskatu.
 description:pl: Reaguje i tworzy kompleksy z jonami metali, które mogłyby mieć negatywny wpływ na stabilność i/lub wygląd kosmetyków.
 description:pt: Reage e forma complexos com iões de metal que podem afectar a estabilidade e/ou aparência dos cosméticos.
 description:sk: Reaguje a tvorí komplexy s iónmi kovových prvkov, ktoré by mohli ovplyvniť stabilitu a/alebo vzhľad kozmetických výrobkov.
@@ -676,14 +776,15 @@ description:fr: Aide à conserver propre la surface du corps.
 description:hu: A különböző testfelületekről anyagokat távolít el, vagy segíti a mechanikus fogtisztítást, vagy javítja a fog fényét. egíti a korpásodás megakadályozását.
 description:it: Favorisce l’eliminazione delle cellule morte dello strato corneo.
 description:lt: Padeda kūno paviršių išlaikyti švarų.
-description:lv: Padara ādu tumšāku ar ultravioleto staru iedarbību vai bez tās. 
-description:nl: 
+description:lv: Padara ādu tumšāku ar ultravioleto staru iedarbību vai bez tās.
 description:pl: Ułatwia utrzymanie powierzchni ciała w czystości.
 description:pt: Ajuda a manter a superfície do corpo limpa.
 description:sk: Pomáha udržať čistotu povrchu tela.
 description:sl: Sredstvo namenjeno čiščenju površine telesa.
 
 en: Cosmetic colorant
+ar: صبغة تجميلية
+bg: Козметичен оцветител
 cs: Kosmetické barvivo
 da: Kosmetisk farvestof
 de: Kosmetischer farbstoff
@@ -692,22 +793,31 @@ es: Colorante cosmético
 et: Kosmeetiline värvaine
 fi: Kosmetiikan väriaine
 fr: Colorant cosmétique
+he: צבע קוסמטי
+hi: कॉस्मेटिक रंग
 hu: Kozmetikai színezék
+id: Pewarna kosmetik
 it: Colorante cosmetico
+ja: 化粧品着色料
+ko: 화장품 착색제
 lt: Kosmetinis dažiklis
 lv: Kosmētikas krāsviela
 nl: Cosmetische kleurstof
 pl: Barwnik kosmetyczny
-pt: Corante
+pt: Corante cosmético
+ro: Colorant cosmetic
+ru: Косметический краситель
 sk: Kozmetické farbivo
 sl: Kozmetično barvilo
 sv: Kosmetiskt färgämne
-description:en: 
+tr: Kozmetik renklendirici
+zh: 化妆品着色剂
+description:en:
 
 en: Denaturant
 el: Λειαντικα
 es: Desnaturalizante
-et: Kõõmavastane aine
+#et: Kõõmavastane aine
 fi: Denaturointiaine
 fr: Dénaturant
 lt: Denatūrantas
@@ -715,29 +825,76 @@ pl: Skażająca
 pt: Desnaturante
 sk: Denaturačná látka
 description:en: Renders cosmetics unpalatable. Mostly added to cosmetics containing ethyl alcohol.
+description:ar: يجعل مستحضرات التجميل غير مستساغة. يضاف في الغالب إلى مستحضرات التجميل التي تحتوي على كحول الإيثيل.
+description:bg: Прави козметичните продукти негодни за консумация. Добавя се най-вече към козметични продукти, съдържащи етилов алкохол.
+description:cs: Způsobuje nepoživatelnost kosmetických prostředků. Většinou se přidává do kosmetiky obsahující ethylalkohol.
+description:da: Gør kosmetik uspiselig. Tilsættes mest kosmetik, der indeholder ethylalkohol.
+description:de: Macht Kosmetika ungenießbar. Wird meist Kosmetika mit Ethylalkohol zugesetzt.
+description:el: Καθιστά δυσάρεστη τη γεύση των καλλυντικών προϊόντων. Προστίθενται κυρίως σε καλλυντικά προϊόντα που περιέχουν αιθυλική αλκοόλη.
+description:es: Hace que los cosméticos sean desagradables al paladar. Se añade principalmente a los cosméticos que contienen alcohol etílico.
+description:et: Annab kosmeetikavahendile ebameeldiva maitse. Enamasti lisatakse etüülalkoholi sisaldavatele kosmeetikavahenditele.
 description:fi: Tekee kosmeettisen valmisteen tai sen ainesosan nautintakelvottomaksi.
+description:fr: Rend les cosmétiques impropres à la consommation. Généralement ajouté aux cosmétiques contenant de l'alcool éthylique.
+description:he: הופך את מוצרי הקוסמטיקה לבלתי טעימים. מוסף בעיקר למוצרי קוסמטיקה המכילים אלכוהול אתילי.
+description:hi: सौंदर्य प्रसाधनों को बेस्वाद बनाता है। ज्यादातर एथिल अल्कोहल युक्त सौंदर्य प्रसाधनों में मिलाया जाता है।
+description:hu: Élvezhetetlen ízt ad a kozmetikumoknak. Főleg etil-alkoholt tartalmazó kozmetikai termékekhez adják hozzá.
+description:id: Membuat kosmetik tidak enak. Sebagian besar ditambahkan ke kosmetik yang mengandung etil alkohol.
+description:it: Rende i cosmetici non commestibili. Principalmente aggiunto ai cosmetici contenenti alcool etilico.
+description:ja: 化粧品をまずくします。主にエチルアルコールを含む化粧品に添加されます。
+description:ko: 화장품을 맛없게 만듭니다. 주로 에틸 알코올을 함유한 화장품에 첨가됩니다.
+description:lt: Suteikia kosmetikos gaminiams nemalonų skonį. Dažniausiai dedama į kosmetiką, kurios sudėtyje yra etilo alkoholio.
+description:lv: Padara kosmētiku neēdamu. Galvenokārt pievieno kosmētikai, kas satur etilspirtu.
+description:nl: Maakt cosmetica oneetbaar. Meestal toegevoegd aan cosmetica die ethylalcohol bevatten.
+description:pl: Nadaje kosmetykom nieprzyjemny smak. Dodawany głównie do kosmetyków zawierających alkohol etylowy.
+description:pt: Torna os cosméticos intragáveis. Adicionado principalmente a cosméticos que contêm álcool etílico.
+description:ro: Face ca produsele cosmetice să fie neplăcute la gust. Se adaugă mai ales la produsele cosmetice care conțin alcool etilic.
+description:ru: Делает косметику несъедобной. В основном добавляется в косметику, содержащую этиловый спирт.
+description:sk: Znehodnocuje kozmetické výrobky, takže sú nepožívateľné. Pridáva sa najmä do kozmetických výrobkov obsahujúcich etylalkohol.
+description:sl: Kozmetične izdelke naredi neužitne. Večinoma se dodaja kozmetičnim izdelkom, ki vsebujejo etilni alkohol.
+description:sv: Gör kosmetika oätliga. Tillsätts vanligen kosmetika som innehåller etylalkohol.
+description:tr: Kozmetik ürünleri tatsız hale getirir. Çoğunlukla etil alkol içeren kozmetiklere eklenir.
+description:zh: 使化妆品难以下咽。 主要添加到含有乙醇的化妆品中。
 
 en: Deodorant
 el: Λευκαντικα
 es: Desodorante
 et: Lahusti
 fr: Agent déodorant
-hu: Kötőanyag
+#hu: Kötőanyag
 lt: Dezodorantas
 pl: Dezodorująca
 pt: Desodorizante
 sk: Dezodoračná látka
 description:en: Reduces or masks unpleasant body odours.
-description:el: Ξανοίγουν την απόχρωση των μαλλιών ή της επιδερμίδας.
+description:ar: يقلل أو يخفي روائح الجسم الكريهة.
+description:bg: Намалява или прикрива неприятните телесни миризми.
+description:cs: Redukuje nebo maskuje nepříjemné tělesné pachy.
+description:da: Reducerer eller maskerer ubehagelige kropslugte.
+description:de: Reduziert oder maskiert unangenehme Körpergerüche.
+description:el: Μειώνει ή συγκαλύπτει τις δυσάρεστες οσμές του σώματος.
 description:es: Reduce o enmascara los olores corporales desagradables.
-description:et: Lahustab aineid.
+description:et: Vähendab või varjab ebameeldivat ihulõhna.
+description:fi: Vähentää tai peittää epämiellyttäviä kehon hajuja.
 description:fr: Réduit ou masque les odeurs corporelles désagréables.
-description:hu: Biztosítja a kohéziót a kozmetikumokban.
-description:lt: Šalina arba nustelbia nemalonų kūno kvapą.
+description:he: מפחית או מסווה ריחות גוף לא נעימים.
+description:hi: शरीर की अप्रिय गंध को कम करता है या मास्क करता है।
+description:hu: Csökkenti vagy elfedi a kellemetlen testszagot.
+description:id: Mengurangi atau menutupi bau badan yang tidak sedap.
+description:it: Riduce o maschera gli odori corporei sgradevoli.
+description:ja: 不快な体臭を軽減または隠します。
+description:ko: 불쾌한 체취를 줄이거나 가립니다.
+description:lt: Mažina arba nustelbia nemalonų kūno kvapą.
+description:lv: Samazina vai maskē nepatīkamu ķermeņa smaržu.
+description:nl: Vermindert of maskeert onaangename lichaamsgeuren.
 description:pl: Zmniejsza lub maskuje nieprzyjemne zapachy ciała.
 description:pt: Reduz ou oculta odores corporais desagradáveis.
+description:ro: Reduce sau maschează mirosurile corporale neplăcute.
+description:ru: Уменьшает или маскирует неприятные запахи тела.
 description:sk: Znižuje alebo prekrýva nepríjemné telesné pachy.
 description:sl: Zmanjša ali prikrije neprijetne telesne vonjave.
+description:sv: Reducerar eller döljer obehaglig kroppslukt.
+description:tr: Hoş olmayan vücut kokularını azaltır veya maskeler.
+description:zh: 减少或掩盖难闻的体味。
 
 en: Depilatory
 el: Μαλακτικα
@@ -752,23 +909,39 @@ pt: Depilatório
 sk: Depilačná látka
 sl: Depilacijsko sredstvo
 description:en: Removes unwanted body hair.
+description:ar: يزيل شعر الجسم غير المرغوب فيه.
+description:bg: Премахва нежеланото окосмяване по тялото.
+description:cs: Odstraňuje nežádoucí chloupky na těle.
+description:da: Fjerner uønsket kropsbehåring.
+description:de: Entfernt unerwünschte Körperhaare.
 description:el: Καθιστούν την επιδερμίδα πιο απαλή και λεία.
 description:es: Elimina el vello corporal no deseado.
-description:fi: Vähentää tai peittää epämiellyttäviä kehon hajuja.
+description:et: Eemaldab soovimatu kehakarva.
+description:fi: Vähentää tai peittää epämiellyttäviä kehon hajuja. Poistaa ei-toivotut ihokarvat.
 description:fr: Supprime les pilosités indésirables.
-description:hu: Puhává és simává teszi a bőrt.
+description:he: מסיר שיער גוף לא רצוי.
+description:hi: अनचाहे शरीर के बालों को हटाता है।
+description:hu: Puhává és simává teszi a bőrt. Eltávolítja a nem kívánt testszőrzetet.
+description:id: Menghilangkan rambut tubuh yang tidak diinginkan.
+description:it: Rimuove i peli corporei indesiderati.
+description:ja: 不要な体毛を取り除きます。
+description:ko: 원치 않는 체모를 제거합니다.
 description:lt: Pašalina nepageidautinus plaukus.
-description:lv: 
-description:nl: 
+description:lv: Noņem nevēlamu ķermeņa apmatojumu.
+description:nl: Verwijdert ongewenst lichaamshaar.
 description:pl: Usuwa niepożądane owłosienie ciała.
 description:pt: Remove pilosidades corporais indesejáveis.
+description:ro: Îndepărtează părul nedorit de pe corp.
+description:ru: Удаляет нежелательные волосы на теле.
 description:sk: Odstraňuje nežiaduce ochlpenie.
 description:sl: Odstranjuje nezaželeno poraščenost telesa.
+description:sv: Tar bort oönskad kroppsbehåring.
+description:tr: İstenmeyen vücut kıllarını temizler.
+description:zh: 去除不需要的体毛。
 
 en: Detangling
 el: Μετουσιωτικα
 es: Desenredante
-fi: Emulgaattori
 fr: Agent démêlant
 hu: Lemosóanyag
 lt: Susivėlusių plaukų iššukavimo medžiaga
@@ -777,7 +950,7 @@ pt: Desembaraçador
 sk: Látka na zlepšenie rozčesávania vlasov
 sl: Sredstvo za lažje razčesavanje
 description:en: Reduces or eliminates hair intertwining due to hair surface alteration or damage and, thus, helps combing.
-description:cs: Zlepšuje kosmetické vlastnosti nehtů. 
+description:cs: Zlepšuje kosmetické vlastnosti nehtů.
 description:el: Καθιστούν δυσάρεστη τη γεύση των καλλυντικών προϊόντων. Προστίθενται κυρίως σε καλλυντικά προϊόντα που περιέχουν αιθυλική αλκοόλη.
 description:es: Reduce o elimina el entrelazado del cabello producido por alteraciones de su superficie o daños, ayudando de esa forma al peinado.
 description:et: ähendab kosmeetikavahendi läbipaistvust või poolläbipaistvust.
@@ -791,7 +964,7 @@ description:sl: Zmanjša ali prepreči medsebojno prepletanje las zaradi spremem
 en: Emollient
 el: Οξειδωτικα
 es: Emoliente
-et: Mahuaine
+#et: Mahuaine
 fr: Émollient
 lt: Minkštiklis
 pl: Zmiękczająca
@@ -799,16 +972,35 @@ pt: Emoliente
 sk: Zvláčňujúca látka
 sl: Mehčalo za kožo
 description:en: Softens and smooths the skin.
+description:ar: ينعم ويلطف البشرة.
+description:bg: Омекотява и изглажда кожата.
+description:cs: Změkčuje a vyhlazuje pokožku.
+description:da: Blødgør og glatter huden.
+description:de: Macht die Haut weich und glatt.
+description:el: Απαλύνει και λειαίνει την επιδερμίδα.
 description:es: Alisa y suaviza la piel.
 description:et: Vähendab kosmeetikavahendi puistetihedust.
-description:fi: 
+description:fi: Pehmentää ja silottaa ihoa.
 description:fr: Assouplit et lisse la peau.
-description:hu: 
+description:he: מרכך ומחליק את העור.
+description:hi: त्वचा को मुलायम और चिकना बनाता है।
+description:hu: Puhává és simává teszi a bőrt.
+description:id: Melembutkan dan menghaluskan kulit.
+description:it: Ammorbidisce e leviga la pelle.
+description:ja: 肌を柔らかく滑らかにします。
+description:ko: 피부를 부드럽고 매끄럽게 합니다.
 description:lt: Švelnina ir minkština odą.
+description:lv: Mīkstina un izlīdzina ādu.
+description:nl: Verzacht en maakt de huid glad.
 description:pl: Zmiękcza i wygładza skórę.
 description:pt: Suaviza e amacia a pele.
+description:ro: Catifelează și netezește pielea.
+description:ru: Смягчает и разглаживает кожу.
 description:sk: Zmäkčuje a zvláčňuje pokožku.
 description:sl: Mehča in gladi kožo.
+description:sv: Mjukgör och slätar ut huden.
+description:tr: Cildi yumuşatır ve pürüzsüzleştirir.
+description:zh: 柔化和平滑皮肤。
 
 en: Emulsifying
 cs: Emulgátor
@@ -833,7 +1025,7 @@ description:en: Promotes the formation of intimate mixtures of non miscible liqu
 description:cs: Potlačuje tvorbu pěny během výroby nebo snižuje pěnivost konečného výrobku.
 description:el: ναπληρώνουν τα λιπίδια των μαλλιών ή των επιφανειακών στιβάδων του δέρματος.
 description:es: Promueve la formación de mezclas muy estrechas de líquidos no miscibles por alteración de su tensión superficial.
-description:et: Aitab reguleerida mikroorganismide kasvu nahal. 
+description:et: Aitab reguleerida mikroorganismide kasvu nahal.
 description:fr: Favorise la formation de mélanges intimes entre des liquides non miscibles en modifiant les interactions de surface.
 description:lt: Padeda susidaryti tarpusavyje nesimaišančių skysčių mišiniams, pakeisdamas skysčių sąlyčio paviršiaus įtempimą.
 description:nl: Vermindert of maskeert onaangename lichaamsgeuren.
@@ -844,7 +1036,7 @@ description:sl: Spremeni medfazno napetost in s tem omogoči nastanek emulzij iz
 
 en: Emulsion stabilising
 cs: Stabilizátor emulze
-da: Emulsionsstabiliserende
+#da: Emulsionsstabiliserende
 de: Emulsionsstabilisierend
 el: Σταθεροποιητής γαλακτωμάτων
 es: Estabilizador de emulsiones
@@ -854,13 +1046,13 @@ fr: Stabilisateur d'émulsion
 hu: Emulzióstabilizátor
 it: Stabilizzante delle emulsioni
 lt: Emulsijų stabilizatorius
-lv: Emulsijas stabilizators
+#lv: Emulsijas stabilizators
 nl: Emulsiestabilisator
 pl: Stabilazująca emulsję
 pt: Estabilizador de emulsões
 sk: Stabilizátor emulzie
 sl: Stabilizator emulzij
-sv: Emulsionsstabiliserande
+#sv: Emulsionsstabiliserande
 description:en: Helps the process of emulsification and improves emulsion stability and shelf life.
 description:cs: Způsobuje ztmavnutí pokožky vystavené UV záření nebo bez jeho působení.
 description:el: Τροποποιούν τη χημική δομή της τρίχας, επιτρέποντας της να σταθεροποιηθεί στην επιθυμητή μορφή.
@@ -895,22 +1087,38 @@ sk: Filmotvorná látka
 sl: Filmogeno sredstvo
 sv: Filmbildande
 description:en: Produces, upon application, a continuous film on skin, hair or nails.
+description:ar: يُنتج طبقة متصلة على الجلد أو الشعر أو الأظافر عند الاستخدام.
+description:bg: Образува непрекъснат филм върху кожата, косата или ноктите при нанасяне.
+description:cs: Po aplikaci vytváří souvislou vrstvu na kůži, na vlasech nebo na nehtech.
+description:da: Danner en sammenhængende hinde på hud, hår eller negle efter påføring.
+description:de: Bildet nach dem Auftragen einen durchgehenden Film auf Haut, Haaren oder Nägeln.
 description:el: Προσδίδουν τη συνεκτικότητα γέλης (ημιστερεό παρασκεύασμα με κάποια ελαστικότητα) σε υγρά παρασκευάσματα.
 description:es: Forma tras su aplicación una película continua en la piel, cabello o uñas.
 description:et: Leevendab naha või peanaha ärritust.
-description:fi: Vähentää tai estää tuotteen perushajun tai ‐maun aistimista.
+description:fi: Muodostaa levitettäessä yhtenäisen kalvon iholle, hiuksille tai kynsille.
 description:fr: Produit, à l'application, un film continu sur la peau, les cheveux ou les ongles.
+description:he: יוצר שכבה רציפה על העור, השיער או הציפורניים בעת השימוש.
+description:hi: लगाने पर त्वचा, बालों या नाखूनों पर एक सतत फिल्म बनाता है।
 description:hu: Felold más anyagokat.
+description:id: Menghasilkan lapisan kontinu pada kulit, rambut, atau kuku saat digunakan.
+description:it: Forma tras su aplicación una película continua en la piel, cabello o uñas.
+description:ja: 塗布すると、皮膚、髪、または爪に連続したフィルムを生成します。
+description:ko: 사용 시 피부, 머리카락 또는 손톱에 연속적인 막을 생성합니다.
 description:lt: Naudojant ant odos, plaukų ar nagų leidžia susidaryti ištisinei plėvelei.
-description:lv: 
-description:nl: Sommige vloeibaar gemaakte drijfgassen kunnen als oplosmiddel fungeren.
+description:lv: Pēc uzklāšanas veido vienlaidu slāni uz ādas, matiem vai nagiem.
+description:nl: Vormt bij toepassing een ononderbroken laagje op huid, haar of nagels.
 description:pl: Po zastosowaniu tworzy ciągłą warstwę na skórze, włosach lub paznokciach.
 description:pt: Produz, quando aplicado, uma película contínua sobre a pele, o cabelo ou as unhas.
+description:ro: Produce, la aplicare, o peliculă continuă pe piele, păr sau unghii.
+description:ru: Образует при нанесении непрерывную пленку на коже, волосах или ногтях.
 description:sk: Pri aplikovaní na pokožku, vlasy alebo nechty vytvára neprerušovanú jemnú vrstvu.
 description:sl: Ob nanosu ustvari neprekinjen film na koži, laseh ali nohtih.
+description:sv: Ger efter applicering en sammanhängande hinna på hud, hår eller naglar.
+description:tr: Uygulandığında cilt, saç veya tırnaklar üzerinde sürekli bir film oluşturur.
+description:zh: 使用时在皮肤、头发或指甲上形成连续的薄膜。
 
 en: Flavouring
-description:en: 
+description:en:
 
 en: Foam boosting
 cs: Pěnící přísada
@@ -922,7 +1130,6 @@ fr: Synergiste de mousse
 hu: Oxidálószer
 lt: Putojimo skatinimo medžiaga
 lv: Krāso matus.
-nl: Emulsiestabilisator
 pl: Zwiększająca pienienie
 pt: Estabilizador de espuma
 sk: Látka na zlepšenie tvorby peny
@@ -952,30 +1159,29 @@ fr: Agent moussant
 hu: Opálosítóanyag
 lt: Putodaris
 lv: Padara matus viegli ķemmējamus, lokanus, mīkstus un mirdzošus un/vai piešķir tiem lielāku apjomu, vieglumu, mirdzumu u. c.
-nl: Emulgator
 pl: Pieniąca
 pt: Agente de espuma
 sk: Penidlo
 sl: Penilo
 description:en: Traps numerous small bubbles of air or other gas within a small volume of liquid by modifying the surface tension of the liquid.
 description:cs: ění chemickou povahu jiné látky oxidací.
-description:da: 
-description:de: 
-description:el: Αντιδρούν και σχηματίζουν σύμπλοκα με μεταλλικά ιόντα που θα μπορούσαν να επηρεάσουν τη σταθερότητα ή/και την εμφάνιση των καλλυντικών προϊόντων. 
+description:da:
+description:de:
+description:el: Αντιδρούν και σχηματίζουν σύμπλοκα με μεταλλικά ιόντα που θα μπορούσαν να επηρεάσουν τη σταθερότητα ή/και την εμφάνιση των καλλυντικών προϊόντων.
 description:es: Atrapa pequeñas y númerosas burbujas de aire u otro gas en un pequeño volumen de aire modificando la tensión superficial del líquido.
-description:et: Aitab silendada naha pinda, vähendab konarusi ja defekte. 
+description:et: Aitab silendada naha pinda, vähendab konarusi ja defekte.
 description:fi: Kuorii kehon eri alueita, edesauttaa hampaiden mekaanista puhdistusta tai parantaa kiiltoa.
 description:fr: Piège de nombreuses petites bulles d'air ou d'autres gaz dans un petit volume de liquide en modifiant la tension de surface du liquide.
 description:hu: Csökkenti a kozmetikumok átlátszóságát vagy áttetszőségét.
-description:it: 
+description:it:
 description:lt: Mažame tūryje sutelkia daug oro ar kitokių dujų burbuliukų, pakeisdamas skysčio paviršiaus įtempimą.
-description:lv: 
+description:lv:
 description:nl: Bevordert de vorming van stabiele mengsels van niet-mengbare vloeistoffen door de grensvlakspanning te veranderen.
 description:pl: Zmieniając napięcie powierzchniowe cieczy zamyka małe pęcherzyki powietrza lub innego gazu w małej ilości cieczy.
 description:pt: Aprisiona grande número de minúsculas bolhas de ar ou de outro gás num reduzido volume de líquido, através da modificação da tensão superficial desse líquido.
 description:sk: Zadržuje veľké množstvo malých bublín vzduchu alebo iného plynu v malom objeme kvapaliny zmenou povrchového napätia kvapaliny.
 description:sl: S spremembo površinske napetosti tekočine povzroči, da se majhni mehurčki zraka ali drugega plina ujamejo v majhno količino tekočine.
-description:sv: 
+description:sv:
 
 en: Gel forming
 cs: Gelotvorná přísada
@@ -997,15 +1203,15 @@ sk: Gélotvorná látka
 sl: Sredstvo za tvorjenje gela
 sv: Gelbildande
 description:en: Gives the consistency of a gel (a semi solid preparation with some elasticity) to a liquid preparation.
-description:cs: Propůjčuje kosmetickým prostředkům perleťový vzhled. 
-description:el: Προσδίδουν μια ιριδίζουσα (περλέ) εμφάνιση στα καλλυντικά προϊόντα. 
+description:cs: Propůjčuje kosmetickým prostředkům perleťový vzhled.
+description:el: Προσδίδουν μια ιριδίζουσα (περλέ) εμφάνιση στα καλλυντικά προϊόντα.
 description:es: Da la consistencia de un gel (preparación semisólida con cierta elasticidad) a una preparación líquida.
 description:et: Muudab ainete keemilisi omadusi hapniku liitmise või vesiniku eemaldamise teel.
-description:fi: Antaa kosmeettiselle valmisteelle helmiäismäisen ulkonäön. 
+description:fi: Antaa kosmeettiselle valmisteelle helmiäismäisen ulkonäön.
 description:fr: Donne la consistance d'un gel (préparation semi-solide ayant une certaine élasticité) à une préparation liquide.
-description:hu: Összehúzza a bőrt. 
+description:hu: Összehúzza a bőrt.
 description:lt: Skystas medžiagas transformuoja į gelio pavidalo (pusiau kietas tam tikro elastingumo) medžiagas.
-description:lv: Uztur un saglabā mitrumu. 
+description:lv: Uztur un saglabā mitrumu.
 description:nl: Vormt bij toepassing een ononderbroken laagje op huid, haar of nagels.
 description:pl: Nadaje preparatom w płynie konsystencję żelu (półpłynnego preparatu o pewnej elastyczności).
 description:pt: Confere a uma preparação líquida a consistência de um gel (preparação semi-sólida com alguma elasticidade).
@@ -1021,7 +1227,7 @@ es: Acondicionador capilar
 et: Juuksepalsam
 fi: Hiuksia hoitava aine
 fr: Conditionneur capillaire
-hu: Hajkondicionáló anyag
+#hu: Hajkondicionáló anyag
 it: Condizionante per capelli
 lt: Plaukų balzamas
 lv: Matus kondicionējoša viela
@@ -1039,7 +1245,7 @@ description:et: Võimaldab tahkete osakeste vaba liikumist ja aitab vältida pul
 description:fi: ekee hiukset helposti kammattaviksi, taipuisiksi, pehmeiksi ja kiiltäviksi ja/tai lisää tuuheutta, kirkkautta, kiiltoa jne.
 description:fr: Laisse les cheveux faciles à coiffer, souples, doux et brillants et/ou donne du volume, de la lumière, du brillant, etc.
 description:lt: Panaudojus plaukus lengviau šukuoti; jie tampa lankstūs, švelnūs ir blizgūs, ir (arba) padidėja jų apimtis, lengvumas bei blizgesys.
-description:lv: 
+description:lv:
 description:nl: Geeft aan een vloeibaar product de vastheid van een gel (een semi-vaste vorm met enige elasticiteit).
 description:pl: Powoduje, że włosy łatwo się rozczesuje, są one elastyczne, miękkie i błyszczące i/lub powiększa ich objętość, czyni lżejszymi, poprawia ich połysk itp.
 description:pt: Reduz ou elimina o emaranhamento do cabelo, tornando-o belo, fácil de pentear, flexível, suave e brilhante, e/ou confere volume, leveza, brilho, etc.
@@ -1059,16 +1265,35 @@ pt: Corante capilar
 sk: Farba na vlasy
 sl: Barva za lase
 description:en: Colours hair.
-description:el: Μειώνουν τη φαινόμενη πυκνότητα των στερεών καλλυντικών.
+description:ar: يلون الشعر.
+description:bg: Оцветява косата.
+description:cs: Slouží k barvení vlasů.
+description:da: Farver håret.
+description:de: Färbt die Haare.
+description:el: Χρωματίζουν τα μαλλιά.
 description:es: Colorean el pelo.
-description:et: Pehmendab ja silendab nahka.
+description:et: Värvib juukseid.
+description:fi: Värjää hiukset.
 description:fr: Colore les cheveux.
+description:he: צובע את השיער.
+description:hi: बालों को रंगता है।
+description:hu: Színessé teszi a hajat.
+description:id: Mewarnai rambut.
+description:it: Colora i capelli.
+description:ja: 髪を染めます。
+description:ko: 머리카락을 염색합니다.
 description:lt: Dažo plaukus.
+description:lv: Krāso matus.
 description:nl: Kleurt het haar.
 description:pl: Barwi włosy.
 description:pt: Colora o cabelo.
+description:ro: Colorează părul.
+description:ru: Окрашивает волосы.
 description:sk: Zafarbuje vlasy.
 description:sl: Obarva lase.
+description:sv: Färgar håret.
+description:tr: Saçı renklendirir.
+description:zh: 染发。
 
 en: Hair fixing
 el: Παραγοντεσ περιποιησησ δερματοσ
@@ -1081,29 +1306,29 @@ pl: Utrwalająca fryzurę
 pt: Agente fixante para o cabelo
 sk: Látka na fixáciu vlasov
 sl: Utrjevalec za lase
-description:en: 
+description:en:
 
 en: Hair waving or straightening
 cs: Přísada k vlnění a vyrovnávání vlasů
 da: Hårpermanent eller ‐udglatning
-de: Haarwellend oder -glättend
+#de: Haarwellend oder -glättend
 el: Παράγοντας βοστρύχωσης (κατσαρώματος) και ισιώματος
 es: Ondulador o alisador del cabello
-et: Lokkimis- või sirgestusaine
+#et: Lokkimis- või sirgestusaine
 fi: Hiuksia kihartava tai suoristava aine
 fr: Agent de frisage ou defrisage
 hu: Hajgöndörítő vagy egyenesítő anyag
 it: Ondulante o stirante per capelli
 lt: Plaukų garbanojimo ir tiesinimo medžiaga
 lv: Matus cirtojoša vai iztaisnojoša viela
-nl: Permanentvloeistof of ontkroezer
+#nl: Permanentvloeistof of ontkroezer
 pl: Falująca lub prostująca włosy
 pt: Agente para ondular ou alisar o cabelo
 sk: Látka na trvalú onduláciu alebo narovnávanie vlasov
 sl: Sredstvo za kodranje ali ravnanje las
 sv: Hårpermanent eller rakpermanent
 description:en: Modifies the chemical structure of the hair, allowing it to be set in the style required.
-description:el: Αφήνουν τα μαλλιά ευκολοχτένιστα, εύκαμπτα, απαλά και λαμπερά ή/και προσδίδουν όγκο, λάμψη και τα κάνουν ανάλαφρα. 
+description:el: Αφήνουν τα μαλλιά ευκολοχτένιστα, εύκαμπτα, απαλά και λαμπερά ή/και προσδίδουν όγκο, λάμψη και τα κάνουν ανάλαφρα.
 description:es: Modifica la estructura química del cabello, permitiendo que adopte el estilo requerido.
 description:et: ehmendab ja muudab plastiliseks aineid, mida teisiti ei saaks kergesti deformeerida, laiali määrida või vormida.
 description:fi: ahdollistaa kampauksen hallinnan.
@@ -1118,7 +1343,7 @@ description:sl: Spremeni kemijsko strukturo las in omogoči želeno oblikovanje.
 en: Humectant
 el: Βελτιώνουν τα καλλυντικά χαρακτηριστικά των νυχιών.
 es: Humectante
-et: Pleegitusaine
+#et: Pleegitusaine
 lt: Drėkiklis
 lv: Opalescenta viela
 pl: Utrzymująca wilgoć
@@ -1126,37 +1351,74 @@ pt: Humectante
 sk: Humektant
 sl: Humektant
 description:en: Holds and retains moisture.
-description:el: 
+description:ar: يحافظ على الرطوبة ويحتفظ بها.
+description:bg: Задържа и запазва влагата.
+description:cs: Udržuje a zachovává vlhkost.
+description:da: Holder på fugtigheden.
+description:de: Hält die Feuchtigkeit und speichert sie.
+description:el: Διατηρεί και συγκρατεί την υγρασία.
 description:es: Mantiene y retiene la humedad.
-description:et: Muudab juuste või naha värvitooni heledamaks.
+description:et: Hoiab ja säilitab niiskust.
+description:fi: Säilyttää ja sitoo kosteutta.
 description:fr: Maintient et conserve l'humidité.
+description:he: שומר ומחזיק לחות.
+description:hi: नमी बनाए रखता है और उसे बरकरार रखता है।
+description:hu: Megőrzi és megtartja a nedvességet.
+description:id: Menahan dan mempertahankan kelembaban.
+description:it: Mantiene e trattiene l'umidità.
+description:ja: 水分を保持し、保持します。
+description:ko: 수분을 유지하고 보유합니다.
 description:lt: Sulaiko ir išsaugo drėgmę.
-description:nl: 
+description:lv: Uztur un saglabā mitrumu.
+description:nl: Houdt vocht vast en behoudt het.
 description:pl: Utrzymuje i zachowuje wilgoć.
 description:pt: Retém e mantém a humidade.
+description:ro: Menține și reține umiditatea.
+description:ru: Удерживает и сохраняет влагу.
 description:sk: Zadržiava a uchováva vlhkosť.
 description:sl: Veže in ohranja vlago.
+description:sv: Håller kvar och bevarar fukt.
+description:tr: Nemi tutar ve korur.
+description:zh: 保持并保留水分。
 
 en: Hydrotrope
 el: Επιτρέπουν το φυσικό έλεγχο του χτενίσματος.
 es: Hidrótropo
-et: Propellent
 lt: Hidrotropas
 pl: Solubilizująca
 pt: Hidrótropo
 sk: Hydrotropná látka
 sl: Hidrotropno sredstvo
 description:en: Enhances the solubility of substance which is only slightly soluble in water.
-description:el: ροσδίδουν καλλυντική περιποίηση στη στοματική κοιλότητα π.χ. καθαρισμό, απόσμηση, προστασία.
+description:ar: يعزز قابلية ذوبان المادة التي تذوب بشكل طفيف فقط في الماء.
+description:bg: Подобрява разтворимостта на вещество, което е само слабо разтворимо във вода.
+description:cs: Zvyšuje rozpustnost látky, která se ve vodě rozpouští jenom málo.
+description:da: Fremmer opløseligheden af et stof, der kun er begrænset opløseligt i vand.
+description:de: Erhöht die Löslichkeit einer Substanz, die nur geringfügig in Wasser löslich ist.
+description:el: Προσδίδουν καλλυντική περιποίηση στη στοματική κοιλότητα π.χ. καθαρισμό, απόσμηση, προστασία.
 description:es: Intensifica la solubilidad de una sustancia que es sólo ligeramente soluble en agua.
 description:et: Tekitab aerosoolipakendis surve ja klapi avamisel surub pakendi sisu välja.
+description:fi: Lisää heikosti veteen liukenevan aineen liukoisuutta.
 description:fr: Augmente la solubilité d'une substance qui est peu soluble dans l'eau.
+description:he: משפר את מסיסותו של חומר שמסיס רק מעט במים.
+description:hi: उस पदार्थ की घुलनशीलता को बढ़ाता है जो पानी में केवल थोड़ा घुलनशील होता है।
+description:hu: Javítja a vízben csak kevéssé oldódó anyagok oldhatóságát.
+description:id: Meningkatkan kelarutan zat yang hanya sedikit larut dalam air.
+description:it: Aumenta la solubilità di una sostanza che è solo leggermente solubile in acqua.
+description:ja: 水にわずかにしか溶けない物質の溶解度を高めます。
+description:ko: 물에 약간만 용해되는 물질의 용해도를 향상시킵니다.
 description:lt: Padidina mažai vandenyje tirpių medžiagų tirpumą.
-description:lv: 
+description:lv: Palielina vielas šķīdību, kas ūdenī šķīst tikai nedaudz.
+description:nl: Verbetert de oplosbaarheid van een stof die slechts in geringe mate oplosbaar is in water.
 description:pl: Poprawia rozpuszczalność substancji, która rozpuszczają się w wodzie jedynie w niewielkim stopniu.
 description:pt: Aumenta a solubilidade de uma substância que seja apenas levemente solúvel em água.
+description:ro: Îmbunătățește solubilitatea unei substanțe care este doar ușor solubilă în apă.
+description:ru: Повышает растворимость вещества, которое лишь незначительно растворимо в воде.
 description:sk: Zvyšuje rozpustnosť látok, ktoré sú vo vode len málo rozpustné.
 description:sl: Olajša topnost snovi, ki so težko topne v vodi.
+description:sv: Ökar lösligheten av ett ämne som bara är lite lösligt i vatten.
+description:tr: Suda sadece hafifçe çözünen bir maddenin çözünürlüğünü artırır.
+description:zh: 提高仅微溶于水的物质的溶解度。
 
 en: Keratolytic
 el: Παραγοντεσ σχηματισμου υμενιων
@@ -1172,14 +1434,14 @@ pt: Queratolítico
 sk: Keratolytická látka
 sl: Keratolitik
 description:en: Helps eliminate the dead cells of the stratum corneum.
-description:cs: 
+description:cs:
 description:el: Δημιουργούν, με την εφαρμογή τους, ένα συνεχές υμένιο (φιλμ) στην επιδερμίδα, στα μαλλιά ή στα νύχια.
 description:es: Ayuda a eliminar las células muertas del estrato córneo.
-description:et: 
+description:et:
 description:fi: Lisää heikosti veteen liukenevan aineen liukoisuutta.
 description:fr: Aide à éliminer les cellules mortes du stratum corneum.
 description:lt: Padeda pašalinti negyvas suragėjusios odos ląsteles.
-description:lv: 
+description:lv:
 description:nl: Maakt de huid donkerder met of zonder blootstelling aan UV.
 description:pl: Pomaga w usunięciu martwych komórek warstwy rogowej.
 description:pt: Facilita a eliminação das células mortas da superfície cutânea.
@@ -1263,22 +1525,38 @@ sk: Látka na zlepšenie kondície nechtov
 sl: Sredstvo za nego nohtov
 sv: Nagelkonditionerande
 description:en: Improves the cosmetic characteristics of the nail.
-description:el: Βοηθούν στην αποφυγή επιβλαβών συνεπειών στην επιδερμίδα από εξωγενείς παράγοντες.
+description:ar: يحسن الخصائص التجميلية للأظافر.
+description:bg: Подобрява козметичните характеристики на ноктите.
+description:cs: Zlepšuje kosmetické vlastnosti nehtů.
+description:da: Forbedrer neglens kosmetiske egenskaber.
+description:de: Verbessert die kosmetischen Eigenschaften der Nägel.
+description:el: Βελτιώνει τα καλλυντικά χαρακτηριστικά των νυχιών.
 description:es: Mejora las características cosméticas de las uñas.
 description:et: Annab kosmeetikavahendile küütleva värvitooni.
 description:fi: Tuo iholle miellyttävää raikkautta.
 description:fr: Améliore les caractéristiques cosmétiques des ongles.
-description:hu: 
+description:he: משפר את המאפיינים הקוסמטיים של הציפורניים.
+description:hi: नाखून के सौंदर्य प्रसाधन विशेषताओं में सुधार करता है।
+description:hu: Javítja a körmök kozmetikai jellemzőit.
+description:id: Meningkatkan karakteristik kosmetik kuku.
+description:it: Migliora le caratteristiche cosmetiche delle unghie.
+description:ja: 爪の косметиックな特性を改善します。
+description:ko: 손톱의 화장품 특성을 향상시킵니다.
 description:lt: Gerina kosmetines nagų savybes.
 description:lv: Palīdz aizsargāties pret iekaisumu.
 description:nl: Verbetert de oplosbaarheid van een stof die slecht oplosbaar is in water.
 description:pl: Poprawia charakterystykę kosmetyczną paznokcia.
 description:pt: Melhora as características cosméticas das unhas.
+description:ro: Îmbunătățește caracteristicile cosmetice ale unghiilor.
+description:ru: Улучшает косметические характеристики ногтей.
 description:sk: Zlepšuje kozmetické vlastnosti nechtov.
 description:sl: Izboljša kozmetične značilnosti nohtov.
+description:sv: Förbättrar nagelns kosmetiska egenskaper.
+description:tr: Tırnağın kozmetik özelliklerini iyileştirir.
+description:zh: 改善指甲的化妆品特性。
 
 en: Not reported
-description:en: 
+description:en:
 
 en: Opacifying
 el: Προωθητικα
@@ -1287,14 +1565,14 @@ et: Rasutaasteaine
 fi: Ihokarvoja poistava aine
 fr: Opacifiant
 lt: Drumstiklis
-lv: Pretblaugznu viela
+#lv: Pretblaugznu viela
 nl: Keratolyse
 pl: Środek zmętniający
 pt: Opacificante
 sk: Kaliaca látka
 sl: Sredstvo za motnjenje
 description:en: Reduces transparency or translucency of cosmetics.
-description:cs: 
+description:cs:
 description:el: Δημιουργούν πίεση σε συσκευασία αερολύματος (αεροζόλ) εξωθώντας το περιεχόμενο όταν η βαλβίδα είναι ανοικτή. Ορισμένα υγροποιημένα προωθητικά μπορούν να δράσουν σαν διαλύτες.
 description:es: Reduce la trasparencia o traslucidez de los cosméticos.
 description:et: Taastab juuste ja pealmiste nahakihtide lipiidid.
@@ -1311,7 +1589,7 @@ en: Oral care
 el: Ρυθμιστεσ ιξωδουσ
 es: Cuidado oral
 et: Redutseerija
-fi: Kalvonmuodostaja
+#fi: Kalvonmuodostaja
 fr: Hygiène buccale
 lt: Burnos priežiūros medžiaga
 nl: Maskeermiddel
@@ -1322,7 +1600,7 @@ sl: Sredstvo za nego ustne votline
 description:en: Provides cosmetic effects to the oral cavity, e.g. cleansing, deodorising, protecting.
 description:el: Αυξάνουν ή μειώνουν το ιξώδες των καλλυντικών προϊόντων. pH
 description:es: Proveer de efectos cosméticos a la cavidad oral, por ejemplo, limpieza, desodorización, protección.
-description:et: Muudab ainete keemilisi omadusi vesiniku liitmise või hapniku eemaldamise teel. 
+description:et: Muudab ainete keemilisi omadusi vesiniku liitmise või hapniku eemaldamise teel.
 description:fi: Muodostaa yhtenäisen kalvon ihon, hiuksien tai kynsien pinnalle.
 description:fr: Pour les produits cosmétiques destinés aux soins de la cavité buccale, apporte un effet nettoyant, désodorisant, protecteur.
 description:lt: Skirta burnos ertmės priežiūrai, pvz., valymui, kvapo šalinimui, apsaugai.
@@ -1340,7 +1618,7 @@ de: Oxidierend
 el: Οξειδωτικό
 es: Oxidante
 et: Oksüdeerija
-fi: Hapettava aine
+#fi: Hapettava aine
 fr: Agent d'oxydation
 hu: Oxidáló szer
 it: Ossidante
@@ -1372,19 +1650,17 @@ et: Stabilisaator
 fi: Keratolyytti
 fr: Agent nacrant
 lt: Perlamutrinis blizgiklis
-nl: Nagelconditioner
+#nl: Nagelconditioner
 pl: Perłująca
 pt: Perolizante
 sk: Perleťotvorná látka
 sl: Sredstvo za biserni učinek
 description:en: Imparts a nacreous appearance to cosmetics.
-description:cs: 
-description:el: Βοηθούν τη διαδικασία της γαλακτωματοποίησης και βελτιώνουν τη σταθερότητα και το χρόνο ζωής του γαλακτώματος. 
+description:el: Βοηθούν τη διαδικασία της γαλακτωματοποίησης και βελτιώνουν τη σταθερότητα και το χρόνο ζωής του γαλακτώματος.
 description:es: Da un aspecto nacarado a los cosméticos.
 description:et: Suurendab koostisainete või segu stabiilsust ja pikendab säilivusaega.
 description:fr: Apporte une apparence nacrée aux produits cosmétiques.
 description:lt: Kosmetikos gaminiams suteikia perlamutrinį blizgesį.
-description:lv: 
 description:nl: Verbetert de cosmetische eigenschappen van de nagel.
 description:pl: Nadaje kosmetykom perłowy wygląd.
 description:pt: Dá uma aparência nacarada a cosméticos.
@@ -1392,7 +1668,7 @@ description:sk: Dodáva kozmetickým výrobkom perleťový vzhľad.
 description:sl: Kozmetičnim izdelkom daje biserovinast videz.
 
 en: Perfuming
-description:en: 
+description:en:
 
 en: Plasticiser
 el: Προκαλούν σύσπαση του δέρματος.
@@ -1437,7 +1713,7 @@ pt: Conservante
 sk: Konzervačná látka
 sl: Konzervans
 sv: Konserverande
-description:en: 
+description:en:
 
 en: Propellant
 cs: Hnací plyn
@@ -1458,7 +1734,7 @@ pt: Propulsor
 sk: Hnacia látka
 sl: Potisni plin
 sv: Drivmedel
-description:en: 
+description:en:
 
 en: Reducing
 cs: Redukční přísada
@@ -1482,7 +1758,7 @@ sv: Reducerande
 description:en: Changes the chemical nature of another substance by adding hydrogen or removing oxygen.
 description:cs: Stabilizuje pH kosmetických prostředků.
 description:da: educerer gennemsigtigheden og gennemskinneligheden af kosmetiske produkter. OPFRISKENDE
-description:de: Bewirkt kosmetische Wirkungen in Bezug auf die Mundhöhle, wie etwa Reinigung, Desodorierung, Schutz. 
+description:de: Bewirkt kosmetische Wirkungen in Bezug auf die Mundhöhle, wie etwa Reinigung, Desodorierung, Schutz.
 description:es: Cambia la naturaleza química de otra sustancia, añadiendo hidrógeno o eliminando oxígeno.
 description:fi: isää lipidejä hiuksiin tai ihon pintakerroksiin.
 description:fr: Change la nature chimique d'une autre substance par addition d'hydrogène ou élimination d'oxygène.
@@ -1492,7 +1768,7 @@ description:pl: Zmienia chemiczny charakter innej substancji poprzez dodanie wod
 description:pt: Muda a natureza química de outra substância através da adição de hidrogénio ou remoção de oxigénio.
 description:sk: Mení chemickú povahu inej látky pridaním vodíka alebo odobratím kyslíka.
 description:sl: S pomočjo spajanja z vodikom ali odvzemom kisika spremeni kemično naravo druge snovi.
-description:sv: Gör ett annat ämne mjukt och smidigt, som annars inte lätt skulle kunna deformeras, spridas eller arbetas ut. 
+description:sv: Gör ett annat ämne mjukt och smidigt, som annars inte lätt skulle kunna deformeras, spridas eller arbetas ut.
 
 en: Refatting
 cs: Promašťující přísada
@@ -1517,7 +1793,7 @@ description:en: Replenishes the lipids of the hair or of the top layers of the s
 description:da: (SURFACTANT) Sænker overfladespændingen på kosmetiske produkter og gør dermed, at produktet lettere kan fordeles jævnt.
 description:de: erändert die chemische Beschaffenheit eines anderen Stoffes durch die Beigabe von Sauerstoff oder die Entfernung von Wasserstoff.
 description:es: Repone los lípidos del cabello o de las capas superficiales de la piel.
-description:fi: Vähentää kosmeettisen tuotteen läpinäkyvyyttä tai läpikuultavuutta. 
+description:fi: Vähentää kosmeettisen tuotteen läpinäkyvyyttä tai läpikuultavuutta.
 description:fr: Restaure les lipides des cheveux ou des couches supérieures de la peau.
 description:it: Riduce o maschera odori corporei sgradevoli.
 description:lt: Atkuria plaukų ir odos paviršiaus riebalinį sluoksnį.
@@ -1530,23 +1806,22 @@ description:sl: Obnavlja vsebnost maščob v laseh ali v zgornjih plasteh kože.
 description:sv: er kosmetiska effekter i munhålan, dvs. rengörande, deodoriserande, skyddande.
 
 en: Refreshing
-da: Oxiderende
+#da: Oxiderende
 de: Perlglanzgebend
 es: Refrescante
 fi: Auttaa estämään jauhemaisen kosmetiikan paakkuuntumista. pehmentävä aine pehmentää ihoa. pehmitin
 fr: Agent raffraîchissant
-it: Depigmentante
 lt: Vėsiklis
 lv: Putas veidojoša viela
 pl: Odświeżająca
 pt: Refrescante
 sk: Osviežujúca látka
 sl: Osvežilno sredstvo
-sv: Nagelkonditionerande
+#sv: Nagelkonditionerande
 description:en: Imparts a pleasant freshness to the skin.
-description:cs: 
-description:da: Forandrer stoffers kemiske natur ved at tilføre oxygen (ilt) eller fjerne hydrogen (brint). 
-description:de: Verleiht kosmetischen Mitteln ein perlmuttartiges Aussehen. 
+description:cs:
+description:da: Forandrer stoffers kemiske natur ved at tilføre oxygen (ilt) eller fjerne hydrogen (brint).
+description:de: Verleiht kosmetischen Mitteln ein perlmuttartiges Aussehen.
 description:es: Imparte una agradable frescura a la piel.
 description:fi: Pehmentää ja notkeuttaa yhdistettä, jota muuten olisi hankala muotoilla, levittää tai työstää.
 description:fr: Donne une agréable sensation de fraîcheur à la peau.
@@ -1556,13 +1831,13 @@ description:pl: Nadaje skórze przyjemną świeżość.
 description:pt: Dá uma agradável frescura à pele.
 description:sk: Príjemne osviežuje pokožku.
 description:sl: Koži daje prijetno svežino.
-description:sv: Förbättrar nagelns kosmetiska egenskaper. 
+description:sv: Förbättrar nagelns kosmetiska egenskaper.
 
 en: Skin conditioning
 da: Giver kosmetiske produkter et perlemorsagtigt udseende.
 de: Stabilisiert den ph-wert von kosmetischen mitteln.
 es: Acondicionador de la piel
-fi: Pelkistävä aine
+#fi: Pelkistävä aine
 fr: Entretien de la peau
 it: Depilante
 lt: Odos kondicionavimo medžiaga
@@ -1579,12 +1854,11 @@ description:fi: Muuttaa toisen aineen kemiallista rakennetta lisäämällä vety
 description:fr: Maintient la peau en bon état.
 description:it: Rimuove i peli corporei indesiderati.
 description:lt: Palaiko gerą odos būseną.
-description:lv: 
 description:pl: Utrzymuje skórę w dobrej kondycji.
 description:pt: Mantém a pele em boas condições.
 description:sk: Udržuje pokožku v dobrom stave.
 description:sl: Kožo vzdržuje v dobrem stanju.
-description:sv: Förändrar den kemiska naturen hos ett annat ämne genom att tillföra syre eller ta bort väte. 
+description:sv: Förändrar den kemiska naturen hos ett annat ämne genom att tillföra syre eller ta bort väte.
 
 en: Skin protecting
 cs: Přísada k ochraně pokožky
@@ -1606,11 +1880,11 @@ sk: Látka na ochranu pokožky
 sl: Zaščitno sredstvo za kožo
 sv: Hudskyddande
 description:en: Helps to avoid harmful effects to the skin from external factors.
-description:cs: Rozpouští jiné látky. 
-description:da: Forandrer stoffers kemiske natur ved at tilføre hydrogen (brint) eller fjerne oxygen (ilt). 
+description:cs: Rozpouští jiné látky.
+description:da: Forandrer stoffers kemiske natur ved at tilføre hydrogen (brint) eller fjerne oxygen (ilt).
 description:de: Verändert die chemische Beschaffenheit eines anderen Stoffes durch Beigabe von Wasserstoff oder Entfernen von Sauerstoff. ilft die Körperoberfläche sauber zu halten. RÜCKFETTEND
 description:es: Ayuda a evitar en la piel los efectos perjudiciales producidos por factores externos.
-description:fi: Vähentää kosmeettisen valmisteen pintajännitystä ja helpottaa tuotteen tasaista levittämistä. 
+description:fi: Vähentää kosmeettisen valmisteen pintajännitystä ja helpottaa tuotteen tasaista levittämistä.
 description:fr: Aide à prévenir les effets nocifs pour la peau de facteurs externes.
 description:it: Favorisce il mantenimento della pulizia della superficie corporea.
 description:lt: Padeda apsaugoti odą nuo žalingo išorinių veiksnių poveikio.
@@ -1629,8 +1903,8 @@ fi: Auttaa suojaamaan hampaita plakin muodostumiselta. ponneaine
 fr: Agent lissant
 it: Districante
 lt: Lyginamoji medžiaga
-lv: Reducējoša viela
-nl: Reductiemiddel
+#lv: Reducējoša viela
+#nl: Reductiemiddel
 pl: Wygładzająca
 pt: Suavizante
 sk: Vyhladzujúca látka
@@ -1652,14 +1926,14 @@ description:sl: Z zmanjševanjem hrapavosti in nepravilnosti skuša ustvariti gl
 description:sv: kapar många små bubblor av luft eller annan gas inom en liten vätskevolym genom att förändra vätskans ytspänning.
 
 en: Solvent
-da: Skumhæmmer
-de: Schaumvermindernd
+#da: Skumhæmmer
+#de: Schaumvermindernd
 es: Disolvente
-fi: Puhdistava aine
+#fi: Puhdistava aine
 fr: Solvant
 lt: Tirpiklis
-lv: Saistviela
-nl: Reinigingsmiddel
+#lv: Saistviela
+#nl: Reinigingsmiddel
 pl: Rozpuszczalnik
 pt: Solvente
 sk: Rozpúšťadlo
@@ -1696,9 +1970,9 @@ sl: Blažilno sredstvo
 sv: Skumförbättrande
 description:en: Helps lightening discomfort of the skin or of the scalp.
 description:da: Fanger mange små bobler af luft eller anden gas i et lille væskevolumen ved at ændre væskens overfladespænding.
-description:de: Verbessert die Qualität des von einem System gebildeten Schaums durch Verstärkung einer oder mehrerer der folgenden Eigenschaften: Volumen, Gefüge und/oder Beständigkeit. 
+description:de: Verbessert die Qualität des von einem System gebildeten Schaums durch Verstärkung einer oder mehrerer der folgenden Eigenschaften: Volumen, Gefüge und/oder Beständigkeit.
 description:es: Ayuda a disminuir las molestias en la piel o el cuero cabelludo.
-description:fi: Stabiloi kosmeettisen valmisteen pH:n. 
+description:fi: Stabiloi kosmeettisen valmisteen pH:n.
 description:fr: Aide à diminuer l'inconfort de la peau ou du cuir chevelu.
 description:lt: Padeda sumažinti odos ar galvos odos sudirgimą.
 description:lv: Uzlabo sastāvdaļas vai sastāva stabilitāti un glabāšanas laiku.
@@ -1710,7 +1984,7 @@ description:sl: Pripomore k lajšanju občutka neugodja na koži ali lasišču.
 description:sv: Förbättrar kvaliteten på skum som skapats, genom att öka en eller flera av följande egenskaper: volym, konsistens och/eller stabilitet.
 
 en: Stabilising
-da: Slibende
+#da: Slibende
 de: Hemmt die schweißbildung.
 es: Estabilizante
 fi: Auttaa hillitsemään talin muodostusta.
@@ -1722,7 +1996,7 @@ pl: Stabilizująca
 pt: Estabilizante
 sk: Stabilizátor
 sl: Stabilizator
-sv: Slipande
+#sv: Slipande
 description:en: Improves ingredients or formulation stability and shelf life.
 description:cs: (POVRCHOVĚ AKTIVNÍ LÁTKA)
 description:da: Fjerner materiale fra huden eller gør rensning af tænder mere effektiv eller fremmer glans.
@@ -1730,7 +2004,6 @@ description:de: erbessert die Beständigkeit und Haltbarkeit von Inhaltsstoffen 
 description:es: Mejora la estabilidad y vida útil de los ingredientes o la fórmula.
 description:fi: uttaa rauhoittamaan ihoa tai hiuspohjaa.
 description:fr: Améliore la stabilité et la durée de vie des ingrédients ou des formulations.
-description:it: 
 description:lv: Šķīdina citas vielas.
 description:nl: Verbetert de kwaliteit van het schuim dat wordt gevormd door een systeem, door een of meer van de volgende eigenschappen te versterken: volume, structuur en/of stabiliteit.
 description:pl: Poprawia stabilność składników lub formuły i wydłuża dopuszczalny okres magazynowania.
@@ -1745,8 +2018,8 @@ de: Tensid
 es: Tensoactivo
 fi: Ruskettava aine
 fr: Tensioactif
-lv: Tīroša viela
-nl: Schuurmiddel
+#lv: Tīroša viela
+#nl: Schuurmiddel
 pl: Środek powierzchniowo czynny
 pt: Surfactante
 sk: Povrchovo aktívna látka
@@ -1759,13 +2032,13 @@ description:es: Rebaja la tensión superficial de los cosméticos y ayuda a una 
 description:fi: Tummentaa ihon väriä ilman altistusta UV-säteilylle tai sen kanssa.
 description:fr: Réduit la tension de surface et favorise une répartition uniforme du produit lors de son utilisation.
 description:lt: ažina paviršiaus įtemptį ir padeda naudojamam gaminiui tolygiai pasiskirstyti ant odos.
-description:lv: Palīdz uzturēt tīru ķermeņa ādu. 
-description:nl: Verwijdert materiaal van verschillende lichaamsoppervlakken of ondersteunt het mechanisch reinigen van de tanden of het verbeteren van de glans. 
+description:lv: Palīdz uzturēt tīru ķermeņa ādu.
+description:nl: Verwijdert materiaal van verschillende lichaamsoppervlakken of ondersteunt het mechanisch reinigen van de tanden of het verbeteren van de glans.
 description:pl: Obniża napięcie powierzchniowe produktów kosmetycznych i ułatwia ich równomierne rozprowadzanie.
 description:pt: Diminui a tensão superficial de cosméticos, assim como ajuda à distribuição homogénea do produto quando usado.
 description:sk: Znižuje povrchové napätie kozmetických výrobkov a napomáha rovnomerné nanášanie pri ich použití.
 description:sl: Zmanjšuje površinsko napetost kozmetičnega izdelka in pripomore k enakomerni razporeditvi kozmetičnega izdelka ob uporabi.
-description:sv: Förbättrar beståndsdelarnas eller sammansättningens stabilitet och hållbarhet. 
+description:sv: Förbättrar beståndsdelarnas eller sammansättningens stabilitet och hållbarhet.
 
 en: Tanning
 cs: Opalovací přísada
@@ -1774,31 +2047,48 @@ de: Bräunend
 el: Παράγοντας μαυρίσματος
 es: Bronceador
 et: Päevitusaine
-fi: Ruskettava aine
+#fi: Ruskettava aine
 fr: Agent de bronzage
 hu: Cserzőanyag, biológiai hatóanyag
 it: Abbronzante
 lt: Savaiminio įdegio medžiaga
 lv: Iedeguma viela
-nl: Huidbruinende stof
+#nl: Huidbruinende stof
 pl: Opalająca
 pt: Bronzeador
 sk: Opaľovacia látka
 sl: Sredstvo za porjavitev
 sv: Brun utan/med sol
 description:en: Darkens the skin with or without exposure to UV.
-description:da: remkalder en følelse af velbefindende på huden og i håret.
-description:de: Erzeugt Druck in einem Aerosolbehälter, treibt den Inhalt aus dem Behälter, wenn das Ventil geöffnet wird. Einige flüssige Treibmittel können wie Lösungsmittel wirken.
+description:ar: يغمق البشرة مع أو بدون التعرض للأشعة فوق البنفسجية.
+description:bg: Потъмнява кожата със или без излагане на UV лъчи.
+description:cs: Způsobuje ztmavnutí pokožky vystavené UV záření nebo bez jeho působení.
+description:da: Gør huden mørkere med eller uden udsættelse for UV-stråling.
+description:de: Dunkelt die Haut mit oder ohne UV-Bestrahlung nach.
+description:el: Σκουραίνει το δέρμα με ή χωρίς έκθεση στην υπεριώδη ακτινοβολία.
 description:es: Oscurece la piel con o sin exposición a lo rayos UV.
-description:fi: Edistää kosmeettisen valmisteen koossapysymistä.
+description:et: Muudab naha tumedamaks ultraviolettkiirgusega kokkupuutel või ilma ultraviolettkiirguseta.
+description:fi: Tummentaa ihoa UV-säteilyn kanssa tai ilman.
 description:fr: Assombrit la peau avec ou sans exposition aux UV.
+description:he: מכהה את העור עם או בלי חשיפה לקרני UV.
+description:hi: यूवी के संपर्क में आने पर या बिना त्वचा को काला करता है।
+description:hu: Sötétíti a bőrt ultraibolya sugárzás hatására vagy anélkül.
+description:id: Menggelapkan kulit dengan atau tanpa paparan UV.
+description:it: Scurisce la pelle con o senza esposizione ai raggi UV.
+description:ja: 紫外線にさらされる、またはさらされなくても、肌を暗くします。
+description:ko: 자외선에 노출되거나 노출되지 않은 상태에서 피부를 어둡게합니다.
 description:lt: Tamsina odą su UV spinduliais ar be jų.
-description:nl: erbetert stabiliteit en houdbaarheid van ingrediënten of samenstelling.
+description:lv: Padara ādu tumšāku ar ultravioleto staru iedarbību vai bez tās.
+description:nl: Maakt de huid donkerder met of zonder blootstelling aan UV.
 description:pl: Nadaje skórze ciemniejszy odcień podczas wystawienia jej na działanie promieniowania nadfioletowego lub bez niego.
 description:pt: Escurece a pele com ou sem exposição aos raios UV.
+description:ro: Închide culoarea pielii cu sau fără expunere la UV.
+description:ru: Затемняет кожу под воздействием УФ-лучей или без него.
 description:sk: Spôsobuje zhnednutie pokožky pri vystavení alebo bez vystavenia UV žiareniu.
 description:sl: Potemni kožo z ali brez izpostavitve UV-žarkom.
-description:sv: er huden en behaglig känsla av fräschör. UPPMJUKANDE
+description:sv: Gör huden mörkare med eller utan exponering för UV-strålning.
+description:tr: Cildi UV'ye maruz kalarak veya kalmadan koyulaştırır.
+description:zh: 无论是否暴露于紫外线下，都会使皮肤变黑。
 
 en: Tonic
 da: Udjævning
@@ -1813,20 +2103,35 @@ sk: Tonizujúca látka
 sl: Krepilno sredstvo
 sv: Gör huden mjuk och slät.
 description:en: Produces a feeling of well being on skin and hair.
-description:cs: UV 
+description:ar: يُنتج شعورًا بالراحة على الجلد والشعر.
+description:bg: Създава усещане за благополучие на кожата и косата.
+description:cs: UV
 description:da: Bidrager til at give en jævn hudoverflade ved at mindske ruheder og uregelmæssigheder.
 description:de: Verringert die Transparenz und Lichtdurchlässigkeit von kosmetischen Mitteln.
+description:el: Προκαλεί μια αίσθηση ευεξίας στο δέρμα και τα μαλλιά.
 description:es: Produce una sensación de bienestar en la piel y el cabello.
+description:et: Tekitab nahal ja juustel heaolutunde.
 description:fi: Pyrkii tasoittamaan ihon pintaa vähentämällä sen karkeutta tai epätasaisuutta.
 description:fr: Produit une sensation de bien-être sur la peau et les cheveux.
+description:he: יוצר תחושה של רווחה על העור והשיער.
+description:hi: त्वचा और बालों पर सुखद अहसास कराता है।
+description:hu: Kellemes érzést kelt a bőrön és a hajon.
+description:id: Menghasilkan rasa nyaman pada kulit dan rambut.
+description:it: Produce una sensazione di benessere sulla pelle e sui capelli.
+description:ja: 肌や髪に心地よい感触を与えます。
+description:ko: 피부와 머리카락에 웰빙 느낌을 줍니다.
 description:lt: Sukuria malonų odos ir plaukų pojūtį.
-description:lv: 
+description:lv: Rada patīkamu sajūtu ādai un matiem.
 description:nl: Geeft een gezond gevoel aan huid en haar.
 description:pl: Stwarza uczucie komfortu skóry i włosów.
 description:pt: Produz um sentimento de bem-estar na pele e no cabelo.
+description:ro: Produce o senzație de bine pe piele și păr.
+description:ru: Создает ощущение благополучия на коже и волосах.
 description:sk: Vytvára pocit zdravej pokožky a zdravých vlasov.
 description:sl: Na koži in laseh ustvari občutek ugodja.
-description:sv: yftar till att åstadkomma en jämn hudyta genom att minska strävhet eller ojämnheter.
+description:sv: Syftar till att åstadkomma en jämn hudyta genom att minska strävhet eller ojämnheter.
+description:tr: Ciltte ve saçta hoş bir his yaratır.
+description:zh: 在皮肤和头发上产生舒适感。
 
 en: UV absorber
 da: Udredning af filtret hår
@@ -1842,21 +2147,35 @@ sk: UV absorbér
 sl: UV-absorber
 sv: Utredande
 description:en: Protects the cosmetic product from the effects of UV light.
-description:da: Reducerer eller eliminerer filtring af hår, der skyldes forandringer i hårets overflade eller skader, og letter derved udredningen. UV-
+description:ar: يحمي المنتج التجميلي من آثار الأشعة فوق البنفسجية.
+description:bg: Предпазва козметичния продукт от въздействието на UV светлината.
+description:cs: Chrání kosmetický přípravek před účinky UV záření.
+description:da: Beskytter det kosmetiske produkt mod virkningen af UV-lys.
 description:de: Schützt das kosmetische Mittel vor den Einwirkungen von UV-Licht.
+description:el: Προστατεύει το καλλυντικό προϊόν από τις συνέπειες της υπεριώδους ακτινοβολίας.
 description:es: Protege el producto cosmético de los efectos de la radiación UV.
-description:et: UV-
-description:fi: Edistää ainesosien tai seoksen kestävyyttä ja säilyvyyttä. 
+description:et: Kaitseb kosmeetikatoote UV-kiirguse mõjude eest.
+description:fi: Suojaa kosmeettista tuotetta UV-valon vaikutuksilta.
 description:fr: Protège le produit cosmétique des effets des rayons ultraviolets.
-description:hu: 
-description:it: 
-description:lt: Saugo kosmetikos gaminį nuo UV spindulių poveikio.
+description:he: מגן על המוצר הקוסמטי מפני השפעות קרינת UV.
+description:hi: यूवी प्रकाश के प्रभावों से कॉस्मेटिक उत्पाद की रक्षा करता है।
+description:hu: Védi a kozmetikai terméket az UV-fény hatásaitól.
+description:id: Melindungi produk kosmetik dari efek sinar UV.
+description:it: Protegge il prodotto cosmetico dagli effetti dei raggi UV.
+description:ja: 紫外線の影響から化粧品を保護します。
+description:ko: 자외선의 영향으로부터 화장품을 보호합니다.
+description:lt: Saugos kosmetikos gaminį nuo UV spindulių poveikio.
+description:lv: Aizsargā kosmētikas līdzekli no UV starojuma ietekmes.
 description:nl: Beschermt het cosmetisch product tegen de invloeden van UV-straling.
 description:pl: Chroni produkt kosmetyczny przed działaniem promieni UV.
 description:pt: Protege o produto cosmético dos efeitos dos raios UV.
+description:ro: Protejează produsul cosmetic de efectele radiațiilor UV.
+description:ru: Защищает косметический продукт от воздействия УФ-лучей.
 description:sk: Ochraňuje kozmetické výrobky pred účinkami UV žiarenia.
 description:sl: Zaščiti kozmetični izdelek pred učinki UV-svetlobe.
-description:sv: Minskar eller utesluter att håret trasslar sig på grund av förändring av hårets yta eller på grund av skada och underlättar därför utkamning. UV-
+description:sv: Skyddar den kosmetiska produkten från effekterna av UV-ljus.
+description:tr: Kozmetik ürünü UV ışınlarının etkilerinden korur.
+description:zh: 保护化妆品免受紫外线的影响。
 
 en: UV filter
 cs: UV filtr
@@ -1908,7 +2227,7 @@ sk: Regulátor viskozity
 sl: Sredstvo za spreminjanje viskoznosti
 sv: Viskositetsreglerande
 description:en: Increases or decreases the viscosity of cosmetics.
-description:cs: Způsobuje, že vlasy se snadno češou, jsou pružné, vláčné a lesklé a/nebo jim dodává objem, lehkost, lesk, atd. 
+description:cs: Způsobuje, že vlasy se snadno češou, jsou pružné, vláčné a lesklé a/nebo jim dodává objem, lehkost, lesk, atd.
 description:da: edsætter densiteten af kosmetiske produkter.
 description:de: acht einen anderen Stoff, der ansonsten nicht leicht verformt, aufgetragen oder aufgearbeitet werden könnte, weich oder geschmeidig.
 description:el: Προστατεύουν το καλλυντικό προϊόν από τις συνέπειες της υπεριώδους ακτινοβολίας.
@@ -1917,13 +2236,13 @@ description:et: uudab vedeliku pindpinevust ja võimaldab selle tulemusena sulge
 description:fi: hkäisee vaahdon muodostusta valmistuksen aikana tai vähentää valmiin tuotteen taipumusta muodostaa vaahtoa.
 description:fr: Augmente ou diminue la viscosité des produits cosmétiques.
 description:hu: ótolja a hajnak vagy a bőr felső rétegének a zsírnemű anyagait.
-description:it: Genera pressione all’interno di un contenitore aerosol, espellendo il contenuto del recipiente quando viene aperta la valvola. Alcuni propellenti liquefatti possono avere un’azione solvente. 
+description:it: Genera pressione all’interno di un contenitore aerosol, espellendo il contenuto del recipiente quando viene aperta la valvola. Alcuni propellenti liquefatti possono avere un’azione solvente.
 description:lt: Padidina arba sumažina kosmetikos gaminio klampumą.
 description:lv: alielina vai samazina kosmētikas līdzekļa viskozitāti.
 description:nl: elpt de huid of de hoofdhuid te verzachten.
-description:pl: Podwyższa lub obniża lepkość kosmetyków. Nazwa zgodna z 
+description:pl: Podwyższa lub obniża lepkość kosmetyków. Nazwa zgodna z
 description:pt: Aumenta ou diminui a viscosidade dos cosméticos.
 description:sk: Zvyšuje alebo znižuje viskozitu kozmetických výrobkov.
 description:sl: Poveča ali zmanjša viskoznost kozmetičnega izdelka.
-description:sv: Sänker ytspänningen hos kosmetika och underlättar jämn fördelning av produkten när den används. 
+description:sv: Sänker ytspänningen hos kosmetika och underlättar jämn fördelning av produkten när den används.
 

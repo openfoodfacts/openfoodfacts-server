@@ -7,19 +7,21 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
+use Test2::V0;
 use Log::Any::Adapter 'TAP', filter => "info";
 
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::PackagerCodes qw/:all/;
-use ProductOpener::Import qw/:all/;
-use ProductOpener::Export qw/:all/;
+use ProductOpener::Import qw/import_csv_file/;
+use ProductOpener::Export qw/export_csv/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Packaging qw/:all/;
-use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
-use ProductOpener::Test qw/:all/;
+use ProductOpener::Test qw/compare_csv_file_to_expected_results init_expected_results remove_all_products/;
+use ProductOpener::LoadData qw/load_data/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 
 use Getopt::Long;
 use JSON;
@@ -32,16 +34,7 @@ ProductOpener::Test::remove_all_products();
 
 # Import test products
 
-init_emb_codes();
-init_packager_codes();
-init_geocode_addresses();
-init_packaging_taxonomies_regexps();
-
-if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
-	load_agribalyse_data();
-	load_ecoscore_data();
-	load_forest_footprint_data();
-}
+load_data();
 
 my $import_args_ref = {
 	user_id => "test",
@@ -55,6 +48,17 @@ my $stats_ref = import_csv_file($import_args_ref);
 
 my $query_ref = {};
 my $separator = "\t";
+
+# Export database script to generate CSV exports of the whole database
+
+# unlink CSV export if it exists, and launch script
+my $csv_filename = "$BASE_DIRS{PUBLIC_DATA}/en.$server_domain.products.csv";
+unlink($csv_filename) if -e $csv_filename;
+
+my $script_out = `perl scripts/export_database.pl`;
+
+ProductOpener::Test::compare_csv_file_to_expected_results($csv_filename, $expected_result_dir . "_database",
+	$update_expected_results, "export_database");
 
 # CSV export
 

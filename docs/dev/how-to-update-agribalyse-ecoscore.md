@@ -18,7 +18,7 @@ Review the changes to AGRIBALYSE_summary to determine if any codes have been rem
 
 Once the Categories have been updated you will need to build the taxonomies. You can then update unit test results with the update_tests_results.sh script to see if any have been affected.
 
-It is also worth checking the impact the update has had on the main product database. This can be downloaded locally and the differences determined by running the update_all_produycts script.
+It is also worth checking the impact the update has had on the main product database. This can be downloaded locally and the differences determined by running the update_all_products script.
 
 The previous values of the Ecoscore are stored in the previous_data section under ecoscore_data. Before applying an update you will need to delete this section with the following MongoDB script:
 
@@ -155,7 +155,7 @@ products.forEach((result) => {
 
 ## Link existing Categories to new AGRIBALYSE codes
 
-If a new AGRIBALYSE category matches and existing OFF Category then the two can be linked by adding an `agribalyse_food_code:en` tag. If there is not a precise match then add an `agribalyse_proxy_food_code:en` tag along with the `agribalyse_proxy_food_name:en` and `agribalyse_proxy_food_name:fr` tags.
+If a new AGRIBALYSE category matches an existing OFF Category then the two can be linked by adding an `agribalyse_food_code:en` tag. If there is no precise match then add an `agribalyse_proxy_food_code:en` tag along with the `agribalyse_proxy_food_name:en` and `agribalyse_proxy_food_name:fr` tags.
 
 Re-run the `update_all_products` script after doing this to assess how many products now have an Ecoscore when they did not previously. Use the above scripts to analyse the MongoDB, the new categories will have previous values of `undefined`.
 
@@ -165,7 +165,7 @@ For any new categories, review the AGRIBALYSE category descriptions to ensure th
 
 It is not necessary to add a category for every single AGRIBALYSE entry. For example, AGRIBALYSE has over 80 codes for different mineral waters but these all have almost exactly the same environmental impact. In cases like this it is acceptable to pick a single representative AGRIBALYSE code as a proxy for the Category in general.
 
-It may be worth doing a final check to see how many categories cominations still do not have a match to AGRIBALYSE:
+It may be worth doing a final check to see how many category combinations still do not have a match in AGRIBALYSE:
 
 ```js
 var missing = db.products

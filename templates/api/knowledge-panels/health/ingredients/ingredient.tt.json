@@ -1,0 +1,46 @@
+{
+    "level": "info",
+    "topics": [
+        "health"
+    ],
+    "size": "small",
+    "title_element": {
+        // double backticks: convert to a single line without newlines and extra spaces
+        "title": ``
+        [% dash = "—" %]
+        [% dash.repeat(panel.level) %]
+
+        [% display_taxonomy_tag_name("ingredients", panel.ingredient_id) %][% sep %]:
+        [% IF panel.ingredient.percent.defined %]
+            [% sprintf("%.1f", panel.ingredient.percent) %]%
+        [% ELSIF panel.ingredient.percent_estimate.defined %]
+            [% IF panel.ingredient.percent_estimate < 2 %]
+                < 2% ([% lang("estimate") %])
+            [% ELSE %]
+                [% sprintf("%.1f", panel.ingredient.percent_estimate) %]% ([% lang("estimate") %])
+            [% END %]
+        [% END %]
+        ``,
+    },        
+    "elements": [
+        [% IF panel.ingredient_description %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `[% panel.ingredient_description %]`
+            }
+        }
+        [% ELSIF panel.wikipedia_abstract %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `<strong>[% edq(panel.wikipedia_title) %][% sep %]:</strong> [% edq(panel.wikipedia_abstract) %]`,
+                "source_text": `Wikipedia`,
+                "source_url": `[% panel.wikipedia_url %]`,
+                "source_lc": "[% panel.wikipedia_url_lc %]",
+                "source_language": "[% panel.wikipedia_url_language %]"
+            }
+        }
+        [% END %]
+    ]
+}

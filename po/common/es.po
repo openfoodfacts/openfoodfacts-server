@@ -15,6 +15,76 @@ msgstr ""
 "X-Crowdin-Language: es-ES\n"
 "X-Crowdin-File-ID: 3123\n"
 
+msgctxt "site_description_off"
+msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
+msgstr "Una base de datos colaborativa, gratuita y abierta de Ingredientes, información nutricional e información sobre los productos alimenticios del mundo entero"
+
+msgctxt "tagline_off"
+msgid "Open Food Facts gathers information and data on food products from around the world."
+msgstr "Open Food Facts recopila información sobre los productos alimenticios de todo el mundo."
+
+msgctxt "footer_tagline_off"
+msgid "A collaborative, free and open database of food products from around the world."
+msgstr "Una base de datos colaborativa, libre y abierta de productos alimenticios de todo el mundo."
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_off"
+msgid "/open-food-facts-mobile-app"
+msgstr "/open-food-facts-mobile-app"
+
+msgctxt "site_description_obf"
+msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
+msgstr "Una base de datos colaborativa, libre y abierta, con información de los productos cosméticos de todo el mundo"
+
+msgctxt "tagline_obf"
+msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
+msgstr "Open Beauty Facts contiene datos e información sobre productos cosméticos en todo el mundo."
+
+msgctxt "footer_tagline_obf"
+msgid "A collaborative, free and open database of cosmetic products from around the world."
+msgstr "Una base de datos colaborativa, libre y abierta de los productos cosméticos de todo el mundo."
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_obf"
+msgid "/open-beauty-facts-mobile-app"
+msgstr "/open-beauty-facts-mobile-app"
+
+msgctxt "footer_and_the_facebook_group_obf"
+msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
+msgstr "y el <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">grupo de Facebook para personas colaboradoras</a>"
+
+msgctxt "search_description_opensearch_obf"
+msgid "Open Beauty Facts product search"
+msgstr "Búsqueda de productos Open Beauty Facts"
+
+msgctxt "warning_not_complete_obf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "La página de este producto no está completa. Puedes ayudar a completarla editando y añadiendo más datos desde las imágenes que ya tenemos, o subiendo las tuyas a través de la aplicación para <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=es\">Android</a> o para <a href=\"https://apps.apple.com/es/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. ¡Muchas gracias!"
+
+msgctxt "brands_example_beauty"
+msgid "Nivea, Nivea Men"
+msgstr "Nivea, Nivea Men"
+
+msgctxt "categories_example_beauty"
+msgid "Anti-dandruff shampoo, Whitening toothpaste"
+msgstr "Champú anticaspa, crema dental blanqueadora"
+
+msgctxt "emb_codes_example_beauty"
+msgid "EMB 53062"
+msgstr "EMB 53062"
+
+msgctxt "generic_name_example_beauty"
+msgid "Anti-dandruff shampoo"
+msgstr "Champú anticaspa"
+
+msgctxt "product_name_example_beauty"
+msgid "Anti-Perspirant Stress Protect"
+msgstr "Protección antitranspirante y antiestrés"
+
+msgctxt "ingredients_text_example_beauty"
+msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+msgstr "AGUA, LAURIL ÉTER SULFATO DE SODIO, COCOANFODIACETATO DE DISODIO, DIESTERATO DE GLICOL, COCAMIDE MEA"
+
 msgctxt "1_product"
 msgid "1 product"
 msgstr "1 producto"
@@ -53,7 +123,7 @@ msgstr "¡Gracias por unirte!"
 
 msgctxt "add_user_you_can_edit"
 msgid "You can now add and edit products on the web or with our free <a href=\"%s\">mobile app</a>."
-msgstr "Ahora puede añadir y editar productos en la web o con nuestra <a href=\"%s\">aplicación móvil</a> gratuita."
+msgstr "Ahora puedes añadir y editar productos en la web o con nuestra <a href=\"%s\">aplicación móvil</a> gratuita."
 
 msgctxt "join_us_on_slack"
 msgid "Join us on Slack"
@@ -97,7 +167,7 @@ msgstr "Conceder/eliminar estado de administrador"
 
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
-msgstr "Si tienes dudas envíanos un correo electrónico a <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a>."
+msgstr "Si tienes alguna duda o pregunta, envíanos un correo electrónico a <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a>."
 
 msgctxt "if_you_work_for_a_producer"
 msgid "If you work for a producer or brand and will add or complete data for your own products only, you can get access to our completely free Platform for Producers."
@@ -174,7 +244,7 @@ msgstr "El exceso de alcohol es perjudicial para la salud."
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
-msgstr ""
+msgstr "Ten en cuenta que tu cuenta Pro solamente será válida si utilizas tu dirección de correo electrónico profesional. Nuestro equipo de moderación comprobará que el nombre del dominio coincide con la organización a la que deseas unirte."
 
 msgctxt "all_missions"
 msgid "All missions"
@@ -196,6 +266,14 @@ msgctxt "also_edited_by"
 msgid "Product page also edited by"
 msgstr "La página de este producto también ha sido editada por"
 
+msgctxt "analytical_constituents"
+msgid "Analytical constituents"
+msgstr ""
+
+msgctxt "analytical_constituents_per_1kg"
+msgid "for 1 kg"
+msgstr ""
+
 msgctxt "android_apk_app_icon_url"
 msgid "/images/misc/android-apk.svg"
 msgstr "/images/misc/android-apk.svg"
@@ -203,11 +281,6 @@ msgstr "/images/misc/android-apk.svg"
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
 msgstr "Android APK"
-
-# DO NOT TRANSLATE
-msgctxt "android_apk_app_link"
-msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
@@ -217,11 +290,6 @@ msgstr "/images/misc/playstore/img/es_get.svg"
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
 msgstr "Disponible en Google Play"
-
-# Change hl=en to your language, and make sure the url works
-msgctxt "android_app_link"
-msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
-msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=es"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -489,10 +557,6 @@ msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
 msgstr "Esto eliminará sus datos de usuario y anonimizará todas sus contribuciones. Vuelva a ingresar su nombre de usuario para confirmar."
 
-msgctxt "description"
-msgid "Description"
-msgstr "Descripción"
-
 msgctxt "danger_zone"
 msgid "Danger Zone"
 msgstr "Zona peligrosa"
@@ -523,7 +587,7 @@ msgstr "Huella ecológica"
 
 msgctxt "ecological_data_table_note"
 msgid "If the carbon footprint is specified on the label (rarely at this time), indicate it for the same quantity than the nutritional composition."
-msgstr "Si aparece en el envase la huella ecológica (muy raro en la actualidad), indícala por la misma cantidad que la información nutricional."
+msgstr "Si la huella de carbono aparece en el etiquetado (muy raro en la actualidad), indícala por la misma cantidad que la composición nutricional."
 
 msgctxt "edit"
 msgid "edit"
@@ -742,10 +806,6 @@ msgctxt "facebook_locale"
 msgid "en_US"
 msgstr "es_ES"
 
-msgctxt "facebook_page"
-msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr "https://www.facebook.com/OpenFoodFacts"
-
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
 msgstr "Si la información está incompleta o es incorrecta, puedes completarla o corregirla editando esta página."
@@ -832,6 +892,15 @@ msgctxt "footer_legal_link"
 msgid "/legal"
 msgstr "/legal"
 
+msgctxt "footer_privacy"
+msgid "Privacy"
+msgstr "Privacidad"
+
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
+msgctxt "footer_privacy_link"
+msgid "/privacy"
+msgstr "/privacidad"
+
 msgctxt "footer_press"
 msgid "Press"
 msgstr "Prensa"
@@ -841,10 +910,6 @@ msgctxt "footer_press_link"
 msgid "/press"
 msgstr "/prensa"
 
-msgctxt "footer_tagline"
-msgid "A collaborative, free and open database of food products from around the world."
-msgstr "Una base de datos colaborativa, libre y abierta de productos alimenticios de todo el mundo."
-
 msgctxt "footer_terms"
 msgid "Terms of use"
 msgstr "Condiciones de uso"
@@ -852,7 +917,7 @@ msgstr "Condiciones de uso"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
-msgstr "/terms-of-use"
+msgstr "/condiciones-de-uso"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
@@ -875,7 +940,7 @@ msgstr "https://es.wiki.openfoodfacts.org"
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
 msgid "Open Beauty Facts - Cosmetics"
-msgstr "Open Beauty Facts - Cosméticos"
+msgstr "Open Beauty Facts (cosméticos)"
 
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
@@ -883,7 +948,7 @@ msgstr "https://world.openbeautyfacts.org"
 
 msgctxt "footer_pro"
 msgid "Open Food Facts for Producers"
-msgstr ""
+msgstr "Open Food Facts para los productores"
 
 msgctxt "for"
 msgid "for"
@@ -1124,10 +1189,6 @@ msgctxt "ios_app_icon_alt_text"
 msgid "Download on the App Store"
 msgstr "Descargar en la App Store"
 
-msgctxt "ios_app_link"
-msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr ""
-
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
 msgstr "nutrientes conocidos"
@@ -1138,7 +1199,7 @@ msgstr "nutriente conocido"
 
 msgctxt "labels"
 msgid "Labels, certifications, awards"
-msgstr "Etiquetas, certificaciones, premios"
+msgstr "Sellos, certificados de calidad, premios"
 
 msgctxt "labels_example"
 msgid "Organic"
@@ -1146,7 +1207,7 @@ msgstr "Ecológico, Fairtrade-Max Havelaar, I.G.P., D.O.P., Sabor del año 2012.
 
 msgctxt "labels_note"
 msgid "Indicate only the most specific labels. \"Parents\" labels will be added automatically."
-msgstr "Indica sólo las etiquetas más específicas. Las categorías \"Superiores\" como 'Eco' o 'Comercio Justo' se añadirán automáticamente."
+msgstr "Indica sólo el etiquetado más específico. Las etiquetas <b>superiores</b>, como <i>Eco</i> o <i>Comercio Justo</i> se añadirán automáticamente."
 
 msgctxt "labels_p"
 msgid "labels"
@@ -1158,7 +1219,7 @@ msgstr "Productos con la etiqueta %s"
 
 msgctxt "labels_s"
 msgid "label"
-msgstr "etiqueta"
+msgstr "sello"
 
 msgctxt "labels_tagsinput"
 msgid "add a label"
@@ -1495,7 +1556,7 @@ msgstr "Valores nutricionales medios para los %d productos de la categoría %s p
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
-msgstr "Diferencia en %"
+msgstr "% de diferencia"
 
 msgctxt "nutrition_data_compare_value"
 msgid "value for 100 g / 100 ml"
@@ -1797,7 +1858,7 @@ msgstr "Producto creado"
 
 msgctxt "product_description"
 msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
-msgstr "Ingredientes, alérgenos, aditivos, información nutricional, etiquetas, origen de ingredientes e información sobre el producto %s"
+msgstr "Ingredientes, alérgenos, aditivos, información nutricional, etiquetado especial, origen de los ingredientes e información sobre el producto %s"
 
 msgctxt "product_image"
 msgid "Product picture"
@@ -1837,7 +1898,7 @@ msgstr "Equilibra los colores"
 
 msgctxt "product_js_image_open_full_size_image"
 msgid "Open the picture in original size in a new windows"
-msgstr "Abrir la imagen en su tamaño original en una nueva ventana"
+msgstr "Abrir la imagen en tamaño original en una nueva ventana"
 
 msgctxt "product_js_image_received"
 msgid "Image received"
@@ -1845,7 +1906,7 @@ msgstr "La imagen ha sido recibida"
 
 msgctxt "product_js_image_rotate_and_crop"
 msgid "Rotate the image if necessary, then click and drag to select the interesting zone:"
-msgstr "Rota la imagen si es necesario, después haz clic y arrastra para seleccionar la zona de interés:"
+msgstr "Si es necesario, gira la imagen, luego haz clic y arrastra para seleccionar la zona deseada:"
 
 msgctxt "product_js_image_rotate_left"
 msgid "Rotate left"
@@ -1857,7 +1918,7 @@ msgstr "Girar a la derecha"
 
 msgctxt "product_js_image_save"
 msgid "Validate and/or resize image"
-msgstr "Validar y/o recortar la imagen"
+msgstr "Validar o recortar la imagen"
 
 msgctxt "product_js_image_saved"
 msgid "Image saved"
@@ -2088,8 +2149,8 @@ msgid "Select products with specific brands, categories, labels, origins of ingr
 msgstr "Selecciona los productos con marcas específicas, categorías, etiquetas, origen de los ingredientes, lugar de fabricación, etc."
 
 msgctxt "search_description_opensearch"
-msgid "Open Food Facts product search"
-msgstr "Búsqueda de productos en Open Food Facts"
+msgid "Product search"
+msgstr "Búsqueda de producto"
 
 msgctxt "search_does_not_contain"
 msgid "does not contain"
@@ -2275,7 +2336,7 @@ msgstr "Criterios"
 
 msgctxt "search_terms"
 msgid "Search terms"
-msgstr "Palabras a buscar"
+msgstr "Términos de búsqueda"
 
 msgctxt "search_terms_note"
 msgid "Search for words present in the product name, generic name, brands, categories, origins and labels"
@@ -2380,18 +2441,6 @@ msgstr "Si ya tienes una cuenta en <SITE>, por favor, inicia la sesión antes de
 msgctxt "signout"
 msgid "Sign-out"
 msgstr "Cerrar sesión"
-
-msgctxt "site_description"
-msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr "Ingredientes, información nutricional e información sobre los productos alimenticios del mundo entero en una base de datos libre y abierta"
-
-msgctxt "site_name"
-msgid "Open Food Facts"
-msgstr "Open Food Facts"
-
-msgctxt "logo_site_name"
-msgid "Open Food Facts logo"
-msgstr "Logotipo de Open Food Facts"
 
 msgctxt "sort_by"
 msgid "Sort by"
@@ -2506,10 +2555,6 @@ msgctxt "twitter"
 msgid "Twitter username (optional)"
 msgstr "Nombre de usuario en Twitter (opcional)"
 
-msgctxt "twitter_account"
-msgid "OpenFoodFacts"
-msgstr "OpenFoodFactsES"
-
 msgctxt "unknown"
 msgid "Unknown"
 msgstr "Desconocido"
@@ -2586,6 +2631,10 @@ msgctxt "view"
 msgid "view"
 msgstr "ver"
 
+msgctxt "view_this_revision"
+msgid "View this revision"
+msgstr "Ver esta revisión"
+
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
 msgstr "Ver la lista de los productos especificados de todo el mundo"
@@ -2607,20 +2656,6 @@ msgstr "La información y los datos deben provenir del envase o del etiquetado d
 msgctxt "website"
 msgid "Site or blog address"
 msgstr "Dirección del blog o del sitio web"
-
-# Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
-msgctxt "windows_phone_app_icon_url"
-msgid "/images/misc/microsoft/English.svg"
-msgstr "/images/misc/microsoft/Spanish.svg"
-
-msgctxt "windows_phone_app_icon_alt_text"
-msgid "Get it from Microsoft"
-msgstr "Obténgalo de Microsoft"
-
-# Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
-msgctxt "windows_phone_app_link"
-msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
-msgstr "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -3922,7 +3957,7 @@ msgstr "Detalles del cálculo del Nutri-Score"
 
 msgctxt "nutriscore_is_beverage"
 msgid "This product is considered a beverage for the calculation of the Nutri-Score."
-msgstr "Este producto se considera una bebida para el cálculo de la Nutri-Score."
+msgstr "Este producto se considera una bebida para el cálculo del Nutri-Score."
 
 msgctxt "nutriscore_is_not_beverage"
 msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
@@ -4599,13 +4634,15 @@ msgctxt "attribute_nutriscore_c_description_short"
 msgid "Average nutritional quality"
 msgstr "Calidad nutricional media"
 
+# lower: translate to "less good" in some languages (e.g. French: "Moins bonne qualité nutritionnelle")
 msgctxt "attribute_nutriscore_d_description_short"
-msgid "Poor nutritional quality"
-msgstr "Calidad nutricional baja"
+msgid "Lower nutritional quality"
+msgstr "Baja calidad nutricional"
 
+# lower: translate to "less good" in some languages (e.g. French: "Moins bonne qualité nutritionnelle")
 msgctxt "attribute_nutriscore_e_description_short"
-msgid "Bad nutritional quality"
-msgstr "Calidad nutricional mala"
+msgid "Lower nutritional quality"
+msgstr "Baja calidad nutricional"
 
 msgctxt "attribute_group_processing_name"
 msgid "Food processing"
@@ -4645,8 +4682,17 @@ msgid "Processed foods"
 msgstr "Alimentos procesados"
 
 msgctxt "attribute_nova_4_description_short"
-msgid "Ultra processed foods"
+msgid "Ultra-processed foods"
 msgstr "Alimentos ultraprocesados"
+
+msgctxt "attribute_nova_4_1_marker"
+msgid "1 ultra-processing marker"
+msgstr "1 marcador de ultra procesamiento"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_nova_4_markers"
+msgid "{number} ultra-processing markers"
+msgstr "{number} marcadores de ultraprocesamiento"
 
 msgctxt "export_product_page"
 msgid "Export product to public database"
@@ -4714,15 +4760,15 @@ msgstr "Aditivos no calculados"
 
 msgctxt "preference_not_important"
 msgid "Not important"
-msgstr "No importa"
+msgstr "No es importante"
 
 msgctxt "preference_important"
 msgid "Important"
-msgstr "Importa"
+msgstr "Importante"
 
 msgctxt "preference_very_important"
 msgid "Very important"
-msgstr "Importa mucho"
+msgstr "Muy importante"
 
 msgctxt "preference_mandatory"
 msgid "Mandatory"
@@ -4785,40 +4831,61 @@ msgctxt "attribute_group_environment_name"
 msgid "Environment"
 msgstr "Medioambiente"
 
+msgctxt "attribute_environmental_score_name"
+msgid "Green-Score"
+msgstr ""
+
+msgctxt "attribute_environmental_score_setting_name"
+msgid "Low environmental impact (Green-Score)"
+msgstr "Impacto medioambiental bajo (Green-Score)"
+
+msgctxt "attribute_environmental_score_setting_note"
+msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
+msgstr "El Green-Score es una puntuación ambiental de la A a la E que facilita la comparación del impacto de los productos alimenticios en el medio ambiente."
+
+# Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
-msgid "Eco-Score"
-msgstr "Eco-Score"
+msgid "Green-Score"
+msgstr ""
 
 msgctxt "attribute_ecoscore_setting_name"
-msgid "Low environmental impact (Eco-Score)"
-msgstr "Impacto medioambiental bajo (Eco-Score)"
+msgid "Low environmental impact (Green-Score)"
+msgstr "Impacto medioambiental bajo (Green-Score)"
 
 msgctxt "attribute_ecoscore_setting_note"
-msgid "The Eco-Score is an environmental score (ecoscore) from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "El Eco-Score es un indicador medioambiental (ecoscore), con una puntuación de \"A\" a \"E\", con el cual se puede comparar fácilmente el impacto de los productos alimenticios sobre el medio ambiente."
+msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
+msgstr "El Green-Score es una puntuación ambiental de la A a la E que facilita la comparación del impacto de los productos alimenticios en el medio ambiente."
 
-# keep %s, it will be replaced by the letter A, B, C, D or E
-msgctxt "attribute_ecoscore_grade_title"
-msgid "Eco-Score %s"
-msgstr "Eco-Score %s"
+# keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
+msgctxt "attribute_environmental_score_grade_title"
+msgid "Green-Score %s"
+msgstr ""
 
-msgctxt "attribute_ecoscore_a_description_short"
+msgctxt "attribute_environmental_score_a_plus_description_short"
 msgid "Very low environmental impact"
 msgstr "Impacto ambiental muy bajo"
 
-msgctxt "attribute_ecoscore_b_description_short"
+msgctxt "attribute_environmental_score_a_description_short"
+msgid "Very low environmental impact"
+msgstr "Impacto ambiental muy bajo"
+
+msgctxt "attribute_environmental_score_b_description_short"
 msgid "Low environmental impact"
 msgstr "Bajo impacto ambiental"
 
-msgctxt "attribute_ecoscore_c_description_short"
+msgctxt "attribute_environmental_score_c_description_short"
 msgid "Moderate environmental impact"
-msgstr "Moderado impacto ambiental"
+msgstr "Impacto ambiental moderado"
 
-msgctxt "attribute_ecoscore_d_description_short"
+msgctxt "attribute_environmental_score_d_description_short"
 msgid "High environmental impact"
 msgstr "Alto impacto ambiental"
 
-msgctxt "attribute_ecoscore_e_description_short"
+msgctxt "attribute_environmental_score_e_description_short"
+msgid "Very high environmental impact"
+msgstr "Impacto ambiental altísimo"
+
+msgctxt "attribute_environmental_score_f_description_short"
 msgid "Very high environmental impact"
 msgstr "Impacto ambiental altísimo"
 
@@ -4946,10 +5013,6 @@ msgctxt "number_of_members"
 msgid "Number of Members"
 msgstr "Número de miembros"
 
-msgctxt "serial_no"
-msgid "S.No"
-msgstr "S.No"
-
 msgctxt "contact_form"
 msgid "Contact form"
 msgstr "Formulario de contacto"
@@ -4975,41 +5038,41 @@ msgctxt "environmental_impact"
 msgid "Environmental impact"
 msgstr "Impacto medioambiental"
 
-# Numerical score for the Eco-score (do not translate Eco-score)
-msgctxt "ecoscore_score"
-msgid "Eco-score score"
-msgstr "Puntuación Eco-score"
+# Numerical score for the Green-Score (do not translate Green-Score)
+msgctxt "environmental_score_score"
+msgid "Green-Score score"
+msgstr ""
 
-# Letter grade from A to E for the Eco-score (do not translate Eco-score)
-msgctxt "ecoscore_grade"
-msgid "Eco-score grade"
-msgstr "Calificación Eco-score"
+# Letter grade from A to E for the Green-Score (do not translate Green-Score)
+msgctxt "environmental_score_grade"
+msgid "Green-Score grade"
+msgstr ""
 
-# do not translate Eco-score
-msgctxt "ecoscore_calculation_details"
-msgid "Details of the calculation of the Eco-score"
-msgstr "Detalles del cálculo del Eco-score"
+# do not translate Green-Score
+msgctxt "environmental_score_calculation_details"
+msgid "Details of the calculation of the Green-Score"
+msgstr ""
 
-# do not translate Eco-score
-msgctxt "ecoscore_information"
-msgid "Information about the Eco-score"
-msgstr "Información sobre el Eco-Score"
-
-msgctxt "preferences_edit_your_food_preferences"
-msgid "Edit your food preferences"
-msgstr "Edita tus preferencias alimentarias"
-
-msgctxt "preferences_your_preferences"
-msgid "Your food preferences"
-msgstr "Tus preferencias alimentarias"
+# do not translate Green-Score
+msgctxt "environmental_score_information"
+msgid "Information about the Green-Score"
+msgstr ""
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
 msgstr "Preferencias actualmente seleccionadas"
 
 msgctxt "preferences_locally_saved"
-msgid "Your food preferences are kept in your browser and never sent to Open Food Facts or anyone else."
-msgstr "Tus preferencias de alimentos se mantienen en tu navegador y nunca se envían a Open Food Facts ni a nadie más."
+msgid "Your preferences are kept in your browser and never sent to Open Food Facts or anyone else."
+msgstr "Sus preferencias se guardan en su navegador y nunca se envían a Open Food Facts ni a ninguna otra persona."
+
+msgctxt "preferences_edit_your_preferences"
+msgid "Edit your preferences"
+msgstr "Edita tus preferencias"
+
+msgctxt "preferences_your_preferences"
+msgid "Your preferences"
+msgstr "Tus preferencias"
 
 # used in phrases like "salt in unknown quantity"
 msgctxt "unknown_quantity"
@@ -5025,12 +5088,28 @@ msgid "Missing nutrition facts"
 msgstr "Faltan datos nutricionales"
 
 msgctxt "ecoscore_p"
-msgid "Eco-Score"
-msgstr "Eco-Score"
+msgid "Green-Score"
+msgstr ""
 
 msgctxt "ecoscore_s"
-msgid "Eco-Score"
-msgstr "Eco-Score"
+msgid "Green-Score"
+msgstr ""
+
+msgctxt "environmental_score_p"
+msgid "Green-Score"
+msgstr ""
+
+msgctxt "environmental_score_s"
+msgid "Green-Score"
+msgstr ""
+
+msgctxt "misc_p"
+msgid "Miscellaneous"
+msgstr "Miscelánea"
+
+msgctxt "misc_s"
+msgid "Miscellaneous"
+msgstr "Miscelánea"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5192,8 +5271,8 @@ msgstr "La plataforma también proporciona análisis en profundidad de los produ
 
 # It = the platform
 msgctxt "product_edits_by_producers_indicators"
-msgid "It computes indicators such as the Nutri-Score, NOVA, and the Eco-score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
-msgstr "Calcula indicadores como Nutri-Score, NOVA y Eco-score, e identifica automáticamente sugerencias para mejorarlos (por ejemplo, todos los productos que obtendrían una mejor calificación Nutri-Score con un ligero cambio de composición)."
+msgid "It computes indicators such as the Nutri-Score, NOVA, and the Green-Score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest footprint"
@@ -5272,9 +5351,9 @@ msgctxt "sort_by_nutriscore_score"
 msgid "Products with the best Nutri-Score"
 msgstr "Productos con la mejor puntuación Nutri-Score"
 
-msgctxt "sort_by_ecoscore_score"
-msgid "Products with the best Eco-Score"
-msgstr "Productos con la mejor puntuación Eco-Score"
+msgctxt "sort_by_environmental_score_score"
+msgid "Products with the best Green-Score"
+msgstr "Productos con la mejor puntuación Green-Score"
 
 msgctxt "sort_by_created_t"
 msgid "Recently added products"
@@ -5326,34 +5405,34 @@ msgctxt "delete_user_process"
 msgid "User is being deleted. This may take a few minutes."
 msgstr "El usuario está siendo eliminado. Esto puede tardar unos minutos."
 
-msgctxt "attribute_ecoscore_not_applicable_title"
-msgid "Eco-Score not yet applicable"
-msgstr "Eco-Score aún no aplicable"
+msgctxt "attribute_environmental_score_not_applicable_title"
+msgid "Green-Score not applicable"
+msgstr "No es posiible aplicar Green-Score"
 
-msgctxt "attribute_ecoscore_not_applicable_description_short"
-msgid "Not yet applicable for the category"
-msgstr "Aún no es aplicable para la categoría"
+msgctxt "attribute_environmental_score_not_applicable_description_short"
+msgid "Not applicable for the category"
+msgstr "No aplicable para la categoría"
 
 # variable names between { } must not be translated
-msgctxt "f_attribute_ecoscore_not_applicable_description"
+msgctxt "f_attribute_environmental_score_not_applicable_description"
 msgid "Not yet applicable for the category: {category}"
 msgstr "Aún no es aplicable para la categoría: {category}"
 
-msgctxt "ecoscore_not_applicable_coming_soon"
-msgid "The Eco-Score is not yet applicable for this category, but we are working on adding support for it."
-msgstr "El Eco-Score todavía no es aplicable para esta categoría, pero estamos trabajando en añadir soporte para ella."
+msgctxt "environmental_score_not_applicable_coming_soon"
+msgid "The Green-Score is not yet applicable for this category, but we are working on adding support for it."
+msgstr "El Green-Score todavía no es aplicable para esta categoría, pero estamos trabajando en añadir soporte para ella."
 
-msgctxt "attribute_ecoscore_unknown_title"
-msgid "Eco-Score not computed"
-msgstr "El Eco-Score no pudo ser calculado"
+msgctxt "attribute_environmental_score_unknown_title"
+msgid "Green-Score not computed"
+msgstr "El Green-Score no pudo ser calculado"
 
-msgctxt "attribute_ecoscore_unknown_description_short"
+msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr "Impacto medioambiental desconocido"
 
-msgctxt "ecoscore_unknown_call_to_help"
-msgid "We could not compute the Eco-Score of this product as it is missing some data, could you help complete it?"
-msgstr "No pudimos calcular el Eco-Score de este producto porque le faltan algunos datos, ¿podría ayudar a completarlo?"
+msgctxt "environmental_score_unknown_call_to_help"
+msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
+msgstr "No pudimos calcular el Green-Score de este producto porque le faltan algunos datos, ¿podría ayudar a completarlo?"
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
@@ -5481,223 +5560,223 @@ msgctxt "forest_footprint_one_line_explanation"
 msgid "The forest footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
 msgstr "La huella forestal se calcula al tomar en cuenta los ingredientes que requieren soya en su producción, ya que el cultivo de esta se vincula con la deforestación."
 
-msgctxt "ecoscore_agribalyse_match_warning"
-msgid "The Eco-Score can only be calculated if the product has a sufficiently precise category."
-msgstr "El Eco-Score solo se puede calcular si el producto tiene una categoría suficientemente precisa."
+msgctxt "environmental_score_agribalyse_match_warning"
+msgid "The Green-Score can only be calculated if the product has a sufficiently precise category."
+msgstr "El Green-Score solo se puede calcular si el producto tiene una categoría suficientemente precisa."
 
-msgctxt "ecoscore_add_more_precise_category"
+msgctxt "environmental_score_add_more_precise_category"
 msgid "You can modify the product page to add a more precise category."
 msgstr "Puedes modificar la página del producto para agregar una categoría más precisa."
 
-msgctxt "ecoscore_platform_promo"
+msgctxt "environmental_score_platform_promo"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
 msgstr "Si tú eres el fabricante de este producto, puedes enviarnos la información con nuestra <a href=\"https://world.pro.openfoodfacts.org\">plataforma gratuita para fabricantes</a>."
 
-msgctxt "ecoscore_warning_missing_information"
-msgid "Warning: some information necessary to calculate the Eco-Score with precision is not provided (see the details of the calculation below)."
-msgstr "Atención: no se ha proporciona cierta información necesaria para calcular el Eco-Score con precisión (ver los detalles de los cálculos a continuación)."
+msgctxt "environmental_score_warning_missing_information"
+msgid "Warning: some information necessary to calculate the Green-Score with precision is not provided (see the details of the calculation below)."
+msgstr "Advertencia: no se proporciona cierta información necesaria para calcular el Green-Score con precisión (ver los detalles de los cálculos a continuación)."
 
-msgctxt "ecoscore_add_missing_information"
+msgctxt "environmental_score_add_missing_information"
 msgid "You can edit the product to add the missing information."
 msgstr "Puedes editar el producto para añadir la información que falta."
 
-msgctxt "ecoscore_product_category_reference_score"
+msgctxt "environmental_score_product_category_reference_score"
 msgid "Baseline score of the product category"
 msgstr "Puntuación de referencia de la categoría de producto"
 
-msgctxt "ecoscore_panel_lca"
+msgctxt "environmental_score_panel_lca"
 msgid "Lifecyle Analysis (LCA)"
 msgstr "Análisis de ciclo de vida (LCA)"
 
 # do not translate Agribalyse
-msgctxt "ecoscore_agribalyse_category"
+msgctxt "environmental_score_agribalyse_category"
 msgid "Agribalyse category"
 msgstr "Categoría Agribalista"
 
-msgctxt "ecoscore_category_proxy_match"
+msgctxt "environmental_score_category_proxy_match"
 msgid "Approximate match with the product category"
 msgstr "Coincidencia aproximada con la categoría de producto"
 
-msgctxt "ecoscore_category_exact_match"
+msgctxt "environmental_score_category_exact_match"
 msgid "Exact match with the product category"
 msgstr "Coincidencia exacta con la categoría de producto"
 
-msgctxt "ecoscore_pef_environmental_score"
+msgctxt "environmental_score_pef_environmental_score"
 msgid "PEF environmental score"
 msgstr "Puntuación ambiental PEF"
 
-msgctxt "ecoscore_incl_climate_change_impact"
+msgctxt "environmental_score_incl_climate_change_impact"
 msgid "including impact on climate change"
 msgstr "incluido el impacto sobre el cambio climático"
 
-msgctxt "ecoscore_impact_detail_by_stages"
+msgctxt "environmental_score_impact_detail_by_stages"
 msgid "Details of the impacts by stages of the life cycle"
 msgstr "Detalles de los impactos por etapas del ciclo de vida"
 
 # stage meaning step
-msgctxt "ecoscore_stage"
+msgctxt "environmental_score_stage"
 msgid "Stage"
 msgstr "Etapa"
 
-msgctxt "ecoscore_impact"
+msgctxt "environmental_score_impact"
 msgid "Impact"
 msgstr "Impacto"
 
-msgctxt "ecoscore_agriculture"
+msgctxt "environmental_score_agriculture"
 msgid "Agriculture"
 msgstr "Agricultura"
 
-msgctxt "ecoscore_processing"
+msgctxt "environmental_score_processing"
 msgid "Processing"
 msgstr "Procesado"
 
-msgctxt "ecoscore_packaging"
+msgctxt "environmental_score_packaging"
 msgid "Packaging"
 msgstr "Envase"
 
-msgctxt "ecoscore_transportation"
+msgctxt "environmental_score_transportation"
 msgid "Transportation"
 msgstr "Transporte"
 
-msgctxt "ecoscore_distribution"
+msgctxt "environmental_score_distribution"
 msgid "Distribution"
 msgstr "Distribución"
 
-msgctxt "ecoscore_consumption"
+msgctxt "environmental_score_consumption"
 msgid "Consumption"
 msgstr "Consumo"
 
-msgctxt "ecoscore_lca_score_out_of_100"
+msgctxt "environmental_score_lca_score_out_of_100"
 msgid "LCA score out of 100"
 msgstr "Puntuación LCA de 100"
 
-msgctxt "ecoscore_no_agribalyse_category_match"
+msgctxt "environmental_score_no_agribalyse_category_match"
 msgid "No match between product categories and Agribalyse categories."
 msgstr "No hay coincidencia entre las categorías de productos y las categorías de Agribalyse."
 
-msgctxt "ecoscore_edit_category_to_more_granular"
+msgctxt "environmental_score_edit_category_to_more_granular"
 msgid "You can modify the product page to add a more granular category."
 msgstr "Puedes modificar la página del producto para añadir una categoría más granular."
 
-msgctxt "ecoscore_additional_bonuses_and_maluses"
+msgctxt "environmental_score_additional_bonuses_and_maluses"
 msgid "Additional bonuses and maluses"
 msgstr "Bonificaciones y penalizaciones extra"
 
-msgctxt "ecoscore_production_system"
+msgctxt "environmental_score_production_system"
 msgid "Production mode"
 msgstr "Modo de producción"
 
-msgctxt "ecoscore_no_labels_taken_into_account"
+msgctxt "environmental_score_no_labels_taken_into_account"
 msgid "No labels taken into account for the production system."
 msgstr "No se han tenido en cuenta etiquetas para el sistema de producción."
 
-msgctxt "ecoscore_please_add_the_labels"
+msgctxt "environmental_score_please_add_the_labels"
 msgid "If this product has a label characterizing the production system (organic, fair trade, Label Rouge, Bleu Blanc Coeur etc.), you can modify the product sheet to add it."
-msgstr "Si este producto tiene una etiqueta que caracteriza el sistema de producción (comercio orgánico, justo, Etiqueta Roja, Bleu Blanc Coeur etc.)., puede modificar la ficha del producto para añadirla."
+msgstr "Si este producto dispone de etiquetado que indica el sistema de producción (comercio justo, orgánico, etc.), puedes modificar la ficha del producto para incluirlo."
 
-msgctxt "ecoscore_origins_of_ingredients"
+msgctxt "environmental_score_origins_of_ingredients"
 msgid "Origins of ingredients"
 msgstr "Origen de los ingredientes"
 
-msgctxt "ecoscore_ingredients_not_indicated"
+msgctxt "environmental_score_ingredients_not_indicated"
 msgid "The origins of the ingredients of this product are not indicated."
 msgstr "Los orígenes de los ingredientes de este producto no están indicados."
 
-msgctxt "ecoscore_please_add_the_ingredients"
+msgctxt "environmental_score_please_add_the_ingredients"
 msgid "If they are indicated on the packaging, you can modify the product sheet and add them."
 msgstr "Si están indicados en el embalaje, puedes modificar la hoja del producto y añadirlos."
 
-msgctxt "ecoscore_environmental_policy"
+msgctxt "environmental_score_environmental_policy"
 msgid "Environmental policy"
 msgstr "Política medioambiental"
 
-msgctxt "ecoscore_threatened_species"
+msgctxt "environmental_score_threatened_species"
 msgid "Threatened species"
 msgstr "Especies amenazadas"
 
-msgctxt "ecoscore_ingredients_whose_cultivation_threatens_species"
+msgctxt "environmental_score_ingredients_whose_cultivation_threatens_species"
 msgid "Ingredients that threatens species"
 msgstr "Ingredientes cuya plantación perjudica al entorno"
 
-msgctxt "ecoscore_no_species_threatening_ingredients"
+msgctxt "environmental_score_no_species_threatening_ingredients"
 msgid "No ingredients that threaten species"
 msgstr "Sin ingredientes cuya plantación perjudique al entorno"
 
-msgctxt "ecoscore_ingredients_unknown"
+msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
 msgstr "No se ha proporcionado la información sobre los componentes de este producto."
 
-msgctxt "ecoscore_edit_for_more_precise_ecoscore"
-msgid "For a more precise calculation of the Eco-Score, you can edit the product page and add them."
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
+msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
 msgstr "Para un cálculo más preciso de la puntuación ecológica, puedes editar la página del producto y añadirlas."
 
-msgctxt "ecoscore_packaging_ratio"
+msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
 msgstr "proporción"
 
-msgctxt "ecoscore_packaging_score"
+msgctxt "environmental_score_packaging_score"
 msgid "score"
 msgstr "puntuación"
 
-msgctxt "ecoscore_score_of_all_components"
+msgctxt "environmental_score_score_of_all_components"
 msgid "Score of all components"
 msgstr "Puntuación de todos los componentes"
 
-msgctxt "ecoscore_no_packaging_information"
+msgctxt "environmental_score_no_packaging_information"
 msgid "The information about the packaging of this product is not filled in."
 msgstr "La información sobre el envase de este producto no está completa."
 
-msgctxt "ecoscore_unprecise_packaging_information"
+msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
 msgstr "La información sobre el envase de este producto no está suficientemente detallada (formas y materiales exactos de todas las partes que componen el envase)."
 
-msgctxt "ecoscore_edit_for_more_precise_ecoscore"
-msgid "For a more precise calculation of the Eco-Score, you can modify the product page and add them."
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
+msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
 msgstr "Para un cálculo más preciso de la puntuación ecológica, puede modificar la página del producto y añadirlas."
 
-msgctxt "ecoscore_final_score"
+msgctxt "environmental_score_final_score"
 msgid "Final score"
 msgstr "Puntuación final"
 
-msgctxt "ecoscore_lower_the_score_lower_the_impact"
+msgctxt "environmental_score_lower_the_score_lower_the_impact"
 msgid "(the lower the score, the lower the impact)"
 msgstr "(cuanto menor sea la puntuación, menor será el impacto)"
 
-msgctxt "ecoscore_kg_co2_eq_kg_product"
+msgctxt "environmental_score_kg_co2_eq_kg_product"
 msgid "kg CO2 eq/kg of product"
 msgstr "kg CO2 eq / kg del producto"
 
 # do not translate the link
-msgctxt "ecoscore_platform_prompt_ecoscore_modal"
+msgctxt "environmental_score_platform_prompt_environmental_score_modal"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
 msgstr "Si tú eres el fabricante de este producto, puedes enviarnos la información con nuestra <a href=\"https://world.pro.openfoodfacts.org\">plataforma gratuita para fabricantes</a>."
 
-# do not translate Eco-Score and the link
-msgctxt "ecoscore_description"
-msgid "The <a href=\"/ecoscore\">Eco-Score</a> is an experimental score that summarizes the environmental impacts of food products."
-msgstr "El <a href=\"/ecoscore\">Eco-Score</a> es una puntuación experimental que resume el impacto ambiental de los productos alimentarios."
+# do not translate Green-Score and the link
+msgctxt "environmental_score_description"
+msgid "The <a href=\"/green-score\">Green-Score</a> is an experimental score that summarizes the environmental impacts of food products."
+msgstr "El <a href=\"/green-score\">Green-Score</a> es una puntuación experimental que resume el impacto ambiental de los productos alimentarios."
 
-# do not translate Eco-Score
-msgctxt "ecoscore_warning_fr"
-msgid "The Eco-Score formula is subject to change as it is regularly improved to make it more precise."
-msgstr "La fórmula Eco-Score está sujeta a cambios ya que se mejora regularmente para hacerla más precisa."
+# do not translate Green-Score
+msgctxt "environmental_score_warning_fr"
+msgid "The Green-Score formula is subject to change as it is regularly improved to make it more precise."
+msgstr "La fórmula Green-Score está sujeta a cambios ya que se mejora regularmente para hacerla más precisa."
 
-# do not translate Eco-Score
-msgctxt "ecoscore_warning_international"
-msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "El Eco-Score se desarrolló inicialmente para Francia y se está ampliando a otros países europeos. La fórmula Eco-Score está sujeta a cambios, ya que se mejora regularmente para hacerla más precisa y más adecuada para cada país."
+# do not translate Green-Score
+msgctxt "environmental_score_warning_international"
+msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgstr "El Green-Score se desarrolló inicialmente para Francia y se está ampliando a otros países europeos. La fórmula Green-Score está sujeta a cambios, ya que se mejora regularmente para hacerla más precisa y más adecuada para cada país."
 
-msgctxt "ecoscore_warning_transportation_world"
+msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
 msgstr "Selecciona un país para incluir el impacto total de su transporte."
 
-msgctxt "ecoscore_warning_transportation"
+msgctxt "environmental_score_warning_transportation"
 msgid "The full impact of transportation to your country is currently unknown."
 msgstr "El impacto total del transporte hacia tu país es actualmente desconocido."
 
 msgctxt "app_banner_text"
-msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
-msgstr "¡Escanea códigos de barras para obtener el Nutri-Score, el Eco-Score y mucho más!"
+msgid "Scan barcodes to get the Nutri-Score, the Green-Score and more!"
+msgstr "¡Escanea códigos de barras para obtener el Nutri-Score, el Green-Score y más!"
 
 msgctxt "org_gs1_product_name_is_abbreviated"
 msgid "GS1 product names for this manufacturer are abbreviated."
@@ -5728,35 +5807,35 @@ msgctxt "org_protect_data_note"
 msgid "Removing or changing the provided data will be possible only by experimented contributors on the web site."
 msgstr "Eliminar o cambiar los datos proporcionados solo será posible por los colaboradores experimentados en el sitio web."
 
-msgctxt "ecoscore_packaging_impact_high"
+msgctxt "environmental_score_packaging_impact_high"
 msgid "Packaging with a high impact"
 msgstr "Envases de alto impacto"
 
-msgctxt "ecoscore_packaging_impact_medium"
+msgctxt "environmental_score_packaging_impact_medium"
 msgid "Packaging with a medium impact"
 msgstr "Envases de impacto medio"
 
-msgctxt "ecoscore_packaging_impact_low"
+msgctxt "environmental_score_packaging_impact_low"
 msgid "Packaging with a low impact"
 msgstr "Envases de bajo impacto"
 
-msgctxt "ecoscore_packaging_missing_information"
+msgctxt "environmental_score_packaging_missing_information"
 msgid "Missing packaging information for this product"
 msgstr "Falta información sobre el envase de este producto"
 
-msgctxt "ecoscore_origins_of_ingredients_impact_high"
+msgctxt "environmental_score_origins_of_ingredients_impact_high"
 msgid "Origins of ingredients with a high impact"
 msgstr "Orígenes de ingredientes de alto impacto"
 
-msgctxt "ecoscore_origins_of_ingredients_impact_medium"
+msgctxt "environmental_score_origins_of_ingredients_impact_medium"
 msgid "Origins of ingredients with a medium impact"
 msgstr "Orígenes de ingredientes de impacto medio"
 
-msgctxt "ecoscore_origins_of_ingredients_impact_low"
+msgctxt "environmental_score_origins_of_ingredients_impact_low"
 msgid "Origins of ingredients with a low impact"
 msgstr "Orígenes de ingredientes de bajo impacto"
 
-msgctxt "ecoscore_origins_of_ingredients_missing_information"
+msgctxt "environmental_score_origins_of_ingredients_missing_information"
 msgid "Missing origins of ingredients information"
 msgstr "Falta información sobre los orígenes de los ingredientes"
 
@@ -5783,7 +5862,7 @@ msgstr "Importante: ¡necesitamos tu apoyo!"
 
 msgctxt "donation_text_2023_main"
 msgid "Help us make food transparency the norm!"
-msgstr "¡Ayúdanos a hacer de la transparencia alimentaria sea la norma!"
+msgstr "¡Ayúdanos a que la transparencia alimentaria sea la norma!"
 
 msgctxt "donation_text_2023_secondary"
 msgid "As a non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat."
@@ -5793,25 +5872,65 @@ msgctxt "donation_text_2023_tertiary"
 msgid "The food revolution starts with you!"
 msgstr "¡La revolución alimentaria comienza contigo!"
 
+msgctxt "donation_hook_2024"
+msgid "Help us inform millions of consumers around the world about what they eat"
+msgstr "Ayúdanos a informar a millones de consumidores de todo el mundo sobre lo que comen."
+
+msgctxt "donation_title_2024"
+msgid "Please give to our 2024 Fundraiser"
+msgstr ""
+
+msgctxt "donation_list_2024_main"
+msgid "Your donations fund the day-to-day operations of our non-profit association:"
+msgstr ""
+
+msgctxt "donation_list_2024_first"
+msgid "keeping our database open & available to all,"
+msgstr ""
+
+msgctxt "donation_list_2024_first_sub"
+msgid "technical infrastructure (website/mobile app) & a small permanent team"
+msgstr ""
+
+msgctxt "donation_list_2024_second"
+msgid "remain independent of the food industry,"
+msgstr ""
+
+msgctxt "donation_list_2024_third"
+msgid "engage a community of committed citizens,"
+msgstr ""
+
+msgctxt "donation_list_2024_fourth"
+msgid "support the advancement of public health research."
+msgstr ""
+
+msgctxt "donation_financial_2024_text"
+msgid "Each donation counts! We appreciate your support in bringing further food transparency in the world."
+msgstr "¡Cada donación cuenta! Agradecemos su apoyo para lograr una mayor transparencia alimentaria en el mundo."
+
+msgctxt "donation_button_2024_text"
+msgid "I SUPPORT"
+msgstr "YO APOYO"
+
 msgctxt "donation_cta"
 msgid "Donate"
 msgstr "Donar"
 
-msgctxt "ecoscore_production_system_no_labels_with_environmental_benefits"
+msgctxt "environmental_score_production_system_no_labels_with_environmental_benefits"
 msgid "No labels with environmental benefits"
-msgstr "Sin etiquetas con beneficios medioambientales"
+msgstr "Sin etiquetado de beneficios medioambientales"
 
-msgctxt "ecoscore_production_system_labels_with_environmental_benefits"
+msgctxt "environmental_score_production_system_labels_with_environmental_benefits"
 msgid "Labels with environmental benefits"
-msgstr "Etiquetas con beneficios medioambientales"
+msgstr "Etiquetado de beneficios medioambientales"
 
-msgctxt "ecoscore_production_system_labels_with_environmental_benefits_high"
+msgctxt "environmental_score_production_system_labels_with_environmental_benefits_high"
 msgid "Labels with high environmental benefits"
-msgstr "Etiquetas con elevados beneficios medioambientales"
+msgstr "Etiquetado de beneficios medioambientales altos"
 
-msgctxt "ecoscore_production_system_labels_with_environmental_benefits_very_high"
+msgctxt "environmental_score_production_system_labels_with_environmental_benefits_very_high"
 msgid "Labels with very high environmental benefits"
-msgstr "Etiquetas con beneficios medioambientales muy elevados"
+msgstr "Etiquetado de beneficios medioambientales muy altos"
 
 msgctxt "other"
 msgid "Other"
@@ -5840,8 +5959,21 @@ msgstr "Huella de carbono"
 
 # variable names between { } must not be translated
 msgctxt "f_carbon_footprint_per_100g_of_product"
-msgid "{grams} g CO² per 100g of product"
-msgstr "{grams} g CO² por 100 g de producto"
+msgid "{grams} g CO₂e per 100g of product"
+msgstr "{grams} g CO₂e por cada 100 g de producto"
+
+# variable names between { } must not be translated
+msgctxt "f_carbon_footprint_per_unit"
+msgid "{kilograms} kg CO₂e per unit"
+msgstr "{kilograms} kg de CO₂e por unidad"
+
+msgctxt "average_for_the_category"
+msgid "average for the category"
+msgstr "promedio de la categoría"
+
+msgctxt "data_source_and_detailed_carbon_impact"
+msgid "Data source and detailed carbon impact"
+msgstr "Fuente de datos e impacto de carbono detallado"
 
 # variable names between { } must not be translated
 msgctxt "f_equal_to_driving_km_in_a_petrol_car"
@@ -5888,27 +6020,27 @@ msgctxt "life_cycle_analysis"
 msgid "Life cycle analysis"
 msgstr "Análisis del ciclo de vida"
 
-msgctxt "ecoscore_bonuses_and_maluses"
+msgctxt "environmental_score_bonuses_and_maluses"
 msgid "Bonuses and maluses"
 msgstr "Bonificaciones y penalizaciones"
 
-msgctxt "ecoscore_for_this_product"
-msgid "Eco-Score for this product"
+msgctxt "environmental_score_for_this_product"
+msgid "Green-Score for this product"
 msgstr "Eco-puntuación para este producto"
 
 msgctxt "average_impact_of_the_category"
 msgid "Average impact of products of the same category"
 msgstr "Media de impacto de los productos de la misma categoría"
 
-msgctxt "ecoscore_sum_of_bonuses_and_maluses"
+msgctxt "environmental_score_sum_of_bonuses_and_maluses"
 msgid "Sum of bonuses and maluses"
 msgstr "Suma de bonificaciones y penalizaciones"
 
-msgctxt "ecoscore_sum_of_bonuses_and_maluses_is_capped"
+msgctxt "environmental_score_sum_of_bonuses_and_maluses_is_capped"
 msgid "The sum of bonuses and maluses is capped at +25."
 msgstr "La suma de bonificaciones y penalizaciones tiene un tope de +25."
 
-msgctxt "ecoscore_lca_score"
+msgctxt "environmental_score_lca_score"
 msgid "Life cycle analysis score"
 msgstr "Puntuación del análisis del ciclo de vida"
 
@@ -5916,7 +6048,7 @@ msgctxt "impact_for_this_product"
 msgid "Impact for this product"
 msgstr "Impacto de este producto"
 
-msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
+msgctxt "environmental_score_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
 msgstr "La puntuación de los productos con materiales de envasado no reciclables y no biodegradables está limitada a 79 (calificación B)."
 
@@ -5931,6 +6063,10 @@ msgstr "La categoría del producto debe ser especificada para calcular el Nutri-
 msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "Los datos nutricionales del producto deben ser especificados para calcular el Nutri-Score."
+
+msgctxt "nutriscore_missing_nutrition_data_details"
+msgid "Missing nutrition facts:"
+msgstr "Información nutricional faltante:"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
@@ -6117,7 +6253,7 @@ msgstr "Elementos que indican que el producto se encuentra en el grupo {nova_gro
 
 msgctxt "nova_classification_description"
 msgid "Food products are classified into 4 groups according to their degree of processing:"
-msgstr "Los productos alimenticios se clasifican en 4 grupos de acuerdo a su grado de procesamiento:"
+msgstr "Los productos alimenticios se clasifican en 4 grupos de acuerdo con su grado de procesamiento:"
 
 msgctxt "nova_classification_how"
 msgid "The determination of the group is based on the category of the product and on the ingredients it contains."
@@ -6147,9 +6283,9 @@ msgctxt "nutriscore_learn_more"
 msgid "Learn more about the Nutri-Score"
 msgstr "Aprende más sobre el Nutri-Score"
 
-msgctxt "ecoscore_learn_more"
-msgid "Learn more about the Eco-Score"
-msgstr "Más información sobre el Eco-Score"
+msgctxt "environmental_score_learn_more"
+msgid "Learn more about the Green-Score"
+msgstr "Más información sobre el Green-Score"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
@@ -6186,8 +6322,8 @@ msgid "Use default preferences"
 msgstr "Volver a los ajustes iniciales"
 
 msgctxt "reset_preferences_details"
-msgid "Nutri-Score, Eco-Score and food processing level (NOVA)"
-msgstr "Nutri-Score, Eco-Score y nivel de procesamiento de alimentos (NOVA)"
+msgid "Nutri-Score, Green-Score and food processing level (NOVA)"
+msgstr "Nutri-Score, Green-Score y nivel de procesamiento de alimentos (NOVA)"
 
 msgctxt "actions_add_ingredients"
 msgid "Could you add the ingredients list?"
@@ -6197,9 +6333,9 @@ msgctxt "actions_to_compute_nutriscore"
 msgid "Could you add the information needed to compute the Nutri-Score?"
 msgstr "¿Puedes añadir la información que falta para poder calcular el Nutri-Score?"
 
-msgctxt "actions_to_compute_ecoscore"
-msgid "Could you add a precise product category so that we can compute the Eco-Score?"
-msgstr "¿Puedes proporcionarnos la categoría o clasificar el producto para que podamos mostrar su Eco-Score?"
+msgctxt "actions_to_compute_environmental_score"
+msgid "Could you add a precise product category so that we can compute the Green-Score?"
+msgstr "¿Puedes proporcionarnos la categoría o clasificar el producto para que podamos mostrar su Green-Score?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -6224,6 +6360,10 @@ msgstr "Haz una fotografía de la información de reciclaje"
 msgctxt "action_add_packaging_components"
 msgid "Add packaging components"
 msgstr "Añadir un componente del envase"
+
+msgctxt "action_add_quantity"
+msgid "Add quantity of the product"
+msgstr "Añadir cantidad del producto"
 
 # this is not used yet
 msgctxt "action_add_basic_details"
@@ -6268,7 +6408,7 @@ msgstr "Añadir la tienda donde encontraste este producto"
 # this is not used yet
 msgctxt "action_labels"
 msgid "Add any label present on this product"
-msgstr "Añadir etiquetas presentes en este producto"
+msgstr "Añadir el etiquetado presente en este producto"
 
 # this is not used yet
 msgctxt "action_countries"
@@ -6279,6 +6419,10 @@ msgstr "Añadir el país donde encontraste este producto"
 msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
 msgstr "Haz una foto a los códigos de trazabilidad"
+
+msgctxt "action_report_product_to_nutripatrol"
+msgid "Report this product to our moderators"
+msgstr "Reportar este producto a nuestros moderadores"
 
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
@@ -6425,6 +6569,10 @@ msgctxt "api_result_product_not_found"
 msgid "Product not found"
 msgstr "Producto no encontrado"
 
+msgctxt "api_result_product_found_with_a_different_product_type"
+msgid "Product found with a different product type"
+msgstr "Producto encontrado con un tipo de producto diferente"
+
 msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr "Producto actualizado"
@@ -6449,13 +6597,17 @@ msgctxt "api_message_invalid_code"
 msgid "Invalid code"
 msgstr "Código no válido"
 
+msgctxt "api_message_invalid_product_type"
+msgid "Invalid product type"
+msgstr "Tipo de producto no válido"
+
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
 msgstr "Tipo no válido: debe ser un objeto"
 
 msgctxt "api_message_invalid_type_must_be_array"
 msgid "Invalid type: must be an array"
-msgstr "Tipo no válido: debe ser una gama"
+msgstr "Tipo no válido: debe ser una matriz"
 
 msgctxt "api_message_invalid_type_must_be_integer"
 msgid "Invalid type: must be an integer"
@@ -6463,11 +6615,11 @@ msgstr "Tipo no válido: debe ser un número entero"
 
 msgctxt "api_message_invalid_type_must_be_number"
 msgid "Invalid type: must be a number"
-msgstr "Tipo no válido: Debe ser una cifra"
+msgstr "Tipo no válido: debe ser un número"
 
 msgctxt "api_message_missing_field"
 msgid "Missing field"
-msgstr "Capo vacío"
+msgstr "Campo vacío"
 
 msgctxt "api_message_unrecognized_field"
 msgid "Unrecognized field"
@@ -6585,10 +6737,6 @@ msgctxt "faq_for_producers"
 msgid "FAQ for producers"
 msgstr "Preguntas frecuentes para productores"
 
-msgctxt "join_the_next_pros_meet_up"
-msgid "Join the next Pros' Meet-up"
-msgstr "Participa en el próximo encuentro de profesionales"
-
 # variable names between { } must not be translated
 msgctxt "product_js_enter_value_between_0_and_max"
 msgid "Please enter a value between 0 and {max}."
@@ -6684,7 +6832,7 @@ msgstr "Valor energético"
 
 msgctxt "nutriscore_component_energy_from_saturated_fat"
 msgid "Energy from saturated fat"
-msgstr ""
+msgstr "Energía a partir de grasa saturada"
 
 msgctxt "nutriscore_component_sugars"
 msgid "Sugars"
@@ -6696,7 +6844,7 @@ msgstr "Grasas saturadas"
 
 msgctxt "nutriscore_component_saturated_fat_ratio"
 msgid "Saturated fat / fat"
-msgstr ""
+msgstr "Grasa saturada / grasa"
 
 msgctxt "nutriscore_component_salt"
 msgid "Salt"
@@ -6704,11 +6852,11 @@ msgstr "Sal"
 
 msgctxt "nutriscore_component_non_nutritive_sweeteners"
 msgid "Non-nutritive sweeteners"
-msgstr ""
+msgstr "Edulcorantes no nutritivos"
 
 msgctxt "nutriscore_component_fruits_vegetables_legumes"
 msgid "Fruits, vegetables and legumes"
-msgstr ""
+msgstr "Frutas, vegetales y legumbres"
 
 msgctxt "nutriscore_component_fiber"
 msgid "Fiber"
@@ -6720,75 +6868,87 @@ msgstr "Proteínas"
 
 msgctxt "presence"
 msgid "Presence"
-msgstr ""
+msgstr "Presencia"
 
 msgctxt "absence"
 msgid "Absence"
-msgstr ""
+msgstr "Ausencia"
 
 msgctxt "nutriscore_is_water"
 msgid "This product is considered to be water for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Este producto se considera agua para el cálculo del Nutri-Score."
 
 msgctxt "nutriscore_is_fat_oil_nuts_seeds"
 msgid "This product is considered to be fat, oil, nuts or seeds for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Este producto se considera grasa, aceite, frutos secos o semillas para el cálculo del Nutri-Score."
 
 msgctxt "nutriscore_is_cheese"
 msgid "This product is considered to be cheese for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Este producto se considera queso para el cálculo del Nutri-Score."
 
 msgctxt "nutriscore_is_red_meat_product"
 msgid "This product is considered to be a red meat product for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Este producto se considera un producto de carne roja para el cálculo del Nutri-Score."
 
 msgctxt "nutriscore_count_proteins_reason_beverage"
 msgid "Points for proteins are counted because the product is considered to be a beverage."
-msgstr ""
+msgstr "Los puntos por proteínas se contabilizan porque el producto se considera una bebida."
 
 msgctxt "nutriscore_count_proteins_reason_cheese"
 msgid "Points for proteins are counted because the product is considered to be cheese."
-msgstr ""
+msgstr "Los puntos por proteínas se contabilizan porque el producto se considera queso."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_7"
 msgid "Points for proteins are counted because the negative points are less than 7."
-msgstr ""
+msgstr "Los puntos por proteínas se contabilizan porque los puntos negativos son menos de 7."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_11"
 msgid "Points for proteins are counted because the negative points are less than 11."
-msgstr ""
+msgstr "Los puntos por proteínas se contabilizan porque los puntos negativos son menos de 11."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_7"
 msgid "Points for proteins are not counted because the negative points greater than or equal to 7."
-msgstr ""
+msgstr "Los puntos por proteínas no se contabilizan porque los puntos negativos son más o igual que 7."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_11"
 msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
+msgstr "Los puntos por proteínas no se contabilizan porque los puntos negativos son más o igual que 11."
+
+msgctxt "nutriscore_new_computation_title"
+msgid "Discover the new Nutri-Score!"
+msgstr ""
+
+msgctxt "nutriscore_new_computation_description"
+msgid "<p>The computation of the Nutri-Score is evolving to provide better recommendations based on the latest scientific evidence.</p><p>Main improvements:</p><ul><li>Better score for some fatty fish and oils rich in good fats</li><li>Better score for whole products rich in fiber</li><li>Worse score for products containing a lot of salt or sugar</li><li>Worse score for red meat (compared to poultry)</li></ul>"
+msgstr ""
+
+msgctxt "nutriscore_new_computation_link_text"
+msgid "Discover all the improvements of the new Nutri-Score"
 msgstr ""
 
 msgctxt "nutriscore_explanation_what_it_is"
 msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
-msgstr ""
+msgstr "El Nutri-Score es un logotipo que indica la calidad nutricional general de los productos alimenticios."
 
 msgctxt "nutriscore_explanation_what_it_takes_into_account"
 msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
-msgstr ""
+msgstr "La puntuación de la A a la E se calcula según los nutrientes y alimentos que se deberían favorecer (proteínas, fibra, frutas, verduras, legumbres…) y según los nutrientes que se deberían limitar (calorías, grasas saturadas, azúcares, sal)."
 
 msgctxt "nutriscore_explanation_where_the_data_comes_from"
 msgid "The score is calculated from the data of the nutrition facts table and the composition data (fruits, vegetables and legumes)."
-msgstr ""
+msgstr "La puntuación se calcula a partir de los datos de la tabla de información nutricional y los datos sobre la composición del producto (frutas, verduras y legumbres)."
 
 msgctxt "nutriscore_explanation_recommended_by_public_health_authorities"
 msgid "The display of this logo is recommended by public health authorities without obligation for companies."
-msgstr ""
+msgstr "Las autoridades de salud pública recomiendan a las empresas que muestren en sus productos este logotipo, pero no es una obligación."
 
 msgctxt "nutriscore_explanation_title"
 msgid "What is the Nutri-Score?"
-msgstr ""
+msgstr "¿Qué es el Nutri-Score?"
 
 msgctxt "nutrient_info_energy_risk"
 msgid "Energy intakes above energy requirements are associated with increased risks of weight gain, overweight, obesity, and consequently risk of diet-related chronic diseases."
-msgstr ""
+msgstr "El consumo de energía por encima de las necesidades energéticas se asocia con un mayor riesgo de aumento de peso, sobrepeso, obesidad y, en consecuencia, con el riesgo de enfermedades crónicas relacionadas con la dieta."
 
 msgctxt "nutrient_info_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
@@ -6804,17 +6964,407 @@ msgstr "Un alto consumo de grasas, especialmente grasas saturadas, puede elevar 
 
 msgctxt "nutrient_info_non_nutritive_sweeteners_risk"
 msgid "Non-nutritive sweeteners may not confer any long-term benefit in reducing body fat in adults or children. There may be potential undesirable effects from long-term use of non-nutritive sweeteners, such as an increased risk of type 2 diabetes and cardiovascular diseases in adults."
-msgstr ""
+msgstr "Los edulcorantes no nutritivos pueden no aportar ningún beneficio a largo plazo en la reducción de la grasa corporal en adultos o niños. Además, puede haber posibles efectos adversos por el uso prolongado de edulcorantes no nutritivos, como un mayor riesgo de diabetes tipo 2 o enfermedades cardiovasculares en adultos."
 
 msgctxt "nutrient_info_fiber_benefit"
 msgid "Consuming foods rich in fiber (especially whole grain foods) reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
-msgstr ""
+msgstr "El consumo habitual de alimentos ricos en fibra (especialmente alimentos integrales) reduce el riesgo de sufrir cáncer de las vías aerodigestivas, enfermedades cardiovasculares, obesidad o diabetes."
 
 msgctxt "nutrient_info_fruits_vegetables_legumes_benefit"
 msgid "Consuming foods rich in fruits, vegetables and legumes reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
-msgstr ""
+msgstr "El consumo de frutas, verduras y legumbres, o productos que contengan altas cantidades de estos alimentos, puede reducir el riesgo de sufrir cáncer de las vías aerodigestivas, enfermedades cardiovasculares, obesidad o diabetes."
 
 msgctxt "nutrient_info_proteins_benefit"
 msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
+msgstr "Los alimentos ricos en proteínas, por lo general, suelen ser ricos en calcio o hierro, que son dos minerales esenciales con numerosos beneficios para la salud."
+
+msgctxt "revert"
+msgid "Revert to this revision"
+msgstr "Volver a esta versión"
+
+msgctxt "product_js_product_revert_confirm"
+msgid "Revert to this product revision?"
+msgstr "¿Volver a esta versión de este producto?"
+
+msgctxt "api_status_success"
+msgid "Success"
+msgstr "Completado"
+
+msgctxt "api_status_failure"
+msgid "Failure"
+msgstr "Error"
+
+msgctxt "api_result_product_reverted"
+msgid "Product reverted to the specified revision"
+msgstr "Producto revertido a la revisión especifica"
+
+msgctxt "api_result_product_not_reverted"
+msgid "Product not reverted to the specified revision"
+msgstr "Producto no revertido a la versión especifica"
+
+# sweeteners (additives), plural
+msgctxt "sweeteners"
+msgid "sweeteners"
+msgstr "edulcorantes"
+
+# sweetener (additive), singular
+msgctxt "sweetener"
+msgid "sweetener"
+msgstr "edulcorantes"
+
+msgctxt "action_edit_product"
+msgid "Complete or correct product information"
+msgstr "Completa o corrige la información de un producto"
+
+msgctxt "report_problem_panel_title"
+msgid "Report a problem"
+msgstr "Informar de un problema"
+
+msgctxt "report_problem_navigation"
+msgid "Report a problem."
+msgstr "Reportar un problema."
+
+msgctxt "incomplete_or_incorrect_data_title"
+msgid "Incomplete or incorrect information?"
+msgstr "¿La información es incorrecta o está incompleta?"
+
+msgctxt "incomplete_or_incorrect_data_subtitle_off"
+msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
+msgstr "Categoría, etiquetado especial (sellos y certificados), ingredientes, alérgenos, información nutricional, fotografías, etc."
+
+msgctxt "incomplete_or_incorrect_data_content_correct"
+msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
+msgstr "Si la información no coincide con la información del envase, puedes completarla o corregirla. ¡Gracias!"
+
+msgctxt "incomplete_or_incorrect_data_content_correct_off"
+msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr "Open Food Facts es una base de datos colaborativa, por lo que cada contribución es útil para todas las personas."
+
+msgctxt "report_to_nutripatrol_explain"
+msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
+msgstr "Si desea denunciar vandalismo, contenido inapropiado o datos erróneos que no puede solucionar usted mismo, infórmelo a nuestro equipo de moderadores."
+
+msgctxt "description"
+msgid "Description"
+msgstr "Descripción"
+
+# duplicate with "report_problem_panel_title"
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
+msgstr "Informar de un problema"
+
+msgctxt "enter_main_contact_username"
+msgid "Enter main contact's username :"
+msgstr "Introduzca el nombre de usuario del contacto principal:"
+
+msgctxt "change_main_contact"
+msgid "Change main contact"
+msgstr "Cambiar contacto principal"
+
+msgctxt "main_contact_updated"
+msgid "Main contact updated"
+msgstr "Contacto principal actualizado"
+
+msgctxt "error_unknown_member"
+msgid "This user is not a member of the organization."
+msgstr "Este usuario no es miembro de la organización."
+
+msgctxt "skip_to_content"
+msgid "Skip to Content"
+msgstr "Saltar al Contenido"
+
+msgctxt "cant_delete_main_contact"
+msgid "You cannot remove the main contact. Change it first."
+msgstr "No puedes eliminar al contacto principal. Cámbialo primero."
+
+msgctxt "open_in_crm"
+msgid "Open in CRM"
+msgstr "Abrir en CRM."
+
+msgctxt "information_provided_by_the_manufacturer"
+msgid "Information provided by the manufacturer"
+msgstr "Información proporcionada por el fabricante"
+
+msgctxt "information_provided_by_the_manufacturer_edit_form"
+msgid "Information identified by a factory icon has been provided by the manufacturer. It can be changed only by the manufacturer and moderators. If it is out of date or incorrect, please let us know."
+msgstr "La información identificada con un icono de fábrica ha sido proporcionada por el fabricante. Solo el fabricante y los moderadores pueden modificarla. Si está desactualizada o es incorrecta, infórmenos."
+
+msgctxt "knowledge_panels_did_you_know"
+msgid "Did you know?"
+msgstr "¿Sabías que?"
+
+msgctxt "knowledge_panels_why_it_matters"
+msgid "Why it matters"
+msgstr "Por qué importa"
+
+msgctxt "knowledge_panels_what_you_can_do"
+msgid "What you can do"
+msgstr "Lo que puedes hacer"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_title"
+msgid "Good for agricultural biodiversity"
+msgstr "Bueno para la biodiversidad agrícola"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_subtitle"
+msgid "Contains neglected or underutilized crops:"
+msgstr "Contiene cultivos descuidados o infrautilizados:"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_did_you_know"
+msgid "Since 1900, 75% of plant diversity has been lost as farmers around the world have abandoned local varieties for high-yielding varieties adapted to mass industrial processing. As a result, 60 % of human energy intake in the world comes from only 3 species: wheat, rice and corn."
+msgstr "Desde 1900, se ha perdido el 75% de la diversidad vegetal, ya que los agricultores de todo el mundo han abandonado las variedades locales en favor de variedades de alto rendimiento adaptadas al procesamiento industrial masivo. Como resultado, el 60% de la ingesta energética humana en el mundo proviene de solo 3 especies: trigo, arroz y maíz."
+
+msgctxt "knowledge_panels_ingredients_rare_crops_why_it_matters"
+msgid "The lack of variety of crops makes our food supply more vulnerable to pests, diseases and climate change."
+msgstr "La falta de variedad de cultivos hace que nuestro suministro de alimentos sea más vulnerable a las plagas, enfermedades y el cambio climático."
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do"
+msgid "Consuming diverse cereals, legumes, vegetables and fruits contributes to:"
+msgstr "Consumir cereales, legumbres, verduras y frutas diversas contribuye a:"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_1"
+msgid "preserving neglected and underutilized species"
+msgstr "Preservación de especies subutilizadas"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_2"
+msgid "rural development and support of local farmers and companies"
+msgstr "desarrollo rural y apoyo a agricultores y empresas locales"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_3"
+msgid "preserving of diversified landscapes"
+msgstr "preservación de paisajes diversificados"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_4"
+msgid "food security"
+msgstr "seguridad alimentaria"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_5"
+msgid "and your health!"
+msgstr "¡y tu salud!"
+
+msgctxt "created_by"
+msgid "Created by"
+msgstr "Creado por"
+
+msgctxt "org_id"
+msgid "Org id"
+msgstr "Org id"
+
+msgctxt "verified_status"
+msgid "Verified status"
+msgstr "Estado verificado"
+
+msgctxt "creation_date"
+msgid "Creation date"
+msgstr "Fecha de creación"
+
+msgctxt "knowledge_panels_ingredients_rare_crops_divinfood"
+msgid "Open Food Facts participates in the European project <a href=\"https://divinfood.eu/\">DIVINFOOD</a> (funded from European Union’s Horizon 2020 research and innovation programme). DIVINFOOD aims to develop food chains that value under-utilised agrobiodiversity in order to act against the decline of biodiversity and to meet the growing expectations of consumers for healthy, local products that contribute to sustainable food systems."
+msgstr "Open Food Facts participa en el proyecto europeo <a href=\"https://divinfood.eu/\">DIVINFOOD</a> (financiado por el programa de investigación e innovación Horizonte 2020 de la Unión Europea). DIVINFOOD tiene como objetivo desarrollar cadenas alimentarias que valoren la agrobiodiversidad infrautilizada para actuar contra el declive de la biodiversidad y satisfacer las crecientes expectativas de los consumidores de productos locales y saludables que contribuyan a sistemas alimentarios sostenibles."
+
+msgctxt "deny"
+msgid "Deny"
+msgstr "Denegar"
+
+msgctxt "users_requested_to_join_org"
+msgid "These users have requested to join the organization:"
+msgstr "Estos usuarios han solicitado unirse a la organización:"
+
+msgctxt "last_login"
+msgid "Last login date"
+msgstr "Última fecha de inicio de sesión"
+
+msgctxt "last_import"
+msgid "Last import date"
+msgstr "Fecha de la última importación"
+
+msgctxt "drop_a_file"
+msgid "Drop"
+msgstr "Eliminar"
+
+msgctxt "select_product_data_file"
+msgid "Select a file with product data"
+msgstr "Seleccione un archivo con datos del producto"
+
+msgctxt "number_of_products_without_nutriscore"
+msgid "Number of products without Nutri-Score"
+msgstr "Número de productos sin Nutri-Score"
+
+msgctxt "percent_of_products_with_nutriscore"
+msgid "% of products where Nutri-Score is computed"
+msgstr "% de los productos donde Nutri-Score se contabiliza"
+
+msgctxt "products_to_be_exported"
+msgid "Products to be exported"
+msgstr "Productos a exportar"
+
+msgctxt "products_exported"
+msgid "Products exported"
+msgstr ""
+
+msgctxt "opportunities_to_improve_nutriscore"
+msgid "Opp. for Nutri-Score improvements"
+msgstr ""
+
+msgctxt "date_of_last_update"
+msgid "Date of last update"
+msgstr ""
+
+msgctxt "number_of_products_on_public_platform"
+msgid "Number of products on public platform"
+msgstr ""
+
+msgctxt "number_of_products_on_producer_platform"
+msgid "Number of products on producer platform"
+msgstr ""
+
+msgctxt "automated_daily_export_to_public_platform"
+msgid "Automatic daily export to public platform"
+msgstr ""
+
+msgctxt "improvements_navigation"
+msgid "Improvements"
+msgstr "Mejoras"
+
+msgctxt "products_with_changes_since_last_export"
+msgid "Products with changes since last export"
+msgstr ""
+
+msgctxt "organization_list"
+msgid "Organization list"
+msgstr ""
+
+msgctxt "open_org"
+msgid "Open org"
+msgstr ""
+
+msgctxt "secondhand"
+msgid "Secondhand"
+msgstr ""
+
+msgctxt "donated_products_title"
+msgid "Donations"
+msgstr ""
+
+msgctxt "donated_products_subtitle"
+msgid "Give this product, or search for a similar donated product"
+msgstr ""
+
+msgctxt "used_products_title"
+msgid "Used products"
+msgstr ""
+
+msgctxt "used_products_subtitle"
+msgid "Buy this product used, or search for a similar used product"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_name"
+msgid "Repairability index"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_setting_name"
+msgid "Good repairability"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_setting_note"
+msgid "Mandatory rating in France for certain products since 2021"
+msgstr ""
+
+# keep %s, it will be replaced by the letter A, B, C, D or E
+msgctxt "attribute_repairability_index_france_grade_title"
+msgid "Repairability index %s"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_unknown_title"
+msgid "Repairability index unknown"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_not_applicable_title"
+msgid "Repairability index not-applicable"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_not_applicable_description_short"
+msgid "Not-applicable for the category"
+msgstr "No aplicable para la categoría"
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_repairability_index_france_not_applicable_description"
+msgid "Applicable only for categories: {categories}"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_very_good_description_short"
+msgid "Very good repairability"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_good_description_short"
+msgid "Good repairability"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_average_description_short"
+msgid "Average repairability"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_poor_description_short"
+msgid "Poor repairability"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_bad_description_short"
+msgid "Bad repairability"
+msgstr ""
+
+msgctxt "estimate"
+msgid "estimate"
+msgstr "estimación"
+
+# information on several ingredients, in plural in languages like French
+msgctxt "ingredient_information"
+msgid "Ingredient information"
+msgstr "Información del ingrediente"
+
+msgctxt "product_type"
+msgid "Product type"
+msgstr ""
+
+# Food product type
+msgctxt "product_type_food"
+msgid "Food"
+msgstr "Alimento"
+
+# Pet food product type
+msgctxt "product_type_petfood"
+msgid "Pet food"
+msgstr "Alimento para mascotas"
+
+# Beauty product type
+msgctxt "product_type_beauty"
+msgid "Beauty"
+msgstr "Belleza"
+
+# General product product type
+msgctxt "product_type_product"
+msgid "Product"
+msgstr "Producto"
+
+msgctxt "recommendation_limit_ultra_processed_foods_title"
+msgid "Limit ultra-processed foods"
+msgstr ""
+
+msgctxt "recommendation_limit_ultra_processed_foods_subtitle"
+msgid "Limiting ultra-processed foods reduces the risk of noncommunicable chronic diseases"
+msgstr "Limitar los alimentos ultraprocesados reduce el riesgo de enfermedades crónicas no transmisibles"
+
+msgctxt "recommendation_limit_ultra_processed_foods_text"
+msgid "Several studies have found that a lower consumption of ultra-processed foods is associated with a reduced risk of noncommunicable chronic diseases, such as obesity, hypertension and diabetes."
+msgstr "Varios estudios han encontrado que un menor consumo de alimentos ultraprocesados está asociado con un menor riesgo de enfermedades crónicas no transmisibles, como la obesidad, la hipertensión y la diabetes."
+
+msgctxt "discover_the_evolution_of_the_nutriscore_grades_of_your_products"
+msgid "Discover the evolution of the Nutri-Score grades of your products"
+msgstr ""
+
+msgctxt "add_products_to_discover_the_evolution_of_their_nutriscore_grades"
+msgid "Add products with a category, ingredients list and nutrition facts to discover the evolution of their Nutri-Score grades."
+msgstr ""
+
+msgctxt "in_contact_with_food"
+msgid "In contact with food"
 msgstr ""
 

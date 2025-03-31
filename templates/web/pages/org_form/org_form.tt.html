@@ -34,9 +34,9 @@
 			<tr>
 				<td>[% count %].</td>
 				<td>
-	[% SET userid = users.userid %]
-    [% SET user_in_admin_status = user_is_admin.$userid %]
-	<input form="admin_users_form" type="checkbox" name="admin_status_[% users.userid %]" value="1" class="admin-checkbox" [% IF user_in_admin_status %]checked[% END %] [% IF current_user_id == userid  %]disabled[% END %]>
+				[% SET userid = users.userid %]
+				[% SET user_in_admin_status = user_is_admin.$userid %]
+				<input form="admin_users_form" type="checkbox" name="admin_status_[% users.userid %]" value="1" class="admin-checkbox" [% IF user_in_admin_status %]checked[% END %] [% IF current_user_id == userid  %]disabled[% END %]>
 				</td>
 				<td>[% users.userid %]</td>
 				<td>[% users.name %]</td>
@@ -47,7 +47,7 @@
 					<form method="post" action="/cgi/org.pl" onsubmit="return confirm('Are you sure you want to remove this user?')">
 						<input type="hidden" name="action" value="process" />
 						<input type="hidden" name="type" value="user_delete" />
-						<input type="hidden" name="org_id" value="[% orgid %]">
+						<input type="hidden" name="orgid" value="[% orgid %]">
 						<input type="hidden" name="user_id" value="[% users.userid %]">
 						<input type="submit" name="remove_user" class="button small" value= "[% edq(lang('remove_user')) %]"/>
 					</form>
@@ -62,20 +62,68 @@
 				<!-- admin_status_xxxx elements above are also part of it, thanks to form attribute -->
 				<input type="hidden" name="action" value="process" />
 				<input type="hidden" name="type" value="admin_status" />
+				<input type="hidden" name="orgid" value="[% orgid %]">
 				<input type="submit" name="grant_remove_admin_status" class="button" style="margin-bottom: 10px;" value= "[% edq(lang('grant_remove_admin_status')) %]"/>
 			</form>
 		</div>
 	</div>
 	[% END %]
 
-		<form method="post" action="/cgi/org.pl" enctype="multipart/form-data" style="margin-bottom: 20px;">
+	<form method="post" action="/cgi/org.pl" style="margin-bottom: 20px; margin-top: 10px;">
+		<p>[% lang('enter_main_contact_username') %]</p>
+		<input  type="text" id="main_contact" name="main_contact" style="width:50vw" placeholder="[% main_contact %]"></input>
+		<input type="hidden" name="action" value="process" />
+		<input type="hidden" name="type" value="change_main_contact" />
+		<input type="hidden" name="orgid" value="[% orgid %]" />
+		<input type="submit" id="contact_button" name=".submit" class="button" value= "[% edq(lang('change_main_contact')) %]" />
+	</form>
+
+	<form method="post" action="/cgi/org.pl" enctype="multipart/form-data" style="margin-bottom: 20px;">
 		<p>[% lang('enter_email_addresses_of_users') %]</p>
 		<textarea id="email_list" name="email_list" style="height:100px;width:50vw"></textarea>
 		<input type="hidden" name="action" value="process" />
 		<input type="hidden" name="type" value="add_users" />
 		<input type="hidden" name="orgid" value="[% orgid %]" />
-		<input type="submit" name=".submit" class="button" value= "[% edq(lang('invite_user')) %]"/>
+		<input type="submit" id="invite_button" name=".submit" class="button" value= "[% edq(lang('invite_user')) %]" disabled />
 	</form>
+
+	<!-- pending users -->
+	[% IF (admin OR user_is_admin.$current_user_id) AND pending_users AND org_is_accepted %] 
+	<p>[% lang("users_requested_to_join_org") %]</p>
+	<table>
+		<thead>
+		<tr>
+			<th>[% lang("serial_no") %]</th>
+			<th>[% lang("username") %]</th>
+			<th>[% lang("name") %]</th>
+			<th>[% lang("email") %]</th>
+			<th></th>
+		</tr>
+		</thead>
+		<tbody>
+			[% SET count = 1 %]
+			[% FOREACH users IN pending_users %]
+			<tr>
+				<td>[% count %].</td>
+				<td>[% users.userid %]</td>
+				<td>[% users.name %]</td>
+				<td>[% users.email %]</td>
+				<td>
+					<form method="post" action="/cgi/org.pl">
+						<input type="hidden" name="action" value="process" />
+						<input type="hidden" name="type" value="pending_user" />
+						<input type="hidden" name="orgid" value="[% orgid %]">
+						<input type="hidden" name="user_id" value="[% users.userid %]">
+						<input type="submit" name="accept_user" class="button small" value="[% edq(lang('add')) %]"/>
+						<input type="submit" name="deny_user" class="button small warning" value="[% edq(lang('deny')) %]"/>
+					</form>
+				</td>
+			</tr>
+			[% SET count = count + 1 %]
+			[% END %]
+		</tbody>
+	</table>
+	[% END %]
 
     <!-- Start form -->
     
@@ -115,7 +163,13 @@
 						<p>[% field.description %]</p>
 					[% END %]								
 
-					[% IF field.type == 'text' %]
+					[% IF field.field == 'crm_org_id' AND crm_company_url != "" %]
+						<label for="[% field.field %]">[% field.label %]</label>
+						<div class="form-field-with-btn">
+							<input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]"/>
+							<a type="button" class="button" id="crm_button" href="[% crm_company_url %]" target="_blank" rel="noopener">[% lang("open_in_crm") %]</a> 
+						</div>
+					[% ELSIF field.type == 'text' %]
 						<label for="[% field.field %]">[% field.label %]</label>
 						<input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" />
 					[% ELSIF field.type == 'textarea' %]
@@ -126,6 +180,13 @@
 							<input type="checkbox" id="[% field.field %]" name="[% field.field %]" [% IF field.value == 'on' %]checked="checked"[% END %] />
 							[% field.label %]
 						</label>
+					[% ELSIF field.type == 'select' %]
+					<label for="[% field.field %]">	[% lang(field.label) %]</label>
+					<select name="[% field.field %]" id="[% field.field %]-select">
+						[% FOREACH item IN field.options %]
+							<option value="[% item.value %]" [% IF item.value == field.selected %]selected[% END %]> [% item.label %]</option>
+						[% END %]
+					</select>
 					[% END %]
 					
 					[% IF field.note %]
@@ -176,5 +237,22 @@
     <p>[% result %]</p>
     <p>&rarr; <a href="[% profile_url %]">[% profile_name %]</a></p>
 [% END %]
+
+<script src="[% static_subdomain %]/js/dist/jquery.js" data-base-layout="true"></script>
+<script>
+    \$(document).ready(function() {
+        \$('#email_list').on('input', function(event) {
+            var emailList = \$(event.target).val().split(',').map(function(email) {
+                return email.trim();
+            });
+            var allValid = emailList.every(validateEmail);
+            \$('#invite_button').prop('disabled', !allValid || emailList.length === 0 || emailList[0] === '');
+        });
+    });
+
+    function validateEmail(email) {
+        return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email.trim());
+    }
+</script>
 
 <!-- end templates/[% template.name %] -->

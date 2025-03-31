@@ -28,17 +28,19 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::HTTP qw/write_cors_headers single_param/;
+use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Images qw/:all/;
+use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
+use ProductOpener::Images qw/process_image_move/;
 use ProductOpener::Products qw/:all/;
 
+use Apache2::Const -compile => qw(M_OPTIONS);
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Log::Any qw($log);
 
 my $type = single_param('type') || 'add';
@@ -46,10 +48,7 @@ my $action = single_param('action') || 'display';
 my $code = normalize_code(single_param('code'));
 my $imgids = single_param('imgids');
 my $move_to = single_param('move_to_override');
-if ($move_to =~ /^(off|obf|opf|opff)$/) {
-	$move_to .= ':' . $code;
-}
-elsif ($move_to ne 'trash') {
+if ($move_to ne 'trash') {
 	$move_to = normalize_code($move_to);
 }
 my $copy_data = single_param('copy_data_override');
@@ -73,8 +72,20 @@ $log->debug("calling init()", {query_string => $env});
 
 my $request_ref = ProductOpener::Display::init_request();
 
-$log->debug("parsing code", {user => $User_id, code => $code, cc => $cc, lc => $lc, ip => remote_addr()})
+$log->debug("parsing code", {user => $User_id, code => $code, cc => $request_ref->{cc}, lc => $lc, ip => remote_addr()})
 	if $log->is_debug();
+
+# Add a CORS header to allow cross-domain requests (especially from Nutripatrol)
+my $r = Apache2::RequestUtil->request();
+# We need to allows credentials (cookies) to authenticate the user
+my $allow_credentials = 1;
+my $sub_domain_only = 1;
+write_cors_headers($allow_credentials, $sub_domain_only);
+
+# If the requests is an OPTIONS request, we return the headers and exit
+if ($r->method_number == Apache2::Const::M_OPTIONS) {
+	exit(0);
+}
 
 if ((not defined $code) or ($code eq '')) {
 
@@ -134,7 +145,7 @@ if ($path eq 'invalid') {
 	exit(0);
 }
 
-my $product_ref = product_exists($product_id);    # returns 0 if not
+my $product_ref = retrieve_product($product_id);
 
 if (not $product_ref) {
 	$log->warn("product does not exist", {code => $code, product_id => $product_id});
@@ -208,14 +219,6 @@ if ($move_to ne 'trash') {
 	}
 
 	$response{url} = product_url($move_to);
-
-	# URL on another server?
-	my $server = server_for_product_id($move_to);
-	if (defined $server) {
-		my $url = "https://" . $subdomain . "." . $options{other_servers}{$server}{domain} . $response{url};
-		$url =~ s/\/([a-z]+):([0-9])/\/$2/;
-		$response{url} = $url;
-	}
 
 	$response{link} = '<a href="' . $response{url} . '">' . $move_to . '</a>';
 }

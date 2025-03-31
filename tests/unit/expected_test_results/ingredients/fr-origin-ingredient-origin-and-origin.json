@@ -2,7 +2,9 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "4003",
+         "ecobalyse_code" : "potato-industry-fr",
          "id" : "en:potato",
+         "is_in_taxonomy" : 1,
          "origins" : "en:france",
          "percent" : 46.8874700718276,
          "percent_estimate" : 46.8874700718276,
@@ -12,6 +14,7 @@
       },
       {
          "id" : "en:pork",
+         "is_in_taxonomy" : 1,
          "origins" : "en:france",
          "percent" : 21.9473264166002,
          "percent_estimate" : 21.9473264166002,
@@ -21,7 +24,9 @@
       },
       {
          "ciqual_proxy_food_code" : "19041",
+         "ecobalyse_code" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
          "id" : "en:semi-skimmed-milk",
+         "is_in_taxonomy" : 1,
          "origins" : "en:france",
          "percent" : 5.48683160415004,
          "percent_estimate" : 5.48683160415004,
@@ -32,6 +37,7 @@
       {
          "ciqual_food_code" : "19402",
          "id" : "en:single-cream",
+         "is_in_taxonomy" : 1,
          "origins" : "en:france",
          "percent" : 5.48683160415004,
          "percent_estimate" : 5.48683160415004,
@@ -41,7 +47,9 @@
       },
       {
          "ciqual_food_code" : "18066",
+         "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
          "id" : "en:water",
+         "is_in_taxonomy" : 1,
          "origins" : "en:france",
          "percent" : 5.48683160415004,
          "percent_estimate" : 5.48683160415004,
@@ -51,7 +59,9 @@
       },
       {
          "ciqual_proxy_food_code" : "16400",
+         "ecobalyse_code" : "bbda834e-1548-4682-a461-c367dc1ce517",
          "id" : "en:butter",
+         "is_in_taxonomy" : 1,
          "origins" : "en:france",
          "percent" : 2.69353551476456,
          "percent_estimate" : 2.69353551476456,
@@ -63,6 +73,7 @@
          "ciqual_food_code" : "11013",
          "id" : "fr:moutarde-a-l-ancienne",
          "ingredients" : [],
+         "is_in_taxonomy" : 1,
          "origins" : "en:france",
          "percent" : 2.69353551476456,
          "percent_estimate" : 2.69353551476456,
@@ -71,6 +82,7 @@
       {
          "ciqual_food_code" : "19402",
          "id" : "en:cream",
+         "is_in_taxonomy" : 1,
          "origins" : "en:france",
          "percent" : 2.69353551476456,
          "percent_estimate" : 2.69353551476456,
@@ -82,6 +94,7 @@
          "ciqual_food_code" : "11013",
          "id" : "en:dijon-mustard",
          "ingredients" : [],
+         "is_in_taxonomy" : 1,
          "origins" : "en:france",
          "percent" : 2.69353551476456,
          "percent_estimate" : 2.69353551476456,
@@ -90,6 +103,7 @@
       {
          "ciqual_food_code" : "31008",
          "id" : "en:flower-honey",
+         "is_in_taxonomy" : 1,
          "origins" : "en:france",
          "percent" : 2.69353551476456,
          "percent_estimate" : 2.69353551476456,
@@ -99,6 +113,7 @@
       },
       {
          "id" : "en:spice",
+         "is_in_taxonomy" : 1,
          "origins" : "en:india",
          "percent" : 0.548683160415004,
          "percent_estimate" : 0.548683160415004,
@@ -109,6 +124,7 @@
       {
          "id" : "en:broth",
          "ingredients" : [],
+         "is_in_taxonomy" : 1,
          "origins" : "en:france",
          "percent" : 0.548683160415004,
          "percent_estimate" : 0.548683160415004,
@@ -117,6 +133,7 @@
       {
          "ciqual_food_code" : "11058",
          "id" : "en:finegrained-salt",
+         "is_in_taxonomy" : 1,
          "origins" : "en:france",
          "percent" : 0.139664804469274,
          "percent_estimate" : 0.139664804469277,
@@ -153,32 +170,7 @@
       "en:non-vegan",
       "en:non-vegetarian"
    ],
-   "ingredients_hierarchy" : [
-      "en:potato",
-      "en:vegetable",
-      "en:root-vegetable",
-      "en:tuber",
-      "en:pork",
-      "en:animal",
-      "en:semi-skimmed-milk",
-      "en:dairy",
-      "en:milk",
-      "en:single-cream",
-      "en:cream",
-      "en:water",
-      "en:butter",
-      "fr:moutarde-a-l-ancienne",
-      "en:mustard",
-      "en:dijon-mustard",
-      "en:flower-honey",
-      "en:added-sugar",
-      "en:honey",
-      "en:spice",
-      "en:condiment",
-      "en:broth",
-      "en:finegrained-salt",
-      "en:salt"
-   ],
+   "ingredients_lc" : "fr",
    "ingredients_n" : 13,
    "ingredients_n_tags" : [
       "13",
@@ -237,7 +229,19 @@
       "en:spice"
    ],
    "ingredients_without_ciqual_codes_n" : 3,
-   "known_ingredients_n" : 24,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:broth",
+      "en:cream",
+      "en:dijon-mustard",
+      "en:finegrained-salt",
+      "en:flower-honey",
+      "en:pork",
+      "en:single-cream",
+      "en:spice",
+      "fr:moutarde-a-l-ancienne"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 9,
+   "known_ingredients_n" : 13,
    "lc" : "fr",
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",

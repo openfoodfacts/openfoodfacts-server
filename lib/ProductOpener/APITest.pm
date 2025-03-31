@@ -42,7 +42,6 @@ BEGIN {
 		&html_displays_error
 		&login
 		&mails_from_log
-		&mail_to_text
 		&new_client
 		&normalize_mail_for_comparison
 		&origin_from_url
@@ -50,9 +49,7 @@ BEGIN {
 		&tail_log_start
 		&tail_log_read
 		&wait_application_ready
-		&wait_dynamic_front
 		&execute_api_tests
-		&wait_server
 		&fake_http_server
 		&get_minion_jobs
 	);    # symbols to export on request
@@ -68,17 +65,21 @@ use ProductOpener::Mail qw/$LOG_EMAIL_START $LOG_EMAIL_END/;
 use ProductOpener::Store qw/store retrieve/;
 use ProductOpener::Producers qw/get_minion/;
 
-use Test::More;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
 use LWP::UserAgent;
 use HTTP::CookieJar::LWP;
 use HTTP::Request::Common;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Carp qw/confess/;
 use Clone qw/clone/;
 use File::Tail;
 use Test::Fake::HTTPD;
 use Minion;
+
+no warnings qw(experimental::signatures);
 
 # Constants of the test website main domain and url
 # Should be used internally only (see: construct_test_url to build urls in tests)
@@ -128,7 +129,7 @@ sub wait_server() {
 		$count++;
 		if (($count % 3) == 0) {
 			print("Waiting for backend to be ready since more than $count seconds...\n");
-			diag explain({url => $target_url, status => $response->code, response => $response});
+			diag Dumper({url => $target_url, status => $response->code, response => $response});
 		}
 		confess("Waited too much for backend") if $count > 60;
 	}
@@ -150,7 +151,7 @@ sub wait_application_ready() {
 
 =head2 new_client()
 
-Reset user agent
+Reset user agent with a cookie jar to store session cookies
 
 =head3 return value
 
@@ -183,8 +184,8 @@ sub create_user ($ua, $args_ref) {
 	my $tail = tail_log_start();
 	my $response = $ua->post("$TEST_WEBSITE_URL/cgi/user.pl", Content => \%fields);
 	if (not $response->is_success) {
-		diag("Couldn't create user with " . explain(\%fields) . "\n");
-		diag explain $response;
+		diag("Couldn't create user with " . Dumper(\%fields) . "\n");
+		diag Dumper $response;
 		diag("\n\nLog4Perl Logs: \n" . tail_log_read($tail) . "\n\n");
 		confess("\nResuming");
 	}
@@ -217,8 +218,8 @@ sub login ($ua, $user_id, $password) {
 	);
 	my $response = $ua->post("$TEST_WEBSITE_URL/cgi/login.pl", Content => \%fields);
 	if (not($response->is_success || $response->is_redirect)) {
-		diag("Couldn't login with " . explain(\%fields) . "\n");
-		diag explain $response;
+		diag("Couldn't login with " . Dumper(\%fields) . "\n");
+		diag Dumper $response;
 		confess("Resuming");
 	}
 	return $response;
@@ -240,7 +241,7 @@ sub get_page ($ua, $url) {
 	my $response = $ua->get("$TEST_WEBSITE_URL$url");
 	if (not $response->is_success) {
 		diag("Couldn't get page $url\n");
-		diag explain $response;
+		diag Dumper $response;
 		confess("Resuming");
 	}
 	return $response;
@@ -265,8 +266,8 @@ Reference of a hash of fields to pass as the form result
 sub post_form ($ua, $url, $fields_ref) {
 	my $response = $ua->post("$TEST_WEBSITE_URL$url", Content => $fields_ref);
 	if (not $response->is_success) {
-		diag("Couldn't submit form $url with " . explain($fields_ref) . "\n");
-		diag explain $response;
+		diag("Couldn't submit form $url with " . Dumper($fields_ref) . "\n");
+		diag Dumper $response;
 		confess("Resuming");
 	}
 	return $response;
@@ -284,9 +285,14 @@ Call the API to edit a product. If the product does not exist, it will be create
 
 Reference of a hash of product fields to pass to the API
 
+=head4 $ok_to_fail
+
+If set to 1, the function will not die using confess() if the request fails. Default is 0.
+This is useful when you want to test the failure of a request.
+
 =cut
 
-sub edit_product ($ua, $product_fields) {
+sub edit_product ($ua, $product_fields, $ok_to_fail = 0) {
 	my %fields;
 	while (my ($key, $value) = each %{$product_fields}) {
 		$fields{$key} = $value;
@@ -294,9 +300,26 @@ sub edit_product ($ua, $product_fields) {
 
 	my $response = $ua->post("$TEST_WEBSITE_URL/cgi/product_jqm2.pl", Content => \%fields,);
 	if (not $response->is_success) {
-		diag("Couldn't create product with " . explain(\%fields) . "\n");
-		diag explain $response;
-		confess("Resuming");
+		diag("Couldn't create product with " . Dumper(\%fields) . "\n");
+		diag Dumper $response;
+		$ok_to_fail or confess("Failed to create product");
+	}
+	else {
+		# check that we have a JSON response and "status": 1 is the response
+		my $decoded_json;
+		eval {
+			$decoded_json = decode_json($response->decoded_content);
+			1;
+		} or do {
+			my $json_decode_error = $@;
+			diag("Edit product request got a response that is not valid JSON: $json_decode_error");
+			diag("Response content: " . $response->decoded_content);
+			$ok_to_fail or confess("Failed to create product");
+		};
+		if ($decoded_json->{status} != 1) {
+			diag("Edit product request got a response that is not successful: " . Dumper($decoded_json));
+			$ok_to_fail or confess("Failed to create product");
+		}
 	}
 	return $response;
 }
@@ -307,6 +330,7 @@ Return if a form displays errors
 
 Most forms will return a 200 while displaying an error message.
 This function assumes error_list.tt.html was used.
+
 =cut
 
 sub html_displays_error ($page) {
@@ -426,6 +450,14 @@ sub execute_request ($test_ref, $ua) {
 
 	my $response;
 
+	# For some tests, we don't want to follow redirects. We want to see the 302 responses, not the response to the final destination
+	if ((defined $test_ref->{expected_status_code}) and (int($test_ref->{expected_status_code} / 100) == 3)) {
+		$test_ua->max_redirect(0);
+	}
+	else {
+		$test_ua->max_redirect(3);
+	}
+
 	# Send the request
 	if ($method eq 'OPTIONS') {
 		# not yet supported by our (system) version of HTTP::Request::Common
@@ -501,7 +533,7 @@ sub execute_request ($test_ref, $ua) {
 	# We would need to re-construct the url
 	my $final_url = $response->request->uri;
 	if ($url ne $final_url) {
-		diag("Got a redirect to " . $final_url);
+		diag("Warning: redirects are not supported by APITest.pm!!! Got a redirect to " . $final_url);
 	}
 
 	return $response;
@@ -517,7 +549,7 @@ sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected
 	}
 
 	is($response->code, $test_ref->{expected_status_code}, "$test_case - Test status")
-		or diag(explain($test_ref), "Response status line: " . $response->status_line);
+		or diag(Dumper($test_ref), "Response status line: " . $response->status_line);
 
 	if (defined $test_ref->{headers}) {
 		while (my ($hname, $hvalue) = each %{$test_ref->{headers}}) {
@@ -525,6 +557,11 @@ sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected
 			# one may put undef values to test the inexistance of a header
 			if (!defined $hvalue) {
 				ok(!defined $rvalue, "$test_case - header $hname should not be defined");
+			}
+			# one may put a /regexp/ to test the value of a header
+			elsif ($hvalue =~ /^\/(.*)\/$/) {
+				my $regexp = $1;
+				like($rvalue, qr/$regexp/, "$test_case - header $hname like $hvalue");
 			}
 			else {
 				is($rvalue, $hvalue, "$test_case - header $hname");
@@ -534,25 +571,29 @@ sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected
 
 	my $response_content = $response->decoded_content;
 
-	# Check that we don't get an errore message generated by the Apache Server
+	# Check that we don't get an error message generated by the Apache Server
 	# e.g. "Apache/2.4.56 (Debian) Server at world.openfoodfacts.localhost Port 80"
-	if ($response_content =~ /Apache.*Server/) {
+	# unless it is a redirect
+	if (($response_content =~ /Apache.*Server/) and not($response->code =~ /^3\d\d$/)) {
 		fail("Received an Apache Server generated error message for test $test_case");
 		diag("Response content: " . $response_content);
 	}
 
-	if ((defined $test_ref->{expected_type}) and ($test_ref->{expected_type} eq 'text')) {
-		# Check that the text file is the same as expected (useful for checking dynamic robots.txt)
+	my $expected_type = $test_ref->{expected_type} // 'json';
+
+	if ((($expected_type eq 'text') or ($expected_type eq 'html'))) {
+		# Check that the file is the same as expected (useful for HTML content or dynamic robots.txt)
 		is(
 			compare_file_to_expected_results(
-				$response_content, "$expected_result_dir/$test_case.txt",
+				$response_content, "$expected_result_dir/$test_case.$expected_type",
 				$update_expected_results, $test_ref
 			),
 			1,
 			"$test_case - result"
 		);
 	}
-	elsif (not((defined $test_ref->{expected_type}) and ($test_ref->{expected_type} eq "html"))) {
+	# Otherwise we expect the result is JSON
+	elsif ($expected_type eq 'json') {
 
 		# Check that we got a JSON response
 
@@ -567,7 +608,7 @@ sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected
 			);
 			diag("Response content: " . $response_content);
 			fail($test_case);
-			next;
+			return;
 		};
 
 		# If the request was a setup request, we don't need to save or check the response
@@ -597,6 +638,11 @@ sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected
 			);
 
 		}
+	}
+	# We do not check the response content for some queries (e.g OPTIONS queries), in that case expected_type is set to 'none'
+	elsif ($expected_type ne 'none') {
+		fail($test_case);
+		diag("Unknown expected type: $expected_type");
 	}
 
 	# Check if the response content matches what we expect
@@ -688,7 +734,9 @@ sub tail_log_read ($tail) {
 }
 
 =head2 mails_from_log($text)
+
 Retrieve mails in a log extract
+
 =cut
 
 sub mails_from_log ($text) {
@@ -699,15 +747,19 @@ sub mails_from_log ($text) {
 }
 
 =head2 mail_to_text($text)
+
 Make mail more easy to search by removing some specific formatting
 
 Especially we replace "3D=" for "=" and join line and their continuation
+
 =head3 Arguments
 
 =head4 $mail text of mail
 
 =head3 Returns
+
 Reformatted text
+
 =cut
 
 sub mail_to_text ($mail) {
@@ -723,12 +775,15 @@ sub mail_to_text ($mail) {
 
 Replace parts of mail that varies from tests to tests,
 and also in a format that's nice in json.
+
 =head3 Arguments
 
 =head4 $mail text of mail
 
 =head3 Returns
+
 ref to an array of lines of the email
+
 =cut
 
 sub normalize_mail_for_comparison ($mail) {
@@ -818,21 +873,26 @@ sub fake_http_server ($port, $dump_path, $responses_ref) {
 }
 
 =head2 get_minion_jobs($task_name, $created_after_ts, $max_waiting_time)
+
 Subprogram which wait till the minion finished its job or
 if it takes too much time
 
 =head3 Arguments
 
 =head4 $task_name
+
 The name of the task 
 
 =head4 $created_after_ts
+
 The timestamp of the creation of the task
 
 =head4 $max_waiting_time
+
 The max waiting time for this given task
 
 =head3 Returns
+
 Returns a list of jobs information associated with the task_name
 
 Note: for each job we return the job information (as returned by the jobs() iterator),

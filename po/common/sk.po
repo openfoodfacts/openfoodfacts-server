@@ -15,6 +15,76 @@ msgstr ""
 "X-Crowdin-Language: sk\n"
 "X-Crowdin-File-ID: 3123\n"
 
+msgctxt "site_description_off"
+msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
+msgstr ""
+
+msgctxt "tagline_off"
+msgid "Open Food Facts gathers information and data on food products from around the world."
+msgstr "Open Food Facts zhromažďuje informácie a údaje o potravinárskych výrobkoch z celého sveta."
+
+msgctxt "footer_tagline_off"
+msgid "A collaborative, free and open database of food products from around the world."
+msgstr "Spoločná, bezplatná a otvorená databáza potravinárskych výrobkov z celého sveta."
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_off"
+msgid "/open-food-facts-mobile-app"
+msgstr "/open-food-facts-mobile-app"
+
+msgctxt "site_description_obf"
+msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
+msgstr ""
+
+msgctxt "tagline_obf"
+msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
+msgstr ""
+
+msgctxt "footer_tagline_obf"
+msgid "A collaborative, free and open database of cosmetic products from around the world."
+msgstr ""
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_obf"
+msgid "/open-beauty-facts-mobile-app"
+msgstr ""
+
+msgctxt "footer_and_the_facebook_group_obf"
+msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
+msgstr ""
+
+msgctxt "search_description_opensearch_obf"
+msgid "Open Beauty Facts product search"
+msgstr ""
+
+msgctxt "warning_not_complete_obf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr ""
+
+msgctxt "brands_example_beauty"
+msgid "Nivea, Nivea Men"
+msgstr ""
+
+msgctxt "categories_example_beauty"
+msgid "Anti-dandruff shampoo, Whitening toothpaste"
+msgstr ""
+
+msgctxt "emb_codes_example_beauty"
+msgid "EMB 53062"
+msgstr "EMB 53062"
+
+msgctxt "generic_name_example_beauty"
+msgid "Anti-dandruff shampoo"
+msgstr ""
+
+msgctxt "product_name_example_beauty"
+msgid "Anti-Perspirant Stress Protect"
+msgstr ""
+
+msgctxt "ingredients_text_example_beauty"
+msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+msgstr ""
+
 msgctxt "1_product"
 msgid "1 product"
 msgstr "Produkt"
@@ -61,11 +131,11 @@ msgstr "Pridajte sa k nám na Slack"
 
 msgctxt "add_user_join_the_project"
 msgid "%s is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!"
-msgstr ""
+msgstr "%s je spoločný projekt, do ktorého môžete priniesť oveľa viac než len nové produkty: vašu energiu, nadšenie a nápady!"
 
 msgctxt "add_user_join_us_on_slack"
 msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
-msgstr ""
+msgstr "Používame diskusný systém s názvom Slack, kde sa všetci účastníci projektu môžu vymieňať a spolupracovať. Pridajte sa prosím! Budeme radi, ak vás spoznáme!"
 
 msgctxt "add_user_you_can_edit_pro"
 msgid "You can now easily import your product data and photos."
@@ -73,7 +143,7 @@ msgstr "Teraz môžete jednoducho importovať údaje a fotky o vašich produktoc
 
 msgctxt "add_user_you_can_edit_pro_promo"
 msgid "You can now add and edit your products and import their data and photos on our free <a href=\"%s\">platform for producers</a>."
-msgstr ""
+msgstr "Teraz môžete pridávať a upravovať svoje produkty a importovať ich údaje a fotografie na našej bezplatnej platforme <a href=\"%s\">pre výrobcov</a>."
 
 msgctxt "add_user_existing_org"
 msgid "There is already an existing organization with the name %s."
@@ -81,35 +151,35 @@ msgstr "Organizácia s názvom %s už existuje."
 
 msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
-msgstr ""
+msgstr "Vaša žiadosť o pripojenie k organizácii čaká na schválenie administrátorom organizácie."
 
 msgctxt "admin_status_updated"
 msgid "Admin Status Updated"
-msgstr ""
+msgstr "Stav správcu bol aktualizovaný"
 
 msgctxt "admin_status"
 msgid "Admin Status"
-msgstr ""
+msgstr "Stav správcu"
 
 msgctxt "grant_remove_admin_status"
 msgid "Grant/Remove Admin status"
-msgstr ""
+msgstr "Udeliť/Odstrániť stav správcu"
 
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
-msgstr ""
+msgstr "Ak máte akékoľvek otázky, pošlite e-mail na <a href=\"mailto:producers@openfoodfacts.org\">productions@openfoodfacts.org</a> ."
 
 msgctxt "if_you_work_for_a_producer"
 msgid "If you work for a producer or brand and will add or complete data for your own products only, you can get access to our completely free Platform for Producers."
-msgstr ""
+msgstr "Ak pracujete pre výrobcu alebo značku a pridávate alebo dopĺňate údaje iba pre svoje vlastné produkty, môžete získať prístup k našej úplne bezplatnej platforme pre výrobcov."
 
 msgctxt "producers_platform_description_long"
 msgid "The platform for producers allows manufacturers to easily import data and photos for all their products, to mark them as official, and to get free analysis of improvement opportunities for their products."
-msgstr ""
+msgstr "Platforma pre výrobcov umožňuje výrobcom jednoducho importovať údaje a fotografie pre všetky svoje produkty, označiť ich ako oficiálne a získať bezplatnú analýzu príležitostí na zlepšenie ich produktov."
 
 msgctxt "pro_account"
 msgid "Professional account"
-msgstr ""
+msgstr "Profesionálny účet"
 
 msgctxt "this_is_a_pro_account"
 msgid "This is a producer or brand account."
@@ -117,48 +187,48 @@ msgstr "Toto je účet výrobcu alebo značky."
 
 msgctxt "producer_or_brand"
 msgid "Name of producer or name of brand"
-msgstr ""
+msgstr "Názov výrobcu alebo názov značky"
 
 msgctxt "error_missing_org"
 msgid "Professional accounts must have an associated organization (company name or brand)."
-msgstr ""
+msgstr "Profesionálne účty musia mať pridruženú organizáciu (názov spoločnosti alebo značku)."
 
 msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
-msgstr ""
+msgstr "Zadajte názov svojej organizácie (názov spoločnosti alebo značku)."
 
 msgctxt "enter_email_addresses_of_users"
 msgid "Enter email addresses of users to invite (comma-separated):"
-msgstr ""
+msgstr "Zadajte e-mailové adresy používateľov, ktorých chcete pozvať (oddeľte čiarkami):"
 
 msgctxt "f_this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
-msgstr ""
+msgstr "Tento účet je profesionálnym účtom spojeným s výrobcom alebo značkou {org}. Máte prístup k platforme pre producentov."
 
 # please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
-msgstr ""
+msgstr "Ďakujeme, že ste sa pripojili <<site_name>>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr ""
+msgstr "Potenciálne nebezpečná potravinová prísada. Obmedzte používanie."
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-msgstr ""
+msgstr "Nebezpečná potravinová prísada. Vyhnite sa jej."
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
-msgstr ""
+msgstr "Potravinová prísada zakázaná v Európe. Vyhnite sa jej za každú cenu."
 
 msgctxt "additives_p"
 msgid "additives"
-msgstr ""
+msgstr "aditíva"
 
 msgctxt "additives_s"
 msgid "additive"
-msgstr ""
+msgstr "aditívum"
 
 msgctxt "advanced_search"
 msgid "Advanced search"
@@ -170,15 +240,15 @@ msgstr "Pokročilé vyhľadávanie a grafy"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
-msgstr ""
+msgstr "Nadmerné pitie je zdraviu škodlivé."
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
-msgstr ""
+msgstr "Upozorňujeme, že váš účet Pro bude platný iba vtedy, ak použijete svoju profesionálnu e-mailovú adresu. Náš moderátorský tím skontroluje, či sa názov domény zhoduje s organizáciou, ku ktorej sa chcete pripojiť."
 
 msgctxt "all_missions"
 msgid "All missions"
-msgstr ""
+msgstr "Všetky misie"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
@@ -190,10 +260,18 @@ msgstr ""
 
 msgctxt "allergens_s"
 msgid "allergen"
-msgstr ""
+msgstr "Alergén"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
+msgstr "Stránku produktu tiež upravil"
+
+msgctxt "analytical_constituents"
+msgid "Analytical constituents"
+msgstr ""
+
+msgctxt "analytical_constituents_per_1kg"
+msgid "for 1 kg"
 msgstr ""
 
 msgctxt "android_apk_app_icon_url"
@@ -202,12 +280,7 @@ msgstr "/images/misc/android-apk.svg"
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
-msgstr ""
-
-# DO NOT TRANSLATE
-msgctxt "android_apk_app_link"
-msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr ""
+msgstr "Android APK"
 
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
@@ -216,37 +289,33 @@ msgstr ""
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
-msgstr ""
-
-# Change hl=en to your language, and make sure the url works
-msgctxt "android_app_link"
-msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
-msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
+msgstr "Získať z obchodu Google Play"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr ""
+msgstr "<p>Tento produkt ešte nie je v databáze <<site_name>>. Mohli by ste, prosím, odfotiť produkt, čiarový kód, zoznam zložiek a výživové údaje a pridať ich na <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
+"<p>Vopred ďakujeme!</p>\n"
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
-msgstr ""
+msgstr "Odfotiť"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
-msgstr ""
+msgstr "Poznámka: Vami odoslané obrázky sú publikované pod bezplatnou licenciou Creative Commons Attribution a ShareAlike."
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
-msgstr ""
+msgstr "Môžete pridať obrázky:"
 
 msgctxt "axis_x"
 msgid "Horizontal axis"
-msgstr ""
+msgstr "Horizontálna os"
 
 msgctxt "axis_y"
 msgid "Vertical axis"
-msgstr ""
+msgstr "Vertikálna os"
 
 msgctxt "barcode"
 msgid "Barcode"
@@ -254,23 +323,23 @@ msgstr "Čiarový kód"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
-msgstr ""
+msgstr "Číslo čiarového kódu:"
 
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
-msgstr ""
+msgstr "Môžete tiež prispieť k financovaniu projektu Open Food Facts"
 
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
-msgstr ""
+msgstr "Manuál správcu producentov"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> vytvorilo neziskové združenie nezávislé od odvetvia. Je vyrobený pre všetkých, všetkými a je financovaný všetkými. Našu prácu môžete podporiť <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">príspevkom na Open Food Facts</a> a tiež <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">pomocou vyhľadávača Lilo</a>.<br/><b>Ďakujeme!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
-msgstr ""
+msgstr "Prispejte na podporu našej práce"
 
 msgctxt "brands"
 msgid "Brands"
@@ -278,7 +347,7 @@ msgstr "Značky"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
-msgstr ""
+msgstr "Kinder Bueno Biela, Kinder Bueno, Kinder, Ferrero"
 
 msgctxt "brands_p"
 msgid "brands"
@@ -286,31 +355,31 @@ msgstr ""
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
-msgstr ""
+msgstr "Produkty značky %s"
 
 msgctxt "brands_s"
 msgid "brand"
-msgstr ""
+msgstr "značka"
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
-msgstr ""
+msgstr "pridať značku"
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
-msgstr ""
+msgstr "Produkty nie od značky %s"
 
 msgctxt "brand_owner"
 msgid "Brand owner"
-msgstr ""
+msgstr "Majiteľ značky"
 
 msgctxt "brand_owner_example"
 msgid "The Coca Cola Company"
-msgstr ""
+msgstr "Spoločnosť Coca Cola"
 
 msgctxt "by"
 msgid "by"
-msgstr ""
+msgstr "od"
 
 msgctxt "categories"
 msgid "Categories"
@@ -318,51 +387,51 @@ msgstr "Kategórie"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
-msgstr ""
+msgstr "Sardinky v olivovom oleji, pomarančová šťava z koncentrátu"
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
-msgstr ""
+msgstr "Uveďte iba najšpecifickejšiu kategóriu. Kategórie „Pribuzné“ budú pridané automaticky."
 
 msgctxt "categories_p"
 msgid "categories"
-msgstr ""
+msgstr "kategórie"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
-msgstr ""
+msgstr "Produkty z kategórie %s"
 
 msgctxt "categories_s"
 msgid "category"
-msgstr ""
+msgstr "Kategória"
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
-msgstr ""
+msgstr "pridať kategóriu"
 
 msgctxt "categories_without_products"
 msgid "Products not from the %s category"
-msgstr ""
+msgstr "Produkty, ktoré nie sú z kategórie %s"
 
 msgctxt "change_fields"
 msgid "Data"
-msgstr ""
+msgstr "Údaje"
 
 msgctxt "change_nutriments"
 msgid "Nutriments"
-msgstr ""
+msgstr "Živiny"
 
 msgctxt "change_selected_images"
 msgid "Selected images"
-msgstr ""
+msgstr "Vybrané obrázky"
 
 msgctxt "change_uploaded_images"
 msgid "Uploaded images"
-msgstr ""
+msgstr "Nahrané obrázky"
 
 msgctxt "checkers_p"
 msgid "checkers"
-msgstr ""
+msgstr "kontrolórov"
 
 msgctxt "checkers_s"
 msgid "checker"
@@ -370,63 +439,63 @@ msgstr "kontrolór"
 
 msgctxt "cities_p"
 msgid "packaging cities"
-msgstr ""
+msgstr "baliace mestá"
 
 msgctxt "cities_products"
 msgid "Products packaged in the city of %s"
-msgstr ""
+msgstr "Produkty zabalené v meste %s"
 
 msgctxt "cities_s"
 msgid "packaging city"
-msgstr ""
+msgstr "baliace mestá"
 
 msgctxt "cities_without_products"
 msgid "Products not packaged in the city of %s"
-msgstr ""
+msgstr "Produkty, ktoré nie sú zabalené v meste %s"
 
 msgctxt "codes_p"
 msgid "Codes"
-msgstr ""
+msgstr "Kódy"
 
 msgctxt "codes_s"
 msgid "Code"
-msgstr ""
+msgstr "Kód"
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
-msgstr ""
+msgstr "dokončených %d misií:"
 
 msgctxt "connected_with_facebook"
 msgid "You are connected with your Facebook account."
-msgstr ""
+msgstr "Ste pripojení k svojmu účtu na Facebooku."
 
 msgctxt "contributor_since"
 msgid "Contributor since"
-msgstr ""
+msgstr "Prispievateľ od"
 
 msgctxt "copy_data"
 msgid "Copy data from current product to new product"
-msgstr ""
+msgstr "Skopírujte údaje z aktuálneho produktu do nového produktu"
 
 msgctxt "correct_the_following_errors"
 msgid "Please correct the following errors:"
-msgstr ""
+msgstr "Prosím, opravte nasledujúce chyby:"
 
 msgctxt "correctors_p"
 msgid "correctors"
-msgstr ""
+msgstr "korektory"
 
 msgctxt "correctors_s"
 msgid "corrector"
-msgstr ""
+msgstr "korektor"
 
 msgctxt "countries"
 msgid "Countries where sold"
-msgstr ""
+msgstr "Krajiny, kde sa predáva"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (not including stores specialising in foreign products)"
-msgstr ""
+msgstr "Krajiny, kde je produkt široko dostupný (okrem obchodov špecializujúcich sa na zahraničné produkty)"
 
 msgctxt "countries_p"
 msgid "countries"
@@ -434,155 +503,155 @@ msgstr ""
 
 msgctxt "countries_products"
 msgid "Products sold in %s"
-msgstr ""
+msgstr "Produkty predávané v %s"
 
 msgctxt "countries_s"
 msgid "country"
-msgstr ""
+msgstr "krajina"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
-msgstr ""
+msgstr "Produkty, ktoré sa nepredávajú v %s"
 
 msgctxt "data_source"
 msgid "Data source"
-msgstr ""
+msgstr "Zdroj údajov"
 
 msgctxt "data_sources_p"
 msgid "data sources"
-msgstr ""
+msgstr "zdroj údajov"
 
 msgctxt "data_sources_s"
 msgid "data source"
-msgstr ""
+msgstr "zdroj údajov"
 
 msgctxt "debug_p"
 msgid "debug"
-msgstr ""
+msgstr "ladenie"
 
 msgctxt "debug_s"
 msgid "debug"
-msgstr ""
+msgstr "ladenie"
 
 msgctxt "delete_comment"
 msgid "Reason for removal"
-msgstr ""
+msgstr "Dôvod na odstránenie"
 
 msgctxt "delete_product"
 msgid "Delete a product"
-msgstr ""
+msgstr "Vymazať produkt"
 
 msgctxt "delete_product_page"
 msgid "Delete the page"
-msgstr ""
+msgstr "Odstráňiť stránku"
 
 msgctxt "delete_the_images"
 msgid "Delete the images"
-msgstr ""
+msgstr "Vymazať obrázky"
 
 msgctxt "delete_user"
 msgid "Delete a user"
-msgstr ""
+msgstr "Odstrániť používateľa"
 
 msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
-msgstr ""
+msgstr "Týmto sa odstránia vaše používateľské údaje a všetky vaše príspevky budú anonymizované. Pre potvrdenie zadajte znova svoje používateľské meno."
 
 msgctxt "danger_zone"
 msgid "Danger Zone"
-msgstr ""
+msgstr "Nebezpečná zóna"
 
 msgctxt "diff_add"
 msgid "Added:"
-msgstr ""
+msgstr "Pridané:"
 
 msgctxt "diff_change"
 msgid "Changed:"
-msgstr ""
+msgstr "Zmenené:"
 
 msgctxt "diff_delete"
 msgid "Deleted:"
-msgstr ""
+msgstr "Vymazané:"
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
-msgstr ""
+msgstr "Prispejte na Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/donate-to-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
-msgstr ""
+msgstr "Ekologická stopa"
 
 msgctxt "ecological_data_table_note"
 msgid "If the carbon footprint is specified on the label (rarely at this time), indicate it for the same quantity than the nutritional composition."
-msgstr ""
+msgstr "Ak je uhlíková stopa uvedená na etikete (v súčasnosti len zriedka), uveďte ju pre rovnaké množstvo ako nutričné zloženie."
 
 msgctxt "edit"
 msgid "edit"
-msgstr ""
+msgstr "upraviť"
 
 msgctxt "edit_comment"
 msgid "Changes summary"
-msgstr ""
+msgstr "Súhrn zmien"
 
 msgctxt "edit_product"
 msgid "Edit a product"
-msgstr ""
+msgstr "Upraviť produkt"
 
 msgctxt "edit_product_page"
 msgid "Edit the page"
-msgstr ""
+msgstr "Upraviť stránku"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
-msgstr ""
+msgstr "Upravte svoj verejný profil"
 
 msgctxt "edit_profile_confirm"
 msgid "Changes to your public profile have been saved."
-msgstr ""
+msgstr "Zmeny vo vašom verejnom profile boli uložené."
 
 msgctxt "edit_profile_msg"
 msgid "Information below is visible in your public profile."
-msgstr ""
+msgstr "Nižšie uvedené informácie sú viditeľné vo vašom verejnom profile."
 
 msgctxt "edit_settings"
 msgid "Change your account parameters"
-msgstr ""
+msgstr "Zmeňte parametre svojho účtu"
 
 msgctxt "edit_user"
 msgid "Account parameters"
-msgstr ""
+msgstr "Parametre účtu"
 
 msgctxt "edit_user_display"
 msgid "Account parameters"
-msgstr ""
+msgstr "Parametre účtu"
 
 msgctxt "edit_user_process"
 msgid "Account parameters"
-msgstr ""
+msgstr "Parametre účtu"
 
 msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
-msgstr ""
+msgstr "Parametre vášho účtu boli zmenené."
 
 msgctxt "editors_p"
 msgid "editors"
-msgstr ""
+msgstr "editory"
 
 msgctxt "editors_s"
 msgid "editor"
-msgstr ""
+msgstr "editor"
 
 msgctxt "email"
 msgid "E-mail address"
-msgstr ""
+msgstr "Emailová adresa"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with traceability code %s"
-msgstr ""
+msgstr "Produkty zabalené spoločnosťou s kódom vysledovateľnosti %s"
 
 msgctxt "emb_code_p"
 msgid "Traceability codes"
@@ -590,72 +659,72 @@ msgstr ""
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
-msgstr ""
+msgstr "Kód vysledovateľnosti"
 
 msgctxt "emb_codes"
 msgid "Traceability code"
-msgstr ""
+msgstr "Kód vysledovateľnosti"
 
 msgctxt "emb_codes_p"
 msgid "traceability codes"
-msgstr ""
+msgstr "kód vysledovateľnosti"
 
 msgctxt "emb_codes_products"
 msgid "Products with the traceability code %s"
-msgstr ""
+msgstr "Výrobky s kódom vysledovateľnosti %s"
 
 msgctxt "emb_codes_s"
 msgid "traceability code"
-msgstr ""
+msgstr "kód vysledovateľnosti"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the traceability code %s"
-msgstr ""
+msgstr "Výrobky bez kódu vysledovateľnosti %s"
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
 msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
-msgstr ""
+msgstr "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 
 msgctxt "emb_codes_note"
 msgid "In Europe, the code is in an ellipse with the 2 country initials followed by a number and CE."
-msgstr ""
+msgstr "V Európe je kód v elipse s 2 iniciálami krajiny, za ktorými nasleduje číslo a CE."
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
-msgstr ""
+msgstr "Dátum registrácie"
 
 msgctxt "entry_dates_s"
 msgid "Entry date"
-msgstr ""
+msgstr "Dátum registrácie"
 
 msgctxt "error"
 msgid "Error"
-msgstr ""
+msgstr "Chyba"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
-msgstr ""
+msgstr "Nesprávne užívateľské meno alebo heslo. <a href=\"/cgi/reset_password.pl\">Zabudli ste heslo?</a>"
 
 msgctxt "error_database"
 msgid "An error occurred while reading the data, try to refresh the page."
-msgstr ""
+msgstr "Pri načítaní údajov sa vyskytla chyba, skúste stránku obnoviť."
 
 msgctxt "error_different_passwords"
 msgid "The password and confirmation password are different."
-msgstr ""
+msgstr "Heslo a potvrdzovacie heslo sa líšia."
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr ""
+msgstr "E-mailovú adresu už používa iný používateľ. Možno už máte účet? Môžete <a href=\"/cgi/reset_password.pl\">obnoviť heslo</a> svojho druhého účtu."
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
-msgstr ""
+msgstr "Neplatná adresa."
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
-msgstr ""
+msgstr "Neplatná emailová adresa"
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be at least 6 characters long."
@@ -663,95 +732,91 @@ msgstr "Heslo má mať aspoň 6 znakov."
 
 msgctxt "error_invalid_user"
 msgid "Invalid user."
-msgstr ""
+msgstr "Neplatný používateľ."
 
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
-msgstr ""
+msgstr "Používateľské meno musí obsahovať iba písmená, číslice a pomlčky bez diakritiky."
 
 msgctxt "error_username_too_long"
 msgid "The user name is too long (maximum 40 characters)."
-msgstr ""
+msgstr "Používateľské meno je príliš dlhé (maximálne 40 znakov)."
 
 msgctxt "error_name_too_long"
 msgid "The name is too long (maximum 60 characters)."
-msgstr ""
+msgstr "Názov je príliš dlhý (maximálne 60 znakov)."
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
-msgstr ""
+msgstr "Produkt už existuje s novým kódom"
 
 msgctxt "error_no_name"
 msgid "You need to enter a name or nickname."
-msgstr ""
+msgstr "Musíte zadať meno alebo prezývku."
 
 msgctxt "error_no_permission"
 msgid "Permission denied."
-msgstr ""
+msgstr "Prístup zamietnutý."
 
 msgctxt "error_no_username"
 msgid "You need to enter a user name"
-msgstr ""
+msgstr "Musíte zadať meno používateľa"
 
 msgctxt "error_reset_already_connected"
 msgid "You are already signed in."
-msgstr ""
+msgstr "Už ste prihlásení."
 
 msgctxt "error_reset_invalid_token"
 msgid "The reset password link is invalid or has expired."
-msgstr ""
+msgstr "Odkaz na obnovenie hesla je neplatný alebo jeho platnosť vypršala."
 
 msgctxt "error_reset_unknown_email"
 msgid "There is no account with this email"
-msgstr ""
+msgstr "S týmto e-mailom neexistuje žiadny účet"
 
 msgctxt "error_reset_unknown_id"
 msgid "This username does not exist."
-msgstr ""
+msgstr "Toto používateľské meno neexistuje."
 
 msgctxt "error_username_not_available"
 msgid "This username already exists, please choose another."
-msgstr ""
+msgstr "Toto používateľské meno už existuje, vyberte si iné."
 
 msgctxt "example"
 msgid "Example:"
-msgstr ""
+msgstr "Príklad:"
 
 msgctxt "examples"
 msgid "Examples:"
-msgstr ""
+msgstr "Príklady:"
 
 msgctxt "expiration_date"
 msgid "Best before date"
-msgstr ""
+msgstr "Dátum minimálnej trvanlivosti"
 
 msgctxt "expiration_date_note"
 msgid "The expiration date is a way to track product changes over time and to identify the most recent version."
-msgstr ""
+msgstr "Dátum vypršania platnosti je spôsob, ako sledovať zmeny produktu v priebehu času a identifikovať najnovšiu verziu."
 
 msgctxt "explore_products_by"
 msgid "Explore products by..."
-msgstr ""
+msgstr "Preskúmajte produkty podľa..."
 
 msgctxt "facebook_locale"
 msgid "en_US"
-msgstr ""
-
-msgctxt "facebook_page"
-msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr ""
+msgstr "sk_SK"
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
-msgstr ""
+msgstr "Ak sú údaje neúplné alebo nesprávne, môžete ich doplniť alebo opraviť úpravou tejto stránky."
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
-msgstr ""
+msgstr "a facebooková skupina <a href=\"https://www.facebook.com/groups/openfoodfacts/\">pre prispievateľov</a>"
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
-msgstr ""
+msgstr "<<site_name>> blog"
 
 # Do not translate
 msgctxt "footer_blog_link"
@@ -760,29 +825,29 @@ msgstr "https://blog.openfoodfacts.org/en/"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
-msgstr ""
+msgstr "Zásady správania sa"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
-msgstr ""
+msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
-msgstr ""
+msgstr "Data, API a SDKs"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
 msgid "/data"
-msgstr ""
+msgstr "/data"
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
-msgstr ""
+msgstr "Objavte projekt"
 
 msgctxt "footer_faq"
 msgid "Frequently asked questions"
-msgstr ""
+msgstr "Často kladené otázky"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
@@ -791,52 +856,59 @@ msgstr "https://support.openfoodfacts.org/help/sk"
 
 msgctxt "footer_translators"
 msgid "Translators"
-msgstr ""
+msgstr "Prekladatelia"
 
 # Do not translate
 msgctxt "footer_translators_link"
 msgid "/cgi/top_translators.pl"
-msgstr ""
+msgstr "/cgi/top_translators.pl"
 
 msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
-msgstr ""
+msgstr "Sledujde nás na <a href=\"https://twitter.com/openfoodfacts\">Twitteri</a>,\n"
+"<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebooku</a> and\n"
+"<a href=\"https://www.instagram.com/open.food.facts/\">Instagrame</a>\n"
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
-msgstr ""
+msgstr "Nainštalujte aplikáciu"
 
 msgctxt "footer_join_the_community"
 msgid "Join the community"
-msgstr ""
+msgstr "Pripojiť sa ku komunite"
 
 msgctxt "footer_join_us_on"
 msgid "Join us on %s:"
-msgstr ""
+msgstr "Pridajte sa k nám na %s:"
 
 msgctxt "footer_legal"
 msgid "Legal"
-msgstr ""
+msgstr "Právne informácie"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_legal_link"
 msgid "/legal"
-msgstr ""
+msgstr "/legal"
+
+msgctxt "footer_privacy"
+msgid "Privacy"
+msgstr "Privacy"
+
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
+msgctxt "footer_privacy_link"
+msgid "/privacy"
+msgstr "/privacy"
 
 msgctxt "footer_press"
 msgid "Press"
-msgstr ""
+msgstr "Média"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_press_link"
 msgid "/press"
-msgstr ""
-
-msgctxt "footer_tagline"
-msgid "A collaborative, free and open database of food products from around the world."
-msgstr ""
+msgstr "/press"
 
 msgctxt "footer_terms"
 msgid "Terms of use"
@@ -845,42 +917,42 @@ msgstr "Podmienky používania"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
-msgstr ""
+msgstr "/terms-of-use"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
-msgstr ""
+msgstr "Kto sme"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
-msgstr ""
+msgstr "/who-we-are"
 
 msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
-msgstr ""
+msgstr "<<site_name>> wiki (en)"
 
 # Do not translate
 msgctxt "footer_wiki_link"
 msgid "https://wiki.openfoodfacts.org"
-msgstr ""
+msgstr "https://wiki.openfoodfacts.org"
 
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
 msgid "Open Beauty Facts - Cosmetics"
-msgstr ""
+msgstr "Open Beauty Facts – Kozmetika"
 
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
-msgstr ""
+msgstr "https://world.openbeautyfacts.org"
 
 msgctxt "footer_pro"
 msgid "Open Food Facts for Producers"
-msgstr ""
+msgstr "Open Food Facts pre výrobcov"
 
 msgctxt "for"
 msgid "for"
-msgstr ""
+msgstr "pre"
 
 msgctxt "front_alt"
 msgid "Product"
@@ -892,7 +964,7 @@ msgstr "Bežný názov"
 
 msgctxt "generic_name_example"
 msgid "Chocolate bar with milk and hazelnuts"
-msgstr ""
+msgstr "Čokoládová tyčinka s mliekom a lieskovými orieškami"
 
 msgctxt "goodbye"
 msgid "See you soon!"
@@ -900,11 +972,11 @@ msgstr ""
 
 msgctxt "graph_count"
 msgid "%d products match the search criteria, of which %i products have defined values for the graph's axis."
-msgstr ""
+msgstr "Kritériám vyhľadávania zodpovedá %d produktov, z ktorých %i produktov má definované hodnoty pre os grafu."
 
 msgctxt "graph_title"
 msgid "Graph title"
-msgstr ""
+msgstr "Názov grafu"
 
 msgctxt "graphs_and_maps"
 msgid "Graphs and maps"
@@ -916,100 +988,101 @@ msgstr "Zdravíčko"
 
 msgctxt "high"
 msgid "high"
-msgstr ""
+msgstr "vysoká"
 
 msgctxt "high_quantity"
 msgid "high quantity"
-msgstr ""
+msgstr "vysoké množstvo"
 
 msgctxt "history"
 msgid "Changes history"
-msgstr ""
+msgstr "História zmien"
 
 msgctxt "image_front"
 msgid "Front picture"
-msgstr ""
+msgstr "Predný obrázok"
 
 msgctxt "image_ingredients"
 msgid "Ingredients picture"
-msgstr ""
+msgstr "Obrázok ingrediencií"
 
 msgctxt "image_ingredients_note"
 msgid "If the picture is neat enough, the ingredients can be extracted automatically"
-msgstr ""
+msgstr "Ak je obrázok dostatočne ostrí, ingrediencie možno extrahovať automaticky"
 
 msgctxt "image_nutrition"
 msgid "Nutrition facts picture"
-msgstr ""
+msgstr "Foto výživových údajov"
 
 msgctxt "image_upload_error_image_already_exists"
 msgid "This picture has already been sent."
-msgstr ""
+msgstr "Tento obrázok už bol odoslaný."
 
 msgctxt "image_upload_error_image_too_small"
 msgid "The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself."
-msgstr ""
+msgstr "Obrázok je príliš malý. Nenahrávajte obrázky nájdené na internete a posielajte len tie, ktoré ste sami nasnímali."
 
 msgctxt "image_upload_error_no_barcode_found_in_image_long"
 msgid "The barcode in the image could not be read, or the image contained no barcode.\n"
 "You can try with another image, or directly enter the barcode."
-msgstr ""
+msgstr "Čiarový kód na obrázku sa nedal prečítať alebo obrázok neobsahoval žiadny čiarový kód.\n"
+"Môžete to skúsiť s iným obrázkom alebo priamo zadať čiarový kód."
 
 msgctxt "image_upload_error_no_barcode_found_in_image_short"
 msgid "No barcode found in the image."
-msgstr ""
+msgstr "Na obrázku sa nenašiel žiadny čiarový kód."
 
 msgctxt "image_upload_error_no_barcode_specified_or_found"
 msgid "No barcode specified or found in the image or filename."
-msgstr ""
+msgstr "V obrázku alebo názve súboru nie je špecifikovaný ani nájdený žiadny čiarový kód."
 
 msgctxt "image_upload_error_could_not_read_image"
 msgid "The image could not be read."
-msgstr ""
+msgstr "Obrázok sa nedal prečítať."
 
 msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
-msgstr ""
+msgstr "Musíte zadať znaky čiarového kódu alebo odoslať obrázok produktu, pokiaľ je čiarový kód viditelný."
 
 msgctxt "image_full_size"
 msgid "Full size"
-msgstr ""
+msgstr "Plná veľkosť"
 
 msgctxt "image_attribution_creativecommons"
 msgid "This file was uploaded to product %s and is licensed under the %s license."
-msgstr ""
+msgstr "Tento súbor bol nahraný do produktu %s a je licencovaný na základe licencie %s."
 
 msgctxt "image_attribution_photographer"
 msgid "Attribution: Photo by %s per %s"
-msgstr ""
+msgstr "Zdroj: Autor fotografie %s za %s"
 
 msgctxt "image_attribution_photographer_editor"
 msgid "Attribution: Photo by %s with additional modifications by %s per %s"
-msgstr ""
+msgstr "Autor: Fotograf %s s dodatočnými úpravami %s za %s"
 
 msgctxt "image_original_link_text"
 msgid "(Original Image)"
-msgstr ""
+msgstr "(Pôvodný obrázok)"
 
 msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
-msgstr ""
+msgstr "Podrobnosti o fotke a informácie o priradení"
 
 msgctxt "invite_user"
 msgid "Invite Users"
-msgstr ""
+msgstr "Pozvať používateľov"
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
-msgstr ""
+msgstr "Produkty, ktoré ste pridali a ktoré je potrebné dokončiť"
 
 msgctxt "informers_p"
 msgid "informers"
-msgstr ""
+msgstr "informátori"
 
 msgctxt "informers_s"
 msgid "informers"
-msgstr ""
+msgstr "informátori"
 
 msgctxt "ingredients"
 msgid "Ingredients"
@@ -1017,15 +1090,15 @@ msgstr "Ingrediencie"
 
 msgctxt "no_ingredient"
 msgid "Ingredients are missing"
-msgstr ""
+msgstr "Chýbajú ingrediencie"
 
 msgctxt "one_ingredient"
 msgid "1 ingredient"
-msgstr ""
+msgstr "1 prísada"
 
 msgctxt "f_ingredients_with_number"
 msgid "{number} ingredients"
-msgstr ""
+msgstr "{number} prísad"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
@@ -1033,39 +1106,39 @@ msgstr "Ingrediencie"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
-msgstr ""
+msgstr "Poznámka: zložky môžu byť uvedené s mnohými rôznymi názvami, dajte nám vedieť, ak si myslíte, že vyššie uvedená analýza je nesprávna."
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_p"
 msgid "ingredients from or that may be from palm oil"
-msgstr ""
+msgstr "prísady z alebo ktoré môžu byť z palmového oleja"
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_s"
 msgid "ingredient from or that may be from palm oil"
-msgstr ""
+msgstr "prísada z alebo ktorá môže byť z palmového oleja"
 
 msgctxt "ingredients_from_palm_oil_p"
 msgid "ingredients from palm oil"
-msgstr ""
+msgstr "prísady z palmového oleja"
 
 msgctxt "ingredients_from_palm_oil_s"
 msgid "ingredient from palm oil"
-msgstr ""
+msgstr "prísada z palmového oleja"
 
 msgctxt "ingredients_n_p"
 msgid "Numbers of ingredients"
-msgstr ""
+msgstr "Počet ingrediencií"
 
 msgctxt "ingredients_n_s"
 msgid "Number of ingredients"
-msgstr ""
+msgstr "Počet prísad"
 
 msgctxt "known_ingredients_n_s"
 msgid "Number of recognized ingredients"
-msgstr ""
+msgstr "Počet rozpoznaných prísad"
 
 msgctxt "unknown_ingredients_n_s"
 msgid "Number of unrecognized ingredients"
-msgstr ""
+msgstr "Počet nerozpoznaných prísad"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -1073,39 +1146,39 @@ msgstr ""
 
 msgctxt "ingredients_products"
 msgid "Products that contain the ingredient %s"
-msgstr ""
+msgstr "Produkty, ktoré obsahujú zložku %s"
 
 msgctxt "ingredients_s"
 msgid "ingredient"
-msgstr ""
+msgstr "prísada"
 
 msgctxt "ingredients_text"
 msgid "Ingredients list"
-msgstr ""
+msgstr "Zoznam prísad"
 
 msgctxt "ingredients_text_display_note"
 msgid "Ingredients are listed in order of importance (quantity)."
-msgstr ""
+msgstr "Ingrediencie sú uvedené v poradí podľa dôležitosti (množstva)."
 
 msgctxt "ingredients_text_example"
 msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, cocoa 4,8%, ascorbic acid"
-msgstr ""
+msgstr "Obilniny 85,5 % (_pšeničná_ múka, celozrnná_ múka 11 %), sladový extrakt, kakao 4,8 %, kyselina askorbová"
 
 msgctxt "ingredients_text_note"
 msgid "Keep the order, indicate the % when specified, separate with a comma or - , use ( ) for ingredients of an ingredient, surround allergens with _ e.g. _milk_"
-msgstr ""
+msgstr "Dodržujte poradie, uveďte %, ak je špecifikované, oddeľte čiarkou alebo - , použite ( ) pre zložky zložky, obklopte alergény _ napr. _milk_"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_p"
 msgid "ingredients that may be from palm oil"
-msgstr ""
+msgstr "prísady, ktoré môžu byť z palmového oleja"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_s"
 msgid "ingredient that may be from palm oil"
-msgstr ""
+msgstr "prísada, ktorá môže byť z palmového oleja"
 
 msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
-msgstr ""
+msgstr "Výrobky, ktoré neobsahujú zložku %s"
 
 # Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
 msgctxt "ios_app_icon_url"
@@ -1114,121 +1187,117 @@ msgstr "/images/misc/appstore/black/appstore_SK.svg"
 
 msgctxt "ios_app_icon_alt_text"
 msgid "Download on the App Store"
-msgstr ""
-
-msgctxt "ios_app_link"
-msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr ""
+msgstr "Stiahnite si na App Store"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
-msgstr ""
+msgstr "známe živiny"
 
 msgctxt "known_nutrients_s"
 msgid "known nutrient"
-msgstr ""
+msgstr "známa živina"
 
 msgctxt "labels"
 msgid "Labels, certifications, awards"
-msgstr ""
+msgstr "Štítky, certifikáty, ocenenia"
 
 msgctxt "labels_example"
 msgid "Organic"
-msgstr ""
+msgstr "Bio"
 
 msgctxt "labels_note"
 msgid "Indicate only the most specific labels. \"Parents\" labels will be added automatically."
-msgstr ""
+msgstr "Uveďte iba najšpecifickejšiu kategóriu. Kategórie „Pribuzné“ budú pridané automaticky."
 
 msgctxt "labels_p"
 msgid "labels"
-msgstr ""
+msgstr "štítky"
 
 msgctxt "labels_products"
 msgid "Products that have the label %s"
-msgstr ""
+msgstr "Produkty, ktoré majú štítok %s"
 
 msgctxt "labels_s"
 msgid "label"
-msgstr ""
+msgstr "Štítok"
 
 msgctxt "labels_tagsinput"
 msgid "add a label"
-msgstr ""
+msgstr "pridať štítok"
 
 msgctxt "labels_without_products"
 msgid "Products that do not have the label %s"
-msgstr ""
+msgstr "Produkty, ktoré nemajú štítok %s"
 
 msgctxt "lang"
 msgid "Main language"
-msgstr ""
+msgstr "Hlavný jazyk"
 
 msgctxt "lang_note"
 msgid "Language most present and most highlighted on the product"
-msgstr ""
+msgstr "Jazyk, ktorý sa na produkte najčastejšie vyskytuje a je najviac zvýraznený"
 
 msgctxt "language"
 msgid "en-US"
-msgstr ""
+msgstr "sk-SK"
 
 msgctxt "languages_p"
 msgid "languages"
-msgstr ""
+msgstr "jazyky"
 
 msgctxt "languages_s"
 msgid "language"
-msgstr ""
+msgstr "jazyk"
 
 msgctxt "last_edit_dates_p"
 msgid "Last edit dates"
-msgstr ""
+msgstr "Dátumy poslednej úpravy"
 
 msgctxt "last_edit_dates_s"
 msgid "Last edit date"
-msgstr ""
+msgstr "Dátum poslednej úpravy"
 
 msgctxt "last_image_dates_p"
 msgid "Last picture dates"
-msgstr ""
+msgstr "Dátumy posledných obrázkov"
 
 msgctxt "last_image_dates_s"
 msgid "Last picture date"
-msgstr ""
+msgstr "Dátum posledného obrázku"
 
 msgctxt "licence_accept"
 msgid "By adding information, data and/or images, you accept to place irrevocably your contribution under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> licence\n"
 "for information and data, and under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> licence for images.\n"
 "You accept to be credited by re-users by a link to the product your are contributing to."
-msgstr ""
+msgstr "Pridaním informácií, dat a/alebo obrázkov súhlasíte s tým, že neobmedzujúco pridávate svoj príspevok pod licenciou <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\"> Database Contents Licence 1.0</a> pre informácie a data a pod licenciou <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> pre obrázky. Súhlasíte s tým, že pokiaľ budú vaše dáta alebo obrázky použité iným použivateľom, vaše zásluhy budú priznané pomocou odkazu na váš príspevok."
 
 msgctxt "link"
 msgid "Link to the product page on the official site of the producer"
-msgstr ""
+msgstr "Odkaz na stránku produktu na oficiálnej stránke výrobcu"
 
 msgctxt "list_of_x"
 msgid "List of %s"
-msgstr ""
+msgstr "Zoznam %s"
 
 msgctxt "loadmore"
 msgid "Load more results"
-msgstr ""
+msgstr "Načítať viac výsledkov"
 
 msgctxt "login_and_add_product"
 msgid "Sign-in and add the product"
-msgstr ""
+msgstr "Prihláste sa a pridajte produkt"
 
 msgctxt "login_and_edit_product"
 msgid "Sign-in and edit the product"
-msgstr ""
+msgstr "Prihláste sa a upravte produkt"
 
 msgctxt "login_create_your_account"
 msgid "Create your account."
-msgstr ""
+msgstr "Vytvorte si účet."
 
 msgctxt "login_not_registered_yet"
 msgid "Not registered yet?"
-msgstr ""
+msgstr "Ešte nie ste zaregistrovaný?"
 
 msgctxt "login_register_title"
 msgid "Sign-in"
@@ -1236,32 +1305,33 @@ msgstr "Prihlásiť sa"
 
 msgctxt "login_to_add_and_edit_products"
 msgid "Sign-in to add or edit products."
-msgstr ""
+msgstr "Ak chcete pridať alebo upraviť produkty, prihláste sa."
 
 msgctxt "login_to_add_products"
 msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
 "<p>If you do not yet have an account on <<site_name>>, you can <a href=\"/cgi/user.pl\">register in 30 seconds</a>.</p>\n"
-msgstr ""
+msgstr "<p>Ak chcete pridať alebo upraviť produkt, prihláste sa.</p>\n\n"
+"<p>Ak ešte nemáte účet na <<site_name>>, môžete sa <a href=\"/cgi/user.pl\">zaregistrovať za 30 sekúnd</a>.</p>\n"
 
 msgctxt "login_username_email"
 msgid "Username or e-mail address:"
-msgstr ""
+msgstr "Používateľské meno alebo emailová adresa:"
 
 msgctxt "low"
 msgid "low"
-msgstr ""
+msgstr "nízky"
 
 msgctxt "low_quantity"
 msgid "low quantity"
-msgstr ""
+msgstr "malé množstvo"
 
 msgctxt "manage_images"
 msgid "Manage images"
-msgstr ""
+msgstr "Spravujte obrázky"
 
 msgctxt "manage_images_info"
 msgid "You can select one or more images and then:"
-msgstr ""
+msgstr "Môžete vybrať jeden alebo viac obrázkov a potom:"
 
 msgctxt "manufacturing_places"
 msgid "Manufacturing or processing places"
@@ -1269,39 +1339,39 @@ msgstr "Výrobné alebo spracovateľské miesta"
 
 msgctxt "manufacturing_places_example"
 msgid "Montana, USA"
-msgstr ""
+msgstr "Bratislava, Slovensko"
 
 msgctxt "manufacturing_places_p"
 msgid "manufacturing or processing places"
-msgstr ""
+msgstr "výrobné alebo spracovateľské miesta"
 
 msgctxt "manufacturing_places_products"
 msgid "Products manufactured or processed in %s"
-msgstr ""
+msgstr "Produkty vyrobené alebo spracované v %s"
 
 msgctxt "manufacturing_places_s"
 msgid "manufacturing or processing place"
-msgstr ""
+msgstr "výrobné alebo spracovateľské miesta"
 
 msgctxt "manufacturing_places_tagsinput"
 msgid "add a place"
-msgstr ""
+msgstr "pridať miesto"
 
 msgctxt "manufacturing_places_without_products"
 msgid "Products not manufactured or processed in %s"
-msgstr ""
+msgstr "Produkty, ktoré nie sú vyrobené alebo spracované v %s"
 
 msgctxt "map_count"
 msgid "%d products match the search criteria, of which %i products have a known production place."
-msgstr ""
+msgstr "Kritériám vyhľadávania zodpovedá %d produktov, z ktorých %i produktov má známe miesto výroby."
 
 msgctxt "map_title"
 msgid "Map title"
-msgstr ""
+msgstr "Názov mapy"
 
 msgctxt "menu"
 msgid "Menu"
-msgstr ""
+msgstr "Menu"
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
@@ -1310,65 +1380,65 @@ msgstr "Pridať produkt"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
-msgstr ""
+msgstr "/add-a-product"
 
 msgctxt "menu_contribute"
 msgid "Contribute"
-msgstr "Prispejte"
+msgstr "Prispieť"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_contribute_link"
 msgid "/contribute"
-msgstr ""
+msgstr "/contribute"
 
 msgctxt "menu_discover"
 msgid "Discover"
-msgstr "Objavujte"
+msgstr "Objavte"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr ""
+msgstr "/discover"
 
 msgctxt "mission_"
 msgid "Mission: "
-msgstr ""
+msgstr "Misia: "
 
 msgctxt "mission_accomplished_by"
 msgid "This mission has been completed by:"
-msgstr ""
+msgstr "Túto misiu dokončili:"
 
 msgctxt "mission_accomplished_by_n"
 msgid "Completed by %d persons."
-msgstr ""
+msgstr "Dokončilo %d osôb."
 
 msgctxt "mission_accomplished_by_nobody"
 msgid "Be the first to complete this mission!"
-msgstr ""
+msgstr "Buďte prvý, kto dokončí túto misiu!"
 
 msgctxt "mission_goal"
 msgid "Goal:"
-msgstr ""
+msgstr "Cieľ:"
 
 msgctxt "missions"
 msgid "Missions"
-msgstr ""
+msgstr "Misie"
 
 msgctxt "moderate"
 msgid "moderate"
-msgstr ""
+msgstr "mierny"
 
 msgctxt "moderate_quantity"
 msgid "moderate quantity"
-msgstr ""
+msgstr "mierne množstvo"
 
 msgctxt "move_images_to_another_product"
 msgid "Move the images to another product"
-msgstr ""
+msgstr "Presuňte obrázky do iného produktu"
 
 msgctxt "n_products"
 msgid "%s products"
-msgstr ""
+msgstr "%s produktov"
 
 msgctxt "name"
 msgid "Name"
@@ -1376,31 +1446,31 @@ msgstr "Názov"
 
 msgctxt "names"
 msgid "Names"
-msgstr ""
+msgstr "Názvy"
 
 msgctxt "new_code"
 msgid "If the barcode is not correct, please correct it here:"
-msgstr ""
+msgstr "Ak čiarový kód nie je správny, opravte ho tu:"
 
 msgctxt "new_code_note"
 msgid "For products without a barcode, an internal code is automatically set."
-msgstr ""
+msgstr "Pre produkty bez čiarového kódu sa automaticky nastaví interný kód."
 
 msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
-msgstr ""
+msgstr "Prihláste sa na odber noviniek (maximálne 2 e-maily za mesiac)"
 
 msgctxt "subscribe_to_our_newsletter"
 msgid "Subscribe to our newsletter"
-msgstr ""
+msgstr "Prihlásiť sa ku odberu noviniek"
 
 msgctxt "next"
 msgid "Next"
-msgstr ""
+msgstr "Ďalšie"
 
 msgctxt "no_barcode"
 msgid "Product without barcode"
-msgstr ""
+msgstr "Produkt bez čiarového kódu"
 
 msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
@@ -1408,52 +1478,52 @@ msgstr ""
 
 msgctxt "multiple_nutrition_data"
 msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
-msgstr ""
+msgstr "Na výrobku sú uvedené viaceré výživové údaje (napr. s pridanou vodou alebo mliekom)."
 
 msgctxt "multiple_nutrition_data_instructions"
 msgid "Enter only the nutrition facts for the unprepared product, without added water or milk. If there are different products, enter nutrition facts for the first product listed."
-msgstr ""
+msgstr "Zadajte len nutričné údaje pre nepripravený produkt, bez pridanej vody alebo mlieka. Ak existujú rôzne produkty, zadajte nutričné údaje pre prvý uvedený produkt."
 
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
-msgstr ""
+msgstr "Pre čiarový kód %s nie je uvedený žiadny produkt."
 
 msgctxt "no_products"
 msgid "No products."
-msgstr ""
+msgstr "Žiadne produkty."
 
 msgctxt "not_saved"
 msgid "Error while saving, please retry."
-msgstr ""
+msgstr "Chyba pri ukladaní, skúste to znova."
 
 msgctxt "number_of_additives"
 msgid "Number of additives"
-msgstr ""
+msgstr "Počet prídavných látok"
 
 msgctxt "number_of_products"
 msgid "Number of products"
-msgstr ""
+msgstr "Počet produktov"
 
 msgctxt "nutrient_in_quantity"
 msgid "%s in %s"
-msgstr ""
+msgstr "%s v %s"
 
 msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
-msgstr ""
+msgstr "Výživové hodnoty na 100g"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr ""
+msgstr "/nutrient-levels"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
-msgstr ""
+msgstr "množstvo živín"
 
 msgctxt "nutrient_levels_s"
 msgid "nutrient level"
-msgstr ""
+msgstr "množstvo živín"
 
 msgctxt "nutriments_p"
 msgid "nutriments"
@@ -1461,112 +1531,113 @@ msgstr ""
 
 msgctxt "nutriments_products"
 msgid "Products that contain the nutriment %s"
-msgstr ""
+msgstr "Produkty, ktoré obsahujú živinu %s"
 
 msgctxt "nutriments_s"
 msgid "nutriment"
-msgstr ""
+msgstr "živina"
 
 msgctxt "nutriments_without_products"
 msgid "Products that do not contain the nutriment %s"
-msgstr ""
+msgstr "Výrobky, ktoré neobsahujú živinu %s"
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Nutričné hodnoty"
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Nutričné hodnoty"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
-msgstr ""
+msgstr "Priemerné nutričné údaje pre %d produktov kategórie %s, pre ktoré sú nutričné údaje známe (z %d produktov)."
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
-msgstr ""
+msgstr "% rozdielu"
 
 msgctxt "nutrition_data_compare_value"
 msgid "value for 100 g / 100 ml"
-msgstr ""
+msgstr "hodnota pre 100 g / 100 ml"
 
 msgctxt "nutrition_data_comparison_with_categories"
 msgid "Comparison to average values of products in the same category:"
-msgstr ""
+msgstr "Porovnanie s priemernými hodnotami produktov v rovnakej kategórii:"
 
 msgctxt "nutrition_data_comparison_with_categories_note"
 msgid "Please note: for each nutriment, the average is computed for products for which the nutriment quantity is known, not on all products of the category."
-msgstr ""
+msgstr "Upozornenie: pre každú živinu sa priemer počíta pre produkty, pri ktorých je známe množstvo živín, nie pre všetky produkty kategórie."
 
 msgctxt "nutrition_data_note"
 msgid "If the picture is sufficiently sharp and level, nutrition facts can be automatically extracted from the picture."
-msgstr ""
+msgstr "Ak je obraz dostatočne ostrý a vyrovnaný, môžu sa z neho automaticky extrahovať nutričné údaje."
 
 msgctxt "nutrition_data_per_10"
 msgid "10th centile"
-msgstr ""
+msgstr "10. centil"
 
 msgctxt "nutrition_data_per_100g"
 msgid "for 100 g / 100 ml"
-msgstr ""
+msgstr "na 100 g / 100 ml"
 
 msgctxt "nutrition_data_per_5"
 msgid "5<sup>th</sup> centile"
-msgstr ""
+msgstr "5<sup>.</sup> centil"
 
 msgctxt "nutrition_data_per_50"
 msgid "Median"
-msgstr ""
+msgstr "Medián"
 
 msgctxt "nutrition_data_per_90"
 msgid "90th centile"
-msgstr ""
+msgstr "90. centil"
 
 msgctxt "nutrition_data_per_95"
 msgid "95<sup>th</sup> centile"
-msgstr ""
+msgstr "95<sup>.</sup> centil"
 
 msgctxt "nutrition_data_per_max"
 msgid "Maximum"
-msgstr ""
+msgstr "Maximálne"
 
 msgctxt "nutrition_data_per_mean"
 msgid "Mean"
-msgstr ""
+msgstr "Priemer"
 
 msgctxt "nutrition_data_per_min"
 msgid "Minimum"
-msgstr ""
+msgstr "Minimálne"
 
 msgctxt "nutrition_data_per_serving"
 msgid "per serving"
-msgstr ""
+msgstr "na jednu porciu"
 
 msgctxt "nutrition_data_per_std"
 msgid "Standard deviation"
-msgstr ""
+msgstr "Štandardná odchylka"
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Nutričné hodnoty"
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
 "by typing the first letters of their name in the last row of the table."
-msgstr ""
+msgstr "V tabuľke sú štandardne uvedené živiny, ktoré sú často špecifikované. Nechajte pole prázdne, ak nie je na štítku.<br/>Môžete pridať ďalšie živiny (vitamíny, minerály, cholesterol atď.)\n"
+"zadaním prvých písmen ich názvu do posledného riadku tabuľky."
 
 msgctxt "nutrition_data_table_asterisk"
 msgid "Essential nutrients to calculate the Nutri-Score."
-msgstr ""
+msgstr "Esenciálne živiny na výpočet Nutri-Score."
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
-msgstr ""
+msgstr "Stupeň výživnosti"
 
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
-msgstr ""
+msgstr "Stupeň výživnosti"
 
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
@@ -1582,16 +1653,17 @@ msgstr "<p>Ak sa chcete dozvedieť viac o <<site_name>>, navštívte <a href=\"h
 
 msgctxt "on_the_blog_title"
 msgid "News"
-msgstr ""
+msgstr "Novinky"
 
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> on <<site_name>> from Saturday February 21st 2015 to Sunday March 1st 2015! Contributors are awarded\n"
 "Explorer points for products they add and Ambassador points for new contributors they recruit. Points are updated every 30 minutes."
-msgstr ""
+msgstr "Je <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> na <<site_name>> od soboty 21. februára 2015 do nedele 1. marca 2015! Prispievatelia získajú\n"
+"body prieskumníka za produkty, ktoré pridajú, a body veľvyslanca za nových prispievateľov, ktorých naverbujú. Body sa aktualizujú každých 30 minút."
 
 msgctxt "or"
 msgid "or:"
-msgstr ""
+msgstr "alebo:"
 
 msgctxt "origins"
 msgid "Origin of ingredients"
@@ -1599,31 +1671,31 @@ msgstr "Pôvod surovín"
 
 msgctxt "origins_example"
 msgid "California, USA"
-msgstr ""
+msgstr "Kalifornia, USA"
 
 msgctxt "origins_note_xxx"
 msgid "Indicate the origin of ingredients"
-msgstr ""
+msgstr "Uveďte pôvod zložiek"
 
 msgctxt "origins_p"
 msgid "origins of ingredients"
-msgstr ""
+msgstr "pôvod zložiek"
 
 msgctxt "origins_products"
 msgid "Products with ingredients originating from %s"
-msgstr ""
+msgstr "Výrobky s prísadami pochádzajúcimi z %s"
 
 msgctxt "origins_s"
 msgid "origin of ingredients"
-msgstr ""
+msgstr "pôvod zložiek"
 
 msgctxt "origins_tagsinput"
 msgid "add an origin"
-msgstr ""
+msgstr "pridať pôvod"
 
 msgctxt "origins_without_products"
 msgid "Products without ingredients originating from %s"
-msgstr ""
+msgstr "Výrobky bez prísad pochádzajúcich z %s"
 
 msgctxt "packaging"
 msgid "Packaging"
@@ -1631,43 +1703,43 @@ msgstr "Balenie"
 
 msgctxt "packaging_example"
 msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
-msgstr ""
+msgstr "Čerstvé, konzervované, mrazené, fľaša, krabica, sklo, plast..."
 
 msgctxt "packaging_note"
 msgid "Packaging type, format, material"
-msgstr ""
+msgstr "Typ balenia, formát, materiál"
 
 msgctxt "packaging_p"
 msgid "packaging"
-msgstr ""
+msgstr "balenie"
 
 msgctxt "packaging_products"
 msgid "Products with a %s packaging"
-msgstr ""
+msgstr "Produkty s obalom %s"
 
 msgctxt "packaging_s"
 msgid "packaging"
-msgstr ""
+msgstr "balenie"
 
 msgctxt "packaging_tagsinput"
 msgid "add a type, shape or material"
-msgstr ""
+msgstr "pridať typ, tvar alebo materiál"
 
 msgctxt "packaging_without_products"
 msgid "Products without a %s packaging"
-msgstr ""
+msgstr "Produkty bez obalu %s"
 
 msgctxt "page_x"
 msgid "Page %d"
-msgstr ""
+msgstr "Strana %d"
 
 msgctxt "page_x_out_of_y"
 msgid "Page %d out of %d."
-msgstr ""
+msgstr "Strana %d z %d."
 
 msgctxt "pages"
 msgid "Pages:"
-msgstr ""
+msgstr "Stránky:"
 
 msgctxt "password"
 msgid "Password"
@@ -1675,11 +1747,11 @@ msgstr "Heslo"
 
 msgctxt "password_new"
 msgid "New password"
-msgstr ""
+msgstr "Nové heslo"
 
 msgctxt "password_confirm"
 msgid "Confirm password"
-msgstr ""
+msgstr "Potvrďte heslo"
 
 msgctxt "periods_after_opening"
 msgid "Period of time after opening"
@@ -1687,59 +1759,59 @@ msgstr ""
 
 msgctxt "periods_after_opening_note"
 msgid "Found in an open container logo with a number of months: e.g. 12 M"
-msgstr ""
+msgstr "Nachádza sa v logu otvoreného kontajnera s počtom mesiacov: napr. 12 M"
 
 msgctxt "periods_after_opening_p"
 msgid "Periods after opening"
-msgstr ""
+msgstr "Lehoty po otvorení"
 
 msgctxt "periods_after_opening_s"
 msgid "Period after opening"
-msgstr ""
+msgstr "Obdobie po otvorení"
 
 msgctxt "photographers_p"
 msgid "photographers"
-msgstr ""
+msgstr "fotografovia"
 
 msgctxt "photographers_s"
 msgid "photographer"
-msgstr ""
+msgstr "fotograf"
 
 msgctxt "pnns_groups_1"
 msgid "PNNS groups 1"
-msgstr ""
+msgstr "PNNS skupiny 1"
 
 msgctxt "pnns_groups_1_p"
 msgid "PNNS groups 1"
-msgstr ""
+msgstr "PNNS skupiny 1"
 
 msgctxt "pnns_groups_1_s"
 msgid "PNNS group 1"
-msgstr ""
+msgstr "PNNS skupina 1"
 
 msgctxt "pnns_groups_2"
 msgid "PNNS groups 2"
-msgstr ""
+msgstr "Skupiny PNNS 2"
 
 msgctxt "pnns_groups_2_p"
 msgid "PNNS groups 2"
-msgstr ""
+msgstr "Skupiny PNNS 2"
 
 msgctxt "pnns_groups_2_s"
 msgid "PNNS group 2"
-msgstr ""
+msgstr "PNNS skupina 2"
 
 msgctxt "points_all_countries"
 msgid "There are %d Explorers and %d Ambassadors."
-msgstr ""
+msgstr "Existuje %d prieskumníkov a %d veľvyslancov."
 
 msgctxt "points_all_users"
 msgid "There are Explorers for %d countries and Ambassadors for %d countries."
-msgstr ""
+msgstr "Existujú prieskumníci pre %d krajín a veľvyslanci pre %d krajín."
 
 msgctxt "points_country"
 msgid "%s has %d Explorers and %d Ambassadors."
-msgstr ""
+msgstr "%s má %d prieskumníkov a %d veľvyslancov."
 
 msgctxt "points_ranking"
 msgid "Ranking"
@@ -1747,75 +1819,75 @@ msgstr ""
 
 msgctxt "points_ranking_users_and_countries"
 msgid "Ranking of contributors and countries"
-msgstr ""
+msgstr "Rebríček prispievateľov a krajín"
 
 msgctxt "points_user"
 msgid "%s is an Explorer for %d countries and an Ambassador for %d countries."
-msgstr ""
+msgstr "%s je prieskumník pre %d krajín a veľvyslanec pre %d krajiny."
 
 msgctxt "previous"
 msgid "Previous"
-msgstr ""
+msgstr "Predchádzajúce"
 
 msgctxt "product_add_nutrient"
 msgid "Add a nutrient"
-msgstr ""
+msgstr "Pridajte živinu"
 
 msgctxt "product_added"
 msgid "Product added on"
-msgstr ""
+msgstr "Produkt bol pridaný"
 
 msgctxt "product_changes_saved"
 msgid "Changes saved."
-msgstr ""
+msgstr "Zmeny boli uložené."
 
 msgctxt "product_edit_you_contributed"
 msgid "You just helped to improve the world largest open data database."
-msgstr ""
+msgstr "Práve ste pomohli vylepšiť najväčšiu svetovú databázu otvorených dát."
 
 msgctxt "product_edit_thank_you"
 msgid "Thank you so much for joining us in our journey to data transparency!"
-msgstr ""
+msgstr "Ďakujeme, že ste sa k nám pridali na našej ceste k transparentnosti údajov!"
 
 msgctxt "product_characteristics"
 msgid "Product characteristics"
-msgstr ""
+msgstr "Vlastnosti produktu"
 
 msgctxt "product_created"
 msgid "Product created"
-msgstr ""
+msgstr "Produkt vytvorený"
 
 msgctxt "product_description"
 msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
-msgstr ""
+msgstr "Zloženie, alergény, aditíva, nutričné údaje, etikety, pôvod zložiek a informácie o produkte %s"
 
 msgctxt "product_image"
 msgid "Product picture"
-msgstr ""
+msgstr "Obrázok produktu"
 
 msgctxt "product_image_with_barcode"
 msgid "Picture with barcode:"
-msgstr ""
+msgstr "Obrázok s čiarovým kódom:"
 
 msgctxt "product_js_current_image"
 msgid "Current image:"
-msgstr ""
+msgstr "Aktuálny obrázok:"
 
 msgctxt "product_js_deleting_images"
 msgid "Deleting images"
-msgstr ""
+msgstr "Odstraňovanie obrázkov"
 
 msgctxt "product_js_extract_ingredients"
 msgid "Extract the ingredients from the picture"
-msgstr ""
+msgstr "Vyberte ingrediencie z obrázka"
 
 msgctxt "product_js_extracted_ingredients_nok"
 msgid "Ingredients text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
-msgstr ""
+msgstr "Text prísad sa nepodarilo extrahovať. Skúste s ostrejším obrázkom, vyšším rozlíšením alebo lepším orámovaním textu."
 
 msgctxt "product_js_extracted_ingredients_ok"
 msgid "Ingredients text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed."
-msgstr ""
+msgstr "Text zložiek bol extrahovaný. Rozpoznanie textu nie je dokonalé, preto skontrolujte text nižšie a v prípade potreby opravte chyby."
 
 msgctxt "product_js_extracting_ingredients"
 msgid "Extracting ingredients"
@@ -1823,83 +1895,83 @@ msgstr ""
 
 msgctxt "product_js_image_normalize"
 msgid "Normalize colors"
-msgstr ""
+msgstr "Normalizujte farby"
 
 msgctxt "product_js_image_open_full_size_image"
 msgid "Open the picture in original size in a new windows"
-msgstr ""
+msgstr "Otvorte obrázok v pôvodnej veľkosti v novom okne"
 
 msgctxt "product_js_image_received"
 msgid "Image received"
-msgstr ""
+msgstr "Obrázok bol prijatý"
 
 msgctxt "product_js_image_rotate_and_crop"
 msgid "Rotate the image if necessary, then click and drag to select the interesting zone:"
-msgstr ""
+msgstr "V prípade potreby otočte obrázok a potom kliknutím a potiahnutím vyberte zaujímavú zónu:"
 
 msgctxt "product_js_image_rotate_left"
 msgid "Rotate left"
-msgstr ""
+msgstr "Otočiť doľava"
 
 msgctxt "product_js_image_rotate_right"
 msgid "Rotate right"
-msgstr ""
+msgstr "Otočiť doprava"
 
 msgctxt "product_js_image_save"
 msgid "Validate and/or resize image"
-msgstr ""
+msgstr "Overte a/alebo zmeňte veľkosť obrázka"
 
 msgctxt "product_js_image_saved"
 msgid "Image saved"
-msgstr ""
+msgstr "Obrázok bol uložený"
 
 msgctxt "product_js_image_saving"
 msgid "Saving image"
-msgstr ""
+msgstr "Ukladá sa obrázok"
 
 msgctxt "product_js_image_upload_error"
 msgid "Error while uploading image"
-msgstr ""
+msgstr "Chyba pri nahrávaní obrázka"
 
 msgctxt "product_js_image_white_magic"
 msgid "Photo on white background: try to remove the background"
-msgstr ""
+msgstr "Fotografia na bielom pozadí: skúste odstrániť pozadie"
 
 msgctxt "product_js_images_delete_error"
 msgid "Errors while deleting images"
-msgstr ""
+msgstr "Chyby pri odstraňovaní obrázkov"
 
 msgctxt "product_js_images_deleted"
 msgid "Images deleted"
-msgstr ""
+msgstr "Obrázky boli odstránené"
 
 msgctxt "product_js_images_move_error"
 msgid "Errors while moving images"
-msgstr ""
+msgstr "Chyby pri presúvaní obrázkov"
 
 msgctxt "product_js_images_moved"
 msgid "Images moved"
-msgstr ""
+msgstr "Obrázky sa presunuli"
 
 msgctxt "product_js_moving_images"
 msgid "Moving images"
-msgstr ""
+msgstr "Presúvanie obrázkov"
 
 msgctxt "product_js_upload_image"
 msgid "Add a picture"
-msgstr ""
+msgstr "Pridať obrázok"
 
 msgctxt "product_js_upload_image_note"
 msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients, nutrition facts etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
-msgstr ""
+msgstr "→ V prehliadačoch Chrome, Firefox a Safari môžete vybrať viacero obrázkov (produkt, prísady, výživové údaje atď.) tak, že na ne kliknete a súčasne podržíte stlačený kláves Ctrl, čím ich pridáte všetky naraz."
 
 msgctxt "product_js_uploading_image"
 msgid "Uploading image"
-msgstr ""
+msgstr "Nahrávanie obrázka"
 
 msgctxt "product_last_edited"
 msgid "Last edit of product page on"
-msgstr ""
+msgstr "Posledná úprava produktovej stránky dňa"
 
 msgctxt "product_name"
 msgid "Product name"
@@ -1907,59 +1979,59 @@ msgstr ""
 
 msgctxt "product_name_example"
 msgid "Kinder Bueno White"
-msgstr ""
+msgstr "Kinder Bueno White"
 
 msgctxt "products"
 msgid "products"
-msgstr ""
+msgstr "produkty"
 
 msgctxt "products_stats"
 msgid "Evolution of the number of products on <<site_name>>"
-msgstr ""
+msgstr "Vývoj počtu produktov na <<site_name>>"
 
 msgctxt "products_stats_completed_t"
 msgid "Products with complete information"
-msgstr ""
+msgstr "Produkty s kompletnými informáciami"
 
 msgctxt "products_stats_created_t"
 msgid "Products"
-msgstr ""
+msgstr "Výrobky"
 
 msgctxt "products_with_nutriments"
 msgid "with nutrition facts"
-msgstr ""
+msgstr "s výživovými faktami"
 
 msgctxt "products_you_edited"
 msgid "Products you added or edited"
-msgstr ""
+msgstr "Výrobky, ktoré ste pridali alebo upravili"
 
 msgctxt "purchase_places"
 msgid "City, state and country where purchased"
-msgstr ""
+msgstr "Mesto, štát a krajina, kde boli zakúpené"
 
 msgctxt "purchase_places_note"
 msgid "Indicate where you bought or saw the product (at least the country)"
-msgstr ""
+msgstr "Uveďte, kde ste produkt kúpili alebo videli (aspoň krajinu)"
 
 msgctxt "purchase_places_p"
 msgid "purchase places"
-msgstr ""
+msgstr "nákupné miesta"
 
 msgctxt "purchase_places_products"
 msgid "Products sold in %s"
-msgstr ""
+msgstr "Produkty predávané v %s"
 
 msgctxt "purchase_places_s"
 msgid "purchase place"
-msgstr ""
+msgstr "miesto nákupu"
 
 msgctxt "purchase_places_tagsinput"
 msgid "add a place"
-msgstr ""
+msgstr "pridať miesto"
 
 msgctxt "purchase_places_without_products"
 msgid "Products not sold in %s"
-msgstr ""
+msgstr "Produkty, ktoré sa nepredávajú v %s"
 
 msgctxt "quantity"
 msgid "Quantity"
@@ -1967,19 +2039,19 @@ msgstr "Množstvo"
 
 msgctxt "quantity_example"
 msgid "2 l, 250 g, 1 kg, 25 cl, 6 fl oz, 1 pound"
-msgstr ""
+msgstr "2 l, 250 g, 1 kg, 25 cl, 6 fl oz, 1 libra"
 
 msgctxt "remember_me"
 msgid "Remember me"
-msgstr ""
+msgstr "Zapamätať si ma"
 
 msgctxt "remember_purchase_places_and_stores"
 msgid "Remember the place of purchase and store for the next product adds"
-msgstr ""
+msgstr "Zapamätajte si miesto nákupu a obchod pre ďalšie pridané produkty"
 
 msgctxt "reset_password"
 msgid "Reset password"
-msgstr ""
+msgstr "Obnoviť heslo"
 
 msgctxt "reset_password_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -1991,51 +2063,59 @@ msgid "Hello <NAME>,\n\n"
 "See you soon,\n\n"
 "Stephane\n"
 "https://openfoodfacts.org\n"
-msgstr ""
+msgstr "Dobrý deň <NAME>,\n\n"
+"Požiadali ste o obnovenie hesla na https://openfoodfacts.org\n\n"
+"pre používateľské meno: <USERID>\n\n"
+"Ak chcete pokračovať obnovenie hesla, kliknite na odkaz nižšie.\n"
+"Ak ste nepožiadali o obnovenie hesla, môžete túto správu ignorovať.\n\n"
+"<RESET_URL>\n\n"
+"Uvidíme sa čoskoro,\n\n"
+"Stephane\n"
+"https://openfoodfacts.org\n"
 
 msgctxt "reset_password_email_subject"
 msgid "Reset of your password on <<site_name>>"
-msgstr ""
+msgstr "Obnovte svoje heslo na <<site_name>>"
 
 msgctxt "reset_password_reset"
 msgid "Your password has been changed. You can now log-in with this password."
-msgstr ""
+msgstr "Vaše heslo bolo zmenené. Teraz sa môžete prihlásiť pomocou tohto hesla."
 
 msgctxt "reset_password_reset_msg"
 msgid "Enter a new password."
-msgstr ""
+msgstr "Zadajte nové heslo."
 
 msgctxt "reset_password_send_email"
 msgid "An email with a link to reset your password has been sent to the e-mail address associated with your account."
-msgstr ""
+msgstr "Na e-mailovú adresu priradenú k vášmu účtu bol odoslaný e-mail s odkazom na obnovenie hesla."
 
 msgctxt "reset_password_send_email_msg"
 msgid "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password."
-msgstr ""
+msgstr "Ak ste zabudli svoje heslo, vyplňte svoje používateľské meno alebo e-mailovú adresu, aby ste dostali pokyny na obnovenie hesla."
 
 msgctxt "risk_level"
 msgid "Risk"
-msgstr ""
+msgstr "Riziko"
 
 msgctxt "risk_level_0"
 msgid "To be completed"
-msgstr ""
+msgstr "Na dokončenie"
 
 msgctxt "risk_level_1"
 msgid "Low risks"
-msgstr ""
+msgstr "Nízke riziko"
 
 msgctxt "risk_level_2"
 msgid "Moderate risks"
-msgstr ""
+msgstr "Mierne riziko"
 
 msgctxt "risk_level_3"
 msgid "High risks"
-msgstr ""
+msgstr "Vysoké riziko"
 
 msgctxt "salt_equivalent"
 msgid "salt equivalent"
-msgstr ""
+msgstr "ekvivalent soli"
 
 msgctxt "save"
 msgid "Save"
@@ -2043,11 +2123,11 @@ msgstr "Uložiť"
 
 msgctxt "saved"
 msgid "Saved."
-msgstr ""
+msgstr "Uložené."
 
 msgctxt "saving"
 msgid "Saving."
-msgstr ""
+msgstr "Ukladanie."
 
 msgctxt "search"
 msgid "Search"
@@ -2063,100 +2143,101 @@ msgstr "Vyhľadať"
 
 msgctxt "search_contains"
 msgid "contains"
-msgstr ""
+msgstr "obsahuje"
 
 msgctxt "search_criteria"
 msgid "Select products with specific brands, categories, labels, origins of ingredients, manufacturing places etc."
-msgstr ""
+msgstr "Vyberte produkty so špecifickými značkami, kategóriami, štítkami, pôvodom zložiek, miestami výroby atď."
 
 msgctxt "search_description_opensearch"
-msgid "Open Food Facts product search"
+msgid "Product search"
 msgstr ""
 
 msgctxt "search_does_not_contain"
 msgid "does not contain"
-msgstr ""
+msgstr "neobsahuje"
 
 msgctxt "search_download_button"
 msgid "Download"
-msgstr ""
+msgstr "Stiahnuť"
 
 msgctxt "search_download_choice"
 msgid "Download results"
-msgstr ""
+msgstr "Stiahnite si výsledky"
 
 msgctxt "search_download_results"
 msgid "Download results in XLSX or CSV format. Please note that for performance reasons, you can download up to 10.000 results only."
-msgstr ""
+msgstr "Stiahnite si výsledky vo formáte XLSX alebo CSV. Upozorňujeme, že z dôvodov výkonu si môžete stiahnuť iba 10 000 výsledkov."
 
 msgctxt "search_download_xlsx"
 msgid "XLSX format"
-msgstr ""
+msgstr "Formát XLSX"
 
 msgctxt "search_download_xlsx_description"
 msgid "Excel or LibreOffice"
-msgstr ""
+msgstr "Excel alebo LibreOffice"
 
 msgctxt "search_download_csv"
 msgid "CSV format"
-msgstr ""
+msgstr "Vo formáte CSV"
 
 msgctxt "search_download_csv_description"
 msgid "Character set: Unicode (UTF-8) - Separator: tabulation (tab)"
-msgstr ""
+msgstr "Znaková sada: Unicode (UTF-8) - Oddeľovač: tabulátor (tab)"
 
 msgctxt "search_edit"
 msgid "Change search criteria"
-msgstr ""
+msgstr "Zmeňte kritériá vyhľadávania"
 
 msgctxt "search_generate_graph"
 msgid "Generate graph"
-msgstr ""
+msgstr "Vytvoriť graf"
 
 msgctxt "search_generate_map"
 msgid "Generate the map"
-msgstr ""
+msgstr "Vytvoriť mapu"
 
 msgctxt "search_graph"
 msgid "Graph"
-msgstr ""
+msgstr "Graf"
 
 msgctxt "search_graph_2_axis"
 msgid "Scatter plot"
-msgstr ""
+msgstr "Bodový diagram"
 
 msgctxt "search_graph_blog"
 msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"/graphs-in-3-clicks\">Graphs in 3 clicks</a> (blog).</p>"
-msgstr ""
+msgstr "<p>→ dozvedieť sa viac o <<site_name>> grafoch: <a href=\"/graphs-in-3-clicks\">Grafy na 3 kliknutia</a> (blog).</p>"
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
-msgstr ""
+msgstr "Výsledky na grafe"
 
 msgctxt "search_graph_instructions"
 msgid "Select what you want to graph on the horizontal axis to obtain a histogram, or select two axis to\n"
 "get a cloud of products (scatter plot)."
-msgstr ""
+msgstr "Vyberte, čo chcete vykresliť na vodorovnej osi, aby ste získali histogram, alebo vyberte dve osi, aby ste\n"
+"získali mrak produktov (rozptylový graf)."
 
 msgctxt "search_graph_link"
 msgid "Permanent link to this graph, shareable by e-mail and on social networks"
-msgstr ""
+msgstr "Trvalý odkaz na tento graf, zdieľateľný e-mailom a na sociálnych sieťach"
 
 msgctxt "search_graph_note"
 msgid "The graph will show only products for which displayed values are known."
-msgstr ""
+msgstr "V grafe sa zobrazia iba produkty, pre ktoré sú známe zobrazené hodnoty."
 
 msgctxt "search_graph_title"
 msgid "Display results on a graph"
-msgstr ""
+msgstr "Zobrazte výsledky v grafe"
 
 msgctxt "search_graph_warning"
 msgid "Note: this is a user generated graph. The title, represented products and axis of visualization have been chosen by the author of the graph."
-msgstr ""
+msgstr "Poznámka: Toto je graf vytvorený používateľom. Názov, znázornené produkty a os vizualizácie zvolil autor grafu."
 
 msgctxt "search_indifferent"
 msgid "Indifferent"
-msgstr ""
+msgstr "Ľahostajný"
 
 msgctxt "search_ingredients"
 msgid "Ingredients"
@@ -2164,123 +2245,123 @@ msgstr "Ingrediencie"
 
 msgctxt "search_link"
 msgid "Permanent link to these results, shareable by e-mail and on social networks"
-msgstr ""
+msgstr "Trvalý odkaz na tieto výsledky, zdieľateľný e-mailom a na sociálnych sieťach"
 
 msgctxt "search_list_choice"
 msgid "Results in a list of products"
-msgstr ""
+msgstr "Výsledok je v zozname produktov"
 
 msgctxt "search_map"
 msgid "Map"
-msgstr ""
+msgstr "Mapa"
 
 msgctxt "search_map_choice"
 msgid "Results on a map"
-msgstr ""
+msgstr "Výsledky na mape"
 
 msgctxt "search_map_link"
 msgid "Permanent link to this map, shareable by e-mail and on social networks"
-msgstr ""
+msgstr "Trvalý odkaz na túto mapu, zdieľateľný e-mailom a na sociálnych sieťach"
 
 msgctxt "search_map_note"
 msgid "The map will show only products for which the production place is known."
-msgstr ""
+msgstr "Na mape sa zobrazia iba produkty, ktorých miesto výroby je známe."
 
 msgctxt "search_map_title"
 msgid "Display results on a map"
-msgstr ""
+msgstr "Zobrazte výsledky na mape"
 
 msgctxt "search_nutriment"
 msgid "choose a nutriment..."
-msgstr ""
+msgstr "vyberte živinu..."
 
 msgctxt "search_nutriments"
 msgid "Nutriments"
-msgstr ""
+msgstr "Živiny"
 
 msgctxt "search_or"
 msgid "or"
-msgstr ""
+msgstr "alebo"
 
 msgctxt "search_page_size"
 msgid "Results per page"
-msgstr ""
+msgstr "Výsledkov na stranu"
 
 msgctxt "search_products"
 msgid "Products search"
-msgstr ""
+msgstr "Vyhľadávanie produktov"
 
 msgctxt "search_results"
 msgid "Search results"
-msgstr ""
+msgstr "Výsledky hľadania"
 
 msgctxt "search_series"
 msgid "Use a different color for the following products:"
-msgstr ""
+msgstr "Použite inú farbu pre nasledujúce produkty:"
 
 msgctxt "search_series_default"
 msgid "Other products"
-msgstr ""
+msgstr "Ostatné produkty"
 
 msgctxt "search_series_fairtrade"
 msgid "Fair trade"
-msgstr ""
+msgstr "Fair trade"
 
 msgctxt "search_series_fairtrade_label"
 msgid "fair-trade"
-msgstr ""
+msgstr "fair-trade"
 
 msgctxt "search_series_nutrition_grades"
 msgid "Use nutrition grades colors"
-msgstr ""
+msgstr "Použiť farby výživových tried"
 
 msgctxt "search_series_organic"
 msgid "Organic"
-msgstr ""
+msgstr "Bio"
 
 msgctxt "search_series_organic_label"
 msgid "organic"
-msgstr ""
+msgstr "bio"
 
 msgctxt "search_series_with_sweeteners"
 msgid "With sweeteners"
-msgstr ""
+msgstr "So sladidlami"
 
 msgctxt "search_tag"
 msgid "choose a criterion..."
-msgstr ""
+msgstr "vyberte si kritérium..."
 
 msgctxt "search_tags"
 msgid "Criteria"
-msgstr ""
+msgstr "Kritériá"
 
 msgctxt "search_terms"
 msgid "Search terms"
-msgstr ""
+msgstr "Hľadané výrazy"
 
 msgctxt "search_terms_note"
 msgid "Search for words present in the product name, generic name, brands, categories, origins and labels"
-msgstr ""
+msgstr "Hľadajte slová prítomné v názve produktu, generickom názve, značkách, kategóriách, pôvode a štítkoch"
 
 msgctxt "search_title"
 msgid "Search a product, brand, ingredient, nutriment etc."
-msgstr ""
+msgstr "Vyhľadajte produkt, značku, prísadu, živinu atď."
 
 msgctxt "search_title_graph"
 msgid "Results graph"
-msgstr ""
+msgstr "Graf výsledkov"
 
 msgctxt "search_title_map"
 msgid "Results map"
-msgstr ""
+msgstr "Mapa výsledkov"
 
 msgctxt "search_tools"
 msgid "Search tools"
-msgstr ""
+msgstr "Vyhľadávacie nástroje"
 
 msgctxt "search_value"
 msgid "value"
-msgstr ""
+msgstr "hodnota"
 
 msgctxt "search_with"
 msgid "With"
@@ -2300,7 +2381,7 @@ msgstr ""
 
 msgctxt "select_country"
 msgid "Country"
-msgstr ""
+msgstr "Krajina"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2320,7 +2401,7 @@ msgstr ""
 
 msgctxt "serving_size"
 msgid "Serving size"
-msgstr ""
+msgstr "Veľkosť porcie"
 
 msgctxt "serving_size_prepared"
 msgid "Prepared serving size"
@@ -2362,21 +2443,9 @@ msgctxt "signout"
 msgid "Sign-out"
 msgstr "Odhlásiť sa"
 
-msgctxt "site_description"
-msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr ""
-
-msgctxt "site_name"
-msgid "Open Food Facts"
-msgstr "Open Food Facts"
-
-msgctxt "logo_site_name"
-msgid "Open Food Facts logo"
-msgstr ""
-
 msgctxt "sort_by"
 msgid "Sort by"
-msgstr ""
+msgstr "Zoradiť podľa"
 
 msgctxt "sort_completeness"
 msgid "Completeness"
@@ -2412,7 +2481,7 @@ msgstr ""
 
 msgctxt "stores"
 msgid "Stores"
-msgstr ""
+msgstr "Obchody"
 
 msgctxt "stores_note"
 msgid "Name of the shop or supermarket chain"
@@ -2428,7 +2497,7 @@ msgstr ""
 
 msgctxt "stores_s"
 msgid "store"
-msgstr ""
+msgstr "obchod"
 
 msgctxt "stores_tagsinput"
 msgid "add a store"
@@ -2487,13 +2556,9 @@ msgctxt "twitter"
 msgid "Twitter username (optional)"
 msgstr ""
 
-msgctxt "twitter_account"
-msgid "OpenFoodFacts"
-msgstr ""
-
 msgctxt "unknown"
 msgid "Unknown"
-msgstr ""
+msgstr "Neznámy"
 
 msgctxt "unknown_nutrients_p"
 msgid "unknown nutrients"
@@ -2553,122 +2618,113 @@ msgstr ""
 
 msgctxt "users_s"
 msgid "contributor"
-msgstr ""
+msgstr "prispievateľ"
 
 msgctxt "users_without_products"
 msgid "Products not added by %s"
-msgstr ""
+msgstr "Produkty nepridané používateľom %s"
 
 msgctxt "video_tutorials"
 msgid "Video Tutorials"
-msgstr ""
+msgstr "Videonávody"
 
 msgctxt "view"
 msgid "view"
-msgstr ""
+msgstr "zobraziť"
+
+msgctxt "view_this_revision"
+msgid "View this revision"
+msgstr "Zobraziť túto revíziu"
 
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
-msgstr ""
+msgstr "Zobraziť zoznam zodpovedajúcich produktov z celého sveta"
 
 msgctxt "view_products_from_the_entire_world"
 msgid "View matching products from the entire world"
-msgstr ""
+msgstr "Zobraziť zodpovedajúce produkty z celého sveta"
 
 msgctxt "view_results_from_the_entire_world"
 msgid "View results from the entire world"
-msgstr ""
+msgstr "Zobraziť výsledky z celého sveta"
 
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"https://support.openfoodfacts.org/help/en-gb/9/27\">Why it matters</a>"
-msgstr ""
+msgstr "Informácie a údaje musia pochádzať z balenia a etikety produktu (a nie z iných stránok alebo stránok výrobcu) a musíte si ich urobiť sami.<br/>\n"
+"→ <a href=\"https://support.openfoodfacts.org/help/en-gb/9/27\">Prečo na tom záleží</a>"
 
 msgctxt "website"
 msgid "Site or blog address"
-msgstr ""
-
-# Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
-msgctxt "windows_phone_app_icon_url"
-msgid "/images/misc/microsoft/English.svg"
-msgstr "/images/misc/microsoft/Slovak.svg"
-
-msgctxt "windows_phone_app_icon_alt_text"
-msgid "Get it from Microsoft"
-msgstr ""
-
-# Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
-msgctxt "windows_phone_app_link"
-msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
-msgstr ""
+msgstr "Adresa stránky alebo blogu"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
-msgstr ""
+msgstr "Ste prihlásený ako %s."
 
 msgctxt "product_js_unselect_image"
 msgid "Unselect image"
-msgstr ""
+msgstr "Zrušiť výber obrázka"
 
 msgctxt "product_js_unselecting_image"
 msgid "Unselecting image."
-msgstr ""
+msgstr "Odznačiť obrázok."
 
 msgctxt "product_js_unselected_image_ok"
 msgid "Unselected image."
-msgstr ""
+msgstr "Odznačený obrázok."
 
 msgctxt "product_js_unselected_image_nok"
 msgid "Error while unselecting image."
-msgstr ""
+msgstr "Chyba pri rušení výberu obrázka."
 
 msgctxt "product_js_zoom_on_wheel"
 msgid "Enable zooming with the mouse wheel."
-msgstr ""
+msgstr "Povoľte približovanie pomocou kolieska myši."
 
 msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
-msgstr ""
+msgstr "Načítať obrázky s nižším rozlíšením (pre pomalé pripojenia)"
 
 msgctxt "protected_image_message"
 msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
-msgstr ""
+msgstr "Obrázok bol odoslaný výrobcom. Ak si myslíte, že je nesprávny alebo neaktuálny, kontaktujte nás."
 
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
-msgstr ""
+msgstr "Upozornenie: nutričné údaje nie sú špecifikované. Boli odhadnuté zo zoznamu zložiek."
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr ""
+msgstr "Upozornenie: množstvo vlákniny nie je špecifikované, ich prípadný pozitívny prínos pre známku nebolo možné brať do úvahy."
 
 msgctxt "nutrition_grade_fr_fiber_and_fruits_vegetables_nuts_warning"
 msgid "Warning: the amounts of fiber and of fruits, vegetables and nuts are not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr ""
+msgstr "Upozornenie: množstvá vlákniny a ovocia, zeleniny a orechov nie sú špecifikované, ich prípadný pozitívny prínos pre známku nemôže byť braný do úvahy."
 
 msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr ""
+msgstr "Upozornenie: množstvo ovocia, zeleniny a orechov nie je špecifikované, ich prípadný pozitívny prínos pre známku nemohol byť braný do úvahy."
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d"
-msgstr ""
+msgstr "Upozornenie: množstvo ovocia, zeleniny a orechov nie je uvedené na etikete, bolo ručne odhadnuté zo zoznamu ingrediencií: %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
-msgstr ""
+msgstr "Upozornenie: na etikete nie je uvedené množstvo ovocia, zeleniny a orechov, bolo odhadnuté z kategórie (%s) výrobku: %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
-msgstr ""
+msgstr "Upozornenie: množstvo ovocia, zeleniny a orechov nie je uvedené na etikete, bolo odhadnuté zo zoznamu ingrediencií: %d"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
-msgstr ""
+msgstr "NutriScore farebný stupeň výživy"
 
 msgctxt "nutrition_grade_fr_formula"
 msgid "How the color nutrition grade is computed"
-msgstr ""
+msgstr "Ako je umiestnenie na farebnej škále vypočítané"
 
 msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
@@ -2676,31 +2732,31 @@ msgstr ""
 
 msgctxt "delete_product_page"
 msgid "Delete the product page"
-msgstr ""
+msgstr "Vymazať stránku produktu"
 
 msgctxt "deleting_product"
 msgid "Deleting product"
-msgstr ""
+msgstr "Vymazať produkt"
 
 msgctxt "has_deleted_product"
 msgid "has deleted product"
-msgstr ""
+msgstr "vymazať produkt"
 
 msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
-msgstr ""
+msgstr "Naozaj chcete odstrániť stránku pre tento produkt?"
 
 msgctxt "delete_user"
 msgid "Delete the user"
-msgstr ""
+msgstr "Odstrániť používateľa"
 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s."
-msgstr ""
+msgstr "Niektoré údaje o tomto produkte boli poskytnuté priamo výrobcom %s."
 
 msgctxt "list_of_sources"
 msgid "Some of the data and/or photos for this product come from those sources:"
-msgstr ""
+msgstr "Niektoré údaje a/alebo fotografie tohto produktu pochádzajú z týchto zdrojov:"
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
@@ -2708,11 +2764,11 @@ msgstr ""
 
 msgctxt "title_separator"
 msgid " - "
-msgstr ""
+msgstr " - "
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
-msgstr ""
+msgstr "Nedávne zmeny"
 
 msgctxt "translators_title"
 msgid "Our Translators"
@@ -2796,7 +2852,7 @@ msgstr ""
 
 msgctxt "unit"
 msgid "Unit"
-msgstr ""
+msgstr "Jednotka"
 
 msgctxt "nutrition_data_exists"
 msgid "Nutrition facts are specified for the product as sold."
@@ -2821,7 +2877,7 @@ msgstr ""
 
 msgctxt "footer_partners"
 msgid "Partners"
-msgstr ""
+msgstr "Partneri"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_partners_link"
@@ -2830,11 +2886,11 @@ msgstr ""
 
 msgctxt "adults"
 msgid "Adults"
-msgstr ""
+msgstr "Dospelí"
 
 msgctxt "adults_age"
 msgid "18 to 64"
-msgstr ""
+msgstr "18 až 64"
 
 msgctxt "adults_description"
 msgid "From 18 years up to and including 64 years of age"
@@ -2842,11 +2898,11 @@ msgstr ""
 
 msgctxt "elderly"
 msgid "Elderly"
-msgstr ""
+msgstr "Starší"
 
 msgctxt "elderly_age"
 msgid "65+"
-msgstr ""
+msgstr "65+"
 
 msgctxt "elderly_description"
 msgid "From 65 years of age and older"
@@ -2854,11 +2910,11 @@ msgstr ""
 
 msgctxt "adolescents"
 msgid "Adolescents"
-msgstr ""
+msgstr "Dospievajúci"
 
 msgctxt "adolescents_age"
 msgid "10 to 17"
-msgstr ""
+msgstr "10 až 17"
 
 msgctxt "adolescents_description"
 msgid "From 10 years up to and including 17 years of age"
@@ -2866,11 +2922,11 @@ msgstr ""
 
 msgctxt "children"
 msgid "Children"
-msgstr ""
+msgstr "Deti"
 
 msgctxt "children_age"
 msgid "3 to 9"
-msgstr ""
+msgstr "3 až 9"
 
 msgctxt "children_description"
 msgid "From 36 months up to and including 9 years of age"
@@ -2878,11 +2934,11 @@ msgstr ""
 
 msgctxt "toddlers"
 msgid "Toddlers"
-msgstr ""
+msgstr "Batoľatá"
 
 msgctxt "toddlers_age"
 msgid "1 to 2"
-msgstr ""
+msgstr "1 až 2"
 
 msgctxt "toddlers_description"
 msgid "From 12 months up to and including 35 months of age"
@@ -2890,7 +2946,7 @@ msgstr ""
 
 msgctxt "infants"
 msgid "Infants"
-msgstr ""
+msgstr "Dojčatá"
 
 msgctxt "infants_age"
 msgid "< 1"
@@ -2930,11 +2986,11 @@ msgstr ""
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_high"
 msgid "High risk of over exposure"
-msgstr ""
+msgstr "Vysoké riziko nadmernej expozície"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_moderate"
 msgid "Moderate risk of over exposure"
-msgstr ""
+msgstr "Mierne riziko nadmernej expozície"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_no"
 msgid "No or very low risk of over exposure"
@@ -3278,15 +3334,15 @@ msgstr "Nie"
 
 msgctxt "button_caption_skip"
 msgid "Skip"
-msgstr ""
+msgstr "Preskočiť"
 
 msgctxt "popularity_s"
 msgid "popularity"
-msgstr ""
+msgstr "obľúbenosť"
 
 msgctxt "popularity_p"
 msgid "popularity"
-msgstr ""
+msgstr "obľúbenosť"
 
 msgctxt "ingredients_analysis_p"
 msgid "ingredients analysis"
@@ -3298,7 +3354,7 @@ msgstr ""
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
-msgstr ""
+msgstr "Analýza zložiek"
 
 msgctxt "ingredients_analysis_disclaimer"
 msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
@@ -3382,7 +3438,7 @@ msgstr ""
 
 msgctxt "fields_group_origins"
 msgid "Origins"
-msgstr ""
+msgstr "Pôvod"
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
@@ -3390,7 +3446,7 @@ msgstr "Ingrediencie"
 
 msgctxt "fields_group_nutrition"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Nutričné hodnoty"
 
 msgctxt "fields_group_nutrition_other"
 msgid "Optional nutrition facts"
@@ -3493,7 +3549,7 @@ msgstr ""
 
 msgctxt "value"
 msgid "Value"
-msgstr ""
+msgstr "Hodnota"
 
 msgctxt "value_unit"
 msgid "Value + Unit"
@@ -3970,7 +4026,7 @@ msgstr "Bielkoviny"
 
 msgctxt "nutriscore_source_value"
 msgid "value"
-msgstr ""
+msgstr "hodnota"
 
 msgctxt "nutriscore_rounded_value"
 msgid "rounded value"
@@ -4007,7 +4063,7 @@ msgstr ""
 
 msgctxt "thank_you"
 msgid "Thank you!"
-msgstr ""
+msgstr "Ďakujeme!"
 
 msgctxt "thank_you_very_much"
 msgid "Thank you very much!"
@@ -4257,7 +4313,7 @@ msgstr ""
 
 msgctxt "done_status"
 msgid "Done"
-msgstr ""
+msgstr "Hotovo"
 
 msgctxt "to_do_status"
 msgid "To do"
@@ -4499,7 +4555,7 @@ msgstr ""
 
 msgctxt "attribute_labels_fair_trade_name"
 msgid "Fair trade"
-msgstr ""
+msgstr "Fair trade"
 
 msgctxt "attribute_labels_fair_trade_yes_title"
 msgid "Fair trade product"
@@ -4579,12 +4635,14 @@ msgctxt "attribute_nutriscore_c_description_short"
 msgid "Average nutritional quality"
 msgstr ""
 
+# lower: translate to "less good" in some languages (e.g. French: "Moins bonne qualité nutritionnelle")
 msgctxt "attribute_nutriscore_d_description_short"
-msgid "Poor nutritional quality"
+msgid "Lower nutritional quality"
 msgstr ""
 
+# lower: translate to "less good" in some languages (e.g. French: "Moins bonne qualité nutritionnelle")
 msgctxt "attribute_nutriscore_e_description_short"
-msgid "Bad nutritional quality"
+msgid "Lower nutritional quality"
 msgstr ""
 
 msgctxt "attribute_group_processing_name"
@@ -4614,18 +4672,27 @@ msgstr ""
 
 msgctxt "attribute_nova_1_description_short"
 msgid "Unprocessed or minimally processed foods"
-msgstr ""
+msgstr "Nespracované alebo minimálne spracované potraviny"
 
 msgctxt "attribute_nova_2_description_short"
 msgid "Processed culinary ingredients"
-msgstr ""
+msgstr "Spracované kulinárske prísady"
 
 msgctxt "attribute_nova_3_description_short"
 msgid "Processed foods"
-msgstr ""
+msgstr "Spracované jedlá"
 
 msgctxt "attribute_nova_4_description_short"
-msgid "Ultra processed foods"
+msgid "Ultra-processed foods"
+msgstr ""
+
+msgctxt "attribute_nova_4_1_marker"
+msgid "1 ultra-processing marker"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_nova_4_markers"
+msgid "{number} ultra-processing markers"
 msgstr ""
 
 msgctxt "export_product_page"
@@ -4678,7 +4745,7 @@ msgstr ""
 
 msgctxt "attribute_additives_name"
 msgid "Additives"
-msgstr ""
+msgstr "Prísady"
 
 msgctxt "attribute_additives_setting_name"
 msgid "No or few additives"
@@ -4765,40 +4832,61 @@ msgctxt "attribute_group_environment_name"
 msgid "Environment"
 msgstr "Životné prostredie"
 
-msgctxt "attribute_ecoscore_name"
-msgid "Eco-Score"
+msgctxt "attribute_environmental_score_name"
+msgid "Green-Score"
+msgstr "Eko-skóre"
+
+msgctxt "attribute_environmental_score_setting_name"
+msgid "Low environmental impact (Green-Score)"
 msgstr ""
 
+msgctxt "attribute_environmental_score_setting_note"
+msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
+msgstr ""
+
+# Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
+msgctxt "attribute_ecoscore_name"
+msgid "Green-Score"
+msgstr "Eko-skóre"
+
 msgctxt "attribute_ecoscore_setting_name"
-msgid "Low environmental impact (Eco-Score)"
+msgid "Low environmental impact (Green-Score)"
 msgstr ""
 
 msgctxt "attribute_ecoscore_setting_note"
-msgid "The Eco-Score is an environmental score (ecoscore) from A to E which makes it easy to compare the impact of food products on the environment."
+msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
 msgstr ""
 
-# keep %s, it will be replaced by the letter A, B, C, D or E
-msgctxt "attribute_ecoscore_grade_title"
-msgid "Eco-Score %s"
+# keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
+msgctxt "attribute_environmental_score_grade_title"
+msgid "Green-Score %s"
 msgstr ""
 
-msgctxt "attribute_ecoscore_a_description_short"
+msgctxt "attribute_environmental_score_a_plus_description_short"
 msgid "Very low environmental impact"
 msgstr ""
 
-msgctxt "attribute_ecoscore_b_description_short"
+msgctxt "attribute_environmental_score_a_description_short"
+msgid "Very low environmental impact"
+msgstr ""
+
+msgctxt "attribute_environmental_score_b_description_short"
 msgid "Low environmental impact"
 msgstr "Nízky dopad na životné prostredie"
 
-msgctxt "attribute_ecoscore_c_description_short"
+msgctxt "attribute_environmental_score_c_description_short"
 msgid "Moderate environmental impact"
 msgstr ""
 
-msgctxt "attribute_ecoscore_d_description_short"
+msgctxt "attribute_environmental_score_d_description_short"
 msgid "High environmental impact"
 msgstr ""
 
-msgctxt "attribute_ecoscore_e_description_short"
+msgctxt "attribute_environmental_score_e_description_short"
+msgid "Very high environmental impact"
+msgstr ""
+
+msgctxt "attribute_environmental_score_f_description_short"
 msgid "Very high environmental impact"
 msgstr ""
 
@@ -4926,10 +5014,6 @@ msgctxt "number_of_members"
 msgid "Number of Members"
 msgstr ""
 
-msgctxt "serial_no"
-msgid "S.No"
-msgstr ""
-
 msgctxt "contact_form"
 msgid "Contact form"
 msgstr ""
@@ -4955,32 +5039,24 @@ msgctxt "environmental_impact"
 msgid "Environmental impact"
 msgstr ""
 
-# Numerical score for the Eco-score (do not translate Eco-score)
-msgctxt "ecoscore_score"
-msgid "Eco-score score"
+# Numerical score for the Green-Score (do not translate Green-Score)
+msgctxt "environmental_score_score"
+msgid "Green-Score score"
 msgstr ""
 
-# Letter grade from A to E for the Eco-score (do not translate Eco-score)
-msgctxt "ecoscore_grade"
-msgid "Eco-score grade"
+# Letter grade from A to E for the Green-Score (do not translate Green-Score)
+msgctxt "environmental_score_grade"
+msgid "Green-Score grade"
 msgstr ""
 
-# do not translate Eco-score
-msgctxt "ecoscore_calculation_details"
-msgid "Details of the calculation of the Eco-score"
+# do not translate Green-Score
+msgctxt "environmental_score_calculation_details"
+msgid "Details of the calculation of the Green-Score"
 msgstr ""
 
-# do not translate Eco-score
-msgctxt "ecoscore_information"
-msgid "Information about the Eco-score"
-msgstr ""
-
-msgctxt "preferences_edit_your_food_preferences"
-msgid "Edit your food preferences"
-msgstr ""
-
-msgctxt "preferences_your_preferences"
-msgid "Your food preferences"
+# do not translate Green-Score
+msgctxt "environmental_score_information"
+msgid "Information about the Green-Score"
 msgstr ""
 
 msgctxt "preferences_currently_selected_preferences"
@@ -4988,7 +5064,15 @@ msgid "Currently selected preferences"
 msgstr ""
 
 msgctxt "preferences_locally_saved"
-msgid "Your food preferences are kept in your browser and never sent to Open Food Facts or anyone else."
+msgid "Your preferences are kept in your browser and never sent to Open Food Facts or anyone else."
+msgstr ""
+
+msgctxt "preferences_edit_your_preferences"
+msgid "Edit your preferences"
+msgstr ""
+
+msgctxt "preferences_your_preferences"
+msgid "Your preferences"
 msgstr ""
 
 # used in phrases like "salt in unknown quantity"
@@ -5005,12 +5089,28 @@ msgid "Missing nutrition facts"
 msgstr ""
 
 msgctxt "ecoscore_p"
-msgid "Eco-Score"
-msgstr ""
+msgid "Green-Score"
+msgstr "Eko-skóre"
 
 msgctxt "ecoscore_s"
-msgid "Eco-Score"
-msgstr ""
+msgid "Green-Score"
+msgstr "Eko-skóre"
+
+msgctxt "environmental_score_p"
+msgid "Green-Score"
+msgstr "Eko-skóre"
+
+msgctxt "environmental_score_s"
+msgid "Green-Score"
+msgstr "Eko-skóre"
+
+msgctxt "misc_p"
+msgid "Miscellaneous"
+msgstr "Rôzne"
+
+msgctxt "misc_s"
+msgid "Miscellaneous"
+msgstr "Rôzne"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5028,7 +5128,7 @@ msgstr ""
 
 msgctxt "packaging_shape"
 msgid "Shape"
-msgstr ""
+msgstr "Tvar"
 
 msgctxt "packaging_quantity"
 msgid "Quantity contained"
@@ -5036,7 +5136,7 @@ msgstr ""
 
 msgctxt "packaging_material"
 msgid "Material"
-msgstr ""
+msgstr "Material"
 
 msgctxt "packaging_recycling"
 msgid "Recycling"
@@ -5088,7 +5188,7 @@ msgstr ""
 
 msgctxt "type"
 msgid "Type"
-msgstr ""
+msgstr "Druhy"
 
 msgctxt "processing_factor"
 msgid "Processing factor"
@@ -5172,7 +5272,7 @@ msgstr ""
 
 # It = the platform
 msgctxt "product_edits_by_producers_indicators"
-msgid "It computes indicators such as the Nutri-Score, NOVA, and the Eco-score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
+msgid "It computes indicators such as the Nutri-Score, NOVA, and the Green-Score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
 msgstr ""
 
 msgctxt "attribute_forest_footprint_name"
@@ -5252,9 +5352,9 @@ msgctxt "sort_by_nutriscore_score"
 msgid "Products with the best Nutri-Score"
 msgstr ""
 
-msgctxt "sort_by_ecoscore_score"
-msgid "Products with the best Eco-Score"
-msgstr ""
+msgctxt "sort_by_environmental_score_score"
+msgid "Products with the best Green-Score"
+msgstr "Produkty s najlepším Green-Score"
 
 msgctxt "sort_by_created_t"
 msgid "Recently added products"
@@ -5283,7 +5383,7 @@ msgstr ""
 
 msgctxt "footer_vision"
 msgid "Vision, Mission, Values and Programs"
-msgstr ""
+msgstr "Vízia, poslanie, hodnoty a programy"
 
 # Do not translate
 msgctxt "footer_vision_link"
@@ -5306,33 +5406,33 @@ msgctxt "delete_user_process"
 msgid "User is being deleted. This may take a few minutes."
 msgstr ""
 
-msgctxt "attribute_ecoscore_not_applicable_title"
-msgid "Eco-Score not yet applicable"
+msgctxt "attribute_environmental_score_not_applicable_title"
+msgid "Green-Score not applicable"
 msgstr ""
 
-msgctxt "attribute_ecoscore_not_applicable_description_short"
-msgid "Not yet applicable for the category"
+msgctxt "attribute_environmental_score_not_applicable_description_short"
+msgid "Not applicable for the category"
 msgstr ""
 
 # variable names between { } must not be translated
-msgctxt "f_attribute_ecoscore_not_applicable_description"
+msgctxt "f_attribute_environmental_score_not_applicable_description"
 msgid "Not yet applicable for the category: {category}"
 msgstr ""
 
-msgctxt "ecoscore_not_applicable_coming_soon"
-msgid "The Eco-Score is not yet applicable for this category, but we are working on adding support for it."
+msgctxt "environmental_score_not_applicable_coming_soon"
+msgid "The Green-Score is not yet applicable for this category, but we are working on adding support for it."
 msgstr ""
 
-msgctxt "attribute_ecoscore_unknown_title"
-msgid "Eco-Score not computed"
+msgctxt "attribute_environmental_score_unknown_title"
+msgid "Green-Score not computed"
 msgstr ""
 
-msgctxt "attribute_ecoscore_unknown_description_short"
+msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr ""
 
-msgctxt "ecoscore_unknown_call_to_help"
-msgid "We could not compute the Eco-Score of this product as it is missing some data, could you help complete it?"
+msgctxt "environmental_score_unknown_call_to_help"
+msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
 msgstr ""
 
 msgctxt "org_list_of_gs1_gln_description"
@@ -5461,223 +5561,223 @@ msgctxt "forest_footprint_one_line_explanation"
 msgid "The forest footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
 msgstr ""
 
-msgctxt "ecoscore_agribalyse_match_warning"
-msgid "The Eco-Score can only be calculated if the product has a sufficiently precise category."
+msgctxt "environmental_score_agribalyse_match_warning"
+msgid "The Green-Score can only be calculated if the product has a sufficiently precise category."
 msgstr ""
 
-msgctxt "ecoscore_add_more_precise_category"
+msgctxt "environmental_score_add_more_precise_category"
 msgid "You can modify the product page to add a more precise category."
 msgstr ""
 
-msgctxt "ecoscore_platform_promo"
+msgctxt "environmental_score_platform_promo"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
 msgstr ""
 
-msgctxt "ecoscore_warning_missing_information"
-msgid "Warning: some information necessary to calculate the Eco-Score with precision is not provided (see the details of the calculation below)."
+msgctxt "environmental_score_warning_missing_information"
+msgid "Warning: some information necessary to calculate the Green-Score with precision is not provided (see the details of the calculation below)."
 msgstr ""
 
-msgctxt "ecoscore_add_missing_information"
+msgctxt "environmental_score_add_missing_information"
 msgid "You can edit the product to add the missing information."
 msgstr ""
 
-msgctxt "ecoscore_product_category_reference_score"
+msgctxt "environmental_score_product_category_reference_score"
 msgid "Baseline score of the product category"
 msgstr ""
 
-msgctxt "ecoscore_panel_lca"
+msgctxt "environmental_score_panel_lca"
 msgid "Lifecyle Analysis (LCA)"
 msgstr ""
 
 # do not translate Agribalyse
-msgctxt "ecoscore_agribalyse_category"
+msgctxt "environmental_score_agribalyse_category"
 msgid "Agribalyse category"
 msgstr ""
 
-msgctxt "ecoscore_category_proxy_match"
+msgctxt "environmental_score_category_proxy_match"
 msgid "Approximate match with the product category"
 msgstr ""
 
-msgctxt "ecoscore_category_exact_match"
+msgctxt "environmental_score_category_exact_match"
 msgid "Exact match with the product category"
 msgstr ""
 
-msgctxt "ecoscore_pef_environmental_score"
+msgctxt "environmental_score_pef_environmental_score"
 msgid "PEF environmental score"
 msgstr ""
 
-msgctxt "ecoscore_incl_climate_change_impact"
+msgctxt "environmental_score_incl_climate_change_impact"
 msgid "including impact on climate change"
 msgstr ""
 
-msgctxt "ecoscore_impact_detail_by_stages"
+msgctxt "environmental_score_impact_detail_by_stages"
 msgid "Details of the impacts by stages of the life cycle"
 msgstr ""
 
 # stage meaning step
-msgctxt "ecoscore_stage"
+msgctxt "environmental_score_stage"
 msgid "Stage"
 msgstr ""
 
-msgctxt "ecoscore_impact"
+msgctxt "environmental_score_impact"
 msgid "Impact"
 msgstr ""
 
-msgctxt "ecoscore_agriculture"
+msgctxt "environmental_score_agriculture"
 msgid "Agriculture"
 msgstr ""
 
-msgctxt "ecoscore_processing"
+msgctxt "environmental_score_processing"
 msgid "Processing"
 msgstr ""
 
-msgctxt "ecoscore_packaging"
+msgctxt "environmental_score_packaging"
 msgid "Packaging"
 msgstr "Balenie"
 
-msgctxt "ecoscore_transportation"
+msgctxt "environmental_score_transportation"
 msgid "Transportation"
 msgstr ""
 
-msgctxt "ecoscore_distribution"
+msgctxt "environmental_score_distribution"
 msgid "Distribution"
 msgstr ""
 
-msgctxt "ecoscore_consumption"
+msgctxt "environmental_score_consumption"
 msgid "Consumption"
 msgstr ""
 
-msgctxt "ecoscore_lca_score_out_of_100"
+msgctxt "environmental_score_lca_score_out_of_100"
 msgid "LCA score out of 100"
 msgstr ""
 
-msgctxt "ecoscore_no_agribalyse_category_match"
+msgctxt "environmental_score_no_agribalyse_category_match"
 msgid "No match between product categories and Agribalyse categories."
 msgstr ""
 
-msgctxt "ecoscore_edit_category_to_more_granular"
+msgctxt "environmental_score_edit_category_to_more_granular"
 msgid "You can modify the product page to add a more granular category."
 msgstr ""
 
-msgctxt "ecoscore_additional_bonuses_and_maluses"
+msgctxt "environmental_score_additional_bonuses_and_maluses"
 msgid "Additional bonuses and maluses"
 msgstr ""
 
-msgctxt "ecoscore_production_system"
+msgctxt "environmental_score_production_system"
 msgid "Production mode"
 msgstr ""
 
-msgctxt "ecoscore_no_labels_taken_into_account"
+msgctxt "environmental_score_no_labels_taken_into_account"
 msgid "No labels taken into account for the production system."
 msgstr ""
 
-msgctxt "ecoscore_please_add_the_labels"
+msgctxt "environmental_score_please_add_the_labels"
 msgid "If this product has a label characterizing the production system (organic, fair trade, Label Rouge, Bleu Blanc Coeur etc.), you can modify the product sheet to add it."
 msgstr ""
 
-msgctxt "ecoscore_origins_of_ingredients"
+msgctxt "environmental_score_origins_of_ingredients"
 msgid "Origins of ingredients"
 msgstr ""
 
-msgctxt "ecoscore_ingredients_not_indicated"
+msgctxt "environmental_score_ingredients_not_indicated"
 msgid "The origins of the ingredients of this product are not indicated."
 msgstr ""
 
-msgctxt "ecoscore_please_add_the_ingredients"
+msgctxt "environmental_score_please_add_the_ingredients"
 msgid "If they are indicated on the packaging, you can modify the product sheet and add them."
 msgstr ""
 
-msgctxt "ecoscore_environmental_policy"
+msgctxt "environmental_score_environmental_policy"
 msgid "Environmental policy"
 msgstr ""
 
-msgctxt "ecoscore_threatened_species"
+msgctxt "environmental_score_threatened_species"
 msgid "Threatened species"
-msgstr ""
+msgstr "Ohrozené druhy"
 
-msgctxt "ecoscore_ingredients_whose_cultivation_threatens_species"
+msgctxt "environmental_score_ingredients_whose_cultivation_threatens_species"
 msgid "Ingredients that threatens species"
 msgstr ""
 
-msgctxt "ecoscore_no_species_threatening_ingredients"
+msgctxt "environmental_score_no_species_threatening_ingredients"
 msgid "No ingredients that threaten species"
 msgstr ""
 
-msgctxt "ecoscore_ingredients_unknown"
+msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
 msgstr ""
 
-msgctxt "ecoscore_edit_for_more_precise_ecoscore"
-msgid "For a more precise calculation of the Eco-Score, you can edit the product page and add them."
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
+msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
 msgstr ""
 
-msgctxt "ecoscore_packaging_ratio"
+msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
 msgstr ""
 
-msgctxt "ecoscore_packaging_score"
+msgctxt "environmental_score_packaging_score"
 msgid "score"
 msgstr ""
 
-msgctxt "ecoscore_score_of_all_components"
+msgctxt "environmental_score_score_of_all_components"
 msgid "Score of all components"
 msgstr ""
 
-msgctxt "ecoscore_no_packaging_information"
+msgctxt "environmental_score_no_packaging_information"
 msgid "The information about the packaging of this product is not filled in."
 msgstr ""
 
-msgctxt "ecoscore_unprecise_packaging_information"
+msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
 msgstr ""
 
-msgctxt "ecoscore_edit_for_more_precise_ecoscore"
-msgid "For a more precise calculation of the Eco-Score, you can modify the product page and add them."
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
+msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
 msgstr ""
 
-msgctxt "ecoscore_final_score"
+msgctxt "environmental_score_final_score"
 msgid "Final score"
 msgstr ""
 
-msgctxt "ecoscore_lower_the_score_lower_the_impact"
+msgctxt "environmental_score_lower_the_score_lower_the_impact"
 msgid "(the lower the score, the lower the impact)"
 msgstr ""
 
-msgctxt "ecoscore_kg_co2_eq_kg_product"
+msgctxt "environmental_score_kg_co2_eq_kg_product"
 msgid "kg CO2 eq/kg of product"
 msgstr ""
 
 # do not translate the link
-msgctxt "ecoscore_platform_prompt_ecoscore_modal"
+msgctxt "environmental_score_platform_prompt_environmental_score_modal"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
 msgstr ""
 
-# do not translate Eco-Score and the link
-msgctxt "ecoscore_description"
-msgid "The <a href=\"/ecoscore\">Eco-Score</a> is an experimental score that summarizes the environmental impacts of food products."
+# do not translate Green-Score and the link
+msgctxt "environmental_score_description"
+msgid "The <a href=\"/green-score\">Green-Score</a> is an experimental score that summarizes the environmental impacts of food products."
 msgstr ""
 
-# do not translate Eco-Score
-msgctxt "ecoscore_warning_fr"
-msgid "The Eco-Score formula is subject to change as it is regularly improved to make it more precise."
+# do not translate Green-Score
+msgctxt "environmental_score_warning_fr"
+msgid "The Green-Score formula is subject to change as it is regularly improved to make it more precise."
 msgstr ""
 
-# do not translate Eco-Score
-msgctxt "ecoscore_warning_international"
-msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+# do not translate Green-Score
+msgctxt "environmental_score_warning_international"
+msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
 msgstr ""
 
-msgctxt "ecoscore_warning_transportation_world"
+msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
 msgstr ""
 
-msgctxt "ecoscore_warning_transportation"
+msgctxt "environmental_score_warning_transportation"
 msgid "The full impact of transportation to your country is currently unknown."
 msgstr ""
 
 msgctxt "app_banner_text"
-msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
-msgstr "Naskenujte čiarové kódy a zistite Nutri-Score, Eco-Score a omnoho viac!"
+msgid "Scan barcodes to get the Nutri-Score, the Green-Score and more!"
+msgstr "Naskenujte čiarové kódy a zistite Nutri-Score, Green-Score a omnoho viac!"
 
 msgctxt "org_gs1_product_name_is_abbreviated"
 msgid "GS1 product names for this manufacturer are abbreviated."
@@ -5708,35 +5808,35 @@ msgctxt "org_protect_data_note"
 msgid "Removing or changing the provided data will be possible only by experimented contributors on the web site."
 msgstr ""
 
-msgctxt "ecoscore_packaging_impact_high"
+msgctxt "environmental_score_packaging_impact_high"
 msgid "Packaging with a high impact"
 msgstr ""
 
-msgctxt "ecoscore_packaging_impact_medium"
+msgctxt "environmental_score_packaging_impact_medium"
 msgid "Packaging with a medium impact"
 msgstr ""
 
-msgctxt "ecoscore_packaging_impact_low"
+msgctxt "environmental_score_packaging_impact_low"
 msgid "Packaging with a low impact"
 msgstr ""
 
-msgctxt "ecoscore_packaging_missing_information"
+msgctxt "environmental_score_packaging_missing_information"
 msgid "Missing packaging information for this product"
 msgstr ""
 
-msgctxt "ecoscore_origins_of_ingredients_impact_high"
+msgctxt "environmental_score_origins_of_ingredients_impact_high"
 msgid "Origins of ingredients with a high impact"
 msgstr ""
 
-msgctxt "ecoscore_origins_of_ingredients_impact_medium"
+msgctxt "environmental_score_origins_of_ingredients_impact_medium"
 msgid "Origins of ingredients with a medium impact"
 msgstr ""
 
-msgctxt "ecoscore_origins_of_ingredients_impact_low"
+msgctxt "environmental_score_origins_of_ingredients_impact_low"
 msgid "Origins of ingredients with a low impact"
 msgstr ""
 
-msgctxt "ecoscore_origins_of_ingredients_missing_information"
+msgctxt "environmental_score_origins_of_ingredients_missing_information"
 msgid "Missing origins of ingredients information"
 msgstr ""
 
@@ -5773,23 +5873,63 @@ msgctxt "donation_text_2023_tertiary"
 msgid "The food revolution starts with you!"
 msgstr ""
 
+msgctxt "donation_hook_2024"
+msgid "Help us inform millions of consumers around the world about what they eat"
+msgstr ""
+
+msgctxt "donation_title_2024"
+msgid "Please give to our 2024 Fundraiser"
+msgstr ""
+
+msgctxt "donation_list_2024_main"
+msgid "Your donations fund the day-to-day operations of our non-profit association:"
+msgstr ""
+
+msgctxt "donation_list_2024_first"
+msgid "keeping our database open & available to all,"
+msgstr ""
+
+msgctxt "donation_list_2024_first_sub"
+msgid "technical infrastructure (website/mobile app) & a small permanent team"
+msgstr ""
+
+msgctxt "donation_list_2024_second"
+msgid "remain independent of the food industry,"
+msgstr ""
+
+msgctxt "donation_list_2024_third"
+msgid "engage a community of committed citizens,"
+msgstr ""
+
+msgctxt "donation_list_2024_fourth"
+msgid "support the advancement of public health research."
+msgstr ""
+
+msgctxt "donation_financial_2024_text"
+msgid "Each donation counts! We appreciate your support in bringing further food transparency in the world."
+msgstr ""
+
+msgctxt "donation_button_2024_text"
+msgid "I SUPPORT"
+msgstr ""
+
 msgctxt "donation_cta"
 msgid "Donate"
 msgstr "Darovať"
 
-msgctxt "ecoscore_production_system_no_labels_with_environmental_benefits"
+msgctxt "environmental_score_production_system_no_labels_with_environmental_benefits"
 msgid "No labels with environmental benefits"
 msgstr ""
 
-msgctxt "ecoscore_production_system_labels_with_environmental_benefits"
+msgctxt "environmental_score_production_system_labels_with_environmental_benefits"
 msgid "Labels with environmental benefits"
 msgstr ""
 
-msgctxt "ecoscore_production_system_labels_with_environmental_benefits_high"
+msgctxt "environmental_score_production_system_labels_with_environmental_benefits_high"
 msgid "Labels with high environmental benefits"
 msgstr ""
 
-msgctxt "ecoscore_production_system_labels_with_environmental_benefits_very_high"
+msgctxt "environmental_score_production_system_labels_with_environmental_benefits_very_high"
 msgid "Labels with very high environmental benefits"
 msgstr ""
 
@@ -5800,7 +5940,7 @@ msgstr ""
 # statistical mean
 msgctxt "mean"
 msgid "Mean"
-msgstr ""
+msgstr "Priemer"
 
 msgctxt "recipes_ingredients_statistics"
 msgid "Ingredients statistics for all products"
@@ -5816,11 +5956,24 @@ msgstr ""
 
 msgctxt "carbon_footprint"
 msgid "Carbon footprint"
-msgstr ""
+msgstr "Uhlíková stopa"
 
 # variable names between { } must not be translated
 msgctxt "f_carbon_footprint_per_100g_of_product"
-msgid "{grams} g CO² per 100g of product"
+msgid "{grams} g CO₂e per 100g of product"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_carbon_footprint_per_unit"
+msgid "{kilograms} kg CO₂e per unit"
+msgstr ""
+
+msgctxt "average_for_the_category"
+msgid "average for the category"
+msgstr ""
+
+msgctxt "data_source_and_detailed_carbon_impact"
+msgid "Data source and detailed carbon impact"
 msgstr ""
 
 # variable names between { } must not be translated
@@ -5868,27 +6021,27 @@ msgctxt "life_cycle_analysis"
 msgid "Life cycle analysis"
 msgstr ""
 
-msgctxt "ecoscore_bonuses_and_maluses"
+msgctxt "environmental_score_bonuses_and_maluses"
 msgid "Bonuses and maluses"
 msgstr ""
 
-msgctxt "ecoscore_for_this_product"
-msgid "Eco-Score for this product"
+msgctxt "environmental_score_for_this_product"
+msgid "Green-Score for this product"
 msgstr ""
 
 msgctxt "average_impact_of_the_category"
 msgid "Average impact of products of the same category"
 msgstr ""
 
-msgctxt "ecoscore_sum_of_bonuses_and_maluses"
+msgctxt "environmental_score_sum_of_bonuses_and_maluses"
 msgid "Sum of bonuses and maluses"
 msgstr ""
 
-msgctxt "ecoscore_sum_of_bonuses_and_maluses_is_capped"
+msgctxt "environmental_score_sum_of_bonuses_and_maluses_is_capped"
 msgid "The sum of bonuses and maluses is capped at +25."
 msgstr ""
 
-msgctxt "ecoscore_lca_score"
+msgctxt "environmental_score_lca_score"
 msgid "Life cycle analysis score"
 msgstr ""
 
@@ -5896,7 +6049,7 @@ msgctxt "impact_for_this_product"
 msgid "Impact for this product"
 msgstr ""
 
-msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
+msgctxt "environmental_score_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
 msgstr ""
 
@@ -5912,13 +6065,17 @@ msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr ""
 
+msgctxt "nutriscore_missing_nutrition_data_details"
+msgid "Missing nutrition facts:"
+msgstr ""
+
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr ""
 
 msgctxt "health"
 msgid "Health"
-msgstr ""
+msgstr "Zdravie"
 
 msgctxt "contribution_panel_title"
 msgid "Contribution"
@@ -6127,46 +6284,46 @@ msgctxt "nutriscore_learn_more"
 msgid "Learn more about the Nutri-Score"
 msgstr "Ďalšie informácie o Nutri-Score"
 
-msgctxt "ecoscore_learn_more"
-msgid "Learn more about the Eco-Score"
+msgctxt "environmental_score_learn_more"
+msgid "Learn more about the Green-Score"
 msgstr ""
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
 msgid "Very good match"
-msgstr ""
+msgstr "Veľmi dobrá zhoda"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_good_match"
 msgid "Good match"
-msgstr ""
+msgstr "Dobrá zhoda"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_poor_match"
 msgid "Poor match"
-msgstr ""
+msgstr "Slabá zhoda"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_unknown_match"
 msgid "Unknown match"
-msgstr ""
+msgstr "Neznáma zhoda"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_may_not_match"
 msgid "May not match"
-msgstr ""
+msgstr "Nemusí sa zhodovať"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_does_not_match"
 msgid "Does not match"
-msgstr ""
+msgstr "Nezhoduje sa"
 
 msgctxt "reset_preferences"
 msgid "Use default preferences"
 msgstr ""
 
 msgctxt "reset_preferences_details"
-msgid "Nutri-Score, Eco-Score and food processing level (NOVA)"
+msgid "Nutri-Score, Green-Score and food processing level (NOVA)"
 msgstr ""
 
 msgctxt "actions_add_ingredients"
@@ -6177,8 +6334,8 @@ msgctxt "actions_to_compute_nutriscore"
 msgid "Could you add the information needed to compute the Nutri-Score?"
 msgstr ""
 
-msgctxt "actions_to_compute_ecoscore"
-msgid "Could you add a precise product category so that we can compute the Eco-Score?"
+msgctxt "actions_to_compute_environmental_score"
+msgid "Could you add a precise product category so that we can compute the Green-Score?"
 msgstr ""
 
 msgctxt "action_add_ingredients_text"
@@ -6203,6 +6360,10 @@ msgstr ""
 
 msgctxt "action_add_packaging_components"
 msgid "Add packaging components"
+msgstr ""
+
+msgctxt "action_add_quantity"
+msgid "Add quantity of the product"
 msgstr ""
 
 # this is not used yet
@@ -6258,6 +6419,10 @@ msgstr ""
 # this is not used yet
 msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
+msgstr ""
+
+msgctxt "action_report_product_to_nutripatrol"
+msgid "Report this product to our moderators"
 msgstr ""
 
 # Used as a header for key facts
@@ -6405,6 +6570,10 @@ msgctxt "api_result_product_not_found"
 msgid "Product not found"
 msgstr "Výrobok sa nenašiel"
 
+msgctxt "api_result_product_found_with_a_different_product_type"
+msgid "Product found with a different product type"
+msgstr ""
+
 msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr ""
@@ -6427,6 +6596,10 @@ msgstr ""
 
 msgctxt "api_message_invalid_code"
 msgid "Invalid code"
+msgstr ""
+
+msgctxt "api_message_invalid_product_type"
+msgid "Invalid product type"
 msgstr ""
 
 msgctxt "api_message_invalid_type_must_be_object"
@@ -6459,7 +6632,7 @@ msgstr ""
 
 msgctxt "api_impact_none"
 msgid "None"
-msgstr ""
+msgstr "Žiadne"
 
 msgctxt "api_impact_warning"
 msgid "Warning"
@@ -6480,7 +6653,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "Počet jednotiek"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
@@ -6512,19 +6685,19 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
 msgid "Enter the number of packaging units of the same shape and material contained in the product."
-msgstr ""
+msgstr "Zadajte počet baliacich jednotiek rovnakého tvaru a materiálu obsiahnutých vo výrobku."
 
 msgctxt "packaging_shape_description"
 msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
-msgstr ""
+msgstr "Zadajte názov tvaru uvedený v pokynoch na recykláciu, ak sú k dispozícii, alebo vyberte tvar."
 
 msgctxt "packaging_material_description"
 msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
-msgstr ""
+msgstr "Zadajte konkrétny materiál, ak ho možno určiť (kód materiálu vo vnútri trojuholníka možno často nájsť na častiach balenia), alebo všeobecný materiál (napríklad plast alebo kov), ak si nie ste istí."
 
 msgctxt "packaging_recycling_description"
 msgid "Enter recycling instructions only if they are listed on the product."
-msgstr ""
+msgstr "Pokyny na recykláciu zadávajte iba vtedy, ak sú uvedené na produkte."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
@@ -6534,7 +6707,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
 msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
-msgstr ""
+msgstr "Zadajte čistú hmotnosť alebo čistý objem a uveďte jednotku (napríklad g alebo ml)."
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
@@ -6542,7 +6715,7 @@ msgstr ""
 
 msgctxt "add_products"
 msgid "Add products"
-msgstr ""
+msgstr "Pridať produkty"
 
 # Needs to be short (displayed in a menu)
 msgctxt "install_the_app_to_add_products"
@@ -6563,10 +6736,6 @@ msgstr ""
 
 msgctxt "faq_for_producers"
 msgid "FAQ for producers"
-msgstr ""
-
-msgctxt "join_the_next_pros_meet_up"
-msgid "Join the next Pros' Meet-up"
 msgstr ""
 
 # variable names between { } must not be translated
@@ -6746,6 +6915,18 @@ msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_
 msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
 msgstr ""
 
+msgctxt "nutriscore_new_computation_title"
+msgid "Discover the new Nutri-Score!"
+msgstr ""
+
+msgctxt "nutriscore_new_computation_description"
+msgid "<p>The computation of the Nutri-Score is evolving to provide better recommendations based on the latest scientific evidence.</p><p>Main improvements:</p><ul><li>Better score for some fatty fish and oils rich in good fats</li><li>Better score for whole products rich in fiber</li><li>Worse score for products containing a lot of salt or sugar</li><li>Worse score for red meat (compared to poultry)</li></ul>"
+msgstr ""
+
+msgctxt "nutriscore_new_computation_link_text"
+msgid "Discover all the improvements of the new Nutri-Score"
+msgstr ""
+
 msgctxt "nutriscore_explanation_what_it_is"
 msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
 msgstr ""
@@ -6796,5 +6977,395 @@ msgstr ""
 
 msgctxt "nutrient_info_proteins_benefit"
 msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
+msgstr ""
+
+msgctxt "revert"
+msgid "Revert to this revision"
+msgstr ""
+
+msgctxt "product_js_product_revert_confirm"
+msgid "Revert to this product revision?"
+msgstr ""
+
+msgctxt "api_status_success"
+msgid "Success"
+msgstr ""
+
+msgctxt "api_status_failure"
+msgid "Failure"
+msgstr ""
+
+msgctxt "api_result_product_reverted"
+msgid "Product reverted to the specified revision"
+msgstr ""
+
+msgctxt "api_result_product_not_reverted"
+msgid "Product not reverted to the specified revision"
+msgstr ""
+
+# sweeteners (additives), plural
+msgctxt "sweeteners"
+msgid "sweeteners"
+msgstr "sladidlá"
+
+# sweetener (additive), singular
+msgctxt "sweetener"
+msgid "sweetener"
+msgstr "sladidlá"
+
+msgctxt "action_edit_product"
+msgid "Complete or correct product information"
+msgstr ""
+
+msgctxt "report_problem_panel_title"
+msgid "Report a problem"
+msgstr ""
+
+msgctxt "report_problem_navigation"
+msgid "Report a problem."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_title"
+msgid "Incomplete or incorrect information?"
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_subtitle_off"
+msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct"
+msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct_off"
+msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
+
+msgctxt "report_to_nutripatrol_explain"
+msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
+msgstr ""
+
+msgctxt "description"
+msgid "Description"
+msgstr ""
+
+# duplicate with "report_problem_panel_title"
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
+msgstr ""
+
+msgctxt "enter_main_contact_username"
+msgid "Enter main contact's username :"
+msgstr ""
+
+msgctxt "change_main_contact"
+msgid "Change main contact"
+msgstr ""
+
+msgctxt "main_contact_updated"
+msgid "Main contact updated"
+msgstr ""
+
+msgctxt "error_unknown_member"
+msgid "This user is not a member of the organization."
+msgstr ""
+
+msgctxt "skip_to_content"
+msgid "Skip to Content"
+msgstr ""
+
+msgctxt "cant_delete_main_contact"
+msgid "You cannot remove the main contact. Change it first."
+msgstr ""
+
+msgctxt "open_in_crm"
+msgid "Open in CRM"
+msgstr ""
+
+msgctxt "information_provided_by_the_manufacturer"
+msgid "Information provided by the manufacturer"
+msgstr ""
+
+msgctxt "information_provided_by_the_manufacturer_edit_form"
+msgid "Information identified by a factory icon has been provided by the manufacturer. It can be changed only by the manufacturer and moderators. If it is out of date or incorrect, please let us know."
+msgstr ""
+
+msgctxt "knowledge_panels_did_you_know"
+msgid "Did you know?"
+msgstr ""
+
+msgctxt "knowledge_panels_why_it_matters"
+msgid "Why it matters"
+msgstr ""
+
+msgctxt "knowledge_panels_what_you_can_do"
+msgid "What you can do"
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_title"
+msgid "Good for agricultural biodiversity"
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_subtitle"
+msgid "Contains neglected or underutilized crops:"
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_did_you_know"
+msgid "Since 1900, 75% of plant diversity has been lost as farmers around the world have abandoned local varieties for high-yielding varieties adapted to mass industrial processing. As a result, 60 % of human energy intake in the world comes from only 3 species: wheat, rice and corn."
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_why_it_matters"
+msgid "The lack of variety of crops makes our food supply more vulnerable to pests, diseases and climate change."
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do"
+msgid "Consuming diverse cereals, legumes, vegetables and fruits contributes to:"
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_1"
+msgid "preserving neglected and underutilized species"
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_2"
+msgid "rural development and support of local farmers and companies"
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_3"
+msgid "preserving of diversified landscapes"
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_4"
+msgid "food security"
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_5"
+msgid "and your health!"
+msgstr ""
+
+msgctxt "created_by"
+msgid "Created by"
+msgstr ""
+
+msgctxt "org_id"
+msgid "Org id"
+msgstr ""
+
+msgctxt "verified_status"
+msgid "Verified status"
+msgstr ""
+
+msgctxt "creation_date"
+msgid "Creation date"
+msgstr ""
+
+msgctxt "knowledge_panels_ingredients_rare_crops_divinfood"
+msgid "Open Food Facts participates in the European project <a href=\"https://divinfood.eu/\">DIVINFOOD</a> (funded from European Union’s Horizon 2020 research and innovation programme). DIVINFOOD aims to develop food chains that value under-utilised agrobiodiversity in order to act against the decline of biodiversity and to meet the growing expectations of consumers for healthy, local products that contribute to sustainable food systems."
+msgstr ""
+
+msgctxt "deny"
+msgid "Deny"
+msgstr ""
+
+msgctxt "users_requested_to_join_org"
+msgid "These users have requested to join the organization:"
+msgstr ""
+
+msgctxt "last_login"
+msgid "Last login date"
+msgstr ""
+
+msgctxt "last_import"
+msgid "Last import date"
+msgstr ""
+
+msgctxt "drop_a_file"
+msgid "Drop"
+msgstr ""
+
+msgctxt "select_product_data_file"
+msgid "Select a file with product data"
+msgstr ""
+
+msgctxt "number_of_products_without_nutriscore"
+msgid "Number of products without Nutri-Score"
+msgstr ""
+
+msgctxt "percent_of_products_with_nutriscore"
+msgid "% of products where Nutri-Score is computed"
+msgstr ""
+
+msgctxt "products_to_be_exported"
+msgid "Products to be exported"
+msgstr ""
+
+msgctxt "products_exported"
+msgid "Products exported"
+msgstr ""
+
+msgctxt "opportunities_to_improve_nutriscore"
+msgid "Opp. for Nutri-Score improvements"
+msgstr ""
+
+msgctxt "date_of_last_update"
+msgid "Date of last update"
+msgstr ""
+
+msgctxt "number_of_products_on_public_platform"
+msgid "Number of products on public platform"
+msgstr ""
+
+msgctxt "number_of_products_on_producer_platform"
+msgid "Number of products on producer platform"
+msgstr ""
+
+msgctxt "automated_daily_export_to_public_platform"
+msgid "Automatic daily export to public platform"
+msgstr ""
+
+msgctxt "improvements_navigation"
+msgid "Improvements"
+msgstr ""
+
+msgctxt "products_with_changes_since_last_export"
+msgid "Products with changes since last export"
+msgstr ""
+
+msgctxt "organization_list"
+msgid "Organization list"
+msgstr ""
+
+msgctxt "open_org"
+msgid "Open org"
+msgstr ""
+
+msgctxt "secondhand"
+msgid "Secondhand"
+msgstr ""
+
+msgctxt "donated_products_title"
+msgid "Donations"
+msgstr ""
+
+msgctxt "donated_products_subtitle"
+msgid "Give this product, or search for a similar donated product"
+msgstr ""
+
+msgctxt "used_products_title"
+msgid "Used products"
+msgstr ""
+
+msgctxt "used_products_subtitle"
+msgid "Buy this product used, or search for a similar used product"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_name"
+msgid "Repairability index"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_setting_name"
+msgid "Good repairability"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_setting_note"
+msgid "Mandatory rating in France for certain products since 2021"
+msgstr ""
+
+# keep %s, it will be replaced by the letter A, B, C, D or E
+msgctxt "attribute_repairability_index_france_grade_title"
+msgid "Repairability index %s"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_unknown_title"
+msgid "Repairability index unknown"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_not_applicable_title"
+msgid "Repairability index not-applicable"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_not_applicable_description_short"
+msgid "Not-applicable for the category"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_repairability_index_france_not_applicable_description"
+msgid "Applicable only for categories: {categories}"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_very_good_description_short"
+msgid "Very good repairability"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_good_description_short"
+msgid "Good repairability"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_average_description_short"
+msgid "Average repairability"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_poor_description_short"
+msgid "Poor repairability"
+msgstr ""
+
+msgctxt "attribute_repairability_index_france_bad_description_short"
+msgid "Bad repairability"
+msgstr ""
+
+msgctxt "estimate"
+msgid "estimate"
+msgstr ""
+
+# information on several ingredients, in plural in languages like French
+msgctxt "ingredient_information"
+msgid "Ingredient information"
+msgstr ""
+
+msgctxt "product_type"
+msgid "Product type"
+msgstr ""
+
+# Food product type
+msgctxt "product_type_food"
+msgid "Food"
+msgstr ""
+
+# Pet food product type
+msgctxt "product_type_petfood"
+msgid "Pet food"
+msgstr ""
+
+# Beauty product type
+msgctxt "product_type_beauty"
+msgid "Beauty"
+msgstr ""
+
+# General product product type
+msgctxt "product_type_product"
+msgid "Product"
+msgstr "Produkt"
+
+msgctxt "recommendation_limit_ultra_processed_foods_title"
+msgid "Limit ultra-processed foods"
+msgstr ""
+
+msgctxt "recommendation_limit_ultra_processed_foods_subtitle"
+msgid "Limiting ultra-processed foods reduces the risk of noncommunicable chronic diseases"
+msgstr ""
+
+msgctxt "recommendation_limit_ultra_processed_foods_text"
+msgid "Several studies have found that a lower consumption of ultra-processed foods is associated with a reduced risk of noncommunicable chronic diseases, such as obesity, hypertension and diabetes."
+msgstr ""
+
+msgctxt "discover_the_evolution_of_the_nutriscore_grades_of_your_products"
+msgid "Discover the evolution of the Nutri-Score grades of your products"
+msgstr ""
+
+msgctxt "add_products_to_discover_the_evolution_of_their_nutriscore_grades"
+msgid "Add products with a category, ingredients list and nutrition facts to discover the evolution of their Nutri-Score grades."
+msgstr ""
+
+msgctxt "in_contact_with_food"
+msgid "In contact with food"
 msgstr ""
 

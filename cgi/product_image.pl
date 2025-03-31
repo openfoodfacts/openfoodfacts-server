@@ -25,22 +25,23 @@ use ProductOpener::PerlStandards;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Store qw/retrieve/;
 use ProductOpener::Index qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/lang/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::Users qw/:all/;
+use ProductOpener::Tags qw/canonicalize_tag_link/;
+use ProductOpener::Users qw/$Owner_id/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Text qw/:all/;
+use ProductOpener::Text qw/remove_tags_and_quote/;
+use ProductOpener::HTTP qw/single_param/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Log::Any qw($log);
 
 my $request_ref = ProductOpener::Display::init_request();
@@ -53,7 +54,7 @@ my $id = single_param('id');
 $log->debug("start", {code => $code, id => $id}) if $log->is_debug();
 
 if (not defined $code) {
-	display_error_and_exit(sprintf(lang("no_product_for_barcode"), $code), 404);
+	display_error_and_exit($request_ref, sprintf(lang("no_product_for_barcode"), $code), 404);
 }
 
 my $product_id = product_id_for_owner($Owner_id, $code);
@@ -61,11 +62,11 @@ my $product_id = product_id_for_owner($Owner_id, $code);
 my $product_ref = retrieve_product($product_id);
 
 if (not(defined $product_ref)) {
-	display_error_and_exit(sprintf(lang("no_product_for_barcode"), $code), 404);
+	display_error_and_exit($request_ref, sprintf(lang("no_product_for_barcode"), $code), 404);
 }
 
 if ((not(defined $product_ref->{images})) or (not(defined $product_ref->{images}{$id}))) {
-	display_error_and_exit(sprintf(lang("no_product_for_barcode"), $code), 404);
+	display_error_and_exit($request_ref, sprintf(lang("no_product_for_barcode"), $code), 404);
 }
 
 my $imagetext;
@@ -93,7 +94,7 @@ else {
 
 my $photographer = $product_ref->{images}{$id}{uploader};
 my $editor = $photographer;
-my $site_name = lang('site_name');
+my $site_name = $options{site_name};
 
 my $original_id = $product_ref->{images}{$id}{imgid};
 my $original_link = "";

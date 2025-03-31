@@ -1,6 +1,6 @@
 # How to use pages from openfoodfacts-web
 
-To avoid messing product-opener repository with translations of web-pages,
+To avoid messing the product-opener repository with translations of web pages,
 we moved most pages in 
 [openfoodfacts-web repository](https://github.com/openfoodfacts/openfoodfacts-web)
 specifically in the lang/ directory.
@@ -14,4 +14,4 @@ and then:
 - if you are using docker, 
   you can set the `WEB_RESOURCES_PATH` env variable to a relative or absolute path
   leading to openfoodfacts-web directory.
-- else, make symlink `lang` point to openfoodfacts-web `lang` directory, and `html/off_web_html` points to openfoodfacts-web `html` directory.
+- else, make symlink `lang` point to openfoodfacts-web `lang` directory, and `html/off_web_html` point to openfoodfacts-web `html` directory.

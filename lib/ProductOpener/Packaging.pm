@@ -18,6 +18,8 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=encoding UTF-8
+
 =head1 NAME
 
 ProductOpener::Packaging 
@@ -46,7 +48,6 @@ BEGIN {
 		&get_checked_and_taxonomized_packaging_component_data
 		&add_or_combine_packaging_component_data
 		&analyze_and_combine_packaging_data
-		&parse_packaging_component_data_from_text_phrase
 		&guess_language_of_packaging_text
 		&apply_rules_to_augment_packaging_component_data
 		&aggregate_packaging_by_parent_materials
@@ -61,14 +62,14 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Images qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Images qw/extract_text_from_image/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Store qw/:all/;
-use ProductOpener::API qw/:all/;
-use ProductOpener::Numbers qw/:all/;
-use ProductOpener::Units qw/:all/;
-use ProductOpener::ImportConvert qw/:all/;
+use ProductOpener::Store qw/get_fileid get_string_id_for_lang retrieve_json/;
+use ProductOpener::API qw/add_warning/;
+use ProductOpener::Numbers qw/convert_string_to_number/;
+use ProductOpener::Units qw/normalize_quantity/;
+use ProductOpener::ImportConvert qw/$empty_unknown_not_applicable_or_none_regexp/;
 
 use Data::DeepAccess qw(deep_get deep_val);
 use List::Util qw(first);

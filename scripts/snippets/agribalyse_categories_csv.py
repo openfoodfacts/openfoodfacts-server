@@ -8,7 +8,8 @@ datas = json.load(open("categories.full.json", "r"))
 
 
 # get agribalyse
-all_agri_cats = set(tagid for tagid, d in datas.items() for k in d.keys() if "agribalyse" in k)
+all_agri_cats = set(tagid for tagid, d in datas.items()
+                    for k in d.keys() if "agribalyse" in k)
 agri_cats = all_agri_cats
 
 # and children (until we have no more children)
@@ -16,15 +17,18 @@ while agri_cats:
     children = set(
         tagid
         for tagid, d in datas.items()
-        if set(d.get("parents",[])) & agri_cats
+        if set(d.get("parents", [])) & agri_cats
     )
     all_agri_cats |= children
     agri_cats = children
 
 # get agribalyse exploring parents
+
+
 def agribalyse(tagid, depth=0):
     data = datas[tagid]
-    code = data.get("agribalyse_food_code", data.get("agribalyse_proxy_food_code", {})).get("en")
+    code = data.get("agribalyse_food_code", data.get(
+        "agribalyse_proxy_food_code", {})).get("en")
     if code:
         return code, depth
     # explore all parents and take the lowest depth
@@ -50,13 +54,14 @@ for tagid in sorted(all_agri_cats):
         "cat_en": d["name"].get("en", ""),
         "cat_fr": d["name"].get("fr", ""),
         "agribalyse_food_code": agri,
-        })
+    })
 
 len(rows)
 
 rows.sort(key=lambda r: r.get("cat_en") or r.get("cat_fr"))
 
-with open("ecoscores-cat.csv", "w") as f:
-    writer = csv.DictWriter(f, fieldnames=["tagid", "cat_en", "cat_fr", "agribalyse_food_code"])
+with open("environmental_scores-cat.csv", "w") as f:
+    writer = csv.DictWriter(
+        f, fieldnames=["tagid", "cat_en", "cat_fr", "agribalyse_food_code"])
     writer.writeheader()
     writer.writerows(rows)

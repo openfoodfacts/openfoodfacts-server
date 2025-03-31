@@ -1,5 +1,5 @@
 <!-- start templates/[% template.name %] -->
-
+<script src="[% static_subdomain %]/js/dist/JsBarcode.all.min.js"></script>
 [% IF product_changes_saved %]
     <div data-alert class="alert-box info">
         <span>lang('product_changes_saved')</span>
@@ -10,14 +10,7 @@
     [% END %]
 [% END %]
 
-
-[% IF (robotoff_url.defined) && (robotoff_url.length > 0) %]
-    <!-- Anonymous users will only be able to vote see AnnotationVote in robotoff,
-        the voter uniqueness is based on a hash of its ip address
-    -->
-	<robotoff-asker url='[% robotoff_url %]' code='[% code %]' lang='[% lc %]' style='display: none;' caption-yes='[% esq(lang("button_caption_yes")) %]' caption-no='[% esq(lang("button_caption_no")) %]' caption-skip='[% esq(lang("button_caption_skip")) %]'></robotoff-asker>
-[% END %]
-
+[% INCLUDE web/common/includes/off_webcomponents_configuration.tt.html language_code = lc robotoff_domain = robotoff_url images_domain = images_subdomain %]
 <a href="#upNav" class="back-to-top scrollto button">
     <span class="material-icons size-20 ">
         arrow_upward
@@ -83,9 +76,22 @@
                <nav id="navbar" class="navbar h-space-tiny">
                     <ul class="inline-list">
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#product"><span>[% lang("product") %]</span></a></li>
-                        <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#match"><span>[% lang("your_criteria") %]</span></a></li>
-                        <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#health"><span>[% lang("health") %]</span></a></li>
+                        [% IF user_preferences %]
+                            <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#match"><span>[% lang("your_criteria") %]</span></a></li>
+                        [% END %]
+                        [% IF health_card_panel %]
+                            <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#health"><span>[% lang("health") %]</span></a></li>
+                        [% END %]
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#environment"><span>[% lang("environment") %]</span></a></li>
+                        [% IF secondhand_card_panel %]
+                        <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#secondhand"><span>[% lang("secondhand") %]</span></a></li>
+                        [% END %]                        
+                        [% IF report_problem_card_panel %]
+                        <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#report_problem"><span>[% lang("report_problem_navigation") %]</span></a></li>
+                        [% END %]
+                        [% IF display_data_quality_issues_and_improvement_opportunities %]
+                        <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#improvement"><span>[% lang("improvements_navigation") %]</span></a></li>
+                        [% END %]
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#contribution"><span>[% lang("contribution_navigation") %]</span></a></li>
                     </ul>
                 </nav><!-- .navbar -->
@@ -142,7 +148,7 @@
             <!-- owner -->
             [% IF owner %]
                 <p>
-                    [% FILTER format(lang("sources_manufacturer")) %]<a href="/editor/[% owner %]">[% owner_org.name %]</a>[% END %]
+                    [% FILTER format(lang("sources_manufacturer")) %]<a href="facets/editors/[% owner %]">[% owner_org.name %]</a>[% END %]
                     
                     [% IF owner_org.customer_service.email || owner_org.customer_service.link || owner_org.customer_service.phone %]
                             - [% lang("customer_service") %][% sep %]:
@@ -161,18 +167,40 @@
                     
                     <!-- Display UPC code if the EAN starts with 0 -->
                         [% IF upc_code == 'defined' %]
-                            <p id="barcode_paragraph">
-                                [% lang("barcode") %]:  <span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">[% code %]</span> [% upc %]
-                            </p>
+                            <div id="barcode_div">
+                                <!-- Display only text of the code if mobile -->
+                                <div id="barcode_div_code">
+                                    <p id="barcode_paragraph">[% lang("barcode") %]: <br id="barcode_br"><span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">[% code %]</span>[% upc %]</p>
+                                </div>
+                                <!-- Display with SVG if not mobile -->
+                                <div id="barcode_div_svg">
+                                    <svg id="barcode_svg"
+                                        jsbarcode-format="auto"
+                                        jsbarcode-value="[% code %]"
+                                        jsbarcode-displayValue="false"
+                                        jsbarcode-height="40">
+                                    </svg>
+                                </div>
+                            </div>
+                            <script>if (screen && screen.width >= 600) JsBarcode("#barcode_svg").init()</script>
                             <div property="gr:hasEAN_UCC-13" content="[% code %]" datatype="xsd:string"></div>
+                        [% ELSE %]
+                         [%# put in DOM for folksonomy %]
+                          <span id="barcode"  style="display: none;">[% code %]</span>
                         [% END %]
                         
                         [% product_fields %]
 
+                        [% IF (robotoff_url.defined) && (robotoff_url.length > 0) %]
+                            <!-- Anonymous users will only be able to vote see AnnotationVote in robotoff,
+                                the voter uniqueness is based on a hash of its ip address -->
+                            [% INCLUDE web/common/includes/robotoff_question.tt.html product_code = code id = "robotoff-question"  %]
+                        [% END %]
+
                     [% IF front_image.defined %]
                             </div>
                         </div>
-                    [% END %]   
+                    [% END %]
 
                     </div>
                 </div>
@@ -180,7 +208,10 @@
         </div>
     </section>
 
-
+    [% IF (user_id.defined) && (robotoff_url.defined) && (robotoff_url.length > 0) %]
+    [% INCLUDE web/common/includes/robotoff_nutrients.tt.html product_code = code  %]
+    [% END %]
+[% IF user_preferences %]
     <!-- product summary -->
     <section class="row" id="match">
         <div class="large-12 column">
@@ -201,7 +232,9 @@
 
         </div>
     </section>
+[% END %]
 
+[% IF health_card_panel %]
     <section class="row" id="health">
         <div class="large-12 column">
             <div class="card">
@@ -211,6 +244,7 @@
             </div>
         </div>
     </section>
+[% END %]
 
     <section class="row" id="environment">
         <div class="large-12 column">
@@ -222,9 +256,6 @@
         </div>
     </section>
 
-
-
-
 <!-- other fields -->
 [% IF other_fields != "" %]
     <section class="row" id="other">
@@ -232,9 +263,6 @@
         <div class="large-12 column">
             <div class="card">
                 <div class="card-section">
-                 
-                
-                
                     <h2 id="product_other_information" class="text-medium">[% lang('product_other_information') %]</h2>
                     <div class="row">
                         <div class="small-12 columns">
@@ -245,14 +273,38 @@
             </div>
         </div>
     </section>
-    [% END %]
+[% END %]
 
 
+[% IF secondhand_card_panel %]
+<section class="row" id="secondhand">
+        <div class="large-12 column">
+            <div class="card">
+                <div class="card-section">
+                        [% secondhand_card_panel %]
+                </div>
+            </div>
+        </div>
+    </section>
+[% END %]
+
+<!-- Report problem card, if not on the platform for producers -->    
+[% IF ! server_options_producers_platform %]
+    <section class="row" id="report_problem">
+        <div class="large-12 column">
+            <div class="card">
+                <div class="card-section">
+                        [% report_problem_card_panel %]
+                </div>
+            </div>
+        </div>
+    </section>
+[% END %]
 
 <!-- Platform for producers: data quality issues and improvements opportunities -->
 [% IF server_options_producers_platform %]
 
-    <section class="row" >
+    <section class="row" id="improvement">
         <div class="large-12 column">
             <div class="card">
                 <div class="card-section">
@@ -263,9 +315,8 @@
     </section>
 [% END %]
 
-<a id="contribution"></a>
 [% IF contribution_card_panel %]
-<section class="row">
+<section class="row" id="contribution">
     <div class="large-12 column">
         <div class="card">
             <div class="card-section">
@@ -274,6 +325,8 @@
         </div>
     </div>
 </section>
+[% ELSE %]
+<a id="contribution"></a>
 [% END %]
 
 <section class="row" >

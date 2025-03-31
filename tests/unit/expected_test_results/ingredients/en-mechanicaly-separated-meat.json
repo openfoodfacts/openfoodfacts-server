@@ -2,6 +2,7 @@
    "ingredients" : [
       {
          "id" : "en:mechanicaly-separated-poultry-meat",
+         "is_in_taxonomy" : 0,
          "percent_estimate" : 100,
          "percent_max" : 100,
          "percent_min" : 100,
@@ -24,9 +25,7 @@
       "en:vegan-status-unknown",
       "en:vegetarian-status-unknown"
    ],
-   "ingredients_hierarchy" : [
-      "en:mechanicaly-separated-poultry-meat"
-   ],
+   "ingredients_lc" : "en",
    "ingredients_n" : 1,
    "ingredients_n_tags" : [
       "1",
@@ -48,6 +47,10 @@
       "en:mechanicaly-separated-poultry-meat"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:mechanicaly-separated-poultry-meat"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 0,
    "lc" : "en",
    "nutriments" : {

@@ -7,6 +7,7 @@ Here are some introductory resources to learn Perl:
 - [Perl Youtube Tutorial](https://www.youtube.com/watch?v=c0k9ieKky7Q) - Perl Enough to be dangerous // FULL COURSE 3 HOURS.
 - [Perl - Introduction](https://www.tutorialspoint.com/perl/perl_quick_guide.htm) - Introduction to perl from tutorialspoint
 - [Impatient Perl](https://blob.perl.org/books/impatient-perl/iperl.pdf) - PDF document for people interested in learning perl.
+- [Perl Fish](https://perl.fish/learn) also has a lot of resources
 
 ### Official Documentation
 

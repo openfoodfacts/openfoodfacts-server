@@ -1,11 +1,4 @@
 <!-- start templates/[% template.name %] -->
-
-<initjs>
-var packaging_shapes_select2_options = [% generate_select2_options_for_taxonomy_to_json("packaging_shapes") %];
-var packaging_materials_select2_options = [% generate_select2_options_for_taxonomy_to_json("packaging_materials") %];
-var packaging_recycling_select2_options = [% generate_select2_options_for_taxonomy_to_json("packaging_recycling") %];
-</initjs>
-
 <p>[% lang('packaging_parts') %]</p>
     
 <div id="packagings_components_edit">
@@ -72,7 +65,7 @@ var packaging_recycling_select2_options = [% generate_select2_options_for_taxono
             </div>
 
             <!-- row 0 is a template for new row, we do not populate it -->
-            [% IF packaging_max > 0 %]
+            [% IF packaging_max.defined && packaging_max > 0 %]
                 <initjs>
                     configure_packaging_select2("[% select2_id %]", "[% taxonomy %]", "[% lang("packaging_$property") %]" )
 

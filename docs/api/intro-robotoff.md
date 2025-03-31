@@ -2,6 +2,9 @@
 
 The Robotoff project is intended to complete missing product information by prompting users to confirm predictions inferred by Artificial Intelligence algorithms. These algorithms are calculated based on "insights", which are facts about a product that have been extracted or deduced from the product pictures, ingredients, categories, labels, etc.
 
+# Why you'd use this API 
+- Letting your users answer Robotoff insights allow them to get to Nutri-Score, Eco-Score easily, and ensures their satisfaction
+
 ## Robotoff documentation
 
 The documentation for Robotoff is located here:

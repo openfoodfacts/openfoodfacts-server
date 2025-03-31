@@ -3,10 +3,10 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
+use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/get_fileid get_string_id_for_lang get_urlid/;
 
 is(get_fileid('Do not challenge me!'), 'do-not-challenge-me');
 
@@ -42,5 +42,11 @@ is(get_string_id_for_lang("fr", "Pâte de cacao"), "pate-de-cacao");
 
 # accents with one character, or unaccented character + unicode accent mark
 is(get_string_id_for_lang("es", "arándanos, arándanos"), "arandanos-arandanos");
+
+# Greek
+is(get_string_id_for_lang("en", "string with spaces"), "string-with-spaces");
+is(get_string_id_for_lang("el", "string with spaces"), "string-with-spaces");
+is(get_string_id_for_lang("en", "E420 - Σορβιτολη"), "e420-σορβιτολη");
+is(get_string_id_for_lang("el", "E420 - Σορβιτολη"), "e420-σορβιτολη");
 
 done_testing();

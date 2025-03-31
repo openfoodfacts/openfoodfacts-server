@@ -46,19 +46,53 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 
+=head2 is_logged_in ($request_ref)
+
+Check if the user is logged in.
+
+=cut
+
+sub is_logged_in ($request_ref) {
+
+	return (defined $request_ref->{user_id});
+}
+
+=head2 is_admin_or_moderator ($request_ref)
+
+Check if the user is an admin or moderator.
+
+=cut
+
+sub is_admin_or_moderator ($request_ref) {
+
+	return ($request_ref->{admin} or $request_ref->{moderator});
+}
+
+sub is_admin_or_moderator_or_on_pro_platform ($request_ref) {
+
+	return ($request_ref->{admin} or $request_ref->{moderator} or $request_ref->{owner_id});
+}
+
 =head2 has_permission_product_revert ($request_ref)
 
 Check if the user has permission to revert a product.
+
+True for moderators, admins, and logged in users of the pro platform.
 
 =cut
 
 sub has_permission_product_revert ($request_ref) {
 
-	return ($request_ref->{admin} or $request_ref->{moderator});
+	return ($request_ref->{admin} or $request_ref->{moderator} or $request_ref->{owner_id});
 }
 
 # Map permissions string_id to functions to check if the user has the permission
-my %permissions = ("product_revert" => \&has_permission_product_revert,);
+my %permissions = (
+	"product_revert" => \&has_permission_product_revert,
+	"product_change_obsolete" => \&is_admin_or_moderator_or_on_pro_platform,
+	"product_change_code" => \&is_admin_or_moderator_or_on_pro_platform,
+	"product_change_product_type" => \&is_logged_in,
+);
 
 =head2 has_permission ($request_ref, $permission)
 

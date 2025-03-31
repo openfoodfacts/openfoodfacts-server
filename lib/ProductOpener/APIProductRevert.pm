@@ -21,6 +21,7 @@
 =head1 NAME
 
 ProductOpener::APIProductRevert - implementation of API to revert a product to a specific revision
+
 =head1 DESCRIPTION
 
 =cut
@@ -43,18 +44,18 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Users qw/:all/;
+use ProductOpener::HTTP qw/request_param/;
+use ProductOpener::Users qw/$Owner_id $User_id/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::API qw/:all/;
+use ProductOpener::API qw/add_error check_user_permission customize_response_for_product normalize_requested_code/;
 use ProductOpener::Text qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Mail qw/:all/;
+use ProductOpener::Mail qw/send_email_to_admin/;
 
 use Encode;
 
-=head2 revert_product_api()
+=head2 revert_product_api($request_ref)
 
 Process API v3 requests to revert a product to a specific revision.
 
@@ -86,13 +87,15 @@ sub revert_product_api ($request_ref) {
 					impact => {id => "failure"},
 				}
 			);
-			$error = 1;
+			$error++;
 		}
 	}
 
 	# Check that the user has permission (is an admin or a moderator, or we are on the producers platform)
 
-	$error += check_user_permission($request_ref, $response_ref, "product_revert");
+	if (not check_user_permission($request_ref, $response_ref, "product_revert")) {
+		$error++;
+	}
 
 	if (not $error) {
 
@@ -133,7 +136,7 @@ sub revert_product_api ($request_ref) {
 			}
 			else {
 				# Check if the revision exists
-				my $revision_ref = retrieve_product_rev($product_id, $rev);
+				my $revision_ref = retrieve_product($product_id, 0, $rev);
 
 				if (not defined $revision_ref) {
 					$log->info("revision not found", {code => $code, rev => $rev}) if $log->is_info();

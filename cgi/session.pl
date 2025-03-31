@@ -28,15 +28,15 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::HTTP qw/write_cors_headers single_param/;
+use ProductOpener::Users qw/$User_id %User/;
+use ProductOpener::Lang qw/lang/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Log::Any qw($log);
 
 my $request_ref = ProductOpener::Display::init_request();

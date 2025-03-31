@@ -6,8 +6,8 @@ use utf8;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Store qw/retrieve store/;
 
 # The real categories_nutriments_per_country.world.sto is too big to store for github,
 # create a smaller version that can be used in unit tests
