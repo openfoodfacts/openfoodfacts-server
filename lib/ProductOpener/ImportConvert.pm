@@ -51,6 +51,9 @@ use Log::Any qw($log);
 use Storable qw(dclone);
 use Text::Fuzzy;
 
+# to use read_file
+use File::Slurp;
+
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
@@ -113,7 +116,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Time::Local;
 use Data::Dumper;
 use Text::CSV;
@@ -854,7 +857,7 @@ sub clean_fields ($product_ref) {
 	# Populate the quantity / weight fields from their quantity_value_unit, quantity_value, quantity_unit etc. components
 	clean_weights($product_ref);
 
-	foreach my $field (keys %{$product_ref}) {
+	foreach my $field (sort keys %{$product_ref}) {
 
 		# Split the generic name from the ingredient list
 		# Warning: this should be done only once, on the producers platform, when we import product data from a producer
@@ -883,7 +886,7 @@ sub clean_fields ($product_ref) {
 		}
 	}
 
-	foreach my $field (keys %{$product_ref}) {
+	foreach my $field (sort keys %{$product_ref}) {
 
 		$log->debug("clean_fields", {field => $field, value => $product_ref->{$field}}) if $log->is_debug();
 
@@ -1214,6 +1217,15 @@ sub load_xml_file ($file, $xml_rules_ref, $xml_fields_mapping_ref, $code) {
 	}
 
 	$log->info("parsing xml file with XML::Rules", {file => $file, xml_rules => $xml_rules_ref}) if $log->is_info();
+
+	# Read the file content
+	# Check if the file is empty or contains only comments
+	# See issue #9655, file 13003_3270190006787_valNut.xml + 5 others are empty
+	my $content = read_file($file);
+	if ($content =~ /^\s*<!--.*-->\s*$/s) {
+		# $log->warn("File is empty or contains only comments", {file => $file}) if $log->is_warn();
+		return 1;
+	}
 
 	my $parser = XML::Rules->new(rules => $xml_rules_ref);
 

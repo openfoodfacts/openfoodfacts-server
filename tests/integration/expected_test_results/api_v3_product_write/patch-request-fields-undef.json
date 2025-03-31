@@ -4,6 +4,7 @@
    "product" : {
       "packagings" : [
          {
+            "food_contact" : 1,
             "material" : {
                "id" : "en:plastic",
                "lc_name" : "Plastic"
@@ -14,7 +15,8 @@
                "lc_name" : "Bag"
             }
          }
-      ]
+      ],
+      "schema_version" : 999
    },
    "status" : "success_with_warnings",
    "warnings" : [

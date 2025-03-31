@@ -12,7 +12,7 @@ To get a product nutriscore, send a request to the [Get A Product By Barcode](ht
 
 ### Authentication
 
-Usually, no authentication is required to query Get A Product Nutri-score. However, there is a basic auth to avoid content indexation in the staging environment(which is used throughout this tutorial). For more details, visit the [Open Food Facts API Environment](index.md#api-deployments).
+Usually, no authentication is required to query Get A Product Nutri-score. However, there is a basic auth to avoid content indexation in the staging environment (which is used throughout this tutorial). For more details, visit the [Open Food Facts API Environment](index.md#api-deployments).
 
 ### Describing the Get Request
 
@@ -61,7 +61,7 @@ The response returned contains an object of the `code`, `product`, `status_verbo
 
 If you would like to be able to show how the score is computed, add some extra fields like `nutriscore_data` and `nutriments`.
 
-The request path to get the Nutri-Score computation for Nutella-Ferroro will be :
+The request path to get the Nutri-Score computation for Nutella-Ferrero will be :
 
 ```text
 https://world.openfoodfacts.net/api/v2/product/3017624010701?fields=product_name,nutriscore_data,nutriments,nutrition_grades
@@ -145,11 +145,11 @@ The response shows the missing fields and category needed to compute the Nutri-S
 }
 ```
 
-The sample response above for 100% Real Orange Juice `misc_tags` shows that the Nutri-Score is missing category (`en:nutriscore-missing-category`) and sodium(salt) (`en:nutriscore-missing-nutrition-data-sodium`). Now you can write to the OFF API to provide these nutriment data (if you have them) so that the Nutri-Score can be computed.
+The sample response above for 100% Real Orange Juice `misc_tags` shows that the Nutri-Score is missing category (`en:nutriscore-missing-category`) and sodium (salt) (`en:nutriscore-missing-nutrition-data-sodium`). Now you can write to the OFF API to provide these nutriment data (if you have them) so that the Nutri-Score can be computed.
 
 ### Write data to make Nutri-Score computation possible
 
-The WRITE operations in the OFF API require  authentication. Therefore you need a valid `user_id` and `password` to write the missing nutriment data to 100% Real Orange Juice.
+The WRITE operations in the OFF API require authentication. Therefore you need a valid `user_id` and `password` to write the missing nutriment data to 100% Real Orange Juice.
 
 > Sign up on the [Open Food Facts App](https://world.openfoodfacts.net/) to get your`user_id` and `password` if you don't have one.
 
@@ -161,7 +161,7 @@ https://world.openfoodfacts.net/cgi/product_jqm2.pl
 
 Add your valid `user_id` and `password` as body parameters to your request for authentication. The `code` (barcode of the product to be added/edited), `user_id`, and `password` are required when adding or editing a product. Then, include other product data to be added in the request body.
 
-To write `sodium` and `category` to 100% Real Orange Juice so that the Nutri-Score can be computed, the request body should contain these fields :
+To write `sodium` and `category` to 100% Real Orange Juice so that the Nutri-Score can be computed, the request body should contain these fields:
 
 | Key        | Value           | Description  |
 | ------------- |:-------------:| -----:|
@@ -230,7 +230,7 @@ You can also check the reference cheatsheet to know how to add/edit other types 
 
 ## Search for a Product by Nutri-score
 
-Using the Open Food Facts API, you can filter products based on different criteria.  To search for products in the Orange Juice category with a nutrition_grade of `c`, query the [Search for Products endpoint](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/search).
+Using the Open Food Facts API, you can filter products based on different criteria. To search for products in the Orange Juice category with a nutrition_grade of `c`, query the [Search for Products endpoint](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/search).
 
 **Note:** we describe here the v2 search API, but beware that only [v1 search API](https://wiki.openfoodfacts.org/API/Read/Search) supports full text search.
 

@@ -1,4 +1,5 @@
 type: object
+title: product_misc
 description: |
   Miscellaneous but important fields of a product
 properties:
@@ -41,7 +42,7 @@ properties:
         type: string
         enum: ["low", "moderate", "high"]
       sugars:
-        type: string.
+        type: string
         enum: ["low", "moderate", "high"]
   packaging_text:
     type: string
@@ -75,8 +76,12 @@ properties:
     items:
       type: string
   popularity_key:
+    description: |
+      An imprecise measurement of popularity based on Scan statistics. A higher value means higher popularity.
     type: integer
   popularity_tags:
+    description: |
+      Indicators for the popularity of a product, like the amount of scans in a specific year.
     type: array
     items:
       type: string

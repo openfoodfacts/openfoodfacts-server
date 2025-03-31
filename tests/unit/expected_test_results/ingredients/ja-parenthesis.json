@@ -26,6 +26,7 @@
       },
       {
          "ciqual_proxy_food_code" : "31016",
+         "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
          "id" : "en:sugar",
          "ingredients" : [
             {
@@ -52,6 +53,7 @@
             },
             {
                "ciqual_proxy_food_code" : "31016",
+               "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
                "id" : "en:sugar",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 5.625,
@@ -186,36 +188,7 @@
       "en:non-vegan",
       "en:non-vegetarian"
    ],
-   "ingredients_hierarchy" : [
-      "en:soy-sauce",
-      "en:sauce",
-      "en:sugar",
-      "en:added-sugar",
-      "en:disaccharide",
-      "en:mirin",
-      "en:salt",
-      "en:katsuobushi",
-      "en:fish",
-      "en:tuna",
-      "fr:bonite",
-      "en:skipjack-tuna",
-      "ja:さば節",
-      "ja:たん白加水分解物混合物",
-      "en:kombu",
-      "en:algae",
-      "en:seaweed",
-      "en:condiment",
-      "en:alcohol",
-      "en:honjozo",
-      "en:high-fructose-corn-syrup",
-      "en:monosaccharide",
-      "en:fructose",
-      "en:glucose",
-      "en:corn-syrup",
-      "en:glucose-fructose-syrup",
-      "en:glucose-syrup",
-      "en:amino-acids"
-   ],
+   "ingredients_lc" : "ja",
    "ingredients_n" : 15,
    "ingredients_n_tags" : [
       "15",
@@ -282,7 +255,23 @@
       "ja:たん白加水分解物混合物"
    ],
    "ingredients_without_ciqual_codes_n" : 5,
-   "known_ingredients_n" : 26,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:alcohol",
+      "en:amino-acids",
+      "en:condiment",
+      "en:glucose-syrup",
+      "en:high-fructose-corn-syrup",
+      "en:honjozo",
+      "en:katsuobushi",
+      "en:kombu",
+      "en:mirin",
+      "en:salt",
+      "en:soy-sauce",
+      "ja:さば節",
+      "ja:たん白加水分解物混合物"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 13,
+   "known_ingredients_n" : 13,
    "lc" : "ja",
    "nutriments" : {
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0.3515625,

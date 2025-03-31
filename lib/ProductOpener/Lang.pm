@@ -72,7 +72,7 @@ use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
 use DateTime;
 use DateTime::Locale;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 use Log::Any qw($log);
 
@@ -308,21 +308,6 @@ sub build_lang_tags() {
 
 	foreach my $l (@Langs) {
 
-		foreach my $taxonomy (@debug_taxonomies) {
-
-			foreach my $suffix ("prev", "next", "debug") {
-
-				foreach my $field ("", "_s", "_p") {
-					defined $Lang{$taxonomy . "_$suffix" . $field} or $Lang{$taxonomy . "_$suffix" . $field} = {};
-					$Lang{$taxonomy . "_$suffix" . $field}{$l} = get_string_id_for_lang($l, $taxonomy) . "-$suffix";
-				}
-				defined $tag_type_singular{$taxonomy . "_$suffix"} or $tag_type_singular{$taxonomy . "_$suffix"} = {};
-				defined $tag_type_plural{$taxonomy . "_$suffix"} or $tag_type_plural{$taxonomy . "_$suffix"} = {};
-				$tag_type_singular{$taxonomy . "_$suffix"}{$l} = get_string_id_for_lang($l, $taxonomy) . "-$suffix";
-				$tag_type_plural{$taxonomy . "_$suffix"}{$l} = get_string_id_for_lang($l, $taxonomy) . "-$suffix";
-			}
-		}
-
 		my $short_l = undef;
 		if ($l =~ /_/) {
 			$short_l = $`;    # pt_pt
@@ -389,6 +374,9 @@ sub build_lang ($Languages_ref) {
 	$log->info("Loading common \%Lang", {path => $path});
 	%Lang = %{ProductOpener::I18N::read_po_files($path)};
 
+	# Load the .pot file
+	my %common_keys = %{ProductOpener::I18N::read_pot_file($path . "common.pot")};
+
 	# Initialize %Langs and @Langs and add language names to %Lang
 
 	%Langs = %{$Languages_ref};
@@ -396,26 +384,6 @@ sub build_lang ($Languages_ref) {
 	foreach my $l (@Langs) {
 		$Lang{"language_" . $l} = $Languages_ref->{$l};
 		$Langs{$l} = $Languages_ref->{$l}{$l};    # Name of the language in the language itself
-	}
-
-	# use Data::Dumper::AutoEncode;
-	# use Data::Dumper;
-	# $Data::Dumper::Sortkeys = 1;
-	# open my $fh, ">", "$data_root/po/languages.debug.${server_domain}" or die "can not create $data_root/po/languages.debug.${server_domain} : $!";
-	# print $fh "Lang.pm - %Lang\n\n" . eDumper(\%Lang) . "\n";
-	# close $fh;
-
-	# copy strings for debug taxonomies
-
-	foreach my $taxonomy (@debug_taxonomies) {
-
-		foreach my $suffix ("prev", "next", "debug") {
-
-			foreach my $field ("", "_s", "_p") {
-				$Lang{$taxonomy . "_$suffix" . $field}
-					= {en => get_string_id_for_lang("no_language", $taxonomy) . "-$suffix"};
-			}
-		}
 	}
 
 	# Save to file, for debugging and comparing purposes
@@ -432,7 +400,7 @@ sub build_lang ($Languages_ref) {
 
 	my $missing_english_translations = 0;
 
-	foreach my $key (keys %Lang) {
+	foreach my $key (sort keys %common_keys) {
 		if ((defined $Lang{$key}{en}) and ($Lang{$key}{en} ne '')) {
 			foreach my $l (@Langs) {
 
@@ -460,6 +428,20 @@ sub build_lang ($Languages_ref) {
 			$log->error("No English translation for $key") if $log->is_error();
 			print STDERR "No English translation for $key\n";
 			$missing_english_translations++;
+		}
+	}
+
+	# Warn if some translations files are not defined in common.pot
+	foreach my $key (sort keys %Lang) {
+		if (
+				(not defined $common_keys{$key})
+			and not($key =~ /^__/)
+			and (not $key =~ /^language_\w\w/)    # auto-generated language names
+			and (not(($key eq "months") or ($key eq "weekdays")))    # auto-generated months and weekdays
+			)
+		{
+			$log->warn("Translation file $key is not defined in common.pot") if $log->is_warn();
+			print STDERR "Translation file $key is not defined in common.pot\n";
 		}
 	}
 

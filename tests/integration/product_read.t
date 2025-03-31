@@ -11,9 +11,9 @@ use File::Basename "dirname";
 
 use Storable qw(dclone);
 
-#remove_all_users();
+remove_all_users();
 
-#remove_all_products();
+remove_all_products();
 
 wait_application_ready();
 
@@ -30,8 +30,24 @@ my @products = (
 		(
 			lc => "en",
 			lang => "en",
-			code => '200000000034',
+			code => '2000000000034',
 			product_name => "Some product",
+			generic_name => "Tester",
+			ingredients_text => "apple, milk, eggs, palm oil",
+			categories => "cookies",
+			labels => "organic",
+			origin => "france",
+			packaging_text_en =>
+				"1 wooden box to recycle, 6 25cl glass bottles to reuse, 3 steel lids to recycle, 1 plastic film to discard",
+		)
+	},
+	{
+		%{dclone(\%default_product_form)},
+		(
+			lc => "en",
+			lang => "en",
+			code => '0020000000034',
+			product_name => "Some other product",
 			generic_name => "Tester",
 			ingredients_text => "apple, milk, eggs, palm oil",
 			categories => "cookies",
@@ -53,17 +69,27 @@ my $tests_ref = [
 		test_case => 'get-existing-product',
 		method => 'GET',
 		# the path needs to include the product title, otherwise we get a redirect (not supported in tests container)
-		path => '/product/200000000034/some-product',
+		path => '/product/2000000000034/some-product',
 		expected_status_code => 200,
 		expected_type => 'html',
 	},
 	{
 		test_case => 'get-unexisting-product',
 		method => 'GET',
-		path => '/product/300000000034',
+		path => '/product/3000000000034',
 		expected_status_code => 404,
 		expected_type => 'html',
 	},
+	# redirect to correct url, 13 chars instead of 12
+	{
+		test_case => 'non-normalized-code',
+		method => 'GET',
+		path => '/product/20000000034',
+		expected_status_code => 302,
+		expected_type => 'html',
+		response_content_must_match => "/product/0020000000034",
+	},
+
 ];
 
 execute_api_tests(__FILE__, $tests_ref);

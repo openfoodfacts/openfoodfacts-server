@@ -2,6 +2,10 @@
 
 Everything you need to know about Open Food Facts API.
 
+!!!note "Please read this"
+    👮‍♂️🚥Are you going to use our API?
+    Please **read this documentation entirely** before using it. 
+
 ## Overview
 
 Open Food Facts is a food products database made by everyone, for everyone, that can help you make better choices about what you eat. Being open data, anyone can reuse it for any purpose.
@@ -10,6 +14,9 @@ The Open Food Facts API enables developers to get information like ingredients a
 
 **The current version of the API is `2`.**
 > Data in the Open Food Facts database is provided voluntarily by users who want to support the program. As a result, there are no assurances that the data is accurate, complete, or reliable. The user assumes the entire risk of using the data.
+
+**The next version of the API is `3`.**
+> This version is in active development and may be subject to frequent changes.
 
 ## Before You Start
 
@@ -39,6 +46,7 @@ To protect our infrastructure, we enforce rate-limits on the API and the website
 
 - 100 req/min for all read product queries (`GET /api/v*/product` requests or product page). There is no limit on product write queries.
 - 10 req/min for all search queries (`GET /api/v*/search` or `GET /cgi/search.pl` requests)
+- 2 req/min for facet queries (such as `/categories`, `/label/organic`, `/ingredient/salt/category/breads`,...)
 
 If these limits are reached, we reserve the right to deny you access to the website and the API through IP address ban. If your IP has been banned, feel free to [email us to explain why you reached the limits][why_reached_limits]: reverting the ban is possible.
 
@@ -73,14 +81,13 @@ While testing your applications, **make all API requests to the staging environm
 
 ## Authentication
 
-We ask you to **always use a custom User-Agent to identify you** (to not risk being identified as a bot). The User-Agent should be in the form of `AppName/Version (ContactEmail)`. For example,
+We ask you to **always use a custom User-Agent to identify your app** (to not risk being identified as a bot). The User-Agent should be in the form of `AppName/Version (ContactEmail)`. For example,
 `MyApp/1.0 (myapp@example.com)`.
 
 - READ operations (getting info about a product, etc...) do not require authentication other than the custom User-Agent.
-
 - WRITE operations (Editing an Existing Product, Uploading images…) **require authentication**. We do this as another layer of protection against spam.
 
-Create an account on the [Open Food Facts app](https://world.openfoodfacts.org/). From there, you have two options:
+Create an account on the [Open Food Facts app](https://world.openfoodfacts.org/) for your app (and notify reuse@openfoodfacts.org of the account name, so that we grant it special app privileges). From there, you have two options:
 
 - **The preferred one**:
   Use the login API to get a session cookie and use this cookie for authentication in your subsequent requests. However, the session must always be used from the same IP address, and there's a limit on sessions per user (currently 10) with older sessions being automatically logged out to stay within the limit.
@@ -88,15 +95,23 @@ Create an account on the [Open Food Facts app](https://world.openfoodfacts.org/)
 
 You can create a global account to allow your app users to contribute without registering individual accounts on the Open Food Facts website. This way, we know that these contributions came from your application.
 
+We however ask that you send the [`app_name`, `app_version` and `app_uuid` parameters](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#post-/cgi/product_jqm2.pl) in your write queries. 
+* `app_name=MyApp` 
+* `app_version=1.1` 
+* `app_uuid=xxxx`: a salted random uuid for the user so that Open Food Facts moderators can selectively ban any problematic user without banning your whole app account.
+
 > Production and staging have different account databases, so **the account you create in the production environment will only work for production requests**. If you want to query (WRITE requests) the staging environment, you'll need to create another account there too.
+
+> Note: we're currently moving to a modern Auth system (Keycloak), so we will have new Auth options, hopefully this year.
 
 ## Reference Documentation (OpenAPI)
 
 We are building a complete OpenAPI reference. Here is a list of the current API documentation available:
 
 - [OpenAPI documentation (v2)](../api/ref-v2.md)
-- [OpenAPI documentation for v3](../api/ref-v3.md) (for packaging components only)
+- [OpenAPI documentation for v3](../api/ref-v3.md) (under active development, may change frequently)
 - A [cheatsheet](../api/ref-cheatsheet.md) listing some common patterns.
+- A [change log for the API and product schema](../api/ref-api-and-product-schema-change-log.md)
 
 ## Tutorials
 
@@ -140,4 +155,6 @@ Open-source contributors develop our SDKs, and more contributions are welcome to
 *   React Native: [GitHub](https://github.com/openfoodfacts/openfoodfacts-react-native) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/CL29QEBPY)
 *   Ruby: [GitHub](https://github.com/openfoodfacts/openfoodfacts-ruby) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C0ZALLH61)
 *   Rust: [GitHub](https://github.com/openfoodfacts/openfoodfacts-rust) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C010J616CKV)
-*   R: [GitHub](https://github.com/openfoodfacts/r-dashboard)
+*   R: [GitHub](https://github.com/openfoodfacts/r-dashboard) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C2CR356NR)
+*   Swift: [GitHub](https://github.com/openfoodfacts/openfoodfacts-swift) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/CE2A1E7MH)
+*   .NET/C#: [GitHub](https://github.com/openfoodfacts/openfoodfacts-csharp) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C1JHT98HJ)

@@ -4,6 +4,7 @@
       "ingredients" : [
          {
             "ciqual_proxy_food_code" : "19051",
+            "ecobalyse_code" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
             "id" : "en:milk",
             "is_in_taxonomy" : 1,
             "percent" : 80,
@@ -16,6 +17,7 @@
          },
          {
             "ciqual_proxy_food_code" : "31016",
+            "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
             "id" : "en:sugar",
             "is_in_taxonomy" : 1,
             "percent_estimate" : 15,
@@ -40,7 +42,8 @@
       "ingredients_text" : "milk 80%, sugar, cocoa powder",
       "ingredients_text_en" : "milk 80%, sugar, cocoa powder",
       "ingredients_text_fr" : "lait 80%, sucre, poudre de cacao",
-      "lc" : "en"
+      "lc" : "en",
+      "schema_version" : 999
    },
    "status" : "success_with_warnings",
    "warnings" : [

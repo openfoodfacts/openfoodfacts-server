@@ -28,7 +28,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
-use ProductOpener::Display qw/$cc $subdomain init_request/;
+use ProductOpener::Display qw/$subdomain init_request/;
 use ProductOpener::HTTP qw/write_cors_headers/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Products qw/:all/;
@@ -40,7 +40,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 use ProductOpener::Lang qw/$lc lang/;
 
@@ -51,11 +51,11 @@ my $request_ref = ProductOpener::Display::init_request();
 my $short_name = $options{site_name};
 # Maximum of 48 characters
 my $long_name = $short_name;
-if ($cc eq 'world') {
+if ($request_ref->{cc} eq 'world') {
 	$long_name .= " " . uc($lc);
 }
 else {
-	$long_name .= " " . uc($cc) . "/" . uc($lc);
+	$long_name .= " " . uc($request_ref->{cc}) . "/" . uc($lc);
 }
 
 my $description = lang("search_description_opensearch");

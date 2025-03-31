@@ -35,12 +35,13 @@ use ProductOpener::Users qw/$Owner_id/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
+use ProductOpener::HTTP qw/single_param/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Log::Any qw($log);
 
 my $request_ref = ProductOpener::Display::init_request();

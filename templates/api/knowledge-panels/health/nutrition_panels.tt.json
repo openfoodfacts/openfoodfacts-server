@@ -8,12 +8,12 @@
         "image": [% encode_json(panel.nutrition_image) %],
         [% END %]                
         "panel_ids": [
+            [% IF panels.nutriscore_2023.defined %]
+                "nutriscore_2023",
+            [% END %]
             [% IF panels.nutriscore.defined %]
                 "nutriscore",
             [% END %]
-            [% IF panels.nutriscore_2023.defined %]
-                "nutriscore_2023",
-            [% END %]            
             [% IF panels.nutrient_level_fat.defined || panels.${'nutrient_level_saturated-fat'}.defined  || panels.nutrient_level_sugars.defined || panels.nutrient_level_salt.defined %]
                 "nutrient_levels",
             [% END %]                                                  

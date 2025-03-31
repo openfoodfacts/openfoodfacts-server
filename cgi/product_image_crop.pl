@@ -27,8 +27,8 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
-use ProductOpener::Display qw/init_request single_param/;
-use ProductOpener::HTTP qw/write_cors_headers/;
+use ProductOpener::Display qw/init_request/;
+use ProductOpener::HTTP qw/write_cors_headers single_param/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/$Owner_id $User_id %User/;
 use ProductOpener::Images qw/is_protected_image process_image_crop/;
@@ -38,7 +38,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Log::Any qw($log);
 
 my $request_ref = ProductOpener::Display::init_request();
@@ -136,7 +136,11 @@ my $data = encode_json(
 $log->debug("JSON data output", {data => $data}) if $log->is_debug();
 
 write_cors_headers();
-print header(-type => 'application/json', -charset => 'utf-8') . $data;
+
+print header(
+	-type => 'application/json',
+	-charset => 'utf-8',
+) . $data;
 
 exit(0);
 

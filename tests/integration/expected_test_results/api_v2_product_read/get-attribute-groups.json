@@ -1,5 +1,5 @@
 {
-   "code" : "200000000034",
+   "code" : "0200000000034",
    "product" : {
       "attribute_groups" : [
          {
@@ -10,47 +10,55 @@
                   "grade" : "c",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-c-new-en.svg",
                   "id" : "nutriscore",
-                  "match" : 53.6666666666667,
+                  "match" : 49.4444444444444,
                   "name" : "Nutri-Score",
                   "panel_id" : "nutriscore_2023",
                   "status" : "known",
                   "title" : "Nutri-Score C"
                },
                {
-                  "grade" : "unknown",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-unknown.svg",
+                  "description_short" : "0.0502 g / 100 g",
+                  "grade" : "a",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-low.svg",
                   "id" : "low_salt",
-                  "missing" : "Missing nutrition facts",
+                  "match" : 96.6533333333333,
                   "name" : "Salt",
-                  "status" : "unknown",
-                  "title" : "Salt in unknown quantity"
+                  "panel_id" : "nutrient_level_salt",
+                  "status" : "known",
+                  "title" : "Salt in low quantity"
                },
                {
-                  "grade" : "unknown",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-unknown.svg",
+                  "description_short" : "8.5 g / 100 g",
+                  "grade" : "b",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-medium.svg",
                   "id" : "low_fat",
-                  "missing" : "Missing nutrition facts",
+                  "match" : 60.5882352941176,
                   "name" : "Fat",
-                  "status" : "unknown",
-                  "title" : "Fat in unknown quantity"
+                  "panel_id" : "nutrient_level_fat",
+                  "status" : "known",
+                  "title" : "Fat in moderate quantity"
                },
                {
-                  "grade" : "unknown",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-unknown.svg",
+                  "description_short" : "12.5 g / 100 g",
+                  "grade" : "e",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-medium.svg",
                   "id" : "low_sugars",
-                  "missing" : "Missing nutrition facts",
+                  "match" : 20,
                   "name" : "Sugars",
-                  "status" : "unknown",
-                  "title" : "Sugars in unknown quantity"
+                  "panel_id" : "nutrient_level_sugars",
+                  "status" : "known",
+                  "title" : "Sugars in moderate quantity"
                },
                {
-                  "grade" : "unknown",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-unknown.svg",
+                  "description_short" : "5.6 g / 100 g",
+                  "grade" : "e",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-high.svg",
                   "id" : "low_saturated_fat",
-                  "missing" : "Missing nutrition facts",
+                  "match" : 17.6,
                   "name" : "Saturated fat",
-                  "status" : "unknown",
-                  "title" : "Saturated fat in unknown quantity"
+                  "panel_id" : "nutrient_level_saturated_fat",
+                  "status" : "known",
+                  "title" : "Saturated fat in high quantity"
                }
             ],
             "id" : "nutritional_quality",
@@ -59,7 +67,7 @@
          {
             "attributes" : [
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-gluten.svg",
                   "id" : "allergens_no_gluten",
@@ -89,7 +97,7 @@
                   "title" : "Contains: Eggs"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-nuts.svg",
                   "id" : "allergens_no_nuts",
@@ -99,7 +107,7 @@
                   "title" : "Does not contain: Nuts"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-peanuts.svg",
                   "id" : "allergens_no_peanuts",
@@ -109,7 +117,7 @@
                   "title" : "Does not contain: Peanuts"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-sesame-seeds.svg",
                   "id" : "allergens_no_sesame_seeds",
@@ -119,17 +127,17 @@
                   "title" : "Does not contain: Sesame seeds"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
-                  "grade" : "a",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-soybeans.svg",
+                  "debug" : "en:soybeans in allergens",
+                  "grade" : "e",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/contains-soybeans.svg",
                   "id" : "allergens_no_soybeans",
-                  "match" : 100,
+                  "match" : 0,
                   "name" : "Soybeans",
                   "status" : "known",
-                  "title" : "Does not contain: Soybeans"
+                  "title" : "Contains: Soybeans"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-celery.svg",
                   "id" : "allergens_no_celery",
@@ -139,7 +147,7 @@
                   "title" : "Does not contain: Celery"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-mustard.svg",
                   "id" : "allergens_no_mustard",
@@ -149,7 +157,7 @@
                   "title" : "Does not contain: Mustard"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-lupin.svg",
                   "id" : "allergens_no_lupin",
@@ -159,7 +167,7 @@
                   "title" : "Does not contain: Lupin"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-fish.svg",
                   "id" : "allergens_no_fish",
@@ -169,7 +177,7 @@
                   "title" : "Does not contain: Fish"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-crustaceans.svg",
                   "id" : "allergens_no_crustaceans",
@@ -179,7 +187,7 @@
                   "title" : "Does not contain: Crustaceans"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-molluscs.svg",
                   "id" : "allergens_no_molluscs",
@@ -189,7 +197,7 @@
                   "title" : "Does not contain: Molluscs"
                },
                {
-                  "debug" : "4 ingredients (0 unknown)",
+                  "debug" : "8 ingredients (0 unknown)",
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-sulphur-dioxide-and-sulphites.svg",
                   "id" : "allergens_no_sulphur_dioxide_and_sulphites",
@@ -242,26 +250,25 @@
          {
             "attributes" : [
                {
-                  "description" : "",
-                  "description_short" : "Processed foods",
-                  "grade" : "b",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
+                  "description_short" : "4 ultra-processing markers",
+                  "grade" : "e",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-4.svg",
                   "id" : "nova",
-                  "match" : 75,
+                  "match" : 0,
                   "name" : "NOVA group",
                   "panel_id" : "nova",
                   "status" : "known",
-                  "title" : "NOVA 3"
+                  "title" : "Ultra-processed foods"
                },
                {
-                  "grade" : "a",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/0-additives.svg",
+                  "grade" : "c",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/2-additives.svg",
                   "id" : "additives",
-                  "match" : 100,
+                  "match" : 60,
                   "name" : "Additives",
                   "panel_id" : "additives",
                   "status" : "known",
-                  "title" : "Without additives"
+                  "title" : "2 additives"
                }
             ],
             "id" : "processing",
@@ -273,13 +280,13 @@
                   "description" : "",
                   "description_short" : "Moderate environmental impact",
                   "grade" : "c",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg",
                   "id" : "ecoscore",
-                  "match" : 48,
-                  "name" : "Eco-Score",
-                  "panel_id" : "ecoscore",
+                  "match" : 47,
+                  "name" : "Green-Score",
+                  "panel_id" : "environmental_score",
                   "status" : "known",
-                  "title" : "Eco-Score C"
+                  "title" : "Green-Score C"
                },
                {
                   "description" : "",
@@ -287,7 +294,7 @@
                   "grade" : "a",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-a.svg",
                   "id" : "forest_footprint",
-                  "match" : 99.9416666666667,
+                  "match" : 99.9351851851852,
                   "name" : "Forest footprint",
                   "status" : "known",
                   "title" : "Very small forest footprint"
@@ -324,7 +331,8 @@
             "id" : "labels",
             "name" : "Labels"
          }
-      ]
+      ],
+      "schema_version" : 998
    },
    "status" : 1,
    "status_verbose" : "product found"

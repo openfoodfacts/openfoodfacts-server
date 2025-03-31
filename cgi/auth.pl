@@ -26,8 +26,8 @@ use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Display qw/init_request single_param/;
-use ProductOpener::HTTP qw/write_cors_headers/;
+use ProductOpener::Display qw/init_request/;
+use ProductOpener::HTTP qw/write_cors_headers single_param/;
 use ProductOpener::Users qw/$User_id %User is_admin_user/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Tags qw/country_to_cc/;
@@ -37,7 +37,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Encode;
 use Log::Any qw($log);
-use JSON::PP;
+use JSON::MaybeXS;
 
 $log->info('start') if $log->is_info();
 
@@ -84,7 +84,7 @@ else {
 	};
 }
 
-my $json = JSON::PP->new->allow_nonref->canonical->utf8->encode($response_ref);
+my $json = JSON::MaybeXS->new->allow_nonref->canonical->utf8->encode($response_ref);
 
 # We need to send the header Access-Control-Allow-Credentials=true so that websites
 # such has hunger.openfoodfacts.org that send a query to world.openfoodfacts.org/cgi/auth.pl

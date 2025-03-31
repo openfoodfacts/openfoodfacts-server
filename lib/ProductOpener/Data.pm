@@ -42,15 +42,20 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
+		&init_data_debug
+		&can_use_off_query
+		&can_use_cache_results
 		&execute_query
 		&execute_aggregate_tags_query
 		&execute_count_tags_query
+		&execute_product_query
 		&get_database
 		&get_collection
 		&get_products_collection
 		&get_emb_codes_collection
 		&get_recent_changes_collection
 		&remove_documents_by_ids
+		&get_orgs_collection
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -61,9 +66,12 @@ use vars @EXPORT_OK;
 use experimental 'smartmatch';
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Cursor;
+use ProductOpener::HTTP qw/request_param single_param get_http_request_header/;
 
+use Storable qw(freeze);
 use MongoDB;
-use JSON::PP;
+use JSON::MaybeXS;
 use CGI ':cgi-lib';
 use Log::Any qw($log);
 
@@ -74,6 +82,82 @@ my $client;
 my $action = Action::CircuitBreaker->new();
 
 =head1 FUNCTIONS
+
+=head2 init_data_debug ($request_ref)
+
+Initializes the data_debug variable that will list parameters and info related to data queries
+
+=cut
+
+sub init_data_debug () {
+
+	my $data_debug = "data_debug start\n";
+
+	return $data_debug;
+}
+
+=head2 can_use_off_query ($data_debug_ref)
+
+Determine if we can use off_query backend:
+- off_query URL needs to be set
+- no_off_query parameter is not set, or off_query parameter is set
+- we are not on the producers platform
+
+=cut
+
+sub can_use_off_query ($data_debug_ref) {
+
+	# TODO: pass parameters inside $request_ref instead, so that we don't have to call single_param() here
+	my $param_no_off_query = single_param("no_off_query") || '';
+	my $param_off_query = single_param("off_query") || '';
+	my $platform = $server_options{producers_platform} ? "producers" : "public";
+
+	$$data_debug_ref .= "no_off_query: $param_no_off_query\n";
+	$$data_debug_ref .= "off_query: $param_off_query\n";
+	$$data_debug_ref .= "platform: $platform\n";
+	$$data_debug_ref .= "query_url: " . ($query_url || '') . "\n";
+
+	# use !! operator to convert to boolean
+	my $can_use_off_query
+		= !!(((not $param_no_off_query) or ($param_off_query)) and (not $platform eq 'producers') and ($query_url));
+
+	$$data_debug_ref .= "can_use_off_query: $can_use_off_query\n";
+	return $can_use_off_query;
+}
+
+=head2 can_use_cache_results ($data_debug_ref)
+
+Determine if we can use cached results:
+- no_cache parameter is not set
+- we are not on the producers platform
+- Cache-Control header is not set to no-cache
+
+=head3 parameters
+
+=head4 $data_debug_ref - ref string
+
+This parameter is modified to add debug information.
+
+=cut
+
+sub can_use_cache_results ($data_debug_ref) {
+
+	my $param_no_cache = single_param("no_cache");
+	my $cache_control = get_http_request_header("Cache-Control");
+	my $platform = $server_options{producers_platform} ? "producers" : "public";
+
+	$$data_debug_ref .= "Cache-Control: $cache_control\n" if defined $cache_control;
+	$$data_debug_ref .= "no_cache: $param_no_cache\n" if defined $param_no_cache;
+	$$data_debug_ref .= "platform: $platform\n";
+
+	my $can_use_cache = not(($platform eq 'producers')
+		or ($param_no_cache)
+		or ((defined $cache_control) and ($cache_control =~ /no-cache/i)));
+
+	$$data_debug_ref .= "can_use_cache: $can_use_cache\n";
+
+	return $can_use_cache;
+}
 
 =head2 execute_query( $subroutine )
 
@@ -118,6 +202,64 @@ sub execute_count_tags_query ($query) {
 	return execute_tags_query('count', $query);
 }
 
+sub execute_product_query ($parameters_ref, $query_ref, $fields_ref, $sort_ref, $limit, $skip, $data_debug_ref) {
+
+	defined $$data_debug_ref or $$data_debug_ref = "data_debug start\n";
+
+	# Currently only send descending popularity_key sorts to off-query
+	# Note that $sort_ref is a Tie::IxHash so can't use $sort_ref->{popularity_key}
+	if ($parameters_ref->{off_query} && $sort_ref && $sort_ref->FETCH('popularity_key') == -1) {
+
+		$$data_debug_ref .= "off_query parameter set, and sorting by popularity_key: using off_query\n";
+
+		# Convert sort into an array so that the order of keys is not ambiguous
+		my @sort_array = ();
+		foreach my $k ($sort_ref->Keys) {
+			push(@sort_array, [$k, $sort_ref->FETCH($k)]);
+		}
+
+		my $results = execute_tags_query(
+			'find',
+			{
+				filter => $query_ref,
+				projection => $fields_ref,
+				sort => \@sort_array,
+				limit => $limit,
+				skip => $skip
+			}
+		);
+
+		if (defined $results) {
+			return ProductOpener::Cursor->new($results);
+			$$data_debug_ref .= "got results from off_query\n";
+		}
+		else {
+			$$data_debug_ref .= "no results from off_query\n";
+		}
+	}
+	else {
+		$$data_debug_ref .= "off_query parameter not set, or not sorting by popularity_key: not using off_query\n";
+	}
+
+	my $cursor = get_products_collection($parameters_ref)->query($query_ref)->fields($fields_ref);
+	if ($sort_ref) {
+		$cursor = $cursor->sort($sort_ref);
+	}
+	if ($limit) {
+		$cursor = $cursor->limit($limit);
+	}
+	if ($skip) {
+		$cursor = $cursor->skip($skip);
+	}
+
+	$$data_debug_ref .= "got results from MongoDB\n";
+
+	return $cursor;
+}
+
+# $json_utf8 has utf8 enabled: it decodes UTF8 bytes
+my $json_utf8 = JSON::MaybeXS->new->utf8(1)->allow_nonref->canonical;
+
 sub execute_tags_query ($type, $query) {
 	if ((defined $query_url) and (length($query_url) > 0)) {
 		$query_url =~ s/^\s+|\s+$//g;
@@ -136,7 +278,7 @@ sub execute_tags_query ($type, $query) {
 			'Content-Type' => 'application/json; charset=utf-8'
 		);
 		if ($resp->is_success) {
-			return decode_json($resp->decoded_content);
+			return $json_utf8->decode($resp->decoded_content);
 		}
 		else {
 			$log->warn(
@@ -200,6 +342,10 @@ sub get_emb_codes_collection ($timeout = undef) {
 
 sub get_recent_changes_collection ($timeout = undef) {
 	return get_collection($mongodb, 'recent_changes', $timeout);
+}
+
+sub get_orgs_collection ($timeout = undef) {
+	return get_collection($mongodb, 'orgs', $timeout);
 }
 
 sub get_collection ($database, $collection, $timeout = undef) {

@@ -2,6 +2,7 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "20047",
+         "ecobalyse_code" : "tomato-heated-greenhouse-eu",
          "id" : "en:tomato",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 50,
@@ -27,6 +28,7 @@
       },
       {
          "ciqual_food_code" : "18066",
+         "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
          "id" : "en:water",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 7.5,
@@ -40,6 +42,7 @@
       },
       {
          "ciqual_food_code" : "17130",
+         "ecobalyse_code" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
          "from_palm_oil" : "no",
          "id" : "en:colza-oil",
          "is_in_taxonomy" : 1,
@@ -59,19 +62,7 @@
       "en:vegan",
       "en:vegetarian"
    ],
-   "ingredients_hierarchy" : [
-      "en:tomato",
-      "en:vegetable",
-      "en:fruit-vegetable",
-      "en:garlic",
-      "en:root-vegetable",
-      "en:onion-family-vegetable",
-      "en:water",
-      "en:colza-oil",
-      "en:oil-and-fat",
-      "en:vegetable-oil-and-fat",
-      "en:rapeseed-oil"
-   ],
+   "ingredients_lc" : "fr",
    "ingredients_n" : 4,
    "ingredients_n_tags" : [
       "4",
@@ -104,7 +95,11 @@
    "ingredients_with_unspecified_percent_sum" : 65,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "known_ingredients_n" : 11,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:garlic"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
+   "known_ingredients_n" : 4,
    "lc" : "fr",
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent"

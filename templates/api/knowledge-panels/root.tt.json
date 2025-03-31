@@ -2,18 +2,30 @@
     "type": "root",
     "expanded": true,
     "elements": [
+        [% IF panel.has_health_card %]
         {
             "element_type": "panel",
             "panel_element": {
                 "panel_id": "health_card",
             },
         },
+        [% END %]
+        [% IF panel.has_environment_card %]
         {
             "element_type": "panel",
             "panel_element": {
                 "panel_id": "environment_card",
             },
         },
+        [% END %]
+        [% IF panel.has_secondhand_card %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "secondhand_card",
+            },
+        },
+        [% END %]        
         [% IF panel.has_report_problem_card %]
         {
             "element_type": "panel",

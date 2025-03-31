@@ -2,6 +2,7 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "13014",
+         "ecobalyse_code" : "e5bf7d33-6afe-46d6-ac06-f69c5769b10e",
          "id" : "en:strawberry",
          "is_in_taxonomy" : 1,
          "origins" : "en:spain",
@@ -14,6 +15,7 @@
       },
       {
          "ciqual_food_code" : "13015",
+         "ecobalyse_code" : "50939126-d4a5-4b94-b110-63e8b9e66173",
          "id" : "en:raspberry",
          "is_in_taxonomy" : 1,
          "origins" : "en:new-caledonia",
@@ -26,6 +28,7 @@
       },
       {
          "ciqual_food_code" : "13028",
+         "ecobalyse_code" : "b193fd9e-99ab-4d1b-8e81-3b38bab2eacf",
          "id" : "en:blueberry",
          "is_in_taxonomy" : 1,
          "origins" : "en:canada",
@@ -48,6 +51,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ecobalyse_code" : "fa9e9f34-acc9-4974-89c4-003d2428f502",
          "id" : "en:white-peach",
          "is_in_taxonomy" : 1,
          "origins" : "en:mexico",
@@ -60,6 +64,7 @@
       },
       {
          "ciqual_food_code" : "20041",
+         "ecobalyse_code" : "bellpepper-unheated-greehouse",
          "id" : "en:bell-pepper",
          "is_in_taxonomy" : 1,
          "origins" : "en:guatemala",
@@ -77,20 +82,7 @@
       "en:vegan",
       "en:vegetarian"
    ],
-   "ingredients_hierarchy" : [
-      "en:strawberry",
-      "en:fruit",
-      "en:berries",
-      "en:raspberry",
-      "en:blueberry",
-      "en:gooseberry",
-      "en:white-peach",
-      "en:prunus-species-fruit",
-      "en:peach",
-      "en:bell-pepper",
-      "en:vegetable",
-      "en:fruit-vegetable"
-   ],
+   "ingredients_lc" : "en",
    "ingredients_n" : 6,
    "ingredients_n_tags" : [
       "6",
@@ -128,7 +120,11 @@
       "en:white-peach"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
-   "known_ingredients_n" : 12,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:gooseberry"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
+   "known_ingredients_n" : 6,
    "lc" : "en",
    "nutriments" : {
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 100,

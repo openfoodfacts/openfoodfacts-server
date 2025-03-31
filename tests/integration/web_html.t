@@ -1,6 +1,7 @@
 #!/usr/bin/perl -w
 
 # Tests to find HTML changes for different types of pages of the website
+# Note: run "make stop_tests" before running this test, in order to clear the memcached cache
 
 use ProductOpener::PerlStandards;
 
@@ -8,6 +9,9 @@ use Test2::V0;
 use ProductOpener::APITest qw/:all/;
 use ProductOpener::Test qw/:all/;
 use ProductOpener::TestDefaults qw/:all/;
+use ProductOpener::Cache qw/$memd/;
+# We need to flush memcached so that cached queries from other tests (e.g. unknown_tags.t) don't interfere with this test
+$memd->flush_all;
 
 use File::Basename "dirname";
 
@@ -326,6 +330,34 @@ my @products = (
 			nutriments_salt => 0,
 		)
 	},
+	# Product with an image (uploaded after)
+	{
+		%{dclone(\%default_product_form)},
+		(
+			code => '3300000000013',
+			lang => 'fr',
+			lc => 'en',
+			product_name_fr => "Tarte aux pommes et aux framboise bio avec une photo",
+			product_name_en => "Organic apple and raspberry pie with a picture",
+			brands => "Les tartes de Robert",
+			ingredients_text_fr =>
+				"Farine de blé, pommes, framboises 10%, sucre, beurre, oeufs, sel, huile de palme certifiée RSPO, acidifiant: acide citrique, agent levant: bicarbonate de sodium",
+			ingredients_text_en =>
+				"Wheat flour, apples, raspberries 10%, sugar, butter, eggs, salt, RSPO certified palm oil, acidifier: citric acid, raising agent: sodium bicarbonate",
+			countries => "France, UK, Germany",
+			labels => "Organic, Fair trade",
+			categories => "Desserts, Pies, Apple pies",
+			'nutriments_energy-kj' => 1200,
+			'nutriments_energy-kcal' => 300,
+			nutriments_fat => 12,
+			'nutriments_saturated-fat' => 0.5,
+			nutriments_carbohydrates => 30,
+			nutriments_sugars => 25,
+			nutriments_proteins => 3,
+			nutriments_salt => 1,
+		)
+	},
+
 );
 
 foreach my $product_ref (@products) {
@@ -335,8 +367,28 @@ foreach my $product_ref (@products) {
 	sleep(1);
 }
 
+# Upload 1 image for the last product 3300000000013 so that we can test image display and caching of image urls in search results
+my $sample_products_images_path = dirname(__FILE__) . "/inputs/upload_images";
+
 # Note: expected results are stored in json files, see execute_api_tests
 my $tests_ref = [
+	# Add an image to one product
+	{
+		test_case => 'post-product-image',
+		method => 'POST',
+		path => '/cgi/product_image_upload.pl',
+		form => {
+			code => "3300000000013",
+			imagefield => "front_fr",
+			imgupload_front_fr => ["$sample_products_images_path/1.jpg", '1.jpg'],
+		},
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'user-register',
+		path => '/cgi/user.pl',
+		expected_type => 'html',
+	},
 	{
 		test_case => 'world-index',
 		path => '/?sort_by=last_modified_t',
@@ -379,51 +431,51 @@ my $tests_ref = [
 	},
 	{
 		test_case => 'world-categories',
-		path => '/category/desserts',
+		path => 'facets/categories/desserts',
 		expected_type => 'html',
 	},
 	{
 		test_case => 'fr-categories',
 		subdomain => 'fr',
-		path => '/categorie/desserts',
+		path => 'facets/categories/desserts',
 		expected_type => 'html',
 	},
 	{
 		test_case => 'world-brands',
-		path => '/brands',
+		path => 'facets/brands',
 		expected_type => 'html',
 	},
 	{
 		test_case => 'fr-brands',
 		subdomain => 'fr',
-		path => '/marques',
+		path => 'facets/marques',
 		expected_type => 'html',
 	},
 	{
 		test_case => 'world-labels',
-		path => '/labels',
+		path => 'facets/labels',
 		expected_type => 'html',
 	},
 	{
 		test_case => 'fr-labels',
 		subdomain => 'fr',
-		path => '/labels',
+		path => 'facets/labels',
 		expected_type => 'html',
 	},
 	{
 		test_case => 'world-countries',
-		path => '/countries',
+		path => 'facets/countries',
 		expected_type => 'html',
 	},
 	{
 		test_case => 'fr-countries',
 		subdomain => 'fr',
-		path => '/pays',
+		path => 'facets/pays',
 		expected_type => 'html',
 	},
 	{
 		test_case => 'world-label-organic',
-		path => '/label/organic',
+		path => 'facets/labels/organic',
 		expected_type => 'html',
 	},
 	{
@@ -434,6 +486,7 @@ my $tests_ref = [
 	},
 	{
 		test_case => 'fr-edit-product',
+		subdomain => 'fr',
 		path => '/cgi/product.pl?type=edit&code=3300000000002',
 		expected_type => 'html',
 		ua => $ua,
@@ -445,6 +498,7 @@ my $tests_ref = [
 	},
 	{
 		test_case => 'fr-search-form',
+		subdomain => 'fr',
 		path => '/cgi/search.pl',
 		expected_type => 'html',
 	},
@@ -455,12 +509,65 @@ my $tests_ref = [
 	},
 	{
 		test_case => 'fr-search-results',
+		subdomain => 'fr',
 		path => '/cgi/search.pl?search_terms=tarte',
 		expected_type => 'html',
 	},
+	# Add an image to one product to test caching and no-cache
 	{
-		test_case => 'user-register',
-		path => '/cgi/user.pl',
+		test_case => 'post-product-image-2',
+		method => 'POST',
+		path => '/cgi/product_image_upload.pl',
+		form => {
+			code => "3300000000002",
+			imagefield => "front_fr",
+			imgupload_front_fr => ["$sample_products_images_path/1.jpg", '1.jpg'],
+		},
+		expected_status_code => 200,
+	},
+	# Request the same results a second time, to test the MongoDB cache
+	# The resulting HTML should be exactly the same, without the new image
+	{
+		test_case => 'fr-search-results-cached',
+		subdomain => 'fr',
+		path => '/cgi/search.pl?search_terms=tarte',
+		expected_type => 'html',
+	},
+	# Request the same results a third time, to test the MongoDB cache with Cache-Control: no-cache
+	# The resulting HTML should have the new image image
+	{
+		test_case => 'fr-search-results-no-cache',
+		subdomain => 'fr',
+		path => '/cgi/search.pl?search_terms=tarte',
+		expected_type => 'html',
+		headers_in => {
+			'Cache-Control' => 'no-cache',
+		},
+	},
+	# request with a group_by tagtype in English
+	# e.g. https://es.openfoodfacts.org/ingredients
+	{
+		test_case => 'es-ingredients',
+		subdomain => 'es',
+		path => 'facets/ingredients',
+		expected_type => 'html',
+	},
+	# /products with multiple products
+	{
+		test_case => 'world-products-multiple-codes',
+		path => '/products/3300000000001,3300000000002',
+		expected_type => 'html',
+	},
+	# Request a page with ?content_only=1 to remove the header and footer
+	{
+		test_case => 'world-product-content-only',
+		path => '/product/3300000000001/apple-pie-bob-s-pies?content_only=1',
+		expected_type => 'html',
+	},
+	# Use ?user_agent=smoothie to test the smoothie user agent
+	{
+		test_case => 'world-product-smoothie',
+		path => '/product/3300000000001/apple-pie-bob-s-pies?user_agent=smoothie',
 		expected_type => 'html',
 	},
 ];

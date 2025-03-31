@@ -27,13 +27,13 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Users qw/check_session/;
-use ProductOpener::Display qw/single_param/;
+use ProductOpener::HTTP qw/single_param/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 use ProductOpener::Lang qw/:all/;
 

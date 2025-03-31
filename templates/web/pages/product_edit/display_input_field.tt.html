@@ -4,12 +4,15 @@
     [% IF language.defined %]
         (<span class="tab_language">[% language %]</span>)
     [% END %]
+    [% IF owner_field %]
+    <span class="material-icons size-20" title="[% edq(lang("information_provided_by_the_manufacturer")) %]">factory</span>
+    [% END %]
 </label>
 
 [% IF field.match('infocard') || field.match('^packaging_text') || field.match('^ingredients_text')  %]
-    <textarea name="[% field %]" id="[% field %]" lang="${display_lc}">[% value %]</textarea>
+    <textarea [% IF protected_field %]disabled [% END %] name="[% field %]" id="[% field %]" lang="${display_lc}">[% value %]</textarea>
 [% ELSE %]
-    <input type="text" name="[% field %]" id="[% field %]" class="text [% class %]" value="[% value %]" lang="[% display_lc %]" data-autocomplete="[% autocomplete %]" />
+    <input type="text" [% IF protected_field %]disabled [% END %]name="[% field %]" id="[% field %]" class="text [% class %]" value="[% value %]" lang="[% display_lc %]" data-autocomplete="[% autocomplete %]" />
 [% END %]
 
 

@@ -30,20 +30,21 @@ use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/write_cors_headers/;
+use ProductOpener::HTTP qw/write_cors_headers single_param/;
 use ProductOpener::Users qw/$Owner_id/;
-use ProductOpener::Products qw/normalize_code normalize_search_terms product_exists product_id_for_owner product_url/;
+use ProductOpener::Products qw/normalize_code normalize_search_terms retrieve_product product_id_for_owner product_url/;
 use ProductOpener::Food qw/%nutriments_lists/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Lang qw/$lc %Lang %tag_type_singular lang/;
+use ProductOpener::Routing qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Log::Any qw($log);
 
 my $request_ref = ProductOpener::Display::init_request();
@@ -67,6 +68,17 @@ if (user_agent() =~ /apps-spreadsheets/) {
 }
 
 $request_ref->{search} = 1;
+# rate_limiter_bucket is required for `check_and_update_rate_limits`
+$request_ref->{rate_limiter_bucket} = 'search';
+
+check_and_update_rate_limits($request_ref);
+
+if ($request_ref->{rate_limiter_blocking}) {
+	# The request is blocked by the rate limiter:
+	# return directly a "too many requests" empty HTML page
+	display_too_many_requests_page_and_exit();
+	return Apache2::Const::OK;
+}
 
 my $action = single_param('action') || 'display';
 
@@ -98,9 +110,9 @@ if ((defined single_param('json')) or (defined single_param('jsonp')) or (define
 
 my @search_fields
 	= qw(brands categories packaging labels origins manufacturing_places emb_codes purchase_places stores countries
-	ingredients additives allergens traces nutrition_grades nova_groups ecoscore languages creator editors states);
+	ingredients additives allergens traces nutrition_grades nova_groups environmental_score languages creator editors states);
 
-$admin and push @search_fields, "lang";
+$request_ref->{admin} and push @search_fields, "lang";
 
 my %search_tags_fields = (
 	packaging => 1,
@@ -154,7 +166,7 @@ if (    (not defined single_param('json'))
 	if ((defined $code) and (length($code) > 0)) {
 		my $product_id = product_id_for_owner($Owner_id, $code);
 
-		my $product_ref = product_exists($product_id);    # returns 0 if not
+		my $product_ref = retrieve_product($product_id);
 
 		if ($product_ref) {
 			$log->info("product code exists, redirecting to product page", {code => $code});
@@ -215,10 +227,18 @@ if (    ($sort_by ne 'created_t')
 	$sort_by = 'unique_scans_n';
 }
 
-my $limit = 0 + (single_param('page_size') || $page_size);
-if (($limit < 2) or ($limit > 1000)) {
-	$limit = $page_size;
+my $limit = 0 + (single_param('page_size') || $options{default_web_products_page_size});
+
+if (defined $request_ref->{user_id}) {
+	if ($limit > $options{max_products_page_size_for_logged_in_users}) {
+		$limit = $options{max_products_page_size_for_logged_in_users};
+	}
 }
+elsif ($limit > $options{max_products_page_size}) {
+	$limit = $options{max_products_page_size};
+}
+
+$request_ref->{page_size} = $limit;
 
 my $graph_ref = {graph_title => remove_tags_and_quote(decode utf8 => single_param("graph_title"))};
 my $map_title = remove_tags_and_quote(decode utf8 => single_param("map_title"));
@@ -332,7 +352,7 @@ if ($action eq 'display') {
 	my @other_search_fields = (
 		"additives_n", "ingredients_n", "known_ingredients_n", "unknown_ingredients_n",
 		"fruits-vegetables-nuts-estimate-from-ingredients",
-		"forest_footprint", "product_quantity", "nova_group", 'ecoscore_score',
+		"forest_footprint", "product_quantity", "nova_group", 'environmental_score_score',
 	);
 
 	# Add the fields related to packaging
@@ -454,19 +474,19 @@ if ($action eq 'display') {
 
 	}
 
-	$styles .= <<CSS
+	$request_ref->{styles} .= <<CSS
 .select2-container--default .select2-results > .select2-results__options {
     max-height: 400px
 }
 CSS
 		;
 
-	$scripts .= <<HTML
+	$request_ref->{scripts} .= <<HTML
 <script type="text/javascript" src="/js/dist/search.js"></script>
 HTML
 		;
 
-	$initjs .= <<JS
+	$request_ref->{initjs} .= <<JS
 var select2_options = {
 		placeholder: "$Lang{select_a_field}{$lc}",
 		allowClear: true
@@ -482,7 +502,8 @@ var select2_options = {
 JS
 		;
 
-	process_template('web/pages/search_form/search_form.tt.html', $template_data_ref, \$html) or $html = '';
+	process_template('web/pages/search_form/search_form.tt.html', $template_data_ref, \$html, $request_ref)
+		or $html = '';
 	$html .= "<p>" . $tt->error() . "</p>";
 
 	${$request_ref->{content_ref}} .= $html;
@@ -713,8 +734,11 @@ elsif ($action eq 'process') {
 	my $graph = single_param("graph") || '';
 	my $download = single_param("download") || '';
 
-	open(my $OUT, ">>:encoding(UTF-8)", "$BASE_DIRS{LOGS}/search_log_debug");
-	print $OUT remote_addr() . "\t" . time() . "\t" . decode utf8 => single_param('search_terms') . " - map: $map
+	open(my $OUT, ">>:encoding(UTF-8)", "$BASE_DIRS{LOGS}/search_log");
+	print $OUT remote_addr() . "\t"
+		. time() . "\t"
+		. (decode utf8 => single_param('search_terms') || "no_search_terms")
+		. " - map: $map
 	 - graph: $graph - download: $download - page: $page\n";
 	close($OUT);
 
@@ -824,15 +848,6 @@ HTML
 
 			write_cors_headers();
 			print "Content-Type: application/json; charset=UTF-8\r\n\r\n" . $data;
-		}
-
-		if (single_param('search_terms')) {
-			open(my $OUT, ">>:encoding(UTF-8)", "$BASE_DIRS{LOGS}/search_log");
-			print $OUT remote_addr() . "\t"
-				. time() . "\t"
-				. decode utf8 => single_param('search_terms')
-				. "\tpage: $page\n";
-			close($OUT);
 		}
 	}
 }

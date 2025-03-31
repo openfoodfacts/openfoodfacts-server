@@ -31,6 +31,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
 use ProductOpener::Store qw/get_string_id_for_lang retrieve store/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Users qw/$Owner_id/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/lang/;
@@ -43,7 +44,7 @@ use CGI qw/:cgi :form escapeHTML :cgi-lib/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Log::Any qw($log);
 
 my $request_ref = ProductOpener::Display::init_request();
@@ -132,12 +133,13 @@ else {
 		url => "/cgi/import_file_upload.pl",
 	};
 
-	process_template('web/pages/import_file_upload/import_file_upload.tt.html', $template_data_ref, \$html);
-	process_template('web/pages/import_file_upload/import_file_upload.tt.js', $template_data_ref, \$js);
+	process_template('web/pages/import_file_upload/import_file_upload.tt.html',
+		$template_data_ref, \$html, $request_ref);
+	process_template('web/pages/import_file_upload/import_file_upload.tt.js', $template_data_ref, \$js, $request_ref);
 
-	$initjs .= $js;
+	$request_ref->{initjs} .= $js;
 
-	$scripts .= <<HTML
+	$request_ref->{scripts} .= <<HTML
 <script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
 HTML

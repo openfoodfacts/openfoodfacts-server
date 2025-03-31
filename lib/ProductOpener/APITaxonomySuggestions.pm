@@ -44,7 +44,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/request_param/;
+use ProductOpener::HTTP qw/request_param/;
 use ProductOpener::Tags qw/%taxonomy_fields/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::TaxonomySuggestions qw/get_taxonomy_suggestions_with_synonyms/;
@@ -138,7 +138,7 @@ sub taxonomy_suggestions_api ($request_ref) {
 				$matched_synonyms{$_->{tag}} = ucfirst($_->{matched_synonym});
 			}
 			$response_ref->{matched_synonyms} = \%matched_synonyms;
-			# Note: this does not seem to work with JSON::PP, even though the "canonical" option
+			# Note: this does not seem to work with JSON::MaybeXS, even though the "canonical" option
 			# should preserve the order of the keys of tied hashes.
 			# As JSON hashes are unordered, we will use the "suggestions" array on the client side to get the right order.
 			# It would have been nice to order the matched synonyms anyway, but it is not a huge issue.

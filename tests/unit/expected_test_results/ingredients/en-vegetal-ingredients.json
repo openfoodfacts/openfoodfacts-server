@@ -66,15 +66,7 @@
       "en:vegan",
       "en:vegetarian"
    ],
-   "ingredients_hierarchy" : [
-      "en:e428",
-      "en:charcoal",
-      "en:ferment",
-      "en:rennet",
-      "en:enzyme",
-      "en:coagulating-enzyme",
-      "en:flavouring"
-   ],
+   "ingredients_lc" : "en",
    "ingredients_n" : 5,
    "ingredients_n_tags" : [
       "5",
@@ -110,7 +102,15 @@
       "en:rennet"
    ],
    "ingredients_without_ciqual_codes_n" : 5,
-   "known_ingredients_n" : 6,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:charcoal",
+      "en:e428",
+      "en:ferment",
+      "en:flavouring",
+      "en:rennet"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 5,
+   "known_ingredients_n" : 4,
    "lc" : "en",
    "nutriments" : {
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
