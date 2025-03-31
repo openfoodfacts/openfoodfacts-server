@@ -1201,24 +1201,30 @@ wikidata:en: Q3604509
 
 zz: omega-3-fat
 xx: Omega 3 fat, Omega 3 fatty acids
-en: Omega 3 fat, Omega 3 fatty acids
+en: Omega 3 fat, Omega 3 fatty acids, Omega 3 Fats
 bg: Омега 3 мастни киселини
 cs: Omega 3 mastné kyseliny
-de: Omega-3-Fettsäuren
-el: Ωμέγα-3 λιπαρά
+da: Omega 3
+de: Omega-3-Fettsäuren, Omega-3-Fette
+el: Ωμέγα-3 λιπαρά, Ωμέγα 3
 es: Ácidos grasos Omega 3
+et: Omega-3-rasvad
 fi: Omega-3-rasvahapot
 fr: Acides gras Oméga 3, Oméga 3
 he: אומגה 3
+hr: Omega-3 masne kiseline
 hu: Omega-3 zsírsavak
 it: Acidi grassi Omega 3
-nl: Omega 3-vetzuren
+lv: Omega-3 taukskābes
+nl: Omega 3-vetzuren, omega 3-vetten
 nl_be: Omega 3-vetzuren
 pl: Kwasy tłuszczowe omega 3
-pt: Ácidos graxos Ômega 3, Ácidos gordos Ómega 3
+pt: Ácidos graxos Ômega 3, Ácidos gordos Ómega 3, ómega 3
 pt_pt: Ácidos gordos Ómega 3
 ro: Acizi grași omega-3
 ru: Омега-3 жирные кислоты
+sl: Omega-3 maščobne kisline
+sv: omega-3-fetter
 zh: Omega 3 脂肪酸
 zh_CN: Omega 3 脂肪酸
 zh_HK: Omega 3 脂肪酸
@@ -7217,29 +7223,30 @@ wikipedia:en: https://en.wikipedia.org/wiki/Glutathione
 # I- analytical constituents
 zz: crude fat
 xx: crude fat
-en: crude fat
+en: crude fat, Fat Content
 bg: Сурови мазнини
 cs: hrubý tuk
-da: råfedt
-de: Rohfett
-el: ακατέργαστες λιπαρές ουσίες
-es: Grasa bruta
-et: toorrasv
-fi: raakarasva
-fr: matières grasses brutes
-hr: sirova mast, sirove masti
+da: råfedt, fedtindhold
+de: Rohfett, Fettgehalt
+el: ακατέργαστες λιπαρές ουσίες, Περιεκτικότητα σε λιπαρές ουσίες
+es: Grasa bruta, Contenido de grasa
+et: toorrasv, Rasvasisaldus
+fi: raakarasva, rasvasisältö
+fr: matières grasses brutes, teneur en matières grasses
+hr: sirova mast, sirove masti, sadržaj masti
 hu: nyerszsír
 it: grassi grezzi
 lt: žali riebalai
-lv: koptauki
+lv: koptauki, Tauku saturs
 mt: ix-xaħam mhux raffinat
-nl: ruw vet
+nl: ruw vet, vetgehalte
 pl: tłuszcz surowy
-pt: matéria gorda bruta
+pt: matéria gorda bruta, teor de matéria gorda
 ro: grăsimi brute
+ru: Содержание жира
 sk: tuk
-sl: surove maščobe
-sv: råfett
+sl: surove maščobe, Vsebnost maščob
+sv: råfett, fettinnehåll
 unit:en: %
 
 zz: crude protein
@@ -7249,21 +7256,22 @@ bg: Суров протеин
 cs: hrubý protein
 da: råprotein
 de: Rohprotein
-el: ακατέργαστη πρωτεΐνη
+el: ακατέργαστη πρωτεΐνη, Ολική πρωτεΐνη
 es: Proteína bruta
 et: toorvalk
 fi: raakavalkuainen
-fr: protéine brute
-hr: sirove bjelančevine
+fr: protéine brute, protéines brutes
+hr: sirove bjelančevine, sirovi bjelančevini
 hu: nyersfehérje
 it: proteina grezza
 lt: žali baltymai
-lv: kopproteīns
+lv: kopproteīns, neapstrādāts proteins
 mt: il-proteini mhux raffinati
 nl: ruw eiwit
 pl: białko surowe
 pt: proteína bruta
 ro: proteine brute
+ru: Сырой белок
 sk: dusíkaté látky
 sl: surove beljakovine
 sv: råprotein
@@ -7276,21 +7284,22 @@ bg: Сурова пепел
 cs: hrubý popel
 da: råaske
 de: Rohasche
-el: ακατέργαστη τέφρα
+el: ακατέργαστη τέφρα, Ολική τέφρα
 es: Ceniza bruta
 et: toortuhk
-fi: tuhka
+fi: tuhka, raakatuhat
 fr: Cendres brutes
 hr: sirovi pepeo
 hu: nyershamu
 it: ceneri grezze
 lt: žali pelenai
-lv: koppelni
+lv: koppelni, Neapstrādātā pelnu
 mt: l-irmied mhux raffinat
 nl: ruwe as
 pl: popiół surowy
 pt: cinza bruta
 ro: cenușă brută
+ru: Сырая зола
 sk: popol
 sl: surovi pepel
 sv: råaska
@@ -7301,26 +7310,27 @@ xx: crude fibre
 en: crude fibre
 bg: Сурови влакнини
 cs: hrubá vláknina
-da: træstof
+da: træstof, råfiber
 de: Rohfaser
-el: ακατέργαστες ινώδεις ουσίες
+el: ακατέργαστες ινώδεις ουσίες, Ολική κυτταρίνη
 es: Fibra bruta
 et: toorkiud
 fi: raakakuitu
-fr: Cellulose brute
-hr: sirova vlaknina
+fr: Cellulose brute, fibres brutes
+hr: sirova vlaknina, Sirova vlakna
 hu: nyersrost
-it: fibra grezza
+it: fibra grezza, fibre grezze
 lt: žalia ląsteliena
-lv: kopšķiedra
+lv: kopšķiedra, Neapstrādātas šķiedrvielas
 mt: il-fibri mhux maħdumin
 nl: ruwe celstof
 pl: włókno surowe
 pt: fibra bruta
 ro: fibre brute
+ru: Сырая клетчатка
 sk: hrubá vláknina
-sl: surove vlaknine
-sv: växttråd
+sl: surove vlaknine, Surova vlakna
+sv: växttråd, råfiber
 unit:en: %
 
 zz: moisture

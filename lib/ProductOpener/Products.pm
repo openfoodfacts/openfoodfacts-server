@@ -80,7 +80,6 @@ BEGIN {
 		&normalize_product_data
 		&init_product
 		&retrieve_product
-		&retrieve_product_rev
 		&store_product
 		&product_name_brand
 		&product_name_brand_quantity
@@ -95,6 +94,7 @@ BEGIN {
 		&compute_completeness_and_missing_tags
 		&compute_product_history_and_completeness
 		&compute_languages
+		&review_product_type
 		&compute_changes_diff_text
 		&compute_data_sources
 		&compute_sort_keys
@@ -123,6 +123,7 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
+use ProductOpener::ProductSchemaChanges qw/$current_schema_version convert_product_schema/;
 use ProductOpener::Store qw/get_string_id_for_lang get_url_id_for_lang retrieve store/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::ConfigEnv qw/:all/;
@@ -132,11 +133,11 @@ use ProductOpener::Orgs qw/retrieve_org/;
 use ProductOpener::Lang qw/$lc %tag_type_singular lang/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Mail qw/send_email/;
-use ProductOpener::URL qw/format_subdomain/;
+use ProductOpener::URL qw(format_subdomain get_owner_pretty_path);
 use ProductOpener::Data qw/execute_query get_products_collection get_recent_changes_collection/;
 use ProductOpener::MainCountries qw/compute_main_countries/;
 use ProductOpener::Text qw/remove_email remove_tags_and_quote/;
-use ProductOpener::Display qw/single_param/;
+use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Redis qw/push_to_redis_stream/;
 use ProductOpener::Food qw/%nutriments_lists %cc_nutriment_table/;
 use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
@@ -145,6 +146,7 @@ use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
 # may be moved to another module at some point
 use ProductOpener::Packaging qw/analyze_and_combine_packaging_data/;
 use ProductOpener::DataQuality qw/check_quality/;
+use ProductOpener::TaxonomiesEnhancer qw/check_ingredients_between_languages/;
 
 # Specific to the product type
 use ProductOpener::FoodProducts qw/specific_processes_for_food_product/;
@@ -871,16 +873,28 @@ sub init_product ($userid, $orgid, $code, $countryid) {
 	return $product_ref;
 }
 
-sub retrieve_product ($product_id, $include_deleted = 0) {
+sub retrieve_product ($product_id, $include_deleted = 0, $rev = undef) {
 
 	my $path = product_path_from_id($product_id);
 
-	my $full_product_path = "$BASE_DIRS{PRODUCTS}/$path/product.sto";
+	my $full_product_path;
+
+	if (defined $rev) {
+		# check that $rev is a number
+		if ($rev !~ /^\d+$/) {
+			return;
+		}
+		$full_product_path = "$BASE_DIRS{PRODUCTS}/$path/$rev.sto";
+	}
+	else {
+		$full_product_path = "$BASE_DIRS{PRODUCTS}/$path/product.sto";
+	}
 
 	$log->debug(
 		"retrieve_product",
 		{
 			product_id => $product_id,
+			rev => $rev,
 			full_product_path => $full_product_path
 		}
 	) if $log->is_debug();
@@ -924,37 +938,9 @@ sub retrieve_product ($product_id, $include_deleted = 0) {
 		}
 	}
 
-	normalize_product_data($product_ref);
-
-	return $product_ref;
-}
-
-sub retrieve_product_rev ($product_id, $rev, $include_deleted = 0) {
-
-	if ($rev !~ /^\d+$/) {
-		return;
-	}
-
-	my $path = product_path_from_id($product_id);
-
-	my $product_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/$rev.sto");
-
-	if (defined $product_ref) {
-
-		if (($product_ref->{deleted}) and (not $include_deleted)) {
-			return;
-		}
-
-		# If the product is on another server, set the server field so that it will be saved in the other server if we save it
-		my $server = server_for_product_type($product_ref->{product_type});
-		if (defined $server) {
-			$product_ref->{server} = $server;
-		}
-		else {
-			# If the product was moved previously, it may have a server field, remove it
-			delete $product_ref->{server};
-		}
-	}
+	# We may read a product file that was saved with an old version of the schema
+	# If so, we convert it to the current schema
+	convert_product_schema($product_ref, $current_schema_version);
 
 	normalize_product_data($product_ref);
 
@@ -1131,6 +1117,9 @@ sub store_product ($user_id, $product_ref, $comment) {
 	my $rev = $product_ref->{rev};
 	my $action = "updated";
 
+	# Update product schema version
+	$product_ref->{schema_version} = $current_schema_version;
+
 	$log->debug(
 		"store_product - start",
 		{
@@ -1157,6 +1146,12 @@ sub store_product ($user_id, $product_ref, $comment) {
 			}
 		}
 		delete $product_ref->{server};
+	}
+
+	# If we do not have a product_type, we set it to the default product_type of the current server
+	# This can happen if we are reverting a product to a previous version that did not have a product_type
+	if (not defined $product_ref->{product_type}) {
+		$product_ref->{product_type} = $options{product_type};
 	}
 
 	# In case we need to move a product from OFF to OBF etc.
@@ -2797,7 +2792,7 @@ sub product_url ($code_or_ref) {
 	}
 
 	$code = ($code // "");
-	return "/$path/$code" . $titleid;
+	return get_owner_pretty_path($Owner_id) . "/$path/$code" . $titleid;
 }
 
 =head2 product_action_url ( $code, $action )
@@ -2996,6 +2991,59 @@ sub compute_languages ($product_ref) {
 	$product_ref->{languages_codes} = \%languages_codes;
 	$product_ref->{languages_tags} = \@languages;
 	$product_ref->{languages_hierarchy} = \@languages_hierarchy;
+
+	return;
+}
+
+=head2 review_product_type ( $product_ref )
+
+Reviews the product type based on the presence of specific tags in the categories field.
+Updates the product type if necessary.
+
+=head3 Arguments
+
+=head4 Product reference $product_ref
+
+A reference to a hash containing the product details.
+
+=cut
+
+sub review_product_type ($product_ref) {
+
+	my $error;
+
+	my $expected_type;
+	if (has_tag($product_ref, "categories", "en:open-beauty-facts")) {
+		$expected_type = "beauty";
+	}
+	elsif (has_tag($product_ref, "categories", "en:open-food-facts")) {
+		$expected_type = "food";
+	}
+	elsif (has_tag($product_ref, "categories", "en:open-pet-food-facts")) {
+		$expected_type = "petfood";
+	}
+	elsif (has_tag($product_ref, "categories", "en:open-products-facts")) {
+		$expected_type = "product";
+	}
+
+	if ($expected_type and ($product_ref->{product_type} ne $expected_type)) {
+		$error = change_product_type($product_ref, $expected_type);
+	}
+
+	if ($error) {
+		$log->error("review_product_type - error", {error => $error, product_ref => $product_ref});
+	}
+	else {
+		# We remove the tag en:incorrect-product-type and its children before the product is stored on the server of the new type
+		remove_tag($product_ref, "categories", "en:incorrect-product-type");
+		remove_tag($product_ref, "categories", "en:open-beauty-facts");
+		remove_tag($product_ref, "categories", "en:open-food-facts");
+		remove_tag($product_ref, "categories", "en:open-pet-food-facts");
+		remove_tag($product_ref, "categories", "en:open-products-facts");
+		remove_tag($product_ref, "categories", "en:non-food-products");
+		remove_tag($product_ref, "categories", "en:non-pet-food-products");
+		remove_tag($product_ref, "categories", "en:non-beauty-products");
+	}
 
 	return;
 }
@@ -3723,6 +3771,11 @@ sub analyze_and_enrich_product_data ($product_ref, $response_ref) {
 
 	compute_languages($product_ref);    # need languages for allergens detection and cleaning ingredients
 
+	# change the product type of non-food categorized products (issue #11094)
+	if (has_tag($product_ref, "categories", "en:incorrect-product-type")) {
+		review_product_type($product_ref);
+	}
+
 	# Run special analysis, score calculations that it specific to the product type
 
 	if (($options{product_type} eq "food")) {
@@ -3736,6 +3789,10 @@ sub analyze_and_enrich_product_data ($product_ref, $response_ref) {
 	}
 
 	ProductOpener::DataQuality::check_quality($product_ref);
+
+	if (defined $taxonomy_fields{'ingredients'}) {
+		check_ingredients_between_languages($product_ref);
+	}
 
 	# Sort misc_tags in order to have a consistent order
 	if (defined $product_ref->{misc_tags}) {

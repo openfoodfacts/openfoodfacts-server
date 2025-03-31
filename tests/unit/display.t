@@ -11,6 +11,7 @@ use Log::Any::Adapter 'TAP';
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Web qw/display_field/;
 use ProductOpener::Lang qw/$lc lang separator_before_colon/;
+use ProductOpener::HTTP qw/request_param/;
 
 # date tests
 my $t = 1472292529;
@@ -188,8 +189,8 @@ my $display_module = mock 'ProductOpener::Display' => (
 
 display_tag($facets_ref);
 
-is($facets_ref->{'current_link'}, '/category/breads/data-quality');
-is($facets_ref->{'redirect'}, '/category/breads/data-quality');
+is($facets_ref->{'current_link'}, '/facets/categories/breads/data-quality');
+is($facets_ref->{'redirect'}, '/facets/categories/breads/data-quality');
 
 $request_ref->{body_json}{labels_tags} = 'en:organic';
 is(request_param($request_ref, 'unexisting_field'), undef);

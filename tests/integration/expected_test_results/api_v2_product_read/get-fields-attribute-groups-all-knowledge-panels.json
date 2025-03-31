@@ -58,6 +58,7 @@
                   "id" : "low_salt",
                   "match" : 96.6533333333333,
                   "name" : "Salt",
+                  "panel_id" : "nutrient_level_salt",
                   "status" : "known",
                   "title" : "Salt in low quantity"
                },
@@ -68,6 +69,7 @@
                   "id" : "low_fat",
                   "match" : 60.5882352941176,
                   "name" : "Fat",
+                  "panel_id" : "nutrient_level_fat",
                   "status" : "known",
                   "title" : "Fat in moderate quantity"
                },
@@ -78,6 +80,7 @@
                   "id" : "low_sugars",
                   "match" : 20,
                   "name" : "Sugars",
+                  "panel_id" : "nutrient_level_sugars",
                   "status" : "known",
                   "title" : "Sugars in moderate quantity"
                },
@@ -88,6 +91,7 @@
                   "id" : "low_saturated_fat",
                   "match" : 17.6,
                   "name" : "Saturated fat",
+                  "panel_id" : "nutrient_level_saturated_fat",
                   "status" : "known",
                   "title" : "Saturated fat in high quantity"
                }
@@ -385,6 +389,7 @@
                   "id" : "low_salt",
                   "match" : 96.6533333333333,
                   "name" : "Salt",
+                  "panel_id" : "nutrient_level_salt",
                   "status" : "known",
                   "title" : "Salt in low quantity"
                },
@@ -395,6 +400,7 @@
                   "id" : "low_fat",
                   "match" : 60.5882352941176,
                   "name" : "Fat",
+                  "panel_id" : "nutrient_level_fat",
                   "status" : "known",
                   "title" : "Fat in moderate quantity"
                },
@@ -405,6 +411,7 @@
                   "id" : "low_sugars",
                   "match" : 20,
                   "name" : "Sugars",
+                  "panel_id" : "nutrient_level_sugars",
                   "status" : "known",
                   "title" : "Sugars in moderate quantity"
                },
@@ -415,6 +422,7 @@
                   "id" : "low_saturated_fat",
                   "match" : 17.6,
                   "name" : "Saturated fat",
+                  "panel_id" : "nutrient_level_saturated_fat",
                   "status" : "known",
                   "title" : "Saturated fat in high quantity"
                }
@@ -775,7 +783,7 @@
             "origins_of_ingredients" : {
                "aggregated_origins" : [
                   {
-                     "epi_score" : "0",
+                     "epi_score" : 0,
                      "origin" : "en:unknown",
                      "percent" : 100,
                      "transportation_score" : 0
@@ -3527,7 +3535,7 @@
             "type" : "inline"
          }
       },
-      "known_ingredients_n" : 16,
+      "known_ingredients_n" : 8,
       "labels" : "organic",
       "labels_hierarchy" : [
          "en:organic"
@@ -3992,6 +4000,7 @@
       "quantity" : "100 g",
       "removed_countries_tags" : [],
       "rev" : 1,
+      "schema_version" : 998,
       "serving_quantity" : 10,
       "serving_quantity_unit" : "g",
       "serving_size" : "10 g",
