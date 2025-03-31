@@ -37,6 +37,7 @@ jobs:
         # see: https://docs.github.com/en/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow
         # So this is a personal access token
         token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+        persist-credentials: true
     # we need origin/main to have comparison linting work !
     - name: Fetch origin/main
       run: |
@@ -88,6 +89,7 @@ jobs:
         # see: https://docs.github.com/en/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow
         # So this is a personal access token
         token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+        persist-credentials: true
     - name: Run update tests results
       run: make update_tests_results
     - name: Push changes if needed
