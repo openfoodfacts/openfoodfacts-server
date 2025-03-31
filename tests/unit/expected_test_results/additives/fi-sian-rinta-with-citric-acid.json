@@ -1,0 +1,27 @@
+{
+   "additives" : " [ sitruunahappo -> en:e330  -> exists  -- ok  ]  [ väri -> fi:väri  ]  [ e120 -> en:e120  -> exists  -- mandatory_additive_class: en:colour (current: en:colour)  -- ok  ]  [ c-vitamiini -> en:e300  -> exists  -- mandatory_additive_class: en:acidity-regulator,en:antioxidant,en:flour-treatment-agent,en:sequestrant,en:acid (current: en:colour)  -> exists as a vitamin en:vitamin-c  ]  [ e500 -> en:e500  -> exists  -- mandatory_additive_class: en:acidity-regulator, en:raising-agent (current: en:vitamins)  -- e-number  ] ",
+   "additives_n" : 3,
+   "additives_original_tags" : [
+      "en:e330",
+      "en:e120",
+      "en:e500"
+   ],
+   "additives_tags" : [
+      "en:e120",
+      "en:e330",
+      "en:e500"
+   ],
+   "amino_acids_tags" : [],
+   "categories_tags" : [
+      "en:debug"
+   ],
+   "ingredients_lc" : "fi",
+   "ingredients_text" : "Sitruunahappo, väri (e120), C-vitamiini, E-500",
+   "lc" : "fi",
+   "minerals_tags" : [],
+   "nucleotides_tags" : [],
+   "other_nutritional_substances_tags" : [],
+   "vitamins_tags" : [
+      "en:vitamin-c"
+   ]
+}
