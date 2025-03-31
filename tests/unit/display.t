@@ -11,6 +11,7 @@ use Log::Any::Adapter 'TAP';
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Web qw/display_field/;
 use ProductOpener::Lang qw/$lc lang separator_before_colon/;
+use ProductOpener::HTTP qw/request_param/;
 
 # date tests
 my $t = 1472292529;
