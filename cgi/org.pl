@@ -28,6 +28,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/get_fileid/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/$lc %Lang lang/;
 use ProductOpener::Orgs qw/:all/;
@@ -91,7 +92,8 @@ my @errors = ();
 if ($action eq 'process') {
 
 	if ($type eq 'edit') {
-		if (single_param('delete') eq 'on') {
+		my $delete = single_param('delete') // '';
+		if ($delete eq 'on') {
 			if ($request_ref->{admin}) {
 				$type = 'delete';
 			}
@@ -116,6 +118,7 @@ if ($action eq 'process') {
 					@admin_fields,
 					(
 						"valid_org",
+						"crm_org_id",
 						"enable_manual_export_to_public_platform",
 						"activate_automated_daily_export_to_public_platform",
 						"protect_data",
@@ -134,6 +137,8 @@ if ($action eq 'process') {
 				foreach my $field (@admin_fields) {
 					$org_ref->{$field} = remove_tags_and_quote(decode utf8 => single_param($field));
 				}
+
+				$org_ref->{crm_org_id} ||= undef;
 
 				# Set the list of org GLNs
 				set_org_gs1_gln($org_ref, remove_tags_and_quote(decode utf8 => single_param("list_of_gs1_gln")));

@@ -1,28 +1,28 @@
 {
-    "api": "v0",
-    "canon_rel_url": "/category/en:bread",
-    "cc": "world",
-    "lc": "en",
-    "original_query_string": "category/bread/4",
-    "page": "4",
-    "query_string": "category/bread/4",
-    "tag": "en:bread",
-    "tag_prefix": "",
-    "tagid": "en:bread",
-    "tagtype": "categories",
-    "tags": [
-        {
-            "tag": "en:bread",
-            "tag_prefix": "",
-            "tagid": "en:bread",
-            "tagtype": "categories"
-        }
-    ],
-    "param": {},
-    "no_index": "0",
-    "is_crawl_bot": "0",
-    "rate_limiter_blocking": 0,
-    "rate_limiter_limit": null,
-    "rate_limiter_user_requests": null,
-    "components": []
+   "api" : "v0",
+   "canon_rel_url" : "/facets/categories/en:bread/4",
+   "cc" : "world",
+   "components" : [],
+   "is_crawl_bot" : "0",
+   "lc" : "en",
+   "no_index" : "0",
+   "original_query_string" : "facets/categories/bread/4",
+   "page" : "4",
+   "query_string" : "facets/categories/bread/4",
+   "rate_limiter_blocking" : 0,
+   "rate_limiter_bucket" : "facet_products",
+   "rate_limiter_limit" : 5,
+   "rate_limiter_user_requests" : null,
+   "tag" : "en:bread",
+   "tag_prefix" : "",
+   "tagid" : "en:bread",
+   "tags" : [
+      {
+         "tag" : "en:bread",
+         "tag_prefix" : "",
+         "tagid" : "en:bread",
+         "tagtype" : "categories"
+      }
+   ],
+   "tagtype" : "categories"
 }

@@ -61,7 +61,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/write_cors_headers/;
+use ProductOpener::HTTP qw/write_cors_headers request_param/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/$lc lang_in_other_lc/;
 use ProductOpener::Products qw/normalize_code_with_gs1_ai product_name_brand_quantity/;
@@ -70,10 +70,12 @@ use ProductOpener::Tags qw/%language_fields display_taxonomy_tag/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Attributes qw/compute_attributes/;
 use ProductOpener::KnowledgePanels qw/create_knowledge_panels initialize_knowledge_panels_options/;
-use ProductOpener::Ecoscore qw/localize_ecoscore/;
+use ProductOpener::EnvironmentalScore qw/localize_environmental_score/;
 use ProductOpener::Packaging qw/%packaging_taxonomies/;
 use ProductOpener::Permissions qw/has_permission/;
 use ProductOpener::GeoIP qw/get_country_for_ip_api/;
+use ProductOpener::ProductSchemaChanges qw/$current_schema_version convert_product_schema/;
+use ProductOpener::ProductsFeatures qw(feature_enabled);
 
 use ProductOpener::APIProductRead qw/read_product_api/;
 use ProductOpener::APIProductWrite qw/write_product_api/;
@@ -106,6 +108,7 @@ sub init_api_response ($request_ref) {
 }
 
 sub add_warning ($response_ref, $warning_ref) {
+	defined $response_ref->{warnings} or $response_ref->{warnings} = [];
 	push @{$response_ref->{warnings}}, $warning_ref;
 	return;
 }
@@ -131,6 +134,7 @@ HTTP status code to return in the response, defaults to 400 bad request.
 =cut
 
 sub add_error ($response_ref, $error_ref, $status_code = 400) {
+	defined $response_ref->{errors} or $response_ref->{errors} = [];
 	push @{$response_ref->{errors}}, $error_ref;
 	$response_ref->{status_code} = $status_code;
 	return;
@@ -429,7 +433,7 @@ sub process_api_request ($request_ref) {
 	my $response_ref = $request_ref->{api_response};
 
 	# Check if we already have errors (e.g. authentification error, invalid JSON body)
-	if ((scalar @{$response_ref->{errors}}) > 0) {
+	if ((defined $response_ref->{errors}) and ((scalar @{$response_ref->{errors}}) > 0)) {
 		$log->warn("process_api_request - we already have errors, skipping processing", {request => $request_ref})
 			if $log->is_warn();
 	}
@@ -622,6 +626,78 @@ sub customize_packagings ($request_ref, $product_ref) {
 	return $customized_packagings_ref;
 }
 
+=head2 api_compatibility_for_field ($field, $api_version)
+
+To support older API versions that can request fields that have been renamed or changed,
+we rename older requested fields to the new field names to construct the response.
+
+Resulting fields will then be renamed back to older names by the api_compatibility_for_product_response function.
+
+=cut
+
+sub api_compatibility_for_field ($field, $api_version) {
+
+	# Provide a default value for $api_version if it is not defined
+	$api_version //= 0;
+
+	# API 3.1 - 2024/12/18 - ecoscore* fields have been renamed to environmental_score*
+	if ($api_version < 3.1) {
+		if ($field =~ /^ecoscore/) {
+			$field = "environmental_score" . $';
+		}
+	}
+
+	return $field;
+}
+
+=head2 api_compatibility_for_product_input ($product_ref)
+
+The product objects saved in the database or in the .sto files may have different schema over time.
+This function updates the product object to the latest schema version, for some fields, when possible,
+so that we can read older revisions of products, or when all products are not migrated yet.
+
+=cut
+
+sub api_compatibility_for_product_input ($product_ref) {
+
+	$log->debug("api_compatibility_for_product_input - start") if $log->is_debug();
+
+	convert_product_schema($product_ref, $current_schema_version);
+
+	return $product_ref;
+}
+
+=head2 api_compatibility_for_product_response ($product_ref, $api_version)
+
+The response schema can change between API versions. This function transforms the product object to match the requested API version.
+
+=cut
+
+my %api_version_to_schema_version = (
+	"0" => 996,
+	"1" => 997,
+	"2" => 998,
+	"3" => 999,
+	"3.0" => 999,
+	"3.1" => 1000,
+	"3.2" => 1001,
+);
+
+sub api_compatibility_for_product_response ($product_ref, $api_version) {
+
+	$log->debug("api_compatibility_for_product_response - start", {api_version => $api_version}) if $log->is_debug();
+
+	# no requested version, return the latest schema version, no conversion needed
+	if (not defined $api_version) {
+		return $product_ref;
+	}
+
+	my $target_schema_version = $api_version_to_schema_version{$api_version} || $current_schema_version;
+	convert_product_schema($product_ref, $target_schema_version);
+
+	return $product_ref;
+}
+
 =head2 customize_response_for_product ( $request_ref, $product_ref, $fields_comma_separated_list, $fields_ref )
 
 Using the fields parameter, API product or search queries can request
@@ -677,7 +753,7 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 
 	my $carbon_footprint_computed = 0;
 
-	# Special case if fields is empty, or contains only "none" or "raw": we do not need to localize the Eco-Score
+	# Special case if fields is empty, or contains only "none" or "raw": we do not need to localize the Environmental-Score
 
 	if ((scalar @fields) == 0) {
 		return {};
@@ -692,11 +768,19 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 		}
 	}
 
-	# Localize the Eco-Score fields that depend on the country of the request
-	localize_ecoscore($request_ref->{cc}, $product_ref);
+	# Update the product object to the latest schema, for some fields, when possible
+	api_compatibility_for_product_input($product_ref);
+
+	# Localize the Environmental-Score fields that depend on the country of the request
+	if (feature_enabled("environmental_score", $product_ref)) {
+		localize_environmental_score($request_ref->{cc}, $product_ref);
+	}
 
 	# lets compute each requested field
 	foreach my $field (@fields) {
+
+		# Compatibility with older API versions
+		$field = api_compatibility_for_field($field, $request_ref->{api_version});
 
 		if ($field eq 'all') {
 			# Return all fields of the product, with processing that depends on the API version used
@@ -728,12 +812,12 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 			next;
 		}
 
-		# Eco-Score details in simple HTML
-		if ($field eq "ecoscore_details_simple_html") {
-			if ((1 or $show_ecoscore) and (defined $product_ref->{ecoscore_data})) {
+		# Environmental-Score details in simple HTML
+		if ($field eq "environmental_score_details_simple_html") {
+			if ((1 or $show_environmental_score) and (defined $product_ref->{environmental_score_data})) {
 				$customized_product_ref->{$field}
-					= display_ecoscore_calculation_details_simple_html($request_ref->{cc},
-					$product_ref->{ecoscore_data});
+					= display_environmental_score_calculation_details_simple_html($request_ref->{cc},
+					$product_ref->{environmental_score_data});
 			}
 			next;
 		}
@@ -853,6 +937,9 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 		# TODO: it would be great to return errors when the caller requests fields that are invalid (e.g. typos)
 	}
 
+	# Before returning the product, we need to make sure that the fields are compatible with the requested API version
+	api_compatibility_for_product_response($customized_product_ref, $request_ref->{api_version});
+
 	return $customized_product_ref;
 }
 
@@ -875,20 +962,19 @@ Reference to the response object.
 
 Permission to check.
 
-=head3 Return value
+=head3 Return value $has_permission
 
-1 if the user does not have the permission, 0 otherwise.
+1 if the user has the permission, 0 otherwise.
 
 =cut
 
 sub check_user_permission ($request_ref, $response_ref, $permission) {
 
-	# We will return an error equal to 1 if the user does not have the permission
-	my $error = 0;
+	my $has_permission = 1;
 
 	# Check if the user has permission
 	if (not has_permission($request_ref, $permission)) {
-		$error = 1;
+		$has_permission = 0;
 		$log->error("check_user_permission - user does not have permission", {permission => $permission})
 			if $log->is_error();
 		add_error(
@@ -902,7 +988,7 @@ sub check_user_permission ($request_ref, $response_ref, $permission) {
 		);
 	}
 
-	return $error;
+	return $has_permission;
 }
 
 1;

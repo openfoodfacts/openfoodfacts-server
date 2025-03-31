@@ -11,6 +11,7 @@ use Log::Any::Adapter 'TAP';
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Web qw/display_field/;
 use ProductOpener::Lang qw/$lc lang separator_before_colon/;
+use ProductOpener::HTTP qw/request_param/;
 
 # date tests
 my $t = 1472292529;
@@ -31,20 +32,6 @@ is(display_date_tag($t), '<time datetime="2016-08-27T12:08:49">27. August 2016, 
 #	'<p><span class="field">Link to the product page on the official site of the producer:</span> <a href="http://producer.com">http://producer.com</a></p>'
 # );
 
-#test for URL localization
-#test for path not existing in urls_for_text
-my $textid = '/doesnotexist';
-is(url_for_text($textid), '/doesnotexist');
-
-# test a language other than default (en)
-$textid = '/ecoscore';
-$lc = 'es';
-is(url_for_text($textid), '/eco-score-el-impacto-medioambiental-de-los-productos-alimenticios');
-
-# test for language that does not exist (test defaults to en)
-$lc = 'does not exist';
-is(url_for_text($textid), '/eco-score-the-environmental-impact-of-food-products');
-
 $lc = 'en';
 
 #test search query
@@ -59,8 +46,7 @@ my $limit = 24;
 my $page = 1;
 is(
 	display_pagination($request_ref, $count, $limit, $page),
-	'</ul>' . "\n"
-		. '<ul id="pages" class="pagination"><li class="unavailable">Pages:</li><li class="current"><a href="">1</a></li><li><a href="/cgi/search.pl?action=process&sort_by=unique_scans_n&page_size=24&page=2">2</a></li><li><a href="/cgi/search.pl?action=process&sort_by=unique_scans_n&page_size=24&page=2" rel="next$nofollow">Next</a></li><li class="unavailable">(24 products per page)</li></ul>'
+	'<ul id="pages" class="pagination"><li class="unavailable">Pages:</li><li class="current"><a href="">1</a></li><li><a href="/cgi/search.pl?action=process&sort_by=unique_scans_n&page_size=24&page=2">2</a></li><li><a href="/cgi/search.pl?action=process&sort_by=unique_scans_n&page_size=24&page=2" rel="next$nofollow">Next</a></li><li class="unavailable">(24 products per page)</li></ul>'
 		. "\n"
 );
 
@@ -68,8 +54,7 @@ is(
 $request_ref->{current_link} = '/label/organic';
 is(
 	display_pagination($request_ref, $count, $limit, $page),
-	'</ul>' . "\n"
-		. '<ul id="pages" class="pagination"><li class="unavailable">Pages:</li><li class="current"><a href="">1</a></li><li><a href="/label/organic/2">2</a></li><li><a href="/label/organic/2" rel="next$nofollow">Next</a></li><li class="unavailable">(24 products per page)</li></ul>'
+	'<ul id="pages" class="pagination"><li class="unavailable">Pages:</li><li class="current"><a href="">1</a></li><li><a href="/label/organic/2">2</a></li><li><a href="/label/organic/2" rel="next$nofollow">Next</a></li><li class="unavailable">(24 products per page)</li></ul>'
 		. "\n"
 );
 
@@ -204,8 +189,8 @@ my $display_module = mock 'ProductOpener::Display' => (
 
 display_tag($facets_ref);
 
-is($facets_ref->{'current_link'}, '/category/breads/data-quality');
-is($facets_ref->{'redirect'}, '/category/breads/data-quality');
+is($facets_ref->{'current_link'}, '/facets/categories/breads/data-quality');
+is($facets_ref->{'redirect'}, '/facets/categories/breads/data-quality');
 
 $request_ref->{body_json}{labels_tags} = 'en:organic';
 is(request_param($request_ref, 'unexisting_field'), undef);

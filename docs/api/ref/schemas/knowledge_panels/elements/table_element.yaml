@@ -1,6 +1,4 @@
 title: table_element
-x-stoplight:
-  id: 38zu3z4sruqo7
 type: object
 description: Element to display a table.
 properties:
@@ -17,6 +15,7 @@ properties:
     type: array
     items:
       type: object
+      title: table_column
       properties:
         type:
           type: string

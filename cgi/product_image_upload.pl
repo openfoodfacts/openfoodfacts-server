@@ -29,6 +29,7 @@ use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Lang qw/$lc lang/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
@@ -37,6 +38,7 @@ use ProductOpener::Images
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::APIProductWrite qw/:all/;
+use ProductOpener::HTTP qw/write_cors_headers/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -79,6 +81,8 @@ $log->debug(
 		ip => remote_addr()
 	}
 ) if $log->is_debug();
+
+write_cors_headers();
 
 # By default, don't select images uploaded (e.g. through the product edit form)
 
@@ -197,7 +201,7 @@ if ($imagefield) {
 		exit(0);
 	}
 
-	my $product_ref = product_exists($product_id);    # returns 0 if not
+	my $product_ref = retrieve_product($product_id);
 
 	if (not $product_ref) {
 		$log->info("product code does not exist yet, creating product", {code => $code});

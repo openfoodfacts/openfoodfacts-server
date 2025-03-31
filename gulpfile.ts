@@ -3,6 +3,7 @@ import { init, write } from "gulp-sourcemaps";
 
 import concat from "gulp-concat";
 import gulpSass from "gulp-sass";
+import gzip from "gulp-gzip";
 import minifyCSS from "gulp-csso";
 import sassLib from "sass";
 import svgmin from "gulp-svgmin";
@@ -17,14 +18,26 @@ const jsSrc = [
   "./html/js/hc-sticky.js",
   "./html/js/stikelem.js",
   "./html/js/scrollNav.js",
+  "./html/js/off-webcomponents-utils.js",
 ];
 
 const sassSrc = "./scss/**/*.scss";
 
-const imagesSrc = ["./node_modules/leaflet/dist/**/*.png"];
+// Added function to handle multiple image formats
+function handleMultipleImageFormats(path: string) {
+  return [".png", ".jpg", ".jpeg", ".webp", ".svg"].map((ext) => path + ext);
+}
+const imagesSrc = [
+  "./node_modules/leaflet/dist/**/*.png",
+  ...handleMultipleImageFormats(
+    "./node_modules/@openfoodfacts/openfoodfacts-webcomponents/dist/assets/**/*"
+  ),
+];
+
+// nginx needs both uncompressed and compressed files as we use try_files with gzip_static always & gunzip
 
 export function icons() {
-  return src("*.svg", { cwd: "./icons" }).
+  const processed = src("*.svg", { cwd: "./icons" }).
     pipe(
       svgmin({
         // @ts-ignore
@@ -32,18 +45,30 @@ export function icons() {
       })
     ).
     pipe(dest("./html/images/icons/dist"));
+
+  const compressed = processed.
+    pipe(gzip()).
+    pipe(dest("./html/images/icons/dist"));
+
+  return processed && compressed;
 }
 
 export function attributesIcons() {
-  return src("*.svg", { cwd: "./html/images/attributes/src" }).
+  const processed = src("*.svg", { cwd: "./html/images/attributes/src" }).
     pipe(svgmin()).
     pipe(dest("./html/images/attributes/dist"));
+
+  const compressed = processed.
+    pipe(gzip()).
+    pipe(dest("./html/images/attributes/dist"));
+
+  return processed && compressed;
 }
 
 export function css() {
   console.log("(re)building css");
 
-  return src(sassSrc).
+  const processed = src(sassSrc).
     pipe(init()).
     pipe(
       sass({
@@ -55,11 +80,18 @@ export function css() {
     pipe(minifyCSS()).
     pipe(write(".")).
     pipe(dest("./html/css/dist"));
+
+  const compressed = processed.
+    pipe(gzip()).
+    pipe(dest("./html/css/dist"));
+  
+  return processed && compressed;
 }
 
 export function copyJs() {
-  return src([
+  const processed = src([
     "./node_modules/@webcomponents/**/webcomponentsjs/**/*.js",
+    "./node_modules/@openfoodfacts/openfoodfacts-webcomponents/dist/**/*.js",
     "./node_modules/foundation-sites/js/vendor/*.js",
     "./node_modules/foundation-sites/js/foundation.js",
     "./node_modules/papaparse/papaparse.js",
@@ -84,20 +116,32 @@ export function copyJs() {
     pipe(terser()).
     pipe(write(".")).
     pipe(dest("./html/js/dist"));
+
+  const compressed = processed.
+    pipe(gzip()).
+    pipe(dest("./html/js/dist"));
+
+  return processed && compressed;
 }
 
 export function buildJs() {
   console.log("(re)building js");
 
-  return src(jsSrc).
+  const processed = src(jsSrc).
     pipe(init()).
     pipe(terser()).
     pipe(write(".")).
     pipe(dest("./html/js/dist"));
+
+  const compressed = processed.
+    pipe(gzip()).
+    pipe(dest("./html/js/dist"));
+
+  return processed && compressed;
 }
 
 function buildjQueryUi() {
-  return src([
+  const processed = src([
     "./node_modules/jquery-ui/ui/jquery-patch.js",
     "./node_modules/jquery-ui/ui/version.js",
     "./node_modules/jquery-ui/ui/widget.js",
@@ -113,10 +157,16 @@ function buildjQueryUi() {
     pipe(concat("jquery-ui.js")).
     pipe(write(".")).
     pipe(dest("./html/js/dist"));
+
+  const compressed = processed.
+    pipe(gzip()).
+    pipe(dest("./html/js/dist"));
+
+  return processed && compressed;
 }
 
 function jQueryUiThemes() {
-  return src([
+  const processed = src([
     "./node_modules/jquery-ui/themes/base/core.css",
     "./node_modules/jquery-ui/themes/base/autocomplete.css",
     "./node_modules/jquery-ui/themes/base/menu.css",
@@ -127,10 +177,16 @@ function jQueryUiThemes() {
     pipe(concat("jquery-ui.css")).
     pipe(write(".")).
     pipe(dest("./html/css/dist/jqueryui/themes/base"));
+
+  const compressed = processed.
+    pipe(gzip()).
+    pipe(dest("./html/css/dist/jqueryui/themes/base"));
+  
+  return processed && compressed;
 }
 
 function copyCss() {
-  return src([
+  const processed = src([
     "./node_modules/leaflet/dist/leaflet.css",
     "./node_modules/leaflet.markercluster/dist/MarkerCluster.css",
     "./node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css",
@@ -142,6 +198,12 @@ function copyCss() {
     pipe(minifyCSS()).
     pipe(write(".")).
     pipe(dest("./html/css/dist"));
+
+  const compressed = processed.
+    pipe(gzip()).
+    pipe(dest("./html/css/dist"));
+
+  return processed && compressed;
 }
 
 function copyImages() {

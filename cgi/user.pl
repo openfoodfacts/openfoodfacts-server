@@ -27,6 +27,7 @@ use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Web qw/get_countries_options_list get_languages_options_list/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/$lc  %Lang lang/;
@@ -431,6 +432,7 @@ $template_data_ref->{debug} = $debug;
 $template_data_ref->{userid} = $userid;
 $template_data_ref->{type} = $type;
 $template_data_ref->{crm_contact_url} = get_contact_url($user_ref);
+$template_data_ref->{org_url} = ($user_ref->{org} ? "/cgi/org.pl?type=edit&orgid=$user_ref->{org}" : '');
 
 if (($type eq "edit_owner") and ($action eq "process")) {
 	$log->info("redirecting to / after changing owner", {}) if $log->is_info();

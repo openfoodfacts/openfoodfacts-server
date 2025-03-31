@@ -33,7 +33,7 @@ show_ingredients:en: from_palm_oil:yes
 en: Palm oil free
 bg: Без палмово масло
 ca: No conté oli de palma
-da: Fri for palmeolie
+da: Fri for palmeolie, palmeoliefri
 de: Palmölfrei
 el: Χωρίς φοινικέλαιο
 es: Sin aceite de palma
@@ -94,7 +94,7 @@ show_ingredients:en: from_palm_oil:maybe
 en: Palm oil content unknown
 bg: Неизвестно съдържание на палмово масло
 ca: Es desconeix si conté oli de palma
-da: Palmolieindhold ukendt
+da: Palmeolieindhold ukendt
 de: Palmölgehalt unbekannt
 el: Άγνωστη περιεκτικότητα σε φοινικέλαιο
 es: Se desconoce si contiene aceite de palma
@@ -179,7 +179,7 @@ ru: Возможно веганское
 sk: Možno vegánske
 sl: Morda vegansko
 sr: Можда веганско
-sv: Kanske Vegansk
+sv: Kanske vegansk
 tr: Vegan olabilir
 vi: Có lẽ là thuần chay
 zh: 也许是素食主义者
@@ -258,6 +258,7 @@ ar: نباتي
 bg: Вегетарианско
 ca: Vegetarià
 cs: Vegetariánský
+da: vegetarisk
 de: vegetarisch
 el: Χορτοφάγος
 es: Vegetariano
@@ -283,12 +284,12 @@ th: มังสวิรัติ
 tr: Vejetaryen
 uk: Вегетаріанське
 vi: Ăn chay
-zh: 素食主义者
 
 en: Maybe vegetarian
 bg: Може да е вегетарианско
 ca: Pot ser vegetarià
 cs: Možná vegetarián
+da: Måske vegetarisk
 de: Vielleicht vegetarisch
 el: Ίσως χορτοφάγος
 es: Quizá vegetariano
@@ -309,7 +310,7 @@ ru: Возможно вегетарианское
 sk: Možno vegetariánske
 sl: Morda vegetarijansko
 sr: Можда је вегетаријанско
-sv: Kanske Vegetariskt
+sv: Kanske vegetariskt
 th: อาจจะเป็นมังสวิรัติ
 tr: Vejetaryen olabilir
 uk: Можливо вегетаріанське
@@ -356,7 +357,7 @@ en: Vegetarian status unknown
 bg: Неизвестен вегетариански статус
 ca: Es desconeix si és vegetarià
 cs: Stav vegetariánský neznámý
-da: Status for vegetar ukendt
+da: Vegetarisk status ukendt
 de: Vegetarischer Status unbekannt
 el: Άγνωστη κατάσταση ως προς το αν είναι χορτοφάγος
 es: Se desconoce si es vegetariano
@@ -368,6 +369,7 @@ hr: Nepoznat vegetarijanski status
 hu: Vegetáriánus státusz ismeretlen
 it: Stato vegetariano sconosciuto
 ja: ベジタリアンか不明
+ko: 채식주의자 상태 알 수 없음
 lt: Nežinomas vegetarų statusas
 lv: Veģetānisks status nav zināms
 nl: Vegetarische status onbekend
@@ -377,7 +379,10 @@ ro: Stare vegetariană necunoscută
 ru: Вегетарианский статус неизвестен
 sk: Stav vegetariánsky neznámy
 sl: Status vegetarijanca ni znan
+sr: Статус вегетаријанца непознат
 sv: Vegetarisk status okänd
 tr: Vejetaryen durumu bilinmiyor
 uk: Статус вегетаріанський невідомий
+vi: Tình trạng ăn chay không rõ
+zh: 素食状态未知
 

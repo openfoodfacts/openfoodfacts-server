@@ -29,10 +29,13 @@ use ProductOpener::Data qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
 use ProductOpener::Users qw/$Owner_id/;
 use ProductOpener::Orgs qw/retrieve_org/;
+use ProductOpener::CRM qw/update_public_products update_pro_products/;
 use Storable qw(store);
 
 # This script is run daily to gather organisation data
-# such as number of products, number of products with errors etc,
+# such as number of products, number of products with errors etc.
+# Some data such as number of products on the public platform and in the producer platform
+# are synced with the CRM.
 
 ensure_dir_created($BASE_DIRS{ORGS});
 
@@ -145,6 +148,10 @@ sub update_org_data ($org_id) {
 	my $org_ref = retrieve_org($org_id);
 
 	$org_ref->{'data'} = $data;
+
+	# sync crm
+	update_public_products($org_ref, $org_ref->{data}{products}{number_of_products_on_public_platform});
+	update_pro_products($org_ref, $org_ref->{data}{products}{number_of_products_on_producer_platform});
 
 	store($org_ref, $org_file_path);
 	return;

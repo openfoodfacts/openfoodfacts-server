@@ -859,6 +859,44 @@ puffed orange and caramelized unknown_fruit4.",
 			ingredients_text => "some unknown ingredient and salt",
 		}
 	],
+
+	# Do not consider A at the end of the string to be a stopword
+	# https://github.com/openfoodfacts/openfoodfacts-server/pull/11095
+	[
+		"en-ingredient-ending-with-a",
+		{
+			lc => "en",
+			ingredients_text => "E124, Ponceau 4R, Cochineal Red A, Cochineal Red, a pear",
+		}
+	],
+
+	# Vegetable oils with one unrecognized oil
+	[
+		"en-vegetable-oils-with-one-unrecognized-oil",
+		{
+			lc => "en",
+			ingredients_text => "vegetable oils (sunflower, soy, something strange)",
+		}
+	],
+
+	# émulsifiant : lécithines (tournesol)
+	[
+		"fr-emulsifiant-lecithines-tournesol",
+		{
+			lc => "fr",
+			ingredients_text => "émulsifiant : lécithines (tournesol)",
+		}
+	],
+
+	# émulsifiant e471
+	[
+		"fr-emulsifiant-e471-emulsifiant-lecithine-de-soja",
+		{
+			lc => "fr",
+			ingredients_text => "émulsifiant e471, émulsifiant lécithine de soja",
+		}
+	]
+
 );
 
 foreach my $test_ref (@tests) {

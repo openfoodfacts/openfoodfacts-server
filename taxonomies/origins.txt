@@ -78,12 +78,12 @@ synonyms:hu: Délnyugat, Dél Nyugat
 synonyms:hu: Délkelet, Dél Kelet
 synonyms:hu: Kelet-Közép, Kelet Közép
 synonyms:hu: Nyugat-Közép, Nyugat Közép
-synonyms:it: Nordovest, Nord Ovest
-synonyms:it: Nordest, Nord Est
-synonyms:it: Sudovest, Sud Ovest
-synonyms:it: Sudest, Sud Est
-synonyms:it: Centro Est, Est Centrale
-synonyms:it: Centro Ovest, Ovest Centrale
+synonyms:it: Nordovest, Nord Ovest, Nord-Ovest
+synonyms:it: Nordest, Nord Est, Nord-Est
+synonyms:it: Sudovest, Sud Ovest, Sud-Ovest
+synonyms:it: Sudest, Sud Est, Sud-Est
+synonyms:it: Centro Est, Est Centrale, Centro-Est, Centro Orientale
+synonyms:it: Centro Ovest, Ovest Centrale, Centro-Ovest, Centro Occidentale
 synonyms:nl: Noordwest, Noord West
 synonyms:nl: Noordoost, Noord Oost
 synonyms:nl: Zuidwest, Zuid West
@@ -117,54 +117,129 @@ synonyms:tr: Batı Merkezi, Batı Merkez
 
 # Unknown origin: no value has been entered (it's possible that there is one specified on the product but that we don't have the data)
 en: Unknown
+af: Onbekend
 ar: غير معروف
 az: Bilinmir
+be: Невядомы
 bg: Неизвестно
 bn: অজানা
 ca: Desconegut
+cs: Neznámý
 da: Ukendt
 de: Unbekannt
+el: Άγνωστος
 es: Desconocido
+et: Tundmatu
+fa: ناشناخته
+fi: Tuntematon
 fr: Inconnu, inconnue, inconnus, inconnues
+he: לא ידוע
+hi: अज्ञात
+hr: Nepoznato
 hu: Ismeretlen
-it: Sconosciuto
+id: Tidak diketahui
+is: Óþekkt
+it: Sconosciuta, Sconosciuto
 ja: 不明
+ko: 알 수 없음
+lt: Nežinomas
+lv: Nezināms
+mk: Непознат
+ms: Tidak diketahui
 nl: Onbekend
+no: Ukjent
 pl: Nieznany, Nieznane
 pt: Desconhecido
+ro: Necunoscut
 ru: Неизвестно
+sk: Neznámy
+sl: Neznano
+sq: Panjohur
+sr: Непознато
+sv: Okänd
+th: ไม่รู้จัก
 tr: Bilinmiyor
+uk: Невідомо
+ur: نامعلوم
+vi: Không xác định
 zh: 未知
 
 en: Unspecified, not specified, non specified, nonspecified, not available, n/a
+ar: غير محدد, غير مذكور
+az: Müəyyən edilməyib, qeyd olunmayıb
 bg: Неуточнено, не е налично, не е посочено
+bn: অনির্দিষ্ট, উপলব্ধ নয়, উল্লেখ করা হয়নি
 ca: No especificat
+cs: Neurčeno, není k dispozici, není uvedeno
+da: Ikke specificeret, ikke tilgængeligt, ikke angivet
+de: Unspezifiziert, nicht verfügbar, nicht angegeben
+el: Μη καθορισμένο, μη διαθέσιμο, μη υποδειγμένο
 es: No especificado
+et: Täpsustamata, saadaval, määratlemata
+fa: تعیین نشده, در دسترس نیست, مشخص نشده
+fi: Määrittelemätön, ei saatavilla, ei määritelty
 fr: Non indiqué, non indiquée, non indiqués, non indiquées, non spécifié, non spécifiée, non spécifiée, non spécifiées, non précisé, non précisée, non précisés, non précisées
+he: לא מוגדר, לא זמין, לא צוין
+hi: अनिर्दिष्ट, अनुपलब्ध, निर्दिष्ट नहीं
 hu: Nincs megadva, kitöltetlen, nem elérhető
+id: Tidak ditentukan, tidak tersedia, tidak ditentukan
+it: Non specificata, non specificato
+ja: 不特定, 利用できません, 指定されていません
+ko: 지정되지 않음, 사용할 수 없음, 지정되지 않음
 nl: Niet-gespecificeerd
+pl: Nieokreślony, niedostępny, nie podano
 pt: Não especificado
+ru: Не указано, недоступно, не указано
+tr: Belirtilmemiş, mevcut değil, belirtilmemiş
+zh: 未指定，不可用，未指定
 
 # World regions
 
 en: Africa
+af: Afrika
 ar: أفريقيا
 az: Afrika
+be: Афрыка
 bg: Африка
 bn: আফ্রিকা
 ca: Àfrica
+cs: Afrika
 da: Afrika
 de: Afrika
+el: Αφρική
 es: África
+et: Aafrika
+fa: آفریقا
+fi: Afrikka
 fr: Afrique
+he: אפריקה
+hi: अफ्रीका
+hr: Afrika
 hu: Afrika
+id: Afrika
 it: Africa
 ja: アフリカ
+ko: 아프리카
+lt: Afrika
+lv: Āfrika
+mk: Африка
 nl: Afrika
+no: Afrika
 pl: Afryka
 pt: África
+ro: Africa
 ru: Африка
+sk: Afrika
+sl: Afrika
+sq: Afrikë
+sr: Африка
+sv: Afrika
+sw: Afrika
+th: แอฟริกา
 tr: Afrika
+uk: Африка
+ur: افریقہ
+vi: Châu Phi
 zh: 非洲
 
 < en:Africa
@@ -191,21 +266,47 @@ zh: 西非
 en: Latin America
 ar: أمريكا اللاتينية
 az: Latın Amerika
+be: Лацінская Амерыка
 bg: Латинска Америка
 bn: ল্যাটিন আমেরিকা
 ca: Amèrica Llatina
+cs: Latinská Amerika
 da: Latinamerika
 de: Lateinamerika
+el: Λατινική Αμερική
 es: América Latina
+et: Ladina-Ameerika
+fa: آمریکای لاتین
+fi: Latinalainen Amerikka
 fr: Amérique Latine
+he: אמריקה הלטינית
+hi: लैटिन अमेरिका
+hr: Latinska Amerika
 hu: Latin-Amerika
+id: Amerika Latin
 it: America Latina
 ja: ラテンアメリカ
+ko: 라틴 아메리카
+lt: Lotynų Amerika
+lv: Latīņamerika
+mk: Латинска Америка
+ms: Amerika Latin
 nl: Latijns-Amerika
+no: Latin-Amerika
 pl: Ameryka Łacińska
 pt: América Latina
+ro: America Latină
 ru: Латинская Америка
+sk: Latinská Amerika
+sl: Latinska Amerika
+sq: Amerika Latine
+sr: Латинска Америка
+sv: Latinamerika
+th: ละตินอเมริกา
 tr: Latin Amerika
+uk: Латинська Америка
+ur: لاطینی امریکہ
+vi: Mỹ Latinh
 zh: 拉丁美洲
 
 en: Central America
@@ -229,23 +330,44 @@ tr: Orta Amerika
 zh: 中美洲
 
 en: North-America
+af: Noord-Amerika
 ar: أمريكا الشمالية
 az: Şimali Amerika
+be: Паўночная Амерыка
 bg: Северна Америка
 bn: উত্তর আমেরিকা
 ca: Amèrica del Nord
+cs: Severní Amerika
 da: Nordamerika
 de: Nordamerika
+el: Βόρεια Αμερική
 es: América del Norte
+et: Põhja-Ameerika
+fa: آمریکای شمالی
+fi: Pohjois-Amerikka
 fr: Amérique du Nord
+he: צפון אמריקה
+hi: उत्तरी अमेरिका
+hr: Sjeverna Amerika
 hu: Észak-Amerika
+id: Amerika Utara
 it: America del Nord
 ja: 北アメリカ
+ko: 북아메리카
+lt: Šiaurės Amerika
+lv: Ziemeļamerika
 nl: Noord-Amerika
 pl: Ameryka Północna
 pt: América do Norte
+ro: America de Nord
 ru: Северная Америка
+sk: Severná Amerika
+sl: Severna Amerika
+sq: Amerika e Veriut
+sr: Северна Америка
+sv: Nordamerika
 tr: Kuzey Amerika
+uk: Північна Америка
 zh: 北美洲
 
 en: South-America
@@ -269,17 +391,49 @@ tr: Güney Amerika
 zh: 南美洲
 
 en: Asia
+af: Asië
+ar: آسيا
+az: Asiya
+be: Азія
 bg: Азия
+bn: এশিয়া
 ca: Àsia
+cs: Asie
 da: Asien
 de: Asien
+el: Ασία
 es: Asia
+et: Aasia
+fa: آسیا
+fi: Aasia
 fr: Asie
+he: אסיה
+hi: एशिया
+hr: Azija
 hu: Ázsia
+id: Asia
+it: Asia
+ja: アジア
+ko: 아시아
+lt: Azija
+lv: Āzija
 nl: Azië
 pl: Azja
 pt: Ásia
+ro: Asia
+ru: Азия
+sk: Ázia
+sl: Azija
+sq: Azi
+sr: Азија
+sv: Asien
+sw: Asia
+th: เอเชีย
 tr: Asya
+uk: Азія
+ur: ایشیا
+vi: Châu Á
+zh: 亚洲
 
 < en:Japan
 en: Chiba Prefecture
@@ -3855,56 +4009,177 @@ wikidata:en: Q1318603
 en: outside japan
 ja: 外国, 輸入
 
+en: Outside France
+fr: Hors France
+
 en: Europe
 xx: Europa
+af: Europa
+ar: أوروبا
+az: Avropa
+be: Еўропа
 bg: Европа
+bn: ইউরোপ
+ca: Europa
+cs: Evropa
+da: Europa
+de: Europa
+el: Ευρώπη
+eo: Eŭropo
+es: Europa
+et: Euroopa
+fa: اروپا
+fi: Eurooppa
 fr: Europe
+he: אירופה
+hi: यूरोप
+hr: Europa
 hu: Európa
+id: Eropa
+it: Europa
+ja: ヨーロッパ
+ko: 유럽
+lt: Europa
+lv: Eiropa
+mk: Европа
+ms: Eropah
 nl: Europa
+no: Europa
+pl: Europa
+pt: Europa
+ro: Europa
 ru: Европа
+sk: Európa
+sl: Evropa
+sq: Evropa
+sr: Европа
+sv: Europa
+sw: Ulaya
+th: ยุโรป
+tr: Avrupa
 uk: Європа
+ur: یورپ
+vi: Châu Âu
+zh: 欧洲
 
 en: European Union, EU
+af: Europese Unie, EU
+ar: الاتحاد الأوروبي, الاتحاد الأوربي, EU
+az: Avropa İttifaqı, Aİ
+be: Еўрапейскі саюз, ЕС
 bg: Европейски съюз, ЕС
+bn: ইউরোপীয় ইউনিয়ন, ইইউ
 ca: Unió Europea, UE
+cs: Evropská unie, EU
 da: Den Europæiske Union, EU
 de: Europäische Union, EU
 ee: Euroopa Liit, EL
+el: Ευρωπαϊκή Ένωση, ΕΕ
+eo: Eŭropa Unio, EU
 es: Unión Europea, UE
+et: Euroopa Liit, EL
+eu: Europar Batasuna, EB
+fa: اتحادیه اروپا, EU
 fi: Euroopan unioni, EU
 fr: Union Européenne, UE
-hr: u EU
+he: האיחוד האירופי, EU
+hi: यूरोपीय संघ, ईयू
+hr: Europska Unija, EU, u EU
 hu: Európai Unió, EU
+id: Uni Eropa, UE
+it: Unione Europea, EU
+ja: 欧州連合, EU
+ko: 유럽 연합, EU
+lt: Europos Sąjunga, ES
+lv: Eiropas Savienība, ES
+mk: Европска Унија, ЕУ
+ms: Kesatuan Eropah, EU
 nl: Europese Unie, EU
 pl: Unia Europejska, UE, EU
 pt: União Europeia, UE
 ro: Uniunea Europeană, UE
 ru: Европейский союз, ЕС
+sk: Európska únia, EÚ
+sl: Evropska unija, EU
+sq: Bashkimi Evropian, BE
+sr: Европска Унија, ЕУ
 sv: Europeiska unionen, EU
+th: สหภาพยุโรป, EU
+tr: Avrupa Birliği, AB
 uk: Європейський союз, ЄС
+ur: یورپی یونین, EU
+vi: Liên minh Châu Âu, EU
+zh: 欧盟, EU
 
 en: Non European Union, Non EU
 xx: Non European Union, Non EU
+af: Nie-Europese Unie, Nie-EU
+ar: خارج الاتحاد الأوروبي, غير عضو في الاتحاد الأوروبي
+az: Avropa Birliyinə daxil olmayan, AB-dən kənar
+be: Не член Еўрапейскага Саюза, па-за межамі ЕС
 bg: Извън Европейския съюз, Извън ЕС
+bn: ইউরোপীয় ইউনিয়নের বাইরে, ইইউ নয়
 ca: No Unió Europea, No UE
+cs: Ne Evropská unie, mimo EU
 da: Ikke-EU
 de: Nicht-Europäische Union, Nicht-EU
 ee: mitte EL
+el: Εκτός Ευρωπαϊκής Ένωσης, εκτός ΕΕ
+es: No Unión Europea, No UE
+et: Mitte Euroopa Liidu, mitte EL
 fi: ei-EU
-fr: Non Union Européenne, Non UE
+fr: Non Union Européenne, Non UE, Hors Union Européenne
+he: לא חבר באיחוד האירופי, לא באיחוד האירופי
+hi: गैर यूरोपीय संघ, गैर ईयू
 hr: izvan EU
 hu: Nem Európai Unió, Nem-EU, EU-n kívüli, Európai Unión kívüli
+id: Bukan Uni Eropa, Non-UE
+it: Non UE
+ja: 非ヨーロッパ連合, 非EU
+ko: 비 유럽 연합, 비 EU
 nl: Buiten Europese Unie, Non EU, Niet EU Landbouw
 pl: spoza Unii Europejskiej, spoza UE
 pt: Fora da União Europeia
+ru: Не входит в Европейский Союз, не является членом ЕС
+sq: Jo Bashkimi Evropian, Jo BE
+sr: Изван Европске Уније, није чланица ЕУ
+sv: Icke-Europeiska Unionen, Icke-EU
+tr: Avrupa Birliği üyesi olmayan, AB üyesi olmayan
+uk: Не є членом Європейського Союзу, не є членом ЄС
+zh: 非欧盟国家，非欧盟
 
 en: European Union and Non European Union, EU and non EU, EU non EU
+af: Europese Unie en Nie-Europese Unie, EU en nie-EU
+ar: الاتحاد الأوروبي وخارج الاتحاد الأوروبي ، الاتحاد الأوروبي وغير الاتحاد الأوروبي
+az: Avropa Birliyi və Avropa Birliyinə daxil olmayan, AB və AB xaricində
 bg: Европейски съюз и Извън Европейския съюз, ЕС и извън ЕС
 ca: Unió Europea i no Unió Europea, UE i no UE
+cs: Evropská unie a země mimo Evropskou unii, EU a mimo EU
+da: EU og ikke-EU, EU og ikke EU
+de: Europäische Union und Nicht-Europäische Union, EU und Nicht-EU
+el: Ευρωπαϊκή Ένωση και μη Ευρωπαϊκή Ένωση, ΕΕ και μη ΕΕ
+es: Unión Europea y no Unión Europea, UE y no UE
+et: Euroopa Liit ja mitte Euroopa Liit, EL ja mitte EL
+fi: Euroopan unioni ja muu kuin Euroopan unioni, EU ja muu kuin EU
 fr: Union Européenne et Non Union Européenne, UE et non UE, UE non UE
+he: האיחוד האירופי ולא האיחוד האירופי, האיחוד האירופי ולא האיחוד האירופי
 hr: u/izvan EU
 hu: EU és Nem-EU, Európai Unió és nem Európai Unió
+id: Uni Eropa dan Non Uni Eropa, UE dan non UE
+it: UE e non UE, UE non UE
+ja: 欧州連合と非欧州連合、EUと非EU
+ko: 유럽 연합 및 비 유럽 연합, EU 및 비 EU
+nl: Europese Unie en niet-Europese Unie, EU en niet-EU
 pl: Unia Europejska i spoza Unii Europejskiej
+pt: União Europeia e não União Europeia, UE e não UE
+ro: Uniunea Europeană și non-Uniunea Europeană, UE și non-UE
+ru: Европейский союз и не входящие в Европейский союз страны, ЕС и не-ЕС
+sk: Európska únia a krajiny mimo Európskej únie, EÚ a mimo EÚ
+sq: Bashkimi Evropian dhe jo Bashkimi Evropian, BE dhe jo BE
+sv: Europeiska unionen och icke-europeiska unionen, EU och icke-EU
+tr: Avrupa Birliği ve Avrupa Birliği üyesi olmayan ülkeler, AB ve AB üyesi olmayan ülkeler
+uk: Європейський Союз та країни, що не входять до Європейського Союзу, ЄС та не-ЄС
+zh: 欧盟和非欧盟国家，欧盟和非欧盟
 
 # ************************************************************
 
@@ -3937,6 +4212,11 @@ osm_relation:en: 7387
 web:fr: https://www.ain.fr
 wikidata:en: Q3083
 wikipedia:en: https://en.wikipedia.org/wiki/Ain
+
+< en: Ain
+en: Bugey
+xx: Bugey
+wikipedia:en: https://en.wikipedia.org/wiki/Bugey
 
 < en: Auvergne
 < en: Auvergne-Rhône-Alpes
@@ -4057,7 +4337,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Rhône_(department)
 en: Métropole de Lyon
 xx: Métropole de Lyon
 insee:fr: 69M
-osm_realtion:en: 4850450
+osm_relation:en: 4850450
 wikidata:en: Q16665897
 wikipedia:en: https://en.wikipedia.org/wiki/Metropolis_of_Lyon
 
@@ -4104,6 +4384,11 @@ iso:en: FR-21
 web:fr: https://www.cotedor.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Côte-d%27Or
 
+< en: Côte-d'Or
+en: Dijon
+xx: Dijon
+wikipedia:en: https://en.wikipedia.org/wiki/Dijon
+
 < en: Bourgogne-Franche-Comté
 < en: Franche-Comté
 en: Doubs
@@ -4112,6 +4397,11 @@ insee:fr: 70
 iso:en: FR-70
 web:fr: https://www.doubs.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Doubs
+
+< en: Doubs
+en: Montbéliard
+xx: Montbéliard
+wikipedia:en: https://en.wikipedia.org/wiki/Montbéliard
 
 < en: Bourgogne-Franche-Comté
 < en: Franche-Comté
@@ -4125,8 +4415,9 @@ wikipedia:en: https://en.wikipedia.org/wiki/Haute-Saône
 < en: Bourgogne-Franche-Comté
 < en: Bresse
 < en: Franche-Comté
-en: Jura
-xx: Jura
+en: Jura (France))
+xx: Jura (France)
+fr: Jura français
 insee:fr: 39
 iso:en: FR-39
 nuts:en: FR432
@@ -4208,6 +4499,11 @@ nuts:en: FR522
 web:fr: https://www.finistere.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Finistère
 
+< en: Finistère
+en: Roscoff
+xx: Roscoff
+wikipedia:en: https://en.wikipedia.org/wiki/Roscoff
+
 < en: Brittany
 en: Ille-et-Vilaine
 xx: Ille-et-Vilaine
@@ -4216,6 +4512,11 @@ iso:en: FR-35
 nuts:en: FR523
 web:fr: https://www.ille-et-vilaine.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Ille-et-Vilaine
+
+< en: Ille-et-Vilaine
+en: Janzé
+xx: Janzé
+wikipedia:en: https://en.wikipedia.org/wiki/Janzé
 
 < en: Brittany
 en: Morbihan
@@ -4236,6 +4537,16 @@ iso:en: FR-CVL
 nuts:en: FR2
 web:fr: https://www.centre-valdeloire.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Centre-Val_de_Loire
+
+< en: Centre-Val de Loire
+en: Tours
+xx: Tours
+wikipedia:en: https://en.wikipedia.org/wiki/Tours
+
+< en: Centre-Val de Loire
+en: Berry
+xx: Berry
+wikipedia:en: https://en.wikipedia.org/wiki/Berry,_France
 
 < en: Centre-Val de Loire
 en: Cher
@@ -4457,6 +4768,11 @@ iso:en: FR-59
 nuts:en: FR301
 web:fr: https://lenord.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Nord_(French_department)
+
+< en: Nord
+en: Arleux
+xx: Arleux
+wikipedia:fr: https://en.wikipedia.org/wiki/Arleux
 
 < en: Hauts-de-France
 en: Oise
@@ -4718,6 +5034,11 @@ nuts:en: FR614
 web:fr: https://www.lotetgaronne.fr/
 wikipedia:en: https://en.wikipedia.org/wiki/Lot-et-Garonne
 
+< en: Lot-et-Garonne
+en: Agen
+xx: Agen
+wikipedia:en: https://en.wikipedia.org/wiki/Agen
+
 < en: Nouvelle-Aquitaine
 en: Pyrénées-Atlantiques
 xx: Pyrénées-Atlantiques
@@ -4739,6 +5060,10 @@ insee:fr: 79
 iso:en: FR-79
 web:fr: https://www.deux-sevres.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Deux-Sèvres
+
+< en: Deux-Sèvres
+en: Val de Sèvres
+xx: Val de Sèvres
 
 < en: Nouvelle-Aquitaine
 < en: Poitou-Charentes
@@ -4772,6 +5097,18 @@ wikipedia:en: https://en.wikipedia.org/wiki/Gascony
 en: Périgord
 xx: Périgord
 wikipedia:en: https://en.wikipedia.org/wiki/Périgord
+
+< en: Charente
+< en: Charente-Maritime
+< en: Deux-Sèvres
+en: Saintonge
+xx: Saintonge
+wikipedia:en: https://en.wikipedia.org/wiki/County_of_Saintonge
+
+< en: Nouvelle-Aquitaine
+en: Limousin
+xx: Limousin
+wikipedia:en: https://en.wikipedia.org/wiki/Limousin
 
 < en: Nouvelle-Aquitaine
 en: South-western France, South-west of France
@@ -4908,6 +5245,11 @@ iso:en: FR-81
 web:fr: https://www.tarn.fr/
 wikipedia:en: https://en.wikipedia.org/wiki/Tarn_(department)
 
+< en: Tarn
+en: Lautrec
+xx: Lautrec
+wikipedia:en: https://en.wikipedia.org/wiki/Lautrec
+
 < en: Occcitania
 en: Languedoc-Roussillon
 xx: Languedoc-Roussillon
@@ -4918,6 +5260,12 @@ xx: Tarn-et-Garonne
 insee:fr: 82
 iso:en: FR-82
 wikipedia:en: https://en.wikipedia.org/wiki/Tarn-et-Garonne
+
+< en: Gers
+< en: Tarn-et-Garonne
+en: Lomagne
+xx: Lomagne
+wikipedia:fr: https://fr.wikipedia.org/wiki/Lomagne
 
 # ************************************************************
 
@@ -4940,6 +5288,10 @@ iso:en: FR-44
 nuts:en: FR511
 web:fr: https://www.loire-atlantique.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Loire-Atlantique
+
+< en: Loire-Atlantique
+en: Guérande
+xx: Guérande
 
 < en: Pays de la Loire
 en: Maine-et-Loire
@@ -4980,6 +5332,11 @@ insee:fr: 85
 iso:en: FR-85
 web:fr: https://www.vendee.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Vendée
+
+< en: Vendée
+en: Noirmoutier
+xx: Noirmoutier
+wikipedia:fr: https://en.wikipedia.org/wiki/Noirmoutier
 
 < en: Centre-Val de Loire
 < en: Pays de la Loire
@@ -5025,6 +5382,11 @@ nuts:en: FR823
 web:fr: https://www.departement06.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Alpes-Maritimes
 
+< en: Alpes-Maritimes
+en: Nice
+xx: Nice
+wikipedia:en: https://en.wikipedia.org/wiki/Nice
+
 < en: Provence-Alpes-Côte d'Azur
 en: Bouches-du-Rhône
 xx: Bouches-du-Rhône
@@ -5046,7 +5408,7 @@ en: Var
 xx: Var
 insee:fr: 83
 iso:en: FR-83
-# nuts:en: 
+# nuts:en:
 web:fr: https://www.var.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Var_(department)
 
@@ -5055,7 +5417,7 @@ en: Vaucluse
 xx: Vaucluse
 insee:fr: 84
 iso:en: FR-84
-# nuts:en: 
+# nuts:en:
 web:fr: https://www.vaucluse.fr
 wikipedia:en: https://en.wikipedia.org/wiki/Vaucluse
 
@@ -5064,6 +5426,7 @@ en: Provence
 bg: Прованс
 fr: Provence
 hu: Provance
+it: Provenza
 pl: Prowansja
 wikipedia:en: https://en.wikipedia.org/wiki/Provence
 
@@ -5117,11 +5480,21 @@ xx: Rhône-Alpes
 
 # ******************** Historic/popular regions in France *********************
 
+< en: Auvergne-Rhône-Alpes
+< en: Bourgogne-Franche-Comté
+en: Beaujolais
+xx: Beaujolais
+wikipedia:fr: https://fr.wikipedia.org/wiki/Beaujolais
+
 < en: France
 en: Bresse
 xx: Bresse
 wikipedia:fr: https://fr.wikipedia.org/wiki/Bresse
 
+< en: France
+en: Center-East France
+xx: Center-East France
+fr: Centre-Est de France
 
 < en: Ardèche
 < en: Gard
@@ -5131,66 +5504,149 @@ en: Cévennes
 xx: Cévennes
 wikipedia:en: https://en.wikipedia.org/wiki/Cévennes
 
-# still to digest
+< en: France
+en: Champagne
+xx: Champagne
+wikipedia:en: https://en.wikipedia.org/wiki/Champagne_(province)
 
 < en: France
 en: Gatinais
 xx: Gatinais
 wikipedia:fr: https://fr.wikipedia.org/wiki/Gâtinais
 
-fr: Pays-Basque
-
-
-< en: France
-en: Champagne
-xx: Champagne
-wikipedia:en: https://en.wikipedia.org/wiki/Champagne_(province)
-
-< en:France
-fr: Beaujolais
-
-
-< en: France
-en: Guérande
-fr: Guérande
-
-< en: France
-en: Île de France
-fr: Île de France
-
 < en: France
 en: Languedoc
+xx: Languedoc
+wikipedia:fr: https://fr.wikipedia.org/wiki/Languedoc
 
 < en: France
-fr: Maine
+< en: Spain
+fr: Pays-Basque
 
-
-< en: France
-fr: Limousin
-xx: Limousin
+# still to digest
 
 < en: France
-fr: Val de Sèvres
-
-< en: France
-fr: Jura français
+fr: Maine-France
 
 < en: France
 fr: Pays-Basque
 
-# Disabling as parent because it can skew the Eco-Score
-#<en:France
-en: Guadeloupe
-fr: Guadeloupe
+# Disabling France as parent because it can skew the Eco-Score
+en: France overseas
 
+< en: Central America
+< en: France overseas
+en: Guadeloupe
+xx: Guadeloupe
+
+< en: Africa
+< en: France overseas
 en: Réunion Island
+xx: Réunion Island
 fr: Île de la Réunion
 
-en: Antilles
-fr: Antilles
+< en: France overseas
+< en: South America
+en: French Guyana
+xx: French Guyana
 
-# Canada regions
-fr: Québec
+< en: Central America
+< en: France overseas
+en: French Antilles
+xx: French Antilles
+fr: Antilles françaises
+
+
+# Canada provinces/territories
+
+< en:canada
+en: Alberta
+xx: Alberta
+iso:en: CA-AB
+wikipedia:en: https://en.wikipedia.org/wiki/Alberta
+
+< en:canada
+en: British Columbia
+xx: British Columbia
+iso:en: CA-BC
+wikipedia:en: https://en.wikipedia.org/wiki/British_Columbia
+
+< en:canada
+en: Manitoba
+xx: Manitoba
+iso:en: CA-MB
+wikipedia:en: https://en.wikipedia.org/wiki/Manitoba
+
+< en:canada
+en: New Brunswick
+xx: New Brunswick
+iso:en: CA-NB
+wikipedia:en: https://en.wikipedia.org/wiki/New_Brunswick
+
+< en:canada
+en: Newfoundland and Labrador
+xx: Newfoundland and Labrador
+iso:en: CA-NL
+wikipedia:en: https://en.wikipedia.org/wiki/Newfoundland_and_Labrador
+
+< en:canada
+en: Northwest Territories
+xx: Northwest Territories
+iso:en: CA-NT
+wikipedia:en: https://en.wikipedia.org/wiki/Northwest_Territories
+
+< en:canada
+en: Nova Scotia
+xx: Nova Scotia
+iso:en: CA-NS
+wikipedia:en: https://en.wikipedia.org/wiki/Nova_Scotia
+
+< en:canada
+en: Nunavut
+xx: Nunavut
+iso:en: CA-NU
+wikipedia:en: https://en.wikipedia.org/wiki/Nunavut
+
+< en:canada
+en: Ontario
+xx: Ontario
+iso:en: CA-ON
+wikipedia:en: https://en.wikipedia.org/wiki/Ontario
+
+< en:ontario
+en: Toronto
+xx: Toronto
+wikipedia:en: https://en.wikipedia.org/wiki/Toronto
+
+< en:canada
+en: Prince Edward Island
+xx: Prince Edward Island
+iso:en: CA-PE
+wikipedia:en: https://en.wikipedia.org/wiki/Prince_Edward_Island
+
+< en:canada
+en: Québec
+xx: Québec
+iso:en: CA-QC
+wikipedia:en: https://en.wikipedia.org/wiki/Quebec
+
+< en:quebec
+en: Montreal
+xx: Montreal
+web:en: https://montreal.ca/en/
+wikipedia:en: https://en.wikipedia.org/wiki/Montreal
+
+< en:canada
+en: Saskatchewan
+xx: Saskatchewan
+iso:en: CA-SK
+wikipedia:en: wikipedia:en: https://en.wikipedia.org/wiki/Saskatchewan
+
+< en:canada
+en: Yukon
+xx: Yukon
+iso:en: CA-YT
+wikipedia:en: https://en.wikipedia.org/wiki/Yukon
 
 # Germany regions
 
@@ -5307,10 +5763,30 @@ bg: Сицилия
 fr: Sicile
 hu: Szicília
 nl: Sicilië
-pl: SycyliaF
+pl: Sycylia
 tr: Sicilya
 
-############################### Netherlands 
+< en:italy
+en: Calabria
+xx: Calabria
+
+< en:italy
+en: Apulia
+xx: Puglia
+
+< en:italy
+en: Lazio
+xx: Lazio
+
+< en:lazio
+en: Rome
+xx: Roma
+
+< en:italy
+en: Tuscany
+xx: Toscana
+
+############################### Netherlands
 
 < en: Netherlands
 en: North Holland
@@ -5341,7 +5817,41 @@ postal_code:en: 6431
 wikidata:en: Q783094
 wikipedia:en: https://en.wikipedia.org/wiki/Hoensbroek
 
-############################### Spanish regions
+############################### Spanish provinces
+
+< en:spain
+en: Alicante
+xx: Alicante
+wikipedia:en: https://en.wikipedia.org/wiki/Province_of_Alicante
+
+< en:spain
+en: Balearic Islands
+ca: Illes Balears
+es: Islas Baleares
+wikipedia:en: https://en.wikipedia.org/wiki/Balearic_Islands
+
+< en: Balearic Islands
+en: Ibiza
+xx: Ibiza
+ca: Eivissa
+wikipedia:en: https://en.wikipedia.org/wiki/Ibiza
+
+< en: Balearic Islands
+en: Mallorca
+xx: Mallorca
+wikipedia:en: https://en.wikipedia.org/wiki/Mallorca
+
+< en:spain
+es: Murcia
+xx: Murcia
+
+< en:spain
+es: Navarra
+xx: Navarra
+fr: Navarre
+pl: Nawarra
+
+#### popular regions
 
 < en:spain
 en: Andalusia
@@ -5349,11 +5859,15 @@ bg: Андалусия
 es: Andalucía
 fr: Andalousie
 hu: Andalúzia
+it: Andalusia
 nl: Andalusië
 
 < en:spain
 en: Castilla-La Mancha
-es: Castilla-La Mancha
+xx: Castilla-La Mancha
+
+< en:spain
+en: Catalunya
 
 < en:spain
 en: Galicia
@@ -5363,11 +5877,18 @@ es: Galicia
 en: Castile and León
 es: Castilla y León
 
-< en:spain
-en: Navarra
-es: Navarra
-fr: Navarre
-pl: Nawarra
+
+
+# Sweden origins
+
+< en:sweden
+xx: Tibro
+en: Tibro
+sv: Tibro
+wikidata:en: Q1017565
+wikipedia:sv: https://sv.wikipedia.org/wiki/Tibro
+
+
 
 # UK origins
 
@@ -5382,6 +5903,7 @@ pl: Wielka Brytania
 en: England
 bg: Англия
 fr: Angleterre
+it: Inghilterra
 nl: Engeland
 pl: Anglia
 
@@ -5389,8 +5911,19 @@ pl: Anglia
 en: Scotland
 bg: Шотландия
 fr: Écosse
+it: Scozia
 nl: Schotland
 pl: Szkocja
+
+< en: Scotland
+en: Angus
+xx: Angus
+wikipedia:en: https://en.wikipedia.org/wiki/Angus,_Scotland
+
+< en: Angus
+en: Arbroath
+xx: Arbroath
+wikipedia:en: https://en.wikipedia.org/wiki/Arbroath
 
 < en:great-britain
 en: Wales
@@ -5410,7 +5943,151 @@ bg: Северна Ирландия
 fr: Irlande du Nord
 nl: Noord-Ierland
 
+# China states
+
+< en: China
+en: Jiangsu
+xx: Jiangsu
+zh: 江苏省
+wikipedia: https://en.wikipedia.org/wiki/Jiangsu
+
+< en: Jiangsu
+en: Yancheng
+xx: Yancheng
+zh: 盐城
+wikipedia:en: https://en.wikipedia.org/wiki/Yancheng
+
 # US states
+
+< en:united-states
+en: Alabama, US-AL
+af: Alabama
+am: አላባማ
+an: Alabama
+ar: ألاباما
+ay: Alabama suyu
+az: Alabama
+ba: Алабама
+be: Алабама
+bg: Алабама
+bh: अलबामा
+bi: Alabama
+bn: অ্যালাবামা
+bo: ཨ་ལ་པ་མ།
+br: Alabama
+bs: Alabama
+ca: Alabama
+ce: Алабама
+co: Alabama
+cs: Alabama
+cv: Алабама
+cy: Alabama
+da: Alabama
+de: Alabama
+el: Αλαμπάμα
+eo: Alabamo
+es: Alabama
+et: Alabama
+eu: Alabama
+fa: آلاباما
+fi: Alabama
+fo: Alabama
+fr: Alabama
+fy: Alabama
+ga: Alabama
+gd: Alabama
+gl: Alabama
+gn: Alaváma
+gu: અલાબામા
+gv: Alabama
+ha: Alabama
+he: אלבמה
+hi: अलबामा
+hr: Alabama
+ht: Alabama
+hu: Alabama
+hy: Ալաբամա
+ia: Alabama
+id: Alabama
+ie: Alabama
+ig: Alabama
+ik: Alapaama
+io: Alabama
+is: Alabama
+it: Alabama
+iu: ᐋᓛᐹᒫ
+ja: アラバマ州
+jv: Alabama
+ka: ალაბამა
+kk: Алабама
+kn: ಅಲಬಾಮ
+ko: 앨라배마주
+ku: Alabama
+kw: Alabama
+ky: Алабама
+la: Alabama
+lb: Alabama
+li: Alabama
+lt: Alabama
+lv: Alabama
+mg: Alabama
+mi: Arapama
+mk: Алабама
+ml: അലബാമ
+mn: Алабама
+mr: अलाबामा
+ms: Alabama
+my: အလာဘားမားပြည်နယ်
+ne: अलाबामा
+nl: Alabama
+nn: Alabama
+no: Alabama
+nv: Łeezh Łichxíiʼii Hahoodzo
+oc: Alabama
+os: Алабамæ
+pa: ਅਲਾਬਾਮਾ
+pi: अलाबामा
+pl: Alabama
+ps: آلاباما
+pt: Alabama
+qu: Alabama suyu
+rm: Alabama
+ro: Alabama
+ru: Алабама
+sa: अलाबामा
+sc: Alabama
+sd: الاباما
+se: Alabama
+sh: Alabama
+si: ඇලබාමා
+sk: Alabama
+sl: Alabama
+sm: Alapama
+so: Alabama
+sq: Alabama
+sr: Алабама
+sv: Alabama
+sw: Alabama
+ta: அலபாமா
+te: అలబామా
+tg: Алабама
+th: รัฐแอละแบมา
+tk: Alabama
+tl: Alabama
+to: ʻAlapama
+tr: Alabama
+tt: Алабама
+ug: Alabama Shitati
+uk: Алабама
+ur: الاباما
+uz: Alabama
+vi: Alabama
+vo: Alabama
+xh: I-Alabhama
+yi: אלאבאמא
+yo: Ìpínlẹ̀ Alabama
+za: Alabama
+zh: 亚拉巴马州
 
 < en:united-states
 en: California
@@ -5432,10 +6109,387 @@ hu: Florida
 nl: Florida
 pl: Floryda
 
+< en:united-states
+en: Georgia state, Georgia USA, Georgia in the usa, Georgia in the united states, US-GA
+
+< en:united-states
+en: Louisiana, US-LA
+af: Louisiana
+am: ሉዊዚያና
+an: Loisiana
+ar: لويزيانا
+ay: Louisiana suyu
+az: Luiziana
+be: Луізіяна
+bg: Луизиана
+bh: लुइसियाना
+bi: Louisiana
+bn: লুইজিয়ানা
+bo: ལུའི་ཟི་ཨཱན་ནཱ།
+br: Louiziana
+bs: Louisiana
+ca: Louisiana
+ce: Луизиана
+co: Luisiana
+cs: Louisiana
+cv: Луизиана
+cy: Louisiana
+da: Louisiana
+de: Louisiana
+el: Λουιζιάνα
+eo: Luiziano
+es: Luisiana
+et: Louisiana
+eu: Louisiana
+fa: لوئیزیانا
+fi: Louisiana
+fo: Louisiana
+fr: Louisiane
+fy: Louisiana
+ga: Louisiana
+gd: Louisiana
+gl: Luisiana
+gn: Luisiana
+gu: લ્યુઇસિયાના
+gv: Louisiana
+ha: Louisiana
+he: לואיזיאנה
+hi: लुईज़ियाना
+hr: Louisiana
+ht: Lwizyàn
+hu: Louisiana
+hy: Լուիզիանա
+ia: Louisiana
+id: Louisiana
+ie: Louisiana
+ig: Luwisiánà
+ik: Luisiana
+io: Louisiana
+is: Louisiana
+it: Louisiana
+iu: ᓗᐄᓰᐋᓈ
+ja: ルイジアナ州
+jv: Louisiana
+ka: ლუიზიანა
+kk: Луизиана
+kn: ಲೂಯಿಸಿಯಾನ
+ko: 루이지애나주
+ks: لوزیانا
+ku: Louisiana
+kw: Louisiana
+ky: Луизиана
+la: Ludoviciana
+lb: Louisiana
+li: Louisiana
+lt: Luiziana
+lv: Luiziāna
+mg: Louisiana
+mi: Rōeihīana
+mk: Луизијана
+ml: ലുയീസിയാന
+mn: Луизиана
+mr: लुईझियाना
+ms: Louisiana
+my: လူဝီစီယားနားပြည်နယ်
+ne: लुइजियाना
+nl: Louisiana
+nn: Louisiana
+no: Louisiana
+nv: Tónteel Biihílį́ Hahoodzo
+oc: Loïsiana
+os: Луизианæ
+pa: ਲੂਈਜ਼ੀਆਨਾ
+pi: लुइजियाना
+pl: Luizjana
+ps: لویزیانا
+pt: Luisiana
+qu: Louisiana suyu
+rm: Louisiana
+ro: Louisiana
+ru: Луизиана
+sa: लुईजियाना
+sc: Louisiana
+sd: لوئزيانا
+se: Louisiana
+sh: Louisiana
+sk: Louisiana
+sl: Louisiana
+sq: Luiziana
+sr: Луизијана
+sv: Louisiana
+sw: Louisiana
+ta: லூசியானா
+tg: Луизиана
+th: รัฐลุยเซียนา
+tl: Louisiana
+tr: Louisiana
+tt: Луизиана
+ug: Loyizanna Shitati
+uk: Луїзіана
+ur: لوویزیانا
+uz: Luiziana
+vi: Louisiana
+vo: Louisiana
+wa: Louwiziane
+xh: ILuwiziyana
+yi: לואיזיאנא
+yo: Louisiana
+zh: 路易斯安那州
+
+< en:united-states
+en: Mississipi, US-MS
+af: Mississippi
+am: ሚሲሲፒ
+an: Mississippi
+ar: مسيسيبي
+ay: Mississippi suyu
+az: Missisipi ştatı
+ba: Миссисипи
+be: Місісіпі
+bg: Мисисипи
+bh: मिसिसिपी
+bi: Mississippi
+bn: মিসিসিপি
+bo: མི་སི་སི་ཕི།
+br: Mississippi
+bs: Mississippi
+ca: Mississipi
+ce: Миссисипи
+co: Mississippi
+cs: Mississippi
+cv: Миссисипи
+cy: Mississippi
+da: Mississippi
+de: Mississippi
+el: Μισισίπι
+eo: Misisipio
+es: Misisipi
+et: Mississippi osariik
+eu: Mississippi
+fi: Mississippi
+fo: Mississippi
+fr: Mississippi
+fy: Mississippy
+ga: Mississippi
+gd: Mississippi
+gl: Mississippi
+gn: Misisípi
+gv: Mississippi
+ha: Mississippi
+he: מיסיסיפי
+hi: मिसिसिप्पी
+hr: Mississippi
+ht: Misisipi
+hu: Mississippi
+hy: Միսսիսիպի
+ia: Mississippi
+id: Mississippi
+ie: Mississippi
+ig: Mississippi
+ik: Misisipi
+io: Mississippi
+is: Mississippi
+it: Mississippi
+iu: ᒦᓰᓰᐲ
+ja: ミシシッピ州
+jv: Mississippi
+ka: მისისიპის შტატი
+kk: Миссисипи
+ko: 미시시피주
+ku: Mîsîsîpî
+kw: Mississippi
+ky: Миссисипи
+la: Mississippia
+lb: Mississippi
+li: Mississippi
+lt: Misisipė
+lv: Misisipi
+mg: Mississippi
+mi: Mihihipi
+mk: Мисисипи
+ml: മിസിസിപ്പി
+mn: Миссисипи
+mr: मिसिसिपी
+ms: Mississippi
+my: မစ္စစ္စပီပြည်နယ်
+ne: मिसिसिपी
+nl: Mississippi
+nn: Mississippi
+no: Mississippi
+nv: Diichiłító Hahoodzo
+oc: Mississipí
+os: Миссисипи
+pa: ਮਿਸੀਸਿੱਪੀ
+pi: मिसिसिप्पी
+pl: Missisipi
+ps: میسیسیپی
+pt: Mississippi
+qu: Mississippi suyu
+rm: Mississippi
+ro: Mississippi
+ru: Миссисипи
+sa: मिसिसिपी
+sc: Mississippi
+sd: مسيسيپي
+se: Mississippi
+sh: Mississippi
+sk: Mississippi
+sl: Misisipi
+sm: Misisipi
+so: Mississippi
+sq: Mississippi
+sr: Мисисипи
+sv: Mississippi
+sw: Mississippi
+ta: மிசிசிப்பி
+tg: Миссисипӣ
+th: รัฐมิสซิสซิปปี
+tk: Missisipi
+tl: Mississippi
+tr: Mississippi
+tt: Миссисипи
+ug: Misisipi Shitati
+uk: Міссісіпі
+ur: مسیسپی
+uz: Mississippi
+vi: Mississippi
+vo: Mississippi
+xh: IMisisiphi
+yi: מיסיסיפי
+yo: Ìpínlẹ̀ Mississippi
+zh: 密西西比州
+
 < en:United States
-en: South Carolina
+en: South Carolina, US-SC
 bg: Южна Каролина
 fr: Caroline du Sud
+
+< en:united-states
+en: Texas, US-TX
+af: Texas
+am: ቴክሳስ
+an: Texas
+ar: تكساس
+ay: Texas suyu
+az: Texas
+ba: Техас
+be: Тэхас
+bg: Тексас
+bh: टेक्सास
+bi: Texas
+bn: টেক্সাস
+bo: ཋེག་ཟ་སི།
+br: Texas
+bs: Teksas
+ca: Texas
+ce: Техас
+co: Texas
+cs: Texas
+cu: Тєѯасъ
+cv: Техас
+cy: Texas
+da: Texas
+de: Texas
+el: Τέξας
+eo: Teksaso
+es: Texas
+et: Texas
+eu: Texas
+fa: تگزاس
+fi: Texas
+fo: Texas
+fr: Texas
+fy: Teksas
+ga: Texas
+gd: Texas
+gl: Texas
+gn: Tehás
+gu: ટેક્સસ
+gv: Texas
+ha: Texas
+he: טקסס
+hi: टेक्सस
+hr: Teksas
+ht: Teksas
+hu: Texas
+hy: Տեխաս
+ia: Texas
+id: Texas
+ie: Texas
+ig: Texas
+ik: Texas
+io: Texas
+is: Texas
+it: Texas
+iu: ᑖᒃᓵᔅ
+ja: テキサス州
+jv: Texas
+ka: ტეხასი
+kk: Техас
+kn: ಟೆಕ್ಸಸ್
+ko: 텍사스주
+ku: Teksas
+kw: Teksas
+la: Texia
+lb: Texas
+li: Texas
+lo: ເທັກຊາສ
+lt: Teksasas
+lv: Teksasa
+mg: Texas
+mi: Tēkiki
+mk: Тексас
+ml: ടെക്സസ്
+mn: Техас
+mr: टेक्सास
+ms: Texas
+my: တက္ကဆပ်ပြည်နယ်
+ne: टेक्सस
+nl: Texas
+nn: Texas
+no: Texas
+nv: Akałii Bikéyah
+oc: Tèxas
+os: Техас
+pa: ਟੈਕਸਸ
+pi: टेक्सास
+pl: Teksas
+ps: تکزاس
+pt: Texas
+qu: Texas suyu
+rm: Texas
+ro: Texas
+ru: Техас
+sa: टेक्सास्
+sc: Texas
+sd: ٽيڪساس
+se: Texas
+sh: Texas
+sk: Texas
+sl: Teksas
+so: Texas
+sq: Teksasi
+sr: Тексас
+sv: Texas
+sw: Texas
+ta: டெக்சஸ்
+te: టెక్సస్
+tg: Техас
+th: รัฐเท็กซัส
+tk: Tehas
+tl: Texas
+tr: Teksas
+tt: Техас
+ug: Téksas Shitati
+uk: Техас
+ur: ٹیکساس
+uz: Texas
+vi: Texas
+vo: Täxasän
+yi: טעקסאס
+yo: Texas
+zh: 德克萨斯州
+zu: Texas
 
 # State of Palestine
 
@@ -5443,9 +6497,61 @@ fr: Caroline du Sud
 en: Gaza Strip
 bg: Ивица Газа
 fr: Bande de Gaza
+it: Striscia di Gaza
 nl: Gazastrook
 
 # Marine zones
+en: International waters, IW
+ar: مياه دولية
+az: Neytral sular
+be: Адкрытае мора
+bg: Открито море
+bn: আন্তর্জাতিক জলভাগ
+br: Dourioù etrebroadel
+ca: Alta mar
+cs: Mezinárodní vody
+da: Internationalt farvand
+de: Internationale Gewässer
+el: Ανοικτή θάλασσα
+eo: Internacia maro
+es: Alta mar
+et: Rahvusvahelised veed
+eu: Itsas zabal
+fi: Kansainväliset vedet
+fr: Haute mer, eaux internationales
+he: מים בין-לאומיים
+hi: अंतर्राष्ट्रीय जलक्षेत्र
+hr: Otvoreno more
+hy: Բաց ծով
+id: Perairan internasional
+io: Internacion aqui
+it: Acque internazionali
+ja: 公海
+ka: საერთაშორისო წყლები
+ko: 공해 (바다)
+ky: Ачык деңиз
+lt: Atviroji jūra
+mk: Меѓународни води
+ml: അന്താരാഷ്ട്ര സമുദ്രവിഭജനം
+ms: Perairan antarabangsa
+nl: Internationale wateren
+nn: Internasjonalt farvatn
+no: Internasjonalt farvann
+pl: Morze otwarte
+ps: نړیوالې اوبه
+pt: Alto-mar
+ro: Ape internaționale
+ru: Открытое море
+sh: Otvoreno more
+sq: Ujërat ndërkombëtare
+sv: Internationellt vatten
+tg: Баҳри кушод
+tl: Pandaigdigang katubigan
+tr: Uluslararası sular
+uk: Міжнародні води
+uz: Ochiq dengiz
+vi: Hải phận quốc tế
+zh: 公海
 
 en: FAO fishing areas, FAO major fishing areas, FAO inland waters
 sv:FAO:s Fiskeregioner
@@ -5508,41 +6614,138 @@ xx: FAO 8, FAO 08
 
 en: Arctic sea
 xx: FAO 18
+ar: بحر القطب الشمالي
+az: Arktik dənizi
+bg: Арктически океан
+ca: Mar Àrtic
+cs: Severní ledový oceán, Arktický oceán
+da: Arktiske Ocean
+de: Arktisches Meer, Arktischer Ozean
+el: Αρκτικός Ωκεανός
+eo: Arkta maro
+es: Océano Ártico, Mar Ártico
+et: Arktika meri
+fa: دریای قطب شمال
+fi: Jäämeri, Pohjoinen jäämeri
+fr: Océan Arctique, Mer Arctique
+he: האוקיינוס הארקטי
+hi: आर्कटिक सागर
+hr: Arktičko more, Arktički ocean
+hu: Jeges-tenger, Északi-sarkvidéki tenger
+id: Laut Arktik
+it: Mar Glaciale Artico, Oceano Artico
+ja: 北極海
+ko: 북극해
+lt: Arkties vandenynas
+lv: Ziemeļu Ledus okeāns
+nl: Noordelijke IJszee, Arctische Zee
+pl: Ocean Arktyczny, Morze Arktyczne
+pt: Oceano Ártico, Mar Ártico
+ro: Oceanul Arctic
+ru: Северный Ледовитый океан
+sk: Severný ľadový oceán
+sl: Arktično morje, Severno ledeno morje
+sq: Oqeani Arktik
+sr: Северно ледено море, Арктички океан
+sv: Arktiska oceanen, Norra ishavet
+th: มหาสมุทรอาร์กติก
+tr: Arktik Denizi, Kuzey Buz Denizi
+uk: Північний Льодовитий океан
+ur: بحر منجمد شمالی
+vi: Bắc Băng Dương
+zh: 北冰洋
 wikidata:en: Q788
 
 en: Atlantic Ocean, Atlantic
+af: Atlantiese Oseaan
+ar: المحيط الأطلسي
+az: Atlantik okeanı
 bg: Атлантически океан
+ca: Oceà Atlàntic
 cs: Atlantský oceán, Atlantik
+da: Atlantiske Ocean
 de: Atlantischer Ozean, Atlantik
+el: Ατλαντικός Ωκεανός
+eo: Atlantika Oceano
 es: Océano Atlántico, Atlántico
+et: Atlandi ookean
+fa: اقیانوس اطلس
 fi: Atlantin valtameri, Atlantti
 fr: Océan Atlantique, Atlantique
+he: האוקיינוס האטלנטי
+hi: अटलांटिक महासागर
 hr: Atlantski ocean, Atlantik
 hu: Atlanti-óceán
+id: Samudra Atlantik
 it: Oceano Atlantico, Atlantico
+ja: 大西洋
+ko: 대서양
 lt: Atlanto vandenynas, Atlantas
 lv: Atlantijas okeāns, Atlantiskais okeāns
+mk: Атлантски Океан
+ms: Lautan Atlantik
 nl: Atlantische Oceaan
+no: Atlanterhavet
 pl: Ocean Atlantycki, Atlantyk
 pt: Oceano Atlântico, Atlântico
 ro: Oceanul Atlantic, Atlantic
+ru: Атлантический океан
 sk: Atlantický oceán, Atlantik
 sl: Atlantski ocean, Atlantik
+sq: Oqeani Atlantik
+sr: Атлантски океан
 sv: Atlanten, Atlantiska oceanen
+th: มหาสมุทรแอตแลนติก
+tr: Atlantik Okyanusu
+uk: Атлантичний океан
+ur: بحر اوقیانوس
+vi: Đại Tây Dương
+zh: 大西洋
 wikidata:en: Q97
 
 < en:Atlantic Ocean
 en: North Atlantic Ocean
+af: Noord-Atlantiese Oseaan
+ar: شمال المحيط الأطلسي
+az: Şimali Atlantik Okeanı
 bg: Северен Атлантически океан
+ca: Oceà Atlàntic Nord
 cs: Severní Atlantský oceán
 da: Nordatlanten
 de: Nordatlantik
 el: Βόρειος Ατλαντικός Ωκεανός
 es: Océano Atlántico Norte
 et: Põhja-Atlandi ookean
+fa: اقیانوس اطلس شمالی
+fi: Pohjoinen Atlantin valtameri
 fr: Océan Atlantique Nord
+he: צפון האוקיינוס האטלנטי
+hi: उत्तरी अटलांटिक महासागर
 hr: Sjeverni Atlantski ocean
+hu: Észak-Atlanti-óceán
+id: Samudra Atlantik Utara
+it: Oceano Atlantico settentrionale
+ja: 北大西洋
+ko: 북대서양
+lt: Šiaurės Atlanto vandenynas
+lv: Ziemeļu Atlantijas okeāns
 nl: Noord-Atlantische Oceaan
+no: Nord-Atlanteren
+pl: Ocean Atlantycki Północny
+pt: Oceano Atlântico Norte
+ro: Oceanul Atlantic de Nord
+ru: Северный Атлантический океан
+sk: Severný Atlantický oceán
+sl: Severnoatlantski ocean
+sq: Oqeani Atlantik Verior
+sr: Северни Атлантски океан
+sv: Nordatlanten
+th: มหาสมุทรแอตแลนติกเหนือ
+tr: Kuzey Atlantik Okyanusu
+uk: Північна Атлантика
+ur: شمالی بحر اوقیانوس
+vi: Bắc Đại Tây Dương
+zh: 北大西洋
 wikidata:en: Q350134
 
 < en:Atlantic Ocean
@@ -5573,7 +6776,37 @@ wikidata:en: Q1482804
 < en:Atlantic Ocean
 en: Northwest Atlantic Ocean
 xx: FAO 21
+ar: شمال غرب المحيط الأطلسي
+az: Şimal-Qərb Atlantik Okeanı
+bg: Северозападен Атлантически океан
+ca: Oceà Atlàntic del Nord-oest
+cs: Severozápadní Atlantický oceán
+da: Nordvestlige Atlanterhav
+de: Nordwestatlantik
+el: Βορειοδυτικός Ατλαντικός Ωκεανός
+es: Océano Atlántico Noroeste
+et: Loode-Atlandi ookean
+fi: Luoteis-Atlantin valtameri
 fr: Océan Atlantique Nord-Ouest, Atlantique Nord-Ouest
+hi: उत्तर पश्चिमी अटलांटिक महासागर
+hr: Sjeverozapadni Atlantski ocean
+hu: Északnyugati Atlanti-óceán
+it: Oceano Atlantico nord-occidentale
+ja: 北西大西洋
+ko: 북서 대서양
+lt: Šiaurės Vakarų Atlanto vandenynas
+nl: Noordwestelijke Atlantische Oceaan
+pl: Północno-Zachodni Ocean Atlantycki
+pt: Noroeste do Oceano Atlântico
+ro: Oceanul Atlantic de Nord-Vest
+ru: Северо-Западная Атлантика
+sk: Severozápadný Atlantický oceán
+sl: Severozahodni Atlantski ocean
+sq: Oqeani Atlantik Veri-Perëndimor
+sv: Nordvästra Atlanten
+tr: Kuzeybatı Atlantik Okyanusu
+uk: Північно-Західна Атлантика
+zh: 西北 大西洋
 
 < en:Atlantic Ocean
 en: North-East Atlantic Ocean, North-East Atlantic, Northeast Atlantic
@@ -5586,7 +6819,7 @@ el: Βορειο-ανατολικος Ατλαντικος
 es: Atlántico Nororiental
 et: Atlandi Ookeani Kirdeosa
 fi: Koillis-atlanti
-fr: Océan Atlantique Nord-Est, Atlantique Nord-Est, FAO 27, FAO N°27, zone FAO 27, Atlantique Du Nord-est
+fr: Océan Atlantique Nord-Est, Atlantique Nord-Est, FAO 27, FAO N°27, zone FAO 27, Atlantique Du Nord-est, Atlantique Nord Est, Océan Atlantique Nord Est
 hr: Sjeveroistočni Atlantik
 hu: Atlanti-óceán Északkeleti Része
 it: Atlantico Nord-orientale
@@ -5970,13 +7203,51 @@ en: Antartic Atlantic Ocean
 xx: FAO 48
 
 en: Indian Ocean
+af: Indiese Oseaan
+ar: المحيط الهندي
+az: Hind okeanı
 bg: Индийски океан
+ca: Oceà Índic
+cs: Indický oceán
+da: Indiske Ocean
 de: Indischer Ozean
-es: Océano Indio, Océano Índico
+el: Ινδικός Ωκεανός
+eo: Hinda Oceano
+es: Océano Índico, Océano Indio
+et: India ookean
+fa: اقیانوس هند
+fi: Intian valtameri
 fr: Océan Indien
+he: האוקיינוס ההודי
+hi: हिंद महासागर
+hr: Indijski ocean
 hu: Indiai-óceán
+id: Samudra Hindia
+it: Oceano Indiano
+ja: インド洋
+ko: 인도양
+lt: Indijos vandenynas
+lv: Indijas okeāns
+mk: Индиски Океан
+ms: Lautan Hindi
 nl: Indische Oceaan
+no: Indiahavet
 pl: Ocean Indyjski
+pt: Oceano Índico
+ro: Oceanul Indian
+ru: Индийский океан
+sk: Indický oceán
+sl: Indijski ocean
+sq: Oqeani Indian
+sr: Индијски океан
+sv: Indiska oceanen
+sw: Bahari Hindi
+th: มหาสมุทรอินเดีย
+tr: Hint Okyanusu
+uk: Індійський океан
+ur: بحرِ ہند
+vi: Ấn Độ Dương
+zh: 印度洋
 wikidata:en: Q1239
 
 < en:Indian Ocean
@@ -6034,38 +7305,87 @@ tr: Antarktika ve Güney Hint Okyanusu
 uk: Антарктика і Південний Індійський океан
 
 en: Pacific Ocean
+af: Stille Oseaan
+ar: المحيط الهادئ
+az: Sakit okean
 bg: Тихи океан
 ca: Oceà Pacífic
+cs: Tichý oceán
+da: Stillehavet
 de: Pazifischer Ozean, Pazifische Ozean
+el: Ειρηνικός Ωκεανός
 es: Océano Pacífico
+et: Vaikne ookean
+fa: اقیانوس آرام
+fi: Tyynimeri
 fr: Océan Pacifique, Pacifique
+he: האוקיינוס השקט
+hi: प्रशांत महासागर
+hr: Tihi ocean
 hu: Csendes-óceán
+id: Samudra Pasifik
 it: Oceano Pacifico
+ja: 太平洋
+ko: 태평양
+lt: Ramusis vandenynas
+lv: Klusais okeāns
 nl: Grote Oceaan, Pacifische Oceaan, Stille Oceaan
 pl: Ocean Spokojny
 pt: Oceano Pacífico
 ro: Oceanul Pacific
 ru: Тихий океан
+sk: Tichý oceán
+sl: Tihi ocean
+sq: Oqeani Paqësor
+sr: Тихи океан
+sv: Stilla havet
+th: มหาสมุทรแปซิฟิก
 tr: Pasifik Okyanusu
 uk: Тихий океан
+ur: بحر الکاہل
+vi: Thái Bình Dương
+zh: 太平洋
 wikidata:en: Q98
 
 < en:Pacific Ocean
 en: North Pacific Ocean
 bg: Северен Тихи океан
 ca: Oceà Pacífic Nord
+cs: Severní Tichý oceán
+da: Det nordlige Stillehav
 de: Nordpazifik
+el: Βόρειος Ειρηνικός Ωκεανός
 es: Océano Pacífico Norte
+et: Põhja-Vaikne ookean
+fa: اقیانوس آرام شمالی
+fi: Pohjoinen Tyynimeri
 fr: Océan Pacifique Nord, Nord de l'Océan Pacifique
+he: צפון האוקיינוס השקט
+hi: उत्तरी प्रशांत महासागर
+hr: Sjeverni Tihi ocean
 hu: Északi Csendes-óceán
+id: Samudra Pasifik Utara
 it: Oceano Pacifico Settentrionale
+ja: 北太平洋
+ko: 북태평양
+lt: Šiaurės Ramusis vandenynas
+lv: Ziemeļu Klusais okeāns
 nl: Noordelijke Grote Oceaan
+no: Nordlige Stillehavet
 pl: Północny Ocean Spokojny, Północny Pacyfik
 pt: Oceano Pacífico Norte
 ro: Oceanul Pacific de Nord
 ru: Северный Тихий океан
+sk: Severný Tichý oceán
+sl: Severni Tihi ocean
+sq: Oqeani Paqësor Verior
+sr: Северни Тихи океан
+sv: Norra Stilla havet
+th: มหาสมุทรแปซิฟิกเหนือ
 tr: Kuzey Pasifik Okyanusu
 uk: Північний Тихий океан
+ur: شمالی بحرالکاہل
+vi: Bắc Thái Bình Dương
 wikidata:en: Q12353254
 
 < en:Pacific Ocean

@@ -2,6 +2,7 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "20170",
+         "ecobalyse_code" : "tomato-heated-greenhouse-eu",
          "id" : "en:tomato-puree",
          "is_in_taxonomy" : 1,
          "percent" : 7.48031496062992,
@@ -56,18 +57,7 @@
       "en:non-vegan",
       "en:non-vegetarian"
    ],
-   "ingredients_hierarchy" : [
-      "en:tomato-puree",
-      "en:vegetable",
-      "en:fruit-vegetable",
-      "en:tomato",
-      "en:beef",
-      "en:animal",
-      "en:fruit-juice",
-      "en:fruit",
-      "en:juice",
-      "en:oil-and-fat"
-   ],
+   "ingredients_lc" : "fr",
    "ingredients_n" : 4,
    "ingredients_n_tags" : [
       "4",
@@ -103,7 +93,13 @@
       "en:oil-and-fat"
    ],
    "ingredients_without_ciqual_codes_n" : 3,
-   "known_ingredients_n" : 10,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:beef",
+      "en:fruit-juice",
+      "en:oil-and-fat"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 3,
+   "known_ingredients_n" : 4,
    "lc" : "fr",
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",

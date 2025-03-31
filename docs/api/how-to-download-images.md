@@ -12,6 +12,8 @@ If you plan to download more images, you should instead
 [use the Open Food Facts images dataset hosted on
 AWS](./how-to-download-images.md#download-from-aws).
 
+**NOTE:** please avoid fetching full image if it is not needed, but use image in the right size.
+
 ## Download from AWS
 
 If you want to download many images, this is the recommended
@@ -26,16 +28,25 @@ All images are hosted under the
 [https://images.openfoodfacts.org/images/products/](https://images.openfoodfacts.org/images/products/) folder. 
 But you have to build the right URL from the product info.
 
+## images URL directly available in product data
+
+When you request the API, you will get the url of some important images: front, ingredients, nutrition, packaging
+
+The field [`selected_images`](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#cmp--schemas-product-images) provides you with those images.
+
+The structure should be simple enough to read. You get different image type, and inside different image size, and inside the urls for the different languages.
+
+## Computing images URL
+
+In get you want to get an image which url is not directly present in product data, you need to compute the image url by yourself.
+
 ### Computing single product image folder
 
-Images of a product are stored in a single directory. The path of this
-directory can be inferred easily from the product barcode.
-There are two cases:
+Images of a product are stored in a single directory. The path of this directory can be inferred easily from the product barcode:
 
-1. If the product barcode is 8 digits long or shorter (ex: "22222222"), the directory path is
-simply the barcode: `https://images.openfoodfacts.org/images/products/{barcode}`.
+If the barcode is less than 13 digits long, it must be padded with leading 0s so that it has 13 digits.
 
-2. Otherwise, split the first 9 digits of the barcode into 3 groups of 3 digits to get the first 3 folder names, and use the rest of the barcode as the last folder name^[split-regexp].
+Then split the first 9 digits of the barcode into 3 groups of 3 digits to get the first 3 folder names, and use the rest of the barcode as the last folder name^[split-regexp].
    For example, barcode `3435660768163` is split into: `343/566/076/8163`, thus product images will be in `https://images.openfoodfacts.org/images/products/343/566/076/8163`
 
 ^[split-regexp]: The following regex can be used to split the barcode into subfolders: `/^(...)(...)(...)(.*)$/`
@@ -147,6 +158,7 @@ In the structure, selected images have additional fields:
 
 For selected images, the filename is the image key followed by the revision number and the resolution: `<image_name>.<rev>.<resolution>.jpg`.
 Resolution must always be specified, but you can use `full` keyword to get the full resolution image.
+`image_name` is the image type + language code (eg: `front_fr`).
 
 In our above example, the filename for the front image in french (`front_fr` key) is:
 * `front_fr.4.400.jpg` for 400 px version

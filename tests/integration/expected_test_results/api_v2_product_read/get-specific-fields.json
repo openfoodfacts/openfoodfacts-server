@@ -1,5 +1,5 @@
 {
-   "code" : "200000000034",
+   "code" : "0200000000034",
    "product" : {
       "categories_tags" : [
          "en:snacks",
@@ -15,7 +15,8 @@
          "Biscuits and crackers",
          "Biscuits"
       ],
-      "product_name" : "Some product"
+      "product_name" : "Some product",
+      "schema_version" : 998
    },
    "status" : 1,
    "status_verbose" : "product found"

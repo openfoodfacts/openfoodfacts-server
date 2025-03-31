@@ -5,6 +5,7 @@
          "ingredients" : [
             {
                "ciqual_food_code" : "20047",
+               "ecobalyse_code" : "tomato-heated-greenhouse-eu",
                "id" : "en:chopped-tomatoes",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 46.6666666666667,
@@ -53,6 +54,7 @@
          "ingredients" : [
             {
                "ciqual_proxy_food_code" : "9410",
+               "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
                "id" : "en:wheat-flour",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 20,
@@ -64,6 +66,7 @@
             },
             {
                "ciqual_food_code" : "18066",
+               "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
                "id" : "en:water",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 5,
@@ -109,27 +112,7 @@
       "en:non-vegan",
       "en:vegetarian-status-unknown"
    ],
-   "ingredients_hierarchy" : [
-      "en:filling",
-      "en:pizza-dough",
-      "en:dough",
-      "en:chopped-tomatoes",
-      "en:vegetable",
-      "en:fruit-vegetable",
-      "en:tomato",
-      "en:cheese",
-      "en:dairy",
-      "en:basil-leaf",
-      "en:herb",
-      "en:basil",
-      "en:wheat-flour",
-      "en:cereal",
-      "en:flour",
-      "en:wheat",
-      "en:cereal-flour",
-      "en:water",
-      "en:salt"
-   ],
+   "ingredients_lc" : "fr",
    "ingredients_n" : 8,
    "ingredients_n_tags" : [
       "8",
@@ -176,16 +159,24 @@
       "en:filling"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
-   "known_ingredients_n" : 19,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:basil-leaf",
+      "en:cheese",
+      "en:filling",
+      "en:pizza-dough",
+      "en:salt"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 5,
+   "known_ingredients_n" : 8,
    "lc" : "fr",
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent"
    ],
    "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 46.6666666666667,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 46.6666666666667,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 46.6666666666667,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 46.6666666666667
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 58.3333333333333,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 58.3333333333333,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 58.3333333333333,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 58.3333333333333
    },
    "recipe" : {
       "en:cheese" : 11.6666666666667,

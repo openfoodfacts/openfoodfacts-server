@@ -103,7 +103,7 @@ a hashref of the differences between the previous and new revision of the produc
 
 =cut
 
-sub push_to_redis_stream ($user_id, $product_ref, $action, $comment, $diffs) {
+sub push_to_redis_stream ($user_id, $product_ref, $action, $comment, $diffs, $timestamp = time()) {
 
 	if (!$redis_url) {
 		# No Redis URL provided, we can't push to Redis
@@ -131,10 +131,12 @@ sub push_to_redis_stream ($user_id, $product_ref, $action, $comment, $diffs) {
 				# We let Redis generate the id
 				'*',
 				# fields
+				'timestamp', $timestamp,
 				'code', Encode::encode_utf8($product_ref->{code}),
+				'rev', Encode::encode_utf8($product_ref->{rev}),
 				# product_type should be used over flavor (kept for backward compatibility)
 				'product_type', $options{product_type},
-				'flavor', $options{current_server},
+				'flavor', $flavor,
 				'user_id', Encode::encode_utf8($user_id), 'action', Encode::encode_utf8($action),
 				'comment', Encode::encode_utf8($comment), 'diffs', encode_json($diffs)
 			);
@@ -158,9 +160,9 @@ sub push_to_redis_stream ($user_id, $product_ref, $action, $comment, $diffs) {
 	return;
 }
 
-=head2 get_rate_limit_user_requests ($ip, $api_action)
+=head2 get_rate_limit_user_requests ($ip, $bucket)
 
-Return the number of requests performed by the given user for the current minute for the given API route.
+Return the number of requests performed by the given user for the current minute for the given rate-limit bucket.
 See https://redis.com/glossary/rate-limiting/ for more information.
 
 If the rate-limiter is not configured or if an error occurs, returns undef.
@@ -171,13 +173,13 @@ If the rate-limiter is not configured or if an error occurs, returns undef.
 
 The IP address of the user who is making the request.
 
-=head4 String $api_action
+=head4 String $bucket
 
-The API action that is being requested.
+The rate-limit bucket that is being requested.
 
 =cut
 
-sub get_rate_limit_user_requests ($ip, $api_action) {
+sub get_rate_limit_user_requests ($ip, $bucket) {
 	if (!$redis_url) {
 		# No Redis URL provided, we can't get the remaining number of requests
 		if (!$sent_warning_about_missing_redis_url) {
@@ -195,17 +197,17 @@ sub get_rate_limit_user_requests ($ip, $api_action) {
 	}
 	my $resp;
 	if (defined $redis_client) {
-		$ratelimiter_log->debug("Getting rate-limit remaining requests", {ip => $ip, api_action => $api_action})
+		$ratelimiter_log->debug("Getting rate-limit user requests", {ip => $ip, bucket => $bucket})
 			if $ratelimiter_log->is_debug();
 		my $current_minute = int(time() / 60);
-		eval {$resp = $redis_client->get("po-rate-limit:$ip:$api_action:$current_minute");};
+		eval {$resp = $redis_client->get("po-rate-limit:$ip:$bucket:$current_minute");};
 		$error = $@;
 	}
 	else {
 		$error = "Can't connect to Redis";
 	}
 	if (!($error eq "")) {
-		$ratelimiter_log->error("Failed to get remaining number of requests from Redis rate-limiter", {error => $error})
+		$ratelimiter_log->error("Failed to get number of user requests logged by Redis rate-limiter", {error => $error})
 			if $ratelimiter_log->is_warn();
 		# ask for eventual reconnection for next call
 		$redis_client = undef;
@@ -217,7 +219,7 @@ sub get_rate_limit_user_requests ($ip, $api_action) {
 		else {
 			$resp = 0;
 		}
-		$ratelimiter_log->debug("Remaining number of requests from Redis rate-limiter", {remaining_requests => $resp})
+		$ratelimiter_log->debug("Number of user requests logged by Redis rate-limiter", {requests => $resp})
 			if $ratelimiter_log->is_debug();
 		return $resp;
 	}
@@ -225,9 +227,9 @@ sub get_rate_limit_user_requests ($ip, $api_action) {
 	return;
 }
 
-=head2 increment_rate_limit_requests ($ip, $api_action)
+=head2 increment_rate_limit_requests ($ip, $bucket)
 
-Increment the number of requests according to the Redis rate-limiter for the current minute for the given user and API route.
+Increment the number of requests according to the Redis rate-limiter for the current minute for the given user and bucket.
 The expiration of the counter is set to 59 seconds.
 See https://redis.com/glossary/rate-limiting/ for more information.
 
@@ -237,13 +239,13 @@ See https://redis.com/glossary/rate-limiting/ for more information.
 
 The IP address of the user who is making the request.
 
-=head4 String $api_action
+=head4 String $bucket
 
-The API action that is being requested.
+The rate-limit bucket that is being requested.
 
 =cut
 
-sub increment_rate_limit_requests ($ip, $api_action) {
+sub increment_rate_limit_requests ($ip, $bucket) {
 	if (!$redis_url) {
 		# No Redis URL provided, we can't increment the number of requests
 		if (!$sent_warning_about_missing_redis_url) {
@@ -260,14 +262,14 @@ sub increment_rate_limit_requests ($ip, $api_action) {
 		init_redis();
 	}
 	if (defined $redis_client) {
-		$ratelimiter_log->debug("Incrementing rate-limit requests", {ip => $ip, api_action => $api_action})
+		$ratelimiter_log->debug("Incrementing rate-limit requests", {ip => $ip, bucket => $bucket})
 			if $ratelimiter_log->is_debug();
 		my $current_minute = int(time() / 60);
 		eval {
 			# Use a MULTI/EXEC block to increment the counter and set the expiration atomically
 			$redis_client->multi();
-			$redis_client->incr("po-rate-limit:$ip:$api_action:$current_minute");
-			$redis_client->expire("po-rate-limit:$ip:$api_action:$current_minute", 59);
+			$redis_client->incr("po-rate-limit:$ip:$bucket:$current_minute");
+			$redis_client->expire("po-rate-limit:$ip:$bucket:$current_minute", 59);
 			$redis_client->exec();
 		};
 		$error = $@;
@@ -283,7 +285,7 @@ sub increment_rate_limit_requests ($ip, $api_action) {
 	}
 	else {
 		$ratelimiter_log->debug("Incremented number of requests from Redis rate-limiter",
-			{ip => $ip, api_action => $api_action})
+			{ip => $ip, bucket => $bucket})
 			if $ratelimiter_log->is_debug();
 	}
 

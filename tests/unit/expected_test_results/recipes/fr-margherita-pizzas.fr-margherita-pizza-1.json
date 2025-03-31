@@ -2,6 +2,7 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "9410",
+         "ecobalyse_code" : "db791ac8-02b9-41b0-bc2b-2913e745bd19",
          "id" : "en:wheat-flour",
          "is_in_taxonomy" : 1,
          "labels" : "en:organic",
@@ -14,6 +15,7 @@
       },
       {
          "ciqual_food_code" : "20170",
+         "ecobalyse_code" : "tomato-organic",
          "id" : "en:tomato-puree",
          "is_in_taxonomy" : 1,
          "labels" : "en:organic",
@@ -27,6 +29,7 @@
       },
       {
          "ciqual_food_code" : "18066",
+         "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
          "id" : "en:water",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 21.5,
@@ -38,6 +41,7 @@
       },
       {
          "ciqual_food_code" : "19590",
+         "ecobalyse_code" : "faa513ae-9c32-4e6c-874e-58c13309339e",
          "id" : "en:mozzarella",
          "is_in_taxonomy" : 1,
          "labels" : "en:organic",
@@ -52,6 +56,7 @@
       },
       {
          "ciqual_food_code" : "17440",
+         "ecobalyse_code" : "64fb23f2-0cac-403c-bbfa-1973c9a0ea40",
          "from_palm_oil" : "no",
          "id" : "en:sunflower-oil",
          "is_in_taxonomy" : 1,
@@ -121,30 +126,7 @@
       "en:non-vegan",
       "en:maybe-vegetarian"
    ],
-   "ingredients_hierarchy" : [
-      "en:wheat-flour",
-      "en:cereal",
-      "en:flour",
-      "en:wheat",
-      "en:cereal-flour",
-      "en:tomato-puree",
-      "en:vegetable",
-      "en:fruit-vegetable",
-      "en:tomato",
-      "en:water",
-      "en:mozzarella",
-      "en:dairy",
-      "en:cheese",
-      "en:sunflower-oil",
-      "en:oil-and-fat",
-      "en:vegetable-oil-and-fat",
-      "en:vegetable-oil",
-      "en:yeast",
-      "en:salt",
-      "en:herb",
-      "en:spice",
-      "en:condiment"
-   ],
+   "ingredients_lc" : "fr",
    "ingredients_n" : 9,
    "ingredients_n_tags" : [
       "9",
@@ -196,16 +178,23 @@
       "en:spice"
    ],
    "ingredients_without_ciqual_codes_n" : 2,
-   "known_ingredients_n" : 22,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:herb",
+      "en:salt",
+      "en:spice",
+      "en:yeast"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 4,
+   "known_ingredients_n" : 9,
    "lc" : "fr",
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent"
    ],
    "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 26,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 26,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 26,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 26
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 26.15625,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 26.15625,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 26.15625,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 26.15625
    },
    "recipe" : {
       "en:cheese" : 17,

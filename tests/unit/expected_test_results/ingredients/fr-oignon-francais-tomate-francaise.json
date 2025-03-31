@@ -36,10 +36,7 @@
       "en:vegan-status-unknown",
       "en:vegetarian-status-unknown"
    ],
-   "ingredients_hierarchy" : [
-      "fr:oignon-francais",
-      "fr:tomate-francaise"
-   ],
+   "ingredients_lc" : "fr",
    "ingredients_n" : 2,
    "ingredients_n_tags" : [
       "2",
@@ -64,6 +61,11 @@
       "fr:tomate-francaise"
    ],
    "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ecobalyse_ids" : [
+      "fr:oignon-francais",
+      "fr:tomate-francaise"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 0,
    "lc" : "fr",
    "nutriments" : {

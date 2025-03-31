@@ -29,6 +29,7 @@ use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::HTTP qw/single_param redirect_to_url/;
 use ProductOpener::Web qw/display_knowledge_panel get_languages_options_list/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
@@ -43,9 +44,9 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::KnowledgePanels qw/initialize_knowledge_panels_options/;
 use ProductOpener::KnowledgePanelsContribution qw/create_contribution_card_panel/;
-use ProductOpener::URL qw/:all/;
+use ProductOpener::URL qw(format_subdomain);
 use ProductOpener::DataQuality qw/:all/;
-use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::Packaging
 	qw/apply_rules_to_augment_packaging_component_data get_checked_and_taxonomized_packaging_component_data/;
 use ProductOpener::ForestFootprint qw/:all/;
@@ -56,6 +57,8 @@ use ProductOpener::API qw/get_initialized_response/;
 use ProductOpener::APIProductWrite qw/skip_protected_field/;
 use ProductOpener::ProductsFeatures qw/feature_enabled/;
 use ProductOpener::Orgs qw/update_import_date update_last_import_type/;
+use ProductOpener::APIProductWrite
+	qw/process_change_product_type_request_if_we_have_one process_change_product_code_request_if_we_have_one/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -249,7 +252,7 @@ if ($type eq 'search_or_add') {
 			$product_id = product_id_for_owner($Owner_id, $code);
 			$log->debug("we have a code", {code => $code, product_id => $product_id}) if $log->is_debug();
 
-			$product_ref = product_exists($product_id);    # returns 0 if not
+			$product_ref = retrieve_product($product_id);
 
 			if ($product_ref) {
 				$log->info("product exists, redirecting to page", {code => $code}) if $log->is_info();
@@ -338,9 +341,22 @@ else {
 			display_error_and_exit($request_ref, lang("no_owner_defined"), 200);
 		}
 		$product_id = product_id_for_owner($Owner_id, $code);
-		$product_ref = retrieve_product_or_deleted_product($product_id, $User{moderator});
+		$product_ref = retrieve_product($product_id, $User{moderator});
 		if (not defined $product_ref) {
 			display_error_and_exit($request_ref, sprintf(lang("no_product_for_barcode"), $code), 404);
+		}
+		else {
+			# There is an existing product
+			# If the product has a product_type and it is not the product_type of the server, redirect to the correct server
+			# unless we are on the pro platform
+			# We use a 302 redirect so that browsers issue a GET request to display the form (even if we received a POST request)
+			if (    (not $server_options{private_products})
+				and (defined $product_ref->{product_type})
+				and ($product_ref->{product_type} ne $options{product_type}))
+			{
+				redirect_to_url($request_ref, 302,
+					format_subdomain($subdomain, $product_ref->{product_type}) . '/cgi/product.pl?code=' . $code);
+			}
 		}
 	}
 }
@@ -399,12 +415,14 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	exists $product_ref->{new_server} and delete $product_ref->{new_server};
 
-	# 26/01/2017 - disallow barcode changes until we fix bug #677
-	if ($User{moderator} and (defined single_param("new_code")) and (single_param("new_code") ne "")) {
+	# Check if the request is for changing the product code or the product type, if so process it
 
-		change_product_server_or_code($product_ref, single_param("new_code"), \@errors);
-		$code = $product_ref->{code};
-	}
+	process_change_product_code_request_if_we_have_one($request_ref, $response_ref, $product_ref,
+		single_param("new_code"));
+	$code = $product_ref->{code};
+
+	process_change_product_type_request_if_we_have_one($request_ref, $response_ref, $product_ref,
+		single_param("product_type"));
 
 	my @param_fields = ();
 
@@ -848,13 +866,11 @@ CSS
 
 	my $label_new_code = $Lang{new_code}{$lc};
 
-	# 26/01/2017 - disallow barcode changes until we fix bug #677
-	if ($User{moderator}) {
-	}
-
 	$template_data_ref_display->{org_id} = $Org_id;
 	$template_data_ref_display->{label_new_code} = $label_new_code;
 	$template_data_ref_display->{owner_id} = $Owner_id;
+
+	$template_data_ref_display->{product_types} = $options{product_types};
 
 	# obsolete products: restrict to admin on public site
 	# authorize owners on producers platform
@@ -1053,8 +1069,12 @@ CSS
 	$template_data_ref_display->{display_tab_nutrition_image}
 		= display_input_tabs($product_ref, "nutrition_image", $product_ref->{sorted_langs},
 		\%Langs, ["nutrition_image"], $request_ref);
-	$template_data_ref_display->{display_field_serving_size}
-		= display_input_field($product_ref, "serving_size", undef, $request_ref);
+
+	# only food products can have serving_size on the product
+	if ($options{product_type} eq "food") {
+		$template_data_ref_display->{display_field_serving_size}
+			= display_input_field($product_ref, "serving_size", undef, $request_ref);
+	}
 
 	$request_ref->{initjs} .= display_select_crop_init($product_ref);
 
@@ -1242,7 +1262,7 @@ CSS
 		}
 
 		if (($nid eq 'alcohol') or ($nid eq 'energy-kj') or ($nid eq 'energy-kcal')) {
-			my $unit = '';
+			$unit = '';
 
 			if (($nid eq 'alcohol')) {$unit = '% vol / °';}    # alcohol in % vol / °
 			elsif (($nid eq 'energy-kj')) {$unit = 'kJ';}
@@ -1250,6 +1270,15 @@ CSS
 
 			$nutriment_ref->{nutriment_unit} = $unit;
 
+		}
+		# make sure pet nutrients (analytical_constituents) are always in percent
+		elsif (($nid eq 'crude-fat')
+			or ($nid eq 'crude-protein')
+			or ($nid eq 'crude-ash')
+			or ($nid eq 'crude-fibre')
+			or ($nid eq 'moisture'))
+		{
+			$nutriment_ref->{nutriment_unit} = '%';
 		}
 		else {
 
@@ -1367,11 +1396,17 @@ CSS
 	}
 
 	# In all cases, if we have data, we will check the checkbox.
-	if ($nutrition_data_exists{""}) {
+	# We also check the "as sold" checkbox for petfood products,
+	# as we don't display the checkboxes to indicate the presence of nutrition data for "as sold" and "prepared" for petfood products
+	# (they can only have "as sold" nutrition data)
+	if (($nutrition_data_exists{""}) or ($options{product_type} eq "petfood")) {
 		$product_ref->{nutrition_data} = "on";
 	}
 
-	if ($nutrition_data_exists{"_prepared"}) {
+	# only food products can have prepared product (dehydrated for example)
+	if (    ($options{product_type} eq "food")
+		and ($nutrition_data_exists{"_prepared"}))
+	{
 		$product_ref->{nutrition_data_prepared} = "on";
 	}
 
@@ -1400,61 +1435,71 @@ CSS
 		}
 
 		my $checked_per_serving = '';
-		my $checked_per_100g = 'checked="checked"';
+		my $checked_per_xxg = 'checked="checked"';
 		$nutrition_data_per_display_style{$nutrition_data . "_serving"} = ' style="display:none"';
-		$nutrition_data_per_display_style{$nutrition_data . "_100g"} = '';
+		$nutrition_data_per_display_style{$nutrition_data . "_xxg"} = '';
 
 		my $nutrition_data_per = "nutrition_data" . $product_type . "_per";
 
 		if (
-			($product_ref->{$nutrition_data_per} eq 'serving')
-			# display by serving by default for the prepared product
-			or (($product_type eq '_prepared') and (not defined $product_ref->{nutrition_data_prepared_per}))
+			# petfood products are always "as sold" (not per a given quantity)
+			$options{product_type} eq "food"
 			)
 		{
-			$checked_per_serving = 'checked="checked"';
-			$checked_per_100g = '';
-			$nutrition_data_per_display_style{$nutrition_data . "_serving"} = '';
-			$nutrition_data_per_display_style{$nutrition_data . "_100g"} = ' style="display:none"';
-		}
-
-		my $nutriment_col_class = "nutriment_col" . $product_type;
-
-		my $product_type_as_sold_or_prepared = "as_sold";
-		if ($product_type eq "_prepared") {
-			$product_type_as_sold_or_prepared = "prepared";
-		}
-
-		push(
-			@nutrition_product_types,
+			if (
+				(
+					($product_ref->{$nutrition_data_per} eq 'serving')
+					# display by serving by default for the prepared product
+					or (($product_type eq '_prepared') and (not defined $product_ref->{nutrition_data_prepared_per}))
+				)
+				)
 			{
-				checked => $checked,
-				nutrition_data => $nutrition_data,
-				nutrition_data_exists => $Lang{$nutrition_data_exists}{$lc},
-				nutrition_data_per => $nutrition_data_per,
-				checked_per_100g => $checked_per_100g,
-				checked_per_serving => $checked_per_serving,
-				nutrition_data_instructions => $nutrition_data_instructions,
-				nutrition_data_instructions_check => $Lang{$nutrition_data_instructions},
-				nutrition_data_instructions_lang => $Lang{$nutrition_data_instructions}{$lc},
-				hidden => $hidden,
-				nutriment_col_class => $nutriment_col_class,
-				product_type_as_sold_or_prepared => $product_type_as_sold_or_prepared,
-				checkmate => $product_ref->{$nutrition_data_per},
+				$checked_per_serving = 'checked="checked"';
+				$checked_per_xxg = '';
+				$nutrition_data_per_display_style{$nutrition_data . "_serving"} = '';
+				$nutrition_data_per_display_style{$nutrition_data . "_xxg"} = ' style="display:none"';
 			}
-		);
+
+			my $nutriment_col_class = "nutriment_col" . $product_type;
+
+			my $product_type_as_sold_or_prepared = "as_sold";
+			if ($product_type eq "_prepared") {
+				$product_type_as_sold_or_prepared = "prepared";
+			}
+
+			push(
+				@nutrition_product_types,
+				{
+					checked => $checked,
+					nutrition_data => $nutrition_data,
+					nutrition_data_exists => $Lang{$nutrition_data_exists}{$lc},
+					nutrition_data_per => $nutrition_data_per,
+					checked_per_xxg => $checked_per_xxg,
+					checked_per_serving => $checked_per_serving,
+					nutrition_data_instructions => $nutrition_data_instructions,
+					nutrition_data_instructions_check => $Lang{$nutrition_data_instructions},
+					nutrition_data_instructions_lang => $Lang{$nutrition_data_instructions}{$lc},
+					hidden => $hidden,
+					nutriment_col_class => $nutriment_col_class,
+					product_type_as_sold_or_prepared => $product_type_as_sold_or_prepared,
+					checkmate => $product_ref->{$nutrition_data_per},
+				}
+			);
+		}
 	}
+
+	# nutrition table differs between flavors (food and petfood)
 
 	$template_data_ref_display->{nutrition_product_types} = \@nutrition_product_types;
 
 	$template_data_ref_display->{column_display_style_nutrition_data} = $column_display_style{"nutrition_data"};
 	$template_data_ref_display->{column_display_style_nutrition_data_prepared}
 		= $column_display_style{"nutrition_data_prepared"};
-	$template_data_ref_display->{nutrition_data_100g_style} = $nutrition_data_per_display_style{"nutrition_data_100g"};
+	$template_data_ref_display->{nutrition_data_xxg_style} = $nutrition_data_per_display_style{"nutrition_data_xxg"};
 	$template_data_ref_display->{nutrition_data_serving_style}
 		= $nutrition_data_per_display_style{"nutrition_data_serving"};
-	$template_data_ref_display->{nutrition_data_prepared_100g_style}
-		= $nutrition_data_per_display_style{"nutrition_data_prepared_100g"};
+	$template_data_ref_display->{nutrition_data_prepared_xxg_style}
+		= $nutrition_data_per_display_style{"nutrition_data_prepared_xxg"};
 	$template_data_ref_display->{nutrition_data_prepared_serving_style}
 		= $nutrition_data_per_display_style{"nutrition_data_prepared_serving"};
 
@@ -1636,9 +1681,8 @@ MAIL
 		display_product(\%request);
 	}
 
-	$template_data_ref_process->{edited_product_url}
-		= $url_prefix . get_owner_pretty_path() . product_url($product_ref);
-	$template_data_ref_process->{edit_product_url} = $url_prefix . product_action_url($product_ref->{code}, "");
+	$template_data_ref_process->{edited_product_url} = $url_prefix . product_url($product_ref);
+	$template_data_ref_process->{edit_product_url} = $url_prefix . product_action_url($product_ref->{code});
 
 	if ($type ne 'delete') {
 		# adding contribution card

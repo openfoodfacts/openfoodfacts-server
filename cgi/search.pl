@@ -30,9 +30,9 @@ use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/write_cors_headers/;
+use ProductOpener::HTTP qw/write_cors_headers single_param/;
 use ProductOpener::Users qw/$Owner_id/;
-use ProductOpener::Products qw/normalize_code normalize_search_terms product_exists product_id_for_owner product_url/;
+use ProductOpener::Products qw/normalize_code normalize_search_terms retrieve_product product_id_for_owner product_url/;
 use ProductOpener::Food qw/%nutriments_lists/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
@@ -68,8 +68,8 @@ if (user_agent() =~ /apps-spreadsheets/) {
 }
 
 $request_ref->{search} = 1;
-# api_action is required for `check_and_update_rate_limits`
-$request_ref->{api_action} = 'search';
+# rate_limiter_bucket is required for `check_and_update_rate_limits`
+$request_ref->{rate_limiter_bucket} = 'search';
 
 check_and_update_rate_limits($request_ref);
 
@@ -110,7 +110,7 @@ if ((defined single_param('json')) or (defined single_param('jsonp')) or (define
 
 my @search_fields
 	= qw(brands categories packaging labels origins manufacturing_places emb_codes purchase_places stores countries
-	ingredients additives allergens traces nutrition_grades nova_groups ecoscore languages creator editors states);
+	ingredients additives allergens traces nutrition_grades nova_groups environmental_score languages creator editors states);
 
 $request_ref->{admin} and push @search_fields, "lang";
 
@@ -166,7 +166,7 @@ if (    (not defined single_param('json'))
 	if ((defined $code) and (length($code) > 0)) {
 		my $product_id = product_id_for_owner($Owner_id, $code);
 
-		my $product_ref = product_exists($product_id);    # returns 0 if not
+		my $product_ref = retrieve_product($product_id);
 
 		if ($product_ref) {
 			$log->info("product code exists, redirecting to product page", {code => $code});
@@ -352,7 +352,7 @@ if ($action eq 'display') {
 	my @other_search_fields = (
 		"additives_n", "ingredients_n", "known_ingredients_n", "unknown_ingredients_n",
 		"fruits-vegetables-nuts-estimate-from-ingredients",
-		"forest_footprint", "product_quantity", "nova_group", 'ecoscore_score',
+		"forest_footprint", "product_quantity", "nova_group", 'environmental_score_score',
 	);
 
 	# Add the fields related to packaging

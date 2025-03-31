@@ -431,51 +431,51 @@ my $tests_ref = [
 	},
 	{
 		test_case => 'world-categories',
-		path => '/category/desserts',
+		path => 'facets/categories/desserts',
 		expected_type => 'html',
 	},
 	{
 		test_case => 'fr-categories',
 		subdomain => 'fr',
-		path => '/categorie/desserts',
+		path => 'facets/categories/desserts',
 		expected_type => 'html',
 	},
 	{
 		test_case => 'world-brands',
-		path => '/brands',
+		path => 'facets/brands',
 		expected_type => 'html',
 	},
 	{
 		test_case => 'fr-brands',
 		subdomain => 'fr',
-		path => '/marques',
+		path => 'facets/marques',
 		expected_type => 'html',
 	},
 	{
 		test_case => 'world-labels',
-		path => '/labels',
+		path => 'facets/labels',
 		expected_type => 'html',
 	},
 	{
 		test_case => 'fr-labels',
 		subdomain => 'fr',
-		path => '/labels',
+		path => 'facets/labels',
 		expected_type => 'html',
 	},
 	{
 		test_case => 'world-countries',
-		path => '/countries',
+		path => 'facets/countries',
 		expected_type => 'html',
 	},
 	{
 		test_case => 'fr-countries',
 		subdomain => 'fr',
-		path => '/pays',
+		path => 'facets/pays',
 		expected_type => 'html',
 	},
 	{
 		test_case => 'world-label-organic',
-		path => '/label/organic',
+		path => 'facets/labels/organic',
 		expected_type => 'html',
 	},
 	{
@@ -543,6 +543,32 @@ my $tests_ref = [
 		headers_in => {
 			'Cache-Control' => 'no-cache',
 		},
+	},
+	# request with a group_by tagtype in English
+	# e.g. https://es.openfoodfacts.org/ingredients
+	{
+		test_case => 'es-ingredients',
+		subdomain => 'es',
+		path => 'facets/ingredients',
+		expected_type => 'html',
+	},
+	# /products with multiple products
+	{
+		test_case => 'world-products-multiple-codes',
+		path => '/products/3300000000001,3300000000002',
+		expected_type => 'html',
+	},
+	# Request a page with ?content_only=1 to remove the header and footer
+	{
+		test_case => 'world-product-content-only',
+		path => '/product/3300000000001/apple-pie-bob-s-pies?content_only=1',
+		expected_type => 'html',
+	},
+	# Use ?user_agent=smoothie to test the smoothie user agent
+	{
+		test_case => 'world-product-smoothie',
+		path => '/product/3300000000001/apple-pie-bob-s-pies?user_agent=smoothie',
+		expected_type => 'html',
 	},
 ];
 

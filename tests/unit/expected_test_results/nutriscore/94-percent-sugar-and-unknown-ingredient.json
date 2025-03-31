@@ -39,6 +39,7 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "31016",
+         "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
          "id" : "en:sugar",
          "is_in_taxonomy" : 1,
          "percent" : 94,
@@ -74,12 +75,6 @@
       "en:vegan-status-unknown",
       "en:vegetarian-status-unknown"
    ],
-   "ingredients_hierarchy" : [
-      "en:sugar",
-      "en:added-sugar",
-      "en:disaccharide",
-      "en:strange-ingredient"
-   ],
    "ingredients_lc" : "en",
    "ingredients_n" : 2,
    "ingredients_n_tags" : [
@@ -108,7 +103,11 @@
       "en:strange-ingredient"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
-   "known_ingredients_n" : 3,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:strange-ingredient"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
+   "known_ingredients_n" : 1,
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
@@ -206,7 +205,7 @@
    "nutriscore_tags" : [
       "unknown"
    ],
-   "nutriscore_version" : "2021",
+   "nutriscore_version" : "2023",
    "nutrition_data_per" : "100g",
    "nutrition_data_prepared_per" : "100g",
    "nutrition_grade_fr" : "unknown",

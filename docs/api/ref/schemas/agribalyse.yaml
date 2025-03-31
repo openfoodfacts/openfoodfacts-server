@@ -1,5 +1,7 @@
 type: object
 properties:
+  agribalyse_proxy_food_code:
+    type: string
   agribalyse_food_code:
     type: string
   co2_agriculture:

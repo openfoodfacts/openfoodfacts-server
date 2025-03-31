@@ -1,23 +1,24 @@
 {
-    "api": "v3",
-    "api_action": "product",
-    "api_method": null,
-    "api_version": "3",
-    "cc": "world",
-    "lc": "en",
-    "original_query_string": "api/v3/product/03564703999971",
-    "query_string": "api/v3/product/03564703999971",
-    "code": "03564703999971",
-    "page": "1",
-    "no_index": "0",
-    "is_crawl_bot": "0",
-    "rate_limiter_blocking": 0,
-    "rate_limiter_limit": 100,
-    "rate_limiter_user_requests": null,
-    "components": [
-        "api",
-        "v3",
-        "product",
-        "03564703999971"
-    ]
+   "api" : "v3",
+   "api_action" : "product",
+   "api_method" : null,
+   "api_version" : "3",
+   "cc" : "world",
+   "code" : "03564703999971",
+   "components" : [
+      "api",
+      "v3",
+      "product",
+      "03564703999971"
+   ],
+   "is_crawl_bot" : "0",
+   "lc" : "en",
+   "no_index" : "0",
+   "original_query_string" : "api/v3/product/03564703999971",
+   "page" : 1,
+   "query_string" : "api/v3/product/03564703999971",
+   "rate_limiter_blocking" : 0,
+   "rate_limiter_bucket" : "product",
+   "rate_limiter_limit" : 100,
+   "rate_limiter_user_requests" : null
 }

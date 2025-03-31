@@ -90,6 +90,7 @@ use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Mail qw/get_html_email_content send_email_to_admin send_email_to_producers_admin send_html_email/;
 use ProductOpener::Lang qw/$lc  %Lang lang/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::HTTP qw/single_param request_param/;
 use ProductOpener::Orgs
 	qw/add_user_to_org create_org remove_user_from_org retrieve_or_create_org retrieve_org update_last_logged_in_member /;
 use ProductOpener::Products qw/find_and_replace_user_id_in_products/;
@@ -447,6 +448,7 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 	}
 
 	if ($request_ref->{admin}) {
+		$user_ref->{crm_user_id} = remove_tags_and_quote(decode utf8 => single_param('crm_user_id')) || undef;
 
 		# Org
 		check_user_org($user_ref, remove_tags_and_quote(decode utf8 => single_param('org')));
@@ -708,7 +710,7 @@ Inscription d'un utilisateur :
 
 name: $user_ref->{name}
 email: $user_ref->{email}
-twitter: https://twitter.com/$user_ref->{twitter}
+x: https://x.com/$user_ref->{x}
 newsletter: $user_ref->{newsletter}
 discussion: $user_ref->{discussion}
 lc: $user_ref->{initial_lc}
@@ -1326,12 +1328,12 @@ sub init_user ($request_ref) {
 		%Org = ();
 	}
 
-	set_owner_id();
+	set_owner_id($request_ref);
 
 	return 0;
 }
 
-sub set_owner_id () {
+sub set_owner_id ($request_ref) {
 	# if products are private, select the owner used to restrict the product set with the owners_tags field
 	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
 
@@ -1367,6 +1369,10 @@ sub set_owner_id () {
 	}
 	else {
 		$Owner_id = undef;
+	}
+
+	if (defined $Owner_id) {
+		$request_ref->{owner_id} = $Owner_id;
 	}
 
 	return;

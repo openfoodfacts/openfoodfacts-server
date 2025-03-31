@@ -1,32 +1,31 @@
 {
-    "api": "v0",
-    "canon_rel_url": "/category/en:breads",
-    "cc": "world",
-    "error_message": "Invalid address.",
-    "lc": "en",
-    "original_query_string": "category/breads/no-nutrition-data",
-    "page": 1,
-    "query_string": "category/breads/no-nutrition-data",
-    "status_code": 404,
-    "tag": "en:breads",
-    "tag_prefix": "",
-    "tagid": "en:breads",
-    "tagtype": "categories",
-    "tags": [
-        {
-            "tag": "en:breads",
-            "tag_prefix": "",
-            "tagid": "en:breads",
-            "tagtype": "categories"
-        }
-    ],
-    "param": {},
-    "no_index": "0",
-    "is_crawl_bot": "0",
-    "components": [
-        "no-nutrition-data"
-    ],
-    "rate_limiter_blocking": 0,
-    "rate_limiter_limit": null,
-    "rate_limiter_user_requests": null
+   "api" : "v0",
+   "cc" : "world",
+   "components" : [
+      "no-nutrition-data"
+   ],
+   "error_message" : "Invalid address.",
+   "is_crawl_bot" : "0",
+   "lc" : "en",
+   "no_index" : "0",
+   "original_query_string" : "facets/categories/breads/no-nutrition-data",
+   "page" : "1",
+   "query_string" : "facets/categories/breads/no-nutrition-data",
+   "rate_limiter_blocking" : 0,
+   "rate_limiter_bucket" : null,
+   "rate_limiter_limit" : null,
+   "rate_limiter_user_requests" : null,
+   "status_code" : 404,
+   "tag" : "en:breads",
+   "tag_prefix" : "",
+   "tagid" : "en:breads",
+   "tags" : [
+      {
+         "tag" : "en:breads",
+         "tag_prefix" : "",
+         "tagid" : "en:breads",
+         "tagtype" : "categories"
+      }
+   ],
+   "tagtype" : "categories"
 }
