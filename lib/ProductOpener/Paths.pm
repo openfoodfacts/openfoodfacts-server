@@ -130,6 +130,14 @@ Directory containing configuration files
 
 $BASE_DIRS{CONF} = _source_dir() . "/conf";
 
+=head2 $BASE_DIRS{RELEASE_VERSION}
+
+File containing Github release version
+
+=cut
+
+$BASE_DIRS{RELEASE_VERSION} = _source_dir() . "/version.txt";
+
 =head2 $BASE_DIRS{PRIVATE_DATA}
 
 Directory for private data
