@@ -41,7 +41,7 @@ use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/write_cors_headers/;
+use ProductOpener::HTTP qw/write_cors_headers single_param/;
 use ProductOpener::Tags qw/%language_fields %tags_fields add_tags_to_field compute_field_tags/;
 use ProductOpener::URL qw/format_subdomain/;
 use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
@@ -101,7 +101,12 @@ my $original_code = $code;
 
 $code = normalize_code($code);
 
-if (not is_valid_code($code)) {
+if (not defined $User_id) {
+	$log->info("no user credentials", {code => $code, original_code => $original_code}) if $log->is_info();
+	$response{status} = 0;
+	$response{status_verbose} = 'no user credentials';
+}
+elsif (not is_valid_code($code)) {
 
 	$log->info("invalid code", {code => $code, original_code => $original_code}) if $log->is_info();
 	$response{status} = 0;
@@ -265,10 +270,6 @@ else {
 	# admin field to set a creator
 	if ($request_ref->{admin}) {
 		push @app_fields, "creator";
-	}
-
-	if ($request_ref->{admin} or ($User_id eq "environmental-score-impact-estimator")) {
-		push @app_fields, ("environmental_score_extended_data", "environmental_score_extended_data_version");
 	}
 
 	# generate a list of potential languages for language specific fields
