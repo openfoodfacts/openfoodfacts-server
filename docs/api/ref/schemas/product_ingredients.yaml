@@ -144,7 +144,7 @@ properties:
       that are present in trace amounts in the product
       (this does not include the ingredients, as they
       are not only present in trace amounts).
-      It is taxonomized with the allergens taxonomy.
+      It is taxonomized with the allergens taxonomy. Refer to the [allergens taxonomy](https://static.openfoodfacts.org/data/taxonomies/allergens.json)
   traces_hierarchy:
     type: array
     items:
