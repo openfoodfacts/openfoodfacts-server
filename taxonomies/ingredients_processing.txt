@@ -49,10 +49,12 @@ ja: 生
 nl: rauw, rauwe
 pl: surowy, surowa, surowe
 pt: cru, crus
+sv: rå, rått, råa
 
 en: fresh
 bg: пресно, пресен, пресна, пресни, прясно
 ca: fresc, fresca, frescos, fresques
+da: frisk, friske
 de: frisch, frische, frischer, frisches
 es: fresco, fresca, frescos, frescas
 fr: frais, fraîche, fraiche, fraîches, fraiches
@@ -64,6 +66,7 @@ lt: šviežia, šviežios, švieži
 nl: verse, vers
 pl: świeży, świeża, świeże
 pt: fresco, fresca, frescos, frescas
+sv: färsk, färskt, färska
 
 # Often in combination with flavour. It does not seem that it has much meaning.
 #en:natural
@@ -120,6 +123,7 @@ en: unfiltered
 bg: непречистен, нефилтриран
 ca: no filtrat
 cs: nefiltrovana
+da: ufiltreret
 de: naturtrüb, naturtrüber
 es: no filtrado
 fr: non filtré, trouble
@@ -138,7 +142,7 @@ az: qeyri-homogenləşdirilmiş
 bg: нехомогенизиран, нехомогенизирано
 ca: no homogeneïtzat
 cs: nehomogenizovaný
-da: ikke-homogeniseret
+da: uhomogeniseret, ikke-homogeniseret
 de: nicht homogenisiert
 el: μη ομογενοποιημένο
 es: no homogeneizado
@@ -181,6 +185,7 @@ af: saad
 ar: بذور خشخاش
 bg: семе, семена
 ca: llavor, llavors
+da: frø
 de: samen, saat
 el: σπόροι
 es: semilla, semillas
@@ -217,6 +222,7 @@ en: leaf, leaves
 bg: лист, листа
 ca: fulla de, fulla d', fulles de, fulles d'
 cs: listová
+da: blad, blade
 de: blatt, blätter
 es: hojas de, hoja de
 fi: lehti, lehdet
@@ -384,7 +390,7 @@ hr: izdrobljeno, smrvljeno
 hu: zúzott, összetörve, összetört
 nl: gebroken
 pt: triturado, triturada, triturados, trituradas, esmagado, esmagada, esmagados, esmagadas
-sv: krossad
+sv: krossad, krossat, krossade
 
 #en:description:Special shaping by compression through a die
 en: pellet, pelleted, agglomerated
@@ -474,12 +480,14 @@ de: fein gemahlen, fein gemahlene, fein gemahlener, fein gemahlenes
 hr: fino mljeveno
 hu: finomra őrölt
 pl: drobno mielona, drobno mielone, drobno mielony
+sv: finmalen
 
 # <en:ground
 en: coarsely ground
 de: grob gemahlen, grob gemahlene, grob gemahlener, grob gemahlenes
 hr: grublje mljeveno, grubo mljeveni
 hu: durvára őrölt
+sv: grovmalen
 
 # <en:ground
 de: frischgemahlen, frischgemahlene, frischgemahlener, frischgemahlenes
@@ -618,6 +626,7 @@ pt: descadado, descamada
 en: flakes
 bg: люспи, люспи от
 ca: flocs, flocs de, flocs d'
+cs: vločky
 de: Flocken
 es: escamas de
 fi: hiutaleet, hiutale
@@ -720,7 +729,7 @@ ca: Farina d'
 cs: mouka, mouka z
 da: mel
 de: mehl
-el: αλεύρι
+el: αλεύρι, Άλευρο
 eo: faruno
 es: harina de
 et: jahu
@@ -736,10 +745,11 @@ lt: miltai, miltų
 lv: milti
 nb: mel
 nl: bloem, meel
+no: mel
 pl: mąka, mączka, mąka z, mączka z
 pt: farinha de
 ro: făină de
-ru: мука
+ru: мука, Мука из
 sk: múka
 sl: moka
 sr: пиринчано брашно

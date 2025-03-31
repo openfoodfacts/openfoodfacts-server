@@ -44,7 +44,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/request_param/;
+use ProductOpener::HTTP qw/request_param/;
 use ProductOpener::Users qw/$Owner_id $User_id/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Products qw/:all/;
@@ -136,7 +136,7 @@ sub revert_product_api ($request_ref) {
 			}
 			else {
 				# Check if the revision exists
-				my $revision_ref = retrieve_product_rev($product_id, $rev);
+				my $revision_ref = retrieve_product($product_id, 0, $rev);
 
 				if (not defined $revision_ref) {
 					$log->info("revision not found", {code => $code, rev => $rev}) if $log->is_info();
