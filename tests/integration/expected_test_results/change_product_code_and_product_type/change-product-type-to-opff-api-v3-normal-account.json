@@ -1,23 +1,10 @@
 {
-   "code" : "1234567890300",
-   "errors" : [
-      {
-         "field" : {
-            "id" : "permission",
-            "value" : "product_change_product_type"
-         },
-         "impact" : {
-            "id" : "failure",
-            "lc_name" : "Failure",
-            "name" : "Failure"
-         },
-         "message" : {
-            "id" : "no_permission",
-            "lc_name" : "",
-            "name" : ""
-         }
-      }
-   ],
-   "status" : "failure",
+   "code" : "1234567890302",
+   "errors" : [],
+   "product" : {
+      "product_type" : "petfood",
+      "schema_version" : 999
+   },
+   "status" : "success",
    "warnings" : []
 }

@@ -2,7 +2,7 @@
    "code" : "1234567890009",
    "errors" : [],
    "product" : {
-      "ecoscore_data" : {
+      "environmental_score_data" : {
          "adjustments" : {
             "origins_of_ingredients" : {
                "aggregated_origins" : [
@@ -258,7 +258,8 @@
          "missing_agribalyse_match_warning" : 1,
          "scores" : {},
          "status" : "unknown"
-      }
+      },
+      "schema_version" : 999
    },
    "status" : "success_with_warnings",
    "warnings" : [

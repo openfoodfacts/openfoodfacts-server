@@ -1,0 +1,45 @@
+<section class="row is_hidden" id="row-nutrients">
+  <div class="large-12 column">
+    <div class="card">
+      <div class="card-section">
+        <h2 id="nutrients">[% lang('update_nutrients_data') %]</h2>
+
+        <div>
+          <robotoff-nutrients
+            product-code="[% product_code %]"
+            show-messages="true"
+            id="robotoff-nutrients"
+          ></robotoff-nutrients>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // display the section only if we have data to validate
+    window.listenEventToShowHideAlert("nutrient-state", "robotoff-nutrients", {
+      parentSelector: "#row-nutrients",
+      reloadOnAnnotated: true,
+    });
+  });
+</script>
+
+<style>
+  robotoff-nutrients::part(messages-wrapper) {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    @media screen and (min-width: 960px) {
+      display: block;
+      text-align: left;
+    }
+  }
+  robotoff-nutrients::part(nutrients-content-wrapper) {
+    @media screen and (min-width: 960px) {
+      display: flex;
+    }
+  }
+</style>

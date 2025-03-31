@@ -9,11 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta property="fb:app_id" content="219331381518041">
     <meta property="og:type" content="food">
-    <meta property="og:title" content="">
+    <meta property="og:title" content="Apple pie - Bob's pies - 100 g">
     <meta property="og:url" content="//world.openfoodfacts.localhost/product/3300000000001/apple-pie-bob-s-pies">
     
     <meta property="og:image" content="//static.openfoodfacts.org/images/logos/off-logo-vertical-white-social-media-preview.png">
-    <meta property="og:description" content="">
+    <meta property="og:description" content="Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product Apple pie - Bob's pies - 100 g">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/off/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/off/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/off/favicon-16x16.png">
@@ -30,15 +30,15 @@
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/select2.min.css">
     <link rel="search" href="//world.openfoodfacts.localhost/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="Open Food Facts">
-	<meta name="twitter:card" content="product">
-<meta name="twitter:site" content="@OpenFoodFacts">
-<meta name="twitter:creator" content="@OpenFoodFacts">
-<meta name="twitter:title" content="Apple pie - Bob's pies - 100 g">
-<meta name="twitter:description" content="Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product Apple pie - Bob's pies - 100 g">
-<meta name="twitter:label1" content="brand">
-<meta name="twitter:data1" content="Bob's pies">
-<meta name="twitter:label2" content="category">
-<meta name="twitter:data2" content="Apple pies">
+	<meta name="x:card" content="product">
+<meta name="x:site" content="@OpenFoodFacts">
+<meta name="x:creator" content="@OpenFoodFacts">
+<meta name="x:title" content="Apple pie - Bob's pies - 100 g">
+<meta name="x:description" content="Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product Apple pie - Bob's pies - 100 g">
+<meta name="x:label1" content="brand">
+<meta name="x:data1" content="Bob's pies">
+<meta name="x:label2" content="category">
+<meta name="x:data2" content="Apple pies">
 
 
 
@@ -47,6 +47,24 @@
         .show-when-no-access-to-producers-platform {display:none}
 .show-when-logged-in {display:none}
 
+		
+		.badge-container{
+			margin: 0 auto;
+		}
+
+		.badge-container img{
+			margin: 5px;
+		}
+		@media only screen and (max-width: 537px ) and (min-width: 280px) {
+			.badge-container{
+				width: 280px;
+			}
+		}
+		@media only screen and (max-width: 279px ){
+			.badge-container{
+				width: 130px;
+			}
+		}
     </style>
 </head>
 <body about="/product/3300000000001/apple-pie-bob-s-pies" typeof="food:foodProduct" class="product_page">
@@ -108,8 +126,8 @@
     "apiUrl": "//backend:8881//api/v1",
     "imgUrl": "//images.openfoodfacts.localhost/images/products"
 }'
+  assets-images-path="//static.openfoodfacts.localhost/css/dist/images"
 ></off-webcomponents-configuration>
-
 
 <a href="#upNav" class="back-to-top scrollto button">
     <span class="material-icons size-20 ">
@@ -247,7 +265,7 @@
 
 <p id="field_brands">
     <span class="field">Brands: </span>
-    <span class="field_value" id="field_brands_value"><a itemprop="brand" href="/facets/brands/bob-s-pies">Bob's pies</a></span>
+    <span class="field_value" id="field_brands_value"><a itemprop="brand" href="/facets/brands/bob-s-pies" class="tag user_defined">Bob's pies</a></span>
 </p>
 
 <!-- end templates/web/common/includes/display_field.tt.html -->
@@ -296,7 +314,7 @@
                         
                             <!-- Anonymous users will only be able to vote see AnnotationVote in robotoff,
                                 the voter uniqueness is based on a hash of its ip address -->
-                            <div class="alert-box" style="background-color: #0064c8">
+                            <div class="alert-box block_blue is_hidden">
   <robotoff-question
     product-code="3300000000001"
     options='{"showMessage": true, "showLoading": true, "showError": true, "showImage": false}'
@@ -304,22 +322,8 @@
   ></robotoff-question>
 </div>
 <script>
-  const robotoffQuestion = document.getElementById("robotoff-question");
-  const robotoffQuestionParent = robotoffQuestion.parentElement;
-  // Hide the alert until we have questions
-  robotoffQuestionParent.style.display = "none";
-
-  robotoffQuestion.addEventListener("question-state", function (event) {
-    if (event.detail.numberOfQuestions === 0) {
-      robotoffQuestionParent.style.display = "none";
-    } else if (event.detail.index === event.detail.numberOfQuestions) {
-      // Hide the alert after the last question
-      setTimeout(function () {
-        robotoffQuestionParent.style.display = "none";
-      }, 3000);
-    } else {
-      robotoffQuestionParent.style.display = "block";
-    }
+  document.addEventListener("DOMContentLoaded", () => {
+    window.listenEventToShowHideAlert("question-state", "robotoff-question");
   });
 </script>
 
@@ -333,6 +337,7 @@
         </div>
     </section>
 
+    
 
     <!-- product summary -->
     <section class="row" id="match">
@@ -4731,6 +4736,7 @@ display_product_summary("#product_summary", product);
 <script src="//static.openfoodfacts.localhost/js/dist/select2.min.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/product-history.js"></script>
+<script src="//static.openfoodfacts.localhost/js/dist/off-webcomponents-utils.js"></script>
 <script type="module" src="//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js"></script>
 <script type="text/javascript">
 var page_type = "product";
@@ -4775,7 +4781,7 @@ $(document).foundation({
 	"url": "//world.openfoodfacts.localhost",
 	"logo": "//static.openfoodfacts.localhost/images/logos/off-logo-vertical-light.svg",
 	"name": "Open Food Facts",
-	"sameAs" : ["//www.facebook.com/OpenFoodFacts?utm_source=off&utf_medium=web", "//twitter.com/OpenFoodFacts"]
+	"sameAs" : ["//www.facebook.com/OpenFoodFacts?utm_source=off&utf_medium=web", "//x.com/OpenFoodFacts"]
 }
 </script>
 
@@ -4785,5 +4791,7 @@ $(document).foundation({
 
 </body>
 </html>
+
+
 
 <!-- end templates/web/common/site_layout.tt.html -->

@@ -29,6 +29,7 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Routing qw/analyze_request/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::HTTP qw/single_param redirect_to_url/;
 use ProductOpener::Users qw/$Owner_id init_user/;
 use ProductOpener::Lang qw/lang/;
 use ProductOpener::API qw/decode_json_request_body init_api_response process_api_request read_request_body/;
@@ -50,9 +51,8 @@ $request_ref->{method} = $r->method();
 $log->debug("display.pl - start", {env_query_string => $env_query_string, request_ref => $request_ref})
 	if $log->is_debug();
 
-# Special behaviors for API v3 requests
-
-my $api_pattern = qr/^\/?api\/v(3(\.\d+)?)\//;
+# Special behaviors for API v3 requests, starting by /api/v3 or on pro platform /org/org-id/api/v3
+my $api_pattern = qr!^(?:/org/[^/]+)?/?api/v(3(\.\d+)?)/!;
 my $method_pattern = qr/^(POST|PUT|PATCH)$/;
 
 if ($env_query_string =~ $api_pattern) {

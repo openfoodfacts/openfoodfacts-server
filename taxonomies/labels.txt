@@ -131,6 +131,7 @@ synonyms:fr: naturel, d'origine naturelle, origine naturelle
 synonyms:fi: luontainen, luonnollinen
 synonyms:it: naturale, di origine naturale, origine naturale
 synonyms:pt: natural, de origem natural, origem natural
+synonyms:sv: naturlig, naturligt
 
 synonyms:fr: élevé, élevée, élevés, élevées
 synonyms:pt: elevado, elevados
@@ -479,6 +480,10 @@ pt: Pegada de carbono, emissões de CO2, emissões em CO2, emissões de carbono,
 ru: CO2-эмиссия
 label_categories:en: en:Environnment
 wikidata:en: Q310667
+
+< en:Carbon footprint
+en: Low climate footprint
+sv: Lågt klimatavtryck
 
 < en:Carbon compensated product
 en: Climate Neutral Certified
@@ -1230,12 +1235,16 @@ xx: PEFC, Programme for the Endorsement of Forest Certification
 de: PEFC, Programme for the Endorsement of Forest Certification, Zertifizierungssystem für nachhaltige Waldbewirtschaftung
 es: PEFC, Programme for the Endorsement of Forest Certification, Programa para el Reconocimiento de Certificación Forestal
 fi: PEFC, Programme for the Endorsement of Forest Certification, Euroopan laajuinen metsäsertifikaatti
-fr: PEFC, Programme for the Endorsement of Forest Certification, Programme de reconnaissance des certifications forestières
+fr: PEFC, Programme for the Endorsement of Forest Certification, Programme de reconnaissance des certifications forestières, PEFC France, emballage PEFC
 hu: PEFC, Programme for the Endorsement of Forest Certification, Páneurópai Erdő Tanúsítás
 pt: PEFC, Programme for the Endorsement of Forest Certification, Programa para o Reconhecimento de Certificação Forestal, certificado PEFC
 label_categories:en: en:Packaging
+web:fr: https://www.pefc-france.org/
 wikidata:en: Q2112204
 # associated_materials:en: en:paper, en:cardboard
+
+en: 100% recyclable packaging, 100% recyclable
+fr: Emballage recyclable à 100%, Recyclable à 100%
 
 en: Green Dot, The Green Dot
 xx: Green Dot, The Green Dot
@@ -1329,7 +1338,7 @@ bg: Без глутен
 ca: Lliure de gluten, Sense gluten, No gluten, Aliment sense gluten, Lliure de gluten, Sense gluten d'orígen
 cs: Bez lepku
 cz: Bez lepku
-da: Glutenfri
+da: Glutenfri, glutenfrit, glutenfrie
 de: Glutenfrei
 el: Χωρίς γλουτένη
 es: Sin gluten, Libre de gluten
@@ -1353,7 +1362,7 @@ ru: Без глютена
 sk: Bez lepku
 sl: Brez glutena
 sq: Pa gluten
-sv: Glutenfri
+sv: Glutenfri, glutenfritt
 th: ไม่มีกลูเตน
 tr: Glutensiz
 uk: Не містить глютену
@@ -1715,6 +1724,7 @@ fr: source de protéines
 hr: izvor proteina, izvor bjelančevina
 it: fonte di proteine
 pt: fonte de proteínas
+sv: källa till protein
 description:en: In EU, a claim that a food is a source of protein may only be made where at least 12 % of the energy value of the food is provided by protein. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
 < en:Source of proteins
@@ -1733,6 +1743,7 @@ nl: Eiwitrijk, Rijk aan protéines, Rijk aan Eiwit
 pl: Wysoka zawartość białka, Bogaty w białko
 pt: Proteínas altas
 ru: Обогащено протеинами
+sv: Proteinrik
 th: โปรตีนสูง
 description:en: In EU, a claim that a food is high in protein may only be made where at least 20 % of the energy value of the food is provided by protein. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
@@ -1764,6 +1775,7 @@ nl: Bron van Calcium
 pl: Źródło wapnia
 pt: Fonte de cálcio
 ru: источник кальция
+sv: Källa till kalcium
 th: แหล่งของแคลเซียม
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
@@ -3107,7 +3119,7 @@ xx: no added sugar
 ar: بدون سكر مضاف
 bg: Без добавена захар
 ca: Sense sucre afegit, sense sucres afegits
-cs: Bez přidaného cukru
+cs: Bez přidaného cukru, obsahuje přirozeněse vyskytující cukry
 da: Uden tilsat sukker
 de: Ohne Zuckerzusatz, Ohne zugesetzten Zucker
 el: Χωρίς προσθήκη ζάχαρης
@@ -3413,7 +3425,7 @@ nl: Geproduceerd in Denemarken
 pl: Wyprodukowano w Danii
 pt: Fabricado na Dinamarca, feito na Dinamarca, produto da Dinamarca, produzido na Dinamarca, originário da Dinamarca, proveniente da Dinamarca
 ru: Произведено в Дании
-sv: Tillverkad i Danmark
+sv: Tillverkad i Danmark, Producerad i Danmark
 uk: Вироблено в Данії
 country:en: en:Denmark
 label_categories:en: en:Geographic label
@@ -3717,6 +3729,42 @@ pt: Feito em Espanha, produzido em Espanha, fabricado em Espanha
 country:en: en:Spain
 label_categories:en: en:Geographic label
 
+# Sweden
+xx: Från Sverige
+sv: Från Sverige
+image:en: fran_sverige.90x90.svg
+label_categories:en: en:Geographic label
+origins:en: en:sweden
+web:sv: https://fransverige.se/
+
+< sv:Från Sverige
+xx: Kött från Sverige
+sv: Kött från Sverige
+image:en: fran_sverige_kott.90x90.png
+ingredients:en: en:meat
+web:sv: https://fransverige.se/svenska-ravaror-all-varldens-mat/vad-ar-fran-sverige/market-kott-fran-sverige/
+
+< sv:Från Sverige
+xx: Mjölk från Sverige
+sv: Mjölk från Sverige
+image:en: fran_sverige_mjolk.90x90.png
+ingredients:en: en:dairy
+web:sv: https://fransverige.se/svenska-ravaror-all-varldens-mat/vad-ar-fran-sverige/market-mjolk-fran-sverige/
+
+xx: Svenskt mjöl från egen kvarn
+sv: Svenskt mjöl från egen kvarn
+# brand:sv: Pågen
+image:en: svenskt_mjol_fran_egen_kvarn.90x90.png
+ingredients:en: en:flour
+label_categories:en: en:Geographic label
+origins:en: en:sweden
+web:sv: https://pagen.se/sortiment/svenskt-mjol-fran-egen-kvarn-markta-brod/
+
+en: Made in Sweden, Manufactured in Sweden
+sv: Tillverkad i Sverige, Tillagat i Sverige, Producerad i Sverige
+label_categories:en: en:Geographic label
+manufacturing_places:en: en:sweden
+
 en: Made in Swiss, made in Switzerland, swiss made
 bg: Произведено в Швейцария
 ca: Fet a Suïssa
@@ -3993,6 +4041,7 @@ hu: természetes színezék
 it: Coloranti naturali
 nl: Natuurlijke kleurstoffen
 pt: Corantes naturais, corante natural
+sv: naturligt färgande livsmedel
 th: ใช้สีธรรมชาติ
 
 en: natural flavors
@@ -4842,6 +4891,11 @@ web:de: https://gentechnikfrei.at
 # dedicated, widely used symbol of http://www.gentechnikfrei.at/
 
 < en:No GMOs
+en: No GMO soy
+ingredients:en: en:soya
+label_categories:en: en:Soy
+
+< en:No GMOs
 < fr:Soja Français
 en: French soy without GMOs
 bg: Френска соя без ГМО
@@ -4860,7 +4914,7 @@ en: No lactose, lactose-free, Lactose free, without lactose
 ar: خالي من اللاكتوز
 bg: Без лактоза
 ca: Sense lactosa, lliure de lactosa
-cs: Bez laktózy
+cs: Bez laktózy, Přirozeně bez laktózy
 cz: Bez laktozy
 da: Laktosefri
 de: Laktosefrei, Lactosefrei
@@ -4889,7 +4943,7 @@ ru: Без лактозы
 sk: Bez laktozy
 sl: Brez laktoze
 sq: Pa laktozë
-sv: Laktosfri, Laktosfritt
+sv: Laktosfri, Laktosfritt, Naturligt laktosfri
 th: ไม่มีแลคโตส
 tr: Laktozsuz
 uk: Без лактози
@@ -18367,7 +18421,7 @@ nl: Zonder palmolie, Palmolie-vrij, Palmolievrij
 pl: Wolne od oleju palmowego, bez oleju palmowego
 pt: Sem óleo de palma, 0% óleo de palma
 ru: Без пальмового масла
-sv: Utan palmolja
+sv: Utan palmolja, palmoljefri
 th: ไม่ใช้น้ำมันปาล์ม
 zh: 不含棕榈油
 incompatible_with:en: labels:en:contains-palm-oil
@@ -19585,7 +19639,7 @@ an: vegano
 bg: Веган
 ca: Vegà, Adequat per persones veganes
 cs: Veganské
-da: Vegansk, Velegnet til veganere
+da: Vegansk, Velegnet til veganere, vegetabilsk
 de: Vegan
 es: Vegano, Producto vegano, Vegan
 fi: vegaaninen, sopii vegaaneille, kasviperäinen, Sopii vegaaniruokavalioon
@@ -19601,7 +19655,7 @@ nl: Veganistisch, plantaardig, niet dierlijk
 pl: Wegańskie, przyjazne weganom, wegański, wegańska
 pt: Vegano, produto vegano, vegan, adequado para veganos, adequado a veganos, adequado a uma dieta vegan, adequado a uma dieta vegana, adequado a vegetarianos e veganos
 sq: vegan
-sv: Vegansk, Passar för veganer
+sv: Vegansk, Passar för veganer, vegetabilisk
 th: สูตรเจ
 tr: Vegan
 zh: 纯素
@@ -19774,6 +19828,7 @@ fr: Ovo-végétarien
 hu: Ovo-vegetáriánus
 it: Ovo-vegetariano
 pt: Ovo-vegetariano
+sv: Ovo-vegetarisk, ovovegetarisk, ovovegetarianer
 wikidata:en: Q3543760
 
 < en:Lacto-vegetarian
@@ -19787,7 +19842,7 @@ fr: Ovo-lacto-végétarien
 hu: Ovo-lakto-vegetáriánus, Lakto-ovo-vegetáriánus
 it: Ovo-latto-vegetariano
 pt: Ovo-lacto-vegetariano
-sv: Lakto-ovovegetarianer
+sv: Lakto-ovovegetarisk, lakto-ovovegetarianer
 wikidata:en: Q3544800
 
 en: Lacto-vegetarian
@@ -19799,6 +19854,7 @@ fr: Lacto-végétarien
 hu: Lakto-vegetáriánus
 it: Latto-vegetariano
 pt: Latto-vegetariano
+sv: Lakto-vegetarisk
 wikidata:en: Q3496076
 
 # non English needs the English synonyms too so that "European V-Label Végétarien" can be recognized too
@@ -19853,6 +19909,23 @@ pl: V-Label Vegan, V-Label wegańskie
 pt: União Vegetariana Europeia Vegano, European Vegetarian Union Vegan, União Vegetariana Europeia - Vegano, European Vegetarian Union - Vegan
 sv: Europeiska Vegetariska Unionen Vegan, Europeiska Vegetariska Unionen - Vegan, EVU Vegan
 image:en: european-vegetarian-union-vegan.68x90.png
+
+< en:Vegetarian
+en: V-Label International, V-LABEL.COM
+xx: V-Label International, V-LABEL.COM
+image:en: v-label-nocategory.90x90.svg
+website:en: https://www.v-label.com/
+
+< en:V-Label International
+en: V-Label International Vegetarian
+xx: V-Label International Vegetarian
+image:en: v-label-vegetarian.76x90.svg
+
+< en:V-Label International
+< en:Vegan
+en: V-Label International Vegan
+xx: V-Label International Vegan
+image:en: v-label-vegan.68x90.svg
 
 < en:No palm oil
 #https://znakv.pl/wp-content/uploads/2021/08/vivaR.svg
@@ -20077,6 +20150,12 @@ origins:en: en:france
 fr: Bleu Blanc Cœur, Filière Qualité Bleu Blanc Cœur, Filière nutrition oméga 3 naturels Association Bleu-Blanc-Cœur, Bleu Blanc Cœur Oméga 3 Naturels, BBC
 auth_url:fr: https://www.bleu-blanc-coeur.org
 
+< fr: Bleu Blanc Cœur
+fr: Bleu Blanc Cœur Viande, BBC viande
+
+< fr:Bleu Blanc Cœur
+fr: Bleu Blanc Cœur Volaille, BBC volaille, voilaille BBC
+
 < fr:Bleu Blanc Cœur
 fr: Bleu Blanc Cœur Poulet, BBC poulet, poulet BBC
 
@@ -20101,6 +20180,9 @@ label_categories:en: en:Health, en:Quality, en:Environment
 web:en: https://demainlaterre.org/en/producer-community/demain-la-terre-label
 
 fr: Nouvelle Agriculture
+
+< fr: Nouvelle Agriculture
+fr: Nouvelle Agriculture Lapin
 
 en: Smoked with beech wood
 ca: Fumat amb fusta de faig
@@ -22655,6 +22737,11 @@ xx: Nestlé Cocoa Plan
 
 en: EU Ecolabel
 xx: EU Ecolabel
+da: EU Ecolabel, EU-Blomsten
+fr: EU Ecolabel, Ecolabel EU, Ecolabel européen
+sv: EU Ecolabel, EU-Blomman
+web:en: https://www.ecolabel.eu/
+wikidata:en: Q1378205
 
 en: Eco-Score
 xx: Eco-Score
@@ -22965,4 +23052,20 @@ fr: Élevé en Sodium (Santé Canada)
 image:xx: high-in-sodium-health-canada-eleve-en-sodium-sante-canada.171x90.svg
 image:en: high-in-sodium-health-canada.120x90.svg
 image:fr: eleve-en-sodium-sante-canada.120x90.svg
+
+< en:Sustainable farming
+fr: Blé issu d'une culture maitrisée
+ingredients:en: en:wheat
+
+< en:Sustainable farming
+fr: Maïs issu d'une culture maitrisée
+ingredients:en: en:corn
+
+< en:Sustainable farming
+fr: Agri Confiance, AgriConfiance, Agri Confiance Coopérative Engagée
+web:fr: https://www.agriconfiance.coop/
+
+< en:Sustainable fishing
+en: Fishing of a well-managed species
+fr: Pêche d'une espèce bien gérée
 

@@ -67,7 +67,6 @@ function folksonomy_engine_init() {
 @import url("https://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css");
 
 .feus {
-  background-color: #f7edf8;
   margin-bottom: 1rem;
 }
 
