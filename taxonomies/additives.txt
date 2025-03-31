@@ -1513,7 +1513,7 @@ da: E150, Karamel
 de: E150, Karamell
 el: E150, καραμέλα
 eo: E150, karamelo
-es: E150, Caramelo, Caramelina, Caramelo líquido
+es: E150, Caramelo, Caramelina
 et: E150, Karamell
 eu: E150, Karamelu
 fa: E150, کارامل
@@ -4746,11 +4746,11 @@ wikipedia:en: https://en.wikipedia.org/wiki/Potassium_metabisulfite
 en: E225, Calcium Disulphite, Calcium Disulfite, Calcium Pyrosulphite, Calcium Pyrosulfite, Potassium sulfite, Potassium sulphite
 xx: E225
 bg: E225, Калциев дисулфит, Калциев пиро-сулфит, Сулфит на калий
-cs: E225, Siřičitan draselný, Siřičitan vápenatý
+cs: E225, Siřičitan draselný
 da: E225, Calcium Disulphite, Calcium Disulfite, Calcium Pyrosulphite, Calcium Pyrosulfite, Potassium sulfite, Potassium sulphite
 de: E225, Kaliumsulfit
 el: E225, Θειώδες ασβέστιο
-es: E225, Sulfito cálcico, Sulfito de potasio
+es: E225, Sulfito cálcico
 et: E225, Kaltsiumdisulfit, Kaaliumsulfit
 fi: E225, Kalsiumdisulfiitti, Kalsiumdisulfiittia, Kaliumsulfiitti
 fr: E225, Disulfite de calcium, Pyrosulfite de calcium, Sulfite de potassium
@@ -4763,7 +4763,7 @@ nl: E225, Kaliumsulfiet
 pl: E225, Siarczyn potasu, Disiarczek wapnia, Pirosiarczek wapnia, Siarczek potasu
 pt: E225, Dissulfito de cálcio, Pirossulfito de cálcio, Sulfito de potássio
 ro: E225, Disulfit de calciu, Pirosulfit de calciu, Sulfat de potasiu
-sk: E225, Siřičitan draselný, Siřičitan vápenatý
+sk: E225, Siřičitan draselný
 sl: E225, Kalcijev disulfit, Kalcijev pirosulfit, Kalijev sulfat
 sv: E225, Kalciumdisulfit, Kaliumsulfit
 additives_classes:en: en:antioxidant, en:preservative
@@ -4794,7 +4794,7 @@ nl: E226, Calciumsulfiet
 pl: E226, Siarczyn wapnia
 pt: E226, Sulfito de cálcio
 ro: E226, Sulfit de calciu
-sk: E226, Siričitan vápenatý
+sk: E226, Siričitan vápenatý, Siřičitan vápenatý
 sl: E226, Kalcijev sulfit
 sv: E226, Kalciumsulfit, E 226, E 285, E 261
 anses_additives_of_interest:en: yes
@@ -8278,7 +8278,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Disodium_citrate
 < en:E331
 en: E331(iii), Trisodium citrate
 xx: E331(iii)
-bg: E331(iii), Тринатриев цитрат, натриев цитрат, натриеви цитрати
+bg: E331(iii), Тринатриев цитрат
 ca: E331(iii), Citrat trisòdic, citrat trisodic
 da: E331(iii), Trinatriumcitrat
 de: E331(iii), Trinatriumcitrat
@@ -8287,8 +8287,8 @@ fi: E331(iii), Trinatriumsitraatti, Trinatriumsitraattia
 fr: E331(iii), Citrate trisodique
 hr: E331(iii), trinatrijev citrat
 hu: E331(iii), Trinátrium-citrát
-it: E331(iii), Citrato trisodico, citrato di trisodio
-ja: E331(iii), クエン酸三ナトリウム, クエン酸ナトリウム, クエン酸Na, クエン酸Ｎａ
+it: E331(iii), Citrato trisodico
+ja: E331(iii), クエン酸三ナトリウム
 nb: E331(iii), Trinatriumsitrat
 nl: E331(iii), trinatriumcitraat
 pl: E331(iii), Cytrynian trisodowy
@@ -9112,8 +9112,10 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q3381491
 
+# description:en:Monopotassium phosphate, MKP, (also potassium dihydrogenphosphate, KDP, or monobasic potassium phosphate), KH2PO4, is a soluble salt of potassium and the dihydrogen phosphate ion
+
 < en:E340
-en: E340(i), Monopotassium phosphate, Monobasic potassium phosphate, Monopotassium monophosphate
+en: E340(i), Monopotassium phosphate, Monobasic potassium phosphate, Monopotassium monophosphate, E340i, E 340i, E-340i, E340 i
 xx: E340(i)
 bg: E340(i), Монокалиев фосфат, Едноосновен калиев фосфат, монокалиев монофосфат
 cs: E340(i), Dihydrogenfosforečnan draselný
@@ -9124,6 +9126,7 @@ es: E340(i), Fosfato monopotásico, Fosfato monobásico potásico, monofosfato m
 et: E340(i), Kaaliumdivesinikfosfaat, Kaaliumdivesinikfosfaat
 fi: E340(i), Monokaliumfosfaatti, Yhdenarvoinen kaliumfosfaatti, Monokaliummonofosfaatti, Monokaliumfosfaattia, Yhdenarvoista kaliumfosfaattia, Monokaliummonofosfaattia
 fr: E340(i), Phosphate monopotassique
+hr: E340(i), monokalijev fosfat
 hu: E340(i), Monokálium-foszfát, Egybázisú kálium-foszfát, Monokálium-monofoszfát
 it: E340(i), Fosfato monopotassico, Fosfato monobasico di potassio, monofosfato monopotassico
 lt: E340(i), Monokalio fosfatas, Vienbazis kalio fosfatas, monokalio monofosfatas
@@ -9133,13 +9136,16 @@ nl: E340(i), Monokaliumfosfaat, Eenbasisch kaliumfosfaat, monokaliummonofosfaat
 pl: E340(i), Fosforan monopotasowy, Fosforan potasu monozasadowy, monofosforan monopotasowy
 pt: E340(i), Fosfato monopotássico, Fosfato monobásico de potássio, monofosfato monopotássico
 ro: E340(i), Fosfat monopotasic, Fosfat de potasiu monobazic, Monofosfat monopotasic
+ru: орто-Фосфат калия 3-замещенный
 sk: E340(i), Fosforečnan monodraselný, Monosýtny fosforečnan draselný, monofosforečnan monodraselný
 sl: E340(i), Monokalijev fosfat, monobazični kalijev fosfat, monokalijev monofosfat
 sv: E340(i), Monokaliumfosfat, Monokaliummonofosfat, kaliumortofosfat
 additives_classes:en: en:emulsifier, en:humectant, en:sequestrant, en:stabiliser, en:thickener
 anses_additives_of_interest:en: yes
 e_number:en: 340
-wikidata:en: Q3381491
+wikidata:en: Q415049
+wikipedia:en: https://en.wikipedia.org/wiki/Monopotassium_phosphate
+# additive/e340i-monopotassium-phosphate has 241 products in 10 languages @2018-11-7
 
 < en:E340
 en: E340(ii), Dipotassium phosphate, Dipotassium monophosphate, Secondary potassium phosphate, Dipotassium orthophosphate
@@ -14445,30 +14451,30 @@ bg: E470, Натриеви/калиеви/калциеви и магнезиев
 ca: E470, Sal sòdica/potàssica/càlcica/magnèsica d'àcids grassos
 cs: E470, Sodné/draselné/vápenaté a hořečnaté soli mastných kyselin
 da: E470, Natrium/kalium/calcium- og magnesiumsalte af fedtsyrer
-de: E470, Natrium-, Kalium-, Calcium- und Magnesiumsalze von Fettsäuren
+de: E470, Natrium- Kalium- Calcium- und Magnesiumsalze von Fettsäuren
 el: E470, Άλατα νατρίου/καλίου/ασβεστίου και μαγνησίου λιπαρών οξέων
 es: E470, Sales de sodio/potasio/calcio y magnesio de ácidos grasos
 et: E470, Rasvhapete naatrium/kaalium/kaltsium- ja magneesiumisoolad
-fi: E470, Rasvahappojen suolat, Rasvahappojen suoloja, Rasvahappojen natrium-, kalium-, kalsium- ja magnesiumsuolat
+fi: E470, Rasvahappojen suolat, Rasvahappojen suoloja, Rasvahappojen natrium- kalium- kalsium- ja magnesiumsuolat
 fr: E470, Sels de sodium/potassium/calcium d'acides gras, Sels de sodium potassium calcium et magnésium d'acides gras
-hr: E470, natrijeve, kalijeve i kalcijeve soli masnih kiselina, Natrijeve, kalijeve, kalcijeve i magnezijeve soli masnih kiselina
-hu: E470, nátrium/kálium/kalcium és magnézium sók és zsírsavak, Zsírsavak nátrium-, kálium-, kalcium- és magnéziumsói
-it: E470, Sali di sodio, potassio, calcio e magnesio degli acidi grassi
+hr: E470, natrijeve kalijeve i kalcijeve soli masnih kiselina, Natrijeve kalijeve kalcijeve i magnezijeve soli masnih kiselina
+hu: E470, nátrium/kálium/kalcium és magnézium sók és zsírsavak, Zsírsavak nátrium- kálium- kalcium- és magnéziumsói
+it: E470, Sali di sodio potassio calcio e magnesio degli acidi grassi
 ja: E470, 脂肪酸のナトリウム/カリウム/カルシウム/マグネシウム塩
 ko: E470, 지방산의 나트륨/칼륨/칼슘 및 마그네슘 염
-lt: E470, Natrio, kalio, kalcio ir magnio riebalų rūgščių druskos
-lv: E470, Taukskābju nātrija, kālija, kalcija un magnija sāļi
-mk: E470, Натриумови, калиумови, калциумови и магнезиумови соли на масни киселини
-mt: E470, Imħlieħ tas-sodju, potassju, kalċju u manjesju tal-aċidi grassi
-nl: E470, Vetzuurzouten, Natrium-, kalium-, calcium- en magnesiumzouten van vetzuren
-pl: E470, Sole sodowe, potasowe, wapniowe i magnezowe kwasów tłuszczowych
-pt: E470, Sais de sódio, potássio, cálcio e magnésio de ácidos gordos
-ro: E470, Săruri de sodiu, potasiu, calciu și magneziu ale acizilor grași
-ru: E470, Натриевые, калиевые, кальциевые и магниевые соли жирных кислот
-sk: E470, Sodné, draselné, vápenaté a horečnaté soli mastných kyselín
-sl: E470, Natrijeve, kalijeve, kalcijeve in magnezijeve soli maščobnih kislin
-sr: E470, Натријумове, калијумове, калцијумове и магнезијумове соли масних киселина
-sv: E470, Natrium-, kalium-, kalcium- och magnesiumsalter av fettsyror
+lt: E470, Natrio kalio kalcio ir magnio riebalų rūgščių druskos
+lv: E470, Taukskābju nātrija kālija kalcija un magnija sāļi
+mk: E470, Натриумови калиумови калциумови и магнезиумови соли на масни киселини
+mt: E470, Imħlieħ tas-sodju potassju kalċju u manjesju tal-aċidi grassi
+nl: E470, Vetzuurzouten Natrium- kalium- calcium- en magnesiumzouten van vetzuren
+pl: E470, Sole sodowe potasowe wapniowe i magnezowe kwasów tłuszczowych
+pt: E470, Sais de sódio potássio cálcio e magnésio de ácidos gordos
+ro: E470, Săruri de sodiu potasiu calciu și magneziu ale acizilor grași
+ru: E470, Натриевые калиевые кальциевые и магниевые соли жирных кислот
+sk: E470, Sodné draselné vápenaté a horečnaté soli mastných kyselín
+sl: E470, Natrijeve kalijeve kalcijeve in magnezijeve soli maščobnih kislin
+sr: E470, Натријумове калијумове калцијумове и магнезијумове соли масних киселина
+sv: E470, Natrium- kalium- kalcium- och magnesiumsalter av fettsyror
 zh: E470, 脂肪酸的钠/钾/钙和镁盐
 additives_classes:en: en:emulsifier, en:stabiliser, en:thickener
 e_number:en: 470
@@ -17183,7 +17189,7 @@ cs: E515(i), Síran draselný
 da: E515(i), Kaliumsulfat
 de: E515(i), Kaliumsulfat
 el: E515(i), Θειικα αλατα του καλιου
-es: E515(i), Sulfato potásico, Sulfato de potasio
+es: E515(i), Sulfato potásico, Sulfato de potasio, Sulfito de potasio
 et: E515(i), Kaaliumsulfaat
 fi: E515(i), Kaliumsulfaatti, Kaliumsulfaattia
 fr: E515(i), Sulfate de potassium
@@ -22681,8 +22687,8 @@ fi: E949, Vety, Vetyä
 fr: E949, Hydrogène
 hu: E949, Hidrogén
 it: E949, Idrogeno
-lt: E949, Vanduo
-lv: E949, Ūdens
+lt: E949, Vandenilis
+lv: E949, Ūdeņradis
 mt: E949, Idroġenu
 nl: E949, Waterstof
 pl: E949, Wodór
@@ -22695,6 +22701,7 @@ sv: E949, Väte
 e_number:en: 949
 vegan:en: yes
 vegetarian:en: yes
+wikidata:en: Q556
 
 en: E950, Acesulfame k, Acesulfame potassium
 xx: E950
@@ -24585,7 +24592,7 @@ pl: E1405, skrobia modyfikowana enzymatycznie
 pt: E1405, Amido tratado com enzimas
 ro: E1405, Amidon tratat cu enzime
 sk: E1405, Enzymaticky modifikované škroby
-sl: E1405, Škrob, obdelan z encimi
+sl: E1405, Škrob obdelan z encimi
 sv: E1405, Enzymbehandlad stärkelse
 additives_classes:en: en:emulsifier, en:stabiliser, en:thickener
 e_number:en: 1405
