@@ -133,12 +133,12 @@ stopwords:bg: съдържа, в, от, с, със, до, и, или, и/или,
 stopwords:bs: i, u promjenljivom odnosu
 stopwords:ca: i, de
 stopwords:da: av, af, blandt andet, bl a, inklusive, heraf, indeholder, tilsat
-stopwords:de: und, mit, von, aus, enthält, enthalten, mindestens, naturbelassen, in veränderlichen gewichtsanteilen, wenig, min, max
-stopwords:el: περιέχει
+stopwords:de: Allergene Zutaten, und, mit, von, aus, enthält, enthalten, mindestens, naturbelassen, in veränderlichen gewichtsanteilen, wenig, min, max
+stopwords:el: Για αλλεργιογόνα, περιέχει
 # example: "artificial flavouring substances", "natural and nature identical flavouring substances"
 stopwords:en: and, or, added to enhance freshness, added to maintain flavor and freshness, assorted, based, contains, contains less than 2% of the following, contains one or more of the following, contain, edible, for freshness, from, including, inter alia, in varying proportions, less than 1% of:, may contain one or more of the following, minimum, possibly some, produced with, roasted in, substances, with, with added
 stopwords:es: contiene, de, del, la, el, las, los, con, y, e, en, minimo, maximo, puede, contener, por, categoria, calibre, minimo, min, vereidad, variedad, de cultivo, origen, nota, produccion, controlada, equivalente, equivale
-stopwords:fi: sisältää, muun muassa, valio, koskenlaskija, snellmanin, jossa, noin, käymisen aikana muodostuva
+stopwords:fi: allergiatiedot, jossa, käymisen aikana muodostuva, koskenlaskija, muun muassa, noin, sisältää, snellmanin, valio
 stopwords:fr: aux, au, de, le, du, la, a, et, avec, ou, en, proportion, variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves, dont, avec, autres, d'autres, d', avec ajout, sachet, marquants, demeter, minimum, base
 # example: grašak u prahu BOGAT BJELANČEVINAMA
 # example: KLASIČNA MJEŠAVINA arabica i robusta kave
@@ -158,13 +158,13 @@ stopwords:ja: 等, その他
 stopwords:lt: iš, su, su pridėtiniu, mažiausiai, įskaitant
 stopwords:lv: no
 stopwords:nb: av, fra, bl a, blant annet, tilsatt
-stopwords:nl: bevat, met, waarvan, bevatten, van, vervaardigd met, behandeld papier, waaraan toegevoegd, aangezuurd, cacaobestanddelen, o.a
+stopwords:nl: aangezuurd, bevat, bevatten, behandeld papier, cacaobestanddelen, met, o.a, van, vervaardigd met, voor allergenen, waaraan toegevoegd, waarvan
 stopwords:nn: av
 stopwords:pl: w tym, zawiera, z, zawierają, łącznie z, jadalna, jadalne, inne
 stopwords:pt: de, da, do, das, dos, com, e, ou, em, do qual, dos quais, contém, produzido com, mínimo, máximo, min., mín., máx., max., incluindo, variedade, cultivo, de cultivo
 stopwords:sk: obsahuje
 stopwords:sl: vsebuje, sestavine
-stopwords:sv: av, från, med, innehåller, inklusive, bl a, bland annat, minimum, maximum, varav, certifierad, tillsatt, valio, några, droppar, en, liten, skvätt
+stopwords:sv: av, bl a, bland annat, certifierad, droppar, en, for allergener, från, innehåller, inklusive, liten, maximum, med, minimum, några, skvätt, tillsatt, valio, varav
 stopwords:zh: :配料
 
 
@@ -84174,8 +84174,6 @@ la: Stomatopoda
 th: กั้ง
 wikipedia:en: https://en.wikipedia.org/wiki/Mantis_shrimp
 
-# en:description:Whiteleg shrimp (Litopenaeus vannamei, formerly Penaeus vannamei), also known as Pacific white shrimp or king prawn, is a variety of prawn of the eastern Pacific Ocean commonly caught or farmed for food.
-
 < en:shrimp
 en: whiteleg shrimp, Litopenaeus vannamei
 de: Weißbeingarnele, Litopenaeus vannamei
@@ -84185,8 +84183,10 @@ fr: Crevette à pattes blanches, Litopenaeus vannamei
 hr: kozica pacifička, penaeus vannamei
 it: gamberetti bianchi
 la: Litopenaeus vannamei, Penaeus vannamei, Litopenaus vanamei
+nl: witpootgarnaal
 pl: krewetka białonoga, Litopenaeus vannamei, krewetki białe, krewetka biała
 pt: camarão-de-patas-brancas, Litopenaeus vannamei
+description:en: Whiteleg shrimp (Litopenaeus vannamei, formerly Penaeus vannamei), also known as Pacific white shrimp or king prawn, is a variety of prawn of the eastern Pacific Ocean commonly caught or farmed for food.
 wikidata:en: Q3002564
 wikipedia:en: https://en.wikipedia.org/wiki/Whiteleg_shrimp
 
@@ -84299,7 +84299,6 @@ la: Metapenaeus affinis, Metapaneus affinis
 wikipedia:nl: https://nl.wikipedia.org/wiki/Metapenaeus_affinis
 # ingredient/fr:Metapaneus-affinis has 1 product @2019-01-06
 
-# en:description:Pandalus jordani is een garnalensoort uit de familie van de Pandalidae.
 
 < en:shrimp
 en: Pandalus jordani
@@ -84310,6 +84309,7 @@ hr: pandalus jordani
 is: Bleikrækja
 it: pandalus jordani
 nl: Pandalus jordani
+description:en: Pandalus jordani is een garnalensoort uit de familie van de Pandalidae.
 wikidata:en: Q4470579
 wikipedia:nl: https://nl.wikipedia.org/wiki/Pandalus_jordani
 # ingredient/fr:Pandalus-jordani has 3 products @2108-12-14
