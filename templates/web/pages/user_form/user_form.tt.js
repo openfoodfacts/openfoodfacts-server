@@ -1,3 +1,4 @@
+[% IF action == 'display' %]
 
 function checkboxChange(checkbox) {
 	if (checkbox.checked) {
@@ -19,3 +20,5 @@ checkboxChange(proCheckbox);
 proCheckbox.addEventListener('change', function() {
 	checkboxChange(this);
 });
+
+[% END %]
