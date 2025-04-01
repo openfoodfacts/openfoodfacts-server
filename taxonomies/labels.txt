@@ -131,6 +131,7 @@ synonyms:fr: naturel, d'origine naturelle, origine naturelle
 synonyms:fi: luontainen, luonnollinen
 synonyms:it: naturale, di origine naturale, origine naturale
 synonyms:pt: natural, de origem natural, origem natural
+synonyms:sv: naturlig, naturligt
 
 synonyms:fr: élevé, élevée, élevés, élevées
 synonyms:pt: elevado, elevados
@@ -479,6 +480,10 @@ pt: Pegada de carbono, emissões de CO2, emissões em CO2, emissões de carbono,
 ru: CO2-эмиссия
 label_categories:en: en:Environnment
 wikidata:en: Q310667
+
+< en:Carbon footprint
+en: Low climate footprint
+sv: Lågt klimatavtryck
 
 < en:Carbon compensated product
 en: Climate Neutral Certified
@@ -1333,7 +1338,7 @@ bg: Без глутен
 ca: Lliure de gluten, Sense gluten, No gluten, Aliment sense gluten, Lliure de gluten, Sense gluten d'orígen
 cs: Bez lepku
 cz: Bez lepku
-da: Glutenfri
+da: Glutenfri, glutenfrit, glutenfrie
 de: Glutenfrei
 el: Χωρίς γλουτένη
 es: Sin gluten, Libre de gluten
@@ -1357,7 +1362,7 @@ ru: Без глютена
 sk: Bez lepku
 sl: Brez glutena
 sq: Pa gluten
-sv: Glutenfri
+sv: Glutenfri, glutenfritt
 th: ไม่มีกลูเตน
 tr: Glutensiz
 uk: Не містить глютену
@@ -1719,6 +1724,7 @@ fr: source de protéines
 hr: izvor proteina, izvor bjelančevina
 it: fonte di proteine
 pt: fonte de proteínas
+sv: källa till protein
 description:en: In EU, a claim that a food is a source of protein may only be made where at least 12 % of the energy value of the food is provided by protein. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
 < en:Source of proteins
@@ -3113,7 +3119,7 @@ xx: no added sugar
 ar: بدون سكر مضاف
 bg: Без добавена захар
 ca: Sense sucre afegit, sense sucres afegits
-cs: Bez přidaného cukru
+cs: Bez přidaného cukru, obsahuje přirozeněse vyskytující cukry
 da: Uden tilsat sukker
 de: Ohne Zuckerzusatz, Ohne zugesetzten Zucker
 el: Χωρίς προσθήκη ζάχαρης
@@ -3419,7 +3425,7 @@ nl: Geproduceerd in Denemarken
 pl: Wyprodukowano w Danii
 pt: Fabricado na Dinamarca, feito na Dinamarca, produto da Dinamarca, produzido na Dinamarca, originário da Dinamarca, proveniente da Dinamarca
 ru: Произведено в Дании
-sv: Tillverkad i Danmark
+sv: Tillverkad i Danmark, Producerad i Danmark
 uk: Вироблено в Данії
 country:en: en:Denmark
 label_categories:en: en:Geographic label
@@ -3754,8 +3760,8 @@ label_categories:en: en:Geographic label
 origins:en: en:sweden
 web:sv: https://pagen.se/sortiment/svenskt-mjol-fran-egen-kvarn-markta-brod/
 
-en: Manufactured in Sweden
-sv: Tillverkad i Sverige
+en: Made in Sweden, Manufactured in Sweden
+sv: Tillverkad i Sverige, Tillagat i Sverige, Producerad i Sverige
 label_categories:en: en:Geographic label
 manufacturing_places:en: en:sweden
 
@@ -4035,6 +4041,7 @@ hu: természetes színezék
 it: Coloranti naturali
 nl: Natuurlijke kleurstoffen
 pt: Corantes naturais, corante natural
+sv: naturligt färgande livsmedel
 th: ใช้สีธรรมชาติ
 
 en: natural flavors
@@ -4884,6 +4891,11 @@ web:de: https://gentechnikfrei.at
 # dedicated, widely used symbol of http://www.gentechnikfrei.at/
 
 < en:No GMOs
+en: No GMO soy
+ingredients:en: en:soya
+label_categories:en: en:Soy
+
+< en:No GMOs
 < fr:Soja Français
 en: French soy without GMOs
 bg: Френска соя без ГМО
@@ -4902,7 +4914,7 @@ en: No lactose, lactose-free, Lactose free, without lactose
 ar: خالي من اللاكتوز
 bg: Без лактоза
 ca: Sense lactosa, lliure de lactosa
-cs: Bez laktózy
+cs: Bez laktózy, Přirozeně bez laktózy
 cz: Bez laktozy
 da: Laktosefri
 de: Laktosefrei, Lactosefrei
@@ -4931,7 +4943,7 @@ ru: Без лактозы
 sk: Bez laktozy
 sl: Brez laktoze
 sq: Pa laktozë
-sv: Laktosfri, Laktosfritt
+sv: Laktosfri, Laktosfritt, Naturligt laktosfri
 th: ไม่มีแลคโตส
 tr: Laktozsuz
 uk: Без лактози
@@ -18409,7 +18421,7 @@ nl: Zonder palmolie, Palmolie-vrij, Palmolievrij
 pl: Wolne od oleju palmowego, bez oleju palmowego
 pt: Sem óleo de palma, 0% óleo de palma
 ru: Без пальмового масла
-sv: Utan palmolja
+sv: Utan palmolja, palmoljefri
 th: ไม่ใช้น้ำมันปาล์ม
 zh: 不含棕榈油
 incompatible_with:en: labels:en:contains-palm-oil
@@ -19627,7 +19639,7 @@ an: vegano
 bg: Веган
 ca: Vegà, Adequat per persones veganes
 cs: Veganské
-da: Vegansk, Velegnet til veganere
+da: Vegansk, Velegnet til veganere, vegetabilsk
 de: Vegan
 es: Vegano, Producto vegano, Vegan
 fi: vegaaninen, sopii vegaaneille, kasviperäinen, Sopii vegaaniruokavalioon
@@ -19643,7 +19655,7 @@ nl: Veganistisch, plantaardig, niet dierlijk
 pl: Wegańskie, przyjazne weganom, wegański, wegańska
 pt: Vegano, produto vegano, vegan, adequado para veganos, adequado a veganos, adequado a uma dieta vegan, adequado a uma dieta vegana, adequado a vegetarianos e veganos
 sq: vegan
-sv: Vegansk, Passar för veganer
+sv: Vegansk, Passar för veganer, vegetabilisk
 th: สูตรเจ
 tr: Vegan
 zh: 纯素
@@ -19897,6 +19909,23 @@ pl: V-Label Vegan, V-Label wegańskie
 pt: União Vegetariana Europeia Vegano, European Vegetarian Union Vegan, União Vegetariana Europeia - Vegano, European Vegetarian Union - Vegan
 sv: Europeiska Vegetariska Unionen Vegan, Europeiska Vegetariska Unionen - Vegan, EVU Vegan
 image:en: european-vegetarian-union-vegan.68x90.png
+
+< en:Vegetarian
+en: V-Label International, V-LABEL.COM
+xx: V-Label International, V-LABEL.COM
+image:en: v-label-nocategory.90x90.svg
+website:en: https://www.v-label.com/
+
+< en:V-Label International
+en: V-Label International Vegetarian
+xx: V-Label International Vegetarian
+image:en: v-label-vegetarian.76x90.svg
+
+< en:V-Label International
+< en:Vegan
+en: V-Label International Vegan
+xx: V-Label International Vegan
+image:en: v-label-vegan.68x90.svg
 
 < en:No palm oil
 #https://znakv.pl/wp-content/uploads/2021/08/vivaR.svg
