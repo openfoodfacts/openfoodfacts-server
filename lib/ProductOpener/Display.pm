@@ -346,23 +346,30 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	# Read's Release version from version.txt file & Link's the relsease notes of openfoodfacts-bot
 
 	my $version = "";
+	my $anchor = "";
 	if (open my $fh, '<', $BASE_DIRS{RELEASE_VERSION}) {
 		$version = <$fh>;
 		chomp $version;
 		close $fh;
+
+		if ($version){
+			my $owner = 'openfoodfacts';
+			my $repo = 'openfoodfacts-server';
+			$version = 'v' . $version;
+
+			# Construct a custom URL to the release tag
+			my $custom_url = "https://github.com/$owner/$repo/releases/tag/$version";
+
+			# Build the HTML anchor tag with custom display text
+			$anchor = qq{<a href="$custom_url">View Release $version</a>};
+		}
+		else {
+			$anchor = qq{<span> Cannot open version file: $! </span>};
+		}
 	}
 	else {
-		$version = "Cannot open version file: $!";
+		$anchor = qq{<span> Cannot open version file: $! </span>};
 	}
-	my $owner = 'openfoodfacts';
-	my $repo = 'openfoodfacts-server';
-	$version = 'v' . $version;
-
-	# Construct a custom URL to the release tag
-	my $custom_url = "https://github.com/$owner/$repo/releases/tag/$version";
-
-	# Build the HTML anchor tag with custom display text
-	my $anchor = qq{<a href="$custom_url">View Release $version</a>};
 
 	$template_data_ref->{version} = $anchor;
 
