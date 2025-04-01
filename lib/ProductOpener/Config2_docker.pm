@@ -133,6 +133,7 @@ $events_password = $ENV{EVENTS_PASSWORD};
 	discovery_endpoint => $ENV{PRODUCT_OPENER_OIDC_DISCOVERY_ENDPOINT},
 	# Keycloak specific endpoint used to create users. This is currently required for backwards compatibility with apps
 	# that create users by POSTing to /cgi/user.pl
+	keycloak_level => $ENV{KEYCLOAK_LEVEL},
 	keycloak_base_url => $ENV{KEYCLOAK_BASE_URL},
 	keycloak_backchannel_base_url => $ENV{KEYCLOAK_BACKCHANNEL_BASE_URL},
 	keycloak_realm_name => $ENV{KEYCLOAK_REALM_NAME}
