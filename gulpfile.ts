@@ -111,7 +111,11 @@ export function copyJs() {
     "./node_modules/jsvectormap/dist/maps/world-merc.js",
     "./node_modules/select2/dist/js/select2.min.js",
     "./node_modules/jsbarcode/dist/JsBarcode.all.min.js",
-  ]).
+    "./node_modules/jquery/dist/jquery.js",
+  ], {
+    // prefer jquery from package.json to foundation-vendored copy
+    ignore: "./node_modules/foundation-sites/js/vendor/jquery.js",
+  }).
     pipe(init()).
     pipe(terser()).
     pipe(write(".")).
@@ -148,7 +152,6 @@ function buildjQueryUi() {
     "./node_modules/jquery-ui/ui/position.js",
     "./node_modules/jquery-ui/ui/keycode.js",
     "./node_modules/jquery-ui/ui/unique-id.js",
-    "./node_modules/jquery-ui/ui/safe-active-element.js",
     "./node_modules/jquery-ui/ui/widgets/autocomplete.js",
     "./node_modules/jquery-ui/ui/widgets/menu.js",
   ]).
