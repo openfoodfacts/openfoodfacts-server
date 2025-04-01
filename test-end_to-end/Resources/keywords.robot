@@ -26,11 +26,11 @@ Enter Credentials
 
 Verify Login Success
     Wait Until Element Is Visible    ${LOGGED_IN_ELEMENT}    timeout=5s
-    Capture Page Screenshot
+
 
 Verify Login Failure
     Wait Until Element Is Visible    ${ERROR_MESSAGE}    timeout=5s
-    Capture Page Screenshot
+
 
 Close Browser Session
     Close Browser

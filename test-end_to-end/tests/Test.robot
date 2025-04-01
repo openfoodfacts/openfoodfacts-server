@@ -1,6 +1,7 @@
 *** Settings ***
 Library    SeleniumLibrary
 Library    OperatingSystem
+Library    allure_robotframework
 Resource   ../resources/keywords.robot
 Test Teardown    Run Keyword If    '${TEST STATUS}' == 'FAIL'    Capture Page Screenshot    output/erreur-${TEST NAME}.png
 
@@ -34,10 +35,9 @@ Test Login With Invalid Password
 Test Login With Empty Fields
     Open Login Page
     Enter Credentials    ${EMPTY}    ${EMPTY}
-    Wait Until Page Contains    Se connecter    timeout=2s
-    ${email_vide} =    Run Keyword And Return Status    Element Attribute Should Be    ${email}    value    ${EMPTY}
-    Run Keyword If    ${email_vide}    Log    ✅ Le champ email est vide
+    Wait Until Page Contains    Se connecter    timeout=5s
+    ${email_vide} =    Run Keyword And Return Status    Element Attribute Value Should Be   ${EMAIL_FIELD}   value    ${EMPTY}
+    Run Keyword If    ${email_vide}    Log   Veuillez renseigner ce champ
     Close Browser Session
-
 
 
