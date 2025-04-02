@@ -226,6 +226,7 @@ function compute_expected_links {
   fi
 
   # Note: other link on old versions:
+  # /srv/$SERVICE/users_emails.sto -> /srv/$SERVICE/users/users_emails.sto
   # /srv/$SERVICE/orgs_glns.sto -> /srv/$SERVICE/orgs/orgs_glns.sto
   #
 }

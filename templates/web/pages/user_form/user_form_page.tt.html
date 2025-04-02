@@ -29,6 +29,8 @@
 
     inputfield.value = value;
     }
+    // TODO: Can remove after keycloak migration
+    [% INCLUDE web/pages/user_form/togglepassword.tt.js %]
 </script>
 
 <style>
@@ -93,7 +95,7 @@
                         <label for="[% field.field %]">[% lang(field.label) %]</label>
                         <div class="password-container">
                             <input type="password" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" autocomplete="new-password"/>
-                            <span class="toggle-password">
+                            <span class="toggle-password" onclick="togglePasswordVisibility('[% field.field %]')">
                                 <span class="material-icons material-symbols-visibility">visibility_off</span>
                                 </span>
                             </div>
@@ -172,6 +174,15 @@
                 [% lang("newsletter_description") %]
             </label>
             <p>[% lang("unsubscribe_info") %]</p>
+        [% END %]
+
+        [% IF keycloak_level < 5 and userid and (type != 'add') %]
+            <fieldset>
+                <legend class="text_warning">[% lang("danger_zone") %]</legend>
+                [% delete_confirm=esq(lang("delete_confirmation")) %]
+                <input type="button" name=".delete" class="button text_warning" value= "[% edq(lang('delete_user')) %]" onclick="if ('[% userid %]'.localeCompare(prompt('[% delete_confirm %]'),undefined,'base') === 0) {document.getElementById('delete_input').value='on';document.getElementById('user_form').submit();}"/>
+                <input type="hidden" name="delete" id="delete_input"/>
+            </fieldset>
         [% END %]
 
         <input type="hidden" name="action" value="process" />

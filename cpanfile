@@ -16,6 +16,7 @@ requires 'JSON::PP'; # libjson-pp-perl
 requires 'Cpanel::JSON::XS'; # libcpanel-json-xs-perl - fast parsing
 requires 'JSON::MaybeXS'; # libjson-maybexs-perl
 requires 'Clone'; # libclone-perl
+requires 'Crypt::PasswdMD5'; # TODO: Delete after Keycloak Migration
 requires 'Encode::Detect'; # libencode-detect-perl
 requires 'Barcode::ZBar'; # libbarcode-zbar-perl
 requires 'XML::FeedPP'; # libxml-feedpp-perl
@@ -49,6 +50,7 @@ requires 'Image::OCR::Tesseract'; # deps: libfile-find-rule-perl
 requires 'DateTime', '>= 1.54, < 2.0'; # libdatetime-perl has 1.46. deps: libclass-singleton-perl
 requires 'DateTime::Locale', '>= 1.32, < 2.0'; # libdatetime-locale-perl has 1.17. deps: libfile-sharedir-install-perl
 requires 'DateTime::Format::ISO8601'; # libdatetime-format-iso8601-perl
+requires 'Crypt::ScryptKDF'; # TODO: Delete after Keycloak Migration
 requires 'Locale::Maketext::Lexicon::Getcontext', '>= 0.05'; # deps: liblocale-maketext-lexicon-perl
 requires 'CLDR::Number::Format::Decimal';
 requires 'CLDR::Number::Format::Percent';
