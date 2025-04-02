@@ -7273,17 +7273,18 @@ sub display_page ($request_ref) {
 		$title =~ s/<([^>]*)>//g;
 
 		$title = remove_tags_and_quote($title);
+		$canon_title = $title;
 	}
+
 	my $canon_description = '';
 	if (defined $description) {
-		$description = remove_tags_and_quote($description);
+		$canon_description = remove_tags_and_quote($description);
 	}
 	if ($canon_description eq '') {
 		$canon_description = lang("site_description_$flavor");
 	}
-	my $canon_image_url = "";
-	my $canon_url = $formatted_subdomain;
 
+	my $canon_url = $formatted_subdomain;
 	if (defined $request_ref->{canon_url}) {
 		if ($request_ref->{canon_url} =~ /^(http|https):/) {
 			$canon_url = $request_ref->{canon_url};
@@ -7334,6 +7335,7 @@ sub display_page ($request_ref) {
 	$template_data_ref->{canon_url} = $canon_url;
 	$template_data_ref->{meta_description} = $meta_description;
 	$template_data_ref->{canon_title} = $canon_title;
+	$template_data_ref->{canon_description} = $canon_description;
 	$template_data_ref->{og_images} = $og_images;
 	$template_data_ref->{og_images2} = $og_images2;
 	$template_data_ref->{options_favicons} = $options{favicons};
