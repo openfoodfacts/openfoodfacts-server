@@ -64,6 +64,8 @@ for file in $DATA_TMP_DIR/data/*xlsx; do
     ./scripts/import_csv_file.pl --csv_file $file.converted --user_id nestle-deutschland --comment "Import Nestlé Deutschland" --source_id "nestle-deutschland" --source_name "Nestlé Deutschland" --source_url "https://www.nestle.de/" --manufacturer --org_id nestle-deutschland --define lc=de --images_dir $IMAGES_TMP_DIR/tmp
 done
 
+echo "Removing processed files"
+
 # Remove the files from the sftp when they have been successfully processed
 find $OFF_SFTP_HOME_DIR/nestledeutschland/data -mtime -$IMPORT_SINCE -type f -name "*.xlsx" -exec mv {} $DATA_TMP_DIR/data/ \;
 
