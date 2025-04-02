@@ -264,9 +264,10 @@ msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
 msgstr "Carian lanjutan dan graf"
 
+# duplicate
 msgctxt "alcohol_warning"
-msgid "Excess drinking is harmful for health."
-msgstr "Minum berlebihan adalah berbahaya untuk kesihatan."
+msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr "Pengambilan alkohol yang berlebihan boleh memudaratkan kesihatan, dan diminum secara sederhana."
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
@@ -567,17 +568,13 @@ msgctxt "delete_product"
 msgid "Delete a product"
 msgstr "Padamkan produk"
 
-msgctxt "delete_product_page"
-msgid "Delete the page"
-msgstr "Padamkan halaman"
-
 msgctxt "delete_the_images"
 msgid "Delete the images"
 msgstr "Padamkan imej"
 
 msgctxt "delete_user"
-msgid "Delete a user"
-msgstr ""
+msgid "Delete the user"
+msgstr "Padamkan pengguna"
 
 msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
@@ -2756,6 +2753,7 @@ msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
 msgstr "Gred pemakanan NutriScore"
 
+# duplicate
 msgctxt "delete_product_page"
 msgid "Delete the product page"
 msgstr "Padamkan halaman produk"
@@ -2771,10 +2769,6 @@ msgstr "telah memadamkan produk"
 msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
 msgstr "Adakah anda pasti yang anda mahu memadamkan halaman untuk produk ini?"
-
-msgctxt "delete_user"
-msgid "Delete the user"
-msgstr "Padamkan pengguna"
 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s."
@@ -4196,10 +4190,6 @@ msgstr "Kami memerlukan sokongan anda!"
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr "Mohon Derma"
-
-msgctxt "alcohol_warning"
-msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
-msgstr "Pengambilan alkohol yang berlebihan boleh memudaratkan kesihatan, dan diminum secara sederhana."
 
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
@@ -5737,10 +5727,6 @@ msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
 msgstr "Maklumat mengenai ramuan produk ini belum diberikan."
 
-msgctxt "environmental_score_edit_for_more_precise_environmental_score"
-msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "Untuk pengiraan Skor Eko yang lebih tepat, anda boleh menyunting halaman produk dan menambahkannya."
-
 msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
 msgstr "nisbah"
@@ -5761,9 +5747,15 @@ msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
 msgstr "Maklumat mengenai pembungkusan produk ini tidak cukup tepat (bentuk dan bahan yang tepat bagi semua komponen pembungkusan)."
 
+# duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
 msgstr ""
+
+# duplicate
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
+msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
+msgstr "Untuk pengiraan Skor Eko yang lebih tepat, anda boleh menyunting halaman produk dan menambahkannya."
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
@@ -7060,6 +7052,11 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr ""
 
+# duplicate with "report_problem_panel_title"
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
+msgstr ""
+
 msgctxt "report_problem_navigation"
 msgid "Report a problem."
 msgstr ""
@@ -7086,11 +7083,6 @@ msgstr ""
 
 msgctxt "description"
 msgid "Description"
-msgstr ""
-
-# duplicate with "report_problem_panel_title"
-msgctxt "report_problem_navigation"
-msgid "Report a problem"
 msgstr ""
 
 msgctxt "enter_main_contact_username"
