@@ -5333,6 +5333,7 @@ my %phrases_after_ingredients_list = (
 		'of which saturated fat',
 		'((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
 		'once opened[,]? (consume|keep|refrigerate|store|use)',
+		'Milk Chocolate contains',
 		'packed in a modified atmosphere',
 		'(Storage( instructions| conditions)?[: ]+)?Store in a cool[,]? dry place',
 		'(dist(\.)?|distributed|sold)(\&|and|sold| )* (by|exclusively)',
@@ -5574,7 +5575,7 @@ my %phrases_after_ingredients_list = (
 		'Voor allergenen',
 		'voorbereidingstips',
 		#'waarvan suikers',
-		'waarvan toegevoegde',
+		'(W|w)aarvan toegevoegde',
 		'Witte chocolade: ten minste',
 	],
 
