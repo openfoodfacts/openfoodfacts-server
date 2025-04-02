@@ -264,9 +264,10 @@ msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
 msgstr "Tìm kiếm và đồ thị nâng cao"
 
+# duplicate
 msgctxt "alcohol_warning"
-msgid "Excess drinking is harmful for health."
-msgstr "Uống quá nhiều có hại cho sức khỏe."
+msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr "Uống quá nhiều rượu có thể gây hại cho sức khỏe, cần hạn chế."
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
@@ -567,17 +568,13 @@ msgctxt "delete_product"
 msgid "Delete a product"
 msgstr "Xóa sản phẩm"
 
-msgctxt "delete_product_page"
-msgid "Delete the page"
-msgstr "Xóa trang"
-
 msgctxt "delete_the_images"
 msgid "Delete the images"
 msgstr "Xóa các hình ảnh"
 
 msgctxt "delete_user"
-msgid "Delete a user"
-msgstr "Xoá người dùng"
+msgid "Delete the user"
+msgstr "Xóa người dùng"
 
 msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
@@ -2757,6 +2754,7 @@ msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
 msgstr "NutriScore cấp dinh dưỡng"
 
+# duplicate
 msgctxt "delete_product_page"
 msgid "Delete the product page"
 msgstr "Xóa trang sản phẩm"
@@ -2772,10 +2770,6 @@ msgstr "đã xóa sản phẩm"
 msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
 msgstr "Bạn có chắc chắn muốn xóa trang cho sản phẩm này không?"
-
-msgctxt "delete_user"
-msgid "Delete the user"
-msgstr "Xóa người dùng"
 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s."
@@ -4197,10 +4191,6 @@ msgstr "Chúng tôi cần bạn giúp đỡ!"
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr "Xin hãy quyên góp"
-
-msgctxt "alcohol_warning"
-msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
-msgstr "Uống quá nhiều rượu có thể gây hại cho sức khỏe, cần hạn chế."
 
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
@@ -5738,10 +5728,6 @@ msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
 msgstr "Thông tin về thành phần của sản phẩm này không được cung cấp."
 
-msgctxt "environmental_score_edit_for_more_precise_environmental_score"
-msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "Để tính toán chính xác hơn Điểm sinh thái, bạn có thể chỉnh sửa và bổ sung thêm trang thông tin về sản phẩm."
-
 msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
 msgstr "tỷ lệ"
@@ -5762,9 +5748,15 @@ msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
 msgstr "Thông tin về bao bì của sản phẩm này không đủ chính xác (hình dạng và vật liệu chính xác của tất cả các thành phần của bao bì)."
 
+# duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
 msgstr "Để tính toán chính xác hơn Điểm sinh thái, bạn có thể sửa đổi và thêm trang thông tin sản phẩm."
+
+# duplicate
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
+msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
+msgstr "Để tính toán chính xác hơn Điểm sinh thái, bạn có thể chỉnh sửa và bổ sung thêm trang thông tin về sản phẩm."
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
@@ -7061,6 +7053,11 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr ""
 
+# duplicate with "report_problem_panel_title"
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
+msgstr ""
+
 msgctxt "report_problem_navigation"
 msgid "Report a problem."
 msgstr ""
@@ -7087,11 +7084,6 @@ msgstr ""
 
 msgctxt "description"
 msgid "Description"
-msgstr ""
-
-# duplicate with "report_problem_panel_title"
-msgctxt "report_problem_navigation"
-msgid "Report a problem"
 msgstr ""
 
 msgctxt "enter_main_contact_username"
