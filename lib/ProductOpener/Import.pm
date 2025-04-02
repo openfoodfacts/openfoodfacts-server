@@ -1802,6 +1802,13 @@ sub import_csv_file ($args_ref) {
 		$code = normalize_code($code);
 		$imported_product_ref->{code} = $code;    # In case we added or removed leading 0s
 
+		# In the template we provide to producers, there is one example product
+		# some productes do not remove the example product, so we skip it
+		if ($code eq "3228857000838") {
+			$log->debug("skipping example product", {code => $code}) if $log->is_debug();
+			next;
+		}
+
 		my $modified = 0;
 
 		# Keep track of fields that have been modified,
