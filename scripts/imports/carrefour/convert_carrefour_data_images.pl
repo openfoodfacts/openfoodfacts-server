@@ -37,14 +37,14 @@ binmode(STDERR, ":encoding(UTF-8)");
 my $file = $ARGV[0];
 
 if (not defined $file) {
-    die "Usage: $0 file.csv\n";
+	die "Usage: $0 file.csv\n";
 }
 
 # CSV format:
 # EAN;URL;ANGLE
 # 3560071394806;[url];Front
 
-my $csv = Text::CSV->new({ sep_char => ';' });
+my $csv = Text::CSV->new({sep_char => ';'});
 
 # Read all lines from the CSV file, as we will output them in a specific order (grouped by barcode, with front image first)
 
@@ -56,23 +56,23 @@ my %images = ();
 
 while (my $image_ref = $csv->getline_hr($io)) {
 
-    my $code = $image_ref->{EAN};
-    my $url = $image_ref->{URL};
-    my $angle = $image_ref->{ANGLE};
+	my $code = $image_ref->{EAN};
+	my $url = $image_ref->{URL};
+	my $angle = $image_ref->{ANGLE};
 
-    if (not defined $images{$code}) {
-        $images{$code} = {};
-    }
+	if (not defined $images{$code}) {
+		$images{$code} = {};
+	}
 
-    # if the angle already exists (e.g. 2 Other images), we suffix the angle with a number
-    if (defined $images{$code}{$angle}) {
-        my $i = 1;
-        while (defined $images{$code}{"$angle.$i"}) {
-            $i++;
-        }
-        $angle = "$angle.$i";
-    }
-    $images{$code}{$angle} = $url;
+	# if the angle already exists (e.g. 2 Other images), we suffix the angle with a number
+	if (defined $images{$code}{$angle}) {
+		my $i = 1;
+		while (defined $images{$code}{"$angle.$i"}) {
+			$i++;
+		}
+		$angle = "$angle.$i";
+	}
+	$images{$code}{$angle} = $url;
 }
 
 close($io);
@@ -85,18 +85,18 @@ print join("\t", qw(code image_front_url image_other_url)) . "\n";
 
 foreach my $code (sort keys %images) {
 
-    my $image_ref = $images{$code};
-    my $image_front_url = '';
+	my $image_ref = $images{$code};
+	my $image_front_url = '';
 
-    # output the Front angle first if it exists
-    if (defined $image_ref->{Front}) {
-        $image_front_url = $image_ref->{Front};
-        delete $image_ref->{Front};
-    }
+	# output the Front angle first if it exists
+	if (defined $image_ref->{Front}) {
+		$image_front_url = $image_ref->{Front};
+		delete $image_ref->{Front};
+	}
 
-   # output the other images
-    my $image_other_url = join(",", sort values %$image_ref);
+	# output the other images
+	my $image_other_url = join(",", sort values %$image_ref);
 
-    print join("\t", $code, $image_front_url, $image_other_url) . "\n";
+	print join("\t", $code, $image_front_url, $image_other_url) . "\n";
 }
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Carrefour France sends us CSV files containing URLs of product images through a Google Cloud storate bucket.
+# Carrefour France sends us CSV files containing URLs of product images through a Google Cloud storate bucket.
 
 # do not continue on failure
 #set -e

@@ -539,9 +539,23 @@ sub download_image ($image_url) {
 	my $ua = LWP::UserAgent->new(timeout => 10);
 
 	# Some platforms such as CloudFlare block the default LWP user agent.
-	$ua->agent(lang('site_name') . " (https://$server_domain)");
+	$ua->agent("Open Food Facts (https://world.pro.openfoodfacts.org)");
 
-	return $ua->get($image_url);
+	$log->debug("downloading image", {image_url => $image_url}) if $log->is_debug();
+	my $response = $ua->get($image_url, 'Accept' => '*/*');
+
+	# CloudFlare seems to be blocking our default agent at Carrefour, so we try with a different one if we get a 403
+	if ($response->code == 403) {
+		$log->debug("got a 403, trying a different User-Agent", {image_url => $image_url}) if $log->is_debug();
+		$ua->agent("curl/8.5.0");
+		$response = $ua->get($image_url, 'Accept' => '*/*');
+	}
+
+	$log->debug("downloading image - result",
+		{image_url => $image_url, success => $response->is_success, status_code => $response->code})
+		if $log->is_debug();
+
+	return $response;
 }
 
 # deduplicate column names
