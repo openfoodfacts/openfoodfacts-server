@@ -73,9 +73,19 @@ if (defined single_param('userid')) {
 
 	# The userid looks like an e-mail
 	if ($request_ref->{admin} and ($userid =~ /\@/)) {
-		my $mail_based_userid = is_email_has_off_account($userid);
-		if (defined $mail_based_userid) {
-			$userid = $mail_based_userid;
+		if ($oidc_options{keycloak_level} < 2) {
+			my $user_by_email = retrieve_user_by_email($userid);
+			if (defined $user_by_email) {
+				$userid = $user_by_email->{userid};
+			}
+		} 
+		else {
+			# TODO: Might be able to do this unconditionally
+			my $mail_based_userid = is_email_has_off_account($userid);
+			if (defined $mail_based_userid) {
+				$userid = $mail_based_userid;
+
+			}
 		}
 	}
 }
@@ -107,6 +117,14 @@ my @errors = ();
 
 if ($action eq 'process') {
 
+	if ($oidc_options{keycloak_level} < 5) {
+		if ($type eq 'edit') {
+			if (single_param('delete') eq 'on') {
+				$type = 'delete';
+			}
+		}
+	}
+
 	# change organization
 	if ($type eq 'edit_owner') {
 		# only admin and pro moderators can change organization freely
@@ -117,7 +135,7 @@ if ($action eq 'process') {
 			display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
 		}
 	}
-	else {
+	elsif ($type ne 'delete') { # TODO: Can remove delete check once Keycloak fully implemented
 		ProductOpener::Users::check_user_form($request_ref, $type, $user_ref, \@errors);
 	}
 
@@ -155,6 +173,10 @@ if ($action eq 'display') {
 			$user_ref->{userid} = $user_info;
 			$user_ref->{name} = $user_info;
 		}
+		if ($oidc_options{keycloak_level} < 5) {
+			$user_ref->{password} = $new_user_password;
+
+		}
 	}
 
 	$template_data_ref->{user_ref} = $user_ref;
@@ -164,22 +186,79 @@ if ($action eq 'display') {
 	$template_data_ref->{sections} = [];
 
 	if ($user_ref) {
-		push @{$template_data_ref->{sections}}, {
-			id => "user",
-			fields => [
-				{
-					field => "userid",
-					label => "username"
-				},
-				{
-					# this is a honeypot to detect scripts, that fills every fields
-					# this one is hidden in a div and user won't see it
-					field => "faxnumber",
-					type => "honeypot",
-					label => "Do not enter your fax number",
-				},
-			]
-		};
+		if ($oidc_options{keycloak_level} < 5) {
+			my $selected_language = $user_ref->{preferred_language}
+				// (remove_tags_and_quote(single_param('preferred_language')) || "$lc");
+			my $selected_country = $user_ref->{country} // (remove_tags_and_quote(single_param('country')) || $country);
+			if ($selected_country eq "en:world") {
+				$selected_country = "";
+			}
+			push @{$template_data_ref->{sections}}, {
+				id => "user",
+				fields => [
+					{
+						field => "name"
+					},
+					{
+						field => "email",
+						type => "email",
+					},
+					{
+						field => "userid",
+						label => "username"
+					},
+					{
+						field => "password",
+						type => "password",
+						label => "password"
+					},
+					{
+						field => "confirm_password",
+						type => "password",
+						label => "password_confirm"
+					},
+					{
+						field => "preferred_language",
+						type => "select",
+						label => "preferred_language",
+						selected => $selected_language,
+						options => get_languages_options_list($lc),
+					},
+					{
+						field => "country",
+						type => "select",
+						label => "select_country",
+						selected => $selected_country,
+						options => get_countries_options_list($lc),
+					},
+					{
+						# this is a honeypot to detect scripts, that fills every fields
+						# this one is hidden in a div and user won't see it
+						field => "faxnumber",
+						type => "honeypot",
+						label => "Do not enter your fax number",
+					},
+				]
+			};
+		}
+		else {
+			push @{$template_data_ref->{sections}}, {
+				id => "user",
+				fields => [
+					{
+						field => "userid",
+						label => "username"
+					},
+					{
+						# this is a honeypot to detect scripts, that fills every fields
+						# this one is hidden in a div and user won't see it
+						field => "faxnumber",
+						type => "honeypot",
+						label => "Do not enter your fax number",
+					},
+				]
+			};
+		}
 
 		# news letter subscription value
 		my $newsletter = $user_ref->{newsletter} // (remove_tags_and_quote(single_param('newsletter')) || "on");
@@ -359,6 +438,9 @@ elsif ($action eq 'process') {
 
 	if (($type eq 'add') or ($type =~ /^edit/)) {
 		ProductOpener::Users::process_user_form($type, $user_ref, $request_ref);
+	}
+	elsif ($oidc_options{keycloak_level} < 5 and $type eq 'delete') {
+		ProductOpener::Users::delete_user($user_ref);
 	}
 
 	if ($type eq 'add') {
