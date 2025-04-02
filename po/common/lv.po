@@ -264,9 +264,10 @@ msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
 msgstr "Izvērstā meklēšana un grafiki"
 
+# duplicate
 msgctxt "alcohol_warning"
-msgid "Excess drinking is harmful for health."
-msgstr "Pārmērīgs alkohola patēriņš ir kaitīgs veselībai."
+msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr ""
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
@@ -567,17 +568,13 @@ msgctxt "delete_product"
 msgid "Delete a product"
 msgstr "Dzēst produktu"
 
-msgctxt "delete_product_page"
-msgid "Delete the page"
-msgstr "Dzēsiet lapu"
-
 msgctxt "delete_the_images"
 msgid "Delete the images"
 msgstr "Dzēsiet attēlus"
 
 msgctxt "delete_user"
-msgid "Delete a user"
-msgstr ""
+msgid "Delete the user"
+msgstr "Dzēst lietotāju"
 
 msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
@@ -2741,6 +2738,7 @@ msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
 msgstr "NutriScore uzturvērtības pakāpe"
 
+# duplicate
 msgctxt "delete_product_page"
 msgid "Delete the product page"
 msgstr "Izdzēst produkta lapu"
@@ -2756,10 +2754,6 @@ msgstr "ir izdzēsis produktu"
 msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
 msgstr "Vai tiešām vēlaties dzēst šī produkta lapu?"
-
-msgctxt "delete_user"
-msgid "Delete the user"
-msgstr "Dzēst lietotāju"
 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s."
@@ -4180,10 +4174,6 @@ msgstr ""
 
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
-msgstr ""
-
-msgctxt "alcohol_warning"
-msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
 msgstr ""
 
 msgctxt "producers_platform_moderation_title"
@@ -5722,10 +5712,6 @@ msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
 msgstr ""
 
-msgctxt "environmental_score_edit_for_more_precise_environmental_score"
-msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr ""
-
 msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
 msgstr ""
@@ -5746,8 +5732,14 @@ msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
 msgstr ""
 
+# duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
+msgstr ""
+
+# duplicate
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
+msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
 msgstr ""
 
 msgctxt "environmental_score_final_score"
@@ -7045,6 +7037,11 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr ""
 
+# duplicate with "report_problem_panel_title"
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
+msgstr ""
+
 msgctxt "report_problem_navigation"
 msgid "Report a problem."
 msgstr ""
@@ -7071,11 +7068,6 @@ msgstr ""
 
 msgctxt "description"
 msgid "Description"
-msgstr ""
-
-# duplicate with "report_problem_panel_title"
-msgctxt "report_problem_navigation"
-msgid "Report a problem"
 msgstr ""
 
 msgctxt "enter_main_contact_username"
