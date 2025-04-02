@@ -4694,6 +4694,10 @@ msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
 msgstr "Процес переробки їжі не здійснюється зовсім або здійснюється лише його незначна кількість (згідно до групування NOVA)"
 
+msgctxt "attribute_nova_setting_note"
+msgid "To determine the level of processing of a product, we rely on the list of ingredients (markers, processing methods) and categories."
+msgstr ""
+
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
 msgid "NOVA %s"
@@ -6270,6 +6274,10 @@ msgid "No ingredients containing palm oil detected"
 msgstr "Жодних інгредієнтів, що містять пальмову олію, не виявлено"
 
 msgctxt "attribute_palm_oil_setting_note"
+msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
+msgstr "Щоб визначити, чи містить продукт пальмової олії, ми покладаємося лише на список інгредієнтів."
+
+msgctxt "attribute_without_palm_oil_setting_note"
 msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
 msgstr "Щоб визначити, чи містить продукт пальмової олії, ми покладаємося лише на список інгредієнтів."
 
