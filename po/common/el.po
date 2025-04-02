@@ -264,9 +264,10 @@ msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
 msgstr "Προηγμένη αναζήτηση και γραφήματα"
 
+# duplicate
 msgctxt "alcohol_warning"
-msgid "Excess drinking is harmful for health."
-msgstr "Η υπερβολική κατανάλωση αλκοόλ είναι επιβλαβής για την υγεία."
+msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr "Η υπερβολική κατανάλωση αλκοόλ είναι επιβλαβής για την υγεία, πρέπει να καταναλώνεται με μέτρο."
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
@@ -567,17 +568,13 @@ msgctxt "delete_product"
 msgid "Delete a product"
 msgstr "Διαγράψτε το προϊόν"
 
-msgctxt "delete_product_page"
-msgid "Delete the page"
-msgstr "Διαγραφή της σελίδας"
-
 msgctxt "delete_the_images"
 msgid "Delete the images"
 msgstr "Διαγραφή των εικόνων"
 
 msgctxt "delete_user"
-msgid "Delete a user"
-msgstr "Διαγράψετε ένα χρήστη"
+msgid "Delete the user"
+msgstr "Διαγράψτε τον χρήστη"
 
 msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
@@ -2757,6 +2754,7 @@ msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
 msgstr "Διατροφικός βαθμός NutriScore"
 
+# duplicate
 msgctxt "delete_product_page"
 msgid "Delete the product page"
 msgstr "Διαγράψτε τη σελίδα του προϊόντος"
@@ -2772,10 +2770,6 @@ msgstr "έχει διαγράψει το προϊόν"
 msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
 msgstr "Σίγουρα θέλετε να διαγράψετε τη σελίδα για αυτό το προϊόν;"
-
-msgctxt "delete_user"
-msgid "Delete the user"
-msgstr "Διαγράψτε τον χρήστη"
 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s."
@@ -4197,10 +4191,6 @@ msgstr "Χρειαζόμαστε την υποστήριξή σας!"
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr "Παρακαλούμε Δωρίστε"
-
-msgctxt "alcohol_warning"
-msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
-msgstr "Η υπερβολική κατανάλωση αλκοόλ είναι επιβλαβής για την υγεία, πρέπει να καταναλώνεται με μέτρο."
 
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
@@ -5738,10 +5728,6 @@ msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
 msgstr "Οι πληροφορίες για τα συστατικά αυτού του προϊόντος δεν έχουν δοθεί."
 
-msgctxt "environmental_score_edit_for_more_precise_environmental_score"
-msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "Για πιο ακριβή υπολογισμό του Green-Score, μπορείτε να επεξεργαστείτε τη σελίδα του προϊόντος και να τα προσθέσετε."
-
 msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
 msgstr "αναλογία"
@@ -5762,9 +5748,15 @@ msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
 msgstr "Οι πληροφορίες σχετικά με τη συσκευασία αυτού του προϊόντος δεν είναι επαρκώς ακριβείς (ακριβή σχήματα και υλικά όλων των εξαρτημάτων της συσκευασίας)."
 
+# duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
 msgstr "Για έναν πιο ακριβή υπολογισμό του Green-Score, μπορείτε να τροποποιήσετε τη σελίδα του προϊόντος και να τα προσθέσετε."
+
+# duplicate
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
+msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
+msgstr "Για πιο ακριβή υπολογισμό του Green-Score, μπορείτε να επεξεργαστείτε τη σελίδα του προϊόντος και να τα προσθέσετε."
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
@@ -7061,6 +7053,11 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr "Αναφορά πρόβληματος"
 
+# duplicate with "report_problem_panel_title"
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
+msgstr "Αναφορά πρόβληματος"
+
 msgctxt "report_problem_navigation"
 msgid "Report a problem."
 msgstr "Αναφέρετε ένα πρόβλημα."
@@ -7088,11 +7085,6 @@ msgstr "Εάν θέλετε να αναφέρετε βανδαλισμούς, α
 msgctxt "description"
 msgid "Description"
 msgstr "Περιγραφή"
-
-# duplicate with "report_problem_panel_title"
-msgctxt "report_problem_navigation"
-msgid "Report a problem"
-msgstr "Αναφορά πρόβληματος"
 
 msgctxt "enter_main_contact_username"
 msgid "Enter main contact's username :"
