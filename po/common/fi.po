@@ -264,9 +264,10 @@ msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
 msgstr "Tarkennettu haku ja kaaviot"
 
+# duplicate
 msgctxt "alcohol_warning"
-msgid "Excess drinking is harmful for health."
-msgstr "Liiallinen juominen on haitallista terveydelle."
+msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr "Alkoholin liiallinen kulutus on haitallista terveydelle. Käytettävä maltillisesti."
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
@@ -566,16 +567,12 @@ msgctxt "delete_product"
 msgid "Delete a product"
 msgstr "Poista tuote"
 
-msgctxt "delete_product_page"
-msgid "Delete the page"
-msgstr "Poista sivu"
-
 msgctxt "delete_the_images"
 msgid "Delete the images"
 msgstr "Poista kuvat"
 
 msgctxt "delete_user"
-msgid "Delete a user"
+msgid "Delete the user"
 msgstr "Poista käyttäjä"
 
 msgctxt "delete_confirmation"
@@ -2754,6 +2751,7 @@ msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
 msgstr "NutriScore-ravintoarvosana"
 
+# duplicate
 msgctxt "delete_product_page"
 msgid "Delete the product page"
 msgstr "Poista tuotesivu"
@@ -2769,10 +2767,6 @@ msgstr "tuote on poistettu"
 msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
 msgstr "Oletko varma, että haluat poistaa tämän tuotesivun?"
-
-msgctxt "delete_user"
-msgid "Delete the user"
-msgstr "Poista käyttäjä"
 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s."
@@ -4194,10 +4188,6 @@ msgstr "Tarvitsemme tukeasi!"
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr "Lahjoita"
-
-msgctxt "alcohol_warning"
-msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
-msgstr "Alkoholin liiallinen kulutus on haitallista terveydelle. Käytettävä maltillisesti."
 
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
@@ -5736,10 +5726,6 @@ msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
 msgstr "Tietoja tämän tuotteen ainesosista ei ole annettu."
 
-msgctxt "environmental_score_edit_for_more_precise_environmental_score"
-msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "Saadaksesi tarkemman laskelman Green-Scoresta, voit muokata tuotesivua ja lisätä ne."
-
 msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
 msgstr "suhde"
@@ -5760,9 +5746,15 @@ msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
 msgstr "Tämän tuotteen pakkaustiedot eivät ole riittävän tarkkoja (kaikkien pakkauksen osien tarkat muodot ja materiaalit)."
 
+# duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
 msgstr "Green-Scoren tarkempaa laskelmaa varten voit muokata tuotesivua ja lisätä ne."
+
+# duplicate
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
+msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
+msgstr "Saadaksesi tarkemman laskelman Green-Scoresta, voit muokata tuotesivua ja lisätä ne."
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
@@ -7059,6 +7051,11 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr "Ilmoita ongelmasta"
 
+# duplicate with "report_problem_panel_title"
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
+msgstr "Ilmoita ongelmasta"
+
 msgctxt "report_problem_navigation"
 msgid "Report a problem."
 msgstr "Ilmoita ongelmasta."
@@ -7086,11 +7083,6 @@ msgstr "Jos haluat ilmoittaa vandalismista, sopimattomasta sisällöstä tai vir
 msgctxt "description"
 msgid "Description"
 msgstr "Kuvaus"
-
-# duplicate with "report_problem_panel_title"
-msgctxt "report_problem_navigation"
-msgid "Report a problem"
-msgstr "Ilmoita ongelmasta"
 
 msgctxt "enter_main_contact_username"
 msgid "Enter main contact's username :"
