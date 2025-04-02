@@ -157,9 +157,9 @@
 									Test
 								</a>
 								<ul class="dropdown">
-									<li><a href="//keycloak:8080/realms/open-products-facts/account?referrer=OFF&referrer_uri=http%3A%2F%2Fworld.openfoodfacts.localhost" target="_blank" rel="noopener"><span class="material-icons">account_box</span> Account parameters</a></li>
-									<li><a href="/cgi/user.pl?type=edit&userid=tests"><span class="material-icons">settings</span> Preferences</a></li>
-
+									
+										<li><a href="/cgi/user.pl?type=edit&userid=tests"><span class="material-icons">settings</span> Account parameters</a></li>
+									
 									
 
 									
@@ -172,7 +172,8 @@
 									
 									<li class="divider"></li>			
 									<li class="has-form">
-										<form method="post" action="/cgi/oidc_signout.pl">
+										<form method="post" action="/cgi/session.pl">
+											<input type="hidden" name="length" value="logout">
 											<input type="submit" name=".submit" value="Sign out" class="button small">
 										</form>
 									</li>
