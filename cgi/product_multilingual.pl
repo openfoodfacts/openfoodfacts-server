@@ -376,12 +376,12 @@ if (($type eq 'add') or ($type eq 'edit') or ($type eq 'delete')) {
 
 	if (not defined $User_id) {
 
-	if ($oidc_options{keycloak_level} < 3) {
-		my $submit_label = "login_and_" . $type . "_product";
-		$action = 'login';
-		$template_data_ref->{type} = $type;
-	}
-	else {
+		if ($oidc_options{keycloak_level} < 3) {
+			my $submit_label = "login_and_" . $type . "_product";
+			$action = 'login';
+			$template_data_ref->{type} = $type;
+		}
+		else {
 			$request_ref->{return_url}
 				= $formatted_subdomain . $request_ref->{script_name} . '?' . $request_ref->{original_query_string};
 			# Note: This su will either finish without a result if a good user/token is present, or redirect to the login page and stop the script

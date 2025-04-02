@@ -376,7 +376,7 @@ sub delete_user_task ($job, $args_ref) {
 	if ($oidc_options{keycloak_level} < 4) {
 		# Suffix is a combination of seconds since epoch plus a 16 bit random number
 		$new_userid = "anonymous-" . lc(encode_base32(pack('LS', time(), rand(65536))));
-	} 
+	}
 	else {
 		# Anonymous user id is generated in Keycloak so that it is consistent across product flavors
 		$new_userid = $args_ref->{newuserid};
@@ -537,6 +537,7 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 			if (defined $existing_user) {
 				$user_id_from_mail = $existing_user->{userid};
 			}
+		}
 		else {
 			$user_id_from_mail = is_email_has_off_account($email);
 		}
@@ -670,7 +671,8 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 			push @{$errors_ref}, $Lang{error_different_passwords}{$lc};
 		}
 		elsif (single_param('password') ne '') {
-			$user_ref->{encrypted_password} = create_password_hash(encode_utf8(decode utf8 => single_param('password')));
+			$user_ref->{encrypted_password}
+				= create_password_hash(encode_utf8(decode utf8 => single_param('password')));
 		}
 	}
 
@@ -872,7 +874,7 @@ lc: $user_ref->{initial_lc}
 cc: $user_ref->{initial_cc}
 
 EMAIL
-			;
+				;
 			$error += send_email_to_admin("Inscription de $userid", $admin_mail_body);
 		}
 		# Check if the user subscribed to the newsletter
@@ -1259,7 +1261,6 @@ sub _get_or_create_account_by_mail ($email, $require_verified_email = 0) {
 	return $user_ref->{userid};
 }
 
-
 # This does the actual user deletion
 sub remove_user ($user_ref) {
 	my $userid = $user_ref->{userid};
@@ -1396,7 +1397,10 @@ sub init_user ($request_ref) {
 	}
 
 	# User was authenticated via OIDC
-	elsif ($oidc_options{keycloak_level} >= 3 and (defined $request_ref->{oidc_user_id}) and ($request_ref->{oidc_user_id} ne '')) {
+	elsif ( $oidc_options{keycloak_level} >= 3
+		and (defined $request_ref->{oidc_user_id})
+		and ($request_ref->{oidc_user_id} ne ''))
+	{
 		$user_id = $request_ref->{oidc_user_id};
 
 		$log->context->{user_id} = $user_id;
@@ -1488,18 +1492,22 @@ sub init_user ($request_ref) {
 					}
 					# We have the right login/password
 					elsif (
-						not defined request_param($request_ref, 'no_log')) # no need to store sessions for internal requests
+						not defined request_param($request_ref, 'no_log')
+						)    # no need to store sessions for internal requests
 					{
 						$log->info("correct password for user provided") if $log->is_info();
 
 						migrate_password_hash($user_ref);
 
-						open_user_session($user_ref, , undef, undef, undef, undef, undef, $request_ref);
+						open_user_session($user_ref, undef, undef, undef, undef, undef, $request_ref);
 						update_login_time($user_ref);
 					}
 				}
 				else {
-					my ($oidc_user_id, $refresh_token, $refresh_expires_at, $access_token, $access_expires_at, $id_token)
+					my (
+						$oidc_user_id, $refresh_token, $refresh_expires_at,
+						$access_token, $access_expires_at, $id_token
+						)
 						= password_signin($user_id, encode_utf8(request_param($request_ref, 'password')), $request_ref);
 					# We don't have the right password
 					if (not $oidc_user_id) {
@@ -1510,7 +1518,8 @@ sub init_user ($request_ref) {
 					}
 					# We have the right login/password
 					elsif (
-						not defined request_param($request_ref, 'no_log')) # no need to store sessions for internal requests
+						not defined request_param($request_ref, 'no_log')
+						)    # no need to store sessions for internal requests
 					{
 						$user_id = $oidc_user_id;
 

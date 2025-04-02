@@ -67,7 +67,8 @@ if ($oidc_options{keycloak_level} < 5) {
 		}
 
 		my $hash_is_correct
-			= check_password_hash(encode_utf8(decode utf8 => single_param('password')), $user_ref->{'encrypted_password'});
+			= check_password_hash(encode_utf8(decode utf8 => single_param('password')),
+			$user_ref->{'encrypted_password'});
 
 		# We don't have the right password
 		if (not $hash_is_correct) {

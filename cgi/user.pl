@@ -78,7 +78,7 @@ if (defined single_param('userid')) {
 			if (defined $user_by_email) {
 				$userid = $user_by_email->{userid};
 			}
-		} 
+		}
 		else {
 			# TODO: Might be able to do this unconditionally
 			my $mail_based_userid = is_email_has_off_account($userid);
@@ -135,7 +135,7 @@ if ($action eq 'process') {
 			display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
 		}
 	}
-	elsif ($type ne 'delete') { # TODO: Can remove delete check once Keycloak fully implemented
+	elsif ($type ne 'delete') {    # TODO: Can remove delete check once Keycloak fully implemented
 		ProductOpener::Users::check_user_form($request_ref, $type, $user_ref, \@errors);
 	}
 
