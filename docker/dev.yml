@@ -49,7 +49,6 @@ services:
       - world-it.openfoodfacts.localhost:127.0.0.1
       - world.openfoodfacts.localhost:127.0.0.1
       - world.pro.openfoodfacts.localhost:127.0.0.1
-
   incron: *backend-conf
   minion:
     <<: [*backend-conf, *minion-db-network]
