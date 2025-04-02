@@ -83,6 +83,7 @@ synonyms:fi: merenantimet, merenelävät
 synonyms:ru: дары моря, морепродукты
 
 synonyms:en: without, 0%, free
+synonyms:da: uden, ingen, intet, nul, 0%, fri for
 synonyms:de: ohne, 0%
 synonyms:es: sin, 0%, libre de
 synonyms:fi: ilman, 0%, vapaa
@@ -92,6 +93,7 @@ synonyms:it: senza, 0%, zero
 synonyms:nl: zonder, 0%
 synonyms:pt: sem, 0%, livre de, zero
 synonyms:ru: без, 0%, 0 %
+synonyms:sv: utan, ingen, inget, noll, 0%
 
 synonyms:fi: lisätty
 synonyms:fr: ajout, adjonction
@@ -100,6 +102,7 @@ synonyms:ru: дополнение, добавка
 
 synonyms:en: carbon, co2
 synonyms:bg: въглерод, co2
+synonyms:da: kuldioxid, CO2
 synonyms:es: carbono, co2, CO<sub>2</sub>, CO2
 synonyms:fi: hiili, co2
 synonyms:fr: carbone, co2
@@ -107,6 +110,7 @@ synonyms:hu: szén, co2
 synonyms:it: carbonio, CO2
 synonyms:pt: carbono, co2
 synonyms:ru: углерод, CO<sub>2</sub>, CO2
+synonyms:sv: koldioxid, CO2
 
 synonyms:en: durable, soutenable, responsable
 synonyms:fi: kestävä, luotettava, vastuullinen
@@ -131,6 +135,7 @@ synonyms:fr: naturel, d'origine naturelle, origine naturelle
 synonyms:fi: luontainen, luonnollinen
 synonyms:it: naturale, di origine naturale, origine naturale
 synonyms:pt: natural, de origem natural, origem natural
+synonyms:sv: naturlig, naturligt
 
 synonyms:fr: élevé, élevée, élevés, élevées
 synonyms:pt: elevado, elevados
@@ -479,6 +484,10 @@ pt: Pegada de carbono, emissões de CO2, emissões em CO2, emissões de carbono,
 ru: CO2-эмиссия
 label_categories:en: en:Environnment
 wikidata:en: Q310667
+
+< en:Carbon footprint
+en: Low climate footprint
+sv: Lågt klimatavtryck
 
 < en:Carbon compensated product
 en: Climate Neutral Certified
@@ -1333,7 +1342,7 @@ bg: Без глутен
 ca: Lliure de gluten, Sense gluten, No gluten, Aliment sense gluten, Lliure de gluten, Sense gluten d'orígen
 cs: Bez lepku
 cz: Bez lepku
-da: Glutenfri
+da: Glutenfri, glutenfrit, glutenfrie
 de: Glutenfrei
 el: Χωρίς γλουτένη
 es: Sin gluten, Libre de gluten
@@ -1357,7 +1366,7 @@ ru: Без глютена
 sk: Bez lepku
 sl: Brez glutena
 sq: Pa gluten
-sv: Glutenfri
+sv: Glutenfri, glutenfritt
 th: ไม่มีกลูเตน
 tr: Glutensiz
 uk: Не містить глютену
@@ -1642,6 +1651,7 @@ nl: Vezelrijk, Rijk aan vezels
 pl: wysoka zawartość błonnika
 pt: Rico em fibras, teor elevado de fibras, teor elevado em fibras, alto teor em fibra, alto teor em fibras
 ru: Обогащено клетчаткой
+sv: Fiberrik, Rik på fiber
 th: ใยอาหารสูง
 description:en: In EU, a claim that a food is high in fibre may only be made where the product contains at least 6 g of fibre per 100 g or at least 3 g of fibre per 100 kcal. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
@@ -1719,6 +1729,7 @@ fr: source de protéines
 hr: izvor proteina, izvor bjelančevina
 it: fonte di proteine
 pt: fonte de proteínas
+sv: källa till protein
 description:en: In EU, a claim that a food is a source of protein may only be made where at least 12 % of the energy value of the food is provided by protein. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
 < en:Source of proteins
@@ -2081,6 +2092,7 @@ hu: Kalciummal dúsított
 it: Arricchito con calcio
 nl: verrijkt met calcium
 pt: Enriquecido com cálcio
+sv: Kalciumberikat, Berikad med kalcium
 
 en: Enriched with vitamins
 ca: Enriquit amb vitamines
@@ -2094,7 +2106,12 @@ it: Arricchito con vitamine
 nl: verrijkt met vitaminen
 pl: Wzbogacane witaminami
 pt: Enriquecido com vitaminas
-sv: Vitaminberikat, Vitaminberikad
+sv: Vitaminberikat, Vitaminberikad, Berikad med vitaminer
+
+< en:Enriched with calcium
+< en:Enriched with vitamins
+en: Enriched with calcium and vitamins
+sv: Berikad med kalcium & vitaminer
 
 en: Enriched with minerals
 fi: Lisätty kivennäisaineita
@@ -3113,7 +3130,7 @@ xx: no added sugar
 ar: بدون سكر مضاف
 bg: Без добавена захар
 ca: Sense sucre afegit, sense sucres afegits
-cs: Bez přidaného cukru
+cs: Bez přidaného cukru, obsahuje přirozeněse vyskytující cukry
 da: Uden tilsat sukker
 de: Ohne Zuckerzusatz, Ohne zugesetzten Zucker
 el: Χωρίς προσθήκη ζάχαρης
@@ -3419,7 +3436,7 @@ nl: Geproduceerd in Denemarken
 pl: Wyprodukowano w Danii
 pt: Fabricado na Dinamarca, feito na Dinamarca, produto da Dinamarca, produzido na Dinamarca, originário da Dinamarca, proveniente da Dinamarca
 ru: Произведено в Дании
-sv: Tillverkad i Danmark
+sv: Tillverkad i Danmark, Producerad i Danmark
 uk: Вироблено в Данії
 country:en: en:Denmark
 label_categories:en: en:Geographic label
@@ -3754,8 +3771,8 @@ label_categories:en: en:Geographic label
 origins:en: en:sweden
 web:sv: https://pagen.se/sortiment/svenskt-mjol-fran-egen-kvarn-markta-brod/
 
-en: Manufactured in Sweden
-sv: Tillverkad i Sverige
+en: Made in Sweden, Manufactured in Sweden
+sv: Tillverkad i Sverige, Tillagat i Sverige, Producerad i Sverige
 label_categories:en: en:Geographic label
 manufacturing_places:en: en:sweden
 
@@ -4035,6 +4052,7 @@ hu: természetes színezék
 it: Coloranti naturali
 nl: Natuurlijke kleurstoffen
 pt: Corantes naturais, corante natural
+sv: naturligt färgande livsmedel
 th: ใช้สีธรรมชาติ
 
 en: natural flavors
@@ -4884,6 +4902,11 @@ web:de: https://gentechnikfrei.at
 # dedicated, widely used symbol of http://www.gentechnikfrei.at/
 
 < en:No GMOs
+en: No GMO soy
+ingredients:en: en:soya
+label_categories:en: en:Soy
+
+< en:No GMOs
 < fr:Soja Français
 en: French soy without GMOs
 bg: Френска соя без ГМО
@@ -4902,12 +4925,12 @@ en: No lactose, lactose-free, Lactose free, without lactose
 ar: خالي من اللاكتوز
 bg: Без лактоза
 ca: Sense lactosa, lliure de lactosa
-cs: Bez laktózy
+cs: Bez laktózy, Přirozeně bez laktózy
 cz: Bez laktozy
 da: Laktosefri
 de: Laktosefrei, Lactosefrei
 el: Χωρίς λακτόζη
-es: Sin lactosa
+es: Sin lactosa, Sin lácteos
 et: Laktoosivaba
 fa: بدون لاکتوز
 fi: laktoositon, ei laktoosia, ilman laktoosia
@@ -4931,7 +4954,7 @@ ru: Без лактозы
 sk: Bez laktozy
 sl: Brez laktoze
 sq: Pa laktozë
-sv: Laktosfri, Laktosfritt
+sv: Laktosfri, Laktosfritt, Naturligt laktosfri
 th: ไม่มีแลคโตส
 tr: Laktozsuz
 uk: Без лактози
@@ -18281,6 +18304,7 @@ country:en: en:Germany
 en: Danish state-controlled organic, Red Ø
 da: Ø-mærke, Statskontrolleret økologisk
 fi: Tanskan Ø-luomumerkki
+sv: Danskt Ø-märkt
 country:en: en:Denmark
 image:en: danish-state-conrolled-organic.98x90.svg
 
@@ -18307,8 +18331,11 @@ image:is: vottað-lífrænt-tún.110x90.svg
 
 < en:Organic
 en: Debio organic
+xx: Debio økologisk
+da: Debio Ø-mærket
 fi: Debio luomu
-nb: Debio Ø-merke, Debio økologisk
+nb: Debio Ø-merke
+sv: Debio Ø-märkt
 country:en: en:Norway
 image:nb: debio-ø-merke.90x90.svg
 
@@ -18409,7 +18436,7 @@ nl: Zonder palmolie, Palmolie-vrij, Palmolievrij
 pl: Wolne od oleju palmowego, bez oleju palmowego
 pt: Sem óleo de palma, 0% óleo de palma
 ru: Без пальмового масла
-sv: Utan palmolja
+sv: Utan palmolja, palmoljefri
 th: ไม่ใช้น้ำมันปาล์ม
 zh: 不含棕榈油
 incompatible_with:en: labels:en:contains-palm-oil
@@ -19622,14 +19649,14 @@ wikidata:en: Q7918353
 
 
 < en:Vegetarian
-en: Vegan, Suitable for vegans, Suitable for vegetarians and vegans, vegetal, from plants, derived from plants, vegetal origin, not from animals, not derived from animals, non-animal, from vegetal source
+en: Vegan, Suitable for vegans, Suitable for vegetarians and vegans, vegetal, from plants, derived from plants, vegetal origin, not from animals, not derived from animals, non-animal, from vegetal source, free from animal products
 an: vegano
 bg: Веган
 ca: Vegà, Adequat per persones veganes
 cs: Veganské
-da: Vegansk, Velegnet til veganere
+da: Vegansk, Velegnet til veganere, vegetabilsk
 de: Vegan
-es: Vegano, Producto vegano, Vegan
+es: Vegano, Producto vegano, Vegan, Apto para veganos y vegetarianos
 fi: vegaaninen, sopii vegaaneille, kasviperäinen, Sopii vegaaniruokavalioon
 fr: Végétalien, Végan, végétal, végétaux, de plantes, dérivé de plante, dérivés de plante, dérivée de plante, dérivées de plante, origine végétale, non-animal
 gl: vegano
@@ -19643,7 +19670,7 @@ nl: Veganistisch, plantaardig, niet dierlijk
 pl: Wegańskie, przyjazne weganom, wegański, wegańska
 pt: Vegano, produto vegano, vegan, adequado para veganos, adequado a veganos, adequado a uma dieta vegan, adequado a uma dieta vegana, adequado a vegetarianos e veganos
 sq: vegan
-sv: Vegansk, Passar för veganer
+sv: Vegansk, Passar för veganer, vegetabilisk
 th: สูตรเจ
 tr: Vegan
 zh: 纯素
@@ -19675,6 +19702,12 @@ en: VegeCert - Certified Vegan
 
 < en:Vegan
 en: Certified iVegan
+
+< en:Vegan
+en: I'm Vegan
+xx: I'm Vegan, I'M VEGAN
+image:en: im-vegan.72x90.png
+website:sv: https://djurensratt.se/vad-vi-gor/vaxtbaserat/im-vegan
 
 en: NZ Vegetarian Society, NZVS
 xx: NZ Vegetarian Society, NZVS
@@ -19898,6 +19931,23 @@ pt: União Vegetariana Europeia Vegano, European Vegetarian Union Vegan, União 
 sv: Europeiska Vegetariska Unionen Vegan, Europeiska Vegetariska Unionen - Vegan, EVU Vegan
 image:en: european-vegetarian-union-vegan.68x90.png
 
+< en:Vegetarian
+en: V-Label International, V-LABEL.COM
+xx: V-Label International, V-LABEL.COM
+image:en: v-label-nocategory.90x90.svg
+website:en: https://www.v-label.com/
+
+< en:V-Label International
+en: V-Label International Vegetarian
+xx: V-Label International Vegetarian
+image:en: v-label-vegetarian.76x90.svg
+
+< en:V-Label International
+< en:Vegan
+en: V-Label International Vegan
+xx: V-Label International Vegan
+image:en: v-label-vegan.68x90.svg
+
 < en:No palm oil
 #https://znakv.pl/wp-content/uploads/2021/08/vivaR.svg
 < en:Vegan
@@ -20027,10 +20077,13 @@ pl: Zawiera słodziki, Zawiera substancje słodzące
 pt: Com adoçantes, com edulcorantes, contém adoçantes, contém edulcorantes
 sv: Innehåller sötningsmedel
 th: ใช้น้ำตาลเทียม
+incompatible_with:en: labels:en:without-sweeteners
+opposite:en: en:Without sweeteners
 
 en: Without sweeteners
 bg: Без подсладители
 ca: Sense edulcorants
+da: Uden sødestoffer
 de: Ohne Süßungsmittel
 es: Sin edulcorantes, Sin endulzantes
 fi: makeutusaineeton, ei makeutusaineita
@@ -20042,7 +20095,9 @@ it: Senza dolcificanti
 nl: Zonder zoetstoffen
 pl: Bez słodzików, Nie zawiera słodzików
 pt: Sem adoçantes, sem edulcorantes, sem adoçantes, sem edulcorantes, 0% adoçantes, 0% edulcorantes
-sv: Utan sötningsmedel
+sv: Utan sötningsmedel, Osötad
+incompatible_with:en: labels:en:with-sweeteners
+opposite:en: en:With sweeteners
 
 en: 100% muscle
 ca: Múscul 100%

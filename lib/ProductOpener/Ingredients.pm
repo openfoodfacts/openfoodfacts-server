@@ -184,7 +184,7 @@ my %may_contain_regexps = (
 
 	en =>
 		"it may contain traces of|possible traces|traces|may also contain|also may contain|may contain|may be present|Produced in a factory handling",
-	bg => "продуктът може да съдържа следи от|може да съдържа следи от|може да съдържа",
+	bg => "продуктът може да съдържа следи от|mоже да съдържа следи от|може да съдържа",
 	bs => "može da sadrži",
 	ca => "pot contenir",
 	cs => "může obsahovat|může obsahovat stopy",
@@ -204,10 +204,10 @@ my %may_contain_regexps = (
 	it =>
 		"Pu[òo] contenere tracce di|pu[òo] contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
 	lt => "sudėtyje gali būti|gali būti",
-	lv => "var saturēt",
+	lv => "var saturēt|sastāva var but",
 	mk => "Производот може да содржи",
 	nl =>
-		"Dit product kan sporen van|bevat mogelijk sporen van|Kan sporen bevatten van|Kan sporen van|bevat mogelijk|sporen van|Geproduceerd in ruimtes waar",
+		"Dit product kan sporen van|bevat mogelijk sporen van|Kan sporen bevatten van|Kan sporen van|bevat mogelijk|sporen van|Geproduceerd in ruimtes waar|Kan ook",
 	nb =>
 		"kan inneholde spor av|kan forekomme spor av|kan inneholde spor|kan forekomme spor|kan inneholde|kan forekomme",
 	pl =>
@@ -2802,10 +2802,6 @@ Text to analyze
 								'u promjenljivom odnosu',    # in a variable ratio
 							],
 
-							'bg' => [
-								'mоже да съдържа следи от',    # can contain traces of
-							],
-
 							'da' => [
 								'^Mælkechokoladen indeholder (?:også andre vegetabilske fedtstoffer end kakaosmør og )?mindst',
 							],
@@ -3304,11 +3300,18 @@ sub compute_ingredients_tags ($product_ref) {
 
 	my @ingredients = @{$product_ref->{ingredients}};
 
+	my $ingredients_n = 0;
+	my $known_ingredients_n = 0;
+
 	while (@ingredients) {
 
 		my $ingredient_ref = shift @ingredients;
 
-		push @{$product_ref->{ingredients_tags}}, $ingredient_ref->{id};
+		push @{$product_ref->{ingredients_original_tags}}, $ingredient_ref->{id};
+
+		# Count ingredients and unknown ingredients
+		$ingredients_n += 1;
+		$known_ingredients_n += $ingredient_ref->{is_in_taxonomy};
 
 		if (defined $ingredient_ref->{ingredients}) {
 
@@ -3329,37 +3332,24 @@ sub compute_ingredients_tags ($product_ref) {
 		}
 	}
 
-	my $field = "ingredients";
+	$product_ref->{ingredients_n} = $ingredients_n;
+	$product_ref->{known_ingredients_n} = $known_ingredients_n;
+	$product_ref->{unknown_ingredients_n} = $ingredients_n - $known_ingredients_n;
 
-	$product_ref->{ingredients_original_tags} = $product_ref->{ingredients_tags};
+	# ingredients_original_tags contains the ingredients that are listed in the ingredients list
+	# ingredients_tags also contains the parent ingredients (from the ingredients taxonomy)
+	# Note: we used to also compute a field ingredients_hierarchy that contained exactly the same information as ingredients_tags
+	# we now remove it, and the API will add it back for backward compatibility depending on API version
+
 	my $ingredients_lc = get_or_select_ingredients_lc($product_ref);
 
-	if (defined $taxonomy_fields{$field}) {
-		$product_ref->{$field . "_hierarchy"} = [
-			gen_ingredients_tags_hierarchy_taxonomy(
-				$ingredients_lc, join(", ", @{$product_ref->{ingredients_original_tags}})
-			)
-		];
-		$product_ref->{$field . "_tags"} = [];
-		my $unknown = 0;
-		my $known = 0;
-		foreach my $tag (@{$product_ref->{$field . "_hierarchy"}}) {
-			my $tagid = get_taxonomyid($ingredients_lc, $tag);
-			push @{$product_ref->{$field . "_tags"}}, $tagid;
-			if (exists_taxonomy_tag("ingredients", $tagid)) {
-				$known++;
-			}
-			else {
-				$unknown++;
-			}
-		}
-		$product_ref->{"known_ingredients_n"} = $known;
-		$product_ref->{"unknown_ingredients_n"} = $unknown;
-	}
+	$product_ref->{"ingredients_tags"} = [
+		gen_ingredients_tags_hierarchy_taxonomy(
+			$ingredients_lc, join(", ", @{$product_ref->{ingredients_original_tags}})
+		)
+	];
 
 	if ($product_ref->{ingredients_text} ne "") {
-
-		$product_ref->{ingredients_n} = scalar @{$product_ref->{ingredients_original_tags}};
 
 		my $d = int(($product_ref->{ingredients_n} - 1) / 10);
 		my $start = $d * 10 + 1;
@@ -3369,6 +3359,7 @@ sub compute_ingredients_tags ($product_ref) {
 		# ensure $product_ref->{ingredients_n} is last used as an int so that it is not saved as a strings
 		$product_ref->{ingredients_n} += 0;
 	}
+
 	return;
 }
 
@@ -5444,7 +5435,7 @@ my %phrases_after_ingredients_list = (
 		'(produit )?conditionn(e|é) sous atmosph(e|è)re protectrice',
 		'N(o|ò)us vous conseillons',
 		'Non ouvert,',
-		'Sans conservateur',
+		'Sans conservateur',    # remark: also label
 		'(Utilisation: |Préparation: )?Servir frais',
 		'Temps de Cuisson',
 		'tenir à l\'abri',
@@ -5541,6 +5532,7 @@ my %phrases_after_ingredients_list = (
 	],
 
 	lv => [
+		'uzglabāt sausā vēsā vietā',    # keep in dry place
 		'analītiskā sastāva',    # pet food
 	],
 
@@ -5566,6 +5558,7 @@ my %phrases_after_ingredients_list = (
 		'Na openen beperkt houdbaar',
 		'Ongeopend, ten minste houdbaar tot:',
 		'o.a.',
+		'te bewaren op een koele en droge plaats',    # keep in dry place
 		'ten minste',
 		'ten minste houdbaar tot',
 		'Van nature rijk aan vezels',
@@ -5581,6 +5574,7 @@ my %phrases_after_ingredients_list = (
 
 	pl => [
 		'przechowywać w chlodnym i ciemnym miejscu',    #keep in a dry and dark place
+		'przechowywać w chłodnym i suchym miejscu',    #keep in a dry place
 		'n(a|o)jlepiej spożyć przed',    #Best before
 		'Przechowywanie',
 		'pakowan(o|y|e) w atmosferze ochronnej',    # Packaged in protective environment
