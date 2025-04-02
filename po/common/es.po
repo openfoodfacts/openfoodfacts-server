@@ -264,9 +264,10 @@ msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
 msgstr "Búsqueda avanzada y gráficos"
 
+# duplicate
 msgctxt "alcohol_warning"
-msgid "Excess drinking is harmful for health."
-msgstr "El exceso de alcohol es perjudicial para la salud."
+msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr "Alerta sobre el consumo de alcohol."
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
@@ -567,17 +568,13 @@ msgctxt "delete_product"
 msgid "Delete a product"
 msgstr "Eliminar un producto"
 
-msgctxt "delete_product_page"
-msgid "Delete the page"
-msgstr "Eliminar la página"
-
 msgctxt "delete_the_images"
 msgid "Delete the images"
 msgstr "Borrar esta imagen"
 
 msgctxt "delete_user"
-msgid "Delete a user"
-msgstr "Eliminar un usuario"
+msgid "Delete the user"
+msgstr "Eliminar el usuario"
 
 msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
@@ -2755,6 +2752,7 @@ msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
 msgstr "Grado de nutrición NutriScore"
 
+# duplicate
 msgctxt "delete_product_page"
 msgid "Delete the product page"
 msgstr "Eliminar la página del producto"
@@ -2770,10 +2768,6 @@ msgstr "ha eliminado el producto"
 msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
 msgstr "¿Estás seguro de que deseas borrar la página de este producto?"
-
-msgctxt "delete_user"
-msgid "Delete the user"
-msgstr "Eliminar el usuario"
 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s."
@@ -4195,10 +4189,6 @@ msgstr "¡Necesitamos tu apoyo!"
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr "Donaciones aquí"
-
-msgctxt "alcohol_warning"
-msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
-msgstr "Alerta sobre el consumo de alcohol."
 
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
@@ -5736,10 +5726,6 @@ msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
 msgstr "No se ha proporcionado la información sobre los componentes de este producto."
 
-msgctxt "environmental_score_edit_for_more_precise_environmental_score"
-msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "Para un cálculo más preciso de la puntuación ecológica, puedes editar la página del producto y añadirlas."
-
 msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
 msgstr "proporción"
@@ -5760,9 +5746,15 @@ msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
 msgstr "La información sobre el envase de este producto no está suficientemente detallada (formas y materiales exactos de todas las partes que componen el envase)."
 
+# duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
 msgstr "Para un cálculo más preciso de la puntuación ecológica, puede modificar la página del producto y añadirlas."
+
+# duplicate
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
+msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
+msgstr "Para un cálculo más preciso de la puntuación ecológica, puedes editar la página del producto y añadirlas."
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
@@ -7059,6 +7051,11 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr "Informar de un problema"
 
+# duplicate with "report_problem_panel_title"
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
+msgstr "Informar de un problema"
+
 msgctxt "report_problem_navigation"
 msgid "Report a problem."
 msgstr "Reportar un problema."
@@ -7086,11 +7083,6 @@ msgstr "Si desea denunciar vandalismo, contenido inapropiado o datos erróneos q
 msgctxt "description"
 msgid "Description"
 msgstr "Descripción"
-
-# duplicate with "report_problem_panel_title"
-msgctxt "report_problem_navigation"
-msgid "Report a problem"
-msgstr "Informar de un problema"
 
 msgctxt "enter_main_contact_username"
 msgid "Enter main contact's username :"
