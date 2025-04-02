@@ -264,9 +264,10 @@ msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
 msgstr "Pokročilé vyhledávání a grafy"
 
+# duplicate
 msgctxt "alcohol_warning"
-msgid "Excess drinking is harmful for health."
-msgstr "Nadměrné pití je škodlivé pro zdraví."
+msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr "Nadměrná konzumace alkoholu je zdraví škodlivá, konzumujte jej s mírou."
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
@@ -566,17 +567,13 @@ msgctxt "delete_product"
 msgid "Delete a product"
 msgstr "Odstranit výrobek"
 
-msgctxt "delete_product_page"
-msgid "Delete the page"
-msgstr "Smazat stránku"
-
 msgctxt "delete_the_images"
 msgid "Delete the images"
 msgstr "Smazat obrázky"
 
 msgctxt "delete_user"
-msgid "Delete a user"
-msgstr "Odstranit uživatele"
+msgid "Delete the user"
+msgstr "Smazat uživatele"
 
 msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
@@ -2753,6 +2750,7 @@ msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
 msgstr "Nutriční stupeň NutriScore"
 
+# duplicate
 msgctxt "delete_product_page"
 msgid "Delete the product page"
 msgstr "Smazat stránku produktu"
@@ -2768,10 +2766,6 @@ msgstr "smazal produkt"
 msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
 msgstr "Opravdu chcete smazat stránku tohoto produktu?"
-
-msgctxt "delete_user"
-msgid "Delete the user"
-msgstr "Smazat uživatele"
 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s."
@@ -4193,10 +4187,6 @@ msgstr "Potřebujeme vaši podporu!"
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr "Prosím přispějte"
-
-msgctxt "alcohol_warning"
-msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
-msgstr "Nadměrná konzumace alkoholu je zdraví škodlivá, konzumujte jej s mírou."
 
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
@@ -5734,10 +5724,6 @@ msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
 msgstr "Informace o složkách tohoto produktu nebyly uvedeny."
 
-msgctxt "environmental_score_edit_for_more_precise_environmental_score"
-msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "Pro přesnější výpočet Eko-skóre můžete upravit stránku produktu a přidat je."
-
 msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
 msgstr "poměr"
@@ -5758,9 +5744,15 @@ msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
 msgstr "Údaje o obalu tohoto výrobku nejsou dostatečně přesné (přesné tvary a materiály všech součástí obalu)."
 
+# duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
 msgstr "Pro přesnější výpočet Green-Score můžete upravit stránku produktu a přidat je."
+
+# duplicate
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
+msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
+msgstr "Pro přesnější výpočet Eko-skóre můžete upravit stránku produktu a přidat je."
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
@@ -7057,6 +7049,11 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr "Nahlásit problém"
 
+# duplicate with "report_problem_panel_title"
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
+msgstr "Nahlásit problém"
+
 msgctxt "report_problem_navigation"
 msgid "Report a problem."
 msgstr "Nahlásit problém."
@@ -7084,11 +7081,6 @@ msgstr "Pokud chcete nahlásit vandalismus, nevhodný obsah nebo chybná data, k
 msgctxt "description"
 msgid "Description"
 msgstr "Popis"
-
-# duplicate with "report_problem_panel_title"
-msgctxt "report_problem_navigation"
-msgid "Report a problem"
-msgstr "Nahlásit problém"
 
 msgctxt "enter_main_contact_username"
 msgid "Enter main contact's username :"
