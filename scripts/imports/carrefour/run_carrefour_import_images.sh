@@ -21,7 +21,7 @@ then
     exit 10
 fi
 
-DATA_TMP_DIR=$OFF_CACHE_TMP_DIR/carrefour-data
+DATA_TMP_DIR=$OFF_CACHE_TMP_DIR/carrefour-images-data
 
 # Separate image directory as we want to keep images cached for later imports
 IMAGES_TMP_DIR=$OFF_CACHE_TMP_DIR/carrefour-downloaded-images
@@ -57,9 +57,8 @@ for file in $DATA_TMP_DIR/data_images/*.csv; do
 
     # import data
     echo "Importing ${filename}.off"
-    ./scripts/import_csv_file.pl --csv_file "$DATA_TMP_DIR/data_images/${filename}.off" --user_id carrefour --comment "Import Carrefour Images" --source_id "carrefour" --source_name "Carrefour" --source_url "https://www.carrefour.fr" --manufacturer --org_id carrefour-images-test --define lc=fr --images_download_dir $IMAGES_TMP_DIR
+    ./scripts/import_csv_file.pl --csv_file "$DATA_TMP_DIR/data_images/${filename}.off" --user_id carrefour --comment "Import Carrefour Images" --source_id "carrefour" --source_name "Carrefour" --source_url "https://www.carrefour.fr" --manufacturer --org_id carrefour --define lc=fr --images_download_dir $IMAGES_TMP_DIR
 
-    exit
 done
 
 # mark successful run
