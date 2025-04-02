@@ -47,7 +47,7 @@ rm -rf $IMAGES_TMP_DIR
 mkdir -p $IMAGES_TMP_DIR
 mkdir -p $IMAGES_TMP_DIR/tmp
 
-find $OFF_SFTP_HOME_DIR/nestledeutschland/data -mtime -$IMPORT_SINCE -type f -name "*.csv*" -exec cp {} $DATA_TMP_DIR/data/ \;
+find $OFF_SFTP_HOME_DIR/nestledeutschland/data -mtime -$IMPORT_SINCE -type f -name "*.xlsx" -exec cp {} $DATA_TMP_DIR/data/ \;
 
 # convert and import CSV files in alphabetical order
 echo "Convert and import data"
