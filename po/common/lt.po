@@ -266,9 +266,10 @@ msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
 msgstr "Išsamesnė paieška ir diagramos"
 
+# duplicate
 msgctxt "alcohol_warning"
-msgid "Excess drinking is harmful for health."
-msgstr "Nesaikingas gėrimas yra žalingas sveikatai."
+msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr "Per didelis alkoholio vartojimas kenkia sveikatai, turi būti vartojamas saikingai."
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
@@ -569,17 +570,13 @@ msgctxt "delete_product"
 msgid "Delete a product"
 msgstr "Ištrinti šį produktą"
 
-msgctxt "delete_product_page"
-msgid "Delete the page"
-msgstr "Ištrinti puslapį"
-
 msgctxt "delete_the_images"
 msgid "Delete the images"
 msgstr "Šalinti šį vaizdą"
 
 msgctxt "delete_user"
-msgid "Delete a user"
-msgstr "Trinti vartotoją"
+msgid "Delete the user"
+msgstr "Ištrinti vartotoją"
 
 msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
@@ -2757,6 +2754,7 @@ msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
 msgstr "„NutriScore“ mitybos klasė"
 
+# duplicate
 msgctxt "delete_product_page"
 msgid "Delete the product page"
 msgstr "Ištrinkite produkto puslapį"
@@ -2772,10 +2770,6 @@ msgstr "ištrynė produktą"
 msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
 msgstr "Ar tikrai norite ištrinti šio produkto puslapį?"
-
-msgctxt "delete_user"
-msgid "Delete the user"
-msgstr "Ištrinti vartotoją"
 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s."
@@ -4197,10 +4191,6 @@ msgstr "Mums reikia jūsų palaikymo!"
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr "Prašau paaukoti"
-
-msgctxt "alcohol_warning"
-msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
-msgstr "Per didelis alkoholio vartojimas kenkia sveikatai, turi būti vartojamas saikingai."
 
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
@@ -5738,10 +5728,6 @@ msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
 msgstr "Informacija apie šio produkto sudedamąsias dalis nepateikta."
 
-msgctxt "environmental_score_edit_for_more_precise_environmental_score"
-msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "Norėdami tiksliau apskaičiuoti ekologinį balą, galite redaguoti produkto puslapį ir juos pridėti."
-
 msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
 msgstr "santykis"
@@ -5762,9 +5748,15 @@ msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
 msgstr "Informacija apie šios prekės pakuotę nėra pakankamai tiksli (tikslios visų pakuotės komponentų formos ir medžiagos)."
 
+# duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
 msgstr "Norėdami tiksliau apskaičiuoti ekologinį balą, galite pakeisti produkto puslapį ir juos pridėti."
+
+# duplicate
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
+msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
+msgstr "Norėdami tiksliau apskaičiuoti ekologinį balą, galite redaguoti produkto puslapį ir juos pridėti."
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
@@ -7061,6 +7053,11 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr "Pranešti apie problemą"
 
+# duplicate with "report_problem_panel_title"
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
+msgstr "Pranešti apie problemą"
+
 msgctxt "report_problem_navigation"
 msgid "Report a problem."
 msgstr "Pranešti apie problemą."
@@ -7088,11 +7085,6 @@ msgstr "Jei norite pranešti apie vandalizmą, netinkamą turinį ar klaidingus 
 msgctxt "description"
 msgid "Description"
 msgstr "Aprašas"
-
-# duplicate with "report_problem_panel_title"
-msgctxt "report_problem_navigation"
-msgid "Report a problem"
-msgstr "Pranešti apie problemą"
 
 msgctxt "enter_main_contact_username"
 msgid "Enter main contact's username :"
