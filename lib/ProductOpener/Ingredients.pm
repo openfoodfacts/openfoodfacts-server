@@ -5248,7 +5248,8 @@ my %phrases_after_ingredients_list = (
 		'да се съхранява (в закрити|на сухо)',    # store in ...
 		'Аналитични съставки',    # pet food
 		'Неотворен',    # before opening ...
-		'След отваряне'    # after opening ...
+		'След отваряне',    # after opening ...
+		'Продуктът може да', #product can contain
 	],
 
 	ca => ['envasat en atmosfera protectora', 'conserveu-los en un lloc fresc i sec',],
@@ -5284,6 +5285,7 @@ my %phrases_after_ingredients_list = (
 		'Durchschnittliche N(â|a|ä)hrwerte',
 		'DURCHSCHNITTLICHE NÄHRWERTE',
 		'Durchschnittliche N(â|a|ä)hrwert(angaben|angabe)',
+		'für Allergene',
 		# 'Kakao: \d\d\s?% mindestens.', # allergens can appear after.
 		'N(â|a|ä)hrwert(angaben|angabe|information|tabelle)',    #Nährwertangaben pro 100g
 		'N(â|a|ä)hrwerte je',
@@ -5310,6 +5312,8 @@ my %phrases_after_ingredients_list = (
 		'Αναλυτικές συστατικές',    # pet food
 		'ΔΙΑΘΡΕΠΤΙΚΗ ΕΠΙΣΗΜΑΝΣΗ',    #Nutritional labelling
 		'ΔΙΤΡΟΦΙΚΕΣ ΠΗΡΟΦΟΡΙΕΣ',
+		'Για τα αλλεργιογόνα', 
+		'Για αλλεργιογόνα',
 	],
 
 	en => [
@@ -5319,6 +5323,7 @@ my %phrases_after_ingredients_list = (
 									  #'Best before',
 		'keep cool and dry',
 		'Can be stored unopened at room temperature',
+		'for allergens',
 		'instruction',
 		'nutrition(al)? (as sold|facts|information|typical|value[s]?)',
 		# "nutrition advice" seems to appear before ingredients rather than after.
@@ -5565,7 +5570,7 @@ my %phrases_after_ingredients_list = (
 		'Verpakt onder beschermende atmosfeer',
 		'voedingswaarden',
 		'voedingswaarde',
-		'Voor allergenen: zie ingrediëntenlijst, in vet gemarkeerd',
+		'Voor allergenen',
 		'voorbereidingstips',
 		#'waarvan suikers',
 		'waarvan toegevoegde',

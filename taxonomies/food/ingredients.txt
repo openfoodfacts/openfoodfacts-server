@@ -129,12 +129,12 @@ synonyms:pt: sorvete, gelado
 
 # comment:en:These are words that occur inside the name of one ingredient, but that can be removed for matching the ingredient with entries in the taxonomy
 
-stopwords:bg: съдържа, в, от, с, със, до, и, или, и/или, минимум, произведено с, с добавенo, включително, променливо, отношение, съотношение
+stopwords:bg: съдържа, в, от, с, със, до, и, или, и/или, минимум, произведено с, с добавенo, включително, променливо, отношение, съотношение 
 stopwords:bs: i, u promjenljivom odnosu
 stopwords:ca: i, de
 stopwords:da: av, af, blandt andet, bl a, inklusive, heraf, indeholder, tilsat
 stopwords:de: Allergene Zutaten, und, mit, von, aus, enthält, enthalten, mindestens, naturbelassen, in veränderlichen gewichtsanteilen, wenig, min, max
-stopwords:el: Για αλλεργιογόνα, περιέχει
+stopwords:el: περιέχει
 # example: "artificial flavouring substances", "natural and nature identical flavouring substances"
 stopwords:en: and, or, added to enhance freshness, added to maintain flavor and freshness, assorted, based, contains, contains less than 2% of the following, contains one or more of the following, contain, edible, for freshness, from, including, inter alia, in varying proportions, less than 1% of:, may contain one or more of the following, minimum, possibly some, produced with, roasted in, substances, with, with added
 stopwords:es: contiene, de, del, la, el, las, los, con, y, e, en, minimo, maximo, puede, contener, por, categoria, calibre, minimo, min, vereidad, variedad, de cultivo, origen, nota, produccion, controlada, equivalente, equivale
@@ -158,10 +158,11 @@ stopwords:ja: 等, その他
 stopwords:lt: iš, su, su pridėtiniu, mažiausiai, įskaitant
 stopwords:lv: no
 stopwords:nb: av, fra, bl a, blant annet, tilsatt
-stopwords:nl: aangezuurd, bevat, bevatten, behandeld papier, cacaobestanddelen, met, o.a, van, vervaardigd met, voor allergenen, waaraan toegevoegd, waarvan
+stopwords:nl: aangezuurd, bevat, bevatten, behandeld papier, cacaobestanddelen, met, o.a, van, vervaardigd met, waaraan toegevoegd, waarvan
 stopwords:nn: av
 stopwords:pl: w tym, zawiera, z, zawierają, łącznie z, jadalna, jadalne, inne
 stopwords:pt: de, da, do, das, dos, com, e, ou, em, do qual, dos quais, contém, produzido com, mínimo, máximo, min., mín., máx., max., incluindo, variedade, cultivo, de cultivo
+stopwords;ro: Produsul poate conține
 stopwords:sk: obsahuje
 stopwords:sl: vsebuje, sestavine
 stopwords:sv: av, bl a, bland annat, certifierad, droppar, en, for allergener, från, innehåller, inklusive, liten, maximum, med, minimum, några, skvätt, tillsatt, valio, varav
@@ -88549,7 +88550,7 @@ pl: masa jajowa, masa jajeczna
 < en:egg
 en: egg white, egg albumen, egg albumin
 ar: بياض البيض
-bg: яйчен белтък
+bg: яйчен белтък, белтък от кокоши яйца
 bn: সাদা ডিম
 ca: clara d'ou, clares d'ou, albumina d'ou
 cs: bílek
@@ -88622,7 +88623,7 @@ pl: albumina jaja kurzego
 
 < en:egg white
 en: powdered egg white, dehydrated egg white, egg white powder
-bg: яйчен белтък на прах, яйчни белтъци на прах
+bg: яйчен белтък на прах, яйчни белтъци на прах, прахов протеин
 ca: clara d'ou en pols, clara d'ou deshidratada, pols de clara d'ou
 da: æggehvidepulver
 de: Eiweißpulver, Eiweisspulver, Eiklarpulver, Trockeneiweiß, Eiklar getrocknet
