@@ -28,7 +28,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/write_cors_headers/;
+use ProductOpener::HTTP qw/write_cors_headers single_param/;
 use ProductOpener::Users qw/$User_id %User/;
 use ProductOpener::Lang qw/lang/;
 
