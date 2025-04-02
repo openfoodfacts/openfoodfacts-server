@@ -47,24 +47,24 @@ msgstr "Együttműködő, ingyenes és nyílt adatbázis kozmetikai termékekrő
 # OPF
 msgctxt "site_description_opf"
 msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr ""
+msgstr "A világ minden tájáról származó élelmiszerek összetevőinek és információnak együttműködésen alapuló, nyílt és ingyenes adatbázisa."
 
 msgctxt "tagline_opf"
 msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr ""
+msgstr "Az Open Products Facts információkat és adatokat gyűjt a világ minden tájáról származó termék széles skálájáról."
 
 msgctxt "footer_tagline_opf"
 msgid "A collaborative, free and open database of various products from around the world."
-msgstr ""
+msgstr "Együttműködésen alapuló, ingyenes és nyílt élelmiszer-adatbázis a világ minden tájáról."
 
 # OPFF
 msgctxt "site_description_opff"
 msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr ""
+msgstr "A világ minden tájáról származó állateledelek összetevőinek, tápértékadatainak és információnak együttműködésen alapuló, nyílt és ingyenes adatbázisa."
 
 msgctxt "tagline_opff"
 msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr ""
+msgstr "Az Open Pet Food Facts információkat és adatokat gyűjt a világ minden tájáról származó állateledelekről."
 
 msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
@@ -294,7 +294,7 @@ msgstr "A termékoldalt szerkesztette még"
 
 msgctxt "analytical_constituents"
 msgid "Analytical constituents"
-msgstr ""
+msgstr "Analitikai összetevők"
 
 msgctxt "analytical_constituents_per_1kg"
 msgid "for 1 kg"
@@ -311,7 +311,7 @@ msgstr ""
 # Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
-msgstr ""
+msgstr "https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_Hungarian.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -5905,6 +5905,11 @@ msgctxt "donation_title_2024"
 msgid "Please give to our 2024 Fundraiser"
 msgstr "Kérjük, támogassa a 2024-es adománygyűjtő akciónkat"
 
+# Don't translate {year}, it will be replaced by the 4 digits year
+msgctxt "f_donation_title_year"
+msgid "Please give to our {year} Fundraiser"
+msgstr "Kérjük, támogassa az idei adománygyűjtő akciónkat"
+
 msgctxt "donation_list_2024_main"
 msgid "Your donations fund the day-to-day operations of our non-profit association:"
 msgstr "Adományaival nonprofit egyesületünk mindennapi működését finanszírozza:"
@@ -7362,7 +7367,7 @@ msgstr "Állateledel"
 # Beauty product type
 msgctxt "product_type_beauty"
 msgid "Beauty"
-msgstr ""
+msgstr "Szépségápolás"
 
 # General product product type
 msgctxt "product_type_product"
@@ -7395,7 +7400,7 @@ msgstr "Élelmiszerrel érintkezve"
 
 msgctxt "contact_us_producers"
 msgid "Contact Us"
-msgstr ""
+msgstr "Kapcsolat"
 
 msgctxt "delete"
 msgid "Delete"
@@ -7404,7 +7409,7 @@ msgstr "Törlés"
 # Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
 msgctxt "f_droid_app_icon_url"
 msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
-msgstr ""
+msgstr "/images/misc/f-droid/svg/get-it-on-hu.svg"
 
 msgctxt "f_droid_app_icon_alt_text"
 msgid "Available on F-Droid"
@@ -7412,5 +7417,5 @@ msgstr "Elérhető F-Droidon"
 
 msgctxt "update_nutrients_data"
 msgid "Update nutrients data"
-msgstr ""
+msgstr "Tápanyagadatok frissítése"
 
