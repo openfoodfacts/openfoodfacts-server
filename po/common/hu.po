@@ -264,9 +264,10 @@ msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
 msgstr "Részletes keresés és grafikonok"
 
+# duplicate
 msgctxt "alcohol_warning"
-msgid "Excess drinking is harmful for health."
-msgstr "A túlzott ivás káros az egészségre."
+msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr "A túlzott alkoholfogyasztás káros az egészségre, mértékkel fogyasztandó."
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
@@ -567,17 +568,13 @@ msgctxt "delete_product"
 msgid "Delete a product"
 msgstr "Termék törlése"
 
-msgctxt "delete_product_page"
-msgid "Delete the page"
-msgstr "Termékoldal törlése"
-
 msgctxt "delete_the_images"
 msgid "Delete the images"
 msgstr "Képek törlése"
 
 msgctxt "delete_user"
-msgid "Delete a user"
-msgstr "Felhasználó törlése"
+msgid "Delete the user"
+msgstr "A felhasználó törlése"
 
 msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
@@ -2754,6 +2751,7 @@ msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
 msgstr "NutriScore tápértékosztályzat"
 
+# duplicate
 msgctxt "delete_product_page"
 msgid "Delete the product page"
 msgstr "Termékoldal törlése"
@@ -2769,10 +2767,6 @@ msgstr "törölte a terméket"
 msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
 msgstr "Biztos benne, hogy törölni szeretné az ehhez a termékhez tartozó oldalt?"
-
-msgctxt "delete_user"
-msgid "Delete the user"
-msgstr "A felhasználó törlése"
 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s."
@@ -4194,10 +4188,6 @@ msgstr "Szükségünk van a támogatására!"
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr "Kérjük, adományozzon"
-
-msgctxt "alcohol_warning"
-msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
-msgstr "A túlzott alkoholfogyasztás káros az egészségre, mértékkel fogyasztandó."
 
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
@@ -5735,10 +5725,6 @@ msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
 msgstr "A termék összetevőire vonatkozó információk nincsenek megadva."
 
-msgctxt "environmental_score_edit_for_more_precise_environmental_score"
-msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "Az Green-Score pontosabb kiszámításához szerkesztheti a termékoldalt és hozzáadhatja."
-
 msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
 msgstr "arány"
@@ -5759,9 +5745,15 @@ msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
 msgstr "A termék csomagolásával kapcsolatos információk nem kellően pontosak (a csomagolás minden részének pontos alakja és anyaga)."
 
+# duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
 msgstr "Az Green-Score pontosabb kiszámításához módosíthatja a termékoldalt és hozzáadhatja."
+
+# duplicate
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
+msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
+msgstr "Az Green-Score pontosabb kiszámításához szerkesztheti a termékoldalt és hozzáadhatja."
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
@@ -7058,6 +7050,11 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr "Probléma bejelentése"
 
+# duplicate with "report_problem_panel_title"
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
+msgstr "Probléma bejelentése"
+
 msgctxt "report_problem_navigation"
 msgid "Report a problem."
 msgstr "Probléma bejelentése."
@@ -7085,11 +7082,6 @@ msgstr "Ha vandalizmust, nem megfelelő tartalmat vagy hibás adatokat szeretne 
 msgctxt "description"
 msgid "Description"
 msgstr "Leírás"
-
-# duplicate with "report_problem_panel_title"
-msgctxt "report_problem_navigation"
-msgid "Report a problem"
-msgstr "Probléma bejelentése"
 
 msgctxt "enter_main_contact_username"
 msgid "Enter main contact's username :"
