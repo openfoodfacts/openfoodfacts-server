@@ -5340,13 +5340,12 @@ my %phrases_after_ingredients_list = (
 	],
 
 	es => [
+		'alérgenos: ver',
 		'componentes analíticos',    # pet food
-		'valores nutricionales',
-		'modo de preparacion',
-		'informaci(o|ó)n nutricional',
-		'valor energ(e|é)tico',
+		'conservaci(o|ó)n:',
+		'conser(y|v)ar entre',
+		'consumir? preferentemente antes del',
 		'condiciones de conservaci(o|ó)n',
-		#'pa(i|í)s de transformaci(o|ó)n',
 		'cons[eé]rv(ar|ese) en( un)? lug[ae]r (fresco y seco|seco y fresco)',
 		'contiene azúcares naturalmente presentes',
 		'distribuido por',    # distributed for
@@ -5354,12 +5353,14 @@ my %phrases_after_ingredients_list = (
 		'de las cuales saturadas',
 		'envasado',    # Packaging in protective atmosphere.
 		'Mantener en lugar fresco y seco',
+		'modo de preparacion',
+		'informaci(o|ó)n nutricional',
+		#'pa(i|í)s de transformaci(o|ó)n',
 		'obtenga más información',    # get more information
 		'protegido de la luz',
-		'conser(y|v)ar entre',
 		'una vez abierto',
-		'conservaci(o|ó)n:',
-		'consumir? preferentemente antes del',
+		'valor energ(e|é)tico',
+		'valores nutricionales',
 		#Envasado por:
 	],
 
