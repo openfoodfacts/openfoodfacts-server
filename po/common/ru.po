@@ -264,9 +264,10 @@ msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
 msgstr "Расширенный поиск и графики"
 
+# duplicate
 msgctxt "alcohol_warning"
-msgid "Excess drinking is harmful for health."
-msgstr "Чрезмерное употребление вредно для здоровья."
+msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr "Чрезмерное употребление алкоголя вредно для здоровья, его следует употреблять умеренно."
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
@@ -567,16 +568,12 @@ msgctxt "delete_product"
 msgid "Delete a product"
 msgstr "Удалить продукт"
 
-msgctxt "delete_product_page"
-msgid "Delete the page"
-msgstr "Удалить страницу"
-
 msgctxt "delete_the_images"
 msgid "Delete the images"
 msgstr "Удалить изображения"
 
 msgctxt "delete_user"
-msgid "Delete a user"
+msgid "Delete the user"
 msgstr "Удалить пользователя"
 
 msgctxt "delete_confirmation"
@@ -2758,6 +2755,7 @@ msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
 msgstr "Уровень питательной ценности NutriScore"
 
+# duplicate
 msgctxt "delete_product_page"
 msgid "Delete the product page"
 msgstr "Удалить страницу продукта"
@@ -2773,10 +2771,6 @@ msgstr "удалил продукт"
 msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
 msgstr "Вы действительно хотите удалить страницу этого продукта?"
-
-msgctxt "delete_user"
-msgid "Delete the user"
-msgstr "Удалить пользователя"
 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s."
@@ -4198,10 +4192,6 @@ msgstr "Нам нужна ваша поддержка!"
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr "Пожалуйста, поддержите"
-
-msgctxt "alcohol_warning"
-msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
-msgstr "Чрезмерное употребление алкоголя вредно для здоровья, его следует употреблять умеренно."
 
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
@@ -5739,10 +5729,6 @@ msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
 msgstr "Информация о составе этого продукта не предоставлена."
 
-msgctxt "environmental_score_edit_for_more_precise_environmental_score"
-msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "Для более точного расчета Green-Score вы можете отредактировать страницу продукта и добавить их."
-
 msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
 msgstr "соотношение"
@@ -5763,8 +5749,14 @@ msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
 msgstr "Информация об упаковке этого продукта недостаточно точна (точные формы и материалы всех компонентов упаковки)."
 
+# duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
+msgstr "Для более точного расчета Green-Score вы можете отредактировать страницу продукта и добавить их."
+
+# duplicate
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
+msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
 msgstr "Для более точного расчета Green-Score вы можете отредактировать страницу продукта и добавить их."
 
 msgctxt "environmental_score_final_score"
@@ -7063,6 +7055,11 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr "Сообщить о проблеме"
 
+# duplicate with "report_problem_panel_title"
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
+msgstr "Сообщить о проблеме"
+
 msgctxt "report_problem_navigation"
 msgid "Report a problem."
 msgstr "Сообщить о проблеме."
@@ -7090,11 +7087,6 @@ msgstr "Если вы хотите сообщить о вандализме, н�
 msgctxt "description"
 msgid "Description"
 msgstr "Описание"
-
-# duplicate with "report_problem_panel_title"
-msgctxt "report_problem_navigation"
-msgid "Report a problem"
-msgstr "Сообщить о проблеме"
 
 msgctxt "enter_main_contact_username"
 msgid "Enter main contact's username :"
