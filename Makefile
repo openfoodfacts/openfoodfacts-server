@@ -615,3 +615,16 @@ idx: hello
     
     @echo "🥫 IDX environment setup complete! Access the app at http://world.openfoodfacts.localhost/"
     @echo "🥫 You have around 100 test products. Please run 'make import_prod_data' if you want a full production dump (~2M products)."
+
+.PHONY: init_backend_idx
+init_backend_idx: build_taxonomies_idx build_lang_idx
+
+.PHONY: build_taxonomies_idx
+build_taxonomies_idx: create_folders
+    @echo "🥫 Building taxonomies for IDX environment..."
+    @COMPOSE_FILE="docker-compose.yml;docker/dev.yml" docker compose --env-file=.env.idx --env-file=.env run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
+
+.PHONY: build_lang_idx
+build_lang_idx: create_folders
+    @echo "🥫 Building language files for IDX environment..."
+    @COMPOSE_FILE="docker-compose.yml;docker/dev.yml" docker compose --env-file=.env.idx --env-file=.env run --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
