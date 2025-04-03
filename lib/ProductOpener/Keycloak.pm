@@ -36,6 +36,7 @@ use Log::Any qw($log);
 
 use ProductOpener::Auth qw/get_token_using_client_credentials/;
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Tags qw/country_to_cc/;
 
 use JSON;
 use LWP::UserAgent;
@@ -102,7 +103,49 @@ sub get_or_refresh_token ($self) {
 	return $self->{token} // die 'Could not get token to manage users with users_endpoint';
 }
 
-=head2 create_user ($user_ref, $password)
+
+sub convert_scrypt_password_to_keycloak_credentials ($hashed_password) {
+	unless (defined $hashed_password) {
+		return;
+	}
+
+	my $credential = {};
+	my ($alg, $N, $r, $p, $salt, $hash) = ($hashed_password =~ /^(SCRYPT):(\d+):(\d+):(\d+):([^\:]+):([^\:]+)$/);
+	if ((defined $alg) and ($alg eq 'SCRYPT')) {
+		# Only migrate SCRYPT passwords. If there are still users that use MD5,
+		# they haven't signed in in 8 years, and will have to change their
+		# password, if they want to use the server again.
+		$credential->{type} = 'password';
+
+		my $secret_data = {
+			value => $hash,
+			salt => $salt
+		};
+
+		$credential->{secretData} = encode_json($secret_data);
+
+		my $credential_data = {
+			hashIterations => -1,
+			algorithm => 'scrypt',
+			additionalParameters => {
+				N => [$N],
+				r => [$r],
+				p => [$p],
+			}
+		};
+
+		$credential->{credentialData} = encode_json($credential_data);
+		$credential->{temporary} = $JSON::false;
+	}
+	else {
+		return;
+	}
+
+	return $credential;
+}
+
+
+=head2 create_or_update_user ($user_ref, $password)
 
 Create use on keycloak side.
 
@@ -115,66 +158,76 @@ We create the user properties file locally before, and we create the user in key
 
 =head4 String $password
 
-=head3 Return Value
-
-A hashmap reference with created user information.
-
 =cut
 
-sub create_user ($self, $user_ref, $password) {
+sub create_or_update_user ($self, $user_ref, $password = undef) {
+	# See if user already exists
+	my $existing_user = $self->find_user_by_username($user_ref->{userid}, 1);
+
 	# use a special application authorization to handle creation
 	my $token = $self->get_or_refresh_token();
 	unless ($token) {
-		display_error_and_exit('Could not get token to manage users with keycloak_users_endpoint', 500);
+		die 'Could not get token to manage users with keycloak_users_endpoint';
 	}
+
+	my $credential = defined $password 
+		? {
+			type => 'password',
+			temporary => $JSON::PP::false,
+			value => $password
+		} 
+		: convert_scrypt_password_to_keycloak_credentials($user_ref->{'encrypted_password'});
+
+	# Need to sanitise user's name for Keycloak
+	my $name = $user_ref->{name};
+	# Inverted expression from: https://github.com/keycloak/keycloak/blob/2eae68010877c6807b6a454c2d54e0d1852ed1c0/services/src/main/java/org/keycloak/userprofile/validator/PersonNameProhibitedCharactersValidator.java#L42C63-L42C114
+	$name =~ s/[<>&"$%!#?§;*~\/\\|^=\[\]{}()\x00-\x1F\x7F]+//g;
+
+	# Sanitise email
+	my $email = lc($user_ref->{email} || '');
+	$email =~ s/\s+//g;
 
 	# user creation payload
 	my $api_request_ref = {
-		email => $user_ref->{email},
+		email => $email,
 		emailVerified => $JSON::PP::true,    # TODO: Keep this for compat with current register endpoint?
 		enabled => $JSON::PP::true,
 		username => $user_ref->{userid},
-		credentials => [
-			{
-				type => 'password',
-				temporary => $JSON::PP::false,
-				value => $password
-			}
-		],
-		attributes => [
-			name => $user_ref->{name},
+		credentials => [$credential],
+		createdTimestamp => ($user_ref->{registered_t} // time()) * 1000,
+		attributes => {
+			# Truncate name more than 255 because of UTF-8 encoding. Could do this more precisely...
+			name => substr($name, 0, 128),
 			locale => $user_ref->{preferred_language},
-			country => $user_ref->{country},
+			country => country_to_cc($user_ref->{country}),
+			registered => 'registered',    # The prevents welcome emails from being sent
 			reqested_org => $user_ref->{requested_org},
 			newsletter => ($user_ref->{newsletter} ? 'subscribe' : undef)
-		]
+		}
 	};
 	my $json = encode_json($api_request_ref);
+	
+	$log->info('updating keycloak user', {existing_user => $existing_user, request => $api_request_ref}) if $log->is_info();
 
 	# create request with right headers
-	my $create_user_request = HTTP::Request->new(POST => $self->{users_endpoint});
-	$create_user_request->header('Content-Type' => 'application/json');
-	$create_user_request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
-	$create_user_request->content($json);
+	my $upsert_user_request;
+	if (defined $existing_user) {
+		my $keycloak_id = $existing_user->{id};
+		$upsert_user_request = HTTP::Request->new(PUT => $self->{users_endpoint} . '/' . $keycloak_id);
+	}
+	else {
+		$upsert_user_request = HTTP::Request->new(POST => $self->{users_endpoint});
+	}
+	$upsert_user_request->header('Content-Type' => 'application/json');
+	$upsert_user_request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
+	$upsert_user_request->content($json);
 	# issue the request to keycloak
-	my $new_user_response = LWP::UserAgent::Plugin->new->request($create_user_request);
+	my $new_user_response = LWP::UserAgent::Plugin->new->request($upsert_user_request);
 	unless ($new_user_response->is_success) {
-		display_error_and_exit($new_user_response->content, 500);
+		die $new_user_response->content;
 	}
 
-	# continue the process by fetching user data,
-	# which profile location is given in previous response
-	my $get_user_request = HTTP::Request->new(GET => $new_user_response->header('location'));
-	$get_user_request->header('Content-Type' => 'application/json');
-	$get_user_request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
-	my $get_user_response = LWP::UserAgent::Plugin->new->request($get_user_request);
-	unless ($get_user_response->is_success) {
-		display_error_and_exit($get_user_response->content, 500);
-	}
-
-	my $json_response = $get_user_response->decoded_content(charset => 'UTF-8');
-	my @created_users = decode_json($json_response);
-	return $created_users[0];
+	return;
 }
 
 =head2 find_user_by_username ($username)
@@ -191,8 +244,8 @@ A hashmap reference with user information from Keycloak.
 
 =cut
 
-sub find_user_by_username ($self, $username) {
-	return $self->_find_user_by_single_attribute_exact('username', $username);
+sub find_user_by_username ($self, $username, $brief = 0) {
+	return $self->_find_user_by_single_attribute_exact('username', $username, $brief);
 }
 
 =head2 find_user_by_email ($mail)
@@ -254,22 +307,25 @@ A hashmap reference with user information from Keycloak.
 
 =cut
 
-sub _find_user_by_single_attribute_exact ($self, $name, $value) {
+sub _find_user_by_single_attribute_exact ($self, $name, $value, $brief = 0) {
 	# use a special application authorization to handle search
 	my $token = $self->get_or_refresh_token();
 	unless ($token) {
-		display_error_and_exit('Could not get token to search users with keycloak_users_endpoint', 500);
+		die 'Could not get token to search users with keycloak_users_endpoint';
 	}
 
 	# create request with right headers
 	my $search_uri = $self->{users_endpoint} . '?exact=true&' . uri_escape($name) . '=' . uri_escape($value);
+	if ($brief) {
+		$search_uri .= "&briefRepresentation=true";
+	}
 	my $search_user_request = HTTP::Request->new(GET => $search_uri);
 	$search_user_request->header('Accept' => 'application/json');
 	$search_user_request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
 	# issue the request to keycloak
 	my $search_user_response = LWP::UserAgent::Plugin->new->request($search_user_request);
 	unless ($search_user_response->is_success) {
-		display_error_and_exit($search_user_response->content, 500);
+		die $search_user_response->content;
 	}
 
 	my $json_response = $search_user_response->decoded_content(charset => 'UTF-8');

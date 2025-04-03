@@ -1178,7 +1178,10 @@ sub store_user_session ($user_ref) {
 
 sub store_user ($user_ref) {
 	if ($oidc_options{keycloak_level} < 5) {
-		# TODO: Get this to update keycloak too during transition
+		# Sync the user with Keycloak
+		my $keycloak = ProductOpener::Keycloak->new();
+		$keycloak->create_or_update_user($user_ref);
+
 		my $userid = $user_ref->{userid};
 
 		# Update email
