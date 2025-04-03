@@ -27,6 +27,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Keycloak qw/:all/;
+use ProductOpener::Tags qw/country_to_cc/;
 
 use JSON;
 use LWP::UserAgent;
@@ -147,8 +148,8 @@ sub convert_to_keycloak_user ($userid, $anonymize) {
 		attributes => {
 			# Truncate name more than 255 because of UTF-8 encoding. Could do this more precisely...
 			name => substr($name, 0, 128),
-			locale => $user_ref->{initial_lc},
-			country => $user_ref->{initial_cc},
+			locale => $user_ref->{preferred_language},
+			country => country_to_cc($user_ref->{country}),
 			registered => 'registered',    # The prevents welcome emails from being sent
 			importTimestamp => time(),
 			importSourceChangedTimestamp => (stat($user_file))[9]
