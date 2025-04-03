@@ -105,6 +105,7 @@ use ProductOpener::CRM qw/update_contact_last_login/;
 use ProductOpener::Auth qw/:all/;
 use ProductOpener::Keycloak qw/:all/;
 use ProductOpener::URL qw/:all/;
+use ProductOpener::Minion qw/queue_job/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
@@ -218,8 +219,7 @@ sub delete_user ($user_ref) {
 		email => $user_ref->{email},
 	};
 
-	require ProductOpener::Producers;
-	ProductOpener::Producers::queue_job(delete_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
+	queue_job(delete_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
 
 	return;
 }
@@ -1284,6 +1284,11 @@ sub remove_user ($user_ref) {
 				store($emails_file, $emails_ref);
 			}
 		}
+	}
+
+	if ($oidc_options{keycloak_level} < 5) {
+		my $keycloak = ProductOpener::Keycloak->new();
+		$keycloak->delete_user($userid);
 	}
 
 	return;

@@ -230,6 +230,31 @@ sub create_or_update_user ($self, $user_ref, $password = undef) {
 	return;
 }
 
+sub delete_user ($self, $userid) {
+	# See if user already exists
+	my $existing_user = $self->find_user_by_username($userid, 1);
+
+	if (defined $existing_user) {
+		# use a special application authorization to handle creation
+		my $token = $self->get_or_refresh_token();
+		unless ($token) {
+			die 'Could not get token to manage users with keycloak_users_endpoint';
+		}
+
+		my $keycloak_id = $existing_user->{id};
+		my $delete_user_request = HTTP::Request->new(DELETE => $self->{users_endpoint} . '/' . $keycloak_id);
+		$delete_user_request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
+		# issue the request to keycloak
+		my $response = LWP::UserAgent::Plugin->new->request($delete_user_request);
+		unless ($response->is_success) {
+			die $response->content;
+		}
+	}
+
+	return;
+}
+
+
 =head2 find_user_by_username ($username)
 
 Try to find a user in Keycloak by their username.
