@@ -599,8 +599,8 @@ idx: hello
 	@echo "🥫 Building containers with IDX configuration..."
 	@COMPOSE_FILE="docker-compose.yml;docker/dev.yml" docker compose --env-file=.env.idx --env-file=.env build
 
-	@echo "🥫 Starting containers with IDX configuration..."
-	@COMPOSE_FILE="docker-compose.yml;docker/dev.yml" docker compose --env-file=.env.idx --env-file=.env up -d
+	@echo "🥫 Starting containers with a custom entrypoint..."
+	@FRONTEND_PORT=8080 COMPOSE_FILE="docker-compose.yml;docker/dev.yml" docker compose --env-file=.env.idx --env-file=.env run -d --name po_off-backend-1 backend bash -c "cp -f /opt/product-opener/lib/ProductOpener/Config2_docker.pm /opt/product-opener/lib/ProductOpener/Config2.pm && apache2-foreground"
 
 	@echo "🥫 Fixing permissions and configuration issues in IDX environment..."
 	@COMPOSE_FILE="docker-compose.yml;docker/dev.yml" docker compose --env-file=.env.idx --env-file=.env exec backend bash -c "\
