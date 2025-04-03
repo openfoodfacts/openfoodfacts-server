@@ -615,23 +615,23 @@ services:
   
   backend:
     environment:
-      - CONFIG2_PATH=${CONFIG2_PATH:-/home/user/OFF_DATA/etc/Config2.pm}
+		- CONFIG2_PATH=${CONFIG2_PATH:-/home/user/OFF_DATA/etc/Config2.pm}
     volumes:
-      - ${HOME}/OFF_DATA:/home/user/OFF_DATA
+		- ${HOME}/OFF_DATA:/home/user/OFF_DATA
     command: ["bash", "-c", "cp -f ${CONFIG2_PATH:-/home/user/OFF_DATA/etc/Config2.pm} /opt/product-opener/lib/ProductOpener/Config2.pm && apache2-foreground"]
 
   incron:
     environment:
-      - CONFIG2_PATH=${CONFIG2_PATH:-/home/user/OFF_DATA/etc/Config2.pm}
+		- CONFIG2_PATH=${CONFIG2_PATH:-/home/user/OFF_DATA/etc/Config2.pm}
     volumes:
-      - ${HOME}/OFF_DATA:/home/user/OFF_DATA
+		- ${HOME}/OFF_DATA:/home/user/OFF_DATA
     command: ["bash", "-c", "cp -f ${CONFIG2_PATH:-/home/user/OFF_DATA/etc/Config2.pm} /opt/product-opener/lib/ProductOpener/Config2.pm && incrond-foreground"]
 
   minion:
     environment:
-      - CONFIG2_PATH=${CONFIG2_PATH:-/home/user/OFF_DATA/etc/Config2.pm}
+		- CONFIG2_PATH=${CONFIG2_PATH:-/home/user/OFF_DATA/etc/Config2.pm}
     volumes:
-      - ${HOME}/OFF_DATA:/home/user/OFF_DATA
+		- ${HOME}/OFF_DATA:/home/user/OFF_DATA
 EOL
     
 	@echo "🥫 Building containers with IDX configuration..."
