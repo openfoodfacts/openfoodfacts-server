@@ -98,8 +98,6 @@ $events_password = '';
 	client_id => '',
 	# This is the client secret of the "open-products-facts" client in Keycloak
 	client_secret => '',
-	# Well-known endpoint used to discover metadata about the OIDC provider
-	discovery_endpoint => '',
 	# Keycloak specific: Implementation level 1 to 5 (see .env for values)
 	keycloak_level => 0,
 	# Keycloak specific: Base URL for the Keycloak server

@@ -781,11 +781,16 @@ sub _ensure_oidc_is_discovered () {
 	if ($jwks) {
 		return;
 	}
+	my $discovery_endpoint
+		= $oidc_options{keycloak_backchannel_base_url}
+		. "/realms/"
+		. $oidc_options{keycloak_realm_name}
+		. "/.well-known/openid-configuration";
 
-	$log->info('Original OIDC configuration', {discovery_endpoint => $oidc_options{discovery_endpoint}})
+	$log->info('Original OIDC configuration', {discovery_endpoint => $discovery_endpoint})
 		if $log->is_info();
 
-	my $discovery_request = HTTP::Request->new(GET => $oidc_options{discovery_endpoint});
+	my $discovery_request = HTTP::Request->new(GET => $discovery_endpoint);
 	my $discovery_response = LWP::UserAgent::Plugin->new->request($discovery_request);
 	unless ($discovery_response->is_success) {
 		$log->info('Unable to load OIDC data from IdP', {response => $discovery_response->content}) if $log->is_info();
