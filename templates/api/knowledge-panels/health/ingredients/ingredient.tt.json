@@ -35,8 +35,8 @@
             "element_type": "text",
             "text_element": {
                 "html": "<strong>[% edq(panel.wikipedia_title) %][% sep %]:</strong> [% edq(panel.wikipedia_abstract) %]",
-                "source_text": `Wikipedia`,
-                "source_url": `[% panel.wikipedia_url %]`,
+                "source_text": "Wikipedia",
+                "source_url": "[% panel.wikipedia_url %]",
                 "source_lc": "[% panel.wikipedia_url_lc %]",
                 "source_language": "[% panel.wikipedia_url_language %]"
             }
