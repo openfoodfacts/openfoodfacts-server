@@ -569,6 +569,10 @@ guard-%: # guard clause for targets that require an environment variable (usuall
 .PHONY: idx
 idx: hello
 	@echo "🥫 Setting up Open Food Facts dev environment for Google IDX..."
+    
+	@echo "🥫 Cleaning up any existing containers..."
+	@docker rm -f po_off-backend-1 po_off-frontend-1 po_off-minion-1 po_off-incron-1 po_off-postgres-1 po_off-dynamicfront-1 po_off-memcached-1 2>/dev/null || true
+    
 	@echo "🥫 Creating IDX-specific directories..."
 	@mkdir -p ~/OFF_DATA/html_data/{dump,exports,files}
 	@mkdir -p ~/OFF_DATA/build-cache/taxonomies-result
