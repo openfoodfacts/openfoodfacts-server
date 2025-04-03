@@ -19,12 +19,12 @@ then
     exit 10
 fi
 
-DATA_TMP_DIR=$OFF_CACHE_TMP_DIR/nestle-deutschland-data
+DATA_TMP_DIR=$OFF_CACHE_TMP_DIR/nestledeutschland-data
 
 # Separate image directory
-IMAGES_TMP_DIR=$OFF_CACHE_TMP_DIR/nestle-deutschland-images
+IMAGES_TMP_DIR=$OFF_CACHE_TMP_DIR/nestledeutschland-images
 
-SUCCESS_FILE_PATH="$OFF_PRIVATE_DATA_DIR/nestle-deutschland-import-success"
+SUCCESS_FILE_PATH="$OFF_PRIVATE_DATA_DIR/nestledeutschland-import-success"
 
 IMPORT_SINCE=$(import_since $SUCCESS_FILE_PATH)
 
@@ -60,7 +60,7 @@ for file in $DATA_TMP_DIR/data/*xlsx; do
     # We use convert_csv_file.pl to convert the XLSX file to the OFF CSV file format
     # for that to work, we first need to import the file on the pro platform once, so that we can select the input columns and match them to OFF columns
     # the resulting mapping file has then been saved in the scripts/import/nestle-deutschland/ directory
-    ./scripts/convert_csv_file.pl --csv "$file" --columns_fields_file scripts/imports/nestle-deutschland/all_columns_fields.sto --converted "$file.converted" --define countries=en:germany --define lc=de
+    ./scripts/convert_csv_file.pl --csv "$file" --columns_fields_file scripts/imports/nestledeutschland/all_columns_fields.sto --converted "$file.converted" --define countries=en:germany --define lc=de
     ./scripts/import_csv_file.pl --csv_file "$file.converted" --user_id nestle-deutschland --comment "Import Nestlé Deutschland" --source_id "nestle-deutschland" --source_name "Nestlé Deutschland" --source_url "https://www.nestle.de/" --manufacturer --org_id nestle-deutschland --define lc=de --define countries=en:germany --images_download_dir $IMAGES_TMP_DIR
 done
 
