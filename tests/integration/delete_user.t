@@ -59,7 +59,11 @@ if ($oidc_options{keycloak_level} < 5) {
 	my $before_delete_ts = time();
 	my $response_delete = $ua->post($url_delete, \%delete_form);
 	#checking if we are redirected to the account deleted page
-	like($response_delete->content, qr/User is being deleted\. This may take a few minutes\./, "the account was deleted");
+	like(
+		$response_delete->content,
+		qr/User is being deleted\. This may take a few minutes\./,
+		"the account was deleted"
+	);
 
 	#waiting the deletion task to be done (weirdly enough it is not useful anymore..)
 	my $max_time = 60;

@@ -103,7 +103,6 @@ sub get_or_refresh_token ($self) {
 	return $self->{token} // die 'Could not get token to manage users with users_endpoint';
 }
 
-
 sub convert_scrypt_password_to_keycloak_credentials ($hashed_password) {
 	unless (defined $hashed_password) {
 		return;
@@ -144,7 +143,6 @@ sub convert_scrypt_password_to_keycloak_credentials ($hashed_password) {
 	return $credential;
 }
 
-
 =head2 create_or_update_user ($user_ref, $password)
 
 Create use on keycloak side.
@@ -170,12 +168,13 @@ sub create_or_update_user ($self, $user_ref, $password = undef) {
 		die 'Could not get token to manage users with keycloak_users_endpoint';
 	}
 
-	my $credential = defined $password 
+	my $credential
+		= defined $password
 		? {
-			type => 'password',
-			temporary => $JSON::PP::false,
-			value => $password
-		} 
+		type => 'password',
+		temporary => $JSON::PP::false,
+		value => $password
+		}
 		: convert_scrypt_password_to_keycloak_credentials($user_ref->{'encrypted_password'});
 
 	# Need to sanitise user's name for Keycloak
@@ -206,8 +205,9 @@ sub create_or_update_user ($self, $user_ref, $password = undef) {
 		}
 	};
 	my $json = encode_json($api_request_ref);
-	
-	$log->info('updating keycloak user', {existing_user => $existing_user, request => $api_request_ref}) if $log->is_info();
+
+	$log->info('updating keycloak user', {existing_user => $existing_user, request => $api_request_ref})
+		if $log->is_info();
 
 	# create request with right headers
 	my $upsert_user_request;
@@ -253,7 +253,6 @@ sub delete_user ($self, $userid) {
 
 	return;
 }
-
 
 =head2 find_user_by_username ($username)
 
