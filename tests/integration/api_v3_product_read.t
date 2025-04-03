@@ -250,7 +250,7 @@ my $tests_ref = [
 		test_case => 'get-auth-good-password',
 		method => 'GET',
 		path => '/api/v3/product/4260392550101',
-		query_string => '?fields=code,product_name&user_id=tests&password=!!!TestTest1!!!',
+		query_string => '?fields=code,product_name&user_id=tests&password=testtest',
 		expected_status_code => 200,
 	},
 	{

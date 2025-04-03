@@ -28,7 +28,7 @@ my $ua = new_client();
 my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
 create_user($ua, \%create_user_args);
 
-my $token = get_token_using_password_credentials('tests', '!!!TestTest1!!!')->{access_token};
+my $token = get_token_using_password_credentials('tests', 'testtest')->{access_token};
 $log->debug('test token', {token => $token}) if $log->is_debug();
 
 my $tests_ref = [

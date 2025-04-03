@@ -26,7 +26,7 @@ my $ua = new_client();
 my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
 create_user($ua, \%create_user_args);
 
-my $token = get_token_using_password_credentials('tests', '!!!TestTest1!!!')->{access_token};
+my $token = get_token_using_password_credentials('tests', 'testtest')->{access_token};
 $log->debug('test token', {token => $token}) if $log->is_debug();
 
 # Note: expected results are stored in json files, see execute_api_tests
@@ -54,36 +54,10 @@ my $tests_ref = [
 		},
 	},
 	{
-		test_case => 'get-product-auth-bad-user-password',
+		test_case => 'get-product-anonymous',
 		method => 'GET',
-		path => '/api/v2/product/1234567890003',
+		path => '/api/v2/product/1234567890001',
 		expected_status_code => 404,
-	},
-	# Test that we use the language of the interface (lc) for language fields without a language suffix
-	{
-		test_case => 'post-product-ingredients-text-without-language',
-		method => 'POST',
-		path => '/cgi/product_jqm_multilingual.pl',
-		form => {
-			user_id => "tests",
-			password => '!!!TestTest1!!!',
-			cc => "uk",
-			lc => "en",    # lc is the language of the interface
-			lang => "fr",    # lang is the main language of the product
-			code => "1234567890004",
-			product_name => "Some sausages"
-			, # product_name does not have a language suffix, so it is assumed to be in the language of the interface (lc = "en")
-			categories => "Sausages",
-			quantity => "250 g",
-			serving_size => '20 g',
-			ingredients_text => "Pork meat, salt",
-			traces => "Moutarde, milk, abcd",
-		}
-	},
-	{
-		test_case => 'get-product-ingredients-text-without-language',
-		method => 'GET',
-		path => '/api/v2/product/1234567890004',
 	},
 	# Test authentication
 	{
@@ -92,7 +66,7 @@ my $tests_ref = [
 		path => '/cgi/product_jqm_multilingual.pl',
 		form => {
 			user_id => "tests",
-			password => '!!!TestTest1!!!',
+			password => "testtest",
 			cc => "be",
 			lc => "fr",
 			code => "1234567890002",
@@ -163,6 +137,32 @@ my $tests_ref = [
 		method => 'GET',
 		path => '/api/v2/product/1234567890003',
 		expected_status_code => 404,
+	},
+	# Test that we use the language of the interface (lc) for language fields without a language suffix
+	{
+		test_case => 'post-product-ingredients-text-without-language',
+		method => 'POST',
+		path => '/cgi/product_jqm_multilingual.pl',
+		form => {
+			user_id => "tests",
+			password => 'testtest',
+			cc => "uk",
+			lc => "en",    # lc is the language of the interface
+			lang => "fr",    # lang is the main language of the product
+			code => "1234567890004",
+			product_name => "Some sausages"
+			, # product_name does not have a language suffix, so it is assumed to be in the language of the interface (lc = "en")
+			categories => "Sausages",
+			quantity => "250 g",
+			serving_size => '20 g',
+			ingredients_text => "Pork meat, salt",
+			traces => "Moutarde, milk, abcd",
+		}
+	},
+	{
+		test_case => 'get-product-ingredients-text-without-language',
+		method => 'GET',
+		path => '/api/v2/product/1234567890004',
 	},
 	{
 		test_case => 'post-product-auth-bad-oauth-token',

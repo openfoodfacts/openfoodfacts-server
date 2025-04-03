@@ -29,7 +29,7 @@ my $response = $ua->get($url);
 is($response->{_rc}, 200, "Status ok on creation");
 
 #checking whether the preference were well saved
-my @words = ($default_user_form{userid}, $default_user_form{name});
+my @words = ('bob@test.com', $default_user_form{userid}, $default_user_form{name});
 
 foreach my $word (@words) {
 	like($response->content, qr/\Q$word\E/i, "the word $word is in the page")

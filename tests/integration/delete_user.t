@@ -37,19 +37,52 @@ create_user($admin, \%admin_user_form);
 edit_product($ua, \%default_product);
 
 my $url_userid = construct_test_url("/cgi/user.pl?type=edit&userid=tests", "world");
+if ($oidc_options{keycloak_level} < 5) {
+	my $url_delete = construct_test_url("/cgi/user.pl", "world");
+	my $response_edit = $ua->get($url_userid);
 
-#deleting the account
-my $job_result;
-my $mocked_job = mock 'Minion::Job' => (
-	override => [
-		'finish' => sub {
-			my ($self, $result) = @_;
-			$job_result = $result;
-		}
-	],
-);
-delete_user_task(Minion::Job->new(), {userid => 'tests', newuserid => 'anonymous-123'});
-is($job_result, 'done', 'delete_user finished without errors');
+	my %delete_form = (
+		name => 'Test',
+		email => 'bob@test.com',
+		password => '',
+		confirm_password => '',
+		delete => 'on',
+		action => 'process',
+		type => 'edit',
+		userid => 'tests'
+	);
+
+	#checking if the delete button exist
+	like($response_edit->content, qr/Delete the user/, "the delete button does exist");
+
+	#deleting the account
+	my $before_delete_ts = time();
+	my $response_delete = $ua->post($url_delete, \%delete_form);
+	#checking if we are redirected to the account deleted page
+	like($response_delete->content, qr/User is being deleted\. This may take a few minutes\./, "the account was deleted");
+
+	#waiting the deletion task to be done (weirdly enough it is not useful anymore..)
+	my $max_time = 60;
+	my $jobs_ref = get_minion_jobs("delete_user", $before_delete_ts, $max_time);
+
+	is(scalar @{$jobs_ref}, 1, "One delete_user was triggered");
+	my $delete_job_state = $jobs_ref->[0]{state};
+	is($delete_job_state, "finished", "delete_user finished without errors");
+}
+else {
+	#deleting the account
+	my $job_result;
+	my $mocked_job = mock 'Minion::Job' => (
+		override => [
+			'finish' => sub {
+				my ($self, $result) = @_;
+				$job_result = $result;
+			}
+		],
+	);
+	delete_user_task(Minion::Job->new(), {userid => 'tests', newuserid => 'anonymous-123'});
+	is($job_result, 'done', 'delete_user finished without errors');
+}
 
 #user sign out of its account
 my %signout_form = (
@@ -80,7 +113,7 @@ like($response_contributor->content, qr/Unknown user\./, "the contributor page o
 my $url_login = construct_test_url("/cgi/login.pl", "world");
 my %login_form = (
 	user_id => "tests",
-	password => '!!!TestTest1!!!',
+	password => "testtest",
 	submit => "Sign in"
 );
 my $response_login = $ua->post($url_login, \%login_form);

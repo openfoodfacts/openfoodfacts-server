@@ -86,7 +86,7 @@ my @mails = mails_from_log($logs);
 # get text
 @mails = map {; normalize_mail_for_comparison($_)} @mails;
 # we got three
-is(scalar @mails, 1, "1 mails sent on subscription");
+is(scalar @mails, 3, "3 mails sent on subscription");
 # compare
 compare_to_expected_results(\@mails, "$expected_result_dir/mails.json",
 	$update_expected_results, {desc => "mail sent after subscription"});

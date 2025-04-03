@@ -32,6 +32,9 @@ my $response_edit = $ua->post($url_edit, \%edit_form);
 #checking if the changes were saved
 my $url_check = construct_test_url("/cgi/user.pl?type=edit&userid=tests", "world");
 my $response_check = $ua->get($url_check);
+like($response_check->content, qr/notbob\@test\.com/, "the new email has been well saved");
 like($response_check->content, qr/NotTest/, "the new name has been well saved");
+like($response_check->content, qr/value=.fr.\s+selected/, "new language saved");
+like($response_check->content, qr/value=.en:france.\s+selected/, "new country saved");
 
 done_testing();
