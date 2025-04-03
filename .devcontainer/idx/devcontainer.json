@@ -1,0 +1,21 @@
+{
+  "name": "OFF-IDX",
+  "initializeCommand": ".devcontainer/idx/init.sh",
+  "dockerComposeFile": [
+    "../../docker-compose.yml",
+    "../../docker/dev.yml", 
+    "./docker-compose.idx.yml"
+  ],
+  "service": "backend",
+  "runServices": [
+    "memcached",
+    "postgres",
+    "frontend",
+    "minion"
+  ],
+  "workspaceFolder": "/opt/product-opener",
+  "remoteEnv": {
+    "CONFIG2_PATH": "${localEnv:HOME}/OFF_DATA/etc/Config2.pm",
+    "SKIP_SYMLINKS": "1"
+  }
+}

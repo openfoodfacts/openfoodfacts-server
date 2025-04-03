@@ -1,0 +1,13 @@
+version: '3'
+services:
+  backend:
+    volumes:
+      - ${HOME}/OFF_DATA:/mnt/podata:rw
+    environment:
+      - CONFIG2_PATH=${HOME}/OFF_DATA/etc/Config2.pm
+      - SKIP_SYMLINKS=1
+    command: ["bash", "-c", "cp -f ${HOME}/OFF_DATA/etc/Config2.pm /opt/product-opener/lib/ProductOpener/Config2.pm && apache2-foreground"]
+    
+  frontend:
+    ports:
+      - "9000:80"
