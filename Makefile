@@ -568,16 +568,22 @@ guard-%: # guard clause for targets that require an environment variable (usuall
 
 .PHONY: idx
 idx: hello
-	@echo "🥫 Setting up Open Food Facts dev environment for Google IDX..."
-	@echo "🥫 Creating IDX-specific directories..."
-	@mkdir -p ~/OFF_DATA/{html_data,build-cache/taxonomies-result,ingredients}
-	@mkdir -p ~/OFF_DATA/off/{products,html}
-	@mkdir -p ~/OFF_DATA/obf/{products,html}
-	@mkdir -p ~/OFF_DATA/opf/{products,html}
-	@mkdir -p ~/OFF_DATA/opff/{products,html}
+    @echo "🥫 Setting up Open Food Facts dev environment for Google IDX..."
+    @echo "🥫 Creating IDX-specific directories..."
+    @mkdir -p ~/OFF_DATA/html_data/{dump,exports,files}
+    @mkdir -p ~/OFF_DATA/build-cache/taxonomies-result
+    @mkdir -p ~/OFF_DATA/ingredients
+    @mkdir -p ~/OFF_DATA/off/{products,html}
+    @mkdir -p ~/OFF_DATA/obf/{products,html}
+    @mkdir -p ~/OFF_DATA/opf/{products,html}
+    @mkdir -p ~/OFF_DATA/opff/{products,html}
+    @mkdir -p ~/OFF_DATA/etc
     
-	@echo "🥫 Using IDX-specific environment file from .idx folder..."
-	@if [ -f .idx/.env.idx ]; then \
+    @echo "🥫 Creating IDX-specific Config2.pm in home directory..."
+    @cp lib/ProductOpener/Config2_docker.pm ~/OFF_DATA/etc/Config2.pm
+    
+    @echo "🥫 Using IDX-specific environment file from .idx folder..."
+    @if [ -f .idx/.env.idx ]; then \
         cp .idx/.env.idx .env.idx; \
         echo "✅ Found .env.idx in .idx folder and copied it to project root"; \
     else \
@@ -594,35 +600,54 @@ idx: hello
         echo "OPFF_PRODUCT_IMAGES=$$HOME/OFF_DATA/opff/products" >> .env.idx; \
         echo "OPFF_HTML_DIR=$$HOME/OFF_DATA/opff/html" >> .env.idx; \
         echo "BUILD_CACHE_DIR=$$HOME/OFF_DATA/build-cache" >> .env.idx; \
+        echo "FRONTEND_PORT=8080" >> .env.idx; \
+        echo "CONFIG2_PATH=$$HOME/OFF_DATA/etc/Config2.pm" >> .env.idx; \
     fi
     
-	@echo "🥫 Building containers with IDX configuration..."
-	@COMPOSE_FILE="docker-compose.yml;docker/dev.yml" docker compose --env-file=.env.idx --env-file=.env build
+    @echo "🥫 Creating Docker Compose override for IDX..."
+    @mkdir -p .idx
+    @cat > .idx/docker-compose.idx.yml << 'EOL'
+version: '3'
+services:
+  frontend:
+    ports:
+      - "${FRONTEND_PORT:-8080}:80"
+  
+  backend:
+    environment:
+      - CONFIG2_PATH=${CONFIG2_PATH:-/home/user/OFF_DATA/etc/Config2.pm}
+    volumes:
+      - ${HOME}/OFF_DATA:/home/user/OFF_DATA
+    command: ["bash", "-c", "cp -f ${CONFIG2_PATH:-/home/user/OFF_DATA/etc/Config2.pm} /opt/product-opener/lib/ProductOpener/Config2.pm && apache2-foreground"]
 
-	@echo "🥫 Starting containers with a custom entrypoint..."
-	@FRONTEND_PORT=8080 COMPOSE_FILE="docker-compose.yml;docker/dev.yml" docker compose --env-file=.env.idx --env-file=.env run -d --name po_off-backend-1 backend bash -c "cp -f /opt/product-opener/lib/ProductOpener/Config2_docker.pm /opt/product-opener/lib/ProductOpener/Config2.pm && apache2-foreground"
+  incron:
+    environment:
+      - CONFIG2_PATH=${CONFIG2_PATH:-/home/user/OFF_DATA/etc/Config2.pm}
+    volumes:
+      - ${HOME}/OFF_DATA:/home/user/OFF_DATA
+    command: ["bash", "-c", "cp -f ${CONFIG2_PATH:-/home/user/OFF_DATA/etc/Config2.pm} /opt/product-opener/lib/ProductOpener/Config2.pm && incrond-foreground"]
 
-	@echo "🥫 Fixing permissions and configuration issues in IDX environment..."
-	@COMPOSE_FILE="docker-compose.yml;docker/dev.yml" docker compose --env-file=.env.idx --env-file=.env exec backend bash -c "\
-        cp -f /opt/product-opener/lib/ProductOpener/Config2_docker.pm /opt/product-opener/lib/ProductOpener/Config2.pm && \
-        mkdir -p /mnt/podata/build-cache/taxonomies && \
-        for path in data-default external-data emb_codes ingredients madenearme packager-codes po taxonomies templates; do \
-            if [ ! -d /mnt/podata/\$${path} ]; then \
-                cp -r /opt/product-opener/\$${path} /mnt/podata/ || echo 'Warning: Could not copy \$${path}'; \
-            fi; \
-        done && \
-        for path in dump exports files; do \
-            mkdir -p /opt/product-opener/html/data/\$${path} && \
-            mkdir -p /opt/product-opener/html/\$${path}; \
-        done"
+  minion:
+    environment:
+      - CONFIG2_PATH=${CONFIG2_PATH:-/home/user/OFF_DATA/etc/Config2.pm}
+    volumes:
+      - ${HOME}/OFF_DATA:/home/user/OFF_DATA
+EOL
     
-	@echo "🥫 Setting up MongoDB for IDX environment..."
-	@COMPOSE_FILE="docker-compose.yml;docker/dev.yml" docker compose --env-file=.env.idx --env-file=.env run --rm backend perl /opt/product-opener/scripts/create_mongodb_indexes.pl
-	@if [[ "${PRODUCT_OPENER_FLAVOR_SHORT}" = "off" ]]; then \
-		echo "🥫 Importing sample data (~200 products) into MongoDB..."; \
-		COMPOSE_FILE="docker-compose.yml;docker/dev.yml" docker compose --env-file=.env.idx --env-file=.env run --rm -e SKIP_SAMPLE_IMAGES backend bash /opt/product-opener/scripts/import_sample_data.sh; \
-	fi
-	@COMPOSE_FILE="docker-compose.yml;docker/dev.yml" docker compose --env-file=.env.idx --env-file=.env run --rm backend perl /opt/product-opener/scripts/refresh_postgres.pl
-
-	@echo "🥫 IDX environment setup complete! Access the app at http://world.openfoodfacts.localhost/"
-	@echo "🥫 You have around 100 test products. Please run 'make import_prod_data' if you want a full production dump (~2M products)."
+    @echo "🥫 Building containers with IDX configuration..."
+    @COMPOSE_FILE="docker-compose.yml;docker/dev.yml;.idx/docker-compose.idx.yml" docker compose --env-file=.env.idx --env-file=.env build
+    
+    @echo "🥫 Starting containers with IDX configuration..."
+    @COMPOSE_FILE="docker-compose.yml;docker/dev.yml;.idx/docker-compose.idx.yml" docker compose --env-file=.env.idx --env-file=.env up -d
+    
+    @echo "🥫 Setting up MongoDB for IDX environment..."
+    @COMPOSE_FILE="docker-compose.yml;docker/dev.yml;.idx/docker-compose.idx.yml" docker compose --env-file=.env.idx --env-file=.env run --rm backend perl /opt/product-opener/scripts/create_mongodb_indexes.pl
+    
+    @if [[ "${PRODUCT_OPENER_FLAVOR_SHORT}" = "off" ]]; then \
+        echo "🥫 Importing sample data (~200 products) into MongoDB..."; \
+        COMPOSE_FILE="docker-compose.yml;docker/dev.yml;.idx/docker-compose.idx.yml" docker compose --env-file=.env.idx --env-file=.env run --rm -e SKIP_SAMPLE_IMAGES backend bash /opt/product-opener/scripts/import_sample_data.sh; \
+    fi
+    @COMPOSE_FILE="docker-compose.yml;docker/dev.yml;.idx/docker-compose.idx.yml" docker compose --env-file=.env.idx --env-file=.env run --rm backend perl /opt/product-opener/scripts/refresh_postgres.pl
+    
+    @echo "🥫 IDX environment setup complete! Access the app at http://world.openfoodfacts.localhost:8080/"
+    @echo "🥫 You have around 100 test products. Please run 'make import_prod_data' if you want a full production dump (~2M products)."
