@@ -568,24 +568,24 @@ guard-%: # guard clause for targets that require an environment variable (usuall
 
 .PHONY: idx
 idx: hello
-	@echo "🥫 Setting up Open Food Facts dev environment for Google IDX..."
-	@echo "🥫 Creating IDX-specific directories..."
-	@mkdir -p ~/OFF_DATA/html_data/{dump,exports,files}
-	@mkdir -p ~/OFF_DATA/build-cache/taxonomies-result
-	@mkdir -p ~/OFF_DATA/ingredients
-	@mkdir -p ~/OFF_DATA/off/{products,html}
-	@mkdir -p ~/OFF_DATA/obf/{products,html}
-	@mkdir -p ~/OFF_DATA/opf/{products,html}
-	@mkdir -p ~/OFF_DATA/opff/{products,html}
-	@mkdir -p ~/OFF_DATA/etc
+    @echo "🥫 Setting up Open Food Facts dev environment for Google IDX..."
+    @echo "🥫 Creating IDX-specific directories..."
+    @mkdir -p ~/OFF_DATA/html_data/{dump,exports,files}
+    @mkdir -p ~/OFF_DATA/build-cache/taxonomies-result
+    @mkdir -p ~/OFF_DATA/ingredients
+    @mkdir -p ~/OFF_DATA/off/{products,html}
+    @mkdir -p ~/OFF_DATA/obf/{products,html}
+    @mkdir -p ~/OFF_DATA/opf/{products,html}
+    @mkdir -p ~/OFF_DATA/opff/{products,html}
+    @mkdir -p ~/OFF_DATA/etc
     
-	@echo "🥫 Creating IDX-specific Config2.pm in home directory..."
-	@cp lib/ProductOpener/Config2_docker.pm ~/OFF_DATA/etc/Config2.pm
+    @echo "🥫 Creating IDX-specific Config2.pm in home directory..."
+    @cp lib/ProductOpener/Config2_docker.pm ~/OFF_DATA/etc/Config2.pm
 
-	@echo "🥫 Using IDX-specific environment file from .idx folder..."
-	@if [ -f .idx/.env.idx ]; then \
-		cp .idx/.env.idx .env.idx; \
-		echo "✅ Found .env.idx in .idx folder and copied it to project root"; \
+    @echo "🥫 Using IDX-specific environment file from .idx folder..."
+    @if [ -f .idx/.env.idx ]; then \
+        cp .idx/.env.idx .env.idx; \
+        echo "✅ Found .env.idx in .idx folder and copied it to project root"; \
     else \
         echo "⚠️ Warning: No .env.idx file found in .idx folder. Using default configuration."; \
         echo "PRODUCT_OPENER_DATA_ROOT=$$HOME/OFF_DATA" > .env.idx; \
@@ -604,50 +604,23 @@ idx: hello
         echo "CONFIG2_PATH=$$HOME/OFF_DATA/etc/Config2.pm" >> .env.idx; \
     fi
     
-	@echo "🥫 Creating Docker Compose override for IDX..."
-	@mkdir -p .idx
-	@cat > .idx/docker-compose.idx.yml << 'EOL'
-version: '3'
-services:
-  frontend:
-    ports:
-      - "${FRONTEND_PORT:-8080}:80"
-  
-  backend:
-    environment:
-		- CONFIG2_PATH=${CONFIG2_PATH:-/home/user/OFF_DATA/etc/Config2.pm}
-    volumes:
-		- ${HOME}/OFF_DATA:/home/user/OFF_DATA
-    command: ["bash", "-c", "cp -f ${CONFIG2_PATH:-/home/user/OFF_DATA/etc/Config2.pm} /opt/product-opener/lib/ProductOpener/Config2.pm && apache2-foreground"]
-
-  incron:
-    environment:
-		- CONFIG2_PATH=${CONFIG2_PATH:-/home/user/OFF_DATA/etc/Config2.pm}
-    volumes:
-		- ${HOME}/OFF_DATA:/home/user/OFF_DATA
-    command: ["bash", "-c", "cp -f ${CONFIG2_PATH:-/home/user/OFF_DATA/etc/Config2.pm} /opt/product-opener/lib/ProductOpener/Config2.pm && incrond-foreground"]
-
-  minion:
-    environment:
-		- CONFIG2_PATH=${CONFIG2_PATH:-/home/user/OFF_DATA/etc/Config2.pm}
-    volumes:
-		- ${HOME}/OFF_DATA:/home/user/OFF_DATA
-EOL
+    @echo "🥫 Ensuring IDX directory exists..."
+    @mkdir -p .idx
     
-	@echo "🥫 Building containers with IDX configuration..."
-	@COMPOSE_FILE="docker-compose.yml;docker/dev.yml;.idx/docker-compose.idx.yml" docker compose --env-file=.env.idx --env-file=.env build
+    @echo "🥫 Building containers with IDX configuration..."
+    @COMPOSE_FILE="docker-compose.yml;docker/dev.yml;.idx/docker-compose.idx.yml" docker compose --env-file=.env.idx --env-file=.env build
 
-	@echo "🥫 Starting containers with IDX configuration..."
-	@COMPOSE_FILE="docker-compose.yml;docker/dev.yml;.idx/docker-compose.idx.yml" docker compose --env-file=.env.idx --env-file=.env up -d
+    @echo "🥫 Starting containers with IDX configuration..."
+    @COMPOSE_FILE="docker-compose.yml;docker/dev.yml;.idx/docker-compose.idx.yml" docker compose --env-file=.env.idx --env-file=.env up -d
 
-	@echo "🥫 Setting up MongoDB for IDX environment..."
-	@COMPOSE_FILE="docker-compose.yml;docker/dev.yml;.idx/docker-compose.idx.yml" docker compose --env-file=.env.idx --env-file=.env run --rm backend perl /opt/product-opener/scripts/create_mongodb_indexes.pl
+    @echo "🥫 Setting up MongoDB for IDX environment..."
+    @COMPOSE_FILE="docker-compose.yml;docker/dev.yml;.idx/docker-compose.idx.yml" docker compose --env-file=.env.idx --env-file=.env run --rm backend perl /opt/product-opener/scripts/create_mongodb_indexes.pl
 
-	@if [[ "${PRODUCT_OPENER_FLAVOR_SHORT}" = "off" ]]; then \
-		echo "🥫 Importing sample data (~200 products) into MongoDB..."; \
-		COMPOSE_FILE="docker-compose.yml;docker/dev.yml;.idx/docker-compose.idx.yml" docker compose --env-file=.env.idx --env-file=.env run --rm -e SKIP_SAMPLE_IMAGES backend bash /opt/product-opener/scripts/import_sample_data.sh; \
-	fi
-	@COMPOSE_FILE="docker-compose.yml;docker/dev.yml;.idx/docker-compose.idx.yml" docker compose --env-file=.env.idx --env-file=.env run --rm backend perl /opt/product-opener/scripts/refresh_postgres.pl
+    @if [[ "${PRODUCT_OPENER_FLAVOR_SHORT}" = "off" ]]; then \
+        echo "🥫 Importing sample data (~200 products) into MongoDB..."; \
+        COMPOSE_FILE="docker-compose.yml;docker/dev.yml;.idx/docker-compose.idx.yml" docker compose --env-file=.env.idx --env-file=.env run --rm -e SKIP_SAMPLE_IMAGES backend bash /opt/product-opener/scripts/import_sample_data.sh; \
+    fi
+    @COMPOSE_FILE="docker-compose.yml;docker/dev.yml;.idx/docker-compose.idx.yml" docker compose --env-file=.env.idx --env-file=.env run --rm backend perl /opt/product-opener/scripts/refresh_postgres.pl
 
-	@echo "🥫 IDX environment setup complete! Access the app at http://world.openfoodfacts.localhost:8080/"
-	@echo "🥫 You have around 100 test products. Please run 'make import_prod_data' if you want a full production dump (~2M products)."
+    @echo "🥫 IDX environment setup complete! Access the app at http://world.openfoodfacts.localhost:8080/"
+    @echo "🥫 You have around 100 test products. Please run 'make import_prod_data' if you want a full production dump (~2M products)."

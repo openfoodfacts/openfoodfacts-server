@@ -1,0 +1,25 @@
+version: '3'
+services:
+  frontend:
+    ports:
+      - "${FRONTEND_PORT:-8080}:80"
+  
+  backend:
+    environment:
+      - "CONFIG2_PATH=${CONFIG2_PATH:-/home/user/OFF_DATA/etc/Config2.pm}"
+    volumes:
+      - "${HOME}/OFF_DATA:/home/user/OFF_DATA"
+    command: ["bash", "-c", "cp -f ${CONFIG2_PATH:-/home/user/OFF_DATA/etc/Config2.pm} /opt/product-opener/lib/ProductOpener/Config2.pm && apache2-foreground"]
+
+  incron:
+    environment:
+      CONFIG2_PATH: ${CONFIG2_PATH:-/home/user/OFF_DATA/etc/Config2.pm}
+    volumes:
+      - "${HOME}/OFF_DATA:/home/user/OFF_DATA"
+    command: ["bash", "-c", "cp -f ${CONFIG2_PATH:-/home/user/OFF_DATA/etc/Config2.pm} /opt/product-opener/lib/ProductOpener/Config2.pm && incrond-foreground"]
+
+  minion:
+    environment:
+      - "CONFIG2_PATH=${CONFIG2_PATH:-/home/user/OFF_DATA/etc/Config2.pm}"
+    volumes:
+      - ${HOME}/OFF_DATA:/home/user/OFF_DATA
