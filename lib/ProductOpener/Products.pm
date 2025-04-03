@@ -2729,8 +2729,9 @@ sub product_name_brand ($ref) {
 	if (defined $ref->{brands}) {
 		my $brand = $ref->{brands};
 		$brand =~ s/,.*//;    # take the first brand
-		my $brandid = '–' . get_string_id_for_lang($lc, $brand) . '–';
-		my $full_name_id = '–' . get_string_id_for_lang($lc, $full_name) . '–';
+							  # note: now that brands are taxonomized, the first brand may not be the most specific one
+		my $brandid = '-' . get_string_id_for_lang($lc, $brand) . '-';
+		my $full_name_id = '-' . get_string_id_for_lang($lc, $full_name) . '-';
 		if (($brandid ne '') and ($full_name_id !~ /$brandid/i)) {
 			$full_name .= ' – ' . $brand;
 		}
