@@ -1182,7 +1182,7 @@ sub store_user ($user_ref) {
 		my $userid = $user_ref->{userid};
 
 		# Update email
-		my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");
+		my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto") // {};
 		my $email = $user_ref->{email};
 
 		if ((defined $email) and ($email =~ /\@/)) {
