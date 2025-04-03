@@ -143,7 +143,9 @@ sub subscribe_to_redis_streams () {
 		return;
 	}
 
-	_read_user_streams('$');
+	if ($oidc_options{keycloak_level} >= 4) {
+		_read_user_streams('$');
+	}
 
 	return;
 }
