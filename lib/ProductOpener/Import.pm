@@ -2072,9 +2072,9 @@ sub import_csv_file ($args_ref) {
 
 		$stats_ref->{products_in_file}{$code} = 1;
 
-		# apply global field values
+		# apply global field values, if we don't have a value for a column (or it is a dash -)
 		foreach my $field (keys %global_values) {
-			if ((not defined $imported_product_ref->{$field}) or ($imported_product_ref->{$field} eq "")) {
+			if ((not defined $imported_product_ref->{$field}) or ($imported_product_ref->{$field} =~ /^(\s|-)*$/)) {
 				$imported_product_ref->{$field} = $global_values{$field};
 			}
 		}

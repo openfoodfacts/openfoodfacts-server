@@ -61,7 +61,7 @@ for file in $DATA_TMP_DIR/data/*xlsx; do
     # for that to work, we first need to import the file on the pro platform once, so that we can select the input columns and match them to OFF columns
     # the resulting mapping file has then been saved in the scripts/import/nestle-deutschland/ directory
     ./scripts/convert_csv_file.pl --csv "$file" --columns_fields_file scripts/imports/nestle-deutschland/all_columns_fields.sto --converted "$file.converted" --define countries=en:germany --define lc=de
-    ./scripts/import_csv_file.pl --csv_file "$file.converted" --user_id nestle-deutschland --comment "Import Nestlé Deutschland" --source_id "nestle-deutschland" --source_name "Nestlé Deutschland" --source_url "https://www.nestle.de/" --manufacturer --org_id nestle-deutschland --define lc=de --images_download_dir $IMAGES_TMP_DIR
+    ./scripts/import_csv_file.pl --csv_file "$file.converted" --user_id nestle-deutschland --comment "Import Nestlé Deutschland" --source_id "nestle-deutschland" --source_name "Nestlé Deutschland" --source_url "https://www.nestle.de/" --manufacturer --org_id nestle-deutschland --define lc=de --define countries=en:germany --images_download_dir $IMAGES_TMP_DIR
 done
 
 echo "Removing processed files"
