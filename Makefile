@@ -566,3 +566,52 @@ guard-%: # guard clause for targets that require an environment variable (usuall
    		exit 1; \
 	fi;
 
+.PHONY: idx
+idx: hello
+    @echo "🥫 Setting up Open Food Facts dev environment for Google IDX..."
+    @echo "🥫 Creating IDX-specific directories..."
+    @mkdir -p ~/OFF_DATA/{html_data,build-cache/taxonomies-result,ingredients}
+    @mkdir -p ~/OFF_DATA/off/{products,html}
+    @mkdir -p ~/OFF_DATA/obf/{products,html}
+    @mkdir -p ~/OFF_DATA/opf/{products,html}
+    @mkdir -p ~/OFF_DATA/opff/{products,html}
+    
+    @echo "🥫 Using IDX-specific environment file from .idx folder..."
+    @if [ -f .idx/.env.idx ]; then \
+        cp .idx/.env.idx .env.idx; \
+        echo "✅ Found .env.idx in .idx folder and copied it to project root"; \
+    else \
+        echo "⚠️ Warning: No .env.idx file found in .idx folder. Using default configuration."; \
+        echo "PRODUCT_OPENER_DATA_ROOT=$$HOME/OFF_DATA" > .env.idx; \
+        echo "PRODUCT_OPENER_SRC_ROOT=$$PWD" >> .env.idx; \
+        echo "PRODUCT_OPENER_DATA=$$HOME/OFF_DATA/html_data" >> .env.idx; \
+        echo "OFF_PRODUCT_IMAGES=$$HOME/OFF_DATA/off/products" >> .env.idx; \
+        echo "OFF_HTML_DIR=$$HOME/OFF_DATA/off/html" >> .env.idx; \
+        echo "OBF_PRODUCT_IMAGES=$$HOME/OFF_DATA/obf/products" >> .env.idx; \
+        echo "OBF_HTML_DIR=$$HOME/OFF_DATA/obf/html" >> .env.idx; \
+        echo "OPF_PRODUCT_IMAGES=$$HOME/OFF_DATA/opf/products" >> .env.idx; \
+        echo "OPF_HTML_DIR=$$HOME/OFF_DATA/opf/html" >> .env.idx; \
+        echo "OPFF_PRODUCT_IMAGES=$$HOME/OFF_DATA/opff/products" >> .env.idx; \
+        echo "OPFF_HTML_DIR=$$HOME/OFF_DATA/opff/html" >> .env.idx; \
+        echo "BUILD_CACHE_DIR=$$HOME/OFF_DATA/build-cache" >> .env.idx; \
+    fi
+    
+    @echo "🥫 Building containers with IDX configuration..."
+    @COMPOSE_FILE="docker-compose.yml;docker/dev.yml" docker compose --env-file=.env.idx --env-file=.env build
+    
+    @echo "🥫 Initializing IDX backend..."
+    @$(MAKE) init_backend_idx
+    
+    @echo "🥫 Starting containers with IDX configuration..."
+    @COMPOSE_FILE="docker-compose.yml;docker/dev.yml" docker compose --env-file=.env.idx --env-file=.env up -d
+    
+    @echo "🥫 Setting up MongoDB for IDX environment..."
+    @COMPOSE_FILE="docker-compose.yml;docker/dev.yml" docker compose --env-file=.env.idx --env-file=.env run --rm backend perl /opt/product-opener/scripts/create_mongodb_indexes.pl
+    @if [[ "${PRODUCT_OPENER_FLAVOR_SHORT}" = "off" ]]; then \
+        echo "🥫 Importing sample data (~200 products) into MongoDB..."; \
+        COMPOSE_FILE="docker-compose.yml;docker/dev.yml" docker compose --env-file=.env.idx --env-file=.env run --rm -e SKIP_SAMPLE_IMAGES backend bash /opt/product-opener/scripts/import_sample_data.sh; \
+    fi
+    @COMPOSE_FILE="docker-compose.yml;docker/dev.yml" docker compose --env-file=.env.idx --env-file=.env run --rm backend perl /opt/product-opener/scripts/refresh_postgres.pl
+    
+    @echo "🥫 IDX environment setup complete! Access the app at http://world.openfoodfacts.localhost/"
+    @echo "🥫 You have around 100 test products. Please run 'make import_prod_data' if you want a full production dump (~2M products)."
