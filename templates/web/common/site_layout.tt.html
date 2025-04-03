@@ -146,12 +146,8 @@
 									[% user.name %]
 								</a>
 								<ul class="dropdown">
-									[% IF keycloak_level < 5 %]
-										<li><a href="/cgi/user.pl?type=edit&userid=[% user_id %]"><span class="material-icons">settings</span> [% lang('edit_user') %]</a></li>
-									[% ELSE %]
-										<li><a href="[% keycloak_account_link %]" target="_blank" rel="noopener"><span class="material-icons">account_box</span> [% lang('edit_user') %]</a></li>
-										<li><a href="/cgi/user.pl?type=edit&userid=[% user_id %]"><span class="material-icons">settings</span> [% lang('edit_user_preferences') %]</a></li>
-									[% END %]
+									[% IF keycloak_level < 5 %]<li><a href="/cgi/user.pl?type=edit&userid=[% user_id %]"><span class="material-icons">settings</span> [% lang('edit_user') %]</a></li>[% ELSE %]<li><a href="[% keycloak_account_link %]" target="_blank" rel="noopener"><span class="material-icons">account_box</span> [% lang('edit_user') %]</a></li>
+										<li><a href="/cgi/user.pl?type=edit&userid=[% user_id %]"><span class="material-icons">settings</span> [% lang('edit_user_preferences') %]</a></li>[% END %]
 									[% IF org_id %]
 										<li class="divider"></li>			
 										<li><label>[% lang('organization') %]</label></li>

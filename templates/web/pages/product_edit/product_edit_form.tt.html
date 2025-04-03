@@ -12,7 +12,7 @@
 
 [% END %]
 
-[% keycloak_level < 3 && (type == 'add' || type == 'edit'  || type == 'delete') %]
+[% IF keycloak_level < 3 && (type == 'add' || type == 'edit'  || type == 'delete') %]
 
     [% IF not user_id.defined %]
 
