@@ -83,6 +83,7 @@ synonyms:fi: merenantimet, merenelävät
 synonyms:ru: дары моря, морепродукты
 
 synonyms:en: without, 0%, free
+synonyms:da: uden, ingen, intet, nul, 0%, fri for
 synonyms:de: ohne, 0%
 synonyms:es: sin, 0%, libre de
 synonyms:fi: ilman, 0%, vapaa
@@ -92,6 +93,7 @@ synonyms:it: senza, 0%, zero
 synonyms:nl: zonder, 0%
 synonyms:pt: sem, 0%, livre de, zero
 synonyms:ru: без, 0%, 0 %
+synonyms:sv: utan, ingen, inget, noll, 0%
 
 synonyms:fi: lisätty
 synonyms:fr: ajout, adjonction
@@ -100,6 +102,7 @@ synonyms:ru: дополнение, добавка
 
 synonyms:en: carbon, co2
 synonyms:bg: въглерод, co2
+synonyms:da: kuldioxid, CO2
 synonyms:es: carbono, co2, CO<sub>2</sub>, CO2
 synonyms:fi: hiili, co2
 synonyms:fr: carbone, co2
@@ -107,6 +110,7 @@ synonyms:hu: szén, co2
 synonyms:it: carbonio, CO2
 synonyms:pt: carbono, co2
 synonyms:ru: углерод, CO<sub>2</sub>, CO2
+synonyms:sv: koldioxid, CO2
 
 synonyms:en: durable, soutenable, responsable
 synonyms:fi: kestävä, luotettava, vastuullinen
@@ -1647,6 +1651,7 @@ nl: Vezelrijk, Rijk aan vezels
 pl: wysoka zawartość błonnika
 pt: Rico em fibras, teor elevado de fibras, teor elevado em fibras, alto teor em fibra, alto teor em fibras
 ru: Обогащено клетчаткой
+sv: Fiberrik, Rik på fiber
 th: ใยอาหารสูง
 description:en: In EU, a claim that a food is high in fibre may only be made where the product contains at least 6 g of fibre per 100 g or at least 3 g of fibre per 100 kcal. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
@@ -2087,6 +2092,7 @@ hu: Kalciummal dúsított
 it: Arricchito con calcio
 nl: verrijkt met calcium
 pt: Enriquecido com cálcio
+sv: Kalciumberikat, Berikad med kalcium
 
 en: Enriched with vitamins
 ca: Enriquit amb vitamines
@@ -2100,7 +2106,12 @@ it: Arricchito con vitamine
 nl: verrijkt met vitaminen
 pl: Wzbogacane witaminami
 pt: Enriquecido com vitaminas
-sv: Vitaminberikat, Vitaminberikad
+sv: Vitaminberikat, Vitaminberikad, Berikad med vitaminer
+
+< en:Enriched with calcium
+< en:Enriched with vitamins
+en: Enriched with calcium and vitamins
+sv: Berikad med kalcium & vitaminer
 
 en: Enriched with minerals
 fi: Lisätty kivennäisaineita
@@ -4919,7 +4930,7 @@ cz: Bez laktozy
 da: Laktosefri
 de: Laktosefrei, Lactosefrei
 el: Χωρίς λακτόζη
-es: Sin lactosa
+es: Sin lactosa, Sin lácteos
 et: Laktoosivaba
 fa: بدون لاکتوز
 fi: laktoositon, ei laktoosia, ilman laktoosia
@@ -18293,6 +18304,7 @@ country:en: en:Germany
 en: Danish state-controlled organic, Red Ø
 da: Ø-mærke, Statskontrolleret økologisk
 fi: Tanskan Ø-luomumerkki
+sv: Danskt Ø-märkt
 country:en: en:Denmark
 image:en: danish-state-conrolled-organic.98x90.svg
 
@@ -18319,8 +18331,11 @@ image:is: vottað-lífrænt-tún.110x90.svg
 
 < en:Organic
 en: Debio organic
+xx: Debio økologisk
+da: Debio Ø-mærket
 fi: Debio luomu
-nb: Debio Ø-merke, Debio økologisk
+nb: Debio Ø-merke
+sv: Debio Ø-märkt
 country:en: en:Norway
 image:nb: debio-ø-merke.90x90.svg
 
@@ -19634,14 +19649,14 @@ wikidata:en: Q7918353
 
 
 < en:Vegetarian
-en: Vegan, Suitable for vegans, Suitable for vegetarians and vegans, vegetal, from plants, derived from plants, vegetal origin, not from animals, not derived from animals, non-animal, from vegetal source
+en: Vegan, Suitable for vegans, Suitable for vegetarians and vegans, vegetal, from plants, derived from plants, vegetal origin, not from animals, not derived from animals, non-animal, from vegetal source, free from animal products
 an: vegano
 bg: Веган
 ca: Vegà, Adequat per persones veganes
 cs: Veganské
 da: Vegansk, Velegnet til veganere, vegetabilsk
 de: Vegan
-es: Vegano, Producto vegano, Vegan
+es: Vegano, Producto vegano, Vegan, Apto para veganos y vegetarianos
 fi: vegaaninen, sopii vegaaneille, kasviperäinen, Sopii vegaaniruokavalioon
 fr: Végétalien, Végan, végétal, végétaux, de plantes, dérivé de plante, dérivés de plante, dérivée de plante, dérivées de plante, origine végétale, non-animal
 gl: vegano
@@ -19687,6 +19702,12 @@ en: VegeCert - Certified Vegan
 
 < en:Vegan
 en: Certified iVegan
+
+< en:Vegan
+en: I'm Vegan
+xx: I'm Vegan, I'M VEGAN
+image:en: im-vegan.72x90.png
+website:sv: https://djurensratt.se/vad-vi-gor/vaxtbaserat/im-vegan
 
 en: NZ Vegetarian Society, NZVS
 xx: NZ Vegetarian Society, NZVS
@@ -20056,10 +20077,13 @@ pl: Zawiera słodziki, Zawiera substancje słodzące
 pt: Com adoçantes, com edulcorantes, contém adoçantes, contém edulcorantes
 sv: Innehåller sötningsmedel
 th: ใช้น้ำตาลเทียม
+incompatible_with:en: labels:en:without-sweeteners
+opposite:en: en:Without sweeteners
 
 en: Without sweeteners
 bg: Без подсладители
 ca: Sense edulcorants
+da: Uden sødestoffer
 de: Ohne Süßungsmittel
 es: Sin edulcorantes, Sin endulzantes
 fi: makeutusaineeton, ei makeutusaineita
@@ -20071,7 +20095,9 @@ it: Senza dolcificanti
 nl: Zonder zoetstoffen
 pl: Bez słodzików, Nie zawiera słodzików
 pt: Sem adoçantes, sem edulcorantes, sem adoçantes, sem edulcorantes, 0% adoçantes, 0% edulcorantes
-sv: Utan sötningsmedel
+sv: Utan sötningsmedel, Osötad
+incompatible_with:en: labels:en:with-sweeteners
+opposite:en: en:With sweeteners
 
 en: 100% muscle
 ca: Múscul 100%
