@@ -5195,6 +5195,7 @@ sub load_knowledge_content() {
 			closedir($DH);
 		}
 	}
+	return;
 }
 
 =head2 get_knowledge_content ($tagtype, $tagid, $target_lc, $target_cc)
