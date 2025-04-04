@@ -176,9 +176,10 @@ stopwords:zh: :配料
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 en: imazalil
-xx: Imazalil
+xx: imazalil
+de: Imazalil
 fa: انیل‌کونازول
-fi: Imatsaliili
+fi: imatsaliili
 ja: イマザリル
 description:en: Imazalil is a fungicide widely used in agriculture, particularly in the growing of citrus fruits.
 # azb:انیل‌کونازول
@@ -513,7 +514,7 @@ ru: соевый лецитин, лецитин соевый, эмульгато
 sk: sójový lecitin
 sl: sojin lecitin
 sr: sojin lecitin
-sv: sojalecitin, sojalecitiner, sojalecithin, sojabönslecitin
+sv: sojalecitin, sojalecitiner, sojalecithin, sojabönslecitin, emulgerings medel sojalecitin
 tr: soya lesitini
 uk: Соєвий лецитин
 zh: 大豆卵磷脂
@@ -1876,20 +1877,23 @@ pt: coalho de ovelha
 
 < en:enzyme
 en: cellulase
-xx: Cellulase
 ar: سليولاز
 bg: целулаза
 bs: Celulaza
 ca: cellulasa
+de: Cellulase
 es: Celulasa
 et: Tsellulaas
 fi: sellulaasi, sellulaasit
+fr: cellulase
 hr: celulaza
 hu: celluláz
 id: Selulase
 it: Cellulasi
 ja: セルラーゼ
 ko: 셀룰레이스
+nl: cellulase
+nn: cellulase
 pl: Celulaza, celulazy
 pt: celulase
 ru: Целлюлаза
@@ -1898,7 +1902,10 @@ sr: Celulaza
 sv: Cellulaser
 tr: Selülaz
 uk: Целюлаза
+vi: Cellulase
 zh: 纤维素酶
+# en-ca:Cellulase
+# en-gb:Cellulase
 # pt-br:celulase
 # zh-cn:纤维素酶
 # zh-hans:纤维素酶
@@ -2007,18 +2014,24 @@ it: E1104, Lipasi
 
 < en:enzyme
 en: transglutaminase
-xx: Transglutaminase
 ar: ترانسغلوتاميناز
 bg: трансглутаминаза, трансглутаминоза
 ca: transglutaminasa
+de: Transglutaminase
 es: Transglutaminasa
 fa: ترانس گلوتامیناز
 fi: transglutaminaasi
+fr: transglutaminase
 he: טרנסגלוטמינאז
 hr: transglutaminaza
 hu: transzglutamináz
+id: Transglutaminase
 it: Transglutaminasi
 ja: トランスグルタミナーゼ
+nb: transglutaminase
+nl: transglutaminase
+nn: transglutaminase
+pt: transglutaminase
 ru: Трансглютаминаза
 sh: Transglutaminaza
 sr: трансглутаминаза
@@ -5823,15 +5836,23 @@ de: Schmand, Schmant
 
 < en:sour cream
 en: Smetana
-xx: Smetana
 az: Xama
 be: Смятана
 bs: Pavlaka
+ca: Smetana
 cs: Zakysaná smetana
 cv: Хăйма
+da: Smetana
 de: Schmetten
+es: Smetana
 et: Hapukoor
+eu: Smetana
+fi: Smetana
+fr: Smetana
+gl: Smetana
+hr: smetana
 hy: Թթվասեր
+it: Smetana
 ja: スメタナ
 ka: არაჟანი
 kk: Қаймақ
@@ -5839,12 +5860,18 @@ ko: 스메타나
 lt: Grietinė
 lv: Skābais krējums
 mk: Павлака
+ms: Smetana
+nb: Smetana
+nl: Smetana
 pl: Śmietana
 ro: Smântână
 ru: Сметана
 sl: kisla smetana
 sr: Павлака
+sv: Smetana
 uk: Сметана
+uz: Smetana
+vi: Smetana
 zh: 斯美塔那酸奶油
 # bat-smg:Smetuona
 # olo:Kannates
@@ -5956,7 +5983,8 @@ wikipedia:en: https://en.wikipedia.org/wiki/Soured_milk
 
 < en:dairy
 en: filmjölk
-xx: Filmjölk
+xx: filmjölk
+de: Filmjölk
 ja: フィールミョルク
 ko: 필미엘크
 nn: filmjølk
@@ -7630,7 +7658,6 @@ ciqual_proxy_food_name:fr: Fromage frais type petit suisse, nature, 10% MG envir
 
 < en:cheese
 en: Quark
-xx: Quark
 ar: كوارك
 az: Kəsmik
 be: тварог
@@ -7640,10 +7667,13 @@ da: Kvark
 de: Quark, Weißkäse, Topfen, Schotten, Speisequark
 es: Queso quark
 fi: Rahka, maitorahka
+fr: quark
 he: גבינה לבנה
 hr: quark sir
 hu: túró
 hy: Կաթնաշոռ
+id: Quark
+it: Quark
 ja: クワルク
 ka: ხაჭო
 ko: 크바르크
@@ -7654,7 +7684,9 @@ nb: kvarg
 nl: kwark, plattekaas
 nn: kvarg
 pl: Twaróg, twarogu, twarogowy, twarogowe, twarogowa, ser twarogowy, serek twarogowy
+pt: quark
 ru: творог, творожный продукт
+sh: quark
 sk: Tvaroh
 sv: Kvarg
 tr: Kesmik
@@ -9195,17 +9227,17 @@ it: stilton bianco
 # description:en:TALEGGIO is a semisoft, washed-rind, smear-ripened Italian cheese that is named after Val Taleggio.
 
 < en:cheese
-en: Taleggio
-xx: Taleggio
+en: taleggio
+xx: taleggio
 de: Taleggio, Taleggio Käse
-es: Queso taleggio
-fr: Taleggio, fromage Taleggio AOP
+es: queso taleggio
+fr: taleggio, fromage taleggio aop
 he: טלג'יו
-hu: Taleggio, Taleggio sajt
+hu: taleggio, taleggio sajt
 ja: タレッジョ
 ko: 탈레조
-ru: Таледжо
-uk: Таледжіо
+ru: таледжо
+uk: таледжіо
 wikidata:en: Q775835
 wikipedia:en: https://en.wikipedia.org/wiki/Taleggio_cheese
 # fr:fromage Taleggio AOP has 1 product @2018-10-28
@@ -9701,14 +9733,15 @@ wikipedia:en: https://en.wikipedia.org/wiki/Vitamin
 
 < en:vitamins
 en: vitamin A
-xx: Vitamin A
 af: Vitamien A
 ar: فيتامين ألف
 az: A vitamini
 bg: витамин А, vitamin A
+bs: Vitamin A
 ca: Vitamina A, Vitamina A (Retinol)
 cs: vitamín A
 cy: Fitamin A
+da: Vitamin A
 de: Vitamin A, Vitamin A (Retinol)
 dv: ވިޓަމިން އޭ
 eo: Vitamino A
@@ -9722,10 +9755,13 @@ fr: vitamine A, Vitamine A (rétinol)
 gl: Vitamina A
 he: A ויטמין
 hi: विटामिन ए
+hr: vitamin A
 hu: A-vitamin
+id: Vitamin A
 is: A-vítamín
 it: vitamina A, Vitamina A (Retinolo)
 ja: ビタミンA
+jv: Vitamin A
 ka: ვიტამინი A
 kn: ಎ ಜೀವಸತ್ವ
 ko: 비타민 A
@@ -9735,6 +9771,8 @@ mk: Витамин А
 ml: ജീവകം എ
 mn: Витамин А
 mr: अ-जीवनसत्त्व
+ms: Vitamin A
+nb: Vitamin A
 ne: भिटामिन ए
 nl: vitamine A
 nn: vitamin A, A-vitamin
@@ -9747,8 +9785,12 @@ pt: vitamina A
 ro: vitamine A
 ru: витамин А
 rw: Vitamini A
+sh: Vitamin A
 si: විටමින් A
+sl: Vitamin A
 sq: Vitamina A
+sr: vitamin A
+sv: vitamin A
 sw: Vitamini A
 ta: உயிர்ச்சத்து ஏ
 te: విటమిన్ ఎ
@@ -9758,14 +9800,20 @@ tt: А витамины
 ug: ۋىتامىن A
 uk: Вітамін A
 ur: ریئٹنول
+vi: Vitamin A
 zh: 維生素A
 # ast:Vitamina A
+# en-ca:Vitamin A
+# en-gb:Vitamin A
 # jbo:abumoi mivytcuxu'i
 # kk-cyrl:А витамині
 # kk-kz:А витамині
 # lfn:Vitamina A
+# pt-br:Vitamin A
 # scn:Vitamina A
+# sco:Vitamin A
 # sr-ec:витамин А
+# sr-el:vitamin A
 # tyv:А витамины
 # wuu:维生素A
 # zh-hans:维生素A
@@ -10264,13 +10312,15 @@ pt: Vitamina B8
 
 < en:vitamins
 en: vitamin K
-xx: Vitamin K
 af: Vitamien K
 ar: فيتامين ك
 az: K vitamini
 bg: Витамин K
+bs: Vitamin K
 ca: Vitamina K
 cs: vitamín K
+da: Vitamin K
+de: Vitamin K
 dv: ވިޓަމިން ކޭ
 es: Vitamina K
 eu: K bitamina
@@ -10280,11 +10330,14 @@ fr: vitamine K
 gl: Vitamina K
 he: ויטמין K
 hi: विटामिन के
+hr: vitamin K
 hu: K-vitamin
 hy: Վիտամին K
+id: Vitamin K
 is: K-vítamín
 it: vitamina K
 ja: ビタミンK
+jv: Vitamin K
 ka: ვიტამინი K
 ko: 비타민 K
 ky: Витамин К
@@ -10292,24 +10345,33 @@ lt: Vitaminas K
 lv: K vitamīns
 ml: ജീവകം കെ
 mr: के-जीवनसत्त्व
+ms: Vitamin K
 my: ဗီတာမင်ကေ
+nb: Vitamin K
 ne: भिटामिन के
 nl: vitamine K
+nn: Vitamin K
 oc: Vitamina K
 pl: Witamina K
 pt: vitamina K
 ro: Vitamina K
 ru: Витамин K
+sh: Vitamin K
+sl: Vitamin K
 sr: витамин К
+su: Vitamin K
 sv: K-vitamin
 ta: உயிர்ச்சத்து கே
 th: วิตามินเค
 tr: K vitamini
 uk: Вітамін K
+vi: Vitamin K
 zh: 维生素K
 # ast:Vitamina K
 # nan:Bî-tá-mín K
+# sco:Vitamin K
 # sr-ec:витамин К
+# sr-el:vitamin K
 # tyv:Витамин К
 # zh-cn:维生素K
 # zh-hans:维生素K
@@ -13446,7 +13508,6 @@ wikidata:en: Q3695900
 
 < en:pork meat
 en: bacon
-xx: Bacon
 ar: باكون
 be: Бекон
 bg: Сланина
@@ -13455,6 +13516,7 @@ ca: cansalada, cansalada de porc
 cs: slanina
 cv: Бекон
 cy: Bacwn
+da: Bacon
 de: Speck, Schweinespeck
 el: Μπέικον
 eo: lardo
@@ -13469,6 +13531,7 @@ he: קותל חזיר
 hr: slanina
 ht: La
 hu: szalonna, bacon, bacon szalonna
+id: Bacon
 io: Lardo
 is: Beikon
 it: pancetta, bacon, speck, pancetta suina, pancetta di suino
@@ -13477,12 +13540,14 @@ kk: Бекон
 ko: 베이컨
 mk: Сланина
 ml: പന്നിയിറച്ചി
+mo: Bacon
 nb: bacon, spekk
 nl: spek
 nn: flesk
 pa: ਬੇਕਨ
 pl: Boczek, boczek wieprzowy
 pt: toucinho
+ro: bacon
 ru: бекон
 sh: Slanina
 sk: Slanina
@@ -13491,6 +13556,7 @@ sr: сланина
 sv: Bacon, späck
 ta: பன்றி இறைச்சி
 th: เบคอน
+tl: Bacon
 tr: Domuz pastırması
 uk: Бекон
 ur: بیکن
@@ -14821,8 +14887,9 @@ wikipedia:en: https://en.wikipedia.org/wiki/Salami
 
 < en:salami
 en: pepperoni
-xx: Pepperoni
+xx: pepperoni
 ar: ببروني
+de: Pepperoni
 el: πεπερόνι
 fa: پپرونی
 fi: pepperoni, pepperonisalami
@@ -14830,7 +14897,7 @@ he: פפרוני
 hi: पेपरोनी
 hr: feferoni
 hy: պեպերոնի
-it: Salame piccante
+it: salame piccante
 ja: ペパロニ
 ko: 페퍼로니
 ms: peperoni
@@ -14849,8 +14916,9 @@ it: carne preparata
 
 < en:prepared meat
 en: mortadella
-xx: Mortadella
+xx: mortadella
 bg: мортадела
+de: Mortadella
 es: mortadela
 fr: mortadelle
 hr: mortadela
@@ -15483,24 +15551,28 @@ allergens:en: en:gluten
 
 < en:starch
 en: Sago
-xx: Sago
 ar: ساغو
 be: Сага
 bn: সাগু
 ca: Sagú
 cs: Ságo
+da: Sago
+de: Sago
 dv: ސާގު
 eo: Saguo
 es: Sagú
 et: Saago
+eu: Sago
 fa: ساگو
 fi: Saago
 fr: Sagou
 gu: સાબુદાણા
 hi: साबूदाना
+hr: sago
 id: Sagu
 io: Saguto
 is: Sagó
+it: Sago
 ja: サゴヤシ, サゴ
 jv: Sagu
 kk: Саго
@@ -15511,12 +15583,18 @@ lt: Sagas
 ml: പനനൂറ്
 mr: साबुदाणा
 ms: Sagu
+nl: Sago
+no: Sago
+pl: Sago
 pt: Sagu
 ru: Саго
 su: Sagu
+sv: Sago
 ta: சவ்வரிசி
 te: సగ్గుబియ్యం
+tl: Sago
 uk: Саго
+vi: Sago
 zh: 西米
 description:en: starch extracted from tropical palm stems
 wikidata:en: Q218778
@@ -15558,7 +15636,7 @@ ro: uleiuri și grăsimi
 ru: растительным и животным жирам, Масла и жиры
 sk: Oleje a tuky
 sl: olja in maščobe
-sv: oljor och fetter, Oljor och fett
+sv: oljor och fetter, oljor och fett, olja och fett
 uk: Олія і жир
 from_palm_oil:en: maybe
 vegan:en: maybe
@@ -16140,14 +16218,16 @@ hr: pročišćeni kravlji maslac
 
 < en:butterfat
 en: ghee
-xx: Ghee
 ar: سمن حيواني
 az: sarı yağ
 bg: гхи
 bn: ঘি
 cs: ghí
+da: ghee
+de: ghee
 dv: ދަހީ
 eo: gio
+es: ghee
 fa: روغن کرمانشاهی
 fi: ghi, ghee
 fr: ghi, ghee, huile de beurre
@@ -16155,6 +16235,7 @@ ga: gí
 gu: ઘી
 he: גהי
 hi: घी
+hr: ghee
 hu: ghí, ghí vaj
 id: minyak samin
 is: skírt smjör
@@ -16174,9 +16255,12 @@ nn: ghi, ghee
 pa: ਘਿਉ
 pl: ghi, ghee
 pt: ghi, ghee
+ro: ghee
 ru: Гхи
 sa: घृतम्
 si: ගිතෙල්
+sl: ghee
+sv: ghee
 ta: நெய்
 te: నెయ్యి
 uk: Ґгі, Гхі, Ґі
@@ -19940,19 +20024,19 @@ de: Eierlikör
 
 < en:liqueur
 en: amaretto
-xx: Amaretto
-be: Амарэта
-bg: Амарето
+xx: amaretto
+be: амарэта
+bg: амарето
 de: Amaretto, Amarettolikor
 he: אמרטו
 ja: アマレット
-kk: Амаретто
+kk: амаретто
 ko: 아마레토
-la: Amarettus
-lt: Amaretas
+la: amarettus
+lt: amaretas
 nl: amaretto, amaretto likeur
-ru: Амаретто
-uk: Амарето
+ru: амаретто
+uk: амарето
 zh: 意大利苦杏酒
 wikidata:en: Q455045
 wikipedia:en: https://en.wikipedia.org/wiki/Amaretto
@@ -19960,13 +20044,15 @@ wikipedia:en: https://en.wikipedia.org/wiki/Amaretto
 
 
 < en:liqueur
-bg: Лимончело
-xx: Limoncello
+en: limoncello
+xx: limoncello
+bg: лимончело
+de: Limoncello
 hr: limunčelo
 ja: リモンチェッロ
 ko: 리몬첼로
-lt: Limončelas
-ru: Лимончелло
+lt: limončelas
+ru: лимончелло
 zh: 檸檬酒
 wikidata:en: Q736208
 wikipedia:en: https://en.wikipedia.org/wiki/Limoncello
@@ -20026,17 +20112,20 @@ wikipedia:en: https://en.wikipedia.org/wiki/Maraschino
 
 < en:alcohol
 en: gin
-xx: Gin
 ar: جن
 be: Джын
 bg: Джин
 ca: ginebra
+cs: gin
 cv: Джин
 cy: Jin
+da: gin
+de: Gin
 el: Τζιν
 eo: ĝino
 es: ginebra
 et: Džinn
+eu: gin
 fa: جین
 fi: gini
 fo: Ginn
@@ -20044,25 +20133,40 @@ fr: gin, london-dry-gin
 gl: Xenebra
 gv: Jeneeve
 he: ג'ין
+hr: gin
+hu: gin
 hy: Ջին
+id: Gin
 io: Jino
+is: Gin
+it: gin
 ja: ジン
 ka: ჯინი
 kk: Джин
 ko: 진
+la: Gin
 lt: Džinas
 lv: džins
 mk: Џин
 my: ဂျင်
+nb: gin
+nl: gin
+nn: gin
+oc: Gin
 pl: gin, dżin, ginu, dżinu
 pt: gim
+ro: Gin
 ru: джин
 sh: Džin
+sk: Gin
+sl: Gin
 sr: Џин
+sv: Gin
 ta: ஜின்
 th: ยิน
 tr: Cin
 uk: Джин
+vi: Gin
 yi: דזשין
 zh: 琴酒
 ciqual_food_code:en: 1002
@@ -20086,7 +20190,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Gin
 
 < en:alcohol
 en: champagne
-xx: Champagne
 an: Champán
 ar: شامبانيا
 az: Şampan şərabı
@@ -20097,6 +20200,7 @@ ca: xampany
 cs: šampaňské víno
 cv: Шампанское
 cy: Siampaen
+da: Champagne
 de: Champagner
 el: Σαμπάνια
 eo: Ĉampano
@@ -20106,6 +20210,7 @@ eu: Xanpaina
 fa: شامپاین
 fi: Samppanja
 fo: Sjampanja
+fr: champagne
 ga: Seaimpéin
 gl: Champaña
 gu: શેમ્પેન
@@ -20116,15 +20221,20 @@ hy: շամպայն
 id: Sampanye
 io: Champanio
 is: Kampavín
+it: champagne
 ja: シャンパン
 jv: Sampanye
 ka: შამპანური
 ko: 샴페인
+lb: Champagne
 lt: Šampanas
 lv: šampanietis
 mk: Шампањ
 ml: ഷാംപെയ്ൻ
 mn: Шампанск
+nb: champagne
+nl: champagne
+nn: Champagne
 pa: ਸ਼ੈਮਪੇਨ
 pl: Szampan, szampana
 pt: Champanhe
@@ -20133,6 +20243,7 @@ ru: Шампанское
 sh: Šampanjac
 sk: Šampanské
 sq: Shampanja
+sv: Champagne
 tr: Şampanya
 tt: Шампан
 uk: Шампанське
@@ -20170,7 +20281,8 @@ fr: champagne brut
 
 < en:alcohol
 en: cava
-xx: Cava
+xx: cava
+de: Cava
 
 # description:en:Pomace brandy is a liquor distilled from pomace that is left over from winemaking, after the grapes are pressed.
 
@@ -20241,41 +20353,64 @@ wikipedia:en: https://en.wikipedia.org/wiki/Kirsch
 
 < en:alcohol
 en: tequila
-xx: Tequila
 ar: تيكيلا
 az: Tekila
 be: Тэкіла
 bg: Текила
 bn: টাকিলা
 bs: Tekila
+ca: tequila
+cs: tequila
 cv: Текила
 cy: Tekila
+da: tequila
+de: Tequila
 el: Τεκίλα
 eo: tekilo
+es: tequila
+et: tequila
 eu: Tekila
 fa: تکیلا
+fi: tequila
+fo: Tequila
+fr: tequila
+gl: Tequila
 he: טקילה
 hi: टकीला
+hr: tequila
+hu: tequila
 hy: Տեկիլա
+id: Tequila
 is: Tekíla
+it: tequila
 ja: テキーラ
 ka: ტეკილა
 kk: Текила
 km: តេគីឡា
 kn: ಟಕಿಲಾ
 ko: 테킬라
+lb: Tequila
 lt: Tekila
 lv: Tekila
 mk: Текила
 ml: ടെക്കീല
+nb: Tequila
 ne: टेकिला
+nl: tequila
+oc: Tequila
+pl: tequila
+pt: tequila
+ro: tequila
 ru: Текила
 si: ටෙකීලා
+sl: tequila
 sr: Текила
+sv: tequila
 ta: டெக்கீலா
 th: เตกิลา
 tr: Tekila
 uk: Текіла
+vi: Tequila
 zh: 龍舌蘭酒
 description:en: TEQUILA is a regional distilled beverage and type of alcoholic drink made from the blue agave plant, primarily in the area surrounding the city of Tequila
 # arz:تيكيلا
@@ -20675,14 +20810,15 @@ fr: extrait de vin blanc distillé
 # description:en:MUSCADET is a French white wine.
 
 < en:white wine
-en: Muscadet
-xx: Muscadet
-br: Muskadig
-cv: Мюскаде
+en: muscadet
+xx: muscadet
+br: muskadig
+cv: мюскаде
+de: Muscadet
 fr: muscadet, vin blanc muscadet
 hr: muskadet
 ja: ミュスカデ
-ru: Мюскаде
+ru: мюскаде
 wikipedia:en: https://en.wikipedia.org/wiki/Muscadet
 # fr:muscadet has 82 products in 1 language @2018-10-29
 
@@ -20800,12 +20936,20 @@ it: estratto di vino rosso
 
 < en:wine
 en: sauternes
-xx: Sauternes
 ca: Vi de Sauternes
 cv: Сотерн
+de: Sauternes
+es: Sauternes
 fi: sauternes, sauternes-viini
+fr: sauternes
 he: יין סוטרן
+hr: sauternes
+it: sauternes
 ja: ソーテルヌ
+nb: Sauternes
+nl: Sauternes
+pt: Sauternes
+ro: Sauternes
 ru: Сотерн
 sv: Sauternesviner
 zh: 索泰爾納
@@ -21197,19 +21341,25 @@ it: vino di more
 
 < en:alcohol
 en: brandy
-xx: Brandy
 af: brandewyn
 ar: براندي
 be: брэндзі
 bg: бренди
 ca: brandi
+cs: brandy
 cy: brandi
+da: brandy
 de: weinbrand
 el: μπράντυ
+es: brandy
 et: brändi
+eu: brandy
 fa: برندی
+fi: brandy
+fr: brandy
 ga: branda
 gd: branndaidh
+gl: brandy
 gu: બ્રાન્ડી
 he: ברנדי
 hi: ब्रांडी
@@ -21219,6 +21369,7 @@ hy: բրենդի
 id: brendi
 io: brandio
 is: brandí
+it: brandy
 ja: ブランデー, 麩
 ka: ბრენდი
 ko: 브랜디
@@ -21228,13 +21379,17 @@ lv: brendijs
 ms: brandi
 mt: brendi
 my: ဘရန်ဒီ
+nb: brandy
 nl: brandewijn
+oc: brandy
 pa: ਬਰਾਂਡੀ
+pl: brandy
 pt: conhaque
 ro: vinars
 ru: бренди
 sd: برانڊي
 sr: бренди
+sv: brandy
 ta: பிராந்தி
 te: బ్రాందీ
 th: บรั่นดี
@@ -21242,6 +21397,7 @@ tr: brendi
 uk: бренді
 ur: برینڈی
 uz: brendi
+vi: brandy
 zh: 白兰地
 # arz:براندى
 # ast:brandi
@@ -21376,12 +21532,14 @@ it: cognac modificato
 # fr:cognac-modifié has 41 products in 3 languages @2018-10-29
 
 < en:alcohol
-en: Cointreau
-xx: Cointreau
+en: cointreau
+xx: cointreau
+de: Cointreau
 
 < en:alcohol
-en: Campari
-xx: Campari
+en: campari
+xx: campari
+de: Campari
 hr: kampari
 
 < en:alcohol
@@ -21511,19 +21669,21 @@ it: whisky irlandese
 
 < en:alcohol
 en: calvados
-xx: Calvados
+xx: calvados
+de: Calvados
 hr: kalvados
 
 < en:alcohol
 en: rum
-xx: Rum
+xx: rum
 bg: ром
 da: rom
-es: Ron
+de: Rum
+es: ron
 fi: rommi
 fr: rhum
 ja: ラム酒
-ru: Ром
+ru: ром
 sv: rom
 ciqual_food_code:en: 1004
 ciqual_food_name:en: Rum
@@ -21567,7 +21727,8 @@ sv: mörk rom
 
 < en:alcohol
 en: armagnac
-xx: Armagnac
+xx: armagnac
+de: Armagnac
 fi: armanjakki
 ja: アルマニャック
 
@@ -21668,9 +21829,9 @@ ciqual_food_name:fr: Saké ou Alcool de riz
 
 < en:alcohol
 en: vodka
-xx: Vodka
+xx: vodka
 bg: водка
-de: wodka
+de: Wodka
 hr: votka
 ru: водка
 ciqual_food_code:en: 1008
@@ -22940,12 +23101,13 @@ nl: natuurlijk vanillearoma uit Madagaskar
 pt: aroma natural de baunilha de Madagascar
 
 en: Vanillin
-xx: Vanillin
 ar: فانيلين
 be: Ванілін
 bg: Ванилин
 ca: vanillina
 cs: Vanilin
+da: Vanillin
+de: Vanillin
 el: βανιλλίνη, βανιλίνη
 eo: Vanilino
 es: vainillina
@@ -22956,6 +23118,7 @@ fi: vanilliini, vaniliini, vanilliinia
 fr: vanilline
 he: ונילין
 hr: vanilin
+hu: vanillin
 hy: Վանիլին
 it: vanillina
 ja: バニリン
@@ -22965,11 +23128,13 @@ ky: Ванилин
 lt: vanilinas
 mk: Ванилин
 ms: Vanilin
+nb: vanillin
 nl: vanilline
 pl: Wanilina
 pt: vanilina, vanillina
 ru: Ванилин, ароматизатор ванилин
 sr: vanilin
+sv: Vanillin
 th: วานิลลิน
 tr: Vanilin
 uk: Ванілін
@@ -25241,25 +25406,37 @@ hr: graham brašno
 it: Farina di Graham
 nb: grahamsmel
 ro: făină graham
-sv: grahamsmjöl, fullkornsgrahamsmjöl
+sv: grahamsmjöl, fullkornsgrahamsmjöl, grahamsmjöl av vete
 wikipedia:en: https://en.wikipedia.org/wiki/Graham_flour
 
 # description:en:Wheat gluten is a food made from gluten, the main protein of wheat.
 
 < en:wheat
 en: seitan
-xx: Seitan
 an: Seitán
+ca: seitan
+cs: Seitan
+da: Seitan
+de: Seitan
 eo: Sejtano
 es: Seitán
+eu: Seitan
+fi: Seitan
+fr: seitan
 gl: Seitán
 he: סייטן
 hr: sejtan
 hu: szejtán, búzahús, búzasikér
+it: Seitan
 ko: 밀고기
 lt: Kvietinė mėsa
+nl: Seitan
+pl: seitan
+pt: seitan
 ru: Сейтан
+sk: Seitan
 sr: пшенични скроб
+sv: Seitan
 tr: Buğday gluteni
 vi: Mì căn
 zh: 面筋
@@ -25916,13 +26093,13 @@ it: sciroppo d'orzo
 
 < en:cereal
 en: malt
-xx: Malt
 ar: ملت
 be: Солад
 bg: Малц
 ca: Maltatge
 cs: Slad
 cv: Салат
+da: Malt
 de: Malz
 eo: Malto
 es: Malta
@@ -25938,7 +26115,9 @@ hi: माल्ट
 hr: slad, slada, sladni
 hu: maláta
 hy: Ածիկ
+id: Malt
 io: Malto
+is: Malt
 it: malto
 ja: 麦芽
 ko: 엿기름
@@ -25946,7 +26125,10 @@ lb: Malz
 lt: Salyklas
 lv: Iesals
 mk: Слад
+ms: Malt
+nb: Malt
 nl: mout
+nn: Malt
 pl: Słód, słodu, słodowy, słodowa, słodowe, słodowego, słodowej, słodowych, słody
 pt: Malte
 ro: Malț
@@ -25955,7 +26137,9 @@ sh: Slad
 sl: Slad
 sq: Malto
 sr: Слад
+sv: Malt
 th: มอลต์
+tr: Malt
 uk: Солод
 vi: Mạch nha
 wa: Brå
@@ -27457,12 +27641,19 @@ pl: płatki żytnie pełnoziarniste
 < en:rye
 en: rye grains
 bg: ръжени зърна
+da: rugkorn
 de: Roggenkörner
 es: granos de centeno, grañones completos de centeno
 hr: zrna raži
 it: chicchi di segale
 nl: roggegraan, roggegranen
+sv: rågkorn
 # in 4 @2021-10-28
+
+< en:rye
+en: rye kernels
+da: rugkerner
+sv: rågkärnor
 
 < en:rye
 de: Roggengrießkleie
@@ -27622,12 +27813,12 @@ sv: rågfiber
 
 < en:cereal
 en: spelt
-xx: Spelt
 ar: حنطة
 bg: спелта
 br: yell
 ca: espelta
 cs: špalda, pšenice špalda
+da: spelt
 de: Dinkel, Spelt
 el: όλυρα, ντίνκελ, σπέλτα
 eo: spelto
@@ -27643,6 +27834,7 @@ he: כוסמין
 hr: pravi pir, pirovo, pir, pira, pirove, iz pira
 hu: tönkölybúza, tönköly
 io: spelto
+is: spelt
 it: farro spelta, granfarro, spelta
 ja: スペルトコムギ
 ko: 스펠트밀
@@ -27651,7 +27843,11 @@ lb: Spelz
 lt: speltos, spelta
 lv: speltas kvieši
 mk: крупник
+ms: spelt
 mt: farru, qamħ spelt
+nb: spelt
+nl: spelt
+nn: spelt
 oc: espeuta
 pl: orkisz, pszenica orkisz, pszenicy orkisz, orkiszu, orkiszowa, orkiszowe, orkiszowy, pszenne orkiszowe
 pt: espelta
@@ -28501,7 +28697,7 @@ nl: volkorentarwemeel, volkoren tarwemeel
 pl: Mąka pszenna pełnoziarnista, mąka pszenna razowa, pełnoziarnista mąka pszenna, mąka pełnoziarnista pszenna
 pt: farinha de trigo integral, farinha integral de trigo
 ro: făină integrală de grâu
-sv: fullkornsvetemjöl, grahamsmjöl av vete
+sv: fullkornsvetemjöl, fullkornsmjöl av vete
 
 < en:semi-wholemeal flour
 < en:wheat flour
@@ -32208,13 +32404,15 @@ pl: cukier wanilinowy
 
 < en:sugar
 en: maltose
-xx: Maltose
+af: Maltose
 ar: مالتوز
 be: Мальтоза
 bg: Малтоза
 bs: Maltoza
 ca: maltosa
 cs: maltóza
+da: maltose
+de: Maltose
 el: μαλτόζη
 eo: maltozo
 es: maltosa
@@ -32222,6 +32420,7 @@ et: maltoos
 eu: Maltosa
 fa: مالتوز
 fi: maltoosi
+fr: maltose
 ga: maltós
 gl: Maltosa
 he: מלטוז
@@ -32243,12 +32442,16 @@ lt: Maltozė
 lv: maltoze
 ms: Maltosa
 mt: maltożju
+nb: Maltose
 nl: maltose, maltosestroop
+nn: maltose
 oc: Maltòsa
 pl: maltoza
+pt: maltose
 ro: maltoză
 ru: мальтоза
 sh: Maltoza
+si: Maltose
 sk: maltóza
 sl: maltoza
 sq: Maltoza
@@ -32498,12 +32701,13 @@ ciqual_food_name:fr: Mélasse de canne
 
 < en:sugar
 en: trehalose
-xx: Trehalose
 ar: طرهالوز
 be: Трэгалоза
 bg: трехалоза
 ca: Trehalosa
 cs: Trehalóza
+da: trehalose
+de: Trehalose
 el: τρεαλόζη
 es: trehalosa
 et: trehaloos
@@ -32519,6 +32723,8 @@ it: trealosio
 ja: トレハロース
 ko: 트레할로스
 ms: Trehalosa
+nl: trehalose
+nn: trehalose
 pa: ਤਰੇਹਾਲੋਸ
 pl: trehaloza
 pt: trealose
@@ -32529,8 +32735,11 @@ sl: Trehaloza
 sr: Trehaloza
 sv: trehalos
 uk: Трегалоза
+vi: Trehalose
 zh: 海藻糖
 # azb:ترهالوز
+# en-ca:Trehalose
+# en-gb:Trehalose
 # pt-br:Trealose
 # sr-ec:Трехалоза
 # sr-el:Trehaloza
@@ -32822,8 +33031,9 @@ it: sciroppo di glucosio di patate
 pl: syrop glukozowy z ziemniaków, ziemniaczany syrop glukozowy
 
 < en:glucose syrup
-en: Mizuame
-xx: Mizuame
+en: mizuame
+xx: mizuame
+de: Mizuame
 fa: میزوآمه
 ja: 麦水飴
 pa: ਮਿਜ਼ੂਆਮੇ
@@ -33503,15 +33713,17 @@ sv: mörk sirap
 # nova:en:dextrose
 < en:glucose
 en: dextrose
-xx: Dextrose
 bg: декстроза
 bs: dekstroza
 ca: Dextrosa
 cs: dextróza
+da: dextrose
+de: Dextrose
 el: δεξτροζη
 es: dextrosa
 et: dekstroos
 fi: dekstroosi, dekstroosia
+fr: dextrose
 he: דקסטרוז
 hr: dekstroza
 hu: dextróz
@@ -33521,9 +33733,11 @@ ja: デキストロース
 lt: dekstrozė
 lv: dekstroze
 nb: dekstrose
+nl: dextrose
 nn: dekstrose
 no: dekstrose
 pl: dekstroza
+pt: dextrose
 ro: dextroză, dextroza
 ru: Декстроза
 sk: dextróza
@@ -36948,13 +37162,17 @@ de: Mukimame, Edamame geschält
 it: edamame sgusciati
 
 en: gluten
-xx: Gluten
 ar: غلوتين
 bg: глутен
+ca: Gluten
 cs: lepek
+da: gluten
+de: Gluten
 el: γλουτένη
+es: gluten
 et: gluteen
 fi: gluteeni
+fr: gluten
 ga: glútan
 he: גלוטן
 hr: gluten, glutena
@@ -36964,9 +37182,15 @@ ja: グルテン
 lt: glitimas
 lv: lipekli
 mt: glutina
+nb: gluten
+nl: Gluten
+pl: gluten
 pt: glúten
+ro: gluten
 ru: глютен, клейковина пшеничная, глютен
 sk: lepok, glutén
+sl: gluten
+sv: gluten
 th: กลูเต็น
 tr: glüten, gluten
 uk: Глютен
@@ -39609,9 +39833,9 @@ it: aroma (albicocca), aroma (albicocche), aroma di albicocca, aroma di albicocc
 
 < en:fruit
 en: banana
-xx: Banana
 af: Piesang
 am: ሙዝ
+an: Banana
 ar: موز
 as: কল
 ay: Puquta
@@ -39620,12 +39844,16 @@ ba: Банан
 be: Банан
 bg: Банан
 bh: केला
+bi: Banana
 bn: কলা
 bo: ངང་ལག
 br: Bananez
+bs: Banana
 ca: Banana, plàtan, plàtans
 ce: Банан
+co: Banana
 cs: Banán, banánových, banánová
+cy: Banana
 da: Banan, bananer
 de: Bananen, Banane
 dv: ދޮންކެޔޮ
@@ -39634,9 +39862,13 @@ el: μπανάνες, Μπανάνα
 eo: Banano
 es: plátano, banana
 et: Banaan
+eu: Banana
 fa: موز
 fi: Banaani
 fr: banane, bananes
+ga: Banana
+gd: Banana
+gl: Banana
 gu: કેળાં
 gv: Bananey
 he: בננה
@@ -39645,9 +39877,11 @@ hr: banana, banane, od banane
 ht: Bannann
 hu: Banán
 hy: Բանան
+ia: Banana
 id: Pisang
 io: Banano
 is: Banani
+it: banana
 ja: バナナ, ばなな
 jv: Gedhang
 kk: Банан
@@ -39672,6 +39906,7 @@ ne: केरा
 nl: banaan, bananen
 nn: Banan
 nv: Hashkʼaan
+oc: Banana
 or: କଦଳୀ
 pa: ਕੇਲਾ
 pl: banan, banany, bananowe, bananowy, bananowa, banana, bananów, bananowych
@@ -39680,9 +39915,12 @@ pt: banana, bananas
 ru: Банан
 rw: Umuneke
 sa: कदलीफलम्
+sc: Banana
 sd: ڪيلو
+sh: Banana
 si: කෙසෙල්
 sk: Banán
+sl: Banana
 sm: Fa'i
 so: Moos
 sq: Bananja
@@ -39695,6 +39933,7 @@ te: అరటి
 tg: Банан
 th: กล้วย
 tl: Saging
+tn: Banana
 tr: Muz
 ty: Meià
 uk: Банан
@@ -39963,14 +40202,19 @@ wikidata:en: Q26615
 
 < en:fruit
 en: durian
-xx: Durian
 ar: دوريان
+de: Durian
 es: durión
 fi: durio
+fr: durian
+hr: durian
+it: durian
 nl: doerian
+oc: Durian
 pt: Durião, Durio
 sr: Durijan
 su: Kadu
+sv: Durian
 uk: Дуріан
 vi: Chi Sầu riêng
 zh: 榴槤屬
@@ -43158,7 +43402,6 @@ it: ripieno al limone
 < en:citrus fruit
 < en:fruit
 en: lime
-xx: Lime
 af: Lemmetjie
 ar: ليم
 as: গোলনেমু
@@ -43171,6 +43414,7 @@ ca: llimona dolça, llima
 cs: limetka
 cv: Лайм
 cy: leim
+da: lime
 de: Limette, Limetten, Limone
 el: Μοσχολέμονο
 eo: limeo
@@ -43196,8 +43440,11 @@ lo: ຫມາກນາວ
 lv: laims
 mk: Лимета
 my: သံပရာ
+nb: lime
 nl: limoen, lime
+nn: lime
 nv: Chʼil dootłʼizhí díkʼǫ́zhígíí
+oc: lime
 or: ଲେମ୍ବୁ
 os: Лайм
 pa: ਗਲਗਲ
@@ -43211,6 +43458,7 @@ sk: limetka
 sl: Limeta
 sq: limon i athët
 sr: лимета
+sv: lime
 sw: Ndimu
 ta: தேசிப்பழம்
 th: มะนาว
@@ -44354,21 +44602,25 @@ wikidata:en: Q19842373
 
 < en:blackberry
 en: Rubus fruticosus
-xx: Rubus Fruticosus
 ar: عليق شجيري
 cy: Llwyn mwyar duon
 eo: Arbusta rubuso
+es: Rubus fruticosus
 et: Pampel
+eu: Rubus fruticosus
 fr: Ronce commune
 gl: Silva brava
 hr: rubus fructicosus L
 hu: Vadszeder
+it: Rubus fruticosus
 ka: მაყვალი
+la: Rubus fruticosus
 lb: Schwaarzbier
 lt: Bedyglė gervuogė
 nl: Gewone braam
 nn: Bjørnebær
 no: Bjørnebær
+oc: Rubus fruticosus
 pl: Jeżyna krzewiasta
 pt: Amora-silvestre
 ro: Mur
@@ -44376,6 +44628,8 @@ sc: Ru
 se: Čáhppesváđot
 sk: Ostružina černicová
 sl: Navadna robida
+uk: Rubus fruticosus
+vi: Rubus fruticosus
 wa: Meuronî
 zh: 欧洲黑莓
 wikidata:en: Q13541716
@@ -49445,24 +49699,26 @@ wikipedia:en: https://en.wikipedia.org/wiki/Bogdanu%C5%A1a
 
 < en:varietal
 en: cabernet
-xx: Cabernet
+xx: cabernet
+de: Cabernet
 es: cabernet, vino cabernet
 # ingredient/fr:cabernet has 5 products @2019-01-19
 
 # description:en:Cabernet Franc is one of the major black grape varieties worldwide.
 
 < en:cabernet
-en: Cabernet Franc
-xx: Cabernet Franc
-bg: Каберне Фран
-cv: Каберне фран
+en: cabernet franc
+xx: cabernet franc
+bg: каберне фран
+cv: каберне фран
+de: Cabernet Franc
 he: קברנה פראן
 ja: カベルネ・フラン
-ru: Каберне Фран
-sr: Каберне фран
-uk: Каберне Фран
+ru: каберне фран
+sr: каберне фран
+uk: каберне фран
 zh: 品麗珠
-# pcd:Franc cabernet
+# pcd: franc cabernet
 wikidata:en: Q63591
 wikipedia:en: https://en.wikipedia.org/wiki/Cabernet_Franc
 # ingredient/fr:Cabernet-franc has 19 products @2019-01-19
@@ -49471,32 +49727,33 @@ wikipedia:en: https://en.wikipedia.org/wiki/Cabernet_Franc
 # description:en:Cabernet Sauvignon is one of the world's most widely recognized red wine grape varieties.
 
 < en:varietal
-en: Cabernet Sauvignon
-xx: Cabernet Sauvignon
-az: Kabernet Sauviqnon
-bg: Каберне Совиньон, Cabernet Sauvignon
-cv: Каберне совиньон
-fr: Cabernet Sauvignon, Sauvignon
+en: cabernet sauvignon
+xx: cabernet sauvignon
+az: kabernet sauviqnon
+bg: каберне совиньон, cabernet sauvignon
+cv: каберне совиньон
+de: Cabernet Sauvignon
+fr: cabernet sauvignon, sauvignon
 he: קברנה סוביניון
-it: Cabernet-sauvignon
+it: cabernet-sauvignon
 ja: カベルネ・ソーヴィニヨン
 ko: 카베르네 소비뇽
 lo: ແວງກາແບກເນໂຊວີຍົງ
 ml: കാബെർനെ സോവിഞ്യോൺ
-ru: Каберне Совиньон
-sr: Каберне совињон
+ru: каберне совиньон
+sr: каберне совињон
 ta: கெபேர்னெட் சுவிக்னோன்
 th: พระธรรมโครินธ์ฉบับที่หนึ่ง
-uk: Каберне Совіньйон
+uk: каберне совіньйон
 zh: 赤霞珠
-# sr-ec:Каберне совињон
-# sr-el:Kaberne sovinjon
-# zh-cn:赤霞珠
-# zh-hans:赤霞珠
-# zh-hant:赤霞珠
-# zh-hk:赤霞珠
-# zh-sg:赤霞珠
-# zh-tw:赤霞珠
+# sr-ec: каберне совињон
+# sr-el: kaberne sovinjon
+# zh-cn: 赤霞珠
+# zh-hans: 赤霞珠
+# zh-hant: 赤霞珠
+# zh-hk: 赤霞珠
+# zh-sg: 赤霞珠
+# zh-tw: 赤霞珠
 wikidata:en: Q207310
 wikipedia:en: https://en.wikipedia.org/wiki/Cabernet_Sauvignon
 # ingredient/fr:Cabernet-Sauvignon has 26 products @2019-01-20
@@ -49505,19 +49762,20 @@ wikipedia:en: https://en.wikipedia.org/wiki/Cabernet_Sauvignon
 # description:en:Carignan (also known as Mazuelo, Bovale Grande, Cariñena, Carinyena, Samsó, Carignane, and Carignano) is a red grape variety of Spanish origin that is more commonly found in French wine but is widely planted throughout the western Mediterranean and around the globe.
 
 < en:varietal
-en: Carignan
-xx: Carignan
-bg: Каринян
+en: carignan
+xx: carignan
+bg: каринян
 ca: carinyena
-cv: Кариньян
-es: Cariñena
+cv: кариньян
+de: Carignan
+es: cariñena
 he: קריניאן
 it: carignano
 ja: カリニエナ
-ru: Кариньян
-uk: Кариньян
+ru: кариньян
+uk: кариньян
 zh: 佳利酿
-# ceb:Karinyeno
+# ceb: karinyeno
 wikidata:en: Q251054
 wikipedia:en: https://en.wikipedia.org/wiki/Carignan
 # ingredient/fr:Carignan has 15 products @2019-01-19
@@ -49527,21 +49785,40 @@ wikipedia:en: https://en.wikipedia.org/wiki/Carignan
 
 < en:varietal
 en: Chardonnay
-xx: Chardonnay
 az: Şardone
 bg: Шардоне
+ca: Chardonnay
+cs: Chardonnay
 cv: Шардоне
+da: Chardonnay
+de: Chardonnay
+es: Chardonnay
+et: Chardonnay
 fa: شاردونی
+fi: Chardonnay
 fr: chardonnay, Chardonnay blanc
 he: שרדונה
+hr: chardonnay
+hu: Chardonnay
+id: Chardonnay
+it: Chardonnay
 ja: シャルドネ
 ko: 샤르도네
+lb: Chardonnay
 mk: Шардоне
+nb: Chardonnay
+nl: Chardonnay
+pl: Chardonnay
+pt: Chardonnay
 ru: Шардоне
+sl: Chardonnay
 sr: Шардоне
+sv: Chardonnay
 th: ชาร์ดอแน
 uk: Шардоне
 zh: 莎当妮
+# ceb:Chardonnay
+# gsw:Chardonnay
 # sr-ec:Шардоне
 # sr-el:Šardone
 # zh-cn:莎当妮
@@ -49559,15 +49836,15 @@ wikipedia:en: https://en.wikipedia.org/wiki/Chardonnay
 # description:en:Chasselas or Chasselas blanc is a wine grape variety grown in Switzerland, France, Germany, Portugal, Hungary, Romania, New Zealand and Chile.
 
 < en:varietal
-en: Chasselas
-xx: Chasselas
-be: Шасла Доре
-cs: Chrupka bílá
-cv: Шасла
+en: chasselas
+xx: chasselas
+be: шасла доре
+cs: chrupka bílá
+cv: шасла
 de: Gutedel
-fi: Gutedel
+fi: gutedel
 hr: šasele
-hu: Saszla
+hu: saszla
 ja: シャセラ
 zh: 莎斯拉
 wikidata:en: Q939724
@@ -49614,9 +49891,9 @@ wikipedia:en: https://en.wikipedia.org/wiki/Debit_(grape)
 # description:en:Dobričić is an ancient red wine grape variety from the island of Šolta off the Dalmatian coast in Croatia.
 
 < en:varietal
-en: Dobričić
-xx: Dobričić
-ru: Добричич
+en: dobričić
+xx: dobričić
+ru: добричич
 wikidata:en: Q3033360
 wikipedia:en: https://en.wikipedia.org/wiki/Dobri%C4%8Di%C4%87
 
@@ -49633,15 +49910,16 @@ wikipedia:en: https://en.wikipedia.org/wiki/Drneku%C5%A1a
 # description:en:Gamay is a purple-colored grape variety used to make red wines, most notably grown in Beaujolais and in the Loire Valley around Tours.
 
 < en:varietal
-en: Gamay
-xx: Gamay
-bg: Гаме ноар
-cv: Гамэ
-fr: gamay, Gamay noir, cépage Gamay
+en: gamay
+xx: gamay
+bg: гаме ноар
+cv: гамэ
+de: Gamay
+fr: gamay, gamay noir, cépage gamay
 he: גמאי
 hr: borgonja
 ja: ガメ
-ru: Гаме
+ru: гаме
 zh: 佳美
 wikidata:en: Q12982
 wikipedia:en: https://en.wikipedia.org/wiki/Gamay
@@ -49707,8 +49985,9 @@ wikipedia:en: https://en.wikipedia.org/wiki/Grk_Bijeli
 # description:en:Grolleau or Grolleau noir is a red French wine grape variety that is grown primarily in the Loire Valley of France.
 
 < en:varietal
-en: Grolleau
-xx: Grolleau
+en: grolleau
+xx: grolleau
+de: Grolleau
 ja: グロロ
 zh: 果若
 wikidata:en: Q268579
@@ -49719,8 +49998,9 @@ wikipedia:en: https://en.wikipedia.org/wiki/Grolleau_(grape)
 # description:en:Gros Manseng (sometimes translated:Large Manseng, rarely "Big Manseng") is a white wine grape variety that is grown primarily in South West France, and is part of the Manseng family.
 
 < en:varietal
-en: Gros Manseng
-xx: Gros Manseng
+en: gros manseng
+xx: gros manseng
+de: Gros Manseng
 ja: クロ・マンサン
 wikidata:en: Q462851
 wikipedia:en: https://en.wikipedia.org/wiki/Gros_Manseng
@@ -49730,8 +50010,9 @@ wikipedia:en: https://en.wikipedia.org/wiki/Gros_Manseng
 # description:de:Lambrusco Salamino ist eine Rotweinsorte, die eine von über 60 Varietäten aus der Familie der Lambrusco ist.
 
 < en:varietal
-en: Lambrusco Salamino
-xx: Lambrusco Salamino
+en: lambrusco salamino
+xx: lambrusco salamino
+de: Lambrusco Salamino
 wikidata:en: Q1801495
 wikipedia:de: https://de.wikipedia.org/wiki/Lambrusco_Salamino
 # ingredient/fr:Lambrusco-Salamino has 1 product @2019-01-20
@@ -49749,15 +50030,16 @@ wikipedia:hr: https://hr.wikipedia.org/wiki/Vinova_loza
 # description:en:Malbec (pronounced [mal.bɛk]) is a purple grape variety used in making red wine.
 
 < en:varietal
-en: Malbec
-xx: Malbec
-bg: Малбек
-cv: Мальбек
-fr: Malbec, Côt
+en: malbec
+xx: malbec
+bg: малбек
+cv: мальбек
+de: Malbec
+fr: malbec, côt
 he: מלבק
 ja: マルベック
-ru: Мальбек
-uk: Мальбек
+ru: мальбек
+uk: мальбек
 zh: 馬爾貝克
 wikidata:en: Q1414045
 wikipedia:en: https://en.wikipedia.org/wiki/Malbec
@@ -49768,8 +50050,8 @@ wikipedia:en: https://en.wikipedia.org/wiki/Malbec
 
 < en:varietal
 en: Malvasia
-xx: Malvasia
 be: Мальвазія
+ca: Malvasia
 cv: Мальвазия
 de: Malvasier
 el: Μαλβαζία
@@ -49778,11 +50060,16 @@ fi: Malvázia
 fr: Malvoisie
 hr: malvazija
 hu: Malvázia
+it: Malvasia
 ja: マルヴァジーア
+nl: Malvasia
+no: Malvasia
 pl: Małmazja
+pt: Malvasia
 ru: Мальвазия
 sh: Malvazija
 sl: Malvazija
+sv: Malvasia
 uk: Мальвазія
 # scn:Marvasìa
 wikidata:en: Q1165349
@@ -49806,18 +50093,19 @@ wikipedia:en: https://en.wikipedia.org/wiki/Mara%C5%A1tina
 
 < en:varietal
 en: merlot
-xx: Merlot
-bg: Мерло
-cv: Мерло
+xx: merlot
+bg: мерло
+cv: мерло
+de: Merlot
 fa: مرلو
 he: מרלו
 ja: メルロー
 ko: 메를로
 ml: മെർലോ
 mr: मर्लो
-ru: Мерло
-sl: Мерло
-sv: Мерло
+ru: мерло
+sl: мерло
+sv: мерло
 wikidata:en: Q213338
 wikipedia:en: https://en.wikipedia.org/wiki/Merlot
 # ingredient/fr:merlot has 26 products @2019-01-17
@@ -49826,16 +50114,17 @@ wikipedia:en: https://en.wikipedia.org/wiki/Merlot
 # description:en:Mourvèdre (also known as Mataró or Monastrell) is a red wine grape variety that is grown in many regions around the world
 
 < en:varietal
-en: Mourvèdre
-xx: Mourvèdre
-bg: Мурведър
-ca: Monestrell
-es: Uva monastrell
+en: mourvèdre
+xx: mourvèdre
+bg: мурведър
+ca: monestrell
+de: Mourvèdre
+es: uva monastrell
 ja: ムールヴェードル
-ru: Мурведр
-sv: Monastrell
-uk: Мурведр
-uz: Murvedr
+ru: мурведр
+sv: monastrell
+uk: мурведр
+uz: murvedr
 wikidata:en: Q161864
 wikipedia:en: https://en.wikipedia.org/wiki/Mourvèdre
 # ingredient/fr:Mourvèdre has 17 products @2019-01-19
@@ -49844,8 +50133,9 @@ wikipedia:en: https://en.wikipedia.org/wiki/Mourvèdre
 # description:en:Muscadelle is a white wine grape variety.
 
 < en:varietal
-en: Muscadelle
-xx: Muscadelle
+en: muscadelle
+xx: muscadelle
+de: Muscadelle
 ja: ミュスカデル
 wikidata:en: Q1934770
 wikipedia:en: https://en.wikipedia.org/wiki/Muscadelle
@@ -49899,10 +50189,11 @@ wikipedia:en: https://en.wikipedia.org/wiki/Nielluccio
 # description:en:Petit Manseng (sometimes translated:Small Manseng, rarely "Little Manseng") is a white wine grape variety that is grown primarily in South West France.
 
 < en:varietal
-en: Petit Manseng
-xx: Petit Manseng
+en: petit manseng
+xx: petit manseng
+de: Petit Manseng
 ja: プチ・マンサン
-nl: Petit-Manseng
+nl: petit-manseng
 zh: 小满胜
 wikidata:en: Q462509
 wikipedia:en: https://en.wikipedia.org/wiki/Petit_Manseng
@@ -49912,13 +50203,14 @@ wikipedia:en: https://en.wikipedia.org/wiki/Petit_Manseng
 # description:en:Petit Verdot is a variety of red wine grape, principally used in classic Bordeaux blends.
 
 < en:varietal
-en: Petit verdot
-xx: Petit Verdot
-bg: Пети Вердо
-cv: Пти Вердо
+en: petit verdot
+xx: petit verdot
+bg: пети вердо
+cv: пти вердо
+de: Petit Verdot
 he: פטי ורדו
 ja: プチ・ヴェルド
-ru: Пти вердо
+ru: пти вердо
 zh: 小維多
 wikipedia:en: https://en.wikipedia.org/wiki/Petit_Verdot
 # ingredient/fr:Petit-verdot has 2 products @2019-01-20
@@ -49927,15 +50219,16 @@ wikipedia:en: https://en.wikipedia.org/wiki/Petit_Verdot
 # description:en:Pinot Meunier, pronounced [pi.no mø.nje], also known as Meunier or Schwarzriesling, is a variety of black wine grape most noted for being one of the three main varieties used in the production of Champagne
 
 < en:varietal
-en: Pinot Meunier
-xx: Pinot Meunier
-bg: Пино Мьоние
-cs: Mlynářka
-cv: Пинă Менье
-fr: Meunier, Pinot Meunier
+en: pinot meunier
+xx: pinot meunier
+bg: пино мьоние
+cs: mlynářka
+cv: пинă менье
+de: Pinot Meunier
+fr: meunier, pinot meunier
 ja: ピノ・ムニエ
-ru: Пино менье
-sl: Postič
+ru: пино менье
+sl: postič
 wikipedia:en: https://en.wikipedia.org/wiki/Pinot_Meunier
 # ingredient/fr:Meunier has 3 products @2019-01-20
 
@@ -49944,24 +50237,43 @@ wikipedia:en: https://en.wikipedia.org/wiki/Pinot_Meunier
 
 < en:varietal
 en: pinot noir
-xx: Pinot Noir
+az: Pinot Noir
 bg: Пино ноар
 ca: pinot negre
 cs: Rulandské modré
 cv: Пинă Нуар
+da: Pinot noir
+de: Pinot noir
+es: Pinot noir
+et: Pinot noir
 fa: پینونوآر
+fi: Pinot Noir
+fr: pinot noir
+gl: Pinot Noir
 he: פינו נואר
 hr: pinot crni
+hu: Pinot noir
+id: Pinot noir
+is: Pinot noir
 it: Pinot
 ja: ピノ・ノワール
 ko: 피노 누아르
+lb: Pinot noir
+nb: Pinot noir
+nl: pinot noir
+pl: Pinot noir
+pt: Pinot noir
+ro: Pinot noir
 ru: Пино-нуар
+sh: Pinot noir
 sl: Modri pinot
 sr: Пино ноар
+sv: Pinot noir
 uk: Піно Нуар
 zh: 黑比诺
 # gsw:Spätburgunder
 # pcd:Noért pinot
+# pms:Pinot noir
 # sr-ec:Пино ноар
 # sr-el:Pino noar
 # zh-cn:黑比诺
@@ -49977,11 +50289,11 @@ wikipedia:en: https://en.wikipedia.org/wiki/Pinot_noir
 # description:en:Plavac Mali (Croatian pronunciation: [plǎːʋat͡s mǎli]), a cross between Crljenak Kaštelanski (ancestral Zinfandel) and Dobričić grapes, is the primary red wine grape grown along the Dalmatian coast of Croatia.
 
 < en:varietal
-en: Plavac Mali
-xx: Plavac Mali
+en: plavac mali
+xx: plavac mali
 de: Plavac Mali Crni
-mk: Плавец мал
-ru: Плавац Мали
+mk: плавец мал
+ru: плавац мали
 wikidata:en: Q1887336
 wikipedia:en: https://en.wikipedia.org/wiki/Plavac_Mali
 
@@ -49992,9 +50304,10 @@ hr: plavina, brajda mala, brajdica, bratkovina, jurkovica, marasovka, modrulj, p
 it: plavina
 
 < en:varietal
-en: Poulsard
-xx: Poulsard
-nl: Poulsard Blanc
+en: poulsard
+xx: poulsard
+de: Poulsard
+nl: poulsard blanc
 description:en: Poulsard (also Ploussard) is a red French wine grape variety from the Jura wine region.
 wikidata:en: Q1409433
 wikipedia:en: https://en.wikipedia.org/wiki/Poulsard
@@ -50003,12 +50316,13 @@ wikipedia:en: https://en.wikipedia.org/wiki/Poulsard
 
 
 < en:varietal
-en: Pošip
-xx: Pošip
-mk: Пошип
-ru: Пошип
-sr: Пошип
-uk: Пошип
+en: pošip
+xx: pošip
+de: Pošip
+mk: пошип
+ru: пошип
+sr: пошип
+uk: пошип
 description:en: Pošip is an autochthonous white wine grape that is primarily grown in the Dalmatian region of Croatia on the island of Korčula, although small amounts are also being grown on the Pelješac Peninsula.
 wikidata:en: Q832738
 wikipedia:en: https://en.wikipedia.org/wiki/Po%C5%A1ip
@@ -50045,17 +50359,18 @@ wikipedia:en: https://en.wikipedia.org/wiki/Sciacarello
 
 
 < en:varietal
-en: Sémillon
-xx: Sémillon
-bg: Семийон
-cv: Семильон
+en: sémillon
+xx: sémillon
+bg: семийон
+cv: семильон
+de: Sémillon
 ja: セミヨン
-ru: Семильон
-sr: Семијон
-uk: Семільйон
+ru: семильон
+sr: семијон
+uk: семільйон
 zh: 賽美蓉
-# sr-ec:Семијон
-# sr-el:Semijon
+# sr-ec: семијон
+# sr-el: semijon
 description:en: Sémillon is a golden-skinned grape used to make dry and sweet white wines, mostly in France and Australia.
 wikidata:en: Q391558
 wikipedia:en: https://en.wikipedia.org/wiki/Sémillon
@@ -50132,14 +50447,14 @@ wikipedia:en: https://en.wikipedia.org/wiki/Teran_grape
 
 
 < en:varietal
-en: Bastardo
-xx: Bastardo
+en: bastardo
+xx: bastardo
 de: Trousseau
 fi: trousseau
-fr: Trousseau
+fr: trousseau
 hr: kopile
 ja: バスタルド
-ru: Бастардо
+ru: бастардо
 description:en: Trousseau or Trousseau Noir, also known as Bastardo, is an old variety of red wine grape originating in eastern France.
 wikidata:en: Q63319
 wikipedia:en: https://en.wikipedia.org/wiki/Trousseau_(grape)
@@ -50149,15 +50464,16 @@ wikipedia:en: https://en.wikipedia.org/wiki/Trousseau_(grape)
 # description:en:Vranac (pronounced [ʋrǎːnats]), Serbian Cyrillic: Вранац; Macedonian: Вранец, romanized: Vranec) is a red grape variety that originates from Montenegro.
 
 < en:varietal
-en: Vranac
-xx: Vranac
-be: Вранац
-bg: Вранец
-cv: Вранац
-mk: Вранец
-ru: Вранац
-sr: Вранац
-uk: Вранац
+en: vranac
+xx: vranac
+be: вранац
+bg: вранец
+cv: вранац
+de: Vranac
+mk: вранец
+ru: вранац
+sr: вранац
+uk: вранац
 zh: 弗拉纳茨
 wikidata:en: Q678124
 wikipedia:en: https://en.wikipedia.org/wiki/Vranac
@@ -50182,20 +50498,28 @@ it: riesling Italico
 
 < en:varietal
 en: Zinfandel
-xx: Zinfandel
+da: Zinfandel
 de: Primitivo
 eo: Primitivo
+es: Zinfandel
 et: Primitivo
 fa: زینفندل
+fi: Zinfandel
+fr: Zinfandel
 he: זינפנדל
 hr: crljenak
 it: Primitivo
 ja: ジンファンデル
+lb: Zinfandel
+no: Zinfandel
 pl: Primitivo
+pt: Zinfandel
 ro: Tribidrag
 ru: Зинфандель
 # scn:Primitivu
+sv: Zinfandel
 ta: சின்பான்டெல்
+tr: Zinfandel
 uk: Примітиво
 wikidata:en: Q204433
 wikipedia:en: https://en.wikipedia.org/wiki/Zinfandel
@@ -50229,13 +50553,13 @@ nutriscore_fruits_vegetables_nuts:en: no
 
 < en:plant
 en: tamarind
-xx: Tamarind
 af: tamarinde
 am: ሮቃ
 ar: تمر هندي
 bg: тамаринд
 bn: তেঁতুল
 ca: tamarinde
+da: tamarind
 de: Tamarinde
 dv: ހެލެނބެލި
 el: ταμάρινδος
@@ -50252,10 +50576,12 @@ gu: ખાટી આમલી
 ha: tsamiya
 he: תמרינדי
 hi: इमली
+hr: tamarind
 ht: tamaren
 hu: tamarindusz
 id: asam jawa
 io: tamarindo
+is: tamarind
 it: tamarindo
 ja: タマリンド
 jv: asem jawa
@@ -50270,6 +50596,7 @@ ms: asam jawa
 my: မန်ကျည်း
 ne: तित्री
 nl: tamarinde
+oc: tamarind
 or: ତେନ୍ତୁଳି
 pa: ਇਮਲੀ
 pl: tamarynd, tamaryndowca, tamaryndowiec
@@ -50282,6 +50609,7 @@ si: සියඹලා
 sl: tamarinda
 so: raqay
 su: asem
+sv: tamarind
 sw: mkwaju
 ta: புளி
 te: చింత
@@ -52723,7 +53051,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Gai_lan
 
 < en:white cabbage
 en: sauerkraut
-xx: Sauerkraut
 af: Suurkool
 ar: ساوركراوت
 az: Kələm turşusu
@@ -52732,10 +53059,13 @@ bg: Кисело зеле
 br: Kaol-go
 ca: xucrut
 cs: kysané zelí
+da: sauerkraut
+de: Sauerkraut
 el: Ξινό λάχανο
 eo: Acida brasiko
 es: Chucrut
 et: hapukapsas
+eu: Sauerkraut
 fa: کلم‌ترش
 fi: hapankaali
 fo: súrkál
@@ -52744,6 +53074,7 @@ ga: Cabáiste géaraithe
 he: כרוב כבוש
 hr: kiseli kupus
 hu: Savanyú káposzta
+id: Sauerkraut
 io: Surkruto
 is: súrkál
 it: crauti
@@ -52754,6 +53085,7 @@ lb: Sauermous
 li: zoermoos
 lv: skābēti kāposti
 mk: кисела зелја
+nb: sauerkraut
 nl: zuurkool
 nn: surkål
 pa: ਜ਼ਾਉਰਕਰੌਟ
@@ -53796,8 +54128,8 @@ nl: vezels van bamboescheuten
 # ingredient/fr:fibres-de-pousses-de-bambou has 77 products in 5 languages @2019-02-03
 
 < en:bamboo
-en: Sasa veitchii
-xx: Sasa Veitchii
+en: sasa veitchii
+xx: sasa veitchii
 ja: クマザサ
 description:en: large species of bamboo grass
 wikidata:en: Q3015670
@@ -56419,24 +56751,31 @@ carbon_footprint_fr_foodges_value:fr: 1.3
 
 < en:tuber
 en: Taro
-xx: Taro
+af: Taro
 am: ጎደሬ
 ar: قلقاس مأكول
 be: Colocasia esculenta
 bh: अरुई
+bi: Taro
 bn: কচু
+ca: Taro
 cs: Kolokázie jedlá
+de: Taro
 dv: އޮޅު އަލަ
 el: Κολοκασία η εδώδιμος
+eo: Taro
 es: Colocasia esculenta
+eu: Taro
 fa: تارو
 fi: Taaro
 fj: Dalo
 fr: Colocasia esculenta
+gl: Taro
 gu: અળવી
 ha: Gwaza
 he: טארו
 hi: अरबी सब्जी
+hr: taro
 ht: Chou Karayib
 hu: Taró
 id: Talas
@@ -56454,20 +56793,27 @@ ml: താള്
 mr: अळू
 ms: Keladi Cina
 ne: कर्कलो
+nl: Taro
+nn: Taro
+no: Taro
 pa: ਅਰਵੀ
 pl: Kolokazja jadalna, taro, eddo, kolokazja, kleśnica, kleśniec jadalny
+pt: Taro
 rn: Amateke
 ru: Таро
 sg: Langä
+sl: Taro
 sm: Talo
 sr: Таро
 su: Kimpul
+sv: Taro
 sw: Magimbi
 ta: சேம்பு
 th: เผือก
 tl: Gabi
 to: Talo
 tr: Gölevez
+ty: Taro
 uk: Таро
 ur: تارو
 vi: Colocasia esculenta
@@ -56482,13 +56828,14 @@ wikidata:en: Q227997
 
 < en:vegetable
 en: crudités
-xx: Crudités
+xx: crudités
+de: Crudités
 fi: raakavihannekset
 he: קרודיטה
-nl: Rauwkost
+nl: rauwkost
 zh: 法式生菜沙拉
-# zh-hans:法式生菜沙拉
-# zh-tw:法式生菜沙拉
+# zh-hans: 法式生菜沙拉
+# zh-tw: 法式生菜沙拉
 wikidata:en: Q2142465
 wikipedia:en: https://en.wikipedia.org/wiki/Crudités
 # ingredient/fr:crudités has 74 products in french @2019-03-29
@@ -56703,29 +57050,37 @@ wikipedia:en: https://en.wikipedia.org/wiki/Cardoon
 
 < en:vegetable
 en: aloe vera
-xx: Aloe Vera
 am: ሬት
 ar: صبر حقيقي
 as: চাল-কুঁৱৰী
 az: Əsl əzvay
 bg: алое вера
 bn: ঘৃতকুমারী
+bs: Aloe vera
 ca: àloe vera
+co: Aloe vera
 cs: aloe pravá
 da: Læge-Aloe, aloe vera
 de: Aloe vera, Echte Aloe
 el: Αλόη η γνησία
 eo: Aloo vera
+es: aloe vera
 et: Harilik aaloe
+eu: Aloe vera
 fa: شب‌یار
 fi: lääkeaaloe, aloe vera
+fr: aloe vera
 gl: Áloe vera
+gn: Aloe vera
 gu: કુંવારપાઠું
 he: אלוורה
 hi: घृत कुमारी
+hr: aloe vera
 ht: Pye lalwa
 hu: Orvosi aloé
 id: Lidah Buaya
+is: Aloe vera
+it: aloe vera
 ja: アロエベラ
 jv: Ilat baya
 kk: Алоэ вера
@@ -56737,6 +57092,7 @@ mk: Алое вера
 ml: കറ്റാർവാഴ
 ms: Pokok Lidah Buaya
 my: ရှားစောင်းလက်ပတ်ပင်
+nb: Aloe vera
 ne: घिउ कुमारी
 nl: aloe vera, Aloë vera
 oc: Àloe vera
@@ -56744,28 +57100,37 @@ or: ଘିକୁଆଁରୀ
 pa: ਕੁਆਰ ਗੰਦਲ
 pl: Aloes zwyczajny
 pt: babosa
+ro: Aloe vera
 ru: алоэ вера
 sa: घृतकुमारी
 sh: Obična aloja
 si: කෝමාරිකා
 sk: Aloa pravá
+sl: Aloe vera
+sq: Aloe vera
 sr: обична алоја
 su: Lidah buaya
 sv: Äkta aloe
 ta: Aloe Verra
 te: కలబంద
 th: ว่านหางจระเข้
+tl: Aloe vera
 to: ʻAloe
 tr: Tıbbi sarısabır
+uk: Aloe vera
 vi: Lô hội
 zh: 庫拉索蘆薈
 # aeb-arab:مروصبر
+# ast:Aloe vera
+# bcl:Aloe vera
 # bho:ढेंकुआरि
+# ceb:Aloe vera
 # hsb:Prawy alowej
 # lbe:Алоэ
 # mai:घृत कुमारी
 # nah:Caxtillān mexcalmetl
 # sgs:Alėjuošios
+# war:Aloe vera
 # yue:美國蘆薈
 # zh-hans:库拉索芦荟
 # zh-hant:庫拉索蘆薈
@@ -58301,7 +58666,6 @@ fr: piment inca, piments inca
 # ingredient/fr:extrait-de-piment has 72 products in 6 languages @2019-04-15
 
 #process:en: en:pureed
-#process:en: en:paste
 < en:chili pepper
 en: chili puree, chilli puree
 bg: пиперково пюре
@@ -58312,6 +58676,11 @@ hr: pire od čilija
 it: purea di peperoncino
 # ingredient/fr:purée-de-piments has 136 products in 4 languages @2019-04-15
 # usage:fr:purée de piments (piments, sel)
+
+#process:en: en:paste
+< en:chili pepper
+en: chili paste
+sv: chilipasta
 
 #process:en: en:flakes
 #<en:chili pepper
@@ -58655,15 +59024,19 @@ pl: pieprz syczuański
 
 < en:spice
 en: paprika
-xx: Paprika
 ar: بابريكا
+az: paprika
+br: paprika
+bs: paprika
 ca: pebre vermell, piment vermell, pebre vermell picant
 cy: Paprica
+de: Paprika
 el: πάπρικα
 eo: papriko
 es: pimentón, paprika
 eu: piperrauts
 fa: پاپریکا
+fr: paprika
 ga: pemento
 he: פפריקה
 hr: začinska paprika
@@ -58672,12 +59045,15 @@ io: papriko
 it: paprica, paprika
 ja: パプリカ
 ko: 파프리카
+lt: paprika
 mk: црвен пипер
+ms: paprika
 pt: paprica
 ro: boia
 ru: паприка
 sr: паприка
 tg: паприка
+tl: Paprika
 uk: паприка
 zh: 辣椒粉
 ciqual_food_code:en: 11049
@@ -63337,12 +63713,13 @@ ru: ядро ореха фундука дробленое
 ###################################################################################################
 < en:plant
 en: maca
-xx: Maca
-ba: Ҡандалагөл
-el: Μάκα
+xx: maca
+ba: ҡандалагөл
+de: Maca
+el: μάκα
 ja: マカ
 ko: 마카
-qu: Maka
+qu: maka
 zh: 印加萝卜
 wikidata:en: Q795158
 
@@ -63360,8 +63737,8 @@ pt: raiz de maca preta
 
 < en:maca
 en: lepidium meyenii
-xx: Lepidium Meyenii
-fi: Andienkrassi
+xx: lepidium meyenii
+fi: andienkrassi
 
 < en:maca
 en: lepidium peruvianum, peruvian ginseng
@@ -65391,7 +65768,7 @@ ja: 胡麻ペスト
 nl: sesampasta
 pl: pasta sezamowa
 ro: pastă de susan, pastă de seminte de susan
-sv: sesam-kräm, sesampasta
+sv: sesampasta, sesam-kräm, sesam pasta
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pâte-de-sésame
 # 105 products in 4 languages @2018-10-05
 
@@ -67963,7 +68340,6 @@ it: burnet
 #category/dill
 < en:herb
 en: dill
-xx: Dill
 af: dille
 am: እንስላል
 ar: شبت
@@ -67978,6 +68354,7 @@ co: finochju
 cs: kopr
 cy: llysiau'r gwewyr
 da: dild
+de: dill
 dv: ދަމުއި
 el: άνηθος
 eo: aneto
@@ -67997,6 +68374,7 @@ ht: lanni
 hu: kapor
 hy: սամիթ
 io: aneto
+is: dill
 it: aneto
 ja: イノンド
 ka: კამა
@@ -68012,7 +68390,9 @@ mk: ко́пар
 ml: ചതകുപ്പ
 mr: शेपू
 my: စမြိတ်ပင်
+nb: dill
 nl: dille
+nn: dill
 oc: anet
 or: ସୋୟା
 os: хъонтхора
@@ -68028,6 +68408,7 @@ sk: kôpor
 sl: koper
 sq: kopra
 sr: мирођија
+sv: dill
 sw: bizari
 ta: சதகுப்பி
 te: శత పుష్పం
@@ -68701,32 +69082,37 @@ ja: アオジソ, 青紫蘇, 青じそ, 青ジソ, 大葉
 
 < en:herb
 en: sumac
-xx: Sumac
 ar: سماق
 az: Sumaq
 be: Сумах
 bg: Сумак
+ca: sumac
 cs: Sumah
 da: Sumak
 #diq:Sumaq
 el: σουμάκι
 eo: Sumako
+es: sumac
 eu: Zumake
 fi: Sumakit
+fr: Sumac
 ga: Sumach
 gl: Sumagre
 he: סומאק
 hr: ruj
 hy: Աղտոր
+id: Sumac
 io: Sumako
 it: Sommacco
 ja: スマック
+jv: Sumac
 ku: Simaq
 lt: Žagrenis
 nl: Sumak, zuurkruid
 nv: Kʼįįʼ
 pl: Sumak, sumaku
 ru: Сумак
+#sco:Sumac
 tr: Sumak
 uk: Сумах
 wikidata:en: Q16131953
@@ -70410,26 +70796,44 @@ pt: folha de ginkgo biloba
 
 < en:plant
 en: guarana
-xx: Guarana
 ar: غوارانا
 az: Quarana
 bg: гуарана
+bs: Guarana
 ca: guaranà
+cs: Guarana
+da: Guarana
+de: Guarana
 es: Guaraná
 et: Guaraana
 fa: گوارنا
+fi: guarana
+fr: guarana
 ga: Guaraná
 gl: Guaraná
 he: גוארנה
+hr: guarana
+hu: Guarana
+id: Guarana
+is: Guarana
 it: guaranà
 ja: ガラナ
 ka: გუარანა
 ko: 과라나
 la: Paullinia cupana
+lt: Guarana
+lv: Guarana
 mk: Гуарана
+ms: Guarana
+nb: Guarana
+nl: Guarana
 pl: Guarana, guarany
+ro: Guarana
 sh: Gvarana
+sl: Guarana
 sr: гварана
+sv: Guarana
+tr: Guarana
 uk: Гуарана
 zh: 瓜拿納
 # azb:قوارانا
@@ -70933,8 +71337,9 @@ wikipedia:en: https://en.wikipedia.org/wiki/Tilia
 ###################################################################################################
 < en:plant
 en: ginseng
-xx: Ginseng
+xx: ginseng
 bg: женшен
+de: Ginseng
 fr: gingseng
 pl: żeńszeń, żeń-szeń, żeń-szenia, żeńszenia
 
@@ -71797,25 +72202,45 @@ wikipedia:en: https://en.wikipedia.org/wiki/Plantago_lanceolata
 
 < en:plant
 en: rooibos
-xx: Rooibos
+af: Rooibos
 ar: رويبوس
 bg: ройбос
 br: Te ruz
+ca: Rooibos
+cs: Rooibos
+da: Rooibos
 de: Rooibos, Rotbusch
 eo: Rojbos-arbusto
+es: rooibos
 et: Rooibos, Tee-punapõõsas
+eu: Rooibos
 fa: راوند
 fi: rooibos, kapinroibospensas, kapinroibos, rooibos-pensaan lehti
+fr: rooibos
+gl: Rooibos
 he: רויבוש
 hr: afričkog crvenog grma, aspalanthus linearis
 hu: Vörös fokföldirekettye
+id: Rooibos
+it: Rooibos
 ja: ルイボス
 kk: Ройбұш
 ko: 루이보스
 la: Aspalathus linearis
+lb: Rooibos
+lt: rooibos
 lv: rooibos tēja
+ms: Rooibos
+nb: Rooibos
+nl: rooibos
+pl: Rooibos
+pt: rooibos
+ro: Rooibos
 ru: Ройбос
+sl: Rooibos
 sr: Роибос
+sv: Rooibos
+tr: rooibos
 uk: Ройбуш
 vi: Chè Rooibos
 zh: 南非茶
@@ -73255,30 +73680,31 @@ xx: za'atar
 
 < en:plant
 en: wasabi
-xx: Wasabi
+xx: wasabi
 ar: وسابي
 bg: уасаби
-el: Γουασάμπι
-eo: Vasabio
+de: Wasabi
+el: γουασάμπι
+eo: vasabio
 es: wasabi, salsa de wasabi
-et: Vasaabi
+et: vasaabi
 fa: ואסאבי
 fi: maustekrassi, wasabi, japaninpiparjuuri
 fr: wasabi, raifort japonais
 he: वसाबी
 hi: वसाबी
-hu: Vaszabi
+hu: vaszabi
 it: wasabi, rafano giapponese
 ja: ワサビ
 ko: 고추냉이
-ru: Васаби
+ru: васаби
 th: วาซาบิ
 tr: vasabi
-uk: Васабі
+uk: васабі
 yi: וואסאבי
 zh: 山葵
-# yue:山葵
-# zh-tw:山葵
+# yue: 山葵
+# zh-tw: 山葵
 # wikidata:en:Q12378304
 # wikidata:en:Q49855
 wikipedia:en: https://en.wikipedia.org/wiki/Wasabi
@@ -73288,20 +73714,24 @@ wikipedia:en: https://en.wikipedia.org/wiki/Wasabi
 
 < en:plant
 en: rhodiola rosea
-xx: Rhodiola Rosea
 az: çəhrayı rodiola
 ba: алтын тамыр
+ca: rhodiola rosea
 cs: rozchodnice růžová
 cy: pren y ddannoedd
 da: almindelig rosenrod
 de: rosenwurz
 el: ροδιόλα η ροδόχρους
+es: rhodiola rosea
 et: roosilõhnaline kuldjuur
+eu: rhodiola rosea
 fi: ruusujuuri
+fr: rhodiola rosea
 hi: रोडियोला रोजिया
 hr: ružičasti žednjak
 hu: illatos rózsásvarjúháj
 is: burnirót
+it: rhodiola rosea
 ja: イワベンケイ
 kk: алтын тамыр
 kl: tullerunnaq
@@ -73313,12 +73743,14 @@ nb: rosenrot
 nl: rozewortel
 nn: rosenrot
 pl: różeniec górski
+ro: rhodiola rosea
 ru: родиола розовая
 se: gálberássi
 sl: rožni koren
 sv: rosenrot
 uk: родіола рожева
 zh: 红景天
+# ast:rhodiola rosea
 # be_x_old:ружавая радыёла
 # ceb:rhodiola rosea
 # hsb:róžatka
@@ -73449,18 +73881,21 @@ wikipedia:en: https://en.wikipedia.org/wiki/Nozawana
 
 < en:plant
 en: Gardenia jasminoides
-xx: Gardenia Jasminoides
 ar: غردينية ياسمينية
 as: তগৰ
 az: Jasminəbənzər qardeniya
+be: Gardenia jasminoides
 bn: গন্ধরাজ
+ca: Gardenia jasminoides
 cs: Gardénie jasmínovitá
 de: Gardenie
+es: Gardenia jasminoides
 fa: گاردنیا
 fi: Kiinangardenia
 hi: अनंत वृक्ष
 hr: gardenija jasminoidna
 id: Kacapiring
+it: Gardenia jasminoides
 ja: クチナシ
 jv: Ceplok piring
 ko: 치자나무
@@ -73470,12 +73905,15 @@ ne: इन्द्रकमल
 nl: Kaapse jasmijn
 no: Gardenia
 pl: Gardenia jaśminowata
+pt: Gardenia jasminoides
+ro: Gardenia jasminoides
 ru: Гардения жасминовидная
 su: Kacapiring
 ta: கும்பிலி
 th: พุดซ้อน
 to: Siale matalateau
 ty: Taina
+uz: Gardenia jasminoides
 vi: Dành dành
 zh: 栀子花
 wikidata:en: Q1072101
@@ -73595,27 +74033,44 @@ wikipedia:en: https://en.wikipedia.org/wiki/Algae
 
 < en:algae
 en: chlorella
-xx: Chlorella
 ar: كلوريلا
 be: Хларэла
 bg: Хлорела
 bn: Хлорела
+ca: Chlorella
+cs: Chlorella
+da: Chlorella
+de: Chlorella
 eo: Klorelo
+es: Chlorella
 et: Klorella
+eu: Chlorella
 fi: Klorella
 fr: chlorella, chlorelle
 ga: Clóireile
+gl: Chlorella
 he: כלורלה
 hr: chlorella, klorela alge
 hy: քլորելա
+ia: Chlorella
+id: Chlorella
+it: Chlorella
 ja: クロレラ
 kk: Хлорелла
 ko: 클로렐라
 ky: Хлорелла
+la: Chlorella
+nl: Chlorella
 pl: Chlorella, chlorelli
+pt: Chlorella
 ru: Хлорелла
+sh: Chlorella
 sk: Chlorela
+sl: Chlorella
+sw: Chlorella
+tr: Chlorella
 uk: Хлорела
+vi: Chlorella
 description:en: CHLORELLA is a genus of single-celled green algae belonging to the division Chlorophyta.
 # pt-br:Clorela
 wikidata:en: Q133017
@@ -73844,16 +74299,20 @@ nl: Lithothamnium calcareum
 
 < en:algae
 en: dulse
-xx: Dulse
 ar: الدلسي
 da: Søl
 de: Lappentang
+es: Dulse
 fi: herkkupunakämmen
+fr: dulse
 ga: Duileasc
 gd: Duileasg
+hr: dulse
 hu: Vörös pálmamoszat
 is: Söl
+it: Dulse
 ja: ダルス
+nl: Dulse
 nn: Søl
 pl: algi morskie dulse, dulse
 # ingredient/fr:dulse has 59 products @2019-02-14
@@ -73952,16 +74411,17 @@ ciqual_food_name:fr: Salicorne (Salicornia sp.), fraîche
 
 < en:seaweed
 en: kombu
-xx: Kombu
-az: Yapon laminariyası
-es: Kombu, alga kombu
+xx: kombu
+az: yapon laminariyası
+de: Kombu
+es: kombu, alga kombu
 fa: کونبو
 fi: kombu, kombu-merilevä
-fr: kombu, Konbu
+fr: kombu, konbu
 hy: կոմբու
 ja: コンブ, 昆布, こんぶ
 ru: комбу
-sk: Konbu
+sk: konbu
 th: คมบุ
 # ingredient/fr:kombu has 20 products in french @2019-02-22
 ciqual_food_code:en: 20990
@@ -74156,16 +74616,21 @@ wikipedia:en: https://en.wikipedia.org/wiki/Himanthalia_elongata
 
 < en:seaweed
 en: wakame
-xx: Wakame
 ar: واكامي
+de: wakame
 eo: Vakameo
 es: wakame, alga wakame
 fa: واکامه
+fi: wakame
 fr: wakamé
 he: ואקאמה
+hr: wakame
+it: Wakame
 ja: ワカメ
 ko: 미역
 la: undaria pinnatifida
+nl: wakame
+pl: wakame
 ru: вакамэ
 th: วะกะเมะ
 vi: Tảo bẹ Undaria
@@ -79129,20 +79594,21 @@ ciqual_food_name:fr: Sole, crue
 
 < en:fish
 en: surimi
-xx: Surimi
+xx: surimi
 ar: سوريمي
 bg: сурими
+de: Surimi
 fa: سوریمی
 ja: 魚肉練り製品
 ko: 고기풀
 mk: сурими
 ru: сурими
-uk: Сурім
-vi: Surimi і
+uk: сурім
+vi: surimi і
 zh: 魚漿
-# zh-hans:魚漿
-# zh-hant:魚漿
-# zh-hk:魚漿
+# zh-hans: 魚漿
+# zh-hant: 魚漿
+# zh-hk: 魚漿
 wikidata:en: Q815740
 wikipedia:en: https://en.wikipedia.org/wiki/Surimi
 # ingredient/fr:surimi has 145 products in 2 languages @2019-01-12
@@ -79158,15 +79624,16 @@ fr: préparation à base de surimi
 # préparation de surimi  (chair de poisson, stabilisants:sorbitol, polyphosphates)
 
 < en:surimi
-en: Kamaboko
-xx: Kamaboko
+en: kamaboko
+xx: kamaboko
 ar: كامبوكو
+de: Kamaboko
 fa: کالباس ماهی
 ja: 蒲鉾, かまぼこ
 ko: 가마보코
-ru: Камабоко
+ru: камабоко
 th: คามาโบโกะ
-uk: Камабоко
+uk: камабоко
 zh: 蒲鉾
 description:en: type of cured surimi, a processed seafood product common in Japanese cuisine
 wikidata:en: Q166204
@@ -83426,8 +83893,9 @@ wikipedia:en: https://en.wikipedia.org/wiki/Parapenaeopsis_sculptilis
 # ingredient/fr:Parapenaeopsis-spp has 1 product @2019-01-06
 
 < en:shrimp
-en: Parapenaeopsis stylifera
-xx: Parapenaeopsis Stylifera
+en: parapenaeopsis stylifera
+xx: parapenaeopsis stylifera
+de: Parapenaeopsis Stylifera
 wikidata:en: Q6491649
 wikipedia:nl: https://nl.wikipedia.org/wiki/Parapenaeopsis_stylifera
 # ingredient/fr:Parapenaeopsis-stylifera has 1 product @2019-01-06
@@ -83444,10 +83912,11 @@ wikipedia:nl: https://nl.wikipedia.org/wiki/Metapenaeus_affinis
 
 
 < en:shrimp
-en: Pandalus jordani
-xx: Pandalus Jordani
+en: pandalus jordani
+xx: pandalus jordani
 ar: نوع من القشريات
-is: Bleikrækja
+de: Pandalus Jordani
+is: bleikrækja
 description:en: Pandalus jordani is een garnalensoort uit de familie van de Pandalidae.
 wikidata:en: Q4470579
 wikipedia:nl: https://nl.wikipedia.org/wiki/Pandalus_jordani
@@ -84403,7 +84872,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Royal_jelly
 # description:en:POLLEN is a fine to coarse powdery substance comprising pollen grains which are male microgametophytes of seed plants, which produce male gametes. Bee pollen for human consumption is marketed as a food ingredient and as a dietary supplement. The largest constituent is carbohydrates, with protein content ranging from 7 to 35 percent depending on the plant species collected by bees.
 
 en: pollen
-xx: Pollen
 af: Stuifmeel
 ar: حبوب اللقاح
 az: Çiçək tozu
@@ -84411,9 +84879,12 @@ ba: Һеркә
 be: Пылок
 bg: Цветен прашец
 bs: Polen
+ca: pollen
 cs: pyl
 cv: Шăрка
 cy: Paill
+da: Pollen
+de: Pollen
 el: Γύρη
 eo: poleno
 es: polen
@@ -84440,12 +84911,15 @@ kk: Тозаң
 kn: ಪರಾಗ ಮತ್ತು
 ko: 꽃가루
 ku: polen
+la: pollen
 lt: Žiedadulkė
 lv: Putekšņi
 mk: Полен
 ml: പരാഗം
 ms: Debunga
+nb: pollen
 nl: stuifmeel
+nn: Pollen
 oc: Pollèn
 pl: Pyłek
 pt: pólen
@@ -84456,6 +84930,7 @@ sh: Pelud
 sk: Včelí peľ
 sl: Pelod
 sr: Полен
+sv: Pollen
 sw: Mbelewele
 ta: மகரந்தம்
 te: పుప్పొడి
@@ -84468,9 +84943,12 @@ uz: Chang donachalari
 vi: Phấn hoa
 zh: 花粉
 # ast:Polen
+# en-gb:pollen
 # glk:گَرده
+# nds:Pollen
 # pnb:پراگ
 # scn:Pòllini
+# sco:pollen
 # wuu:花粉
 # zh-hans:花粉
 wikidata:en: Q79932
@@ -88556,11 +89034,14 @@ it: betaglucano
 # fodmap:en:yes
 < en:vegetable fiber
 en: inulin
-xx: Inulin
 ar: إينولين
 be: Інулін
 bg: Инулин
+bs: Inulin
 ca: Inulina
+cs: Inulin
+da: Inulin
+de: Inulin
 eo: Inulino
 es: Inulina
 eu: Inulina
@@ -88570,23 +89051,32 @@ fr: inuline
 gl: Inulina
 he: אינולין
 hr: inulin, prehrambena vlakna Beneo, inulin od cikorije, vlakna inulina, inulinsko vlakno
+hu: Inulin
 hy: Ինուլին
+id: Inulin
 io: Inulino
 it: Inulina
 ja: イヌリン
+jv: Inulin
 lt: Inulinas
 lv: inulīns
 mk: Инулин
+nb: inulin
 nl: Inuline
+nn: Inulin
 pl: Inulina
 pt: Inulina
 ro: Inulina
 ru: инулин
+sh: inulin
+sl: Inulin
 sr: Инулин
 sv: inulin, inulinfiber
 th: อินูลิน
 tr: İnülin
 uk: Інулін
+uz: Inulin
+vi: Inulin
 zh: 菊粉
 # azb:اینولین
 # be-tarask:Інулін
@@ -89145,6 +89635,8 @@ zh: 生麵團
 # zh-hk:生麵團
 # zh-sg:生面团
 # zh-tw:生麵團
+vegan:en: maybe
+vegetarian:en: yes
 wikidata:en: Q178024
 wikipedia:en: https://en.wikipedia.org/wiki/Dough
 
@@ -89412,10 +89904,11 @@ fr: pâtes alimentaires aux oeufs cuites
 
 < en:pasta
 en: tagliatelle
-xx: Tagliatelle
+xx: tagliatelle
 ar: تالياتيلي
 bg: талиатели
 ca: tallarina
+de: Tagliatelle
 el: ταλιατέλες
 es: tallarines
 fa: تالیاتله
@@ -89424,9 +89917,9 @@ ko: 탈리아텔레
 ru: тальятелле
 th: ตัลยาเตลเล
 uk: тальятеле
-# lfn:talieta
-# scn:tagghiateddi
-# zh_yue:細闊麪
+# lfn: talieta
+# scn: tagghiateddi
+# zh_yue: 細闊麪
 wikidata:en: Q20044
 wikipedia:en: https://en.wikipedia.org/wiki/Tagliatelle
 # ingredient/fr:tagliatelle has 5 products in 1 language @2020-06-13
@@ -89461,54 +89954,67 @@ wikipedia:en: https://en.wikipedia.org/wiki/Orzo
 
 < en:pasta
 en: spaghetti
-xx: Spaghetti
+af: spaghetti
 ar: سباغيتي
 be: спагеці
 bg: спагети
 ca: espagueti
 cs: špagety
+da: spaghetti
+de: spaghetti
 el: σπαγγέτι
 eo: spagetoj
 es: espagueti
 eu: espageti
 fa: اسپاگتی
 fi: spagetti
+fr: spaghetti
 gl: espaguetes
 he: ספגטי
 hi: स्पगैटी
 hr: špageti
 hu: spagetti
 hy: սպագետտի
+ia: spaghetti
 id: spageti
 is: spaghettí
+it: spaghetti
 ja: スパゲッティ
 jv: spagèti
 kk: спагетти
 ko: 스파게티
 ky: спагетти
 la: pasta vermiculata
+lb: spaghetti
 lt: spagečiai
 lv: spageti
 mk: шпагети
+ms: spaghetti
 my: စပါဂတီခေါက်ဆွဲ
 nb: spagetti
+nl: spaghetti
 nn: spagetti
 nv: kʼíneeshbízhiinééz
 pl: spaghetti, makaron spaghetti
 pt: espaguete
 ro: spaghete
 ru: спагетти
+se: spaghetti
 sk: špageta
 sl: špageti
 sr: шпагети
+su: spaghetti
 sv: spagetti
+sw: spaghetti
 ta: ஸ்பாகெட்டி
 th: สปาเกตตี
 tl: ispageti
 tr: spagetti
 uk: спагеті
+vi: spaghetti
 zh: 意大利粉
 # atj:spaktci
+# bcl:spaghetti
 # be_x_old:спагецьці
 # ilo:spaghetti
 # jbo:cidjrspageti
@@ -89627,8 +90133,9 @@ wikipedia:en: https://en.wikipedia.org/wiki/Penne
 
 < en:pasta
 en: linguine
-xx: Linguine
+xx: linguine
 ar: لنغويني
+de: Linguine
 eo: langetoj
 fa: لینگوئینی
 he: לינגוויני
@@ -89832,6 +90339,7 @@ it: pasta all'uovo
 nl: eierpasta
 pl: makaron jajeczny
 allergens:en: en:eggs
+vegan:en: no
 wikidata:en: Q53619707
 # 92 in 4 languages @2021-09-16
 
@@ -89984,30 +90492,44 @@ fr: vermicelles cuits
 
 #<en:compound
 en: nachos
-xx: Nachos
 ar: ناتشوز
 be: начас
 bg: начос
+ca: nachos
+cs: nachos
+de: nachos
 el: νάτσος
+es: nachos
+eu: nachos
 fa: ناچوز
 fi: nacho
+fr: nachos
 gl: nacho
 he: נאצ'וס
 hr: načos
 id: nacho
+it: nachos
 ja: ナチョス
 jv: nacho
 ka: ნაჩო
 kn: ನಾಚೋಸ್
 ko: 나초
+la: nachos
 lt: načios
 ml: നാച്ചോസ്
+ms: nachos
+nb: nachos
 ne: नाचोस्
 nl: nacho's
 pa: ਨਾਚੋਜ਼
 pl: nachos, nachosy
+pt: nachos
+ro: nachos
 ru: начос
+sk: nachos
+sv: nachos
 ta: நாச்சோ
+tr: nachos
 uk: начос
 vi: nacho
 zh: 烤乾酪辣味玉米片
@@ -90266,6 +90788,8 @@ nova:en: 3
 # zh-my:面包
 # zh-sg:面包
 # zh-tw:麵包
+vegan:en: maybe
+vegetarian:en: yes
 wikidata:en: Q7802
 wikipedia:en: https://en.wikipedia.org/wiki/Bread
 
@@ -90473,7 +90997,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Corn_tortilla
 
 < en:bread
 en: baguette
-xx: Baguette
+af: baguette
 ar: خبز فرنسي
 az: baget
 be: французскі багет
@@ -90481,23 +91005,35 @@ bg: франзела
 ca: baguet
 cs: bageta
 cv: франс багечĕ
+da: baguette
+de: baguette
 eo: bastonpano
+es: baguette
 fa: باگت
 fi: patonki
+fr: baguette
 he: בגט
 hr: baget
+hu: baguette
 hy: ֆրանսիական բագետ
+id: baguette
+it: baguette
 ja: フランスパン
+jv: baguette
 ka: ბაგეტი
 ko: 바게트
 mk: багет
+ms: baguette
+nb: baguette
 nl: stokbrood
 nn: bagett
 pl: bagietka, bagietki
 pt: baguete
 ru: французский багет
 sk: bageta
+sq: baguette
 sr: француски хлеб
+sv: baguette
 th: บาแก็ต
 tr: francala
 uk: французький багет
@@ -90700,27 +91236,28 @@ wikipedia:en: https://en.wikipedia.org/wiki/Pierogi
 # <en:compound
 < en:stuffed pasta
 en: ravioli
-xx: Ravioli
+xx: ravioli
 ar: رافيولي
-bg: Равиоли
+bg: равиоли
 cs: ravioly
+de: Ravioli
 el: ραβιόλια
-eo: Ravioloj
+eo: ravioloj
 fa: راویولی
 he: רביולי
-hy: Ռավիոլի
+hy: ռավիոլի
 ja: ラビオリ
-kk: Равиоли
+kk: равиоли
 ko: 라비올리
-lt: Ravioliai
-ru: Равиоли
-sk: Raviola
+lt: ravioliai
+ru: равиоли
+sk: raviola
 th: ราวีโอลี
-uk: Равіолі
+uk: равіолі
 zh: 意大利餃
-# zh-cn:意大利餃
-# zh-hans:意大利餃
-# zh-hant:意大利餃
+# zh-cn: 意大利餃
+# zh-hans: 意大利餃
+# zh-hant: 意大利餃
 wikidata:en: Q20053
 wikipedia:en: https://en.wikipedia.org/wiki/Ravioli
 # ingredient/ravioli has 92 products in 6 languages @2019-02-17
@@ -90876,7 +91413,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Speculaas
 # <en:compound
 < en:biscuit
 en: speculaas
-xx: Speculaas
 ar: سبيكولوس
 br: Spekulaas
 cs: Spekulatius
@@ -90884,15 +91420,22 @@ de: Spekulatius
 eo: Spekulaco
 es: spekulatius
 fa: اسپکولاس
+fi: Speculaas
 fr: Spéculos
 gd: Spekulatius
+hr: speculaas
+it: speculaas
 ja: スペキュラース
 ko: 스페퀼로스
 nb: Spekulatius
+nl: speculaas
 nn: Spekulasje
+pl: Speculaas
 pt: spekulaas
 sv: Spekulatius
 zh: 斯派庫魯斯
+# en-ca:speculaas
+# en-gb:speculaas
 # ksh:Spekulatius
 # pcd:Spéculaas
 likely_allergens:en: en:gluten
@@ -91154,24 +91697,26 @@ de: Weizenpaniermehl
 
 < en:breadcrumbs
 en: panko
-xx: Panko
-ru: Панко
+xx: panko
+de: Panko
+ru: панко
 wikidata:en: Q1820454
 # en:panko has 20 products in english @2018-11-12
 
 < en:breadcrumbs
-en: Panada
-xx: Panada
+en: panada
+xx: panada
 de: Panade
-fr: Panade
-mk: Панада
+fr: panade
+mk: панада
 wikidata:en: Q3892955
 # de:comment:Panade (Weizenmehl, Sonnenblumenöl, Salz, Hefe, Gewürz Paprika)
 
 < en:coating
 < en:frying
-en: Tenkasu
-xx: Tenkasu
+en: tenkasu
+xx: tenkasu
+de: Tenkasu
 ja: 天かす
 th: เท็งกาซุ
 wikidata:en: Q783828
@@ -91665,18 +92210,19 @@ fr: confiserie
 # <en:compound
 # mainIngredient:en:sugar
 en: fondant
-xx: Fondant
+xx: fondant
 ar: فندان
-cy: Ffondant
+cy: ffondant
+de: Fondant
 fa: فوندانت
 fi: sokerimassa
 he: בצק סוכר
 hr: fondan
-io: Konfekto
-pl: Masa cukrowa
-ru: Помадка
-tr: Şeker hamuru
-uk: Помадка
+io: konfekto
+pl: masa cukrowa
+ru: помадка
+tr: şeker hamuru
+uk: помадка
 wikidata:en: Q1769523
 wikipedia:en: https://en.wikipedia.org/wiki/Fondant_icing
 # ingredient/fr:fondant has 65 products in 3 languages @2019-03-20
@@ -91770,7 +92316,8 @@ ciqual_food_name:fr: Pâte d'amande, préemballée
 # description:en:PERSIPAN is a material used in confectionery. It is similar to marzipan but apricot or peach kernels are used instead of almonds. Persipan consists of 60% sugar and 40% ground kernels.
 
 en: persipan
-xx: Persipan
+xx: persipan
+de: Persipan
 pl: percepan
 wikidata:en: Q1929741
 wikipedia:en: https://en.wikipedia.org/wiki/Persipan
@@ -93060,6 +93607,8 @@ it: crema al cacao
 pl: krem kakaowy
 pt: creme de cacau
 sv: kakaokräm
+vegan:en: maybe
+vegetarian:en: yes
 
 #<en:compound
 en: hazelnut and cocoa spread
@@ -93067,17 +93616,23 @@ es: crema de cacao y avellanas
 fr: Pâte à tartiner aux noisettes et au cacao, crème de cacao et de noisette
 hr: pasta s kakaom i lješnjacima
 it: crema spalmabile di nocciole e cacao
+vegan:en: maybe
+vegetarian:en: yes
 
 #<en:compound
 en: hazelnut spread
 fr: pâte à tartiner aux noisettes
 hr: lješnjak krem proizvod
 it: crema di nocciole
+vegan:en: maybe
+vegetarian:en: yes
 
 #<en:compound
 en: milk spread
 hr: lino lada mliječni krem proizvod
 it: crema spalmabile al latte
+vegan:en: no
+vegetarian:en: yes
 
 < en:coconut flavouring
 < en:milk spread
@@ -93094,6 +93649,8 @@ it: crema spalmabile al latte con nocciole
 en: nougat spread
 hr: lino lada nougat krem proizvod
 it: crema di torrone
+vegan:en: maybe
+vegetarian:en: yes
 
 ###################################################################################################
 #
@@ -93406,7 +93963,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Espagnole_sauce
 # <en:mainIngredient:en:tomato
 < en:sauce
 en: ketchup
-xx: Ketchup
 af: tamatiesous
 ar: كتشب
 be: кетчуп
@@ -93414,18 +93970,25 @@ bg: кетчуп
 ca: quètxup
 cs: kečup
 cy: sôs coch
+da: ketchup
+de: Ketchup
 el: κέτσαπ
 eo: keĉupo
 es: kétchup, Tomate ketchup
 et: ketšup
+eu: ketchup
 fa: کچاپ
 fi: ketsuppi, tomaattiketsuppi, tomaattiketsuppia, mausteketsuppi
+fr: ketchup
 ga: citseap
+gl: ketchup
 he: קטשופ
 hr: kečap
+hu: ketchup
 hy: կետչուպ
 id: saus tomat ketchup
 is: tómatsósa ketchup
+it: ketchup
 ja: ケチャップ
 jv: saos tomat
 ka: კეტჩუპი
@@ -93438,14 +94001,18 @@ lt: kečupas
 lv: kečups
 mk: кечап
 ms: sos tomato
+nb: ketchup
 nl: ketchup, tomatenketchup
 nn: ketsjup
 pl: keczup, ketchup, keczap
+pt: ketchup
+ro: ketchup
 ru: кетчуп
 sd: ڪيچپ
 sk: kečup
 sl: kečap
 sr: кечап
+sv: ketchup
 ta: கெச்சப்
 th: ซอสมะเขือเทศ
 tl: ketsap
@@ -93491,15 +94058,19 @@ wikipedia:en: https://en.wikipedia.org/wiki/Ketchup
 # <en:compound
 < en:sauce
 en: marinade
-xx: Marinade
 bg: mариноване
 cs: marináda
+da: marinade
+de: Marinade
 es: marinado
 fi: marinadi
+fr: marinade
 hr: marinada
 hu: marinálás
 it: marinata
 lt: marinatas
+nl: marinade
+nn: marinade
 pl: marynata
 pt: marinada
 sv: marinad
@@ -93517,7 +94088,7 @@ fr: marinade tex mex
 #<en:compound
 < en:sauce
 en: mayonnaise
-xx: Mayonnaise
+af: Mayonnaise
 ar: مايونيز
 az: Mayonez
 be: маянэз
@@ -93527,6 +94098,9 @@ br: maionez
 bs: Majoneza
 ca: maionesa
 cs: majonéza
+cy: Mayonnaise
+da: mayonnaise
+de: Mayonnaise
 el: μαγιονέζα
 eo: Majonezo
 es: mayonesa, mahonesa
@@ -93535,6 +94109,7 @@ eu: maionesa
 fa: سس مایونز
 fi: majoneesi
 fo: majonesa
+fr: mayonnaise
 fy: mayonêze
 ga: maonáis
 gl: Maionesa
@@ -93555,6 +94130,7 @@ kk: Майонез
 kn: ಮೇಯನೇಸ್
 ko: 마요네즈
 ku: Mayonez
+lb: Mayonnaise
 li: mayonaise
 lo: ຊອດໄຂ່ແດງ
 lt: Majonezas
@@ -93581,12 +94157,15 @@ sv: majonnäs, majonäs
 ta: மயோனெய்சு
 tg: Майонез
 th: มายองเนส
+tl: Mayonnaise
+tn: Mayonnaise
 tr: Mayonez
 tt: Майонез
 uk: майонез
 uz: Mayonez
 vi: Mayonne
 vo: mäyonäd
+xh: Mayonnaise
 zh: 蛋黃醬
 zu: mayonezi
 # ingredient/mayonnaise 2291  in 19 @2021-08-22
@@ -94193,33 +94772,43 @@ wikipedia:en: https://en.wikipedia.org/wiki/Bolognese_sauce
 
 < en:sauce
 en: vinaigrette
-xx: Vinaigrette
 be: вінегрэт
 bg: Винегрет
 bn: ভিনাইগ্রেট
 br: gwinegrenn
 ca: vinagreta
+cs: vinaigrette
+da: vinaigrette
 de: Vinaigrette, Salatsauce
 el: βινεγκρετ
 eo: Vinagreto
 es: vinagreta
+et: vinaigrette
 eu: Ozpin-olio
 fa: وینگرت
 fi: vinaigrette, vinegretti, viinietikkakastike
 fr: vinaigrette, sauce vinaigrette
 gl: vinagreta
 he: וינגרט
+hr: vinaigrette
 hu: Vinyegret
 id: rasa
+it: vinaigrette
 ja: ヴィネグレットソース
 kk: Винегрет
 ko: 비네그레트
+lb: Vinaigrette
 lt: Burokėlių mišrainė
+ms: Vinaigrette
+nb: vinaigrette
+nl: vinaigrette
+nn: vinaigrette
 pa: ਵਿਨੈਗਰੇਟ
 pl: winegret
 pt: vinagrete
 ru: винегретная заправка, соус винегрет
 sq: vinagrete
+sv: vinaigrette
 uk: внегрет
 vi: Dầu giấm
 zh: 醋酱
@@ -94390,16 +94979,20 @@ wikipedia:en: https://en.wikipedia.org/wiki/Hot_sauce
 
 < en:hot sauce
 en: sambal
-xx: Sambal
+xx: sambal
+de: Sambal
 description:en: Sambal is an Indonesian chili sauce or paste typically made from a mixture of a variety of chili peppers with secondary ingredients such as shrimp paste, garlic, ginger, shallot, scallion, palm sugar, and lime juice.
 wikidata:en: Q1056554
 wikipedia:en: https://en.wikipedia.org/wiki/Sambal
 
+< en:chili paste
 < en:sambal
 en: sambal oelek
-xx: Sambal Oelek
+xx: sambal oelek
+de: Sambal Oelek
 description:en: Raw chili paste (bright red, thin and sharp tasting). Can be used as the base for making other sambals or as an ingredient for other cuisines.
 
+< en:chili paste
 < en:hot sauce
 en: Kanzuri
 it: kanzuri
@@ -94793,6 +95386,7 @@ pl: hummus
 ro: hummus, humus
 ru: хумус
 sr: хумус
+sv: hummus, original hummus, hummus original
 th: ฮัมมัส
 tl: humus
 tr: humus
@@ -94806,10 +95400,20 @@ ciqual_food_name:fr: Houmous
 wikidata:en: Q241987
 wikipedia:en: https://en.wikipedia.org/wiki/Hummus
 
+< en:chili pepper
+< en:hummus
+en: chili hummus
+sv: hummus med chili, hummus chili
+
+< en:hummus
+< en:sundried tomatoes
+en: sundried tomato hummus
+sv: hummus med soltorkad tomat, hummus soltorkad tomat
 
 en: falafel
-xx: Falafel
+xx: falafel
 bg: фалафел
+de: Falafel
 pl: falafel, falafla, falafle, falafele
 wikidata:en: Q188788
 wikipedia:en: https://en.wikipedia.org/wiki/Falafel
@@ -94878,6 +95482,10 @@ hr: aromatična karamela
 it: caramello aromatico
 nl: aromatische karamel, aromatiserende karamel
 pt: caramelo aromático
+
+en: natural colorings
+sv: naturligt färgande livsmedel
+# labels:en:natural colorings
 
 # filled ingredients, is compound as it contains multiple other ingredients
 
