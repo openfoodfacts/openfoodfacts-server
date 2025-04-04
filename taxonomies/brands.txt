@@ -8,6 +8,8 @@
 # The brands taxonomy should not be used to:
 # - handle misspelings (do not add misspellings in the taxonomy as synonyms)
 # - handle parent / child brands (too much potential for errors and conflicts, especially in an international setting and with products from different types)
+# Note: an old draft owners/brands taxonomy lives in taxonomies/unused/brands.txt, but it is hierarchic, which is something we do not want in this taxonomy.
+# You can usefully read: https://wiki.openfoodfacts.org/Brands to get up and running on the subtleties of the topic.
 
 
 xx: Albert Heijn
