@@ -1,0 +1,21 @@
+theme:
+  openapi:
+    schemaDefinitionsTagName: Schemas
+apis:
+  main:
+    root: docs/api/ref/api.yml
+  test:
+    root: docs/api/ref/api-v3.yml
+extends:
+  - recommended
+rules:
+  tag-description: off
+  operation-summary: error
+  no-unresolved-refs: error
+  no-unused-components: error
+  operation-2xx-response: error
+  operation-operationId: error
+  operation-singular-tag: error
+  no-enum-type-mismatch: error
+  no-identical-paths: error
+  no-ambiguous-paths: error  
