@@ -10307,7 +10307,7 @@ en: cobalamin, Vitamin B12, B12, Cyanocobalamin, Cyanocobalamine
 de: Cyanocobalamin, Cyanocobalamine
 hr: kobalamin
 ja: コバラミン, ビタミンB12
-
+sv: vitamin B12, B12, kobalamin
 
 < en:vitamins
 en: vitamin b8, B8
@@ -17455,6 +17455,7 @@ nl: olijfolie van de eerste persing
 no: virgin olivenolje, jomfru olivenolje
 pl: Oliwa z oliwek z pierwszego tłoczenia, Oliwa z oliwek virgin
 pt: azeite de oliva virgem, azeite virgem
+sv: jungfruolivolja, virgin olivolja
 
 < en:olive oil
 fr: huile d'olive extra
@@ -24924,7 +24925,7 @@ pt: trigo integral
 sk: polnozrnata pšenica
 sl: pšenični polnozrnati
 sr: integralna pšenična
-sv: fullkornsvete
+sv: fullkornsvete, fullkorn av vete
 zh: 全麥小麥
 ciqual_food_code:en: 9010
 ciqual_food_name:en: Wheat, whole, raw
@@ -25024,7 +25025,7 @@ lt: kvietinis salyklas
 nl: tarwemout
 pl: słód pszenny, słód pszeniczny
 pt: Malte de trigo
-sv: vetemalt, mältade vetekorn
+sv: vetemalt, mältade vetekorn, malt av vete
 
 < en:vegetable fiber
 en: wheat fiber
@@ -26166,6 +26167,10 @@ wikidata:en: Q2743860
 # 94 @2021-10-22
 
 < en:barley
+en: barley wort
+sv: kornvört, vört av korn
+
+< en:barley
 en: barley extract
 bg: екстракт от ечемик
 de: Gerstenextrakt
@@ -27209,6 +27214,7 @@ en: instant oatmeal, thin-rolled oats
 it: fiocchi d'avena istantanei
 pl: płatki owsiane błyskawiczne
 
+< en:gluten free oats
 < en:oat flakes
 en: gluten-free oat flakes
 bg: безглутенови овесени ядки
@@ -27220,8 +27226,10 @@ hr: zobene pahuljice bez glutena
 hu: gluténmentes zabpehely
 it: fiocchi di avena senza glutine, fiocchi d'avena senza glutine
 pl: płatki owsiane bezglutenowe, bezglutenowe płatki owsiane
+sv: glutenfria havregryn
 
 < en:oat flakes
+< en:wholemeal oat
 en: whole grain oat flakes, wholegrain oat flakes, whole grain rolled oats, whole oat flakes
 ca: floca de civada integral, flocs de civada integral
 da: fullkornshavregryn
@@ -27292,6 +27300,7 @@ pl: mąka owsiana pełnoziarnista
 pt: farinha de aveia integral
 sv: fullkornshavremjöl
 
+< en:gluten free oats
 < en:oat flour
 en: gluten free oat flour
 de: glutenfreies Hafermehl
@@ -27325,6 +27334,7 @@ tr: yulaf lifi
 wikidata:en: Q108654342
 #2903 @2021-09-22
 
+< en:gluten free oats
 < en:oat fibre
 en: gluten free oat fibre
 de: glutenfreie Haferfaser
@@ -27409,6 +27419,8 @@ hr: sirup od zobi
 it: base de avena
 nl: haverbasis
 sv: havrebas
+vegan:en: maybe
+vegetarian:en: maybe
 # usage:en:oat base (water, oats)
 # mainIngredient:en:water
 # ingredient/fr:jus-d'avoine has 5 products in 2 languages @2020-06-08
@@ -27861,7 +27873,7 @@ it: malto di segale
 nl: roggemout
 pl: słód żytni
 ru: солод ржаной
-sv: rågmalt
+sv: rågmalt, malt av råg
 # 138 in 9 @2021-10-28
 
 < en:rye malt
@@ -27959,7 +27971,7 @@ ru: спельта
 sk: špalda
 sl: pira
 sr: крупник, krupnik
-sv: spelt, speltvete
+sv: spelt, speltvete, dinkel, dinkelvete
 ta: ஸ்பெல்ட்
 tr: kavuzlu buğday
 tt: борай
@@ -28025,6 +28037,11 @@ pl: płatki orkiszowe
 < en:spelt
 nl: speltschroot
 
+< en:spelt
+en: spelt flakes
+sv: speltflingor, dinkelveteflingor, flingor av dinkelvete
+
+< en:spelt flakes
 < en:whole spelt
 en: whole grain spelt flakes
 de: Dinkelvollkornflocken, Dinkelvollkornschrot
@@ -28090,7 +28107,7 @@ nl: speltmeel, speltbloem, spelttarwemeel
 pl: mąka orkiszowa, mąka z pszenicy orkisz
 pt: farinha de espelta
 sk: múka z pšenice špaldy
-sv: speltvetemjöl, dinkelmjöl
+sv: speltvetemjöl, dinkelmjöl, dinkelvetemjöl, mjöl av dinkelvete
 ciqual_food_code:en: 9480
 ciqual_food_name:en: Spelt flour
 ciqual_food_name:fr: Farine d'épeautre (grand épeautre)
@@ -33487,8 +33504,35 @@ de: Golden Syrup
 fr: Mélasse blonde
 hr: zlatni sirup
 it: sciroppo d'oro
+sv: gyllene sirap
 wikidata:en: Q2688129
 wikipedia:en: https://en.wikipedia.org/wiki/Golden_syrup
+
+< en:sugar syrup
+en: light syrup
+da: lys sirup
+et: tume siirup, tume suhkrusiirup
+fi: vaalea siirappi
+lt: tamsusis sirupas
+lv: tumšais sīrups, tumšais cukura sīrups
+nb: lys sirup
+ru: карамельный сироп
+sv: ljus sirap
+uk: карамельный сироп
+description:en: Light syrup is similar to Golden Syrup, but is made slightly differently and is a bit thinner.
+
+< en:sugar syrup
+en: dark syrup
+da: mørk sirup
+et: hele siirup, hele suhkrusiirup
+fi: tumma siirappi
+lt: auksaspalvis sirupas
+lv: zeltainais sīrups, zeltainais cukura sīrups
+nb: mørk sirup
+ru: тёмньій сироп
+sv: mörk sirap
+uk: темный сироп
+description:en: Dark syrup is similar to a mix of golden syrup and black treacle, being thinner and with a less pronounced flavour than that of black treacle.
 
 < en:invert sugar syrup
 en: cane invert syrup, invert cane syrup
@@ -33505,6 +33549,7 @@ fr: sirop de sucre de canne evaporé, sirop de canne évaporé
 it: sciroppo di canna corevaporato
 
 < en:disaccharide
+< en:syrup
 en: corn syrup
 af: mieliestroop
 ar: شراب الذرة
@@ -33578,6 +33623,7 @@ hr: kukuruzni sirup od slada
 it: sciroppo di mais maltato
 nl: maismoutstroop
 
+< en:syrup
 en: starch syrup
 fr: sirop d'amidon
 hr: škrobni sirup
@@ -33628,6 +33674,7 @@ it: sciroppo d'acero canadese
 
 < en:maple syrup
 en: pure maple syrup
+da: ren ahornsirup
 de: reiner Ahornsirup
 es: Jarabe puro de arce
 fi: Puhdas vaahterasiirappi
@@ -33638,6 +33685,7 @@ it: sciroppo d'acero puro
 
 < en:maple syrup
 en: organic maple syrup
+da: økologisk ahornsirup
 fi: luomu vaahterasiirappi
 fr: sirop d'érable biologique
 hr: organski javorov sirup
@@ -33645,9 +33693,11 @@ hu: bio juharszirup
 it: sciroppo d'acero biologico
 
 < en:disaccharide
+< en:syrup
 en: sugar syrup
 bg: захарен сироп
 ca: xarop de sucre
+da: sukkersirup
 de: Zuckersirup
 es: Sirope de azucar, jarabe de azucar
 fi: sokerisiirappi, sokeriliemi
@@ -33685,6 +33735,7 @@ hr: sirup od kokosovog cvijeta
 it: sciroppo di fiori di cocco
 
 < en:disaccharide
+< en:syrup
 en: wheat syrup
 bg: пшеничен сироп
 ca: xarop de blat
@@ -33700,7 +33751,9 @@ allergens:en: en:gluten
 # ingredient/fr:sirop-de-ble has 381 products in 4 languages @2020-06-08
 
 < en:disaccharide
+< en:syrup
 en: cane sugar syrup, cane syrup
+da: rørsukkersirup
 de: rohrzuckersirup
 es: Jarabe de azúcar de caña
 fi: ruokosokerisiirappi
@@ -33722,6 +33775,7 @@ sv: delvis inverterad sockersirap
 # ingredient/en:partially-inverted-sugar-syrup has 101 products in 2 languages @2020-06-08
 
 < en:maltitol
+< en:syrup
 en: maltitol syrup
 bg: малтитолов сироп
 ca: xarop de maltitol
@@ -33751,10 +33805,12 @@ hr: rižin glukozni sirup
 it: sciroppo di glucosio di riso
 
 < en:disaccharide
+< en:syrup
 en: rice syrup
 bg: оризов сироп
 ca: xarop d'arròs
 cs: rýžový sirup
+da: rissirup
 de: Reissirup
 es: Sirope de arroz
 fi: riisisiirappi
@@ -33860,6 +33916,7 @@ ciqual_proxy_food_name:fr: Sucre blanc
 
 < en:dextrose
 en: organic dextrose
+da: økologisk dextrose
 de: Dextrose aus ökologischem Anbau
 fi: luomudekstroosi, luomu dekstroosi
 fr: dextrose biologique
@@ -33873,6 +33930,7 @@ nl: biologische dextrose
 en: corn dextrose, dextrose from corn
 bg: царевична декстроза
 bs: kukuruzna dekstroza
+da: majsdextrose
 de: Maisdextrose
 es: dextrosa de maíz
 et: maisidekstroos
@@ -33895,6 +33953,7 @@ tr: misir dekstrozu
 < en:dextrose
 en: wheat dextrose, dextrose from wheat
 bg: пшенична декстроза
+da: hvededextrose
 de: Weizendextrose
 es: Dextrosa de trigo
 fi: vehnädekstroosi
@@ -33913,6 +33972,7 @@ allergens:en: en:gluten
 < en:corn dextrose
 < en:wheat dextrose
 en: wheat or corn dextrose, corn or wheat dextrose
+da: hvede- eller majsdextrose, majs- eller hvededextrose
 de: Weizen- oder Maisdextrose, Mais- oder Weizendextrose
 fi: vehnä- tai maissidekstroosi, maissi- tai vehnädekstroosi
 fr: dextrose de blé ou de maïs, dextrose de maïs ou de blé
@@ -48105,6 +48165,7 @@ bg: нар
 bo: སེ་འབྲུ།
 ca: magrana
 cs: granátové jablko
+da: granatæble
 de: Granatapfel
 el: ρόδι
 eo: granato
@@ -48124,6 +48185,7 @@ ks: دٲن
 la: Punica granatum
 mr: डाळिंब
 my: တလည်း
+nb: granateple
 ne: दारिम
 nl: granaatappel
 pa: ਅਨਾਰ
@@ -48135,6 +48197,7 @@ sd: ڏاڙهون
 sk: granátové jablko
 sl: granatno jabolko
 sq: shegë
+sv: granatäpple
 tg: Анор
 ug: ئانار
 uk: Гранатове дерево
@@ -48165,17 +48228,21 @@ es: granada variedada Mollar de Elche
 < en:pomegranate
 en: pomegranate seeds
 bg: зрънца от нар
+da: granatæblekerner
 de: Granatapfelkerne
 fi: granaattiomenan siemen, granaattiomenan siemenet
 fr: graines de grenade
 hr: sjemenke nara
 it: semi di melograno
+nb: granateplekjerner
+sv: granatäppelkärnor
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines-de-grenade
 # 4 products in 3 languages @2018-10-03
 
 < en:fruit juice
 < en:pomegranate
 en: pomegranate juice, juice of pomegranate
+da: granatæblesaft
 de: Granatapfelsaft
 es: zumo de granada, jugo de granada
 fi: granaattiomenamehu
@@ -72330,11 +72397,13 @@ it: oliva Gordal
 
 < en:green olive
 en: manzanilla olive
+da: manzanillaoliven
 de: Manzanilla Oliven, grüne Manzanilla Oliven
 es: aceituna verde manzanilla, aceitunas verdes manzanilla, aceituna manzanilla verde
 hr: manzanilla maslina
 it: oliva Manzanilla
 pl: oliwki manzanilla, oliwki zielone manzanila, manzanilla
+sv: manzanillaoliver, gröna manzanillaoliver
 
 < en:plant
 en: orange leaves
