@@ -888,6 +888,8 @@ is(
 
 # Test get_knowledge_content subroutine
 
+ProductOpener::Tags::load_knowledge_content();
+
 # a match is expected here, as lang-default/fr/knowledge_panels/additives/en_e100_world.html exists
 is(
 	get_knowledge_content("additives", "en:e100", "fr", "world"),

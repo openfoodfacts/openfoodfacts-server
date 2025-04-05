@@ -51,6 +51,7 @@ BEGIN {
 		&init_taxonomies
 		&retrieve_tags_taxonomy
 		&init_languages
+		&load_knowledge_content
 
 		&canonicalize_tag2
 		&canonicalize_tag_link
@@ -198,7 +199,7 @@ use Encode;
 use GraphViz2;
 use JSON::MaybeXS;
 
-use Data::DeepAccess qw(deep_get deep_exists);
+use Data::DeepAccess qw(deep_get deep_exists deep_set);
 
 binmode STDERR, ":encoding(UTF-8)";
 
@@ -5141,6 +5142,62 @@ sub cmp_taxonomy_tags_alphabetically ($tagtype, $target_lc, $a, $b) {
 		cmp($translations_to{$tagtype}{$b}{$target_lc} || $translations_to{$tagtype}{$b}{"xx"} || $b);
 }
 
+# To avoid doing file operations for each call to get_knowledge_content (e.g. for each ingredient of a product),
+# we load all knowledge content in memory at startup.
+
+my %knowledge_content = ();
+
+=head2 load_knowledge_content()
+
+Load all knowledge content in memory.
+The content is in /lang/[flavor]?/[lc]/knowledge_panels/[tagtype]/[tagid]_[cc|world].html
+
+=cut
+
+sub load_knowledge_content() {
+	# Parse the $lang_dir and $lang_dir/$flavor directories to load all knowledge content in memory
+	foreach my $dir ("$lang_dir", "$lang_dir/$flavor") {
+		if (opendir(my $DH, $dir)) {
+			foreach my $langid (sort readdir($DH)) {
+				next if $langid eq '.';
+				next if $langid eq '..';
+				next if (length($langid) ne 2);
+
+				my $target_lc = $langid;
+
+				if (-e "$dir/$langid/knowledge_panels") {
+					# read the directories
+					opendir my $DH2, "$dir/$langid/knowledge_panels" or die "Couldn't open the current directory: $!";
+					foreach my $tagtype (sort readdir($DH2)) {
+						next if $tagtype eq '.';
+						next if $tagtype eq '..';
+
+						opendir my $DH3, "$dir/$langid/knowledge_panels/$tagtype"
+							or die "Couldn't open the current directory: $!";
+						foreach my $file (readdir($DH3)) {
+							next if $file !~ /(.*)_(\w\w|world)\.html/;
+							my $tagid = $1;
+							my $target_cc = $2;
+							open(my $IN, "<:encoding(UTF-8)", "$dir/$langid/knowledge_panels/$tagtype/$file")
+								or $log->error("cannot open file",
+								{path => "$dir/$langid/knowledge_panels/$tagtype/$file", error => $!});
+
+							my $text = join("", (<$IN>));
+							deep_set(\%knowledge_content, $tagtype, $tagid, $target_lc, $target_cc, $text);
+							close $IN;
+						}
+						closedir($DH3);
+					}
+
+					closedir($DH2);
+				}
+			}
+			closedir($DH);
+		}
+	}
+	return;
+}
+
 =head2 get_knowledge_content ($tagtype, $tagid, $target_lc, $target_cc)
 
 Fetch knowledge content as HTML about additive, categories,...
@@ -5182,17 +5239,9 @@ sub get_knowledge_content ($tagtype, $tagid, $target_lc, $target_cc) {
 	# en:250 -> en_250
 	$tagid =~ s/:/_/g;
 
-	my $base_dir = "$lang_dir/$target_lc/knowledge_panels/$tagtype";
-
 	foreach my $cc ($target_cc, "world") {
-		my $file_path = "$base_dir/$tagid" . "_" . "$cc.html";
-		$log->debug("get_knowledge_content - checking $file_path") if $log->is_debug();
-		if (-e $file_path) {
-			$log->debug("get_knowledge_content - Match on $file_path!") if $log->is_debug();
-			open(my $IN, "<:encoding(UTF-8)", $file_path) or $log->error("cannot open file", {path => $file_path});
-			my $text = join("", (<$IN>));
-			close $IN;
-			return $text;
+		if (my $content = deep_get(\%knowledge_content, $tagtype, $tagid, $target_lc, $cc)) {
+			return $content;
 		}
 	}
 	return;
