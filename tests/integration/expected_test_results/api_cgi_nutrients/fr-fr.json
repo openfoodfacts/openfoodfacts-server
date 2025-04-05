@@ -296,13 +296,6 @@
          "unit" : "g"
       },
       {
-         "display_in_edit_form" : false,
-         "id" : "total-carbohydrates",
-         "important" : false,
-         "name" : "Glucides totaux (inclut les fibres)",
-         "unit" : "g"
-      },
-      {
          "display_in_edit_form" : true,
          "id" : "carbohydrates",
          "important" : true,
@@ -852,6 +845,13 @@
          "important" : false,
          "name" : "Acidité",
          "unit" : "% vol"
+      },
+      {
+         "display_in_edit_form" : false,
+         "id" : "total-carbohydrates",
+         "important" : false,
+         "name" : "Glucides totaux (inclut les fibres)",
+         "unit" : "g"
       }
    ]
 }

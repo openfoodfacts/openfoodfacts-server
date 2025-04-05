@@ -340,13 +340,6 @@
             },
             {
                "display_in_edit_form" : false,
-               "id" : "carbohydrates",
-               "important" : false,
-               "name" : "Carbohydrates (without fiber)",
-               "unit" : "g"
-            },
-            {
-               "display_in_edit_form" : false,
                "id" : "sugars",
                "important" : false,
                "name" : "Sugars",
@@ -806,6 +799,13 @@
          "important" : false,
          "name" : "Acidity",
          "unit" : "% vol"
+      },
+      {
+         "display_in_edit_form" : false,
+         "id" : "carbohydrates",
+         "important" : false,
+         "name" : "Carbohydrates (without fiber)",
+         "unit" : "g"
       }
    ]
 }
