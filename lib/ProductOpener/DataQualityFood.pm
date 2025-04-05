@@ -1286,6 +1286,8 @@ sub check_nutrition_data ($product_ref) {
 				= defined $product_ref->{nutriments}{fructose_100g} ? $product_ref->{nutriments}{fructose_100g} : 0;
 			my $glucose
 				= defined $product_ref->{nutriments}{glucose_100g} ? $product_ref->{nutriments}{glucose_100g} : 0;
+			my $galactose
+				= defined $product_ref->{nutriments}{galactose_100g} ? $product_ref->{nutriments}{galactose_100g} : 0;
 			my $maltose
 				= defined $product_ref->{nutriments}{maltose_100g} ? $product_ref->{nutriments}{maltose_100g} : 0;
 			# sometimes lactose < 0.01 is written below the nutrition table together whereas
@@ -1302,9 +1304,10 @@ sub check_nutrition_data ($product_ref) {
 				}
 			}
 
-			my $total_sugar = $fructose + $glucose + $maltose + $lactose + $sucrose;
+			my $total_sugar = $fructose + $glucose + $galactose + $maltose + $lactose + $sucrose;
 
 			if ($total_sugar > $product_ref->{nutriments}{sugars_100g} + 0.001) {
+				# strictly speaking: also includes galactose, despite the label name
 				push @{$product_ref->{data_quality_errors_tags}},
 					"en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars";
 			}
