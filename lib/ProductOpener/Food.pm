@@ -508,6 +508,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'beta-glucan-', 'inositol-',
 			'carnitine-', 'sulphate-',
 			'nitrate-', 'acidity-',
+			'total-carbohydrates-',
 		)
 	],
 	off_ca => [
@@ -531,7 +532,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'--elaidic-acid-', '--gondoic-acid-',
 			'--mead-acid-', '--erucic-acid-',
 			'--nervonic-acid-', '-trans-fat',
-			'cholesterol', '!carbohydrates',
+			'cholesterol', '!total-carbohydrates',
 			'-fiber', '--soluble-fiber-',
 			'--insoluble-fiber-', '-sugars',
 			'--added-sugars-', '--sucrose-',
@@ -571,6 +572,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'beta-glucan-', 'inositol-',
 			'carnitine-', 'sulphate-',
 			'nitrate-', 'acidity-',
+			'carbohydrates-',
 		)
 	],
 	off_ru => [
@@ -634,6 +636,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'beta-glucan-', 'inositol-',
 			'carnitine-', 'sulphate-',
 			'nitrate-', 'acidity-',
+			'total-carboydrates-',
 		)
 	],
 	off_us => [
@@ -659,7 +662,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'--erucic-acid-', '--nervonic-acid-',
 			'-trans-fat', 'cholesterol',
 			'salt-', '-added-salt-',
-			'sodium', '!carbohydrates',
+			'sodium', '!total-carbohydrates',
 			'-fiber', '--soluble-fiber-',
 			'--insoluble-fiber-', '-sugars',
 			'--added-sugars', '--sucrose-',
@@ -695,6 +698,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'nutrition-score-uk-', 'glycemic-index-',
 			'water-hardness-', 'sulfate-',
 			'nitrate-', 'acidity-',
+			'carbohydrates-',
 		)
 	],
 	off_us_before_2017 => [
@@ -719,7 +723,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'--mead-acid-', '--erucic-acid-',
 			'--nervonic-acid-', '-trans-fat',
 			'cholesterol', 'salt-',
-			'sodium', '!carbohydrates',
+			'sodium', '!total-carbohydrates',
 			'-fiber', '--soluble-fiber-',
 			'--insoluble-fiber-', '-sugars',
 			'--sucrose-', '--glucose-',
@@ -757,19 +761,21 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'beta-glucan-', 'inositol-',
 			'carnitine-', 'sulfate-',
 			'nitrate-', 'acidity-',
+			'carbohydrates-',
 		)
 	],
 	off_hk => [
 		(
 			'!energy-kj', '!energy-kcal', '!proteins', '!fat',
 			'-saturated-fat', '-unsaturated-fat-', '--monounsaturated-fat-', '--monounsaturated-fat-',
-			'-trans-fat', 'cholesterol', '!carbohydrates', '-sugars',
+			'-trans-fat', 'cholesterol', '!total-carbohydrates', '-sugars',
 			'-fiber', 'salt-', 'sodium', '#vitamins',
 			'vitamin-a', 'vitamin-d-', 'vitamin-c', 'vitamin-b1-',
 			'vitamin-b2-', 'vitamin-pp-', 'vitamin-b6-', 'vitamin-b9-',
 			'folates-', 'vitamin-b12-', '#minerals', 'calcium',
 			'potassium-', 'phosphorus-', 'iron', 'alcohol',
 			'nutrition-score-fr-', 'sulphate-', 'nitrate-', 'acidity-',
+			'carbohydrates-',
 		)
 	],
 	off_jp => [
@@ -796,7 +802,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'--elaidic-acid-', '--gondoic-acid-',
 			'--mead-acid-', '--erucic-acid-',
 			'--nervonic-acid-', '-trans-fat-',
-			'cholesterol-', '!carbohydrates',
+			'cholesterol-', '!total-carbohydrates',
 			'-sugars-', '-fiber-',
 			'-soluble-fiber-', '-insoluble-fiber-',
 			'!salt', '-added-salt-',
@@ -829,6 +835,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'beta-glucan-', 'inositol-',
 			'carnitine-', 'sulphate-',
 			'nitrate-', 'acidity-',
+			'carbohydrates-',
 		)
 	],
 	off_in => [
@@ -892,6 +899,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'beta-glucan-', 'inositol-',
 			'carnitine-', 'sulphate-',
 			'nitrate-', 'acidity-',
+			'total-carbohydrates-',
 		)
 	],
 	# https://eur-lex.europa.eu/eli/reg/2009/767/2018-12-26
@@ -1232,6 +1240,24 @@ sub is_red_meat_product_for_nutrition_score ($product_ref) {
 
 	return 0;
 }
+
+=head2 fix_salt_equivalent ( $product_ref )
+
+Adjusts the sodium and salt values in a product's nutritional information based on EU conversion standards.
+
+=head3 Argument
+
+=over
+
+=item * C<$product_ref> (HashRef): Reference to a hash containing the product's nutritional data.
+
+=back
+
+=head3 Return Type
+
+Returns nothing (modifies the input hash reference in place).
+
+=cut
 
 sub fix_salt_equivalent ($product_ref) {
 
