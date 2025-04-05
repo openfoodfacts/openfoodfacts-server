@@ -5884,6 +5884,11 @@ msgctxt "donation_title_2024"
 msgid "Please give to our 2024 Fundraiser"
 msgstr "Будь ласка, приєднуйтесь до нашого Збору коштів 2024"
 
+# Don't translate {year}, it will be replaced by the 4 digits year
+msgctxt "f_donation_title_year"
+msgid "Please give to our {year} Fundraiser"
+msgstr "Будь ласка, приєднуйтесь до нашого Збору коштів {year}"
+
 msgctxt "donation_list_2024_main"
 msgid "Your donations fund the day-to-day operations of our non-profit association:"
 msgstr "Ваші пожертви фінансують щоденні операції з нашої неприбуткової асоціації:"
