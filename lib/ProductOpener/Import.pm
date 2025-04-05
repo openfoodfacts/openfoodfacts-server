@@ -539,9 +539,23 @@ sub download_image ($image_url) {
 	my $ua = LWP::UserAgent->new(timeout => 10);
 
 	# Some platforms such as CloudFlare block the default LWP user agent.
-	$ua->agent(lang('site_name') . " (https://$server_domain)");
+	$ua->agent("Open Food Facts (https://world.pro.openfoodfacts.org)");
 
-	return $ua->get($image_url);
+	$log->debug("downloading image", {image_url => $image_url}) if $log->is_debug();
+	my $response = $ua->get($image_url, 'Accept' => '*/*');
+
+	# CloudFlare seems to be blocking our default agent at Carrefour, so we try with a different one if we get a 403
+	if ($response->code == 403) {
+		$log->debug("got a 403, trying a different User-Agent", {image_url => $image_url}) if $log->is_debug();
+		$ua->agent("curl/8.5.0");
+		$response = $ua->get($image_url, 'Accept' => '*/*');
+	}
+
+	$log->debug("downloading image - result",
+		{image_url => $image_url, success => $response->is_success, status_code => $response->code})
+		if $log->is_debug();
+
+	return $response;
 }
 
 # deduplicate column names
@@ -1788,6 +1802,13 @@ sub import_csv_file ($args_ref) {
 		$code = normalize_code($code);
 		$imported_product_ref->{code} = $code;    # In case we added or removed leading 0s
 
+		# In the template we provide to producers, there is one example product
+		# some productes do not remove the example product, so we skip it
+		if ($code eq "3228857000838") {
+			$log->debug("skipping example product", {code => $code}) if $log->is_debug();
+			next;
+		}
+
 		my $modified = 0;
 
 		# Keep track of fields that have been modified,
@@ -2051,9 +2072,9 @@ sub import_csv_file ($args_ref) {
 
 		$stats_ref->{products_in_file}{$code} = 1;
 
-		# apply global field values
+		# apply global field values, if we don't have a value for a column (or it is a dash -)
 		foreach my $field (keys %global_values) {
-			if ((not defined $imported_product_ref->{$field}) or ($imported_product_ref->{$field} eq "")) {
+			if ((not defined $imported_product_ref->{$field}) or ($imported_product_ref->{$field} =~ /^(\s|-)*$/)) {
 				$imported_product_ref->{$field} = $global_values{$field};
 			}
 		}

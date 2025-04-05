@@ -133,6 +133,14 @@ GetOptions(
 	"use_brand_owner_as_org_name" => \$use_brand_owner_as_org_name,
 ) or die("Error in command line arguments:\n\n$usage");
 
+# We need to decode UTF-8 arguments
+if (defined $comment) {
+	$comment = decode("utf-8", $comment);
+}
+if (defined $source_name) {
+	$source_name = decode("utf-8", $source_name);
+}
+
 print STDERR "import_csv_file.pl
 - user_id: $user_id
 - org_id: $org_id
