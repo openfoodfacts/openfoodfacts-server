@@ -8,6 +8,7 @@ use Test2::Plugin::UTF8;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Redis qw/process_xread_stream_reply/;
+use ProductOpener::Config qw/%oidc_options/;
 
 subtest 'user registration from redis to minion' => sub {
 	# Mock reply data
@@ -53,6 +54,17 @@ subtest 'user registration from redis to minion' => sub {
 		]
 	);
 
+	# Need to mock keycloak->create_or_update_user for unit test
+	my $create_or_update_user_called = 0;
+	my $keycloak_mock = mock 'ProductOpener::Keycloak' => (
+		override => [
+			'create_or_update_user' => sub {
+				++$create_or_update_user_called;
+				return;
+			}
+		]
+	);
+
 	# Call the subroutine with the mock data
 	my $result = process_xread_stream_reply($mock_reply);
 
@@ -62,6 +74,10 @@ subtest 'user registration from redis to minion' => sub {
 		'process_xread_stream_reply caused 1 calls to Minion->enqueue for the subscribe_user_newsletter job');
 	is($user1_called, 1, 'process_xread_stream_reply called Minion->enqueue with user1');
 	is($user2_called, 2, 'process_xread_stream_reply called Minion->enqueue with user2');
+
+	if ($oidc_options{keycloak_level} < 5) {
+		is($create_or_update_user_called, 2, 'create_or_update_user for each user');
+	}
 };
 
 subtest 'user deletion from redis to minion' => sub {
