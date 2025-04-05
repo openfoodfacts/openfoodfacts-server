@@ -47,7 +47,9 @@ BEGIN {
 		$events_url
 		$events_username
 		$events_password
+		%oidc_options
 		$redis_url
+		$process_global_redis_events
 		%server_options
 
 	);
@@ -90,7 +92,24 @@ $events_url = '';
 $events_username = '';
 $events_password = '';
 
+# Set this to match your instance of Keycloak
+%oidc_options = (
+	# This is the client ID of the "open-products-facts" client in Keycloak
+	client_id => '',
+	# This is the client secret of the "open-products-facts" client in Keycloak
+	client_secret => '',
+	# Keycloak specific: Implementation level 1 to 5 (see .env for values)
+	keycloak_level => 0,
+	# Keycloak specific: Base URL for the Keycloak server
+	keycloak_base_url => '',
+	# Keycloak specific: Base URL for the backchannel communcation: https://www.keycloak.org/server/hostname
+	keycloak_backchannel_base_url => '',
+	# Keycloak specific: Name of the realm
+	keycloak_realm_name => ''
+);
+
 $redis_url = '';
+$process_global_redis_events = $ENV{PROCESS_GLOBAL_REDIS_EVENTS};
 
 %server_options = (
 

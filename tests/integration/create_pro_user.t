@@ -21,6 +21,8 @@ use Storable qw(dclone);
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
+# TODO: These tests need to be re-written for the new workflow
+
 # clean
 remove_all_users();
 remove_all_orgs();
