@@ -99,7 +99,8 @@
          "percent_estimate" : 2,
          "percent_max" : 2,
          "percent_min" : 2,
-         "text" : "lamb"
+         "text" : "lamb",
+         "vegan" : "no"
       },
       {
          "ciqual_food_code" : "11058",
@@ -116,9 +117,7 @@
    ],
    "ingredients_analysis" : {
       "en:non-vegan" : [
-         "en:egg"
-      ],
-      "en:vegan-status-unknown" : [
+         "en:egg",
          "en:lamb"
       ],
       "en:vegetarian-status-unknown" : [
