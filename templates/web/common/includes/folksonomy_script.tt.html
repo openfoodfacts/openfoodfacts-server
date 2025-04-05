@@ -1,11 +1,9 @@
 <!-- start templates/[% component.name %] -->
-[% IF user_id.defined %]
 <!-- Folksonomy Engine script -->
 <scripts>
     <script src="[% static_subdomain %]/js/folksonomy.js"></script>
 </scripts>
 <initjs>
-    folskonomy_engine_init();
+    folksonomy_engine_init();
 </initjs>
-[% END %]
-<!-- end templates/[% component.name %] -->
+<!-- end templates/[% component.name %] --> 
