@@ -1,0 +1,126 @@
+components:
+  schemas:
+    ProductImagesV3:
+      type: object
+      title: Product Images
+      description: |
+        Information about images (photos) of a product.
+
+        Images ensure the reliability of Open Food Facts data.
+        They provides a primary source and proof of all the structured data.
+        You may therefore want to display them along the structured information.
+
+        For each product, we store:
+        - the original images uploaded by users or manufacturers in images.uploaded
+        - images that have been selected / cropped / rotated etc. containing specific
+          information (e.g. the front image, the ingredients image, etc.)
+          for specific languages in images.selected
+
+        See also tutorials about images:
+        * [Getting images](https://openfoodfacts.github.io/openfoodfacts-server/api/how-to-download-images/)
+        * [Uploading images](https://openfoodfacts.github.io/openfoodfacts-server/api/tutorial-uploading-photo-to-a-product/)
+      properties:
+        images:
+          description: |
+            Uploaded and selected images of the product.
+          type: object
+          title: images
+          properties:
+            uploaded:
+              description: |
+                List of all images uploaded by users or manufacturers.
+                Those images are typically not displayed to users, but are used in edit mode to crop images with specific information
+                for specific languages. (See images.selected)
+                Older uploaded images that may correspond to older revisions of the product are also kept in this list.
+              type: object
+              title: images_uploaded
+              patternProperties:
+                '(?<imgid>\d+)':
+                  type: object
+                  $ref: "./image_uploaded.yaml#/components/schemas/ImageUploaded"
+            selected:
+              description: |-
+                List of all images selected by users or manufacturers.
+                Those images are typically displayed to users, and are used in edit mode to crop images with specific information
+                for specific languages. (See images.uploaded)
+              type: object
+              title: images_selected
+              properties:
+                front:
+                  description: |
+                    Front images of the full product in languages shown on the packaging.
+                    In most cases we have a front image selected for only one language,
+                    unless the product has different packagings for different countries with the same barcode,
+                    or if the product has two front sides (e.g. in bilingual countries).
+                  patternProperties:
+                    '(?<language_code>\w\w)':
+                      type: object
+                      description: |
+                        Front image in the language given by the 2 letter 'language_code'.
+                      $ref: "./image_selected.yaml#/components/schemas/ImageSelected"
+                ingredients:
+                  description: |
+                    Cropped images of the ingredients list in languages shown on the packaging.
+                  patternProperties:
+                    '(?<language_code>\w\w)':
+                      type: object
+                      description: |
+                        Ingredient list image in the language given by the 2 letter 'language_code'.
+                      $ref: "./image_selected.yaml#/components/schemas/ImageSelected"
+                nutrition:
+                  description: |
+                    Cropped images of the nutrition facts table / list in languages shown on the packaging.
+                  patternProperties:
+                    '(?<language_code>\w\w)':
+                      type: object
+                      description: |
+                        Nutrition facts image in the language given by the 2 letter 'language_code'.
+                      $ref: "./image_selected.yaml#/components/schemas/ImageSelected"
+                packaging:
+                  description: |
+                    Cropped images of the packaging / recycling information in languages shown on the packaging.
+                  patternProperties:
+                    '(?<language_code>\w\w)':
+                      type: object
+                      description: |
+                        Packaging / recycling information image in the language given by the 2 letter 'language_code'.
+                      $ref: "./image_selected.yaml#/components/schemas/ImageSelected"
+          
+        selected_images:
+          type: object
+          title: Selected images URLs
+          description: |
+            URLs of selected images, generated at runtime.
+          patternProperties:
+            "(?<image_type>front|ingredients|nutrition|packaging)":
+              description: |
+                Type of the selected image: front (front of product), ingredients (ingredients list), nutrition (nutrition facts), packaging (packaging/recycling information).
+              type: object
+              patternProperties:
+                '(?<language_code>\w\w|best)':
+                  type: object
+                  description: |
+                    Packaging / recycling information image in the language given by the 2 letter 'language_code'.
+                    'best' returns the best image available, by priority in the language requested by the user, the main language of the product or another language.
+                  properties:
+                    "100":
+                      type: string
+                      description: |
+                        The URL of the image in max 100px width and height.
+                    "200":
+                      type: string
+                      description: |
+                        The URL of the image in max 200px width and height.
+                    "400":
+                      type: string
+                      description: |
+                        The URL of the image in max 400px width and height.
+        last_image_dates_tags:
+          type: array
+          description: |
+            An array of tags entries to indicated the year, month and day of the last image upload (in formats YYYY, YYYY-MM, YYYY-MM-DD).
+          items:
+            type: string         
+        last_image_t:
+          description: timestamp of last image upload
+          type: integer
