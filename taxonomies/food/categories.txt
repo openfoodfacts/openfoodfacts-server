@@ -8907,6 +8907,7 @@ pnns_group_2:en: unknown
 
 < en:Herbal teas
 en: Instant herbal teas
+nl: Instanttheebereidingen
 gpc_category_code:en: 10000210
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a fruit or herbal tea, which is prepared for consumption by the addition of hot water and/or hot milk and is derived in part or in total from one or more species of fruit, herb, spice or flower and does not require straining. Includes herbal teas of various flavours such as apple, ginseng, jasmine and cinnamon, and blends of any of these such as apple and cinnamon. Definition Excludes: Excludes products such as Teas, Fruit Herbal Infusions/Tisanes Bags or Loose, Fruit Herbal Infusions/Tisanes Capsules and Pods and Liquid Ready to Drink and Not Ready to Drink Fruit Herbal Infusions/Tisanes.
 gpc_category_name:en: Fruit Herbal Infusions/Tisanes - Instant
@@ -38365,7 +38366,7 @@ fr: Moulages en chocolat au lait
 hr: Kalupi za mliječnu čokoladu
 it: Stampi di cioccolato al latte
 lt: Pieniški šokolado formos
-nl: Melkchocoladevormen
+nl: Melkchocoladevormen, Melkchocolade figuren
 #wikidata:en:
 
 < en:Milk chocolates
@@ -38388,7 +38389,7 @@ hr: Mliječne čokolade sa zaslađivačima
 hu: Tejes csokoládék édesítőszerekkel
 it: Cioccolato al latte con edulcorante
 lt: Pieniški šokoladai su saldikliais
-nl: Melkchocola met zoetstoffen
+nl: Melkchocolade met zoetstoffen
 pt: Chocolates de leite com adoçantes
 
 < en:Chocolates with sweeteners
@@ -38439,7 +38440,7 @@ fr: Chocolats au lait aux céréales croustillantes, Chocolat au lait en tablett
 hr: Lisnate mliječne čokolade od žitarica
 it: Cioccolato al latte con cereali
 lt: Pieniško šokolado plytelės su pūstais dribsniais
-nl: Melkchocola met granen
+nl: Melkchocolade met granen
 agribalyse_food_code:en: 31009
 ciqual_food_code:en: 31009
 ciqual_food_name:en: Milk chocolate bar, with puffed/popped cereals
@@ -38763,7 +38764,7 @@ fr: Chocolats au lait fourrés, Chocolat au lait fourré
 hr: Punjene mliječne čokolade
 it: Cioccolatini ripieni di latte
 lt: Pieniški šokoladai su įdaru
-nl: Gevulde melkchocola
+nl: Gevulde melkchocolade
 agribalyse_food_code:en: 31079
 ciqual_food_code:en: 31079
 ciqual_food_name:en: Milk chocolate, filled
@@ -38821,7 +38822,7 @@ hr: Mliječne čokolade s lješnjacima
 hu: Tejcsokoládé mogyoróval
 it: Cioccolato al latte con nocciole
 lt: Pieniški šokoladai su lazdynais, Pieniški šokoladai su lazdyno riešutais
-nl: Melkchocola met hazelnoot
+nl: Melkchocolade met hazelnoot
 pt: Chocolates de leite com avelãs
 agribalyse_food_code:en: 31018
 ciqual_food_code:en: 31018
@@ -38840,7 +38841,7 @@ hr: Mliječne čokolade s bademima
 hu: Tejes csokoládé mandulával
 it: Cioccolato al latte con mandorle
 lt: Pieniški šokoladai su migdolais
-nl: Melkchocola met amandelen
+nl: Melkchocolade met amandelen
 pt: Chocolates de leite com amêndoas
 sv: Mjölkchoklad med mandlar
 agribalyse_food_code:en: 31018
@@ -39180,7 +39181,7 @@ fi: suolaiset maitosuklaat
 fr: Chocolats au lait salés
 hr: Slane mliječne čokolade
 lt: Pieniški šokoladai su druska
-nl: Melkchocola met zout
+nl: Melkchocolade met zout
 
 < en:Salted chocolates
 en: Fleur de sel chocolates
@@ -39203,7 +39204,7 @@ en: Milk chocolates with fleur de sel
 de: Milchschokolade mit Fleur de Sel
 fr: Chocolats au lait à la fleur de sel
 hr: Mliječne čokolade s fleur de sel
-nl: Melkchocola met fleur de sel
+nl: Melkchocolade met fleur de sel
 
 < en:Chocolates
 en: Caramel chocolates
@@ -39235,7 +39236,7 @@ fr: Chocolats au lait au caramel
 hr: Mliječna čokolada s karamelom
 it: Cioccolato al latte con caramello
 lt: Pieniški šokoladai su karamele
-nl: Melkchocola met caramel
+nl: Melkchocolade met caramel
 
 < en:Chocolates
 en: Swiss chocolates, Swiss chocolate
@@ -39509,7 +39510,7 @@ fi: Maitosuklaamakeiset
 fr: Bonbons de chocolat au lait
 hr: Bomboni od mliječne čokolade
 lt: Pieniško šokolado saldainiai, Pieniški šokoladiniai saldainiai
-nl: Melkchocolabonbons
+nl: Melkchocoladebonbons
 
 < en:Bonbons
 en: Assorted chocolate candies
@@ -39616,6 +39617,11 @@ wikidata:en: Q15985102
 
 < en:Chocolate covered fruits
 fr: Orangettes
+
+< en:Chocolate covered fruits
+en: Chocolate-covered dates
+fr: Dattes chcolat
+nl: Chocodadels, Met chocolade bedekte dadels, Dadels (Chocolade bedekt)
 
 < en:Chocolate covered fruits
 en: Chocolate-covered figs
@@ -47129,12 +47135,14 @@ hr: Mlade gaude
 it: Gouda giovane
 nl: Jonge Goudas
 comment:en: ripings process < 4 weeks
+opposite:en: en:young-matured-goudas, en:matured-gouda, en:extra-matured-gouda, en:old-goudas, en:extra-old-goudas
 
 
 < en:Gouda
 en: Young matured Goudas
 nl: Jong belegen Goudas
 comment:en: ripings process 8 <-> 10 weeks
+opposite:en: en:young-goudas, en:extra-matured-gouda, en:old-goudas, en:extra-old-goudas
 
 < en:Gouda
 en: Matured Gouda
@@ -47144,11 +47152,13 @@ fr: Goudas mi-vieux
 hr: Zrela gauda
 nl: Belegen Gouda
 comment:en: ripings process 16 <-> 18 weeks
+opposite:en: en:young-goudas, en:young-matured-goudas, en:extra-matured-gouda, en:old-goudas, en:extra-old-goudas
 
 < en:Gouda
 en: Extra matured Gouda
 nl: Extra belegen Gouda
 comment:en: ripings process 7 <-> 9 months
+opposite:en: en:young-goudas, en:young-matured-goudas, en:matured-gouda, en:old-goudas, en:extra-old-goudas
 
 < en:Gouda
 en: Old Goudas
@@ -47157,12 +47167,15 @@ fr: Goudas vieux
 hr: Stare gaude
 nl: Oude Goudas
 comment:en: ripings process 10 <-> 12 months
+opposite:en: en:young-goudas, en:young-matured-goudas, en:matured-gouda, en:extra-matured-gouda, en:extra-old-goudas
 
 < en:Gouda
-fr: Goudas extra-vieux, Goudas de Noël
+en: Extra old Goudas
 de: Extra alte Goudas
+fr: Goudas extra-vieux, Goudas de Noël
 nl: Goudas extra oud, Overjarige Gouda
 comment:en: ripings process > 12 months
+opposite:en: en:young-goudas, en:young-matured-goudas, en:matured-gouda, en:extra-matured-gouda, en:old-goudas
 
 < en:Young Goudas
 en: Young Goudas with herbs
@@ -53843,8 +53856,7 @@ hu: Desszertek
 it: Dessert
 ja: デザート
 lt: Desertai
-nl: Desserts, Nagerechten
-nl_be: Desserts, Nagerechten, Toetjes
+nl: Desserts, Nagerechten, Toetjes
 pl: Desery
 pt: Sobremesas
 ru: Десерты, Десерт
@@ -60577,7 +60589,7 @@ wikidata:en: Q6130049
 
 < en:Greek oils and fats
 el: Καλαμάτα, Kalamata
-origins:en: en:greece
+origins:en: en:messenia
 protected_name_file_number:en: PDO-GR-0037
 protected_name_type:en: pdo
 #wikidata:en:
@@ -61234,7 +61246,7 @@ hr: Maslinova ulja iz kalamata
 it: Olio di oliva Kalamata
 nl: Olijfoliën uit Kalamata, Olijfolies uit Kalamata
 pt: Azeites do Kalamata
-origins:en: en:greece
+origins:en: en:messenia
 protected_name_file_number:en: PDO-GR-0037
 protected_name_type:en: pdo
 #wikidata:en:
@@ -69408,20 +69420,24 @@ protected_name_type:en: pgi
 
 < en:Fruits
 en: Pomegranates
+da: Granatæbler
 es: Granadas
 fr: Grenades
 hr: Pitomi šipak
 ja: ザクロ
 lt: Granatų vaisiai, Granatos
 nl: Granaatappels
+sv: Granatäpplen
 sales_format:en: weight, package
 
 < en:Fresh fruits
 < en:Pomegranates
 en: Fresh pomegranates
+da: Friske granatæbler
 fr: Grenades fraîches
 hr: Svježi šipak
 lt: Švieži granatų vaisiai
+sv: Ferska granatäpplen
 
 < en:Fruits
 en: Pomegranate pulp and pips
@@ -72896,7 +72912,6 @@ it: Sale
 ja: 塩
 lt: Druskos, Druska
 nl: Zouten
-nl_be: Zouten
 pl: Sól
 pt: Sais
 ru: Соль
@@ -73132,6 +73147,7 @@ es: Sales francesas
 fr: Sels français
 hr: Francuske soli
 lt: Prancūziškos druskos
+nl: Zouten uit Frankrijk, Franse zouten
 agribalyse_proxy_food_code:en: 11017
 agribalyse_proxy_food_name:en: Salt, white, for human consumption (sea, igneous or rock), no enrichment
 agribalyse_proxy_food_name:fr: Sel blanc alimentaire, non iodé, non fluoré (marin, ignigène ou gemme)
@@ -73281,6 +73297,11 @@ en: Low-sodium salts, reduced sodium salts
 fr: Sels réduits en sodium, sels à teneur réduite en sodium
 
 < en:Salts
+en: Flavoured salts
+fr: Sels aromatisés
+nl: Gearomatiseerde zouten
+
+< en: Flavoured salts
 en: Celery salt
 fr: Sels au céleri, Sel au céleri
 hr: Sol celera
@@ -73720,6 +73741,7 @@ en: Fox nuts, Makhana, Gorgon nuts
 < en:Spices
 en: Ginger
 bg: Джинджифил
+da: Ingefær
 de: Ingwer
 es: Jengibre
 fi: inkivääri
@@ -73731,6 +73753,7 @@ la: Zingiber officinale
 lt: Imbieras
 nl: Gember
 pl: Imbir
+sv: Ingefära
 agribalyse_food_code:en: 11074
 ciqual_food_code:en: 11074
 ciqual_food_name:en: Ginger, raw
@@ -73905,6 +73928,7 @@ wikidata:en: Q3127593
 < en:Spices
 en: Peppers
 bg: Пипер
+da: Peber
 de: Pfeffer
 es: Pimienta
 fi: paprikat
@@ -73918,6 +73942,7 @@ nl: Pepers
 pl: Pieprz
 pt: Pimentas
 ru: Перцы
+sv: Peppar
 agribalyse_proxy_food_code:en: 11015
 agribalyse_proxy_food_name:en: Black pepper, powder
 agribalyse_proxy_food_name:fr: Poivre noir, poudre
@@ -73980,6 +74005,7 @@ lt: Juodieji pipirai
 nl: Zwarte pepers
 pl: Czarny pieprz
 ru: перец-чёрный
+sv: Svartpeppar
 agribalyse_proxy_food_code:en: 11015
 agribalyse_proxy_food_name:en: Black pepper, powder
 agribalyse_proxy_food_name:fr: Poivre noir, poudre
@@ -74012,6 +74038,10 @@ agribalyse_food_code:en: 11015
 ciqual_food_code:en: 11015
 ciqual_food_name:en: Black pepper, powder
 ciqual_food_name:fr: Poivre noir, poudre
+
+< en:Ground black peppers
+en: Coarsely ground black peppers
+sv: Grovmalen svartpeppar
 
 < en:Ground peppers
 en: Grounded grey peppers, Grey pepper powder, Grouned grey peppers
@@ -79304,6 +79334,7 @@ lt: Bulgur patiekalai
 
 < en:Meals
 en: Potato dishes
+da: Kartoffelretter
 de: Kartoffelgerichte
 fr: Plats à base de pommes de terre
 hr: Jela od krumpira
@@ -79312,6 +79343,22 @@ lt: Bulvių patiekalai
 nl: Aardappelgerechten
 intake24_category_code:en: POTD
 wikidata:en: Q10514020
+
+< en:Potato dishes
+en: Pyttipanna
+xx: Pyttipanna
+da: Biksemad
+fi: Pyttipannu
+ja: ピティパンナ
+nb: Pyttipanne, Pytt i panne
+ru: Питтипанна
+sv: Pyttipanna, Pytt i panna
+uk: Піттіпанна
+wikidata:en: Q1580437
+
+< en:Pyttipanna
+en: Krögarpytt
+sv: Krögarpytt
 
 < en:Meals
 en: Chop suey
@@ -79678,6 +79725,10 @@ wikidata:en: Q612283
 < en:Meals
 en: Meals with falafels
 fr: Plats préparés aux falafels
+
+< en: Meals
+en: Meals with pasta
+nl: Kant-en-klaar pastamaaltijden
 
 # This category shouldn't be under en:Meats and their products (it is for products which main ingredient is meat)
 < en:Meals
@@ -98785,11 +98836,17 @@ ciqual_food_name:en: Shrimp or prawn, raw
 ciqual_food_name:fr: Crevette, crue
 wikidata:en: Q1517781
 
+< en: Shrimps
+en: Whiteleg shrimps, Pacific white shrimps
+la: Litopenaeus vannamei
+nl: Witpootgarnalen
+
 < en:Shrimps
 en: Cooked shrimps
 fr: Crevettes cuites
 hr: Kuhani škampi
 it: Gamberetti Cotti, gamberi cucinati
+nl: Gekookte garnalen, Garnalen (gekookt)
 agribalyse_food_code:en: 10007
 ciqual_food_code:en: 10007
 ciqual_food_name:en: Shrimp or prawn, cooked
@@ -103981,10 +104038,15 @@ wikidata:en: Q241987
 < en:Hummus
 en: Classic hummus, traditional hummus
 fr: Houmous classiques, Houmous natures
+sv: Original hummus, Hummus original
 
 < en:Hummus
 en: Red pepper hummus
 fr: Houmous aux poivrons
+
+< en:Hummus
+en: Hummus mixes
+sv: Hummus mix
 
 < en:Dips
 < en:Salted spreads
@@ -110839,7 +110901,10 @@ wikidata:en: Q2727662
 
 < en:Seeds
 en: Pomegranate seeds
+da: Granatæblekerner
+fi: Granaattiomenan siemen
 fr: graines de grenade
+sv: Granatäppelkärnor
 
 < en:Pulses
 en: Cooked pulses
@@ -113235,6 +113300,18 @@ origins:en: en:france
 protected_name_file_number:en: PDO-FR-0333
 protected_name_type:en: pdo
 #wikidata:en:
+
+< en:Olives
+en: Kalamon olives
+sv: Kalamonoliver
+wikidata:en: Q6350358
+
+< en:Kalamon olives
+en: Kalamata olives
+sv: Kalamataoliver
+origins:en: en:messenia
+#protected_name_file_number:en: PDO-GR-0037 # not sure if it’s actually this one
+protected_name_type:en: pdo
 
 < en:Olives
 en: Black olives
@@ -116880,7 +116957,7 @@ de: gepuffte Reiswaffeln mit Milchschokolade
 es: Tortitas de arroz con chocolate con leche
 fr: Galettes de riz au chocolat au lait
 hr: Lisnate riže s mliječnom čokoladom
-nl: Melkchocolade rijstwafels
+nl: Rijstwafels met melkchocolade
 
 < en:Puffed rice cakes
 en: Puffed rice cakes with white chocolate
@@ -118312,6 +118389,10 @@ intake24_category_code:en: SUPP
 #ast:Suplementu dietéticu
 #ckb:تەواوکەری خۆراکی
 wikidata:en: Q645858
+
+< en:Dietary supplements
+en: Collagen
+nl: Collageen
 
 < en:Dietary supplements
 en: Spirulina

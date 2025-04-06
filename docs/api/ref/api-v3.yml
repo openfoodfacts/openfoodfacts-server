@@ -1,6 +1,4 @@
 openapi: 3.1.0
-x-stoplight:
-  id: 0x3135wk4xq0t
 info:
   title: Open Food Facts Open API V3 - under development
   description: |
@@ -91,7 +89,7 @@ paths:
               schema:
                 allOf:
                   - $ref: ./responses/response-status/response_status.yaml
-                  - $ref: ./schemas/product.yaml
+                  - $ref: ./schemas/product_v3.yaml
         "302":
           description: Redirect to the correct server for the product type of the requested product
           headers:
@@ -139,7 +137,7 @@ paths:
                   - type: object
                     properties:
                       product:
-                        $ref: ./schemas/product.yaml
+                        $ref: ./schemas/product_v3.yaml
               examples:
                 Update of packagings:
                   value:
@@ -282,7 +280,7 @@ paths:
                           Dictionary of strings associating canonical names (as seen in suggestions field) with the synonym that best matches the query. An entry is present for all suggestions, even when the synonym is the same with the canonical name.
 
                           This value is present only if get_synonyms parameter is present.
-                        additional_properties:
+                        additionalProperties:
                           type: string
       operationId: get-api-v3-taxonomy_suggestions-taxonomy
       description: |-
