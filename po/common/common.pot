@@ -269,9 +269,11 @@ msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
 msgstr ""
 
+
+# duplicate
 msgctxt "alcohol_warning"
-msgid "Excess drinking is harmful for health."
-msgstr ""
+msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
@@ -571,16 +573,14 @@ msgctxt "delete_product"
 msgid "Delete a product"
 msgstr ""
 
-msgctxt "delete_product_page"
-msgid "Delete the page"
-msgstr ""
-
 msgctxt "delete_the_images"
 msgid "Delete the images"
 msgstr ""
 
+
+#duplicate
 msgctxt "delete_user"
-msgid "Delete a user"
+msgid "Delete the user"
 msgstr ""
 
 msgctxt "delete_confirmation"
@@ -2743,6 +2743,7 @@ msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
 msgstr ""
 
+# duplicate
 msgctxt "delete_product_page"
 msgid "Delete the product page"
 msgstr ""
@@ -2757,10 +2758,6 @@ msgstr ""
 
 msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
-msgstr ""
-
-msgctxt "delete_user"
-msgid "Delete the user"
 msgstr ""
 
 msgctxt "sources_manufacturer"
@@ -4184,10 +4181,6 @@ msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr "Please Donate"
 
-msgctxt "alcohol_warning"
-msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
-msgstr "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
-
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "Producers platform moderation"
@@ -4677,6 +4670,10 @@ msgstr "Food processing level unknown"
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
 msgstr "No or little food processing (NOVA group)"
+
+msgctxt "attribute_nova_setting_note"
+msgid "To determine the level of processing of a product, we rely on the list of ingredients (markers, processing methods) and categories."
+msgstr "To determine the level of processing of a product, we rely on the list of ingredients (markers, processing methods) and categories."
 
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
@@ -5720,10 +5717,6 @@ msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
 msgstr "The information on the ingredients of this product has not been given."
 
-msgctxt "environmental_score_edit_for_more_precise_environmental_score"
-msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-
 msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
 msgstr "ratio"
@@ -5744,9 +5737,15 @@ msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
 msgstr "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
 
+# duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
 msgstr "For a more precise calculation of the Green-Score, you can modify the product page and add them."
+
+# duplicate
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
+msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
+msgstr "For a more precise calculation of the Green-Score, you can edit the product page and add them."
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
@@ -5893,6 +5892,11 @@ msgstr "Help us inform millions of consumers around the world about what they ea
 msgctxt "donation_title_2024"
 msgid "Please give to our 2024 Fundraiser"
 msgstr "Please give to our 2024 Fundraiser"
+
+# Don't translate {year}, it will be replaced by the 4 digits year
+msgctxt "f_donation_title_year"
+msgid "Please give to our {year} Fundraiser"
+msgstr "Please give to our {year} Fundraiser"
 
 msgctxt "donation_list_2024_main"
 msgid "Your donations fund the day-to-day operations of our non-profit association:"
@@ -6250,7 +6254,11 @@ msgstr "No ingredients containing palm oil detected"
 
 msgctxt "attribute_palm_oil_setting_note"
 msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
-msgstr ""
+msgstr "To determine whether a product contains palm oil, we only rely on the list of ingredients."
+
+msgctxt "attribute_without_palm_oil_setting_note"
+msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
+msgstr "To determine whether a product contains palm oil, we only rely on the list of ingredients."
 
 msgctxt "unrecognized_ingredients"
 msgid "Unrecognized ingredients"
@@ -7054,6 +7062,11 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr "Report a problem"
 
+# duplicate with "report_problem_panel_title"
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
+msgstr "Report a problem"
+
 msgctxt "report_problem_navigation"
 msgid "Report a problem."
 msgstr "Report a problem."
@@ -7081,11 +7094,6 @@ msgstr "If you want to report vandalism, inappropriate content or erroneous data
 msgctxt "description"
 msgid "Description"
 msgstr "Description"
-
-# duplicate with "report_problem_panel_title"
-msgctxt "report_problem_navigation"
-msgid "Report a problem"
-msgstr "Report a problem"
 
 msgctxt "enter_main_contact_username"
 msgid "Enter main contact's username :"

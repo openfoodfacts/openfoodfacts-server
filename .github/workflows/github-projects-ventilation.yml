@@ -46,6 +46,11 @@ jobs:
     steps:
       - uses: actions/add-to-project@main
         with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/12 # add to openfoodfacts-server
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          label-operator: AND
+      - uses: actions/add-to-project@main
+        with:
           project-url: https://github.com/orgs/openfoodfacts/projects/11 # Add issue to the openfoodfacts-design project
           github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
           labeled: 🎨 Mockup available, 🎨 Mockup required
