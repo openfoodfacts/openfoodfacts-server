@@ -1,0 +1,40 @@
+components:
+  schemas:
+    ImageSize:
+      title: Image Size
+      type: object
+      description: |
+        Contains the information (width, height and URL) about an image in a specific size.
+        The URL is generated at runtime if the `generate_images_urls` parameter is set to true.
+      properties:
+        h:
+          type: integer
+          example: 400
+          description: |
+            The height of the reduced/full image in pixels.
+        w:
+          type: integer
+          example: 255
+          description: |
+            The width of the reduced/full image in pixels.
+        url:
+          type: string
+          example: "https://static.openfoodfacts.org/images/products/000/000/000/0000/400.jpg"
+          description: |
+            The URL of the image. This property is generated at runtime if the generate_images_urls parameter is set to true.
+    ImageSizes:
+      title: Images Sizes
+      type: object
+      description: |
+        Contains the information about the images of a product in different sizes.
+        The reduced images are the ones with numbers as the key(100, 200 and 400)
+        while the full images have `full` as the key.
+      properties:
+        "100":
+          $ref: "#/components/schemas/ImageSize"
+        "200":
+          $ref: "#/components/schemas/ImageSize"
+        "400":
+          $ref: "#/components/schemas/ImageSize"
+        full:
+          $ref: "#/components/schemas/ImageSize"

@@ -207,7 +207,7 @@ my %may_contain_regexps = (
 	lv => "var saturēt|sastāva var but",
 	mk => "Производот може да содржи",
 	nl =>
-		"Dit product kan sporen van|bevat mogelijk sporen van|Kan sporen bevatten van|Kan sporen van|bevat mogelijk|sporen van|Geproduceerd in ruimtes waar",
+		"Dit product kan sporen van|bevat mogelijk sporen van|Kan sporen bevatten van|Kan sporen van|bevat mogelijk|sporen van|Geproduceerd in ruimtes waar|Kan ook",
 	nb =>
 		"kan inneholde spor av|kan forekomme spor av|kan inneholde spor|kan forekomme spor|kan inneholde|kan forekomme",
 	pl =>
@@ -3300,11 +3300,18 @@ sub compute_ingredients_tags ($product_ref) {
 
 	my @ingredients = @{$product_ref->{ingredients}};
 
+	my $ingredients_n = 0;
+	my $known_ingredients_n = 0;
+
 	while (@ingredients) {
 
 		my $ingredient_ref = shift @ingredients;
 
-		push @{$product_ref->{ingredients_tags}}, $ingredient_ref->{id};
+		push @{$product_ref->{ingredients_original_tags}}, $ingredient_ref->{id};
+
+		# Count ingredients and unknown ingredients
+		$ingredients_n += 1;
+		$known_ingredients_n += $ingredient_ref->{is_in_taxonomy};
 
 		if (defined $ingredient_ref->{ingredients}) {
 
@@ -3325,37 +3332,24 @@ sub compute_ingredients_tags ($product_ref) {
 		}
 	}
 
-	my $field = "ingredients";
+	$product_ref->{ingredients_n} = $ingredients_n;
+	$product_ref->{known_ingredients_n} = $known_ingredients_n;
+	$product_ref->{unknown_ingredients_n} = $ingredients_n - $known_ingredients_n;
 
-	$product_ref->{ingredients_original_tags} = $product_ref->{ingredients_tags};
+	# ingredients_original_tags contains the ingredients that are listed in the ingredients list
+	# ingredients_tags also contains the parent ingredients (from the ingredients taxonomy)
+	# Note: we used to also compute a field ingredients_hierarchy that contained exactly the same information as ingredients_tags
+	# we now remove it, and the API will add it back for backward compatibility depending on API version
+
 	my $ingredients_lc = get_or_select_ingredients_lc($product_ref);
 
-	if (defined $taxonomy_fields{$field}) {
-		$product_ref->{$field . "_hierarchy"} = [
-			gen_ingredients_tags_hierarchy_taxonomy(
-				$ingredients_lc, join(", ", @{$product_ref->{ingredients_original_tags}})
-			)
-		];
-		$product_ref->{$field . "_tags"} = [];
-		my $unknown = 0;
-		my $known = 0;
-		foreach my $tag (@{$product_ref->{$field . "_hierarchy"}}) {
-			my $tagid = get_taxonomyid($ingredients_lc, $tag);
-			push @{$product_ref->{$field . "_tags"}}, $tagid;
-			if (exists_taxonomy_tag("ingredients", $tagid)) {
-				$known++;
-			}
-			else {
-				$unknown++;
-			}
-		}
-		$product_ref->{"known_ingredients_n"} = $known;
-		$product_ref->{"unknown_ingredients_n"} = $unknown;
-	}
+	$product_ref->{"ingredients_tags"} = [
+		gen_ingredients_tags_hierarchy_taxonomy(
+			$ingredients_lc, join(", ", @{$product_ref->{ingredients_original_tags}})
+		)
+	];
 
 	if ($product_ref->{ingredients_text} ne "") {
-
-		$product_ref->{ingredients_n} = scalar @{$product_ref->{ingredients_original_tags}};
 
 		my $d = int(($product_ref->{ingredients_n} - 1) / 10);
 		my $start = $d * 10 + 1;
@@ -3365,6 +3359,7 @@ sub compute_ingredients_tags ($product_ref) {
 		# ensure $product_ref->{ingredients_n} is last used as an int so that it is not saved as a strings
 		$product_ref->{ingredients_n} += 0;
 	}
+
 	return;
 }
 

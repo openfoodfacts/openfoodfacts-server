@@ -28,6 +28,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Tags qw/:all/;
