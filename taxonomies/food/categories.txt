@@ -59823,6 +59823,7 @@ ja: ヴァージンオリーブオイル
 lt: Gryni alyvuogių aliejai
 nl: Virgin olijfoliën
 pl: Oliwa z oliwek virgin
+sv: Jungfruolivoljor, Virgin olivoljor
 
 < en:Olive oils
 en: Extra-virgin olive oils, Extra virgin olive oil
@@ -69482,6 +69483,7 @@ fr: Grenades
 hr: Pitomi šipak
 ja: ザクロ
 lt: Granatų vaisiai, Granatos
+nb: Granatepler
 nl: Granaatappels
 sv: Granatäpplen
 sales_format:en: weight, package
@@ -110862,6 +110864,7 @@ sales_format:en: weight, package
 < en:Vegetables
 en: Tomatoes
 bg: Домати
+da: Tomater
 de: Tomaten, Tomate
 es: Tomates
 fi: tomaatit
@@ -110874,6 +110877,7 @@ nl: Tomaten
 pl: Pomidory
 pt: Tomates
 ru: Помидоры
+sv: Tomater
 tr: Domates
 agribalyse_food_code:en: 20047_1
 ciqual_food_code:en: 20047
@@ -110917,6 +110921,7 @@ sales_format:en: weight, package
 < en:Tomatoes
 en: Cherry tomatoes
 bg: Чери домати
+da: Cherrytomater
 de: Kirschtomaten, Kirschtomate
 es: Tomates cherry
 fi: kirsikkatomaatit
@@ -110933,6 +110938,23 @@ ciqual_food_name:en: Tomato, cherry, raw
 ciqual_food_name:fr: Tomate cerise, crue
 sales_format:en: weight, package
 wikidata:en: Q6540634
+
+< en:Tomatoes
+en: Plum tomatoes, Processing tomatoes, Paste tomatoes
+de: Eiertomaten
+sv: Plommontomater
+wikidata:en: Q7205370
+wikipedia:en: https://en.wikipedia.org/wiki/Plum_tomato
+
+# Is this different from grape tomatoes?
+< en:Tomatoes
+en: Cherry plum tomatoes, Baby plum tomatoes
+sv: Babyplommontomater, Baby plommontomater
+
+< en:Cherry plum tomatoes
+< en:Fresh tomatoes
+en: Fresh cherry plum tomatoes
+sv: Ferska babyplommontomater
 
 < en:Tomatoes
 en: Provencal-style tomatoes, Breaded tomatoes stuffed with garlic and parsley
@@ -111809,6 +111831,7 @@ en: Pomegranate seeds
 da: Granatæblekerner
 fi: Granaattiomenan siemen
 fr: graines de grenade
+nb: Granateplekjerner
 sv: Granatäppelkärnor
 
 < en:Pulses
