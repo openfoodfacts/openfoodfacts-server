@@ -508,7 +508,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'phylloquinone-', 'beta-glucan-',
 			'inositol-', 'carnitine-',
 			'sulphate-', 'nitrate-',
-			'acidity-',	'total-carbohydrates-',
+			'acidity-',	'carbohydrates-total-',
 		)
 	],
 	off_ca => [
@@ -532,7 +532,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'--elaidic-acid-', '--gondoic-acid-',
 			'--mead-acid-', '--erucic-acid-',
 			'--nervonic-acid-', '-trans-fat',
-			'cholesterol', '!total-carbohydrates',
+			'cholesterol', '!carbohydrates-total',
 			'-fiber', '--soluble-fiber-',
 			'--insoluble-fiber-', '-sugars',
 			'--added-sugars-', '--sucrose-',
@@ -662,7 +662,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'--erucic-acid-', '--nervonic-acid-',
 			'-trans-fat', 'cholesterol',
 			'salt-', '-added-salt-',
-			'sodium', '!total-carbohydrates',
+			'sodium', '!carbohydrates-total',
 			'-fiber', '--soluble-fiber-',
 			'--insoluble-fiber-', '-sugars',
 			'--added-sugars', '--sucrose-',
@@ -723,7 +723,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'--mead-acid-', '--erucic-acid-',
 			'--nervonic-acid-', '-trans-fat',
 			'cholesterol', 'salt-',
-			'sodium', '!total-carbohydrates',
+			'sodium', '!carbohydrates-total',
 			'-fiber', '--soluble-fiber-',
 			'--insoluble-fiber-', '-sugars',
 			'--sucrose-', '--glucose-',
@@ -768,7 +768,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 		(
 			'!energy-kj', '!energy-kcal', '!proteins', '!fat',
 			'-saturated-fat', '-unsaturated-fat-', '--monounsaturated-fat-', '--monounsaturated-fat-',
-			'-trans-fat', 'cholesterol', '!total-carbohydrates', '-sugars',
+			'-trans-fat', 'cholesterol', '!carbohydrates-total', '-sugars',
 			'-fiber', 'salt-', 'sodium', '#vitamins',
 			'vitamin-a', 'vitamin-d-', 'vitamin-c', 'vitamin-b1-',
 			'vitamin-b2-', 'vitamin-pp-', 'vitamin-b6-', 'vitamin-b9-',
@@ -802,7 +802,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'--elaidic-acid-', '--gondoic-acid-',
 			'--mead-acid-', '--erucic-acid-',
 			'--nervonic-acid-', '-trans-fat-',
-			'cholesterol-', '!total-carbohydrates',
+			'cholesterol-', '!carbohydrates-total',
 			'-sugars-', '-fiber-',
 			'-soluble-fiber-', '-insoluble-fiber-',
 			'!salt', '-added-salt-',
@@ -899,7 +899,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'phylloquinone-', 'beta-glucan-',
 			'inositol-', 'carnitine-',
 			'sulphate-', 'nitrate-',
-			'acidity-', 'total-carbohydrates-',
+			'acidity-', 'carbohydrates-total-',
 		)
 	],
 	# https://eur-lex.europa.eu/eli/reg/2009/767/2018-12-26

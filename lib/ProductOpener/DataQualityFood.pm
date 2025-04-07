@@ -1283,7 +1283,7 @@ sub check_nutrition_data ($product_ref) {
 		# sugar + starch + fiber cannot be greater than total carbohydrates
 		# do not raise error if sugar, starch or fiber contains "<" symbol (see issue #9267)
 		if (
-			(defined $product_ref->{nutriments}{"total-carbohydrates_100g"})
+			(defined $product_ref->{nutriments}{"carbohydrates-total_100g"})
 			and (
 				# without "<" symbol, check sum of sugar, starch and fiber is not greater than carbohydrates
 				(
@@ -1302,7 +1302,7 @@ sub check_nutrition_data ($product_ref) {
 								? $product_ref->{nutriments}{"fiber_100g"}
 								: 0
 							)
-						) > ($product_ref->{nutriments}{"total-carbohydrates_100g"}) + 0.001
+						) > ($product_ref->{nutriments}{"carbohydrates-total_100g"}) + 0.001
 					)
 					and not(defined $product_ref->{nutriments}{"sugar_modifier"})
 					and not(defined $product_ref->{nutriments}{"starch_modifier"})
@@ -1321,7 +1321,7 @@ sub check_nutrition_data ($product_ref) {
 								(defined $product_ref->{nutriments}{"sugars_100g"})
 								? $product_ref->{nutriments}{"sugars_100g"}
 								: 0
-							) > ($product_ref->{nutriments}{"total-carbohydrates_100g"}) + 0.001
+							) > ($product_ref->{nutriments}{"carbohydrates-total_100g"}) + 0.001
 						)
 					)
 					or (
@@ -1334,7 +1334,7 @@ sub check_nutrition_data ($product_ref) {
 								(defined $product_ref->{nutriments}{"starch_100g"})
 								? $product_ref->{nutriments}{"starch_100g"}
 								: 0
-							) > ($product_ref->{nutriments}{"total-carbohydrates_100g"}) + 0.001
+							) > ($product_ref->{nutriments}{"carbohydrates-total_100g"}) + 0.001
 						)
 					)
 					or (
@@ -1347,7 +1347,7 @@ sub check_nutrition_data ($product_ref) {
 								(defined $product_ref->{nutriments}{"fiber_100g"})
 								? $product_ref->{nutriments}{"fiber_100g"}
 								: 0
-							) > ($product_ref->{nutriments}{"total-carbohydrates_100g"}) + 0.001
+							) > ($product_ref->{nutriments}{"carbohydrates-total_100g"}) + 0.001
 						)
 					)
 				)
@@ -1356,7 +1356,7 @@ sub check_nutrition_data ($product_ref) {
 		{
 
 			push @{$product_ref->{data_quality_errors_tags}},
-				"en:nutrition-sugars-plus-starch-plus-fiber-greater-than-total-carbohydrates";
+				"en:nutrition-sugars-plus-starch-plus-fiber-greater-than-carbohydrates-total";
 		}
 
 		# sum of nutriments that compose sugar can not be greater than sugar value
