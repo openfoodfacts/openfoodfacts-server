@@ -508,7 +508,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'phylloquinone-', 'beta-glucan-',
 			'inositol-', 'carnitine-',
 			'sulphate-', 'nitrate-',
-			'acidity-',	'carbohydrates-total-',
+			'acidity-', 'carbohydrates-total-',
 		)
 	],
 	off_ca => [
