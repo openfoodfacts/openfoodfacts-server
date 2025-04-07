@@ -32,6 +32,18 @@ msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
 
+msgctxt "site_description_obf"
+msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
+msgstr "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
+
+msgctxt "tagline_obf"
+msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
+msgstr "Open Beauty Facts gathers information and data on cosmetic products from around the world."
+
+msgctxt "footer_tagline_obf"
+msgid "A collaborative, free and open database of cosmetic products from around the world."
+msgstr "A collaborative, free and open database of cosmetic products from around the world."
+
 # OPF
 msgctxt "site_description_opf"
 msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
@@ -45,7 +57,7 @@ msgctxt "footer_tagline_opf"
 msgid "A collaborative, free and open database of various products from around the world."
 msgstr "A collaborative, free and open database of various products from around the world."
 
-#OPFF
+# OPFF
 msgctxt "site_description_opff"
 msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
 msgstr "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
@@ -57,20 +69,6 @@ msgstr "Open Pet Food Facts gathers information and data on pet food products fr
 msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr "A collaborative, free and open database of pet food products from around the world."
-
-
-# OBF
-msgctxt "site_description_obf"
-msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
-msgstr "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
-
-msgctxt "tagline_obf"
-msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
-msgstr "Open Beauty Facts gathers information and data on cosmetic products from around the world."
-
-msgctxt "footer_tagline_obf"
-msgid "A collaborative, free and open database of cosmetic products from around the world."
-msgstr "A collaborative, free and open database of cosmetic products from around the world."
 
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link_obf"
@@ -265,10 +263,6 @@ msgstr "Advanced search"
 msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
 msgstr "Advanced search and graphs"
-
-msgctxt "alcohol_warning"
-msgid "Excess drinking is harmful for health."
-msgstr "Excess drinking is harmful for health."
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
@@ -570,17 +564,9 @@ msgctxt "delete_product"
 msgid "Delete a product"
 msgstr "Delete a product"
 
-msgctxt "delete_product_page"
-msgid "Delete the page"
-msgstr "Delete the page"
-
 msgctxt "delete_the_images"
 msgid "Delete the images"
 msgstr "Delete the images"
-
-msgctxt "delete_user"
-msgid "Delete a user"
-msgstr "Delete a user"
 
 msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
@@ -4696,6 +4682,10 @@ msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
 msgstr "No or little food processing (NOVA group)"
 
+msgctxt "attribute_nova_setting_note"
+msgid "To determine the level of processing of a product, we rely on the list of ingredients (markers, processing methods) and categories."
+msgstr "To determine the level of processing of a product, we rely on the list of ingredients (markers, processing methods) and categories."
+
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
 msgid "NOVA %s"
@@ -5738,10 +5728,6 @@ msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
 msgstr "The information on the ingredients of this product has not been given."
 
-msgctxt "environmental_score_edit_for_more_precise_environmental_score"
-msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-
 msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
 msgstr "ratio"
@@ -5911,6 +5897,11 @@ msgstr "Help us inform millions of consumers around the world about what they ea
 msgctxt "donation_title_2024"
 msgid "Please give to our 2024 Fundraiser"
 msgstr "Please give to our 2024 Fundraiser"
+
+# Don't translate {year}, it will be replaced by the 4 digits year
+msgctxt "f_donation_title_year"
+msgid "Please give to our {year} Fundraiser"
+msgstr "Please give to our {year} Fundraiser"
 
 msgctxt "donation_list_2024_main"
 msgid "Your donations fund the day-to-day operations of our non-profit association:"
@@ -6267,6 +6258,10 @@ msgid "No ingredients containing palm oil detected"
 msgstr "No ingredients containing palm oil detected"
 
 msgctxt "attribute_palm_oil_setting_note"
+msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
+msgstr "To determine whether a product contains palm oil, we only rely on the list of ingredients."
+
+msgctxt "attribute_without_palm_oil_setting_note"
 msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
 msgstr "To determine whether a product contains palm oil, we only rely on the list of ingredients."
 
