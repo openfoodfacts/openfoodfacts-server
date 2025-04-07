@@ -106,6 +106,9 @@ BEGIN {
 		&display_select_crop
 		&display_select_crop_init
 
+		&get_image_url
+		&get_image_in_best_language
+
 		&display_image
 		&display_image_thumb
 
@@ -181,20 +184,20 @@ sub display_select_crop ($object_ref, $id_lc, $language, $request_ref) {
 	# $id_lc = shift  ->  id_lc = [front|ingredients|nutrition|packaging]_[new_]?[lc]
 	my $id = $id_lc;
 	my $message = $Lang{"protected_image_message"}{$lc};
-	my $imagetype = $id_lc;
+	my $image_type = $id_lc;
 	my $display_lc = $lc;
 
 	if ($id_lc =~ /^(.*?)_(new_)?(.*)$/) {
-		$imagetype = $1;
+		$image_type = $1;
 		$display_lc = $3;
 	}
 
 	my $note = '';
-	if (defined $Lang{"image_" . $imagetype . "_note"}{$lc}) {
-		$note = "<p class=\"note\">&rarr; " . $Lang{"image_" . $imagetype . "_note"}{$lc} . "</p>";
+	if (defined $Lang{"image_" . $image_type . "_note"}{$lc}) {
+		$note = "<p class=\"note\">&rarr; " . $Lang{"image_" . $image_type . "_note"}{$lc} . "</p>";
 	}
 
-	my $label = $Lang{"image_" . $imagetype}{$lc};
+	my $label = $Lang{"image_" . $image_type}{$lc};
 
 	my $html = '';
 	if (is_protected_image($object_ref, $id_lc) and (not $User{moderator}) and (not $request_ref->{admin})) {
@@ -1745,11 +1748,11 @@ sub display_image_thumb ($product_ref, $id_lc) {
 
 	# $id_lc = shift  ->  id_lc = [front|ingredients|nutrition|packaging]_[lc]
 
-	my $imagetype = $id_lc;
+	my $image_type = $id_lc;
 	my $display_lc = $lc;
 
 	if ($id_lc =~ /^(.*)_(.*)$/) {
-		$imagetype = $1;
+		$image_type = $1;
 		$display_lc = $2;
 	}
 
@@ -1763,15 +1766,15 @@ sub display_image_thumb ($product_ref, $id_lc) {
 	}
 
 	# first try the requested language
-	my @display_ids = ($imagetype . "_" . $display_lc);
+	my @display_ids = ($image_type . "_" . $display_lc);
 
 	# next try the main language of the product
 	if ($product_ref->{lc} ne $display_lc) {
-		push @display_ids, $imagetype . "_" . $product_ref->{lc};
+		push @display_ids, $image_type . "_" . $product_ref->{lc};
 	}
 
 	# last try the field without a language (for old products without updated images)
-	push @display_ids, $imagetype;
+	push @display_ids, $image_type;
 
 	my $images_subdomain = format_subdomain('images');
 	my $static_subdomain = format_subdomain('static');
@@ -1785,7 +1788,7 @@ sub display_image_thumb ($product_ref, $id_lc) {
 
 			my $path = product_path($product_ref);
 			my $rev = $product_ref->{images}{$id}{rev};
-			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lc};
+			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$image_type . '_alt'}{$lc};
 
 			$html .= <<HTML
 <img src="$images_subdomain/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="$images_subdomain/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" loading="lazy" $css/>
@@ -1809,125 +1812,115 @@ HTML
 	return $html;
 }
 
-sub display_image ($product_ref, $id_lc, $size) {
+=head2 get_image_url ($product_ref, $image_ref, $size)
 
-	# $id_lc = shift  ->  id_lc = [front|ingredients|nutrition|packaging]_[lc]
-	# $size  = shift  ->  currently = $small_size , 200px
+Return the URL of the image in the requested size.
+
+=cut
+
+sub get_image_url ($product_ref, $image_ref, $size) {
+
+	my $path = product_path($product_ref);
+	my $rev = $image_ref->{rev};
+	my $imgid = $image_ref->{imgid};
+
+	my $url = "$images_subdomain/images/products/$path/$imgid.$rev.$size.jpg";
+
+	return $url;
+}
+
+=head2 get_image_in_best_language ($product_ref, $image_type, $target_lc)
+
+We return the image object in the best language available for the image type,
+in the order of preference:
+- $target_lc
+- main language of the product
+- English
+- any other available language (if any), in alphabetical order
+
+=head3 Arguments
+
+- $product_ref: the product reference
+- $image_type: the image type (front, ingredients, nutrition, packaging)
+- $target_lc: the target language code
+- $image_lc_ref: a reference to return the language code of the image (optional)
+
+=head3 Return values
+
+- the image reference in the best language available
+
+The language code of the best language is set in $image_lc_ref (if provided)
+
+=cut
+
+sub get_image_in_best_language ($product_ref, $image_type, $target_lc, $image_lc_ref = undef) {
+
+	my @languages = ($target_lc, $product_ref->{lang} || $product_ref->{lc}, 'en');
+
+	my $image_ref;
+	my $image_lc;
+
+	foreach my $language (@languages) {
+		$image_ref = deep_get($product_ref, "images", "selected", $image_type, $language);
+		if (defined $image_ref) {
+			$image_lc = $language;
+			last;
+		}
+	}
+
+	if (not defined $image_ref) {
+		# No image found in the preferred languages, we try to find one in any other language
+		my $selected_images_ref = deep_get($product_ref, "images", "selected", $image_type);
+		if (defined $selected_images_ref) {
+			foreach my $language (sort keys %{$selected_images_ref}) {
+				$image_ref = $selected_images_ref->{$language};
+				$image_lc = $language;
+				last;
+			}
+		}
+	}
+
+	if (defined $image_ref) {
+		if (defined $image_lc_ref) {
+			$$image_lc_ref = $image_lc;
+		}
+		return ($image_ref);
+	}
+	return;
+}
+
+sub display_image ($product_ref, $image_type, $target_lc, $size) {
 
 	my $html = '';
 
-	my $imagetype = $id_lc;
-	my $display_lc = $lc;
+	my $image_lc;
+	my $image_ref = get_image_in_best_language($product_ref, $image_type, $target_lc, \$image_lc);
 
-	if ($id_lc =~ /^(.*)_(.*)$/) {
-		$imagetype = $1;
-		$display_lc = $2;
-	}
+	if (defined $image_ref) {
+		my $image_url = get_image_url($product_ref, $image_ref, $size);
+		my $alt
+			= remove_tags_and_quote($product_ref->{product_name}) . ' - '
+			. lang($image_type . '_alt') . ' - '
+			. $image_lc;
 
-	# first try the requested language
-	my @display_ids = ($imagetype . "_" . $display_lc);
+		my $template_data_ref = {
+			'alt' => $alt,
+			'src' => $image_url,
+			'w' => $image_ref->{sizes}{$size}{w},
+			'h' => $image_ref->{sizes}{$size}{h}
+		};
 
-	# next try the main language of the product
-	if ($product_ref->{lc} ne $display_lc) {
-		push @display_ids, $imagetype . "_" . $product_ref->{lc};
-	}
+		# See if we have a x2 image for high resolution displays
+		my $size2 = $size * 2;
 
-	# last try the field without a language (for old products without updated images)
-	push @display_ids, $imagetype;
-
-	foreach my $id (@display_ids) {
-
-		if (    (defined $product_ref->{images})
-			and (defined $product_ref->{images}{$id})
-			and (defined $product_ref->{images}{$id}{sizes})
-			and (defined $product_ref->{images}{$id}{sizes}{$size}))
-		{
-
-			my $path = product_path($product_ref);
-			my $rev = $product_ref->{images}{$id}{rev};
-			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lc};
-			if ($id eq ($imagetype . "_" . $display_lc)) {
-				$alt
-					= remove_tags_and_quote($product_ref->{product_name}) . ' - '
-					. $Lang{$imagetype . '_alt'}{$lc} . ' - '
-					. $display_lc;
-			}
-			elsif ($id eq ($imagetype . "_" . $product_ref->{lc})) {
-				$alt
-					= remove_tags_and_quote($product_ref->{product_name}) . ' - '
-					. $Lang{$imagetype . '_alt'}{$lc} . ' - '
-					. $product_ref->{lc};
-			}
-
-			if (not defined $product_ref->{jqm}) {
-				my $noscript = "<noscript>";
-
-				# add srcset with 2x image only if the 2x image exists
-				my $srcset = '';
-				if (defined $product_ref->{images}{$id}{sizes}{$display_size}) {
-					$srcset = "srcset=\"$images_subdomain/images/products/$path/$id.$rev.$display_size.jpg 2x\"";
-				}
-
-				$html .= <<HTML
-<img class="hide-for-xlarge-up" src="$images_subdomain/images/products/$path/$id.$rev.$size.jpg" $srcset width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" itemprop="thumbnail" loading="lazy" />
-HTML
-					;
-
-				$srcset = '';
-				if (defined $product_ref->{images}{$id}{sizes}{$zoom_size}) {
-					$srcset = "srcset=\"$images_subdomain/images/products/$path/$id.$rev.$zoom_size.jpg 2x\"";
-				}
-
-				$html .= <<HTML
-<img class="show-for-xlarge-up" src="$images_subdomain/images/products/$path/$id.$rev.$display_size.jpg" $srcset width="$product_ref->{images}{$id}{sizes}{$display_size}{w}" height="$product_ref->{images}{$id}{sizes}{$display_size}{h}" alt="$alt" itemprop="thumbnail" loading="lazy" />
-HTML
-					;
-
-				if (($size eq $small_size) and (defined $product_ref->{images}{$id}{sizes}{$display_size})) {
-
-					my $title = lang($id . '_alt');
-
-					my $full_image_url
-						= "$images_subdomain/images/products/$path/$id.$product_ref->{images}{$id}{rev}.full.jpg";
-					my $representative_of_page = '';
-					if ($id eq 'front') {
-						$representative_of_page = 'true';
-					}
-					else {
-						$representative_of_page = 'false';
-					}
-
-					$noscript .= "</noscript>";
-					$html = $html . $noscript;
-					$html = <<"HTML"
-<a data-reveal-id="drop_$id" class="th">
-$html
-</a>
-<div id="drop_$id" class="reveal-modal" data-reveal aria-labelledby="modalTitle_$id" aria-hidden="true" role="dialog" about="$full_image_url" >
-<h2 id="modalTitle_$id">$title</h2>
-<img src="$full_image_url" alt="$alt" itemprop="contentUrl" loading="lazy" />
-<a class="close-reveal-modal" aria-label="Close" href="#">&#215;</a>
-<meta itemprop="representativeOfPage" content="$representative_of_page"/>
-<meta itemprop="license" content="https://creativecommons.org/licenses/by-sa/3.0/"/>
-<meta itemprop="caption" content="$alt"/>
-</div>
-<meta itemprop="imgid" content="$id"/>
-HTML
-						;
-
-				}
-
-			}
-			else {
-				# jquery mobile for Cordova app
-				$html .= <<HTML
-<img src="$images_subdomain/images/products/$path/$id.$rev.$size.jpg" width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" />
-HTML
-					;
-			}
-
-			last;
+		if (defined $image_ref->{sizes}{$size2}) {
+			$template_data_ref->{srcset} = get_image_url($product_ref, $image_ref, $size2);
 		}
+
+		$html .= <<HTML
+<img class="test" src="$template_data_ref->{src}" width="$template_data_ref->{w}" height="$template_data_ref->{h}" alt="$template_data_ref->{alt}" loading="lazy" $template_data_ref->{srcset} />
+HTML
+			;
 
 	}
 

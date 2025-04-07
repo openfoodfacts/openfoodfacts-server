@@ -5,7 +5,7 @@ use ProductOpener::PerlStandards;
 use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Images qw/get_code_and_imagefield_from_file_name scan_code/;
+use ProductOpener::Images qw/get_code_and_imagefield_from_file_name scan_code get_image_url get_image_in_best_language/;
 
 use File::Basename 'dirname';
 
@@ -62,5 +62,223 @@ foreach my $test_ref (@scan_code_tests) {
 	is($code, $test_ref->[1],
 		$test_ref->[0] . ' is expected to return "' . $test_ref->[1] . '" instead of "' . $code . '"');
 }
+
+# get_image_in_best_language tests
+
+my $product_ref = {
+	"code" => "3410123456789",
+	"lang" => "fr",
+	"images" => {
+		"selected" => {
+			"front" => {
+				"en" => {
+					"generation" => {
+						"angle" => "0",
+						"coordinates_image_size" => "400",
+						"geometry" => "0x0-0-0",
+						"normalize" => "false",
+						"white_magic" => "false",
+						"x1" => "0",
+						"x2" => "0",
+						"y1" => "0",
+						"y2" => "0"
+					},
+					"imgid" => "3",
+					"rev" => "14",
+					"sizes" => {
+						"100" => {
+							"h" => 46,
+							"w" => 100
+						},
+						"200" => {
+							"h" => 92,
+							"w" => 200
+						},
+						"400" => {
+							"h" => 185,
+							"w" => 400
+						},
+						"full" => {
+							"h" => 1848,
+							"w" => 4000
+						}
+					}
+				},
+				"fr" => {
+					"generation" => {
+						"angle" => "0",
+						"coordinates_image_size" => "400",
+						"geometry" => "919x1280-424-703",
+						"normalize" => "false",
+						"white_magic" => "false",
+						"x1" => "42.5",
+						"x2" => "134.5",
+						"y1" => "70.359375",
+						"y2" => "198.359375"
+					},
+					"imgid" => "1",
+					"rev" => "10",
+					"sizes" => {
+						"100" => {
+							"h" => 100,
+							"w" => 72
+						},
+						"200" => {
+							"h" => 200,
+							"w" => 144
+						},
+						"400" => {
+							"h" => 400,
+							"w" => 287
+						},
+						"full" => {
+							"h" => 1280,
+							"w" => 919
+						}
+					}
+				}
+			},
+			"ingredients" => {
+				"fr" => {
+					"generation" => {
+						"angle" => 0,
+						"coordinates_image_size" => "full",
+						"geometry" => "0x0--1--1",
+						"normalize" => undef,
+						"white_magic" => undef,
+						"x1" => "-1",
+						"x2" => "-1",
+						"y1" => "-1",
+						"y2" => "-1"
+					},
+					"imgid" => "1",
+					"rev" => "3",
+					"sizes" => {
+						"100" => {
+							"h" => 100,
+							"w" => 46
+						},
+						"200" => {
+							"h" => 200,
+							"w" => 92
+						},
+						"400" => {
+							"h" => 400,
+							"w" => 185
+						},
+						"full" => {
+							"h" => 4000,
+							"w" => 1848
+						}
+					}
+				}
+			},
+			"nutrition" => {
+				"it" => {
+					"generation" => {
+						"angle" => "0",
+						"coordinates_image_size" => "full",
+						"geometry" => "513x730-2511-522",
+						"normalize" => "false",
+						"white_magic" => "false",
+						"x1" => "2511.839967216288",
+						"x2" => "3024.7198587148587",
+						"y1" => "522.7062563284228",
+						"y2" => "1252.7512501737215"
+					},
+					"imgid" => "2",
+					"rev" => "7",
+					"sizes" => {
+						"100" => {
+							"h" => 100,
+							"w" => 70
+						},
+						"200" => {
+							"h" => 200,
+							"w" => 141
+						},
+						"400" => {
+							"h" => 400,
+							"w" => 281
+						},
+						"full" => {
+							"h" => 730,
+							"w" => 513
+						}
+					}
+				}
+			}
+		},
+		"uploaded" => {
+			"1" => {
+				"sizes" => {
+					"100" => {
+						"h" => 100,
+						"w" => 46
+					},
+					"400" => {
+						"h" => 400,
+						"w" => 185
+					},
+					"full" => {
+						"h" => 4000,
+						"w" => 1848
+					}
+				},
+				"uploaded_t" => 1744032137,
+				"uploader" => "stephane2"
+			},
+			"2" => {
+				"sizes" => {
+					"100" => {
+						"h" => 46,
+						"w" => 100
+					},
+					"400" => {
+						"h" => 185,
+						"w" => 400
+					},
+					"full" => {
+						"h" => 1848,
+						"w" => 4000
+					}
+				},
+				"uploaded_t" => 1744032138,
+				"uploader" => "stephane2"
+			},
+			"3" => {
+				"sizes" => {
+					"100" => {
+						"h" => 46,
+						"w" => 100
+					},
+					"400" => {
+						"h" => 185,
+						"w" => 400
+					},
+					"full" => {
+						"h" => 1848,
+						"w" => 4000
+					}
+				},
+				"uploaded_t" => 1744032360,
+				"uploader" => "stephane2"
+			}
+		}
+	}
+};
+
+my $image_lc = undef;
+get_image_in_best_language($product_ref, "front", "en", \$image_lc);
+is($image_lc, 'en');
+
+get_image_in_best_language($product_ref, "front", "fr", \$image_lc);
+is($image_lc, 'fr');
+
+get_image_in_best_language($product_ref, "front", "de", \$image_lc);
+is($image_lc, 'fr');
+
+get_image_in_best_language($product_ref, "nutrition", "de", \$image_lc);
+is($image_lc, 'it');
 
 done_testing();

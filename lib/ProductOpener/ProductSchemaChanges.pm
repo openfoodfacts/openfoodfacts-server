@@ -64,7 +64,9 @@ use ProductOpener::Tags qw/compute_field_tags/;
 use ProductOpener::Products qw/normalize_code/;
 use ProductOpener::Config qw/:all/;
 
-$current_schema_version = 1001;
+use Data::DeepAccess qw(deep_get deep_set);
+
+$current_schema_version = 1002;
 
 my (%upgrade_functions, %downgrade_functions);
 
@@ -112,11 +114,13 @@ sub convert_product_schema ($product_ref, $to_version) {
 	998 => \&convert_schema_998_to_999_change_barcode_normalization,
 	999 => \&convert_schema_999_to_1000_rename_ecoscore_fields_to_environmental_score,
 	1000 => \&convert_schema_1000_to_1001_remove_ingredients_hierarchy_taxonomize_brands,
+	1001 => \&convert_schema_1001_to_1002_refactor_images_object,
 );
 
 %downgrade_functions = (
 	1000 => \&convert_schema_1000_to_999_rename_ecoscore_fields_to_environmental_score,
 	1001 => \&convert_schema_1001_to_1000_remove_ingredients_hierarchy_taxonomize_brands,
+	1002 => \&convert_schema_1002_to_1001_refactor_images_object,
 );
 
 =head2 998 to 999 - Change in barcode normalization
@@ -222,3 +226,78 @@ sub convert_schema_1001_to_1000_remove_ingredients_hierarchy_taxonomize_brands (
 	return;
 }
 
+=head2 1001 to 1002 - Refactor the images object
+
+The images object is restructured to separate uploaded images from selected images
+
+=cut
+
+sub convert_schema_1001_to_1002_refactor_images_object ($product_ref) {
+
+	if (exists $product_ref->{images}) {
+		my $uploaded_ref = {};
+		my $selected_ref = {};
+		foreach my $imgid (%{$product_ref->{images}}) {
+			# Upload images have an imageid which is a string containing an integer starting from 1
+			if ($imgid =~ /^\d+$/) {
+				$uploaded_ref->{$imgid} = $product_ref->{images}->{$imgid};
+			}
+			# Selected images have an imageid which is a string containing a word and a 2 letter language code (e.g. ingredients_fr)
+			elsif ($imgid =~ /^(\w+)_(\w\w)$/) {
+				my ($type, $lc) = ($1, $2);
+				# Put keys related to cropping / rotation / normalization inside a "generation" structure
+				my $image_ref = $product_ref->{images}->{$imgid};
+				my $generation_ref = {};
+				foreach my $key (keys %{$image_ref}) {
+					if ($key !~ /^(imgid|rev|sizes)/) {
+						$generation_ref->{$key} = $image_ref->{$key};
+						delete $image_ref->{$key};
+					}
+				}
+				$image_ref->{generation} = $generation_ref;
+				deep_set($selected_ref, $type, $lc, $image_ref);
+			}
+		}
+		$product_ref->{images} = {
+			uploaded => $uploaded_ref,
+			selected => $selected_ref,
+		};
+	}
+
+	return;
+}
+
+sub convert_schema_1002_to_1001_refactor_images_object ($product_ref) {
+
+	# We need to convert the images object back to the old format
+	if (exists $product_ref->{images}) {
+		my $images_ref = $product_ref->{images};
+		# Copy uploaded images
+		if (exists $images_ref->{uploaded}) {
+			# We need to copy the uploaded images back to the main images object
+			foreach my $imgid (keys %{$images_ref->{uploaded}}) {
+				$product_ref->{images}->{$imgid} = $images_ref->{uploaded}{$imgid};
+			}
+			delete $product_ref->{images}->{uploaded};
+		}
+		# Copy selected images
+		if (exists $images_ref->{selected}) {
+			foreach my $type (keys %{$images_ref->{selected}}) {
+				foreach my $lc (keys %{$images_ref->{selected}->{$type}}) {
+					my $image_ref = $images_ref->{selected}->{$type}->{$lc};
+					# copy keys from the generation structure to the image structure
+					# and delete the generation structure
+					foreach my $key (keys %{$image_ref->{generation}}) {
+						$image_ref->{$key} = $image_ref->{generation}->{$key};
+					}
+					delete $image_ref->{generation};
+					$product_ref->{images}->{$type . "_" . $lc} = $image_ref;
+				}
+			}
+
+			delete $product_ref->{images}->{selected};
+		}
+	}
+
+	return;
+}
