@@ -58350,6 +58350,15 @@ ciqual_food_code:en: 22010
 ciqual_food_name:en: Egg, hard-boiled
 ciqual_food_name:fr: Oeuf, dur
 
+< en:Hard-boiled egg
+en: Egg white cooked, cooked egg white
+fr: blanc d'oeuf cuit
+hr: Bjelanjak kuhan
+lt: Keptas kiaušinio baltymas
+agribalyse_food_code:en: 22008
+ciqual_food_code:en: 22008
+ciqual_food_name:en: Egg white, cooked
+
 < en:Eggs
 en: Scotch eggs
 de: Schottische Eier
@@ -58367,9 +58376,31 @@ fr: Oeuf blanc, blanc d'oeuf
 hr: Bjelanjak
 ja: 卵白
 lt: Kiaušinio baltymas
+nl: Ei-eiwit
 agribalyse_food_code:en: 22001
 ciqual_food_code:en: 22001
 ciqual_food_name:en: Egg white, raw
+
+< en:Eggs
+en: Egg powder
+bg: Яйчен прах
+fr: Oeuf en poudre
+hr: Jaje u prahu
+lt: Kiaušinių milteliai
+agribalyse_food_code:en: 22013
+ciqual_food_code:en: 22013
+ciqual_food_name:en: Egg, powder
+wikidata:en: Q104640464
+
+< en:Egg white
+en: Egg white powder
+bg: Яйчен белтък на прах
+fr: blanc d'oeuf en poudre
+hr: Bjelanjak u prahu
+lt: Kiaušinio baltymo milteliai
+agribalyse_food_code:en: 22004
+ciqual_food_code:en: 22004
+ciqual_food_name:en: Egg white, powder
 
 < en:Eggs
 en: Egg yolk
@@ -58381,6 +58412,16 @@ lt: Kiaušinio trynys
 agribalyse_food_code:en: 22002
 ciqual_food_code:en: 22002
 ciqual_food_name:en: Egg yolk, raw
+
+< en:Egg yolk
+en: Egg yolk powder
+bg: Яйчен жълтък на прах
+fr: jaune d'oeuf en poudre
+hr: Žumanjak u prahu
+lt: Kiaušinio trynio milteliai
+agribalyse_food_code:en: 22003
+ciqual_food_code:en: 22003
+ciqual_food_name:en: Egg yolk, powder
 
 ############################################## F A T S #######################
 
@@ -78702,37 +78743,6 @@ ciqual_food_code:en: 42005
 ciqual_food_name:en: Meal replacement low calorie, in powder, reconstituted with skimmed milk, milkshake type
 ciqual_food_name:fr: Substitut de repas hypocalorique, poudre reconstituée avec lait écrémé, type milk-shake
 
-< en:Meal replacements
-en: Egg powder
-bg: Яйчен прах
-fr: Oeuf en poudre
-hr: Jaje u prahu
-lt: Kiaušinių milteliai
-agribalyse_food_code:en: 22013
-ciqual_food_code:en: 22013
-ciqual_food_name:en: Egg, powder
-wikidata:en: Q104640464
-
-< en:Meal replacements
-en: Egg white powder
-bg: Яйчен белтък на прах
-fr: blanc d'oeuf en poudre
-hr: Bjelanjak u prahu
-lt: Kiaušinio baltymo milteliai
-agribalyse_food_code:en: 22004
-ciqual_food_code:en: 22004
-ciqual_food_name:en: Egg white, powder
-
-< en:Meal replacements
-en: Egg yolk powder
-bg: Яйчен жълтък на прах
-fr: jaune d'oeuf en poudre
-hr: Žumanjak u prahu
-lt: Kiaušinio trynio milteliai
-agribalyse_food_code:en: 22003
-ciqual_food_code:en: 22003
-ciqual_food_name:en: Egg yolk, powder
-
 # "Sushi and Maki" doesn't make sense. Maki is a subset of sushi. Is "sushi" being used to mean "nigiri"?
 # Also, sashimi is missing, so perhaps the parent category should be "sushi and sashimi".
 < en:Meals
@@ -79120,15 +79130,6 @@ agribalyse_food_code:en: 22502
 ciqual_food_code:en: 22502
 ciqual_food_name:en: Egg, scrambled, with added fat
 wikidata:en: Q668855
-
-< en:Meals
-en: Egg white cooked, cooked egg white
-fr: blanc d'oeuf cuit
-hr: Bjelanjak kuhan
-lt: Keptas kiaušinio baltymas
-agribalyse_food_code:en: 22008
-ciqual_food_code:en: 22008
-ciqual_food_name:en: Egg white, cooked
 
 < en:Meals
 en: Poached eggs, Egg poached
