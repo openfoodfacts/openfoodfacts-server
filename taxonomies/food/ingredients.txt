@@ -133,12 +133,12 @@ stopwords:bg: съдържа, в, от, с, със, до, и, или, и/или,
 stopwords:bs: i, u promjenljivom odnosu
 stopwords:ca: i, de
 stopwords:da: av, af, blandt andet, bl a, inklusive, heraf, indeholder, tilsat
-stopwords:de: und, mit, von, aus, enthält, enthalten, mindestens, naturbelassen, in veränderlichen gewichtsanteilen, wenig, min, max
-stopwords:el: περιέχει
+stopwords:de: Allergene Zutaten, und, mit, von, aus, enthält, enthalten, mindestens, naturbelassen, in veränderlichen gewichtsanteilen, wenig, min, max
+stopwords:el: Για αλλεργιογόνα, περιέχει
 # example: "artificial flavouring substances", "natural and nature identical flavouring substances"
 stopwords:en: and, or, added to enhance freshness, added to maintain flavor and freshness, assorted, based, contains, contains less than 2% of the following, contains one or more of the following, contain, edible, for freshness, from, including, inter alia, in varying proportions, less than 1% of:, may contain one or more of the following, minimum, possibly some, produced with, roasted in, substances, with, with added
 stopwords:es: contiene, de, del, la, el, las, los, con, y, e, en, minimo, maximo, puede, contener, por, categoria, calibre, minimo, min, vereidad, variedad, de cultivo, origen, nota, produccion, controlada, equivalente, equivale
-stopwords:fi: sisältää, muun muassa, valio, koskenlaskija, snellmanin, jossa, noin, käymisen aikana muodostuva
+stopwords:fi: allergiatiedot, jossa, käymisen aikana muodostuva, koskenlaskija, muun muassa, noin, sisältää, snellmanin, valio
 stopwords:fr: aux, au, de, le, du, la, a, et, avec, ou, en, proportion, variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves, dont, avec, autres, d'autres, d', avec ajout, sachet, marquants, demeter, minimum, base
 # example: grašak u prahu BOGAT BJELANČEVINAMA
 # example: KLASIČNA MJEŠAVINA arabica i robusta kave
@@ -158,13 +158,13 @@ stopwords:ja: 等, その他
 stopwords:lt: iš, su, su pridėtiniu, mažiausiai, įskaitant
 stopwords:lv: no
 stopwords:nb: av, fra, bl a, blant annet, tilsatt
-stopwords:nl: bevat, met, waarvan, bevatten, van, vervaardigd met, behandeld papier, waaraan toegevoegd, aangezuurd, cacaobestanddelen, o.a
+stopwords:nl: aangezuurd, bevat, bevatten, behandeld papier, cacaobestanddelen, met, o.a, van, vervaardigd met, voor allergenen, waaraan toegevoegd, waarvan
 stopwords:nn: av
 stopwords:pl: w tym, zawiera, z, zawierają, łącznie z, jadalna, jadalne, inne
 stopwords:pt: de, da, do, das, dos, com, e, ou, em, do qual, dos quais, contém, produzido com, mínimo, máximo, min., mín., máx., max., incluindo, variedade, cultivo, de cultivo
 stopwords:sk: obsahuje
 stopwords:sl: vsebuje, sestavine
-stopwords:sv: av, från, med, innehåller, inklusive, bl a, bland annat, minimum, maximum, varav, certifierad, tillsatt, valio, några, droppar, en, liten, skvätt
+stopwords:sv: av, bl a, bland annat, certifierad, droppar, en, for allergener, från, innehåller, inklusive, liten, maximum, med, minimum, några, skvätt, tillsatt, valio, varav
 stopwords:zh: :配料
 
 
@@ -524,7 +524,7 @@ ru: соевый лецитин, лецитин соевый, эмульгато
 sk: sójový lecitin
 sl: sojin lecitin
 sr: sojin lecitin
-sv: sojalecitin, sojalecitiner, sojalecithin, sojabönslecitin
+sv: sojalecitin, sojalecitiner, sojalecithin, sojabönslecitin, emulgerings medel sojalecitin
 tr: soya lesitini
 uk: Соєвий лецитин
 zh: 大豆卵磷脂
@@ -15675,7 +15675,7 @@ ro: uleiuri și grăsimi
 ru: растительным и животным жирам, Масла и жиры
 sk: Oleje a tuky
 sl: olja in maščobe
-sv: oljor och fetter, Oljor och fett
+sv: oljor och fetter, oljor och fett, olja och fett
 uk: Олія і жир
 from_palm_oil:en: maybe
 vegan:en: maybe
@@ -25509,7 +25509,7 @@ hr: graham brašno
 it: Farina di Graham
 nb: grahamsmel
 ro: făină graham
-sv: grahamsmjöl, fullkornsgrahamsmjöl
+sv: grahamsmjöl, fullkornsgrahamsmjöl, grahamsmjöl av vete
 wikipedia:en: https://en.wikipedia.org/wiki/Graham_flour
 
 # description:en:Wheat gluten is a food made from gluten, the main protein of wheat.
@@ -27744,12 +27744,19 @@ pl: płatki żytnie pełnoziarniste
 < en:rye
 en: rye grains
 bg: ръжени зърна
+da: rugkorn
 de: Roggenkörner
 es: granos de centeno, grañones completos de centeno
 hr: zrna raži
 it: chicchi di segale
 nl: roggegraan, roggegranen
+sv: rågkorn
 # in 4 @2021-10-28
+
+< en:rye
+en: rye kernels
+da: rugkerner
+sv: rågkärnor
 
 < en:rye
 de: Roggengrießkleie
@@ -28793,7 +28800,7 @@ nl: volkorentarwemeel, volkoren tarwemeel
 pl: Mąka pszenna pełnoziarnista, mąka pszenna razowa, pełnoziarnista mąka pszenna, mąka pełnoziarnista pszenna
 pt: farinha de trigo integral, farinha integral de trigo
 ro: făină integrală de grâu
-sv: fullkornsvetemjöl, grahamsmjöl av vete
+sv: fullkornsvetemjöl, fullkornsmjöl av vete
 
 < en:semi-wholemeal flour
 < en:wheat flour
@@ -58967,7 +58974,6 @@ fr: piment inca, piments inca
 # ingredient/fr:extrait-de-piment has 72 products in 6 languages @2019-04-15
 
 #process:en: en:pureed
-#process:en: en:paste
 < en:chili pepper
 en: chili puree, chilli puree
 bg: пиперково пюре
@@ -58978,6 +58984,11 @@ hr: pire od čilija
 it: purea di peperoncino
 # ingredient/fr:purée-de-piments has 136 products in 4 languages @2019-04-15
 # usage:fr:purée de piments (piments, sel)
+
+#process:en: en:paste
+< en:chili pepper
+en: chili paste
+sv: chilipasta
 
 #process:en: en:flakes
 #<en:chili pepper
@@ -66079,7 +66090,7 @@ ja: 胡麻ペスト
 nl: sesampasta
 pl: pasta sezamowa
 ro: pastă de susan, pastă de seminte de susan
-sv: sesam-kräm, sesampasta
+sv: sesampasta, sesam-kräm, sesam pasta
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pâte-de-sésame
 # 105 products in 4 languages @2018-10-05
 
@@ -84174,8 +84185,6 @@ la: Stomatopoda
 th: กั้ง
 wikipedia:en: https://en.wikipedia.org/wiki/Mantis_shrimp
 
-# en:description:Whiteleg shrimp (Litopenaeus vannamei, formerly Penaeus vannamei), also known as Pacific white shrimp or king prawn, is a variety of prawn of the eastern Pacific Ocean commonly caught or farmed for food.
-
 < en:shrimp
 en: whiteleg shrimp, Litopenaeus vannamei
 de: Weißbeingarnele, Litopenaeus vannamei
@@ -84185,8 +84194,10 @@ fr: Crevette à pattes blanches, Litopenaeus vannamei
 hr: kozica pacifička, penaeus vannamei
 it: gamberetti bianchi
 la: Litopenaeus vannamei, Penaeus vannamei, Litopenaus vanamei
+nl: witpootgarnaal
 pl: krewetka białonoga, Litopenaeus vannamei, krewetki białe, krewetka biała
 pt: camarão-de-patas-brancas, Litopenaeus vannamei
+description:en: Whiteleg shrimp (Litopenaeus vannamei, formerly Penaeus vannamei), also known as Pacific white shrimp or king prawn, is a variety of prawn of the eastern Pacific Ocean commonly caught or farmed for food.
 wikidata:en: Q3002564
 wikipedia:en: https://en.wikipedia.org/wiki/Whiteleg_shrimp
 
@@ -84299,7 +84310,6 @@ la: Metapenaeus affinis, Metapaneus affinis
 wikipedia:nl: https://nl.wikipedia.org/wiki/Metapenaeus_affinis
 # ingredient/fr:Metapaneus-affinis has 1 product @2019-01-06
 
-# en:description:Pandalus jordani is een garnalensoort uit de familie van de Pandalidae.
 
 < en:shrimp
 en: Pandalus jordani
@@ -84310,6 +84320,7 @@ hr: pandalus jordani
 is: Bleikrækja
 it: pandalus jordani
 nl: Pandalus jordani
+description:en: Pandalus jordani is een garnalensoort uit de familie van de Pandalidae.
 wikidata:en: Q4470579
 wikipedia:nl: https://nl.wikipedia.org/wiki/Pandalus_jordani
 # ingredient/fr:Pandalus-jordani has 3 products @2108-12-14
@@ -90027,6 +90038,8 @@ zh: 生麵團
 # zh-hk:生麵團
 # zh-sg:生面团
 # zh-tw:生麵團
+vegan:en: maybe
+vegetarian:en: yes
 wikidata:en: Q178024
 wikipedia:en: https://en.wikipedia.org/wiki/Dough
 
@@ -90752,6 +90765,7 @@ it: pasta all'uovo
 nl: eierpasta
 pl: makaron jajeczny
 allergens:en: en:eggs
+vegan:en: no
 wikidata:en: Q53619707
 # 92 in 4 languages @2021-09-16
 
@@ -91200,6 +91214,8 @@ nova:en: 3
 # zh-my:面包
 # zh-sg:面包
 # zh-tw:麵包
+vegan:en: maybe
+vegetarian:en: yes
 wikidata:en: Q7802
 wikipedia:en: https://en.wikipedia.org/wiki/Bread
 
@@ -94061,6 +94077,8 @@ it: crema al cacao
 pl: krem kakaowy
 pt: creme de cacau
 sv: kakaokräm
+vegan:en: maybe
+vegetarian:en: yes
 
 #<en:compound
 en: hazelnut and cocoa spread
@@ -94068,17 +94086,23 @@ es: crema de cacao y avellanas
 fr: Pâte à tartiner aux noisettes et au cacao, crème de cacao et de noisette
 hr: pasta s kakaom i lješnjacima
 it: crema spalmabile di nocciole e cacao
+vegan:en: maybe
+vegetarian:en: yes
 
 #<en:compound
 en: hazelnut spread
 fr: pâte à tartiner aux noisettes
 hr: lješnjak krem proizvod
 it: crema di nocciole
+vegan:en: maybe
+vegetarian:en: yes
 
 #<en:compound
 en: milk spread
 hr: lino lada mliječni krem proizvod
 it: crema spalmabile al latte
+vegan:en: no
+vegetarian:en: yes
 
 < en:coconut flavouring
 < en:milk spread
@@ -94095,6 +94119,8 @@ it: crema spalmabile al latte con nocciole
 en: nougat spread
 hr: lino lada nougat krem proizvod
 it: crema di torrone
+vegan:en: maybe
+vegetarian:en: yes
 
 ###################################################################################################
 #
@@ -95432,6 +95458,7 @@ description:en: Sambal is an Indonesian chili sauce or paste typically made from
 wikidata:en: Q1056554
 wikipedia:en: https://en.wikipedia.org/wiki/Sambal
 
+< en:chili paste
 < en:sambal
 en: sambal oelek
 de: sambal oelek
@@ -95443,6 +95470,7 @@ nl: sambal oelek
 pl: sambal oelek
 description:en: Raw chili paste (bright red, thin and sharp tasting). Can be used as the base for making other sambals or as an ingredient for other cuisines.
 
+< en:chili paste
 < en:hot sauce
 en: Kanzuri
 it: kanzuri
@@ -95836,6 +95864,7 @@ pl: hummus
 ro: hummus, humus
 ru: хумус
 sr: хумус
+sv: hummus, original hummus, hummus original
 th: ฮัมมัส
 tl: humus
 tr: humus
@@ -95849,6 +95878,15 @@ ciqual_food_name:fr: Houmous
 wikidata:en: Q241987
 wikipedia:en: https://en.wikipedia.org/wiki/Hummus
 
+< en:chili pepper
+< en:hummus
+en: chili hummus
+sv: hummus med chili, hummus chili
+
+< en:hummus
+< en:sundried tomatoes
+en: sundried tomato hummus
+sv: hummus med soltorkad tomat, hummus soltorkad tomat
 
 en: falafel
 bg: фалафел
@@ -95927,6 +95965,10 @@ hr: aromatična karamela
 it: caramello aromatico
 nl: aromatische karamel, aromatiserende karamel
 pt: caramelo aromático
+
+en: natural colorings
+sv: naturligt färgande livsmedel
+# labels:en:natural colorings
 
 # filled ingredients, is compound as it contains multiple other ingredients
 
