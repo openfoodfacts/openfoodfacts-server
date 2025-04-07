@@ -8,6 +8,8 @@
 # The brands taxonomy should not be used to:
 # - handle misspelings (do not add misspellings in the taxonomy as synonyms)
 # - handle parent / child brands (too much potential for errors and conflicts, especially in an international setting and with products from different types)
+# Note: an old draft owners/brands taxonomy lives in taxonomies/unused/brands.txt, but it is hierarchic, which is something we do not want in this taxonomy.
+# You can usefully read: https://wiki.openfoodfacts.org/Brands to get up and running on the subtleties of the topic.
 
 
 xx: Albert Heijn
@@ -16,9 +18,16 @@ xx: Aldi
 
 xx: Alesto
 
+xx: Änglamark
+wikidata:en: Q65229572
+
 xx: bonÀrea
 
 xx: Carrefour BIO
+
+# This brand is used by different organisations in different countries,
+# that, as far as I can tell, do not have any sort of formal connection
+xx: Coop
 
 xx: dmBio, dm Bio
 
@@ -26,6 +35,9 @@ xx: Dr. Oetker
 
 xx: Eldorado
 wikidata:en: Q5324313
+
+xx: Fazer
+wikidata:en: Q996907
 
 # In most of the world, this is a cat food brand owned by Nestlé
 # In the Nordic countries, Felix is a (human) food brand and the cat food brand is called Latz
@@ -37,6 +49,9 @@ xx: Green Star
 
 xx: H-E-B, HEB
 wikidata:en: Q830621
+
+xx: ICA
+wikidata:en: Q10516119
 
 xx: Kellogg's, Kelloggs, Kellogg
 
@@ -101,5 +116,10 @@ wikidata:en: Q4008334
 
 xx: Vemondo
 
+xx: Veritas
+
 xx: Zeina's
+
+xx: Zeta
+wikidata:en: Q10724505
 
