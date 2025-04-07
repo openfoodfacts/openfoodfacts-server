@@ -149,22 +149,13 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	# API URL
 	my $url_recipe = "https://ecobalyse.beta.gouv.fr/api/food";
 
-	# Create a UserAgent object to make the API request
-	my $ua = LWP::UserAgent->new();
-	$ua->timeout(5);
-
-	# Prepare the POST request with the payload
-	my $request = POST $url_recipe, $payload;
-	$request->header('content-type' => 'application/json');
-	$request->content(decode_utf8(encode_json($payload)));
-
 	# Debug information for the request
 	$log->debug("send_event request", {endpoint => $url_recipe, payload => $payload}) if $log->is_debug();
 
 	$product_ref->{environmental_impact} = {ecobalyse_request => {url => $url_recipe, data => $payload}};
 
 	# Send the request and get the response
-	my $response = $ua->request($request);
+	my $response = call_ecobalyse($url_recipe, $payload);
 
 	# Parse the JSON response
 	my $response_content = $response->decoded_content;
@@ -218,5 +209,17 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	return;
 }
 
-1;
+sub call_ecobalyse($url_recipe, $payload) {
+	# Create a UserAgent object to make the API request
+	my $ua = LWP::UserAgent->new();
+	$ua->timeout(5);
 
+	# Prepare the POST request with the payload
+	my $request = POST $url_recipe, $payload;
+	$request->header('content-type' => 'application/json');
+	$request->content(decode_utf8(encode_json($payload)));
+
+	# Send the request and get the response
+	return $ua->request($request);
+}
+1;
