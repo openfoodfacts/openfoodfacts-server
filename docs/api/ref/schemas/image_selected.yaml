@@ -1,0 +1,78 @@
+components:
+  schemas:
+    ImageSelected:
+      type: object
+      title: Selected image
+      description: |
+        Images selected (and possibly cropped or rotated) to show an area of interest
+        (front of product, ingredients, nutrition facts, packaging info) in a specific language.
+      properties:
+        imgid:
+          type: integer
+          example: 12
+          description: "The imgid of the original/source image that was selected to edit(rotate, normalize etc) to produce this new image."
+        rev:
+          type: integer
+          example: 65
+          description: "The revision number of the product when the image was selected."
+        generation:
+          type: object
+          properties:
+            angle:
+              type: integer
+              example: 0
+              description: The angle of the image rotation (if it was rotated).
+            coordinates_image_size:
+              type: string
+              description: 400 or "full" indicates if the geometry coordinates are relative to the full image, or to a resized version (max width and max height = 400)
+              example: full
+            geometry:
+              type: string
+              example: "0x0--1--1"
+            normalize:
+              #TODO: should be replaced by something like this once full supported by generator
+              #oneOf:
+              #  - type: "null"
+              #  - type: "boolean"
+              #  - type: "string"
+              #    enum: ["true", "false"]
+              type:
+                - "string"
+                - "boolean"
+                - "null"
+              examples:
+                - null
+                - "false"
+                - "true"
+              description: Normalize colors.
+            white_magic:
+              #TODO: should be replaced by something like this once full supported by generator
+              #oneOf:
+              #  - type: "null"
+              #  - type: "boolean"
+              #  - type: "string"
+              #    enum: ["true", "false"]
+              type:
+                - "string"
+                - "boolean"
+                - "null"
+              examples:
+                - null
+                - "false"
+                - "true"
+              description: |
+                Photo on white background : Try to remove the background.
+            x1:
+              type: string
+              example: "-1"
+            x2:
+              type: string
+              example: "-1"
+            y1:
+              type: string
+              example: "-1"
+            y2:
+              type: string
+              example: "-1"
+        sizes:
+          $ref: "./image_sizes.yaml#/components/schemas/ImageSizes"
