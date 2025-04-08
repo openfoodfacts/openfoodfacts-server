@@ -62,4 +62,4 @@ for file in $DATA_TMP_DIR/data_images/*.csv; do
 done
 
 # mark successful run
-#mark_successful_run $SUCCESS_FILE_PATH
+mark_successful_run $SUCCESS_FILE_PATH
