@@ -30,7 +30,7 @@ const onBarcodeDetected = (barcode) => {
   const redirectionUrl =
     baseUrl +
     "/cgi/search.pl?search_terms=" +
-    barcode +
+    encodeURIComponent(barcode) +
     "&search_simple=1&action=process";
   window.location.href = redirectionUrl;
 };
