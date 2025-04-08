@@ -749,20 +749,19 @@ sub init_request ($request_ref = {}) {
 		}
 	) if $log->is_debug();
 
-	if ($oidc_options{keycloak_level} >= 3) {
-		my $signed_in_oidc = process_auth_header($request_ref, $r);
-		if ($signed_in_oidc < 0) {
-			# We were sent a bad bearer token
-			# Otherwise we return an error page in HTML (including for v0 / v1 / v2 API queries)
-			if (not((defined $request_ref->{api_version}) and ($request_ref->{api_version} >= 3))
-				and (not($r->uri() =~ /\/cgi\/auth\.pl/)))
-			{
-				$log->debug(
-					"init_request - init_user error - display error page",
-					{init_user_error => $request_ref->{init_user_error}}
-				) if $log->is_debug();
-				display_error_and_exit($request_ref, $signed_in_oidc, 403);
-			}
+	# Note we allow an OAuth token for all keycloak_levels
+	my $signed_in_oidc = process_auth_header($request_ref, $r);
+	if ($signed_in_oidc < 0) {
+		# We were sent a bad bearer token
+		# Otherwise we return an error page in HTML (including for v0 / v1 / v2 API queries)
+		if (not((defined $request_ref->{api_version}) and ($request_ref->{api_version} >= 3))
+			and (not($r->uri() =~ /\/cgi\/auth\.pl/)))
+		{
+			$log->debug(
+				"init_request - init_user error - display error page",
+				{init_user_error => $request_ref->{init_user_error}}
+			) if $log->is_debug();
+			display_error_and_exit($request_ref, $signed_in_oidc, 403);
 		}
 	}
 

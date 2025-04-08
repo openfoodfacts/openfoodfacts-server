@@ -1405,8 +1405,7 @@ sub init_user ($request_ref) {
 	}
 
 	# User was authenticated via OIDC
-	elsif ( $oidc_options{keycloak_level} >= 3
-		and (defined $request_ref->{oidc_user_id})
+	elsif ( (defined $request_ref->{oidc_user_id})
 		and ($request_ref->{oidc_user_id} ne ''))
 	{
 		$user_id = $request_ref->{oidc_user_id};
