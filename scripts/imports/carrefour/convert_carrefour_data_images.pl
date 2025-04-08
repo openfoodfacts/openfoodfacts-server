@@ -52,6 +52,8 @@ my $io;
 open($io, "<:encoding(UTF-8)", $file) or die "Could not open file $file: $!\n";
 $csv->column_names($csv->getline($io));
 
+# get all images for each product
+# if we have more than one image type, we will suffix with a number
 my %images = ();
 
 while (my $image_ref = $csv->getline_hr($io)) {
