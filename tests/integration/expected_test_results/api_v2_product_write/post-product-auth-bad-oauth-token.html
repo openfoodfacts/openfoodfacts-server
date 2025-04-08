@@ -9,11 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta property="fb:app_id" content="219331381518041">
     <meta property="og:type" content="food">
-    <meta property="og:title" content="">
-    <meta property="og:url" content="//world.openfoodfacts.localhost">
+    <meta property="og:title" content="Erreur">
+    <meta property="og:url" content="//be-fr.openfoodfacts.localhost">
     
     <meta property="og:image" content="//static.openfoodfacts.org/images/logos/off-logo-vertical-white-social-media-preview.png">
-    <meta property="og:description" content="">
+    <meta property="og:description" content="Une base de données collaborative, gratuite, libre et ouverte d'ingrédients, de valeurs nutritionnelles et d'informations sur les produits alimentaires du monde entier">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/off/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/off/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/off/favicon-16x16.png">
@@ -25,11 +25,11 @@
 <meta name="theme-color" content="#ffffff">
 
 	<meta name="apple-itunes-app" content="app-id=588797948">
-    <link rel="canonical" href="//world.openfoodfacts.localhost">
+    <link rel="canonical" href="//be-fr.openfoodfacts.localhost">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/app-ltr.css?v=--ignore--" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/select2.min.css">
-    <link rel="search" href="//world.openfoodfacts.localhost/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="Open Food Facts">
+    <link rel="search" href="//be-fr.openfoodfacts.localhost/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="Open Food Facts">
 	
     <style media="all">
         
@@ -147,11 +147,34 @@
 					
 					<ul class="right">
 						
-							<li class="h-space-tiny has-form">
-								<a href="/cgi/oidc_signin.pl?return_url=http%3A%2F%2Fworld.openfoodfacts.localhost" class="round button secondary">
-									<span class="material-icons material-symbols-button">account_circle</span>
-									Se connecter
+							<li class="has-dropdown">
+								<a href="#" class="userlink h-space-tiny">
+									<span class="material-icons">
+										account_circle
+									</span>
+									tests
 								</a>
+								<ul class="dropdown">
+									<li><a href="/cgi/user.pl?type=edit&userid=tests"><span class="material-icons">settings</span> Paramètres du compte</a></li>
+
+									
+
+									
+									
+									<li class="divider"></li>			
+									<li><label>Vos contributions</label></li>
+									<li><a href="/facets/contributeurs/tests">Produits ajoutés</a></li>
+									<li><a href="/facets/editeurs/tests">Produits modifiés</a></li>
+									<li><a href="/facets/photographes/tests">Produits photographiés</a></li>
+									
+									<li class="divider"></li>			
+									<li class="has-form">
+										<form method="post" action="/cgi/session.pl">
+											<input type="hidden" name="length" value="logout">
+											<input type="submit" name=".submit" value="Se déconnecter" class="button small">
+										</form>
+									</li>
+								</ul>
 							</li>
 						
 					</ul>
@@ -218,7 +241,7 @@
 	
 		<nav class="tab-bar hide">
 			<div class="left-small">
-				<a href="#idOfLeftMenu" role="button" aria-controls="idOfLeftMenu" aria-expanded="false" class="left-off-canvas-toggle button postfix anonymous">
+				<a href="#idOfLeftMenu" role="button" aria-controls="idOfLeftMenu" aria-expanded="false" class="left-off-canvas-toggle button postfix loggedin">
 				<svg xmlns="//www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon" aria-hidden="true" focusable="false"><path d="M3 5v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.11 0-2 .9-2 2zm12 4c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3 3 1.34 3 3zm-9 8c0-2 4-3.1 6-3.1s6 1.1 6 3.1v1H6v-1z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
 				</a>
 			</div>
@@ -289,7 +312,7 @@
           src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
           alt="open food facts logo"
         />
-        <h3 class="donation-banner__main-title">Merci de contribuer à notre collecte de fonds 2024</h3>
+        <h3 class="donation-banner__main-title">Merci de contribuer à notre collecte de fonds 2025</h3>
       </div>
       <div style="padding:1rem;">
         <p>Vos dons financent le fonctionnement quotidien de notre association à but non lucratif :</p>
@@ -515,7 +538,7 @@
 							<li><a class="button small white-button radius" href="/cgi/top_translators.pl">Traducteurs</a></li>
 							<li><a class="button small white-button radius" href="/partenaires">Partenaires</a></li>
 							<li><a class="button small white-button radius" href="//world-fr.openbeautyfacts.org">Open Beauty Facts - Cosmétiques</a></li>
-							<li><a class="button small white-button radius" href="//world.pro.openfoodfacts.localhost/">Open Food Facts pour les producteurs</a></li>
+							<li><a class="button small white-button radius" href="//be-fr.pro.openfoodfacts.localhost/">Open Food Facts pour les producteurs</a></li>
 						</ul>
 					</div>
 				</div>
@@ -594,10 +617,10 @@ $(document).foundation({
 	"@context" : "//schema.org",
 	"@type" : "WebSite",
 	"name" : "Open Food Facts",
-	"url" : "//world.openfoodfacts.localhost",
+	"url" : "//be-fr.openfoodfacts.localhost",
 	"potentialAction": {
 		"@type": "SearchAction",
-		"target": "//world.openfoodfacts.localhost/cgi/search.pl?search_terms=?{search_term_string}",
+		"target": "//be-fr.openfoodfacts.localhost/cgi/search.pl?search_terms=?{search_term_string}",
 		"query-input": "required name=search_term_string"
 	}
 }
@@ -606,7 +629,7 @@ $(document).foundation({
 {
 	"@context": "//schema.org/",
 	"@type": "Organization",
-	"url": "//world.openfoodfacts.localhost",
+	"url": "//be-fr.openfoodfacts.localhost",
 	"logo": "//static.openfoodfacts.localhost/images/logos/off-logo-vertical-light.svg",
 	"name": "Open Food Facts",
 	"sameAs" : ["//www.facebook.com/OpenFoodFacts.fr", "//x.com/OpenFoodFactsfr"]
