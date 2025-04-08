@@ -4,7 +4,7 @@ use Test2::V0;
 use JSON;
 
 use ProductOpener::PerlStandards;
-use ProductOpener::Test qw/init_expected_results/;
+use ProductOpener::Test qw/init_expected_results compare_to_expected_results/;
 use ProductOpener::EnvironmentalImpact qw/estimate_environmental_impact_service/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
@@ -75,7 +75,6 @@ my $product_hazelnut_spread_json = '{
 my $json = JSON->new->allow_nonref->canonical;
 my $product_ref = $json->decode($product_hazelnut_spread_json);
 my $mock_response_file = "$expected_result_dir/ecobalyse_mocked_response.json";
-my $test_result_file = "$expected_result_dir/environmental_impact.json";
 my $mock_calls = 0;
 my $ecobalyse_mock;
 
@@ -103,37 +102,24 @@ my $errors_ref = [];
 
 estimate_environmental_impact_service($product_ref, $updated_product_fields_ref, $errors_ref);
 
-# Save the result
-if ($update_expected_results) {
-	if (@$errors_ref) {
-		# Don't update test results if request fails
-		fail($json->pretty->encode($errors_ref));
-	}
-	else {
+if (@$errors_ref) {
+	# Don't update test results if request fails
+	fail($json->pretty->encode($errors_ref));
+}
+else {
+	compare_to_expected_results($product_ref, "$expected_result_dir/environmental_impact.json",
+		$update_expected_results);
+
+	# Save the ecobalyse mocked response
+	if ($update_expected_results) {
 		is($mock_calls, 0, "Ecobalyse mock not called");
 		open(my $response, ">:encoding(UTF-8)", $mock_response_file)
 			or die("Could not create $mock_response_file: $!\n");
 		print $response $json->pretty->encode($product_ref->{environmental_impact}->{ecobalyse_response});
 		close($response);
-
-		open(my $result, ">:encoding(UTF-8)", $test_result_file)
-			or die("Could not create $test_result_file: $!\n");
-		print $result $json->pretty->encode($product_ref);
-		close($result);
-	}
-}
-else {
-	is($mock_calls, 1, "Ecobalyse mock called");
-
-	# Compare the result with the expected result
-	if (open(my $expected_result, "<:encoding(UTF-8)", $test_result_file)) {
-		local $/;    #Enable 'slurp' mode
-		my $expected_product_ref = $json->decode(<$expected_result>);
-		is($product_ref, $expected_product_ref, 'Matches expected results') or diag Dumper $product_ref;
 	}
 	else {
-		fail("could not load $test_result_file");
-		diag Dumper $product_ref;
+		is($mock_calls, 1, "Ecobalyse mock called");
 	}
 }
 
