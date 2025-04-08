@@ -105,36 +105,36 @@ estimate_environmental_impact_service($product_ref, $updated_product_fields_ref,
 
 # Save the result
 if ($update_expected_results) {
-    if (@$errors_ref) {
-        # Don't update test results if request fails
-        fail($json->pretty->encode($errors_ref))
-    }
-    else {
-    	is($mock_calls, 0, "Ecobalyse mock not called");
-        open(my $response, ">:encoding(UTF-8)", $mock_response_file)
-            or die("Could not create $mock_response_file: $!\n");
-        print $response $json->pretty->encode($product_ref->{environmental_impact}->{ecobalyse_response});
-        close($response);
+	if (@$errors_ref) {
+		# Don't update test results if request fails
+		fail($json->pretty->encode($errors_ref));
+	}
+	else {
+		is($mock_calls, 0, "Ecobalyse mock not called");
+		open(my $response, ">:encoding(UTF-8)", $mock_response_file)
+			or die("Could not create $mock_response_file: $!\n");
+		print $response $json->pretty->encode($product_ref->{environmental_impact}->{ecobalyse_response});
+		close($response);
 
-        open(my $result, ">:encoding(UTF-8)", $test_result_file)
-            or die("Could not create $test_result_file: $!\n");
-        print $result $json->pretty->encode($product_ref);
-        close($result);
-    }
+		open(my $result, ">:encoding(UTF-8)", $test_result_file)
+			or die("Could not create $test_result_file: $!\n");
+		print $result $json->pretty->encode($product_ref);
+		close($result);
+	}
 }
 else {
 	is($mock_calls, 1, "Ecobalyse mock called");
 
-    # Compare the result with the expected result
-    if (open(my $expected_result, "<:encoding(UTF-8)", $test_result_file)) {
-        local $/;    #Enable 'slurp' mode
-        my $expected_product_ref = $json->decode(<$expected_result>);
-        is($product_ref, $expected_product_ref, 'Matches expected results') or diag Dumper $product_ref;
-    }
-    else {
-        fail("could not load $test_result_file");
-        diag Dumper $product_ref;
-    }
+	# Compare the result with the expected result
+	if (open(my $expected_result, "<:encoding(UTF-8)", $test_result_file)) {
+		local $/;    #Enable 'slurp' mode
+		my $expected_product_ref = $json->decode(<$expected_result>);
+		is($product_ref, $expected_product_ref, 'Matches expected results') or diag Dumper $product_ref;
+	}
+	else {
+		fail("could not load $test_result_file");
+		diag Dumper $product_ref;
+	}
 }
 
 done_testing();
