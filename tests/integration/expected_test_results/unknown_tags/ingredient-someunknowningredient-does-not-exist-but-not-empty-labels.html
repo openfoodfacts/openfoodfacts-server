@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/select2.min.css">
     <link rel="search" href="//world.openfoodfacts.localhost/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="Open Food Facts">
+	<script type="module" src="//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js"></script>
 	<link rel="stylesheet" href="//static.openfoodfacts.localhost/js/datatables.min.css">
 
     <style media="all">
@@ -86,6 +87,31 @@
 	
 	<div class="skip"><a href="#content" tabindex="0">Skip to Content</a></div>
 	
+
+	<div id="barcode-scanner-modal" class="modal is_hidden">
+  <div class="modal-backdrop"></div>
+  <div class="modal-content">
+    <div class="modal-header">
+      <span><h2>Scan a product<h2></span>
+      <button class="modal-close-button">&times;</button>
+    </div>
+    <div>
+      <barcode-scanner id="barcode-scanner"></barcode-scanner>
+    </div>
+    <div>
+    </div>
+    <div >
+      <label for="barcode-modal-input">Or enter barcode manually</label>
+      <div class="barcode-modal-group">
+        <input type="text" id="barcode-modal-input" class="barcode-modal-input" inputmode="numeric" pattern="\d*" />
+        <button class="barcode-modal-button button" id="barcode-modal-button" disabled>Scan</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="//static.openfoodfacts.localhost/js/dist/barcode-scanner.js"></script>
+
 
 	<div id="page">
 		
@@ -185,7 +211,7 @@
 					
 					<section class="top-bar-section">
 					
-						<ul class="left small-4" style="margin-right:2rem;">
+						<ul class="left small-4">
 							<li class="search-li">
 							
 								<form action="/cgi/search.pl">
@@ -196,9 +222,22 @@
 									<input name="search_simple" value="1" type="hidden">
 									<input name="action" value="process" type="hidden">
 									</div>
-									<div class="columns">
+									<div class="columns postfix-button-wrapper">
 									<button type="submit" title="Search" class="button postfix" style="line-height:normal"><svg xmlns="//www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon" aria-hidden="true" focusable="false"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></button>
 									</div>
+									<div class="columns postfix-button-wrapper is_hidden">
+  <button
+    type="button"
+    title="Scan a product"
+    class="button barcode-scanner-button"
+    id="barcode-scanner-button"
+  >
+    <svg style="width:24px;height:24px" viewBox="0 0 24 24" class="icon" aria-hidden="true" focusable="false"><path d="M2,6H4V18H2V6M5,6H6V18H5V6M7,6H10V18H7V6M11,6H12V18H11V6M14,6H16V18H14V6M17,6H20V18H17V6M21,6H22V18H21V6Z"/></svg>
+  </button>
+
+  <script src="//static.openfoodfacts.localhost/js/dist/barcode-scanner-button.js"></script>
+</div>
+
 								</div>
 								</div></div>
 								</form>

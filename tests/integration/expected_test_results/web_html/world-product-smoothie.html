@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/select2.min.css">
     <link rel="search" href="//world.openfoodfacts.localhost/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="Open Food Facts">
+	<script type="module" src="//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js"></script>
 	<meta name="x:card" content="product">
 <meta name="x:site" content="@OpenFoodFacts">
 <meta name="x:creator" content="@OpenFoodFacts">
@@ -94,6 +95,31 @@
 
 
 	
+
+	<div id="barcode-scanner-modal" class="modal is_hidden">
+  <div class="modal-backdrop"></div>
+  <div class="modal-content">
+    <div class="modal-header">
+      <span><h2>Scan a product<h2></span>
+      <button class="modal-close-button">&times;</button>
+    </div>
+    <div>
+      <barcode-scanner id="barcode-scanner"></barcode-scanner>
+    </div>
+    <div>
+    </div>
+    <div >
+      <label for="barcode-modal-input">Or enter barcode manually</label>
+      <div class="barcode-modal-group">
+        <input type="text" id="barcode-modal-input" class="barcode-modal-input" inputmode="numeric" pattern="\d*" />
+        <button class="barcode-modal-button button" id="barcode-modal-button" disabled>Scan</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="//static.openfoodfacts.localhost/js/dist/barcode-scanner.js"></script>
+
 
 	<div id="page">
 		
@@ -4737,7 +4763,6 @@ display_product_summary("#product_summary", product);
 <script src="//static.openfoodfacts.localhost/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/product-history.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/off-webcomponents-utils.js"></script>
-<script type="module" src="//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js"></script>
 <script type="text/javascript">
 var page_type = "product";
 var default_preferences = {"ecoscore":"important","nova":"important","nutriscore":"very_important"};
