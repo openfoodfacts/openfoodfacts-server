@@ -25,13 +25,14 @@ barcodeModalButton.addEventListener("click", function () {
 
 // Function to handle barcode detection
 const onBarcodeDetected = (barcode) => {
-  const baseUrl = window.location.href.split("/")[0];
-  const url =
+  const url = new URL(window.location.href);
+  const baseUrl = `${url.protocol}//${url.hostname}`;
+  const redirectionUrl =
     baseUrl +
     "/cgi/search.pl?search_terms=" +
     barcode +
     "&search_simple=1&action=process";
-  window.location.href = url;
+  window.location.href = redirectionUrl;
 };
 
 // Handle barcode scanner state changes
