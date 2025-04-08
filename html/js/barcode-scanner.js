@@ -40,7 +40,7 @@ barcodeScanner.addEventListener("barcode-scanner-state", function (e) {
     const barcodeScannerButton = document.getElementById(
       "barcode-scanner-button"
     );
-    if (e.detail.state === "detector-not-available") {
+    if (e.detail.state === "detector-available") {
       barcodeScannerButton.parentElement.classList.remove("is_hidden");
     } else if (e.detail.state === "DETECTED") {
       onBarcodeDetected(e.detail.barcode);
