@@ -35,15 +35,14 @@ barcodeModalInput.addEventListener("input", function () {
 
 barcodeModalButton.addEventListener("click", function () {
   const barcode = barcodeModalInput.value;
-  debugger
   if (barcode) {
     onBarcodeDetected(barcode);
   }
 });
 
 const onBarcodeDetected = (barcode) => {
-  console.log("Barcode detected:", barcode);
-  window.location.href = `${window.location.origin}/cgi/search.pl?search_terms=${barcode}&search_simple=1&action=process`;
+  const url = "[% formatted_subdomain %]/cgi/search.pl?search_terms="+ barcode + "&search_simple=1&action=process"
+  window.location.href = url;
 };
 
   barcodeScanner.addEventListener("barcode-scanner-state", function (e) {
