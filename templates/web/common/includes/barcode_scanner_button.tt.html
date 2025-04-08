@@ -1,0 +1,26 @@
+<div class="columns postfix-button-wrapper is_hidden">
+  <button
+    type="button"
+    title="[% edq(lang('scan_a_product')) %]"
+    class="button barcode-scanner-button"
+    id="barcode-scanner-button"
+  >
+    [% display_icon('barcode') %]
+  </button>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const barcodeScannerButton = document.querySelector(
+        ".barcode-scanner-button"
+      );
+      const barcodeScanner = document.querySelector("barcode-scanner");
+      barcodeScannerButton.addEventListener("click", function () {
+        barcodeScanner.parentElement.classList.remove("is_hidden");
+      });
+
+      barcodeScannerButton.addEventListener("click", function () {
+        barcodeScanner.parentElement.classList.remove("is_hidden");
+      });
+    });
+  </script>
+</div>

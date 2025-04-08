@@ -1,0 +1,77 @@
+<div id="barcode-scanner-modal" class="modal is_hidden">
+  <div class="modal-backdrop"></div>
+  <div class="modal-content">
+    <div class="modal-header">
+      <span><h2>[% lang('scan_a_product') %]<h2></span>
+      <button class="modal-close-button">&times;</button>
+    </div>
+    <div>
+      <barcode-scanner id="barcode-scanner"></barcode-scanner>
+    </div>
+    <div>
+    </div>
+    <div >
+      <label for="barcode-modal-input">[% lang('or_enter_barcode_manually') %]</label>
+      <div class="barcode-modal-group">
+        <input type="text" id="barcode-modal-input" class="barcode-modal-input" inputmode="numeric" pattern="\d*" />
+        <button class="barcode-modal-button button" id="barcode-modal-button" disabled>[% lang('scan') %]</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const barcodeScanner = document.querySelector("barcode-scanner");
+  const barcodeScannerModal = document.getElementById("barcode-scanner-modal");
+  const barcodeCloseButton = barcodeScannerModal.querySelector(".modal-close-button");
+
+const barcodeModalButton = document.getElementById("barcode-modal-button");
+const barcodeModalInput = document.getElementById("barcode-modal-input");
+
+barcodeModalInput.addEventListener("input", function () {
+  const barcode = barcodeModalInput.value;
+  barcodeModalButton.disabled = !barcode;
+});
+
+barcodeModalButton.addEventListener("click", function () {
+  const barcode = barcodeModalInput.value;
+  debugger
+  if (barcode) {
+    onBarcodeDetected(barcode);
+  }
+});
+
+const onBarcodeDetected = (barcode) => {
+  console.log("Barcode detected:", barcode);
+  window.location.href = `${window.location.origin}/cgi/search.pl?search_terms=${barcode}&search_simple=1&action=process`;
+};
+
+  barcodeScanner.addEventListener("barcode-scanner-state", function (e) {
+    document.addEventListener("DOMContentLoaded", function () {
+      const barcodeScannerButton = document.getElementById(
+        "barcode-scanner-button"
+      );
+      if (e.detail.state === "detector-not-available") {
+        barcodeScannerButton.parentElement.classList.remove("is_hidden");
+      } else if (e.detail.state === "DETECTED") {
+        onBarcodeDetected(e.detail.barcode);
+      }
+    });
+  });
+
+  barcodeCloseButton.addEventListener("click", function () {
+    document.getElementById("barcode-scanner-modal").classList.add("is_hidden");
+  });
+
+  function openModal() {
+    barcodeScannerModal.classList.remove("is_hidden");
+    barcodeScanner.setAttribute("run-scanner", true)
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const barcodeScannerButton = document.getElementById(
+      "barcode-scanner-button"
+    );
+    barcodeScannerButton.addEventListener("click", openModal);
+  });
+</script>

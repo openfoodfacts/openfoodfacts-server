@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="[% static_subdomain %]/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="[% static_subdomain %]/css/dist/select2.min.css">
     <link rel="search" href="[% formatted_subdomain %]/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="[% options.site_name %]">
+	<script type="module" src="[% static_subdomain %]/js/dist/off-webcomponents.bundled.js"></script>
 	[% header %]
     <style media="all">
         [% lang("css") %]
@@ -52,6 +53,8 @@
 	[% IF ! content_only %]
 	<div class="skip"><a href="#content" tabindex="0">[% lang('skip_to_content') %]</a></div>
 	[% END %]
+
+	[% INCLUDE web/common/includes/barcode_scanner.tt.html %]
 
 	<div id="page">
 		[% IF ! content_only %]
@@ -206,7 +209,7 @@
 					[% IF !(server_options_producers_platform) || (user_id.defined) %]
 					<section class="top-bar-section">
 					
-						<ul class="left small-4" style="margin-right:2rem;">
+						<ul class="left small-4">
 							<li class="search-li">
 							
 								<form action="/cgi/search.pl">
@@ -217,9 +220,10 @@
 									<input name="search_simple" value="1" type="hidden">
 									<input name="action" value="process" type="hidden">
 									</div>
-									<div class="columns">
+									<div class="columns postfix-button-wrapper">
 									<button type="submit" title="[% edq(lang('search')) %]" class="button postfix" style="line-height:normal">[% display_icon('search') %]</button>
 									</div>
+									[% INCLUDE web/common/includes/barcode_scanner_button.tt.html %]
 								</div>
 								</div></div>
 								</form>
