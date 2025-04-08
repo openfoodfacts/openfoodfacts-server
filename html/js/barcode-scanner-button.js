@@ -1,8 +1,8 @@
 // Barcode Scanner Button
 document.addEventListener("DOMContentLoaded", function () {
   // Get references to the barcode scanner button and scanner element
-  const barcodeScannerButton = document.querySelector(
-    ".barcode-scanner-button"
+  const barcodeScannerButton = document.getElementById(
+    "barcode-scanner-button"
   );
   const barcodeScanner = document.querySelector("barcode-scanner");
 
