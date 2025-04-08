@@ -8,19 +8,5 @@
     [% display_icon('barcode') %]
   </button>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const barcodeScannerButton = document.querySelector(
-        ".barcode-scanner-button"
-      );
-      const barcodeScanner = document.querySelector("barcode-scanner");
-      barcodeScannerButton.addEventListener("click", function () {
-        barcodeScanner.parentElement.classList.remove("is_hidden");
-      });
-
-      barcodeScannerButton.addEventListener("click", function () {
-        barcodeScanner.parentElement.classList.remove("is_hidden");
-      });
-    });
-  </script>
+  <script src="[% static_subdomain %]/js/dist/barcode-scanner-button.js"></script>
 </div>
