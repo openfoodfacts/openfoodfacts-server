@@ -99,7 +99,7 @@ if (!$update_expected_results) {
 
 # Run the test
 my $updated_product_fields_ref = {};
-my $errors_ref = {};
+my $errors_ref = [];
 
 estimate_environmental_impact_service($product_ref, $updated_product_fields_ref, $errors_ref);
 
@@ -107,7 +107,7 @@ estimate_environmental_impact_service($product_ref, $updated_product_fields_ref,
 if ($update_expected_results) {
 	open(my $response, ">:encoding(UTF-8)", $mock_response_file)
 		or die("Could not create $mock_response_file: $!\n");
-	print $response $json->pretty->encode($product_ref->{ecobalyse_response});
+	print $response $json->pretty->encode($product_ref->{environmental_impact}->{ecobalyse_response});
 	close($response);
 
 	open(my $result, ">:encoding(UTF-8)", $test_result_file)
