@@ -264,6 +264,11 @@ msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
 msgstr "Advanced search and graphs"
 
+# duplicate
+msgctxt "alcohol_warning"
+msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
 msgstr "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
@@ -296,10 +301,9 @@ msgctxt "analytical_constituents_per_1kg"
 msgid "for 1 kg"
 msgstr "for 1 kg"
 
-# Do not translate URL 
 msgctxt "android_apk_app_icon_url"
 msgid "/images/misc/app-landing-page/download-apk/download-apk_en.svg"
-msgstr "/images/misc/app-landing-page/download-apk/download-apk_en.svg"
+msgstr ""
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
@@ -308,7 +312,7 @@ msgstr "Android APK"
 # Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
-msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
+msgstr ""
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -567,6 +571,10 @@ msgstr "Delete a product"
 msgctxt "delete_the_images"
 msgid "Delete the images"
 msgstr "Delete the images"
+
+msgctxt "delete_user"
+msgid "Delete the user"
+msgstr "Delete the user"
 
 msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
@@ -2747,6 +2755,7 @@ msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
 msgstr "NutriScore nutrition grade"
 
+# duplicate
 msgctxt "delete_product_page"
 msgid "Delete the product page"
 msgstr "Delete the product page"
@@ -2762,10 +2771,6 @@ msgstr "has deleted product"
 msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
 msgstr "Are you sure that you want to delete the page for this product?"
-
-msgctxt "delete_user"
-msgid "Delete the user"
-msgstr "Delete the user"
 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s."
@@ -4188,10 +4193,6 @@ msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr "Please Donate"
 
-msgctxt "alcohol_warning"
-msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
-msgstr "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
-
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "Producers platform moderation"
@@ -4684,7 +4685,7 @@ msgstr "No or little food processing (NOVA group)"
 
 msgctxt "attribute_nova_setting_note"
 msgid "To determine the level of processing of a product, we rely on the list of ingredients (markers, processing methods) and categories."
-msgstr "To determine the level of processing of a product, we rely on the list of ingredients (markers, processing methods) and categories."
+msgstr ""
 
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
@@ -4705,7 +4706,7 @@ msgstr "Processed foods"
 
 msgctxt "attribute_nova_4_description_short"
 msgid "Ultra-processed foods"
-msgstr "Ultra-processed foods"
+msgstr ""
 
 msgctxt "attribute_nova_4_1_marker"
 msgid "1 ultra-processing marker"
@@ -5748,9 +5749,15 @@ msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
 msgstr "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
 
+# duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
 msgstr "For a more precise calculation of the Green-Score, you can modify the product page and add them."
+
+# duplicate
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
+msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
+msgstr "For a more precise calculation of the Green-Score, you can edit the product page and add them."
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
@@ -5901,7 +5908,7 @@ msgstr "Please give to our 2024 Fundraiser"
 # Don't translate {year}, it will be replaced by the 4 digits year
 msgctxt "f_donation_title_year"
 msgid "Please give to our {year} Fundraiser"
-msgstr "Please give to our {year} Fundraiser"
+msgstr ""
 
 msgctxt "donation_list_2024_main"
 msgid "Your donations fund the day-to-day operations of our non-profit association:"
@@ -7047,6 +7054,11 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr "Report a problem"
 
+# duplicate with "report_problem_panel_title"
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
+msgstr "Report a problem"
+
 msgctxt "report_problem_navigation"
 msgid "Report a problem."
 msgstr "Report a problem."
@@ -7074,11 +7086,6 @@ msgstr "If you want to report vandalism, inappropriate content or erroneous data
 msgctxt "description"
 msgid "Description"
 msgstr "Description"
-
-# duplicate with "report_problem_panel_title"
-msgctxt "report_problem_navigation"
-msgid "Report a problem"
-msgstr "Report a problem"
 
 msgctxt "enter_main_contact_username"
 msgid "Enter main contact's username :"
@@ -7397,21 +7404,22 @@ msgstr "In contact with food"
 
 msgctxt "contact_us_producers"
 msgid "Contact Us"
-msgstr "Contact Us"
+msgstr ""
 
 msgctxt "delete"
 msgid "Delete"
-msgstr "Delete"
+msgstr ""
 
-# Please change get-it-on-en.svg to get-it-on-XX.svg. check the new image url exists https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
+# Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
 msgctxt "f_droid_app_icon_url"
 msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
-msgstr "/images/misc/f-droid/svg/get-it-on-en.svg"
+msgstr ""
 
 msgctxt "f_droid_app_icon_alt_text"
 msgid "Available on F-Droid"
-msgstr "Available on F-Droid"
+msgstr ""
 
 msgctxt "update_nutrients_data"
 msgid "Update nutrients data"
-msgstr "Update nutrients data"
+msgstr ""
+
