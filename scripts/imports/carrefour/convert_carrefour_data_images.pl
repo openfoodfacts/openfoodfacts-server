@@ -46,7 +46,8 @@ if (not defined $file) {
 
 my $csv = Text::CSV->new({sep_char => ';'});
 
-# Read all lines from the CSV file, as we will output them in a specific order (grouped by barcode, with front image first)
+# Read all lines from the CSV file, to gather image by product
+# to build a new csv in OFF format (one line by barcode, with front image first)
 
 my $io;
 open($io, "<:encoding(UTF-8)", $file) or die "Could not open file $file: $!\n";
