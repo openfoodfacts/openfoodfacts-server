@@ -48,7 +48,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Tags qw/init_emb_codes init_taxonomies/;
+use ProductOpener::Tags qw/init_emb_codes init_taxonomies load_knowledge_content/;
 use ProductOpener::PackagerCodes qw/init_geocode_addresses init_packager_codes/;
 use ProductOpener::Packaging qw/init_packaging_taxonomies_regexps/;
 use ProductOpener::ForestFootprint qw/load_forest_footprint_data/;
@@ -85,6 +85,7 @@ sub load_data() {
 	init_packaging_taxonomies_regexps();
 	load_scans_data();
 	load_routes();
+	load_knowledge_content();
 
 	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 		load_agribalyse_data();
