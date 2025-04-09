@@ -165,7 +165,12 @@ server {
 		access_log /var/log/nginx/proxy-off-access.log proxied_requests buffer=256K flush=1s;
 		error_log /var/log/nginx/proxy-off-error.log;
 		# Note: as soon as we use a variable in proxy_pass, $uri and the rest must be explicit
-		proxy_pass http://127.0.0.1:$apache_port/cgi/display.pl?$uri$is_args$args;
+		# Note: we cannot use $uri in the proxy_pass, as it is decoded, and we can get spaces
+		# leading to a broken query like "GET /cgi/display.pl?/facets/labels/some space"
+        # $request_uri is unescaped.
+		# See https://github.com/openfoodfacts/openfoodfacts-server/issues/11759
+        #proxy_pass http://127.0.0.1:$apache_port/cgi/display.pl?$uri$is_args$args;
+        proxy_pass http://127.0.0.1:$apache_port/cgi/display.pl?$request_uri;
 	}
 
 	location /cgi/ {
@@ -175,8 +180,6 @@ server {
 		real_ip_recursive on;
 		access_log /var/log/nginx/proxy-off-access.log proxied_requests buffer=256K flush=1s;
 		error_log /var/log/nginx/proxy-off-error.log;
-		# Note: as soon as we use a variable in proxy_pass, $uri and the rest must be explicit
-		proxy_pass http://127.0.0.1:$apache_port$uri$is_args$args;
-	}
+		proxy_pass http://127.0.0.1:$apache_port?$request_uri;
 }
 
