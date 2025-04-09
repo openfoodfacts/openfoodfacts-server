@@ -919,6 +919,17 @@ my @tests = (
 			ingredients_text => "dill",
 		}
 	],
+
+	# Ground coffee
+	# should not have a Nutri-Score from estimated nutrients from ingredients
+	[
+		"en-ground-coffee",
+		{
+			lc => "en",
+			categories => "ground coffee",
+			ingredients_text => "ground coffee",
+		}
+	],
 );
 
 my $json = JSON->new->allow_nonref->canonical;
