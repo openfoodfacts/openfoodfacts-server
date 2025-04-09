@@ -108,6 +108,7 @@ BEGIN {
 
 		&get_image_url
 		&get_image_in_best_language
+		&data_to_display_image
 
 		&display_image
 		&display_image_thumb
@@ -1822,9 +1823,9 @@ sub get_image_url ($product_ref, $image_ref, $size) {
 
 	my $path = product_path($product_ref);
 	my $rev = $image_ref->{rev};
-	my $imgid = $image_ref->{imgid};
+	my $id = $image_ref->{id};    # contains [image_type]_[lc]
 
-	my $url = "$images_subdomain/images/products/$path/$imgid.$rev.$size.jpg";
+	my $url = "$images_subdomain/images/products/$path/$id.$rev.$size.jpg";
 
 	return $url;
 }
@@ -1847,7 +1848,8 @@ in the order of preference:
 
 =head3 Return values
 
-- the image reference in the best language available
+- the image reference in the best language available, with an added "id"
+  field containing the image type and language code (e.g. "front_en")
 
 The language code of the best language is set in $image_lc_ref (if provided)
 
@@ -1880,12 +1882,78 @@ sub get_image_in_best_language ($product_ref, $image_type, $target_lc, $image_lc
 		}
 	}
 
+	$log->debug("get_image_in_best_language",
+		{image_type => $image_type, target_lc => $target_lc, image_lc => $image_lc, image_ref => $image_ref})
+		if $log->is_debug();
+
 	if (defined $image_ref) {
 		if (defined $image_lc_ref) {
 			$$image_lc_ref = $image_lc;
+			# The product image object does not contain the image_type and language code
+			# as they are specified as keys in the images.selected hash
+			# We add an id field containing [image_type]_[lc] to the image object so that we can later construct the image filename
+			$image_ref->{id} = $image_type . "_" . $image_lc;
 		}
 		return ($image_ref);
 	}
+	return;
+}
+
+=head2 data_to_display_image ( $product_ref, $image_type, $target_lc )
+
+Generates a data structure to display a product image.
+
+The resulting data structure can be passed to a template to generate HTML or the JSON data for a knowledge panel.
+
+=head3 Arguments
+
+=head4 Product reference $product_ref
+
+=head4 Image type $image_type: one of [front|ingredients|nutrition|packaging]
+
+=head4 Language code $target_lc
+
+=head3 Return values
+
+- Reference to a data structure with needed data to display.
+- undef if no image is available for the requested image type
+
+=cut
+
+sub data_to_display_image ($product_ref, $image_type, $target_lc) {
+
+	my $image_lc;
+	my $image_ref = get_image_in_best_language($product_ref, $image_type, $target_lc, \$image_lc);
+
+	if (defined $image_ref) {
+		my $id = $image_type . "_" . $image_lc;
+		my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . lang($image_type . '_alt');
+
+		if ($image_lc ne $target_lc) {
+			$alt .= ' - ' . $image_lc;
+		}
+
+		my $image_data_ref = {
+			type => $image_type,
+			lc => $image_lc,
+			alt => $alt,
+			sizes => {},
+			id => $id,
+		};
+
+		foreach my $size ($thumb_size, $small_size, $display_size, "full") {
+			if (defined $image_ref->{sizes}{$size}) {
+				$image_data_ref->{sizes}{$size} = {
+					url => get_image_url($product_ref, $image_ref, $size),
+					w => $image_ref->{sizes}{$size}{w},
+					h => $image_ref->{sizes}{$size}{h},
+				};
+			}
+		}
+
+		return $image_data_ref;
+	}
+
 	return;
 }
 

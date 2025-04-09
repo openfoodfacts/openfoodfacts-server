@@ -681,6 +681,7 @@ my %api_version_to_schema_version = (
 	"3.0" => 999,
 	"3.1" => 1000,
 	"3.2" => 1001,
+	"3.3" => 1002,
 );
 
 sub api_compatibility_for_product_response ($product_ref, $api_version) {
