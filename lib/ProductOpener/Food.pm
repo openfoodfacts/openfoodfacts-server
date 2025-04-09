@@ -2464,6 +2464,18 @@ sub compute_nutrient_levels ($product_ref) {
 		}
 	}
 
+	# do not compute a score for coffee, tea etc.
+
+	if (defined $options{categories_exempted_from_nutrient_levels}) {
+
+		foreach my $category_id (@{$options{categories_exempted_from_nutrient_levels}}) {
+
+			if (has_tag($product_ref, "categories", $category_id)) {
+				return;
+			}
+		}
+	}
+
 	foreach my $nutrient_level_ref (@nutrient_levels) {
 		my ($nid, $low, $high) = @{$nutrient_level_ref};
 

@@ -47,28 +47,18 @@
    "nova_groups_tags" : [
       "unknown"
    ],
-   "nutrient_levels" : {
-      "fat" : "low",
-      "salt" : "moderate",
-      "saturated-fat" : "low",
-      "sugars" : "high"
-   },
-   "nutrient_levels_tags" : [
-      "en:fat-in-low-quantity",
-      "en:saturated-fat-in-low-quantity",
-      "en:sugars-in-high-quantity",
-      "en:salt-in-moderate-quantity"
-   ],
+   "nutrient_levels" : {},
+   "nutrient_levels_tags" : [],
    "nutriments" : {
       "energy_100g" : 182,
-      "fat_100g" : "0",
+      "fat_100g" : 0,
       "fiber_100g" : 0.5,
       "proteins_100g" : 0.2,
       "salt" : 0.5,
       "salt_100g" : 0.5,
       "salt_unit" : "g",
       "salt_value" : "0.5",
-      "saturated-fat_100g" : "0",
+      "saturated-fat_100g" : 0,
       "sodium_100g" : 0.2,
       "sodium_value" : 0.2,
       "sugars_100g" : 8.9
