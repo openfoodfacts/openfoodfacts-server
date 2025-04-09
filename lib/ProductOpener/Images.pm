@@ -145,7 +145,7 @@ use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::URL qw/format_subdomain/;
 use ProductOpener::Users qw/%User/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
-use Data::DeepAccess qw(deep_get);
+use Data::DeepAccess qw(deep_get deep_set);
 
 use IO::Compress::Gzip qw(gzip $GzipError);
 use Log::Any qw($log);
@@ -252,6 +252,12 @@ HTML
 	return $html;
 }
 
+=head2 display_select_crop_init ($object_ref)
+
+This function is used to generate the code to initialize the select cropper in the product edit form with the images that are already uploaded.
+
+=cut
+
 sub display_select_crop_init ($object_ref) {
 
 	$log->debug("display_select_crop_init", {object_ref => $object_ref}) if $log->is_debug();
@@ -260,27 +266,20 @@ sub display_select_crop_init ($object_ref) {
 
 	my $images = '';
 
-	defined $object_ref->{images} or $object_ref->{images} = {};
+	my $uploaded_images_ref = deep_get($object_ref, "images", "uploaded");
 
-	# Construct an array of images that we can sort by upload time
-	# The imgid number is incremented by 1 for each new image, but when we move images
-	# from one product to another, they might not be sorted by upload time.
+	if (defined $uploaded_images_ref) {
 
-	my @images = ();
+		foreach my $imgid (
+			sort {$uploaded_images_ref->{$a}{uploaded_t} <=> $uploaded_images_ref->{$b}{uploaded_t}}
+			keys %$uploaded_images_ref
+			)
+		{
 
-	# There may be occasions where max_imgid was not incremented correctly (e.g. a crash)
-	# so we add 5 to it to check if we have other images to show
-	for (my $imgid = 1; $imgid <= (($object_ref->{max_imgid} || 0) + 5); $imgid++) {
-		if (defined $object_ref->{images}{$imgid}) {
-			push @images, $imgid;
-		}
-	}
+			my $uploader = $uploaded_images_ref->{$imgid}{uploader};
+			my $uploaded_date = display_date($uploaded_images_ref->{$imgid}{uploaded_t});
 
-	foreach my $imgid (sort {$object_ref->{images}{$a}{uploaded_t} <=> $object_ref->{images}{$b}{uploaded_t}} @images) {
-		my $uploader = $object_ref->{images}{$imgid}{uploader};
-		my $uploaded_date = display_date($object_ref->{images}{$imgid}{uploaded_t});
-
-		$images .= <<JS
+			$images .= <<JS
 {
 	imgid: "$imgid",
 	thumb_url: "$imgid.$thumb_size.jpg",
@@ -290,10 +289,12 @@ sub display_select_crop_init ($object_ref) {
 	uploaded: "$uploaded_date",
 },
 JS
-			;
-	}
+				;
+		}
 
-	$images =~ s/,\n?$//;
+		$images =~ s/,\n?$//;
+
+	}
 
 	return <<HTML
 
@@ -305,7 +306,6 @@ JS
 
 HTML
 		;
-
 }
 
 sub scan_code ($file) {
@@ -1025,7 +1025,8 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 			}
 
 			defined $product_ref->{images} or $product_ref->{images} = {};
-			$product_ref->{images}{$imgid} = {
+			defined $product_ref->{images}{uploaded} or $product_ref->{images}{uploaded} = {};
+			$product_ref->{images}{uploaded}{$imgid} = {
 				uploader => $user_id,
 				uploaded_t => $time,
 				sizes => {
@@ -1035,7 +1036,7 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 
 			foreach my $max ($thumb_size, $crop_size) {
 
-				$product_ref->{images}{$imgid}{sizes}{$max} = {
+				$product_ref->{images}{uploaded}{$imgid}{sizes}{$max} = {
 					w => $new_product_ref->{"images.$imgid.$max.w"},
 					h => $new_product_ref->{"images.$imgid.$max.h"}
 				};
@@ -1235,9 +1236,16 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 	return 0;
 }
 
-sub process_image_crop ($user_id, $product_id, $id, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2,
-	$coordinates_image_size)
+=head2 process_image_crop ( $user_id, $product_id, $image_type, $image_lc, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size )
+
+Select and possibly crop an uploaded image to represent the front, ingredients, nutrition or packaging image in a specific language.
+
+=cut
+
+sub process_image_crop ($user_id, $product_id, $image_type, $image_lc, $imgid, $angle, $normalize, $white_magic, $x1,
+	$y1, $x2, $y2, $coordinates_image_size)
 {
+	my $id = $image_type . "_" . $image_lc;
 
 	$log->debug(
 		"process_image_crop - start",
@@ -1326,8 +1334,8 @@ sub process_image_crop ($user_id, $product_id, $id, $imgid, $angle, $normalize, 
 	# Crop the image
 	my $ow = $source->Get('width');
 	my $oh = $source->Get('height');
-	my $w = $new_product_ref->{images}{$imgid}{sizes}{$coordinates_image_size}{w};
-	my $h = $new_product_ref->{images}{$imgid}{sizes}{$coordinates_image_size}{h};
+	my $w = $new_product_ref->{images}{uploaded}{$imgid}{sizes}{$coordinates_image_size}{w};
+	my $h = $new_product_ref->{images}{uploaded}{$imgid}{sizes}{$coordinates_image_size}{h};
 
 	if (($angle % 180) == 90) {
 		my $z = $w;
@@ -1652,27 +1660,35 @@ sub process_image_crop ($user_id, $product_id, $id, $imgid, $angle, $normalize, 
 
 	# Update the product image data
 	my $product_ref = retrieve_product($product_id);
-	defined $product_ref->{images} or $product_ref->{images} = {};
-	$product_ref->{images}{$id} = {
-		imgid => $imgid,
-		rev => $rev,
-		angle => $angle,
-		x1 => $x1,
-		y1 => $y1,
-		x2 => $x2,
-		y2 => $y2,
-		coordinates_image_size => $coordinates_image_size,
-		geometry => $geometry,
-		normalize => $normalize,
-		white_magic => $white_magic,
-		sizes => {
-			full => {w => $nw, h => $nh},
+	deep_set(
+		$product_ref,
+		"images",
+		"selected",
+		$image_type,
+		$image_lc,
+		{
+			imgid => $imgid,
+			rev => $rev,
+			generation => {
+				angle => $angle,
+				x1 => $x1,
+				y1 => $y1,
+				x2 => $x2,
+				y2 => $y2,
+				coordinates_image_size => $coordinates_image_size,
+				geometry => $geometry,
+				normalize => $normalize,
+				white_magic => $white_magic,
+			},
+			sizes => {
+				full => {w => $nw, h => $nh},
+			}
 		}
-	};
+	);
 
 	foreach my $max ($thumb_size, $small_size, $display_size) {    # $zoom_size
-		$product_ref->{images}{$id}{sizes}{$max}
-			= {w => $new_product_ref->{"images.$id.$max.w"}, h => $new_product_ref->{"images.$id.$max.h"}};
+		deep_set($product_ref, "images", "selected", $image_type, $image_lc, "sizes", $max,
+			{w => $new_product_ref->{"images.$id.$max.w"}, h => $new_product_ref->{"images.$id.$max.h"}});
 	}
 
 	store_product($user_id, $product_ref, "new image $id : $imgid.$rev");

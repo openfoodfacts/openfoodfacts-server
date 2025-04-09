@@ -53,6 +53,7 @@ my $product_id = product_id_for_owner($Owner_id, $code);
 my $imgid = single_param('imgid');
 my $angle = single_param('angle');
 my $id = single_param('id');
+
 my ($x1, $y1, $x2, $y2) = (single_param('x1'), single_param('y1'), single_param('x2'), single_param('y2'));
 my $normalize = single_param('normalize');
 my $white_magic = single_param('white_magic');
@@ -85,6 +86,24 @@ if (not defined $code) {
 
 my $product_ref = retrieve_product($product_id);
 
+# the id field is of the form [image_type]_[image_lc]
+my $image_type;
+my $image_lc;
+if ($id =~ /^(front|ingredients|nutrition|packaging)_([a-z]{2})$/) {
+	$image_type = $1;
+	$image_lc = $2;
+}
+else {
+	display_error(
+		{
+			message => {id => "invalid_image_type"},
+			field => {id => "image_type", value => $id},
+			impact => {id => "failure"},
+		}
+	);
+	exit(0);
+}
+
 # Do not allow edits / removal through API for data provided by producers (only additions for non existing fields)
 # when the corresponding organization has the protect_data checkbox checked
 my $protected_data = product_data_is_protected($product_ref);
@@ -111,15 +130,15 @@ elsif ((defined $User_id) and (($User_id eq 'kiliweb')) or (remote_addr() eq "20
 		and (not is_protected_image($product_ref, $id) or $User{moderator}))
 	{
 		$product_ref
-			= process_image_crop($User_id, $product_id, $id, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2,
-			$y2, $coordinates_image_size);
+			= process_image_crop($User_id, $product_id, $image_type, $image_lc, $imgid, $angle, $normalize,
+			$white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size);
 	}
 }
 else {
 	if (not is_protected_image($product_ref, $id) or $User{moderator}) {
 		$product_ref
-			= process_image_crop($User_id, $product_id, $id, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2,
-			$y2, $coordinates_image_size);
+			= process_image_crop($User_id, $product_id, $image_type, $image_lc, $imgid, $angle, $normalize,
+			$white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size);
 	}
 }
 
