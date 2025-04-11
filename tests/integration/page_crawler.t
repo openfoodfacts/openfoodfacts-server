@@ -50,7 +50,7 @@ my $tests_ref = [
 		headers_in => {'User-Agent' => $NORMAL_USER_USER_AGENT},
 		expected_status_code => 200,
 		expected_type => 'html',
-		response_content_must_match => '<title>Only-Product - Nutella - 100 g</title>'
+		response_content_must_match => '<title>Only-Product – Nutella – 100 g</title>'
 	},
 	# Crawling bot should have access to product page
 	{
@@ -60,7 +60,7 @@ my $tests_ref = [
 		headers_in => {'User-Agent' => $CRAWLING_BOT_USER_AGENT},
 		expected_status_code => 200,
 		expected_type => 'html',
-		response_content_must_match => '<title>Only-Product - Nutella - 100 g</title>'
+		response_content_must_match => '<title>Only-Product – Nutella – 100 g</title>'
 	},
 	# Denied crawling bot should not have access to any page
 	{

@@ -396,4 +396,26 @@ is($product_ref->{product_type}, 'beauty') || diag Dumper $product_ref;
 review_product_type($product_ref);
 is($product_ref->{product_type}, 'beauty') || diag Dumper $product_ref;
 
+is(
+	product_name_brand(
+		{
+			brands => 'Carrefour',
+			product_name => 'Test Product',
+		}
+	),
+	'Test Product – Carrefour',
+	'add brand to product name'
+);
+
+is(
+	product_name_brand(
+		{
+			brands => 'Carrefour',
+			product_name => 'Test Carrefour Product',
+		}
+	),
+	'Test Carrefour Product',
+	"don't add brand when already in product name"
+);
+
 done_testing();
