@@ -16,11 +16,27 @@
 
 Please use only the official assets to display the Nutri-Score. You can get v1 logos here: [NutriScore variants](https://drive.google.com/drive/u/1/folders/13SL2hgqYHSLMhYjMze9nYXV9GOdGMBgc)
 
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a.svg
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-b.svg
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-c.svg
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-d.svg
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-e.svg
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-unknown.svg
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-not-applicable.svg
+
 ### Getting ready for Nutri-Score V2
 
 - Nutri-Score V2 has a new computation method, which now requires the ingredient list, a category, and of course the nutrition table
 - It also has a transition period new logo, to indicate you are using the new computation. It is not compulsory to use it, but it will save you from a lot of questions from your users ("Do you have the new formula ?")
-- You can get the new assets by contacting reuse@openfoodfacts.org. We will make them public as soon as possible. Make sure you use v2 assets when showing v2 values.
+- You can get the new assets here. Make sure you use v2 assets when showing v2 values.
+- The new assets are available for langcodes: en, fr, nl, de, lb. Please get in touch if you'd like to contribute compliant new unofficial translations (reuse@openfoodfacts.org)
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-b-new-en.svg
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-c-new-en.svg
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-d-new-en.svg
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-e-new-en.svg
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-unknown-new-en.svg
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-not-applicable-new-en.svg
 
 ### Manual version: Getting the Nutri-Score v1 value (we don't recommand the manual way anymore, especially with v2 around the corner)
 
@@ -35,7 +51,7 @@ Here are the different messages to use according to the state:
 <pre>"We could not compute an Nutri-Score for this product. It might be that the category is an exception. If you believe this is an error, you can email contact@thenameofyourapp.org"</pre>
 
 -   List of exceptions: <https://www.santepubliquefrance.fr/content/download/150262/file/QR_scientifique_technique_150421.pdf>
--   You can get states with [https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=ecoscore_grade,states_tags](https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=ecoscore_grade,states_tags)
+-   You can get states with [https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=environmental_score_grade,states_tags](https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=environmental_score_grade,states_tags)
 
 #### Add a message if we have a category but no nutrition
 

@@ -1019,8 +1019,9 @@ Web:
   - any-glob-to-any-file: 'templates/web/pages/product_edit/product_edit_form_display.tt.html'
   - any-glob-to-any-file: 'templates/web/pages/product_edit/product_edit_form_process.tt.html'
   - any-glob-to-any-file: 'docs/api/ref/requestBodies/add_or_edit_a_product.yaml'
-
-# The product page is the most seen part of Open Food Facts with close to 3M visits per months as of early 2024. Any improvement to it has a massive impact.
+  - any-glob-to-any-file: 'templates/web/common/includes/robotoff_nutrients.tt.html'
+  
+# The product page is the most seen part of Open Food Facts with close to 3M visits (80% mobile web) per months as of early 2024. Any improvement to it has a massive impact.
 # Tracking issue: 
 Product page:
 - changed-files:
@@ -1555,6 +1556,15 @@ systemd:
 💸 Prices:
 - changed-files:
   - any-glob-to-any-file: 'docs/reference/api-tutorials/product-prices.md'
+
+
+# See https://github.com/openfoodfacts/openfoodfacts-webcomponents. We have a goal of moving many of the reusable frontend features to dedicated Web Components.
+Web components:
+- changed-files:
+  - any-glob-to-any-file: 'templates/web/common/includes/robotoff_question.tt.html'
+  - any-glob-to-any-file: 'templates/web/common/includes/off_webcomponents_configuration.tt.html'
+  - any-glob-to-any-file: 'html/js/off-webcomponents-utils.js'
+  - any-glob-to-any-file: 'templates/web/common/includes/robotoff_nutrients.tt.html'
 
 # Accessibility
 # This project has been made to track the status of our compliance with this [Report](https://github.com/openfoodfacts/openfoodfacts-server/files/5702582/Report.OpenFoodFact.15-12-2020.pdf) that tracks how accessible Open Food Facts is.
