@@ -238,7 +238,7 @@ sub convert_schema_1001_to_1002_refactor_images_object ($product_ref) {
 		my $uploaded_ref = {};
 		my $selected_ref = {};
 		foreach my $imgid (%{$product_ref->{images}}) {
-			# Upload images have an imageid which is a string containing an integer starting from 1
+			# Uploaded images have an imageid which is a string containing an integer starting from 1
 			if ($imgid =~ /^\d+$/) {
 				$uploaded_ref->{$imgid} = $product_ref->{images}->{$imgid};
 			}

@@ -127,7 +127,7 @@ elsif ((defined $User_id) and (($User_id eq 'kiliweb')) or (remote_addr() eq "20
 	if (    (defined $product_ref)
 		and (defined $product_ref->{images})
 		and (defined $product_ref->{images}{$imgid})
-		and (not is_protected_image($product_ref, $id) or $User{moderator}))
+		and (not is_protected_image($product_ref, $image_type, $image_lc) or $User{moderator}))
 	{
 		$product_ref
 			= process_image_crop($User_id, $product_id, $image_type, $image_lc, $imgid, $angle, $normalize,
@@ -135,7 +135,7 @@ elsif ((defined $User_id) and (($User_id eq 'kiliweb')) or (remote_addr() eq "20
 	}
 }
 else {
-	if (not is_protected_image($product_ref, $id) or $User{moderator}) {
+	if (not is_protected_image($product_ref, $image_type, $image_lc) or $User{moderator}) {
 		$product_ref
 			= process_image_crop($User_id, $product_id, $image_type, $image_lc, $imgid, $angle, $normalize,
 			$white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size);
@@ -146,7 +146,9 @@ my $data = encode_json(
 	{
 		status => 'status ok',
 		image => {
-			display_url => "$id." . $product_ref->{images}{$id}{rev} . ".$display_size.jpg",
+				  display_url => "$id."
+				. $product_ref->{images}{selected}{$image_type}{$image_lc}{rev}
+				. ".$display_size.jpg",
 		},
 		imagefield => $id,
 	}

@@ -99,7 +99,8 @@ use ProductOpener::Tags qw/%language_fields %tags_fields %taxonomy_fields list_t
 use ProductOpener::Display qw/search_and_export_products/;
 use ProductOpener::Food qw/%nutriments_tables/;
 use ProductOpener::Data qw/get_products_collection/;
-use ProductOpener::Products qw/add_images_urls_to_product product_path/;
+use ProductOpener::Products qw/product_path/;
+use ProductOpener::Images qw/add_images_urls_to_product/;
 use ProductOpener::EnvironmentalScore qw/localize_environmental_score/;
 use ProductOpener::ProductsFeatures qw(feature_enabled);
 

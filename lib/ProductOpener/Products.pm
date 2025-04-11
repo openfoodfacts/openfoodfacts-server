@@ -111,8 +111,6 @@ BEGIN {
 
 		&remove_fields
 
-		&add_images_urls_to_product
-
 		&analyze_and_enrich_product_data
 
 		&is_owner_field
@@ -2284,19 +2282,29 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 			# $product_ref->{images}{$id} ($id = front / ingredients / nutrition)
 
 			if (defined $product_ref->{images}) {
-				foreach my $imgid (sort keys %{$product_ref->{images}}) {
-					if ($imgid =~ /^\d/) {
+
+				# Old revisions may have the old image schema, with uploaded and selected images at the root
+				if ((not defined $product_ref->{schema_version} or ($product_ref->{schema_version} < 1002))) {
+					ProductOpener::ProductSchemaChanges::convert_schema_1001_to_1002_refactor_images_object(
+						$product_ref);
+				}
+
+				# Uploaded images
+				if (defined $product_ref->{images}{uploaded}) {
+					foreach my $imgid (sort keys %{$product_ref->{images}{uploaded}}) {
 						$current{uploaded_images}{$imgid} = 1;
 					}
-					else {
-						my $language_imgid = $imgid;
-						if ($imgid !~ /_\w\w$/) {
-							$language_imgid = $imgid . "_" . $product_ref->{lc};
+				}
+
+				# Selected images
+				if (defined $product_ref->{images}{selected}) {
+					foreach my $image_type (sort keys %{$product_ref->{images}{selected}}) {
+						foreach my $image_lc (sort keys %{$product_ref->{images}{selected}{$image_type}}) {
+							$current{selected_images}{$image_type . '_' . $image_lc}
+								= $product_ref->{images}{selected}{$image_type}{$image_lc}{imgid} . ' '
+								. $product_ref->{images}{selected}{$image_type}{$image_lc}{rev} . ' '
+								. $product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{geometry};
 						}
-						$current{selected_images}{$language_imgid}
-							= $product_ref->{images}{$imgid}{imgid} . ' '
-							. $product_ref->{images}{$imgid}{rev} . ' '
-							. $product_ref->{images}{$imgid}{geometry};
 					}
 				}
 			}
@@ -3597,121 +3605,6 @@ sub remove_fields ($product_ref, $fields_ref) {
 	foreach my $field (@$fields_ref) {
 		delete $product_ref->{$field};
 	}
-	return;
-}
-
-=head2 add_images_urls_to_product ($product_ref, $target_lc, $specific_imagetype = undef)
-
-Add fields like image_[front|ingredients|nutrition|packaging]_[url|small_url|thumb_url] to a product object.
-
-If it exists, the image for the target language will be returned, otherwise we will return the image
-in the main language of the product.
-
-=head3 Parameters
-
-=head4 $product_ref
-
-Reference to a complete product a subfield.
-
-=head4 $target_lc
-
-2 language code of the preferred language for the product images.
-
-=head4 $specific_imagetype
-
-Optional parameter to specify the type of image to add. Default is to add all types.
-
-=cut
-
-sub add_images_urls_to_product ($product_ref, $target_lc, $specific_imagetype = undef) {
-
-	my $images_subdomain = format_subdomain('images');
-
-	my $path = product_path($product_ref);
-
-	# If $imagetype is specified (e.g. "front" when we display a list of products), only compute the image for this type
-	my @imagetypes;
-	if (defined $specific_imagetype) {
-		@imagetypes = ($specific_imagetype);
-	}
-	else {
-		@imagetypes = ('front', 'ingredients', 'nutrition', 'packaging');
-	}
-
-	foreach my $imagetype (@imagetypes) {
-
-		my $size = $display_size;
-
-		# first try the requested language
-		my @display_ids = ($imagetype . "_" . $target_lc);
-
-		# next try the main language of the product
-		if (defined($product_ref->{lc}) && $product_ref->{lc} ne $target_lc) {
-			push @display_ids, $imagetype . "_" . $product_ref->{lc};
-		}
-
-		# last try the field without a language (for old products without updated images)
-		push @display_ids, $imagetype;
-
-		foreach my $id (@display_ids) {
-
-			if (    (defined $product_ref->{images})
-				and (defined $product_ref->{images}{$id})
-				and (defined $product_ref->{images}{$id}{sizes})
-				and (defined $product_ref->{images}{$id}{sizes}{$size}))
-			{
-
-				$product_ref->{"image_" . $imagetype . "_url"}
-					= "$images_subdomain/images/products/$path/$id."
-					. $product_ref->{images}{$id}{rev} . '.'
-					. $display_size . '.jpg';
-				$product_ref->{"image_" . $imagetype . "_small_url"}
-					= "$images_subdomain/images/products/$path/$id."
-					. $product_ref->{images}{$id}{rev} . '.'
-					. $small_size . '.jpg';
-				$product_ref->{"image_" . $imagetype . "_thumb_url"}
-					= "$images_subdomain/images/products/$path/$id."
-					. $product_ref->{images}{$id}{rev} . '.'
-					. $thumb_size . '.jpg';
-
-				if ($imagetype eq 'front') {
-					# front image is product image
-					$product_ref->{image_url} = $product_ref->{"image_" . $imagetype . "_url"};
-					$product_ref->{image_small_url} = $product_ref->{"image_" . $imagetype . "_small_url"};
-					$product_ref->{image_thumb_url} = $product_ref->{"image_" . $imagetype . "_thumb_url"};
-				}
-
-				last;
-			}
-		}
-
-		if (defined $product_ref->{languages_codes}) {
-			# compute selected image for each product language
-			foreach my $key (keys %{$product_ref->{languages_codes}}) {
-				my $id = $imagetype . '_' . $key;
-				if (    (defined $product_ref->{images})
-					and (defined $product_ref->{images}{$id})
-					and (defined $product_ref->{images}{$id}{sizes})
-					and (defined $product_ref->{images}{$id}{sizes}{$size}))
-				{
-
-					$product_ref->{selected_images}{$imagetype}{display}{$key}
-						= "$images_subdomain/images/products/$path/$id."
-						. $product_ref->{images}{$id}{rev} . '.'
-						. $display_size . '.jpg';
-					$product_ref->{selected_images}{$imagetype}{small}{$key}
-						= "$images_subdomain/images/products/$path/$id."
-						. $product_ref->{images}{$id}{rev} . '.'
-						. $small_size . '.jpg';
-					$product_ref->{selected_images}{$imagetype}{thumb}{$key}
-						= "$images_subdomain/images/products/$path/$id."
-						. $product_ref->{images}{$id}{rev} . '.'
-						. $thumb_size . '.jpg';
-				}
-			}
-		}
-	}
-
 	return;
 }
 

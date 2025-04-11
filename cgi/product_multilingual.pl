@@ -962,8 +962,9 @@ CSS
 
 					if ($field =~ /^(.*)_image/) {
 
-						my $image_field = $1 . "_" . $display_lc;
-						$display_div = display_select_crop($product_ref, $image_field, $language, $request_ref);
+						my $image_type = $1;
+						$display_div
+							= display_select_crop($product_ref, $image_type, $display_lc, $language, $request_ref);
 					}
 					elsif ($field eq 'ingredients_text') {
 						$image_full_id = "ingredients_" . ${display_lc} . "_image_full";
