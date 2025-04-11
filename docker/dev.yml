@@ -25,6 +25,9 @@
   # e.g. when developing with openfoodfacts-query
   extra_hosts:
     - "host.docker.internal:host-gateway"
+    - "auth.openfoodfacts.localhost:host-gateway"
+  networks:
+    default:
 
 x-minion-db-network: &minion-db-network
   networks:
@@ -38,7 +41,8 @@ services:
     # only turn on for off profile
     <<: *minion-db-network
   backend:
-    <<: [*backend-conf, *minion-db-network] 
+    # For some reason we need to list minion-db-network first otherwise it isn't included
+    <<: [*minion-db-network, *backend-conf] 
     extra_hosts:
       - ch-it.openfoodfacts.localhost:127.0.0.1
       - es-it.openfoodfacts.localhost:127.0.0.1
@@ -50,8 +54,9 @@ services:
       - world.openfoodfacts.localhost:127.0.0.1
       - world.pro.openfoodfacts.localhost:127.0.0.1
   incron: *backend-conf
+  redis-listener: *backend-conf
   minion:
-    <<: [*backend-conf, *minion-db-network]
+    <<: [*minion-db-network, *backend-conf]
   # in dev we want to use watch assets and recompile on the fly
   # also we want to build at start time in case some files changed, as we want to avoid recreating volumes
   dynamicfront:
@@ -95,9 +100,21 @@ services:
           aliases:
             # trick: make it possible for robotoff to reach it internally, 
             # using localhost domain
-            - world.openfoodfacts.localhost
-            - static.openfoodfacts.localhost
-            - images.openfoodfacts.localhost
+            - world.${PRODUCT_OPENER_DOMAIN}
+            - static.${PRODUCT_OPENER_DOMAIN}
+            - images.${PRODUCT_OPENER_DOMAIN}
+            - fr.${PRODUCT_OPENER_DOMAIN}
+            - world-be.${PRODUCT_OPENER_DOMAIN}
+            - world-de.${PRODUCT_OPENER_DOMAIN}
+            - world-it.${PRODUCT_OPENER_DOMAIN}
+            - es-it.${PRODUCT_OPENER_DOMAIN}
+            - ch-it.${PRODUCT_OPENER_DOMAIN}
+            - ssl-api.${PRODUCT_OPENER_DOMAIN}
+            - fr.pro.${PRODUCT_OPENER_DOMAIN}
+            - world.pro.${PRODUCT_OPENER_DOMAIN}
+            - auth.${PRODUCT_OPENER_DOMAIN}
+            - es.${PRODUCT_OPENER_DOMAIN}
+            - be-fr.${PRODUCT_OPENER_DOMAIN}
 
 volumes:
   product_images:
