@@ -54,13 +54,14 @@
          "percent_max" : 1,
          "percent_min" : 0,
          "text" : "sokeri",
-         "vegan" : "yes",
+         "vegan" : "maybe",
          "vegetarian" : "yes"
       }
    ],
    "ingredients_analysis" : {
       "en:maybe-vegan" : [
-         "en:flavouring"
+         "en:flavouring",
+         "en:sugar"
       ],
       "en:maybe-vegetarian" : [
          "en:flavouring"
