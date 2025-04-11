@@ -73,6 +73,10 @@ properties:
           (per 100g or per serving) in a standard unit (g or ml)
         type: number
       carbohydrates:
+        description: This is the available carbohydrates (excluding fiber), also known as net carbohydrates
+        type: number
+      carbohydrates-total:
+        description: This follows the US / Canada definition of carbohydrates which includes fiber, also known as gross carbohydrates
         type: number
       energy:
         type: number
