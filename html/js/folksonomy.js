@@ -46,7 +46,7 @@ const authrenewal = 1 * 5 * 60 * 60 * 1000;
 
 
 // eslint-disable-next-line no-unused-vars
-function folskonomy_engine_init() {
+function folksonomy_engine_init() {
     const pageType = isPageType(); // test page type
     console.log("FEUS - Folksonomy Engine User Script - 2021-11-19T16:49 - mode: " + pageType);
 
@@ -453,6 +453,37 @@ function displayAllProperties() {
     });
 }
 
+/**
+ * restrictFolksonomyForGuests()
+ * Use Case:
+ *   Used to enforce read-only mode on the folksonomy interface for non-logged-in users.
+ *   A custom login modal is shown to promote login/signup.
+ * 
+ * Intended For:
+ *   Guest users who are not authenticated.
+ *   This ensures that while guests can view all properties, they cannot add, edit, or delete any entries.
+ * @returns {void}
+ */
+function restrictFolksonomyForGuests() {
+    console.log("Enforcing read-only mode for non-logged-in users.");
+
+    setTimeout(() => {
+
+        document.querySelectorAll(".fe_edit_kv, .fe_del_kv, #new_kv_button").forEach((btn) => {
+            // Remove any existing event listeners to prevent conflicts.
+            const newBtn = btn.cloneNode(true);
+            btn.parentNode.replaceChild(newBtn, btn);
+
+            // Block action and show the login modal instead.
+            newBtn.addEventListener("click", function(event) {
+                event.preventDefault();
+                showLoginPromptDialog();
+            });
+        });
+
+    }, 500); // Delay ensures buttons are available before modifying them.
+}
+document.addEventListener("DOMContentLoaded", restrictFolksonomyForGuests);
 
 function delPropertyValue(_this) {
 
@@ -785,20 +816,84 @@ function isPageType() {
 }
 
 
-function loginProcess(callback) {
-    // Try to authenticate using the Open Food Facts cookie first
-    var cookie = $.cookie('session') ? $.cookie('session') : "";
-    if (cookie) {
-        console.log("FEUS - loginProcess(callback) => getCredentialsFromCookie()");
-        getCredentialsFromCookie(cookie, callback);
-        
-        //return;
-    }
-    else {
-        window.alert("You must be logged in first!");
+    function loginProcess(callback) {
+        // Try to authenticate using the Open Food Facts cookie first
+        var cookie = $.cookie('session') ? $.cookie('session') : "";
+        if (cookie) {
+            console.log("FEUS - loginProcess(callback) => getCredentialsFromCookie()");
+            getCredentialsFromCookie(cookie, callback);
+            //return;
+        }
+        else {
+            // Use custom login prompt dialog rather than normal alert
+            showLoginPromptDialog();
 
-        //return;
+            //return;
+        }
     }
+    
+/**
+ * showLoginPromptDialog()
+ * Use Case:
+ *   This function displays a custom login modal when a non-logged-in user
+ *   attempts to perform a write action (add/edit/delete) on folksonomy properties.
+ * 
+ * Functionality:
+ *    it creates and opens a jQuery UI dialog with "Login" and "Cancel" buttons.
+ **/
+
+    function showLoginPromptDialog() {
+        
+        // Prevent multiple modal instances.
+        if ($("#loginModal").length) {
+            return;
+        }
+        
+        // Append custom CSS for modal styling.
+        $("<style>").prop("type", "text/css").html(`
+                #loginModal {
+                    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                    text-align: center;
+                    padding: 15px;
+                }
+                .ui-dialog-titlebar {
+                    background: #6D4C41  !important;
+                    color: white !important;
+                    font-weight: bold;
+                }
+                .ui-dialog-buttonpane {
+                    text-align: center !important;
+                }
+                .ui-dialog-buttonset button {
+                    background-color: #6D4C41  !important;
+                    color: white !important;
+                    padding: 10px;
+                    border-radius: 5px;
+                    border: none;
+                }
+            `).appendTo("head");
+        
+        // Create and open the dialog.
+        $("<div id='loginModal' title='Login Required'>").html("You need to log in to add or edit properties.<br><br>Please click 'Login' to go to the login page.").dialog({
+                modal: true,
+                resizable: false,
+                draggable: false,
+                width: 400,
+                buttons: {
+                    "Login": function () {
+                        $(this).dialog("close");
+                        window.location.href = "/cgi/user.pl"; 
+                    },
+                    "Cancel": function () {
+                        $(this).dialog("close");
+                    }
+                },
+                close: function () {
+                    $(this).remove(); // Cleanup when the modal is closed.
+                }
+            });
+    }
+
     // TODO: Reenable login ?
     // Else display a form
     // const loginWindow =
@@ -830,7 +925,6 @@ function loginProcess(callback) {
     //     });
     // });
 
-}
 
 
 function getCredentialsFromCookie(_cookie, callback) {
