@@ -140,6 +140,7 @@
   z-index: 200;
   .top-bar-section ul li {
     background: inherit;
+    white-space: nowrap;
   }
   #offNav {
     background-color: $cafecreme;
