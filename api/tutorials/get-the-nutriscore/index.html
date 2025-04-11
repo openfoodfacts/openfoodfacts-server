@@ -2038,11 +2038,28 @@
 </ul>
 <h3 id="using-the-official-visual-assets-of-the-nutri-score">Using the official visual assets of the Nutri-Score<a class="headerlink" href="#using-the-official-visual-assets-of-the-nutri-score" title="Permanent link">#</a></h3>
 <p>Please use only the official assets to display the Nutri-Score. You can get v1 logos here: <a href="https://drive.google.com/drive/u/1/folders/13SL2hgqYHSLMhYjMze9nYXV9GOdGMBgc">NutriScore variants</a></p>
+<ul>
+<li>https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a.svg</li>
+<li>https://static.openfoodfacts.org/images/attributes/dist/nutriscore-b.svg</li>
+<li>https://static.openfoodfacts.org/images/attributes/dist/nutriscore-c.svg</li>
+<li>https://static.openfoodfacts.org/images/attributes/dist/nutriscore-d.svg</li>
+<li>https://static.openfoodfacts.org/images/attributes/dist/nutriscore-e.svg</li>
+<li>https://static.openfoodfacts.org/images/attributes/dist/nutriscore-unknown.svg</li>
+<li>https://static.openfoodfacts.org/images/attributes/dist/nutriscore-not-applicable.svg</li>
+</ul>
 <h3 id="getting-ready-for-nutri-score-v2">Getting ready for Nutri-Score V2<a class="headerlink" href="#getting-ready-for-nutri-score-v2" title="Permanent link">#</a></h3>
 <ul>
 <li>Nutri-Score V2 has a new computation method, which now requires the ingredient list, a category, and of course the nutrition table</li>
 <li>It also has a transition period new logo, to indicate you are using the new computation. It is not compulsory to use it, but it will save you from a lot of questions from your users ("Do you have the new formula ?")</li>
-<li>You can get the new assets by contacting reuse@openfoodfacts.org. We will make them public as soon as possible. Make sure you use v2 assets when showing v2 values.</li>
+<li>You can get the new assets here. Make sure you use v2 assets when showing v2 values.</li>
+<li>The new assets are available for langcodes: en, fr, nl, de, lb. Please get in touch if you'd like to contribute compliant new unofficial translations (reuse@openfoodfacts.org)</li>
+<li>https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg</li>
+<li>https://static.openfoodfacts.org/images/attributes/dist/nutriscore-b-new-en.svg</li>
+<li>https://static.openfoodfacts.org/images/attributes/dist/nutriscore-c-new-en.svg</li>
+<li>https://static.openfoodfacts.org/images/attributes/dist/nutriscore-d-new-en.svg</li>
+<li>https://static.openfoodfacts.org/images/attributes/dist/nutriscore-e-new-en.svg</li>
+<li>https://static.openfoodfacts.org/images/attributes/dist/nutriscore-unknown-new-en.svg</li>
+<li>https://static.openfoodfacts.org/images/attributes/dist/nutriscore-not-applicable-new-en.svg</li>
 </ul>
 <h3 id="manual-version-getting-the-nutri-score-v1-value-we-dont-recommand-the-manual-way-anymore-especially-with-v2-around-the-corner">Manual version: Getting the Nutri-Score v1 value (we don't recommand the manual way anymore, especially with v2 around the corner)<a class="headerlink" href="#manual-version-getting-the-nutri-score-v1-value-we-dont-recommand-the-manual-way-anymore-especially-with-v2-around-the-corner" title="Permanent link">#</a></h3>
 <h3 id="data-completion-flow">Data completion flow<a class="headerlink" href="#data-completion-flow" title="Permanent link">#</a></h3>
@@ -2054,7 +2071,7 @@
 
 <ul>
 <li>List of exceptions: <a href="https://www.santepubliquefrance.fr/content/download/150262/file/QR_scientifique_technique_150421.pdf">https://www.santepubliquefrance.fr/content/download/150262/file/QR_scientifique_technique_150421.pdf</a></li>
-<li>You can get states with <a href="https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=ecoscore_grade,states_tags">https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=ecoscore_grade,states_tags</a></li>
+<li>You can get states with <a href="https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=environmental_score_grade,states_tags">https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=environmental_score_grade,states_tags</a></li>
 </ul>
 <h4 id="add-a-message-if-we-have-a-category-but-no-nutrition">Add a message if we have a category but no nutrition<a class="headerlink" href="#add-a-message-if-we-have-a-category-but-no-nutrition" title="Permanent link">#</a></h4>
 <pre>if "en:categories-completed" in states_tags  AND "en:nutrition-facts-to-be-completed" in states_tags</pre>
