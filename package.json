@@ -54,7 +54,7 @@
     "papaparse": "^5.5.2",
     "select2": "~4.0",
     "jsbarcode": "^3.11.6",
-    "@openfoodfacts/openfoodfacts-webcomponents": "1.2.2"
+    "@openfoodfacts/openfoodfacts-webcomponents": "1.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.26.10",
@@ -67,8 +67,8 @@
     "@types/gulp-sourcemaps": "^0.0.38",
     "@types/gulp-svgmin": "^1.2.4",
     "@types/gulp-terser": "^1.2.6",
-    "@typescript-eslint/eslint-plugin": "^8.25.0",
-    "@typescript-eslint/parser": "^8.25.0",
+    "@typescript-eslint/eslint-plugin": "^8.29.0",
+    "@typescript-eslint/parser": "^8.29.0",
     "chai": "^5.2.0",
     "chai-http": "^5.1.1",
     "dotenv": "^16.4.7",
@@ -83,7 +83,7 @@
     "gulp-svgmin": "^4.1.0",
     "gulp-terser": "^2.1.0",
     "mocha": "^11.1.0",
-    "sass": "^1.85.1",
+    "sass": "^1.86.1",
     "stylelint": "^16.2.1",
     "stylelint-config-recommended": "^14.0.0",
     "stylelint-config-recommended-scss": "^14.1.0",
