@@ -198,7 +198,7 @@ sub create_or_update_user ($self, $user_ref, $password = undef) {
 			# Truncate name more than 255 because of UTF-8 encoding. Could do this more precisely...
 			name => substr($name, 0, 128),
 			locale => $user_ref->{preferred_language},
-			country => country_to_cc($user_ref->{country}),
+			country => country_to_cc($user_ref->{country} || 'en:world'),
 			registered => 'registered',    # The prevents welcome emails from being sent
 			reqested_org => $user_ref->{requested_org},
 			newsletter => ($user_ref->{newsletter} ? 'subscribe' : undef)
@@ -208,6 +208,8 @@ sub create_or_update_user ($self, $user_ref, $password = undef) {
 
 	$log->info('updating keycloak user', {existing_user => $existing_user, request => $api_request_ref})
 		if $log->is_info();
+
+	print STDERR $json . "\n" . encode_json($existing_user) . "\n";
 
 	# create request with right headers
 	my $upsert_user_request;

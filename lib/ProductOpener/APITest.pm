@@ -287,11 +287,11 @@ sub create_user_in_keycloak ($user_ref) {
 		enabled => $JSON::PP::true,
 		username => $user_ref->{userid},
 		credentials => [$credential],
-		attributes => [
-			name => [$user_ref->{name}],
-			locale => [$user_ref->{initial_lc}],
-			country => [$user_ref->{initial_cc}],
-		]
+		attributes => {
+			name => $user_ref->{name},
+			locale => $user_ref->{initial_lc},
+			country => $user_ref->{initial_cc},
+		}
 	};
 
 	my $json = encode_json($keycloak_user_ref);
