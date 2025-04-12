@@ -47,24 +47,24 @@ msgstr "قاعدة بيانات معاونة و مجانية و مفتوحة ع�
 # OPF
 msgctxt "site_description_opf"
 msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr ""
+msgstr "قاعدة بيانات تعاونية, مجانية ومفتوحة, للمكونات, و حقائق التغذية, ومعلومات عن منتجات أغذية الحيوانات الأليفة من جميع أنحاء العالم."
 
 msgctxt "tagline_opf"
 msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr ""
+msgstr "تقوم Open Products Facts بجمع المعلومات والبيانات حول المنتجات من جميع أنحاء العالم."
 
 msgctxt "footer_tagline_opf"
 msgid "A collaborative, free and open database of various products from around the world."
-msgstr ""
+msgstr "قاعدة بيانات تعاونية ومجانية ومفتوحة للمنتجات من جميع أنحاء العالم."
 
 # OPFF
 msgctxt "site_description_opff"
 msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr ""
+msgstr "قاعدة بيانات تعاونية, مجانية ومفتوحة, للمكونات, و حقائق التغذية, ومعلومات عن منتجات أغذية الحيوانات الأليفة من جميع أنحاء العالم."
 
 msgctxt "tagline_opff"
 msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr ""
+msgstr "يقوم موقع Open Pet Food Facts بجمع المعلومات والبيانات حول منتجات أغذية الحيوانات الأليفة من جميع أنحاء العالم."
 
 msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
@@ -299,11 +299,11 @@ msgstr "تم تحرير صفحة المنتج أيضا بواسطة"
 
 msgctxt "analytical_constituents"
 msgid "Analytical constituents"
-msgstr ""
+msgstr "المكونات التحليلية"
 
 msgctxt "analytical_constituents_per_1kg"
 msgid "for 1 kg"
-msgstr ""
+msgstr "لـ 1 كجم"
 
 msgctxt "android_apk_app_icon_url"
 msgid "/images/misc/app-landing-page/download-apk/download-apk_en.svg"
@@ -316,7 +316,7 @@ msgstr ""
 # Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
-msgstr ""
+msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -4489,27 +4489,27 @@ msgstr "بعض الملصقات مثل الملصق العضوي تُستخدم 
 
 msgctxt "origins_import_note"
 msgid "This field must contain only a comma separated list of countries of origin of the ingredients"
-msgstr ""
+msgstr "يجب أن يحتوي هذا الحقل على قائمة منفصلة بفواصل لبلدان منشأ المكونات فقط"
 
 msgctxt "origin_import_note"
 msgid "Text or sentences that indicate the origin of the product and/or its ingredients."
-msgstr ""
+msgstr "نص أو جمل تشير إلى أصل المنتج و/أو مكوناته."
 
 msgctxt "nutriscore_grade_producer_note"
 msgid "Nutri-Score grade from A to E displayed on the product label"
-msgstr ""
+msgstr "يتم عرض تصنيف درجة الجودة الغذائية من A إلى E على ملصق المنتج"
 
 msgctxt "nutriscore_grade_producer_import_note"
 msgid "Open Food Facts computes the Nutri-Score grade based on the information provided (nutrition facts and category). If the grade we compute is different from the grade you provide, you will get a private notification on the producers platform so that the difference can be resolved."
-msgstr ""
+msgstr "تحسب Open Food Facts درجة الجودة الغذائية بناءً على المعلومات المُقدمة (الحقائق الغذائية والفئة). إذا كانت الدرجة التي نحسبها مختلفة عن الدرجة التي تُقدمها، فستتلقى إشعارًا خاصًا على منصة المُنتجين لحلّ الاختلاف."
 
 msgctxt "nutriscore_score_producer_note"
 msgid "Nutri-Score score (numeric value from which the A to E grade is derived)"
-msgstr ""
+msgstr "درجة الجودة الغذائية (القيمة العددية التي يتم من خلالها استخلاص الدرجة من A إلى E)"
 
 msgctxt "nutriscore_score_producer_import_note"
 msgid "Open Food Facts computes the Nutri-Score score based on the information provided (nutrition facts and category). If the score we compute is different from the score you provide, you will get a private notification on the producers platform so that the difference can be resolved."
-msgstr ""
+msgstr "تحسب Open Food Facts درجة الجودة الغذائية بناءً على المعلومات المُقدمة (الحقائق الغذائية والفئة). إذا كانت الدرجة التي نحسبها مختلفة عن الدرجة التي تُقدمها، فستتلقى إشعارًا خاصًا على منصة المُنتجين لحلّ الاختلاف."
 
 msgctxt "mandatory_field"
 msgid "Mandatory field"
@@ -4517,7 +4517,7 @@ msgstr "مساحة إلزامية"
 
 msgctxt "mandatory_field_note"
 msgid "All products should have this information."
-msgstr ""
+msgstr "ينبغي أن تحتوي جميع المنتجات على هذه المعلومات."
 
 msgctxt "recommended_field"
 msgid "Recommended field"
@@ -4533,12 +4533,12 @@ msgstr "مساحة اختيارية"
 
 msgctxt "optional_field_note"
 msgid "If available, this information will be displayed on the product page."
-msgstr ""
+msgstr "إذا كانت هذه المعلومات متاحة، فسيتم عرضها على صفحة المنتج."
 
 # product photos here means photos of multiple products
 msgctxt "images_can_be_provided_separately"
 msgid "Product photos can also be provided separately through the Import product photos function of the platform for producers."
-msgstr ""
+msgstr "يمكن أيضًا توفير صور المنتج بشكل منفصل من خلال وظيفة استيراد صور المنتج في منصة المنتجين."
 
 # This is linked to a unit test
 msgctxt "attribute_group_labels_name"
@@ -4547,31 +4547,31 @@ msgstr "علامات"
 
 msgctxt "attribute_labels_organic_name"
 msgid "Organic farming"
-msgstr ""
+msgstr "الزراعة العضوية"
 
 msgctxt "attribute_labels_organic_yes_title"
 msgid "Organic product"
-msgstr ""
+msgstr "منتج عضوي"
 
 msgctxt "attribute_labels_organic_no_title"
 msgid "Not an organic product"
-msgstr ""
+msgstr "ليس منتجًا عضويًا"
 
 msgctxt "attribute_labels_organic_unknown_title"
 msgid "Missing information: organic product?"
-msgstr ""
+msgstr "معلومات مفقودة: منتج عضوي؟"
 
 msgctxt "attribute_labels_organic_yes_description_short"
 msgid "Promotes ecological sustainability and biodiversity."
-msgstr ""
+msgstr "تعزيز الاستدامة البيئية والتنوع البيولوجي."
 
 msgctxt "attribute_labels_organic_description_short"
 msgid "Organic products promote ecological sustainability and biodiversity."
-msgstr ""
+msgstr "تعمل المنتجات العضوية على تعزيز الاستدامة البيئية والتنوع البيولوجي."
 
 msgctxt "attribute_labels_organic_description"
 msgid "Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives."
-msgstr ""
+msgstr "تهدف الزراعة العضوية إلى حماية البيئة والحفاظ على التنوع البيولوجي من خلال حظر أو الحد من استخدام الأسمدة الاصطناعية والمبيدات الحشرية والمواد المضافة إلى الأغذية."
 
 msgctxt "attribute_labels_fair_trade_name"
 msgid "Fair trade"
@@ -4696,7 +4696,7 @@ msgstr ""
 
 msgctxt "attribute_nova_1_description_short"
 msgid "Unprocessed or minimally processed foods"
-msgstr ""
+msgstr "الأطعمة غير المعالجة أو المعالجة بشكل طفيف"
 
 msgctxt "attribute_nova_2_description_short"
 msgid "Processed culinary ingredients"
