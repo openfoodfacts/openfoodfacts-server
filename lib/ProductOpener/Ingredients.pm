@@ -5118,6 +5118,8 @@ my %phrases_before_ingredients_list = (
 
 	ja => ['原材料名',],
 
+	ka => ['ინგრედიენტები',],
+	
 	kk => ['курамы',],
 
 	ko => ['配料',],
