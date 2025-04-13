@@ -109,7 +109,7 @@ my @tests = (
 	],
 	[
 		{lc => "fi", ingredients_text => "Vitamiinit (A, B2, B12, C, D2)"},
-		["en:vitamins", "en:vitamin-a", "en:e101", "en:vitamin-b12", "en:e300", "en:ergocalciferol"],
+		["en:vitamins", "en:vitamin-a", "en:e101", "en:vitamin-b12", "en:vitamin-c", "en:ergocalciferol"],
 	],
 
 	[{lc => "it", ingredients_text => "sale e spezie"}, ["en:salt", "en:spice"],],
