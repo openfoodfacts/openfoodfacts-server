@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2024 Association Open Food Facts
+# Copyright (C) 2011-20245Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -80,7 +80,7 @@ use Syntax::Keyword::Dynamically;
 
 use LWP::UserAgent;
 
-use OpenTelemetry::Constants qw( SPAN_KIND_CLIENT SPAN_STATUS_ERROR );
+use OpenTelemetry::Constants qw( SPAN_KIND_CLIENT SPAN_STATUS_OK SPAN_STATUS_ERROR );
 use OpenTelemetry::Context;
 use OpenTelemetry::Integration 'LWP::UserAgent';
 use OpenTelemetry::Trace;
@@ -425,6 +425,7 @@ sub get_mongodb_client ($timeout = undef) {
 				my %span_and_context = %{delete $spans{$event->{requestId}}};
 				my $span = $span_and_context{'span'};
 				my $previous_context = $span_and_context{'previous_context'};
+				$span->set_status(SPAN_STATUS_OK);
 				$span->end();
 				OpenTelemetry::Context->current = $previous_context;
 			}
