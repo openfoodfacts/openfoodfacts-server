@@ -4757,15 +4757,15 @@ msgstr "مستوى الدهون يؤخذ في الاعتبار بواسطة در
 
 msgctxt "attribute_low_saturated_fat_setting_note"
 msgid "The saturated fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low saturated fat diet."
-msgstr ""
+msgstr "مستوى الدهون المشبعة يؤخذ في الاعتبار بواسطة درجة الجودة الغذائية. استخدم هذا الخيار فقط إذا كنت على وجه التحديد على نظام غذائي منخفض الدهون المشبعة."
 
 msgctxt "attribute_group_allergens_name"
 msgid "Allergens"
-msgstr ""
+msgstr "مسببات الحساسية"
 
 msgctxt "attribute_group_allergens_warning"
 msgid "There is always a possibility that data about allergens may be missing, incomplete, incorrect or that the product's composition has changed. If you are allergic, always check the information on the actual product packaging."
-msgstr ""
+msgstr "هناك احتمال دائم أن تكون بيانات مسببات الحساسية مفقودة، أو ناقصة، أو غير صحيحة، أو أن تركيب المنتج قد تغير. إذا كنت تعاني من حساسية، فتأكد دائمًا من المعلومات الموجودة على عبوة المنتج."
 
 msgctxt "attribute_additives_name"
 msgid "Additives"
@@ -4773,11 +4773,11 @@ msgstr "إضافات"
 
 msgctxt "attribute_additives_setting_name"
 msgid "No or few additives"
-msgstr ""
+msgstr "لا أو القليل من الإضافات"
 
 msgctxt "attribute_additives_setting_note"
 msgid "Additives are markers of food processing, and excess consumption of some of them have undesirable health impacts."
-msgstr ""
+msgstr "تعتبر المواد المضافة من علامات تصنيع الأغذية، والإفراط في استهلاك بعضها له آثار صحية غير مرغوب فيها."
 
 msgctxt "attribute_additives_unknown_title"
 msgid "Additives not computed"
@@ -4785,72 +4785,72 @@ msgstr "إضافات غير محسوبة"
 
 msgctxt "preference_not_important"
 msgid "Not important"
-msgstr ""
+msgstr "غير هام"
 
 msgctxt "preference_important"
 msgid "Important"
-msgstr ""
+msgstr "هام"
 
 msgctxt "preference_very_important"
 msgid "Very important"
-msgstr ""
+msgstr "شديد الأهمية"
 
 msgctxt "preference_mandatory"
 msgid "Mandatory"
-msgstr ""
+msgstr "ضروري"
 
 msgctxt "packaging_alt"
 msgid "Recycling instructions and/or packaging information"
-msgstr ""
+msgstr "تعليمات إعادة التدوير و/أو معلومات التعبئة والتغليف"
 
 msgctxt "image_packaging"
 msgid "Recycling instructions and/or packaging information picture"
-msgstr ""
+msgstr "تعليمات إعادة التدوير و/أو صورة معلومات التغليف"
 
 msgctxt "image_packaging_url"
 msgid "Link to recycling instructions and/or packaging information photo"
-msgstr ""
+msgstr "رابط لتعليمات إعادة التدوير و/أو صورة معلومات التغليف"
 
 # Do not translate the file name
 msgctxt "import_photos_format_packaging"
 msgid "3001234567890.packaging_es.jpg: recycling instructions in Spanish."
-msgstr ""
+msgstr "3001234567890.packaging_es.jpg: تعليمات إعادة التدوير باللغة الإسبانية."
 
 msgctxt "packaging_text"
 msgid "Recycling instructions and/or packaging information"
-msgstr ""
+msgstr "تعليمات إعادة التدوير و/أو معلومات التعبئة والتغليف"
 
 msgctxt "packaging_text_example"
 msgid "1 plastic film to discard, 1 FSC carboard box to recycle, 6 1.5L transparent PET plastic bottles to recycle, 6 colored opaque plastic caps, 12 33cl aluminium cans"
-msgstr ""
+msgstr "1 رقاقة بلاستيك للتخلص منه، 1 صندوق من الورق المقوى FSC لإعادة التدوير، 6 زجاجات بلاستيكية شفافة من مادة PET سعة 1.5 لتر لإعادة التدوير، 6 أغطية بلاستيكية ملونة معتمة، 12 علبة ألومنيوم سعة 33 سل"
 
 msgctxt "packaging_text_note"
 msgid "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions."
-msgstr ""
+msgstr "قم بإدراج جميع أجزاء التغليف مفصولة بفاصلة أو سطر، مع كميتها (مثل 1 أو 6) ونوعها (مثل زجاجة، صندوق، علبة)، والمادة (مثل البلاستيك، المعدن، الألومنيوم) وإذا كان متاحًا حجمها (مثل 33 سل) وتعليمات إعادة التدوير."
 
 msgctxt "packaging_text_note_2"
 msgid "Try to be as specific as possible. For plastic, please indicate if it is opaque or transparent, colored, PET or PEHD."
-msgstr ""
+msgstr "حاول أن تكون دقيقًا قدر الإمكان. بالنسبة للبلاستيك، يُرجى تحديد ما إذا كان معتمًا أو شفافًا، ملونًا، أو من مادة البولي إيثيلين تيريفثالات (PET) أو البولي إيثيلين عالي الكثافة (PEHD)."
 
 msgctxt "packaging_text_note_3"
 msgid "Data from this field will be combined with any data provided for each packaging part. It is possible to provide one or the other, or both."
-msgstr ""
+msgstr "سيتم دمج بيانات هذا الحقل مع أي بيانات مُقدمة لكل جزء من أجزاء التغليف. من الممكن تقديم أحدهما أو كليهما."
 
 msgctxt "product_js_extract_packaging"
 msgid "Extract the recycling instructions and/or packaging information from the picture"
-msgstr ""
+msgstr "استخرج تعليمات إعادة التدوير و/أو معلومات التغليف من الصورة"
 
 msgctxt "product_js_extracted_packaging_nok"
 msgid "Recycling instructions and/or packaging information text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
-msgstr ""
+msgstr "تعذّر استخراج نص تعليمات إعادة التدوير و/أو معلومات التغليف. حاول استخدام صورة أوضح، أو دقة أعلى، أو إطار أفضل للنص."
 
 msgctxt "product_js_extracted_packaging_ok"
 msgid "Recycling instructions and/or packaging information text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed."
-msgstr ""
+msgstr "تم استخراج نص تعليمات إعادة التدوير و/أو معلومات التغليف. التعرّف على النص ليس مثاليًا، لذا يُرجى مراجعة النص أدناه وتصحيح الأخطاء إن لزم الأمر."
 
 msgctxt "product_js_extracting_packaging"
 msgid "Extracting recycling instructions and/or packaging information"
-msgstr ""
+msgstr "استخراج تعليمات إعادة التدوير و/أو معلومات التعبئة والتغليف"
 
 msgctxt "attribute_group_environment_name"
 msgid "Environment"
@@ -4862,7 +4862,7 @@ msgstr "النتيجة البيئية"
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr ""
+msgstr "تأثير بيئي منخفض (الدرجة الخضراء)"
 
 msgctxt "attribute_environmental_score_setting_note"
 msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
@@ -4875,7 +4875,7 @@ msgstr "النتيجة البيئية"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr ""
+msgstr "تأثير بيئي منخفض (الدرجة الخضراء)"
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
@@ -5180,27 +5180,27 @@ msgstr ""
 
 msgctxt "delete_all_preferences"
 msgid "Delete all preferences"
-msgstr ""
+msgstr "حذف جميع التفضيلات"
 
 msgctxt "products_are_being_loaded_please_wait"
 msgid "Products are being loaded, please wait."
-msgstr ""
+msgstr "جاري تحميل المنتجات، الرجاء الانتظار."
 
 msgctxt "products_match_all"
 msgid "All products"
-msgstr ""
+msgstr "كل المنتجات"
 
 msgctxt "products_match_yes"
 msgid "Products that match your preferences"
-msgstr ""
+msgstr "المنتجات التي تتوافق مع تفضيلاتك"
 
 msgctxt "products_match_no"
 msgid "Products that do not match your preferences"
-msgstr ""
+msgstr "المنتجات التي لا تتوافق مع تفضيلاتك"
 
 msgctxt "products_match_unknown"
 msgid "Products for which we currently miss data to determine if they match your preferences"
-msgstr ""
+msgstr "المنتجات التي نفتقد بياناتها حاليًا لتحديد ما إذا كانت تتطابق مع تفضيلاتك"
 
 msgctxt "forest_footprint"
 msgid "Forest footprint"
