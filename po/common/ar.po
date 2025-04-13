@@ -4866,7 +4866,7 @@ msgstr "تأثير بيئي منخفض (الدرجة الخضراء)"
 
 msgctxt "attribute_environmental_score_setting_note"
 msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr ""
+msgstr "النتيجة البيئية هي نتيجة بيئية من A إلى E مما يجعل من السهل مقارنة تأثير المنتجات الغذائية على البيئة."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -4879,20 +4879,20 @@ msgstr "تأثير بيئي منخفض (الدرجة الخضراء)"
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr ""
+msgstr "النتيجة البيئية هي نتيجة بيئية من A إلى E مما يجعل من السهل مقارنة تأثير المنتجات الغذائية على البيئة."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
 msgid "Green-Score %s"
-msgstr ""
+msgstr "النتيجة البيئية %s"
 
 msgctxt "attribute_environmental_score_a_plus_description_short"
 msgid "Very low environmental impact"
-msgstr ""
+msgstr "تأثير بيئي منخفض جدًا"
 
 msgctxt "attribute_environmental_score_a_description_short"
 msgid "Very low environmental impact"
-msgstr ""
+msgstr "تأثير بيئي منخفض جدًا"
 
 msgctxt "attribute_environmental_score_b_description_short"
 msgid "Low environmental impact"
@@ -4900,55 +4900,55 @@ msgstr "تأثير بيئي منخفض"
 
 msgctxt "attribute_environmental_score_c_description_short"
 msgid "Moderate environmental impact"
-msgstr ""
+msgstr "تأثير بيئي معتدل"
 
 msgctxt "attribute_environmental_score_d_description_short"
 msgid "High environmental impact"
-msgstr ""
+msgstr "تأثير بيئي مرتفع"
 
 msgctxt "attribute_environmental_score_e_description_short"
 msgid "Very high environmental impact"
-msgstr ""
+msgstr "تأثير بيئي مرتفع جدًا"
 
 msgctxt "attribute_environmental_score_f_description_short"
 msgid "Very high environmental impact"
-msgstr ""
+msgstr "تأثير بيئي مرتفع جدًا"
 
 # keep the %s, it will be replaced by an allergen
 msgctxt "contains_s"
 msgid "Contains: %s"
-msgstr ""
+msgstr "يحتوي على: %s"
 
 # keep the %s, it will be replaced by an allergen
 msgctxt "may_contain_s"
 msgid "May contain: %s"
-msgstr ""
+msgstr "قد يحتوي على: %s"
 
 # keep the %s, it will be replaced by an allergen
 msgctxt "does_not_contain_s"
 msgid "Does not contain: %s"
-msgstr ""
+msgstr "لا يحتوي على: %s"
 
 # keep the %s, it will be replaced by an allergen
 msgctxt "without_s"
 msgid "Without %s"
-msgstr ""
+msgstr "بدون %s"
 
 msgctxt "owners_p"
 msgid "owners"
-msgstr ""
+msgstr "المالكين"
 
 msgctxt "owners_s"
 msgid "owner"
-msgstr ""
+msgstr "مالك"
 
 msgctxt "org_profile_description"
 msgid "You can provide information about your company that will be displayed in your organization profile."
-msgstr ""
+msgstr "بإمكانك تقديم معلومات حول شركتك والتي سيتم عرضها في الملف التعريفي لمؤسستك."
 
 msgctxt "org_profile_description_2"
 msgid "Some of the information like the customer service contact information may also be displayed directly on pages for your products."
-msgstr ""
+msgstr "قد يتم أيضًا عرض بعض المعلومات مثل معلومات الاتصال بخدمة العملاء مباشرةً على صفحات منتجاتك."
 
 msgctxt "org_name"
 msgid "Name"
@@ -4956,7 +4956,7 @@ msgstr "اﻹسم"
 
 msgctxt "org_link"
 msgid "Link to the official web site"
-msgstr ""
+msgstr "رابط الموقع الرسمي"
 
 msgctxt "org_customer_service"
 msgid "Customer service"
@@ -4964,19 +4964,19 @@ msgstr "خدمة العملاء"
 
 msgctxt "org_customer_service_description"
 msgid "Customer service information is public and can be shown on the Open Food Facts web site and apps."
-msgstr ""
+msgstr "معلومات خدمة العملاء عامة ويمكن عرضها على موقع Open Food Facts الإلكتروني والتطبيقات."
 
 msgctxt "org_customer_service_note"
 msgid "All fields are optional."
-msgstr ""
+msgstr "جميع الحقول اختيارية."
 
 msgctxt "org_commercial_service"
 msgid "Commercial service"
-msgstr ""
+msgstr "الخدمة التجارية"
 
 msgctxt "org_commercial_service_description"
 msgid "Commercial service information is only shown in the organization profile."
-msgstr ""
+msgstr "تظهر معلومات الخدمة التجارية فقط في ملف تعريف المنظمة."
 
 msgctxt "contact_name"
 msgid "Name"
@@ -4984,11 +4984,11 @@ msgstr "اﻹسم"
 
 msgctxt "contact_address"
 msgid "Address"
-msgstr ""
+msgstr "العنوان"
 
 msgctxt "contact_phone"
 msgid "Phone number"
-msgstr ""
+msgstr "رقم الهاتف"
 
 msgctxt "contact_email"
 msgid "e-mail address"
@@ -4996,7 +4996,7 @@ msgstr "عنوان البريد الإلكتروني"
 
 msgctxt "contact_link"
 msgid "Contact form link"
-msgstr ""
+msgstr "رابط نموذج الاتصال"
 
 msgctxt "contact_info"
 msgid "Other information"
@@ -5004,51 +5004,51 @@ msgstr "معلومات أخرى"
 
 msgctxt "contact_info_note"
 msgid "e.g. opening times"
-msgstr ""
+msgstr "على سبيل المثال أوقات العمل"
 
 msgctxt "error_org_does_not_exist"
 msgid "The organization was not found."
-msgstr ""
+msgstr "لم يتم العثور على المنظمة."
 
 msgctxt "error_missing_org_name"
 msgid "The organization name is missing."
-msgstr ""
+msgstr "اسم المنظمة مفقود."
 
 msgctxt "edit_org_title"
 msgid "Organization profile"
-msgstr ""
+msgstr "ملف المنظمة الشخصي"
 
 msgctxt "edit_org_result"
 msgid "The organization profile has been updated."
-msgstr ""
+msgstr "تم تحديث الملف التعريفي للمنظمة."
 
 msgctxt "delete_org"
 msgid "Delete the organization"
-msgstr ""
+msgstr "حذف المنظمة"
 
 msgctxt "official_site"
 msgid "Official site"
-msgstr ""
+msgstr "الموقع الرسمي"
 
 msgctxt "organization_members"
 msgid "Organization Members"
-msgstr ""
+msgstr "أعضاء المنظمة"
 
 msgctxt "number_of_members"
 msgid "Number of Members"
-msgstr ""
+msgstr "عدد الأعضاء"
 
 msgctxt "contact_form"
 msgid "Contact form"
-msgstr ""
+msgstr "نموذج الاتصال"
 
 msgctxt "edit_org_profile"
 msgid "Edit your organization profile"
-msgstr ""
+msgstr "تعديل ملف مؤسستك"
 
 msgctxt "edit_user_profile"
 msgid "Edit your user profile"
-msgstr ""
+msgstr "تعديل الملف الشخصي للمستخدم"
 
 msgctxt "attribute_group_ingredients_analysis_name"
 msgid "Ingredients"
@@ -5061,43 +5061,43 @@ msgstr "وجود غير معروف: %s"
 
 msgctxt "environmental_impact"
 msgid "Environmental impact"
-msgstr ""
+msgstr "التأثير البيئي"
 
 # Numerical score for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_score"
 msgid "Green-Score score"
-msgstr ""
+msgstr "النتيجة البيئية"
 
 # Letter grade from A to E for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_grade"
 msgid "Green-Score grade"
-msgstr ""
+msgstr "درجة النتيجة البيئية"
 
 # do not translate Green-Score
 msgctxt "environmental_score_calculation_details"
 msgid "Details of the calculation of the Green-Score"
-msgstr ""
+msgstr "تفاصيل حساب النتيجة البيئية"
 
 # do not translate Green-Score
 msgctxt "environmental_score_information"
 msgid "Information about the Green-Score"
-msgstr ""
+msgstr "معلومات عن النتيجة البيئية"
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
-msgstr ""
+msgstr "التفضيلات المحددة حاليًا"
 
 msgctxt "preferences_locally_saved"
 msgid "Your preferences are kept in your browser and never sent to Open Food Facts or anyone else."
-msgstr ""
+msgstr "سيتم الاحتفاظ بتفضيلاتك في متصفحك ولن يتم إرسالها أبدًا إلى Open Food Facts أو أي شخص آخر."
 
 msgctxt "preferences_edit_your_preferences"
 msgid "Edit your preferences"
-msgstr ""
+msgstr "تعديل تفضيلاتك"
 
 msgctxt "preferences_your_preferences"
 msgid "Your preferences"
-msgstr ""
+msgstr "تفضيلاتك"
 
 # used in phrases like "salt in unknown quantity"
 msgctxt "unknown_quantity"
@@ -5138,7 +5138,7 @@ msgstr ""
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
-msgstr ""
+msgstr "أجزاء التغليف"
 
 # A short name for a physical piece of packaging (e.g. in English, "packaging" instead of "packaging part"). Used with a number (e.g. "Packaging 1" to identify a packaging part)
 msgctxt "packaging_part_short"
@@ -5148,7 +5148,7 @@ msgstr "التغليف"
 # Number of packaging parts
 msgctxt "packaging_number"
 msgid "Number"
-msgstr ""
+msgstr "رقم"
 
 msgctxt "packaging_shape"
 msgid "Shape"
@@ -5156,7 +5156,7 @@ msgstr ""
 
 msgctxt "packaging_quantity"
 msgid "Quantity contained"
-msgstr ""
+msgstr "الكمية الواردة"
 
 msgctxt "packaging_material"
 msgid "Material"
@@ -5164,19 +5164,19 @@ msgstr ""
 
 msgctxt "packaging_recycling"
 msgid "Recycling"
-msgstr ""
+msgstr "إعادة التدوير"
 
 msgctxt "products_on_this_page_are_sorted_according_to_your_preferences"
 msgid "Products on this page are sorted according to your preferences:"
-msgstr ""
+msgstr "يتم فرز المنتجات الموجودة في هذه الصفحة وفقًا لتفضيلاتك:"
 
 msgctxt "choose_which_information_you_prefer_to_see_first"
 msgid "Choose which information you prefer to see first."
-msgstr ""
+msgstr "اختر المعلومات التي تفضل رؤيتها أولاً."
 
 msgctxt "see_your_preferences"
 msgid "See your preferences"
-msgstr ""
+msgstr "شاهد تفضيلاتك"
 
 msgctxt "delete_all_preferences"
 msgid "Delete all preferences"
