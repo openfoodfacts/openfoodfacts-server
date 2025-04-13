@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2024 Association Open Food Facts
+# Copyright (C) 2011-2025 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -76,7 +76,15 @@ sub handler {
 	}
 
 	# Start a new span with the extracted context
-	my $span = $tracer->create_span(name => 'request', parent => $context);
+	my $span = $tracer->create_span(
+		name => $r->method . ' ' . $r->uri,
+		parent => $context,
+		attributes => {
+			'http.method' => $r->method,
+			'http.url' => $r->uri,
+			'http.host' => $r->hostname,
+		}
+	);
 
 	# Store the span in the context
 	$context = OpenTelemetry::Trace->context_with_span($span);

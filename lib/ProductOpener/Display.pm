@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2024 Association Open Food Facts
+# Copyright (C) 2011-2025 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -567,6 +567,12 @@ sub init_request ($request_ref = {}) {
 	local $log->context->{ip} = remote_addr();
 	local $log->context->{query_string} = $request_ref->{original_query_string};
 
+	if (defined $span) {
+		$span->set_attribute('url.query', $request_ref->{original_query_string});
+		$span->set_attribute('client.address', remote_addr());
+		$span->set_name($r->method . ' ' . $ENV{SCRIPT_NAME});
+	}
+
 	$subdomain =~ s/\..*//;
 
 	$original_subdomain = $subdomain;    # $subdomain can be changed if there are cc and/or lc overrides
@@ -1093,6 +1099,8 @@ sub display_no_index_page_and_exit () {
 	print header(%$http_headers_ref);
 
 	my $r = Apache2::RequestUtil->request();
+	my $span = $r->pnotes('OpenTelemetry::Span->current');
+	$span->set_attribute('http.response.status_code', 200) if (defined $span);
 	$r->rflush;
 	# Setting the status makes mod_perl append a default error to the body
 	# Send 200 instead.
@@ -1118,6 +1126,8 @@ sub display_too_many_requests_page_and_exit() {
 		= '<!DOCTYPE html><html><head><meta name="robots" content="noindex"></head><body><h1>TOO MANY REQUESTS</h1><p>You are sending too many requests to our servers.</p><p>To know more about the rate limits we enforce, please refer to the <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/#rate-limits">rate-limit section in our documentation</a>.</p><p>If you need to download data about a large number of products, it\'s preferable to <a href="https://world.openfoodfacts.org/data">download a data dump</a>. If this is unexpected, contact us on Slack or write us an email at <a href="mailto:contact@openfoodfacts.org">contact@openfoodfacts.org</a>.</p></body></html>';
 
 	my $r = Apache2::RequestUtil->request();
+	my $span = $r->pnotes('OpenTelemetry::Span->current');
+	$span->set_attribute('http.response.status_code', 429) if (defined $span);
 	$r->rflush;
 	$r->custom_response(429, $html);
 	exit();
@@ -7557,6 +7567,8 @@ sub display_page ($request_ref) {
 	print header(%$http_headers_ref);
 
 	my $r = Apache2::RequestUtil->request();
+	my $span = $r->pnotes('OpenTelemetry::Span->current');
+	$span->set_attribute('http.response.status_code', $status_code) if (defined $span);
 	$r->rflush;
 	# Setting the status makes mod_perl append a default error to the body
 	# Send 200 instead.
@@ -10767,6 +10779,8 @@ sub display_structured_response ($request_ref) {
 		}
 	) if $log->is_debug();
 
+	my $status_code = $request_ref->{status_code} // 200;
+
 	if (single_param("xml")) {
 
 		# my $xs = XML::Simple->new(NoAttr => 1, NumericEscape => 2);
@@ -10822,8 +10836,6 @@ sub display_structured_response ($request_ref) {
 			$jsonp = single_param('callback');
 		}
 
-		my $status_code = $request_ref->{status_code} // 200;
-
 		if (defined $jsonp) {
 			$jsonp =~ s/[^a-zA-Z0-9_]//g;
 			write_cors_headers();
@@ -10846,6 +10858,8 @@ sub display_structured_response ($request_ref) {
 	}
 
 	my $r = Apache2::RequestUtil->request();
+	my $span = $r->pnotes('OpenTelemetry::Span->current');
+	$span->set_attribute('http.response.status_code', $status_code) if (defined $span);
 	$r->rflush;
 	$r->status(200);
 

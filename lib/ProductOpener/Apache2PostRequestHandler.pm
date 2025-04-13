@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2024 Association Open Food Facts
+# Copyright (C) 2011-2025 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -47,6 +47,7 @@ sub handler {
 		$log->info('ProductOpener::Apache2PostRequestHandler::handler: span found, ending it',
 			{recording => $span->recording})
 			if $log->is_info();
+		$span->set_attribute('http.response.status_code', $r->status);
 		$span->end();
 	}
 	else {
