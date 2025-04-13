@@ -747,8 +747,8 @@ ro: Vitamina K3
 sk: Vitamín K3
 zh: 维生素K3
 
-# description:en:Vitamin C, also known as ascorbic acid and L-ascorbic acid, is a vitamin found in food and used as a dietary supplement.
 
+# this is E300, put vitamin c in here and ascorbic acid additives.txt
 #<en:E300
 en: Vitamin C
 af: Vitamien C
@@ -838,6 +838,7 @@ zh: 维生素C, 维生素 C
 # zh-tw:维生素C
 wikidata:en: Q199678
 wikipedia:en: https://en.wikipedia.org/wiki/Vitamin_C
+# description:en:Vitamin C, also known as ascorbic acid and L-ascorbic acid, is a vitamin found in food and used as a dietary supplement.
 # en:ascorbic-acid has 17518 products in 17 languages @2018-11-17
 
 < en:Vitamin C
@@ -1404,7 +1405,7 @@ nl: folacin
 # that is involved in the metabolism of every cell of the human body:
 # it is a cofactor in DNA synthesis, and in both fatty acid and amino acid metabolism.
 
-en: vitamin b12, cobalamin
+en: vitamin b12, B12, cobalamin
 af: Vitamien B12
 ar: فيتامين بي 12
 az: B12 vitamini
@@ -1433,7 +1434,7 @@ hy: Վիտամին B12
 id: Vitamin B12
 is: B12-vítamín
 it: Cobalamina, vitamina B12
-ja: シアノコバラミン, ビタミンB12, ビタミンＢ１２, ビタミン B12, ビタミン Ｂ１２, V.B12, Ｖ．Ｂ１２, V.B₁₂, V-B12, ＶーＢ１２, V-B₁₂
+ja: コバラミン, ビタミンB12, ビタミンＢ１２, ビタミン B12, ビタミン Ｂ１２, V.B12, Ｖ．Ｂ１２, V.B₁₂, V-B12, ＶーＢ１２, V-B₁₂
 jv: Vitamin b12
 kk: Кобаламин
 ko: 비타민 B12
@@ -1481,9 +1482,10 @@ wikipedia:en: https://en.wikipedia.org/wiki/Vitamin_B12
 # ingredient/vitamin-b12 has 2117 products in 10 languages @2018-11-25
 
 < en:Vitamin B12
-en: cyanocobalamin
+en: cyanocobalamin, cyanocobalamine
 bg: Цианокобаламин
 cs: kyanokobalamin
+de: Cyanocobalamin, Cyanocobalamine
 el: κυανοκοβαλαμίνη
 es: cianocobalamina
 et: tsüanokobalamiin
@@ -1492,6 +1494,7 @@ fr: cyanocobalamine
 hr: cijanokobalamin
 hu: cianokobalamin
 it: cianocobalamina
+ja: シアノコバラミン
 lt: cianokobalaminas
 lv: ciānkobalamīns
 mt: ċjanokobalamina

@@ -2270,7 +2270,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
 			# Disable die for the packaging taxonomy as some legit material and shape might have same name
 			my $taxonomy_with_duplicate_tolerated
-				= (($tagtype eq "ingredients") or ($tagtype eq "packaging") or ($tagtype eq "inci_functions"));
+				= (($tagtype eq "packaging") or ($tagtype eq "inci_functions"));
 			unless ($only_duplicate_errors and $taxonomy_with_duplicate_tolerated) {
 				store("$result_dir/$tagtype.errors.sto", {errors => \@taxonomy_errors});
 				die("Errors in the $tagtype taxonomy definition");

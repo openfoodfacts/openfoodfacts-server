@@ -51,8 +51,10 @@
 # Synonyms must be separated with an empty line.
 # If a term is also in the taxonomy, it must come first. e.g. "en:hydrolysed"
 
-# comment:en:These are words that occur inside the name of one ingredient, that can be considered as synonyms for matching the ingredient with entries in the taxonomy
+# comment:en:These are words that occur inside the name of one ingredient, that can be considered as synonyms 
+# for matching the ingredient with entries in the taxonomy
 # note: synonyms should not be ingredients themselves, if we have an ingredient entry with synonyms, they should not be listed in the synonyms below as well
+# for example, zumo, jugo (juice) cannot be listed here
 
 synonyms:en: fiber, fibre
 
@@ -68,10 +70,6 @@ synonyms:en: semi-wholemeal, semi-whole, semi-whole grain, semi-wholegrain, semi
 
 synonyms:en: semi-sweet, semisweet
 
-synonyms:es: zumo, jugo
-
-synonyms:es: jarabe, sirope
-
 synonyms:fr: semi-complet, demi-complet
 
 synonyms:fr: semi-complète, demi-complète
@@ -84,27 +82,15 @@ synonyms:it: derivati, derivato
 
 synonyms:it: fermentato, fermentati
 
-synonyms:it: lecitina, lecitine
-
 synonyms:lt: ląsteliena, skaidulos
 
 synonyms:lt: pilno grūdo, viso grūdo
-
-synonyms:lt: kviečių, kvietiniai, kvietinės, kvietinis
-
-synonyms:lt: miežių, miežinio, miežinis
 
 synonyms:lt: kiaušinių, kiaušinio
 
 synonyms:lt: vištų, vištienos, vištos
 
-synonyms:pt: suco, sumo
-
-synonyms:pt: extrato, extracto
-
 synonyms:pt: geléia, geleia
-
-synonyms:pt: conservadores, conservantes, conservante, conservador
 
 synonyms:pt: soda, refrigerante
 
@@ -114,17 +100,9 @@ synonyms:pt: amônio, amónio
 
 synonyms:pt: graxos, gordo, graxo, gordos
 
-synonyms:pt: gorduras, lípido, gordura, lípidos
-
 synonyms:pt: oliva, oliveira
 
-synonyms:pt: azeite de oliva, azeite
-
 synonyms:pt: láctico, lático, lácteo
-
-synonyms:pt: pistache, pistáchio, pistácio, pistacho, pistaches, pistáchios, pistácios, pistachos
-
-synonyms:pt: sorvete, gelado
 
 
 # comment:en:These are words that occur inside the name of one ingredient, but that can be removed for matching the ingredient with entries in the taxonomy
@@ -226,6 +204,7 @@ nl: Karamel siroop
 pl: syrop karmelowy
 pt: xarope de caramelo
 ru: Карамельный сироп
+uk: карамельный сироп
 # ingredient/caramel-syrup has 248 products @2019-03-09
 
 < en:caramel syrup
@@ -438,7 +417,7 @@ lt: paprikos ekstraktas
 lv: paprikas ekstrakts
 nl: paprika-extract
 pl: kapsaicyna, ekstrakt z papryki, ekstrakty z papryki, ekstrakt z papryk
-pt: extrato de pimentão, extrato de pimento
+pt: extrato de pimentão, extrato de pimento, extracto de pimentão, extracto de pimento
 ro: extract de paprika
 sv: Paprikaextrakt
 # en:paprika-extract has 3381 products in 16 languages @2018-10-15
@@ -454,7 +433,7 @@ hr: prirodni ekstrakt paprike
 # fr:extrait-naturel-de-paprika 28 products in 1 language @2018-10-15
 it: estratto naturale di paprica, estratto naturale di paprika
 lt: natūralus paprikos ekstraktas
-pt: extrato natural de pimentão, extrato natural de pimento
+pt: extrato natural de pimentão, extrato natural de pimento, extracto natural de pimentão, extracto natural de pimento
 
 
 < en:paprika extract
@@ -510,7 +489,7 @@ hr: emulgator soja lecitin, emulgator sojin lecitin, soja lecitin, emulgatori so
 hu: szójalecitin, szójalecitinek
 id: lesitin kedelai
 is: sojalesitin
-it: lecitina di soia
+it: lecitina di soia, lecitine di soia
 ja: 大豆レシチン
 ko: 대두 레시틴
 lt: sojos lecitinas, sojų lecitinai, sojų pupelių lecitinai, emulsikliai sojos lecitinas
@@ -544,7 +523,7 @@ fi: GMO-vapaa soijalesitiini
 fr: lécithine de soja sans ogm
 hr: sojin lecitin bez GMO-a
 hu: GMO-mentes szójalecitin
-it: Lecitina di soia Ogm free
+it: Lecitina di soia Ogm free, lecitine di soia Ogm free
 nl: GMO-vrije sojalecithine
 # gmo-free-soy-lecithin has 73 products in 2 languages @2018-11-10
 
@@ -562,7 +541,7 @@ fi: auringonkukkalesitiini, auringonkukkalesitiiniä
 fr: lécithine de tournesol
 hr: suncokretov lecitin, E322 suncokretov lecitin, lecitin suncokreta
 hu: napraforgó lecitin
-it: lecitina di girasole
+it: lecitina di girasole, lecitine di girasole
 lt: saulėgrąžų lecitinas, saulėgrąžų lecitinai, emulsiklis lecitinai (saulėgrąžų), lecitinai iš saulėgrąžų
 lv: lecitinai iš saulègrąžų, saulespuku lecitīns, saulespuķu lecitīns, saulespuķu lecitīni
 nb: solsikkelecithin, solsikkelecitin
@@ -582,7 +561,7 @@ wikidata:en: Q57271747
 < en:sunflower lecithin
 en: non-gmo sunflower lecithin
 hr: ne-gmo suncokretov lecitin
-it: lecitina di girasole non ogm
+it: lecitina di girasole non ogm, lecitine di girasole non ogm
 
 < en:soya lecithin
 < en:sunflower lecithin
@@ -594,7 +573,7 @@ fi: soija- ja auringonkukkalesitiini
 fr: lécithine de soja et de tournesol
 hr: sojin i suncokretov lecitin
 hu: szója- és napraforgólecitin
-it: lecitina di soia e di girasole
+it: lecitina di soia e di girasole, lecitine di soia e di girasole
 lt: sojų ir saulėgrąžų lecitinai
 # fr:lécithine-de-soja-et-de-tournesol has 50 products in 4 languages @2018-11-10
 vegan:en: yes
@@ -611,7 +590,7 @@ fi: rapsilesitiini, rapsilesitiiniä, rypsilesitiini, rypsilesitiiniä
 fr: lécithine de colza, lécithines de colza
 hr: lecitin repica, lecitin uljane repice
 hu: repce lecitin, lecitini (repica)
-it: lecitina di colza
+it: lecitina di colza, lecitine di colza
 lt: rapsų lecitinai, emulsiklis rapsų lecitinas
 nb: rapslecitin, rapslecithin
 nl: raapzaadlecithine
@@ -1040,7 +1019,7 @@ nl: gemodificeerd aardappelzetmeel
 pl: skrobia modyfikowana ziemniaczana, skrobia ziemniaczana modyfikowana, modyfikowana skrobia ziemniaczana
 pt: amido modificado de batata, amido de batata modificado
 ro: amidon modificat din cartofi
-ru: модифицированный крахмал
+ru: модифицированный картофельный крахмал
 sl: modificiran krompirjev škrob
 sv: modifierad potatisstärkelse
 # fr:fécule-de-pomme-de-terre-modifiée has 40 products in 3 languages @2018-10-15
@@ -10303,13 +10282,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Biotin
 # ingredient/biotin has 145 products in 3 languages @2018-11-24
 
 < en:vitamins
-en: cobalamin, Vitamin B12, B12, Cyanocobalamin, Cyanocobalamine
-de: Cyanocobalamin, Cyanocobalamine
-hr: kobalamin
-ja: コバラミン, ビタミンB12
-sv: vitamin B12, B12, kobalamin
-
-< en:vitamins
 en: vitamin b8, B8
 ca: vitamina B8, B8
 de: Vitamin B8
@@ -10579,7 +10551,7 @@ hr: kamena sol
 hu: Kősó
 it: sale grosso
 lt: akmens druska
-nl: steenzout, mineraalzout
+nl: steenzout, mineraalzout, dieetzout, zout dieetzout
 pl: sól kamienna, naturalna sól kamienna
 ciqual_food_code:en: 11017
 ciqual_food_name:en: Salt, white, for human consumption (sea, igneous or rock), no enrichment
@@ -10694,9 +10666,6 @@ fr: sel non raffiné
 hr: nerafinirana sol
 it: Sale non raffinato
 
-#en:comment:salt based on Kalium and not Natrium
-< en:salt
-nl: mineraalzout, dieetzout
 
 # description:en:Kosher salt or kitchen salt[1] is edible salt with a larger grain size than typical table salt and without common additives such as iodine.
 
@@ -11127,12 +11096,14 @@ wikidata:en: Q5057832
 wikipedia:en: https://en.wikipedia.org/wiki/Celery_salt
 # mainIngredient:en:salt
 
+#en:comment:salt based on Kalium and not Natrium
 < en:salt
 en: potassium salt, potassium chloride
 bg: калиева сол
 ca: sal mineral de potassi
 es: sal mineral de potasio
 hr: kalijeva sol
+nl: kaliumzout, kaliumchloride
 pl: sól potasowa, mineralna sól potasowa
 
 < en:salt
@@ -14131,7 +14102,7 @@ vegetarian:en: no
 < en:pork by-product
 fr: graisse de porc
 hr: svinjsko masno
-pt: gordura de suíno
+pt: gordura de suíno, gorduras de suíno, lípido de suíno, lípidos de suíno
 ro: grăsime de porc, grasime de porc
 
 < en:pork by-product
@@ -14491,7 +14462,7 @@ lt: kiaulienos lašiniai
 nl: varkensvet
 no: svinefett
 pl: tłuszcz wieprzowy, tłuszcze wieprzowe, tłuszcz ze świni
-pt: gordura de porco
+pt: gordura de porco, gorduras de porco, lípido de porco, lípidos de porco
 sh: svinjska mast
 sl: svinjska mast
 sr: svinjska mast
@@ -15493,7 +15464,7 @@ it: amido di frumento pregelatinizzato
 en: tapioca syrup
 bg: сироп от тапиока
 de: Tapiokasirup
-es: sirope de tapioca
+es: sirope de tapioca, jarabe de tapioca
 fr: sirop de tapioca
 hr: sirup od tapioke
 it: Sciroppo di Tapioca
@@ -15658,7 +15629,7 @@ el: έλαια και λίπη, Έλαια και λιπαρά
 es: aceites y grasas, materia grasa
 et: õlid ja rasvad
 fi: öljy ja rasva, öljyt ja rasvat
-fr: huiles et graisses, matières grasses, huile et graisse, matière grasse
+fr: huiles et graisses, huile et graisse
 he: שמן ושומן
 hr: ulja i masti
 hu: Olajok és zsírok, olaj és zsír
@@ -15670,7 +15641,7 @@ nb: olje og fett, oljer of fett
 nl: oliën en vetten, vetstoffen
 no: Olje og fett
 pl: oleje i tłuszcze, tłuszcze i oleje
-pt: óleos e gorduras
+pt: óleo e gordura, óleos e gorduras, óleo e lípido, óleos e lípidos
 ro: uleiuri și grăsimi
 ru: растительным и животным жирам, Масла и жиры
 sk: Oleje a tuky
@@ -15706,7 +15677,7 @@ mt: xaħam u żejt veġetali
 nb: grønnsaksolje og fett, vegetabilsk olje og fett
 nl: plantaardige vetten en olie, plantaardige oliën en vetten
 pl: tłuszcze i oleje roślinne, oleje i tłuszcze roślinne
-pt: gordura e óleo vegetais
+pt: gordura e óleo vegetais, gorduras e óleos vegetais, lípido e óleo vegetais, lípidos e óleos vegetais
 ru: Растительные масла и жиры
 sv: Vegetabilisk olja och fett, vegetabiliskt fett och olja, vegetabiliskt fett och oljor
 carbon_footprint_fr_foodges_ingredient:fr: Huile d'olive
@@ -15934,7 +15905,7 @@ nb: fett
 nl: vet
 nn: feitt
 pl: tłuszcz, tłuszcze
-pt: gordura
+pt: gordura, gorduras, lípido, lípidos
 qu: wira
 ro: grăsime
 ru: жиры, жир, жир специального назначения, жир кондитерский, кондитерский жир, жир кондитрерский
@@ -16038,7 +16009,7 @@ ko: 동물성 기름
 ln: Mpɔ́ngɔ
 nl: dierlijk vet
 pl: tłuszcz zwierzęcy, tłuszcze zwierzęce
-pt: Gordura animal
+pt: Gordura animal, gorduras animal, lípido animal, lípidos animal
 ru: Животные жиры
 sv: Animaliskt fett
 tr: Hayvansal yağ
@@ -16191,7 +16162,7 @@ ms: lemak mentega, lemak susu
 nb: vannfritt melkefett
 nl: boterconcentraat, botervet, watervrij melkvet, boterolie, geconcentreerde boter
 pl: bezwodny tłuszcz mleczny
-pt: gordura butrica, matéria gorda butírica, manteiga concentrada, gordura de leite anhidra
+pt: gordura butrica, lípido butrica, matéria gorda butírica, manteiga concentrada, gordura de leite anhidra, lípido de leite anhidra
 ro: grasimi din unt, grăsime din unt, ulei de unt
 ru: Молочный жир, топленое масло, жир-молочный
 sl: mlečna maščoba
@@ -16413,7 +16384,7 @@ nb: vegetabilsk fett, vegetabilskt fett
 nl: plantaardige vetten, plantaardig vet
 nn: vegetabilisk fett
 pl: tłuszcz roślinny, tłuszcze roślinne
-pt: gordura vegetal, gorduras vegetais, matérias gordas vegetais
+pt: gordura vegetal, gorduras vegetais, lípido vegetal, lípidos vegetais, matérias gordas vegetais
 ro: grăsime vegetală, grăsimi vegetale
 ru: растительные жиры, жир растительный, растительный-жир
 sk: rastlinný tuk
@@ -16462,7 +16433,7 @@ fr: graisse végétale hydrogénée, matière grasse végétale hydrogénée, gr
 # hr:djelomično hidrogenirane masti # see ingredients_processings.txt
 hu: hidrogénezett növényi zsír
 it: Grasso vegetale idrogenato
-pt: gordura vegetal hidrogenada
+pt: gordura vegetal hidrogenada, lípido vegetal hidrogenada
 sv: härdat vegetabiliskt fett
 
 < en:hydrogenated vegetable fat
@@ -16590,7 +16561,7 @@ it: olio e grasso di palma
 nb: palmeolje og fett
 nl: palm olie en vet
 pl: Olej i tłuszcz palmowy
-pt: Óleo de Palma e gordura
+pt: Óleo de Palma e gordura, Óleo de Palma e lípido
 ru: Пальмовое масло и жир
 sv: Palmolja och fett
 tr: palmiye yağı ve yağ
@@ -16870,7 +16841,7 @@ lv: palmu tauki
 nb: palmefett
 nl: palmvet
 pl: tłuszcz palmowy, tłuszcz roślinny palmowy, tłuszcze roślinne palmowy
-pt: gordura de palma, gordura vegetal de palma
+pt: gordura de palma, gordura vegetal de palma, lípido de palma, lípido vegetal de palma
 ro: grăsime de palmier, grăsime vegetală de palmier
 ru: Пальмовый жир
 se: palmina mast
@@ -17269,7 +17240,7 @@ lt: kokoso riebalai
 lv: kokosriekstu tauki
 nl: kokosvet
 pl: tłuszcz kokosowy, tłuszcz roślinny kokosowy, tłuszcze roślinne kokosowy
-pt: Gordura de coco
+pt: Gordura de coco, lípido de coco
 sv: kokosfett
 ciqual_food_code:en: 16040
 ciqual_food_name:en: Coconut fat or oil
@@ -17367,7 +17338,7 @@ nn: Olivenolje
 no: olivenolje
 oc: Òli d'oliva
 pl: Olej oliwkowy, oliwa z oliwek
-pt: azeite
+pt: azeite, azeite de oliva
 ro: Ulei de măsline
 ru: Оливковое масло
 sa: जिततैलम्
@@ -17436,7 +17407,7 @@ de: ungehärtetes Olivenöl
 fr: huile d'olive non hydrogénée
 hr: nehidrogenirano maslinovo ulje
 it: Olio di oliva non idrogenato
-pt: azeite não hidrogenado
+pt: azeite não hidrogenado, azeite de oliva não hidrogenado
 
 < en:olive oil
 en: virgin olive oil
@@ -17477,7 +17448,7 @@ it: olio d'oliva extra vergine, olio extravergine di oliva, olio di oliva extra 
 nl: olijfolie extra vierge, extra olijfolie van de eerste persing, extra vierge olijfolie, extra vergine olijfolie, Extra vierge olijfolie van de eerste persing
 no: extra virgin olivenolje, ekstra virgin olivenolje, ekstra jomfru olivenolje
 pl: oliwa z oliwek extra virgin, oliwa extra virgin, oliwa z oliwek ekstra virgin, oliwa ekstra virgin
-pt: Azeite extra virgem, azeite virgem extra
+pt: Azeite extra virgem, azeite virgem extra, azeite de oliva extra virgem, azeite de oliva virgem extra
 sv: extra jungfru olivolja, olivolja extra virgin, extra jungfruolja, extra fin olivolja, extra virgin olivolja, extra jungfruolivolja
 ciqual_food_code:en: 17270
 ciqual_food_name:en: Olive oil, extra virgin
@@ -17501,7 +17472,7 @@ hu: bio olívaolaj, bio olíva olaj
 it: Olio di oliva biologico
 nl: olie van biologische olijven
 pl: organiczna oliwa z oliwek
-pt: azeite biológico
+pt: azeite biológico, azeite de oliva biológico
 # ingredient/nl:olie-van-biologische-olijven has 2 products @2019-05-24
 
 < en:olive oil
@@ -17513,7 +17484,7 @@ fr: huile d'olive rafinée
 hr: rafinirano maslinovo ulje
 it: Olio di oliva raffinato
 pl: rafinowana oliwa z oliwek
-pt: azeite refinado
+pt: azeite refinado, azeite de oliva refinado
 
 < en:olive oil
 en: unrefined olive oil
@@ -17533,7 +17504,7 @@ hr: organsko ekstra djevičansko maslinovo ulje
 hu: extra szűz bio olívaolaj, bio extra szűz olívaolaj
 it: Olio di oliva extra vergine biologico
 nl: biologische extra olijfolie van de eerste persing
-pt: azeite extra virgem biológico, azeite virgem extra biológico
+pt: azeite extra virgem biológico, azeite virgem extra biológico, azeite de oliva extra virgem biológico, azeite de oliva virgem extra biológico
 # ingredient/fr:huile-d'olive-vierge-extra-biologique has 25 products in 2 languages @2019-05-23
 # ingredient/fr:huile-d-olive-vierge-extra-issue-de-l-agriculture-biologique has 12 products in 2 languages @2019-05-25
 
@@ -17545,7 +17516,7 @@ fr: Huile d’olive bio d’Espagne
 hr: španjolsko organsko maslinovo ulje
 it: olio d'oliva biologico spagnolo
 nl: olie van biologische Spaanse olijven
-pt: azeite biológico espanhol, azeite biológico de Espanha
+pt: azeite biológico espanhol, azeite biológico de Espanha, azeite de oliva biológico espanhol, azeite de oliva biológico de Espanha
 # nl:olie-van-biologische-spaanse-olijven has 2 products @2019-05-24
 
 < en:olive oil
@@ -17565,7 +17536,11 @@ it: olio di sansa di oliva raffinato
 pl: rafinowana oliwa z wytłoczyn z oliwek, rafinowana oliwa z wytłoczyn oliwek
 
 
-#comment:en:Beware of a confusion between the generic name (rapeseed oil) and more specific oil varieties: colza oil and canola oil. Not all languages distinguish between the two. Probably where rapeseed is given, colza is meant. The difference between the two oils is important due to different levels of erucic acid. It seems that only the oils with a low erucic acid percentage are fit for humans. So th enaming difference between rapeseed, colza and canola might just be a language issue.
+#  comment:en:Beware of a confusion between the generic name (rapeseed oil) and more specific oil varieties: colza oil and canola oil. 
+#    Not all languages distinguish between the two. Probably where rapeseed is given, colza is meant. 
+#    The difference between the two oils is important due to different levels of erucic acid. 
+#    It seems that only the oils with a low erucic acid percentage are fit for humans. So the naming difference between rapeseed, 
+#    colza and canola might just be a language issue.
 
 < en:vegetable oil and fat
 en: rapeseed oil, rapeseed fat, rapeseed oil and fat, rapeseed vegetable oil
@@ -17664,7 +17639,7 @@ en: canola oil
 bg: олио от канола
 ca: Oli de canola
 # cs: Řepkový olej # duplicate, unclear which is correct
-da: Rapsolie
+# da: Rapsolie # duplicate, unclear which is correct
 de: Ölrübsenöl
 es: aceite de canola
 # fi: rypsiöljy, rypsiöljyä # duplicate, unclear which is correct
@@ -17694,12 +17669,6 @@ en: low erucic acid rapeseed oil
 de: eurucasäurearmes Rapsöl, LEAR
 hr: ulje repice s niskim sadržajem eruka kiseline
 it: olio di colza a basso contenuto di acido erucico
-
-# Canola oil, or canola for short, originally known as low erucic acid rapeseed, is a vegetable oil derived from a variety of rapeseed that is low in erucic acid, as opposed to colza oil.
-# The confusion between colza and rapeseed is also present in the wikipedia translations. It seems to be a us/eu difference.
-
-#da:Rapsolie
-#pl:Olej rzepakowy
 
 < en:canola oil
 en: fully hydrogenated canola oil
@@ -17734,7 +17703,7 @@ en: colza oil
 bg: рапично олио
 ca: Oli de colza
 de: Kolzaöl, Kohlsaatöl
-el: κραμβέλαιο
+# el: κραμβέλαιο # duplicate, unclear which is correct
 es: aceite de colza
 fi: rypsiöljy, rypsiöljyä
 fr: huile de colza, huile végétale de colza, huile colza, graisses végétales de colza, graisses vegetales de colza, huiles végétales de colza, huile de graines de colza, huile de graine de colza
@@ -17742,7 +17711,7 @@ hr: uljana repica, uljane repice, ulje uljane repice, ulje repice
 # hu: Repceolaj # duplicate, unclear which is correct
 it: olio di colza, olio vegetale di colza
 nl: koolzaadolie, plantaardige koolzaadolie
-pt: óleo de colza
+# pt: óleo de colza # duplicate, unclear which is correct
 carbon_footprint_fr_foodges_ingredient:fr: Huile de colza
 carbon_footprint_fr_foodges_value:fr: 2.2
 ciqual_food_code:en: 17130
@@ -18242,7 +18211,7 @@ fr: huile de soja hydrogénée
 hr: hidrogenirano sojino ulje
 hu: hidrogénezett szójaolaj
 it: Olio di soia idrogenato
-pt: azeite de soja hidrogenado
+pt: azeite de soja hidrogenado, azeite de oliva de soja hidrogenado
 
 < en:soya oil
 en: partially hydrogenated soybean oil
@@ -19156,7 +19125,7 @@ hu: kacsazsír
 it: grasso d'anatra, grassi di anatra
 ja: 鴨脂
 nl: eendenvet
-pt: gordura de pato
+pt: gordura de pato, lípido de pato
 ru: утиный жир
 sv: ankfett
 ciqual_food_code:en: 16550
@@ -24917,7 +24886,7 @@ fr: blé complet
 hr: pšenična od cjelovitog zrna, cjelovito zrno pšenice
 hu: teljes kiőrlésű búza
 it: frumento integrale
-lt: viso kviečių rupiniai
+lt: viso kviečių rupiniai, viso kvietiniai rupiniai, viso kvietinės rupiniai, viso kvietinis rupiniai
 nb: sammalt hvete
 nl: volkorentarwe, volkoren tarwe
 pl: pszenica z pełnego przemiału, pszenica pełnoziarnista
@@ -24957,7 +24926,7 @@ hr: pšenične pahuljice
 hu: búzapelyhek
 it: fiocchi di frumento
 ja: 小麦フレーク
-lt: kvietiniai dribsniai
+lt: kviečių dribsniai, kvietiniai dribsniai, kvietinės dribsniai, kvietinis dribsniai
 nb: hveteflak
 nl: tarwevlokken
 pl: płatki pszenne, chrupki pszenno-żytnie
@@ -24986,7 +24955,7 @@ fr: pétales de blé complet, flocons de blé complet
 hr: cjelovite pšenične pahuljice, pšenične pahuljice od cjelovitog zrna
 hu: teljes kiőrlésű búzapehely
 it: Fiocchi di grano interi
-lt: Pilno grūdo kvietiniai dribsniai
+lt: pilno grūdo kviečių dribsniai, pilno grūdo kvietiniai dribsniai, pilno grūdo kvietinės dribsniai, pilno grūdo kvietinis dribsniai
 nl: volkoren tarwevlokken
 pt: flocos de trigo integral
 sv: fullkornsveteflingor, fullkorn veteflinga
@@ -25021,7 +24990,7 @@ fr: malt de blé, malt de froment, blé malté
 hr: pšenični slad, pšenično sladno
 hu: búzamaláta
 it: malto di frumento, malto di grano
-lt: kvietinis salyklas
+lt: kviečių salyklas, kvietiniai salyklas, kvietinės salyklas, kvietinis salyklas
 nl: tarwemout
 pl: słód pszenny, słód pszeniczny
 pt: Malte de trigo
@@ -25038,7 +25007,7 @@ fr: fibre de blé, fibres de blé
 hr: pšenična vlakna
 hu: búzarost
 it: fibra di frumento, fibre di frumento
-lt: kviečių ląsteliena, kviečių skaidulos
+lt: kviečių ląsteliena, kviečių skaidulos, kvietiniai ląsteliena, kvietiniai skaidulos, kvietinės ląsteliena, kvietinės skaidulos, kvietinis ląsteliena, kvietinis skaidulos
 nl: tarwevezel, tarwevezels
 pl: błonnik pszenny, błonnik pszeniczny
 pt: fibras de trigo
@@ -25077,7 +25046,7 @@ hu: búzakorpa
 it: crusca di frumento
 ja: 小麦ふすま
 kk: бидай кебек
-lt: kviečių sėlenos, kvietinės sėlenos
+lt: kviečių sėlenos, kvietiniai sėlenos, kvietinės sėlenos, kvietinis sėlenos
 nb: hvetekli
 nl: tarwezemelen, tarwezemel
 pl: otręby pszenne
@@ -25313,7 +25282,7 @@ ga: seimilín cruithneachta dúraim
 hr: krupica durum pšenice, krupica od durum pšenice, krupica iz durum pšenice, durum pšenična krupica, pšenična krupica durum
 hu: durumbúzadara, durum búzadara
 it: semola di grano duro
-lt: kietųjų kviečių manų kruopos
+lt: kietųjų kviečių manų kruopos, kietųjų kvietiniai manų kruopos, kietųjų kvietinės manų kruopos, kietųjų kvietinis manų kruopos
 lv: cieto kviešu manna
 mt: dqiq tal-qamħ durum
 nb: durumhvete semule, durum semulegryn
@@ -25618,7 +25587,7 @@ fr: semoule de blé
 hr: pšenični griz
 hu: búzadara
 it: semolino di frumento
-lt: kviečių manų kruopos, kvietinės manų kruopos
+lt: kviečių manų kruopos, kvietiniai manų kruopos, kvietinės manų kruopos, kvietinis manų kruopos
 nl: tarwegries, tarwegriesmeel
 pt: sêmola de trigo
 sl: pšenični zdrob
@@ -25918,7 +25887,7 @@ kn: ಬಾರ್ಲಿ
 ko: 보리
 ky: арпа
 li: gaes
-lt: miežiai, miežių
+lt: miežiai, miežių, miežinio, miežinis
 lv: mieži, miežu
 mk: јачмен
 ml: യവം
@@ -26349,7 +26318,7 @@ fr: malt d'orge, malts d'orge, orge malté, orge maltée
 hr: ječmeni slad, ječmenog slada
 hu: árpamaláta, árpa maláta
 it: malto d'orzo, malto orzo, malto (orzo)
-lt: miežių salyklas
+lt: miežiai salyklas, miežių salyklas, miežinio salyklas, miežinis salyklas
 lv: miežu iesals
 nb: malt bygg, maltet bygg, byggmalt
 nl: gerstemout, mout van gerst
@@ -26384,14 +26353,14 @@ ca: extracte de malta d'ordi
 cs: sladový výtažek z ječmene
 da: bygmaltekstrakt
 de: Gerstenmalzextrakt
-es: extracto de malta de cebada, extracto de cebada malteada, jarabe de cebada malteada
+es: extracto de malta de cebada, extracto de cebada malteada, jarabe de cebada malteada, sirope de cebada malteada
 et: odralinnaseekstrakt
 fi: ohramallasuute, ohramallasuutetta
 fr: extrait de malte d'orge, extrait d'orge malté, extrait d'orge maltée, extrait de malt d'orge
 hr: ekstrakt ječmenog slada, ječmenog ekstrakt slada
 hu: árpamaláta kivonat
 it: estratto di malto d'orzo
-lt: miežių salyklo ekstraktas
+lt: miežiai salyklo ekstraktas, miežių salyklo ekstraktas, miežinio salyklo ekstraktas, miežinis salyklo ekstraktas
 lv: miežu iesala ekstrakts
 nb: byggmaltekstrakt, maltekstrakt av bygg
 nl: Gerstemoutextract, gerstmoutextract
@@ -26416,7 +26385,7 @@ ca: xarop de malt d'ordi, xarop de malta d'ordi
 cy: surop heiddfrag
 da: bygmaltsirup
 de: Gerstenmalzsirup
-es: jarabe de malta de cebada, jarabe de cebada de malta
+es: jarabe de malta de cebada, jarabe de cebada de malta, sirope de malta de cebada, sirope de cebada de malta
 fa: شربت مالت جو
 fi: ohramallassiirappi
 fr: sirop d'orge malté
@@ -28548,7 +28517,7 @@ hu: búzaliszt
 is: hveitimjöl
 it: farina di frumento, farina di grano
 ja: 小麦粉
-lt: kvietiniai, kvietiniai miltai
+lt: kviečių, kviečių miltai, kvietiniai, kvietiniai miltai, kvietinės, kvietinės miltai, kvietinis, kvietinis miltai
 lv: kviešu milti
 mr: कणीक
 ms: Tepung gandum
@@ -28593,7 +28562,7 @@ fr: farine de blé maltée, farine de blé fermenté, farine de blé malté, far
 hr: pšenično sladno brašno, pšenično sladno brašno od cjelovitog zrna
 hu: búzamaláta liszt
 it: farina di grano maltato, farina di malto di frumento
-lt: salykliniai kvietiniai miltai
+lt: salykliniai kviečių miltai, salykliniai kvietiniai miltai, salykliniai kvietinės miltai, salykliniai kvietinis miltai
 nl: gemout tarwemeel, tarwemoutmeel, tarwemoutbloem
 pl: mąka słodowa pszenna, mąka pszenna słodowana, mąka pszenna słodowa
 pt: farinha de malte de trigo
@@ -28810,7 +28779,7 @@ hr: integralno pšenično brašno, pšenično brašno od cjelovitog zrna, pšeni
 hu: teljes kiőrlésű búzaliszt
 it: farina integrale di frumento, farina di frumento integrale
 ja: 小麦全粒粉
-lt: visų grūdo dalių kvietiniai miltai
+lt: visų grūdo dalių kviečių miltai, visų grūdo dalių kvietiniai miltai, visų grūdo dalių kvietinės miltai, visų grūdo dalių kvietinis miltai
 lv: pilngraudu kviešu milti
 nb: fullkornshvetemel
 nl: volkorentarwemeel, volkoren tarwemeel
@@ -29074,7 +29043,7 @@ de: Roggenvollkornmehl
 es: flor de harina integral de centeno, harina integral de centeno
 fi: täysjyväruisjauho, täysjyväruisjauhoa
 fr: farine de seigle complète, farine complète de seigle, farine de seigle complet
-hr: integralno raženo brašno, brašno od cjelovitog zrna raži, brašno od integralni raži, raženo brašno od cijelog zrna, raženo brašno iz cijelog zrna, brašno iz cijelog zrna raži, raženo brašno od cjelovitog zrna, kuhinjska sol
+hr: integralno raženo brašno, brašno od cjelovitog zrna raži, brašno od integralni raži, raženo brašno od cijelog zrna, raženo brašno iz cijelog zrna, brašno iz cijelog zrna raži, raženo brašno od cjelovitog zrna
 hu: teljes kiőrlésű rozsliszt
 it: farina di segale integrale
 lv: rudzu pilngraudu milti
@@ -29595,7 +29564,7 @@ ff: masarji
 fi: maissi
 fj: sila
 fo: mais
-fr: maïs, mais, mais à pop-corn, mais à pop corn, mais à éclater
+fr: maïs, mais, mais à pop-corn, mais à éclater
 fy: stynske weet
 ga: arbhar indiach
 gd: cruithneachd-innseanach
@@ -32390,7 +32359,6 @@ en: whole brown cane sugar
 de: brauner Vollrohrzucker
 es: azúcar moreno de caña integral
 hr: cijeli smeđi šećer od trske
-it: zucchero di canna integrale
 
 < en:unrefined cane sugar
 fr: sucre roux de canne en poudre, Cassonade Pure Canne, Sucre de canne complet en poudre, sucre en poudre pur canne
@@ -32618,7 +32586,7 @@ pt: xarope de maltose
 < en:maltose syrup
 en: organic maltose syrup
 de: biologische Maltosesirup
-es: jarabe de maltosa organico
+es: jarabe de maltosa organico, sirope de maltosa organico
 fi: luomu maltoosisiirappi
 fr: sirop de maltose bio
 hr: organski maltozni sirup
@@ -32904,7 +32872,7 @@ da: sirup
 de: Sirup
 el: σιρόπι
 eo: Siropo
-es: jarabe
+es: jarabe, sirope
 fa: شربت
 fi: siirappi
 fr: sirop
@@ -33125,7 +33093,7 @@ en: dehydrated glucose syrup, powdered glucose syrup, dried glucose syrup
 bg: дехидратиран глюкозен сироп, сироп от глюкоза на прах, изсушен глюкозен сироп
 da: tørret glukosesirup
 de: getrockneter Glukosesirup, dehydrierter Glukosesirup
-es: Sirope deshidratado de glucosa, jarabe de glucosa deshidratado
+es: Sirope deshidratado de glucosa, jarabe deshidratado de glucosa, jarabe de glucosa deshidratado, sirope de glucosa deshidratado
 fi: kuivattu glukoosisiirappi
 fr: sirop de glucose déshydraté, sirop de glucose en poudre
 hr: osušeni glukozni sirup
@@ -33170,7 +33138,7 @@ wikidata:en: Q3044475
 < en:corn syrup
 < en:glucose
 en: corn glucose syrup, corn glucose
-es: sirope de glucosa de maíz, glucosa de maíz
+es: sirope de glucosa de maíz, jarabe de glucosa de maíz, glucosa de maíz
 fr: sirop de glucose de maïs, glucose de maïs
 it: sciroppo di glucosio di mais
 pl: syrop glukozowy z kukurydzy, syrop glukozowy kukurydziany
@@ -33190,7 +33158,7 @@ allergens:en: en:gluten
 en: wheat glucose syrup
 bg: пшеничен глюкозен сироп, глюкозен сироп от пшеница
 de: Weizenglukosesirup
-es: Sirope de glucosa de trigo
+es: Sirope de glucosa de trigo, jarabe de glucosa de trigo
 fi: vehnäglukoosisiirappi
 fr: sirop de glucose de blé
 hr: pšeničnog glukoznog sirupa
@@ -33316,7 +33284,7 @@ allergens:en: en:gluten
 en: fructose syrup
 bg: фруктозен сироп
 de: Fruktose Sirup, Fruktosesirup
-es: Jarabe de fructosa
+es: Jarabe de fructosa, sirope de fructosa
 fi: fruktoosisiirappi, fruktoosisiirappia
 fr: sirop de fructose
 hr: fruktozni sirup
@@ -33368,7 +33336,7 @@ fr: fibres végétales d'oligofructose
 en: oligofructose syrup
 bg: сироп от олигофруктоза
 de: Oligofruktosesirup
-es: jarabe de oligofructosa
+es: jarabe de oligofructosa, sirope de oligofructosa
 fi: oligofruktoosisiirappi
 fr: sirop d'oligofructose
 hr: oligofruktozni sirup
@@ -33409,7 +33377,7 @@ cs: glukózo-fruktózový sirup, glukózový-fruktózový sirup, glukózovo-fruk
 da: glukos-fruktossirap, glukose-fruktosesirup
 de: Glukose-Fruktose-Sirup, Glukose-Fruktosesirup, Glukose Fruktose sirup, Glucose-Fructose-Sirup, Fruktose-Glukose-Sirup
 el: σιρόπι γλυκόζης-φρουκτόζης
-es: jarabe de glucosa y fructosa, jarabe de glucosa-fructosa
+es: jarabe de glucosa y fructosa, jarabe de glucosa-fructosa, sirope de glucosa y fructosa, sirope de glucosa-fructosa
 et: glükoosi-fruktoosisiirup, glükoosifruktoosisiirup
 fi: glukoosi-fruktoosisiirappi, glukoosi-fruktoosisiirappia, fruktoosi-glukoosisiirappi, glukoosi-fruktoosi-siirappi
 fr: sirop de glucose-fructose, sirop de glucose et de fructose, sirop de fructose-glucose
@@ -33456,7 +33424,7 @@ en: high fructose corn syrup, isoglucose, HCFS
 bg: Високо-фруктозен сироп от царевица
 ca: Xarop de blat de moro alt en fructosa
 de: Maissirup mit hohem Fruktosegehalt
-es: Jarabe de maíz de alta fructosa, JMAF
+es: Jarabe de maíz de alta fructosa, sirope de maíz de alta fructosa, JMAF
 fi: isoglukoosi, maissitärkkelyssiirappi
 fr: sirop de maïs à haute teneur en fructose, sirop de glucose-fructose de maïs, isoglucose, isoglucosamine, SGHF
 hr: visokofruktozni kukuruzni sirup
@@ -33480,7 +33448,7 @@ en: invert sugar syrup, invert syrup, liquid invert syrup, inverted syrup
 bg: сироп от инвертна захар, инвертен захарен сироп, инвертиран захарен сироп, инвертен сироп, сироп на инвертна захар
 cs: sirup z invertního cukru
 de: Invertzuckersirup
-es: Jarabe de azúcar invertido
+es: Jarabe de azúcar invertido, sirope de azúcar invertido
 fi: inverttisokerisiirappi, inverttisokerisiirappia
 fr: sirop de sucre inverti, sucre liquide inverti, sucre inverti en sirop
 hr: invertni šećerni sirup, sirup invertnog šećera, sirup invertnoga šećera, invertni sirup
@@ -33516,9 +33484,7 @@ fi: vaalea siirappi
 lt: tamsusis sirupas
 lv: tumšais sīrups, tumšais cukura sīrups
 nb: lys sirup
-ru: карамельный сироп
 sv: ljus sirap
-uk: карамельный сироп
 description:en: Light syrup is similar to Golden Syrup, but is made slightly differently and is a bit thinner.
 
 < en:sugar syrup
@@ -33610,7 +33576,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Corn_syrup
 
 < en:corn syrup
 en: corn syrup solids
-es: sólidos de jarabe de maíz
+es: sólidos de jarabe de maíz, sólidos de sirope de maíz
 fr: solides de sirop de maïs
 hr: krutine kukuruznog sirupa
 it: Sciroppo di mais disidratato
@@ -33649,7 +33615,7 @@ en: maple syrup
 bg: кленов сироп
 da: ahornsirup
 de: Ahornsirup
-es: jarabe de arce, savia de arce
+es: jarabe de arce, sirope de arce, savia de arce
 fi: vaahterasiirappi
 fr: sirop d’érable
 hr: javorov sirup
@@ -33676,7 +33642,7 @@ it: sciroppo d'acero canadese
 en: pure maple syrup
 da: ren ahornsirup
 de: reiner Ahornsirup
-es: Jarabe puro de arce
+es: Jarabe puro de arce, sirope puro de arce
 fi: Puhdas vaahterasiirappi
 fr: Sirop d'érable pur
 hr: čisti javorov sirup
@@ -33755,7 +33721,7 @@ allergens:en: en:gluten
 en: cane sugar syrup, cane syrup
 da: rørsukkersirup
 de: rohrzuckersirup
-es: Jarabe de azúcar de caña
+es: Jarabe de azúcar de caña, sirope de azúcar de caña
 fi: ruokosokerisiirappi
 fr: sirop de sucre de canne
 hr: sirup od šećerne trske
@@ -33766,7 +33732,7 @@ pl: syrop z cukru trzcinowego
 en: partially inverted sugar syrup
 bg: частично инвертиран захарен сироп
 de: teilweise invertierter Zuckersirup
-es: jarabe de azucar parcialmente invertido
+es: jarabe de azucar parcialmente invertido, sirope de azucar parcialmente invertido
 fi: osittain invertoitu sokerisiirappi
 fr: sirop de sucre partiellement inverti
 hr: djelomično invertirani šećerni sirup
@@ -33799,7 +33765,7 @@ en: rice glucose syrup
 bg: оризов глюкозен сироп
 ca: xarop de glucosa d'arròs
 de: Reisglukosesirup
-es: sirope de glucosa de arroz
+es: sirope de glucosa de arroz, jarabe de glucosa de arroz
 fr: Sirop de glucose de riz
 hr: rižin glukozni sirup
 it: sciroppo di glucosio di riso
@@ -33812,7 +33778,7 @@ ca: xarop d'arròs
 cs: rýžový sirup
 da: rissirup
 de: Reissirup
-es: Sirope de arroz
+es: Sirope de arroz, jarabe de arroz
 fi: riisisiirappi
 fr: sirop de riz
 hr: rižin sirup
@@ -33831,7 +33797,7 @@ de: Reisdrinkpulver
 en: brown rice syrup
 bg: сироп от кафяв ориз
 de: brauner Reissirup
-es: Jarabe de arroz integral
+es: Jarabe de arroz integral, sirope de arroz integral
 fr: Sirop de riz brun
 hr: sirup od smeđe riže
 it: sciroppo di riso integrale
@@ -33849,7 +33815,7 @@ pt: xarome de arroz caramelizado
 < en:syrup
 en: sugar beet syrup
 de: zuckerrübensirup
-es: jarabe de remolacha azucarera
+es: jarabe de remolacha azucarera, sirope de remolacha azucarera
 fi: sokerijuurikassiirappi
 fr: sirop de betterave
 hr: sirup od šećerne repe
@@ -33861,15 +33827,12 @@ sv: sockerbetssirap
 < en:sugar syrup
 en: brown sugar syrup
 bg: сироп от кафява захар, кафяв захарен сироп
-da: mørk sirup
 de: brauner zuckersirup
 fi: ruskea sokerisiirappi
 fr: Sirop de sucre brun, sirop de sucre mélassé
 hr: sirup od smeđeg šećera
 it: sciroppo di zucchero di canna
-nb: mørk sirup
 nl: bruine suikerstroop, bruine suiker siroop
-sv: mörk sirap
 # ingredient/en:brown-sugar-syrup has 386 products in 3 languages @2020-06-08
 
 # description:en:Glucose (synonymous Dextrose) is a simple sugar with the molecular formula C6H12O6
@@ -34064,7 +34027,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Agave_nectar
 en: organic agave syrup
 bg: био сироп от агаве
 de: Bio-Agavensirup
-es: Sirope de agave orgánico
+es: Sirope de agave orgánico, jarabe de agave orgánico
 fi: luomu agavesiirappi
 fr: sirop d'agave issu de l'agriculture biologique, sirop d'agave concentre issu de l'agriculture biologique, sirop d'agave biologique
 hr: organski agavin sirup
@@ -34085,7 +34048,7 @@ pl: koncentrat syropu z agawy
 
 < en:concentrated agave syrup
 en: organic concentrated agave syrup
-es: jarabe de ágave concentrado ecológico
+es: jarabe de ágave concentrado ecológico, sirope de ágave concentrado ecológico
 fr: sirop d'agave concentré biologique
 hr: organski koncentrirani sirup od agave
 it: sciroppo di agave concentrato biologico
@@ -37277,7 +37240,7 @@ sv: sojabönfiber, sojabönfibrer
 # <en:compound
 en: soy base, soya base
 de: sojabasis
-es: zumo de soja, jugo de soja, jugo de soya, base de soja
+es: zumo de soja, jugo de soja, zumo de soya, jugo de soya, base de soja
 fi: soijapohja
 fr: jus de soja
 hr: baza soje
@@ -37389,7 +37352,7 @@ fr: gluten de blé, gluten de froment
 hr: pšeničnog glutena, pšenični gluten
 hu: Búzaglutén
 it: glutine di grano, glutine di frumento
-lt: kviečių glitimas
+lt: kviečių glitimas, kvietiniai glitimas, kvietinės glitimas, kvietinis glitimas
 nb: hvetegluten
 nl: tarwegluten
 pl: gluten pszenny
@@ -37868,7 +37831,7 @@ nb: gjærekstrakt
 nl: gistextract
 nn: gjærekstrakt
 pl: ekstrakt drożdżowy, ekstrakt z drożdży
-pt: extrato de levedura
+pt: extrato de levedura, extracto de levedura
 ro: extract de drojdie, extract din drojdie
 ru: Дрожжевой экстракт
 sk: extrakt z droždia
@@ -37980,7 +37943,7 @@ fi: vehnätaikinanjuuri, vehnähapantaikina
 fr: levain de blé, levain panaire de blé
 hr: pšenično kiselo tijesto
 it: lievito madre di frumento
-lt: kviečių raugas
+lt: kviečių raugas, kvietiniai raugas, kvietinės raugas, kvietinis raugas
 nb: surdeig av hvete
 nl: tarwe zuurdesem, tarwedesem, tarwezuurdesem
 pl: zakwas pszenny
@@ -37994,7 +37957,7 @@ fi: kuivattu vehnätaikinanjuuri
 fr: levain de blé déshydraté
 # hr:osušeno pšenično kiselo tijesto # see ingredients_processings.txt
 it: pasta madre di grano essiccata
-lt: sausas kviečių raugas
+lt: sausas kviečių raugas, sausas kvietiniai raugas, sausas kvietinės raugas, sausas kvietinis raugas
 nl: gedroogde tarwezuurdesem
 pl: suszony zakwas pszenny, suchy zakwas pszenny
 
@@ -38062,1110 +38025,6 @@ sv: rissurdeg
 < en:sourdough
 es: masa madre inactiva
 hr: inaktivni suhi kvasac
-
-# description:en:Phosphoric acid (also known as orthophosphoric acid or phosphoric(V) acid) is a weak acid with the chemical formula H3PO4.
-
-en: phosphoric acid
-bg: Фосфорна киселина
-bn: ফসফরিক এসিড
-bs: Fosfatna kiselina
-ca: àcid fosfòric
-cs: Kyselina fosforečná
-cy: Asid ffosfforig
-da: Phosphorsyre
-de: Phosphorsäure
-el: Φωσφορικο οξυ
-eo: Fosfata acido
-es: ácido fosfórico
-et: Fosforhape
-eu: azido fosforiko
-fa: فسفریک اسید
-fi: Fosforihappo
-fr: acide phosphorique, acidifiant phosphorique
-ga: Aigéad fosfarach
-gd: Ácido fosfórico
-he: חומצה זרחתית
-hi: फास्फोरिक अम्ल
-hr: fosforna kiselina
-hu: foszforsav
-hy: օրթոֆոսֆորական թթու
-id: asam fosfor
-it: Acido fosforico
-ja: リン酸
-ka: ფოსფორმჟავა
-kk: Фосфор қышқылы
-ko: 인산
-ky: Ортофосфор кислотасы
-la: Ортофосфор кислотасы
-lt: Fosforo rūgštis
-lv: Fosforskābe
-mk: Фосфорна киселина
-mr: फॉस्फरिक आम्ल
-ms: Asid fosforik
-mt: Aċidu fosforiku
-nb: Fosforsyre
-ne: फोस्फरिक अम्ल
-nl: fosforzuur
-oc: Acid fosforic
-pl: Kwas fosforowy
-pt: ácido fosfórico
-ro: Acid fosforic
-sh: Fosfatna kiselina
-sk: Kyselina fosforečná
-sl: Fosforna kislin
-sr: фосфорна киселина
-sv: fosforsyra
-ta: பாசுபாரிக் காடி
-te: ఫాస్పారిక్ ఆమ్లం
-th: กรดฟอสฟอริก
-tr: Fosforik asit
-tt: фусфыр әчелеге
-uk: Ортофосфорна кислота
-vi: Axit phôtphoric
-zh: 磷酸
-# azb:فوسفوریک اسید
-# ast:Ácidu fosfórico, E338, E 338, E-338, INS338, INS 338, INS-338
-# frr:Phosphorsüren
-# pnb:فاسفورک تیزاب
-# sco:phosphoric acid
-# sr-ec:фосфорна киселина
-# sr-el:fosforna kiselina
-# war:Phosphoric acid
-# zh-cn:磷酸
-# zh-hans:磷酸
-# zh-hant:磷酸
-# zh-hk:磷酸
-# zh-sg:磷酸
-# zh-tw:磷酸
-wikipedia:en: https://en.wikipedia.org/wiki/Phosphoric_acid
-# fr:acide orthophosphorique has 64 products in 3 languages @2018-11-07
-# additive/e338-phosphoric-acid has 2118 products in 18 languages @2018-11-07
-
-
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-#
-#                                           E 3 3 9 - E 3 4 0     S E C T I O N
-#
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-# Unspecified phosphate variety
-
-en: phosphate
-bg: фосфат, фосфати
-de: Phosphat
-es: Fosfato
-fi: fosfaatti, fosfaatit
-fr: phosphates, phosphate
-hr: fosfat
-hu: foszfát, foszfátok
-it: fosfato
-nl: fosfaat
-pt: fosfato, fosfatos
-# ingredient/fr:phosphates has 57 products @2019-02-22
-# usage:fr:Séquestrant : phosphate
-# usage:fr:stabilisants : phosphates
-# sodium (mono, hexameta, and/or tripoly) phosphate
-
-
-
-
-
-# description:en:Potassium phosphate is a generic term for the salts of potassium and phosphate ions
-
-en: potassium phosphates, E340, E 340, E-340
-bg: Калиеви фосфати
-de: Kaliumphosphate
-es: Fosfatos de potasio, Fosfato de potasio, Fosfato potásico
-fi: kaliumfosfaatit
-fr: phosphate de potassium, phosphates de potassium
-hr: kalijevi fosfati
-hu: Kálium-foszfátok, kálium-foszfát
-it: fosfati di potassio
-ms: Kalium Fosfat
-nl: Kaliumorthofosfaten
-pl: Fosforany potasu, fosforan potasu
-pt: fosfato de potácio, fosfatos de potácio
-sv: kaliumfosfat
-wikipedia:en: https://en.wikipedia.org/wiki/Potassium_phosphate
-# en:potassium phosphate has 260 products in 8 languages @2018-11-06
-# mineral/potassium-phosphate has 123 products @2018-1106
-# additive/e340-potassium-phosphates has 2576 products in 18 languages @2018-11-06
-
-# description:en:Dipotassium phosphate (K2HPO4) (also dipotassium hydrogen orthophosphate; potassium phosphate dibasic) is a highly water-soluble salt
-
-< en:potassium phosphates
-en: dipotassium phosphate, Dipotassium monophosphate, Secondary potassium phosphate, Dipotassium orthophosphate, E340ii, E 340ii, E-340ii, E340 ii
-ar: دیپوتاسیوم فوسفات
-bg: Дикалиев фосфат, Дикалиев монофосфат, вторичен калиев фосфат, дикалиев ортофосфат
-cs: Hydrogenfosforečnan draselný
-da: Dikaliumphosphat, Dikaliummonophosphat, sekundært kaliumphosphat, dikaliumorthophosphat
-de: Dikaliumphosphat
-el: Οξινο φωσφορικο καλιο, Όξινο ορθοφωσφορικό κάλιο
-eo: Kalia fosfato dubaza
-es: fosfato dipotásico
-et: Dikaaliumvesinikfosfaat
-fa: دی‌پتاسیم فسفات
-fi: dikaliumfosfaatti
-fr: phosphate dipotassique
-hr: dikalijev fosfat
-hu: Dikálium-foszfát, Dikálium-monofoszfát, Szekunder kálium-foszfát, Dikálium-ortofoszfát
-it: Fosfato dipotassico, Monofosfato dipotassico, fosfato secondario di potassio, ortofosfato dipotassico
-ja: リン酸水素二カリウム
-lt: Dikalio fosfatas, Dikalio monofosfatas, antrinis kalio fosfatas, dikalio ortofosfatas
-lv: Dikālija fosfāts, Dikālija monofosfāts, Otrējais kālija fosfāts, Dikālija ortofosfāts
-mt: Fosfat dipotassiku, Monofosfat dipotassiku, Fosfat tal-potassju sekondarju, Ortofosfat dipotassiku
-nl: Dikaliumfosfaat, Dikaliummonofosfaat, secundair kaliumfosfaat, dikaliumorthofosfaat
-pl: Fosforan dipotasowy, Monofosforan dipotasowy, drugorzędowy fosforan potasu, ortofosforan dipotasowy
-pt: fosfato dipotássico, fosfato dipotéssico
-ro: Fosfat dipotasic, Monofosfat dipotasic, Fosfat de potasiu secundar, Ortofosfat dipotasic
-ru: Гидроортофосфат калия
-sh: Dikalijum fosfat
-sk: Fosforečnan didraselný
-sl: Dikalijev fosfat, dikalijev monofosfat, sekundarni kalijev fosfat, dikalijev ortofosfat
-sr: Dikalijum fosfat
-sv: Dikaliumfosfat, Dikaliumortofosfat
-ta: இருபொட்டாசியம் பாசுபேட்டு
-th: ไดโพแทสเซียมฟอสเฟต
-vi: Dikali photphat
-zh: 磷酸氫二鉀
-wikidata:en: Q403721
-# azb:دیپوتاسیوم فوسفات
-wikipedia:en: https://en.wikipedia.org/wiki/Dipotassium_phosphate
-# additive/e340ii-dipotassium-phosphate has 1620 products in 14 languages @2018-11-07
-
-# Tripotassium phosphate, also called potassium phosphate tribasic,[3] is a water-soluble ionic salt which has the chemical formula K3PO4.
-< en:potassium phosphates
-en: tripotassium phosphate, E340iii, E 340iii, E340 iii, E-340iii
-bg: Трикалиев фосфат, Триосновен калиев фосфат
-cs: Fosforečnan draselný, Fosforečnan tridraselný
-da: Trikaliumphosphat, Tribasisk kaliumphosphat
-de: Trikaliumphosphat, dreibasiges Kaliumphosphat
-el: Φωσφορικο καλιο, Ουδέτερο φωσφορικό κάλιο
-eo: Kalia fosfato tribaza
-es: fosfato tripotasico
-et: Kaaliumfosfaat, Trikaaliumfosfaat
-fa: تری‌پتاسیم فسفات
-fi: Trikaliumfosfaatti, Kolmenarvoinen kaliumfosfaatti
-fr: Phosphate tripotassique
-hr: trikalijev fosfat
-hu: Trikálium-foszfát, Hárombázisú kálium-foszfát
-it: Fosfato tripotassico, Fosfato tribasico di potassio
-ja: リン酸三カリウム
-lt: Trikalio fosfatas, Tribazis kalio fosfatas
-lv: Trikālija fosfāts, Tribāziskais kālija fosfāts
-mt: Fosfat tat-tripotassju, Fosfat tal-potassju tribażiku
-nl: Trikaliumfosfaat, Driebasisch kaliumfosfaat
-pl: Fosforan tripotasowy, Fosforan potasu trizasadowy
-pt: Fosfato tripotássico, Fosfato tribásico de potássio
-ro: Fosfat tripotasic, Fosfat de potasiu tribazic
-ru: Ортофосфат калия
-sh: Trikalijum fosfat
-sk: Fosforečnan tridraselný, Trojsýtny fosforečnan draselný
-sl: Trikalijev fosfat, tribazični kalijev fosfat
-sr: Trikalijum fosfat
-sv: Trikaliumfosfat
-ta: டிரைபொட்டாசியம் பாசுபேட்டு
-zh: 磷酸鉀
-# azb:تریپوتاسیوم فوسفات
-wikidata:en: Q423852
-wikipedia:en: https://en.wikipedia.org/wiki/Tripotassium_phosphate
-# additive/e340iii-tripotassium-phosphate has 157 products in 4 languages @2018-11-07
-
-
-# description:en:CALCIUM PHOSPHATE is a family of materials and minerals containing calcium ions (Ca2+) together with inorganic phosphate anions.
-
-en: calcium phosphates, E341, E 341, E-341
-bg: калциеви фосфати
-de: Calciumphosphate, Calciumorthophosphate
-es: Fosfatos de calcio
-fi: kalsiumfosfaatit, kalsiumfosfaatteja
-fr: phosphates de calcium, orthophosphates de calcium
-hr: kalcijevi fosfati
-hu: kalcium-foszfátok
-it: fosfati di calcio
-nl: Calciumorthofosfaten
-ru: e341, Фосфат кальция, Фосфаты кальция
-wikidata:en: Q426664
-wikipedia:en: https://en.wikipedia.org/wiki/Calcium_phosphate
-
-# singular forms seem to imply the tricalcium phosphate
-
-< en:tricalcium phosphate
-en: calcium phosphate
-bg: калциев фосфат
-de: Calciumphosphat
-es: Fosfato de calcio, Fosfato cálcico
-fi: kalsiumfosfaatti
-fr: phosphate de calcium, orthophosphate de calcium
-hr: kalcijev fosfat
-hu: kalcium-foszfát
-it: fosfato di calcio
-nl: calciumfosfaat
-pt: Fosfato de cálcio
-ro: Fosfat de calciu
-# fr:orthophosphates de calcium has 23 products in 4 languages @2018-11-04
-
-# description:en:Monocalcium phosphate is an inorganic compound with the chemical formula Ca(H2PO4)2
-
-< en:calcium phosphates
-en: monocalcium phosphate, E341i, E 341i, E-341i, E341 i
-ar: فوسفات أحادي الكالسيوم
-bg: Монокалциев фосфат, Едноосновен калциев фосфат
-bn: মনোক্যালসিয়াম ফসফেট
-bs: Monokalcij-fosfat
-ca: Fosfat de monocalci
-cs: Fosforečnan monovápenatý
-da: Monocalciumphosphat, Monobasisk calciumphosphat
-de: Monocalciumphosphat
-el: Δισοξινο φωσφορικο ασβεστιο, Μονοβασικό φωσφορικό ασβέστιο
-es: fosfato monocalcico
-et: Kaltsiumdivesinikfosfaat
-fa: مونوکلسیم فسفات
-fi: Monokalsiumfosfaatti, Yhdenarvoinen kalsiumfosfaatti
-fr: phosphate monocalcique, orthophosphate monocalcique
-ga: Sárfhosfáit
-hr: monokalcijev fosfat
-hu: Monokalcium-foszfát, Egybázisú kalcium-foszfát
-it: fosfato monocalcico
-ja: リン酸二水素カルシウム
-lt: Monokalcio fosfatas, Vienbazis kalcio fosfatas
-lv: Monokalcija fosfāts, Monobāziskais kalcija fosfāts
-mt: Fosfat monokalċiku, Fosfat tal-kalċju monobażiku
-nl: monocalciumfosfaat
-pl: Fosforan monowapniowy, Fosforan wapnia monozasadowy
-pt: fosfato monocálcico
-ro: Fosfat monocalcic, Fosfat de calciu monobazic
-ru: Дигидроортофосфат кальция
-sh: Monokalcijum fosfat
-sk: Fosforečnan monovápenatý
-sl: Monokalcijev fosfat, monobazični kalcijev fosfat
-sr: Monokalcijum fosfat
-sv: Monokalciumfosfat
-vi: Superphosphate
-zh: 磷酸二氢钙
-# azb:مونوکلسیوم فوسفات
-wikidata:en: Q414673
-wikipedia:en: https://en.wikipedia.org/wiki/Monocalcium_phosphate
-# fr:phosphate-monocalcique has 87 products in 5 languages @2018-11-10
-# additive/e341i-monocalcium-phosphate has 2971 products in 9 languages @2018-11-10
-
-# description:en:Dicalcium phosphate is the calcium phosphate with the formula CaHPO4 and its dihydrate.
-
-< en:calcium phosphates
-en: dicalcium phosphate, E341ii, E 341ii, E-341ii, E341 ii
-ar: فوسفات ثنائي الكالسيوم
-bg: Дикалциев фосфат, Двуосновен калциев фосфат
-bs: Dikalcij-fosfat
-ca: Hidrogenfosfat de calci
-cs: Hydrogenfosforečnan vápenatý
-da: Dicalciumphosphat, Dibasisk calciumphosphat
-de: Dicalciumphosphat
-el: Οξινο φωσφορικο ασβεστιο, Διβασικό φωσφορικό ασβέστιο
-es: fosfato dicálcico
-et: Kaltsiumvesinikfosfaat
-fa: دی‌کلسیم فسفات
-fi: Dikalsiumfosfaatti
-fr: phosphate dicalcique
-hr: dikalcijev fosfat
-hu: Dikalcium-foszfát, Kétbázisú kalcium-foszfát
-it: fosfato dicalcico
-ja: リン酸一水素カルシウム
-lt: Dikalcio fosfatas, Dvibazis kalcio fosfatas
-lv: Dikalcija fosfāts, Dibāziskais kalcija fosfāts
-mt: Fosfat dikalċiku, Fosfat tal-kalċju dibażiku
-nl: Dicalciumfosfaat
-pl: Fosforan wapnia dizasadowy
-pt: fosfato dicálcico
-ro: Fosfat dicalcic, Fosfat de calciu dibazic
-ru: Гидроортофосфат кальция
-sh: Dikalcijum fosfat
-sk: Fosforečnan divápenatý, Dvojsýtny fosforečnan vápenatý
-sl: Dikalcijev fosfat, dibazični kalcijev fosfat
-sr: Dikalcijum fosfat
-sv: Dikalciumfosfat
-vi: Dicanxi photphat
-zh: 磷酸氫鈣
-# azb:دیکلسیوم فوسفات
-wikidata:en: Q414619
-wikipedia:en: https://en.wikipedia.org/wiki/Dicalcium_phosphate
-# fr:phosphate dicalcique has 36 products @2018-11-09
-# additive/e341ii-dicalcium-phosphate has 558 products @2018-11-10
-
-# description:en:Tricalcium phosphate (sometimes abbreviated TCP) is a calcium salt of phosphoric acid with the chemical formula Ca3(PO4)2.
-
-< en:calcium
-< en:calcium phosphates
-en: tricalcium phosphate, E341iii, E 341iii, E-341iii, E341 iii
-ar: فوسفات ثلاثي الكالسيوم
-bg: Трикалциев фосфат
-bs: Trikalcij-fosfat
-cs: Fosforečnan vápenatý
-da: tricalciumphosphat
-de: Tricalciumphosphat
-el: Φωσφορικο ασβεστιο, Ουδέτερο φωσφορικό ασβέστιο, ορθοφωσφορικό ασβέστιο, υδροξυφωσφορικό ασβέστιο
-es: Fosfato tricálcico, Fosfato tri-cálcico
-et: Kaltsiumfosfaat
-fa: تری‌کلسیم فسفات
-fi: Trikalsiumfosfaatti
-fr: phosphate tricalcique
-hr: trikalcijev fosfat
-hu: Trikalcium-foszfát
-it: tricalcio fosfato
-ja: リン酸三カルシウム
-ky: Кальций фосфаты
-lt: Trikalcio fosfatas
-lv: Trikalcija fosfāts
-mt: Fosfat trikalċiku
-nl: tricalciumfosfaat
-nn: trikalsiumfosfat
-pt: fosfato tricálcico
-ro: Fosfat tricalcic, Fosfat de calciu tribazic, Ortofosfat de calciu, Monofosfat hidroxi pentacalcic
-ru: e341iii
-sh: Trikalcijum fosfat
-sk: Fosforečnan trivápenatý
-sl: Trikalcijev fosfat
-sr: Trikalcijum fosfat
-sv: tricalciumfosfat
-uk: Ортофосфат кальцію
-vi: Tricanxi photphat
-zh: 磷酸钙
-# azb:تریکلسیوم فوسفات
-wikipedia:en: https://en.wikipedia.org/wiki/Tricalcium_phosphate
-# fr:phosphate-tricalcique has 231 products in 11 languages @2018-11-09
-# e341iii-tricalcium-phosphate has 124 products @2018-11-09
-
-
-# description:en:Magnesium phosphate is a general term for salts of magnesium and phosphate appearing in several forms and several hydrates
-# Note that these ingredients are written in plural as it can be any of the three variants
-
-en: magnesium phosphates, E343, E 343, E-343
-bg: Магнезиеви фосфати
-de: Magnesiumphosphaten
-fi: magnesiumfosfaatit
-fr: phosphates de magnésium
-hr: magnezijevi fosfati
-hu: magnézium-foszfátok
-it: fosfati di magnesio
-nl: Magnesiumorthofosfaten
-wikipedia:en: https://en.wikipedia.org/wiki/Magnesium_phosphate
-# additive/e343-magnesium-phosphates has 81 products @2018-11-07
-
-# description:en:Monomagnesium phosphate is one of the forms of magnesium phosphate. chemical formula Mg(H2PO4)2.
-
-
-# description:en:Dimagnesium phosphate is a compound with formula MgHPO4.
-
-< en:magnesium phosphates
-en: dimagnesium phosphate, magnesium hydrogen phosphate, E343ii, E 343ii, E-343ii, E343 ii
-bg: Димагнезиев фосфат, Магнезиев хидрогенфосфат, магнезиев фосфат двуосновен, димагнезиев ортофосфат
-cs: Hydrogenfosforečnan hořečnatý, Orthofosforečnan dihořečnatý
-da: Dimagnesiumphosphat, Magnesiumhydrogenphosphat, dibasisk magnesiumphosphat, dimagnesiumorthophosphat
-de: Dimagnesiumphosphat, Magnesiumhydrogenphosphat, zweibasiges Magnesiumphosphat, Dimagnesiumorthophosphat
-el: Οξινο φωσφορικο μαγνησιο, Φωσφορικό μαγνήσιο διβασικό
-es: Fosfato de dimagnesio, Hidrogenofosfato de magnesio, fosfato dibásico de magnesio, ortofosfato de dimagnesio
-et: Magneesiumvesinikfosfaat
-fi: Dimagnesiumfosfaatti, Magnesiumvetyfosfaatti, Magnesiumfosfaatti kaksiemäksinen, Dimagnesiumortofosfaatti
-fr: dimagnésium phosphate
-hr: dimagnezijev fosfat
-hu: Dimagnézium-foszfát, Magnézium-hidrogén-foszfát, Magnézium-foszfát kétbázisú, Dimagnézium-ortofoszfát
-it: Fosfato di dimagnesio, Idrogeno fosfato di magnesio, fosfato di magnesio dibasico, ortofosfato bimagnesico
-lt: Dimagnio fosfatas, magnio vandenilio fosfatas, magnio fosfatas dvibazis, dimagnio ortofosfatas
-lv: Dimagnija fosfāts, Magnija hidrogēnfosfāts, Divbāziskais magnija fosfāts, Dimagnija ortofosfāts
-mt: Fosfat dimanjeżiku, Fosfat idroġenat tal-manjeżju, Ortofosfat dimanjeżiku
-nl: Dimagnesiumfosfaat, Magnesiumwaterstoffosfaat, tweebasisch magnesiumfosfaat, dimagnesiumorthofosfaat
-pl: Fosforan dimagnezu, Wodorofosforan magnezu, fosforan magnezu dizasadowy, ortofosforan dimagnezu
-pt: Fosfato de dimagnésio, Hidrogenofosfato de magnésio, fosfato dibásico de magnésio, ortofosfato de dimagnésio
-ro: Fosfat dimagnezic, Fosfat acid de magneziu, Fosfat de magneziu dibazic, Ortofosfat dimagnezic
-ru: гидроортофосфат магния
-sh: Dimagnezijum fosfat
-sk: Fosforečnan dihorečnatý, Hydrogenfosforečnan horečnatý, fosforečnan horečnatý dvojsýtny, ortofosforečnan dihorečnatý
-sl: Dimagnezijev fosfat, magnezijev hidrogenfosfat, magnezijev fosfat dibazični, dimagnezijev ortofosfat
-sr: Dimagnezijum fosfat
-sv: Dimagnesiumfosfat, Magnesiumvätefosfat
-ta: இருமக்னீசியம் பாசுபேட்டு
-# en-ca:Dimagnesium phosphate
-# en-gb:Dimagnesium phosphate
-wikipedia:en: https://en.wikipedia.org/wiki/Dimagnesium_phosphate
-# additive/e343ii-dimagnesium-phosphate has 32 products in 2 languages @2018-11-07
-
-
-
-
-# <en:antioxidant
-# <en:sequestrant
-en: Calcium disodium ethylenediaminetetraacetate, Calcium disodium EDTA, E385, E-385, E 385
-ar: ثنائي صوديوم كالسيوم الإيديتات
-bg: Калциев динатриев етилен диамин тетраацетат, Калциев динатриев ЕДТА, Калциево динатриев етилендиамин тетрааацетат, EDTA
-cs: Dvojsodnovápenatá sůl kyseliny diamintetraoctové
-da: Calciumdinatriumethylendiamintetraacetat, Calciumdinatrium-EDTA
-de: Calcium-dinatrium-ethylendiamintetraacetat, Calcium-Dinatrium-EDTA
-el: Αιθυλενοδιαμινοτετραοξικο ασβεστιονατριο
-es: ácido etilendiaminotetraacético, EDTA
-et: Kaltsiumdinaatriumetüleendiamiintetraatsetaat, Kaltsiumdinaatrium-EDTA
-fi: Kalsiumdinatriumetyleenidiamiinitetra-asetaatti, Kalsiumdinatrium EDTA
-fr: calcium disodium, edta, calcium disodium edta, EDTA calcio-disodique
-hr: kalcijev dinatrijev etilendiamintetraacetat
-hu: Kalcium-dinátrium-etilén-diamin-tetraacetát, kálcium-dinátrium-EDTA, kalcium-dinátrium EDTA
-id: Natrium kalsium edetat
-it: Etilendiamminotetraacetato di calcio disodico, Calcio disodico EDTA
-lt: Kalcio dinatrio etilendiaminotetraacetatas, Kalcio dinatrio EDTA
-lv: Kalcija dinātrija etilēndiamīna tetraacetāts, Kalcija dinātrija EDTA
-mt: Etilendiammintetraaċetat disodiku tal-kalċju, EDTA disodiku tal-kalċju
-nl: Calciumdinatrium-ethyleendiaminetetraäcetaat, calciumdinatrium-EDTA, calciumdinatrium EDTA
-or: ସୋଡ଼ିଅମ କ୍ୟାଲସିଅମ ଏଡେଟେଟ
-pl: Sól wapniowo-disodowa kwasu etylenodiaminotetraoctowego, sól wapniowo-disodowa EDTA, EDTA
-pt: etilenodiaminotetracetato de cálcio dissódico, EDTA, EDTA de cálcio dissódico
-ro: Etilendiaminotetraacetat de calciu disodic, EDTA de calciu disodic
-sk: Etyléndiamíntetraacetát vápenato-disodný, Kalcium-dinátrium-EDTA
-sl: Kalcijev dinatrijev etilendiamintetra acetat, kalcijev dinatrijev EDTA
-sv: Kalciumdinatriumetylendiamintetraacetat, Kalciumdinatrium-EDTA
-vi: Natri canxi edetate
-zh: 鈉鈣乙二胺四乙酸
-wikidata:en: Q9189390
-# wikipedia:en:https://en.wikipedia.org/wiki/Ethylenediaminetetraacetic_acid
-# ingredient/fr:edta has 48 products in french @2019-01-30
-# additive/e385-calcium-disodium-ethylenediaminetetraacetate has 2844 products in 14 languages @2019-01-30
-
-
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-#
-#                                           E 4 0 0 - E 4 9 9     S E C T I O N
-#
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-
-#   GUM ARABIC  , also known as acacia gum, arabic gum, gum acacia, acacia, Senegal gum and Indian gum
-
-en: gum arabic, arabic gum, Acacia gum, gum acacia, E414, E-414, E 414, INS414, INS 414
-ar: صمغ عربي
-be: Гуміарабік
-bg: Гума арабика, Акациева гума
-bn: গঁদ
-br: Gom arabek
-ca: goma aràbiga
-cs: arabská guma
-da: arabisk gummi, Gummi arabikum
-de: Gummi arabicum
-el: Αραβικό κόμμι, Κομμι ακακιας
-eo: Araba gumo
-es: goma arábiga, goma árabe
-et: Kummiaraabik
-eu: Arabiako goma
-fa: صمغ عربی
-fi: Arabikumi
-fr: gomme arabique, gomme d'acacia
-gl: Goma arábiga
-gu: બાવળ
-he: גומי ערבי
-hr: arapska guma, akacija guma
-hu: Gumiarábikum, Akácmézga
-hy: Արաբական խեժ
-id: Gom arab
-it: gomma arabica, Gomma d'acacia
-ja: アラビアガム
-kk: Гуммиарабик
-ko: 아라비아검
-lt: Gumiarabikas, Akacijų derva, tirštiklis akacijų derva
-lv: Akācijas sveķi
-mt: Gomma tal-akaċja
-nb: gummi arabikum
-nl: Arabische gom
-oc: Goma arabica
-pl: guma arabska, Guma akacjowa
-pt: goma-arábica, Goma arábica
-ro: Gumă arabică
-ru: Гуммиарабик
-sk: Arabská guma
-sl: Akacijeva guma
-sv: Gummi arabicum
-tr: Arap zamkı
-uk: Гуміарабік
-uz: Aqoqiyo
-zh: 阿拉伯膠
-# azb:آغ ساققیز
-# en-ca:Gum arabic
-# en-gb:Gum arabic
-# pt-br:goma-arábica
-wikipedia:en: https://en.wikipedia.org/wiki/Gum_arabic
-# ingredient/fr:gomme-arabique has 1316 products in 9 languages @2019-03-02
-# ingredient/fr:gomme-d’acacia has 466 products @2019-03-02
-# ingredient/fr:e414 has 351 products in 6 languages @2019-03-25
-# stabilisants (E414, E445)
-# épaississant:E414
-
-
-#   XANTHAN GUM   is a polysaccharide with many industrial uses, including as a common food additive.
-
-en: Xanthan gum, xanthan, E415, E-415, e 415
-ar: صمغ الكزانتان
-bg: Гума ксантан, Ксантанова гума, ксантан, ксантан гума
-ca: goma xantana, goma base
-cs: Xanthanová guma, Xanthan
-da: Xanthangummi
-de: Xanthan, Xanthangummi
-el: Ξανθανικο κομμι
-es: goma de xantano, goma xantica
-et: Ksantaankummi
-fa: صمغ زانتان
-fi: Ksantaanikumi
-fr: gomme xanthane, gomme de xanthane, xanthane
-gl: Xantano
-he: קסנטן גאם
-hr: ksantan guma
-hu: Xantángumi
-id: Gum xanthan
-it: Gomma di xantano, gomma di xanthan
-ja: キサンタンガム, キサンタン
-lt: Ksantano derva
-lv: Ksantāna sveķi
-mt: Gomma xanthan
-nl: xanthaangom, Xanthaan
-nn: xanthan gum
-pl: Guma ksantanowa
-pt: goma xanthano
-ro: Gumă de xantan, gumă xantan
-ru: Ксантановая камедь, Ксантан
-sk: Xantánová živica
-sl: Ksantan gumi
-sv: Xantangummi
-zh: 黄原胶
-# sco:Xanthan gum
-# zh-cn:黄原胶# zh-hans:黄原胶
-# zh-hant:黃原膠
-# zh-hk:黃原膠
-# zh-sg:黄原胶
-# zh-tw:黃原膠
-wikidata:en: Q410768
-wikipedia:en: https://en.wikipedia.org/wiki/Xanthan_gum
-
-en: gellan gum, E418, E-418, E 418, INS418, INS-418, INS 418, gellan
-ar: صمغ الجيلان
-bg: Гума джелан
-ca: goma gellan
-cs: Guma gellan
-da: Gellangummi
-de: Gellan
-el: Κομμι τζελαν
-es: goma gellan, goma gellana, goma gelana
-et: Gellankummi
-fi: Gellaanikumi
-fr: gomme gellane
-hr: gelan guma
-hu: Gellángumi
-it: gomma di gellano
-ja: ゲランガム
-lt: Gelano derva
-lv: Želena sveķi
-mt: Gomma ġellan
-nl: gellangom
-pl: Guma gellan
-pt: Goma gelana
-ro: Gumă gellan
-sk: Guma gellan
-sl: Gelanski gumi
-sv: Gellangummi
-zh: 結蘭膠
-description:en: GELLAN GUM is a water-soluble anionic polysaccharide produced by the bacterium Sphingomonas elodea. It is used in plant-based milks to keep plant protein suspended in the milk.
-# en-ca:Gellan gum
-# en-gb:Gellan gum
-wikipedia:en: https://en.wikipedia.org/wiki/Gellan_gum
-# ingredient/fr:gomme-gellane has 197 products in 6 languages @2019-04-27
-
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-#
-#                                           E 4 5 0 - E 4 5 2     S E C T I O N
-#
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-
-# In chemistry, a pyrophosphate is a phosphorus oxyanion.
-# On wikidata the ingredient is usually called pyrophosphate, contrary to what is found on packages
-
-en: diphosphates, E450, E-450, e 450
-bg: Дифосфат, дифосфати
-ca: Difosfat
-cs: difosforečnany
-de: Diphosphate
-es: difosfatos
-fa: پیروفسفات
-fi: difosfaatit, pyrofosfaatit
-fr: diphosphate, diphosphates
-hr: difosfati
-hu: Difoszfátok
-it: difosfati
-ja: ピロリン酸塩
-lt: E450, emulsiklis difosfatai
-lv: E450
-mt: E450
-nl: difosfaten
-pl: difosforan, difosforany
-pt: difosfato
-ro: difosfati
-ru: Пирофосфаты, двузамещенный пирофосфат натрия, трехзамещенный пирофосфат натрия, тетранатрийпирофосфат, двузамещенный пирофосфат калия, тетракалийдифосфат, дикальцийпирофосфат, кальцийдигидропирофосфат, Пирофосфат
-sk: difosforečnany
-zh: 焦磷酸盐
-wikidata:en: Q55506489
-wikipedia:en: https://en.wikipedia.org/wiki/Pyrophosphate
-# fr:diphosphate has 4974 products in 29 languages @2018-11-04
-
-< en:diphosphates
-en: e450 stabilizer
-bg: стабилизатор E450
-de: Stabilisator E450
-es: estabilizante e450
-fr: stabilisant e450
-hr: e450 stabilizator
-it: stabilizzante e450
-lt: stabilizatorius e450, stabilizatoriai e450
-nl: stabilisator e450
-pt: estabilizante e450
-
-< en:diphosphates
-en: ferric pyrophosphate
-it: pirofosfato ferrico
-pl: dwufosforan żelazowy
-
-< en:diphosphates
-< en:sodium carbonates
-en: diphosphates and sodium carbonates
-de: Diphosphate und Natriumcarbonate, E 450 und E 500, E450 und E500
-es: difosfatos y carbonatos de sodio
-fi: difosfaatit ja natriumkarbonaatit
-fr: diphosphate et carbonate de calcium, diphosphates et carbonates de sodium, e450 et e500
-hr: difosfati i natrijevi karbonati
-hu: difoszfátok és nátrium-karbonátok
-it: difosfati e carbonati di sodio, E 450 ed E 500, E450 ed E500
-nl: difosfaten en natriumcarbonaten
-# fr:e450-et-e500 has 64 products in 4 languages @2018-11-04
-# ingredient/fr:diphosphate-et-carbonate-de-calcium has 678 products @2019-05-18
-
-< en:diphosphates
-en: disodium diphosphate, disodium pyrophosphate, sodium acid pyrophosphate, SAPP, e450i
-ar: بيروفوسفات ثنائي الصوديوم
-bg: Динатриев дифосфат
-cs: Dihydrogendifosforečnan disodný
-da: dinatriumdiphosphat
-de: Dinatriumdiphosphat, Dinatriumdihydrogendiphosphat
-el: Δισοξινο πυροφωσφορικο νατριο
-es: difosfato disódico
-et: Dinaatriumdifosfaat, Dinaatriumdivesinikdifosfaat
-fa: دی‌سدیم پیروفسفات
-fi: Dinatriumdifosfaatti, Dinatriumdivetydifosfaatti, Dinatriumdivetypyrofosfaatti, Hapan natriumpyrofosfaatti
-fr: diphosphate disodique, diphosphates de sodium, diphosphate de sodium, Pyrophosphate acide de soude, pyrophosphate acide de sodium
-hr: dinatrijev difosfat
-hu: Dinátrium-difoszfát
-it: difosfato disodico
-ja: 二リン酸二水素二ナトリウム
-lt: Dinatrio difosfatas
-lv: Dinātrija difosfāts
-mt: Difosfat disodiku, Difosfat didroġenat disodiku, Pirofosfat didroġenat disodiku, Pirofosfat tal-aċidu tas-sodju
-nl: Dinatriumdifosfaat
-pl: Difosforan disodowy, Difosforan diwodoro-disodowy, pirofosforan diwodoro-disodowy, kwaśny pirofosforan sodu
-pt: difosfato dissódico
-ro: Difosfat disodic, Difosfat diacid disodic, Pirofosfat diacid disodic, Pirofosfat acid de sodiu, e450i
-ru: дигидропирофосфат натрия
-sh: Dinatrijum pirofosfat
-sk: Difosforečnan disodný
-sl: Dinatrijev difosfat
-sr: Dinatrijum pirofosfat
-sv: Dinatriumdifosfat, Dinatriumdivätedifosfat, dinatriumdivätepyrofosfat, natriumpyrofosfatsyra
-vi: Natri đihiđropyrophotphat
-zh: 酸式焦磷酸钠
-wikidata:en: Q418498
-wikipedia:en: https://en.wikipedia.org/wiki/Disodium_pyrophosphate
-# azb دیسودیوم پیروفوسفات
-# fr:diphosphate-disodique has 1470 products in 8 languages @2018-11-04
-# fr:e450i has 388 products in 4 languages @2018-11-04
-
-
-< en:diphosphates
-en: Trisodium diphosphate, e450ii
-bg: Тринатриев дифосфат
-cs: Hydrogendifosforečnan sodný
-da: Trinatriumdiphosphat
-de: Trinatriumdiphosphat
-el: Οξινο πυροφωσφορικο νατριο
-es: Difosfato trisódico
-et: Trinaatriumdifosfaat, Trinaatriumvesinikdifosfaat, trinaatriumpürofosfaat
-fi: Trinatriumdifosfaatti, Trinatriumpyrofosfaatti
-fr: Diphosphate trisodique, Pyrophosphate trisodique acide, Hydrogéno-diphosphate trisodique
-hr: trinatrijev difosfat
-hu: Trinátrium-difoszfát
-it: Difosfato trisodico
-lt: Trinatrio difosfatas
-lv: Trinātrija difosfāts
-mt: Difosfat trisodiku
-nl: Trinatriumdifosfaat
-pl: Difosforan trisodowy
-pt: Difosfato trissódico
-ro: Difosfat trisodic, Pirofosfat trisodic, Difosfat monoacid trisodic, Pirofosfat monoacid trisodic
-sk: Difosforečnan trisodný
-sl: Trinatrijev difosfat
-sv: Trinatriumdifosfat, Trinatriumpyrofosfat, trinatriumvätedifosfat
-# fr:e450ii has 18 products in 2 languages @2018-11-04
-
-# description:en:TETRASODIUM PYROPHOSPHATE, also called sodium pyrophosphate, tetrasodium phosphate or TSPP, is a colorless transparent crystalline chemical compound with the formula Na4P2O7.
-
-< en:diphosphates
-en: Tetrasodium diphosphate, Tetrasodium pyrophosphate, sodium pyrophosphate, TSPP, e450iii
-ar: بيروفوسفات صوديوم
-bg: Тетранатриев дифосфат, Тетранатриев пирофосфат, натриев пирофосфат
-cs: Difosforečnan sodný, Pyrofosforečnan tetrasodný
-da: Tetranatriumdiphosphat, Tetranatriumpyrophosphat
-de: Tetranatriumdiphosphat, Tetranatriumpyrophosphat
-el: Πυροφωσφορικο νατριο, Πυροφωσφορικό άλας νατρίου, διφωσφορικό νάτριο
-eo: Natria pirofosfato
-es: Difosfato tetrasódico, Pirofosfato tetrasódico, difosfato de tetrasodio
-et: Tetranaatriumdifosfaat
-fa: تتراسدیوم پیروفسفات
-fi: Tetranatriumdifosfaatti, Natriumpyrofosfaatti
-fr: diphosphate tétrasodique, Pyrophosphate de sodium, pyrophosphate de soude
-hr: tetranatrijev difosfat
-hu: Tetranátrium-difoszfát, Tetranátrium-pirofoszfát
-it: Difosfato tetrasodico, Pirofosfato tetrasodico, disfosfato tetrasodico, Pirofosfato di sodio
-lt: Tetranatrio difosfatas, Tetranatrio pirofosfatas
-lv: Tetranātrija difosfāts, Tetranātrija pirofosfāts
-mt: Difosfat tetrasodiku, Pirofosfat tetrasodiku, Disfosfat tetrasodiku
-nl: Tetranatriumdifosfaat, Tetranatriumpyrofosfaat
-pl: Difosforan tetrasodowy, Pirofosforan czterosodowy, difosforan czterosodowy
-pt: Difosfato tetrassódico, Pirofosfato tetrassódico, difosfato de tetrassódio
-ro: Difosfat tetrasodic, Pirofosfat tetrasodic
-ru: E450III, Пирофосфат натрия, Пирофосфат тетранатрия, e450iii
-sh: etranatrijum pirofosfat
-sk: Difosforečnan tetrasodný, Pyrofosforečnan tetrasodný
-sl: Tetranatrijev difosfat, tetranatrijev pirofosfat
-sr: Tetranatrijum pirofosfat
-sv: Tetranatriumdifosfat, Tetranatriumpyrofosfat
-vi: Natri pyrophotphat
-zh: 焦磷酸钠
-# azb:تتراسدیوم پیروفوسفات
-wikidata:en: Q418504
-wikipedia:en: https://en.wikipedia.org/wiki/Tetrasodium_pyrophosphate
-# fr:diphosphate-tétrasodique has 331 products in 2 languages @2018-11-04
-# fr:e450iii has 52 products in 3 languages @2018-11-04
-
-< en:diphosphates
-en: dipotassium dihydrogenpyrophosphate, E450iv, E-450iv
-es: E450iv, E-450iv
-fr: Diphosphate dipotasique, E450iv, E-450iv
-hr: dikalijev dihidrogenpirofosfat
-# es:E-450iv has 3 products @2018-11-04
-
-< en:diphosphates
-en: tetrapotassium diphosphate, tetrapotassium pyrophosphate, e450v
-bg: Тетракалиев дифосфат
-cs: Difosforečnan draselný, Pyrofosforečnan draselný
-da: Tetrakaliumdiphosphat
-de: Tetrakaliumdiphosphat
-el: Πυροφωσφορικο καλιο
-es: Difosfato tetrapotásico
-et: Tetrakaaliumdifosfaat
-fi: Tetrakaliumdifosfaatti
-fr: diphosphate tétrapotassique
-hr: tetrakalijev difosfat
-hu: Tetrakálium-difoszfát
-it: Difosfato di tetrapotassio
-lt: Tetrakalio difosfatas
-lv: Tetrakālija difosfāts
-mt: Difosfat tetrapotassiku
-nl: Tetrakaliumdifosfaat
-pl: Difosforan tetrapotasowy
-pt: Difosfato tetrapotássico
-ro: Difosfat tetrapotasic
-sk: Difosforečnan tetradraselný
-sl: Tetrakalijev difosfat
-sv: Tetrakaliumdifosfat
-# fr:e450v has 1 product @2018-11-04
-
-< en:diphosphates
-en: dicalcium pyrophosphate, e450vi
-fi: dikalsiumpyrofosfaatti
-wikidata:en: Q4363460
-wikipedia:en: https://en.wikipedia.org/wiki/Calcium_pyrophosphate
-# en:dicalcium-pyrophosphate has 1 product @2018-11-04
-
-< en:diphosphates
-en: calcium dihydrogen diphosphate, e450vii
-bg: Калциев дихидроген дифосфат, Кисел калциев пирофосфат, e450vii
-cs: Dihydrogendifosforečnan vápenatý, e450vii
-da: Calciumdihydrogendiphosphat, Surt calciumpyrophosphat, e450vii
-de: Calciumdihydrogendiphosphat, saures Calciumpyrophosphat, e450vii
-el: Δισοξινο πυροφωσφορικο ασβεστιο, e450vii
-es: Difosfato cálcico de dihidrógeno, Pirofosfato ácido de calcio, e450vii
-et: Kaltsiumdivesinikdifosfaat, Kaltsiumdivesinikpürofosfaat, e450vii
-fi: Kalsiumdivetydifosfaatti, Hapan kalsiumpyrofosfaatti, e450vii
-fr: Diphosphate biacide de calcium, Dihydrogéno-diphosphate de calcium, Pyrophosphate de calcium acide, e450vii
-hr: kalcijev dihidrogen difosfat
-hu: Kalcium-dihidrogén-difoszfát, Savas kalcium-pirofoszfát, e450vii
-it: Di-idrogenodifosfato di calcio, Pirofosfato acido di calcio, e450vii
-lt: Kalcio divandenilio difosfatas, Rūgštusis kalcio pirofosfatas, e450vii
-lv: Kalcija dihidrogendifosfāts, Skābais kalcija pirofosfāts, e450vii
-mt: Difosfat diidroġenat tal-kalċju, Pirofosfat tal-kalċju aċiduż, e450vii
-nl: Calciumdiwaterstofdifosfaat, Zuur calciumpyrofosfaat, e450vii
-pl: Diwodoro-difosforan wapnia, Kwaśny pirofosforan wapnia, e450vii
-pt: Di-hidrogenodifosfato de cálcio, Pirofosfato ácido de cálcio, e450vii
-ro: Difosfat diacid de calciu, Pirofosfat acid de calciu, e450vii
-sk: Dihydrogendifosforečnan divápenatý, Kyslý pyrofosforečnan vápenatý, e450vii
-sl: Kalcijev dihidrogen difosfat, kisel kalcijev pirofosfat, e450vii
-sv: Kalciumdivätedifosfat, Kalciumpyrofosfatsyra, e450vii
-# e450vii has 3 products @2018-11-04
-
-# <en:diphosphates
-# en:Magnesium pyrophosphate, e450viii
-# has no products @2018-11-04
-
-
-< en:disodium diphosphate
-< en:sodium hydrogen carbonate
-ca: carbonat àcid de sodi i difosfat de disodi
-fr: diphosphate disodique et carbonate acide de sodium
-ru: сода, сода пищевая, гидрокарбонат натрия, разрыхлитель гидрокарбонат натрия
-# fr:diphosphate-disodique-et-carbonate-acide-de-sodium has 72 products in 2 languages @2018-11-04
-
-
-en: triphosphates, triphosphate, E451, e 451, e-451
-bg: трифосфат, трифосфати
-ca: trifosfat, trifosfats
-de: Triphosphate
-es: trifosfato, trifosfatos
-fi: trifosfaatit
-fr: triphosphate, triphosphates
-hr: trifosfati
-it: trifosfat
-nl: trifosfaten
-pl: trifosforany
-ru: Tрифосфаты
-sv: trifosfat
-# fr:triphosphate has 583 products in 5 languages @2018-11-04
-# additive/e451-triphosphates has 3202 products in 18 languages @2018-11-05
-
-# description:en:Sodium triphosphate (STP), also sodium tripolyphosphate (STPP), or tripolyphosphate (TPP),[1]) is an inorganic compound with formula Na5P3O10.
-
-< en:triphosphates
-en: Pentasodium triphosphate, Pentasodium tripolyphosphate
-ar: مالفرق بين
-bg: Пентанатриев трифосфат, Пентанатриев триполифосфат, e451i, e 451, e-451i
-ca: trifosfat sòdic, e451i, e 451, e-451i
-cs: Trifosforečnan pentasodný, e451i, e 451, e-451i
-da: Pentanatriumtriphosphat, Pentanatriumtripolyphosphat, e451i, e 451, e-451i
-de: Pentanatriumtriphosphat, Pentanatriumtripolyphosphat, e451i, e 451, e-451i
-el: Τριφωσφορικο νατριο, e451i, e 451, e-451i
-es: Trifosfato de pentasodio, Tripolifosfato pentasódico, e451i, e 451, e-451i
-et: Pentanaatriumtrifosfaat, Pentanaatriumtripolüfosfaat, e451i, e 451, e-451i
-fa: سدیم تری‌فسفات
-fi: Pentanatriumtrifosfaatti, Pentanatriumtripolyfosfaatti, e451i, e 451, e-451i
-fr: triphosphate pentasodique, e451i, e 451, e-451i
-he: סודיום טריפוספט
-hr: pentanatrijev trifosfat
-hu: Pentanátrium-trifoszfát, Pentanátrium-tripolifoszfát, e451i, e 451, e-451i
-it: Trifosfato pentasodico, Tripolifosfato pentasodico, e451i, e 451, e-451i
-lt: Pentanatrio trifosfatas, Pentanatrio tripolifosfatas, e451i, e 451, e-451i
-lv: Pentanātrija trifosfāts, Pentanātrija tripolifosfāts, e451i, e 451, e-451i
-nl: Pentanatriumtrifosfaat, Pentanatriumtripolyfosfaat, e451i, e 451, e-451i
-pl: Trifosforan pentasodowy, Trójpolifosforan pięciosodowy, e451i, e 451, e-451i
-pt: trifosfato pentassódico, e451i, e 451, e-451i
-ro: Trifosfat pentasodic, Tripolifosfat pentasodic, e451i, e 451, e-451i
-ru: трифосфат натрия, e451i, e 451, e-451i
-sh: Natrijum trifosfat, e451i, e 451, e-451i
-sk: Trifosforečnan pentasodný, Tripolyfosforečnan pentasodný, e451i, e 451, e-451i
-sl: Pentanatrijev trifosfat, pentanatrijev tripolifosfat, e451i, e 451, e-451i
-sr: натријум трифосфат, e451i, e 451, e-451i
-sv: Pentanatriumtrifosfat, Pentanatriumtripolyfosfat, e451i, e 451, e-451i
-uk: Трифосфат натрію, e451i, e 451, e-451i
-vi: Natri tripolyphôtphat, e451i, e 451, e-451i
-zh: e451i, e 451, e-451i
-# azb:سودیوم تریفوسفات
-# mt:Trifosfat pentasodiku, Tripolifosfat pentasodiku, e451i, e 451, e-451i
-# sr-ec:натријум трифосфат, e451i, e 451, e-451i
-# sr-el:natrijum trifosfat, e451i, e 451, e-451i
-wikidata:en: Q29145
-wikipedia:en: https://en.wikipedia.org/wiki/Sodium_triphosphate
-# additive/e451i-pentasodium-triphosphate has 405 products @2018-11-05
-# fr:triphosphate pentasodique has 38 products in 2 languages @2018-11-05
-
-< en:triphosphates
-en: pentapotassium triphosphate, E451ii, E 451ii, E-451ii
-bg: Пентакалиев трифосфат, Пентакалиев триполифосфат, калиев трифосфат, E451ii, E 451ii, E-451ii
-cs: Trifosforečnan pentadraselný, E451ii, E 451ii, E-451ii
-da: Pentakaliumtriphosphat, Pentakaliumtripolyphosphat, kaliumtriphosphat, E451ii, E 451ii, E-451ii
-de: Pentakaliumtriphosphat, Pentakaliumtripolyphosphat, Kaliumtriphosphat, E451ii, E 451ii, E-451ii
-el: Τριφωσφορικο καλιο, Τριπολυφωσφορικό κάλιο, E451ii, E 451ii, E-451ii
-es: Trifosfato de pentapotasio, Tripolifosfato pentapotásico, trifosfato potásico, E451ii, E 451ii, E-451ii
-et: Pentakaaliumtrifosfaat, Pentakaaliumtripolüfosfaat, kaaliumtripolüfosfaat, E451ii, E 451ii, E-451ii
-fi: Pentakaliumtrifosfaatti, Pentakaliumtripolyfosfaatti, Kaliumtrifosfaatti, E451ii, E 451ii, E-451ii
-fr: triphosphate pentapotassique, E451ii, E 451ii, E-451ii
-hr: pentakalijev trifosfat
-hu: Pentakálium-trifoszfát, Pentakálium-tripolifoszfát, Kálium-trifoszfát, E451ii, E 451ii, E-451ii
-it: Trifosfato pentapotassico, Tripolifosfato pentapotassico, trifosfato di potassio, E451ii, E 451ii, E-451ii
-lt: Pentakalio trifosfatas, Pentakalio tripolifosfatas, kalio trifosfatas, E451ii, E 451ii, E-451ii
-lv: Pentakālija trifosfāts, Pentakālija tripolifosfāts, Kālija trifosfāts, E451ii, E 451ii, E-451ii
-mt: Trifosfat pentapotassiku, Tripolifosfat pentapotassiku, Trifosfat tal-potassju, E451ii, E 451ii, E-451ii
-nl: Pentakaliumtrifosfaat, Pentakaliumtripolyfosfaat, kaliumtrifosfaat, E451ii, E 451ii, E-451ii
-pl: Trifosforan pentapotasowy, E451ii, E 451ii, E-451ii
-pt: Trifosfato pentapotássico, Tripolifosfato pentapotássico, trifosfato de potássio, E451ii, E 451ii, E-451ii
-ro: Trifosfat pentapotasic, Tripolifosfat pentapotasic, Trifosfat de potasiu, E451ii, E 451ii, E-451ii
-sk: Trifosforečnan pentadraselný, E451ii, E 451ii, E-451ii
-sl: Pentakalijev trifosfat, pentakalijev tripolifosfat, kalijev trifosfat, E451ii, E 451ii, E-451ii
-sv: Pentakaliumtrifosfat, Pentakaliumtripolyfosfat, kaliumtrifosfat, E451ii, E 451ii, E-451ii
-wikidata:en: Q15632716
-# additive/e451ii-pentapotassium-triphosphate has 3 products in 1 language @2018-11-05
-
-< en:diphosphates
-< en:triphosphates
-en: di- and triphosphates
-da: di- och triphosphater
-de: Di- und Triphosphate, Stabilisator Di- und Triphosphate
-fi: di- ja trifosfaatit
-fr: diphosphates et triphosphates, triphosphates et diphosphates, di- et triphosphate
-hr: di- i trifosfati
-nl: difosfaten en trifosfaten
-sv: di- och trifosfater
-
-en: Polyphosphate, Polyphosphate E452, E452, e 452, e-452
-ar: E452, e 452, e-452
-bg: полифосфат, полифосфати, e 452, e-452
-ca: polifosfats, polifosfat, E452, e 452, e-452
-cs: E452, e 452, e-452
-de: Polyphosphate, E452, e 452, e-452
-es: polifosfatos, polifosfato, E452, e 452, e-452
-fi: polyfosfaatit
-fr: polyphosphate, polyphosphates, E452, e 452, e-452
-hr: polifosfat
-hu: E452, e 452, e-452
-it: E452, e 452, e-452
-mk: E452, e 452, e-452
-nl: Polyfosfaten, E452, e 452, e-452
-pl: E452, e 452, e-452, polifosforany
-pt: E452, e 452, e-452
-ro: E452, e 452, e-452
-ru: E452, e 452, e-452
-sl: E452, e 452, e-452
-sr: E452, e 452, e-452
-sv: E452, e 452, e-452
-uk: E452, e 452, e-452
-zh: E452, e 452, e-452
-# fr:polyphosphate has 610 products in 6 languages @2018-11-04
-# additive/e452-polyphosphates has 3451 products in 20 languages @2018-11-05
-
-< en:Polyphosphate
-en: Sodium polyphosphate, e452i, e 452i, e-452i
-ar: e452i, e 452i, e-452i
-bg: Натриев полифосфат, e452i, e 452i, e-452i
-cs: Polyfosforečnan sodný, e452i, e 452i, e-452i
-da: Natriumpolyphosphater, e452i, e 452i, e-452i
-de: Natriumpolyphosphat, e452i, e 452i, e-452i
-el: Πολυφωσφορικο νατριο, e452i, e 452i, e-452i
-es: polifosfato de sodio, e452i, e 452i, e-452i
-et: Naatriumpolüfosfaat, e452i, e 452i, e-452i
-fi: Natriumpolyfosfaatti, e452i, e 452i, e-452i
-fr: polyphosphates de sodium, e452i, e 452i, e-452i
-hr: natrijev polifosfat
-hu: Nátrium-polifoszfát, e452i, e 452i, e-452i
-it: Polifosfato di sodio, e452i, e 452i, e-452i
-lt: Natrio polifosfatas, e452i, e 452i, e-452i
-lv: Nātrija polifosfāts, e452i, e 452i, e-452i
-mt: Polifosfat tas-sodju, e452i, e 452i, e-452i
-nl: Natriumpolyfosfaat, e452i, e 452i, e-452i
-pl: Polifosforan sodu, e452i, e 452i, e-452i
-pt: polifosfato de sódio, Sodium polyphosphate, e452i, e 452i, e-452i
-ro: Polifosfat de sodiu, e452i, e 452i, e-452i
-ru: e452i, e 452i, e-452i
-sk: Polyfosforečnan sodný, e452i, e 452i, e-452i
-sl: Natrijev polifosfat, e452i, e 452i, e-452i
-sv: Natriumpolyfosfat, e452i, e 452i, e-452i
-zh: e452i, e 452i, e-452i
-# fr:polyphosphates de sodium has 93 products in 1 language @2018-11-04
-# fr:e452i has 38 products in 2 languages @2018-11-04
-# additive/e452i-sodium-polyphosphate has 414 products @2018-11-05
-
-< en:Polyphosphate
-en: potassium polyphosphate, E452ii, E 452ii, E-452ii
-bg: Калиев полифосфат, Калиев метафосфат, калиев полиметафосфат, E452ii, E 452ii, E-452ii
-cs: Polyfosforečnan draselný, E452ii, E 452ii, E-452ii
-da: Kaliumpolyphosphater, Kaliummetaphosphat, kaliumpolymetaphosphat, E452ii, E 452ii, E-452ii
-de: Kaliumpolyphosphat, Kaliummetaphosphat, Kaliumpolymetaphosphat, E452ii, E 452ii, E-452ii
-el: Πολυφωσφορικο καλιο, Μεταφωσφορικό κάλιο, πολυμεταφωσφορικό κάλιο, E452ii, E 452ii, E-452ii
-es: Polifosfato de potasio, Metafosfato potásico, polimetafosfato potásico, E452ii, E 452ii, E-452ii
-et: Kaaliumpolüfosfaat, Kaaliummetafosfaat, kaaliumpolümetafosfaat, E452ii, E 452ii, E-452ii
-fi: Kaliumpolyfosfaatti, Kaliummetafosfaatti, Kaliumpolymetafosfaatti, E452ii, E 452ii, E-452ii
-fr: Polyphosphate potassique, Métaphosphate de potassium, polymétaphosphate de potassium, Polyphosphates de potassium, Polyphosphate de potassium, Sel de Kurrol, E452ii, E 452ii, E-452ii
-hr: kalijev polifosfat
-hu: Kálium-polifoszfát, Kálium-metafoszfát, Kálium-polimetafoszfát, E452ii, E 452ii, E-452ii
-lt: Kalio polifosfatas, Kalio metafosfatas, kalio polimetafosfatas, E452ii, E 452ii, E-452ii
-lv: Kālija polifosfāts, Kālija metafosfāts, Kālija polimetafosfāts, E452ii, E 452ii, E-452ii
-mt: Polifosfat tal-potassju, Metafosfat tal-potassju, Polimetafosfat tal-potassju, E452ii, E 452ii, E-452ii
-nl: Kaliumpolyfosfaat, Kaliummetafosfaat, kaliumpolymetafosfaat, E452ii, E 452ii, E-452ii
-pl: Polifosforan potasu, Metafosforan potasu, polimetafosforan potasu, E452ii, E 452ii, E-452ii
-pt: polifosfato de potássio, E452ii, E 452ii, E-452ii
-ro: Polifosfat de potasiu, Metafosfat de potasiu, Polimetafosfat de potasiu, E452ii, E 452ii, E-452ii
-sk: Polyfosforečnan draselný, Metafosforečnan draselný, polymetafosforečnan draselný, E452ii, E 452ii, E-452ii
-sl: Kalijev polifosfat, kalijev metafosfat, kalijev polimetafosfat, E452ii, E 452ii, E-452ii
-sv: Kaliumpolyfosfat, Kaliummetafosfat, kaliumpolymetafosfat, E452ii, E 452ii, E-452ii
-wikidata:en: Q42807555
-# additive/e452ii-potassium-polyphosphate has 16 products in 4 languages @2018-11-05
-
-# no products
-# <en:Polyphosphate
-# en:Sodium calcium polyphosphate, E452iii, E 452iii, E-452iii
-
-< en:Polyphosphate
-en: calcium polyphosphate, e452iv, e 452iv, e-452iv
-bg: Калциев полифосфат, Калциев метафосфат, e452iv, e 452iv, e-452iv
-cs: Polyfosforečnan vápenatý, Metafosforečnan vápenatý, e452iv, e 452iv, e-452iv
-da: Calciumpolyphosphater, Calciummetaphosphat, e452iv, e 452iv, e-452iv
-de: Calciumpolyphosphat, Calciummetaphosphat, e452iv, e 452iv, e-452iv
-el: Πολυφωσφορικο ασβεστιο, Μεταφωσφορικό ασβέστιο, e452iv, e 452iv, e-452iv
-es: Polifosfato de calcio, Metafosfato cálcico, e452iv, e 452iv, e-452iv
-et: Kaltsiumpolüfosfaat, Kaltsiummetafosfaat, e452iv, e 452iv, e-452iv
-fi: Kalsiumpolyfosfaatti, Kalsiummetafosfaatti, e452iv, e 452iv, e-452iv
-fr: polyphosphate de calcium, e452iv, e 452iv, e-452iv
-hr: kalcijev polifosfat
-hu: Kalcium-polifoszfát, Kalcium-metafoszfát, e452iv, e 452iv, e-452iv
-it: Polifosfato di calcio, Metafosfato di calcio, e452iv, e 452iv, e-452iv
-lt: Kalcio polifosfatas, Kalcio metafosfatas, e452iv, e 452iv, e-452iv
-lv: Kalcija polifosfāts, Kalcija metafosfāts, e452iv, e 452iv, e-452iv
-mt: Polifosfat tal-kalċju, Metafosfat tal-kalċju, e452iv, e 452iv, e-452iv
-nl: Calciumpolyfosfaat, Calciummetafosfaat, e452iv, e 452iv, e-452iv
-pl: Polifosforan wapnia, Metafosforan wapnia, e452iv, e 452iv, e-452iv
-pt: Polifosfato de cálcio, Metafosfato de cálcio, e452iv, e 452iv, e-452iv
-ro: Polifosfat de calciu, Metafosfat de calciu, e452iv, e 452iv, e-452iv
-sk: Polyfosforečnan vápenatý, Metafosforečnan vápenatý, e452iv, e 452iv, e-452iv
-sl: Kalcijev polifosfat, kalcijev metafosfat, e452iv, e 452iv, e-452iv
-sv: Kalciumpolyfosfat, Kalciummetafosfat, e452iv, e 452iv, e-452iv
-wikidata:en: Q18967198
-# additive/e452iv-calcium-polyphosphate has 2 products in 1 language @2018-11-05
-
-# <en:Polyphosphate
-# en:Ammonium polyphosphate, E452v, e 452iv, e-452iv
-# has no products
-
-< en:Polyphosphate
-en: Sodium tripolyphosphate, E452vi, E 452vi, E-452vi
-fi: natriumtripolyfosfaatti, E452vi, E 452vi, E-452vi
-fr: Tripolyphosphate de sodium, E452vi, E 452vi, E-452vi
-hr: natrijev tripolifosfat
-# additive/e452vi-sodium-tripolyphosphate has 954 products in english @2018-11-05
-
-
-
-
-
-< en:E503(ii)
-ca: gasificant E503II
-sr: aditiv sredstvo za dizanje testa E503ii
-
-< en:E503
-< en:sodium carbonates
-en: ammonium and sodium carbonates
-da: ammonium - og natriumcarbonat
-de: Ammonium und Natriumcarbonat
-fi: ammonium- ja natriumkarbonaatit
-fr: carbonates d'ammonium et de sodium
-hr: amonijev bikarbonat
-it: carbonati di ammonio e di sodio
-lt: kildinimo medžiaga amonio karbonatas
-nl: ammonium- en natriumcarbonaten, ammonium carbonaten en natrium
-# ingredient/fr:carbonates-d’ammonium-et-de-sodium has 110 products in 7 languages @2019-04-06
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -39306,7 +38165,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Fruit
 en: fruit puree
 de: Fruchtpüree
 es: puré de frutas
-fr: purée de fruits
+# fr: purée de fruits # see ingredients_processing.txt
 hr: voćni pire
 it: frullato di frutta
 nl: fruitpuree
@@ -39353,7 +38212,7 @@ hu: bogyó, bogyótermés, bogyós gyümölcs
 it: Bacche
 ja: ベリーズ
 nb: bær
-nl: rode vruchten
+nl: bessen
 pl: Owoce jagodowe
 pt: Bagas
 ru: Ягоды
@@ -39503,7 +38362,7 @@ hr: sok
 it: succo
 nl: sap
 pl: sok, soki, soku, soków
-pt: Sumo
+pt: suco, sumo
 ru: Сок
 # ingredient/fr:jus has 156 products in 4 languages @2019-02-02
 vegan:en: maybe
@@ -39512,7 +38371,7 @@ vegetarian:en: maybe
 < en:juice
 en: concentrated juice
 de: konzentrierter Saft
-es: Zumo a partir de concentrado, zumo concentrado, jugo concentrado
+es: Zumo a partir de concentrado, jugo a partir de concentrado, zumo concentrado, jugo concentrado
 fi: mehutiiviste
 fr: jus concentré
 hr: koncentrirani sok
@@ -39544,7 +38403,7 @@ ja: 果汁
 nb: fruktjuice
 nl: vruchtensap
 pl: Sok owocowy, soki owocowe
-pt: Suco de fruta
+pt: Suco de fruta, sumo de fruta
 ro: Suc de fructe
 ru: Фруктовый сок
 sv: Fruktjuice
@@ -39577,7 +38436,7 @@ fr: jus concentré de fruits rouges
 < en:fruit juice concentrate
 en: fruit juice from concentrate, fruit juices from concentrate
 de: Fruchtsaft auf Konzentrat Basis, Fruchtsaft aus Fruchtsaftkonzentrat, Fruchtsaft aus Fruchtsaftkonzentraten, Fruchtsäfte aus Konzentraten
-es: zumo de frutas a partir de concentrado, jugo de frutas procedente de concentrado
+es: zumo de frutas a partir de concentrado, jugo de frutas a partir de concentrado, zumo de frutas procedente de concentrado, jugo de frutas procedente de concentrado
 fi: hedelmämehu tiivisteestä, hedelmämehut tiivisteestä, tiivisteestä valmistetut täysmehut
 fr: jus de fruits à base de concentré, jus de fruits à base de concentrés, jus de fruits à base de jus concentrés
 hr: vočni sok iz koncentrata, voćnog soka od koncentriranog soka, soka više vrsta voća od koncentriranog soka
@@ -39896,11 +38755,11 @@ fr: purée d'abricots Bergeron, purée d'abricot bergeron, pulpe d'abricot Berge
 
 < en:apricot
 en: apricot juice
-es: zumo de albaricoque
+es: zumo de albaricoque, jugo de albaricoque
 fr: jus d'abricot
 hr: sok od kajsije
 it: succo di albicocca
-pt: suco de damasco
+pt: suco de damasco, sumo de damasco
 ciqual_proxy_food_code:en: 2043
 ciqual_proxy_food_name:en: Apricot nectar
 
@@ -39910,7 +38769,7 @@ fr: Jus d'abricot à partir de concentré
 hr: sok od marelice iz koncentrata
 it: succo di albicocche da concentrato, succo di albicocca da concentrato, succo d'albicocche da concentrato, concentrato di succo di albicocche, concentrato di succo d'albicocche, concentrato di succo di albicocca
 nl: abrikoossap uit concentraat
-pt: suco de damasco a partir de concentrado
+pt: suco de damasco a partir de concentrado, sumo de damasco a partir de concentrado
 
 < en:apricot puree
 en: apricot puree concentrate
@@ -39928,12 +38787,12 @@ it: succo e polpa di albicocca
 < en:apricot puree
 en: apricot juice from concentrate and puree, Apricot juice made from cremogenate and concentrate
 de: Aprikosengemisch
-es: zumo de albaricoque a partir de puré y concentrado
+es: zumo de albaricoque a partir de puré y concentrado, jugo de albaricoque a partir de puré y concentrado
 fr: Jus d'abricot à partir de cremé et concentré
 hr: sok od marelice iz koncentrata i pirea
 it: succo di albicocca da concentrato e purea
 nl: abrikoossap uit concentraat en puree
-pt: suco de damasco a partir de pure e concentrado
+pt: suco de damasco a partir de pure e concentrado, sumo de damasco a partir de pure e concentrado
 ru: пюре от кайсия от концентрат
 
 #processing:en: en:dried
@@ -40271,10 +39130,10 @@ ciqual_food_name:fr: Banane, pulpe, sèche
 #en:banana juice
 #bg:сок от банани
 #de:bananensaft
-#es:zumo de plátano, zumo de banana
+#es:zumo de plátano, jugo de plátano, zumo de banana, jugo de banana
 #fi:banaanimehu, banaanitäysmehu
 #fr:jus de banane
-#pt:Sumo de banana, sumo de bananas
+#pt:Suco de banana, suco de bananas, sumo de banana, sumo de bananas
 # 61 in 6 @2021-09-10
 
 < en:fruit
@@ -40704,7 +39563,7 @@ fr: jus de mangue
 hr: sok od manga
 it: succo di mango
 nl: mangosap
-pt: suco de manga
+pt: suco de manga, sumo de manga
 ru: манговый сок
 
 < en:mango juice
@@ -40715,7 +39574,7 @@ fr: jus de mangue concentrés
 hr: koncentrirani sok od manga
 it: succo di mango concentrato
 nl: geconcentreerd mangosap
-pt: suco de manga concentrado
+pt: suco de manga concentrado, sumo de manga concentrado
 ru: концентрированный манговый сок
 
 < en:mango
@@ -40958,7 +39817,7 @@ it: succo di pesca
 #fr:jus de pêche
 #it:Succo di pesca
 #nl:perzikensap
-#pt:sumo de pêssego
+#pt:suco de pêssego, sumo de pêssego
 #ro:suc de piersici
 #ru:Персиковый сок
 #sv:persikojuice
@@ -41268,7 +40127,7 @@ pl: koncentrat soku z gruszki
 < en:pear juice
 en: pear juice from concentrate
 de: Birnensaft aus Birnensaftkonzentrat
-es: zumo de pera a partir de concentrado, jugo de pera procedente de concentrado, Zumo de pera a partir de pure de pera
+es: zumo de pera a partir de concentrado, jugo de pera a partir de concentrado, zumo de pera procedente de concentrado, jugo de pera procedente de concentrado, zumo de pera a partir de pure de pera, jugo de pera a partir de pure de pera
 fi: päärynämehu tiivisteestä
 fr: jus de poire à base de concentré, Jus de poire à base de jus concentré
 hr: sok kruške od koncentriranog soka
@@ -41284,7 +40143,7 @@ en: pear juice and puree
 fr: jus et purée de poire
 hr: sok od kruške i pire
 it: succo e purea di pera
-pt: Sumo e polpa de pera
+pt: Suco e polpa de pera, sumo e polpa de pera
 
 ###################################################################################################
 #
@@ -42188,7 +41047,7 @@ nb: eplemost
 nl: appelsap
 nn: eplemost
 pl: sok jabłkowy, soku jabłkowego
-pt: suco de maçã
+pt: suco de maçã, sumo de maçã
 ru: яблочный сок
 sa: सेवफलरसः
 sl: jabolčni sok
@@ -42250,16 +41109,17 @@ ca: Suc de poma concentrat
 cs: koncentrát jablečné šťávy
 da: Æblejuicekoncentrat
 de: Apfeldicksaft, Apfelsaftkonzentrat
-es: jarabe de manzana
+es: jarabe de manzana, sirope de manzana
 fi: omenamehutiiviste
 fr: concentré de jus de pomme, jus de pommes concentré, jus concentré de pomme
 hr: koncentrirani sok jabuke
-hu: Almalé sűrítmény
+hu: Almalé sűrítmény, tömény almalé
 it: concentrato di succo di mele
 ja: 濃縮りんご果汁
 nl: appeldiksap, appelsap ingedikt tot stroop, geconcentreerd appelsap, appelsapconcentraat
 pl: zagęszczony sok jabłkowy, koncentrat soku jabłkowego
-pt:Sumo de maçã concentradoru:Концентрированный яблочный сок
+pt: suco de maçã concentrado, sumo de maçã concentrado
+ru:Концентрированный яблочный сок
 sv: äppeljuicekoncentrat
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/concentrated-apple-juice
 # 423 products in 5 languages @2018-10-04
@@ -42270,16 +41130,16 @@ bg: ябълков сок от концентрат, сок от ябълков 
 cs: Jablečná šťáva z koncentrátu
 da: æblejuice fra koncentrat
 de: Apfelsaft aus Konzentrat, Apfelsaft aus Apfelsaftkonzentrat, Apfelsaft aus Apfelkonzentrat
-es: Zumo de manzana desde concentrado, zumo de manzana a partir de concentrado, jugo de manzana procedente de concentrado, jugo de manzana concentrado reconstituido
+es: Zumo de manzana desde concentrado, jugo de manzana desde concentrado, zumo de manzana a partir de concentrado, jugo de manzana a partir de concentrado, zumo de manzana procedente de concentrado, jugo de manzana procedente de concentrado, zumo de manzana concentrado reconstituido, jugo de manzana concentrado reconstituido
 fi: omenamehu tiivisteestä
 fr: jus de pomme à base de concentré, jus de pomme à base de jus concentré, Jus de pomme à base de jus de pomme concentré, jus de pomme à partir de concentré
 hr: jabuke od koncentriranog soka, sok od jabuke od koncentriranog soka, sok iz jabuke proizveđen iz koncentrata, sok od jabuke od koncentriranoga voćnog soka jabuke
-hu: sűrített almalé, almalé sűrítmény, almalé koncentrátum, almalé koncentrátumból
+hu: sűrített almalé, almalé koncentrátum, almalé koncentrátumból
 it: succo di mele a base di concentrato
 nb: eplejuice fra konsentrat
 nl: appelsap uit concentraat
 pl: sok jabłkowy z koncentratu, sok jabłkowy z zagęszczonego soku jabłkowego, sok z koncentratu z jabłek, sok jabłkowy z zagęszczonego soku, sok jabłkowy z soku zagęszczonego
-pt: Sumo de maçã obtido a partir de um produto concentrado, Suco de maçã reconstituído, suco de maçã verde reconstituído
+pt: Suco de maçã obtido a partir de um produto concentrado, sumo de maçã obtido a partir de um produto concentrado, suco de maçã reconstituído, sumo de maçã reconstituído, suco de maçã verde reconstituído, sumo de maçã verde reconstituído
 ro: suc de mere obţinut din suc concentrat
 sv: äppeljuice från koncentrat
 # ingredient/fr:jus-de-pomme-à-base-de-concentré has 240 products @2018-10-04
@@ -42791,7 +41651,7 @@ da: grapefrugtsaft, grapefrugtjuice
 de: Grapefruitsaft, Grape-fruitsaft, Pampelmussaft, Pampelmusensaft
 el: χυμός γκρέιπφρουτ, χυμός γκρέιπ-φρούτ
 eo: grapfrukta suko
-es: zumo de pomelo, jugo de toronja
+es: zumo de pomelo, jugo de pomelo, zumo de toronja, jugo de toronja
 et: greibimahl
 fa: آب گریپ‌فروت
 fi: greippimehu
@@ -42810,7 +41670,7 @@ lv: greipfrūtu sula
 mt: ġulepp tat-tronġ
 nl: grapefruitsap, pompelmoessap
 pl: sok grejpfrutowy
-pt: sumo de toranja, sumo de pamplumossa
+pt: suco de toranja, sumo de toranja, suco de pamplumossa, sumo de pamplumossa
 ro: suc de grepfrut
 ru: грейпфрутовый сок
 sk: grepová šťava
@@ -42872,7 +41732,7 @@ openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:pamplemousse-ros
 < en:pink grapefruit
 en: pink grapefruit juice
 de: Pink grapefruit saft
-es: Zumo de pomelo rosa
+es: Zumo de pomelo rosa, jugo de pomelo rosa
 fi: verigreippimehu
 fr: Jus de pamplemousse rose
 hr: sok od ružičastog grejpa
@@ -42886,7 +41746,7 @@ wikidata:en: Q57271711
 < en:pink grapefruit juice
 en: pink grapefruit juice from concentrate
 de: Pink grapefruit Saft aus Konzentrat
-es: Zumo de pomelo rosa a partir de concentrado
+es: Zumo de pomelo rosa a partir de concentrado, jugo de pomelo rosa a partir de concentrado
 fi: verigreippimehu tiivisteestä
 fr: jus de pamplemousse rose à base de concentré
 hr: sok od ružičastog grejpa iz koncentrata
@@ -43001,7 +41861,7 @@ it: pompelmo o pomelo
 < en:grapefruit juice
 < en:pomelo juice
 en: grapefruit or pomelo juice from concentrate
-es: zumo de pomelo a partir de concentrado
+es: zumo de pomelo a partir de concentrado, jugo de pomelo a partir de concentrado
 it: succo di pompelmo o di pomelo da concentrato
 
 ###################################################################################################
@@ -43170,7 +42030,7 @@ hr: sok od kumkvata
 it: succo di kumquat
 ja: 金柑ジュース
 nl: kumquat sap
-pt: sumo de kumquat
+pt: suco de kumquat, sumo de kumquat
 
 
 ###################################################################################################
@@ -43412,7 +42272,7 @@ nb: sitronjuice
 nl: citroensap
 nn: sitronsaft
 pl: Sok cytrynowy, sok z cytryny
-pt: sumo de limão
+pt: suco de limão, sumo de limão
 ru: Лимонный сок
 sv: citronsaft, citronjuice
 tr: limon suyu
@@ -43455,14 +42315,14 @@ en: lemon powder, dried lemon juice
 bg: лимонов прах
 da: tørket citronsaft, citronsaftpulver
 de: Zitronenpulver, Zitronensaftpulver, Zitronenfruchtpulver
-es: zumo de limón seco
+es: zumo de limón seco, jugo de limón seco
 fi: sitruunamehujauhe, kuivattu sitruunamehu, sitruunajauhe
 fr: jus de citron en poudre, citron en poudre, poudre de citron, jus de citron déshydraté
 hr: limun u prahu
 it: limone in polvere
 nl: gedroogd citroensap, citroensappoeder
 nn: tørket sitronsaft, sitronjuivepulver
-pt: sumo de limão desidratado
+pt: suco de limão desidratado, sumo de limão desidratado
 sv: torkad citronjuice, citronjuicepulver
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:citron-en-poudre
 # 25 products in 3 languages @2018-10-01
@@ -43497,7 +42357,7 @@ ca: Suc de llimona concentrat, Concentrat de suc de llimona
 cs: Citronová šťáva z koncentrátu
 da: citronsaftkonsentrat, citronjuicekoncentrat
 de: Zitronensaftkonzentrat, Zitronenkonzentrat
-es: zumo concentrado de limón, zumo de limón concentrado, jugo de limón concentrado, Concentrado de zumo de limón
+es: zumo concentrado de limón, jugo concentrado de limón, zumo de limón concentrado, jugo de limón concentrado, concentrado de zumo de limón, concentrado de jugo de limón
 et: sidrunimahla kontsentraat
 fi: sitruunamehutiiviste, sitruunatäysmehutiiviste, sitruunatiiviste
 fr: jus concentré de citron, jus de citron concentré, jus de citrons concentré, concentré de jus de citron, jus concentré pulpé de citron
@@ -43508,7 +42368,7 @@ lt: citrinų sulčių koncentratas
 nb: sitronjuicekonsentrat
 nl: citroenextract, geconcentreerd citroensap, citroensapconcentraat, citroenconcentraat
 pl: Zagęszczony sok cytrynowy, koncentrat soku z cytryny, koncentrat soku cytrynowego, zagęszczonego soku cytrynowego
-pt: Concentrado de sumo de limão
+pt: Concentrado de suco de limão, concentrado de sumo de limão
 ru: Концентрированный лимонный сок
 sv: citronkoncentrat, citronsaftkoncentrat, citronjuicekoncentrat
 tr: limon suyu konsantresi
@@ -43521,7 +42381,7 @@ bg: лимонов сок от концентрат, сок от лимон от
 cs: Citronová šťáva z koncetrátu
 da: Citronsaftkoncentrat
 de: Zitronensaft aus Zitronensaftkonzentrat, Zitronensaft aus Fruchtsaftkonzentrat
-es: zumo de limón a partir de concentrado, jugo de limón procedente de concentrado
+es: zumo de limón a partir de concentrado, jugo de limón a partir de concentrado, zumo de limón procedente de concentrado, jugo de limón procedente de concentrado
 fi: sitruunamehu tiivisteestä, sitruunatäysmehu tiivisteestä, tiivisteestä valmistettu sitruunatäysmehu
 fr: jus de citron à base de concentré, jus de citron reconstitué, jus de citron à partir de concentré, jus de citron à base de jus concentré, jus de citron reconstitué à base de concentré
 hr: limuna od koncentriranog soka
@@ -43689,7 +42549,7 @@ it: succo di lime
 ja: ライムジュース, ライム果汁
 nl: limoensap
 pl: Sok limonkowy, sok z limonek
-pt: Sumo de lima
+pt: Suco de lima, sumo de lima
 ru: Лаймовый сок
 sv: limejuice, limesaft
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-citron-vert
@@ -43698,7 +42558,7 @@ sv: limejuice, limesaft
 < en:lime juice
 en: lime juice concentrate
 de: limettensaftkonzentrat
-es: Concentrado de zumo de lima
+es: Concentrado de zumo de lima, concentrado de jugo de lima
 fi: limettimehutiiviste, limettitäysmehutiiviste, limemehutiiviste, limetäysmehutiiviste
 fr: jus de citron vert concentré
 hr: koncentrirani sok od limete
@@ -43854,7 +42714,7 @@ it: succo di mandarino da concentrato
 
 < en:tangerine juice
 en: squeezed tangerine juices
-es: zumo de mandarina exprimada
+es: zumo de mandarina exprimada, jugo de mandarina exprimada
 it: succo di mandarino spremuto
 
 < en:mandarin
@@ -44110,7 +42970,7 @@ nl: sinaasappelsap
 nn: Appelsinjuice
 pa: ਸੰਤਰੇ ਦਾ ਰਸ
 pl: Sok pomarańczowy
-pt: suco de laranja
+pt: suco de laranja, sumo de laranja
 ro: suc de portocale
 ru: апельсиновый сок
 sa: नारङ्गफलरसः
@@ -44182,7 +43042,7 @@ nl: Biologisch sinaasappelsap
 
 < en:orange juice
 en: squeezed orange juice, squeezed oranges, freshly squeezed orange juice
-es: zumo de naranja exprimido
+es: zumo de naranja exprimido, jugo de naranja exprimido
 fr: Pur jus d'orange, Oranges pressées à la récolte, jus d'orange non fait de concentre pur, oranges pressées
 hr: sok od cijeđene naranče
 it: succo d'arancia spremuto
@@ -44216,7 +43076,7 @@ bg: концентриран сок от портокал, сок от порт�
 bs: Sok pomorandže od koncentrisanog voćnog soka
 da: Appelsinjuice fra koncentrat
 de: Orangensaft aus Konzentrat, Orangensaft aus Orangensaftkonzentrat, Fruchtsaft aus naturreinem Orangensaftkonzentrat
-es: Zumo de naranja desde concentrado, zumo de naranja a partir de concentrado, jugo de naranja procedente, de concentrado, , zumo de naranja partir de concentrado de naranja
+es: Zumo de naranja desde concentrado, jugo de naranja desde concentrado, zumo de naranja a partir de concentrado, jugo de naranja a partir de concentrado, zumo de naranja procedente, de concentrado, jugo de naranja procedente, de concentrado, zumo de naranja partir de concentrado de naranja, jugo de naranja partir de concentrado de naranja
 fi: appelsiinimehu tiivisteestä, tiivisteestä valmistettu appelsiinitäysmehu, appelsiinitäysmehu tiivisteestä, appelsiinitäysmehu appelsiinitäysmehutiivisteestä, appelsiinitäysmehua tiivisteestä
 fr: jus d'orange à base de concentré, jus d'orange à base de jus d'orange concentré, jus d'orange à base de jus concentré, jus d'orange à partir de concentré, Jus de fruits à base de concentré d'orange
 hr: sok od naranče iz koncentrata soka naranče, sok od naranče koncentrata soka naranče, sok od naranče od koncentriranog soka, sok od naranče od koncentrirana soka, Sok od naranče od koncentriranog narančina soka, voćni sok od naranče od koncentriranog voćnog soka
@@ -44239,6 +43099,7 @@ hr: bio sok od naranče proizveden od koncentriranog soka naranče
 it: succo d'arancia biologico da concentrato di succo d'arancia
 
 < en:orange juice
+< en:orange pulp
 en: orange juice with pulp
 bg: сок от портокал с пулп
 de: Orangensaft mit Fruchtfleisch
@@ -44262,7 +43123,7 @@ nl: geperste sinaasappelsap met vruchtvlees
 < en:orange juice
 en: orange juice without pulp
 bg: сок от портокал без пулп
-es: zumo de naranjas sin pulpa
+es: zumo de naranjas sin pulpa, jugo de naranjas sin pulpa
 fr: Jus d'orange sans pulpe
 hr: sok od naranče bez pulpe
 it: succo d'arancia senza polpa
@@ -44299,7 +43160,7 @@ nl: bloedsinaasappelsap
 # no corresponding products
 # <en:pascalised orange juice
 # en:pascalised orange juice from concentrate
-# es:zumo de naranja pascalizado a partir de concentrado
+# es:zumo de naranja pascalizado a partir de concentrado, jugo de naranja pascalizado a partir de concentrado
 # fr:jus d’orange pascalisé à base de concentré
 # nl:gepascaliseerd sinaasappelsap uit concentraat
 # de:pascalisierter Orangensaft aus Orangensaftkonzentrat
@@ -44395,11 +43256,6 @@ fi: luontainen appelsiiniuute
 it: estratto naturale d'arancia, estratto naturale di arancia
 #openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extraits-naturels-d'orange
 # 28 products in 3 languages @2018-09-28
-
-< en:orange juice
-< en:orange pulp
-fr: Jus d'orange dont pulpe
-# 5@2019-06-07
 
 # CANDIED ORANGE PEEL is a compound ingredient
 en: candied orange peel, candied orange zest
@@ -44647,7 +43503,7 @@ eurocode_2_group_3:en: 9.25.48
 en: acerola juice
 bg: сок от ацерола
 de: Acerolaextrakt
-es: zumo de acerola
+es: zumo de acerola, jugo de acerola
 fi: akerola-uute, acerola-uute
 fr: extrait d'acérola, jus concentré d'acérola, extrait sec d'acérola
 hr: sok od acerole
@@ -44920,7 +43776,7 @@ it: pezzi di ribes nero
 en: blackcurrant juice from concentrate
 cs: ovocná šťáva z koncentrátu černého rybízu
 de: schwarzer Johannisbeersaft aus Konzentrat, schwarze Johannisbeere-Konzentrat
-es: zumo de cassis a base de concentrado
+es: zumo de cassis a base de concentrado, jugo de cassis a base de concentrado
 fi: mustaherukkamehu tiivisteestä
 fr: jus de cassis à base de concentré
 hr: sok brusnice u granulama
@@ -45027,7 +43883,7 @@ pl: borówka wysoka, niebieska jagoda
 en: bilberry, bilberries, huckleberry, huckleberries, whortleberry, whortleberries
 fi: mustikat
 # hr:borovnica
-it: mirtillo rosso, mirtilli rossi, mirtillo rosso, mirtilli rossi
+it: mirtillo nero
 la: Vaccinium myrtillus
 pl: borówka czarna, jagoda, jagoda czarna, czarna jagoda, czarne jagody, czarnej jagody, czernica, borówka czernica, borówki czernicy, jagoda, jagody, jagodowy, jagodowe, jagodowa
 eurocode_2_group_3:en: 9.30.42
@@ -46348,7 +45204,7 @@ hr: sok od bazge
 it: succo di sambuco
 nl: vlierbessap
 pl: sok z czarnego bzu
-pt: Sumo de sabugo
+pt: Suco de sabugo, sumo de sabugo
 sv: fläderbärsjuice
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-sureau
 # 52 products @2018-09-29
@@ -46356,7 +45212,7 @@ sv: fläderbärsjuice
 < en:elderberry juice
 en: elderberry juice concentrate, concentrated elderberry juice
 de: konzentrierter Holundersaft
-es: concentrado de zumo de saúco
+es: concentrado de zumo de saúco, concentrado de jugo de saúco
 fi: seljanmarjamehutiiviste, seljanmarjatäysmehutiiviste
 fr: jus de sureau concentré, jus concentré de sureau
 hr: koncentrat soka od bazge
@@ -46410,7 +45266,7 @@ en: elderberry syrup
 bg: сироп от бъз
 da: hyldbærsirup
 de: Holunderbeersirup
-es: jarabe de sauco
+es: jarabe de sauco, sirope de sauco
 fi: seljamarjasiirappi
 fr: sirop de sureau
 hr: sirup od bazge
@@ -46955,7 +45811,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Kiwifruit
 #fi:kiivimehu
 #fr:jus de kiwi
 #nl:kiwisap
-#pt:Sumo de kiwi
+#pt:Suco de kiwi, Sumo de kiwi
 #ru:Сок киви
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/en:kiwi-juice
 # 8 products in 3 languages 22018-09-30
@@ -46972,7 +45828,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Kiwifruit
 
 # <en:kiwi juice
 # en:pascalised kiwi juice
-# es:zumo de kiwi pascalizado
+# es:zumo de kiwi pascalizado, jugo de kiwi pascalizado
 # fr:jus de kiwi pascalisé
 # nl:gepascaliseerd kiwisap
 # de:pascalisierter Kiwisaft
@@ -47902,7 +46758,7 @@ it: succo di frutto della passione
 #it:succo di frutto della passione
 #nb:pasjonsfruktjuice
 #nl:passievruchtsap
-#pt:Sumo de maracujá
+#pt:Suco de maracujá, sumo de maracujá
 #sv:passionsfruktjuice, passionsfrukts
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-fruit-de-la-passion
 # 262 products in 6 languages @2018-09-29
@@ -47914,7 +46770,7 @@ it: succo di frutto della passione
 #cs:koncentrovaná šťáva z maracuji
 # we keep this as unparsable
 de: Maracujasaft aus Maracujasaftkonzentrat, Passionfruchtsaft aus Konzentrat
-#es:zumo de maracuyá a partir de concentrado, jugo de maracuyá procedente de concentrado
+#es:zumo de maracuyá a partir de concentrado, jugo de maracuyá a partir de concentrado, zumo de maracuyá procedente de concentrado, jugo de maracuyá procedente de concentrado
 #fi:tiivisteestä valmistettu passionhedelmämehu, tiivisteestä valmistettu passiohedelmätäysmehu
 #fr:jus de fruit de la passion à base de concentré
 #hr:sok od marakuje od koncentriranog soka škrob
@@ -48072,7 +46928,7 @@ bg: сок от ананас
 ca: Suc de pinya
 da: Ananasjuice
 de: Ananassaft
-es: Zumo de piña, jugo de piña, jugo de ananas, zumo de piña Gold
+es: Zumo de piña, jugo de piña, zumo de ananas, jugo de ananas, zumo de piña Gold, jugo de piña Gold
 fi: ananasmehu, ananastäysmehu
 fr: jus d'ananas, jus d'ananas victoria
 # hr:sok od ananasa # see ingredients_processing.txt
@@ -48081,7 +46937,7 @@ ja: パイナップルジュース, パイナップル果汁
 nb: ananasjuice
 nl: Ananassap
 pl: sok ananasowy, sok z ananasa
-pt: Sumo de ananás
+pt: Suco de ananás, sumo de ananás
 ro: suc de ananas
 ru: Ананасовый сок
 sv: ananasjuice
@@ -48096,7 +46952,7 @@ ciqual_food_name:en: Pineapple, in pineapple juice, canned, drained
 en: concentrated pineapple juice, pineapple juice concentrate
 bg: концентриран сок от ананас
 de: Ananassaftkonzentrat
-es: jugo concentrado de anana
+es: zumo concentrado de anana, jugo concentrado de anana
 fi: ananasmehutiiviste
 fr: jus d'ananas concentré, jus concentré d'ananas, jus concentré d'ananas Queen Tahiti, jus concentré d'ananas Comosus
 hr: koncentriranog soka od ananasa
@@ -48110,7 +46966,7 @@ sv: ananasjuice koncentrat
 < en:pineapple juice
 en: Pure pineapple juice, Pineapple Juice not from Concentrate
 de: Reiner Ananassaft, Ananassaft nicht aus Konzentrat
-es: zumo de piña exprimida
+es: zumo de piña exprimida, jugo de piña exprimida
 fr: Pur jus d'ananas, Pur jus d'ananas victoria
 hr: čisti sok od ananasa
 it: Succo di ananas puro, Succo di ananas non da concentrato
@@ -48125,7 +46981,7 @@ it: succo di ananas concentrato biologico
 en: pineapple juice from concentrate
 bg: сок от ананас от концентрат
 de: Ananassaft aus Konzentrat, Ananassaft aus Ananassaftkonzentrat, Ananassaft aus Fruchtsaftkonzentrat
-es: Zumo de piña a partir de concentrado, jugo de anana procedente de concentrado
+es: Zumo de piña a partir de concentrado, jugo de piña a partir de concentrado, zumo de anana procedente de concentrado, jugo de anana procedente de concentrado
 fi: ananasmehu tiivisteestä
 fr: jus d'ananas à base de concentré, Jus d'ananas à base de jus d'ananas concentré, Jus d'ananas à base de jus concentré
 hr: sok od ananasa iz koncentrata
@@ -48133,14 +46989,14 @@ it: succo d'ananas a base di concentrato, succo d'ananas a base di succo concent
 nb: Eplejuice fra konsentrat og puré
 nl: Ananassap van concentraat
 pl: sok ananasowy z koncentratu
-pt: Sumo de ananás obtido a partir de um produto concentrado
+pt: Suco de ananás obtido a partir de um produto concentrado, sumo de ananás obtido a partir de um produto concentrado
 # ingredient/fr:jus-d'ananas-à-base-de-concentré has 96 products in 3 languages @2018-09-30
 
 < en:pineapple
 en: pineapple syrup
 bg: сироп от ананас
 de: Ananassirup
-es: jarabe de piña
+es: jarabe de piña, sirope de piña
 fi: ananaskuorrute
 fr: sirop d'ananas
 hr: sirup od ananasa
@@ -48282,7 +47138,7 @@ it: Succo di melagrana a base di succo concentrato
 pl: sok z granatów z koncentratu
 
 < en:pomegranate juice
-es: zumo de granada variedad Mollar de Elche
+es: zumo de granada variedad Mollar de Elche, jugo de granada variedad Mollar de Elche
 
 < en:pomegranate
 fr: écorces de grenade
@@ -48505,7 +47361,7 @@ sv: hallonjuice från koncentrat
 < en:raspberry juice
 en: concentrated raspberry juice
 de: Himbeerdicksaft
-es: jarabe de frambuesas
+es: jarabe de frambuesas, sirope de frambuesas
 fi: vadelmamehutiiviste
 fr: jus de framboise concentré
 hr: koncentrirani sok od maline
@@ -48518,7 +47374,7 @@ pl: zagęszczony sok malinowy, zagęszczony sok z maliny, skoncentrowany sok mal
 < en:concentrated raspberry juice
 en: concentrated raspberry juice from concentrate
 de: Himbeerdicksaft aus Konzentrat
-es: jarabe de frambuesas de concentrado
+es: jarabe de frambuesas de concentrado, sirope de frambuesas de concentrado
 fr: concentré de jus de framboise
 hr: koncentrirani sok od maline od koncentrata
 it: Succo di lampone concentrato da concentrato
@@ -48843,7 +47699,7 @@ it: preparazione di fragole
 en: strawberry juice
 bg: ягодов сок, сок от ягоди
 de: Erdbeersaft
-es: zumo de fresa
+es: zumo de fresa, jugo de fresa
 fi: mansikkamehu
 fr: jus de fraise
 hr: sok od jagoda
@@ -48852,13 +47708,13 @@ it: Succo di fragola
 ja: 苺ジュース, イチゴジュース, いちごジュース, 苺果汁, イチゴ果汁, いちご果汁
 nl: aardbeiensap
 pl: sok truskawkowy, sok z truskawki, sok z truskawek
-pt: Sumo de morango
+pt: Suco de morango, sumo de morango
 sv: jordgubbsjuice, jordgubbssaft
 
 < en:strawberry juice
 en: strawberry juice concentrate, concentrated strawberry juice
 de: erdbeersaftkonzentrat
-es: Concentrado de jugo de fresa
+es: Concentrado de zumo de fresa, concentrado de jugo de fresa
 fi: mansikkamehutiiviste, mansikkatäysmehutiiviste
 fr: concentré de jus de fraise
 hr: koncentrat soka od jagode
@@ -49309,13 +48165,9 @@ it: uva rossa senza semi
 
 < en:red grape
 en: red grape fruit juice
-bg: сок от червено грозде
 de: Rotweintraubensaft
-es: jugo de uva roja
 hr: voćni sok crvenog grožđa
-it: succo di uva rossa
 nl: rode druivensap
-pt: suco de uva vermelha
 
 # description:en:A RAISIN is a dried grape.
 
@@ -49526,7 +48378,7 @@ ca: suc de raïm
 de: Traubensaft
 el: χυμός σταφυλιού
 eo: vinbera suko
-es: zumo de uva, jugo de pasas, jugo de pasas de uva, jugo de uva
+es: zumo de uva, jugo de uva, zumo de pasas, jugo de pasas, zumo de pasas de uva, jugo de pasas de uva
 et: Viinamarjamahl
 fi: rypälemehu, viinirypälemehu
 fr: jus de raisin
@@ -49558,7 +48410,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Grape_juice
 # 701 products in 6 languages @2018-10-02
 
 #<en:grape juice
-#pt:suco de uva integral
+#pt:suco de uva integral, sumo de uva integral
 
 #processing:organic
 #<en:grape juice
@@ -49649,15 +48501,16 @@ fr: jus de raisin blanc sauvignon
 
 < en:grape juice
 en: red grape juice
+bg: сок от червено грозде
 de: roter Traubensaft
-es: zumo de uva roja, jugo de uva tinto
+es: zumo de uva roja, jugo de uva roja, zumo de uva tinto, jugo de uva tinto
 fi: punainen rypälemehu
 fr: jus de raisin rouge
 hr: sok od crvenog grožđa
-it: succo d'uva rossa
+it: succo d'uva rossa, succo di uva rossa
 nl: blauw druivensap
 pl: sok z czerwonych winogron
-pt: sumo de uva tinta
+pt: suco de uva tinta, sumo de uva tinta, suco de uva vermelha, sumo de uva vermelha
 th: น้ำองุ่นแดง
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-raisin-rouge
 # 35 products in 4 languages @2018-10-02
@@ -49670,7 +48523,7 @@ fi: punainen rypälemehu tiivisteestä
 fr: Raisin rouge à base de concentré, Jus de raisin à base de jus de raisin rouge concentré
 hr: crveno grožđe iz koncentrata
 it: uva rossa da concentrato
-pt: sumo de uva tinta à base de concentrado
+pt: suco de uva tinta à base de concentrado, sumo de uva tinta à base de concentrado
 
 < en:red grape juice
 fr: jus de raisin rouge Syrah
@@ -51173,7 +50026,7 @@ ja: 野菜汁, 野菜ジュース
 nb: grønnsaksjuice
 nl: groentensap
 pl: Sok warzywny
-pt: Sumo de vejetais
+pt: Suco de vejetais, sumo de vejetais
 ru: Овощной сок
 sv: grönsaksjuice
 
@@ -53501,7 +52354,7 @@ it: crauti crudi
 < en:vegetable juice
 en: sauerkraut juice
 de: Sauerkrautsaft
-es: zumo de choucroute
+es: zumo de choucroute, jugo de choucroute
 fi: hapankaalimehu
 fr: jus de choucroute
 hr: sok od kiselog kupusa
@@ -54961,7 +53814,7 @@ ja: 玉ねぎエキス, オニオンエキス
 lt: svogūnų ekstraktas
 nl: uienextract
 pl: ekstrakt z cebuli, ekstrakty z cebuli, ekstrakt cebulowy
-pt: Extrato de cebolo
+pt: extrato de cebolo, extracto de cebolo
 sv: lökextrakt
 # ingredient/fr:extrait-d’oignon has 119 products in 3 languages @2018-12-06
 
@@ -56099,7 +54952,7 @@ hr: ekstrakt mrkve
 it: estratto di carota, estratto di carote
 ja: 人参エキス
 nl: wortelextract, kleurend wortelextract
-pt: Extrato de cenoura, extrato de cenouras
+pt: extrato de cenoura, extrato de cenouras, extracto de cenoura, extracto de cenouras
 # fr:extrait-de-carotte has 176 products in 6 languages @0218-10-20
 
 < en:carrot extract
@@ -56200,7 +55053,7 @@ wikidata:en: Q11767451
 en: black carrot juice
 bg: сок от черен морков
 de: schwarzer Karottensaft
-es: zumo de zanahoria negra
+es: zumo de zanahoria negra, jugo de zanahoria negra
 fi: Musta porkkanamehu
 fr: jus de carotte noire
 hr: sok od crne mrkve
@@ -56261,7 +55114,7 @@ ja: ニンジンジュース
 ko: 당근 주스
 nl: wortelsap
 pl: Sok marchwiowy, sok marchewkowy, sok z marchwi, sok z marchewki
-pt: Sumo de cenoura
+pt: Suco de cenoura, sumo de cenoura
 ru: морковный сок
 sa: गृञ्जनकरसः
 sl: Korenčkov sok
@@ -56299,7 +55152,7 @@ sv: morotjuicekoncentrat
 en: carrot juice from concentrate
 da: gulerodsjuice fra koncentrat, gulerodssaft fra koncentrat
 de: Karottensaft aus Karottensaftkonzentrat
-es: zumo de zanahoria a partir de concentrado
+es: zumo de zanahoria a partir de concentrado, jugo de zanahoria a partir de concentrado
 fr: jus de carotte à base de concentré, jus de carottes à base de concentré
 hr: sok od mrkve iz koncentrata
 it: succo di carota da concentrato
@@ -57857,7 +56710,7 @@ it: polvere di barbabietola
 < en:beetroot
 en: beetroot syrup
 de: Rote-Beete-Sirup
-es: sirope de remolacha
+es: sirope de remolacha, jarabe de remolacha
 hr: sirup od cikle
 it: sciroppo di barbabietola
 # TODO : merge with en:sugar beet syrup ?
@@ -58701,7 +57554,7 @@ ms: lada benggala
 mt: bżar ħelu
 my: ငရုပ်ပွ
 ne: भेडे खुर्सानी
-nl: paprika, paprika's, zoete peper, snack paprika
+# nl: paprika # also "en: paprika", see "en: paprika or bell pepper"
 oc: pebron
 pl: papryka słodka
 ps: خواږه مرچ
@@ -59405,7 +58258,7 @@ br: paprika
 bs: paprika
 ca: pebre vermell, piment vermell, pebre vermell picant
 cy: Paprica
-de: Paprika
+# de: Paprika # also "en: bell pepper", see "en: paprika or bell pepper"
 el: πάπρικα
 eo: papriko
 es: pimentón, paprika
@@ -59468,11 +58321,6 @@ en: smoked paprika
 it: paprika affumicata
 nl: gerookte paprika
 
-< en:paprika
-fr: paprika doux
-es: pimentón dulce
-# fr:paprika-doux has 44 products in 2 languages @2018-10-15
-
 # description:en:The paprika extract can be found under the section colour E160c
 
 < en:paprika
@@ -59488,11 +58336,12 @@ pl: pasta paprykowa
 
 
 < en:paprika
-en: sweet paprika
+en:ERROR - duplicate_synonym - 98868 - fr:petits-pois-tres-fins already is associated to en:extra-fine-garden-peas (ingredients) - fr:petits-pois-tres-fins cannot be mapped to entry fr:petits-pois-tres-fins
+
 bg: сладък червен пипер
 ca: pebre vermell dolç, pebre vermella dolça
 de: Paprika edelsüß
-es: pimienta roja dulce
+es: pimienta roja dulce, pimentón dulce
 fr: Paprika doux
 hr: slatka paprika
 it: paprika dolce
@@ -60100,7 +58949,7 @@ ja: トマトジュース, トマト果汁
 nb: tomatjuice
 nl: tomatensap
 pl: Sok pomidorowy, soku pomidorowego
-pt: Sumo de tomate
+pt: Suco de tomate, sumo de tomate
 ru: Томатный сок
 sv: tomatjuice
 tr: domates suyu
@@ -60125,7 +58974,7 @@ fr: jus concentré de tomate
 < en:tomato juice
 en: tomatoes-in-tomato-juice
 de: Tomaten in Tomatensoße, Tomaten in Tomatensaft
-es: tomates en zumo de tomate
+es: tomates en zumo de tomate, tomates en jugo de tomate
 fr: Tomates pelées au jus
 hr: rajčice-u-soku-rajčice
 
@@ -60482,7 +59331,7 @@ fr: concentré de citrouille
 en: pumpkin juice
 bg: сок от тиква
 de: Kürbissaft
-es: zumo de calabaza
+es: zumo de calabaza, jugo de calabaza
 fi: kurpitsamehu
 fr: jus de potiron
 hr: sok od bundeve
@@ -60495,7 +59344,7 @@ pl: sok z dyni, sok dyniowy
 en: concentrated pumpkin juice
 da: koncentreret græskarjuice
 de: Kürbissaft aus Konzentrat
-es: zumo de calabaza concentrado
+es: zumo de calabaza concentrado, jugo de calabaza concentrado
 fi: kurpitsamehutiiviste
 fr: jus de potiron concentré, jus concentré de potiron
 hr: koncentrirani sok od bundeve
@@ -62532,7 +61381,7 @@ fr: petits pois fins
 en: extra fine garden peas
 de: Palerbsen sehr fein
 es: guisantes extrafinos
-fr: petits pois très fins, petits pois extra fins, petits pois doux extra-fins
+fr: petits pois très fins, petits pois extra fins
 hr: ekstra fini vrtni grašak
 it: piselli extra fini
 nl: extra fijne doperwten, erwten zeer fijn
@@ -63116,7 +61965,6 @@ wikidata:en: Q11009
 # dsb:wórjechowy płod
 # en-ca:nut
 # en-gb:nut
-# es:nuez translation error
 # frr:naas
 # fur:nole
 # grc:κάρυον
@@ -63234,7 +62082,7 @@ en: raw almonds, Natural whole almonds, Raw natural almonds
 bg: сурови бадеми
 de: rohe Mandeln
 es: almendras crudas
-fr: amandes crues, amandes décortiquées
+# fr: amandes crues, amandes décortiquées # see ingredients_processing.txt
 hr: sirovi bademi
 it: mandorle crude
 pt: amêndoa crua, amêndoas cruas
@@ -63335,7 +62183,7 @@ sv: mandelpulver
 en: prepacked Almond paste
 fr: Pâte d'amande préemballée
 it: pasta di mandorle preconfezionata
-sv: mandelpasta
+sv: färdigförpackad mandelmassa
 ciqual_food_code:en: 15201
 ciqual_food_name:en: Almond paste or marzipan, prepacked
 ciqual_food_name:fr: Pâte d'amande, préemballée
@@ -64480,7 +63328,7 @@ mt: pistaċċi
 nb: Pistasjnøtter
 nl: pistachenoten
 pl: orzechy pistacjowe, pistacje
-pt: pistácios, pistácio
+pt: pistácios, pistácio, pistáchio, pistáchios, pistache, pistaches, pistacho, pistachos, pistacios
 ro: fistic
 ru: фисташки
 sk: pistáciové oriešky
@@ -64502,7 +63350,7 @@ de: Pistazienkerne geröstet
 es: pistachos tostados
 fr: Pistache grillée
 it: pistacchio tostato
-pt: pistacios torrados
+pt: pistacios torrados, pistácios torrados, pistácio torrados, pistáchio torrados, pistáchios torrados, pistache torrados, pistaches torrados, pistacho torrados, pistachos torrados, pistacios torrados
 ciqual_food_code:en: 15044
 ciqual_food_name:en: Pistachio nut, grilled
 
@@ -64586,7 +63434,6 @@ en: tree nut, treenuts, tree nuts
 cs: Ořechy
 de: Baumnüsse, Baumnuss
 es: nueces de árboles
-fr: Fruit à coque
 hr: orašasti plodovi
 it: noci da alberi, noci d'albero, noce d'albero
 ja: ナッツ
@@ -64717,9 +63564,6 @@ es: nueces de Grenoble
 fr: noix de Grenoble, noix sèches de Grenoble, noix de Grenoble sèche, noix sèche de Grenoble
 hr: orasi iz grenoblea
 it: noci di Grenoble
-
-< en:walnut
-es: nuez de castilla
 
 < en:walnut
 en: whole walnuts, dried whole walnuts
@@ -65703,7 +64547,7 @@ fr: extrait de poivre
 it: estratto di pepe
 nl: peperextract
 pl: ekstrakt pieprzu
-pt: Extrato de pimenta
+pt: extrato de pimenta, extracto de pimenta
 sv: pepparextrakt
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/pepper-extract
 # 400 products in 6 languages @2018-10-08
@@ -66653,9 +65497,6 @@ en: herbal pepper
 it: pepe alle erbe
 pl: pieprz ziołowy
 wikidata:en: Q11816603
-
-< en:spice
-fr: épices et arômes, aromates et épices
 
 < en:spice
 fr: épices moulues
@@ -69008,7 +67849,7 @@ ciqual_food_name:fr: Romarin, séché
 #hr:ekstrakt ružmarina
 #it:estratto di rosmarino, estratti di rosmarino
 #nl:rozemarijnextract, extracten van rozemarijn
-#pt:extratos de rosmaninho
+#pt:extratos de rosmaninho, extractos de rosmaninho
 #ro:extract de rozmarin
 #sv:rosmarinextrakt, extrakt av rosmarin
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-romarin
@@ -70074,7 +68915,7 @@ hr: ekstrakt bosiljka
 it: Estratto di basilico
 nl: basilicumextract
 pl: ekstrakt z bazylii, wyciąg z bazylii
-pt: extracto de manjericão
+pt: extrato de manjericão, extracto de manjericão
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-basilic
 # 32 products in 4 languages @2108-10-10
 
@@ -71332,7 +70173,7 @@ fr: extrait de houblon, extraits de houblon
 it: estratto di luppolo
 nl: hopextract
 pl: ekstrakt z chmielu
-pt: extracto de lupolo
+pt: extrato de lupolo, extracto de lupolo
 sk: chmelovy extract
 # ingredient/fr:extrait-de-houblon has 155 products in 15 languages @2018-12-01
 
@@ -71863,7 +70704,7 @@ hr: ekstrakt sladića
 it: estratto di liquirizia
 nb: lakrisekstrakt
 nl: Zoethoutextract
-pt: extrato de alcaçuz
+pt: extrato de alcaçuz, extracto de alcaçuz
 sv: lakritsextrakt, lakritsexstrakt
 # ingredient/fr:extrait-de-réglisse has 137 products in 9 languages @2018-12-28
 
@@ -73660,7 +72501,7 @@ it: estratto di te verde
 kk: кек шай сығындысы
 nl: groene thee-extract
 pl: ekstrakt z zielonej herbaty
-pt: extrato de ché verde
+pt: extrato de ché verde, extracto de ché verde
 ru: экстракт зеленого чая
 sv: grönt te-extrakt
 # ingredient/fr:extrait-de-thé-vert has 189 products in 9 languages @2019-04-21
@@ -73671,7 +72512,7 @@ de: Grünteeextraktpulver
 fr: Extrait de thé vert en poudre
 hr: ekstrakt zelenog čaja u prahu
 it: estratto di tè verde in polvere
-pt: extrato de ché verde em po
+pt: extrato de ché verde em po, extracto de ché verde em po
 
 < en:green tea
 en: green tea aroma oil, green tea oil
@@ -73890,7 +72731,7 @@ ms: ekstrak vanila
 nl: vanille-extract
 nn: vaniljeekstrakt
 pl: ekstrakt z wanilii, ekstrakt waniliowy
-pt: extrato de baunilha
+pt: extrato de baunilha, extracto de baunilha
 ro: extract de vanilie
 ru: экстракт ванили
 sk: výtažok z vanilky
@@ -73929,7 +72770,7 @@ it: estratto naturale di vaniglia
 ja: 天然パニラエキス
 nl: natuurlijk vanille-extract
 pl: naturalny ekstrakt z wanilii, naturalny ekstrakt waniliowy, naturalny ekstrakt wanilii
-pt: extracto natural de baunilha
+pt: extrato natural de baunilha, extracto natural de baunilha
 ro: extract natural de vanilie
 sr: prirodni ekstrakt vanile
 sv: naturlig vaniljextrakt
@@ -75340,7 +74181,7 @@ ciqual_food_name:fr: Champignon à la grecque
 < en:mushroom
 en: concentrated mushroom juice
 de: Pilz-Saftkonzentrat, Pilz Saftkonzentrat
-es: zumo de champiñón concentrado
+es: zumo de champiñón concentrado, jugo de champiñón concentrado
 fi: sienimehutiiviste
 fr: jus de champignon concentré, jus concentré de champignon
 hr: koncentrirani sok od gljiva
@@ -75395,7 +74236,7 @@ et: kukeseen, harilik kukeseen
 eu: Zizahori
 fa: قارچ قیفی
 fi: keltavahvero
-fr: girolles, Cantharellus cibarius, Girolle, Girole, Chanterelle
+fr: girolles, Cantharellus cibarius, Girolle, Girole
 ga: Cantarnaid
 gl: Cantarela
 hr: lisička
@@ -76598,7 +75439,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Tuber_magnatum
 # comment:fr:Chanterelle est un nom français ambigu recouvrant plusieurs espèces de champignons distinctes. Il peut désigner la girolle (Cantharellus cibarius), ou d'autres espèces, en particulier des genres Cantharellus et Craterellus, par exemple la chanterelle en tubes (Craterellus tubaeformis) ou la chanterelle jaune (Craterellus lutescens), généralement vendues sous le seul nom de chanterelles.
 
 < en:mushroom
-fr: chanterelles
+fr: Chanterelle, chanterelles
 wikipedia:fr: https://fr.wikipedia.org/wiki/Chanterelle
 # ingredient/fr:chanterelles has 51 products @2019-04-06
 
@@ -83666,7 +82507,7 @@ hy: Գետային խեցգետիններ
 id: Lobster air tawar
 io: Kankro
 is: Vatnakrabbar
-it: gamberi
+# it: gamberi # also "en: shrimp", see "en: crayfish or shrimp"
 ja: ザリガニ
 kk: Өзен шаяны
 ko: 가재
@@ -85683,7 +84524,7 @@ nb: sulfitt
 nl: sulfiet, sulfieten
 oc: Sulfit
 pl: Siarczyny, siarczyn
-pt: sulfito, sulfitos, metabissulfito, metabissulfito de sódio
+pt: sulfito, sulfitos, metabissulfito
 ro: Sulfit, sulfiții
 ru: Сульфиты
 sh: Sulfit
@@ -86272,7 +85113,7 @@ nl: gebrande koffiebonen
 #ja:コーヒーエキス
 #nl:koffie-extract
 #pl:ekstrakt kawy
-#pt:extrato de café
+#pt:extrato de café, extracto de café
 #ro:extract din cafea
 #sv:kaffeextrakt
 # ingredient/fr:extrait-de-café has 279 products in 5 languages @2018-11-30
@@ -86282,7 +85123,7 @@ nl: gebrande koffiebonen
 #<en:coffee extract
 #en:liquid coffee extract
 #de:flüssiger Kaffee-Extrakt
-#es:extracto de café líquido
+#es:extrato de café líquido, extracto de café líquido
 #fi:nestemäinen kahviuute
 #fr:Extrait de café liquide
 #it:estratto di caffè liquido
@@ -86479,7 +85320,7 @@ bg: краставица, краставици
 ca: cogombre
 cs: Okurek
 da: agurk, agurker
-de: Gurke, Gurken
+# de: Gurke, Gurken # also "en: gherkin", see "en: cumcumber or gherkin"
 el: Αγγούρι
 eo: serpentkukumo
 es: pepino
@@ -86619,7 +85460,7 @@ nl: komkommersap
 # <en:cucumber juice
 # en:pascalised cucumber juice
 # de:pascalisierter Gurkensaft
-# es:zumo de pepino pascalizado
+# es:zumo de pepino pascalizado, jugo de pepino pascalizado
 # fr:jus de concombre pascalisé
 # nl:gepascaliseerd komkommersap
 # ingredient/pascalised-cucumber-juice has no products @2019-05-15
@@ -88401,7 +87242,7 @@ bg: яйца от кокошки от подово отглеждане
 de: Eier aus Bodenhaltung
 es: huevos de granero
 fi: lattiakanojen munat, vapaan kanan munat, onnellisen kanan munat, pesämunat
-fr: œufs d'élevage au sol, œufs de poules élevées au sol, œufs de ponte au sol, oeufs de poules élevées au sol, oeufs de ponte au sol, sol
+fr: œufs d'élevage au sol, œufs de poules élevées au sol, œufs de ponte au sol, oeufs de poules élevées au sol, oeufs de ponte au sol
 hr: ambar jaja
 it: uova di allevamento al suolo
 nl: scharreleieren, scharrelei, scharrel-ei, ei van scharreleieren
@@ -89121,7 +87962,7 @@ nl: gezouten eigeel
 
 # The context should determine what part of the egg is meant.
 
-fr: issu de poules élevées au sol, sol
+fr: issu de poules élevées au sol
 de: aus Bodenhaltung
 it: d'allevamento al suolo
 nl: van scharrelkippen
@@ -89236,7 +88077,7 @@ kn: ಸಾರ
 ky: Экстракттар
 lt: Ekstraktas
 nl: extract, extracten
-pt: Extrato
+pt: extrato, extracto
 ru: Экстракт
 sl: ekstrat
 sq: Ekstrakti
@@ -89257,7 +88098,7 @@ fr: extraits naturels
 hr: prirodni ekstrakt
 it: estratto naturale
 nl: natuurlijk extract
-pt: Extrato natural
+pt: extrato natural, extracto natural
 # ingredient/fr:extraits-naturels has 72 products in french @2019-04-13
 # usage:fr: extraits naturels (dont céleri)
 
@@ -89273,7 +88114,7 @@ it: estratto vegetale, estratti vegetali
 lt: daržovių ekstraktas
 nl: plantaardig extract, plantaardige extracten
 pl: ekstrakty warzyw, ekstrakt warzyw
-pt: Extrato de vegetais
+pt: extrato de vegetais, extracto de vegetais
 sv: grönsaksextrakt
 # ingredient/fr:extraits-végétaux has 224 products in 11 languages @2019-05-15
 # usage:fr: extraits végétaux (spiruline, chlorelle, brocoli, épinard, pousses d'orge, pousses de blé, persil, gingembre, algues bleu-vert, ail),
@@ -93877,7 +92718,7 @@ nv: Abeʼ yistiní
 or: ଆଇସ କ୍ରୀମ
 pa: ਆਈਸ ਕਰੀਮ
 pl: Lody
-pt: gelado
+pt: gelado, sorvete
 rm: glatsch
 ro: înghețată
 ru: мороженое
@@ -93980,7 +92821,7 @@ hr: sladoled od vanilije
 hy: վանիլային պաղպաղակ
 it: Gelato alla vaniglia
 nl: Vanille-ijs, vanilleijs
-pt: gelado de baunilha
+pt: gelado de baunilha, sorvete de baunilha
 tr: Vanilyalı dondurma
 uk: Ванільне морозиво
 vi: Kem vani
@@ -94001,7 +92842,7 @@ fr: glace au chocolat
 hr: čokoladni sladoled
 it: gelato al cioccolato
 nl: chocoladeijs
-pt: gelado de chocolate
+pt: gelado de chocolate, sorvete de chocolate
 
 #category/pannacottas
 en: panna cotta
@@ -95986,7 +94827,7 @@ fr: extrait de fruit
 it: Estratto di frutta, estratti di frutta
 nl: vruchtenextract
 pl: ekstrakt z owoców
-pt: extrato de fruto, extrato de fruta, extrato de frutos, extrato de frutas
+pt: extrato de fruto, extrato de fruta, extrato de frutos, extrato de frutas, extracto de fruto, extracto de fruta, extracto de frutos, extracto de frutas
 sv: fruktextrakt
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-fruit
 # 54 products in 4 languages @2018-10-04
@@ -96003,7 +94844,7 @@ fr: extrait de pomme, concentré de pomme
 hr: ekstrakt jabuke
 it: estratto di mele, estratto di mela
 nl: appelextract
-pt: extrato de maçã
+pt: extrato de maçã, extracto de maçã
 sv: äppelkoncentrat, äppelextrakt, sötande äppelextrakt
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/apple-extract
 # 65 products in 4 languages @2018-10-04
@@ -96020,7 +94861,7 @@ hr: orange extract
 it: estratto di arancia
 nl: sinaasappelextracten
 pl: ekstrakt z pomarańczy, ekstrakty z pomarańczy
-pt: extrato de laranja
+pt: extrato de laranja, extracto de laranja
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-d'orange
 # 44 products @2018-09-28
 
@@ -96169,10 +95010,10 @@ it: gambero, gamberi
 < en:gherkin
 en: cumcumber or gherkin
 de: Gurke
-it: cetriolo o cetriolo
 
-< en:plant
-en: spice or bell pepper
+< en: bell pepper
+< en: paprika
+en: paprika or bell pepper
 bg: червен пипер, паприка
 cs: paprika
 da: paprika
@@ -96181,7 +95022,7 @@ fi: paprika
 hu: paprika
 lv: paprika
 nb: paprika
-nl: paprika
+nl: paprika, paprika's, zoete peper, snack paprika
 nn: paprika
 no: paprika
 pl: papryka, papryki, paprykowy, paprykowe, paprykowa

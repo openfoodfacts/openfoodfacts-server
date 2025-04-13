@@ -3355,10 +3355,13 @@ e_number:en: 166
 vegan:en: yes
 vegetarian:en: yes
 
+# the E170 family contains E170(i): Calcium carbonate and E170(ii): Calcium hydrogen carbonate
+# put plural for E170 and singular for E170(i) whenever it is possible
+# otherwise (Japanese, Korean, Thai, Arabic), put "Calcium carbonate group" or "Calcium carbonate family"
 en: E170, Calcium carbonates
 xx: E170
 af: E170, Kalsiumkarbonate
-ar: E170, كربونات الكالسيوم
+ar: E170, مجموعة كربونات الكالسيوم
 az: E170, Kalsium karbonatlar
 be: E170, Карбанаты кальцыю
 bg: E170, Калциеви карбонати
@@ -3384,9 +3387,9 @@ hu: E170, Kalcium-karbonátok
 id: E170, Kalsium karbonat
 is: E170, Kalsíumkarbónöt
 it: E170, Carbonati di calcio
-ja: E170, 炭酸カルシウム
+ja: E170, 炭酸カルシウム族
 jv: E170, Kalsium karbonat
-ko: E170, 탄산 칼슘
+ko: E170, 탄산 칼슘 계열
 lt: E170, Kalcio karbonatai
 lv: E170, Kalcija karbonāti
 mk: E170, Калциум карбонати
@@ -3404,7 +3407,7 @@ sl: E170, Kalcijevi karbonati
 sq: E170, Karbonatet kalcium
 sr: E170, Калцијум карбонати
 sv: E170, Kalciumkarbonater
-th: E170, แคลเซียมคาร์บอเนต
+th: E170, กลุ่มแคลเซียมคาร์บอเนต
 tr: E170, Kalsiyum karbonatlar
 uk: E170, Карбонати кальцію
 vi: E170, Cacbonat canxi
@@ -4962,21 +4965,21 @@ cs: E225, Siřičitan draselný
 da: E225, Calcium Disulphite, Calcium Disulfite, Calcium Pyrosulphite, Calcium Pyrosulfite, Potassium sulfite, Potassium sulphite
 de: E225, Kaliumsulfit
 el: E225, Θειώδες ασβέστιο
-es: E225, Sulfito cálcico
+es: E225, disulfito cálcico, disulfito de calcio
 et: E225, Kaltsiumdisulfit, Kaaliumsulfit
 fi: E225, Kalsiumdisulfiitti, Kalsiumdisulfiittia, Kaliumsulfiitti
 fr: E225, Disulfite de calcium, Pyrosulfite de calcium, Sulfite de potassium
 hu: E225, Kalcium-diszulfit, Kálium-szulfit
 it: E225, Disolfito di calcio, Pirosolfito di calcio, Solfuro di potassio
 lt: E225, Kalcio disulfitas, Kalcio pirosulfitas, Kalio sulfitas
-lv: E225, Kalcija sulfīts, Kalcija pirosulfīts
+lv: E225, kalcija disulfīts, Kalcija pirosulfīts
 mt: E225, Disulfitt tal-kalċju, Pirosulfitt tal-kalċju, Sulfitt tal-potassju
 nl: E225, Kaliumsulfiet
 pl: E225, Siarczyn potasu, Disiarczek wapnia, Pirosiarczek wapnia, Siarczek potasu
 pt: E225, Dissulfito de cálcio, Pirossulfito de cálcio, Sulfito de potássio
-ro: E225, Disulfit de calciu, Pirosulfit de calciu, Sulfat de potasiu
+ro: E225, Disulfit de calciu, Pirosulfit de calciu
 sk: E225, Siřičitan draselný
-sl: E225, Kalcijev disulfit, Kalcijev pirosulfit, Kalijev sulfat
+sl: E225, Kalcijev disulfit, Kalcijev pirosulfit
 sv: E225, Kalciumdisulfit, Kaliumsulfit
 additives_classes:en: en:antioxidant, en:preservative
 anses_additives_of_interest:en: yes
@@ -6151,7 +6154,7 @@ fr: E262, Acétates de sodium
 hr: E262, natrijevi acetati
 hu: E262, Nátrium-acetátok
 it: E262, acetati di sodio
-ja: E262, 酢酸ナトリウム, 酢酸Na
+ja: E262, 酢酸ナトリウム族
 nl: E262, natriumacetaten
 pl: E262, Octany sodu, Octan sodowy
 pt: E262, acétates de sodium
@@ -7023,6 +7026,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q139857
 
+# this is vitamin c, put vitamin c in vitamins.txt and ascorbic acid here
 en: E300, Ascorbic acid, l-ascorbic acid, Synonyms L-xylo-Ascorbic acid
 xx: E300
 bg: E300, Аскорбинова киселина, l-аскорбинова киселина, L-ксило-аскорбинова киселина
@@ -7033,8 +7037,8 @@ de: E300, Ascorbinsäure, Askorbinsäure, L-Ascorbinsäure
 el: E300, Ασκορβικο οξυ, l-ασκορβικο οξυ
 es: E300, Ácido ascórbico, Ácido l-ascórbico, Ácido L-ascórbico
 et: E300, Askorbiinhape
-fi: E300, Askorbiinihappo, L-askorbiinihappo, Askorbiinihappoa, L-askorbiinihappoa, c-vitamiini
-fr: E300, Acide ascorbique, Acide L-ascorbique, Acide ascorbique (L-), Acide L(+)-ascorbique, Ascorbate, vitamine c
+fi: E300, Askorbiinihappo, L-askorbiinihappo, Askorbiinihappoa, L-askorbiinihappoa
+fr: E300, Acide ascorbique, Acide L-ascorbique, Acide ascorbique (L-), Acide L(+)-ascorbique, Ascorbate
 hr: E300, askorbinska kiselina, l-askorbinska kiselina, askrobinska kiselina, askorbinska
 hu: E300, Aszkorbinsav, l-aszkorbinsav
 it: E300, Acido ascorbico, acido l-ascorbico, Ascorbato
@@ -7861,33 +7865,25 @@ vegetarian:en: yes
 wikidata:en: Q417003
 wikipedia:en: https://en.wikipedia.org/wiki/Sodium_erythorbate
 
+# might be synonym of E315, see https://en.wikipedia.org/wiki/Talk:E_number
 en: E317, Erythorbin acid
 xx: E317
 bg: E317, Киселина ериторбин
 cs: E317, Kyselina erythorbinová
-da: E317, Erythorbinsyre
-de: E317, Erythorbinsäure
 el: E317, Ερυθορβικό οξύ
 es: E317, Ácido eritorbínico
 et: E317, Eritorbiinhape
-fi: E317, Erytorbiinihappo
-fr: E317, Isoascorbate de potassium, Acide érythorbique
+fr: E317, Isoascorbate de potassium
 hu: E317, Eritorbinsav
 it: E317, Acido eritorbinico
-lt: E317, Eritorbo rūgštis
 lv: E317, Eritorbīnskābe
 mt: E317, Aċidu erythorbin
-nl: E317, Erythorbinezuur
 pl: E317, Kwas erytrobinowy
 pt: E317, Ácido eritorbínico
-ro: E317, Acid eritorbic
-sk: E317, Kyselina erytorbová
-sl: E317, Eritorbinska kislina
 sv: E317, Erytorbinsyra
 e_number:en: 317
 vegan:en: yes
 vegetarian:en: yes
-wikidata:en: Q17997696
 
 en: E318, Calcium erythorbin
 xx: E318
@@ -8568,19 +8564,21 @@ wikipedia:en: https://en.wikipedia.org/wiki/Citric_acid
 # fr:correcteur-d’acidité-acide-citrique has 83 products in 3 languages @2018-11-17
 
 #comment:en:E331 should be in plural, the specific form can be entered under i, ii or iii. In some languages the singular can refer to any of the three variants. Sodium citrate may refer to any of the sodium salts of citric acid (though most commonly the third), but we make no assumptions.
-
+# plural here after
+# singular in minerals.txt
 en: E331, Sodium citrates
 xx: E331
-ca: E331, Citrats de sodi, Citrat de sodi
+bg: E331, натриеви цитрати
+ca: E331, Citrats de sodi
 da: E331, Natriumcitrater
 de: E331, Natriumcitrate, Natriumcitraten
 es: E331, Citratos de sodio
 et: E331, Naatriumtsitraadid
 fi: E331, Natriumsitraatit, natriumsitraatti
 fr: E331, Citrates de sodium
-hr: E331, natrijevi citrati, natrijev citrat, regulator kiselosti natrijevi citrati
+hr: E331, natrijevi citrati, regulator kiselosti natrijevi citrati
 hu: E331, nátrium-citrátok
-it: E331, Citrati di sodio, citrato di sodio
+it: E331, Citrati di sodio
 lt: E331, natrio citratas
 lv: E331, nātrija citrāts
 mt: E331, ċitrat tas-sodju
@@ -8693,7 +8691,7 @@ en: E332, Potassium citrates
 xx: E332
 bg: E332, Потасиеви цитрати
 ca: E332, Citrats de potassi
-cs: E332, Citronan draselný
+cs: E332, Citronany draselné
 da: E332, Kaliumcitrat
 de: E332, Kaliumcitrate, Kaliumcitraten
 el: E332, Κιτρικά κάλια
@@ -8712,7 +8710,7 @@ pl: E332, Cytryniany potasu
 pt: E332, Citratos de potássio
 ro: E332, Citrați de potasiu
 ru: E332, Калиевые цитраты
-sk: E332, Citrán draselný
+sk: E332, Citrány draselné
 sl: E332, Kalijevi citrati
 sv: E332, Kaliumcitrater
 additives_classes:en: en:sequestrant, en:stabiliser
@@ -9224,32 +9222,68 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q303489
 
+
+# description:en:Phosphoric acid (also known as orthophosphoric acid or phosphoric(V) acid) is a weak acid with the chemical formula H3PO4.
+
 en: E338, Phosphoric acid, Orthophosphoric acid, phosphoric(V) acid
 xx: E338
 bg: E338, Фосфорна киселина, Ортофосфорна киселина
+bn: E338, ফসফরিক এসিড
+bs: E338, Fosfatna kiselina
 ca: E338, Àcid fosfòric, acid fosforic
 cs: E338, Kyselina fosforečná, Kyselina orthofosforečná, Kyselina ortofosforečná, Kyselina orto-fosforečná, Kyselina trihydrogenfosforečná, H3PO4, Kyselina ortho-fosforečná
+cy: E338, Asid ffosfforig
 da: E338, Phosphorsyre, Orthophosphorsyre, Fosforsyre
 de: E338, Phosphorsäure, ortho-Phosphorsäure, Orthophosphorsäure
 el: E338, Φωσφορικο οξυ
+eo: E338, Fosfata acido
 es: E338, Ácido fosfórico, Ácido ortofosfórico, Ortofosforico, Fosfato monoamónico, Fosforico
 et: E338, Fosforhape, Ortofosforhape
+eu: E338, azido fosforiko
+fa: E338, فسفریک اسید
 fi: E338, Fosforihappo, Ortofosforihappo, Divetyfosfaatti, Vetyfosfaatti, H3PO4, Fosforihappoa, Ortofosforihappoa, Divetyfosfaattia, Vetyfosfaattia
-fr: E338, Acide orthophosphorique, acide phosphorique, Sels de potassium de l'acide phosphorique, sels de potassium de E338, Phosphate d'hydrogène, Acide monophosphorique, Dihydrogénophosphate, Acide phophorique, Hydrogénophosphate
+fr: E338, Acide orthophosphorique, acide phosphorique, Sels de potassium de l'acide phosphorique, sels de potassium de E338, Phosphate d'hydrogène, Acide monophosphorique, Dihydrogénophosphate, Acide phophorique, Hydrogénophosphate, acidifiant phosphorique
+ga: E338, Aigéad fosfarach
+gd: E338, Ácido fosfórico
+he: E338, חומצה זרחתית
+hi: E338, फास्फोरिक अम्ल
 hr: E338, fosforna kiselina
 hu: E338, Foszforsav, Ortofoszforsav
+hy: E338, օրթոֆոսֆորական թթու
+id: E338, asam fosfor
 it: E338, Acido fosforico, Acido ortofosforico, Acido tetraossofosforico(V), H3PO4
+ja: E338, リン酸
+ka: E338, ფოსფორმჟავა
+kk: E338, Фосфор қышқылы
+ko: E338, 인산
+ky: E338, Ортофосфор кислотасы
+la: E338, Ортофосфор кислотасы
 lt: E338, Fosforo rūgštis, Ortofosforo rūgštis
 lv: E338, Fosforskābe, Ortofosforskābe, H3PO4
+mk: E338, Фосфорна киселина
+mr: E338, फॉस्फरिक आम्ल
+ms: E338, Asid fosforik
 mt: E338, Aċidu fosforiku, Aċidu Ortofosforiku
+nb: E338, Fosforsyre
+ne: E338, फोस्फरिक अम्ल
 nl: E338, Fosforzuur, Orthofosforzuur, Triwaterstoffosfaat, H3PO4
+oc: E338, Acid fosforic
 pl: E338, Kwas fosforowy, Kwas ortofosforowy, Kwas difosforowy, Kwas fosforowy(V), Kwas pirofosforowy
 pt: E338, Ácido fosfórico, Ácido ortofosfórico, H3po4
 ro: E338, Acid fosforic, Acid ortofosforic
+sh: E338, Fosfatna kiselina
 sk: E338, Kyselina fosforečná, Kyselina trihydrogenfosforečná
 sl: E338, Fosforjeva (v) kislina, ortofosforjeva kislina, Fosforna kislina, H3PO4
+sr: E338, фосфорна киселина
 sv: E338, Fosforsyra, Ortofosforsyra, E 338
+ta: E338, பாசுபாரிக் காடி
+te: E338, ఫాస్పారిక్ ఆమ్లం
+th: E338, กรดฟอสฟอริก
 tr: E338, Fosforik asit
+tt: E338, фусфыр әчелеге
+uk: E338, Ортофосфорна кислота
+vi: E338, Axit phôtphoric
+zh: E338, 磷酸
 additives_classes:en: en:antioxidant, en:sequestrant
 anses_additives_of_interest:en: yes
 e_number:en: 338
@@ -9262,6 +9296,21 @@ efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q184782
+wikipedia:en: https://en.wikipedia.org/wiki/Phosphoric_acid
+# azb:فوسفوریک اسید
+# ast:Ácidu fosfórico, E338, E 338, E-338, INS338, INS 338, INS-338
+# frr:Phosphorsüren
+# pnb:فاسفورک تیزاب
+# sco:phosphoric acid
+# sr-ec:фосфорна киселина
+# sr-el:fosforna kiselina
+# war:Phosphoric acid
+# zh-cn:磷酸
+# zh-hans:磷酸
+# zh-hant:磷酸
+# zh-hk:磷酸
+# zh-sg:磷酸
+# zh-tw:磷酸
 
 
 #comment:en:The plural form is preferred. The singular form might refer to variant iii, but can we be sure?.
@@ -9444,25 +9493,32 @@ e_number:en: 339
 wikidata:en: Q3249706
 wikipedia:en: https://en.wikipedia.org/wiki/Trisodium_phosphate
 
-en: E340, Potassium phosphates, potassium phosphate
+# the E340 family contains 
+#   E515(i): Monopotassium phosphate,
+#   E515(ii): Dipotassium phosphate,
+#   E515(iii): Tripotassium phosphate
+# put plural for E515 and singular for E515(i)
+en: E340, Potassium phosphates, potassium phosphate, E 340, E-340
 xx: E340
+bg: E340, Калиеви фосфати
 ca: E340, Fosfat de potassi, fosfats de potassi
 de: E340, Kaliumphosphat, Kaliumphosphate
 es: E340, Fosfatos de potasio, Fosfato de potasio, Fosfato potásico
-fi: E340, Kaliumfosfaatti, Kaliumfosfaattia
-fr: E340, Orthophosphates de potassium, Orthophosphate de potassium, Orthophosphate monopotassique, Orthophosphate dipotassique, Orthophosphate tripotassique, Phosphate de potassium, Phosphates de potassium, Dihydrogénophosphate de potassium, Phosphate de monopotassium
-hr: E340, kalijev fosfat
+fi: E340, Kaliumfosfaatti, Kaliumfosfaattia, kaliumfosfaatit
+fr: E340, Orthophosphates de potassium, Orthophosphate de potassium, Phosphate de potassium, Phosphates de potassium
+hr: E340, kalijev fosfat, kalijevi fosfati
 hu: E340, Kálium-foszfátok, kálium-foszfát
 it: E340, Fosfato di potassio, Fosfati di potassio
-lt: E340, Monokalio fosfatai, monokalio fosfatas
-lv: E340, Monokālija fosfāti, monokālija fosfāts
-mt: E340, Fosfat monopotassiku, Monofosfat monopotassiku
+lt: E340, Kalio fosfatai
+lv: E340, Kālija fosfāti, kālija fosfāts
+ms: E340, Kalium Fosfat
+mt: E340, Fosfati tal-potassju, fosfat tal-potassju
 nl: E340, Kaliumorthofosfaten
 pl: E340, Fosforan potasu, fosforany potasu, dodatek do żywności E340
-pt: E340, Fosfato de potássio, Fosfatos de potássio
-ro: E340, Fosfat monopotasic, Fosfat monobazic de potasiu, monofosfat monopotasic
-sk: E340, Dihydrogenfosforečnan draselný
-sl: E340, Monokalijev fosfat, Monobazični kalijev fosfat, Monokalijev monofosfat
+pt: E340, Fosfato de potássio, Fosfatos de potássio, fosfato de potácio, fosfatos de potácio
+ro: E340, Fosfați de potasiu, fosfat de potasiu
+sk: E340, Fosforečnany draselné, fosforečnan draselný
+sl: E340, Kalijevi fosfati, kalijev fosfat
 sv: E340, Kaliumfosfater, kaliumfosfat
 tr: E340, Potasyum fosfat, Potasyum fosfatlar
 additives_classes:en: en:emulsifier, en:humectant, en:sequestrant, en:stabiliser, en:thickener
@@ -9477,6 +9533,8 @@ efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q3381491
+wikipedia:en: https://en.wikipedia.org/wiki/Potassium_phosphate
+
 
 # description:en:Monopotassium phosphate, MKP, (also potassium dihydrogenphosphate, KDP, or monobasic potassium phosphate), KH2PO4, is a soluble salt of potassium and the dihydrogen phosphate ion
 
@@ -9491,19 +9549,19 @@ el: E340(i), Δισοξινο φωσφορικο καλιο
 es: E340(i), Fosfato monopotásico, Fosfato monobásico potásico, monofosfato monopotásico
 et: E340(i), Kaaliumdivesinikfosfaat, Kaaliumdivesinikfosfaat
 fi: E340(i), Monokaliumfosfaatti, Yhdenarvoinen kaliumfosfaatti, Monokaliummonofosfaatti, Monokaliumfosfaattia, Yhdenarvoista kaliumfosfaattia, Monokaliummonofosfaattia
-fr: E340(i), Phosphate monopotassique
+fr: E340(i), Phosphate monopotassique, Orthophosphate monopotassique, Dihydrogénophosphate de potassium, Phosphate de monopotassium
 hr: E340(i), monokalijev fosfat
 hu: E340(i), Monokálium-foszfát, Egybázisú kálium-foszfát, Monokálium-monofoszfát
 it: E340(i), Fosfato monopotassico, Fosfato monobasico di potassio, monofosfato monopotassico
-lt: E340(i), Monokalio fosfatas, Vienbazis kalio fosfatas, monokalio monofosfatas
-lv: E340(i), Monokālija fosfāts, Monobāziskais kālija fosfāts, Monokālija monofosfāts
+lt: E340(i), Monokalio fosfatas, Vienbazis kalio fosfatas, monokalio monofosfatas, Monokalio fosfatai
+lv: E340(i), Monokālija fosfāts, Monobāziskais kālija fosfāts, Monokālija monofosfāts, Monokālija fosfāti
 mt: E340(i), Fosfat monopotassiku, Fosfat tal-potassju monobażiku, Monofosfat monopotassiku
 nl: E340(i), Monokaliumfosfaat, Eenbasisch kaliumfosfaat, monokaliummonofosfaat
 pl: E340(i), Fosforan monopotasowy, Fosforan potasu monozasadowy, monofosforan monopotasowy
 pt: E340(i), Fosfato monopotássico, Fosfato monobásico de potássio, monofosfato monopotássico
-ro: E340(i), Fosfat monopotasic, Fosfat de potasiu monobazic, Monofosfat monopotasic
+ro: E340(i), Fosfat monopotasic, Fosfat de potasiu monobazic, Monofosfat monopotasic, Fosfat monobazic de potasiu
 ru: орто-Фосфат калия 3-замещенный
-sk: E340(i), Fosforečnan monodraselný, Monosýtny fosforečnan draselný, monofosforečnan monodraselný
+sk: E340(i), Fosforečnan monodraselný, Monosýtny fosforečnan draselný, monofosforečnan monodraselný, Dihydrogenfosforečnan draselný
 sl: E340(i), Monokalijev fosfat, monobazični kalijev fosfat, monokalijev monofosfat
 sv: E340(i), Monokaliumfosfat, Monokaliummonofosfat, kaliumortofosfat
 additives_classes:en: en:emulsifier, en:humectant, en:sequestrant, en:stabiliser, en:thickener
@@ -9513,49 +9571,73 @@ wikidata:en: Q415049
 wikipedia:en: https://en.wikipedia.org/wiki/Monopotassium_phosphate
 # additive/e340i-monopotassium-phosphate has 241 products in 10 languages @2018-11-7
 
+
+# description:en:Dipotassium phosphate (K2HPO4) (also dipotassium hydrogen orthophosphate; potassium phosphate dibasic) is a highly water-soluble salt
+
 < en:E340
-en: E340(ii), Dipotassium phosphate, Dipotassium monophosphate, Secondary potassium phosphate, Dipotassium orthophosphate
+en: E340(ii), Dipotassium phosphate, Dipotassium monophosphate, Secondary potassium phosphate, Dipotassium orthophosphate, E340ii, E 340ii, E-340ii, E340 ii
 xx: E340(ii)
+ar: E340(ii), دیپوتاسیوم فوسفات
 bg: E340(ii), Дикалиев фосфат, Дикалиев монофосфат, вторичен калиев фосфат, дикалиев ортофосфат
 cs: E340(ii), Hydrogenfosforečnan draselný
 da: E340(ii), Dikaliumphosphat, Dikaliummonophosphat, sekundært kaliumphosphat, dikaliumorthophosphat
 de: E340(ii), Dikaliumphosphat, Dikaliummonophosphat, sekundäres Kaliumphosphat, Dikaliumorthophosphat
 el: E340(ii), Οξινο φωσφορικο καλιο, Όξινο ορθοφωσφορικό κάλιο
+eo: E340(ii), Kalia fosfato dubaza
 es: E340(ii), Fosfato dipotásico, Monofosfato dipotásico, fosfato potásico secundario, ortofosfato dipotásico
 et: E340(ii), Dikaaliumvesinikfosfaat, Dikaaliumvesinikfosfaat
+fa: E340(ii), دی‌پتاسیم فسفات
 fi: E340(ii), Dikaliumfosfaatti, Dikaliummonofosfaatti, Sekundäärinen kaliumfosfaatti, Dikaliumortofosfaatti, Dikaliumfosfaattia, Dikaliummonofosfaattia, Sekundääristä kaliumfosfaattia, Dikaliumortofosfaattia
-fr: E340(ii), Phosphate dipotassique
+fr: E340(ii), Phosphate dipotassique, Orthophosphate dipotassique
+hr: E340(ii), dikalijev fosfat
 hu: E340(ii), Dikálium-foszfát, Dikálium-monofoszfát, Szekunder kálium-foszfát, Dikálium-ortofoszfát
 it: E340(ii), Fosfato dipotassico, Monofosfato dipotassico, fosfato secondario di potassio, ortofosfato dipotassico
+ja: E340(ii), リン酸水素二カリウム
 lt: E340(ii), Dikalio fosfatas, Dikalio monofosfatas, antrinis kalio fosfatas, dikalio ortofosfatas
 lv: E340(ii), Dikālija fosfāts, Dikālija monofosfāts, Otrējais kālija fosfāts, Dikālija ortofosfāts
 mt: E340(ii), Fosfat dipotassiku, Monofosfat dipotassiku, Fosfat tal-potassju sekondarju, Ortofosfat dipotassiku
 nl: E340(ii), Dikaliumfosfaat, Dikaliummonofosfaat, secundair kaliumfosfaat, dikaliumorthofosfaat
 pl: E340(ii), Fosforan dipotasowy, Monofosforan dipotasowy, drugorzędowy fosforan potasu, ortofosforan dipotasowy
-pt: E340(ii), Fosfato dipotássico, Monofosfato dipotássico, fosfato secundário de potássio, ortofosfato dipotássico
+pt: E340(ii), Fosfato dipotássico, Monofosfato dipotássico, fosfato secundário de potássio, ortofosfato dipotássico, fosfato dipotéssico
 ro: E340(ii), Fosfat dipotasic, Monofosfat dipotasic, Fosfat de potasiu secundar, Ortofosfat dipotasic
+ru: E340(ii), Гидроортофосфат калия
+sh: E340(ii), Dikalijum fosfat
 sk: E340(ii), Fosforečnan didraselný
 sl: E340(ii), Dikalijev fosfat, dikalijev monofosfat, sekundarni kalijev fosfat, dikalijev ortofosfat
+sr: E340(ii), Dikalijum fosfat
 sv: E340(ii), Dikaliumfosfat, Dikaliumortofosfat
+ta: E340(ii), இருபொட்டாசியம் பாசுபேட்டு
+th: E340(ii), ไดโพแทสเซียมฟอสเฟต
+vi: E340(ii), Dikali photphat
+zh: E340(ii), 磷酸氫二鉀
 additives_classes:en: en:emulsifier, en:humectant, en:sequestrant, en:stabiliser, en:thickener
 anses_additives_of_interest:en: yes
 e_number:en: 340
-wikidata:en: Q3381491
+wikidata:en: Q403721
+# azb:دیپوتاسیوم فوسفات
+wikipedia:en: https://en.wikipedia.org/wiki/Dipotassium_phosphate
+
+
+# Tripotassium phosphate, also called potassium phosphate tribasic,[3] is a water-soluble ionic salt which has the chemical formula K3PO4.
 
 < en:E340
-en: E340(iii), Tripotassium phosphate, Tribasic potassium phosphate
+en: E340(iii), Tripotassium phosphate, tripotassium phosphate, E340iii, E 340iii, E340 iii, E-340iii, Tribasic potassium phosphate
 xx: E340(iii)
 bg: E340(iii), Трикалиев фосфат, Триосновен калиев фосфат
 cs: E340(iii), Fosforečnan draselný, Fosforečnan tridraselný
 da: E340(iii), Trikaliumphosphat, Tribasisk kaliumphosphat
 de: E340(iii), Trikaliumphosphat, dreibasiges Kaliumphosphat
 el: E340(iii), Φωσφορικο καλιο, Ουδέτερο φωσφορικό κάλιο
-es: E340(iii), Fosfato tripotásico, Fosfato tribásico potásico
+eo: E340(iii), Kalia fosfato tribaza
+es: E340(iii), fosfato tripotasico, Fosfato tribásico potásico
 et: E340(iii), Kaaliumfosfaat, Trikaaliumfosfaat
+fa: E340(iii), تری‌پتاسیم فسفات
 fi: E340(iii), Trikaliumfosfaatti, Kolmenarvoinen kaliumfosfaatti, Trikaliumfosfaattia, Kolmenarvoista kaliumfosfaattia
-fr: E340(iii), Phosphate tripotassique
+fr: E340(iii), Phosphate tripotassique, Orthophosphate tripotassique
+hr: E340(iii), trikalijev fosfat
 hu: E340(iii), Trikálium-foszfát, Hárombázisú kálium-foszfát
 it: E340(iii), Fosfato tripotassico, Fosfato tribasico di potassio
+ja: E340(iii), リン酸三カリウム
 lt: E340(iii), Trikalio fosfatas, Tribazis kalio fosfatas
 lv: E340(iii), Trikālija fosfāts, Tribāziskais kālija fosfāts
 mt: E340(iii), Fosfat tat-tripotassju, Fosfat tal-potassju tribażiku
@@ -9563,28 +9645,38 @@ nl: E340(iii), Trikaliumfosfaat, Driebasisch kaliumfosfaat
 pl: E340(iii), Fosforan tripotasowy, Fosforan potasu trizasadowy
 pt: E340(iii), Fosfato tripotássico, Fosfato tribásico de potássio
 ro: E340(iii), Fosfat tripotasic, Fosfat de potasiu tribazic
+ru: E340(iii), Ортофосфат калия
+sh: E340(iii), Trikalijum fosfat
 sk: E340(iii), Fosforečnan tridraselný, Trojsýtny fosforečnan draselný
 sl: E340(iii), Trikalijev fosfat, tribazični kalijev fosfat
+sr: E340(iii), Trikalijum fosfat
 sv: E340(iii), Trikaliumfosfat
+ta: E340(iii), டிரைபொட்டாசியம் பாசுபேட்டு
+zh: E340(iii), 磷酸鉀
 additives_classes:en: en:emulsifier, en:humectant, en:sequestrant, en:stabiliser, en:thickener
 anses_additives_of_interest:en: yes
 e_number:en: 340
-wikidata:en: Q3381491
+wikidata:en: Q423852
+wikipedia:en: https://en.wikipedia.org/wiki/Tripotassium_phosphate
 
-en: E341, Calcium phosphates, calcium phosphate
+
+# description:en:CALCIUM PHOSPHATE is a family of materials and minerals containing calcium ions (Ca2+) together with inorganic phosphate anions.
+# singular forms seem to imply the tricalcium phosphate
+
+en: E341, Calcium phosphates, calcium phosphate, calcium phosphates, E 341, E-341
 xx: E341
-bg: E341, Калциеви фосфати, калциев фосфат
+bg: E341, Калциеви фосфати, калциев фосфат, калциеви фосфати
 ca: E341, Fosfat de calci, Fosfats de calci, Fosfat càlcic, fosfat calcic
 cs: E341, CaPO4
 da: E341, Kalciumfosfater, kalciumfosfat
-de: E341, Calciumphosphate, Calciumsalze der Orthophosphorsäure, E 341
+de: E341, Calciumphosphate, Calciumsalze der Orthophosphorsäure, Calciumorthophosphate, E 341
 el: E341, Φωσφορικά ασβέστια, φωσφορικό ασβέστιο
 es: E341, Fosfatos de calcio, Fosfato de calcio, Fosfato cálcico, Sales Cálcicas de Ácido Ortofosfórico
 et: E341, Kaltsiumfosfaadid, kaltsiumfosfaat
-fi: E341, Kalsiumfosfaatit, kalsiumfosfaatti, Kalsiumfosfaattia
-fr: E341, Phosphates de calcium, Orthophosphates de calcium
-hr: E341
-hu: E341, Kalcium-foszfátok, kalcium-foszfát
+fi: E341, Kalsiumfosfaatit, kalsiumfosfaatit, kalsiumfosfaatti, Kalsiumfosfaattia
+fr: E341, Phosphates de calcium, Orthophosphates de calcium, phosphates de calcium
+hr: E341, kalcijevi fosfati
+hu: E341, Kalcium-foszfátok, kalcium-foszfát, kalcium-foszfátok
 it: E341, Fosfati di calcio, Fosfato di calcio
 lt: E341, Kalcio fosfatai, kalcio fosfatas
 lv: E341, Kalcija fosfāti, kalcija fosfāts
@@ -9593,6 +9685,7 @@ nl: E341, Calciumfosfaten, Calciumorthofosfaten
 pl: E341, Fosforan wapnia, Fosforany wapnia
 pt: E341, Fosfatos de cálcio, Fosfato de cálcio
 ro: E341, Fosfați de calciu, fosfat de calciu
+ru: E341, Фосфат кальция, Фосфаты кальция
 sk: E341, Fosfáty vápnika, fosforečnan vápenatý
 sl: E341, Kalcijeve fosfate, kalcijev fosfat
 sv: E341, Kalciumfosfater, kalciumfosfat
@@ -9610,21 +9703,33 @@ organic_eu:en: authorized
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q426664
+wikipedia:en: https://en.wikipedia.org/wiki/Calcium_phosphate
+
+
+# description:en:Monocalcium phosphate is an inorganic compound with the chemical formula Ca(H2PO4)2
 
 < en:E341
-en: E341(i), Monocalcium phosphate, Monobasic calcium phosphate, mono-calcium phosphate
+en: E341(i), Monocalcium phosphate, Monobasic calcium phosphate, mono-calcium phosphate, monocalcium phosphate, E341i, E 341i, E-341i, E341 i
 xx: E341(i)
+ar: E341(i), فوسفات أحادي الكالسيوم
 bg: E341(i), Монокалциев фосфат, Едноосновен калциев фосфат, калциев монофосфат
+bn: E341(i), মনোক্যালসিয়াম ফসফেট
+bs: E341(i), Monokalcij-fosfat
+ca: E341(i), Fosfat de monocalci
 cs: E341(i), Fosforečnan monovápenatý, Bis(dihydrogenfosforečnan) vápenatý, Fosfat de monocalci
 da: E341(i), Monocalciumphosphat, Monobasisk calciumphosphat
 de: E341(i), Monocalciumphosphat, einbasiges Calciumphosphat
 el: E341(i), Δισοξινο φωσφορικο ασβεστιο, Μονοβασικό φωσφορικό ασβέστιο
-es: E341(i), Fosfato monocálcico, Fosfato monobásico cálcico, Calcio (mono) fosfato, calcio fosfato monobásico, calcio (mono) ortofosfato, calcio fosfato monobásico, calcio bifosfato, calcio fosfato ácido, calcio dihidrógeno fosfato
+es: E341(i), Fosfato monocálcico, Fosfato monobásico cálcico, fosfato monocalcico, Calcio (mono) fosfato, calcio fosfato monobásico, calcio (mono) ortofosfato, calcio fosfato monobásico, calcio bifosfato, calcio fosfato ácido, calcio dihidrógeno fosfato
 et: E341(i), Kaltsiumdivesinikfosfaat, Kaltsiumdivesinikfosfaat
+fa: E341(i), مونوکلسیم فسفات
 fi: E341(i), Monokalsiumfosfaatti, Yhdenarvoinen kalsiumfosfaatti, Monokalsiumfosfaattia, Yhdenarvoista kalsiumfosfaattia
 fr: E341(i), Phosphate monocalcique, orthophosphate monocalcique
+ga: E341(i), Sárfhosfáit
+hr: E341(i), monokalcijev fosfat
 hu: E341(i), Monokalcium-foszfát, Egybázisú kalcium-foszfát
 it: E341(i), Fosfato monocalcico, Fosfato monobasico di calcio, monocalcio fosfato
+ja: E341(i), リン酸二水素カルシウム
 lt: E341(i), Monokalcio fosfatas, Vienbazis kalcio fosfatas
 lv: E341(i), Monokalcija fosfāts, Monobāziskais kalcija fosfāts
 mt: E341(i), Fosfat monokalċiku, Fosfat tal-kalċju monobażiku
@@ -9632,30 +9737,45 @@ nl: E341(i), Monocalciumfosfaat, Eenbasisch calciumfosfaat
 pl: E341(i), Fosforan monowapniowy, Fosforan wapnia monozasadowy
 pt: E341(i), Fosfato monocálcico, Fosfato monobásico de cálcio
 ro: E341(i), Fosfat monocalcic, Fosfat de calciu monobazic
+ru: E341(i), Дигидроортофосфат кальция
+sh: E341(i), Monokalcijum fosfat
 sk: E341(i), Fosforečnan monovápenatý
 sl: E341(i), Monokalcijev fosfat, monobazični kalcijev fosfat
+sr: E341(i), Monokalcijum fosfat
 sv: E341(i), Monokalciumfosfat
+vi: E341(i), Superphosphate
+zh: E341(i), 磷酸二氢钙
 additives_classes:en: en:emulsifier, en:humectant, en:sequestrant, en:stabiliser, en:thickener
 anses_additives_of_interest:en: yes
 e_number:en: 341
 organic_eu:en: authorized
-wikidata:en: Q426664
+wikidata:en: Q414673
+wikipedia:en: https://en.wikipedia.org/wiki/Monocalcium_phosphate
+# azb:مونوکلسیوم فوسفات
+
+
+# description:en:Dicalcium phosphate is the calcium phosphate with the formula CaHPO4 and its dihydrate.
 
 < en:E341
-en: E341(ii), Dicalcium phosphate, Dibasic calcium phosphate, di-calcium phosphate
+en: E341(ii), Dicalcium phosphate, Dibasic calcium phosphate, di-calcium phosphate, dicalcium phosphate, E341ii, E 341ii, E-341ii, E341 ii
 xx: E341(ii)
+ar: E341(ii), فوسفات ثنائي الكالسيوم
 bg: E341(ii), Дикалциев фосфат, Двуосновен калциев фосфат
-ca: E341(ii), Fosfat de dicalci
+bs: E341(ii), Dikalcij-fosfat
+ca: E341(ii), Fosfat de dicalci, Hidrogenfosfat de calci
 cs: E341(ii), Hydrogenfosforečnan vápenatý
 da: E341(ii), Dicalciumphosphat, Dibasisk calciumphosphat
 de: E341(ii), Dicalciumphosphat, zweibasiges Calciumphosphat
 el: E341(ii), Οξινο φωσφορικο ασβεστιο, Διβασικό φωσφορικό ασβέστιο
-es: E341(ii), Fosfato dicálcico, Fosfato dibásico cálcico, Calcio (di) fosfato, calcio fosfato dibásico, calcio hidrógeno orto-fosfato, calcio fosfato dibásico, calcio secundario fosfato, calcio hidrógeno fosfato, calcio hidrógeno monofosfato
+es: E341(ii), Fosfato dicálcico, Fosfato dibásico cálcico, fosfato dicálcico, Calcio (di) fosfato, calcio fosfato dibásico, calcio hidrógeno orto-fosfato, calcio fosfato dibásico, calcio secundario fosfato, calcio hidrógeno fosfato, calcio hidrógeno monofosfato
 et: E341(ii), Kaltsiumvesinikfosfaat, Kaltsiumvesinikfosfaat
+fa: E341(ii), دی‌کلسیم فسفات
 fi: E341(ii), Dikalsiumfosfaatti, Dikalsiumfosfaattia
 fr: E341(ii), Phosphate dicalcique, Phosphate de calcium dibasique
+hr: E341(ii), dikalcijev fosfat
 hu: E341(ii), Dikalcium-foszfát, Kétbázisú kalcium-foszfát
 it: E341(ii), Fosfato dicalcico, Fosfato bibasico di calcio
+ja: E341(ii), リン酸一水素カルシウム
 lt: E341(ii), Dikalcio fosfatas, Dvibazis kalcio fosfatas
 lv: E341(ii), Dikalcija fosfāts, Dibāziskais kalcija fosfāts
 mt: E341(ii), Fosfat dikalċiku, Fosfat tal-kalċju dibażiku
@@ -9663,46 +9783,71 @@ nl: E341(ii), Dicalciumfosfaat, Tweebasisch calciumfosfaat
 pl: E341(ii), Fosforan diwapniowy, Fosforan wapnia dizasadowy
 pt: E341(ii), Fosfato dicálcico, Fosfato dibásico de cálcio
 ro: E341(ii), Fosfat dicalcic, Fosfat de calciu dibazic
+ru: E341(ii), Гидроортофосфат кальция
+sh: E341(ii), Dikalcijum fosfat
 sk: E341(ii), Fosforečnan divápenatý, Dvojsýtny fosforečnan vápenatý
 sl: E341(ii), Dikalcijev fosfat, dibazični kalcijev fosfat
+sr: E341(ii), Dikalcijum fosfat
 sv: E341(ii), Dikalciumfosfat
+vi: E341(ii), Dicanxi photphat
+zh: E341(ii), 磷酸氫鈣
 additives_classes:en: en:emulsifier, en:humectant, en:sequestrant, en:stabiliser, en:thickener
 anses_additives_of_interest:en: yes
 e_number:en: 341
 organic_eu:en: authorized
-wikidata:en: Q426664
+wikidata:en: Q414619
+wikipedia:en: https://en.wikipedia.org/wiki/Dicalcium_phosphate
+# azb:دیکلسیوم فوسفات
+
+
+# description:en:Tricalcium phosphate (sometimes abbreviated TCP) is a calcium salt of phosphoric acid with the chemical formula Ca3(PO4)2.
 
 < en:E341
-en: E341(iii), Tricalcium phosphate, Tricalciumphosphate, tri-calcium phosphate
+en: E341(iii), Tricalcium phosphate, Tricalciumphosphate, tri-calcium phosphate, tricalcium phosphate, E341iii, E 341iii, E-341iii, E341 iii
 xx: E341(iii)
+ar: E341(iii), فوسفات ثلاثي الكالسيوم
 bg: E341(iii), Трикалциев фосфат
+bs: E341(iii), Trikalcij-fosfat
 ca: E341(iii), Fosfat de tricalci
 cs: E341(iii), Fosforečnan vápenatý
 da: E341(iii), Tricalciumphosphat
 de: E341(iii), Tricalciumphosphat
 el: E341(iii), Φωσφορικο ασβεστιο, Ουδέτερο φωσφορικό ασβέστιο, ορθοφωσφορικό ασβέστιο, υδροξυφωσφορικό ασβέστιο
-es: E341(iii), Fosfato tricálcico, Fosfato tri-cálcico, Calcio (tri) fosfato, calcio fosfato tribásico, calcio fosfato precipitado, calcio fosfato
+es: E341(iii), Fosfato tricálcico, Fosfato tri-cálcico, fosfato tricálcico, Calcio (tri) fosfato, calcio fosfato tribásico, calcio fosfato precipitado, calcio fosfato
 et: E341(iii), Trikaltsiumfosfaat
+fa: E341(iii), تری‌کلسیم فسفات
 fi: E341(iii), Trikalsiumfosfaatti, Trikalsiumfosfaattia
 fr: E341(iii), Phosphate tricalcique, phosphate de tricalcium
+hr: E341(iii), trikalcijev fosfat
 hu: E341(iii), Trikalcium-foszfát
-it: E341(iii), Tricalcium fosfato
+it: E341(iii), Tricalcium fosfato, tricalcio fosfato
+ja: E341(iii), リン酸三カルシウム
+ky: E341(iii), Кальций фосфаты
 lt: E341(iii), Trikalcio fosfatas
 lv: E341(iii), Trikalcija fosfāts
 mt: E341(iii), Fosfat trikalċiku
 nl: E341(iii), Tricalciumfosfaat
+nn: E341(iii), trikalsiumfosfat
 pl: E341(iii), Fosforan trójwapniowy
 pt: E341(iii), Fosfato tricálcico
 ro: E341(iii), Fosfat tricalcic, Fosfat de calciu tribazic, Ortofosfat de calciu, Monofosfat hidroxi pentacalcic
+ru: E341(iii), e341iii
+sh: E341(iii), Trikalcijum fosfat
 sk: E341(iii), Fosforečnan trivápenatý
 sl: E341(iii), Trikalcijev fosfat
+sr: E341(iii), Trikalcijum fosfat
 sv: E341(iii), Trikalciumfosfat, Kalciumortofosfat, pentakalciumhydroximonofosfat
+uk: E341(iii), Ортофосфат кальцію
+vi: E341(iii), Tricanxi photphat
+zh: E341(iii), 磷酸钙
 additives_classes:en: en:emulsifier, en:humectant, en:sequestrant, en:stabiliser, en:thickener
 anses_additives_of_interest:en: yes
 e_number:en: 341
 mandatory_additive_class:en: en:acidity-regulator, en:anti-caking-agent, en:stabiliser, en:acid
 organic_eu:en: authorized
-wikidata:en: Q426664
+wikidata:en: Q278387
+wikipedia:en: https://en.wikipedia.org/wiki/Tricalcium_phosphate
+# azb:تریکلسیوم فوسفات
 
 en: E342, Ammonium phosphate, monoammonium phosphate, diammonium phosphate
 xx: E342
@@ -9731,18 +9876,21 @@ vegetarian:en: yes
 wikidata:en: Q18967184
 
 #comment:en:Is in plural, as it can be any specific variant
-en: E343, Magnesium phosphates
+# description:en:Magnesium phosphate is a general term for salts of magnesium and phosphate appearing in several forms and several hydrates
+# Note that these ingredients are written in plural as it can be any of the three variants
+en: E343, Magnesium phosphates, magnesium phosphates, E 343, E-343
 xx: E343
 bg: E343, Магнезиеви фосфати
 ca: E343, Fosfat de magnesi
 cs: E343, Fosfáty hořečnaté
 da: E343, Magnesiumfosfater
-de: E343, Magnesiumphosphate
+de: E343, Magnesiumphosphate, Magnesiumphosphaten
 el: E343, Φωσφορικά μαγνησίου
 es: E343, Fosfatos de magnesio
 et: E343, Magneesiumfosfaadid
 fi: E343, Magnesiumfosfaatit
 fr: E343, Phosphates de magnésium, Orthophosphates de magnésium
+hr: E343, magnezijevi fosfati
 hu: E343, Magnézium-foszfátok
 it: E343, Fosfati di magnesio
 lt: E343, Magnio fosfatai
@@ -9766,7 +9914,11 @@ efsa_evaluation_overexposure_risk:en: en:high
 efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2019.5674
 vegan:en: yes
 vegetarian:en: yes
-wikidata:en: Q2634889
+wikidata:en: Q2634889 # Q723683
+wikipedia:en: https://en.wikipedia.org/wiki/Magnesium_phosphate
+
+
+# description:en:Monomagnesium phosphate is one of the forms of magnesium phosphate. chemical formula Mg(H2PO4)2.
 
 < en:E343
 en: E343(i), Monomagnesium phosphate, Magnesiumdihydrogenphosphate, Magnesiumphosphate, monobasic, magnesium phosphate
@@ -9806,8 +9958,10 @@ wikipedia:en: https://en.wikipedia.org/wiki/Monomagnesium_phosphate
 # fr:phosphate-de-magnésium has 26 products in 5 languages @2018-11-07
 # mineral/magnesium-phosphate has 78 products in 4 languages @2018-11-07
 
+# description:en:Dimagnesium phosphate is a compound with formula MgHPO4.
+
 < en:E343
-en: E343(ii), Dimagnesium phosphate, Magnesiumhydrogenphosphate, Magnesiumphosphate - dibasic, Dimagnesium orthophosphate
+en: E343(ii), Dimagnesium phosphate, Magnesiumhydrogenphosphate, Magnesiumphosphate - dibasic, Dimagnesium orthophosphate, magnesium hydrogen phosphate, dimagnesium phosphate, E343ii, E 343ii, E-343ii, E343 ii
 xx: E343(ii)
 bg: E343(ii), Димагнезиев фосфат, Магнезиев хидрогенфосфат, магнезиев фосфат двуосновен, димагнезиев ортофосфат
 cs: E343(ii), Hydrogenfosforečnan hořečnatý, Orthofosforečnan dihořečnatý
@@ -9818,6 +9972,7 @@ es: E343(ii), Fosfato de dimagnesio, Hidrogenofosfato de magnesio, fosfato dibá
 et: E343(ii), Magneesiumvesinikfosfaat
 fi: E343(ii), Dimagnesiumfosfaatti, Magnesiumvetyfosfaatti, Magnesiumfosfaatti kaksiemäksinen, Dimagnesiumortofosfaatti, Dimagnesiumfosfaattia, Magnesiumvetyfosfaattia, Dimagnesiumortofosfaattia
 fr: E343(ii), dimagnésium phosphate, Phosphate dimagnésique
+hr: E343(ii), dimagnezijev fosfat
 hu: E343(ii), Dimagnézium-foszfát, Magnézium-hidrogén-foszfát, Magnézium-foszfát kétbázisú, Dimagnézium-ortofoszfát
 it: E343(ii), Fosfato di dimagnesio, Idrogeno fosfato di magnesio, fosfato di magnesio dibasico, ortofosfato bimagnesico
 lt: E343(ii), Dimagnio fosfatas, Magnio divandenilio fosfatas, magnio fosfatas dvibazis, dimagnio ortofosfatas
@@ -9827,13 +9982,18 @@ nl: E343(ii), Dimagnesiumfosfaat, Magnesiumwaterstoffosfaat, tweebasisch magnesi
 pl: E343(ii), Fosforan dimagnezu, Wodorofosforan magnezu, fosforan magnezu dizasadowy, ortofosforan dimagnezu
 pt: E343(ii), Fosfato de dimagnésio, Hidrogenofosfato de magnésio, fosfato dibásico de magnésio, ortofosfato de dimagnésio
 ro: E343(ii), Fosfat dimagnezic, Fosfat acid de magneziu, Fosfat de magneziu dibazic, Ortofosfat dimagnezic
+ru: E343(ii), гидроортофосфат магния
+sh: E343(ii), Dimagnezijum fosfat
 sk: E343(ii), Fosforečnan dihorečnatý, Hydrogenfosforečnan horečnatý, fosforečnan horečnatý dvojsýtny, ortofosforečnan dihorečnatý
 sl: E343(ii), Dimagnezijev fosfat, magnezijev hidrogenfosfat, magnezijev fosfat dibazični, dimagnezijev ortofosfat
+sr: E343(ii), Dimagnezijum fosfat
 sv: E343(ii), Dimagnesiumfosfat, Magnesiumvätefosfat
+ta: E343(ii), இருமக்னீசியம் பாசுபேட்டு
 additives_classes:en: en:stabiliser, en:thickener
 anses_additives_of_interest:en: yes
 e_number:en: 343
-wikidata:en: Q2634889
+wikidata:en: Q14325507
+wikipedia:en: https://en.wikipedia.org/wiki/Dimagnesium_phosphate
 
 en: E344, Lecithin citrate
 xx: E344
@@ -10716,37 +10876,43 @@ e_number:en: 384
 vegan:en: yes
 vegetarian:en: yes
 
-en: E385, Calcium disodium ethylenediaminetetraacetate, Calcium disodium EDTA, Calcium disodium ethylene diamine tetra-acetate, Calcium disodium ethylene diamine tetra-acetate, calcium disodium EDTA, calcium-dinatrium-EDTA
+en: E385, Calcium disodium ethylenediaminetetraacetate, Calcium disodium EDTA, Calcium disodium ethylene diamine tetra-acetate, calcium disodium EDTA, calcium-dinatrium-EDTA, Calcium disodium ethylenediaminetetraacetate, E-385, E 385
 xx: E385
-bg: E385, Калциев динатриев етилен диамин тетраацетат, Калциев динатриев ЕДТА
+ar: E385, ثنائي صوديوم كالسيوم الإيديتات
+bg: E385, Калциев динатриев етилен диамин тетраацетат, Калциев динатриев ЕДТА, Калциево динатриев етилендиамин тетрааацетат, EDTA
 ca: E385, Etilendiaminotetracetat de calci i disodi, EDTA de calci i disodi, EDTA de calci i disòdic
 cs: E385, Dvojsodnovápenatá sůl kyseliny diamintetraoctové
 da: E385, Calciumdinatriumethylendiamintetraacetat, Calciumdinatrium-EDTA
-de: E385, Calcium-Dinatrium-Ethylendiamintetraacetat, Calcium-Dinatrium-EDTA
+de: E385, Calcium-dinatrium-ethylendiamintetraacetat, Calcium-Dinatrium-EDTA
 el: E385, Αιθυλενοδιαμινοτετραοξικο ασβεστιονατριο
-es: E385, Ácido etilendiaminotetraacético, EDTA, AEDT, Etilendiamino-tetracetato de calcio y disodio, EDTA disódico y cálcico, EDTA de calcio y disodio
+es: E385, Ácido etilendiaminotetraacético, EDTA, AEDT, Etilendiamino-tetracetato de calcio y disodio, EDTA disódico y cálcico, EDTA de calcio y disodio, ácido etilendiaminotetraacético
 et: E385, Kaltsiumdinaatriumetüleendiamiintetraatsetaat, Kaltsiumdinaatrium-EDTA
 fi: E385, Kalsiumdinatriumetyleenidiamiinitetra-asetaatti, Kalsiumdinatrium EDTA, Kalsiumdinatriumetyleenidiamiinitetra-asetaattia
 fr: E385, Éthylène diamine tétra-acétate de calcium disodium, calcium disodium EDTA, CAS 662-33-9, EDTA calcio-disodique, Ethylène-diamine-tétra-acètate calcio-disodique, CAS 60-00-4, acide éthylene diamine tétra acétique, EDTA de calcium disodique, EDTA  , Éthylènediaminetétraacétate de calcium et de disodium
-hr: E385, kalcijev dinatrijev EDTA
-hu: E385, Kalcium-dinátrium-etilén-diamin-tetraacetát, Kalcium-dinátrium-EDTA
+hr: E385, kalcijev dinatrijev etilendiamintetraacetat, kalcijev dinatrijev EDTA
+hu: E385, Kalcium-dinátrium-etilén-diamin-tetraacetát, kálcium-dinátrium-EDTA, kalcium-dinátrium EDTA
+id: E385, Natrium kalsium edetat
 it: E385, Etilendiamminotetraacetato di calcio disodico, Calcio disodico EDTA
 lt: E385, Kalcio dinatrio etilendiaminotetraacetatas, Kalcio dinatrio EDTA
 lv: E385, Kalcija dinātrija etilēndiamīna tetraacetāts, Kalcija dinātrija EDTA
 mt: E385, Etilendiammintetraaċetat disodiku tal-kalċju, EDTA disodiku tal-kalċju
-nl: E385, Calciumdinatrium-ethyleendiaminetetraäcetaat, Calciumdinatrium-EDTA
+nl: E385, Calciumdinatrium-ethyleendiaminetetraäcetaat, calciumdinatrium-EDTA, calciumdinatrium EDTA
+or: E385, ସୋଡ଼ିଅମ କ୍ୟାଲସିଅମ ଏଡେଟେଟ
 pl: E385, Sól wapniowo-disodowa kwasu etylenodiaminotetraoctowego, sól wapniowo-disodowa EDTA, EDTA
-pt: E385, Etilenodiaminotetracetato de cálcio dissódico, EDTA de cálcio dissódico
+pt: E385, etilenodiaminotetracetato de cálcio dissódico, EDTA, EDTA de cálcio dissódico
 ro: E385, Etilendiaminotetraacetat de calciu disodic, EDTA de calciu disodic
 ru: E385, Этилендиаминтетраацетат кальция-натрия
 sk: E385, Etyléndiamíntetraacetát vápenato-disodný, Kalcium-dinátrium-EDTA
 sl: E385, Kalcijev dinatrijev etilendiamintetra acetat, kalcijev dinatrijev EDTA
 sv: E385, Kalciumdinatriumetylendiamintetraacetat, Kalciumdinatrium-EDTA
+vi: E385, Natri canxi edetate
+zh: E385, 鈉鈣乙二胺四乙酸
 additives_classes:en: en:antioxidant, en:preservative, en:sequestrant
 e_number:en: 385
 vegan:en: yes
 vegetarian:en: yes
-wikidata:en: Q18967194
+wikidata:en: Q9189390
+wikipedia:en: https://en.wikipedia.org/wiki/Ethylenediaminetetraacetic_acid
 
 xx: E386
 ar: E386, إي دي تي إيه ثنائي الصوديوم
@@ -11500,38 +11666,66 @@ wikidata:en: Q423901
 # ingredient/fr:gomme-adragante has 62 products in 4 languages @2019-03-23
 # additive/e413-tragacanth has 286 products in 6 languages @2019-03-24
 
-en: E414, Acacia gum, gum arabic, gum acacia
+#   GUM ARABIC  , also known as acacia gum, arabic gum, gum acacia, acacia, Senegal gum and Indian gum
+
+en: E414, Acacia gum, gum arabic, gum acacia, arabic gum, Gum arabic, E-414, E 414, INS414, INS 414
 xx: E414
+ar: E414, صمغ عربي
+be: E414, Гуміарабік
 bg: E414, Акациева гума, Гума арабика
+bn: E414, গঁদ
+br: E414, Gom arabek
 ca: E414, Goma aràbiga, goma arabiga
 cs: E414, Arabská guma
-da: E414, Arabisk gummi (akaciegummi), Gummi arabikum
+da: E414, Arabisk gummi (akaciegummi), Gummi arabikum, arabisk gummi
 de: E414, Gummi arabicum
-el: E414, Κομμι ακακιας
-es: E414, Goma arábiga
+el: E414, Αραβικό κόμμι, Κομμι ακακιας
+eo: E414, Araba gumo
+es: E414, Goma arábiga, goma árabe
 et: E414, Kummiaraabik
+eu: E414, Arabiako goma
+fa: E414, صمغ عربی
 fi: E414, Arabikumi, Arabikumia
 fr: E414, Gomme d'acacia, gomme arabique
+gl: E414, Goma arábiga
+gu: E414, બાવળ
+he: E414, גומי ערבי
 hr: E414, guma arabika, akacija guma, gumi arabikum
 hu: E414, Gumiarábikum, Akácmézga
+hy: E414, Արաբական խեժ
+id: E414, Gom arab
 it: E414, Gomma d'acacia, Gomma arabica
-lt: E414, Akacijų derva (gumiarabikas), Gumiarabikas
+ja: E414, アラビアガム
+kk: E414, Гуммиарабик
+ko: E414, 아라비아검
+lt: E414, Akacijų derva (gumiarabikas), Gumiarabikas, Akacijų derva, tirštiklis akacijų derva
 lv: E414, Akācijas sveķi
 mt: E414, Gomma tal-akaċja
+nb: E414, gummi arabikum
 nl: E414, Arabische gom
+oc: E414, Goma arabica
 pl: E414, Guma akacjowa, Guma arabska
-pt: E414, Goma arábica
+pt: E414, Goma arábica, Goma-arábica
 ro: E414, Gumă arabică
 ru: E414, Гуммиарабик
 sk: E414, Arabská guma
 sl: E414, Akacijeva guma
-sv: E414, Gummi arabicum, Akaciagummi, Arabisk gummi
+sv: E414, Gummi arabicum, Akaciagummi
+tr: E414, Arap zamkı
+uk: E414, Гуміарабік
+uz: E414, Aqoqiyo
+zh: E414, 阿拉伯膠
 additives_classes:en: en:carrier, en:emulsifier, en:stabiliser, en:thickener
 e_number:en: 414
 organic_eu:en: authorized
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q535814
+wikipedia:en: https://en.wikipedia.org/wiki/Gum_arabic
+# azb:آغ ساققیز
+# en-ca:Gum arabic
+# en-gb:Gum arabic
+# pt-br:goma-arábica
 
 en: E414a, E414a food additive
 xx: E414a
@@ -11543,35 +11737,46 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q535814
 
-en: E415, Xanthan gum
+
+#   XANTHAN GUM   is a polysaccharide with many industrial uses, including as a common food additive.
+
+en: E415, Xanthan gum, xanthan, E-415, e 415
 xx: E415
-bg: E415, Гума ксантан, Ксантанова гума
-ca: E415, Goma de xantè, goma de xante
-cs: E415, Xanthan, Xanthanová guma, E 415, Xantan
+ar: E415, صمغ الكزانتان
+bg: E415, Гума ксантан, Ксантанова гума, ксантан, ксантан гума
+ca: E415, Goma de xantè, goma de xante, goma xantana
+cs: E415, Xanthan, Xanthanová guma, Xantan
 da: E415, Xanthangummi
 de: E415, Xanthan, Xanthangummi, E 415, Xantan
 el: E415, Ξανθανικο κομμι, uc
-es: E415, Goma xantana, Xantano, Xantana, E 415
+es: E415, Goma xantana, Xantano, Xantana, goma de xantano, goma xantica, E 415
 et: E415, Ksantaankummi, Ksantaan
+fa: E415, صمغ زانتان
 fi: E415, Ksantaanikumi, Ksantaanikumia
-fr: E415, Gomme xanthane, gomme de xanthane, gomme de maïs, gommes xanthane, gommes de xanthane, Xanthane, CAS 11138-66-2, Xanthan gum, goma xantana, xantano, Gummi xanthanum, Xanthomonas gum, 11138-66-2, C35H49O29, E 415
+fr: E415, Gomme xanthane, gomme de xanthane, gomme de maïs, gommes xanthane, gommes de xanthane, Xanthane, CAS 11138-66-2, Xanthan gum, goma xantana, xantano, Gummi xanthanum, Xanthomonas gum, 11138-66-2, C35H49O29
+gl: E415, Xantano
+he: E415, קסנטן גאם
 hr: E415, ksantan, ksantan gum, ksantan guma, zgušnjivač ksantan guma
 hu: E415, Xantángumi, xantán gumi
+id: E415, Gum xanthan
 it: E415, Gomma di xantano, gomma di xanthan, Resina di xantano, E145
+ja: E415, キサンタンガム, キサンタン
 lt: E415, Ksantano derva
 lv: E415, Ksantāna sveķi
 mt: E415, Gomma xanthan
 nb: E415, Xantangummi
 nl: E415, Xanthaangom, Xanthaan, Xanthan, Xanthangom
+nn: E415, xanthan gum
 no: E415, xantangummi
 pl: E415, Guma ksantanowa
-pt: E415, Goma xantana
-ro: E415, Gumă de xantan
+pt: E415, Goma xantana, goma xanthano
+ro: E415, Gumă de xantan, gumă xantan
 ru: E415, Ксантановая камедь, Ксантан, Е415
 sk: E415, Xantánová živica
 sl: E415, Ksantan gumi
 sv: E415, Xantangummi, Xantan, Xanthangummi
 tr: E415, Ksantan zamkı, Ksantan gam, Ksantan gum, Ksantan gamı
+zh: E415, 黄原胶
 additives_classes:en: en:emulsifier, en:stabiliser, en:thickener
 e_number:en: 415
 efsa_evaluation:en: Re‐evaluation of xanthan gum (E 415) as a food additive
@@ -11582,6 +11787,13 @@ organic_eu:en: authorized
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q410768
+wikipedia:en: https://en.wikipedia.org/wiki/Xanthan_gum
+# sco:Xanthan gum
+# zh-cn:黄原胶# zh-hans:黄原胶
+# zh-hant:黃原膠
+# zh-hk:黃原膠
+# zh-sg:黄原胶
+# zh-tw:黃原膠
 
 en: E416, Karaya-gum, Katilo, Kadaya, Gum sterculia, Sterculia, Karaya, gum karaya, Kullo
 xx: E416
@@ -11655,21 +11867,23 @@ wikipedia:en: https://en.wikipedia.org/wiki/Tara_spinosa#Uses
 #description:en:TARA GUM is produced by separating and grinding the endosperm of T. spinosa seeds. Tara gum is used as a thickening agent and stabilizer in a number of food applications.
 # ingredient/fr:gomme-tara has 254 products in 6 languages -@2019-05-12
 
-en: E418, Gellan gum, gellan
+en: E418, Gellan gum, gellan, E-418, E 418, INS418, INS-418, INS 418
 xx: E418
+ar: E418, صمغ الجيلان
 bg: E418, Гума джелан
 ca: E418, Goma gellan
 cs: E418, Guma gellan
 da: E418, Gellangummi
 de: E418, Gellan, E 418
 el: E418, Κομμι τζελαν
-es: E418, Goma gellan, E 418
+es: E418, Goma gellan, goma gellana, goma gelana, E 418
 et: E418, Gellankummi
 fi: E418, Gellaanikumi, Gellaanikumia, gellaani
 fr: E418, Gomme gellane, Gomme de gellane, gellan gum, E-418, 71010-52-1
 hr: E418, gelan guma, gellan guma
 hu: E418, Gellángumi
 it: E418, Gomma di gellano, gomma gellano
+ja: E418, ゲランガム
 lt: E418, Gelano derva
 lv: E418, Želena sveķi
 mt: E418, Gomma ġellan
@@ -11680,7 +11894,9 @@ ro: E418, Gumă gellan
 sk: E418, Guma gellan
 sl: E418, Gelanski gumi
 sv: E418, Gellangummi
+zh: E418, 結蘭膠
 additives_classes:en: en:stabiliser, en:thickener
+description:en: GELLAN GUM is a water-soluble anionic polysaccharide produced by the bacterium Sphingomonas elodea. It is used in plant-based milks to keep plant protein suspended in the milk.
 e_number:en: 418
 efsa_evaluation:en: Re‐evaluation of gellan gum (E 418) as food additive
 efsa_evaluation_adi_established:en: en:no
@@ -11689,6 +11905,9 @@ efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q416694
+wikipedia:en: https://en.wikipedia.org/wiki/Gellan_gum
+# en-ca:Gellan gum
+# en-gb:Gellan gum
 
 en: E419, Gum ghatti
 xx: E419
@@ -12762,7 +12981,7 @@ cs: E442, Amonné soli fosfatidových kyselin
 da: E442, Ammoniumphosphatider
 de: E442, Ammoniumphosphatide
 el: E442, Φωσφατιδια του αμμωνιου
-es: E442, Fosfátidos de amonio, Fosfato de diamonio, Lecitina YN
+es: E442, Fosfátidos de amonio, Lecitina YN
 et: E442, Fosfatiidhappe ammooniumsoolad, Ammooniumfosfatiidid
 fi: E442, Ammoniumfosfatidit, Fosfatidihapon ammoniumsuolat
 fr: E442, Phosphatides d'ammonium, E 442
@@ -12962,7 +13181,7 @@ wikidata:en: Q18601547
 
 en: E540, Dicalcium diphosphate
 xx: E540
-ar: E540, فوسفات ثنائي الكالسيوم
+ar: E540, ثنائي فوسفات الكالسيوم
 bg: E540, Дикалциев дифосфат
 ca: E540, Difosfat dicàlcic
 cs: E540
@@ -13324,43 +13543,45 @@ vegetarian:en: yes
 wikidata:en: Q18944661
 
 
+# In chemistry, a pyrophosphate is a phosphorus oxyanion.
+# On wikidata the ingredient is usually called pyrophosphate, contrary to what is found on packages
 
-en: E450, Diphosphates, Pyrophosphate, diphosphate
+en: E450, Diphosphates, Pyrophosphate, diphosphate, E-450, e 450, e450 stabilizer
 xx: E450
 ar: E450, ثنائي الفوسفات
 az: E450, Difosfat
-bg: E450, Дифосфат
+bg: E450, Дифосфат, дифосфати, стабилизатор E450
 ca: E450, Difosfat
-cs: E450, Difosfát
+cs: E450, Difosfát, difosforečnany
 da: E450, diphosphater
-de: E450, Diphosphate
+de: E450, Diphosphate, Stabilisator E450
 el: E450, Διφωσφορικά άλατα
 eo: E450, Du fosfato
-es: E450, Difosfatos, Difosfato, Pirofosfato
+es: E450, Difosfatos, Difosfato, Pirofosfato, estabilizante e450
 et: E450, Difosfaat
-fa: E450, دی فسفات
+fa: E450, دی فسفات, پیروفسفات
 fi: E450, Difosfaatit, Pyrofosfaatti, Difosfaatteja, Pyrofosfaattia
-fr: E450, Diphosphates, Sels métalliques de diphosphates, Pyrophosphates, Diphosphate, Pyrophosphate, dipolyphosphate
+fr: E450, Diphosphates, Sels métalliques de diphosphates, Pyrophosphates, Diphosphate, Pyrophosphate, dipolyphosphate, stabilisant e450
 ga: E450, Défosfáit
 gl: E450, Difosfatos
 he: E450, דיפוספטים
-hr: E450, difosfati, difosfat
+hr: E450, difosfati, difosfat, e450 stabilizator
 hu: E450, Difoszfátok
 id: E450, Difosfat
-it: E450, Pirofosfato
-ja: E450, 二リン酸塩
+it: E450, Pirofosfato, difosfati, stabilizzante e450
+ja: E450, 二リン酸塩, ピロリン酸塩
 ko: E450, 디포스페이트
-lt: E450, Difosfatas
+lt: E450, Difosfatas, emulsiklis difosfatai, stabilizatorius e450, stabilizatoriai e450
 lv: E450, Difosfāts
 mk: E450, Дифосфати
 mt: E450, Difosfat
 nb: E450, Difosfater, Difosfat
-nl: E450, difosfaat, Pyrofosfaat
-pl: E450, Difosforany, Pirofosforany
-pt: E450, Pirofosfato
+nl: E450, difosfaat, Pyrofosfaat, stabilisator e450
+pl: E450, Difosforany, Pirofosforany, difosforan
+pt: E450, Pirofosfato, difosfato, estabilizante e450
 ro: E450, difosfați
-ru: E450, Пирофосфаты, Пирофосфат
-sk: E450, Difosfáty
+ru: E450, Пирофосфаты, Пирофосфат, двузамещенный пирофосфат натрия, трехзамещенный пирофосфат натрия, тетранатрийпирофосфат, двузамещенный пирофосфат калия, тетракалийдифосфат, дикальцийпирофосфат, кальцийдигидропирофосфат
+sk: E450, Difosfáty, difosforečnany
 sl: E450, Difosfati
 sr: E450, Дифосфати
 sv: E450, Difosfater, Pyrofosfat
@@ -13380,24 +13601,28 @@ efsa_evaluation_overexposure_risk:en: en:high
 efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2019.5674
 vegan:en: yes
 vegetarian:en: yes
-wikidata:en: Q290828
+wikidata:en: Q55506489
+wikipedia:en: https://en.wikipedia.org/wiki/Pyrophosphate
 
 < en:E450
-en: E450(i), Disodium diphosphate, Sodium Acid Pyrophosphate, sapp, disodium dihydrogen pyrophosphate
+en: E450(i), Disodium diphosphate, Sodium Acid Pyrophosphate, sapp, disodium dihydrogen pyrophosphate, disodium pyrophosphate, sodium acid pyrophosphate, disodium diphosphate, disodium dihydrogen diphosphate
 xx: E450(i)
+ar: E450(i), بيروفوسفات ثنائي الصوديوم
 bg: E450(i), Динатриев дифосфат
-cs: E450(i)diphosphate-disodique
+ca: E450(i), difosfat de disodi
+cs: E450(i)diphosphate-disodique, Dihydrogendifosforečnan disodný
 da: E450(i), Dinatriumdiphosphat
-de: E450(i), Dinatriumdiphosphat
+de: E450(i), Dinatriumdiphosphat, Dinatriumdihydrogendiphosphat
 el: E450(i), Δισοξινο πυροφωσφορικο νατριο
 es: E450(i), Difosfato disódico, Pirofosfato ácido de sodio
 et: E450(i), Dinaatriumdifosfaat, Dinaatriumdivesinikdifosfaat
+fa: E450(i), دی‌سدیم پیروفسفات
 fi: E450(i), Dinatriumdifosfaatti, Dinatriumdivetydifosfaatti, Dinatriumdivetypyrofosfaatti, Hapan natriumpyrofosfaatti, Dinatriumdifosfaattia, Dinatriumdivetydifosfaattia, Dinatriumdivetypyrofosfaattia, E450a
-fr: E450(i), Pyrophosphate de sodium acide, Pyrophosphate acide de sodium, Diphosphate disodique, diphosphate de sodium, Di-sodium di-phosphate, di-sodium pyrophosphate, Dihydrogéno-diphosphate disodique, Dihydrogéno-pyrophosphate disodique, Pyrophosphate disodique, Disodium pyrophosphate, sodium acid pyrophosphate, SAPP, Diphosphoric acid disodium salt, Disodium dihydrogen pyrophosphate, Disodium diphosphate, Disodium dihydrogen diphosphate
+fr: E450(i), Pyrophosphate de sodium acide, Pyrophosphate acide de sodium, Diphosphate disodique, diphosphate de sodium, Di-sodium di-phosphate, di-sodium pyrophosphate, Dihydrogéno-diphosphate disodique, Dihydrogéno-pyrophosphate disodique, Pyrophosphate disodique, Disodium pyrophosphate, sodium acid pyrophosphate, SAPP, Diphosphoric acid disodium salt
 hr: E450(i), E450i, dinatrijev difosfat
 hu: E450(i), Dinátrium-difoszfát
 it: E450(i), Difosfato disodico
-ja: E450(i), ピロリン酸ナトリウム, ピロリン酸Na, ピロリン酸Ｎａ
+ja: E450(i), ピロリン酸ナトリウム, ピロリン酸Na, ピロリン酸Ｎａ, 二リン酸二水素二ナトリウム
 lt: E450(i), Dinatrio difosfatas
 lv: E450(i), Dinātrija difosfāts
 mt: E450(i), Difosfat disodiku, Difosfat didroġenat disodiku, Pirofosfat didroġenat disodiku, Pirofosfat tal-aċidu tas-sodju
@@ -13405,17 +13630,24 @@ nl: E450(i), Dinatriumdifosfaat, zuurnatriumpyrofosfaat
 pl: E450(i), Difosforan disodowy, Difosforan diwodoro-disodowy, pirofosforan diwodoro-disodowy, kwaśny pirofosforan sodu
 pt: E450(i), Difosfato dissódico
 ro: E450(i), Difosfat disodic, Difosfat diacid disodic, Pirofosfat diacid disodic, Pirofosfat acid de sodiu
+ru: E450(i), дигидропирофосфат натрия
+sh: E450(i), Dinatrijum pirofosfat
 sk: E450(i), Difosforečnan disodný
 sl: E450(i), Dinatrijev difosfat
+sr: E450(i), Dinatrijum pirofosfat
 sv: E450(i), Dinatriumdifosfat, Dinatriumdivätedifosfat, dinatriumdivätepyrofosfat, natriumpyrofosfatsyra
+vi: E450(i), Natri đihiđropyrophotphat
+zh: E450(i), 酸式焦磷酸钠
 additives_classes:en: en:emulsifier, en:humectant, en:sequestrant, en:stabiliser, en:thickener
 anses_additives_of_interest:en: yes
 description:en: SODIUM ACID PYROPHOSPHATE is an additive used to prevent the formation of crystals and discoloration of the crab meat.
 e_number:en: 450
-wikidata:en: Q290828
+wikidata:en: Q418498
+wikipedia:en: https://en.wikipedia.org/wiki/Disodium_pyrophosphate
+# azb دیسودیوم پیروفوسفات
 
 < en:E450
-en: E450(ii), Trisodium diphosphate
+en: E450(ii), Trisodium diphosphate, e450ii
 xx: E450(ii)
 bg: E450(ii), Тринатриев дифосфат
 cs: E450(ii), Hydrogendifosforečnan sodný
@@ -13426,7 +13658,7 @@ es: E450(ii), Difosfato trisódico
 et: E450(ii), Trinaatriumdifosfaat, Trinaatriumvesinikdifosfaat, trinaatriumpürofosfaat
 fi: E450(ii), Trinatriumdifosfaatti, Trinatriumpyrofosfaatti, Trinatriumdifosfaattia, Trinatriumpyrofosfaattia
 fr: E450(ii), Diphosphate trisodique, Pyrophosphate trisodique acide, Hydrogéno-diphosphate trisodique, Tri-sodium di-phosphate, CAS 14691-80-6, CAS 26573-04-6
-hr: E450(ii)
+hr: E450(ii), trinatrijev difosfat
 hu: E450(ii), Trinátrium-difoszfát
 it: E450(ii), Difosfato trisodico
 lt: E450(ii), Trinatrio difosfatas
@@ -13444,21 +13676,27 @@ anses_additives_of_interest:en: yes
 e_number:en: 450
 wikidata:en: Q290828
 
+
+# description:en:TETRASODIUM PYROPHOSPHATE, also called sodium pyrophosphate, tetrasodium phosphate or TSPP, is a colorless transparent crystalline chemical compound with the formula Na4P2O7.
+
 < en:E450
-en: E450(iii), Tetrasodium diphosphate, Tetrasodium pyrophosphate, Tetrasodium disphosphate
+en: E450(iii), Tetrasodium diphosphate, Tetrasodium pyrophosphate, Tetrasodium disphosphate, Tetrasodium diphosphate, sodium pyrophosphate, TSPP, e450iii
 xx: E450(iii)
-bg: E450(iii), Тетранатриев дифосфат, Тетранатриев пирофосфат, тетранатриев дифосфат
-cs: E450(iii), Difosforečnan sodný, Pyrofosforečnan tetrasodný
+ar: E450(iii), بيروفوسفات صوديوم
+bg: E450(iii), Тетранатриев дифосфат, Тетранатриев пирофосфат, тетранатриев дифосфат, натриев пирофосфат
+cs: E450(iii), Difosforečnan sodný, Pyrofosforečnan tetrasodný, difosforečnan sodný
 da: E450(iii), Tetranatriumdiphosphat, Tetranatriumpyrophosphat, tetranatriumdiphosphat
 de: E450(iii), Tetranatriumdiphosphat, Tetranatriumpyrophosphat, Tetranatriumdiphosphat
 el: E450(iii), Πυροφωσφορικο νατριο, Πυροφωσφορικό άλας νατρίου, διφωσφορικό νάτριο
+eo: E450(iii), Natria pirofosfato
 es: E450(iii), Difosfato tetrasódico, Pirofosfato tetrasódico, difosfato de tetrasodio, Pirofosfato sódico
 et: E450(iii), Tetranaatriumdifosfaat
-fi: E450(iii), Tetranatriumdifosfaatti, Tetranatriumdifosfaattia
+fa: E450(iii), تتراسدیوم پیروفسفات
+fi: E450(iii), Tetranatriumdifosfaatti, Tetranatriumdifosfaattia, Natriumpyrofosfaatti
 fr: E450(iii), Diphosphate tétrasodique, Tetra-sodium pyrophosphate, CAS 7722-88-5, Pyrophosphate tétrasodique
-hr: E450(iii)
+hr: E450(iii), tetranatrijev difosfat
 hu: E450(iii), Tetranátrium-difoszfát, Tetranátrium-pirofoszfát, Tetranátrium-difoszfát
-it: E450(iii), Difosfato tetrasodico, Pirofosfato tetrasodico, disfosfato tetrasodico
+it: E450(iii), Difosfato tetrasodico, Pirofosfato tetrasodico, disfosfato tetrasodico, Pirofosfato di sodio
 lt: E450(iii), Tetranatrio difosfatas, Tetranatrio pirofosfatas, tetranatrio difosfatas
 lv: E450(iii), Tetranātrija difosfāts, Tetranātrija pirofosfāts, Tetranātrija difosfāts
 mt: E450(iii), Difosfat tetrasodiku, Pirofosfat tetrasodiku, Disfosfat tetrasodiku
@@ -13466,16 +13704,23 @@ nl: E450(iii), Tetranatriumdifosfaat, Tetranatriumpyrofosfaat
 pl: E450(iii), Difosforan tetrasodowy, Pirofosforan czterosodowy, difosforan czterosodowy
 pt: E450(iii), Difosfato tetrassódico, Pirofosfato tetrassódico, difosfato de tetrassódio
 ro: E450(iii), Difosfat tetrasodic, Pirofosfat tetrasodic, Difosfat tetrasodic
+ru: E450(iii), E450III, Пирофосфат натрия, Пирофосфат тетранатрия, e450iii
+sh: E450(iii), etranatrijum pirofosfat
 sk: E450(iii), Difosforečnan tetrasodný, Pyrofosforečnan tetrasodný, difosforečnan tetrasodný
 sl: E450(iii), Tetranatrijev difosfat, tetranatrijev pirofosfat, tetranatrijev difosfat
+sr: E450(iii), Tetranatrijum pirofosfat
 sv: E450(iii), Tetranatriumdifosfat, Tetranatriumpyrofosfat
+vi: E450(iii), Natri pyrophotphat
+zh: E450(iii), 焦磷酸钠
 additives_classes:en: en:emulsifier, en:humectant, en:sequestrant, en:stabiliser, en:thickener
 anses_additives_of_interest:en: yes
 e_number:en: 450
-wikidata:en: Q290828
+wikidata:en: Q418504
+wikipedia:en: https://en.wikipedia.org/wiki/Tetrasodium_pyrophosphate
+# azb:تتراسدیوم پیروفوسفات
 
 < en:E450
-en: E450(iv), dipotassium dihydrogenpyrophosphate
+en: E450(iv), dipotassium dihydrogenpyrophosphate, E450iv, E-450iv
 xx: E450(iv)
 ar: E450(iv), ثنائي هيدروجين بيروفوسفات ثنائي البوتاسيوم
 bg: E450(iv), Дикалиев дихидрогенпирофосфат
@@ -13485,11 +13730,11 @@ da: E450(iv), Dikaliumdihydrogendiphosphat
 de: E450(iv), Dikaliumdihydrogendiphosphat
 el: E450(iv), Διϋδρογονοπυροφωσφορικό διποτάσσιο
 eo: E450(iv), Dukalia dihidrogena pirofosfato
-es: E450(iv), Difosfato dipotásico
+es: E450(iv), Difosfato dipotásico, E450iv, E-450iv
 et: E450(iv), Dikaaliumdivesinikpürofosfaat
 fi: E450(iv), Dikaliumdivetypyrofosfaatti, Dikaliumdivetypyrofosfaattia
-fr: E450(iv), Diphosphate dipotasique, CAS 14691-84-0
-hr: E450(iv), Dikalijev dihidrogen pirofosfat
+fr: E450(iv), Diphosphate dipotasique, CAS 14691-84-0, E450iv, E-450iv
+hr: E450(iv), Dikalijev dihidrogen pirofosfat, dikalijev dihidrogenpirofosfat
 hu: E450(iv), Dikalium-dihidrogén-pirofoszfát
 it: E450(iv), Diidrogenopirofosfato dipotassico
 ja: E450(iv), 二カリウム二水素ピロリン酸
@@ -13514,7 +13759,7 @@ e_number:en: 450
 wikidata:en: Q290828
 
 < en:E450
-en: E450(v), Tetrapotassium diphosphate
+en: E450(v), Tetrapotassium diphosphate, tetrapotassium pyrophosphate, e450v
 xx: E450(v)
 bg: E450(v), Тетракалиев дифосфат
 cs: E450(v), Difosforečnan draselný, Pyrofosforečnan draselný
@@ -13525,7 +13770,7 @@ es: E450(v), Difosfato tetrapotásico
 et: E450(v), Tetrakaaliumdifosfaat
 fi: E450(v), Tetrakaliumdifosfaatti, Tetrakaliumdifosfaattia
 fr: E450(v), Diphosphate tétrapotassique, Tetra-potassium pyrophosphate, CAS 7320-34-5
-hr: E450(v)
+hr: E450(v), tetrakalijev difosfat
 hu: E450(v), Tetrakálium-difoszfát
 it: E450(v), Difosfato di tetrapotassio
 lt: E450(v), Tetrakalio difosfatas
@@ -13544,7 +13789,7 @@ e_number:en: 450
 wikidata:en: Q290828
 
 < en:E450
-en: E450(vi), Dicalcium diphosphate
+en: E450(vi), Dicalcium diphosphate, dicalcium pyrophosphate, e450vi
 xx: E450(vi)
 bg: E450(vi), Дикалциев дифосфат
 cs: E450(vi), Difosforečnan vápenatý
@@ -13553,7 +13798,7 @@ de: E450(vi), Dicalciumdiphosphat
 el: E450(vi), Πυροφωσφορικο ασβεστιο
 es: E450(vi), Difosfato dicálcico
 et: E450(vi), Dikaltsiumdifosfaat
-fi: E450(vi), Dikalsiumdifosfaatti, Dikalsiumdifosfaattia
+fi: E450(vi), Dikalsiumdifosfaatti, Dikalsiumdifosfaattia, dikalsiumpyrofosfaatti
 fr: E450(vi), Diphosphate dicalcique, Di-hydrogen di-phosphate de calcium, CAS 7790-76-3
 hr: E450(vi)
 hu: E450(vi), Dikalcium-difoszfát
@@ -13571,11 +13816,12 @@ sv: E450(vi), Dikalciumdifosfat
 additives_classes:en: en:emulsifier, en:humectant, en:sequestrant, en:stabiliser, en:thickener
 anses_additives_of_interest:en: yes
 e_number:en: 450
-wikidata:en: Q290828
+wikidata:en: Q4363460
+wikipedia:en: https://en.wikipedia.org/wiki/Calcium_pyrophosphate
 
 < en:E450
 en: E450(vii), Calcium dihydrogen diphosphate, Acid calcium pyrophosphate
-xx: E450(vii)
+xx: E450(vii), e450vii
 bg: E450(vii), Калциев дихидроген дифосфат, Кисел калциев пирофосфат
 cs: E450(vii), Dihydrogendifosforečnan vápenatý
 da: E450(vii), Calciumdihydrogendiphosphat, Surt calciumpyrophosphat
@@ -13585,7 +13831,7 @@ es: E450(vii), Difosfato cálcico de dihidrógeno, Pirofosfato ácido de calcio
 et: E450(vii), Kaltsiumdivesinikdifosfaat, Kaltsiumdivesinikpürofosfaat
 fi: E450(vii), Kalsiumdivetydifosfaatti, Hapan kalsiumpyrofosfaatti, Kalsiumdivetydifosfaattia
 fr: E450(vii), Diphosphate biacide de calcium, Dihydrogéno-diphosphate de calcium, Pyrophosphate de calcium acide
-hr: E450(vii)
+hr: E450(vii), kalcijev dihidrogen difosfat
 hu: E450(vii), Kalcium-dihidrogén-difoszfát, Savas kalcium-pirofoszfát
 it: E450(vii), Di-idrogenodifosfato di calcio, Pirofosfato acido di calcio
 lt: E450(vii), Kalcio divandenilio difosfatas, Rūgštusis kalcio pirofosfatas
@@ -13652,11 +13898,11 @@ wikidata:en: Q290828
 
 
 #comment:en:E451 is the triphosphates group, either bound with sodium (i) or potassium (ii).
-en: E451, Triphosphates
+en: E451, Triphosphates, triphosphate, E 451, e-451
 xx: E451
 ar: E451, ثلاثي الفوسفات
 az: E451, Trifosfatlar
-bg: E451, Трифосфати
+bg: E451, Трифосфати, трифосфат, трифосфати
 ca: E451, Trifosfat, trifosfats
 cs: E451, Trifosforečnany
 da: E451, Triphosphater, Triphosphat
@@ -13668,7 +13914,7 @@ fi: E451, Trifosfaatit, Trifosfaatteja
 fr: E451, Triphosphates, Tripolyphosphates
 hr: E451, trifosfati, tripolifosfati, trifosfat, trifosfat pojačivač okusa
 hu: E451, Trifoszfátok
-it: E451, trifosfati, Polifosfati
+it: E451, trifosfati
 ja: E451, 三リン酸塩
 ko: E451, 삼인산염
 lt: E451, Trifosfatai
@@ -13689,6 +13935,7 @@ th: E451, ไตรฟอสเฟต
 tr: E451, Trifosfatlar
 uk: E451, Трифосфати
 zh: E451, 三磷酸盐
+
 additives_classes:en: en:emulsifier, en:humectant, en:sequestrant, en:stabiliser, en:thickener
 anses_additives_of_interest:en: yes
 e_number:en: 451
@@ -13702,15 +13949,17 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q29145
 
+
 #comment:en:The name should containe pentasodium
+# description:en:Sodium triphosphate (STP), also sodium tripolyphosphate (STPP), or tripolyphosphate (TPP),[1]) is an inorganic compound with formula Na5P3O10.
+
 < en:E451
 en: E451(i), Pentasodium triphosphate, Pentasodium tripolyphosphate, Sodium triphosphate
-xx: E451(i)
+xx: E451(i), e451i, e 451i, e-451i
 bg: E451(i), Пентанатриев трифосфат, Пентанатриев триполифосфат
 cs: E451(i), Trifosforečnan pentasodný
 da: E451(i), Pentanatriumtriphosphat, Pentanatriumtripolyphosphat
 de: E451(i), Pentanatriumtriphosphat, Pentanatriumtripolyphosphat
-el: E451(i)
 es: E451(i), Trifosfato de pentasodio, Tripolifosfato pentasódico, trifosfato pentasódico
 et: E451(i), Pentanaatriumtrifosfaat, Pentanaatriumtripolüfosfaat
 fi: E451(i), Pentanatriumtrifosfaatti, Pentanatriumtripolyfosfaatti, Pentanatriumtrifosfaattia, Pentanatriumtripolyfosfaattia
@@ -13733,10 +13982,13 @@ anses_additives_of_interest:en: yes
 e_number:en: 451
 wikidata:en: Q29145
 wikipedia:en: https://en.wikipedia.org/wiki/Sodium_triphosphate
+# azb:سودیوم تریفوسفات
+# sr-ec:натријум трифосфат
+# sr-el:natrijum trifosfat
 
 < en:E451
 en: E451(ii), Pentapotassium triphosphate, potassium triphosphate, potassium tripolyphosphate, KTPP
-xx: E451(ii)
+xx: E451(ii), E451ii, E 451ii, E-451ii
 bg: E451(ii), Пентакалиев трифосфат, Пентакалиев триполифосфат, калиев трифосфат
 cs: E451(ii), Trifosforečnan pentadraselný
 da: E451(ii), Pentakaliumtriphosphat, Pentakaliumtripolyphosphat, kaliumtriphosphat
@@ -13763,22 +14015,22 @@ anses_additives_of_interest:en: yes
 e_number:en: 451
 wikidata:en: Q15632716
 
-en: E452, Polyphosphates
-xx: E452
+en: E452, Polyphosphates, Polyphosphate E452
+xx: E452, e 452, e-452
 ar: E452, متعدد الفوسفات
 az: E452, Polifosfatlar
-bg: E452, Полифосфати
+bg: E452, Полифосфати, полифосфат
 ca: E452, Polifosfat, Polifosfats
 cs: E452, Polyfosforečnany
 da: E452, Polyphosphater
 de: E452, Polyphosphate
 el: E452, Πολυφωσφορικά άλατα
 eo: E452, Polifosfatoj
-es: E452, Polifosfatos
+es: E452, Polifosfatos, polifosfato
 et: E452, Polüfosfaadid
 fa: E452, پلی فسفات
 fi: E452, Polyfosfaatit, Polyfosfaatteja
-fr: E452, Polyphosphates
+fr: E452, Polyphosphates, polyphosphate
 ga: E452, Polaifosfáit
 gl: E452, Polifosfatos
 he: E452, פוליפוספטים
@@ -13821,7 +14073,7 @@ wikidata:en: Q11867365
 
 < en:E452
 en: E452(i), Sodium polyphosphate, sodium hexametaphosphate, sodium polymetaphosphate
-xx: E452(i)
+xx: E452(i), e452i, e 452i, e-452i
 bg: E452(i), Натриев полифосфат
 cs: E452(i), Polyfosforečnan sodný
 da: E452(i), Natriumpolyphosphater
@@ -13831,6 +14083,7 @@ es: E452(i), Polifosfato de sodio, Polifosfato sódico
 et: E452(i), Naatriumpolüfosfaat
 fi: E452(i), Natriumpolyfosfaatti, Natriumpolyfosfaatteja
 fr: E452(i), Polyphosphate de sodium, Sel de Maddrell, Sel de Graham, Polyphosphates de sodium vitreux, Polyphosphates de sodium, Polyphosphate sodique, Polyphosphate de sodium insoluble, Polymétaphosphate de sodium, Métaphosphate de sodium insoluble, Métaphosphate de sodium, IMP, Héxamétaphosphate de sodium, Tétrapolyphosphate de sodium, Polyphosphate de sodium
+hr: E452(i), natrijev polifosfat
 hu: E452(i), Nátrium-polifoszfát
 it: E452(i), Polifosfato di sodio
 lt: E452(i), Natrio polifosfatas
@@ -13838,7 +14091,7 @@ lv: E452(i), Nātrija polifosfāts
 mt: E452(i), Polifosfat tas-sodju
 nl: E452(i), Natriumpolyfosfaat
 pl: E452(i), Polifosforan sodu
-pt: E452(i), Sodium polyphosphate
+pt: E452(i), Sodium polyphosphate, polifosfato de sódio
 ro: E452(i), Polifosfat de sodiu
 sk: E452(i), Polyfosforečnan sodný
 sl: E452(i), Natrijev polifosfat
@@ -13850,7 +14103,7 @@ wikidata:en: Q11867365
 
 < en:E452
 en: E452(ii), Potassium polyphosphate, Potassium metaphosphate, Potassium polymetaphosphate
-xx: E452(ii)
+xx: E452(ii), E452ii, E 452ii, E-452ii
 bg: E452(ii), Калиев полифосфат, Калиев метафосфат, калиев полиметафосфат
 cs: E452(ii), Polyfosforečnan draselný
 da: E452(ii), Kaliumpolyphosphater, Kaliummetaphosphat, kaliumpolymetaphosphat
@@ -13860,6 +14113,7 @@ es: E452(ii), Polifosfato de potasio, Metafosfato potásico, polimetafosfato pot
 et: E452(ii), Kaaliumpolüfosfaat, Kaaliummetafosfaat, kaaliumpolümetafosfaat
 fi: E452(ii), Kaliumpolyfosfaatti, Kaliummetafosfaatti, Kaliumpolymetafosfaatti, Kaliumpolyfosfaattia, Kaliummetafosfaattia, Kaliumpolymetafosfaattia
 fr: E452(ii), Polyphosphate potassique, Métaphosphate de potassium, polymétaphosphate de potassium, Polyphosphates de potassium, Polyphosphate de potassium, Sel de Kurrol
+hr: E452(ii), kalijev polifosfat
 hu: E452(ii), Kálium-polifoszfát, Kálium-metafoszfát, Kálium-polimetafoszfát
 it: E452(ii), Polifosfato di potassio, Metafosfato di potassio, polimetafosfato di potassio
 lt: E452(ii), Kalio polifosfatas, Kalio metafosfatas, kalio polimetafosfatas
@@ -13867,20 +14121,21 @@ lv: E452(ii), Kālija polifosfāts, Kālija metafosfāts, Kālija polimetafosfā
 mt: E452(ii), Polifosfat tal-potassju, Metafosfat tal-potassju, Polimetafosfat tal-potassju
 nl: E452(ii), Kaliumpolyfosfaat, Kaliummetafosfaat, kaliumpolymetafosfaat
 pl: E452(ii), Polifosforan potasu, Metafosforan potasu, polimetafosforan potasu
-pt: E452(ii), Polifosfato de potássio, Metafosfato de potássio, polimetafosfato de potássio
+pt: E452(ii), polifosfato de potássio, Metafosfato de potássio, polimetafosfato de potássio
 ro: E452(ii), Polifosfat de potasiu, Metafosfat de potasiu, Polimetafosfat de potasiu
 sk: E452(ii), Polyfosforečnan draselný, Metafosforečnan draselný, polymetafosforečnan draselný
 sl: E452(ii), Kalijev polifosfat, kalijev metafosfat, kalijev polimetafosfat
 sv: E452(ii), Kaliumpolyfosfat, Kaliummetafosfat, kaliumpolymetafosfat
+
 additives_classes:en: en:emulsifier, en:humectant, en:sequestrant, en:stabiliser, en:thickener
 anses_additives_of_interest:en: yes
 e_number:en: 452
-wikidata:en: Q11867365
+wikidata:en: Q42807555
 
 #comment:en:The same as E543.
 < en:E452
 en: E452(iii), Sodium calcium polyphosphate, Sodium calcium polyphosphate
-xx: E452(iii)
+xx: E452(iii), E452iii, E 452iii, E-452iii
 bg: E452(iii), Натриево-калциев полифосфат, Натриево-калциев полифосфат
 cs: E452(iii), Polyfosforečnan sodno-vápenatý
 da: E452(iii), Natriumcalciumpolyphosphater, Natriumcalciumpolyphosphat
@@ -13905,11 +14160,11 @@ sv: E452(iii), Natriumkalciumpolyfosfat
 additives_classes:en: en:emulsifier, en:humectant, en:sequestrant, en:stabiliser, en:thickener
 anses_additives_of_interest:en: yes
 e_number:en: 452
-wikidata:en: Q11867365
+wikidata:en: Q18967198
 
 < en:E452
 en: E452(iv), Calcium polyphosphate, Calcium metaphosphate
-xx: E452(iv)
+xx: E452(iv), e452iv, e 452iv, e-452iv
 bg: E452(iv), Калциев полифосфат, Калциев метафосфат
 cs: E452(iv), Polyfosforečnan vápenatý, Metafosforečnan vápenatý
 da: E452(iv), Calciumpolyphosphater, Calciummetaphosphat
@@ -13918,7 +14173,8 @@ el: E452(iv), Πολυφωσφορικο ασβεστιο, Μεταφωσφορ�
 es: E452(iv), Polifosfato de calcio, Metafosfato cálcico
 et: E452(iv), Kaltsiumpolüfosfaat, Kaltsiummetafosfaat
 fi: E452(iv), Kalsiumpolyfosfaatti, Kalsiummetafosfaatti, Kalsiumpolyfosfaattia, Kalsiummetafosfaattia
-fr: E452(iv), Polyphosphate de calcium, Polyphosphate de calcium, Polyphosphate calcique, Polymétaphosphate de calcium, Métaphosphate de calcium
+fr: E452(iv), Polyphosphate de calcium, Polyphosphate calcique, Polymétaphosphate de calcium, Métaphosphate de calcium
+hr: E452(iv), kalcijev polifosfat
 hu: E452(iv), Kalcium-polifoszfát, Kalcium-metafoszfát
 it: E452(iv), Polifosfato di calcio, Metafosfato di calcio
 lt: E452(iv), Kalcio polifosfatas, Kalcio metafosfatas
@@ -13938,7 +14194,7 @@ wikidata:en: Q11867365
 
 < en:E452
 en: E452(v), Ammonium polyphosphate
-xx: E452(v)
+xx: E452(v), E452v, e 452v, e-452v
 ar: E452(v), بولي فوسفات الأمونيوم
 az: E452(v), Ammonium polifosfat
 bg: E452(v), Амониев полифосфат
@@ -13982,7 +14238,7 @@ wikidata:en: Q11867365
 
 < en:E452
 en: E452(vi), Sodium tripolyphosphate
-xx: E452(vi)
+xx: E452(vi), E452vi, E 452vi, E-452vi
 ar: E452(vi), ثلاثي فوسفات الصوديوم
 az: E452(vi), Natrium tripolifosfat
 bg: E452(vi), Натриев триполифосфат
@@ -16143,7 +16399,11 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q18601524
 
-#WARNING: Use the plural for E500 and the singular for E500i, Iin order to distinghuish between E500 and E500i
+# the E500 family contains 
+#   E500(i): Sodium carbonate,
+#   E500(ii): Sodium hydrogen carbonate,
+#   E500(iii): Sodium sesquicarbonate
+# put plural for E500 and singular for E500(i)
 en: E500, Sodium carbonates
 xx: E500
 bg: E500, Натриеви карбонати
@@ -16194,7 +16454,7 @@ ba: E500(i), Кальцирланған сода
 bg: E500(i), Натриев карбонат, Калцинирана сода, Динатриев карбонат
 bn: E500(i), সোডিয়াম কার্বনেট
 bs: E500(i), Natrij-karbonat
-ca: E500(i), carbonat de sodi, carbonats de sodi
+ca: E500(i), carbonat de sodi
 cs: E500(i), Uhličitan sodný, Bezvodý uhličitan sodný, Soda na praní
 da: E500(i), Natriumcarbonat, Soda
 de: E500(i), Natriumcarbonat, Natriumkarbonat, Calciniertes Soda, Calcinierte Soda, Waschsoda, Kalzinierte Soda, Kalziniertes Soda
@@ -16407,6 +16667,10 @@ organic_eu:en: authorized
 wikidata:en: Q2234978
 # additive/e500iii-sodium-sesquicarbonate has 6 products in french @2018-12-10
 
+# the E501 family contains 
+#   E501(i): Potassium carbonate,
+#   E501(ii): Potassium hydrogen carbonate
+# put plural for E501 and singular for E501(i)
 en: E501, Potassium carbonates
 xx: E501
 bg: E501, калиеви карбонати
@@ -16602,7 +16866,10 @@ vegetarian:en: yes
 
 
 
-#comment:en:Use plural for E503 and singular(specific) for E503i
+# the E503 family contains 
+#   E503(i): Ammonium carbonate,
+#   E503(ii): Ammonium hydrogen carbonate
+# put plural for E503 and singular for E503(i)
 en: E503, Ammonium carbonates
 xx: E503
 bg: E503, Амониеви карбонати
@@ -16617,7 +16884,7 @@ fi: E503, ammoniumkarbonaatit
 fr: E503, Carbonates d'ammonium
 hr: E503, Amonijevi karbonati
 hu: E503, ammónium-karbonátok
-it: E503, Carbonati d'ammonio, carbonati di ammonio, carbonato d'ammonio, carbonato di ammonio
+it: E503, Carbonati d'ammonio, carbonati di ammonio
 lt: E503, Amonio karbonatai
 lv: E503, Amonija karbonāti
 mt: E503, Karbonati tal-ammonju
@@ -16645,7 +16912,7 @@ bg: E503(i), Амониев карбонат
 ca: E503(i), Carbonat d'amoni
 cs: E503(i), Uhličitan amonný
 da: E503(i), Ammoniumcarbonat
-de: E503(i), Ammoniumcarbonat, ammoniumcarbonate
+de: E503(i), Ammoniumcarbonat
 el: E503(i), Ανθρακικα αλατα του αμμωνιου
 eo: E503(i), Amonia karbonato
 es: E503(i), Carbonato de amonio, Carbonato amónico, carbonato de aminiaco
@@ -16658,7 +16925,7 @@ hu: E503(i), Ammónium-karbonát
 hy: E503(i), Ամոնիումի կարբոնատ
 id: E503(i), Amonium karbonat
 is: E503(i), Hjartarsalt
-it: E503(i), Carbonato d'ammonio
+it: E503(i), Carbonato d'ammonio, carbonato di ammonio
 ja: E503(i), 炭酸アンモニウム
 ko: E503(i), 탄산 암모늄
 lt: E503(i), Amonio karbonatas
@@ -16696,7 +16963,7 @@ en: E503(ii), Ammonium hydrogen carbonate, Baker's ammonia, Sal volatile, Salt o
 xx: E503(ii)
 ar: E503(ii), بيكربونات الأمونيوم
 bg: E503(ii), Амониев хидроген карбонат, Амониев бикарбонат, Амониев хидрогенкарбонат
-ca: E503(ii), carbonat àcid d'amoni, bicarbonato amonico
+ca: E503(ii), carbonat àcid d'amoni, bicarbonato amonico, gasificant E503II
 cs: E503(ii), Hydrogenuhličitan amonný
 da: E503(ii), Ammoniumhydrogencarbonat, Hjortetakssalt, ammoniumvätekarbonat
 de: E503(ii), Ammoniumhydrogencarbonat, Ammonium-hydrogencarbonat, Ammoniumbicarbonat, Hirschhornsalz
@@ -16729,7 +16996,7 @@ ru: E503(ii), гидрокарбонат аммония
 sh: E503(ii), Amonijum bikarbonat
 sk: E503(ii), Hydrogenuhličitan amónny
 sl: E503(ii), Amonijev hidrogenkarbonat
-sr: E503(ii), Amonijum bikarbonat
+sr: E503(ii), Amonijum bikarbonat, aditiv sredstvo za dizanje testa E503ii
 sv: E503(ii), Ammoniumvätekarbonat, hjorthornssalt
 te: E503(ii), అమ్మోనియం బైకార్బొనేట్
 th: E503(ii), แอมโมเนียมไบคาร์บอเนต
@@ -16954,7 +17221,7 @@ it: E508, Cloruro di potassio, Silvine, Cloruro potassico
 lt: E508, Kalio chloridas, Silvinas
 lv: E508, Kālija hlorīds, Silvins
 mt: E508, Klorur tal-potassju, Silvin
-nl: E508, Kaliumchloride, dieetzout, zout dieetzout
+nl: E508, Kaliumchloride
 no: E508, kaliumklorid
 pl: E508, Chlorek potasu
 pt: E508, Cloreto de potássio, Silvina
@@ -17240,6 +17507,10 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q4118
 
+# the E514 family contains 
+#   E514(i): Sodium sulphate,
+#   E514(ii): Sodium hydrogen sulphate
+# put plural for E514 and singular for E514(i)
 en: E514, Sodium sulphates
 xx: E514
 af: E514, Natriumsulfate
@@ -17247,7 +17518,7 @@ ar: E514, كبريتات الصوديوم
 az: E514, Natrium sulfatlar
 bg: E514, Натриеви сулфати
 ca: E514, Sulfats de sodi
-cs: E514, Síran sodný
+cs: E514, sírany sodné
 da: E514, Natriumsulfater
 de: E514, Natriumsulfater
 el: E514, Θειικά άλατα νατρίου
@@ -17281,7 +17552,7 @@ pl: E514, Siarczany sodu
 pt: E514, Sulfatos de sódio
 ro: E514, Sulfati de sodiu, Sulfati de natriu
 ru: E514, Сульфаты натрия
-sk: E514, Síran sodný
+sk: E514, sirany sodné
 sl: E514, Natrijevi sulfati
 sq: E514, Sulfatet e natriumit
 sr: E514, Натријум сулфати
@@ -17316,7 +17587,7 @@ nl: E514(i), Natriumsulfaat, Glauberzout
 pl: E514(i), Siarczan sodu, Sól glauberska
 pt: E514(i), Sulfato de sódio, Sal de Glauber
 ro: E514(i), Sulfat de sodiu
-sk: E514(i), Síran sodný
+sk: E514(i), Síran sodný, siran sodný
 sl: E514(i), Natrijev sulfat
 sv: E514(i), Natriumsulfat, Glaubersalt
 e_number:en: 514
@@ -17349,29 +17620,31 @@ sv: E514(ii), Natriumvätesulfat, Surt natriumsulfat
 e_number:en: 514
 wikidata:en: Q211737
 
+# the E515 family contains E515(i): Potassium sulphate and E515(ii): Potassium hydrogen sulphate
+# put plural for E515 and singular for E515(i)
 en: E515, Potassium sulphates, Potassium sulfates, potassium sulfate
 xx: E515
-bg: E515, Калиеви сулфати, калиев сулфат
+bg: E515, Калиеви сулфати
 ca: E515, Sulfats de potassi
 cs: E515, Draselné sírany, draselný síran
-da: E515, Kaliumsulfater, kaliumsulfat
+da: E515, Kaliumsulfater
 de: E515, Kaliumsulfate
-el: E515, Θειικα αλατα του καλιου, θειικοί αλάτες του καλίου
+el: E515, Θειικα αλατα του καλιου, θειικοί αλάτες του καλίου, Θειικά άλατα του καλίου
 es: E515, Sulfatos de potasio
-et: E515, Kaaliumsulfaadid, kaaliumsulfaat
-fi: E515, Kaliumsulfaatit, kaliumsulfaatti
+et: E515, Kaaliumsulfaadid
+fi: E515, Kaliumsulfaatit
 fr: E515, Sulfates de potassium
-hu: E515, Kálium-szulfátok, kálium-szulfát
-it: E515, Solfatos di potassio, Solfati di potassio, solfato di potassio
-lt: E515, Kalio sulfatai, kalio sulfatas
-lv: E515, Kālija sulfāti, kālija sulfāts
-mt: E515, Sulfati tal-potassju, sulfat tal-potassju
+hu: E515, Kálium-szulfátok
+it: E515, Solfatos di potassio, Solfati di potassio
+lt: E515, Kalio sulfatai
+lv: E515, Kālija sulfāti
+mt: E515, Sulfati tal-potassju
 nl: E515, Kaliumsulfaten
 pl: E515, Siarczany potasu
 pt: E515, Sulfatos de potássio
 ro: E515, Sulfati de potasiu
 sk: E515, Draselné sírany, draselný síran
-sl: E515, Kalijevi sulfati, kalijev sulfat
+sl: E515, Kalijevi sulfati
 sv: E515, Kaliumsulfater
 e_number:en: 515
 vegan:en: yes
@@ -17386,7 +17659,7 @@ ca: E515(i), Sulfat de potassi
 cs: E515(i), Síran draselný
 da: E515(i), Kaliumsulfat
 de: E515(i), Kaliumsulfat
-el: E515(i), Θειικα αλατα του καλιου
+el: E515(i), Θειικό άλας του καλίου, Θειικός αλάτης του καλίου
 es: E515(i), Sulfato potásico, Sulfato de potasio, Sulfito de potasio
 et: E515(i), Kaaliumsulfaat
 fi: E515(i), Kaliumsulfaatti, Kaliumsulfaattia
@@ -18414,10 +18687,13 @@ wikipedia:en: https://en.wikipedia.org/wiki/Talc
 # additive/e553b-talc has 219 products in 9 languages @2019-04-16
 
 #comment:en:E553a is a synthetic form of magnesium silicates (plural)
+# the E553a family contains E553a(i): Synthetic magnesium silicate and E553a(ii): Magnesium trisilicate
+# put plural for E553a and singular for E553a(i) whenever it is possible
+# otherwise (Japanese, Korean, Thai, Arabic), put "synthetic magnesium silicate group" or "synthetic magnesium silicate family"
 < en:E553
 en: E553a, synthetic magnesium silicates
 xx: E553a
-ar: E553a, سيليكات المغنيسيوم الاصطناعية
+ar: E553a, مجموعة سيليكات المغنيسيوم الاصطناعية
 az: E553a, sintetik maqnezium silikatlar
 bg: E553a, синтетични магнезиеви силикати
 ca: E553a, silicats de magnesi sintètics
@@ -18433,7 +18709,7 @@ fr: E553a, silicates de magnésium synthétiques
 hr: E553a, sintetički magnezijevi silikati
 hu: E553a, szintetikus magnézium-szilikátok
 it: E553a, silicati di magnesio sintetici
-ja: E553a, 合成ケイ酸マグネシウム
+ja: E553a, 合成ケイ酸マグネシウム族
 ko: E553a, 합성 마그네슘 규산염
 lt: E553a, sintetiniai magnio silikatai
 lv: E553a, sintētiskie magnija silikāti
@@ -18451,7 +18727,7 @@ sr: E553a, синтетички магнезијум силикати
 sv: E553a, syntetiska magnesiumsilikater
 tr: E553a, sentetik magnezyum silikatlar
 uk: E553a, синтетичні силікати магнію
-zh: E553a, 合成硅酸镁
+zh: E553a, 合成硅酸镁族
 additives_classes:en: en:thickener
 e_number:en: 553a
 organic_eu:en: authorized
@@ -22518,7 +22794,7 @@ de: E931, Nitrogen
 el: E931, Nitrogen
 es: E931, Nitrogen
 et: E931, Nitrogen
-fi: E931, Typpi, Typpioksidi
+fi: E931, Typpi
 fr: E931, Nitrogène, Azote
 hu: E931, Nitrogen
 it: E931, Azoto
@@ -24418,7 +24694,7 @@ es: E1001, Sal de colina
 et: E1001, Koliinisool
 fa: E1001, نمک کولین
 fi: E1001, Koliinin suolat ja esterit, Koliinin suoloja ja estereitä
-fr: E1001, Sels et esters de choline, Acétate de choline, Carbonate de choline, chlorure de choline, Citrate de choline, Tartrate de choline, Lactate de choline
+fr: E1001, Sels et esters de choline, Acétate de choline, Carbonate de choline, Citrate de choline, Tartrate de choline, Lactate de choline
 hr: E1001, kolin bitartarat
 hu: E1001, Kolin-só
 it: E1001, Sale di colina
@@ -25120,7 +25396,7 @@ nl: E1401, Zuur-behandeld zetmeel
 pl: E1401, Skrobia modyfikowana kwasami
 pt: E1401, Amido modificado tratado com ácido
 ro: E1401, Amidon modificat tratat cu acid
-ru: E1401, Модифицированный крахмал, обработанный кислотой
+ru: E1401, обработанный кислотой
 sk: E1401, Škrob modifikovaný kyselinou
 sl: E1401, S kislino obdelan modificiran škrob
 sv: E1401, Syra-behandlad modifierad stärkelse
@@ -25309,16 +25585,16 @@ xx: E1411
 bg: E1411, Глицерил дистарч
 cs: E1411, Glycerol distarch
 da: E1411, Distarch glycerol
-de: E1411, Distärkeglycerin
+de: E1411, Distärkeglycerol
 el: E1411, Γλυκερόλη διστάρχη
 es: E1411, Glicerol de distarco
 et: E1411, Distärküülglütserool
 fi: E1411, Distärkkelysglyseroli, Ditärkkelysglyserolia
 fr: E1411, Glycérol de diamidon, Glycérol de distarque
-hu: E1411, Dikeményítő-glicerin
+hu: E1411, Dikeményítő-glycerol
 it: E1411, Glicerolo di distarch
 lt: E1411, Distarch glikerolis
-lv: E1411, Distarča glicerīns
+lv: E1411, Distarča glicerols
 mt: E1411, Gliċerolu distarċ
 nl: E1411, Distarch glycerol
 pl: E1411, glicerol diskrobiowy, Gliceryd distarcho
@@ -25621,7 +25897,7 @@ hu: E1441, Hidroxi propil di keményítő glicerin
 it: E1441, Glicerolo di dialmid idrossipropilico
 ja: E1441, ヒドロキシプロピル二澱粉グリセリン
 ko: E1441, 하이드록시 프로필 디스타치 글리세린
-lt: E1441, Hidroksi propil distarch glicerolis
+lt: E1441, Hidroksi propil distarch glicerinas
 lv: E1441, Hidroksi propil distarha glicerīns
 mt: E1441, Gliċerol tad-dijamiżella idrossi propil
 nl: E1441, Hydroxy propyl distarch glycerin
@@ -25688,7 +25964,7 @@ it: E1443, Glicerolo di distarch idrossipropilico
 ja: E1443, ヒドロキシプロピル二澱粉グリセロール
 ko: E1443, 하이드록시 프로필 디스타치 글리세롤
 lt: E1443, Hidroksi propil distarch glicerolis
-lv: E1443, Hidroksi propil distarha glicerīns
+lv: E1443, Hidroksi propil distarha glicerols
 nl: E1443, Hydroxy propyl distarch glycerol
 pl: E1443, Hydroksypropylowy glicerol diskrobiowy
 pt: E1443, Glicerol de distarca hidroxipropil
@@ -26272,4 +26548,57 @@ ja: 有機酸
 en: Inorganic salts
 it: Sali inorganici
 ja: 無機塩
+
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                          C O M B I N E D   A D D I T I V E S
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+< en:E450
+< en:E500
+en: diphosphates and sodium carbonates
+de: Diphosphate und Natriumcarbonate, E 450 und E 500, E450 und E500
+es: difosfatos y carbonatos de sodio
+fi: difosfaatit ja natriumkarbonaatit
+fr: diphosphate et carbonate de calcium, diphosphates et carbonates de sodium, e450 et e500
+hr: difosfati i natrijevi karbonati
+hu: difoszfátok és nátrium-karbonátok
+it: difosfati e carbonati di sodio, E 450 ed E 500, E450 ed E500
+nl: difosfaten en natriumcarbonaten
+# fr:e450-et-e500 has 64 products in 4 languages @2018-11-04
+# ingredient/fr:diphosphate-et-carbonate-de-calcium has 678 products @2019-05-18
+
+< en:E450(i)
+< en:E500(ii)
+ca: carbonat àcid de sodi i difosfat de disodi
+fr: diphosphate disodique et carbonate acide de sodium
+ru: сода, сода пищевая, гидрокарбонат натрия, разрыхлитель гидрокарбонат натрия
+# fr:diphosphate-disodique-et-carbonate-acide-de-sodium has 72 products in 2 languages @2018-11-04
+
+< en:E450
+< en:E451
+en: di- and triphosphates
+da: di- och triphosphater
+de: Di- und Triphosphate, Stabilisator Di- und Triphosphate
+fi: di- ja trifosfaatit
+fr: diphosphates et triphosphates, triphosphates et diphosphates, di- et triphosphate
+hr: di- i trifosfati
+nl: difosfaten en trifosfaten
+sv: di- och trifosfater
+
+< en:E500
+< en:E503
+en: ammonium and sodium carbonates
+da: ammonium - og natriumcarbonat
+de: Ammonium und Natriumcarbonat
+fi: ammonium- ja natriumkarbonaatit
+fr: carbonates d'ammonium et de sodium
+hr: amonijev bikarbonat
+it: carbonati di ammonio e di sodio
+lt: kildinimo medžiaga amonio karbonatas
+nl: ammonium- en natriumcarbonaten, ammonium carbonaten en natrium
+# ingredient/fr:carbonates-d’ammonium-et-de-sodium has 110 products in 7 languages @2019-04-06
 
