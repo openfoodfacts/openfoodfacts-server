@@ -35,6 +35,7 @@ use ProductOpener::Orgs qw/org_name retrieve_org/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::CRM qw/get_contact_url/;
 use ProductOpener::Keycloak;
+use ProductOpener::Auth qw/get_keycloak_level/;
 
 use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
@@ -73,7 +74,7 @@ if (defined single_param('userid')) {
 
 	# The userid looks like an e-mail
 	if ($request_ref->{admin} and ($userid =~ /\@/)) {
-		if ($oidc_options{keycloak_level} < 2) {
+		if (get_keycloak_level() < 2) {
 			my $user_by_email = retrieve_user_by_email($userid);
 			if (defined $user_by_email) {
 				$userid = $user_by_email->{userid};
@@ -117,7 +118,7 @@ my @errors = ();
 
 if ($action eq 'process') {
 
-	if ($oidc_options{keycloak_level} < 5) {
+	if (get_keycloak_level() < 5) {
 		if ($type eq 'edit') {
 			if (single_param('delete') eq 'on') {
 				$type = 'delete';
@@ -173,7 +174,7 @@ if ($action eq 'display') {
 			$user_ref->{userid} = $user_info;
 			$user_ref->{name} = $user_info;
 		}
-		if ($oidc_options{keycloak_level} < 5) {
+		if (get_keycloak_level() < 5) {
 			$user_ref->{password} = $new_user_password;
 
 		}
@@ -186,7 +187,7 @@ if ($action eq 'display') {
 	$template_data_ref->{sections} = [];
 
 	if ($user_ref) {
-		if ($oidc_options{keycloak_level} < 5) {
+		if (get_keycloak_level() < 5) {
 			my $selected_language = $user_ref->{preferred_language}
 				// (remove_tags_and_quote(single_param('preferred_language')) || "$lc");
 			my $selected_country = $user_ref->{country} // (remove_tags_and_quote(single_param('country')) || $country);
@@ -439,7 +440,7 @@ elsif ($action eq 'process') {
 	if (($type eq 'add') or ($type =~ /^edit/)) {
 		ProductOpener::Users::process_user_form($type, $user_ref, $request_ref);
 	}
-	elsif ($oidc_options{keycloak_level} < 5 and $type eq 'delete') {
+	elsif (get_keycloak_level() < 5 and $type eq 'delete') {
 		ProductOpener::Users::delete_user($user_ref);
 	}
 

@@ -171,6 +171,7 @@ use ProductOpener::Permissions qw/has_permission/;
 use ProductOpener::ProductsFeatures qw(feature_enabled);
 use ProductOpener::RequestStats qw(:all);
 use ProductOpener::PackagingFoodContact qw/determine_food_contact_of_packaging_components_service/;
+use ProductOpener::Auth qw/get_keycloak_level/;
 
 use Encode;
 use URI::Escape::XS qw/uri_escape/;
@@ -346,7 +347,7 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	(not defined $template_data_ref->{user}) and $template_data_ref->{user} = \%User;
 	(not defined $template_data_ref->{org_id}) and $template_data_ref->{org_id} = $Org_id;
 	$template_data_ref->{owner_pretty_path} = get_owner_pretty_path($Owner_id);
-	$template_data_ref->{keycloak_level} = $oidc_options{keycloak_level};
+	$template_data_ref->{keycloak_level} = get_keycloak_level();
 
 	if (defined $template_data_ref->{user_id} and defined $template_data_ref->{canon_url}) {
 		$template_data_ref->{keycloak_account_link}
@@ -1314,7 +1315,7 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 			$html =~ s/<\/h1>/ - $owner_user_or_org<\/h1>/;
 		}
 
-		if ($oidc_options{keycloak_level} >= 3) {
+		if (get_keycloak_level() >= 3) {
 			# Set the login links
 			# TODO: Should be full URL
 			my $escaped_canon_url = uri_escape($formatted_subdomain);

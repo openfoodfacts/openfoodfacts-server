@@ -24,7 +24,7 @@ use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 
-use ProductOpener::Auth qw/access_to_protected_resource/;
+use ProductOpener::Auth qw/access_to_protected_resource get_keycloak_level/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
@@ -376,7 +376,7 @@ if (($type eq 'add') or ($type eq 'edit') or ($type eq 'delete')) {
 
 	if (not defined $User_id) {
 
-		if ($oidc_options{keycloak_level} < 3) {
+		if (get_keycloak_level() < 3) {
 			my $submit_label = "login_and_" . $type . "_product";
 			$action = 'login';
 			$template_data_ref->{type} = $type;

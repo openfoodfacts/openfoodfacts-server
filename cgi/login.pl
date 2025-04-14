@@ -31,7 +31,7 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Users qw/$User_id check_password_hash retrieve_user/;
 use ProductOpener::Lang qw/lang/;
-use ProductOpener::Auth qw/password_signin access_to_protected_resource/;
+use ProductOpener::Auth qw/password_signin access_to_protected_resource get_keycloak_level/;
 
 use Apache2::Const -compile => qw(OK :http);
 use CGI qw/:cgi :form escapeHTML/;
@@ -46,7 +46,7 @@ $log->info('start') if $log->is_info();
 my $r = shift;
 my $redirect = single_param('redirect');
 
-if ($oidc_options{keycloak_level} < 5) {
+if (get_keycloak_level() < 5) {
 	my $template_data_ref = {};
 	$template_data_ref->{redirect} = $redirect;
 	if (defined $User_id) {

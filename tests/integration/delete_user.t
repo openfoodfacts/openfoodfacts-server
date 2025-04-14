@@ -8,6 +8,7 @@ use ProductOpener::Test qw/remove_all_users/;
 use ProductOpener::TestDefaults qw/%admin_user_form %default_product %default_user_form/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Auth qw/get_keycloak_level/;
 
 use Clone qw/clone/;
 use Minion::Job;
@@ -37,7 +38,7 @@ create_user($admin, \%admin_user_form);
 edit_product($ua, \%default_product);
 
 my $url_userid = construct_test_url("/cgi/user.pl?type=edit&userid=tests", "world");
-if ($oidc_options{keycloak_level} < 5) {
+if (get_keycloak_level() < 5) {
 	my $url_delete = construct_test_url("/cgi/user.pl", "world");
 	my $response_edit = $ua->get($url_userid);
 

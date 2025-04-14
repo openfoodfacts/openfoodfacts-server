@@ -50,6 +50,7 @@ BEGIN {
 		&get_azp
 		&write_auth_deprecated_headers
 		&start_signout
+		&get_keycloak_level
 
 		$oidc_discover_document
 		$jwks
@@ -851,12 +852,16 @@ None.
 =cut
 
 sub write_auth_deprecated_headers() {
-	if ($oidc_options{keycloak_level} >= 3) {
+	if (get_keycloak_level() >= 3) {
 		my $r = Apache2::RequestUtil->request();
 		$r->err_headers_out->set('Deprecation', 'Mon, 01 Apr 2024 00:00:00 GMT');
 		$r->err_headers_out->set('Sunset', 'Tue, 01 Apr 2025 18:00:00 GMT');
 	}
 	return;
+}
+
+sub get_keycloak_level() {
+	return $oidc_options{keycloak_level};
 }
 
 1;

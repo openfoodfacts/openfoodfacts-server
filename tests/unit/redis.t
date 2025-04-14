@@ -9,6 +9,7 @@ use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Redis qw/process_xread_stream_reply/;
 use ProductOpener::Config qw/%oidc_options/;
+use ProductOpener::Auth qw/get_keycloak_level/;
 
 subtest 'user registration from redis to minion' => sub {
 	# Mock reply data
@@ -75,7 +76,7 @@ subtest 'user registration from redis to minion' => sub {
 	is($user1_called, 1, 'process_xread_stream_reply called Minion->enqueue with user1');
 	is($user2_called, 2, 'process_xread_stream_reply called Minion->enqueue with user2');
 
-	if ($oidc_options{keycloak_level} < 5) {
+	if (get_keycloak_level() < 5) {
 		is($create_or_update_user_called, 2, 'create_or_update_user for each user');
 	}
 };

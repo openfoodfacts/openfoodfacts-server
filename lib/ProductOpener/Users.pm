@@ -373,7 +373,7 @@ sub delete_user_task ($job, $args_ref) {
 
 	my $userid = $args_ref->{userid};
 	my $new_userid;
-	if ($oidc_options{keycloak_level} < 4) {
+	if (get_keycloak_level() < 4) {
 		# Suffix is a combination of seconds since epoch plus a 16 bit random number
 		$new_userid = "anonymous-" . lc(encode_base32(pack('LS', time(), rand(65536))));
 	}
@@ -532,7 +532,7 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 
 		# check that the email is not already used
 		my $user_id_from_mail;
-		if ($oidc_options{keycloak_level} < 5) {
+		if (get_keycloak_level() < 5) {
 			my $existing_user = retrieve_user_by_email($email);
 			if (defined $existing_user) {
 				$user_id_from_mail = $existing_user->{userid};
@@ -555,7 +555,7 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 	}
 
 	# Country and preferred language
-	if ($oidc_options{keycloak_level} < 5) {
+	if (get_keycloak_level() < 5) {
 		$user_ref->{preferred_language} = remove_tags_and_quote(single_param("preferred_language"));
 		$user_ref->{country} = remove_tags_and_quote(single_param("country"));
 	}
@@ -634,7 +634,7 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 		push @{$errors_ref}, $Lang{error_name_too_long}{$lc};
 	}
 
-	if ($oidc_options{keycloak_level} < 5) {
+	if (get_keycloak_level() < 5) {
 		my $address;
 		eval {$address = Email::Valid->address(-address => $user_ref->{email}, -mxcheck => 1);};
 		$address = 0 if $@;
@@ -661,12 +661,12 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 			push @{$errors_ref}, $Lang{error_username_too_long}{$lc};
 		}
 
-		if ($oidc_options{keycloak_level} < 5 and length(decode utf8 => single_param('password')) < 6) {
+		if (get_keycloak_level() < 5 and length(decode utf8 => single_param('password')) < 6) {
 			push @{$errors_ref}, $Lang{error_invalid_password}{$lc};
 		}
 	}
 
-	if ($oidc_options{keycloak_level} < 5) {
+	if (get_keycloak_level() < 5) {
 		if (param('password') ne single_param('confirm_password')) {
 			push @{$errors_ref}, $Lang{error_different_passwords}{$lc};
 		}
@@ -848,7 +848,7 @@ sub process_user_form ($type, $user_ref, $request_ref) {
 		param("user_id", $userid);
 		init_user($request_ref);
 
-		if ($oidc_options{keycloak_level} < 4) {
+		if (get_keycloak_level() < 4) {
 			# Fetch the HTML mail template corresponding to the user language, english is the
 			# default if the translation is not available
 			my $language = $user_ref->{preferred_language} || $user_ref->{initial_lc};
@@ -1177,7 +1177,7 @@ sub store_user_session ($user_ref) {
 }
 
 sub store_user ($user_ref) {
-	if ($oidc_options{keycloak_level} < 5) {
+	if (get_keycloak_level() < 5) {
 		# Sync the user with Keycloak
 		my $keycloak = ProductOpener::Keycloak->new();
 		$keycloak->create_or_update_user($user_ref);
@@ -1286,7 +1286,7 @@ sub remove_user ($user_ref) {
 		}
 	}
 
-	if ($oidc_options{keycloak_level} < 5) {
+	if (get_keycloak_level() < 5) {
 		my $keycloak = ProductOpener::Keycloak->new();
 		$keycloak->delete_user($userid);
 	}
@@ -1313,7 +1313,7 @@ sub retrieve_userids() {
 }
 
 sub is_email_has_off_account ($email) {
-	if ($oidc_options{keycloak_level} < 5) {
+	if (get_keycloak_level() < 5) {
 		my $user_ref = retrieve_user_by_email($email);
 		return $user_ref->{userid} if defined $user_ref;
 
@@ -1445,7 +1445,7 @@ sub init_user ($request_ref) {
 		$user_id = remove_tags_and_quote(request_param($request_ref, 'user_id'));
 
 		if ($user_id =~ /\@/) {
-			if ($oidc_options{keycloak_level} < 5) {
+			if (get_keycloak_level() < 5) {
 				$log->info("got email while initializing user", {email => $user_id}) if $log->is_info();
 				$user_ref = retrieve_user_by_email($user_id);
 
@@ -1484,7 +1484,7 @@ sub init_user ($request_ref) {
 				$user_id = $user_ref->{'userid'};
 				$log->context->{user_id} = $user_id;
 
-				if ($oidc_options{keycloak_level} < 3) {
+				if (get_keycloak_level() < 3) {
 					my $hash_is_correct = check_password_hash(encode_utf8(request_param($request_ref, 'password')),
 						$user_ref->{'encrypted_password'});
 					# We don't have the right password
@@ -1613,7 +1613,7 @@ sub init_user ($request_ref) {
 						if $log->is_debug();
 					$user_id = $user_ref->{'userid'};
 
-					if ($oidc_options{keycloak_level} >= 3) {
+					if (get_keycloak_level() >= 3) {
 						my $session_ref = $user_ref->{'user_sessions'}{$user_session};
 						$request_ref->{access_token} = $session_ref->{access_token} if $session_ref->{access_token};
 						$request_ref->{access_expires_at} = $session_ref->{access_expires_at}
