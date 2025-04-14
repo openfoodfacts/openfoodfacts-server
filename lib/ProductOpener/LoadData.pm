@@ -57,6 +57,7 @@ use ProductOpener::MainCountries qw(load_scans_data);
 use ProductOpener::NutritionCiqual qw(load_ciqual_data);
 use ProductOpener::Routing qw(load_routes);
 use ProductOpener::CRM qw(init_crm_data);
+use ProductOpener::GS1 qw/load_gpc_category_codes_from_categories_taxonomy/;
 
 =head1 FUNCTIONS
 
@@ -93,6 +94,8 @@ sub load_data() {
 		load_forest_footprint_data();
 		load_ciqual_data();
 	}
+
+	load_gpc_category_codes_from_categories_taxonomy();
 
 	$log->debug("loading data - done") if $log->is_debug();
 	print STDERR "load_data - done\n";
