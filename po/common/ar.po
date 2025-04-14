@@ -5325,7 +5325,7 @@ msgstr "الأثر على الغابات متوسطة"
 
 msgctxt "attribute_forest_footprint_d_title"
 msgid "Large forest footprint"
-msgstr "الأثر على الغابات كبيرة"
+msgstr "بصمة غابات كبيرة"
 
 msgctxt "attribute_forest_footprint_e_title"
 msgid "Very large forest footprint"
@@ -5337,73 +5337,73 @@ msgstr "تأثير الغابات غير محسوب"
 
 msgctxt "attribute_forest_footprint_a_description_short"
 msgid "Almost no risk of deforestation"
-msgstr ""
+msgstr "لا يوجد خطر تقريبًا لإزالة الغابات"
 
 msgctxt "attribute_forest_footprint_b_description_short"
 msgid "Low risk of deforestation"
-msgstr ""
+msgstr "خطر قليل لإزالة الغابات"
 
 msgctxt "attribute_forest_footprint_c_description_short"
 msgid "Moderate risk of deforestation"
-msgstr ""
+msgstr "خطر معتدل لإزالة الغابات"
 
 msgctxt "attribute_forest_footprint_d_description_short"
 msgid "High risk of deforestation"
-msgstr ""
+msgstr "خطر مرتفع لإزالة الغابات"
 
 msgctxt "attribute_forest_footprint_e_description_short"
 msgid "Very high risk of deforestation"
-msgstr ""
+msgstr "خطر مرتفع جدا لإزالة الغابات"
 
 msgctxt "attribute_forest_footprint_not_computed_description_short"
 msgid "Currently only for products with chicken or eggs"
-msgstr ""
+msgstr "حاليًا فقط للمنتجات التي تحتوي على الدجاج أو البيض"
 
 msgctxt "classify_products_according_to_your_preferences"
 msgid "Classify products according to your preferences"
-msgstr ""
+msgstr "تصنيف المنتجات حسب تفضيلاتك"
 
 # %d will be replaced by the number of products
 msgctxt "classify_the_d_products_below_according_to_your_preferences"
 msgid "Classify the %d products below according to your preferences"
-msgstr ""
+msgstr "قم بتصنيف المنتجات %d أدناه وفقًا لتفضيلاتك"
 
 msgctxt "sort_by_popularity"
 msgid "Most scanned products"
-msgstr ""
+msgstr "المنتجات الأكثر فحصا"
 
 msgctxt "sort_by_nutriscore_score"
 msgid "Products with the best Nutri-Score"
-msgstr ""
+msgstr "المنتجات ذات أفضل تقييم غذائي"
 
 msgctxt "sort_by_environmental_score_score"
 msgid "Products with the best Green-Score"
-msgstr ""
+msgstr "المنتجات ذات أفضل تقييم بيئي"
 
 msgctxt "sort_by_created_t"
 msgid "Recently added products"
-msgstr ""
+msgstr "المنتجات المضافة مؤخرًا"
 
 msgctxt "sort_by_last_modified_t"
 msgid "Recently modified products"
-msgstr ""
+msgstr "المنتجات المعدلة مؤخرًا"
 
 # %d will be replaced by the number of products
 msgctxt "d_products_per_page"
 msgid "%d products per page"
-msgstr ""
+msgstr "%d منتجات لكل صفحة"
 
 msgctxt "not_applicable"
 msgid "Not applicable"
-msgstr ""
+msgstr "غير قابل للتطبيق"
 
 msgctxt "abbreviated_product_name"
 msgid "Abbreviated product name"
-msgstr ""
+msgstr "اسم المنتج المختصر"
 
 msgctxt "abbreviated_product_name_note"
 msgid "Product name with abbreviations shown on receipts"
-msgstr ""
+msgstr "اسم المنتج مع الاختصارات الموضحة على الإيصالات"
 
 msgctxt "footer_vision"
 msgid "Vision, Mission, Values and Programs"
@@ -5416,92 +5416,92 @@ msgstr "https://world-ar.openfoodfacts.org/open-food-facts-vision-mission-values
 
 msgctxt "forgotten_password"
 msgid "Forgotten password?"
-msgstr ""
+msgstr "هل نسيت كلمة السر؟"
 
 msgctxt "reset_password_error"
 msgid "We could not reinitialize your password, please contact us for assistance."
-msgstr ""
+msgstr "لم نتمكن من إعادة تهيئة كلمة المرور الخاصة بك، يرجى الاتصال بنا للحصول على المساعدة."
 
 msgctxt "remove_all_nutrient_values"
 msgid "Remove all nutrient values"
-msgstr ""
+msgstr "إزالة جميع القيم الغذائية"
 
 msgctxt "delete_user_process"
 msgid "User is being deleted. This may take a few minutes."
-msgstr ""
+msgstr "جاري حذف المستخدم. قد يستغرق هذا بضع دقائق."
 
 msgctxt "attribute_environmental_score_not_applicable_title"
 msgid "Green-Score not applicable"
-msgstr ""
+msgstr "النتيجة البيئية غير قابلة للتطبيق"
 
 msgctxt "attribute_environmental_score_not_applicable_description_short"
 msgid "Not applicable for the category"
-msgstr ""
+msgstr "غير قابل للتطبيق على الفئة"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_environmental_score_not_applicable_description"
 msgid "Not yet applicable for the category: {category}"
-msgstr ""
+msgstr "غير قابل للتطبيق بعد على الفئة: {category}"
 
 msgctxt "environmental_score_not_applicable_coming_soon"
 msgid "The Green-Score is not yet applicable for this category, but we are working on adding support for it."
-msgstr ""
+msgstr "لا يزال الدرجة البيئية غير قابل للتطبيق لهذه الفئة، ولكننا نعمل على إضافة الدعم لها."
 
 msgctxt "attribute_environmental_score_unknown_title"
 msgid "Green-Score not computed"
-msgstr ""
+msgstr "لم يتم حساب الدرجة البيئية"
 
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
-msgstr ""
+msgstr "التأثير البيئي غير المعروف"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
-msgstr ""
+msgstr "لم نتمكن من حساب الدرجة البيئية لهذا المنتج لأنه يفتقد بعض البيانات، هل يمكنك مساعدتنا في استكمالها؟"
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
-msgstr ""
+msgstr "يتم ربط بيانات GS1 تلقائيًا بمعرّف مؤسسة OFF يتوافق مع حقل partyName في GS1. لتغيير معرّف المؤسسة OFF، يمكنك تعيين معرّف GS1 GLN واحد أو أكثر مباشرةً."
 
 msgctxt "org_list_of_gs1_gln"
 msgid "List of GS1 GLN identifiers to be associated with the organization"
-msgstr ""
+msgstr "قائمة معرفات GS1 GLN المراد ربطها بالمنظمة"
 
 msgctxt "org_list_of_gs1_gln_note"
 msgid "A comma separated list of GS1 GLN identifiers to force the association with this organization."
-msgstr ""
+msgstr "قائمة مفصولة بفواصل من معرفات GS1 GLN لفرض الارتباط بهذه المنظمة."
 
 msgctxt "org_valid_org"
 msgid "Validate organization as a real producer."
-msgstr ""
+msgstr "التحقق من صحة المنظمة باعتبارها منتجًا حقيقيًا."
 
 msgctxt "org_valid_org_note"
 msgid "The organization is verified as a real producer by a human, also creates entry in CRM."
-msgstr ""
+msgstr "يتم التحقق من المنظمة باعتبارها منتجًا حقيقيًا بواسطة إنسان، كما تقوم أيضًا بإنشاء إدخال في CRM."
 
 msgctxt "org_enable_manual_export_to_public_platform"
 msgid "Enable organization members to manually export product data and photos to the public database."
-msgstr ""
+msgstr "تمكين أعضاء المؤسسة من تصدير بيانات المنتج والصور يدويًا إلى قاعدة البيانات العامة."
 
 msgctxt "org_enable_manual_export_to_public_platform_note"
 msgid "Manual exports can be enabled once the imported data has been reviewed by an administrator."
-msgstr ""
+msgstr "يمكن تمكين التصدير اليدوي بمجرد مراجعة البيانات المستوردة بواسطة المسؤول."
 
 msgctxt "org_activate_automated_daily_export_to_public_platform"
 msgid "Activate automated daily exports of product data and photos to the public database."
-msgstr ""
+msgstr "تفعيل الصادرات اليومية الآلية لبيانات المنتج والصور إلى قاعدة البيانات العامة."
 
 msgctxt "org_activate_automated_daily_export_to_public_platform_note"
 msgid "Automated exports should be activated only for organizations that have automated imports (e.g. through Equadis)."
-msgstr ""
+msgstr "ينبغي تنشيط الصادرات الآلية فقط للمؤسسات التي لديها عمليات استيراد آلية (على سبيل المثال من خلال Equadis)."
 
 msgctxt "org_admin"
 msgid "Administrator fields"
-msgstr ""
+msgstr "حقول المسؤول"
 
 msgctxt "minion_status_inactive"
 msgid "Queued"
-msgstr ""
+msgstr "في قائمة الانتظار"
 
 msgctxt "minion_status_active"
 msgid "In progress"
@@ -5518,54 +5518,54 @@ msgstr "فشل"
 # Export: use a noun and not a verb
 msgctxt "export_job_export"
 msgid "Export from the producers platform"
-msgstr ""
+msgstr "التصدير من منصة المنتجين"
 
 # Import: use a noun and not a verb
 msgctxt "export_job_import"
 msgid "Import to the public database"
-msgstr ""
+msgstr "الاستيراد إلى قاعدة البيانات العامة"
 
 # Update: use a noun and not a verb
 msgctxt "export_job_status_update"
 msgid "Update of the import status on the producers platform"
-msgstr ""
+msgstr "تحديث حالة الاستيراد على منصة المنتجين"
 
 msgctxt "export_in_progress"
 msgid "The export has been scheduled. This page can be closed."
-msgstr ""
+msgstr "تمت جدولة التصدير. يمكن إغلاق هذه الصفحة."
 
 msgctxt "export_products_to_public_database_request_email"
 msgid "Your export has been scheduled. You will receive an e-mail once it is finished."
-msgstr ""
+msgstr "تم جدولة عملية التصدير. ستتلقى بريدًا إلكترونيًا عند الانتهاء."
 
 msgctxt "product_page_on_the_public_database"
 msgid "Product page on the public database"
-msgstr ""
+msgstr "صفحة المنتج على قاعدة البيانات العامة"
 
 msgctxt "product_does_not_exist_on_the_public_database"
 msgid "The product does not exist yet on the public database"
-msgstr ""
+msgstr "المنتج غير موجود بعد في قاعدة البيانات العامة"
 
 # product updates = updates to multiple products
 msgctxt "some_product_updates_have_not_been_published_on_the_public_database"
 msgid "Some product updates have not been published on the public database."
-msgstr ""
+msgstr "لم يتم نشر بعض تحديثات المنتج على قاعدة البيانات العامة."
 
 msgctxt "org_do_not_import_codeonline"
 msgid "Do not import CodeOnline data."
-msgstr ""
+msgstr "لا تقم باستيراد بيانات CodeOnline."
 
 msgctxt "overwrite_owner"
 msgid "Overwrite products that have a different owner on the public platform. Otherwise, products with a different owner will be skipped."
-msgstr ""
+msgstr "استبدل المنتجات التي لها مالك مختلف على المنصة العامة. وإلا، سيتم تخطي المنتجات التي لها مالك مختلف."
 
 msgctxt "data_source_database"
 msgid "Some of the data for the products of %s come from %s."
-msgstr ""
+msgstr "بعض البيانات الخاصة بمنتجات %s تأتي من %s."
 
 msgctxt "data_source_database_note_about_the_producers_platform"
 msgid "Manufacturers can use the Open Food Facts <a href=\"<producers_platform_url>\">free plaform for producers</a> to access and complete this data, and to obtain reports, analysis and product improvements opportunities (e.g. better Nutri-Score)."
-msgstr ""
+msgstr "يمكن للمصنعين استخدام منصة Open Food Facts المجانية <a href=\"<producers_platform_url>\">للمنتجين</a> للوصول إلى هذه البيانات واستكمالها، والحصول على التقارير والتحليلات وفرص تحسين المنتج (على سبيل المثال درجة الجودة الغذائية أفضل)."
 
 # variable names between { } must not be translated
 msgctxt "f_data_source_database_provider"
@@ -5574,86 +5574,86 @@ msgstr "الشركة المصنعة {manufacturer} تستخدم {provider} لإ�
 
 msgctxt "image_other_type"
 msgid "Type of the product photo"
-msgstr ""
+msgstr "نوع صورة المنتج"
 
 # do not translate "front, ingredients, nutrition, packaging"
 msgctxt "image_other_type_description"
 msgid "If you use the same column on multiple lines to provide images URLs for a single product, you can use this field to indicate the type of the image: front, ingredients, nutrition or packaging."
-msgstr ""
+msgstr "إذا كنت تستخدم نفس العمود في عدة أسطر لتوفير عناوين URL للصور لمنتج واحد، فيمكنك استخدام هذا الحقل للإشارة إلى نوع الصورة: الواجهة، أو المكونات، أو التغذية، أو التغليف."
 
 msgctxt "forest_footprint_one_line_explanation"
 msgid "The forest footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
-msgstr ""
+msgstr "يتم حساب الأثر على الغابات من خلال الأخذ بعين الاعتبار المكونات التي يتطلب إنتاجها زراعة فول الصويا، والذي يرتبط زراعته بإزالة الغابات."
 
 msgctxt "environmental_score_agribalyse_match_warning"
 msgid "The Green-Score can only be calculated if the product has a sufficiently precise category."
-msgstr ""
+msgstr "لا يمكن حساب الدرجة البيئية إلا إذا كان المنتج يحتوي على فئة دقيقة بدرجة كافية."
 
 msgctxt "environmental_score_add_more_precise_category"
 msgid "You can modify the product page to add a more precise category."
-msgstr ""
+msgstr "يمكنك تعديل صفحة المنتج لإضافة فئة أكثر دقة."
 
 msgctxt "environmental_score_platform_promo"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
-msgstr ""
+msgstr "إذا كنت الشركة المصنعة لهذا المنتج، فيمكنك إرسال المعلومات إلينا خلال منصتنا المجانية <a href=\"https://world.pro.openfoodfacts.org\">للمنتجين</a>."
 
 msgctxt "environmental_score_warning_missing_information"
 msgid "Warning: some information necessary to calculate the Green-Score with precision is not provided (see the details of the calculation below)."
-msgstr ""
+msgstr "تحذير: بعض المعلومات اللازمة لحساب النتيجة البيئية بدقة غير متوفرة (انظر تفاصيل الحساب أدناه)."
 
 msgctxt "environmental_score_add_missing_information"
 msgid "You can edit the product to add the missing information."
-msgstr ""
+msgstr "يمكنك تعديل المنتج لإضافة المعلومات المفقودة."
 
 msgctxt "environmental_score_product_category_reference_score"
 msgid "Baseline score of the product category"
-msgstr ""
+msgstr "النتيجة الأساسية لفئة المنتج"
 
 msgctxt "environmental_score_panel_lca"
 msgid "Lifecyle Analysis (LCA)"
-msgstr ""
+msgstr "تحليل دورة الحياة (LCA)"
 
 # do not translate Agribalyse
 msgctxt "environmental_score_agribalyse_category"
 msgid "Agribalyse category"
-msgstr ""
+msgstr "فئة التحليل الزراعي"
 
 msgctxt "environmental_score_category_proxy_match"
 msgid "Approximate match with the product category"
-msgstr ""
+msgstr "تطابق تقريبي مع فئة المنتج"
 
 msgctxt "environmental_score_category_exact_match"
 msgid "Exact match with the product category"
-msgstr ""
+msgstr "تطابق دقيق مع فئة المنتج"
 
 msgctxt "environmental_score_pef_environmental_score"
 msgid "PEF environmental score"
-msgstr ""
+msgstr "النتيجة البيئية PEF"
 
 msgctxt "environmental_score_incl_climate_change_impact"
 msgid "including impact on climate change"
-msgstr ""
+msgstr "بما في ذلك التأثير على تغير المناخ"
 
 msgctxt "environmental_score_impact_detail_by_stages"
 msgid "Details of the impacts by stages of the life cycle"
-msgstr ""
+msgstr "تفاصيل التأثيرات حسب مراحل دورة الحياة"
 
 # stage meaning step
 msgctxt "environmental_score_stage"
 msgid "Stage"
-msgstr ""
+msgstr "مرحلة"
 
 msgctxt "environmental_score_impact"
 msgid "Impact"
-msgstr ""
+msgstr "أثر"
 
 msgctxt "environmental_score_agriculture"
 msgid "Agriculture"
-msgstr ""
+msgstr "زراعة"
 
 msgctxt "environmental_score_processing"
 msgid "Processing"
-msgstr ""
+msgstr "معالجة"
 
 msgctxt "environmental_score_packaging"
 msgid "Packaging"
@@ -5661,31 +5661,31 @@ msgstr "التغليف"
 
 msgctxt "environmental_score_transportation"
 msgid "Transportation"
-msgstr ""
+msgstr "مواصلات"
 
 msgctxt "environmental_score_distribution"
 msgid "Distribution"
-msgstr ""
+msgstr "توزيع"
 
 msgctxt "environmental_score_consumption"
 msgid "Consumption"
-msgstr ""
+msgstr "استهلاك"
 
 msgctxt "environmental_score_lca_score_out_of_100"
 msgid "LCA score out of 100"
-msgstr ""
+msgstr "درجة تقييم دورة الحياة من 100"
 
 msgctxt "environmental_score_no_agribalyse_category_match"
 msgid "No match between product categories and Agribalyse categories."
-msgstr ""
+msgstr "لا يوجد تطابق بين فئات المنتجات وفئات التحليل الزراعي."
 
 msgctxt "environmental_score_edit_category_to_more_granular"
 msgid "You can modify the product page to add a more granular category."
-msgstr ""
+msgstr "يمكنك تعديل صفحة المنتج لإضافة فئة أكثر تفصيلاً."
 
 msgctxt "environmental_score_additional_bonuses_and_maluses"
 msgid "Additional bonuses and maluses"
-msgstr ""
+msgstr "المكافآت والعقوبات الإضافية"
 
 msgctxt "environmental_score_production_system"
 msgid "Production mode"
@@ -5693,11 +5693,11 @@ msgstr "وضع الإنتاج"
 
 msgctxt "environmental_score_no_labels_taken_into_account"
 msgid "No labels taken into account for the production system."
-msgstr ""
+msgstr "لم يتم أخذ أي ملصقات في الاعتبار لنظام الإنتاج."
 
 msgctxt "environmental_score_please_add_the_labels"
 msgid "If this product has a label characterizing the production system (organic, fair trade, Label Rouge, Bleu Blanc Coeur etc.), you can modify the product sheet to add it."
-msgstr ""
+msgstr "إذا كان هذا المنتج يحتوي على علامة تميز نظام الإنتاج (تجارة عضوية، تجارة عادلة، لوسم روج، بلو بلان كور، إلخ.)، يمكنك تعديل ورقة المنتج لإضافتها."
 
 msgctxt "environmental_score_origins_of_ingredients"
 msgid "Origins of ingredients"
@@ -5705,15 +5705,15 @@ msgstr "أصول المكونات"
 
 msgctxt "environmental_score_ingredients_not_indicated"
 msgid "The origins of the ingredients of this product are not indicated."
-msgstr ""
+msgstr "لم يتم الإشارة إلى أصول مكونات هذا المنتج."
 
 msgctxt "environmental_score_please_add_the_ingredients"
 msgid "If they are indicated on the packaging, you can modify the product sheet and add them."
-msgstr ""
+msgstr "إذا تم الإشارة إليها على العبوة، فيمكنك تعديل ورقة المنتج وإضافتها."
 
 msgctxt "environmental_score_environmental_policy"
 msgid "Environmental policy"
-msgstr ""
+msgstr "السياسة البيئية"
 
 msgctxt "environmental_score_threatened_species"
 msgid "Threatened species"
@@ -5721,150 +5721,150 @@ msgstr "فصائل معرضه للخطر"
 
 msgctxt "environmental_score_ingredients_whose_cultivation_threatens_species"
 msgid "Ingredients that threatens species"
-msgstr ""
+msgstr "المكونات التي تهدد الفصائل"
 
 msgctxt "environmental_score_no_species_threatening_ingredients"
 msgid "No ingredients that threaten species"
-msgstr ""
+msgstr "لا يحتوي على مكونات تهدد الفصائل"
 
 msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
-msgstr ""
+msgstr "لم يتم تقديم المعلومات حول مكونات هذا المنتج."
 
 msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
-msgstr ""
+msgstr "نسبة"
 
 msgctxt "environmental_score_packaging_score"
 msgid "score"
-msgstr ""
+msgstr "نتيجة"
 
 msgctxt "environmental_score_score_of_all_components"
 msgid "Score of all components"
-msgstr ""
+msgstr "نتيجة جميع المكونات"
 
 msgctxt "environmental_score_no_packaging_information"
 msgid "The information about the packaging of this product is not filled in."
-msgstr ""
+msgstr "لم يتم ملء المعلومات المتعلقة بتغليف هذا المنتج."
 
 msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
-msgstr ""
+msgstr "المعلومات المتعلقة بتغليف هذا المنتج ليست دقيقة بما فيه الكفاية (الأشكال والمواد الدقيقة لجميع مكونات التغليف)."
 
 # duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
-msgstr ""
+msgstr "للحصول على حساب أكثر دقة للدرجة البيئية، يمكنك تعديل صفحة المنتج وإضافتها."
 
 # duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr ""
+msgstr "للحصول على حساب أكثر دقة للدرجة البيئية، يمكنك تعديل صفحة المنتج وإضافتها."
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
-msgstr ""
+msgstr "النتيجة النهائية"
 
 msgctxt "environmental_score_lower_the_score_lower_the_impact"
 msgid "(the lower the score, the lower the impact)"
-msgstr ""
+msgstr "(كلما انخفضت النتيجة، كلما انخفض التأثير)"
 
 msgctxt "environmental_score_kg_co2_eq_kg_product"
 msgid "kg CO2 eq/kg of product"
-msgstr ""
+msgstr "كجم مكافئ ثاني أكسيد الكربون/كجم من المنتج"
 
 # do not translate the link
 msgctxt "environmental_score_platform_prompt_environmental_score_modal"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
-msgstr ""
+msgstr "إذا كنت الشركة المصنعة لهذا المنتج، فيمكنك إرسال المعلومات إلينا خلال منصتنا المجانية <a href=\"https://world.pro.openfoodfacts.org\">للمنتجين</a>."
 
 # do not translate Green-Score and the link
 msgctxt "environmental_score_description"
 msgid "The <a href=\"/green-score\">Green-Score</a> is an experimental score that summarizes the environmental impacts of food products."
-msgstr ""
+msgstr "<a href=\"/green-score\">النتيجة البيئية</a> هي نتيجة تجريبية تلخص التأثيرات البيئية للمنتجات الغذائية."
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_fr"
 msgid "The Green-Score formula is subject to change as it is regularly improved to make it more precise."
-msgstr ""
+msgstr "إن صيغة النتيجة البيئية قابلة للتغيير حيث يتم تحسينها بانتظام لجعلها أكثر دقة."
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
 msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr ""
+msgstr "طُوِّر نظام النتيجة البيئية في البداية لفرنسا، ويجري توسيع نطاقه ليشمل دولًا أوروبية أخرى. تخضع صيغة النتيجة البيئية للتغييرات باستمرار، حيث تُحسَّن باستمرار لجعلها أكثر دقةً وملاءمةً لكل دولة."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
-msgstr ""
+msgstr "قم باختيار بلد ما لتتمكن من إدراج التأثير الكامل للنقل."
 
 msgctxt "environmental_score_warning_transportation"
 msgid "The full impact of transportation to your country is currently unknown."
-msgstr ""
+msgstr "إن التأثير الكامل للنقل إلى بلدك غير معروف حاليًا."
 
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Green-Score and more!"
-msgstr ""
+msgstr "قم بمسح الباركود للحصول على درجة الجودة الغذائية و النتيجة البيئية والمزيد!"
 
 msgctxt "org_gs1_product_name_is_abbreviated"
 msgid "GS1 product names for this manufacturer are abbreviated."
-msgstr ""
+msgstr "أسماء منتجات GS1 لهذه الشركة المصنعة مختصرة."
 
 msgctxt "org_gs1_nutrients_are_unprepared"
 msgid "GS1 prepared nutrients for this manufacturer are in fact for the product as sold."
-msgstr ""
+msgstr "إن العناصر الغذائية المعدة وفقًا لمعايير GS1 لهذا المصنع هي في الواقع مخصصة للمنتج كما هو مباع."
 
 msgctxt "org_gs1_nutrients_are_unprepared_note"
 msgid "Check that the manufacturer does not make products that really have nutrients for the prepared product."
-msgstr ""
+msgstr "تأكد من أن الشركة المصنعة لا تصنع منتجات تحتوي بالفعل على عناصر غذائية للمنتج المحضر."
 
 msgctxt "org_gs1_product_name_is_abbreviated_description"
 msgid "Some manufacturers have incorrect values for some fields in GS1. The features below can be used to fix some of them."
-msgstr ""
+msgstr "بعض المصنّعين لديهم قيم غير صحيحة لبعض الحقول في GS1. يُمكنك استخدام الميزات أدناه لإصلاح بعض هذه الأخطاء."
 
 # do not remove %s, it will be replaced with the source name
 msgctxt "import_source_string"
 msgid "Import data from %s"
-msgstr ""
+msgstr "استيراد البيانات من %s"
 
 msgctxt "org_protect_data"
 msgid "Protect the data that is provided by the organization."
-msgstr ""
+msgstr "حماية البيانات التي تقدمها المنظمة."
 
 msgctxt "org_protect_data_note"
 msgid "Removing or changing the provided data will be possible only by experimented contributors on the web site."
-msgstr ""
+msgstr "لن يكون من الممكن إزالة أو تغيير البيانات المقدمة إلا من قبل المساهمين ذوي الخبرة على الموقع."
 
 msgctxt "environmental_score_packaging_impact_high"
 msgid "Packaging with a high impact"
-msgstr ""
+msgstr "تغليف ذات تأثير عالي"
 
 msgctxt "environmental_score_packaging_impact_medium"
 msgid "Packaging with a medium impact"
-msgstr ""
+msgstr "تغليف ذات تأثير متوسط"
 
 msgctxt "environmental_score_packaging_impact_low"
 msgid "Packaging with a low impact"
-msgstr ""
+msgstr "تغليف ذات تأثير منخفض"
 
 msgctxt "environmental_score_packaging_missing_information"
 msgid "Missing packaging information for this product"
-msgstr ""
+msgstr "معلومات التغليف مفقودة لهذا المنتج"
 
 msgctxt "environmental_score_origins_of_ingredients_impact_high"
 msgid "Origins of ingredients with a high impact"
-msgstr ""
+msgstr "أصول المكونات ذات تأثير العالي"
 
 msgctxt "environmental_score_origins_of_ingredients_impact_medium"
 msgid "Origins of ingredients with a medium impact"
-msgstr ""
+msgstr "أصول المكونات ذات تأثير المتوسط"
 
 msgctxt "environmental_score_origins_of_ingredients_impact_low"
 msgid "Origins of ingredients with a low impact"
-msgstr ""
+msgstr "أصول المكونات ذات تأثير المنخفض"
 
 msgctxt "environmental_score_origins_of_ingredients_missing_information"
 msgid "Missing origins of ingredients information"
-msgstr ""
+msgstr "معلومات مفقودة حول أصول المكونات"
 
 msgctxt "percent_of_ingredients"
 msgid "% of ingredients"
@@ -5889,52 +5889,52 @@ msgstr "هام: نحن بحاجة إلى دعمك!"
 
 msgctxt "donation_text_2023_main"
 msgid "Help us make food transparency the norm!"
-msgstr ""
+msgstr "ساعدنا في جعل شفافية الغذاء هي القاعدة!"
 
 msgctxt "donation_text_2023_secondary"
 msgid "As a non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat."
-msgstr ""
+msgstr "باعتبارنا منظمة غير ربحية، فإننا نعتمد على تبرعاتكم لمواصلة إعلام المستهلكين في جميع أنحاء العالم بما يأكلون."
 
 msgctxt "donation_text_2023_tertiary"
 msgid "The food revolution starts with you!"
-msgstr ""
+msgstr "الثورة الغذائية تبدأ بك!"
 
 msgctxt "donation_hook_2024"
 msgid "Help us inform millions of consumers around the world about what they eat"
-msgstr ""
+msgstr "ساعدنا في إعلام ملايين المستهلكين حول العالم بما يأكلون"
 
 msgctxt "donation_title_2024"
 msgid "Please give to our 2024 Fundraiser"
-msgstr ""
+msgstr "يرجى التبرع لحملة جمع التبرعات لعام 2024"
 
 # Don't translate {year}, it will be replaced by the 4 digits year
 msgctxt "f_donation_title_year"
 msgid "Please give to our {year} Fundraiser"
-msgstr ""
+msgstr "يرجى التبرع لحملة جمع التبرعات {year}"
 
 msgctxt "donation_list_2024_main"
 msgid "Your donations fund the day-to-day operations of our non-profit association:"
-msgstr ""
+msgstr "تساهم تبرعاتكم في تمويل العمليات اليومية لجمعيتنا غير الربحية:"
 
 msgctxt "donation_list_2024_first"
 msgid "keeping our database open & available to all,"
-msgstr ""
+msgstr "الحفاظ على قاعدة البيانات الخاصة بنا مفتوحة ومتاحة للجميع،"
 
 msgctxt "donation_list_2024_first_sub"
 msgid "technical infrastructure (website/mobile app) & a small permanent team"
-msgstr ""
+msgstr "البنية التحتية التقنية (موقع الويب / تطبيق الهاتف المحمول) وفريق صغير دائم"
 
 msgctxt "donation_list_2024_second"
 msgid "remain independent of the food industry,"
-msgstr ""
+msgstr "ظل مستقلا عن صناعة الأغذية،"
 
 msgctxt "donation_list_2024_third"
 msgid "engage a community of committed citizens,"
-msgstr ""
+msgstr "إشراك مجتمع من المواطنين الملتزمين،"
 
 msgctxt "donation_list_2024_fourth"
 msgid "support the advancement of public health research."
-msgstr ""
+msgstr "دعم تقدم أبحاث الصحة العامة."
 
 msgctxt "donation_financial_2024_text"
 msgid "Each donation counts! We appreciate your support in bringing further food transparency in the world."
@@ -6194,122 +6194,122 @@ msgstr ""
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_title"
 msgid "Reduce or stop drinking alcohol"
-msgstr ""
+msgstr "تقليل أو التوقف عن شرب الكحول"
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_subtitle"
 msgid "Less is better"
-msgstr ""
+msgstr "الأقل هو الأفضل"
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_text"
 msgid "This might not be the answer people want to hear, but there is no safe level for drinking alcohol. Of course there is lower-risk drinking, but WHO does not set particular limits, because the evidence shows that the ideal situation for health is to not drink at all. Alcohol is closely related to around 60 different diagnoses and for almost all there is a close dose–response relationship, so the more you drink, the higher your risk of disease. Less is better."
-msgstr ""
+msgstr "قد لا يكون هذا هو الجواب الذي يرغب الناس بسماعه، ولكن لا يوجد مستوى آمن لشرب الكحول. بالطبع، هناك شرب أقل خطورة، لكن منظمة الصحة العالمية لا تضع حدودًا محددة، لأن الأدلة تشير إلى أن الوضع الأمثل للصحة هو الامتناع عن الشرب تمامًا. يرتبط الكحول ارتباطًا وثيقًا بحوالي 60 تشخيصًا مختلفًا، وفي معظمها توجد علاقة وثيقة بين الجرعة والاستجابة، لذا كلما زاد شربك، زاد خطر إصابتك بالمرض. فالأقل أفضل."
 
 # "source" as in "source of the information"
 msgctxt "source"
 msgid "Source"
-msgstr ""
+msgstr "المصدر"
 
 # variable names between { } must not be translated
 msgctxt "f_app_user"
 msgid "A user of the {app_name} app"
-msgstr ""
+msgstr "مستخدم لتطبيق {app_name}"
 
 msgctxt "food_groups_p"
 msgid "food groups"
-msgstr ""
+msgstr "المجموعات الغذائية"
 
 msgctxt "food_groups_s"
 msgid "food group"
-msgstr ""
+msgstr "مجموعة غذائية"
 
 msgctxt "non_vegan_ingredients"
 msgid "Non-vegan ingredients"
-msgstr ""
+msgstr "المكونات غير النباتية"
 
 msgctxt "vegan_ingredients"
 msgid "No non-vegan ingredients detected"
-msgstr ""
+msgstr "لم يتم الكشف عن أي مكونات غير نباتية"
 
 msgctxt "maybe_vegan_ingredients"
 msgid "Ingredients that may not be vegan"
-msgstr ""
+msgstr "المكونات التي قد لا تكون نباتية"
 
 msgctxt "attribute_vegan_setting_note"
 msgid "To determine whether a product is vegan, we only rely on the list of ingredients."
-msgstr ""
+msgstr "لتحديد ما إذا كان المنتج نباتيًا أم لا، فإننا نعتمد فقط على قائمة المكونات."
 
 msgctxt "non_vegetarian_ingredients"
 msgid "Non-vegetarian ingredients"
-msgstr ""
+msgstr "المكونات غير النباتية"
 
 msgctxt "vegetarian_ingredients"
 msgid "No non-vegetarian ingredients detected"
-msgstr ""
+msgstr "لم يتم الكشف عن أي مكونات غير نباتية"
 
 msgctxt "maybe_vegetarian_ingredients"
 msgid "Ingredients that may not be vegetarian"
-msgstr ""
+msgstr "المكونات التي قد لا تكون نباتية"
 
 msgctxt "attribute_vegetarian_setting_note"
 msgid "To determine whether a product is vegetarian, we only rely on the list of ingredients."
-msgstr ""
+msgstr "لتحديد ما إذا كان المنتج نباتيًا أم لا، فإننا نعتمد فقط على قائمة المكونات."
 
 msgctxt "palm_oil_ingredients"
 msgid "Ingredients that contain palm oil"
-msgstr ""
+msgstr "المكونات التي تحتوي على زيت النخيل"
 
 msgctxt "may_contain_palm_oil_ingredients"
 msgid "Ingredients that may contain palm oil"
-msgstr ""
+msgstr "المكونات التي قد تحتوي على زيت النخيل"
 
 msgctxt "palm_oil_free_ingredients"
 msgid "No ingredients containing palm oil detected"
-msgstr ""
+msgstr "لم يتم الكشف عن أي مكونات تحتوي على زيت النخيل"
 
 msgctxt "attribute_palm_oil_setting_note"
 msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
-msgstr ""
+msgstr "لتحديد ما إذا كان المنتج يحتوي على زيت النخيل، فإننا نعتمد فقط على قائمة المكونات."
 
 msgctxt "attribute_without_palm_oil_setting_note"
 msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
-msgstr ""
+msgstr "لتحديد ما إذا كان المنتج يحتوي على زيت النخيل، فإننا نعتمد فقط على قائمة المكونات."
 
 msgctxt "unrecognized_ingredients"
 msgid "Unrecognized ingredients"
-msgstr ""
+msgstr "مكونات غير معروفة"
 
 msgctxt "nova_1_unprocessed_ingredients"
 msgid "The product contains only unprocessed or minimally processed ingredients."
-msgstr ""
+msgstr "يحتوي المنتج فقط على مكونات غير معالجة أو معالجة بشكل طفيف."
 
 # variable names between { } must not be translated
 msgctxt "f_nova_markers_for_nova_group"
 msgid "Elements that indicate the product is in the {nova_group} group"
-msgstr ""
+msgstr "العناصر التي تشير إلى أن المنتج موجود في المجموعة {nova_group}"
 
 msgctxt "nova_classification_description"
 msgid "Food products are classified into 4 groups according to their degree of processing:"
-msgstr ""
+msgstr "يتم تصنيف المنتجات الغذائية إلى 4 مجموعات حسب درجة معالجتها:"
 
 msgctxt "nova_classification_how"
 msgid "The determination of the group is based on the category of the product and on the ingredients it contains."
-msgstr ""
+msgstr "يتم تحديد المجموعة بناءً على فئة المنتج والمكونات التي يحتويها."
 
 msgctxt "nova_classification_learn_more"
 msgid "Learn more about the NOVA classification"
-msgstr ""
+msgstr "تعرف على المزيد حول تصنيف NOVA"
 
 msgctxt "nova_group_missing_category"
 msgid "The category of the product must be specified in order to determine the NOVA group."
-msgstr ""
+msgstr "يجب تحديد فئة المنتج لتحديد مجموعة NOVA."
 
 msgctxt "nova_group_missing_ingredients"
 msgid "The ingredients of the product must be specified in order to determine the NOVA group."
-msgstr ""
+msgstr "يجب تحديد مكونات المنتج لتحديد مجموعة NOVA."
 
 msgctxt "nova_group_too_many_unknown_ingredient"
 msgid "We could not recognize some of the ingredients and determine the NOVA group."
-msgstr ""
+msgstr "لم نتمكن من التعرف على بعض المكونات وتحديد مجموعة NOVA."
 
 msgctxt "unselect_image"
 msgid "Unselect Image"
@@ -6321,7 +6321,7 @@ msgstr "معرفة المزيد عن Nutri-Score"
 
 msgctxt "environmental_score_learn_more"
 msgid "Learn more about the Green-Score"
-msgstr ""
+msgstr "تعرف على المزيد حول الدرجة البيئية"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
@@ -6355,96 +6355,96 @@ msgstr ""
 
 msgctxt "reset_preferences"
 msgid "Use default preferences"
-msgstr ""
+msgstr "استخدام التفضيلات الافتراضية"
 
 msgctxt "reset_preferences_details"
 msgid "Nutri-Score, Green-Score and food processing level (NOVA)"
-msgstr ""
+msgstr "درجة الجودة الغذائية و الدرجة البيئية ومستوى معالجة الأغذية (NOVA)"
 
 msgctxt "actions_add_ingredients"
 msgid "Could you add the ingredients list?"
-msgstr ""
+msgstr "هل بإمكانك إضافة قائمة المكونات؟"
 
 msgctxt "actions_to_compute_nutriscore"
 msgid "Could you add the information needed to compute the Nutri-Score?"
-msgstr ""
+msgstr "هل بإمكانك إضافة المعلومات اللازمة لحساب درجة الجودة الغذائية؟"
 
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
-msgstr ""
+msgstr "هل بإمكانك إضافة فئة منتج محددة حتى نتمكن من حساب النتيجة البيئية؟"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
-msgstr ""
+msgstr "أضف المكونات"
 
 msgctxt "action_add_categories"
 msgid "Add a category"
-msgstr ""
+msgstr "أضف فئة"
 
 msgctxt "action_add_nutrition_facts"
 msgid "Add nutrition facts"
-msgstr ""
+msgstr "أضف حقائق غذائية"
 
 msgctxt "action_add_origins"
 msgid "Add the origins of ingredients for this product"
-msgstr ""
+msgstr "أضف أصول المكونات لهذا المنتج"
 
 msgctxt "action_add_packaging_image"
 msgid "Take a photo of the recycling information"
-msgstr ""
+msgstr "التقط صورة لمعلومات إعادة التدوير"
 
 msgctxt "action_add_packaging_components"
 msgid "Add packaging components"
-msgstr ""
+msgstr "إضافة مكونات التغليف"
 
 msgctxt "action_add_quantity"
 msgid "Add quantity of the product"
-msgstr ""
+msgstr "أضف كمية المنتج"
 
 # this is not used yet
 msgctxt "action_add_basic_details"
 msgid "Add basic details"
-msgstr ""
+msgstr "إضافة تفاصيل أساسية"
 
 # this is not used yet
 msgctxt "action_add_portion_size"
 msgid "Add portion size"
-msgstr ""
+msgstr "إضافة حجم الحصة"
 
 # this is not used yet
 msgctxt "action_add_ingredients_image"
 msgid "Take a photo of the ingredients"
-msgstr ""
+msgstr "التقط صورة للمكونات"
 
 # this is not used yet
 msgctxt "action_add_nutrition_image"
 msgid "Take a photo of the nutrition facts"
-msgstr ""
+msgstr "التقط صورة لمعلومات التغذية"
 
 # this is not used yet
 msgctxt "action_refresh_ingredients_image"
 msgid "Refresh the photo of the ingredients"
-msgstr ""
+msgstr "تحديث صورة المكونات"
 
 # this is not used yet
 msgctxt "action_refresh_nutrition_image"
 msgid "Refresh the photo of the nutrition facts"
-msgstr ""
+msgstr "قم بتحديث صورة المعلومات الغذائية"
 
 # this is not used yet
 msgctxt "action_add_packaging_text"
 msgid "Extract and check the recycling information"
-msgstr ""
+msgstr "استخراج معلومات إعادة التدوير والتحقق منها"
 
 # this is not used yet
 msgctxt "action_add_stores"
 msgid "Add the store where you found this product"
-msgstr ""
+msgstr "أضف المتجر الذي وجدت فيه هذا المنتج"
 
 # this is not used yet
 msgctxt "action_labels"
 msgid "Add any label present on this product"
-msgstr ""
+msgstr "أضف أي ملصق موجود على هذا المنتج"
 
 # this is not used yet
 msgctxt "action_countries"
