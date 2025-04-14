@@ -7737,7 +7737,6 @@ sub display_product ($request_ref) {
 <script src="$static_subdomain/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
 <script src="$static_subdomain/js/dist/product-history.js"></script>
 <script src="$static_subdomain/js/dist/off-webcomponents-utils.js"></script>
-<script type="module" src="$static_subdomain/js/dist/off-webcomponents.bundled.js"></script>
 SCRIPTS
 		;
 

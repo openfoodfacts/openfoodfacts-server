@@ -30,7 +30,7 @@
 
 **Product Opener** is the server software for **Open Food Facts** and **Open Beauty Facts**. It is released under the AGPL license and is being developed in Perl, HTML and JavaScript as [Free and Open-Source Software](https://en.wikipedia.org/wiki/Free_and_open-source_software).
 
-It works together with [Robotoff](https://github.com/openfoodfacts/robotoff), Open Food Facts' AI system (in Python, which can also be installed locally) and the [Open Food Facts App](https://github.com/openfoodfacts/smooth-app) (which can work with your local instance after enabling dev mode)
+It works together with [Robotoff](https://github.com/openfoodfacts/robotoff), Open Food Facts' AI system (in Python, which can also be installed locally) and the [Open Food Facts App](https://github.com/openfoodfacts/smooth-app) (which can work with your local instance after enabling dev mode), as well as Open Food Facts query and the upcoming openfoodfacts-auth. For a full architecture diagram, please read https://github.com/openfoodfacts
 <br><br>
 ## What is Open Food Facts?
 
@@ -48,6 +48,10 @@ Data about food is of public interest and has to be open (i.e available to every
 
 
 Visit the [website](https://world.openfoodfacts.org) for more info.
+<br><br>
+## 🎨 Design & User interface
+- We strive to thoughfully design every feature before we move on to implementation, so that we respect Open Food Facts' graphic charter and nascent design system, while having efficient user flows.
+- [![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?logo=figma&logoColor=white) Mockups on the current app and future plans to discuss](https://www.figma.com/design/Qg9URUyrjHgYmnDHXRsTTB/Current-Website-design?m=auto&t=jNwvjRR8nIgOzzJZ-6)
 <br><br>
 ## Weekly Meetings
 
