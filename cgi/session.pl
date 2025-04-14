@@ -105,20 +105,20 @@ else {
 	if ((defined $action) and ($action eq 'logout')) {
 		# The user is signing out
 		$template = "signed_out";
-		# Set a specific title for sign out
 		$request_ref->{title} = lang('sign_out');
+		$template_data_ref->{page_title} = lang('see_you_soon');
 	}
 	elsif (defined $User_id) {
 		# The user is signed in
 		$template = "signed_in";
-		# Set an empty title to prevent "Sign in" from showing when already signed in
-		$request_ref->{title} = '';
+		$request_ref->{title} = lang('welcome_user', {user_name => $User{name}});
+		$template_data_ref->{page_title} = lang('hello_user', {user_name => $User{name}});
 	}
 	else {
-		# The user is signing in: display the login form
+		# The user is signing in
 		$template = "sign_in_form";
-		# Set sign in title only when actually signing in
 		$request_ref->{title} = lang('sign_in');
+		$template_data_ref->{page_title} = lang('sign_in');
 	}
 
 	process_template("web/pages/session/$template.tt.html", $template_data_ref, \$html)
