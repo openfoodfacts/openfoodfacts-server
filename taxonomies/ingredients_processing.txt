@@ -896,6 +896,7 @@ en: pulp, pomace, pressed pulp
 bg: пулп, пулп от
 ca: polpa, polpa de
 cs: dřeň, dužina
+da: frugtkød
 de: mark, pulpe, fruchtfleisch
 eo: Pulpo
 es: pulpo, pulpa de, polpa del, Pulpa
@@ -913,13 +914,14 @@ nl: pulp, vruchtvlees
 pl: pulpa, pulpa z, miąższ, miąższ z, miazga, miazga z
 pt: polpa, polpas, polpa de, polpas de
 sk: Dužnina
-sv: Fruktkött
+sv: fruktkött
 wikidata:en: Q1470757
 
 #<en:pulp
 ca: sense polpa
 en: without pulp
 bg: без пулпа
+da: uden frugtkød
 de: ohne Fruchtfleisch
 es: sin pulpa
 fi: ilman hedelmälihaa
@@ -1069,6 +1071,7 @@ sv: med borttagen grodd
 
 en: liquid
 ca: líquid
+da: flydende
 de: flüssiger
 es: líquido
 fi: nestemäinen
@@ -1106,7 +1109,7 @@ pt: concentrado, concentrada, concentrados, concentradas, concentrado de, concen
 ro: concentrat de
 ru: концентрированный
 sr: Концентрат
-sv: koncentrerad, Koncentrat, koncentrat från
+sv: koncentrerad, koncentrat, koncentrat från
 # en:wiktionary:concentrated
 wikidata:en: Q1355665
 
@@ -1240,6 +1243,7 @@ pt: semi-seco, semi-seca, semi-secos, semi-secas
 
 # <en:dried
 en: freeze dried
+da: frysetørret, frysetørrede
 de: gefriergetrocknet, gefriergetrocknete, gefriergetrockneter, gefriergetrocknetes, gefriergetrockneten, gefriergetrocknetem
 fi: pakkaskuivattu, pakkaskuivatut, pakastekuivattu
 fr: lyophilisé, lyophilisée, lyophilisés, lyophilisées
@@ -1313,6 +1317,7 @@ sv: skivbar
 en: syrup, molasses
 bg: сироп
 ca: xarop
+da: sirup
 de: sirup
 es: sirope
 fr: sirop
@@ -1320,12 +1325,13 @@ hr: sirup, u laganom sirupu
 it: sciroppo, sciroppo di, sciroppo d', melassa, melassa di, melassa d'
 pl: syrop
 pt: Xarope
+sv: sirap
 
 #<en:dried
 en: dehydrated
 bg: дехидратиран, дехидратирано, дехидратирана, дехидратирани
 ca: deshidratat, deshidratada
-da: dehydrerede, dehydreret
+da: dehydreret, dehydrerede
 de: dehydriert, dehydrierte, dehydriertes, dehydrierter, dehydrierten, dehydriertem
 es: deshidratado, deshidratada, deshidratados, deshidratadas
 fr: déshydraté, déshydratée, déshydratés, déshydratées
@@ -1342,7 +1348,7 @@ sv: dehydrerat, dehydrerad, dehydrerade
 en: partially dehydrated
 bg: частично дехидратиран, частично дехидратирано, частично дехидратирана, частично дехидратирани
 ca: parcialment deshidratat, parcialment deshidratada
-da: delvist dehydrerede, delvist dehydreret
+da: delvist dehydreret, delvist dehydrerede
 es: parcialmente deshidratado, parcialmente deshidratada, parcialmente deshidratados, parcialmente deshidratadas
 fr: semi-déshydraté, semi-déshydratée, semi-déshydratés, semi-déshydratées, partiellement déshydraté, partiellement déshydratée, partiellement déshydratés, partiellement déshydratées
 hr: delomično dehidrirana, delomično dehidrirani
@@ -1356,7 +1362,7 @@ sv: delvis dehydrerat, delvis dehydrerad, delvis dehydrerade
 en: rehydrated
 bg: рехидратиран, рехидратирано, рехидратирана, рехидратирани
 ca: rehidratat, rehidratada
-da: rehydrerede, rehydreret
+da: rehydreret, rehydrerede
 de: rehydriert, rehydrierte, rehydrierter, rehydriertes, rehydrierten, rehydriertem
 es: rehidritado, rehidritada, rehidritados, rehidritadas
 fi: rehydratoitu
@@ -1386,6 +1392,7 @@ sv: delvis rehydrerat, delvis rehydrerad, delvis rehydrerade
 en: hydrated
 bg: хидратирано, хидратирана, хидратиран, хидратирани
 ca: hidratat, hidratada
+da: hydreret, hydrerede
 de: hydriert, hydrierte, hydrierter, hydriertes, hydrierten, hydriertem
 es: hidritado, hidritada, hidritados, hidritadas
 fr: hydraté, hydratée, hydratés, hydratées
@@ -1410,6 +1417,7 @@ sv: delvis hydrerad, delvis hydrerade
 en: reconstituted
 bg: реконституиран, реконституирано, реконституирана, реконституирани
 ca: reconstituida
+da: rekonstitueret, rekonstituerede
 de: rekonstituiert, rekonstituierte, rekonstituierter, rekonstituiertes, rekonstituierten, rekonstituiertem, wiederaufbereitet, wiederaufbereitete, wiederaufbereiteter, wiederaufbereitetes
 es: reconstituido, reconstituida, reconstituidos, reconstituidas
 fr: reconstitué, reconstituée, reconstitués, reconstituées
@@ -1844,7 +1852,7 @@ nl: vooraf gefrituurd, vooraf gefrituurde
 pl: podsmażone, podsmażane, podsmażona, podsmażana, podsmażony, podsmażany
 pt: pré-frito, pré-frita, pré-fritos, pré-fritas
 ro: pre-prăjit, pre-prăjită, pre-prăjiți, pre-prăjite
-sv: förfriterad
+sv: förfriterad, förfriterade
 
 en: fried
 bg: пържено, пържен, пържена, пържени
@@ -1859,7 +1867,7 @@ it: fritto, fritta, fritti, fritte
 ja: フライド, 炒め
 pl: smażony, smażona, smażone
 pt: frito, frita, fritos, fritas
-sv: friterad, stekt
+sv: friterad, friterade, stekt
 # nl:gefrituurd
 # en:wikitionary:To cook food by heating in an oven or over a fire without covering, resulting in a crisp, possibly even slightly charred appearance.
 
@@ -2670,7 +2678,7 @@ hu: termesztett
 
 #we would need corresponding code changes so that NOVA 4 ingredient processing are used when computing NOVA groups.
 
-en: non-hydrogenated
+en: non-hydrogenated, unhydrogenated, unhardened
 bg: нехидрогенирано, нехидрогениран
 ca: no hidrogenat, no hidrogenada, sense hidrogenar
 da: ikke-hydrogeneret

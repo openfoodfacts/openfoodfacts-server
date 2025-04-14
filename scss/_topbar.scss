@@ -1,8 +1,11 @@
 ///////////////////
 //// topbar
 
-
-.select2-container--default .select2-results__option--highlighted[aria-selected] { background-color: $chocolate !important; }
+.select2-container--default
+  .select2-container--default
+  .select2-results__option--highlighted[aria-selected] {
+  background-color: $chocolate !important;
+}
 
 .upper-nav {
   background-color: $ristreto;
@@ -10,7 +13,9 @@
     background-color: $ristreto;
   }
   .top-bar-section {
-     & li.has-dropdown > a::after { margin-top: -2px; }
+    & li.has-dropdown > a::after {
+      margin-top: -2px;
+    }
     .dropdown {
       // smallfix: Display of the dropdown menu border (desktop).
       background-color: $white;
@@ -28,17 +33,21 @@
         }
       }
       & li.divider {
-        @media #{$small-only} { border-color: rgba(255, 255, 255, .33); }
+        @media #{$small-only} {
+          border-color: rgba(255, 255, 255, 0.33);
+        }
       }
-      & li label { 
-        margin-top: 0; 
+      & li label {
+        margin-top: 0;
         padding-bottom: 8px;
         @media #{$small-only} {
           color: $white;
         }
       }
       // fix: issue#7501: Added back arrow in the menu in responsive mode.
-      & li.back h5 a:hover { text-decoration: none; }
+      & li.back h5 a:hover {
+        text-decoration: none;
+      }
       & li.back h5 > a::before {
         display: block;
         // there's no generic/fallback font which exist for icon font, so I used 'fantasy'
@@ -47,8 +56,8 @@
       }
     }
     ul {
-      li { 
-        background: $ristreto; 
+      li {
+        background: $ristreto;
         // smallfix: Content alignment @ top-bar.
         a {
           display: flex;
@@ -67,7 +76,7 @@
           }
         }
       }
-      // smallfix: Content alignment in the 'Sign In' button. 
+      // smallfix: Content alignment in the 'Sign In' button.
       &.right {
         li {
           a {
@@ -213,10 +222,13 @@
       .postfix-round {
         display: flex;
         div:first-child {
-          width: 100%;
+          flex-grow: 1;
         }
-        div:last-child {
-          width: 4rem;
+        .postfix-button-wrapper {
+          width: 4rem !important;
+        }
+        .postfix-button-wrapper:last-child {
+          margin-left: 1rem;
         }
       }
       form {
@@ -226,12 +238,6 @@
           &[type="text"] {
             width: 100%;
             box-shadow: none;
-            @media #{$topbar-media-query} {
-              width: 180px;
-            }
-            @media #{$large-up} {
-              width: 360px;
-            }
           }
         }
       }
@@ -241,11 +247,15 @@
     select {
       top: 0;
     }
-    button[type="submit"] {
+    button[type="submit"],
+    .barcode-scanner-button {
       height: 2.35rem;
       background-color: $primary-button-color;
       fill: white;
       padding: 0.4rem 0.5rem;
+    }
+    .barcode-scanner-button {
+      border-radius: 1000px;
     }
   }
   .top-bar {
@@ -353,21 +363,21 @@
 
 //skip to content styling
 .skip a {
-	background: #FFFFFF;
-	left: 0;
-	padding: 6px;
-	position: absolute;
-	top: -40px;
-	-webkit-transition: top 1s ease-out;
-	-o-transition: top 1s ease-out;
-	transition: top 1s ease-out;
-	z-index: 1;
+  background: #ffffff;
+  left: 0;
+  padding: 6px;
+  position: absolute;
+  top: -40px;
+  -webkit-transition: top 1s ease-out;
+  -o-transition: top 1s ease-out;
+  transition: top 1s ease-out;
+  z-index: 1;
 
   &:focus {
-    top:20px;
+    top: 20px;
     color: #000000;
     -webkit-text-decoration-style: solid;
     text-decoration-style: solid;
-	  z-index: 6;
+    z-index: 6;
   }
 }
