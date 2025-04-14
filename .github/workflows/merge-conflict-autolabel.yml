@@ -7,12 +7,12 @@ on:
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
-  
+
 jobs:
   triage:
     runs-on: ubuntu-latest
     steps:
-      - uses: mschilde/auto-label-merge-conflicts@master
+      - uses: mschilde/auto-label-merge-conflicts@591722e97f3c4142df3eca156ed0dcf2bcd362bd # ratchet:mschilde/auto-label-merge-conflicts@master
         with:
           CONFLICT_LABEL_NAME: "💥 Merge Conflicts"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
