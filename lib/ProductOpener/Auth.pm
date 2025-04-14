@@ -864,14 +864,12 @@ sub write_auth_deprecated_headers() {
 
 Returns the current Keycloak implementation level
 
-=head3 Return values
-
 0 = Not available
 1 = Use legacy Authentication and Registration but keep users in sync
-2 = Use Keycloak for back-channel authentication but legacy login and Registration UI
-3 = Use Keycloak backend and UI for all authentication. Legacy Registration UI
+2 = Use Keycloak for back-channel authentication but legacy login and Registration forms
+3 = Use Keycloak backend and front end for all authentication. Legacy Registration forms
 4 = Respond to Keycloak events for user registration / deletion tasks (welcome email, etc.)
-5 = Fully implemented, including Keycloak registration UI
+5 = Fully implemented, including Keycloak registration forms
 
 =cut
 
