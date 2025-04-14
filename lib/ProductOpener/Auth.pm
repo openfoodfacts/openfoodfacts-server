@@ -860,6 +860,21 @@ sub write_auth_deprecated_headers() {
 	return;
 }
 
+=head2 get_keycloak_level()
+
+Returns the current Keycloak implementation level
+
+=head3 Return values
+
+0 = Not available
+1 = Use legacy Authentication and Registration but keep users in sync
+2 = Use Keycloak for back-channel authentication but legacy login and Registration UI
+3 = Use Keycloak backend and UI for all authentication. Legacy Registration UI
+4 = Respond to Keycloak events for user registration / deletion tasks (welcome email, etc.)
+5 = Fully implemented, including Keycloak registration UI
+
+=cut
+
 sub get_keycloak_level() {
 	return $oidc_options{keycloak_level};
 }
