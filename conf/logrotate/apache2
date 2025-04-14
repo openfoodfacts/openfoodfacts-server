@@ -1,6 +1,26 @@
 # we want to rotate apache2 files as well as perl logs, 
 # we define all possible patterns, as we have missingok, so we don't have to worry
-/var/log/apache2/*log /var/log/off/*log /var/log/opff/*log /var/log/obf/*log /var/log/opf/*log {
+/var/log/apache2/*.log {
+    daily
+    rotate 14
+    compress
+    delaycompress
+    missingok
+    notifempty
+    create 640 www-data adm
+    sharedscripts
+    postrotate
+        /docker/reload-apache.sh
+    endscript
+    prerotate
+        if [ -d /etc/logrotate.d/httpd-prerotate ]; then \
+            run-parts /etc/logrotate.d/httpd-prerotate; \
+        fi; \
+    endscript
+}
+
+# we also rotate perl logs using the same configuration
+/var/log/off/*log /var/log/opff/*log /var/log/obf/*log /var/log/opf/*log {
     daily
     missingok
     rotate -1
@@ -9,17 +29,11 @@
     compress
     delaycompress
     notifempty
+    create 640 www-data www-data
     create 640 off off
     # restart apache only once
     sharedscripts
-    prerotate
-	if [ -d /etc/logrotate.d/httpd-prerotate ]; then
-	    run-parts /etc/logrotate.d/httpd-prerotate
-	fi
-    endscript
     postrotate
-	if pgrep -f ^/usr/sbin/apache2 > /dev/null; then
-	    invoke-rc.d apache2 reload 2>&1 | logger -t apache2.logrotate
-	fi
+        /docker/reload-apache.sh
     endscript
 }
