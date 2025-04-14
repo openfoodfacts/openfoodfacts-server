@@ -1177,10 +1177,15 @@ sub store_user_session ($user_ref) {
 }
 
 sub store_user ($user_ref) {
-	if (get_keycloak_level() < 5) {
-		# Sync the user with Keycloak
-		my $keycloak = ProductOpener::Keycloak->new();
-		$keycloak->create_or_update_user($user_ref);
+	my $keycloak_level = get_keycloak_level();
+	if ($keycloak_level < 5) {
+		# We are still using legacy code for registration
+
+		if ($keycloak_level > 0) {
+			# Sync the user with Keycloak
+			my $keycloak = ProductOpener::Keycloak->new();
+			$keycloak->create_or_update_user($user_ref);
+		}
 
 		my $userid = $user_ref->{userid};
 
@@ -1286,7 +1291,8 @@ sub remove_user ($user_ref) {
 		}
 	}
 
-	if (get_keycloak_level() < 5) {
+	my $keycloak_level = get_keycloak_level();
+	if ($keycloak_level > 0 and $keycloak_level < 5) {
 		my $keycloak = ProductOpener::Keycloak->new();
 		$keycloak->delete_user($userid);
 	}
