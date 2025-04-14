@@ -16,12 +16,14 @@ use JSON;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::GS1
-	qw/generate_gs1_confirmation_message init_csv_fields print_unknown_entries_in_gs1_maps read_gs1_json_file/;
+	qw/generate_gs1_confirmation_message init_csv_fields print_unknown_entries_in_gs1_maps read_gs1_json_file load_gpc_category_codes_from_categories_taxonomy/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Tags qw/exists_taxonomy_tag/;
 use ProductOpener::Test qw/init_expected_results/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
+
+load_gpc_category_codes_from_categories_taxonomy();
 
 # Check that the GS1 nutrient codes are associated with existing OFF nutrient ids.
 
