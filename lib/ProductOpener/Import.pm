@@ -366,7 +366,9 @@ sub upload_images_for_product($args_ref, $images_ref, $product_ref, $imported_pr
 						return_code => $return_code,
 						imgid => $imgid,
 						imagefield_with_lc => $imagefield_with_lc,
-						debug => $debug
+						debug => $debug,
+						image_type => $image_type,
+						image_lc => $image_lc
 					}
 				) if $log->is_debug();
 
@@ -432,10 +434,10 @@ sub upload_images_for_product($args_ref, $images_ref, $product_ref, $imported_pr
 								white_magic => $white_magic
 							}
 						) if $log->is_debug();
-						$selected_images{$imagefield_with_lc} = 1;
 						eval {
-							process_image_crop($user_id, $product_id, $imagefield_with_lc, $imgid, $angle,
+							process_image_crop($user_id, $product_id, $image_type, $image_lc, $imgid, $angle,
 								$normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size);
+							$selected_images{$imagefield_with_lc} = 1;
 						};
 					}
 					else {
@@ -482,10 +484,11 @@ sub upload_images_for_product($args_ref, $images_ref, $product_ref, $imported_pr
 									white_magic => $white_magic
 								}
 							) if $log->is_debug();
-							$selected_images{$imagefield_with_lc} = 1;
+
 							eval {
 								process_image_crop($user_id, $product_id, $image_type, $image_lc, $imgid, $angle,
 									$normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size);
+								$selected_images{$imagefield_with_lc} = 1;
 							};
 						}
 					}
@@ -513,12 +516,12 @@ sub upload_images_for_product($args_ref, $images_ref, $product_ref, $imported_pr
 							white_magic => $white_magic
 						}
 					) if $log->is_debug();
-					# Keep track that we have selected an image, so that we don't select another one after,
-					# as we don't reload the product_ref after calling process_image_crop()
-					$selected_images{"front_" . $product_ref->{lc}} = 1;
 					eval {
 						process_image_crop($user_id, $product_id, "front", $product_ref->{lc},
 							$imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size);
+						# Keep track that we have selected an image, so that we don't select another one after,
+						# as we don't reload the product_ref after calling process_image_crop()
+						$selected_images{"front_" . $product_ref->{lc}} = 1;
 					};
 				}
 			}

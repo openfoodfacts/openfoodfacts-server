@@ -2499,7 +2499,8 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 						# ! only update the values if the image still exists in the current version of the product (wasn't moved or deleted)
 						if (deep_exists($current_product_ref, "images", "uploaded", $id)) {
 							if (not defined $current_product_ref->{images}{uploaded}{$id}{uploaded_t}) {
-								$current_product_ref->{images}{uploaded}{$id}{uploaded_t} = $product_ref->{last_modified_t} + 0;
+								$current_product_ref->{images}{uploaded}{$id}{uploaded_t}
+									= $product_ref->{last_modified_t} + 0;
 							}
 							if (not defined $current_product_ref->{images}{uploaded}{$id}{uploader}) {
 								$current_product_ref->{images}{uploaded}{$id}{uploader} = $userid;

@@ -32,7 +32,7 @@
       "3xxxxxxxxxxxx"
    ],
    "complete" : 0,
-   "completeness" : 0.05,
+   "completeness" : 0.0625,
    "correctors_tags" : [],
    "countries" : "fr",
    "countries_hierarchy" : [
@@ -333,6 +333,43 @@
    "food_groups_tags" : [],
    "id" : "3560070167470",
    "images" : {
+      "selected" : {
+         "front" : {
+            "fr" : {
+               "generation" : {
+                  "angle" : 0,
+                  "coordinates_image_size" : "400",
+                  "geometry" : "0x0--2--2",
+                  "normalize" : "false",
+                  "white_magic" : "false",
+                  "x1" : "-1",
+                  "x2" : "-1",
+                  "y1" : "-1",
+                  "y2" : "-1"
+               },
+               "imgid" : "1",
+               "rev" : "3",
+               "sizes" : {
+                  "100" : {
+                     "h" : 100,
+                     "w" : 59
+                  },
+                  "200" : {
+                     "h" : 200,
+                     "w" : 119
+                  },
+                  "400" : {
+                     "h" : 296,
+                     "w" : 176
+                  },
+                  "full" : {
+                     "h" : 296,
+                     "w" : 176
+                  }
+               }
+            }
+         }
+      },
       "uploaded" : {
          "1" : {
             "sizes" : {
@@ -396,11 +433,18 @@
    "interface_version_created" : "import_csv_file - version 2019/09/17",
    "lang" : "fr",
    "lang_imported" : "fr",
-   "languages" : {},
-   "languages_codes" : {},
-   "languages_hierarchy" : [],
+   "languages" : {
+      "en:french" : 1
+   },
+   "languages_codes" : {
+      "fr" : 1
+   },
+   "languages_hierarchy" : [
+      "en:french"
+   ],
    "languages_tags" : [
-      "en:0"
+      "en:french",
+      "en:1"
    ],
    "last_edit_dates_tags" : "--ignore--",
    "last_editor" : "test-user",
@@ -530,7 +574,7 @@
    "popularity_key" : 12,
    "product_type" : "food",
    "removed_countries_tags" : [],
-   "rev" : 4,
+   "rev" : 5,
    "schema_version" : 1002,
    "sources" : [
       {
@@ -546,7 +590,7 @@
          "url" : null
       }
    ],
-   "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-to-be-completed, en:photos-to-be-validated, en:packaging-photo-to-be-selected, en:nutrition-photo-to-be-selected, en:ingredients-photo-to-be-selected, en:front-photo-to-be-selected, en:photos-uploaded",
+   "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-to-be-completed, en:photos-to-be-validated, en:packaging-photo-to-be-selected, en:nutrition-photo-to-be-selected, en:ingredients-photo-to-be-selected, en:front-photo-selected, en:photos-uploaded",
    "states_hierarchy" : [
       "en:to-be-completed",
       "en:nutrition-facts-to-be-completed",
@@ -564,7 +608,7 @@
       "en:packaging-photo-to-be-selected",
       "en:nutrition-photo-to-be-selected",
       "en:ingredients-photo-to-be-selected",
-      "en:front-photo-to-be-selected",
+      "en:front-photo-selected",
       "en:photos-uploaded"
    ],
    "states_tags" : [
@@ -584,7 +628,7 @@
       "en:packaging-photo-to-be-selected",
       "en:nutrition-photo-to-be-selected",
       "en:ingredients-photo-to-be-selected",
-      "en:front-photo-to-be-selected",
+      "en:front-photo-selected",
       "en:photos-uploaded"
    ],
    "traces" : "",
