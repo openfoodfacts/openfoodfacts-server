@@ -338,7 +338,7 @@ if ($imagefield) {
 		elsif (
 			($imagefield =~ /^other/)
 			and (
-				(not defined $product_ref->{images}{"front_" . $product_ref->{lc}})
+				(not deep_exists($product_ref, "images", "selected", "front", $product_ref->{lc}))
 				or (    (defined $previous_imgid)
 					and ($previous_imgid eq $product_ref->{images}{selected}{"front"}{$product_ref->{lc}}{imgid}))
 			)
