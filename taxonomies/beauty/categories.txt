@@ -2729,7 +2729,7 @@ bg: Балсами за устни
 bn: লিপ বাম, লিপ কেয়ার
 ca: Bàlsams labials
 cs: Balzámy na rty
-da: Læbepomader
+da: Læbepomader, Læbebalsam
 de: Lippenpflegestifte, Lippenschutzstifte, Lippenpflegestift
 el: Βάλσαμα για χείλη
 es: Bálsamos labiales
@@ -3167,6 +3167,7 @@ en: Face lotions
 fr: Lotions visage, Lotion visage
 
 ###### CATEGORIE CHEVEUX
+###### HAIR
 
 en: Hair, Hair products
 ar: شعر، منتجات الشعر
@@ -4983,8 +4984,17 @@ uz: Makiyaj
 vi: Trang điểm
 zh: 化妆品
 
-#### Maquillage pour les yeux
+######## CATEGORIE YEUX
+######## EYES
 
+en: Eyes
+da: Øjne
+sv: Ögon
+
+#### Maquillage pour les yeux
+#### Eye makeup
+
+< en:Eyes
 < en:Makeup
 en: Eyes makeup
 ar: مكياج العيون
@@ -5211,6 +5221,19 @@ ur: کاجل پنسل
 uz: Ko'mirli qalamlar
 vi: Bút chì Kohl
 zh: 煤精铅笔
+
+#### Eye non-makeup
+
+< en:Eyes
+en: Eyewash
+da: Øjenskyl
+sv: Ögonskölj
+
+< en:Eyes
+en: Eye drops
+da: Øjendråber
+sv: Ögondroppar
+wikidata:xx: Q552308
 
 #### Maquillage pour le teint
 
@@ -5859,6 +5882,10 @@ ur: سن سکرین
 uz: Quyoshdan himoya kremi
 vi: Kem chống nắng
 wikidata:en: Q827658
+
+< en:In-sun protections
+< en:Lip balms
+en: Lip balms with sun protection
 
 < en:Suncare
 fr: Après-solaires
