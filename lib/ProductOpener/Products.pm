@@ -2967,20 +2967,13 @@ sub compute_languages ($product_ref) {
 		}
 	}
 
-	if (defined $product_ref->{images}) {
-		foreach my $id (keys %{$product_ref->{images}}) {
-
-			if ($id =~ /^(front|ingredients|nutrition)_([a-z]{2})$/) {
-				my $language_code = $2;
-				my $language = undef;
-				if (defined $language_codes{$language_code}) {
-					$language = $language_codes{$language_code};
-				}
-				else {
-					$language = $language_code;
-				}
-				$languages{$language}++;
-				$languages_codes{$language_code}++;
+	# check the languages of the images
+	if ((defined $product_ref->{images}) and (defined $product_ref->{images}{selected})) {
+		foreach my $image_type (keys %{$product_ref->{images}{selected}}) {
+			foreach my $image_lc (keys %{$product_ref->{images}{selected}{$image_type}}) {
+				my $language = $language_codes{$image_lc} || $image_lc;
+				$languages{$image_lc}++;
+				$languages_codes{$image_lc}++;
 			}
 		}
 	}
