@@ -5274,8 +5274,6 @@ sub create_property_to_tag_mapping_table ($tagtype, $property) {
 		foreach my $tagid (keys %{$properties{$tagtype}}) {
 			my $value = $properties{$tagtype}{$tagid}{$property};
 			if (defined $value) {
-				$value =~ s/^\s+//;
-				$value =~ s/\s+$//;
 				$mapping{$value} = $tagid;
 			}
 		}

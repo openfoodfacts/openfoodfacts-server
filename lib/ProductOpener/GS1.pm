@@ -576,6 +576,7 @@ Loads the GPC category codes from the categories taxonomy (in the gpc_category_c
 
 sub load_gpc_category_codes_from_categories_taxonomy() {
 
+	# exit if already loaded
 	return if %gs1_gpc_category_codes_to_off;
 
 	%gs1_gpc_category_codes_to_off = %{create_property_to_tag_mapping_table("categories", "gpc_category_code:en")};
