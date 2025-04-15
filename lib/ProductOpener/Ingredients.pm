@@ -5251,7 +5251,7 @@ my %phrases_after_ingredients_list = (
 		'Аналитични съставки',    # pet food
 		'Неотворен',    # before opening ...
 		'След отваряне',    # after opening ...
-		'Продуктът може да', #product can contain
+		'Продуктът може да',    #product can contain
 	],
 
 	ca => ['envasat en atmosfera protectora', 'conserveu-los en un lloc fresc i sec',],
@@ -5314,7 +5314,7 @@ my %phrases_after_ingredients_list = (
 		'Αναλυτικές συστατικές',    # pet food
 		'ΔΙΑΘΡΕΠΤΙΚΗ ΕΠΙΣΗΜΑΝΣΗ',    #Nutritional labelling
 		'ΔΙΤΡΟΦΙΚΕΣ ΠΗΡΟΦΟΡΙΕΣ',
-		'Για τα αλλεργιογόνα', 
+		'Για τα αλλεργιογόνα',
 		'Για αλλεργιογόνα',
 	],
 
