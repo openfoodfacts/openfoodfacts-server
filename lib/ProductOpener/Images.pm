@@ -157,6 +157,7 @@ use JSON::MaybeXS;
 use MIME::Base64;
 use LWP::UserAgent;
 use File::Copy;
+use Clone qw/clone/;
 
 =head1 SUPPORTED IMAGE TYPES
 
@@ -1742,15 +1743,16 @@ sub get_image_in_best_language ($product_ref, $image_type, $target_lc, $image_lc
 	if (defined $image_ref) {
 		# The product image object does not contain the image_type and language code
 		# as they are specified as keys in the images.selected hash
-		# We add an id field containing [image_type]_[lc] to the image object so that we can later construct the image filename
-		$image_ref->{id} = $image_type . "_" . $image_lc;
+		# So we create a clone and add an id field containing [image_type]_[lc] to the image object so that we can later construct the image filename
+		my $image_clone_ref = clone($image_ref);
+		$image_clone_ref->{id} = $image_type . "_" . $image_lc;
 
 		# Return the language of the image that was selected
 		if (defined $image_lc_ref) {
 			$$image_lc_ref = $image_lc;
 		}
 
-		return ($image_ref);
+		return ($image_clone_ref);
 	}
 	return;
 }
@@ -1829,10 +1831,10 @@ sub add_images_urls_to_product ($product_ref, $target_lc, $specific_image_type =
 			if (defined $product_ref->{languages_codes}) {
 				# compute selected image for each product language
 				foreach my $image_lc (keys %{$product_ref->{languages_codes}}) {
-					my $selected_image_ref = deep_get($product_ref, "images", "selected", $image_type, $image_lc);
 					# The product image object does not contain the image_type and language code
 					# as they are specified as keys in the images.selected hash
-					# We add an id field containing [image_type]_[lc] to the image object so that we can later construct the image filename
+					# So we create a clone and add an id field containing [image_type]_[lc] to the image object so that we can later construct the image filename
+					my $selected_image_ref = clone($product_ref->{images}{selected}{$image_type}{$image_lc});
 					$selected_image_ref->{id} = $image_type . "_" . $image_lc;
 					if (defined $selected_image_ref) {
 						$product_ref->{selected_images}{$image_type}{display}{$image_lc}

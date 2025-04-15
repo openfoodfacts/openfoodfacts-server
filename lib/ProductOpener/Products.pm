@@ -2972,7 +2972,7 @@ sub compute_languages ($product_ref) {
 		foreach my $image_type (keys %{$product_ref->{images}{selected}}) {
 			foreach my $image_lc (keys %{$product_ref->{images}{selected}{$image_type}}) {
 				my $language = $language_codes{$image_lc} || $image_lc;
-				$languages{$image_lc}++;
+				$languages{$language}++;
 				$languages_codes{$image_lc}++;
 			}
 		}
