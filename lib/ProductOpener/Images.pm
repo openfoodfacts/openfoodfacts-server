@@ -93,6 +93,7 @@ BEGIN {
 
 		&get_code_and_imagefield_from_file_name
 		&get_imagefield_from_string
+		&get_image_type_and_image_lc_from_imagefield
 		&is_protected_image
 		&process_image_upload
 		&process_image_move
@@ -105,6 +106,11 @@ BEGIN {
 		&display_select_manage
 		&display_select_crop
 		&display_select_crop_init
+
+		&get_image_url
+		&get_image_in_best_language
+		&add_images_urls_to_product
+		&data_to_display_image
 
 		&display_image
 		&display_image_thumb
@@ -141,8 +147,9 @@ use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::URL qw/format_subdomain/;
 use ProductOpener::Users qw/%User/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
-use Data::DeepAccess qw(deep_get);
+use ProductOpener::ProductSchemaChanges;    # needed for convert_schema_1001_to_1002_refactor_images_object()
 
+use Data::DeepAccess qw(deep_exists deep_get deep_set);
 use IO::Compress::Gzip qw(gzip $GzipError);
 use Log::Any qw($log);
 use Encode;
@@ -150,6 +157,7 @@ use JSON::MaybeXS;
 use MIME::Base64;
 use LWP::UserAgent;
 use File::Copy;
+use Clone qw/clone/;
 
 =head1 SUPPORTED IMAGE TYPES
 
@@ -161,7 +169,36 @@ my $supported_extensions = "gif|jpeg|jpg|png|heic";
 
 =head1 FUNCTIONS
 
+=head2 get_image_type_and_image_lc_from_imagefield ($imagefield)
+
+We used to identify selected images with a field called "imagefield" which was of the form [image type]_[language code].
+In some very old products revisions (e.g. from 2012), we had values with only the image type (e.g. "front").
+
+This function splits the field name into its components, and is used to maintain backward compatibility.
+
+=head3 Arguments
+
+=head4 $imagefield e.g. "front_fr"
+
+=head3 Return values
+
+$image_type e.g. "front"
+$image_lc e.g. "fr"
+
 =cut
+
+sub get_image_type_and_image_lc_from_imagefield ($imagefield) {
+
+	my $image_type = undef;
+	my $image_lc = undef;
+
+	if ($imagefield =~ /^(.*?)(?:_(\w\w))?$/) {
+		$image_type = $1;
+		$image_lc = $2;
+	}
+
+	return ($image_type, $image_lc);
+}
 
 sub display_select_manage ($object_ref) {
 
@@ -176,28 +213,23 @@ HTML
 	return $html;
 }
 
-sub display_select_crop ($object_ref, $id_lc, $language, $request_ref) {
+sub display_select_crop ($object_ref, $image_type, $image_lc, $language, $request_ref) {
 
-	# $id_lc = shift  ->  id_lc = [front|ingredients|nutrition|packaging]_[new_]?[lc]
-	my $id = $id_lc;
 	my $message = $Lang{"protected_image_message"}{$lc};
-	my $imagetype = $id_lc;
-	my $display_lc = $lc;
-
-	if ($id_lc =~ /^(.*?)_(new_)?(.*)$/) {
-		$imagetype = $1;
-		$display_lc = $3;
-	}
+	my $id = $image_type . "_" . $image_lc;
 
 	my $note = '';
-	if (defined $Lang{"image_" . $imagetype . "_note"}{$lc}) {
-		$note = "<p class=\"note\">&rarr; " . $Lang{"image_" . $imagetype . "_note"}{$lc} . "</p>";
+	if (defined $Lang{"image_" . $image_type . "_note"}{$lc}) {
+		$note = "<p class=\"note\">&rarr; " . $Lang{"image_" . $image_type . "_note"}{$lc} . "</p>";
 	}
 
-	my $label = $Lang{"image_" . $imagetype}{$lc};
+	my $label = $Lang{"image_" . $image_type}{$lc};
 
 	my $html = '';
-	if (is_protected_image($object_ref, $id_lc) and (not $User{moderator}) and (not $request_ref->{admin})) {
+	if (    is_protected_image($object_ref, $image_type, $image_lc)
+		and (not $User{moderator})
+		and (not $request_ref->{admin}))
+	{
 		$html .= <<HTML;
 <p>$message</p>
 <label for="$id">$label (<span class="tab_language">$language</span>)</label>
@@ -227,26 +259,31 @@ HTML
 			. '" value="'
 			. $value . '" />' . "\n";
 	}
-	my $size = $display_size;
-	my $product_ref = $object_ref;
-	my $display_url = '';
-	if (    (defined $product_ref->{images})
-		and (defined $product_ref->{images}{$id})
-		and (defined $product_ref->{images}{$id}{sizes})
-		and (defined $product_ref->{images}{$id}{sizes}{$size}))
-	{
-		$display_url = "$id." . $product_ref->{images}{$id}{rev} . ".$display_size.jpg";
+
+	my $image_url = '';
+
+	my $image_ref = deep_get($object_ref, "images", $image_type, $image_lc);
+
+	if (defined $image_ref) {
+		my $image_url = get_image_url($object_ref, $image_ref, $display_size);
 	}
+
 	$html
 		.= '<input type="hidden" name="'
 		. "${id}_display_url"
 		. '" id="'
 		. "${id}_display_url"
 		. '" value="'
-		. $display_url . '" />' . "\n";
+		. $image_url . '" />' . "\n";
 
 	return $html;
 }
+
+=head2 display_select_crop_init ($object_ref)
+
+This function is used to generate the code to initialize the select cropper in the product edit form with the images that are already uploaded.
+
+=cut
 
 sub display_select_crop_init ($object_ref) {
 
@@ -256,27 +293,20 @@ sub display_select_crop_init ($object_ref) {
 
 	my $images = '';
 
-	defined $object_ref->{images} or $object_ref->{images} = {};
+	my $uploaded_images_ref = deep_get($object_ref, "images", "uploaded");
 
-	# Construct an array of images that we can sort by upload time
-	# The imgid number is incremented by 1 for each new image, but when we move images
-	# from one product to another, they might not be sorted by upload time.
+	if (defined $uploaded_images_ref) {
 
-	my @images = ();
+		foreach my $imgid (
+			sort {$uploaded_images_ref->{$a}{uploaded_t} <=> $uploaded_images_ref->{$b}{uploaded_t}}
+			keys %$uploaded_images_ref
+			)
+		{
 
-	# There may be occasions where max_imgid was not incremented correctly (e.g. a crash)
-	# so we add 5 to it to check if we have other images to show
-	for (my $imgid = 1; $imgid <= (($object_ref->{max_imgid} || 0) + 5); $imgid++) {
-		if (defined $object_ref->{images}{$imgid}) {
-			push @images, $imgid;
-		}
-	}
+			my $uploader = $uploaded_images_ref->{$imgid}{uploader};
+			my $uploaded_date = display_date($uploaded_images_ref->{$imgid}{uploaded_t});
 
-	foreach my $imgid (sort {$object_ref->{images}{$a}{uploaded_t} <=> $object_ref->{images}{$b}{uploaded_t}} @images) {
-		my $uploader = $object_ref->{images}{$imgid}{uploader};
-		my $uploaded_date = display_date($object_ref->{images}{$imgid}{uploaded_t});
-
-		$images .= <<JS
+			$images .= <<JS
 {
 	imgid: "$imgid",
 	thumb_url: "$imgid.$thumb_size.jpg",
@@ -286,10 +316,12 @@ sub display_select_crop_init ($object_ref) {
 	uploaded: "$uploaded_date",
 },
 JS
-			;
-	}
+				;
+		}
 
-	$images =~ s/,\n?$//;
+		$images =~ s/,\n?$//;
+
+	}
 
 	return <<HTML
 
@@ -301,7 +333,6 @@ JS
 
 HTML
 		;
-
 }
 
 sub scan_code ($file) {
@@ -641,23 +672,23 @@ sub get_imagefield_from_string ($l, $filename) {
 	return $imagefield;
 }
 
-sub get_selected_image_uploader ($product_ref, $imagefield) {
+sub get_selected_image_uploader ($product_ref, $image_type, $image_lc) {
 
 	# Retrieve the product's image data
-	my $imgid = deep_get($product_ref, "images", $imagefield, "imgid");
+	my $imgid = deep_get($product_ref, "images", "selected", $image_type, $image_lc, "imgid");
 
 	# Retrieve the uploader of the image
 	if (defined $imgid) {
-		my $uploader = deep_get($product_ref, "images", $imgid, "uploader");
+		my $uploader = deep_get($product_ref, "images", "uploaded", $imgid, "uploader");
 		return $uploader;
 	}
 
 	return;
 }
 
-sub is_protected_image ($product_ref, $imagefield) {
+sub is_protected_image ($product_ref, $image_type, $image_lc) {
 
-	my $selected_uploader = get_selected_image_uploader($product_ref, $imagefield);
+	my $selected_uploader = get_selected_image_uploader($product_ref, $image_type, $image_lc);
 	my $owner = $product_ref->{owner};
 
 	if (    (not $server_options{producers_platform})
@@ -732,7 +763,7 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 	my $extension = 'jpg';
 
 	# Image that was already read by barcode scanner: can't read it again
-	# $image_field can be a path to the image file (for imports and when uploading an image with a barcode)
+	# $imagefield can be a path to the image file (for imports and when uploading an image with a barcode)
 	my $tmp_filename;
 	if ($imagefield =~ /\//) {
 		$tmp_filename = $imagefield;
@@ -919,10 +950,7 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 						# product, it is sometimes missing
 						# (e.g. during crashes)
 						my $product_ref = retrieve_product($product_id);
-						if (    (defined $product_ref)
-							and (defined $product_ref->{images})
-							and (exists $product_ref->{images}{$i}))
-						{
+						if (deep_exists($product_ref, "images", "uploaded", $i)) {
 							$log->debug("unlinking image",
 								{imgid => $imgid, file => "$target_image_dir/$imgid.$extension"})
 								if $log->is_debug();
@@ -1020,18 +1048,24 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 					if $log->is_debug();
 			}
 
-			defined $product_ref->{images} or $product_ref->{images} = {};
-			$product_ref->{images}{$imgid} = {
-				uploader => $user_id,
-				uploaded_t => $time,
-				sizes => {
-					full => {w => $new_product_ref->{"images.$imgid.w"}, h => $new_product_ref->{"images.$imgid.h"}},
-				},
-			};
+			deep_set(
+				$product_ref,
+				'images',
+				'uploaded',
+				$imgid,
+				{
+					uploader => $user_id,
+					uploaded_t => $time,
+					sizes => {
+						full =>
+							{w => $new_product_ref->{"images.$imgid.w"}, h => $new_product_ref->{"images.$imgid.h"}},
+					},
+				}
+			);
 
 			foreach my $max ($thumb_size, $crop_size) {
 
-				$product_ref->{images}{$imgid}{sizes}{$max} = {
+				$product_ref->{images}{uploaded}{$imgid}{sizes}{$max} = {
 					w => $new_product_ref->{"images.$imgid.$max.w"},
 					h => $new_product_ref->{"images.$imgid.$max.h"}
 				};
@@ -1122,7 +1156,7 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 		next if ($imgid !~ /^\d+$/);
 
 		# check the imgid exists
-		if (defined $product_ref->{images}{$imgid}) {
+		if (defined $product_ref->{images}{uploaded}{$imgid}) {
 
 			my $ok = 1;
 
@@ -1133,9 +1167,9 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 				$ok = process_image_upload(
 					$move_to_id,
 					"$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.jpg",
-					$product_ref->{images}{$imgid}{uploader},
-					$product_ref->{images}{$imgid}{uploaded_t},
-					"image moved from product $code on $server_domain by $user_id -- uploader: $product_ref->{images}{$imgid}{uploader} - time: $product_ref->{images}{$imgid}{uploaded_t}",
+					$product_ref->{images}{uploaded}{$imgid}{uploader},
+					$product_ref->{images}{uploaded}{$imgid}{uploaded_t},
+					"image moved from product $code on $server_domain by $user_id -- uploader: $product_ref->{images}{uploaded}{$imgid}{uploader} - time: $product_ref->{images}{uploaded}{$imgid}{uploaded_t}",
 					\$new_imgid,
 					\$debug
 				);
@@ -1210,12 +1244,19 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 				delete $product_ref->{images}{$imgid};
 
 				if ($move_to eq 'trash') {
-					foreach my $related_img (keys %{$product_ref->{images}}) {
-						if ($product_ref->{images}{$related_img}{imgid} eq $imgid) {
-							_process_image_unselect($product_ref, $related_img);
-							push @image_queue, $related_img;    # move related images to trash as well
-							$log->debug("Image unselected because it was deleted: relatied: imgid: $imgid", {})
-								if $log->is_debug();
+					# If we delete an image, we also unselect the images that were selected / cropped from it
+					if (exists $product_ref->{images}{selected}) {
+						# Go throug all image types and languages
+						foreach my $image_type (keys %{$product_ref->{images}{selected}}) {
+							foreach my $image_lc (keys %{$product_ref->{images}{selected}{$image_type}}) {
+								if ($product_ref->{images}{selected}{$image_type}{$image_lc}{imgid} eq $imgid) {
+									_process_image_unselect($product_ref, $image_type, $image_lc);
+									$log->debug(
+										"Image ${image_type}_${image_lc} unselected because the source image $imgid was deleted",
+										{}
+									) if $log->is_debug();
+								}
+							}
 						}
 					}
 				}
@@ -1231,9 +1272,16 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 	return 0;
 }
 
-sub process_image_crop ($user_id, $product_id, $id, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2,
-	$coordinates_image_size)
+=head2 process_image_crop ( $user_id, $product_id, $image_type, $image_lc, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size )
+
+Select and possibly crop an uploaded image to represent the front, ingredients, nutrition or packaging image in a specific language.
+
+=cut
+
+sub process_image_crop ($user_id, $product_id, $image_type, $image_lc, $imgid, $angle, $normalize, $white_magic, $x1,
+	$y1, $x2, $y2, $coordinates_image_size)
 {
+	my $id = $image_type . "_" . $image_lc;
 
 	$log->debug(
 		"process_image_crop - start",
@@ -1322,8 +1370,8 @@ sub process_image_crop ($user_id, $product_id, $id, $imgid, $angle, $normalize, 
 	# Crop the image
 	my $ow = $source->Get('width');
 	my $oh = $source->Get('height');
-	my $w = $new_product_ref->{images}{$imgid}{sizes}{$coordinates_image_size}{w};
-	my $h = $new_product_ref->{images}{$imgid}{sizes}{$coordinates_image_size}{h};
+	my $w = $new_product_ref->{images}{uploaded}{$imgid}{sizes}{$coordinates_image_size}{w};
+	my $h = $new_product_ref->{images}{uploaded}{$imgid}{sizes}{$coordinates_image_size}{h};
 
 	if (($angle % 180) == 90) {
 		my $z = $w;
@@ -1418,81 +1466,6 @@ sub process_image_crop ($user_id, $product_id, $id, $imgid, $angle, $normalize, 
 		$imagemagick_error and $log->error("magic composide failed", {error => $imagemagick_error});
 
 		$image->Negate();
-		#$image->Normalize( channel=>'RGB' );
-
-		#$imagemagick_error = $image->Composite(image=>$background, compose=>"Screen");
-		#$image->Negate();
-
-		if (0) {    # Too slow, could work well with some tuning...
-			my $original = $image->Clone();
-			my @white = (1, 1, 1);
-
-			my $distance = sub ($a, $b) {
-
-				my $d
-					= ($a->[0] - $b->[0]) * ($a->[0] - $b->[0])
-					+ ($a->[1] - $b->[1]) * ($a->[1] - $b->[1])
-					+ ($a->[2] - $b->[2]) * ($a->[2] - $b->[2]);
-				return $d;
-			};
-
-			my @q = (
-				[0, 0],
-				[0, $h - 1],
-				[0, int($h / 2)],
-				[int($w / 2), 0],
-				[int($w / 2), $h - 1],
-				[$w - 1, 0],
-				[$w - 1, $h - 1],
-				[$w - 1, int($h / 2)]
-			);
-			my $max_distance = 0.015 * 0.015;
-			my $i = 0;
-			my %seen;
-			while (@q) {
-				my $p = pop @q;
-				my ($x, $y) = @{$p};
-				$seen{$x . ',' . $y} and next;
-				$seen{$x . ',' . $y} = 1;
-				(($x < 0) or ($x >= $w) or ($y < 0) or ($y > $h)) and next;
-				@rgb = $image->GetPixel(x => $x, y => $y);
-				#if (($rgb[0] == 1) and ($rgb[1] == 1) and ($rgb[2] == 1)) {
-				#	next;
-				#}
-				$image->SetPixel(x => $x, y => $y, color => \@white);
-				($distance->(\@rgb, [$original->GetPixel(x => $x + 1, y => $y)]) <= $max_distance)
-					and push @q, [$x + 1, $y];
-				($distance->(\@rgb, [$original->GetPixel(x => $x - 1, y => $y)]) <= $max_distance)
-					and push @q, [$x - 1, $y];
-				($distance->(\@rgb, [$original->GetPixel(x => $x, y => $y + 1)]) <= $max_distance)
-					and push @q, [$x, $y + 1];
-				($distance->(\@rgb, [$original->GetPixel(x => $x, y => $y - 1)]) <= $max_distance)
-					and push @q, [$x, $y - 1];
-
-				($distance->(\@rgb, [$original->GetPixel(x => $x + 1, y => $y + 1)]) <= $max_distance)
-					and push @q, [$x + 1, $y + 1];
-				($distance->(\@rgb, [$original->GetPixel(x => $x - 1, y => $y - 1)]) <= $max_distance)
-					and push @q, [$x - 1, $y - 1];
-				($distance->(\@rgb, [$original->GetPixel(x => $x - 1, y => $y + 1)]) <= $max_distance)
-					and push @q, [$x - 1, $y + 1];
-				($distance->(\@rgb, [$original->GetPixel(x => $x + 1, y => $y - 1)]) <= $max_distance)
-					and push @q, [$x + 1, $y - 1];
-				$i++;
-				($i % 10000) == 0 and $log->debug(
-					"white color detection",
-					{
-						i => $i,
-						x => $x,
-						y => $y,
-						r => $rgb[0],
-						g => $rgb[1],
-						b => $rgb[2],
-						width => $w,
-						height => $h
-					}
-				);
-			}
-		}
 
 		# Remove dark corners
 		if (1) {
@@ -1524,44 +1497,6 @@ sub process_image_crop ($user_id, $product_id, $id, $imgid, $angle, $normalize, 
 					   # $imagemagick_error = $image->Trim(fuzz=>"5%"); # fuzz factor does not work...
 		}
 
-		if (0) {
-			my $n = 10;
-			for (my $i = 0; $i <= $n; $i++) {
-				$imagemagick_error = $image->FloodfillPaint(
-					x => int($i * ($w - 1) / $n),
-					y => 0,
-					fill => "#ffffff",
-					fuzz => "5%",
-					xbordercolor => "#ffffff"
-				);
-				$imagemagick_error = $image->FloodfillPaint(
-					x => int($i * ($w - 1) / $n),
-					y => $h - 2,
-					fill => "#ffffff",
-					fuzz => "5%",
-					xbordercolor => "#ffffff"
-				);
-			}
-			$n = 10;
-			for (my $i = 0; $i <= $n; $i++) {
-				$imagemagick_error = $image->FloodfillPaint(
-					y => int($i * ($h - 1) / $n),
-					x => 0,
-					fill => "#ffffff",
-					fuzz => "5%",
-					xbordercolor => "#ffffff"
-				);
-				$imagemagick_error = $image->FloodfillPaint(
-					y => int($i * ($h - 1) / $n),
-					x => $w - 2,
-					fill => "#ffffff",
-					fuzz => "5%",
-					xbordercolor => "#ffffff"
-				);
-			}
-		}
-		#$image->Deskew();
-
 		$imagemagick_error and $log->error("could not floodfill", {error => $imagemagick_error});
 
 	}
@@ -1592,13 +1527,6 @@ sub process_image_crop ($user_id, $product_id, $id, $imgid, $angle, $normalize, 
 	my $window = $nw;
 	($nh > $nw) and $window = $nh;
 	$window = int($window / 3) + 1;
-
-	if (0) {    # too slow, not very effective
-		$log->trace("performing adaptive threshold") if $log->is_trace();
-
-		$img2->AdaptiveThreshold(width => $window, height => $window);
-		$img2->Write("jpeg:$BASE_DIRS{PRODUCTS_IMAGES}/$path/$filename.full.lat.jpg");
-	}
 
 	$log->debug("generating resized versions") if $log->is_debug();
 
@@ -1648,27 +1576,35 @@ sub process_image_crop ($user_id, $product_id, $id, $imgid, $angle, $normalize, 
 
 	# Update the product image data
 	my $product_ref = retrieve_product($product_id);
-	defined $product_ref->{images} or $product_ref->{images} = {};
-	$product_ref->{images}{$id} = {
-		imgid => $imgid,
-		rev => $rev,
-		angle => $angle,
-		x1 => $x1,
-		y1 => $y1,
-		x2 => $x2,
-		y2 => $y2,
-		coordinates_image_size => $coordinates_image_size,
-		geometry => $geometry,
-		normalize => $normalize,
-		white_magic => $white_magic,
-		sizes => {
-			full => {w => $nw, h => $nh},
+	deep_set(
+		$product_ref,
+		"images",
+		"selected",
+		$image_type,
+		$image_lc,
+		{
+			imgid => $imgid,
+			rev => $rev,
+			generation => {
+				angle => $angle,
+				x1 => $x1,
+				y1 => $y1,
+				x2 => $x2,
+				y2 => $y2,
+				coordinates_image_size => $coordinates_image_size,
+				geometry => $geometry,
+				normalize => $normalize,
+				white_magic => $white_magic,
+			},
+			sizes => {
+				full => {w => $nw, h => $nh},
+			}
 		}
-	};
+	);
 
 	foreach my $max ($thumb_size, $small_size, $display_size) {    # $zoom_size
-		$product_ref->{images}{$id}{sizes}{$max}
-			= {w => $new_product_ref->{"images.$id.$max.w"}, h => $new_product_ref->{"images.$id.$max.h"}};
+		deep_set($product_ref, "images", "selected", $image_type, $image_lc, "sizes", $max,
+			{w => $new_product_ref->{"images.$id.$max.w"}, h => $new_product_ref->{"images.$id.$max.h"}});
 	}
 
 	store_product($user_id, $product_ref, "new image $id : $imgid.$rev");
@@ -1677,37 +1613,28 @@ sub process_image_crop ($user_id, $product_id, $id, $imgid, $angle, $normalize, 
 	return $product_ref;
 }
 
-sub process_image_unselect ($user_id, $product_id, $id) {
-	my $path = product_path_from_id($product_id);
+sub process_image_unselect ($user_id, $product_id, $image_type, $image_lc) {
 	# Update the product image data
 	my $product_ref = retrieve_product($product_id);
-	_process_image_unselect($product_ref, $id);
-	store_product($user_id, $product_ref, "unselected image $id");
+	_process_image_unselect($product_ref, $image_type, $image_lc);
+	store_product($user_id, $product_ref, "unselected image ${image_type}_{$image_lc}");
 	return $product_ref;
 }
 
-sub _process_image_unselect ($product_ref, $id) {
+sub _process_image_unselect ($product_ref, $image_type, $image_lc) {
 	local $log->context->{product_id} = $product_ref->{product}{_id};
-	local $log->context->{id} = $id;
+	local $log->context->{image_type} = $image_type;
+	local $log->context->{image_lc} = $image_lc;
 
 	$log->info("unselecting image") if $log->is_info();
 
-	defined $product_ref->{images} or $product_ref->{images} = {};
-	if (defined $product_ref->{images}{$id}) {
-		delete $product_ref->{images}{$id};
+	if (deep_exists($product_ref, "images", "selected", $image_type, $image_lc)) {
+		delete $product_ref->{images}{selected}{$image_type}{$image_lc};
 	}
 
-	# also remove old images without language id (selected before product pages became multilingual)
-
-	if ($id =~ /(.*)_(.*)/) {
-		$id = $1;
-		my $id_lc = $2;
-
-		if ($product_ref->{lc} eq $id_lc) {
-			if (defined $product_ref->{images}{$id}) {
-				delete $product_ref->{images}{$id};
-			}
-		}
+	# Delete the image_type key if there are no languages left
+	if (not defined $product_ref->{images}{selected}{$image_type}) {
+		delete $product_ref->{images}{selected}{$image_type};
 	}
 
 	$log->debug("unselected image") if $log->is_debug();
@@ -1740,17 +1667,261 @@ sub _set_magickal_options ($magick, $width) {
 	return;
 }
 
+=head2 get_image_url ($product_ref, $image_ref, $size)
+
+Return the URL of the image in the requested size.
+
+=cut
+
+sub get_image_url ($product_ref, $image_ref, $size) {
+
+	my $path = product_path($product_ref);
+	my $rev = $image_ref->{rev};
+	my $id = $image_ref->{id};    # contains [image_type]_[lc]
+
+	my $url = "$images_subdomain/images/products/$path/$id.$rev.$size.jpg";
+
+	return $url;
+}
+
+=head2 get_image_in_best_language ($product_ref, $image_type, $target_lc)
+
+We return the image object in the best language available for the image type,
+in the order of preference:
+- $target_lc
+- main language of the product
+- English
+- any other available language (if any), in alphabetical order
+
+=head3 Arguments
+
+- $product_ref: the product reference
+- $image_type: the image type (front, ingredients, nutrition, packaging)
+- $target_lc: the target language code
+- $image_lc_ref: a reference to return the language code of the image (optional)
+
+=head3 Return values
+
+- the image reference in the best language available, with an added "id"
+  field containing the image type and language code (e.g. "front_en")
+
+The language code of the best language is set in $image_lc_ref (if provided)
+
+=cut
+
+sub get_image_in_best_language ($product_ref, $image_type, $target_lc, $image_lc_ref = undef) {
+
+	my @languages = ($target_lc, $product_ref->{lang} || $product_ref->{lc}, 'en');
+
+	my $image_ref;
+	my $image_lc;
+
+	foreach my $language (@languages) {
+		$image_ref = deep_get($product_ref, "images", "selected", $image_type, $language);
+		if (defined $image_ref) {
+			$image_lc = $language;
+			last;
+		}
+	}
+
+	if (not defined $image_ref) {
+		# No image found in the preferred languages, we try to find one in any other language
+		my $selected_images_ref = deep_get($product_ref, "images", "selected", $image_type);
+		if (defined $selected_images_ref) {
+			foreach my $language (sort keys %{$selected_images_ref}) {
+				$image_ref = $selected_images_ref->{$language};
+				$image_lc = $language;
+				last;
+			}
+		}
+	}
+
+	$log->debug("get_image_in_best_language",
+		{image_type => $image_type, target_lc => $target_lc, image_lc => $image_lc, image_ref => $image_ref})
+		if $log->is_debug();
+
+	if (defined $image_ref) {
+		# The product image object does not contain the image_type and language code
+		# as they are specified as keys in the images.selected hash
+		# So we create a clone and add an id field containing [image_type]_[lc] to the image object so that we can later construct the image filename
+		my $image_clone_ref = clone($image_ref);
+		$image_clone_ref->{id} = $image_type . "_" . $image_lc;
+
+		# Return the language of the image that was selected
+		if (defined $image_lc_ref) {
+			$$image_lc_ref = $image_lc;
+		}
+
+		return ($image_clone_ref);
+	}
+	return;
+}
+
+=head2 add_images_urls_to_product ($product_ref, $target_lc, $specific_image_type = undef)
+
+Add fields like image_[front|ingredients|nutrition|packaging]_[url|small_url|thumb_url] to a product object.
+
+If it exists, the image for the target language will be returned, otherwise we will return the image
+in the main language of the product.
+
+=head3 Parameters
+
+=head4 $product_ref
+
+Reference to a complete product a subfield.
+
+=head4 $target_lc
+
+2 language code of the preferred language for the product images.
+
+=head4 $specific_image_type
+
+Optional parameter to specify the type of image to add. Default is to add all types.
+
+=cut
+
+sub add_images_urls_to_product ($product_ref, $target_lc, $specific_image_type = undef) {
+
+	if (defined $product_ref->{images}) {
+
+		# If we do not have the "uploaded" or "selected" key, we may be getting an image object with an old schema
+		# e.g. when we get partial product data from MongoDB or off-query
+		# when reading a full product with retrieve_product(), the conversion should already have been done
+		# try to convert it to the new schema
+		if (not defined $product_ref->{images}{uploaded} and not defined $product_ref->{images}{selected}) {
+			ProductOpener::ProductSchemaChanges::convert_schema_1001_to_1002_refactor_images_object($product_ref);
+		}
+
+		my $images_subdomain = format_subdomain('images');
+
+		my $path = product_path($product_ref);
+
+		# If $image_type is specified (e.g. "front" when we display a list of products), only compute the image for this type
+		my @image_types;
+		if (defined $specific_image_type) {
+			@image_types = ($specific_image_type);
+		}
+		else {
+			@image_types = ('front', 'ingredients', 'nutrition', 'packaging');
+		}
+
+		foreach my $image_type (@image_types) {
+
+			my $image_ref = get_image_in_best_language($product_ref, $image_type, $target_lc);
+
+			if (defined $image_ref) {
+
+				$product_ref->{"image_" . $image_type . "_url"}
+					= get_image_url($product_ref, $image_ref, $display_size);
+
+				$product_ref->{"image_" . $image_type . "_small_url"}
+					= get_image_url($product_ref, $image_ref, $small_size);
+
+				$product_ref->{"image_" . $image_type . "_thumb_url"}
+					= get_image_url($product_ref, $image_ref, $thumb_size);
+
+				if ($image_type eq 'front') {
+					# front image is product image
+					$product_ref->{image_url} = $product_ref->{"image_" . $image_type . "_url"};
+					$product_ref->{image_small_url} = $product_ref->{"image_" . $image_type . "_small_url"};
+					$product_ref->{image_thumb_url} = $product_ref->{"image_" . $image_type . "_thumb_url"};
+				}
+			}
+
+			if (defined $product_ref->{languages_codes}) {
+				# compute selected image for each product language
+				foreach my $image_lc (keys %{$product_ref->{languages_codes}}) {
+					# The product image object does not contain the image_type and language code
+					# as they are specified as keys in the images.selected hash
+					# So we create a clone and add an id field containing [image_type]_[lc] to the image object so that we can later construct the image filename
+					my $selected_image_ref = clone($product_ref->{images}{selected}{$image_type}{$image_lc});
+					$selected_image_ref->{id} = $image_type . "_" . $image_lc;
+					if (defined $selected_image_ref) {
+						$product_ref->{selected_images}{$image_type}{display}{$image_lc}
+							= get_image_url($product_ref, $selected_image_ref, $display_size);
+						$product_ref->{selected_images}{$image_type}{small}{$image_lc}
+							= get_image_url($product_ref, $selected_image_ref, $small_size);
+						$product_ref->{selected_images}{$image_type}{thumb}{$image_lc}
+							= get_image_url($product_ref, $selected_image_ref, $thumb_size);
+					}
+				}
+			}
+
+		}
+
+	}
+
+	return;
+}
+
+=head2 data_to_display_image ( $product_ref, $image_type, $target_lc )
+
+Generates a data structure to display a product image.
+
+The resulting data structure can be passed to a template to generate HTML or the JSON data for a knowledge panel.
+
+=head3 Arguments
+
+=head4 Product reference $product_ref
+
+=head4 Image type $image_type: one of [front|ingredients|nutrition|packaging]
+
+=head4 Language code $target_lc
+
+=head3 Return values
+
+- Reference to a data structure with needed data to display.
+- undef if no image is available for the requested image type
+
+=cut
+
+sub data_to_display_image ($product_ref, $image_type, $target_lc) {
+
+	my $image_lc;
+	my $image_ref = get_image_in_best_language($product_ref, $image_type, $target_lc, \$image_lc);
+	my $image_data_ref;
+
+	if (defined $image_ref) {
+		my $id = $image_type . "_" . $image_lc;
+		my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . lang($image_type . '_alt');
+
+		if ($image_lc ne $target_lc) {
+			$alt .= ' - ' . $image_lc;
+		}
+
+		$image_data_ref = {
+			type => $image_type,
+			lc => $image_lc,
+			alt => $alt,
+			sizes => {},
+			id => $id,
+		};
+
+		foreach my $size ($thumb_size, $small_size, $display_size, "full") {
+			if (defined $image_ref->{sizes}{$size}) {
+				$image_data_ref->{sizes}{$size} = {
+					url => get_image_url($product_ref, $image_ref, $size),
+					w => $image_ref->{sizes}{$size}{w},
+					h => $image_ref->{sizes}{$size}{h},
+				};
+			}
+		}
+	}
+
+	return $image_data_ref;
+}
+
 # TODO: This function should be removed once we switch to knowledge pages to display
-sub display_image_thumb ($product_ref, $id_lc) {
+sub display_image_thumb ($product_ref, $image_field) {
 
-	# $id_lc = shift  ->  id_lc = [front|ingredients|nutrition|packaging]_[lc]
+	# $image_field = shift  ->  image_field = [front|ingredients|nutrition|packaging]_[lc]
 
-	my $imagetype = $id_lc;
-	my $display_lc = $lc;
+	my $image_type = $image_field;
+	my $image_lc = $lc;
 
-	if ($id_lc =~ /^(.*)_(.*)$/) {
-		$imagetype = $1;
-		$display_lc = $2;
+	if ($image_field =~ /^(.*)_(.*)$/) {
+		$image_type = $1;
+		$image_lc = $2;
 	}
 
 	my $html = '';
@@ -1763,15 +1934,15 @@ sub display_image_thumb ($product_ref, $id_lc) {
 	}
 
 	# first try the requested language
-	my @display_ids = ($imagetype . "_" . $display_lc);
+	my @display_ids = ($image_type . "_" . $image_lc);
 
 	# next try the main language of the product
-	if ($product_ref->{lc} ne $display_lc) {
-		push @display_ids, $imagetype . "_" . $product_ref->{lc};
+	if ($product_ref->{lc} ne $image_lc) {
+		push @display_ids, $image_type . "_" . $product_ref->{lc};
 	}
 
 	# last try the field without a language (for old products without updated images)
-	push @display_ids, $imagetype;
+	push @display_ids, $image_type;
 
 	my $images_subdomain = format_subdomain('images');
 	my $static_subdomain = format_subdomain('static');
@@ -1785,7 +1956,7 @@ sub display_image_thumb ($product_ref, $id_lc) {
 
 			my $path = product_path($product_ref);
 			my $rev = $product_ref->{images}{$id}{rev};
-			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lc};
+			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$image_type . '_alt'}{$lc};
 
 			$html .= <<HTML
 <img src="$images_subdomain/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="$images_subdomain/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" loading="lazy" $css/>
@@ -1809,125 +1980,53 @@ HTML
 	return $html;
 }
 
-sub display_image ($product_ref, $id_lc, $size) {
-
-	# $id_lc = shift  ->  id_lc = [front|ingredients|nutrition|packaging]_[lc]
-	# $size  = shift  ->  currently = $small_size , 200px
+sub display_image ($product_ref, $image_type, $target_lc, $size) {
 
 	my $html = '';
 
-	my $imagetype = $id_lc;
-	my $display_lc = $lc;
+	my $image_lc;
+	my $image_ref = get_image_in_best_language($product_ref, $image_type, $target_lc, \$image_lc);
 
-	if ($id_lc =~ /^(.*)_(.*)$/) {
-		$imagetype = $1;
-		$display_lc = $2;
+	my $image_url;
+
+	if (defined $image_ref) {
+		$image_url = get_image_url($product_ref, $image_ref, $size);
+	}
+	# For the front image in thumb size, if we don't have an image, we display a product silhouette
+	elsif (($image_type eq 'front') and ($size eq $thumb_size)) {
+		$image_url = "$static_subdomain/images/svg/product-silhouette.svg";
+		$image_ref = {
+			sizes => {
+				$thumb_size => {w => $thumb_size, h => $thumb_size}
+			}
+		};
 	}
 
-	# first try the requested language
-	my @display_ids = ($imagetype . "_" . $display_lc);
+	if (defined $image_url) {
 
-	# next try the main language of the product
-	if ($product_ref->{lc} ne $display_lc) {
-		push @display_ids, $imagetype . "_" . $product_ref->{lc};
-	}
+		my $alt
+			= remove_tags_and_quote($product_ref->{product_name}) . ' - '
+			. lang($image_type . '_alt') . ' - '
+			. $image_lc;
 
-	# last try the field without a language (for old products without updated images)
-	push @display_ids, $imagetype;
+		my $template_data_ref = {
+			'alt' => $alt,
+			'src' => $image_url,
+			'w' => $image_ref->{sizes}{$size}{w},
+			'h' => $image_ref->{sizes}{$size}{h}
+		};
 
-	foreach my $id (@display_ids) {
+		# See if we have a x2 image for high resolution displays
+		my $size2 = $size * 2;
 
-		if (    (defined $product_ref->{images})
-			and (defined $product_ref->{images}{$id})
-			and (defined $product_ref->{images}{$id}{sizes})
-			and (defined $product_ref->{images}{$id}{sizes}{$size}))
-		{
-
-			my $path = product_path($product_ref);
-			my $rev = $product_ref->{images}{$id}{rev};
-			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lc};
-			if ($id eq ($imagetype . "_" . $display_lc)) {
-				$alt
-					= remove_tags_and_quote($product_ref->{product_name}) . ' - '
-					. $Lang{$imagetype . '_alt'}{$lc} . ' - '
-					. $display_lc;
-			}
-			elsif ($id eq ($imagetype . "_" . $product_ref->{lc})) {
-				$alt
-					= remove_tags_and_quote($product_ref->{product_name}) . ' - '
-					. $Lang{$imagetype . '_alt'}{$lc} . ' - '
-					. $product_ref->{lc};
-			}
-
-			if (not defined $product_ref->{jqm}) {
-				my $noscript = "<noscript>";
-
-				# add srcset with 2x image only if the 2x image exists
-				my $srcset = '';
-				if (defined $product_ref->{images}{$id}{sizes}{$display_size}) {
-					$srcset = "srcset=\"$images_subdomain/images/products/$path/$id.$rev.$display_size.jpg 2x\"";
-				}
-
-				$html .= <<HTML
-<img class="hide-for-xlarge-up" src="$images_subdomain/images/products/$path/$id.$rev.$size.jpg" $srcset width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" itemprop="thumbnail" loading="lazy" />
-HTML
-					;
-
-				$srcset = '';
-				if (defined $product_ref->{images}{$id}{sizes}{$zoom_size}) {
-					$srcset = "srcset=\"$images_subdomain/images/products/$path/$id.$rev.$zoom_size.jpg 2x\"";
-				}
-
-				$html .= <<HTML
-<img class="show-for-xlarge-up" src="$images_subdomain/images/products/$path/$id.$rev.$display_size.jpg" $srcset width="$product_ref->{images}{$id}{sizes}{$display_size}{w}" height="$product_ref->{images}{$id}{sizes}{$display_size}{h}" alt="$alt" itemprop="thumbnail" loading="lazy" />
-HTML
-					;
-
-				if (($size eq $small_size) and (defined $product_ref->{images}{$id}{sizes}{$display_size})) {
-
-					my $title = lang($id . '_alt');
-
-					my $full_image_url
-						= "$images_subdomain/images/products/$path/$id.$product_ref->{images}{$id}{rev}.full.jpg";
-					my $representative_of_page = '';
-					if ($id eq 'front') {
-						$representative_of_page = 'true';
-					}
-					else {
-						$representative_of_page = 'false';
-					}
-
-					$noscript .= "</noscript>";
-					$html = $html . $noscript;
-					$html = <<"HTML"
-<a data-reveal-id="drop_$id" class="th">
-$html
-</a>
-<div id="drop_$id" class="reveal-modal" data-reveal aria-labelledby="modalTitle_$id" aria-hidden="true" role="dialog" about="$full_image_url" >
-<h2 id="modalTitle_$id">$title</h2>
-<img src="$full_image_url" alt="$alt" itemprop="contentUrl" loading="lazy" />
-<a class="close-reveal-modal" aria-label="Close" href="#">&#215;</a>
-<meta itemprop="representativeOfPage" content="$representative_of_page"/>
-<meta itemprop="license" content="https://creativecommons.org/licenses/by-sa/3.0/"/>
-<meta itemprop="caption" content="$alt"/>
-</div>
-<meta itemprop="imgid" content="$id"/>
-HTML
-						;
-
-				}
-
-			}
-			else {
-				# jquery mobile for Cordova app
-				$html .= <<HTML
-<img src="$images_subdomain/images/products/$path/$id.$rev.$size.jpg" width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" />
-HTML
-					;
-			}
-
-			last;
+		if (defined $image_ref->{sizes}{$size2}) {
+			$template_data_ref->{srcset} = get_image_url($product_ref, $image_ref, $size2);
 		}
+
+		$html .= <<HTML
+<img src="$template_data_ref->{src}" width="$template_data_ref->{w}" height="$template_data_ref->{h}" alt="$template_data_ref->{alt}" loading="lazy" $template_data_ref->{srcset} />
+HTML
+			;
 
 	}
 
@@ -2038,21 +2137,13 @@ sub extract_text_from_image ($product_ref, $id, $field, $ocr_engine, $results_re
 	my $path = product_path($product_ref);
 	$results_ref->{status} = 1;    # 1 = nok, 0 = ok
 
+	my ($image_type, $image_lc) = get_image_type_and_image_lc_from_imagefield($id);
+
+	my $image_ref = deep_get($product_ref, "images", "selected", $image_type, $image_lc);
+
 	my $filename = '';
-
-	my $lc = $product_ref->{lc};
-
-	if ($id =~ /_(\w\w)$/) {
-		$lc = $1;
-	}
-
-	my $size = 'full';
-	if (    (defined $product_ref->{images})
-		and (defined $product_ref->{images}{$id})
-		and (defined $product_ref->{images}{$id}{sizes})
-		and (defined $product_ref->{images}{$id}{sizes}{$size}))
-	{
-		$filename = $id . '.' . $product_ref->{images}{$id}{rev};
+	if (defined $image_ref) {
+		$filename = $id . '.' . $image_ref->{rev};
 	}
 	else {
 		return;

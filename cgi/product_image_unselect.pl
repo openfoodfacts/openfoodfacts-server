@@ -31,7 +31,7 @@ use ProductOpener::Display qw/init_request/;
 use ProductOpener::HTTP qw/write_cors_headers single_param/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/$Owner_id $User_id %User/;
-use ProductOpener::Images qw/is_protected_image process_image_unselect/;
+use ProductOpener::Images qw/is_protected_image process_image_unselect get_image_type_and_image_lc_from_imagefield/;
 use ProductOpener::Products qw/normalize_code product_id_for_owner retrieve_product/;
 
 use CGI qw/:cgi :form escapeHTML/;
@@ -49,6 +49,8 @@ my $action = single_param('action') || 'display';
 my $code = normalize_code(single_param('code'));
 my $id = single_param('id');
 
+my ($image_type, $image_lc) = get_image_type_and_image_lc_from_imagefield($id);
+
 my $product_id = product_id_for_owner($Owner_id, $code);
 my $product_ref = retrieve_product($product_id);
 
@@ -59,8 +61,8 @@ if (not defined $code) {
 	exit(0);
 }
 
-if (not is_protected_image($product_ref, $id) or $User{moderator}) {
-	$product_ref = process_image_unselect($User_id, $product_id, $id);
+if (not is_protected_image($product_ref, $image_type, $image_lc) or $User{moderator}) {
+	$product_ref = process_image_unselect($User_id, $product_id, $image_type, $image_lc);
 }
 
 my $data = encode_json({status_code => 0, status => 'status ok', imagefield => $id});

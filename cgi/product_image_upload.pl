@@ -46,6 +46,7 @@ use Storable qw/dclone/;
 use Encode;
 use JSON::MaybeXS;
 use Log::Any qw($log);
+use Data::DeepAccess qw(deep_exists deep_get deep_set);
 
 my $type = single_param('type') || 'add';
 my $action = single_param('action') || 'display';
@@ -262,6 +263,7 @@ if ($imagefield) {
 	}
 
 	if ($imgid_returncode < 0) {
+		# Error during upload
 		$response_ref->{status} = 'status not ok';
 		$response_ref->{error} = "error";
 		($imgid_returncode == -2) and $response_ref->{error} = "field imgupload_$imagefield not set";
@@ -284,6 +286,7 @@ if ($imagefield) {
 		}
 	}
 	else {
+		# Image uploaded successfully
 
 		my $image_data_ref = {
 			imgid => $imgid,
@@ -308,20 +311,27 @@ if ($imagefield) {
 		$response_ref->{image} = $image_data_ref;
 
 		# Select the image
-		if (
-			($imagefield =~ /^(front|ingredients|nutrition|packaging)_/)
-			# Changed 2020-03-05: overwrite already selected images
-			# and ((not defined $product_ref->{images}{$imagefield}) or ($select_image))
-			# Changed 2020-04-20: don't overwrite selected images if the source is the product edit form
-			and (  (not defined single_param('source'))
-				or (single_param('source') ne "product_edit_form")
-				or (not defined $product_ref->{images}{$imagefield}))
-			and (not is_protected_image($product_ref, $imagefield) or $User{moderator})
+		if ($imagefield =~ /^(front|ingredients|nutrition|packaging)_(\w\w)$/) {
 
-			)
-		{
-			$log->debug("selecting image", {imgid => $imgid, imagefield => $imagefield}) if $log->is_debug();
-			process_image_crop($User_id, $product_id, $imagefield, $imgid, 0, undef, undef, -1, -1, -1, -1, "full");
+			my $image_type = $1;
+			my $image_lc = $2;
+			# Changed 2020-03-05: overwrite already selected images
+			# Changed 2020-04-20: don't overwrite selected images if the source is the product edit form
+			if (
+				(
+					   (not defined single_param('source'))
+					or (single_param('source') ne "product_edit_form")
+					or (not deep_exists($product_ref, "images", "selected", $image_type, $image_lc))
+				)
+				and (not is_protected_image($product_ref, $image_type, $image_lc) or $User{moderator})
+
+				)
+			{
+				$log->debug("selecting image", {imgid => $imgid, image_type => $image_type, lc => $image_lc})
+					if $log->is_debug();
+				process_image_crop($User_id, $product_id, $image_type, $image_lc, $imgid, 0, undef, undef, -1, -1, -1,
+					-1, "full");
+			}
 		}
 		# If the image type is "other" and we don't have a front image, assign it
 		# This is in particular for producers that send us many images without specifying their type: assume the first one is the front
@@ -330,7 +340,7 @@ if ($imagefield) {
 			and (
 				(not defined $product_ref->{images}{"front_" . $product_ref->{lc}})
 				or (    (defined $previous_imgid)
-					and ($previous_imgid eq $product_ref->{images}{"front_" . $product_ref->{lc}}{imgid}))
+					and ($previous_imgid eq $product_ref->{images}{selected}{"front"}{$product_ref->{lc}}{imgid}))
 			)
 			)
 		{
@@ -343,20 +353,8 @@ if ($imagefield) {
 					front_imagefield => "front_" . $product_ref->{lc}
 				}
 			) if $log->is_debug();
-			process_image_crop($User_id, $product_id, "front_" . $product_ref->{lc},
+			process_image_crop($User_id, $product_id, "front", $product_ref->{lc},
 				$imgid, 0, undef, undef, -1, -1, -1, -1, "full");
-		}
-		else {
-			$log->debug(
-				"not selecting as front image",
-				{
-					imgid => $imgid,
-					previous_imgid => $previous_imgid,
-					imagefield => $imagefield,
-					front_imagefield => "front_" . $product_ref->{lc},
-					front_image => $product_ref->{images}{"front_" . $product_ref->{lc}}
-				}
-			) if $log->is_debug();
 		}
 	}
 
