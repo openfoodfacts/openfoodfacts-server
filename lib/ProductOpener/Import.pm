@@ -61,7 +61,7 @@ use Log::Any qw($log);
 
 use Storable qw(dclone);
 use Text::Fuzzy;
-use Data::DeepAccess qw(deep_exists);
+use Data::DeepAccess qw(deep_get deep_exists);
 
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
@@ -316,8 +316,8 @@ sub upload_images_for_product($args_ref, $images_ref, $product_ref, $imported_pr
 			# compute imgid for new image
 			my $current_max_imgid = -1;
 
-			if (defined $product_ref->{images}) {
-				foreach my $imgid (keys %{$product_ref->{images}}) {
+			if ((defined $product_ref->{images}) and (defined $product_ref->{images}{uploaded})) {
+				foreach my $imgid (keys %{$product_ref->{images}{uploaded}}) {
 					if (($imgid =~ /^\d/) and ($imgid > $current_max_imgid)) {
 						$current_max_imgid = $imgid;
 					}
@@ -336,6 +336,8 @@ sub upload_images_for_product($args_ref, $images_ref, $product_ref, $imported_pr
 			if ($imagefield_with_lc !~ /_\w\w/) {
 				$imagefield_with_lc .= "_" . $product_ref->{lc};
 			}
+
+			my ($image_type, $image_lc) = get_image_type_and_image_lc_from_imagefield($imagefield_with_lc);
 
 			# upload the image
 			my $file = $images_ref->{$imagefield};
@@ -407,8 +409,7 @@ sub upload_images_for_product($args_ref, $images_ref, $product_ref, $imported_pr
 							not(    (defined $args_ref->{only_select_not_existing_images})
 								and ($args_ref->{only_select_not_existing_images}))
 						)
-						or (   (not defined $product_ref->{images})
-							or (not defined $product_ref->{images}{$imagefield_with_lc}))
+						or (not deep_exists($product_ref, "images", "selected", $image_type, $image_lc))
 					)
 					)
 				{
@@ -445,24 +446,22 @@ sub upload_images_for_product($args_ref, $images_ref, $product_ref, $imported_pr
 						# overwrite already selected images
 						# if the selected image is not the same
 						# or if we have non null crop coordinates that differ
+						my $already_selected_image_ref
+							= deep_get($product_ref, "images", "selected", $image_type, $image_lc);
 						if (
-								($imgid > 0)
-							and (exists $product_ref->{images})
-							and (
-								(not exists $product_ref->{images}{$imagefield_with_lc})
-								or (
-									(
-										($product_ref->{images}{$imagefield_with_lc}{imgid} != $imgid)
-										or (    ($x1 > 1)
-											and ($product_ref->{images}{$imagefield_with_lc}{x1} != $x1))
-										or (    ($x2 > 1)
-											and ($product_ref->{images}{$imagefield_with_lc}{x2} != $x2))
-										or (    ($y1 > 1)
-											and ($product_ref->{images}{$imagefield_with_lc}{y1} != $y1))
-										or (    ($y2 > 1)
-											and ($product_ref->{images}{$imagefield_with_lc}{y2} != $y2))
-										or ($product_ref->{images}{$imagefield_with_lc}{angle} != $angle)
-									)
+							($imgid > 0) and (not defined $already_selected_image_ref)
+							or (
+								(
+									($already_selected_image_ref->{imgid} != $imgid)
+									or (    ($x1 > 1)
+										and ($already_selected_image_ref->{generation}{x1} != $x1))
+									or (    ($x2 > 1)
+										and ($already_selected_image_ref->{generation}{x2} != $x2))
+									or (    ($y1 > 1)
+										and ($already_selected_image_ref->{generation}{y1} != $y1))
+									or (    ($y2 > 1)
+										and ($already_selected_image_ref->{generation}{y2} != $y2))
+									or ($already_selected_image_ref->{generation}{angle} != $angle)
 								)
 							)
 							)
@@ -485,7 +484,7 @@ sub upload_images_for_product($args_ref, $images_ref, $product_ref, $imported_pr
 							) if $log->is_debug();
 							$selected_images{$imagefield_with_lc} = 1;
 							eval {
-								process_image_crop($user_id, $product_id, $imagefield_with_lc, $imgid, $angle,
+								process_image_crop($user_id, $product_id, $image_type, $image_lc, $imgid, $angle,
 									$normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size);
 							};
 						}
@@ -495,7 +494,7 @@ sub upload_images_for_product($args_ref, $images_ref, $product_ref, $imported_pr
 				# This is in particular for producers that send us many images without specifying their type: assume the first one is the front
 				elsif ( ($imgid > 0)
 					and ($imagefield_with_lc =~ /^other/)
-					and (not defined $product_ref->{images}{"front_" . $product_ref->{lc}})
+					and (not deep_exists($product_ref, "images", "selected", "front", $product_ref->{lc}))
 					and (not defined $selected_images{"front_" . $product_ref->{lc}}))
 				{
 					$log->debug(
@@ -518,7 +517,7 @@ sub upload_images_for_product($args_ref, $images_ref, $product_ref, $imported_pr
 					# as we don't reload the product_ref after calling process_image_crop()
 					$selected_images{"front_" . $product_ref->{lc}} = 1;
 					eval {
-						process_image_crop($user_id, $product_id, "front_" . $product_ref->{lc},
+						process_image_crop($user_id, $product_id, "front", $product_ref->{lc},
 							$imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size);
 					};
 				}

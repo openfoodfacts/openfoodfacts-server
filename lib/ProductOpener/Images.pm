@@ -1807,6 +1807,7 @@ sub add_images_urls_to_product ($product_ref, $target_lc, $specific_image_type =
 
 		foreach my $image_type (@image_types) {
 
+			# Compute the URLs for the best image
 			my $image_ref = get_image_in_best_language($product_ref, $image_type, $target_lc);
 
 			if (defined $image_ref) {
@@ -1826,24 +1827,21 @@ sub add_images_urls_to_product ($product_ref, $target_lc, $specific_image_type =
 					$product_ref->{image_small_url} = $product_ref->{"image_" . $image_type . "_small_url"};
 					$product_ref->{image_thumb_url} = $product_ref->{"image_" . $image_type . "_thumb_url"};
 				}
-			}
 
-			if (defined $product_ref->{languages_codes}) {
+				# Also build selected_images with URLs for each language for which we have images
 				# compute selected image for each product language
-				foreach my $image_lc (keys %{$product_ref->{languages_codes}}) {
+				foreach my $image_lc (keys %{$product_ref->{images}{selected}{$image_type}}) {
 					# The product image object does not contain the image_type and language code
 					# as they are specified as keys in the images.selected hash
 					# So we create a clone and add an id field containing [image_type]_[lc] to the image object so that we can later construct the image filename
 					my $selected_image_ref = clone($product_ref->{images}{selected}{$image_type}{$image_lc});
 					$selected_image_ref->{id} = $image_type . "_" . $image_lc;
-					if (defined $selected_image_ref) {
-						$product_ref->{selected_images}{$image_type}{display}{$image_lc}
-							= get_image_url($product_ref, $selected_image_ref, $display_size);
-						$product_ref->{selected_images}{$image_type}{small}{$image_lc}
-							= get_image_url($product_ref, $selected_image_ref, $small_size);
-						$product_ref->{selected_images}{$image_type}{thumb}{$image_lc}
-							= get_image_url($product_ref, $selected_image_ref, $thumb_size);
-					}
+					$product_ref->{selected_images}{$image_type}{display}{$image_lc}
+						= get_image_url($product_ref, $selected_image_ref, $display_size);
+					$product_ref->{selected_images}{$image_type}{small}{$image_lc}
+						= get_image_url($product_ref, $selected_image_ref, $small_size);
+					$product_ref->{selected_images}{$image_type}{thumb}{$image_lc}
+						= get_image_url($product_ref, $selected_image_ref, $thumb_size);
 				}
 			}
 

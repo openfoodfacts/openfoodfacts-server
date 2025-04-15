@@ -37,6 +37,13 @@ my $tests_ref = [
 		path => '/api/v2/product/1234567890012',
 		expected_status_code => 200,
 	},
+	# with new image structure
+	{
+		test_case => 'get-product-image-new-structure',
+		method => 'GET',
+		path => '/api/v3.3/product/1234567890012',
+		expected_status_code => 200,
+	},
 	{
 		test_case => 'post-image-too-small',
 		method => 'POST',

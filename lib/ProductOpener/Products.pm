@@ -155,7 +155,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use Encode;
 use JSON;
 use Log::Any qw($log);
-use Data::DeepAccess qw(deep_get);
+use Data::DeepAccess qw(deep_exists deep_get);
 
 use LWP::UserAgent;
 use Storable qw(dclone);
@@ -2040,12 +2040,12 @@ sub replace_user_id_in_product ($product_id, $user_id, $new_user_id, $products_c
 
 			# Images uploaders
 
-			if (defined $product_ref->{images}) {
-				foreach my $id (sort keys %{$product_ref->{images}}) {
-					if (    (defined $product_ref->{images}{$id}{uploader})
-						and ($product_ref->{images}{$id}{uploader} eq $user_id))
+			if ((defined $product_ref->{images}) and (defined $product_ref->{images}{uploaded})) {
+				foreach my $id (sort keys %{$product_ref->{images}{uploaded}}) {
+					if (    (defined $product_ref->{images}{uploaded}{$id}{uploader})
+						and ($product_ref->{images}{uploaded}{$id}{uploader} eq $user_id))
 					{
-						$product_ref->{images}{$id}{uploader} = $new_user_id;
+						$product_ref->{images}{uploaded}{$id}{uploader} = $new_user_id;
 						$changes++;
 					}
 				}
@@ -2497,19 +2497,19 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 					if (($diff eq 'add') and ($group eq 'uploaded_images')) {
 						# images uploader and uploaded_t where not set before 2015/08/04, set them using the change history
 						# ! only update the values if the image still exists in the current version of the product (wasn't moved or deleted)
-						if (exists $current_product_ref->{images}{$id}) {
-							if (not defined $current_product_ref->{images}{$id}{uploaded_t}) {
-								$current_product_ref->{images}{$id}{uploaded_t} = $product_ref->{last_modified_t} + 0;
+						if (deep_exists($current_product_ref, "images", "uploaded", $id)) {
+							if (not defined $current_product_ref->{images}{uploaded}{$id}{uploaded_t}) {
+								$current_product_ref->{images}{uploaded}{$id}{uploaded_t} = $product_ref->{last_modified_t} + 0;
 							}
-							if (not defined $current_product_ref->{images}{$id}{uploader}) {
-								$current_product_ref->{images}{$id}{uploader} = $userid;
+							if (not defined $current_product_ref->{images}{uploaded}{$id}{uploader}) {
+								$current_product_ref->{images}{uploaded}{$id}{uploader} = $userid;
 							}
 
 							# when moving images, attribute the image to the user that uploaded the image
 
-							$userid = $current_product_ref->{images}{$id}{uploader};
+							$userid = $current_product_ref->{images}{uploaded}{$id}{uploader};
 							if ($userid eq 'unknown') {    # old unknown user
-								$current_product_ref->{images}{$id}{uploader}
+								$current_product_ref->{images}{uploaded}{$id}{uploader}
 									= "openfoodfacts-contributors";
 								$userid = "openfoodfacts-contributors";
 							}
