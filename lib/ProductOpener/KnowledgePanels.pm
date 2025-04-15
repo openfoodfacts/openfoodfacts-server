@@ -1106,6 +1106,9 @@ sub create_health_card_panel ($product_ref, $target_lc, $target_cc, $options_ref
 		nutrition_image => data_to_display_image($product_ref, "nutrition", $target_lc),
 	};
 
+	$log->debug("create health card panel - data", {code => $product_ref->{code}, panel_data => $panel_data_ref})
+		if $log->is_debug();
+
 	create_panel_from_json_template("health_card", "api/knowledge-panels/health/health_card.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 

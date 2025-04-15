@@ -5,9 +5,12 @@ use ProductOpener::PerlStandards;
 use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Images qw/get_code_and_imagefield_from_file_name scan_code get_image_url get_image_in_best_language/;
+use ProductOpener::Images
+	qw/get_code_and_imagefield_from_file_name scan_code get_image_url get_image_in_best_language data_to_display_image/;
 
 use File::Basename 'dirname';
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
 
 # get_code_and_imagefield_from_file_name tests
 
@@ -280,5 +283,45 @@ is($image_lc, 'fr');
 
 get_image_in_best_language($product_ref, "nutrition", "de", \$image_lc);
 is($image_lc, 'it');
+
+is(
+	data_to_display_image($product_ref, "front", "en"),
+	{
+		'type' => 'front',
+		'alt' => ' - Product',
+		'id' => 'front_en',
+		'sizes' => {
+			'400' => {
+				'h' => 185,
+				'w' => 400,
+				'url' => 'http://images.openfoodfacts.localhost/images/products/341/012/345/6789/front_en.14.400.jpg'
+			},
+			'200' => {
+				'url' => 'http://images.openfoodfacts.localhost/images/products/341/012/345/6789/front_en.14.200.jpg',
+				'w' => 200,
+				'h' => 92
+			},
+			'full' => {
+				'url' => 'http://images.openfoodfacts.localhost/images/products/341/012/345/6789/front_en.14.full.jpg',
+				'h' => 1848,
+				'w' => 4000
+			},
+			'100' => {
+				'h' => 46,
+				'w' => 100,
+				'url' => 'http://images.openfoodfacts.localhost/images/products/341/012/345/6789/front_en.14.100.jpg'
+			}
+		},
+		'lc' => 'en'
+	}
+);
+
+is(data_to_display_image($product_ref, "packaging", "en"), undef, "packaging image should be undefined");
+# Following line used to fail if data_to_display_image does not return an explicit undef in list context
+is(
+	{packaging_image => data_to_display_image($product_ref, "packaging", "en")},
+	{packaging_image => undef},
+	"packaging image should be undefined when assigned to hash"
+);
 
 done_testing();

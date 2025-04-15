@@ -10,4 +10,7 @@ properties:
     description: The ids of the panels to include. The ids are the keys of the panels in the panels object returned in the knowledge_panels field.
     items:
       type: string
+  image:
+    type: object
+    description: An image related to the panel group (e.g. the ingredients or nutrition facts image for the ingredients and nutrition panel groups).
 description: The panel group element is used to display an optional title followed by a number of sub-panels.

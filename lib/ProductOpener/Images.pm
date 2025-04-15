@@ -1666,75 +1666,6 @@ sub _set_magickal_options ($magick, $width) {
 	return;
 }
 
-# TODO: This function should be removed once we switch to knowledge pages to display
-sub display_image_thumb ($product_ref, $image_field) {
-
-	# $image_field = shift  ->  image_field = [front|ingredients|nutrition|packaging]_[lc]
-
-	my $image_type = $image_field;
-	my $image_lc = $lc;
-
-	if ($image_field =~ /^(.*)_(.*)$/) {
-		$image_type = $1;
-		$image_lc = $2;
-	}
-
-	my $html = '';
-
-	my $css = "";
-
-	# Gray out images of obsolete products
-	if ((defined $product_ref->{obsolete}) and ($product_ref->{obsolete})) {
-		$css = 'style="filter: grayscale(100%)"';
-	}
-
-	# first try the requested language
-	my @display_ids = ($image_type . "_" . $image_lc);
-
-	# next try the main language of the product
-	if ($product_ref->{lc} ne $image_lc) {
-		push @display_ids, $image_type . "_" . $product_ref->{lc};
-	}
-
-	# last try the field without a language (for old products without updated images)
-	push @display_ids, $image_type;
-
-	my $images_subdomain = format_subdomain('images');
-	my $static_subdomain = format_subdomain('static');
-	foreach my $id (@display_ids) {
-
-		if (    (defined $product_ref->{images})
-			and (defined $product_ref->{images}{$id})
-			and (defined $product_ref->{images}{$id}{sizes})
-			and (defined $product_ref->{images}{$id}{sizes}{$thumb_size}))
-		{
-
-			my $path = product_path($product_ref);
-			my $rev = $product_ref->{images}{$id}{rev};
-			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$image_type . '_alt'}{$lc};
-
-			$html .= <<HTML
-<img src="$images_subdomain/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="$images_subdomain/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" loading="lazy" $css/>
-HTML
-				;
-
-			last;
-		}
-	}
-
-	# No image
-	if ($html eq '') {
-
-		$html = <<HTML
-<img src="$static_subdomain/images/svg/product-silhouette.svg" style="width:$thumb_size;height:$thumb_size">
-</img>
-HTML
-			;
-	}
-
-	return $html;
-}
-
 =head2 get_image_url ($product_ref, $image_ref, $size)
 
 Return the URL of the image in the requested size.
@@ -1946,6 +1877,7 @@ sub data_to_display_image ($product_ref, $image_type, $target_lc) {
 
 	my $image_lc;
 	my $image_ref = get_image_in_best_language($product_ref, $image_type, $target_lc, \$image_lc);
+	my $image_data_ref;
 
 	if (defined $image_ref) {
 		my $id = $image_type . "_" . $image_lc;
@@ -1955,7 +1887,7 @@ sub data_to_display_image ($product_ref, $image_type, $target_lc) {
 			$alt .= ' - ' . $image_lc;
 		}
 
-		my $image_data_ref = {
+		$image_data_ref = {
 			type => $image_type,
 			lc => $image_lc,
 			alt => $alt,
@@ -1972,11 +1904,78 @@ sub data_to_display_image ($product_ref, $image_type, $target_lc) {
 				};
 			}
 		}
-
-		return $image_data_ref;
 	}
 
-	return;
+	return $image_data_ref;
+}
+
+# TODO: This function should be removed once we switch to knowledge pages to display
+sub display_image_thumb ($product_ref, $image_field) {
+
+	# $image_field = shift  ->  image_field = [front|ingredients|nutrition|packaging]_[lc]
+
+	my $image_type = $image_field;
+	my $image_lc = $lc;
+
+	if ($image_field =~ /^(.*)_(.*)$/) {
+		$image_type = $1;
+		$image_lc = $2;
+	}
+
+	my $html = '';
+
+	my $css = "";
+
+	# Gray out images of obsolete products
+	if ((defined $product_ref->{obsolete}) and ($product_ref->{obsolete})) {
+		$css = 'style="filter: grayscale(100%)"';
+	}
+
+	# first try the requested language
+	my @display_ids = ($image_type . "_" . $image_lc);
+
+	# next try the main language of the product
+	if ($product_ref->{lc} ne $image_lc) {
+		push @display_ids, $image_type . "_" . $product_ref->{lc};
+	}
+
+	# last try the field without a language (for old products without updated images)
+	push @display_ids, $image_type;
+
+	my $images_subdomain = format_subdomain('images');
+	my $static_subdomain = format_subdomain('static');
+	foreach my $id (@display_ids) {
+
+		if (    (defined $product_ref->{images})
+			and (defined $product_ref->{images}{$id})
+			and (defined $product_ref->{images}{$id}{sizes})
+			and (defined $product_ref->{images}{$id}{sizes}{$thumb_size}))
+		{
+
+			my $path = product_path($product_ref);
+			my $rev = $product_ref->{images}{$id}{rev};
+			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$image_type . '_alt'}{$lc};
+
+			$html .= <<HTML
+<img src="$images_subdomain/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="$images_subdomain/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" loading="lazy" $css/>
+HTML
+				;
+
+			last;
+		}
+	}
+
+	# No image
+	if ($html eq '') {
+
+		$html = <<HTML
+<img src="$static_subdomain/images/svg/product-silhouette.svg" style="width:$thumb_size;height:$thumb_size">
+</img>
+HTML
+			;
+	}
+
+	return $html;
 }
 
 sub display_image ($product_ref, $image_type, $target_lc, $size) {
@@ -1986,8 +1985,23 @@ sub display_image ($product_ref, $image_type, $target_lc, $size) {
 	my $image_lc;
 	my $image_ref = get_image_in_best_language($product_ref, $image_type, $target_lc, \$image_lc);
 
+	my $image_url;
+
 	if (defined $image_ref) {
-		my $image_url = get_image_url($product_ref, $image_ref, $size);
+		$image_url = get_image_url($product_ref, $image_ref, $size);
+	}
+	# For the front image in thumb size, if we don't have an image, we display a product silhouette
+	elsif (($image_type eq 'front') and ($size eq $thumb_size)) {
+		$image_url = "$static_subdomain/images/svg/product-silhouette.svg";
+		$image_ref = {
+			sizes => {
+				$thumb_size => {w => $thumb_size, h => $thumb_size}
+			}
+		};
+	}
+
+	if (defined $image_url) {
+
 		my $alt
 			= remove_tags_and_quote($product_ref->{product_name}) . ' - '
 			. lang($image_type . '_alt') . ' - '
@@ -2008,7 +2022,7 @@ sub display_image ($product_ref, $image_type, $target_lc, $size) {
 		}
 
 		$html .= <<HTML
-<img class="test" src="$template_data_ref->{src}" width="$template_data_ref->{w}" height="$template_data_ref->{h}" alt="$template_data_ref->{alt}" loading="lazy" $template_data_ref->{srcset} />
+<img src="$template_data_ref->{src}" width="$template_data_ref->{w}" height="$template_data_ref->{h}" alt="$template_data_ref->{alt}" loading="lazy" $template_data_ref->{srcset} />
 HTML
 			;
 
