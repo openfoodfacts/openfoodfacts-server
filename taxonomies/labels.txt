@@ -1437,6 +1437,29 @@ incompatible_with:en: labels:en:no-gluten
 label_categories:en: en:Allergens
 opposite:en: en:no-gluten
 
+en: Suitable for celiacs, suitable for coeliacs
+es: Apto para celiacos
+
+< en: Suitable for celiacs
+en: Celiac Disease Foundation
+
+< en: Suitable for celiacs
+en: Beyond Celiac Gluten-Free, Beyond Celiac
+
+< en: Suitable for celiacs
+en: Coeliac UK, Certified by Coeliac UK
+
+< en: Suitable for celiacs
+en: Coeliac Australia New Zealand, Coeliac Australia NZ
+
+< en: No gluten
+< en: Suitable for celiacs
+en: Canadian Celiac Association - Gluten Free
+fr: Association canadienne de la maladie cœliaque - Sans gluten
+
+en: Grain Free
+fr: Sans grains, sans graines
+
 nl: Korst is niet eetbaar
 
 #instruction:en:Do NOT change the english key.
@@ -2183,6 +2206,9 @@ pt: Produção integrada
 ru: Интегрированное производство
 wikidata:en: Q1665511
 
+# Diets
+
+# GS1: A ketogenic diet is a form of low carb diet. It is characterized by an extremely low carbohydrate and very high-fat diet. Due to the lack of carbohydrates, the metabolism changes and gets into the so-called "ketosis".	
 en: Keto, Keto certified, Keto friendly
 xx: Keto
 el: Κετο, Πιστοποιημένο Κετο, Φιλικό για Κετο, κετοφιλικό
@@ -2194,6 +2220,25 @@ pt: Keto, Certificado Keto, Amigável Keto
 ru: Кето, Кето-сертифицированный, Подходящий для Кето, кето-дружественный
 th: คีโต, ได้รับการรับรองคีโต, มิตรกับคีโต
 tr: Keto, Keto sertifikalı, Keto dostu
+
+# GS1: A dietary practice of eating food that is uncooked and unprocessed. Also known as Raw foodism, rawism.	
+en: raw food diet, suitable for a raw food diet
+
+# GS1: Paleo diet is a fad diet type requiring the sole or predominant eating of foods presumed to have been available to humans during the Paleolithic era.	
+en: Paleo, suitable for a paleo diet
+xx: Paleo
+
+# GS1: A pescatarian diet excludes meat and poultry but includes fish or seafood (and may include dairy products and eggs).	
+en: Pescatarian
+
+# GS1: A pollotarian diet, also known as a pollo-vegetarian diet, incorporates poultry, including turkey and duck, as the only source of meat in an otherwise vegetarian diet.
+en: Pollotarian
+
+en: Without beef, no beef, beef free, free from beef
+fr: Sans boeuf
+
+en: without pork, no pork, pork free, free from pork
+fr: Sans porc
 
 en: Kosher, kasher
 xx: Kosher
@@ -2386,7 +2431,7 @@ en: LEAF, Linking Environment and Farming, LEAF Linking Environment and Farming
 xx: LEAF, Linking Environment and Farming
 ru: Связанные окружающая среда и сельское хозяйство
 
-en: low energy
+en: low energy, low calorie
 xx: low energy
 description:en: In EU, a claim that a food is low in energy may only be made where the product does not contain more than 40 kcal (170 kJ)/100 g for solids or more than 20 kcal (80 kJ)/100 ml for liquids. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
@@ -19825,6 +19870,10 @@ xx: Vege Project Vegetarian, Vege Project Japan Vegetarian
 < en:Vege Project
 en: Vege Project Vegan, Vege Project Japan Vegan
 xx: Vege Project Vegan, Vege Project Japan Vegan
+
+< en: Vegan
+en: plant based
+fr: à base de plantes, à base de végétaux
 
 < en:Vegan
 en: certified plant based, plant based certified
