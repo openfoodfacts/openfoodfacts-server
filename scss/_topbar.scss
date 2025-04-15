@@ -161,9 +161,18 @@
     }
     .top-bar {
       width: 100%;
+      .logo-container {
+        margin: 8px 0 8px 8px;
+        height: 48px;
+        width: auto;
+        position: relative;
+        img {
+          max-height: 100%;
+        }
+      }
       // By default show large logo and hide the small one
       .large-logo {
-        display: unset;
+        display: inline-block;
       }
       .small-logo {
         display: none;
@@ -187,7 +196,7 @@
           }
 
           .small-logo {
-            display: unset;
+            display: inline-block;
           }
         }
       }
@@ -363,7 +372,6 @@
           }
           .bt-text {
             line-height: 1;
-            white-space: nowrap;
             @media #{$medium-up} {
               display: inline-block;
             }

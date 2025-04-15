@@ -1,6 +1,6 @@
 # Product Opener (Open Food Facts web server) documentation
 
-Welcome to the documentation of **Product Opener**, the web server at the heart of **[Open Food Facts](https://world.openfoodfacts.org/)** project. 
+Welcome to the documentation of **Product Opener**, the web server at the heart of **[Open Food Facts](https://world.openfoodfacts.org/)** project.
 
 It also powers the sibling **Open \[[Beauty](https://world.openbeautyfacts.org/)|[Pet Food](https://world.openpetfoodfacts.org/)|[Products](https://world.openproductsfacts.org/)\] Facts** projects
 
