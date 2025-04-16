@@ -58,7 +58,7 @@ use ProductOpener::Index qw/%texts/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Redis qw/:all/;
 use ProductOpener::RequestStats qw/:all/;
-use ProductOpener::URL qw/get_owner_pretty_path/;
+use ProductOpener::URL qw/get_owner_pretty_path extension_based_on_parameter/;
 
 use Encode;
 use CGI qw/:cgi :form escapeHTML/;
@@ -598,6 +598,7 @@ sub facets_route($request_ref) {
 		$redirect_url =~ s!/${target_lc}:!/!g;
 		$redirect_url =~ s!/1$!!;
 		$request_ref->{redirect} = $redirect_url;
+		$request_ref->{redirect} .= extension_based_on_parameter($request_ref);
 		$request_ref->{redirect_status} = 301;
 	}
 
@@ -779,6 +780,7 @@ sub sanitize_request($request_ref) {
 
 			param($parameter, 1);
 			$request_ref->{query_string} =~ s/\.$parameter(\b|$)//;
+			$request_ref->{response_type_as_extension} = 1;
 
 			$log->debug("parameter was set from extension in URL path",
 				{parameter => $parameter, value => $request_ref->{$parameter}})
