@@ -37,16 +37,14 @@ function onBarcodeDetected(barcode) {
 
 // Handle barcode scanner state changes
 barcodeScanner.addEventListener("barcode-scanner-state", function (e) {
-  document.addEventListener("DOMContentLoaded", function () {
-    const barcodeScannerButton = document.getElementById(
-      "barcode-scanner-button"
-    );
-    if (e.detail.state === "detector-available") {
-      barcodeScannerButton.parentElement.classList.remove("is_hidden");
-    } else if (e.detail.state === "detected") {
-      onBarcodeDetected(e.detail.barcode);
-    }
-  });
+  const barcodeScannerButton = document.getElementById(
+    "barcode-scanner-button"
+  );
+  if (e.detail.state === "detector-available") {
+    barcodeScannerButton.parentElement.classList.remove("is_hidden");
+  } else if (e.detail.state === "detected") {
+    onBarcodeDetected(e.detail.barcode);
+  }
 });
 
 // Handle barcode close button click
