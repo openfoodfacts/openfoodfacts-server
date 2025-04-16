@@ -141,7 +141,7 @@ use ProductOpener::Tags qw(:all);
 use ProductOpener::Users qw(:all);
 use ProductOpener::Index qw(%texts);
 use ProductOpener::Lang qw(:all);
-use ProductOpener::Images qw(display_image display_image_thumb data_to_display_image add_images_urls_to_product);
+use ProductOpener::Images qw(display_image data_to_display_image add_images_urls_to_product);
 use ProductOpener::Food qw(:all);
 use ProductOpener::Ingredients qw(flatten_sub_ingredients);
 use ProductOpener::Products qw(:all);
@@ -5361,7 +5361,8 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 				$product_ref->{url} = $formatted_subdomain . $url_path;
 				# Compute HTML to display the small front image, currently embedded in the HTML of web queries
 				if (not $api) {
-					$product_ref->{image_front_small_html} = display_image_thumb($product_ref, 'front');
+					$product_ref->{image_front_small_html}
+						= display_image($product_ref, "front", $request_ref->{lc}, $thumb_size);
 
 					# For web queries with personal search, we can compute some generated fields we need
 					# and then remove the source fields that are not needed anymore
@@ -6167,7 +6168,7 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 
 		$data{product_name} = $product_ref->{product_name};
 		$data{url} = $formatted_subdomain . product_url($product_ref->{code});
-		$data{img} = display_image_thumb($product_ref, 'front');
+		$data{img} = display_image($product_ref, "front", $request_ref->{lc}, $thumb_size);
 
 		# create data entry for series
 		defined $series{$seriesid} or $series{$seriesid} = '';
@@ -7011,7 +7012,7 @@ sub map_of_products ($products_iter, $request_ref, $graph_ref) {
 			brands => $product_ref->{brands},
 			url => $url,
 			origins => $origins,
-			img => display_image_thumb($product_ref, 'front')
+			img => display_image($product_ref, "front", $request_ref->{lc}, $thumb_size)
 		};
 
 		# Loop on cities: multiple emb codes can be on one product

@@ -113,7 +113,6 @@ BEGIN {
 		&data_to_display_image
 
 		&display_image
-		&display_image_thumb
 
 		&extract_text_from_image
 		&send_image_to_cloud_vision
@@ -1909,74 +1908,25 @@ sub data_to_display_image ($product_ref, $image_type, $target_lc) {
 	return $image_data_ref;
 }
 
-# TODO: This function should be removed once we switch to knowledge pages to display
-sub display_image_thumb ($product_ref, $image_field) {
+=head2 display_image ( $product_ref, $image_type, $target_lc, $size )
 
-	# $image_field = shift  ->  image_field = [front|ingredients|nutrition|packaging]_[lc]
+Generate the HTML code to display a product image.
 
-	my $image_type = $image_field;
-	my $image_lc = $lc;
+=head3 Arguments
 
-	if ($image_field =~ /^(.*)_(.*)$/) {
-		$image_type = $1;
-		$image_lc = $2;
-	}
+=head4 Product reference $product_ref
 
-	my $html = '';
+=head4 Image type $image_type: one of [front|ingredients|nutrition|packaging]
 
-	my $css = "";
+=head4 Language code $target_lc
 
-	# Gray out images of obsolete products
-	if ((defined $product_ref->{obsolete}) and ($product_ref->{obsolete})) {
-		$css = 'style="filter: grayscale(100%)"';
-	}
+=head4 Size $size: one of $thumb_size, $small_size, $display_size
 
-	# first try the requested language
-	my @display_ids = ($image_type . "_" . $image_lc);
+=head3 Return values
 
-	# next try the main language of the product
-	if ($product_ref->{lc} ne $image_lc) {
-		push @display_ids, $image_type . "_" . $product_ref->{lc};
-	}
+- HTML code to display the image
 
-	# last try the field without a language (for old products without updated images)
-	push @display_ids, $image_type;
-
-	my $images_subdomain = format_subdomain('images');
-	my $static_subdomain = format_subdomain('static');
-	foreach my $id (@display_ids) {
-
-		if (    (defined $product_ref->{images})
-			and (defined $product_ref->{images}{$id})
-			and (defined $product_ref->{images}{$id}{sizes})
-			and (defined $product_ref->{images}{$id}{sizes}{$thumb_size}))
-		{
-
-			my $path = product_path($product_ref);
-			my $rev = $product_ref->{images}{$id}{rev};
-			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$image_type . '_alt'}{$lc};
-
-			$html .= <<HTML
-<img src="$images_subdomain/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="$images_subdomain/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" loading="lazy" $css/>
-HTML
-				;
-
-			last;
-		}
-	}
-
-	# No image
-	if ($html eq '') {
-
-		$html = <<HTML
-<img src="$static_subdomain/images/svg/product-silhouette.svg" style="width:$thumb_size;height:$thumb_size">
-</img>
-HTML
-			;
-	}
-
-	return $html;
-}
+=cut
 
 sub display_image ($product_ref, $image_type, $target_lc, $size) {
 
