@@ -96,6 +96,7 @@ BEGIN {
 		&get_image_type_and_image_lc_from_imagefield
 		&is_protected_image
 		&process_image_upload
+		&process_image_upload_using_filehandle
 		&process_image_move
 
 		&process_image_crop
@@ -748,18 +749,9 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 
 	# debug message passed back to apps in case of an error
 
-	my $debug = "product_id: $product_id - user_id: $user_id - imagefield: $imagefield";
+	$$debug_string_ref = "product_id: $product_id - user_id: $user_id - imagefield: $imagefield";
 
-	my $bogus_imgid;
-	not defined $imgid_ref and $imgid_ref = \$bogus_imgid;
-
-	my $path = product_path_from_id($product_id);
-	my $imgid = -1;
-
-	my $new_product_ref = {};
-
-	my $file = undef;
-	my $extension = 'jpg';
+	my $filehandle;
 
 	# Image that was already read by barcode scanner: can't read it again
 	# $imagefield can be a path to the image file (for imports and when uploading an image with a barcode)
@@ -769,38 +761,60 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 		$imagefield = 'search';
 
 		if ($tmp_filename) {
-			open($file, q{<}, "$tmp_filename")
+			open($filehandle, q{<}, "$tmp_filename")
 				or $log->error("Could not read file", {path => $tmp_filename, error => $!});
-			if ($tmp_filename =~ /\.($supported_extensions)$/i) {
-				$extension = lc($1);
-			}
 		}
 	}
 	else {
-		$file = single_param('imgupload_' . $imagefield);
-		if (!$file) {
+		$filehandle = single_param('imgupload_' . $imagefield);
+		if (!$filehandle) {
 			# mobile app may not set language code
 			my $old_imagefield = $imagefield;
 			$old_imagefield =~ s/_\w\w$//;
-			$file = single_param('imgupload_' . $old_imagefield);
+			$filehandle = single_param('imgupload_' . $old_imagefield);
 
-			if (!$file) {
+			if (!$filehandle) {
 				# producers platform: name="files[]"
-				$file = single_param("files[]");
+				$filehandle = single_param("files[]");
 			}
+		}
+
+		if (!$filehandle) {
+			$log->debug("imgupload field not set", {field => "imgupload_$imagefield"}) if $log->is_debug();
+			$$debug_string_ref .= " - no image file for field name imgupload_$imagefield";
+			return -2;
 		}
 	}
 
-	local $log->context->{imagefield} = $imagefield;
+	return process_image_upload_using_filehandle($product_id, $filehandle, $user_id, $time, $comment, $imgid_ref,
+		$debug_string_ref);
+}
+
+sub process_image_upload_using_filehandle ($product_id, $filehandle, $user_id, $time, $comment, $imgid_ref,
+	$debug_string_ref)
+{
+
 	local $log->context->{uploader} = $user_id;
-	local $log->context->{file} = $file;
+	local $log->context->{filehandle} = $filehandle;
+	local $log->context->{filename} = $filehandle . "";
 	local $log->context->{time} = $time;
+
+	my $bogus_imgid;
+	not defined $imgid_ref and $imgid_ref = \$bogus_imgid;
+
+	my $path = product_path_from_id($product_id);
+	my $imgid = -1;
+
+	my $new_product_ref = {};
+	my $extension = 'jpg';
+
+	my $file = undef;
 
 	# Check if we have already received this image before
 	my $images_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/images.sto");
 	defined $images_ref or $images_ref = {};
 
-	my $file_size = -s $file;
+	my $file_size = -s $filehandle;
 
 	if (($file_size > 0) and (defined $images_ref->{$file_size})) {
 		$log->debug(
@@ -808,18 +822,18 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 			{file_size => $file_size, imgid => $images_ref->{$file_size}}
 		) if $log->is_debug();
 		${$imgid_ref} = $images_ref->{$file_size};
-		$debug .= " - we have already received an image with this file size: $file_size - imgid: $$imgid_ref";
-		${$debug_string_ref} = $debug;
+		$$debug_string_ref
+			.= " - we have already received an image with this file size: $file_size - imgid: $$imgid_ref";
 		return -3;
 	}
 
-	if ($file) {
-		$log->debug("processing uploaded file", {file => $file}) if $log->is_debug();
+	if ($filehandle) {
+		$log->debug("processing uploaded file", {filehandle => $filehandle}) if $log->is_debug();
 
 		# We may have a "blob" without file name and extension
 		# extension was initialized to jpg and we will let ImageMagick read it anyway if it's something else.
 
-		if ($file =~ /\.($supported_extensions)$/i) {
+		if ($filehandle =~ /\.($supported_extensions)$/i) {
 			$extension = lc($1);
 			$extension eq 'jpeg' and $extension = 'jpg';
 		}
@@ -852,7 +866,7 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 		$log->debug("writing the original image", {img_orig => $img_orig}) if $log->is_debug();
 		open(my $out, ">", $img_orig)
 			or $log->warn("could not open image path for saving", {path => $img_orig, error => $!});
-		while (my $chunk = <$file>) {
+		while (my $chunk = <$filehandle>) {
 			print $out $chunk;
 		}
 		close($out);
@@ -865,8 +879,7 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 		{    # ImageMagick returns a string starting with a number greater than 400 for errors
 			$log->error("cannot read image",
 				{path => "$target_image_dir/$imgid.$extension", error => $imagemagick_error});
-			$debug .= " - could not read image: $imagemagick_error";
-			${$debug_string_ref} = $debug;
+			$$debug_string_ref .= " - could not read image: $imagemagick_error";
 			return -5;
 		}
 
@@ -891,8 +904,7 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 		# but does not write the file (e.g. conversion from pdf to jpg)
 		if (($imagemagick_error) or (!-e $img_jpg)) {
 			$log->error("cannot write image", {path => $img_jpg, error => $imagemagick_error});
-			$debug .= " - could not write image: $imagemagick_error";
-			${$debug_string_ref} = $debug;
+			$$debug_string_ref .= " - could not write image: $imagemagick_error";
 			return -5;
 		}
 
@@ -903,7 +915,7 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 		local $log->context->{img_size_orig} = $size_orig;
 		local $log->context->{img_size_jpg} = $size_jpg;
 
-		$debug .= " - size of image file received: $size_orig - saved jpg: $size_jpg";
+		$$debug_string_ref .= " - size of image file received: $size_orig - saved jpg: $size_jpg";
 
 		$log->debug("comparing existing images with size of new image",
 			{img_orig => $img_orig, size_orig => $size_orig, img_jpg => $img_jpg, size_jpg => $size_jpg})
@@ -957,8 +969,7 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 							unlink $img_jpg;
 							rmdir("$target_image_dir/$imgid.lock");
 							${$imgid_ref} = $i;
-							$debug .= " - we already have an image with this file size: $size - imgid: $i";
-							${$debug_string_ref} = $debug;
+							$$debug_string_ref .= " - we already have an image with this file size: $size - imgid: $i";
 							return -3;
 						}
 						else {
@@ -978,8 +989,8 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 		{
 			unlink "$target_image_dir/$imgid.$extension";
 			rmdir("$target_image_dir/$imgid.lock");
-			$debug .= " - image too small - width: " . $source->Get('width') . " - height: " . $source->Get('height');
-			${$debug_string_ref} = $debug;
+			$$debug_string_ref
+				.= " - image too small - width: " . $source->Get('width') . " - height: " . $source->Get('height');
 			return -4;
 		}
 
@@ -1088,7 +1099,7 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 			my $code = $product_id;
 			$code =~ s/.*\///;
 			symlink("$target_image_dir/$imgid.jpg",
-				"$BASE_DIRS{CACHE_NEW_IMAGES}/" . time() . "." . $code . "." . $imagefield . "." . $imgid . ".jpg");
+				"$BASE_DIRS{CACHE_NEW_IMAGES}/" . time() . "." . $code . "." . $imgid . ".jpg");
 
 			# Save the image file size so that we can skip the image before processing it if it is uploaded again
 			$images_ref->{$size_orig} = $imgid;
@@ -1096,33 +1107,26 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 		}
 		else {
 			# Could not read image
-			$debug .= " - could not read image : $imagemagick_error";
+			$$debug_string_ref .= " - could not read image : $imagemagick_error";
 			$imgid = -5;
 		}
 
 		rmdir("$target_image_dir/$imgid.lock");
 
 		# make sure to close the file so that it does not stay in /tmp forever
-		my $tmpfilename = tmpFileName($file);
-		$log->debug("unlinking image", {file => $file, tmpfilename => $tmpfilename}) if $log->is_debug();
+		my $tmpfilename = tmpFileName($filehandle);
+		$log->debug("unlinking image", {filehandle => $filehandle, tmpfilename => $tmpfilename}) if $log->is_debug();
 		unlink($tmpfilename);
 	}
 	else {
-		$log->debug("imgupload field not set", {field => "imgupload_$imagefield"}) if $log->is_debug();
-		$debug .= " - no image file for field name imgupload_$imagefield";
+		$log->debug("no image filehandle") if $log->is_debug();
+		$$debug_string_ref .= " - no image filehandle";
 		$imgid = -2;
 	}
 
-	$log->info("upload processed", {imgid => $imgid, imagefield => $imagefield}) if $log->is_info();
+	$log->info("upload processed", {imgid => $imgid}) if $log->is_info();
 
-	if ($imgid > 0) {
-		${$imgid_ref} = $imgid;
-	}
-	else {
-		${$imgid_ref} = $imgid;
-		# Pass back a debug message
-		${$debug_string_ref} = $debug;
-	}
+	${$imgid_ref} = $imgid;
 
 	return $imgid;
 }
