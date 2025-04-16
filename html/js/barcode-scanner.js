@@ -43,7 +43,7 @@ barcodeScanner.addEventListener("barcode-scanner-state", function (e) {
     );
     if (e.detail.state === "detector-available") {
       barcodeScannerButton.parentElement.classList.remove("is_hidden");
-    } else if (e.detail.state === "DETECTED") {
+    } else if (e.detail.state === "detected") {
       onBarcodeDetected(e.detail.barcode);
     }
   });
