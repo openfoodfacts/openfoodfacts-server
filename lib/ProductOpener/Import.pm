@@ -356,7 +356,7 @@ sub upload_images_for_product($args_ref, $images_ref, $product_ref, $imported_pr
 				my $imgid;
 				my $debug;
 				my $return_code
-					= process_image_upload($product_id, "$file", $user_id, undef, $comment, \$imgid, \$debug);
+					= process_image_upload($product_ref, "$file", $user_id, undef, $comment, \$imgid, \$debug);
 				$log->debug(
 					"process_image_upload",
 					{

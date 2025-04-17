@@ -702,7 +702,7 @@ sub is_protected_image ($product_ref, $image_type, $image_lc) {
 	return 0;    # image should not be protected
 }
 
-=head2 process_image_upload ( $product_id, $imagefield, $user_id, $time, $comment, $imgid_ref, $debug_string_ref )
+=head2 process_image_upload ( $product_ref, $imagefield, $user_id, $time, $comment, $imgid_ref, $debug_string_ref )
 
 Process an image uploaded to a product (from the web site, from the API, or from an import):
 
@@ -713,7 +713,7 @@ Process an image uploaded to a product (from the web site, from the API, or from
 
 =head3 Arguments
 
-=head4 Product id $product_id
+=head4 Product ref $product_ref
 
 =head4 Image field $imagefield
 
@@ -739,17 +739,18 @@ Used to return some debug information to the caller.
 
 =cut
 
-sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $imgid_ref, $debug_string_ref) {
+sub process_image_upload ($product_ref, $imagefield, $user_id, $time, $comment, $imgid_ref, $debug_string_ref) {
 
 	# $time = shift  ->  usually current time (images just uploaded), except for images moved from another product
 	# $imgid_ref = shift  ->  to return the imgid (new image or existing image)
 	# $debug_string_ref = shift  ->  to return debug information to clients
 
-	$log->debug("process_image_upload", {product_id => $product_id, imagefield => $imagefield}) if $log->is_debug();
+	$log->debug("process_image_upload", {product_id => $product_ref->{id}, imagefield => $imagefield})
+		if $log->is_debug();
 
 	# debug message passed back to apps in case of an error
 
-	$$debug_string_ref = "product_id: $product_id - user_id: $user_id - imagefield: $imagefield";
+	$$debug_string_ref = "product_id: $product_ref->{id} - user_id: $user_id - imagefield: $imagefield";
 
 	my $filehandle;
 
@@ -786,11 +787,11 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 		}
 	}
 
-	return process_image_upload_using_filehandle($product_id, $filehandle, $user_id, $time, $comment, $imgid_ref,
+	return process_image_upload_using_filehandle($product_ref, $filehandle, $user_id, $time, $comment, $imgid_ref,
 		$debug_string_ref);
 }
 
-sub process_image_upload_using_filehandle ($product_id, $filehandle, $user_id, $time, $comment, $imgid_ref,
+sub process_image_upload_using_filehandle ($product_ref, $filehandle, $user_id, $time, $comment, $imgid_ref,
 	$debug_string_ref)
 {
 
@@ -802,7 +803,8 @@ sub process_image_upload_using_filehandle ($product_id, $filehandle, $user_id, $
 	my $bogus_imgid;
 	not defined $imgid_ref and $imgid_ref = \$bogus_imgid;
 
-	my $path = product_path_from_id($product_id);
+	my $product_id = $product_ref->{id};
+	my $path = product_path($product_ref);
 	my $imgid = -1;
 
 	my $new_product_ref = {};
@@ -840,8 +842,7 @@ sub process_image_upload_using_filehandle ($product_id, $filehandle, $user_id, $
 
 		my $filename = get_string_id_for_lang("no_language", remote_addr() . '_' . $`);
 
-		my $current_product_ref = retrieve_product($product_id);
-		$imgid = ($current_product_ref->{max_imgid} || 0) + 1;
+		$imgid = ($product_ref->{max_imgid} || 0) + 1;
 
 		# if for some reason the images directories were not created at product creation (it can happen if the images directory's permission / ownership are incorrect at some point)
 		# create them
@@ -960,7 +961,6 @@ sub process_image_upload_using_filehandle ($product_id, $filehandle, $user_id, $
 						# check the image was stored inside the
 						# product, it is sometimes missing
 						# (e.g. during crashes)
-						my $product_ref = retrieve_product($product_id);
 						if (deep_exists($product_ref, "images", "uploaded", $i)) {
 							$log->debug("unlinking image",
 								{imgid => $imgid, file => "$target_image_dir/$imgid.$extension"})
@@ -1051,12 +1051,6 @@ sub process_image_upload_using_filehandle ($product_id, $filehandle, $user_id, $
 			# Update the product image data
 			$log->debug("update the product image data", {imgid => $imgid, product_id => $product_id})
 				if $log->is_debug();
-			my $product_ref = retrieve_product($product_id);
-
-			if (not defined $product_ref) {
-				$log->debug("product could not be loaded", {imgid => $imgid, product_id => $product_id})
-					if $log->is_debug();
-			}
 
 			deep_set(
 				$product_ref,

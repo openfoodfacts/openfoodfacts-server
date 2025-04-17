@@ -1,6 +1,27 @@
 {
    "code" : "1234567890012",
    "errors" : [],
+   "images" : {
+      "uploaded" : {
+         "imgid" : 1,
+         "sizes" : {
+            "100" : {
+               "h" : 92,
+               "w" : 100
+            },
+            "400" : {
+               "h" : 183,
+               "w" : 200
+            },
+            "full" : {
+               "h" : 183,
+               "w" : 200
+            }
+         },
+         "uploaded_t" : 1744907540,
+         "uploader" : "openfoodfacts-contributors"
+      }
+   },
    "status" : "success",
    "warnings" : []
 }
