@@ -39,9 +39,9 @@ use Log::Any '$log', default_adapter => 'Stderr';
 
 my $keycloak = ProductOpener::Keycloak->new();
 
-my $keycloak_partialimport_endpoint = $keycloak->{users_endpoint} =~ s/\/users/\/partialImport/r
+my $keycloak_partialimport_endpoint = $keycloak->{users_endpoint} =~ s/\/users/\/partialImport/r;
 
-	my $user_emails = undef;
+my $user_emails = undef;
 my ($checkpoint_file, $checkpoint) = open_checkpoint('migrate_users_to_keycloak_checkpoint.tmp');
 
 sub create_user_in_keycloak_with_scrypt_credential ($keycloak_user_ref) {
@@ -145,7 +145,7 @@ sub convert_to_keycloak_user ($userid, $anonymize) {
 			# Truncate name more than 255 because of UTF-8 encoding. Could do this more precisely...
 			name => substr($name, 0, 128),
 			locale => $user_ref->{preferred_language},
-			country => country_to_cc($user_ref->{country}),
+			country => country_to_cc($user_ref->{country} || 'en:world'),
 			registered => 'registered',    # The prevents welcome emails from being sent
 			importTimestamp => time(),
 			importSourceChangedTimestamp => (stat($user_file))[9]
