@@ -134,7 +134,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::HTTP
-	qw(write_cors_headers set_http_response_header write_http_response_headers get_http_request_header redirect_to_url single_param request_param);
+	qw(write_cors_headers set_http_response_header write_http_response_headers get_http_request_header add_extension_and_query_parameters_to_redirect_url redirect_to_url single_param request_param);
 use ProductOpener::Store qw(get_string_id_for_lang retrieve);
 use ProductOpener::Config qw(:all);
 use ProductOpener::Paths qw/%BASE_DIRS/;
@@ -148,7 +148,7 @@ use ProductOpener::Ingredients qw(flatten_sub_ingredients);
 use ProductOpener::Products qw(:all);
 use ProductOpener::Missions qw(:all);
 use ProductOpener::MissionsConfig qw(:all);
-use ProductOpener::URL qw(format_subdomain get_owner_pretty_path extension_based_on_parameter);
+use ProductOpener::URL qw(format_subdomain get_owner_pretty_path);
 use ProductOpener::Data qw(:all);
 use ProductOpener::Text
 	qw(escape_char escape_single_quote_and_newlines get_decimal_formatter get_percent_formatter remove_tags_and_quote);
@@ -3124,7 +3124,8 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 	# The redirect is temporary (302), as the canonicalization could change if the corresponding taxonomies change
 	if ($redirect_to_canonical_url) {
 		$request_ref->{redirect} = $formatted_subdomain . $request_ref->{current_link};
-		$request_ref->{redirect} .= extension_based_on_parameter($request_ref);
+		add_extension_and_query_parameters_to_redirect_url($request_ref);
+
 		$log->debug("one or more tagids mismatch, redirecting to correct url", {redirect => $request_ref->{redirect}})
 			if $log->is_debug();
 		redirect_to_url($request_ref, 302, $request_ref->{redirect});

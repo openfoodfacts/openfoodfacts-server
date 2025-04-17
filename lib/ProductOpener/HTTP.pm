@@ -49,6 +49,7 @@ BEGIN {
 		&get_http_request_headers
 		&set_http_response_header
 		&write_http_response_headers
+		&add_extension_and_query_parameters_to_redirect_url
 		&redirect_to_url
 		&single_param
 		&request_param
@@ -215,6 +216,32 @@ sub get_http_request_header($header_name) {
 
 	}
 	$log->error("get_http_request_header: request object does not have headers_in method (not in mod_perl?)");
+	return;
+}
+
+=head2 add_extension_and_query_parameters_to_redirect_url($request_ref)
+
+This function adds the extension and query parameters to the redirect URL.
+e.g. if the URL is /ingredients.json?filter=strawberry
+we get a redirect_url /facets/ingredients and we need to add back .json and ?filter=strawberry
+
+=head3 Parameters
+
+=head4 $request_ref - Reference to the request object.
+
+=cut
+
+sub add_extension_and_query_parameters_to_redirect_url($request_ref) {
+	# Add the extension to the redirect URL
+
+	if ($request_ref->{extension}) {
+		$request_ref->{redirect} .= '.' . $request_ref->{extension};
+	}
+	# Add the query parameters to the redirect URL
+	if ($request_ref->{query_parameters}) {
+		$request_ref->{redirect} .= '?' . $request_ref->{query_parameters};
+	}
+
 	return;
 }
 
