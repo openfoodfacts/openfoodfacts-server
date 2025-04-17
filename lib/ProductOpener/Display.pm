@@ -148,7 +148,7 @@ use ProductOpener::Ingredients qw(flatten_sub_ingredients);
 use ProductOpener::Products qw(:all);
 use ProductOpener::Missions qw(:all);
 use ProductOpener::MissionsConfig qw(:all);
-use ProductOpener::URL qw(format_subdomain get_owner_pretty_path);
+use ProductOpener::URL qw(format_subdomain get_owner_pretty_path extension_based_on_parameter);
 use ProductOpener::Data qw(:all);
 use ProductOpener::Text
 	qw(escape_char escape_single_quote_and_newlines get_decimal_formatter get_percent_formatter remove_tags_and_quote);
@@ -3052,6 +3052,7 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 	my $redirect_to_canonical_url = 0;    # Will be set if one of the tags is not canonical
 
 	# Go through the tags filters from the request
+	# request_ref->{tags} is set by extract_tagtype_and_tag_value_pairs_from_components
 	foreach my $tag_ref (@{$request_ref->{tags}}) {
 
 		# the tag name requested in url (in $lc language)
@@ -3123,11 +3124,7 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 	# The redirect is temporary (302), as the canonicalization could change if the corresponding taxonomies change
 	if ($redirect_to_canonical_url) {
 		$request_ref->{redirect} = $formatted_subdomain . $request_ref->{current_link};
-		# Re-add file suffix, so that the correct response format is kept. https://github.com/openfoodfacts/openfoodfacts-server/issues/894
-		$request_ref->{redirect} .= '.json' if single_param("json");
-		$request_ref->{redirect} .= '.jsonp' if single_param("jsonp");
-		$request_ref->{redirect} .= '.xml' if single_param("xml");
-		$request_ref->{redirect} .= '.jqm' if single_param("jqm");
+		$request_ref->{redirect} .= extension_based_on_parameter($request_ref);
 		$log->debug("one or more tagids mismatch, redirecting to correct url", {redirect => $request_ref->{redirect}})
 			if $log->is_debug();
 		redirect_to_url($request_ref, 302, $request_ref->{redirect});
