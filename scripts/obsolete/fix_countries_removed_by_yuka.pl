@@ -72,6 +72,112 @@ use JSON::MaybeXS;
 use Getopt::Long;
 
 
+
+# traverse the history to see if a particular user has removed values for tag fields
+# add back the removed values
+
+# NOT sure if this is useful, it's being used in one of the "obsolete" scripts
+sub add_back_field_values_removed_by_user ($current_product_ref, $changes_ref, $field, $userid) {
+
+	my $code = $current_product_ref->{code};
+	my $path = product_path($current_product_ref);
+
+	return if not defined $changes_ref;
+
+	# Read all previous versions to see which fields have been added or edited
+
+	my @fields
+		= qw(lang product_name generic_name quantity packaging brands categories origins manufacturing_places labels emb_codes expiration_date purchase_places stores countries ingredients_text traces no_nutrition_data serving_size nutrition_data_per );
+
+	my %previous = ();
+	my %last = %previous;
+	my %current;
+
+	my $previous_tags_ref = {};
+	my $current_tags_ref;
+
+	my %removed_tags = ();
+
+	my $revs = 0;
+
+	foreach my $change_ref (@{$changes_ref}) {
+		$revs++;
+		my $rev = $change_ref->{rev};
+		if (not defined $rev) {
+			$rev = $revs;    # was not set before June 2012
+		}
+		my $product_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/$rev.sto");
+
+		# if not found, we may be be updating the product, with the latest rev not set yet
+		if ((not defined $product_ref) or ($rev == $current_product_ref->{rev})) {
+			$product_ref = $current_product_ref;
+			if (not defined $product_ref) {
+				$log->warn("specified product revision was not found, using current product ref",
+					{code => $code, revision => $rev})
+					if $log->is_warn();
+			}
+		}
+
+		if (defined $product_ref->{$field . "_tags"}) {
+
+			$current_tags_ref = {map {$_ => 1} @{$product_ref->{$field . "_tags"}}};
+		}
+		else {
+			$current_tags_ref = {};
+		}
+
+		if ((defined $change_ref->{userid}) and ($change_ref->{userid} eq $userid)) {
+
+			foreach my $tagid (keys %{$previous_tags_ref}) {
+				if (not exists $current_tags_ref->{$tagid}) {
+					$log->info("user removed value for a field",
+						{user_id => $userid, tagid => $tagid, field => $field, code => $code})
+						if $log->is_info();
+					$removed_tags{$tagid} = 1;
+				}
+			}
+		}
+
+		$previous_tags_ref = $current_tags_ref;
+
+	}
+
+	my $added = 0;
+	my $added_countries = "";
+
+	foreach my $tagid (sort keys %removed_tags) {
+		if (not exists $current_tags_ref->{$tagid}) {
+			$log->info("adding back removed tag", {tagid => $tagid, field => $field, code => $code}) if $log->is_info();
+
+			# we do not know the language of the current value of $product_ref->{$field}
+			# so regenerate it in the main language of the product
+			my $value = display_tags_hierarchy_taxonomy($lc, $field, $current_product_ref->{$field . "_hierarchy"});
+			# Remove tags
+			$value =~ s/<(([^>]|\n)*)>//g;
+
+			$current_product_ref->{$field} .= $value . ", $tagid";
+
+			if ($current_product_ref->{$field} =~ /^, /) {
+				$current_product_ref->{$field} = $';
+			}
+
+			compute_field_tags($current_product_ref, $current_product_ref->{lc}, $field);
+
+			$added++;
+			$added_countries .= " $tagid";
+		}
+	}
+
+	if ($added > 0) {
+
+		return $added . $added_countries;
+	}
+	else {
+		return 0;
+	}
+}
+
+
 my @fields_to_update = ();
 my $key;
 
