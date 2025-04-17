@@ -60,7 +60,9 @@ subtest 'user registration from redis to minion' => sub {
 	my $create_or_update_user_called = 0;
 	my $keycloak_mock = mock 'ProductOpener::Keycloak' => (
 		override => [
-			'new' => {},
+			'new' => sub { 
+				return {};
+			},
 			'create_or_update_user' => sub {
 				++$create_or_update_user_called;
 				return;
