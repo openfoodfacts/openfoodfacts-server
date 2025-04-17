@@ -101,11 +101,7 @@ sub wait_auth() {
 	my $count = 0;
 	my $ua = new_client();
 	my $target_url = construct_test_url("");
-	my $discovery_endpoint
-		= $oidc_options{keycloak_backchannel_base_url}
-		. "/realms/"
-		. $oidc_options{keycloak_realm_name}
-		. "/.well-known/openid-configuration";
+	my $discovery_endpoint = $oidc_options{oidc_discovery_url};
 	while (1) {
 		my $response = $ua->get($discovery_endpoint);
 		last if $response->is_success;

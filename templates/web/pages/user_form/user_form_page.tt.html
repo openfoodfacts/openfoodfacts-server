@@ -176,7 +176,7 @@
             <p>[% lang("unsubscribe_info") %]</p>
         [% END %]
 
-        [% IF keycloak_level < 5 and userid and (type != 'add') %]
+        [% IF oidc_implementation_level < 5 and userid and (type != 'add') %]
             <fieldset>
                 <legend class="text_warning">[% lang("danger_zone") %]</legend>
                 [% delete_confirm=esq(lang("delete_confirmation")) %]

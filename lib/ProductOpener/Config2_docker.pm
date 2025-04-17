@@ -128,12 +128,10 @@ $events_username = $ENV{EVENTS_USERNAME};
 $events_password = $ENV{EVENTS_PASSWORD};
 
 %oidc_options = (
-	client_id => $ENV{PRODUCT_OPENER_OIDC_CLIENT_ID},
-	client_secret => $ENV{PRODUCT_OPENER_OIDC_CLIENT_SECRET},
-	keycloak_level => $ENV{KEYCLOAK_LEVEL},
-	keycloak_base_url => $ENV{KEYCLOAK_BASE_URL},
-	keycloak_backchannel_base_url => $ENV{KEYCLOAK_BACKCHANNEL_BASE_URL},
-	keycloak_realm_name => $ENV{KEYCLOAK_REALM_NAME}
+	client_id => $ENV{OIDC_CLIENT_ID},
+	client_secret => $ENV{OIDC_CLIENT_SECRET},
+	oidc_implementation_level => $ENV{OIDC_IMPLEMENTATION_LEVEL},
+	oidc_discovery_url => $ENV{OIDC_DISCOVERY_URL}
 );
 
 # Set this to your instance of https://github.com/openfoodfacts/facets-knowledge-panels

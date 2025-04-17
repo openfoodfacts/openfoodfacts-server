@@ -58,7 +58,7 @@ use ProductOpener::Minion qw/queue_job/;
 use ProductOpener::Users qw/retrieve_user store_user/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
-use ProductOpener::Auth qw/get_keycloak_level/;
+use ProductOpener::Auth qw/get_oidc_implementation_level/;
 use AnyEvent;
 use AnyEvent::RipeRedis;
 
@@ -144,7 +144,7 @@ sub subscribe_to_redis_streams () {
 		return;
 	}
 
-	if (get_keycloak_level() >= 4) {
+	if (get_oidc_implementation_level() >= 4) {
 		_read_user_streams('$');
 	}
 

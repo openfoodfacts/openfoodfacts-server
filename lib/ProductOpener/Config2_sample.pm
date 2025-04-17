@@ -99,13 +99,9 @@ $events_password = '';
 	# This is the client secret of the "open-products-facts" client in Keycloak
 	client_secret => '',
 	# Keycloak specific: Implementation level 1 to 5 (see .env for values)
-	keycloak_level => 0,
-	# Keycloak specific: Base URL for the Keycloak server
-	keycloak_base_url => '',
-	# Keycloak specific: Base URL for the backchannel communcation: https://www.keycloak.org/server/hostname
-	keycloak_backchannel_base_url => '',
-	# Keycloak specific: Name of the realm
-	keycloak_realm_name => ''
+	oidc_implementation_level => 0,
+	# Backchannel URL to access the OIDC configuration document
+	oidc_discovery_url => ''
 );
 
 $redis_url = '';

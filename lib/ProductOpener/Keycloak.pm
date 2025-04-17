@@ -24,7 +24,9 @@ ProductOpener::Keycloak - Perl module for Keycloak user management
 
 =head1 DESCRIPTION
 
-This Perl module provides a class that can be used to access Keycloak's user management API.
+This Perl module provides access to Keycloak specific functionality that goes beyond that of a standard OIDC authentication service.
+
+This includes user management APIs and the user security settings forms.
 
 =cut
 
@@ -34,7 +36,7 @@ use ProductOpener::PerlStandards;
 
 use Log::Any qw($log);
 
-use ProductOpener::Auth qw/get_token_using_client_credentials/;
+use ProductOpener::Auth qw/get_oidc_configuration get_token_using_client_credentials/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/country_to_cc/;
 
@@ -48,21 +50,17 @@ sub new($class) {
 	my $self = {};
 	bless $self, $class;
 
-	unless ((defined $oidc_options{keycloak_base_url})
-		and (defined $oidc_options{keycloak_backchannel_base_url})
-		and (defined $oidc_options{keycloak_realm_name}))
-	{
-		die 'keycloak_base_url or keycloak_backchannel_base_url or keycloak_realm_name not configured';
+	my $oidc_configuration = get_oidc_configuration();
+	unless (defined $oidc_configuration) {
+		die 'oidc_discovery_url not configured or Keycloak is no available';
 	}
 
-	$self->{users_endpoint}
-		= $oidc_options{keycloak_backchannel_base_url}
-		. '/admin/realms/'
-		. uri_escape($oidc_options{keycloak_realm_name})
-		. '/users';
+	# Use the token_endpoint as the basis for the users endpoint as we access this over the back-channel
+	$self->{users_endpoint} = $oidc_configuration->{token_endpoint} =~ s/\/realms\//\/admin\/realms\//r
+		=~ s/\/protocol\/openid-connect\/token/\/users/r;
 
-	$self->{account_service}
-		= $oidc_options{keycloak_base_url} . '/realms/' . uri_escape($oidc_options{keycloak_realm_name}) . '/account';
+	# Use the issuer as the basis for the account URL as this is public facing
+	$self->{account_service} = $oidc_configuration->{issuer} . '/account';
 
 	return $self;
 }

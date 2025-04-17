@@ -31,7 +31,7 @@ use ProductOpener::Display qw/$tt display_page init_request process_template dis
 use ProductOpener::HTTP qw/single_param redirect_to_url/;
 use ProductOpener::Users qw/$User_id check_password_hash create_password_hash retrieve_user store_user/;
 use ProductOpener::Lang qw/lang/;
-use ProductOpener::Auth qw/get_keycloak_level/;
+use ProductOpener::Auth qw/get_oidc_implementation_level/;
 
 use Apache2::Const -compile => qw(OK);
 use CGI qw/:cgi :form escapeHTML/;
@@ -41,7 +41,7 @@ use Log::Any qw($log);
 
 my $request_ref = ProductOpener::Display::init_request();
 
-if (get_keycloak_level() < 5) {
+if (get_oidc_implementation_level() < 5) {
 	my $template_data_ref = {method => $ENV{'REQUEST_METHOD'}};
 
 	$log->info('start') if $log->is_info();
@@ -106,15 +106,6 @@ if (get_keycloak_level() < 5) {
 	display_page($request_ref);
 }
 else {
-	unless ((defined $oidc_options{keycloak_base_url}) and (defined $oidc_options{keycloak_realm_name})) {
-		display_error_and_exit($request_ref, 'File not found.', 404);
-	}
-
-	my $redirect
-		= $oidc_options{keycloak_base_url}
-		. '/admin/realms/'
-		. uri_escape($oidc_options{keycloak_realm_name})
-		. '/users';
-
+	my $redirect = ProductOpener::Keycloak->new()->get_account_link($request_ref->{canon_url});
 	redirect_to_url($request_ref, 302, $redirect);
 }

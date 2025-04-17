@@ -31,7 +31,6 @@ use ProductOpener::HTTP qw/write_cors_headers single_param/;
 use ProductOpener::Users qw/$User_id %User is_admin_user/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Tags qw/country_to_cc/;
-use ProductOpener::Auth qw/write_auth_deprecated_headers/;
 
 use Apache2::Const -compile => qw(OK);
 use CGI qw/:cgi :form escapeHTML/;

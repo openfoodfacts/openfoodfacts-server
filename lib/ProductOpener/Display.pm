@@ -171,7 +171,7 @@ use ProductOpener::Permissions qw/has_permission/;
 use ProductOpener::ProductsFeatures qw(feature_enabled);
 use ProductOpener::RequestStats qw(:all);
 use ProductOpener::PackagingFoodContact qw/determine_food_contact_of_packaging_components_service/;
-use ProductOpener::Auth qw/get_keycloak_level/;
+use ProductOpener::Auth qw/get_oidc_implementation_level/;
 
 use Encode;
 use URI::Escape::XS qw/uri_escape/;
@@ -348,9 +348,12 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	(not defined $template_data_ref->{org_id}) and $template_data_ref->{org_id} = $Org_id;
 	$template_data_ref->{owner_pretty_path} = get_owner_pretty_path($Owner_id);
 
-	my $keycloak_level = get_keycloak_level();
-	$template_data_ref->{keycloak_level} = $keycloak_level;
-	if ($keycloak_level > 0 and defined $template_data_ref->{user_id} and defined $template_data_ref->{canon_url}) {
+	my $oidc_implementation_level = get_oidc_implementation_level();
+	$template_data_ref->{oidc_implementation_level} = $oidc_implementation_level;
+	if (    $oidc_implementation_level > 0
+		and defined $template_data_ref->{user_id}
+		and defined $template_data_ref->{canon_url})
+	{
 		$template_data_ref->{keycloak_account_link}
 			= ProductOpener::Keycloak->new()->get_account_link($template_data_ref->{canon_url});
 	}
@@ -751,7 +754,7 @@ sub init_request ($request_ref = {}) {
 		}
 	) if $log->is_debug();
 
-	# Note we allow an OAuth token for all keycloak_levels
+	# Note we allow an OAuth token for all oidc_implementation_levels
 	my $signed_in_oidc = process_auth_header($request_ref, $r);
 	if ($signed_in_oidc < 0) {
 		# We were sent a bad bearer token
@@ -1316,7 +1319,7 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 			$html =~ s/<\/h1>/ - $owner_user_or_org<\/h1>/;
 		}
 
-		if (get_keycloak_level() >= 3) {
+		if (get_oidc_implementation_level() >= 3) {
 			# Set the login links
 			# TODO: Should be full URL
 			my $escaped_canon_url = uri_escape($formatted_subdomain);

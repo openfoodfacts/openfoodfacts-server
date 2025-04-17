@@ -39,13 +39,9 @@ use Log::Any '$log', default_adapter => 'Stderr';
 
 my $keycloak = ProductOpener::Keycloak->new();
 
-my $keycloak_partialimport_endpoint
-	= $oidc_options{keycloak_backchannel_base_url}
-	. '/admin/realms/'
-	. uri_escape($oidc_options{keycloak_realm_name})
-	. '/partialImport';
+my $keycloak_partialimport_endpoint = $keycloak->{users_endpoint} =~ s/\/users/\/partialImport/r
 
-my $user_emails = undef;
+	my $user_emails = undef;
 my ($checkpoint_file, $checkpoint) = open_checkpoint('migrate_users_to_keycloak_checkpoint.tmp');
 
 sub create_user_in_keycloak_with_scrypt_credential ($keycloak_user_ref) {
@@ -106,7 +102,7 @@ sub import_users_in_keycloak ($users_ref) {
 			{
 				response => $import_users_response->content,
 				client_id => $oidc_options{client_id},
-				keycloak_realm_name => $oidc_options{keycloak_realm_name}
+				users_endpoint => $keycloak->{users_endpoint}
 			}
 		);
 		return;

@@ -20,11 +20,13 @@
 
 =head1 NAME
 
-ProductOpener::Auth - Perl module for OpenID Connect (OIDC) and Keycloak authentication
+ProductOpener::Auth - Perl module for OpenID Connect (OIDC) authentication
 
 =head1 DESCRIPTION
 
-This Perl module provides functions for user authentication, token verification, and access to protected resources using OpenID Connect (OIDC) and Keycloak.
+This Perl module provides functions for user authentication, token verification, and access to protected resources using OpenID Connect (OIDC).
+
+This module is not tied to a specific OIDC service. All Keycloak-specific functionality is handled in the Keycloak module.
 
 =cut
 
@@ -50,10 +52,8 @@ BEGIN {
 		&get_azp
 		&write_auth_deprecated_headers
 		&start_signout
-		&get_keycloak_level
-
-		$oidc_discover_document
-		$jwks
+		&get_oidc_implementation_level
+		&get_oidc_configuration
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -94,6 +94,8 @@ my $callback_uri = format_subdomain('world') . '/cgi/oidc_signin_callback.pl';
 my $signout_callback_uri = format_subdomain('world') . '/cgi/oidc_signout_callback.pl';
 
 my $client = undef;
+my $oidc_configuration = undef;
+my $jwks = undef;
 
 =head2 start_authorize($request_ref)
 
@@ -442,11 +444,11 @@ sub start_signout ($request_ref) {
 		return;
 	}
 
-	_ensure_oidc_is_discovered();
+	get_oidc_configuration();
 
 	# random private token to identify the sign-out process
 	my $nonce = generate_token(64);
-	my $end_session_endpoint = $oidc_discover_document->{end_session_endpoint};
+	my $end_session_endpoint = $oidc_configuration->{end_session_endpoint};
 	my $redirect_url
 		= $end_session_endpoint
 		. '?post_logout_redirect_uri='
@@ -519,11 +521,11 @@ Open ID Access token, or undefined if sign-in wasn't successful.
 =cut
 
 sub get_token_using_password_credentials ($username, $password) {
-	_ensure_oidc_is_discovered();
+	get_oidc_configuration();
 
 	# Build a request and emit it using our app specific key
 	# to authenticate user
-	my $token_request = HTTP::Request->new(POST => $oidc_discover_document->{token_endpoint});
+	my $token_request = HTTP::Request->new(POST => $oidc_configuration->{token_endpoint});
 	$token_request->header('Content-Type' => 'application/x-www-form-urlencoded');
 	$token_request->content('grant_type=password&client_id='
 			. uri_escape($oidc_options{client_id})
@@ -565,9 +567,9 @@ Open ID Access token, or undefined if sign-in wasn't successful.
 =cut
 
 sub get_token_using_client_credentials () {
-	_ensure_oidc_is_discovered();
+	get_oidc_configuration();
 
-	my $token_request = HTTP::Request->new(POST => $oidc_discover_document->{token_endpoint});
+	my $token_request = HTTP::Request->new(POST => $oidc_configuration->{token_endpoint});
 	$token_request->header('Content-Type' => 'application/x-www-form-urlencoded');
 	$token_request->content('grant_type=client_credentials&client_id='
 			. uri_escape($oidc_options{client_id})
@@ -631,7 +633,7 @@ Returns: The verified access token or undefined if verification fails.
 =cut
 
 sub verify_access_token ($access_token_string) {
-	_ensure_oidc_is_discovered();
+	get_oidc_configuration();
 
 	my $access_token_verified = decode_jwt(token => $access_token_string, kid_keys => $jwks);
 	$log->debug('access_token found', {access_token => $access_token_string, access_token => $access_token_verified})
@@ -655,7 +657,7 @@ Returns: The verified ID token or undefined if verification fails.
 =cut
 
 sub verify_id_token ($id_token_string) {
-	_ensure_oidc_is_discovered();
+	get_oidc_configuration();
 
 	my $id_token = OIDC::Lite::Model::IDToken->load($id_token_string);
 	my $id_token_verified = decode_jwt(token => $id_token_string, kid_keys => $jwks);
@@ -690,7 +692,7 @@ sub get_azp ($access_token_string) {
 		return;
 	}
 
-	_ensure_oidc_is_discovered();
+	get_oidc_configuration();
 
 	my $access_token;
 	# verify token using JWKS (see Auth.pm)
@@ -701,14 +703,14 @@ sub get_azp ($access_token_string) {
 		return;
 	}
 
-	if (    (defined $oidc_discover_document->{issuer})
-		and (not($oidc_discover_document->{issuer} eq $access_token->{iss})))
+	if (    (defined $oidc_configuration->{issuer})
+		and (not($oidc_configuration->{issuer} eq $access_token->{iss})))
 	{
 		$log->warn(
 			'Given token was not issued by the correct issuer',
 			{
 				actual_iss => $access_token->{iss},
-				expected_iss => $oidc_discover_document->{issuer},
+				expected_iss => $oidc_configuration->{issuer},
 				azp => $access_token->{azp},
 				sub => $access_token->{sub}
 			}
@@ -750,17 +752,17 @@ sub _get_client () {
 		return $client;
 	}
 
-	_ensure_oidc_is_discovered();
+	get_oidc_configuration();
 	$client = OIDC::Lite::Client::WebServer->new(
 		id => $oidc_options{client_id},
 		secret => $oidc_options{client_secret},
-		authorize_uri => $oidc_discover_document->{authorization_endpoint},
-		access_token_uri => $oidc_discover_document->{token_endpoint},
+		authorize_uri => $oidc_configuration->{authorization_endpoint},
+		access_token_uri => $oidc_configuration->{token_endpoint},
 	);
 	return $client;
 }
 
-=head2 _ensure_oidc_is_discovered( )
+=head2 get_oidc_configuration( )
 
 Ensures that OIDC (OpenID Connect) is discovered and configured.
 
@@ -779,32 +781,28 @@ None.
 
 =cut
 
-sub _ensure_oidc_is_discovered () {
-	if ($jwks) {
-		return;
+sub get_oidc_configuration () {
+	if (!$jwks) {
+		my $discovery_endpoint = $oidc_options{oidc_discovery_url};
+
+		$log->info('Original OIDC configuration', {discovery_endpoint => $discovery_endpoint})
+			if $log->is_info();
+
+		my $discovery_request = HTTP::Request->new(GET => $discovery_endpoint);
+		my $discovery_response = LWP::UserAgent::Plugin->new->request($discovery_request);
+		unless ($discovery_response->is_success) {
+			$log->info('Unable to load OIDC data from IdP', {response => $discovery_response->content})
+				if $log->is_info();
+			return;
+		}
+
+		$oidc_configuration = decode_json($discovery_response->content);
+		$log->info('got discovery document', {discovery => $oidc_configuration}) if $log->is_info();
+
+		_load_jwks_configuration_to_oidc_options($oidc_configuration->{jwks_uri});
 	}
-	my $discovery_endpoint
-		= $oidc_options{keycloak_backchannel_base_url}
-		. "/realms/"
-		. $oidc_options{keycloak_realm_name}
-		. "/.well-known/openid-configuration";
 
-	$log->info('Original OIDC configuration', {discovery_endpoint => $discovery_endpoint})
-		if $log->is_info();
-
-	my $discovery_request = HTTP::Request->new(GET => $discovery_endpoint);
-	my $discovery_response = LWP::UserAgent::Plugin->new->request($discovery_request);
-	unless ($discovery_response->is_success) {
-		$log->info('Unable to load OIDC data from IdP', {response => $discovery_response->content}) if $log->is_info();
-		return;
-	}
-
-	$oidc_discover_document = decode_json($discovery_response->content);
-	$log->info('got discovery document', {discovery => $oidc_discover_document}) if $log->is_info();
-
-	_load_jwks_configuration_to_oidc_options($oidc_discover_document->{jwks_uri});
-
-	return;
+	return $oidc_configuration;
 }
 
 =head2 _load_jwks_configuration_to_oidc_options( $jwks_uri )
@@ -852,7 +850,7 @@ None.
 =cut
 
 sub write_auth_deprecated_headers() {
-	if (get_keycloak_level() >= 3) {
+	if (get_oidc_implementation_level() >= 3) {
 		my $r = Apache2::RequestUtil->request();
 		$r->err_headers_out->set('Deprecation', 'Mon, 01 Apr 2024 00:00:00 GMT');
 		$r->err_headers_out->set('Sunset', 'Tue, 01 Apr 2025 18:00:00 GMT');
@@ -860,7 +858,7 @@ sub write_auth_deprecated_headers() {
 	return;
 }
 
-=head2 get_keycloak_level()
+=head2 get_oidc_implementation_level()
 
 Returns the current Keycloak implementation level
 
@@ -873,8 +871,8 @@ Returns the current Keycloak implementation level
 
 =cut
 
-sub get_keycloak_level() {
-	return $oidc_options{keycloak_level};
+sub get_oidc_implementation_level() {
+	return $oidc_options{oidc_implementation_level};
 }
 
 1;
