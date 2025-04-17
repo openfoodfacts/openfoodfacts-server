@@ -56,9 +56,11 @@ subtest 'user registration from redis to minion' => sub {
 	);
 
 	# Need to mock keycloak->create_or_update_user for unit test
+	# and Keycloak -> new so it doesn't try to load OIDC configuration
 	my $create_or_update_user_called = 0;
 	my $keycloak_mock = mock 'ProductOpener::Keycloak' => (
 		override => [
+			'new' => {},
 			'create_or_update_user' => sub {
 				++$create_or_update_user_called;
 				return;
