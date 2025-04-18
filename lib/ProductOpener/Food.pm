@@ -2497,7 +2497,6 @@ sub compute_nutrient_levels ($product_ref) {
 		foreach my $category_id (@{$options{categories_exempted_from_nutrient_levels}}) {
 
 			if (has_tag($product_ref, "categories", $category_id)) {
-				$product_ref->{"nutrition_grades_tags"} = ["not-applicable"];
 				return;
 			}
 		}
