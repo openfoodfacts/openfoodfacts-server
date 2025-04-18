@@ -49,7 +49,7 @@ BEGIN {
 		&get_http_request_headers
 		&set_http_response_header
 		&write_http_response_headers
-		&add_extension_and_query_parameters_to_redirect_url
+		&extension_and_query_parameters_to_redirect_url
 		&redirect_to_url
 		&single_param
 		&request_param
@@ -219,30 +219,35 @@ sub get_http_request_header($header_name) {
 	return;
 }
 
-=head2 add_extension_and_query_parameters_to_redirect_url($request_ref)
+=head2 extension_and_query_parameters_to_redirect_url($request_ref)
 
-This function adds the extension and query parameters to the redirect URL.
+This function returns the extension and query parameters that can be added to a redirect URL.
 e.g. if the URL is /ingredients.json?filter=strawberry
-we get a redirect_url /facets/ingredients and we need to add back .json and ?filter=strawberry
+we get a .json?filter=strawberry
 
 =head3 Parameters
 
 =head4 $request_ref - Reference to the request object.
 
+=head3 Return value
+
+A string with the extension and query parameters that can be added to a redirect URL.
+
 =cut
 
-sub add_extension_and_query_parameters_to_redirect_url($request_ref) {
+sub extension_and_query_parameters_to_redirect_url($request_ref) {
 	# Add the extension to the redirect URL
+	my $add_to_url = '';
 
 	if ($request_ref->{extension}) {
-		$request_ref->{redirect} .= '.' . $request_ref->{extension};
+		$add_to_url .= '.' . $request_ref->{extension};
 	}
 	# Add the query parameters to the redirect URL
 	if ($request_ref->{query_parameters}) {
-		$request_ref->{redirect} .= '?' . $request_ref->{query_parameters};
+		$add_to_url .= '?' . $request_ref->{query_parameters};
 	}
 
-	return;
+	return $add_to_url;
 }
 
 =head2 redirect_to_url($request_ref, $status_code, $redirect_url)

@@ -134,7 +134,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::HTTP
-	qw(write_cors_headers set_http_response_header write_http_response_headers get_http_request_header add_extension_and_query_parameters_to_redirect_url redirect_to_url single_param request_param);
+	qw(write_cors_headers set_http_response_header write_http_response_headers get_http_request_header redirect_to_url single_param request_param);
 use ProductOpener::Store qw(get_string_id_for_lang retrieve);
 use ProductOpener::Config qw(:all);
 use ProductOpener::Paths qw/%BASE_DIRS/;
@@ -3124,7 +3124,7 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 	# The redirect is temporary (302), as the canonicalization could change if the corresponding taxonomies change
 	if ($redirect_to_canonical_url) {
 		$request_ref->{redirect} = $formatted_subdomain . $request_ref->{current_link};
-		add_extension_and_query_parameters_to_redirect_url($request_ref);
+		$request_ref->{redirect} .= extension_and_query_parameters_to_redirect_url($request_ref);
 
 		$log->debug("one or more tagids mismatch, redirecting to correct url", {redirect => $request_ref->{redirect}})
 			if $log->is_debug();

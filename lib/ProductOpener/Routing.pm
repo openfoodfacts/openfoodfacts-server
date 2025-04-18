@@ -47,7 +47,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Products qw/is_valid_code normalize_code product_url/;
 use ProductOpener::Display qw/$formatted_subdomain %index_tag_types_set display_robots_txt_and_exit init_request/;
-use ProductOpener::HTTP qw/add_extension_and_query_parameters_to_redirect_url redirect_to_url single_param/;
+use ProductOpener::HTTP qw/extension_and_query_parameters_to_redirect_url redirect_to_url single_param/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/%tag_type_from_plural %tag_type_from_singular %tag_type_plural %tag_type_singular lang/;
 use ProductOpener::API qw/:all/;
@@ -598,7 +598,7 @@ sub facets_route($request_ref) {
 		$redirect_url =~ s!/${target_lc}:!/!g;
 		$redirect_url =~ s!/1$!!;
 		$request_ref->{redirect} = $redirect_url;
-		add_extension_and_query_parameters_to_redirect_url($request_ref);
+		$request_ref->{redirect} .= extension_and_query_parameters_to_redirect_url($request_ref);
 		$request_ref->{redirect_status} = 301;
 	}
 
