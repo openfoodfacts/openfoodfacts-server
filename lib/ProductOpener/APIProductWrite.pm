@@ -253,6 +253,24 @@ sub update_tags_fields ($request_ref, $product_ref, $field, $add_to_existing_tag
 	return;
 }
 
+=head2 update_selected_images ($request_ref, $product_ref, $response_ref)
+
+Update selected images based on input product data, using the images->selected field.
+
+=cut
+
+sub update_selected_images ($request_ref, $product_ref, $response_ref) {
+
+	my $request_body_ref = $request_ref->{body_json};
+
+	if (not exists $request_ref->{updated_product_fields}) {
+		$request_ref->{updated_product_fields} = {};
+	}
+
+	my $input_product_ref = $request_body_ref->{product};
+
+}
+
 =head2 update_product_fields ($request_ref, $product_ref, $response_ref)
 
 Update product fields based on input product data.

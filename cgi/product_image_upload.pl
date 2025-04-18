@@ -244,7 +244,7 @@ if ($imagefield) {
 	(defined $tmp_filename) and $imagefield_or_filename = $tmp_filename;
 
 	my $imgid_returncode
-		= process_image_upload($product_id, $imagefield_or_filename, $User_id, time(), "image upload", \$imgid,
+		= process_image_upload($product_ref, $imagefield_or_filename, $User_id, time(), "image upload", \$imgid,
 		\$debug_string);
 
 	$log->debug(
