@@ -26,7 +26,9 @@
                "vegetarian" : "yes"
             },
             {
-               "id" : "en:spice-or-bell-pepper",
+               "ciqual_food_code" : "20041",
+               "ecobalyse_code" : "bellpepper-unheated-greehouse",
+               "id" : "en:paprika-or-bell-pepper",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 10.4166666666667,
                "percent_max" : 33.3333333333333,
@@ -93,7 +95,7 @@
       "en:spice",
       "en:turmeric",
       "en:ginger",
-      "en:spice-or-bell-pepper",
+      "en:paprika-or-bell-pepper",
       "en:garlic",
       "en:coriander",
       "en:mustard-seed"
@@ -104,10 +106,12 @@
       "en:condiment",
       "en:turmeric",
       "en:ginger",
-      "en:spice-or-bell-pepper",
-      "en:plant",
-      "en:garlic",
+      "en:paprika-or-bell-pepper",
       "en:vegetable",
+      "en:fruit-vegetable",
+      "en:bell-pepper",
+      "en:paprika",
+      "en:garlic",
       "en:root-vegetable",
       "en:onion-family-vegetable",
       "en:coriander",
@@ -122,25 +126,23 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:coriander",
-      "en:spice",
-      "en:spice-or-bell-pepper"
+      "en:spice"
    ],
-   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ciqual_codes_n" : 2,
    "ingredients_without_ecobalyse_ids" : [
       "en:coriander",
       "en:garlic",
       "en:ginger",
       "en:mustard-seed",
       "en:spice",
-      "en:spice-or-bell-pepper",
       "en:turmeric"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 7,
+   "ingredients_without_ecobalyse_ids_n" : 6,
    "known_ingredients_n" : 7,
    "lc" : "fi",
    "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 7.81249999999999,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 7.81249999999999,
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 18.2291666666667,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 18.2291666666667,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 7.81249999999999,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 7.81249999999999
    },

@@ -313,9 +313,9 @@
       },
       {
          "display_in_edit_form" : true,
-         "id" : "carbohydrates",
+         "id" : "carbohydrates-total",
          "important" : true,
-         "name" : "Carbohydrates",
+         "name" : "Total carbohydrates (includes fiber)",
          "nutrients" : [
             {
                "display_in_edit_form" : true,
@@ -808,6 +808,13 @@
          "important" : false,
          "name" : "Acidity",
          "unit" : "% vol"
+      },
+      {
+         "display_in_edit_form" : false,
+         "id" : "carbohydrates",
+         "important" : false,
+         "name" : "Carbohydrates",
+         "unit" : "g"
       }
    ]
 }

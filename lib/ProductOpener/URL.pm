@@ -49,6 +49,7 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
+		&extension_based_on_parameter
 		&format_subdomain
 		&get_owner_pretty_path
 	);    # symbols to export on request
@@ -59,6 +60,7 @@ use vars @EXPORT_OK;
 
 use experimental 'smartmatch';
 
+use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 
@@ -142,6 +144,27 @@ or an empty string if not on the producers platform.
 
 sub get_owner_pretty_path ($owner_id) {
 	return ($server_options{producers_platform} and defined $owner_id) ? "/org/$owner_id" : "";
+}
+
+=head2 extension_based_on_parameter($request_ref)
+
+Add back a file extension based on json/jsonp/xml etc. parameters
+
+Particularly useful on redirects
+
+see https://github.com/openfoodfacts/openfoodfacts-server/issues/894
+
+=cut
+
+sub extension_based_on_parameter($request_ref) {
+	# this is set by sanitize_request in Routing.pm
+	if ($request_ref->{response_type_as_extension} // undef) {
+		return '.json' if single_param("json");
+		return '.jsonp' if single_param("jsonp");
+		return '.xml' if single_param("xml");
+		return '.jqm' if single_param("jqm");
+	}
+	return "";
 }
 
 1;

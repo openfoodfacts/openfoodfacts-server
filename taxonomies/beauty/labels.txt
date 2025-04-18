@@ -364,6 +364,15 @@ vi: Không tẩy trắng bằng clo
 zh-CN: 无氯漂白
 zh-TW: 無氯漂白
 
+en: With glycerine, With glycerin
+sv: Med glycerin
+
+en: With rape oil
+sv: Med rapsolja
+
+en: With vitamin E
+sv: Med vitamin E
+
 en: Carbon compensated product, carbon neutral
 fr: Produit compensé carbone, Carbone neutre, neutre en carbone, carbone compensé
 
@@ -446,6 +455,7 @@ en: TransFer, TransFer Canada
 
 
 en: Without paraben, Paraben-free, No paraben, No parabens
+da: Uden parabener
 de: Ohne paraben, Parabenfrei
 es: Sin Parabenos
 fr: Sans paraben, Sans parabenes, 0 parabens, 0 paraben, Sans parabene, Sans parabens, Zero paraben
@@ -1874,7 +1884,7 @@ en: Ecolabel
 < en:Ecolabel
 xx: Nordic Swan Ecolabel, Nordic Ecolabel
 en: Nordic Swan Ecolabel, Nordic Ecolabel
-da: Svanemærket
+da: Svanemærket, Nordisk miljømærkning
 fi: Joutsenmerkki, pohjoismainen ympäristömerkki, ympäristömerkki, ympäristömerkki miljömärkt
 is: Svansmerkið, Svanurinn, Umhverfismerkið Svanurinn
 nb: Svanemerket, miljømerket
@@ -1907,6 +1917,15 @@ nl: Hypoallergeen
 pt: Hipoalergênico
 zh-CN: 低过敏性
 zh-TW: 低過敏性
+
+# This label/mark has been absorbed into Asthma Allergy Nordic
+< en: Hypoallergenic
+xx: Astma-Allergi Danmark
+en: Asthma Allergy Denmark
+da: Astma-Allergi Danmark
+image:da: astma-allergi-danmark.90x90.svg
+web:da: https://www.astma-allergi.dk/
+wikidata:xx: Q12302380
 
 < en: Hypoallergenic
 xx: Asthma Allergy Nordic
@@ -2233,7 +2252,7 @@ ja: 無香料
 ko: 향료 없음
 nl: Zonder parfum
 pt: Sem perfume
-sv: Utan parfym
+sv: Utan parfym, Oparfymerad
 zh-CN: 无香精
 zh-TW: 無香精
 
@@ -3180,7 +3199,7 @@ sk: Vodotesný, odolný voči striekajúcej vode, vodoodolný
 sl: Vodoodporen, odporen proti brizganju, vodoodporen
 sq: I papërshkueshëm nga uji, rezistent ndaj spërkatjeve, rezistent ndaj ujit
 sr: Водоотпоран, отпоран на прскање, водоотпоран
-sv: Vattentät, stänksäker, vattentålig
+sv: Vattentät, stänksäker, vattentålig, vattenresistent
 sw: Haipitishi maji, haipitishi maji, hustahimili maji
 ta: நீர்ப்புகா, தெறிக்காத, நீர் எதிர்ப்பு
 te: నీటిని నిరోధించే, స్ప్లాష్ ప్రూఫ్, నీటి నిరోధకత
@@ -3194,6 +3213,10 @@ uz: Suv o'tkazmaydigan, sachrashga chidamli, suvga chidamli
 vi: Chống thấm nước, chống bắn tóe, chịu nước
 zh-CN: 防水, 防溅, 耐水
 zh-TW: 防水, 防潑濺, 耐水
+
+< en:Waterproof
+en: Extra waterproof, Extra water resistant
+sv: Extra vattenresistent
 
 fr: Anti-traces, anti-trace
 
