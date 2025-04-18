@@ -98,28 +98,28 @@ sub upload_product_image_api ($request_ref) {
 	}
 	else {
 
-			# Load the product
-			($code, my $ai_data_string) = &normalize_requested_code($request_ref->{code}, $response_ref);
+		# Load the product
+		($code, my $ai_data_string) = &normalize_requested_code($request_ref->{code}, $response_ref);
 
-			# Check if the code is valid
-			if ($code !~ /^\d{4,24}$/) {
+		# Check if the code is valid
+		if ($code !~ /^\d{4,24}$/) {
 
-				$log->info("invalid code", {code => $code, original_code => $request_ref->{code}}) if $log->is_info();
-				add_error(
-					$response_ref,
-					{
-						message => {id => "invalid_code"},
-						field => {id => "code", value => $request_ref->{code}},
-						impact => {id => "failure"},
-					}
-				);
-				$error = 1;
-			}
-			else {
-				my $product_id = product_id_for_owner($Owner_id, $code);
-				$product_ref = retrieve_product($product_id);
-			}
-		
+			$log->info("invalid code", {code => $code, original_code => $request_ref->{code}}) if $log->is_info();
+			add_error(
+				$response_ref,
+				{
+					message => {id => "invalid_code"},
+					field => {id => "code", value => $request_ref->{code}},
+					impact => {id => "failure"},
+				}
+			);
+			$error = 1;
+		}
+		else {
+			my $product_id = product_id_for_owner($Owner_id, $code);
+			$product_ref = retrieve_product($product_id);
+		}
+
 	}
 
 	# If we did not get a fatal error, we can upload the image to the product
@@ -173,12 +173,58 @@ sub upload_product_image_api ($request_ref) {
 
 			# open a filehandle to the decoded image data
 			my $image_data = decode_base64($request_body_ref->{image_data_base64});
-			open (my $filehandle, '<', \$image_data);
+			open(my $filehandle, '<', \$image_data);
 
-			process_image_upload_using_filehandle ($product_ref, $filehandle, $User_id, time(), "image upload API v3", \$imgid, \$debug);
+			my $return_code
+				= process_image_upload_using_filehandle($product_ref, $filehandle, $User_id, time(),
+				"image upload API v3",
+				\$imgid, \$debug);
 
+			# A negative return code means that the image upload failed
+			if ($return_code < 0) {
+				# -3: we have already received an image with this file size
+				# -4: the image is too small
+				# -5: the image file cannot be read by ImageMagick
+
+				$response_ref->{result} = {id => "image_not_uploaded"};
+
+				if ($return_code == -3) {
+					add_warning(
+						$response_ref,
+						{
+							message => {id => "image_already_uploaded"},
+							field => {id => "image_data_base64"},
+							impact => {id => "warning"},
+						}
+					);
+				}
+				elsif ($return_code == -4) {
+					add_error(
+						$response_ref,
+						{
+							message => {id => "image_too_small"},
+							field => {id => "image_data_base64"},
+							impact => {id => "failure"},
+						}
+					);
+				}
+				elsif ($return_code == -5) {
+					add_error(
+						$response_ref,
+						{
+							message => {id => "unrecognized_value"},
+							field => {id => "image_data_base64"},
+							impact => {id => "failure"},
+						}
+					);
+				}
+			}
+			else {
+				$response_ref->{result} = {id => "image_uploaded"};
+			}
+
+			# Upload was successful (or we already have the same image), we return an images.uploaded object with the image
 			if ($imgid > 0) {
-				# Upload was successful, we return an images.uploaded object with the uploaded image
 				my $uploaded_image_ref = clone($product_ref->{images}{uploaded}{$imgid});
 				# add the imgid to the image object
 				$uploaded_image_ref->{imgid} = $imgid;

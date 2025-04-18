@@ -736,6 +736,12 @@ Used to return the number identifying the image to the caller.
 
 Used to return some debug information to the caller.
 
+=head3 Return values
+
+-2: imgupload field not set
+-3: we have already received an image with this file size
+-4: the image is too small
+-5: the image file cannot be read by ImageMagick
 
 =cut
 

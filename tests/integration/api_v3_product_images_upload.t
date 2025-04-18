@@ -40,92 +40,56 @@ my $tests_ref = [
 		expected_status_code => 200,
 	},
 	{
-		test_case => 'get-product-image',
+		test_case => 'post-product-image-another-image',
+		method => 'POST',
+		path => '/api/v3/product/1234567890012/images',
+		body => '{"image_data_base64":"'
+			. get_base64_image_data_from_file("$sample_products_images_path/front_en.3.full.jpg") . '"}',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'post-product-image-already-uploaded',
+		method => 'POST',
+		path => '/api/v3/product/1234567890012/images',
+		body => '{"image_data_base64":"' . get_base64_image_data_from_file("$sample_products_images_path/1.jpg") . '"}',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'post-product-image-too-small',
+		method => 'POST',
+		path => '/api/v3/product/1234567890012/images',
+		body => '{"image_data_base64":"'
+			. get_base64_image_data_from_file("$sample_products_images_path/small-img.jpg") . '"}',
+		expected_status_code => 400,
+	},
+	{
+		test_case => 'post-product-image-not-in-a-valid-format',
+		method => 'POST',
+		path => '/api/v3/product/1234567890012/images',
+		body => '{"image_data_base64":"'
+			. get_base64_image_data_from_file("$sample_products_images_path/not-an-image.txt") . '"}',
+		expected_status_code => 400,
+	},
+	{
+		test_case => 'post-product-image-not-in-base64',
+		method => 'POST',
+		path => '/api/v3/product/1234567890012/images',
+		body => '{"image_data_base64":"' . "Thïs IŜ NÖT base64!!!" . '"}',
+		expected_status_code => 400,
+	},
+	{
+		test_case => 'post-product-image-with-missing-field',
+		method => 'POST',
+		path => '/api/v3/product/1234567890012/images',
+		body => '{}',
+		expected_status_code => 400,
+	},
+	{
+		test_case => 'get-product-images',
 		method => 'GET',
 		path => '/api/v3.3/product/1234567890012',
 		expected_status_code => 200,
 	},
-	# {
-	# 	test_case => 'post-image-too-small',
-	# 	method => 'POST',
-	# 	path => '/cgi/product_image_upload.pl',
-	# 	form => {
-	# 		code => "1234567890013",
-	# 		imagefield => "front_en",
-	# 		imgupload_front_en => ["$sample_products_images_path/small-img.jpg", 'small-img.jpg'],
-	# 	},
-	# 	expected_status_code => 200,
-	# },
-	# {
-	# 	test_case => 'get-image-too-small',
-	# 	method => 'GET',
-	# 	path => '/api/v2/product/1234567890013',
-	# 	expected_status_code => 200,
-
-	# },
-	# {
-	# 	test_case => 'post-same-image-twice',
-	# 	method => 'POST',
-	# 	path => '/cgi/product_image_upload.pl',
-	# 	form => {
-	# 		code => "1234567890014",
-	# 		imagefield => "front_en",
-	# 		imgupload_front_en => ["$sample_products_images_path/front_en.3.full.jpg", 'front_en.3.full.jpg'],
-	# 	},
-	# 	expected_status_code => 200,
-	# },
-	# {
-	# 	test_case => 'post-same-image-twice-duplicate',
-	# 	method => 'POST',
-	# 	path => '/cgi/product_image_upload.pl',
-	# 	form => {
-	# 		code => "1234567890014",
-	# 		imagefield => "front_en",
-	# 		imgupload_front_en => ["$sample_products_images_path/front_en.3.full.jpg", 'front_en.3.full.jpg'],
-	# 	},
-	# 	expected_status_code => 200,
-
-	# },
-	# {
-	# 	test_case => 'get-same-image-twice',
-	# 	method => 'GET',
-	# 	path => '/api/v2/product/1234567890014',
-	# 	expected_status_code => 200,
-
-	# },
-	# {
-	# 	test_case => 'post-missing-imagefield',
-	# 	method => 'POST',
-	# 	path => '/cgi/product_image_upload.pl',
-	# 	form => {
-	# 		code => "1234567890015",
-	# 		imgupload_front_en => ["$sample_products_images_path/1.jpg", '1.jpg'],
-	# 	},
-	# 	expected_status_code => 200,
-	# },
-	# {
-	# 	test_case => 'get-missing-imagefield',
-	# 	method => 'GET',
-	# 	path => '/api/v2/product/1234567890015',
-	# 	expected_status_code => 404,
-	# },
-	# {
-	# 	test_case => 'post-missing-imgupload_[imagefield]',
-	# 	method => 'POST',
-	# 	path => '/cgi/product_image_upload.pl',
-	# 	form => {
-	# 		code => "1234567890016",
-	# 		imagefield => "front_en",
-	# 	},
-	# 	expected_status_code => 200,
-	# },
-	# {
-	# 	test_case => 'get-missing-imgupload_[imagefield]',
-	# 	method => 'GET',
-	# 	path => '/api/v2/product/1234567890016',
-	# 	expected_status_code => 200,
-
-	# },
 
 ];
 
