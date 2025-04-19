@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: release
-        uses: googleapis/release-please-action@v4.2.0
+        uses: googleapis/release-please-action@a02a34c4d625f9be7cb89156071d8567266a2445 # ratchet:googleapis/release-please-action@v4.2.0
         with:
           # We can't use GITHUB_TOKEN here because, github actions can't trigger actions
           # see: https://docs.github.com/en/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow
@@ -30,7 +30,7 @@ jobs:
         # only if a new release was created
         if: ${{ steps.release.outputs.release_created }}
         id: wait-build
-        uses: tomchv/wait-my-workflow@v1.1.0
+        uses: tomchv/wait-my-workflow@15c168cfa0cf8d5234974e0047908173d3ab39a1 # ratchet:tomchv/wait-my-workflow@v1.1.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           checkName: build (frontend)
@@ -49,7 +49,7 @@ jobs:
         # only if a new release was created
         if: ${{ steps.release.outputs.release_created }}
         id: create-frontend-dist-tar
-        run : |
+        run: |
           # directory to put files in
           mkdir -p /tmp/frontend-dist
           # download docker image corresponding to the tag
@@ -79,7 +79,7 @@ jobs:
         # only if a new release was created
         if: ${{ steps.release.outputs.release_created }}
         id: add-frontend-dist-to-release
-        uses: svenstaro/upload-release-action@2.9.0
+        uses: svenstaro/upload-release-action@04733e069f2d7f7f0b4aebc4fbdbce8613b03ccd # ratchet:svenstaro/upload-release-action@2.9.0
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: /tmp/frontend-dist.tgz

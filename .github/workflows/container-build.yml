@@ -5,9 +5,9 @@ on:
     branches:
       - main
       - deploy-*
-    tags: 
+    tags:
       - v*.*.*
-      
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -17,47 +17,47 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        image_name: [
-          "frontend",
-          "backend"
-        ]
+        image_name: ["frontend", "backend"]
     steps:
-    - uses: actions/checkout@v4
-      with:
-        fetch-depth: 1
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # ratchet:actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@b5ca514318bd6ebac0fb2aedd5d36ec1b5c232a2 # ratchet:docker/setup-buildx-action@v3
+        with:
 
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v3
-      with:
-        version: v0.6.0
-        buildkitd-flags: --debug
+          version: v0.6.0
+          buildkitd-flags: --debug
+      - name: Login to DockerHub
+        uses: docker/login-action@74a5d142397b4f367a81961eba4e8cd7edddf772 # ratchet:docker/login-action@v3
+        with:
 
-    - name: Login to DockerHub
-      uses: docker/login-action@v3 
-      with:
-        registry: ghcr.io
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@902fa8ec7d6ecbf8d84d538b9b233a880e428804 # ratchet:docker/metadata-action@v5
 
-    - name: Docker meta
-      id: meta
-      uses: docker/metadata-action@v5
-      with:
-        images: |
-          ghcr.io/${{ github.repository }}/${{ matrix.image_name }}
-        tags: |
-          type=semver,pattern={{version}}
-          type=ref,event=pr
-          type=ref,event=branch
-          type=sha,format=long
+        with:
+          images: |
+            ghcr.io/${{ github.repository }}/${{ matrix.image_name }}
+          tags: |
+            type=semver,pattern={{version}}
+            type=ref,event=pr
+            type=ref,event=branch
+            type=sha,format=long
+      - name: Build and push
+        uses: docker/build-push-action@471d1dc4e07e5cdedd4c2171150001c434f0b7a4 # ratchet:docker/build-push-action@v6
+        with:
 
-    - name: Build and push
-      uses: docker/build-push-action@v6
-      with:
-        context: .
-        push: true
-        file: ${{ matrix.image_name == 'frontend' && 'Dockerfile.frontend' || 'Dockerfile' }}
-        cache-from: type=registry,ref=ghcr.io/${{ github.repository }}/${{ matrix.image_name }}:buildcache
-        cache-to: type=registry,ref=ghcr.io/${{ github.repository }}/${{ matrix.image_name }}:buildcache,mode=max
-        tags: ${{ steps.meta.outputs.tags }}
-        labels: ${{ steps.meta.outputs.labels }}
+          context: .
+          push: true
+          file: ${{ matrix.image_name == 'frontend' && 'Dockerfile.frontend' || 'Dockerfile' }}
+          cache-from: type=registry,ref=ghcr.io/${{ github.repository }}/${{ matrix.image_name }}:buildcache
+          cache-to: type=registry,ref=ghcr.io/${{ github.repository }}/${{ matrix.image_name }}:buildcache,mode=max
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
+
+

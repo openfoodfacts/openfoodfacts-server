@@ -4,12 +4,12 @@ on:
   pull_request:
     # on pull request we just want to build
     paths:
-    - "docs/**"
-    - ".github/workflows/generate-doc.yml"
-    - "mkdocs.yml"
+      - "docs/**"
+      - ".github/workflows/generate-doc.yml"
+      - "mkdocs.yml"
   push:
     # on merge to main, build and publish
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   documentation:
@@ -18,7 +18,7 @@ jobs:
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # ratchet:actions/checkout@v4
         with:
           fetch-depth: 1
 
@@ -71,7 +71,7 @@ jobs:
       # we do this after mkdocs to overwrite api.html file
       - name: Generate OpenAPI doc using rapidoc
         # this is a simple copy of the html file as all is static there
-        run : |
+        run: |
           # v2 api
           cp docs/assets/api-rapidoc.html gh_pages/api/ref-v2/index.html
           # v3 api - change yaml and link to api-v3
@@ -81,7 +81,7 @@ jobs:
 
 
       - name: Deploy API documentation to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4.7.3
+        uses: JamesIves/github-pages-deploy-action@6c2d9db40f9296374acc17b90404b6e8864128c8 # ratchet:JamesIves/github-pages-deploy-action@v4.7.3
         # we only deploy on push to main
         if: |
           github.event_name == 'push' && github.event.ref == 'refs/heads/main'
