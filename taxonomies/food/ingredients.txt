@@ -51,7 +51,7 @@
 # Synonyms must be separated with an empty line.
 # If a term is also in the taxonomy, it must come first. e.g. "en:hydrolysed"
 
-# comment:en:These are words that occur inside the name of one ingredient, that can be considered as synonyms 
+# comment:en:These are words that occur inside the name of one ingredient, that can be considered as synonyms
 # for matching the ingredient with entries in the taxonomy
 # note: synonyms should not be ingredients themselves, if we have an ingredient entry with synonyms, they should not be listed in the synonyms below as well
 # for example, zumo, jugo (juice) cannot be listed here
@@ -9706,7 +9706,7 @@ wa: Vitamene, vit.
 yi: וויטאמין
 yo: Àmínìamáralókun
 zh: 维生素
-vegan:en: yes
+vegan:en: maybe
 vegetarian:en: yes
 # ast:Vitamina
 # be-tarask:Вітаміны
@@ -11144,6 +11144,7 @@ nl: dier
 pl: Zwierzę, zwierzęta, zwierzęcy, zwierzęca, zwierzęce
 pt: Animal
 sv: djur
+vegan:en: no
 
 en: meat
 bg: месо
@@ -11303,6 +11304,7 @@ fr: abats
 hr: iznutrice
 it: frattaglie
 pl: podroby
+vegetarian:en: no
 wikipedia:en: https://en.wikipedia.org/wiki/Offal
 
 #category/fr:quenelles
@@ -11327,6 +11329,7 @@ description:fr: La quenelle est une pâte moelleuse de forme cylindrique pochée
 description:it: La quenelle è una pietanza d'origine francese composta di crema di pesce, pollo, o carne, a volte mescolata con molliche di pane e legata da piccole quantità d'uovo.
 description:nl: Een quenelle is een langwerpig balletje gemaakt van deeg en gepureerde (traditioneel) vis. Quenelles lijken op knoedels en worden ook van vlees of gevogelte gemaakt.
 description:pt: A quenelle é um bolinho feito com carne ou peixe muito condimentados, ligados com clara de ovo e natas, ovos batidos ou manteiga e farinha.
+vegetarian:en: no
 wikidata:en: Q12958
 
 # comment:en:The popular name of the meat is used, when a part of the animal has been used. So it has been kept separate. But do not include the word meat in these. Use en:beef meat for that.
@@ -12001,6 +12004,7 @@ it: coscia di agnello
 ciqual_food_code:en: 21502
 ciqual_food_name:en: Lamb, leg, raw
 ciqual_food_name:fr: Agneau, gigot, cru
+vegetarian:en: no
 
 < en:lamb leg
 en: Pan-fried lamb leg
@@ -17543,10 +17547,10 @@ it: olio di sansa di oliva raffinato
 pl: rafinowana oliwa z wytłoczyn z oliwek, rafinowana oliwa z wytłoczyn oliwek
 
 
-#  comment:en:Beware of a confusion between the generic name (rapeseed oil) and more specific oil varieties: colza oil and canola oil. 
-#    Not all languages distinguish between the two. Probably where rapeseed is given, colza is meant. 
-#    The difference between the two oils is important due to different levels of erucic acid. 
-#    It seems that only the oils with a low erucic acid percentage are fit for humans. So the naming difference between rapeseed, 
+#  comment:en:Beware of a confusion between the generic name (rapeseed oil) and more specific oil varieties: colza oil and canola oil.
+#    Not all languages distinguish between the two. Probably where rapeseed is given, colza is meant.
+#    The difference between the two oils is important due to different levels of erucic acid.
+#    It seems that only the oils with a low erucic acid percentage are fit for humans. So the naming difference between rapeseed,
 #    colza and canola might just be a language issue.
 
 < en:vegetable oil and fat
@@ -31753,8 +31757,9 @@ carbon_footprint_fr_foodges_value:fr: 1.3
 ciqual_proxy_food_code:en: 31016
 ciqual_proxy_food_name:en: Sugar, white
 ciqual_proxy_food_name:fr: Sucre blanc
+comment:en: The most common way to whiten sugar is using bone char as a carbon filter to remove colouration from cane sugar, making it non-vegan.
 ecobalyse:en: 8f075c25-9ebf-430c-b41d-51d165c6e0d8
-vegan:en: yes
+vegan:en: maybe
 vegetarian:en: yes
 # als:Zucker
 # arc:ܫܟܪ
@@ -38981,8 +38986,10 @@ carbon_footprint_fr_foodges_value:fr: 1.2
 ciqual_food_code:en: 13005
 ciqual_food_name:en: Banana, pulp, raw
 ciqual_food_name:fr: Banane, pulpe, crue
+comment:en: Non-organic bananas are commonly treated with the preservative chitosan, which is made from shellfish, making them non-vegan.
 ecobalyse:en: f79d155e-3f9e-4882-8dd0-b03f28c1ff76
 ecobalyse_labels_en_organic:en: b3f92ca9-3121-4e2d-9e1d-0cc2c5d392fe
+vegan:en: maybe
 wikidata:en: Q503
 # als:Banane
 # arz:موز
@@ -40613,8 +40620,10 @@ carbon_footprint_fr_foodges_value:fr: 1.3
 ciqual_food_code:en: 13050
 ciqual_food_name:en: Apple, pulp, raw
 ciqual_food_name:fr: Pomme, pulpe, crue
+comment:en: Non-organic apples may be treated with beeswax or shellac, making them non-vegan.
 ecobalyse:en: 8c2299d6-49e4-493c-bafe-c0b4b7ef2079
 ecobalyse_labels_en_organic:en: 3d3fc6bd-0a43-462b-bc39-fed04cf34498
+vegan:en: maybe
 # aeb-arab:كعبة تفّاح
 # aeb-latn:toffè7
 # ang:Æppel
@@ -41333,6 +41342,8 @@ zh: 柑橘属
 # sco:Citrus
 # war:Citrus
 # yue:柑桔
+comment:en: Non-organic citrus fruits are often treated with beeswax or shellac, making them non-vegan.
+vegan:en: maybe
 wikidata:en: Q81513
 wikipedia:en: https://en.wikipedia.org/wiki/Citrus
 
