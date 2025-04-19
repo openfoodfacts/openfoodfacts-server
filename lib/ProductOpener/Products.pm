@@ -2581,116 +2581,24 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 	return;
 }
 
-# traverse the history to see if a particular user has removed values for tag fields
-# add back the removed values
-
-# NOT sure if this is useful, it's being used in one of the "obsolete" scripts
-sub add_back_field_values_removed_by_user ($current_product_ref, $changes_ref, $field, $userid) {
-
-	my $code = $current_product_ref->{code};
-	my $path = product_path($current_product_ref);
-
-	return if not defined $changes_ref;
-
-	# Read all previous versions to see which fields have been added or edited
-
-	my @fields
-		= qw(lang product_name generic_name quantity packaging brands categories origins manufacturing_places labels emb_codes expiration_date purchase_places stores countries ingredients_text traces no_nutrition_data serving_size nutrition_data_per );
-
-	my %previous = ();
-	my %last = %previous;
-	my %current;
-
-	my $previous_tags_ref = {};
-	my $current_tags_ref;
-
-	my %removed_tags = ();
-
-	my $revs = 0;
-
-	foreach my $change_ref (@{$changes_ref}) {
-		$revs++;
-		my $rev = $change_ref->{rev};
-		if (not defined $rev) {
-			$rev = $revs;    # was not set before June 2012
-		}
-		my $product_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/$rev.sto");
-
-		# if not found, we may be be updating the product, with the latest rev not set yet
-		if ((not defined $product_ref) or ($rev == $current_product_ref->{rev})) {
-			$product_ref = $current_product_ref;
-			if (not defined $product_ref) {
-				$log->warn("specified product revision was not found, using current product ref",
-					{code => $code, revision => $rev})
-					if $log->is_warn();
-			}
-		}
-
-		if (defined $product_ref->{$field . "_tags"}) {
-
-			$current_tags_ref = {map {$_ => 1} @{$product_ref->{$field . "_tags"}}};
-		}
-		else {
-			$current_tags_ref = {};
-		}
-
-		if ((defined $change_ref->{userid}) and ($change_ref->{userid} eq $userid)) {
-
-			foreach my $tagid (keys %{$previous_tags_ref}) {
-				if (not exists $current_tags_ref->{$tagid}) {
-					$log->info("user removed value for a field",
-						{user_id => $userid, tagid => $tagid, field => $field, code => $code})
-						if $log->is_info();
-					$removed_tags{$tagid} = 1;
-				}
-			}
-		}
-
-		$previous_tags_ref = $current_tags_ref;
-
-	}
-
-	my $added = 0;
-	my $added_countries = "";
-
-	foreach my $tagid (sort keys %removed_tags) {
-		if (not exists $current_tags_ref->{$tagid}) {
-			$log->info("adding back removed tag", {tagid => $tagid, field => $field, code => $code}) if $log->is_info();
-
-			# we do not know the language of the current value of $product_ref->{$field}
-			# so regenerate it in the main language of the product
-			my $value = display_tags_hierarchy_taxonomy($lc, $field, $current_product_ref->{$field . "_hierarchy"});
-			# Remove tags
-			$value =~ s/<(([^>]|\n)*)>//g;
-
-			$current_product_ref->{$field} .= $value . ", $tagid";
-
-			if ($current_product_ref->{$field} =~ /^, /) {
-				$current_product_ref->{$field} = $';
-			}
-
-			compute_field_tags($current_product_ref, $current_product_ref->{lc}, $field);
-
-			$added++;
-			$added_countries .= " $tagid";
-		}
-	}
-
-	if ($added > 0) {
-
-		return $added . $added_countries;
-	}
-	else {
-		return 0;
-	}
-}
-
 sub normalize_search_terms ($term) {
 
 	# plural?
 	$term =~ s/s$//;
 	return $term;
 }
+
+=head2 product_name_brand ( $ref )
+
+Returns a product full name, which is a combination of product name and first brand.
+
+We use a small dash (instead of a minus -) as a separator between the product name and the brand.
+
+=head3 Parameters
+
+=head4 Reference to product object $ref
+
+=cut
 
 sub product_name_brand ($ref) {
 
@@ -2717,35 +2625,46 @@ sub product_name_brand ($ref) {
 	if (defined $ref->{brands}) {
 		my $brand = $ref->{brands};
 		$brand =~ s/,.*//;    # take the first brand
+							  # note: now that brands are taxonomized, the first brand may not be the most specific one
 		my $brandid = '-' . get_string_id_for_lang($lc, $brand) . '-';
 		my $full_name_id = '-' . get_string_id_for_lang($lc, $full_name) . '-';
 		if (($brandid ne '') and ($full_name_id !~ /$brandid/i)) {
-			$full_name .= lang("title_separator") . $brand;
+			$full_name .= ' – ' . $brand;
 		}
 	}
 
-	$full_name =~ s/^ - //;
+	$full_name =~ s/^ – //;
 	return $full_name;
 }
 
-# product full name is a combination of product name, first brand and quantity
+=head2 product_name_brand_quantity ( $ref )
+
+Returns a product full name, which is a combination of product name, first brand and quantity.
+
+We use a small dash (instead of a minus -) as a separator between the product name and the brand.
+
+=head3 Parameters
+
+=head4 Reference to product object $ref
+
+=cut
 
 sub product_name_brand_quantity ($ref) {
 
 	my $full_name = product_name_brand($ref);
-	my $full_name_id = '-' . get_string_id_for_lang($lc, $full_name) . '-';
+	my $full_name_id = '–' . get_string_id_for_lang($lc, $full_name) . '–';
 
 	if (defined $ref->{quantity}) {
 		my $quantity = $ref->{quantity};
-		my $quantityid = '-' . get_string_id_for_lang($lc, $quantity) . '-';
+		my $quantityid = '–' . get_string_id_for_lang($lc, $quantity) . '–';
 		if (($quantity ne '') and ($full_name_id !~ /$quantityid/i)) {
 			# Put non breaking spaces between numbers and units
 			$quantity =~ s/(\d) (\w)/$1\xA0$2/g;
-			$full_name .= lang("title_separator") . $quantity;
+			$full_name .= ' – ' . $quantity;
 		}
 	}
 
-	$full_name =~ s/^ - //;
+	$full_name =~ s/^ – //;
 	return $full_name;
 }
 
