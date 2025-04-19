@@ -503,6 +503,11 @@ create_external_networks:
 	docker network create --driver=bridge --subnet="172.30.0.0/16" ${COMPOSE_PROJECT_NAME}_webnet \
 	|| echo "network already exists"
 
+
+update_all_packager_codes:
+	@echo "🥫 Dowloading packager codes (production only) …"
+	${DOCKER_COMPOSE} run --rm backend perl /opt/product-opener/scripts/packager-codes/update_all_packager_codes.sh
+
 #---------#
 # Cleanup #
 #---------#
