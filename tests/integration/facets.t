@@ -372,6 +372,36 @@ my $tests_ref = [
 		expected_type => 'html',    # the redirect itself is html
 	},
 	{
+		test_case => 'redirect-facets-search-with-json-and-query-parameter',
+		method => 'GET',
+		path => '/categories/vitamins.json?no_cache=1',
+		expected_status_code => 301,
+		headers => {
+			Location => '/facets/categories/vitamins.json?no_cache=1',
+		},
+		expected_type => 'html',    # the redirect itself is html
+	},
+	{
+		test_case => 'redirect-facets-search-with-json-query-parameter',
+		method => 'GET',
+		path => '/categories/vitamins?json=1',
+		expected_status_code => 301,
+		headers => {
+			Location => '/facets/categories/vitamins?json=1',
+		},
+		expected_type => 'html',    # the redirect itself is html
+	},
+	{
+		test_case => 'redirect-facets-with-multiple-query-parameters',
+		method => 'GET',
+		path => '/ingredients?filter=bon&status=unknown',
+		expected_status_code => 301,
+		headers => {
+			Location => '/facets/ingredients?filter=bon&status=unknown',
+		},
+		expected_type => 'html',    # the redirect itself is html
+	},
+	{
 		test_case => 'redirect-facets-agg-with-json',
 		method => 'GET',
 		path => '/categories.json',
