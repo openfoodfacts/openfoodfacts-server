@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2025 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -108,6 +108,8 @@ if (single_param("body")) {
 	print $json;
 }
 
+my $span = $r->pnotes('OpenTelemetry::Span->current');
+$span->set_attribute('http.response.status_code', $status) if (defined $span);
 $r->rflush;
 
 # Setting the status makes mod_perl append a default error to the body
