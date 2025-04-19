@@ -111,8 +111,8 @@ else {
 	elsif (defined $User_id) {
 		# The user is signed in
 		$template = "signed_in";
-		$request_ref->{title} = lang('welcome_user', {user_name => $User{name}});
-		$template_data_ref->{page_title} = lang('hello_user', {user_name => $User{name}});
+		$request_ref->{title} = f_lang('welcome_user', {user_name => $User{name}});
+		$template_data_ref->{page_title} = f_lang('hello_user', {user_name => $User{name}});
 	}
 	else {
 		# The user is signing in
