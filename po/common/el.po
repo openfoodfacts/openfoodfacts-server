@@ -312,7 +312,7 @@ msgstr "Android APK"
 # Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
-msgstr ""
+msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -4680,7 +4680,7 @@ msgstr "Καθόλου ή μικρή επεξεργασία τροφίμων (ο
 
 msgctxt "attribute_nova_setting_note"
 msgid "To determine the level of processing of a product, we rely on the list of ingredients (markers, processing methods) and categories."
-msgstr ""
+msgstr "Για να προσδιορίσουμε το επίπεδο επεξεργασίας ενός προϊόντος, βασιζόμαστε στη λίστα συστατικών (δείκτες, μέθοδοι επεξεργασίας) και κατηγορίες."
 
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
@@ -5903,7 +5903,7 @@ msgstr "Παρακαλούμε δώστε στον Έρανό μας για το
 # Don't translate {year}, it will be replaced by the 4 digits year
 msgctxt "f_donation_title_year"
 msgid "Please give to our {year} Fundraiser"
-msgstr ""
+msgstr "Παρακαλούμε δώστε στον Έρανο μας για το {year}"
 
 msgctxt "donation_list_2024_main"
 msgid "Your donations fund the day-to-day operations of our non-profit association:"
@@ -7366,7 +7366,7 @@ msgstr "Τροφή κατοικιδίων"
 # Beauty product type
 msgctxt "product_type_beauty"
 msgid "Beauty"
-msgstr ""
+msgstr "Ομορφιά"
 
 # General product product type
 msgctxt "product_type_product"
@@ -7399,7 +7399,7 @@ msgstr "Σε επαφή με τρόφιμα"
 
 msgctxt "contact_us_producers"
 msgid "Contact Us"
-msgstr ""
+msgstr "Επικοινωνία"
 
 msgctxt "delete"
 msgid "Delete"
@@ -7408,7 +7408,7 @@ msgstr "Διαγραφή"
 # Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
 msgctxt "f_droid_app_icon_url"
 msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
-msgstr ""
+msgstr "/images/misc/f-droid/svg/get-it-on-en.svg"
 
 msgctxt "f_droid_app_icon_alt_text"
 msgid "Available on F-Droid"
@@ -7416,15 +7416,15 @@ msgstr ""
 
 msgctxt "update_nutrition_facts"
 msgid "Extract nutrition facts"
-msgstr ""
+msgstr "Εξαγωγή διατροφικών στοιχείων"
 
 msgctxt "scan_a_product"
 msgid "Scan a product"
-msgstr ""
+msgstr "Σαρώστε ένα προϊόν"
 
 msgctxt "or_enter_barcode_manually"
 msgid "Or enter barcode manually"
-msgstr ""
+msgstr "Ή εισάγετε τον γραμμωτό κώδικα χειροκίνητα"
 
 msgctxt "scan"
 msgid "Scan"
