@@ -105,20 +105,16 @@ else {
 	if ((defined $action) and ($action eq 'logout')) {
 		# The user is signing out
 		$template = "signed_out";
-		$request_ref->{title} = lang('sign_out');
-		$template_data_ref->{page_title} = lang('see_you_soon');
 	}
 	elsif (defined $User_id) {
 		# The user is signed in
 		$template = "signed_in";
-		$request_ref->{title} = f_lang('welcome_user', {user_name => $User{name}});
-		$template_data_ref->{page_title} = f_lang('hello_user', {user_name => $User{name}});
+		$request_ref->{title} = '';
 	}
 	else {
-		# The user is signing in
+		# The user is signing in: display the login form
 		$template = "sign_in_form";
 		$request_ref->{title} = lang('sign_in');
-		$template_data_ref->{page_title} = lang('sign_in');
 	}
 
 	process_template("web/pages/session/$template.tt.html", $template_data_ref, \$html)
