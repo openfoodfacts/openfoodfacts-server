@@ -53579,7 +53579,8 @@ ru: Греческий йогурт
 zh: 希腊酸奶
 intake24_category_code:en: GRSY
 intake24_category_code:fr: GRSY
-#wikidata:en:
+opposite:en: en:greek-style-non-dairy-yogurts
+wikidata:en: Q1147190
 
 < en:Greek-style yogurts
 < en:Plain yogurts
@@ -55391,6 +55392,10 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Yogurt Substitutes (Perishable)
 
 < en:Non-dairy yogurts
+en: Greek-style non-dairy yogurts, Greek-style vegan yogurts, Dairy-free greek-style yogurt
+opposite:en: en:greek-style-yogurts
+
+< en:Non-dairy yogurts
 en: Coconutmilk yogurts, Dairy-free coconut-based yoghurts
 fr: Desserts de lait de coco fermenté
 hr: Jogurti od kokosovog mlijeka
@@ -55402,6 +55407,11 @@ en: Oat milk yogurts
 fr: Desserts de jus d'avoine fermenté
 hr: Jogurti od zobenog mlijeka
 lt: Avižų pieno jogurtai
+nl: Haver yoghurt, Havergurt
+
+< en:Greek-style non-dairy yogurts
+< en:Oat milk yogurts
+en: Greek-style oat milk yogurts
 
 < en:Non-dairy yogurts
 en: Almond milk yogurts
@@ -55517,6 +55527,9 @@ es: Yogures de soja con albaricoque
 fr: Yaourts de soja à l'abricot
 hr: Jogurti od marelice i soje
 lt: Abrikosų sojų jogurtai
+
+< en:Fruit soy yogurts
+en: Blackcurrant soy yogurts
 
 < en:Fruit soy yogurts
 en: Blueberry soy yogurts
@@ -79443,12 +79456,11 @@ ciqual_food_name:fr: Chop suey (porc ou poulet)
 
 < en:Meals
 en: Couscous, Durum wheat semolina pre-cooked with steam
+xx: Couscous
 bg: Кускус
-de: Couscous
 es: Cuscús
 fr: Couscous, Semoule de blé dur roulée précuite à la vapeur
 hr: Kuskus
-it: Couscous
 ja: クスクス
 lt: Kuskusas
 agribalyse_food_code:en: 9681
@@ -79466,6 +79478,7 @@ ciqual_food_name:fr: Couscous (semoule de blé dur roulée précuite à la vapeu
 
 < en:Savory semolina dishes
 en: Prepared couscous
+da: Tilberedt couscous
 de: Zubereitetes Couscous
 es: Cuscús preparado
 fi: kypsennetty couscous
@@ -79482,6 +79495,7 @@ wikidata:en: Q76605
 < en:Prepared couscous
 en: Couscous with vegetables
 bg: Кускус със зеленчуци
+da: Couscous med grøntsager
 fr: Couscous de légumes, Couscous aux légumes
 hr: Kus-kus s povrćem
 lt: Kuskusas su daržovėmis
@@ -96807,7 +96821,7 @@ fr: Pâtes à Kadaïf surgelées, pâtes à kadayif surgelées, pâtes à kataif
 < en:Plant-based foods
 en: Pickles
 ca: Conserves
-da: Syltede agurker
+da: Syltet mad
 de: Eingelegte Lebensmittel
 es: Encurtidos
 fi: säilykkeet
@@ -106564,6 +106578,7 @@ nl: Ingemaakte wortels
 < en:Vegetable pickles
 en: Pickled cucumbers
 bg: Кисели краставици
+da: Syltede agurker
 de: Eingelegte Gurken
 es: Pepinos encurtidos
 fi: säilötyt kurkut
@@ -106574,6 +106589,7 @@ it: Cetrioli sottaceto
 ja: きゅうりのピクルス
 nl: Ingemaakte komkommer
 ru: Маринованые огурцы
+sv: Gurkor i lag, Inlagda gurkor
 tr: Salatalık turşusu, Hıyar turşusu
 wikidata:en: Q1365891
 
@@ -106597,6 +106613,7 @@ hr: Kiseli krastavci
 hu: Csemegeuborka
 it: Cetriolini
 nl: Ingemaakte Augurken
+sv: Smågurkor i lag, Inlagda smågurkor
 comment:en: Pickled small cucumbers (gherkins) regardless of the method used to pickle them.
 intake24_category_code:en: GHRK
 intake24_category_code:fr: GHRK
@@ -106619,6 +106636,7 @@ fr: Cornichons au vinaigre
 hr: Kiseli kornišoni
 it: Cetriolini sottaceto
 nl: Zure Augurken
+sv: Cornichoner
 ciqual_food_code:en: 11004
 ciqual_food_name:en: Gherkin, pickled in vinegar
 ciqual_food_name:fr: Cornichon, au vinaigre
@@ -112627,7 +112645,9 @@ protected_name_type:en: pdo
 
 < en:Vegetables
 en: Broad beans
+da: Hestebønner
 fr: Fèves
+sv: Bondbönor
 agribalyse_proxy_food_code:en: 20518
 agribalyse_proxy_food_name:en: Broad bean, dried
 agribalyse_proxy_food_name:fr: Fève, sèche
@@ -112635,6 +112655,7 @@ sales_format:en: weight, package
 
 < en:Broad beans
 en: Dried broad beans
+da: Tørrede hestebønner
 fr: Fèves séchées
 agribalyse_food_code:en: 20518
 ciqual_food_code:en: 20518
@@ -112644,11 +112665,13 @@ ciqual_food_name:fr: Fève, sèche
 < en:Broad beans
 < en:Fresh legumes
 en: Fresh broad beans, Fresh fava beans, Fresh faba beans
+da: Friske hestebønner
 es: Habas, Habitas
 fr: Fèves frais, Féverolles frais
 hr: Svježe mahune
 la: Vicia faba
 nl: Tuinbonen
+sv: Färska bondbönor
 
 < en:Broad beans
 < en:Fresh legumes
@@ -112664,6 +112687,7 @@ ciqual_food_name:fr: Fève à écosser, fraîche
 < en:Canned legumes
 < en:Canned vegetables
 en: Canned broad beans, Canned fava beans, Canned faba beans
+da: Hestebønner på dåse
 es: Habas en conserva, Habitas en conserva
 fr: Fèves en conserve, Féverolles en conserve
 hr: Konzervirani bob
@@ -112674,6 +112698,7 @@ pl: Strączki w puszkach, strączkowe w puszkach, strączki konserwowe
 < en:Broad beans
 < en:Cooked vegetables
 en: Cooked broad beans
+da: Kogte hestebønner
 fr: Fèves cuites
 agribalyse_food_code:en: 20500
 ciqual_food_code:en: 20500
@@ -112683,6 +112708,7 @@ ciqual_food_name:fr: Fève, cuite
 < en:Pulses
 en: Peas
 bg: грах
+da: Ærter
 de: Erbsen
 es: Guisantes, Chícharos, Arvejas
 fi: herneet
