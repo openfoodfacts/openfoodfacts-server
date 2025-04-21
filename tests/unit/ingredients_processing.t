@@ -36,9 +36,10 @@ my @tests = (
 		},
 		[
 			{
-				'id' => 'en:raw-milk',
-				'is_in_taxonomy' => 1,
-				'text' => 'raw milk'
+				'id' => 'en:milk',
+				'is_in_taxonomy' => 1,,
+				'processing' => 'en:raw',
+				'text' => 'milk'
 			},
 			{
 				'id' => 'en:tomato',
@@ -127,7 +128,7 @@ my @tests = (
 			{
 				'id' => 'en:ham',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:sugared',
+				'processing' => 'en:sweetened',
 				'text' => 'ham'
 			}
 		]
@@ -467,10 +468,10 @@ my @tests = (
 				'text' => 'tomates'
 			},
 			{
-				'id' => 'en:skimmed-milk',
+				'id' => 'en:milk',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:partially-dehydrated',
-				'text' => "lait \x{e9}cr\x{e9}m\x{e9}"
+				'processing' => 'en:partially-dehydrated,en:skimmed',
+				'text' => "lait"
 			},
 			{
 				'id' => 'en:chia-seed',
@@ -563,9 +564,10 @@ my @tests = (
 		},
 		[
 			{
-				'id' => 'en:raw-milk',
+				'id' => 'en:milk',
 				'is_in_taxonomy' => 1,
-				'text' => 'raakamaito'
+				'text' => 'maito',
+				'processing' => 'en:raw',
 			},
 			{
 				'id' => 'en:blueberry',
@@ -994,13 +996,13 @@ my @tests = (
 			{
 				'id' => 'en:shallot',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:sugared',
+				'processing' => 'en:sweetened',
 				'text' => 'Schalotte'
 			},
 			{
 				'id' => 'en:hazelnut',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:sugared',
+				'processing' => 'en:sweetened',
 				'text' => "haselnüsse"
 			},
 			{
@@ -1830,16 +1832,18 @@ my @tests = (
 		{lc => "hr", ingredients_text => "Pasterizirano mlijeko (s 1.0% mliječne masti)"},
 		[
 			{
-				id => "en:pasteurised-milk",
+				id => "en:milk",
 				ingredients => [
 					{
-						id => "en:milk-with-1-0-milk-fat",
+						id => "en:milk",
 						is_in_taxonomy => 1,
-						text => "mlijeko s 1.0% mlije\x{10d}ne masti"
+						text => "mlijeko",
+                        processing => 'en:semi-skimmed',
 					}
 				],
 				is_in_taxonomy => 1,
-				text => "Pasterizirano mlijeko"
+				text => "mlijeko",
+                processing => 'en:pasteurised',
 			}
 		]
 	],
@@ -2265,9 +2269,10 @@ my @tests = (
 				'text' => 'perunasose'
 			},
 			{
-				'id' => 'fi:pakasteperunat',
-				'is_in_taxonomy' => 0,
-				'text' => 'pakasteperunat'
+				'id' => 'en:potato',
+				'is_in_taxonomy' => 1,
+				'text' => 'perunat',
+				'processing' => 'en:frozen',
 			},
 			{
 				'id' => 'en:potato',
