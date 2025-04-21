@@ -1,11 +1,12 @@
 [
    {
-      "id" : "en:pasteurised-whole-milk",
+      "id" : "en:milk",
       "is_in_taxonomy" : 1,
       "labels" : "en:fair-trade",
       "percent" : 74.3,
       "percent_estimate" : 74.3,
-      "text" : "Lait entier pasteurisé"
+      "processing" : "en:pasteurised,en:whole",
+      "text" : "Lait"
    },
    {
       "id" : "en:cane-sugar",
