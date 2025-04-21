@@ -37,7 +37,7 @@ my @tests = (
 		[
 			{
 				'id' => 'en:milk',
-				'is_in_taxonomy' => 1,,
+				'is_in_taxonomy' => 1,
 				'processing' => 'en:raw',
 				'text' => 'milk'
 			},
@@ -1838,12 +1838,12 @@ my @tests = (
 						id => "en:milk",
 						is_in_taxonomy => 1,
 						text => "mlijeko",
-                        processing => 'en:semi-skimmed',
+						processing => 'en:semi-skimmed',
 					}
 				],
 				is_in_taxonomy => 1,
 				text => "mlijeko",
-                processing => 'en:pasteurised',
+				processing => 'en:pasteurised',
 			}
 		]
 	],
