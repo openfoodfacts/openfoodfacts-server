@@ -323,18 +323,21 @@ paths:
                   - $ref: ./responses/response-status/response_status.yaml
                   - type: object
                     properties:
-                      images:
-                        type: object
+                      product:
                         properties:
-                          uploaded:
+                          images:
                             type: object
-                            allOf:
-                              - type: object
+                            properties:
+                              uploaded:
+                                type: object
                                 properties:
-                                  imgid:
-                                    type: string
-                                    description: ID of the uploaded image
-                              - $ref: "./schemas/image_uploaded.yaml#/components/schemas/ImageUploaded"
+                                allOf:
+                                  - type: object
+                                    properties:
+                                      imgid:
+                                        type: string
+                                        description: ID of the uploaded image
+                                  - $ref: "./schemas/image_uploaded.yaml#/components/schemas/ImageUploaded"
       
   /api/v3/taxonomy_suggestions:
     parameters: []

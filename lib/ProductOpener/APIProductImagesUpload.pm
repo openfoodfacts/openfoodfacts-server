@@ -228,7 +228,7 @@ sub upload_product_image_api ($request_ref) {
 				my $uploaded_image_ref = clone($product_ref->{images}{uploaded}{$imgid});
 				# add the imgid to the image object
 				$uploaded_image_ref->{imgid} = $imgid;
-				deep_set($response_ref, "images", "uploaded", $uploaded_image_ref);
+				deep_set($response_ref, "product", "images", "uploaded", $imgid, $uploaded_image_ref);
 			}
 		}
 	}
