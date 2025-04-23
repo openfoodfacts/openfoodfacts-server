@@ -126,6 +126,12 @@ stopwords:fr: aux, au, de, le, du, la, a, et, avec, ou, en, proportion, variable
 # example: sojin umak bez glutena
 # example: marelice 8.3% (SADRŽE sumporni dioksid) / SADRŽI sulfite
 stopwords:hr: bez glutena, i/ili, i, ili, iz, max, min, najmanje, najviše, obično poznat kao, od, u promjenjivim omjerima, u promjenjivim udjelima, u različitim omjerima, u tragovima, bogat bjelančevinama, klasična mješavina, od čega, odgovara, titriran na 25 % 5-HTP, uključujući i, uključujući, sadrže, sadrži
+# percentage of fat for cream, removed for now as it is more a "quality" thing, like "Eggs (caliber 1)".
+stopwords:hr: s mliječne masti, s 2.8% mliječne masti, s 3.2% mliječne masti, s 3.5% mliječne masti, s 6.0% mliječne masti, s 6% mliječne masti, s 10% mliječne masti, s 12% mliječne masti, s 18% mliječne masti, s 20% mliječne masti, s 25% mliječne masti, s 33% mliječne masti, s 36% mliječne masti
+# percentage of fat for skimmed milk, removed for now as it is more a "quality" thing, like "Eggs (caliber 1)".
+stopwords:hr: s 0.5% mliječne masti, s 0.1% mliječne masti
+# percentage of fat for semi-skimmed milk, removed for now as it is more a "quality" thing, like "Eggs (caliber 1)".
+stopwords:hr: s 1.5% mliječne masti, s 1.0% mliječne masti, s 1% mliječne masti, s 2.0% mliječne masti, s 2% mliječne masti, s 2.5% mliječne masti
 # example: tejpor alapú termékek (milk-powder based product)
 stopwords:hu: tartalmaz, változó arányban, min, zsírtartalom, összetevő, összetétel, amelyből, amiből, alapú termékek
 stopwords:id: mengandung
@@ -2848,10 +2854,10 @@ wikipedia:en: https://en.wikipedia.org/wiki/Skimmed_milk
 < en:milk
 en: cow's milk, cows' milk, cow milk
 bg: краве мляко
-ca: llet de vaca
+ca: llet de vaca, llect de vaca
 de: Kuhmilch
 es: leche de vaca, nata de vaca
-fi: lehmänmaito
+fi: lehmänmaito, lehmän maito
 fr: lait de vache
 hr: kravlje mlijeko
 hu: tehéntej
@@ -2870,27 +2876,6 @@ uk: Коров'яче молоко
 zh: 牛奶
 wikipedia:fr: https://fr.wikipedia.org/wiki/Lait_de_vache
 
-# description:en:RAW COW MILK - milk produced by female cows before any treatment
-
-# TODO, processing problem, processing in the middle of the ingredient
-< en:cow's milk
-de: Kuhrohmilch
-fi: raaka lehmänmaito
-
-# WHOLE COWS MILK (around 3.5–4% fat), dans l'Union européenne, le lait entier doit contenir au minimum 3,50 % en masse de matière grasse.
-
-# TODO, processing problem, processing in the middle of the ingredient
-< en:cow's milk
-ca: llect de vaca sencera, llet sencera de vaca
-de: Kuhvollmilch
-fi: lehmän täysmaito
-
-# description:en:PASTEURISED COW MILK - raw cow milk that has been treated (pasteurisation)
-
-# TODO, processing problem, processing in the middle of the ingredient
-< en:cow's milk
-fr: lait frais de nos vaches
-
 ################################# GOAT MILKS ###################################
 
 #category/goat-milks
@@ -2906,7 +2891,7 @@ eo: kaprina lakto
 es: leche de cabra
 et: kitsepiim
 eu: ahuntz esne
-fi: vuohenmaito
+fi: vuohenmaito, vuohen maito
 fr: lait de chèvre
 he: חלב עיזים
 hr: kozje mlijeko
@@ -2939,15 +2924,6 @@ description:nb: Geitemelk er melk fra geit (Capra aegagrus hircus).
 description:pl: Geitenmelk is de melk die gevormd wordt in de uier van een geit.
 wikidata:en: Q1418287
 # 1.797 in 16 @2021-08-25
-
-# TODO, processing problem, processing in the middle of the ingredient
-< en:goat milk
-de: Ziegenvollmilch, Ziegen-Vollmilch, Ziegen-Rohmilch, Ziegenrohmilch, unpasteurisierte Ziegenmilch
-fi: vuohen täysmaito, vuohen raakamaito
-ciqual_food_code:en: 19202
-ciqual_food_name:en: Goat milk, whole, raw
-ciqual_food_name:fr: Lait de chèvre, entier, cru
-# 97 in 3 @2021-08-25
 
 < en:yogurt
 en: goat's milk yogurt
@@ -3317,15 +3293,6 @@ vegetarian:en: yes
 # ingredient/lactose-and-milk-proteins has 1395 products in 10 languages @2019-05-06
 
 ################################ MILK POWDERS ##################################
-
-# TODO, processing problem, main ingredient appears two times in the ingredient
-< en:dairy
-fr: lait écrémé à base de poudre de lait
-
-# TODO, processing problem, main ingredient appears two times in the ingredient
-# en: reconstituted milk powder
-< en:dairy
-ru: восстановленное молоко из сухого молока
 
 < en:coating
 < en:milk
