@@ -6,9 +6,7 @@
          "percent_estimate" : 75,
          "percent_max" : 100,
          "percent_min" : 50,
-         "text" : "vitamin a",
-         "vegan" : "yes",
-         "vegetarian" : "yes"
+         "text" : "vitamin a"
       },
       {
          "ciqual_food_code" : "11058",
@@ -22,11 +20,18 @@
          "vegetarian" : "yes"
       }
    ],
-   "ingredients_analysis" : {},
+   "ingredients_analysis" : {
+      "en:vegan-status-unknown" : [
+         "en:vitamin-a"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "en:vitamin-a"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:vegan",
-      "en:vegetarian"
+      "en:vegan-status-unknown",
+      "en:vegetarian-status-unknown"
    ],
    "ingredients_lc" : "en",
    "ingredients_n" : 2,
@@ -41,7 +46,6 @@
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
       "en:vitamin-a",
-      "en:vitamins",
       "en:salt"
    ],
    "ingredients_text" : "vitamin a, salt",
