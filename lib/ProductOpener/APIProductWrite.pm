@@ -269,6 +269,9 @@ sub update_selected_images ($request_ref, $product_ref, $response_ref) {
 
 	my $input_product_ref = $request_body_ref->{product};
 
+	# TODO: implement this function
+
+	return;
 }
 
 =head2 update_product_fields ($request_ref, $product_ref, $response_ref)

@@ -329,16 +329,14 @@ paths:
                             type: object
                             properties:
                               uploaded:
+                                description: |
+                                  List with only the image just uploaded by the user. The key is the image id (imgid) and the value is an object with the image data.
                                 type: object
-                                properties:
-                                allOf:
-                                  - type: object
-                                    properties:
-                                      imgid:
-                                        type: string
-                                        description: ID of the uploaded image
-                                  - $ref: "./schemas/image_uploaded.yaml#/components/schemas/ImageUploaded"
-      
+                                title: images_uploaded
+                                patternProperties:
+                                  '(?<imgid>\d+)':
+                                    $ref: "./schemas/image_uploaded.yaml#/components/schemas/ImageUploaded"
+                            
   /api/v3/taxonomy_suggestions:
     parameters: []
     get:
