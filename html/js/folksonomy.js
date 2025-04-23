@@ -465,10 +465,8 @@ function displayAllProperties() {
  * @returns {void}
  */
 function restrictFolksonomyForGuests() {
-    console.log("Enforcing read-only mode for non-logged-in users.");
 
     setTimeout(() => {
-
         document.querySelectorAll(".fe_edit_kv, .fe_del_kv, #new_kv_button").forEach((btn) => {
             // Remove any existing event listeners to prevent conflicts.
             const newBtn = btn.cloneNode(true);
@@ -826,8 +824,7 @@ function isPageType() {
         }
         else {
             // Use custom login prompt dialog rather than normal alert
-            showLoginPromptDialog();
-
+            showLoginPromptDialog(false);
             //return;
         }
     }
@@ -839,61 +836,77 @@ function isPageType() {
  *   attempts to perform a write action (add/edit/delete) on folksonomy properties.
  * 
  * Functionality:
- *    it creates and opens a jQuery UI dialog with "Login" and "Cancel" buttons.
+ *    it creates and opens a dialog with "Login", "Sign up" and "Cancel" buttons.
  **/
 
-    function showLoginPromptDialog() {
-        
-        // Prevent multiple modal instances.
-        if ($("#loginModal").length) {
-            return;
-        }
-        
-        // Append custom CSS for modal styling.
-        $("<style>").prop("type", "text/css").html(`
-                #loginModal {
-                    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-                    text-align: center;
-                    padding: 15px;
-                }
-                .ui-dialog-titlebar {
-                    background: #6D4C41  !important;
-                    color: white !important;
-                    font-weight: bold;
-                }
-                .ui-dialog-buttonpane {
-                    text-align: center !important;
-                }
-                .ui-dialog-buttonset button {
-                    background-color: #6D4C41  !important;
-                    color: white !important;
-                    padding: 10px;
-                    border-radius: 5px;
-                    border: none;
-                }
-            `).appendTo("head");
-        
-        // Create and open the dialog.
-        $("<div id='loginModal' title='Login Required'>").html("You need to log in to add or edit properties.<br><br>Please click 'Login' to go to the login page.").dialog({
-                modal: true,
-                resizable: false,
-                draggable: false,
-                width: 400,
-                buttons: {
-                    "Login": function () {
-                        $(this).dialog("close");
-                        window.location.href = "/cgi/user.pl"; 
-                    },
-                    "Cancel": function () {
-                        $(this).dialog("close");
-                    }
-                },
-                close: function () {
-                    $(this).remove(); // Cleanup when the modal is closed.
-                }
-            });
+function showLoginPromptDialog(showSignup = true) {
+    const brownColor = '#6D4C41'; 
+   // custom dialog for promoting login
+    const dialogElement = $('<div>').addClass('login-prompt-dialog').attr('id', 'loginPromptDialog').css({
+        'position': 'fixed',
+        'top': '50%',
+        'left': '50%',
+        'transform': 'translate(-50%, -50%)',
+        'background-color': 'white',
+        'border': '2px solid #6D4C41',
+        'border-radius': '15px',
+        'padding': '10px',
+        'z-index': 1000,
+        'text-align': 'center',
+      }).append(
+        $('<h2>').text('Login Required').css('color', brownColor),
+        $('<p>').text('You need to be logged in to perform this action.'),
+        $('<div>').css({
+          'display': 'flex',
+          'justify-content': 'space-around',
+          'margin-top': '10px'
+        }).append(
+          $('<a>').attr('href', '/cgi/session.pl').text('Login').addClass('login-button').css({
+            'background-color': brownColor,
+            'color': 'white',
+            'padding': '10px 20px',
+            'text-decoration': 'none',
+            'margin': '5px',
+            'border-radius': '5px',
+            'cursor': 'pointer',
+            'border': 'none'
+          })
+        ),
+        $('<button>').text('Cancel').css({
+            'margin-top': '15px',
+            'padding': '8px 16px',
+            'background-color': '#d9534f',
+            'color': 'white',
+            'border': 'none',
+            'border-radius': '5px',
+            'cursor': 'pointer'
+          }).on('click', function() {
+            dialogElement.remove();
+          })
+      );
+  
+    const buttonContainer = dialogElement.find('div').first(); // Get the button container
+  
+    // show signup when trying to access folksonomy engine 
+    if (showSignup) {
+      const signupLink = $('<a>').attr('href', '/cgi/user.pl').text('Sign Up').addClass('signup-button').css({
+        'background-color': brownColor,
+        'color': 'white',
+        'padding': '10px 20px',
+        'text-decoration': 'none',
+        'margin': '5px',
+        'border-radius': '5px',
+        'cursor': 'pointer',
+        'border': 'none'
+      });
+      buttonContainer.append(signupLink);
+      buttonContainer.css('justify-content', 'space-around'); 
+    } else {
+      buttonContainer.css('justify-content', 'center'); // Center the Login button if no signup
     }
-
+  
+    $('body').append(dialogElement);
+  }
     // TODO: Reenable login ?
     // Else display a form
     // const loginWindow =
