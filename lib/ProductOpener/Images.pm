@@ -702,6 +702,98 @@ sub is_protected_image ($product_ref, $image_type, $image_lc) {
 	return 0;    # image should not be protected
 }
 
+=head2 generate_resized_images ($path, $filename, $image_source, $sizes_ref, @sizes)
+
+This function generates resized images from the original image.
+
+For uploaded images, we resize to 100, and 200 pixels maximum width or height.
+
+For selected images, we resize to 100, 200, and 400 pixels maximum width or height.
+
+=head3 Arguments
+
+=head4 $path
+
+The path to the image directory (e.g. html/images/products/1234567890123/).
+
+=head4 $filename
+
+The name of the image file (without the extension).
+
+=head4 $image_source
+
+The source image object (Image::Magick).
+
+=head4 $sizes_ref
+
+A reference to a hash that will be filled with the sizes of the generated images.
+
+=head4 @sizes
+
+An array of sizes to generate. The sizes are the maximum width or height of the image.
+
+=head3 Return values
+
+The function returns the error code from ImageMagick if there was an error writing the image.
+
+=cut
+
+sub generate_resized_images ($path, $filename, $image_source, $sizes_ref, @sizes) {
+
+	my $full_width = $image_source->Get('width');
+	my $full_height = $image_source->Get('height');
+
+	$sizes_ref->{full} = {w => $full_width, h => $full_height};
+
+	my $imagemagick_error;    # returned to caller if we cannot write the resized images
+
+	foreach my $max (@sizes) {
+
+		my ($w, $h) = ($full_width, $full_height);
+		if ($w > $h) {
+			if ($w > $max) {
+				$h = $h * $max / $w;
+				$w = $max;
+			}
+		}
+		else {
+			if ($h > $max) {
+				$w = $w * $max / $h;
+				$h = $max;
+			}
+		}
+		my $geometry = $w . 'x' . $h;
+		my $img = $image_source->Clone();
+		$img->Resize(geometry => "$geometry^");
+		$img->Extent(
+			geometry => "$geometry",
+			gravity => "center"
+		);
+		_set_magickal_options($img, $w);
+
+		$imagemagick_error = $img->Write("jpeg:$path/$filename.$max.jpg");
+		if (($imagemagick_error) and ($imagemagick_error =~ /(\d+)/) and ($1 >= 400))
+		{    # ImageMagick returns a string starting with a number greater than 400 for errors
+			$log->warn(
+				"could not write jpeg",
+				{
+					path => "jpeg:$path/$filename.$max.jpg",
+					error => $imagemagick_error
+				}
+			) if $log->is_warn();
+			last;
+		}
+		else {
+			$log->info("jpeg written", {path => "jpeg:$path/$filename.$max.jpg"})
+				if $log->is_info();
+		}
+
+		$sizes_ref->{$max} = {w => $img->Get('width'), h => $img->Get('height')};
+	}
+
+	return $imagemagick_error;
+}
+
 =head2 process_image_upload ( $product_ref, $imagefield, $user_id, $time, $comment, $imgid_ref, $debug_string_ref )
 
 Process an image uploaded to a product (from the web site, from the API, or from an import):
@@ -813,7 +905,6 @@ sub process_image_upload_using_filehandle ($product_ref, $filehandle, $user_id, 
 	my $path = product_path($product_ref);
 	my $imgid = -1;
 
-	my $new_product_ref = {};
 	my $extension = 'jpg';
 
 	my $file = undef;
@@ -1001,56 +1092,9 @@ sub process_image_upload_using_filehandle ($product_ref, $filehandle, $user_id, 
 		}
 
 		# Generate resized versions
-
-		$new_product_ref->{"images.$imgid.w"} = $source->Get('width');
-		$new_product_ref->{"images.$imgid.h"} = $source->Get('height');
-
-		foreach my $max ($thumb_size, $crop_size) {
-
-			my ($w, $h) = ($source->Get('width'), $source->Get('height'));
-			if ($w > $h) {
-				if ($w > $max) {
-					$h = $h * $max / $w;
-					$w = $max;
-				}
-			}
-			else {
-				if ($h > $max) {
-					$w = $w * $max / $h;
-					$h = $max;
-				}
-			}
-			my $geometry = $w . 'x' . $h;
-			my $img = $source->Clone();
-			$img->Resize(geometry => "$geometry^");
-			$img->Extent(
-				geometry => "$geometry",
-				gravity => "center"
-			);
-			_set_magickal_options($img, $w);
-
-			$imagemagick_error = $img->Write("jpeg:$target_image_dir/$imgid.$max.jpg");
-			if (($imagemagick_error) and ($imagemagick_error =~ /(\d+)/) and ($1 >= 400))
-			{    # ImageMagick returns a string starting with a number greater than 400 for errors
-				$log->warn(
-					"could not write jpeg",
-					{
-						path => "jpeg:$target_image_dir/$imgid.$max.jpg",
-						error => $imagemagick_error
-					}
-				) if $log->is_warn();
-				last;
-			}
-			else {
-				$log->info("jpeg written", {path => "jpeg:$target_image_dir/$imgid.$max.jpg"})
-					if $log->is_info();
-			}
-
-			$new_product_ref->{"images.$imgid.$max"} = "$imgid.$max";
-			$new_product_ref->{"images.$imgid.$max.w"} = $img->Get('width');
-			$new_product_ref->{"images.$imgid.$max.h"} = $img->Get('height');
-
-		}
+		my $size_ref = {};
+		$imagemagick_error
+			= generate_resized_images($target_image_dir, $imgid, $source, $size_ref, $thumb_size, $crop_size);
 
 		if (not $imagemagick_error) {
 
@@ -1066,21 +1110,10 @@ sub process_image_upload_using_filehandle ($product_ref, $filehandle, $user_id, 
 				{
 					uploader => $user_id,
 					uploaded_t => $time,
-					sizes => {
-						full =>
-							{w => $new_product_ref->{"images.$imgid.w"}, h => $new_product_ref->{"images.$imgid.h"}},
-					},
+					sizes => $size_ref,
 				}
 			);
 
-			foreach my $max ($thumb_size, $crop_size) {
-
-				$product_ref->{images}{uploaded}{$imgid}{sizes}{$max} = {
-					w => $new_product_ref->{"images.$imgid.$max.w"},
-					h => $new_product_ref->{"images.$imgid.$max.h"}
-				};
-
-			}
 			if ($imgid > $product_ref->{max_imgid}) {
 				$product_ref->{max_imgid} = $imgid;
 			}
@@ -1275,15 +1308,16 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 	return 0;
 }
 
-=head2 process_image_crop ( $user_id, $product_id, $image_type, $image_lc, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size )
+=head2 process_image_crop ( $user_id, $product_ref, $image_type, $image_lc, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size )
 
 Select and possibly crop an uploaded image to represent the front, ingredients, nutrition or packaging image in a specific language.
 
 =cut
 
-sub process_image_crop ($user_id, $product_id, $image_type, $image_lc, $imgid, $angle, $normalize, $white_magic, $x1,
+sub process_image_crop ($user_id, $product_ref, $image_type, $image_lc, $imgid, $angle, $normalize, $white_magic, $x1,
 	$y1, $x2, $y2, $coordinates_image_size)
 {
+	my $product_id = $product_ref->{id};
 	my $id = $image_type . "_" . $image_lc;
 
 	$log->debug(
@@ -1334,8 +1368,7 @@ sub process_image_crop ($user_id, $product_id, $image_type, $image_lc, $imgid, $
 	my $code = $product_id;
 	$code =~ s/.*\///;
 
-	my $new_product_ref = retrieve_product($product_id);
-	my $rev = $new_product_ref->{rev} + 1;    # For naming images
+	my $rev = $product_ref->{rev} + 1;    # For naming images
 
 	my $source_path = "$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.jpg";
 
@@ -1347,7 +1380,7 @@ sub process_image_crop ($user_id, $product_id, $image_type, $image_lc, $imgid, $
 
 	$log->trace("cropping image") if $log->is_trace();
 
-	my $proceed_with_edit = process_product_edit_rules($new_product_ref);
+	my $proceed_with_edit = process_product_edit_rules($product_ref);
 
 	$log->debug("edit rules processed", {proceed_with_edit => $proceed_with_edit}) if $log->is_debug();
 
@@ -1373,8 +1406,8 @@ sub process_image_crop ($user_id, $product_id, $image_type, $image_lc, $imgid, $
 	# Crop the image
 	my $ow = $source->Get('width');
 	my $oh = $source->Get('height');
-	my $w = $new_product_ref->{images}{uploaded}{$imgid}{sizes}{$coordinates_image_size}{w};
-	my $h = $new_product_ref->{images}{uploaded}{$imgid}{sizes}{$coordinates_image_size}{h};
+	my $w = $product_ref->{images}{uploaded}{$imgid}{sizes}{$coordinates_image_size}{w};
+	my $h = $product_ref->{images}{uploaded}{$imgid}{sizes}{$coordinates_image_size}{h};
 
 	if (($angle % 180) == 90) {
 		my $z = $w;
@@ -1535,50 +1568,11 @@ sub process_image_crop ($user_id, $product_id, $image_type, $image_lc, $imgid, $
 
 	# Generate resized versions
 
-	foreach my $max ($thumb_size, $small_size, $display_size) {    # $zoom_size -> too big?
-
-		my ($w, $h) = ($nw, $nh);
-		if ($w > $h) {
-			if ($w > $max) {
-				$h = $h * $max / $w;
-				$w = $max;
-			}
-		}
-		else {
-			if ($h > $max) {
-				$w = $w * $max / $h;
-				$h = $max;
-			}
-		}
-		my $geometry2 = $w . 'x' . $h;
-		my $img = $cropped_source->Clone();
-		$img->Resize(geometry => "$geometry2^");
-		$img->Extent(
-			geometry => "$geometry2",
-			gravity => "center"
-		);
-		_set_magickal_options($img, $w);
-
-		my $final_path = "$BASE_DIRS{PRODUCTS_IMAGES}/$path/$filename.$max.jpg";
-		my $imagemagick_error = $img->Write("jpeg:${final_path}");
-		if (($imagemagick_error) and ($imagemagick_error =~ /(\d+)/) and ($1 >= 400))
-		{    # ImageMagick returns a string starting with a number greater than 400 for errors
-			$log->error("could not write final cropped image", {path => $final_path, error => $imagemagick_error})
-				if $log->is_error();
-		}
-		else {
-			$log->info("wrote final cropped image", {path => $final_path}) if $log->is_info();
-		}
-
-		# temporary fields
-		$new_product_ref->{"images.$id.$max"} = "$filename.$max";
-		$new_product_ref->{"images.$id.$max.w"} = $img->Get('width');
-		$new_product_ref->{"images.$id.$max.h"} = $img->Get('height');
-
-	}
+	my $sizes_ref = {};
+	generate_resized_images("$BASE_DIRS{PRODUCTS_IMAGES}/$path/",
+		$filename, $cropped_source, $sizes_ref, $thumb_size, $small_size, $display_size);
 
 	# Update the product image data
-	my $product_ref = retrieve_product($product_id);
 	deep_set(
 		$product_ref,
 		"images",
@@ -1599,16 +1593,9 @@ sub process_image_crop ($user_id, $product_id, $image_type, $image_lc, $imgid, $
 				normalize => $normalize,
 				white_magic => $white_magic,
 			},
-			sizes => {
-				full => {w => $nw, h => $nh},
-			}
+			sizes => $sizes_ref
 		}
 	);
-
-	foreach my $max ($thumb_size, $small_size, $display_size) {    # $zoom_size
-		deep_set($product_ref, "images", "selected", $image_type, $image_lc, "sizes", $max,
-			{w => $new_product_ref->{"images.$id.$max.w"}, h => $new_product_ref->{"images.$id.$max.h"}});
-	}
 
 	store_product($user_id, $product_ref, "new image $id : $imgid.$rev");
 

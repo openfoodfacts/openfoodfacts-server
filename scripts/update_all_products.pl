@@ -989,42 +989,63 @@ while (my $product_ref = $cursor->next) {
 		}
 
 		if ($autorotate) {
+			# This is old code
+			die("autorotate has not been tested recently, please test it before using it");
 			# OCR needs to have been run first
-			if (defined $product_ref->{images}) {
-				foreach my $imgid (sort keys %{$product_ref->{images}}) {
-					if (
-							($imgid =~ /^(ingredients|nutrition)_/)
-						and (defined $product_ref->{images}{$imgid}{orientation})
-						and ($product_ref->{images}{$imgid}{orientation} != 0)
-						# only rotate images that have not been manually cropped
-						and (  (not defined $product_ref->{images}{$imgid}{x1})
-							or ($product_ref->{images}{$imgid}{x1} <= 0))
-						and (  (not defined $product_ref->{images}{$imgid}{y1})
-							or ($product_ref->{images}{$imgid}{y1} <= 0))
-						and (  (not defined $product_ref->{images}{$imgid}{x2})
-							or ($product_ref->{images}{$imgid}{x2} <= 0))
-						and (  (not defined $product_ref->{images}{$imgid}{y2})
-							or ($product_ref->{images}{$imgid}{y2} <= 0))
-						)
-					{
-						print STDERR "rotating image $imgid by "
-							. (-$product_ref->{images}{$imgid}{orientation}) . "\n";
+			if ((defined $product_ref->{images}) and (defined $product_ref->{images}{selected})) {
+				foreach my $image_type (sort keys %{$product_ref->{images}{selected}}) {
+					if ($image_type =~ /^(ingredients|nutrition)/) {
+						foreach my $image_lc (sort keys %{$product_ref->{images}{selected}{$image_type}}) {
+							if (
+									(defined $product_ref->{images}{selected}{$image_type}{$image_lc}{orientation})
+								and ($product_ref->{images}{selected}{$image_type}{$image_lc} != 0)
+								# only rotate images that have not been manually cropped
+								and
+								((not defined $product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{x1})
+									or ($product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{x1} <= 0))
+								and
+								((not defined $product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{y1})
+									or ($product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{y1} <= 0))
+								and
+								((not defined $product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{x2})
+									or ($product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{x2} <= 0))
+								and
+								((not defined $product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{y2})
+									or ($product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{y2} <= 0))
+								)
+							{
+								print STDERR "rotating image $imgid by "
+									. (
+									-$product_ref->$product_ref->{images}{selected}{$image_type}{$image_lc}{generation}
+										{orientation}) . "\n";
 
-						# Save product so that OCR results now:
-						# autorotate may call image_process_crop which will read the product file on disk and
-						# write a new one
-						store("$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref);
+								# Save product so that OCR results now:
+								# autorotate may call image_process_crop which will read the product file on disk and
+								# write a new one
+								store("$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref);
 
-						eval {
+								eval {
 
-							# process_image_crops saves a new version of the product
-							$product_ref = process_image_crop(
-								"autorotate-bot", $code, $imgid,
-								$product_ref->{images}{$imgid}{imgid},
-								-$product_ref->{images}{$imgid}{orientation},
-								undef, undef, -1, -1, -1, -1, "full"
-							);
-						};
+									# process_image_crops saves a new version of the product
+									$product_ref = process_image_crop(
+										"autorotate-bot",
+										$product_ref,
+										$image_type,
+										$image_lc,
+										$product_ref->{images}{selected}{$image_type}{$image_lc}{$imgid}{imgid},
+										-$product_ref->{images}{selected}{$image_type}{$image_lc}{generation}
+											{orientation},
+										undef,
+										undef,
+										-1,
+										-1,
+										-1,
+										-1,
+										"full"
+									);
+								};
+							}
+						}
 					}
 				}
 			}

@@ -130,14 +130,14 @@ elsif ((defined $User_id) and (($User_id eq 'kiliweb')) or (remote_addr() eq "20
 		and (not is_protected_image($product_ref, $image_type, $image_lc) or $User{moderator}))
 	{
 		$product_ref
-			= process_image_crop($User_id, $product_id, $image_type, $image_lc, $imgid, $angle, $normalize,
+			= process_image_crop($User_id, $product_ref, $image_type, $image_lc, $imgid, $angle, $normalize,
 			$white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size);
 	}
 }
 else {
 	if (not is_protected_image($product_ref, $image_type, $image_lc) or $User{moderator}) {
 		$product_ref
-			= process_image_crop($User_id, $product_id, $image_type, $image_lc, $imgid, $angle, $normalize,
+			= process_image_crop($User_id, $product_ref, $image_type, $image_lc, $imgid, $angle, $normalize,
 			$white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size);
 	}
 }

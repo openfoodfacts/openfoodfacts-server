@@ -435,7 +435,7 @@ sub upload_images_for_product($args_ref, $images_ref, $product_ref, $imported_pr
 							}
 						) if $log->is_debug();
 						eval {
-							process_image_crop($user_id, $product_id, $image_type, $image_lc, $imgid, $angle,
+							process_image_crop($user_id, $product_ref, $image_type, $image_lc, $imgid, $angle,
 								$normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size);
 							$selected_images{$imagefield_with_lc} = 1;
 						};
@@ -486,7 +486,7 @@ sub upload_images_for_product($args_ref, $images_ref, $product_ref, $imported_pr
 							) if $log->is_debug();
 
 							eval {
-								process_image_crop($user_id, $product_id, $image_type, $image_lc, $imgid, $angle,
+								process_image_crop($user_id, $product_ref, $image_type, $image_lc, $imgid, $angle,
 									$normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size);
 								$selected_images{$imagefield_with_lc} = 1;
 							};
@@ -517,7 +517,7 @@ sub upload_images_for_product($args_ref, $images_ref, $product_ref, $imported_pr
 						}
 					) if $log->is_debug();
 					eval {
-						process_image_crop($user_id, $product_id, "front", $product_ref->{lc},
+						process_image_crop($user_id, $product_ref, "front", $product_ref->{lc},
 							$imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size);
 						# Keep track that we have selected an image, so that we don't select another one after,
 						# as we don't reload the product_ref after calling process_image_crop()

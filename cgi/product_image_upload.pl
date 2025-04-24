@@ -329,7 +329,7 @@ if ($imagefield) {
 			{
 				$log->debug("selecting image", {imgid => $imgid, image_type => $image_type, lc => $image_lc})
 					if $log->is_debug();
-				process_image_crop($User_id, $product_id, $image_type, $image_lc, $imgid, 0, undef, undef, -1, -1, -1,
+				process_image_crop($User_id, $product_ref, $image_type, $image_lc, $imgid, 0, undef, undef, -1, -1, -1,
 					-1, "full");
 			}
 		}
@@ -353,7 +353,7 @@ if ($imagefield) {
 					front_imagefield => "front_" . $product_ref->{lc}
 				}
 			) if $log->is_debug();
-			process_image_crop($User_id, $product_id, "front", $product_ref->{lc},
+			process_image_crop($User_id, $product_ref, "front", $product_ref->{lc},
 				$imgid, 0, undef, undef, -1, -1, -1, -1, "full");
 		}
 	}
