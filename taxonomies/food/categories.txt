@@ -106671,10 +106671,19 @@ ja: きゅうりのピクルス
 nl: Ingemaakte komkommer
 ru: Маринованые огурцы
 tr: Salatalık turşusu, Hıyar turşusu
-wikidata:en: Q1211297
+wikidata:en: Q1365891
 
-< en:Pickled cucumbers
+< en:Cucumbers
+en: Small cucumbers, Gherkins (non-pickled)
+sv: Smågurkor
+
+< en:Small cucumbers
 en: Gherkins
+comment:en: “Gherkins” can refer to both non-pickled and pickled small cucumbers
+
+< en:Gherkins
+< en:Pickled cucumbers
+en: Pickled gherkins, Gherkins (pickled), Pickled small cucumbers
 bg: Кисели краставички
 de: Essiggurken
 es: Pepinillos, Pepinillos encurtidos
@@ -106684,18 +106693,22 @@ hr: Kiseli krastavci
 hu: Csemegeuborka
 it: Cetriolini
 nl: Ingemaakte Augurken
-ciqual_proxy_food_code:en: 11004
-ciqual_proxy_food_name:en: Gherkin, pickled in vinegar
-ciqual_proxy_food_name:fr: Cornichon, au vinaigre
+comment:en: Pickled small cucumbers (gherkins) regardless of the method used to pickle them.
 intake24_category_code:en: GHRK
 intake24_category_code:fr: GHRK
-wikidata:en: Q1365891
+
+< en:Pickled gherkins
+en: Gherkins pickled in brine, Salzgurke, Small cucumbers pickled in brine
+de: Salzgurke
+nb: Saltagurk
+sv: Saltgurkor
+wikidata:en: Q1211297
 
 # agribalyse_food_code:en:99999
 # TODO Curious code not present in official Agribalyse file. Not sure who added this
 
-< en:Gherkins
-en: Pickled gherkins, Gherkins pickled in vinegar
+< en:Pickled gherkins
+en: Gherkins pickled in vinegar
 bg: Кисели краставички с оцет
 de: Gewürzgurken, Cornichons
 fr: Cornichons au vinaigre
@@ -106709,7 +106722,7 @@ ciqual_food_name:fr: Cornichon, au vinaigre
 < en:Gherkins
 en: Extra-fine gherkins
 de: Extra-feine Cornichons
-fi: hienoja suolakurkkuja
+fi: Hienoja suolakurkkuja
 fr: Cornichons extra-fins
 hr: Ekstra-fini kornišoni
 nl: Zeer fijne augurken
@@ -106724,7 +106737,7 @@ hr: Fini kornišoni
 nl: Fijne augurken
 
 < en:Gherkins
-en: semi-fine gherkins
+en: Semi-fine gherkins
 fr: Cornichons mi-fins
 
 < en:Gherkins
@@ -106739,15 +106752,15 @@ ciqual_food_code:en: 11097
 ciqual_food_name:en: Gherkin, in sweet and sour sauce
 ciqual_food_name:fr: Cornichon, aigre-doux
 
-< en:Gherkins
+< en:Pickled gherkins
 en: dill pickles
 fr: Cornichons à l'aneth
 
-< en:Gherkins
+< en:Pickled gherkins
 en: Polish pickles
 fr: Cornichons à la polonaise
 
-< en:Gherkins
+< en:Pickled gherkins
 en: Russian pickles
 fr: Cornichons à la russe
 
