@@ -852,6 +852,13 @@
          "important" : false,
          "name" : "Acidity",
          "unit" : "% vol"
+      },
+      {
+         "display_in_edit_form" : false,
+         "id" : "carbohydrates-total",
+         "important" : false,
+         "name" : "Total carbohydrates (includes fiber)",
+         "unit" : "g"
       }
    ]
 }
