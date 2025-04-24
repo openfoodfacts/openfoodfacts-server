@@ -5113,6 +5113,8 @@ my %phrases_before_ingredients_list = (
 
 	ja => ['原材料名',],
 
+	ka => ['ინგრედიენტები',],
+
 	kk => ['курамы',],
 
 	ko => ['配料',],
@@ -5243,7 +5245,8 @@ my %phrases_after_ingredients_list = (
 		'да се съхранява (в закрити|на сухо)',    # store in ...
 		'Аналитични съставки',    # pet food
 		'Неотворен',    # before opening ...
-		'След отваряне'    # after opening ...
+		'След отваряне',    # after opening ...
+		'Продуктът може да',    #product can contain
 	],
 
 	ca => ['envasat en atmosfera protectora', 'conserveu-los en un lloc fresc i sec',],
@@ -5279,6 +5282,7 @@ my %phrases_after_ingredients_list = (
 		'Durchschnittliche N(â|a|ä)hrwerte',
 		'DURCHSCHNITTLICHE NÄHRWERTE',
 		'Durchschnittliche N(â|a|ä)hrwert(angaben|angabe)',
+		'für Allergene',
 		# 'Kakao: \d\d\s?% mindestens.', # allergens can appear after.
 		'N(â|a|ä)hrwert(angaben|angabe|information|tabelle)',    #Nährwertangaben pro 100g
 		'N(â|a|ä)hrwerte je',
@@ -5305,6 +5309,8 @@ my %phrases_after_ingredients_list = (
 		'Αναλυτικές συστατικές',    # pet food
 		'ΔΙΑΘΡΕΠΤΙΚΗ ΕΠΙΣΗΜΑΝΣΗ',    #Nutritional labelling
 		'ΔΙΤΡΟΦΙΚΕΣ ΠΗΡΟΦΟΡΙΕΣ',
+		'Για τα αλλεργιογόνα',
+		'Για αλλεργιογόνα',
 	],
 
 	en => [
@@ -5314,6 +5320,7 @@ my %phrases_after_ingredients_list = (
 									  #'Best before',
 		'keep cool and dry',
 		'Can be stored unopened at room temperature',
+		'for allergens',
 		'instruction',
 		'nutrition(al)? (as sold|facts|information|typical|value[s]?)',
 		# "nutrition advice" seems to appear before ingredients rather than after.
@@ -5323,6 +5330,7 @@ my %phrases_after_ingredients_list = (
 		'of which saturated fat',
 		'((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
 		'once opened[,]? (consume|keep|refrigerate|store|use)',
+		'Milk Chocolate contains',
 		'packed in a modified atmosphere',
 		'(Storage( instructions| conditions)?[: ]+)?Store in a cool[,]? dry place',
 		'(dist(\.)?|distributed|sold)(\&|and|sold| )* (by|exclusively)',
@@ -5330,13 +5338,12 @@ my %phrases_after_ingredients_list = (
 	],
 
 	es => [
+		'alérgenos: ver',
 		'componentes analíticos',    # pet food
-		'valores nutricionales',
-		'modo de preparacion',
-		'informaci(o|ó)n nutricional',
-		'valor energ(e|é)tico',
+		'conservaci(o|ó)n:',
+		'conser(y|v)ar entre',
+		'consumir? preferentemente antes del',
 		'condiciones de conservaci(o|ó)n',
-		#'pa(i|í)s de transformaci(o|ó)n',
 		'cons[eé]rv(ar|ese) en( un)? lug[ae]r (fresco y seco|seco y fresco)',
 		'contiene azúcares naturalmente presentes',
 		'distribuido por',    # distributed for
@@ -5344,12 +5351,14 @@ my %phrases_after_ingredients_list = (
 		'de las cuales saturadas',
 		'envasado',    # Packaging in protective atmosphere.
 		'Mantener en lugar fresco y seco',
+		'modo de preparacion',
+		'informaci(o|ó)n nutricional',
+		#'pa(i|í)s de transformaci(o|ó)n',
 		'obtenga más información',    # get more information
 		'protegido de la luz',
-		'conser(y|v)ar entre',
 		'una vez abierto',
-		'conservaci(o|ó)n:',
-		'consumir? preferentemente antes del',
+		'valor energ(e|é)tico',
+		'valores nutricionales',
 		#Envasado por:
 	],
 
@@ -5560,10 +5569,10 @@ my %phrases_after_ingredients_list = (
 		'Verpakt onder beschermende atmosfeer',
 		'voedingswaarden',
 		'voedingswaarde',
-		'Voor allergenen: zie ingrediëntenlijst, in vet gemarkeerd',
+		'Voor allergenen',
 		'voorbereidingstips',
 		#'waarvan suikers',
-		'waarvan toegevoegde',
+		'(W|w)aarvan toegevoegde',
 		'Witte chocolade: ten minste',
 	],
 

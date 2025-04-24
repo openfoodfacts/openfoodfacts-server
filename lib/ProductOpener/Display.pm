@@ -133,7 +133,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::HTTP
-	qw(write_cors_headers set_http_response_header write_http_response_headers get_http_request_header redirect_to_url single_param request_param);
+	qw(write_cors_headers set_http_response_header write_http_response_headers get_http_request_header extension_and_query_parameters_to_redirect_url redirect_to_url single_param request_param);
 use ProductOpener::Store qw(get_string_id_for_lang retrieve);
 use ProductOpener::Config qw(:all);
 use ProductOpener::Paths qw/%BASE_DIRS/;
@@ -1445,7 +1445,7 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 
 	if ((defined $request_ref->{page}) and ($request_ref->{page} > 1)) {
 		$request_ref->{title}
-			= ($title // '') . lang("title_separator") . sprintf(lang("page_x"), $request_ref->{page});
+			= ($title // '') . ' – ' . sprintf(lang("page_x"), $request_ref->{page});
 	}
 	else {
 		$request_ref->{title} = $title;
@@ -3009,13 +3009,12 @@ sub display_points ($request_ref) {
 
 	if (defined $tagtype) {
 		$html .= display_points_ranking($tagtype, $tagid, $request_ref);
-		$request_ref->{title}
-			= "Open Food Hunt" . lang("title_separator") . lang("points_ranking") . lang("title_separator") . $title;
+		$request_ref->{title} = "Open Food Hunt" . ' – ' . lang("points_ranking") . ' – ' . $title;
 	}
 	else {
 		$html .= display_points_ranking("users", "_all_", $request_ref);
 		$html .= display_points_ranking("countries", "_all_", $request_ref);
-		$request_ref->{title} = "Open Food Hunt" . lang("title_separator") . lang("points_ranking_users_and_countries");
+		$request_ref->{title} = "Open Food Hunt" . ' – ' . lang("points_ranking_users_and_countries");
 	}
 
 	$request_ref->{content_ref} = \$html;
@@ -3052,6 +3051,7 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 	my $redirect_to_canonical_url = 0;    # Will be set if one of the tags is not canonical
 
 	# Go through the tags filters from the request
+	# request_ref->{tags} is set by extract_tagtype_and_tag_value_pairs_from_components
 	foreach my $tag_ref (@{$request_ref->{tags}}) {
 
 		# the tag name requested in url (in $lc language)
@@ -3123,11 +3123,8 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 	# The redirect is temporary (302), as the canonicalization could change if the corresponding taxonomies change
 	if ($redirect_to_canonical_url) {
 		$request_ref->{redirect} = $formatted_subdomain . $request_ref->{current_link};
-		# Re-add file suffix, so that the correct response format is kept. https://github.com/openfoodfacts/openfoodfacts-server/issues/894
-		$request_ref->{redirect} .= '.json' if single_param("json");
-		$request_ref->{redirect} .= '.jsonp' if single_param("jsonp");
-		$request_ref->{redirect} .= '.xml' if single_param("xml");
-		$request_ref->{redirect} .= '.jqm' if single_param("jqm");
+		$request_ref->{redirect} .= extension_and_query_parameters_to_redirect_url($request_ref);
+
 		$log->debug("one or more tagids mismatch, redirecting to correct url", {redirect => $request_ref->{redirect}})
 			if $log->is_debug();
 		redirect_to_url($request_ref, 302, $request_ref->{redirect});
@@ -4277,12 +4274,12 @@ HTML
 		else {
 			${$request_ref->{content_ref}} .= $tag_html . display_list_of_tags($request_ref, $query_ref);
 		}
-		$request_ref->{title} .= lang("title_separator") . display_taxonomy_tag($lc, "countries", $country);
+		$request_ref->{title} .= ' – ' . display_taxonomy_tag($lc, "countries", $country);
 		$request_ref->{page_type} = "list_of_tags";
 	}
 	else {
 		if ((defined $request_ref->{page}) and ($request_ref->{page} > 1)) {
-			$request_ref->{title} = $title . lang("title_separator") . sprintf(lang("page_x"), $request_ref->{page});
+			$request_ref->{title} = $title . ' – ' . sprintf(lang("page_x"), $request_ref->{page});
 		}
 		else {
 			$request_ref->{title} = $title;
@@ -4377,7 +4374,7 @@ sub display_search_results ($request_ref) {
 
 	my $html = '';
 
-	$request_ref->{title} = lang("search_results") . " - " . display_taxonomy_tag($lc, "countries", $country);
+	$request_ref->{title} = lang("search_results") . ' – ' . display_taxonomy_tag($lc, "countries", $country);
 
 	my $current_link = '';
 
@@ -5995,14 +5992,14 @@ sub get_search_field_title_and_details ($field) {
 	elsif ($field =~ /^packagings_materials\.([^.]+)\.([^.]+)$/) {
 		my $material = $1;
 		my $subfield = $2;
-		$title = lang("packaging") . " - ";
+		$title = lang("packaging") . ' – ';
 		if ($material eq "all") {
 			$title .= lang("packagings_materials_all");
 		}
 		else {
 			$title .= display_taxonomy_tag($lc, "packaging_materials", $material);
 		}
-		$title .= ' - ' . lang($subfield);
+		$title .= ' – ' . lang($subfield);
 		if ($subfield =~ /_percent$/) {
 			$unit = ' %';
 			$unit2 = '%';
@@ -7355,7 +7352,7 @@ sub display_page ($request_ref) {
 
 	my $site_name = $options{site_name};
 	if ($server_options{producers_platform}) {
-		$site_name .= " - " . lang_in_other_lc($request_lc, "producers_platform");
+		$site_name .= ' – ' . lang_in_other_lc($request_lc, "producers_platform");
 	}
 
 	$template_data_ref->{styles} = $request_ref->{styles};
@@ -8580,7 +8577,7 @@ sub display_product_jqm ($request_ref) {    # jquerymobile
 		$title .= " version $rev";
 	}
 
-	$description = $title . ' - ' . $product_ref->{brands} . ' - ' . $product_ref->{generic_name};
+	$description = $title . ' – ' . $product_ref->{brands} . ' – ' . $product_ref->{generic_name};
 	$description =~ s/ - $//;
 	$request_ref->{canon_url} = product_url($product_ref);
 
@@ -10855,7 +10852,7 @@ sub display_structured_response_opensearch_rss ($request_ref) {
 	$short_name = $xs->escape_value(encode_utf8($short_name));
 	my $query_link = $xs->escape_value(encode_utf8($formatted_subdomain . $request_ref->{current_link} . "&rss=1"));
 	my $description
-		= $xs->escape_value(encode_utf8($options{site_name} . " - " . lang("search_description_opensearch")));
+		= $xs->escape_value(encode_utf8($options{site_name} . ' – ' . lang("search_description_opensearch")));
 
 	my $search_terms = $xs->escape_value(encode_utf8(decode utf8 => single_param('search_terms')));
 	my $count = $xs->escape_value($request_ref->{structured_response}{count});
@@ -11158,7 +11155,7 @@ sub display_nested_list_of_ingredients ($ingredients_ref, $ingredients_text_ref,
 			)
 		{
 			if (defined $ingredient_ref->{$property}) {
-				${$ingredients_list_ref} .= " - " . $property . ":&nbsp;" . $ingredient_ref->{$property};
+				${$ingredients_list_ref} .= ' – ' . $property . ":&nbsp;" . $ingredient_ref->{$property};
 			}
 		}
 
@@ -11218,7 +11215,7 @@ sub display_list_of_specific_ingredients ($product_ref) {
 
 		foreach my $property (qw(origin labels vegan vegetarian from_palm_oil percent_min percent percent_max)) {
 			if (defined $ingredient_ref->{$property}) {
-				$html .= " - " . $property . ":&nbsp;" . $ingredient_ref->{$property};
+				$html .= ' – ' . $property . ":&nbsp;" . $ingredient_ref->{$property};
 			}
 		}
 
