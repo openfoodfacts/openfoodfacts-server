@@ -2158,6 +2158,7 @@ sub extract_text_from_image ($product_ref, $image_type, $image_lc, $field, $ocr_
 			$results_ref->{$field} = $cloudvision_ref->{responses}[0]{fullTextAnnotation}{text};
 			$results_ref->{$field . "_annotations"} = $cloudvision_ref;
 
+			# Note: if the product is not stored, this will not be saved
 			$product_ref->{images}{selected}{$image_type}{$image_lc}{orientation}
 				= compute_orientation_from_cloud_vision_annotations($cloudvision_ref);
 		}
