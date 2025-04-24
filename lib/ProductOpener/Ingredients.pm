@@ -793,22 +793,17 @@ sub init_additives_classes_regexps() {
 
 if ((keys %labels_regexps) > 0) {exit;}
 
-sub extract_ingredients_from_image ($product_ref, $id, $ocr_engine, $results_ref) {
+sub extract_ingredients_from_image ($product_ref, $image_type, $image_lc, $ocr_engine, $results_ref) {
 
-	my $lc = $product_ref->{lc};
-
-	if ($id =~ /_(\w\w)$/) {
-		$lc = $1;
-	}
-
-	extract_text_from_image($product_ref, $id, "ingredients_text_from_image", $ocr_engine, $results_ref);
+	extract_text_from_image($product_ref, $image_type, $image_lc, "ingredients_text_from_image", $ocr_engine,
+		$results_ref);
 
 	# remove nutrition facts etc.
 	if (($results_ref->{status} == 0) and (defined $results_ref->{ingredients_text_from_image})) {
 
 		$results_ref->{ingredients_text_from_image_orig} = $product_ref->{ingredients_text_from_image};
 		$results_ref->{ingredients_text_from_image}
-			= cut_ingredients_text_for_lang($results_ref->{ingredients_text_from_image}, $lc);
+			= cut_ingredients_text_for_lang($results_ref->{ingredients_text_from_image}, $image_lc);
 	}
 
 	return;

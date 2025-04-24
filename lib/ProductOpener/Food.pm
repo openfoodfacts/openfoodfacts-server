@@ -2970,9 +2970,10 @@ sub compute_nova_group ($product_ref) {
 	return;
 }
 
-sub extract_nutrition_from_image ($product_ref, $id, $ocr_engine, $results_ref) {
+sub extract_nutrition_from_image ($product_ref, $image_type, $image_lc, $ocr_engine, $results_ref) {
 
-	extract_text_from_image($product_ref, $id, "nutrition_text_from_image", $ocr_engine, $results_ref);
+	extract_text_from_image($product_ref, $image_type, $image_lc, "nutrition_text_from_image", $ocr_engine,
+		$results_ref);
 
 	# clean and process text
 	if (($results_ref->{status} == 0) and (defined $results_ref->{nutrition_text_from_image})) {
