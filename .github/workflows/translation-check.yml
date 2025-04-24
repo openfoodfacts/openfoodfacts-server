@@ -5,8 +5,8 @@ on:
     paths: ["**.po", "**.pot", ".github/workflows/translation-check.yml"]
   push:
     branches:
-    - main
-    
+      - main
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # ratchet:actions/checkout@v4
       - name: install gettext (i18n) tools
         run: |
           sudo apt-get update
