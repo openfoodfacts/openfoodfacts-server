@@ -60,6 +60,8 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
+use Log::Any qw($log);
+
 use ProductOpener::Tags qw/compute_field_tags/;
 use ProductOpener::Products qw/normalize_code/;
 use ProductOpener::Config qw/:all/;
@@ -87,6 +89,10 @@ sub convert_product_schema ($product_ref, $to_version) {
 	if ($from_version < 1000 and exists $product_ref->{environmental_score_grade}) {
 		$from_version = 1000;
 	}
+
+	$log->debug("convert_product_schema - from_version: $from_version, to_version: $to_version",
+		{product_ref => $product_ref})
+		if $log->is_debug();
 
 	if ($from_version < $to_version) {
 		# incrementally upgrade schema

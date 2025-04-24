@@ -758,6 +758,12 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 
 	my $customized_product_ref = {};
 
+	# Always include the schema version in the response
+	# it is needed for converting the product object to the right schema version
+	if (defined $product_ref->{schema_version}) {
+		$customized_product_ref->{schema_version} = $product_ref->{schema_version};
+	}
+
 	my $carbon_footprint_computed = 0;
 
 	# Special case if fields is empty, or contains only "none" or "raw": we do not need to localize the Environmental-Score

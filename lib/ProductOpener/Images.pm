@@ -2059,6 +2059,11 @@ in the form of [front|ingredients|nutrition|packaging]_[2 letter language code].
 
 If $id is a field name, the last selected image for that field is used.
 
+=head4 field name $field
+
+Field to update in the product object.
+e.g. ingredients_text_from_image, nutrition_text_from_image, packaging_text_from_image
+
 =head4 OCR engine $ocr_engine
 
 Either "tesseract" or "google_cloud_vision"
@@ -2069,22 +2074,22 @@ A hash reference to store the results.
 
 =cut
 
-sub extract_text_from_image ($product_ref, $id, $field, $ocr_engine, $results_ref) {
+sub extract_text_from_image ($product_ref, $image_type, $image_lc, $field, $ocr_engine, $results_ref) {
 
 	delete $product_ref->{$field};
 
 	my $path = product_path($product_ref);
 	$results_ref->{status} = 1;    # 1 = nok, 0 = ok
-
-	my ($image_type, $image_lc) = get_image_type_and_image_lc_from_imagefield($id);
+	$results_ref->{ocr_engine} = $ocr_engine;
 
 	my $image_ref = deep_get($product_ref, "images", "selected", $image_type, $image_lc);
 
 	my $filename = '';
 	if (defined $image_ref) {
-		$filename = $id . '.' . $image_ref->{rev};
+		$filename = $image_type . '_' . $image_lc . '.' . $image_ref->{rev};
 	}
 	else {
+		$results_ref->{error} = "no image found - image_type: $image_type, image_lc: $image_lc";
 		return;
 	}
 
@@ -2093,14 +2098,16 @@ sub extract_text_from_image ($product_ref, $id, $field, $ocr_engine, $results_re
 
 	my $text;
 
-	$log->debug("extracting text from image", {id => $id, ocr_engine => $ocr_engine}) if $log->is_debug();
+	$log->debug("extracting text from image",
+		{image_type => $image_type, image_lc => $image_lc, ocr_engine => $ocr_engine})
+		if $log->is_debug();
 
 	if ($ocr_engine eq 'tesseract') {
 
 		my $lan;
 
-		if (defined $ProductOpener::Config::tesseract_ocr_available_languages{$lc}) {
-			$lan = $ProductOpener::Config::tesseract_ocr_available_languages{$lc};
+		if (defined $ProductOpener::Config::tesseract_ocr_available_languages{$image_lc}) {
+			$lan = $ProductOpener::Config::tesseract_ocr_available_languages{$image_lc};
 		}
 		elsif (defined $ProductOpener::Config::tesseract_ocr_available_languages{$product_ref->{lc}}) {
 			$lan = $ProductOpener::Config::tesseract_ocr_available_languages{$product_ref->{lc}};
@@ -2109,7 +2116,8 @@ sub extract_text_from_image ($product_ref, $id, $field, $ocr_engine, $results_re
 			$lan = $ProductOpener::Config::tesseract_ocr_available_languages{en};
 		}
 
-		$log->debug("extracting text with tesseract", {lc => $lc, lan => $lan, id => $id, image => $image})
+		$log->debug("extracting text with tesseract",
+			{lc => $lc, lan => $lan, image_type => $image_type, image_lc => $image_lc, image => $image})
 			if $log->is_debug();
 
 		if (defined $lan) {
@@ -2117,14 +2125,22 @@ sub extract_text_from_image ($product_ref, $id, $field, $ocr_engine, $results_re
 
 			if ((defined $text) and ($text ne '')) {
 				$results_ref->{$field} = $text;
-				$results_ref->{status} = 0;
 			}
 		}
 		else {
-			$log->warn("no available tesseract dictionary", {lc => $lc, lan => $lan, id => $id}) if $log->is_warn();
+			$log->warn("no available tesseract dictionary",
+				{lc => $lc, lan => $lan, image_type => $image_type, image_lc => $image_lc})
+				if $log->is_warn();
+			$results_ref->{error} = "no available tesseract dictionary";
 		}
 	}
 	elsif ($ocr_engine eq 'google_cloud_vision') {
+
+		# Check the API key is defined
+		if (not $ProductOpener::Config::google_cloud_vision_api_key) {
+			$results_ref->{error} = "no google cloud vision API key";
+			return;
+		}
 
 		my $json_file = "$BASE_DIRS{PRODUCTS_IMAGES}/$path/$filename.json.gz";
 		open(my $gv_logs, ">>:encoding(UTF-8)", "$BASE_DIRS{LOGS}/cloud_vision.log");
@@ -2141,15 +2157,21 @@ sub extract_text_from_image ($product_ref, $id, $field, $ocr_engine, $results_re
 
 			$results_ref->{$field} = $cloudvision_ref->{responses}[0]{fullTextAnnotation}{text};
 			$results_ref->{$field . "_annotations"} = $cloudvision_ref;
-			$results_ref->{status} = 0;
-			$product_ref->{images}{$id}{ocr} = 1;
-			$product_ref->{images}{$id}{orientation}
+
+			$product_ref->{images}{selected}{$image_type}{$image_lc}{orientation}
 				= compute_orientation_from_cloud_vision_annotations($cloudvision_ref);
 		}
-		else {
-			$product_ref->{images}{$id}{ocr} = 0;
-		}
 	}
+
+	# Check if we were able to get ocr text
+	if (defined $results_ref->{$field}) {
+		$product_ref->{images}{selected}{$image_type}{$image_lc}{ocr} = 1;
+		$results_ref->{status} = 0;
+	}
+	else {
+		$product_ref->{images}{selected}{$image_type}{$image_lc}{ocr} = 0;
+	}
+
 	return;
 }
 
