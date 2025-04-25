@@ -2273,6 +2273,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			# Disable die for the packaging taxonomy as some legit material and shape might have same name
 
 			# ignore errors for ingredients for beauty, pet food, products
+			# TODO: reenable when we have cleaned the ingredients taxonomy for beauty, pet food, products
 			my $taxonomy_with_duplicate_tolerated;
 			if ($options{product_type} eq "food") {
 				$taxonomy_with_duplicate_tolerated
