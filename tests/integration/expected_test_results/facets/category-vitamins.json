@@ -1,6 +1,6 @@
 {
    "count" : 1,
-   "page" : "1",
+   "page" : 1,
    "page_count" : 1,
    "page_size" : 20,
    "products" : [
@@ -8,7 +8,8 @@
          "labels_tags" : [
             "en:organic"
          ],
-         "product_name" : "Apples - Organic - France, Belgium, Canada"
+         "product_name" : "Apples - Organic - France, Belgium, Canada",
+         "schema_version" : 1002
       }
    ],
    "skip" : 0

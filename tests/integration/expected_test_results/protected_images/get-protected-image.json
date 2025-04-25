@@ -2,80 +2,72 @@
    "code" : "0900000000139",
    "product" : {
       "images" : {
-         "selected" : {
-            "front" : {
-               "en" : {
-                  "generation" : {
-                     "angle" : 0,
-                     "coordinates_image_size" : "full",
-                     "geometry" : "0x0--1--1",
-                     "normalize" : null,
-                     "white_magic" : null,
-                     "x1" : "-1",
-                     "x2" : "-1",
-                     "y1" : "-1",
-                     "y2" : "-1"
-                  },
-                  "imgid" : "1",
-                  "rev" : "4",
-                  "sizes" : {
-                     "100" : {
-                        "h" : 67,
-                        "w" : 100
-                     },
-                     "200" : {
-                        "h" : 133,
-                        "w" : 200
-                     },
-                     "400" : {
-                        "h" : 183,
-                        "w" : 275
-                     },
-                     "full" : {
-                        "h" : 183,
-                        "w" : 275
-                     }
-                  }
+         "1" : {
+            "sizes" : {
+               "100" : {
+                  "h" : 67,
+                  "w" : 100
+               },
+               "400" : {
+                  "h" : 183,
+                  "w" : 275
+               },
+               "full" : {
+                  "h" : 183,
+                  "w" : 275
                }
-            }
-         },
-         "uploaded" : {
-            "1" : {
-               "sizes" : {
-                  "100" : {
-                     "h" : 67,
-                     "w" : 100
-                  },
-                  "400" : {
-                     "h" : 183,
-                     "w" : 275
-                  },
-                  "full" : {
-                     "h" : 183,
-                     "w" : 275
-                  }
-               },
-               "uploaded_t" : "--ignore--",
-               "uploader" : "sample-owner"
             },
-            "2" : {
-               "sizes" : {
-                  "100" : {
-                     "h" : 92,
-                     "w" : 100
-                  },
-                  "400" : {
-                     "h" : 183,
-                     "w" : 200
-                  },
-                  "full" : {
-                     "h" : 183,
-                     "w" : 200
-                  }
+            "uploaded_t" : "--ignore--",
+            "uploader" : "sample-owner"
+         },
+         "2" : {
+            "sizes" : {
+               "100" : {
+                  "h" : 92,
+                  "w" : 100
                },
-               "uploaded_t" : "--ignore--",
-               "uploader" : "tests"
-            }
+               "400" : {
+                  "h" : 183,
+                  "w" : 200
+               },
+               "full" : {
+                  "h" : 183,
+                  "w" : 200
+               }
+            },
+            "uploaded_t" : "--ignore--",
+            "uploader" : "tests"
+         },
+         "front_en" : {
+            "angle" : 0,
+            "coordinates_image_size" : "full",
+            "geometry" : "0x0--1--1",
+            "imgid" : "1",
+            "normalize" : null,
+            "rev" : "4",
+            "sizes" : {
+               "100" : {
+                  "h" : 67,
+                  "w" : 100
+               },
+               "200" : {
+                  "h" : 133,
+                  "w" : 200
+               },
+               "400" : {
+                  "h" : 183,
+                  "w" : 275
+               },
+               "full" : {
+                  "h" : 183,
+                  "w" : 275
+               }
+            },
+            "white_magic" : null,
+            "x1" : "-1",
+            "x2" : "-1",
+            "y1" : "-1",
+            "y2" : "-1"
          }
       },
       "owner" : "sample-owner",
