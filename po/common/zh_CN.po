@@ -1475,7 +1475,7 @@ msgstr "名称"
 
 msgctxt "new_code"
 msgid "If the barcode is not correct, please correct it here:"
-msgstr "如果条形码不正确，请在此更正"
+msgstr "如果条形码不正确，请在此处更正："
 
 msgctxt "new_code_note"
 msgid "For products without a barcode, an internal code is automatically set."
@@ -1519,7 +1519,7 @@ msgstr "暂无产品"
 
 msgctxt "not_saved"
 msgid "Error while saving, please retry."
-msgstr "保存错误，请重试"
+msgstr "保存时出错，请重试。"
 
 msgctxt "number_of_additives"
 msgid "Number of additives"
@@ -1535,7 +1535,7 @@ msgstr "%s在%s中"
 
 msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
-msgstr "每一百克含有的营养成分"
+msgstr "每 100 克的营养成分"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
@@ -1580,7 +1580,7 @@ msgstr "已知营养成分的%s类%d产品的平均营养成分(%d产品之外)"
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
-msgstr "％的不同之处"
+msgstr "差异百分比"
 
 msgctxt "nutrition_data_compare_value"
 msgid "value for 100 g / 100 ml"
@@ -1596,35 +1596,35 @@ msgstr "请注意：对于每种营养素，平均值是针对已知营养素数
 
 msgctxt "nutrition_data_note"
 msgid "If the picture is sufficiently sharp and level, nutrition facts can be automatically extracted from the picture."
-msgstr "如果图片有较高的清晰度，可以用图片中自动提取营养成分列表"
+msgstr "如果图片有较高的清晰度且构图平直，可以从图片中自动提取营养成分列表。"
 
 msgctxt "nutrition_data_per_10"
 msgid "10th centile"
-msgstr "百分之十"
+msgstr "第 10 百分位"
 
 msgctxt "nutrition_data_per_100g"
 msgid "for 100 g / 100 ml"
-msgstr "对于 100 克 / 100 毫升"
+msgstr "每 100 克或 100 毫升"
 
 msgctxt "nutrition_data_per_5"
 msgid "5<sup>th</sup> centile"
-msgstr "5<sup>th</sup>百分之"
+msgstr "<sup>第</sup> 5 百分位"
 
 msgctxt "nutrition_data_per_50"
 msgid "Median"
-msgstr "中间值"
+msgstr "中位数"
 
 msgctxt "nutrition_data_per_90"
 msgid "90th centile"
-msgstr "百分之九十"
+msgstr "第 90 百分位"
 
 msgctxt "nutrition_data_per_95"
 msgid "95<sup>th</sup> centile"
-msgstr "百分之九十五"
+msgstr "<sup>第</sup> 95 百分位"
 
 msgctxt "nutrition_data_per_max"
 msgid "Maximum"
-msgstr "最大数量"
+msgstr "最大值"
 
 msgctxt "nutrition_data_per_mean"
 msgid "Mean"
@@ -1632,7 +1632,7 @@ msgstr "平均值"
 
 msgctxt "nutrition_data_per_min"
 msgid "Minimum"
-msgstr "最小"
+msgstr "最小值"
 
 msgctxt "nutrition_data_per_serving"
 msgid "per serving"
@@ -1695,7 +1695,7 @@ msgstr "成分来源"
 
 msgctxt "origins_example"
 msgid "California, USA"
-msgstr "美国加州"
+msgstr "美国加利福尼亚州"
 
 msgctxt "origins_note_xxx"
 msgid "Indicate the origin of ingredients"
@@ -2143,7 +2143,7 @@ msgstr "保存"
 
 msgctxt "saved"
 msgid "Saved."
-msgstr "保存"
+msgstr "已保存。"
 
 msgctxt "saving"
 msgid "Saving."
@@ -2195,7 +2195,7 @@ msgstr "XLSX格式"
 
 msgctxt "search_download_xlsx_description"
 msgid "Excel or LibreOffice"
-msgstr "Excel或LibreOffice"
+msgstr "Excel 或 LibreOffice"
 
 msgctxt "search_download_csv"
 msgid "CSV format"
@@ -2203,7 +2203,7 @@ msgstr "CSV格式"
 
 msgctxt "search_download_csv_description"
 msgid "Character set: Unicode (UTF-8) - Separator: tabulation (tab)"
-msgstr "字符集：Unicode(UTF-8)-分隔符：制表(tab)"
+msgstr "字符集：Unicode（UTF-8） - 分隔符：制表符（tab）"
 
 msgctxt "search_edit"
 msgid "Change search criteria"
@@ -2223,7 +2223,7 @@ msgstr "图像"
 
 msgctxt "search_graph_2_axis"
 msgid "Scatter plot"
-msgstr "散点"
+msgstr "散点图"
 
 msgctxt "search_graph_blog"
 msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"/graphs-in-3-clicks\">Graphs in 3 clicks</a> (blog).</p>"
@@ -2240,7 +2240,7 @@ msgstr "选择您想要在横轴上绘制的图形来获取直方图，或选择
 
 msgctxt "search_graph_link"
 msgid "Permanent link to this graph, shareable by e-mail and on social networks"
-msgstr "此图的永久链接可以通过电子邮件发送或者网络共享"
+msgstr "通过电子邮件和社交网络分享到此图表的永久链接"
 
 msgctxt "search_graph_note"
 msgid "The graph will show only products for which displayed values are known."
@@ -2252,7 +2252,7 @@ msgstr "在图表上显示结果"
 
 msgctxt "search_graph_warning"
 msgid "Note: this is a user generated graph. The title, represented products and axis of visualization have been chosen by the author of the graph."
-msgstr "注意：这是用户生成的图形。图表的作者已经选择了标题、所展示的产品和可视化坐标轴。"
+msgstr "注：此图表由用户生成。标题、代表产品和可视化轴均由图表作者选择。"
 
 msgctxt "search_indifferent"
 msgid "Indifferent"
@@ -2703,7 +2703,7 @@ msgstr "使用鼠标滚轮启用缩放。"
 
 msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
-msgstr "加载较低分辨率的图像（用于缓慢的连接)"
+msgstr "加载较低分辨率的图像（适用于慢速互联网连接）"
 
 msgctxt "protected_image_message"
 msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
@@ -2864,7 +2864,7 @@ msgstr "已准备"
 
 msgctxt "unit"
 msgid "Unit"
-msgstr "單位"
+msgstr "单位"
 
 msgctxt "nutrition_data_exists"
 msgid "Nutrition facts are specified for the product as sold."
@@ -3218,11 +3218,11 @@ msgstr "提款日期"
 
 msgctxt "obsolete_since_date_note"
 msgid "Format: YYYY-MM-DD or YYYY-MM or YYYY"
-msgstr "格式：YYYY-MM-DD或YYYY-MM或YYYY"
+msgstr "格式：YYYY-MM-DD 或 YYYY-MM 或 YYYY"
 
 msgctxt "obsolete_since_date_example"
 msgid "2019-09-30 or 2019-09 or 2019"
-msgstr "2019-09-30或2019-09或2019"
+msgstr "2019-09-30 或 2019-09 或 2019"
 
 msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
@@ -3238,7 +3238,7 @@ msgstr "获取应用"
 
 msgctxt "get_the_app_android"
 msgid "Get the Android app"
-msgstr "创建 Android 应用"
+msgstr "获取 Android 应用"
 
 msgctxt "get_the_app_iphone"
 msgid "Get the iPhone app"
@@ -3250,7 +3250,7 @@ msgstr "获取 iPad 应用"
 
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
-msgstr "<em>模糊条码</em>: 本产品具有公司内产品的限制流通编号条码。这意味着不同的生产商和商店可以对不同的产品使用相同的条形码。"
+msgstr "<em>条形码不明确</em>：该产品带有公司内部产品的限制流通编号的条形码。这意味着这个条形码对不同的生产商和商店可能对应着不同的产品。"
 
 msgctxt "environment_infocard"
 msgid "Environment infocard"
@@ -3569,47 +3569,47 @@ msgstr "值 + 单位"
 
 msgctxt "value_in_l"
 msgid "Value in L"
-msgstr "值L"
+msgstr "值（升）"
 
 msgctxt "value_in_dl"
 msgid "Value in dl"
-msgstr "Dl 中的值"
+msgstr "值（分升）"
 
 msgctxt "value_in_cl"
 msgid "Value in cl"
-msgstr "氧中的值"
+msgstr "值（厘升）"
 
 msgctxt "value_in_ml"
 msgid "Value in ml"
-msgstr "单位为毫升值"
+msgstr "值（毫升）"
 
 msgctxt "value_in_kg"
 msgid "Value in kg"
-msgstr "单位为千克值"
+msgstr "值（千克）"
 
 msgctxt "value_in_g"
 msgid "Value in g"
-msgstr "单位为克值"
+msgstr "值（克）"
 
 msgctxt "value_in_mg"
 msgid "Value in mg"
-msgstr "单位为毫克值"
+msgstr "值（毫克）"
 
 msgctxt "value_in_mcg"
 msgid "Value in μg"
-msgstr "单位为微克值"
+msgstr "值（微克）"
 
 msgctxt "value_in_iu"
 msgid "Value in IU"
-msgstr "单位以卡的值"
+msgstr "值（IU）"
 
 msgctxt "value_in_kcal"
 msgid "Value in kcal"
-msgstr "单位千卡为值"
+msgstr "值（千卡）"
 
 msgctxt "value_in_kj"
 msgid "Value in kJ"
-msgstr "单位千焦为值"
+msgstr "值（千焦）"
 
 msgctxt "value_in_percent"
 msgid "Value in %"
@@ -3772,7 +3772,7 @@ msgstr "数据质量的错误"
 # abbreviation for Minimum
 msgctxt "min"
 msgid "Min"
-msgstr "最小。"
+msgstr "最小"
 
 # abbreviation for Maximum
 msgctxt "max"
@@ -3978,11 +3978,11 @@ msgstr "在计算营养分数时，产品是否不被认为是饮料"
 
 msgctxt "nutriscore_positive_points"
 msgid "Positive points"
-msgstr "积极点"
+msgstr "正面特征评分"
 
 msgctxt "nutriscore_negative_points"
 msgid "Negative points"
-msgstr "消极点"
+msgstr "负面特征评分"
 
 msgctxt "nutriscore_proteins_negative_points_less_than_11"
 msgid "The points for proteins are counted because the negative points are less than 11."
@@ -4002,7 +4002,7 @@ msgstr "计算蛋白质的分数是因为该产品属于奶酪类。"
 
 msgctxt "nutriscore_proteins_is_added_fat"
 msgid "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
-msgstr "该产品属于脂肪类，饱和脂肪点被饱和脂肪/脂肪比率点所取代。"
+msgstr "该产品属于脂肪类别，饱和脂肪的分数被饱和脂肪/脂肪比率的分数所取代。"
 
 msgctxt "nutriscore_points_for_energy"
 msgid "Energy"
@@ -4066,7 +4066,7 @@ msgstr "营养分数"
 # free as in not costing something
 msgctxt "donate_free_and_independent"
 msgid "Open Food Facts is 100% free and independent."
-msgstr "开放食物事实网站是100％免费和独立的。"
+msgstr "Open Food Facts 是 100% 免费且独立的。"
 
 # leave empty link
 msgctxt "donate_help_and_donations"
@@ -4125,7 +4125,7 @@ msgstr "数据库"
 
 msgctxt "user_group_database_description"
 msgid "For external sources of data. Product ownership of imported products will not change."
-msgstr "对于外部数据来源而言，进口产品的产品所有权不会改变。"
+msgstr "对于外部数据来源而言，导入产品的产品所有权不会改变。"
 
 msgctxt "user_group_app"
 msgid "App"
@@ -7235,15 +7235,15 @@ msgstr "最后更新日期"
 
 msgctxt "number_of_products_on_public_platform"
 msgid "Number of products on public platform"
-msgstr ""
+msgstr "公共平台上的产品数量"
 
 msgctxt "number_of_products_on_producer_platform"
 msgid "Number of products on producer platform"
-msgstr ""
+msgstr "生产者平台上的产品数量"
 
 msgctxt "automated_daily_export_to_public_platform"
 msgid "Automatic daily export to public platform"
-msgstr ""
+msgstr "每日自动导出至公众平台"
 
 msgctxt "improvements_navigation"
 msgid "Improvements"
@@ -7251,7 +7251,7 @@ msgstr ""
 
 msgctxt "products_with_changes_since_last_export"
 msgid "Products with changes since last export"
-msgstr ""
+msgstr "自上次导出以来有变化的产品"
 
 msgctxt "organization_list"
 msgid "Organization list"
