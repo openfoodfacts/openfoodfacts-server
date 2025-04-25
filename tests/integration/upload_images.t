@@ -126,6 +126,49 @@ my $tests_ref = [
 
 	},
 
+	# Select / crop images
+
+	{
+		test_case => 'post-product-image-crop',
+		method => 'POST',
+		path => '/cgi/product_image_crop.pl',
+		form => {
+			code => "1234567890012",    # Product had an image uploaded in a previous test
+			id => "ingredients_fr",
+			imgid => "1",
+			angle => 0,
+			x1 => 10,
+			y1 => 20,
+			x2 => 100,
+			y2 => 200,
+			coordinates_image_size => "full",
+		},
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'get-product-image-crop',
+		method => 'GET',
+		path => '/api/v2/product/1234567890012',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'post-product-image-crop-imgid-does-not-exist',
+		method => 'POST',
+		path => '/cgi/product_image_crop.pl',
+		form => {
+			code => "1234567890012",    # Product had an image uploaded in a previous test
+			id => "ingredients_fr",
+			imgid => "25",
+			angle => 0,
+			x1 => 10,
+			y1 => 20,
+			x2 => 100,
+			y2 => 200,
+			coordinates_image_size => "full",
+		},
+		expected_status_code => 200,
+	},
+
 ];
 
 execute_api_tests(__FILE__, $tests_ref);

@@ -48,8 +48,8 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Display qw/$subdomain $country/;
-use ProductOpener::Users qw/$Org_id $Owner_id $User_id/;
-use ProductOpener::Lang qw/$lc/;
+use ProductOpener::Users qw/$Org_id $Owner_id/;
+use ProductOpener::Lang qw/$lc %Langs/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::API
 	qw/add_error add_warning check_user_permission customize_response_for_product normalize_requested_code/;
@@ -385,6 +385,80 @@ sub update_product_fields ($request_ref, $product_ref, $response_ref) {
 	return;
 }
 
+sub update_images_selected ($request_ref, $product_ref, $response_ref) {
+
+	my $request_body_ref = $request_ref->{body_json};
+
+	if (not exists $request_ref->{updated_product_fields}) {
+		$request_ref->{updated_product_fields} = {};
+	}
+
+	my $input_product_ref = $request_body_ref->{product};
+
+	# Go through the input images.selected.[image_type].[image_lc]
+	# to select or unselect images
+	foreach my $image_type (sort keys %{$input_product_ref->{images}{selected}}) {
+
+		# Check if the image type is valid
+		if (not defined $image_type) {
+			add_error(
+				$response_ref,
+				{
+					message => {id => "invalid_image_type"},
+					field => {id => "images.selected.$image_type"},
+					impact => {id => "field_ignored"},
+				}
+			);
+			next;
+		}
+
+		foreach my $image_lc (sort keys %{$input_product_ref->{images}{selected}{$image_type}}) {
+
+			# Check the image language code is valid
+			if (not defined $Langs{$image_lc}) {
+				add_error(
+					$response_ref,
+					{
+						message => {id => "invalid_language_code"},
+						field => {id => "images.selected.$image_type.$image_lc"},
+						impact => {id => "field_ignored"},
+					}
+				);
+				next;
+			}
+
+			# Check if the image is protected (sent by a producer)
+			if (is_protected_image($product_ref, $image_type, $image_lc) and not $request_ref->{moderator}) {
+				add_warning(
+					$response_ref,
+					{
+						message => {id => "no_permission"},
+						field => {id => "images.selected.$image_type.$image_lc"},
+						impact => {id => "field_ignored"},
+					}
+				);
+				next;
+			}
+
+			my $image_selected_ref = $input_product_ref->{images}{selected}{$image_type}{$image_lc};
+
+			if (defined $image_selected_ref) {
+				#process_image_crop($request_ref->{user_id}, $product_ref, $image_type, $image_lc, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size);
+			}
+			else {
+				# We were passed a null value, unselect the image
+				my $return_code = process_image_unselect($product_ref, $image_type, $image_lc);
+
+				# A negative return code means that the image selection failed
+				if ($return_code < 0) {
+					# -1: the image imgid does not exist in uploaded images
+					# -2: the image cannot be read
+				}
+			}
+		}
+	}
+}
+
 =head2 process_change_product_code_request_if_we_have_one($request_ref, $response_ref, $product_ref, $new_code)
 
 Process a change of code request if we have one.
@@ -566,7 +640,7 @@ sub write_product_api ($request_ref) {
 
 		# The product does not exist yet, or the requested code is "test"
 		if (not defined $product_ref) {
-			$product_ref = init_product($User_id, $Org_id, $code, $country);
+			$product_ref = init_product($request_ref->{user_id}, $Org_id, $code, $country);
 			$product_ref->{interface_version_created} = "20221102/api/v3";
 		}
 		else {
@@ -646,7 +720,7 @@ sub write_product_api ($request_ref) {
 				# Save the product
 				if ($code ne "test") {
 					my $comment = $request_body_ref->{comment} || "API v3";
-					store_product($User_id, $product_ref, $comment);
+					store_product($request_ref->{user_id}, $product_ref, $comment);
 				}
 
 				# Select / compute only the fields requested by the caller, default to updated fields

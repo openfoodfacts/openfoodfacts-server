@@ -1286,7 +1286,7 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 						foreach my $image_type (keys %{$product_ref->{images}{selected}}) {
 							foreach my $image_lc (keys %{$product_ref->{images}{selected}{$image_type}}) {
 								if ($product_ref->{images}{selected}{$image_type}{$image_lc}{imgid} eq $imgid) {
-									_process_image_unselect($product_ref, $image_type, $image_lc);
+									process_image_unselect($product_ref, $image_type, $image_lc);
 									$log->debug(
 										"Image ${image_type}_${image_lc} unselected because the source image $imgid was deleted",
 										{}
@@ -1311,6 +1311,12 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 =head2 process_image_crop ( $user_id, $product_ref, $image_type, $image_lc, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size )
 
 Select and possibly crop an uploaded image to represent the front, ingredients, nutrition or packaging image in a specific language.
+
+=head2 Return values
+
+ 1: crop done
+-1: image not found
+-2: image cannot be read
 
 =cut
 
@@ -1380,23 +1386,21 @@ sub process_image_crop ($user_id, $product_ref, $image_type, $image_lc, $imgid, 
 
 	$log->trace("cropping image") if $log->is_trace();
 
-	my $proceed_with_edit = process_product_edit_rules($product_ref);
-
-	$log->debug("edit rules processed", {proceed_with_edit => $proceed_with_edit}) if $log->is_debug();
-
-	if (not $proceed_with_edit) {
-
-		my $data = encode_json({status => 'status not ok - edit against edit rules'});
-
-		$log->debug("JSON data output", {data => $data}) if $log->is_debug();
-
-		print header(-type => 'application/json', -charset => 'utf-8') . $data;
-
-		exit;
+	# Check if the image exists in the uploaded images
+	if (not defined $product_ref->{images}{uploaded}{$imgid}) {
+		$log->error("image not found", {product_id => $product_id, imgid => $imgid}) if $log->is_error();
+		return -1;
 	}
 
 	my $source = Image::Magick->new;
 	my $imagemagick_error = $source->Read($source_path);
+
+	# Check that we could read the image
+	if (($imagemagick_error) and ($imagemagick_error =~ /(\d+)/) and ($1 >= 400)) {
+		$log->error("cannot read image", {path => $source_path, error => $imagemagick_error}) if $log->is_error();
+		return -2;
+	}
+
 	($imagemagick_error) and $log->error("cannot read image", {path => $source_path, error => $imagemagick_error});
 
 	if ($angle != 0) {
@@ -1413,12 +1417,6 @@ sub process_image_crop ($user_id, $product_ref, $image_type, $image_lc, $imgid, 
 		my $z = $w;
 		$w = $h;
 		$h = $z;
-	}
-
-	# potential divide by zero error - but log and let it flow for now for it is complex to handle
-	if (!($w && $h)) {
-		$log->error("Cannot crop image $id / $imgid contributed by $user_id on $product_id: "
-				. " crop width or height is 0: $w x $h");
 	}
 
 	print STDERR
@@ -1600,18 +1598,11 @@ sub process_image_crop ($user_id, $product_ref, $image_type, $image_lc, $imgid, 
 	store_product($user_id, $product_ref, "new image $id : $imgid.$rev");
 
 	$log->trace("image crop done") if $log->is_trace();
-	return $product_ref;
+
+	return 1;
 }
 
-sub process_image_unselect ($user_id, $product_id, $image_type, $image_lc) {
-	# Update the product image data
-	my $product_ref = retrieve_product($product_id);
-	_process_image_unselect($product_ref, $image_type, $image_lc);
-	store_product($user_id, $product_ref, "unselected image ${image_type}_{$image_lc}");
-	return $product_ref;
-}
-
-sub _process_image_unselect ($product_ref, $image_type, $image_lc) {
+sub process_image_unselect ($product_ref, $image_type, $image_lc) {
 	local $log->context->{product_id} = $product_ref->{product}{_id};
 	local $log->context->{image_type} = $image_type;
 	local $log->context->{image_lc} = $image_lc;

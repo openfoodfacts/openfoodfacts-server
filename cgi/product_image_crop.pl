@@ -32,7 +32,8 @@ use ProductOpener::HTTP qw/write_cors_headers single_param/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/$Owner_id $User_id %User/;
 use ProductOpener::Images qw/is_protected_image process_image_crop/;
-use ProductOpener::Products qw/normalize_code product_data_is_protected product_id_for_owner retrieve_product/;
+use ProductOpener::Products
+	qw/normalize_code product_data_is_protected product_id_for_owner retrieve_product process_product_edit_rules/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -40,6 +41,7 @@ use Storable qw/dclone/;
 use Encode;
 use JSON::MaybeXS;
 use Log::Any qw($log);
+use Data::DeepAccess qw(deep_get);
 
 my $request_ref = ProductOpener::Display::init_request();
 
@@ -104,9 +106,26 @@ else {
 	exit(0);
 }
 
+# Check edit rules
+my $proceed_with_edit = process_product_edit_rules($product_ref);
+
+$log->debug("edit rules processed", {proceed_with_edit => $proceed_with_edit}) if $log->is_debug();
+
+if (not $proceed_with_edit) {
+
+	my $data = encode_json({status => 'status not ok - edit against edit rules'});
+
+	$log->debug("JSON data output", {data => $data}) if $log->is_debug();
+
+	print header(-type => 'application/json', -charset => 'utf-8') . $data;
+
+	exit;
+}
+
 # Do not allow edits / removal through API for data provided by producers (only additions for non existing fields)
 # when the corresponding organization has the protect_data checkbox checked
 my $protected_data = product_data_is_protected($product_ref);
+my $return_code;
 
 if (    (defined $product_ref)
 	and ($protected_data)
@@ -129,30 +148,59 @@ elsif ((defined $User_id) and (($User_id eq 'kiliweb')) or (remote_addr() eq "20
 		and (defined $product_ref->{images}{$imgid})
 		and (not is_protected_image($product_ref, $image_type, $image_lc) or $User{moderator}))
 	{
-		$product_ref
+		$return_code
 			= process_image_crop($User_id, $product_ref, $image_type, $image_lc, $imgid, $angle, $normalize,
 			$white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size);
 	}
 }
 else {
 	if (not is_protected_image($product_ref, $image_type, $image_lc) or $User{moderator}) {
-		$product_ref
+		$return_code
 			= process_image_crop($User_id, $product_ref, $image_type, $image_lc, $imgid, $angle, $normalize,
 			$white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size);
 	}
 }
 
-my $data = encode_json(
-	{
-		status => 'status ok',
-		image => {
-				  display_url => "$id."
-				. $product_ref->{images}{selected}{$image_type}{$image_lc}{rev}
-				. ".$display_size.jpg",
-		},
-		imagefield => $id,
+my $data;
+
+if (not defined $return_code) {
+	$data = encode_json(
+		{
+			status => 'status not ok - image not selected',
+			imagefield => $id,
+		}
+	);
+}
+elsif ($return_code < 0) {
+	# -1: imgid not in uploaded images
+	# -2: image cannot be ready
+	my $msg;
+	if ($return_code == -1) {
+		$msg = "status not ok - image not selected - imgid not in uploaded images";
 	}
-);
+	elsif ($return_code == -2) {
+		$msg = "status not ok - image not selected - image cannot be read";
+	}
+	$data = encode_json(
+		{
+			status => $msg,
+			imagefield => $id,
+		}
+	);
+}
+else {
+	my $rev = deep_get($product_ref, "images", "selected", $image_type, $image_lc, "rev");
+
+	$data = encode_json(
+		{
+			status => 'status ok',
+			image => {
+				display_url => "$id." . $rev . ".$display_size.jpg",
+			},
+			imagefield => $id,
+		}
+	);
+}
 
 $log->debug("JSON data output", {data => $data}) if $log->is_debug();
 

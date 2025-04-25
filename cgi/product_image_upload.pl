@@ -252,7 +252,7 @@ if ($imagefield) {
 		{
 			imgid => $imgid,
 			imagefield => $imagefield,
-			$imgid_returncode => $imgid_returncode,
+			imgid_returncode => $imgid_returncode,
 			debug_string => $debug_string
 		}
 	) if $log->is_debug();
