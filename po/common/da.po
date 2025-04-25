@@ -4858,7 +4858,7 @@ msgstr "Lav miljøpåvirkning (Green-Score)"
 
 msgctxt "attribute_environmental_score_setting_note"
 msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr ""
+msgstr "Green-Score er en miljøscore fra A til E, som gør det nemt at sammenligne fødevarers påvirkning af miljøet."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -4871,12 +4871,12 @@ msgstr "Lav miljøpåvirkning (Green-Score)"
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr ""
+msgstr "Green-Score er en miljøscore fra A til E, som gør det nemt at sammenligne fødevarers påvirkning af miljøet."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
 msgid "Green-Score %s"
-msgstr ""
+msgstr "Green-Score %s"
 
 msgctxt "attribute_environmental_score_a_plus_description_short"
 msgid "Very low environmental impact"
@@ -5058,22 +5058,22 @@ msgstr "Miljøpåvirkningpåvirkning"
 # Numerical score for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_score"
 msgid "Green-Score score"
-msgstr ""
+msgstr "Green-Score-score"
 
 # Letter grade from A to E for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_grade"
 msgid "Green-Score grade"
-msgstr ""
+msgstr "Green-Score-klasse"
 
 # do not translate Green-Score
 msgctxt "environmental_score_calculation_details"
 msgid "Details of the calculation of the Green-Score"
-msgstr ""
+msgstr "Detaljer om beregningen af Green-Score"
 
 # do not translate Green-Score
 msgctxt "environmental_score_information"
 msgid "Information about the Green-Score"
-msgstr ""
+msgstr "Oplysninger om Green-Score"
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
@@ -5081,7 +5081,7 @@ msgstr "Aktuelt valgte præferencer"
 
 msgctxt "preferences_locally_saved"
 msgid "Your preferences are kept in your browser and never sent to Open Food Facts or anyone else."
-msgstr ""
+msgstr "Dine præferencer gemmes i din browser og sendes aldrig til Open Food Facts eller andre."
 
 msgctxt "preferences_edit_your_preferences"
 msgid "Edit your preferences"
@@ -5897,7 +5897,7 @@ msgstr "Hjælp os med at informere millioner af forbrugere rundt om i verden om,
 
 msgctxt "donation_title_2024"
 msgid "Please give to our 2024 Fundraiser"
-msgstr ""
+msgstr "Støt venligst vores 2024-fundraiser"
 
 # Don't translate {year}, it will be replaced by the 4 digits year
 msgctxt "f_donation_title_year"
@@ -5984,20 +5984,20 @@ msgstr "CO²-aftryk"
 # variable names between { } must not be translated
 msgctxt "f_carbon_footprint_per_100g_of_product"
 msgid "{grams} g CO₂e per 100g of product"
-msgstr ""
+msgstr "{grams} g CO₂e pr. 100 g produkt"
 
 # variable names between { } must not be translated
 msgctxt "f_carbon_footprint_per_unit"
 msgid "{kilograms} kg CO₂e per unit"
-msgstr ""
+msgstr "{kilograms} kg CO₂e pr. enhed"
 
 msgctxt "average_for_the_category"
 msgid "average for the category"
-msgstr ""
+msgstr "gennemsnit for kategorien"
 
 msgctxt "data_source_and_detailed_carbon_impact"
 msgid "Data source and detailed carbon impact"
-msgstr ""
+msgstr "Datakilde og detaljeret CO2-påvirkning"
 
 # variable names between { } must not be translated
 msgctxt "f_equal_to_driving_km_in_a_petrol_car"
@@ -6090,7 +6090,7 @@ msgstr "Produktnæringsfakta skal angives for at kunne beregne Nutri-Score."
 
 msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
-msgstr ""
+msgstr "Manglende næringsindhold:"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
@@ -6391,7 +6391,7 @@ msgstr "Tilføj emballagekomponenter"
 
 msgctxt "action_add_quantity"
 msgid "Add quantity of the product"
-msgstr ""
+msgstr "Tilføj mængde af produktet"
 
 # this is not used yet
 msgctxt "action_add_basic_details"
@@ -6450,7 +6450,7 @@ msgstr "Tag et foto af sporbarhedskoder"
 
 msgctxt "action_report_product_to_nutripatrol"
 msgid "Report this product to our moderators"
-msgstr ""
+msgstr "Rapportér dette produkt til vores moderatorer"
 
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
@@ -6531,11 +6531,11 @@ msgstr "Produkter tilføjet"
 
 msgctxt "products_edited"
 msgid "Products edited"
-msgstr ""
+msgstr "Produkter redigeret"
 
 msgctxt "products_photographed"
 msgid "Products photographed"
-msgstr ""
+msgstr "Produkter fotograferet"
 
 # result of the matching with the user preferences: should ne a noun, not a verb
 msgctxt "matching_with_your_preferences"
@@ -6566,7 +6566,7 @@ msgstr "Installér appen!"
 # e.g. in French: Scannez les <span id=\"foods\">aliments</span> de votre <span id=\"everyday\">quotidien</span>
 msgctxt "footer_scan_your_everyday_foods"
 msgid "Scan your <span id=\"everyday\">everyday</span> <span id=\"foods\">foods</span>"
-msgstr ""
+msgstr "Scan dine <span id=\"everyday\">daglige</span> <span id=\"foods\">fødevarer</span>"
 
 msgctxt "nutrition"
 msgid "Nutrition"
@@ -6599,7 +6599,7 @@ msgstr "Produktet blev ikke fundet"
 
 msgctxt "api_result_product_found_with_a_different_product_type"
 msgid "Product found with a different product type"
-msgstr ""
+msgstr "Produkt fundet med en anden produkttype"
 
 msgctxt "api_result_product_updated"
 msgid "Product updated"
@@ -6627,7 +6627,7 @@ msgstr "Ugyldig kode"
 
 msgctxt "api_message_invalid_product_type"
 msgid "Invalid product type"
-msgstr ""
+msgstr "Ugyldig produkttype"
 
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
@@ -6812,7 +6812,7 @@ msgstr "% af produkter indeholdende materialet"
 
 msgctxt "packaging_material_products_percent_main"
 msgid "% of products containing mostly the material"
-msgstr ""
+msgstr "% af produkter, der mest indeholder materialet"
 
 msgctxt "relative_to_products_containing_the_material"
 msgid "for products that contain the material"
@@ -6820,7 +6820,7 @@ msgstr "for produkter indeholdende materialet"
 
 msgctxt "relative_to_products_containing_mostly_the_material"
 msgid "for products that contain mostly the material"
-msgstr ""
+msgstr "for produkter, der mest indeholder materialet"
 
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
@@ -6828,31 +6828,31 @@ msgstr "i forhold til alle produkter"
 
 msgctxt "preferred_language"
 msgid "Preferred Language"
-msgstr ""
+msgstr "Foretrukket sprog"
 
 msgctxt "packagings_n_p"
 msgid "Numbers of packaging components"
-msgstr ""
+msgstr "Antal emballagekomponenter"
 
 msgctxt "packagings_n_s"
 msgid "Number of packaging components"
-msgstr ""
+msgstr "Antal emballagekomponenter"
 
 msgctxt "packagings_materials_all"
 msgid "All materials"
-msgstr ""
+msgstr "Alle materialer"
 
 msgctxt "weight"
 msgid "Weight"
-msgstr ""
+msgstr "Vægt"
 
 msgctxt "weight_100g"
 msgid "Weight per 100g of product"
-msgstr ""
+msgstr "Vægt pr. 100 g produkt"
 
 msgctxt "weight_percent"
 msgid "Weight percent"
-msgstr ""
+msgstr "Vægtprocent"
 
 msgctxt "nutriscore_component_energy"
 msgid "Energy"
@@ -6860,7 +6860,7 @@ msgstr "Energi"
 
 msgctxt "nutriscore_component_energy_from_saturated_fat"
 msgid "Energy from saturated fat"
-msgstr ""
+msgstr "Energi fra mættet fedt"
 
 msgctxt "nutriscore_component_sugars"
 msgid "Sugars"
@@ -6872,7 +6872,7 @@ msgstr "Mættet fedt"
 
 msgctxt "nutriscore_component_saturated_fat_ratio"
 msgid "Saturated fat / fat"
-msgstr ""
+msgstr "Mættet fedt / fedt"
 
 msgctxt "nutriscore_component_salt"
 msgid "Salt"
@@ -6880,11 +6880,11 @@ msgstr "Salt"
 
 msgctxt "nutriscore_component_non_nutritive_sweeteners"
 msgid "Non-nutritive sweeteners"
-msgstr ""
+msgstr "Ikke-nærende sødestoffer"
 
 msgctxt "nutriscore_component_fruits_vegetables_legumes"
 msgid "Fruits, vegetables and legumes"
-msgstr ""
+msgstr "Frugt, grøntsager og bælgfrugter"
 
 msgctxt "nutriscore_component_fiber"
 msgid "Fiber"
@@ -6896,27 +6896,27 @@ msgstr "Proteiner"
 
 msgctxt "presence"
 msgid "Presence"
-msgstr ""
+msgstr "Tilstedeværelse"
 
 msgctxt "absence"
 msgid "Absence"
-msgstr ""
+msgstr "Mangel"
 
 msgctxt "nutriscore_is_water"
 msgid "This product is considered to be water for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Dette produkt anses for at være vand til beregning af Nutri-Score."
 
 msgctxt "nutriscore_is_fat_oil_nuts_seeds"
 msgid "This product is considered to be fat, oil, nuts or seeds for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Dette produkt anses for at være fedt, olie, nødder eller frø til beregning af Nutri-Score."
 
 msgctxt "nutriscore_is_cheese"
 msgid "This product is considered to be cheese for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Dette produkt anses for at være ost til beregning af Nutri-Score."
 
 msgctxt "nutriscore_is_red_meat_product"
 msgid "This product is considered to be a red meat product for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Dette produkt anses for at være et rødt kødprodukt til beregning af Nutri-Score."
 
 msgctxt "nutriscore_count_proteins_reason_beverage"
 msgid "Points for proteins are counted because the product is considered to be a beverage."
@@ -6932,51 +6932,51 @@ msgstr ""
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_11"
 msgid "Points for proteins are counted because the negative points are less than 11."
-msgstr ""
+msgstr "Point for proteiner tælles med, fordi de negative point er mindre end 11."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_7"
 msgid "Points for proteins are not counted because the negative points greater than or equal to 7."
-msgstr ""
+msgstr "Point for proteiner tælles ikke med, fordi de negative point er større end eller lig med 7."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_11"
 msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
-msgstr ""
+msgstr "Point for proteiner tælles ikke med, fordi de negative point er større end eller lig med 11."
 
 msgctxt "nutriscore_new_computation_title"
 msgid "Discover the new Nutri-Score!"
-msgstr ""
+msgstr "Oplev det nye Nutri-Score!"
 
 msgctxt "nutriscore_new_computation_description"
 msgid "<p>The computation of the Nutri-Score is evolving to provide better recommendations based on the latest scientific evidence.</p><p>Main improvements:</p><ul><li>Better score for some fatty fish and oils rich in good fats</li><li>Better score for whole products rich in fiber</li><li>Worse score for products containing a lot of salt or sugar</li><li>Worse score for red meat (compared to poultry)</li></ul>"
-msgstr ""
+msgstr "<p>Beregningen af Nutri-Score udvikler sig for at give bedre anbefalinger baseret på den nyeste videnskabelige evidens.</p><p>Vigtigste forbedringer:</p><ul><li>Bedre score for visse fede fisk og olier rige på sunde fedtstoffer</li><li>Bedre score for fuldkornsprodukter med højt fiberindhold</li><li>Dårligere score for produkter med meget salt eller sukker</li><li>Dårligere score for rødt kød (sammenlignet med fjerkræ)</li></ul>"
 
 msgctxt "nutriscore_new_computation_link_text"
 msgid "Discover all the improvements of the new Nutri-Score"
-msgstr ""
+msgstr "Oplev alle forbedringerne i den nye Nutri-Score"
 
 msgctxt "nutriscore_explanation_what_it_is"
 msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
-msgstr ""
+msgstr "Nutri-Score er et logo for produkternes overordnede ernæringskvalitet."
 
 msgctxt "nutriscore_explanation_what_it_takes_into_account"
 msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
-msgstr ""
+msgstr "Scoren fra A til E beregnes ud fra næringsstoffer og fødevarer, der foretrækkes (proteiner, kostfibre, frugt, grøntsager og bælgfrugter…) og næringsstoffer, der skal begrænses (kalorier, mættet fedt, sukker og salt)."
 
 msgctxt "nutriscore_explanation_where_the_data_comes_from"
 msgid "The score is calculated from the data of the nutrition facts table and the composition data (fruits, vegetables and legumes)."
-msgstr ""
+msgstr "Scoren beregnes ud fra dataene i næringsdeklarationen og sammensætningsdataene (frugt, grøntsager og bælgfrugter)."
 
 msgctxt "nutriscore_explanation_recommended_by_public_health_authorities"
 msgid "The display of this logo is recommended by public health authorities without obligation for companies."
-msgstr ""
+msgstr "Visning af dette logo anbefales af offentlige sundhedsmyndigheder uden forpligtelse for virksomheder."
 
 msgctxt "nutriscore_explanation_title"
 msgid "What is the Nutri-Score?"
-msgstr ""
+msgstr "Hvad er Nutri-Score?"
 
 msgctxt "nutrient_info_energy_risk"
 msgid "Energy intakes above energy requirements are associated with increased risks of weight gain, overweight, obesity, and consequently risk of diet-related chronic diseases."
-msgstr ""
+msgstr "Energiindtag over energibehovet er forbundet med øget risiko for vægtøgning, overvægt, fedme og dermed risiko for kostrelaterede kroniske sygdomme."
 
 msgctxt "nutrient_info_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
@@ -6992,31 +6992,31 @@ msgstr "Et højt forbrug af fedt, især mættede typer, kan forøge kolesterolta
 
 msgctxt "nutrient_info_non_nutritive_sweeteners_risk"
 msgid "Non-nutritive sweeteners may not confer any long-term benefit in reducing body fat in adults or children. There may be potential undesirable effects from long-term use of non-nutritive sweeteners, such as an increased risk of type 2 diabetes and cardiovascular diseases in adults."
-msgstr ""
+msgstr "Ikke-nærende sødestoffer giver muligvis ingen langsigtet fordel i reduktionen af kropsfedt hos voksne eller børn. Langvarig brug af ikke-nærende sødestoffer kan have uønskede virkninger, såsom øget risiko for type 2-diabetes og hjerte-kar-sygdomme hos voksne."
 
 msgctxt "nutrient_info_fiber_benefit"
 msgid "Consuming foods rich in fiber (especially whole grain foods) reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
-msgstr ""
+msgstr "Indtagelse af fiberrige fødevarer (især fuldkornsprodukter) reducerer risikoen for kræft i luftvejene, hjerte-kar-sygdomme, fedme og diabetes."
 
 msgctxt "nutrient_info_fruits_vegetables_legumes_benefit"
 msgid "Consuming foods rich in fruits, vegetables and legumes reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
-msgstr ""
+msgstr "Indtagelse af fødevarer rige på frugt, grøntsager og bælgfrugter reducerer risikoen for kræft i luftvejene, hjerte-kar-sygdomme, fedme og diabetes."
 
 msgctxt "nutrient_info_proteins_benefit"
 msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
-msgstr ""
+msgstr "Fødevarer rige på proteiner er normalt rige på kalcium eller jern, som er vigtige mineraler med mange sundhedsmæssige fordele."
 
 msgctxt "revert"
 msgid "Revert to this revision"
-msgstr ""
+msgstr "Gå tilbage til denne revision"
 
 msgctxt "product_js_product_revert_confirm"
 msgid "Revert to this product revision?"
-msgstr ""
+msgstr "Gå tilbage til denne produktrevision?"
 
 msgctxt "api_status_success"
 msgid "Success"
-msgstr ""
+msgstr "Vellykket"
 
 msgctxt "api_status_failure"
 msgid "Failure"
@@ -7024,16 +7024,16 @@ msgstr "Fejl"
 
 msgctxt "api_result_product_reverted"
 msgid "Product reverted to the specified revision"
-msgstr ""
+msgstr "Produkt tilbageført til den angivne revision"
 
 msgctxt "api_result_product_not_reverted"
 msgid "Product not reverted to the specified revision"
-msgstr ""
+msgstr "Produkt blev ikke tilbageført til den angivne revision"
 
 # sweeteners (additives), plural
 msgctxt "sweeteners"
 msgid "sweeteners"
-msgstr ""
+msgstr "sødestoffer"
 
 # sweetener (additive), singular
 msgctxt "sweetener"
@@ -7042,32 +7042,32 @@ msgstr "sødemiddel"
 
 msgctxt "action_edit_product"
 msgid "Complete or correct product information"
-msgstr ""
+msgstr "Fuldstændige eller korrekte produktoplysninger"
 
 msgctxt "report_problem_panel_title"
 msgid "Report a problem"
-msgstr ""
+msgstr "Rapportér et problem"
 
 # duplicate with "report_problem_panel_title"
 msgctxt "report_problem_navigation"
 msgid "Report a problem"
-msgstr ""
+msgstr "Rapportér et problem"
 
 msgctxt "report_problem_navigation"
 msgid "Report a problem."
-msgstr ""
+msgstr "Rapportér et problem."
 
 msgctxt "incomplete_or_incorrect_data_title"
 msgid "Incomplete or incorrect information?"
-msgstr ""
+msgstr "Ufuldstændige eller forkerte oplysninger?"
 
 msgctxt "incomplete_or_incorrect_data_subtitle_off"
 msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
-msgstr ""
+msgstr "Kategori, etiketter, ingredienser, allergener, ernæringsoplysninger, fotos osv."
 
 msgctxt "incomplete_or_incorrect_data_content_correct"
 msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
-msgstr ""
+msgstr "Hvis oplysningerne ikke passer med dem på emballagen, kan du udfylde eller rette dem. Tak!"
 
 msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
