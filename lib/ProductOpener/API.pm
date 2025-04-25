@@ -758,12 +758,6 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 
 	my $customized_product_ref = {};
 
-	# Always include the schema version in the response
-	# it is needed for converting the product object to the right schema version
-	if (defined $product_ref->{schema_version}) {
-		$customized_product_ref->{schema_version} = $product_ref->{schema_version};
-	}
-
 	my $carbon_footprint_computed = 0;
 
 	# Special case if fields is empty, or contains only "none" or "raw": we do not need to localize the Environmental-Score
@@ -951,7 +945,23 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 	}
 
 	# Before returning the product, we need to make sure that the fields are compatible with the requested API version
+
+	# If the schema_version field was not requested, and is not in $customized_product_ref, we add it temporarily
+	# so that we can convert the product to the requested schema version
+
+	my $added_schema_version = 0;
+
+	if ((not defined $customized_product_ref->{schema_version}) and (defined $product_ref->{schema_version})) {
+		$customized_product_ref->{schema_version} = $product_ref->{schema_version};
+		$added_schema_version = 1;
+	}
+
 	api_compatibility_for_product_response($customized_product_ref, $request_ref->{api_version});
+
+	# Remove the schema field if it was not requested
+	if ($added_schema_version) {
+		delete $customized_product_ref->{schema_version};
+	}
 
 	return $customized_product_ref;
 }
