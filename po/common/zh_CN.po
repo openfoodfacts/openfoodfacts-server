@@ -4133,7 +4133,7 @@ msgstr "应用程序"
 
 msgctxt "user_group_app_description"
 msgid "For applications."
-msgstr "应用程序"
+msgstr "用于应用程序开发用途（如手机应用）。"
 
 msgctxt "user_group_bot"
 msgid "Bot"
@@ -4161,23 +4161,23 @@ msgstr "生产者平台的版主可以查看和编辑生产者平台上所有用
 
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
-msgstr "我已经捐赠或不感兴趣。隐藏横幅。"
+msgstr "我已经捐赠或不感兴趣。请隐藏横幅。"
 
 msgctxt "donation_banner_independant"
 msgid "An independant and citizen-led project for food transparency?"
-msgstr "一个独立的、由公民主导的食品透明度项目?"
+msgstr "一个独立的、由公民主导的食品透明度项目？"
 
 msgctxt "donation_banner_public_health"
 msgid "Food product data for research that improves public health?"
-msgstr "用于改善公共健康研究的食品产品数据?"
+msgstr "用于改善公共健康的研究的食品产品数据？"
 
 msgctxt "donation_banner_choices"
 msgid "Easier and better food choices according to your own criteria?"
-msgstr "根据你自己的标准，更容易更好地选择食物?"
+msgstr "根据您自己的标准更轻松、更好地选择食物？"
 
 msgctxt "donation_banner_cta"
 msgid "We need your support!"
-msgstr "我们需要你的支持!"
+msgstr "我们需要您的支持！"
 
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
@@ -4248,15 +4248,15 @@ msgstr "计算营养等级"
 
 msgctxt "scanned_code"
 msgid "Scanned code"
-msgstr "扫描代码"
+msgstr "已扫描的条码"
 
 msgctxt "code_from_filename"
 msgid "Code from file name"
-msgstr "来自文件名的代码"
+msgstr "来自文件名的条码"
 
 msgctxt "using_previous_code"
 msgid "Using previous code"
-msgstr "使用上一个代码"
+msgstr "使用上一个条码"
 
 msgctxt "add_field_values"
 msgid "You can specify field values that will be added to all products for which you will send images."
@@ -4325,7 +4325,7 @@ msgstr "完成"
 
 msgctxt "to_do_status"
 msgid "To do"
-msgstr "要做"
+msgstr "待办事项"
 
 msgctxt "teams"
 msgid "Teams"
@@ -4445,7 +4445,7 @@ msgstr "如果产品不再在商店中提供，请输入是，是或1。"
 
 msgctxt "specify_value_and_unit_or_use_default_unit"
 msgid "Specify both the value and unit, or use the default unit: %s"
-msgstr "指定值和单位，或者使用默认单位:%s"
+msgstr "指定值和单位，或使用默认单位： %s"
 
 msgctxt "specify_value_and_unit"
 msgid "Specify both the value and unit."
@@ -4493,7 +4493,7 @@ msgstr "公开食物事实网站根据提供的信息(营养事实和类别) 计
 
 msgctxt "nutriscore_score_producer_note"
 msgid "Nutri-Score score (numeric value from which the A to E grade is derived)"
-msgstr "营养得分(A到E级的数值)"
+msgstr "Nutri-Score 分数（A 至 E 等级的数值）"
 
 msgctxt "nutriscore_score_producer_import_note"
 msgid "Open Food Facts computes the Nutri-Score score based on the information provided (nutrition facts and category). If the score we compute is different from the score you provide, you will get a private notification on the producers platform so that the difference can be resolved."
@@ -4599,11 +4599,11 @@ msgstr "营养分数"
 
 msgctxt "attribute_nutriscore_setting_name"
 msgid "Good nutritional quality (Nutri-Score)"
-msgstr "良好的营养质量(nutrition - score)"
+msgstr "良好的营养品质（以 Nutri-Score 为标准）"
 
 msgctxt "attribute_nutriscore_setting_note"
 msgid "The Nutri-Score is computed and can be taken into account for all products, even if is not displayed on the packaging."
-msgstr "营养值是计算出来的，可以考虑到所有产品，即使没有显示在包装上。"
+msgstr "Nutri-Score 是经过计算得到的，可以用于所有产品，即使包装上没有展示。"
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_nutriscore_grade_title"
@@ -4733,19 +4733,19 @@ msgstr "未知用户。"
 
 msgctxt "attribute_low_salt_setting_note"
 msgid "The salt level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low salt diet."
-msgstr "营养指数会考虑盐的含量。只有当你的饮食特别低盐时才使用此设置。"
+msgstr "Nutri-Score 会将盐分含量纳入考量。仅当您特别注重低盐饮食时才使用此设置。"
 
 msgctxt "attribute_low_sugars_setting_note"
 msgid "The sugars level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low sugars diet."
-msgstr "糖的含量是由营养评分考虑的。只有当你在低糖饮食时才使用这个设置。"
+msgstr "Nutri-Score 会将糖分水平纳入考量。仅当您特别注重低糖饮食时才使用此设置。"
 
 msgctxt "attribute_low_fat_setting_note"
 msgid "The fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low fat diet."
-msgstr "脂肪水平是由营养指数考虑的。只有在低脂饮食时才使用此设置。"
+msgstr "Nutri-Score 会将脂肪含量纳入考量。仅当您特别注重低脂饮食时才使用此设置。"
 
 msgctxt "attribute_low_saturated_fat_setting_note"
 msgid "The saturated fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low saturated fat diet."
-msgstr "饱和脂肪水平是由营养评分考虑的。只有当你的饮食是低饱和脂肪时才使用此设置。"
+msgstr "Nutri-Score 会将饱和脂肪水平纳入考量。仅当您特别注重较低摄入量的饱和性脂肪饮食时才使用此设置。"
 
 msgctxt "attribute_group_allergens_name"
 msgid "Allergens"
