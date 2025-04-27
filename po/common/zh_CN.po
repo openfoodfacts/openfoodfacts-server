@@ -6699,7 +6699,7 @@ msgstr "产品的所有包装部件都已列出"
 
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
-msgstr "无效的用户ID和密码"
+msgstr "无效的用户 ID 和密码"
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
@@ -6725,7 +6725,7 @@ msgstr "只有在产品上列出的回收说明才可输入。"
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
 msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
-msgstr "在称重之前，请清除所有剩余的食物并清洗和干燥包装部分。如果可能，使用精度为 0.1g 或 0.01g 的秤。"
+msgstr "在称重之前，请清除所有剩余的食物，清洗并保持包装部分干燥。如果可能，使用精度为 0.1 克或 0.01 克的秤。"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
@@ -6734,7 +6734,7 @@ msgstr "输入净重或净体积并注明单位（例如克 g 或毫升 ml）。
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
-msgstr "进出口产品"
+msgstr "导入和导出产品"
 
 msgctxt "add_products"
 msgid "Add products"
@@ -6768,7 +6768,7 @@ msgstr "请输入 0 到 {max} 之间的一个值。"
 
 msgctxt "please_ask_users_create_account_first"
 msgid "Please ask the following users to create an Open Food Facts account first:"
-msgstr "请先询问以下用户先创建一个打开食物事实帐户："
+msgstr "请要求以下用户首先创建一个 Open Food Facts 帐户："
 
 msgctxt "users_added_successfully"
 msgid "Users added to the organization successfully:"
@@ -6780,7 +6780,7 @@ msgstr "糖分不应高于碳水化合物。"
 
 msgctxt "product_js_saturated_fat_warning"
 msgid "Saturated fat should not be higher than fat."
-msgstr "饱和脂肪不应高于脂肪。"
+msgstr "饱和脂肪不应高于总脂肪。"
 
 msgctxt "packaging_materials"
 msgid "Packaging materials"
@@ -6792,11 +6792,11 @@ msgstr "包裹重量"
 
 msgctxt "packaging_weight_100g"
 msgid "Packaging weight per 100 g of product"
-msgstr "每100克产品的包装重量"
+msgstr "每 100 克产品的包装重量"
 
 msgctxt "packaging_weight_100g_mean"
 msgid "Mean packaging weight per 100 g of product"
-msgstr "每100克产品的包装重量"
+msgstr "每 100 克产品的包装重量"
 
 msgctxt "total"
 msgid "Total"
@@ -6804,11 +6804,11 @@ msgstr "总计"
 
 msgctxt "packaging_material_products_percent"
 msgid "% of products containing the material"
-msgstr "% 对产品主要包含此原料"
+msgstr "含有该原料的产品在所有产品中的百分比（%）"
 
 msgctxt "packaging_material_products_percent_main"
 msgid "% of products containing mostly the material"
-msgstr "% 对产品主要包含此原料"
+msgstr "该原料作为主原料的产品在所有产品中的百分比（%）"
 
 msgctxt "relative_to_products_containing_the_material"
 msgid "for products that contain the material"
@@ -6900,43 +6900,43 @@ msgstr "缺乏"
 
 msgctxt "nutriscore_is_water"
 msgid "This product is considered to be water for the calculation of the Nutri-Score."
-msgstr "对统计营养成分而言，该产品就如同水。"
+msgstr "在计算 Nutri-Score 时，该产品被视为水处理。"
 
 msgctxt "nutriscore_is_fat_oil_nuts_seeds"
 msgid "This product is considered to be fat, oil, nuts or seeds for the calculation of the Nutri-Score."
-msgstr "对统计营养成分而言，该产品就如同脂肪或油脂或坚果或籽。"
+msgstr "在计算 Nutri-Score 时，该产品被视为脂肪、油、坚果或种子处理。"
 
 msgctxt "nutriscore_is_cheese"
 msgid "This product is considered to be cheese for the calculation of the Nutri-Score."
-msgstr "在计算营养信息时，将该产品归为奶酪。"
+msgstr "在计算 Nutri-Score 时，该产品被视为奶酪处理。"
 
 msgctxt "nutriscore_is_red_meat_product"
 msgid "This product is considered to be a red meat product for the calculation of the Nutri-Score."
-msgstr "在计算营养成分时，将该产品归为红肉类产品"
+msgstr "在计算 Nutri-Score 时，该产品被视为红肉类产品处理。"
 
 msgctxt "nutriscore_count_proteins_reason_beverage"
 msgid "Points for proteins are counted because the product is considered to be a beverage."
-msgstr "因为该产品为饮料，所以蛋白质含量可以接受。"
+msgstr "由于该产品被视为饮料，因此计算蛋白质分数。"
 
 msgctxt "nutriscore_count_proteins_reason_cheese"
 msgid "Points for proteins are counted because the product is considered to be cheese."
-msgstr "因为该产品为奶酪，所以蛋白质含量可以接受。"
+msgstr "由于该产品被视为奶酪，因此计算蛋白质分数。"
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_7"
 msgid "Points for proteins are counted because the negative points are less than 7."
-msgstr "因为蛋白质的负面分值低于7，所以蛋白质含量可以接受。"
+msgstr "由于负分小于 7，因此计算蛋白质的分数。"
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_11"
 msgid "Points for proteins are counted because the negative points are less than 11."
-msgstr "因为蛋白质的负面分值低于11，所以蛋白质含量可以接受。"
+msgstr "由于负分小于 11，因此计算蛋白质的分数。"
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_7"
 msgid "Points for proteins are not counted because the negative points greater than or equal to 7."
-msgstr "因为蛋白质的负面分值大于等于7，所以蛋白质含量不被接受。"
+msgstr "因为负分数大于或等于 7，蛋白质的分数不计算在内。"
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_11"
 msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
-msgstr "因为蛋白质的负面分值大于等于7，所以蛋白质含量不被接受。"
+msgstr "因为负分数大于或等于 11，蛋白质的分数不计算在内。"
 
 msgctxt "nutriscore_new_computation_title"
 msgid "Discover the new Nutri-Score!"
@@ -6952,15 +6952,15 @@ msgstr ""
 
 msgctxt "nutriscore_explanation_what_it_is"
 msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
-msgstr "营养信息（Nutri-Score）是一种产品全部营养成分的标识。"
+msgstr "Nutri-Score 是产品整体营养质量的标志。"
 
 msgctxt "nutriscore_explanation_what_it_takes_into_account"
 msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
-msgstr "营养分级由A到E五个等级组成，计算标准基于有益营养物和食物（例如蛋白质、膳食纤维、水果、蔬菜、豆类），以及要限制的营养物（例如卡路里、饱和脂肪、糖分、盐分）。"
+msgstr "营养分级由 A 到 E 五个等级组成，计算标准基于有益营养物和食物（例如蛋白质、膳食纤维、水果、蔬菜、豆类），以及要限制的营养物（例如卡路里、饱和脂肪、糖分、盐分）。"
 
 msgctxt "nutriscore_explanation_where_the_data_comes_from"
 msgid "The score is calculated from the data of the nutrition facts table and the composition data (fruits, vegetables and legumes)."
-msgstr "根据营养成分表的数据和水果、蔬菜、豆类组合数据，进行营养分级。"
+msgstr "该分数是根据营养成分表的数据和成分数据（水果、蔬菜和豆类）计算得出的。"
 
 msgctxt "nutriscore_explanation_recommended_by_public_health_authorities"
 msgid "The display of this logo is recommended by public health authorities without obligation for companies."
@@ -6968,7 +6968,7 @@ msgstr "各非盈利公共健康组织建议各企业展示这项标识。"
 
 msgctxt "nutriscore_explanation_title"
 msgid "What is the Nutri-Score?"
-msgstr "营养分级是什么？"
+msgstr "Nutri-Score 是什么？"
 
 msgctxt "nutrient_info_energy_risk"
 msgid "Energy intakes above energy requirements are associated with increased risks of weight gain, overweight, obesity, and consequently risk of diet-related chronic diseases."
