@@ -400,7 +400,7 @@ paths:
 
         note: `/api/v2/attribute_groups_{lc}` is also a valid route, but consider it deprecated
       tags:
-        - Read Requests
+        # - Read Requests
         - Personal search
       operationId: get-attribute-groups
       responses:
@@ -423,7 +423,7 @@ paths:
         for computing personal product recommendations. The weights are used to
         personalize the product recommendations based on user preferences.
       tags:
-        - Read Requests
+        # - Read Requests
         - Personal search
       operationId: get-preferences
       parameters:
