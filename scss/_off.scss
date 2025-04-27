@@ -30,34 +30,36 @@
 @font-face {
   font-display: auto;
   /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Plus Jakarta Sans';
+  font-family: "Plus Jakarta Sans";
   font-style: normal;
   font-weight: 400;
-  src: url('/fonts/plus-jakarta-sans-v8-cyrillic-ext_latin_latin-ext_vietnamese-regular.woff2') format('woff2'),
+  src: url("/fonts/plus-jakarta-sans-v8-cyrillic-ext_latin_latin-ext_vietnamese-regular.woff2")
+      format("woff2"),
     /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-    url('/fonts/plus-jakarta-sans-v8-cyrillic-ext_latin_latin-ext_vietnamese-regular.ttf') format('truetype');
+      url("/fonts/plus-jakarta-sans-v8-cyrillic-ext_latin_latin-ext_vietnamese-regular.ttf")
+      format("truetype");
   /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
 }
-
 
 /* plus-jakarta-sans-700 - cyrillic-ext_latin_latin-ext_vietnamese */
 @font-face {
   font-display: auto; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Plus Jakarta Sans';
+  font-family: "Plus Jakarta Sans";
   font-style: normal;
   font-weight: 700;
-  src: url('/fonts/plus-jakarta-sans-v8-cyrillic-ext_latin_latin-ext_vietnamese-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("/fonts/plus-jakarta-sans-v8-cyrillic-ext_latin_latin-ext_vietnamese-700.woff2")
+    format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* plus-jakarta-sans-800 - cyrillic-ext_latin_latin-ext_vietnamese */
 @font-face {
   font-display: auto; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Plus Jakarta Sans';
+  font-family: "Plus Jakarta Sans";
   font-style: normal;
   font-weight: 800;
-  src: url('/fonts/plus-jakarta-sans-v8-cyrillic-ext_latin_latin-ext_vietnamese-800.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("/fonts/plus-jakarta-sans-v8-cyrillic-ext_latin_latin-ext_vietnamese-800.woff2")
+    format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
-
 
 // Font for Material Icons
 // variable to prevent sonar-cloud to complain that there isn't a generic family for the icon font
@@ -294,7 +296,7 @@ ul.products {
   padding: 10px;
   width: 120px;
   word-wrap: break-word;
-  text-decoration:none !important;
+  text-decoration: none !important;
 }
 
 .products div {
@@ -431,12 +433,14 @@ nav.tab-bar > div {
   font-size: 0.8em;
 }
 
-.note ,.asterisk {
+.note,
+.asterisk {
   font-size: 0.8em;
 }
 
 .example,
-.note,.asterisk {
+.note,
+.asterisk {
   margin: 4px 0 0 4px;
 }
 
@@ -694,8 +698,6 @@ html[dir="rtl"] {
   }
 }
 
-
-
 .match_icons {
   height: 48px;
   margin-right: 4px;
@@ -932,7 +934,7 @@ html[dir="rtl"] {
 /* smaller text for descriptions */
 .panel_text .description {
   color: #555;
-  font-size: .8em;
+  font-size: 0.8em;
 }
 
 .ecoscore_panel {
@@ -1229,14 +1231,15 @@ span.ico-bold {
 @import "product-page";
 @import "product-form";
 @import "inputs_redesign";
+@import "modals";
 
 .white-button {
   @include button(10, $white);
 }
 
 $section-cyan: #008c8c;
-$section-sand: #FFFAF1;
-$background-orange: #FF8714;
+$section-sand: #fffaf1;
+$background-orange: #ff8714;
 $font-green: #008c8c;
 $border-pink: #ff6e78;
 
@@ -1251,10 +1254,10 @@ $border-pink: #ff6e78;
     height: 25vw;
   }
   &__FR {
-    background-image: url('/images/misc/banners/FR.png');
+    background-image: url("/images/misc/banners/FR.png");
   }
   &__ENG {
-    background-image: url('/images/misc/banners/ENG.png');
+    background-image: url("/images/misc/banners/ENG.png");
   }
 }
 
@@ -1272,20 +1275,20 @@ $border-pink: #ff6e78;
     flex-direction: column;
     padding: 20px 10px;
   }
-  &__group-photo{
+  &__group-photo {
     border-radius: 5px;
   }
   &__close {
     button {
       position: absolute;
-      top: .3rem;
-      right: .3rem;
+      top: 0.3rem;
+      right: 0.3rem;
       cursor: pointer;
       background-color: transparent;
       color: inherit;
     }
   }
-  &__hook-section{
+  &__hook-section {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1296,7 +1299,8 @@ $border-pink: #ff6e78;
     border-radius: 10px;
     z-index: 1;
     p {
-      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
       font-size: 25px;
       font-weight: 700;
       line-height: 35px;
@@ -1307,7 +1311,7 @@ $border-pink: #ff6e78;
       }
     }
   }
-  &__left-aside{
+  &__left-aside {
     width: 60%;
     margin: 0 10px;
     display: flex;
@@ -1317,20 +1321,20 @@ $border-pink: #ff6e78;
       transform: translatey(-15px);
     }
   }
-  &__aside{
+  &__aside {
     display: flex;
     flex-direction: column;
   }
-  &__main-title{
+  &__main-title {
     color: $border-pink;
     font-weight: 800;
     font-size: 25px;
   }
-  &__main-section{
+  &__main-section {
     display: flex;
     align-items: center;
   }
-  &__actions-section{
+  &__actions-section {
     display: flex;
     justify-content: space-around;
     width: 100%;
@@ -1341,34 +1345,34 @@ $border-pink: #ff6e78;
       align-items: center;
       padding: 20px 10px;
     }
-    &__financial{
+    &__financial {
       width: 50%;
       @media #{$small-only} {
         width: 90%;
       }
-      p{
-        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      p {
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
         font-size: 15px;
         color: #008c8c;
         font-weight: bolder;
       }
     }
-    &__donate-button{
+    &__donate-button {
       width: 40%;
-      a button{
+      a button {
         background-color: $border-pink;
         border-radius: 30px;
-        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         font-size: 20px;
         font-weight: 900;
-        &:hover{
+        &:hover {
           background-color: rgba($border-pink, 0.8);
         }
       }
     }
   }
 }
-
 
 // Top banner to download mobile app
 #mobile-app-top-banner {
@@ -1382,7 +1386,6 @@ $border-pink: #ff6e78;
 }
 
 // Packagings banner
-
 
 .packagings-banner {
   position: relative;
@@ -1425,8 +1428,12 @@ $border-pink: #ff6e78;
       }
     }
     &-paragraphs {
-      > p { color: $white; }
-      a { color: #ffffcc; }
+      > p {
+        color: $white;
+      }
+      a {
+        color: #ffffcc;
+      }
       @media #{$small-only} {
         text-align: center;
         order: 2;
@@ -1499,8 +1506,12 @@ $border-pink: #ff6e78;
       }
     }
     &-paragraphs {
-      > p { color: $white; }
-      a { color: #ffffcc; }
+      > p {
+        color: $white;
+      }
+      a {
+        color: #ffffcc;
+      }
       @media #{$small-only} {
         text-align: center;
         order: 2;
@@ -1553,7 +1564,6 @@ $border-pink: #ff6e78;
   margin-bottom: 8px;
 }
 
-
 // Contribute and discover footer
 
 #contribute_and_discover_links_block {
@@ -1573,7 +1583,6 @@ $border-pink: #ff6e78;
   color: $black !important;
   font-variant-ligatures: none;
 }
-
 
 // Text spans highlighted with colored labels
 .highlight-label {
@@ -1672,41 +1681,44 @@ $border-pink: #ff6e78;
 /* Packaging widget */
 /* **************** */
 #packagings_components_edit input {
-  margin:0;
+  margin: 0;
 }
 
 #packagings_components_edit_header {
-  background-color:$macchiato;
-  border-radius:20px;
-  color:white;
-  font-weight:600;
-  margin:0;
-  padding:1rem;
+  background-color: $macchiato;
+  border-radius: 20px;
+  color: white;
+  font-weight: 600;
+  margin: 0;
+  padding: 1rem;
 }
 
 .packagings_components_edit_row {
-  border-radius:20px;
-  margin:0 !important;
-  padding:1rem;
+  border-radius: 20px;
+  margin: 0 !important;
+  padding: 1rem;
 }
 .packagings_components_edit_row:nth-of-type(even) {
-  background-color:$latte;
+  background-color: $latte;
 }
 
 #packagings_components_edit .select2-container .select2-selection--single {
   height: 2.6428571429rem;
 }
 
-#packagings_components_edit .select2-container .select2-selection--single .select2-selection__rendered {
+#packagings_components_edit
+  .select2-container
+  .select2-selection--single
+  .select2-selection__rendered {
   line-height: 2.6428571429rem;
 }
 
 .delete_packaging_column {
-  padding:0 !important;
+  padding: 0 !important;
 }
 
 .delete_packaging {
-  margin:0;
+  margin: 0;
 }
 
 .delete_packaging > span {
@@ -1726,54 +1738,62 @@ $border-pink: #ff6e78;
 
 // 1st packaging component is empty and hidden, it is used to add new components
 #packaging_0_row {
-  display:none;
+  display: none;
 }
 
-.if-empty-dnone:empty { display: none !important; }
+.if-empty-dnone:empty {
+  display: none !important;
+}
 
 // underline links
 #main_container a:not(.leaflet-control-zoom-in):not(.leaflet-control-zoom-out) {
-  text-decoration:underline;
+  text-decoration: underline;
 }
 // except buttons
 a.button {
-  text-decoration:none !important;
+  text-decoration: none !important;
 }
 // except product cards etc.
 a.list_product_a {
-  text-decoration:none !important;
+  text-decoration: none !important;
 }
 a.tab_language {
-  text-decoration:none !important;
+  text-decoration: none !important;
 }
 a.panel_title {
-  text-decoration:none !important;
+  text-decoration: none !important;
 }
 .field_value a {
-  text-decoration:none !important;
+  text-decoration: none !important;
 }
 .accordion-navigation a {
-  text-decoration:none !important;
+  text-decoration: none !important;
 }
 .panel_title a {
-  text-decoration:none !important;
+  text-decoration: none !important;
 }
 .panel_text a {
-  text-decoration:underline !important;
+  text-decoration: underline !important;
 }
 .pagination a {
-  text-decoration:none !important;
+  text-decoration: none !important;
 }
 .f-dropdown a {
-  text-decoration:none !important;
+  text-decoration: none !important;
 }
 .dataTable a {
-  text-decoration:none !important;
+  text-decoration: none !important;
 }
 
-.button:focus, .button:hover, button:focus, button:hover {
-    background-color: color.scale($button-bg-color, $lightness: $button-function-factor * -0.5);
-    color: #fff;
+.button:focus,
+.button:hover,
+button:focus,
+button:hover {
+  background-color: color.scale(
+    $button-bg-color,
+    $lightness: $button-function-factor * -0.5
+  );
+  color: #fff;
 }
 
 // Tuto video beside user form
@@ -1799,9 +1819,9 @@ a.panel_title {
   font-variant-ligatures: none;
 
   .highlight-label {
-  // make the highlighted labels smaller
+    // make the highlighted labels smaller
     font-size: 75%;
-  // set font weight to 800 to make it the same as Playstore visuals
+    // set font weight to 800 to make it the same as Playstore visuals
     font-weight: 800;
   }
 
@@ -1867,7 +1887,9 @@ a.panel_title {
   .button {
     font-weight: 700;
     background-color: $white !important;
-    &:hover { background-color: #F6F6F6 !important; }
+    &:hover {
+      background-color: #f6f6f6 !important;
+    }
   }
 
   .paragraph-top-margin {
@@ -1895,13 +1917,13 @@ a.panel_title {
 }
 
 .button.tiny {
-  margin:0;
+  margin: 0;
   padding: 0.25rem 0.5rem;
 }
 
 .moderator-only {
-  background-color: #FFCC00;
-  border: 2px solid #FFA500;
+  background-color: #ffcc00;
+  border: 2px solid #ffa500;
   padding-left: 40px;
   position: relative;
   cursor: help;
@@ -1909,7 +1931,8 @@ a.panel_title {
 
 .moderator-only::before {
   content: "\1F6E1";
-  font-family: "Segoe UI Emoji", "Noto Color Emoji", "Android Emoji", "EmojiSymbols", sans-serif;
+  font-family: "Segoe UI Emoji", "Noto Color Emoji", "Android Emoji",
+    "EmojiSymbols", sans-serif;
   position: absolute;
   left: 5px;
   top: 50%;
@@ -1933,12 +1956,12 @@ a.panel_title {
 }
 
 div.form-field-with-btn {
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
 
   & > input {
-    width:auto; 
+    width: auto;
     flex-grow: 1;
     margin: 0 1em 0 0;
   }
@@ -1949,19 +1972,22 @@ div.form-field-with-btn {
   background-color: #ffefef;
 
   & #upload_icon {
-    color: #ffa753!important;
+    color: #ffa753 !important;
   }
 
   & [id^="file_input_button_"] {
-    background-color: color.scale($button-bg-color, $lightness: $button-function-factor * -0.5);
+    background-color: color.scale(
+      $button-bg-color,
+      $lightness: $button-function-factor * -0.5
+    );
     color: #fff;
   }
 }
 
 .drop-zone {
-  border: 2px dashed black; 
+  border: 2px dashed black;
   border-radius: 5px;
-  background-color: #ece9e6; 
+  background-color: #ece9e6;
   padding: 2em;
 
   & > #upload_icon {
@@ -1970,7 +1996,7 @@ div.form-field-with-btn {
     align-items: center;
     color: #c6c0b2;
 
-    svg { 
+    svg {
       height: 2.8em;
       width: auto;
       margin-bottom: 0.5em;

@@ -852,6 +852,13 @@
          "important" : false,
          "name" : "Acidité",
          "unit" : "% vol"
+      },
+      {
+         "display_in_edit_form" : false,
+         "id" : "carbohydrates-total",
+         "important" : false,
+         "name" : "Glucides totaux (inclut les fibres)",
+         "unit" : "g"
       }
    ]
 }
