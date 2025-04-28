@@ -36437,6 +36437,10 @@ en: Cheese Naans
 en: Garlic Naans
 
 < en:Flatbreads
+en: Paratha
+wikidata:en: Q59707
+
+< en:Flatbreads
 < en:Special breads
 en: Pitas, Pittas, Pita bread, pitta bread
 xx: Pitas
@@ -52872,10 +52876,6 @@ agribalyse_proxy_food_name:en: Uncured soft cheese, spreadable, around 25% fat, 
 ciqual_proxy_food_code:en: 12315
 ciqual_proxy_food_name:en: Uncured soft cheese, spreadable, around 25% fat, in a tub
 intake24_category_code:en: SPRD
-
-< en:cheese spreads
-en: St Moret, Saint Moret
-xx: St Moret, Saint Moret
 
 < en:Cheese spreads
 en: Uncured soft cheese spreadable with around 25% fat
@@ -82239,7 +82239,7 @@ lt: Šalti užkandžiai
 nl: Koude voorgerechten
 #wikidata:en:
 
-< en:Appetizers
+< en:Prepared salads
 en: Coleslaw, Coleslaw with sauce
 de: Krautsalat
 es: Ensalada de col
@@ -106829,23 +106829,20 @@ fr: Tomates marinées
 en: Torshi
 fr: Torchi
 
-< en:Canned fruits
+# don't put in fruits, those products can have other ingredients, notably a high quantity of oil.
 < en:Plant-based pickles
 en: Pickled fruits, Fruit pickles
 fr: Pickles de fruits, fruits marinés
 
 < en:Fruit pickles
-< en:Mangoes
 en: Pickled mangoes, marinated mangoes
 fr: Pickles de mangues, mangues marinées
 
 < en:Fruit pickles
-< en:Plums
 en: Pickled plums, marinated plums
 fr: Pickles de prunes, prunes marinées
 
 < en:Fruit pickles
-< en:Limes
 en: Pickled limes, marinated limes
 fr: Pickles de citrons verts, citrons verts marinées
 
