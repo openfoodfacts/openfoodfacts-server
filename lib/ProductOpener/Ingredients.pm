@@ -2269,8 +2269,8 @@ Text to analyze
 
 								# d'origine végétale -> not a geographic origin, add en:vegan
 								if ($origin_string =~ /vegetal|végétal/i) {
-									$vegan = "en:yes";
-									$vegetarian = "en:yes";
+									$vegan = "yes";
+									$vegetarian = "yes";
 								}
 								else {
 
@@ -2587,8 +2587,8 @@ Text to analyze
 					my $origin_string = $';
 					# d'origine végétale -> not a geographic origin, add en:vegan
 					if ($origin_string =~ /vegetal|végétal/i) {
-						$vegan = "en:yes";
-						$vegetarian = "en:yes";
+						$vegan = "yes";
+						$vegetarian = "yes";
 					}
 					else {
 						$origin = join(",",
@@ -3117,11 +3117,11 @@ Text to analyze
 
 					# If we have a label for the ingredient that indicates if it is vegan or not, override the value
 					if ($labels =~ /\ben:vegan\b/) {
-						$ingredient{vegan} = "en:yes";
-						$ingredient{vegetarian} = "en:yes";
+						$ingredient{vegan} = "yes";
+						$ingredient{vegetarian} = "yes";
 					}
 					if ($labels =~ /\ben:vegetarian\b/) {
-						$ingredient{vegetarian} = "en:yes";
+						$ingredient{vegetarian} = "yes";
 					}
 				}
 
