@@ -36,6 +36,7 @@ use ProductOpener::Lang qw/lang/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Producers qw/:all/;
 use ProductOpener::Data qw/get_products_collection/;
+use ProductOpener::HTTP qw/single_param/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
