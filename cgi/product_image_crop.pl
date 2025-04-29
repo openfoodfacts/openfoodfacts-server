@@ -96,14 +96,13 @@ if ($id =~ /^(front|ingredients|nutrition|packaging)_([a-z]{2})$/) {
 	$image_lc = $2;
 }
 else {
-	display_error(
-		{
-			message => {id => "invalid_image_type"},
-			field => {id => "image_type", value => $id},
-			impact => {id => "failure"},
-		}
-	);
-	exit(0);
+	my $data = encode_json({status => 'status not ok - invalid image type (id field), must be of the form (front|ingredients|nutrition|packaging)_([a-z]{2})'});
+
+	$log->debug("JSON data output", {data => $data}) if $log->is_debug();
+
+	print header(-type => 'application/json', -charset => 'utf-8') . $data;
+
+	exit;
 }
 
 # Check edit rules

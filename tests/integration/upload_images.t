@@ -146,18 +146,23 @@ my $tests_ref = [
 		expected_status_code => 200,
 	},
 	{
-		test_case => 'get-product-image-crop',
-		method => 'GET',
-		path => '/api/v2/product/1234567890012',
+		test_case => 'post-product-image-select-without-crop',
+		method => 'POST',
+		path => '/cgi/product_image_crop.pl',
+		form => {
+			code => "1234567890012",    # Product had an image uploaded in a previous test
+			id => "ingredients_es",
+			imgid => "1",
+		},
 		expected_status_code => 200,
-	},
+	},	
 	{
 		test_case => 'post-product-image-crop-imgid-does-not-exist',
 		method => 'POST',
 		path => '/cgi/product_image_crop.pl',
 		form => {
 			code => "1234567890012",    # Product had an image uploaded in a previous test
-			id => "ingredients_fr",
+			id => "nutrition_fr",
 			imgid => "25",
 			angle => 0,
 			x1 => 10,
@@ -168,6 +173,34 @@ my $tests_ref = [
 		},
 		expected_status_code => 200,
 	},
+	{
+		test_case => 'post-product-image-crop-missing-image-type',
+		method => 'POST',
+		path => '/cgi/product_image_crop.pl',
+		form => {
+			code => "1234567890012",    # Product had an image uploaded in a previous test
+			imgid => "1",
+		},
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'post-product-image-crop-invalid-image-type',
+		method => 'POST',
+		path => '/cgi/product_image_crop.pl',
+		form => {
+			code => "1234567890012",    # Product had an image uploaded in a previous test
+			id => "invalid_image_type_fr",
+			imgid => "1",
+		},
+		expected_status_code => 200,
+	},
+	# check we got the images selected	
+	{
+		test_case => 'get-product-image-crop',
+		method => 'GET',
+		path => '/api/v2/product/1234567890012',
+		expected_status_code => 200,
+	},	
 
 ];
 
