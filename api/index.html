@@ -1902,6 +1902,11 @@
 
 
   
+    <a href="https://github.com/openfoodfacts/openfoodfacts-server/edit/main/docs/api/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
   
 
 
@@ -1967,8 +1972,16 @@
 <li>Production: <a href="https://world.openfoodfacts.org">https://world.openfoodfacts.org</a></li>
 <li>Staging: <a href="https://world.openfoodfacts.net">https://world.openfoodfacts.net</a></li>
 </ul>
-<p>Consider using the <a href="https://world.openfoodfacts.net">staging environment</a> if you are not in a production scenario.</p>
+<p>Consider using the <a href="https://world.openfoodfacts.net">staging environment</a> if you are not in a production scenario. </p>
 <p>While testing your applications, <strong>make all API requests to the staging environment</strong>. This way, we can ensure the product database is safe.</p>
+<p>Staging require an http basic auth to avoid search engine indexing. The username is <code>off</code>, and the password <code>off</code>. Here is a small javascript code that you can test in your browser console:
+<div class="highlight"><pre><span></span><code><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;https://world.openfoodfacts.net/api/v2/product/3274080005003.json&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;GET&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Authorization</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Basic &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">btoa</span><span class="p">(</span><span class="s1">&#39;off:off&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">},</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">json</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">json</span><span class="p">));</span>
+</code></pre></div></p>
 <h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">#</a></h2>
 <p>We ask you to <strong>always use a custom User-Agent to identify your app</strong> (to not risk being identified as a bot). The User-Agent should be in the form of <code>AppName/Version (ContactEmail)</code>. For example,
 <code>MyApp/1.0 (myapp@example.com)</code>.</p>
@@ -2089,7 +2102,7 @@ Open-source contributors develop our SDKs, and more contributions are welcome to
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.action.edit"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
