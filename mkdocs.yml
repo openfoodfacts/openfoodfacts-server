@@ -16,6 +16,8 @@ site_dir: gh_pages
 # for available extensions
 theme:
   name: material
+  features:
+    - content.action.edit
 
 markdown_extensions:
   - footnotes
