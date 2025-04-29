@@ -99,6 +99,7 @@ BEGIN {
 		&process_image_upload_using_filehandle
 		&process_image_move
 
+		&same_image_generation_parameters
 		&process_image_crop
 		&process_image_unselect
 
@@ -1306,6 +1307,68 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 		if $log->is_debug();
 
 	return 0;
+}
+
+=head2 same_image_generation_parameters ( $generation_1_ref, $generation_2_ref )
+
+This function checks if the image generation parameters are the same for two images.
+
+It is useful to avoid selecting the same image with the same parameters twice.
+
+=head3 Arguments
+
+=head4 $generation_1_ref
+
+A reference to the first image generation parameters.
+
+=head4 $generation_2_ref
+
+A reference to the second image generation parameters.
+
+=head3 Return values
+
+1: the image generation parameters are the same
+
+0: the image generation parameters are different
+
+=cut
+
+sub same_image_generation_parameters($generation_1_ref, $generation_2_ref) {
+
+	# Notes: we can be passed undef hashes, empty hashes, or hashes with undef values
+	# We want to check that the existing and defined keys in one hash are the same as the other
+
+	# Normalized structures:
+	my %keys1 = {};
+	if (defined $generation_1_ref) {
+		foreach my $key (keys %{$generation_1_ref}) {
+			if (defined $generation_1_ref->{$key}) {
+				$keys1{$key} = 1;
+			}
+		}
+	}
+	my %keys2 = {};
+	if (defined $generation_2_ref) {
+		foreach my $key (keys %{$generation_2_ref}) {
+			if (defined $generation_2_ref->{$key}) {
+				$keys2{$key} = 1;
+			}
+		}
+	}
+
+	# Check that the keys are the same
+	foreach my $key (keys %keys1) {
+		if ((not defined $keys2{$key}) or ($keys1{$key} ne $keys2{$key})) {
+			return 0;
+		}
+	}
+	foreach my $key (keys %keys2) {
+		if ((not defined $keys1{$key}) or ($keys2{$key} ne $keys1{$key})) {
+			return 0;
+		}
+	}
+
+	return 1;
 }
 
 =head2 process_image_crop ( $user_id, $product_ref, $image_type, $image_lc, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size )

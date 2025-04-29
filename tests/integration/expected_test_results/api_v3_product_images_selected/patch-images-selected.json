@@ -19,42 +19,6 @@
             "lc_name" : "Missing field",
             "name" : "Missing field"
          }
-      },
-      {
-         "field" : {
-            "id" : "images",
-            "value" : {
-               "selected" : {
-                  "front" : {
-                     "fr" : {
-                        "imgid" : "1"
-                     }
-                  },
-                  "ingredients" : {
-                     "es" : {
-                        "geometry" : {
-                           "angle" : 90,
-                           "x1" : 10,
-                           "x2" : 100,
-                           "y1" : 20,
-                           "y2" : 200
-                        },
-                        "imgid" : "1"
-                     }
-                  }
-               }
-            }
-         },
-         "impact" : {
-            "id" : "warning",
-            "lc_name" : "Warning",
-            "name" : "Warning"
-         },
-         "message" : {
-            "id" : "unrecognized_field",
-            "lc_name" : "Unrecognized field",
-            "name" : "Unrecognized field"
-         }
       }
    ]
 }

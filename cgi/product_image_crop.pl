@@ -53,12 +53,18 @@ my $code = normalize_code(single_param('code'));
 my $product_id = product_id_for_owner($Owner_id, $code);
 
 my $imgid = single_param('imgid');
-my $angle = single_param('angle');
-my $id = single_param('id');
+# my $angle = single_param('angle');
+# my $id = single_param('id');
 
-my ($x1, $y1, $x2, $y2) = (single_param('x1'), single_param('y1'), single_param('x2'), single_param('y2'));
-my $normalize = single_param('normalize');
-my $white_magic = single_param('white_magic');
+my $generation_ref = {
+	angle => single_param('angle'),
+	x1 => single_param('x1'),
+	y1 => single_param('y1'),
+	x2 => single_param('x2'),
+	y2 => single_param('y2'),
+	normalize => single_param('normalize'),
+	white_magic => single_param('white_magic'),
+};
 
 # The new product_multilingual.pl form will set $coordinates_image_size to "full"
 # the current Android app will not send it, and it will send coordinates related to the ".400" image
@@ -96,7 +102,12 @@ if ($id =~ /^(front|ingredients|nutrition|packaging)_([a-z]{2})$/) {
 	$image_lc = $2;
 }
 else {
-	my $data = encode_json({status => 'status not ok - invalid image type (id field), must be of the form (front|ingredients|nutrition|packaging)_([a-z]{2})'});
+	my $data = encode_json(
+		{
+			status =>
+				'status not ok - invalid image type (id field), must be of the form (front|ingredients|nutrition|packaging)_([a-z]{2})'
+		}
+	);
 
 	$log->debug("JSON data output", {data => $data}) if $log->is_debug();
 
@@ -147,16 +158,12 @@ elsif ((defined $User_id) and (($User_id eq 'kiliweb')) or (remote_addr() eq "20
 		and (defined $product_ref->{images}{$imgid})
 		and (not is_protected_image($product_ref, $image_type, $image_lc) or $User{moderator}))
 	{
-		$return_code
-			= process_image_crop($User_id, $product_ref, $image_type, $image_lc, $imgid, $angle, $normalize,
-			$white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size);
+		$return_code = process_image_crop($User_id, $product_ref, $image_type, $image_lc, $imgid, $generation_ref);
 	}
 }
 else {
 	if (not is_protected_image($product_ref, $image_type, $image_lc) or $User{moderator}) {
-		$return_code
-			= process_image_crop($User_id, $product_ref, $image_type, $image_lc, $imgid, $angle, $normalize,
-			$white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size);
+		$return_code = process_image_crop($User_id, $product_ref, $image_type, $image_lc, $imgid, $generation_ref);
 	}
 }
 

@@ -59,6 +59,7 @@ use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Tags qw/%language_fields %writable_tags_fields add_tags_to_field compute_field_tags/;
 use ProductOpener::URL qw(format_subdomain);
 use ProductOpener::HTTP qw/request_param single_param redirect_to_url/;
+use ProductOpener::Images qw/:all/;
 
 use Encode;
 
@@ -271,6 +272,9 @@ sub update_selected_images ($request_ref, $product_ref, $response_ref) {
 
 	# TODO: implement this function
 
+	# note: check if the image has not been already selected with the same generation parameters
+	# (or move the check in process_image_crop)
+
 	return;
 }
 
@@ -369,6 +373,10 @@ sub update_product_fields ($request_ref, $product_ref, $response_ref) {
 				$product_ref->{lc} = $value;
 				$request_ref->{updated_product_fields}{$field} = 1;
 			}
+		}
+		# Images selection
+		elsif ($field eq "images") {
+			update_images_selected($request_ref, $product_ref, $response_ref);
 		}
 		# Unrecognized field
 		else {

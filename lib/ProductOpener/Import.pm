@@ -376,32 +376,28 @@ sub upload_images_for_product($args_ref, $images_ref, $product_ref, $imported_pr
 					$stats_ref->{products_images_added}{$code} = 1;
 				}
 
-				my $x1 = $imported_product_ref->{"image_" . $imagefield . "_x1"} || -1;
-				my $y1 = $imported_product_ref->{"image_" . $imagefield . "_y1"} || -1;
-				my $x2 = $imported_product_ref->{"image_" . $imagefield . "_x2"} || -1;
-				my $y2 = $imported_product_ref->{"image_" . $imagefield . "_y2"} || -1;
-				my $coordinates_image_size
-					= $imported_product_ref->{"image_" . $imagefield . "_coordinates_image_size"} || $crop_size;
-				my $angle = $imported_product_ref->{"image_" . $imagefield . "_angle"} || 0;
-				my $normalize = $imported_product_ref->{"image_" . $imagefield . "_normalize"} || "false";
-				my $white_magic = $imported_product_ref->{"image_" . $imagefield . "_white_magic"} || "false";
+				my $generation_ref = {
+					angle => $imported_product_ref->{"image_" . $imagefield . "_angle"} || 0,
+					x1 => $imported_product_ref->{"image_" . $imagefield . "_x1"} || -1,
+					y1 => $imported_product_ref->{"image_" . $imagefield . "_y1"} || -1,
+					x2 => $imported_product_ref->{"image_" . $imagefield . "_x2"} || -1,
+					y2 => $imported_product_ref->{"image_" . $imagefield . "_y2"} || -1,
+					coordinates_image_size =>
+						$imported_product_ref->{"image_" . $imagefield . "_coordinates_image_size"} || "full",
+					normalize => $imported_product_ref->{"image_" . $imagefield . "_normalize"} || "false",
+					white_magic => $imported_product_ref->{"image_" . $imagefield . "_white_magic"} || "false"
+					}
 
-				$log->debug(
+					$log->debug(
 					"select and crop image?",
 					{
 						code => $code,
 						imgid => $imgid,
 						current_max_imgid => $current_max_imgid,
 						imagefield_with_lc => $imagefield_with_lc,
-						x1 => $x1,
-						y1 => $y1,
-						x2 => $x2,
-						y2 => $y2,
-						angle => $angle,
-						normalize => $normalize,
-						white_magic => $white_magic
+						generation => $generation_ref,
 					}
-				) if $log->is_debug();
+					) if $log->is_debug();
 
 				# select the photo
 				if (
@@ -425,18 +421,11 @@ sub upload_images_for_product($args_ref, $images_ref, $product_ref, $imported_pr
 								current_max_imgid => $current_max_imgid,
 								imgid => $imgid,
 								imagefield_with_lc => $imagefield_with_lc,
-								x1 => $x1,
-								y1 => $y1,
-								x2 => $x2,
-								y2 => $y2,
-								angle => $angle,
-								normalize => $normalize,
-								white_magic => $white_magic
+								generation => $generation_ref,
 							}
 						) if $log->is_debug();
 						eval {
-							process_image_crop($user_id, $product_ref, $image_type, $image_lc, $imgid, $angle,
-								$normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size);
+							process_image_crop($user_id, $product_ref, $image_type, $image_lc, $imgid, $generation_ref);
 							$selected_images{$imagefield_with_lc} = 1;
 						};
 					}
@@ -455,15 +444,10 @@ sub upload_images_for_product($args_ref, $images_ref, $product_ref, $imported_pr
 							or (
 								(
 									($already_selected_image_ref->{imgid} != $imgid)
-									or (    ($x1 > 1)
-										and ($already_selected_image_ref->{generation}{x1} != $x1))
-									or (    ($x2 > 1)
-										and ($already_selected_image_ref->{generation}{x2} != $x2))
-									or (    ($y1 > 1)
-										and ($already_selected_image_ref->{generation}{y1} != $y1))
-									or (    ($y2 > 1)
-										and ($already_selected_image_ref->{generation}{y2} != $y2))
-									or ($already_selected_image_ref->{generation}{angle} != $angle)
+									or not same_image_generation_parameters(
+										$already_selected_image_ref->{generation},
+										$generation_ref
+									)
 								)
 							)
 							)
@@ -474,20 +458,13 @@ sub upload_images_for_product($args_ref, $images_ref, $product_ref, $imported_pr
 									code => $code,
 									imgid => $imgid,
 									imagefield_with_lc => $imagefield_with_lc,
-									x1 => $x1,
-									y1 => $y1,
-									x2 => $x2,
-									y2 => $y2,
-									coordinates_image_size => $coordinates_image_size,
-									angle => $angle,
-									normalize => $normalize,
-									white_magic => $white_magic
+									generation => $generation_ref,
 								}
 							) if $log->is_debug();
 
 							eval {
-								process_image_crop($user_id, $product_ref, $image_type, $image_lc, $imgid, $angle,
-									$normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size);
+								process_image_crop($user_id, $product_ref, $image_type, $image_lc, $imgid,
+									$generation_ref);
 								$selected_images{$imagefield_with_lc} = 1;
 							};
 						}
@@ -506,19 +483,12 @@ sub upload_images_for_product($args_ref, $images_ref, $product_ref, $imported_pr
 							imgid => $imgid,
 							imagefield => $imagefield,
 							front_imagefield => "front_" . $product_ref->{lc},
-							x1 => $x1,
-							y1 => $y1,
-							x2 => $x2,
-							y2 => $y2,
-							coordinates_image_size => $coordinates_image_size,
-							angle => $angle,
-							normalize => $normalize,
-							white_magic => $white_magic
+							generation_ref => $generation_ref,
 						}
 					) if $log->is_debug();
 					eval {
 						process_image_crop($user_id, $product_ref, "front", $product_ref->{lc},
-							$imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size);
+							$imgid, $generation_ref);
 						# Keep track that we have selected an image, so that we don't select another one after,
 						# as we don't reload the product_ref after calling process_image_crop()
 						$selected_images{"front_" . $product_ref->{lc}} = 1;

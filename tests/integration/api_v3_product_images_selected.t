@@ -71,7 +71,7 @@ my $tests_ref = [
                 }
 			}
 		}',
-	},    
+	},
 	# {
 	# 	test_case => 'post-product-image-select-without-crop',
 	# 	method => 'POST',
@@ -82,7 +82,7 @@ my $tests_ref = [
 	# 		imgid => "1",
 	# 	},
 	# 	expected_status_code => 200,
-	# },	
+	# },
 	# {
 	# 	test_case => 'post-product-image-crop-imgid-does-not-exist',
 	# 	method => 'POST',
@@ -121,13 +121,13 @@ my $tests_ref = [
 	# 	},
 	# 	expected_status_code => 200,
 	# },
-	# check we got the images selected	
+	# check we got the images selected
 	{
 		test_case => 'get-product-image-crop',
 		method => 'GET',
 		path => '/api/v3.2/product/1234567890012',
 		expected_status_code => 200,
-	},	
+	},
 
 ];
 
