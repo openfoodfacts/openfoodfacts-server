@@ -122,19 +122,20 @@ sv: vald, valda, valt, valda
 #pt:de qualidade superior
 #sv:överlägsen kvalitet
 
-# organic: implies certain standards (no synthetic pesticides, no gmos, animal welfare, etc.)
-en: organic, from organic farming
-bg: биологично, био
-ca: ecològica, d'agricultura ecològica
-de: Bio-, aus biologischer Landwirtschaft
-es: ecológica, de agricultura ecológica, orgánica
-fi: luomu
-fr: biologique, issu de l'agriculture biologique, bio
-hr: organsko
-hu: bio
-it: organico, da agricoltura biologica, biologico
-lt: ekologiškas
-nl: biologische, van biologische oorsprong
+# # organic: implies certain standards (no synthetic pesticides, no gmos, animal welfare, etc.)
+# # however, organic is used as label only. See: https://github.com/openfoodfacts/openfoodfacts-server/pull/11811#issuecomment-2838739090
+# en: organic, from organic farming
+# bg: биологично, био
+# ca: ecològica, d'agricultura ecològica
+# de: Bio-, aus biologischer Landwirtschaft
+# es: ecológica, de agricultura ecológica, orgánica
+# fi: luomu
+# fr: biologique, issu de l'agriculture biologique, bio
+# hr: organsko
+# hu: bio
+# it: organico, da agricoltura biologica, biologico
+# lt: ekologiškas
+# nl: biologische, van biologische oorsprong
 
 en: unfiltered
 bg: непречистен, нефилтриран

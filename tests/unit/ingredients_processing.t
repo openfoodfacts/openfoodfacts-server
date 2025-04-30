@@ -357,7 +357,8 @@ my @tests = (
 			{
 				'id' => 'en:tomato',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:pre-cooked,en:organic',
+				'labels' => 'en:organic',
+				'processing' => 'en:pre-cooked',
 				'text' => 'tomates'
 			},
 			{
@@ -2818,8 +2819,8 @@ my @tests = (
 			{
 				'id' => 'en:milk',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:organic',
-				'text' => "milch"
+				'labels' => 'en:organic',
+				'text' => "-milch"
 			},
 			{
 				'id' => 'en:milk',
@@ -2830,7 +2831,8 @@ my @tests = (
 			{
 				'id' => 'en:milk',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:pasteurised,en:fresh,en:skimmed,en:organic',
+				'labels' => 'en:organic',
+				'processing' => 'en:pasteurised,en:fresh,en:skimmed',
 				'text' => "Milch"
 			},
 			{
