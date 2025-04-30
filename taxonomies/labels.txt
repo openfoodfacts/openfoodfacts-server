@@ -390,27 +390,27 @@ web:de: https://haltungsform.de
 < de:Haltungsform
 de: Haltungsform 1 Stall, Haltungsform 1
 xx: Haltungsform 1
-image:de: haltungsform_1.79x90.svg
+image:de: haltungsform-1.79x90.svg
 
 < de:Haltungsform
 de: Haltungsform 2 Stall + Platz, Haltungsform Stall + Platz, Haltungsform 2
 xx: Haltungsform 2
-image:de: haltungsform_2.79x90.svg
+image:de: haltungsform-2.79x90.svg
 
 < de:Haltungsform
 de: Haltungsform 3 Frischluftklima, Haltungsform Frischluftklima, Haltungsform 3
 xx: Haltungsform 3
-image:de: haltungsform_3.79x90.svg
+image:de: haltungsform-3.79x90.svg
 
 < de:Haltungsform
 de: Haltungsform 4 Auslauf/Weide, Haltungsform Auslauf/Weide, Haltungsform 4
 xx: Haltungsform 4
-image:de: haltungsform_4.79x90.svg
+image:de: haltungsform-4.79x90.svg
 
 < de:Haltungsform
 de: Haltungsform 5 Bio, Haltungsform Bio, Haltungsform 5
 xx: Haltungsform 5
-image:de: haltungsform_5.79x90.svg
+image:de: haltungsform-5.79x90.svg
 
 
 de: Neuland
@@ -497,7 +497,7 @@ xx: Climate Neutral Certified
 en: 100% Climate Compensated
 xx: 100% Climate Compensated, 100 % Climate Compensated
 # brand:sv: Risenta
-image:en: risenta_100pct_climate_compensated.90x90.jpg
+image:en: risenta-100pct-climate-compensated.90x90.jpg
 label_categories:en: en:Environnment
 web:sv: https://www.risenta.se/kvalitet-och-miljo/100-procent-klimatkompenserat/
 
@@ -1372,6 +1372,7 @@ tr: Glutensiz
 uk: Не містить глютену
 zh: 无麸质
 incompatible_with:en: labels:en:contains-gluten
+label_categories:en: en:Specific diets, en:Health
 opposite:en: en:contains-gluten
 wikidata:en: Q2632776
 
@@ -1392,10 +1393,14 @@ en: GFCO Gluten Free
 < en:No gluten
 en: Crossed Grain Trademark, CGT, Crossed Grain Symbol, Crossed Grain
 xx: Crossed Grain Trademark, CGT, Crossed Grain Symbol, Crossed Grain
+ca: Marca Registrada Espiga Barrada, Marca de l’Espiga Barrada
+es: Marca Registrada Espiga Barrada, Espiga Barrada, Marca de la Espiga Barrada
 fi: Gluteenittoman tuotteen merkki
 fr: épi barré
+gl: Marca Rexistrada Espiga Barrada, Espiga Barrada, Marca da Espiga Barrada
 hr: Znak precrtane pšenice
-image:en: aoecs-crossed-grain-trademark-no-gluten.svg
+image:en: crossed-grain-trademark.90x90.svg
+label_categories:en: en:Certification
 web:en: https://www.aoecs.org/working-with-food/gluten-free-certification/
 
 < en:Crossed Grain Trademark
@@ -1418,7 +1423,6 @@ xx: Afdiag, Association Française des Intolérants au Gluten
 < en:No gluten
 pt: Associação Portuguesa de Celíacos
 image:en: apc-novo-logo.178x90.png
-label_categories:en: en:Specific diets
 
 en: Contains gluten
 bg: Съдържа глутен
@@ -1741,7 +1745,7 @@ nl: Rijk aan poly-onverzadigde vetzuren
 pt: Rico em gordura poli-insaturada
 description:en: In EU, a claim that a food is high in unsaturated fat may only be made where at least 70 % of the fatty acids present in the product derive from unsaturated fat under the condition that unsaturated fat provides more than 20 % of energy of the product. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
-en: Source of proteins, source of protein
+en: Source of proteins, source of protein, good source of protein
 xx: Source of proteins
 bg: Източник на белтъчини
 ca: Font de proteïna
@@ -2136,6 +2140,18 @@ sv: Vitaminberikat, Vitaminberikad, Berikad med vitaminer
 en: Enriched with calcium and vitamins
 sv: Berikad med kalcium & vitaminer
 
+< en:Enriched with vitamins
+en: Enriched with riboflavin
+sv: Berikad med riboflavin
+
+< en:Enriched with vitamins
+en: Enriched with vitamin D
+sv: Berikad med vitamin D
+
+< en:Enriched with vitamins
+en: Enriched with vitamin B12
+sv: Berikad med vitamin B12
+
 en: Enriched with minerals
 fi: Lisätty kivennäisaineita
 fr: Enrichi en minéraux
@@ -2208,7 +2224,7 @@ wikidata:en: Q1665511
 
 # Diets
 
-# GS1: A ketogenic diet is a form of low carb diet. It is characterized by an extremely low carbohydrate and very high-fat diet. Due to the lack of carbohydrates, the metabolism changes and gets into the so-called "ketosis".	
+# GS1: A ketogenic diet is a form of low carb diet. It is characterized by an extremely low carbohydrate and very high-fat diet. Due to the lack of carbohydrates, the metabolism changes and gets into the so-called "ketosis".
 en: Keto, Keto certified, Keto friendly
 xx: Keto
 el: Κετο, Πιστοποιημένο Κετο, Φιλικό για Κετο, κετοφιλικό
@@ -2221,14 +2237,14 @@ ru: Кето, Кето-сертифицированный, Подходящий 
 th: คีโต, ได้รับการรับรองคีโต, มิตรกับคีโต
 tr: Keto, Keto sertifikalı, Keto dostu
 
-# GS1: A dietary practice of eating food that is uncooked and unprocessed. Also known as Raw foodism, rawism.	
+# GS1: A dietary practice of eating food that is uncooked and unprocessed. Also known as Raw foodism, rawism.
 en: raw food diet, suitable for a raw food diet
 
-# GS1: Paleo diet is a fad diet type requiring the sole or predominant eating of foods presumed to have been available to humans during the Paleolithic era.	
+# GS1: Paleo diet is a fad diet type requiring the sole or predominant eating of foods presumed to have been available to humans during the Paleolithic era.
 en: Paleo, suitable for a paleo diet
 xx: Paleo
 
-# GS1: A pescatarian diet excludes meat and poultry but includes fish or seafood (and may include dairy products and eggs).	
+# GS1: A pescatarian diet excludes meat and poultry but includes fish or seafood (and may include dairy products and eggs).
 en: Pescatarian
 
 # GS1: A pollotarian diet, also known as a pollo-vegetarian diet, incorporates poultry, including turkey and duck, as the only source of meat in an otherwise vegetarian diet.
@@ -3788,7 +3804,7 @@ label_categories:en: en:Geographic label
 # Sweden
 xx: Från Sverige
 sv: Från Sverige
-image:en: fran_sverige.90x90.svg
+image:en: fran-sverige.90x90.svg
 label_categories:en: en:Geographic label
 origins:en: en:sweden
 web:sv: https://fransverige.se/
@@ -3796,21 +3812,21 @@ web:sv: https://fransverige.se/
 < sv:Från Sverige
 xx: Kött från Sverige
 sv: Kött från Sverige
-image:en: fran_sverige_kott.90x90.png
+image:en: fran-sverige-kott.90x90.png
 ingredients:en: en:meat
 web:sv: https://fransverige.se/svenska-ravaror-all-varldens-mat/vad-ar-fran-sverige/market-kott-fran-sverige/
 
 < sv:Från Sverige
 xx: Mjölk från Sverige
 sv: Mjölk från Sverige
-image:en: fran_sverige_mjolk.90x90.png
+image:en: fran-sverige-mjolk.90x90.png
 ingredients:en: en:dairy
 web:sv: https://fransverige.se/svenska-ravaror-all-varldens-mat/vad-ar-fran-sverige/market-mjolk-fran-sverige/
 
 xx: Svenskt mjöl från egen kvarn
 sv: Svenskt mjöl från egen kvarn
 # brand:sv: Pågen
-image:en: svenskt_mjol_fran_egen_kvarn.90x90.png
+image:en: svenskt-mjol-fran-egen-kvarn.90x90.png
 ingredients:en: en:flour
 label_categories:en: en:Geographic label
 origins:en: en:sweden
@@ -18511,7 +18527,7 @@ it: DOP, D.O.P., Denominazione di origine protetta
 nl: BGO, Beschermde Geografische Oorsprong, PDO, AOP
 pt: DOP, D.O.P., Denominação de Origem Protegida
 sv: SUB, S.U.B., Skyddad ursprungsbeteckning
-image:de: de_AOP_4c.90x90.svg
+image:de: de-AOP-4c.90x90.svg
 web:en: https://agriculture.ec.europa.eu/farming/geographical-indications-and-quality-schemes/geographical-indications-and-quality-schemes-explained_en
 wikidata:en: Q13439060
 
@@ -18528,7 +18544,7 @@ it: IGP, I.G.P., Indicazione geografica protetta
 nl: BGA, B.G.A., Beschermde geografische aanduiding
 pt: IGP, Indicação Geográfica Protegida
 sv: SGB, S.G.B., Skyddad geografisk beteckning
-image:de: de_IGP_4c.90x90.svg
+image:de: de-IGP-4c.90x90.svg
 web:en: https://agriculture.ec.europa.eu/farming/geographical-indications-and-quality-schemes/geographical-indications-and-quality-schemes-explained_en
 wikidata:en: Q13533432
 
@@ -18556,7 +18572,7 @@ ro: specialitate tradițională garantată, STG
 sk: zaručená tradičná špecialita, ZTŠ
 sl: zajamčena tradicionalna posebnost, ZTP
 sv: garanterad traditionell specialitet, GTS
-image:de: de_STG_4c.90x90.svg
+image:de: de-STG-4c.90x90.svg
 web:en: https://agriculture.ec.europa.eu/farming/geographical-indications-and-quality-schemes/geographical-indications-and-quality-schemes-explained_en
 wikidata:en: Q2751813
 
@@ -19715,7 +19731,7 @@ nl: Veganistisch, plantaardig, niet dierlijk
 pl: Wegańskie, przyjazne weganom, wegański, wegańska
 pt: Vegano, produto vegano, vegan, adequado para veganos, adequado a veganos, adequado a uma dieta vegan, adequado a uma dieta vegana, adequado a vegetarianos e veganos
 sq: vegan
-sv: Vegansk, Passar för veganer, vegetabilisk
+sv: Vegansk, Passar för veganer, vegetabilisk, vegetabiliskt ursprung
 th: สูตรเจ
 tr: Vegan
 zh: 纯素
@@ -20144,7 +20160,7 @@ it: Senza dolcificanti
 nl: Zonder zoetstoffen
 pl: Bez słodzików, Nie zawiera słodzików
 pt: Sem adoçantes, sem edulcorantes, sem adoçantes, sem edulcorantes, 0% adoçantes, 0% edulcorantes
-sv: Utan sötningsmedel, Osötad
+sv: Utan sötningsmedel, Osötad, Osötat
 incompatible_with:en: labels:en:with-sweeteners
 opposite:en: en:With sweeteners
 

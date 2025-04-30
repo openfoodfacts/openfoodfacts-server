@@ -52,7 +52,7 @@ jobs:
         false
 
     - name: Check for an eventual NO_DEPLOY file to put deployment on hold
-      uses: appleboy/ssh-action@master
+      uses: appleboy/ssh-action@v1.2.2
       with:
         host: ${{ env.SSH_HOST }}
         username: ${{ env.SSH_USERNAME }}
@@ -100,7 +100,7 @@ jobs:
       run: echo Timeout && false # fail if build time out
 
     - name: Checkout git repository
-      uses: appleboy/ssh-action@master
+      uses: appleboy/ssh-action@v1.2.2
       with:
         host: ${{ env.SSH_HOST }}
         username: ${{ env.SSH_USERNAME }}
@@ -126,7 +126,7 @@ jobs:
           git checkout -qf ${{ github.sha }}
 
     - name: Set environment variables
-      uses: appleboy/ssh-action@master
+      uses: appleboy/ssh-action@v1.2.2
       with:
         host: ${{ env.SSH_HOST }}
         username: ${{ env.SSH_USERNAME }}
@@ -186,7 +186,7 @@ jobs:
           sed -i.bak "s/productopener.localhost/${{ env.PRODUCT_OPENER_DOMAIN }}/g" ./conf/nginx-docker/nginx.conf
 
     - name: Create Docker volumes and network
-      uses: appleboy/ssh-action@master
+      uses: appleboy/ssh-action@v1.2.2
       with:
         host: ${{ env.SSH_HOST }}
         username: ${{ env.SSH_USERNAME }}
@@ -202,7 +202,7 @@ jobs:
 
     - name: wait for docker images to be available
       # we sometimes have the images not ready immediately after build, so we prefer to wait for it
-      uses: appleboy/ssh-action@master
+      uses: appleboy/ssh-action@v1.2.2
       with:
         host: ${{ env.SSH_HOST }}
         username: ${{ env.SSH_USERNAME }}
@@ -231,7 +231,7 @@ jobs:
           done
 
     - name: initialize the backend
-      uses: appleboy/ssh-action@master
+      uses: appleboy/ssh-action@v1.2.2
       with:
         host: ${{ env.SSH_HOST }}
         username: ${{ env.SSH_USERNAME }}
@@ -247,7 +247,7 @@ jobs:
 
     # NOTE: the mongodb and redis containers are deployed by openfoodfacts-shared-services 
     - name: Start services
-      uses: appleboy/ssh-action@master
+      uses: appleboy/ssh-action@v1.2.2
       with:
         host: ${{ env.SSH_HOST }}
         username: ${{ env.SSH_USERNAME }}
@@ -264,7 +264,7 @@ jobs:
           make prod_up
 
     - name: Check services are up
-      uses: appleboy/ssh-action@master
+      uses: appleboy/ssh-action@v1.2.2
       if: ${{ always() }}
       with:
         host: ${{ env.SSH_HOST }}
@@ -279,7 +279,7 @@ jobs:
           make livecheck
 
     - name: Cleanup obsolete Docker objects
-      uses: appleboy/ssh-action@master
+      uses: appleboy/ssh-action@v1.2.2
       if: ${{ always() }}
       with:
         host: ${{ env.SSH_HOST }}
