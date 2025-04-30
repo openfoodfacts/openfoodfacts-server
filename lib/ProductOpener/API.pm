@@ -89,7 +89,7 @@ use CGI qw(header);
 use Apache2::RequestIO();
 use Apache2::RequestRec();
 use JSON::MaybeXS;
-use Data::DeepAccess qw(deep_get);
+use Data::DeepAccess qw(deep_get deep_set);
 use Storable qw(dclone);
 use Encode;
 
@@ -936,6 +936,16 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 		# Packagings data
 		if ($field eq "packagings") {
 			$customized_product_ref->{$field} = customize_packagings($request_ref, $product_ref);
+			next;
+		}
+
+		# Sub fields using the dot notation (e.g. images.selected.front)
+		if ($field =~ /\./) {
+			my @components = split(/\./, $field);
+			my $field_value = deep_get($product_ref, @components);
+			if (defined $field_value) {
+				deep_set($customized_product_ref, @components, $field_value);
+			}
 			next;
 		}
 

@@ -169,7 +169,7 @@ if (not defined $return_code) {
 }
 elsif ($return_code < 0) {
 	# -1: imgid not in uploaded images
-	# -2: image cannot be ready
+	# -2: image cannot be read
 	my $msg;
 	if ($return_code == -1) {
 		$msg = "status not ok - image not selected - imgid not in uploaded images";

@@ -1,24 +1,95 @@
 {
-   "code" : "234567890012",
+   "code" : "1234567890012",
    "errors" : [],
-   "product" : {},
-   "status" : "success_with_warnings",
-   "warnings" : [
-      {
-         "field" : {
-            "default_value" : "en",
-            "id" : "tags_lc"
-         },
-         "impact" : {
-            "id" : "warning",
-            "lc_name" : "Warning",
-            "name" : "Warning"
-         },
-         "message" : {
-            "id" : "missing_field",
-            "lc_name" : "Missing field",
-            "name" : "Missing field"
+   "product" : {
+      "images" : {
+         "selected" : {
+            "front" : {
+               "en" : {
+                  "generation" : {},
+                  "imgid" : "1",
+                  "rev" : 3,
+                  "sizes" : {
+                     "100" : {
+                        "h" : 92,
+                        "w" : 100
+                     },
+                     "200" : {
+                        "h" : 183,
+                        "w" : 200
+                     },
+                     "400" : {
+                        "h" : 183,
+                        "w" : 200
+                     },
+                     "full" : {
+                        "h" : 183,
+                        "w" : 200
+                     }
+                  }
+               }
+            },
+            "ingredients" : {
+               "en" : {
+                  "generation" : {
+                     "normalize" : true
+                  },
+                  "imgid" : "1",
+                  "rev" : 4,
+                  "sizes" : {
+                     "100" : {
+                        "h" : 92,
+                        "w" : 100
+                     },
+                     "200" : {
+                        "h" : 183,
+                        "w" : 200
+                     },
+                     "400" : {
+                        "h" : 183,
+                        "w" : 200
+                     },
+                     "full" : {
+                        "h" : 183,
+                        "w" : 200
+                     }
+                  }
+               },
+               "fr" : {
+                  "generation" : {
+                     "angle" : 90,
+                     "coordinates_image_size" : 400,
+                     "white_magic" : true,
+                     "x1" : 10,
+                     "x2" : 100,
+                     "y1" : 20,
+                     "y2" : 200
+                  },
+                  "imgid" : "1",
+                  "rev" : 5,
+                  "sizes" : {
+                     "100" : {
+                        "h" : 100,
+                        "w" : 50
+                     },
+                     "200" : {
+                        "h" : 180,
+                        "w" : 90
+                     },
+                     "400" : {
+                        "h" : 180,
+                        "w" : 90
+                     },
+                     "full" : {
+                        "h" : 180,
+                        "w" : 90
+                     }
+                  }
+               }
+            }
          }
       }
-   ]
+   },
+   "status" : "success",
+   "warnings" : []
 }

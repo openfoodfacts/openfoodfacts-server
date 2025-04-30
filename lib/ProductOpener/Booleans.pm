@@ -83,7 +83,7 @@ sub normalize_boolean ($value) {
 		return false;
 	}
 
-    return false;
+	return false;
 }
 
 1;

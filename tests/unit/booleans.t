@@ -12,20 +12,18 @@ use boolean qw/:all/;
 
 my @tests = (
 	[undef, false],
-    [true, true],
-    [false, false],
-    [1, true],
-    [0, false],
-    ["true", true],
-    ["false", false],
-    ["1", true],
-    ["0", false],
-    ["on", true],
-    ["off", false],
-    ["", false],
-    ["checked", true],
-
-
+	[true, true],
+	[false, false],
+	[1, true],
+	[0, false],
+	["true", true],
+	["false", false],
+	["1", true],
+	["0", false],
+	["on", true],
+	["off", false],
+	["", false],
+	["checked", true],
 );
 
 foreach my $test_ref (@tests) {
@@ -35,6 +33,5 @@ foreach my $test_ref (@tests) {
 
 	is(normalize_boolean($input), $expected);
 }
-
 
 done_testing();

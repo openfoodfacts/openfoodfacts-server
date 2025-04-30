@@ -254,30 +254,6 @@ sub update_tags_fields ($request_ref, $product_ref, $field, $add_to_existing_tag
 	return;
 }
 
-=head2 update_selected_images ($request_ref, $product_ref, $response_ref)
-
-Update selected images based on input product data, using the images->selected field.
-
-=cut
-
-sub update_selected_images ($request_ref, $product_ref, $response_ref) {
-
-	my $request_body_ref = $request_ref->{body_json};
-
-	if (not exists $request_ref->{updated_product_fields}) {
-		$request_ref->{updated_product_fields} = {};
-	}
-
-	my $input_product_ref = $request_body_ref->{product};
-
-	# TODO: implement this function
-
-	# note: check if the image has not been already selected with the same generation parameters
-	# (or move the check in process_image_crop)
-
-	return;
-}
-
 =head2 update_product_fields ($request_ref, $product_ref, $response_ref)
 
 Update product fields based on input product data.
@@ -408,14 +384,15 @@ sub update_images_selected ($request_ref, $product_ref, $response_ref) {
 	foreach my $image_type (sort keys %{$input_product_ref->{images}{selected}}) {
 
 		# Check if the image type is valid
-		if (not defined $image_type) {
+		if ($image_type !~ /^(front|ingredients|nutrition|packaging)$/) {
 			add_error(
 				$response_ref,
 				{
 					message => {id => "invalid_image_type"},
 					field => {id => "images.selected.$image_type"},
 					impact => {id => "field_ignored"},
-				}
+				},
+				200
 			);
 			next;
 		}
@@ -430,7 +407,8 @@ sub update_images_selected ($request_ref, $product_ref, $response_ref) {
 						message => {id => "invalid_language_code"},
 						field => {id => "images.selected.$image_type.$image_lc"},
 						impact => {id => "field_ignored"},
-					}
+					},
+					200
 				);
 				next;
 			}
@@ -451,17 +429,36 @@ sub update_images_selected ($request_ref, $product_ref, $response_ref) {
 			my $image_selected_ref = $input_product_ref->{images}{selected}{$image_type}{$image_lc};
 
 			if (defined $image_selected_ref) {
-				#process_image_crop($request_ref->{user_id}, $product_ref, $image_type, $image_lc, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size);
+				my $return_code = process_image_crop(
+					$request_ref->{user_id},
+					$product_ref, $image_type, $image_lc,
+					$image_selected_ref->{imgid},
+					$image_selected_ref->{generation}
+				);
+				if ($return_code < 0) {
+					# -1: the image imgid does not exist in uploaded images
+					# -2: the image cannot be read
+					add_error(
+						$response_ref,
+						{
+							message => {id => "image_not_found"},
+							field => {id => "images.selected.$image_type.$image_lc.imgid"},
+							impact => {id => "field_ignored"},
+						},
+						200
+					);
+				}
+				else {
+					# The image was selected
+					$request_ref->{updated_product_fields}{"images.selected.$image_type.$image_lc"} = 1;
+					# TODO: find a way to return the image URL (without storing it in the product)
+					# especially if the "fields" value is "updated"
+				}
 			}
 			else {
 				# We were passed a null value, unselect the image
 				my $return_code = process_image_unselect($product_ref, $image_type, $image_lc);
-
-				# A negative return code means that the image selection failed
-				if ($return_code < 0) {
-					# -1: the image imgid does not exist in uploaded images
-					# -2: the image cannot be read
-				}
+				$request_ref->{updated_product_fields}{"images.selected.$image_type.$image_lc"} = 1;
 			}
 		}
 	}
@@ -668,14 +665,6 @@ sub write_product_api ($request_ref) {
 		# Use default request language if we did not get tags_lc
 		if (not defined $request_body_ref->{tags_lc}) {
 			$request_body_ref->{tags_lc} = $lc;
-			add_warning(
-				$response_ref,
-				{
-					message => {id => "missing_field"},
-					field => {id => "tags_lc", default_value => $request_body_ref->{tags_lc}},
-					impact => {id => "warning"},
-				}
-			);
 		}
 
 		# Process edit rules

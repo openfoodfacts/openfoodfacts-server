@@ -10,6 +10,11 @@ use ProductOpener::TestDefaults qw/:all/;
 use File::Basename "dirname";
 use Storable qw(dclone);
 use MIME::Base64 qw(encode_base64);
+use JSON::MaybeXS qw(encode_json);
+
+use boolean qw/:all/;
+
+my $json = JSON::MaybeXS->new->convert_blessed->utf8->canonical;
 
 remove_all_users();
 
@@ -35,97 +40,149 @@ my $tests_ref = [
 	{
 		test_case => 'post-product-image',
 		method => 'POST',
-		path => '/api/v3/product/1234567890012/images',
+		path => '/api/v3.3/product/1234567890012/images',
 		body => '{"image_data_base64":"' . get_base64_image_data_from_file("$sample_products_images_path/1.jpg") . '"}',
 		expected_status_code => 200,
 	},
 	# Select / crop images
-
+	# Select 2 images, one without cropping, one with cropping and rotation
 	{
 		test_case => 'patch-images-selected',
 		method => 'PATCH',
-		path => '/api/v3/product/234567890012',
-		body => '{
-			"fields" : "updated",
-			"product": { 
-				"images": {
-                    "selected": {
-                        "front": {
-                            "fr": {
-                                "imgid": "1"
-                            }
-                        },
-                        "ingredients": {
-							"es": {
-                                "imgid": "1",
-                                "geometry": {
-                                    "angle": 90,
-                                    "x1": 10,
-                                    "y1": 20,
-                                    "x2": 100,
-                                    "y2": 200
-                                }
-                            }
-                        }
-                    }
-                }
+		path => '/api/v3.3/product/1234567890012',
+		body => $json->encode(
+			{
+				fields => 'updated',
+				product => {
+					images => {
+						selected => {
+							front => {
+								en => {
+									imgid => "1",
+								}
+							},
+							ingredients => {
+								fr => {
+									imgid => "1",
+									generation => {
+										angle => 90,
+										x1 => 10,
+										y1 => 20,
+										x2 => 100,
+										y2 => 200,
+										white_magic => true,
+										normalize => false
+									}
+								},
+								en => {
+									imgid => "1",
+									generation => {
+										angle => 0,
+										# some apps send all 0 or -1 to indicate no crop
+										x1 => 0,
+										y1 => 0,
+										x2 => 0,
+										y2 => 0,
+										# string values instead of boolean
+										white_magic => "false",
+										normalize => "true"
+									}
+								}
+							},
+						}
+					}
+				}
 			}
-		}',
+		),
 	},
-	# {
-	# 	test_case => 'post-product-image-select-without-crop',
-	# 	method => 'POST',
-	# 	path => '/cgi/product_image_crop.pl',
-	# 	form => {
-	# 		code => "1234567890012",    # Product had an image uploaded in a previous test
-	# 		id => "ingredients_es",
-	# 		imgid => "1",
-	# 	},
-	# 	expected_status_code => 200,
-	# },
-	# {
-	# 	test_case => 'post-product-image-crop-imgid-does-not-exist',
-	# 	method => 'POST',
-	# 	path => '/cgi/product_image_crop.pl',
-	# 	form => {
-	# 		code => "1234567890012",    # Product had an image uploaded in a previous test
-	# 		id => "nutrition_fr",
-	# 		imgid => "25",
-	# 		angle => 0,
-	# 		x1 => 10,
-	# 		y1 => 20,
-	# 		x2 => 100,
-	# 		y2 => 200,
-	# 		coordinates_image_size => "full",
-	# 	},
-	# 	expected_status_code => 200,
-	# },
-	# {
-	# 	test_case => 'post-product-image-crop-missing-image-type',
-	# 	method => 'POST',
-	# 	path => '/cgi/product_image_crop.pl',
-	# 	form => {
-	# 		code => "1234567890012",    # Product had an image uploaded in a previous test
-	# 		imgid => "1",
-	# 	},
-	# 	expected_status_code => 200,
-	# },
-	# {
-	# 	test_case => 'post-product-image-crop-invalid-image-type',
-	# 	method => 'POST',
-	# 	path => '/cgi/product_image_crop.pl',
-	# 	form => {
-	# 		code => "1234567890012",    # Product had an image uploaded in a previous test
-	# 		id => "invalid_image_type_fr",
-	# 		imgid => "1",
-	# 	},
-	# 	expected_status_code => 200,
-	# },
-	# check we got the images selected
+	{
+		test_case => 'path-images-selected-invalid-image-type',
+		method => 'PATCH',
+		path => '/api/v3.3/product/1234567890012',
+		body => $json->encode(
+			{
+				fields => 'updated',
+				product => {
+					images => {
+						selected => {
+							invalid_type => {
+								en => {
+									imgid => "1",
+								}
+							},
+						}
+					}
+				}
+			}
+		),
+	},
+	{
+		test_case => 'path-images-selected-invalid-image-lc',
+		method => 'PATCH',
+		path => '/api/v3.3/product/1234567890012',
+		body => $json->encode(
+			{
+				fields => 'updated',
+				product => {
+					images => {
+						selected => {
+							front => {
+								invalid_lc => {
+									imgid => "1",
+								}
+							},
+						}
+					}
+				}
+			}
+		),
+	},
+	{
+		test_case => 'path-images-selected-inexisting-imgid',
+		method => 'PATCH',
+		path => '/api/v3.3/product/1234567890012',
+		body => $json->encode(
+			{
+				fields => 'updated',
+				product => {
+					images => {
+						selected => {
+							front => {
+								de => {
+									imgid => "10",
+								},
+							},
+						}
+					}
+				}
+			}
+		),
+	},
+	{
+		test_case => 'path-images-unselect',
+		method => 'PATCH',
+		path => '/api/v3.3/product/1234567890012',
+		body => $json->encode(
+			{
+				fields => 'updated',
+				product => {
+					images => {
+						selected => {
+							front => 
+							{
+								en => undef
+							},
+						}
+					}
+				}
+			}
+		),
+	},
+
 	{
 		test_case => 'get-product-image-crop',
 		method => 'GET',
-		path => '/api/v3.2/product/1234567890012',
+		path => '/api/v3.3/product/1234567890012',
 		expected_status_code => 200,
 	},
 
