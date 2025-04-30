@@ -10732,6 +10732,7 @@ ro: Sare de mare
 ru: Морская соль, Соль морская
 sd: سامونڊي لوڻ
 sk: morská soľ
+sl: morska sol
 sv: Havssalt
 th: เกลือสมุทร
 tr: deniz tuzu
@@ -15486,6 +15487,7 @@ vegetarian:en: yes
 en: rice starch
 bg: оризово нишесте
 cs: Rýžová škrob
+da: risstivelse
 de: Reisstärke
 es: almidon de arroz, amido de arroz
 fi: riisitärkkelys
@@ -15537,6 +15539,7 @@ bg: грахово нишесте
 da: Ærtestivelse
 de: Erbsenstärke
 el: Άμυλο μπιζελιού
+es: almidon de guisante
 et: Herne tärklis
 fi: hernetärkkelys
 fr: Amidon de pois
@@ -16390,11 +16393,13 @@ lv: augu tauki
 nb: vegetabilsk fett, vegetabilskt fett
 nl: plantaardige vetten, plantaardig vet
 nn: vegetabilisk fett
+no: vegetabilst felt
 pl: tłuszcz roślinny, tłuszcze roślinne
 pt: gordura vegetal, gorduras vegetais, lípido vegetal, lípidos vegetais, matérias gordas vegetais
 ro: grăsime vegetală, grăsimi vegetale
 ru: растительные жиры, жир растительный, растительный-жир
 sk: rastlinný tuk
+sl: rastlinska maščoba
 sq: yndyrë bimore
 sv: vegetabiliska fetter, vegetabiliskt fett, vegetabilsk fett, vegetabilisk fett
 
@@ -16658,6 +16663,7 @@ ms: Minyak kelapa sawit
 nb: Palmeolje
 nl: palmolie, palm olie
 nn: Palmeolje
+no: palmeolje
 oc: Òli de palma
 pl: Olej palmowy, olej roślinny palmowy, oleje roślinne palmowy
 pt: óleo de palma, óleo de palmeira, óleo vegetal de palma
@@ -16813,6 +16819,7 @@ it: miscela di olio di palma e superoleina di palma
 
 < en:palm oil
 en: Palm stearin
+da: palme stearin
 de: Palmstearin
 fi: palmusteariini
 fr: Stéarine de palme
@@ -16820,6 +16827,9 @@ hr: palmin stearin
 hu: pálmasztearin
 it: Stearina di palma
 nl: Palmstearine
+no: palm stearin
+pl: stearyna palmowa
+sv: palmstearin
 description:en: Palm stearin is the solid fraction of palm oil.
 wikidata:en: Q7128109
 wikipedia:en: https://en.wikipedia.org/wiki/Palm_stearin
@@ -16853,6 +16863,7 @@ ro: grăsime de palmier, grăsime vegetală de palmier
 ru: Пальмовый жир
 se: palmina mast
 sk: palmový tuk
+sl: palmina rastlinska maščoba
 sr: palmina mast
 sv: palmfett
 # 9007 in 34 @2021-09-09
@@ -17178,7 +17189,7 @@ fr: huile de coco vierge biologique, huile vierge de noix de coco bio
 en: extra virgin coconut oil
 es: aceite de coco extra virgen
 fr: huile de coco extra vierge
-hr: ekstra djevičansko kokosovo ulje
+hr: ekstra djevičansko kokosovo ulje,  ekstradjevičansko kokosovo ulje
 it: olio extravergine di cocco
 pl: olej kokosowy extra virgin
 
@@ -17507,7 +17518,7 @@ de: Natives Bio-Olivenöl Extra
 es: aceite de oliva extra virgen orgánico
 fi: luomu ekstra-neitsytoliiviöljy
 fr: huile d'olive vierge extra bio, huile d'olive vierge extra issue de l'agriculture biologique, huile d'olive vierge extra biologique
-hr: organsko ekstra djevičansko maslinovo ulje
+hr: organsko ekstra djevičansko maslinovo ulje, bio ekstra djevičansko maslinovo ulje
 hu: extra szűz bio olívaolaj, bio extra szűz olívaolaj
 it: Olio di oliva extra vergine biologico
 nl: biologische extra olijfolie van de eerste persing
@@ -17598,6 +17609,7 @@ pt: óleo de colza
 ro: ulei de rapiță, ulei vegetal de rapiță, ulei de rapita
 ru: Рапсовое масло
 sk: repkový olej
+sl: repična, repična rastlinska maščoba
 sq: Vaj repice
 sr: Уље репице
 sv: Rapsolja, rybsolja, Rapsfett, rypsolja
@@ -18710,6 +18722,7 @@ ecobalyse:en: 583d00ab-0340-444b-9581-71175f0a937b
 
 < en:sunflower oil
 en: high oleic sunflower
+da: solsikkeolie med højt fedtsyreindhold
 de: High-Oleic-Sonnenblumen, HO-Sonnenblumen
 es: girasol alto oleico
 fr: tournesol oléique
@@ -18726,7 +18739,7 @@ ca: oli refinat de gira-sol alt oleic, oli de gira-sol alt oleic, oli vegetal de
 de: High Oleic-Sonnenblumenöl, High-Oleic-Sonnenblumenöl, Sonnenblumenöl mit hohem Fettsäureanteil, Sonnenblumenöl hoch erhitzbar
 es: aceite de girasol alto oleico, aceite refinado de girasol alto oleico
 fr: huile de tournesol à haute teneur en acide oléique, huile de tournesol à teneur élevée en acide oléique, huile de tournesol oléique, huile de tournesol haut oléique
-hr: suncokretovo ulje s visokim udjelom oleinske kiseline, visokooleinsko suncokretovo ulje
+hr: suncokretovo ulje s visokim udjelom oleinske kiseline, visokooleinsko suncokretovo ulje, suncokretovo ulje s visokim sadržajem oleinske kiseline
 it: olio di girasole alto oleico
 nl: high oleic zonnebloemolie
 pt: óleo refinado de girassol alto oleíco
@@ -19417,7 +19430,7 @@ es: vinagre de alcohol
 fr: vinaigre d’alcool
 hr: alkoholni ocat
 hu: alkoholecet
-it: aceto di alcool
+it: aceto di alcool, aceto d alcol
 nl: alcoholazijn
 pt: vinagre de álcool
 sv: ättiksprit
@@ -22005,10 +22018,10 @@ mk: природна арома
 nb: naturlig aroma
 nl: Natuurlijke smaakstoffen, natuurlijke smaak, natuurlijk aroma, natuurlijke aroma's
 pl: Naturalny aromat, naturalne aromaty, aromat naturalny, aromaty naturalne
-pt: aroma natural, aromas naturais
+pt: aroma natural, aromas naturais, sabores naturais
 ro: aromă naturală, aroma naturala, arome naturale
 ru: Натуральный ароматизатор, ароматизатор натуральный, натуральные ароматизаторы, ароматизаторы натуральные, натуральные вкусоароматические вещества
-sl: naravna aroma
+sl: naravna aroma, naravne arome
 sr: prirodne arome
 sv: naturlig arom, naturliga aromer, naturlig smakämne, naturliga smakämnen, naturligt smakämne, naturliga aromämnen
 zh: 天然调味剂
@@ -24327,15 +24340,18 @@ wikipedia:en: https://en.wikipedia.org/wiki/Smoking_(cooking)
 # ingredient/fr:fumée has 437 products in 12 languages @2019-04-14
 
 < en:smoke
-en: beech wood smoke
+en: beech wood smoke, beechwood smoke
+cs: kouř z bukového dřeva
 de: Buchenholzrauch, Buchenrauch
 es: Madera de haya ahumada
 fi: pyökkipuusavu, pyökistä valmistettu savuaromi
 fr: fumée de bois de hêtre, fumée naturelle au bois de hêtre
-hr: dim bukovine, dim drva bukve
+hr: dim bukovine, dim drva bukve, dim bukve
 hu: bükkfán füstölt, bükkfa füst
 it: fumo di faggio
 pl: dym z drewna bukowego
+ro: fum din lemn de fag
+sk: dym z bukového dreva
 sv: bokträrök
 # ingredient/fr:fumée-de-bois-de-hêtre has 211 products in 4 languages @2019-04-14
 
@@ -24964,7 +24980,7 @@ hu: teljes kiőrlésű búzapehely
 it: Fiocchi di grano interi
 lt: pilno grūdo kviečių dribsniai, pilno grūdo kvietiniai dribsniai, pilno grūdo kvietinės dribsniai, pilno grūdo kvietinis dribsniai
 nl: volkoren tarwevlokken
-pt: flocos de trigo integral
+pt: flocos de trigo integral, płatki pszenne pełnoziarniste
 sv: fullkornsveteflingor, fullkorn veteflinga
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pétales-de-blé-complet
 # 22 products in 5 languages @2018-09-22
@@ -27255,6 +27271,7 @@ pl: mąka owsiana
 pt: farinha de aveia
 ru: овсяная мука, мука овсяная
 sk: ovsená múka
+sl: ovsena moka
 sv: havremjöl
 wikidata:en: Q84470231
 #1041 @2021-09-22
@@ -27728,6 +27745,7 @@ fr: flocons de seigle complet
 hr: pahuljice raži od cijelog zrna, integralne ražene pahuljice
 it: fiocchi di segale integrali
 pl: płatki żytnie pełnoziarniste
+pt: flocos integrais de centeio
 
 < en:rye
 en: rye grains
@@ -28509,7 +28527,7 @@ bg: пшенично брашно, пшеничено брашно
 bs: pšenično brašno
 ca: Farina de ble
 cs: pšeničná mouka
-da: Hvedemel
+da: Hvedemel, hved mel
 de: Weizenmehl, Weizen-mehl, Weizenmehl Typ 1050, Weizenmehl Typ 550, Weizenmehl Typ 405
 el: αλεύρι σίτου
 es: harina de trigo, harina de trigo blando
@@ -28793,6 +28811,7 @@ nl: volkorentarwemeel, volkoren tarwemeel
 pl: Mąka pszenna pełnoziarnista, mąka pszenna razowa, pełnoziarnista mąka pszenna, mąka pełnoziarnista pszenna
 pt: farinha de trigo integral, farinha integral de trigo
 ro: făină integrală de grâu
+sk: celozrnna pšenična muka
 sv: fullkornsvetemjöl, fullkornsmjöl av vete
 
 < en:semi-wholemeal flour
@@ -31423,6 +31442,7 @@ hu: karob, karob liszt
 it: carruba
 nl: carob, johannesbroodmeel, carobpoeder
 pl: karob, karobu, karobowy, karobowe, karobowa
+sl: rožič
 sv: Johannesbrödfrö
 description:en: Carob pods are mildly sweet on their own, so they are used in powdered, chip or syrup form as an ingredient in cakes and cookies, sometimes as a substitute for chocolate in recipes because of the color, texture, and taste of carob.
 eurocode_2_group_3:en: 7.10.xx
@@ -33966,6 +33986,7 @@ pt: dextrose monohidratada
 < en:dextrose
 en: polydextrose, E1200
 bg: полидекстроза
+da: polydextrose, polydekstrose
 de: Polydextrose
 es: Polidextrosa
 fi: Polydekstroosi
@@ -34007,7 +34028,7 @@ da: agavesirup
 de: Agavensirup
 es: jarabe de agave, sirope de agave
 fa: اگاو
-fi: agavesiirappi
+fi: agavesiirappi, agave siirappi
 fr: sirop d’agave
 hr: sirup od agave, agavin sirup
 hu: agaveszirup
@@ -34017,7 +34038,8 @@ it: sciroppo d'agave
 nl: agavesiroop
 pl: syrop z agawy
 pt: Xarope de Agave
-ru: Сироп агавы
+ru: Сироп агавы, сироп из агавы
+sl: agavin sirup
 sv: agavesirap
 zh: 龍舌蘭糖漿
 ciqual_food_code:en: 31089
@@ -37362,6 +37384,7 @@ nl: tarwegluten
 pl: gluten pszenny
 pt: glúten de trigo
 ro: gluten de grâu, gluten din grâu
+sk: pšeničny gluten
 sl: pšenični gluten
 sv: vetegluten
 
@@ -44988,6 +45011,7 @@ hr: kokosove pahuljice
 it: fiocchi di cocco, cocco in scaglie
 nl: Kokosschilfers
 pl: wiórki kokosowe, wiórki z kokosa
+pt: coco ralado
 ru: кокосовая-стружка
 sv: kokosflinga, kokosflingor
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-de-coco
@@ -48314,7 +48338,7 @@ mk: суво грозје
 ms: sultana
 nl: sultana, sultanas
 pl: rodzynki sułtańskie, rodzynki sułtanki, rodzynki thompson jumbo
-pt: sultanina
+pt: sultanina, sultanas
 ro: sultanină
 ru: белый кишмиш
 si: සුල්තානා
@@ -62009,7 +62033,7 @@ am: አልመንድ
 ar: لوز
 bg: бадем, бадеми
 ca: ametlla, ametlles
-cs: mandle
+cs: mandle, madle
 da: mandel, mandler
 de: Mandel, Mandeln
 el: Αμύγδαλο, αμύγδαλα, Αμυγδαλόψιχα
@@ -62026,6 +62050,7 @@ he: שקד
 hr: badem, bademi, badema
 hu: mandula
 ia: amandola
+is: möndlu
 it: mandorla, mandorle
 ja: アーモンド
 la: Prunis dulcis
@@ -62780,6 +62805,7 @@ fr: noisettes décortiquées
 de: Haselnusskerne
 it: nocciole sgusciate
 nb: hasselnøttkjerner
+pt: miolo de avelã
 ru: ядро ореха фундука
 openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:noisettes-décortiquées
 # 42 products in 4 languages @2018-10-07
@@ -67235,11 +67261,11 @@ ca: llavors de mostassa, grans de mostassa
 cs: hořčičné semínko
 da: sennepsfrø
 de: Senfsaaten, Senfkörner, Senfsaat, Senfsamen, Senfschrot, Senfkorn
-es: grano de mostaza, semillas de mostaza
+es: grano de mostaza, semillas de mostaza, cascara de semillas de mostaza
 et: sinepiseemned
 fi: sinapinsiemen, sinapinsiemenet
 fr: graine de moutarde, graines de moutarde, cosse de moutarde
-hr: sjemenke gorušice, sjeme gorušice
+hr: sjemenke gorušice, sjeme gorušice, ljuske gorušice
 hu: káposztafélék, Mustármag
 it: Semi di senape
 ja: カラシナ, シロガラシ
@@ -73293,7 +73319,7 @@ wikidata:en: Q37868
 wikipedia:en: https://en.wikipedia.org/wiki/Algae
 
 < en:algae
-en: chlorella
+en: chlorella, chlorella algae
 ar: كلوريلا
 be: Хларэла
 bg: Хлорела
@@ -83111,6 +83137,7 @@ la: Litopenaeus vannamei, Penaeus vannamei, Litopenaus vanamei
 nl: witpootgarnaal
 pl: krewetka białonoga, Litopenaeus vannamei, krewetki białe, krewetka biała
 pt: camarão-de-patas-brancas, Litopenaeus vannamei
+sl: bele kozice
 description:en: Whiteleg shrimp (Litopenaeus vannamei, formerly Penaeus vannamei), also known as Pacific white shrimp or king prawn, is a variety of prawn of the eastern Pacific Ocean commonly caught or farmed for food.
 wikidata:en: Q3002564
 wikipedia:en: https://en.wikipedia.org/wiki/Whiteleg_shrimp

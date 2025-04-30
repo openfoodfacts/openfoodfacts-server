@@ -184,7 +184,7 @@ my %may_contain_regexps = (
 
 	en =>
 		"it may contain traces of|possible traces|traces|may also contain|also may contain|may contain|may be present|Produced in a factory handling",
-	bg => "продуктът може да съдържа следи от|mоже да съдържа следи от|може да съдържа",
+	bg => "продуктът може да съдържа следи от|mоже да съдържа следи от|може да съдържа|може да съдържа следи от",
 	bs => "može da sadrži",
 	ca => "pot contenir",
 	cs => "může obsahovat|může obsahovat stopy",
@@ -199,13 +199,13 @@ my %may_contain_regexps = (
 		"peut également contenir|peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace|Traces éventuelles de|Peut contenir des traces de",
 	hr =>
 		"mogući ostaci|mogući sadržaj|mogući tragovi|može sadržavati|može sadržavati alergene u tragovima|može sadržavati tragove|može sadržavati u tragovima|može sadržati|može sadržati tragove|proizvod može sadržavati|proizvod može sadržavati tragove",
-	hu => "tartalmazhat",
+	hu => "nyomokban|tartalmazhat",
 	is => "getur innihaldið leifar|gæti innihaldið snefil|getur innihaldið",
 	it =>
 		"Pu[òo] contenere tracce di|pu[òo] contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
 	lt => "sudėtyje gali būti|gali būti",
 	lv => "var saturēt|sastāva var but",
-	mk => "Производот може да содржи",
+	mk => "Производот може да содржи|може да содржи",
 	nl =>
 		"Dit product kan sporen van|bevat mogelijk sporen van|Kan sporen bevatten van|Kan sporen van|bevat mogelijk|sporen van|Geproduceerd in ruimtes waar|Kan ook",
 	nb =>
@@ -214,10 +214,10 @@ my %may_contain_regexps = (
 		"może zawierać śladowe ilości|produkt może zawierać|może zawierać alergeny|może zawierać ślady|może zawierać|możliwa obecność|możliwa obecność|w produkcie możliwa obecność|wyprodukowano w zakładzie przetwarzającym",
 	pt => "pode conter vestígios de|pode conter",
 	ro => "poate con[țţt]ine urme de|poate con[țţt]ine|poate con[țţt]in|produsul poate conţine urme de",
-	rs => "može sadržati tragove",
 	ru => "Могут содержаться следы",
 	sk => "výrobok môže obsahovat|môže obsahovať",
-	sl => "lahko vsebuje sledi",
+	sl => "lahko vsebuje sledi|lahko vsebuje sledove",
+	sr => "može sadržati tragove",
 	sv =>
 		"denna produkt kan innethalla spar av|kan innehålla små mängder|kan innehålla spår av|innehåller spår av|kan innehålla spår|kan innehålla",
 );
@@ -1353,12 +1353,14 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 		ca => "(?:origen)",
 		es => "(?:origen)",
 		fr => "(?:origine (?:de |du |de la |des |de l'))",
-		hr => "(?:zemlja (?:porijekla|podrijetla|porekla))",
-		hu => "(?:származási hely)",
+		hr => "(?:zemlja (?:porijekla|podrijetla|porekla)|uzgojeno u)"
+		hu => "(?:származási (?:hely|ország))",
 		it => "(?:paese di (?:molitura|coltivazione del grano))",
+        mk => "(?:земја на потекло)",
 		pl => "(?:kraj pochodzenia)",
 		ro => "(?:tara de origine)",
 		rs => "(?:zemlja porekla)",
+        sl => "(?:(?:država|krajina) porekla|gojeno v)",
 		uk => "(?:kраїна походження)",
 	);
 
@@ -2602,6 +2604,9 @@ Text to analyze
 				if (defined $labels_regexps{$ingredients_lc}) {
 					# start with uncomposed labels first, so that we decompose "fair-trade organic" into "fair-trade, organic"
 					foreach my $labelid (reverse @labels) {
+						# Skip processing if the labelid is "organic"
+						next if $labelid eq "en:natural-flavors";
+
 						my $regexp = $labels_regexps{$ingredients_lc}{$labelid};
 						#$debug_ingredients and $log->trace("checking labels regexps",
 						#	{ingredient => $ingredient, labelid => $labelid, regexp => $regexp})
@@ -2798,6 +2803,10 @@ Text to analyze
 
 						# Remove some sentences
 						my %ignore_regexps = (
+                            'bg' => [
+                                'oпаковано в защитна атмосфера', # packed in a protective atmosphere
+                            ]
+
 							'bs' => [
 								'u promjenljivom odnosu',    # in a variable ratio
 							],
@@ -2955,6 +2964,10 @@ Text to analyze
 								'lahko vsebuje',
 								'lahko vsebuje sledi',    # may contain traces
 							],
+
+                            'sr' => [
+                                'klasa ii',
+                            ]
 
 							'sv' => [
 								'^Minst \d{1,3}\s*% kakao I chokladen$',
@@ -5130,7 +5143,7 @@ my %phrases_before_ingredients_list = (
 
 	lv => ['sast[āäa]v(s|da[ļl]as)',],
 
-	mk => ['Состојки',],
+	mk => ['Состојки',, 'Состојќи', 'состојка'],
 
 	md => ['(I|i)ngrediente',],
 
@@ -5138,7 +5151,7 @@ my %phrases_before_ingredients_list = (
 
 	nb => ['Ingredienser',],
 
-	no => ['Sammensetning',],
+	no => ['Sammensetning', 'ingredienser'],
 
 	pl => ['sk[łl]adniki', 'skład',],
 
@@ -5277,6 +5290,7 @@ my %phrases_after_ingredients_list = (
 
 	de => [
 		'analytische bestandteile',    # pet food
+        'bei Raumtemperatur lagern', # keep in dried place
 		'Ern(â|a|ä)hrungswerte',
 		'Mindestens altbar bis',
 		'Mindestens haltbar bis',
@@ -5322,7 +5336,7 @@ my %phrases_after_ingredients_list = (
 		'adds a trivial amount',    # e.g. adds a trivial amount of added sugars per serving
 		'after opening',
 		'analytical constituents',    # pet food
-									  #'Best before',
+		'best before', #'Best before',
 		'keep cool and dry',
 		'Can be stored unopened at room temperature',
 		'for allergens',
@@ -5468,6 +5482,7 @@ my %phrases_after_ingredients_list = (
 	hr => [
 		'(prije otvaranja )?((č|Č|c|C|ć|Ć)uvati|(č|Č|c|C|ć|Ć)uvajte)',    # store in...
 		'analitički sastav',    # pet food
+        'istaknuti sastojci', # highlighted ingredients allergens
 		'izvaditi',    # remove from the refrigerator half an hour before consumption
 		'način pripreme',    # preparation
 		'(najbolje )upotrijebiti',    # best before
@@ -5506,6 +5521,7 @@ my %phrases_after_ingredients_list = (
 		'hűvös, száraz helyen, közvetlen napfénytől védve tárolja',    # store in cool dry place away from the sunlight
 		'bontatlan csomagolásban',    # keep in a closed/dark place
 		'tárolás',    # conservation
+        'szavatossági idő', # keep until
 	],
 
 	is => ['n(æ|ae)ringargildi', 'geymi(st|ð) á', 'eftir opnum', 'aðferð',],
@@ -5547,9 +5563,12 @@ my %phrases_after_ingredients_list = (
 
 	mk => [
 		'Да се чува на темно место и на температура до',    # Store in a dark place at a temperature of up to
+        'Употребливо до крајот на', # Keep until
 	],
 
-	nb => ['netto(?:innhold|vekt)', 'oppbevar(?:ing|es)', 'næringsinnh[oa]ld', 'kjølevare',],
+	nb => ['netto(?:innhold|vekt)', 'oppbevar(?:ing|es)', 'næringsinnh[oa]ld', 'kjølevare',
+        'minst holdbar', # keep until
+    ],
 
 	nl => [
 		'analytische bestanddelen',    # pet food
@@ -5612,15 +5631,7 @@ my %phrases_after_ingredients_list = (
 		'a sè păstra la temperaturi până la',    # Store at temperatures up to
 		'Valori nutritionale medii',
 		'a se p[ăa]stra la',    # store in...
-	],
-
-	rs => [
-		'(č|Č|c|C|ć|Ć)uvati na (hladnom|suvom|temperaturi od)',    # Store in a cool and dry place
-		'napomena za potrošače',    # note for consumers
-		'pakovano',    # packed in a protective atmosphere
-		'proizvodi i puni',    # Produced and filled
-		'upotrebljivo',    # keep until
-		'najbolje (upotrijebiti|upotrebiti) do',    # keep until
+        'nedeschis',   # unopened best before
 	],
 
 	ru => [
@@ -5632,6 +5643,8 @@ my %phrases_after_ingredients_list = (
 		'analytické zložky',    # pet food
 		'skladovanie',    # store at
 		'spotrebujte do',    # keep until
+        'najlepšie spotrebovať pred', # keep until
+        'minimálna trvanlivost do', # keep until
 	],
 
 	sl => [
@@ -5640,13 +5653,26 @@ my %phrases_after_ingredients_list = (
 		'opozorilo',    # warning
 		'pakirano v kontrolirani atmosferi',    # packed in a ... atmosphere
 		'porabiti',    # keep until
+        'pred uporabo pretresti', # shake before use
 		'predlog za serviranje ',    # serving suggestion
 		'prosječne hranjive vrijednosti 100 g proizvoda',    # average nutritional value of 100 g of product
+		'številka serije',    # keep until
+        'uporabno (najmanj )do', # keep until
 		'uvoznik',    # imported/distributed by
+	],
+
+	sr => [
+		'(č|Č|c|C|ć|Ć)uvati na (hladnom|suvom|temperaturi od)',    # Store in a cool and dry place
+		'napomena za potrošače',    # note for consumers
+		'pakovano',    # packed in a protective atmosphere
+		'proizvodi i puni',    # Produced and filled
+		'upotrebljivo',    # keep until
+		'najbolje (upotrijebiti|upotrebiti)do',    # keep until
 	],
 
 	sv => [
 		'analytiska beståndsdelar',    # pet food
+        'bäst före',    # best before
 		'närings(?:deklaration|innehåll|värde)', '(?:bör )?förvar(?:ing|as?)',
 		'till(?:agning|redning)', 'produkten innehåller',
 		'serveringsförslag', 'produkterna bör',
@@ -5979,7 +6005,7 @@ sub separate_additive_class ($ingredients_lc, $additive_class, $spaces, $colon, 
 		)
 		and (
 			# we use the ingredients taxonomy here as some additives like "soy lecithin" are currently in the ingredients taxonomy
-			# but not in the additives taxonomy
+			# but not in the additives taxonomy
 			exists_taxonomy_tag("ingredients", canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $after))
 			or ((defined $after2)
 				and
@@ -6361,6 +6387,16 @@ my %ingredients_categories_and_types = (
 			types => [
 				"Подсолнечное", "Пальмовое", "Рапсовое", "Кокосовое", "горчицы", "Соевое",
 				"Пальмоядровое", "Оливковое", "пальм",
+			],
+		},
+	],
+
+	sl => [
+		# oils
+		{
+			categories => ['rastlinska maščoba',],
+			types => [
+				"palmina", "repična",
 			],
 		},
 	],
@@ -7625,7 +7661,7 @@ sub count_sweeteners_and_non_nutritive_sweeteners ($product_ref) {
 		$product_ref->{ingredients_sweeteners_n} = 0;
 		$product_ref->{ingredients_non_nutritive_sweeteners_n} = 0;
 
-		# Go through additives and check if the product contains sweeteners and non-nutritive sweeteners
+		# Go through additives and check if the product contains sweeteners and non-nutritive sweeteners
 		if (defined $product_ref->{additives_tags}) {
 			foreach my $additive (@{$product_ref->{additives_tags}}) {
 				my $sweetener_property = get_inherited_property("additives", $additive, "sweetener:en") // "";
@@ -7867,7 +7903,7 @@ sub get_allergens_taxonomyid($ingredients_lc, $ingredient_or_allergen) {
 		}
 	}
 
-	# If we did not recognize the allergen, return the taxonomy id for the original tag
+	# If we did not recognize the allergen, return the taxonomy id for the original tag
 	return get_taxonomyid($ingredients_lc, $ingredient_or_allergen);
 }
 

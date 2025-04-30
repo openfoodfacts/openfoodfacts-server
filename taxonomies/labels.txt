@@ -1333,6 +1333,8 @@ en: No wheat, without wheat, Wheat-free
 bg: Без пшеница
 de: Ohne Weizen
 es: Sin trigo, libre de trigo
+fr: Sans blé
+it: Senza frumento
 nl: Zonder graan
 pt: Sem trigo, livre de trigo, 0% trigo
 
@@ -1672,7 +1674,7 @@ fr: Riche en fibres, Naturellement riches en fibres
 he: עתיר בסיבים תזונתיים
 hr: visoko obogaćena vlaknima
 hu: Rostokban gazdag, Magas rosttartalmú
-it: Ricco di fibre
+it: Ricco di fibre, Ad alto contenuto di fibre
 nb: Fiberrik, rik på fiber
 nl: Vezelrijk, Rijk aan vezels
 pl: wysoka zawartość błonnika
@@ -1702,18 +1704,19 @@ description:en: In EU, a claim that a food is a source of omega-3 may only be ma
 < en:Omega-3
 en: High in Omega 3, Rich in Omega 3, high omega-3 fatty acids
 xx: High in Omega 3
-bg: Богато на Омега-3
+bg: Богато на Омега-3, Натурално високо съдържание на омега-3 мастни киселини
 ca: Alt en Omega 3, Ric en Omega 3
 de: Hoher Omega-3-Gehalt
 es: Rico en Omega 3, Alto en Omega 3
 fi: runsaasti omega-3-rasvahappoja, paljon omega-3-rasvahappoja
 fr: Riche en Oméga-3, Riche en omega 3, Riche en acide gras omega 3
 he: עשיר באומגה 3
-hr: visoka vsebnost omega-3 maščob, izvor omega-3 masnih kiselina
+hr: visoka vsebnost omega-3 maščob, izvor omega-3 masnih kiselina, bogato omega-3 masnim kiselinama
 hu: Omega-3 zsírsavakban gazdag
 it: Alto contenuto di Omega 3, ricco di omega 3
 nl: Rijk aan Omega 3
 pt: Rico em Ómega 3, Rico em Ómega-3
+sr: Bogata Omega-3 masnim kiselinama
 ru: Обогащено омега-3 жирами
 description:en: In EU, a claim that a food is high in omega-3 may only be made where the product contains at least 0,6 g alpha-linolenic acid per 100 g and per 100 kcal, or at least 80 mg of the sum of eicosapentaenoic acid and docosahexaenoic acid per 100 g and per 100 kcal. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
@@ -3205,7 +3208,7 @@ pt: Sem açúcares adicionados, sem adição de açúcares, sem açúcar adicion
 ro: Fără zahăr adăugat
 ru: Без добавления сахара
 sk: Bez pridaného cukru
-sl: Brez dodanega sladkorja, obsahuje prírodné cukry
+sl: Brez dodanega sladkorja, obsahuje prírodné cukry, brez dodanih sladkorjev
 sq: Pa sheqer të shtuar
 sr: Без додатог шећера
 sv: Inget tillsat socker, Utan tillsatt socker
@@ -4692,7 +4695,7 @@ fi: kananmunaton, munaton, ei kananmunaa
 fr: Sans œufs
 he: ללא ביצים, נטול ביצים
 hu: Tojás nélkül
-it: Senza uova
+it: Senza uova, Senza uovo
 nl: Zonder eieren
 pt: Sem ovos, sem ovo, 0% ovos
 th: ไม่มีส่วนผสมของไข่
@@ -5482,9 +5485,9 @@ ko: 유기농
 lt: Ekologiškas, ekologiškai užaugintas, ekologiškai pagamintas, ingredientas pagamintas ekologiškai, iš ekologiško žemės ūkio, iš ekologiško žemės ūkio
 nl: Biologisch, biologische, van biologische oorsprong, van biologische teelt, van gecontroleerd biologische teelt, afkomstig van biologische productiemethode, van gecontroleerde biologische landbouw
 pl: ekologiczny, bio, ekologiczne, ekologiczna, ekologicznych, ekologicznego, z kontrolowanych upraw ekologicznych, z kontrolowanej produkcji ekologicznej, z kontrolowanego rolnictwa ekologicznego, certyfikowany składnik ekologiczny, składnik ekologiczny, produkt pochodzący z kontrolowanych certyfikowanych upraw ekologicznych
-pt: Orgânico, produção orgânica, produzido de forma orgânica, numa quinta orgânica, de agricultura orgânica, agricultura orgânica
+pt: Orgânico, produção orgânica, produzido de forma orgânica, numa quinta orgânica, de agricultura orgânica, agricultura orgânica, de produção Biológica
 ro: din agricultură ecologică controlată
-sk: z kontrolovaného ekologického poľnohospodárstva
+sk: z kontrolovaného ekologického poľnohospodárstva, produkt ekologického poľnohospodárstva
 sl: iz kontrolirane ekološke pridelave
 sv: Ekologisk, Ekologiskt, Ekologiska, ekologisk ingrediens
 th: ออร์แกนิค
@@ -19717,7 +19720,7 @@ lt: Veganiškas, Tinkamas veganams, Tinkama vegetarams ir veganams
 nb: Vegan, Vegansk
 nl: Veganistisch, plantaardig, niet dierlijk
 pl: Wegańskie, przyjazne weganom, wegański, wegańska
-pt: Vegano, produto vegano, vegan, adequado para veganos, adequado a veganos, adequado a uma dieta vegan, adequado a uma dieta vegana, adequado a vegetarianos e veganos
+pt: Vegano, produto vegano, vegan, adequado para veganos, adequado a veganos, adequado a uma dieta vegan, adequado a uma dieta vegana, adequado a vegetarianos e veganos, odpowiedni dla wegan
 sq: vegan
 sv: Vegansk, Passar för veganer, vegetabilisk
 th: สูตรเจ
@@ -20365,7 +20368,7 @@ en: No nuts, nut free
 de: Ohne Nüsse, nussfrei
 es: Sin frutos secos, sin nueces
 fr: Sans fruits à coque, sans fruits secs
-it: Senza noci, senza frutta secca
+it: Senza noci, senza frutta secca, senza frutta a guscio
 nl: Zonder noten
 pt: Sem nozes, livre de nozes
 
