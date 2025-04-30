@@ -6,7 +6,7 @@ use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Images
-	qw/get_code_and_imagefield_from_file_name scan_code get_image_url get_image_in_best_language data_to_display_image/;
+	qw/get_code_and_imagefield_from_file_name scan_code get_image_url get_image_in_best_language data_to_display_image normalize_generation_ref/;
 
 use File::Basename 'dirname';
 use Data::Dumper;
@@ -323,5 +323,8 @@ is(
 	{packaging_image => undef},
 	"packaging image should be undefined when assigned to hash"
 );
+
+is(normalize_generation_ref(undef), undef, "normalize_generation_ref should return undef when passed undef");
+is(normalize_generation_ref({}), undef, "normalize_generation_ref should return undef when passed empty hash");
 
 done_testing();

@@ -100,6 +100,7 @@ BEGIN {
 		&process_image_move
 
 		&same_image_generation_parameters
+		&normalize_generation_ref
 		&process_image_crop
 		&process_image_unselect
 
@@ -149,7 +150,9 @@ use ProductOpener::URL qw/format_subdomain/;
 use ProductOpener::Users qw/%User/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::ProductSchemaChanges;    # needed for convert_schema_1001_to_1002_refactor_images_object()
+use ProductOpener::Booleans qw/normalize_boolean/;
 
+use boolean ':all';
 use Data::DeepAccess qw(deep_exists deep_get deep_set);
 use IO::Compress::Gzip qw(gzip $GzipError);
 use Log::Any qw($log);
@@ -159,6 +162,7 @@ use MIME::Base64;
 use LWP::UserAgent;
 use File::Copy;
 use Clone qw/clone/;
+use boolean;
 
 =head1 SUPPORTED IMAGE TYPES
 
@@ -1339,7 +1343,7 @@ sub same_image_generation_parameters($generation_1_ref, $generation_2_ref) {
 	# We want to check that the existing and defined keys in one hash are the same as the other
 
 	# Normalized structures:
-	my %keys1 = {};
+	my %keys1 = ();
 	if (defined $generation_1_ref) {
 		foreach my $key (keys %{$generation_1_ref}) {
 			if (defined $generation_1_ref->{$key}) {
@@ -1347,7 +1351,7 @@ sub same_image_generation_parameters($generation_1_ref, $generation_2_ref) {
 			}
 		}
 	}
-	my %keys2 = {};
+	my %keys2 = ();
 	if (defined $generation_2_ref) {
 		foreach my $key (keys %{$generation_2_ref}) {
 			if (defined $generation_2_ref->{$key}) {
@@ -1371,6 +1375,67 @@ sub same_image_generation_parameters($generation_1_ref, $generation_2_ref) {
 	return 1;
 }
 
+=head2 normalize_generation_ref ( $generation_ref )
+
+This function normalizes the generation_ref so that we store only useful values.
+
+- If the image is not rotated, we don't store the angle.
+- If the image is not cropped, we don't store the coordinates.
+- If the image is not normalized, we don't store the normalize value.
+- If the image is not processed white magic, we don't store the white magic value.
+
+If generation_ref is empty, we return an undef value
+
+=head3 Arguments
+
+=head4 $generation_ref
+
+A reference to the image generation parameters.
+
+=head3 Return values
+
+A reference to the normalized generation_ref.
+
+Or undef if the generation_ref is empty.
+
+=cut
+
+sub normalize_generation_ref($generation_ref) {
+
+	my $new_generation_ref = {};
+
+	if (defined $generation_ref) {
+		if ((defined $generation_ref->{angle}) and ($generation_ref->{angle} != 0)) {
+			$new_generation_ref->{angle} = $generation_ref->{angle};
+		}
+		if ((defined $generation_ref->{normalize}) and (isTrue($generation_ref->{normalize}))) {
+			$new_generation_ref->{normalize} = $generation_ref->{normalize};
+		}
+		if ((defined $generation_ref->{white_magic}) and (isTrue($generation_ref->{white_magic}))) {
+			$new_generation_ref->{white_magic} = $generation_ref->{white_magic};
+		}
+		# When the image is not cropped, we can have 0 or -1 for all coordinates
+		if (    (defined $generation_ref->{x1})
+			and (defined $generation_ref->{y1})
+			and (defined $generation_ref->{x2})
+			and (defined $generation_ref->{y2})
+			and (($generation_ref->{x1} != $generation_ref->{x2}) and ($generation_ref->{y1} != $generation_ref->{y2})))
+		{
+			$new_generation_ref->{coordinates_image_size} = $generation_ref->{coordinates_image_size} || $crop_size;
+			# Also make sure we store integers
+			$new_generation_ref->{x1} = int($generation_ref->{x1});
+			$new_generation_ref->{y1} = int($generation_ref->{y1});
+			$new_generation_ref->{x2} = int($generation_ref->{x2});
+			$new_generation_ref->{y2} = int($generation_ref->{y2});
+		}
+	}
+
+	if (scalar keys %{$new_generation_ref} == 0) {
+		return undef;
+	}
+	return $new_generation_ref;
+}
+
 =head2 process_image_crop ( $user_id, $product_ref, $image_type, $image_lc, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2, $coordinates_image_size )
 
 Select and possibly crop an uploaded image to represent the front, ingredients, nutrition or packaging image in a specific language.
@@ -1383,9 +1448,7 @@ Select and possibly crop an uploaded image to represent the front, ingredients, 
 
 =cut
 
-sub process_image_crop ($user_id, $product_ref, $image_type, $image_lc, $imgid, $angle, $normalize, $white_magic, $x1,
-	$y1, $x2, $y2, $coordinates_image_size)
-{
+sub process_image_crop ($user_id, $product_ref, $image_type, $image_lc, $imgid, $generation_ref) {
 	my $product_id = $product_ref->{id};
 	my $id = $image_type . "_" . $image_lc;
 
@@ -1394,45 +1457,54 @@ sub process_image_crop ($user_id, $product_ref, $image_type, $image_lc, $imgid, 
 		{
 			product_id => $product_id,
 			imgid => $imgid,
-			x1 => $x1,
-			y1 => $y1,
-			x2 => $x2,
-			y2 => $y2,
-			coordinates_image_size => $coordinates_image_size
+			generation_ref => $generation_ref,
 		}
 	) if $log->is_debug();
+
+	# Assign values from the generation_ref
+	my $angle = $generation_ref->{angle} || 0;
+	my $normalize = normalize_boolean($generation_ref->{normalize});
+	my $white_magic = normalize_boolean($generation_ref->{white_magic});
+	my $coordinates_image_size = $generation_ref->{coordinates_image_size} || $crop_size;
+	my $x1 = $generation_ref->{x1} || -1;
+	my $y1 = $generation_ref->{y1} || -1;
+	my $x2 = $generation_ref->{x2} || -1;
+	my $y2 = $generation_ref->{y2} || -1;
 
 	# The crop coordinates used to be in reference to a smaller image (400x400)
 	# -> $coordinates_image_size = $crop_size
 	# they are now in reference to the full image
 	# -> $coordinates_image_size = "full"
 
+	# The new product_multilingual.pl form will set $coordinates_image_size to "full"
+	# the current Android app will not send it, and it will send coordinates related to the ".400" image
+	# that has a max width and height of 400 pixels
+
 	# There was an issue saving coordinates_image_size for some products
 	# if any coordinate is above the $crop_size, then assume it was on the full size
 
-	if (not defined $coordinates_image_size) {
-		if (($x2 <= $crop_size) and ($y2 <= $crop_size)) {
-			$coordinates_image_size = $crop_size;
-			$log->debug(
-				"process_image_crop - coordinates_image_size not set and x2 and y2 less than crop_size, setting to crop_size",
-				{$coordinates_image_size => $coordinates_image_size}
-			) if $log->is_debug();
-		}
-		else {
-			$coordinates_image_size = "full";
-			$log->debug(
-				"process_image_crop - coordinates_image_size not set and x2 or y2 greater than crop_size, setting to full",
-				{$coordinates_image_size => $coordinates_image_size}
-			) if $log->is_debug();
-		}
-	}
-	else {
-		$log->debug("process_image_crop - coordinates_image_size set",
-			{$coordinates_image_size => $coordinates_image_size})
-			if $log->is_debug();
+	if (($coordinates_image_size eq 'full') and (($x2 > $crop_size) or ($y2 > $crop_size))) {
+		$coordinates_image_size = "full";
+		$log->debug(
+			"process_image_crop - coordinates_image_size not set or set to crop_size and x2 or y2 greater than crop_size, setting to full",
+			{generation_ref => $generation_ref, coordinates_image_size => $coordinates_image_size}
+		) if $log->is_debug();
 	}
 
 	my $path = product_path_from_id($product_id);
+
+	# Check that we are not selecting an image that is already selected with the same source image and selection parameters
+	my $already_selected_image_ref = deep_get($product_ref, "images", "selected", $image_type, $image_lc);
+	if (    (defined $already_selected_image_ref)
+		and ($already_selected_image_ref->{imgid} == $imgid)
+		and same_image_generation_parameters($already_selected_image_ref->{generation}, $generation_ref))
+	{
+
+		$log->debug("process_image_crop - image already selected with same imgid and selection parameters")
+			if $log->is_debug();
+		# We don't consider it an error, but we do not generate a new selected image
+		return 1;
+	}
 
 	my $code = $product_id;
 	$code =~ s/.*\///;
@@ -1517,7 +1589,7 @@ sub process_image_crop ($user_id, $product_ref, $image_type, $image_lc, $imgid, 
 
 	my $filename = "$id.$imgid";
 
-	if ((defined $white_magic) and (($white_magic eq 'checked') or ($white_magic eq 'true'))) {
+	if (isTrue($white_magic)) {
 		$filename .= ".white";
 
 		my $image = $source;
@@ -1598,9 +1670,8 @@ sub process_image_crop ($user_id, $product_ref, $image_type, $image_lc, $imgid, 
 
 	}
 
-	if ((defined $normalize) and (($normalize eq 'checked') or ($normalize eq 'true'))) {
+	if (isTrue($normalize)) {
 		$source->Normalize(channel => 'RGB');
-		$filename .= ".normalize";
 	}
 
 	# Keep only one image, and overwrite previous images
@@ -1633,30 +1704,32 @@ sub process_image_crop ($user_id, $product_ref, $image_type, $image_lc, $imgid, 
 	generate_resized_images("$BASE_DIRS{PRODUCTS_IMAGES}/$path/",
 		$filename, $cropped_source, $sizes_ref, $thumb_size, $small_size, $display_size);
 
-	# Update the product image data
-	deep_set(
-		$product_ref,
-		"images",
-		"selected",
-		$image_type,
-		$image_lc,
+	# Create a new $generation_ref, so that we can put only values we want to keep
+	my $new_generation_ref = normalize_generation_ref(
 		{
-			imgid => $imgid,
-			rev => $rev,
-			generation => {
-				angle => $angle,
-				x1 => $x1,
-				y1 => $y1,
-				x2 => $x2,
-				y2 => $y2,
-				coordinates_image_size => $coordinates_image_size,
-				geometry => $geometry,
-				normalize => $normalize,
-				white_magic => $white_magic,
-			},
-			sizes => $sizes_ref
+			angle => $angle,
+			x1 => $x1,
+			y1 => $y1,
+			x2 => $x2,
+			y2 => $y2,
+			coordinates_image_size => $coordinates_image_size,
+			normalize => $normalize,
+			white_magic => $white_magic,
 		}
 	);
+
+	my $image_ref = {
+		imgid => $imgid,
+		rev => $rev,
+		sizes => $sizes_ref
+	};
+
+	if (defined $new_generation_ref) {
+		$image_ref->{generation} = $new_generation_ref;
+	}
+
+	# Update the product image data
+	deep_set($product_ref, "images", "selected", $image_type, $image_lc, $image_ref);
 
 	store_product($user_id, $product_ref, "new image $id : $imgid.$rev");
 

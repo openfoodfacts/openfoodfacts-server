@@ -53,11 +53,11 @@ my $code = normalize_code(single_param('code'));
 my $product_id = product_id_for_owner($Owner_id, $code);
 
 my $imgid = single_param('imgid');
-# my $angle = single_param('angle');
-# my $id = single_param('id');
+my $id = single_param('id');
 
 my $generation_ref = {
 	angle => single_param('angle'),
+	coordinates_image_size => single_param('coordinates_image_size'),
 	x1 => single_param('x1'),
 	y1 => single_param('y1'),
 	x2 => single_param('x2'),
@@ -66,22 +66,12 @@ my $generation_ref = {
 	white_magic => single_param('white_magic'),
 };
 
-# The new product_multilingual.pl form will set $coordinates_image_size to "full"
-# the current Android app will not send it, and it will send coordinates related to the ".400" image
-# that has a max width and height of 400 pixels
-my $coordinates_image_size = single_param('coordinates_image_size') || $crop_size;
-
 $log->debug(
 	"start",
 	{
 		code => $code,
 		imgid => $imgid,
-		x1 => $x1,
-		y1 => $y1,
-		x2 => $x2,
-		y2 => $y2,
-		param_coordinates_image_size => single_param('coordinates_image_size'),
-		coordinates_image_size => $coordinates_image_size
+		generation_ref => $generation_ref,
 	}
 ) if $log->is_debug();
 

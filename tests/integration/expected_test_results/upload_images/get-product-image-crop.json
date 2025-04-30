@@ -58,11 +58,7 @@
             "uploader" : "openfoodfacts-contributors"
          },
          "front_en" : {
-            "angle" : 0,
-            "coordinates_image_size" : "full",
-            "geometry" : "0x0--1--1",
             "imgid" : "1",
-            "normalize" : null,
             "rev" : "3",
             "sizes" : {
                "100" : {
@@ -81,19 +77,10 @@
                   "h" : 183,
                   "w" : 200
                }
-            },
-            "white_magic" : null,
-            "x1" : "-1",
-            "x2" : "-1",
-            "y1" : "-1",
-            "y2" : "-1"
+            }
          },
          "ingredients_es" : {
-            "angle" : null,
-            "coordinates_image_size" : "400",
-            "geometry" : "0x0-0-0",
             "imgid" : "1",
-            "normalize" : null,
             "rev" : "5",
             "sizes" : {
                "100" : {
@@ -112,19 +99,11 @@
                   "h" : 183,
                   "w" : 200
                }
-            },
-            "white_magic" : null,
-            "x1" : null,
-            "x2" : null,
-            "y1" : null,
-            "y2" : null
+            }
          },
          "ingredients_fr" : {
-            "angle" : "0",
             "coordinates_image_size" : "full",
-            "geometry" : "90x180-10-20",
             "imgid" : "1",
-            "normalize" : null,
             "rev" : "4",
             "sizes" : {
                "100" : {
@@ -144,11 +123,10 @@
                   "w" : 90
                }
             },
-            "white_magic" : null,
-            "x1" : "10",
-            "x2" : "100",
-            "y1" : "20",
-            "y2" : "200"
+            "x1" : 10,
+            "x2" : 100,
+            "y1" : 20,
+            "y2" : 200
          }
       },
       "informers_tags" : [

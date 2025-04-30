@@ -383,12 +383,12 @@ sub upload_images_for_product($args_ref, $images_ref, $product_ref, $imported_pr
 					x2 => $imported_product_ref->{"image_" . $imagefield . "_x2"} || -1,
 					y2 => $imported_product_ref->{"image_" . $imagefield . "_y2"} || -1,
 					coordinates_image_size =>
-						$imported_product_ref->{"image_" . $imagefield . "_coordinates_image_size"} || "full",
-					normalize => $imported_product_ref->{"image_" . $imagefield . "_normalize"} || "false",
-					white_magic => $imported_product_ref->{"image_" . $imagefield . "_white_magic"} || "false"
-					}
+						$imported_product_ref->{"image_" . $imagefield . "_coordinates_image_size"} || $crop_size,
+					normalize => $imported_product_ref->{"image_" . $imagefield . "_normalize"} || 0,
+					white_magic => $imported_product_ref->{"image_" . $imagefield . "_white_magic"} || 0
+				};
 
-					$log->debug(
+				$log->debug(
 					"select and crop image?",
 					{
 						code => $code,
@@ -397,7 +397,7 @@ sub upload_images_for_product($args_ref, $images_ref, $product_ref, $imported_pr
 						imagefield_with_lc => $imagefield_with_lc,
 						generation => $generation_ref,
 					}
-					) if $log->is_debug();
+				) if $log->is_debug();
 
 				# select the photo
 				if (

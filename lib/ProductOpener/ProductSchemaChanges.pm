@@ -65,8 +65,10 @@ use Log::Any qw($log);
 use ProductOpener::Tags qw/compute_field_tags/;
 use ProductOpener::Products qw/normalize_code/;
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Booleans qw/normalize_boolean/;
 
 use Data::DeepAccess qw(deep_get deep_set);
+use boolean ':all';
 
 $current_schema_version = 1002;
 
@@ -257,6 +259,10 @@ sub convert_schema_1001_to_1002_refactor_images_object ($product_ref) {
 				foreach my $key (keys %{$image_ref}) {
 					if ($key !~ /^(imgid|rev|sizes)/) {
 						$generation_ref->{$key} = $image_ref->{$key};
+						# Normalize boolean values
+						if (($key eq 'normalize') or ($key eq 'white_magic')) {
+							$image_ref->{$key} = normalize_boolean($image_ref->{$key});
+						}
 						delete $image_ref->{$key};
 					}
 				}
@@ -295,6 +301,10 @@ sub convert_schema_1002_to_1001_refactor_images_object ($product_ref) {
 					# and delete the generation structure
 					foreach my $key (keys %{$image_ref->{generation}}) {
 						$image_ref->{$key} = $image_ref->{generation}->{$key};
+						# Normalize boolean values to "true" or "false" strings
+						if (($key eq 'normalize') or ($key eq 'white_magic')) {
+							$image_ref->{$key} = isTrue(normalize_boolean($image_ref->{$key})) ? "true" : "false";
+						}
 					}
 					delete $image_ref->{generation};
 					$product_ref->{images}->{$type . "_" . $lc} = $image_ref;

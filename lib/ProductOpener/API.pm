@@ -93,6 +93,10 @@ use Data::DeepAccess qw(deep_get);
 use Storable qw(dclone);
 use Encode;
 
+=head1 FUNCTIONS			
+
+=cut
+
 sub get_initialized_response() {
 	return {
 		warnings => [],
@@ -352,7 +356,7 @@ sub send_api_response ($request_ref) {
 	my $status_code = $request_ref->{api_response}{status_code} || $request_ref->{status_code} || "200";
 	delete $request_ref->{api_response}{status_code};
 
-	my $json = JSON::MaybeXS->new->allow_nonref->canonical->utf8->encode($request_ref->{api_response});
+	my $json = JSON::MaybeXS->new->convert_blessed->allow_nonref->canonical->utf8->encode($request_ref->{api_response});
 
 	# add headers
 	# We need to send the header Access-Control-Allow-Credentials=true so that websites
