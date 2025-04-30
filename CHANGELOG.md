@@ -1,5 +1,32 @@
 # Changelog
 
+## [2.64.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.63.0...v2.64.0) (2025-04-30)
+
+
+### Features
+
+* add "Edit this page" on every documentation page ([#11841](https://github.com/openfoodfacts/openfoodfacts-server/issues/11841)) ([ec9d948](https://github.com/openfoodfacts/openfoodfacts-server/commit/ec9d948b7e1e92871f02f5c23fb658fe0797eb8f))
+* Add a button to add product if not found in search ([#11567](https://github.com/openfoodfacts/openfoodfacts-server/issues/11567)) ([5f3a4bb](https://github.com/openfoodfacts/openfoodfacts-server/commit/5f3a4bbb034707845a3d0ecfe8941dca50661326))
+* ignore duplicates errors for ingredients for beauty, pet food, products ([#11819](https://github.com/openfoodfacts/openfoodfacts-server/issues/11819)) ([6e602f8](https://github.com/openfoodfacts/openfoodfacts-server/commit/6e602f8a13f1a42c982639ec3b97f34412113650))
+* resolve redirection problem on facets ([#11794](https://github.com/openfoodfacts/openfoodfacts-server/issues/11794)) ([6dc2c92](https://github.com/openfoodfacts/openfoodfacts-server/commit/6dc2c92d71aae9f13d60501868aa5fea7a0fc979))
+* Staging documentation ([#11842](https://github.com/openfoodfacts/openfoodfacts-server/issues/11842)) ([cff07ab](https://github.com/openfoodfacts/openfoodfacts-server/commit/cff07ab9e5e420160c80c4f810c1567c550c6518))
+
+
+### Bug Fixes
+
+* barcode-scanner ([#11793](https://github.com/openfoodfacts/openfoodfacts-server/issues/11793)) ([a77169a](https://github.com/openfoodfacts/openfoodfacts-server/commit/a77169aeab42226195775eb5a5a8432664207b3a))
+* barcode-scanner event ([#11791](https://github.com/openfoodfacts/openfoodfacts-server/issues/11791)) ([7386e59](https://github.com/openfoodfacts/openfoodfacts-server/commit/7386e593cf918aaa7c9a6fa8590513b9b3cce4d0))
+* **chore:** update donation banner year at footer ([#11823](https://github.com/openfoodfacts/openfoodfacts-server/issues/11823)) ([91d9e29](https://github.com/openfoodfacts/openfoodfacts-server/commit/91d9e29427710ec4650ce5c44e196b399c735f7c))
+* compute Nutri-Score for coffee using prepared nutrition facts ([#11766](https://github.com/openfoodfacts/openfoodfacts-server/issues/11766)) ([fb31df2](https://github.com/openfoodfacts/openfoodfacts-server/commit/fb31df2bc6050e0102377283e6af8880d99e4f08))
+* design promo ([#11824](https://github.com/openfoodfacts/openfoodfacts-server/issues/11824)) ([0bd2d7e](https://github.com/openfoodfacts/openfoodfacts-server/commit/0bd2d7e06259aad8f017df301057f66e9e757e4b))
+* keep query parameters in facet redirect URLs ([#11795](https://github.com/openfoodfacts/openfoodfacts-server/issues/11795)) ([8d76d38](https://github.com/openfoodfacts/openfoodfacts-server/commit/8d76d38f01ae20ecbdb3ef2580e6b68aa6c1e34e))
+* Minor changes in spec file ([#11826](https://github.com/openfoodfacts/openfoodfacts-server/issues/11826)) ([d419f00](https://github.com/openfoodfacts/openfoodfacts-server/commit/d419f00f23665cb054a1adc5fa837bde1bd01e43))
+* product search: de-duplicate ingredient filtering controls ([#11833](https://github.com/openfoodfacts/openfoodfacts-server/issues/11833)) ([f165aaf](https://github.com/openfoodfacts/openfoodfacts-server/commit/f165aaf9ce20f3badf7695577a44f31ade485a92))
+* Rename label image files with `_` ([#11810](https://github.com/openfoodfacts/openfoodfacts-server/issues/11810)) ([0b0401a](https://github.com/openfoodfacts/openfoodfacts-server/commit/0b0401aa384b186bd4e61dae370f2cec3999ea7a))
+* typo in nginx config + missing load_data() ([#11788](https://github.com/openfoodfacts/openfoodfacts-server/issues/11788)) ([69c142a](https://github.com/openfoodfacts/openfoodfacts-server/commit/69c142aa3461768a66433fa3dcae1a7bf2dbd9c7))
+* update session templates to use dynamic page titles ([#11785](https://github.com/openfoodfacts/openfoodfacts-server/issues/11785)) ([501fe62](https://github.com/openfoodfacts/openfoodfacts-server/commit/501fe622e19cf4fece59f587d4d7c5b2cd7c7d79))
+* use 'yes' instead of 'en:yes' for vegan / vegetarian ingredients properties ([#11829](https://github.com/openfoodfacts/openfoodfacts-server/issues/11829)) ([7ed1c23](https://github.com/openfoodfacts/openfoodfacts-server/commit/7ed1c23bd79ddc5fb0cda8cc4d4a6ac9e8e8049b))
+
 ## [2.63.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.62.0...v2.63.0) (2025-04-15)
 
 
