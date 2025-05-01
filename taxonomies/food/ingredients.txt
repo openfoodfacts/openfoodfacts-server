@@ -502,7 +502,7 @@ ru: соевый лецитин, лецитин соевый, эмульгато
 sk: sójový lecitin
 sl: sojin lecitin
 sr: sojin lecitin
-sv: sojalecitin, sojalecitiner, sojalecithin, sojabönslecitin, emulgerings medel sojalecitin
+sv: sojalecitin, sojalecitiner, sojalecithin, sojabönslecitin, emulgerings medel sojalecitin, soja lecitin
 tr: soya lesitini
 uk: Соєвий лецитин
 zh: 大豆卵磷脂
@@ -34785,7 +34785,7 @@ ru: молочный белок, молочные белки
 sk: mliečnu bielkovinu, mliečne bielkoviny
 sl: mlečne beljakovine
 sr: mliječni proteini, mlečni proteini
-sv: mjölkprotein
+sv: mjölkprotein, mjölkproteiner
 allergens:en: en:milk
 nova:en: 4
 vegetarian:en: yes
@@ -37944,7 +37944,7 @@ de: Roggenvollkornsauerteig
 fi: täysjyväruistaikinajuuri
 hr: cijelo raženo kiselo tijesto
 it: pasta madre di segale integrale
-sv: surdeg av fullkornsrågmjöl, surdeg av fullkornsrågmöl
+sv: surdeg av fullkornsrågmjöl, surdeg av fullkornsrågmöl, surdeg på fullkornsråg
 
 < en:rye sourdough
 fr: levain de seigle dévitalisé
@@ -37962,6 +37962,11 @@ nl: rogge zuurdesempoeder, gedroogd roggedesem
 < en:rye sourdough
 en: rye and durum wheat sourdough
 sv: surdeg på råg och durumvete
+
+< en:rye and durum wheat sourdough
+< en:whole rye sourdough
+en: whole rye and durum wheat sourdough
+sv: surdeg på fullkornsråg och fullkornsdurumvete
 
 < en:sourdough
 nl: speltzuurdesempoeder
@@ -48140,7 +48145,7 @@ bg: Стафида, стафиди
 bs: Grožđica
 ca: pansa, panses
 cs: rozinka
-da: Rosin
+da: rosin, rosiner
 de: Rosine, Rosinen, Weinbeere
 el: Σταφίδα
 eo: sekvinbero
@@ -48191,7 +48196,7 @@ so: Sabiib
 sq: rrush
 sr: Суво грожђе
 su: Kismis
-sv: Russin
+sv: russin
 ta: உலர்திராட்சை
 te: ఎండుద్రాక్ష
 tg: Мавиз
@@ -48243,7 +48248,7 @@ it: concentrato di uva passa
 # maybe it is necessary to split between dried and fresh
 
 < en:grape
-en: sultana, sultanas, Thompson seedless, sultanina, Raisin Thompson Seedless
+en: sultana, sultanas, Thompson seedless, sultanina
 af: sultana
 ar: العنب الكشمشي
 bg: султанина, светли стафиди
@@ -48256,7 +48261,7 @@ es: sultanina, sultana, pasas sultanas, uvas pasas sultanas
 et: sultana
 fa: انگور سلطانی
 fi: sulttaanirusina, sulttaanirusinoita
-fr: sultanine, sultanines, raisins secs sultanines
+fr: sultanine, sultanines
 ga: sabhdánach
 he: סולטנה
 hi: सुल्ताना
@@ -48275,7 +48280,7 @@ ro: sultanină
 ru: белый кишмиш
 si: සුල්තානා
 sl: sultanina
-sv: sultanrussin
+sv: sultanvindruva, sultandruva, Thompson-druva, Thompson-druvor
 tr: sultaniye üzümü
 uk: кишмиш
 uz: kishmish
@@ -48285,6 +48290,12 @@ wikidata:en: Q1898118
 wikipedia:en: https://en.wikipedia.org/wiki/Sultana_(grape)
 # 46 products in 3 languages @2018-10-02
 
+< en:raisin
+< en:sultana
+en: sultana raisin, Raisin Thompson Seedless
+fr: raisins secs sultanines
+sv: sultanrussin, Thompson-russin
+
 #<en:compound
 en: oiled sultana
 de: Sultaninen geölt
@@ -48292,12 +48303,19 @@ it: uva sultanina oleosa
 
 # description:en:Zante currants, Corinth raisins, or Corinthian raisins, also called simply currants, are dried berries of the small, sweet, seedless grape cultivar 'Black Corinth' (Vitis vinifera).
 
-< en:grape
+< en:raisin
 en: California seedless raisins
 de: Kalifornische kernlose Rosinen
 fr: Raisins secs sans grains californiens
 hr: kalifornijske grožđice bez sjemenki
 it: uvetta senza semi della California
+sv: kaliforniska russin utan kärnor
+origins:en: en:california
+
+< en:California seedless raisins
+< en:sultana raisin
+en: California seedless Thompson raisin, California seedless Thompson raisins
+sv: kaliforniska Thompson-russin utan kärnor
 
 < en:grape
 en: Corinthian raisins
@@ -49661,7 +49679,7 @@ en: vegetable, vegetables
 bg: зеленчук, зеленчуци
 ca: Vegetals, Verdures
 cs: Zelenina
-da: Grøntsag
+da: grøntsag, grøntsager
 de: Gemüse
 el: λαχανικό, λαχανικά
 es: verduras, hortaliza, hortalizas, vegetal, vegetales
@@ -54702,6 +54720,7 @@ ciqual_food_name:fr: Carotte, purée
 
 < en:carrot
 en: carrot concentrate
+da: gulerodskoncentrat
 de: Karottenkonzentrat, färbendes Karottenkonzentrat
 fi: porkkanatiiviste
 fr: concentré de carotte, concentré de carottes
@@ -54729,11 +54748,13 @@ it: estratto di carota, estratto di carote
 ja: 人参エキス
 nl: wortelextract, kleurend wortelextract
 pt: extrato de cenoura, extrato de cenouras, extracto de cenoura, extracto de cenouras
+sv: morotsextrakt
 # fr:extrait-de-carotte has 176 products in 6 languages @0218-10-20
 
 < en:carrot extract
 en: colouring carrot extract
 de: färbendes Karottenextrakt
+sv: färgande morotsextrakt
 
 < en:carrot
 en: carrot powder
@@ -87928,7 +87949,7 @@ bs: Vlakno
 ca: Fibra, fibra alimentaria, fibres vegetals
 cs: vlákno
 cv: Чĕлкĕм
-da: Fiber
+da: fiber
 de: Faser, Nahrungsfasern
 el: ίνα
 eo: fibro
@@ -87992,6 +88013,8 @@ zh: 纤维
 # wuu:纤维
 # zh-cn:纤维
 # zh-hans:纤维# zh-hant:纤维
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q161
 wikipedia:en: https://en.wikipedia.org/wiki/Fiber
 # fibre has 270 products in 8 languages @2019-03-10
@@ -88029,10 +88052,13 @@ pl: błonnik z trzciny cukrowej
 
 < en:fiber
 en: betaglucan, β-glucane
+da: beta-glucan
 de: Beta-Glucane, β-Glucane
 es: beta glucano, β-glucano
 fr: bêta-glucane, betaglucane, β-glucane
 it: betaglucano
+sv: betaglukan
+wikidata:en: Q2076617
 
 
 # description:en:INULINS are a group of naturally occurring polysaccharides produced by many types of plants, industrially most often extracted from chicory. Chicory root is the main source of extraction for commercial production of inulin. It can be used to replace sugar, fat, and flour.
@@ -88106,6 +88132,7 @@ en: vegetable fiber, vegetable fibers, plant fiber, plant fibre
 bg: растителни влакна, растителни влакнини, растителни фибри, зеленчукови фибри
 ca: fibra vegetal
 cs: rostlinná textilní vlákna
+da: plantefiber, vegetabilsk fiber
 de: pflanzliche Fasern, Pflanzenfaser, Pflanzenfasern, pflanzliche Ballaststoffe
 eo: planta fibro
 es: fibra vegetal
@@ -91867,7 +91894,7 @@ sv: kycklingbuljong, kycklingfond
 en: vegetable broth
 bg: зеленчуков бульон
 ca: brou vegetal
-da: Grøntsagsbouillon
+da: grøntsagsbouillon
 de: Gemüsebouillon, Gemüsebrühe
 es: Caldo de verduras
 fi: kasvisliemi
@@ -91877,6 +91904,8 @@ it: brodo vegetale
 nl: groentebouillon
 pl: bulion warzywny, bulion roślinny, bulion wegetariański
 sv: grönsaksbuljong
+vegan:en: maybe
+vegetarian:en: yes
 wikidata:en: Q42366457
 # ingredient/fr:bouillon-végétal has 40 products in 4 languages @2019-04-04
 
