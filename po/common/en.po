@@ -7403,6 +7403,10 @@ msgctxt "delete"
 msgid "Delete"
 msgstr "Delete"
 
+msgctxt "f_add_product_to_our_database"
+msgid "Is {barcode} the barcode of a product you have? If so, please add it to the database. It only takes a few minutes."
+msgstr "Is {barcode} the barcode of a product you have? If so, please add it to the database. It only takes a few minutes."
+
 # Please change get-it-on-en.svg to get-it-on-XX.svg. check the new image url exists https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
 msgctxt "f_droid_app_icon_url"
 msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
@@ -7412,6 +7416,23 @@ msgctxt "f_droid_app_icon_alt_text"
 msgid "Available on F-Droid"
 msgstr "Available on F-Droid"
 
+msgctxt "update_nutrition_facts"
+msgid "Extract nutrition facts"
+msgstr "Extract nutrition facts"
+
 msgctxt "update_nutrients_data"
 msgid "Update nutrients data"
 msgstr "Update nutrients data"
+
+msgctxt "scan_a_product"
+msgid "Scan a product"
+msgstr "Scan a product"
+
+msgctxt "or_enter_barcode_manually"
+msgid "Or enter barcode manually"
+msgstr "Or enter barcode manually"
+
+msgctxt "scan"
+msgid "Scan"
+msgstr "Scan"
+
