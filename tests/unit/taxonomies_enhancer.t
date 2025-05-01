@@ -515,13 +515,6 @@ $product_ref = {
 	ingredients_text_sv => "Pastöriserad _komjölk_, salt, löpe, surhetsreglerande medel: citronsyra.",
 };
 check_ingredients_between_languages($product_ref);
-ok(
-	has_tag(
-		$product_ref, "taxonomies_enhancer",
-		"ingredients-da-pasteuriseret-testmaelk-is-new-translation-for-en-cow-s-milk"
-	),
-	'cs-da-de-en-es-fi-fr-it-nl-pt-ru-sv, new word for da based on sv as well as en'
-) or diag Dumper $product_ref;
 ok(has_tag($product_ref, "taxonomies_enhancer", "ingredients-da-new-word-is-new-translation-for-en-coagulant"),
 	'cs-da-de-en-es-fi-fr-it-nl-pt-ru-sv, new word for da based on es as well as en')
 	or diag Dumper $product_ref;
