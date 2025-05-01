@@ -5680,6 +5680,16 @@ rank_and_display_products("#search_results", products, contributor_prefs);
 JS
 		;
 
+	my $search_terms = '';
+	if (defined single_param('search_terms')) {
+		$search_terms = remove_tags_and_quote(decode utf8 => single_param('search_terms'));
+		if (is_valid_code($search_terms)) {
+			$template_data_ref->{code} = $search_terms;
+			my $add_product_message = f_lang("f_add_product_to_our_database", {barcode => $search_terms});
+			$template_data_ref->{add_product_message} = $add_product_message;
+		}
+	}
+
 	process_template('web/common/includes/list_of_products.tt.html', $template_data_ref, \$html)
 		|| return "template error: " . $tt->error();
 	return $html;
