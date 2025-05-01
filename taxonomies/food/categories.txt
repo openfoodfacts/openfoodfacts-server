@@ -11718,6 +11718,11 @@ intake24_category_code:en: WINE
 nova:en: 3
 wikidata:en: Q282
 
+< en:Wines
+en: Vegan wines, Vegan-friendly wines
+da: Veganske vin
+sv: Veganska viner
+
 # should this fall under wines?
 < en:Wines
 en: Cooking wines
@@ -36432,6 +36437,10 @@ en: Cheese Naans
 en: Garlic Naans
 
 < en:Flatbreads
+en: Paratha
+wikidata:en: Q59707
+
+< en:Flatbreads
 < en:Special breads
 en: Pitas, Pittas, Pita bread, pitta bread
 xx: Pitas
@@ -52206,6 +52215,12 @@ fr: Boissons végétales d'avoine à la vanille
 < en:Oat-based drinks
 en: UHT oat based drinks
 
+< en:Oat-based drinks
+en: Barista oat drinks, Barista oat milks
+da: Barista-havredrikke
+sv: Barista-havredrycker
+description:en: Oat milks made to have foaming and other qualities similar to dairy milks, esp. for use in coffee.
+
 < en:Cereal-based drinks
 en: Quinoa-based drinks, Quinoa milks, Quinoa drinks
 bg: Напитка с киноа
@@ -52861,10 +52876,6 @@ agribalyse_proxy_food_name:en: Uncured soft cheese, spreadable, around 25% fat, 
 ciqual_proxy_food_code:en: 12315
 ciqual_proxy_food_name:en: Uncured soft cheese, spreadable, around 25% fat, in a tub
 intake24_category_code:en: SPRD
-
-< en:cheese spreads
-en: St Moret, Saint Moret
-xx: St Moret, Saint Moret
 
 < en:Cheese spreads
 en: Uncured soft cheese spreadable with around 25% fat
@@ -82228,7 +82239,7 @@ lt: Šalti užkandžiai
 nl: Koude voorgerechten
 #wikidata:en:
 
-< en:Appetizers
+< en:Prepared salads
 en: Coleslaw, Coleslaw with sauce
 de: Krautsalat
 es: Ensalada de col
@@ -106818,23 +106829,20 @@ fr: Tomates marinées
 en: Torshi
 fr: Torchi
 
-< en:Canned fruits
+# don't put in fruits, those products can have other ingredients, notably a high quantity of oil.
 < en:Plant-based pickles
 en: Pickled fruits, Fruit pickles
 fr: Pickles de fruits, fruits marinés
 
 < en:Fruit pickles
-< en:Mangoes
 en: Pickled mangoes, marinated mangoes
 fr: Pickles de mangues, mangues marinées
 
 < en:Fruit pickles
-< en:Plums
 en: Pickled plums, marinated plums
 fr: Pickles de prunes, prunes marinées
 
 < en:Fruit pickles
-< en:Limes
 en: Pickled limes, marinated limes
 fr: Pickles de citrons verts, citrons verts marinées
 

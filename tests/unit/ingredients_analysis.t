@@ -93,6 +93,20 @@ my @tests = (
 		["en:palm-oil-free", "en:non-vegan", "en:vegetarian-status-unknown"]
 	],
 
+	# vegan maybe ingredients
+	[
+		{lc => "en", ingredients_text => "coagulating enzyme"},
+		["en:palm-oil-free", "en:maybe-vegan", "en:maybe-vegetarian"]
+	],
+	[
+		{lc => "en", ingredients_text => "coagulating enzyme (vegetal)"},
+		["en:palm-oil-free", "en:vegan", "en:vegetarian"]
+	],
+	[
+		{lc => "en", ingredients_text => "something unknown (vegetal)"},
+		["en:palm-oil-content-unknown", "en:vegan", "en:vegetarian"]
+	],
+
 );
 
 foreach my $test_ref (@tests) {
