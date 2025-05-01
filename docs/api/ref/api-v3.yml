@@ -117,6 +117,8 @@ paths:
     patch:
       summary: "WRITE Product - Create or update product, or analyze test product (API V3 - Implementation in progress)"
       operationId: patch-api-v3-product-barcode
+      tags:
+        - Write Requests
       responses:
         "200":
           description: |-
@@ -258,7 +260,8 @@ paths:
     parameters: []
     get:
       summary: Get taxonomy entries suggestions
-      tags: []
+      tags:
+        - Read Requests
       responses:
         "200":
           description: OK
@@ -354,7 +357,8 @@ paths:
         description: "Tag name (e.g. yogurts) or tag id (e.g. en:yogurts)"
     get:
       summary: Get knowledge panels for a tag
-      tags: []
+      tags:
+        - Read Requests
       responses:
         "200":
           description: OK
@@ -401,7 +405,8 @@ paths:
     parameters: []
     post:
       summary: Revert a product to a previous revision
-      tags: []
+      tags:
+        - Write Requests
       responses:
         "200":
           description: OK
