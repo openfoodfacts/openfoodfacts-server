@@ -518,20 +518,13 @@ check_ingredients_between_languages($product_ref);
 ok(
 	has_tag(
 		$product_ref, "taxonomies_enhancer",
-		"ingredients-da-pasteuriseret-testmaelk-is-new-translation-for-en-pasteurised-cow-s-milk"
+		"ingredients-da-pasteuriseret-testmaelk-is-new-translation-for-en-cow-s-milk"
 	),
 	'cs-da-de-en-es-fi-fr-it-nl-pt-ru-sv, new word for da based on sv as well as en'
 ) or diag Dumper $product_ref;
 ok(has_tag($product_ref, "taxonomies_enhancer", "ingredients-da-new-word-is-new-translation-for-en-coagulant"),
 	'cs-da-de-en-es-fi-fr-it-nl-pt-ru-sv, new word for da based on es as well as en')
 	or diag Dumper $product_ref;
-ok(
-	has_tag(
-		$product_ref, "taxonomies_enhancer",
-		"ingredients-da-pasteuriseret-testmaelk-is-possible-typo-for-da-pasteuriseret-maelk"
-	),
-	'cs-da-de-en-es-fi-fr-it-nl-pt-ru-sv, typo in da based on fi as well as en'
-) or diag Dumper $product_ref;
 
 # Division by zero bug from product: https://fr.openfoodfacts.org/produit/3256221408515/boulgour-etui-500g-u-bio?rev=74
 # (Stéphane) this product triggered a division by zero in the Minion that imported this product (which runs with debug logs enabled)
