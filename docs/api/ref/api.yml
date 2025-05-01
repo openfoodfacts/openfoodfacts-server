@@ -186,6 +186,8 @@ paths:
         This endpoint allows the user to unselect a photo for a product.
         The user must provide the product code and the image ID to unselect.
       operationId: post-cgi-product_image_unselect.pl
+      tags:
+        - Write Requests
       requestBody:
         content:
           multipart/form-data:
@@ -360,6 +362,8 @@ paths:
             application/json:
               schema:
                 type: array
+                items:
+                  type: string
       operationId: get-cgi-suggest.pl
       parameters:
         - $ref: "#/components/parameters/tagtype"
@@ -697,3 +701,5 @@ tags:
     description: Endpoints that allow writing or modifying data in the Open Food Facts database.
   - name: Authentication
     description: Endpoints used to retrieve authentication info.
+  - name: Personal search
+    description: Endpoints related to personal search and recommendation

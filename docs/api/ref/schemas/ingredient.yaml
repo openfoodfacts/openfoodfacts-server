@@ -38,4 +38,4 @@ components:
         This structure gives the different ingredients and some information about them,
         like estimate on their quantity.
       items:
-        $ref: "#/components/schemas/Ingredient"
+        $ref: "./ingredient.yaml#/components/schemas/Ingredient"
