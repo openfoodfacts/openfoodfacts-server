@@ -430,6 +430,7 @@ my %from = (
 	de => " aus ",
 	es => " de ",
 	fr => " de la | de | du | des | d'| de l'",
+    hr => " iz ",
 	it => " dal | della | dalla | dagli | dall'",
 	nl => " uit ",
 	pl => " z | ze ",
@@ -2803,10 +2804,6 @@ Text to analyze
 
 						# Remove some sentences
 						my %ignore_regexps = (
-                            'bg' => [
-                                'oпаковано в защитна атмосфера', # packed in a protective atmosphere
-                            ]
-
 							'bs' => [
 								'u promjenljivom odnosu',    # in a variable ratio
 							],
@@ -4816,7 +4813,7 @@ sub normalize_a_of_b ($ingredients_lc, $a, $b, $of_bool, $alternate_names_ref = 
 			$a_of_b = $a . " " . $b;
 		}
 	}
-	elsif (($ingredients_lc eq "de") or ($ingredients_lc eq "ru") or ($ingredients_lc eq "pl")) {
+	elsif (($ingredients_lc eq "bg") or ($ingredients_lc eq "cs") or ($ingredients_lc eq "de") or ($ingredients_lc eq "hu") or ($ingredients_lc eq "ru") or ($ingredients_lc eq "pl") or ($ingredients_lc eq "lt") or ($ingredients_lc eq "rs") or ($ingredients_lc eq "sk") or ($ingredients_lc eq "sl")) {
 		$a_of_b = $a . " " . $b;
 	}
 	else {
@@ -5268,13 +5265,14 @@ my %phrases_after_ingredients_list = (
 		'Аналитични съставки',    # pet food
 		'Неотворен',    # before opening ...
 		'След отваряне',    # after opening ...
-		'Продуктът може да',    #product can contain
+		'Опаковани в защитна атмосфера', # packaged in protective atmosphere
 	],
 
 	ca => ['envasat en atmosfera protectora', 'conserveu-los en un lloc fresc i sec',],
 
 	cs => [
 		'analytické složky',    # pet food
+		'balené v ochrannej atmosfére', # packaged in protective atmosphere
 		'doporu)c|č)eny zp(u|ů)sob p(r|ř)(i|í)pravy',
 		'minim(a|á)ln(i|í) trvanlivost do',    # Expiration date
 		'po otev(r|ř)en(i|í)',    # After opening
@@ -5519,9 +5517,11 @@ my %phrases_after_ingredients_list = (
 	],
 
 	hu => [
+        'A termék összetételének', # proportion of the product might vary
 		'Atlagos tápérték 100g termékben',
 		'((száraz|hűvös|(közvetlen )?napfénytől védett)[, ]*)+helyen tárolandó',    # store in cool/dry/etc
 		'elemzési összetevők',    # pet food
+        'felbontás után', # after opening
 		'hűvös, száraz helyen, közvetlen napfénytől védve tárolja',    # store in cool dry place away from the sunlight
 		'bontatlan csomagolásban',    # keep in a closed/dark place
 		'tárolás',    # conservation
@@ -5707,6 +5707,12 @@ my %prefixes_before_dash = (fr => ['demi', 'saint',],);
 
 # phrases that can be removed
 my %ignore_phrases = (
+    bg => [
+        'Продукт с естествено ниско съдържание на лактоза', # lactose content <0,1g/100 g
+    ],
+    cs => [
+        's obsahem laktózy', # lactose content <0,1g/100 g
+    ],
 	de => [
 		'\d\d?\s?%\sFett\si(\.|,)\s?Tr(\.|,)?',    # 45 % Fett i.Tr.
 		'inklusive',
@@ -5719,7 +5725,10 @@ my %ignore_phrases = (
 	],
 	hu => [
 		'Valamennyi százalékos adat a késztermékre vonatkozik',    # All percentages refer to the finished product.
-	]
+	],
+    sk => [
+        'obsah laktózy', # lactose content <0,1g/100 g
+    ],
 
 );
 
@@ -6168,6 +6177,11 @@ my %ingredients_categories_and_types = (
 			# haferprotein
 			alternate_names => ["<type>protein", "<type>eiweiß"],
 		},
+        # starch
+        {
+            categories => ["Stärke"],
+            types => ["Mais", "Weizen"],
+        },
 	],
 
 	es => [
@@ -6287,15 +6301,15 @@ my %ingredients_categories_and_types = (
             ],
             alternate_names => ["<type>olaj"],
         },
+        # starch
+        {
+            categories => ["keményítő"],
+            types => [
+                "kukorica", "búza",
+            ],
+            alternate_names => ["<type>keményítő"],
+        },
     ]
-
-	lt => [
-		#oils
-		{
-			categories => ["aliejai", "augaliniai aliejai",],
-			types => ["palmių", "rapsų", "saulėgrąžų",],
-		},
-	],
 
 	hr => [
 		# cheeses
@@ -6364,8 +6378,16 @@ my %ingredients_categories_and_types = (
 		# starchs
 		{
 			categories => ["škrob",],
-			types => ["kukuruzni", "krumpirov",]
+			types => ["kukuruz", "kukuruzni", "krumpirov", "pšenica"]
 		}
+	],
+
+	lt => [
+		#oils
+		{
+			categories => ["aliejai", "augaliniai aliejai",],
+			types => ["palmių", "rapsų", "saulėgrąžų",],
+		},
 	],
 
 	pl => [
@@ -6426,6 +6448,16 @@ my %ingredients_categories_and_types = (
 			],
 		},
 	],
+    
+    rs => [
+        # starcgh
+        {
+            categories => ['škrob'],
+            types => [
+                "kukuruzni", "pšenični",
+            ],
+        },
+    ],
 
     sk => [
         # oils
@@ -6447,6 +6479,13 @@ my %ingredients_categories_and_types = (
 			],
             alternate_names => ["<type>", "<type> olje"],
 		},
+        # starch
+        {
+            categories => ['škrob'],
+            types => [
+                "koruza", "kukuruzni", "pšenica", "pšenični",
+            ],
+        },
 	],
 
 );
