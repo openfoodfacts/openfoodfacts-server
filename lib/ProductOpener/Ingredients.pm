@@ -4998,11 +4998,15 @@ sub normalize_vitamins_enumeration ($lc, $vitamins_list) {
 	my $split_vitamins_list;
 
 	if ($lc eq 'da' || $lc eq 'nb' || $lc eq 'sv') {$split_vitamins_list = "vitaminer"}
+    elsif ($lc eq 'bg') {$split_vitamins_list = "витамини"}
 	elsif ($lc eq 'de' || $lc eq 'it') {$split_vitamins_list = "vitamine"}
 	elsif ($lc eq 'ca') {$split_vitamins_list = "vitamines"}
+    elsif ($lc eq 'cs' || $lc eq 'sk') {$split_vitamins_list = "vitamíny"}
 	elsif ($lc eq 'es') {$split_vitamins_list = "vitaminas"}
 	elsif ($lc eq 'fr') {$split_vitamins_list = "vitamines"}
 	elsif ($lc eq 'fi') {$split_vitamins_list = "vitamiinit"}
+    elsif ($lc eq 'hr' || $lc eq 'sl') {$split_vitamins_list = "vitamini"}
+    elsif ($lc eq 'hu') {$split_vitamins_list = "vitaminok"}
 	elsif ($lc eq 'nl') {$split_vitamins_list = "vitaminen"}
 	elsif ($lc eq 'is') {$split_vitamins_list = "vítamín"}
 	elsif ($lc eq 'pl') {$split_vitamins_list = "witaminy"}
@@ -5328,8 +5332,8 @@ my %phrases_after_ingredients_list = (
 		'Αναλυτικές συστατικές',    # pet food
 		'ΔΙΑΘΡΕΠΤΙΚΗ ΕΠΙΣΗΜΑΝΣΗ',    #Nutritional labelling
 		'ΔΙΤΡΟΦΙΚΕΣ ΠΗΡΟΦΟΡΙΕΣ',
-		'Για τα αλλεργιογόνα',
-		'Για αλλεργιογόνα',
+		'Για (τα )?αλλεργιογόνα', # for allergens in bold
+		'Συντηρείται στο ψυγείο',    # stored in the fridge
 	],
 
 	en => [
@@ -5580,6 +5584,7 @@ my %phrases_after_ingredients_list = (
 		'E = door EU goedgekeurde hulpstof',
 		'E door EU goedgekeurde hulpstoffen',
 		'"E"-nummers zijn door de EU goedgekeurde hulpstoffen',
+		'gekoeld bewaren',    # keep in a cool place
 		'gemiddelde voedingswaarden',
 		'Gemiddeldevoedingswaardel',
 		'gemiddelde voedingswaarde per 100 g',
@@ -6124,6 +6129,26 @@ my %ingredients_categories_and_types = (
 		},
 	],
 
+	bg => [
+		# oil and fat
+		{
+			categories => ["растителни масла"],
+			types =>
+				["рапично", "слънчогледово",],
+            alternate_names => ["<type> масло"],
+		},
+	],
+
+	cs => [
+		# oil and fat
+		{
+			categories => ["rostlinné oleje"],
+			types =>
+				["řepkový", "slunečnicový",],
+            alternate_names => ["<type> olej"],
+		},
+	],
+
 	de => [
 		# oil and fat
 		{
@@ -6252,6 +6277,17 @@ my %ingredients_categories_and_types = (
 		# peppers
 		{categories => ["piment", "poivron"], types => ["vert", "jaune", "rouge",], of_bool => 0,},
 	],
+
+    hu => [
+        # oils
+        {
+            categories => ["növényi olajok"],
+            types => [
+                "repce", "napraforgó",
+            ],
+            alternate_names => ["<type>olaj"],
+        },
+    ]
 
 	lt => [
 		#oils
@@ -6391,13 +6427,25 @@ my %ingredients_categories_and_types = (
 		},
 	],
 
+    sk => [
+        # oils
+        {
+            categories => ['rastlinné oleje'],
+            types => [
+                "repkový", "slnečnicový",
+            ],
+            alternate_names => ["<type> olej"],
+        },
+    ]
+
 	sl => [
 		# oils
 		{
-			categories => ['rastlinska maščoba',],
+			categories => ['rastlinska maščoba', 'rastlinska olja'],
 			types => [
-				"palmina", "repična",
+				"palmina", "repična", "repično", "sončnično",
 			],
+            alternate_names => ["<type>", "<type> olje"],
 		},
 	],
 
