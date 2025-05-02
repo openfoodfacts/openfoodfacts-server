@@ -430,7 +430,7 @@ my %from = (
 	de => " aus ",
 	es => " de ",
 	fr => " de la | de | du | des | d'| de l'",
-    hr => " iz ",
+	hr => " iz ",
 	it => " dal | della | dalla | dagli | dall'",
 	nl => " uit ",
 	pl => " z | ze ",
@@ -1354,14 +1354,14 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 		ca => "(?:origen)",
 		es => "(?:origen)",
 		fr => "(?:origine (?:de |du |de la |des |de l'))",
-		hr => "(?:zemlja (?:porijekla|podrijetla|porekla)|uzgojeno u)"
+		hr => "(?:zemlja (?:porijekla|podrijetla|porekla)|uzgojeno u)",
 		hu => "(?:származási (?:hely|ország))",
 		it => "(?:paese di (?:molitura|coltivazione del grano))",
-        mk => "(?:земја на потекло)",
+		mk => "(?:земја на потекло)",
 		pl => "(?:kraj pochodzenia)",
 		ro => "(?:tara de origine)",
 		rs => "(?:zemlja porekla)",
-        sl => "(?:(?:država|krajina) porekla|gojeno v)",
+		sl => "(?:(?:država|krajina) porekla|gojeno v)",
 		uk => "(?:kраїна походження)",
 	);
 
@@ -2963,9 +2963,7 @@ Text to analyze
 								'lahko vsebuje sledi',    # may contain traces
 							],
 
-                            'sr' => [
-                                'klasa ii',
-                            ]
+							'sr' => ['klasa ii',],
 
 							'sv' => [
 								'^Minst \d{1,3}\s*% kakao I chokladen$',
@@ -4814,7 +4812,17 @@ sub normalize_a_of_b ($ingredients_lc, $a, $b, $of_bool, $alternate_names_ref = 
 			$a_of_b = $a . " " . $b;
 		}
 	}
-	elsif (($ingredients_lc eq "bg") or ($ingredients_lc eq "cs") or ($ingredients_lc eq "de") or ($ingredients_lc eq "hu") or ($ingredients_lc eq "ru") or ($ingredients_lc eq "pl") or ($ingredients_lc eq "lt") or ($ingredients_lc eq "rs") or ($ingredients_lc eq "sk") or ($ingredients_lc eq "sl")) {
+	elsif (($ingredients_lc eq "bg")
+		or ($ingredients_lc eq "cs")
+		or ($ingredients_lc eq "de")
+		or ($ingredients_lc eq "hu")
+		or ($ingredients_lc eq "ru")
+		or ($ingredients_lc eq "pl")
+		or ($ingredients_lc eq "lt")
+		or ($ingredients_lc eq "rs")
+		or ($ingredients_lc eq "sk")
+		or ($ingredients_lc eq "sl"))
+	{
 		$a_of_b = $a . " " . $b;
 	}
 	else {
@@ -4996,15 +5004,15 @@ sub normalize_vitamins_enumeration ($lc, $vitamins_list) {
 	my $split_vitamins_list;
 
 	if ($lc eq 'da' || $lc eq 'nb' || $lc eq 'sv') {$split_vitamins_list = "vitaminer"}
-    elsif ($lc eq 'bg') {$split_vitamins_list = "витамини"}
+	elsif ($lc eq 'bg') {$split_vitamins_list = "витамини"}
 	elsif ($lc eq 'de' || $lc eq 'it' || $lc eq 'ro') {$split_vitamins_list = "vitamine"}
 	elsif ($lc eq 'ca') {$split_vitamins_list = "vitamines"}
-    elsif ($lc eq 'cs' || $lc eq 'sk') {$split_vitamins_list = "vitamíny"}
+	elsif ($lc eq 'cs' || $lc eq 'sk') {$split_vitamins_list = "vitamíny"}
 	elsif ($lc eq 'es' || $lc eq 'pt') {$split_vitamins_list = "vitaminas"}
 	elsif ($lc eq 'fr') {$split_vitamins_list = "vitamines"}
 	elsif ($lc eq 'fi') {$split_vitamins_list = "vitamiinit"}
-    elsif ($lc eq 'hr' || $lc eq 'sl') {$split_vitamins_list = "vitamini"}
-    elsif ($lc eq 'hu') {$split_vitamins_list = "vitaminok"}
+	elsif ($lc eq 'hr' || $lc eq 'sl') {$split_vitamins_list = "vitamini"}
+	elsif ($lc eq 'hu') {$split_vitamins_list = "vitaminok"}
 	elsif ($lc eq 'nl') {$split_vitamins_list = "vitaminen"}
 	elsif ($lc eq 'is') {$split_vitamins_list = "vítamín"}
 	elsif ($lc eq 'pl') {$split_vitamins_list = "witaminy"}
@@ -5145,7 +5153,7 @@ my %phrases_before_ingredients_list = (
 
 	lv => ['sast[āäa]v(s|da[ļl]as)',],
 
-	mk => ['Состојки',, 'Состојќи', 'состојка'],
+	mk => ['Состојки', 'Состојќи', 'состојка'],
 
 	md => ['(I|i)ngrediente',],
 
@@ -5266,18 +5274,18 @@ my %phrases_after_ingredients_list = (
 		'Аналитични съставки',    # pet food
 		'(heотворен|Неотворен)',    # before opening ...
 		'След отваряне',    # after opening ...
-		'Опаковани в защитна атмосфера', # packaged in protective atmosphere
+		'Опаковани в защитна атмосфера',    # packaged in protective atmosphere
 	],
 
 	ca => ['envasat en atmosfera protectora', 'conserveu-los en un lloc fresc i sec',],
 
 	cs => [
 		'analytické složky',    # pet food
-		'balené v ochrannej atmosfére', # packaged in protective atmosphere
+		'balené v ochrannej atmosfére',    # packaged in protective atmosphere
 		'doporu)c|č)eny zp(u|ů)sob p(r|ř)(i|í)pravy',
 		'minim(a|á)ln(i|í) trvanlivost do',    # Expiration date
 		'po otev(r|ř)en(i|í)',    # After opening
-        '(návod k )?přípravě', # preparation
+		'(návod k )?přípravě',    # preparation
 		'V(ý|y)(ž|z)ivov(e|é) (ú|u)daje ve 100 g',
 		'skladujte v suchu',    # keep in dried place
 	],
@@ -5294,7 +5302,7 @@ my %phrases_after_ingredients_list = (
 
 	de => [
 		'analytische bestandteile',    # pet food
-        'bei Raumtemperatur lagern', # keep in dried place
+		'bei Raumtemperatur lagern',    # keep in dried place
 		'Ern(â|a|ä)hrungswerte',
 		'Mindestens altbar bis',
 		'Mindestens haltbar bis',
@@ -5313,7 +5321,7 @@ my %phrases_after_ingredients_list = (
 		'(Ungeöffnet )?mindestens',
 		'(k[uü]hl|bei Zimmertemperatur) und trocken lagern',
 		'Rinde nicht zum Verzehr geeignet.',
-        'Trocken und vor Wärme', # keep in dried place
+		'Trocken und vor Wärme',    # keep in dried place
 		'Unge(ö|o)ffnet (bei max.|unter)',
 		'Unter Schutzatmosphäre verpackt',
 		'verbrauchen bis',
@@ -5333,8 +5341,8 @@ my %phrases_after_ingredients_list = (
 		'Αναλυτικές συστατικές',    # pet food
 		'ΔΙΑΘΡΕΠΤΙΚΗ ΕΠΙΣΗΜΑΝΣΗ',    #Nutritional labelling
 		'ΔΙΤΡΟΦΙΚΕΣ ΠΗΡΟΦΟΡΙΕΣ',
-        'Διατηρήστε το σε ξηρό μέρος', # keep in dried place
-		'Για (τα )?αλλεργιογόνα', # for allergens in bold
+		'Διατηρήστε το σε ξηρό μέρος',    # keep in dried place
+		'Για (τα )?αλλεργιογόνα',    # for allergens in bold
 		'Συντηρείται στο ψυγείο',    # stored in the fridge
 	],
 
@@ -5342,7 +5350,7 @@ my %phrases_after_ingredients_list = (
 		'adds a trivial amount',    # e.g. adds a trivial amount of added sugars per serving
 		'after opening',
 		'analytical constituents',    # pet food
-		'best before', #'Best before',
+		'best before',    #'Best before',
 		'keep cool and dry',
 		'Can be stored unopened at room temperature',
 		'for allergens',
@@ -5390,7 +5398,7 @@ my %phrases_after_ingredients_list = (
 	et => [
 		'analüütilised komponendid',    # pet food
 		'parim enne',    # best before
-        'hoida kuivas ja jahedas', # keep in dried place
+		'hoida kuivas ja jahedas',    # keep in dried place
 	],
 
 	fi => [
@@ -5489,7 +5497,7 @@ my %phrases_after_ingredients_list = (
 	hr => [
 		'(prije otvaranja )?((č|Č|c|C|ć|Ć)uvati|(č|Č|c|C|ć|Ć)uvajte)',    # store in...
 		'analitički sastav',    # pet food
-        'istaknuti sastojci', # highlighted ingredients allergens
+		'istaknuti sastojci',    # highlighted ingredients allergens
 		'izvaditi',    # remove from the refrigerator half an hour before consumption
 		'način pripreme',    # preparation
 		'(najbolje )upotrijebiti',    # best before
@@ -5522,16 +5530,16 @@ my %phrases_after_ingredients_list = (
 	],
 
 	hu => [
-        'A termék összetételének', # proportion of the product might vary
+		'A termék összetételének',    # proportion of the product might vary
 		'Atlagos tápérték 100g termékben',
 		'((száraz|hűvös|(közvetlen )?napfénytől védett)[, ]*)+helyen tárolandó',    # store in cool/dry/etc
 		'elemzési összetevők',    # pet food
-        'elkészítési', # preparation
-        'felbontás után', # after opening
+		'elkészítési',    # preparation
+		'felbontás után',    # after opening
 		'hűvös, száraz helyen, közvetlen napfénytől védve tárolja',    # store in cool dry place away from the sunlight
 		'bontatlan csomagolásban',    # keep in a closed/dark place
 		'tárolás',    # conservation
-        'szavatossági idő', # keep until
+		'szavatossági idő',    # keep until
 	],
 
 	is => ['n(æ|ae)ringargildi', 'geymi(st|ð) á', 'eftir opnum', 'aðferð',],
@@ -5573,12 +5581,13 @@ my %phrases_after_ingredients_list = (
 
 	mk => [
 		'Да се чува на темно место и на температура до',    # Store in a dark place at a temperature of up to
-        'Употребливо до крајот на', # Keep until
+		'Употребливо до крајот на',    # Keep until
 	],
 
-	nb => ['netto(?:innhold|vekt)', 'oppbevar(?:ing|es)', 'næringsinnh[oa]ld', 'kjølevare',
-        'minst holdbar', # keep until
-    ],
+	nb => [
+		'netto(?:innhold|vekt)', 'oppbevar(?:ing|es)', 'næringsinnh[oa]ld', 'kjølevare',
+		'minst holdbar',    # keep until
+	],
 
 	nl => [
 		'analytische bestanddelen',    # pet food
@@ -5641,7 +5650,7 @@ my %phrases_after_ingredients_list = (
 		'a se păstra',    # Store in a dry and cool place / at temperature
 		'Valori nutritionale medii',
 		'a se p[ăa]stra la',    # store in...
-        'nedeschis',   # unopened best before
+		'nedeschis',    # unopened best before
 	],
 
 	ru => [
@@ -5653,9 +5662,9 @@ my %phrases_after_ingredients_list = (
 		'analytické zložky',    # pet food
 		'skladovanie',    # store at
 		'spotrebujte do',    # keep until
-        'najlepšie spotrebovať pred', # keep until
-        'minimálna trvanlivos(t|ť) do', # keep until
-        'skladujte', # store in
+		'najlepšie spotrebovať pred',    # keep until
+		'minimálna trvanlivos(t|ť) do',    # keep until
+		'skladujte',    # store in
 	],
 
 	sl => [
@@ -5664,11 +5673,11 @@ my %phrases_after_ingredients_list = (
 		'opozorilo',    # warning
 		'pakirano v kontrolirani atmosferi',    # packed in a ... atmosphere
 		'porabiti',    # keep until
-        'pred uporabo pretresti', # shake before use
+		'pred uporabo pretresti',    # shake before use
 		'predlog za serviranje ',    # serving suggestion
 		'prosječne hranjive vrijednosti 100 g proizvoda',    # average nutritional value of 100 g of product
 		'številka serije',    # keep until
-        'uporabno (najmanj )do', # keep until
+		'uporabno (najmanj )do',    # keep until
 		'uvoznik',    # imported/distributed by
 	],
 
@@ -5676,16 +5685,16 @@ my %phrases_after_ingredients_list = (
 		'(č|Č|c|C|ć|Ć)uvati na (hladnom|suvom|temperaturi od)',    # Store in a cool and dry place
 		'napomena za potrošače',    # note for consumers
 		'pakovano',    # packed in a protective atmosphere
-        'priprema',    # preparation
+		'priprema',    # preparation
 		'proizvodi i puni',    # Produced and filled
 		'upotrebljivo',    # keep until
 		'najbolje (upotrijebiti|upotrebiti)do',    # keep until
-        'чувати на', # store in a cool and dry place
+		'чувати на',    # store in a cool and dry place
 	],
 
 	sv => [
 		'analytiska beståndsdelar',    # pet food
-        'bäst före',    # best before
+		'bäst före',    # best before
 		'närings(?:deklaration|innehåll|värde)', '(?:bör )?förvar(?:ing|as?)',
 		'till(?:agning|redning)', 'produkten innehåller',
 		'serveringsförslag', 'produkterna bör',
@@ -5715,12 +5724,12 @@ my %prefixes_before_dash = (fr => ['demi', 'saint',],);
 
 # phrases that can be removed
 my %ignore_phrases = (
-    bg => [
-        'Продукт с естествено ниско съдържание на лактоза', # lactose content <0,1g/100 g
-    ],
-    cs => [
-        's obsahem laktózy', # lactose content <0,1g/100 g
-    ],
+	bg => [
+		'Продукт с естествено ниско съдържание на лактоза',    # lactose content <0,1g/100 g
+	],
+	cs => [
+		's obsahem laktózy',    # lactose content <0,1g/100 g
+	],
 	de => [
 		'\d\d?\s?%\sFett\si(\.|,)\s?Tr(\.|,)?',    # 45 % Fett i.Tr.
 		'inklusive',
@@ -5734,9 +5743,9 @@ my %ignore_phrases = (
 	hu => [
 		'Valamennyi százalékos adat a késztermékre vonatkozik',    # All percentages refer to the finished product.
 	],
-    sk => [
-        'obsah laktózy', # lactose content <0,1g/100 g
-    ],
+	sk => [
+		'obsah laktózy',    # lactose content <0,1g/100 g
+	],
 
 );
 
@@ -6150,9 +6159,8 @@ my %ingredients_categories_and_types = (
 		# oil and fat
 		{
 			categories => ["растителни масла"],
-			types =>
-				["рапично", "слънчогледово",],
-            alternate_names => ["<type> масло"],
+			types => ["рапично", "слънчогледово",],
+			alternate_names => ["<type> масло"],
 		},
 	],
 
@@ -6160,9 +6168,8 @@ my %ingredients_categories_and_types = (
 		# oil and fat
 		{
 			categories => ["rostlinné oleje"],
-			types =>
-				["řepkový", "slunečnicový",],
-            alternate_names => ["<type> olej"],
+			types => ["řepkový", "slunečnicový",],
+			alternate_names => ["<type> olej"],
 		},
 	],
 
@@ -6185,11 +6192,11 @@ my %ingredients_categories_and_types = (
 			# haferprotein
 			alternate_names => ["<type>protein", "<type>eiweiß"],
 		},
-        # starch
-        {
-            categories => ["Stärke"],
-            types => ["Mais", "Weizen"],
-        },
+		# starch
+		{
+			categories => ["Stärke"],
+			types => ["Mais", "Weizen"],
+		},
 	],
 
 	es => [
@@ -6300,24 +6307,20 @@ my %ingredients_categories_and_types = (
 		{categories => ["piment", "poivron"], types => ["vert", "jaune", "rouge",], of_bool => 0,},
 	],
 
-    hu => [
-        # oils
-        {
-            categories => ["növényi olajok"],
-            types => [
-                "repce", "napraforgó",
-            ],
-            alternate_names => ["<type>olaj"],
-        },
-        # starch
-        {
-            categories => ["keményítő"],
-            types => [
-                "kukorica", "búza",
-            ],
-            alternate_names => ["<type>keményítő"],
-        },
-    ]
+	hu => [
+		# oils
+		{
+			categories => ["növényi olajok"],
+			types => ["repce", "napraforgó",],
+			alternate_names => ["<type>olaj"],
+		},
+		# starch
+		{
+			categories => ["keményítő"],
+			types => ["kukorica", "búza",],
+			alternate_names => ["<type>keményítő"],
+		},
+	],
 
 	hr => [
 		# cheeses
@@ -6456,44 +6459,36 @@ my %ingredients_categories_and_types = (
 			],
 		},
 	],
-    
-    rs => [
-        # starcgh
-        {
-            categories => ['škrob'],
-            types => [
-                "kukuruzni", "pšenični",
-            ],
-        },
-    ],
 
-    sk => [
-        # oils
-        {
-            categories => ['rastlinné oleje'],
-            types => [
-                "repkový", "slnečnicový",
-            ],
-            alternate_names => ["<type> olej"],
-        },
-    ]
+	rs => [
+		# starcgh
+		{
+			categories => ['škrob'],
+			types => ["kukuruzni", "pšenični",],
+		},
+	],
+
+	sk => [
+		# oils
+		{
+			categories => ['rastlinné oleje'],
+			types => ["repkový", "slnečnicový",],
+			alternate_names => ["<type> olej"],
+		},
+	],
 
 	sl => [
 		# oils
 		{
 			categories => ['rastlinska maščoba', 'rastlinska olja'],
-			types => [
-				"palmina", "repična", "repično", "sončnično",
-			],
-            alternate_names => ["<type>", "<type> olje"],
+			types => ["palmina", "repična", "repično", "sončnično",],
+			alternate_names => ["<type>", "<type> olje"],
 		},
-        # starch
-        {
-            categories => ['škrob'],
-            types => [
-                "koruza", "kukuruzni", "pšenica", "pšenični",
-            ],
-        },
+		# starch
+		{
+			categories => ['škrob'],
+			types => ["koruza", "kukuruzni", "pšenica", "pšenični",],
+		},
 	],
 
 );
