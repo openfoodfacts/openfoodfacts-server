@@ -75,9 +75,19 @@ The OpenFoodFacts API has two deployments.
 - Production: <https://world.openfoodfacts.org>
 - Staging: <https://world.openfoodfacts.net>
 
-Consider using the [staging environment](https://world.openfoodfacts.net) if you are not in a production scenario.
+Consider using the [staging environment](https://world.openfoodfacts.net) if you are not in a production scenario. 
 
 While testing your applications, **make all API requests to the staging environment**. This way, we can ensure the product database is safe.
+
+Staging require an http basic auth to avoid search engine indexing. The username is `off`, and the password `off`. Here is a small javascript code that you can test in your browser console:
+```js
+fetch('https://world.openfoodfacts.net/api/v2/product/3274080005003.json', {
+  method: 'GET',
+  headers: { Authorization: 'Basic ' + btoa('off:off') },
+})
+.then(response => response.json())
+.then(json => console.log(json));
+```
 
 ## Authentication
 
@@ -147,6 +157,7 @@ Open-source contributors develop our SDKs, and more contributions are welcome to
 *   Elixir: [GitHub](https://github.com/openfoodfacts/openfoodfacts-elixir) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C758AFX0S)
 *   Go: [GitHub](https://github.com/openfoodfacts/openfoodfacts-go) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C14LGGCUV)
 *   Java: [GitHub](https://github.com/openfoodfacts/openfoodfacts-java) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C1G3J5RT3)
+*   Spring Boot: [GitHub](https://github.com/openfoodfacts/openfoodfacts-springboot-starter) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C1G3J5RT3)
 *   Kotlin: [GitHub](https://github.com/openfoodfacts/openfoodfacts-kotlin) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C045VU7NXS9)
 *   NodeJS: [GitHub](https://github.com/openfoodfacts/openfoodfacts-nodejs) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C1JQQ28P8)
 *   PHP: [GitHub](https://github.com/openfoodfacts/openfoodfacts-php) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C1G3GTJNM)

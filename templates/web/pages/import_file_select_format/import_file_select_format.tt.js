@@ -97,7 +97,7 @@ function init_select_field_option(col) {
 
 			if (field.match(/^energy/)) {
 				select += "<option value='value_in_kj'>[% edq(lang('value_in_kj')) %]</option>"
-				+ "<option value='value_in_kcal'>[% lang('value_in_kcal') %]</option>";
+				+ "<option value='value_in_kcal'>[% edq(lang('value_in_kcal')) %]</option>";
 			}
 			else if (field.match(/weight/)) {
 				select += "<option value='value_in_g'>[% edq(lang('value_in_g')) %]</option>";
@@ -146,10 +146,10 @@ function init_select_field_option(col) {
 
 			instructions += "<p>[% edq(lang('value_unit_dropdown')) %]'</p>"
 			+ "<ul>"
-			+ "<li>[% lang('value_unit_dropdown_value_specific_unit') %]</li>"
-			+ "<li>[% lang('value_unit_dropdown_value_unit') %]</li>"
-			+ "<li>[% lang('value_unit_dropdown_value') %]</li>"
-			+ "<li>[% lang('value_unit_dropdown_unit') %]</li>"
+			+ "<li>[% edq(lang('value_unit_dropdown_value_specific_unit')) %]</li>"
+			+ "<li>[% edq(lang('value_unit_dropdown_value_unit')) %]</li>"
+			+ "<li>[% edq(lang('value_unit_dropdown_value')) %]</li>"
+			+ "<li>[% edq(lang('value_unit_dropdown_unit')) %]</li>"
 			+ "</ul>";
 		}
 	}

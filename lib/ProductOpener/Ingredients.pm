@@ -988,7 +988,7 @@ This function extracts those mentions and adds them to the specific_ingredients 
 
 Array of specific ingredients.
 
-=head4 
+=head4
 
 =cut
 
@@ -1048,7 +1048,7 @@ Pass undef in order to skip % recognition. This is useful if we know the text is
 
 Array of specific ingredients.
 
-=head4 
+=head4
 
 =cut
 
@@ -1395,8 +1395,8 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 This function extract processing method from one ingredient.
 If processing methods are found and remaining ingredient text exists without the processing method,
 then, it returns:
-	- $processing (concatenate if more than one), 
-	- $ingredient (without processing) and 
+	- $processing (concatenate if more than one),
+	- $ingredient (without processing) and
 	- $ingredient_id (without processing)
 If it does not result in known ingredient, then it returns the same but unchanged.
 
@@ -1656,7 +1656,7 @@ in which case we can have origins listed in the main language of the product.
 
 Array of specific ingredients.
 
-=head4 
+=head4
 
 =cut
 
@@ -2269,8 +2269,8 @@ Text to analyze
 
 								# d'origine végétale -> not a geographic origin, add en:vegan
 								if ($origin_string =~ /vegetal|végétal/i) {
-									$vegan = "en:yes";
-									$vegetarian = "en:yes";
+									$vegan = "yes";
+									$vegetarian = "yes";
 								}
 								else {
 
@@ -2587,8 +2587,8 @@ Text to analyze
 					my $origin_string = $';
 					# d'origine végétale -> not a geographic origin, add en:vegan
 					if ($origin_string =~ /vegetal|végétal/i) {
-						$vegan = "en:yes";
-						$vegetarian = "en:yes";
+						$vegan = "yes";
+						$vegetarian = "yes";
 					}
 					else {
 						$origin = join(",",
@@ -3117,11 +3117,11 @@ Text to analyze
 
 					# If we have a label for the ingredient that indicates if it is vegan or not, override the value
 					if ($labels =~ /\ben:vegan\b/) {
-						$ingredient{vegan} = "en:yes";
-						$ingredient{vegetarian} = "en:yes";
+						$ingredient{vegan} = "yes";
+						$ingredient{vegetarian} = "yes";
 					}
 					if ($labels =~ /\ben:vegetarian\b/) {
-						$ingredient{vegetarian} = "en:yes";
+						$ingredient{vegetarian} = "yes";
 					}
 				}
 
@@ -3266,7 +3266,7 @@ Compute the total % of "leaf" ingredients (without sub-ingredients) with a speci
 - ingredients_with_specified_percent_n : number of "leaf" ingredients with a specified %
 - ingredients_with_specified_percent_sum : % sum of "leaf" ingredients with a specified %
 - ingredients_with_unspecified_percent_n
-- ingredients_with_unspecified_percent_sum	
+- ingredients_with_unspecified_percent_sum
 
 =cut
 
@@ -3653,7 +3653,7 @@ Retrieve the geographical area for ecobalyse. (NOTE : this is a first version th
 
 =head4 $originid
 
-reference to the name of the country 
+reference to the name of the country
 
 =head3 Return values
 
@@ -3697,7 +3697,7 @@ reference to a hash of product fields that have been created or updated
 
 reference to an array of error messages
 
-=cut 
+=cut
 
 sub estimate_ingredients_percent_service ($product_ref, $updated_product_fields_ref, $errors_ref) {
 
@@ -4645,19 +4645,44 @@ sub analyze_ingredients_service ($product_ref, $updated_product_fields_ref, $err
 	# Apply labels overrides
 	# also apply labels overrides if we don't have ingredients at all
 	if (has_tag($product_ref, "labels", "en:palm-oil-free")) {
-		$ingredients_analysis_properties_ref->{from_palm_oil} = "en:palm-oil-free";
+		# Labeled as palm oil free, but has a palm oil containing ingredient
+		# Set to may-contain as a heads up to double-check
+		if ($ingredients_analysis_properties_ref->{from_palm_oil} eq "en:palm-oil") {
+			$ingredients_analysis_properties_ref->{from_palm_oil} = "en:may-contain-palm-oil";
+		}
+		else {
+			$ingredients_analysis_properties_ref->{from_palm_oil} = "en:palm-oil-free";
+		}
 	}
 
 	if (has_tag($product_ref, "labels", "en:vegan")) {
-		$ingredients_analysis_properties_ref->{vegan} = "en:vegan";
-		$ingredients_analysis_properties_ref->{vegetarian} = "en:vegetarian";
+		# Labeled as vegan, but has non-vegan ingredients
+		# Set to maybe-vegan as a heads up to double-check
+		if ($ingredients_analysis_properties_ref->{vegetarian} eq "en:non-vegetarian") {
+			$ingredients_analysis_properties_ref->{vegan} = "en:maybe-vegan";
+			$ingredients_analysis_properties_ref->{vegetarian} = "en:maybe-vegetarian";
+		}
+		elsif ($ingredients_analysis_properties_ref->{vegan} eq "en:non-vegan") {
+			$ingredients_analysis_properties_ref->{vegan} = "en:maybe-vegan";
+		}
+		else {
+			$ingredients_analysis_properties_ref->{vegan} = "en:vegan";
+			$ingredients_analysis_properties_ref->{vegetarian} = "en:vegetarian";
+		}
 	}
 	elsif (has_tag($product_ref, "labels", "en:non-vegan")) {
 		$ingredients_analysis_properties_ref->{vegan} = "en:non-vegan";
 	}
 
 	if (has_tag($product_ref, "labels", "en:vegetarian")) {
-		$ingredients_analysis_properties_ref->{vegetarian} = "en:vegetarian";
+		# Labeled as vegetarian, but has non-vegetarian ingredients
+		# Set to maybe-vegetarian as a heads up to double-check
+		if ($ingredients_analysis_properties_ref->{vegetarian} eq "en:non-vegetarian") {
+			$ingredients_analysis_properties_ref->{vegetarian} = "en:maybe-vegetarian";
+		}
+		else {
+			$ingredients_analysis_properties_ref->{vegetarian} = "en:vegetarian";
+		}
 	}
 	elsif (has_tag($product_ref, "labels", "en:non-vegetarian")) {
 		$ingredients_analysis_properties_ref->{vegetarian} = "en:non-vegetarian";
@@ -5118,6 +5143,8 @@ my %phrases_before_ingredients_list = (
 
 	ja => ['原材料名',],
 
+	ka => ['ინგრედიენტები',],
+
 	kk => ['курамы',],
 
 	ko => ['配料',],
@@ -5248,7 +5275,8 @@ my %phrases_after_ingredients_list = (
 		'да се съхранява (в закрити|на сухо)',    # store in ...
 		'Аналитични съставки',    # pet food
 		'Неотворен',    # before opening ...
-		'След отваряне'    # after opening ...
+		'След отваряне',    # after opening ...
+		'Продуктът може да',    #product can contain
 	],
 
 	ca => ['envasat en atmosfera protectora', 'conserveu-los en un lloc fresc i sec',],
@@ -5284,6 +5312,7 @@ my %phrases_after_ingredients_list = (
 		'Durchschnittliche N(â|a|ä)hrwerte',
 		'DURCHSCHNITTLICHE NÄHRWERTE',
 		'Durchschnittliche N(â|a|ä)hrwert(angaben|angabe)',
+		'für Allergene',
 		# 'Kakao: \d\d\s?% mindestens.', # allergens can appear after.
 		'N(â|a|ä)hrwert(angaben|angabe|information|tabelle)',    #Nährwertangaben pro 100g
 		'N(â|a|ä)hrwerte je',
@@ -5310,6 +5339,8 @@ my %phrases_after_ingredients_list = (
 		'Αναλυτικές συστατικές',    # pet food
 		'ΔΙΑΘΡΕΠΤΙΚΗ ΕΠΙΣΗΜΑΝΣΗ',    #Nutritional labelling
 		'ΔΙΤΡΟΦΙΚΕΣ ΠΗΡΟΦΟΡΙΕΣ',
+		'Για τα αλλεργιογόνα',
+		'Για αλλεργιογόνα',
 	],
 
 	en => [
@@ -5319,6 +5350,7 @@ my %phrases_after_ingredients_list = (
 									  #'Best before',
 		'keep cool and dry',
 		'Can be stored unopened at room temperature',
+		'for allergens',
 		'instruction',
 		'nutrition(al)? (as sold|facts|information|typical|value[s]?)',
 		# "nutrition advice" seems to appear before ingredients rather than after.
@@ -5328,6 +5360,7 @@ my %phrases_after_ingredients_list = (
 		'of which saturated fat',
 		'((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
 		'once opened[,]? (consume|keep|refrigerate|store|use)',
+		'Milk Chocolate contains',
 		'packed in a modified atmosphere',
 		'(Storage( instructions| conditions)?[: ]+)?Store in a cool[,]? dry place',
 		'(dist(\.)?|distributed|sold)(\&|and|sold| )* (by|exclusively)',
@@ -5335,13 +5368,12 @@ my %phrases_after_ingredients_list = (
 	],
 
 	es => [
+		'alérgenos: ver',
 		'componentes analíticos',    # pet food
-		'valores nutricionales',
-		'modo de preparacion',
-		'informaci(o|ó)n nutricional',
-		'valor energ(e|é)tico',
+		'conservaci(o|ó)n:',
+		'conser(y|v)ar entre',
+		'consumir? preferentemente antes del',
 		'condiciones de conservaci(o|ó)n',
-		#'pa(i|í)s de transformaci(o|ó)n',
 		'cons[eé]rv(ar|ese) en( un)? lug[ae]r (fresco y seco|seco y fresco)',
 		'contiene azúcares naturalmente presentes',
 		'distribuido por',    # distributed for
@@ -5349,12 +5381,14 @@ my %phrases_after_ingredients_list = (
 		'de las cuales saturadas',
 		'envasado',    # Packaging in protective atmosphere.
 		'Mantener en lugar fresco y seco',
+		'modo de preparacion',
+		'informaci(o|ó)n nutricional',
+		#'pa(i|í)s de transformaci(o|ó)n',
 		'obtenga más información',    # get more information
 		'protegido de la luz',
-		'conser(y|v)ar entre',
 		'una vez abierto',
-		'conservaci(o|ó)n:',
-		'consumir? preferentemente antes del',
+		'valor energ(e|é)tico',
+		'valores nutricionales',
 		#Envasado por:
 	],
 
@@ -5565,10 +5599,10 @@ my %phrases_after_ingredients_list = (
 		'Verpakt onder beschermende atmosfeer',
 		'voedingswaarden',
 		'voedingswaarde',
-		'Voor allergenen: zie ingrediëntenlijst, in vet gemarkeerd',
+		'Voor allergenen',
 		'voorbereidingstips',
 		#'waarvan suikers',
-		'waarvan toegevoegde',
+		'(W|w)aarvan toegevoegde',
 		'Witte chocolade: ten minste',
 	],
 
@@ -5991,7 +6025,7 @@ sub separate_additive_class ($ingredients_lc, $additive_class, $spaces, $colon, 
 
 This function is used inside regular expressions to turn additives to a normalized form.
 
-Using a function to concatenate the E-number, letter and variant makes it possible 
+Using a function to concatenate the E-number, letter and variant makes it possible
 to deal with undefined $letter or $variant without triggering an undefined warning.
 
 =head3 Synopsis
@@ -6025,7 +6059,7 @@ Some ingredients are specified by an ingredient "category" (e.g. "oil", "flavour
 Sometimes, the category is mentioned only once for several types:
 "strawberry and vanilla flavourings", "vegetable oil (palm, sunflower)".
 
-This function lists each individual ingredient: 
+This function lists each individual ingredient:
 "oil (sunflower, olive and palm)" becomes "sunflower oil, olive oil, palm oil"
 
 =head3 Arguments
