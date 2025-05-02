@@ -1211,15 +1211,10 @@ ciqual_food_name:fr: Pollen,frais
 
 < en:Bee products
 en: Propolis
+xx: Propolis
 bg: Прополис
-de: Propolis
-fr: Propolis
-hr: Propolis
 it: Propoli
-lt: Bičių pikis
-nl: Propolis
-nl_be: Propolis
-ro: Propolis
+lt: Bičių Pikis
 zh: 蜂胶
 wikidata:en: Q184398
 
@@ -1747,37 +1742,20 @@ wikidata:en: Q170219
 
 < en:Alcoholic beverages
 en: Mirin
+xx: Mirin
 ar: ميرين
-cs: Mirin
-da: Mirin
 de: Mirin, Reiswein
 el: Μιρίν
 eo: Mirino
-es: Mirin
 fa: میرین, چاشنی
-fi: Mirin
-fr: Mirin
 he: מירין
-hr: Mirin
-hu: Mirin
 hy: Միրին
-id: Mirin
-it: Mirin
 ja: みりん
-jv: Mirin
 ko: 미림
-ms: Mirin
-nl: Mirin
-no: Mirin, risvin
-pl: Mirin
-pt: Mirin
+no: Mirin, Risvin
 ru: Мирин
-sv: Mirin
 th: มิริง
-tl: Mirin
-tr: Mirin
 uk: Мірін
-vi: Mirin
 zh: 味醂
 wikidata:en: Q1045910
 
@@ -5796,26 +5774,14 @@ gpc_category_name:en: Liqueurs
 wikidata:en: Q178780
 
 < en:Liqueurs
-ca: Limoncello
 en: Limoncello
+xx: Limoncello
 bg: Лимончело
-cs: Limoncello
-de: Limoncello
-es: Limoncello
-fi: Limoncello
-fr: Limoncello
 hr: Limunčelo
-hu: Limoncello
-it: Limoncello
 ja: リモンチェッロ
 ko: 리몬첼로
 lt: Limončelas
-nl: Limoncello
-no: Limoncello
-pl: Limoncello
-pt: Limoncello
 ru: Лимончелло
-sv: Limoncello
 zh: 檸檬酒
 wikidata:en: Q736208
 wikipedia:en: https://en.wikipedia.org/wiki/Limoncello
@@ -11751,6 +11717,11 @@ ciqual_food_name:fr: Vin (aliment moyen)
 intake24_category_code:en: WINE
 nova:en: 3
 wikidata:en: Q282
+
+< en:Wines
+en: Vegan wines, Vegan-friendly wines
+da: Veganske vin
+sv: Veganska viner
 
 # should this fall under wines?
 < en:Wines
@@ -36466,6 +36437,10 @@ en: Cheese Naans
 en: Garlic Naans
 
 < en:Flatbreads
+en: Paratha
+wikidata:en: Q59707
+
+< en:Flatbreads
 < en:Special breads
 en: Pitas, Pittas, Pita bread, pitta bread
 xx: Pitas
@@ -52240,6 +52215,12 @@ fr: Boissons végétales d'avoine à la vanille
 < en:Oat-based drinks
 en: UHT oat based drinks
 
+< en:Oat-based drinks
+en: Barista oat drinks, Barista oat milks
+da: Barista-havredrikke
+sv: Barista-havredrycker
+description:en: Oat milks made to have foaming and other qualities similar to dairy milks, esp. for use in coffee.
+
 < en:Cereal-based drinks
 en: Quinoa-based drinks, Quinoa milks, Quinoa drinks
 bg: Напитка с киноа
@@ -52895,10 +52876,6 @@ agribalyse_proxy_food_name:en: Uncured soft cheese, spreadable, around 25% fat, 
 ciqual_proxy_food_code:en: 12315
 ciqual_proxy_food_name:en: Uncured soft cheese, spreadable, around 25% fat, in a tub
 intake24_category_code:en: SPRD
-
-< en:cheese spreads
-en: St Moret, Saint Moret
-xx: St Moret, Saint Moret
 
 < en:Cheese spreads
 en: Uncured soft cheese spreadable with around 25% fat
@@ -53613,7 +53590,8 @@ ru: Греческий йогурт
 zh: 希腊酸奶
 intake24_category_code:en: GRSY
 intake24_category_code:fr: GRSY
-#wikidata:en:
+opposite:en: en:greek-style-non-dairy-yogurts
+wikidata:en: Q1147190
 
 < en:Greek-style yogurts
 < en:Plain yogurts
@@ -55425,6 +55403,10 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Yogurt Substitutes (Perishable)
 
 < en:Non-dairy yogurts
+en: Greek-style non-dairy yogurts, Greek-style vegan yogurts, Dairy-free greek-style yogurt
+opposite:en: en:greek-style-yogurts
+
+< en:Non-dairy yogurts
 en: Coconutmilk yogurts, Dairy-free coconut-based yoghurts
 fr: Desserts de lait de coco fermenté
 hr: Jogurti od kokosovog mlijeka
@@ -55436,6 +55418,11 @@ en: Oat milk yogurts
 fr: Desserts de jus d'avoine fermenté
 hr: Jogurti od zobenog mlijeka
 lt: Avižų pieno jogurtai
+nl: Haver yoghurt, Havergurt
+
+< en:Greek-style non-dairy yogurts
+< en:Oat milk yogurts
+en: Greek-style oat milk yogurts
 
 < en:Non-dairy yogurts
 en: Almond milk yogurts
@@ -55551,6 +55538,9 @@ es: Yogures de soja con albaricoque
 fr: Yaourts de soja à l'abricot
 hr: Jogurti od marelice i soje
 lt: Abrikosų sojų jogurtai
+
+< en:Fruit soy yogurts
+en: Blackcurrant soy yogurts
 
 < en:Fruit soy yogurts
 en: Blueberry soy yogurts
@@ -64772,15 +64762,10 @@ nl: Half-volkoren sesampastas
 < en:Cereals and their products
 < en:Meat alternatives
 en: Seitan
-de: Seitan
+xx: Seitan
 es: Seitanes, Seitán
-fi: seitan
-fr: Seitan
-hr: Seitan
-it: Seitan
 ja: グルテンミート, セイタン
 nl: Seitans
-pl: Seitan
 agribalyse_food_code:en: 25598
 wikidata:en: Q943935
 
@@ -75894,16 +75879,12 @@ ciqual_food_name:fr: Sauce au roquefort, préemballée
 < en:Dips
 < en:Plant-based spreads
 en: Guacamoles
+xx: Guacamoles
 bg: Гуакамоле
-de: Guacamoles
-es: Guacamoles
-fi: guacamolet
-fr: Guacamoles
-hr: Guacamoles
+fi: Guacamolet
 it: Guacamole
 ja: ワカモレ
 lt: Gvakamolė
-nl: Guacamoles
 pl: Guacamole
 agribalyse_food_code:en: 25620
 ciqual_food_code:en: 25620
@@ -79486,12 +79467,11 @@ ciqual_food_name:fr: Chop suey (porc ou poulet)
 
 < en:Meals
 en: Couscous, Durum wheat semolina pre-cooked with steam
+xx: Couscous
 bg: Кускус
-de: Couscous
 es: Cuscús
 fr: Couscous, Semoule de blé dur roulée précuite à la vapeur
 hr: Kuskus
-it: Couscous
 ja: クスクス
 lt: Kuskusas
 agribalyse_food_code:en: 9681
@@ -79509,6 +79489,7 @@ ciqual_food_name:fr: Couscous (semoule de blé dur roulée précuite à la vapeu
 
 < en:Savory semolina dishes
 en: Prepared couscous
+da: Tilberedt couscous
 de: Zubereitetes Couscous
 es: Cuscús preparado
 fi: kypsennetty couscous
@@ -79525,6 +79506,7 @@ wikidata:en: Q76605
 < en:Prepared couscous
 en: Couscous with vegetables
 bg: Кускус със зеленчуци
+da: Couscous med grøntsager
 fr: Couscous de légumes, Couscous aux légumes
 hr: Kus-kus s povrćem
 lt: Kuskusas su daržovėmis
@@ -82257,7 +82239,7 @@ lt: Šalti užkandžiai
 nl: Koude voorgerechten
 #wikidata:en:
 
-< en:Appetizers
+< en:Prepared salads
 en: Coleslaw, Coleslaw with sauce
 de: Krautsalat
 es: Ensalada de col
@@ -86196,13 +86178,8 @@ fr: Croquettes hollandaises au bœuf
 < en:Beef preparations
 < en:Dried meats
 en: Bresaola
+xx: Bresaola
 bg: Брезаола
-es: Bresaola
-fi: bresaola
-fr: Bresaola
-hr: Bresaola
-it: Bresaola
-nl: Bresaola
 agribalyse_food_code:en: 28503
 ciqual_food_code:en: 28503
 ciqual_food_name:en: Bresaola
@@ -86365,17 +86342,12 @@ ciqual_food_name:fr: Fond de veau, préemballé
 
 < en:Broths
 en: Dashi
+xx: Dashi
 cs: Daši
-de: Dashi
 eo: Daŝio
-es: Dashi
-fr: Dashi
 hu: Dasi
-it: Dashi
 ja: 出汁
 ko: 다시
-nl: Dashi
-pt: Dashi
 zh: 出汁
 description:en: Dashi is a class of soup and cooking stock used in Japanese cuisines
 wikidata:en: Q851746
@@ -89751,16 +89723,10 @@ nl: Vleeswaren met minder zout
 #do not put it in meat, there are fish rillettes and we separate meat and fish
 < en:Salted spreads
 en: Rillettes
+xx: Rillettes
 ca: Rostes
-de: Rillettes
-es: Rillettes
 fi: Rilletet
-fr: Rillettes
 he: רייט
-hr: Rillettes
-it: Rillettes
-nl: Rillettes
-pt: Rillettes
 wikidata:en: Q1933110
 
 < en:Artisan products
@@ -91220,11 +91186,7 @@ wikidata:en: Q185457
 
 < en:Meat spreads
 en: Nduja
-de: Nduja
-es: Nduja
-fr: Nduja
-hr: Nduja
-it: Nduja
+xx: Nduja
 wikidata:en: Q1505085
 
 # Ersatz of foie gras containing foie gras and another meat
@@ -95692,16 +95654,12 @@ nl: Speltspaghettis
 
 < en:Pastas
 en: Tagliatelle
+xx: Tagliatelle
 bg: Талиатели
-de: Tagliatelle
-es: Tallarines tagliatelles
-fi: tagliatelle
+es: Tallarines Tagliatelles
 fr: Tagliatelles
-hr: Tagliatelle
-it: Tagliatelle
 ja: タリアテッレ
 nl: Tagliatelles
-pl: Tagliatelle
 wikidata:en: Q20044
 
 < en:Fresh pasta
@@ -96304,13 +96262,9 @@ de: Mandelhörnchen
 
 < en:Pastries
 en: Churros
+xx: Churros
 bg: Чурос
-de: Churros
-es: Churros
-fr: Churros
-hr: Churros
 ja: チュロス
-nl: Churros
 wikidata:en: Q727605
 
 < en:Biscuits
@@ -96514,13 +96468,9 @@ ciqual_food_name:fr: Ile flottante, rayon frais
 < en:Desserts
 < en:Pastries
 en: Mochi
-de: Mochi
-es: Mochi
+xx: Mochi
 fr: Mochi, Mochis
-hr: Mochi
-it: Mochi
 ja: 餅, もち
-nl: Mochi
 wikidata:en: Q470519
 
 # Pastries made of hazelnut or almond, sugar and egg white. It is generally not filled.
@@ -96840,17 +96790,10 @@ wikidata:en: Q3442427
 < en:Desserts
 < en:Pastries
 en: Baklava
+xx: Baklava
 bg: Баклава
-da: Baklava
-de: Baklava
-es: Baklava
-fi: Baklava
-fr: Baklava, baklawa
-hr: Baklava
-it: Baklava
+fr: Baklava, Baklawa
 ja: バクラヴァ
-nl: Baklava
-no: Baklava
 agribalyse_food_code:en: 23300
 ciqual_food_code:en: 23300
 ciqual_food_name:en: Baklava (oriental pastry with almonds and syrup)
@@ -96889,7 +96832,7 @@ fr: Pâtes à Kadaïf surgelées, pâtes à kadayif surgelées, pâtes à kataif
 < en:Plant-based foods
 en: Pickles
 ca: Conserves
-da: Syltede agurker
+da: Syltet mad
 de: Eingelegte Lebensmittel
 es: Encurtidos
 fi: säilykkeet
@@ -105806,28 +105749,18 @@ wikidata:en: Q415020
 
 < en:Natural sugar substitutes
 en: Maltitol
-es: Maltitol
-fr: Maltitol
-hr: Maltitol
+xx: Maltitol
 hu: E 965, Maltit
 ja: マルチトール
-la: E-965i
-nl: Maltitol
-nl_be: Maltitol
-pl: Maltitol
+la: E-965I
 wikidata:en: Q423882
 
 < en:Natural sugar substitutes
 en: Sorbitol
+xx: Sorbitol
 bg: Сорбитол
-es: Sorbitol
-fr: Sorbitol
-hr: Sorbitol
 ja: ソルビトール
 la: E-420
-nl: Sorbitol
-nl_be: Sorbitol
-pl: Sorbitol
 wikidata:en: Q245280
 
 < en:Natural sugar substitutes
@@ -106625,12 +106558,8 @@ nl: Atjars
 wikidata:en: Q2141042
 
 < en:Acar
-en: Atjar tjampoer
-es: Atjar tjampoer
-fr: Atjar tjampoer
-hr: Atjar tjampoer
-nl: Atjar tjampoer
-nl_be: Atjar tjampoer
+en: Atjar Tjampoer
+xx: Atjar Tjampoer
 
 < en:Vegetable pickles
 en: Banana flowers in brine
@@ -106660,6 +106589,7 @@ nl: Ingemaakte wortels
 < en:Vegetable pickles
 en: Pickled cucumbers
 bg: Кисели краставици
+da: Syltede agurker
 de: Eingelegte Gurken
 es: Pepinos encurtidos
 fi: säilötyt kurkut
@@ -106670,11 +106600,21 @@ it: Cetrioli sottaceto
 ja: きゅうりのピクルス
 nl: Ingemaakte komkommer
 ru: Маринованые огурцы
+sv: Gurkor i lag, Inlagda gurkor
 tr: Salatalık turşusu, Hıyar turşusu
-wikidata:en: Q1211297
+wikidata:en: Q1365891
 
-< en:Pickled cucumbers
+< en:Cucumbers
+en: Small cucumbers, Gherkins (non-pickled)
+sv: Smågurkor
+
+< en:Small cucumbers
 en: Gherkins
+comment:en: “Gherkins” can refer to both non-pickled and pickled small cucumbers
+
+< en:Gherkins
+< en:Pickled cucumbers
+en: Pickled gherkins, Gherkins (pickled), Pickled small cucumbers
 bg: Кисели краставички
 de: Essiggurken
 es: Pepinillos, Pepinillos encurtidos
@@ -106684,24 +106624,30 @@ hr: Kiseli krastavci
 hu: Csemegeuborka
 it: Cetriolini
 nl: Ingemaakte Augurken
-ciqual_proxy_food_code:en: 11004
-ciqual_proxy_food_name:en: Gherkin, pickled in vinegar
-ciqual_proxy_food_name:fr: Cornichon, au vinaigre
+sv: Smågurkor i lag, Inlagda smågurkor
+comment:en: Pickled small cucumbers (gherkins) regardless of the method used to pickle them.
 intake24_category_code:en: GHRK
 intake24_category_code:fr: GHRK
-wikidata:en: Q1365891
+
+< en:Pickled gherkins
+en: Gherkins pickled in brine, Salzgurke, Small cucumbers pickled in brine
+de: Salzgurke
+nb: Saltagurk
+sv: Saltgurkor
+wikidata:en: Q1211297
 
 # agribalyse_food_code:en:99999
 # TODO Curious code not present in official Agribalyse file. Not sure who added this
 
-< en:Gherkins
-en: Pickled gherkins, Gherkins pickled in vinegar
+< en:Pickled gherkins
+en: Gherkins pickled in vinegar
 bg: Кисели краставички с оцет
 de: Gewürzgurken, Cornichons
 fr: Cornichons au vinaigre
 hr: Kiseli kornišoni
 it: Cetriolini sottaceto
 nl: Zure Augurken
+sv: Cornichoner
 ciqual_food_code:en: 11004
 ciqual_food_name:en: Gherkin, pickled in vinegar
 ciqual_food_name:fr: Cornichon, au vinaigre
@@ -106709,7 +106655,7 @@ ciqual_food_name:fr: Cornichon, au vinaigre
 < en:Gherkins
 en: Extra-fine gherkins
 de: Extra-feine Cornichons
-fi: hienoja suolakurkkuja
+fi: Hienoja suolakurkkuja
 fr: Cornichons extra-fins
 hr: Ekstra-fini kornišoni
 nl: Zeer fijne augurken
@@ -106724,7 +106670,7 @@ hr: Fini kornišoni
 nl: Fijne augurken
 
 < en:Gherkins
-en: semi-fine gherkins
+en: Semi-fine gherkins
 fr: Cornichons mi-fins
 
 < en:Gherkins
@@ -106739,15 +106685,15 @@ ciqual_food_code:en: 11097
 ciqual_food_name:en: Gherkin, in sweet and sour sauce
 ciqual_food_name:fr: Cornichon, aigre-doux
 
-< en:Gherkins
+< en:Pickled gherkins
 en: dill pickles
 fr: Cornichons à l'aneth
 
-< en:Gherkins
+< en:Pickled gherkins
 en: Polish pickles
 fr: Cornichons à la polonaise
 
-< en:Gherkins
+< en:Pickled gherkins
 en: Russian pickles
 fr: Cornichons à la russe
 
@@ -106883,23 +106829,20 @@ fr: Tomates marinées
 en: Torshi
 fr: Torchi
 
-< en:Canned fruits
+# don't put in fruits, those products can have other ingredients, notably a high quantity of oil.
 < en:Plant-based pickles
 en: Pickled fruits, Fruit pickles
 fr: Pickles de fruits, fruits marinés
 
 < en:Fruit pickles
-< en:Mangoes
 en: Pickled mangoes, marinated mangoes
 fr: Pickles de mangues, mangues marinées
 
 < en:Fruit pickles
-< en:Plums
 en: Pickled plums, marinated plums
 fr: Pickles de prunes, prunes marinées
 
 < en:Fruit pickles
-< en:Limes
 en: Pickled limes, marinated limes
 fr: Pickles de citrons verts, citrons verts marinées
 
@@ -112710,7 +112653,9 @@ protected_name_type:en: pdo
 
 < en:Vegetables
 en: Broad beans
+da: Hestebønner
 fr: Fèves
+sv: Bondbönor
 agribalyse_proxy_food_code:en: 20518
 agribalyse_proxy_food_name:en: Broad bean, dried
 agribalyse_proxy_food_name:fr: Fève, sèche
@@ -112718,6 +112663,7 @@ sales_format:en: weight, package
 
 < en:Broad beans
 en: Dried broad beans
+da: Tørrede hestebønner
 fr: Fèves séchées
 agribalyse_food_code:en: 20518
 ciqual_food_code:en: 20518
@@ -112727,11 +112673,13 @@ ciqual_food_name:fr: Fève, sèche
 < en:Broad beans
 < en:Fresh legumes
 en: Fresh broad beans, Fresh fava beans, Fresh faba beans
+da: Friske hestebønner
 es: Habas, Habitas
 fr: Fèves frais, Féverolles frais
 hr: Svježe mahune
 la: Vicia faba
 nl: Tuinbonen
+sv: Färska bondbönor
 
 < en:Broad beans
 < en:Fresh legumes
@@ -112747,6 +112695,7 @@ ciqual_food_name:fr: Fève à écosser, fraîche
 < en:Canned legumes
 < en:Canned vegetables
 en: Canned broad beans, Canned fava beans, Canned faba beans
+da: Hestebønner på dåse
 es: Habas en conserva, Habitas en conserva
 fr: Fèves en conserve, Féverolles en conserve
 hr: Konzervirani bob
@@ -112757,6 +112706,7 @@ pl: Strączki w puszkach, strączkowe w puszkach, strączki konserwowe
 < en:Broad beans
 < en:Cooked vegetables
 en: Cooked broad beans
+da: Kogte hestebønner
 fr: Fèves cuites
 agribalyse_food_code:en: 20500
 ciqual_food_code:en: 20500
@@ -112766,6 +112716,7 @@ ciqual_food_name:fr: Fève, cuite
 < en:Pulses
 en: Peas
 bg: грах
+da: Ærter
 de: Erbsen
 es: Guisantes, Chícharos, Arvejas
 fi: herneet
@@ -113433,14 +113384,8 @@ agribalyse_food_code:en: 20912
 < en:Legumes and their products
 < en:Meat alternatives
 en: Tempeh
-de: Tempeh
-es: Tempeh
-fr: Tempeh
-hr: Tempeh
-it: Tempeh
+xx: Tempeh
 ja: テンペ
-nl: Tempeh
-pl: Tempeh
 agribalyse_food_code:en: 20917
 ciqual_food_code:en: 20917
 ciqual_food_name:en: Tempeh
@@ -116481,16 +116426,12 @@ sales_format:en: package, weight
 
 < en:Viennoiseries
 en: Croissants
+xx: Croissants
 bg: Кроасани
-de: Croissants
-es: Croissants
 fi: Kroisantit, Croissantit
-fr: Croissants
 hr: Kroasani
-it: Croissants
 ja: クロワッサン
-nl: Croissants
-tr: Kruvasan, Kruasan, Ay çöreği, Ayçöreği
+tr: Kruvasan, Kruasan, Ay Çöreği, Ayçöreği
 agribalyse_food_code:en: 7602
 ciqual_food_code:en: 7602
 ciqual_food_name:en: Croissant
@@ -119364,15 +119305,11 @@ nl: Collageen
 
 < en:Dietary supplements
 en: Spirulina
+xx: Spirulina
 bg: Спирулина
-de: Spirulina
 es: Espirulina, Spirulina
-fi: spirulina
 fr: Spiruline
-hr: Spirulina
-it: Spirulina, Alga spirulina
-nl: Spirulina
-ro: Spirulina
+it: Spirulina, Alga Spirulina
 ru: Спирулина
 zh: 螺旋藻
 agribalyse_food_code:en: 11086

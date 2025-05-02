@@ -52,6 +52,7 @@ Visit the [website](https://world.openfoodfacts.org) for more info.
 ## 🎨 Design & User interface
 - We strive to thoughfully design every feature before we move on to implementation, so that we respect Open Food Facts' graphic charter and nascent design system, while having efficient user flows.
 - [![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?logo=figma&logoColor=white) Mockups on the current app and future plans to discuss](https://www.figma.com/design/Qg9URUyrjHgYmnDHXRsTTB/Current-Website-design?m=auto&t=jNwvjRR8nIgOzzJZ-6)
+- Are you a designer ? [Join the design team](https://github.com/openfoodfacts/openfoodfacts-design)
 <br><br>
 ## Weekly Meetings
 

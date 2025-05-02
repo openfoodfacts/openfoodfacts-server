@@ -38,6 +38,9 @@ updates:
         patterns:
           - "ts-node"
           - "typescript"
+    ignore:
+      - dependency-name: "jquery"
+        versions: [ ">= 3.0.0" ]  # https://github.com/openfoodfacts/openfoodfacts-server/pull/11109
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:

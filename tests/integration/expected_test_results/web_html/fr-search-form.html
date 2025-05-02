@@ -387,7 +387,7 @@
     let domain = 'domain=.' + getDomain.slice(1).join('.');
     document.cookie = bcname + '=' + bcval + ';' + expires + ';' + domain + ';SameSite=None;Secure;path=/';
   }
-  
+
   function getBannerCookie(bcname) {
     const name = bcname + '=';
     const decodedCookies = decodeURIComponent(document.cookie);
@@ -397,7 +397,7 @@
       while (c.charAt(0) == ' ') { c = c.substring(1); }
       if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
     }
-    
+
     return '';
   }
 
@@ -408,7 +408,7 @@
 
   if (getBannerCookie('off_donation_banner_2024_a') !== '') {
     bannerID.style.display = 'none';
-  } else { 
+  } else {
     bannerID.style.display = 'flex';
   }
 </script>
@@ -639,48 +639,6 @@
                 </div>
             
         </div>
-        
-            <div class="small-12 medium-12 large-6 columns">
-                <label>Additifs</label>
-                <input type="radio" name="additives" value="without" id="without_additives" />
-                    <label for="without_additives">Sans</label>
-                <input type="radio" name="additives" value="with" id="with_additives" />
-                    <label for="with_additives">Avec</label>
-                <input type="radio" name="additives" value="indifferent" id="indifferent_additives" checked="checked"/>
-                    <label for="indifferent_additives">Indifférent</label>
-            </div>
-        
-            <div class="small-12 medium-12 large-6 columns">
-                <label>Ingrédients issus de l'huile de palme</label>
-                <input type="radio" name="ingredients_from_palm_oil" value="without" id="without_ingredients_from_palm_oil" />
-                    <label for="without_ingredients_from_palm_oil">Sans</label>
-                <input type="radio" name="ingredients_from_palm_oil" value="with" id="with_ingredients_from_palm_oil" />
-                    <label for="with_ingredients_from_palm_oil">Avec</label>
-                <input type="radio" name="ingredients_from_palm_oil" value="indifferent" id="indifferent_ingredients_from_palm_oil" checked="checked"/>
-                    <label for="indifferent_ingredients_from_palm_oil">Indifférent</label>
-            </div>
-        
-            <div class="small-12 medium-12 large-6 columns">
-                <label>Ingrédients pouvant être issus de l'huile de palme</label>
-                <input type="radio" name="ingredients_that_may_be_from_palm_oil" value="without" id="without_ingredients_that_may_be_from_palm_oil" />
-                    <label for="without_ingredients_that_may_be_from_palm_oil">Sans</label>
-                <input type="radio" name="ingredients_that_may_be_from_palm_oil" value="with" id="with_ingredients_that_may_be_from_palm_oil" />
-                    <label for="with_ingredients_that_may_be_from_palm_oil">Avec</label>
-                <input type="radio" name="ingredients_that_may_be_from_palm_oil" value="indifferent" id="indifferent_ingredients_that_may_be_from_palm_oil" checked="checked"/>
-                    <label for="indifferent_ingredients_that_may_be_from_palm_oil">Indifférent</label>
-            </div>
-        
-            <div class="small-12 medium-12 large-6 columns">
-                <label>Ingrédients issus ou pouvant être issus de l'huile de palme</label>
-                <input type="radio" name="ingredients_from_or_that_may_be_from_palm_oil" value="without" id="without_ingredients_from_or_that_may_be_from_palm_oil" />
-                    <label for="without_ingredients_from_or_that_may_be_from_palm_oil">Sans</label>
-                <input type="radio" name="ingredients_from_or_that_may_be_from_palm_oil" value="with" id="with_ingredients_from_or_that_may_be_from_palm_oil" />
-                    <label for="with_ingredients_from_or_that_may_be_from_palm_oil">Avec</label>
-                <input type="radio" name="ingredients_from_or_that_may_be_from_palm_oil" value="indifferent" id="indifferent_ingredients_from_or_that_may_be_from_palm_oil" checked="checked"/>
-                    <label for="indifferent_ingredients_from_or_that_may_be_from_palm_oil">Indifférent</label>
-            </div>
-        
-    </div>
 
         <!-- Nutriments Form -->
 
@@ -2169,7 +2127,7 @@ sur les deux axes pour obtenir un nuage de produits.</p>
           src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
           alt="open food facts logo"
         />
-        <h3 class="donation-banner-footer__main-title">Merci de contribuer à notre collecte de fonds 2024</h3>
+        <h3 class="donation-banner-footer__main-title">Merci de contribuer à notre collecte de fonds 2025</h3>
       </div>
       <p>Vos dons financent le fonctionnement quotidien de notre association à but non lucratif :</p>
       <ul>
