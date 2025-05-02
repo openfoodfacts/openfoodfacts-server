@@ -69,11 +69,23 @@ my @tests = (
 		["en:palm-oil-free", "en:vegan", "en:vegetarian"]
 	],
 	[{lc => "fr", ingredients_text => "miel"}, ["en:palm-oil-free", "en:non-vegan", "en:vegetarian"]],
-	# check that the label overrides the en:non-vegan for "miel" / honey
-	# (just for testing, it should not happen)
+	# check that products with conflicting label and ingredient information get set to a “maybe” status
+	# these _shouldn’t_ exist, but sometimes they do
 	[
 		{lc => "fr", labels_tags => ["en:vegan"], ingredients_text => "miel"},
-		["en:palm-oil-free", "en:vegan", "en:vegetarian"]
+		["en:palm-oil-free", "en:maybe-vegan", "en:vegetarian"]
+	],
+	[
+		{lc => "da", labels_tags => ["en:vegan"], ingredients_text => "kød"},
+		["en:palm-oil-free", "en:maybe-vegan", "en:maybe-vegetarian"]
+	],
+	[
+		{lc => "da", labels_tags => ["en:vegetarian"], ingredients_text => "kød"},
+		["en:palm-oil-free", "en:non-vegan", "en:maybe-vegetarian"]
+	],
+	[
+		{lc => "sv", labels_tags => ["en:palm-oil-free"], ingredients_text => "palmolja"},
+		["en:may-contain-palm-oil", "en:vegan", "en:vegetarian"]
 	],
 
 	# unknown ingredients
