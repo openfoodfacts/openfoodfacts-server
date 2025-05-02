@@ -168,8 +168,7 @@ my $tests_ref = [
 				product => {
 					images => {
 						selected => {
-							front => 
-							{
+							front => {
 								en => undef
 							},
 						}
