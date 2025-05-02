@@ -460,14 +460,6 @@ components:
       name: lc
       required: false
       description: "2 letter code of the language of the user. Used for localizing some fields in returned values (e.g. knowledge panels). If not passed, the language may be inferred by the Accept-Language header of the request."
-    code:
-      schema:
-        type: string
-        example: "4251105501381"
-      in: query
-      name: code
-      description: Barcode of the product
-      required: true
 tags:
   - name: Read Requests
   - name: Write Requests
