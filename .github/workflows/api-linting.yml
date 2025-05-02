@@ -3,12 +3,12 @@ name: OpenAPI Spec Linting
 on:
   pull_request:
     paths:
-      - 'docs/api/ref/**/*.yaml'
+      - 'docs/api/ref/*.yaml'
   push:
     branches:
       - main
     paths:
-      - 'docs/api/ref/**/*.yaml'
+      - 'docs/api/ref/*.yaml'
 
 jobs:
   lint-api:
@@ -22,10 +22,10 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '22'
 
       - name: Run Spectral lint
         uses: stoplightio/spectral-action@latest
         with:
-          file_glob: 'docs/api/ref/**/*.yaml'
+          file_glob: 'docs/api/ref/*.yaml'
           spectral_ruleset: .spectral.yaml
