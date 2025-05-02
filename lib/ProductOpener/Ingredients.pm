@@ -192,7 +192,7 @@ my %may_contain_regexps = (
 	de => "Kann enthalten|Kann Spuren|Spuren|Kann Anteile|Anteile|Kann auch|Kann|Enthält möglicherweise",
 	el => "Μπορεί να περιέχει ίχνη από",
 	es => "puede contener huellas de|puede contener trazas de|puede contener|trazas|traza",
-	et => "võib sisaldada vähesel määral|võib sisaldada|võib sisalda",
+	et => "võib sisaldada vähesel määral|võib sisaldada|võib sisalda|osakesi",
 	fi =>
 		"saattaa sisältää pienehköjä määriä muita|saattaa sisältää pieniä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää pieniä määriä|voi sisältää vähäisiä määriä|saattaa sisältää hivenen|saattaa sisältää pieniä|saattaa sisältää jäämiä|sisältää pienen määrän|jossa käsitellään myös|saattaa sisältää myös|joka käsittelee myös|jossa käsitellään|saattaa sisältää",
 	fr =>
@@ -204,7 +204,7 @@ my %may_contain_regexps = (
 	it =>
 		"Pu[òo] contenere tracce di|pu[òo] contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
 	lt => "sudėtyje gali būti|gali būti",
-	lv => "var saturēt|sastāva var but",
+	lv => "var saturēt|var saturé|sastāva var but|alergēni|pārpalikumi|dalinas",
 	mk => "Производот може да содржи|може да содржи",
 	nl =>
 		"Dit product kan sporen van|bevat mogelijk sporen van|Kan sporen bevatten van|Kan sporen van|bevat mogelijk|sporen van|Geproduceerd in ruimtes waar|Kan ook",
@@ -1495,6 +1495,7 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 											or ($ingredients_lc eq 'it')
 											or ($ingredients_lc eq 'mk')
 											or ($ingredients_lc eq 'pl')
+											or ($ingredients_lc eq 'ro')
 											or ($ingredients_lc eq 'sl')
 											or ($ingredients_lc eq 'sr')
 										)
@@ -4996,10 +4997,10 @@ sub normalize_vitamins_enumeration ($lc, $vitamins_list) {
 
 	if ($lc eq 'da' || $lc eq 'nb' || $lc eq 'sv') {$split_vitamins_list = "vitaminer"}
     elsif ($lc eq 'bg') {$split_vitamins_list = "витамини"}
-	elsif ($lc eq 'de' || $lc eq 'it') {$split_vitamins_list = "vitamine"}
+	elsif ($lc eq 'de' || $lc eq 'it' || $lc eq 'ro') {$split_vitamins_list = "vitamine"}
 	elsif ($lc eq 'ca') {$split_vitamins_list = "vitamines"}
     elsif ($lc eq 'cs' || $lc eq 'sk') {$split_vitamins_list = "vitamíny"}
-	elsif ($lc eq 'es') {$split_vitamins_list = "vitaminas"}
+	elsif ($lc eq 'es' || $lc eq 'pt') {$split_vitamins_list = "vitaminas"}
 	elsif ($lc eq 'fr') {$split_vitamins_list = "vitamines"}
 	elsif ($lc eq 'fi') {$split_vitamins_list = "vitamiinit"}
     elsif ($lc eq 'hr' || $lc eq 'sl') {$split_vitamins_list = "vitamini"}
@@ -5263,7 +5264,7 @@ my %phrases_after_ingredients_list = (
 	bg => [
 		'да се съхранява (в закрити|на сухо)',    # store in ...
 		'Аналитични съставки',    # pet food
-		'Неотворен',    # before opening ...
+		'(heотворен|Неотворен)',    # before opening ...
 		'След отваряне',    # after opening ...
 		'Опаковани в защитна атмосфера', # packaged in protective atmosphere
 	],
@@ -5276,6 +5277,7 @@ my %phrases_after_ingredients_list = (
 		'doporu)c|č)eny zp(u|ů)sob p(r|ř)(i|í)pravy',
 		'minim(a|á)ln(i|í) trvanlivost do',    # Expiration date
 		'po otev(r|ř)en(i|í)',    # After opening
+        '(návod k )?přípravě', # preparation
 		'V(ý|y)(ž|z)ivov(e|é) (ú|u)daje ve 100 g',
 		'skladujte v suchu',    # keep in dried place
 	],
@@ -5311,12 +5313,13 @@ my %phrases_after_ingredients_list = (
 		'(Ungeöffnet )?mindestens',
 		'(k[uü]hl|bei Zimmertemperatur) und trocken lagern',
 		'Rinde nicht zum Verzehr geeignet.',
-		'Vor W(â|a|ä)rme und Feuchtigkeit sch(u|ü)tzen',
+        'Trocken und vor Wärme', # keep in dried place
 		'Unge(ö|o)ffnet (bei max.|unter)',
 		'Unter Schutzatmosphäre verpackt',
 		'verbrauchen bis',
 		'Vor und nach dem Öffnen',    # keep in dried place
 		'Vor Wärme geschützt (und trocken )?lagern',
+		'Vor W(â|a|ä)rme und Feuchtigkeit sch(u|ü)tzen',
 		'Vorbereitung Tipps',
 		'zu verbrauchen bis',
 		'100 (ml|g) enthalten durchschnittlich',
@@ -5330,6 +5333,7 @@ my %phrases_after_ingredients_list = (
 		'Αναλυτικές συστατικές',    # pet food
 		'ΔΙΑΘΡΕΠΤΙΚΗ ΕΠΙΣΗΜΑΝΣΗ',    #Nutritional labelling
 		'ΔΙΤΡΟΦΙΚΕΣ ΠΗΡΟΦΟΡΙΕΣ',
+        'Διατηρήστε το σε ξηρό μέρος', # keep in dried place
 		'Για (τα )?αλλεργιογόνα', # for allergens in bold
 		'Συντηρείται στο ψυγείο',    # stored in the fridge
 	],
@@ -5353,7 +5357,7 @@ my %phrases_after_ingredients_list = (
 		'once opened[,]? (consume|keep|refrigerate|store|use)',
 		'Milk Chocolate contains',
 		'packed in a modified atmosphere',
-		'(Storage( instructions| conditions)?[: ]+)?Store in a cool[,]? dry place',
+		'(Storage( instructions| conditions)?[: ]+)?Store in',
 		'(dist(\.)?|distributed|sold)(\&|and|sold| )* (by|exclusively)',
 		#'See bottom of tin',
 	],
@@ -5386,6 +5390,7 @@ my %phrases_after_ingredients_list = (
 	et => [
 		'analüütilised komponendid',    # pet food
 		'parim enne',    # best before
+        'hoida kuivas ja jahedas', # keep in dried place
 	],
 
 	fi => [
@@ -5521,6 +5526,7 @@ my %phrases_after_ingredients_list = (
 		'Atlagos tápérték 100g termékben',
 		'((száraz|hűvös|(közvetlen )?napfénytől védett)[, ]*)+helyen tárolandó',    # store in cool/dry/etc
 		'elemzési összetevők',    # pet food
+        'elkészítési', # preparation
         'felbontás után', # after opening
 		'hűvös, száraz helyen, közvetlen napfénytől védve tárolja',    # store in cool dry place away from the sunlight
 		'bontatlan csomagolásban',    # keep in a closed/dark place
@@ -5539,7 +5545,7 @@ my %phrases_after_ingredients_list = (
 		'di cui zuccheri',
 		'MODALITA D\'USO',
 		'MODALITA DI CONSERVAZIONE',
-		'Preparazione:',
+		'Preparazione\:',
 		'Una volta aperto',    # once opened...
 		'Valori nutritivi',
 		'valori nutrizionali',
@@ -5561,7 +5567,7 @@ my %phrases_after_ingredients_list = (
 	],
 
 	lv => [
-		'uzglabāt sausā vēsā vietā',    # keep in dry place
+		'uzglabāt (sausā|vēsā)',    # keep in dry place
 		'analītiskā sastāva',    # pet food
 	],
 
@@ -5632,8 +5638,7 @@ my %phrases_after_ingredients_list = (
 		'declaratie nutritional(a|ă)',
 		'a si pastra la frigider dup(a|ă) deschidere',
 		'a se agita inainte de deschidere',
-		'a se păstra la loc uscat şi răcoros',    # Store in a dry and cool place
-		'a sè păstra la temperaturi până la',    # Store at temperatures up to
+		'a se păstra',    # Store in a dry and cool place / at temperature
 		'Valori nutritionale medii',
 		'a se p[ăa]stra la',    # store in...
         'nedeschis',   # unopened best before
@@ -5649,7 +5654,8 @@ my %phrases_after_ingredients_list = (
 		'skladovanie',    # store at
 		'spotrebujte do',    # keep until
         'najlepšie spotrebovať pred', # keep until
-        'minimálna trvanlivost do', # keep until
+        'minimálna trvanlivos(t|ť) do', # keep until
+        'skladujte', # store in
 	],
 
 	sl => [
@@ -5670,9 +5676,11 @@ my %phrases_after_ingredients_list = (
 		'(č|Č|c|C|ć|Ć)uvati na (hladnom|suvom|temperaturi od)',    # Store in a cool and dry place
 		'napomena za potrošače',    # note for consumers
 		'pakovano',    # packed in a protective atmosphere
+        'priprema',    # preparation
 		'proizvodi i puni',    # Produced and filled
 		'upotrebljivo',    # keep until
 		'najbolje (upotrijebiti|upotrebiti)do',    # keep until
+        'чувати на', # store in a cool and dry place
 	],
 
 	sv => [

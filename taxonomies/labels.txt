@@ -1679,6 +1679,7 @@ nb: Fiberrik, rik på fiber
 nl: Vezelrijk, Rijk aan vezels
 pl: wysoka zawartość błonnika
 pt: Rico em fibras, teor elevado de fibras, teor elevado em fibras, alto teor em fibra, alto teor em fibras
+ro: Високо съдържание на хранителни влакнини
 ru: Обогащено клетчаткой
 sv: Fiberrik, Rik på fiber
 th: ใยอาหารสูง
@@ -3185,7 +3186,7 @@ bg: Без добавена захар
 ca: Sense sucre afegit, sense sucres afegits
 cs: Bez přidaného cukru, obsahuje přirozeněse vyskytující cukry
 da: Uden tilsat sukker
-de: Ohne Zuckerzusatz, Ohne zugesetzten Zucker
+de: Ohne Zuckerzusatz, Ohne zugesetzten Zucker, Enthält von Natur aus Zucker
 el: Χωρίς προσθήκη ζάχαρης
 es: Sin azúcares añadidos, 0% Azúcares añadidos, Sin azúcar añadido
 et: Ilma lisatud suhkruta
@@ -5468,7 +5469,7 @@ label_categories:en: en:Specific diets
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #en:description:Labels used for identifying products (and ingredients) that have been grown organically.
 
-en: Organic, organically grown, organically produced, ingredient produced organically, from organic farming, From Organic Agriculture, organic ingredients, from controlled organic agriculture
+en: Organic, organically grown, organically produced, ingredient produced organically, from organic farming, From Organic Agriculture, organic ingredients, from controlled organic agriculture, from organic controlled cultivation
 bg: Био, биологично земеделие, биологично
 ca: Orgànic, de cultiu ecologic
 cs: Bio, z kontrolovane ekologicke produkce, z ekologickeho, z kontrolovaného ekologického zemědělství
@@ -5487,7 +5488,7 @@ lt: Ekologiškas, ekologiškai užaugintas, ekologiškai pagamintas, ingredienta
 nl: Biologisch, biologische, van biologische oorsprong, van biologische teelt, van gecontroleerd biologische teelt, afkomstig van biologische productiemethode, van gecontroleerde biologische landbouw
 pl: ekologiczny, bio, ekologiczne, ekologiczna, ekologicznych, ekologicznego, z kontrolowanych upraw ekologicznych, z kontrolowanej produkcji ekologicznej, z kontrolowanego rolnictwa ekologicznego, certyfikowany składnik ekologiczny, składnik ekologiczny, produkt pochodzący z kontrolowanych certyfikowanych upraw ekologicznych
 pt: Orgânico, produção orgânica, produzido de forma orgânica, numa quinta orgânica, de agricultura orgânica, agricultura orgânica, de produção Biológica
-ro: din agricultură ecologică controlată
+ro: din agricultură ecologică controlată,  din cultură organică controlată
 sk: z kontrolovaného ekologického poľnohospodárstva, produkt ekologického poľnohospodárstva
 sl: iz kontrolirane ekološke pridelave
 sv: Ekologisk, Ekologiskt, Ekologiska, ekologisk ingrediens
@@ -18900,6 +18901,7 @@ hu: C-vitaminban gazdag
 it: Ricco di vitamina C
 nl: Rijk aan vitamine C
 pt: Rico em vitamina C
+ro: Bogat in vitamina C
 th: แหล่งของวิตามินซี
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 xx:en: Rich in vitamin C
