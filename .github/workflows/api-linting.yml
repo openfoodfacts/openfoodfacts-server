@@ -3,14 +3,12 @@ name: OpenAPI Spec Linting
 on:
   pull_request:
     paths:
-      - 'docs/api/ref/api.yml'
-      - 'docs/api/ref/api-v3.yml'
+      - 'docs/api/ref/**/*.yml'
   push:
     branches:
       - main
     paths:
-      - 'docs/api/ref/api.yml'
-      - 'docs/api/ref/api-v3.yml'
+      - 'docs/api/ref/**/*.yml'
 
 jobs:
   lint-api:
@@ -29,5 +27,5 @@ jobs:
       - name: Run Spectral lint
         uses: stoplightio/spectral-action@latest
         with:
-          file_glob: 'docs/api/ref/{api.yml,api-v3.yml}'
+          file_glob: 'docs/api/ref/**/*.yml'
           spectral_ruleset: .spectral.yaml
