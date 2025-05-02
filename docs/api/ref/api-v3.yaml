@@ -309,7 +309,7 @@ paths:
 
         If a string is passed, an additional sort is done to put first suggestions that start with the string, followed by suggestions with a word that start with the string, and then suggestions that contain the string anywhere.
       parameters:
-        - $ref: ./api.yml#/components/parameters/tagtype
+        - $ref: ./api.yaml#/components/parameters/tagtype
         - $ref: "#/components/parameters/cc"
         - $ref: "#/components/parameters/lc"
         - schema:
