@@ -256,7 +256,7 @@ Footer:
   # core
   - any-glob-to-any-file: 'docs/assets/api-rapidoc.html'
   - any-glob-to-any-file: 'docs/api/ref/api.yaml'
-  - any-glob-to-any-file: 'docs/api/ref/api-v3.yml'
+  - any-glob-to-any-file: 'docs/api/ref/api-v3.yaml'
   - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​tags_parameters.yaml'
   # product core
   - any-glob-to-any-file: 'docs/api/ref/schemas/product_base.yaml'
@@ -1489,7 +1489,7 @@ API:
 # https://openfoodfacts.github.io/openfoodfacts-server/api/
 API v3:
 - changed-files:
-  - any-glob-to-any-file: 'docs/api/ref/api-v3.yml'
+  - any-glob-to-any-file: 'docs/api/ref/api-v3.yaml'
   - any-glob-to-any-file: 'tests/integration/api_v3_product_read.t'
   - any-glob-to-any-file: 'tests/integration/api_v3_product_write.t'
 
