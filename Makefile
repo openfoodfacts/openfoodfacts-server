@@ -426,7 +426,7 @@ check_openapi_v2:
 check_openapi_v3:
 	docker run --rm \
 		-v ${PWD}:/local openapitools/openapi-generator-cli validate --recommend \
-		-i /local/docs/api/ref/api-v3.yml
+		-i /local/docs/api/ref/api-v3.yaml
 
 check_openapi: check_openapi_v2 check_openapi_v3
 
