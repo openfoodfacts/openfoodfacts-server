@@ -52,7 +52,7 @@ jobs:
       #     docker run --rm \
       #       -v $(pwd)/docs/api/ref:/data -v $(pwd)/gh_pages/:/output \
       #       ghcr.io/redocly/redoc/cli:latest \
-      #       build -o /output/api/ref-v2/index.html api.yml && \
+      #       build -o /output/api/ref-v2/index.html api.yaml && \
       #     sudo chown $UID -R gh_pages
 
       # - name: Generate openapi html for v3 with ghcr.io/redocly/redoc/cli:latest
@@ -76,7 +76,7 @@ jobs:
           cp docs/assets/api-rapidoc.html gh_pages/api/ref-v2/index.html
           # v3 api - change yaml and link to api-v3
           cat docs/assets/api-rapidoc.html | \
-            sed -e "s/api.yml/api-v3.yml/" -e 's|ref-v3/">API v3|ref-v2/">API v2|' \
+            sed -e "s/api.yaml/api-v3.yml/" -e 's|ref-v3/">API v3|ref-v2/">API v2|' \
             > gh_pages/api/ref-v3/index.html
 
 
