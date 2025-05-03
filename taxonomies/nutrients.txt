@@ -255,7 +255,7 @@ br: Druzoni
 ca: greix
 cs: Tuky, tuk
 cy: Braster
-da: Fedt, Fedtstof, fed
+da: Fedt, Fedtstof, fed, lipider
 de: Fett
 el: Λιπαρά, λίπος, λιπαρός
 eo: graso
@@ -337,8 +337,8 @@ ar: دهن مشبع
 bg: Наситени мастни киселини
 ca: àcid gras saturat
 cs: Nasycené mastné kyseliny
-da: Mættede fedtsyrer
-de: gesättigte Fettsäuren, Mættet fedt
+da: Mættet fedt, Mættede fedtsyrer
+de: gesättigte Fettsäuren
 dv: ފެޓް
 el: Κορεσμένα λιπαρά
 eo: Saturita graso
@@ -3831,14 +3831,14 @@ dv_value:en: 1.2
 unit:en: mg
 
 zz: vitamin-b2
-xx: Vitamin B2 (Riboflavin), Vitamin B2, Riboflavin
+xx: Vitamin B2 (Riboflavin), Vitamin B2, Riboflavin, Riboflavin (B2)
 en: Vitamin B2 (Riboflavin), Vitamin B2, Riboflavin
 bg: Витамин B2 (Рибофлавин)
 de: Vitamin B2 (Riboflavin)
 el: Βιταμίνη B2 (Ριβοφλαβίνη)
 es: Vitamina B2 (Riboflavina)
 et: Vitamiin B2 (Riboflaviin)
-fi: B2-vitamiini (Riboflaviini), B2-vitamiini, Riboflaviini
+fi: B2-vitamiini (Riboflaviini), B2-vitamiini, Riboflaviini, Riboflaviini (B2)
 fr: Vitamine B2 (Riboflavine), Vitamine B2, Riboflavine
 ga: Vitimín B2 (Ribeaflaivin)
 he: ויטמין B2 (ריבופלבין)
@@ -3980,6 +3980,7 @@ pl: Witamina B9 (Kwas foliowy)
 pt: Vitamina B9 (Ácido Fólico), Folacina, Ácido pteroil-L-glutâmico
 ro: Vitamina B9 (Acid folic)
 sk: Vitamín B9 (Kyselina listová)
+sv: Vitamin B9 (Folsyra), Folsyra
 zh: 维生素B9(叶酸)
 dv_2016_value:en: 400
 dv_value:en: 400
@@ -4017,6 +4018,7 @@ pl: Witamina B12
 pt: Vitamina B12 (Cobalamina)
 ro: Vitamina B12
 sk: Vitamín B12
+sv: Vitamin B12
 zh: 维生素B12
 dv_2016_value:en: 2.4
 dv_value:en: 6
@@ -6783,6 +6785,7 @@ zz: l-leucine
 en: L-Leucine, Leucine
 ca: L-Leucina, Leucina
 es: L-Leucina, Leucina
+sv: L-leucin
 unit:en: mg
 wikidata:en: Q483745
 wikipedia:en: https://en.wikipedia.org/wiki/Leucine
@@ -6791,6 +6794,7 @@ zz: l-isoleucine
 en: L-Isoleucine, Isoleucine
 ca: L-Isoleucina, Isoleucina
 es: L-Isoleucina, Isoleucina
+sv: L-isoleucin
 unit:en: mg
 wikidata:en: Q484940
 wikipedia:en: https://en.wikipedia.org/wiki/Isoleucine
@@ -6822,7 +6826,7 @@ unit:en: mg
 wikidata:en: Q116907
 wikipedia:en: https://en.wikipedia.org/wiki/Glutathione
 
-# following nutrients are for pet food 
+# following nutrients are for pet food
 # https://eur-lex.europa.eu/eli/reg/2009/767/2018-12-26
 # I- analytical constituents
 zz: crude fat
