@@ -4,16 +4,16 @@
 <html class="no-js" lang="fr" data-serverdomain="openfoodfacts.localhost" dir="ltr">
 <head>
     <meta charset="utf-8">
-    <title>Apple pie - Bob's pies - 100 g</title>
-    <meta name="description" content="Ingrédients, allergènes, additifs, composition nutritionnelle, labels, origine des ingrédients et informations du produit Apple pie - Bob's pies - 100 g">
+    <title>Apple pie – Bob's pies – 100 g</title>
+    <meta name="description" content="Ingrédients, allergènes, additifs, composition nutritionnelle, labels, origine des ingrédients et informations du produit Apple pie – Bob's pies – 100 g">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta property="fb:app_id" content="219331381518041">
     <meta property="og:type" content="food">
-    <meta property="og:title" content="Apple pie - Bob's pies - 100 g">
+    <meta property="og:title" content="Apple pie – Bob's pies – 100 g">
     <meta property="og:url" content="//fr.openfoodfacts.localhost/produit/3300000000001/apple-pie-bob-s-pies">
     
     <meta property="og:image" content="//static.openfoodfacts.org/images/logos/off-logo-vertical-white-social-media-preview.png">
-    <meta property="og:description" content="Ingrédients, allergènes, additifs, composition nutritionnelle, labels, origine des ingrédients et informations du produit Apple pie - Bob's pies - 100 g">
+    <meta property="og:description" content="Ingrédients, allergènes, additifs, composition nutritionnelle, labels, origine des ingrédients et informations du produit Apple pie – Bob's pies – 100 g">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/off/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/off/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/off/favicon-16x16.png">
@@ -30,11 +30,12 @@
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/select2.min.css">
     <link rel="search" href="//fr.openfoodfacts.localhost/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="Open Food Facts">
+    <script type="module" src="//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js"></script>
 	<meta name="x:card" content="product">
 <meta name="x:site" content="@OpenFoodFactsfr">
 <meta name="x:creator" content="@OpenFoodFactsfr">
-<meta name="x:title" content="Apple pie - Bob's pies - 100 g">
-<meta name="x:description" content="Ingrédients, allergènes, additifs, composition nutritionnelle, labels, origine des ingrédients et informations du produit Apple pie - Bob's pies - 100 g">
+<meta name="x:title" content="Apple pie – Bob's pies – 100 g">
+<meta name="x:description" content="Ingrédients, allergènes, additifs, composition nutritionnelle, labels, origine des ingrédients et informations du produit Apple pie – Bob's pies – 100 g">
 <meta name="x:label1" content="marque">
 <meta name="x:data1" content="Bob's pies">
 <meta name="x:label2" content="catégorie">
@@ -43,7 +44,6 @@
 
 
     <style media="all">
-        
         .show-when-no-access-to-producers-platform {display:none}
 .show-when-logged-in {display:none}
 
@@ -96,6 +96,31 @@
 	
 	<div class="skip"><a href="#content" tabindex="0">Aller au contenu</a></div>
 	
+
+	<div id="barcode-scanner-modal" class="modal is_hidden">
+  <div class="modal-backdrop"></div>
+  <div class="modal-content">
+    <div class="modal-header">
+      <span><h2>Scan a product<h2></span>
+      <button class="modal-close-button">&times;</button>
+    </div>
+    <div>
+      <barcode-scanner id="barcode-scanner"></barcode-scanner>
+    </div>
+    <div>
+    </div>
+    <div >
+      <label for="barcode-modal-input">Or enter barcode manually</label>
+      <div class="barcode-modal-group">
+        <input type="text" id="barcode-modal-input" class="barcode-modal-input" inputmode="numeric" pattern="\d*" />
+        <button class="barcode-modal-button button" id="barcode-modal-button" disabled>Scan</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="//static.openfoodfacts.localhost/js/dist/barcode-scanner.js"></script>
+
 
 	<div id="page">
 		
@@ -195,7 +220,7 @@
 					
 					<section class="top-bar-section">
 					
-						<ul class="left small-4" style="margin-right:2rem;">
+						<ul class="left small-4">
 							<li class="search-li">
 							
 								<form action="/cgi/search.pl">
@@ -206,9 +231,22 @@
 									<input name="search_simple" value="1" type="hidden">
 									<input name="action" value="process" type="hidden">
 									</div>
-									<div class="columns">
+									<div class="columns postfix-button-wrapper">
 									<button type="submit" title="Rechercher" class="button postfix" style="line-height:normal"><svg xmlns="//www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon" aria-hidden="true" focusable="false"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></button>
 									</div>
+									<div class="columns postfix-button-wrapper is_hidden">
+  <button
+    type="button"
+    title="Scan a product"
+    class="button barcode-scanner-button"
+    id="barcode-scanner-button"
+  >
+    <svg style="width:24px;height:24px" viewBox="0 0 24 24" class="icon" aria-hidden="true" focusable="false"><path d="M2,6H4V18H2V6M5,6H6V18H5V6M7,6H10V18H7V6M11,6H12V18H11V6M14,6H16V18H14V6M17,6H20V18H17V6M21,6H22V18H21V6Z"/></svg>
+  </button>
+
+  <script src="//static.openfoodfacts.localhost/js/dist/barcode-scanner-button.js"></script>
+</div>
+
 								</div>
 								</div></div>
 								</form>
@@ -357,7 +395,7 @@
     let domain = 'domain=.' + getDomain.slice(1).join('.');
     document.cookie = bcname + '=' + bcval + ';' + expires + ';' + domain + ';SameSite=None;Secure;path=/';
   }
-  
+
   function getBannerCookie(bcname) {
     const name = bcname + '=';
     const decodedCookies = decodeURIComponent(document.cookie);
@@ -367,7 +405,7 @@
       while (c.charAt(0) == ' ') { c = c.substring(1); }
       if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
     }
-    
+
     return '';
   }
 
@@ -378,7 +416,7 @@
 
   if (getBannerCookie('off_donation_banner_2024_a') !== '') {
     bannerID.style.display = 'none';
-  } else { 
+  } else {
     bannerID.style.display = 'flex';
   }
 </script>
@@ -412,7 +450,7 @@
     <div class="block v-space-tiny product_banner_unranked" id="prodHead">
         <div class="row h-space-normal">
             <div class="large-12 flex-grid ">
-                <h1 class="title-3" property="food:name" itemprop="name">Apple pie - Bob's pies - 100 g</h1>
+                <h1 class="title-3" property="food:name" itemprop="name">Apple pie – Bob's pies – 100 g</h1>
                 <div class="buttons_prod">
                     <!-- Edit product page -->
                     <div class="edit_button">
@@ -426,7 +464,7 @@
 
                     <!-- Share -->
                     <div class="share_button" style="display:none;">
-                        <a href="/produit/3300000000001/apple-pie-bob-s-pies" class="button small" title="Apple pie - Bob's pies - 100 g">
+                        <a href="/produit/3300000000001/apple-pie-bob-s-pies" class="button small" title="Apple pie – Bob's pies – 100 g">
                             <span class="material-icons size-20 ">
                             share
                             </span>
@@ -478,7 +516,7 @@
                        
 
 
-                    <h2 class="title-1" property="food:name" itemprop="name">Apple pie - Bob's pies - 100 g</h1>
+                    <h2 class="title-1" property="food:name" itemprop="name">Apple pie – Bob's pies – 100 g</h1>
 
                     
                     
@@ -592,7 +630,7 @@
                             <div class="alert-box block_blue is_hidden">
   <robotoff-question
     product-code="3300000000001"
-    options='{"showMessage": true, "showLoading": true, "showError": true, "showImage": false}'
+    options='{"showMessage": true, "showLoading": true, "showError": true, "showImage": true}'
     id="robotoff-question"
   ></robotoff-question>
 </div>
@@ -3272,19 +3310,19 @@ Le score est calculé à partir des données du tableau de la déclaration nutri
     
            <div class="panel_text">
              <ol id="ordered_ingredients_list">
-<li><span>Wheat flour</span> -> en:wheat-flour - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_proxy_food_code:&nbsp;9410 - percent_min:&nbsp;11.1111111111111 - percent_max:&nbsp;100</li>
-<li><span>apples</span> -> en:apple - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;13050 - percent_min:&nbsp;0 - percent_max:&nbsp;50</li>
-<li><span>sugar</span> -> en:sugar - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_proxy_food_code:&nbsp;31016 - percent_min:&nbsp;0 - percent_max:&nbsp;33.3333333333333</li>
-<li><span>butter</span> -> en:butter - vegan:&nbsp;no - vegetarian:&nbsp;yes - ciqual_proxy_food_code:&nbsp;16400 - percent_min:&nbsp;0 - percent_max:&nbsp;25</li>
-<li><span>eggs</span> -> en:egg - vegan:&nbsp;no - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;22000 - percent_min:&nbsp;0 - percent_max:&nbsp;20</li>
-<li><span>salt</span> -> en:salt - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;11058 - percent_min:&nbsp;0 - percent_max:&nbsp;16.6666666666667</li>
-<li><span>palm oil</span> -> en:palm-oil - vegan:&nbsp;yes - vegetarian:&nbsp;yes - from_palm_oil:&nbsp;yes - ciqual_food_code:&nbsp;16129 - percent_min:&nbsp;0 - percent_max:&nbsp;14.2857142857143</li>
-<li><span>acidifier</span> -> en:acid - percent_min:&nbsp;0 - percent_max:&nbsp;12.5<ol id="ordered_ingredients_list">
-<li><span>citric acid</span> -> en:e330 - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;12.5</li>
+<li><span>Wheat flour</span> -> en:wheat-flour – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_proxy_food_code:&nbsp;9410 – percent_min:&nbsp;11.1111111111111 – percent_max:&nbsp;100</li>
+<li><span>apples</span> -> en:apple – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;13050 – percent_min:&nbsp;0 – percent_max:&nbsp;50</li>
+<li><span>sugar</span> -> en:sugar – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_proxy_food_code:&nbsp;31016 – percent_min:&nbsp;0 – percent_max:&nbsp;33.3333333333333</li>
+<li><span>butter</span> -> en:butter – vegan:&nbsp;no – vegetarian:&nbsp;yes – ciqual_proxy_food_code:&nbsp;16400 – percent_min:&nbsp;0 – percent_max:&nbsp;25</li>
+<li><span>eggs</span> -> en:egg – vegan:&nbsp;no – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;22000 – percent_min:&nbsp;0 – percent_max:&nbsp;20</li>
+<li><span>salt</span> -> en:salt – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;11058 – percent_min:&nbsp;0 – percent_max:&nbsp;16.6666666666667</li>
+<li><span>palm oil</span> -> en:palm-oil – vegan:&nbsp;yes – vegetarian:&nbsp;yes – from_palm_oil:&nbsp;yes – ciqual_food_code:&nbsp;16129 – percent_min:&nbsp;0 – percent_max:&nbsp;14.2857142857143</li>
+<li><span>acidifier</span> -> en:acid – percent_min:&nbsp;0 – percent_max:&nbsp;12.5<ol id="ordered_ingredients_list">
+<li><span>citric acid</span> -> en:e330 – vegan:&nbsp;yes – vegetarian:&nbsp;yes – percent_min:&nbsp;0 – percent_max:&nbsp;12.5</li>
 </ol>
 </li>
-<li><span>raising agent</span> -> en:raising-agent - percent_min:&nbsp;0 - percent_max:&nbsp;11.1111111111111<ol id="ordered_ingredients_list">
-<li><span>sodium bicarbonate</span> -> en:e500ii - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;11.1111111111111</li>
+<li><span>raising agent</span> -> en:raising-agent – percent_min:&nbsp;0 – percent_max:&nbsp;11.1111111111111<ol id="ordered_ingredients_list">
+<li><span>sodium bicarbonate</span> -> en:e500ii – vegan:&nbsp;yes – vegetarian:&nbsp;yes – percent_min:&nbsp;0 – percent_max:&nbsp;11.1111111111111</li>
 </ol>
 </li>
 </ol>
@@ -4042,7 +4080,7 @@ Le score est calculé à partir des données du tableau de la déclaration nutri
                 Impact pour ce produit: B (Score: 60/100)
             </h4>
             
-                <span >Produit : Apple pie - Bob's pies - 100 g</span>
+                <span >Produit : Apple pie – Bob's pies – 100 g</span>
             
             <hr class="floatclear">
         </a>
@@ -5099,7 +5137,7 @@ un outil de la Direction générale de la concurrence, de la consommation et de 
           src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
           alt="open food facts logo"
         />
-        <h3 class="donation-banner-footer__main-title">Merci de contribuer à notre collecte de fonds 2024</h3>
+        <h3 class="donation-banner-footer__main-title">Merci de contribuer à notre collecte de fonds 2025</h3>
       </div>
       <p>Vos dons financent le fonctionnement quotidien de notre association à but non lucratif :</p>
       <ul>
@@ -5236,7 +5274,6 @@ display_product_summary("#product_summary", product);
 <script src="//static.openfoodfacts.localhost/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/product-history.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/off-webcomponents-utils.js"></script>
-<script type="module" src="//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js"></script>
 <script type="text/javascript">
 var page_type = "product";
 var default_preferences = {"ecoscore":"important","nova":"important","nutriscore":"very_important"};

@@ -30,9 +30,9 @@
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/select2.min.css">
     <link rel="search" href="//be-fr.openfoodfacts.localhost/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="Open Food Facts">
+    <script type="module" src="//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js"></script>
 	
     <style media="all">
-        
         .show-when-no-access-to-producers-platform {display:none}
 .hide-when-logged-in {display:none}
 
@@ -85,6 +85,31 @@
 	
 	<div class="skip"><a href="#content" tabindex="0">Aller au contenu</a></div>
 	
+
+	<div id="barcode-scanner-modal" class="modal is_hidden">
+  <div class="modal-backdrop"></div>
+  <div class="modal-content">
+    <div class="modal-header">
+      <span><h2>Scan a product<h2></span>
+      <button class="modal-close-button">&times;</button>
+    </div>
+    <div>
+      <barcode-scanner id="barcode-scanner"></barcode-scanner>
+    </div>
+    <div>
+    </div>
+    <div >
+      <label for="barcode-modal-input">Or enter barcode manually</label>
+      <div class="barcode-modal-group">
+        <input type="text" id="barcode-modal-input" class="barcode-modal-input" inputmode="numeric" pattern="\d*" />
+        <button class="barcode-modal-button button" id="barcode-modal-button" disabled>Scan</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="//static.openfoodfacts.localhost/js/dist/barcode-scanner.js"></script>
+
 
 	<div id="page">
 		
@@ -207,7 +232,7 @@
 					
 					<section class="top-bar-section">
 					
-						<ul class="left small-4" style="margin-right:2rem;">
+						<ul class="left small-4">
 							<li class="search-li">
 							
 								<form action="/cgi/search.pl">
@@ -218,9 +243,22 @@
 									<input name="search_simple" value="1" type="hidden">
 									<input name="action" value="process" type="hidden">
 									</div>
-									<div class="columns">
+									<div class="columns postfix-button-wrapper">
 									<button type="submit" title="Rechercher" class="button postfix" style="line-height:normal"><svg xmlns="//www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon" aria-hidden="true" focusable="false"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></button>
 									</div>
+									<div class="columns postfix-button-wrapper is_hidden">
+  <button
+    type="button"
+    title="Scan a product"
+    class="button barcode-scanner-button"
+    id="barcode-scanner-button"
+  >
+    <svg style="width:24px;height:24px" viewBox="0 0 24 24" class="icon" aria-hidden="true" focusable="false"><path d="M2,6H4V18H2V6M5,6H6V18H5V6M7,6H10V18H7V6M11,6H12V18H11V6M14,6H16V18H14V6M17,6H20V18H17V6M21,6H22V18H21V6Z"/></svg>
+  </button>
+
+  <script src="//static.openfoodfacts.localhost/js/dist/barcode-scanner-button.js"></script>
+</div>
+
 								</div>
 								</div></div>
 								</form>
@@ -341,7 +379,7 @@
       <div class="donation-banner__actions-section__financial">
         <p>
           
-          Chaque don compte ! Nous apprécions votre soutien pour une plus grande transparence alimentaire dans le monde.  
+          Chaque don compte ! Nous apprécions votre soutien pour une plus grande transparence alimentaire dans le monde.
           
         </p>
       </div>
@@ -369,7 +407,7 @@
     let domain = 'domain=.' + getDomain.slice(1).join('.');
     document.cookie = bcname + '=' + bcval + ';' + expires + ';' + domain + ';SameSite=None;Secure;path=/';
   }
-  
+
   function getBannerCookie(bcname) {
     const name = bcname + '=';
     const decodedCookies = decodeURIComponent(document.cookie);
@@ -379,7 +417,7 @@
       while (c.charAt(0) == ' ') { c = c.substring(1); }
       if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
     }
-    
+
     return '';
   }
 
@@ -390,7 +428,7 @@
 
   if (getBannerCookie('off_donation_banner_2024_a') !== '') {
     bannerID.style.display = 'none';
-  } else { 
+  } else {
     bannerID.style.display = 'flex';
   }
 </script>
@@ -546,7 +584,7 @@
 
     
            <div class="panel_text">
-             <ul> <li id="data-error-en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown"> en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown </li> </ul>
+             <ul> <li id="data-error-en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown"> en:Environmental Score origins of ingredients origins are 100 percent unknown <br><span class="description">Origins of ingredients are one of the Environmental Score components. They are currently extracted from the ingredient list and the Origins field.</span> </li> </ul>
            </div>
     
 
@@ -554,6 +592,23 @@
     </div>
 
     
+    </div>
+              <div style="margin-bottom:0.5rem">
+       <div>
+    
+
+    
+
+    
+        <div>
+            <a class="button small action-add_origins"
+                href="/cgi/product.pl?type=edit&code=0200000000135#origins">
+                Ajouter les origines des ingrédients pour ce produit
+            </a>
+        </div>
+    
+
+    </div>
     </div>
 	   	 </div>
 	
@@ -646,7 +701,7 @@
 
     
            <div class="panel_text">
-             <ul> <li id="data-error-en:environmental-score-extended-data-not-computed"> en:environmental-score-extended-data-not-computed </li> <li id="data-error-en:food-groups-1-unknown"> en:Food groups 1 unknown </li> <li id="data-error-en:food-groups-2-unknown"> en:Food groups 2 unknown </li> <li id="data-error-en:food-groups-3-unknown"> en:Food groups 3 unknown </li> <li id="data-error-en:ingredients-percent-analysis-ok"> Analyse des pourcentages d'ingrédients OK </li> </ul>
+             <ul> <li id="data-error-en:environmental-score-extended-data-not-computed"> Environmental Score - Données étendues - Non calculées </li> <li id="data-error-en:food-groups-1-unknown"> en:Food groups 1 unknown </li> <li id="data-error-en:food-groups-2-unknown"> en:Food groups 2 unknown </li> <li id="data-error-en:food-groups-3-unknown"> en:Food groups 3 unknown </li> <li id="data-error-en:ingredients-percent-analysis-ok"> Analyse des pourcentages d'ingrédients OK </li> </ul>
            </div>
     
 
@@ -744,7 +799,7 @@
           src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
           alt="open food facts logo"
         />
-        <h3 class="donation-banner-footer__main-title">Merci de contribuer à notre collecte de fonds 2024</h3>
+        <h3 class="donation-banner-footer__main-title">Merci de contribuer à notre collecte de fonds 2025</h3>
       </div>
       <p>Vos dons financent le fonctionnement quotidien de notre association à but non lucratif :</p>
       <ul>

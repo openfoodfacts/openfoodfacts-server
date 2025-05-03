@@ -47,7 +47,7 @@
           [% IF cc == "fr" %]
           (déductible à 66 % de vos impôts: ex. un don de 20€ vous reviendra à 6,80€)
           [% ELSE %]
-          [% lang("donation_financial_2024_text") %]  
+          [% lang("donation_financial_2024_text") %]
           [% END %]
         </p>
       </div>
@@ -75,7 +75,7 @@
     let domain = 'domain=.' + getDomain.slice(1).join('.');
     document.cookie = bcname + '=' + bcval + ';' + expires + ';' + domain + ';SameSite=None;Secure;path=/';
   }
-  
+
   function getBannerCookie(bcname) {
     const name = bcname + '=';
     const decodedCookies = decodeURIComponent(document.cookie);
@@ -85,7 +85,7 @@
       while (c.charAt(0) == ' ') { c = c.substring(1); }
       if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
     }
-    
+
     return '';
   }
 
@@ -96,7 +96,7 @@
 
   if (getBannerCookie('off_donation_banner_2024_a') !== '') {
     bannerID.style.display = 'none';
-  } else { 
+  } else {
     bannerID.style.display = 'flex';
   }
 </script>
@@ -122,7 +122,7 @@
           src="https://world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
           alt="open food facts logo"
         />
-        <h3 class="donation-banner-footer__main-title">[% lang("donation_title_2024") %]</h3>
+        <h3 class="donation-banner-footer__main-title">[% f_lang("f_donation_title_year", { year => "2025" } ) %]</h3>
       </div>
       <p>[% lang("donation_list_2024_main") %]</p>
       <ul>
