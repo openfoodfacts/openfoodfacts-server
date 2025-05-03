@@ -2271,9 +2271,9 @@ Text to analyze
 									$origin_string =~ s/(?: and )?その他//g;
 								}
 
-								# d'origine végétale -> not a geographic origin, add en:vegan
+								# d'origine végétale -> not a geographic origin, add en:vegetarian
 								if ($origin_string =~ /vegetal|végétal/i) {
-									$vegan = "yes";
+									$vegan = "maybe";
 									$vegetarian = "yes";
 								}
 								else {
@@ -2589,9 +2589,9 @@ Text to analyze
 				if ($ingredient =~ /\b(de origine|d'origine|origine|origin|alkuperä|iz)\s?:?\s?\b/i) {
 					$ingredient = $`;
 					my $origin_string = $';
-					# d'origine végétale -> not a geographic origin, add en:vegan
+					# d'origine végétale -> not a geographic origin, add en:vegetarian
 					if ($origin_string =~ /vegetal|végétal/i) {
-						$vegan = "yes";
+						$vegan = "maybe";
 						$vegetarian = "yes";
 					}
 					else {
@@ -3130,6 +3130,7 @@ Text to analyze
 						$ingredient{vegetarian} = "yes";
 					}
 					if ($labels =~ /\ben:vegetarian\b/) {
+						$ingredient{vegan} = "maybe";
 						$ingredient{vegetarian} = "yes";
 					}
 				}
