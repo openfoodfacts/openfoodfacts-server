@@ -88,10 +88,10 @@ docker/productopener/charts
 docker/logs
 
 # Exclude 3rd party deps, because SonarCloud ignores files in a .gitignore
-# html/js/datatables.*
-# html/js/jquery*
-# html/js/*nivo-zoom*
-# html/js/sigma*
+html/js/datatables.*
+html/js/jquery*
+html/js/*nivo-zoom*
+html/js/sigma*
 
 # coverage data
 /cover_db
