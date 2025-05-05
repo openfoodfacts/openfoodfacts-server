@@ -428,7 +428,7 @@ lint_openapi:
 	@if [ "$(OS)" = "Darwin" ]; then \
 		echo "🥫 Linting OpenAPI is not supported on macOS"; \
 	else \
-		echo "🥫 Linting taxonomies"; \
+		echo "🥫 Linting OpenAPI files"; \
 		docker run --rm -v $$(pwd):/app stoplight/spectral lint -r /app/.spectral.yaml /app/docs/api/ref/api.yml /app/docs/api/ref/api-v3.yml; \
 	fi
 
