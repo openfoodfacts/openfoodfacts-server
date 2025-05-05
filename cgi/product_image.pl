@@ -173,7 +173,6 @@ $template_data_ref->{attribution} = $attribution;
 $template_data_ref->{original_id} = $original_id;
 $template_data_ref->{code} = $code;
 
-
 my $html;
 process_template('web/pages/product/includes/product_image.tt.html', $template_data_ref, \$html) or $html = '';
 $html .= "<p>" . $tt->error() . "</p>";
