@@ -595,7 +595,7 @@ ro: E120, Coșenilă, acid carminic, carmine, Acidului carminic, carmin
 ru: E120, Кошениль, карминовая кислота, кармин, кармины
 sh: E120, Carmine
 sk: E120, Košenila, kyselina karmínová, karmíny
-sl: E120, Košenilja, karminska kislina, karmini
+sl: E120, Košenilja, karminska kislina, karmini, karmin
 sv: E120, Karmin, karminsyra, E 120
 th: E120, ชาดลิ้นจี่
 tr: E120, Karmin
@@ -1317,14 +1317,14 @@ bg: E141, E141 food additive
 ca: E141, Complexos cúprics de clorofil i clorofilines
 cs: E141, E141 food additive
 da: E141, E141 food additive
-de: E141, Kupferhaltigen Komplexe der Chlorophylle und Chlorophylline
+de: E141, Kupferhaltigen Komplexe der Chlorophylle und Chlorophylline, Kupferhaltige Komplexe der Chlorophylle und Chlorophylline
 el: E141, E141 food additive
 es: E141, Complejos cúpricos de clorofilas y clorofilinas
 et: E141, E141 food additive
 fi: E141, Klorofylliinikuparikompleksit ja Klorofylli-kuparikompleksi, Klorofylli-kuparikompleksia ja Klorofylliinikuparikomplekseja
 fr: E141, Complexe cuivrique des chlorophylles et des chlorophyllines
 hr: E141  bojilo bakreni kompleksi klorofila i klorofilina, bakreni kompleksi klorofila i klorofilina, klorofili i bakreni kompleksi klorofilina
-hu: E141, Klorofillok és klorofillinek rézkomplexei
+hu: E141, Klorofillok és klorofillinek rézkomplexei, klorofill-rezkomplexek és klorofillin-rézkomplexek
 it: E141, Complessi rameici delle clorofille e delle clorofilline, Complessi rameici della clorofilla e delle clorofilline
 lt: E141, E141 food additive
 lv: E141, E141 food additive
@@ -1333,8 +1333,9 @@ nl: E141, Kopercomplexen van chlorophyllen
 pl: E141, Kompleksy miedziowe chlorofili i chlorofilin
 pt: E141, E141 food additive
 ro: E141, Complexe de cupru ale clorofilelor și clorofilinei
+rs: E141, bakreni kompleksi klorofila i klorofilina
 sk: E141, E141 food additive
-sl: E141, E141 food additive
+sl: E141, E141 food additive, bakrovi kompleksi klorofilov in klorofilinov
 sv: E141, E141 food additive
 additives_classes:en: en:colour
 anses_additives_of_interest:en: yes
@@ -1760,7 +1761,7 @@ ro: E150d, Caramel cu sulfit de amoniu
 ru: E150d, карамель сульфата аммиака, сахарный колер IV, краситель сахарный-колер, краситель сахарный колер
 sk: E150d, Amoniak-sulfitový karamel
 sl: E150d, Amonijev sulfitni karamel
-sv: E150d, ammoniaksulfitprocessen
+sv: E150d, ammoniaksulfitprocessen, sockerkulör E150d
 tr: E150d, Sülfit amonyak karamel
 additives_classes:en: en:colour
 anses_additives_of_interest:en: yes
@@ -2215,7 +2216,7 @@ vegetarian:en: yes
 en: E160b, Annatto, bixin, norbixin, roucou, achiote, annatto norbixin, annatto bixin, Orlean, Terre orellana, L. Orange, CI Natural Orange 4
 xx: E160b
 ar: E160b, أناتو
-bg: E160b, Анато, биксин, норбиксин (i), БИКСИН И НОРБИКСИН
+bg: E160b, Анато, биксин, норбиксин (i), БИКСИН И НОРБИКСИН, анато норбиксин
 ca: E160b, Arxiota, Bixina, norbixina de bixa, norbixina
 cs: E160b, Annatto, bixin, norbixin
 da: E160b, Annatto, Annattoekstrakter (bixin og norbixin), Annattoekstrakter, Bixin, Norbixin
@@ -7428,7 +7429,7 @@ mt: E307b, tokoferol konċentrat
 nl: E307b, geconcentreerde tocoferol
 pl: E307b, skoncentrowany tokoferol
 pt: E307b, tocoferol concentrado
-ro: E307b, tocoferol concentrat
+ro: E307b, tocoferol concentrat, concentrat de tocoferol
 sk: E307b, koncentrovaný tokoferol
 sl: E307b, koncentriran tokoferol
 sv: E307b, koncentrerad tokoferol
@@ -9493,7 +9494,7 @@ e_number:en: 339
 wikidata:en: Q3249706
 wikipedia:en: https://en.wikipedia.org/wiki/Trisodium_phosphate
 
-# the E340 family contains 
+# the E340 family contains
 #   E515(i): Monopotassium phosphate,
 #   E515(ii): Dipotassium phosphate,
 #   E515(iii): Tripotassium phosphate
@@ -16397,7 +16398,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q18601524
 
-# the E500 family contains 
+# the E500 family contains
 #   E500(i): Sodium carbonate,
 #   E500(ii): Sodium hydrogen carbonate,
 #   E500(iii): Sodium sesquicarbonate
@@ -16426,7 +16427,7 @@ nl: E500, Natriumcarbonaten
 nn: E500, natriumkarbonater
 pl: E500, Węglany sodu
 pt: E500, Carbonatos de sódio
-ro: E500, Carbonati de sodiu
+ro: E500, Carbonati de sodiu, carbonați de sodiu
 ru: E500, Карбонаты натрия
 sk: E500, Uhličitany sodné
 sl: E500, Natrijevi karbonati
@@ -16585,7 +16586,7 @@ sl: E500(ii), Natrijev hidrogenkarbonat, natrijev bikarbonat, kisli natrijev kar
 so: E500(ii), Saadiyom bicarbonate
 sq: E500(ii), Bikarbonati i natriumit
 sr: E500(ii), натријум хидрогенкарбонат
-sv: E500(ii), Natriumvätekarbonat, Natriumbikarbonat, surt natriumkarbonat, bikarbonat av soda
+sv: E500(ii), Natriumvätekarbonat, Natriumbikarbonat, surt natriumkarbonat, bikarbonat av soda, bikarbonat
 sw: E500(ii), Magadi
 ta: E500(ii), சமையல் சோடா
 te: E500(ii), సోడియం బైకార్బొనేట్
@@ -16665,7 +16666,7 @@ organic_eu:en: authorized
 wikidata:en: Q2234978
 # additive/e500iii-sodium-sesquicarbonate has 6 products in french @2018-12-10
 
-# the E501 family contains 
+# the E501 family contains
 #   E501(i): Potassium carbonate,
 #   E501(ii): Potassium hydrogen carbonate
 # put plural for E501 and singular for E501(i)
@@ -16864,7 +16865,7 @@ vegetarian:en: yes
 
 
 
-# the E503 family contains 
+# the E503 family contains
 #   E503(i): Ammonium carbonate,
 #   E503(ii): Ammonium hydrogen carbonate
 # put plural for E503 and singular for E503(i)
@@ -17505,7 +17506,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q4118
 
-# the E514 family contains 
+# the E514 family contains
 #   E514(i): Sodium sulphate,
 #   E514(ii): Sodium hydrogen sulphate
 # put plural for E514 and singular for E514(i)
@@ -24449,6 +24450,7 @@ es: E966, Lactitol, Lactita, lactositol, E 966
 et: E966, Laktitool, Laktiit, laktositool
 fi: E966, Laktitoli, Laktiitti, laktositoli, Laktitolia, Laktiittia, laktositolia
 fr: E966, Lactitol, Lactite, lactositol, E 966, 585-86-4
+hr: E966, laktitol
 hu: E966, Laktit, Laktit, Laktozit, Laktitol
 it: E966, Lactitolo, Lactite, lactositolo, Lattitolo
 lt: E966, Laktitolis, Laktitas, laktozitolis
@@ -25054,7 +25056,7 @@ xx: E1200
 bg: E1200, Полидекстроза
 ca: E1200, Polidextrosa
 cs: E1200, Polydextrosa
-da: E1200, Polydextrose
+da: E1200, Polydextrose, polydekstrose
 de: E1200, Polydextrose
 el: E1200, Πολυδεξτροζη
 es: E1200, Polidextrosa
@@ -26594,7 +26596,6 @@ da: ammonium - og natriumcarbonat
 de: Ammonium und Natriumcarbonat
 fi: ammonium- ja natriumkarbonaatit
 fr: carbonates d'ammonium et de sodium
-hr: amonijev bikarbonat
 it: carbonati di ammonio e di sodio
 lt: kildinimo medžiaga amonio karbonatas
 nl: ammonium- en natriumcarbonaten, ammonium carbonaten en natrium
