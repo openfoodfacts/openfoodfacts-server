@@ -520,3 +520,41 @@ Finally, run this to allow .envrc:
 ```console
 direnv allow
 ```
+
+### Error 502 Bad Gateway - nginx/X.XX.X
+
+**Solution:**
+
+Reason for the error: 
+The backend container is crashing in a loop because Apache cannot write to /var/log/apache2/error.log (permission denied).
+
+
+To solve we're going to launch a temporary container with root privileges to fix this manually.
+
+Launch a temporary container with root access:
+```console
+sudo docker compose run --rm --user root backend bash
+```
+
+Create and unlock the Apache logs directory:
+```console
+mkdir -p /var/log/apache2
+chmod -R 777 /var/log/apache2
+```
+
+Exit the container:
+```console
+exit
+```
+
+Restart the backend container:
+```console
+sudo docker compose up -d backend
+```
+
+Check its status:
+```console
+sudo docker compose ps
+```
+
+You should see the backend container with a status of up.
