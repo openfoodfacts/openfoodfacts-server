@@ -2648,7 +2648,7 @@ Text to analyze
 				# If we do, remove the label from the ingredient and add the label to labels
 				if (defined $labels_regexps{$ingredients_lc}) {
 					# start with uncomposed labels first, so that we decompose "fair-trade organic" into "fair-trade, organic"
-					foreach my $labelid (reverse @labels) {                        
+					foreach my $labelid (reverse @labels) {
 						my $regexp = $labels_regexps{$ingredients_lc}{$labelid};
 						#$debug_ingredients and $log->trace("checking labels regexps",
 						#	{ingredient => $ingredient, labelid => $labelid, regexp => $regexp})
