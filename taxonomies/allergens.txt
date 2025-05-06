@@ -64,7 +64,7 @@ is: glúten
 it: glutine, grano, segale, orzo, farro, kamut, frumento, farina di frumento, farina di frumento integrale
 ja: 小麦/そば, 小麦, 穀物, グルテン, コムギ, そば, ソバ
 lt: avižos, avižų, avižiniai, avižinės, glitimas, glitimo, glitimu, kamutas, kviečiai, kviečių, kvietiniai, kvietinės, miežiai, miežių, miežiniai, miežinės, rugiai, ruginiai, ruginės, rugių, spelta, manų
-lv: auzas, auzu, kvieši, kviešu, lipekli, manna, mieži, miežu, rudzi, speltas kvieši, triticum turgidum polonicum
+lv: auzas, auzu, kvieši, kviešu, lipekli, manna, mieži, miežu, rudzi, speltas kvieši, triticum turgidum polonicum, satur lipekli saturošus graudaugus
 mt: glutina, qamħ, segala, barli, ħafur, ispelt, kamut
 nb: gluten, hvete, durumhvete, hvetemel, spelt, rugmel, fullkornshvete, fullkornshvetemel, havre, havremel, havregryn, bygg, rug, rugklimel, hvetestivelse, hveteflak, havreflak, havrekli, rugflak, hvetekli, hvetegluten, byggmalt, byggmaltmel, byggmaltekstrakt, hvetemalt, hvetemaltmel kornslag som indeholder gluten, hvetekornet, paneringsmel, speltkli
 nl: gluten, tarwe, rogge, gerst, haver, spelt, kamut, tarwemeel, volkorentarwemeel, tarwezetmeel, tarwebloem
@@ -115,7 +115,7 @@ en: eggs, egg, barn egg, egg whites, egg white, egg yolks, egg yolk, whole eggs,
 ar: بيض, بيضة
 bg: яйца, яйце
 bs: jaja
-cs: vejce
+cs: vejce, vajec
 da: æg, aeg, æggeblomme, æggehvide, æggehvider, æggehvidepulver
 de: Eier, Eiern, Ei, Eigelb, Eigelbpulver, Eiklar, Eiklarpulver, Eipulver, Hühnerei, Hühnereier, Hühnerei-Trockeneiweiß, Hühnereiweiß, Hühnereieiweiß, Hühnereieigelb, Hühnervollei, Hühnervolleipulver, Hühnereieiweißpulver, Hühnereigelbpulver, Hühnerei-Eiweiß, Vollei, Volleipulver, Frischei, Hühnerei-Eiweißpulver, Hühnerei-Eiweisspulver, Hühnereiklarpulver, Hühnereigelb, Hühnertrockeneiweiß, Hühnertrockeneiweiss, Hühnertrockeneieiweiß, Hühnertrockeneieiweiss, Hühnereiklar, Eiweiß, Eiweiss, Hühnereiweißpulver, Hühnereiweisspulver
 el: αυγά, αυγό
@@ -126,7 +126,7 @@ fr: œufs, œuf, oeufs, oeuf, blanc d'oeuf, jaune d'oeuf, blanc d'œuf, jaune d'
 ga: uibheacha, ubh
 he: ביצים, ביצה, חלמון, חלבון, הלבן של הביצה, הצהוב של הביצה
 hr: jaja, bjelanjak, bjelanjka jajeta, žumanjak, iz jaja
-hu: tojás, tojássárgája, tojásfehérje, tojáspor, tyúktojás, tojássárgájapor, tojáslé
+hu: tojás, tojássárgája, tojásfehérje, tojáspor, tyúktojás, tojássárgájapor, tojáslé, tojást
 it: uova, uovo
 ja: 卵, 玉子, たまご, タマゴ, エッグ, 鶏卵, あひる卵, うずら卵
 lt: kiaušiniai, kiaušinis, kiaušinių, kiaušinio, kiaušinio baltymas, kiaušinio baltymai, kiaušinio trynys, kiaušinio tryniai
@@ -233,7 +233,7 @@ fr: arachides, arachide, cacahuètes, cacahuète, cacahouètes, cacahouète, ara
 ga: piseanna, arachis hypogaea
 he: בוטנים
 hr: kikiriki, kikirikija, orašide, orašida
-hu: földimogyoró, arachis hypogaea
+hu: földimogyoró, földimogyorót, arachis hypogaea
 it: arachidi, arachis hypogaea
 ja: 落花生, ラッカセイ, ピーナッツ
 lt: žemės riešutai, žemės riešutų, arachis hypogaea
@@ -278,13 +278,13 @@ mt: soybeans
 nb: soya, soyabønner, soyamel, soyalecitin, soyalecitiner
 nl: soja, sojalecithine, sojaeiwitten, sojabonen
 nl_be: soja, sojalecithine, sojaeiwitten, sojabonen
-pl: soja, lecytyna sojowa, soi, lecytyny z soi, sojowa, sojowe, sojowy, soję
+pl: soja, soje, lecytyna sojowa, soi, lecytyny z soi, sojowa, sojowe, sojowy, soję
 pt: soja, sementes de soja, grão de soja, lecitina de soja
 ro: soia, lecitină din soia
 ru: соя, соевые бобы
-sk: sójové bôby, sójové, sója, sóje, sójových bôbov
+sk: sójové bôby, sójové, sója, sóje, sóju, sójových bôbov
 sl: zrnja soje, zrnje soje, soje, sojo
-sr: soja, sojin, sojino, sojin lecitin, sojino brašno
+sr: soja, soje, sojin, sojino, sojin lecitin, sojino brašno
 sv: soja, sojabönor, sojalecitin, sojabönolja, sojaprotein, sojasås, sojamjöl
 th: ถั่วเหลือง
 zh: 大豆类制品, 黄豆，大豆，酱油
@@ -292,7 +292,7 @@ zh: 大豆类制品, 黄豆，大豆，酱油
 en: milk, lactose, whey, dairy, butter, buttermilk, cream, yogurt, cheese, yoghurt, parmigiano reggiano, grana padano, milk chocolate coating, milk powder, milk protein
 ar: حليبب, لاكتوز
 bg: суроватка, млечна, мляко, лактоза, млечни продукти
-cs: mléko, laktózy
+cs: mléko, laktózy, mléka
 da: mælk, laktose, mælkepulver, skummetmælk, skummetmælkspulver, sødmælk, sødmælkspulver, komælk, fløde, piskefløde, mælkefedt, mælkeproteiner, mælkesukker, vallepulver, kærnemælk, letmælk, ost, emmentaler, cheddarost, ostepuler
 de: Milch, Bergkäse, Blauschimmelkäse, Butter, Buttermilch, Buttermilchpulver, Butterreinfett, Camembert, Cheddar, Edamer, Edamer-Käse, Emmentaler, Frischkäse, Gorgonzola, Gouda, Hartkäse, Joghurt, Joghurtpulver, Käse, Käsepulver, Kondensmilch, Kuhmilch, Kuhvollmilch, Laktose, Rohmilch, Milchzucker, Milcheiweiß, Milchpulver, Milcherzeugnisse, Milcherzeugnissen, Magermilchpulver, Magermilchjoghurt, Magermilchkonzentrat, Magermilchjoghurtpulver, Magermilch, Magerquark, Molkenpulver, Molkenerzeugnis, Molkeneiweißkäse, Milchschokolade, Mozzarella, Pecorino, Quark, Ricotta, Speisequark, Sahne, Sahnepulver, Sahnejoghurt, Sauermilchquark, Sauerrahm, Rahm, Rahmjoghurt, Sauermilch, Sauerrahmpulver, Schlagsahne, Süssmolkenpulver, Süßmolkenpulver, Vollmilch, Vollmilchschokolade, Vollmilchpulver, Ziegenmilch, Süßmolke, Süssmolke, Butterfett, Kondensmagermilch, Joghurterzeugnis, Schafsmilch, Schafmilch, Käsereimilch, Milchfett, Milchprotein, Molke, Sauermolke, Molkeneiweiß, Molkeneiweiss, Molkepulver, Milcheiweißerzeugnis, Milcheiweisserzeugnis, Magermilchpulverzusatz, Molkenprotein, Buttereinfett, Süßmolkepulver, Süssmolkepulver, Vollmilchschokoladeüberzug, Milchbestandteilen, Milchprodukten, Milchprodukt, weiteren Milchprodukten
 el: γάλα, λακτόζης
@@ -326,7 +326,7 @@ zh: 乳, 乳糖, 奶油, 鮮奶油, 忌廉, 黃油, 奶油, 牛油
 
 en: nuts, almonds, hazelnuts, walnuts, cashews, cashew, pecan nuts, pecan, Brazil nuts, pistachio nuts, pistachio, macadamia, Macadamia nuts, Queensland nuts, tree nuts, treenuts, other nuts, other tree nuts
 ar: بندقة, الكاجو, المكاداميا, الفستقجوز, لوز
-bg: ядки, бадеми, лешници, орехи, кашу, пеканови ядки, бразилски орехи, шамфъстък, орехи макадамия, орехи Куинсленд
+bg: ядки, бадеми, лешници, орехи, кашу, пеканови ядки, бразилски орехи, шамфъстък, орехи макадамия, орехи Куинсленд, други ядки
 bs: bademe, lešnike
 cs: skořápkové plody, skořápko plodů, skořápkových plodů, mandle, lískové ořechy, vlašské ořechy, kešu ořechy, pekanové ořechy, para ořechy, pistácie, makadamie
 da: nødder, mandel, mandler, hasselnød, hasselnødder, valnødder, cashewnødder, pekannødder, paranødder, pistacienød, pistacienødder, queenslandnødder, macadamianødder, andre nødder
@@ -339,7 +339,7 @@ fr: fruits à coque, amandes, noisettes, noix, noix de cajou, noix de pécan, no
 ga: cnónna, almóinní, cnónna coill, gallchnónna, cnónna caisiú, cnónna peagáin, cnónna Brasaíleacha, cnónna pistéise, cnónna macadaíme, cnónna Thír na Banríona
 he: אגוזים, שקדים, פקאן, אגוז ברזיל, אגוז מלך, פיסטוק, קשיו, ערמונים, מקדמיה
 hr: orašaste plodove, orašastih plodova, orašasto voće, orašasto voče, orašastog voća, ostalih orašastih plodova, ostalo orašasto voće, ostalog orašastog voća, drugo orašasto voće, drugog orašastog voća, badem, badema, bademe, bademi, lješnjak, lješnjaka, lješnjake, lješnjaci, pistacije, drugih orašastih plodova, druge orašaste plodove, orah, orah jezgra, orahe, i ljuske orašastog voća te koštice, i ljeske orašastog voća te koštice, i ostale orašaste plodove
-hu: diófélék, mandula, mogyoró, dió, kesudió, pekándió, brazil dió, pisztácia, makadámia, queenslandi dió, dióféléket
+hu: diófélék, mandula, mogyoró, dió, kesudió, pekándió, brazil dió, pisztácia, makadámia, queenslandi dió, dióféléket, egyéb dióféléket
 is: hnetur
 it: frutta a guscio, mandorle, nocciole, noci, noci di acagiù, noci di pecan, noci del Brasile, pistacchi, noci macadamia, noci del Queensland
 ja: くるみ/アーモンド, くるみ, 種実類, 木の実, 木の実類, アーモンド, ヘーゼルナッツ, クルミ, カシューナッツ, ペカン, ブラジルナッツ, ピスタチオ, マカダミアナッツ
@@ -349,13 +349,13 @@ mt: ġewż, lewż, ġellewż, ġewż, anakardji, ġewż Amerikan, ġewż tal-Bra
 nb: nøtter, andre nøtter, andre typer nøtter, mandel, mandler, hasselnøtt, hasselnøtter, hasselnøttpasta, hasselnøttmasse, hasselnøttkjerner, kasjunøtt, kasjunøtter, cashewnøtt, cashewnøtter, pistasjnøtt, valnøtt, valnøtter, paranøtt, paranøtter
 nl: noten, amandelen, hazelnoten, walnoten, cashewnoten, pecannoten, paranoten, pistachenoten, macadamianoten, amandel, hazelnoot, walnoot, cashewnoot, pecannoot, paranoot, pistache, pistachenoot, macadamia, macadamianoot
 nl_be: noten, amandelen, hazelnoten, walnoten, cashewnoten, pecannoten, paranoten, pistachenoten, macadamianoten, amandel, hazelnoot, walnoot, cashewnoot, pecannoot, paranoot, pistache, pistachenoot, macadamia, macadamianoot
-pl: orzechy, migdały, orzechy laskowe, orzechy włoskie, orzechy nerkowca, orzeszki pekan, orzechy brazylijskie, pistacje, orzechy pistacjowe, orzechy makadamia, orzechy Queensland, inne orzechy, podobne typy orzechy
+pl: orzechy, migdały, orzechy laskowe, orzechy włoskie, orzechy nerkowca, orzeszki pekan, orzechy brazylijskie, pistacje, orzechy pistacjowe, orzechy makadamia, orzechy Queensland, inne orzechy, podobne typy orzechy, łuskane
 pt: nozes, frutos de casca rija, amêndoas, avelãs, castanhas de caju, nozes pécan, castanhas do Brasil, pistácios, pistáchios, nozes de macadâmia, nozes do Queensland
 ro: fructe cu coajă lemnoasă, migdale, alune de pădure, nuci, nuci Caju, nuci Pecan, nuci de Brazilia, fistic, nuci de macadamia, nuci de Queensland, alte fructe cu coajă lemnoasă
 ru: орехи, миндаль, кешью, пекан, бразильский орех, макадамия, фисташки, орехи Куинсленд
 sk: orechy, mandle, Amygdalus communis L., lieskové oriešky, Corylus avellana, vlašské orechy, Juglans regia, kešu oriešky, Anacardium occidentale, pekanové orechy, Carya illinoinensis, brazílske orechy, Bertholletia excelsa, pistáciové oriešky, Pistacia vera, makadamové orechy, queenslandské orechy, Macadamia ternifolia
-sl: oreški, mandlji, lešniki, orehi, indijski oreščki, ameriški orehi, brazilski oreščki, pistacija, makadamija, orehi Queensland
-sr: jezgrasto voće, orasi, badem, badema, bademi, indijski orah, indijski orasi, pekan, pekan orasi, pistaći, makadamija
+sl: oreški, mandlji, lešniki, lešnike, orehi, indijski oreščki, ameriški orehi, brazilski oreščki, pistacija, makadamija, orehi Queensland, drugih oreškov
+sr: jezgrasto voće, orasi, badem, badema, bademi, indijski orah, indijski orasi, pekan, pekan orasi, pistaći, makadamija, ostalog jezgrastog voća
 sv: nötter, notter, mandel, mandlar, hasselnöt, hasselnötter, hasselnötshalvor, valnöt, valnötter, cashewnöt, cashewnötter, pekannöt, pekannötter, paranöt, paranötter, pistachnöt, pistagenöt, pistagenötter, pistaschmandel, makadamianöt, makadamianötter, macadamianöt, macadamianötter, Queenslandsnöt, Queenslandsnötter, hasselnötssmör, andra nötter
 th: อัลมอนด์
 zh: 坚果, 扁桃仁, 坚果, 杏仁, 扁桃仁, 腰果, 榛子, 核桃, 松子, 榛仁, 核桃=核桃仁, 松子=松仁, 开心果=阿月浑子, 板栗, 白果, 银杏果, 开心果, 夏威夷果, 碧根果
@@ -507,7 +507,7 @@ zh: 二氧化硫和亚硫酸盐, 二氧化硫，亚硫酸盐
 en: lupin, lupine
 ar: ترمس
 bg: лупина
-cs: vlčí bob, lupina
+cs: vlčí bob, vlčího bobu, lupina
 da: lupin
 de: Lupinen, Lupinenmehl, Süßlupinenmehl
 el: λούπινο
