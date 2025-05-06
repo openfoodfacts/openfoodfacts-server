@@ -93,7 +93,7 @@ synonyms:it: senza, 0%, zero
 synonyms:nl: zonder, 0%
 synonyms:pt: sem, 0%, livre de, zero
 synonyms:ru: без, 0%, 0 %
-synonyms:sv: utan, ingen, inget, noll, 0%
+synonyms:sv: utan, inga, ingen, inget, noll, 0%
 
 synonyms:fi: lisätty
 synonyms:fr: ajout, adjonction
@@ -174,6 +174,7 @@ web:en: https://www.onepercentfortheplanet.org/
 en: 100% natural
 xx: 100% natural
 bg: 100% натурално
+da: 100% naturlig
 de: 100% natürlich
 fi: 100% luonnollinen, 100% luontainen
 fr: 100% naturel
@@ -184,6 +185,7 @@ it: 100% naturale
 nl: 100% natuurlijk
 pt: 100% natural, cem por cento natural, cem porcento natural
 ru: 100% натуральное, 100% натуральный, 100% натуральная, 100% натуральные, 100% натуральный продукт, натуральный продукт
+sv: 100% naturlig, 100% naturligt, 100% naturliga
 th: ธรรมชาติ 100%
 tr: %100 doğal
 
@@ -198,11 +200,13 @@ it: 100% vegetale
 nl: 100% plantaardig
 pt: 100% vegetal, cem por cento vegetal, cem porcento vegetal
 ru: 100% овощной
+sv: 100% växtbaserad
 th: ใช้น้ำมันพืช 100%
 tr: %100 sebze
 
 en: Not hardened
 ca: Sense endurir
+da: uhærdet
 de: ungehärtet
 es: No endurecido
 fi: kovettamaton, ei kovetettu
@@ -1333,6 +1337,8 @@ en: No wheat, without wheat, Wheat-free
 bg: Без пшеница
 de: Ohne Weizen
 es: Sin trigo, libre de trigo
+fr: Sans blé
+it: Senza frumento
 nl: Zonder graan
 pt: Sem trigo, livre de trigo, 0% trigo
 
@@ -1427,6 +1433,7 @@ image:en: apc-novo-logo.178x90.png
 en: Contains gluten
 bg: Съдържа глутен
 ca: Conté gluten
+da: Indeholder gluten
 de: Enthält Gluten
 es: Contiene gluten
 fi: sisältää gluteenia
@@ -1463,6 +1470,13 @@ fr: Association canadienne de la maladie cœliaque - Sans gluten
 
 en: Grain Free
 fr: Sans grains, sans graines
+
+# Is this synonymous with en:Grain Free?
+en: Seedless
+de: kernlose
+hr: bez sjemenki
+it: senza semi
+sv: utan kärnor, kärnfri, kärnfria
 
 nl: Korst is niet eetbaar
 
@@ -1672,11 +1686,12 @@ fr: Riche en fibres, Naturellement riches en fibres
 he: עתיר בסיבים תזונתיים
 hr: visoko obogaćena vlaknima
 hu: Rostokban gazdag, Magas rosttartalmú
-it: Ricco di fibre
+it: Ricco di fibre, Ad alto contenuto di fibre
 nb: Fiberrik, rik på fiber
 nl: Vezelrijk, Rijk aan vezels
 pl: wysoka zawartość błonnika
 pt: Rico em fibras, teor elevado de fibras, teor elevado em fibras, alto teor em fibra, alto teor em fibras
+ro: Високо съдържание на хранителни влакнини
 ru: Обогащено клетчаткой
 sv: Fiberrik, Rik på fiber
 th: ใยอาหารสูง
@@ -1696,25 +1711,27 @@ wikidata:en: Q191756
 < en:Omega-3
 en: source of omega-3, source of omega-3 fatty acids
 xx: source of omega-3
+bg: Натурален източник на омега-3 мастни киселини
 it: sorgente di omega 3, sorgente di omega-3, sorgente di omega3
 description:en: In EU, a claim that a food is a source of omega-3 may only be made where the product contains at least 0,3 g alpha-linolenic acid per 100 g and per 100 kcal, or at least 40 mg of the sum of eicosapentaenoic acid and docosahexaenoic acid per 100 g and per 100 kcal. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
 < en:Omega-3
 en: High in Omega 3, Rich in Omega 3, high omega-3 fatty acids
 xx: High in Omega 3
-bg: Богато на Омега-3
+bg: Богато на Омега-3, Натурално високо съдържание на омега-3 мастни киселини
 ca: Alt en Omega 3, Ric en Omega 3
 de: Hoher Omega-3-Gehalt
 es: Rico en Omega 3, Alto en Omega 3
 fi: runsaasti omega-3-rasvahappoja, paljon omega-3-rasvahappoja
 fr: Riche en Oméga-3, Riche en omega 3, Riche en acide gras omega 3
 he: עשיר באומגה 3
-hr: visoka vsebnost omega-3 maščob, izvor omega-3 masnih kiselina
+hr: visoka vsebnost omega-3 maščob, izvor omega-3 masnih kiselina, bogato omega-3 masnim kiselinama
 hu: Omega-3 zsírsavakban gazdag
 it: Alto contenuto di Omega 3, ricco di omega 3
 nl: Rijk aan Omega 3
 pt: Rico em Ómega 3, Rico em Ómega-3
 ru: Обогащено омега-3 жирами
+sr: Bogata Omega-3 masnim kiselinama
 description:en: In EU, a claim that a food is high in omega-3 may only be made where the product contains at least 0,6 g alpha-linolenic acid per 100 g and per 100 kcal, or at least 80 mg of the sum of eicosapentaenoic acid and docosahexaenoic acid per 100 g and per 100 kcal. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
 en: high monounsaturated fat
@@ -1747,7 +1764,7 @@ description:en: In EU, a claim that a food is high in unsaturated fat may only b
 
 en: Source of proteins, source of protein, good source of protein
 xx: Source of proteins
-bg: Източник на белтъчини
+bg: Източник на белтъчини, Натурален източник на белтък
 ca: Font de proteïna
 de: proteinquelle
 es: Fuente de proteínas
@@ -1763,6 +1780,7 @@ description:en: In EU, a claim that a food is a source of protein may only be ma
 en: High proteins, high protein content
 xx: High proteins
 ca: Alt en proteïnes
+da: Proteinrig
 de: Proteinreich, hoher Eiweissgehalt
 es: Alto en proteinas, Rico en Proteinas
 fi: Runsasproteiininen, Paljon proteiineja, Proteiinipitoinen, Runsaasti proteiinia
@@ -2123,6 +2141,7 @@ sv: Kalciumberikat, Berikad med kalcium
 
 en: Enriched with vitamins
 ca: Enriquit amb vitamines
+da: Beriget med vitaminer
 de: Mit Vitaminen angereichert
 es: Enriquecido con vitaminas
 fi: Vitaminoitu, Lisätty vitamiineja
@@ -2153,6 +2172,7 @@ en: Enriched with vitamin B12
 sv: Berikad med vitamin B12
 
 en: Enriched with minerals
+da: Beriget med mineraler
 fi: Lisätty kivennäisaineita
 fr: Enrichi en minéraux
 hu: Ásványi anyagokkal dúsított
@@ -2432,6 +2452,7 @@ label_categories:en: en:quality, en:Origins, en:Geographic label
 web:hr: https://www.kaufland.hr/asortiman/nase-najbolje-pase.html
 
 en: producer labels, labels of producers
+da: producentmærkater
 es: etiqueta de productor
 fr: label de producteur
 hr: oznaka proizvođača
@@ -2514,6 +2535,7 @@ th: ลดไขมัน
 < en:Reduced fat
 en: 10% less fat
 bg: 10% по-малко мазнини
+da: 10% mindre fedt
 de: 10% weniger Fett
 es: 10% menos de grasa
 fi: 10% vähemmän rasvaa
@@ -2527,6 +2549,7 @@ pt: 10% menos de gordura, 10% menos de gorduras
 < en:Reduced fat
 en: 15% less fat
 bg: 15% по-малко мазнини
+da: 15% mindre fedt
 de: 15% weniger Fett
 es: 15% menos de grasa
 fi: 15% vähemmän rasvaa
@@ -2541,6 +2564,7 @@ pt: 15% menos de gordura, 15% menos de gorduras
 en: 20% less fat
 bg: 20% по-малко мазнини
 ca: 20% menys greix
+da: 20% mindre fedt
 de: 20% weniger Fett
 es: 20% menos de grasa
 fi: 20% vähemmän rasvaa
@@ -2553,6 +2577,7 @@ pt: 20% menos de gordura, 20% menos de gorduras
 < en:Reduced fat
 en: 25% less fat
 bg: 25% по-малко мазнини
+da: 25% mindre fedt
 de: 25% weniger Fett
 es: 25% menos de grasa
 fi: 25% vähemmän rasvaa
@@ -2566,6 +2591,7 @@ pt: 25% menos de gordura, 25% menos de gorduras
 en: 30% less fat
 bg: 30% по-малко мазнини
 ca: Amb el 30% menys de greix
+da: 30% mindre fedt
 de: 30% weniger Fett
 es: 30% menos de grasa
 fi: 30% vähemmän rasvaa
@@ -2578,6 +2604,7 @@ pt: 30% menos de gordura, 30% menos de gorduras
 < en:Reduced fat
 en: 35% less fat
 bg: 35% по-малко мазнини
+da: 35% mindre fedt
 de: 35% weniger Fett
 es: 35% menos de grasa
 fi: 35% vähemmän rasvaa
@@ -2591,6 +2618,7 @@ pt: 35% menos de gordura, 35% menos de gorduras
 < en:Reduced fat
 en: 40% less fat
 bg: 40% по-малко мазнини
+da: 40% mindre fedt
 de: 40% weniger Fett
 es: 40% menos de grasa
 fi: 40% vähemmän rasvaa
@@ -2604,6 +2632,7 @@ pt: 40% menos de gordura, 40% menos de gorduras
 < en:Reduced fat
 en: 45% less fat
 bg: 45% по-малко мазнини
+da: 45% mindre fedt
 de: 45% weniger Fett
 es: 45% menos de grasa
 fi: 45% vähemmän rasvaa
@@ -2616,6 +2645,7 @@ pt: 45% menos de gordura, 45% menos de gorduras
 < en:Reduced fat
 en: 50% less fat
 bg: 50% по-малко мазнини
+da: 50% mindre fedt
 de: 50% weniger Fet
 es: 50% menos de grasa
 fi: 50% vähemmän rasvaa
@@ -2629,6 +2659,7 @@ pt: 50% menos de gordura, 50% menos de gorduras
 < en:Reduced fat
 en: 55% less fat
 bg: 55% по-малко мазнини
+da: 55% mindre fedt
 de: 55% weniger Fet
 es: 55% menos de grasa
 fi: 55% vähemmän rasvaa
@@ -2642,6 +2673,7 @@ pt: 55% menos de gordura, 55% menos de gorduras
 < en:Reduced fat
 en: 60% less fat
 bg: 60% по-малко мазнини
+da: 60% mindre fedt
 de: 60% weniger Fett
 es: 60% menos de grasa
 fi: 60% vähemmän rasvaa
@@ -2655,6 +2687,7 @@ pt: 60% menos de gordura, 60% menos de gorduras
 < en:Reduced fat
 en: 65% less fat
 bg: 65% по-малко мазнини
+da: 65% mindre fedt
 de: 65% weniger Fet
 es: 65% menos de grasa
 fi: 65% vähemmän rasvaa
@@ -2852,6 +2885,7 @@ zh: 减少15%的盐
 < en:Reduced salt
 en: 20% less salt
 bg: 20% по-малко сол
+da: 20% mindre salt
 de: 20% weniger Salz
 es: 20% menos de sal
 fi: 20% vähemmän suolaa
@@ -2865,6 +2899,7 @@ pt: 20% menos sal, -20% menos sal, menos 20% sal, 20% menos de sal, -20% menos d
 en: 25% less salt
 bg: 25% по-малко сол
 ca: 25% menys de sal
+da: 25% mindre salt
 de: 25% weniger Salz
 es: 25% menos de sal
 fi: 25% vähemmän suolaa
@@ -2880,6 +2915,7 @@ th: ใช้เกลือลดลง 25%
 < en:Reduced salt
 en: 30% less salt
 bg: 30% по-малко сол
+da: 30% mindre salt
 de: 30% weniger Salz
 es: 30% menos de sal
 fi: 30% vähemmän suolaa
@@ -2893,6 +2929,7 @@ pt: 30% menos sal, -30% menos sal, menos 30% sal, 30% menos de sal, -30% menos d
 < en:Reduced salt
 en: 35% less salt
 bg: 35% по-малко сол
+da: 35% mindre salt
 de: 35% weniger Salz
 es: 35% menos de sal
 fi: 35% vähemmän suolaa
@@ -2906,6 +2943,7 @@ pt: 35% menos sal, -35% menos sal, menos 35% sal, 35% menos de sal, -35% menos d
 < en:Reduced salt
 en: 40% less salt
 bg: 40% по-малко сол
+da: 40% mindre salt
 de: 40% weniger Salz
 es: 40% menos de sal
 fi: 40% vähemmän suolaa
@@ -2918,6 +2956,7 @@ pt: 40% menos sal, -40% menos sal, menos 40% sal, 40% menos de sal, -40% menos d
 < en:Reduced salt
 en: 45% less salt
 bg: 45% по-малко сол
+da: 45% mindre salt
 de: 45% weniger Salz
 es: 45% menos de sal
 fi: 45% vähemmän suolaa
@@ -2930,6 +2969,7 @@ pt: 45% menos sal, -45% menos sal, menos 45% sal, 45% menos de sal, -45% menos d
 < en:Reduced salt
 en: 50% less salt
 bg: 50% по-малко сол
+da: 50% mindre salt
 de: 50% weniger Salz
 es: 50% menos de sal
 fi: 50% vähemmän suolaa
@@ -3193,7 +3233,7 @@ bg: Без добавена захар
 ca: Sense sucre afegit, sense sucres afegits
 cs: Bez přidaného cukru, obsahuje přirozeněse vyskytující cukry
 da: Uden tilsat sukker
-de: Ohne Zuckerzusatz, Ohne zugesetzten Zucker
+de: Ohne Zuckerzusatz, Ohne zugesetzten Zucker, Enthält von Natur aus Zucker
 el: Χωρίς προσθήκη ζάχαρης
 es: Sin azúcares añadidos, 0% Azúcares añadidos, Sin azúcar añadido
 et: Ilma lisatud suhkruta
@@ -3217,7 +3257,7 @@ pt: Sem açúcares adicionados, sem adição de açúcares, sem açúcar adicion
 ro: Fără zahăr adăugat
 ru: Без добавления сахара
 sk: Bez pridaného cukru
-sl: Brez dodanega sladkorja, obsahuje prírodné cukry
+sl: Brez dodanega sladkorja, obsahuje prírodné cukry, brez dodanih sladkorjev
 sq: Pa sheqer të shtuar
 sr: Без додатог шећера
 sv: Inget tillsat socker, Utan tillsatt socker
@@ -3263,6 +3303,16 @@ nl: Weinig cholesterol
 pl: Obniża cholesterol
 pt: Reduz o colesterol
 label_categories:en: en:Health, en:Claim
+
+en: From California, Californian
+da: fra Californien
+de: Kalifornische
+fr: californiens
+hr: kalifornijske
+it: della California
+sv: från Kalifornien, kalifornisk, kaliforniska
+label_categories:en: en:Geographic label
+origins:en: en:california
 
 de: 100% Milch aus österreich
 xx: 100% Milch aus österreich
@@ -4074,11 +4124,19 @@ fr: Sud de France
 country:en: en:france
 label_categories:en: en:Geographic label
 
-en: Avainlippu, Key Flag
+xx: Avainlippu
+en: Key Flag Symbol, Finnish Work’s Key Flag Symbol, Key Flag
 fi: Avainlippu
+sv: Nyckelflaggan
 country:en: en:Finland
+description:en: The Key Flag Symbol indicates that the product has been manufactured in Finland or that the service is produced by a Finnish-owned company.
 image:fi: avainlippu.63x90.svg
+label_categories:en: en:Geographic label, en:Origins
+website:en: https://suomalainentyo.fi/en/membership-and-marks/key-flag-symbol/
+website:fi: https://suomalainentyo.fi/jasenyys-ja-merkit/avainlippu/
+website:sv: https://suomalainentyo.fi/sv/medlemskap-och-marken/nyckelflaggan/
 wikidata:en: Q11853622
+wikipedia:fi: https://fi.wikipedia.org/wiki/Avainlippu
 
 fi: Hyvää Suomesta, Ruokaa Omasta Maasta
 country:en: en:Finland
@@ -4087,9 +4145,18 @@ wikidata:en: Q18693808
 fi: sirkkalehtimerkki, sirkkalehti, sirkkalippu, kotimaisuusmerkki, puhtaasti kotimainen
 country:en: en:Finland
 
-fi: sydänmerkki, parempi valinta
+xx: Sydänmerkki, Parempi valinta, Bättre val
+en: Heart Symbol
+fi: Sydänmerkki, Parempi valinta
+sv: Hjärtmärket, Bättre val
 country:en: en:Finland
+image:fi: sydanmerkki.90x90.svg
+label_categories:en: en:Health, en:Nutrition
+website:en: https://www.sydanmerkki.fi/en
+website:fi: https://www.sydanmerkki.fi/
+website:sv: https://www.sydanmerkki.fi/sv
 wikidata:en: Q11895580
+wikipedia:fi: https://fi.wikipedia.org/wiki/Syd%C3%A4nmerkki
 
 # Mandatory https://finlex.fi/fi/laki/alkup/2014/20141010
 en: High in salt - Finland
@@ -4355,6 +4422,7 @@ web:sv: https://miljomarkningar.se/a-market/
 en: No alcohol, alcohol-free, without alcohol
 bg: Без алкохол
 ca: Sense alcohol, Lliure d'alcohol
+da: Uden alkohol
 de: Ohne Alkohol
 es: Sin alcohol
 fi: alkoholiton, ilman alkoholia
@@ -4365,12 +4433,14 @@ it: Senza alcol
 nl: Alcoholvrij, Zonder alchohol
 pl: Bez alkoholu
 pt: Sem álcool, 0% álcool
+sv: Utan alkohol
 th: ไม่มีแอลกอฮอล์
 incompatible_with:en: labels:en:contains-alcohol
 opposite:en: en:contains alcohol
 
 en: Contains alcohol
 bg: Съдържа алкохол
+da: Indeholder alkohol
 de: Enthält Alkohol
 es: Contiene alcohol
 fr: Contient de l'alcool
@@ -4698,15 +4768,17 @@ label_categories:en: en:Health, en:Additives
 en: No eggs, egg free
 bg: Без яйца
 ca: Sense ou, Lliure d'ou
+da: Uden æg
 de: Ohne Ei
 es: Sin huevo, Sin huevos
 fi: kananmunaton, munaton, ei kananmunaa
 fr: Sans œufs
 he: ללא ביצים, נטול ביצים
 hu: Tojás nélkül
-it: Senza uova
+it: Senza uova, Senza uovo
 nl: Zonder eieren
 pt: Sem ovos, sem ovo, 0% ovos
+sv: Utan ägg
 th: ไม่มีส่วนผสมของไข่
 #-allergens:en: en:Eggs
 
@@ -5088,6 +5160,9 @@ pt: Sem leite, 0% leite, sem produtos lácteos, sem produtos láteos, sem lactic
 ru: Без молока
 sv: Mjölkfri, Fri från mjölk, Fri från mjölkprodukter
 th: ไม่มีส่วนผสมของนม
+incompatible_with:en: labels:en:contains-milk
+label_categories:en: en:Allergens
+opposite:en: en:contains-milk
 
 fr: Contrat Biolait
 
@@ -5105,6 +5180,7 @@ ru: Без добавления молочных продуктов
 en: Contains milk
 bg: Съдържа мляко
 ca: Conté llet
+da: Indeholder mælk
 de: Enthält Milch
 es: Contiene leche
 fi: sisältää maitoa
@@ -5117,7 +5193,9 @@ pl: Zawiera mleko, Z mlekiem
 pt: Contém leite
 ru: Содержит молоко
 th: มีส่วนผสมของนม
+incompatible_with:en: labels:en:no-milk
 label_categories:en: en:Allergens
+opposite:en: en:no-milk
 
 #instruction:en:Do NOT change the english key.
 en: No preservatives, no added preservatives, preservatives free
@@ -5201,6 +5279,7 @@ th: ไม่เติมสีและวัตถุกันเสีย
 en: No soy, soy free, without soy
 bg: Без соя, не сърържа соя
 ca: Lliure de soja, Sense soja
+da: Uden soja
 de: Sojafrei
 es: Sin soja, Sin soya, Libre de soja, Libre de soya
 fi: soijaton, ei soijaa, ilman soijaa
@@ -5213,6 +5292,7 @@ nl: Sojavrij
 pl: Bez soi, Nie zawiera soi
 pt: Sem soja, livre de soja, 0% soja
 ru: Не содержит сои
+sv: Utan soja
 th: ไม่มีส่วนผสมของถั่วเหลือง
 incompatible_with:en: labels:en:contains-soy
 label_categories:en: en:Environment, en:Health, en:Soy, en:Allergens
@@ -5222,6 +5302,7 @@ opposite:en: en:contains-soy
 en: Contains soy
 bg: Съдържа соя
 ca: Conté soja
+da: Indeholder soja
 de: Enthält Soja
 es: Contiene soja, Contiene soya
 fi: sisältää soijaa
@@ -5238,14 +5319,18 @@ opposite:en: en:no-soy
 #instruction:en:Do NOT change the english key.
 en: No garlic
 bg: Без чесън
+da: Uden hvidløg
 fr: Sans ail
 nl: Zonder knoflook, geen knoflook, knoflookvrij
+sv: Utan vitlök
 
 #instruction:en:Do NOT change the english key.
 en: No onion, onion free
 bg: Без лук
+da: Uden løg
 fr: Sans onion
 nl: Zonder ui, geen ui, uivrij
+sv: Utan lök
 
 #instruction:en:Do NOT change the english key.
 < en:No garlic
@@ -5414,6 +5499,7 @@ label_categories:en: en:Specific diets
 en: Not advised for pregnant women, not recommended for pregnant women
 bg: Не се препоръчва за бременни жени
 ca: No recomanat per embarassades
+da: Ikke anbefalet til gravide
 de: Für Schwangere ungeeignet
 es: Desaconsejado para embarazadas, No aconsejado para embarazadas, No aconsejado para mujeres embarazadas, Desaconsejado para mujeres embarazadas, No recomendado para embarazadas, No recomendado para mujeres embarazadas, No recomendado para mujeres embarazadas
 fi: Ei suositella raskauden aikana
@@ -5446,6 +5532,7 @@ sv: Rekommenderas ej till barn samt gravida
 < en:Not advised for specific people
 en: Not recommended for children under 3 years
 ca: No recomanat per infants menors de 3 anys
+da: Ikke anbefalet til børn under 3 år
 de: Für Kinder unter 3 Jahren nicht empfohlen
 es: No recomendado a niños menores de 3 años, No recomendado consumo a menores de 3 años
 fi: ei suositella alle 3-vuotiaille
@@ -5476,7 +5563,7 @@ label_categories:en: en:Specific diets
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #en:description:Labels used for identifying products (and ingredients) that have been grown organically.
 
-en: Organic, organically grown, organically produced, ingredient produced organically, from organic farming, From Organic Agriculture, organic ingredients, from controlled organic agriculture
+en: Organic, organically grown, organically produced, ingredient produced organically, from organic farming, From Organic Agriculture, organic ingredients, from controlled organic agriculture, from organic controlled cultivation
 bg: Био, биологично земеделие, биологично
 ca: Orgànic, de cultiu ecologic
 cs: Bio, z kontrolovane ekologicke produkce, z ekologickeho, z kontrolovaného ekologického zemědělství
@@ -5494,9 +5581,9 @@ ko: 유기농
 lt: Ekologiškas, ekologiškai užaugintas, ekologiškai pagamintas, ingredientas pagamintas ekologiškai, iš ekologiško žemės ūkio, iš ekologiško žemės ūkio
 nl: Biologisch, biologische, van biologische oorsprong, van biologische teelt, van gecontroleerd biologische teelt, afkomstig van biologische productiemethode, van gecontroleerde biologische landbouw
 pl: ekologiczny, bio, ekologiczne, ekologiczna, ekologicznych, ekologicznego, z kontrolowanych upraw ekologicznych, z kontrolowanej produkcji ekologicznej, z kontrolowanego rolnictwa ekologicznego, certyfikowany składnik ekologiczny, składnik ekologiczny, produkt pochodzący z kontrolowanych certyfikowanych upraw ekologicznych
-pt: Orgânico, produção orgânica, produzido de forma orgânica, numa quinta orgânica, de agricultura orgânica, agricultura orgânica
-ro: din agricultură ecologică controlată
-sk: z kontrolovaného ekologického poľnohospodárstva
+pt: Orgânico, produção orgânica, produzido de forma orgânica, numa quinta orgânica, de agricultura orgânica, agricultura orgânica, de produção Biológica
+ro: din agricultură ecologică controlată, din cultură organică controlată
+sk: z kontrolovaného ekologického poľnohospodárstva, produkt ekologického poľnohospodárstva
 sl: iz kontrolirane ekološke pridelave
 sv: Ekologisk, Ekologiskt, Ekologiska, ekologisk ingrediens
 th: ออร์แกนิค
@@ -5561,6 +5648,7 @@ wikidata:en: Q380778
 
 en: Non-organic, not organic
 ca: No ecològic
+da: Ikke-økologisk
 de: Nicht Bio, nicht-bio, nichtbio
 fr: Non-bio
 hu: Nem bio
@@ -18908,6 +18996,7 @@ hu: C-vitaminban gazdag
 it: Ricco di vitamina C
 nl: Rijk aan vitamine C
 pt: Rico em vitamina C
+ro: Bogat in vitamina C
 th: แหล่งของวิตามินซี
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 xx:en: Rich in vitamin C
@@ -18951,7 +19040,7 @@ en: with wholemeal flour
 es: con farina integralna
 fr: contient de la farine complète
 hr: s integralnim brašnom
-
+sv: med fullkornsmjöl, fullkornsingrediens
 
 #label for more sustainable production of agricultural products
 < en:Sustainable
@@ -19526,6 +19615,7 @@ wikidata:en: Q1784476
 
 en: Sustainable
 #fr:Durable
+da: Bæredygtig
 de: Nachhaltig
 es: Sostenible
 hr: Održiv
@@ -19729,7 +19819,7 @@ lt: Veganiškas, Tinkamas veganams, Tinkama vegetarams ir veganams
 nb: Vegan, Vegansk
 nl: Veganistisch, plantaardig, niet dierlijk
 pl: Wegańskie, przyjazne weganom, wegański, wegańska
-pt: Vegano, produto vegano, vegan, adequado para veganos, adequado a veganos, adequado a uma dieta vegan, adequado a uma dieta vegana, adequado a vegetarianos e veganos
+pt: Vegano, produto vegano, vegan, adequado para veganos, adequado a veganos, adequado a uma dieta vegan, adequado a uma dieta vegana, adequado a vegetarianos e veganos, odpowiedni dla wegan
 sq: vegan
 sv: Vegansk, Passar för veganer, vegetabilisk, vegetabiliskt ursprung
 th: สูตรเจ
@@ -19888,8 +19978,9 @@ en: Vege Project Vegan, Vege Project Japan Vegan
 xx: Vege Project Vegan, Vege Project Japan Vegan
 
 < en: Vegan
-en: plant based
+en: plant based, plantbased
 fr: à base de plantes, à base de végétaux
+sv: växtbaserad
 
 < en:Vegan
 en: certified plant based, plant based certified
@@ -20377,7 +20468,7 @@ en: No nuts, nut free
 de: Ohne Nüsse, nussfrei
 es: Sin frutos secos, sin nueces
 fr: Sans fruits à coque, sans fruits secs
-it: Senza noci, senza frutta secca
+it: Senza noci, senza frutta secca, senza frutta a guscio
 nl: Zonder noten
 pt: Sem nozes, livre de nozes
 
@@ -21965,6 +22056,7 @@ nl: NAPSI certificatie
 en: New
 bg: Ново
 ca: Nou
+da: Ny
 de: Neu
 es: Nuevo
 fi: uusi
@@ -21982,6 +22074,7 @@ tr: Yeni
 en: New recipe
 bg: Нова рецепта
 ca: Nova recepta
+da: Ny opskrift
 de: Neues Rezept
 es: Nueva receta
 fi: uusi resepti
@@ -22710,6 +22803,7 @@ it: Pastorizzato, pastorizzata, pastorizzate, Prodotto pastorizzato
 nb: Pasteurisert
 nl: gepasteuriseerd, gepasteuriseerd product
 pt: Produto pasteurizado
+sv: Pastöriserat, pastöriserade
 incompatible_with:en: labels:en:unpasteurized
 opposite:en: en:unpasteurized
 
@@ -22725,6 +22819,7 @@ es: No pasteurizado
 fr: Non pasteurisé
 it: Non pastorizzato
 nl: Ongepasteuriseerd
+sv: Opastöriserat, opastöriserade
 incompatible_with:en: labels:en:pasteurized
 opposite:en: en:pasteurized
 
@@ -22735,16 +22830,20 @@ nl: Koudgeperst
 
 en: Unfiltered, cloudy
 bg: Нефилтрирано
+da: Ufiltreret, ufiltrerede
 de: Trüb, Naturtrüb
 es: Sin filtrar, turbia
+sv: Ofiltrerat, ofiltrerade
 incompatible_with:en: labels:en:filtered
 opposite:en: en:Filtered
 
 en: Filtered
 bg: Филтрирано
+da: Filtreret, filtrerede
 de: Klar
 es: Filtrada, filtrado
 fr: Non filtrée, Clair
+sv: Filtrerat, filtrerade
 incompatible_with:en: labels:en:unfiltered
 opposite:en: en:unfiltered
 
@@ -22781,7 +22880,7 @@ de: Bewusst Wählen
 label_categories:en: en:Health, en:Nutrition
 
 # Swedish (1989), Danish, Norwegian (2009), and Icelandic (2013) label
-en: Keyhole, the keyhole
+en: Keyhole, the keyhole, green keyhole
 xx: Keyhole, the keyhole
 da: Nøglehullet, nøglehul, nøglehulsmærket
 is: Skráargatið
