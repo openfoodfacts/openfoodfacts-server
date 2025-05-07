@@ -11718,6 +11718,11 @@ intake24_category_code:en: WINE
 nova:en: 3
 wikidata:en: Q282
 
+< en:Wines
+en: Vegan wines, Vegan-friendly wines
+da: Veganske vin
+sv: Veganska viner
+
 # should this fall under wines?
 < en:Wines
 en: Cooking wines
@@ -36432,6 +36437,10 @@ en: Cheese Naans
 en: Garlic Naans
 
 < en:Flatbreads
+en: Paratha
+wikidata:en: Q59707
+
+< en:Flatbreads
 < en:Special breads
 en: Pitas, Pittas, Pita bread, pitta bread
 xx: Pitas
@@ -52206,6 +52215,12 @@ fr: Boissons végétales d'avoine à la vanille
 < en:Oat-based drinks
 en: UHT oat based drinks
 
+< en:Oat-based drinks
+en: Barista oat drinks, Barista oat milks
+da: Barista-havredrikke
+sv: Barista-havredrycker
+description:en: Oat milks made to have foaming and other qualities similar to dairy milks, esp. for use in coffee.
+
 < en:Cereal-based drinks
 en: Quinoa-based drinks, Quinoa milks, Quinoa drinks
 bg: Напитка с киноа
@@ -52861,10 +52876,6 @@ agribalyse_proxy_food_name:en: Uncured soft cheese, spreadable, around 25% fat, 
 ciqual_proxy_food_code:en: 12315
 ciqual_proxy_food_name:en: Uncured soft cheese, spreadable, around 25% fat, in a tub
 intake24_category_code:en: SPRD
-
-< en:cheese spreads
-en: St Moret, Saint Moret
-xx: St Moret, Saint Moret
 
 < en:Cheese spreads
 en: Uncured soft cheese spreadable with around 25% fat
@@ -55469,7 +55480,7 @@ agribalyse_food_code:en: 19692
 ciqual_food_code:en: 19692
 
 < en:Fruit soy yogurts
-en: Strawberry soy yogurts
+en: Strawberry soy yogurts, Strawberry soygurts
 de: Erdbeer-Soja-Joghurt
 es: Yogures de soja con fresa
 fr: Yaourts de soja à la fraise
@@ -70897,6 +70908,7 @@ protected_name_type:en: pgi
 < en:Dried fruits
 en: Raisins, Dried grapes
 bg: Стафиди
+da: Rosiner
 de: Rosinen, getrocknete Trauben
 es: Uvas pasas, Pasas
 fi: rusinat
@@ -70908,9 +70920,11 @@ lt: Razinos, Džiovintos vynuogės
 nl: Gedroogde rozijnen
 pl: Rodzynki, suszone winogrona
 ru: Изюм, виноград сушёный, виноград сушеный, сушеный виноград, сушёный виноград
+sv: Russin
 agribalyse_food_code:en: 13046
 ciqual_food_code:en: 13046
 ciqual_food_name:en: Raisin
+wikidata:en: Q13186
 
 < en:Raisins
 en: Raisins of Corinth
@@ -70931,6 +70945,7 @@ hr: Sultana grožđice
 it: Uvetta, Uvetta sultanina
 lt: Sultana razinos
 nl: Sultanas
+sv: Sultanrussin
 
 < en:Canned plant-based foods
 en: Canned fruits
@@ -71324,6 +71339,7 @@ lt: Pagardai
 nl: Smaakmakers
 pl: Przyprawy, przyprawa
 pt: Condimentos
+sv: Smaktillsatser
 zh: 调味品, 调料
 gpc_category_code:en: 10006214
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a liquid, paste, powder, granules or solid made from evaporation that is added to season or flavour food or beverages. Products specifically include beverage flavour enhancers where the expected benefit is the ability to accurately represent a shot of flavour (such as French vanilla, chocolate, lime, orange, cherry, caramel, etc.) to be added to hot or cold beverages. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Excludes products such as single or pure Perishable or Shelf Stable Herbs and Spices, Gravy Browning, Soup Mixes, Powdered Beverages and Meat Tenderisers.
@@ -74576,6 +74592,7 @@ pl: Przyprawy do kurczaka, Przyprawa do kurczaka
 < en:Spices
 en: Chili peppers, chilis, hot peppers, Chilli peppers, chillis, Chilli
 bg: Люти чушки
+da: Chilipeberfrugter
 de: Chilischoten, Chilis
 es: Chiles
 fi: chilit
@@ -74587,8 +74604,9 @@ ja: 唐辛子, トウガラシ, とうがらし
 lt: Čili pipirai
 nl: Chili pepers
 pl: Papryczki chili, papryczki chilli
+sv: Chilipeppar
 agribalyse_food_code:en: 20151
-\ciqual_food_code:en: 20151
+ciqual_food_code:en: 20151
 ciqual_food_name:en: Chili pepper, raw
 ciqual_food_name:fr: Piment, cru
 gpc_category_code:en: 10006102
@@ -74621,13 +74639,15 @@ wikidata:en: Q3899361
 fr: Anaheim, Capsicum annuum Anaheim, aji Colorado, piment de Californie, piment du Nouveau Mexique, piment du Rio Grande
 
 < en:Chili peppers
-fr: Capsicum frutescens
+en: Capsicum frutescens
+xx: Capsicum frutescens, C. frutescens
 
-< fr:Capsicum frutescens
+< en:Capsicum frutescens
 fr: Piment oiseau, pequin, piment zozio, piment martin
 
-< fr:Capsicum frutescens
+< en:Capsicum frutescens
 en: Cayenne peppers, Cayenne pepper
+da: Cayennepeberfrugter, Cayenne-peberfrugter
 es: Cayena
 fr: Piments de Cayenne, Piment de Cayenne, Capsicum baccatum, aji, piment enragé, Poivres de Cayenne, poivre de Cayenne
 hr: Kajenske paprike
@@ -74635,6 +74655,7 @@ ja: カイエンペッパー
 lt: Kajeno pipirai, Kajeno pipiras
 nl: Cayennepepers
 pl: Pieprz kajeński, Pieprz Cayenne, Papryka kajeńska, Papryka Cayenne
+sv: Cayennepeppar
 agribalyse_food_code:en: 11088
 ciqual_food_code:en: 11088
 ciqual_food_name:en: Cayenne pepper
@@ -74643,20 +74664,24 @@ wikidata:en: Q6598
 
 < en:Cayenne peppers
 en: Cayenne powder
+da: Cayennepeber
 es: Cayena en polvo
 hr: Kajenski prah
 lt: Kajeno milteliai
 nl: Cayennepeperpoeders
+sv: Cayennepepparpulver
 
 < en:Cayenne peppers
 en: Whole cayenne
+da: Hele cayennepeberfrugter
 es: Cayena entera
 fr: Piments de Cayenne entiers
 hr: Cijeli cayenne
 lt: Visas kajenas
 nl: Hele cayennepepers
+sv: Hela cayennepeppar
 
-< fr:Capsicum frutescens
+< en:Capsicum frutescens
 < fr:Piments rouges
 fr: Nöra, nyora
 
@@ -74843,6 +74868,7 @@ fr: Sauces végétariennes
 hr: Vegetarijanski umaci
 lt: Vegetariški padažai
 pl: Sosy wegetariańskie, wegetariańskie sosy
+sv: Vegetariska såser
 
 < en:Sauces
 en: Other sauces
@@ -74888,9 +74914,10 @@ fr: Sauces véganes
 hr: Veganski umaci
 lt: Veganiški padažai
 pl: Sosy wegańskie, wegańskie sosy
+sv: Veganska såser
 
 < en:Vegan sauces
-en: Egg-free mayonnaises
+en: Egg-free mayonnaises, Vegan mayonnaises
 bg: Майонеза без яйца
 de: Mayonnaise ohne Eier
 es: Mayonesas sin huevo, Mayonesas vegetales
@@ -74902,6 +74929,7 @@ it: Maionese senza uovo
 lt: Majonezai be kiaušinių
 nl: Eivrije mayonaises
 pl: Majonezy bezjajeczne, majonez bezjajeczny, majonezy wegańskie
+sv: Äggfria majonnäser, Veganska majonnäser
 tr: Yumurtasız mayonez
 
 < en:Vegan sauces
@@ -82231,7 +82259,7 @@ lt: Šalti užkandžiai
 nl: Koude voorgerechten
 #wikidata:en:
 
-< en:Appetizers
+< en:Prepared salads
 en: Coleslaw, Coleslaw with sauce
 de: Krautsalat
 es: Ensalada de col
@@ -93982,77 +94010,51 @@ nl: Paddestoelenpoeders
 
 # <en:dough
 < en:Plant-based foods
-en: Pastas, pasta
+en: Pastas
+xx: Pasta
 ar: معكرونة
 az: makaron
 be: макаронныя вырабы
 bg: паста
 bn: পাস্তা
 br: toazennoù
-bs: pasta
-ca: Pasta
 co: pastasciutta
 cs: těstoviny
-cy: pasta
-da: Pasta
-de: Teigwaren, Pasta
+de: Teigwaren
 el: Ζυμαρικό
 eo: pastaĵo
-es: Pastas alimenticias, pastas, pasta
-et: pasta
-eu: pasta
-fi: pasta
+es: Pastas alimenticias, pastas
 fr: pâtes alimentaires, pâtes
-fy: pasta
-ga: pasta
 gd: pastà
-gl: pasta
 gu: પાસ્તા
 he: פסטה
 hi: पास्ता
 hr: tjestenine, tjestenina
 hu: olasz tészta
 hy: մակարոնեղեն
-id: pasta
-is: pasta
 it: pasta, paste alimentari
 ja: パスタ
-jv: pasta
 ka: მაკარონი
 kn: ಪಾಸ್ತಾ
 ko: 파스타
 ku: meqarne
-la: pasta
-lb: pasta
-li: pasta
 lt: makaronai
-lv: pasta
 mr: पास्ता
-ms: pasta
 my: ပါစတာ
-nb: pasta
 ne: पास्ता
 nl: Pasta, Deegwaren, pastas
-nn: pasta
-oc: pasta
 or: ପାସ୍ତା
 pa: ਪਾਸਤਾ
 pl: Makarony, Makaron
 pt: massa alimentícia
 ro: paste făinoase
 ru: Макаронные изделия
-se: Pasta
-sh: pasta
 sk: cestovina
 sl: testenine
 so: baasto
-sq: pasta
-sv: pasta
-sw: pasta
 ta: பாஸ்தா
 te: పాస్తా
 th: พาสตา
-tl: pasta
 tr: makarna
 uk: макаронні вироби
 ur: پاستا
@@ -94105,6 +94107,7 @@ fr: Pâtes alimentaires de céréales
 hr: Tjestenine od žitarica
 it: Paste alimentari di cereali
 nl: Graanpastas
+sv: Spannmålspasta, Pasta av spannmål
 
 < en:Pastas
 en: Conchiglie
@@ -94119,7 +94122,7 @@ ja: ペンネ
 
 < en:Penne
 en: Penne rigate
-xx: Penne Rigate
+xx: Penne rigate
 bg: Пене Ригате
 
 < en:Penne
@@ -94422,6 +94425,7 @@ xx: Ziti
 
 < en:Pastas
 en: German pasta
+da: Tysk pasta
 es: Pasta alemana
 fr: Pâtes allemandes
 hr: Njemačka tjestenina
@@ -94449,6 +94453,7 @@ protected_name_type:en: pgi
 < en:Pastas
 en: Italian pasta
 bg: Италианска паста
+da: Italiensk pasta
 nl: Italiaanse pasta
 
 < en:Italian pasta
@@ -94750,6 +94755,7 @@ it: Pasta di grano duro
 nl: Durum tarwepastas
 pl: Makarony z pszenicy durum, Makaron z pszenicy durum
 ru: Макаронные изделия из муки твёрдой пшеницы, макаронные изделия из муки твердой пшеницы, макаронные изделия группы А, Макаронные изделия. Группа «А»
+sv: Durumvetepasta, Pasta av durumvete
 
 < en:Durum wheat pasta
 en: Whole durum wheat pasta, durum wholewheat pasta
@@ -95176,6 +95182,7 @@ nl: Gedroogde pastas
 pl: Makaron suchy
 pt: Massas secas
 ru: Макароны
+sv: Torr pasta, Torrpasta
 th: กลุ่ใผลิตภัณฑ์พาสต้าแห้ง
 
 # In France, only products of durum wheat can be called pasta. The equivalent of "ciqual:en:Dried pasta, raw" is therefore "Dry durum wheat pasta" and not "Dry pastas"
@@ -95183,6 +95190,7 @@ th: กลุ่ใผลิตภัณฑ์พาสต้าแห้ง
 < en:Durum wheat pasta
 en: Dry durum wheat pasta
 fr: Pâtes de blé dur sèches
+sv: Torr durumvetepasta, Torr pasta av durumvete
 agribalyse_food_code:en: 9810
 ciqual_food_code:en: 9810
 ciqual_food_name:en: Dried pasta, raw
@@ -95192,38 +95200,23 @@ intake24_category_code:en: UPSTA
 # <en:compound
 < en:Stuffed Pastas
 en: ravioli, Cooked filled pasta
+xx: Ravioli
 ar: رافيولي
 bg: Равиоли
-ca: ravioli
 cs: ravioly
-da: Ravioli
-de: Ravioli
 el: ραβιόλια
 eo: Ravioloj
-es: Ravioli
 fa: راویولی
 fi: Ravioli, Raviolit
 fr: ravioli, Pâtes fraîches farcies cuites
-gl: Ravioli
 he: רביולי
-hr: Ravioli
-hu: Ravioli
 hy: Ռավիոլի
-it: ravioli
 ja: ラビオリ
 kk: Равиоли
 ko: 라비올리
 lt: Ravioliai, virti įdaryti makaronai
-ms: Ravioli
-nb: ravioli
-nl: ravioli
-oc: Ravioli
-pl: Ravioli
-pt: ravioli
-ro: ravioli
 ru: Равиоли
 sk: Raviola
-sv: Ravioli
 th: ราวีโอลี
 uk: Равіолі
 zh: 意大利餃
@@ -106821,23 +106814,20 @@ fr: Tomates marinées
 en: Torshi
 fr: Torchi
 
-< en:Canned fruits
+# don't put in fruits, those products can have other ingredients, notably a high quantity of oil.
 < en:Plant-based pickles
 en: Pickled fruits, Fruit pickles
 fr: Pickles de fruits, fruits marinés
 
 < en:Fruit pickles
-< en:Mangoes
 en: Pickled mangoes, marinated mangoes
 fr: Pickles de mangues, mangues marinées
 
 < en:Fruit pickles
-< en:Plums
 en: Pickled plums, marinated plums
 fr: Pickles de prunes, prunes marinées
 
 < en:Fruit pickles
-< en:Limes
 en: Pickled limes, marinated limes
 fr: Pickles de citrons verts, citrons verts marinées
 
@@ -112660,6 +112650,7 @@ sales_format:en: weight, package
 en: Dried broad beans
 da: Tørrede hestebønner
 fr: Fèves séchées
+sv: Torkade bondbönor
 agribalyse_food_code:en: 20518
 ciqual_food_code:en: 20518
 ciqual_food_name:en: Broad bean, dried
@@ -115988,6 +115979,7 @@ nl: Producten op basis van gedroogde planten
 pl: Suszone produkty pochodzenia roślinnego
 pt: Alimentos à base de plantas secos
 ru: Сушеные блюда из растений
+sv: Torkad växtbaserad mat
 
 < en:Canned foods
 # dot not rename en:canned-plant-based-foods as it is used in Ingredients.pm
