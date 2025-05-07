@@ -1,1 +1,1 @@
-/home/rayan/openfoodfacts-server/po/README.md
+../../po/README.md
