@@ -317,6 +317,11 @@ sub api_route($request_ref) {
 	if ($api_action =~ /^products?/) {    # api/v3/product/[code]
 		param("code", $components[3]);
 		$request_ref->{code} = $components[3];
+		# We also have a specific endpoint for image upload
+		# /api/v3/product/[barcode]/images
+		if ((defined $components[4]) and ($components[4] eq "images")) {
+			$api_action = "product_images";
+		}
 	}
 	elsif ($api_action eq "tag") {    # api/v3/tag/[type]/[tagid]
 		param("tagtype", $components[3]);

@@ -68,8 +68,8 @@ my $product_ref = retrieve_product($product_id);
 
 my $results_ref = {};
 
-if (($id =~ /^nutrition/) and (single_param('process_image'))) {
-	extract_nutrition_from_image($product_ref, $id, $ocr_engine, $results_ref);
+if (($id =~ /^nutrition_(\w\w)$/) and (single_param('process_image'))) {
+	extract_nutrition_from_image($product_ref, "nutrition", $1, $ocr_engine, $results_ref);
 	if ($results_ref->{status} == 0) {
 		if (not $annotations) {
 			delete $results_ref->{nutrition_text_from_image_annotations};

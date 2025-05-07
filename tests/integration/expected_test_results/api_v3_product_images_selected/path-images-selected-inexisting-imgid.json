@@ -1,0 +1,23 @@
+{
+   "code" : "1234567890012",
+   "errors" : [
+      {
+         "field" : {
+            "id" : "images.selected.front.de.imgid"
+         },
+         "impact" : {
+            "id" : "field_ignored",
+            "lc_name" : "Field ignored",
+            "name" : "Field ignored"
+         },
+         "message" : {
+            "id" : "image_not_found",
+            "lc_name" : "",
+            "name" : ""
+         }
+      }
+   ],
+   "product" : {},
+   "status" : "success_with_errors",
+   "warnings" : []
+}
