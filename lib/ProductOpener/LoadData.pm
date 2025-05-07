@@ -88,6 +88,7 @@ sub load_data() {
 	load_routes();
 	load_knowledge_content();
 
+	print STDERR "product_type - $options{product_type}\n";
 	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 		load_agribalyse_data();
 		load_environmental_score_data();
@@ -103,6 +104,7 @@ sub load_data() {
 	return;
 }
 
+print STDERR "load_data - initializing\n";
 if ($ENV{PO_EAGER_LOAD_DATA}) {
 	# in test we want to be sure to load data eagerly
 	load_data();
