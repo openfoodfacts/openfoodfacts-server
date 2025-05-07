@@ -19996,20 +19996,7 @@ es: La Sociedad Vegetariana
 he: איגוד הצמחונות
 wikidata:en: Q2154954
 
-en: Ovo-vegetarian
-ca: Ovovegetarià
-de: Ovo-vegetarisch
-es: Ovo-vegetariano
-fi: ovo-vegetaarinen
-fr: Ovo-végétarien
-hu: Ovo-vegetáriánus
-it: Ovo-vegetariano
-pt: Ovo-vegetariano
-sv: Ovo-vegetarisk, ovovegetarisk, ovovegetarianer
-wikidata:en: Q3543760
-
-< en:Lacto-vegetarian
-< en:Ovo-vegetarian
+< en:Vegetarian
 en: Ovo-lacto-vegetarian
 ca: Ovolactovegetarià
 de: Ovo-lacto-vegetarisch
@@ -20022,6 +20009,23 @@ pt: Ovo-lacto-vegetariano
 sv: Lakto-ovovegetarisk, lakto-ovovegetarianer
 wikidata:en: Q3544800
 
+# Ovo-vegetarians eat eggs, but not dairy
+< en:Ovo-lacto-vegetarian
+en: Ovo-vegetarian
+ca: Ovovegetarià
+de: Ovo-vegetarisch
+es: Ovo-vegetariano
+fi: ovo-vegetaarinen
+fr: Ovo-végétarien
+hu: Ovo-vegetáriánus
+it: Ovo-vegetariano
+pt: Ovo-vegetariano
+sv: Ovo-vegetarisk, ovovegetarisk, ovovegetarianer
+incompatible_with:en: ingredients:en:dairy, labels:en:contains-milk
+wikidata:en: Q3543760
+
+# Lacto-vegetarians eat dairy, but not eggs
+< en:Ovo-lacto-vegetarian
 en: Lacto-vegetarian
 ca: Lactovegetarià
 de: Lacto-vegetarisch
@@ -20032,6 +20036,7 @@ hu: Lakto-vegetáriánus
 it: Latto-vegetariano
 pt: Latto-vegetariano
 sv: Lakto-vegetarisk
+incompatible_with:en: ingredients:en:eggs # labels:en:contains-eggs
 wikidata:en: Q3496076
 
 # non English needs the English synonyms too so that "European V-Label Végétarien" can be recognized too
