@@ -272,14 +272,14 @@ checks: front_build front_lint check_perltidy check_perl_fast check_critic check
 
 lint: lint_perltidy lint_taxonomies
 
-tests: build_taxonomies_test build_lang_test unit_test
+tests: build_taxonomies_test build_lang_test unit_test integration_test
 
 # add COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover"' if you want to trigger code coverage report generation
 unit_test: create_folders
 	@echo "🥫 Running unit tests …"
 	mkdir -p tests/unit/outputs/
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit.xml" -e PO_EAGER_LOAD_DATA=1 -T --rm backend yath test --renderer=Formatter --renderer=JUnit --job-count=${CPU_COUNT} -PProductOpener::LoadData  tests/unit/nutriscore.t
+	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit.xml" -T --rm backend yath test --renderer=Formatter --renderer=JUnit --job-count=${CPU_COUNT} -PProductOpener::LoadData  tests/unit
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 unit tests success"
 
@@ -291,7 +291,7 @@ integration_test: create_folders
 # this is the place where variables are important
 	${DOCKER_COMPOSE_INT_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion redis
 # note: we need the -T option for ci (non tty environment)
-	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/integration/outputs/junit.xml" -e PO_EAGER_LOAD_DATA=1 -T backend yath --renderer=Formatter --renderer=JUnit -PProductOpener::LoadData tests/integration
+	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/integration/outputs/junit.xml" -T backend yath --renderer=Formatter --renderer=JUnit -PProductOpener::LoadData tests/integration
 	${DOCKER_COMPOSE_INT_TEST} stop
 	@echo "🥫 integration tests success"
 
@@ -306,7 +306,7 @@ test-stop:
 test-unit: guard-test create_folders
 	@echo "🥫 Running test: 'tests/unit/${test}' …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run --rm -e PO_EAGER_LOAD_DATA=1 backend ${TEST_CMD} ${args} tests/unit/${test}
+	${DOCKER_COMPOSE_TEST} run --rm backend ${TEST_CMD} ${args} tests/unit/${test}
 
 # usage:  make test-int test=test-name.t
 # to update expected results: make test-int test="test-name.t :: --update-expected-results"
@@ -315,7 +315,7 @@ test-unit: guard-test create_folders
 test-int: guard-test create_folders
 	@echo "🥫 Running test: 'tests/integration/${test}' …"
 	${DOCKER_COMPOSE_INT_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion redis
-	${DOCKER_COMPOSE_INT_TEST} exec -e PO_EAGER_LOAD_DATA=1 backend ${TEST_CMD} ${args} tests/integration/${test}
+	${DOCKER_COMPOSE_INT_TEST} exec backend ${TEST_CMD} ${args} tests/integration/${test}
 # better shutdown, for if we do a modification of the code, we need a restart
 	${DOCKER_COMPOSE_INT_TEST} stop backend
 

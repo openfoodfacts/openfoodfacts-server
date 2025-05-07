@@ -307,4 +307,3 @@ sub load_ciqual_calnut_table() {
 }
 
 1;
-

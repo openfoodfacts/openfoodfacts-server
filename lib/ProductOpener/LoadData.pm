@@ -88,7 +88,6 @@ sub load_data() {
 	load_routes();
 	load_knowledge_content();
 
-	print STDERR "product_type - $options{product_type}\n";
 	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 		load_agribalyse_data();
 		load_environmental_score_data();
