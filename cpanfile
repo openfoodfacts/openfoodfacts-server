@@ -146,8 +146,8 @@ on 'develop' => sub {
   requires 'Devel::Cover';
   requires 'Devel::Cover::Report::Codecov';
   requires 'Devel::Cover::Report::Codecovbash';
-  requires 'Test2::Harness';
-  requires 'Test2::Harness::Renderer::JUnit';
+  requires 'Test2::Harness', '<2'; # Seems to be a problem with newer versions in Docker. See #11858
+  requires 'Test2::Harness::Renderer::JUnit', '<2'; # As above
 };
 
 feature "off_server_dev_tools", "Optional development tools" => sub {
