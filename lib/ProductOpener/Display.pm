@@ -9938,7 +9938,7 @@ CSS
 
 							my $nutriscore_grade = compute_nutriscore_grade(
 								$product_ref->{nutriments}{$nid . "_100g"},
-								is_beverage_for_nutrition_score($product_ref),
+								is_beverage_for_nutrition_score_2023($product_ref),
 								is_water_for_nutrition_score($product_ref)
 							);
 
@@ -10087,7 +10087,7 @@ CSS
 
 								my $nutriscore_grade = compute_nutriscore_grade(
 									$product_ref->{nutriments}{$nid . "_" . $col_id},
-									is_beverage_for_nutrition_score($product_ref),
+									is_beverage_for_nutrition_score_2023($product_ref),
 									is_water_for_nutrition_score($product_ref)
 								);
 

@@ -62,6 +62,7 @@ BEGIN {
 		&fix_salt_equivalent
 
 		&is_beverage_for_nutrition_score_2021
+		&is_beverage_for_nutrition_score_2023
 		&is_fat_oil_nuts_seeds_for_nutrition_score
 		&is_water_for_nutrition_score
 
