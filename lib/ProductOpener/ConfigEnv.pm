@@ -41,7 +41,7 @@ $nutripatrol_url =~ s/\/$//;    # remove trailing slash if there is one
 
 if ((defined $ENV{SLACK_HOOK_URLS}) and ($ENV{SLACK_HOOK_URLS} ne '')) {
 	foreach my $kvp (split(',', $ENV{SLACK_HOOK_URLS})) {
-		if (not($kvp =~ s/^(?<channel>.+)=(?<url>https?.+)$//)) {
+		if (not($kvp =~ m/^(?<channel>.+)=(?<url>https?.+)$/)) {
 			next;
 		}
 
