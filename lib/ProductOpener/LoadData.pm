@@ -76,7 +76,6 @@ sub load_data() {
 	return if ($ENV{PO_NO_LOAD_DATA});
 
 	$log->debug("loading data - start") if $log->is_debug();
-	print STDERR "load_data - start\n";
 
 	init_crm_data();    # Die if CRM is configured and, required data cannot be loaded from cache or fetched from CRM
 	init_taxonomies(1);    # Die if some taxonomies cannot be loaded
@@ -98,12 +97,9 @@ sub load_data() {
 	load_gpc_category_codes_from_categories_taxonomy();
 
 	$log->debug("loading data - done") if $log->is_debug();
-	print STDERR "load_data - done\n";
-
 	return;
 }
 
-print STDERR "load_data - initializing\n";
 if ($ENV{PO_EAGER_LOAD_DATA}) {
 	# in test we want to be sure to load data eagerly
 	load_data();
