@@ -22,7 +22,7 @@
 
 =head1 NAME
 
-ProductOpener::Packaging 
+ProductOpener::Packaging
 
 =head1 SYNOPSIS
 
@@ -802,7 +802,7 @@ sub set_packaging_facets_tags ($product_ref) {
 
 =head2 set_packaging_misc_tags($product_ref)
 
-Set some tags in the /misc/ facet so that we can track the products that have 
+Set some tags in the /misc/ facet so that we can track the products that have
 (or don't have) packaging data.
 
 =cut
@@ -998,6 +998,12 @@ sub compute_weight_stats_for_parent_materials ($product_ref) {
 					$packagings_materials_main_weight = $parent_material_ref->{weight};
 				}
 			}
+			# If there’s no packaging weight defined, but there’s one packaging item and we know that
+			# the packaging is complete, we know that the weight of that item is 100% of the total
+			# packaging weight, even if we don’t know what that weight is.
+			elsif ((scalar @{$product_ref->{packagings}} == 1) and ($product_ref->{packagings_complete})) {
+				$parent_material_ref->{weight_percent} = 100;
+			}
 		}
 	}
 
@@ -1011,7 +1017,7 @@ sub compute_weight_stats_for_parent_materials ($product_ref) {
 	return;
 }
 
-=head2 initialize_packagings_structure_with_data_from_packaging_text ($product_ref, $response_ref) 
+=head2 initialize_packagings_structure_with_data_from_packaging_text ($product_ref, $response_ref)
 
 This function populates the packagings structure with data extracted from the packaging_text field.
 It is used only when there is no pre-existing data in the packagings structure.
