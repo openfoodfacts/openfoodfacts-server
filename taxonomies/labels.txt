@@ -1337,6 +1337,8 @@ en: No wheat, without wheat, Wheat-free
 bg: Без пшеница
 de: Ohne Weizen
 es: Sin trigo, libre de trigo
+fr: Sans blé
+it: Senza frumento
 nl: Zonder graan
 pt: Sem trigo, livre de trigo, 0% trigo
 
@@ -1684,11 +1686,12 @@ fr: Riche en fibres, Naturellement riches en fibres
 he: עתיר בסיבים תזונתיים
 hr: visoko obogaćena vlaknima
 hu: Rostokban gazdag, Magas rosttartalmú
-it: Ricco di fibre
+it: Ricco di fibre, Ad alto contenuto di fibre
 nb: Fiberrik, rik på fiber
 nl: Vezelrijk, Rijk aan vezels
 pl: wysoka zawartość błonnika
 pt: Rico em fibras, teor elevado de fibras, teor elevado em fibras, alto teor em fibra, alto teor em fibras
+ro: Високо съдържание на хранителни влакнини
 ru: Обогащено клетчаткой
 sv: Fiberrik, Rik på fiber
 th: ใยอาหารสูง
@@ -1708,25 +1711,27 @@ wikidata:en: Q191756
 < en:Omega-3
 en: source of omega-3, source of omega-3 fatty acids
 xx: source of omega-3
+bg: Натурален източник на омега-3 мастни киселини
 it: sorgente di omega 3, sorgente di omega-3, sorgente di omega3
 description:en: In EU, a claim that a food is a source of omega-3 may only be made where the product contains at least 0,3 g alpha-linolenic acid per 100 g and per 100 kcal, or at least 40 mg of the sum of eicosapentaenoic acid and docosahexaenoic acid per 100 g and per 100 kcal. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
 < en:Omega-3
 en: High in Omega 3, Rich in Omega 3, high omega-3 fatty acids
 xx: High in Omega 3
-bg: Богато на Омега-3
+bg: Богато на Омега-3, Натурално високо съдържание на омега-3 мастни киселини
 ca: Alt en Omega 3, Ric en Omega 3
 de: Hoher Omega-3-Gehalt
 es: Rico en Omega 3, Alto en Omega 3
 fi: runsaasti omega-3-rasvahappoja, paljon omega-3-rasvahappoja
 fr: Riche en Oméga-3, Riche en omega 3, Riche en acide gras omega 3
 he: עשיר באומגה 3
-hr: visoka vsebnost omega-3 maščob, izvor omega-3 masnih kiselina
+hr: visoka vsebnost omega-3 maščob, izvor omega-3 masnih kiselina, bogato omega-3 masnim kiselinama
 hu: Omega-3 zsírsavakban gazdag
 it: Alto contenuto di Omega 3, ricco di omega 3
 nl: Rijk aan Omega 3
 pt: Rico em Ómega 3, Rico em Ómega-3
 ru: Обогащено омега-3 жирами
+sr: Bogata Omega-3 masnim kiselinama
 description:en: In EU, a claim that a food is high in omega-3 may only be made where the product contains at least 0,6 g alpha-linolenic acid per 100 g and per 100 kcal, or at least 80 mg of the sum of eicosapentaenoic acid and docosahexaenoic acid per 100 g and per 100 kcal. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
 en: high monounsaturated fat
@@ -1759,7 +1764,7 @@ description:en: In EU, a claim that a food is high in unsaturated fat may only b
 
 en: Source of proteins, source of protein, good source of protein
 xx: Source of proteins
-bg: Източник на белтъчини
+bg: Източник на белтъчини, Натурален източник на белтък
 ca: Font de proteïna
 de: proteinquelle
 es: Fuente de proteínas
@@ -3228,7 +3233,7 @@ bg: Без добавена захар
 ca: Sense sucre afegit, sense sucres afegits
 cs: Bez přidaného cukru, obsahuje přirozeněse vyskytující cukry
 da: Uden tilsat sukker
-de: Ohne Zuckerzusatz, Ohne zugesetzten Zucker
+de: Ohne Zuckerzusatz, Ohne zugesetzten Zucker, Enthält von Natur aus Zucker
 el: Χωρίς προσθήκη ζάχαρης
 es: Sin azúcares añadidos, 0% Azúcares añadidos, Sin azúcar añadido
 et: Ilma lisatud suhkruta
@@ -3252,7 +3257,7 @@ pt: Sem açúcares adicionados, sem adição de açúcares, sem açúcar adicion
 ro: Fără zahăr adăugat
 ru: Без добавления сахара
 sk: Bez pridaného cukru
-sl: Brez dodanega sladkorja, obsahuje prírodné cukry
+sl: Brez dodanega sladkorja, obsahuje prírodné cukry, brez dodanih sladkorjev
 sq: Pa sheqer të shtuar
 sr: Без додатог шећера
 sv: Inget tillsat socker, Utan tillsatt socker
@@ -4770,7 +4775,7 @@ fi: kananmunaton, munaton, ei kananmunaa
 fr: Sans œufs
 he: ללא ביצים, נטול ביצים
 hu: Tojás nélkül
-it: Senza uova
+it: Senza uova, Senza uovo
 nl: Zonder eieren
 pt: Sem ovos, sem ovo, 0% ovos
 sv: Utan ägg
@@ -5558,7 +5563,7 @@ label_categories:en: en:Specific diets
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #en:description:Labels used for identifying products (and ingredients) that have been grown organically.
 
-en: Organic, organically grown, organically produced, ingredient produced organically, from organic farming, From Organic Agriculture, organic ingredients, from controlled organic agriculture
+en: Organic, organically grown, organically produced, ingredient produced organically, from organic farming, From Organic Agriculture, organic ingredients, from controlled organic agriculture, from organic controlled cultivation
 bg: Био, биологично земеделие, биологично
 ca: Orgànic, de cultiu ecologic
 cs: Bio, z kontrolovane ekologicke produkce, z ekologickeho, z kontrolovaného ekologického zemědělství
@@ -5576,9 +5581,9 @@ ko: 유기농
 lt: Ekologiškas, ekologiškai užaugintas, ekologiškai pagamintas, ingredientas pagamintas ekologiškai, iš ekologiško žemės ūkio, iš ekologiško žemės ūkio
 nl: Biologisch, biologische, van biologische oorsprong, van biologische teelt, van gecontroleerd biologische teelt, afkomstig van biologische productiemethode, van gecontroleerde biologische landbouw
 pl: ekologiczny, bio, ekologiczne, ekologiczna, ekologicznych, ekologicznego, z kontrolowanych upraw ekologicznych, z kontrolowanej produkcji ekologicznej, z kontrolowanego rolnictwa ekologicznego, certyfikowany składnik ekologiczny, składnik ekologiczny, produkt pochodzący z kontrolowanych certyfikowanych upraw ekologicznych
-pt: Orgânico, produção orgânica, produzido de forma orgânica, numa quinta orgânica, de agricultura orgânica, agricultura orgânica
-ro: din agricultură ecologică controlată
-sk: z kontrolovaného ekologického poľnohospodárstva
+pt: Orgânico, produção orgânica, produzido de forma orgânica, numa quinta orgânica, de agricultura orgânica, agricultura orgânica, de produção Biológica
+ro: din agricultură ecologică controlată, din cultură organică controlată
+sk: z kontrolovaného ekologického poľnohospodárstva, produkt ekologického poľnohospodárstva
 sl: iz kontrolirane ekološke pridelave
 sv: Ekologisk, Ekologiskt, Ekologiska, ekologisk ingrediens
 th: ออร์แกนิค
@@ -18991,6 +18996,7 @@ hu: C-vitaminban gazdag
 it: Ricco di vitamina C
 nl: Rijk aan vitamine C
 pt: Rico em vitamina C
+ro: Bogat in vitamina C
 th: แหล่งของวิตามินซี
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 xx:en: Rich in vitamin C
@@ -19813,7 +19819,7 @@ lt: Veganiškas, Tinkamas veganams, Tinkama vegetarams ir veganams
 nb: Vegan, Vegansk
 nl: Veganistisch, plantaardig, niet dierlijk
 pl: Wegańskie, przyjazne weganom, wegański, wegańska
-pt: Vegano, produto vegano, vegan, adequado para veganos, adequado a veganos, adequado a uma dieta vegan, adequado a uma dieta vegana, adequado a vegetarianos e veganos
+pt: Vegano, produto vegano, vegan, adequado para veganos, adequado a veganos, adequado a uma dieta vegan, adequado a uma dieta vegana, adequado a vegetarianos e veganos, odpowiedni dla wegan
 sq: vegan
 sv: Vegansk, Passar för veganer, vegetabilisk, vegetabiliskt ursprung
 th: สูตรเจ
@@ -20462,7 +20468,7 @@ en: No nuts, nut free
 de: Ohne Nüsse, nussfrei
 es: Sin frutos secos, sin nueces
 fr: Sans fruits à coque, sans fruits secs
-it: Senza noci, senza frutta secca
+it: Senza noci, senza frutta secca, senza frutta a guscio
 nl: Zonder noten
 pt: Sem nozes, livre de nozes
 
