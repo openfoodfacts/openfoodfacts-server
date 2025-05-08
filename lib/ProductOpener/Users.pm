@@ -160,7 +160,7 @@ Returns the salted hashed sequence.
 
 =cut
 
-# TODO: Can delete this when we fully implement Keycloak
+#11866: Can delete this when we fully implement Keycloak
 sub create_password_hash ($password) {
 
 	return scrypt_hash($password);
@@ -184,7 +184,7 @@ Boolean: This function returns a 1/0 (True or False)
 
 =cut
 
-# TODO: Can delete this when we fully implement Keycloak
+#11866: Can delete this when we fully implement Keycloak
 sub check_password_hash ($password, $hash) {
 
 	if ($hash =~ /^\$1\$(?:.*)/) {
@@ -212,7 +212,7 @@ Takes in the $user_ref of the user to be deleted
 
 =cut
 
-# TODO: Can delete this when we fully implement Keycloak
+#11866: Can delete this when we fully implement Keycloak
 sub delete_user ($user_ref) {
 	my $args_ref = {
 		userid => get_string_id_for_lang("no_language", $user_ref->{userid}),
@@ -982,7 +982,7 @@ If the user is logging in with a correct password, we can update the password ha
 
 =cut
 
-# TODO: Can remove this after Keycloak migration
+#11866: Can remove this after Keycloak migration
 sub migrate_password_hash ($user_ref) {
 
 	# Migration: take the occasion of having password to upgrade to scrypt, if it is still in crypt format
@@ -1154,7 +1154,7 @@ sub user_exists ($user_id) {
 	return (-e $user_file);
 }
 
-# TODO: Can remove after migration to Keycloak
+#11866: Can remove after migration to Keycloak
 sub retrieve_user_by_email($email) {
 	my $user_ref;
 	my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");

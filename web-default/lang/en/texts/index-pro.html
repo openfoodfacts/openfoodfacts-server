@@ -14,7 +14,7 @@
 		</div>
 
 		<div class="hide-when-logged-in">
-			<!-- TODO: This need to change to direct to Keycloak and explain what to do afterwards -->
+			<!-- #11867: This need to change to direct to Keycloak and explain what to do afterwards -->
 			<a href=[% IF oidc_implementation_level < 3 %]"/cgi/user.pl"[% ELSE %]"/cgi/oidc_signin.pl?return_url=<escaped_subdomain>"[% END %] class="small button">Create a free producer
 				account</a>
 		</div>

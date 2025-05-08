@@ -136,7 +136,7 @@ if ($action eq 'process') {
 			display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
 		}
 	}
-	elsif ($type ne 'delete') {    # TODO: Can remove delete check once Keycloak fully implemented
+	elsif ($type ne 'delete') {    #11866: Can remove delete check once Keycloak fully implemented
 		ProductOpener::Users::check_user_form($request_ref, $type, $user_ref, \@errors);
 	}
 

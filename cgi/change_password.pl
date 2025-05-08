@@ -55,7 +55,6 @@ if (get_oidc_implementation_level() < 5) {
 	my @errors = ();
 
 	if ($ENV{'REQUEST_METHOD'} eq 'POST') {
-		# TODO: This will change for Keycloak
 		my $user_ref = retrieve_user($User_id);
 		if (not(defined $user_ref)) {
 			push @errors, 'undefined user';

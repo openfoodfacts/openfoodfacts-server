@@ -54,7 +54,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libcache-memcached-fast-perl \
         libjson-pp-perl \
         libclone-perl \
-        # TODO: Delete following after Keycloak Migration:
+        #11866: Delete following after Keycloak Migration:
         libcrypt-passwdmd5-perl \
         libencode-detect-perl \
         libgraphics-color-perl \

@@ -21,7 +21,7 @@ use Storable qw(dclone);
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
-# TODO: These tests need to be re-written for the new workflow
+#11867: These tests need to be re-written for the new workflow
 
 # clean
 remove_all_users();
@@ -57,7 +57,7 @@ ok(!html_displays_error($resp), "no error creating pro user");
 my $logs = tail_log_read($tail);
 
 # As it is the first user of the org, user is already part of the org
-# TODO: This may need to change with Keycloak
+#11866: This may need to change with Keycloak
 my $user_ref = retrieve("$data_root/users/tests.sto");
 # user is already part of org
 is($user_ref->{pro}, 1, "user is marked as pro");

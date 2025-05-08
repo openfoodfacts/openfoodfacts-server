@@ -87,9 +87,9 @@ my @errors = ();
 if ($action eq 'process') {
 
 	if ($type eq 'edit') {
-		# TODO: Add a honeypot field
+		#11867: Add a honeypot field
 
-		# TODO: Set org_id from Name if not set and return an error if the org already exists
+		#11867: Set org_id from Name if not set and return an error if the org already exists
 
 		my $delete = single_param('delete') // '';
 		if ($delete eq 'on') {
@@ -156,7 +156,7 @@ if ($action eq 'process') {
 				push @errors, $Lang{error_missing_org_name}{$lc};
 			}
 
-			# TODO: If adding a new org check the org doesn't already exist and return an error if it does
+			#11867: If adding a new org check the org doesn't already exist and return an error if it does
 			# with suggestion to join the existing org
 
 			# Contact sections
@@ -379,7 +379,7 @@ if ($action eq 'display') {
 elsif ($action eq 'process') {
 
 	if ($type eq "edit") {
-		# TODO: Set main contact to the current user if not an admin or moderator
+		#11867: Set main contact to the current user if not an admin or moderator
 		# And add as a member and administrator
 		store_org($org_ref);
 		$template_data_ref->{result} = lang("edit_org_result");
