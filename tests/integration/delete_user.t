@@ -39,6 +39,7 @@ edit_product($ua, \%default_product);
 
 my $url_userid = construct_test_url("/cgi/user.pl?type=edit&userid=tests", "world");
 if (get_oidc_implementation_level() < 5) {
+	# Use legacy method until we have moved account management to Keycloak
 	my $url_delete = construct_test_url("/cgi/user.pl", "world");
 	my $response_edit = $ua->get($url_userid);
 

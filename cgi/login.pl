@@ -47,6 +47,8 @@ my $r = shift;
 my $redirect = single_param('redirect');
 
 if (get_oidc_implementation_level() < 5) {
+	# Keep legacy method until we have moved the login process to Keycloak
+
 	my $template_data_ref = {};
 	$template_data_ref->{redirect} = $redirect;
 	if (defined $User_id) {

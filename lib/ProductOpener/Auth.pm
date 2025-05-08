@@ -850,7 +850,9 @@ None.
 =cut
 
 sub write_auth_deprecated_headers() {
-	if (get_oidc_implementation_level() >= 3) {
+	if (get_oidc_implementation_level() >= 5) {
+		# Add the deprecation warning once we have fully migrated to Keycloak
+		#10558: We still need to implement the mechanism for creating client_id / secrets for API users
 		my $r = Apache2::RequestUtil->request();
 		$r->err_headers_out->set('Deprecation', 'Mon, 01 Apr 2024 00:00:00 GMT');
 		$r->err_headers_out->set('Sunset', 'Tue, 01 Apr 2025 18:00:00 GMT');
@@ -864,8 +866,8 @@ Returns the current Keycloak implementation level
 
 0 = Not available
 1 = Use legacy Authentication and Registration but keep users in sync
-2 = Use Keycloak for back-channel authentication but legacy login and Registration forms
-3 = Use Keycloak backend and front end for all authentication. Legacy Registration forms
+2 = Users are fully synced. Use Keycloak for back-channel authentication but use legacy login and Registration forms
+3 = [DELETED. This won't work as the Keycloak login forms will direct to the Keycloak registration forms] Use Keycloak backend and front end for all authentication. Legacy Registration forms
 4 = Respond to Keycloak events for user registration / deletion tasks (welcome email, etc.)
 5 = Fully implemented, including Keycloak registration forms
 

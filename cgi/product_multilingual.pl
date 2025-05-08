@@ -376,7 +376,8 @@ if (($type eq 'add') or ($type eq 'edit') or ($type eq 'delete')) {
 
 	if (not defined $User_id) {
 
-		if (get_oidc_implementation_level() < 3) {
+		if (get_oidc_implementation_level() < 5) {
+			# Keep legacy method until we have moved the login process to Keycloak
 			my $submit_label = "login_and_" . $type . "_product";
 			$action = 'login';
 			$template_data_ref->{type} = $type;

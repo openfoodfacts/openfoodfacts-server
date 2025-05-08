@@ -374,6 +374,7 @@ sub delete_user_task ($job, $args_ref) {
 	my $userid = $args_ref->{userid};
 	my $new_userid;
 	if (get_oidc_implementation_level() < 4) {
+		# Use the legacy method until we have moved to processing events from Keycloak
 		# Suffix is a combination of seconds since epoch plus a 16 bit random number
 		$new_userid = "anonymous-" . lc(encode_base32(pack('LS', time(), rand(65536))));
 	}
@@ -532,7 +533,8 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 
 		# check that the email is not already used
 		my $user_id_from_mail;
-		if (get_oidc_implementation_level() < 5) {
+		if (get_oidc_implementation_level() < 2) {
+			# Use legacy method until Keycloak is fully synced
 			my $existing_user = retrieve_user_by_email($email);
 			if (defined $existing_user) {
 				$user_id_from_mail = $existing_user->{userid};
@@ -556,6 +558,7 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 
 	# Country and preferred language
 	if (get_oidc_implementation_level() < 5) {
+		# Show additional fields until Keycloak is managing user registration
 		$user_ref->{preferred_language} = remove_tags_and_quote(single_param("preferred_language"));
 		$user_ref->{country} = remove_tags_and_quote(single_param("country"));
 	}
@@ -635,6 +638,7 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 	}
 
 	if (get_oidc_implementation_level() < 5) {
+		# Show additional fields until Keycloak is managing user registration
 		my $address;
 		eval {$address = Email::Valid->address(-address => $user_ref->{email}, -mxcheck => 1);};
 		$address = 0 if $@;
@@ -662,11 +666,13 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 		}
 
 		if (get_oidc_implementation_level() < 5 and length(decode utf8 => single_param('password')) < 6) {
+			# Password validation will move to Keycloak once it is managing user registration
 			push @{$errors_ref}, $Lang{error_invalid_password}{$lc};
 		}
 	}
 
 	if (get_oidc_implementation_level() < 5) {
+		# Password validation will move to Keycloak once it is managing user registration
 		if (param('password') ne single_param('confirm_password')) {
 			push @{$errors_ref}, $Lang{error_different_passwords}{$lc};
 		}
@@ -849,6 +855,8 @@ sub process_user_form ($type, $user_ref, $request_ref) {
 		init_user($request_ref);
 
 		if (get_oidc_implementation_level() < 4) {
+			# These fields will move to Keycloak once it is managing user registration
+
 			# Fetch the HTML mail template corresponding to the user language, english is the
 			# default if the translation is not available
 			my $language = $user_ref->{preferred_language} || $user_ref->{initial_lc};
@@ -1293,6 +1301,7 @@ sub remove_user ($user_ref) {
 
 	my $oidc_implementation_level = get_oidc_implementation_level();
 	if ($oidc_implementation_level > 0 and $oidc_implementation_level < 5) {
+		# Keep Keycloak in sync until it is managing user registration
 		my $keycloak = ProductOpener::Keycloak->new();
 		$keycloak->delete_user($userid);
 	}
@@ -1319,7 +1328,8 @@ sub retrieve_userids() {
 }
 
 sub is_email_has_off_account ($email) {
-	if (get_oidc_implementation_level() < 5) {
+	if (get_oidc_implementation_level() < 2) {
+		# Use legacy search until Keycloak is fully synced
 		my $user_ref = retrieve_user_by_email($email);
 		return $user_ref->{userid} if defined $user_ref;
 
@@ -1452,6 +1462,7 @@ sub init_user ($request_ref) {
 
 		if ($user_id =~ /\@/) {
 			if (get_oidc_implementation_level() < 5) {
+				# Validate user information until registration has moved to Keycloak
 				$log->info("got email while initializing user", {email => $user_id}) if $log->is_info();
 				$user_ref = retrieve_user_by_email($user_id);
 
@@ -1468,6 +1479,8 @@ sub init_user ($request_ref) {
 				$log->info("corresponding user_id", {userid => $user_id}) if $log->is_info();
 			}
 			else {
+				# Once registration has moved to Keycloak we are just storing user preferences
+				# but still want to validate the user
 				$user_id = _get_or_create_account_by_mail($user_id);
 				# Trigger an error
 				unless (defined $user_id) {
@@ -1490,7 +1503,8 @@ sub init_user ($request_ref) {
 				$user_id = $user_ref->{'userid'};
 				$log->context->{user_id} = $user_id;
 
-				if (get_oidc_implementation_level() < 3) {
+				if (get_oidc_implementation_level() < 2) {
+					# Use legacy password checking until back-channel authentication has moved to Keycloak
 					my $hash_is_correct = check_password_hash(encode_utf8(request_param($request_ref, 'password')),
 						$user_ref->{'encrypted_password'});
 					# We don't have the right password
@@ -1619,7 +1633,8 @@ sub init_user ($request_ref) {
 						if $log->is_debug();
 					$user_id = $user_ref->{'userid'};
 
-					if (get_oidc_implementation_level() >= 3) {
+					if (get_oidc_implementation_level() >= 2) {
+						# Add Keycloak information to the session if we are using Keycloak for back-channel authentication
 						my $session_ref = $user_ref->{'user_sessions'}{$user_session};
 						$request_ref->{access_token} = $session_ref->{access_token} if $session_ref->{access_token};
 						$request_ref->{access_expires_at} = $session_ref->{access_expires_at}

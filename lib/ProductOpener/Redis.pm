@@ -145,6 +145,7 @@ sub subscribe_to_redis_streams () {
 	}
 
 	if (get_oidc_implementation_level() >= 4) {
+		# Read Keycloak events to process actions following user creation / deletion
 		_read_user_streams('$');
 	}
 

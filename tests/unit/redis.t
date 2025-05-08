@@ -83,6 +83,7 @@ subtest 'user registration from redis to minion' => sub {
 	is($user2_called, 2, 'process_xread_stream_reply called Minion->enqueue with user2');
 
 	if (get_oidc_implementation_level() < 5) {
+		# Legacy code will be called until we have migrated registration to Keycloak
 		is($create_or_update_user_called, 2, 'create_or_update_user for each user');
 	}
 };

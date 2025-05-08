@@ -1319,8 +1319,8 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 			$html =~ s/<\/h1>/ - $owner_user_or_org<\/h1>/;
 		}
 
-		if (get_oidc_implementation_level() >= 3) {
-			# Set the login links
+		if (get_oidc_implementation_level() >= 5) {
+			# Use the Keycloak login link once we have fully mirgrated the Login user interface
 			#11867: Should be full URL
 			my $escaped_canon_url = uri_escape($formatted_subdomain);
 			$html =~ s/<escaped_subdomain>/$escaped_canon_url/g;
