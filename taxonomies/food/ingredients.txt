@@ -73,6 +73,7 @@ synonyms:en: pasteurised, pasteurized
 synonyms:fr: de production biologique, issu de l'agriculture biologique
 
 synonyms:en: wholemeal, whole, whole grain, wholegrain, complete
+synonyms:sv: fullkorn, fullkorns
 
 synonyms:en: semi-wholemeal, semi-whole, semi-whole grain, semi-wholegrain, semi-complete, semiwhole, semiwholemeal
 
@@ -24112,7 +24113,7 @@ pl: płatki pszenne, chrupki pszenno-żytnie
 pt: flocos de trigo
 ro: fulgi de grâu
 sl: pšenični kosmiči
-sv: veteflingor
+sv: veteflingor, veteflinga
 th: เกล็ดข้าวสาลี
 #1457 in 19 @2021-10-22
 
@@ -24125,6 +24126,7 @@ hr: sladne pšenične pahuljice
 it: fiocchi di frumento maltato
 
 < en:wheat flakes
+< en:whole wheat
 en: whole wheat flakes
 ca: flocs de blat integral
 de: Vollkorn-Weizenflocken, Weizenvollkornflocken
@@ -24137,7 +24139,7 @@ it: Fiocchi di grano interi
 lt: pilno grūdo kviečių dribsniai, pilno grūdo kvietiniai dribsniai, pilno grūdo kvietinės dribsniai, pilno grūdo kvietinis dribsniai
 nl: volkoren tarwevlokken
 pt: flocos de trigo integral, płatki pszenne pełnoziarniste
-sv: fullkornsveteflingor, fullkorn veteflinga
+sv: fullkornsveteflingor, fullkorn veteflingor, fullkorn veteflinga
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pétales-de-blé-complet
 # 22 products in 5 languages @2018-09-22
 
@@ -43056,7 +43058,7 @@ ar: عنب الأحراج
 be: Ягаднік
 bg: боровинка, боровинки
 cs: Borůvka
-da: bølle
+da: blåbær, bølle
 de: Heidelbeeren, Blaubeeren, Heidelbeere
 eo: mirtelo
 es: arándano, arándanos, mirtilo
@@ -43119,7 +43121,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Vaccinium_myrtillus
 en: cultivated blueberry
 bg: Сини боровинки
 cs: Borůvky
-da: Blåbærsorter
+da: blåbærsorter
 de: Kulturheidelbeeren
 # hr:borovnica
 pl: borówka amerykańska, borówki amerykańskie
@@ -43131,7 +43133,7 @@ wikidata:en: Q1791749
 < en:blueberry
 en: wild blueberry, wild blueberries
 bg: дива боровинка, диви боровинки
-da: blåbær
+da: vildt blåbær, vilde blåbær
 de: Wilde Heidelbeeren
 fi: villimustikka
 fr: myrtille sauvage
@@ -43171,7 +43173,9 @@ pl: borówka dzika, borówki dzikie
 #processing:en: en:juice
 < en:blueberry
 en: blueberry juice
+da: blåbærsaft
 it: succo di mirtillo
+sv: blåbärssaft
 #es:Jugo de zarzamora
 #fi:mustikkamehu
 #fr:jus de myrtille
@@ -50539,11 +50543,13 @@ wikipedia:en: https://en.wikipedia.org/wiki/Broccoli
 
 < en:broccoli
 en: broccoli floret, broccoli top
+da: broccolibuket, broccolibuketter
 de: Brokkoliröschen
 fr: brocolis en fleurettes, fleurettes de brocolis
 hr: cvjetić brokule
 it: fiore di broccolo
 nl: broccoliroosjes, broccoli roosjes
+sv: broccolibukett, broccolibuketter
 # ingredient/fr:brocolis-en-fleurettes has 17 products in 3 languages @2019-05-24
 carbon_footprint_fr_foodges_ingredient:fr: Brocoli (France)
 carbon_footprint_fr_foodges_value:fr: 0.4
@@ -50551,12 +50557,14 @@ eurocode_2_group_3:en: 8.15.12
 
 < en:broccoli
 en: broccoli cress
+da: broccolikarse
 de: Brokkolikresse
 es: mastuerzo
 fr: pousses de brocoli
 hr: brokula kres
 it: crescione di broccoli
 nl: broccoli cress
+sv: broccolikrasse
 # en:broccoli-cress has 1 product in 1 language @2018-10-16
 
 < en:broccoli
@@ -50627,17 +50635,20 @@ wikipedia:en: https://en.wikipedia.org/wiki/Cauliflower
 
 < en:cauliflower
 en: cauliflower florets
+da: blomkålsbuketter, blomkålsbuket
 de: Blumenkohlröschen, Blumenkohl-Röschen
 fr: Choux-fleurs en fleurettes
 hr: cvjetovi cvjetače
 it: cimette di cavolfiore
 nl: Bloemkoolroosjes
+sv: blomkålsbuketter, blomkålsbukett
 # ingredient/fr:choux-fleurs-en-fleurettes has 15 products in 6 languages @2019-05-24
 
 # description:en:POINTED CABBAGE (Brassica oleracea var. capitata f. acuta), also known as cone, sweetheart, hispi or sugarloaf cabbage is a form of cabbage (Brassica oleracea) with a tapering shape and large delicate leaves varying in colour from yellowish to blue-green. It tastes less pronounced and more delicate than common white cabbage (Brassica oleracea var. capitata f. alba).
 
 < en:brassica
 en: pointed cabbage
+da: spidskål
 de: Spitzkohl
 sv: spetskål
 wikidata:en: Q7225623
@@ -56486,7 +56497,7 @@ ru: руккола
 sd: ڄانڀو
 sq: sallatë manushaqeje
 sr: рукола
-sv: ruccola, ruccolasallad
+sv: rucola, rucolasallad, ruccola, ruccolasallad
 tr: roka
 uk: рукола
 zh: 芝麻菜
@@ -58210,7 +58221,7 @@ ar: إيليوكاريس حلو
 as: শিঙৰি
 bg: китайски воден кестен
 cs: Bahnička jedlá
-da: Vandkastanje
+da: vandkastanje, vandkastanjer
 de: Wasserkastanien
 el: Κινέζικο νεροκάστανο
 eo: Akvokaŝtano
@@ -58233,7 +58244,7 @@ nl: waterkastanje, waterkastanjes, Chinese waterkastanje
 pl: Ponikło słodkie
 ru: Болотница сладкая
 sd: سنگھارا
-sv: Vattenkastanj
+sv: vattenkastanj, vattenkastanjer
 th: แห้วทรงกระเทียม
 tl: Apulid
 to: Kuta
@@ -59061,6 +59072,12 @@ zh: 荷包豆
 #nah:ayecohtli, ayocohtli
 wikidata:en: Q159753
 
+# may or may not contain bean-beans
+< en:legume
+< en:pulse
+en: mixed beans, bean mix
+sv: blandade bönor
+
 ###########################
 #
 #
@@ -59267,6 +59284,9 @@ sv: vit böna, vita bönor
 eurocode_2_group_3:en: 7.10.30
 eurocode_2_group_4:en: 7.10.30.10
 
+< en:white beans
+en: large white beans
+sv: stora vita bönor
 
 < en:white beans
 en: lingot beans, white lingot beans
@@ -59389,6 +59409,7 @@ de: Cannellini Bohnen, Cannellinibohnen
 fr: haricots cannellini
 hr: cannellini grah
 it: fagioli cannellini, cannellini
+sv: cannellinibönor, cannelliniböna
 wikidata:en: Q74663825
 
 #comment:en:Do not confuse these with mungo beans: Vigna mungo
