@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2025 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -54,7 +54,8 @@ BEGIN {
 		&single_param
 		&request_param
 		&get_http_request_header
-	);    #the fucntions which are called outside this file
+		&get_http_request_pnote
+	);    #the funntions which are called outside this file
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -336,6 +337,42 @@ sub request_param ($request_ref, $param_name) {
 	else {
 		return deep_get($request_ref, "body_json", $param_name);
 	}
+}
+
+=head2 get_http_request_pnote($name, [$r])
+
+Return a value from the Apache2 per-request notes (pnotes) for the current request, if available.
+
+=head3 Parameters
+
+=over 4
+
+=item * C<$name> - The key/name of the per-request note to retrieve.
+
+=item * C<[$r]> - (Optional) An Apache2::RequestRec object. If not provided, the current request is obtained via Apache2::RequestUtil->request().
+
+=back
+
+=head3 Behavior
+
+Attempts to retrieve the Apache2 request object (either the one provided or the current one) and access its pnotes hash for the given key. If the request object is not defined or does not support pnotes (e.g., outside mod_perl or in unit tests), logs an error and returns undef.
+
+=head3 Return value
+
+The value of the per-request note for the given key, or undef if not available.
+
+=cut
+
+sub get_http_request_pnote($name, $r) {
+	$r = $r // Apache2::RequestUtil->request();
+	# we need to check if the request object is defined and has headers
+	# as this function may be called outside of mod_perl (e.g. in unit tests)
+	if ((defined $r) and ($r->can('pnotes'))) {
+		return ($r->pnotes->{$name});
+	}
+
+	$log->error("get_http_request_pnote: request object does not have pnotes method (not in mod_perl?)");
+	return;
 }
 
 1;
