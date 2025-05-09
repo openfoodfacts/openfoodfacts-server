@@ -449,6 +449,7 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Baby/Infant - Specialised Beverages (Shelf Stable)
 
 < en:Baby drinks
+< en:Plant-based beverages
 en: Plant-based beverage for baby
 fr: Boisson à base de plantes pour bébé
 hr: Biljni napitak za bebe
@@ -465,6 +466,7 @@ agribalyse_proxy_food_code:en: 13173
 ciqual_food_code:en: 13182
 ciqual_food_name:en: Milky cereal-based beverage(average)
 ciqual_food_name:fr: Boisson infantile céréales lactées (aliment moyen)
+incompatible_with:en: categories:en:vegan-products
 
 < en:Milky cereal-based beverages
 en: Dairy cereal-based beverage for baby's breakfast
@@ -518,6 +520,7 @@ agribalyse_food_code:en: 13169
 ciqual_food_code:en: 13169
 ciqual_food_name:en: Dairy cereal-based beverage for baby's breakfast from 8/9 months
 ciqual_food_name:fr: Boisson infantile céréales lactées pour le petit déjeuner dès 8/9 mois
+incompatible_with:en: categories:en:vegan-products
 
 < en:From 12 months old
 < en:Milky cereal-based beverages
@@ -527,6 +530,7 @@ agribalyse_food_code:en: 13170
 ciqual_food_code:en: 13170
 ciqual_food_name:en: Dairy cereal-based beverage for baby's breakfast from 12 months
 ciqual_food_name:fr: Boisson infantile céréales lactées pour le petit déjeuner dès 12 mois
+incompatible_with:en: categories:en:vegan-products
 
 < en:Baby drinks
 < en:Baby foods
@@ -572,6 +576,7 @@ lt: Kūdikių pieniški desertai, Pieniški desertai kūdikiams
 nl: Babymelktoetjes, Babymelktoetje, Melktoetje voor babies
 nl_be: Babymelkdesserten, Melkdesserten voor babies, Melkdessert voor babies
 ro: Deserturi cu lactate pentru bebeluși, Deserturi cu lactate bebeluși
+incompatible_with:en: categories:en:vegan-products
 
 < en:Dairy dessert for baby
 en: Dairy dessert for baby with custard
@@ -838,6 +843,7 @@ fr: Menus Poissons pour bébé
 hr: Riblji jelovnici za bebe
 it: Pasti per neonati a base di pesce
 nl: Babyvismaaltijden, Babyvismaaltijd
+incompatible_with:en: categories:en:vegetarian-products
 
 < en:Main meals for babies
 en: Meat menus for babies
@@ -847,6 +853,7 @@ fr: Menus Viandes pour bébé
 hr: Mesni jelovnici za bebe
 it: Pasti per neonati a base di carne
 nl: Babyvleesmaaltijden, Babyvleesmaaltijd
+incompatible_with:en: categories:en:vegetarian-products
 
 < en:Main meals for babies
 fr: Petits pots pour bébé, petits pots bébé, petit pot bébé, petits pots pour bébés, petits pots, petit pot
@@ -936,6 +943,7 @@ agribalyse_food_code:en: 20253
 ciqual_food_code:en: 20253
 ciqual_food_name:en: Soup for baby, with vegetables, cereals and milk
 ciqual_food_name:fr: Soupe pour bébé légumes, céréales et lait
+incompatible_with:en: categories:en:vegan-products
 
 < en:Main meals for babies
 en: Soup for baby with vegetables and potatoes
@@ -961,6 +969,7 @@ agribalyse_food_code:en: 42603
 ciqual_food_code:en: 42603
 ciqual_food_name:en: Vegetable dish for baby, w meat/fish and starch, from 6-8 months
 ciqual_food_name:fr: Plat légumes, avec féculent et viande/poisson, dès 6-8 mois
+incompatible_with:en: categories:en:vegetarian-products
 
 < en:From 6 months
 < en:Main meals for babies
@@ -970,6 +979,7 @@ agribalyse_food_code:en: 42603
 ciqual_food_code:en: 42603
 ciqual_food_name:en: Vegetable dish for baby, w meat/fish and starch, from 6-8 months
 ciqual_food_name:fr: Plat légumes, avec féculent et viande/poisson, dès 6-8 mois
+incompatible_with:en: categories:en:vegetarian-products
 
 < en:From 6 months
 < en:Main meals for babies
@@ -979,6 +989,7 @@ agribalyse_food_code:en: 20249
 ciqual_food_code:en: 20249
 ciqual_food_name:en: Vegetable dish for baby, with milk/cream and starch, from 6-8 months
 ciqual_food_name:fr: Plat légumes, avec féculent et lait/crème, dès 6-8 mois
+incompatible_with:en: categories:en:vegan-products
 
 < en:From 6 months
 < en:Main meals for babies
@@ -1001,6 +1012,7 @@ agribalyse_food_code:en: 42604
 ciqual_food_code:en: 42604
 ciqual_food_name:en: Vegetable dish for baby, w meat/fish and starch, from 8-12 months
 ciqual_food_name:fr: Plat légumes, avec féculent et viande/poisson, dès 8-12 mois
+incompatible_with:en: categories:en:vegetarian-products
 
 < en:From 8 months
 < en:Main meals for babies
@@ -1010,6 +1022,7 @@ agribalyse_food_code:en: 42604
 ciqual_food_code:en: 42604
 ciqual_food_name:en: Vegetable dish for baby, w meat/fish and starch, from 8-12 months
 ciqual_food_name:fr: Plat légumes, avec féculent et viande/poisson, dès 8-12 mois
+incompatible_with:en: categories:en:vegetarian-products
 
 < en:From 8 months
 < en:Main meals for babies
@@ -1019,6 +1032,7 @@ agribalyse_food_code:en: 20250
 ciqual_food_code:en: 20250
 ciqual_food_name:en: Vegetable dish for baby, with milk/cream and starch, from 8-12 months
 ciqual_food_name:fr: Plat légumes, avec féculent et lait/crème, dès 8-12 mois
+incompatible_with:en: categories:en:vegan-products
 
 < en:From 12 months old
 < en:Main meals for babies
@@ -1032,6 +1046,7 @@ agribalyse_food_code:en: 42605
 ciqual_food_code:en: 42605
 ciqual_food_name:en: Vegetable dish for baby, w meat/fish and starch, from 12 months
 ciqual_food_name:fr: Plat légumes, avec féculent et viande/poisson, dès 12 mois
+incompatible_with:en: categories:en:vegetarian-products
 
 < en:From 12 months old
 < en:Main meals for babies
@@ -1041,6 +1056,7 @@ agribalyse_food_code:en: 42605
 ciqual_food_code:en: 42605
 ciqual_food_name:en: Vegetable dish for baby, w meat/fish and starch, from 12 months
 ciqual_food_name:fr: Plat légumes, avec féculent et viande/poisson, dès 12 mois
+incompatible_with:en: categories:en:vegetarian-products
 
 < en:From 12 months old
 < en:Main meals for babies
@@ -1050,6 +1066,7 @@ agribalyse_food_code:en: 20251
 ciqual_food_code:en: 20251
 ciqual_food_name:en: Vegetable dish for baby, with milk/cream and starch, from 12 months
 ciqual_food_name:fr: Plat légumes, avec féculent et lait/crème, dès 12 mois
+incompatible_with:en: categories:en:vegan-products
 
 < en:From 18 months
 < en:Main meals for babies
@@ -1059,6 +1076,7 @@ agribalyse_food_code:en: 42606
 ciqual_food_code:en: 42606
 ciqual_food_name:en: Vegetable dish for baby, w meat/fish and starch, from 18 months
 ciqual_food_name:fr: Plat légumes, avec féculent et viande/poisson, dès 18 mois
+incompatible_with:en: categories:en:vegetarian-products
 
 < en:From 18 months
 < en:Main meals for babies
@@ -1068,6 +1086,7 @@ agribalyse_food_code:en: 42606
 ciqual_food_code:en: 42606
 ciqual_food_name:en: Vegetable dish for baby, w meat/fish and starch, from 18 months
 ciqual_food_name:fr: Plat légumes, avec féculent et viande/poisson, dès 18 mois
+incompatible_with:en: categories:en:vegetarian-products
 
 < en:From 18 months
 < en:Main meals for babies
@@ -1077,6 +1096,7 @@ agribalyse_food_code:en: 20254
 ciqual_food_code:en: 20254
 ciqual_food_name:en: Vegetable dish for baby, with milk/cream and starch, from 18 months
 ciqual_food_name:fr: Plat légumes, avec féculent et lait/crème, dès 18 mois
+incompatible_with:en: categories:en:vegan-products
 
 en: Bee products, products from bees, Products of the hive, Hive products
 bg: Пчелни продукти
@@ -1096,6 +1116,7 @@ pt: Produtos des abelhas, produtos de colmeia
 ro: Produse apicole, Produse de apicultură, Produse apicultură, Produse de apicultura, Produse apicultura
 ru: Продукция пчеловодства, Продукты пчеловодства
 tr: Arı ürünleri
+incompatible_with:en: categories:en:vegan-products
 wikidata_category:en: Q7189914
 
 < en:Bee products
@@ -44225,7 +44246,7 @@ uz: Sut mahsulotlari
 vi: Chế phẩm sữa
 yi: מילכיגס
 zh: 乳製品, 奶制品
-incompatible_with:en: categories:en:dairy-substitutes
+incompatible_with:en: categories:en:dairy-substitutes, categories:en:vegan-products
 wikidata:en: Q185217
 
 < en:Dairies
@@ -58510,6 +58531,7 @@ pl: Tłuszcze zwierzęce, Tłuscze zwierzęce
 pt: Gorduras animais
 ru: животные жиры, жиры животные
 zh: 动物脂肪
+incompatible_with:en: categories:en:vegan-products
 nova:en: 2
 wikidata:en: Q1423543
 
@@ -58530,6 +58552,7 @@ agribalyse_food_code:en: 16743
 ciqual_food_code:en: 16743
 ciqual_food_name:en: Blended fat (vegetable and animal origins), 50-63% fat
 ciqual_food_name:fr: Matière grasse mélangée (végétale et laitière) à 50-63% MG
+incompatible_with:en: categories:en:vegan-products
 
 < en:Fats
 < en:Margarines
@@ -58539,6 +58562,7 @@ agribalyse_food_code:en: 16744
 ciqual_food_code:en: 16744
 ciqual_food_name:en: Blended fat (vegetable and animal origins), 50-63% fat, lightly salted
 ciqual_food_name:fr: Matière grasse mélangée (végétale et laitière) à 50-63% MG, demi-sel
+incompatible_with:en: categories:en:vegan-products
 
 < en:Fats
 < en:Margarines
@@ -58548,6 +58572,7 @@ agribalyse_food_code:en: 16745
 ciqual_food_code:en: 16745
 ciqual_food_name:en: Blended fat (vegetable and animal origins), spreadable, 30-40% fat
 ciqual_food_name:fr: Matière grasse mélangée (végétale et laitière), à tartiner, à 30-40% MG
+incompatible_with:en: categories:en:vegan-products
 
 < en:Fats
 < en:Margarines
@@ -58557,6 +58582,7 @@ agribalyse_food_code:en: 16746
 ciqual_food_code:en: 16746
 ciqual_food_name:en: Blended fat (vegetable and animal origins), spreadable, 30-40% fat, lightly salted
 ciqual_food_name:fr: Matière grasse mélangée (végétale et laitière), à tartiner, à 30-40% MG, demi-sel
+incompatible_with:en: categories:en:vegan-products
 
 < en:Fats
 en: Dairy fat 25% fat light spreadable unsalted
@@ -58564,6 +58590,7 @@ fr: Matière grasse laitière à 25% MG légère à tartiner doux
 agribalyse_food_code:en: 16712
 ciqual_food_code:en: 16712
 ciqual_food_name:en: Dairy fat 25% fat, light, spreadable, unsalted
+incompatible_with:en: categories:en:vegan-products
 
 < en:Fats
 en: Dairy fat 20% fat light spreadable unsalted
@@ -58571,6 +58598,7 @@ fr: Matière grasse laitière à 20% MG légère à tartiner doux
 agribalyse_food_code:en: 16713
 ciqual_food_code:en: 16713
 ciqual_food_name:en: Dairy fat 20% fat, light, spreadable, unsalted
+incompatible_with:en: categories:en:vegan-products
 
 
 < en:Animal fats
@@ -76464,6 +76492,7 @@ sv: Kött och dess produkter, Köttbaserade produkter
 tr: Et ürünleri
 zh: 肉制品
 wikidata:en: Q1427844
+incompatible_with:en: categories:en:vegetarian-products
 
 < en:Meats and their products
 en: Unprepared alternate meats
@@ -94548,6 +94577,7 @@ it: Paste all'uovo
 nl: Eierpastas, eierpasta
 pt: Massas de ovo
 ru: Яичные макароны
+incompatible_with:en: en:vegan-products
 
 < en:Dry pastas
 en: Cooked unsalted dried pasta
@@ -103188,7 +103218,13 @@ ciqual_food_name:fr: Spécialité végétale type fromage à tartiner, au soja, 
 en: Egg salads substitutes, Egg spreads substitutes
 fr: Substituts de salades d'œufs, Substituts de tartinades d'œufs, Substituts de tartinades d'oeufs
 
+en: Vegetarian products
+da: Vegetariske produkter
+
+< en:Plant-based foods and beverages
+< en:Vegetarian products
 en: Vegan products
+da: Veganske produkter
 fr: Produits veganes
 nl: Veganistische producten
 
