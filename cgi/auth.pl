@@ -25,6 +25,7 @@ use ProductOpener::PerlStandards;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Constants qw(OTEL_SPAN_PNOTES_KEY);
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Display qw/init_request/;
 use ProductOpener::HTTP qw/write_cors_headers single_param/;
@@ -108,7 +109,7 @@ if (single_param("body")) {
 	print $json;
 }
 
-my $span = $r->pnotes('OpenTelemetry::Span->current');
+my $span = $r->pnotes(OTEL_SPAN_PNOTES_KEY);
 $span->set_attribute('http.response.status_code', $status) if (defined $span);
 $r->rflush;
 

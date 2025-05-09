@@ -137,6 +137,7 @@ use ProductOpener::HTTP
 	qw(write_cors_headers set_http_response_header write_http_response_headers get_http_request_header extension_and_query_parameters_to_redirect_url redirect_to_url single_param request_param);
 use ProductOpener::Store qw(get_string_id_for_lang retrieve);
 use ProductOpener::Config qw(:all);
+use ProductOpener::Constants qw(OTEL_SPAN_PNOTES_KEY);
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Tags qw(:all);
 use ProductOpener::Users qw(:all);
@@ -482,7 +483,7 @@ sub init_request ($request_ref = {}) {
 	delete $log->context->{user_session};
 	$log->context->{request} = generate_token(16);
 
-	my $span = $r->pnotes('OpenTelemetry::Span->current');
+	my $span = $r->pnotes(OTEL_SPAN_PNOTES_KEY);
 	if (defined $span) {
 		$span->set_attribute('productopener.request', $log->context->{request});
 	}
@@ -1099,7 +1100,7 @@ sub display_no_index_page_and_exit () {
 	print header(%$http_headers_ref);
 
 	my $r = Apache2::RequestUtil->request();
-	my $span = $r->pnotes('OpenTelemetry::Span->current');
+	my $span = $r->pnotes(OTEL_SPAN_PNOTES_KEY);
 	$span->set_attribute('http.response.status_code', 200) if (defined $span);
 	$r->rflush;
 	# Setting the status makes mod_perl append a default error to the body
@@ -1126,7 +1127,7 @@ sub display_too_many_requests_page_and_exit() {
 		= '<!DOCTYPE html><html><head><meta name="robots" content="noindex"></head><body><h1>TOO MANY REQUESTS</h1><p>You are sending too many requests to our servers.</p><p>To know more about the rate limits we enforce, please refer to the <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/#rate-limits">rate-limit section in our documentation</a>.</p><p>If you need to download data about a large number of products, it\'s preferable to <a href="https://world.openfoodfacts.org/data">download a data dump</a>. If this is unexpected, contact us on Slack or write us an email at <a href="mailto:contact@openfoodfacts.org">contact@openfoodfacts.org</a>.</p></body></html>';
 
 	my $r = Apache2::RequestUtil->request();
-	my $span = $r->pnotes('OpenTelemetry::Span->current');
+	my $span = $r->pnotes(OTEL_SPAN_PNOTES_KEY);
 	$span->set_attribute('http.response.status_code', 429) if (defined $span);
 	$r->rflush;
 	$r->custom_response(429, $html);
@@ -7534,7 +7535,7 @@ sub display_page ($request_ref) {
 
 	# add W3C traceparent to template data
 	my $r = Apache2::RequestUtil->request();
-	my $span = $r->pnotes('OpenTelemetry::Span->current');
+	my $span = $r->pnotes(OTEL_SPAN_PNOTES_KEY);
 	$template_data_ref->{traceparent}
 		= '00-'
 		. $span->context->hex_trace_id . '-'
@@ -10872,7 +10873,7 @@ sub display_structured_response ($request_ref) {
 	}
 
 	my $r = Apache2::RequestUtil->request();
-	my $span = $r->pnotes('OpenTelemetry::Span->current');
+	my $span = $r->pnotes(OTEL_SPAN_PNOTES_KEY);
 	$span->set_attribute('http.response.status_code', $status_code) if (defined $span);
 	$r->rflush;
 	$r->status(200);

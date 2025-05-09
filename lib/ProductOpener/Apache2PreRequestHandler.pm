@@ -40,6 +40,7 @@ use OpenTelemetry::Propagator::TraceContext;
 use OpenTelemetry::Trace;
 use OpenTelemetry::SDK;
 use ProductOpener::Version qw/$version/;
+use ProductOpener::Constants qw(OTEL_SPAN_PNOTES_KEY);
 
 # Obtain the current default tracer provider
 my $provider = OpenTelemetry->tracer_provider;
@@ -89,7 +90,7 @@ sub handler {
 	# Store the span in the context
 	$context = OpenTelemetry::Trace->context_with_span($span);
 	OpenTelemetry::Context->current = $context;
-	$r->pnotes('OpenTelemetry::Span->current', $span);
+	$r->pnotes(OTEL_SPAN_PNOTES_KEY, $span);
 
 	return Apache2::Const::OK;
 }

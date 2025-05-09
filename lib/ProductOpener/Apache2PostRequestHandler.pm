@@ -31,6 +31,7 @@ C<ProductOpener::Apache2PostRequestHandler> is a Apache 2.0 response handler out
 package ProductOpener::Apache2PostRequestHandler;
 
 use ProductOpener::PerlStandards;
+use ProductOpener::Constants qw(OTEL_SPAN_PNOTES_KEY);
 
 use Log::Any '$log', default_adapter => 'Stderr';
 use Apache2::Const qw(:common);
@@ -42,7 +43,7 @@ sub handler {
 	my $r = shift;
 
 	# Retrieve the current span from the context
-	my $span = $r->pnotes('OpenTelemetry::Span->current');
+	my $span = $r->pnotes(OTEL_SPAN_PNOTES_KEY);
 	if (defined $span) {
 		$log->info('ProductOpener::Apache2PostRequestHandler::handler: span found, ending it',
 			{recording => $span->recording})
