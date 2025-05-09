@@ -196,7 +196,9 @@
                "percent_estimate" : 0.05,
                "percent_max" : 0.1,
                "percent_min" : 0,
-               "text" : "acide ascorbique"
+               "text" : "acide ascorbique",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             }
          ],
          "is_in_taxonomy" : 1,
@@ -228,12 +230,10 @@
    ],
    "ingredients_analysis" : {
       "en:vegan-status-unknown" : [
-         "en:sodium-citrate",
-         "en:vitamin-c"
+         "en:sodium-citrate"
       ],
       "en:vegetarian-status-unknown" : [
-         "en:sodium-citrate",
-         "en:vitamin-c"
+         "en:sodium-citrate"
       ]
    },
    "ingredients_analysis_tags" : [
@@ -293,6 +293,7 @@
       "en:minerals",
       "en:sodium",
       "en:vitamin-c",
+      "en:vitamins",
       "en:e960"
    ],
    "ingredients_text" : "Eau, sucre, fructose, acidifiants (acide citrique, acide malique), extrait de the noir (1,2g/l), jus de pêche à base de concentré (0,1%), correcteur d'acidité (citrate trisodique), arômes, antioxydant (acide ascorbique), édulcorant (glycosides de steviol)",
