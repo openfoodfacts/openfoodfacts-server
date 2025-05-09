@@ -675,7 +675,7 @@ sub register_route($routes_to_register) {
 			# use a hash key for fast match
 			# do not overwrite existing routes (e.g. a text route that matches a well known route)
 			if (exists $routes{$pattern}) {
-				$log->warn("route already exists", {pattern => $pattern}) if $log->is_warn();
+				$log->debug("route already exists", {pattern => $pattern}) if $log->is_debug();
 			}
 			else {
 				$routes{$pattern} = {handler => $handler, opt => $opt};

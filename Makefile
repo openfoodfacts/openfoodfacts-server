@@ -29,7 +29,10 @@ ifeq ($(OS), Darwin)
 else
   export CPU_COUNT=$(shell nproc || echo 1)
 endif
-
+# Limit CPU count to 8 as otherwise can run out of memory
+ifeq ($(shell test $(CPU_COUNT) -gt 8; echo $$?),0)
+  export CPU_COUNT=8
+endif
 
 # tell gitbash not to complete path
 export MSYS_NO_PATHCONV=1
@@ -75,7 +78,7 @@ DOCKER_COMPOSE_INT_TEST=COMPOSE_FILE="${COMPOSE_FILE_BUILD};docker/integration-t
 	KEYCLOAK_TAG=main \
 	${DOCKER_COMPOSE_TEST_BASE}
 
-TEST_CMD ?= yath test -PProductOpener::LoadData
+TEST_CMD ?= yath test
 
 # Space delimited list of dependant projects
 DEPS=openfoodfacts-shared-services openfoodfacts-auth
@@ -286,7 +289,7 @@ unit_test: create_folders
 	@echo "🥫 Running unit tests …"
 	mkdir -p tests/unit/outputs/
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit.xml" -e PO_EAGER_LOAD_DATA=1 -T --rm backend yath test --renderer=Formatter --renderer=JUnit --job-count=${CPU_COUNT} -PProductOpener::LoadData  tests/unit
+	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit.xml" -T --rm backend yath test --renderer=Formatter --renderer=JUnit --job-count=${CPU_COUNT} tests/unit
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 unit tests success"
 
@@ -299,7 +302,7 @@ integration_test: create_folders
 # as we use localhost in tests (which is the backend)
 	${DOCKER_COMPOSE_INT_TEST} up -d backend
 # note: we need the -T option for ci (non tty environment)
-	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/integration/outputs/junit.xml" -e PO_EAGER_LOAD_DATA=1 -T backend yath --renderer=Formatter --renderer=JUnit -PProductOpener::LoadData tests/integration
+	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/integration/outputs/junit.xml" -T backend yath --renderer=Formatter --renderer=JUnit tests/integration
 	${DOCKER_COMPOSE_INT_TEST} stop
 	@echo "🥫 integration tests success"
 
@@ -309,7 +312,7 @@ integration_test: create_folders
 test-unit: guard-test create_folders
 	@echo "🥫 Running test: 'tests/unit/${test}' …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run --rm -e PO_EAGER_LOAD_DATA=1 backend ${TEST_CMD} ${args} tests/unit/${test}
+	${DOCKER_COMPOSE_TEST} run --rm backend ${TEST_CMD} ${args} tests/unit/${test}
 
 # usage:  make test-int test=test-name.t
 # to update expected results: make test-int test="test-name.t :: --update-expected-results"
@@ -322,7 +325,7 @@ test-int: guard-test create_folders
 # we also need dynamicfront for some assets to exists
 # this is the place where variables are important
 	${DOCKER_COMPOSE_INT_TEST} up -d backend
-	${DOCKER_COMPOSE_INT_TEST} exec -e PO_EAGER_LOAD_DATA=1 backend ${TEST_CMD} ${args} tests/integration/${test}
+	${DOCKER_COMPOSE_INT_TEST} exec backend ${TEST_CMD} ${args} tests/integration/${test}
 # better shutdown, for if we do a modification of the code, we need a restart
 	${DOCKER_COMPOSE_INT_TEST} stop
 
@@ -339,10 +342,8 @@ clean_tests:
 update_tests_results: build_taxonomies_test build_lang_test
 	@echo "🥫 Updated expected test results with actuals for easy Git diff"
 	${DOCKER_COMPOSE_INT_TEST} up -d backend
-	${DOCKER_COMPOSE_INT_TEST} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
-	${DOCKER_COMPOSE_INT_TEST} run --rm backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
-	${DOCKER_COMPOSE_INT_TEST} exec -T -w /opt/product-opener/tests backend bash update_tests_results.sh
-	${DOCKER_COMPOSE_INT_TEST} stop
+	${DOCKER_COMPOSE_TEST} exec -T -w /opt/product-opener/tests backend bash update_tests_results.sh
+	${DOCKER_COMPOSE_TEST} stop
 
 bash:
 	@echo "🥫 Open a bash shell in the backend container"
