@@ -481,11 +481,22 @@ sub init_request ($request_ref = {}) {
 	# Clear the context
 	delete $log->context->{user_id};
 	delete $log->context->{user_session};
-	$log->context->{request} = generate_token(16);
 
 	my $span = $r->pnotes(OTEL_SPAN_PNOTES_KEY);
 	if (defined $span) {
 		$span->set_attribute('productopener.request', $log->context->{request});
+
+		# Add OTEL like properties to the log records
+		$log->context->{trace_id} = $span->context->hex_trace_id;
+		$log->context->{span_id} = $span->context->hex_span_id;
+		$log->context->{trace_flags} = $span->context->trace_flags->to_string;
+
+		# Span ID == old request id
+		$log->context->{request} = $log->context->{span_id};
+	}
+	else {
+		# No OTEL Span available, generate a random id
+		$log->context->{request} = generate_token(16);
 	}
 
 	# Initialize the request object
