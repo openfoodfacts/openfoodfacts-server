@@ -4864,7 +4864,7 @@ sub normalize_a_of_b ($ingredients_lc, $a, $b, $of_bool, $alternate_names_ref = 
 		# TODO: use the labels regexps instead
 		my $a_of_b_copy = remove_parsable_labels($ingredients_lc, $a_of_b);
 		canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $a_of_b_copy, \$name_exists);
-		print STDERR "a: $a - b: $b - $a_of_b: $a_of_b - a_of_b_copy: $a_of_b_copy: - $name_exists\n";
+		# print STDERR "a: $a - b: $b - $a_of_b: $a_of_b - a_of_b_copy: $a_of_b_copy: - $name_exists\n";
 
 		if (not $name_exists) {
 			foreach my $alternate_name (@{$alternate_names_ref}) {
@@ -4874,8 +4874,8 @@ sub normalize_a_of_b ($ingredients_lc, $a, $b, $of_bool, $alternate_names_ref = 
 				my $alternate_name_exists;
 				canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $alternate_name_copy,
 					\$alternate_name_exists);
-				print STDERR
-					"alternate_name: $alternate_name - alternate_name_copy: $alternate_name_copy: - $alternate_name_exists\n";
+				# print STDERR
+				# 	"alternate_name: $alternate_name - alternate_name_copy: $alternate_name_copy: - $alternate_name_exists\n";
 				if ($alternate_name_exists) {
 					$a_of_b = $alternate_name_copy;
 					last;
