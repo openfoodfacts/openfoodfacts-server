@@ -7532,6 +7532,16 @@ sub display_page ($request_ref) {
 	$template_data_ref->{initjs} = $request_ref->{initjs};
 	$template_data_ref->{request} = $request_ref;
 
+	# add W3C traceparent to template data
+	my $r = Apache2::RequestUtil->request();
+	my $span = $r->pnotes('OpenTelemetry::Span->current');
+	$template_data_ref->{traceparent}
+		= '00-'
+		. $span->context->hex_trace_id . '-'
+		. $span->context->hex_span_id . '-'
+		. $span->context->trace_flags->to_string
+		if (defined $span);
+
 	my $html;
 	# ?content_only=1 -> only the content, no header, footer, etc.
 	if (($user_agent =~ /smoothie/) or (single_param('content_only'))) {
@@ -7573,8 +7583,6 @@ sub display_page ($request_ref) {
 
 	print header(%$http_headers_ref);
 
-	my $r = Apache2::RequestUtil->request();
-	my $span = $r->pnotes('OpenTelemetry::Span->current');
 	$span->set_attribute('http.response.status_code', $status_code) if (defined $span);
 	$r->rflush;
 	# Setting the status makes mod_perl append a default error to the body
