@@ -15,6 +15,15 @@
 
 <p>[% lang("contributor_since") %][% sep %]: [% display_date_tag(registered_t) %]</p>
 
+[% IF user.producer_account %]
+  <div class="producer-badge">
+    <img src="/images/badges/producer.svg" alt="Producer badge" class="badge-icon" />
+    <span class="badge-label">Producer Account</span>
+    <a href="/producers/about" class="badge-link">(What’s this?)</a>
+  </div>
+[% END %]
+
+
 [% FOREACH link IN links %]
 	&rarr; <a href="[% link.url %]">[% link.text %]</a><br>
 [% END %]
