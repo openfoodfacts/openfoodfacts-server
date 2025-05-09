@@ -46,8 +46,8 @@ use vars @EXPORT_OK;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Products qw/is_valid_code normalize_code product_url/;
-use ProductOpener::Display
-	qw/$formatted_subdomain %index_tag_types_set display_robots_txt_and_exit init_request redirect_to_url single_param/;
+use ProductOpener::Display qw/$formatted_subdomain %index_tag_types_set display_robots_txt_and_exit init_request/;
+use ProductOpener::HTTP qw/extension_and_query_parameters_to_redirect_url redirect_to_url single_param/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/%tag_type_from_plural %tag_type_from_singular %tag_type_plural %tag_type_singular lang/;
 use ProductOpener::API qw/:all/;
@@ -598,6 +598,7 @@ sub facets_route($request_ref) {
 		$redirect_url =~ s!/${target_lc}:!/!g;
 		$redirect_url =~ s!/1$!!;
 		$request_ref->{redirect} = $redirect_url;
+		$request_ref->{redirect} .= extension_and_query_parameters_to_redirect_url($request_ref);
 		$request_ref->{redirect_status} = 301;
 	}
 
@@ -673,7 +674,7 @@ sub register_route($routes_to_register) {
 			# use a hash key for fast match
 			# do not overwrite existing routes (e.g. a text route that matches a well known route)
 			if (exists $routes{$pattern}) {
-				$log->warn("route already exists", {pattern => $pattern}) if $log->is_warn();
+				$log->debug("route already exists", {pattern => $pattern}) if $log->is_debug();
 			}
 			else {
 				$routes{$pattern} = {handler => $handler, opt => $opt};
@@ -749,7 +750,7 @@ sub sanitize_request($request_ref) {
 
 	# Remove ref and utm_* parameters
 	# Examples:
-	# https://world.openfoodfacts.org/?utm_content=bufferbd4aa&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer
+	# https://world.openfoodfacts.org/?utm_content=bufferbd4aa&utm_medium=social&utm_source=x.com&utm_campaign=buffer
 	# https://world.openfoodfacts.org/?ref=producthunt
 
 	if ($request_ref->{query_string} =~ /(\&|\?)(utm_|ref=)/) {
@@ -779,6 +780,7 @@ sub sanitize_request($request_ref) {
 
 			param($parameter, 1);
 			$request_ref->{query_string} =~ s/\.$parameter(\b|$)//;
+			$request_ref->{extension} = $parameter;
 
 			$log->debug("parameter was set from extension in URL path",
 				{parameter => $parameter, value => $request_ref->{$parameter}})
@@ -793,7 +795,8 @@ sub sanitize_request($request_ref) {
 	# some sites like FB can add query parameters, remove all of them
 	# make sure that all query parameters of interest have already been consumed above
 
-	$request_ref->{query_string} =~ s/(\&|\?).*//;
+	$request_ref->{query_string} =~ s/(?:\&|\?)(.*)//;
+	$request_ref->{query_parameters} = $1;
 
 	$log->debug("analyzing query_string, step 3 - removed all query parameters",
 		{query_string => $request_ref->{query_string}})

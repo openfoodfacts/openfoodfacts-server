@@ -18,11 +18,22 @@ const jsSrc = [
   "./html/js/hc-sticky.js",
   "./html/js/stikelem.js",
   "./html/js/scrollNav.js",
+  "./html/js/off-webcomponents-utils.js",
+  "./html/js/barcode-scanner*.js",
 ];
 
 const sassSrc = "./scss/**/*.scss";
 
-const imagesSrc = ["./node_modules/leaflet/dist/**/*.png"];
+// Added function to handle multiple image formats
+function handleMultipleImageFormats(path: string) {
+  return [".png", ".jpg", ".jpeg", ".webp", ".svg"].map((ext) => path + ext);
+}
+const imagesSrc = [
+  "./node_modules/leaflet/dist/**/*.png",
+  ...handleMultipleImageFormats(
+    "./node_modules/@openfoodfacts/openfoodfacts-webcomponents/dist/assets/**/*"
+  ),
+];
 
 // nginx needs both uncompressed and compressed files as we use try_files with gzip_static always & gunzip
 
@@ -101,7 +112,11 @@ export function copyJs() {
     "./node_modules/jsvectormap/dist/maps/world-merc.js",
     "./node_modules/select2/dist/js/select2.min.js",
     "./node_modules/jsbarcode/dist/JsBarcode.all.min.js",
-  ]).
+    "./node_modules/jquery/dist/jquery.js",
+  ], {
+    // prefer jquery from package.json to foundation-vendored copy
+    ignore: "./node_modules/foundation-sites/js/vendor/jquery.js",
+  }).
     pipe(init()).
     pipe(terser()).
     pipe(write(".")).
@@ -138,7 +153,6 @@ function buildjQueryUi() {
     "./node_modules/jquery-ui/ui/position.js",
     "./node_modules/jquery-ui/ui/keycode.js",
     "./node_modules/jquery-ui/ui/unique-id.js",
-    "./node_modules/jquery-ui/ui/safe-active-element.js",
     "./node_modules/jquery-ui/ui/widgets/autocomplete.js",
     "./node_modules/jquery-ui/ui/widgets/menu.js",
   ]).

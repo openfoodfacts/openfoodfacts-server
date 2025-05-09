@@ -180,7 +180,7 @@ $flavor = "opf";
 	#android_app_link => "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&utm_source=opf&utf_medium=web",
 	#ios_app_link => "https://apps.apple.com/app/open-beauty-facts/id1122926380?utm_source=opf&utf_medium=web",
 	#facebook_page_url => "https://www.facebook.com/openbeautyfacts?&utm_source=opf&utf_medium=web",
-	#twitter_account => "OpenBeautyFacts",
+	#x_account => "OpenBeautyFacts",
 	# favicon HTML and images generated with https://realfavicongenerator.net/ using the SVG icon
 	favicons => <<HTML
 <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/opf/apple-touch-icon.png">
@@ -345,6 +345,7 @@ HTML
 	periods_after_opening
 	data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors data_quality_warnings_producers data_quality_errors_producers
 	improvements
+	brands
 );
 
 # tag types (=facets) that should be indexed by web crawlers, all other tag types are not indexable

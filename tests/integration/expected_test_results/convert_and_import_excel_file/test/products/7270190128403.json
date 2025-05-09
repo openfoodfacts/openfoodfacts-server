@@ -11,9 +11,13 @@
    "allergens_hierarchy" : [],
    "allergens_tags" : [],
    "brands" : "Default brand",
+   "brands_hierarchy" : [
+      "xx:Default brand"
+   ],
    "brands_imported" : "Default brand",
+   "brands_lc" : "xx",
    "brands_tags" : [
-      "default-brand"
+      "xx:default-brand"
    ],
    "categories_properties" : {},
    "categories_properties_tags" : [
@@ -489,6 +493,7 @@
    "product_type" : "food",
    "removed_countries_tags" : [],
    "rev" : 1,
+   "schema_version" : 1001,
    "sources" : [
       {
          "fields" : [

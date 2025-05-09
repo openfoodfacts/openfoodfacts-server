@@ -109,7 +109,7 @@ my @tests = (
 	],
 	[
 		{lc => "fi", ingredients_text => "Vitamiinit (A, B2, B12, C, D2)"},
-		["en:vitamins", "en:vitamin-a", "en:e101", "en:vitamin-b12", "en:e300", "en:ergocalciferol"],
+		["en:vitamins", "en:vitamin-a", "en:e101", "en:vitamin-b12", "en:vitamin-c", "en:ergocalciferol"],
 	],
 
 	[{lc => "it", ingredients_text => "sale e spezie"}, ["en:salt", "en:spice"],],
@@ -337,7 +337,7 @@ foreach my $test_ref (@tests) {
 	my $product_ref = $test_ref->[0];
 	my $expected_tags = $test_ref->[1];
 
-	print STDERR "ingredients_text: " . $product_ref->{ingredients_text} . "\n";
+	# print STDERR "ingredients_text: " . $product_ref->{ingredients_text} . "\n";
 
 	extract_ingredients_from_text($product_ref);
 

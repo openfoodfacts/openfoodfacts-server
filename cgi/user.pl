@@ -27,6 +27,7 @@ use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Web qw/get_countries_options_list get_languages_options_list/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/$lc  %Lang lang/;

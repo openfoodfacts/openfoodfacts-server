@@ -1,0 +1,60 @@
+{
+   "allergens" : "",
+   "allergens_from_ingredients" : "oeufs, crustacés, céleri, LAIT, BLE, POISSON, LAIT, BLE, POISSON, moutarde, fruits à coque, mollusques",
+   "allergens_hierarchy" : [
+      "en:celery",
+      "en:crustaceans",
+      "en:eggs",
+      "en:fish",
+      "en:gluten",
+      "en:milk",
+      "en:molluscs",
+      "en:mustard",
+      "en:nuts"
+   ],
+   "allergens_tags" : [
+      "en:celery",
+      "en:crustaceans",
+      "en:eggs",
+      "en:fish",
+      "en:gluten",
+      "en:milk",
+      "en:molluscs",
+      "en:mustard",
+      "en:nuts"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_text" : "Eau, LAIT, farine de BLE, sucre, sel, _oeufs_, moutarde, _crustacés_, fruits à coque, _céleri_, POISSON, crème de cassis. Contient mollusques. Peut contenir des traces d'arachide, de _soja_, de LUPIN, et de sésame ",
+   "ingredients_text_fr" : "Eau, LAIT, farine de BLE, sucre, sel, _oeufs_, moutarde, _crustacés_, fruits à coque, _céleri_, POISSON, crème de cassis. Contient mollusques. Peut contenir des traces d'arachide, de _soja_, de LUPIN, et de sésame ",
+   "ingredients_text_with_allergens" : "Eau, <span class=\"allergen\">LAIT</span>, farine de <span class=\"allergen\">BLE</span>, sucre, sel, <span class=\"allergen\">oeufs</span>, <span class=\"allergen\">moutarde</span>, <span class=\"allergen\">crustacés</span>, <span class=\"allergen\">fruits à coque</span>, <span class=\"allergen\">céleri</span>, <span class=\"allergen\">POISSON</span>, crème de cassis. Contient <span class=\"allergen\">mollusques</span>. Peut contenir des traces d'<span class=\"allergen\">arachide</span>, de <span class=\"allergen\">soja</span>, de <span class=\"allergen\">LUPIN</span>, et de <span class=\"allergen\">sésame</span> ",
+   "ingredients_text_with_allergens_fr" : "Eau, <span class=\"allergen\">LAIT</span>, farine de <span class=\"allergen\">BLE</span>, sucre, sel, <span class=\"allergen\">oeufs</span>, <span class=\"allergen\">moutarde</span>, <span class=\"allergen\">crustacés</span>, <span class=\"allergen\">fruits à coque</span>, <span class=\"allergen\">céleri</span>, <span class=\"allergen\">POISSON</span>, crème de cassis. Contient <span class=\"allergen\">mollusques</span>. Peut contenir des traces d'<span class=\"allergen\">arachide</span>, de <span class=\"allergen\">soja</span>, de <span class=\"allergen\">LUPIN</span>, et de <span class=\"allergen\">sésame</span> ",
+   "lang" : "fr",
+   "languages" : {
+      "en:french" : 1
+   },
+   "languages_codes" : {
+      "fr" : 1
+   },
+   "languages_hierarchy" : [
+      "en:french"
+   ],
+   "languages_tags" : [
+      "en:french",
+      "en:1"
+   ],
+   "lc" : "fr",
+   "traces" : "",
+   "traces_from_ingredients" : "soja, LUPIN, LUPIN, arachide, sésame",
+   "traces_hierarchy" : [
+      "en:lupin",
+      "en:peanuts",
+      "en:sesame-seeds",
+      "en:soybeans"
+   ],
+   "traces_tags" : [
+      "en:lupin",
+      "en:peanuts",
+      "en:sesame-seeds",
+      "en:soybeans"
+   ]
+}

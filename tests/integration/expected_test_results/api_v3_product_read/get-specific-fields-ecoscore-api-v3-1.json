@@ -1,7 +1,9 @@
 {
    "code" : "4260392550101",
    "errors" : [],
-   "product" : {},
+   "product" : {
+      "schema_version" : 1000
+   },
    "result" : {
       "id" : "product_found",
       "lc_name" : "Product found",

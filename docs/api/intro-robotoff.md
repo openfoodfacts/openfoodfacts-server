@@ -5,7 +5,6 @@ The Robotoff project is intended to complete missing product information by prom
 # Why you'd use this API 
 - Letting your users answer Robotoff insights allow them to get to Nutri-Score, Eco-Score easily, and ensures their satisfaction
 
-
 ## Robotoff documentation
 
 The documentation for Robotoff is located here:

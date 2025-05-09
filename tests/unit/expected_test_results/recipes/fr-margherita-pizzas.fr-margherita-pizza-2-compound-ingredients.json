@@ -93,45 +93,23 @@
          "percent_estimate" : 30,
          "percent_max" : 30,
          "percent_min" : 30,
-         "text" : "Pâte à pizza"
+         "text" : "Pâte à pizza",
+         "vegan" : "maybe",
+         "vegetarian" : "yes"
       }
    ],
    "ingredients_analysis" : {
-      "en:non-vegan" : [
+      "en:maybe-vegetarian" : [
          "en:cheese"
       ],
-      "en:vegan-status-unknown" : [
-         "en:pizza-dough"
-      ],
-      "en:vegetarian-status-unknown" : [
-         "en:pizza-dough"
+      "en:non-vegan" : [
+         "en:cheese"
       ]
    },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
       "en:non-vegan",
-      "en:vegetarian-status-unknown"
-   ],
-   "ingredients_hierarchy" : [
-      "en:filling",
-      "en:pizza-dough",
-      "en:dough",
-      "en:chopped-tomatoes",
-      "en:vegetable",
-      "en:fruit-vegetable",
-      "en:tomato",
-      "en:cheese",
-      "en:dairy",
-      "en:basil-leaf",
-      "en:herb",
-      "en:basil",
-      "en:wheat-flour",
-      "en:cereal",
-      "en:flour",
-      "en:wheat",
-      "en:cereal-flour",
-      "en:water",
-      "en:salt"
+      "en:maybe-vegetarian"
    ],
    "ingredients_lc" : "fr",
    "ingredients_n" : 8,
@@ -188,7 +166,7 @@
       "en:salt"
    ],
    "ingredients_without_ecobalyse_ids_n" : 5,
-   "known_ingredients_n" : 19,
+   "known_ingredients_n" : 8,
    "lc" : "fr",
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent"

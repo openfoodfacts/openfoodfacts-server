@@ -1,0 +1,35 @@
+type: object
+title: product
+description: |
+  This is all the fields describing a product and how to display it on a page.
+
+  Refer to the different sub schema for more readable entries:
+
+  * [Product Base](#cmp--schemas-product-base): Base fields of a product
+  * [Product Misc](#cmp--schemas-product-misc): Miscellaneous but important fields of a product
+  * [Product Tags](#cmp--schemas-product-tags): Tags fields on a product
+  * [Product Images](#cmp--schemas-product-images): Information about Images of a product
+  * [Product Images 2](#cmp--schemas-product-images2): Information about Images of a product
+  * [Product Eco-Score](#cmp--schemas-product-ecoscore): Fields related to Eco-Score for a product
+  * [Product Ingredients](#cmp--schemas-product-ingredients): Fields about ingredients of a product
+  * [Product Nutrition](#cmp--schemas-product-nutrition): Nutrition fields of a product
+  * [Product Data Quality](#cmp--schemas-product-quality): fields related to data quality for a product
+  * [Product Extended](#cmp--schemas-product-extended): TODO
+  * [Product Metadata](#cmp--schemas-product-meta): Metadata of a product (author, editors, etc.)
+  * [Product Knowledge Panels](#cmp--schemas-product-knowledge-panels): Knowledge panels for a product
+  * [Product Attribute Groups](#cmp--schemas-product-attribute-groups): Attribute groups for personal product matching
+
+allOf:
+  - $ref: "../api.yml#/components/schemas/Product-Base"
+  - $ref: "../api.yml#/components/schemas/Product-Misc"
+  - $ref: "../api.yml#/components/schemas/Product-Tags"
+  - $ref: "./product_images_v3.yaml#/components/schemas/ProductImagesV3"
+  - $ref: "../api.yml#/components/schemas/Product-Eco-Score"
+  - $ref: "../api.yml#/components/schemas/Product-Ingredients"
+  - $ref: "../api.yml#/components/schemas/Product-Nutrition"
+  - $ref: "../api.yml#/components/schemas/Product-Nutriscore"
+  - $ref: "../api.yml#/components/schemas/Product-Quality"
+  - $ref: "../api.yml#/components/schemas/Product-Extended"
+  - $ref: "../api.yml#/components/schemas/Product-Metadata"
+  - $ref: "../api.yml#/components/schemas/Product-Knowledge-Panels"
+  - $ref: "../api.yml#/components/schemas/Product-Attribute-Groups"

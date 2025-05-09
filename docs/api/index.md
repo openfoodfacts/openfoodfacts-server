@@ -15,6 +15,9 @@ The Open Food Facts API enables developers to get information like ingredients a
 **The current version of the API is `2`.**
 > Data in the Open Food Facts database is provided voluntarily by users who want to support the program. As a result, there are no assurances that the data is accurate, complete, or reliable. The user assumes the entire risk of using the data.
 
+**The next version of the API is `3`.**
+> This version is in active development and may be subject to frequent changes.
+
 ## Before You Start
 
 - The Open Food Facts database is available under the [Open Database License](https://opendatacommons.org/licenses/odbl/1.0/).
@@ -72,9 +75,19 @@ The OpenFoodFacts API has two deployments.
 - Production: <https://world.openfoodfacts.org>
 - Staging: <https://world.openfoodfacts.net>
 
-Consider using the [staging environment](https://world.openfoodfacts.net) if you are not in a production scenario.
+Consider using the [staging environment](https://world.openfoodfacts.net) if you are not in a production scenario. 
 
 While testing your applications, **make all API requests to the staging environment**. This way, we can ensure the product database is safe.
+
+Staging require an http basic auth to avoid search engine indexing. The username is `off`, and the password `off`. Here is a small javascript code that you can test in your browser console:
+```js
+fetch('https://world.openfoodfacts.net/api/v2/product/3274080005003.json', {
+  method: 'GET',
+  headers: { Authorization: 'Basic ' + btoa('off:off') },
+})
+.then(response => response.json())
+.then(json => console.log(json));
+```
 
 ## Authentication
 
@@ -106,8 +119,9 @@ We however ask that you send the [`app_name`, `app_version` and `app_uuid` param
 We are building a complete OpenAPI reference. Here is a list of the current API documentation available:
 
 - [OpenAPI documentation (v2)](../api/ref-v2.md)
-- [OpenAPI documentation for v3](../api/ref-v3.md) (for packaging components only)
+- [OpenAPI documentation for v3](../api/ref-v3.md) (under active development, may change frequently)
 - A [cheatsheet](../api/ref-cheatsheet.md) listing some common patterns.
+- A [change log for the API and product schema](../api/ref-api-and-product-schema-change-log.md)
 
 ## Tutorials
 
@@ -143,6 +157,7 @@ Open-source contributors develop our SDKs, and more contributions are welcome to
 *   Elixir: [GitHub](https://github.com/openfoodfacts/openfoodfacts-elixir) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C758AFX0S)
 *   Go: [GitHub](https://github.com/openfoodfacts/openfoodfacts-go) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C14LGGCUV)
 *   Java: [GitHub](https://github.com/openfoodfacts/openfoodfacts-java) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C1G3J5RT3)
+*   Spring Boot: [GitHub](https://github.com/openfoodfacts/openfoodfacts-springboot-starter) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C1G3J5RT3)
 *   Kotlin: [GitHub](https://github.com/openfoodfacts/openfoodfacts-kotlin) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C045VU7NXS9)
 *   NodeJS: [GitHub](https://github.com/openfoodfacts/openfoodfacts-nodejs) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C1JQQ28P8)
 *   PHP: [GitHub](https://github.com/openfoodfacts/openfoodfacts-php) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C1G3GTJNM)

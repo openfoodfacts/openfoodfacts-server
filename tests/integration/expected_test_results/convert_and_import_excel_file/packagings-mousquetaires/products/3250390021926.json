@@ -14,9 +14,13 @@
    "allergens_hierarchy" : [],
    "allergens_tags" : [],
    "brands" : "Saint eloi",
+   "brands_hierarchy" : [
+      "xx:Saint eloi"
+   ],
    "brands_imported" : "Saint eloi",
+   "brands_lc" : "xx",
    "brands_tags" : [
-      "saint-eloi"
+      "xx:saint-eloi"
    ],
    "categories_properties" : {},
    "categories_properties_tags" : [
@@ -524,6 +528,7 @@
    "product_type" : "food",
    "removed_countries_tags" : [],
    "rev" : 1,
+   "schema_version" : 1001,
    "sources" : [
       {
          "fields" : [

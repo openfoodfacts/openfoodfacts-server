@@ -255,7 +255,7 @@ br: Druzoni
 ca: greix
 cs: Tuky, tuk
 cy: Braster
-da: Fedt, Fedtstof, fed
+da: Fedt, Fedtstof, fed, lipider
 de: Fett
 el: Λιπαρά, λίπος, λιπαρός
 eo: graso
@@ -337,8 +337,8 @@ ar: دهن مشبع
 bg: Наситени мастни киселини
 ca: àcid gras saturat
 cs: Nasycené mastné kyseliny
-da: Mættede fedtsyrer
-de: gesättigte Fettsäuren, Mættet fedt
+da: Mættet fedt, Mættede fedtsyrer
+de: gesättigte Fettsäuren
 dv: ފެޓް
 el: Κορεσμένα λιπαρά
 eo: Saturita graso
@@ -1163,24 +1163,30 @@ wikidata:en: Q3604509
 
 zz: omega-3-fat
 xx: Omega 3 fat, Omega 3 fatty acids
-en: Omega 3 fat, Omega 3 fatty acids
+en: Omega 3 fat, Omega 3 fatty acids, Omega 3 Fats
 bg: Омега 3 мастни киселини
 cs: Omega 3 mastné kyseliny
-de: Omega-3-Fettsäuren
-el: Ωμέγα-3 λιπαρά
+da: Omega 3
+de: Omega-3-Fettsäuren, Omega-3-Fette
+el: Ωμέγα-3 λιπαρά, Ωμέγα 3
 es: Ácidos grasos Omega 3
+et: Omega-3-rasvad
 fi: Omega-3-rasvahapot
 fr: Acides gras Oméga 3, Oméga 3
 he: אומגה 3
+hr: Omega-3 masne kiseline
 hu: Omega-3 zsírsavak
 it: Acidi grassi Omega 3
-nl: Omega 3-vetzuren
+lv: Omega-3 taukskābes
+nl: Omega 3-vetzuren, omega 3-vetten
 nl_be: Omega 3-vetzuren
 pl: Kwasy tłuszczowe omega 3
-pt: Ácidos graxos Ômega 3, Ácidos gordos Ómega 3
+pt: Ácidos graxos Ômega 3, Ácidos gordos Ómega 3, ómega 3
 pt_pt: Ácidos gordos Ómega 3
 ro: Acizi grași omega-3
 ru: Омега-3 жирные кислоты
+sl: Omega-3 maščobne kisline
+sv: omega-3-fetter
 zh: Omega 3 脂肪酸
 zh_CN: Omega 3 脂肪酸
 zh_HK: Omega 3 脂肪酸
@@ -1932,6 +1938,53 @@ unit:en: mg
 wikidata:en: Q43656
 wikipedia:en: https://en.wikipedia.org/wiki/Cholesterol
 
+# total carbohydrates include fiber
+zz: carbohydrates-total
+xx: Total carbohydrates (includes fiber), total carbohydrates, total carbohydrate
+en: Total carbohydrates (includes fiber), total carbohydrates, total carbohydrate
+ar: الكربوهيدرات الكلية (تشمل الألياف)، الكربوهيدرات الكلية
+bg: Общи въглехидрати (включващи влакна), общи въглехидрати
+ca: Hidrats de carboni totals (inclou fibra), hidrats de carboni totals, glúcids totals, carbohidrats totals
+cs: Celkové sacharidy (včetně vlákniny), celkové sacharidy
+da: Totalt kulhydrat (inkluderer kostfiber), totalt kulhydrat
+de: Gesamtkohlenhydrate (enthält Ballaststoffe), Gesamtkohlenhydrate
+el: Συνολικοί υδατάνθρακες (περιλαμβάνουν ίνες), συνολικοί υδατάνθρακες
+es: Hidratos de carbono totales (incluye fibra), hidratos de carbono totales, glúcidos totales, carbohidratos totales
+et: Kogu süsivesikud (sisaldab kiudaineid), kogu süsivesikud
+fa: کربوهیدرات های کل (شامل فیبر), کربوهیدرات های کل
+fi: Kokonais-hiilihydraatit (sisältää kuitua), kokonais-hiilihydraatit, kokonais-hiilihydraatti
+fr: Glucides totaux (inclut les fibres), glucides totaux
+ga: Carbaihiodráit iomlán (cuimsíonn siúcra), carbaihiodráit iomlán
+he: פחמימות כוללות (כולל סיבים), פחמימות כוללות
+hr: Ukupni ugljikohidrati (uključuje vlakna), ukupni ugljikohidrati
+hu: Teljes szénhidrát (tartalmaz rostokat), teljes szénhidrát
+id: Total karbohidrat (termasuk serat), total karbohidrat
+it: Carboidrati totali (inclusi fibre), carboidrati totali
+ja: 総炭水化物（食物繊維を含む）、総炭水化物
+lt: Bendrieji angliavandeniai (įskaitant skaidulines medžiagas), bendrieji angliavandeniai
+lv: Kopējie ogļhidrāti (iekļauj šķiedru), kopējie ogļhidrāti
+mt: Karboidrati ġenerali (jinkludu l-fibra), karboidrati ġenerali
+nb: Totalt karbohydrat (inkluderer fiber), totalt karbohydrat
+nl: Totale koolhydraten (inclusief vezels), totale koolhydraten
+nl_be: Totale koolhydraten (inclusief vezels), totale koolhydraten
+pl: Całkowite węglowodany (zawiera błonnik), całkowite węglowodany
+pt: Carboidratos totais (inclui fibras), carboidratos totais, glicídios totais, glícidos totais, glucídios totais, glúcides totais, hidratos de carbono totais
+pt_br: Carboidratos totais (inclui fibras), carboidratos totais
+pt_pt: Hidratos de carbono totais (inclui fibras), hidratos de carbono totais, glícidos totais
+ro: Glucide totale (include fibre), glucide totale
+rs: Ukupni ugljeni hidrati (uključuje vlakna), ukupni ugljeni hidrati
+ru: Общие углеводы (включая клетчатку), общие углеводы
+sk: Celkové sacharidy (vrátane vlákniny), celkové sacharidy
+sl: Skupni ogljikovi hidrati (vključuje vlakna), skupni ogljikovi hidrati
+sv: Totalt kolhydrat (inkluderar fibrer), totalt kolhydrat
+tr: Toplam karbonhidratlar (lif içerir), toplam karbonhidratlar
+zh: 总碳水化合物（包括纤维），总碳水化合物
+zh_CN: 总碳水化合物（包括纤维），总碳水化合物
+zh_HK: 總碳水化合物（包括纖維），總碳水化合物
+zh_TW: 總碳水化合物（包括纖維），總碳水化合物
+unit:en: g
+
+# carbohydrates or net carbohydrates DO NOT include fiber
 zz: carbohydrates
 xx: Carbohydrates, carbohydrate
 en: Carbohydrates, carbohydrate
@@ -3778,14 +3831,14 @@ dv_value:en: 1.2
 unit:en: mg
 
 zz: vitamin-b2
-xx: Vitamin B2 (Riboflavin), Vitamin B2, Riboflavin
+xx: Vitamin B2 (Riboflavin), Vitamin B2, Riboflavin, Riboflavin (B2)
 en: Vitamin B2 (Riboflavin), Vitamin B2, Riboflavin
 bg: Витамин B2 (Рибофлавин)
 de: Vitamin B2 (Riboflavin)
 el: Βιταμίνη B2 (Ριβοφλαβίνη)
 es: Vitamina B2 (Riboflavina)
 et: Vitamiin B2 (Riboflaviin)
-fi: B2-vitamiini (Riboflaviini), B2-vitamiini, Riboflaviini
+fi: B2-vitamiini (Riboflaviini), B2-vitamiini, Riboflaviini, Riboflaviini (B2)
 fr: Vitamine B2 (Riboflavine), Vitamine B2, Riboflavine
 ga: Vitimín B2 (Ribeaflaivin)
 he: ויטמין B2 (ריבופלבין)
@@ -3927,6 +3980,7 @@ pl: Witamina B9 (Kwas foliowy)
 pt: Vitamina B9 (Ácido Fólico), Folacina, Ácido pteroil-L-glutâmico
 ro: Vitamina B9 (Acid folic)
 sk: Vitamín B9 (Kyselina listová)
+sv: Vitamin B9 (Folsyra), Folsyra
 zh: 维生素B9(叶酸)
 dv_2016_value:en: 400
 dv_value:en: 400
@@ -3964,6 +4018,7 @@ pl: Witamina B12
 pt: Vitamina B12 (Cobalamina)
 ro: Vitamina B12
 sk: Vitamín B12
+sv: Vitamin B12
 zh: 维生素B12
 dv_2016_value:en: 2.4
 dv_value:en: 6
@@ -6730,6 +6785,7 @@ zz: l-leucine
 en: L-Leucine, Leucine
 ca: L-Leucina, Leucina
 es: L-Leucina, Leucina
+sv: L-leucin
 unit:en: mg
 wikidata:en: Q483745
 wikipedia:en: https://en.wikipedia.org/wiki/Leucine
@@ -6738,6 +6794,7 @@ zz: l-isoleucine
 en: L-Isoleucine, Isoleucine
 ca: L-Isoleucina, Isoleucina
 es: L-Isoleucina, Isoleucina
+sv: L-isoleucin
 unit:en: mg
 wikidata:en: Q484940
 wikipedia:en: https://en.wikipedia.org/wiki/Isoleucine
@@ -6769,34 +6826,35 @@ unit:en: mg
 wikidata:en: Q116907
 wikipedia:en: https://en.wikipedia.org/wiki/Glutathione
 
-# following nutrients are for pet food 
+# following nutrients are for pet food
 # https://eur-lex.europa.eu/eli/reg/2009/767/2018-12-26
 # I- analytical constituents
 zz: crude fat
 xx: crude fat
-en: crude fat
+en: crude fat, Fat Content
 bg: Сурови мазнини
 cs: hrubý tuk
-da: råfedt
-de: Rohfett
-el: ακατέργαστες λιπαρές ουσίες
-es: Grasa bruta
-et: toorrasv
-fi: raakarasva
-fr: matières grasses brutes
-hr: sirova mast, sirove masti
+da: råfedt, fedtindhold
+de: Rohfett, Fettgehalt
+el: ακατέργαστες λιπαρές ουσίες, Περιεκτικότητα σε λιπαρές ουσίες
+es: Grasa bruta, Contenido de grasa
+et: toorrasv, Rasvasisaldus
+fi: raakarasva, rasvasisältö
+fr: matières grasses brutes, teneur en matières grasses
+hr: sirova mast, sirove masti, sadržaj masti
 hu: nyerszsír
 it: grassi grezzi
 lt: žali riebalai
-lv: koptauki
+lv: koptauki, Tauku saturs
 mt: ix-xaħam mhux raffinat
-nl: ruw vet
+nl: ruw vet, vetgehalte
 pl: tłuszcz surowy
-pt: matéria gorda bruta
+pt: matéria gorda bruta, teor de matéria gorda
 ro: grăsimi brute
+ru: Содержание жира
 sk: tuk
-sl: surove maščobe
-sv: råfett
+sl: surove maščobe, Vsebnost maščob
+sv: råfett, fettinnehåll
 unit:en: %
 
 zz: crude protein
@@ -6806,21 +6864,22 @@ bg: Суров протеин
 cs: hrubý protein
 da: råprotein
 de: Rohprotein
-el: ακατέργαστη πρωτεΐνη
+el: ακατέργαστη πρωτεΐνη, Ολική πρωτεΐνη
 es: Proteína bruta
 et: toorvalk
 fi: raakavalkuainen
-fr: protéine brute
-hr: sirove bjelančevine
+fr: protéine brute, protéines brutes
+hr: sirove bjelančevine, sirovi bjelančevini
 hu: nyersfehérje
 it: proteina grezza
 lt: žali baltymai
-lv: kopproteīns
+lv: kopproteīns, neapstrādāts proteins
 mt: il-proteini mhux raffinati
 nl: ruw eiwit
 pl: białko surowe
 pt: proteína bruta
 ro: proteine brute
+ru: Сырой белок
 sk: dusíkaté látky
 sl: surove beljakovine
 sv: råprotein
@@ -6833,21 +6892,22 @@ bg: Сурова пепел
 cs: hrubý popel
 da: råaske
 de: Rohasche
-el: ακατέργαστη τέφρα
+el: ακατέργαστη τέφρα, Ολική τέφρα
 es: Ceniza bruta
 et: toortuhk
-fi: tuhka
+fi: tuhka, raakatuhat
 fr: Cendres brutes
 hr: sirovi pepeo
 hu: nyershamu
 it: ceneri grezze
 lt: žali pelenai
-lv: koppelni
+lv: koppelni, Neapstrādātā pelnu
 mt: l-irmied mhux raffinat
 nl: ruwe as
 pl: popiół surowy
 pt: cinza bruta
 ro: cenușă brută
+ru: Сырая зола
 sk: popol
 sl: surovi pepel
 sv: råaska
@@ -6858,26 +6918,27 @@ xx: crude fibre
 en: crude fibre
 bg: Сурови влакнини
 cs: hrubá vláknina
-da: træstof
+da: træstof, råfiber
 de: Rohfaser
-el: ακατέργαστες ινώδεις ουσίες
+el: ακατέργαστες ινώδεις ουσίες, Ολική κυτταρίνη
 es: Fibra bruta
 et: toorkiud
 fi: raakakuitu
-fr: Cellulose brute
-hr: sirova vlaknina
+fr: Cellulose brute, fibres brutes
+hr: sirova vlaknina, Sirova vlakna
 hu: nyersrost
-it: fibra grezza
+it: fibra grezza, fibre grezze
 lt: žalia ląsteliena
-lv: kopšķiedra
+lv: kopšķiedra, Neapstrādātas šķiedrvielas
 mt: il-fibri mhux maħdumin
 nl: ruwe celstof
 pl: włókno surowe
 pt: fibra bruta
 ro: fibre brute
+ru: Сырая клетчатка
 sk: hrubá vláknina
-sl: surove vlaknine
-sv: växttråd
+sl: surove vlaknine, Surova vlakna
+sv: växttråd, råfiber
 unit:en: %
 
 zz: moisture

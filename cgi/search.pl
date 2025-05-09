@@ -30,7 +30,7 @@ use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/write_cors_headers/;
+use ProductOpener::HTTP qw/write_cors_headers single_param/;
 use ProductOpener::Users qw/$Owner_id/;
 use ProductOpener::Products qw/normalize_code normalize_search_terms retrieve_product product_id_for_owner product_url/;
 use ProductOpener::Food qw/%nutriments_lists/;
@@ -446,7 +446,7 @@ if ($action eq 'display') {
 
 	push @{$template_data_ref->{selected_sort_by_value}}, $sort_by;
 
-	my @size_array = (20, 50, 100, 250, 500, 1000);
+	my @size_array = (20, 50, 100);
 	push @{$template_data_ref->{size_options}}, @size_array;
 
 	$template_data_ref->{axes} = [];
