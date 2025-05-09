@@ -80,7 +80,8 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         liblog-any-adapter-log4perl-perl \
         # NB: not available in ubuntu 1804 LTS:
         libgeoip2-perl \
-        libemail-valid-perl
+        libemail-valid-perl \
+        logrotate
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
     # rerun apt update, because last RUN might be in cache
@@ -198,6 +199,9 @@ ARG USER_GID
 RUN usermod --uid $USER_UID www-data && \
     groupmod --gid $USER_GID www-data
 
+# Setup logrotate cron job
+RUN echo "0 0 * * * /usr/sbin/logrotate /etc/logrotate.conf" > /etc/cron.d/logrotate && \
+    chmod 0644 /etc/cron.d/logrotate
 
 ######################
 # Stage for installing/compiling cpanfile dependencies

@@ -64,11 +64,13 @@
     # all the rest
     - podata:/mnt/podata
 
-
     # Logs
     - ./logs/apache2:/var/log/apache2
     - ./logs/apache2:/mnt/podata/logs
     - ./logs/apache2:/var/log/httpd
+
+    # Logrotate config
+    - ./conf/logrotate/apache2:/etc/logrotate.d/apache2
 
     # Apache conf
     - ./conf/apache2-docker/apache.conf:/etc/apache2/sites-enabled/product-opener.conf
