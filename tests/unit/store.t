@@ -5,8 +5,10 @@ use utf8;
 
 use Test2::V0;
 use Log::Any::Adapter 'TAP';
+use Storable qw(lock_store);
 
-use ProductOpener::Store qw/get_fileid get_string_id_for_lang get_urlid/;
+use ProductOpener::Store qw/get_fileid get_string_id_for_lang get_urlid store_object retrieve_object/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 
 is(get_fileid('Do not challenge me!'), 'do-not-challenge-me');
 
@@ -48,5 +50,23 @@ is(get_string_id_for_lang("en", "string with spaces"), "string-with-spaces");
 is(get_string_id_for_lang("el", "string with spaces"), "string-with-spaces");
 is(get_string_id_for_lang("en", "E420 - Σορβιτολη"), "e420-σορβιτολη");
 is(get_string_id_for_lang("el", "E420 - Σορβιτολη"), "e420-σορβιτολη");
+
+# Test store object
+# Make sure json file doesn't exist
+if (-e "$BASE_DIRS{CACHE_TMP}/test.json") {
+	unlink("$BASE_DIRS{CACHE_TMP}/test.json");
+}
+# Create an initial test file
+lock_store({id => 1}, "$BASE_DIRS{CACHE_TMP}/test.sto");
+# Verify retrieve copses with a sto file
+is(retrieve_object("$BASE_DIRS{CACHE_TMP}/test.sto"), {id => 1});
+# Use the new method to update it
+store_object("$BASE_DIRS{CACHE_TMP}/test.sto", {id => 2});
+# Verify that the json file has been created
+ok((-e "$BASE_DIRS{CACHE_TMP}/test.json"), "$BASE_DIRS{CACHE_TMP}/test.json exists");
+# The old sto file should be deleted
+ok((not -e "$BASE_DIRS{CACHE_TMP}/test.sto"), "$BASE_DIRS{CACHE_TMP}/test.sto does not exist");
+# Check data is saved
+is(retrieve_object("$BASE_DIRS{CACHE_TMP}/test.sto"), {id => 2});
 
 done_testing();

@@ -36,6 +36,8 @@ BEGIN {
 		&get_string_id_for_lang
 		&get_url_id_for_lang
 		&sto_iter
+		&store_object
+		&retrieve_object
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -49,8 +51,13 @@ use Storable qw(lock_store lock_nstore lock_retrieve);
 use URI::Escape::XS;
 use Unicode::Normalize;
 use Log::Any qw($log);
+#11872 Switch all JSON to use JSON::MaybeXS
 use JSON::Create qw(write_json);
 use JSON::Parse qw(read_json);
+use JSON::MaybeXS;
+use Fcntl ':flock';
+
+my $json_converter = JSON::MaybeXS->new->allow_nonref->canonical->indent->utf8;
 
 # Text::Unaccent unac_string causes Apache core dumps with Apache 2.4 and mod_perl 2.0.9 on jessie
 
@@ -253,6 +260,38 @@ sub retrieve ($file) {
 	}
 
 	return $return;
+}
+
+# Serializes an object in our preferred object store, removing it from legacy storage if it is present
+sub store_object ($path, $ref) {
+	my $new_path = $path =~ s/\.sto$/\.json/ri;
+	if (open(my $OUT, ">", $new_path)) {
+		# Get an exclusive lock on the file
+		flock($OUT, LOCK_EX);
+		print $OUT $json_converter->encode($ref);
+		close($OUT);
+
+		# Delete the old file
+		if (-e $path) {
+			unlink($path);
+		}
+	}
+	# TODO Handle errors
+}
+
+sub retrieve_object($path) {
+	my $new_path = $path =~ s/\.sto$/\.json/ri;
+	if (-e $new_path) {
+		if (open(my $IN, "<", $new_path)) {
+			flock($IN, LOCK_SH);
+			local $/;    #Enable 'slurp' mode
+			my $ref = $json_converter->decode(<$IN>);
+			close($IN);
+			return $ref;
+		}
+	}
+	# Fallback to old method
+	return retrieve($path);
 }
 
 sub store_json ($file, $ref) {
