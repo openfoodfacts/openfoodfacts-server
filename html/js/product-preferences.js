@@ -26,9 +26,12 @@ function get_user_product_preferences() {
 function getFlavorFromHostname() { // get the flavor by the url 
     var host = window.location.hostname;
 
-    if (host.includes("openbeautyfacts")) return "obf";
-    if (host.includes("openfoodfacts")) return "off";
-    
+    if (host.includes("openbeautyfacts")) {
+        return "obf";
+    }
+    if (host.includes("openfoodfacts")) {
+        return "off";
+    }
     return "off"; // default 
 }
 
