@@ -854,6 +854,9 @@ sub normalize_html_for_test_comparison ($html_ref) {
 	# <time datetime="2024-03-26T18:43:45">26 mars 2024, 18:43:45 CET</time>
 	$$html_ref =~ s/<time datetime="[^"]+">[^<]+<\/time>/<time datetime="--ignore--">--ignore--<\/time>/g;
 
+	# <meta name="traceparent" content="00-e6efe7709036ef99e0dbf8e4807456d2-386b001f5cc15162-01">
+	$$html_ref =~ s/<meta name="traceparent" content="[^"]*">/<meta name="traceparent" content="00-00000000000000000000000000000000-0000000000000000-00">/g;
+
 	# normalize URLs be removing scheme to avoid false positive alerts on security
 	$$html_ref =~ s/https?:\/\//\/\//g;
 
