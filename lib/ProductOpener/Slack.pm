@@ -76,7 +76,7 @@ sub send_slack_message ($channel, $username, $text, $icon_emoji) {
 		$log->warn('Slack webhook URL is not defined for the channel, cannot send message to Slack',
 			{channel => $channel})
 			if $log->is_warn();
-		return;
+		return 0;
 	}
 
 	my $ua = LWP::UserAgent->new;
