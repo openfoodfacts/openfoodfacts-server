@@ -416,14 +416,22 @@ lint_taxonomies:
 check_openapi_v2:
 	docker run --rm \
 		-v ${PWD}:/local openapitools/openapi-generator-cli validate --recommend \
-		-i /local/docs/api/ref/api.yml
+		-i /local/docs/api/ref/api.yaml
 
 check_openapi_v3:
 	docker run --rm \
 		-v ${PWD}:/local openapitools/openapi-generator-cli validate --recommend \
-		-i /local/docs/api/ref/api-v3.yml
+		-i /local/docs/api/ref/api-v3.yaml
 
 check_openapi: check_openapi_v2 check_openapi_v3
+
+lint_openapi:
+	@if [ "$(OS)" = "Darwin" ]; then \
+		echo "🥫 Linting OpenAPI is not supported on macOS"; \
+	else \
+		echo "🥫 Linting OpenAPI files"; \
+		docker run --rm -v $$(pwd):/app stoplight/spectral lint -r /app/.spectral.yaml /app/docs/api/ref/api.yaml /app/docs/api/ref/api-v3.yaml; \
+	fi
 
 #-------------#
 # Compilation #
