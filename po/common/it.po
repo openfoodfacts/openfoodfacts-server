@@ -44,6 +44,32 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "Un database di prodotti cosmetici gratuito, libero e collaborativo da tutto il mondo."
 
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
+msgstr ""
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr ""
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr ""
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr ""
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr ""
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr "Un database collaborativo, libero e aperto di prodotti alimentari per animali provenienti da tutto il mondo."
+
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
@@ -238,9 +264,10 @@ msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
 msgstr "Ricerca avanzata e grafici"
 
+# duplicate
 msgctxt "alcohol_warning"
-msgid "Excess drinking is harmful for health."
-msgstr "Bere in eccesso è dannoso per la salute."
+msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr "Un consumo eccessivo di alcol è dannoso per la salute, da consumarsi con moderazione."
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
@@ -275,16 +302,16 @@ msgid "for 1 kg"
 msgstr ""
 
 msgctxt "android_apk_app_icon_url"
-msgid "/images/misc/android-apk.svg"
-msgstr "/images/misc/android-apk.svg"
+msgid "/images/misc/app-landing-page/download-apk/download-apk_en.svg"
+msgstr ""
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
 msgstr "APK Android"
 
-# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
+# Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
-msgid "/images/misc/playstore/img/en_get.svg"
+msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
 msgstr ""
 
 msgctxt "android_app_icon_alt_text"
@@ -541,17 +568,13 @@ msgctxt "delete_product"
 msgid "Delete a product"
 msgstr "Eliminare un prodotto"
 
-msgctxt "delete_product_page"
-msgid "Delete the page"
-msgstr "Eliminare pagina"
-
 msgctxt "delete_the_images"
 msgid "Delete the images"
 msgstr "Cancellare le immagini"
 
 msgctxt "delete_user"
-msgid "Delete a user"
-msgstr "Elimina un utente"
+msgid "Delete the user"
+msgstr "Elimina l’utente"
 
 msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
@@ -2732,6 +2755,7 @@ msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
 msgstr "Voto nutrizionale NutriScore"
 
+# duplicate
 msgctxt "delete_product_page"
 msgid "Delete the product page"
 msgstr "Elimina la pagina del prodotto"
@@ -2748,10 +2772,6 @@ msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
 msgstr "Sei sicuro di voler cancellare la pagina di questo prodotto?"
 
-msgctxt "delete_user"
-msgid "Delete the user"
-msgstr "Elimina l’utente"
-
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s."
 msgstr "Alcuni dei dati per questo prodotto sono stati forniti direttamente dal produttore %s."
@@ -2763,10 +2783,6 @@ msgstr "Alcuni dei dati e/o foto per questo prodotto provengono da queste fonti:
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
 msgstr "Questa pagina del prodotto non è completa. Puoi aiutarci a completarla modificandola e aggiungendo altri dati dalle foto che abbiamo, o scattando altre foto usando l’applicazione per <a href=“https://android.openfoodfacts.org”>Android</a> o <a href=“https://ios.openfoodfacts.org”>iPhone/iPad</a>. Grazie!"
-
-msgctxt "title_separator"
-msgid " - "
-msgstr " - "
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -4173,10 +4189,6 @@ msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr "Per favore fai una donazione"
 
-msgctxt "alcohol_warning"
-msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
-msgstr "Un consumo eccessivo di alcol è dannoso per la salute, da consumarsi con moderazione."
-
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "Moderazione della piattaforma dei produttori"
@@ -4667,6 +4679,10 @@ msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
 msgstr "Trasformazione alimentare assente o poca (gruppo NOVA)"
 
+msgctxt "attribute_nova_setting_note"
+msgid "To determine the level of processing of a product, we rely on the list of ingredients (markers, processing methods) and categories."
+msgstr ""
+
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
 msgid "NOVA %s"
@@ -4686,7 +4702,7 @@ msgstr "Alimenti trasformati"
 
 msgctxt "attribute_nova_4_description_short"
 msgid "Ultra-processed foods"
-msgstr "Alimenti ultra-trasformati"
+msgstr "Prodotti alimentari ultra-elaborati"
 
 msgctxt "attribute_nova_4_1_marker"
 msgid "1 ultra-processing marker"
@@ -5709,10 +5725,6 @@ msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
 msgstr "Le informazioni sugli ingredienti di questo prodotto non sono state date."
 
-msgctxt "environmental_score_edit_for_more_precise_environmental_score"
-msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "Per un calcolo più preciso delil Green-Score, puoi modificare la pagina del prodotto e aggiungerle."
-
 msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
 msgstr "tasso"
@@ -5733,8 +5745,14 @@ msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
 msgstr "Le informazioni sull'imballaggio di questo prodotto non sono sufficientemente precise (forme e materiali esatte di tutti i componenti dell'imballaggio)."
 
+# duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
+msgstr "Per un calcolo più preciso delil Green-Score, puoi modificare la pagina del prodotto e aggiungerle."
+
+# duplicate
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
+msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
 msgstr "Per un calcolo più preciso delil Green-Score, puoi modificare la pagina del prodotto e aggiungerle."
 
 msgctxt "environmental_score_final_score"
@@ -5886,7 +5904,7 @@ msgstr "Dona alla raccolta fondi 2024"
 # Don't translate {year}, it will be replaced by the 4 digits year
 msgctxt "f_donation_title_year"
 msgid "Please give to our {year} Fundraiser"
-msgstr "Dona alla raccolta fondi {year}"
+msgstr ""
 
 msgctxt "donation_list_2024_main"
 msgid "Your donations fund the day-to-day operations of our non-profit association:"
@@ -6243,6 +6261,10 @@ msgid "No ingredients containing palm oil detected"
 msgstr "Nessun ingrediente contenente olio di palma rilevato"
 
 msgctxt "attribute_palm_oil_setting_note"
+msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
+msgstr "Per determinare se un prodotto contiene olio di palma, ci affidiamo esclusivamente all'elenco degli ingredienti."
+
+msgctxt "attribute_without_palm_oil_setting_note"
 msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
 msgstr "Per determinare se un prodotto contiene olio di palma, ci affidiamo esclusivamente all'elenco degli ingredienti."
 
@@ -7028,6 +7050,11 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr "Segnala un problema"
 
+# duplicate with "report_problem_panel_title"
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
+msgstr "Segnala un problema"
+
 msgctxt "report_problem_navigation"
 msgid "Report a problem."
 msgstr "Segnala un problema."
@@ -7055,11 +7082,6 @@ msgstr "Se vuoi segnalare vandalismo, contenuti inappropriati o dati errati che 
 msgctxt "description"
 msgid "Description"
 msgstr "Descrizione"
-
-# duplicate with "report_problem_panel_title"
-msgctxt "report_problem_navigation"
-msgid "Report a problem"
-msgstr "Segnala un problema"
 
 msgctxt "enter_main_contact_username"
 msgid "Enter main contact's username :"
@@ -7375,4 +7397,49 @@ msgstr "Aggiungi prodotti con una categoria, un elenco di ingredienti e valori n
 msgctxt "in_contact_with_food"
 msgid "In contact with food"
 msgstr "A contatto con gli alimenti"
+
+msgctxt "contact_us_producers"
+msgid "Contact Us"
+msgstr ""
+
+msgctxt "delete"
+msgid "Delete"
+msgstr "Elimina"
+
+msgctxt "f_add_product_to_our_database"
+msgid "Is {barcode} the barcode of a product you have? If so, please add it to the database. It only takes a few minutes."
+msgstr ""
+
+# Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
+msgctxt "f_droid_app_icon_url"
+msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
+msgstr ""
+
+msgctxt "f_droid_app_icon_alt_text"
+msgid "Available on F-Droid"
+msgstr "Disponibile su F-Droid"
+
+msgctxt "update_nutrients_data"
+msgid "Update nutrients data"
+msgstr ""
+
+msgctxt "update_nutrition_facts"
+msgid "Extract nutrition facts"
+msgstr ""
+
+msgctxt "scan_a_product"
+msgid "Scan a product"
+msgstr ""
+
+msgctxt "or_enter_barcode_manually"
+msgid "Or enter barcode manually"
+msgstr ""
+
+msgctxt "scan"
+msgid "Scan"
+msgstr "Analizza"
+
+msgctxt "action_report_image_to_nutripatrol"
+msgid "Report this image to our moderators"
+msgstr "Segnala questa immagine ai nostri moderatori"
 

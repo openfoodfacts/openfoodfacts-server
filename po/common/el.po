@@ -264,9 +264,10 @@ msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
 msgstr "Προηγμένη αναζήτηση και γραφήματα"
 
+# duplicate
 msgctxt "alcohol_warning"
-msgid "Excess drinking is harmful for health."
-msgstr "Η υπερβολική κατανάλωση αλκοόλ είναι επιβλαβής για την υγεία."
+msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr "Η υπερβολική κατανάλωση αλκοόλ είναι επιβλαβής για την υγεία, πρέπει να καταναλώνεται με μέτρο."
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
@@ -301,17 +302,17 @@ msgid "for 1 kg"
 msgstr "για 1 kg"
 
 msgctxt "android_apk_app_icon_url"
-msgid "/images/misc/android-apk.svg"
-msgstr "/images/misc/android-apk.svg"
+msgid "/images/misc/app-landing-page/download-apk/download-apk_en.svg"
+msgstr ""
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
 msgstr "Android APK"
 
-# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
+# Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
-msgid "/images/misc/playstore/img/en_get.svg"
-msgstr ""
+msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
+msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -567,17 +568,13 @@ msgctxt "delete_product"
 msgid "Delete a product"
 msgstr "Διαγράψτε το προϊόν"
 
-msgctxt "delete_product_page"
-msgid "Delete the page"
-msgstr "Διαγραφή της σελίδας"
-
 msgctxt "delete_the_images"
 msgid "Delete the images"
 msgstr "Διαγραφή των εικόνων"
 
 msgctxt "delete_user"
-msgid "Delete a user"
-msgstr "Διαγράψετε ένα χρήστη"
+msgid "Delete the user"
+msgstr "Διαγράψτε τον χρήστη"
 
 msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
@@ -2757,6 +2754,7 @@ msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
 msgstr "Διατροφικός βαθμός NutriScore"
 
+# duplicate
 msgctxt "delete_product_page"
 msgid "Delete the product page"
 msgstr "Διαγράψτε τη σελίδα του προϊόντος"
@@ -2773,10 +2771,6 @@ msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
 msgstr "Σίγουρα θέλετε να διαγράψετε τη σελίδα για αυτό το προϊόν;"
 
-msgctxt "delete_user"
-msgid "Delete the user"
-msgstr "Διαγράψτε τον χρήστη"
-
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s."
 msgstr "Ορισμένα από τα δεδομένα για αυτό το προϊόν παρέχονται απευθείας από τον κατασκευαστή %s."
@@ -2788,10 +2782,6 @@ msgstr "Ορισμένα από τα δεδομένα ή/και φωτογραφ
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
 msgstr "Αυτή η σελίδα προϊόντος δεν έχει ολοκληρωθεί. Μπορείτε να βοηθήσετε με την επεξεργασία και την προσθήκη περισσότερων δεδομένων από τις φωτογραφίες που έχουμε, ή λαμβάνοντας περισσότερες φωτογραφίες χρησιμοποιώντας την εφαρμογή για <a href=\"https://android.openfoodfacts.org\">Android</a> ή <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Σας ευχαριστούμε!"
-
-msgctxt "title_separator"
-msgid " - "
-msgstr " - "
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -4198,10 +4188,6 @@ msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr "Παρακαλούμε Δωρίστε"
 
-msgctxt "alcohol_warning"
-msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
-msgstr "Η υπερβολική κατανάλωση αλκοόλ είναι επιβλαβής για την υγεία, πρέπει να καταναλώνεται με μέτρο."
-
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "Συντονισμός πλατφόρμας παραγωγών"
@@ -4691,6 +4677,10 @@ msgstr "Άγνωστο επίπεδο επεξεργασίας τροφίμων"
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
 msgstr "Καθόλου ή μικρή επεξεργασία τροφίμων (ομάδα NOVA)"
+
+msgctxt "attribute_nova_setting_note"
+msgid "To determine the level of processing of a product, we rely on the list of ingredients (markers, processing methods) and categories."
+msgstr "Για να προσδιορίσουμε το επίπεδο επεξεργασίας ενός προϊόντος, βασιζόμαστε στη λίστα συστατικών (δείκτες, μέθοδοι επεξεργασίας) και κατηγορίες."
 
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
@@ -5734,10 +5724,6 @@ msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
 msgstr "Οι πληροφορίες για τα συστατικά αυτού του προϊόντος δεν έχουν δοθεί."
 
-msgctxt "environmental_score_edit_for_more_precise_environmental_score"
-msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "Για πιο ακριβή υπολογισμό του Green-Score, μπορείτε να επεξεργαστείτε τη σελίδα του προϊόντος και να τα προσθέσετε."
-
 msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
 msgstr "αναλογία"
@@ -5758,9 +5744,15 @@ msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
 msgstr "Οι πληροφορίες σχετικά με τη συσκευασία αυτού του προϊόντος δεν είναι επαρκώς ακριβείς (ακριβή σχήματα και υλικά όλων των εξαρτημάτων της συσκευασίας)."
 
+# duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
 msgstr "Για έναν πιο ακριβή υπολογισμό του Green-Score, μπορείτε να τροποποιήσετε τη σελίδα του προϊόντος και να τα προσθέσετε."
+
+# duplicate
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
+msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
+msgstr "Για πιο ακριβή υπολογισμό του Green-Score, μπορείτε να επεξεργαστείτε τη σελίδα του προϊόντος και να τα προσθέσετε."
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
@@ -5911,7 +5903,7 @@ msgstr "Παρακαλούμε δώστε στον Έρανό μας για το
 # Don't translate {year}, it will be replaced by the 4 digits year
 msgctxt "f_donation_title_year"
 msgid "Please give to our {year} Fundraiser"
-msgstr "Παρακαλούμε δώστε στον Έρανό μας για το {year}"
+msgstr "Παρακαλούμε δώστε στον Έρανο μας για το {year}"
 
 msgctxt "donation_list_2024_main"
 msgid "Your donations fund the day-to-day operations of our non-profit association:"
@@ -6268,6 +6260,10 @@ msgid "No ingredients containing palm oil detected"
 msgstr "Δεν ανιχνεύθηκαν συστατικά που περιέχουν φοινικέλαιο"
 
 msgctxt "attribute_palm_oil_setting_note"
+msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
+msgstr "Για να προσδιορίσουμε εάν ένα προϊόν περιέχει φοινικέλαιο, βασιζόμαστε μόνο στη λίστα των συστατικών."
+
+msgctxt "attribute_without_palm_oil_setting_note"
 msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
 msgstr "Για να προσδιορίσουμε εάν ένα προϊόν περιέχει φοινικέλαιο, βασιζόμαστε μόνο στη λίστα των συστατικών."
 
@@ -7053,6 +7049,11 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr "Αναφορά πρόβληματος"
 
+# duplicate with "report_problem_panel_title"
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
+msgstr "Αναφορά πρόβληματος"
+
 msgctxt "report_problem_navigation"
 msgid "Report a problem."
 msgstr "Αναφέρετε ένα πρόβλημα."
@@ -7080,11 +7081,6 @@ msgstr "Εάν θέλετε να αναφέρετε βανδαλισμούς, α
 msgctxt "description"
 msgid "Description"
 msgstr "Περιγραφή"
-
-# duplicate with "report_problem_panel_title"
-msgctxt "report_problem_navigation"
-msgid "Report a problem"
-msgstr "Αναφορά πρόβληματος"
 
 msgctxt "enter_main_contact_username"
 msgid "Enter main contact's username :"
@@ -7256,7 +7252,7 @@ msgstr "Αυτόματη καθημερινή εξαγωγή σε δημόσια
 
 msgctxt "improvements_navigation"
 msgid "Improvements"
-msgstr ""
+msgstr "Βελτιώσεις"
 
 msgctxt "products_with_changes_since_last_export"
 msgid "Products with changes since last export"
@@ -7360,17 +7356,17 @@ msgstr "Τύπος προϊόντος"
 # Food product type
 msgctxt "product_type_food"
 msgid "Food"
-msgstr ""
+msgstr "Τροφή"
 
 # Pet food product type
 msgctxt "product_type_petfood"
 msgid "Pet food"
-msgstr ""
+msgstr "Τροφή κατοικιδίων"
 
 # Beauty product type
 msgctxt "product_type_beauty"
 msgid "Beauty"
-msgstr ""
+msgstr "Ομορφιά"
 
 # General product product type
 msgctxt "product_type_product"
@@ -7403,9 +7399,46 @@ msgstr "Σε επαφή με τρόφιμα"
 
 msgctxt "contact_us_producers"
 msgid "Contact Us"
-msgstr ""
+msgstr "Επικοινωνία"
 
 msgctxt "delete"
 msgid "Delete"
 msgstr "Διαγραφή"
+
+msgctxt "f_add_product_to_our_database"
+msgid "Is {barcode} the barcode of a product you have? If so, please add it to the database. It only takes a few minutes."
+msgstr ""
+
+# Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
+msgctxt "f_droid_app_icon_url"
+msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
+msgstr "/images/misc/f-droid/svg/get-it-on-en.svg"
+
+msgctxt "f_droid_app_icon_alt_text"
+msgid "Available on F-Droid"
+msgstr ""
+
+msgctxt "update_nutrients_data"
+msgid "Update nutrients data"
+msgstr ""
+
+msgctxt "update_nutrition_facts"
+msgid "Extract nutrition facts"
+msgstr "Εξαγωγή διατροφικών στοιχείων"
+
+msgctxt "scan_a_product"
+msgid "Scan a product"
+msgstr "Σαρώστε ένα προϊόν"
+
+msgctxt "or_enter_barcode_manually"
+msgid "Or enter barcode manually"
+msgstr "Ή εισάγετε τον γραμμωτό κώδικα χειροκίνητα"
+
+msgctxt "scan"
+msgid "Scan"
+msgstr "Σάρωση"
+
+msgctxt "action_report_image_to_nutripatrol"
+msgid "Report this image to our moderators"
+msgstr "Αναφέρετε αυτήν την εικόνα στους συντονιστές μας"
 

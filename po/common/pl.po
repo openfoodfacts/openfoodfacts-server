@@ -64,7 +64,7 @@ msgstr "Wspólna, darmowa i otwarta baza danych składników, wartości odżywcz
 
 msgctxt "tagline_opff"
 msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr ""
+msgstr "Open Pet Food Facts gromadzi informacje i dane na temat produktów spożywczych dla zwierząt z całego świata."
 
 msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
@@ -264,9 +264,10 @@ msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
 msgstr "Wyszukiwanie zaawansowane i wykresy"
 
+# duplicate
 msgctxt "alcohol_warning"
-msgid "Excess drinking is harmful for health."
-msgstr "Nadmierne picie jest szkodliwe dla zdrowia."
+msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr "Spożywanie alkoholu, zwłaszcza nadmierne jest szkodliwe dla zdrowia."
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
@@ -301,17 +302,17 @@ msgid "for 1 kg"
 msgstr "dla 1 kg"
 
 msgctxt "android_apk_app_icon_url"
-msgid "/images/misc/android-apk.svg"
-msgstr "/images/misc/android-apk.svg"
+msgid "/images/misc/app-landing-page/download-apk/download-apk_en.svg"
+msgstr ""
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
 msgstr "Android APK"
 
-# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
+# Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
-msgid "/images/misc/playstore/img/en_get.svg"
-msgstr ""
+msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
+msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_Polish.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -567,16 +568,12 @@ msgctxt "delete_product"
 msgid "Delete a product"
 msgstr "Usuń produkt"
 
-msgctxt "delete_product_page"
-msgid "Delete the page"
-msgstr "Usuń strony"
-
 msgctxt "delete_the_images"
 msgid "Delete the images"
 msgstr "Usuń obrazy"
 
 msgctxt "delete_user"
-msgid "Delete a user"
+msgid "Delete the user"
 msgstr "Usuń użytkownika"
 
 msgctxt "delete_confirmation"
@@ -2755,6 +2752,7 @@ msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
 msgstr "Skala kolorystyczna NutriScore"
 
+# duplicate
 msgctxt "delete_product_page"
 msgid "Delete the product page"
 msgstr "Usuń stronę o produkcie"
@@ -2771,10 +2769,6 @@ msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
 msgstr "Czy jesteś pewien że chcesz usunąć stronę dla tego produktu?"
 
-msgctxt "delete_user"
-msgid "Delete the user"
-msgstr "Usuń użytkownika"
-
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s."
 msgstr "Niektóre dane dla tego produktu zostały dostarczone bezpośrednio przez producenta %s."
@@ -2786,10 +2780,6 @@ msgstr "Niektóre dane i/lub zdjęcia tego produktu pochodzą z następujących 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
 msgstr "Strona tego produktu jest niekompletna. Pomóż ją rozwinąć przez edycję i dodawanie więcej informacji z dostępnych fotografii lub wykonanych aplikacją na <a href=\"https://android.openfoodfacts.org\">Android</a> lub <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Dziękuję!"
-
-msgctxt "title_separator"
-msgid " - "
-msgstr " - "
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -4197,10 +4187,6 @@ msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr "Proszę przekaż darowiznę"
 
-msgctxt "alcohol_warning"
-msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
-msgstr "Spożywanie alkoholu, zwłaszcza nadmierne jest szkodliwe dla zdrowia."
-
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "Moderacja platformy producentów"
@@ -4690,6 +4676,10 @@ msgstr "Poziom przetwarzania żywności nieznany"
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
 msgstr "Brak lub małe przetwarzanie żywności (dla grupy NOVA)"
+
+msgctxt "attribute_nova_setting_note"
+msgid "To determine the level of processing of a product, we rely on the list of ingredients (markers, processing methods) and categories."
+msgstr ""
 
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
@@ -5733,10 +5723,6 @@ msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
 msgstr "Składniki tego produktu nie zostały podane."
 
-msgctxt "environmental_score_edit_for_more_precise_environmental_score"
-msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "Aby uzyskać dokładniejsze obliczenie Green-Score, możesz edytować stronę produktu i je dodać."
-
 msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
 msgstr "stosunek"
@@ -5757,8 +5743,14 @@ msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
 msgstr "Informacje o opakowaniu tego produktu nie są wystarczająco precyzyjne (dokładne kształty i materiały wszystkich elementów opakowania)."
 
+# duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
+msgstr "Aby uzyskać dokładniejsze obliczenie Green-Score, możesz edytować stronę produktu i je dodać."
+
+# duplicate
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
+msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
 msgstr "Aby uzyskać dokładniejsze obliczenie Green-Score, możesz edytować stronę produktu i je dodać."
 
 msgctxt "environmental_score_final_score"
@@ -5910,7 +5902,7 @@ msgstr "Prosimy o wsparcie naszej zbiórki funduszy w 2024 roku"
 # Don't translate {year}, it will be replaced by the 4 digits year
 msgctxt "f_donation_title_year"
 msgid "Please give to our {year} Fundraiser"
-msgstr "Prosimy o wsparcie naszej zbiórki funduszy w {year} roku"
+msgstr ""
 
 msgctxt "donation_list_2024_main"
 msgid "Your donations fund the day-to-day operations of our non-profit association:"
@@ -5938,7 +5930,7 @@ msgstr "wspierają rozwój badań nad zdrowiem publicznym."
 
 msgctxt "donation_financial_2024_text"
 msgid "Each donation counts! We appreciate your support in bringing further food transparency in the world."
-msgstr ""
+msgstr "Każda darowizna się liczy! Doceniamy twoje wsparcie w zapewnianiu większej przejrzystości żywności na świecie."
 
 msgctxt "donation_button_2024_text"
 msgid "I SUPPORT"
@@ -6267,6 +6259,10 @@ msgid "No ingredients containing palm oil detected"
 msgstr "Nie wykryto składników zawierających olej palmowy"
 
 msgctxt "attribute_palm_oil_setting_note"
+msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
+msgstr "Aby określić, czy produkt zawiera olej palmowy, polegamy tylko i wyłącznie na liście składników."
+
+msgctxt "attribute_without_palm_oil_setting_note"
 msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
 msgstr "Aby określić, czy produkt zawiera olej palmowy, polegamy tylko i wyłącznie na liście składników."
 
@@ -7052,6 +7048,11 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr "Zgłoś problem"
 
+# duplicate with "report_problem_panel_title"
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
+msgstr "Zgłoś problem"
+
 msgctxt "report_problem_navigation"
 msgid "Report a problem."
 msgstr "Zgłoś problem."
@@ -7079,11 +7080,6 @@ msgstr "Jeśli chcesz zgłosić akt wandalizmu, nieodpowiednią treść lub bł�
 msgctxt "description"
 msgid "Description"
 msgstr "Opis"
-
-# duplicate with "report_problem_panel_title"
-msgctxt "report_problem_navigation"
-msgid "Report a problem"
-msgstr "Zgłoś problem"
 
 msgctxt "enter_main_contact_username"
 msgid "Enter main contact's username :"
@@ -7231,7 +7227,7 @@ msgstr "Produkty przeznaczone do eksportu"
 
 msgctxt "products_exported"
 msgid "Products exported"
-msgstr ""
+msgstr "Produkty eksportowane"
 
 msgctxt "opportunities_to_improve_nutriscore"
 msgid "Opp. for Nutri-Score improvements"
@@ -7239,7 +7235,7 @@ msgstr ""
 
 msgctxt "date_of_last_update"
 msgid "Date of last update"
-msgstr ""
+msgstr "Data ostatniej zmiany"
 
 msgctxt "number_of_products_on_public_platform"
 msgid "Number of products on public platform"
@@ -7271,11 +7267,11 @@ msgstr ""
 
 msgctxt "secondhand"
 msgid "Secondhand"
-msgstr ""
+msgstr "Używany"
 
 msgctxt "donated_products_title"
 msgid "Donations"
-msgstr ""
+msgstr "Darowizny"
 
 msgctxt "donated_products_subtitle"
 msgid "Give this product, or search for a similar donated product"
@@ -7283,7 +7279,7 @@ msgstr ""
 
 msgctxt "used_products_title"
 msgid "Used products"
-msgstr ""
+msgstr "Używane produkty"
 
 msgctxt "used_products_subtitle"
 msgid "Buy this product used, or search for a similar used product"
@@ -7291,7 +7287,7 @@ msgstr ""
 
 msgctxt "attribute_repairability_index_france_name"
 msgid "Repairability index"
-msgstr ""
+msgstr "Wskaźnik naprawialności"
 
 msgctxt "attribute_repairability_index_france_setting_name"
 msgid "Good repairability"
@@ -7350,7 +7346,7 @@ msgstr ""
 # information on several ingredients, in plural in languages like French
 msgctxt "ingredient_information"
 msgid "Ingredient information"
-msgstr ""
+msgstr "Informacje o składnikach"
 
 msgctxt "product_type"
 msgid "Product type"
@@ -7378,11 +7374,11 @@ msgstr "Produkt"
 
 msgctxt "recommendation_limit_ultra_processed_foods_title"
 msgid "Limit ultra-processed foods"
-msgstr ""
+msgstr "Ogranicz ultraprzetworzoną żywność"
 
 msgctxt "recommendation_limit_ultra_processed_foods_subtitle"
 msgid "Limiting ultra-processed foods reduces the risk of noncommunicable chronic diseases"
-msgstr ""
+msgstr "Ograniczenie spożycia żywności ultraprzetworzonej zmniejsza ryzyko wystąpienia niezakaźnych chorób przewlekłych"
 
 msgctxt "recommendation_limit_ultra_processed_foods_text"
 msgid "Several studies have found that a lower consumption of ultra-processed foods is associated with a reduced risk of noncommunicable chronic diseases, such as obesity, hypertension and diabetes."
@@ -7398,13 +7394,50 @@ msgstr ""
 
 msgctxt "in_contact_with_food"
 msgid "In contact with food"
-msgstr ""
+msgstr "W kontakcie z żywnością"
 
 msgctxt "contact_us_producers"
 msgid "Contact Us"
-msgstr ""
+msgstr "Skontaktuj się z nami"
 
 msgctxt "delete"
 msgid "Delete"
 msgstr "Usuń"
+
+msgctxt "f_add_product_to_our_database"
+msgid "Is {barcode} the barcode of a product you have? If so, please add it to the database. It only takes a few minutes."
+msgstr ""
+
+# Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
+msgctxt "f_droid_app_icon_url"
+msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
+msgstr ""
+
+msgctxt "f_droid_app_icon_alt_text"
+msgid "Available on F-Droid"
+msgstr "Dostępne na F-Droid"
+
+msgctxt "update_nutrients_data"
+msgid "Update nutrients data"
+msgstr ""
+
+msgctxt "update_nutrition_facts"
+msgid "Extract nutrition facts"
+msgstr ""
+
+msgctxt "scan_a_product"
+msgid "Scan a product"
+msgstr "Zeskanuj produkt"
+
+msgctxt "or_enter_barcode_manually"
+msgid "Or enter barcode manually"
+msgstr "Lub wprowadź kod kreskowy ręcznie"
+
+msgctxt "scan"
+msgid "Scan"
+msgstr "Skanuj"
+
+msgctxt "action_report_image_to_nutripatrol"
+msgid "Report this image to our moderators"
+msgstr "Zgłoś ten obraz naszym moderatorom"
 
