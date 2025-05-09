@@ -572,7 +572,7 @@ my $tests_ref = [
 	},
 	{
 		test_case => 'report-image-button',
-		path => '/cgi/product_image.pl?code=3300000000013&id=front_en',
+		path => '/cgi/product_image.pl?code=3300000000013&id=front_fr',
 		expected_type => 'html',
 	},
 ];
