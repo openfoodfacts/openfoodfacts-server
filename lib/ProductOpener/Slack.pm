@@ -73,7 +73,8 @@ C<send_slack_message()> sends a message to a Slack channel.
 
 sub send_slack_message ($channel, $username, $text, $icon_emoji) {
 	if (not defined $slack_hook_urls{$channel} or $slack_hook_urls{$channel} eq '') {
-		$log->warn('Slack webhook URL is not defined for the channel, cannot send message to Slack', {channel => $channel})
+		$log->warn('Slack webhook URL is not defined for the channel, cannot send message to Slack',
+			{channel => $channel})
 			if $log->is_warn();
 		return;
 	}
