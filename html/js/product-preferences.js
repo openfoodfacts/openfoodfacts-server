@@ -23,6 +23,28 @@ function get_user_product_preferences() {
 	return user_product_preferences;
 }
 
+function getFlavorFromHostname() { // get the flavor by the url 
+    var host = window.location.hostname;
+
+    if (host.includes("openbeautyfacts")) return "obf";
+    if (host.includes("openfoodfacts")) return "off";
+    
+    return "off"; // default 
+}
+
+var flavor = getFlavorFromHostname();
+
+var reset_message;
+
+if (flavor === "off") { // get the reset message depend on the flavor
+    reset_message = lang().reset_preferences_details;
+} else if (flavor === "obf") {
+    reset_message = lang().reset_preferences_details_obf;
+} else {
+    reset_message = lang().reset_preferences_details; // default
+}
+
+
 // display a summary of the selected preferences
 // in the order mandatory, very important, important
 
@@ -256,7 +278,7 @@ function display_user_product_preferences(target_selected, target_selection_form
 			+ "<p>" + lang().preferences_locally_saved + "</p>"
 			+ generate_preferences_switch_button(lang().classify_products_according_to_your_preferences, "preferences_switch_in_preferences")
 			+ '<a id="reset_preferences_button" class="button small round success" role="button" tabindex="0">' + lang().reset_preferences + '</a>'
-			+ ' ' + lang().reset_preferences_details
+			+ ' ' + reset_message
 			+ '<ul id="user_product_preferences" class="accordion" data-accordion>'
 			+ attribute_groups_html.join( "" )
 			+ '</ul>'
