@@ -112,9 +112,9 @@ requires 'Text::Levenshtein';
 requires 'Net::CIDR'; # libnet-cidr-perl
 
 # OpenTelemetry
-requires 'OpenTelemetry', '>= 0.029';
-requires 'OpenTelemetry::SDK', '>= 0.025';
-requires 'OpenTelemetry::Exporter::OTLP', '>= 0.020';
+requires 'OpenTelemetry', '>= 0.030';
+requires 'OpenTelemetry::SDK', '>= 0.027';
+requires 'OpenTelemetry::Exporter::OTLP', '>= 0.021';
 requires 'Feature::Compat::Try', '0.05'; # For finally before 5.35
 requires 'Syntax::Keyword::Dynamically';
 
