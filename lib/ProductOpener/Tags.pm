@@ -2758,7 +2758,7 @@ sub init_countries() {
 				}
 			}
 		}
-		else {
+		elsif ($country ne 'en:world') {
 			$log->warn("No language_codes:en for country $country") if $log->is_warn();
 		}
 	}
