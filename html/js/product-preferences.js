@@ -32,6 +32,7 @@ function getFlavorFromHostname() { // get the flavor by the url
     if (host.includes("openfoodfacts")) {
         return "off";
     }
+    
     return "off"; // default 
 }
 
