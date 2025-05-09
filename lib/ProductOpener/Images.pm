@@ -308,7 +308,7 @@ sub scan_code ($file) {
 
 	my $code = undef;
 
-	print STDERR "scan_code file: $file\n";
+	# print STDERR "scan_code file: $file\n";
 
 	# obtain image data
 	my $magick = Image::Magick->new();
@@ -347,7 +347,7 @@ sub scan_code ($file) {
 				$code = $symbol->get_data();
 				my $type = $symbol->get_type();
 				$log->debug("barcode found", {code => $code, type => $type}) if $log->is_debug();
-				print STDERR "scan_code code found: $code\n";
+				# print STDERR "scan_code code found: $code\n";
 
 				if (($code !~ /^\d+|(?:[\^(\N{U+001D}\N{U+241D}]|https?:\/\/).+$/)) {
 					$code = undef;
@@ -381,7 +381,7 @@ sub scan_code ($file) {
 			$code = $result->text();
 			my $type = $result->format();
 			$log->debug("barcode found", {code => $code, type => $type}) if $log->is_debug();
-			print STDERR "scan_code code found: $code\n";
+			# print STDERR "scan_code code found: $code\n";
 			if (($code !~ /^\d+|(?:[\^(\N{U+001D}\N{U+241D}]|https?:\/\/).+$/)) {
 				$code = undef;
 				next;
@@ -392,7 +392,7 @@ sub scan_code ($file) {
 
 	if (defined $code) {
 		$code = normalize_code($code);
-		print STDERR "scan_code return code: $code\n";
+		# print STDERR "scan_code return code: $code\n";
 	}
 
 	return $code;
@@ -934,9 +934,9 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 							${$debug_string_ref} = $debug;
 							return -3;
 						}
-						else {
-							print STDERR "missing image $i in product.sto, keeping image $imgid\n";
-						}
+						# else {
+						# 	print STDERR "missing image $i in product.sto, keeping image $imgid\n";
+						# }
 					}
 				}
 			}
@@ -1337,8 +1337,8 @@ sub process_image_crop ($user_id, $product_id, $id, $imgid, $angle, $normalize, 
 				. " crop width or height is 0: $w x $h");
 	}
 
-	print STDERR
-		"image_crop.pl - source_path: $source_path - product_id: $product_id - imgid: $imgid - crop_size: $crop_size - x1: $x1, y1: $y1, x2: $x2, y2: $y2, w: $w, h: $h\n";
+	# print STDERR
+	# 	"image_crop.pl - source_path: $source_path - product_id: $product_id - imgid: $imgid - crop_size: $crop_size - x1: $x1, y1: $y1, x2: $x2, y2: $y2, w: $w, h: $h\n";
 	$log->trace("calculating geometry",
 		{crop_size => $crop_size, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, w => $w, h => $h})
 		if $log->is_trace();

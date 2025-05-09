@@ -886,7 +886,7 @@ use Data::Dumper;
 sub init_crm_data() {
 	if (not $ProductOpener::Config2::crm_url) {
 		# Odoo CRM is not configured
-		print STDERR "Odoo CRM is not configured\n";
+		# print STDERR "Odoo CRM is not configured\n";
 		return;
 	}
 

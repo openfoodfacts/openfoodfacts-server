@@ -18,8 +18,8 @@
         "environment"
     ],
     "title_element": {
-        "title": "[% edq(lang('packaging_parts')) %]",           
-    },    
+        "title": "[% edq(lang('packaging_parts')) %]",
+    },
     "expanded": true,
     "elements": [
         [% FOREACH recycling_type IN ["en:recycle", "en:discard", "en:unknown"] %]
@@ -41,11 +41,11 @@
                     "evaluation": "neutral",
                     "icon_url": "[% static_subdomain %]/images/icons/dist/help.svg",
                     "icon_alt": "[% edq(lang('unknown')) %]",
-                    [% END %]                
+                    [% END %]
                     "html": `
                         [% FOREACH packaging IN product.packagings %]
                             [% IF packaging.recycling == recycling_type OR (recycling_type == "en:unknown" AND ((NOT packaging.recycling.defined) OR ((packaging.recycling != "en:discard") AND (packaging.recycling != "en:recycle")))) %]
-                                [% IF packaging.number_of_units %][% packaging.number_of_units %] x [% END %]
+                                [% IF packaging.number_of_units %][% packaging.number_of_units %] × [% END %]
                                 <strong>
                                     [% display_taxonomy_tag_name('packaging_shapes',packaging.shape) %]
                                     [% IF packaging.quantity_per_unit %][% packaging.quantity_per_unit %] [% END %]
