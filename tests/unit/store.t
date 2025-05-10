@@ -58,7 +58,7 @@ if (-e "$BASE_DIRS{CACHE_TMP}/test.json") {
 }
 # Create an initial test file
 lock_store({id => 1}, "$BASE_DIRS{CACHE_TMP}/test.sto");
-# Verify retrieve copses with a sto file
+# Verify retrieve copes with a sto file
 is(retrieve_object("$BASE_DIRS{CACHE_TMP}/test.sto"), {id => 1});
 # Use the new method to update it
 store_object("$BASE_DIRS{CACHE_TMP}/test.sto", {id => 2});

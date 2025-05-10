@@ -271,8 +271,8 @@ sub store_object ($path, $ref) {
 		print $OUT $json_converter->encode($ref);
 		close($OUT);
 
-		# Delete the old file
-		if (-e $path) {
+		# Delete the old file if it was a storable
+		if ($path =~/.*\.sto/ and -e $path) {
 			unlink($path);
 		}
 	}
