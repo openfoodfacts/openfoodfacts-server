@@ -23,14 +23,14 @@
          "vegetarian" : "no"
       },
       {
-         "ciqual_proxy_food_code" : "19041",
+         "ciqual_proxy_food_code" : "19051",
          "ecobalyse_code" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
-         "id" : "en:semi-skimmed-milk",
+         "id" : "en:milk",
          "is_in_taxonomy" : 1,
-         "origins" : "en:france",
          "percent" : 5.48683160415004,
          "percent_estimate" : 5.48683160415004,
-         "text" : "Lait demi-écrémé",
+         "processing" : "en:semi-skimmed",
+         "text" : "Lait",
          "vegan" : "no",
          "vegetarian" : "yes"
       },
@@ -145,7 +145,7 @@
    "ingredients_analysis" : {
       "en:non-vegan" : [
          "en:pork",
-         "en:semi-skimmed-milk",
+         "en:milk",
          "en:single-cream",
          "en:butter",
          "en:cream",
@@ -179,7 +179,7 @@
    "ingredients_original_tags" : [
       "en:potato",
       "en:pork",
-      "en:semi-skimmed-milk",
+      "en:milk",
       "en:single-cream",
       "en:water",
       "en:butter",
@@ -199,9 +199,8 @@
       "en:tuber",
       "en:pork",
       "en:animal",
-      "en:semi-skimmed-milk",
-      "en:dairy",
       "en:milk",
+      "en:dairy",
       "en:single-cream",
       "en:cream",
       "en:water",
@@ -270,7 +269,7 @@
          "text" : "Porc de France,"
       },
       {
-         "id" : "en:semi-skimmed-milk",
+         "id" : "fr:lait-demi-ecreme",
          "ingredient" : "Lait demi-écrémé",
          "origins" : "en:france",
          "text" : "Lait demi-écrémé de France,"
