@@ -122,10 +122,9 @@ is(
 
 ) or diag Dumper $product_ref;
 
-foreach my $tag (@{$product_ref->{categories_tags}}) {
-
-	print STDERR "tag: $tag\tlevel: " . $level{categories}{$tag} . "\n";
-}
+# foreach my $tag (@{$product_ref->{categories_tags}}) {
+# 	print STDERR "tag: $tag\tlevel: " . $level{categories}{$tag} . "\n";
+# }
 
 add_tags_to_field($product_ref, "fr", "categories", "pommes, bananes");
 

@@ -1814,7 +1814,7 @@ sub convert_gs1_json_message_to_off_products_csv ($json_ref, $products_ref, $mes
 		)
 	{
 		if (defined $json_ref->{$field}) {
-			print STDERR "removing encapsulating field $field\n";
+			# print STDERR "removing encapsulating field $field\n";
 			# If it is an array (e.g. catalogue_item_notification:catalogueItemNotification is an array in Alnatura GmbH messages),
 			# call convert_gs1_json_message_to_off_products_csv() for every child
 			if (ref($json_ref->{$field}) eq 'ARRAY') {
