@@ -18,9 +18,11 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=encoding UTF-8
+
 =head1 NAME
 
-ProductOpener::Packaging 
+ProductOpener::Packaging
 
 =head1 SYNOPSIS
 
@@ -46,7 +48,6 @@ BEGIN {
 		&get_checked_and_taxonomized_packaging_component_data
 		&add_or_combine_packaging_component_data
 		&analyze_and_combine_packaging_data
-		&parse_packaging_component_data_from_text_phrase
 		&guess_language_of_packaging_text
 		&apply_rules_to_augment_packaging_component_data
 		&aggregate_packaging_by_parent_materials
@@ -61,14 +62,14 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Images qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Images qw/extract_text_from_image/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Store qw/:all/;
-use ProductOpener::API qw/:all/;
-use ProductOpener::Numbers qw/:all/;
-use ProductOpener::Units qw/:all/;
-use ProductOpener::ImportConvert qw/:all/;
+use ProductOpener::Store qw/get_fileid get_string_id_for_lang retrieve_json/;
+use ProductOpener::API qw/add_warning/;
+use ProductOpener::Numbers qw/convert_string_to_number/;
+use ProductOpener::Units qw/normalize_quantity/;
+use ProductOpener::ImportConvert qw/$empty_unknown_not_applicable_or_none_regexp/;
 
 use Data::DeepAccess qw(deep_get deep_val);
 use List::Util qw(first);
@@ -801,7 +802,7 @@ sub set_packaging_facets_tags ($product_ref) {
 
 =head2 set_packaging_misc_tags($product_ref)
 
-Set some tags in the /misc/ facet so that we can track the products that have 
+Set some tags in the /misc/ facet so that we can track the products that have
 (or don't have) packaging data.
 
 =cut
@@ -997,6 +998,12 @@ sub compute_weight_stats_for_parent_materials ($product_ref) {
 					$packagings_materials_main_weight = $parent_material_ref->{weight};
 				}
 			}
+			# If there’s no packaging weight defined, but there’s one packaging item and we know that
+			# the packaging is complete, we know that the weight of that item is 100% of the total
+			# packaging weight, even if we don’t know what that weight is.
+			elsif ((scalar @{$product_ref->{packagings}} == 1) and ($product_ref->{packagings_complete})) {
+				$parent_material_ref->{weight_percent} = 100;
+			}
 		}
 	}
 
@@ -1010,7 +1017,7 @@ sub compute_weight_stats_for_parent_materials ($product_ref) {
 	return;
 }
 
-=head2 initialize_packagings_structure_with_data_from_packaging_text ($product_ref, $response_ref) 
+=head2 initialize_packagings_structure_with_data_from_packaging_text ($product_ref, $response_ref)
 
 This function populates the packagings structure with data extracted from the packaging_text field.
 It is used only when there is no pre-existing data in the packagings structure.

@@ -28,15 +28,15 @@ use CGI::Carp qw(fatalsToBrowser);
 binmode(STDOUT, ":encoding(UTF-8)");
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/get_fileid/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::Users qw/:all/;
+use ProductOpener::Tags qw/%tags_fields %taxonomy_fields canonicalize_taxonomy_tag compute_field_tags get_taxonomyid/;
+use ProductOpener::Users qw/$User_id/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Mail qw/:all/;
-use ProductOpener::Products qw/:all/;
+use ProductOpener::Products qw/retrieve_product store_product/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
@@ -46,7 +46,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Time::Local;
 use Data::Dumper;
 
@@ -140,7 +140,7 @@ while (my $imported_product_ref = $csv->getline_hr($io)) {
 
 	print "PRODUCT LINE NUMBER $i - CODE $code";
 
-	my $product_ref = product_exists($code);    # returns 0 if not
+	my $product_ref = retrieve_product($code);    # returns 0 if not
 
 	if (not $product_ref) {
 		print "- does not exist in OFF yet\n";

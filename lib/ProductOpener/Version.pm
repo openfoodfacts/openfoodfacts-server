@@ -28,7 +28,6 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		$version
-		%Strings
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }

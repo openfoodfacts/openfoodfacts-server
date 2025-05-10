@@ -2,10 +2,10 @@
 
 use ProductOpener::PerlStandards;
 
-use Test::More;
+use Test2::V0;
 use ProductOpener::APITest qw/:all/;
-use ProductOpener::Test qw/:all/;
-use ProductOpener::TestDefaults qw/:all/;
+use ProductOpener::Test qw/remove_all_users/;
+use ProductOpener::TestDefaults qw/%admin_user_form %default_product %default_user_form/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Producers qw/:all/;
 
@@ -76,7 +76,7 @@ my $response_email = $admin->get($url_email);
 #checking if the edit page of the common ua is well deleted
 like($response_email->content, qr/Invalid user\./, "the email edit page is well deleted");
 
-my $url_contributor = construct_test_url("/contributor/tests", "world");
+my $url_contributor = construct_test_url("/facets/contributors/tests", "world");
 my $response_contributor = $admin->get($url_contributor);
 #checking if the edit page of the common ua is well deleted
 like($response_contributor->content, qr/Unknown user\./, "the contributor page of the ua is well deleted");
@@ -98,6 +98,6 @@ like(
 #checking if the added product has been anonymized
 my $url_product = construct_test_url("/cgi/product.pl?type=edit&code=2000000000001", "world");
 my $response_product = $admin->get($url_product);
-like($response_product->content, qr/\/editor\/anonymous/, "the product has been anonymized");
+like($response_product->content, qr/\/editors\/anonymous/, "the product has been anonymized");
 
 done_testing();

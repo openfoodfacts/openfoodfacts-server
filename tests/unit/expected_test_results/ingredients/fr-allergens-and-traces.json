@@ -1,0 +1,336 @@
+{
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "9200",
+         "id" : "en:corn",
+         "is_in_taxonomy" : 1,
+         "percent" : 70,
+         "percent_estimate" : 70,
+         "percent_max" : 70,
+         "percent_min" : 70,
+         "text" : "Maïs",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "31016",
+         "id" : "en:sugar",
+         "is_in_taxonomy" : 1,
+         "percent" : 28,
+         "percent_estimate" : 28,
+         "percent_max" : 28,
+         "percent_min" : 28,
+         "text" : "sucre",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "11058",
+         "id" : "en:salt",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 1.05555555555556,
+         "percent_max" : 2,
+         "percent_min" : 0.111111111111111,
+         "text" : "sel",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "fr:extrait-de-malt-do-rge",
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 0.472222222222221,
+         "percent_max" : 0.999999999999998,
+         "percent_min" : 0,
+         "text" : "extrait de malt do'_rge_"
+      },
+      {
+         "id" : "en:vitamins",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.236111111111114,
+         "percent_max" : 0.666666666666666,
+         "percent_min" : 0,
+         "text" : "vitamines",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:e375",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.118055555555557,
+         "percent_max" : 0.499999999999999,
+         "percent_min" : 0,
+         "text" : "niacine",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "id" : "en:pantothenic-acid",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.0590277777777786,
+         "percent_max" : 0.499999999999999,
+         "percent_min" : 0,
+         "text" : "acide pantothénique",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:pantothenic-acid",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.0295138888888857,
+         "percent_max" : 0.333333333333333,
+         "percent_min" : 0,
+         "text" : "vitamine B5",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:e101",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.0147569444444429,
+         "percent_max" : 0.333333333333333,
+         "percent_min" : 0,
+         "text" : "riboflavine",
+         "vegan" : "maybe",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:e101",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.00737847222222143,
+         "percent_max" : 0.333333333333333,
+         "percent_min" : 0,
+         "text" : "vitamine B2",
+         "vegan" : "maybe",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:vitamin-b6",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.00368923611111427,
+         "percent_max" : 0.222222222222222,
+         "percent_min" : 0,
+         "text" : "vitamine B6",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:thiamin",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.00184461805555713,
+         "percent_max" : 0.222222222222222,
+         "percent_min" : 0,
+         "text" : "thiamine"
+      },
+      {
+         "id" : "en:thiamin",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.000922309027778567,
+         "percent_max" : 0.222222222222222,
+         "percent_min" : 0,
+         "text" : "vitamine B1"
+      },
+      {
+         "id" : "en:folic-acid",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.000461154513885731,
+         "percent_max" : 0.222222222222222,
+         "percent_min" : 0,
+         "text" : "acide folique",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:folic-acid",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.000230577256942865,
+         "percent_max" : 0.222222222222222,
+         "percent_min" : 0,
+         "text" : "vitamine B9",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:vitamin-d",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.000115288628471433,
+         "percent_max" : 0.222222222222222,
+         "percent_min" : 0,
+         "text" : "vitamine D"
+      },
+      {
+         "id" : "en:vitamin-b12",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 5.76443142392691e-05,
+         "percent_max" : 0.222222222222222,
+         "percent_min" : 0,
+         "text" : "vitamine B12"
+      },
+      {
+         "id" : "en:ferric-diphosphate",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 2.88221571196345e-05,
+         "percent_max" : 0.222222222222222,
+         "percent_min" : 0,
+         "text" : "diphosphate ferrique"
+      },
+      {
+         "id" : "en:dairy",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 1.44110785598173e-05,
+         "percent_max" : 0.117647058823529,
+         "percent_min" : 0,
+         "text" : "de produit laitiers",
+         "vegan" : "no",
+         "vegetarian" : "maybe"
+      },
+      {
+         "id" : "fr:de-produits-a-base-de-soja-et-de-graines-de-sesame",
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 1.44110785527118e-05,
+         "percent_max" : 0.117647058823529,
+         "percent_min" : 0,
+         "text" : "de produits à base de soja et de graines de sésame"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:dairy"
+      ],
+      "en:palm-oil-content-unknown" : [
+         "fr:extrait-de-malt-do-rge",
+         "fr:de-produits-a-base-de-soja-et-de-graines-de-sesame"
+      ],
+      "en:vegan-status-unknown" : [
+         "fr:extrait-de-malt-do-rge",
+         "en:thiamin",
+         "en:thiamin",
+         "en:vitamin-d",
+         "en:vitamin-b12",
+         "en:ferric-diphosphate",
+         "fr:de-produits-a-base-de-soja-et-de-graines-de-sesame"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "fr:extrait-de-malt-do-rge",
+         "en:thiamin",
+         "en:thiamin",
+         "en:vitamin-d",
+         "en:vitamin-b12",
+         "en:ferric-diphosphate",
+         "fr:de-produits-a-base-de-soja-et-de-graines-de-sesame"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:vegetarian-status-unknown"
+   ],
+   "ingredients_hierarchy" : [
+      "en:corn",
+      "en:cereal",
+      "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide",
+      "en:salt",
+      "fr:extrait-de-malt-do-rge",
+      "en:vitamins",
+      "en:e375",
+      "en:pantothenic-acid",
+      "en:e101",
+      "en:vitamin-b6",
+      "en:thiamin",
+      "en:folic-acid",
+      "en:folate",
+      "en:vitamin-d",
+      "en:vitamin-b12",
+      "en:ferric-diphosphate",
+      "en:minerals",
+      "en:iron",
+      "en:dairy",
+      "fr:de-produits-a-base-de-soja-et-de-graines-de-sesame"
+   ],
+   "ingredients_n" : 20,
+   "ingredients_n_tags" : [
+      "20",
+      "11-20"
+   ],
+   "ingredients_original_tags" : [
+      "en:corn",
+      "en:sugar",
+      "en:salt",
+      "fr:extrait-de-malt-do-rge",
+      "en:vitamins",
+      "en:e375",
+      "en:pantothenic-acid",
+      "en:pantothenic-acid",
+      "en:e101",
+      "en:e101",
+      "en:vitamin-b6",
+      "en:thiamin",
+      "en:thiamin",
+      "en:folic-acid",
+      "en:folic-acid",
+      "en:vitamin-d",
+      "en:vitamin-b12",
+      "en:ferric-diphosphate",
+      "en:dairy",
+      "fr:de-produits-a-base-de-soja-et-de-graines-de-sesame"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:corn",
+      "en:cereal",
+      "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide",
+      "en:salt",
+      "fr:extrait-de-malt-do-rge",
+      "en:vitamins",
+      "en:e375",
+      "en:pantothenic-acid",
+      "en:e101",
+      "en:vitamin-b6",
+      "en:thiamin",
+      "en:folic-acid",
+      "en:folate",
+      "en:vitamin-d",
+      "en:vitamin-b12",
+      "en:ferric-diphosphate",
+      "en:minerals",
+      "en:iron",
+      "en:dairy",
+      "fr:de-produits-a-base-de-soja-et-de-graines-de-sesame"
+   ],
+   "ingredients_text" : "Maïs 70%, sucre 28%, sel, extrait de malt do'_rge_, vitamines : niacine - acide pantothénique (B5) - riboflavine (B2) - vitamine B6 - thiamine (B1) - acide folique (B9) - vitamine D - vitamine B12, diphosphate ferrique. \nPeut contenir des traces d'arachides, de fruits à coque, de produit laitiers, de produits à base de soja et de graines de sésame.",
+   "ingredients_with_specified_percent_n" : 2,
+   "ingredients_with_specified_percent_sum" : 98,
+   "ingredients_with_unspecified_percent_n" : 18,
+   "ingredients_with_unspecified_percent_sum" : 2,
+   "ingredients_without_ciqual_codes" : [
+      "en:dairy",
+      "en:e101",
+      "en:e375",
+      "en:ferric-diphosphate",
+      "en:folic-acid",
+      "en:pantothenic-acid",
+      "en:thiamin",
+      "en:vitamin-b12",
+      "en:vitamin-b6",
+      "en:vitamin-d",
+      "en:vitamins",
+      "fr:de-produits-a-base-de-soja-et-de-graines-de-sesame",
+      "fr:extrait-de-malt-do-rge"
+   ],
+   "ingredients_without_ciqual_codes_n" : 13,
+   "known_ingredients_n" : 20,
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent"
+   ],
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
+   },
+   "unknown_ingredients_n" : 2
+}

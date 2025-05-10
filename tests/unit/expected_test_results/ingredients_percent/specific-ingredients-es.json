@@ -4,6 +4,7 @@
       "ingredients" : [
          {
             "id" : "es:tomate-por-cada-100g-de-producto-final",
+            "is_in_taxonomy" : 0,
             "percent_estimate" : 62.5,
             "percent_max" : 100,
             "percent_min" : 25,
@@ -12,6 +13,7 @@
             "text" : "tomate por cada 100g de producto final"
          }
       ],
+      "is_in_taxonomy" : 1,
       "percent_estimate" : 62.5,
       "percent_max" : 100,
       "percent_min" : 25,
@@ -19,6 +21,7 @@
    },
    {
       "id" : "en:peach",
+      "is_in_taxonomy" : 1,
       "percent_estimate" : 18.75,
       "percent_max" : 50,
       "percent_min" : 0,
@@ -26,6 +29,7 @@
    },
    {
       "id" : "en:whole-brown-cane-sugar",
+      "is_in_taxonomy" : 1,
       "percent_estimate" : 9.375,
       "percent_max" : 33.3333333333333,
       "percent_min" : 0,
@@ -33,6 +37,7 @@
    },
    {
       "id" : "en:lemon-juice",
+      "is_in_taxonomy" : 1,
       "percent_estimate" : 9.375,
       "percent_max" : 25,
       "percent_min" : 0,

@@ -30,9 +30,10 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Users qw/:all/;
+use ProductOpener::HTTP qw/single_param/;
+use ProductOpener::Users qw/$Owner_id/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/$lc %Lang lang/;
 use ProductOpener::Mail qw/:all/;
 
 use Apache2::RequestRec ();
@@ -42,7 +43,7 @@ use CGI qw/:cgi :form escapeHTML :cgi-lib/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Log::Any qw($log);
 
 my $request_ref = ProductOpener::Display::init_request();
@@ -59,7 +60,7 @@ local $log->context->{type} = $type;
 local $log->context->{action} = $action;
 
 if (not defined $Owner_id) {
-	display_error_and_exit(lang("no_owner_defined"), 200);
+	display_error_and_exit($request_ref, lang("no_owner_defined"), 200);
 }
 
 else {
@@ -87,7 +88,7 @@ else {
 	$template_data_ref->{i} = $i;
 	$template_data_ref->{add_fields_options} = \@add_fields_options;
 
-	$scripts .= <<JS
+	$request_ref->{scripts} .= <<JS
     <!-- The template to display files available for upload -->
     <script id="template-upload" type="text/x-tmpl">
       {\% for (var i=0, file; file=o.files[i]; i++) { \%}
@@ -129,25 +130,25 @@ else {
 						  <span class="name">{\%=file.filename\%}</span>
                   {\% } \%}
                   {\% if (file.info) { \%}
-                      <div><span class="label info">$Lang{info}{$lang}</span> {\%=file.info\%}</div>
+                      <div><span class="label info">$Lang{info}{$lc}</span> {\%=file.info\%}</div>
                   {\% } \%}
                   {\% if (file.code_from_filename) { \%}
-                      <div>$Lang{code_from_filename}{$lang} :</span> {\%=file.code_from_filename\%}</div>
+                      <div>$Lang{code_from_filename}{$lc} :</span> {\%=file.code_from_filename\%}</div>
                   {\% } \%}
                   {\% if (file.scanned_code) { \%}
-                      <div>$Lang{scanned_code}{$lang} : {\%=file.scanned_code\%}</div>
+                      <div>$Lang{scanned_code}{$lc} : {\%=file.scanned_code\%}</div>
                   {\% } \%}
                   {\% if (file.using_previous_code) { \%}
-                      <div>$Lang{using_previous_code}{$lang} :</span> {\%=file.using_previous_code\%}</div>
+                      <div>$Lang{using_previous_code}{$lc} :</span> {\%=file.using_previous_code\%}</div>
                   {\% } \%}
                   {\% if (file.error) { \%}
-                      <div><span class="label alert">$Lang{error}{$lang}</span> {\%=file.error\%}</div>
+                      <div><span class="label alert">$Lang{error}{$lc}</span> {\%=file.error\%}</div>
                   {\% } \%}
               </td>
               <td>
                   <span class="size">{\%=o.formatFileSize(file.size)\%}</span><br>
 				  {\% if (!file.error) { \%}
-                      $Lang{file_received}{$lang} </div>
+                      $Lang{file_received}{$lc} </div>
                   {\% } \%}
               </td>
           </tr>
@@ -155,35 +156,37 @@ else {
     </script>
 
     <!-- The Templates plugin is included to render the upload/download listings -->
-    <script src="/js/dist/tmpl.js"></script>
+    <script src="$static_subdomain/js/dist/tmpl.js"></script>
     <!-- The Load Image plugin is included for the preview images and image resizing functionality -->
-    <script src="/js/dist/load-image.all.min.js"></script>
+    <script src="$static_subdomain/js/dist/load-image.all.min.js"></script>
     <!-- The Canvas to Blob plugin is included for image resizing functionality -->
-    <script src="/js/dist/canvas-to-blob.js"></script>
+    <script src="$static_subdomain/js/dist/canvas-to-blob.js"></script>
 
     <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
-    <script src="/js/dist/jquery.iframe-transport.js"></script>
+    <script src="$static_subdomain/js/dist/jquery.iframe-transport.js"></script>
     <!-- The basic File Upload plugin -->
-    <script src="/js/dist/jquery.fileupload.js"></script>
+    <script src="$static_subdomain/js/dist/jquery.fileupload.js"></script>
     <!-- The File Upload processing plugin -->
-    <script src="/js/dist/jquery.fileupload-process.js"></script>
+    <script src="$static_subdomain/js/dist/jquery.fileupload-process.js"></script>
     <!-- The File Upload image preview & resize plugin -->
-    <script src="/js/dist/jquery.fileupload-image.js"></script>
+    <script src="$static_subdomain/js/dist/jquery.fileupload-image.js"></script>
     <!-- The File Upload validation plugin -->
-    <script src="/js/dist/jquery.fileupload-validate.js"></script>
+    <script src="$static_subdomain/js/dist/jquery.fileupload-validate.js"></script>
     <!-- The File Upload user interface plugin -->
-    <script src="/js/dist/jquery.fileupload-ui.js"></script>
+    <script src="$static_subdomain/js/dist/jquery.fileupload-ui.js"></script>
 JS
 		;
 
-	process_template('web/pages/import_photos_upload/import_photos_upload.tt.html', $template_data_ref, \$html)
+	process_template('web/pages/import_photos_upload/import_photos_upload.tt.html',
+		$template_data_ref, \$html, $request_ref)
 		or $html = "<p>" . $tt->error() . "</p>";
-	process_template('web/pages/import_photos_upload/import_photos_upload.tt.js', $template_data_ref, \$js)
+	process_template('web/pages/import_photos_upload/import_photos_upload.tt.js',
+		$template_data_ref, \$js, $request_ref)
 		or $html = "<p>" . $tt->error() . "</p>";
 
-	$initjs .= $js;
+	$request_ref->{initjs} .= $js;
 
-	$header .= <<HTML
+	$request_ref->{header} .= <<HTML
 <script>
 // Keep track of codes that we have seen so that we can submit field values only once
 var codes = {};
@@ -214,7 +217,7 @@ function waitForPreviousUpload(submitIndex, callback) {
 HTML
 		;
 
-	$initjs .= <<JS
+	$request_ref->{initjs} .= <<JS
 
 /*
  * jQuery File Upload Demo
@@ -340,7 +343,7 @@ var images_processed = 0;
 JS
 		;
 
-	$styles .= <<CSS
+	$request_ref->{styles} .= <<CSS
 
     <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
 

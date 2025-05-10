@@ -5,13 +5,12 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
+use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::TagsEntries qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Ingredients qw/cut_ingredients_text_for_lang preparse_ingredients_text/;
 
 my @lists = (
 	# en phrases_after_ingredients_list
@@ -32,8 +31,8 @@ foreach my $test_ref (@lists) {
 	my $lc = $test_ref->[0];    # Language
 	my $ingredients_text_from_image = $test_ref->[1];
 	my $cut_ingredients_text_from_image = cut_ingredients_text_for_lang($ingredients_text_from_image, $lc);
-	print STDERR "input from the picture extraction (ingredients list ($lc)): $ingredients_text_from_image\n";
-	print STDERR "cut_ingredients_text_from_image (result from sub routine): $cut_ingredients_text_from_image\n";
+	# print STDERR "input from the picture extraction (ingredients list ($lc)): $ingredients_text_from_image\n";
+	# print STDERR "cut_ingredients_text_from_image (result from sub routine): $cut_ingredients_text_from_image\n";
 	my $expected = $test_ref->[2];
 	is(lc($cut_ingredients_text_from_image), lc($expected))
 		or print STDERR "Original ingredients: $ingredients_text_from_image ($lc)\n";

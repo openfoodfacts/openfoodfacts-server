@@ -1,8 +1,10 @@
 {
   "name": "Perl",
+  "initializeCommand": "make run_deps",
   "dockerComposeFile": [
     "../docker-compose.yml",
     "../docker/dev.yml",
+    "../docker/run.yml",
     "../docker/devcontainer.yml"
   ],
   "containerUser": "root",
@@ -16,12 +18,10 @@
   "runServices": [
     "memcached",
     "postgres",
-    "mongodb",
     "dynamicfront",
     "frontend",
     "incron",
-    "minion",
-    "redis"
+    "minion"
   ],
   "workspaceFolder": "/opt/product-opener",
   "customizations": {

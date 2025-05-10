@@ -5,12 +5,14 @@
          "ingredients" : [
             {
                "id" : "fr:1472-kj",
+               "is_in_taxonomy" : 0,
                "percent_estimate" : 100,
                "percent_max" : 100,
                "percent_min" : 100,
                "text" : "1472 kJ"
             }
          ],
+         "is_in_taxonomy" : 0,
          "percent_estimate" : 100,
          "percent_max" : 100,
          "percent_min" : 100,
@@ -38,10 +40,7 @@
       "en:vegan-status-unknown",
       "en:vegetarian-status-unknown"
    ],
-   "ingredients_hierarchy" : [
-      "fr:analyse-moyenne-pour-1",
-      "fr:1472-kj"
-   ],
+   "ingredients_lc" : "fr",
    "ingredients_n" : 2,
    "ingredients_n_tags" : [
       "2",
@@ -66,6 +65,11 @@
       "fr:analyse-moyenne-pour-1"
    ],
    "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ecobalyse_ids" : [
+      "fr:1472-kj",
+      "fr:analyse-moyenne-pour-1"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 0,
    "lc" : "fr",
    "nutriments" : {

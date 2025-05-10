@@ -1,0 +1,14 @@
+title: Input taxonomy tag
+x-stoplight:
+  id: 7gx5uzyifakgo
+type: string
+description: |-
+  A tag entry, that will be matched against a taxonomy (e.g. a category, a label)
+
+  The entry is a string that can contain either:
+
+  - a taxonomy entry id, in the form [2 letter language code]:[normalized canonical name] (e.g. "en:green-teas")
+  - a string in a specific language, prefixed by the 2 letter language code (e.g. "fr:Thés verts")
+  - a string in the default language of the field (e.g. French for categories_tags_fr) or in the language indicated by the tags_lc request field (e.g. Thés verts)
+
+  All entries will be matched to the corresponding taxonomy. It is possible to specify values that do not exist yet in the taxonomy. They may later be added as new taxonomy entries, or as new translations or synonyms of an existing entry.

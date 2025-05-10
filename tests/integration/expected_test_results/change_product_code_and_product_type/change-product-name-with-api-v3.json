@@ -1,0 +1,27 @@
+{
+   "code" : "1234567890300",
+   "errors" : [],
+   "product" : {
+      "product_name_en" : "Test product 3 - updated",
+      "schema_version" : 999
+   },
+   "status" : "success_with_warnings",
+   "warnings" : [
+      {
+         "field" : {
+            "default_value" : "en",
+            "id" : "tags_lc"
+         },
+         "impact" : {
+            "id" : "warning",
+            "lc_name" : "Warning",
+            "name" : "Warning"
+         },
+         "message" : {
+            "id" : "missing_field",
+            "lc_name" : "Missing field",
+            "name" : "Missing field"
+         }
+      }
+   ]
+}

@@ -2,6 +2,7 @@
    "ingredients" : [
       {
          "id" : "fr:oignon-francais",
+         "is_in_taxonomy" : 0,
          "percent_estimate" : 75,
          "percent_max" : 100,
          "percent_min" : 50,
@@ -9,6 +10,7 @@
       },
       {
          "id" : "fr:tomate-francaise",
+         "is_in_taxonomy" : 0,
          "percent_estimate" : 25,
          "percent_max" : 50,
          "percent_min" : 0,
@@ -34,10 +36,7 @@
       "en:vegan-status-unknown",
       "en:vegetarian-status-unknown"
    ],
-   "ingredients_hierarchy" : [
-      "fr:oignon-francais",
-      "fr:tomate-francaise"
-   ],
+   "ingredients_lc" : "fr",
    "ingredients_n" : 2,
    "ingredients_n_tags" : [
       "2",
@@ -62,6 +61,11 @@
       "fr:tomate-francaise"
    ],
    "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ecobalyse_ids" : [
+      "fr:oignon-francais",
+      "fr:tomate-francaise"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 0,
    "lc" : "fr",
    "nutriments" : {

@@ -26,7 +26,7 @@ use strict;
 use utf8;
 use warnings;
 
-use ProductOpener::GS1 qw/:all/;
+use ProductOpener::GS1 qw/convert_gs1_xml_file_to_json/;
 
 my $dir = $ARGV[0];
 

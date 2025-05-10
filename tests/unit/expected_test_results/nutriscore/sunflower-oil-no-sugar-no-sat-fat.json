@@ -1,4 +1,9 @@
 {
+   "allergens" : "",
+   "allergens_from_ingredients" : "",
+   "allergens_from_user" : "(en) ",
+   "allergens_hierarchy" : [],
+   "allergens_tags" : [],
    "categories" : "sunflower oils",
    "categories_hierarchy" : [
       "en:plant-based-foods-and-beverages",
@@ -48,16 +53,41 @@
       "en:nutrition-no-fruits-vegetables-nuts",
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts"
    ],
+   "nova_group" : 2,
+   "nova_group_debug" : "",
+   "nova_groups" : "2",
+   "nova_groups_markers" : {
+      "2" : [
+         [
+            "categories",
+            "en:fats"
+         ]
+      ]
+   },
+   "nova_groups_tags" : [
+      "en:2-processed-culinary-ingredients"
+   ],
+   "nutrient_levels" : {
+      "fat" : "high",
+      "salt" : "low"
+   },
+   "nutrient_levels_tags" : [
+      "en:fat-in-high-quantity",
+      "en:salt-in-low-quantity"
+   ],
    "nutriments" : {
       "carbohydrates_100g" : 0,
       "energy_100g" : 3378,
-      "fat_100g" : 100,
+      "fat_100g" : "100",
       "fiber_100g" : 0,
+      "nova-group" : 2,
+      "nova-group_100g" : 2,
+      "nova-group_serving" : 2,
       "proteins_100g" : 0,
       "salt" : 0,
-      "salt_100g" : 0,
+      "salt_100g" : "0",
       "salt_unit" : "g",
-      "salt_value" : 0,
+      "salt_value" : "0",
       "sodium_100g" : 0,
       "sodium_value" : "0"
    },
@@ -118,7 +148,7 @@
    "nutriscore_tags" : [
       "unknown"
    ],
-   "nutriscore_version" : "2021",
+   "nutriscore_version" : "2023",
    "nutrition_data_per" : "100g",
    "nutrition_data_prepared_per" : "100g",
    "nutrition_grade_fr" : "unknown",
@@ -138,5 +168,11 @@
    "pnns_groups_2_tags" : [
       "fats",
       "known"
-   ]
+   ],
+   "traces" : "",
+   "traces_from_ingredients" : "",
+   "traces_from_user" : "(en) ",
+   "traces_hierarchy" : [],
+   "traces_tags" : [],
+   "unknown_nutrients_tags" : []
 }

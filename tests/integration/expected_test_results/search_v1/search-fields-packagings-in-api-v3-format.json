@@ -2,13 +2,14 @@
    "count" : 6,
    "page" : "1",
    "page_count" : 6,
-   "page_size" : 24,
+   "page_size" : 50,
    "products" : [
       {
-         "code" : "200000000034",
+         "code" : "0200000000034",
          "packaging_text_en" : "1 25cl glass bottle, 1 steel lid, 1 plastic wrap",
          "packagings" : [
             {
+               "food_contact" : 1,
                "material" : {
                   "id" : "en:glass"
                },
@@ -24,6 +25,7 @@
                }
             },
             {
+               "food_contact" : 1,
                "material" : {
                   "id" : "en:steel"
                },
@@ -33,6 +35,7 @@
                }
             },
             {
+               "food_contact" : 0,
                "material" : {
                   "id" : "en:plastic"
                },
@@ -41,29 +44,35 @@
                   "id" : "en:film"
                }
             }
-         ]
+         ],
+         "schema_version" : 999
       },
       {
-         "code" : "200000000037",
+         "code" : "0200000000037",
          "packaging_text_en" : "no",
-         "packagings" : []
+         "packagings" : [],
+         "schema_version" : 999
       },
       {
-         "code" : "200000000038",
-         "packagings" : []
+         "code" : "0200000000038",
+         "packagings" : [],
+         "schema_version" : 999
       },
       {
-         "code" : "200000000039",
-         "packagings" : []
+         "code" : "0200000000039",
+         "packagings" : [],
+         "schema_version" : 999
       },
       {
-         "code" : "200000000045",
+         "code" : "0200000000045",
          "packaging_text_en" : "no",
-         "packagings" : []
+         "packagings" : [],
+         "schema_version" : 999
       },
       {
-         "code" : "200000000046",
-         "packagings" : []
+         "code" : "0200000000046",
+         "packagings" : [],
+         "schema_version" : 999
       }
    ],
    "skip" : 0

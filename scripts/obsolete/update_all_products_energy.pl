@@ -45,7 +45,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 
 # Get a list of all products
@@ -64,9 +64,9 @@ my $cursor = $products_collection->query({})->fields({ code => 1 });
 		$product_ref = retrieve_product($code);
 		
 		# Update
-		#extract_ingredients_classes_from_text($product_ref);
+		#extract_additives_from_text($product_ref);
 		
-		compute_serving_size_data($product_ref);
+		compute_nutrition_data_per_100g_and_per_serving($product_ref);
 
 		# Store
 

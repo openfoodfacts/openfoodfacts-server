@@ -1,0 +1,75 @@
+# This file override the envvars of apache2
+# It is an important place to tweak apache2 through environment variables
+# and put some logic in them
+
+# It will use variables
+# that are set in env.<server name>
+# And also the instance name
+
+# SUFFIX can be used to tweak settings according to the instance name
+if [ "${APACHE_CONFDIR##/etc/apache2-}" != "${APACHE_CONFDIR}" ] ; then
+    SUFFIX="-${APACHE_CONFDIR##/etc/apache2-}"
+    APACHE_INSTANCE=${APACHE_CONFDIR##/etc/apache2-}
+else
+    SUFFIX=
+    APACHE_INSTANCE=
+fi
+
+# we will first source the standard envvars file (if it exists)
+if [ -f /etc/apache2${SUFFIX}/envvars ];
+then
+    . /etc/apache2/envvars
+fi
+
+# now we can set our specific settings
+
+# we use off user instead of www-data
+export APACHE_RUN_USER=off
+export APACHE_RUN_GROUP=off
+
+# port - standard or priority
+export APACHE2_PORT=8001
+if [ "$APACHE_INSTANCE" = "priority" ]
+then
+    export APACHE2_PORT=8002
+fi
+
+APP_DIR=/srv/$PRODUCT_OPENER_FLAVOR_SHORT
+
+LOG4PERL_CONF=$APP_DIR/conf/$PRODUCT_OPENER_FLAVOR_SHORT-log.conf
+if [ -n "$APACHE_INSTANCE" ]
+then
+    export LOG4PERL_CONF=$APP_DIR/conf/$PRODUCT_OPENER_FLAVOR_SHORT-$APACHE_INSTANCE-log.conf
+fi
+
+# MPM settings -----------
+
+# StartServers: number of server processes to start
+export APACHE_MPM_START_SERVERS=2
+# MaxRequestWorkers: maximum number of server processes allowed to start
+export APACHE_MPM_MAX_REQUEST_WORKERS=20
+# MaxConnectionsPerChild: maximum number of requests a server process serves
+# keep this a bit low to avoid memory issues
+export APACHE_MPM_MAX_CONN_PER_CHILD=100
+# specific MPM settings
+if [ "$PRODUCT_OPENER_FLAVOR_SHORT" = "off" ]
+then
+    export APACHE_MPM_START_SERVERS=5
+    export APACHE_MPM_MAX_REQUEST_WORKERS=25
+    if [ "$INSTANCE_NAME" = "priority" ]
+    then
+        export APACHE_MPM_MAX_REQUEST_WORKERS=50
+    fi
+fi
+if [ "$PRODUCT_OPENER_FLAVOR_SHORT" = "off-pro" ]
+then
+    export APACHE_MPM_MAX_REQUEST_WORKERS=10
+fi
+# MinSpareServers: minimum number of server processes which are kept spare
+# we use StartServers value
+export APACHE_MPM_MIN_SPARSE_SERVERS=${APACHE_MPM_START_SERVERS}
+# MaxSpareServers: maximum number of server processes which are kept spare
+# we use MinSpareServers * 2
+export APACHE_MPM_MAX_SPARSE_SERVERS=$((APACHE_MPM_MIN_SPARSE_SERVERS * 2))
+# corresponds to max request workers + sparse servers
+export APACHE_MPM_SERVER_LIMIT=$((APACHE_MPM_MAX_REQUEST_WORKERS + APACHE_MPM_MAX_SPARSE_SERVERS))

@@ -1,0 +1,25 @@
+{
+    "level": "info",
+    "topics": [
+        "secondhand"
+    ],
+    "expand_for": "large",
+    "title_element": {
+        "title": "Donner ce produit ou rechercher un produit similaire sur Geev",
+        //"subtitle": "",
+        "icon_url": "[% static_subdomain %]/images/panels/secondhand/geev.200x100.svg",
+    },
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `
+                <p>Vous pouvez donner ce produit sur <a href="https://geev.fr">Geev</a>, une application mobile qui permet de donner et de récupérer des objets gratuitement.</p>
+                <ul>
+                <li><a href="https://www.geev.com/fr/recherche/objets?type=donation&text=[% product.product_name | uri %]">Chercher le produit "[% product.product_name %]" sur Geev</a></li>
+                <li><a href="https://www.geev.com/fr/recherche/objets?type=donation&text=[% panel.category_name | uri %]">Chercher la catégorie "[% panel.category_name %]" sur Geev</a></li>
+                `
+            },
+        },        
+    ]
+}

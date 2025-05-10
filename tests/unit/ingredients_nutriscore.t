@@ -3,13 +3,15 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
 #use Log::Any::Adapter 'TAP', filter => "none";
 
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::TagsEntries qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Tags qw/canonicalize_taxonomy_tag get_inherited_property/;
+use ProductOpener::Ingredients
+	qw/estimate_nutriscore_2021_milk_percent_from_ingredients estimate_nutriscore_2023_red_meat_percent_from_ingredients extract_ingredients_from_text/;
 
 my @ingredients = (
 
@@ -44,7 +46,7 @@ my @ingredients_tests = (
 foreach my $test_ref (@ingredients_tests) {
 	my $ingredient_id = canonicalize_taxonomy_tag("en", "ingredients", $test_ref->[0]);
 	is(ProductOpener::Ingredients::is_fruits_vegetables_legumes($ingredient_id), $test_ref->[1])
-		or diag explain $test_ref;
+		or diag Dumper $test_ref;
 }
 
 # test the estimate percent of fruits and vegetables
@@ -59,13 +61,15 @@ my @ingredients_text_tests = (
 	[
 		{
 			lc => "fr",
-			ingredients_text =>
-				"Courgette grillée 37,5%, tomate pelée 20%, poivron jaune 17%, oignon rouge grillé 8%, eau, huile d'olive vierge extra 3,9%, oignon, olive noire entière dénoyautée saumurée 2,5% (olive, eau, sel, correcteurs d'acidité : acide citrique, acide lactique), ail, basilic 0,9%, amidon de riz, sel"
+			ingredients_text => "Courgette grillée 37,5%, tomate pelée 20%, poivron jaune 17%, oignon rouge grillé 8%,
+				eau, huile d'olive vierge extra 3,9%, oignon,
+				olive noire entière dénoyautée saumurée 2,5% (olive, eau, sel, correcteurs d'acidité : acide citrique, acide lactique),
+				ail, basilic 0,9%, amidon de riz, sel"
 		},
 		# add_fruit() currently matches "olive noire entière dénoyautée saumurée 2,5% (..)" to 2.5% fruit, even though it has sub-ingredients that are not fruits
 		# TODO: investigate on actual product data to see if trying to fix this would have more true positives than false positives
-		93.8,
-		89.9
+		94.7,
+		90.8
 	],
 	# Soy beans
 	[
@@ -87,9 +91,12 @@ my @ingredients_text_tests = (
 	# For products that contain water that is not consumed (e.g. canned vegetables)
 	# the % of fruits/vegetables must be estimated on the product without water
 	[
-		{lc => "fr", ingredients_text => "eau 80%, sucre 10%, haricots verts 10%", categories_tags => ["en:beverages"]},
-		10,
-		10
+		{
+			lc => "fr",
+			ingredients_text => "eau 80%, sucre 10%, haricots verts 10%",
+			categories_tags => ["en:beverages"]
+		},
+		10, 10
 	],
 	# canned fruits: water is counted as it is consumed
 	[
@@ -133,7 +140,7 @@ foreach my $test_ref (@ingredients_text_tests) {
 			: undef
 		),
 		$expected_fruits_2021
-	) or diag explain $product_ref->{ingredients};
+	) or diag Dumper $product_ref->{ingredients};
 
 	is(
 		(
@@ -142,7 +149,7 @@ foreach my $test_ref (@ingredients_text_tests) {
 			: undef
 		),
 		$expected_fruits_2023
-	) or diag explain $product_ref->{ingredients};
+	) or diag Dumper $product_ref->{ingredients};
 }
 
 # test the estimate percent of milk
@@ -172,7 +179,7 @@ foreach my $test_ref (@ingredients_text_tests) {
 	extract_ingredients_from_text($product_ref);
 
 	is(estimate_nutriscore_2021_milk_percent_from_ingredients($product_ref), $expected_value)
-		or diag explain $product_ref->{ingredients};
+		or diag Dumper $product_ref->{ingredients};
 }
 
 # test the estimate percent of red meat
@@ -193,7 +200,7 @@ foreach my $test_ref (@ingredients_text_tests) {
 	extract_ingredients_from_text($product_ref);
 
 	is(estimate_nutriscore_2023_red_meat_percent_from_ingredients($product_ref), $expected_value)
-		or diag explain $product_ref->{ingredients};
+		or diag Dumper $product_ref->{ingredients};
 }
 
 done_testing();

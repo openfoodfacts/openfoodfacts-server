@@ -1,0 +1,28 @@
+{
+   "code" : "1234567890100",
+   "errors" : [
+      {
+         "field" : {
+            "id" : "rev",
+            "value" : 5
+         },
+         "impact" : {
+            "id" : "failure",
+            "lc_name" : "Failure",
+            "name" : "Failure"
+         },
+         "message" : {
+            "id" : "revision_not_found",
+            "lc_name" : "",
+            "name" : ""
+         }
+      }
+   ],
+   "result" : {
+      "id" : "product_not_reverted",
+      "lc_name" : "Product not reverted to the specified revision",
+      "name" : "Product not reverted to the specified revision"
+   },
+   "status" : "failure",
+   "warnings" : []
+}

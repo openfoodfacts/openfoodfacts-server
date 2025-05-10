@@ -8,7 +8,7 @@ properties:
     description: |
       Date when the product was added (UNIX timestamp format).
       See also `entry_dates_tags`
-    example:
+    example: |
       1457680652
   creator:
     type: string
@@ -67,6 +67,14 @@ properties:
     type: integer
     description: |
       Date when the product page was last modified.
+      This date is updated only when primary data is modified (data entered by the user or updated by an interface)
+  last_updated_t:
+    type: integer
+    description: |
+      Date when the product page was last modified.
+      This date is updated when primary data or secondary data is modified
+      (primary: data entered by a user or read from an interface, secondary: data computed by a utility
+      such as update_all_products.pl)
   owner:
     description: |
       Id of the producer in case he provides his own data about a product (producer platform).
@@ -86,6 +94,7 @@ properties:
     type: array
     items:
       type: object
+      title: product_meta_source
       properties:
         fields:
           type: array
@@ -111,10 +120,11 @@ properties:
           type: string
         url:
           type:
-            - "null"
-            - string
+            - 'null'
+            - 'string'
   sources_fields:
     type: object
+    title: product_meta_source_fields
     properties:
       org-gs1:
         type: object

@@ -20,6 +20,7 @@
    "product" : {
       "packagings" : [
          {
+            "food_contact" : 1,
             "number_of_units" : 1,
             "recycling" : {
                "id" : "en:recycle",
@@ -31,6 +32,7 @@
             }
          },
          {
+            "food_contact" : 1,
             "number_of_units" : 1,
             "recycling" : {
                "id" : "en:recycle",
@@ -42,7 +44,8 @@
             }
          }
       ],
-      "packagings_complete" : 1
+      "packagings_complete" : 1,
+      "schema_version" : 999
    },
    "status" : "success_with_errors",
    "warnings" : [

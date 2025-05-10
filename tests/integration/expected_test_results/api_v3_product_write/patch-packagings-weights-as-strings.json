@@ -3,32 +3,32 @@
    "errors" : [],
    "product" : {
       "misc_tags" : [
+         "en:environmental-score-not-computed",
          "en:nutriscore-missing-category",
-         "en:nutrition-not-enough-data-to-compute-nutrition-score",
          "en:nutriscore-missing-nutrition-data",
          "en:nutriscore-missing-nutrition-data-energy",
          "en:nutriscore-missing-nutrition-data-fat",
-         "en:nutriscore-missing-nutrition-data-saturated-fat",
-         "en:nutriscore-missing-nutrition-data-sugars",
-         "en:nutriscore-missing-nutrition-data-sodium",
          "en:nutriscore-missing-nutrition-data-proteins",
-         "en:nutrition-no-fiber",
+         "en:nutriscore-missing-nutrition-data-saturated-fat",
+         "en:nutriscore-missing-nutrition-data-sodium",
+         "en:nutriscore-missing-nutrition-data-sugars",
          "en:nutriscore-not-computed",
-         "en:nutrition-no-fruits-vegetables-nuts",
+         "en:nutrition-no-fiber",
          "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
-         "en:packagings-number-of-components-3",
+         "en:nutrition-no-fruits-vegetables-nuts",
+         "en:nutrition-not-enough-data-to-compute-nutrition-score",
          "en:packagings-not-complete",
-         "en:packagings-not-empty-but-not-complete",
          "en:packagings-not-empty",
-         "en:packagings-with-weights",
+         "en:packagings-not-empty-but-not-complete",
+         "en:packagings-number-of-components-3",
          "en:packagings-with-all-weights",
          "en:packagings-with-all-weights-not-complete",
-         "en:ecoscore-extended-data-not-computed",
-         "en:ecoscore-not-computed",
+         "en:packagings-with-weights",
          "en:main-countries-new-product"
       ],
       "packagings" : [
          {
+            "food_contact" : 1,
             "material" : {
                "id" : "en:pet-1-polyethylene-terephthalate",
                "lc_name" : "PET 1 - Polyethylene terephthalate"
@@ -44,6 +44,7 @@
             "weight_measured" : 10
          },
          {
+            "food_contact" : 0,
             "material" : {
                "id" : "en:wood",
                "lc_name" : "Wood"
@@ -56,6 +57,7 @@
             "weight_specified" : 25.5
          },
          {
+            "food_contact" : 0,
             "material" : {
                "id" : "en:plastic",
                "lc_name" : "Plastic"
@@ -68,6 +70,7 @@
             "weight_specified" : 2.01
          }
       ],
+      "schema_version" : 999,
       "weighers_tags" : [
          "openfoodfacts-contributors"
       ]

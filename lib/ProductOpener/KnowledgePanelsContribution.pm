@@ -47,7 +47,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::KnowledgePanels qw(create_panel_from_json_template);
-use ProductOpener::Tags qw(:all);
+use ProductOpener::Tags qw(display_taxonomy_tag get_tags_grouped_by_property);
 
 use Encode;
 use Data::DeepAccess qw(deep_get);

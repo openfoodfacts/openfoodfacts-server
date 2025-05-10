@@ -5,10 +5,11 @@ use ProductOpener::PerlStandards;
 use ProductOpener::Config qw/$data_root/;
 use ProductOpener::Store qw/retrieve/;
 
-use Test::More;
+use Test2::V0;
 use ProductOpener::APITest qw/:all/;
 use ProductOpener::Test qw/:all/;
-use ProductOpener::TestDefaults qw/:all/;
+use ProductOpener::TestDefaults
+	qw/%admin_user_form %default_org_edit_admin_form %default_org_edit_form %default_user_form %pro_moderator_user_form/;
 
 use Clone qw/clone/;
 use List::Util qw/first/;
@@ -54,6 +55,7 @@ ok(!html_displays_error($resp), "no error creating pro user");
 my $logs = tail_log_read($tail);
 
 # As it is the first user of the org, user is already part of the org
+# TODO: This may need to change with Keycloak
 my $user_ref = retrieve("$data_root/users/tests.sto");
 # user is already part of org
 is($user_ref->{pro}, 1, "user is marked as pro");
@@ -89,8 +91,8 @@ compare_to_expected_results(\@mails, "$expected_result_dir/mails.json",
 
 # the pro moderator got to the org page
 $resp = get_page($moderator_ua, "/cgi/org.pl?type=edit&orgid=org-acme-inc");
-# the pro moderator validates the user org by going on org page and adding a tick
-my %fields = (%{dclone(\%default_org_edit_form)}, %{dclone(\%default_org_edit_admin_form)}, valid_org => 1);
+# the pro moderator validates the user org by going on org page and changes the org validation status from 'unreviewed' to 'accepted'
+my %fields = (%{dclone(\%default_org_edit_form)}, %{dclone(\%default_org_edit_admin_form)}, valid_org => 'accepted');
 $resp = post_form($moderator_ua, "/cgi/org.pl", \%fields);
 # the org is now validated
 $org_ref = retrieve("$data_root/orgs/acme-inc.sto");

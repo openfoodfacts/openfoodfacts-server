@@ -67,7 +67,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Tags qw/exists_taxonomy_tag is_a/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Lang qw/:all/;

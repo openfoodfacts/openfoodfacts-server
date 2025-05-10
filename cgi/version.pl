@@ -24,7 +24,7 @@ use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 
-use ProductOpener::Version qw/:all/;
+use ProductOpener::Version qw/$version/;
 
 use CGI qw/:cgi :form escapeHTML/;
 

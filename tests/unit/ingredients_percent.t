@@ -3,14 +3,13 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
+use Test2::V0;
 use Log::Any::Adapter 'TAP';
 use Log::Any::Adapter 'TAP', filter => "none";
 
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::TagsEntries qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Test qw/:all/;
+use ProductOpener::Ingredients qw/estimate_ingredients_percent_service parse_ingredients_text_service/;
+use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
@@ -71,7 +70,10 @@ my @tests = (
 
 	[
 		'propagate-max-percent',
-		{lc => "en", ingredients_text => "Beans (52%), Tomatoes (33%), Water, Sugar, Cornflour, Salt, Spirit Vinegar"},
+		{
+			lc => "en",
+			ingredients_text => "Beans (52%), Tomatoes (33%), Water, Sugar, Cornflour, Salt, Spirit Vinegar"
+		},
 	],
 
 	['minimum-percent', {lc => "es", ingredients_text => "Leche. Cacao: 27% mínimo"},],
@@ -88,7 +90,10 @@ my @tests = (
 	# bug #3762 "min" in "cumin"
 	[
 		'min-in-cumin-bug',
-		{lc => "fr", ingredients_text => "sel (min 20%), poivre (min. 10%), piment (min : 5%), cumin 0,4%, ail : 0.1%"},
+		{
+			lc => "fr",
+			ingredients_text => "sel (min 20%), poivre (min. 10%), piment (min : 5%), cumin 0,4%, ail : 0.1%"
+		},
 	],
 
 	# Relative percent
@@ -274,8 +279,8 @@ foreach my $test_ref (@tests) {
 	my $testid = $test_ref->[0];
 	my $product_ref = $test_ref->[1];
 
-	parse_ingredients_text_service($product_ref, {});
-	estimate_ingredients_percent_service($product_ref, {});
+	parse_ingredients_text_service($product_ref, {}, {});
+	estimate_ingredients_percent_service($product_ref, {}, {});
 
 	compare_to_expected_results(
 		$product_ref->{ingredients},

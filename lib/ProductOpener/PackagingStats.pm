@@ -69,13 +69,6 @@ BEGIN {
 	@EXPORT_OK = qw(
 
 		&generate_packaging_stats_for_query
-		&add_product_components_to_stats
-		&compute_stats_for_all_weights
-		&compute_stats_for_values
-		&remove_unpopular_categories_shapes_and_materials
-		&remove_packagings_materials_stats_for_unpopular_categories
-		&store_stats
-		&export_product_packaging_components_to_csv
 		&add_product_materials_to_stats
 		&compute_stats_for_all_materials
 
@@ -88,17 +81,17 @@ use vars @EXPORT_OK;
 use ProductOpener::PerlStandards;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Store qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
+use ProductOpener::Store qw/store_json/;
+use ProductOpener::Tags qw/gen_tags_hierarchy_taxonomy/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Lang qw/:all/;
-use ProductOpener::Data qw/:all/;
-use ProductOpener::Packaging qw/:all/;
-use ProductOpener::Ecoscore qw/load_agribalyse_data %agribalyse/;
+use ProductOpener::Data qw/get_products_collection/;
+use ProductOpener::Packaging qw/get_parent_material/;
+use ProductOpener::EnvironmentalScore qw/load_agribalyse_data %agribalyse/;
 
 use File::Path qw(mkpath);
-use JSON::PP;
+use JSON::MaybeXS;
 use Data::DeepAccess qw(deep_exists deep_get deep_set deep_val);
 use Text::CSV;
 

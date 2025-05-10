@@ -1,0 +1,28 @@
+type: array
+title: get_preferences_response
+description: |
+  Rules to apply to compute personal ranking of a product,
+  based upon the setting value of each attribute.
+items:
+  type: object
+  properties:
+    id:
+      type: string
+      description: id for the setting value
+      enum:
+        - "not_important"
+        - "important"
+        - "very_important"
+        - "mandatory"
+    name:
+      type: string
+      description: name for the setting value, translated according to `lc` parameter
+    factor:
+      type: integer
+      description: |
+        factor to apply to the property of the product corresponding to attributes
+        having this setting value
+    minimum_match:
+      type: integer
+      description: |
+        FIXME

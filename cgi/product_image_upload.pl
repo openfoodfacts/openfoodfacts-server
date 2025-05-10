@@ -25,23 +25,26 @@ use ProductOpener::PerlStandards;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
+use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::HTTP qw/single_param/;
+use ProductOpener::Lang qw/$lc lang/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Images qw/:all/;
+use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
+use ProductOpener::Images
+	qw/get_code_and_imagefield_from_file_name is_protected_image process_image_crop process_image_upload scan_code/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Text qw/:all/;
+use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::APIProductWrite qw/:all/;
+use ProductOpener::HTTP qw/write_cors_headers/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Log::Any qw($log);
 
 my $type = single_param('type') || 'add';
@@ -72,12 +75,14 @@ $log->debug(
 		code => $code,
 		previous_code => $previous_code,
 		previous_imgid => $previous_imgid,
-		cc => $cc,
+		cc => $request_ref->{cc},
 		lc => $lc,
 		imagefield => $imagefield,
 		ip => remote_addr()
 	}
 ) if $log->is_debug();
+
+write_cors_headers();
 
 # By default, don't select images uploaded (e.g. through the product edit form)
 
@@ -115,7 +120,7 @@ if (not defined $code) {
 			my $extension = lc($1);
 			$tmp_filename = get_string_id_for_lang("no_language", remote_addr() . '_' . $`);
 
-			ensure_dir_created($BASE_DIRS{CACHE_TMP}) or display_error_and_exit("Missing path", 503);
+			ensure_dir_created($BASE_DIRS{CACHE_TMP}) or display_error_and_exit($request_ref, "Missing path", 503);
 			open(my $out, ">", "$BASE_DIRS{CACHE_TMP}/$tmp_filename.$extension");
 			while (my $chunk = <$file>) {
 				print $out $chunk;
@@ -175,7 +180,7 @@ my $product_id = product_id_for_owner($Owner_id, $code);
 my $interface_version = '20120622';
 
 # Check that the image directory exists
-ensure_dir_created($BASE_DIRS{PRODUCTS_IMAGES}) or display_error_and_exit("Missing path", 503);
+ensure_dir_created($BASE_DIRS{PRODUCTS_IMAGES}) or display_error_and_exit($request_ref, "Missing path", 503);
 
 if ($imagefield) {
 
@@ -196,7 +201,7 @@ if ($imagefield) {
 		exit(0);
 	}
 
-	my $product_ref = product_exists($product_id);    # returns 0 if not
+	my $product_ref = retrieve_product($product_id);
 
 	if (not $product_ref) {
 		$log->info("product code does not exist yet, creating product", {code => $code});

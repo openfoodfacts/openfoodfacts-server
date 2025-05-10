@@ -2,10 +2,10 @@
 
 use ProductOpener::PerlStandards;
 
-use Test::More;
-use ProductOpener::APITest qw/:all/;
-use ProductOpener::Test qw/:all/;
-use ProductOpener::TestDefaults qw/:all/;
+use Test2::V0;
+use ProductOpener::APITest qw/create_user execute_api_tests new_client wait_application_ready/;
+use ProductOpener::Test qw/remove_all_products remove_all_users/;
+use ProductOpener::TestDefaults qw/%default_user_form/;
 
 use File::Basename "dirname";
 
@@ -24,8 +24,11 @@ create_user($ua, \%create_user_args);
 
 # Note: expected results are stored in json files, see execute_api_tests
 my $tests_ref = [
+	# Test anonymous contribution, this should fail
 	{
-		test_case => 'post-product',
+		# it will fail with code 200
+		# but failure message is in the expected result json
+		test_case => 'post-product-anonymous',
 		method => 'POST',
 		path => '/cgi/product_jqm_multilingual.pl',
 		form => {
@@ -41,12 +44,13 @@ my $tests_ref = [
 			nutriment_salt => '50.2',
 			nutriment_salt_unit => 'mg',
 			nutriment_sugars => '12.5',
-		}
+		},
 	},
 	{
-		test_case => 'get-product',
+		test_case => 'get-product-anonymous',
 		method => 'GET',
 		path => '/api/v2/product/1234567890001',
+		expected_status_code => 404,
 	},
 	# Test authentication
 	{
@@ -110,6 +114,8 @@ my $tests_ref = [
 		method => 'POST',
 		path => '/cgi/product_jqm_multilingual.pl',
 		form => {
+			user_id => "tests",
+			password => "testtest",
 			cc => "uk",
 			lc => "en",    # lc is the language of the interface
 			lang => "fr",    # lang is the main language of the product
@@ -120,6 +126,7 @@ my $tests_ref = [
 			quantity => "250 g",
 			serving_size => '20 g',
 			ingredients_text => "Pork meat, salt",
+			traces => "Moutarde, milk, abcd",
 		}
 	},
 	{

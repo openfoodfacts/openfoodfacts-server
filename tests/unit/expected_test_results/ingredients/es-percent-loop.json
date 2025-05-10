@@ -2,7 +2,9 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "20047",
+         "ecobalyse_code" : "tomato-heated-greenhouse-eu",
          "id" : "en:tomato",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 62.125,
          "percent_max" : 68,
          "percent_min" : 56.25,
@@ -12,7 +14,9 @@
       },
       {
          "ciqual_food_code" : "20041",
+         "ecobalyse_code" : "bellpepper-unheated-greehouse",
          "id" : "en:bell-pepper",
+         "is_in_taxonomy" : 1,
          "percent" : 12,
          "percent_estimate" : 12,
          "percent_max" : 12,
@@ -22,8 +26,9 @@
          "vegetarian" : "yes"
       },
       {
-         "ciqual_food_code" : "26053",
+         "ciqual_proxy_food_code" : "26053",
          "id" : "en:tuna",
+         "is_in_taxonomy" : 1,
          "percent" : 10,
          "percent_estimate" : 10,
          "percent_max" : 10,
@@ -34,8 +39,10 @@
       },
       {
          "ciqual_food_code" : "17270",
+         "ecobalyse_code" : "fbe48b5b-62f2-4ccb-8aa6-66d08a4c7fac",
          "from_palm_oil" : "no",
          "id" : "en:extra-virgin-olive-oil",
+         "is_in_taxonomy" : 1,
          "percent" : 4,
          "percent_estimate" : 4,
          "percent_max" : 4,
@@ -46,7 +53,9 @@
       },
       {
          "ciqual_food_code" : "22000",
+         "ecobalyse_code" : "egg-indoor-code3",
          "id" : "en:egg",
+         "is_in_taxonomy" : 1,
          "percent" : 3,
          "percent_estimate" : 3,
          "percent_max" : 3,
@@ -57,7 +66,9 @@
       },
       {
          "ciqual_food_code" : "20034",
+         "ecobalyse_code" : "onion-non-eu",
          "id" : "en:onion",
+         "is_in_taxonomy" : 1,
          "percent" : 3,
          "percent_estimate" : 3,
          "percent_max" : 3,
@@ -68,7 +79,9 @@
       },
       {
          "ciqual_proxy_food_code" : "31016",
+         "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
          "id" : "en:sugar",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 1.5,
          "percent_max" : 3,
          "percent_min" : 0,
@@ -79,6 +92,7 @@
       {
          "ciqual_food_code" : "9510",
          "id" : "en:corn-starch",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 1.5,
          "percent_max" : 3,
          "percent_min" : 0,
@@ -89,6 +103,7 @@
       {
          "ciqual_food_code" : "11058",
          "id" : "en:salt",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 1.4375,
          "percent_max" : 3,
          "percent_min" : 0,
@@ -101,6 +116,7 @@
          "ingredients" : [
             {
                "id" : "en:e330",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 1.4375,
                "percent_max" : 2.75,
                "percent_min" : 0,
@@ -109,6 +125,7 @@
                "vegetarian" : "yes"
             }
          ],
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 1.4375,
          "percent_max" : 2.75,
          "percent_min" : 0,
@@ -129,32 +146,7 @@
       "en:non-vegan",
       "en:non-vegetarian"
    ],
-   "ingredients_hierarchy" : [
-      "en:tomato",
-      "en:vegetable",
-      "en:fruit-vegetable",
-      "en:bell-pepper",
-      "en:tuna",
-      "en:fish",
-      "en:extra-virgin-olive-oil",
-      "en:oil-and-fat",
-      "en:vegetable-oil-and-fat",
-      "en:vegetable-oil",
-      "en:olive-oil",
-      "en:virgin-olive-oil",
-      "en:egg",
-      "en:onion",
-      "en:root-vegetable",
-      "en:onion-family-vegetable",
-      "en:sugar",
-      "en:added-sugar",
-      "en:disaccharide",
-      "en:corn-starch",
-      "en:starch",
-      "en:salt",
-      "en:acid",
-      "en:e330"
-   ],
+   "ingredients_lc" : "es",
    "ingredients_n" : 11,
    "ingredients_n_tags" : [
       "11",
@@ -210,7 +202,15 @@
       "en:e330"
    ],
    "ingredients_without_ciqual_codes_n" : 2,
-   "known_ingredients_n" : 24,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:acid",
+      "en:corn-starch",
+      "en:e330",
+      "en:salt",
+      "en:tuna"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 5,
+   "known_ingredients_n" : 11,
    "lc" : "es",
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",

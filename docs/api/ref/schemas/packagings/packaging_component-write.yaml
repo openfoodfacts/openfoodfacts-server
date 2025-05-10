@@ -37,13 +37,13 @@ properties:
     description: Quantity (weight or volume) of food product contained in the packaging component. (e.g. 75cl for a wine bottle)
   weight_specified:
     type:
-      - number
-      - string
+      - 'number'
+      - 'string'
     description: 'Weight (as specified by the manufacturer) of one unit of the empty packaging component (in grams). (e.g. for a 6 pack of 1.5l water bottles, it might be 30, the weight in grams of 1 empty water bottle without its cap which is a different packaging component). If passed a string - possibly with an unit - it will be converted to a number.'
   weight_measured:
     type:
-      - number
-      - string
+      - 'number'
+      - 'string'
     description: 'Weight (as measured by one or more users) of one unit of the empty packaging component (in grams). (e.g. for a 6 pack of 1.5l water bottles, it might be 30, the weight in grams of 1 empty water bottle without its cap which is a different packaging component). If passed a string - possibly with an unit - it will be converted to a number.'
   brands:
     type: string

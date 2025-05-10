@@ -26,6 +26,7 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 
@@ -33,7 +34,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use LWP::Simple;
 
 # get list of languages with a 2 letter iso code (Property P217)
@@ -294,7 +295,7 @@ foreach my $qc (@languages) {
 	}
 }
 
-open(my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/languages.txt.temp");
+open(my $OUT, ">:encoding(UTF-8)", "$BASE_DIRS{TAXONOMIES_SRC}/languages.txt.temp");
 
 foreach my $qc (sort {$names{$a} cmp $names{$b}} keys %names) {
 

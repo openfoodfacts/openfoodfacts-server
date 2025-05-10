@@ -44,7 +44,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 
 # Get a list of all products
@@ -95,7 +95,7 @@ while ( my $product_ref = $cursor->next ) {
 	
 	# Ingredients classes
 	extract_ingredients_from_text($product_ref);
-	extract_ingredients_classes_from_text($product_ref);
+	extract_additives_from_text($product_ref);
 
 	compute_languages($product_ref); # need languages for allergens detection
 	detect_allergens_from_text($product_ref);

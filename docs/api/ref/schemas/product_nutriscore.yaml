@@ -1,0 +1,325 @@
+components:
+  schemas:
+    # Reusable base definitions
+    NutriscoreGrade:
+      description: |
+        Nutri-Score for the product as a letter.
+
+        See https://world.openfoodfacts.org/nutriscore.
+      type: string
+      enum: ["a", "b", "c", "d", "e"]
+
+    NutriscoreGradeTags:
+      type: array
+      items:
+        $ref: "#/components/schemas/NutriscoreGrade"
+      examples: [["d"]]
+
+    BaseNutrientData:
+      type: object
+      properties:
+        value:
+          type: number
+          format: float
+        points:
+          type: integer
+        points_max:
+          type: integer
+
+    ProductType:
+      type: object
+      properties:
+        is_beverage:
+          type: integer
+          enum: [0, 1]
+          examples: [0]
+        is_cheese:
+          type: integer
+          enum: [0, 1]
+          examples: [0]
+        is_water:
+          type: integer
+          enum: [0, 1]
+          examples: [0]
+
+    NutrientSet:
+      type: object
+      properties:
+        value:
+          type: number
+          format: float
+        points:
+          type: integer
+
+    # 2021 Schema
+    Nutriscore2021InnerData:
+      title: Nutriscore2021InnerData
+      allOf:
+        - $ref: "#/components/schemas/ProductType"
+        - properties:
+            is_fat:
+              type: integer
+              enum: [0, 1]
+              examples: [0]
+            # Energy
+            energy:
+              type: integer
+              examples: [1996]
+            energy_points:
+              type: integer
+              examples: [5]
+            energy_value:
+              type: integer
+              examples: [1996]
+            # Fiber
+            fiber:
+              type: number
+              format: float
+              examples: [3.8]
+            fiber_points:
+              type: integer
+              examples: [4]
+            fiber_value:
+              type: number
+              format: float
+              examples: [3.8]
+            # Fruits, vegetables, nuts, etc.
+            fruits_vegetables_nuts_colza_walnut_olive_oils:
+              type: number
+              format: float
+              examples: [0]
+            fruits_vegetables_nuts_colza_walnut_olive_oils_points:
+              type: integer
+              examples: [0]
+            fruits_vegetables_nuts_colza_walnut_olive_oils_value:
+              type: number
+              format: float
+              examples: [0]
+            # Proteins
+            proteins:
+              type: number
+              format: float
+              examples: [6.6]
+            proteins_points:
+              type: integer
+              examples: [4]
+            proteins_value:
+              type: number
+              format: float
+              examples: [6.6]
+            # Saturated fats
+            saturated_fat:
+              type: number
+              format: float
+              examples: [6.2]
+            saturated_fat_points:
+              type: integer
+              examples: [6]
+            saturated_fat_value:
+              type: number
+              format: float
+              examples: [6.2]
+            # Sodium
+            sodium:
+              type: number
+              format: float
+              examples: [210]
+            sodium_points:
+              type: integer
+              examples: [2]
+            sodium_value:
+              type: number
+              format: float
+              examples: [210]
+            # Sugars
+            sugars:
+              type: number
+              format: float
+              examples: [21.5]
+            sugars_points:
+              type: integer
+              examples: [4]
+            sugars_value:
+              type: number
+              format: float
+              examples: [21.5]
+            # Total points
+            negative_points:
+              type: integer
+              examples: [17]
+            positive_points:
+              type: integer
+              examples: [4]
+
+    Nutriscore2021Data:
+      title: Nutriscore2021Data
+      allOf:
+        - $ref: "#/components/schemas/Nutriscore2021InnerData"
+        - type: object
+          properties:
+            grade:
+              $ref: "#/components/schemas/NutriscoreGrade"
+              examples: ["d"]
+            score:
+              type: integer
+              examples: [13]
+
+    # Component Schema
+    NutriscoreComponent:
+      title: NutriscoreComponent
+      type: object
+      properties:
+        id:
+          type: string
+          examples:
+            [
+              "energy",
+              "sugars",
+              "saturated_fat",
+              "salt",
+              "fiber",
+              "fruits_vegetables_legumes",
+            ]
+        points:
+          type: integer
+          examples: [5, 6, 7, 2, 1, 0]
+        points_max:
+          type: integer
+          examples: [10, 15, 20, 25, 5, 5]
+        unit:
+          type: string
+          examples: ["kJ", "g", "%"]
+        value:
+          type:
+            - "null"
+            - "number"
+          format: float
+          examples: [21.5, 6.2, 0.53, 3.8, 0]
+
+    # 2023 Schema
+    Nutriscore2023Data:
+      title: Nutriscore2023Data
+      allOf:
+        - $ref: "#/components/schemas/ProductType"
+        - properties:
+            is_fat_oil_nuts_seeds:
+              type: integer
+              enum: [0, 1]
+              examples: [0]
+            is_red_meat_product:
+              type: integer
+              enum: [0, 1]
+              examples: [0]
+            components:
+              title: Nutriscore2023DataComponents
+              type: object
+              properties:
+                negative:
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/NutriscoreComponent"
+                positive:
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/NutriscoreComponent"
+            count_proteins:
+              type: number
+              format: float
+              examples: [0]
+            count_proteins_reason:
+              type: string
+              examples: ["negative_points_greater_than_or_equal_to_11"]
+            negative_points:
+              type: integer
+              examples: [19]
+            positive_points:
+              type: integer
+              examples: [1]
+            negative_points_max:
+              type: integer
+              examples: [55]
+            positive_points_max:
+              type: integer
+              examples: [10]
+            positive_nutrients:
+              type: array
+              items:
+                type: string
+              examples: [["fiber", "fruits_vegetables_legumes"]]
+
+    # Common Year Data
+    NutriscoreYearData:
+      type: object
+      properties:
+        category_available:
+          type: integer
+          enum: [0, 1]
+          examples: [1]
+        grade:
+          $ref: "#/components/schemas/NutriscoreGrade"
+          examples: ["d"]
+        nutrients_available:
+          type: integer
+          enum: [0, 1]
+          examples: [1]
+        nutriscore_applicable:
+          type: integer
+          enum: [0, 1]
+          examples: [1]
+        nutriscore_computed:
+          type: integer
+          enum: [0, 1]
+          examples: [1]
+        score:
+          type: integer
+          examples: [13, 18]
+
+    Nutriscores:
+      title: Nutriscores
+      type: object
+      properties:
+        "2021":
+          title: Nutriscore2021
+          allOf:
+            - $ref: "#/components/schemas/NutriscoreYearData"
+            - type: object
+              properties:
+                data:
+                  $ref: "#/components/schemas/Nutriscore2021Data"
+        "2023":
+          title: Nutriscore2023
+          allOf:
+            - $ref: "#/components/schemas/NutriscoreYearData"
+            - type: object
+              properties:
+                data:
+                  $ref: "#/components/schemas/Nutriscore2023Data"
+
+    # Final Structure
+    NutriscoreAll:
+      title: ProductNutriscore
+      type: object
+      properties:
+        nutriscore:
+          $ref: "#/components/schemas/Nutriscores"
+        nutriscore_2021_tags:
+          $ref: "#/components/schemas/NutriscoreGradeTags"
+        nutriscore_2023_tags:
+          $ref: "#/components/schemas/NutriscoreGradeTags"
+        nutriscore_data:
+          $ref: "#/components/schemas/Nutriscore2021Data"
+        nutriscore_grade:
+          $ref: "#/components/schemas/NutriscoreGrade"
+          examples: ["d"]
+        nutriscore_score:
+          description: |
+            Nutri-Score for the product as an integer (see also `nutriscore_grade`).
+          type: integer
+          examples: [13]
+        nutriscore_score_opposite:
+          type: integer
+          examples: [-13]
+        nutriscore_tags:
+          $ref: "#/components/schemas/NutriscoreGradeTags"
+        nutriscore_version:
+          type: string

@@ -1,4 +1,5 @@
 <!-- start templates/[% template.name %] -->
+<h1>[% page_title %]</h1>
 
 [% INCLUDE 'web/common/includes/error_list.tt.html' %]
 
@@ -12,7 +13,7 @@
             <label for="login_user_id">
                 [% lang('login_username_email') %]
             </label>
-		        <input id="login_user_id" type="text" name="user_id" autocomplete="username" required="required" />
+            <input id="login_user_id" type="text" name="user_id" autocomplete="username" required="required" />
         </div>
     </div>
 
@@ -22,8 +23,8 @@
                 [% lang('password') %]
             </label>
             <div class="password-container">
-              <input id="login_user_password" type="password" name="password" autocomplete="current-password" required="required" />
-              <span class="toggle-password" onclick="togglePasswordVisibility('login_user_password')">
+            <input id="login_user_password" type="password" name="password" autocomplete="current-password" required="required" />
+            <span class="toggle-password" onclick="togglePasswordVisibility('login_user_password')">
                 <span class="material-icons material-symbols-visibility">visibility_off</span>
                 </span>
                 </div>
@@ -31,12 +32,12 @@
     </div>
 
     <div class="row">
-      <div class="large-12 columns">
+    <div class="large-12 columns">
         <label for="remember_me">
-          <input type="checkbox" name="remember_me" id="remember_me" value="on" />
-          [% lang('remember_me') %]
+        <input type="checkbox" name="remember_me" id="remember_me" value="on" />
+        [% lang('remember_me') %]
         </label>
-      </div>
+    </div>
     </div>
 
     <div class="row">
@@ -50,8 +51,8 @@
 </form>
 
 <p>[% lang('login_not_registered_yet') %]
-    <a href="/cgi/user.pl">[% lang('login_create_your_account') %] </a><br>
-    <a href="/cgi/reset_password.pl">[% lang('forgotten_password') %] </a>
+    <a class="button small" href="/cgi/user.pl">[% lang('login_create_your_account') %]</a><br>
+    <a class="button small" href="/cgi/reset_password.pl">[% lang('forgotten_password') %]</a>
 </p>
 
 <!-- end templates/[% template.name %] -->

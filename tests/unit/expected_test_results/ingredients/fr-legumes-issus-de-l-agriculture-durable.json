@@ -2,6 +2,7 @@
    "ingredients" : [
       {
          "id" : "en:vegetable",
+         "is_in_taxonomy" : 1,
          "labels" : "en:sustainable-farming",
          "percent_estimate" : 100,
          "percent_max" : 100,
@@ -17,9 +18,7 @@
       "en:vegan",
       "en:vegetarian"
    ],
-   "ingredients_hierarchy" : [
-      "en:vegetable"
-   ],
+   "ingredients_lc" : "fr",
    "ingredients_n" : 1,
    "ingredients_n_tags" : [
       "1",
@@ -41,6 +40,10 @@
       "en:vegetable"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:vegetable"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 1,
    "lc" : "fr",
    "nutriments" : {

@@ -28,20 +28,16 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
+use ProductOpener::Users qw/retrieve_user retrieve_userids/;
 
 my @userids;
 
 if (scalar $#userids < 0) {
-	opendir DH, $BASE_DIRS{USERS} or die "Couldn't open the current directory: $!";
-	@userids = sort(readdir(DH));
-	closedir(DH);
+	@userids = retrieve_userids();
 }
 
 foreach my $userid (@userids) {
-	next if $userid eq "." or $userid eq "..";
-	next if $userid eq 'all';
-
-	my $user_ref = retrieve("$BASE_DIRS{USERS}/$userid");
+	my $user_ref = retrieve_user($userid);
 
 	my $first = '';
 	if (!exists $user_ref->{discussion}) {

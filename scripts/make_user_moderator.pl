@@ -31,7 +31,7 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::Users qw/:all/;
+use ProductOpener::Users qw/retrieve_user store_user/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Lang qw/:all/;
 
@@ -40,6 +40,6 @@ use URI::Escape::XS;
 use Encode;
 
 my $userid = $ARGV[0];
-my $user_ref = retrieve("$BASE_DIRS{USERS}/$userid.sto");
+my $user_ref = retrieve_user($userid);
 $user_ref->{moderator} = 1;
-store("$BASE_DIRS{USERS}/$userid.sto", $user_ref);
+store_user($user_ref);

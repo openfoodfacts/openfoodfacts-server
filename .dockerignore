@@ -7,6 +7,10 @@ logs
 debug/
 perl-language-server.log
 
+# tests outputs
+tests/unit/outputs/
+tests/integration/outputs/
+
 openfoodfacts-mongodbdump.tar.gz
 openfoodfacts-products.jsonl.gz
 en.openfoodfacts.org.products.csv

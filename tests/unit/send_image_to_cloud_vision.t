@@ -1,7 +1,7 @@
 use ProductOpener::PerlStandards;
 
-use Test::More;
-use Test::MockModule;
+use Test2::V0;
+#use Test::MockModule;
 use File::Temp ();
 use HTTP::Headers;
 use HTTP::Response;
@@ -9,30 +9,34 @@ use File::Basename "dirname";
 use File::Slurp;
 use JSON;
 
-use ProductOpener::Test qw/:all/;
-use ProductOpener::Images qw/:all/;
+use ProductOpener::Test qw/check_ocr_result compare_to_expected_results init_expected_results read_gzip_file/;
+use ProductOpener::Images qw/@CLOUD_VISION_FEATURES_FULL @CLOUD_VISION_FEATURES_TEXT send_image_to_cloud_vision/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
 # Default OCR response, containing a single response element
 my $ocr_default_response = '{"responses": [{}]}';
 
-my @ua_requests = ();
-# put responses for call to requests here, we will pop first
-my @ua_responses = ();
-# fake request for User-Agent module
-sub fake_ua_request ($ua, $request_ref) {
-	push(@ua_requests, $request_ref);
-	return shift @ua_responses;
-}
-
 # a very small image to avoid having too large request json object
 my $image_path = dirname(__FILE__) . "/inputs/small-img.jpg";
 
 {
-	my $user_agent_module = Test::MockModule->new('LWP::UserAgent');
+	## mock request
+	my @ua_requests = ();
+	# put responses for call to requests here, we will pop first
+	my @ua_responses = ();
+
 	# mock request
-	$user_agent_module->mock('request', \&fake_ua_request);
+	my $user_agent_module = mock 'LWP::UserAgent' => (
+		override => [
+			request => sub {
+				my ($ua, $request_ref) = (shift, shift);
+				push(@ua_requests, $request_ref);
+				return shift @ua_responses;
+			}
+		]
+	);
+
 	my $tmp_dir = File::Temp->newdir();
 	my $gv_logs_path = $tmp_dir->dirname . "gv.log";
 

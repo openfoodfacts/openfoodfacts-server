@@ -1,0 +1,36 @@
+{
+   "errors" : [],
+   "fields" : [
+      "updated"
+   ],
+   "product" : {
+      "ingredients" : [
+         {
+            "id" : "en:sugar",
+            "is_in_taxonomy" : 1,
+            "text" : "sugar"
+         },
+         {
+            "id" : "en:palm-oil",
+            "is_in_taxonomy" : 1,
+            "text" : "palm oil"
+         },
+         {
+            "id" : "en:water",
+            "is_in_taxonomy" : 1,
+            "text" : "water"
+         },
+         {
+            "id" : "en:something-unknown",
+            "is_in_taxonomy" : 0,
+            "text" : "something unknown"
+         }
+      ],
+      "schema_version" : 999
+   },
+   "services" : [
+      "parse_ingredients_text"
+   ],
+   "status" : "success",
+   "warnings" : []
+}

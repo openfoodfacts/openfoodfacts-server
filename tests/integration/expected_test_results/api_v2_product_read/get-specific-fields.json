@@ -1,19 +1,22 @@
 {
-   "code" : "200000000034",
+   "code" : "0200000000034",
    "product" : {
       "categories_tags" : [
          "en:snacks",
          "en:sweet-snacks",
          "en:biscuits-and-cakes",
+         "en:biscuits-and-crackers",
          "en:biscuits"
       ],
       "categories_tags_en" : [
          "Snacks",
          "Sweet snacks",
          "Biscuits and cakes",
+         "Biscuits and crackers",
          "Biscuits"
       ],
-      "product_name" : "Some product"
+      "product_name" : "Some product",
+      "schema_version" : 998
    },
    "status" : 1,
    "status_verbose" : "product found"

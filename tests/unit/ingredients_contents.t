@@ -3,14 +3,13 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
+use Test2::V0;
 use Log::Any::Adapter 'TAP';
 use Log::Any::Adapter 'TAP', filter => "none";
 
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::TagsEntries qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Test qw/:all/;
+use ProductOpener::Tags qw/canonicalize_taxonomy_tag/;
+use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
+use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 

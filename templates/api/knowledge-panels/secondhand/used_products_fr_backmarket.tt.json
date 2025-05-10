@@ -1,0 +1,24 @@
+{
+    "level": "info",
+    "topics": [
+        "secondhand"
+    ],
+    "expand_for": "large",
+    "title_element": {
+        "title": "Acheter ce produit ou un produit similaire sur Back Market",
+        //"subtitle": "",
+        "icon_url": "[% static_subdomain %]/images/panels/secondhand/backmarket.200x100.svg",
+    },
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `
+                <ul>
+                <li><a href="https://www.backmarket.fr/fr-fr/search?q=[% product.product_name | uri %]">Chercher le produit "[% product.product_name %]" sur Backmarket</a></li>
+                <li><a href="https://www.backmarket.fr/fr-fr/search?q=[% panel.category_name | uri %]">Chercher la catégorie "[% panel.category_name %]" sur Backmarket</a></li>
+                `
+            },
+        },        
+    ]
+}

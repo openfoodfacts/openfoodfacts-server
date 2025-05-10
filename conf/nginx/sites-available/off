@@ -13,9 +13,24 @@ server {
 	}
 }
 
-# variables definitions for expiry headers
-include /etc/nginx/snippets/expires-no-json-xml.conf;
+# map to decide if we go to the priority (8002) or standard service (8001)
+map $uri $apache_port {
+	default 8001;
 
+	# home pages
+	"~*^/$" 8002;
+	# product read / write (note that nginx does not support direct utf-8)
+	"~*^/(mountaj|m\xc9\x99hsul|\xd0\xbf\xd1\x80\xd0\xbe\xd0\xb4\xd1\x83\xd0\xba\xd1\x82|gynnyrch|produkt|product|product|product|produkto|producto|toode|produkto|produit|produto|term\xc3\xa9k|produk|\xe8\xa3\xbd\xe5\x93\x81|afaris|\xd3\xa9\xd0\xbd\xd1\x96\xd0\xbc|\xec\x83\x9d\xec\x84\xb1\xeb\xac\xbc|berhem|\xe0\xa4\x89\xe0\xa4\xa4\xe0\xa5\x8d\xe0\xa4\xaa\xe0\xa4\xbe\xe0\xa4\xa6\xe0\xa4\xa8|produk|produkt|\xe0\xa4\x89\xe0\xa4\xa4\xe0\xa5\x8d\xe0\xa4\xaa\xe0\xa4\xbe\xe0\xa4\xa6\xe0\xa4\xa8|product|product|product|produkt|produkt|produit|produto|produto|produto|\xd0\xbf\xd1\x80\xd0\xbe\xd0\xb4\xd1\x83\xd0\xba\xd1\x82|product|proizvod|produkto|\xc3\xbcr\xc3\xbcn|\xd0\xbf\xd1\x80\xd0\xbe\xd0\xb4\xd1\x83\xd0\xba\xd1\x82|\xe4\xba\xa7\xe5\x93\x81|\xe7\x94\xa2\xe5\x93\x81|\xe7\x94\xa2\xe5\x93\x81)/" 8002;
+	"~*^/cgi/product.pl" 8002;
+	# product API read / write
+	"~*^/api/v./product/" 8002;
+        # whitelist most cgi (but display and search)
+        "~*^/cgi/(?!display\.pl|search\.pl)" 8002;
+        # whitelist most api (but search)
+        "~*^/api/v./(?!search\b)" 8002;
+}
+
+# variables definitions for expiry headers are loaded from /etc/nginx/conf.d/expires-no-json-xml.conf
 
 server {
 
@@ -27,14 +42,15 @@ server {
 
 	root /srv/off/html;
 
-    # enable large uploads
-    client_max_body_size 20M;
+	# enable large uploads
+	client_max_body_size 20M;
 	client_body_timeout 120s;
 	client_header_timeout 120s;
 
-	# logs location
-	access_log /var/log/nginx/${productopener_access_file_prefix}off-access.log proxied_requests buffer=256K flush=1s;
-	error_log /var/log/nginx/off-error.log;
+	# logs location: default is static-off, will be changed to proxy-off
+	# for requests passed to Apache
+	access_log /var/log/nginx/static-off-access.log proxied_requests buffer=256K flush=1s;
+	error_log /var/log/nginx/static-off-error.log;
 
 	# some redirection for specific subdomains
 	include snippets/off.domain-redirects.include;
@@ -45,15 +61,16 @@ server {
 
 	index index.html index.htm index.nginx-debian.html;
 
-	location /data/ {
-        include snippets/off.cors-headers.include;
-		include snippets/expiry-headers.include;
-		# First attempt to serve request as file, then
-		# as directory, then fall back to displaying a 404.
-		try_files $uri $uri/ =404;
-	}
-
 	location ~ ^/images/products/ {
+        # 2024/10/03 - temporary redirects as we changed the path of images
+        # for barcodes that are 8 digits or less
+        rewrite ^/images/products/(....)/([^/]*)$ /images/products/000/000/000/$1/$2 break;
+        rewrite ^/images/products/(.)(....)/([^/]*)$ /images/products/000/000/00$1/$2/$3 break;
+        rewrite ^/images/products/(..)(....)/([^/]*)$ /images/products/000/000/0$1/$2/$3 break;
+        rewrite ^/images/products/(...)(....)/([^/]*)$ /images/products/000/000/$1/$2/$3 break;
+        rewrite ^/images/products/(.)(...)(....)/([^/]*)$ /images/products/000/00$1/$2/$3/$4 break;
+        rewrite ^/images/products/(..)(...)(....)/([^/]*)$ /images/products/000/0$1/$2/$3/$4 break;
+		
 		include snippets/off.cors-headers.include;
 		include snippets/expiry-headers.include;
 		add_header Link "<http://creativecommons.org/licenses/by-sa/3.0/>; rel='license'; title='CC-BY-SA 3.0'";
@@ -62,7 +79,28 @@ server {
 		gunzip on;
 	}
 
-	if ($http_referer ~* (jobothoniel.com) ) { return 403; } # blocked since 2021-07-13
+	# Add an HTTP 302 redirect to AWS S3 bucket for specific dump files
+	location = /data/openfoodfacts_recent_changes.jsonl.gz {
+		return 302 https://openfoodfacts-ds.s3.eu-west-3.amazonaws.com/openfoodfacts_recent_changes.jsonl.gz;
+	}
+	location = /data/openfoodfacts-mongodbdump.gz {
+		return 302 https://openfoodfacts-ds.s3.eu-west-3.amazonaws.com/openfoodfacts-mongodbdump.gz;
+	}
+	location = /data/openfoodfacts-products.jsonl.gz {
+		return 302 https://openfoodfacts-ds.s3.eu-west-3.amazonaws.com/openfoodfacts-products.jsonl.gz;
+	}
+	location = /data/en.openfoodfacts.org.products.csv {
+		return 302 https://openfoodfacts-ds.s3.eu-west-3.amazonaws.com/en.openfoodfacts.org.products.csv;
+	}
+	location = /data/en.openfoodfacts.org.products.csv.gz {
+		return 302 https://openfoodfacts-ds.s3.eu-west-3.amazonaws.com/en.openfoodfacts.org.products.csv.gz;
+	}
+	location = /data/fr.openfoodfacts.org.products.csv {
+		return 302 https://openfoodfacts-ds.s3.eu-west-3.amazonaws.com/fr.openfoodfacts.org.products.csv;
+	}
+	location = /data/fr.openfoodfacts.org.products.csv.gz {
+		return 302 https://openfoodfacts-ds.s3.eu-west-3.amazonaws.com/fr.openfoodfacts.org.products.csv.gz;
+	}
 
 	# the app requests /1.json to get the product count...
 	# the commented code below is to serve a static copy
@@ -72,12 +110,6 @@ server {
 	try_files /1.json = 404;
 	}
 
-	location ~ ^/(favicon.ico) {
-		# First attempt to serve request as file, then
-		# as directory, then fall back to displaying a 404.
-		try_files $uri $uri/ =404;
-	}
-
 	# Static files are served directly by NGINX
 
 	location ~ ^/(favicon.ico) {
@@ -87,7 +119,7 @@ server {
 	}
 
 	# Static files are served directly by NGINX
-	location ~ ^/(.well-known|files)/ {
+	location ~ ^/(.well-known|files|data|exports|dump)/ {
 		include snippets/off.cors-headers.include;
 		include snippets/expiry-headers.include;
 		# First attempt to serve request from resource, then as file,
@@ -96,7 +128,7 @@ server {
 		gzip_static always;
 		gunzip on;
 	}
-	location ~ ^/(images|fonts|css|js|rss|foundation|bower_components)/ {
+	location ~ ^/(images|fonts|css|js|donate|resources)/ {
 		include snippets/off.cors-headers.include;
 		include snippets/expiry-headers.include;
 		# First attempt to serve request as file, off_web_html acting as an override,
@@ -116,7 +148,6 @@ server {
 	location = /.well-known/assetlinks.json {
 		include snippets/off.cors-headers.include;
 		include snippets/expiry-headers.include;
-		expires 1d;
 		try_files $uri =404;
 	}
 
@@ -131,8 +162,15 @@ server {
 		# recursive hosts as we are proxying behind a proxy
 		set_real_ip_from 10.0.0.0/8;
 		real_ip_recursive on;
-
-		proxy_pass http://127.0.0.1:8004/cgi/display.pl?;
+		access_log /var/log/nginx/proxy-off-access.log proxied_requests buffer=256K flush=1s;
+		error_log /var/log/nginx/proxy-off-error.log;
+		# Note: as soon as we use a variable in proxy_pass, $uri and the rest must be explicit
+		# Note: we cannot use $uri in the proxy_pass, as it is decoded, and we can get spaces
+		# leading to a broken query like "GET /cgi/display.pl?/facets/labels/some space"
+        # $request_uri is unescaped.
+		# See https://github.com/openfoodfacts/openfoodfacts-server/issues/11759
+        #proxy_pass http://127.0.0.1:$apache_port/cgi/display.pl?$uri$is_args$args;
+        proxy_pass http://127.0.0.1:$apache_port/cgi/display.pl?$request_uri;
 	}
 
 	location /cgi/ {
@@ -140,8 +178,9 @@ server {
 		# recursive hosts as we are proxying behind a proxy
 		set_real_ip_from 10.0.0.0/8;
 		real_ip_recursive on;
-
-		proxy_pass http://127.0.0.1:8004;
+		access_log /var/log/nginx/proxy-off-access.log proxied_requests buffer=256K flush=1s;
+		error_log /var/log/nginx/proxy-off-error.log;
+		proxy_pass http://127.0.0.1:$apache_port$request_uri;
 	}
 }
 

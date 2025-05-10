@@ -4,12 +4,14 @@
    "product" : {
       "packagings" : [
          {
+            "food_contact" : 1,
             "shape" : {
                "id" : "en:bottle",
                "lc_name" : "Bottle"
             }
          }
-      ]
+      ],
+      "schema_version" : 999
    },
    "status" : "success_with_warnings",
    "warnings" : [

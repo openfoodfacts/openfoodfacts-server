@@ -38,6 +38,7 @@ BEGIN {
 	@EXPORT_OK = qw(
 		&get_taxonomy_suggestions_with_synonyms
 		&get_taxonomy_suggestions
+		&generate_sorted_list_of_taxonomy_entries
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -45,13 +46,13 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Store qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Store qw/get_string_id_for_lang retrieve_json/;
+use ProductOpener::Display qw/$country/;
+use ProductOpener::Lang qw/lang/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::PackagerCodes qw/:all/;
-use ProductOpener::Cache qw/:all/;
+use ProductOpener::PackagerCodes qw/@sorted_packager_codes normalize_packager_codes/;
+use ProductOpener::Cache qw/$memd generate_cache_key/;
 
 use List::Util qw/min/;
 use Data::DeepAccess qw(deep_exists deep_get);
@@ -125,7 +126,7 @@ sub get_taxonomy_suggestions_with_synonyms ($tagtype, $search_lc, $string, $cont
 		}
 	) if $log->is_debug();
 
-	# Check if we have cached suggestions
+	# Check if we have cached suggestions
 	my $key = generate_cache_key(
 		"get_taxonomy_suggestions",
 		{
@@ -378,6 +379,12 @@ By priority, the function returns:
 - limit: limit of number of results
 - format (not yet defined and implemented)
 
+=head3 Return value
+
+An array of suggestions hashes with the following fields:
+- tag: the tag to suggest
+- matched_synonym: the synonym that matched the input string
+
 =cut
 
 sub filter_suggestions_matching_string_with_synonyms ($tags_ref, $tagtype, $search_lc, $string, $options_ref) {
@@ -423,7 +430,12 @@ sub filter_suggestions_matching_string_with_synonyms ($tags_ref, $tagtype, $sear
 		my $stringid = get_string_id_for_lang("no_language", normalize_packager_codes($string));
 		foreach my $canon_tagid (@$tags_ref) {
 			next if $canon_tagid !~ /^$stringid/;
-			push @suggestions, normalize_packager_codes($canon_tagid);
+			my $normalized_tag = normalize_packager_codes($canon_tagid);
+			my $suggestion_ref = {
+				tag => $normalized_tag,
+				matched_synonym => $normalized_tag
+			};
+			push @suggestions, $suggestion_ref;
 			last if ++$suggestions_count >= $limit;
 		}
 	}
@@ -466,24 +478,24 @@ sub filter_suggestions_matching_string_with_synonyms ($tags_ref, $tagtype, $sear
 				}
 			) if $log->is_debug();
 
-			my $to_add = {
+			my $suggestion_ref = {
 				tag => $tag,
 				matched_synonym => $best_match->{match}
 			};
 			# matching at start, best matches
 			if ($best_match->{type} eq "start") {
-				push @suggestions, $to_add;
+				push @suggestions, $suggestion_ref;
 				# count matches at start so that we can return only if we have enough matches
 				$suggestions_count++;
 				last if $suggestions_count >= $limit;
 			}
 			# matching inside
 			elsif ($best_match->{type} eq "inside") {
-				push @suggestions_c, $to_add;
+				push @suggestions_c, $suggestion_ref;
 			}
 			# fuzzy match
 			elsif ($best_match->{type} eq "fuzzy") {
-				push @suggestions_f, $to_add;
+				push @suggestions_f, $suggestion_ref;
 			}
 		}
 	}

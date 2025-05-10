@@ -34,15 +34,18 @@ echo "IMPORT_SINCE: $IMPORT_SINCE days"
 # directory, so we move them to a different place, but still keep past files
 # in case we need to reprocess them
 echo "Copy csv and image files to $OFF_SFTP_HOME_DIR/artinformatique-backup/data/intermarche/"
-cp -a $OFF_SFTP_HOME_DIR/artinformatique/data/intermarche/* $OFF_SFTP_HOME_DIR/artinformatique-backup/data/intermarche/
+# Note: the "cp -a" flag results in an error if the files are owned by different users
+# removing it as it is making this script too fragile
+# cp: preserving times for '/mnt/off-pro/sftp/artinformatique-backup/data/intermarche/23-07-2023-intermarche.csv': Operation not permitted
+cp -r $OFF_SFTP_HOME_DIR/artinformatique/data/intermarche $OFF_SFTP_HOME_DIR/artinformatique-backup/data/
 
-# move CSV files modified since the last successful run
+# copy CSV files modified since the last successful run
 echo "Move CSV files modified since the last successful run"
 rm -rf $DATA_TMP_DIR
 mkdir $DATA_TMP_DIR
 mkdir $DATA_TMP_DIR/data
 
-find $OFF_SFTP_HOME_DIR/artinformatique/data/intermarche/ -mtime -$IMPORT_SINCE -type f -name "*.csv*" -exec mv {} $DATA_TMP_DIR/data/ \;
+find $OFF_SFTP_HOME_DIR/artinformatique/data/intermarche/ -mtime -$IMPORT_SINCE -type f -name "*.csv*" -exec cp {} $DATA_TMP_DIR/data/ \;
 
 # The CSV files are in a format like 19-11-2023-intermarche.csv and sometimes they
 # send us files from multiple months
@@ -82,6 +85,9 @@ for file in $DATA_TMP_DIR/data/*.csv; do
     echo "Importing $file"
     ./scripts/import_csv_file.pl --csv_file $file --user_id perfqual --comment "Import Perfqual" --source_id "les-mousquetaires" --source_name "Les Mousquetaires" --source_url "https://www.intermarche.com/" --manufacturer --org_id les-mousquetaires --define lc=fr --images_dir $IMAGES_TMP_DIR
 done
+
+# Remove the files from the sftp so that Intermarché knows that they have been successfully processed
+find $OFF_SFTP_HOME_DIR/artinformatique/data/intermarche/ -mtime -$IMPORT_SINCE -type f -name "*.csv*" -exec mv {} $DATA_TMP_DIR/data/ \;
 
 # mark successful run
 mark_successful_run $SUCCESS_FILE_PATH

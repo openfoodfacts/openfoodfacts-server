@@ -11,3 +11,15 @@ It also powers the sibling **Open \[[Beauty](https://world.openbeautyfacts.org/)
 The repository for the project is at https://github.com/openfoodfacts/openfoodfacts-server/
 
 Do not hesitate to contribute to this documentation, this is highly appreciated.
+
+## Documentation organization
+
+The documentation is split between API documentation (for re-users, third party developers) and Developer documentation (for contributors).
+
+The documentation follows the [Diátaxis framework](https://diataxis.fr/).
+
+Page titles should start with:
+* *tutorial on* - tutorials aimed at learning
+* *how to…* - how to guides to reach a specific goal
+* *explain…* - explanation to understand a topic
+* *reference…* - providing detailed information

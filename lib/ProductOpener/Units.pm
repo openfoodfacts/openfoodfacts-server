@@ -36,7 +36,6 @@ use Log::Any qw($log);
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-
 		&unit_to_g
 		&g_to_unit
 
@@ -48,6 +47,7 @@ BEGIN {
 		&normalize_serving_size
 		&normalize_quantity
 		&extract_standard_unit
+		&normalize_product_quantity_and_serving_size
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -55,9 +55,9 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
-use ProductOpener::Numbers qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::Text qw/:all/;
+use ProductOpener::Numbers qw/$number_regexp convert_string_to_number/;
+use ProductOpener::Tags qw/%translations_to get_all_taxonomy_entries get_property get_taxonomy_tag_synonyms/;
+use ProductOpener::Text qw/regexp_escape/;
 
 =head1 FUNCTIONS
 
@@ -130,8 +130,6 @@ sub init_units_names() {
 
 	return;
 }
-
-init_units_names();
 
 =head2 unit_to_g($value, $unit)
 
@@ -279,6 +277,7 @@ Returns undef if no quantity was detected.
 =cut
 
 sub normalize_quantity ($quantity_field) {
+
 	my ($quantity, $multiplier, $unit) = parse_quantity_unit($quantity_field);
 
 	$quantity = convert_string_to_number($quantity);
@@ -345,6 +344,53 @@ sub normalize_serving_size ($serving) {
 	}
 	return;
 }
+
+=head2 normalize_product_quantity_and_serving_size ($product_ref)
+
+Normalize the product quantity and serving size fields.
+
+=head3 Parameters
+
+=head4 $product_ref
+
+Reference to a product.
+
+=cut
+
+sub normalize_product_quantity_and_serving_size ($product_ref) {
+
+	(defined $product_ref->{product_quantity}) and delete $product_ref->{product_quantity};
+	(defined $product_ref->{product_quantity_unit}) and delete $product_ref->{product_quantity_unit};
+	if ((defined $product_ref->{quantity}) and ($product_ref->{quantity} ne "")) {
+		my $product_quantity = normalize_quantity($product_ref->{quantity});
+		if (defined $product_quantity) {
+			$product_ref->{product_quantity} = $product_quantity;
+		}
+		my $product_quantity_unit = extract_standard_unit($product_ref->{quantity});
+		if (defined $product_quantity_unit) {
+			$product_ref->{product_quantity_unit} = $product_quantity_unit;
+		}
+	}
+
+	if ((defined $product_ref->{serving_size}) and ($product_ref->{serving_size} ne "")) {
+		$product_ref->{serving_quantity} = normalize_serving_size($product_ref->{serving_size});
+
+		my $serving_quantity_unit = extract_standard_unit($product_ref->{serving_size});
+		if (defined $serving_quantity_unit) {
+			$product_ref->{serving_quantity_unit} = $serving_quantity_unit;
+		}
+	}
+	else {
+		(defined $product_ref->{serving_quantity}) and delete $product_ref->{serving_quantity};
+		(defined $product_ref->{serving_size})
+			and ($product_ref->{serving_size} eq "")
+			and delete $product_ref->{serving_size};
+	}
+
+	return;
+}
+
+init_units_names();
 
 1;
 

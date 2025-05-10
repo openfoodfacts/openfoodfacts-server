@@ -13,6 +13,7 @@
 </form>
 
 [% IF action == 'process' %]
+    <h3>Ingredients parsing, % estimates and analysis</h3>
     <h4>Preparsed ingredients text</h4>
     <p>[% preparsed_ingredients_text %]</p>
     [% display_ingredients_analysis %]
@@ -21,6 +22,16 @@
     <h4>JSON</h4>
     <pre>
     [% json %]
+    </pre>
+
+    <h3>Environmental impact</h3>
+    <h4>Ecobalyse request</h4>
+    <pre>
+    [% ecobalyse_request_json %]
+    </pre>
+    <h4>Ecobalyse response</h4>
+    <pre>
+    [% ecobalyse_response_json %]
     </pre>
 [% END %]
 

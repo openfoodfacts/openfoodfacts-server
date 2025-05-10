@@ -54,7 +54,7 @@ use vars @EXPORT_OK;
 use Log::Any qw($log);
 
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use LWP::UserAgent;
 use HTTP::Request::Common;
 

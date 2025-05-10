@@ -2,7 +2,9 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "19051",
+         "ecobalyse_code" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
          "id" : "en:milk",
+         "is_in_taxonomy" : 1,
          "origins" : "en:belgium,en:spain",
          "percent_estimate" : 75,
          "percent_max" : 100,
@@ -13,7 +15,9 @@
       },
       {
          "ciqual_proxy_food_code" : "31016",
+         "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
          "id" : "en:sugar",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 25,
          "percent_max" : 50,
          "percent_min" : 0,
@@ -32,13 +36,7 @@
       "en:non-vegan",
       "en:vegetarian"
    ],
-   "ingredients_hierarchy" : [
-      "en:milk",
-      "en:dairy",
-      "en:sugar",
-      "en:added-sugar",
-      "en:disaccharide"
-   ],
+   "ingredients_lc" : "en",
    "ingredients_n" : 2,
    "ingredients_n_tags" : [
       "2",
@@ -63,7 +61,9 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "known_ingredients_n" : 5,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
+   "known_ingredients_n" : 2,
    "lc" : "en",
    "nutriments" : {
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,

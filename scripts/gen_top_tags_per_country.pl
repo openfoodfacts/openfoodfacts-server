@@ -24,11 +24,12 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
+use ProductOpener::Store qw/get_string_id_for_lang store/;
 use ProductOpener::Index qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Display qw/$country $static_subdomain add_product_nutriment_to_stats compute_stats_for_products/;
+use ProductOpener::Tags
+	qw/%country_languages %properties canonicalize_taxonomy_tag_link display_taxonomy_tag exists_taxonomy_tag/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
@@ -38,14 +39,14 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
-use ProductOpener::Data qw/:all/;
+use ProductOpener::Data qw/get_products_collection/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
 use File::Path qw(mkpath);
-use JSON::PP;
+use JSON::MaybeXS;
 
 # Output will be in the $BASE_DIRS{PRIVATE_DATA} directory
 # data/index: data related to the Open Food Hunt operation (old): points for countries, users and ambassadors
@@ -154,7 +155,7 @@ $fields_ref->{completed_t} = 1;
 
 $fields_ref->{nutriments} = 1;
 $fields_ref->{nutrition_grade_fr} = 1;
-$fields_ref->{ecoscore_extended_data} = 1;
+$fields_ref->{environmental_score_extended_data} = 1;
 
 # Sort by created_t so that we can see which product was the nth in each country -> necessary to compute points for Open Food Hunt
 # do not include empty products and products that have been marked as obsolete
@@ -228,17 +229,17 @@ while (my $product_ref = $cursor->next) {
 
 	# Add environmental impact from impact estimator if we have them
 	if (
-			(defined $product_ref->{ecoscore_extended_data})
-		and (defined $product_ref->{ecoscore_extended_data}{impact})
-		and (defined $product_ref->{ecoscore_extended_data}{impact}{likeliest_impacts})
+			(defined $product_ref->{environmental_score_extended_data})
+		and (defined $product_ref->{environmental_score_extended_data}{impact})
+		and (defined $product_ref->{environmental_score_extended_data}{impact}{likeliest_impacts})
 		# TODO: Need to add a filter to keep only impacts computed with high confidence
 		)
 	{
 		defined $products_nutriments{$code} or $products_nutriments{$code} = {};
 		$products_nutriments{$code}{climate_change}
-			= $product_ref->{ecoscore_extended_data}{impact}{likeliest_impacts}{Climate_change};
+			= $product_ref->{environmental_score_extended_data}{impact}{likeliest_impacts}{Climate_change};
 		$products_nutriments{$code}{ef_score}
-			= $product_ref->{ecoscore_extended_data}{impact}{likeliest_impacts}{EF_single_score};
+			= $product_ref->{environmental_score_extended_data}{impact}{likeliest_impacts}{EF_single_score};
 	}
 
 	# Compute points
@@ -394,11 +395,7 @@ while (my $product_ref = $cursor->next) {
 	}
 	elsif ((defined $product_ref->{completed_t}) and ($product_ref->{completed_t} > 0)) {
 		$complete++;
-		if ($complete % 10 == 0) {
-			print "completed products: $complete\n";
-		}
 	}
-
 }
 
 # compute points
@@ -686,8 +683,6 @@ HTML
 	push @languages, "en" unless grep {$_ eq 'en'} @languages;
 	foreach my $lc (@languages) {
 
-		$lang = $lc;
-
 		my $series = '';
 
 		my $end = 0;
@@ -707,7 +702,7 @@ HTML
 			my $series_start = $countries_dates{$country}{$date . ".start"};
 			my $series_end = $countries_dates{$country}{$date . ".end"};
 
-			my $name = $Lang{"products_stats_$date"}{$lang};
+			my $name = $Lang{"products_stats_$date"}{$lc};
 			my $series_point_start = $series_start * 86400 * 1000;
 			$series .= <<HTML
 {
@@ -740,16 +735,16 @@ HTML
 
 		$series =~ s/,\n$//;
 
-		my $country_name = display_taxonomy_tag($lang, 'countries', $country);
+		my $country_name = display_taxonomy_tag($lc, 'countries', $country);
 
-		#$Lang{products_p}{$lang} is undefined, products_p doesn't appear to be in the .po files.
+		#$Lang{products_p}{$lc} is undefined, products_p doesn't appear to be in the .po files.
 		my $html = <<HTML
 <initjs>
 
 Highcharts.setOptions({
 	lang: {
-		months: $Lang{months}{$lang},
-		weekdays: $Lang{weekdays}{$lang}
+		months: $Lang{months}{$lc},
+		weekdays: $Lang{weekdays}{$lc}
 	}
 });
 
@@ -758,7 +753,7 @@ Highcharts.setOptions({
                 type: 'area'
             },
             title: {
-                text: '$Lang{products_stats}{$lang} - $country_name'
+                text: '$Lang{products_stats}{$lc} - $country_name'
             },
             subtitle: {
                 text: 'Source: <a href="https://$cc.$server_domain">'+
@@ -769,7 +764,7 @@ Highcharts.setOptions({
             },
             yAxis: {
                 title: {
-                    text: '$Lang{products}{$lang}'
+                    text: '$Lang{products}{$lc}'
                 },
                 labels: {
                     formatter: function() {
@@ -803,7 +798,7 @@ $series
 </initjs>
 
 <scripts>
-<script src="/js/dist/highcharts.js"></script></scripts>
+<script src="$static_subdomain/js/dist/highcharts.js"></script></scripts>
 <header>
 $meta
 </header>
@@ -813,8 +808,8 @@ $meta
 HTML
 			;
 
-		my $stats_dir = "$BASE_DIRS{PUBLIC_DATA}/products_stats/$lang";
-		print "products_stats - saving $stats_dir/products_stats_$cc.html\n";
+		my $stats_dir = "$BASE_DIRS{PUBLIC_DATA}/products_stats/$lc";
+		# print "products_stats - saving $stats_dir/products_stats_$cc.html\n";
 		ensure_dir_created_or_die($stats_dir);
 		if (open(my $OUT, ">:encoding(UTF-8)", "$stats_dir/products_stats_$cc.html")) {
 			print $OUT $html;
@@ -841,22 +836,21 @@ my $start = 100000000000;
 
 foreach my $country (sort {$countries{$b} <=> $countries{$a}} keys %countries) {
 
-	if ($countries_dates{$country}{$date . ".start"} < $start) {
+	if (    (defined $countries_dates{$country}{$date . ".start"})
+		and ($countries_dates{$country}{$date . ".start"} < $start))
+	{
 		$start = $countries_dates{$country}{$date . ".start"};
 	}
-	if ($countries_dates{$country}{$date . ".end"} > $end) {
+	if ((defined $countries_dates{$country}{$date . ".end"}) and ($countries_dates{$country}{$date . ".end"} > $end)) {
 		$end = $countries_dates{$country}{$date . ".end"};
 	}
 }
 
 foreach my $country (
-	sort {$countries_dates{$a}{$date . ".start"} <=> $countries_dates{$b}{$date . ".start"}}
+	sort {($countries_dates{$a}{$date . ".start"} || 0) <=> ($countries_dates{$b}{$date . ".start"} || 0)}
 	keys %countries
 	)
 {
-
-	$lang = $lc;
-
 	my $series_start = $countries_dates{$country}{$date . ".start"};
 	my $series_end = $countries_dates{$country}{$date . ".end"};
 
@@ -895,7 +889,6 @@ HTML
 
 $series =~ s/,\n$//;
 
-$lang = 'en';
 $lc = 'en';
 
 my $html = <<HTML
@@ -906,7 +899,7 @@ my $html = <<HTML
                 type: 'area'
             },
             title: {
-                text: '$Lang{products_stats}{$lang}'
+                text: '$Lang{products_stats}{$lc}'
             },
             subtitle: {
                 text: 'Source: <a href="https://$server_domain">'+
@@ -920,7 +913,7 @@ my $html = <<HTML
             },
             yAxis: {
                 title: {
-                    text: '$Lang{products}{$lang}'
+                    text: '$Lang{products}{$lc}'
                 },
                 labels: {
                     formatter: function() {

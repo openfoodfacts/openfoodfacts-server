@@ -1,0 +1,9 @@
+type: object
+title: change_ref_properties_response
+properties:
+  status_verbose:
+    type: string
+    example: fields saved
+  status:
+    type: integer
+    example: 1
