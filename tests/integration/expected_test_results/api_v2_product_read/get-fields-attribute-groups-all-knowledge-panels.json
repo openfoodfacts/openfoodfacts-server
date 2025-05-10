@@ -3192,6 +3192,21 @@
                               {
                                  "level" : 0,
                                  "style" : "max-width:15rem",
+                                 "text" : "Alcohol"
+                              },
+                              {
+                                 "text" : "?"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
                                  "text" : "Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)"
                               },
                               {
@@ -3199,6 +3214,21 @@
                               },
                               {
                                  "text" : "58.333 %"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Nutrition score - France"
+                              },
+                              {
+                                 "text" : "7 "
+                              },
+                              {
+                                 "text" : "7 "
                               }
                            ]
                         }
@@ -3669,6 +3699,7 @@
          "nova-group_serving" : 4,
          "nutrition-score-fr" : 7,
          "nutrition-score-fr_100g" : 7,
+         "nutrition-score-fr_serving" : 7,
          "proteins" : 4.5,
          "proteins_100g" : 4.5,
          "proteins_serving" : 0.45,
