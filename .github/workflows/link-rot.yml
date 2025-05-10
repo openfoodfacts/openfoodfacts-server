@@ -1,0 +1,27 @@
+# This workflow aims at checking that no link nor image is broken in the content pages.
+# The action uses a recursive scan to avoid large arglists.
+# It runs periodically on a weekly schedule.
+name: Link Rot Check
+on:
+  schedule:
+    - cron: '0 0 * * 0'      # Runs every Sunday at midnight UTC
+  workflow_dispatch:
+
+jobs:
+  link-rot:
+    concurrency:
+      group: link-rot-check
+      cancel-in-progress: true
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Run link-rot check
+        id: lychee
+        uses: lycheeverse/lychee-action@v2.4.1
+        with:
+          # Recursively scan static output directories to avoid passing huge arglists, hide progress
+            args: --recursive html/ --recursive templates/ --extensions .md,.html --fail-on-status
