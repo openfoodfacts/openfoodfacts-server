@@ -103,6 +103,7 @@ venv
 # Taxonomies and cache
 cache
 taxonomies/*.sto
+taxonomies/*.json
 taxonomies/*.result.txt
 taxonomies/*.all.txt
 /build-cache/taxonomies/*.json
