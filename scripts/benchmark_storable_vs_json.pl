@@ -3,10 +3,43 @@
 use Modern::Perl '2017';
 use utf8;
 use Time::HiRes qw/gettimeofday/;
+use YAML::XS qw/Load Dump/;
+# use YAML::Syck qw/Load Dump/;
 
 use ProductOpener::PerlStandards;
 use ProductOpener::Store qw/store_object retrieve_object retrieve store/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
+
+# Serializes an object in our preferred object store, removing it from legacy storage if it is present
+# It looks like YAML sorts keys by default...
+sub store_config ($path, $ref, $delete_old = 1) {
+	my $new_path = $path =~ s/\.sto$/\.yaml/ri;
+	if (open(my $OUT, ">", $new_path)) {
+		print $OUT Dump($ref);
+		close($OUT);
+
+		# Delete the old file if it was a storable
+		if ($delete_old and $path =~/.*\.sto/ and -e $path) {
+			unlink($path);
+		}
+	}
+	# TODO Handle errors
+}
+
+sub retrieve_config($path) {
+	my $new_path = $path =~ s/\.sto$/\.yaml/ri;
+	if (-e $new_path) {
+		if (open(my $IN, "<", $new_path)) {
+			local $/;    #Enable 'slurp' mode
+			my $ref = Load(<$IN>);
+			close($IN);
+			return $ref;
+		}
+	}
+	# Fallback to old method
+	return retrieve($path);
+}
+
 
 # Performance test.
 # Directory scanning version
@@ -78,9 +111,10 @@ sub read_taxonomies($mode) {
 		my $file_path = "$dir/$entry";
 		if ($entry =~ /.*\.sto/) {
 			if ($mode eq "PREPARE") {
-				# Load the STO file and save as JSON
-				my $ref = retrieve_object($file_path);
+				# Load the STO file and save as YAML
+				my $ref = retrieve_config($file_path);
 				store_object($file_path, $ref, 0);    # Non-destructive store
+				store_config($file_path, $ref, 0);    # Non-destructive store
 			}
 			elsif ($mode eq "STORABLE") {
 				my $ref = retrieve($file_path);
@@ -94,18 +128,27 @@ sub read_taxonomies($mode) {
 				my $ref = retrieve_object($file_path);
 			}
 		}
+		elsif ($entry =~ /.*\.yaml/) {
+			if ($mode eq "CLEANUP") {
+				unlink($file_path);
+			}
+			elsif ($mode eq 'YAML') {
+				my $ref = retrieve_config($file_path);
+			}
+		}
 	}
 	print STDERR "$mode: Read all taxonomy files in " . (gettimeofday() - $started_t) . " s\n";
 }
 
-read_taxonomies('PREPARE');
+#read_taxonomies('PREPARE');
 read_taxonomies('STORABLE');
 read_taxonomies('JSON');
-read_taxonomies('CLEANUP');
+read_taxonomies('YAML');
+#read_taxonomies('CLEANUP');
 
-run_for_mode('BENCHMARK');
-run_for_mode('STORABLE');
-run_for_mode('STO_TO_JSON');
-run_for_mode('JSON_TO_JSON');
-run_for_mode('CLEANUP');
+# run_for_mode('BENCHMARK');
+# run_for_mode('STORABLE');
+# run_for_mode('STO_TO_JSON');
+# run_for_mode('JSON_TO_JSON');
+# run_for_mode('CLEANUP');
 

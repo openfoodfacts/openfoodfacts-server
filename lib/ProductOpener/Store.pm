@@ -57,7 +57,7 @@ use JSON::Parse qw(read_json);
 use JSON::MaybeXS;
 use Fcntl ':flock';
 
-my $json_converter = JSON::MaybeXS->new->allow_nonref->utf8;
+my $json_converter = JSON::MaybeXS->new->allow_nonref->canonical->indent->indent_length(1)->utf8;
 
 # Text::Unaccent unac_string causes Apache core dumps with Apache 2.4 and mod_perl 2.0.9 on jessie
 
