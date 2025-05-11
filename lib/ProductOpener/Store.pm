@@ -57,7 +57,7 @@ use JSON::Parse qw(read_json);
 use JSON::MaybeXS;
 use Fcntl ':flock';
 
-my $json_converter = JSON::MaybeXS->new->allow_nonref->canonical->indent->utf8;
+my $json_converter = JSON::MaybeXS->new->allow_nonref->canonical->indent->indent_length(1)->utf8;
 
 # Text::Unaccent unac_string causes Apache core dumps with Apache 2.4 and mod_perl 2.0.9 on jessie
 
@@ -263,7 +263,7 @@ sub retrieve ($file) {
 }
 
 # Serializes an object in our preferred object store, removing it from legacy storage if it is present
-sub store_object ($path, $ref) {
+sub store_object ($path, $ref, $delete_old = 1) {
 	my $new_path = $path =~ s/\.sto$/\.json/ri;
 	if (open(my $OUT, ">", $new_path)) {
 		# Get an exclusive lock on the file
@@ -272,7 +272,7 @@ sub store_object ($path, $ref) {
 		close($OUT);
 
 		# Delete the old file if it was a storable
-		if ($path =~/.*\.sto/ and -e $path) {
+		if ($delete_old and $path =~/.*\.sto/ and -e $path) {
 			unlink($path);
 		}
 	}
