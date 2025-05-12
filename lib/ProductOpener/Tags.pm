@@ -2271,8 +2271,19 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			my $only_duplicate_errors = !(first {%{$_}{type} ne "duplicate_synonym"} @taxonomy_errors);
 			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
 			# Disable die for the packaging taxonomy as some legit material and shape might have same name
-			my $taxonomy_with_duplicate_tolerated
-				= (($tagtype eq "packaging") or ($tagtype eq "inci_functions"));
+
+			# ignore errors for ingredients for beauty, pet food, products
+			# TODO: reenable when we have cleaned the ingredients taxonomy for beauty, pet food, products
+			my $taxonomy_with_duplicate_tolerated;
+			if ($options{product_type} eq "food") {
+				$taxonomy_with_duplicate_tolerated
+					= (($tagtype eq "packaging") or ($tagtype eq "inci_functions"));
+			}
+			else {
+				$taxonomy_with_duplicate_tolerated
+					= (($tagtype eq "ingredients") or ($tagtype eq "packaging") or ($tagtype eq "inci_functions"));
+			}
+
 			unless ($only_duplicate_errors and $taxonomy_with_duplicate_tolerated) {
 				store("$result_dir/$tagtype.errors.sto", {errors => \@taxonomy_errors});
 				die("Errors in the $tagtype taxonomy definition");
@@ -2746,7 +2757,7 @@ sub init_countries() {
 				}
 			}
 		}
-		else {
+		elsif ($country ne 'en:world') {
 			$log->warn("No language_codes:en for country $country") if $log->is_warn();
 		}
 	}
