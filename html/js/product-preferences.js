@@ -29,7 +29,7 @@ var type_product;
 if (flavor === "off") { // get the type of product
     type_product = "food";
 } else if (flavor === "obf") {
-    type_product = "beauty"
+    type_product = "beauty";
 } else {
     type_product = "food"; // default
 }
