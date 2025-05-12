@@ -2,7 +2,6 @@
 name: Link Rot on Push
 on:
   push:
-    # Only trigger when markdown or HTML pages change
     paths:
       - '**/*.md'
       - 'html/**/*.html'
