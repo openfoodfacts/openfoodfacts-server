@@ -20,7 +20,7 @@ fr: Acidifiant, acide alimentaire, acide, acidulants, acide alimentaire
 ga: Aigéad
 he: חומצה
 hr: kiselina, kiseline, sredstva kiselosti, kiseli
-hu: Étkezési sav
+hu: Étkezési sav, etkezesi sav
 it: Acidificante, acidificanti
 ja: 酸味料
 lt: Rūgštis
@@ -88,7 +88,7 @@ pt: Regulador de acidez, regulador de ácidez, reguladores de acidez
 ro: Corector de aciditate, Regulator de aciditate, regulatori de aciditate
 ru: Регулятор кислотности, регуляторы кислотности
 sk: Regulátor kyslosti
-sl: Sredstvo za uravnavanje kislosti
+sl: Sredstvo za uravnavanje kislosti, sredstva za uravnavanje kislosti
 sr: regulator kiselosti
 sv: Surhetsreglerande medel, Surhetsreglerandemedel, Surhetsregulator
 description:en: Acidity regulators are substances which alter or control the acidity or alkalinity of a foodstuff.
@@ -517,7 +517,7 @@ fi: Väri, Väriä, Värit, Värejä, Väriaine, Väriainetta, Väriaineet, Vär
 fr: Colorant, colorant de surface, pigment décoratif, pigment colorant, colorants, colorant alimentaire, colorants alimentaires, aliments colorants
 ga: Dath
 he: צבע
-hr: boja, bojila, bojilo, bojenje, namirnice za bojanje, hrana za bojenje, hrana za bojanje
+hr: boja, boje, bojila, bojilo, bojenje, namirnice za bojanje, hrana za bojenje, hrana za bojanje
 hu: Színezék, mesterséges színezék, színezőanyag, színezékek, színezőanyagok, színező anyag
 is: Litarefni
 it: Colorante, coloranti, alimento colorante
@@ -969,7 +969,7 @@ et: Jahu parendaja
 fi: Jauhonparanne, Jauhoparannetta, Jauhonparanteet, Jauhonparanteita
 fr: Agent de traitement de la farine, agents de traitement de la farine, agent de traitement de farine, agent de blanchiment de la farine, agent de conditionnement des pâtes, agent de réhaussement des pâtes, améliorant de la farine
 ga: Oibreán plúrchóireála
-hr: tvar za tretiranje brašna, tvari za tretiranje brašna, tvar za rahljenje tijesta, sladilo za rahljenje
+hr: tvar za tretiranje brašna, tvari za tretiranje brašna, tvar za rahljenje tijesta, sladilo za rahljenje, sredstvo za tretiranje brašna
 hu: Lisztkezelő szer, lisztkezelőszer, lisztjavító szer, lisztjavítószer
 it: Agente di trattamento della farina, agenti di trattamento della farina, agente di trattamento delle farine
 lt: Miltų apdorojimo medžiaga
@@ -1307,7 +1307,7 @@ pl: substancja konserwująca, substancje konserwujące, środek konserwujący, k
 pt: Conservante, conservantes
 ro: Conservant, conservanți
 ru: Консервант, консерванты
-sk: Konzervačná látka
+sk: Konzervačná látka, konzervačne latky
 sl: Konzervans
 sv: Konserveringsmedel, Konservering
 description:en: Preservatives are substances which prolong the shelf-life of foods by protecting them against deterioration caused by micro-organisms and/or which protect against growth of pathogenic micro-organisms.
@@ -1484,7 +1484,7 @@ nb: Hevemiddel, Hevemidler
 nl: Rijsmiddel
 pl: Substancja spulchniająca, Substancje spulchniające, środki spulchniające
 pt: Levedante
-ro: Agent de afânare
+ro: Agent de afânare, agenti de afânare
 ru: Разрыхлитель, Разрыхлители
 sk: Kypriaca látka
 sl: Potisni plin
@@ -1592,7 +1592,7 @@ pt: Estabilizador, Estabilizadores, estabilizante
 ro: Stabilizator, stabilizatori
 ru: Стабилизатор, стабилизаторы
 sk: Stabilizátor
-sl: Vezivo
+sl: Stabilizator, Vezivo
 sv: Stabiliseringsmedel, Stabiliseringsämne, Stabilisator, Stabilisatorer, Stabilisering, Konsistensgivare, bindningsämnen
 #latest wikidata merge 2020-08-18 @aleene
 # ingredient/fr:liant has 52 products in 5 languages @2019-02-05
@@ -1657,7 +1657,7 @@ pt: Edulcorante
 ro: Îndulcitor
 ru: подсластитель, подсластители, заменитель сахара
 sk: Sladidlo
-sl: Stabilizator
+sl: sladila, sladilo, sladidlá
 sv: Sötningsmedel
 zh: 甜味劑
 #wikidata:en:Q4368298
@@ -1712,7 +1712,7 @@ pt: Espessante, espessantes
 ro: Agent de îngroșare, agenți de îngroșare
 ru: Загуститель
 sk: Zahusťovadlo
-sl: Sladilo, zgoščevalec
+sl: zgoščevalec
 sr: zgušnjavači
 sv: Förtjockningsmedel, naturlig förtjockningsmedel
 description:en: Thickeners are substances which increase the viscosity of a foodstuff.
@@ -1770,32 +1770,6 @@ sv: naturligt förtjockningsmedel
 en: enriching substances, enriching additives, enriching substance
 pl: substancje wzbogacające, substancja wzbogacająca
 
-en: Vitamins
-bg: Витамини
-cs: Vitaminy
-de: Vitamine
-el: Βιταμίνες
-es: Vitaminas
-et: Vitamiinid
-fi: Vitamiinit, Vitamiineja
-fr: Vitamines
-hr: vitamini, vitamins, vitamin complex, kompleks vitamina
-hu: Vitaminok
-it: Vitamine
-ja: ビタミン
-lt: Vitaminai
-lv: Vitamīni
-mt: Vitamini
-nl: Vitaminen
-pl: Witaminy, kompleks witamin, premiks witaminowy, kompleks witaminowy
-pt: Vitaminas
-ro: Vitamine
-ru: витамины
-sk: Vitamíny
-sl: Vitamini
-sv: Vitaminer
-#wikidata:en:
-
 en: Minerals
 bg: Минерали
 cs: Minerální látky
@@ -1824,12 +1798,6 @@ sl: Minerali
 sv: Mineraler
 #wikidata:en:
 
-< en:Minerals
-< en:Vitamins
-en: vitamin and mineral blend, vitamin and mineral mix
-it: vitamine e minerali misti
-ru: витаминно минеральный премикс, витаминный премикс
-
 en: Amino acids, amino acid
 bg: Аминокиселини
 cs: Aminokyseliny
@@ -1853,85 +1821,6 @@ sk: Aminokyseliny
 sl: Aminokisline
 sv: Aminosyror
 #wikidata:en:
-
-# description:en:L-tryptophan—pyruvate aminotransferase is an enzyme with systematic name L-tryptophan:pyruvate aminotransferase.
-
-< en:Amino acids
-en: L-tryptophan
-af: Triptofaan
-ar: تريبتوفان
-be: Трыптафан
-bg: Триптофан
-bn: ট্রিপ্টোফ্যান
-ca: triptòfan
-cs: L-tryptofan, tryptofan
-da: Tryptofan
-de: L-Tryptophan, Tryptophan
-el: Τρυπτοφάνη
-eo: triptofano
-es: L-Triptófano, Triptófano
-et: Trüptofaan
-eu: Triptofano
-fa: تریپتوفان
-fi: tryptofaani, l-tryptofaani
-fr: l-tryptophane, tryptophane
-gl: Triptófano
-he: טריפטופן
-hr: Triptofan
-hu: Triptofán
-hy: Տրիպտոֆան
-id: Triptofan
-it: L-triptofano, triptofano
-ja: トリプトファン
-jv: Triptofan
-ko: 트립토판
-ku: Trîptofan
-lb: Tryptophan
-lt: Triptofanas
-lv: triptofāns
-mk: Триптофан
-ms: Triptofan
-nb: Tryptofan
-nl: L-Tryptofaan, tryptofaan
-nn: L-tryptofan
-oc: Triptofan
-pl: L-tryptofan, tryptofan
-pt: Triptófano
-ro: Triptofan
-ru: триптофан
-sh: Triptofan
-sk: Tryptofán
-sl: Triptofan
-sr: триптофан
-sv: Tryptofan
-ta: டிரிப்டோபான்
-th: ทริปโตเฟน
-tr: Triptofan
-uk: Триптофан
-vi: Tryptophan
-zh: 色氨酸
-# azb:تریپتوفان
-# be-tarask:Трыптафан
-# de-ch:Tryptophan
-# en-ca:Tryptophan# en-gb:Tryptophan
-# ku-arab:تریپتۆفان
-# ku-latn:Trîptofan
-# nan:Tryptophan
-# pt-br:Triptófano
-# sco:tryptophan
-# sr-ec:триптофан
-# sr-el:Triptofan
-# yue:色氨酸
-# zh-cn:色氨酸
-# zh-hans:色氨酸
-# zh-hant:色氨酸
-# zh-hk:色胺酸
-# zh-sg:色氨酸
-# zh-tw:色胺酸
-wikidata:en: Q181003
-wikipedia:en: https://en.wikipedia.org/wiki/L-tryptophan—pyruvate_aminotransferase
-# amino-acid/l-tryptophan has 79 products @2019-03-16
-# ingredient/fr:l-tryptophane has 61 products in 4 languages @2019-03-16
 
 en: Nucleotides
 bg: Нуклеотиди
@@ -2083,4 +1972,3 @@ hr: aditiv, funkcionalno svojstvo
 
 # roughly translates to "complex food supplement"
 ru: комплексная пищевая добавка
-

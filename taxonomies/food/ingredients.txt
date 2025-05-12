@@ -381,7 +381,7 @@ nl: Caroteen
 nn: Karoten
 no: Karoten
 pl: Karoteny
-pt: Caroteno
+pt: Caroteno, carotenos
 ro: Caroten
 ru: Каротин, краситель-каротин
 sco: Carotene
@@ -502,7 +502,7 @@ ru: соевый лецитин, лецитин соевый, эмульгато
 sk: sójový lecitin
 sl: sojin lecitin
 sr: sojin lecitin
-sv: sojalecitin, sojalecitiner, sojalecithin, sojabönslecitin, emulgerings medel sojalecitin
+sv: sojalecitin, sojalecitiner, sojalecithin, sojabönslecitin, emulgerings medel sojalecitin, soja lecitin
 tr: soya lesitini
 uk: Соєвий лецитин
 zh: 大豆卵磷脂
@@ -551,6 +551,7 @@ pt: lecitina de girassol
 ro: lecitina de florarea-soarelui, lecitine din floarea soarelui
 ru: лецитин подсолнечный
 sk: slnečnicový lecitín
+sl: sončnični lecitin
 sv: solroslecitin, solroslecithin, solroslecitiner, solros lecitin
 # fr:lécithine-de-tournesol has 5218 products in 20 languages @2018-11-10
 vegan:en: yes
@@ -1197,7 +1198,8 @@ de: Tempeh-Kultur
 it: coltura di tempeh
 
 < en:lactic ferments
-en: yogurt cultures
+en: yogurt culture
+cs: jogurtové kultury
 es: fermentos del yogur
 fr: cultures de yaourt
 hr: jogurtna kultura, jogurtne kulture, jogurtna baza
@@ -1856,6 +1858,7 @@ it: caglio microbico, caglio microbiologico
 nb: mikrobiell løpe
 nl: microbieel stremsel, microbieel stremmiddel
 pl: podpuszczka mikrobiologiczna
+pt: coalho microbiano
 ro: cheag microbian
 sv: mikrobiell ostlöpe, ystenzym, mikrobiellt ystenzym, mikrobiellt löpe, mikrobiellt
 # ingredient/microbial-rennet has 537 products in 12 languages @2019-07-08
@@ -5432,6 +5435,7 @@ nn: Kremfløyte
 pl: Śmietanka
 pt: nata, creme de leite, natas
 qu: Nata
+ro: smântâna
 ru: Сливки
 sh: Krem
 sk: Smotana
@@ -9601,791 +9605,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/American_cheese
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
-#                                                  V I T A M I N S     S E C T I O N
-#
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-# description:en: A vitamin is an organic molecule (or related set of molecules) which is an essential micronutrient that an organism needs in small quantities for the proper functioning of its metabolism. This ingredient is written in plural
-
-en: Vitamins, vitamin, vit.
-af: Vitamien, vit.
-ar: فيتامين
-as: ভিটামিন
-az: Vitaminlər, vit.
-ba: Витаминдар
-be: Вітаміны, Вітамін
-bg: Витамини, Витамин, vitamins, vit.
-bn: ভিটামিন
-bs: Vitamini, Vitamin, vit.
-ca: vitamina, vitamines, vit.
-cs: Vitaminy, vitamín, vit.
-cv: Витамин
-cy: Fitaminau, Fitamin
-da: Vitaminer, Vitamin, vit.
-de: Vitamine, Vitamin, Vitaminmischung, vit.
-dv: ވިޓަމިން
-el: Βιταμίνες, Βιταμίνη
-eo: vitamino
-es: Vitaminas, vitamina, vit.
-et: Vitamiin, Vitamiinid, vit.
-eu: Bitamina
-fa: ویتامین
-fi: Vitamiinit, vitamiini, vit.
-fo: Vitamin
-fr: Vitamines, vitamine, mélange de vitamines, vit.
-ga: Vitimín, vit.
-gl: Vitamina, vit.
-he: ויטמין
-hi: विटामिन
-hr: vitamin, vitamini, vitaminska mješavina, vit.
-ht: Vitamin, vit.
-hu: Vitaminok, vitamin, vit.
-hy: Վիտամին
-ia: Vitamina, vit.
-id: Vitamin, vit.
-is: Vítamín, vit.
-it: Vitamine, vit.
-ja: ビタミン
-jv: Vitamin, vit.
-ka: ვიტამინი
-kk: Дәрумен
-km: វីតាមីន
-kn: ಜೀವಸತ್ವಗಳು
-ko: 비타민
-ky: Витаминдер
-la: Vitaminum, vit.
-lb: Vitamin, vit.
-lg: Vitamin, vit.
-lo: ວິຕາມິນ
-lt: Vitaminai, Vitaminas, vit.
-lv: Vitamīni, vit.
-mk: Витамин
-ml: ജീവകം
-mr: जीवनसत्त्व
-ms: Vitamin, vit.
-mt: Vitamini, vit.
-my: ဗီတာမင်
-nb: Vitaminer, vitamin, vit.
-ne: भिटामिन
-nl: Vitamines, vitaminen, Vitamine, vit.
-nn: Vitaminer, vitamin, vit.
-no: vitaminer, vitamin, vit.
-nv: Vitamine, vit.
-oc: Vitamina, vit.
-or: ଜୀବସାର
-pa: ਵਿਟਾਮਿਨ
-pl: Witamina, Witaminy
-ps: ويټامين
-pt: Vitaminas, vitamina, Premezcla de Vitaminas, vit.
-ro: Vitamine, Vitamină, vit.
-ru: витамин
-sh: Vitamini, Vitamin, vit.
-si: විටමින්
-sk: Vitamíny, vitamín, vit.
-sl: Vitamini, Vitamin, vit.
-so: Fiitamiin
-sq: Vitamina, Vitaminat, vit.
-sr: Витамини, витамин
-su: Vitamin, vit.
-sv: Vitaminer, Vitamin, vit.
-sw: Vitamini, vit.
-ta: உயிர்ச்சத்து
-te: విటమిన్
-tg: Витамин
-th: วิตามิน
-tk: Witamin
-tl: Bitamina
-tr: Vitamin, vit.
-tt: Витамин
-uk: Вітаміни
-ur: حیاتین
-uz: Vitaminlar, vit.
-vi: vitamin, vit.
-wa: Vitamene, vit.
-yi: וויטאמין
-yo: Àmínìamáralókun
-zh: 维生素
-vegan:en: yes
-vegetarian:en: yes
-# ast:Vitamina
-# be-tarask:Вітаміны
-# cdo:Mì-sĕng-só
-# ckb:ڤیتامین
-# de-ch:Vitamin
-# dty:भिटामिन
-# en-ca:Vitamin
-# en-gb:Vitamin
-# frr:Vitamiin
-# hak:Ví-ta-mìn
-# kaa:Vitamin
-# koi:витамин
-# lmo:Vitamina
-# nan:Bî-tá-mín
-# pnb:ਵਿਟਾਮਿਨ
-# pt-br:vitamina
-# rue:Витамин
-# scn:Vitamini, Vitamina
-# sco:vitamin
-# sr-ec:Витамини, витамин
-# sr-el:vitamin
-# tyv:Витаминнер
-# war:Bitamina
-# xmf:ვიტამინეფი
-# yue:維他命
-#wikidata:en:Q34956
-wikipedia:en: https://en.wikipedia.org/wiki/Vitamin
-
-
-# description:en:Vitamin A is a group of unsaturated nutritional organic compounds that includes retinol, retinal, retinoic acid
-# and several provitamin A carotenoids (most notably beta-carotene).
-
-< en:vitamins
-en: vitamin A
-af: Vitamien A
-ar: فيتامين ألف
-az: A vitamini
-bg: витамин А, vitamin A
-bs: Vitamin A
-ca: Vitamina A, Vitamina A (Retinol)
-cs: vitamín A
-cy: Fitamin A
-da: Vitamin A
-de: Vitamin A, Vitamin A (Retinol)
-dv: ވިޓަމިން އޭ
-eo: Vitamino A
-es: vitamina A, Vitamina A (Retinol)
-et: A-vitamiin
-eu: A bitamina
-fa: ویتامین آ
-fi: A-vitamiini
-fo: A vitamin
-fr: vitamine A, Vitamine A (rétinol)
-gl: Vitamina A
-he: A ויטמין
-hi: विटामिन ए
-hr: vitamin A
-hu: A-vitamin
-id: Vitamin A
-is: A-vítamín
-it: vitamina A, Vitamina A (Retinolo)
-ja: ビタミンA
-jv: Vitamin A
-ka: ვიტამინი A
-kn: ಎ ಜೀವಸತ್ವ
-ko: 비타민 A
-lt: Vitaminas A
-lv: A vitamīns
-mk: Витамин А
-ml: ജീവകം എ
-mn: Витамин А
-mr: अ-जीवनसत्त्व
-ms: Vitamin A
-nb: Vitamin A
-ne: भिटामिन ए
-nl: vitamine A
-nn: vitamin A, A-vitamin
-oc: Vitamina A
-or: ଜୀବସାର କ
-pa: ਵਿਟਾਮਿਨ ਏ
-pl: witamina A
-ps: ويټامين اې
-pt: vitamina A
-ro: vitamine A
-ru: витамин А
-rw: Vitamini A
-sh: Vitamin A
-si: විටමින් A
-sl: Vitamin A
-sq: Vitamina A
-sr: vitamin A
-sv: vitamin A
-sw: Vitamini A
-ta: உயிர்ச்சத்து ஏ
-te: విటమిన్ ఎ
-th: วิตามินเอ
-tr: A vitamini
-tt: А витамины
-ug: ۋىتامىن A
-uk: Вітамін A
-ur: ریئٹنول
-vi: Vitamin A
-zh: 維生素A
-# ast:Vitamina A
-# en-ca:Vitamin A
-# en-gb:Vitamin A
-# jbo:abumoi mivytcuxu'i
-# kk-cyrl:А витамині
-# kk-kz:А витамині
-# lfn:Vitamina A
-# pt-br:Vitamin A
-# scn:Vitamina A
-# sco:Vitamin A
-# sr-ec:витамин А
-# sr-el:vitamin A
-# tyv:А витамины
-# wuu:维生素A
-# zh-hans:维生素A
-# zh-hant:維生素A
-wikidata:en: Q18225
-wikipedia:en: https://en.wikipedia.org/wiki/Vitamin_A
-# vitamin/vitamin-a has 1768 products in 17 languages @2018-11-20
-
-
-
-
-
-
-
-
-
-# description:en:Riboflavin, also known as vitamin B2, is a vitamin found in food and used as a dietary supplement.
-
-< en:vitamins
-en: Riboflavin, vitamin b2, E101, B2
-af: Riboflavien
-ar: فيتامين ب2
-be: Рыбафлавін
-bg: Рибофлавин, Витамин B2
-bn: রিবোফ্লেবিন
-bs: Vitamin B2
-ca: riboflavina, Vitamina B2
-cs: riboflavin, vitamín B2
-cy: Ribofflafin, Fitamin B2
-da: Riboflavin, Vitamin B2
-de: Riboflavin, Vitamin B2
-dv: ވިޓަމިން ބީ2
-el: ριβοφλαβίνη, βιταμίνη Β2
-eo: riboflavino, vitamino B2
-es: riboflavina, vitamina b2
-et: Riboflaviin, Vitamiin B2
-eu: B2 bitamina
-fa: ویتامین ب۲
-fi: Riboflaviini
-fo: Riboflavin, Vitamin B2
-fr: riboflavine, vitamine b2, B2
-ga: Ribeaflaivin
-gl: Riboflavina, Vitamina B2
-he: ויטמין B2
-hi: रिबोफ्लेविन, विटामिन बी२
-hr: riboflavin, Vitamin B2, B2
-hu: Riboflavin, B2-vitamin
-hy: Վիտամին B2
-id: Riboflavin, Vitamin B2
-it: riboflavina, vitamina B2
-ja: リボフラビン, ビタミンB2
-kk: Рибофлавин
-ko: 리보플래빈, 바이타민 B2
-ky: Рибофлавин, Витамин В2
-lb: Riboflavin, Vitamin B2
-lt: Riboflavinas
-lv: Riboflavīns, B2 vitamīns
-mk: Рибофлавин
-ml: റൈബോഫ്ലേവിൻ
-ms: Riboflavin, Vitamin B2
-mt: Riboflavina
-nb: Riboflavin
-ne: भिटामिन बी-२
-nl: Riboflavine, vitamine B2
-nn: riboflavin, vitamin B2
-oc: Riboflavina, Vitamina B2
-or: ରାଇବୋଫ୍ଲାଭିନ, ଜୀବସାର ଖ୨
-pl: Ryboflawina, ryboflawiny, Witamina B2
-pt: riboflavina, vitamina B2
-ro: Riboflavină, Vitamina B2
-ru: рибофлавин, Витамин B2
-rw: Vitamini B2
-sh: Vitamin B2
-sk: Riboflavín, Vitamín B2
-sl: Riboflavin, Vitamin B2
-sr: riboflavin, vitamin B2
-su: Riboflavin
-sv: Riboflavin, Vitamin B2, B2
-ta: ரிபோஃபிளாவின்
-th: ไรโบเฟลวิน
-tr: Riboflavin, B2 vitamini
-uk: Рибофлавін, Вітамін B2
-uz: Riboflavin
-vi: Riboflavin
-wa: Riboflavene, Vitamene B2
-zh: 核黄素
-vegan:en: maybe
-# ingredient/vitamin-b2 has 4263 products in 10 languages @2018-11-23
-vegetarian:en: yes
-# ast:Vitamina B2
-# be-tarask:Рыбафлявін
-# de-ch:Riboflavin
-# en-ca:Riboflavin
-# en-gb:Riboflavin
-# pt-br:riboflavina
-# sco:Riboflavin
-# sr-ec:витамин Б2
-# sr-el:riboflavin, vitamin B2
-# tyv:Витамин В2
-# zh-cn:核黄素
-# zh-hans:核黄素
-# zh-hant:核黄素
-# zh-hk:核黄素
-# zh-sg:核黄素
-# zh-tw:核黄素
-wikidata:en: Q130365
-wikipedia:en: https://en.wikipedia.org/wiki/Riboflavin
-
-
-# description:en:Niacin, also known as nicotinic acid, is an organic compound and a form of vitamin B3, an essential human nutrient.
-
-< en:vitamins
-en: niacin, vitamin b3, vitamin PP, E375, B3, PP
-af: Niasien
-ar: نياسين
-be: Нікацінавая кіслата
-bg: Никотинова киселина, Витамин B3, Витамин PP
-bs: Vitamin B3
-ca: niacina, Vitamina B3, Vitamina PP
-cs: niacin, vitamín B3, vitamín PP
-cy: Niacin, Fitamin B3
-da: Niacin
-de: Niacin, Vitamin B3
-dv: ވިޓަމިން ބީ3
-eo: niacino, vitamino B3
-es: niacina, Vitamina B3, vitamina PP
-et: Niatsiin, Vitamiin B3
-eu: Niazina, B3 bitamina
-fa: ویتامین ب۳
-fi: Niasiini, B3-vitamiini
-fo: Niacin
-fr: niacine, vitamine b3, Vitamine PP
-ga: Aigéad nicitíneach
-gl: Niacina, Vitamina B3
-he: ויטמין B3
-hi: नाइयासिन
-hr: niacin, Vitamin B3, B3
-hu: Niacin, B3-vitamin, PP-vitamin, B3
-hy: Վիտամին B3
-id: Niasin, Vitamin B3
-it: niacina, vitamina PP
-ja: ナイアシン, ビタミンB3, ビタミンPP
-nl: Niacine, Vitamine B3, Vitamine PP
-pl: witamina b3, niacyna
-ru: Ниацин, витамин B3, витамин PP, E375, B3, никотиновая кислота
-sv: vitamin B3, B3
-# ast:Vitamina B3
-# azb:ویتامین ب۳
-# en-ca:Niacin
-# en-gb:Niacin
-wikidata:en: Q134658
-wikipedia:en: https://en.wikipedia.org/wiki/Niacin
-# ingredient/vitamin-b3 has 744 products in 8 languages @2018-11-23
-
-
-# description:en:Nicotinamide (NAM), also known as niacinamide, is a form of vitamin B3 found in food and used as a dietary supplement and medication.
-
-
-< en:vitamin B3
-en: Nicotinamide, niacinamide
-ar: نيكوتيناميد
-bg: никотинамид
-ca: niacinamida
-cs: Nikotinamid
-cy: nicotinamid
-de: Nicotinamid
-el: νικοτιναμίδη
-eo: nikotinamido
-fi: nikotiiniamidi, niasiiniamidi
-fr: nicotinamide, niacinamide
-hi: निकोटिनामाइड
-hr: nikotinamid
-hu: Nikotinamid
-hy: Նիկոտինամիդ
-id: Nikotinamida
-it: Nicotinamide
-ja: ニコチンアミド
-ko: 니코틴아마이드
-lv: nikotīnamīds
-nl: Nicotinamide
-or: ନିକୋଟିନାମାଇଡ଼
-pl: nikotynoamid
-pt: nicotinamida
-ru: Никотинамид
-sh: Nikotinamid
-sr: никотинамид
-tr: Nikotinamid
-uk: Нікотинамід
-vi: Nicotinamide
-zh: 烟酰胺
-# sr-ec:Никотинамид
-# sr-el:Nikotinamid
-# zh-cn:烟酰胺
-# zh-hans:烟酰胺
-# zh-hant:煙醯胺
-# zh-hk:菸鹼醯胺
-# zh-sg:烟酰胺
-# zh-tw:菸鹼醯胺
-wikidata:en: Q192423
-wikipedia:en: https://en.wikipedia.org/wiki/Nicotinamide
-# ingredient/fr:nicotinamide has 172 products in 2 languages @2019-01-16
-
-
-# description:en:Pantothenic acid, also called vitamin B5 (a B vitamin), is a water-soluble vitamin.
-< en:vitamins
-en: Pantothenic acid, vitamin B5, B5
-ar: فيتامين بي5
-bg: Пантотенова киселина, витамин B5, B5
-bs: Vitamin B5
-ca: àcid pantotènic, vitamina B5, B5
-cs: kyselina pantothenová, vitamín B5, B5
-cy: Asid pantothenig, Fitamin B5, B5
-de: Pantothensäure, Vitamin B5, B5
-dv: ވިޓަމިން ބީ5
-eo: Pantotena acido
-es: ácido pantoténico, Vitamina B5, B5
-et: Pantoteenhape, Vitamiin B5, B5
-eu: Azido pantoteniko, B5 bitamina
-fa: ویتامین ب۵
-fi: Pantoteenihappo, B5-vitamiini, B5
-fr: acide pantothénique, Vitamine B5, B5
-ga: Aigéad pantaitéineach
-gl: Ácido pantoténico, Vitamina B5
-he: ויטמין B5
-hi: विटामिन बी५
-hr: pantotenska kiselina, Vitamin B5, B5
-hu: pantoténsav, B5, B5-vitamin
-hy: Պանտոտենաթթու
-id: Asam pantotenat, Vitamin B5
-it: acido pantotenico, Vitamina B5, B5
-ja: パントテン酸, ビタミンB5
-kk: Пантотен қышқылы
-ko: 판토텐산
-ky: Пантотен кычкылы
-lb: Pantothensaier, Vitamin B5
-lt: Pantoteno rūgštis, B5
-lv: pantotēnskābe, B5 vitamīns, B5
-mk: Пантотенска киселина
-ml: പാന്റോത്തിനിക് ആസിഡ്
-mn: Пантотений хүчил
-ms: Asid pantotenik
-nb: pantotensyre
-nl: pantoteenzuur, Pantotheenzuur, B5
-oc: Acid pantotenic, Vitamina B5
-pl: kwas pantotenomy, Witamina B5, B5
-pt: ácido pantoténico, Vitamina b5, B5
-ro: acid pantotenic, vitamina B5, B5
-ru: пантотеновая кислота, Витамин B5, B5
-sh: Vitamin B5
-sk: Kyselina pantoténová, Vitamín B5, B5
-sl: Pantonenska kislina
-sr: Пантотенска киселина, витамин Б5
-sv: pantotensyra, Vitamin B5, B5
-ta: பான்டோதெனிக் அமிலம், உயிர்ச்சத்து பி5
-th: กรดแพนโทเทนิก, วิตามินบี5
-tr: Pantotenik asit, Vitamin B5
-uk: Пантотенова кислота, Вітамін В5
-ur: پینٹوتھینک تیزاب
-vi: Axit pantothenic
-zh: 泛酸
-# azb:پانتوتنیک اسید
-# sco:pantothenic acid
-# sr-ec:Пантотенска киселина, витамин Б5
-# sr-el:Vitamin B5
-# zh-cn:泛酸
-# zh-hans:泛酸
-# zh-hant:泛酸
-# zh-hk:泛酸
-# zh-sg:泛酸
-# zh-tw:泛酸
-wikidata:en: Q179894
-wikipedia:en: https://en.wikipedia.org/wiki/Pantothenic_acid
-# vitamin/pantothenic-acid has 1373 products in 12 languages @2018-11-19
-# fr:acide-pantothénique has 900 products in 9 languages @2018-11-19
-
-
-# description:en:Another common supplemental form of the vitamin is CALCIUM PANTOTHENATE. Calcium pantothenate is often used in dietary supplements because, as a salt, it is more stable than pantothenic acid.
-
-< en:Pantothenic acid
-en: calcium pantothenate
-de: Calcium-Pantothenat
-es: pantotenato de calcio
-fi: kalsiumpantotenaatti, kalsium-d-pantotenaatti
-fr: pantothénate de calcium
-hr: kalcijev pantotenat
-hu: kalcium-pantotenát
-it: pantotenato di calcio
-ja: パントテン酸カルシウム, パントテン酸Ca
-nl: calcium pantothenaat
-nn: kalsiumpantotenat
-wikidata:en: Q27261387
-wikipedia:en: https://en.wikipedia.org/wiki/Pantothenic_acid
-# ingredient/fr:pantothénate-de-calcium has 109 products in 4 languages @2019-04-21
-
-
-# description:en:Vitamin B6 refers to a group of chemically similar compounds which can be interconverted in biological systems.
-# Should this be split up in several chemical compounds?
-
-< en:vitamins
-en: vitamin b6, pyridoxamine, B6
-ar: فيتامين بي6
-az: Piridoksalfosfat
-bg: Витамин B6
-bn: পাইরিডক্সিন
-bs: Vitamin B6
-ca: vitamina B6, piridoxina, B6
-cs: vitamín B6
-da: Vitamin B6
-de: Vitamin B6
-dv: ވިޓަމިން ބީ6
-eo: vitamino B6
-es: vitamina b6, piridoxina, B6
-et: Vitamiin B6
-eu: B6 bitamina
-fa: ویتامین ب۶
-fi: B6-vitamiini, B6, pyridoksamiini
-fr: vitamine b6, B6
-fy: Fitamine B6
-gl: Vitamina B6
-gu: વિટામિન બી૬
-he: B6 ויטמין
-hi: विटामिन बी६
-hr: vitamin B6, B6
-hu: B6-vitamin, Piridoxamin, B6
-hy: Վիտամին B6
-id: Vitamin B6
-it: vitamina B6
-ja: ビタミンB6
-jv: Vitamin B6
-ko: 비타민 B6
-ky: Витамин В6
-lv: B6 vitamīns
-mk: Витамин Б6
-mn: B6 витамин
-ms: Vitamin B6
-my: ဗီတာမင်ဘီ-၆
-ne: भिटामिन बी-६
-nl: vitamine B6
-oc: Vitamina B6
-pl: witamina B6
-pt: vitamina B6, piridoxina
-ro: Vitamina B6
-ru: Витамин B6
-rw: Vitamini B6
-sh: Vitamin B6
-sk: vitamín B6
-sl: Vitamin B6
-sr: vitamin B6
-sv: vitamin B6, B6
-ta: உயிர்ச்சத்து பி6
-th: วิตามินบี6
-uk: Вітамін B6
-uz: Piridoksin
-vi: Vitamin B6
-zh: 维生素B6
-# ast:Vitamina B6
-# en-ca:Vitamin B6
-# en-gb:Vitamin B6
-# pt-br:Vitamina B6
-# sco:Vitamin B6
-# sr-ec:Витамин Б6
-# sr-el:vitamin B6
-# tyv:Витамин Б6
-# zh-cn:维生素B6
-# zh-hans:维生素B6
-# zh-hant:维生素B6
-# zh-hk:维生素B6
-# zh-sg:维生素B6
-# sh-tw:维生素B6
-wikidata:en: Q205130
-wikipedia:en: https://en.wikipedia.org/wiki/Vitamin_B6
-# ingredient/vitamin-b6 has 2556 products in 12 languages  @2018-11-24
-
-< en:vitamin B6
-en: pyridoxine hydrochloride
-bg: пиридоксин хидрохлорид
-de: Pyridoxinhydrochlorid
-es: clorhidrato de piridoxina
-fi: pyridoksiinihydrokloridi
-fr: chlorhydrate de pyridoxine
-hr: piridoksin-hidroklorid, piridoksinhidrohlorid
-hu: Piridoxamin-hidroklorid
-nl: pyridoxine hydrochloride
-pt: cloridrato de piridoxina
-ru: пиридоксин гидрохлорид
-sr: piridoksin-hidrohlorid
-# sr-el:piridoksin-hidrohlorid
-wikidata:en: Q26841284
-# ingredient/pyridoxine-hydrochloride has 1751 products in 5 languages @2018-11-24
-
-
-# description:en:Biotin is a water-soluble B vitamin, also called vitamin B7 and formerly known as vitamin H or coenzyme R.
-
-< en:vitamins
-en: biotin, Vitamin H, Vitamin B7, B7
-ar: بيوتين
-be: біятын
-bg: биотин
-bs: Biotin
-ca: biotina, vitamina B7, Vitamina H, B7
-cs: Biotin, vitamin B7, vitamin H
-cy: Biotin
-da: Biotin
-de: Biotin, Vitamin B7, Vitamin H
-dv: ވިޓަމިން ބީ7
-el: βιοτίνη
-eo: biotino
-es: Biotina, Vitamina B7, Vitamina H, B7, D-biotina
-et: Biotiin, B7-vitamiin, H-vitamiin
-eu: Biotina, B7 bitamina
-fa: بیوتین
-fi: biotiini, B7-vitamiini, B7, H-vitamiini, D-biotiini
-fr: vitamine B7, vitamine H
-ga: Bitin
-gl: Biotina, Vitamina B7
-he: ביוטין
-hi: बायोटिन
-hr: biotin, Vitamin B7, Vitamin H, biotine
-hu: Biotin, B7-vitamin, H-vitamin, B7
-hy: Վիտամին H
-id: Biotin, Vitamin B7, Vitamin H
-it: Biotina, Vitamina B7, Vitamina H
-ja: ビオチン, ビタミンB7, ビタミンH
-kk: Биотин
-ko: 바이오틴, 비타민 B7, 비타민 H
-ky: Биотин
-lb: Biotin, Vitamin B7, Vitamin H
-lt: Biotinas, Vitaminas B7, Vitaminas H
-lv: biotīns
-mk: Биотин
-ml: ബയോട്ടിൻ
-nb: Biotin
-nl: biotine, Vitamine B7, Vitamine H
-nn: biotin
-oc: Biotina, Vitamina B7, Vitamina H
-pl: biotyna, witamina B7, witamina H
-pt: biotina, Vitamina B7, Vitamina H
-ro: Biotină, Vitamina B7, Vitamina H
-ru: биотин, Витамин B7, Витамин H
-sh: Biotin, Vitamin B7, Vitamin H
-sk: Biotín, Vitamín B7, Vitamín H
-sl: Biotin, Vitamin B7, Vitamin H
-sr: Биотин, витамин Х, Витамин Б7
-su: Biotin
-sv: Biotin, B7-vitamin, H-vitamin
-ta: பயோட்டின், உயிர்ச்சத்து பி7
-th: ไบโอติน, ตามินบี7
-tr: Biyotin, B7 vitamini, H vitamini
-uk: Біотин
-vi: Biotin
-zh: 生物素
-# azb:بیوتین
-# sco:biotin
-# sr-ec:Биотин, витамин Х, Витамин Б7
-# sr-el:Vitamin H
-# zh-cn:生物素
-# zh-hans:生物素
-# zh-hant:生物素
-# zh-hk:生物素
-# zh-sg:生物素
-# zh-tw:生物素
-wikidata:en: Q181354
-wikipedia:en: https://en.wikipedia.org/wiki/Biotin
-# ingredient/biotin has 145 products in 3 languages @2018-11-24
-
-< en:vitamins
-en: vitamin b8, B8
-ca: vitamina B8, B8
-de: Vitamin B8
-es: vitamina b8 B8
-fi: B8-vitamiini, B8
-fr: vitamine b8, b8
-hr: vitamin b8
-hu: B8-vitamin, B8
-it: vitamina b8, B8
-pl: witamina B8, B8
-pt: Vitamina B8
-# ingredient/vitamin-b8 has 35 products in 3 languages @2018-11-24
-
-
-
-
-
-
-
-# description:en:Vitamin K is a group of structurally similar, fat-soluble vitamins that the human body requires
-# for complete synthesis of certain proteins that are prerequisites for blood coagulation
-# and which the body also needs for controlling binding of calcium in bones and other tissues.
-
-< en:vitamins
-en: vitamin K
-af: Vitamien K
-ar: فيتامين ك
-az: K vitamini
-bg: Витамин K
-bs: Vitamin K
-ca: Vitamina K
-cs: vitamín K
-da: Vitamin K
-de: Vitamin K
-dv: ވިޓަމިން ކޭ
-es: Vitamina K
-eu: K bitamina
-fa: ویتامین کا
-fi: K-vitamiini, K-vitamiinit
-fr: vitamine K
-gl: Vitamina K
-he: ויטמין K
-hi: विटामिन के
-hr: vitamin K
-hu: K-vitamin
-hy: Վիտամին K
-id: Vitamin K
-is: K-vítamín
-it: vitamina K
-ja: ビタミンK
-jv: Vitamin K
-ka: ვიტამინი K
-ko: 비타민 K
-ky: Витамин К
-lt: Vitaminas K
-lv: K vitamīns
-ml: ജീവകം കെ
-mr: के-जीवनसत्त्व
-ms: Vitamin K
-my: ဗီတာမင်ကေ
-nb: Vitamin K
-ne: भिटामिन के
-nl: vitamine K
-nn: Vitamin K
-oc: Vitamina K
-pl: Witamina K
-pt: vitamina K
-ro: Vitamina K
-ru: Витамин K
-sh: Vitamin K
-sl: Vitamin K
-sr: витамин К
-su: Vitamin K
-sv: K-vitamin
-ta: உயிர்ச்சத்து கே
-th: วิตามินเค
-tr: K vitamini
-uk: Вітамін K
-vi: Vitamin K
-zh: 维生素K
-# ast:Vitamina K
-# nan:Bî-tá-mín K
-# sco:Vitamin K
-# sr-ec:витамин К
-# sr-el:vitamin K
-# tyv:Витамин К
-# zh-cn:维生素K
-# zh-hans:维生素K
-# zh-hant:维生素K
-# zh-hk:维生素K
-# zh-sg:维生素K
-# zh-tw:维生素K
-wikidata:en: Q182338
-wikipedia:en: https://en.wikipedia.org/wiki/Vitamin_K
-# ingredient/vitamin-k has 85 products in 4 languages @2018-11-25
-
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-#
 #                                                  S A L T     S E C T I O N
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -10731,6 +9950,7 @@ ro: Sare de mare
 ru: Морская соль, Соль морская
 sd: سامونڊي لوڻ
 sk: morská soľ
+sl: morska sol
 sv: Havssalt
 th: เกลือสมุทร
 tr: deniz tuzu
@@ -15205,7 +14425,7 @@ fa: نشاسته ذرت
 fi: maissitärkkelys
 fr: amidon de maïs, amidon de mais, fécule de mais
 he: עמילן תירס
-hr: kukuruzni škrob
+hr: kukuruzni škrob, kukuruz škrob
 hu: kukoricakeményítő
 id: tepung jagung
 is: maíssterkja
@@ -15221,10 +14441,11 @@ nl: maïszetmeel, maiszetmeel, maïzena
 no: maisstivelse
 pl: skrobia kukurydziana, skrobia z kukurydzy
 pt: amido de milho
-ro: amidon de porumb
+ro: amidon de porumb, amidon din porumb
+rs: kukuruzni škrob
 ru: кукурузный крахмал, крахмал кукурузный
 sk: kukuričný škrob
-sl: koruzni škrob
+sl: koruzni škrob, koruza škrob
 sr: kukuruzni skrob
 sv: stärkelse av majs, majsstärkelse
 th: แป้งข้าวโพด
@@ -15402,7 +14623,7 @@ et: nisutärklis
 fi: vehnätärkkelys, vehnätärkkelystä
 fr: amidon de froment, amidon de blé
 he: עמילן חיטה
-hr: pšenični škrob
+hr: pšenični škrob, pšenica škrob
 hu: búzakeményítő
 it: amido di frumento
 nb: hvetestivelse
@@ -15410,8 +14631,9 @@ nl: tarwezetmeel, tarwe zetmeel
 pl: Skrobia pszenna
 pt: amido de trigo
 ro: amidon din grâu
+rs: pšenicni škrob
 ru: Пшеничный крахмал, крахмал-пшеничный
-se: pšenični skrob
+se: pšenični škrob, pšenični skrob, pšenica škrob
 sv: vetestärkelse
 allergens:en: en:gluten
 
@@ -15471,6 +14693,7 @@ vegetarian:en: yes
 en: rice starch
 bg: оризово нишесте
 cs: Rýžová škrob
+da: risstivelse
 de: Reisstärke
 es: almidon de arroz, amido de arroz
 fi: riisitärkkelys
@@ -15522,6 +14745,7 @@ bg: грахово нишесте
 da: Ærtestivelse
 de: Erbsenstärke
 el: Άμυλο μπιζελιού
+es: almidon de guisante
 et: Herne tärklis
 fi: hernetärkkelys
 fr: Amidon de pois
@@ -16294,7 +15518,7 @@ be: Алеі
 bg: Растително масло, растителни масла, растително олио, растителни масла и олио
 bs: biljno ulje
 ca: Oli vegetal
-cs: Rostlinný olej
+cs: Rostlinný olej, rostlinné oleje
 da: vegetabilsk olie, vegetabilisk olie, vegetabilske olier
 de: Pflanzenöle, pflanzliche Öle, pflanzliches Öl, Pflanzenöl
 el: Φυτικό λάδι, φυτικά έλαια, έλαια από φυτά
@@ -16329,6 +15553,7 @@ pt: Óleo vegetal, óleos vegetais
 ro: Ulei vegetal, uleiuri vegetale
 ru: Растительные масла, масла растительные, масла растительные рафинированные дезодорированные, масло растительное, растительное масло, рафинированные дезодорированные масла в натуральном и модифицированном виде, рафинированные дезодорированные растительные масла, рафинированные дезодорированные растительные масла в натуральном и модифицированном виде, рафинированные дезодорированные растительные масла в натуральном и отвержденном виде
 sh: Biljno ulje
+sl: Rastlinska olja
 sr: Биљно уље
 sv: vegetabilisk olja, vegetabiliska oljor
 th: น้ำมันพืช
@@ -16376,11 +15601,13 @@ lv: augu tauki
 nb: vegetabilsk fett, vegetabilskt fett
 nl: plantaardige vetten, plantaardig vet
 nn: vegetabilisk fett
+no: vegetabilst felt
 pl: tłuszcz roślinny, tłuszcze roślinne
 pt: gordura vegetal, gorduras vegetais, lípido vegetal, lípidos vegetais, matérias gordas vegetais
 ro: grăsime vegetală, grăsimi vegetale
 ru: растительные жиры, жир растительный, растительный-жир
 sk: rastlinný tuk
+sl: rastlinska maščoba
 sq: yndyrë bimore
 sv: vegetabiliska fetter, vegetabiliskt fett, vegetabilsk fett, vegetabilisk fett
 
@@ -16648,6 +15875,7 @@ ms: Minyak kelapa sawit
 nb: Palmeolje
 nl: palmolie, palm olie
 nn: Palmeolje
+no: palmeolje
 oc: Òli de palma
 pl: Olej palmowy, olej roślinny palmowy, oleje roślinne palmowy
 pt: óleo de palma, óleo de palmeira, óleo vegetal de palma
@@ -16803,6 +16031,7 @@ it: miscela di olio di palma e superoleina di palma
 
 < en:palm oil
 en: Palm stearin
+da: palme stearin
 de: Palmstearin
 fi: palmusteariini
 fr: Stéarine de palme
@@ -16810,6 +16039,9 @@ hr: palmin stearin
 hu: pálmasztearin
 it: Stearina di palma
 nl: Palmstearine
+no: palm stearin
+pl: stearyna palmowa
+sv: palmstearin
 description:en: Palm stearin is the solid fraction of palm oil.
 wikidata:en: Q7128109
 wikipedia:en: https://en.wikipedia.org/wiki/Palm_stearin
@@ -16843,6 +16075,7 @@ ro: grăsime de palmier, grăsime vegetală de palmier
 ru: Пальмовый жир
 se: palmina mast
 sk: palmový tuk
+sl: palmina rastlinska maščoba
 sr: palmina mast
 sv: palmfett
 # 9007 in 34 @2021-09-09
@@ -17168,7 +16401,7 @@ fr: huile de coco vierge biologique, huile vierge de noix de coco bio
 en: extra virgin coconut oil
 es: aceite de coco extra virgen
 fr: huile de coco extra vierge
-hr: ekstra djevičansko kokosovo ulje
+hr: ekstra djevičansko kokosovo ulje, ekstradjevičansko kokosovo ulje
 it: olio extravergine di cocco
 pl: olej kokosowy extra virgin
 
@@ -17224,6 +16457,7 @@ it: olio MCT
 en: coconut fat
 bg: кокосова мазнина, кокосова
 ca: greix de coco
+cs: kokosový tuk
 da: kokosfedt
 de: Kokosfett, Kokosnussfett
 es: Grasa de coco, grasa vegetal de coco
@@ -17238,6 +16472,7 @@ lv: kokosriekstu tauki
 nl: kokosvet
 pl: tłuszcz kokosowy, tłuszcz roślinny kokosowy, tłuszcze roślinne kokosowy
 pt: Gordura de coco, lípido de coco
+sl: kokosova maščoba
 sv: kokosfett
 ciqual_food_code:en: 16040
 ciqual_food_name:en: Coconut fat or oil
@@ -17497,7 +16732,7 @@ de: Natives Bio-Olivenöl Extra
 es: aceite de oliva extra virgen orgánico
 fi: luomu ekstra-neitsytoliiviöljy
 fr: huile d'olive vierge extra bio, huile d'olive vierge extra issue de l'agriculture biologique, huile d'olive vierge extra biologique
-hr: organsko ekstra djevičansko maslinovo ulje
+hr: organsko ekstra djevičansko maslinovo ulje, bio ekstra djevičansko maslinovo ulje
 hu: extra szűz bio olívaolaj, bio extra szűz olívaolaj
 it: Olio di oliva extra vergine biologico
 nl: biologische extra olijfolie van de eerste persing
@@ -17547,7 +16782,7 @@ az: Raps yağı
 be: Рапсавы алей
 bg: рапично масло
 ca: oli de nabina, oli vegetal de nabina
-cs: řepkový olej, olej řepkový
+cs: řepkový olej, řepkovy olej, olej řepkový, olej řepkovy
 da: rapsolie, rapsolje
 de: Rapsöl, Rapsol
 el: κραμβέλαιο
@@ -17588,6 +16823,7 @@ pt: óleo de colza
 ro: ulei de rapiță, ulei vegetal de rapiță, ulei de rapita
 ru: Рапсовое масло
 sk: repkový olej
+sl: repična, repično, repična rastlinska maščoba
 sq: Vaj repice
 sr: Уље репице
 sv: Rapsolja, rybsolja, Rapsfett, rypsolja
@@ -18702,6 +17938,7 @@ ecobalyse:en: 583d00ab-0340-444b-9581-71175f0a937b
 
 < en:sunflower oil
 en: high oleic sunflower
+da: solsikkeolie med højt fedtsyreindhold
 de: High-Oleic-Sonnenblumen, HO-Sonnenblumen
 es: girasol alto oleico
 fr: tournesol oléique
@@ -18718,7 +17955,7 @@ ca: oli refinat de gira-sol alt oleic, oli de gira-sol alt oleic, oli vegetal de
 de: High Oleic-Sonnenblumenöl, High-Oleic-Sonnenblumenöl, Sonnenblumenöl mit hohem Fettsäureanteil, Sonnenblumenöl hoch erhitzbar
 es: aceite de girasol alto oleico, aceite refinado de girasol alto oleico
 fr: huile de tournesol à haute teneur en acide oléique, huile de tournesol à teneur élevée en acide oléique, huile de tournesol oléique, huile de tournesol haut oléique
-hr: suncokretovo ulje s visokim udjelom oleinske kiseline, visokooleinsko suncokretovo ulje
+hr: suncokretovo ulje s visokim udjelom oleinske kiseline, visokooleinsko suncokretovo ulje, suncokretovo ulje s visokim sadržajem oleinske kiseline
 it: olio di girasole alto oleico
 nl: high oleic zonnebloemolie
 pt: óleo refinado de girassol alto oleíco
@@ -19403,13 +18640,14 @@ sv: vitvinsvinäger
 en: alcohol vinegar
 bg: алкохолен оцет
 ca: vinagre d'alcohol
+cs: ocet kvasný lihový
 da: lagereddike
 de: Alkoholessig
 es: vinagre de alcohol
 fr: vinaigre d’alcool
 hr: alkoholni ocat
 hu: alkoholecet
-it: aceto di alcool
+it: aceto di alcool, aceto d alcol
 nl: alcoholazijn
 pt: vinagre de álcool
 sv: ättiksprit
@@ -19715,6 +18953,7 @@ sv: rödvinsvinäger
 en: spirit vinegar
 cs: Ovocný ocet
 de: Branntweinessig
+el: ξύδι από οίνο
 fi: väkiviinaetikka
 fr: vinaigre d'eau-de-vie
 # hr:alkoholni ocat
@@ -21757,6 +20996,7 @@ it: birra
 nl: Bier
 pl: piwo
 ru: Пиво
+sl: pivo
 carbon_footprint_fr_foodges_ingredient:fr: Bière
 carbon_footprint_fr_foodges_value:fr: 2.7
 
@@ -21885,7 +21125,7 @@ pl: aromat, aromaty, aromat z, aromaty z
 pt: aromatizante, aroma, aromas
 ro: aromă, aroma, arome
 sk: aróma
-sl: arome
+sl: arome, aroma
 sv: arom, aromer, smakämnen, aromämne, aromämnen, aroma
 zh: 调味剂
 percent_max:en: 5
@@ -21934,10 +21174,10 @@ mk: природна арома
 nb: naturlig aroma
 nl: Natuurlijke smaakstoffen, natuurlijke smaak, natuurlijk aroma, natuurlijke aroma's
 pl: Naturalny aromat, naturalne aromaty, aromat naturalny, aromaty naturalne
-pt: aroma natural, aromas naturais
+pt: aroma natural, aromas naturais, sabores naturais
 ro: aromă naturală, aroma naturala, arome naturale
 ru: Натуральный ароматизатор, ароматизатор натуральный, натуральные ароматизаторы, ароматизаторы натуральные, натуральные вкусоароматические вещества
-sl: naravna aroma
+sl: naravna aroma, naravne arome
 sr: prirodne arome
 sv: naturlig arom, naturliga aromer, naturlig smakämne, naturliga smakämnen, naturligt smakämne, naturliga aromämnen
 zh: 天然调味剂
@@ -24256,15 +23496,18 @@ wikipedia:en: https://en.wikipedia.org/wiki/Smoking_(cooking)
 # ingredient/fr:fumée has 437 products in 12 languages @2019-04-14
 
 < en:smoke
-en: beech wood smoke
+en: beech wood smoke, beechwood smoke
+cs: kouř z bukového dřeva
 de: Buchenholzrauch, Buchenrauch
 es: Madera de haya ahumada
 fi: pyökkipuusavu, pyökistä valmistettu savuaromi
 fr: fumée de bois de hêtre, fumée naturelle au bois de hêtre
-hr: dim bukovine, dim drva bukve
+hr: dim bukovine, dim drva bukve, dim bukve
 hu: bükkfán füstölt, bükkfa füst
 it: fumo di faggio
 pl: dym z drewna bukowego
+ro: fum din lemn de fag
+sk: dym z bukového dreva
 sv: bokträrök
 # ingredient/fr:fumée-de-bois-de-hêtre has 211 products in 4 languages @2019-04-14
 
@@ -24893,7 +24136,7 @@ hu: teljes kiőrlésű búzapehely
 it: Fiocchi di grano interi
 lt: pilno grūdo kviečių dribsniai, pilno grūdo kvietiniai dribsniai, pilno grūdo kvietinės dribsniai, pilno grūdo kvietinis dribsniai
 nl: volkoren tarwevlokken
-pt: flocos de trigo integral
+pt: flocos de trigo integral, płatki pszenne pełnoziarniste
 sv: fullkornsveteflingor, fullkorn veteflinga
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pétales-de-blé-complet
 # 22 products in 5 languages @2018-09-22
@@ -24901,7 +24144,7 @@ sv: fullkornsveteflingor, fullkorn veteflinga
 < en:whole wheat
 en: whole wheat groats
 bg: пълнозърнест пшеничен шрот
-cs: celozrnny pšeničny šrot
+cs: celozrnny pšeničny šrot, celozrnný pšeničný šrot
 da: groftmalet fuldkornshvedemel
 de: Weizenvollkornschrot
 el: Αλεσμένος σίτος ολικής αλέσεως
@@ -25227,11 +24470,11 @@ nl: harde tarwe griesmeel, durum tarwegries, harde tarwegries, griesmeel van har
 oc: semola de blat dur
 pl: kasza z pszenicy durum, semolina z pszenicy durum, semolina z pszenicy twardej durum, semolina z pszenicy twardej
 pt: sêmola de trigo duro
-ro: griș din grâu, griș de grău
+ro: griș din grâu, griș de grău, gris de grâu dur
 ru: борошно з пшеннци тверднх сортив
 sk: krupica z tvrdej pšenice
 sl: pšenični zdrob durum, pšenični durum zdrob
-sr: krupica durum pšenice
+sr: krupica durum pšenice, durum pšenična krupica
 sv: durumvetegryn
 tr: durum buğdayı ırmığı
 zh: 硬质粗粒小麦粉
@@ -26290,6 +25533,7 @@ ca: extracte de malta d'ordi
 cs: sladový výtažek z ječmene
 da: bygmaltekstrakt
 de: Gerstenmalzextrakt
+el: εκχύλισμα βύνης από κριθάρι
 es: extracto de malta de cebada, extracto de cebada malteada, jarabe de cebada malteada, sirope de cebada malteada
 et: odralinnaseekstrakt
 fi: ohramallasuute, ohramallasuutetta
@@ -27152,7 +26396,7 @@ lv: pilngraudu auzu pārslas
 nl: volkoren havermout, volkoren havervlokken, volkorenhavervlokken
 nn: fullkornshavregryn
 pl: płatki owsiane z pełnego przemiału, płatki owsiane pełnoziarniste, pełnoziarniste płatki owsiane, płatki z pełnego ziarna owsa
-pt: flocos de aveia integral
+pt: flocos de aveia integral, flocos integrais de aveia
 sl: ovseni polnozrnati kosmiči
 sv: fullkornshavregryn, fullkorn havregryn
 
@@ -27185,6 +26429,7 @@ pl: mąka owsiana
 pt: farinha de aveia
 ru: овсяная мука, мука овсяная
 sk: ovsená múka
+sl: ovsena moka
 sv: havremjöl
 wikidata:en: Q84470231
 #1041 @2021-09-22
@@ -27658,6 +26903,7 @@ fr: flocons de seigle complet
 hr: pahuljice raži od cijelog zrna, integralne ražene pahuljice
 it: fiocchi di segale integrali
 pl: płatki żytnie pełnoziarniste
+pt: flocos integrais de centeio
 
 < en:rye
 en: rye grains
@@ -28445,7 +27691,7 @@ bg: пшенично брашно, пшеничено брашно
 bs: pšenično brašno
 ca: Farina de ble
 cs: pšeničná mouka
-da: Hvedemel
+da: Hvedemel, hved mel
 de: Weizenmehl, Weizen-mehl, Weizenmehl Typ 1050, Weizenmehl Typ 550, Weizenmehl Typ 405
 el: αλεύρι σίτου
 es: harina de trigo, harina de trigo blando
@@ -28470,7 +27716,7 @@ nn: hvetemel
 no: hvetemel
 pl: mąka pszenna, mąka z pszenicy zwyczajnej
 pt: farinha de trigo
-ro: făină de grâu, faina de grau, făină din grâu, faina din grau
+ro: făină de grâu, fäină de grâu, faina de grau, făină din grâu, faina din grau
 ru: Пшеничная мука, мука пшеничная хлебопекарная высшего сорта, мука пшеничная высшего сорта, мука пшеничная, мука пшеничная хлебопекарная первого сорта, мука пшеничная хлебопекарная высший сорт, мука пшеничная хлебопекарная второго сорта, мука пшеничная 1 сорта, мука пшеничная первого сорта, мука пшеничная хлебопекарная первый сорт, мука пшеничная общего назначения
 sa: गोधूमपिष्टम्
 sk: pšeničná múka, pšeničná mouka
@@ -28712,7 +27958,7 @@ it: farina semi-integrale
 en: whole wheat flour, wholewheat flour, wholemeal wheat flour, atta
 bg: пълнозърнесто пшенично брашно, брашно пшенично пълнозърнесто
 ca: farina integral de blat, farina de blat integral
-cs: celozrnna pšenična mouka
+cs: celozrnná pšeničná mouka, celozrnna pšenična mouka
 da: hvedefuldkornsmel, fuldkornshvedemel
 de: Vollkornweizenmehl, Weizenvollkornmehl
 es: harina de trigo integral, harina integral de trigo
@@ -28724,12 +27970,13 @@ hu: teljes kiőrlésű búzaliszt
 it: farina integrale di frumento, farina di frumento integrale
 ja: 小麦全粒粉
 lt: visų grūdo dalių kviečių miltai, visų grūdo dalių kvietiniai miltai, visų grūdo dalių kvietinės miltai, visų grūdo dalių kvietinis miltai
-lv: pilngraudu kviešu milti
+lv: pilngraudu kviešu milti, rupja maluma cleto kviešu milti
 nb: fullkornshvetemel
 nl: volkorentarwemeel, volkoren tarwemeel
 pl: Mąka pszenna pełnoziarnista, mąka pszenna razowa, pełnoziarnista mąka pszenna, mąka pełnoziarnista pszenna
 pt: farinha de trigo integral, farinha integral de trigo
 ro: făină integrală de grâu
+sk: celozrnna pšenična muka
 sv: fullkornsvetemjöl, fullkornsmjöl av vete
 
 < en:semi-wholemeal flour
@@ -28882,7 +28129,7 @@ sv: fullkornskornmjöl
 < en:barley flour
 en: barley malt flour, malted barley flour
 ca: farina de malta d'ordi
-cs: Ječmenná sladová mouka
+cs: Ječmenná sladová mouka, ječná sladová mouka
 da: bygmaltmel
 de: Gerstenmalzmehl
 es: harina de malta de cebada
@@ -31365,6 +30612,7 @@ hu: karob, karob liszt
 it: carruba
 nl: carob, johannesbroodmeel, carobpoeder
 pl: karob, karobu, karobowy, karobowe, karobowa
+sl: rožič
 sv: Johannesbrödfrö
 description:en: Carob pods are mildly sweet on their own, so they are used in powdered, chip or syrup form as an ingredient in cakes and cookies, sometimes as a substitute for chocolate in recipes because of the color, texture, and taste of carob.
 eurocode_2_group_3:en: 7.10.xx
@@ -31396,7 +30644,7 @@ it: farina di semi di carruba, farina di semi di carrube, semi di carrube
 lt: Saldžiosios ceratonijos lipai
 nl: johannesbroodpitmeel
 pl: Mączka chleba świętojańskiego
-pt: farinha de semente de alfarroba, Farinha de sementes de alfarroba, semente de alfarroba, sementes de alfarroba
+pt: farinha de semente de alfarroba, Farinha de sementes de alfarroba, semente de alfarroba, sementes de alfarroba, goma de alfarroba
 sv: fruktkärnmjöl
 description:en: Locust bean gum is produced from the endosperm, which accounts for 42–46% of the carob seed
 
@@ -32277,7 +31525,7 @@ el: ακατέργαστη ζάχαρη ζαχαροκάλαμου
 es: Azucar de caña sin refinar, azucar de caña no refinada, azucar de caña en bruto
 fi: raakaruokosokeri
 fr: sucre de canne non raffiné, sucre de canne brut, sucre de canne roux, sucre roux de canne, sucre de canne roux non raffiné, sucre brut de canne
-hr: smeđi šećer od šećerne trske, sirovi šećer od trske
+hr: smeđi šećer od šećerne trske, sirovi šećer od trske, neprerađeni šećer šećerne trske
 hu: finomítatlan nádcukor
 it: zucchero di canna grezzo
 ja: 黒糖
@@ -33233,6 +32481,7 @@ it: sciroppo di fruttosio
 nl: fructosestroop, fructosesiroop
 pl: syrop fruktozowy, syrop z fruktozy
 pt: Xarope de fructose
+sl: fruktozni sirup
 sv: fruktossirap
 vegan:en: yes
 vegetarian:en: yes
@@ -33337,6 +32586,7 @@ pt: xarope de glucose-frutose, xarope de glucose e frutose
 ro: sirop de glucoză-fructoză, sirop glucoză-fructoză
 ru: глюкозно-фруктозный сироп, сироп глюкозно-фруктозный, сироп глюкозно фруктозный
 sk: glukózový-fruktózový sirup
+sl: izoglukozni sirup
 sr: glukozno-fruktozni sirup
 sv: glukos-fruktossirap, glukosfruktossirap
 openfoodfacts:en: https://world.openfoodfacts.org/ingredient/glucose-and-fructose-syrup
@@ -33365,11 +32615,13 @@ openfoodfacts:fr: https://world.openfoodfacts.org/ingredient/fr:sirop-de-glucose
 en: high fructose corn syrup, isoglucose, HCFS
 bg: Високо-фруктозен сироп от царевица
 ca: Xarop de blat de moro alt en fructosa
+cs: izoglukózový sirup
 de: Maissirup mit hohem Fruktosegehalt
+el: σιρόπι ισογλυκόζης
 es: Jarabe de maíz de alta fructosa, sirope de maíz de alta fructosa, JMAF
 fi: isoglukoosi, maissitärkkelyssiirappi
 fr: sirop de maïs à haute teneur en fructose, sirop de glucose-fructose de maïs, isoglucose, isoglucosamine, SGHF
-hr: visokofruktozni kukuruzni sirup
+hr: visokofruktozni kukuruzni sirup, izoglukozni sirup
 hu: Izocukor
 it: Sciroppo di mais ad alto contenuto di fruttosio
 ja: 異性化糖, ぶどう糖果糖液糖
@@ -33904,6 +33156,7 @@ pt: dextrose monohidratada
 < en:dextrose
 en: polydextrose, E1200
 bg: полидекстроза
+da: polydextrose, polydekstrose
 de: Polydextrose
 es: Polidextrosa
 fi: Polydekstroosi
@@ -33945,7 +33198,7 @@ da: agavesirup
 de: Agavensirup
 es: jarabe de agave, sirope de agave
 fa: اگاو
-fi: agavesiirappi
+fi: agavesiirappi, agave siirappi
 fr: sirop d’agave
 hr: sirup od agave, agavin sirup
 hu: agaveszirup
@@ -33955,7 +33208,8 @@ it: sciroppo d'agave
 nl: agavesiroop
 pl: syrop z agawy
 pt: Xarope de Agave
-ru: Сироп агавы
+ru: Сироп агавы, сироп из агавы
+sl: agavin sirup
 sv: agavesirap
 zh: 龍舌蘭糖漿
 ciqual_food_code:en: 31089
@@ -34785,7 +34039,7 @@ ru: молочный белок, молочные белки
 sk: mliečnu bielkovinu, mliečne bielkoviny
 sl: mlečne beljakovine
 sr: mliječni proteini, mlečni proteini
-sv: mjölkprotein
+sv: mjölkprotein, mjölkproteiner
 allergens:en: en:milk
 nova:en: 4
 vegetarian:en: yes
@@ -37208,6 +36462,7 @@ sv: sojabas
 en: Okara, soy pulp
 cs: Okara
 de: Okara
+el: οκάρα
 es: Pulpa de soya
 fr: Pulpe de soja
 hr: okara, Sojino meso
@@ -37217,6 +36472,7 @@ ja: おから
 jv: Okara
 ko: 비지
 lt: Sojų išspaudos
+nl: okara
 pl: Okara
 pt: Polpa de soja
 ru: Окара
@@ -37310,6 +36566,7 @@ nl: tarwegluten
 pl: gluten pszenny
 pt: glúten de trigo
 ro: gluten de grâu, gluten din grâu
+sk: pšeničny gluten
 sl: pšenični gluten
 sv: vetegluten
 
@@ -37944,7 +37201,7 @@ de: Roggenvollkornsauerteig
 fi: täysjyväruistaikinajuuri
 hr: cijelo raženo kiselo tijesto
 it: pasta madre di segale integrale
-sv: surdeg av fullkornsrågmjöl, surdeg av fullkornsrågmöl
+sv: surdeg av fullkornsrågmjöl, surdeg av fullkornsrågmöl, surdeg på fullkornsråg
 
 < en:rye sourdough
 fr: levain de seigle dévitalisé
@@ -37962,6 +37219,11 @@ nl: rogge zuurdesempoeder, gedroogd roggedesem
 < en:rye sourdough
 en: rye and durum wheat sourdough
 sv: surdeg på råg och durumvete
+
+< en:rye and durum wheat sourdough
+< en:whole rye sourdough
+en: whole rye and durum wheat sourdough
+sv: surdeg på fullkornsråg och fullkornsdurumvete
 
 < en:sourdough
 nl: speltzuurdesempoeder
@@ -39258,10 +38520,11 @@ nn: tranebær
 os: сырхнæмыг
 pl: żurawina, żurawiny, żurawin, żurawinowa, żurawinowy, żurawinowe, żurawinowej, żurawinowego, żurawinowych
 pt: arandos, oxicocos
-ro: merişoare
+ro: merişoare, merișoare
 ru: клюква
 sh: brusnica
 sk: kľukvy
+sl: brusnice
 sr: брусница
 sv: tranbär
 th: แครนเบอร์รี
@@ -40021,6 +39284,7 @@ it: purea di pera
 nl: perenpuree
 pl: przecier gruszkowy
 pt: Puré de pêra
+ro: piure de pere
 # In process de:Birnenpüree
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-poires
 # 233 products in 5 langauges @2018-09-28
@@ -40466,7 +39730,7 @@ gu: સફરજન
 gv: Ooyl
 he: תפוח
 hi: सेब
-hr: jabuka, jabuke, jabuka plod, plod jabuke, od jabuke
+hr: jabuka, jabuke, jabuka plod, plod jabuke, od jabuke, jabučnog
 ht: Pòm
 hu: alma
 hy: խնձոր
@@ -41631,7 +40895,7 @@ pt: suco de toranja, sumo de toranja, suco de pamplumossa, sumo de pamplumossa
 ro: suc de grepfrut
 ru: грейпфрутовый сок
 sk: grepová šťava
-sl: sok grenivke
+sl: sok grenivke, grenivkin sok
 sv: grapefruktjuice
 tt: грейпфрут суы
 uk: грейпфрутовий сік
@@ -42232,6 +41496,7 @@ nn: sitronsaft
 pl: Sok cytrynowy, sok z cytryny
 pt: suco de limão, sumo de limão
 ru: Лимонный сок
+sl: limonin sok
 sv: citronsaft, citronjuice
 tr: limon suyu
 zh: 柠檬汁
@@ -42932,6 +42197,7 @@ pt: suco de laranja, sumo de laranja
 ro: suc de portocale
 ru: апельсиновый сок
 sa: नारङ्गफलरसः
+sl: pomarančni sok
 sr: voćni sok od narandže
 sv: apelsinjuice, juice av apelsin
 ta: ஆரஞ்சுச் சாறு
@@ -44943,6 +44209,7 @@ hr: kokosove pahuljice
 it: fiocchi di cocco, cocco in scaglie
 nl: Kokosschilfers
 pl: wiórki kokosowe, wiórki z kokosa
+pt: coco ralado
 ru: кокосовая-стружка
 sv: kokosflinga, kokosflingor
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-de-coco
@@ -47202,6 +46469,7 @@ nn: bringebær
 nv: Dzidzé łikaní dinilchííʼígíí
 pl: malina, maliny, malinowy, malinowa, malinowe, malin, owoc maliny
 pt: framboesas
+ro: zmeură
 ru: Малина
 sd: راسپ بيري
 sk: Malina, maliny, malinové
@@ -48140,7 +47408,7 @@ bg: Стафида, стафиди
 bs: Grožđica
 ca: pansa, panses
 cs: rozinka
-da: Rosin
+da: rosin, rosiner
 de: Rosine, Rosinen, Weinbeere
 el: Σταφίδα
 eo: sekvinbero
@@ -48191,7 +47459,7 @@ so: Sabiib
 sq: rrush
 sr: Суво грожђе
 su: Kismis
-sv: Russin
+sv: russin
 ta: உலர்திராட்சை
 te: ఎండుద్రాక్ష
 tg: Мавиз
@@ -48243,7 +47511,7 @@ it: concentrato di uva passa
 # maybe it is necessary to split between dried and fresh
 
 < en:grape
-en: sultana, sultanas, Thompson seedless, sultanina, Raisin Thompson Seedless
+en: sultana, sultanas, Thompson seedless, sultanina
 af: sultana
 ar: العنب الكشمشي
 bg: султанина, светли стафиди
@@ -48256,7 +47524,7 @@ es: sultanina, sultana, pasas sultanas, uvas pasas sultanas
 et: sultana
 fa: انگور سلطانی
 fi: sulttaanirusina, sulttaanirusinoita
-fr: sultanine, sultanines, raisins secs sultanines
+fr: sultanine, sultanines
 ga: sabhdánach
 he: סולטנה
 hi: सुल्ताना
@@ -48270,12 +47538,12 @@ mk: суво грозје
 ms: sultana
 nl: sultana, sultanas
 pl: rodzynki sułtańskie, rodzynki sułtanki, rodzynki thompson jumbo
-pt: sultanina
+pt: sultanina, sultanas
 ro: sultanină
 ru: белый кишмиш
 si: සුල්තානා
 sl: sultanina
-sv: sultanrussin
+sv: sultanvindruva, sultandruva, Thompson-druva, Thompson-druvor
 tr: sultaniye üzümü
 uk: кишмиш
 uz: kishmish
@@ -48285,6 +47553,12 @@ wikidata:en: Q1898118
 wikipedia:en: https://en.wikipedia.org/wiki/Sultana_(grape)
 # 46 products in 3 languages @2018-10-02
 
+< en:raisin
+< en:sultana
+en: sultana raisin, Raisin Thompson Seedless
+fr: raisins secs sultanines
+sv: sultanrussin, Thompson-russin
+
 #<en:compound
 en: oiled sultana
 de: Sultaninen geölt
@@ -48292,12 +47566,19 @@ it: uva sultanina oleosa
 
 # description:en:Zante currants, Corinth raisins, or Corinthian raisins, also called simply currants, are dried berries of the small, sweet, seedless grape cultivar 'Black Corinth' (Vitis vinifera).
 
-< en:grape
+< en:raisin
 en: California seedless raisins
 de: Kalifornische kernlose Rosinen
 fr: Raisins secs sans grains californiens
 hr: kalifornijske grožđice bez sjemenki
 it: uvetta senza semi della California
+sv: kaliforniska russin utan kärnor
+origins:en: en:california
+
+< en:California seedless raisins
+< en:sultana raisin
+en: California seedless Thompson raisin, California seedless Thompson raisins
+sv: kaliforniska Thompson-russin utan kärnor
 
 < en:grape
 en: Corinthian raisins
@@ -49661,7 +48942,7 @@ en: vegetable, vegetables
 bg: зеленчук, зеленчуци
 ca: Vegetals, Verdures
 cs: Zelenina
-da: Grøntsag
+da: grøntsag, grøntsager
 de: Gemüse
 el: λαχανικό, λαχανικά
 es: verduras, hortaliza, hortalizas, vegetal, vegetales
@@ -54702,6 +53983,7 @@ ciqual_food_name:fr: Carotte, purée
 
 < en:carrot
 en: carrot concentrate
+da: gulerodskoncentrat
 de: Karottenkonzentrat, färbendes Karottenkonzentrat
 fi: porkkanatiiviste
 fr: concentré de carotte, concentré de carottes
@@ -54729,11 +54011,13 @@ it: estratto di carota, estratto di carote
 ja: 人参エキス
 nl: wortelextract, kleurend wortelextract
 pt: extrato de cenoura, extrato de cenouras, extracto de cenoura, extracto de cenouras
+sv: morotsextrakt
 # fr:extrait-de-carotte has 176 products in 6 languages @0218-10-20
 
 < en:carrot extract
 en: colouring carrot extract
 de: färbendes Karottenextrakt
+sv: färgande morotsextrakt
 
 < en:carrot
 en: carrot powder
@@ -56446,6 +55730,7 @@ lt: Burokas, burokėlis, jauni burokėliai
 nl: biet, bieten
 no: rødbete
 pl: burak, buraki, buraka, buraków, burak ćwikłowy, buraki ćwikłowe, buraka ćwikłowego, buraków ćwikłowych
+pt: beterraba
 ru: Свёкла
 sk: cvikly
 sv: rödbeta, rödbetor, rödbets
@@ -56645,7 +55930,7 @@ fi: piparjuuri
 fr: raifort
 he: חזרת הגינה
 hi: हॉर्सरैडिश
-hr: hren
+hr: hren, hrena
 hu: torma
 hy: կծվիչ սովորական
 io: armoracio
@@ -57923,7 +57208,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Bird%27s_eye_chili
 < en:chili pepper
 en: allspice, all spice, jamaica pepper, myrtle pepper
 bg: бахар
-cs: nové kořeni
+cs: nové koření
 de: Jamaikapfeffer, Piment
 es: pimienta de Jamaica
 fi: maustepippuri
@@ -61783,7 +61068,7 @@ am: አልመንድ
 ar: لوز
 bg: бадем, бадеми
 ca: ametlla, ametlles
-cs: mandle
+cs: mandle, madle
 da: mandel, mandler
 de: Mandel, Mandeln
 el: Αμύγδαλο, αμύγδαλα, Αμυγδαλόψιχα
@@ -61800,6 +61085,7 @@ he: שקד
 hr: badem, bademi, badema
 hu: mandula
 ia: amandola
+is: möndlu
 it: mandorla, mandorle
 ja: アーモンド
 la: Prunis dulcis
@@ -61916,7 +61202,7 @@ bg: бланширани бадеми
 de: blanchierte Mandlen, blanchierten mandeln, mandeln blanchiert
 es: almendras peladas
 fr: amandes blanchies, amandes blanches
-hr: blanšira bademe
+hr: blanšira bademe, blanširani bademi
 it: mandorle sbianchite
 pl: migdały blanszowane
 # ingredient/fr:amandes-blanchies has 31 products in 5 languages @2018-10-06
@@ -62554,6 +61840,7 @@ fr: noisettes décortiquées
 de: Haselnusskerne
 it: nocciole sgusciate
 nb: hasselnøttkjerner
+pt: miolo de avelã
 ru: ядро ореха фундука
 openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:noisettes-décortiquées
 # 42 products in 4 languages @2018-10-07
@@ -63233,6 +62520,7 @@ fa: مغز گردو
 fi: saksanpähkinä, saksanpähkinät
 fr: noix
 ga: Gallchnó, gallchnónna
+hr: orasi
 hu: dió
 id: Kacang kenari
 io: Nuco
@@ -64164,7 +63452,7 @@ pt: Linho
 < en:seed
 en: flax seed, flax seeds, flaxseed, linseed, linseeds, linseed seeds
 bg: Ленено семе
-cs: Len setý, lněna seminka
+cs: Len setý, lněna seminka, lněná semínka
 da: Hørfrø
 de: Leinsamen, Leinsaat, Leinsaaten
 es: semillas de lino, semillas de linaza, linaza
@@ -66993,14 +66281,15 @@ nl: Engelse mosterd
 en: mustard seed
 bg: синапено семе, синапени семена, синапени зърна
 ca: llavors de mostassa, grans de mostassa
-cs: hořčičné semínko
+cs: hořčičné semínko, hořčičné semeno
 da: sennepsfrø
 de: Senfsaaten, Senfkörner, Senfsaat, Senfsamen, Senfschrot, Senfkorn
-es: grano de mostaza, semillas de mostaza
+el: σιναπόσπορος
+es: grano de mostaza, semillas de mostaza, cascara de semillas de mostaza
 et: sinepiseemned
 fi: sinapinsiemen, sinapinsiemenet
 fr: graine de moutarde, graines de moutarde, cosse de moutarde
-hr: sjemenke gorušice, sjeme gorušice
+hr: sjemenke gorušice, sjeme gorušice, ljuske gorušice
 hu: káposztafélék, Mustármag
 it: Semi di senape
 ja: カラシナ, シロガラシ
@@ -67011,7 +66300,7 @@ pl: ziarno gorczycy, ziarna gorczycy, gorczyca, gorczycy, gorczycę, nasiona gor
 pt: Semente de mostarda
 ro: boabe de muștar, boabe de mustar
 ru: горчичное зерно
-sl: gorčično seme
+sl: gorčično seme, gorčična semena
 sr: seme slačice
 sv: senapsfrö, senapsfrön
 tr: hardal tohumu
@@ -73029,7 +72318,7 @@ wikidata:en: Q37868
 wikipedia:en: https://en.wikipedia.org/wiki/Algae
 
 < en:algae
-en: chlorella
+en: chlorella, chlorella algae
 ar: كلوريلا
 be: Хларэла
 bg: Хлорела
@@ -73745,7 +73034,7 @@ wikidata:en: Q26736348
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
-description:en: A MUSHROOM, or toadstool, is the fleshy, spore-bearing fruiting body of a fungus, typically produced above ground on soil or on its food source.
+# description:en: A MUSHROOM, or toadstool, is the fleshy, spore-bearing fruiting body of a fungus, typically produced above ground on soil or on its food source.
 # There is a wikipedia translation issue. Mushroom often refers to spores, so edible mushroom is better. However the edible part is not found on packages.
 #comment:nl:In dutch champignon refers to AGARICUS BISPORUS.
 
@@ -82799,6 +82088,7 @@ la: Litopenaeus vannamei, Penaeus vannamei, Litopenaus vanamei
 nl: witpootgarnaal
 pl: krewetka białonoga, Litopenaeus vannamei, krewetki białe, krewetka biała
 pt: camarão-de-patas-brancas, Litopenaeus vannamei
+sl: bele kozice
 description:en: Whiteleg shrimp (Litopenaeus vannamei, formerly Penaeus vannamei), also known as Pacific white shrimp or king prawn, is a variety of prawn of the eastern Pacific Ocean commonly caught or farmed for food.
 wikidata:en: Q3002564
 wikipedia:en: https://en.wikipedia.org/wiki/Whiteleg_shrimp
@@ -87928,7 +87218,7 @@ bs: Vlakno
 ca: Fibra, fibra alimentaria, fibres vegetals
 cs: vlákno
 cv: Чĕлкĕм
-da: Fiber
+da: fiber
 de: Faser, Nahrungsfasern
 el: ίνα
 eo: fibro
@@ -87992,6 +87282,8 @@ zh: 纤维
 # wuu:纤维
 # zh-cn:纤维
 # zh-hans:纤维# zh-hant:纤维
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q161
 wikipedia:en: https://en.wikipedia.org/wiki/Fiber
 # fibre has 270 products in 8 languages @2019-03-10
@@ -88029,10 +87321,13 @@ pl: błonnik z trzciny cukrowej
 
 < en:fiber
 en: betaglucan, β-glucane
+da: beta-glucan
 de: Beta-Glucane, β-Glucane
 es: beta glucano, β-glucano
 fr: bêta-glucane, betaglucane, β-glucane
 it: betaglucano
+sv: betaglukan
+wikidata:en: Q2076617
 
 
 # description:en:INULINS are a group of naturally occurring polysaccharides produced by many types of plants, industrially most often extracted from chicory. Chicory root is the main source of extraction for commercial production of inulin. It can be used to replace sugar, fat, and flour.
@@ -88106,6 +87401,7 @@ en: vegetable fiber, vegetable fibers, plant fiber, plant fibre
 bg: растителни влакна, растителни влакнини, растителни фибри, зеленчукови фибри
 ca: fibra vegetal
 cs: rostlinná textilní vlákna
+da: plantefiber, vegetabilsk fiber
 de: pflanzliche Fasern, Pflanzenfaser, Pflanzenfasern, pflanzliche Ballaststoffe
 eo: planta fibro
 es: fibra vegetal
@@ -88854,7 +88150,12 @@ de: Teigwaren aus Hartweizengrieß
 fr: Pâtes alimentaires de semoule de blé dur, pâtes alimentaires de blé dur.
 hr: tjestenina od durum pšenice
 it: pasta di semola di grano duro
+lt: kietyjų kviečių kruopmilčiai
 nl: pasta uit durumtarwe
+ro: griş integral de grâu dur
+sk: múka z tvrdej pšenice
+sr: дурум пшенице гриз паста
+sv: fullkorms durumvete
 # 10@2019-06-04
 carbon_footprint_fr_foodges_ingredient:fr: Pâtes sèches
 carbon_footprint_fr_foodges_value:fr: 0.5
@@ -89315,6 +88616,7 @@ ciqual_food_name:fr: Pâte brisée, crue
 < en:dough
 fr: pâte feuilletée
 de: Blätterteig
+hr: lisnato tijesto
 it: pasta sfoglia
 nl: bladerdeeg
 # ingredient/fr:pâte-feuilletée has 208 products in 8 languages @2018-12-10
@@ -91867,7 +91169,7 @@ sv: kycklingbuljong, kycklingfond
 en: vegetable broth
 bg: зеленчуков бульон
 ca: brou vegetal
-da: Grøntsagsbouillon
+da: grøntsagsbouillon
 de: Gemüsebouillon, Gemüsebrühe
 es: Caldo de verduras
 fi: kasvisliemi
@@ -91877,6 +91179,8 @@ it: brodo vegetale
 nl: groentebouillon
 pl: bulion warzywny, bulion roślinny, bulion wegetariański
 sv: grönsaksbuljong
+vegan:en: maybe
+vegetarian:en: yes
 wikidata:en: Q42366457
 # ingredient/fr:bouillon-végétal has 40 products in 4 languages @2019-04-04
 
@@ -94640,3 +93944,8 @@ pl: papryka, papryki, paprykowy, paprykowe, paprykowa
 sl: paprika
 sv: paprika
 
+< en:Minerals
+< en:Vitamins
+en: vitamin and mineral blend, vitamin and mineral mix
+it: vitamine e minerali misti
+ru: витаминно минеральный премикс, витаминный премикс

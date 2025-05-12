@@ -122,10 +122,9 @@ is(
 
 ) or diag Dumper $product_ref;
 
-foreach my $tag (@{$product_ref->{categories_tags}}) {
-
-	print STDERR "tag: $tag\tlevel: " . $level{categories}{$tag} . "\n";
-}
+# foreach my $tag (@{$product_ref->{categories_tags}}) {
+# 	print STDERR "tag: $tag\tlevel: " . $level{categories}{$tag} . "\n";
+# }
 
 add_tags_to_field($product_ref, "fr", "categories", "pommes, bananes");
 
@@ -834,7 +833,7 @@ is(get_tag_image("en", "labels", "en:usda-organic"), "/images/lang/en/labels/usd
 is(get_tag_image("sv", "labels", "sv:ä-märket"), "/images/lang/sv/labels/ä-märket.85x90.png");   # file name is accented
 is(get_tag_image("fr", "labels", "fr:commerce-equitable"), "/images/lang/fr/labels/commerce-equitable.96x90.png")
 	;    # file name is unaccented, unaccented language
-is(get_tag_image("fr", "labels", "fi:sydänmerkki"), "/images/lang/fi/labels/sydanmerkki.90x90.png")
+is(get_tag_image("fr", "labels", "fi:sydänmerkki"), "/images/lang/fi/labels/sydanmerkki.90x90.svg")
 	;    # file name is unaccented, accented language
 
 # strings with multiple tags separated by /

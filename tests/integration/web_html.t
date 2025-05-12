@@ -570,6 +570,11 @@ my $tests_ref = [
 		path => '/product/3300000000001/apple-pie-bob-s-pies?user_agent=smoothie',
 		expected_type => 'html',
 	},
+	{
+		test_case => 'report-image-button',
+		path => '/cgi/product_image.pl?code=3300000000013&id=front_fr',
+		expected_type => 'html',
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
