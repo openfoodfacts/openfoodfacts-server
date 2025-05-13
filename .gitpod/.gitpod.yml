@@ -2,7 +2,7 @@
 # See https://www.gitpod.io/docs/config-gitpod-file
 
 image:
-  file: .gitpod.Dockerfile
+  file: .gitpod/.gitpod.Dockerfile
 
 # Define tasks to run on workspace startup
 tasks:
