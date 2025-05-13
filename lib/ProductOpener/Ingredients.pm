@@ -219,7 +219,7 @@ my %may_contain_regexps = (
 	sl => "lahko vsebuje sledi|lahko vsebuje sledove",
 	sr => "može sadržati tragove",
 	sv =>
-		"denna produkt kan innethalla spar av|kan innehålla små mängder|kan innehålla spår av|innehåller spår av|kan innehålla spår|kan innehålla",
+		"denna produkt kan innet?h[åa]lla sp[åa]r av|kan innehålla små mängder|kan innehålla spår av|innehåller spår av|kan innehålla spår|kan innehålla",
 );
 
 my %contains_regexps = (
@@ -638,7 +638,7 @@ my @labels = (
 	"en:halal", "en:kosher",
 	"en:fed-without-gmos", "fr:crc",
 	"en:without-gluten", "en:sustainable-farming",
-	"en:krav",
+	"en:krav", "en:whole-grain",
 );
 my %labels_regexps = ();
 
@@ -1362,6 +1362,7 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 		ro => "(?:tara de origine)",
 		rs => "(?:zemlja porekla)",
 		sl => "(?:(?:država|krajina) porekla|gojeno v)",
+		sv => "(?:ursprung)",
 		uk => "(?:kраїна походження)",
 	);
 
@@ -5133,7 +5134,7 @@ my %phrases_before_ingredients_list = (
 
 	cs => ['složení',],
 
-	da => ['ingredienser', 'indeholder', 'Sammensætning',],
+	da => ['[Ii]ngrediens(?:er)?', '[Ii]ndhold', '[Ii]ndeholder', '[Ss]ammens(?:æ|ae)tning',],
 
 	de => ['Zusammensetzung', 'zutat(en)?',],
 
@@ -5204,7 +5205,7 @@ my %phrases_before_ingredients_list = (
 
 	sr => ['Sastojci',],
 
-	sv => ['ingredienser', 'innehåll(er)?', 'Sammansättning',],
+	sv => ['[Ii]ngrediens(?:er)?', '[Ii]nneh[åa]ll(?:er)?', '[Ss]ammans[äa]ttning',],
 
 	tg => ['Таркиб',],
 
@@ -5230,7 +5231,7 @@ my %phrases_before_ingredients_list_uppercase = (
 
 	cs => ['SLOŽENÍ',],
 
-	da => ['INGREDIENSER', 'ZUSAMMENSETZUNG', 'SAMMENSÆTNING',],
+	da => ['INGREDIENS(?:ER)?', 'INDHOLD', 'INDEHOLDER', 'SAMMENS(?:Æ|AE)TNING',],
 
 	de => ['ZUTAT(EN)?', 'ZUSAMMENSETZUNG',],
 
@@ -5274,7 +5275,7 @@ my %phrases_before_ingredients_list_uppercase = (
 
 	sl => ['SESTAVINE', 'SESTAVA',],
 
-	sv => ['INGREDIENSER', 'INNEHÅLL(ER)?', 'SAMMANSÄTTNING',],
+	sv => ['INGREDIENSER', 'INNEH[ÅA]LL(?:ER)?', 'SAMMANS[ÄA]TTNING',],
 
 	tr => ['BİLEŞİM',],
 
@@ -5729,6 +5730,7 @@ my %phrases_after_ingredients_list = (
 		'upptining', 'o?öppnad',
 		'bevaras', 'kylvara',
 		'tappat',
+		'proportionerna kan variera något mellan olika förpackningar',    # Proportions may vary
 	],
 
 	tr => [

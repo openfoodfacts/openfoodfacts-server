@@ -8,6 +8,12 @@ synonyms:en: pasteurised, pasteurized, pasterized
 
 synonyms:en: unpasteurised, unpasteurized, unpasterized
 
+synonyms:da: grøntsagsbaserede, grønsagsbaserede, grøntsagsbaseret, grønsagsbaseret, grøntsags, grønsags
+
+synonyms:da: frosne, dybfrosne, frossen, dybfrossen, frossent, dybfrossent
+
+synonyms:da: fødevarer, fødevare, mad, madvarer, madvare
+
 synonyms:fi: ruoat, ruuat
 
 synonyms:fi: hapatettu, fermentoitu
@@ -32,6 +38,12 @@ synonyms:fr: semi-complet, demi-complet
 
 # conserve or en conserve ?
 synonyms:fr: conserve, appertisé, appertisée, appertisés, appertisées
+
+synonyms:sv: blandade, mixade
+
+synonyms:sv: djupfrysta, frysta, djupfryst, fryst
+
+synonyms:sv: matvaror, matvara, mat
 
 stopwords:fr: aux, au, de, le, du, la, a, et, avec, base
 stopwords:ca: als, a les, de, el, del, de la, la, té, i, amb, base
@@ -1272,7 +1284,7 @@ en: Beverages, Drinks
 bg: Напитки
 ca: Begudes
 cs: Nápoje
-da: Drikkevarer
+da: Drikkevarer, Drikkevare, Drikke, Drik
 de: Getränke
 el: Ποτά
 es: Bebidas
@@ -1298,7 +1310,7 @@ ru: Напитки
 se: Drycker, dryck
 sk: Nápoje
 sl: Pijače
-sv: Drycker, Dricka, Drickor, Dryck
+sv: Dryckor, Dricka, Dryck, Drycker
 th: เครื่องดื่ม
 tr: İçecekler
 uk: Напої
@@ -38367,6 +38379,7 @@ wikidata:en: Q2164820
 < en:Cocoa and its products
 en: Chocolate eggs
 bg: Шоколадови яйца
+da: Chokoladeæg
 de: Schokoladeneier
 es: Huevos de chocolate
 fi: suklaamunia
@@ -38375,7 +38388,7 @@ hr: Čokoladna jaja
 hu: Csokoládé tojás
 it: Uovo di Cioccolato
 nl: Chocolade eieren
-
+sv: Chokladägg
 
 < en:Chocolate molds
 < en:Milk chocolates
@@ -58234,6 +58247,7 @@ hr: Kokošja jaja slobodnog uzgoja
 it: Uova da galline allevate all'aperto
 lt: Laisvai laikomų vištų kiaušiniai
 nl: Scharreleieren, Eieren van kippen met vrije uitloop
+sv: Ägg från frigående höns
 sales_format:en: package, item
 wikidata:en: Q2920887
 
@@ -65175,7 +65189,7 @@ no: Frossen mat, Fryst mat, Frossenmat
 pl: Produkty mrożone, Mrożonki
 pt: Alimentos Congelados, Congelados
 ru: Замороженные продукты
-sv: Fryst mat, Djupfryst mat, Fryst
+sv: Frysta matvaror
 th: อาหารแช่แข็ง
 tr: Dondurulmuş yiyecek, Dondurulmuş yemek, Dondurulmuş gıda
 zh: 冷冻食物
@@ -66698,7 +66712,7 @@ zh: 冷冻肉类
 < en:Plant-based foods
 en: Fruits and vegetables based foods
 ca: Aliments amb base de fruites i verdures
-da: Frugt- og grøntsagsbasere fødevarer
+da: Frugt- og grøntsagsbaserede fødevarer
 de: Frucht- und gemüsebasierte Lebensmittel
 es: Frutas y verduras y sus productos
 fi: Hedelmä- ja vihannespohjaiset ruoat
@@ -66753,6 +66767,7 @@ nl: Fruit en afgeleide producten
 pl: Produkty na bazie owoców, Owoce i produkty owocowe
 pt: Alimentos à base de frutas
 ru: блюда из фруктов
+sv: Fruktbaserade matvaror, Fruktbaserat mat
 tr: Meyve kaynaklı yiyecekler, Meyve kaynaklı gıdalar, Meyve kaynaklı besinler
 food_groups:en: en:fruits
 pnns_group_2:en: Fruits
@@ -66768,7 +66783,7 @@ en: Fruits
 bg: Плодове
 ca: Fruita fresca
 cs: Ovoce
-da: Frugt, Frisk frugt
+da: Frugt, Frugter
 de: Früchte
 es: Frutas
 fi: hedelmät
@@ -66784,7 +66799,7 @@ pl: Owoce
 pt: Frutas
 ro: Fructe
 ru: Фрукты
-sv: Frukter
+sv: Frukter, Frukt
 th: ผลไม้
 tr: Meyveler
 zh: 水果
@@ -66854,6 +66869,7 @@ nl: Groenten uit Nederland, Nederlandse groenten
 < en:Fruits
 en: Fresh fruits
 bg: Пресни плодове
+da: Friske frugter, Frisk frugt
 de: Frische Früchte
 es: Frutas frescas
 fr: Fruits frais
@@ -66863,6 +66879,7 @@ lt: Švieži vaisiai
 nl: Vers fruit
 pt: Frutas frescas
 ru: Свежие фрукты
+sv: Färska frukter
 who_id:en: 15
 
 < en:Fresh fruits
@@ -66873,6 +66890,7 @@ gpc_category_name:en: Fruit - Prepared/Processed (Perishable)
 
 < en:Fruits
 en: French fruits
+da: Fransk frugt
 de: Französische Früchte
 es: Frutas francesas
 fi: Ranskalaiset hedelmät
@@ -66883,18 +66901,21 @@ lt: Prancūziški vaisiai
 
 < en:Fruits
 en: British fruit
+da: Britisk frugt
 fr: Fruits britanniques
 hr: Britansko voće
 lt: Britiški vaisiai
 
 < en:Fruits
 en: Austrian fruit
+da: Østrigsk frugt
 fr: Fruits autrichiens
 hr: Austrijsko voće
 lt: Austriški vaisiai
 
 < en:Vegetables
 en: Austrian vegetables
+da: Østrigske grøntsager
 fr: Légumes autrichiens
 hr: Austrijsko povrće
 lt: Austriškos daržovės
@@ -67909,6 +67930,7 @@ nl: Sleedoornvruchten
 
 < en:Berries
 en: Blueberries
+da: Blåbær
 de: Heidelbeeren, Blaubeeren, Heidelbeere
 es: Arándanos
 fi: mustikat
@@ -67920,20 +67942,24 @@ la: Vaccinium, Cyanococcus
 lt: Mėlynės
 nl: Bosbessen, Bosbes
 ro: Afine
+sv: Blåbär
 agribalyse_food_code:en: 13028
 ciqual_food_code:en: 13028
 ciqual_food_name:en: Blueberry, raw
 ciqual_food_name:fr: Myrtille, crue
+expected_ingredients:en: en:blueberry
 sales_format:en: weight, package
 
 < en:Blueberries
 < en:Fresh fruits
 en: Fresh blueberries
+da: Friske blåbær
 de: Frische Blaubeeren, Frische Heidelbeeren
 fr: Myrtilles fraîches
 hr: Svježe borovnice
 lt: Šviežios mėlynės
 nl: Verse bosbessen, Verse blauwe bessen
+sv: Färska blåbär
 season_in_country_fr:en: 7,8,9
 
 < en:Berries
@@ -70209,6 +70235,7 @@ ciqual_food_name:fr: Fruit de la passion ou maracudja, pulpe et pépins, cru
 < en:Tropical fruits
 en: Pineapple
 bg: Ананас
+da: Ananas, Ananasser
 de: Ananas, Ananasse
 es: Piñas, Ananás
 fi: ananas
@@ -70221,6 +70248,7 @@ lt: Ananasai, Ananasas
 nl: Ananassen
 nl_be: Ananassen
 pl: Ananas
+sv: Ananas, Ananaser
 agribalyse_proxy_food_code:en: 13002
 agribalyse_proxy_food_name:en: Pineapple, pulp, raw
 agribalyse_proxy_food_name:fr: Ananas, pulpe, cru
@@ -70230,11 +70258,13 @@ wikidata:en: Q10817602
 < en:Fresh fruits
 < en:Pineapple
 en: Fresh pineapple
+da: Frisk ananas
 de: Frische Ananas
 fr: Ananas frais
 hr: Svježi ananas
 lt: Švieži ananasai
 nl: verse ananas
+sv: Färsk ananas
 
 < en:Pineapple
 en: Pineapple pulp
@@ -70261,6 +70291,7 @@ fr: Durian séché
 < en:Frozen plant-based foods
 < en:Fruits
 en: Frozen fruits
+da: Frosne frugter
 de: Gefrorene Früchte
 es: Frutas congeladas
 fi: hedelmäpakasteet
@@ -70270,6 +70301,7 @@ it: Frutta surgelata, Frutta congelata
 lt: Šaldyti vaisiai
 nl: Bevroren fruit
 pl: Owoce mrożone
+sv: Frysta frukter
 food_groups:en: en:fruits
 intake24_category_code:en: FFRU
 pnns_group_2:en: Fruits
@@ -70295,6 +70327,7 @@ who_id:en: 16
 
 < en:Frozen fruits
 en: Frozen berries
+da: Frosne bær
 de: Gefrorene Beeren
 es: Frutas del bosque congeladas, Frutos rojos congelados
 fi: pakastemarjat
@@ -70303,6 +70336,7 @@ hr: Smrznuto bobičasto voće
 it: Frutti di bosco surgelati, Frutti di bosco congelati
 lt: Šaldytos uogos
 nl: Diepvries bosvruchten, Bevroren bosvruchten
+sv: Frysta bär
 
 < en:Blackberries
 < en:Frozen berries
@@ -70320,6 +70354,7 @@ ciqual_food_name:fr: Mûre (de ronce), surgelée, crue
 < en:Blueberries
 < en:Frozen berries
 en: Frozen blueberries, Frozen blueberry
+da: Frosne blåbær
 de: Tiefkühl-Heidelbeeren, Tiefkühl-Blaubeeren
 es: Arándanos congelados
 fi: Pakastemustikat
@@ -70328,6 +70363,7 @@ hr: Smrznute borovnice
 it: Mirtilli surgelati
 lt: Šaldytos mėlynės
 nl: Bosbessen (diepvries), Bevroren bosbessen
+sv: Frysta blåbär
 agribalyse_food_code:en: 13132
 ciqual_food_code:en: 13132
 ciqual_food_name:en: Blueberry, frozen, raw
@@ -106101,6 +106137,7 @@ ciqual_food_name:fr: Fondue de poireau
 
 < en:Vegetables based foods
 en: Vegetables
+da: Grøntsager, Grønsager
 de: Gemüse
 es: Hortalizas, Vegetales, Verduras
 fi: Kasvikset
@@ -106110,6 +106147,7 @@ nl: Groenten, Groente
 pl: warzywa
 pt: Vegetais
 ru: Овощи
+sv: Grönsaker
 incompatible_with:en: categories:en:fruits
 intake24_category_code:en: VTGB
 
@@ -111212,7 +111250,7 @@ ru: руккола
 sd: ڄانڀو
 sq: sallatë manushaqeje
 sr: Рукола
-sv: ruccola, ruccolasallad
+sv: Rucola, Rucolasallad, Ruccola, Ruccolasallad
 tr: Roka
 uk: Рукола
 zh: 芝麻菜
@@ -111317,12 +111355,15 @@ wikidata:en: Q27033
 
 < en:Leaf vegetables
 en: Mesclun, Mix of baby salad leaves
+xx: Mesclun
 fr: Mesclun, Mélange de jeunes pousses de salade
+sv: Småbladsmix
 agribalyse_food_code:en: 20272
 ciqual_food_code:en: 20272
 ciqual_food_name:en: Mesclun or salads, mix of baby leaves
 ciqual_food_name:fr: Mesclun ou salade, mélange de jeunes pousses
 sales_format:en: weight, package
+wikidata:en: Q3082973
 
 < en:Leaf vegetables
 en: Watercress, watercress
@@ -112602,6 +112643,11 @@ it: Faves di Tonka
 la: Dipteryx odorata
 nl: Tonkabonen
 pt: Favas de cumaru
+
+< en:Legumes and their products
+en: Mixed beans, Bean mix
+da: Blandede bønner
+sv: Blandade bönor
 
 < en:Vegetables
 it: Fagioli Bianchi di Rotonda
@@ -115122,6 +115168,7 @@ fr: Mélanges de légumes surgelés
 hr: Smrznuto miješano povrće
 it: Misti di verdure congelati
 nl: Diepvriesgroentemelanges
+sv: Djupfrysta blandade grönsager, Djupfryst grönsagsblandning, Djupfryst grönsagsmix
 agribalyse_food_code:en: 20101
 ciqual_food_code:en: 20101
 ciqual_food_name:en: Mixed vegetables, frozen, raw
@@ -115160,6 +115207,10 @@ agribalyse_food_code:en: 20265
 ciqual_food_code:en: 20265
 ciqual_food_name:en: Thinly-shredded or diced vegetables, frozen, raw
 ciqual_food_name:fr: Julienne ou brunoise de légumes, surgelée, crue
+
+< en:Frozen mixed vegetables
+en: Frozen mixed vegetables for wok, Frozen mixed wok vegetables
+sv: Djupfrysta blandade grönsager för wok, Djupfryst wokgrönsagsblandning, Djupfryst wokgrönsagsmix
 
 < en:Vegetables
 en: thinly-shredded vegetables, diced vegetables
