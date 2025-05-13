@@ -37,7 +37,7 @@ sub update_products($dir, $code, $mode) {
 			elsif ($mode eq 'STO_TO_JSON') {
 				# Load the STO file and save as JSON
 				my $product = retrieve_object($stripped_path);
-				store_object($stripped_path, $product, 0); # Don't delete original
+				store_object($stripped_path, $product, 0);    # Don't delete original
 				$count += 1;
 			}
 		}
@@ -98,7 +98,6 @@ sub read_taxonomies($mode) {
 	}
 	print STDERR "$mode: Read all taxonomy files in " . (gettimeofday() - $started_t) . " s\n";
 }
-
 
 # read_taxonomies('PREPARE');
 # read_taxonomies('JSON');

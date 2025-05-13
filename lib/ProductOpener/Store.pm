@@ -330,8 +330,7 @@ sub link_object($path, $link) {
 	# Note this is typically only called after writing a new version so we can be pretty
 	# confident that the $path is already a JSON file
 	symlink($path . '.json', $link . '.json')
-		or $log->error("could not symlink to new revision",
-		{source => $path, link => $link});
+		or $log->error("could not symlink to new revision", {source => $path, link => $link});
 }
 
 # Serializes configuration information, removing it from legacy storage if it is present.
