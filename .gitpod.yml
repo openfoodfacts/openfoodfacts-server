@@ -1,0 +1,20 @@
+# Gitpod Classic configuration for Open Food Facts server
+# See https://www.gitpod.io/docs/config-gitpod-file
+
+image:
+  file: .gitpod.Dockerfile
+
+# Define tasks to run on workspace startup
+tasks:
+  - name: Initialize workspace
+    init: |
+      # Create necessary folders and initialize backend
+      make create_folders
+      make init_backend
+  - name: Start development environment
+    command: make dev
+
+# Expose application port and open in preview
+ports:
+  - port: 80
+    onOpen: open-preview
