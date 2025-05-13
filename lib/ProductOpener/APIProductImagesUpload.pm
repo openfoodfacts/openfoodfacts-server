@@ -20,7 +20,7 @@
 
 =head1 NAME
 
-ProductOpener::APIProductImageUpload - implementation of WRITE API for creating and updating products
+ProductOpener::APIProductImageUpload - implementation of WRITE API for uploading and deleting images
 
 =head1 DESCRIPTION
 
@@ -36,6 +36,7 @@ use Log::Any qw($log);
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
+		&delete_product_image_api
 		&upload_product_image_api
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -58,6 +59,57 @@ use Encode;
 use MIME::Base64 qw(decode_base64);
 use Clone qw/clone/;
 use Data::DeepAccess qw(deep_get deep_set);
+
+sub delete_product_image_api ($request_ref) {
+
+	$log->debug("image_product_delete_api - start", {request => $request_ref}) if $log->is_debug();
+
+	my $response_ref = $request_ref->{api_response};
+
+	my $code = $request_ref->{code};
+
+	# Check the product exists
+	my $product_id = product_id_for_owner($Owner_id, $code);
+	my $product_ref = retrieve_product($product_id);
+	if (not defined $product_ref) {
+		$log->error("image_product_delete_api - product not found", {code => $code}) if $log->is_error();
+		add_error(
+			$response_ref,
+			{
+				message => {id => "product_not_found"},
+				field => {id => "code", value => $code},
+				impact => {id => "failure"},
+			}
+		);
+		return;
+	}
+
+	# Check that the image exists
+	my $imgid = $request_ref->{imgid};
+	if (not defined $product_ref->{images}{uploaded}{$imgid}) {
+		$log->error("image_product_delete_api - image not found", {code => $code, imgid => $imgid})
+			if $log->is_error();
+		add_error(
+			$response_ref,
+			{
+				message => {id => "image_not_found"},
+				field => {id => "imgid", value => $imgid},
+				impact => {id => "failure"},
+			}
+		);
+		return;
+	}
+
+	# Check if the user has permission to delete the image
+	if (check_user_permission($request_ref, $response_ref, "image_delete")) {
+		$log->error("image_product_delete_api - user does not have permission to delete image", {code => $code})
+			if $log->is_error();
+
+		delete_uploaded_image_and_associated_selected_images($request_ref->{product_ref}, $request_ref->{imgid});
+	}
+
+	return;
+}
 
 =head2 upload_product_image_api($request_ref)
 

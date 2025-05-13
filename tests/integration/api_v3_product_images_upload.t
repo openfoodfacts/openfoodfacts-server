@@ -90,6 +90,33 @@ my $tests_ref = [
 		path => '/api/v3.3/product/1234567890012',
 		expected_status_code => 200,
 	},
+	# Delete images
+	{
+		test_case => 'delete-product-image',
+		method => 'DELETE',
+		path => '/api/v3/product/1234567890012/images/uploaded/1',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'get-product-images-after-deletion',
+		method => 'GET',
+		path => '/api/v3.3/product/1234567890012',
+		expected_status_code => 200,
+	},
+	# Delete an image of a product that does not exist
+	{
+		test_case => 'delete-product-image-product-not-found',
+		method => 'DELETE',
+		path => '/api/v3/product/1234567890073/images/uploaded/1',
+		expected_status_code => 404,
+	},
+	# Delete an image that does not exist
+	{
+		test_case => 'delete-product-image-not-found',
+		method => 'DELETE',
+		path => '/api/v3/product/1234567890012/images/uploaded/25',
+		expected_status_code => 404,
+	},
 
 ];
 

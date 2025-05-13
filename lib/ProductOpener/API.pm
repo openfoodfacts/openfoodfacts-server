@@ -79,7 +79,7 @@ use ProductOpener::ProductsFeatures qw(feature_enabled);
 
 use ProductOpener::APIProductRead qw/read_product_api/;
 use ProductOpener::APIProductWrite qw/write_product_api/;
-use ProductOpener::APIProductImagesUpload qw/upload_product_image_api/;
+use ProductOpener::APIProductImagesUpload qw/upload_product_image_api delete_product_image_api/;
 use ProductOpener::APIProductRevert qw/revert_product_api/;
 use ProductOpener::APIProductServices qw/product_services_api/;
 use ProductOpener::APITagRead qw/read_tag_api/;
@@ -407,6 +407,7 @@ my $dispatch_table = {
 	product_images => {
 		POST => \&upload_product_image_api,
 		OPTIONS => sub {return;},    # Just return CORS headers
+		DELETE => \&delete_product_image_api,
 	},
 	# Product revert
 	product_revert => {

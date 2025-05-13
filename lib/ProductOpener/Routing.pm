@@ -319,8 +319,16 @@ sub api_route($request_ref) {
 		$request_ref->{code} = $components[3];
 		# We also have a specific endpoint for image upload
 		# /api/v3/product/[barcode]/images
+		# And an endpoint DELETE /api/v3/product/[barcode]/images/uploaded/[imgid]
 		if ((defined $components[4]) and ($components[4] eq "images")) {
 			$api_action = "product_images";
+			if ((defined $components[5]) and ($components[5] eq "uploaded") and (defined $components[6])) {
+				$request_ref->{imgid} = $components[6];
+			}
+			elsif (not scalar @components == 4) {
+				# endpoint not recognized
+				$request_ref->{status_code} = 404;
+			}
 		}
 	}
 	elsif ($api_action eq "tag") {    # api/v3/tag/[type]/[tagid]

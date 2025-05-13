@@ -98,6 +98,7 @@ BEGIN {
 		&process_image_upload
 		&process_image_upload_using_filehandle
 		&process_image_move
+		&delete_uploaded_image_and_associated_selected_images
 
 		&same_image_generation_parameters
 		&normalize_generation_ref
@@ -1169,10 +1170,121 @@ sub process_image_upload_using_filehandle ($product_ref, $filehandle, $user_id, 
 	return $imgid;
 }
 
+=head2 delete_uploaded_image_and_associated_selected_images ( $product_ref, $imgid )
+
+This function deletes an uploaded image and its associated selected images.
+
+Note: the corresponding product is not saved by this function, it should be saved by the caller.
+We do not save it in this function so that we can delete multiple images and save the updated product only once.
+
+=head3 Arguments
+
+=head4 $product_ref
+
+A reference to the product data structure.
+
+=head4 $imgid
+
+The image id to be deleted.
+
+=head3 Return values
+
+1: success
+-1: image not found
+
+=cut
+
+sub delete_uploaded_image_and_associated_selected_images($product_ref, $imgid) {
+
+	my $code = $product_ref->{code};
+	my $path = product_path($product_ref);
+
+	# Check if the image exists
+	if (not defined $product_ref->{images}{uploaded}{$imgid}) {
+		$log->error("image not found", {imgid => $imgid, product_id => $product_ref->{id}})
+			if $log->is_error();
+		return -1;
+	}
+
+	# We move deleted images to the deleted.images dir
+	ensure_dir_created_or_die($BASE_DIRS{DELETED_IMAGES});
+
+	File::Copy->import(qw( move ));
+
+	$log->info(
+		"moving source image to deleted images directory",
+		{
+			source_path => "$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.jpg",
+			destination_path => "$BASE_DIRS{DELETED_IMAGES}/product.$code.$imgid.jpg"
+		}
+	);
+
+	move("$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.jpg", "$BASE_DIRS{DELETED_IMAGES}/product.$code.$imgid.jpg");
+	move(
+		"$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.$thumb_size.jpg",
+		"$BASE_DIRS{DELETED_IMAGES}/product.$code.$imgid.$thumb_size.jpg"
+	);
+	move(
+		"$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.$crop_size.jpg",
+		"$BASE_DIRS{DELETED_IMAGES}/product.$code.$imgid.$crop_size.jpg"
+	);
+
+	delete $product_ref->{images}{$imgid};
+
+	# If we delete an image, we also unselect the images that were selected / cropped from it
+	if (exists $product_ref->{images}{selected}) {
+		# Go through all image types and languages
+		foreach my $image_type (keys %{$product_ref->{images}{selected}}) {
+			foreach my $image_lc (keys %{$product_ref->{images}{selected}{$image_type}}) {
+				if ($product_ref->{images}{selected}{$image_type}{$image_lc}{imgid} eq $imgid) {
+					process_image_unselect($product_ref, $image_type, $image_lc);
+					$log->debug(
+						"Image ${image_type}_${image_lc} unselected because the source image $imgid was deleted", {})
+						if $log->is_debug();
+				}
+			}
+		}
+	}
+
+	return 1;
+}
+
+=head2 process_image_move ( $user_id, $code, $imgids, $move_to, $ownerid )
+
+This function moves images from one product to another, or to the trash.
+
+=head3 Arguments
+
+=head4 $user_id
+
+The user id of the person moving the image.
+
+=head4 $code
+
+The code of the product from which the image is moved.
+
+=head4 $imgids
+
+The image ids to be moved, in a comma-separated list.
+
+=head4 $move_to
+
+The product code to which the image is moved, or 'trash' if the image is deleted.
+
+=head4 $ownerid
+
+The owner id of the product from which the image is moved.
+
+=head3 Return values
+
+The function returns an error message if there was an error, or undef if the operation was successful.
+
+=cut
+
 sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 
 	# move images only to trash or another valid barcode (number)
-	if (($move_to ne 'trash') and ($move_to !~ /^((off|obf|opf|opff):)?\d+$/)) {
+	if (($move_to ne 'trash') and ($move_to !~ /^\d+$/)) {
 		return "invalid barcode number: $move_to";
 	}
 
@@ -1204,7 +1316,7 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 			my $new_imgid;
 			my $debug;
 
-			if ($move_to =~ /^((off|obf|opf|opff):)?\d+$/) {
+			if ($move_to =~ /^\d+$/) {
 				$ok = process_image_upload(
 					$move_to_id,
 					"$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.jpg",
@@ -1256,52 +1368,12 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 
 			# Don't delete images to be moved if they weren't moved correctly
 			if ($ok) {
-				# Delete images (move them to the deleted.images dir
-				ensure_dir_created_or_die($BASE_DIRS{DELETED_IMAGES});
-
-				File::Copy->import(qw( move ));
-
-				$log->info(
-					"moving source image to deleted images directory",
-					{
-						source_path => "$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.jpg",
-						destination_path => "$BASE_DIRS{DELETED_IMAGES}/product.$code.$imgid.jpg"
-					}
-				);
-
-				move(
-					"$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.jpg",
-					"$BASE_DIRS{DELETED_IMAGES}/product.$code.$imgid.jpg"
-				);
-				move(
-					"$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.$thumb_size.jpg",
-					"$BASE_DIRS{DELETED_IMAGES}/product.$code.$imgid.$thumb_size.jpg"
-				);
-				move(
-					"$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.$crop_size.jpg",
-					"$BASE_DIRS{DELETED_IMAGES}/product.$code.$imgid.$crop_size.jpg"
-				);
-
-				delete $product_ref->{images}{$imgid};
-
-				if ($move_to eq 'trash') {
-					# If we delete an image, we also unselect the images that were selected / cropped from it
-					if (exists $product_ref->{images}{selected}) {
-						# Go throug all image types and languages
-						foreach my $image_type (keys %{$product_ref->{images}{selected}}) {
-							foreach my $image_lc (keys %{$product_ref->{images}{selected}{$image_type}}) {
-								if ($product_ref->{images}{selected}{$image_type}{$image_lc}{imgid} eq $imgid) {
-									process_image_unselect($product_ref, $image_type, $image_lc);
-									$log->debug(
-										"Image ${image_type}_${image_lc} unselected because the source image $imgid was deleted",
-										{}
-									) if $log->is_debug();
-								}
-							}
-						}
-					}
-				}
+				# Delete images (move them to the deleted.images dir)
+				delete_uploaded_image_and_associated_selected_images($product_ref, $imgid);
 			}
+		}
+		else {
+			return -1;
 		}
 	}
 
@@ -1310,7 +1382,7 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 	$log->debug("process_image_move - end", {product_id => $product_id, imgids => $imgids, move_to_id => $move_to_id})
 		if $log->is_debug();
 
-	return 0;
+	return 1;
 }
 
 =head2 same_image_generation_parameters ( $generation_1_ref, $generation_2_ref )
