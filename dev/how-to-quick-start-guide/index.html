@@ -1543,6 +1543,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#make-dev-error-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket-at-unixvarrundockersock-head-http2fvar2frun2fdockersock_ping-dial-unix-varrundockersock-connect-permission-denied-make-makefile147-build-erreur-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      make dev error: permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Head "http://%2Fvar%2Frun%2Fdocker.sock/_ping": dial unix /var/run/docker.sock: connect: permission denied make: *** [Makefile:147 : build] Erreur 1
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2228,6 +2237,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#make-dev-error-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket-at-unixvarrundockersock-head-http2fvar2frun2fdockersock_ping-dial-unix-varrundockersock-connect-permission-denied-make-makefile147-build-erreur-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      make dev error: permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Head "http://%2Fvar%2Frun%2Fdocker.sock/_ping": dial unix /var/run/docker.sock: connect: permission denied make: *** [Makefile:147 : build] Erreur 1
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2687,6 +2705,11 @@ When using <code>make dev</code>:</p>
 </code></pre></div></p>
 <p>Finally, run this to allow .envrc:
 <div class="highlight"><pre><span></span><code><span class="go">direnv allow</span>
+</code></pre></div></p>
+<h3 id="make-dev-error-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket-at-unixvarrundockersock-head-http2fvar2frun2fdockersock_ping-dial-unix-varrundockersock-connect-permission-denied-make-makefile147-build-erreur-1">make dev error: permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Head "http://%2Fvar%2Frun%2Fdocker.sock/_ping": dial unix /var/run/docker.sock: connect: permission denied make: *** [Makefile:147 : build] Erreur 1<a class="headerlink" href="#make-dev-error-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket-at-unixvarrundockersock-head-http2fvar2frun2fdockersock_ping-dial-unix-varrundockersock-connect-permission-denied-make-makefile147-build-erreur-1" title="Permanent link">#</a></h3>
+<p><strong>Solution:</strong></p>
+<p>Add the user to docker group :
+<div class="highlight"><pre><span></span><code><span class="go">sudo usermod -aG docker $USER</span>
 </code></pre></div></p>
 
 
