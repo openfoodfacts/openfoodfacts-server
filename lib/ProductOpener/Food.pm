@@ -315,7 +315,7 @@ Assign a value with a unit and an optional modifier (< or ~) to a nutrient in th
 
 =head4 $product_ref
 
-=head4 $nid 
+=head4 $nid
 
 Nutrient id, possibly suffixed with "_prepared"
 
@@ -861,8 +861,8 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'--elaidic-acid-', '--gondoic-acid-',
 			'--mead-acid-', '--erucic-acid-',
 			'--nervonic-acid-', '-trans-fat-',
-			'-cholesterol-', '!carbohydrates',
-			'-sugars', '--added-sugars-',
+			'-cholesterol-', '-gamma-oryzanol-',
+			'!carbohydrates', '-sugars', '--added-sugars-',
 			'--sucrose-', '--glucose-',
 			'--fructose-', '--galactose-',
 			'--lactose-', '--maltose-',
@@ -947,7 +947,7 @@ foreach my $region (keys %nutriments_tables) {
 
 =head2 canonicalize_nutriment ( $product_ref )
 
-Canonicalizes the nutrients input by the user in the nutrition table product edit. 
+Canonicalizes the nutrients input by the user in the nutrition table product edit.
 This sub converts these nutrients (which are arguments to this function), into a recognizable/standard form.
 
 =head3 Parameters
