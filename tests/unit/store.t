@@ -9,7 +9,7 @@ use Log::Any::Adapter 'TAP';
 use Storable qw(lock_store);
 use Fcntl ':flock';
 
-use ProductOpener::Store qw/get_fileid get_string_id_for_lang get_urlid store_object retrieve_object store_config retrieve_config/;
+use ProductOpener::Store qw/get_fileid get_string_id_for_lang get_urlid store_object retrieve_object store_config retrieve_config link_object/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 
 is(get_fileid('Do not challenge me!'), 'do-not-challenge-me');
@@ -54,46 +54,48 @@ is(get_string_id_for_lang("en", "E420 - Σορβιτολη"), "e420-σορβιτ
 is(get_string_id_for_lang("el", "E420 - Σορβιτολη"), "e420-σορβιτολη");
 
 # Test store object
+my $test_path = "$BASE_DIRS{CACHE_TMP}/test-store";
+
 # Make sure json file doesn't exist
-if (-e "$BASE_DIRS{CACHE_TMP}/test.json") {
-	unlink("$BASE_DIRS{CACHE_TMP}/test.json");
+if (-e "$test_path.json") {
+	unlink("$test_path.json");
 }
 # Create an initial test file
-lock_store({id => 1}, "$BASE_DIRS{CACHE_TMP}/test.sto");
+lock_store({id => 1}, "$test_path.sto");
 # Verify retrieve copes with a sto file
-is(retrieve_object("$BASE_DIRS{CACHE_TMP}/test"), {id => 1});
+is(retrieve_object("$test_path"), {id => 1});
 # Use the new method to update it
-store_object("$BASE_DIRS{CACHE_TMP}/test", {id => 2});
+store_object("$test_path", {id => 2});
 # Verify that the json file has been created
-ok((-e "$BASE_DIRS{CACHE_TMP}/test.json"), "$BASE_DIRS{CACHE_TMP}/test.json exists");
-open(my $JSON, '<', "$BASE_DIRS{CACHE_TMP}/test.json");
+ok((-e "$test_path.json"), "$test_path.json exists");
+open(my $JSON, '<', "$test_path.json");
 local $/;    #Enable 'slurp' mode
 my $data = <$JSON>;
 close($JSON);
 is($data, '{"id":2}');
 
 # The old sto file should be deleted
-ok((not -e "$BASE_DIRS{CACHE_TMP}/test.sto"), "$BASE_DIRS{CACHE_TMP}/test.sto does not exist");
+ok((not -e "$test_path.sto"), "$test_path.sto does not exist");
 # Check data is saved
-is(retrieve_object("$BASE_DIRS{CACHE_TMP}/test"), {id => 2});
+is(retrieve_object("$test_path"), {id => 2});
 
 # Check copes with an empty JSON file
-open(my $EMPTY, '>', "$BASE_DIRS{CACHE_TMP}/test_empty.json");
+open(my $EMPTY, '>', "$test_path-empty.json");
 close($EMPTY);
-is(retrieve_object("$BASE_DIRS{CACHE_TMP}/test_empty"), undef);
+is(retrieve_object("$test_path-empty"), undef);
 
 # Check copes with invalid JSON file
-open(my $INVALID, '>', "$BASE_DIRS{CACHE_TMP}/test_invalid.json");
+open(my $INVALID, '>', "$test_path-invalid.json");
 print $INVALID '{ not json';
 close($INVALID);
-is(retrieve_object("$BASE_DIRS{CACHE_TMP}/test_invalid"), undef);
+is(retrieve_object("$test_path-invalid"), undef);
 
 # Check copes with a non-existent file
-is(retrieve_object("$BASE_DIRS{CACHE_TMP}/test_no_exists"), undef);
+is(retrieve_object("$test_path-no_exists"), undef);
 
 # Verify that JSON is formatted with store_config. Keys are sorted but array order is preserved
-store_config("$BASE_DIRS{CACHE_TMP}/test_sorting", {c => 1, a => 3, b => ['z', 'x', 'y']});
-open(my $SORTED, '<', "$BASE_DIRS{CACHE_TMP}/test_sorting.json");
+store_config("$test_path-sorting", {c => 1, a => 3, b => ['z', 'x', 'y']});
+open(my $SORTED, '<', "$test_path-sorting.json");
 local $/;    #Enable 'slurp' mode
 my $json = <$SORTED>;
 close($SORTED);
@@ -110,12 +112,12 @@ is($json, '{
 ');
 
 # Verify that read waits for a current write to complete
-open(my $LOCKED, '>', "$BASE_DIRS{CACHE_TMP}/test_locked.json");
+open(my $LOCKED, '>', "$test_path-locked.json");
 flock($LOCKED, LOCK_EX);
 # Write some data to the file
 print $LOCKED '{"id":';
 # Retrieve on another thread
-my $thread = threads->create(\&retrieve_object, "$BASE_DIRS{CACHE_TMP}/test_locked");
+my $thread = threads->create(\&retrieve_object, "$test_path-locked");
 sleep(0.1);
 # Write the rest of the JSON
 print $LOCKED '3}';
@@ -126,18 +128,25 @@ is($result, {id => 3});
 
 # Verify write waits for the current read to complete
 # OPen the original test file for reading
-open(my $READ, '<', "$BASE_DIRS{CACHE_TMP}/test.json");
+open(my $READ, '<', "$test_path.json");
 flock($READ, LOCK_SH);
 local $/;    #Enable 'slurp' mode
 # Start a thread that updates it
-my $store_thread = threads->create(\&store_object, "$BASE_DIRS{CACHE_TMP}/test", {id => 4});
+my $store_thread = threads->create(\&store_object, "$test_path", {id => 4});
 sleep(0.1);
 my $read_data = <$READ>;
 flock($READ, LOCK_UN);
 close($READ);
 $store_thread->join();
-# Read should have old value
-is($read_data, '{"id":2}');
+is($read_data, '{"id":2}', "Read should have old value");
+
+# Test linking
+link_object("$test_path", "$test_path-link");
+is(retrieve_object("$test_path-link"), {id => 4}, "Link should show original's data");
+
+# Update the original
+store_object("$test_path", {id => 5});
+is(retrieve_object("$test_path-link"), {id => 5}, "Link reflects original");
 
 
 done_testing();

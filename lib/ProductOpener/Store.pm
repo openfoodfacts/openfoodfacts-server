@@ -40,6 +40,7 @@ BEGIN {
 		&retrieve_object
 		&store_config
 		&retrieve_config
+		&link_object
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -322,6 +323,15 @@ sub retrieve_object($path) {
 	}
 	# Fallback to old method
 	return retrieve($path . '.sto');
+}
+
+# Makes the $link point to the data in the specified $path
+sub link_object($path, $link) {
+	# Note this is typically only called after writing a new version so we can be pretty
+	# confident that the $path is already a JSON file
+	symlink($path . '.json', $link . '.json')
+		or $log->error("could not symlink to new revision",
+		{source => $path, link => $link});
 }
 
 # Serializes configuration information, removing it from legacy storage if it is present.
