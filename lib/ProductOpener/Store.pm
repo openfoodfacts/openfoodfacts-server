@@ -268,24 +268,39 @@ sub retrieve ($file) {
 # Serializes an object in our preferred object store, removing it from legacy storage if it is present
 sub store_object ($path, $ref, $delete_old = 1) {
 	my $new_path = $path . '.json';
-	if (open(my $OUT, ">", $new_path)) {
-		# Get an exclusive lock on the file
-		# We could also lock the STO file here but it adds a small overhead and we don't
-		# tend to run old and new versions in parallel so shouldn't be an issue
-		flock($OUT, LOCK_EX);
-		my $json = $json_for_objects->encode($ref);
-		# Strip out any nul characters as many parsers can't cope with these
-		# This doesn't seem to add too much overhead
-		$json =~ s/\000//g;
-		print $OUT $json;
-		close($OUT);
-
-		# Unlock and Delete the old storable file
-		if ($delete_old and -e ($path . '.sto')) {
-			unlink($path . '.sto');
-		}
+	# If the file already exists then we need to first open it non-destructively so that
+	# other code doesn't read an empty file before we have written the data
+	my $READ_LOCK;
+	if (-e $new_path) {
+		open(my $READ_LOCK, "<", $new_path);
 	}
-	# TODO Handle errors
+
+	open(my $OUT, ">", $new_path);
+	# Get an exclusive lock on the file
+	# We could also lock the STO file here but it adds a small overhead and we don't
+	# tend to run old and new versions in parallel so shouldn't be an issue
+	if (not $READ_LOCK) {
+		flock($OUT, LOCK_EX);
+	}
+	my $json = $json_for_objects->encode($ref);
+	# Strip out any nul characters as many parsers can't cope with these
+	# This doesn't seem to add too much overhead
+	$json =~ s/\000//g;
+	print $OUT $json;
+
+	# Delete the old storable file
+	if ($delete_old and -e ($path . '.sto')) {
+		unlink($path . '.sto');
+	}
+	# Release the lock. Some docs say this isn't needed but tests show otherwise
+	if (not $READ_LOCK) {
+		flock($OUT, LOCK_UN);
+	}
+	close($OUT);
+	if ($READ_LOCK) {
+		flock($OUT, LOCK_UN);
+		close($READ_LOCK);
+	}
 }
 
 sub retrieve_object($path) {
@@ -297,6 +312,8 @@ sub retrieve_object($path) {
 			flock($IN, LOCK_SH);
 			local $/;    #Enable 'slurp' mode
 			$ref = $json_for_objects->decode(<$IN>);
+			# Release the lock. Som docs say this isn't needed but tests show otherwise
+			flock($IN, LOCK_UN);
 			close($IN);
 		} or do {
 			$log->error("retrieve_object", {path => $path, error => $@}) if $log->is_error();

@@ -1139,7 +1139,7 @@ sub get_from_cache ($tagtype, @files) {
 	# disable by env variable, useful when iterating over Tags.pm (see make rebuild_taxonomies)
 	return $cache_prefix if $ENV{TAXONOMY_NO_GET_FROM_CACHE};
 
-	my $got_from_cache = get_file_from_cache("$cache_prefix.result.sto", "$tag_data_root.result.sto");
+	my $got_from_cache = get_file_from_cache("$cache_prefix.result.json", "$tag_data_root.result.json");
 	if ($got_from_cache) {
 		$got_from_cache = get_file_from_cache("$cache_prefix.result.txt", "$tag_data_root.result.txt");
 	}
@@ -1202,7 +1202,7 @@ sub put_to_cache ($tagtype, $cache_prefix) {
 	put_file_to_cache("$tag_www_root.full.json", "$cache_prefix.full.json");
 	put_file_to_cache("$tag_www_root.extended.json", "$cache_prefix.extended.json");
 	put_file_to_cache("$tag_data_root.result.txt", "$cache_prefix.result.txt");
-	put_file_to_cache("$tag_data_root.result.sto", "$cache_prefix.result.sto");
+	put_file_to_cache("$tag_data_root.result.json", "$cache_prefix.result.json");
 	# note: we don't put errors to cache as it is a non sense, errors are to be fixed before
 	# and you need them only if you touch the taxonomy hence rebuild it (and thus have them locally)
 
@@ -1621,7 +1621,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			my $taxonomy_with_duplicate_tolerated
 				= (($tagtype eq "ingredients") or ($tagtype eq "packaging") or ($tagtype eq "inci_functions"));
 			unless ($only_duplicate_errors and $taxonomy_with_duplicate_tolerated) {
-				store("$result_dir/$tagtype.errors.sto", {errors => \@taxonomy_errors});
+				store_config("$result_dir/$tagtype.errors", {errors => \@taxonomy_errors});
 				die("Errors in the $tagtype taxonomy definition");
 			}
 		}
@@ -2285,7 +2285,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			}
 
 			unless ($only_duplicate_errors and $taxonomy_with_duplicate_tolerated) {
-				store("$result_dir/$tagtype.errors.sto", {errors => \@taxonomy_errors});
+				store_config("$result_dir/$tagtype.errors", {errors => \@taxonomy_errors});
 				die("Errors in the $tagtype taxonomy definition");
 			}
 		}
@@ -2333,8 +2333,8 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 		};
 
 		if ($publish) {
-			store("$result_dir/$tagtype.result.sto", $taxonomy_ref);
-			store("$result_dir/$tagtype.errors.sto", {errors => \@taxonomy_errors});
+			store_config("$result_dir/$tagtype.result", $taxonomy_ref);
+			store_config("$result_dir/$tagtype.errors", {errors => \@taxonomy_errors});
 			put_to_cache($tagtype, $cache_prefix);
 		}
 	}
@@ -2613,20 +2613,20 @@ sub retrieve_tags_taxonomy ($tagtype, $die_if_taxonomy_cannot_be_loaded = 0) {
 
 	# Check if we have a taxonomy for the previous or the next version
 	if ($tagtype !~ /_(next|prev)/) {
-		if (-e "$result_dir/${file}_prev.result.sto") {
+		if (-e "$result_dir/${file}_prev.result.json") {
 			retrieve_tags_taxonomy("${tagtype}_prev");
 		}
-		if (-e "$result_dir/${file}_next.result.sto") {
+		if (-e "$result_dir/${file}_next.result.json") {
 			retrieve_tags_taxonomy("${tagtype}_next");
 		}
 	}
 
-	my $taxonomy_ref = retrieve("$result_dir/$file.result.sto");
+	my $taxonomy_ref = retrieve_config("$result_dir/$file.result");
 
 	if (not defined $taxonomy_ref) {
 		if ($die_if_taxonomy_cannot_be_loaded) {
 			$log->error("Could not load taxonomy $tagtype - dying") if $log->is_error();
-			die("Could not load taxonomy: $result_dir/$file.result.sto");
+			die("Could not load taxonomy: $result_dir/$file.result");
 		}
 		else {
 			$log->info("Could not load taxonomy $tagtype - skipping") if $log->is_info();

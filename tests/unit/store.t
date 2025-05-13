@@ -2,10 +2,12 @@
 
 use Modern::Perl '2017';
 use utf8;
+use threads;
 
 use Test2::V0;
 use Log::Any::Adapter 'TAP';
 use Storable qw(lock_store);
+use Fcntl ':flock';
 
 use ProductOpener::Store qw/get_fileid get_string_id_for_lang get_urlid store_object retrieve_object store_config retrieve_config/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
@@ -80,11 +82,14 @@ open(my $EMPTY, '>', "$BASE_DIRS{CACHE_TMP}/test_empty.json");
 close($EMPTY);
 is(retrieve_object("$BASE_DIRS{CACHE_TMP}/test_empty"), undef);
 
-# Check copes with invlaid JSON file
+# Check copes with invalid JSON file
 open(my $INVALID, '>', "$BASE_DIRS{CACHE_TMP}/test_invalid.json");
 print $INVALID '{ not json';
 close($INVALID);
 is(retrieve_object("$BASE_DIRS{CACHE_TMP}/test_invalid"), undef);
+
+# Check copes with a non-existent file
+is(retrieve_object("$BASE_DIRS{CACHE_TMP}/test_no_exists"), undef);
 
 # Verify that JSON is formatted with store_config. Keys are sorted but array order is preserved
 store_config("$BASE_DIRS{CACHE_TMP}/test_sorting", {c => 1, a => 3, b => ['z', 'x', 'y']});
@@ -105,10 +110,34 @@ is($json, '{
 ');
 
 # Verify that read waits for a current write to complete
-# open(my $LOCKED, '>', "$BASE_DIRS{CACHE_TMP}/test_locked.json");
-# print $INVALID '{ not json';
-# close($INVALID);
+open(my $LOCKED, '>', "$BASE_DIRS{CACHE_TMP}/test_locked.json");
+flock($LOCKED, LOCK_EX);
+# Write some data to the file
+print $LOCKED '{"id":';
+# Retrieve on another thread
+my $thread = threads->create(\&retrieve_object, "$BASE_DIRS{CACHE_TMP}/test_locked");
+sleep(0.1);
+# Write the rest of the JSON
+print $LOCKED '3}';
+flock($LOCKED, LOCK_UN);
+close($LOCKED);
+my $result = $thread->join();
+is($result, {id => 3});
 
+# Verify write waits for the current read to complete
+# OPen the original test file for reading
+open(my $READ, '<', "$BASE_DIRS{CACHE_TMP}/test.json");
+flock($READ, LOCK_SH);
+local $/;    #Enable 'slurp' mode
+# Start a thread that updates it
+my $store_thread = threads->create(\&store_object, "$BASE_DIRS{CACHE_TMP}/test", {id => 4});
+sleep(0.1);
+my $read_data = <$READ>;
+flock($READ, LOCK_UN);
+close($READ);
+$store_thread->join();
+# Read should have old value
+is($read_data, '{"id":2}');
 
 
 done_testing();
