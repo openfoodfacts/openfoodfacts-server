@@ -115,9 +115,6 @@ requires 'Text::Levenshtein';
 # To handle IP and IP blocks white lists
 requires 'Net::CIDR'; # libnet-cidr-perl
 
-requires 'YAML::XS';
-requires 'YAML::Syck';
-
 on 'test' => sub {
   requires 'Test2::V0';
   requires 'Mock::Quick';

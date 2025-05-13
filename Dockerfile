@@ -176,8 +176,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libjpeg-dev \
         libpng-dev \
         libwebp-dev \
-        libx265-dev \
-        libyaml-dev
+        libx265-dev
 
 # Install zxing-cpp from source until 2.1 or higher is available in Debian: https://github.com/openfoodfacts/openfoodfacts-server/pull/8911/files#r1322987464
 RUN set -x && \

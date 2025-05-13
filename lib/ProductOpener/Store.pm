@@ -38,6 +38,8 @@ BEGIN {
 		&sto_iter
 		&store_object
 		&retrieve_object
+		&store_config
+		&retrieve_config
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -57,7 +59,8 @@ use JSON::Parse qw(read_json);
 use JSON::MaybeXS;
 use Fcntl ':flock';
 
-my $json_converter = JSON::MaybeXS->new->allow_nonref->canonical->indent->indent_length(1)->utf8;
+my $json_for_config = JSON::MaybeXS->new->allow_nonref->canonical->indent->indent_length(1)->utf8;
+my $json_for_objects = JSON::MaybeXS->new->allow_nonref->utf8;
 
 # Text::Unaccent unac_string causes Apache core dumps with Apache 2.4 and mod_perl 2.0.9 on jessie
 
@@ -264,34 +267,79 @@ sub retrieve ($file) {
 
 # Serializes an object in our preferred object store, removing it from legacy storage if it is present
 sub store_object ($path, $ref, $delete_old = 1) {
-	my $new_path = $path =~ s/\.sto$/\.json/ri;
+	my $new_path = $path . '.json';
 	if (open(my $OUT, ">", $new_path)) {
 		# Get an exclusive lock on the file
+		# We could also lock the STO file here but it adds a small overhead and we don't
+		# tend to run old and new versions in parallel so shouldn't be an issue
 		flock($OUT, LOCK_EX);
-		print $OUT $json_converter->encode($ref);
+		my $json = $json_for_objects->encode($ref);
+		# Strip out any nul characters as many parsers can't cope with these
+		# This doesn't seem to add too much overhead
+		$json =~ s/\000//g;
+		print $OUT $json;
 		close($OUT);
 
-		# Delete the old file if it was a storable
-		if ($delete_old and $path =~/.*\.sto/ and -e $path) {
-			unlink($path);
+		# Unlock and Delete the old storable file
+		if ($delete_old and -e ($path . '.sto')) {
+			unlink($path . '.sto');
 		}
 	}
 	# TODO Handle errors
 }
 
 sub retrieve_object($path) {
-	my $new_path = $path =~ s/\.sto$/\.json/ri;
+	my $new_path = $path . '.json';
 	if (-e $new_path) {
-		if (open(my $IN, "<", $new_path)) {
+		my $ref;
+		eval {
+			open(my $IN, "<", $new_path) or die("Can't open $new_path");
 			flock($IN, LOCK_SH);
 			local $/;    #Enable 'slurp' mode
-			my $ref = $json_converter->decode(<$IN>);
+			$ref = $json_for_objects->decode(<$IN>);
 			close($IN);
-			return $ref;
-		}
+		} or do {
+			$log->error("retrieve_object", {path => $path, error => $@}) if $log->is_error();
+		};
+		return $ref;
 	}
 	# Fallback to old method
-	return retrieve($path);
+	return retrieve($path . '.sto');
+}
+
+# Serializes configuration information, removing it from legacy storage if it is present.
+# JSON keys are sorted and indentation is used so files can be used in source control
+# No locking is performed
+sub store_config ($path, $ref, $delete_old = 1) {
+	my $new_path = $path . '.json';
+	if (open(my $OUT, ">", $new_path)) {
+		print $OUT $json_for_config->encode($ref);
+		close($OUT);
+
+		# Delete the old storable file
+		if ($delete_old and -e ($path . '.sto')) {
+			unlink($path . '.sto');
+		}
+	}
+}
+
+# Same as retrieve_object but with no locking
+sub retrieve_config($path) {
+	my $new_path = $path . '.json';
+	if (-e $new_path) {
+		my $ref;
+		eval {
+			open(my $IN, "<", $new_path) or die("Can't open $new_path");
+			local $/;    #Enable 'slurp' mode
+			$ref = $json_for_config->decode(<$IN>);
+			close($IN);
+		} or do {
+			$log->error("retrieve_config", {path => $path, error => $@}) if $log->is_error();
+		};
+		return $ref;
+	}
+	# Fallback to old method
+	return retrieve($path . '.sto');
 }
 
 sub store_json ($file, $ref) {

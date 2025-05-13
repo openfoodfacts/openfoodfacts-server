@@ -7,7 +7,7 @@ use Test2::V0;
 use Log::Any::Adapter 'TAP';
 use Storable qw(lock_store);
 
-use ProductOpener::Store qw/get_fileid get_string_id_for_lang get_urlid store_object retrieve_object/;
+use ProductOpener::Store qw/get_fileid get_string_id_for_lang get_urlid store_object retrieve_object store_config retrieve_config/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 
 is(get_fileid('Do not challenge me!'), 'do-not-challenge-me');
@@ -59,14 +59,56 @@ if (-e "$BASE_DIRS{CACHE_TMP}/test.json") {
 # Create an initial test file
 lock_store({id => 1}, "$BASE_DIRS{CACHE_TMP}/test.sto");
 # Verify retrieve copes with a sto file
-is(retrieve_object("$BASE_DIRS{CACHE_TMP}/test.sto"), {id => 1});
+is(retrieve_object("$BASE_DIRS{CACHE_TMP}/test"), {id => 1});
 # Use the new method to update it
-store_object("$BASE_DIRS{CACHE_TMP}/test.sto", {id => 2});
+store_object("$BASE_DIRS{CACHE_TMP}/test", {id => 2});
 # Verify that the json file has been created
 ok((-e "$BASE_DIRS{CACHE_TMP}/test.json"), "$BASE_DIRS{CACHE_TMP}/test.json exists");
+open(my $JSON, '<', "$BASE_DIRS{CACHE_TMP}/test.json");
+local $/;    #Enable 'slurp' mode
+my $data = <$JSON>;
+close($JSON);
+is($data, '{"id":2}');
+
 # The old sto file should be deleted
 ok((not -e "$BASE_DIRS{CACHE_TMP}/test.sto"), "$BASE_DIRS{CACHE_TMP}/test.sto does not exist");
 # Check data is saved
-is(retrieve_object("$BASE_DIRS{CACHE_TMP}/test.sto"), {id => 2});
+is(retrieve_object("$BASE_DIRS{CACHE_TMP}/test"), {id => 2});
+
+# Check copes with an empty JSON file
+open(my $EMPTY, '>', "$BASE_DIRS{CACHE_TMP}/test_empty.json");
+close($EMPTY);
+is(retrieve_object("$BASE_DIRS{CACHE_TMP}/test_empty"), undef);
+
+# Check copes with invlaid JSON file
+open(my $INVALID, '>', "$BASE_DIRS{CACHE_TMP}/test_invalid.json");
+print $INVALID '{ not json';
+close($INVALID);
+is(retrieve_object("$BASE_DIRS{CACHE_TMP}/test_invalid"), undef);
+
+# Verify that JSON is formatted with store_config. Keys are sorted but array order is preserved
+store_config("$BASE_DIRS{CACHE_TMP}/test_sorting", {c => 1, a => 3, b => ['z', 'x', 'y']});
+open(my $SORTED, '<', "$BASE_DIRS{CACHE_TMP}/test_sorting.json");
+local $/;    #Enable 'slurp' mode
+my $json = <$SORTED>;
+close($SORTED);
+
+is($json, '{
+ "a":3,
+ "b":[
+  "z",
+  "x",
+  "y"
+ ],
+ "c":1
+}
+');
+
+# Verify that read waits for a current write to complete
+# open(my $LOCKED, '>', "$BASE_DIRS{CACHE_TMP}/test_locked.json");
+# print $INVALID '{ not json';
+# close($INVALID);
+
+
 
 done_testing();
