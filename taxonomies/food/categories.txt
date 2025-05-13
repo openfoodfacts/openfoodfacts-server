@@ -35825,7 +35825,7 @@ fr: Tortillas de blé, pains plats au blé, galettes de blé pour tortillas, wra
 hr: Pšenični somuni
 it: Tortilla, Wrap, Piadine
 lt: Kvietiniai paplotėliai, kvietinės tortilijos
-nl: Graantortillas, Platte graanbroden, Platte graanbrood, Wraps(ongevuld)
+nl: Graantortillas, Platte graanbroden, Platte graanbrood, Wraps (ongevuld)
 sv: Halvtjockkakor, Hällakaka
 agribalyse_food_code:en: 7815_1
 ciqual_food_code:en: 7815
@@ -36624,6 +36624,15 @@ ciqual_food_code:en: 18100
 ciqual_food_name:en: Cocoa powder, without sugar, powder, instant
 ciqual_food_name:fr: Cacao, non sucré, poudre soluble
 wikidata:en: Q1062396
+
+
+< en:cocoa-powders
+en: Instant cocoa or chocolate beverage with sugar fortified with vitamins and chemical elements ready-to-drink (reconstituted with standard semi-skimm
+fr: Boisson cacaotée ou au chocolat instantanée sucrée enrichie en vitamines prête à boire (reconstituée avec du lait demi-écrémé standard)
+agribalyse_food_code:en: 18106
+ciqual_food_code:en: 18106
+ciqual_food_name:en: Instant cocoa or chocolate beverage, with sugar, fortified with vitamins and chemical elements, ready-to-drink (reconstituted with standard semi-skimm
+ciqual_food_name:fr: Boisson cacaotée ou au chocolat, instantanée, sucrée, enrichie en vitamines, prête à boire (reconstituée avec du lait demi-écrémé standard)
 
 < en:Cocoa and chocolate powders
 < en:Instant beverages
@@ -45315,7 +45324,7 @@ wikidata:en: Q643697
 < en:Soft cheeses with washed rind
 en: Soft cheeses with a red rind
 fr: Fromages à croûte rouge
-nl: Kazen met een rode korst
+nl: Kazen met een rode korst, Roodschimmelkazen
 
 < en:Soft cheeses with a red rind
 en: Munster, Munster cheeses, Munster cheese from cow's milk
@@ -50663,7 +50672,7 @@ hr: Neslani maslaci
 it: Burro non salato
 ja: 食塩不使用バター
 lt: Sviestai be druskos
-nl: Ongezouten roomboters
+nl: Ongezouten roomboters, Roomboters (ongezouten)
 pt: Manteigas sem sal
 agribalyse_proxy_food_code:en: 16400
 ciqual_food_code:en: 16414
@@ -52955,7 +52964,6 @@ ml: തൈര്
 my: ဒိန်ချဉ်
 ne: दही
 nl: Yoghurts
-nl_be: Yoghurts
 nn: yoghurt
 pl: jogurty, jogurt
 pt: Iogurtes, yogurtes
@@ -53848,7 +53856,7 @@ fi: luonnon jugurtit, luonnonjogurtit
 fr: Yaourts natures, Yaourts nature, Yaourt nature, Lait fermenté nature
 hr: Obični jogurti
 it: Yogurt bianco
-nl: Natuurlijke yoghurt, Naturelyoghurts
+nl: Natuurlijke yoghurt, Naturelyoghurts, Yoghurts (natuur)
 pl: Jogurty naturalne, Jogurt naturalny
 pt: Iogurtes naturales, iogurte naturale
 ro: Iaurturi naturale
@@ -53863,6 +53871,10 @@ ciqual_food_name:fr: Yaourt ou spécialité laitière nature (aliment moyen)
 #ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature
 intake24_category_code:en: NTYG
 intake24_category_code:fr: NTYG
+
+< en:Plain yogurts
+en: Farmer yoghurts
+nl: Boerenyoghurts
 
 < en:Yogurts
 en: Twin-pot yogurts
@@ -56032,14 +56044,14 @@ agribalyse_proxy_food_name:en: Almond, grilled, salted
 opposite:en: en:unsalted-almonds
 
 < en:Shelled almonds
-en: Unsalted almonds, Almonds(unsalted)
+en: Unsalted almonds, Almonds (unsalted)
 fr: Amandes non-salées
-nl: Amandelen(ongezouten), Ongezouten amandelen
+nl: Ongezouten amandelen, Amandelen (ongezouten)
 opposite:en: en:salted-almonds
 
 < en:Roasted almonds
 < en:Unsalted almonds
-en: Almonds(roasted and unsalted)
+en: Almonds (roasted and unsalted)
 fr: Amandes grillées et non-salées
 sales_format:en: weight, package
 
@@ -56063,7 +56075,7 @@ comment:en: Flavoured almonds has been put outside the Almonds category. Otherwi
 en: Smoked almonds, Almonds(smoked)
 da: Mandler med røgsmag
 fr: Amandes goût fumé, Amandes saveur fumée
-nl: Amandelen(gerookt), Gerookte amandelen
+nl: Gerookte amandelen, Amandelen (gerookt)
 
 #############################################
 
@@ -117973,7 +117985,7 @@ nl: Kamutwafels
 < en:Biscuits and crackers
 en: Crackers(Breakfast), Breakfast crackers
 fr: Biscuits crackers, Crackers
-nl: Crackers(ontbijt), Ontbijtcrackers
+nl: Crackers (ontbijt), Ontbijtcrackers
 
 < en:Appetizers
 < en:Biscuits and crackers
@@ -120628,14 +120640,6 @@ agribalyse_food_code:en: 13014_3
 ciqual_food_code:en: 13014
 ciqual_food_name:en: Strawberry, off-season, raw
 ciqual_food_name:fr: Fraise hors saison, crue
-
-< en:cocoa-powders
-en: Instant cocoa or chocolate beverage with sugar fortified with vitamins and chemical elements ready-to-drink (reconstituted with standard semi-skimm
-fr: Boisson cacaotée ou au chocolat instantanée sucrée enrichie en vitamines prête à boire (reconstituée avec du lait demi-écrémé standard)
-agribalyse_food_code:en: 18106
-ciqual_food_code:en: 18106
-ciqual_food_name:en: Instant cocoa or chocolate beverage, with sugar, fortified with vitamins and chemical elements, ready-to-drink (reconstituted with standard semi-skimm
-ciqual_food_name:fr: Boisson cacaotée ou au chocolat, instantanée, sucrée, enrichie en vitamines, prête à boire (reconstituée avec du lait demi-écrémé standard)
 
 < en:tomatoes
 en: Tomato in season raw
