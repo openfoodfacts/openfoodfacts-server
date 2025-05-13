@@ -304,10 +304,9 @@ is(
 	]
 ) or diag Dumper(\@tags);
 
-foreach my $tag (@tags) {
-
-	print STDERR "tag: $tag\tlevel: " . $level{ingredients}{$tag} . "\n";
-}
+# foreach my $tag (@tags) {
+# 	print STDERR "tag: $tag\tlevel: " . $level{ingredients}{$tag} . "\n";
+# }
 
 @tags = gen_ingredients_tags_hierarchy_taxonomy("en", "en:concentrated-orange-juice, en:sugar, en:salt, en:orange");
 
