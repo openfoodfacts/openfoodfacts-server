@@ -5307,7 +5307,7 @@ my %phrases_after_ingredients_list = (
 	cs => [
 		'analytické složky',    # pet food
 		'balené v ochrannej atmosfére',    # packaged in protective atmosphere
-		'doporu)c|č)eny zp(u|ů)sob p(r|ř)(i|í)pravy',
+		'doporu(c|č)eny zp(u|ů)sob p(r|ř)(i|í)pravy',
 		'minim(a|á)ln(i|í) trvanlivost do',    # Expiration date
 		'po otev(r|ř)en(i|í)',    # After opening
 		'(návod k )?přípravě',    # preparation
@@ -5596,7 +5596,6 @@ my %phrases_after_ingredients_list = (
 		'tinka vartoti iki',    # valid until
 		'data ant pakuotės',    #date on package
 		'laikyti sausoje vietoje',    #Keep in dry place
-		'',
 	],
 
 	lv => [
