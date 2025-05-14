@@ -89,6 +89,10 @@ is(retrieve_object("$test_path-link"), {id => 2}, "Link should show original's d
 store_object("$test_path", {id => 3});
 is(retrieve_object("$test_path-link"), {id => 3}, "Link reflects original");
 
+# Update via the link
+store_object("$test_path-link", {id => 4});
+is(retrieve_object("$test_path"), {id => 4}, "Original reflects update via link");
+
 # Check copes with an empty JSON file
 open(my $EMPTY, '>', "$test_path-empty.json");
 close($EMPTY);
@@ -140,12 +144,12 @@ is(
 # is($result, {id => 3});
 
 # # Verify write waits for the current read to complete
-# # OPen the original test file for reading
-# open(my $READ, '<', "$test_path.json");
+# # Open the original test file for reading
+# open(my $READ, '<', "$test_path-locked.json");
 # flock($READ, LOCK_SH);
 # local $/;    #Enable 'slurp' mode
 # # Start a thread that updates it
-# my $store_thread = threads->create(\&store_object, "$test_path", {id => 4});
+# my $store_thread = threads->create(\&store_object, "$test_path-locked", {id => 4});
 # sleep(0.1);
 # my $read_data = <$READ>;
 # flock($READ, LOCK_UN);
