@@ -54,14 +54,16 @@ use Storable qw(lock_store lock_nstore lock_retrieve);
 use URI::Escape::XS;
 use Unicode::Normalize;
 use Log::Any qw($log);
-#11872 Switch all JSON to use JSON::MaybeXS
+#11872 Switch all JSON to use Cpanel::JSON::XS
 use JSON::Create qw(write_json);
 use JSON::Parse qw(read_json);
-use JSON::MaybeXS;
+use Cpanel::JSON::XS;
 use Fcntl ':flock';
 
-my $json_for_config = JSON::MaybeXS->new->allow_nonref->canonical->indent->indent_length(1)->utf8;
-my $json_for_objects = JSON::MaybeXS->new->allow_nonref->utf8;
+# Use Cpanel::JSON::XS directly rather than JSON::MaybeXS as otherwise check_perl gives error:
+# Can't locate object method "indent_length" via package "JSON::XS"
+my $json_for_config = Cpanel::JSON::XS->new->allow_nonref->canonical->indent->indent_length(1)->utf8;
+my $json_for_objects = Cpanel::JSON::XS->new->allow_nonref->utf8;
 
 # Text::Unaccent unac_string causes Apache core dumps with Apache 2.4 and mod_perl 2.0.9 on jessie
 

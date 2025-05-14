@@ -103,10 +103,10 @@ sub read_taxonomies($mode) {
 	return;
 }
 
-# read_taxonomies('PREPARE');
-# read_taxonomies('JSON');
-# read_taxonomies('STORABLE');
-# read_taxonomies('CLEANUP');
+read_taxonomies('PREPARE');
+read_taxonomies('JSON');
+read_taxonomies('STORABLE');
+read_taxonomies('CLEANUP');
 
 run_for_mode('STORABLE');
 run_for_mode('STO_TO_JSON');
