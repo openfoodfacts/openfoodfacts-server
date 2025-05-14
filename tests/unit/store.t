@@ -81,6 +81,14 @@ ok((not -e "$test_path.sto"), "$test_path.sto does not exist");
 # Check data is saved
 is(retrieve_object("$test_path"), {id => 2});
 
+# Test linking
+link_object("$test_path", "$test_path-link");
+is(retrieve_object("$test_path-link"), {id => 2}, "Link should show original's data");
+
+# Update the original
+store_object("$test_path", {id => 3});
+is(retrieve_object("$test_path-link"), {id => 3}, "Link reflects original");
+
 # Check copes with an empty JSON file
 open(my $EMPTY, '>', "$test_path-empty.json");
 close($EMPTY);
@@ -143,14 +151,6 @@ is(
 # flock($READ, LOCK_UN);
 # close($READ);
 # $store_thread->join();
-# is($read_data, '{"id":2}', "Read should have old value");
-
-# Test linking
-link_object("$test_path", "$test_path-link");
-is(retrieve_object("$test_path-link"), {id => 4}, "Link should show original's data");
-
-# Update the original
-store_object("$test_path", {id => 5});
-is(retrieve_object("$test_path-link"), {id => 5}, "Link reflects original");
+# is($read_data, '{"id":3}', "Read should have old value");
 
 done_testing();

@@ -302,6 +302,8 @@ sub store_object ($path, $ref, $delete_old = 1) {
 		flock($OUT, LOCK_UN);
 		close($READ_LOCK);
 	}
+
+	return;
 }
 
 sub retrieve_object($path) {
@@ -331,6 +333,8 @@ sub link_object($path, $link) {
 	# confident that the $path is already a JSON file
 	symlink($path . '.json', $link . '.json')
 		or $log->error("could not symlink to new revision", {source => $path, link => $link});
+
+	return;
 }
 
 # Serializes configuration information, removing it from legacy storage if it is present.
@@ -347,6 +351,8 @@ sub store_config ($path, $ref, $delete_old = 1) {
 			unlink($path . '.sto');
 		}
 	}
+
+	return;
 }
 
 # Same as retrieve_object but with no locking

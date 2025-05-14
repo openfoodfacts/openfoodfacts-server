@@ -64,6 +64,8 @@ sub run_for_mode($mode) {
 	my $started_t = gettimeofday();
 	my $count = update_products($BASE_DIRS{PRODUCTS}, '', $mode);
 	print STDERR "$mode: $count files in " . (gettimeofday() - $started_t) . " s\n";
+
+	return;
 }
 
 # Read taxonomies. First convert to JSON non-destructively
@@ -97,6 +99,8 @@ sub read_taxonomies($mode) {
 		}
 	}
 	print STDERR "$mode: Read all taxonomy files in " . (gettimeofday() - $started_t) . " s\n";
+
+	return;
 }
 
 # read_taxonomies('PREPARE');
