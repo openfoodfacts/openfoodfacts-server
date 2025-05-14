@@ -38,10 +38,13 @@ BEGIN {
 		&sto_iter
 		&store_object
 		&retrieve_object
-		&object_exists
+		&object_path_exists
 		&store_config
 		&retrieve_config
 		&link_object
+		&change_object_root
+		&remove_object
+		&object_iter
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -61,6 +64,7 @@ use JSON::Parse qw(read_json);
 use Cpanel::JSON::XS;
 use Fcntl ':flock';
 use File::Basename qw/dirname/;
+use File::Copy::Recursive qw/dirmove/;
 
 # Use Cpanel::JSON::XS directly rather than JSON::MaybeXS as otherwise check_perl gives error:
 # Can't locate object method "indent_length" via package "JSON::XS"
@@ -335,9 +339,27 @@ sub retrieve_object($path) {
 	return retrieve($path . '.sto');
 }
 
-sub object_exists($path) {
+sub object_path_exists($path) {
 	my $new_path = $path . '.json';
 	return (-e $new_path);
+}
+
+sub change_object_root($old_path, $new_path) {
+	# File::Copy move() is intended to move files, not
+	# directories. It does work on directories if the
+	# source and target are on the same file system
+	# (in which case the directory is just renamed),
+	# but fails otherwise.
+	# An alternative is to use File::Copy::Recursive
+	# but then it will do a copy even if it is the same
+	# file system...
+	# Another option is to call the system mv command.
+	$log->debug("moving object data", {source => $old_path, destination => $new_path})
+		if $log->is_debug();
+	dirmove($old_path, $new_path)
+		or $log->error("could not move object data", {source => $old_path, destination => $new_path, error => $!});
+
+	return;
 }
 
 # Makes the $link point to the data in the specified $path
@@ -345,9 +367,59 @@ sub link_object($path, $link) {
 	# Note this is typically only called after writing a new version so we can be pretty
 	# confident that the $path is already a JSON file
 	symlink($path . '.json', $link . '.json')
-		or $log->error("could not symlink to new revision", {source => $path, link => $link});
+		or $log->error("could not link", {source => $path, link => $link, error => $!});
 
 	return;
+}
+
+# Removes an object or link to an object
+sub remove_object($path) {
+	my $new_path = $path . '.json';
+	if (-e $new_path) {
+		unlink($new_path);
+	}
+}
+
+# Iterates over the path returning matching object paths
+sub object_iter($initial_path, $name_pattern = undef, $exclude_path_pattern = undef) {
+	my @dirs = ($initial_path);
+	my @object_paths = ();
+	return sub {
+		if (scalar @object_paths == 0) {
+			# explore a new dir until we get some file
+			while ((scalar @object_paths == 0) && (scalar @dirs > 0)) {
+				my $current_dir = shift @dirs;
+				opendir(DIR, $current_dir) or die "Cannot open $current_dir\n";
+				# Sort files so that we always explore them in the same order (useful for tests)
+				my @candidates = sort readdir(DIR);
+				closedir(DIR);
+				foreach my $file (@candidates) {
+					# avoid ..
+					next if $file =~ /^\.\.?$/;
+					# avoid conflicting-codes and invalid-codes
+					next if $exclude_path_pattern and $file =~ $exclude_path_pattern;
+					my $path = "$current_dir/$file";
+					if (-d $path) {
+						# explore sub dirs
+						push @dirs, $path;
+						next;
+					}
+					# Have a file. Strip off any extension before pattern matching
+					my $object_name = substr $file, 0, rindex($file, '.');
+					next if ($name_pattern and $object_name !~ $name_pattern);
+					push(@object_paths, "$current_dir/$object_name");
+				}
+			}
+		}
+		# if we still have object_paths, return a name
+		if (scalar @object_paths > 0) {
+			return shift @object_paths;
+		}
+		else {
+			# or end iteration
+			return;
+		}
+	};
 }
 
 # Serializes configuration information, removing it from legacy storage if it is present.

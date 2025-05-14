@@ -11,8 +11,8 @@ use Storable qw(lock_store);
 use Fcntl ':flock';
 
 use ProductOpener::Store
-	qw/get_fileid get_string_id_for_lang get_urlid store_object retrieve_object store_config retrieve_config link_object/;
-use ProductOpener::Paths qw/%BASE_DIRS/;
+	qw/get_fileid get_string_id_for_lang get_urlid store_object retrieve_object store_config retrieve_config link_object change_object_root remove_object object_iter/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
 
 is(get_fileid('Do not challenge me!'), 'do-not-challenge-me');
 
@@ -56,13 +56,13 @@ is(get_string_id_for_lang("en", "E420 - Σορβιτολη"), "e420-σορβιτ
 is(get_string_id_for_lang("el", "E420 - Σορβιτολη"), "e420-σορβιτολη");
 
 # Test store object
-my $test_path = "$BASE_DIRS{CACHE_TMP}/test-store";
+my $test_root_path = "$BASE_DIRS{CACHE_TMP}/test-store";
+my $test_path = $test_root_path . "/test-object";
 
 # Make sure json file doesn't exist
-if (-e "$test_path.json") {
-	unlink("$test_path.json");
-}
+remove_object($test_path);
 # Create an initial test file
+ensure_dir_created_or_die($test_root_path);
 lock_store({id => 1}, "$test_path.sto");
 # Verify retrieve copes with a sto file
 is(retrieve_object("$test_path"), {id => 1});
@@ -82,9 +82,7 @@ ok((not -e "$test_path.sto"), "$test_path.sto does not exist");
 is(retrieve_object("$test_path"), {id => 2});
 
 # Test linking
-if (-e "$test_path-link.json") {
-	unlink("$test_path-link.json");
-}
+remove_object("$test_path-link");
 link_object("$test_path", "$test_path-link");
 is(retrieve_object("$test_path-link"), {id => 2}, "Link should show original's data");
 
@@ -132,9 +130,46 @@ is(
 
 # Creates paths if needed
 srand();
-my $long_path = "$test_path-dirs/" . rand(100000). "/" . rand(100000) . "/nested";
+my $long_path_root = "$test_root_path/nested/" . rand(100000);
+my $long_path_suffix = "/" . rand(100000);
+my $long_path = $long_path_root . $long_path_suffix . "/nested";
 store_object($long_path, {data => $long_path});
 is(retrieve_object($long_path), {data => $long_path}, "Creates directory on-the-fly");
+
+# Can move objects to a new path
+my $new_root = $long_path_root . "/" . rand(100000);
+change_object_root($long_path_root . $long_path_suffix, $new_root);
+my $new_path = $new_root . "/nested";
+is(retrieve_object($new_path), {data => $long_path}, "Moves data");
+ok(!-e $long_path, "Original path removed");
+
+# Test object iterator
+my $next = object_iter($test_root_path);
+my @object_paths = ();
+while (my $object_path = $next->()) {
+	push(@object_paths, $object_path);
+}
+ok(grep {$_ eq $test_path} @object_paths);
+ok(grep {$_ eq $new_path} @object_paths);
+
+# Test pattern match
+$next = object_iter($test_root_path, qr/-link/);
+@object_paths = ();
+while (my $object_path = $next->()) {
+	push(@object_paths, $object_path);
+}
+ok(!grep {$_ eq $test_path} @object_paths);
+ok(grep {$_ eq "$test_path-link"} @object_paths);
+
+# Test directory exclusion
+$next = object_iter($test_root_path, undef, qr/nested/);
+@object_paths = ();
+while (my $object_path = $next->()) {
+	push(@object_paths, $object_path);
+}
+ok(grep {$_ eq $test_path} @object_paths);
+ok(!grep {$_ eq "nested"} @object_paths);
+
 
 
 # Enable these on an ad-hoc basis to test locking. Can't leave enabled as coverage doesn't support threading
