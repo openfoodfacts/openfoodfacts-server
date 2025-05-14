@@ -82,6 +82,9 @@ ok((not -e "$test_path.sto"), "$test_path.sto does not exist");
 is(retrieve_object("$test_path"), {id => 2});
 
 # Test linking
+if (-e "$test_path-link.json") {
+	unlink("$test_path-link.json");
+}
 link_object("$test_path", "$test_path-link");
 is(retrieve_object("$test_path-link"), {id => 2}, "Link should show original's data");
 
@@ -126,6 +129,13 @@ is(
 }
 '
 );
+
+# Creates paths if needed
+srand();
+my $long_path = "$test_path-dirs/" . rand(100000). "/" . rand(100000) . "/nested";
+store_object($long_path, {data => $long_path});
+is(retrieve_object($long_path), {data => $long_path}, "Creates directory on-the-fly");
+
 
 # Enable these on an ad-hoc basis to test locking. Can't leave enabled as coverage doesn't support threading
 # # Verify that read waits for a current write to complete

@@ -38,6 +38,7 @@ BEGIN {
 		&sto_iter
 		&store_object
 		&retrieve_object
+		&object_exists
 		&store_config
 		&retrieve_config
 		&link_object
@@ -59,6 +60,7 @@ use JSON::Create qw(write_json);
 use JSON::Parse qw(read_json);
 use Cpanel::JSON::XS;
 use Fcntl ':flock';
+use File::Basename qw/dirname/;
 
 # Use Cpanel::JSON::XS directly rather than JSON::MaybeXS as otherwise check_perl gives error:
 # Can't locate object method "indent_length" via package "JSON::XS"
@@ -277,6 +279,10 @@ sub store_object ($path, $ref, $delete_old = 1) {
 	if (-e $new_path) {
 		open(my $READ_LOCK, "<", $new_path);
 	}
+	else {
+		# If doesn't already exist ensure the directory tree is in place
+		ensure_dir_created_or_die(dirname($new_path));
+	}
 
 	open(my $OUT, ">", $new_path);
 	# Get an exclusive lock on the file
@@ -327,6 +333,11 @@ sub retrieve_object($path) {
 	}
 	# Fallback to old method
 	return retrieve($path . '.sto');
+}
+
+sub object_exists($path) {
+	my $new_path = $path . '.json';
+	return (-e $new_path);
 }
 
 # Makes the $link point to the data in the specified $path
