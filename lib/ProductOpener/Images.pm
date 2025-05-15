@@ -121,7 +121,7 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
-use ProductOpener::Store qw/get_string_id_for_lang retrieve store/;
+use ProductOpener::Store qw/get_string_id_for_lang store_object retrieve_object/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
 use ProductOpener::Products qw/:all/;
@@ -767,7 +767,7 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 	local $log->context->{time} = $time;
 
 	# Check if we have already received this image before
-	my $images_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/images.sto");
+	my $images_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/images");
 	defined $images_ref or $images_ref = {};
 
 	my $file_size = -s $file;
@@ -1059,7 +1059,7 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 
 			# Save the image file size so that we can skip the image before processing it if it is uploaded again
 			$images_ref->{$size_orig} = $imgid;
-			store("$BASE_DIRS{PRODUCTS}/$path/images.sto", $images_ref);
+			store_object("$BASE_DIRS{PRODUCTS}/$path/images", $images_ref);
 		}
 		else {
 			# Could not read image

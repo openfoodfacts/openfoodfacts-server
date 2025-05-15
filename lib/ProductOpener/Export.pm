@@ -93,7 +93,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
-use ProductOpener::Store qw/retrieve_json/;
+use ProductOpener::Store qw/retrieve_object/;
 use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Tags qw/%language_fields %tags_fields %taxonomy_fields list_taxonomy_tags_in_language/;
 use ProductOpener::Display qw/search_and_export_products/;
@@ -543,7 +543,7 @@ sub export_csv ($args_ref) {
 
 					if (not defined $scans_ref) {
 						# Load the scan data
-						$scans_ref = retrieve_json("$BASE_DIRS{PRODUCTS}/$product_path/scans.json");
+						$scans_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$product_path/scans");
 					}
 					if (not defined $scans_ref) {
 						$scans_ref = {};

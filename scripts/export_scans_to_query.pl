@@ -168,6 +168,7 @@ sub update_checkpoint($checkpoint_file, $dir) {
 	return 1;
 }
 
+#11872 TODO Use object_iter
 find_products($BASE_DIRS{PRODUCTS}, '');
 
 # Always send last batch even if no scans to indicate all loaded

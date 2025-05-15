@@ -124,7 +124,8 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::ProductSchemaChanges qw/$current_schema_version convert_product_schema/;
-use ProductOpener::Store qw/get_string_id_for_lang get_url_id_for_lang retrieve store/;
+use ProductOpener::Store
+	qw/get_string_id_for_lang get_url_id_for_lang retrieve_object store_object object_path_exists change_object_root/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::ConfigEnv qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
@@ -250,20 +251,21 @@ sub assign_new_code() {
 
 	my $code = 2000000000001;    # Codes beginning with 2 are for internal use
 
-	my $internal_code_ref = retrieve("$BASE_DIRS{PRODUCTS}/internal_code.sto");
+	my $internal_code_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/internal_code");
 	if ((defined $internal_code_ref) and (${$internal_code_ref} > $code)) {
 		$code = ${$internal_code_ref};
 	}
 
 	my $product_id = product_id_for_owner($Owner_id, $code);
 
+	#11872 TODO: Looping over folders should be owned by Store.pm
 	while (-e ("$BASE_DIRS{PRODUCTS}/" . product_path_from_id($product_id))) {
 
 		$code++;
 		$product_id = product_id_for_owner($Owner_id, $code);
 	}
 
-	store("$BASE_DIRS{PRODUCTS}/internal_code.sto", \$code);
+	store_object("$BASE_DIRS{PRODUCTS}/internal_code", \$code);
 
 	$log->debug("assigning a new code", {code => $code, lc => $lc}) if $log->is_debug();
 
@@ -706,6 +708,7 @@ There is no guarantee the result will be correct... but it's way faster than loa
 sub product_id_from_path ($product_path) {
 	my $id = $product_path;
 	# only keep dir
+	#11872 TODO This won't work without a file extension
 	if ($id =~ /\.sto$/) {
 		$id = dirname($id);
 	}
@@ -884,10 +887,10 @@ sub retrieve_product ($product_id, $include_deleted = 0, $rev = undef) {
 		if ($rev !~ /^\d+$/) {
 			return;
 		}
-		$full_product_path = "$BASE_DIRS{PRODUCTS}/$path/$rev.sto";
+		$full_product_path = "$BASE_DIRS{PRODUCTS}/$path/$rev";
 	}
 	else {
-		$full_product_path = "$BASE_DIRS{PRODUCTS}/$path/product.sto";
+		$full_product_path = "$BASE_DIRS{PRODUCTS}/$path/product";
 	}
 
 	$log->debug(
@@ -899,7 +902,7 @@ sub retrieve_product ($product_id, $include_deleted = 0, $rev = undef) {
 		}
 	) if $log->is_debug();
 
-	my $product_ref = retrieve($full_product_path);
+	my $product_ref = retrieve_object($full_product_path);
 
 	if (not defined $product_ref) {
 		$log->debug("retrieve_product - product does not exist", {product_id => $product_id, path => $path})
@@ -977,7 +980,7 @@ sub change_product_code ($product_ref, $new_code) {
 	}
 	else {
 		# check that the new code is available
-		if (-e "$BASE_DIRS{PRODUCTS}/" . product_path_from_id($new_code) . "/product.sto") {
+		if (object_path_exists("$BASE_DIRS{PRODUCTS}/" . product_path_from_id($new_code) . "/product")) {
 			$log->warn("cannot change product code, because the new code already exists",
 				{code => $code, new_code => $new_code})
 				if $log->is_warn();
@@ -1229,7 +1232,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 		$log->debug("creating product directories", {path => $path, prefix_path => $prefix_path}) if $log->is_debug();
 		# Create the directories for the product
-		ensure_dir_created_or_die("$BASE_DIRS{PRODUCTS}/$prefix_path");
+		# Not needed for products as store_object does this. ensure_dir_created_or_die("$BASE_DIRS{PRODUCTS}/$prefix_path");
 		ensure_dir_created_or_die("$BASE_DIRS{PRODUCTS_IMAGES}/$prefix_path");
 
 		# Check if we are updating the product in place:
@@ -1251,9 +1254,17 @@ sub store_product ($user_id, $product_ref, $comment) {
 			$product_ref->{_id} = $product_ref->{code} . '';    # treat id as string;
 		}
 
-		if (    (!-e "$BASE_DIRS{PRODUCTS}/$path")
-			and (!-e "$BASE_DIRS{PRODUCTS_IMAGES}/$path"))
-		{
+		if (object_path_exists("$BASE_DIRS{PRODUCTS}/$path")) {
+			$log->error("cannot move product data, because the destination already exists",
+				{source => "$BASE_DIRS{PRODUCTS}/$old_path", destination => "$BASE_DIRS{PRODUCTS}/$path"});
+		}
+		elsif (-e "$BASE_DIRS{PRODUCTS_IMAGES}/$path") {
+			$log->error(
+				"cannot move product images data, because the destination already exists",
+				{source => "$BASE_DIRS{PRODUCTS_IMAGES}/$old_path", destination => "$BASE_DIRS{PRODUCTS_IMAGES}/$path"}
+			);
+		}
+		else {
 			# File::Copy move() is intended to move files, not
 			# directories. It does work on directories if the
 			# source and target are on the same file system
@@ -1268,18 +1279,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 			File::Copy::Recursive->import(qw( dirmove ));
 
-			$log->debug("moving product data",
-				{source => "$BASE_DIRS{PRODUCTS}/$old_path", destination => "$BASE_DIRS{PRODUCTS}/$path"})
-				if $log->is_debug();
-			dirmove("$BASE_DIRS{PRODUCTS}/$old_path", "$BASE_DIRS{PRODUCTS}/$path")
-				or $log->error(
-				"could not move product data",
-				{
-					source => "$BASE_DIRS{PRODUCTS}/$old_path",
-					destination => "$BASE_DIRS{PRODUCTS}/$path",
-					error => $!
-				}
-				);
+			change_object_root("$BASE_DIRS{PRODUCTS}/$old_path", "$BASE_DIRS{PRODUCTS}/$path");
 
 			$log->debug(
 				"moving product images",
@@ -1310,31 +1310,17 @@ sub store_product ($user_id, $product_ref, $comment) {
 			$product_ref->{_id} = $product_ref->{code} . '';    # treat id as string;
 
 		}
-		else {
-			(-e "$BASE_DIRS{PRODUCTS}/$path")
-				and $log->error("cannot move product data, because the destination already exists",
-				{source => "$BASE_DIRS{PRODUCTS}/$old_path", destination => "$BASE_DIRS{PRODUCTS}/$path"});
-			(-e "$BASE_DIRS{PRODUCTS_IMAGES}/$path")
-				and $log->error(
-				"cannot move product images data, because the destination already exists",
-				{
-					source => "$BASE_DIRS{PRODUCTS_IMAGES}/$old_path",
-					destination => "$BASE_DIRS{PRODUCTS_IMAGES}/$path"
-				}
-				);
-		}
 
 		$comment .= " - barcode changed from $old_code to $code by $user_id";
 	}
 
 	if ($rev < 1) {
-		# Create the directories for the product
-		ensure_dir_created_or_die("$BASE_DIRS{PRODUCTS}/$path");
+		# Create the directories for the product images
 		ensure_dir_created_or_die("$BASE_DIRS{PRODUCTS_IMAGES}/$path");
 	}
 
 	# Check lock and previous version
-	my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
+	my $changes_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/changes");
 	if (not defined $changes_ref) {
 		$changes_ref = [];
 	}
@@ -1454,8 +1440,8 @@ sub store_product ($user_id, $product_ref, $comment) {
 		#return 0;
 	}
 
-	# First store the product data in a .sto file on disk
-	store("$BASE_DIRS{PRODUCTS}/$path/$rev.sto", $product_ref);
+	# First store the product data in a .json file on disk
+	store_object("$BASE_DIRS{PRODUCTS}/$path/$rev", $product_ref);
 
 	# Also store the product in MongoDB, unless it was marked as deleted
 	if ($product_ref->{deleted}) {
@@ -1471,16 +1457,11 @@ sub store_product ($user_id, $product_ref, $comment) {
 	}
 
 	# Update link
-	my $link = "$BASE_DIRS{PRODUCTS}/$path/product.sto";
-	if (-l $link) {
-		unlink($link) or $log->error("could not unlink old product.sto", {link => $link, error => $!});
-	}
+	my $link = "$BASE_DIRS{PRODUCTS}/$path/product";
+	remove_object($link);
+	link_object($rev, $link);
 
-	symlink("$rev.sto", $link)
-		or $log->error("could not symlink to new revision",
-		{source => "$BASE_DIRS{PRODUCTS}/$path/$rev.sto", link => $link, error => $!});
-
-	store("$BASE_DIRS{PRODUCTS}/$path/changes.sto", $changes_ref);
+	store_object("$BASE_DIRS{PRODUCTS}/$path/changes", $changes_ref);
 	log_change($product_ref, $change_ref);
 
 	$log->debug("store_product - done", {code => $code, product_id => $product_id}) if $log->is_debug();
@@ -1988,7 +1969,7 @@ sub replace_user_id_in_product ($product_id, $user_id, $new_user_id, $products_c
 
 	# List of changes
 
-	my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
+	my $changes_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/changes");
 	if (not defined $changes_ref) {
 		$log->warn("replace_user_id_in_products - no changes file found for " . $product_id);
 		return;
@@ -2011,7 +1992,7 @@ sub replace_user_id_in_product ($product_id, $user_id, $new_user_id, $products_c
 		if (not defined $rev) {
 			$rev = $revs;    # was not set before June 2012
 		}
-		my $product_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/$rev.sto");
+		my $product_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/$rev");
 
 		if (defined $product_ref) {
 
@@ -2056,7 +2037,7 @@ sub replace_user_id_in_product ($product_id, $user_id, $new_user_id, $products_c
 			# Save product
 
 			if ($changes) {
-				store("$BASE_DIRS{PRODUCTS}/$path/$rev.sto", $product_ref);
+				store_object("$BASE_DIRS{PRODUCTS}/$path/$rev", $product_ref);
 			}
 		}
 
@@ -2068,7 +2049,7 @@ sub replace_user_id_in_product ($product_id, $user_id, $new_user_id, $products_c
 			$most_recent_product_ref, {upsert => 1});
 	}
 
-	store("$BASE_DIRS{PRODUCTS}/$path/changes.sto", $changes_ref);
+	store_object("$BASE_DIRS{PRODUCTS}/$path/changes", $changes_ref);
 
 	return;
 }
@@ -2242,7 +2223,7 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 		if (not defined $rev) {
 			$rev = $revs;    # was not set before June 2012
 		}
-		my $product_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/$rev.sto");
+		my $product_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/$rev");
 
 		# if not found, we may be be updating the product, with the latest rev not set yet
 		if ((not defined $product_ref) or ($rev == $current_product_ref->{rev})) {

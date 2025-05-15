@@ -221,6 +221,7 @@ sub remove_all_products () {
 		}
 	);
 	# clean files
+	#11872 Note this should probably be owned by Store.pm
 	remove_tree($BASE_DIRS{PRODUCTS}, {keep_root => 1, error => \my $err});
 	if (@$err) {
 		confess("not able to remove some products directories: " . join(":", @$err));

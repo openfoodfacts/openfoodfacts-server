@@ -170,8 +170,6 @@ while (my $object_path = $next->()) {
 ok(grep {$_ eq $test_path} @object_paths);
 ok(!grep {$_ eq "nested"} @object_paths);
 
-
-
 # Enable these on an ad-hoc basis to test locking. Can't leave enabled as coverage doesn't support threading
 # # Verify that read waits for a current write to complete
 # open(my $LOCKED, '>', "$test_path-locked.json");
