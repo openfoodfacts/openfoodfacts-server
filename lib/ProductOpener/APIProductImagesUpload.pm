@@ -54,6 +54,7 @@ use ProductOpener::API
 use ProductOpener::Images qw/:all/;
 use ProductOpener::URL qw(format_subdomain);
 use ProductOpener::HTTP qw/request_param single_param redirect_to_url/;
+use ProductOpener::APIProductWrite qw/update_images_selected/;
 
 use Encode;
 use MIME::Base64 qw(decode_base64);
@@ -79,7 +80,8 @@ sub delete_product_image_api ($request_ref) {
 				message => {id => "product_not_found"},
 				field => {id => "code", value => $code},
 				impact => {id => "failure"},
-			}
+			},
+			404
 		);
 		return;
 	}
@@ -95,7 +97,8 @@ sub delete_product_image_api ($request_ref) {
 				message => {id => "image_not_found"},
 				field => {id => "imgid", value => $imgid},
 				impact => {id => "failure"},
-			}
+			},
+			404
 		);
 		return;
 	}
@@ -105,7 +108,23 @@ sub delete_product_image_api ($request_ref) {
 		$log->error("image_product_delete_api - user does not have permission to delete image", {code => $code})
 			if $log->is_error();
 
-		delete_uploaded_image_and_associated_selected_images($request_ref->{product_ref}, $request_ref->{imgid});
+		my $return_code = delete_uploaded_image_and_associated_selected_images($product_ref, $request_ref->{imgid});
+
+		if ($return_code > 0) {
+			store_product($User_id, $product_ref, "Deleted image $imgid");
+		}
+		else {
+			$log->error("image_product_delete_api - error deleting image", {code => $code, imgid => $imgid, return_code => $return_code})
+				if $log->is_error();
+			add_error(
+				$response_ref,
+				{
+					message => {id => "image_not_found"},
+					field => {id => "imgid", value => $imgid},
+					impact => {id => "failure"},
+				}
+			);
+		}
 	}
 
 	return;
@@ -281,6 +300,26 @@ sub upload_product_image_api ($request_ref) {
 				# add the imgid to the image object
 				$uploaded_image_ref->{imgid} = $imgid;
 				deep_set($response_ref, "product", "images", "uploaded", $imgid, $uploaded_image_ref);
+
+				# The API can also be called with a selected object to select the image that has been uploaded
+				# If the selected object is not empty, we will update the product with the selected images
+				if (defined $request_body_ref->{selected}) {
+					my $selected_ref = $request_body_ref->{selected};
+					# Add the newly uploaded imgid to the selected images
+					foreach my $image_type (keys %$selected_ref) {
+						foreach my $image_lc (keys %{$selected_ref->{$image_type}}) {
+							$selected_ref->{$image_type}{$image_lc}{imgid} = $imgid;
+						}
+					}
+
+					# Create the product.images.selected structure expected by update_images_selected
+					$request_body_ref->{product} = {
+						images => {
+							selected => $selected_ref,
+						}
+					};
+					update_images_selected ($request_ref, $product_ref, $response_ref) {
+				}
 			}
 		}
 	}

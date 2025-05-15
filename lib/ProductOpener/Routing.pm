@@ -325,7 +325,7 @@ sub api_route($request_ref) {
 			if ((defined $components[5]) and ($components[5] eq "uploaded") and (defined $components[6])) {
 				$request_ref->{imgid} = $components[6];
 			}
-			elsif (not scalar @components == 4) {
+			elsif (not scalar @components == 5) {
 				# endpoint not recognized
 				$request_ref->{status_code} = 404;
 			}
