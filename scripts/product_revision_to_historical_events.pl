@@ -24,14 +24,15 @@ use ProductOpener::PerlStandards;
 use utf8;
 
 use ProductOpener::Config qw/%options $query_url/;
-use ProductOpener::Store qw/store retrieve/;
+use ProductOpener::Store qw/retrieve_object object_iter/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Redis qw/push_to_redis_stream/;
 use ProductOpener::Products qw/product_id_from_path/;
 use Path::Tiny;
 use JSON::MaybeXS;
+use File::Basename qw/dirname/;
 
-# This script recursively visits all product.sto files from the root of the products directory
+# This script recursively visits all product files from the root of the products directory
 # and process its changes to generate a JSONL file of historical events
 my $start_from = $ARGV[0] // 0;
 my $end_before = $ARGV[1] // 9999999999;
@@ -50,6 +51,7 @@ my $event_count = 0;
 my @events = ();
 
 $query_url =~ s/^\s+|\s+$//g;
+# TODO Note that the productupdates route is not yet implemented in the Python version of off-query
 my $query_post_url = URI->new("$query_url/productupdates");
 my $ua = LWP::UserAgent->new();
 # Add a timeout to the HTTP query
@@ -62,9 +64,9 @@ sub process_file($path, $code) {
 		print '[' . localtime() . "] $product_count products processed. Sent $event_count events \n";
 	}
 
-	my $changes = retrieve($path . "/changes.sto");
+	my $changes = retrieve_object($path . "/changes");
 	if (!defined $changes) {
-		print '[' . localtime() . "] Unable to open $path/changes.sto\n";
+		print '[' . localtime() . "] Unable to open $path/changes\n";
 		return;
 	}
 
@@ -76,9 +78,9 @@ sub process_file($path, $code) {
 	my $deleted = 0;
 	foreach my $change (@{$changes}) {
 		$rev++;
-		my $product = retrieve($path . "/" . $rev . ".sto");
+		my $product = retrieve_object($path . "/" . $rev);
 		if (!defined $product) {
-			print '[' . localtime() . "] Unable to open $path/$rev.sto\n";
+			print '[' . localtime() . "] Unable to open $path/$rev\n";
 			next;
 		}
 
@@ -181,26 +183,12 @@ sub send_events() {
 
 # because getting products from mongodb won't give 'deleted' ones
 # found that path->visit was slow with full product volume
-sub find_products($dir, $code) {
-	opendir DH, "$dir" or die "could not open $dir directory: $!\n";
-	my @files = readdir(DH);
-	closedir DH;
-	foreach my $entry (sort @files) {
-		next if $entry =~ /^\.\.?$/;
-		my $file_path = "$dir/$entry";
-
-		if (-d $file_path and ($can_process or ($last_processed_path =~ m/^\Q$file_path/))) {
-			find_products($file_path, "$code$entry");
-			next;
-		}
-
-		if ($entry eq 'product.sto') {
-			if ($can_process or ($last_processed_path and $last_processed_path eq $dir)) {
-				process_file($dir, $code);
-			}
-		}
+sub find_products($dir) {
+	my $next = object_iter($dir, qr/product/);
+	while (my $path = $next->()) {
+		my $code = product_id_from_path($path);
+		process_file(dirname($path), $code);
 	}
-
 	return;
 }
 
@@ -226,7 +214,7 @@ sub update_checkpoint($checkpoint_file, $dir, $revision) {
 	return 1;
 }
 
-find_products($BASE_DIRS{PRODUCTS}, '');
+find_products($BASE_DIRS{PRODUCTS});
 
 if (scalar(@events)) {
 	send_events();

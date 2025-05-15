@@ -39,11 +39,11 @@ BEGIN {
 		&store_object
 		&retrieve_object
 		&retrieve_object_json
-		&object_path_exists
+		&object_exists
 		&store_config
 		&retrieve_config
 		&link_object
-		&change_object_root
+		&move_object
 		&remove_object
 		&object_iter
 	);
@@ -65,6 +65,7 @@ use JSON::Parse qw(read_json);
 use Cpanel::JSON::XS;
 use Fcntl ':flock';
 use File::Basename qw/dirname/;
+use File::Copy qw/move/;
 use File::Copy::Recursive qw/dirmove/;
 
 # Use Cpanel::JSON::XS directly rather than JSON::MaybeXS as otherwise check_perl gives error:
@@ -277,19 +278,25 @@ sub retrieve ($file) {
 
 # Serializes an object in our preferred object store, removing it from legacy storage if it is present
 sub store_object ($path, $ref, $delete_old = 1) {
-	my $new_path = $path . '.json';
+	my $sto_path = $path . '.sto';
+	my $file_path = $path . '.json';
 	# If the file already exists then we need to first open it non-destructively so that
 	# other code doesn't read an empty file before we have written the data
 	my $READ_LOCK;
-	if (-e $new_path) {
-		open(my $READ_LOCK, "<", $new_path);
+	if (-e $file_path) {
+		open(my $READ_LOCK, "<", $file_path);
+	}
+	elsif (-l $sto_path) {
+		# If the existing sto file is a link then use the old method for now (silent update)
+		store($sto_path, $ref);
+		return;
 	}
 	else {
 		# If doesn't already exist ensure the directory tree is in place
-		ensure_dir_created_or_die(dirname($new_path));
+		ensure_dir_created_or_die(dirname($file_path));
 	}
 
-	open(my $OUT, ">", $new_path);
+	open(my $OUT, ">", $file_path);
 	# Get an exclusive lock on the file
 	# We could also lock the STO file here but it adds a small overhead and we don't
 	# tend to run old and new versions in parallel so shouldn't be an issue
@@ -303,8 +310,8 @@ sub store_object ($path, $ref, $delete_old = 1) {
 	print $OUT $json;
 
 	# Delete the old storable file
-	if ($delete_old and -e ($path . '.sto')) {
-		unlink($path . '.sto');
+	if ($delete_old and -e ($sto_path)) {
+		unlink($sto_path);
 	}
 	# Release the lock. Some docs say this isn't needed but tests show otherwise
 	if (not $READ_LOCK) {
@@ -320,11 +327,11 @@ sub store_object ($path, $ref, $delete_old = 1) {
 }
 
 sub retrieve_object($path) {
-	my $new_path = $path . '.json';
-	if (-e $new_path) {
+	my $file_path = $path . '.json';
+	if (-e $file_path) {
 		my $ref;
 		eval {
-			open(my $IN, "<", $new_path) or die("Can't open $new_path");
+			open(my $IN, "<", $file_path) or die("Can't open $file_path");
 			flock($IN, LOCK_SH);
 			local $/;    #Enable 'slurp' mode
 			$ref = $json_for_objects->decode(<$IN>);
@@ -341,11 +348,11 @@ sub retrieve_object($path) {
 }
 
 sub retrieve_object_json($path) {
-	my $new_path = $path . '.json';
-	if (-e $new_path) {
+	my $file_path = $path . '.json';
+	if (-e $file_path) {
 		my $json;
 		eval {
-			open(my $IN, "<", $new_path) or die("Can't open $new_path");
+			open(my $IN, "<", $file_path) or die("Can't open $file_path");
 			flock($IN, LOCK_SH);
 			local $/;    #Enable 'slurp' mode
 			$json = <$IN>;
@@ -361,12 +368,13 @@ sub retrieve_object_json($path) {
 	return $json_for_objects->encode(retrieve($path . '.sto'));
 }
 
-sub object_path_exists($path) {
-	my $new_path = $path . '.json';
-	return (-e $new_path);
+sub object_exists($path) {
+	my $file_path = $path . '.json';
+	return (-e $file_path);
 }
 
-sub change_object_root($old_path, $new_path) {
+# Moves a single object or all object sin the path
+sub move_object($old_path, $new_path) {
 	# File::Copy move() is intended to move files, not
 	# directories. It does work on directories if the
 	# source and target are on the same file system
@@ -378,16 +386,39 @@ sub change_object_root($old_path, $new_path) {
 	# Another option is to call the system mv command.
 	$log->debug("moving object data", {source => $old_path, destination => $new_path})
 		if $log->is_debug();
-	dirmove($old_path, $new_path)
-		or $log->error("could not move object data", {source => $old_path, destination => $new_path, error => $!});
+
+	if (-d $old_path) {
+		# Moving a while directory
+		ensure_dir_created_or_die($new_path);
+		#11872 TOD Should probably die here
+		dirmove($old_path, $new_path)
+			or $log->error("could not move objects", {source => $old_path, destination => $new_path, error => $!});
+
+	}
+	else {
+		# Moving a single file
+		ensure_dir_created_or_die(dirname($new_path));
+		if (-e "$old_path.sto") {
+			move("$old_path.sto", "$new_path.sto")
+				or die("could not move sto file from $old_path to $new_path, error: $!");
+		}
+		else {
+			move("$old_path.json", "$new_path.json")
+				or die("could not move json file from $old_path to $new_path, error: $!");
+		}
+	}
 
 	return;
 }
 
 # Makes the $link point to the data in the specified $path
 sub link_object($path, $link) {
-	# Note this is typically only called after writing a new version so we can be pretty
-	# confident that the $path is already a JSON file
+	# If target is a sto file then keep the link as a sto file too
+	if (-e $path . '.sto') {
+		symlink($path . '.sto', $link . '.sto') or die("Cannot create link $link to $path, error $!");
+		return;
+	}
+
 	symlink($path . '.json', $link . '.json')
 		or $log->error("could not link", {source => $path, link => $link, error => $!});
 
@@ -451,8 +482,8 @@ sub object_iter($initial_path, $name_pattern = undef, $exclude_path_pattern = un
 # JSON keys are sorted and indentation is used so files can be used in source control
 # No locking is performed
 sub store_config ($path, $ref, $delete_old = 1) {
-	my $new_path = $path . '.json';
-	if (open(my $OUT, ">", $new_path)) {
+	my $file_path = $path . '.json';
+	if (open(my $OUT, ">", $file_path)) {
 		print $OUT $json_for_config->encode($ref);
 		close($OUT);
 
@@ -467,11 +498,11 @@ sub store_config ($path, $ref, $delete_old = 1) {
 
 # Same as retrieve_object but with no locking
 sub retrieve_config($path) {
-	my $new_path = $path . '.json';
-	if (-e $new_path) {
+	my $file_path = $path . '.json';
+	if (-e $file_path) {
 		my $ref;
 		eval {
-			open(my $IN, "<", $new_path) or die("Can't open $new_path");
+			open(my $IN, "<", $file_path) or die("Can't open $file_path");
 			local $/;    #Enable 'slurp' mode
 			$ref = $json_for_config->decode(<$IN>);
 			close($IN);

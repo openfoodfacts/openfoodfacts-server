@@ -125,7 +125,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::ProductSchemaChanges qw/$current_schema_version convert_product_schema/;
 use ProductOpener::Store
-	qw/get_string_id_for_lang get_url_id_for_lang retrieve_object store_object object_path_exists change_object_root remove_object link_object/;
+	qw/get_string_id_for_lang get_url_id_for_lang retrieve_object store_object object_exists move_object remove_object link_object/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::ConfigEnv qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
@@ -259,7 +259,7 @@ sub assign_new_code() {
 	my $product_id = product_id_for_owner($Owner_id, $code);
 
 	#11872 TODO: Looping over folders should be owned by Store.pm
-	while (-e ("$BASE_DIRS{PRODUCTS}/" . product_path_from_id($product_id))) {
+	while (object_exists("$BASE_DIRS{PRODUCTS}/" . product_path_from_id($product_id))) {
 
 		$code++;
 		$product_id = product_id_for_owner($Owner_id, $code);
@@ -977,7 +977,7 @@ sub change_product_code ($product_ref, $new_code) {
 	}
 	else {
 		# check that the new code is available
-		if (object_path_exists("$BASE_DIRS{PRODUCTS}/" . product_path_from_id($new_code) . "/product")) {
+		if (object_exists("$BASE_DIRS{PRODUCTS}/" . product_path_from_id($new_code) . "/product")) {
 			$log->warn("cannot change product code, because the new code already exists",
 				{code => $code, new_code => $new_code})
 				if $log->is_warn();
@@ -1251,7 +1251,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 			$product_ref->{_id} = $product_ref->{code} . '';    # treat id as string;
 		}
 
-		if (object_path_exists("$BASE_DIRS{PRODUCTS}/$path")) {
+		if (object_exists("$BASE_DIRS{PRODUCTS}/$path")) {
 			$log->error("cannot move product data, because the destination already exists",
 				{source => "$BASE_DIRS{PRODUCTS}/$old_path", destination => "$BASE_DIRS{PRODUCTS}/$path"});
 		}
@@ -1276,7 +1276,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 			File::Copy::Recursive->import(qw( dirmove ));
 
-			change_object_root("$BASE_DIRS{PRODUCTS}/$old_path", "$BASE_DIRS{PRODUCTS}/$path");
+			move_object("$BASE_DIRS{PRODUCTS}/$old_path", "$BASE_DIRS{PRODUCTS}/$path");
 
 			$log->debug(
 				"moving product images",

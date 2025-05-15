@@ -64,31 +64,18 @@ GetOptions ( 'products=s' => \@products);
 sub find_products($$) {
 
 	my $dir = shift;
-	my $code = shift;
 
-	opendir DH, "$dir" or die "could not open $dir directory: $!\n";
-	foreach my $file (readdir(DH)) {
-		chomp($file);
-		#print "file: $file\n";
-		if ($file eq 'product.sto') {
-			push @products, $code;
-			#print "code: $code\n";
-		}
-		else {
-			$file =~ /\./ and next;
-			if (-d "$dir/$file") {
-				find_products("$dir/$file","$code$file");
-			}
-		}
+	my $next = object_iter($dir, qr/product/);
+	while (my $file = $next->()) {
+		push @products, product_id_from_path($file);
 	}
-	closedir DH;
 
 	return;
 }
 
 
 if (scalar $#products < 0) {
-	find_products($BASE_DIRS{PRODUCTS},'');
+	find_products($BASE_DIRS{PRODUCTS});
 }
 
 
@@ -111,7 +98,7 @@ my %codes = ();
 		
 		
 		#my $product_ref = retrieve_product($code);
-		my $product_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/product.sto") or print "not defined $BASE_DIRS{PRODUCTS}/$path/product.sto\n";
+		my $product_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/product") or print "not defined $BASE_DIRS{PRODUCTS}/$path/product\n";
 
 		if ((defined $product_ref)) {
 
@@ -154,7 +141,7 @@ my %codes = ();
 			$codes{$code} = 1;
 
 			if ($update) {
-				store("$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref);
+				store_object("$BASE_DIRS{PRODUCTS}/$path/product", $product_ref);
 				$updated++;
 			}
 		}

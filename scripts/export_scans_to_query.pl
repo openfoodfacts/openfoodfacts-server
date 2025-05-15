@@ -63,7 +63,8 @@ sub send_scans($fully_loaded = 0) {
 			. "] query response not ok calling "
 			. $query_post_url
 			. " resp: "
-			. $resp->status_line . "\n" . $scans . "\n";
+			. $resp->status_line . "\n"
+			. $scans . "\n";
 		die;
 	}
 
@@ -95,7 +96,6 @@ sub update_checkpoint($checkpoint_file, $dir) {
 	return 1;
 }
 
-#11872 TODO Use object_iter
 my $next = object_iter($BASE_DIRS{PRODUCTS}, qr/scans/);
 while (my $path = $next->()) {
 	if (not $can_process) {

@@ -40,7 +40,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Data qw/get_products_collection remove_documents_by_ids/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Store qw/retrieve_object object_iter object_path_exists/;
+use ProductOpener::Store qw/retrieve_object object_iter object_exists/;
 use Getopt::Long;
 
 my $current_products_collection = get_products_collection(
@@ -105,7 +105,7 @@ sub fix_non_normalized_sto ($product_path, $fix, $out) {
 		my ($product_path, $normalized_product_path, $code, $normalized_code, $product_id, $normalized_product_id)
 			= @$item;
 
-		my $is_duplicate = (object_path_exists("$BASE_DIRS{PRODUCTS}/$normalized_product_path")) || 0;
+		my $is_duplicate = (object_exists("$BASE_DIRS{PRODUCTS}/$normalized_product_path")) || 0;
 
 		my $is_invalid = ($normalized_product_path eq "invalid") || 0;
 

@@ -11,7 +11,7 @@ use Storable qw(lock_store);
 use Fcntl ':flock';
 
 use ProductOpener::Store
-	qw/get_fileid get_string_id_for_lang get_urlid store_object retrieve_object store_config retrieve_config link_object change_object_root remove_object object_iter/;
+	qw/get_fileid get_string_id_for_lang get_urlid store_object retrieve_object store_config retrieve_config link_object move_object remove_object object_iter/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
 
 is(get_fileid('Do not challenge me!'), 'do-not-challenge-me');
@@ -94,6 +94,41 @@ is(retrieve_object("$test_path-link"), {id => 3}, "Link reflects original");
 store_object("$test_path-link", {id => 4});
 is(retrieve_object("$test_path"), {id => 4}, "Original reflects update via link");
 
+# Link to an sto file
+remove_object("$test_path-link-stofile");
+lock_store({id => "stofile"}, "$test_path-stofile.sto");
+link_object("$test_path-stofile", "$test_path-link-stofile");
+is(retrieve_object("$test_path-link-stofile"), {id => "stofile"}, "Link reflects original");
+
+# Update via the link when the old file is an STO
+remove_object("$test_path-sto");
+lock_store({id => "stolink"}, "$test_path-sto.sto");
+symlink("$test_path-sto.sto", "$test_path-sto-link.sto");
+# Check data is fetched OK
+is(retrieve_object("$test_path-sto-link"), {id => "stolink"}, "Link works");
+# Update via the link
+store_object("$test_path-sto-link", {id => "stolink2"});
+is(retrieve_object("$test_path-sto"), {id => "stolink2"}, "Original reflects update via link");
+# JSON file is not created
+ok(!-e "$test_path-sto.json");
+ok(!-e "$test_path-sto-link.json");
+
+# Move object
+store_object("$test_path-tomove", {id => "tomove"});
+move_object("$test_path-tomove", "$test_path-moved");
+is(retrieve_object("$test_path-moved"), {id => "tomove"}, "File moved");
+ok(!-e "$test_path-tomove.json", "Original file deleted");
+
+# Move copes with an sto file
+lock_store({id => "sto-tomove"}, "$test_path-sto-tomove.sto");
+move_object("$test_path-sto-tomove", "$test_path-sto-moved");
+is(retrieve_object("$test_path-sto-moved"), {id => "sto-tomove"}, "File moved");
+ok(!-e "$test_path-stotomove.sto", "Original file deleted");
+
+# TODO
+
+# Test moving object
+
 # Check copes with an empty JSON file
 open(my $EMPTY, '>', "$test_path-empty.json");
 close($EMPTY);
@@ -138,7 +173,7 @@ is(retrieve_object($long_path), {data => $long_path}, "Creates directory on-the-
 
 # Can move objects to a new path
 my $new_root = $long_path_root . "/" . rand(100000);
-change_object_root($long_path_root . $long_path_suffix, $new_root);
+move_object($long_path_root . $long_path_suffix, $new_root);
 my $new_path = $new_root . "/nested";
 is(retrieve_object($new_path), {data => $long_path}, "Moves data");
 ok(!-e $long_path, "Original path removed");
