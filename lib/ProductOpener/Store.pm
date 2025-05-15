@@ -38,6 +38,7 @@ BEGIN {
 		&sto_iter
 		&store_object
 		&retrieve_object
+		&retrieve_object_json
 		&object_path_exists
 		&store_config
 		&retrieve_config
@@ -339,6 +340,27 @@ sub retrieve_object($path) {
 	return retrieve($path . '.sto');
 }
 
+sub retrieve_object_json($path) {
+	my $new_path = $path . '.json';
+	if (-e $new_path) {
+		my $json;
+		eval {
+			open(my $IN, "<", $new_path) or die("Can't open $new_path");
+			flock($IN, LOCK_SH);
+			local $/;    #Enable 'slurp' mode
+			$json = <$IN>;
+			# Release the lock. Some docs say this isn't needed but tests show otherwise
+			flock($IN, LOCK_UN);
+			close($IN);
+		} or do {
+			$log->error("retrieve_object", {path => $path, error => $@}) if $log->is_error();
+		};
+		return $json;
+	}
+	# Fallback to old method
+	return $json_for_objects->encode(retrieve($path . '.sto'));
+}
+
 sub object_path_exists($path) {
 	my $new_path = $path . '.json';
 	return (-e $new_path);
@@ -369,15 +391,18 @@ sub link_object($path, $link) {
 	symlink($path . '.json', $link . '.json')
 		or $log->error("could not link", {source => $path, link => $link, error => $!});
 
+	# We normally delete a link before creating a new one but just in case make sure there is no STO link
+	unlink($link . '.sto');
+
 	return;
 }
 
 # Removes an object or link to an object
 sub remove_object($path) {
-	my $new_path = $path . '.json';
-	if (-e $new_path) {
-		unlink($new_path);
-	}
+	unlink($path . '.json');
+	# Remove any legacy sto file too
+	unlink($path . '.sto');
+	return;
 }
 
 # Iterates over the path returning matching object paths

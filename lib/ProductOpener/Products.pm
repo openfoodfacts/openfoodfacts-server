@@ -125,7 +125,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::ProductSchemaChanges qw/$current_schema_version convert_product_schema/;
 use ProductOpener::Store
-	qw/get_string_id_for_lang get_url_id_for_lang retrieve_object store_object object_path_exists change_object_root/;
+	qw/get_string_id_for_lang get_url_id_for_lang retrieve_object store_object object_path_exists change_object_root remove_object link_object/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::ConfigEnv qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
@@ -706,13 +706,10 @@ There is no guarantee the result will be correct... but it's way faster than loa
 =cut
 
 sub product_id_from_path ($product_path) {
-	my $id = $product_path;
-	# only keep dir
-	#11872 TODO This won't work without a file extension
-	if ($id =~ /\.sto$/) {
-		$id = dirname($id);
-	}
-	# eventually remove root path
+	# Assume we are always passed in an object within the path, e.g. ../product or ../scans
+	my $id = dirname($product_path);
+
+	# Remove root path
 	my $root = quotemeta("$BASE_DIRS{PRODUCTS}/");
 	$id =~ s/^$root//;
 	# transform to id by simply removing "/"
