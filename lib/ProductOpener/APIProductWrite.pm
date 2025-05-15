@@ -40,6 +40,7 @@ BEGIN {
 		&process_change_product_code_request_if_we_have_one
 		&process_change_product_type_request_if_we_have_one
 		&skip_protected_field
+		&update_images_selected
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -369,6 +370,29 @@ sub update_product_fields ($request_ref, $product_ref, $response_ref) {
 	return;
 }
 
+=head2 update_images_selected($request_ref, $product_ref, $response_ref)
+
+Select and crop images based on images.selected
+
+This function is called by the product WRITE API, but also by the product image upload API
+when the caller uploads and image and wants to select it at the same time.
+
+=head3 Parameters
+
+=head4 $request_ref (input)
+
+Reference to the request object.
+
+=head4 $product_ref (input)
+
+Reference to the product object.
+
+=head4 $response_ref (input)
+
+Reference to the response object.
+
+=cut
+
 sub update_images_selected ($request_ref, $product_ref, $response_ref) {
 
 	my $request_body_ref = $request_ref->{body_json};
@@ -462,6 +486,8 @@ sub update_images_selected ($request_ref, $product_ref, $response_ref) {
 			}
 		}
 	}
+
+	return;
 }
 
 =head2 process_change_product_code_request_if_we_have_one($request_ref, $response_ref, $product_ref, $new_code)

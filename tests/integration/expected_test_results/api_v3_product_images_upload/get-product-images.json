@@ -30,7 +30,37 @@
       ],
       "entry_dates_tags" : "--ignore--",
       "id" : "1234567890012",
+      "image_ingredients_small_url" : "http://images.openfoodfacts.localhost/images/products/123/456/789/0012/ingredients_it.4.200.jpg",
+      "image_ingredients_thumb_url" : "http://images.openfoodfacts.localhost/images/products/123/456/789/0012/ingredients_it.4.100.jpg",
+      "image_ingredients_url" : "http://images.openfoodfacts.localhost/images/products/123/456/789/0012/ingredients_it.4.400.jpg",
       "images" : {
+         "selected" : {
+            "ingredients" : {
+               "it" : {
+                  "generation" : {},
+                  "imgid" : "2",
+                  "rev" : "4",
+                  "sizes" : {
+                     "100" : {
+                        "h" : 92,
+                        "w" : 100
+                     },
+                     "200" : {
+                        "h" : 183,
+                        "w" : 200
+                     },
+                     "400" : {
+                        "h" : 183,
+                        "w" : 200
+                     },
+                     "full" : {
+                        "h" : 183,
+                        "w" : 200
+                     }
+                  }
+               }
+            }
+         },
          "uploaded" : {
             "1" : {
                "sizes" : {
@@ -75,14 +105,20 @@
       ],
       "interface_version_created" : "20250416/api/v3",
       "lang" : "en",
-      "languages" : {},
-      "languages_codes" : {},
-      "languages_hierarchy" : [],
+      "languages" : {
+         "en:italian" : 1
+      },
+      "languages_codes" : {
+         "it" : 1
+      },
+      "languages_hierarchy" : [
+         "en:italian"
+      ],
       "languages_tags" : [
-         "en:0"
+         "en:italian",
+         "en:1"
       ],
       "last_edit_dates_tags" : "--ignore--",
-      "last_editor" : "openfoodfacts-contributors",
       "last_image_dates_tags" : "--ignore--",
       "last_image_t" : "--ignore--",
       "last_modified_t" : "--ignore--",
@@ -99,8 +135,21 @@
       "popularity_key" : 12,
       "product_type" : "food",
       "removed_countries_tags" : [],
-      "rev" : 3,
+      "rev" : 4,
       "schema_version" : 1002,
+      "selected_images" : {
+         "ingredients" : {
+            "display" : {
+               "it" : "http://images.openfoodfacts.localhost/images/products/123/456/789/0012/ingredients_it.4.400.jpg"
+            },
+            "small" : {
+               "it" : "http://images.openfoodfacts.localhost/images/products/123/456/789/0012/ingredients_it.4.200.jpg"
+            },
+            "thumb" : {
+               "it" : "http://images.openfoodfacts.localhost/images/products/123/456/789/0012/ingredients_it.4.100.jpg"
+            }
+         }
+      },
       "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-to-be-completed, en:photos-to-be-validated, en:packaging-photo-to-be-selected, en:nutrition-photo-to-be-selected, en:ingredients-photo-to-be-selected, en:front-photo-to-be-selected, en:photos-uploaded",
       "states_hierarchy" : [
          "en:to-be-completed",

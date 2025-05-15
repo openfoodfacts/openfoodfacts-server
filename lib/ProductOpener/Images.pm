@@ -1229,7 +1229,7 @@ sub delete_uploaded_image_and_associated_selected_images($product_ref, $imgid) {
 		"$BASE_DIRS{DELETED_IMAGES}/product.$code.$imgid.$crop_size.jpg"
 	);
 
-	delete $product_ref->{images}{$imgid};
+	delete $product_ref->{images}{uploaded}{$imgid};
 
 	# If we delete an image, we also unselect the images that were selected / cropped from it
 	if (exists $product_ref->{images}{selected}) {

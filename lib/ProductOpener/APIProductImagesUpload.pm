@@ -114,8 +114,10 @@ sub delete_product_image_api ($request_ref) {
 			store_product($User_id, $product_ref, "Deleted image $imgid");
 		}
 		else {
-			$log->error("image_product_delete_api - error deleting image", {code => $code, imgid => $imgid, return_code => $return_code})
-				if $log->is_error();
+			$log->error(
+				"image_product_delete_api - error deleting image",
+				{code => $code, imgid => $imgid, return_code => $return_code}
+			) if $log->is_error();
 			add_error(
 				$response_ref,
 				{
@@ -318,7 +320,8 @@ sub upload_product_image_api ($request_ref) {
 							selected => $selected_ref,
 						}
 					};
-					update_images_selected ($request_ref, $product_ref, $response_ref) {
+					update_images_selected($request_ref, $product_ref, $response_ref);
+					deep_set($response_ref, "product", "images", "selected", $product_ref->{images}{selected});
 				}
 			}
 		}
