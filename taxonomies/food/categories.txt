@@ -44441,6 +44441,10 @@ lt: Kefyrai 3,2 %
 ro: Kefir 3,2 %
 ru: Кефир 3.2 %, Кефир 3.2%, Кефир с массовой долей жира 3.2 %
 
+< en:Kefir
+en: Kefir cream 10%
+fr: Crème Kéfir 10%
+
 < en:Baby foods
 < en:Kefir
 en: Kefir for children, Kefir for babies
@@ -44495,6 +44499,15 @@ hr: Lassi
 ja: ラッシー
 nl: Lassi
 wikidata:en: Q827654
+
+< en:Fermented milk drinks
+xx: Ryazhenka, ryazhanka
+
+< en:Fermented milk drinks
+xx: Zakys
+
+< en:Fermented milk products
+xx: Zakvaska
 
 < en:Canned foods
 < en:Cheeses
@@ -44769,6 +44782,10 @@ xx: Paneer, panir
 en: Frozen Paneer, Frozen panir
 fr: Paneer surgelé, panir surgelé
 
+< en:Cheese substitutes
+en: Soy-based Paneer, Soy-based Panir
+fr: Paneer au soja, panir au soja
+agribalyse_proxy_food_code:en: 1027
 
 < en:Cheeses
 en: Cheeses for kids
@@ -50401,6 +50418,11 @@ fr: Smetana avec 15% de matières grasses
 hr: Smetana sa 15% masti
 ru: Сметана 15%, Сметана 15%, Сметана 15% жирности, Сметана с массовой долей жира 15%
 
+< en:Sour creams
+xx: Mileram
+agribalyse_proxy_food_code:en: 19431
+agribalyse_proxy_food_name:en: Thick cream, 30% fat, refrigerated
+agribalyse_proxy_food_name:fr: Crème de lait, 30% MG, épaisse, rayon frais
 
 < en:Plant-based foods
 en: Plant-based creams, Plant creams, Dairy-free creams, Dairy-free cream substitutes
@@ -51034,6 +51056,18 @@ ja: ホエイパウダー
 lt: Išrūgų milteliai
 wikidata:en: Q57656307
 
+< en:Dairies
+en: whey
+fr: lactosérum
+
+< en:Dairies
+en: Whey butter
+fr: Beurre de lactosérum
+
+< en:Dairies
+en: Milk permeate
+fr: Perméat de Lait
+
 < en:Fermented milk products
 en: Buttermilks
 de: Buttermilch, Buttermilche, Buttermilchen
@@ -51049,6 +51083,7 @@ wikidata:en: Q106612
 
 < en:Buttermilks
 en: Light buttermilks
+fr: Babeurres allégés
 
 < en:Buttermilks
 en: Flavoured buttermilks
@@ -51572,6 +51607,34 @@ fr: Lait de jument entier
 ciqual_food_code:en: 19225
 ciqual_food_name:en: Mare's milk, whole
 ciqual_food_name:fr: Lait de jument, entier
+
+< en:Milks
+en: Buffalo milks, Buffalo milk
+fr: Lait de bufflonne
+
+< en:Buffalo milks
+en: Toned milks, Toned milk
+fr: Lait de bufflonne tonique, lait de bufflonne tonifié
+
+< en:Toned milks
+en: Double-toned milks, Double-toned milk
+fr: Lait de bufflonne très tonique, lait de bufflonne très tonifié
+
+< en:Buffalo milks
+en: Pasteurized buffalo milks, Pasteurized buffalo milk
+fr: Lait de bufflonne pasteurisé
+
+< en:Buffalo milks
+en: Semi-skimmed UHT Buffalo milks, Semi-skimmed UHT Buffalo milk
+fr: Lait de bufflonne demi-écrémé UHT
+
+< en:Buffalo milks
+en: Skimmed UHT Buffalo milks
+fr: Lait de bufflonne écrémé UHT
+
+< en:Buffalo milks
+en: UHT buffalo milks
+fr: Lait de bufflonne UHT
 
 < en:Milks
 en: Skimmed milks
@@ -53128,6 +53191,14 @@ ciqual_food_name:en: Yogurt, fermented milk or dairy specialty, flavoured, with 
 ciqual_food_name:fr: Yaourt, lait fermenté ou spécialité laitière, aromatisé, sucré
 #wikidata:en:
 
+< en:Flavoured yogurts
+en: Thermised milk flavoured yogurts
+fr: Yaourts aromatisés au lait thermisé
+
+< en:Flavoured yogurts
+en: Flavoured yogurts with UHT milk
+fr: Yaourts aromatisés au lait UHT
+
 < en:Fermented dairy desserts with fruits
 < en:Yogurts
 en: Fruit yogurts, yogurts with fruits, Yogurt with fruits, Yogurt fruit flavoured, Fermented milk with fruits, Fermented milk fruit flavoured
@@ -53670,6 +53741,18 @@ ciqual_food_name:fr: Yaourt, lait fermenté ou spécialité laitière, aromatis�
 en: Plain low-fat yogurts
 fr: Yaourts allégés nature
 
+< en:Low-fat yogurts
+en: Thermised milk low-fat yogurts, Thermised milk flavoured low-fat yogurts
+fr: Yaourts allégés aromatisés au lait thermisé
+
+< en:Low-fat yogurts
+en: Low-fat flavoured yogurts with UHT milk
+fr: Yaourts allégés aromatisés au lait UHT
+
+< en:Plain low-fat yogurts
+en: Plain low-fat yogurts with UHT milk
+fr: Yaourts allégés nature au lait UHT
+
 < en:Yogurts
 en: Mixed yogurts
 de: gemischte Joghurt, gemischte Jogurt, gemischte Joghurts, gemischte Jogurts
@@ -53892,6 +53975,10 @@ wikidata:en:
 < en:Plain yogurts
 en: Thermised milk plain yogurts
 fr: Yaourts natures au lait thermisé
+
+< en:Plain yogurts
+en: Plain yogurts with UHT milk
+fr: Yaourts natures au lait UHT
 
 en: Desserts
 bg: Десерти
@@ -58302,6 +58389,10 @@ wikidata:en: Q1572135
 wikipedia:en: https://en.wikipedia.org/wiki/Quail_eggs
 
 < en:Eggs
+en: Cooked quail eggs
+fr: œufs de cailles cuits, Oeufs de cailles cuits
+
+< en:Eggs
 en: Duck eggs
 bg: Патешки яйца
 de: Enteneier
@@ -58486,6 +58577,11 @@ lt: Kiaušinio trynio milteliai
 agribalyse_food_code:en: 22003
 ciqual_food_code:en: 22003
 ciqual_food_name:en: Egg yolk, powder
+
+< en:Eggs
+en: Century egg
+fr: Oeuf de cent ans, Oeuf de 100 ans
+agribalyse_proxy_food_code:en: 22060
 
 ############################################## F A T S #######################
 
@@ -59081,6 +59177,14 @@ ciqual_food_name:fr: Matière grasse végétale (type margarine), à tartiner, �
 < en:Margarines
 en: Margarines with plant sterols esters
 fr: Margarine aux esters de stérol végétal
+
+< en:Margarines
+en: Canola margarines
+fr: Margarines de Canola
+
+< en:Margarines
+en: Clarified margarines
+fr: Margarines clarifiées
 
 < en:Light unsalted margarines
 < en:Margarines with plant sterols esters
@@ -113435,6 +113539,10 @@ pl: Tofu wędzone
 sv: Rökt tofu, tofu rökt
 agribalyse_food_code:en: 20912
 
+< en:Tofu
+en: Fried tofu
+fr: Tofu frit
+
 < en:Legumes and their products
 < en:Meat alternatives
 en: Tempeh
@@ -113476,6 +113584,9 @@ en: Textured pea protein
 fr: Protéine de pois texturée
 hr: Teksturirani protein graška
 pl: Teksturowane białko grochu
+
+< en:Legumes and their products
+en:Natto
 
 < en:Legumes and their products
 en: Misos, Miso
