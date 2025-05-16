@@ -110,18 +110,24 @@ paths:
     patch:
       tags:
         - Write Requests      
-      summary: "WRITE Product - Create or update product, or analyze test product (API V3 - Implementation in progress)"
+      summary: "WRITE Product - Create or update product, select images, or analyze test product (API V3 - Implementation in progress)"
       operationId: patch-api-v3-product-barcode
       description: |-
         This API allows to create or update a product (if the product already exists, its data is updated, otherwise it is created), or to analyze a test product (in which case no product is created or updated). To analyze a product, the "barcode" path component needs to contain the value "test" instead of a barcode.
 
         New API to send structured product data in a JSON format instead of in a flattened list of key / value pairs field as-in the current product add / edit API that relies on a multipart/form-data format.
 
-        Important: this new Product WRITE API is under development. The initial deployment will support only packaging fields.
+        Important: this new Product WRITE API has been deployed in production, but it is still under development, and it may change.
 
-        This new API will be used in particular to send structured packaging data: https://openfoodfacts.github.io/openfoodfacts-server/dev/explain-packaging-data/
+        This new API is used in particular to send structured packaging data: https://openfoodfacts.github.io/openfoodfacts-server/dev/explain-packaging-data/
 
-        The new API can then be gradually extended to support other product fields.
+        The new API is gradually being extended to support other product fields.
+
+        Currently supported fields are:
+          - language specific fields (e.g. product name, ingredients text)
+          - tags fields (e.g. categories, labels)
+          - packaging fields (e.g. packagings, packagings_add, packagings_complete)
+          - image selection of uploaded images (e.g. front, ingredients, nutrition, packaging) for specific languages
       parameters:
         - name: barcode
           in: path
@@ -259,17 +265,16 @@ paths:
                           quantity_unit: ml
                           weight: 80
   "/api/v3/product/{barcode}/images":
-    patch:
+    post:
       tags:
         - Write Requests          
       summary: "UPLOAD Product Image - Upload (and possibly select) an image for a product"
-      operationId: patch-api-v3-product-barcode-images
+      operationId: post-api-v3-product-barcode-images
       description: |-
         
-        This API allows to create or update a product (if the product already exists, its data is updated, otherwise it is created), or to analyze a test product (in which case no product is created or updated). To analyze a product, the "barcode" path component needs to contain the value "test" instead of a barcode.
-
-        New API to send structured product data in a JSON format instead of in a flattened list of key / value pairs field as-in the current product add / edit API that relies on a multipart/form-data format.
-
+        This endpoint allows to upload an image for a product. The image is uploaded in the request body as a base64 encoded string.
+        Optionally, it is possible to select the uploaded image for specific information (e.g. front, ingredients, nutrition, packaging) for specific languages. Each selected image is a cropped version of the uploaded image.
+       
         If the product does not exist, it will be created.
       parameters:
         - name: barcode
@@ -298,6 +303,10 @@ paths:
                       type: string
                       description: |-
                         Base64 encoded image data (supported formats: JPEG, PNG, GIF, HEIC)
+                    selected:
+                      description: |
+                        Optional instructions to select (and possibly crop) the uploaded image for specific information (e.g. front, ingredients, nutrition, packaging) for specific languages.
+                      $ref: "./schemas/image_selected.yaml#/components/schemas/ImagesSelected"
           application/xml:
             schema:
               type: object
@@ -336,7 +345,50 @@ paths:
                                 patternProperties:
                                   '(?<imgid>\d+)':
                                     $ref: "./schemas/image_uploaded.yaml#/components/schemas/ImageUploaded"
-                            
+  "/api/v3/product/{barcode}/images/uploaded/{imgid}":
+    delete: 
+      tags:
+        - Write Requests
+      summary: DELETE Product Image - Delete an uploaded image for a product, and selected images that are cropped from it
+      operationId: delete-api-v3-product-barcode-images-uploaded-imgid
+      description: |-
+        This endpoint allows to delete an uploaded image for a product.
+        Selected images that are cropped from it will also be deleted.
+
+        Image deletion is allowed only for moderators and admins, so the request must be authenticated with a session cookie or userid and password.
+      parameters:
+        - name: barcode
+          in: path
+          description: |
+            The barcode of the product corresponding to the image.
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: "3017620422003"
+        - name: imgid
+          in: path
+          description: |
+            The id of the image to be deleted.
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: integer
+            example: 2
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: ./responses/response-status/response_status.yaml
+        "403":
+          description: User not authenticated or not allowed to delete the image
+        "404":
+          description: Product or image not found                 
   /api/v3/taxonomy_suggestions:
     parameters: []
     get:
