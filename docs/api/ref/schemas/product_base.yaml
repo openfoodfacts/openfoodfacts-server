@@ -86,7 +86,7 @@ properties:
     description: |
       The quantity of the product, with the corresponding number of portions or unit (g, ml, kg, l, cl, oz, lbs...). 
       It should be the value as displayed on the product. The ℮ sign is allowed.
-      When it refers to the number of portions, it can be filled without any units; eg. "6 eggs".
+      When it refers to the number of portions, it can be filled without any units (e.g. "6 eggs").
     example: "3 x 150 g"
 
 
