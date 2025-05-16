@@ -4435,6 +4435,7 @@ var default_preferences = $options{attribute_default_preferences_json};
 var preferences_text = "$preferences_text";
 var contributor_prefs = $contributor_prefs_json;
 var products = [];
+var flavor = "$flavor";
 </script>
 JS
 			;
@@ -5620,6 +5621,7 @@ var default_preferences = $options{attribute_default_preferences_json};
 var preferences_text = "$preferences_text";
 var contributor_prefs = $contributor_prefs_json;
 var products = $products_json;
+var flavor = "$flavor";
 </script>
 JS
 		;
@@ -8507,6 +8509,7 @@ var page_type = "product";
 var default_preferences = $options{attribute_default_preferences_json};
 var preferences_text = "$preferences_text";
 var product = $product_attribute_groups_json;
+var flavor = "$flavor";
 </script>
 
 <script src="$static_subdomain/js/product-preferences.js"></script>
