@@ -156,6 +156,8 @@ synonyms:fr: premier, 1er
 synonyms:fr: français, francais
 # soja francais sans OGM
 
+synonyms:sv: ingrediens, råvara
+
 en: 1% for the planet, 1 percent for the planet, one percent for the planet
 bg: 1% за планетата
 ca: 1% pel planeta
@@ -237,6 +239,19 @@ wikidata:en: Q3406760
 
 en: British Lion Quality, Lion Quality, British Lion Eggs, Lion Eggs, The Lion Mark, Lion Mark
 wikidata:en: Q4969906
+
+xx: CE
+en: CE, CE marking
+fr: CE, Marquage CE
+image:en: ce.126x90.svg
+wikidata:en: Q467405
+
+xx: UKCA, UK Conformity Assessed
+en: UKCA, UKCA marking
+de: UKCA, UKCA-Kennzeichnung
+image:en: ukca.90x90.svg
+web:en: https://www.gov.uk/guidance/using-the-ukca-marking
+wikidata:en: Q101220997
 
 nl: Beter Leven
 xx: beter leven
@@ -1325,6 +1340,7 @@ fi: FSC-kierrätys
 fr: FSC Recyclé, FSC Recyclage
 it: FSC Riciclato
 pt: FSC Reciclado
+sv: FSC Recycled
 
 en: without nano-particles
 de: ohne Nanopartikel
@@ -1335,12 +1351,14 @@ pt: sem nano-partículas
 
 en: No wheat, without wheat, Wheat-free
 bg: Без пшеница
+da: Uden hvede
 de: Ohne Weizen
 es: Sin trigo, libre de trigo
 fr: Sans blé
 it: Senza frumento
 nl: Zonder graan
 pt: Sem trigo, livre de trigo, 0% trigo
+sv: Utan vete
 
 #instruction:en:Do NOT change the english key.
 en: No gluten, Gluten free, Without gluten, Gluten-free-food, free of gluten, Naturally gluten-free, ni gluten, free from gluten
@@ -19036,11 +19054,18 @@ hr: prirodno bogato vitaminom E
 it: naturalmente ricco di vitamina E
 pt: rico naturalmente em vitamina E
 
+en: whole grain, wholegrain, wholemeal
+da: fuldkorn
+sv: fullkorn, fullkornsingrediens
+wikidata:en: Q1938952
+
+#< en:whole grain
 en: with wholemeal flour
+da: med fuldkornsmel
 es: con farina integralna
 fr: contient de la farine complète
 hr: s integralnim brašnom
-sv: med fullkornsmjöl, fullkornsingrediens
+sv: med fullkornsmjöl
 
 #label for more sustainable production of agricultural products
 < en:Sustainable
@@ -19061,6 +19086,7 @@ hu: Fenntartható pálmaolaj
 it: Olio di palma sostenibile
 nl: Duurzame palmolie
 pt: Óleo de palma sustentável
+sv: Hållbarhetscertifierad palmolja
 ingredients:en: en:palm-oil
 wikidata:en: Q686421
 
@@ -19996,20 +20022,7 @@ es: La Sociedad Vegetariana
 he: איגוד הצמחונות
 wikidata:en: Q2154954
 
-en: Ovo-vegetarian
-ca: Ovovegetarià
-de: Ovo-vegetarisch
-es: Ovo-vegetariano
-fi: ovo-vegetaarinen
-fr: Ovo-végétarien
-hu: Ovo-vegetáriánus
-it: Ovo-vegetariano
-pt: Ovo-vegetariano
-sv: Ovo-vegetarisk, ovovegetarisk, ovovegetarianer
-wikidata:en: Q3543760
-
-< en:Lacto-vegetarian
-< en:Ovo-vegetarian
+< en:Vegetarian
 en: Ovo-lacto-vegetarian
 ca: Ovolactovegetarià
 de: Ovo-lacto-vegetarisch
@@ -20022,6 +20035,23 @@ pt: Ovo-lacto-vegetariano
 sv: Lakto-ovovegetarisk, lakto-ovovegetarianer
 wikidata:en: Q3544800
 
+# Ovo-vegetarians eat eggs, but not dairy
+< en:Ovo-lacto-vegetarian
+en: Ovo-vegetarian
+ca: Ovovegetarià
+de: Ovo-vegetarisch
+es: Ovo-vegetariano
+fi: ovo-vegetaarinen
+fr: Ovo-végétarien
+hu: Ovo-vegetáriánus
+it: Ovo-vegetariano
+pt: Ovo-vegetariano
+sv: Ovo-vegetarisk, ovovegetarisk, ovovegetarianer
+incompatible_with:en: ingredients:en:dairy, labels:en:contains-milk
+wikidata:en: Q3543760
+
+# Lacto-vegetarians eat dairy, but not eggs
+< en:Ovo-lacto-vegetarian
 en: Lacto-vegetarian
 ca: Lactovegetarià
 de: Lacto-vegetarisch
@@ -20032,6 +20062,7 @@ hu: Lakto-vegetáriánus
 it: Latto-vegetariano
 pt: Latto-vegetariano
 sv: Lakto-vegetarisk
+incompatible_with:en: ingredients:en:eggs # labels:en:contains-eggs
 wikidata:en: Q3496076
 
 # non English needs the English synonyms too so that "European V-Label Végétarien" can be recognized too
@@ -22056,7 +22087,7 @@ nl: NAPSI certificatie
 en: New
 bg: Ново
 ca: Nou
-da: Ny
+da: Nyhed, Ny
 de: Neu
 es: Nuevo
 fi: uusi
@@ -22068,6 +22099,7 @@ nl: Nieuw
 pl: Nowość, Nowy, Nowe
 pt: Novo, novidade
 ru: Новинка
+sv: Nyhet
 th: สินค้าใหม่
 tr: Yeni
 

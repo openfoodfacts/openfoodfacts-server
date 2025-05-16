@@ -11,7 +11,6 @@
 # Note: an old draft owners/brands taxonomy lives in taxonomies/unused/brands.txt, but it is hierarchic, which is something we do not want in this taxonomy.
 # You can usefully read: https://wiki.openfoodfacts.org/Brands to get up and running on the subtleties of the topic.
 
-
 xx: Albert Heijn
 
 xx: Aldi
@@ -21,16 +20,17 @@ xx: Alesto
 xx: alpro
 wikidata:en: Q498666
 
-xx: Änglamark
-wikidata:en: Q65229572
+xx: Bio Village
 
 xx: bonÀrea
 
 xx: Carrefour BIO
 
-# This brand is used by different organisations in different countries,
-# that, as far as I can tell, do not have any sort of formal connection
+xx: Chaque Jour Sans Gluten
+
+# This brand is used by different consumer cooperatives around the world
 xx: Coop
+wikidata:en: Q115764026
 
 xx: Dave & Jon's, Dave & Jon's Snack Factory, Dave and Jon's
 wikidata:en: Q134125853
@@ -38,6 +38,8 @@ wikidata:en: Q134125853
 xx: dmBio, dm Bio
 
 xx: Dr. Oetker
+
+xx: Délisse
 
 xx: Eldorado
 wikidata:en: Q5324313
@@ -71,7 +73,8 @@ xx: Kellogg's, Kelloggs, Kellogg
 
 xx: Leader Price, Leaderprice
 
-xx: Maître CoQ
+# Portuguese version of Marque Repère
+xx: Marca Guia
 
 xx: Marks & Spencers, Marks and Spencers
 wikidata:en: Q714491
@@ -79,28 +82,13 @@ wikidata:en: Q714491
 xx: Marque Repère
 wikidata:en: Q3294723
 
-# Portuguese version of Marque Repère
-xx: Marca Guia
-
 # Swedish burger chain
 xx: Max
 wikidata:en: Q1912172
 
-xx: Bio Village
-
-xx: Chaque Jour Sans Gluten
-
-xx: Délisse
+xx: Maître CoQ
 
 xx: NAT&vie, NAT&vie veggie
-
-xx: Récoltons l'Avenir, Récoltons l'Avenir l'agriculture durable
-
-xx: Soutenons nos agriculteurs
-
-xx: Tokapi
-
-xx: Turini
 
 xx: Naturli'
 
@@ -120,9 +108,15 @@ wikidata:en: Q3102193
 
 xx: Rice Krispies
 
+xx: Récoltons l'Avenir, Récoltons l'Avenir l'agriculture durable
+
+xx: Saffola
+
 xx: Sainsbury's, Sainsburys
 
 xx: Sol&Mar
+
+xx: Soutenons nos agriculteurs
 
 xx: Special K
 
@@ -132,7 +126,11 @@ wikidata:en: Q10688845
 xx: Takovo
 wikidata:en: Q58177342
 
+xx: Tokapi
+
 xx: Trader Joe's
+
+xx: Turini
 
 xx: Urtekram
 wikidata:en: Q12340334
@@ -144,8 +142,14 @@ xx: Vemondo
 
 xx: Veritas
 
+xx: Xtra, Xtra Coop
+wikidata:en: Q11902541
+
 xx: Zeina's
 
 xx: Zeta
 wikidata:en: Q10724505
+
+xx: Änglamark
+wikidata:en: Q65229572
 

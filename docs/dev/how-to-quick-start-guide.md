@@ -520,3 +520,16 @@ Finally, run this to allow .envrc:
 ```console
 direnv allow
 ```
+
+
+### make dev error: permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Head "http://%2Fvar%2Frun%2Fdocker.sock/_ping": dial unix /var/run/docker.sock: connect: permission denied make: *** [Makefile:147 : build] Erreur 1
+
+
+
+**Solution:**
+
+Add the user to docker group :
+```console
+sudo usermod -aG docker $USER
+```
+
