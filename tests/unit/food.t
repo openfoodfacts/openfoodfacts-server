@@ -661,4 +661,9 @@ my %form = ();
 	}
 }
 
+is(has_nutrition_data_for_product_type({}, ""), 0);
+is(has_nutrition_data_for_product_type({nutriments => {"sugars_100g" => 5}}, ""), 1);
+is(has_nutrition_data_for_product_type({nutriments => {"sugars_100g" => 0}}, "_prepared"), 0);
+is(has_nutrition_data_for_product_type({nutriments => {"sugars_prepared_serving" => 10}}, "_prepared"), 1);
+
 done_testing();
