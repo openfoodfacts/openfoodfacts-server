@@ -5324,6 +5324,7 @@ my %phrases_after_ingredients_list = (
 		'holdbarhed efter åbning', 'mindst holdbar til',
 		'opbevar(?:ing|res)?', '(?:for )?allergener',
 		'produceret af', 'tilberedning(?:svejledning)?',
+		'blandingsforholdet kan variere',
 	],
 
 	de => [
@@ -5360,7 +5361,8 @@ my %phrases_after_ingredients_list = (
 		'\d\d\d\sg\s\w*\swerden aus\s\d\d\d\sg\s\w*\shergestellt'
 		,    # 100 g Salami werden aus 120 g Schweinefleisch hergestellt.
 		'Alle Zutaten sind aus biologischem Anbau',
-		'außer die mit * markierten Bestandteile'
+		'außer die mit * markierten Bestandteile',
+		'Die Mischung kann variieren',
 	],
 
 	el => [
@@ -5612,6 +5614,7 @@ my %phrases_after_ingredients_list = (
 	nb => [
 		'netto(?:innhold|vekt)', 'oppbevar(?:ing|es)', 'næringsinnh[oa]ld', 'kjølevare',
 		'minst holdbar',    # keep until
+		'blandingsforholdet kan variere',
 	],
 
 	nl => [
@@ -5730,7 +5733,7 @@ my %phrases_after_ingredients_list = (
 		'upptining', 'o?öppnad',
 		'bevaras', 'kylvara',
 		'tappat',
-		'proportionerna kan variera något mellan olika förpackningar',    # Proportions may vary
+		'(?:proportionerna|blandningsförhållandet) kan variera(?: något mellan olika förpackningar)?',
 	],
 
 	tr => [
