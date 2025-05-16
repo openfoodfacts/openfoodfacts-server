@@ -32,13 +32,14 @@ my @tests = (
 		{
 			lc => "en",
 			ingredients_text => "raw milk, sliced tomatoes, garlic powder, powdered eggplant,
-				courgette powder, sieved ham"
+					courgette powder, sieved ham"
 		},
 		[
 			{
-				'id' => 'en:raw-milk',
+				'id' => 'en:milk',
 				'is_in_taxonomy' => 1,
-				'text' => 'raw milk'
+				'processing' => 'en:raw',
+				'text' => 'milk'
 			},
 			{
 				'id' => 'en:tomato',
@@ -127,7 +128,7 @@ my @tests = (
 			{
 				'id' => 'en:ham',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:sugared',
+				'processing' => 'en:sweetened',
 				'text' => 'ham'
 			}
 		]
@@ -247,11 +248,11 @@ my @tests = (
 			}
 		]
 	],
-##################################################################
+	##################################################################
 	#
 	#                           S P A N I S H   ( E S )
 	#
-##################################################################
+	##################################################################
 
 	[
 		{
@@ -328,17 +329,17 @@ my @tests = (
 		]
 	],
 
-##################################################################
+	##################################################################
 	#
 	#                           F R E N C H ( F R )
 	#
-##################################################################
+	##################################################################
 
 	[
 		{
 			lc => "fr",
 			ingredients_text => "dés de jambon frits, tomates crues en dés,
-				tomates bio pré-cuites, poudre de noisettes, banane tamisé"
+					tomates bio pré-cuites, poudre de noisettes, banane tamisé"
 		},
 		[
 			{
@@ -467,10 +468,10 @@ my @tests = (
 				'text' => 'tomates'
 			},
 			{
-				'id' => 'en:skimmed-milk',
+				'id' => 'en:milk',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:partially-dehydrated',
-				'text' => "lait \x{e9}cr\x{e9}m\x{e9}"
+				'processing' => 'en:partially-dehydrated,en:skimmed',
+				'text' => "lait"
 			},
 			{
 				'id' => 'en:chia-seed',
@@ -537,11 +538,11 @@ my @tests = (
 	#		]
 	#	],
 
-##################################################################
+	##################################################################
 	#
 	#                           F I N N I SH ( F I )
 	#
-##################################################################
+	##################################################################
 	[
 		{
 			lc => "fi",
@@ -563,9 +564,10 @@ my @tests = (
 		},
 		[
 			{
-				'id' => 'en:raw-milk',
+				'id' => 'en:milk',
 				'is_in_taxonomy' => 1,
-				'text' => 'raakamaito'
+				'text' => 'maito',
+				'processing' => 'en:raw',
 			},
 			{
 				'id' => 'en:blueberry',
@@ -582,11 +584,11 @@ my @tests = (
 		]
 	],
 
-##################################################################
+	##################################################################
 	#
 	#                           D U T C H ( N L )
 	#
-##################################################################
+	##################################################################
 
 	[
 		{
@@ -646,11 +648,11 @@ my @tests = (
 		]
 	],
 
-##################################################################
+	##################################################################
 	#
 	#                           G E R M A N ( D E )
 	#
-##################################################################
+	##################################################################
 
 	# de:pulver and variants
 	[
@@ -745,7 +747,7 @@ my @tests = (
 		{
 			lc => "de",
 			ingredients_text => "Schalotte gegart, gegarte haselnüsse, gegarter mandeln, gegartes passionsfrucht,
-				sellerie dampfgegart, dampfgegarte acerola, dampfgegarter spinat"
+					sellerie dampfgegart, dampfgegarte acerola, dampfgegarter spinat"
 		},
 		[
 			{
@@ -820,7 +822,7 @@ my @tests = (
 		{
 			lc => "de",
 			ingredients_text => "Schalotte gepökelt, gepökeltes haselnüsse,
-				passionsfrucht ungepökelt"
+					passionsfrucht ungepökelt"
 		},
 		[
 			{
@@ -849,7 +851,7 @@ my @tests = (
 		{
 			lc => "de",
 			ingredients_text => "Schalotte gepoppt, gepuffte haselnüsse,
-				passionsfrucht gepufft, gepuffter passionsfrucht, gepufftes sellerie"
+					passionsfrucht gepufft, gepuffter passionsfrucht, gepufftes sellerie"
 		},
 		[
 			{
@@ -890,7 +892,7 @@ my @tests = (
 		{
 			lc => "de",
 			ingredients_text => "Schalotte geschält, geschälte haselnüsse, geschälter mandeln,
-				passionsfrucht ungeschält, ungeschälte sellerie"
+					passionsfrucht ungeschält, ungeschälte sellerie"
 		},
 		[
 			{
@@ -931,7 +933,7 @@ my @tests = (
 		{
 			lc => "de",
 			ingredients_text => "Schalotte geschwefelt, geschwefelte haselnüsse,
-				passionsfrucht ungeschwefelt, geschwefelte sellerie"
+					passionsfrucht ungeschwefelt, geschwefelte sellerie"
 		},
 		[
 			{
@@ -994,13 +996,13 @@ my @tests = (
 			{
 				'id' => 'en:shallot',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:sugared',
+				'processing' => 'en:sweetened',
 				'text' => 'Schalotte'
 			},
 			{
 				'id' => 'en:hazelnut',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:sugared',
+				'processing' => 'en:sweetened',
 				'text' => "haselnüsse"
 			},
 			{
@@ -1052,8 +1054,8 @@ my @tests = (
 			lc => "de",
 			ingredients_text =>
 				"konzentriert schalotte, konzentrierter haselnüsse, konzentrierte mandeln, konzentriertes acerolakirschen,
-				zweifach konzentriert, 2 fach konzentriert, doppelt konzentriertes, zweifach konzentriertes, 2-fach konzentriert, dreifach konzentriert,
-				200fach konzentriertes, eingekochter"
+					zweifach konzentriert, 2 fach konzentriert, doppelt konzentriertes, zweifach konzentriertes, 2-fach konzentriert, dreifach konzentriert,
+					200fach konzentriertes, eingekochter"
 		},
 		[
 			{
@@ -1129,11 +1131,11 @@ my @tests = (
 			lc => "de",
 			ingredients_text =>
 				"Schalotte zerkleinert, zerkleinerte haselnüsse, zerkleinerter mandeln, zerkleinertes passionsfrucht,
-				sellerie grob zerkleinert,
-				acerolakirschen fein zerkleinert, fein zerkleinerte spinat,
-				zwiebel zum teil fein zerkleinert,
-				haselnüsse feinst zerkleinert,
-				überwiegend feinst zerkleinert Feigen"
+					sellerie grob zerkleinert,
+					acerolakirschen fein zerkleinert, fein zerkleinerte spinat,
+					zwiebel zum teil fein zerkleinert,
+					haselnüsse feinst zerkleinert,
+					überwiegend feinst zerkleinert Feigen"
 		},
 		[
 			{
@@ -1204,7 +1206,7 @@ my @tests = (
 		{
 			lc => "de",
 			ingredients_text => "haselnüsse gehackt und geröstet,
-				gehackte und geröstete haselnuss, gehobelte und gehackte mandeln"
+					gehackte und geröstete haselnuss, gehobelte und gehackte mandeln"
 		},
 		[
 			# change on 17:01
@@ -1234,7 +1236,7 @@ my @tests = (
 		{
 			lc => "de",
 			ingredients_text => "Schalotte gemahlen, gemahlene mandeln, gemahlener zwiebel,
-				fein gemahlen haselnüsse, grob gemahlen spinat, frischgemahlen sellerie"
+					fein gemahlen haselnüsse, grob gemahlen spinat, frischgemahlen sellerie"
 		},
 		[
 			{
@@ -1281,10 +1283,10 @@ my @tests = (
 		{
 			lc => "de",
 			ingredients_text => "Schalotte getrocknet, getrocknete mandeln, getrockneter zwiebel,
-				 haselnüsse in getrockneter form, halbgetrocknete spinat, halbgetrocknet sellerie, Feigen halb getrocknet,
-				 Holunder gefriergetrocknet, gefriergetrocknete Papaya, gefriergetrocknetes Kiwi, sonnengetrocknet Ananas,
-				 sonnengetrocknete Pflaumen, an der Sonne getrocknete Grapefruit, Guaven luftgetrocknet, luftgetrockneter Hagebutten,
-				 Traube sprühgetrocknet, sprühgetrockneter Tamarinde"
+					 haselnüsse in getrockneter form, halbgetrocknete spinat, halbgetrocknet sellerie, Feigen halb getrocknet,
+					 Holunder gefriergetrocknet, gefriergetrocknete Papaya, gefriergetrocknetes Kiwi, sonnengetrocknet Ananas,
+					 sonnengetrocknete Pflaumen, an der Sonne getrocknete Grapefruit, Guaven luftgetrocknet, luftgetrockneter Hagebutten,
+					 Traube sprühgetrocknet, sprühgetrockneter Tamarinde"
 		},
 		[
 			{
@@ -1410,7 +1412,7 @@ my @tests = (
 		{
 			lc => "de",
 			ingredients_text => "hartkäse gesalzen, haselnüsse gesalzene, haselnüsse gesalzenes,
-				gesalzener haselnuss, ungesalzen schalotte, ungesalzene mandeln"
+					gesalzener haselnuss, ungesalzen schalotte, ungesalzene mandeln"
 		},
 		[
 			{
@@ -1524,7 +1526,7 @@ my @tests = (
 		{
 			lc => "de",
 			ingredients_text => "hartkäse gehobelt, haselnüsse gehackt,
-			, gehobelte und gehackte mandeln, Dickmilch in scheiben geschnitten"
+				, gehobelte und gehackte mandeln, Dickmilch in scheiben geschnitten"
 		},
 		[
 			{
@@ -1587,7 +1589,7 @@ my @tests = (
 		{
 			lc => "de",
 			ingredients_text => "Schalotte mariniert, zwiebel marinierte, spinat marinierter,
-			mariniertes sellerie"
+				mariniertes sellerie"
 		},
 		[
 			{
@@ -1622,7 +1624,7 @@ my @tests = (
 		{
 			lc => "de",
 			ingredients_text => "Schalotte geschnitten, zwiebel mittelfein geschnittenen, spinat feingeschnitten,
-				fein geschnittenen sellerie, feingeschnittener Mandeln, handgeschnittene haselnüsse"
+					fein geschnittenen sellerie, feingeschnittener Mandeln, handgeschnittene haselnüsse"
 		},
 		[
 			{
@@ -1730,7 +1732,7 @@ my @tests = (
 		{
 			lc => "de",
 			ingredients_text => "Schalottewürfel, spinat gewürfelt, gewürfelte sellerie,
-				zwiebel in würfel geschnitten, mandeln in würfel"
+					zwiebel in würfel geschnitten, mandeln in würfel"
 		},
 		[
 			{
@@ -1766,11 +1768,11 @@ my @tests = (
 		]
 	],
 
-##################################################################
+	##################################################################
 	#
 	#                           C R O A T I A N ( H R )
 	#
-##################################################################
+	##################################################################
 
 	# inspired by 3858881083103
 	[
@@ -1830,25 +1832,26 @@ my @tests = (
 		{lc => "hr", ingredients_text => "Pasterizirano mlijeko (s 1.0% mliječne masti)"},
 		[
 			{
-				id => "en:pasteurised-milk",
+				id => "en:milk",
 				ingredients => [
 					{
-						id => "en:milk-with-1-0-milk-fat",
+						id => "en:milk",
 						is_in_taxonomy => 1,
-						text => "mlijeko s 1.0% mlije\x{10d}ne masti"
+						text => "mlijeko s 1.0% mliječne masti",
 					}
 				],
 				is_in_taxonomy => 1,
-				text => "Pasterizirano mlijeko"
+				text => "mlijeko",
+				processing => 'en:pasteurised',
 			}
 		]
 	],
 
-##################################################################
+	##################################################################
 	#
 	#                           POLISH ( PL )
 	#
-##################################################################
+	##################################################################
 
 	[
 		{
@@ -1870,13 +1873,13 @@ my @tests = (
 		{
 			lc => "pl",
 			ingredients_text => "koncentrat pomidorowy (126 g pomidorow na 100 g ketchupu),
-			pomidory (210 g pomidorów zużyto na 100 g produktu),
-			pomidory (100 g na 100 g produktu),
-			pomidory (126 g pomidorów na 100g produktu).
-			157 g mięsa użyto do wytworzenia 100 g produktu.
-			100 g produktu wyprodukowano ze 133 g mięsa wieprzowego.
-			Sporządzono z 40 g owoców na 100 g produktu.
-			Z 319 g mięsa wieprzowego wyprodukowano 100 g produktu."
+				pomidory (210 g pomidorów zużyto na 100 g produktu),
+				pomidory (100 g na 100 g produktu),
+				pomidory (126 g pomidorów na 100g produktu).
+				157 g mięsa użyto do wytworzenia 100 g produktu.
+				100 g produktu wyprodukowano ze 133 g mięsa wieprzowego.
+				Sporządzono z 40 g owoców na 100 g produktu.
+				Z 319 g mięsa wieprzowego wyprodukowano 100 g produktu."
 		},
 		[
 			{
@@ -1960,11 +1963,11 @@ my @tests = (
 		]
 	],
 
-##################################################################
+	##################################################################
 	#
 	#                           JAPANESE ( JA )
 	#
-##################################################################
+	##################################################################
 
 	[
 		{
@@ -2265,9 +2268,10 @@ my @tests = (
 				'text' => 'perunasose'
 			},
 			{
-				'id' => 'fi:pakasteperunat',
-				'is_in_taxonomy' => 0,
-				'text' => 'pakasteperunat'
+				'id' => 'en:potato',
+				'is_in_taxonomy' => 1,
+				'text' => 'perunat',
+				'processing' => 'en:frozen',
 			},
 			{
 				'id' => 'en:potato',
@@ -2731,6 +2735,372 @@ my @tests = (
 			}
 
 		]
+	],
+
+	# lt processed with milk
+	[
+		{
+			lc => "lv",
+			ingredients_text => "saldinats iebiezinātais piens,
+	        saldināts iebiezināts vājpiens,
+	        piena pulveris,
+	        sausais vajpiena pulveris,
+	        pilnpiena pulveris"
+		},
+		[
+			{
+				'id' => 'en:milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:sweetened,en:condensed',
+				'text' => "piens"
+			},
+			{
+				'id' => 'en:milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:sweetened,en:condensed,en:skimmed',
+				'text' => 'piens'
+			},
+			{
+				'id' => 'en:milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:powder',
+				'text' => 'piena'
+			},
+			{
+				'id' => 'en:milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:powder,en:dried,en:skimmed',
+				'text' => 'piena'
+			},
+			{
+				'id' => 'en:milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:powder,en:whole',
+				'text' => 'piena'
+			}
+		]
+	],
+	# de processed with milk
+	[
+		{
+			lc => "de",
+			ingredients_text => "
+	        Trockenmilcherzeugnis,
+	        Sterilisierte Milch,
+	        Laktosefreie Vollmilch,
+	        Bio-milch,
+	        entrahmte H-Milch,
+	        frische entrahmte Bio-Milch pasteurisiert,
+	        Kuhrohmilch,
+	        Kuhvollmilch,
+	        Vollmilchpulver,
+	        Kuhvollmilchpulver,
+            Ziegenvollmilch,
+            Ziegen-Rohmilch"
+		},
+		[
+			{
+				'id' => 'en:dairy',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:dried',
+				'text' => "milcherzeugnis"
+			},
+			{
+				'id' => 'en:milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:sterilized',
+				'text' => "Milch"
+			},
+			{
+				'id' => 'en:milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:lactose-free,en:whole',
+				'text' => "milch"
+			},
+			{
+				'id' => 'en:milk',
+				'is_in_taxonomy' => 1,
+				'labels' => 'en:organic',
+				'text' => "-milch"
+			},
+			{
+				'id' => 'en:milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:skimmed,en:uht',
+				'text' => "Milch"
+			},
+			{
+				'id' => 'en:milk',
+				'is_in_taxonomy' => 1,
+				'labels' => 'en:organic',
+				'processing' => 'en:pasteurised,en:fresh,en:skimmed',
+				'text' => "Milch"
+			},
+			{
+				'id' => 'en:cow-s-milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:raw',
+				'text' => "Kuhmilch"
+			},
+			{
+				'id' => 'en:cow-s-milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:whole',
+				'text' => "Kuhmilch"
+			},
+			{
+				'id' => 'en:milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:powder,en:whole',
+				'text' => "milch"
+			},
+			{
+				'id' => 'en:cow-s-milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:powder,en:whole',
+				'text' => "Kuhmilch"
+			},
+			{
+				'id' => 'en:goat-milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:whole',
+				'text' => "Ziegenmilch"
+			},
+			{
+				'id' => 'en:goat-milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:raw',
+				'text' => "Ziegenmilch"
+			}
+		],
+	],
+	# da processed with milk
+	[
+		{
+			lc => "da",
+			ingredients_text =>
+				"sødmælkspulver, mælketørstoffer, sukret kondenseret mælk, mælkepulver, skummetmælkspulver"
+		},
+		[
+			{
+				'id' => 'en:milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:powder,en:whole',
+				'text' => "mælks"
+			},
+			{
+				'id' => 'en:milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:solids',
+				'text' => "mælke"
+			},
+			{
+				'id' => 'en:milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:sweetened,en:condensed',
+				'text' => "mælk"
+			},
+			{
+				'id' => 'en:milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:powder',
+				'text' => "mælke"
+			},
+			{
+				'id' => 'en:milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:skimmed,en:powder',
+				'text' => "mælks"
+			}
+		],
+	],
+	# hu ingredientingredientprocessed with milk
+	[
+		{
+			lc => "hu",
+			ingredients_text =>
+				"tejpor alapú termékek, hőkezelt tej, alacsony zsírtartalmú tej, pasztőrözött UHT teljes tej, nyers tehéntej, tejpor, teljes tejpor, módosított tej összetevők"
+		},
+		[
+			{
+				'id' => 'en:milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:powder',
+				'text' => "tej alapú termékek"
+			},
+			{
+				'id' => 'en:milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:sterilized',
+				'text' => "tej"
+			},
+			{
+				'id' => 'en:milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:skimmed',
+				'text' => "tej"
+			},
+			{
+				'id' => 'en:milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:uht,en:whole',
+				'text' => "tej"
+			},
+			{
+				'id' => 'en:cow-s-milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:raw',
+				'text' => "tehéntej"
+			},
+			{
+				'id' => 'en:milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:powder',
+				'text' => "tej"
+			},
+			{
+				'id' => 'en:milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:whole,en:powder',
+				'text' => "tej"
+			},
+			{
+				'id' => 'en:milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:modified',
+				'text' => "tej összetevők"
+			}
+		],
+	],
+	# sv processed with milk
+	[
+		{
+			lc => "sv",
+			ingredients_text =>
+				"steriliserad mjölk, skummjölk, skummjölkspulver, söt kondenserad skummjölk, mjölkpulver, fetthaltigt mjölkpulver"
+		},
+		[
+			{
+				'id' => 'en:milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:sterilized',
+				'text' => "mjölk"
+			},
+			{
+				'id' => 'en:milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:skimmed',
+				'text' => "mjölk"
+			},
+			{
+				'id' => 'en:milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:powder,en:skimmed',
+				'text' => "mjölks"
+			},
+			{
+				'id' => 'en:milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:sweetened,en:condensed,en:skimmed',
+				'text' => "mjölk"
+			},
+			{
+				'id' => 'en:milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:powder',
+				'text' => "mjölk"
+			},
+			{
+				'id' => 'en:milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:whole-fat,en:powder',
+				'text' => "mjölk"
+			}
+		],
+	],
+	# fi processed with milk
+	[
+		{
+			lc => "fi",
+			ingredients_text => "raaka lehmänmaito, lehmän täysmaito, vuohen täysmaito"
+		},
+		[
+			{
+				'id' => 'en:cow-s-milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:raw',
+				'text' => "lehmänmaito"
+			},
+			{
+				'id' => 'en:cow-s-milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:whole',
+				'text' => "lehmän maito"
+			},
+			{
+				'id' => 'en:goat-milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:whole',
+				'text' => "vuohen maito"
+			}
+		],
+	],
+	# ca processed with milk
+	[
+		{
+			lc => "ca",
+			ingredients_text => "llect de vaca sencera, llet sencera de vaca"
+		},
+		[
+			{
+				'id' => 'en:cow-s-milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:whole',
+				'text' => "llect de vaca"
+			},
+			{
+				'id' => 'en:cow-s-milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:whole',
+				'text' => "llet de vaca"
+			}
+		],
+	],
+	# fr processed with milk
+	[
+		{
+			lc => "fr",
+			ingredients_text => "lait frais de nos vaches, lait écrémé à base de poudre de lait"
+		},
+		[
+			{
+				'id' => 'en:milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:fresh',
+				'text' => "lait"
+			},
+			{
+				'id' => 'en:milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:powder,en:skimmed',
+				'text' => "lait"
+			}
+		],
+	],
+	# ru processed with milk
+	[
+		{
+			lc => "ru",
+			ingredients_text => "восстановленное молоко из сухого молока"
+		},
+		[
+			{
+				'id' => 'en:milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:dried,en:reconstituted',
+				'text' => "молоко"
+			}
+		],
 	],
 
 );
