@@ -41,7 +41,7 @@ sub make_product ($product_ref, $products_collection) {
 		`mkdir -p $product_path`;
 		store("$product_path/$rev.sto", $product_ref);
 		symlink("$rev.sto", "$product_path/product.sto");
-		print STDERR "made product $code - product_path: $product_path\n";
+		# print STDERR "made product $code - product_path: $product_path\n";
 	}
 	# and index in mongo
 	$products_collection->insert_one($product_ref);
@@ -96,12 +96,12 @@ foreach my $product_ref (@products) {
 	my $code = $product_ref->{code};
 	make_product($product_ref, $products_collection);
 	my $new_code = $product_ref->{code};
-	print STDERR "made product code $code normalized to $new_code\n";
+	# print STDERR "made product code $code normalized to $new_code\n";
 }
 
 # launch script
 my $script_out = `perl scripts/fix_non_normalized_codes.pl`;
-print STDERR $script_out;
+# print STDERR $script_out;
 # print($script_out."\n\n");
 # check output precisely
 $script_out =~ s/\n\s*\n/\n/sg;    # trim empty lines
@@ -113,9 +113,9 @@ is(
 		# removed product_broken_code
 		"Removed broken-123",
 		# product_non_normalized_code : normalized the code
-		"Updated product in place: 0000012345670 and 12345670 have the same path /mnt/podata/products/000/001/234/5670/product.sto",
+		"Updated product in place: 0000012345670 and 12345670 have the same path /mnt/podata/products/000/001/234/5670/product",
 		# product_non_normalized_code : normalized the code
-		"Updated product in place: 0000012345678 and 12345678 have the same path /mnt/podata/products/000/001/234/5678/product.sto",
+		"Updated product in place: 0000012345678 and 12345678 have the same path /mnt/podata/products/000/001/234/5678/product",
 		# product_int_code
 		"Int codes: refresh 1, removed 2",
 		# product_broken_code and product_non_normalized_code* removed from mongo directly

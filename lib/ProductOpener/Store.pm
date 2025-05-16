@@ -453,7 +453,7 @@ sub move_object($old_path, $new_path) {
 =head2 link_object($path, $link)
 
 Makes the $link point to the data in the specified $path.
-If the object at the $path is an sto file then an STO symlink will be created
+If the object at the $path is an sto file then an STO symbolic link will be created
 
 =cut
 
