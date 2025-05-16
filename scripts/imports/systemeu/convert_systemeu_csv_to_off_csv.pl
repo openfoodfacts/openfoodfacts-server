@@ -31,7 +31,6 @@ use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/$country/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/$User_id/;
-use ProductOpener::Images qw/process_image_crop process_image_upload/;
 use ProductOpener::Lang qw/$lc lang/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Products qw/analyze_and_enrich_product_data init_product retrieve_product store_product/;
