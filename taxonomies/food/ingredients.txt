@@ -899,6 +899,8 @@ sv: bivax vitt och gult
 < en:E942
 nl: E942 en E941
 
+en: cyclamate, cyclamates
+wikidata:en: Q76824182
 
 # description:en:Sodium cyclamate (sweetener code 952) is an artificial sweetener.
 
@@ -929,6 +931,7 @@ sr: Natrijum ciklamat
 sv: Natriumcyklamat
 th: โซเดียมไซคลาเมต
 vi: Natri cyclamat
+wikidata:en: Q407786
 wikipedia:en: https://en.wikipedia.org/wiki/Sodium_cyclamate
 
 < en:E1105
@@ -2382,7 +2385,7 @@ wikipedia:fr: https://fr.wikipedia.org/wiki/Beurre_doux
 # ingredient/unsalted-butter has 755 products in 5 languages @2019-07-10
 
 < en:unsalted butter
-en: 82% fat unsalted Butter
+en: 82% fat unsalted butter
 fr: Beurre à 82% MG doux
 hr: neslani maslac 82% masti
 it: Burro non salato 82% di grassi, burro dolce 82% di grassi
@@ -2390,10 +2393,8 @@ ciqual_food_code:en: 16400
 ciqual_food_name:en: Butter, 82% fat, unsalted
 ciqual_food_name:fr: Beurre à 82% MG, doux
 
-< en:unsalted butter
-en: 82% fat unsalted butter
-fr: Beurre à 82% MG doux
-hr: neslani maslac 82% masti
+< en:82% fat unsalted butter
+en: 82% fat unsalted easy-to-spread butter
 it: Burro morbido non salato 82% di grassi, burro morbido dolce 82% di grassi
 ciqual_food_code:en: 16404
 ciqual_food_name:en: Butter, 82% fat, unsalted, easy-to-spread
@@ -23629,11 +23630,6 @@ de: Getreideextrudat
 fr: extrudat de céréales
 it: estruso di cereali
 
-< en:cereal
-en: cereal extrudate
-de: Getreideextrudat
-fr: extrudat de céréales
-
 #probably more for mixed cereals
 < en:cereal
 en: crunchy cereals
@@ -26474,7 +26470,7 @@ it: farina di avena senza glutine
 pl: bezglutenowa mąka owsiana
 
 < en:oat
-< en:vegetable fibre
+< en:vegetable fiber
 en: oat fibre
 bg: овесени влакнини, фибри от овес
 da: Havrefibre
@@ -26508,7 +26504,7 @@ nl: glutenvrije havervezels
 pl: błonnik owsiany bezglutenowy, bezglutenowy błonnik owsiany
 
 < en:oat
-< en:vegetable fibre
+< en:vegetable fiber
 en: oat husk fiber
 de: Haferspelzfaser, Haferspelzfasern
 fr: fibre de son d'avoine
@@ -29028,10 +29024,12 @@ nl: maïsvezel
 pl: błonnik kukurydziany
 sk: kukuričná vláknina
 
-< en: corn fiber
+< en:corn fiber
 en: soluble corn fiber
 fr: Fibre soluble de maïs
+hr: topivih kukuruznih vlakana
 it: fibra di mais solubile
+pl: rozpuszczalny błonnik kukurydziany, błonnik rozpuszczalny kukurydziany
 
 < en:corn
 en: Maize bran, Corn bran
@@ -29041,11 +29039,6 @@ it: crusca di mais
 ciqual_food_code:en: 9641
 ciqual_food_name:en: Maize/corn bran
 ciqual_food_name:fr: Son de maïs
-
-< en:corn fiber
-en: soluble corn fiber
-hr: topivih kukuruznih vlakana
-pl: rozpuszczalny błonnik kukurydziany, błonnik rozpuszczalny kukurydziany
 
 < en:corn
 nl: maïspoeder
@@ -33553,6 +33546,7 @@ it: proteine vegetali testurizzate
 en: almond protein
 de: Mandelprotein
 fr: protéine d'amande
+it: proteine delle mandorle, proteine dalle mandorle, proteine (mandorle), proteina (mandorle)
 pl: białko migdałowe
 
 < en:plant protein
@@ -33630,7 +33624,8 @@ it: proteina di ceci
 
 < en:plant protein
 en: sunflower protein
-de: Sonnenblumenprotein, Eiweißpulver aus Sonnenblumenkernen
+de: Sonnenblumeneiweiß, Sonnenblumenprotein, Eiweißpulver aus Sonnenblumenkernen
+fr: protéine de tournesol
 hr: suncokretovih bjelančevina, suncokretove bjelančevine, proteini suncokreta
 it: proteine di girasole
 pl: białko słonecznika, białko słonecznikowe, białka słonecznika
@@ -33656,12 +33651,6 @@ pt: Proteína de batata
 ro: proteină de cartofi
 sv: potatisprotein
 # ingredient/fr:proteine-de-pomme-de-terre has 44 products in 4 languages @2020-05-25
-
-< en:plant protein
-en: almond protein
-de: Mandelprotein
-fr: protéine d'amande
-it: proteine delle mandorle, proteine dalle mandorle, proteine (mandorle), proteina (mandorle)
 
 # description:en:HYDROLYZED VEGETABLE PROTEIN -  products are foodstuffs obtained by protein hydrolysis
 
@@ -33709,7 +33698,6 @@ en: hydrolysed sunflower protein, hydrolyzed sunflower protein
 da: hydrolyseret solsikkeprotein
 it: proteina di girasole idrolizzata
 pl: hydrolizat białka słonecznikowego, hydrolizowane białko słonecznikowe, hydrolizat białka słonecznika
-
 
 < en:plant protein
 en: soy protein
@@ -33895,7 +33883,7 @@ nl: getextuurd tarwe-eiwit, getextureerd tarwe-eiwit
 pl: teksturat białek pszenicy, teksturowane białko pszenne, teksturowane białko pszenicy, teksturowany gluten pszenny
 # ingredient/en:textured-wheat-protein has 75 products in 3 languages @2020-06-11
 
-< en:vegetable hydrolysed protein
+< en:hydrolysed vegetable protein
 < en:wheat protein
 en: hydrolyzed wheat protein
 da: hydrolyseret hvedeprotein
@@ -33909,7 +33897,7 @@ it: proteine del grano idrolizzate
 nl: gehydroliseerd tarwe-eiwit, gehydrolyseerd tarweeiwit
 pl: hydrolizat białka pszenicy, hydrolizowane białko pszenne
 
-< en:vegetable hydrolysed protein
+< en:hydrolysed vegetable protein
 en: hydrolysed corn protein
 de: Maisproteinhydrolysat
 es: proteína de maíz hidrolizada
@@ -34284,11 +34272,6 @@ wikidata:en: Q522243
 wikipedia:en: https://en.wikipedia.org/wiki/Calcium_caseinate
 
 < en:plant protein
-en: sunflower protein
-de: Sonnenblumeneiweiß, Sonnenblumenprotein
-fr: protéine de tournesol
-
-< en:plant protein
 en: rapeseed protein
 bg: рапичен протеин
 de: Rapseiweiß
@@ -34394,14 +34377,6 @@ fr: Cacao alcalinisé
 hr: kakao obrađen lužinom
 it: Cacao trattato con agenti alcalinizzanti
 pl: kakao alkalizowane
-
-< en:cocoa-powder
-#en:processing:en:powder
-en: cocoa powder processed with alkali, alkalized cocoa powder
-es: Cacao en polvo procesado con álcali
-fr: Cacao en poudre alcalinisé
-hr: kakao prah obrađen alkalijom
-it: cacao in polvere
 
 < en:cocoa
 en: fat reduced cocoa, reduced fat cocoa, low fat cocoa, lean cocoa
@@ -34586,7 +34561,7 @@ he: אבקת קקאו
 # hr:kakao prah, kakaov prah # see ingredients_processing.txt
 hu: kakaópor
 id: Kakao padat
-#it:cacao in polvere
+it: cacao in polvere
 ja: ココアパウダー
 ko: 코코아 가루
 lt: kakavos milteliai
@@ -34673,6 +34648,7 @@ sv: fettreducerat kakaopulver, fettreducerad kakaopulver, skummet kakaopulver, f
 # ingredient/fr:cacao-en-poudre-fortement-dégraissé has 76 products @2019-05-25
 
 < en:cocoa-powder
+#en:processing:en:powder
 en: cocoa powder processed with alkali, alkalized cocoa powder
 de: Kakaopulver mit Alkalisalzen versetzt
 es: Cacao en polvo procesado con álcali
@@ -44008,6 +43984,7 @@ wikipedia:fr: https://fr.wikipedia.org/wiki/Noix_de_coco
 # NOTE the oil and fat of a coconut can be found under the fats section
 # When coconut is listed as ingredient, probably the white stuff is meant. The watery stuff is probably never used? I.e. coco versus coconut
 
+< en:coconut
 #<en:compound
 en: coconut cream
 bg: кокосов крем
@@ -48812,18 +48789,6 @@ hr: žlahtina
 it: Žlahtina
 wikidata:en: Q394231
 wikipedia:hr: https://hr.wikipedia.org/wiki/%C5%BDlahtina
-
-< en:coconut
-en: coconut cream
-de: Kokosnusscreme
-es: Crema de coco
-fi: kookoskerma
-fr: crème de noix de coco, crème de coco
-hr: vrhnje od kokosa
-it: Crema di noce di cocco
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:crème-de-noix-de-coco
-# 33 products @2018-10-03
-nutriscore_fruits_vegetables_nuts:en: no
 
 ###################################################################################################
 #
@@ -84309,12 +84274,10 @@ pl: estry stanoli roślinnych
 sv: växtstanolester
 # ingredient/fr:esters-de-stanols-vegetaux has 4 products in 3 languages @2020-06-13
 
-en: plant stanol ester
-de: Pflanzenstanolester
+en: plant sterol ester
 es: éster de esterol vegetal, ésteres de esteroles vegetales
 fi: kasvisteroliesteri, kasvisteroliesterit
 fr: ester de stérol végétal, esters de stérol végétal
-hr: biljni stanol ester
 pl: estry steroli roślinnych
 # ingredient/fr:esters-de-sterol-vegetal has 29 products in 3 languages @2020-12-21
 vegan:en: yes
@@ -86231,7 +86194,7 @@ en: organic free range chicken eggs
 fr: oeufs frais de poules élevées en plein air issus de l'agriculture biologique
 it: uova biologiche di galline allevate all'aperto
 
-< en:category A egg
+< en:category A eggs
 < en:free range chicken eggs
 fr: Œufs de catégorie A de poules élevées en plein air, Oeufs de catégorie A de poules élevées en plein air, 9 Œufs de catégorie A de poules élevées en plein air, Œufs frais de poules élevées en plein air de catégorie A
 # ingredient/fr:oeufs-de-categorie-a-de-poules-elevees-en-plein-air has 5 products @2019-05-31
