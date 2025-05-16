@@ -1822,7 +1822,9 @@ sub process_image_unselect ($product_ref, $image_type, $image_lc) {
 	}
 
 	# Delete the image_type key if there are no languages left
-	if ((not defined $product_ref->{images}{selected}{$image_type}) or (scalar keys %{$product_ref->{images}{selected}{$image_type}} == 0)) {
+	if (   (not defined $product_ref->{images}{selected}{$image_type})
+		or (scalar keys %{$product_ref->{images}{selected}{$image_type}} == 0))
+	{
 		delete $product_ref->{images}{selected}{$image_type};
 	}
 
@@ -1859,6 +1861,9 @@ sub _set_magickal_options ($magick, $width) {
 =head2 get_image_url ($product_ref, $image_ref, $size)
 
 Return the URL of the image in the requested size.
+
+Note: $image_ref in selected.images.[image type].[image code] does not contain the id field with the image type and language code (which are keys)
+It must be added to the image_ref before calling this function.
 
 =cut
 
