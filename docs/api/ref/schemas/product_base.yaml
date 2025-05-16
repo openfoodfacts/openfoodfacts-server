@@ -71,7 +71,7 @@ properties:
     type: string
     description: |
       The size in g or ml for the whole product. 
-      It's a normalized version of the `quantity` field.
+      It is a normalized version of the `quantity` field.
       A `quantity` of "2 x 60 g" leads to `product_quantity`: "120".
     example: "500"
   product_quantity_unit:
