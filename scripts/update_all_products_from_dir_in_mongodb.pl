@@ -61,7 +61,7 @@ GetOptions('products=s' => \@products, 'owner=s' => \$owner);
 
 my $d = 0;
 
-sub find_products($$) {
+sub find_products($) {
 
 	my $dir = shift;
 

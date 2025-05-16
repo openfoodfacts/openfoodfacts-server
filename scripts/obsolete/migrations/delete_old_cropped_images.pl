@@ -27,7 +27,7 @@ my @products = ();
 GetOptions('products=s' => \@products);
 @products = split(/,/, join(',', @products));
 
-sub find_products($$) {
+sub find_products($) {
 
 	my $dir = shift;
 

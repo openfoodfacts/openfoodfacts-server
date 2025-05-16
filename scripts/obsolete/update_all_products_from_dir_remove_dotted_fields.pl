@@ -61,7 +61,7 @@ GetOptions ( 'products=s' => \@products);
 @products = split(/,/,join(',',@products));
 
 
-sub find_products($$) {
+sub find_products($) {
 
 	my $dir = shift;
 
@@ -77,10 +77,6 @@ sub find_products($$) {
 if (scalar $#products < 0) {
 	find_products($BASE_DIRS{PRODUCTS});
 }
-
-
-
-
 
 my $count = $#products;
 my $i = 0;
