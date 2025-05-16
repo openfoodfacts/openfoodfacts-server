@@ -285,7 +285,7 @@ Serializes an object in our preferred object store, removing it from legacy stor
 sub store_object ($path, $ref, $delete_old = 1) {
 	my $sto_path = $path . '.sto';
 	my $file_path = $path . '.json';
-	# If the file already exists then we need to first open it non-destructively as 
+	# If the file already exists then we need to first open it non-destructively as
 	# open( .., ">", ...) will create an empty file which might be read by another thread
 	# before we have applied the exclusive lock and written the data
 	my $READ_LOCK;
@@ -387,7 +387,6 @@ sub retrieve_object_json($path) {
 	return $json_for_objects->encode(retrieve($path . '.sto'));
 }
 
-
 =head2 object_exists($path)
 
 Indicates whether an object (STO or JSON) exists at the specified path
@@ -398,7 +397,6 @@ sub object_exists($path) {
 	return (-e "$path.json" or -e "$path.sto");
 }
 
-
 =head2 object_path_exists($path)
 
 Indicates whether an directory exists at the specified path
@@ -408,7 +406,6 @@ Indicates whether an directory exists at the specified path
 sub object_path_exists($path) {
 	return (-d $path);
 }
-
 
 =head2 move_object($old_path, $new_path)
 
@@ -453,7 +450,6 @@ sub move_object($old_path, $new_path) {
 	return;
 }
 
-
 =head2 link_object($path, $link)
 
 Makes the $link point to the data in the specified $path.
@@ -477,7 +473,6 @@ sub link_object($path, $link) {
 	return;
 }
 
-
 =head2 remove_object($path)
 
 Removes an object or link to an object
@@ -490,7 +485,6 @@ sub remove_object($path) {
 	unlink($path . '.sto');
 	return;
 }
-
 
 =head2 object_iter($initial_path, $name_pattern = undef, $exclude_path_pattern = undef)
 
@@ -540,7 +534,6 @@ sub object_iter($initial_path, $name_pattern = undef, $exclude_path_pattern = un
 	};
 }
 
-
 =head2 store_config ($path, $ref, $delete_old = 1)
 
 Serializes configuration information, removing it from legacy storage if it is present.
@@ -563,7 +556,6 @@ sub store_config ($path, $ref, $delete_old = 1) {
 
 	return;
 }
-
 
 =head2 retrieve_config($path)
 

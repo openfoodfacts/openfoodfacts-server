@@ -152,7 +152,8 @@ is(
  ],
  "c":1
 }
-', "JSON is formatted with store_config");
+', "JSON is formatted with store_config"
+);
 
 # Creates paths if needed
 srand();
