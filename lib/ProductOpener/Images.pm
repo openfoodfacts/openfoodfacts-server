@@ -149,6 +149,7 @@ use Encode;
 use JSON::MaybeXS;
 use MIME::Base64;
 use LWP::UserAgent;
+use OpenTelemetry::Integration 'LWP::UserAgent';
 use File::Copy;
 
 =head1 SUPPORTED IMAGE TYPES
