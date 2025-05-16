@@ -77,7 +77,7 @@ properties:
   product_quantity_unit:
     type: string
     description: |
-      The unit (either g or ml) for the correponding `product_quantity`.
+      The unit (either g or ml) for the corresponding `product_quantity`.
       It is computed from the `quantity` field.
       A `quantity` of "6 x 250 ml" leads to `product_quantity_unit`: "ml".
     example: "g"
