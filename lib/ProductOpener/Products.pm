@@ -43,10 +43,10 @@ database and file system.
 When a product is saved, a new revision of the product is created. All revisions are saved
 in the file system:
 
-products/[barcode path]/1.sto - first revision
-products/[barcode path]/2.sto - 2nd revision
+products/[barcode path]/1 - first revision
+products/[barcode path]/2 - 2nd revision
 ...
-products/[barcode path]/product.sto - link to latest revision
+products/[barcode path]/product - link to latest revision
 
 The latest revision is stored in the products collection of the MongoDB database.
 

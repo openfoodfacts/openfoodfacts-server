@@ -10,7 +10,7 @@ use ProductOpener::TestDefaults qw/%default_product %default_product_form/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Data qw/get_products_collection/;
 use ProductOpener::Products qw/product_path product_path_from_id retrieve_product/;
-use ProductOpener::Store qw/retrieve store/;
+use ProductOpener::Store qw/retrieve_object store_object link_object/;
 
 no warnings qw(experimental::signatures);
 
@@ -26,7 +26,7 @@ sub test_product_path ($code) {
 sub retrieve_test_product ($code) {
 	# bare retrieve for test product with strange data
 	my $path = test_product_path($code);
-	return retrieve("$path/product.sto");
+	return retrieve_object("$path/product");
 }
 
 # create product in a very minimal way, should be enough for our tests
@@ -39,8 +39,8 @@ sub make_product ($product_ref, $products_collection) {
 	if (!$only_mongo) {
 		# use store instead of store_product to avoid normalizations
 		`mkdir -p $product_path`;
-		store("$product_path/$rev.sto", $product_ref);
-		symlink("$rev.sto", "$product_path/product.sto");
+		store_object("$product_path/$rev", $product_ref);
+		link_object("$product_path/$rev", "$product_path/product");
 		# print STDERR "made product $code - product_path: $product_path\n";
 	}
 	# and index in mongo

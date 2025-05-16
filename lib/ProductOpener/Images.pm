@@ -935,7 +935,7 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 							return -3;
 						}
 						# else {
-						# 	print STDERR "missing image $i in product.sto, keeping image $imgid\n";
+						# 	print STDERR "missing image $i in product, keeping image $imgid\n";
 						# }
 					}
 				}
