@@ -2271,8 +2271,8 @@ sub has_nutrition_data_for_product_type ($product_ref, $nutrition_product_type) 
 	foreach my $nid (keys %{$product_ref->{nutriments}}) {
 		if (
 			(
-				   ($nutrition_product_type eq "") and ($nid !~ /_prepared/)
-				or (($nutrition_product_type eq "_prepared") and ($nid eq /_prepared$/))
+				   (($nutrition_product_type eq "") and ($nid !~ /_prepared/))
+				or (($nutrition_product_type eq "_prepared") and ($nid =~ /_prepared/))
 			)
 			and ($nid =~ /_(serving|100g)$/)
 			)
