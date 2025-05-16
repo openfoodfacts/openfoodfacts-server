@@ -102,7 +102,7 @@ properties:
       Number of unique scans performed with the official Open Food Facts mobile application, the last year 
       for which the product was scanned (current year excluded).
       Unique scans means it is based on different IPs.
-      This value is computed ince a year by scanbot.pl.
+      This value is computed once a year by scanbot.pl.
       See also `scans_n` field.
   serving_quantity:
     type: string
