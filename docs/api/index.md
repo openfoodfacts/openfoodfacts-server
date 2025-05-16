@@ -101,7 +101,7 @@ Create an account on the [Open Food Facts app](https://world.openfoodfacts.org/)
 
 - **The preferred one**:
   Use the login API to get a session cookie and use this cookie for authentication in your subsequent requests. However, the session must always be used from the same IP address, and there's a limit on sessions per user (currently 10) with older sessions being automatically logged out to stay within the limit.
-- If session conditions are too restrictive for your use case, include your account credentials as parameters for authenticated requests where `user_id` is your username and `password` is your password (do this on POST / PUT / DELETE requests, not on GET).
+- If session conditions are too restrictive for your use case, include your account credentials as parameters for authenticated requests where `user_id`^[user_id_not_email] is your username and `password` is your password (do this on POST / PUT / DELETE requests, not on GET).
 
 You can create a global account to allow your app users to contribute without registering individual accounts on the Open Food Facts website. This way, we know that these contributions came from your application.
 
@@ -113,6 +113,8 @@ We however ask that you send the [`app_name`, `app_version` and `app_uuid` param
 > Production and staging have different account databases, so **the account you create in the production environment will only work for production requests**. If you want to query (WRITE requests) the staging environment, you'll need to create another account there too.
 
 > Note: we're currently moving to a modern Auth system (Keycloak), so we will have new Auth options, hopefully this year.
+
+^[user_id_not_email]: user_id is the username of your account. You must not use your email address.
 
 ## Reference Documentation (OpenAPI)
 

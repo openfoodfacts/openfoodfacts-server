@@ -207,8 +207,15 @@ paths:
                   properties:
                     user_id:
                       type: string
+                      description: |
+                        Username for login
+
+                        Note: you must always use the username (and not the email)
+                        as it is far less brittle.
                     password:
                       type: string
+                      description: Password for login
+                      format: password
                     product:
                       $ref: ./schemas/product_update_api_v3.yaml
             examples:
