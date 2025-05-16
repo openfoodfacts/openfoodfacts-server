@@ -17,6 +17,10 @@ remove_all_products();
 
 wait_application_ready();
 
+#remove_all_users();
+
+remove_all_products();
+
 my $ua = new_client();
 
 my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
