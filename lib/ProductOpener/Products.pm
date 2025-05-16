@@ -125,7 +125,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::ProductSchemaChanges qw/$current_schema_version convert_product_schema/;
 use ProductOpener::Store
-	qw/get_string_id_for_lang get_url_id_for_lang retrieve_object store_object object_exists move_object remove_object link_object/;
+	qw/get_string_id_for_lang get_url_id_for_lang retrieve_object store_object object_exists object_path_exists move_object remove_object link_object/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::ConfigEnv qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
@@ -258,9 +258,7 @@ sub assign_new_code() {
 
 	my $product_id = product_id_for_owner($Owner_id, $code);
 
-	#11872 TODO: Looping over folders should be owned by Store.pm
-	while (object_exists("$BASE_DIRS{PRODUCTS}/" . product_path_from_id($product_id))) {
-
+	while (object_path_exists("$BASE_DIRS{PRODUCTS}/" . product_path_from_id($product_id))) {
 		$code++;
 		$product_id = product_id_for_owner($Owner_id, $code);
 	}
@@ -1251,7 +1249,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 			$product_ref->{_id} = $product_ref->{code} . '';    # treat id as string;
 		}
 
-		if (object_exists("$BASE_DIRS{PRODUCTS}/$path")) {
+		if (object_path_exists("$BASE_DIRS{PRODUCTS}/$path")) {
 			$log->error("cannot move product data, because the destination already exists",
 				{source => "$BASE_DIRS{PRODUCTS}/$old_path", destination => "$BASE_DIRS{PRODUCTS}/$path"});
 		}

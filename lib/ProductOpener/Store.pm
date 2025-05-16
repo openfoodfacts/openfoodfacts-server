@@ -35,11 +35,11 @@ BEGIN {
 		&unac_string_perl
 		&get_string_id_for_lang
 		&get_url_id_for_lang
-		&sto_iter
 		&store_object
 		&retrieve_object
 		&retrieve_object_json
 		&object_exists
+		&object_path_exists
 		&store_config
 		&retrieve_config
 		&link_object
@@ -276,15 +276,22 @@ sub retrieve ($file) {
 	return $return;
 }
 
-# Serializes an object in our preferred object store, removing it from legacy storage if it is present
+=head2 store_object ($path, $ref, $delete_old = 1)
+
+Serializes an object in our preferred object store, removing it from legacy storage if it is present
+
+=cut
+
 sub store_object ($path, $ref, $delete_old = 1) {
 	my $sto_path = $path . '.sto';
 	my $file_path = $path . '.json';
-	# If the file already exists then we need to first open it non-destructively so that
-	# other code doesn't read an empty file before we have written the data
+	# If the file already exists then we need to first open it non-destructively as 
+	# open( .., ">", ...) will create an empty file which might be read by another thread
+	# before we have applied the exclusive lock and written the data
 	my $READ_LOCK;
 	if (-e $file_path) {
 		open(my $READ_LOCK, "<", $file_path);
+		flock($READ_LOCK, LOCK_EX);
 	}
 	elsif (-l $sto_path) {
 		# If the existing sto file is a link then use the old method for now (silent update)
@@ -319,12 +326,18 @@ sub store_object ($path, $ref, $delete_old = 1) {
 	}
 	close($OUT);
 	if ($READ_LOCK) {
-		flock($OUT, LOCK_UN);
+		flock($READ_LOCK, LOCK_UN);
 		close($READ_LOCK);
 	}
 
 	return;
 }
+
+=head2 retrieve_object($path)
+
+Fetch the JSON object from storage and return as a hash ref. Reverts to STO file if no JSON file exists
+
+=cut
 
 sub retrieve_object($path) {
 	my $file_path = $path . '.json';
@@ -347,6 +360,12 @@ sub retrieve_object($path) {
 	return retrieve($path . '.sto');
 }
 
+=head2 retrieve_object_json($path)
+
+Fetch the JSON object from storage and return as a JSON string. Reverts to STO file and serializes as JSON if no JSON file exists
+
+=cut
+
 sub retrieve_object_json($path) {
 	my $file_path = $path . '.json';
 	if (-e $file_path) {
@@ -368,12 +387,35 @@ sub retrieve_object_json($path) {
 	return $json_for_objects->encode(retrieve($path . '.sto'));
 }
 
+
+=head2 object_exists($path)
+
+Indicates whether an object (STO or JSON) exists at the specified path
+
+=cut
+
 sub object_exists($path) {
-	my $file_path = $path . '.json';
-	return (-e $file_path);
+	return (-e "$path.json" or -e "$path.sto");
 }
 
-# Moves a single object or all object sin the path
+
+=head2 object_path_exists($path)
+
+Indicates whether an directory exists at the specified path
+
+=cut
+
+sub object_path_exists($path) {
+	return (-d $path);
+}
+
+
+=head2 move_object($old_path, $new_path)
+
+Moves a single object or all objects in the path
+
+=cut
+
 sub move_object($old_path, $new_path) {
 	# File::Copy move() is intended to move files, not
 	# directories. It does work on directories if the
@@ -411,7 +453,14 @@ sub move_object($old_path, $new_path) {
 	return;
 }
 
-# Makes the $link point to the data in the specified $path
+
+=head2 link_object($path, $link)
+
+Makes the $link point to the data in the specified $path.
+If the object at the $path is an sto file then an STO symlink will be created
+
+=cut
+
 sub link_object($path, $link) {
 	# If target is a sto file then keep the link as a sto file too
 	if (-e $path . '.sto') {
@@ -428,7 +477,13 @@ sub link_object($path, $link) {
 	return;
 }
 
-# Removes an object or link to an object
+
+=head2 remove_object($path)
+
+Removes an object or link to an object
+
+=cut
+
 sub remove_object($path) {
 	unlink($path . '.json');
 	# Remove any legacy sto file too
@@ -436,7 +491,14 @@ sub remove_object($path) {
 	return;
 }
 
-# Iterates over the path returning matching object paths
+
+=head2 object_iter($initial_path, $name_pattern = undef, $exclude_path_pattern = undef)
+
+Iterates over the path returning a cursor that can return object paths whose
+name matches the $name_pattern regex and whose path does not match the $exclude_path_pattern
+
+=cut
+
 sub object_iter($initial_path, $name_pattern = undef, $exclude_path_pattern = undef) {
 	my @dirs = ($initial_path);
 	my @object_paths = ();
@@ -478,9 +540,15 @@ sub object_iter($initial_path, $name_pattern = undef, $exclude_path_pattern = un
 	};
 }
 
-# Serializes configuration information, removing it from legacy storage if it is present.
-# JSON keys are sorted and indentation is used so files can be used in source control
-# No locking is performed
+
+=head2 store_config ($path, $ref, $delete_old = 1)
+
+Serializes configuration information, removing it from legacy storage if it is present.
+JSON keys are sorted and indentation is used so files can be used in source control
+No locking is performed
+
+=cut
+
 sub store_config ($path, $ref, $delete_old = 1) {
 	my $file_path = $path . '.json';
 	if (open(my $OUT, ">", $file_path)) {
@@ -496,7 +564,13 @@ sub store_config ($path, $ref, $delete_old = 1) {
 	return;
 }
 
-# Same as retrieve_object but with no locking
+
+=head2 retrieve_config($path)
+
+Same as retrieve_object but with no locking
+
+=cut
+
 sub retrieve_config($path) {
 	my $file_path = $path . '.json';
 	if (-e $file_path) {
@@ -537,59 +611,6 @@ sub retrieve_json ($file) {
 	}
 
 	return $return;
-}
-
-=head2  sto_iter($initial_path, $pattern=qr/\.sto$/i)
-
-iterate all the files corresponding to $pattern starting from $initial_path
-
-use it as an iterator:
-my $iter = sto_iter(".");
-while (my $path = $iter->()) {
-	# do stuff
-}
-
-=cut
-
-sub sto_iter ($initial_path, $pattern = qr/\.sto$/i) {
-	my @dirs = ($initial_path);
-	my @files = ();
-	my %seen;
-	return sub {
-		if (scalar @files == 0) {
-			# explore a new dir until we get some file
-			while ((scalar @files == 0) && (scalar @dirs > 0)) {
-				my $current_dir = shift @dirs;
-				opendir(DIR, $current_dir) or die "Cannot open $current_dir\n";
-				# Sort files so that we always explore them in the same order (useful for tests)
-				my @candidates = sort readdir(DIR);
-				closedir(DIR);
-				foreach my $file (@candidates) {
-					# avoid ..
-					next if $file =~ /^\.\.?$/;
-					# avoid conflicting-codes and invalid-codes
-					next if $file =~ /^(conflicting|invalid)-codes$/;
-					my $path = "$current_dir/$file";
-					if (-d $path) {
-						# explore sub dirs
-						next if $seen{$path};
-						$seen{$path} = 1;
-						push @dirs, $path;
-					}
-					next if ($path !~ $pattern);
-					push(@files, $path);
-				}
-			}
-		}
-		# if we still have files, return a file
-		if (scalar @files > 0) {
-			return shift @files;
-		}
-		else {
-			# or end iteration
-			return;
-		}
-	};
 }
 
 1;

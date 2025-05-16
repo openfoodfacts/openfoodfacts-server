@@ -40,7 +40,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Data qw/get_products_collection remove_documents_by_ids/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Store qw/retrieve_object object_iter store_object object_exists/;
+use ProductOpener::Store qw/retrieve_object object_iter store_object object_path_exists/;
 use Getopt::Long;
 
 # how many operations in bulk write
@@ -96,7 +96,7 @@ sub fix_non_normalized_sto ($product_path, $dry_run, $out) {
 		# handle a special case where previous id is higly broken …
 		# and moving would not work
 		my $path_from_old_id = product_path_from_id($product_id);
-		my $is_duplicate = (object_exists("$BASE_DIRS{PRODUCTS}/$new_path"));
+		my $is_duplicate = (object_path_exists("$BASE_DIRS{PRODUCTS}/$new_path"));
 		my $is_invalid = $path_from_old_id eq "invalid";
 		# print "product_path: $product_path - new_path: $new_path - product_id: $product_id - normalized_id: $normalized_id - is_duplicate: $is_duplicate - is_invalid: $is_invalid - path_from_old_id: $path_from_old_id\n";
 		# we could have different codes but the same path: EAN8 padded with 5 0s

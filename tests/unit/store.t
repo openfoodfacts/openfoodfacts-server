@@ -2,8 +2,6 @@
 
 use Modern::Perl '2017';
 use utf8;
-# Enable this on an ad-hoc basis to test locking. Can't leave enabled as coverage doesn't support threading
-# use threads;
 
 use Test2::V0;
 use Log::Any::Adapter 'TAP';
@@ -11,7 +9,7 @@ use Storable qw(lock_store);
 use Fcntl ':flock';
 
 use ProductOpener::Store
-	qw/get_fileid get_string_id_for_lang get_urlid store_object retrieve_object store_config retrieve_config link_object move_object remove_object object_iter/;
+	qw/get_fileid get_string_id_for_lang get_urlid store_object retrieve_object store_config retrieve_config link_object move_object remove_object object_iter object_exists object_path_exists/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
 
 is(get_fileid('Do not challenge me!'), 'do-not-challenge-me');
@@ -64,22 +62,22 @@ remove_object($test_path);
 # Create an initial test file
 ensure_dir_created_or_die($test_root_path);
 lock_store({id => 1}, "$test_path.sto");
-# Verify retrieve copes with a sto file
-is(retrieve_object("$test_path"), {id => 1});
+
+ok(object_exists($test_path), "object_exists should recognize sto files");
+
+is(retrieve_object("$test_path"), {id => 1}, "Verify retrieve copes with a sto file");
+
 # Use the new method to update it
 store_object("$test_path", {id => 2});
-# Verify that the json file has been created
-ok((-e "$test_path.json"), "$test_path.json exists");
+ok((-e "$test_path.json"), "Verify that the json file has been created");
 open(my $JSON, '<', "$test_path.json");
 local $/;    #Enable 'slurp' mode
 my $data = <$JSON>;
 close($JSON);
-is($data, '{"id":2}');
+is($data, '{"id":2}', "Content of json file is correct");
 
-# The old sto file should be deleted
-ok((not -e "$test_path.sto"), "$test_path.sto does not exist");
-# Check data is saved
-is(retrieve_object("$test_path"), {id => 2});
+ok((not -e "$test_path.sto"), "The old sto file should be deleted");
+is(retrieve_object("$test_path"), {id => 2}, "Check data is saved");
 
 # Test linking
 remove_object("$test_path-link");
@@ -98,20 +96,19 @@ is(retrieve_object("$test_path"), {id => 4}, "Original reflects update via link"
 remove_object("$test_path-link-stofile");
 lock_store({id => "stofile"}, "$test_path-stofile.sto");
 link_object("$test_path-stofile", "$test_path-link-stofile");
-is(retrieve_object("$test_path-link-stofile"), {id => "stofile"}, "Link reflects original");
+is(retrieve_object("$test_path-link-stofile"), {id => "stofile"}, "Link to sto reflects original");
 
 # Update via the link when the old file is an STO
 remove_object("$test_path-sto");
 lock_store({id => "stolink"}, "$test_path-sto.sto");
 symlink("$test_path-sto.sto", "$test_path-sto-link.sto");
 # Check data is fetched OK
-is(retrieve_object("$test_path-sto-link"), {id => "stolink"}, "Link works");
+is(retrieve_object("$test_path-sto-link"), {id => "stolink"}, "Sto Link works");
 # Update via the link
 store_object("$test_path-sto-link", {id => "stolink2"});
-is(retrieve_object("$test_path-sto"), {id => "stolink2"}, "Original reflects update via link");
-# JSON file is not created
-ok(!-e "$test_path-sto.json");
-ok(!-e "$test_path-sto-link.json");
+is(retrieve_object("$test_path-sto"), {id => "stolink2"}, "Original reflects update via sto link");
+ok(!-e "$test_path-sto.json", "JSON file is not created");
+ok(!-e "$test_path-sto-link.json", "JSON link is not created");
 
 # Move object
 store_object("$test_path-tomove", {id => "tomove"});
@@ -122,26 +119,21 @@ ok(!-e "$test_path-tomove.json", "Original file deleted");
 # Move copes with an sto file
 lock_store({id => "sto-tomove"}, "$test_path-sto-tomove.sto");
 move_object("$test_path-sto-tomove", "$test_path-sto-moved");
-is(retrieve_object("$test_path-sto-moved"), {id => "sto-tomove"}, "File moved");
-ok(!-e "$test_path-stotomove.sto", "Original file deleted");
-
-# TODO
-
-# Test moving object
+is(retrieve_object("$test_path-sto-moved"), {id => "sto-tomove"}, "Sto File moved");
+ok(!-e "$test_path-stotomove.sto", "Original sto file deleted");
 
 # Check copes with an empty JSON file
 open(my $EMPTY, '>', "$test_path-empty.json");
 close($EMPTY);
-is(retrieve_object("$test_path-empty"), undef);
+is(retrieve_object("$test_path-empty"), undef, "Empty JSON returns undef");
 
 # Check copes with invalid JSON file
 open(my $INVALID, '>', "$test_path-invalid.json");
 print $INVALID '{ not json';
 close($INVALID);
-is(retrieve_object("$test_path-invalid"), undef);
+is(retrieve_object("$test_path-invalid"), undef, "invalid JSON returns undef");
 
-# Check copes with a non-existent file
-is(retrieve_object("$test_path-no_exists"), undef);
+is(retrieve_object("$test_path-no_exists"), undef, "Check copes with a non-existent file");
 
 # Verify that JSON is formatted with store_config. Keys are sorted but array order is preserved
 store_config("$test_path-sorting", {c => 1, a => 3, b => ['z', 'x', 'y']});
@@ -160,8 +152,7 @@ is(
  ],
  "c":1
 }
-'
-);
+', "JSON is formatted with store_config");
 
 # Creates paths if needed
 srand();
@@ -170,6 +161,10 @@ my $long_path_suffix = "/" . rand(100000);
 my $long_path = $long_path_root . $long_path_suffix . "/nested";
 store_object($long_path, {data => $long_path});
 is(retrieve_object($long_path), {data => $long_path}, "Creates directory on-the-fly");
+
+ok(object_exists($long_path), "object_exists copes with files");
+
+ok(object_path_exists($long_path_root), "object_path_exists copes with paths");
 
 # Can move objects to a new path
 my $new_root = $long_path_root . "/" . rand(100000);
@@ -184,8 +179,8 @@ my @object_paths = ();
 while (my $object_path = $next->()) {
 	push(@object_paths, $object_path);
 }
-ok(grep {$_ eq $test_path} @object_paths);
-ok(grep {$_ eq $new_path} @object_paths);
+ok(grep {$_ eq $test_path} @object_paths, "Iterator returns test file");
+ok(grep {$_ eq $new_path} @object_paths, "Iterator returns random file");
 
 # Test pattern match
 $next = object_iter($test_root_path, qr/-link/);
@@ -193,8 +188,8 @@ $next = object_iter($test_root_path, qr/-link/);
 while (my $object_path = $next->()) {
 	push(@object_paths, $object_path);
 }
-ok(!grep {$_ eq $test_path} @object_paths);
-ok(grep {$_ eq "$test_path-link"} @object_paths);
+ok(!grep {$_ eq $test_path} @object_paths, "Iterator skips files not matching pattern");
+ok(grep {$_ eq "$test_path-link"} @object_paths, "Iterator includes files matching pattern");
 
 # Test directory exclusion
 $next = object_iter($test_root_path, undef, qr/nested/);
@@ -202,10 +197,11 @@ $next = object_iter($test_root_path, undef, qr/nested/);
 while (my $object_path = $next->()) {
 	push(@object_paths, $object_path);
 }
-ok(grep {$_ eq $test_path} @object_paths);
-ok(!grep {$_ eq "nested"} @object_paths);
+ok(grep {$_ eq $test_path} @object_paths, "Iterator includes files in non-excluded directories");
+ok(!grep {$_ eq "nested"} @object_paths, "Iterator excludes files in excluded directories");
 
 # Enable these on an ad-hoc basis to test locking. Can't leave enabled as coverage doesn't support threading
+# use threads;
 # # Verify that read waits for a current write to complete
 # open(my $LOCKED, '>', "$test_path-locked.json");
 # flock($LOCKED, LOCK_EX);
@@ -219,7 +215,7 @@ ok(!grep {$_ eq "nested"} @object_paths);
 # flock($LOCKED, LOCK_UN);
 # close($LOCKED);
 # my $result = $thread->join();
-# is($result, {id => 3});
+# is($result, {id => 3}, "retrieve waits for lock and returns new data");
 
 # # Verify write waits for the current read to complete
 # # Open the original test file for reading
@@ -233,6 +229,7 @@ ok(!grep {$_ eq "nested"} @object_paths);
 # flock($READ, LOCK_UN);
 # close($READ);
 # $store_thread->join();
-# is($read_data, '{"id":3}', "Read should have old value");
+# is($read_data, '{"id":3}', "Read before store should have old value");
+# is(retrieve_object("$test_path-locked"), {id => 4}, "New data is written once read completes");
 
 done_testing();
