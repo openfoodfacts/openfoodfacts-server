@@ -1503,7 +1503,7 @@ sub normalize_generation_ref($generation_ref) {
 	}
 
 	if (scalar keys %{$new_generation_ref} == 0) {
-		return undef;
+		return;
 	}
 	return $new_generation_ref;
 }
