@@ -169,7 +169,7 @@ while (my $product_ref = $cursor->next) {
 		$to_be_fixed = 1;
 		print STDERR "Not normalized code. code: $code - normalized: $normalized_code\n";
 	}
-	elsif (!object_exists($data_root/products/$path/product")) {
+	elsif (!object_exists("$data_root/products/$path/product")) {
 		$to_be_fixed = 1;
 		$exists_only_in_db++;
 		print STDERR "Product $productid - data_root/products/$path/product does not exist in the filesystem\n";
