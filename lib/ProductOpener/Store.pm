@@ -35,7 +35,17 @@ BEGIN {
 		&unac_string_perl
 		&get_string_id_for_lang
 		&get_url_id_for_lang
-		&sto_iter
+		&store_object
+		&retrieve_object
+		&retrieve_object_json
+		&object_exists
+		&object_path_exists
+		&store_config
+		&retrieve_config
+		&link_object
+		&move_object
+		&remove_object
+		&object_iter
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -49,8 +59,19 @@ use Storable qw(lock_store lock_nstore lock_retrieve);
 use URI::Escape::XS;
 use Unicode::Normalize;
 use Log::Any qw($log);
+#11872 Switch all JSON to use Cpanel::JSON::XS
 use JSON::Create qw(write_json);
 use JSON::Parse qw(read_json);
+use Cpanel::JSON::XS;
+use Fcntl ':flock';
+use File::Basename qw/dirname/;
+use File::Copy qw/move/;
+use File::Copy::Recursive qw/dirmove/;
+
+# Use Cpanel::JSON::XS directly rather than JSON::MaybeXS as otherwise check_perl gives error:
+# Can't locate object method "indent_length" via package "JSON::XS"
+my $json_for_config = Cpanel::JSON::XS->new->allow_nonref->canonical->indent->indent_length(1)->utf8;
+my $json_for_objects = Cpanel::JSON::XS->new->allow_nonref->utf8;
 
 # Text::Unaccent unac_string causes Apache core dumps with Apache 2.4 and mod_perl 2.0.9 on jessie
 
@@ -255,6 +276,311 @@ sub retrieve ($file) {
 	return $return;
 }
 
+=head2 store_object ($path, $ref, $delete_old = 1)
+
+Serializes an object in our preferred object store, removing it from legacy storage if it is present
+
+=cut
+
+sub store_object ($path, $ref, $delete_old = 1) {
+	my $sto_path = $path . '.sto';
+	my $file_path = $path . '.json';
+	# If the file already exists then we need to first open it non-destructively as
+	# open( .., ">", ...) will create an empty file which might be read by another thread
+	# before we have applied the exclusive lock and written the data
+	my $READ_LOCK;
+	if (-e $file_path) {
+		open(my $READ_LOCK, "<", $file_path);
+		flock($READ_LOCK, LOCK_EX);
+	}
+	elsif (-l $sto_path) {
+		# If the existing sto file is a link then use the old method for now (silent update)
+		store($sto_path, $ref);
+		return;
+	}
+	else {
+		# If doesn't already exist ensure the directory tree is in place
+		ensure_dir_created_or_die(dirname($file_path));
+	}
+
+	open(my $OUT, ">", $file_path);
+	# Get an exclusive lock on the file
+	# We could also lock the STO file here but it adds a small overhead and we don't
+	# tend to run old and new versions in parallel so shouldn't be an issue
+	if (not $READ_LOCK) {
+		flock($OUT, LOCK_EX);
+	}
+	my $json = $json_for_objects->encode($ref);
+	# Strip out any nul characters as many parsers can't cope with these
+	# This doesn't seem to add too much overhead
+	$json =~ s/\000//g;
+	print $OUT $json;
+
+	# Delete the old storable file
+	if ($delete_old and -e ($sto_path)) {
+		unlink($sto_path);
+	}
+	# Release the lock. Some docs say this isn't needed but tests show otherwise
+	if (not $READ_LOCK) {
+		flock($OUT, LOCK_UN);
+	}
+	close($OUT);
+	if ($READ_LOCK) {
+		flock($READ_LOCK, LOCK_UN);
+		close($READ_LOCK);
+	}
+
+	return;
+}
+
+=head2 retrieve_object($path)
+
+Fetch the JSON object from storage and return as a hash ref. Reverts to STO file if no JSON file exists
+
+=cut
+
+sub retrieve_object($path) {
+	my $file_path = $path . '.json';
+	if (-e $file_path) {
+		my $ref;
+		eval {
+			open(my $IN, "<", $file_path) or die("Can't open $file_path");
+			flock($IN, LOCK_SH);
+			local $/;    #Enable 'slurp' mode
+			$ref = $json_for_objects->decode(<$IN>);
+			# Release the lock. Som docs say this isn't needed but tests show otherwise
+			flock($IN, LOCK_UN);
+			close($IN);
+		} or do {
+			$log->error("retrieve_object", {path => $path, error => $@}) if $log->is_error();
+		};
+		return $ref;
+	}
+	# Fallback to old method
+	return retrieve($path . '.sto');
+}
+
+=head2 retrieve_object_json($path)
+
+Fetch the JSON object from storage and return as a JSON string. Reverts to STO file and serializes as JSON if no JSON file exists
+
+=cut
+
+sub retrieve_object_json($path) {
+	my $file_path = $path . '.json';
+	if (-e $file_path) {
+		my $json;
+		eval {
+			open(my $IN, "<", $file_path) or die("Can't open $file_path");
+			flock($IN, LOCK_SH);
+			local $/;    #Enable 'slurp' mode
+			$json = <$IN>;
+			# Release the lock. Some docs say this isn't needed but tests show otherwise
+			flock($IN, LOCK_UN);
+			close($IN);
+		} or do {
+			$log->error("retrieve_object", {path => $path, error => $@}) if $log->is_error();
+		};
+		return $json;
+	}
+	# Fallback to old method
+	return $json_for_objects->encode(retrieve($path . '.sto'));
+}
+
+=head2 object_exists($path)
+
+Indicates whether an object (STO or JSON) exists at the specified path
+
+=cut
+
+sub object_exists($path) {
+	return (-e "$path.json" or -e "$path.sto");
+}
+
+=head2 object_path_exists($path)
+
+Indicates whether an directory exists at the specified path
+
+=cut
+
+sub object_path_exists($path) {
+	return (-d $path);
+}
+
+=head2 move_object($old_path, $new_path)
+
+Moves a single object or all objects in the path
+
+=cut
+
+sub move_object($old_path, $new_path) {
+	# File::Copy move() is intended to move files, not
+	# directories. It does work on directories if the
+	# source and target are on the same file system
+	# (in which case the directory is just renamed),
+	# but fails otherwise.
+	# An alternative is to use File::Copy::Recursive
+	# but then it will do a copy even if it is the same
+	# file system...
+	# Another option is to call the system mv command.
+	$log->debug("moving object data", {source => $old_path, destination => $new_path})
+		if $log->is_debug();
+
+	if (-d $old_path) {
+		# Moving a while directory
+		ensure_dir_created_or_die($new_path);
+		#11872 TOD Should probably die here
+		dirmove($old_path, $new_path)
+			or $log->error("could not move objects", {source => $old_path, destination => $new_path, error => $!});
+
+	}
+	else {
+		# Moving a single file
+		ensure_dir_created_or_die(dirname($new_path));
+		if (-e "$old_path.sto") {
+			move("$old_path.sto", "$new_path.sto")
+				or die("could not move sto file from $old_path to $new_path, error: $!");
+		}
+		else {
+			move("$old_path.json", "$new_path.json")
+				or die("could not move json file from $old_path to $new_path, error: $!");
+		}
+	}
+
+	return;
+}
+
+=head2 link_object($path, $link)
+
+Makes the $link point to the data in the specified $path.
+If the object at the $path is an sto file then an STO symbolic link will be created
+
+=cut
+
+sub link_object($path, $link) {
+	# If target is a sto file then keep the link as a sto file too
+	if (-e $path . '.sto') {
+		symlink($path . '.sto', $link . '.sto') or die("Cannot create link $link to $path, error $!");
+		return;
+	}
+
+	symlink($path . '.json', $link . '.json')
+		or $log->error("could not link", {source => $path, link => $link, error => $!});
+
+	# We normally delete a link before creating a new one but just in case make sure there is no STO link
+	unlink($link . '.sto');
+
+	return;
+}
+
+=head2 remove_object($path)
+
+Removes an object or link to an object
+
+=cut
+
+sub remove_object($path) {
+	unlink($path . '.json');
+	# Remove any legacy sto file too
+	unlink($path . '.sto');
+	return;
+}
+
+=head2 object_iter($initial_path, $name_pattern = undef, $exclude_path_pattern = undef)
+
+Iterates over the path returning a cursor that can return object paths whose
+name matches the $name_pattern regex and whose path does not match the $exclude_path_pattern
+
+=cut
+
+sub object_iter($initial_path, $name_pattern = undef, $exclude_path_pattern = undef) {
+	my @dirs = ($initial_path);
+	my @object_paths = ();
+	return sub {
+		if (scalar @object_paths == 0) {
+			# explore a new dir until we get some file
+			while ((scalar @object_paths == 0) && (scalar @dirs > 0)) {
+				my $current_dir = shift @dirs;
+				opendir(DIR, $current_dir) or die "Cannot open $current_dir\n";
+				# Sort files so that we always explore them in the same order (useful for tests)
+				my @candidates = sort readdir(DIR);
+				closedir(DIR);
+				foreach my $file (@candidates) {
+					# avoid ..
+					next if $file =~ /^\.\.?$/;
+					# avoid conflicting-codes and invalid-codes
+					next if $exclude_path_pattern and $file =~ $exclude_path_pattern;
+					my $path = "$current_dir/$file";
+					if (-d $path) {
+						# explore sub dirs
+						push @dirs, $path;
+						next;
+					}
+					# Have a file. Strip off any extension before pattern matching
+					my $object_name = substr $file, 0, rindex($file, '.');
+					next if ($name_pattern and $object_name !~ $name_pattern);
+					push(@object_paths, "$current_dir/$object_name");
+				}
+			}
+		}
+		# if we still have object_paths, return a name
+		if (scalar @object_paths > 0) {
+			return shift @object_paths;
+		}
+		else {
+			# or end iteration
+			return;
+		}
+	};
+}
+
+=head2 store_config ($path, $ref, $delete_old = 1)
+
+Serializes configuration information, removing it from legacy storage if it is present.
+JSON keys are sorted and indentation is used so files can be used in source control
+No locking is performed
+
+=cut
+
+sub store_config ($path, $ref, $delete_old = 1) {
+	my $file_path = $path . '.json';
+	if (open(my $OUT, ">", $file_path)) {
+		print $OUT $json_for_config->encode($ref);
+		close($OUT);
+
+		# Delete the old storable file
+		if ($delete_old and -e ($path . '.sto')) {
+			unlink($path . '.sto');
+		}
+	}
+
+	return;
+}
+
+=head2 retrieve_config($path)
+
+Same as retrieve_object but with no locking
+
+=cut
+
+sub retrieve_config($path) {
+	my $file_path = $path . '.json';
+	if (-e $file_path) {
+		my $ref;
+		eval {
+			open(my $IN, "<", $file_path) or die("Can't open $file_path");
+			local $/;    #Enable 'slurp' mode
+			$ref = $json_for_config->decode(<$IN>);
+			close($IN);
+		} or do {
+			$log->error("retrieve_config", {path => $path, error => $@}) if $log->is_error();
+		};
+		return $ref;
+	}
+	# Fallback to old method
+	return retrieve($path . '.sto');
+}
+
 sub store_json ($file, $ref) {
 
 	# we sort hash keys so that the same object results in the same file
@@ -277,59 +603,6 @@ sub retrieve_json ($file) {
 	}
 
 	return $return;
-}
-
-=head2  sto_iter($initial_path, $pattern=qr/\.sto$/i)
-
-iterate all the files corresponding to $pattern starting from $initial_path
-
-use it as an iterator:
-my $iter = sto_iter(".");
-while (my $path = $iter->()) {
-	# do stuff
-}
-
-=cut
-
-sub sto_iter ($initial_path, $pattern = qr/\.sto$/i) {
-	my @dirs = ($initial_path);
-	my @files = ();
-	my %seen;
-	return sub {
-		if (scalar @files == 0) {
-			# explore a new dir until we get some file
-			while ((scalar @files == 0) && (scalar @dirs > 0)) {
-				my $current_dir = shift @dirs;
-				opendir(DIR, $current_dir) or die "Cannot open $current_dir\n";
-				# Sort files so that we always explore them in the same order (useful for tests)
-				my @candidates = sort readdir(DIR);
-				closedir(DIR);
-				foreach my $file (@candidates) {
-					# avoid ..
-					next if $file =~ /^\.\.?$/;
-					# avoid conflicting-codes and invalid-codes
-					next if $file =~ /^(conflicting|invalid)-codes$/;
-					my $path = "$current_dir/$file";
-					if (-d $path) {
-						# explore sub dirs
-						next if $seen{$path};
-						$seen{$path} = 1;
-						push @dirs, $path;
-					}
-					next if ($path !~ $pattern);
-					push(@files, $path);
-				}
-			}
-		}
-		# if we still have files, return a file
-		if (scalar @files > 0) {
-			return shift @files;
-		}
-		else {
-			# or end iteration
-			return;
-		}
-	};
 }
 
 1;
