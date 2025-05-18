@@ -35612,6 +35612,7 @@ wikidata:en: Q6075158
 < en:Breads
 en: Wholemeal breads, Brown breads
 bg: Пълнозърнест хляб
+da: Fuldkornsbrød
 de: Vollkornbrote, Vollkornbrot
 es: Panes integrales, Pan integral
 fi: Tummat leivät
@@ -35625,6 +35626,11 @@ ru: Цельнозерновой хлеб
 intake24_category_code:en: BBRD
 sales_format:en: package, item
 wikidata:en: Q940999
+
+< en:Breads
+en: Sourdough breads
+da: Surdejsbrød
+sv: Surdegsbröd
 
 < en:Breads
 en: Dried breads
@@ -35700,6 +35706,7 @@ ciqual_food_name:fr: Tartine craquante, extrudée et grillée, fourrée aux frui
 < en:Products without gluten
 en: Gluten-free breads, Gluten free bread
 bg: Хляб без глутен
+da: Glutenfri brød, Brød uden gluten
 de: Glutenfreies Brot
 es: Panes sin gluten
 fi: gluteenittomat leivät
@@ -35802,6 +35809,7 @@ ciqual_food_name:fr: Pain au son
 < en:White breads
 en: Wheat breads
 bg: Пшеничен хляб
+da: Hvedebrød
 de: Weizenbrote
 es: Panes de trigo
 fi: vehnäleivät
@@ -35857,6 +35865,7 @@ ru: Хлеб Дарницкий
 
 < en:Breads
 en: Ukrainian bread
+da: Ukrainske brød
 fr: Pain ukrainien
 hr: Ukrajinski kruh
 nl: Oekraïense broden
@@ -35872,6 +35881,7 @@ nl: Nieuwe Oekraïense broden
 en: Sliced breads, sandwich breads, Sandwich loaf, sandwich loaves, soft breads
 bg: Нарязан хляб
 ca: Pa de motlle
+da: Skiveskåret brød, Brød i skiver
 de: geschnittenes Brot
 es: Panes de molde
 fi: viipaloidut leivät
@@ -35893,6 +35903,7 @@ wikidata:en: Q134152
 
 < en:Sliced breads
 en: Sliced breads without crust, English bread without crust, Sandwich loaf without crust
+da: Skiveskåret brød uden skorpe
 de: Brot ohne Kruste
 es: Pan inglés sin corteza, Pan de molde sin corteza
 fr: Pains de mie sans croûte
@@ -35925,6 +35936,7 @@ ciqual_food_name:fr: Pain de mie, multicéréale
 < en:Wholemeal breads
 en: Wholemeal sliced breads, Wholemeal English bread, Wholemeal sandwich loaf
 bg: Пълнозърнест нарязан хляб
+da: Skiveskåret fuldkornsbrød
 de: Vollkorntoast
 es: Panes de molde integrales
 fr: Pains de mie complet, Pain de mie complet
@@ -35936,6 +35948,11 @@ agribalyse_food_code:en: 7111
 ciqual_food_code:en: 7111
 ciqual_food_name:en: Sandwich loaf, wholemeal
 ciqual_food_name:fr: Pain de mie, complet
+
+< en:Sliced breads
+< en:Sourdough breads
+en: Sourdough sliced breads
+da: Skiveskåret surdejsbrød
 
 < en:Sliced breads
 en: Brioche sandwich bread
@@ -35968,6 +35985,7 @@ pl: Chleb krojony bezglutenowy
 < en:Breads
 en: Toasts
 bg: Тостове
+da: Toastbrød
 de: Toastbrote, Toastbrot
 es: Pan tostado, Tostadas
 fi: paahtoleivät
@@ -96401,11 +96419,19 @@ de: Nussecken
 de: Mandelhörnchen
 
 < en:Pastries
-en: Chocolate balls
+en: Oatmeal balls, Chocolate balls
 da: Havregrynskugler
 nb: Havregrynskuler
 sv: Chokladbollar, Kokosbollar, Havrebollar
 wikidata:en: Q595744
+wikipedia:en: https://en.wikipedia.org/wiki/Oatmeal_ball
+
+< en:Pastries
+en: Punsch-rolls
+de: Dammsugare, Punschrullen
+sv: Punschrullar, Dammsugare, Arraksrullar, 150-ohmare
+wikidata:en: Q2253902
+wikipedia:en: https://en.wikipedia.org/wiki/Punsch-roll
 
 < en:Pastries
 en: Churros
