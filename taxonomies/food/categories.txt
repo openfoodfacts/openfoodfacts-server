@@ -1738,6 +1738,24 @@ wikidata:en: Q16976
 wikipedia:en: https://en.wikipedia.org/wiki/Pastis
 
 < en:Alcoholic beverages
+en: Absinthe
+fr: Absinthe
+es: Absenta
+de: Absinth
+hu: Abszint
+it: Assenzio
+nl: Absint
+pl: Absynt
+wikidata:en: Q170210
+
+< en:Absinthe
+fr: Absinthe de Pontarlier
+origins:en: en:france
+protected_name_file_number:en: PGI-FR-01870
+protected_name_type:en: gi
+#wikidata:en:
+
+< en:Alcoholic beverages
 xx: Sake
 en: Sake, Rice wines
 bg: Саке
@@ -1751,6 +1769,40 @@ agribalyse_food_code:en: 1026
 ciqual_food_code:en: 1026
 ciqual_food_name:en: Sake or rice wine
 wikidata:en: Q170219
+
+< en:Alcoholic beverages
+en: Shoshu
+ja: 焼酎
+
+< en:Shoshu
+en: Awamori
+agribalyse_proxy_food_code:en: 1026
+cagribalyse_proxy_food_name:en: Sake or rice wine
+
+< en:Shoshu
+en: Kome-shochu
+agribalyse_proxy_food_code:en: 1026
+cagribalyse_proxy_food_name:en: Sake or rice wine
+
+< en:Shoshu
+en: Kasutori-shochu, sake kasu
+agribalyse_proxy_food_code:en: 1026
+cagribalyse_proxy_food_name:en: Sake or rice wine
+
+< en:Shoshu
+en: Imo-Shoshu
+
+< en:Shoshu
+en: Mugi-Shoshu
+
+< en:Shoshu
+en: Soba-Shoshu
+
+< en:Shoshu
+en: Kokuto-Shoshu, Kokutojochu
+
+< en:Shoshu
+en: Kuri-Shoshu
 
 < en:Alcoholic beverages
 en: Mirin
@@ -3602,6 +3654,10 @@ protected_name_type:en: gi
 #wikidata:en:
 
 < en:Hard liquors
+en: Mezcal
+wikidata:en: Q726413
+
+< en:Hard liquors
 en: Tequilas
 bg: Текила
 de: Tequilas
@@ -3626,6 +3682,16 @@ protected_name_file_number:en: PGI-MX-01851
 protected_name_type:en: gi
 
 < en:Hard liquors
+en: Mastika
+wikidata:en: Q569332
+
+< en:Hard liquors
+en: Patxaran
+fr: Patxaran, pacharan
+es: Pacharán
+wikidata:en: Q1500295
+
+< en:Hard liquors
 en: Eaux de vie, Eau de vie, Clear fruit brandies
 de: Eau de vie, Branntwein
 fr: Eaux-de-vie, Eau-de-vie
@@ -3636,6 +3702,10 @@ agribalyse_food_code:en: 1001
 ciqual_food_code:en: 1001
 ciqual_food_name:en: Clear fruit brandy or eau-de-vie
 wikidata:en: Q2166541
+
+< en:Eaux de vie
+en: Baijiu
+zh-cn: 白酒
 
 < en:Alcoholic beverages
 de: Austrian Weinbrand
@@ -3773,6 +3843,17 @@ origins:en: en:croatia
 protected_name_file_number:en: PGI-HR-01957
 protected_name_type:en: gi
 #wikidata:en:
+
+< en:Fruit brandy
+en: Slovakian fruit spirit
+
+< en:Slovakian fruit spirit
+en: Borovicka
+sk: Borovička
+
+< en:Fruit brandy
+en: Medovaca
+ru: Медовача
 
 < en:Fruit brandy
 en: French fruit spirit
@@ -4178,6 +4259,30 @@ hu: Osztrák pálinka, Ausztriai pálinka
 origins:en: en:austria
 #wikidata:en:
 
+< en:Fruit brandy
+fr: Brandy aux pommes
+
+< en:Fruit brandy
+fr: Brandy aux prunes
+
+< en:Fruit brandy
+en: Cherry Brandy
+fr: Brandy aux cerises
+
+< en:Fruit brandy
+fr: Brandy au coing
+
+< en:Fruit brandy
+en: Portuguese fruit spirit
+
+< en:Portuguese fruit spirit
+en: Medronho
+pt: Medronho, Aquardente de Medronhos
+wikidata:en: Q175707
+
+< en:Fruit brandy
+fr: Brandy au coing, brandies au coing
+
 < en:Eaux de vie
 en: Whisky, whiskey
 bg: Уиски
@@ -4207,6 +4312,10 @@ hr: Blendirani viski
 hu: Kevert Whisky
 nl: Blended whiskies
 wikidata:en: Q883744
+
+< en:Whisky
+en: Single malt whisky
+fr: Whisky single malt
 
 < en:Whisky
 en: Rye whisky
@@ -4322,6 +4431,10 @@ hr: Miješani škotski viski
 nl: Schotse blended whiskies, Schotse blended whisky
 origins:en: en:scotland, en:united-kingdom
 
+< en:Scotch whisky
+< en:Single malt whisky
+en: Single malt scotch whisky
+
 < en:Whisky
 en: French Whisky
 de: Französische Whiskys
@@ -4409,6 +4522,14 @@ nl: Ierse whiskies
 ru: Ирландский виски
 origins:en: en:ireland
 wikidata:en: Q909747
+
+< en:Irish whisky
+< fr:Blended whisky
+en: Blended Irish whisky
+
+< en:Irish whisky
+< en:Single malt whisky
+en: Single malt Irish whisky
 
 < en:Whisky
 en: Japanese whiskey
@@ -5152,6 +5273,9 @@ protected_name_file_number:en: PGI-DE-01923
 protected_name_type:en: gi
 #wikidata:en:
 
+< en:German grain spirit
+de: Doppelkorn
+
 < en:Eaux de vie
 en: Vodka
 bg: Водка
@@ -5181,6 +5305,10 @@ fr: Vodka aromatisée, vodka parfumée
 hr: Votka s okusom
 it: Vodka aromatizzato, Vodka con aroma
 #wikidata:en:
+
+< en:Flavored vodka
+en: Nastoyka
+ru: настойка
 
 < en:Vodka
 en: Vodkas from Lithania, Lithuanian vodka
@@ -5344,6 +5472,12 @@ protected_name_file_number:en: PGI-FI-02040
 protected_name_type:en: gi
 #wikidata:en:
 
+< en:Vodka
+en: Kazak Vodkas
+
+< en:Vodka
+en: Slovak Vodkas
+
 < en:Hard liquors
 en: Gins, Gin
 bg: Джин
@@ -5407,6 +5541,14 @@ ciqual_food_code:en: 1007
 ciqual_food_name:en: Wine or fortified wine-based aperitif
 ciqual_food_name:fr: Apéritif à base de vin ou vermouth
 #wikidata:en:
+
+< en:Vermouth
+en: Red Vermouth
+fr: Vermouth rouge
+
+< en:Vermouth
+en: White Vermouth
+fr: Vermouth blanc
 
 < en:Wine-based drinks
 en: Wine-based aperitif, Fortified wine-based aperitif
@@ -5690,6 +5832,10 @@ lt: Šnapsas, Šnapsai
 nl: Schapps
 wikidata:en: Q1815494
 
+< en:Schnapps
+en: Klarer
+de: Klarer, Klarer Schnaps
+
 < en:Alcoholic beverages
 en: Rakia
 ar: راكيا
@@ -5729,6 +5875,15 @@ uk: Ракія
 zh: 拉基亞
 wikidata:en: Q931946
 
+< en: Rakia
+en: Komovica
+
+< en: Rakia
+en: Lozovaca, Loza
+
+< en: Rakia
+en: Travarica
+
 < en:Alcoholic beverages
 en: Punchs
 fr: Punchs
@@ -5756,6 +5911,10 @@ ciqual_food_name:fr: Cocktail à base de rhum
 < en:Rum-based cocktail
 fr: Daïquiri
 #wikidata:en:
+
+< en:Eaux de vie
+en: Tuzemsky, Tuzemak, Tuzemsky rum
+cs: Tuzemský, Tuzemák
 
 < en:Non-alcoholic beverages
 fr: Daïquiri sans alcool
@@ -8897,22 +9056,15 @@ gpc_category_name:en: Fruit Herbal Infusions/Tisanes - Instant
 < en:Herbal teas
 en: Absinthium, Absinthe wormwood
 de: Wermuttee
-es: Ajenjo
-fr: Absinthe
+es: Ajenjo, Artemisia absinthium
+fr: Absinthium, Armoise Absinthe
 hr: Absinthium
-hu: Abszint
-it: Assenzio
+hu: Fehér üröm
+it: Artemisia absinthium
 la: Artemisia absinthium
-nl: Absint
-pl: Piołun
+nl: Absint-alsem
+pl: Piołun, Bylica Piołun
 wikidata:en: Q25686
-
-< en:Absinthium
-fr: Absinthe de Pontarlier
-origins:en: en:france
-protected_name_file_number:en: PGI-FR-01870
-protected_name_type:en: gi
-#wikidata:en:
 
 < en:Herbal teas
 en: Alexandrian senna
@@ -11698,6 +11850,25 @@ origins:en: en:france, en:burgundy
 protected_name_file_number:en: PGI-FR-01835
 protected_name_type:en: gi
 wikidata:en: Q28496249
+
+< fr:Marc
+en: Portuguese grape marc spirit or grape marc
+
+< en:Portuguese grape marc spirit or grape marc
+pt: Bagaceira, bagaço
+
+< fr:Marc
+en: Orujo
+es: Orujo
+
+< fr:Marc
+en: Torkolypalinka
+hu: Törkölypálinka
+
+< fr:Marc
+en: Tsipouro
+el: Τσίπουρο
+fr: Tsípouro
 
 < en:Alcoholic beverages
 en: Wines
