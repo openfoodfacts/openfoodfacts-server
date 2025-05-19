@@ -1,11 +1,12 @@
 /*global lang */
 /*global preferences_text*/ // depends on which type of page the preferences are shown on
 /*global default_preferences*/ // depends on flavor: OFF, OBF etc.
-/*global flavor */
+/*global product_type */
 
 var attribute_groups; // All supported attribute groups and attributes + translated strings
 var preferences; // All supported preferences + translated strings
 var use_user_product_preferences_for_ranking = JSON.parse(localStorage.getItem('use_user_product_preferences_for_ranking'));
+var reset_message;
 
 function get_user_product_preferences() {
     // Retrieve user preferences from local storage
@@ -24,15 +25,17 @@ function get_user_product_preferences() {
 	return user_product_preferences;
 }
 
-var type_product;
 
-if (flavor === "off") { // get the type of product
-    type_product = "food";
-} else if (flavor === "obf") {
-    type_product = "beauty";
-} else {
-    type_product = "food"; // default
+if (typeof product_type !== 'undefined') { // product_type is defined 
+    reset_message = lang()["reset_preferences_details_" + product_type];
+    
 }
+else {
+    reset_message = lang().reset_preferences_details_food; // default to food
+}
+
+
+
 
 
 
@@ -269,7 +272,7 @@ function display_user_product_preferences(target_selected, target_selection_form
 			+ "<p>" + lang().preferences_locally_saved + "</p>"
 			+ generate_preferences_switch_button(lang().classify_products_according_to_your_preferences, "preferences_switch_in_preferences")
 			+ '<a id="reset_preferences_button" class="button small round success" role="button" tabindex="0">' + lang().reset_preferences + '</a>'
-			+ ' ' + lang()["reset_preferences_details_" + type_product]
+			+ ' ' + reset_message
 			+ '<ul id="user_product_preferences" class="accordion" data-accordion>'
 			+ attribute_groups_html.join( "" )
 			+ '</ul>'
