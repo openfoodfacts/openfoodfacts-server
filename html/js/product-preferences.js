@@ -26,12 +26,12 @@ function get_user_product_preferences() {
 }
 
 
-if (typeof product_type !== 'undefined') { // product_type is defined 
-    reset_message = lang()["reset_preferences_details_" + product_type];
-    
+
+if (typeof product_type === 'undefined') { // product_type is not defined 
+    reset_message = lang().reset_preferences_details_food; // default to food
 }
 else {
-    reset_message = lang().reset_preferences_details_food; // default to food
+    reset_message = lang()["reset_preferences_details_" + product_type]; 
 }
 
 
