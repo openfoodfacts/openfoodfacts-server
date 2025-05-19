@@ -191,12 +191,11 @@
                         
                         [% product_fields %]
 
-                        [% IF (robotoff_url.defined) && (robotoff_url.length > 0) %]
+                       [% IF (robotoff_url.defined) && (robotoff_url.length > 0) %]
                             <!-- Anonymous users will only be able to vote see AnnotationVote in robotoff,
                                 the voter uniqueness is based on a hash of its ip address -->
-                            [% INCLUDE web/common/includes/robotoff_question.tt.html product_code = code id = "robotoff-question"  %]
+                            [% INCLUDE web/common/includes/robotoff_contribution_message.tt.html product_code = code id = "robotoff-contribution-message" is_logged_in = user_id.defined %]
                         [% END %]
-
                     [% IF front_image.defined %]
                             </div>
                         </div>
@@ -208,9 +207,6 @@
         </div>
     </section>
 
-    [% IF (user_id.defined) && (robotoff_url.defined) && (robotoff_url.length > 0) %]
-    [% INCLUDE web/common/includes/robotoff_nutrients.tt.html product_code = code  %]
-    [% END %]
 [% IF user_preferences %]
     <!-- product summary -->
     <section class="row" id="match">
