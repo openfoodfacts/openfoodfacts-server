@@ -259,6 +259,7 @@ $rate_limiter_blocking_enabled = $ProductOpener::Config2::rate_limiter_blocking_
 
 $build_cache_repo = $ProductOpener::Config2::build_cache_repo;
 
+#11901: Remove once production is migrated
 $serialize_to_json = $ProductOpener::Config2::serialize_to_json;
 
 $reference_timezone = 'Europe/Paris';

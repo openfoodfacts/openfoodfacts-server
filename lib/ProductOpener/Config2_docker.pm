@@ -159,5 +159,6 @@ $crm_username = $ENV{ODOO_CRM_USER};
 $crm_db = $ENV{ODOO_CRM_DB};
 $crm_pwd = $ENV{ODOO_CRM_PASSWORD};
 
+#11901: Remove once production is migrated
 $serialize_to_json = $ENV{SERIALIZE_TO_JSON};
 1;

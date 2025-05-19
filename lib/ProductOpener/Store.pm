@@ -284,6 +284,7 @@ Serializes an object in our preferred object store, removing it from legacy stor
 =cut
 
 sub store_object ($path, $ref, $delete_old = 1) {
+	#11901: Remove once production is migrated
 	if (!$serialize_to_json) {
 		return store($path, $ref);
 	}
@@ -361,6 +362,7 @@ Fetch the JSON object from storage and return as a hash ref. Reverts to STO file
 =cut
 
 sub retrieve_object($path) {
+	#11901: Remove once production is migrated
 	if (!$serialize_to_json) {
 		return retrieve($path);
 	}
@@ -500,6 +502,7 @@ If the object at the $path is an sto file then an STO symbolic link will be crea
 
 sub link_object($name, $link) {
 	# If target is a sto file then keep the link as a sto file too. Note we use relative paths for the target file
+	#11901: Remove $serialize_to_json test once production is migrated
 	if (!$serialize_to_json or -e dirname($link) . '/' . $name . '.sto') {
 		symlink($name . '.sto', $link . '.sto') or die("Cannot create link $link to $name, error $!");
 		return;
@@ -584,6 +587,7 @@ No locking is performed
 =cut
 
 sub store_config ($path, $ref, $delete_old = 1) {
+	#11901: Remove once production is migrated
 	if (!$serialize_to_json) {
 		return store($path, $ref);
 	}
@@ -608,6 +612,7 @@ Same as retrieve_object but with no locking
 =cut
 
 sub retrieve_config($path) {
+	#11901: Remove once production is migrated
 	if (!$serialize_to_json) {
 		return retrieve($path);
 	}

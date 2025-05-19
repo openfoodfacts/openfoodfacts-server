@@ -34,6 +34,7 @@
     - ODOO_CRM_DB
     - ODOO_CRM_USER
     - ODOO_CRM_PASSWORD
+    #11901: Remove once production is migrated
     - SERIALIZE_TO_JSON
   depends_on:
     - memcached
