@@ -880,7 +880,7 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 			if $log->is_debug();
 		for (my $i = 0; $i < $imgid; $i++) {
 
-			# We did not store original files sizes in images.sto and original files in [imgid].[extension].orig before July 2020,
+			# We did not store original files sizes in images.json and original files in [imgid].[extension].orig before July 2020,
 			# but we stored original PNG files before they were converted to JPG in [imgid].png
 			# We compare both the sizes of the original files and the converted files
 

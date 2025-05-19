@@ -63,15 +63,15 @@ while (my $path = $next->()) {
 		}
 		next;    # we don't want to process the product again
 	}
-    # print "$path\n";
+	# print "$path\n";
 	store_object($path, retrieve_object($path));
-    $count++;
-    if ($count % 1000 == 0) {
-        print "Updated $count files.\n";
+	$count++;
+	if ($count % 1000 == 0) {
+		print "Updated $count files.\n";
 		update_checkpoint($checkpoint_file, $path);
 	}
 
-    update_checkpoint($checkpoint_file, $path);
+	update_checkpoint($checkpoint_file, $path);
 }
 print "Updated $count files.\n";
 

@@ -64,6 +64,7 @@ BEGIN {
 		$crm_username
 		$crm_db
 		$crm_pwd
+		$serialize_to_json
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -158,4 +159,5 @@ $crm_username = $ENV{ODOO_CRM_USER};
 $crm_db = $ENV{ODOO_CRM_DB};
 $crm_pwd = $ENV{ODOO_CRM_PASSWORD};
 
+$serialize_to_json = $ENV{SERIALIZE_TO_JSON};
 1;

@@ -284,6 +284,10 @@ Serializes an object in our preferred object store, removing it from legacy stor
 =cut
 
 sub store_object ($path, $ref, $delete_old = 1) {
+	if (!$serialize_to_json) {
+		return store($path, $ref);
+	}
+
 	my $sto_path = $path . '.sto';
 	my $file_path = $path . '.json';
 	# If the file already exists then we need to first open it non-destructively as
@@ -357,6 +361,10 @@ Fetch the JSON object from storage and return as a hash ref. Reverts to STO file
 =cut
 
 sub retrieve_object($path) {
+	if (!$serialize_to_json) {
+		return retrieve($path);
+	}
+
 	my $file_path = $path . '.json';
 	if (-e $file_path) {
 		my $ref;
@@ -492,7 +500,7 @@ If the object at the $path is an sto file then an STO symbolic link will be crea
 
 sub link_object($name, $link) {
 	# If target is a sto file then keep the link as a sto file too. Note we use relative paths for the target file
-	if (-e dirname($link) . '/' . $name . '.sto') {
+	if (!$serialize_to_json or -e dirname($link) . '/' . $name . '.sto') {
 		symlink($name . '.sto', $link . '.sto') or die("Cannot create link $link to $name, error $!");
 		return;
 	}
@@ -576,6 +584,9 @@ No locking is performed
 =cut
 
 sub store_config ($path, $ref, $delete_old = 1) {
+	if (!$serialize_to_json) {
+		return store($path, $ref);
+	}
 	my $file_path = $path . '.json';
 	if (open(my $OUT, ">", $file_path)) {
 		print $OUT $json_for_config->encode($ref);
@@ -597,6 +608,9 @@ Same as retrieve_object but with no locking
 =cut
 
 sub retrieve_config($path) {
+	if (!$serialize_to_json) {
+		return retrieve($path);
+	}
 	my $file_path = $path . '.json';
 	if (-e $file_path) {
 		my $ref;
