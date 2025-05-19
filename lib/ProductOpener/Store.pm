@@ -67,6 +67,7 @@ use Fcntl ':flock';
 use File::Basename qw/dirname/;
 use File::Copy qw/move/;
 use File::Copy::Recursive qw/dirmove/;
+use Cwd qw/abs_path/;
 
 # Use Cpanel::JSON::XS directly rather than JSON::MaybeXS as otherwise check_perl gives error:
 # Can't locate object method "indent_length" via package "JSON::XS"
@@ -294,9 +295,21 @@ sub store_object ($path, $ref, $delete_old = 1) {
 		flock($READ_LOCK, LOCK_EX);
 	}
 	elsif (-l $sto_path) {
-		# If the existing sto file is a link then use the old method for now (silent update)
-		store($sto_path, $ref);
-		return;
+		my $real_path = abs_path($sto_path);
+		my $json_path = remove_extension($real_path) . '.json';
+		if (!-e $real_path and -e $json_path) {
+			# If the existing sto link is pointing to a non-existent sto but existing json then migrate the link
+			my $relative_path = remove_extension(readlink($sto_path)) . '.json';
+			unlink($sto_path);
+			# Note we need to use a relative path for the link
+			symlink($relative_path, $file_path);
+			# Allow processing below to continue, which will write to the targe file
+		}
+		else {
+			# Of it is not an orphaned link then don't migrate (silent update)
+			store($sto_path, $ref);
+			return;
+		}
 	}
 	else {
 		# If doesn't already exist ensure the directory tree is in place
@@ -333,6 +346,10 @@ sub store_object ($path, $ref, $delete_old = 1) {
 	return;
 }
 
+sub remove_extension($path) {
+	return substr $path, 0, rindex($path, '.');
+}
+
 =head2 retrieve_object($path)
 
 Fetch the JSON object from storage and return as a hash ref. Reverts to STO file if no JSON file exists
@@ -356,8 +373,24 @@ sub retrieve_object($path) {
 		};
 		return $ref;
 	}
-	# Fallback to old method
-	return retrieve($path . '.sto');
+	else {
+		my $sto_path = $path . '.sto';
+		# If the old file is a link but the target no longer exists then assume the target has already been migrated
+		if (-l $sto_path) {
+			my $real_path = abs_path($sto_path);
+			# print STDERR $real_path ."\n";
+			if ($real_path) {
+				return retrieve_object(remove_extension($real_path));
+			}
+			else {
+				$log->error("retrieve_object orphan link", {link => $real_path, path => $path});
+				return;
+			}
+		}
+		# Fallback to old method
+		return retrieve($path . '.sto');
+
+	}
 }
 
 =head2 retrieve_object_json($path)
@@ -450,22 +483,22 @@ sub move_object($old_path, $new_path) {
 	return;
 }
 
-=head2 link_object($path, $link)
+=head2 link_object($name, $link)
 
-Makes the $link point to the data in the specified $path.
+Makes the $link point to the data in the specified relative $path.
 If the object at the $path is an sto file then an STO symbolic link will be created
 
 =cut
 
-sub link_object($path, $link) {
-	# If target is a sto file then keep the link as a sto file too
-	if (-e $path . '.sto') {
-		symlink($path . '.sto', $link . '.sto') or die("Cannot create link $link to $path, error $!");
+sub link_object($name, $link) {
+	# If target is a sto file then keep the link as a sto file too. Note we use relative paths for the target file
+	if (-e dirname($link) . '/' . $name . '.sto') {
+		symlink($name . '.sto', $link . '.sto') or die("Cannot create link $link to $name, error $!");
 		return;
 	}
 
-	symlink($path . '.json', $link . '.json')
-		or $log->error("could not link", {source => $path, link => $link, error => $!});
+	symlink($name . '.json', $link . '.json')
+		or $log->error("could not link", {source => $name, link => $link, error => $!});
 
 	# We normally delete a link before creating a new one but just in case make sure there is no STO link
 	unlink($link . '.sto');
@@ -517,7 +550,7 @@ sub object_iter($initial_path, $name_pattern = undef, $exclude_path_pattern = un
 						next;
 					}
 					# Have a file. Strip off any extension before pattern matching
-					my $object_name = substr $file, 0, rindex($file, '.');
+					my $object_name = remove_extension($file);
 					next if ($name_pattern and $object_name !~ $name_pattern);
 					push(@object_paths, "$current_dir/$object_name");
 				}

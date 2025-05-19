@@ -55,7 +55,8 @@ is(get_string_id_for_lang("el", "E420 - Σορβιτολη"), "e420-σορβιτ
 
 # Test store object
 my $test_root_path = "$BASE_DIRS{CACHE_TMP}/test-store";
-my $test_path = $test_root_path . "/test-object";
+my $test_name = "test-object";
+my $test_path = "$test_root_path/$test_name";
 
 # Make sure json file doesn't exist
 remove_object($test_path);
@@ -81,7 +82,8 @@ is(retrieve_object("$test_path"), {id => 2}, "Check data is saved");
 
 # Test linking
 remove_object("$test_path-link");
-link_object("$test_path", "$test_path-link");
+# Note links are done using relative paths
+link_object($test_name, "$test_path-link");
 is(retrieve_object("$test_path-link"), {id => 2}, "Link should show original's data");
 
 # Update the original
@@ -95,13 +97,13 @@ is(retrieve_object("$test_path"), {id => 4}, "Original reflects update via link"
 # Link to an sto file
 remove_object("$test_path-link-stofile");
 lock_store({id => "stofile"}, "$test_path-stofile.sto");
-link_object("$test_path-stofile", "$test_path-link-stofile");
+link_object("$test_name-stofile", "$test_path-link-stofile");
 is(retrieve_object("$test_path-link-stofile"), {id => "stofile"}, "Link to sto reflects original");
 
 # Update via the link when the old file is an STO
 remove_object("$test_path-sto");
 lock_store({id => "stolink"}, "$test_path-sto.sto");
-symlink("$test_path-sto.sto", "$test_path-sto-link.sto");
+symlink("$test_name-sto.sto", "$test_path-sto-link.sto");
 # Check data is fetched OK
 is(retrieve_object("$test_path-sto-link"), {id => "stolink"}, "Sto Link works");
 # Update via the link
@@ -109,6 +111,17 @@ store_object("$test_path-sto-link", {id => "stolink2"});
 is(retrieve_object("$test_path-sto"), {id => "stolink2"}, "Original reflects update via sto link");
 ok(!-e "$test_path-sto.json", "JSON file is not created");
 ok(!-e "$test_path-sto-link.json", "JSON link is not created");
+
+# Open an orphaned link, e.g. product.sto link points to a revision that has already been converted to JSON
+remove_object("$test_path-product_revision");
+store_object("$test_path-current_revision", {id => '1'});
+symlink("$test_name-current_revision.sto", "$test_path-product_revision.sto");
+is(retrieve_object("$test_path-product_revision"), {id => '1'}, "Data is fetched from the JSON file");
+
+# If we save back to the link it creates a JSON link to the target file
+store_object("$test_path-product_revision", {id => '2'});
+ok(-l "$test_path-product_revision.json", "New path stays as a link");
+is(retrieve_object("$test_path-current_revision"), {id => '2'}, "Target file is updated");
 
 # Move object
 store_object("$test_path-tomove", {id => "tomove"});

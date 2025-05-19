@@ -196,7 +196,7 @@ while (my $product_ref = $cursor->next) {
 			# restore revision prior to target user changes
 			print STDERR "$code - linking product to $previous_rev\n";
 			if (not $pretend) {
-				link_object("$BASE_DIRS{PRODUCTS}/$path/$previous_rev", "$BASE_DIRS{PRODUCTS}/$path/product");
+				link_object($previous_rev, "$BASE_DIRS{PRODUCTS}/$path/product");
 			}
 			# restore changes.sto
 			print STDERR "updating $BASE_DIRS{PRODUCTS}/$path/changes\n";

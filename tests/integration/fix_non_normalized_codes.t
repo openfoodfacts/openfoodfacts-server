@@ -40,7 +40,7 @@ sub make_product ($product_ref, $products_collection) {
 		# use store instead of store_product to avoid normalizations
 		`mkdir -p $product_path`;
 		store_object("$product_path/$rev", $product_ref);
-		link_object("$product_path/$rev", "$product_path/product");
+		link_object($rev, "$product_path/product");
 		# print STDERR "made product $code - product_path: $product_path\n";
 	}
 	# and index in mongo
