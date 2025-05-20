@@ -586,10 +586,8 @@ sub store_config ($path, $ref, $delete_old = 1) {
 	my $sto_path = $path . '.sto';
 	my $file_path = $path . '.json';
 
-	#11901: Remove once production is migrated. Use STO file if the file hasn't already been migrated
-	if (!$serialize_to_json and !-e $file_path) {
-		return store($sto_path, $ref);
-	}
+	#11901: Config files aren't shared so ignore $serialize_to_json flag. Just remove this comment when migration is complete
+
 	if (open(my $OUT, ">", $file_path)) {
 		print $OUT $json_for_config->encode($ref);
 		close($OUT);
