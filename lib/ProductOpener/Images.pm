@@ -155,6 +155,7 @@ use ProductOpener::Users qw/%User/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::ProductSchemaChanges;    # needed for convert_schema_1001_to_1002_refactor_images_object()
 use ProductOpener::Booleans qw/normalize_boolean/;
+use ProductOpener::ProductsFeatures qw/feature_enabled/;
 
 use boolean ':all';
 use Data::DeepAccess qw(deep_exists deep_get deep_set);
