@@ -125,6 +125,9 @@ synonyms:fr: fabrique, fabriqué, fabriquée
 synonyms:pt: fabrico, fabricado, produção, elaborado, feito
 synonyms:ru: изготовление, производство
 
+synonyms:en: made, manufactured, produced
+synonyms:sv: tillverkad, tillverkat, tillagad, tillagat, producerad, producerat
+
 synonyms:en: fats, fat
 synonyms:fr: matières grasses, MG, gras
 synonyms:pt: matéria gorda, matérias gordas, MG, gordura, gorduras
@@ -881,6 +884,27 @@ xx: MåBra rekommenderar 2023
 sv: MåBra rekommenderar 2023
 web:sv: https://www.mabra.com/nyttig-mat/2023-arets-vinnare-i-mabra-valet/8976312
 
+xx: Råd & Rön, Rad & Ron
+sv: Råd & Rön
+country:en: en:Sweden
+web:sv: https://www.radron.se/
+
+< xx:Råd & Rön
+xx: Råd & Rön: Bäst i test, Rad & Ron Bast i test
+sv: Råd & Rön: Bäst i test
+image:sv: råd-och-rön-bäst-i-test.247x90.png
+web:sv: https://www.radron.se/tester/
+
+< xx:Råd & Rön
+xx: Råd & Rön: Bra köp, Rad & Ron Bra kop
+sv: Råd & Rön: Bra köp
+image:sv: råd-och-rön-bra-köp.247x90.png
+web:sv: https://www.radron.se/tester/
+
+< xx:Råd & Rön: Bäst i test
+xx: Råd & Rön: Bäst i test Nov 2020, Rad & Ron Bast i test Nov 2020
+sv: Råd & Rön: Bäst i test Nov 2020
+web:sv: https://www.radron.se/om-rad--ron/innehall-i-tidningen/2020/
 
 en: HACCP, Hazard analysis and critical control points
 xx: HACCP
@@ -1746,7 +1770,7 @@ xx: High in Omega 3
 bg: Богато на Омега-3, Натурално високо съдържание на омега-3 мастни киселини
 ca: Alt en Omega 3, Ric en Omega 3
 de: Hoher Omega-3-Gehalt
-es: Rico en Omega 3, Alto en Omega 3
+es: Rico en Omega 3, Alto en Omega 3, Alto contenido de ácidos grasos OMEGA 3
 fi: runsaasti omega-3-rasvahappoja, paljon omega-3-rasvahappoja
 fr: Riche en Oméga-3, Riche en omega 3, Riche en acide gras omega 3
 he: עשיר באומגה 3
@@ -4570,7 +4594,7 @@ pl: Bez sztucznych aromatów i barwników
 pt: Sem aromas nem corantes artificiais
 
 #instruction:en:Do NOT change the english key.
-en: No artificial sweeteners, no sweeteners added
+en: No artificial sweeteners
 bg: Без изкуствени подсладители
 ca: Sense edulcorants artificials
 de: Ohne künsztliche Süßungsmittel
@@ -4583,6 +4607,7 @@ it: Senza dolcificanti artificiali
 nl: Zonder kunstmatige suikers, Zonder suikervervangers
 pl: Bez sztucznych słodzików
 pt: Sem adoçantes artificiais
+sv: Utan artificiella sötningsmedel
 label_categories:en: en:Health, en:Claim
 
 #instruction:en:Do NOT change the english key.
@@ -4590,6 +4615,11 @@ label_categories:en: en:Health, en:Claim
 < en:No artificial sweeteners
 en: No artificial flavourings or sweeteners
 pt: Sem aromatizantes ou adoçantes
+
+# This is a claim that no sweeteners have been added,
+# not whether there are any or their origin
+en: No sweeteners added
+sv: Utan tillsatt sötningsmedel, Osötad, Osötat
 
 #instruction:en:Do NOT change the english key.
 en: No artificial preservatives, free of artificial preservative
@@ -20290,7 +20320,7 @@ it: Senza dolcificanti
 nl: Zonder zoetstoffen
 pl: Bez słodzików, Nie zawiera słodzików
 pt: Sem adoçantes, sem edulcorantes, sem adoçantes, sem edulcorantes, 0% adoçantes, 0% edulcorantes
-sv: Utan sötningsmedel, Osötad, Osötat
+sv: Utan sötningsmedel
 incompatible_with:en: labels:en:with-sweeteners
 opposite:en: en:With sweeteners
 
