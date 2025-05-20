@@ -284,13 +284,14 @@ Serializes an object in our preferred object store, removing it from legacy stor
 =cut
 
 sub store_object ($path, $ref, $delete_old = 1) {
-	#11901: Remove once production is migrated
-	if (!$serialize_to_json) {
-		return store($path, $ref);
-	}
-
 	my $sto_path = $path . '.sto';
 	my $file_path = $path . '.json';
+
+	#11901: Remove once production is migrated. Use STO file if the file hasn't already been migrated
+	if (!$serialize_to_json and !-e $file_path) {
+		return store($sto_path, $ref);
+	}
+
 	# If the file already exists then we need to first open it non-destructively as
 	# open( .., ">", ...) will create an empty file which might be read by another thread
 	# before we have applied the exclusive lock and written the data
@@ -362,11 +363,6 @@ Fetch the JSON object from storage and return as a hash ref. Reverts to STO file
 =cut
 
 sub retrieve_object($path) {
-	#11901: Remove once production is migrated
-	if (!$serialize_to_json) {
-		return retrieve($path);
-	}
-
 	my $file_path = $path . '.json';
 	if (-e $file_path) {
 		my $ref;
@@ -587,18 +583,20 @@ No locking is performed
 =cut
 
 sub store_config ($path, $ref, $delete_old = 1) {
-	#11901: Remove once production is migrated
-	if (!$serialize_to_json) {
-		return store($path, $ref);
-	}
+	my $sto_path = $path . '.sto';
 	my $file_path = $path . '.json';
+
+	#11901: Remove once production is migrated. Use STO file if the file hasn't already been migrated
+	if (!$serialize_to_json and !-e $file_path) {
+		return store($sto_path, $ref);
+	}
 	if (open(my $OUT, ">", $file_path)) {
 		print $OUT $json_for_config->encode($ref);
 		close($OUT);
 
 		# Delete the old storable file
-		if ($delete_old and -e ($path . '.sto')) {
-			unlink($path . '.sto');
+		if ($delete_old and -e $sto_path) {
+			unlink($sto_path);
 		}
 	}
 
@@ -612,10 +610,6 @@ Same as retrieve_object but with no locking
 =cut
 
 sub retrieve_config($path) {
-	#11901: Remove once production is migrated
-	if (!$serialize_to_json) {
-		return retrieve($path);
-	}
 	my $file_path = $path . '.json';
 	if (-e $file_path) {
 		my $ref;
