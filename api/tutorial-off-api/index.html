@@ -2131,7 +2131,7 @@ Let's look at the <a href="https://world.openfoodfacts.net/api/v2/product/018041
 </code></pre></div>
 <p>The sample response above for 100% Real Orange Juice <code>misc_tags</code> shows that the Nutri-Score is missing category (<code>en:nutriscore-missing-category</code>) and sodium (salt) (<code>en:nutriscore-missing-nutrition-data-sodium</code>). Now you can write to the OFF API to provide these nutriment data (if you have them) so that the Nutri-Score can be computed.</p>
 <h3 id="write-data-to-make-nutri-score-computation-possible">Write data to make Nutri-Score computation possible<a class="headerlink" href="#write-data-to-make-nutri-score-computation-possible" title="Permanent link">#</a></h3>
-<p>The WRITE operations in the OFF API require authentication. Therefore you need a valid <code>user_id</code> and <code>password</code> to write the missing nutriment data to 100% Real Orange Juice.</p>
+<p>The WRITE operations in the OFF API require authentication. Therefore you need a valid <code>user_id</code>^[user_id_not_email] and <code>password</code> to write the missing nutriment data to 100% Real Orange Juice.</p>
 <blockquote>
 <p>Sign up on the <a href="https://world.openfoodfacts.net/">Open Food Facts App</a> to get your<code>user_id</code> and <code>password</code> if you don't have one.</p>
 </blockquote>
@@ -2192,6 +2192,7 @@ Let's look at the <a href="https://world.openfoodfacts.net/api/v2/product/018041
 <span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
 <span class="p">}</span>
 </code></pre></div>
+<p>^[user_id_not_email]: user_id is the username of your account. You must not use your email address.</p>
 <h3 id="read-newly-computed-nutri-score">Read newly computed Nutri-Score<a class="headerlink" href="#read-newly-computed-nutri-score" title="Permanent link">#</a></h3>
 <p>Now, let's check if the Nutri-Score for 100% Real Orange Juice has been computed now that we have provided the missing data. Make a GET request to <code>https://world.openfoodfacts.net/api/v2/product/0180411000803?fields=product_name,nutriscore_data,nutriments,nutrition_grades</code> for Nutri-Score of 100% Real Orange Juice. The response now contains the Nutri-Score computation:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>

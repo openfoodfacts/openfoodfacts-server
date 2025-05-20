@@ -2082,7 +2082,7 @@
 <ul>
 <li><strong>The preferred one</strong>:
   Use the login API to get a session cookie and use this cookie for authentication in your subsequent requests. However, the session must always be used from the same IP address, and there's a limit on sessions per user (currently 10) with older sessions being automatically logged out to stay within the limit.</li>
-<li>If session conditions are too restrictive for your use case, include your account credentials as parameters for authenticated requests where <code>user_id</code> is your username and <code>password</code> is your password (do this on POST / PUT / DELETE requests, not on GET).</li>
+<li>If session conditions are too restrictive for your use case, include your account credentials as parameters for authenticated requests where <code>user_id</code>^[user_id_not_email] is your username and <code>password</code> is your password (do this on POST / PUT / DELETE requests, not on GET).</li>
 </ul>
 <p>You can create a global account to allow your app users to contribute without registering individual accounts on the Open Food Facts website. This way, we know that these contributions came from your application.</p>
 <p>We however ask that you send the <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#post-/cgi/product_jqm2.pl"><code>app_name</code>, <code>app_version</code> and <code>app_uuid</code> parameters</a> in your write queries. </p>
@@ -2095,6 +2095,7 @@
 <p>Production and staging have different account databases, so <strong>the account you create in the production environment will only work for production requests</strong>. If you want to query (WRITE requests) the staging environment, you'll need to create another account there too.</p>
 <p>Note: we're currently moving to a modern Auth system (Keycloak), so we will have new Auth options, hopefully this year.</p>
 </blockquote>
+<p>^[user_id_not_email]: user_id is the username of your account. You must not use your email address.</p>
 <h2 id="reference-documentation-openapi">Reference Documentation (OpenAPI)<a class="headerlink" href="#reference-documentation-openapi" title="Permanent link">#</a></h2>
 <p>We are building a complete OpenAPI reference. Here is a list of the current API documentation available:</p>
 <ul>
