@@ -51,13 +51,30 @@ my $template_data_ref = {};
 
 my $code = normalize_code(single_param('code'));
 
+if (not defined $code) {
+	display_error_and_exit($request_ref, lang("api_result_product_not_found"), 404);
+}
+
 # We can be passed an imgid, or image_type + image_lc
 # Previously, we used an id that could be either imgid or image_type + image_lc
 
-my $id = single_param('id');
 my $imgid = single_param('imgid');
 my $image_type = single_param('image_type');
 my $image_lc = single_param('image_lc');
+
+my $id = single_param('id');
+
+# Legacy support for old URLs, could probably be removed
+if (defined $id) {
+	if ($id =~ /^\d+$/) {
+		# imgid
+		$imgid = $id;
+	}
+	else {
+		# image_type + image_lc
+		($image_type, $image_lc) = get_image_type_and_image_lc_from_imagefield($id);
+	}
+}
 
 $log->debug(
 	"start",
@@ -70,34 +87,7 @@ $log->debug(
 	}
 ) if $log->is_debug();
 
-if (not defined $code) {
-	display_error_and_exit($request_ref, lang("api_result_product_not_found"), 404);
-}
-
-if (defined $id) {
-	if ($id =~ /^\d+$/) {
-		# imgid
-		$imgid = $id;
-	}
-	else {
-		# image_type + image_lc
-		($image_type, $image_lc) = get_image_type_and_image_lc_from_imagefield($id);
-	}
-}
-
-# hash path of the image
-my @image_path = ();
-
-if (defined $imgid) {
-	@image_path = ("images", "uploaded", $imgid);
-}
-elsif ((defined $image_type) and (defined $image_lc)) {
-	@image_path = ("images", "selected", $image_type, $image_lc);
-	$id = $image_type . '_' . $image_lc;
-}
-else {
-	display_error_and_exit($request_ref, lang("api_result_product_image_not_found"), 404);
-}
+# Retrieve the image data from the product
 
 my $product_id = product_id_for_owner($Owner_id, $code);
 
@@ -107,7 +97,15 @@ if (not(defined $product_ref)) {
 	display_error_and_exit($request_ref, sprintf(lang("no_product_for_barcode"), $code), 404);
 }
 
-my $image_ref = deep_get($product_ref, @image_path);
+my $image_ref;
+
+if (defined $imgid) {
+	$image_ref = deep_get($product_ref, "images", "uploaded", $imgid);
+}
+elsif ((defined $image_type) and (defined $image_lc)) {
+	$image_ref = deep_get($product_ref, "images", "selected", $image_type, $image_lc);
+	$id = $image_type . '_' . $image_lc;
+}
 
 if (not(defined $image_ref)) {
 	display_error_and_exit($request_ref, lang("api_result_product_image_not_found"), 404);
@@ -122,7 +120,6 @@ else {
 }
 
 my $path = product_path_from_id($product_id);
-my $rev = $product_ref->{images}{$id}{rev};
 my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $imagetext;
 
 my $display_image_url;
