@@ -92,7 +92,7 @@ sub get_or_refresh_token ($self) {
 	else {
 		my $now = time();
 		my $cutoff = $self->{token}->{expires_at} - 30;
-		if ($cutoff > $self->{token}->{expires_at}) {
+		if ($now > $cutoff) {
 			$self->{token} = get_token_using_client_credentials();
 			$self->{token}->{expires_at} = time() + $self->{token}->{expires_in};
 		}
