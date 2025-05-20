@@ -93,7 +93,7 @@ synonyms:it: senza, 0%, zero
 synonyms:nl: zonder, 0%
 synonyms:pt: sem, 0%, livre de, zero
 synonyms:ru: без, 0%, 0 %
-synonyms:sv: utan, inga, ingen, inget, noll, 0%
+synonyms:sv: utan, inga, ingen, inget, noll, 0%, fritt från, fri från
 
 synonyms:fi: lisätty
 synonyms:fr: ajout, adjonction
@@ -1341,6 +1341,13 @@ fr: FSC Recyclé, FSC Recyclage
 it: FSC Riciclato
 pt: FSC Reciclado
 sv: FSC Recycled
+
+en: PlantPack
+xx: PlantPack, plant pack, PlantPack by Cloetta
+# brand:xx: Cloetta
+image:en: plantpack.128x90.svg
+label_categories:en: en:Packaging
+web:en: https://www.cloetta.com/en/about-cloetta/plantpack/
 
 en: without nano-particles
 de: ohne Nanopartikel
@@ -4503,6 +4510,7 @@ nl: Zonder kunstmatige kleurstoffen, Vrij van kunstmatige kleurstoffen
 pl: Bez sztucznych barwników
 pt: Sem cores artificiais, sem cor artificial, sem corantes artificiais, sem corante artificial
 ru: без искусственных красителей
+sv: Inga artificiella färgämnen
 th: ไม่เติมสีสังเคราะห์
 label_categories:en: en:Health, en:Additives
 
@@ -19086,6 +19094,7 @@ hu: Fenntartható pálmaolaj
 it: Olio di palma sostenibile
 nl: Duurzame palmolie
 pt: Óleo de palma sustentável
+sv: Hållbarhetscertifierad palmolja
 ingredients:en: en:palm-oil
 wikidata:en: Q686421
 
