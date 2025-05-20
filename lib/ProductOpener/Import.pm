@@ -401,7 +401,7 @@ sub upload_images_for_product($args_ref, $images_ref, $product_ref, $imported_pr
 
 				# select the photo
 				if (
-					($imagefield_with_lc =~ /front|ingredients|nutrition|packaging/)
+					($imagefield_with_lc =~ /$valid_image_types_regexp/)
 					and (
 						(
 							not(    (defined $args_ref->{only_select_not_existing_images})
@@ -2553,7 +2553,7 @@ sub import_csv_file ($args_ref) {
 
 		foreach my $field (sort keys %{$imported_product_ref}) {
 
-			next if $field !~ /^image_((front|ingredients|nutrition|packaging|other)(_\w\w)?(_\d+)?)_file/;
+			next if $field !~ /^image_(($valid_image_types_regexp|other)(_\w\w)?(_\d+)?)_file/;
 
 			my $imagefield = $1;
 
@@ -2572,8 +2572,7 @@ sub import_csv_file ($args_ref) {
 			# image_other_url.2	: a second "other" photo
 
 			next
-				if $field
-				!~ /^image_((?:front|ingredients|nutrition|packaging|other)(?:_[a-z]{2})?)_url(_[a-z]{2})?(\.[0-9]+)?$/;
+				if $field !~ /^image_((?:$valid_image_types_regexp|other)(?:_[a-z]{2})?)_url(_[a-z]{2})?(\.[0-9]+)?$/;
 
 			my $imagefield = $1 . ($2 || '');    # e.g. image_front_url_fr or image_front_url_fr -> front_fr
 			my $number = $3;

@@ -100,7 +100,7 @@ use ProductOpener::Display qw/search_and_export_products/;
 use ProductOpener::Food qw/%nutriments_tables/;
 use ProductOpener::Data qw/get_products_collection/;
 use ProductOpener::Products qw/product_path/;
-use ProductOpener::Images qw/add_images_urls_to_product/;
+use ProductOpener::Images qw/add_images_urls_to_product $valid_image_types_regexp/;
 use ProductOpener::EnvironmentalScore qw/localize_environmental_score/;
 use ProductOpener::ProductsFeatures qw(feature_enabled);
 
@@ -611,7 +611,7 @@ sub export_csv ($args_ref) {
 							}
 						}
 						elsif ($field
-							=~ /^image_(front|ingredients|nutrition|packaging)_(\w\w)_(x1|y1|x2|y2|angle|normalize|white_magic|coordinates_image_size)/
+							=~ /^image_($valid_image_types_regexp)_(\w\w)_(x1|y1|x2|y2|angle|normalize|white_magic|coordinates_image_size)/
 							)
 						{
 							# Coordinates for image cropping
@@ -695,7 +695,7 @@ sub include_image_paths ($product_ref, $populated_fields_ref, $other_images_ref)
 	my %selected_images = ();
 	foreach my $imageid (sort keys %{$product_ref->{images}}) {
 
-		if ($imageid =~ /^(front|ingredients|nutrition|packaging|other)_(\w\w)$/) {
+		if ($imageid =~ /^($valid_image_types_regexp)_(\w\w)$/) {
 
 			$selected_images{$product_ref->{images}{$imageid}{imgid}} = 1;
 			$populated_fields_ref->{"image_" . $imageid . "_file"} = sprintf("%08d", 10 * 1000) . "_" . $imageid;

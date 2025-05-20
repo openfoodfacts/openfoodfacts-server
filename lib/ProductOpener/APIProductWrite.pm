@@ -408,7 +408,7 @@ sub update_images_selected ($request_ref, $product_ref, $response_ref) {
 	foreach my $image_type (sort keys %{$input_product_ref->{images}{selected}}) {
 
 		# Check if the image type is valid
-		if ($image_type !~ /^(front|ingredients|nutrition|packaging)$/) {
+		if (defined $valid_image_types{$image_type}) {
 			add_error(
 				$response_ref,
 				{

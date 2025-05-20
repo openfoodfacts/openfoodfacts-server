@@ -31,7 +31,7 @@ use ProductOpener::Display qw/init_request/;
 use ProductOpener::HTTP qw/write_cors_headers single_param/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/$Owner_id $User_id %User/;
-use ProductOpener::Images qw/is_protected_image process_image_crop/;
+use ProductOpener::Images qw/is_protected_image process_image_crop get_image_type_and_image_lc_from_imagefield/;
 use ProductOpener::Products
 	qw/normalize_code product_data_is_protected product_id_for_owner retrieve_product process_product_edit_rules/;
 
@@ -87,11 +87,8 @@ my $product_ref = retrieve_product($product_id);
 # the id field is of the form [image_type]_[image_lc]
 my $image_type;
 my $image_lc;
-if ($id =~ /^(front|ingredients|nutrition|packaging)_([a-z]{2})$/) {
-	$image_type = $1;
-	$image_lc = $2;
-}
-else {
+my ($image_type, $image_lc) = get_image_type_and_image_lc_from_imagefield($id);
+if (not defined $image_type) {
 	my $data = encode_json(
 		{
 			status =>

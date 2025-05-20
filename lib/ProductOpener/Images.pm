@@ -124,6 +124,9 @@ BEGIN {
 		@CLOUD_VISION_FEATURES_FULL
 		@CLOUD_VISION_FEATURES_TEXT
 
+		%valid_image_types
+		$valid_image_types_regexp
+
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -173,6 +176,28 @@ gif, jpeg, jpf, png, heic
 
 my $supported_extensions = "gif|jpeg|jpg|png|heic";
 
+=head2 VALID IMAGE TYPES
+
+Depending on the product type, different image types are allowed.
+e.g. food, pet food and beauty products have an "ingredients" image type.
+
+=cut
+
+%valid_image_types = (
+	front => 1,
+	packaging => 1
+);
+
+if (feature_enabled("ingredients")) {
+	$valid_image_types{ingredients} = 1;
+}
+
+if (feature_enabled("nutrition")) {
+	$valid_image_types{nutrition} = 1;
+}
+
+$valid_image_types_regexp = join("|", sort keys %valid_image_types);
+
 =head1 FUNCTIONS
 
 =head2 get_image_type_and_image_lc_from_imagefield ($imagefield)
@@ -198,7 +223,7 @@ sub get_image_type_and_image_lc_from_imagefield ($imagefield) {
 	my $image_type = undef;
 	my $image_lc = undef;
 
-	if ($imagefield =~ /^(.*?)(?:_(\w\w))?$/) {
+	if ($imagefield =~ /^($valid_image_types_regexp)(?:_(\w\w))?$/) {
 		$image_type = $1;
 		$image_lc = $2;
 	}
@@ -608,7 +633,7 @@ sub get_code_and_imagefield_from_file_name ($l, $filename) {
 
 	$filename =~ s/(table|nutrition(_|-)table)/nutrition/i;
 
-	if ($filename =~ /((front|ingredients|nutrition|packaging)((_|-)\w\w\b)?)/i) {
+	if ($filename =~ /(($valid_image_types_regexp)((_|-)\w\w\b)?)/i) {
 		$imagefield = lc($1);
 		$imagefield =~ s/-/_/;
 	}
@@ -651,7 +676,7 @@ sub get_imagefield_from_string ($l, $filename) {
 
 	$filename =~ s/(table|nutrition(_|-)table)/nutrition/i;
 
-	if ($filename =~ /((front|ingredients|nutrition|packaging)((_|-)\w\w\b)?)/i) {
+	if ($filename =~ /(($valid_image_types_regexp)((_|-)\w\w\b)?)/i) {
 		$imagefield = lc($1);
 		$imagefield =~ s/-/_/;
 	}

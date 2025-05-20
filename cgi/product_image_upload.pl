@@ -34,7 +34,7 @@ use ProductOpener::Lang qw/$lc lang/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
 use ProductOpener::Images
-	qw/get_code_and_imagefield_from_file_name is_protected_image process_image_crop process_image_upload scan_code/;
+	qw/get_code_and_imagefield_from_file_name is_protected_image process_image_crop process_image_upload scan_code $valid_image_types_regexp/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::APIProductWrite qw/:all/;
@@ -226,10 +226,10 @@ if ($imagefield) {
 	$response_ref->{files}[0]{name} = $product_name;
 
 	# Some apps may be passing a full locale like imagefield=front_pt-BR
-	$imagefield =~ s/^(front|ingredients|nutrition|packaging|other)_(\w\w)-.*/$1_$2/;
+	$imagefield =~ s/^($valid_image_types_regexp)_(\w\w)-.*/$1_$2/;
 
 	# For apps that do not specify the language associated with the image, try to assign one
-	if ($imagefield =~ /^(front|ingredients|nutrition|packaging|other)$/) {
+	if ($imagefield =~ /^($valid_image_types_regexp)$/) {
 		# If the product exists, use the main language of the product
 		# otherwise if the product was just created above, we will get the current $lc
 		$imagefield .= "_" . $product_ref->{lc};
@@ -311,7 +311,7 @@ if ($imagefield) {
 		$response_ref->{image} = $image_data_ref;
 
 		# Select the image
-		if ($imagefield =~ /^(front|ingredients|nutrition|packaging)_(\w\w)$/) {
+		if ($imagefield =~ /^($valid_image_types_regexp)_(\w\w)$/) {
 
 			my $image_type = $1;
 			my $image_lc = $2;
