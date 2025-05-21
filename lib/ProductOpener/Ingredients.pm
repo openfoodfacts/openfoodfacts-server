@@ -5997,13 +5997,6 @@ sub clean_ingredients_text ($product_ref) {
 				$text = clean_ingredients_text_for_lang($text, $language);
 
 				if ($text ne $product_ref->{"ingredients_text_" . $language}) {
-
-					my $time = time();
-
-					# Keep a copy of the original ingredients list just in case
-					$product_ref->{"ingredients_text_" . $language . "_ocr_" . $time}
-						= $product_ref->{"ingredients_text_" . $language};
-					$product_ref->{"ingredients_text_" . $language . "_ocr_" . $time . "_result"} = $text;
 					$product_ref->{"ingredients_text_" . $language} = $text;
 				}
 
