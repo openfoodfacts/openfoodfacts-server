@@ -37,6 +37,12 @@ use URI::Escape::XS qw/uri_escape/;
 
 use Log::Any '$log', default_adapter => 'Stderr';
 
+# Turn warnings into exceptions
+local $SIG{__WARN__} = sub {
+	my $message = shift;
+	die $message;
+};
+
 my $keycloak = ProductOpener::Keycloak->new();
 
 my $keycloak_partialimport_endpoint = $keycloak->{users_endpoint} =~ s/\/users/\/partialImport/r;
@@ -73,8 +79,7 @@ sub create_user_in_keycloak_with_scrypt_credential ($keycloak_user_ref) {
 	$upsert_user_request->content($json);
 	my $upsert_user_response = LWP::UserAgent::Plugin->new->request($upsert_user_request);
 	unless ($upsert_user_response->is_success) {
-		print "$json\n";
-		$log->error($userid . ": " . $upsert_user_response->content);
+		$log->error("$userid : Keycloak error: " . $upsert_user_response->content . "\n$userid : Request: $json\n");
 		return;
 	}
 
@@ -114,12 +119,9 @@ sub import_users_in_keycloak ($users_ref) {
 
 sub migrate_user ($userid, $anonymize) {
 	my $keycloak_user_ref = convert_to_keycloak_user($userid, $anonymize);
-	if (not(defined $keycloak_user_ref)) {
-		$log->warn('unable to convert user_ref');
-		return;
+	if (defined $keycloak_user_ref) {
+		create_user_in_keycloak_with_scrypt_credential($keycloak_user_ref);
 	}
-
-	create_user_in_keycloak_with_scrypt_credential($keycloak_user_ref);
 
 	return;
 }
@@ -128,50 +130,56 @@ sub convert_to_keycloak_user ($userid, $anonymize) {
 	my $user_file = "$BASE_DIRS{USERS}/$userid.sto";
 	my $user_ref = retrieve($user_file);
 	if (not(defined $user_ref)) {
-		$log->warn('undefined $user_ref');
+		$log->warn("$userid : Unable to read .sto file");
 		return;
 	}
 
-	my $credential
-		= $anonymize ? undef : convert_scrypt_password_to_keycloak_credentials($user_ref->{'encrypted_password'});
-	my $name = ($anonymize ? $userid : $user_ref->{name});
-	# Inverted expression from: https://github.com/keycloak/keycloak/blob/2eae68010877c6807b6a454c2d54e0d1852ed1c0/services/src/main/java/org/keycloak/userprofile/validator/PersonNameProhibitedCharactersValidator.java#L42C63-L42C114
-	$name =~ s/[<>&"$%!#?§;*~\/\\|^=\[\]{}()\x00-\x1F\x7F]+//g;
+	my $keycloak_user_ref;
+	eval {
+		my $credential
+			= $anonymize ? undef : convert_scrypt_password_to_keycloak_credentials($user_ref->{'encrypted_password'});
+		my $name = ($anonymize ? $userid : $user_ref->{name});
+		# Inverted expression from: https://github.com/keycloak/keycloak/blob/2eae68010877c6807b6a454c2d54e0d1852ed1c0/services/src/main/java/org/keycloak/userprofile/validator/PersonNameProhibitedCharactersValidator.java#L42C63-L42C114
+		$name =~ s/[<>&"$%!#?§;*~\/\\|^=\[\]{}()\x00-\x1F\x7F]+//g;
 
-	my $keycloak_user_ref = {
-		enabled => $JSON::PP::true,
-		username => $userid,
-		attributes => {
-			# Truncate name more than 255 because of UTF-8 encoding. Could do this more precisely...
-			name => substr($name, 0, 128),
-			locale => $user_ref->{preferred_language},
-			country => country_to_cc($user_ref->{country} || 'en:world'),
-			registered => 'registered',    # The prevents welcome emails from being sent
-			importTimestamp => time(),
-			importSourceChangedTimestamp => (stat($user_file))[9]
-		},
-		createdTimestamp => ($user_ref->{registered_t} // time()) * 1000
+		$keycloak_user_ref = {
+			enabled => $JSON::PP::true,
+			username => $userid,
+			attributes => {
+				# Truncate name more than 255 because of UTF-8 encoding. Could do this more precisely...
+				name => substr($name, 0, 128),
+				locale => $user_ref->{preferred_language} || 'en',
+				country => country_to_cc($user_ref->{country} || 'en:world') || 'world',
+				registered => 'registered',    # The prevents welcome emails from being sent
+				importTimestamp => time(),
+				importSourceChangedTimestamp => (stat($user_file))[9]
+			},
+			createdTimestamp => ($user_ref->{registered_t} // time()) * 1000
+		};
+		if (defined $credential) {
+			$keycloak_user_ref->{credentials} = [$credential];
+		}
+
+		my $email = sanitise_email($user_ref->{email});
+		my $email_status = $user_emails->{$email};
+
+		if ($anonymize) {
+			$keycloak_user_ref->{email} = 'off.' . $userid;
+			$keycloak_user_ref->{emailVerified} = $JSON::PP::true;
+		}
+		elsif (not defined $email_status or $email_status->{invalid} or $email_status->{userid} ne $userid) {
+			$keycloak_user_ref->{attributes}{old_email} = $user_ref->{email};
+		}
+		else {
+			$keycloak_user_ref->{email} = $email;
+			# Currently, the assumption is that all users have verified their email address. This is not true, but it's better than forcing all existing users to verify their email address.
+			$keycloak_user_ref->{emailVerified} = $JSON::PP::true;
+		}
 	};
-	if (defined $credential) {
-		$keycloak_user_ref->{credentials} = [$credential];
+	if ($@) {
+		$log->warn("$userid : Error converting user: $@\n$userid : User_ref: " . encode_json($user_ref) . "\n");
+		return;
 	}
-
-	my $email = sanitise_email($user_ref->{email});
-	my $email_status = $user_emails->{$email};
-
-	if ($anonymize) {
-		$keycloak_user_ref->{email} = 'off.' . $userid;
-		$keycloak_user_ref->{emailVerified} = $JSON::PP::true;
-	}
-	elsif (not defined $email_status or $email_status->{invalid} or $email_status->{userid} ne $userid) {
-		$keycloak_user_ref->{attributes}{old_email} = $user_ref->{email};
-	}
-	else {
-		$keycloak_user_ref->{email} = $email;
-		# Currently, the assumption is that all users have verified their email address. This is not true, but it's better than forcing all existing users to verify their email address.
-		$keycloak_user_ref->{emailVerified} = $JSON::PP::true;
-	}
-
 	return $keycloak_user_ref;
 }
 
