@@ -29,7 +29,7 @@ C<ProductOpener::Images> is used to:
 - select and crop product images
 - run OCR on images
 - display product images
-
+*
 =head1 Product images on disk
 
 Product images are stored in html/images/products/[product barcode split with slashes]/
@@ -1503,8 +1503,8 @@ sub normalize_generation_ref($generation_ref) {
 	my $new_generation_ref = {};
 
 	if (defined $generation_ref) {
-		if ((defined $generation_ref->{angle}) and ($generation_ref->{angle} != 0)) {
-			$new_generation_ref->{angle} = $generation_ref->{angle};
+		if ((defined $generation_ref->{angle}) and ($generation_ref->{angle} % 360 != 0)) {
+			$new_generation_ref->{angle} = $generation_ref->{angle} % 360;	# Force integer
 		}
 		if ((defined $generation_ref->{normalize}) and (isTrue($generation_ref->{normalize}))) {
 			$new_generation_ref->{normalize} = $generation_ref->{normalize};
@@ -1519,7 +1519,7 @@ sub normalize_generation_ref($generation_ref) {
 			and (defined $generation_ref->{y2})
 			and (($generation_ref->{x1} != $generation_ref->{x2}) and ($generation_ref->{y1} != $generation_ref->{y2})))
 		{
-			$new_generation_ref->{coordinates_image_size} = $generation_ref->{coordinates_image_size} || $crop_size;
+			$new_generation_ref->{coordinates_image_size} = ($generation_ref->{coordinates_image_size} || $crop_size) . '';	# Force string
 			# Also make sure we store integers
 			$new_generation_ref->{x1} = int($generation_ref->{x1});
 			$new_generation_ref->{y1} = int($generation_ref->{y1});

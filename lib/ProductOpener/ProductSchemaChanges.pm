@@ -66,6 +66,7 @@ use ProductOpener::Tags qw/compute_field_tags/;
 use ProductOpener::Products qw/normalize_code/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Booleans qw/normalize_boolean/;
+use ProductOpener::Images qw/normalize_generation_ref/;
 
 use Data::DeepAccess qw(deep_get deep_set);
 use boolean ':all';
@@ -255,19 +256,16 @@ sub convert_schema_1001_to_1002_refactor_images_object ($product_ref) {
 				my ($type, $lc) = ($1, $2);
 				# Put keys related to cropping / rotation / normalization inside a "generation" structure
 				my $image_ref = $product_ref->{images}->{$imgid};
-				my $generation_ref = {};
-				foreach my $key (keys %{$image_ref}) {
-					if ($key !~ /^(imgid|rev|sizes)/) {
-						$generation_ref->{$key} = $image_ref->{$key};
-						# Normalize boolean values
-						if (($key eq 'normalize') or ($key eq 'white_magic')) {
-							$image_ref->{$key} = normalize_boolean($image_ref->{$key});
-						}
-						delete $image_ref->{$key};
-					}
+				my $new_image_ref = {
+					imgid => $image_ref->{imgid},
+					rev => $image_ref->{rev},
+					sizes => $image_ref->{sizes},
+				};
+				my $generation_ref = normalize_generation_ref($image_ref);
+				if (defined $generation_ref) {
+					$new_image_ref->{generation} = $generation_ref;
 				}
-				$image_ref->{generation} = $generation_ref;
-				deep_set($selected_ref, $type, $lc, $image_ref);
+				deep_set($selected_ref, $type, $lc, $new_image_ref);
 			}
 		}
 		$product_ref->{images} = {

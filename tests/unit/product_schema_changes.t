@@ -404,6 +404,38 @@ my @tests = (
 					x2 => "3024.7198587148587",
 					y1 => "522.7062563284228",
 					y2 => "1252.7512501737215"
+				},
+				nutrition_it => {
+					angle => "360",
+					coordinates_image_size => 400,
+					geometry => "513x730-2511-522",
+					imgid => "2",
+					normalize => 1,
+					rev => "7",
+					sizes => {
+						100 => {
+							h => 100,
+							w => 70
+						},
+						200 => {
+							h => 200,
+							w => 141
+						},
+						400 => {
+							h => 400,
+							w => 281
+						},
+						full => {
+							h => 730,
+							w => 513
+						}
+					},
+					white_magic => "on",
+					x1 => undef,
+					x2 => undef,
+					y1 => undef,
+					y2 => undef,
+					some_extra_key => "some_extra_value"
 				}
 
 			}
