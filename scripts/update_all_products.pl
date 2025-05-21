@@ -651,11 +651,11 @@ while (my $product_ref = $cursor->next) {
 		if ($remove_previous_ingredients_with_timestamp) {
 			# build a regex for keys like:
 			# ingredients_text_en_ocr_1545921985
-			# ingredients_text_en_ocr_1545732141_result 
+			# ingredients_text_en_ocr_1545732141_result
 			my $re = qr/^ingredients_text_[a-z]{2}_ocr_\d+(?:_result)?$/;
 
 			foreach my $field (sort keys %{$product_ref}) {
-				if ( $field =~ $re ) {
+				if ($field =~ $re) {
 					delete $product_ref->{$field};
 				}
 			}
