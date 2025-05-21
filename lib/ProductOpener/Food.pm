@@ -316,7 +316,7 @@ Assign a value with a unit and an optional modifier (< or ~) to a nutrient in th
 
 =head4 $product_ref
 
-=head4 $nid 
+=head4 $nid
 
 Nutrient id, possibly suffixed with "_prepared"
 
@@ -862,45 +862,46 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'--elaidic-acid-', '--gondoic-acid-',
 			'--mead-acid-', '--erucic-acid-',
 			'--nervonic-acid-', '-trans-fat-',
-			'-cholesterol-', '!carbohydrates',
-			'-sugars', '--added-sugars-',
-			'--sucrose-', '--glucose-',
-			'--fructose-', '--galactose-',
-			'--lactose-', '--maltose-',
-			'--maltodextrins-', '-starch-',
-			'-polyols-', '--erythritol-',
-			'!fiber', '-soluble-fiber-',
-			'-insoluble-fiber-', '!salt',
-			'-added-salt-', 'sodium',
-			'alcohol', '#vitamins',
-			'vitamin-a-', 'beta-carotene-',
-			'vitamin-d-', 'vitamin-e-',
-			'vitamin-k-', 'vitamin-c-',
-			'vitamin-b1-', 'vitamin-b2-',
-			'vitamin-pp-', 'vitamin-b6-',
-			'vitamin-b9-', 'folates-',
-			'vitamin-b12-', 'biotin-',
-			'pantothenic-acid-', '#minerals',
-			'silica-', 'bicarbonate-',
-			'potassium-', 'chloride-',
-			'calcium-', 'phosphorus-',
-			'iron-', 'magnesium-',
-			'zinc-', 'copper-',
-			'manganese-', 'fluoride-',
-			'selenium-', 'chromium-',
-			'molybdenum-', 'iodine-',
-			'caffeine-', 'taurine-',
-			'ph-', 'fruits-vegetables-nuts-',
-			'fruits-vegetables-nuts-dried-', 'fruits-vegetables-nuts-estimate-',
-			'collagen-meat-protein-ratio-', 'cocoa-',
-			'chlorophyl-', 'carbon-footprint-',
-			'carbon-footprint-from-meat-or-fish-', 'nutrition-score-fr-',
-			'nutrition-score-uk-', 'glycemic-index-',
-			'water-hardness-', 'choline-',
-			'phylloquinone-', 'beta-glucan-',
-			'inositol-', 'carnitine-',
-			'sulphate-', 'nitrate-',
-			'acidity-', 'carbohydrates-total-',
+			'-cholesterol-', '-gamma-oryzanol-',
+			'!carbohydrates', '-sugars',
+			'--added-sugars-', '--sucrose-',
+			'--glucose-', '--fructose-',
+			'--galactose-', '--lactose-',
+			'--maltose-', '--maltodextrins-',
+			'-starch-', '-polyols-',
+			'--erythritol-', '!fiber',
+			'-soluble-fiber-', '-insoluble-fiber-',
+			'!salt', '-added-salt-',
+			'sodium', 'alcohol',
+			'#vitamins', 'vitamin-a-',
+			'beta-carotene-', 'vitamin-d-',
+			'vitamin-e-', 'vitamin-k-',
+			'vitamin-c-', 'vitamin-b1-',
+			'vitamin-b2-', 'vitamin-pp-',
+			'vitamin-b6-', 'vitamin-b9-',
+			'folates-', 'vitamin-b12-',
+			'biotin-', 'pantothenic-acid-',
+			'#minerals', 'silica-',
+			'bicarbonate-', 'potassium-',
+			'chloride-', 'calcium-',
+			'phosphorus-', 'iron-',
+			'magnesium-', 'zinc-',
+			'copper-', 'manganese-',
+			'fluoride-', 'selenium-',
+			'chromium-', 'molybdenum-',
+			'iodine-', 'caffeine-',
+			'taurine-', 'ph-',
+			'fruits-vegetables-nuts-', 'fruits-vegetables-nuts-dried-',
+			'fruits-vegetables-nuts-estimate-', 'collagen-meat-protein-ratio-',
+			'cocoa-', 'chlorophyl-',
+			'carbon-footprint-', 'carbon-footprint-from-meat-or-fish-',
+			'nutrition-score-fr-', 'nutrition-score-uk-',
+			'glycemic-index-', 'water-hardness-',
+			'choline-', 'phylloquinone-',
+			'beta-glucan-', 'inositol-',
+			'carnitine-', 'sulphate-',
+			'nitrate-', 'acidity-',
+			'carbohydrates-total-',
 		)
 	],
 	# https://eur-lex.europa.eu/eli/reg/2009/767/2018-12-26
@@ -948,7 +949,7 @@ foreach my $region (keys %nutriments_tables) {
 
 =head2 canonicalize_nutriment ( $product_ref )
 
-Canonicalizes the nutrients input by the user in the nutrition table product edit. 
+Canonicalizes the nutrients input by the user in the nutrition table product edit.
 This sub converts these nutrients (which are arguments to this function), into a recognizable/standard form.
 
 =head3 Parameters
