@@ -74,6 +74,19 @@ my $tests_ref = [
 										normalize => false
 									}
 								},
+								es => {
+									imgid => "1",
+									generation => {
+										angle => 90,
+										x1 => 10,
+										y1 => 20,
+										x2 => 100,
+										y2 => 200,
+										coordinates_image_size => "full",
+										white_magic => true,
+										normalize => false
+									}
+								},
 								en => {
 									imgid => "1",
 									generation => {

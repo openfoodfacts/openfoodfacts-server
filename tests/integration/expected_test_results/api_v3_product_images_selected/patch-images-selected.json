@@ -55,10 +55,10 @@
                      }
                   }
                },
-               "fr" : {
+               "es" : {
                   "generation" : {
                      "angle" : 90,
-                     "coordinates_image_size" : 400,
+                     "coordinates_image_size" : "full",
                      "white_magic" : true,
                      "x1" : 10,
                      "x2" : 100,
@@ -67,6 +67,37 @@
                   },
                   "imgid" : "1",
                   "rev" : 5,
+                  "sizes" : {
+                     "100" : {
+                        "h" : 100,
+                        "w" : 50
+                     },
+                     "200" : {
+                        "h" : 180,
+                        "w" : 90
+                     },
+                     "400" : {
+                        "h" : 180,
+                        "w" : 90
+                     },
+                     "full" : {
+                        "h" : 180,
+                        "w" : 90
+                     }
+                  }
+               },
+               "fr" : {
+                  "generation" : {
+                     "angle" : 90,
+                     "coordinates_image_size" : "400",
+                     "white_magic" : true,
+                     "x1" : 10,
+                     "x2" : 100,
+                     "y1" : 20,
+                     "y2" : 200
+                  },
+                  "imgid" : "1",
+                  "rev" : 6,
                   "sizes" : {
                      "100" : {
                         "h" : 100,

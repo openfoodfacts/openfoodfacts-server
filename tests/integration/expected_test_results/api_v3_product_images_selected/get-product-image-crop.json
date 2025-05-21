@@ -357,6 +357,37 @@
                      }
                   }
                },
+               "es" : {
+                  "generation" : {
+                     "angle" : 90,
+                     "coordinates_image_size" : "full",
+                     "white_magic" : true,
+                     "x1" : 10,
+                     "x2" : 100,
+                     "y1" : 20,
+                     "y2" : 200
+                  },
+                  "imgid" : "1",
+                  "rev" : "5",
+                  "sizes" : {
+                     "100" : {
+                        "h" : 100,
+                        "w" : 50
+                     },
+                     "200" : {
+                        "h" : 180,
+                        "w" : 90
+                     },
+                     "400" : {
+                        "h" : 180,
+                        "w" : 90
+                     },
+                     "full" : {
+                        "h" : 180,
+                        "w" : 90
+                     }
+                  }
+               },
                "fr" : {
                   "generation" : {
                      "angle" : 90,
@@ -368,7 +399,7 @@
                      "y2" : 200
                   },
                   "imgid" : "1",
-                  "rev" : "5",
+                  "rev" : "6",
                   "sizes" : {
                      "100" : {
                         "h" : 100,
@@ -418,20 +449,24 @@
       "lang" : "en",
       "languages" : {
          "en:english" : 1,
-         "en:french" : 1
+         "en:french" : 1,
+         "en:spanish" : 1
       },
       "languages_codes" : {
          "en" : 1,
+         "es" : 1,
          "fr" : 1
       },
       "languages_hierarchy" : [
          "en:english",
-         "en:french"
+         "en:french",
+         "en:spanish"
       ],
       "languages_tags" : [
          "en:english",
          "en:french",
-         "en:2",
+         "en:spanish",
+         "en:3",
          "en:multilingual"
       ],
       "last_edit_dates_tags" : "--ignore--",
@@ -557,21 +592,24 @@
       "product" : {},
       "product_type" : "food",
       "removed_countries_tags" : [],
-      "rev" : 10,
+      "rev" : 11,
       "schema_version" : 1002,
       "selected_images" : {
          "ingredients" : {
             "display" : {
                "en" : "http://images.openfoodfacts.localhost/images/products/123/456/789/0012/ingredients_en.4.400.jpg",
-               "fr" : "http://images.openfoodfacts.localhost/images/products/123/456/789/0012/ingredients_fr.5.400.jpg"
+               "es" : "http://images.openfoodfacts.localhost/images/products/123/456/789/0012/ingredients_es.5.400.jpg",
+               "fr" : "http://images.openfoodfacts.localhost/images/products/123/456/789/0012/ingredients_fr.6.400.jpg"
             },
             "small" : {
                "en" : "http://images.openfoodfacts.localhost/images/products/123/456/789/0012/ingredients_en.4.200.jpg",
-               "fr" : "http://images.openfoodfacts.localhost/images/products/123/456/789/0012/ingredients_fr.5.200.jpg"
+               "es" : "http://images.openfoodfacts.localhost/images/products/123/456/789/0012/ingredients_es.5.200.jpg",
+               "fr" : "http://images.openfoodfacts.localhost/images/products/123/456/789/0012/ingredients_fr.6.200.jpg"
             },
             "thumb" : {
                "en" : "http://images.openfoodfacts.localhost/images/products/123/456/789/0012/ingredients_en.4.100.jpg",
-               "fr" : "http://images.openfoodfacts.localhost/images/products/123/456/789/0012/ingredients_fr.5.100.jpg"
+               "es" : "http://images.openfoodfacts.localhost/images/products/123/456/789/0012/ingredients_es.5.100.jpg",
+               "fr" : "http://images.openfoodfacts.localhost/images/products/123/456/789/0012/ingredients_fr.6.100.jpg"
             }
          }
       },

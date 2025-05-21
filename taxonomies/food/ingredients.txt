@@ -73,6 +73,7 @@ synonyms:en: pasteurised, pasteurized
 synonyms:fr: de production biologique, issu de l'agriculture biologique
 
 synonyms:en: wholemeal, whole, whole grain, wholegrain, complete
+synonyms:sv: fullkorn, fullkorns
 
 synonyms:en: semi-wholemeal, semi-whole, semi-whole grain, semi-wholegrain, semi-complete, semiwhole, semiwholemeal
 
@@ -898,6 +899,8 @@ sv: bivax vitt och gult
 < en:E942
 nl: E942 en E941
 
+en: cyclamate, cyclamates
+wikidata:en: Q76824182
 
 # description:en:Sodium cyclamate (sweetener code 952) is an artificial sweetener.
 
@@ -928,6 +931,7 @@ sr: Natrijum ciklamat
 sv: Natriumcyklamat
 th: โซเดียมไซคลาเมต
 vi: Natri cyclamat
+wikidata:en: Q407786
 wikipedia:en: https://en.wikipedia.org/wiki/Sodium_cyclamate
 
 < en:E1105
@@ -2381,7 +2385,7 @@ wikipedia:fr: https://fr.wikipedia.org/wiki/Beurre_doux
 # ingredient/unsalted-butter has 755 products in 5 languages @2019-07-10
 
 < en:unsalted butter
-en: 82% fat unsalted Butter
+en: 82% fat unsalted butter
 fr: Beurre à 82% MG doux
 hr: neslani maslac 82% masti
 it: Burro non salato 82% di grassi, burro dolce 82% di grassi
@@ -2389,10 +2393,8 @@ ciqual_food_code:en: 16400
 ciqual_food_name:en: Butter, 82% fat, unsalted
 ciqual_food_name:fr: Beurre à 82% MG, doux
 
-< en:unsalted butter
-en: 82% fat unsalted butter
-fr: Beurre à 82% MG doux
-hr: neslani maslac 82% masti
+< en:82% fat unsalted butter
+en: 82% fat unsalted easy-to-spread butter
 it: Burro morbido non salato 82% di grassi, burro morbido dolce 82% di grassi
 ciqual_food_code:en: 16404
 ciqual_food_name:en: Butter, 82% fat, unsalted, easy-to-spread
@@ -8586,6 +8588,7 @@ en: buffalo mozzarella, buffalo milk mozzarella
 fr: mozzarella de bufflonne, mozzarella au lait de bufflonne
 hr: buffalo mozzarella
 it: mozzarella di bufala
+pl: ser mozzarella z mleka bawolego, ser mozzarella di Bufala
 
 < en:mozzarella
 en: low moisture mozzarella
@@ -9605,791 +9608,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/American_cheese
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
-#                                                  V I T A M I N S     S E C T I O N
-#
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-# description:en: A vitamin is an organic molecule (or related set of molecules) which is an essential micronutrient that an organism needs in small quantities for the proper functioning of its metabolism. This ingredient is written in plural
-
-en: Vitamins, vitamin, vit.
-af: Vitamien, vit.
-ar: فيتامين
-as: ভিটামিন
-az: Vitaminlər, vit.
-ba: Витаминдар
-be: Вітаміны, Вітамін
-bg: Витамини, Витамин, vitamins, vit.
-bn: ভিটামিন
-bs: Vitamini, Vitamin, vit.
-ca: vitamina, vitamines, vit.
-cs: Vitaminy, vitamín, vit.
-cv: Витамин
-cy: Fitaminau, Fitamin
-da: Vitaminer, Vitamin, vit.
-de: Vitamine, Vitamin, Vitaminmischung, vit.
-dv: ވިޓަމިން
-el: Βιταμίνες, Βιταμίνη
-eo: vitamino
-es: Vitaminas, vitamina, vit.
-et: Vitamiin, Vitamiinid, vit.
-eu: Bitamina
-fa: ویتامین
-fi: Vitamiinit, vitamiini, vit.
-fo: Vitamin
-fr: Vitamines, vitamine, mélange de vitamines, vit.
-ga: Vitimín, vit.
-gl: Vitamina, vit.
-he: ויטמין
-hi: विटामिन
-hr: vitamin, vitamini, vitaminska mješavina, vit.
-ht: Vitamin, vit.
-hu: Vitaminok, vitamin, vit.
-hy: Վիտամին
-ia: Vitamina, vit.
-id: Vitamin, vit.
-is: Vítamín, vit.
-it: Vitamine, vit.
-ja: ビタミン
-jv: Vitamin, vit.
-ka: ვიტამინი
-kk: Дәрумен
-km: វីតាមីន
-kn: ಜೀವಸತ್ವಗಳು
-ko: 비타민
-ky: Витаминдер
-la: Vitaminum, vit.
-lb: Vitamin, vit.
-lg: Vitamin, vit.
-lo: ວິຕາມິນ
-lt: Vitaminai, Vitaminas, vit.
-lv: Vitamīni, vit.
-mk: Витамин
-ml: ജീവകം
-mr: जीवनसत्त्व
-ms: Vitamin, vit.
-mt: Vitamini, vit.
-my: ဗီတာမင်
-nb: Vitaminer, vitamin, vit.
-ne: भिटामिन
-nl: Vitamines, vitaminen, Vitamine, vit.
-nn: Vitaminer, vitamin, vit.
-no: vitaminer, vitamin, vit.
-nv: Vitamine, vit.
-oc: Vitamina, vit.
-or: ଜୀବସାର
-pa: ਵਿਟਾਮਿਨ
-pl: Witamina, Witaminy
-ps: ويټامين
-pt: Vitaminas, vitamina, Premezcla de Vitaminas, vit.
-ro: Vitamine, Vitamină, vit.
-ru: витамин
-sh: Vitamini, Vitamin, vit.
-si: විටමින්
-sk: Vitamíny, vitamín, vit.
-sl: Vitamini, Vitamin, vit.
-so: Fiitamiin
-sq: Vitamina, Vitaminat, vit.
-sr: Витамини, витамин
-su: Vitamin, vit.
-sv: Vitaminer, Vitamin, vit.
-sw: Vitamini, vit.
-ta: உயிர்ச்சத்து
-te: విటమిన్
-tg: Витамин
-th: วิตามิน
-tk: Witamin
-tl: Bitamina
-tr: Vitamin, vit.
-tt: Витамин
-uk: Вітаміни
-ur: حیاتین
-uz: Vitaminlar, vit.
-vi: vitamin, vit.
-wa: Vitamene, vit.
-yi: וויטאמין
-yo: Àmínìamáralókun
-zh: 维生素
-vegan:en: yes
-vegetarian:en: yes
-# ast:Vitamina
-# be-tarask:Вітаміны
-# cdo:Mì-sĕng-só
-# ckb:ڤیتامین
-# de-ch:Vitamin
-# dty:भिटामिन
-# en-ca:Vitamin
-# en-gb:Vitamin
-# frr:Vitamiin
-# hak:Ví-ta-mìn
-# kaa:Vitamin
-# koi:витамин
-# lmo:Vitamina
-# nan:Bî-tá-mín
-# pnb:ਵਿਟਾਮਿਨ
-# pt-br:vitamina
-# rue:Витамин
-# scn:Vitamini, Vitamina
-# sco:vitamin
-# sr-ec:Витамини, витамин
-# sr-el:vitamin
-# tyv:Витаминнер
-# war:Bitamina
-# xmf:ვიტამინეფი
-# yue:維他命
-#wikidata:en:Q34956
-wikipedia:en: https://en.wikipedia.org/wiki/Vitamin
-
-
-# description:en:Vitamin A is a group of unsaturated nutritional organic compounds that includes retinol, retinal, retinoic acid
-# and several provitamin A carotenoids (most notably beta-carotene).
-
-< en:vitamins
-en: vitamin A
-af: Vitamien A
-ar: فيتامين ألف
-az: A vitamini
-bg: витамин А, vitamin A
-bs: Vitamin A
-ca: Vitamina A, Vitamina A (Retinol)
-cs: vitamín A
-cy: Fitamin A
-da: Vitamin A
-de: Vitamin A, Vitamin A (Retinol)
-dv: ވިޓަމިން އޭ
-eo: Vitamino A
-es: vitamina A, Vitamina A (Retinol)
-et: A-vitamiin
-eu: A bitamina
-fa: ویتامین آ
-fi: A-vitamiini
-fo: A vitamin
-fr: vitamine A, Vitamine A (rétinol)
-gl: Vitamina A
-he: A ויטמין
-hi: विटामिन ए
-hr: vitamin A
-hu: A-vitamin
-id: Vitamin A
-is: A-vítamín
-it: vitamina A, Vitamina A (Retinolo)
-ja: ビタミンA
-jv: Vitamin A
-ka: ვიტამინი A
-kn: ಎ ಜೀವಸತ್ವ
-ko: 비타민 A
-lt: Vitaminas A
-lv: A vitamīns
-mk: Витамин А
-ml: ജീവകം എ
-mn: Витамин А
-mr: अ-जीवनसत्त्व
-ms: Vitamin A
-nb: Vitamin A
-ne: भिटामिन ए
-nl: vitamine A
-nn: vitamin A, A-vitamin
-oc: Vitamina A
-or: ଜୀବସାର କ
-pa: ਵਿਟਾਮਿਨ ਏ
-pl: witamina A
-ps: ويټامين اې
-pt: vitamina A
-ro: vitamine A
-ru: витамин А
-rw: Vitamini A
-sh: Vitamin A
-si: විටමින් A
-sl: Vitamin A
-sq: Vitamina A
-sr: vitamin A
-sv: vitamin A
-sw: Vitamini A
-ta: உயிர்ச்சத்து ஏ
-te: విటమిన్ ఎ
-th: วิตามินเอ
-tr: A vitamini
-tt: А витамины
-ug: ۋىتامىن A
-uk: Вітамін A
-ur: ریئٹنول
-vi: Vitamin A
-zh: 維生素A
-# ast:Vitamina A
-# en-ca:Vitamin A
-# en-gb:Vitamin A
-# jbo:abumoi mivytcuxu'i
-# kk-cyrl:А витамині
-# kk-kz:А витамині
-# lfn:Vitamina A
-# pt-br:Vitamin A
-# scn:Vitamina A
-# sco:Vitamin A
-# sr-ec:витамин А
-# sr-el:vitamin A
-# tyv:А витамины
-# wuu:维生素A
-# zh-hans:维生素A
-# zh-hant:維生素A
-wikidata:en: Q18225
-wikipedia:en: https://en.wikipedia.org/wiki/Vitamin_A
-# vitamin/vitamin-a has 1768 products in 17 languages @2018-11-20
-
-
-
-
-
-
-
-
-
-# description:en:Riboflavin, also known as vitamin B2, is a vitamin found in food and used as a dietary supplement.
-
-< en:vitamins
-en: Riboflavin, vitamin b2, E101, B2
-af: Riboflavien
-ar: فيتامين ب2
-be: Рыбафлавін
-bg: Рибофлавин, Витамин B2
-bn: রিবোফ্লেবিন
-bs: Vitamin B2
-ca: riboflavina, Vitamina B2
-cs: riboflavin, vitamín B2
-cy: Ribofflafin, Fitamin B2
-da: Riboflavin, Vitamin B2
-de: Riboflavin, Vitamin B2
-dv: ވިޓަމިން ބީ2
-el: ριβοφλαβίνη, βιταμίνη Β2
-eo: riboflavino, vitamino B2
-es: riboflavina, vitamina b2
-et: Riboflaviin, Vitamiin B2
-eu: B2 bitamina
-fa: ویتامین ب۲
-fi: Riboflaviini
-fo: Riboflavin, Vitamin B2
-fr: riboflavine, vitamine b2, B2
-ga: Ribeaflaivin
-gl: Riboflavina, Vitamina B2
-he: ויטמין B2
-hi: रिबोफ्लेविन, विटामिन बी२
-hr: riboflavin, Vitamin B2, B2
-hu: Riboflavin, B2-vitamin
-hy: Վիտամին B2
-id: Riboflavin, Vitamin B2
-it: riboflavina, vitamina B2
-ja: リボフラビン, ビタミンB2
-kk: Рибофлавин
-ko: 리보플래빈, 바이타민 B2
-ky: Рибофлавин, Витамин В2
-lb: Riboflavin, Vitamin B2
-lt: Riboflavinas
-lv: Riboflavīns, B2 vitamīns
-mk: Рибофлавин
-ml: റൈബോഫ്ലേവിൻ
-ms: Riboflavin, Vitamin B2
-mt: Riboflavina
-nb: Riboflavin
-ne: भिटामिन बी-२
-nl: Riboflavine, vitamine B2
-nn: riboflavin, vitamin B2
-oc: Riboflavina, Vitamina B2
-or: ରାଇବୋଫ୍ଲାଭିନ, ଜୀବସାର ଖ୨
-pl: Ryboflawina, ryboflawiny, Witamina B2
-pt: riboflavina, vitamina B2
-ro: Riboflavină, Vitamina B2
-ru: рибофлавин, Витамин B2
-rw: Vitamini B2
-sh: Vitamin B2
-sk: Riboflavín, Vitamín B2
-sl: Riboflavin, Vitamin B2
-sr: riboflavin, vitamin B2
-su: Riboflavin
-sv: Riboflavin, Vitamin B2, B2
-ta: ரிபோஃபிளாவின்
-th: ไรโบเฟลวิน
-tr: Riboflavin, B2 vitamini
-uk: Рибофлавін, Вітамін B2
-uz: Riboflavin
-vi: Riboflavin
-wa: Riboflavene, Vitamene B2
-zh: 核黄素
-vegan:en: maybe
-# ingredient/vitamin-b2 has 4263 products in 10 languages @2018-11-23
-vegetarian:en: yes
-# ast:Vitamina B2
-# be-tarask:Рыбафлявін
-# de-ch:Riboflavin
-# en-ca:Riboflavin
-# en-gb:Riboflavin
-# pt-br:riboflavina
-# sco:Riboflavin
-# sr-ec:витамин Б2
-# sr-el:riboflavin, vitamin B2
-# tyv:Витамин В2
-# zh-cn:核黄素
-# zh-hans:核黄素
-# zh-hant:核黄素
-# zh-hk:核黄素
-# zh-sg:核黄素
-# zh-tw:核黄素
-wikidata:en: Q130365
-wikipedia:en: https://en.wikipedia.org/wiki/Riboflavin
-
-
-# description:en:Niacin, also known as nicotinic acid, is an organic compound and a form of vitamin B3, an essential human nutrient.
-
-< en:vitamins
-en: niacin, vitamin b3, vitamin PP, E375, B3, PP
-af: Niasien
-ar: نياسين
-be: Нікацінавая кіслата
-bg: Никотинова киселина, Витамин B3, Витамин PP
-bs: Vitamin B3
-ca: niacina, Vitamina B3, Vitamina PP
-cs: niacin, vitamín B3, vitamín PP
-cy: Niacin, Fitamin B3
-da: Niacin
-de: Niacin, Vitamin B3
-dv: ވިޓަމިން ބީ3
-eo: niacino, vitamino B3
-es: niacina, Vitamina B3, vitamina PP
-et: Niatsiin, Vitamiin B3
-eu: Niazina, B3 bitamina
-fa: ویتامین ب۳
-fi: Niasiini, B3-vitamiini
-fo: Niacin
-fr: niacine, vitamine b3, Vitamine PP
-ga: Aigéad nicitíneach
-gl: Niacina, Vitamina B3
-he: ויטמין B3
-hi: नाइयासिन
-hr: niacin, Vitamin B3, B3
-hu: Niacin, B3-vitamin, PP-vitamin, B3
-hy: Վիտամին B3
-id: Niasin, Vitamin B3
-it: niacina, vitamina PP
-ja: ナイアシン, ビタミンB3, ビタミンPP
-nl: Niacine, Vitamine B3, Vitamine PP
-pl: witamina b3, niacyna
-ru: Ниацин, витамин B3, витамин PP, E375, B3, никотиновая кислота
-sv: vitamin B3, B3
-# ast:Vitamina B3
-# azb:ویتامین ب۳
-# en-ca:Niacin
-# en-gb:Niacin
-wikidata:en: Q134658
-wikipedia:en: https://en.wikipedia.org/wiki/Niacin
-# ingredient/vitamin-b3 has 744 products in 8 languages @2018-11-23
-
-
-# description:en:Nicotinamide (NAM), also known as niacinamide, is a form of vitamin B3 found in food and used as a dietary supplement and medication.
-
-
-< en:vitamin B3
-en: Nicotinamide, niacinamide
-ar: نيكوتيناميد
-bg: никотинамид
-ca: niacinamida
-cs: Nikotinamid
-cy: nicotinamid
-de: Nicotinamid
-el: νικοτιναμίδη
-eo: nikotinamido
-fi: nikotiiniamidi, niasiiniamidi
-fr: nicotinamide, niacinamide
-hi: निकोटिनामाइड
-hr: nikotinamid
-hu: Nikotinamid
-hy: Նիկոտինամիդ
-id: Nikotinamida
-it: Nicotinamide
-ja: ニコチンアミド
-ko: 니코틴아마이드
-lv: nikotīnamīds
-nl: Nicotinamide
-or: ନିକୋଟିନାମାଇଡ଼
-pl: nikotynoamid
-pt: nicotinamida
-ru: Никотинамид
-sh: Nikotinamid
-sr: никотинамид
-tr: Nikotinamid
-uk: Нікотинамід
-vi: Nicotinamide
-zh: 烟酰胺
-# sr-ec:Никотинамид
-# sr-el:Nikotinamid
-# zh-cn:烟酰胺
-# zh-hans:烟酰胺
-# zh-hant:煙醯胺
-# zh-hk:菸鹼醯胺
-# zh-sg:烟酰胺
-# zh-tw:菸鹼醯胺
-wikidata:en: Q192423
-wikipedia:en: https://en.wikipedia.org/wiki/Nicotinamide
-# ingredient/fr:nicotinamide has 172 products in 2 languages @2019-01-16
-
-
-# description:en:Pantothenic acid, also called vitamin B5 (a B vitamin), is a water-soluble vitamin.
-< en:vitamins
-en: Pantothenic acid, vitamin B5, B5
-ar: فيتامين بي5
-bg: Пантотенова киселина, витамин B5, B5
-bs: Vitamin B5
-ca: àcid pantotènic, vitamina B5, B5
-cs: kyselina pantothenová, vitamín B5, B5
-cy: Asid pantothenig, Fitamin B5, B5
-de: Pantothensäure, Vitamin B5, B5
-dv: ވިޓަމިން ބީ5
-eo: Pantotena acido
-es: ácido pantoténico, Vitamina B5, B5
-et: Pantoteenhape, Vitamiin B5, B5
-eu: Azido pantoteniko, B5 bitamina
-fa: ویتامین ب۵
-fi: Pantoteenihappo, B5-vitamiini, B5
-fr: acide pantothénique, Vitamine B5, B5
-ga: Aigéad pantaitéineach
-gl: Ácido pantoténico, Vitamina B5
-he: ויטמין B5
-hi: विटामिन बी५
-hr: pantotenska kiselina, Vitamin B5, B5
-hu: pantoténsav, B5, B5-vitamin
-hy: Պանտոտենաթթու
-id: Asam pantotenat, Vitamin B5
-it: acido pantotenico, Vitamina B5, B5
-ja: パントテン酸, ビタミンB5
-kk: Пантотен қышқылы
-ko: 판토텐산
-ky: Пантотен кычкылы
-lb: Pantothensaier, Vitamin B5
-lt: Pantoteno rūgštis, B5
-lv: pantotēnskābe, B5 vitamīns, B5
-mk: Пантотенска киселина
-ml: പാന്റോത്തിനിക് ആസിഡ്
-mn: Пантотений хүчил
-ms: Asid pantotenik
-nb: pantotensyre
-nl: pantoteenzuur, Pantotheenzuur, B5
-oc: Acid pantotenic, Vitamina B5
-pl: kwas pantotenomy, Witamina B5, B5
-pt: ácido pantoténico, Vitamina b5, B5
-ro: acid pantotenic, vitamina B5, B5
-ru: пантотеновая кислота, Витамин B5, B5
-sh: Vitamin B5
-sk: Kyselina pantoténová, Vitamín B5, B5
-sl: Pantonenska kislina
-sr: Пантотенска киселина, витамин Б5
-sv: pantotensyra, Vitamin B5, B5
-ta: பான்டோதெனிக் அமிலம், உயிர்ச்சத்து பி5
-th: กรดแพนโทเทนิก, วิตามินบี5
-tr: Pantotenik asit, Vitamin B5
-uk: Пантотенова кислота, Вітамін В5
-ur: پینٹوتھینک تیزاب
-vi: Axit pantothenic
-zh: 泛酸
-# azb:پانتوتنیک اسید
-# sco:pantothenic acid
-# sr-ec:Пантотенска киселина, витамин Б5
-# sr-el:Vitamin B5
-# zh-cn:泛酸
-# zh-hans:泛酸
-# zh-hant:泛酸
-# zh-hk:泛酸
-# zh-sg:泛酸
-# zh-tw:泛酸
-wikidata:en: Q179894
-wikipedia:en: https://en.wikipedia.org/wiki/Pantothenic_acid
-# vitamin/pantothenic-acid has 1373 products in 12 languages @2018-11-19
-# fr:acide-pantothénique has 900 products in 9 languages @2018-11-19
-
-
-# description:en:Another common supplemental form of the vitamin is CALCIUM PANTOTHENATE. Calcium pantothenate is often used in dietary supplements because, as a salt, it is more stable than pantothenic acid.
-
-< en:Pantothenic acid
-en: calcium pantothenate
-de: Calcium-Pantothenat
-es: pantotenato de calcio
-fi: kalsiumpantotenaatti, kalsium-d-pantotenaatti
-fr: pantothénate de calcium
-hr: kalcijev pantotenat
-hu: kalcium-pantotenát
-it: pantotenato di calcio
-ja: パントテン酸カルシウム, パントテン酸Ca
-nl: calcium pantothenaat
-nn: kalsiumpantotenat
-wikidata:en: Q27261387
-wikipedia:en: https://en.wikipedia.org/wiki/Pantothenic_acid
-# ingredient/fr:pantothénate-de-calcium has 109 products in 4 languages @2019-04-21
-
-
-# description:en:Vitamin B6 refers to a group of chemically similar compounds which can be interconverted in biological systems.
-# Should this be split up in several chemical compounds?
-
-< en:vitamins
-en: vitamin b6, pyridoxamine, B6
-ar: فيتامين بي6
-az: Piridoksalfosfat
-bg: Витамин B6
-bn: পাইরিডক্সিন
-bs: Vitamin B6
-ca: vitamina B6, piridoxina, B6
-cs: vitamín B6
-da: Vitamin B6
-de: Vitamin B6
-dv: ވިޓަމިން ބީ6
-eo: vitamino B6
-es: vitamina b6, piridoxina, B6
-et: Vitamiin B6
-eu: B6 bitamina
-fa: ویتامین ب۶
-fi: B6-vitamiini, B6, pyridoksamiini
-fr: vitamine b6, B6
-fy: Fitamine B6
-gl: Vitamina B6
-gu: વિટામિન બી૬
-he: B6 ויטמין
-hi: विटामिन बी६
-hr: vitamin B6, B6
-hu: B6-vitamin, Piridoxamin, B6
-hy: Վիտամին B6
-id: Vitamin B6
-it: vitamina B6
-ja: ビタミンB6
-jv: Vitamin B6
-ko: 비타민 B6
-ky: Витамин В6
-lv: B6 vitamīns
-mk: Витамин Б6
-mn: B6 витамин
-ms: Vitamin B6
-my: ဗီတာမင်ဘီ-၆
-ne: भिटामिन बी-६
-nl: vitamine B6
-oc: Vitamina B6
-pl: witamina B6
-pt: vitamina B6, piridoxina
-ro: Vitamina B6
-ru: Витамин B6
-rw: Vitamini B6
-sh: Vitamin B6
-sk: vitamín B6
-sl: Vitamin B6
-sr: vitamin B6
-sv: vitamin B6, B6
-ta: உயிர்ச்சத்து பி6
-th: วิตามินบี6
-uk: Вітамін B6
-uz: Piridoksin
-vi: Vitamin B6
-zh: 维生素B6
-# ast:Vitamina B6
-# en-ca:Vitamin B6
-# en-gb:Vitamin B6
-# pt-br:Vitamina B6
-# sco:Vitamin B6
-# sr-ec:Витамин Б6
-# sr-el:vitamin B6
-# tyv:Витамин Б6
-# zh-cn:维生素B6
-# zh-hans:维生素B6
-# zh-hant:维生素B6
-# zh-hk:维生素B6
-# zh-sg:维生素B6
-# sh-tw:维生素B6
-wikidata:en: Q205130
-wikipedia:en: https://en.wikipedia.org/wiki/Vitamin_B6
-# ingredient/vitamin-b6 has 2556 products in 12 languages  @2018-11-24
-
-< en:vitamin B6
-en: pyridoxine hydrochloride
-bg: пиридоксин хидрохлорид
-de: Pyridoxinhydrochlorid
-es: clorhidrato de piridoxina
-fi: pyridoksiinihydrokloridi
-fr: chlorhydrate de pyridoxine
-hr: piridoksin-hidroklorid, piridoksinhidrohlorid
-hu: Piridoxamin-hidroklorid
-nl: pyridoxine hydrochloride
-pt: cloridrato de piridoxina
-ru: пиридоксин гидрохлорид
-sr: piridoksin-hidrohlorid
-# sr-el:piridoksin-hidrohlorid
-wikidata:en: Q26841284
-# ingredient/pyridoxine-hydrochloride has 1751 products in 5 languages @2018-11-24
-
-
-# description:en:Biotin is a water-soluble B vitamin, also called vitamin B7 and formerly known as vitamin H or coenzyme R.
-
-< en:vitamins
-en: biotin, Vitamin H, Vitamin B7, B7
-ar: بيوتين
-be: біятын
-bg: биотин
-bs: Biotin
-ca: biotina, vitamina B7, Vitamina H, B7
-cs: Biotin, vitamin B7, vitamin H
-cy: Biotin
-da: Biotin
-de: Biotin, Vitamin B7, Vitamin H
-dv: ވިޓަމިން ބީ7
-el: βιοτίνη
-eo: biotino
-es: Biotina, Vitamina B7, Vitamina H, B7, D-biotina
-et: Biotiin, B7-vitamiin, H-vitamiin
-eu: Biotina, B7 bitamina
-fa: بیوتین
-fi: biotiini, B7-vitamiini, B7, H-vitamiini, D-biotiini
-fr: vitamine B7, vitamine H
-ga: Bitin
-gl: Biotina, Vitamina B7
-he: ביוטין
-hi: बायोटिन
-hr: biotin, Vitamin B7, Vitamin H, biotine
-hu: Biotin, B7-vitamin, H-vitamin, B7
-hy: Վիտամին H
-id: Biotin, Vitamin B7, Vitamin H
-it: Biotina, Vitamina B7, Vitamina H
-ja: ビオチン, ビタミンB7, ビタミンH
-kk: Биотин
-ko: 바이오틴, 비타민 B7, 비타민 H
-ky: Биотин
-lb: Biotin, Vitamin B7, Vitamin H
-lt: Biotinas, Vitaminas B7, Vitaminas H
-lv: biotīns
-mk: Биотин
-ml: ബയോട്ടിൻ
-nb: Biotin
-nl: biotine, Vitamine B7, Vitamine H
-nn: biotin
-oc: Biotina, Vitamina B7, Vitamina H
-pl: biotyna, witamina B7, witamina H
-pt: biotina, Vitamina B7, Vitamina H
-ro: Biotină, Vitamina B7, Vitamina H
-ru: биотин, Витамин B7, Витамин H
-sh: Biotin, Vitamin B7, Vitamin H
-sk: Biotín, Vitamín B7, Vitamín H
-sl: Biotin, Vitamin B7, Vitamin H
-sr: Биотин, витамин Х, Витамин Б7
-su: Biotin
-sv: Biotin, B7-vitamin, H-vitamin
-ta: பயோட்டின், உயிர்ச்சத்து பி7
-th: ไบโอติน, ตามินบี7
-tr: Biyotin, B7 vitamini, H vitamini
-uk: Біотин
-vi: Biotin
-zh: 生物素
-# azb:بیوتین
-# sco:biotin
-# sr-ec:Биотин, витамин Х, Витамин Б7
-# sr-el:Vitamin H
-# zh-cn:生物素
-# zh-hans:生物素
-# zh-hant:生物素
-# zh-hk:生物素
-# zh-sg:生物素
-# zh-tw:生物素
-wikidata:en: Q181354
-wikipedia:en: https://en.wikipedia.org/wiki/Biotin
-# ingredient/biotin has 145 products in 3 languages @2018-11-24
-
-< en:vitamins
-en: vitamin b8, B8
-ca: vitamina B8, B8
-de: Vitamin B8
-es: vitamina b8 B8
-fi: B8-vitamiini, B8
-fr: vitamine b8, b8
-hr: vitamin b8
-hu: B8-vitamin, B8
-it: vitamina b8, B8
-pl: witamina B8, B8
-pt: Vitamina B8
-# ingredient/vitamin-b8 has 35 products in 3 languages @2018-11-24
-
-
-
-
-
-
-
-# description:en:Vitamin K is a group of structurally similar, fat-soluble vitamins that the human body requires
-# for complete synthesis of certain proteins that are prerequisites for blood coagulation
-# and which the body also needs for controlling binding of calcium in bones and other tissues.
-
-< en:vitamins
-en: vitamin K
-af: Vitamien K
-ar: فيتامين ك
-az: K vitamini
-bg: Витамин K
-bs: Vitamin K
-ca: Vitamina K
-cs: vitamín K
-da: Vitamin K
-de: Vitamin K
-dv: ވިޓަމިން ކޭ
-es: Vitamina K
-eu: K bitamina
-fa: ویتامین کا
-fi: K-vitamiini, K-vitamiinit
-fr: vitamine K
-gl: Vitamina K
-he: ויטמין K
-hi: विटामिन के
-hr: vitamin K
-hu: K-vitamin
-hy: Վիտամին K
-id: Vitamin K
-is: K-vítamín
-it: vitamina K
-ja: ビタミンK
-jv: Vitamin K
-ka: ვიტამინი K
-ko: 비타민 K
-ky: Витамин К
-lt: Vitaminas K
-lv: K vitamīns
-ml: ജീവകം കെ
-mr: के-जीवनसत्त्व
-ms: Vitamin K
-my: ဗီတာမင်ကေ
-nb: Vitamin K
-ne: भिटामिन के
-nl: vitamine K
-nn: Vitamin K
-oc: Vitamina K
-pl: Witamina K
-pt: vitamina K
-ro: Vitamina K
-ru: Витамин K
-sh: Vitamin K
-sl: Vitamin K
-sr: витамин К
-su: Vitamin K
-sv: K-vitamin
-ta: உயிர்ச்சத்து கே
-th: วิตามินเค
-tr: K vitamini
-uk: Вітамін K
-vi: Vitamin K
-zh: 维生素K
-# ast:Vitamina K
-# nan:Bî-tá-mín K
-# sco:Vitamin K
-# sr-ec:витамин К
-# sr-el:vitamin K
-# tyv:Витамин К
-# zh-cn:维生素K
-# zh-hans:维生素K
-# zh-hant:维生素K
-# zh-hk:维生素K
-# zh-sg:维生素K
-# zh-tw:维生素K
-wikidata:en: Q182338
-wikipedia:en: https://en.wikipedia.org/wiki/Vitamin_K
-# ingredient/vitamin-k has 85 products in 4 languages @2018-11-25
-
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-#
 #                                                  S A L T     S E C T I O N
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -10568,6 +9786,10 @@ ciqual_food_name:en: Salt, white, for human consumption (sea, igneous or rock), 
 ciqual_food_name:fr: Sel blanc alimentaire, non iodé, non fluoré (marin, ignigène ou gemme)
 
 # description:en:SMOKED SALT is an aromatic salt smoked with any number of select bark free woods for up to 14 days.
+
+< en: rock salt
+en: salt from Salies de Béarn
+fr: sel de Salies de Béarn
 
 < en:salt
 en: Smoked salt
@@ -18452,7 +17674,9 @@ it: grasso di cartamo
 
 < en:vegetable oil
 # producedFrom:en:chia
-en: chia oil
+en: chia oil, chia seed oil
+ca: oli de xia
+da: chiaolie
 de: Chiaöl
 es: aceite de chía
 fi: chiaöljy, chia-öljy, chia-siemenöljy
@@ -18460,8 +17684,11 @@ fr: huile de chia
 hr: chia ulje
 hu: chia olaj, chiamagolaj, chiamag olaj, chia mag olaj
 it: olio di chia
+ja: チアオイル
 nl: chia-olie
+sv: chiaolja
 from_palm_oil:en: no
+wikidata:en: Q1071708
 
 < en:vegetable oil
 # producedFrom:en:hazelnut
@@ -22113,6 +21340,7 @@ fr: arôme d'érable
 hr: aroma javora
 it: aroma di acero
 
+< en:maple flavouring
 < en:natural flavouring
 en: natural maple flavouring
 fr: arôme naturel d'érable
@@ -22130,6 +21358,14 @@ en: natural maple extract
 fr: extrait naturel d'érable
 hr: prirodni ekstrakt javora
 it: estratto naturale di acero
+
+< en:flavouring
+en: arrack flavouring
+sv: arraksarom
+
+< en:flavouring
+en: mocha flavouring
+sv: mockaarom
 
 < en:flavouring
 en: plum flavouring
@@ -24403,11 +23639,6 @@ de: Getreideextrudat
 fr: extrudat de céréales
 it: estruso di cereali
 
-< en:cereal
-en: cereal extrudate
-de: Getreideextrudat
-fr: extrudat de céréales
-
 #probably more for mixed cereals
 < en:cereal
 en: crunchy cereals
@@ -24853,7 +24084,7 @@ it: frumento integrale
 lt: viso kviečių rupiniai, viso kvietiniai rupiniai, viso kvietinės rupiniai, viso kvietinis rupiniai
 nb: sammalt hvete
 nl: volkorentarwe, volkoren tarwe
-pl: pszenica z pełnego przemiału, pszenica pełnoziarnista
+pl: pszenica z pełnego przemiału, pszenica pełnoziarnista, pszenne pełnoziarniste
 pt: trigo integral
 sk: polnozrnata pšenica
 sl: pšenični polnozrnati
@@ -24897,7 +24128,7 @@ pl: płatki pszenne, chrupki pszenno-żytnie
 pt: flocos de trigo
 ro: fulgi de grâu
 sl: pšenični kosmiči
-sv: veteflingor
+sv: veteflingor, veteflinga
 th: เกล็ดข้าวสาลี
 #1457 in 19 @2021-10-22
 
@@ -24910,6 +24141,7 @@ hr: sladne pšenične pahuljice
 it: fiocchi di frumento maltato
 
 < en:wheat flakes
+< en:whole wheat
 en: whole wheat flakes
 ca: flocs de blat integral
 de: Vollkorn-Weizenflocken, Weizenvollkornflocken
@@ -24922,7 +24154,7 @@ it: Fiocchi di grano interi
 lt: pilno grūdo kviečių dribsniai, pilno grūdo kvietiniai dribsniai, pilno grūdo kvietinės dribsniai, pilno grūdo kvietinis dribsniai
 nl: volkoren tarwevlokken
 pt: flocos de trigo integral, płatki pszenne pełnoziarniste
-sv: fullkornsveteflingor, fullkorn veteflinga
+sv: fullkornsveteflingor, fullkorn veteflingor, fullkorn veteflinga
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pétales-de-blé-complet
 # 22 products in 5 languages @2018-09-22
 
@@ -25990,7 +25222,7 @@ hu: teljes kiőrésű árpa
 it: orzo integrale
 nl: volkorengerst
 nn: fulkornsbygg
-pl: jeçzmień z pełnego przemiału
+pl: jeçzmień z pełnego przemiału, jęczmienne pełnoziarniste
 pt: cevada integral
 ciqual_food_code:en: 9320
 ciqual_food_name:en: Barley, whole, raw
@@ -27074,7 +26306,7 @@ hr: integralna zob
 hu: teljes kiőrlésű zab
 it: Avena integrale
 nl: volkoren haver
-pl: pełnoziarnisty owies
+pl: pełnoziarnisty owies, owsiane pełnoziarniste
 sv: fullkornshavre
 
 < en:oat
@@ -27247,7 +26479,7 @@ it: farina di avena senza glutine
 pl: bezglutenowa mąka owsiana
 
 < en:oat
-< en:vegetable fibre
+< en:vegetable fiber
 en: oat fibre
 bg: овесени влакнини, фибри от овес
 da: Havrefibre
@@ -27281,7 +26513,7 @@ nl: glutenvrije havervezels
 pl: błonnik owsiany bezglutenowy, bezglutenowy błonnik owsiany
 
 < en:oat
-< en:vegetable fibre
+< en:vegetable fiber
 en: oat husk fiber
 de: Haferspelzfaser, Haferspelzfasern
 fr: fibre de son d'avoine
@@ -29801,10 +29033,12 @@ nl: maïsvezel
 pl: błonnik kukurydziany
 sk: kukuričná vláknina
 
-< en: corn fiber
+< en:corn fiber
 en: soluble corn fiber
 fr: Fibre soluble de maïs
+hr: topivih kukuruznih vlakana
 it: fibra di mais solubile
+pl: rozpuszczalny błonnik kukurydziany, błonnik rozpuszczalny kukurydziany
 
 < en:corn
 en: Maize bran, Corn bran
@@ -29814,11 +29048,6 @@ it: crusca di mais
 ciqual_food_code:en: 9641
 ciqual_food_name:en: Maize/corn bran
 ciqual_food_name:fr: Son de maïs
-
-< en:corn fiber
-en: soluble corn fiber
-hr: topivih kukuruznih vlakana
-pl: rozpuszczalny błonnik kukurydziany, błonnik rozpuszczalny kukurydziany
 
 < en:corn
 nl: maïspoeder
@@ -34326,6 +33555,7 @@ it: proteine vegetali testurizzate
 en: almond protein
 de: Mandelprotein
 fr: protéine d'amande
+it: proteine delle mandorle, proteine dalle mandorle, proteine (mandorle), proteina (mandorle)
 pl: białko migdałowe
 
 < en:plant protein
@@ -34403,7 +33633,8 @@ it: proteina di ceci
 
 < en:plant protein
 en: sunflower protein
-de: Sonnenblumenprotein, Eiweißpulver aus Sonnenblumenkernen
+de: Sonnenblumeneiweiß, Sonnenblumenprotein, Eiweißpulver aus Sonnenblumenkernen
+fr: protéine de tournesol
 hr: suncokretovih bjelančevina, suncokretove bjelančevine, proteini suncokreta
 it: proteine di girasole
 pl: białko słonecznika, białko słonecznikowe, białka słonecznika
@@ -34429,12 +33660,6 @@ pt: Proteína de batata
 ro: proteină de cartofi
 sv: potatisprotein
 # ingredient/fr:proteine-de-pomme-de-terre has 44 products in 4 languages @2020-05-25
-
-< en:plant protein
-en: almond protein
-de: Mandelprotein
-fr: protéine d'amande
-it: proteine delle mandorle, proteine dalle mandorle, proteine (mandorle), proteina (mandorle)
 
 # description:en:HYDROLYZED VEGETABLE PROTEIN -  products are foodstuffs obtained by protein hydrolysis
 
@@ -34482,7 +33707,6 @@ en: hydrolysed sunflower protein, hydrolyzed sunflower protein
 da: hydrolyseret solsikkeprotein
 it: proteina di girasole idrolizzata
 pl: hydrolizat białka słonecznikowego, hydrolizowane białko słonecznikowe, hydrolizat białka słonecznika
-
 
 < en:plant protein
 en: soy protein
@@ -34668,7 +33892,7 @@ nl: getextuurd tarwe-eiwit, getextureerd tarwe-eiwit
 pl: teksturat białek pszenicy, teksturowane białko pszenne, teksturowane białko pszenicy, teksturowany gluten pszenny
 # ingredient/en:textured-wheat-protein has 75 products in 3 languages @2020-06-11
 
-< en:vegetable hydrolysed protein
+< en:hydrolysed vegetable protein
 < en:wheat protein
 en: hydrolyzed wheat protein
 da: hydrolyseret hvedeprotein
@@ -34682,7 +33906,7 @@ it: proteine del grano idrolizzate
 nl: gehydroliseerd tarwe-eiwit, gehydrolyseerd tarweeiwit
 pl: hydrolizat białka pszenicy, hydrolizowane białko pszenne
 
-< en:vegetable hydrolysed protein
+< en:hydrolysed vegetable protein
 en: hydrolysed corn protein
 de: Maisproteinhydrolysat
 es: proteína de maíz hidrolizada
@@ -35057,11 +34281,6 @@ wikidata:en: Q522243
 wikipedia:en: https://en.wikipedia.org/wiki/Calcium_caseinate
 
 < en:plant protein
-en: sunflower protein
-de: Sonnenblumeneiweiß, Sonnenblumenprotein
-fr: protéine de tournesol
-
-< en:plant protein
 en: rapeseed protein
 bg: рапичен протеин
 de: Rapseiweiß
@@ -35167,14 +34386,6 @@ fr: Cacao alcalinisé
 hr: kakao obrađen lužinom
 it: Cacao trattato con agenti alcalinizzanti
 pl: kakao alkalizowane
-
-< en:cocoa-powder
-#en:processing:en:powder
-en: cocoa powder processed with alkali, alkalized cocoa powder
-es: Cacao en polvo procesado con álcali
-fr: Cacao en poudre alcalinisé
-hr: kakao prah obrađen alkalijom
-it: cacao in polvere
 
 < en:cocoa
 en: fat reduced cocoa, reduced fat cocoa, low fat cocoa, lean cocoa
@@ -35359,7 +34570,7 @@ he: אבקת קקאו
 # hr:kakao prah, kakaov prah # see ingredients_processing.txt
 hu: kakaópor
 id: Kakao padat
-#it:cacao in polvere
+it: cacao in polvere
 ja: ココアパウダー
 ko: 코코아 가루
 lt: kakavos milteliai
@@ -35446,6 +34657,7 @@ sv: fettreducerat kakaopulver, fettreducerad kakaopulver, skummet kakaopulver, f
 # ingredient/fr:cacao-en-poudre-fortement-dégraissé has 76 products @2019-05-25
 
 < en:cocoa-powder
+#en:processing:en:powder
 en: cocoa powder processed with alkali, alkalized cocoa powder
 de: Kakaopulver mit Alkalisalzen versetzt
 es: Cacao en polvo procesado con álcali
@@ -43841,7 +43053,7 @@ ar: عنب الأحراج
 be: Ягаднік
 bg: боровинка, боровинки
 cs: Borůvka
-da: bølle
+da: blåbær, bølle
 de: Heidelbeeren, Blaubeeren, Heidelbeere
 eo: mirtelo
 es: arándano, arándanos, mirtilo
@@ -43904,7 +43116,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Vaccinium_myrtillus
 en: cultivated blueberry
 bg: Сини боровинки
 cs: Borůvky
-da: Blåbærsorter
+da: blåbærsorter
 de: Kulturheidelbeeren
 # hr:borovnica
 pl: borówka amerykańska, borówki amerykańskie
@@ -43916,7 +43128,7 @@ wikidata:en: Q1791749
 < en:blueberry
 en: wild blueberry, wild blueberries
 bg: дива боровинка, диви боровинки
-da: blåbær
+da: vildt blåbær, vilde blåbær
 de: Wilde Heidelbeeren
 fi: villimustikka
 fr: myrtille sauvage
@@ -43956,7 +43168,9 @@ pl: borówka dzika, borówki dzikie
 #processing:en: en:juice
 < en:blueberry
 en: blueberry juice
+da: blåbærsaft
 it: succo di mirtillo
+sv: blåbärssaft
 #es:Jugo de zarzamora
 #fi:mustikkamehu
 #fr:jus de myrtille
@@ -44779,6 +43993,7 @@ wikipedia:fr: https://fr.wikipedia.org/wiki/Noix_de_coco
 # NOTE the oil and fat of a coconut can be found under the fats section
 # When coconut is listed as ingredient, probably the white stuff is meant. The watery stuff is probably never used? I.e. coco versus coconut
 
+< en:coconut
 #<en:compound
 en: coconut cream
 bg: кокосов крем
@@ -49584,18 +48799,6 @@ it: Žlahtina
 wikidata:en: Q394231
 wikipedia:hr: https://hr.wikipedia.org/wiki/%C5%BDlahtina
 
-< en:coconut
-en: coconut cream
-de: Kokosnusscreme
-es: Crema de coco
-fi: kookoskerma
-fr: crème de noix de coco, crème de coco
-hr: vrhnje od kokosa
-it: Crema di noce di cocco
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:crème-de-noix-de-coco
-# 33 products @2018-10-03
-nutriscore_fruits_vegetables_nuts:en: no
-
 ###################################################################################################
 #
 #                                Tamarind
@@ -51324,11 +50527,13 @@ wikipedia:en: https://en.wikipedia.org/wiki/Broccoli
 
 < en:broccoli
 en: broccoli floret, broccoli top
+da: broccolibuket, broccolibuketter
 de: Brokkoliröschen
 fr: brocolis en fleurettes, fleurettes de brocolis
 hr: cvjetić brokule
 it: fiore di broccolo
 nl: broccoliroosjes, broccoli roosjes
+sv: broccolibukett, broccolibuketter
 # ingredient/fr:brocolis-en-fleurettes has 17 products in 3 languages @2019-05-24
 carbon_footprint_fr_foodges_ingredient:fr: Brocoli (France)
 carbon_footprint_fr_foodges_value:fr: 0.4
@@ -51336,12 +50541,14 @@ eurocode_2_group_3:en: 8.15.12
 
 < en:broccoli
 en: broccoli cress
+da: broccolikarse
 de: Brokkolikresse
 es: mastuerzo
 fr: pousses de brocoli
 hr: brokula kres
 it: crescione di broccoli
 nl: broccoli cress
+sv: broccolikrasse
 # en:broccoli-cress has 1 product in 1 language @2018-10-16
 
 < en:broccoli
@@ -51412,17 +50619,20 @@ wikipedia:en: https://en.wikipedia.org/wiki/Cauliflower
 
 < en:cauliflower
 en: cauliflower florets
+da: blomkålsbuketter, blomkålsbuket
 de: Blumenkohlröschen, Blumenkohl-Röschen
 fr: Choux-fleurs en fleurettes
 hr: cvjetovi cvjetače
 it: cimette di cavolfiore
 nl: Bloemkoolroosjes
+sv: blomkålsbuketter, blomkålsbukett
 # ingredient/fr:choux-fleurs-en-fleurettes has 15 products in 6 languages @2019-05-24
 
 # description:en:POINTED CABBAGE (Brassica oleracea var. capitata f. acuta), also known as cone, sweetheart, hispi or sugarloaf cabbage is a form of cabbage (Brassica oleracea) with a tapering shape and large delicate leaves varying in colour from yellowish to blue-green. It tastes less pronounced and more delicate than common white cabbage (Brassica oleracea var. capitata f. alba).
 
 < en:brassica
 en: pointed cabbage
+da: spidskål
 de: Spitzkohl
 sv: spetskål
 wikidata:en: Q7225623
@@ -52865,7 +52075,7 @@ ciqual_food_name:en: Chicory, powder, instant
 ciqual_food_name:fr: Chicorée, poudre soluble
 
 < en:chicory
-en: extract of chicory
+en: chicory extract, extract of chicory
 bg: екстракт от цикория
 de: Zichorien-Extrakt
 es: extracto de achicoria
@@ -57271,7 +56481,7 @@ ru: руккола
 sd: ڄانڀو
 sq: sallatë manushaqeje
 sr: рукола
-sv: ruccola, ruccolasallad
+sv: rucola, rucolasallad, ruccola, ruccolasallad
 tr: roka
 uk: рукола
 zh: 芝麻菜
@@ -58381,7 +57591,7 @@ it: pomodorini, pomodorini ciliegia, pomodoro ciliegino
 ja: ミニトマト
 nl: kerstomaatjes, cherry tomaat, cheryytomaatjes, cherrytomaten, tomaatjes, snoeptomaatjes
 nn: cocktailtomater
-pl: pomidor koktajlowy, pomidory koktajlowe, pomidorów koktajlowych
+pl: pomidor koktajlowy, pomidory koktajlowe, pomidorów koktajlowych, pomidorki koktajlowe
 pt: tomates cerejas, tomates cereja
 sv: körsbärstomater, cherrytomater, cocktailtomater
 # ingredient/fr:tomates-cerise has 432 products in 10 languages @2018-12-26
@@ -58995,7 +58205,7 @@ ar: إيليوكاريس حلو
 as: শিঙৰি
 bg: китайски воден кестен
 cs: Bahnička jedlá
-da: Vandkastanje
+da: vandkastanje, vandkastanjer
 de: Wasserkastanien
 el: Κινέζικο νεροκάστανο
 eo: Akvokaŝtano
@@ -59018,7 +58228,7 @@ nl: waterkastanje, waterkastanjes, Chinese waterkastanje
 pl: Ponikło słodkie
 ru: Болотница сладкая
 sd: سنگھارا
-sv: Vattenkastanj
+sv: vattenkastanj, vattenkastanjer
 th: แห้วทรงกระเทียม
 tl: Apulid
 to: Kuta
@@ -59846,6 +59056,12 @@ zh: 荷包豆
 #nah:ayecohtli, ayocohtli
 wikidata:en: Q159753
 
+# may or may not contain bean-beans
+< en:legume
+< en:pulse
+en: mixed beans, bean mix
+sv: blandade bönor
+
 ###########################
 #
 #
@@ -60052,6 +59268,9 @@ sv: vit böna, vita bönor
 eurocode_2_group_3:en: 7.10.30
 eurocode_2_group_4:en: 7.10.30.10
 
+< en:white beans
+en: large white beans
+sv: stora vita bönor
 
 < en:white beans
 en: lingot beans, white lingot beans
@@ -60174,6 +59393,7 @@ de: Cannellini Bohnen, Cannellinibohnen
 fr: haricots cannellini
 hr: cannellini grah
 it: fagioli cannellini, cannellini
+sv: cannellinibönor, cannelliniböna
 wikidata:en: Q74663825
 
 #comment:en:Do not confuse these with mungo beans: Vigna mungo
@@ -61929,6 +61149,7 @@ fr: amande coque
 < en:almond
 en: raw almonds, Natural whole almonds, Raw natural almonds
 bg: сурови бадеми
+da: rå mandel
 de: rohe Mandeln
 es: almendras crudas
 # fr: amandes crues, amandes décortiquées # see ingredients_processing.txt
@@ -63106,7 +62327,7 @@ lv: pekanrieksti
 mt: ġewż Amerikan
 nl: pecannoot, pecannoten
 nn: pekannøtter
-pl: orzeszki pekan, Orzechy pekan łuskane
+pl: orzeszki pekan, Orzechy pekan łuskane, orzechów pekan
 pt: nozes pécan
 ro: nuci Pecan
 ru: пекан
@@ -63754,9 +62975,11 @@ description:en: Chia is grown commercially for its seed, a food rich in omega-3 
 description:it: I semi di chia, ricchi di omega-3, sono paragonabili dal punto di vista nutrizionale a quelli del lino e del sesamo.
 # ingredient/chia-seed 2376 in 18 @2021-08-20
 nutriscore_fruits_vegetables_nuts:en: no
+wikidata:en: Q27688832
 
 < en:chia seed
 en: dried chia seeds
+da: tørret chiafrø, tørrede chiafrø
 fr: Graines de chia séchées
 it: semi di chia secchi
 ciqual_food_code:en: 15047
@@ -64368,12 +63591,14 @@ wikidata:en: Q3143131
 
 < en:pepper
 en: peppercorns
+da: peberkorn
 de: Pfefferkörner
 es: pimienta en grano
 fi: Pippureita
 fr: grains de poivre
 hr: papar u zrnu
 it: grani di pepe
+sv: pepparkorn
 
 < en:pepper
 en: pepper extract
@@ -64399,12 +63624,14 @@ fi: luontainen pippuriuute
 < en:black pepper
 < en:white pepper
 en: black and white pepper
+da: sort og hvid peber
 de: schwarzer und weißer Pfeffer
 fi: musta- ja valkopippuri
 fr: Poivres noir et blanc
 hr: bijeli biber
 it: pepe nero e bianco
 nl: zwarte en witte peper
+sv: svart- och vitpeppar, svart och vit peppar
 
 < en:pepper
 en: long pepper
@@ -73167,7 +72394,7 @@ ko: 스피룰리나
 la: Spirulina platensis
 ml: സ്പൈറുലിന
 my: စပီရူလိုင်းနား
-pl: spirulina, spiruliny
+pl: spirulina, spirulíny, spiruliny
 ro: Spirulia
 ru: Спирулина
 ta: நீலப்பச்சைப்பாசி
@@ -85059,12 +84286,10 @@ pl: estry stanoli roślinnych
 sv: växtstanolester
 # ingredient/fr:esters-de-stanols-vegetaux has 4 products in 3 languages @2020-06-13
 
-en: plant stanol ester
-de: Pflanzenstanolester
+en: plant sterol ester
 es: éster de esterol vegetal, ésteres de esteroles vegetales
 fi: kasvisteroliesteri, kasvisteroliesterit
 fr: ester de stérol végétal, esters de stérol végétal
-hr: biljni stanol ester
 pl: estry steroli roślinnych
 # ingredient/fr:esters-de-sterol-vegetal has 29 products in 3 languages @2020-12-21
 vegan:en: yes
@@ -86981,7 +86206,7 @@ en: organic free range chicken eggs
 fr: oeufs frais de poules élevées en plein air issus de l'agriculture biologique
 it: uova biologiche di galline allevate all'aperto
 
-< en:category A egg
+< en:category A eggs
 < en:free range chicken eggs
 fr: Œufs de catégorie A de poules élevées en plein air, Oeufs de catégorie A de poules élevées en plein air, 9 Œufs de catégorie A de poules élevées en plein air, Œufs frais de poules élevées en plein air de catégorie A
 # ingredient/fr:oeufs-de-categorie-a-de-poules-elevees-en-plein-air has 5 products @2019-05-31
@@ -87845,6 +87070,7 @@ kn: ಸಾರ
 ky: Экстракттар
 lt: Ekstraktas
 nl: extract, extracten
+pl: ekstrakt, ekstrakty
 pt: extrato, extracto
 ru: Экстракт
 sl: ekstrat
@@ -88226,7 +87452,7 @@ fr: fibre de pois, fibres de pois
 hr: vlakna graška
 it: fibra di pisello
 nl: erwtenvezel, erwtvezel
-pl: błonnik grochowy, błonnik grochu
+pl: błonnik grochowy, błonnik grochu, włókna grochu
 ro: fibre de mazare
 # ingredient/fr:fibre-de-pois has 173 products in 7 languages @2019-04-21
 
@@ -90747,7 +89973,7 @@ ko: 빵가루
 lt: Malti džiūvėsiai
 nb: strøkavring, griljermel
 nl: paneermeel, Paneermelen
-pl: bułka tarta, bułki tartej
+pl: bułka tarta, bułki tartej, panier
 pt: pão ralado
 ru: Панировочные сухари
 sk: Strúhanka
@@ -94729,3 +93955,8 @@ pl: papryka, papryki, paprykowy, paprykowe, paprykowa
 sl: paprika
 sv: paprika
 
+< en:Minerals
+< en:Vitamins
+en: vitamin and mineral blend, vitamin and mineral mix
+it: vitamine e minerali misti
+ru: витаминно минеральный премикс, витаминный премикс
