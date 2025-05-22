@@ -29,7 +29,7 @@ C<ProductOpener::Images> is used to:
 - select and crop product images
 - run OCR on images
 - display product images
-*
+
 =head1 Product images on disk
 
 Product images are stored in html/images/products/[product barcode split with slashes]/
