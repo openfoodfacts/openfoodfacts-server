@@ -288,7 +288,7 @@ sub store_object ($path, $ref, $delete_old = 1) {
 	my $file_path = $path . '.json';
 
 	#11901: Remove once production is migrated. Use STO file if the file hasn't already been migrated
-	if (!$serialize_to_json and !-e $file_path) {
+	if (not $serialize_to_json and not -e $file_path) {
 		return store($sto_path, $ref);
 	}
 
@@ -303,7 +303,7 @@ sub store_object ($path, $ref, $delete_old = 1) {
 	elsif (-l $sto_path) {
 		my $real_path = abs_path($sto_path);
 		my $json_path = remove_extension($real_path) . '.json';
-		if (!-e $real_path and -e $json_path) {
+		if (not -e $real_path and -e $json_path) {
 			# If the existing sto link is pointing to a non-existent sto but existing json then migrate the link
 			my $relative_path = remove_extension(readlink($sto_path)) . '.json';
 			unlink($sto_path);
@@ -499,7 +499,7 @@ If the object at the $path is an sto file then an STO symbolic link will be crea
 sub link_object($name, $link) {
 	# If target is a sto file then keep the link as a sto file too. Note we use relative paths for the target file
 	#11901: Remove $serialize_to_json test once production is migrated
-	if (!$serialize_to_json or -e dirname($link) . '/' . $name . '.sto') {
+	if (not $serialize_to_json or -e dirname($link) . '/' . $name . '.sto') {
 		symlink($name . '.sto', $link . '.sto') or die("Cannot create link $link to $name, error $!");
 		return;
 	}
