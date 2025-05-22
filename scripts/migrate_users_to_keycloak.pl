@@ -231,6 +231,7 @@ sub convert_scrypt_password_to_keycloak_credentials ($hashed_password) {
 }
 
 sub validate_user_emails() {
+	print '[' . localtime() . "] Starting email validation\n";
 	open(my $invalid_user_file, '>:encoding(UTF-8)', 'invalid_users.csv') or die "Could not open invalid_users file $!";
 
 	my $all_emails = {};
@@ -282,7 +283,7 @@ sub validate_user_emails() {
 			}
 			$count++;
 			if ($count % 10000 == 0) {
-				print "Validated $count / " . scalar @files . "\n";
+				print '[' . localtime() . "] Validated $count / " . scalar @files . "\n";
 			}
 		}
 
