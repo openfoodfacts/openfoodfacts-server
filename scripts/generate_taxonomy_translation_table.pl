@@ -44,42 +44,41 @@ my @languages = qw(la en bg cs da de el es et fi fr hr hu it lt lv mt nl pl pt r
 my $entries_language = "en";
 
 my @entries = (
-"Broad beans",
-"Lima bean",
-"Common bean",
-"Lingot beans",
-"Meat bean",
-"Blue lupin",
-"White lupin",
-"Pea",
-"Grass pea",
-"Grey pea",
-"Cowpea",
-"Chickpea",
-"Lentils",
-"Einkorn",
-"Emmer",
-"Poulard wheat",
-"Mung bean",
+	"Broad beans",
+	"Lima bean",
+	"Common bean",
+	"Lingot beans",
+	"Meat bean",
+	"Blue lupin",
+	"White lupin",
+	"Pea",
+	"Grass pea",
+	"Grey pea",
+	"Cowpea",
+	"Chickpea",
+	"Lentils",
+	"Einkorn",
+	"Emmer",
+	"Poulard wheat",
+	"Mung bean",
 );
 
 binmode STDOUT, ":encoding(UTF-8)";
 
 # Output the header in CSV format, with language names
-print join("\t", map { display_taxonomy_tag("en", 'languages', $language_codes{$_}) . " ($_)" } @languages) . "\n";
-
+print join("\t", map {display_taxonomy_tag("en", 'languages', $language_codes{$_}) . " ($_)"} @languages) . "\n";
 
 foreach my $entry (@entries) {
-    my $canonical_entry = canonicalize_taxonomy_tag($entries_language, $taxonomy, $entry);
-    my @translations = ();
-    foreach my $language (@languages) {
-        my $translation = display_taxonomy_tag($language, $taxonomy, $canonical_entry);
-        if ($translation =~ /^\w\w:/) {
-            $translation = '';
-        }
-        push @translations, $translation
-    }
-    print join("\t", @translations) . "\n";
+	my $canonical_entry = canonicalize_taxonomy_tag($entries_language, $taxonomy, $entry);
+	my @translations = ();
+	foreach my $language (@languages) {
+		my $translation = display_taxonomy_tag($language, $taxonomy, $canonical_entry);
+		if ($translation =~ /^\w\w:/) {
+			$translation = '';
+		}
+		push @translations, $translation;
+	}
+	print join("\t", @translations) . "\n";
 }
 
 exit(0);
