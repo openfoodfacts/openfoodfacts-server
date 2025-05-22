@@ -8609,7 +8609,7 @@ sub detect_rare_crops($product_ref) {
 	my @rare_crops_ingredients
 		= get_ingredients_with_property_value($product_ref->{ingredients}, "rare_crop:en", "yes");
 
-	if ($#rare_crops_ingredients >= 0) {	
+	if ($#rare_crops_ingredients >= 0) {
 		add_tag($product_ref, "misc", "en:ingredients-contain-rare-crops");
 	}
 
