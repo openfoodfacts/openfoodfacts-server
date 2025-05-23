@@ -26,8 +26,8 @@ Helping your users get the Green-Score for any product
 
 
 #### Using the Raw API
-* The API is adding a new ecoscore_grade field from A to E. Technically wise, it behaves like the Nutri-Score, so you can clone part of your Nutri-Score implementation 
-* If (and only if) the server sends back a proper value (a, b, c, d or e), display the new score, otherwise, display our gray placeholder
+* The API is adding a new ecoscore_grade field from A to F. Technically wise, it behaves like the Nutri-Score, so you can clone part of your Nutri-Score implementation 
+* If (and only if) the server sends back a proper value (a, b, c, d, e or f), display the new score, otherwise, display our gray placeholder
 * [https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=environmental_score_grade](https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=environmental_score_grade)
 * {"status_verbose":"product found","product":{"ecoscore_grade":"b"},"status":1,"code":"3414280980209"}
 * https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=ecoscore_grade
@@ -37,6 +37,7 @@ Helping your users get the Green-Score for any product
     * [https://static.openfoodfacts.org/images/attributes/dist/green-score-c.svg](https://static.openfoodfacts.org/images/attributes/dist/green-score-c.svg)
     * [https://static.openfoodfacts.org/images/attributes/dist/green-score-d.svg](https://static.openfoodfacts.org/images/attributes/dist/green-score-d.svg)
     * [https://static.openfoodfacts.org/images/attributes/dist/green-score-e.svg](https://static.openfoodfacts.org/images/attributes/dist/green-score-e.svg)
+    * [https://static.openfoodfacts.org/images/attributes/dist/green-score-f.svg](https://static.openfoodfacts.org/images/attributes/dist/green-score-f.svg)
     * [https://static.openfoodfacts.org/images/attributes/dist/green-score-unknown.svg](https://static.openfoodfacts.org/images/attributes/dist/green-score-unknown.svg) 
 
 
