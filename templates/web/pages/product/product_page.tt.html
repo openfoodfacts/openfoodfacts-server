@@ -148,7 +148,7 @@
             <!-- owner -->
             [% IF owner %]
                 <p>
-                    [% FILTER format(lang("sources_manufacturer")) %]<a href="facets/editors/[% owner %]">[% owner_org.name %]</a>[% END %]
+                    [% FILTER format(lang("sources_manufacturer")) %]<a href="/facets[% canonicalize_taxonomy_tag_link("editors", owner) %]">[% owner_org.name %]</a>[% END %]
                     
                     [% IF owner_org.customer_service.email || owner_org.customer_service.link || owner_org.customer_service.phone %]
                             - [% lang("customer_service") %][% sep %]:
