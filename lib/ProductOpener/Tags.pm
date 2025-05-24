@@ -1545,10 +1545,10 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 							(defined $synonyms{$tagtype}{$lc}{$tagid})
 						and ($synonyms{$tagtype}{$lc}{$tagid} ne $lc_tagid)
 						# for additives, E101 contains synonyms that corresponds to E101(i) etc.   Make E101(i) override E101.
-						and (not($tagtype =~ /^additives(|_prev|_next|_debug)$/))
+						and (not($tagtype eq 'additives'))
 						# we have some exception when we merge packaging shapes and materials
 						# in packaging
-						and (not($tagtype =~ /^packaging(|_prev|_next|_debug)$/))
+						and (not($tagtype eq 'packaging'))
 						)
 					{
 						# issue an error
@@ -1664,7 +1664,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 		# Limit the number of passes for big taxonomies to avoid generating tons of useless synonyms
 		my $max_pass = 2;
-		if (($tagtype =~ /^additives(|_prev|_next|_debug)$/) or ($tagtype =~ /^ingredients/)) {
+		if (($tagtype eq 'additives') or ($tagtype eq 'ingredients')) {
 			$max_pass = 2;
 		}
 
@@ -2204,7 +2204,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					}
 
 					# additives has e-number as their name, and the first synonym is the additive name
-					if (    ($tagtype =~ /^additives(|_prev|_next|_debug)$/)
+					if (    ($tagtype eq "additives")
 						and (defined $synonyms_for{$tagtype}{$lc}{$lc_tagid}[1]))
 					{
 						$taxonomy_json{$tagid}{name}{$lc} .= " - " . $synonyms_for{$tagtype}{$lc}{$lc_tagid}[1];
@@ -2527,7 +2527,7 @@ sub generate_tags_taxonomy_extract ($tagtype, $tags_ref, $options_ref, $lcs_ref)
 				if (defined $synonyms_for{$tagtype}{$lc}{$lc_tagid}) {
 
 					# additives has e-number as their name, and the first synonym is the additive name
-					if (    ($tagtype =~ /^additives(|_prev|_next|_debug)$/)
+					if (    ($tagtype eq "additives")
 						and (defined $synonyms_for{$tagtype}{$lc}{$lc_tagid}[1]))
 					{
 						$taxonomy_ref->{$tagid}{name}{$lc} .= " - " . $synonyms_for{$tagtype}{$lc}{$lc_tagid}[1];
@@ -2607,16 +2607,6 @@ sub retrieve_tags_taxonomy ($tagtype, $die_if_taxonomy_cannot_be_loaded = 0) {
 	}
 	elsif (rindex($tagtype, 'data_quality_', 0) == 0) {
 		$file = "data_quality";
-	}
-
-	# Check if we have a taxonomy for the previous or the next version
-	if ($tagtype !~ /_(next|prev)/) {
-		if (-e "$result_dir/${file}_prev.result.sto") {
-			retrieve_tags_taxonomy("${tagtype}_prev");
-		}
-		if (-e "$result_dir/${file}_next.result.sto") {
-			retrieve_tags_taxonomy("${tagtype}_next");
-		}
 	}
 
 	my $taxonomy_ref = retrieve("$result_dir/$file.result.sto");
@@ -4178,7 +4168,7 @@ sub display_taxonomy_tag ($target_lc, $tagtype, $tag) {
 	}
 
 	# for additives, add the first synonym
-	if ($taxonomy =~ /^additives(|_prev|_next|_debug)$/) {
+	if ($taxonomy eq 'additives') {
 		$tagid =~ s/.*://;
 		if (    (defined $synonyms_for{$taxonomy}{$target_lc})
 			and (defined $synonyms_for{$taxonomy}{$target_lc}{$tagid})
@@ -4643,84 +4633,6 @@ sub compute_field_tags ($product_ref, $tag_lc, $field) {
 				}
 			}
 		}
-	}
-
-	# check if we have a previous or a next version and compute differences
-
-	my $debug_tags = 0;
-
-	$product_ref->{$field . "_debug_tags"} = [];
-
-	# previous version
-
-	if (exists $loaded_taxonomies{$field . "_prev"}) {
-
-		$product_ref->{$field . "_prev_hierarchy"}
-			= [gen_tags_hierarchy_taxonomy($tag_lc, $field . "_prev", $product_ref->{$field})];
-		$product_ref->{$field . "_prev_tags"} = [];
-		foreach my $tag (@{$product_ref->{$field . "_prev_hierarchy"}}) {
-			push @{$product_ref->{$field . "_prev_tags"}}, get_taxonomyid($tag_lc, $tag);
-		}
-
-		# compute differences
-		foreach my $tag (@{$product_ref->{$field . "_tags"}}) {
-			if (not has_tag($product_ref, $field . "_prev", $tag)) {
-				my $tagid = $tag;
-				$tagid =~ s/:/-/;
-				push @{$product_ref->{$field . "_debug_tags"}}, "added-$tagid";
-				$debug_tags++;
-			}
-		}
-		foreach my $tag (@{$product_ref->{$field . "_prev_tags"}}) {
-			if (not has_tag($product_ref, $field, $tag)) {
-				my $tagid = $tag;
-				$tagid =~ s/:/-/;
-				push @{$product_ref->{$field . "_debug_tags"}}, "removed-$tagid";
-				$debug_tags++;
-			}
-		}
-	}
-	else {
-		delete $product_ref->{$field . "_prev_hierarchy"};
-		delete $product_ref->{$field . "_prev_tags"};
-	}
-
-	# next version
-
-	if (exists $loaded_taxonomies{$field . "_next"}) {
-
-		$product_ref->{$field . "_next_hierarchy"}
-			= [gen_tags_hierarchy_taxonomy($tag_lc, $field . "_next", $product_ref->{$field})];
-		$product_ref->{$field . "_next_tags"} = [];
-		foreach my $tag (@{$product_ref->{$field . "_next_hierarchy"}}) {
-			push @{$product_ref->{$field . "_next_tags"}}, get_taxonomyid($tag_lc, $tag);
-		}
-
-		# compute differences
-		foreach my $tag (@{$product_ref->{$field . "_tags"}}) {
-			if (not has_tag($product_ref, $field . "_next", $tag)) {
-				my $tagid = $tag;
-				$tagid =~ s/:/-/;
-				push @{$product_ref->{$field . "_debug_tags"}}, "will-remove-$tagid";
-				$debug_tags++;
-			}
-		}
-		foreach my $tag (@{$product_ref->{$field . "_next_tags"}}) {
-			if (not has_tag($product_ref, $field, $tag)) {
-				my $tagid = $tag;
-				$tagid =~ s/:/-/;
-				push @{$product_ref->{$field . "_debug_tags"}}, "will-add-$tagid";
-				$debug_tags++;
-			}
-		}
-	}
-	else {
-		delete $product_ref->{$field . "_next_hierarchy"};
-		delete $product_ref->{$field . "_next_tags"};
-	}
-
-	if ($debug_tags == 0) {
-		delete $product_ref->{$field . "_debug_tags"};
 	}
 
 	return;
