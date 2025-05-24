@@ -22,6 +22,10 @@ properties:
       - neutral
       - bad
       - unknown
+  half_width_on_mobile:
+    type: boolean
+    description: If true, suggests that this panel could be rendered as half-width on mobile devices, allowing for side-by-side display with another half-width panel if applicable.
+    example: true
   title_element:
     $ref: ./elements/title_element.yaml
   elements:
@@ -33,7 +37,7 @@ properties:
     type: string
     description: |
       a message level, as levels we use in log.
-      It might help theming the panel visually
+      It might help theming the panel visually. Some possible values: info, recommendation
     example: info
   size:
     type: string
