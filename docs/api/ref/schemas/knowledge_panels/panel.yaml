@@ -33,7 +33,7 @@ properties:
     type: string
     description: |
       a message level, as levels we use in log.
-      It might help theming the panel visualy
+      It might help theming the panel visually
     example: info
   size:
     type: string
@@ -48,3 +48,4 @@ properties:
     items:
       type: string
       example: health
+    description: topics currently include health, environment, problem
