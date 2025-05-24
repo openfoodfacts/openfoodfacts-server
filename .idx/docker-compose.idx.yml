@@ -1,0 +1,13 @@
+
+services:
+  frontend:
+    ports:
+      - "9000:80"
+    volumes:
+      # Use tmpfs for read-only directories
+      - type: tmpfs
+        target: /opt/product-opener/html/js/dist
+      - type: tmpfs
+        target: /opt/product-opener/html/css/dist
+      - type: tmpfs
+        target: /opt/product-opener/html/images/icons/dist
