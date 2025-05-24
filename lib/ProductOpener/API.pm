@@ -751,8 +751,6 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 
 	my $customized_product_ref = {};
 
-	my $carbon_footprint_computed = 0;
-
 	# Special case if fields is empty, or contains only "none" or "raw": we do not need to localize the Environmental-Score
 
 	if ((scalar @fields) == 0) {
