@@ -14,16 +14,18 @@ properties:
     enum:
       - grade
       - percentage
-    description: 'Used to indicate how the value of this item is measured, such as "grade" for Nutri-Score and Eco-Score or "percentage" for Salt'
+    description: 'Used to indicate how the value of this item is measured, such as "grade" for Nutri-Score and Green-Score or "percentage" for Salt'
   grade:
     type: string
-    description: The value for this panel where it corresponds to a A to E grade such as the Nutri-Score of the Eco-Score.
+    description: The value for this panel where it corresponds to a A to E grade such as the Nutri-Score or the Green-Score.
     enum:
+      - a+
       - a
       - b
       - c
       - d
       - e
+      - f
       - unknown
   value:
     type: number
