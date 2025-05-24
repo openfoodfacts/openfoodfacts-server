@@ -258,7 +258,16 @@
         [% IF !(server_options_producers_platform) %]
             [% IF lc == "en" or lc == "fr" %]
                 <h3>[% lang("you_can_also_help_us") %]</h3>
-                <p>[% lang("bottom_content") %]</p>
+                <p>
+                    <a href="{{localized_donate_url}}?utm_source=login-open-food-facts"><img src="https://static.openfoodfacts.org/images/svg/donate-icon.svg" alt="{{cta_donate}}" /></a>
+                    <p>
+                    [% IF lc == "fr" %]
+                        [% lang("bottom_content_split_with_lilo") %]
+                    [% ELSE %]
+                        [% lang("bottom_content_split") %]
+                    [% END %]
+                    </p>
+                </p>
             [% END %]
         [% END %]
 
