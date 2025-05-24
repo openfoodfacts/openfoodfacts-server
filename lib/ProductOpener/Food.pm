@@ -78,6 +78,7 @@ BEGIN {
 		&compute_units_of_alcohol
 		&compute_estimated_nutrients
 
+		&has_nutrition_data_for_product_type
 		&compare_nutriments
 
 		&extract_nutrition_from_image
@@ -316,7 +317,7 @@ Assign a value with a unit and an optional modifier (< or ~) to a nutrient in th
 
 =head4 $product_ref
 
-=head4 $nid 
+=head4 $nid
 
 Nutrient id, possibly suffixed with "_prepared"
 
@@ -961,7 +962,7 @@ foreach my $region (keys %nutriments_tables) {
 
 =head2 canonicalize_nutriment ( $product_ref )
 
-Canonicalizes the nutrients input by the user in the nutrition table product edit. 
+Canonicalizes the nutrients input by the user in the nutrition table product edit.
 This sub converts these nutrients (which are arguments to this function), into a recognizable/standard form.
 
 =head3 Parameters
@@ -2255,6 +2256,47 @@ sub compute_nutriscore ($product_ref, $current_version = "2023") {
 	return;
 }
 
+=head2 has_nutrition_data_for_product_type ($product_ref, $nutrition_product_type)
+
+Check if the product has nutrition data for the given type ("" or "_prepared").
+
+=head3 Arguments
+
+=head4 $product_ref - ref to the product
+
+=head4 $nutrition_product_type - string, either "" or "_prepared"
+
+=head3 Return values
+
+=head4 0 or 1
+
+=head4 0 if the product does not have nutrition data for the given type
+
+=head4 1 if the product has nutrition data for the given type
+
+=cut
+
+sub has_nutrition_data_for_product_type ($product_ref, $nutrition_product_type) {
+
+	if (not defined $product_ref->{nutriments}) {
+		return 0;
+	}
+
+	foreach my $nid (keys %{$product_ref->{nutriments}}) {
+		if (
+			(
+				   (($nutrition_product_type eq "") and ($nid !~ /_prepared/))
+				or (($nutrition_product_type eq "_prepared") and ($nid =~ /_prepared/))
+			)
+			and ($nid =~ /_(serving|100g)$/)
+			)
+		{
+			return 1;
+		}
+	}
+	return 0;
+}
+
 =head2 compute_nutrition_data_per_100g_and_per_serving ($product_ref)
 
 Input nutrition data is indicated per 100g or per serving.
@@ -2358,11 +2400,9 @@ sub compute_nutrition_data_per_100g_and_per_serving ($product_ref) {
 				elsif ((defined $serving_quantity) and ($serving_quantity > 5)) {
 					$product_ref->{nutriments}{$nid . $product_type . "_100g"}
 						= sprintf("%.2e", $value * 100.0 / $product_ref->{serving_quantity}) + 0.0;
-
-					# Record that we have a nutrient value for this product type (with a unit, not NOVA, alcohol % etc.)
-					$nutrition_data{$product_type} = 1;
 				}
-
+				# Record that we have a nutrient value for this product type (with a unit, not NOVA, alcohol % etc.)
+				$nutrition_data{$product_type} = 1;
 			}
 		}
 		# nutrition_data_<_/prepared>_per eq '100g' or '1kg'
@@ -2409,10 +2449,9 @@ sub compute_nutrition_data_per_100g_and_per_serving ($product_ref) {
 					$product_ref->{nutriments}{$nid . $product_type . "_serving"} = sprintf("%.2e",
 						$product_ref->{nutriments}{$nid . $product_type} / 100.0 * $product_ref->{serving_quantity})
 						+ 0.0;
-
-					# Record that we have a nutrient value for this product type (with a unit, not NOVA, alcohol % etc.)
-					$nutrition_data{$product_type} = 1;
 				}
+				# Record that we have a nutrient value for this product type (with a unit, not NOVA, alcohol % etc.)
+				$nutrition_data{$product_type} = 1;
 			}
 		}
 
@@ -2451,11 +2490,7 @@ sub compute_nutrition_data_per_100g_and_per_serving ($product_ref) {
 
 	# If we have nutrient data for as sold or prepared, make sure the checkbox are ticked
 	foreach my $product_type (sort keys %nutrition_data) {
-		if (   (not defined $product_ref->{"nutrition_data" . $product_type})
-			or ($product_ref->{"nutrition_data" . $product_type} ne "on"))
-		{
-			$product_ref->{"nutrition_data" . $product_type} = 'on';
-		}
+		$product_ref->{"nutrition_data" . $product_type} = 'on';
 	}
 
 	return;
