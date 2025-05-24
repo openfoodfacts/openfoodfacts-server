@@ -152,7 +152,7 @@ use ProductOpener::URL qw(format_subdomain get_owner_pretty_path);
 use ProductOpener::Data qw(:all);
 use ProductOpener::Text
 	qw(escape_char escape_single_quote_and_newlines get_decimal_formatter get_percent_formatter remove_tags_and_quote);
-use ProductOpener::Nutriscore qw(%points_thresholds compute_nutriscore_grade);
+use ProductOpener::Nutriscore qw(%points_thresholds compute_nutriscore_grade_2023);
 use ProductOpener::EnvironmentalScore qw(localize_environmental_score);
 use ProductOpener::Attributes qw(compute_attributes list_attributes);
 use ProductOpener::KnowledgePanels qw(create_knowledge_panels initialize_knowledge_panels_options);
@@ -9798,6 +9798,10 @@ CSS
 		}
 	}
 
+	# Display estimate for Nutri-Score score and grade
+	push @nutriments, "nutriscore-score";
+	push @nutriments, "nutriscore-grade";
+
 	my $decf = get_decimal_formatter($lc);
 	my $perf = get_percent_formatter($lc, 0);
 
@@ -9851,7 +9855,15 @@ CSS
 			}
 
 			# 2021-12: now not displaying the Nutrition scores and Nutri-Score in nutrition facts table (experimental)
-			$shown = 0;
+			$shown = 1;
+		}
+
+		# Always show Nutri-Score score and grade
+		if ($nid eq 'nutriscore-score') {
+			$shown = 1;
+		}
+		if ($nid eq 'nutriscore-grade') {
+			$shown = 1;
 		}
 
 		if ($shown) {
@@ -10004,10 +10016,11 @@ CSS
 
 						if (defined $product_ref->{categories_tags}) {
 
-							my $nutriscore_grade = compute_nutriscore_grade(
+							my $nutriscore_grade = compute_nutriscore_grade_2023(
 								$product_ref->{nutriments}{$nid . "_100g"},
-								is_beverage_for_nutrition_score($product_ref),
-								is_water_for_nutrition_score($product_ref)
+								is_beverage_for_nutrition_score_2023($product_ref),
+								is_water_for_nutrition_score($product_ref),
+								is_fat_oil_nuts_seeds_for_nutrition_score($product_ref),
 							);
 
 							$values2 = uc($nutriscore_grade);
@@ -10153,10 +10166,11 @@ CSS
 
 							if ($col_id ne "std") {
 
-								my $nutriscore_grade = compute_nutriscore_grade(
+								my $nutriscore_grade = compute_nutriscore_grade_2023(
 									$product_ref->{nutriments}{$nid . "_" . $col_id},
-									is_beverage_for_nutrition_score($product_ref),
-									is_water_for_nutrition_score($product_ref)
+									is_beverage_for_nutrition_score_2023($product_ref),
+									is_water_for_nutrition_score($product_ref),
+									is_fat_oil_nuts_seeds_for_nutrition_score($product_ref),
 								);
 
 								$values2 = uc($nutriscore_grade);
@@ -10248,7 +10262,7 @@ CSS
 			# Add an extra row for specific nutrients
 			# 2021-12: There may not be a lot of value to display an extra sodium or salt row,
 			# tentatively disabling it. Keeping code in place in case we want to re-enable it under some conditions.
-			if (0 and (defined $extra_row)) {
+			if (1 and (defined $extra_row)) {
 				if ($nid eq 'sodium') {
 
 					push @{$template_data_ref->{nutrition_table}{rows}},
