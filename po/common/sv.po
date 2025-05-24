@@ -47,24 +47,24 @@ msgstr "En gemensam, gratis och öppen databas med kosmetiska produkter från he
 # OPF
 msgctxt "site_description_opf"
 msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr ""
+msgstr "En samverkande, fri och öppen databas med olika produkter från hela världen."
 
 msgctxt "tagline_opf"
 msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr ""
+msgstr "Open Products Facts samlar information och data om ett brett utbud av produkter från hela världen."
 
 msgctxt "footer_tagline_opf"
 msgid "A collaborative, free and open database of various products from around the world."
-msgstr ""
+msgstr "En samverkande, fri och öppen databas med olika produkter från hela världen."
 
 # OPFF
 msgctxt "site_description_opff"
 msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr ""
+msgstr "En samverkande, gratis och öppen databas med ingredienser, näringsfakta och information om djurfoderprodukter från hela världen."
 
 msgctxt "tagline_opff"
 msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr ""
+msgstr "Open Pet Food Facts samlar information och data om djurfoderprodukter från hela världen."
 
 msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
@@ -295,11 +295,11 @@ msgstr "Produktsida också redigerad av"
 
 msgctxt "analytical_constituents"
 msgid "Analytical constituents"
-msgstr ""
+msgstr "Analytiska beståndsdelar"
 
 msgctxt "analytical_constituents_per_1kg"
 msgid "for 1 kg"
-msgstr ""
+msgstr "för 1 kg"
 
 msgctxt "android_apk_app_icon_url"
 msgid "/images/misc/app-landing-page/download-apk/download-apk_en.svg"
@@ -312,7 +312,7 @@ msgstr "Android APK"
 # Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
-msgstr ""
+msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_Swedish.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -3935,12 +3935,12 @@ msgstr "3001234567890.front_nl.jpg: framsidan av produkten på nederländska."
 # Do not translate the file name
 msgctxt "import_photos_format_ingredients"
 msgid "3001234567890.ingredients_fr.jpg: ingredients list in French."
-msgstr ""
+msgstr "3001234567890.ingredients_fr.jpg: ingredienslista på franska."
 
 # Do not translate the file name
 msgctxt "import_photos_format_nutrition"
 msgid "3001234567890.nutrition_es.jpg: nutrition table in Spanish."
-msgstr ""
+msgstr "3001234567890.nutrition_es.jpg: näringstabell på spanska."
 
 msgctxt "add_photos"
 msgid "Add photos..."
@@ -3972,15 +3972,15 @@ msgstr "Fil mottagen"
 
 msgctxt "nutriscore_calculation_details"
 msgid "Details of the calculation of the Nutri-Score"
-msgstr ""
+msgstr "Detaljer om beräkningen av Nutri-Score"
 
 msgctxt "nutriscore_is_beverage"
 msgid "This product is considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Denna produkt betraktas som en dryck vid beräkning av Nutri-Score."
 
 msgctxt "nutriscore_is_not_beverage"
 msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Denna produkt betraktas inte som en dryck vid beräkning av Nutri-Score."
 
 msgctxt "nutriscore_positive_points"
 msgid "Positive points"
@@ -3992,23 +3992,23 @@ msgstr "Negativa poäng"
 
 msgctxt "nutriscore_proteins_negative_points_less_than_11"
 msgid "The points for proteins are counted because the negative points are less than 11."
-msgstr ""
+msgstr "Poängen för proteiner räknas eftersom de negativa poängen är färre än 11."
 
 msgctxt "nutriscore_proteins_negative_points_greater_or_equal_to_11"
 msgid "The points for proteins are not counted because the negative points are greater or equal to 11."
-msgstr ""
+msgstr "Poängen för proteiner räknas inte eftersom de negativa poängen är större än eller lika med 11."
 
 msgctxt "nutriscore_proteins_maximum_fruits_points"
 msgid "The points for proteins are counted because the points for the fruits, vegetables, nuts and colza/walnut/olive oils are at the maximum."
-msgstr ""
+msgstr "Poängen för proteiner räknas eftersom poängen för frukt, grönsaker, nötter och raps-/valnöts-/olivoljor är som högst."
 
 msgctxt "nutriscore_proteins_is_cheese"
 msgid "The points for proteins are counted because the product is in the cheeses category."
-msgstr ""
+msgstr "Poängen för proteiner räknas eftersom produkten tillhör kategorin ostar."
 
 msgctxt "nutriscore_proteins_is_added_fat"
 msgid "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
-msgstr ""
+msgstr "Produkten tillhör kategorin fetter, poängen för mättat fett ersätts med poängen för förhållandet mättat fett/fett."
 
 msgctxt "nutriscore_points_for_energy"
 msgid "Energy"
@@ -4266,7 +4266,7 @@ msgstr "Använda föregående kod"
 
 msgctxt "add_field_values"
 msgid "You can specify field values that will be added to all products for which you will send images."
-msgstr ""
+msgstr "Du kan ange fältvärden som kommer att läggas till i alla produkter som du skickar bilder för."
 
 msgctxt "add_tag_field"
 msgid "Add a field"
@@ -4278,15 +4278,15 @@ msgstr "Ta bort alla produkter"
 
 msgctxt "remove_user"
 msgid "Remove user"
-msgstr ""
+msgstr "Ta bort användare"
 
 msgctxt "remove_products_from_producers_platform"
 msgid "Remove all your products from the platform for producers"
-msgstr ""
+msgstr "Ta bort alla dina produkter från plattformen för producenter"
 
 msgctxt "remove_products_from_producers_platform_description"
 msgid "You can remove all your products from the platform for producers, for instance to start with a clean slate if there were some issues with an import. This will not affect your products in the public database."
-msgstr ""
+msgstr "Du kan ta bort alla dina produkter från plattformen för producenter, till exempel för att börja om från början om det uppstod problem med en import. Detta kommer inte att påverka dina produkter i den offentliga databasen."
 
 msgctxt "this_action_cannot_be_undone"
 msgid "Please note that this action cannot be undone."
@@ -4294,7 +4294,7 @@ msgstr "Observera att den här åtgärden inte kan ångras."
 
 msgctxt "remove_products_confirm"
 msgid "Warning: this action cannot be undone. Are you sure that you want to remove all your products from the platform for producers?"
-msgstr ""
+msgstr "Varning: den här åtgärden kan inte ångras. Är du säker på att du vill ta bort alla dina produkter från plattformen för producenter?"
 
 msgctxt "function_not_available"
 msgid "This function is not available."
@@ -4302,11 +4302,11 @@ msgstr "Denna funktion är inte tillgänglig."
 
 msgctxt "remove_products_done"
 msgid "Your products have been removed from the platform for producers."
-msgstr ""
+msgstr "Dina produkter har tagits bort från plattformen för producenter."
 
 msgctxt "ingredients_analysis_details"
 msgid "Details of the analysis of the ingredients"
-msgstr ""
+msgstr "Detaljer om analysen av ingredienserna"
 
 msgctxt "some_unknown_ingredients"
 msgid "Some ingredients could not be recognized."
@@ -4315,15 +4315,15 @@ msgstr "Vissa ingredienser kunde inte kännas igen."
 # variable names between { } must not be translated
 msgctxt "f_move_data_and_photos_to_main_language"
 msgid "Move all data and selected photos in {language} to the main language of the product: {main_language}"
-msgstr ""
+msgstr "Flytta all data och valda foton i {language} till produktens huvudspråk: {main_language}"
 
 msgctxt "move_data_and_photos_to_main_language_replace"
 msgid "Replace existing values and selected photos"
-msgstr ""
+msgstr "Ersätt befintliga värden och valda foton"
 
 msgctxt "move_data_and_photos_to_main_language_ignore"
 msgid "Keep existing values and selected photos"
-msgstr ""
+msgstr "Behåll befintliga värden och valda foton"
 
 msgctxt "done_status"
 msgid "Done"
@@ -4339,7 +4339,7 @@ msgstr "Team"
 
 msgctxt "optional"
 msgid "optional"
-msgstr ""
+msgstr "valfri"
 
 msgctxt "teams_p"
 msgid "teams"
@@ -4351,16 +4351,16 @@ msgstr "lag"
 
 msgctxt "teams_description"
 msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
-msgstr ""
+msgstr "Du kan gå med i 1 till 3 team. Produkter du lägger till eller redigerar kommer att krediteras till dig och dina team. Team kan bytas när som helst."
 
 msgctxt "teams_names_warning"
 msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
-msgstr ""
+msgstr "Teamnamn är offentliga. Skapa inte lag med namn som innehåller personuppgifter (t.ex. efternamn), varumärken (om du inte äger dem) eller något stötande."
 
 # keep %s, it can be a number "Team 1" or a name "Team XYZ"
 msgctxt "team_s"
 msgid "Team %s"
-msgstr ""
+msgstr "Team %s"
 
 msgctxt "contributor_settings"
 msgid "Contributor"
@@ -4368,23 +4368,23 @@ msgstr "Medverkande"
 
 msgctxt "contributor_settings_description"
 msgid "Those settings allow you to personalize some aspects of the website"
-msgstr ""
+msgstr "Dessa inställningar låter dig anpassa vissa aspekter av webbplatsen"
 
 msgctxt "display_barcode_in_search"
 msgid "Display barcode in search results"
-msgstr ""
+msgstr "Visa streckkod i sökresultaten"
 
 msgctxt "edit_link_in_search"
 msgid "Add an edit link in search results"
-msgstr ""
+msgstr "Lägg till en redigeringslänk i sökresultaten"
 
 msgctxt "ciqual_food_name"
 msgid "CIQUAL food name"
-msgstr ""
+msgstr "Namn på CIQUAL mat"
 
 msgctxt "ciqual_food_name_s"
 msgid "CIQUAL food name"
-msgstr ""
+msgstr "Namn på CIQUAL mat"
 
 msgctxt "ciqual_food_name_p"
 msgid "CIQUAL food names"
@@ -4396,20 +4396,20 @@ msgstr "Vi behöver din hjälp!"
 
 msgctxt "you_can_help_improve_ingredients_analysis"
 msgid "You can help us recognize more ingredients and better analyze the list of ingredients for this product and others by:"
-msgstr ""
+msgstr "Du kan hjälpa oss att känna igen fler ingredienser och bättre analysera listan över ingredienser för denna produkt och andra genom att:"
 
 msgctxt "help_improve_ingredients_analysis_1"
 msgid "Edit this product page to correct spelling mistakes in the ingredients list, and/or to remove ingredients in other languages and sentences that are not related to the ingredients."
-msgstr ""
+msgstr "Redigera den här produktsidan för att korrigera stavfel i ingredienslistan och/eller ta bort ingredienser på andra språk och meningar som inte är relaterade till ingredienserna."
 
 msgctxt "help_improve_ingredients_analysis_2"
 msgid "Add new entries, synonyms or translations to our multilingual lists of ingredients, ingredient processing methods, and labels."
-msgstr ""
+msgstr "Lägg till nya poster, synonymer eller översättningar till våra flerspråkiga listor över ingredienser, ingrediensers bearbetningsmetoder och etiketter."
 
 # Do not translate #ingredients
 msgctxt "help_improve_ingredients_analysis_instructions"
 msgid "Join the #ingredients channel on <a href=\"https://slack.openfoodfacts.org\">our Slack discussion space</a> and/or learn about <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ingredients analysis on our wiki</a>, if you would like to help. Thank you!"
-msgstr ""
+msgstr "Gå med i #ingredients på <a href=\"https://slack.openfoodfacts.org\">vårt Slack-diskussionsutrymme</a> och/eller lär dig om <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ingrediensanalys på vår wiki</a>, om du vill hjälpa till. Tack!"
 
 msgctxt "footer_producers_link"
 msgid "https://world.pro.openfoodfacts.org/"
@@ -4422,7 +4422,7 @@ msgstr "Producenter"
 # %s will be replaced by the language name
 msgctxt "add_ingredients_in_language"
 msgid "If this product has an ingredients list in %s, please add it."
-msgstr ""
+msgstr "Om den här produkten har en ingredienslista i %s, vänligen lägg till den."
 
 msgctxt "missing_barcode"
 msgid "Missing barcode"
@@ -4443,23 +4443,23 @@ msgstr "Separera flera värden med kommatecken."
 
 msgctxt "lc_note"
 msgid "If the product's packaging is in multiple languages, indicate the most visible language on the product."
-msgstr ""
+msgstr "Om produktens förpackning är på flera språk, ange det språk som är mest synligt på produkten."
 
 msgctxt "obsolete_import_note"
 msgid "Enter Yes, Y or 1 if the product is no longer available in stores."
-msgstr ""
+msgstr "Ange Ja, Y eller 1 om produkten inte längre finns i butik."
 
 msgctxt "specify_value_and_unit_or_use_default_unit"
 msgid "Specify both the value and unit, or use the default unit: %s"
-msgstr ""
+msgstr "Ange både värde och enhet, eller använd standardenheten: %s"
 
 msgctxt "specify_value_and_unit"
 msgid "Specify both the value and unit."
-msgstr ""
+msgstr "Ange både värde och enhet."
 
 msgctxt "download_sample_import_file"
 msgid "Download an XLSX template file for Excel or LibreOffice with the fields that can be imported."
-msgstr ""
+msgstr "Ladda ner en XLSX-mallfil för Excel eller LibreOffice med de fält som kan importeras."
 
 msgctxt "code_import_note"
 msgid "Barcode as it appears on the product."
@@ -4467,11 +4467,11 @@ msgstr "Streckkod som den visas på produkten."
 
 msgctxt "producer_product_id_import_note"
 msgid "Internal code used by the producer to identify the product, different from the product's barcode."
-msgstr ""
+msgstr "Intern kod som används av producenten för att identifiera produkten, annan än produktens streckkod."
 
 msgctxt "producer_version_id_import_note"
 msgid "Internal code used by the producer to identify a specific version of a product when it changes."
-msgstr ""
+msgstr "Intern kod som används av producenten för att identifiera en specifik version av en produkt när den ändras."
 
 msgctxt "categories_import_note"
 msgid "Providing a category is very important to make the product easy to search for, and to compute the Nutri-Score"
