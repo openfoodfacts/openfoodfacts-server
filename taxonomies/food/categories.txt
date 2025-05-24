@@ -42256,21 +42256,19 @@ sales_format:en: weight, package
 en: Chia, Dried chia seeds, chia seeds
 xx: Chia
 bg: Чиа
-de: Chia
+da: Chiafrø
 es: Semillas de chía, Chía
-fi: chia
 fr: Chia, graines de chia, Graines de chia séchées
-hr: Chia
-it: Chia
 ja: チアシード
 la: Salvia hispanica
-lt: Chia sėklos, Chia
-nl: Chia
+lt: Chia sėklos
 pt: Sementes de chia
+sv: Chiafrön
 agribalyse_food_code:en: 15047
 ciqual_food_code:en: 15047
 ciqual_food_name:en: Seeds, chia, dried
 ciqual_food_name:fr: Chia, graine, séchée
+expected_ingredients:en: en:chia-seed
 sales_format:en: weight, package
 wco_hs_code:en: 1207.99
 wco_hs_heading:en: 12.07
@@ -42280,11 +42278,7 @@ wikidata:en: Q1071585
 en: Coix
 xx: Coix
 de: Hirsearten
-es: Coix
-fr: Coix
 hr: Koix
-la: Coix
-nl: Coix
 wikidata:en: Q1186042
 
 < en:Coix
@@ -50445,6 +50439,7 @@ agribalyse_proxy_food_name:fr: Crème de lait, 30% MG, épaisse, rayon frais
 
 < en:Plant-based foods
 en: Plant-based creams, Plant creams, Dairy-free creams, Dairy-free cream substitutes
+da: Plantebaserede fløder
 de: Pflanzliche Sahne, Pflanzenbasierte Sahne
 es: Natas vegetales
 fi: kasvipohjaiset kermat
@@ -50453,6 +50448,7 @@ hr: Kreme na biljnoj bazi
 it: Panna vegetale
 nl: Plantaardige romen
 pl: Śmietanki roślinne, Śmietany roślinne, Śmietanki na bazie roślin
+sv: Växtbaserade grädden
 wikidata:en: Q4258412
 
 < en:Plant-based creams
@@ -50462,9 +50458,11 @@ fr: Substituts de crème fouettée sous pression
 < en:Plant-based creams
 en: Sour cream substitutes
 fr: Substituts de crème épaisse
+sv: Gräddfilsersättningar
 
 < en:Plant-based creams
 en: Plant-based creams for cooking, Dairy-free creams for cooking
+da: Plantebaserede fløder til madlavning
 de: Pflanzliche Sahne zum Kochen, Pflanzenbasierte Sahne zum Kochen
 es: Natas vegetales para cocinar
 fi: Kasvipohjaiset kermat ruuanlaittoon
@@ -50474,9 +50472,11 @@ it: Panna da cucina vegetale
 nl: Plantaardige kookromen
 pl: Śmietanki roślinne do gotowania, Śmietany roślinne do gotowania, Śmietanki na bazie roślin do gotowania
 ro: Smântână vegetală de gătit
+sv: Växtbaserade grädden för matlagning
 
 < en:Plant-based creams for cooking
 en: Coconut milks and creams, Coconut creams, coconut milks
+da: Kokosmælke og -fløder, Kokosmælk, Kokosfløder
 de: Kokosmilch, Kokosmilche, Kokosmilchen, Kokosnussmilch, Kokosnussmilche, Kokosnussmilchen
 es: Leches de coco
 fr: Laits et crèmes de coco, Laits de coco, lait de coco, Crèmes de coco, Crème de coco
@@ -50490,15 +50490,18 @@ wikidata:en: Q841779
 
 < en:Plant-based creams for cooking
 en: Almond-based creams for cooking
+da: Mandelbaserede fløder til madlavning
 de: Mandelbasierte Sahne zum Kochen
 es: Natas vegetales a base de almendra para cocinar
 fr: Crèmes végétales à base d'amande pour cuisiner
 hr: Kreme na bazi badema za kuhanje
 nl: Amandelcreme voor koken
 pl: Śmietanki migdałowe do gotowania, Śmietany migdałowe do gotowania, Śmietanki na bazie migdałów do gotowania
+sv: Mandelbaserade grädden för matlagning
 
 < en:Plant-based creams for cooking
 en: Coconut-based creams for cooking
+da: Kokosbaserede fløder til madlavning, Kokosnøddebaserede fløder til madlavning
 de: Kokosbasierte Sahne zum Kochen
 es: Natas vegetales a base de coco para cocinar
 fi: Kookospohjaiset kermat ruoanlaittoon
@@ -50507,32 +50510,45 @@ hr: Kreme za kuhanje na bazi kokosa
 it: Creme a base di cocco per la cottura
 nl: Kookkokosromen
 pl: Śmietanki kokosowe do gotowania, Śmietany kokosowe do gotowania, Śmietanki na bazie kokosa do gotowania
+sv: Kokosbaserade grädden för matlagning, Kokosnötbaserade grädden för matlagning
+
+< en:Plant-based creams for cooking
+en: Lentil-based creams for cooking
+da: Linsebaserede fløder til madlavning
+sv: Linsbaserade grädden för matlagning
 
 < en:Plant-based creams for cooking
 en: Millet-based creams for cooking
+da: Hirsebaserede fløder til madlavning
 es: Natas vegetales a base de mijo para cocinar
 fr: Crèmes végétales à base de millet pour cuisiner
 hr: Kreme na bazi prosa za kuhanje
 nl: Gierstroom voor koken
+sv: Hirsbaserade grädden för matlagning
 
 < en:Plant-based creams for cooking
 en: Oat-based creams for cooking
+da: Havrebaserede fløder til madlavning
 es: Natas vegetales a base de avena para cocinar
 fr: Crèmes végétales à base d'avoine pour cuisiner
 hr: Kreme na bazi zobi za kuhanje
 nl: Kookhaverroom, Kookhaverromen, Haverroom voor koken
 pl: Śmietanki owsiane do gotowania, Śmietany owsiane do gotowania, Śmietanki na bazie owsa do gotowania
+sv: Havrebaserade grädden för matlagning
 
 < en:Plant-based creams for cooking
 en: Rice-based creams for cooking
+da: Risbaserede fløder til madlavning
 es: Natas vegetales a base de arroz para cocinar
 fr: Crèmes végétales à base de riz pour cuisiner
 hr: Kreme na bazi riže za kuhanje
 nl: Plantaardige rijstcremes
 pl: Śmietanki ryżowe do gotowania, Śmietany ryżowe do gotowania, Śmietanki na bazie ryżu do gotowania
+sv: Risbaserade grädden för matlagning
 
 < en:Plant-based creams for cooking
 en: Soy-based creams for cooking, Soy cream preparations
+da: Sojabaserede fløder til madlavning
 de: Sojasahne, Sojasahne zum Kochen, Sojacreme flüssig
 es: Natas vegetales a base de soja para cocinar
 fi: Soijapohjaiset kermat ruoanlaittoon, Soijakermavalmisteet
@@ -50541,6 +50557,7 @@ hr: sojina vrhnja za kuhanje
 it: Creme a base di soia per cucina
 nl: Plantaardige sojaromen
 pl: Śmietanki sojowe do gotowania, Śmietany sojowe do gotowania, Śmietanki na bazie soi do gotowania
+sv: Sojabaserade grädden för matlagning
 agribalyse_food_code:en: 11214
 ciqual_food_code:en: 11214
 ciqual_food_name:en: Soy cream preparation
@@ -50548,10 +50565,12 @@ ciqual_food_name:fr: Préparation culinaire à base de soja, type "crème de soj
 
 < en:Plant-based creams for cooking
 en: Spelt-based creams for cooking
+da: Speltbaserede fløder til madlavning
 es: Natas vegetales a base de espelta para cocinar
 fr: Crèmes végétales à base d'épeautre pour cuisiner
 hr: Kreme za kuhanje na bazi pira
 nl: Plantaardige speltromen
+sv: Speltbaserade grädden för matlagning
 
 < en:Plant-based foods
 en: Egg substitutes
@@ -68682,8 +68701,8 @@ hr: Klementine
 la: Citrus x clementina
 lt: Klementinai
 nl: Clementines
-wikidata: Q460517
 sales_format:en: weight, package
+wikidata:en: Q460517
 
 < en:Clementines
 < en:Spanish fruits
@@ -68737,7 +68756,7 @@ hr: Tangerina
 it: Mandarini tangerini, Tangerini
 la: Citrus x tangerina
 nl: Tangerines
-wikidata: Q516494
+wikidata:en: Q516494
 
 < en:Citrus
 en: Oranges
@@ -70700,7 +70719,7 @@ zh: 椰枣
 agribalyse_proxy_food_code:en: 13011
 agribalyse_proxy_food_name:en: Date, pulp and peel, dried
 agribalyse_proxy_food_name:fr: Datte, pulpe et peau, sèche
-\description:en: Date, the fruit of the date palm (Phoenix dactylifera). Dry or soft dates are eaten out-of-hand, or may be pitted and stuffed with fillings such as almonds, walnuts, pecans, candied orange and lemon peel, tahini, marzipan or cream cheese.
+description:en: Date, the fruit of the date palm (Phoenix dactylifera). Dry or soft dates are eaten out-of-hand, or may be pitted and stuffed with fillings such as almonds, walnuts, pecans, candied orange and lemon peel, tahini, marzipan or cream cheese.
 # ang:fingeræppel
 # atj:Pikesaniminan
 # nah:Zōyacapolin
@@ -74204,6 +74223,7 @@ ro: Boia
 pt-BR:Páprica
 sco: paprika
 sl: Paprika
+sv: Paprikapulver
 agribalyse_food_code:en: 11049
 ciqual_food_code:en: 11049
 ciqual_food_name:en: Paprika
@@ -78570,24 +78590,18 @@ wikidata:en: Q2102385
 
 < en:Tomato sauces
 en: Ketchup
+xx: Ketchup
 bg: Кетчуп
 ca: Quètxup
-da: Ketchup
-de: Ketchup
-es: Kétchups, Krtchups, Ketchup
+es: Kétchups, Krtchups
 fi: ketsuppi
-fr: Ketchup
 he: קטשופ
 hr: ketchap
-hu: Ketchup
-it: Ketchup
 ja: ケチャップ
 lt: Kečupas
 nl: Ketchups
 pl: Ketchup, Keczup, Ketchupy
-pt: Ketchup
-ru: Кетчуп, Томатный кетчуп
-sv: Ketchup
+ru: Кетчуп
 tr: Ketçap
 agribalyse_food_code:en: 11008
 ciqual_food_code:en: 11008
@@ -78604,14 +78618,17 @@ gpc_category_name:en: Tomato Ketchup/Ketchup Substitutes (Shelf Stable)
 < en:Ketchup
 en: Tomato Ketchup
 bg: Доматен кетчуп
+da: Tomatketchup
 de: Tomatenketchup
 fr: Ketchup de tomate
 hr: Kečap
 ja: トマトケチャップ
 lt: Pomidorų kečupas
 pl: Ketchup pomidorowy, Keczup pomidorowy
+ru: Томатный кетчуп
+sv: Tomatketchup
 tr: Domates Ketçabı
-wikidata:en: Q178143
+expected_ingredients:en: en:tomato
 
 < en:Tomato sauces
 en: Neapolitan sauces
@@ -111030,7 +111047,7 @@ hr: Svježe rajčice
 it: Pomodori freschi
 nl: Verse tomaten, Verse tomaat
 pl: Pomidory świeże, Świeże pomidory
-bulk_proxy:en en:tomatoes
+bulk_proxy:en: en:tomatoes
 sales_format:en: weight, package
 season_in_country_fr:en: 6,7,8,9
 
@@ -111651,6 +111668,7 @@ pl: Pomidory suszone w proszku, Proszek z suszonych pomidorów
 < en:Ground dried vegetables
 en: Garlic powder, Granulated garlic, Dried garlic powder
 bg: Чесън на прах
+da: Hvidløgspulver
 de: Knoblauch granuliert
 es: Ajo seco molido, Ajos secos en polvo
 fi: Valkosipulijauhe
@@ -111661,6 +111679,7 @@ it: Polvere di aglio
 ja: ガーリックパウダー
 nl: Knoflookpoeders
 pl: Czosnek granulowany, Czosnek w proszku
+sv: Vitlökspulver
 tr: Sarımsak tozu
 agribalyse_food_code:en: 11023
 ciqual_food_code:en: 11023
@@ -112243,6 +112262,7 @@ it: fagioli Pinto
 ja: うずら豆
 nl: Pintobonen, Kievitsbonen
 pl: Fasola pinto
+sv: Pintobönor
 wikidata:en: Q323635
 
 < en:Common beans
