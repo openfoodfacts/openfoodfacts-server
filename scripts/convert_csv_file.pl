@@ -43,10 +43,9 @@ convert_csv_file.pl converts a CSV file with product data into a CSV file in the
 
 Usage:
 
-convert_csv_file.pl --csv_file path_to_csv_file --images_dir path_to_directory_containing_images --user_id user_id --comment "Systeme U import"
- --define lc=fr --define stores="Magasins U"
+convert_csv_file.pl --csv_file path_to_csv_file --columns_fields_file path_to_columns_fields_file --converted_csv_file path_to_converted_csv_file --source_id source_id --define field1=value1 --define field2=value2 ...
 
---define	: allows to define field values that will be applied to all products.
+--define	: allows to define field values that will be applied to all products (e.g.  --define lc=fr --define stores="Magasins U"	)
 
 TXT
 	;

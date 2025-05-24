@@ -101,21 +101,16 @@ sub load_categories_packagings_materials_stats() {
 
 =head1 FUNCTIONS
 
-=head2 extract_packagings_from_image( $product_ref $id $ocr_engine $results_ref )
+=head2 extract_packagings_from_image( $product_ref, $image_type, $image_lc, $ocr_engine, $results_ref )
 
 Extract packaging data from packaging info / recycling instructions photo.
 
 =cut
 
-sub extract_packaging_from_image ($product_ref, $id, $ocr_engine, $results_ref) {
+sub extract_packaging_from_image ($product_ref, $image_type, $image_lc, $ocr_engine, $results_ref) {
 
-	my $lc = $product_ref->{lc};
-
-	if ($id =~ /_(\w\w)$/) {
-		$lc = $1;
-	}
-
-	extract_text_from_image($product_ref, $id, "packaging_text_from_image", $ocr_engine, $results_ref);
+	extract_text_from_image($product_ref, $image_type, $image_lc, "packaging_text_from_image", $ocr_engine,
+		$results_ref);
 
 	# TODO: extract structured data from the text
 	if (($results_ref->{status} == 0) and (defined $results_ref->{packaging_text_from_image})) {

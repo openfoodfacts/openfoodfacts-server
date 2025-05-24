@@ -53,6 +53,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Ingredients qw/flatten_sub_ingredients/;
 use ProductOpener::API qw/add_error customize_response_for_product normalize_requested_code/;
 use ProductOpener::URL qw(format_subdomain);
+use ProductOpener::Images qw(add_images_urls_to_product);
 
 my $cc;
 
