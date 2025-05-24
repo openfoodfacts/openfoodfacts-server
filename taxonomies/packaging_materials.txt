@@ -5,6 +5,7 @@ synonyms:fr: biosourcé, bio-sourcé
 
 synonyms:fr: transparent, transparente
 
+synonyms:en: colored, coloured
 synonyms:fr: coloré, colorée
 
 synonyms:it: materiale, materiali
@@ -14,6 +15,8 @@ synonyms:it: mista, misto, miste, misti
 synonyms:it: riciclabili, riciclabile
 
 synonyms:it: riciclato, riciclata, riciclati, riciclate
+
+synonyms:da: genbrugt, genanvendt
 
 stopwords:en: 100%
 stopwords:fr: 100%
@@ -77,7 +80,7 @@ be: пластма́са
 bg: Пластмаса
 ca: plàstic
 cs: umělá hmota
-da: Plast
+da: plastik, plastic, plast, plaststof, formstof
 de: Kunststoff, Kunstoff, plastik
 el: πλαστικό
 es: Plástico
@@ -101,7 +104,7 @@ pt: Plástico
 ru: Пластик
 sk: plast
 sl: plastika
-sv: plast
+sv: plast, plaster, plastic
 tr: plastik
 uk: пластма́са
 zh: 塑料
@@ -243,7 +246,7 @@ ar: مادة معاد تدويرها
 bg: Рециклиран материал
 ca: Material reciclat
 cs: Recyklovaný materiál
-da: Genbrugsmateriale
+da: Genbrugt materiale
 de: wiederverwertetes Material
 el: Ανακυκλωμένο υλικό
 es: Material reciclado
@@ -286,7 +289,7 @@ ar: البلاستيك المعاد تدويره
 bg: Рециклирана пластмаса
 ca: Plàstic reciclat
 cs: Recyklovaný plast
-da: Genbrugsplast
+da: Genbrugt plastik
 de: wiederverwerteter Kunststoff
 el: Ανακυκλωμένο πλαστικό
 es: Plástico reciclado
@@ -333,13 +336,13 @@ it: Cellophane, cellofan, cellofane, cellofano
 # all abbreviations, symbols etc. go in the xx: entry, and do not need to be added to the translations in other languages
 # (unless the abbreviation is different: e.g. "PEBD" = "Polyéthylène basse densité" in French instead of PELD)
 
-
+< en:Plastic
 en: Mixed plastics
 ar: البلاستيك المختلط
 bg: Смесени пластмаси
 ca: Plàstics mixtos
 cs: Směsné plasty
-da: Blandet plast
+da: Blandet plastik
 de: Mischkunststoffe
 el: Μικτά πλαστικά
 es: Plásticos mixtos
@@ -469,6 +472,7 @@ fr: Silicone, Plastique / Silicone
 it: Silicone, Plastica / Silicone
 nl: Silicone, Kunststof / Silicone
 pt: Silicone, Plástico / Silicone
+sv: Silikon, Plast / Silikon
 
 < en:Plastic
 en: Biobased plastic
@@ -479,16 +483,19 @@ fr: Plastique biosourcé, Plastiques / Autres plastiques Biosourcés (base amido
 hu: Biobázisú műanyag
 it: Plastica biologica, bioplastica
 pt: Plástico biobaseado
+sv: Biobaserad plast
 
 < xx:PET
 en: bPET - Biobased PET, Biobased PET
 xx: bPET, bio-PET
+da: bPET - biobaseret PET, biobaseret PET
 de: bPET - Biobasiertes PET, Biobasiertes PET
 fr: bPET - PET biosourcé, PET biosourcé
 hu: bPET - Biobázisú PET, Biobázisú PET
 it: bPET - PET biologico, bioPET
 nl: bPET - Biobased PET, Biobased PET
 pt: bPET - Bioplástico PET, Bioplástico PET
+sv: bPET - biobaserad PET, biobaserad PET
 description:en: Biobased PET is plastic partially produced using annually renewable biomass like different sugars obtained from agricultural activities.
 description:de: Biobasiertes PET ist Kunststoff, der teilweise aus jährlich nachwachsender Biomasse wie verschiedenen Zuckern aus landwirtschaftlichen Aktivitäten hergestellt wird.
 description:es: El PET de base biológica es un plástico producido parcialmente a partir de biomasa renovable anualmente como diferentes azúcares obtenidos de actividades agrícolas.
@@ -499,13 +506,14 @@ description:pt: O PET de base biológica é um plástico parcialmente produzido 
 
 < xx:PET
 en: PET - Transparent, Clear PET, transparent PET
-da: Pet - Gennemsigtig
+da: PET - gennemsigtig, gennemsigtig PET
 de: PET - Transparentes
 fr: PET - transparent
 hu: PET - Átlátszó
 it: PET - trasparente
 nl: PET - transparant, Transparant PET
 pt: PET - transparente
+sv: PET - genomskinlig, genomskinlig PET
 description:en: Transparant PET (polyethylene terephthalate)
 description:de: Transparentes PET (Polyethylenterephthalat)
 description:es: PET transparente (tereftalato de polietileno)
@@ -520,7 +528,7 @@ ar: rPET - شفاف
 bg: rPET - Прозрачен
 ca: rPET - Transparent
 cs: rPET - Transparentní
-da: rPET - Gennemsigtig
+da: rPET - gennemsigtig, gennemsigtig rPET
 de: rPET - Transparentes
 el: rPET - Διαφανές
 es: rPET - Transparente
@@ -542,7 +550,7 @@ ru: rPET - Прозрачный
 sk: rPET - Priehľadný
 sl: rPET - Transparenten
 sq: rPET - Transparent
-sv: rPET - Transparent
+sv: rPET - genomskinlig, genomskinlig rPET
 tr: rPET - Şeffaf
 uk: rPET - Прозорий
 zh: rPET - 透明
@@ -556,7 +564,7 @@ description:pt: rPET transparente (tereftalato de polietileno)
 
 < xx:PET
 en: PET - Colored, Colored PET
-da: PET - Farvet
+da: PET - farvet, farvet PET
 de: PET - Gefärbtes, Farbiges PET
 es: PET - coloreado, PET coloreado
 fr: PET - coloré, PET coloré
@@ -564,6 +572,7 @@ hu: PET - Színezet, színes PET
 it: PET - colorato, PET colorato
 nl: PET - gekleurd, Gekleurd PET
 pt: PET - colorido
+sv: PET - färgat, färgat PET
 description:en: Colored PET (polyethylene terephthalate), which requires additional recycling processes
 description:de: Farbiges PET (Polyethylenterephthalat), das zusätzliche Recyclingprozesse erfordert
 description:es: PET coloreado (tereftalato de polietileno), que requiere procesos de reciclaje adicionales
@@ -575,6 +584,7 @@ description:pt: PET colorido (tereftalato de polietileno), que requer processos 
 
 < xx:PET
 en: PET - Opaque, Opaque PET
+da: PET - ugennemsigtig, ugennemsigtig PET
 de: PET - Undurchsichtiges, Intransparentes PET
 es: PET - opaco
 fr: PET - opaque
