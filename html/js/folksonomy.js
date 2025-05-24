@@ -46,7 +46,7 @@ const authrenewal = 1 * 5 * 60 * 60 * 1000;
 
 
 // eslint-disable-next-line no-unused-vars
-function folskonomy_engine_init() {
+function folksonomy_engine_init() {
     const pageType = isPageType(); // test page type
     console.log("FEUS - Folksonomy Engine User Script - 2021-11-19T16:49 - mode: " + pageType);
 
@@ -453,6 +453,35 @@ function displayAllProperties() {
     });
 }
 
+/**
+ * restrictFolksonomyForGuests()
+ * Use Case:
+ *   Used to enforce read-only mode on the folksonomy interface for non-logged-in users.
+ *   A custom login modal is shown to promote login/signup.
+ * 
+ * Intended For:
+ *   Guest users who are not authenticated.
+ *   This ensures that while guests can view all properties, they cannot add, edit, or delete any entries.
+ * @returns {void}
+ */
+function restrictFolksonomyForGuests() {
+
+    setTimeout(() => {
+        document.querySelectorAll(".fe_edit_kv, .fe_del_kv, #new_kv_button").forEach((btn) => {
+            // Remove any existing event listeners to prevent conflicts.
+            const newBtn = btn.cloneNode(true);
+            btn.parentNode.replaceChild(newBtn, btn);
+
+            // Block action and show the login modal instead.
+            newBtn.addEventListener("click", function(event) {
+                event.preventDefault();
+                showLoginPromptDialog();
+            });
+        });
+
+    }, 500); // Delay ensures buttons are available before modifying them.
+}
+document.addEventListener("DOMContentLoaded", restrictFolksonomyForGuests);
 
 function delPropertyValue(_this) {
 
@@ -785,20 +814,99 @@ function isPageType() {
 }
 
 
-function loginProcess(callback) {
-    // Try to authenticate using the Open Food Facts cookie first
-    var cookie = $.cookie('session') ? $.cookie('session') : "";
-    if (cookie) {
-        console.log("FEUS - loginProcess(callback) => getCredentialsFromCookie()");
-        getCredentialsFromCookie(cookie, callback);
-        
-        //return;
+    function loginProcess(callback) {
+        // Try to authenticate using the Open Food Facts cookie first
+        var cookie = $.cookie('session') ? $.cookie('session') : "";
+        if (cookie) {
+            console.log("FEUS - loginProcess(callback) => getCredentialsFromCookie()");
+            getCredentialsFromCookie(cookie, callback);
+            //return;
+        }
+        else {
+            // Use custom login prompt dialog rather than normal alert
+            showLoginPromptDialog(false);
+            //return;
+        }
     }
-    else {
-        window.alert("You must be logged in first!");
+    
+/**
+ * showLoginPromptDialog()
+ * Use Case:
+ *   This function displays a custom login modal when a non-logged-in user
+ *   attempts to perform a write action (add/edit/delete) on folksonomy properties.
+ * 
+ * Functionality:
+ *    it creates and opens a dialog with "Login", "Sign up" and "Cancel" buttons.
+ **/
 
-        //return;
+function showLoginPromptDialog(showSignup = true) {
+    const brownColor = '#6D4C41'; 
+   // custom dialog for promoting login
+    const dialogElement = $('<div>').addClass('login-prompt-dialog').attr('id', 'loginPromptDialog').css({
+        'position': 'fixed',
+        'top': '50%',
+        'left': '50%',
+        'transform': 'translate(-50%, -50%)',
+        'background-color': 'white',
+        'border': '2px solid #6D4C41',
+        'border-radius': '15px',
+        'padding': '10px',
+        'z-index': 1000,
+        'text-align': 'center',
+      }).append(
+        $('<h2>').text('Login Required').css('color', brownColor),
+        $('<p>').text('You need to be logged in to perform this action.'),
+        $('<div>').css({
+          'display': 'flex',
+          'justify-content': 'space-around',
+          'margin-top': '10px'
+        }).append(
+          $('<a>').attr('href', '/cgi/session.pl').text('Login').addClass('login-button').css({
+            'background-color': brownColor,
+            'color': 'white',
+            'padding': '10px 20px',
+            'text-decoration': 'none',
+            'margin': '5px',
+            'border-radius': '5px',
+            'cursor': 'pointer',
+            'border': 'none'
+          })
+        ),
+        $('<button>').text('Cancel').css({
+            'margin-top': '15px',
+            'padding': '8px 16px',
+            'background-color': '#d9534f',
+            'color': 'white',
+            'border': 'none',
+            'border-radius': '5px',
+            'cursor': 'pointer'
+          }).on('click', function() {
+            dialogElement.remove();
+          })
+      );
+  
+    const buttonContainer = dialogElement.find('div').first(); // Get the button container
+  
+    // show signup when trying to access folksonomy engine 
+    if (showSignup) {
+      const signupLink = $('<a>').attr('href', '/cgi/user.pl').text('Sign Up').addClass('signup-button').css({
+        'background-color': brownColor,
+        'color': 'white',
+        'padding': '10px 20px',
+        'text-decoration': 'none',
+        'margin': '5px',
+        'border-radius': '5px',
+        'cursor': 'pointer',
+        'border': 'none'
+      });
+      buttonContainer.append(signupLink);
+      buttonContainer.css('justify-content', 'space-around'); 
+    } else {
+      buttonContainer.css('justify-content', 'center'); // Center the Login button if no signup
     }
+  
+    $('body').append(dialogElement);
+  }
     // TODO: Reenable login ?
     // Else display a form
     // const loginWindow =
@@ -830,7 +938,6 @@ function loginProcess(callback) {
     //     });
     // });
 
-}
 
 
 function getCredentialsFromCookie(_cookie, callback) {
