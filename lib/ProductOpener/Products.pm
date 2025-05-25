@@ -1453,7 +1453,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 	# store_object("$BASE_DIRS{PRODUCTS}/$path/$rev", $product_ref);
 
 	# Store the product in PostgreSQL database
-	store_product_in_database ($product_ref);
+	store_product_in_database($product_ref);
 
 	# Also store the product in MongoDB, unless it was marked as deleted
 	if ($product_ref->{deleted}) {

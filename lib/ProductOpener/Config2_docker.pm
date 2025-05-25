@@ -99,7 +99,6 @@ $mongodb_host = $ENV{MONGODB_HOST} || "mongodb";
 $mongodb = $producers_platform ? "off-pro" : "off";
 $mongodb_timeout_ms = 50000;    # config option max_time_ms/maxTimeMS
 
-
 $memd_servers = ["memcached:11211"];
 
 $google_cloud_vision_api_key = $ENV{GOOGLE_CLOUD_VISION_API_KEY};
@@ -124,7 +123,8 @@ my $postgres_minion_host = $ENV{POSTGRES_HOST} || "postgres";
 my $postgres_minion_user = $ENV{POSTGRES_USER};
 my $postgres_minion_password = $ENV{POSTGRES_PASSWORD};
 my $postgres_minion_db = $ENV{POSTGRES_DB} || "minion";
-my $postgres_minion_url = "postgresql://${postgres_minion_user}:${postgres_minion_password}\@${postgres_minion_host}/${postgres_minion_db}";
+my $postgres_minion_url
+	= "postgresql://${postgres_minion_user}:${postgres_minion_password}\@${postgres_minion_host}/${postgres_minion_db}";
 
 # do we want to log emails instead of sending them (dev environments)
 $log_emails = $ENV{OFF_LOG_EMAILS} // 0;

@@ -456,7 +456,7 @@ $redis_url = $ProductOpener::Config2::redis_url;
 $facets_kp_url = $ProductOpener::Config2::facets_kp_url;
 
 # If $rate_limiter_blocking_enabled is set to 1, the rate limiter will block requests
-# by returning a 429error code instead of a 200 code
+# by returning a 429 error code instead of a 200 code
 $rate_limiter_blocking_enabled = $ProductOpener::Config2::rate_limiter_blocking_enabled;
 
 # server options
