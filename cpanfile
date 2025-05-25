@@ -115,6 +115,10 @@ requires 'Text::Levenshtein';
 # To handle IP and IP blocks white lists
 requires 'Net::CIDR'; # libnet-cidr-perl
 
+# To store products in Postgresql
+requires 'DBI';
+requires 'DBD::Pg';
+
 on 'test' => sub {
   requires 'Test2::V0';
   requires 'Mock::Quick';
