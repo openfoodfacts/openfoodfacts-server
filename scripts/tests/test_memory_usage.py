@@ -9,6 +9,7 @@
 # ///
 import argparse
 import concurrent.futures
+import json
 import os
 import subprocess
 import time
@@ -19,15 +20,33 @@ import matplotlib.pyplot as plt
 import requests
 
 # code inspired from "https://github.com/sylhare/docker-stats-graph"
-def run_docker_stats(container_name, duration=60, interval=1):
+def collect_docker_stats(container_name, duration=60, interval=1, start=None):
   docker_client = docker.from_env()
   container = docker_client.containers.get(container_name)
   stats = []
-  start = time.monotonic()
+  if start is None:
+    start = time.monotonic()
   while (time.monotonic() - start) < duration:
     instant = time.monotonic() - start
     instant_stats = container.stats(stream=False)
     stats.append((instant, instant_stats))
+    time.sleep(max(interval - (time.monotonic() - instant), 0))
+  return stats
+
+def collect_apache_stats(duration=60, interval=1, start=None):
+  stats = []
+  if start is None:
+    start = time.monotonic()
+  while (time.monotonic() - start) < duration:
+    instant = time.monotonic() - start
+    stats_txt = requests.get("http://world.openfoodfacts.localhost/server-status?auto").text
+    stats_n = {
+      label.strip(): float(v)
+      for line in stats_txt.split("\n")
+      for label, value in line.split(":", 1)
+      if ":" in line and re.match(r"^\d+(.(\d+)?)?$", value)
+    }
+    stats.append((instant, stats_n))
     time.sleep(max(interval - (time.monotonic() - instant), 0))
   return stats
 
@@ -87,29 +106,59 @@ def backend_env_variables(args):
   }
 
 
-def plot_stats(stats, experiment_dir, args):
+def test_plot_stats(experiment_dir, args):
+  docker_stats = [
+    (i, {"memory_stats": {"usage": (1024 * 1024) + i * 1204 * 10}})
+    for i in range(60)
+  ]
+  apache_stats = [
+    (i, {"BusyWorkers": i // 10})
+    for i in range(60)
+  ]
+  plot_stats(docker_stats, apache_stats, experiment_dir, args)
+
+
+def plot_stats(docker_stats, apache_stats, experiment_dir, args):
   import matplotlib.pyplot as plt
 
   memory_stats = [
-    (instant, stat["memory_stats"]["usage"])
-    for instant, stat in stats
+    (instant, stat["memory_stats"]["usage"] / (1024 * 1024))
+    for instant, stat in docker_stats
   ]
-  fig, (graph, legend) = plt.subplots(2, 1)
-  plt.sca(graph)
+  apache_stats = [
+    (instant, stat["BusyWorkers"])
+    for instant, stat in apache_stats
+  ]
+  fig, (legend, docker_graph, apache_graph) = plt.subplots(3, 1, figsize=(5, 10))
+  plt.sca(docker_graph)
   plt.xlabel("time (s)")
-  plt.ylabel("memory (bytes)")
-  plt.title("Memory usage for experiment {args.name}")
+  plt.ylabel("memory (MiB)")
+  plt.title(f"Memory usage")
   plt.grid(True)
   plt.plot(*zip(*memory_stats))
+  plt.tight_layout()
+  plt.sca(apache_graph)
+  plt.xlabel("time (s)")
+  plt.ylabel("memory (MiB)")
+  plt.title(f"Busy workers")
+  plt.grid(True)
+  plt.plot(*zip(*apache_stats))
+  plt.tight_layout()
   # legend of experiment
   plt.sca(legend)
-  plt.figtext(
-    0.2, 0.8, dedent(f"""\
-  StartServers: {args.start_servers}
-  MaxRequestWorkers: {args.max_request_workers}
-  MinSpareServers: {args.min_spare}
-  MaxSpareServers: {args.max_spare}
-  """))
+  plt.title(f"Experiment {args.name}")
+  legend.get_xaxis().set_visible(False)
+  legend.get_yaxis().set_visible(False)
+  legend.annotate(
+    text=dedent(f"""\
+    StartServers: {args.start_servers}
+    MaxRequestWorkers: {args.max_request_workers}
+    MinSpareServers: {args.min_spare}
+    MaxSpareServers: {args.max_spare}
+    """),
+    xy=(0.1, 0.1),
+    xytext=(0.1, 0.1),
+  )
   fig.savefig(f"{experiment_dir}/memory_usage.png")
 
 
@@ -122,21 +171,26 @@ if __name__ == "__main__":
   args = parse_args()
   experiment_dir = f"mem_usage/{args.name}"
   os.makedirs(experiment_dir, exist_ok=True)
+  # test_plot_stats(experiment_dir, args)
+  # exit(0)
   # relaunch docker container
-  print("relaunching docker container")
+  print("Relaunching docker container  ---------")
   backend_env = backend_env_variables(args)
   docker_env = dict(os.environ, **backend_env)
   if not args.skip_restart:
     subprocess.run(["docker-compose", "rm", "-sf", SERVICE])
     subprocess.run(["docker-compose", "up", "-d", SERVICE], env=docker_env)
   # wait a bit the container to be ready
-  print("waiting for docker container to be ready")
+  print("Waiting for docker container to be ready  ---------")
   wait_backend()
-  print("docker container is ready")
+  print("Docker container is ready  ---------")
+  start = time.monotonic()
+  print("Launching stats ---------")
   # launch stats in parallel
-  future_stats = concurrent.futures.ThreadPoolExecutor(
-    max_workers=1
-  ).submit(run_docker_stats, container_name=CONTAINER, duration=80)
+  executor = concurrent.futures.ThreadPoolExecutor(max_workers=1)
+  future_docker_stats = executor.submit(collect_docker_stats, container_name=CONTAINER, duration=80, start=start)
+  future_apache_stats = executor.submit(collect_apache_stats, duration=80, start=start)
+  print("Launching test ---------")
   # launch load testing
   subprocess.run(
     [
@@ -151,9 +205,12 @@ if __name__ == "__main__":
       f"--csv={experiment_dir}/locus-stats",
     ],
   )
-  print("test finished")
-  stats = future_stats.result()
-  print("stats collected")
-  plot_stats(stats, experiment_dir, args)
-  print("plot generated")
+  print("Test finished ---------")
+  docker_stats = future_docker_stats.result()
+  apache_stats = future_apache_stats.result()
+  json.dump(docker_stats, open(f"{experiment_dir}/docker_stats.json", "w"))
+  json.dump(apache_stats, open(f"{experiment_dir}/apache_stats.json", "w"))
+  print("Stats collected  ---------")
+  plot_stats(docker_stats, apache_stats, experiment_dir, args)
+  print("Plot generated  ---------")
   print(f"See {experiment_dir}/memory_usage.png")
