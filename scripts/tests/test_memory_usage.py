@@ -11,6 +11,7 @@ import argparse
 import concurrent.futures
 import json
 import os
+import re
 import subprocess
 import time
 from textwrap import dedent
@@ -30,7 +31,7 @@ def collect_docker_stats(container_name, duration=60, interval=1, start=None):
     instant = time.monotonic() - start
     instant_stats = container.stats(stream=False)
     stats.append((instant, instant_stats))
-    time.sleep(max(interval - (time.monotonic() - instant), 0))
+    time.sleep(max(interval - (time.monotonic() - instant - start), 0))
   return stats
 
 def collect_apache_stats(duration=60, interval=1, start=None):
@@ -39,16 +40,17 @@ def collect_apache_stats(duration=60, interval=1, start=None):
     start = time.monotonic()
   while (time.monotonic() - start) < duration:
     instant = time.monotonic() - start
-    stats_txt = requests.get("http://world.openfoodfacts.localhost/server-status?auto").text
+    stats_txt = requests.get("http://world.openfoodfacts.localhost/_apache_status", params={"auto": 1}).text
+    stats_txt = [line.split(":", 1) for line in stats_txt.split("\n") if ":" in line]
     stats_n = {
-      label.strip(): float(v)
-      for line in stats_txt.split("\n")
-      for label, value in line.split(":", 1)
-      if ":" in line and re.match(r"^\d+(.(\d+)?)?$", value)
+      label.strip(): float(value)
+      for label, value in stats_txt
+      if re.match(r"^\d+(.(\d+)?)?$", value.strip())
     }
     stats.append((instant, stats_n))
-    time.sleep(max(interval - (time.monotonic() - instant), 0))
+    time.sleep(max(interval - (time.monotonic() - instant - start), 0))
   return stats
+
 
 def wait_backend():
   while True:
@@ -139,7 +141,7 @@ def plot_stats(docker_stats, apache_stats, experiment_dir, args):
   plt.tight_layout()
   plt.sca(apache_graph)
   plt.xlabel("time (s)")
-  plt.ylabel("memory (MiB)")
+  plt.ylabel("workers")
   plt.title(f"Busy workers")
   plt.grid(True)
   plt.plot(*zip(*apache_stats))
@@ -171,6 +173,10 @@ if __name__ == "__main__":
   args = parse_args()
   experiment_dir = f"mem_usage/{args.name}"
   os.makedirs(experiment_dir, exist_ok=True)
+  # executor = concurrent.futures.ThreadPoolExecutor(max_workers=2)
+  # future_apache_stats = executor.submit(collect_apache_stats, duration=10)
+  # print(future_apache_stats.result())
+  # exit(0)
   # test_plot_stats(experiment_dir, args)
   # exit(0)
   # relaunch docker container
@@ -187,7 +193,7 @@ if __name__ == "__main__":
   start = time.monotonic()
   print("Launching stats ---------")
   # launch stats in parallel
-  executor = concurrent.futures.ThreadPoolExecutor(max_workers=1)
+  executor = concurrent.futures.ThreadPoolExecutor(max_workers=2)
   future_docker_stats = executor.submit(collect_docker_stats, container_name=CONTAINER, duration=80, start=start)
   future_apache_stats = executor.submit(collect_apache_stats, duration=80, start=start)
   print("Launching test ---------")
