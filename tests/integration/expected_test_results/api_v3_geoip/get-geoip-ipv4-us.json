@@ -1,0 +1,25 @@
+{
+   "cc" : null,
+   "country" : null,
+   "errors" : [
+      {
+         "field" : {
+            "id" : "ip",
+            "value" : "127.0.0.1"
+         },
+         "impact" : {
+            "id" : "failure",
+            "lc_name" : "Failure",
+            "name" : "Failure"
+         },
+         "message" : {
+            "debug" : "GeoIP database not found at ",
+            "id" : "geoip_error",
+            "lc_name" : "",
+            "name" : ""
+         }
+      }
+   ],
+   "status" : "failure",
+   "warnings" : []
+}

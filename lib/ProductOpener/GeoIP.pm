@@ -86,8 +86,14 @@ If the function executes successfully it returns the country name. On the other 
 
 =cut
 
-sub get_country_for_ip ($ip) {
-	return unless $gi;
+sub get_country_for_ip ($ip, $error_message_ref = undef) {
+	if (not defined $gi) {
+		$log->warn("GeoIP database not found at $geolite2_path") if $log->is_warn();
+		if (defined $error_message_ref) {
+			$$error_message_ref = "GeoIP database not found at $geolite2_path";
+		}
+		return;
+	}
 
 	my $country;
 	eval {
@@ -98,6 +104,9 @@ sub get_country_for_ip ($ip) {
 
 	if ($@) {
 		$log->warn("GeoIP error", {error => $@}) if $log->is_warn();
+		if (defined $error_message_ref) {
+			$$error_message_ref = "GeoIP error: $@";
+		}
 		$country = undef;
 	}
 
@@ -121,8 +130,14 @@ On the other hand, if it throws an exception, it simply returns undefined.
 
 =cut
 
-sub get_country_code_for_ip ($ip) {
-	return unless $gi;
+sub get_country_code_for_ip ($ip, $error_message_ref = undef) {
+	if (not defined $gi) {
+		$log->warn("GeoIP database not found at $geolite2_path") if $log->is_warn();
+		if (defined $error_message_ref) {
+			$$error_message_ref = "GeoIP database not found at $geolite2_path";
+		}
+		return;
+	}
 
 	my $country;
 	eval {
@@ -133,6 +148,9 @@ sub get_country_code_for_ip ($ip) {
 
 	if ($@) {
 		$log->warn("GeoIP error", {error => $@}) if $log->is_warn();
+		if (defined $error_message_ref) {
+			$$error_message_ref = "GeoIP error: $@";
+		}
 		$country = undef;
 	}
 
@@ -142,28 +160,30 @@ sub get_country_code_for_ip ($ip) {
 sub get_country_for_ip_api ($request_ref) {
 	my $response_ref = $request_ref->{api_response};
 
-	my $error_id;
-
 	my $ip = $request_ref->{geoip_ip};
 	if (not defined $ip) {
-		$error_id = "missing_field";
-	}
-	else {
-		$response_ref->{country} = get_country_for_ip($ip);
-		$response_ref->{cc} = get_country_code_for_ip($ip);
-		if (not defined $response_ref->{country}) {
-			$error_id = "invalid_field";
-		}
-	}
-
-	if (defined $error_id) {
 		push @{$response_ref->{errors}},
 			{
-			message => {id => $error_id},
+			message => {id => "missing_field"},
 			field => {id => "ip"},
 			impact => {id => "failure"},
 			};
-		$response_ref->{status_code} = $400;
+		$response_ref->{status_code} = 400;
+	}
+	else {
+		my $error_message;
+		my $country = get_country_for_ip($ip);
+		$response_ref->{country} = get_country_for_ip($ip);
+		$response_ref->{cc} = get_country_code_for_ip($ip, \$error_message);
+		if ($error_message) {
+			push @{$response_ref->{errors}},
+				{
+				message => {id => "geoip_error", debug => $error_message},
+				field => {id => "ip", value => $ip},
+				impact => {id => "failure"},
+				};
+			$response_ref->{status_code} = 400;
+		}
 	}
 
 	return;
