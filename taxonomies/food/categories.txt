@@ -33837,7 +33837,7 @@ ciqual_food_name:fr: Biscuit sec ou tuile, aux amandes
 fr: tuile aux amandes
 
 < en:Biscuits
-en: Oatmeal cookies
+en: Oatmeal biscuits, Oatmeal cookies
 bg: Овесени бисквити
 de: Hafer-Cookies
 es: Galletas de avena
@@ -33849,6 +33849,20 @@ ja: オートミールクッキー
 lt: Avižiniai sausainiai
 nl: Haverkoekjes, Haverkoekje
 ru: Печенье овсяное, овсяное печенье
+
+# Swedish-style biscuits made with rolled oats instead of flour
+< en:Oatmeal biscuits
+en: Plain rolled oats biscuits
+fr: Biscuits aux flocons d'avoine nature
+
+< en:Chocolate biscuits
+< en:Oatmeal biscuits
+en: Chocolate rolled oats biscuits
+fr: Biscuits aux flocons d'avoine au chocolat
+
+< en:Oatmeal biscuits
+en: Oatmeal drop cookies
+fr: Cookies à l'avoine
 
 < en:Biscuits
 en: Filled biscuits
@@ -34018,10 +34032,10 @@ lt: Juodo šokolado sausainiai, Sausainiai su juodu šokoladu
 nl: Pure chocoladebiscuits, Pure chocoladebiscuit
 ro: Biscuiți cu ciocolată neagră
 
-# Biscuits type granola, pepito and other digestive biscuits covered with chocolate
-< en:Chocolate biscuits
-en: Digestives covered with chocolate, Chocolate-covered biscuits
-fr: Sablés nappés de chocolat, Biscuits nappés de chocolat
+# Biscuits type granola, pepito, mc vities and other digestive biscuits covered with chocolate
+< en: Chocolate-covered biscuits
+en: Digestives covered with chocolate
+fr: Sablés nappés de chocolat
 
 # Biscuits type Mikado
 < en:Chocolate biscuits
@@ -96510,9 +96524,9 @@ ciqual_food_code:en: 24240
 ciqual_food_name:en: Biscuit (cookie), snack with fruits filling
 ciqual_food_name:fr: Goûter sec fourré (sandwiché) parfum fruits
 
-< en:Biscuits and cakes
-en: Biscuit with chocolate covering, Cookie with chocolate covering, Chocolate covered biscuit
-fr: Biscuits nappés au chocolat, Biscuits avec nappage au chocolat, Biscuit sec avec nappage au chocolat
+< en:Chocolate biscuits
+en: Chocolate-covered biscuits, Biscuit with chocolate covering, Cookie with chocolate covering, Chocolate covered biscuit
+fr: Biscuits nappés de chocolat, Biscuits nappés au chocolat, Biscuits avec nappage au chocolat, Biscuit sec avec nappage au chocolat
 hr: Biskvit s čokoladnim preljevom
 nl: Chocoladekoekje, Koekje met chocolade, Chocolade bedekt koekje
 pt: Bolacha com cobertura de chocolate, Biscoito com cobertura de chocolate, Bolacha coberta de chocolate
