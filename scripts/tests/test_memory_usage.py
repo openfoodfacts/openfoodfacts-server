@@ -130,6 +130,7 @@ def plot_stats(docker_stats, apache_stats, experiment_dir, args):
   apache_stats = [
     (instant, stat["BusyWorkers"])
     for instant, stat in apache_stats
+    if "BusyWorkers" in stat
   ]
   fig, (legend, docker_graph, apache_graph) = plt.subplots(3, 1, figsize=(5, 10))
   plt.sca(docker_graph)
