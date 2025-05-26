@@ -26,8 +26,8 @@ jobs:
         uses: lycheeverse/lychee-action@v2.4.1
         with:
           # Scan directories and markdown files, hide progress
-          # Files to exclude are defined in .lycheeignore
-          args: --base . --verbose --no-progress --exclude-loopback --exclude-private 'html/' 'templates/' './**/*.md'
+          # Use explicit excludes for reliability
+          args: --base . --verbose --no-progress --exclude-loopback 'html/' 'templates/' './**/*.md'--exclude-private --exclude-path 'CHANGELOG.md' --exclude-path 'CHANGELOG.md.old' --exclude-path 'html/images/misc/comment-ajouter-un-produit.html' --exclude '.*\[%.*%\].*' --exclude 'file:///cgi/.*'
           fail: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

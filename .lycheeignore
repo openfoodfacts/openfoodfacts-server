@@ -1,19 +1,15 @@
-# Exclude template files with unprocessed variables
-templates/
+# Exclude local CGI file references that might not exist in CI
+file:///cgi/.*
+
+# Exclude template variables in URLs - URLs containing unprocessed template syntax
+.*\[%.*%\].*
+
+# File paths that should be excluded from scanning completely
+# (Note: These patterns match against file paths being scanned)
+.*CHANGELOG\.md$
+.*CHANGELOG\.md\.old$
+.*comment-ajouter-un-produit\.html$
 .*\.tt\.html$
 
-# Exclude problematic encoding files
-html/images/misc/comment-ajouter-un-produit.html
-
-# Exclude changelog files
-CHANGELOG.md
-CHANGELOG.md.old
-
-# Exclude template variables patterns
-\[%.*%\]
-
-# Exclude local file references that might not exist in CI
-file:///cgi/
-# Exclude changelog files
-CHANGELOG.md
-CHANGELOG.md.old
+# Exclude template directories
+templates/.*
