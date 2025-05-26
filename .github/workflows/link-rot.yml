@@ -6,6 +6,8 @@ on:
   schedule:
     - cron: '0 0 * * 0'      # Runs every Sunday at midnight UTC
   workflow_dispatch:
+  push:                      # Added for act testing
+    branches: [ 'JagjeevanAK/check-links' ]  # Only on your test branch
 
 jobs:
   link-rot:
@@ -23,7 +25,7 @@ jobs:
         id: lychee
         uses: lycheeverse/lychee-action@v2.4.1
         with:
-          # Recursively scan static output directories to avoid passing huge arglists, hide progress
-          args: --recursive html/ --recursive templates/ --extensions .md,.html --fail-on-status --exclude-loopback --exclude-private --exclude-mail
+          # Scan directories and markdown files, hide progress
+          args: --base . --verbose --no-progress --exclude-loopback --exclude-private 'html/' 'templates/' './**/*.md'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
