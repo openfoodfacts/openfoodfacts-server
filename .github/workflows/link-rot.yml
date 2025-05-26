@@ -5,6 +5,7 @@ name: Link Rot Check
 on:
   schedule:
     - cron: '0 0 * * 0'      # Runs every Sunday at midnight UTC
+  workflow_dispatch:        # Allows manual triggering
 
 jobs:
   link-rot:
