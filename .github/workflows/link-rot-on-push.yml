@@ -1,5 +1,5 @@
 # Runs a link check on modified markdown and HTML content files on push
-name: Link Rot on Push
+name: Link Rot 
 on:
   push:
     paths:
@@ -16,7 +16,7 @@ on:
 jobs:
   link-rot-changed:
     concurrency:
-      group: link-rot-on-push-${{ github.ref }}
+      group: link-rot-${{ github.ref }}
       cancel-in-progress: true
     permissions:
       contents: read
