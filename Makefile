@@ -431,8 +431,8 @@ check_openapi_v3:
 check_openapi: check_openapi_v2 check_openapi_v3
 
 lint_openapi:
-	@if [ "$(OS)" = "Darwin" ]; then \
 # Currently, Spectral does not support Mac with m3 chip, for more details: https://github.com/stoplightio/spectral/issues/2636
+	@if [ "$(OS)" = "Darwin" ]; then \
 		echo "🥫 Linting OpenAPI is not supported on macOS"; \
 	else \
 		echo "🥫 Linting OpenAPI files"; \
