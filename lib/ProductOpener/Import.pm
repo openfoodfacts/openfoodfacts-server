@@ -2865,23 +2865,23 @@ sub import_csv_file ($args_ref) {
 		}
 	) if $log->is_debug();
 
-	print STDERR "\n\nimport done\n\n";
+	# print STDERR "\n\nimport done\n\n";
 
-	foreach my $field (sort keys %differing_fields) {
-		print STDERR "field $field - $differing_fields{$field} differing values\n";
-	}
+	# foreach my $field (sort keys %differing_fields) {
+	# 	print STDERR "field $field - $differing_fields{$field} differing values\n";
+	# }
 
-	print STDERR "$i products\n";
-	print STDERR "$new new products\n";
-	print STDERR "$skip_not_existing skipped not existing products\n";
-	print STDERR "$skip_no_images skipped no images products\n";
-	print STDERR "$existing existing products\n";
-	print STDERR "$differing differing values\n\n";
+	# print STDERR "$i products\n";
+	# print STDERR "$new new products\n";
+	# print STDERR "$skip_not_existing skipped not existing products\n";
+	# print STDERR "$skip_no_images skipped no images products\n";
+	# print STDERR "$existing existing products\n";
+	# print STDERR "$differing differing values\n\n";
 
-	print STDERR ((scalar keys %nutrients_edited) . " products with edited nutrients\n");
-	print STDERR ((scalar keys %edited) . " products with edited fields or nutrients\n");
+	# print STDERR ((scalar keys %nutrients_edited) . " products with edited nutrients\n");
+	# print STDERR ((scalar keys %edited) . " products with edited fields or nutrients\n");
 
-	print STDERR ((scalar @edited) . " products updated\n");
+	# print STDERR ((scalar @edited) . " products updated\n");
 
 	return $stats_ref;
 }
