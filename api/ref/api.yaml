@@ -53,6 +53,8 @@ paths:
               - "3017620422003"
         - $ref: "./parameters/requested_product_type.yaml#/components/parameters/RequestedProductType"
         - $ref: "#/components/parameters/fields"
+        - $ref: "#/components/parameters/knowledge_panels_included"
+        - $ref: "#/components/parameters/knowledge_panels_excluded"
       responses:
         "200":
           description: OK
@@ -107,7 +109,9 @@ paths:
         content:
           multipart/form-data:
             schema:
-              $ref: ./requestBodies/add_photo_to_existing_product.yaml
+              allOf:
+                - $ref: ./requestBodies/add_photo_to_existing_product.yaml
+                - $ref: ./requestBodies/change_ref_properties.yaml
         description: ""
       security:
         - cookieAuth: []
@@ -154,7 +158,9 @@ paths:
         content:
           multipart/form-data:
             schema:
-              $ref: ./requestBodies/crop_a_photo.yaml
+              allOf:
+                - $ref: ./requestBodies/crop_a_photo.yaml
+                - $ref: ./requestBodies/change_ref_properties.yaml
         required: true
       tags:
         - Write Requests
@@ -186,6 +192,8 @@ paths:
         This endpoint allows the user to unselect a photo for a product.
         The user must provide the product code and the image ID to unselect.
       operationId: post-cgi-product_image_unselect.pl
+      tags:
+        - Write Requests
       requestBody:
         content:
           multipart/form-data:
@@ -360,6 +368,8 @@ paths:
             application/json:
               schema:
                 type: array
+                items:
+                  type: string
       operationId: get-cgi-suggest.pl
       parameters:
         - $ref: "#/components/parameters/tagtype"
@@ -495,26 +505,6 @@ components:
       name: User-Agent
 
   schemas:
-    AppCredentials:
-      description: Schema for application credentials
-      type: object
-      properties:
-        app_name:
-          type: string
-          description: Name of the application
-        app_version:
-          type: string
-          description: Version of the application
-        app_uuid:
-          type: string
-          description: |
-            A salted random uuid (Unique identifier) for the user so that Open Food Facts moderators 
-            can selectively ban any problematic user without banning your whole app account.
-      required:
-        - app_name
-        - app_version
-        - app_uuid
-
     "Product-Base":
       $ref: ./schemas/product_base.yaml
     "Product-Misc":
@@ -541,6 +531,7 @@ components:
       $ref: ./schemas/product_knowledge_panels.yaml
     "Product-Attribute-Groups":
       $ref: "./schemas/product_attribute_groups.yaml"
+    # this is to have it displayed wholy in documentation
     Product:
       $ref: ./schemas/product.yaml
     Ingredient:
@@ -697,3 +688,5 @@ tags:
     description: Endpoints that allow writing or modifying data in the Open Food Facts database.
   - name: Authentication
     description: Endpoints used to retrieve authentication info.
+  - name: Personal search
+    description: Endpoints related to personal search and recommendation
