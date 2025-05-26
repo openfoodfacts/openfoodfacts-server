@@ -1393,9 +1393,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#debugging" class="md-nav__link">
+  <a href="#troubleshooting" class="md-nav__link">
     <span class="md-ellipsis">
-      Debugging
+      Troubleshooting
     </span>
   </a>
   
@@ -1793,9 +1793,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#debugging" class="md-nav__link">
+  <a href="#troubleshooting" class="md-nav__link">
     <span class="md-ellipsis">
-      Debugging
+      Troubleshooting
     </span>
   </a>
   
@@ -1826,21 +1826,21 @@
 
 
 <h1 id="how-to-use-automated-pull-request-actions">How to use automated pull request actions<a class="headerlink" href="#how-to-use-automated-pull-request-actions" title="Permanent link">#</a></h1>
-<p>We have github actions workflow that tries to help doing tedious tasks on pull-request. (see <code>pr_actions.yml</code>)</p>
+<p>We have a github actions workflow that tries to help with tedious tasks on pull requests (see <code>pr_actions.yml</code>).</p>
 <h2 id="important-if-you-are-on-a-pr-from-a-fork">(IMPORTANT) If you are on a PR from a fork<a class="headerlink" href="#important-if-you-are-on-a-pr-from-a-fork" title="Permanent link">#</a></h2>
-<p>The actions will try to commit changes to your PR, with the openfoodfacts-bot user.
-For this to happen you must let maintainers commit to your PR (see <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork">github documentation</a>)</p>
+<p>The actions will try to commit changes to your PR as the openfoodfacts-bot user.
+For this to happen you must let maintainers commit to your PR (see <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork">github documentation</a>).</p>
 <h2 id="linting">Linting<a class="headerlink" href="#linting" title="Permanent link">#</a></h2>
-<p>We try to keep the same format on perl files and taxonomies.</p>
-<p>Issue <code>/lint</code> in a comment on the PR, the linting actions will be launched in the background.</p>
+<p>We try to keep the same format for perl files and taxonomies.</p>
+<p>Enter <code>/lint</code> in a comment on the PR; the linting actions will be launched in the background.</p>
 <p>Of course you can also run <code>make lint</code> locally and commit changes. </p>
 <h2 id="updating-tests-results">Updating tests results<a class="headerlink" href="#updating-tests-results" title="Permanent link">#</a></h2>
-<p>If you do a change that affects the API or HTML rendering, the tests might fail because they compare old stored results with newly generated one and find a difference.</p>
-<p>Issue <code>/update_tests_results</code> in a comment to have the test refresh their expectation.</p>
-<p>Beware that you must check for the changes after that to be sure, changes are correct and that you didn't introduce a bug.</p>
-<h2 id="debugging">Debugging<a class="headerlink" href="#debugging" title="Permanent link">#</a></h2>
-<p>Normally after the action finishes, it commits to your PR and it relaunch the checks.</p>
-<p>If it does not happens, you can see the result of actions in the actions tab, <a href="https://github.com/openfoodfacts/openfoodfacts-server/actions/workflows/pr_actions.yml">selecting pr_actions workflow</a></p>
+<p>If you make a change that affects the API or HTML rendering, the tests may fail because they compare old stored results with the newly generated one and find a difference.</p>
+<p>Enter <code>/update_tests_results</code> in a comment to have the tests refresh their expectations.</p>
+<p>Be careful to check the changes after that, to make sure they are correct and you didn't introduce a bug.</p>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h2>
+<p>Normally, after the action finishes, it commits to your PR and it restarts the checks.</p>
+<p>If that does not happen, you can see the result of actions in the actions tab, <a href="https://github.com/openfoodfacts/openfoodfacts-server/actions/workflows/pr_actions.yml">selecting the pr_actions workflow</a></p>
 
 
 
