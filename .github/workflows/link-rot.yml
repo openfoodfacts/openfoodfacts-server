@@ -27,7 +27,7 @@ jobs:
         with:
           # Scan directories and markdown files, hide progress
           # Use explicit excludes for reliability
-          args: --base . --verbose --no-progress --exclude-loopback --exclude-private --exclude-path 'CHANGELOG.md' --exclude-path 'CHANGELOG.md.old' --exclude-path 'html/images/misc/comment-ajouter-un-produit.html' --exclude '.*\[%.*%\].*' --exclude 'file:///cgi/.*' --exclude 'file:///images/.*' 'html/' 'templates/' './**/*.md'
+          args: --base . --verbose --no-progress 'html/' 'templates/' './**/*.md' --exclude-loopback --exclude-private --exclude-path 'CHANGELOG.md' --exclude-path 'CHANGELOG.md.old' --exclude '.*\[%.*%\].*' --exclude 'file:///cgi/.*' --exclude 'file:///images/.*' 
           fail: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
