@@ -5,6 +5,9 @@ name: Link Rot Check
 on:
   schedule:
     - cron: '0 0 * * 0'      # Runs every Sunday at midnight UTC
+  workflow_dispatch:
+  push:                      # Added for act testing
+    branches: [ 'JagjeevanAK/check-links' ]  # Only on your test branch
 
 jobs:
   link-rot:
