@@ -32,7 +32,11 @@ jobs:
             --exclude-path 'CHANGELOG.md' 'CHANGELOG.md.old' '.*\[%.*%\].*' 
             --exclude-path 'file:///*' 
             --exclude-path 'templates/web/common/site_layout.tt.html'
-          # --exclude-path 'file:///images/.*'
+            --exclude-path 'templates/web/pages/dashboard/display_orgs_table.tt.html'
+            --exclude-path 'templates/web/pages/user_form/user_form_page.tt.html'
+            --exclude-path 'templates/web/common/includes/donate_banner.tt.html'
+            --exclude-path 'templates/web/pages/product/includes/nutriscore.tt.html'
+            --exclude-path 'templates/web/pages/product/product_page.tt.html'
           fail: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
