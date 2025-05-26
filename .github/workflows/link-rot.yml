@@ -17,11 +17,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Run link-rot check
         id: lychee
         uses: lycheeverse/lychee-action@v2.4.1
         with:
           # Recursively scan static output directories to avoid passing huge arglists, hide progress
-            args: --recursive html/ --recursive templates/ --extensions .md,.html --fail-on-status
+          args: --recursive html/ --recursive templates/ --extensions .md,.html --fail-on-status --exclude-loopback --exclude-private --exclude-mail
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
