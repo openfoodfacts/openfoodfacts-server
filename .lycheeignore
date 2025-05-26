@@ -1,15 +1,2 @@
-# Exclude local CGI file references that might not exist in CI
-file:///cgi/.*
+<!-- Just add that link to be ignored by the link rot workflow and no file paths should be added to this file. -->
 
-# Exclude template variables in URLs - URLs containing unprocessed template syntax
-.*\[%.*%\].*
-
-# File paths that should be excluded from scanning completely
-# (Note: These patterns match against file paths being scanned)
-.*CHANGELOG\.md$
-.*CHANGELOG\.md\.old$
-.*comment-ajouter-un-produit\.html$
-.*\.tt\.html$
-
-# Exclude template directories
-templates/.*
