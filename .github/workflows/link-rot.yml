@@ -30,7 +30,8 @@ jobs:
             --base . --verbose --no-progress 
             --exclude-loopback --exclude-private 
             --exclude-path 'CHANGELOG.md' 'CHANGELOG.md.old' '.*\[%.*%\].*' 
-            --exclude-path 'file:///cgi/.*' 'file:///images/.*' 
+            --exclude-path 'file:///cgi/.*' 
+            --exclude-path 'file:///images/.*' 
           fail: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
