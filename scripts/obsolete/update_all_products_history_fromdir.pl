@@ -128,7 +128,7 @@ my $count = $#products;
 		}
 		
 		if ($product_ref->{empty} == 1) {
-			compute_product_history_and_completeness($product_ref, $changes_ref);
+			compute_product_history($product_ref, $changes_ref);
 			if ($product_ref->{empty} != 1) {
 				print "product was empty but is not - code: $code\n";
 
@@ -143,7 +143,7 @@ my $count = $#products;
 
 
 
-		# compute_product_history_and_completeness($product_ref, $changes_ref);
+		# compute_product_history($product_ref, $changes_ref);
 
 		if (($product_ref->{empty} != 1) and ($product_ref->{deleted} eq 'on')) {
 			print "!!! deleted non empty product: $code\n";

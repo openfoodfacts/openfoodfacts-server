@@ -77,7 +77,7 @@ my $cursor = $products_collection->query({})->fields({ code => 1 });
 		$product_ref->{last_modified_t} += 0;
 		$product_ref->{created_t} += 0;
 		
-		compute_product_history_and_completeness($product_ref, $changes_ref);
+		compute_product_history($product_ref, $changes_ref);
 		
 		# sort_key
 		# add 0 just to make sure we have a number...  last_modified_t at some point contained strings like  "1431125369"

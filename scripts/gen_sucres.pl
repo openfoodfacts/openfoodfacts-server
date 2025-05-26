@@ -95,7 +95,7 @@ foreach my $l ('fr') {
 	my $fields_ref = {code => 1, product_name => 1, brands => 1, quantity => 1, nutriments => 1};
 	my %tags = ();
 
-	my $query_ref = {lc => $lc, states_tags => 'en:complete'};
+	my $query_ref = {lc => $lc};
 	#$query_ref->{"nutriments.sugars_100g"}{ '$gte'}  = 0.01;
 	# -> does not seem to work for sugars, maybe some string values?!
 

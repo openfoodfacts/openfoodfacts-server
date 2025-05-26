@@ -72,7 +72,7 @@ my $cursor = $products_collection->query({})->fields({ code => 1 });
 			$changes_ref = [ {} ];
 		}
 
-		compute_product_history_and_completeness($product_ref, $changes_ref);
+		compute_product_history($product_ref, $changes_ref);
 		
 		my $change_ref = $changes_ref->[0];
 		if ((not defined $change_ref->{userid}) or ($change_ref->{userid} eq '')) {

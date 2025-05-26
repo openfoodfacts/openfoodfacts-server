@@ -85,6 +85,7 @@ use ProductOpener::Tags qw(%level exists_taxonomy_tag get_inherited_property has
 
 use ProductOpener::DataQualityCommon qw(check_quality_common);
 use ProductOpener::DataQualityFood qw(check_quality_food);
+use ProductOpener::DataQualityDimensions qw(compute_dimensions_score);
 use ProductOpener::ProducersFood qw(detect_possible_improvements);
 
 =head1 FUNCTIONS
@@ -112,6 +113,9 @@ sub check_quality ($product_ref) {
 
 	if ($options{product_type} eq "food") {
 		check_quality_food($product_ref);
+
+        # Compute the dimensions score
+        compute_dimensions_score($product_ref);
 	}
 
 	# Also combine all sub facets in a data-quality facet

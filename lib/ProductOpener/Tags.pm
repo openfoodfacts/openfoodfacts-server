@@ -815,6 +815,32 @@ sub is_a ($tagtype, $child, $parent) {
 	return $found;
 }
 
+=head1 FUNCTIONS
+
+=head2 add_tag
+
+Adds a tag to a specified tag type in the product reference if it does not already exist.
+
+=head3 Arguments
+
+=head4 $product_ref
+
+A hash reference to the product data.
+
+=head4 $tagtype
+
+The type of the tag (e.g. categories, labels, allergens).
+
+=head4 $tagid
+
+The ID of the tag to add.
+
+=head3 Return value
+
+Returns 1 if the tag was added, 0 if it already existed.
+
+=cut
+
 sub add_tag ($product_ref, $tagtype, $tagid) {
 
 	(defined $product_ref->{$tagtype . "_tags"}) or $product_ref->{$tagtype . "_tags"} = [];

@@ -62,7 +62,7 @@ properties:
   states:
     description: |
       comma separated list of values indicating some states of the product,
-      like things to be done, or to be completed.
+      these are producers platform related (to-be-exported, etc.).
       See [states taxonomy](https://static.openfoodfacts.net/data/taxonomies/states.json)
     type: string
   states_hierarchy:
