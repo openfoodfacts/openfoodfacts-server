@@ -1,0 +1,12 @@
+# Exclude template files with unprocessed variables
+templates/
+.*\.tt\.html$
+
+# Exclude problematic encoding files
+html/images/misc/comment-ajouter-un-produit.html
+
+# Exclude template variables patterns
+\[%.*%\]
+
+# Exclude local file references that might not exist in CI
+file:///cgi/
