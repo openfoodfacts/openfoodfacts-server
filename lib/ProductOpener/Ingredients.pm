@@ -100,6 +100,8 @@ BEGIN {
 		&assign_property_to_ingredients
 
 		&get_ingredients_with_property_value
+
+		&detect_rare_crops
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -219,7 +221,7 @@ my %may_contain_regexps = (
 	sl => "lahko vsebuje sledi|lahko vsebuje sledove",
 	sr => "može sadržati tragove",
 	sv =>
-		"denna produkt kan innethalla spar av|kan innehålla små mängder|kan innehålla spår av|innehåller spår av|kan innehålla spår|kan innehålla",
+		"denna produkt kan innet?h[åa]lla sp[åa]r av|kan innehålla små mängder|kan innehålla spår av|innehåller spår av|kan innehålla spår|kan innehålla",
 );
 
 my %contains_regexps = (
@@ -638,7 +640,7 @@ my @labels = (
 	"en:halal", "en:kosher",
 	"en:fed-without-gmos", "fr:crc",
 	"en:without-gluten", "en:sustainable-farming",
-	"en:krav",
+	"en:krav", "en:whole-grain",
 );
 my %labels_regexps = ();
 
@@ -1214,9 +1216,10 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 				if $log->is_debug();
 		}
 
-		if (($ingredients_lc eq "en") || ($ingredients_lc eq "fr")) {
+		if (($ingredients_lc eq "en") || ($ingredients_lc eq "fr") || ($ingredients_lc eq "sv")) {
 			# Origin of the milk: United Kingdom
 			# Origine du Cacao: Pérou
+			# Ursprung fullkornsrågmjöl: Sverige och Danmark
 			if (match_origin_of_the_ingredient_origin($ingredients_lc, \$text, $matched_ingredient_ref)) {
 				$origins = $matched_ingredient_ref->{origins};
 				$ingredient = $matched_ingredient_ref->{ingredient};
@@ -1362,6 +1365,7 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 		ro => "(?:tara de origine)",
 		rs => "(?:zemlja porekla)",
 		sl => "(?:(?:država|krajina) porekla|gojeno v)",
+		sv => "(?:ursprung)",
 		uk => "(?:kраїна походження)",
 	);
 
@@ -4839,6 +4843,7 @@ sub normalize_a_of_b ($ingredients_lc, $a, $b, $of_bool, $alternate_names_ref = 
 	}
 	elsif (($ingredients_lc eq "bg")
 		or ($ingredients_lc eq "cs")
+		or ($ingredients_lc eq "da")
 		or ($ingredients_lc eq "de")
 		or ($ingredients_lc eq "hu")
 		or ($ingredients_lc eq "ru")
@@ -4846,7 +4851,8 @@ sub normalize_a_of_b ($ingredients_lc, $a, $b, $of_bool, $alternate_names_ref = 
 		or ($ingredients_lc eq "lt")
 		or ($ingredients_lc eq "rs")
 		or ($ingredients_lc eq "sk")
-		or ($ingredients_lc eq "sl"))
+		or ($ingredients_lc eq "sl")
+		or ($ingredients_lc eq "sv"))
 	{
 		$a_of_b = $a . " " . $b;
 	}
@@ -5133,7 +5139,7 @@ my %phrases_before_ingredients_list = (
 
 	cs => ['složení',],
 
-	da => ['ingredienser', 'indeholder', 'Sammensætning',],
+	da => ['[Ii]ngrediens(?:er)?', '[Ii]ndhold', '[Ii]ndeholder', '[Ss]ammens(?:æ|ae)tning',],
 
 	de => ['Zusammensetzung', 'zutat(en)?',],
 
@@ -5204,7 +5210,7 @@ my %phrases_before_ingredients_list = (
 
 	sr => ['Sastojci',],
 
-	sv => ['ingredienser', 'innehåll(er)?', 'Sammansättning',],
+	sv => ['[Ii]ngrediens(?:er)?', '[Ii]nneh[åa]ll(?:er)?', '[Ss]ammans[äa]ttning',],
 
 	tg => ['Таркиб',],
 
@@ -5230,7 +5236,7 @@ my %phrases_before_ingredients_list_uppercase = (
 
 	cs => ['SLOŽENÍ',],
 
-	da => ['INGREDIENSER', 'ZUSAMMENSETZUNG', 'SAMMENSÆTNING',],
+	da => ['INGREDIENS(?:ER)?', 'INDHOLD', 'INDEHOLDER', 'SAMMENS(?:Æ|AE)TNING',],
 
 	de => ['ZUTAT(EN)?', 'ZUSAMMENSETZUNG',],
 
@@ -5274,7 +5280,7 @@ my %phrases_before_ingredients_list_uppercase = (
 
 	sl => ['SESTAVINE', 'SESTAVA',],
 
-	sv => ['INGREDIENSER', 'INNEHÅLL(ER)?', 'SAMMANSÄTTNING',],
+	sv => ['INGREDIENSER', 'INNEH[ÅA]LL(?:ER)?', 'SAMMANS[ÄA]TTNING',],
 
 	tr => ['BİLEŞİM',],
 
@@ -5307,7 +5313,7 @@ my %phrases_after_ingredients_list = (
 	cs => [
 		'analytické složky',    # pet food
 		'balené v ochrannej atmosfére',    # packaged in protective atmosphere
-		'doporu)c|č)eny zp(u|ů)sob p(r|ř)(i|í)pravy',
+		'doporu(c|č)eny zp(u|ů)sob p(r|ř)(i|í)pravy',
 		'minim(a|á)ln(i|í) trvanlivost do',    # Expiration date
 		'po otev(r|ř)en(i|í)',    # After opening
 		'(návod k )?přípravě',    # preparation
@@ -5323,6 +5329,7 @@ my %phrases_after_ingredients_list = (
 		'holdbarhed efter åbning', 'mindst holdbar til',
 		'opbevar(?:ing|res)?', '(?:for )?allergener',
 		'produceret af', 'tilberedning(?:svejledning)?',
+		'blandingsforholdet kan variere',
 	],
 
 	de => [
@@ -5359,7 +5366,8 @@ my %phrases_after_ingredients_list = (
 		'\d\d\d\sg\s\w*\swerden aus\s\d\d\d\sg\s\w*\shergestellt'
 		,    # 100 g Salami werden aus 120 g Schweinefleisch hergestellt.
 		'Alle Zutaten sind aus biologischem Anbau',
-		'außer die mit * markierten Bestandteile'
+		'außer die mit * markierten Bestandteile',
+		'Die Mischung kann variieren',
 	],
 
 	el => [
@@ -5596,7 +5604,6 @@ my %phrases_after_ingredients_list = (
 		'tinka vartoti iki',    # valid until
 		'data ant pakuotės',    #date on package
 		'laikyti sausoje vietoje',    #Keep in dry place
-		'',
 	],
 
 	lv => [
@@ -5612,6 +5619,7 @@ my %phrases_after_ingredients_list = (
 	nb => [
 		'netto(?:innhold|vekt)', 'oppbevar(?:ing|es)', 'næringsinnh[oa]ld', 'kjølevare',
 		'minst holdbar',    # keep until
+		'blandingsforholdet kan variere',
 	],
 
 	nl => [
@@ -5730,6 +5738,7 @@ my %phrases_after_ingredients_list = (
 		'upptining', 'o?öppnad',
 		'bevaras', 'kylvara',
 		'tappat',
+		'(?:proportionerna|blandningsförhållandet) kan variera(?: något mellan olika förpackningar)?',
 	],
 
 	tr => [
@@ -5990,13 +5999,6 @@ sub clean_ingredients_text ($product_ref) {
 				$text = clean_ingredients_text_for_lang($text, $language);
 
 				if ($text ne $product_ref->{"ingredients_text_" . $language}) {
-
-					my $time = time();
-
-					# Keep a copy of the original ingredients list just in case
-					$product_ref->{"ingredients_text_" . $language . "_ocr_" . $time}
-						= $product_ref->{"ingredients_text_" . $language};
-					$product_ref->{"ingredients_text_" . $language . "_ocr_" . $time . "_result"} = $text;
 					$product_ref->{"ingredients_text_" . $language} = $text;
 				}
 
@@ -6516,6 +6518,19 @@ my %ingredients_categories_and_types = (
 		},
 	],
 
+	sv => [
+		# concentrate from …
+		{
+			categories => ['koncentrat från'],
+			types => [
+				"fläderbär", "hallon", "hibiskus", "jordgubb", "lime", "morot",
+				"persika", "rädisa", "safflor", "spirulina", "svarta vinbär", "svart morot",
+				"äpple",
+			],
+			alternate_names => ["<type> från koncentrat"],
+		},
+	],
+
 );
 
 sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
@@ -6595,6 +6610,7 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 				or ($ingredients_lc eq "de")
 				or ($ingredients_lc eq "hr")
 				or ($ingredients_lc eq "ru")
+				or ($ingredients_lc eq "sv")
 				or ($ingredients_lc eq "pl"))
 			{
 				# vegetable oil (palm, sunflower and olive) -> palm vegetable oil, sunflower vegetable oil, olive vegetable oil
@@ -8573,6 +8589,31 @@ sub get_ingredients_with_property_value ($ingredients_ref, $property, $value) {
 	}
 
 	return @matching_ingredients;
+}
+
+=head2 detect_rare_crops ( $product_ref )
+
+Detects if the product contains rare crops, and adds the tag
+en:ingredients-contain-rare-crops to the product.
+
+Rare crops are defined by the EU project DIVINFOOD (that OFF is participating in),
+which calls them NUCs (Neglected and Underutilized Crops).
+
+=cut
+
+sub detect_rare_crops($product_ref) {
+
+	remove_tag($product_ref, "misc", "en:ingredients-contain-rare-crops");
+
+	# Go through the ingredients structure, and check if they have the rare_crop:en:yes property
+	my @rare_crops_ingredients
+		= get_ingredients_with_property_value($product_ref->{ingredients}, "rare_crop:en", "yes");
+
+	if ($#rare_crops_ingredients >= 0) {
+		add_tag($product_ref, "misc", "en:ingredients-contain-rare-crops");
+	}
+
+	return;
 }
 
 1;

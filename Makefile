@@ -244,7 +244,7 @@ import_sample_data: run_deps
 	else \
 	 	echo "🥫 Not importing sample data into MongoDB (only for po_off project)"; \
 	fi
-	
+
 import_more_sample_data: run_deps
 	@echo "🥫 Importing sample data (~2000 products) into MongoDB …"
 	${DOCKER_COMPOSE} run --rm backend bash /opt/product-opener/scripts/import_more_sample_data.sh
@@ -275,7 +275,7 @@ checks: front_build front_lint check_perltidy check_perl_fast check_critic check
 
 lint: lint_perltidy lint_taxonomies
 
-tests: build_taxonomies_test build_lang_test unit_test integration_test
+tests: build_taxonomies_test build_lang_test unit_test integration_test brands_sort_test
 
 # add COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover"' if you want to trigger code coverage report generation
 unit_test: create_folders
@@ -297,6 +297,11 @@ integration_test: create_folders
 	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/integration/outputs/junit.xml" -T backend yath --renderer=Formatter --renderer=JUnit tests/integration
 	${DOCKER_COMPOSE_INT_TEST} stop
 	@echo "🥫 integration tests success"
+
+brands_sort_test:
+	@echo "🥫 checking order of brands.txt"
+	@diff -u <(git grep -ih '^xx:' taxonomies/brands.txt) <(git grep -ih '^xx:' taxonomies/brands.txt|LANG='C.UTF-8' sort -bf)
+	@echo "🥫 brands.txt ordered as expected"
 
 # stop all tests dockers
 test-stop:
@@ -513,7 +518,7 @@ prune:
 
 prune_cache:
 	@echo "🥫 Pruning Docker builder cache …"
-	docker builder prune -f --filter "label=com.docker.compose.project=${COMPOSE_PROJECT_NAME}" 
+	docker builder prune -f --filter "label=com.docker.compose.project=${COMPOSE_PROJECT_NAME}"
 
 clean_folders: clean_logs
 	( rm html/images/products || true )

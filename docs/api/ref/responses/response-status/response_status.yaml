@@ -54,6 +54,6 @@ properties:
       $ref: ./warning-or-error.yaml
   errors:
     type: array
-    description: List of errors. Errors are used to alert about something that is definitely wrong (e.g. a nutrient value thaty is impossibly high).
+    description: List of errors. Errors are used to alert about something that is definitely wrong (e.g. a nutrient value that is impossibly high).
     items:
       $ref: ./warning-or-error.yaml
