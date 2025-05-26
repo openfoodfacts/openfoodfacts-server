@@ -7,6 +7,48 @@ info:
     help people make better food choices and also provide data to enhance the database.
 
     **IMPORTANT**: Please read the [API introduction](https://openfoodfacts.github.io/openfoodfacts-server/api/) before using this API.
+  x-custom-sections:
+    authentication:
+      title: "Authentication"
+      description: |
+        Authentication is required for write operations.
+        It can be done via session cookie or User-Agent header.
+        Refer to the `securitySchemes` section for details on `cookieAuth` and `userAgentAuth`.
+        If authentication fails (e.g., wrong username or password), the API currently returns an HTTP 403 status code,
+        often with an HTML response body. This behavior might be subject to change for more standardized error responses.
+    apiConventions:
+      title: "API Conventions"
+      description: |
+        **Readable and Writable Fields:**
+        The API distinguishes between readable and writable fields.
+        When adding or editing a product, only writable fields can be modified.
+        Refer to individual schema definitions for field-level read/write access. (TODO: Explicitly mark fields as readOnly or writeOnly where applicable in schemas)
+
+        **General Conventions:**
+        - Barcodes are the primary identifiers for products.
+        - Language codes (`lc`) and country codes (`cc`) are used for localization.
+        - Tag-based fields often have a `_tags` (for searching, normalized) and `_hierarchy` (for display, original values) variant.
+        - Dates are typically represented as UNIX timestamps (integer) or ISO 8601 datetime strings.
+    countryCode:
+      title: "Country and Language Codes"
+      description: |
+        Many endpoints support `lc` (language code) and `cc` (country code) query parameters to provide localized responses.
+        - `lc`: A 2-letter ISO 639-1 language code (e.g., `en`, `fr`, `es`). 
+        - `cc`: A 2-letter ISO 3166-1 alpha-2 country code (e.g., `us`, `fr`, `gb`). 
+
+        **List of supported language codes:** https://static.openfoodfacts.org/data/taxonomies/languages.json
+        Common examples: en, fr, es, de, it, pt, nl, ja, ru, ar, zh.
+
+        **List of supported country codes:** https://static.openfoodfacts.org/data/taxonomies/countries.json
+        Common examples: us, gb, fr, de, ca, au, jp, br, in, cn.
+    externalLinks:
+      title: "External Links & Resources"
+      description: |
+        - [Open Food Facts API Introduction](https://openfoodfacts.github.io/openfoodfacts-server/api/)
+        - [Open Food Facts Wiki](https://wiki.openfoodfacts.org/)
+        - [Open Food Facts Data (ODbL)](https://opendatacommons.org/licenses/odbl/summary/index.html)
+        - [Open Food Facts Slack Community](https://slack.openfoodfacts.org/)
+        - [Taxonomies used by Open Food Facts](https://wiki.openfoodfacts.org/Global_taxonomies) (e.g., for categories, labels, ingredients)
   termsOfService: "https://world.openfoodfacts.org/terms-of-use"
   contact:
     name: Open Food Facts
