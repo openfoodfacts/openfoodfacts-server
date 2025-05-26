@@ -5,8 +5,15 @@ templates/
 # Exclude problematic encoding files
 html/images/misc/comment-ajouter-un-produit.html
 
+# Exclude changelog files
+CHANGELOG.md
+CHANGELOG.md.old
+
 # Exclude template variables patterns
 \[%.*%\]
 
 # Exclude local file references that might not exist in CI
 file:///cgi/
+# Exclude changelog files
+CHANGELOG.md
+CHANGELOG.md.old

@@ -26,8 +26,8 @@ jobs:
         uses: lycheeverse/lychee-action@v2.4.1
         with:
           # Scan directories and markdown files, hide progress
+          # Files to exclude are defined in .lycheeignore
           args: --base . --verbose --no-progress --exclude-loopback --exclude-private 'html/' 'templates/' './**/*.md'
-          # Don't fail on broken links, just report them
           fail: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
