@@ -291,7 +291,7 @@ if ($type eq 'search_or_add') {
 				if (defined $filename) {
 					my $imgid;
 					my $debug;
-					process_image_upload($product_ref->{_id}, $filename, $User_id, time(),
+					process_image_upload($product_ref, $filename, $User_id, time(),
 						'image with barcode from web site Add product button',
 						\$imgid, \$debug);
 				}
@@ -544,20 +544,24 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 				# Selected photos
 
-				foreach my $imageid ("front", "ingredients", "nutrition", "packaging") {
+				foreach my $image_type ("front", "ingredients", "nutrition", "packaging") {
 
-					my $from_imageid = $imageid . "_" . $from_lc;
-					my $to_imageid = $imageid . "_" . $product_lc;
+					my $from_imageid = $image_type . "_" . $from_lc;
+					my $to_imageid = $image_type . "_" . $product_lc;
 
-					if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$from_imageid})) {
+					my $from_image_ref = deep_get($product_ref, "images", "selected", $image_type, $from_lc);
+					my $to_image_ref = deep_get($product_ref, "images", "selected", $image_type, $product_lc);
+
+					if (defined $from_image_ref) {
 
 						$log->debug("moving selected image", {from_imageid => $from_imageid, to_imageid => $to_imageid})
 							if $log->is_debug();
 
-						if (($mode eq "replace") or (not defined $product_ref->{images}{$to_imageid})) {
+						if (($mode eq "replace") or (not defined $to_image_ref)) {
 
-							$product_ref->{images}{$to_imageid} = $product_ref->{images}{$from_imageid};
-							my $rev = $product_ref->{images}{$from_imageid}{rev};
+							deep_set($product_ref, "images", "selected", $image_type, $product_lc, $from_image_ref);
+
+							my $rev = $from_image_ref->{rev};
 
 							# Rename the images
 
@@ -578,7 +582,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 							}
 						}
 
-						delete $product_ref->{images}{$from_imageid};
+						delete $product_ref->{images}{selected}{$image_type}{$from_lc};
 					}
 				}
 			}
@@ -962,8 +966,9 @@ CSS
 
 					if ($field =~ /^(.*)_image/) {
 
-						my $image_field = $1 . "_" . $display_lc;
-						$display_div = display_select_crop($product_ref, $image_field, $language, $request_ref);
+						my $image_type = $1;
+						$display_div
+							= display_select_crop($product_ref, $image_type, $display_lc, $language, $request_ref);
 					}
 					elsif ($field eq 'ingredients_text') {
 						$image_full_id = "ingredients_" . ${display_lc} . "_image_full";
