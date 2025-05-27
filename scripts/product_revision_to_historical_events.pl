@@ -37,9 +37,9 @@ use File::Basename qw/dirname/;
 # and process its changes to generate a JSONL file of historical events
 # Add a "resume" argument to resume from the last checkpoint.
 my $checkpoint = ProductOpener::Checkpoint->new;
-my ($last_processed_path, $rev);
+my ($last_processed_path, $last_processed_rev);
 if ($checkpoint->{value}) {
-	($last_processed_path, $rev) = split(',', $checkpoint->{value});
+	($last_processed_path, $last_processed_rev) = split(',', $checkpoint->{value});
 }
 my $can_process = $last_processed_path ? 0 : 1;
 
@@ -191,8 +191,11 @@ sub send_events() {
 sub find_products($dir) {
 	my $next = object_iter($dir, qr/product/);
 	while (my $path = $next->()) {
-		my $code = product_id_from_path($path);
-		process_file(dirname($path), $code);
+		my $dir = dirname($path);
+		if ($can_process or ($last_processed_path and $last_processed_path eq $dir)) {
+			my $code = product_id_from_path($path);
+			process_file($dir, $code);
+		}
 	}
 	return;
 }

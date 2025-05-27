@@ -30,22 +30,22 @@ use ProductOpener::Paths qw/:all/;
 
 sub new ($class) {
 	my $script_name = basename($0);
-    my $filename = "$BASE_DIRS{CACHE_TMP}/$script_name.checkpoint";
+	my $filename = "$BASE_DIRS{CACHE_TMP}/$script_name.checkpoint";
 	if (!-e $filename) {
 		`touch $filename`;
 	}
 	open(my $checkpoint_file, '+<', $filename) or die "Could not open file '$filename' $!";
-    my $checkpoint;
-	my $is_resume = first_index { $_ eq "resume" } @ARGV;
-    if ($is_resume > -1) {
-        seek($checkpoint_file, 0, 0);
-        $checkpoint = <$checkpoint_file>;
-        chomp $checkpoint if $checkpoint;
+	my $checkpoint;
+	my $is_resume = first_index {$_ eq "resume"} @ARGV;
+	if ($is_resume > -1) {
+		seek($checkpoint_file, 0, 0);
+		$checkpoint = <$checkpoint_file>;
+		chomp $checkpoint if $checkpoint;
 		if ($checkpoint) {
 			print STDERR "Resuming from $checkpoint\n";
 		}
 		splice(@ARGV, $is_resume, 1);
-    }
+	}
 
 	my $self = {
 		checkpoint_file => $checkpoint_file,
@@ -57,16 +57,17 @@ sub new ($class) {
 
 sub update ($self, $checkpoint) {
 	my $checkpoint_file = $self->{checkpoint_file};
-    seek($checkpoint_file, 0, 0);
+	seek($checkpoint_file, 0, 0);
 	print $checkpoint_file $checkpoint;
 	truncate($checkpoint_file, tell($checkpoint_file));
-    $self->{value} = $checkpoint;
+	$self->{value} = $checkpoint;
 	return;
 }
 
 sub DESTROY {
-    my ($self) = @_;
-    close $self->{checkpoint_file};
+	my ($self) = @_;
+	close $self->{checkpoint_file};
+	return;
 }
 
 1;
