@@ -55,7 +55,7 @@ BEGIN {
 		&request_param
 		&get_http_request_header
 		&get_http_request_pnote
-	);    #the funntions which are called outside this file
+	);    # The functions which are called outside this file
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
