@@ -155,6 +155,8 @@ $fields_ref->{completed_t} = 1;
 
 $fields_ref->{nutriments} = 1;
 $fields_ref->{nutrition_grade_fr} = 1;
+$fields_ref->{nutriscore_score} = 1;
+$fields_ref->{nutriscore_grade} = 1;
 $fields_ref->{environmental_score_extended_data} = 1;
 
 # Sort by created_t so that we can see which product was the nth in each country -> necessary to compute points for Open Food Hunt
@@ -162,8 +164,11 @@ $fields_ref->{environmental_score_extended_data} = 1;
 
 # 300 000 ms timeout so that we can export the whole database
 # 5mins is not enough, 50k docs were exported
-my $cursor = get_products_collection({timeout => 3 * 60 * 60 * 1000})
-	->query({'empty' => {"\$ne" => 1}, 'obsolete' => {"\$ne" => 1}})->sort({created_t => 1})->fields($fields_ref);
+my $cursor
+	= get_products_collection({timeout => 3 * 60 * 60 * 1000})
+	->query({'empty' => {"\$ne" => 1}, 'obsolete' => {"\$ne" => 1}})
+	->sort({created_t => 1})
+	->fields($fields_ref);
 
 $cursor->immortal(1);
 
@@ -208,38 +213,27 @@ while (my $product_ref = $cursor->next) {
 	if (
 			(defined $code)
 		and (defined $product_ref->{nutriments})
-		and (  ((defined $product_ref->{nutriments}{alcohol}) and ($product_ref->{nutriments}{alcohol} ne ''))
-			or ((defined $product_ref->{nutriments}{energy}) and ($product_ref->{nutriments}{energy} ne '')))
+		and (  ((defined $product_ref->{nutriments}{alcohol_100g}) and ($product_ref->{nutriments}{alcohol_100g} ne ''))
+			or ((defined $product_ref->{nutriments}{energy_100g}) and ($product_ref->{nutriments}{energy_100g} ne '')))
 		)
 	{
-
 		$products_nutriments{$code} = {};
 		foreach my $nid (keys %{$product_ref->{nutriments}}) {
 			next if $nid =~ /_/;
-			next if ($product_ref->{nutriments}{$nid} eq '');
+			next
+				if ((not defined $product_ref->{nutriments}{$nid . "_100g"})
+				or ($product_ref->{nutriments}{$nid . "_100g"} eq ''));
 
 			$products_nutriments{$code}{$nid} = $product_ref->{nutriments}{$nid . "_100g"};
 		}
-		if (defined $product_ref->{"nutrition_grade_fr"}) {
-			$products_nutriments{$code}{"nutrition-grade"}
-				= $nutrition_grades_to_n{$product_ref->{"nutrition_grade_fr"}};
-			#print "NUT - nid: nutrition_grade_fr : $product_ref->{nutrition_grade_fr} \n";
+		if (defined $product_ref->{"nutriscore_score"}) {
+			$products_nutriments{$code}{"nutriscore-score"} = $product_ref->{"nutriscore_score"};
 		}
-	}
-
-	# Add environmental impact from impact estimator if we have them
-	if (
-			(defined $product_ref->{environmental_score_extended_data})
-		and (defined $product_ref->{environmental_score_extended_data}{impact})
-		and (defined $product_ref->{environmental_score_extended_data}{impact}{likeliest_impacts})
-		# TODO: Need to add a filter to keep only impacts computed with high confidence
-		)
-	{
-		defined $products_nutriments{$code} or $products_nutriments{$code} = {};
-		$products_nutriments{$code}{climate_change}
-			= $product_ref->{environmental_score_extended_data}{impact}{likeliest_impacts}{Climate_change};
-		$products_nutriments{$code}{ef_score}
-			= $product_ref->{environmental_score_extended_data}{impact}{likeliest_impacts}{EF_single_score};
+		# We convert the Nutri-Score grade to a number as we compute averages etc.
+		if (defined $product_ref->{"nutriscore_grade"}) {
+			$products_nutriments{$code}{"nutriscore-grade"}
+				= $nutrition_grades_to_n{$product_ref->{"nutriscore_grade"}};
+		}
 	}
 
 	# Compute points
@@ -478,9 +472,6 @@ foreach my $country (keys %{$properties{countries}}) {
 
 			foreach my $nid (keys %{$products_nutriments{$code}}) {
 
-				if ($nid eq 'nutrition-grade') {
-					#print "NUT - code: $code - nid: nutrition-grade\n";
-				}
 				add_product_nutriment_to_stats(\%nutriments, $nid, $products_nutriments{$code}{$nid});
 			}
 		}
