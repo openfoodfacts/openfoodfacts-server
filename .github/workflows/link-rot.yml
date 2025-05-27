@@ -91,29 +91,3 @@ jobs:
               repo: context.repo.repo,
               body: comment
             });
-
-      - name: Create workflow summary
-        if: always()
-        run: |
-          echo "# 🔗 Link Rot Check Summary" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          
-          if [ "${{ steps.lychee.outcome }}" == "success" ]; then
-            echo "✅ **Status:** Link check completed successfully" >> $GITHUB_STEP_SUMMARY
-          else
-            echo "⚠️ **Status:** Link check found potential issues (workflow set to not fail)" >> $GITHUB_STEP_SUMMARY
-          fi
-          
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "📊 **Details:**" >> $GITHUB_STEP_SUMMARY
-          echo "- **Scanned:** HTML files, templates, and markdown files" >> $GITHUB_STEP_SUMMARY
-          echo "- **Excluded:** CHANGELOG files, template variables, and known false positives" >> $GITHUB_STEP_SUMMARY
-          echo "- **Report:** Available as workflow artifact 'lychee-report'" >> $GITHUB_STEP_SUMMARY
-          
-          if [ -f "lychee-report.md" ]; then
-            echo "" >> $GITHUB_STEP_SUMMARY
-            echo "📋 **Report Preview:**" >> $GITHUB_STEP_SUMMARY
-            echo '```' >> $GITHUB_STEP_SUMMARY
-            head -20 lychee-report.md >> $GITHUB_STEP_SUMMARY
-            echo '```' >> $GITHUB_STEP_SUMMARY
-          fi
