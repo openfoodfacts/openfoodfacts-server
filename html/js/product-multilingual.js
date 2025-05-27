@@ -22,6 +22,8 @@
 /*eslint no-console: "off"*/
 /*global lang admin otherNutriments Tagify*/
 /*exported add_line upload_image update_image update_nutrition_image_copy*/
+import Cropper from "cropperjs";
+// import "cropperjs/dist/cropper.css";
 
 //Polyfill, just in case
 if (!Array.isArray) {
@@ -45,6 +47,8 @@ var units = [
     ['mol/l', 'moll/l', 'mmol/l', 'mval/l', 'ppm', "\u00B0rH", "\u00B0fH", "\u00B0e", "\u00B0dH", 'gpg'],
     ['kJ', 'kcal'],
 ];
+
+const croppers = {};
 
 function stringStartsWith(string, prefix) {
     return string.slice(0, prefix.length) == prefix;
@@ -154,11 +158,11 @@ function select_nutriment(event, ui) {
                     for (const unitValue of entry) {
                         domElement.options[domElement.options.length] = new Option(unitValue, unitValue, false, unitValue.toLowerCase() == unit);
                     }
-        
+
                     if (ui.item.iu) {
                         domElement.options[domElement.options.length] = new Option('IU', 'IU', false, 'iu' == unit);
                     }
-        
+
                     return;
                 }
             }
@@ -211,10 +215,10 @@ function rotate_image(event) {
     angles[imagefield] += angle;
     angles[imagefield] = (360 + angles[imagefield]) % 360;
 
-    $('img#crop_' + imagefield).cropper('rotate', angle);
+    croppers[imagefield]?.rotate(angle);
 
     //var selection = $('img#crop_' + imagefield ).cropper('getData');
-    const selection = $('img#crop_' + imagefield).cropper('getCropBoxData');
+    const selection = croppers[imagefield]?.getCropBoxData();
 
     selection.x = selection.left;
     selection.y = selection.top;
@@ -227,7 +231,7 @@ function rotate_image(event) {
         const x2 = selection.x + selection.width;
         const y2 = selection.y + selection.height;
 
-        const container = $('img#crop_' + imagefield).cropper('getContainerData');
+        const container = croppers[imagefield]?.getContainerData();
         const w = container.width;
         const h = container.height;
         console.log("selection - image - w:" + w + ' - h:' + h);
@@ -248,7 +252,7 @@ function rotate_image(event) {
         selection.left = selection.x;
         selection.top = selection.y;
 
-        $('img#crop_' + imagefield).cropper('setCropBoxData', selection);
+        croppers[imagefield]?.setCropBoxData(selection);
 
         console.log("selection - new - x:" + selection.x + " - y:" + selection.y + " - width:" + selection.width + " - height:" + selection.height);
     }
@@ -322,7 +326,7 @@ function change_image(imagefield, imgid) {
         event.stopPropagation();
         event.preventDefault();
 
-        let selection = $('img#crop_' + imagefield).cropper('getData');
+        let selection = croppers[imagefield]?.getData();
 
         if (!selection) {
             selection = { 'x1': -1, 'y1': -1, 'x2': -1, 'y2': -1 };
@@ -375,34 +379,50 @@ function change_image(imagefield, imgid) {
     $("#rotate_left_" + imagefield).click({ imagefield: imagefield, angle: -90 }, rotate_image);
     $("#rotate_right_" + imagefield).click({ imagefield: imagefield, angle: 90 }, rotate_image);
 
-    $('img#crop_' + imagefield).click(function () {
-        $('img#crop_' + imagefield).cropper('clear');
-    });
+    document
+      .getElementById("crop_" + imagefield)
+      .addEventListener("click", () => {
+        croppers[imagefield]?.clear();
+      });
 
-    $('img#crop_' + imagefield).cropper({
-        "viewMode": 2,
-        "guides": false,
-        "autoCrop": false,
-        "zoomable": true,
-        "zoomOnWheel": false,
-        "zoomOnTouch": false,
-        "toggleDragModeOnDblclick": true,
-        "checkCrossOrigin": false
+    const imageElement = document.getElementById("crop_" + imagefield);
+    const cropper = new Cropper(imageElement, {
+      viewMode: 2,
+      guides: false,
+      autoCrop: false,
+      zoomable: true,
+      zoomOnWheel: false,
+      zoomOnTouch: false,
+      toggleDragModeOnDblclick: true,
+      checkCrossOrigin: false,
     });
+    croppers[imagefield] = cropper;
 
-    $("#zoom_on_wheel_" + imagefield).change(function () {
-        const zoomOnWheel = $("#zoom_on_wheel_" + imagefield).is(':checked');
-        $('img#crop_' + imagefield).cropper('destroy').cropper({
-            "viewMode": 2,
-            "guides": false,
-            "autoCrop": false,
-            "zoomable": true,
-            "zoomOnWheel": zoomOnWheel,
-            "zoomOnTouch": false,
-            "toggleDragModeOnDblclick": true,
-            "checkCrossOrigin": false
+    document
+      .getElementById("zoom_on_wheel_" + imagefield)
+      .addEventListener("change", () => {
+        const zoomOnWheel = document.getElementById(
+          "zoom_on_wheel_" + imagefield
+        ).checked;
+        const image = document.getElementById("crop_" + imagefield);
+
+        // Destroy existing cropper if present
+        if (croppers[imagefield]) {
+          croppers[imagefield].destroy();
+        }
+
+        // Recreate with updated zoomOnWheel
+        croppers[imagefield] = new Cropper(image, {
+          viewMode: 2,
+          guides: false,
+          autoCrop: false,
+          zoomable: true,
+          zoomOnWheel: zoomOnWheel,
+          zoomOnTouch: false,
+          toggleDragModeOnDblclick: true,
+          checkCrossOrigin: false,
         });
-    });
+      });
 
     $(document).foundation('equalizer', 'reflow');
 }
