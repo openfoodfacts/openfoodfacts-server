@@ -20,43 +20,41 @@
 
 =head1 NAME
 
-ProductOpener::Apache2PostRequestHandler - Response Handler for OpenTelemetry tracing
+ProductOpener::Apache2ChildExitHandler - Child Exit Handler for OpenTelemetry tracing
 
 =head1 SYNOPSIS
 
-C<ProductOpener::Apache2PostRequestHandler> is a Apache 2.0 response handler output filter that can be used to trace the response data.
+C<ProductOpener::Apache2ChildExitHandler> is a Apache 2.0 child exit handler that flushed any trace listeners.
 
 =cut
 
-package ProductOpener::Apache2PostRequestHandler;
+package ProductOpener::Apache2ChildExitHandler;
 
 use ProductOpener::PerlStandards;
-use ProductOpener::Constants qw(OTEL_SPAN_PNOTES_KEY);
 
 use Log::Any '$log', default_adapter => 'Stderr';
 use Apache2::Const qw(:common);
-use OpenTelemetry::Trace::Span;
 
-my $provider = OpenTelemetry->tracer_provider;
+use Future::AsyncAwait;
 
-sub handler {
-	my $r = shift;
+async sub handler {
+	my $provider = OpenTelemetry->tracer_provider;
+	if (not($provider)) {
+		return;
+	}
 
-	# Retrieve the current span from the context
-	my $span = $r->pnotes(OTEL_SPAN_PNOTES_KEY);
-	if (defined $span) {
-		$log->info('ProductOpener::Apache2PostRequestHandler::handler: span found, ending it',
-			{recording => $span->recording})
-			if $log->is_info();
-		$span->set_attribute('http.response.status_code', $r->status);
-		$span->end();
+	my $flush_result;
+	eval {$flush_result = await $provider->force_flush();};
+	my $err = $@;
+	if ($err) {
+		$log->warn('ProductOpener::Apache2ChildExitHandler::handler: provider flush error', {error => $err})
+			if $log->is_warn();
 	}
 	else {
-		$log->debug('ProductOpener::Apache2PostRequestHandler::handler: span not found')
+		$log->debug('ProductOpener::Apache2ChildExitHandler::handler: provider flushed',
+			{flush_result => $flush_result})
 			if $log->is_debug();
 	}
-
-	OpenTelemetry::Context->current = OpenTelemetry::Context->new();
 
 	return Apache2::Const::OK;
 }
