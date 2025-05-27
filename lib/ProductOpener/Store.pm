@@ -30,8 +30,6 @@ BEGIN {
 		&get_fileid
 		&store
 		&retrieve
-		&store_json
-		&retrieve_json
 		&unac_string_perl
 		&get_string_id_for_lang
 		&get_url_id_for_lang
@@ -54,14 +52,11 @@ use vars @EXPORT_OK;    # no 'my' keyword for these
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 
-use Storable qw(lock_store lock_nstore lock_retrieve);
+use Storable qw(lock_store lock_retrieve);
 
 use URI::Escape::XS;
 use Unicode::Normalize;
 use Log::Any qw($log);
-#11872 Switch all JSON to use Cpanel::JSON::XS
-use JSON::Create qw(write_json);
-use JSON::Parse qw(read_json);
 use Cpanel::JSON::XS;
 use Fcntl ':flock';
 use File::Basename qw/dirname/;
@@ -592,6 +587,8 @@ sub store_config ($path, $ref, $delete_old = 1) {
 
 	#11901: Config files aren't shared so ignore $serialize_to_json flag. Just remove this comment when migration is complete
 
+	ensure_dir_created_or_die(dirname($file_path));
+
 	if (open(my $OUT, ">", $file_path)) {
 		print $OUT $json_for_config->encode($ref);
 		close($OUT);
@@ -627,30 +624,6 @@ sub retrieve_config($path) {
 	}
 	# Fallback to old method
 	return retrieve($path . '.sto');
-}
-
-sub store_json ($file, $ref) {
-
-	# we sort hash keys so that the same object results in the same file
-	# we do not indent as it can easily multiply the size by 2 or more with deep nested structures
-	return write_json($file, $ref, (sort => 1));
-}
-
-sub retrieve_json ($file) {
-
-	# If the file does not exist, return undef.
-	if (!-e $file) {
-		return;
-	}
-	my $return = undef;
-	eval {$return = read_json($file);};
-
-	if ($@ ne '') {
-		require Carp;
-		Carp::carp("cannot retrieve $file : $@");
-	}
-
-	return $return;
 }
 
 1;
