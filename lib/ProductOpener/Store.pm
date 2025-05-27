@@ -375,7 +375,7 @@ sub retrieve_object($path) {
 			flock($IN, LOCK_UN);
 			close($IN);
 		} or do {
-			$log->error("retrieve_object", {path => $path, error => $@}) if $log->is_error();
+			$log->error("retrieve_object", {file_path => $file_path, error => $@}) if $log->is_error();
 		};
 		return $ref;
 	}
@@ -389,7 +389,7 @@ sub retrieve_object($path) {
 				return retrieve_object(remove_extension($real_path));
 			}
 			else {
-				$log->error("retrieve_object orphan link", {link => $real_path, path => $path});
+				$log->error("retrieve_object orphan link", {real_path => $real_path, sto_path => $sto_path});
 				return;
 			}
 		}
@@ -418,7 +418,7 @@ sub retrieve_object_json($path) {
 			flock($IN, LOCK_UN);
 			close($IN);
 		} or do {
-			$log->error("retrieve_object", {path => $path, error => $@}) if $log->is_error();
+			$log->error("retrieve_object", {file_path => $file_path, error => $@}) if $log->is_error();
 		};
 		return $json;
 	}
@@ -478,11 +478,11 @@ sub move_object($old_path, $new_path) {
 		ensure_dir_created_or_die(dirname($new_path));
 		if (-e "$old_path.sto") {
 			move("$old_path.sto", "$new_path.sto")
-				or die("could not move sto file from $old_path to $new_path, error: $!");
+				or die("could not move sto file from $old_path.sto to $new_path.sto, error: $!");
 		}
 		else {
 			move("$old_path.json", "$new_path.json")
-				or die("could not move json file from $old_path to $new_path, error: $!");
+				or die("could not move json file from $old_path.json to $new_path.json, error: $!");
 		}
 	}
 
@@ -499,16 +499,20 @@ If the object at the $path is an sto file then an STO symbolic link will be crea
 sub link_object($name, $link) {
 	# If target is a sto file then keep the link as a sto file too. Note we use relative paths for the target file
 	#11901: Remove $serialize_to_json test once production is migrated
+	my $sto_link = "$link.sto";
 	if (not $serialize_to_json or -e dirname($link) . '/' . $name . '.sto') {
-		symlink($name . '.sto', $link . '.sto') or die("Cannot create link $link to $name, error $!");
+		symlink($name . '.sto', $sto_link) or die("Cannot create link $sto_link to $name.sto, error $!");
 		return;
 	}
 
 	symlink($name . '.json', $link . '.json')
-		or $log->error("could not link", {source => $name, link => $link, error => $!});
+		or $log->error("could not link", {source => "$name.json", link => "$link.json", error => $!});
 
 	# We normally delete a link before creating a new one but just in case make sure there is no STO link
-	unlink($link . '.sto');
+	if (-e $sto_link) {
+		unlink($sto_link);
+		$log->warn("previous link was not deleted", {link => $sto_link}) if $log->is_warn();
+	}
 
 	return;
 }
@@ -617,7 +621,7 @@ sub retrieve_config($path) {
 			$ref = $json_for_config->decode(<$IN>);
 			close($IN);
 		} or do {
-			$log->error("retrieve_config", {path => $path, error => $@}) if $log->is_error();
+			$log->error("retrieve_config", {file_path => $file_path, error => $@}) if $log->is_error();
 		};
 		return $ref;
 	}
