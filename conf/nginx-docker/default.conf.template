@@ -26,7 +26,7 @@ otel_exporter {
 }
 
 otel_trace on;
-otel_trace_context propagate;
+otel_trace_context inject;
 otel_service_name ${OTEL_SERVICE_NAME};
 otel_span_name reverse-proxy;
 
