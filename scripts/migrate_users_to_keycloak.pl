@@ -129,9 +129,7 @@ sub migrate_user ($userid, $anonymize) {
 sub convert_to_keycloak_user ($userid, $anonymize) {
 	my $user_file = "$BASE_DIRS{USERS}/$userid.sto";
 	my $user_ref;
-	eval {
-		$user_ref = retrieve($user_file);
-	};
+	eval {$user_ref = retrieve($user_file);};
 	if ($@) {
 		$log->warn("$userid : Error reading STO: $@\n");
 		return;
@@ -242,9 +240,7 @@ sub validate_user_emails() {
 		foreach my $file (sort @files) {
 			if (($file =~ /.+\.sto$/) and ($file ne 'users_emails.sto')) {
 				my $user_ref;
-				eval {
-					$user_ref = retrieve("$BASE_DIRS{USERS}/$file");
-				};
+				eval {$user_ref = retrieve("$BASE_DIRS{USERS}/$file");};
 				if ($@) {
 					$log->warn("$file : Error reading STO: $@\n");
 					$user_ref = undef;
