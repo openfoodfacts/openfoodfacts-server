@@ -212,13 +212,21 @@ function rotate_image(event) {
 
     const imagefield = event.data.imagefield;
     const angle = event.data.angle;
+    const cropper = croppers[imagefield];
+
+    if (!cropper) {
+        return;
+    }
     angles[imagefield] += angle;
     angles[imagefield] = (360 + angles[imagefield]) % 360;
 
-    croppers[imagefield]?.rotate(angle);
+    cropper.rotate(angle);
 
     //var selection = $('img#crop_' + imagefield ).cropper('getData');
-    const selection = croppers[imagefield]?.getCropBoxData();
+    const selection = cropper.getCropBoxData();
+    if (!selection) {
+        return;
+    }
 
     selection.x = selection.left;
     selection.y = selection.top;
@@ -231,7 +239,10 @@ function rotate_image(event) {
         const x2 = selection.x + selection.width;
         const y2 = selection.y + selection.height;
 
-        const container = croppers[imagefield]?.getContainerData();
+        const container = cropper.getContainerData();
+        if (!container){
+            return;
+        }
         const w = container.width;
         const h = container.height;
         console.log("selection - image - w:" + w + ' - h:' + h);
@@ -252,7 +263,7 @@ function rotate_image(event) {
         selection.left = selection.x;
         selection.top = selection.y;
 
-        croppers[imagefield]?.setCropBoxData(selection);
+        cropper.setCropBoxData(selection);
 
         console.log("selection - new - x:" + selection.x + " - y:" + selection.y + " - width:" + selection.width + " - height:" + selection.height);
     }
@@ -379,13 +390,12 @@ function change_image(imagefield, imgid) {
     $("#rotate_left_" + imagefield).click({ imagefield: imagefield, angle: -90 }, rotate_image);
     $("#rotate_right_" + imagefield).click({ imagefield: imagefield, angle: 90 }, rotate_image);
 
-    document
-      .getElementById("crop_" + imagefield)
-      .addEventListener("click", () => {
-        croppers[imagefield]?.clear();
-      });
-
     const imageElement = document.getElementById("crop_" + imagefield);
+    if (imageElement) {
+    imageElement.addEventListener("click", () => {
+      croppers[imagefield]?.clear();
+    });
+
     const cropper = new Cropper(imageElement, {
       viewMode: 2,
       guides: false,
@@ -397,7 +407,7 @@ function change_image(imagefield, imgid) {
       checkCrossOrigin: false,
     });
     croppers[imagefield] = cropper;
-
+  }
     document
       .getElementById("zoom_on_wheel_" + imagefield)
       .addEventListener("change", () => {
