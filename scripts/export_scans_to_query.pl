@@ -27,17 +27,19 @@ use ProductOpener::Config qw/%options $query_url/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Products qw/product_id_from_path/;
 use ProductOpener::Store qw/object_iter retrieve_object_json/;
+use ProductOpener::Checkpoint;
 use LWP::UserAgent;
 use Path::Tiny;
 use File::Slurp;
 
 # This script recursively visits all scans.json files from the root of the products directory
 # and sends the data to off-query
-
-my $batch_size = $ARGV[0] // 100;
-my ($checkpoint_file, $last_processed_path) = open_checkpoint('export_scans_to_query_checkpoint.tmp');
+# Add a "resume" argument to resume from the last checkpoint
+my $checkpoint = ProductOpener::Checkpoint->new;
+my $last_processed_path = $checkpoint->{value};
 my $can_process = $last_processed_path ? 0 : 1;
 
+my $batch_size = $ARGV[0] // 100;
 my $scans = "{";
 my $scan_count = 0;
 
@@ -74,34 +76,11 @@ sub send_scans($fully_loaded = 0) {
 	return 1;
 }
 
-sub open_checkpoint($filename) {
-	if (!-e $filename) {
-		`touch $filename`;
-	}
-	open(my $checkpoint_file, '+<', $filename) or die "Could not open file '$filename' $!";
-	seek($checkpoint_file, 0, 0);
-	my $checkpoint = <$checkpoint_file>;
-	chomp $checkpoint if $checkpoint;
-	my $last_processed_path;
-	if ($checkpoint) {
-		$last_processed_path = $checkpoint;
-	}
-	return ($checkpoint_file, $last_processed_path);
-}
-
-sub update_checkpoint($checkpoint_file, $dir) {
-	seek($checkpoint_file, 0, 0);
-	print $checkpoint_file $dir;
-	truncate($checkpoint_file, tell($checkpoint_file));
-	return 1;
-}
-
 my $next = object_iter($BASE_DIRS{PRODUCTS}, qr/scans/);
 while (my $path = $next->()) {
 	if (not $can_process) {
 		if ($path eq $last_processed_path) {
 			$can_process = 1;
-			print "Resuming from '$last_processed_path'\n";
 		}
 		next;    # we don't want to process the product again
 	}
@@ -114,11 +93,9 @@ while (my $path = $next->()) {
 
 	if ($scan_count % $batch_size == 0) {
 		send_scans();
-		update_checkpoint($checkpoint_file, $path);
+		$checkpoint->update($path);
 	}
 }
 
 # Always send last batch even if no scans to indicate all loaded
 send_scans(1);
-
-close $checkpoint_file;

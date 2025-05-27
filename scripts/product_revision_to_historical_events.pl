@@ -28,18 +28,24 @@ use ProductOpener::Store qw/retrieve_object object_iter/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Redis qw/push_to_redis_stream/;
 use ProductOpener::Products qw/product_id_from_path/;
+use ProductOpener::Checkpoint;
 use Path::Tiny;
 use JSON::MaybeXS;
 use File::Basename qw/dirname/;
 
 # This script recursively visits all product files from the root of the products directory
 # and process its changes to generate a JSONL file of historical events
+# Add a "resume" argument to resume from the last checkpoint.
+my $checkpoint = ProductOpener::Checkpoint->new;
+my ($last_processed_path, $rev);
+if ($checkpoint->{value}) {
+	($last_processed_path, $rev) = split(',', $checkpoint->{value});
+}
+my $can_process = $last_processed_path ? 0 : 1;
+
 my $start_from = $ARGV[0] // 0;
 my $end_before = $ARGV[1] // 9999999999;
 #perl scripts/product_revision_to_historical_events.pl 1704067200
-
-my ($checkpoint_file, $last_processed_path, $last_processed_rev) = open_checkpoint('checkpoint.tmp');
-my $can_process = $last_processed_path ? 0 : 1;
 
 # JSONL
 my $filename = 'historical_events.jsonl';
@@ -112,7 +118,6 @@ sub process_file($path, $code) {
 		# to know where we are
 		if (not $can_process and $rev == $last_processed_rev) {
 			$can_process = 1;
-			print "Resuming from '$last_processed_path' revision $last_processed_rev\n";
 			next;    # we don't want to process the revision again
 		}
 
@@ -139,7 +144,7 @@ sub process_file($path, $code) {
 
 		if ($event_count % 1000 == 0) {
 			send_events();
-			update_checkpoint($checkpoint_file, $path, $rev);
+			$checkpoint->update("$path,$rev");
 		}
 	}
 
@@ -192,28 +197,6 @@ sub find_products($dir) {
 	return;
 }
 
-sub open_checkpoint($filename) {
-	if (!-e $filename) {
-		`touch $filename`;
-	}
-	open(my $checkpoint_file, '+<', $filename) or die "Could not open file '$filename' $!";
-	seek($checkpoint_file, 0, 0);
-	my $checkpoint = <$checkpoint_file>;
-	chomp $checkpoint if $checkpoint;
-	my ($last_processed_path, $rev);
-	if ($checkpoint) {
-		($last_processed_path, $rev) = split(',', $checkpoint);
-	}
-	return ($checkpoint_file, $last_processed_path, $rev);
-}
-
-sub update_checkpoint($checkpoint_file, $dir, $revision) {
-	seek($checkpoint_file, 0, 0);
-	print $checkpoint_file "$dir,$revision";
-	truncate($checkpoint_file, tell($checkpoint_file));
-	return 1;
-}
-
 find_products($BASE_DIRS{PRODUCTS});
 
 if (scalar(@events)) {
@@ -221,4 +204,3 @@ if (scalar(@events)) {
 }
 
 close $file;
-close $checkpoint_file;
