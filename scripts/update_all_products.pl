@@ -129,6 +129,7 @@ my $remove_category = '';
 my $remove_nutrient = '';
 my $remove_old_carbon_footprint = '';
 my $fix_spanish_ingredientes = '';
+my $remove_previous_ingredients_with_timestamp = '';
 my $team = '';
 my $assign_categories_properties = '';
 my $restore_values_deleted_by_user = '';
@@ -198,6 +199,7 @@ GetOptions(
 	"remove-nutrient=s" => \$remove_nutrient,
 	"remove-old-carbon-footprint" => \$remove_old_carbon_footprint,
 	"fix-spanish-ingredientes" => \$fix_spanish_ingredientes,
+	"remove-previous-ingredients-with-timestamp" => \$remove_previous_ingredients_with_timestamp,
 	"team=s" => \$team,
 	"restore-values-deleted-by-user=s" => \$restore_values_deleted_by_user,
 	"delete-debug-tags" => \$delete_debug_tags,
@@ -262,6 +264,7 @@ if (    (not $process_ingredients)
 	and (not $fix_rev_not_incremented)
 	and (not $fix_yuka_salt)
 	and (not $fix_spanish_ingredientes)
+	and (not $remove_previous_ingredients_with_timestamp)
 	and (not $fix_nutrition_data_per)
 	and (not $fix_nutrition_data)
 	and (not $fix_non_string_ids)
@@ -641,6 +644,20 @@ while (my $product_ref = $cursor->next) {
 					}
 				}
 				$rev--;
+			}
+		}
+
+		# Remove previous ingredients with timestamp
+		if ($remove_previous_ingredients_with_timestamp) {
+			# build a regex for keys like:
+			# ingredients_text_en_ocr_1545921985
+			# ingredients_text_en_ocr_1545732141_result
+			my $re = qr/^ingredients_text_[a-z]{2}_ocr_\d+(?:_result)?$/;
+
+			foreach my $field (sort keys %{$product_ref}) {
+				if ($field =~ $re) {
+					delete $product_ref->{$field};
+				}
 			}
 		}
 
