@@ -17,13 +17,11 @@
 //
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
+import Cropper from "cropperjs";
 /*eslint dot-location: "off"*/
 /*eslint no-console: "off"*/
 /*global lang admin otherNutriments Tagify*/
 /*exported add_line upload_image update_image update_nutrition_image_copy*/
-import Cropper from "cropperjs";
-// import "cropperjs/dist/cropper.css";
 
 //Polyfill, just in case
 if (!Array.isArray) {
@@ -215,6 +213,8 @@ function rotate_image(event) {
     const cropper = croppers[imagefield];
 
     if (!cropper) {
+      console.warn("Cropper instance not found for imagefield:", imagefield);
+
         return;
     }
     angles[imagefield] += angle;
