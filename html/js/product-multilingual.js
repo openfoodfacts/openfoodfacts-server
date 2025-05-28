@@ -416,6 +416,10 @@ function change_image(imagefield, imgid) {
         ).checked;
         const image = document.getElementById("crop_" + imagefield);
 
+        if (!image) {
+          console.warn(`Element with ID "crop_${imagefield}" not found. Skipping Cropper reinitialization.`);
+          return;
+        }
         // Destroy existing cropper if present
         if (croppers[imagefield]) {
           croppers[imagefield].destroy();
