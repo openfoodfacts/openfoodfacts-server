@@ -196,7 +196,7 @@ use POSIX qw(strftime);
 use LWP::UserAgent ();
 use Encode;
 use IO::Compress::Gzip qw(gzip $GzipError);
-use IO::Uncompress::AnyInflate qw(anyinflate $AnyInflateError) ;
+use IO::Uncompress::AnyInflate qw(anyinflate $AnyInflateError);
 
 use GraphViz2;
 use JSON::MaybeXS;
@@ -1189,6 +1189,7 @@ sub put_file_to_cache ($source, $target) {
 			'X-GitHub-Api-Version' => '2022-11-28',
 			Content => $content
 		);
+
 		if (!$response->is_success()) {
 			print "Error uploading to GitHub cache for $target: ${\$response->message()}\n";
 		}
