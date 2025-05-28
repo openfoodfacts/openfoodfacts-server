@@ -195,6 +195,8 @@ use MIME::Base64 qw(encode_base64);
 use POSIX qw(strftime);
 use LWP::UserAgent ();
 use Encode;
+use IO::Compress::Gzip qw(gzip $GzipError);
+use IO::Uncompress::AnyInflate qw(anyinflate $AnyInflateError) ;
 
 use GraphViz2;
 use JSON::MaybeXS;
@@ -1091,11 +1093,17 @@ sub get_file_from_cache ($source, $target) {
 
 	# Else try to get it from the github project acting as cache
 	my $ua = LWP::UserAgent->new();
-	my $response = $ua->mirror("https://raw.githubusercontent.com/$build_cache_repo/main/taxonomies/$source",
-		$local_cache_source);
+	my $response = $ua->get("https://raw.githubusercontent.com/$build_cache_repo/main/taxonomies/$source.gz");
 
-	if (($response->is_success) and (-e $local_cache_source)) {
+	if ($response->is_success) {
+		# inflate content
+		anyinflate \$response->content => $local_cache_source or die "anyinflate of $source failed: $AnyInflateError\n";
 		copy($local_cache_source, $target);
+		if ($source =~ /\.result\.sto$/) {
+			# Only give one message rather than one for each individual file
+			print "Fetched $source from GitHub cache\n";
+		}
+
 		return 2;
 	}
 
@@ -1165,18 +1173,15 @@ sub put_file_to_cache ($source, $target) {
 	# Upload to github
 	my $token = $ENV{GITHUB_TOKEN};
 	if ($token) {
-		open my $source_file, '<', $source;
-		binmode $source_file;
-		my $content = '{"message":"put_to_cache ' . strftime('%Y-%m-%d %H:%M:%S', gmtime) . '","content":"';
 		my $buf;
-		while (read($source_file, $buf, 60 * 57)) {
-			$content .= encode_base64($buf, '');
-		}
+		gzip $source => \$buf or die "gzip failed for $source: $GzipError\n";
+
+		my $content = '{"message":"put_to_cache ' . strftime('%Y-%m-%d %H:%M:%S', gmtime) . '","content":"';
+		$content .= encode_base64($buf, '');
 		$content .= '"}';
-		close $source_file;
 
 		my $ua = LWP::UserAgent->new(timeout => 300);
-		my $url = "https://api.github.com/repos/$build_cache_repo/contents/taxonomies/$target";
+		my $url = "https://api.github.com/repos/$build_cache_repo/contents/taxonomies/$target.gz";
 		my $response = $ua->put(
 			$url,
 			Accept => 'application/vnd.github+json',
@@ -1186,6 +1191,10 @@ sub put_file_to_cache ($source, $target) {
 		);
 		if (!$response->is_success()) {
 			print "Error uploading to GitHub cache for $target: ${\$response->message()}\n";
+		}
+		elsif ($target =~ /\.result\.sto$/) {
+			# Only give one message rather than one for each individual file
+			print "Uploaded $target to GitHub cache\n";
 		}
 	}
 
