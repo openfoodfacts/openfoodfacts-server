@@ -225,10 +225,11 @@ properties:
       '(?<nutrient>[\w-]+)_100g':
         description: |
           The normalized value of the nutrient for 100g (or 100ml for liquids), in a standard unit, for the product as sold (not prepared):
-          * g for most nutrients
-          * % for nutrients that are percentages (e.g. alcohol)
+          * g for all nutrients that are measured by weight (e.g. fat, proteins, carbohydrates, sodium, vitamins, minerals etc.)
+          * % vol for nutrients that are percentages by volume (e.g. alcohol)
           * kJ for energy and energy-kj
           * kcal for energy-kcal
+          * no unit for pH
 
           This is computed from the `nutrient` property,
           the serving size (if `nutrient` is per serving), and the `nutrient`_unit field.
