@@ -1099,7 +1099,7 @@ sub get_file_from_cache ($source, $target) {
 		# inflate content
 		anyinflate \$response->content => $local_cache_source or die "anyinflate of $source failed: $AnyInflateError\n";
 		copy($local_cache_source, $target);
-		if ($source =~ /\.result\.sto$/) {
+		if ($source =~ /\.result\.json$/) {
 			# Only give one message rather than one for each individual file
 			print "Fetched $source from GitHub cache\n";
 		}
@@ -1193,7 +1193,7 @@ sub put_file_to_cache ($source, $target) {
 		if (!$response->is_success()) {
 			print "Error uploading to GitHub cache for $target: ${\$response->message()}\n";
 		}
-		elsif ($target =~ /\.result\.sto$/) {
+		elsif ($target =~ /\.result\.json$/) {
 			# Only give one message rather than one for each individual file
 			print "Uploaded $target to GitHub cache\n";
 		}
