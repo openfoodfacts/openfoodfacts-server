@@ -119,7 +119,7 @@ server {
 	}
 
 	# Static files are served directly by NGINX
-	location ~ ^/(.well-known|files|data|exports|dump)/ {
+	location ~ ^/(.well-known|files|data|exports|dump|robots.txt)/ {
 		include snippets/off.cors-headers.include;
 		include snippets/expiry-headers.include;
 		# First attempt to serve request from resource, then as file,
