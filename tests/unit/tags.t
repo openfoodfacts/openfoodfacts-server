@@ -841,6 +841,16 @@ is(
 	"/images/lang/fi/labels/sydanmerkki.90x90.svg",
 	"file name is unaccented, accented language"
 );
+is(
+	get_tag_image("de", "labels", "de:haltungsform-3-frischluftklima"),
+	"/images/lang/de/labels/haltungsform-3.79x90.svg",
+	"file name from 'image' property"
+);
+is(
+	get_tag_image("de", "labels", "pt: Associação Portuguesa de Celíacos"),
+	"/images/lang/en/labels/apc-novo-logo.178x90.png",
+	"file name from 'image' property translated"
+);
 
 # strings with multiple tags separated by /
 is(canonicalize_taxonomy_tag('en', 'packaging_materials', 'Plastic/PET'), "en:pet-1-polyethylene-terephthalate");
