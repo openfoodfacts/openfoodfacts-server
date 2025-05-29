@@ -830,11 +830,17 @@ is(display_taxonomy_tag("fr", "test", "sv:ä-märket"), "Ä-märket");
 
 # Tags images
 is(get_tag_image("en", "labels", "en:usda-organic"), "/images/lang/en/labels/usda-organic.90x90.svg");
-is(get_tag_image("sv", "labels", "sv:ä-märket"), "/images/lang/sv/labels/ä-märket.85x90.png");   # file name is accented
-is(get_tag_image("fr", "labels", "fr:commerce-equitable"), "/images/lang/fr/labels/commerce-equitable.96x90.png")
-	;    # file name is unaccented, unaccented language
-is(get_tag_image("fr", "labels", "fi:sydänmerkki"), "/images/lang/fi/labels/sydanmerkki.90x90.svg")
-	;    # file name is unaccented, accented language
+is(get_tag_image("sv", "labels", "sv:ä-märket"), "/images/lang/sv/labels/ä-märket.85x90.png", "file name is accented");
+is(
+	get_tag_image("fr", "labels", "fr:commerce-equitable"),
+	"/images/lang/fr/labels/commerce-equitable.96x90.png",
+	"file name is unaccented, unaccented language"
+);
+is(
+	get_tag_image("fr", "labels", "fi:sydänmerkki"),
+	"/images/lang/fi/labels/sydanmerkki.90x90.svg",
+	"file name is unaccented, accented language"
+);
 
 # strings with multiple tags separated by /
 is(canonicalize_taxonomy_tag('en', 'packaging_materials', 'Plastic/PET'), "en:pet-1-polyethylene-terephthalate");
