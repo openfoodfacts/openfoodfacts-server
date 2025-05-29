@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2025 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -850,24 +850,74 @@ sub remove_tag ($product_ref, $tagtype, $tagid) {
 	return $return;
 }
 
-sub load_tags_images ($lc, $tagtype) {
+sub load_all_tags_images () {
+	$log->debug('Loading tags images') if $log->is_debug();
+
+	my $lang_dir = "$www_root/images/lang";
+	my $lang_dir_opened = opendir(my $ldh, $lang_dir);
+	if (not($lang_dir_opened)) {
+		$log->warn('Tags images could not be loaded: The language directory could not be opened',
+			{lang_dir => $lang_dir})
+			if $log->is_warn();
+		return;
+	}
+
+	foreach my $langid (sort readdir($ldh)) {
+		next if $langid eq '.';
+		next if $langid eq '..';
+		next if ((length($langid) ne 2) and not($langid eq 'other'));
+
+		my $langid_dir = "$lang_dir/$langid";
+		if (not(-e $langid_dir)) {
+			next;
+		}
+
+		my $langid_dir_opened = opendir(my $lidh, $langid_dir);
+		if (not($langid_dir_opened)) {
+			$log->warn('Could not open the images dir for a language',
+				{langid => $langid, langid_dir => $langid_dir, error => $!})
+				if $log->is_warn();
+			next;
+		}
+
+		foreach my $tagtype (sort readdir($lidh)) {
+			next if $tagtype =~ /\./;
+			$log->debug('Loading tagtype images', {langid_dir => $langid_dir, langid => $langid, tagtype => $tagtype});
+			load_tags_images($langid_dir, $langid, $tagtype);
+		}
+
+		closedir($lidh);
+	}
+
+	closedir($ldh);
+}
+
+sub load_tags_images ($langid_dir, $lc, $tagtype) {
 
 	defined $tags_images{$lc} or $tags_images{$lc} = {};
 	defined $tags_images{$lc}{$tagtype} or $tags_images{$lc}{$tagtype} = {};
 
-	if (opendir(DH2, "$www_root/images/lang/$lc/$tagtype")) {
-		foreach my $file (sort readdir(DH2)) {
-			# Note: readdir returns bytes, which may be utf8 on some systems
-			# see https://perldoc.perl.org/perlunicode#When-Unicode-Does-Not-Happen
-			$file = decode('utf8', $file);
-			if ($file =~ /^((.*)\.\d+x${logo_height}.(png|svg))$/) {
-				if ((not defined $tags_images{$lc}{$tagtype}{$2}) or ($3 eq 'svg')) {
-					$tags_images{$lc}{$tagtype}{$2} = $1;
-				}
+	my $tagtype_dir = "$langid_dir/$tagtype";
+	my $tagtype_dir_opened = opendir(my $tdh, $tagtype_dir);
+	if (not($tagtype_dir_opened)) {
+		$log->warn('Could not open the images dir for a language/tagtype',
+			{lc => $lc, tagtype => $tagtype, tagtype_dir => $tagtype_dir, error => $!})
+			if $log->is_warn();
+		return;
+	}
+
+	foreach my $file (sort readdir($tdh)) {
+		# Note: readdir returns bytes, which may be utf8 on some systems
+		# see https://perldoc.perl.org/perlunicode#When-Unicode-Does-Not-Happen
+		$file = decode('utf8', $file);
+		if ($file =~ /^((.*)\.\d+x${logo_height}.(png|svg))$/) {
+			if ((not defined $tags_images{$lc}{$tagtype}{$2}) or ($3 eq 'svg')) {
+				$tags_images{$lc}{$tagtype}{$2} = $1;
 			}
 		}
-		closedir DH2;
 	}
+
+	closedir($tdh);
 
 	return;
 }
@@ -2782,42 +2832,17 @@ sub init_taxonomies($die_if_some_taxonomies_cannot_be_loaded = 0) {
 	# this is only to avoid loading data when we check compilation
 	return if ($ENV{PO_NO_LOAD_DATA});
 
-	# load all tags images
-
-	# print STDERR "Tags.pm - loading tags images\n";
-	if (opendir my $DH2, "$www_root/images/lang") {
-		foreach my $langid (sort readdir($DH2)) {
-			next if $langid eq '.';
-			next if $langid eq '..';
-			next if ((length($langid) ne 2) and not($langid eq 'other'));
-
-			if (-e "$www_root/images/lang/$langid") {
-				opendir my $DH, "$www_root/images/lang/$langid" or die "Couldn't open the current directory: $!";
-				foreach my $tagtype (sort readdir($DH)) {
-					next if $tagtype =~ /\./;
-					#print STDERR "Tags: loading tagtype images $langid/$tagtype\n";
-					load_tags_images($langid, $tagtype);
-				}
-				closedir($DH);
-			}
-
-		}
-		closedir($DH2);
-	}
-	else {
-		$log->warn("The $lang_dir directory could not be opened.") if $log->is_warn();
-		$log->warn("Tags images could not be loaded.") if $log->is_warn();
-	}
-
 	foreach my $taxonomyid (@ProductOpener::Config::taxonomy_fields) {
 		$log->info("loading taxonomy $taxonomyid");
 		retrieve_tags_taxonomy($taxonomyid, $die_if_some_taxonomies_cannot_be_loaded);
 	}
+
 	# ingredients_original uses the ingredients taxonomy
 	$taxonomy_fields{"ingredients_original"} = "ingredients";
 	# mandatory_additive_class uses additives_classes
 	$taxonomy_fields{"mandatory_additive_class"} = "additives_classes";
 
+	load_all_tags_images();
 	init_languages();
 	init_countries();
 
