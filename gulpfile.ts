@@ -103,7 +103,7 @@ export function copyJs() {
     "./node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js",
     "./node_modules/blueimp-file-upload/js/*.js",
     "./node_modules/@yaireo/tagify/dist/tagify.js",
-    "./node_modules/cropperjs/dist/cropper.js",
+    "./node_modules/cropperjs/dist/cropper.esm.js",
     "./node_modules/jquery-form/src/jquery.form.js",
     "./node_modules/highcharts/highcharts.js",
     "./node_modules/jsvectormap/dist/jsvectormap.js",

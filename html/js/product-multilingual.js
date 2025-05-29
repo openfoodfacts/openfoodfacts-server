@@ -17,7 +17,7 @@
 //
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
-import Cropper from "cropperjs";
+import Cropper from "./cropper.esm.js";
 /*eslint dot-location: "off"*/
 /*eslint no-console: "off"*/
 /*global lang admin otherNutriments Tagify*/
@@ -220,7 +220,7 @@ function rotate_image(event) {
     angles[imagefield] += angle;
     angles[imagefield] = (360 + angles[imagefield]) % 360;
 
-    cropper.rotate(angle);
+    cropper.getCropperImage().$rotate(angle);
 
     //var selection = $('img#crop_' + imagefield ).cropper('getData');
     const selection = cropper.getCropBoxData();
@@ -378,7 +378,8 @@ function change_image(imagefield, imgid) {
             });
     });
 
-    $('img#crop_' + imagefield).on('ready', function () {
+        const cropperImage = cropper.getCropperImage();
+        cropperImage.addEventListener("cropper:ready", function () {
         $("#rotate_left_" + imagefield).attr("disabled", false);
         $("#rotate_right_" + imagefield).attr("disabled", false);
         $("." + crop_button).attr("disabled", false);
