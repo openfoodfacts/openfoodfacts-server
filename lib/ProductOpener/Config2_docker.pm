@@ -44,6 +44,10 @@ BEGIN {
 		$mongodb
 		$mongodb_host
 		$mongodb_timeout_ms
+		$postgres_products_host
+		$postgres_products_user
+		$postgres_products_password
+		$postgres_products_db
 		$memd_servers
 		$google_cloud_vision_api_key
 		$google_cloud_vision_api_url
@@ -103,11 +107,24 @@ $google_cloud_vision_api_url = $ENV{GOOGLE_CLOUD_VISION_API_URL} || "https://vis
 $crowdin_project_identifier = $ENV{CROWDIN_PROJECT_IDENTIFIER};
 $crowdin_project_key = $ENV{CROWDIN_PROJECT_KEY};
 
-my $postgres_host = $ENV{POSTGRES_HOST} || "postgres";
-my $postgres_user = $ENV{POSTGRES_USER};
-my $postgres_password = $ENV{POSTGRES_PASSWORD};
-my $postgres_db = $ENV{POSTGRES_DB} || "minion";
-my $postgres_url = "postgresql://${postgres_user}:${postgres_password}\@${postgres_host}/${postgres_db}";
+# Postgres configuration
+# We use 2 Postgres databases:
+# - one for the Minion jobs queue, which is shared with the different Product Opener instances
+# - one to store product data and product revisions data, shared with the different Product Opener instances
+# and possibly other services in the future (e.g. Robotoff which currently access product Data through MongoDB)
+# In practice we can use the same Postgres instance for both databases
+
+$postgres_products_host = $ENV{POSTGRES_PRODUCTS_HOST} || "postgres-products";
+$postgres_products_user = $ENV{POSTGRES_PRODUCTS_USER};
+$postgres_products_password = $ENV{POSTGRES_PRODUCTS_PASSWORD};
+$postgres_products_db = $ENV{POSTGRES_PRODUCTS_DB} || "products";
+
+my $postgres_minion_host = $ENV{POSTGRES_HOST} || "postgres";
+my $postgres_minion_user = $ENV{POSTGRES_USER};
+my $postgres_minion_password = $ENV{POSTGRES_PASSWORD};
+my $postgres_minion_db = $ENV{POSTGRES_DB} || "minion";
+my $postgres_minion_url
+	= "postgresql://${postgres_minion_user}:${postgres_minion_password}\@${postgres_minion_host}/${postgres_minion_db}";
 
 # do we want to log emails instead of sending them (dev environments)
 $log_emails = $ENV{OFF_LOG_EMAILS} // 0;
@@ -136,7 +153,7 @@ $redis_url = $ENV{REDIS_URL};
 %server_options = (
 	private_products => $producers_platform,    # 1 to make products visible only to the owner (producer platform)
 	producers_platform => $producers_platform,
-	minion_backend => {Pg => $postgres_url},
+	minion_backend => {Pg => $postgres_minion_url},
 	minion_local_queue => $server_domain,
 	minion_export_queue => $ENV{PRODUCT_OPENER_DOMAIN},
 	cookie_domain => $ENV{PRODUCT_OPENER_DOMAIN},

@@ -126,6 +126,7 @@ use vars @EXPORT_OK;
 use ProductOpener::ProductSchemaChanges qw/$current_schema_version convert_product_schema/;
 use ProductOpener::Store
 	qw/get_string_id_for_lang get_url_id_for_lang retrieve_object store_object object_exists object_path_exists move_object remove_object link_object/;
+use ProductOpener::ProductsDatabase qw/retrieve_product_from_database store_product_in_database/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::ConfigEnv qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
@@ -897,7 +898,20 @@ sub retrieve_product ($product_id, $include_deleted = 0, $rev = undef) {
 		}
 	) if $log->is_debug();
 
-	my $product_ref = retrieve_object($full_product_path);
+	# First try to retrieve the product from the products database
+	my $product_ref = retrieve_product_from_database($product_id, $rev);
+
+	# Otherwise, retrieve the product from the file system
+	if (not defined $product_ref) {
+		$log->debug("retrieve_product - product not found in database",
+			{product_id => $product_id, full_product_path => $full_product_path})
+			if $log->is_debug();
+		$product_ref = retrieve_object($full_product_path);
+	}
+	else {
+		$log->debug("retrieve_product - product found in database", {product_id => $product_id})
+			if $log->is_debug();
+	}
 
 	if (not defined $product_ref) {
 		$log->debug("retrieve_product - product does not exist", {product_id => $product_id, path => $path})
@@ -1436,7 +1450,10 @@ sub store_product ($user_id, $product_ref, $comment) {
 	}
 
 	# First store the product data in a .json file on disk
-	store_object("$BASE_DIRS{PRODUCTS}/$path/$rev", $product_ref);
+	# store_object("$BASE_DIRS{PRODUCTS}/$path/$rev", $product_ref);
+
+	# Store the product in PostgreSQL database
+	store_product_in_database($product_ref);
 
 	# Also store the product in MongoDB, unless it was marked as deleted
 	if ($product_ref->{deleted}) {

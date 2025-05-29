@@ -38,6 +38,20 @@ autoload("ProductOpener::Config_$flavor");
 
 # Add values common to all flavors
 
+use ProductOpener::Config2;
+
+# Postgres configuration
+# We use 2 Postgres databases:
+# - one for the Minion jobs queue, which is shared with the different Product Opener instances
+# - one to store product data and product revisions data, shared with the different Product Opener instances
+# and possibly other services in the future (e.g. Robotoff which currently access product Data through MongoDB)
+# In practice we can use the same Postgres instance for both databases
+
+$ProductOpener::Config::postgres_products_host = $ProductOpener::Config2::postgres_products_host;
+$ProductOpener::Config::postgres_products_user = $ProductOpener::Config2::postgres_products_user;
+$ProductOpener::Config::postgres_products_password = $ProductOpener::Config2::postgres_products_password;
+$ProductOpener::Config::postgres_products_db = $ProductOpener::Config2::postgres_products_db;
+
 # define the normalization applied to change a string to a tag id (in particular for taxonomies)
 # tag ids are also used in URLs.
 

@@ -68,6 +68,11 @@ BEGIN {
 		$mongodb_host
 		$mongodb_timeout_ms
 
+		$postgres_products_host
+		$postgres_products_user
+		$postgres_products_password
+		$postgres_products_db
+
 		$memd_servers
 
 		$analytics
