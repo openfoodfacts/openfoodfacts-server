@@ -179,6 +179,7 @@ sub store_org ($org_ref) {
 		}
 	}
 
+	#11867: Move to a Job if not an admin
 	if (   (defined $previous_org_ref)
 		&& ($previous_org_ref->{valid_org} ne 'accepted')
 		&& ($org_ref->{valid_org} eq 'accepted')
@@ -370,7 +371,7 @@ sub add_user_to_org ($org_id_or_ref, $user_id, $groups_ref) {
 
 		# the first admin is main contact
 		if ($group eq "admins"
-			and (not exists $org_ref->{main_contact} or $org_ref->{main_contact} eq ''))
+			and (not defined $org_ref->{main_contact} or $org_ref->{main_contact} eq ''))
 		{
 			$org_ref->{main_contact} = $user_id;
 		}
@@ -378,6 +379,7 @@ sub add_user_to_org ($org_id_or_ref, $user_id, $groups_ref) {
 
 	# sync CRM
 	if ($org_ref->{valid_org} eq 'accepted') {
+		#11867: Move to a job if not an admin
 		add_user_to_company($user_id, $org_ref->{crm_org_id});
 	}
 
