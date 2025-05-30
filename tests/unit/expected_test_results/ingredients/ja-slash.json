@@ -26,15 +26,14 @@
          "vegetarian" : "yes"
       },
       {
-         "ciqual_proxy_food_code" : "19051",
-         "ecobalyse_code" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
-         "id" : "en:milk",
+         "ciqual_food_code" : "19021",
+         "ecobalyse_code" : "b6776a28-ec84-4bf3-988c-07b3c29f6136",
+         "id" : "en:whole-milk-powder",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 11.6666666666667,
          "percent_max" : 33.3333333333333,
          "percent_min" : 0,
-         "processing" : "en:whole,en:powder-or-flour",
-         "text" : "乳",
+         "text" : "全粉乳",
          "vegan" : "no",
          "vegetarian" : "yes"
       },
@@ -168,7 +167,7 @@
          "en:vegetable-oil-and-fat"
       ],
       "en:non-vegan" : [
-         "en:milk"
+         "en:whole-milk-powder"
       ],
       "en:vegan-status-unknown" : [
          "ja:小麦胚芽"
@@ -191,7 +190,7 @@
    "ingredients_original_tags" : [
       "en:sugar",
       "en:wheat-flour",
-      "en:milk",
+      "en:whole-milk-powder",
       "en:cocoa-paste",
       "en:fat",
       "en:vegetable-oil-and-fat",
@@ -215,8 +214,9 @@
       "en:flour",
       "en:wheat",
       "en:cereal-flour",
-      "en:milk",
+      "en:whole-milk-powder",
       "en:dairy",
+      "en:milk-powder",
       "en:cocoa-paste",
       "en:plant",
       "en:cocoa",

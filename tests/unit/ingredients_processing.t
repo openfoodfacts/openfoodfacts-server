@@ -114,22 +114,19 @@ my @tests = (
 		},
 		[
 			{
-				'id' => 'en:milk',
-				'is_in_taxonomy' => 1,
-				'processing' => 'en:sweetened',
-				'text' => 'milk'
+				'id' => 'en:sweetened-milk',
+				'is_in_taxonomy' => 0,
+				'text' => 'sweetened milk'
 			},
 			{
-				'id' => 'en:tomato',
-				'is_in_taxonomy' => 1,
-				'processing' => 'en:unsweetened',
-				'text' => 'tomatoes'
+				'id' => 'en:unsweetened-tomatoes',
+				'is_in_taxonomy' => 0,
+				'text' => 'unsweetened tomatoes'
 			},
 			{
-				'id' => 'en:ham',
-				'is_in_taxonomy' => 1,
-				'processing' => 'en:sweetened',
-				'text' => 'ham'
+				'id' => 'en:sugared-ham',
+				'is_in_taxonomy' => 0,
+				'text' => 'sugared ham'
 			}
 		]
 	],
@@ -261,28 +258,24 @@ my @tests = (
 		},
 		[
 			{
-				'id' => 'en:tomato',
-				'is_in_taxonomy' => 1,
-				'processing' => 'en:sweetened',
-				'text' => 'tomate'
+				'id' => 'es:tomate-endulzado',
+				'is_in_taxonomy' => 0,
+				'text' => 'tomate endulzado'
 			},
 			{
-				'id' => 'en:aubergine',
-				'is_in_taxonomy' => 1,
-				'processing' => 'en:sweetened',
-				'text' => 'berenjena'
+				'id' => 'es:berenjena-endulzada',
+				'is_in_taxonomy' => 0,
+				'text' => 'berenjena endulzada'
 			},
 			{
-				'id' => 'en:courgette',
-				'is_in_taxonomy' => 1,
-				'processing' => 'en:sweetened',
-				'text' => 'calabacín'
+				'id' => 'es:calabacin-endulzados',
+				'is_in_taxonomy' => 0,
+				'text' => 'calabacín endulzados'
 			},
 			{
-				'id' => 'en:ham',
-				'is_in_taxonomy' => 1,
-				'processing' => 'en:sweetened',
-				'text' => 'jamón'
+				'id' => 'es:jamon-endulzadas',
+				'is_in_taxonomy' => 0,
+				'text' => 'jamón endulzadas'
 			}
 		]
 	],
@@ -468,10 +461,10 @@ my @tests = (
 				'text' => 'tomates'
 			},
 			{
-				'id' => 'en:milk',
+				'id' => 'en:skimmed-milk',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:partially-dehydrated,en:skimmed',
-				'text' => "lait"
+				'processing' => 'en:partially-dehydrated',
+				'text' => "lait écrémé"
 			},
 			{
 				'id' => 'en:chia-seed',
@@ -971,16 +964,14 @@ my @tests = (
 		},
 		[
 			{
-				'id' => 'en:shallot',
-				'is_in_taxonomy' => 1,
-				'processing' => 'en:sweetened',
-				'text' => 'Schalotte'
+				'id' => 'de:schalotte-gesüßt',
+				'is_in_taxonomy' => 0,
+				'text' => 'Schalotte gesüßt'
 			},
 			{
-				'id' => 'en:hazelnut',
-				'is_in_taxonomy' => 1,
-				'processing' => 'en:sweetened',
-				'text' => "haselnüsse"
+				'id' => 'de:gesüßte-haselnüsse',
+				'is_in_taxonomy' => 0,
+				'text' => "gesüßte haselnüsse"
 			}
 		]
 	],
@@ -994,16 +985,14 @@ my @tests = (
 		},
 		[
 			{
-				'id' => 'en:shallot',
-				'is_in_taxonomy' => 1,
-				'processing' => 'en:sweetened',
-				'text' => 'Schalotte'
+				'id' => 'de:schalotte-gezuckert',
+				'is_in_taxonomy' => 0,
+				'text' => 'Schalotte gezuckert'
 			},
 			{
-				'id' => 'en:hazelnut',
-				'is_in_taxonomy' => 1,
-				'processing' => 'en:sweetened',
-				'text' => "haselnüsse"
+				'id' => 'de:gezuckerte-haselnüsse',
+				'is_in_taxonomy' => 0,
+				'text' => "gezuckerte haselnüsse"
 			},
 			{
 				'id' => 'en:almond',
@@ -1012,10 +1001,9 @@ my @tests = (
 				'text' => 'mandeln'
 			},
 			{
-				'id' => 'en:passionfruit',
-				'is_in_taxonomy' => 1,
-				'processing' => 'de:ungezuckert',
-				'text' => 'passionsfrucht'
+				'id' => 'de:passionsfrucht-ungezuckert',
+				'is_in_taxonomy' => 0,
+				'text' => 'passionsfrucht ungezuckert'
 			}
 		]
 	],
@@ -2749,34 +2737,29 @@ my @tests = (
 		},
 		[
 			{
-				'id' => 'en:milk',
+				'id' => 'en:sweetened-condensed-milk',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:sweetened,en:condensed',
-				'text' => "piens"
+				'text' => "saldinats iebiezinātais piens"
 			},
 			{
-				'id' => 'en:milk',
+				'id' => 'en:sweetened-condensed-skimmed-milk',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:sweetened,en:condensed,en:skimmed',
-				'text' => 'piens'
+				'text' => 'saldināts iebiezināts vājpiens'
 			},
 			{
-				'id' => 'en:milk',
+				'id' => 'en:milk-powder',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:powder',
-				'text' => 'piena'
+				'text' => 'piena pulveris'
 			},
 			{
-				'id' => 'en:milk',
+				'id' => 'en:skimmed-milk-powder',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:powder,en:dried,en:skimmed',
-				'text' => 'piena'
+				'text' => 'sausais vajpiena pulveris'
 			},
 			{
-				'id' => 'en:milk',
+				'id' => 'en:whole-milk-powder',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:powder,en:whole',
-				'text' => 'piena'
+				'text' => 'pilnpiena pulveris'
 			}
 		]
 	],
@@ -2812,10 +2795,10 @@ my @tests = (
 				'text' => "Milch"
 			},
 			{
-				'id' => 'en:milk',
+				'id' => 'en:whole-milk',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:lactose-free,en:whole',
-				'text' => "milch"
+				'processing' => 'en:lactose-free',
+				'text' => "Vollmilch"
 			},
 			{
 				'id' => 'en:milk',
@@ -2824,17 +2807,16 @@ my @tests = (
 				'text' => "-milch"
 			},
 			{
-				'id' => 'en:milk',
+				'id' => 'en:uht-sterilised-skimmed-milk',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:skimmed,en:uht',
-				'text' => "Milch"
+				'text' => "entrahmte H-Milch"
 			},
 			{
-				'id' => 'en:milk',
+				'id' => 'en:skimmed-milk',
 				'is_in_taxonomy' => 1,
 				'labels' => 'en:organic',
-				'processing' => 'en:pasteurised,en:fresh,en:skimmed',
-				'text' => "Milch"
+				'processing' => 'en:pasteurised,en:fresh',
+				'text' => "entrahmte -Milch"
 			},
 			{
 				'id' => 'en:cow-s-milk',
@@ -2849,10 +2831,9 @@ my @tests = (
 				'text' => "Kuhmilch"
 			},
 			{
-				'id' => 'en:milk',
+				'id' => 'en:whole-milk-powder',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:powder,en:whole',
-				'text' => "milch"
+				'text' => "Vollmilchpulver"
 			},
 			{
 				'id' => 'en:cow-s-milk',
@@ -2861,16 +2842,14 @@ my @tests = (
 				'text' => "Kuhmilch"
 			},
 			{
-				'id' => 'en:goat-milk',
+				'id' => 'en:whole-goat-milk',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:whole',
-				'text' => "Ziegenmilch"
+				'text' => "Ziegenvollmilch"
 			},
 			{
-				'id' => 'en:goat-milk',
+				'id' => 'en:whole-goat-milk',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:raw',
-				'text' => "Ziegenmilch"
+				'text' => "Ziegen-Rohmilch"
 			}
 		],
 	],
@@ -2883,10 +2862,9 @@ my @tests = (
 		},
 		[
 			{
-				'id' => 'en:milk',
+				'id' => 'en:whole-milk-powder',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:powder,en:whole',
-				'text' => "mælks"
+				'text' => "sødmælkspulver"
 			},
 			{
 				'id' => 'en:milk',
@@ -2895,22 +2873,19 @@ my @tests = (
 				'text' => "mælke"
 			},
 			{
-				'id' => 'en:milk',
+				'id' => 'en:sweetened-condensed-milk',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:sweetened,en:condensed',
-				'text' => "mælk"
+				'text' => "sukret kondenseret mælk"
 			},
 			{
-				'id' => 'en:milk',
+				'id' => 'en:milk-powder',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:powder',
-				'text' => "mælke"
+				'text' => "mælkepulver"
 			},
 			{
-				'id' => 'en:milk',
+				'id' => 'en:skimmed-milk-powder',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:skimmed,en:powder',
-				'text' => "mælks"
+				'text' => "skummetmælkspulver"
 			}
 		],
 	],
@@ -2923,10 +2898,9 @@ my @tests = (
 		},
 		[
 			{
-				'id' => 'en:milk',
+				'id' => 'en:milk-powder',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:powder',
-				'text' => "tej alapú termékek"
+				'text' => "tejpor alapú termékek"
 			},
 			{
 				'id' => 'en:milk',
@@ -2935,16 +2909,14 @@ my @tests = (
 				'text' => "tej"
 			},
 			{
-				'id' => 'en:milk',
+				'id' => 'en:skimmed-milk',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:skimmed',
-				'text' => "tej"
+				'text' => "alacsony zsírtartalmú tej"
 			},
 			{
-				'id' => 'en:milk',
+				'id' => 'en:uht-pasteurised-whole-milk',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:uht,en:whole',
-				'text' => "tej"
+				'text' => "pasztőrözött UHT teljes tej"
 			},
 			{
 				'id' => 'en:cow-s-milk',
@@ -2953,16 +2925,14 @@ my @tests = (
 				'text' => "tehéntej"
 			},
 			{
-				'id' => 'en:milk',
+				'id' => 'en:milk-powder',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:powder',
-				'text' => "tej"
+				'text' => "tejpor"
 			},
 			{
-				'id' => 'en:milk',
+				'id' => 'en:whole-milk-powder',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:whole,en:powder',
-				'text' => "tej"
+				'text' => "teljes tejpor"
 			},
 			{
 				'id' => 'en:milk',
@@ -2987,34 +2957,29 @@ my @tests = (
 				'text' => "mjölk"
 			},
 			{
-				'id' => 'en:milk',
+				'id' => 'en:skimmed-milk',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:skimmed',
-				'text' => "mjölk"
+				'text' => "skummjölk"
 			},
 			{
-				'id' => 'en:milk',
+				'id' => 'en:skimmed-milk-powder',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:powder,en:skimmed',
-				'text' => "mjölks"
+				'text' => "skummjölkspulver"
 			},
 			{
-				'id' => 'en:milk',
+				'id' => 'en:sweetened-condensed-skimmed-milk',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:sweetened,en:condensed,en:skimmed',
-				'text' => "mjölk"
+				'text' => "söt kondenserad skummjölk"
 			},
 			{
-				'id' => 'en:milk',
+				'id' => 'en:milk-powder',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:powder',
-				'text' => "mjölk"
+				'text' => "mjölkpulver"
 			},
 			{
-				'id' => 'en:milk',
+				'id' => 'en:whole-milk-powder',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:whole-fat,en:powder',
-				'text' => "mjölk"
+				'text' => "fetthaltigt mjölkpulver"
 			}
 		],
 	],
@@ -3038,10 +3003,9 @@ my @tests = (
 				'text' => "lehmän maito"
 			},
 			{
-				'id' => 'en:goat-milk',
+				'id' => 'en:whole-goat-milk',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:whole',
-				'text' => "vuohen maito"
+				'text' => "vuohen täysmaito"
 			}
 		],
 	],
@@ -3080,10 +3044,10 @@ my @tests = (
 				'text' => "lait"
 			},
 			{
-				'id' => 'en:milk',
+				'id' => 'en:skimmed-milk',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:powder,en:skimmed',
-				'text' => "lait"
+				'processing' => 'en:powder',
+				'text' => "lait écrémé"
 			}
 		],
 	],

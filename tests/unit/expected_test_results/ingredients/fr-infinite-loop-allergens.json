@@ -12,14 +12,13 @@
          "vegetarian" : "yes"
       },
       {
-         "ciqual_proxy_food_code" : "19051",
-         "ecobalyse_code" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
-         "id" : "en:milk",
+         "ciqual_food_code" : "19021",
+         "ecobalyse_code" : "b6776a28-ec84-4bf3-988c-07b3c29f6136",
+         "id" : "en:whole-milk-powder",
          "is_in_taxonomy" : 1,
          "percent" : 25,
          "percent_estimate" : 25,
-         "processing" : "en:powder,en:whole",
-         "text" : "LAIT*",
+         "text" : "LAIT* entier en poudre",
          "vegan" : "no",
          "vegetarian" : "yes"
       },
@@ -67,14 +66,13 @@
          "text" : "pâte de cacao1"
       },
       {
-         "ciqual_proxy_food_code" : "19051",
-         "ecobalyse_code" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
-         "id" : "en:milk",
+         "ciqual_food_code" : "19054",
+         "ecobalyse_code" : "b6776a28-ec84-4bf3-988c-07b3c29f6136",
+         "id" : "en:skimmed-milk-powder",
          "is_in_taxonomy" : 1,
          "percent" : 3,
          "percent_estimate" : 3,
-         "processing" : "en:powder,en:skimmed",
-         "text" : "LAIT*",
+         "text" : "LAIT* écrémé en poudre",
          "vegan" : "no",
          "vegetarian" : "yes"
       },
@@ -126,8 +124,8 @@
    ],
    "ingredients_analysis" : {
       "en:non-vegan" : [
-         "en:milk",
-         "en:milk"
+         "en:whole-milk-powder",
+         "en:skimmed-milk-powder"
       ],
       "en:palm-oil" : [
          "en:palm-oil",
@@ -155,11 +153,11 @@
    ],
    "ingredients_original_tags" : [
       "en:sugar",
-      "en:milk",
+      "en:whole-milk-powder",
       "en:vegetable-fat",
       "fr:beurre-de-cacao1",
       "fr:pate-de-cacao1",
-      "en:milk",
+      "en:skimmed-milk-powder",
       "en:sunflower-oil",
       "en:emulsifier",
       "en:vanilla-flavouring",
@@ -173,13 +171,15 @@
       "en:sugar",
       "en:added-sugar",
       "en:disaccharide",
-      "en:milk",
+      "en:whole-milk-powder",
       "en:dairy",
+      "en:milk-powder",
       "en:vegetable-fat",
       "en:oil-and-fat",
       "en:vegetable-oil-and-fat",
       "fr:beurre-de-cacao1",
       "fr:pate-de-cacao1",
+      "en:skimmed-milk-powder",
       "en:sunflower-oil",
       "en:vegetable-oil",
       "en:emulsifier",
