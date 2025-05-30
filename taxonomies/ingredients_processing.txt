@@ -559,7 +559,7 @@ hu: morzsolt
 en: whole, and whole
 bg: цял, цяло, цяла, цели
 ca: sencer, sencera, sencers, senceres
-da: hele, sød
+da: hele
 de: ganz, ganze, ganzer, ganzes, voll
 #ganz is not added as it is used in combination with fats (palm ganz gehärtet)
 el: Πλήρες
@@ -1367,16 +1367,16 @@ en: anhydrous
 ar: لامائي
 ca: Anhidre
 da: Vandfri
-es: 	Anhidro
-eu: 	Anhidro
-fa: 	انیدروز
-fr: 	Anhydre
-id: 	Anhidrat
-it: 	Anidro
-nl: 	Watervrij
-pt: 	Anidro
-vi: 	Khan
-zh: 	无水物
+es: Anhidro
+eu: Anhidro
+fa: انیدروز
+fr: Anhydref
+id: Anhidrat
+it: Anidro
+nl: Watervrij
+pt: Anidro
+vi: Khan
+zh: 无水物
 
 # anhydrous: No water, dehydrated: Water removed, dried: Less water.
 en: dehydrated
@@ -1692,7 +1692,7 @@ be: згушчанае
 bg: кондензирано
 ca: condensada
 cs: kondenzované
-da: kondenserad, kondenseret
+da: kondenseret
 de: Kondens, kondensierte, dosen, büchsen
 el: συμπυκνωμένο
 eo: kondensita
@@ -1784,7 +1784,6 @@ zh: 脱脂
 en: semi-skimmed, partially defatted, reduced-fat, partly skimmed, partially skimmed, part skim
 bg: Полуобезмаслено, частично обезмаслен, частично обезмаслено
 ca: parcialment desnatada, semidesnatada, parcialment desgreixat, parcialment desgreixada, parcialment desgreixats, parcialment desgreixades
-da: let
 de: teilentrahmte, teilentfettet, teilentfettete, teilentfettetes, teilentfetteter, teilentfetteten, teilentfettetem, halbentrahmte
 es: parcialmente desnatada, semidesnatada, semidescremada, parcialmente descremada
 fi: kevyt
@@ -1798,7 +1797,6 @@ nl: halfvolle, gedeeltelijk afgeroomde
 pl: częściowo odtłuszczone, częściowo odtłuszczony, częściowo odtłuszczona, częściowo odtłuszczonego, półtłusty, półtłuste
 pt: meio gordo, parcialmente desengordurado, parcialmente desengordurada, parcialmente desnatado
 ro: demidegresat
-sv: mella
 
 #######################################################################
 #
@@ -2345,45 +2343,48 @@ nl: ongezouten
 pl: bez soli, niesolone
 pt: sem sal, não salgado
 
-en: sweetened, sugared, with sugar
-bg: подсладено, подсладен, подсладена, подсладени, захаросано, захаросан, захаросана, захаросани
-ca: ensucrada, amb sucre, dolc de
-cs: slazené
-da: sockrad, sukret
-de: gesüßt, gesüßte, gezuckert, gezuckerte, gezuckerter, gezuckertes
-el: ζαχαρούχο
-es: endulzado, endulzada, endulzados, endulzadas, azucarado, azucarada, azucarados, azucaradas, dulce de, azucadara
-et: magustatud
-fi: makeutettu, makeutetut, sokeroitu, sokeroidut, sokeroitua, sokeroituja
-fr: sucré, sucrée, sucrés, sucrées, sucree, sucrees
-hr: zaslađene, zaslađeno, zasladeno
-hu: édesített, cukrozott
-it: addolcito, addolciti, addolcita, addolcite, zuccherato, zuccherati, zuccherata, zuccherate
-ja: 加糖
-lt: saldintas
-lv: saldināts, saldinats
-nb: sukkerholdig, sukret, søt
-nl: gezoet, gezoete, gesuikerd, gesuikerde, met suiker
-pl: słodzony, słodzona, słodzone, słodzonych, słodzonej, słodzonego
-pt: adoçado, adoçada, adoçados, adoçadas, adocicado, adocicada, adocicados, adocicadas, açucarado, açucarada, açucarados, açucaradas
-ro: indulcit
-ru: с сахаром
-sl: sladkano
-sv: sötad, söt, sockrad
-th: หวาน
+# sweetened is not a processing as it means an extra ingredient. 
+# It changes an ingredients into a 'compound' ingredient.
+# en: sweetened, sugared, with sugar
+# bg: подсладено, подсладен, подсладена, подсладени, захаросано, захаросан, захаросана, захаросани
+# ca: ensucrada, amb sucre, dolc de
+# cs: slazené
+# da: sødet, sukret
+# de: gesüßt, gesüßte, gezuckert, gezuckerte, gezuckerter, gezuckertes
+# el: ζαχαρούχο
+# es: endulzado, endulzada, endulzados, endulzadas, azucarado, azucarada, azucarados, azucaradas, dulce de, azucadara
+# et: magustatud
+# fi: makeutettu, makeutetut, sokeroitu, sokeroidut, sokeroitua, sokeroituja
+# fr: sucré, sucrée, sucrés, sucrées, sucree, sucrees
+# hr: zaslađene, zaslađeno, zasladeno
+# hu: édesített, cukrozott
+# it: addolcito, addolciti, addolcita, addolcite, zuccherato, zuccherati, zuccherata, zuccherate
+# ja: 加糖
+# lt: saldintas
+# lv: saldināts, saldinats
+# nb: sukkerholdig, sukret, søt
+# nl: gezoet, gezoete, gesuikerd, gesuikerde, met suiker
+# pl: słodzony, słodzona, słodzone, słodzonych, słodzonej, słodzonego
+# pt: adoçado, adoçada, adoçados, adoçadas, adocicado, adocicada, adocicados, adocicadas, açucarado, açucarada, açucarados, açucaradas
+# ro: indulcit
+# ru: с сахаром
+# sl: sladkano
+# sv: sötad, söt, sockrad
+# th: หวาน
 
 < en:concentrated
-< en:sweetened
+# < en:sweetened
 # en:concentrate for sweetening
-hr: koncentrat za zaslađivanje
+# hr: koncentrat za zaslađivanje
 
-en: unsweetened
-de: ungesüßt, ungesüßte, ungesüßter, ungesüßtes
-fr: non sucré, non sucrée, non sucrés, non sucrées
-it: non zuccherato, non zuccherati, senza zucchero aggiunto, senza zuccheri aggiunti
-nl: ongezoet
-pl: niesłodzony, niesłodzona, niesłodzone
-pt: não adoçado, não adoçada, não adoçados, não adoçadas, não adocicado, não adocicada, não adocicados, não adocicadas, não açucarado, não açucarada, não açucarados, não açucaradas, sem açúcar, sem açúcares
+# same comment as sweetened
+# en: unsweetened
+# de: ungesüßt, ungesüßte, ungesüßter, ungesüßtes
+# fr: non sucré, non sucrée, non sucrés, non sucrées
+# it: non zuccherato, non zuccherati, senza zucchero aggiunto, senza zuccheri aggiunti
+# nl: ongezoet
+# pl: niesłodzony, niesłodzona, niesłodzone
+# pt: não adoçado, não adoçada, não adoçados, não adoçadas, não adocicado, não adocicada, não adocicados, não adocicadas, não açucarado, não açucarada, não açucarados, não açucaradas, sem açúcar, sem açúcares
 
 #<en:sugared
 de: leicht gezuckert, leicht gezuckerte, leicht gezuckerter, leicht gezuckertes
@@ -2431,7 +2432,7 @@ pt: cristalizado, cristalizada, cristalizados, cristalizadas
 sv: krystalliserad, krystalliserade, krystalliserade, krystalliserade
 
 # <en:unsweetened
-de: ungezuckert, ungezuckerte, ungezuckerter, ungezuckertes
+# de: ungezuckert, ungezuckerte, ungezuckerter, ungezuckertes
 
 en: oiled
 bg: маслен, маслена, маслени, маслено
