@@ -319,7 +319,7 @@ nl: gehakt, gehakte
 nn: hakkede
 pl: siekany, siekana, siekane, szatkowany, szatkowana, szatkowane
 pt: picado, picada, picados, picadas
-sv: hackade
+sv: hackad, hackade
 # nl:parse:gehakte_$
 # en:wiktionary:chopped
 
@@ -582,6 +582,8 @@ it: pezzi, in pezzi, a pezzi, pezzi di, pezzi d'
 nl: stukjes
 pl: kawałki, kawałki z, rozdrobniony, rozdrobnione, rozdrobniona
 pt: pedaço, pedaços
+ro: uscate, uscată
+sl: kosmiči
 sv: bitar, i bitar
 # de:false-positive:früchstück
 
@@ -1121,6 +1123,7 @@ pl: koncentrat, koncentraty, koncentrat z, skoncentrowany, skoncentrowana, skonc
 pt: concentrado, concentrada, concentrados, concentradas, concentrado de, concentrados de, concentratos
 ro: concentrat de
 ru: концентрированный
+sl: zgoščeni
 sr: Концентрат
 sv: koncentrerad, koncentrat, koncentrat från
 # en:wiktionary:concentrated
@@ -1237,7 +1240,7 @@ nl: gedroogd, gedroogde
 nn: tørket
 pl: suszony, suszona, suszone, suszonych, suszonej, suszonego, susz z, susz, suszu
 pt: seco, seca, secos, secas
-ro: uscate
+ro: bucățele, bucățele de
 ru: сушеный, Сушеное, сушёная, сушёный
 sk: sušené
 sr: sušeno
@@ -1479,6 +1482,7 @@ nl: extract
 pl: ekstrakt, ekstrakt z, ekstrakty z, ekstrakty, wyciąg, wyciąg z, wyciągi z, wyciągi
 pt: extrato, extratos, extracto, extractos, extrato de, extratos de, extracto de, extractos de, extrato da, extratos da, extracto da, extractos da
 ro: extract de
+sl: izvleček
 sv: extrakt, extrakt av, extrakt från
 # da:parse:$ekstrakt
 # fi:parse:$uute
@@ -1646,13 +1650,13 @@ wikidata:en: Q7601513
 #                T E M P E R A T U R E   P R O C E S S E S
 #
 #######################################################################
-# Processes that heat an ingredient (over fire, in water)
+# Processes that alter the temperature of an ingredient (e.g., heating over fire or in water)
 
 en: frozen
 ar: مجمد
 bg: замразено, замразен, замразена, замразени
 ca: congelat, congelades, ultracongelat, ultracongelades
-da: frosne
+da: frossen, frosne
 de: tiefgefroren, gefroren, tiefgefrorene, gefrorene, tiefgefrorener, gefrorener, tiefgefrorenes, gefrorenes
 el: παγωμένη
 es: congelado, conjelada, congelados, conjeladas, ultracongelado, ultracongelada, ultracongelados, ultracongeladas
@@ -1667,6 +1671,21 @@ pl: mrożony, mrożona, mrożone
 pt: congelado, congelada, congelados, congeladas, ultracongelado, ultracongelada, ultracongelados, ultracongeladas
 ro: congelat
 sv: fryst, frossad
+wikidata:en: Q11838314
+
+< en:frozen
+en: deep frozen
+da: dybfrossen, dybfrosne
+nb: dybfryst
+sv: djupfryst, djupfrysta
+
+# “pieces” here can either be whole pieces (like individual berries) or cut up pieces like `en:chopped`, `en:pieces`, etc.
+< en:frozen
+en: frozen in pieces
+da: løsfrossen, løsfrosne
+fi: irtopakastettu
+nb: løsfryste
+sv: styckfryst, styckfrysta
 
 en: unfrozen
 bg: размразено, размразен, размразена, размразени
@@ -1717,6 +1736,7 @@ nl: thermisch behandeld
 pt: termizado
 
 en: heat treated
+da: varmebehandlet
 de: wärmebehandelt
 fr: traitement thermique
 
@@ -2145,6 +2165,7 @@ it: zuccherato, zuccherati, zuccherata, zuccherate
 ja: 加糖
 nl: gesuikerd, gesuikerde
 pt: açucarado, açucarada, açucarados, açucaradas
+ro: îndulcite
 sv: sockrad
 
 #<en:sugared
@@ -2266,6 +2287,10 @@ hu: kezeletlen
 it: non trattato, non trattati, non trattata, non trattate
 pt: não tratado, não tratada, não tratados, não tratadas
 
+en: washed
+sv: tvättad, tvättat, tvättade
+wikidata:en: Q134401232
+
 en: bleached
 de: gebleicht, gebleichte, gebleichter, gebleichtes, gebleichten, gebleichtem
 hu: fehérített
@@ -2356,6 +2381,9 @@ pt: não irradiado, não tratado com irradiação, sem irradiação
 en: refined, partially refined
 fr: raffiné, partiellement raffiné, raffinée, partiellement raffinée, raffinés, partiellement raffinés, raffinées, partiellement raffinées
 hr: rafinirano, djelomično rafinirano
+
+< en:refined
+en: physically refined
 
 #en:description:Complete or partial removal of mono- and disaccharides from molasses and other material containing sugar by chemical or physical means
 #en:Desugared, partially desugared
@@ -2688,6 +2716,11 @@ hu: termesztett
 
 #to be analysed:
 #fr:rectifié
+
+# description:en: process of germinating seeds, e.g. before grinding into flour
+en: sprouted
+sv: groddat, groddade
+wikidata:en: Q1057052
 
 #######################################################################
 #

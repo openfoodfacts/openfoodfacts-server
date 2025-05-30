@@ -1220,7 +1220,7 @@ sub display_text ($request_ref) {
 
 	my $textid = $request_ref->{text};
 
-	if ($textid =~ /open-food-facts-mobile-app|application-mobile-open-food-facts/) {
+	if ($textid =~ /open-food-facts-mobile-app|application-mobile-open-food-facts|open-beauty-facts-mobile-app/) {
 		# we want the mobile app landing page to be included in a <div class="row">
 		# so we display it under the `banner` page format, which is the page format
 		# used on product pages, with a colored banner on top
@@ -4435,6 +4435,7 @@ var default_preferences = $options{attribute_default_preferences_json};
 var preferences_text = "$preferences_text";
 var contributor_prefs = $contributor_prefs_json;
 var products = [];
+var product_type = "$options{product_type}";
 </script>
 JS
 			;
@@ -5620,6 +5621,7 @@ var default_preferences = $options{attribute_default_preferences_json};
 var preferences_text = "$preferences_text";
 var contributor_prefs = $contributor_prefs_json;
 var products = $products_json;
+var product_type = "$options{product_type}";
 </script>
 JS
 		;
@@ -8511,6 +8513,7 @@ var page_type = "product";
 var default_preferences = $options{attribute_default_preferences_json};
 var preferences_text = "$preferences_text";
 var product = $product_attribute_groups_json;
+var product_type = "$options{product_type}";
 </script>
 
 <script src="$static_subdomain/js/product-preferences.js"></script>
@@ -9592,12 +9595,17 @@ sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_re
 	my @displayed_product_types = ();
 	my %displayed_product_types = ();
 
-	if ((not defined $product_ref->{nutrition_data}) or ($product_ref->{nutrition_data})) {
+	if (   (not defined $product_ref->{nutrition_data})
+		or ($product_ref->{nutrition_data})
+		or has_nutrition_data_for_product_type($product_ref, ""))
+	{
 		# by default, old products did not have a checkbox, display the nutrition data entry column for the product as sold
 		push @displayed_product_types, "";
 		$displayed_product_types{as_sold} = 1;
 	}
-	if ((defined $product_ref->{nutrition_data_prepared}) and ($product_ref->{nutrition_data_prepared} eq 'on')) {
+	if (   ((defined $product_ref->{nutrition_data_prepared}) and ($product_ref->{nutrition_data_prepared} eq 'on'))
+		or (has_nutrition_data_for_product_type($product_ref, "_prepared")))
+	{
 		push @displayed_product_types, "prepared_";
 		$displayed_product_types{prepared} = 1;
 	}

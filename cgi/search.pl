@@ -446,7 +446,7 @@ if ($action eq 'display') {
 
 	push @{$template_data_ref->{selected_sort_by_value}}, $sort_by;
 
-	my @size_array = (20, 50, 100, 250, 500, 1000);
+	my @size_array = (20, 50, 100);
 	push @{$template_data_ref->{size_options}}, @size_array;
 
 	$template_data_ref->{axes} = [];

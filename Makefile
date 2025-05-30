@@ -29,7 +29,10 @@ ifeq ($(OS), Darwin)
 else
   export CPU_COUNT=$(shell nproc || echo 1)
 endif
-
+# Limit CPU count to 8 as otherwise can run out of memory
+ifeq ($(shell test $(CPU_COUNT) -gt 8; echo $$?),0)
+  export CPU_COUNT=8
+endif
 
 # tell gitbash not to complete path
 export MSYS_NO_PATHCONV=1
@@ -68,7 +71,7 @@ DOCKER_COMPOSE_TEST=WEB_RESOURCES_PATH=./web-default ROBOTOFF_URL="http://backen
 	docker compose --env-file=${ENV_FILE}
 # Enable Redis only for integration tests
 DOCKER_COMPOSE_INT_TEST=REDIS_URL="redis:6379" ${DOCKER_COMPOSE_TEST}
-TEST_CMD ?= yath test -PProductOpener::LoadData
+TEST_CMD ?= yath test
 
 # Space delimited list of dependant projects
 DEPS=openfoodfacts-shared-services
@@ -241,7 +244,7 @@ import_sample_data: run_deps
 	else \
 	 	echo "🥫 Not importing sample data into MongoDB (only for po_off project)"; \
 	fi
-	
+
 import_more_sample_data: run_deps
 	@echo "🥫 Importing sample data (~2000 products) into MongoDB …"
 	${DOCKER_COMPOSE} run --rm backend bash /opt/product-opener/scripts/import_more_sample_data.sh
@@ -272,14 +275,14 @@ checks: front_build front_lint check_perltidy check_perl_fast check_critic check
 
 lint: lint_perltidy lint_taxonomies
 
-tests: build_taxonomies_test build_lang_test unit_test integration_test
+tests: build_taxonomies_test build_lang_test unit_test integration_test brands_sort_test
 
 # add COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover"' if you want to trigger code coverage report generation
 unit_test: create_folders
 	@echo "🥫 Running unit tests …"
 	mkdir -p tests/unit/outputs/
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit.xml" -e PO_EAGER_LOAD_DATA=1 -T --rm backend yath test --renderer=Formatter --renderer=JUnit --job-count=${CPU_COUNT} -PProductOpener::LoadData  tests/unit
+	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit.xml" -T --rm backend yath test --renderer=Formatter --renderer=JUnit --job-count=${CPU_COUNT} tests/unit
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 unit tests success"
 
@@ -291,9 +294,14 @@ integration_test: create_folders
 # this is the place where variables are important
 	${DOCKER_COMPOSE_INT_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion redis
 # note: we need the -T option for ci (non tty environment)
-	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/integration/outputs/junit.xml" -e PO_EAGER_LOAD_DATA=1 -T backend yath --renderer=Formatter --renderer=JUnit -PProductOpener::LoadData tests/integration
+	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/integration/outputs/junit.xml" -T backend yath --renderer=Formatter --renderer=JUnit tests/integration
 	${DOCKER_COMPOSE_INT_TEST} stop
 	@echo "🥫 integration tests success"
+
+brands_sort_test:
+	@echo "🥫 checking order of brands.txt"
+	@diff -u <(git grep -ih '^xx:' taxonomies/brands.txt) <(git grep -ih '^xx:' taxonomies/brands.txt|LANG='C.UTF-8' sort -bf)
+	@echo "🥫 brands.txt ordered as expected"
 
 # stop all tests dockers
 test-stop:
@@ -306,7 +314,7 @@ test-stop:
 test-unit: guard-test create_folders
 	@echo "🥫 Running test: 'tests/unit/${test}' …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run --rm -e PO_EAGER_LOAD_DATA=1 backend ${TEST_CMD} ${args} tests/unit/${test}
+	${DOCKER_COMPOSE_TEST} run --rm backend ${TEST_CMD} ${args} tests/unit/${test}
 
 # usage:  make test-int test=test-name.t
 # to update expected results: make test-int test="test-name.t :: --update-expected-results"
@@ -315,7 +323,7 @@ test-unit: guard-test create_folders
 test-int: guard-test create_folders
 	@echo "🥫 Running test: 'tests/integration/${test}' …"
 	${DOCKER_COMPOSE_INT_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion redis
-	${DOCKER_COMPOSE_INT_TEST} exec -e PO_EAGER_LOAD_DATA=1 backend ${TEST_CMD} ${args} tests/integration/${test}
+	${DOCKER_COMPOSE_INT_TEST} exec backend ${TEST_CMD} ${args} tests/integration/${test}
 # better shutdown, for if we do a modification of the code, we need a restart
 	${DOCKER_COMPOSE_INT_TEST} stop backend
 
@@ -330,8 +338,6 @@ clean_tests:
 update_tests_results: build_taxonomies_test build_lang_test
 	@echo "🥫 Updated expected test results with actuals for easy Git diff"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron
-	${DOCKER_COMPOSE_TEST} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
-	${DOCKER_COMPOSE_TEST} run --rm backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 	${DOCKER_COMPOSE_TEST} exec -T -w /opt/product-opener/tests backend bash update_tests_results.sh
 	${DOCKER_COMPOSE_TEST} stop
 
@@ -415,14 +421,24 @@ lint_taxonomies:
 check_openapi_v2:
 	docker run --rm \
 		-v ${PWD}:/local openapitools/openapi-generator-cli validate --recommend \
-		-i /local/docs/api/ref/api.yml
+		-i /local/docs/api/ref/api.yaml
 
 check_openapi_v3:
 	docker run --rm \
 		-v ${PWD}:/local openapitools/openapi-generator-cli validate --recommend \
-		-i /local/docs/api/ref/api-v3.yml
+		-i /local/docs/api/ref/api-v3.yaml
 
-check_openapi: check_openapi_v2 check_openapi_v3
+check_openapi_spectral:
+# Currently, Spectral does not support Mac with m3 chip, for more details: https://github.com/stoplightio/spectral/issues/2636
+	@if [ "$(OS)" = "Darwin" ]; then \
+		echo "🥫 Linting OpenAPI is not supported on macOS"; \
+	else \
+		echo "🥫 Linting OpenAPI files"; \
+		docker run --rm -v $$(pwd):/app stoplight/spectral lint -r /app/.spectral.yaml /app/docs/api/ref/api.yaml /app/docs/api/ref/api-v3.yaml; \
+	fi
+
+check_openapi: check_openapi_v2 check_openapi_v3 check_openapi_spectral
+
 
 #-------------#
 # Compilation #
@@ -512,7 +528,7 @@ prune:
 
 prune_cache:
 	@echo "🥫 Pruning Docker builder cache …"
-	docker builder prune -f --filter "label=com.docker.compose.project=${COMPOSE_PROJECT_NAME}" 
+	docker builder prune -f --filter "label=com.docker.compose.project=${COMPOSE_PROJECT_NAME}"
 
 clean_folders: clean_logs
 	( rm html/images/products || true )
