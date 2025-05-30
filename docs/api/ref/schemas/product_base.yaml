@@ -70,18 +70,24 @@ properties:
   product_quantity:
     type: string
     description: |
-      The size in g or ml for the whole product.
-      It's a normalized version of the quantity field.
+      The size in g or ml for the whole product. 
+      It is a normalized version of the `quantity` field.
+      A `quantity` of "2 x 60 g" leads to `product_quantity`: "120".
     example: "500"
   product_quantity_unit:
     type: string
     description: |
-      The unit (either g or ml) for the correponding product_quantity.
+      The unit (either g or ml) for the corresponding `product_quantity`.
+      It is computed from the `quantity` field.
+      A `quantity` of "6 x 250 ml" leads to `product_quantity_unit`: "ml".
     example: "g"
   quantity:
     type: string
     description: |
-      Quantity and Unit.
+      The quantity of the product, with the corresponding number of portions or unit (g, ml, kg, l, cl, oz, lbs...). 
+      It should be the value as displayed on the product. The ℮ sign is allowed.
+      When it refers to the number of portions, it can be filled without any units (e.g. "6 eggs").
+    example: "3 x 150 g"
 
 
 patternProperties:
