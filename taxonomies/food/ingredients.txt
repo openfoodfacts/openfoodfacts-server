@@ -24618,12 +24618,12 @@ wikipedia:en: https://en.wikipedia.org/wiki/Freekeh
 
 # (Triticum turgidum L. subsp. turgidum),
 < en:wheat
-en: poulard wheat, rivet wheat, cone wheat
+en: rivet wheat, poulard wheat, cone wheat
 fr: blé poulard
 hr: pularna pšenica
 hu: hasas vagy angol búza
 it: grano Poulard
-la: Triticum turgidum L. subsp. turgidu
+la: Triticum turgidum L. subsp. turgidum
 rare_crop:en: yes
 
 < en:poulard wheat
@@ -25016,6 +25016,7 @@ tr: Kavılca buğdayı
 uk: Полба
 zh: 二粒小麦
 allergens:en: en:gluten
+rare_crop:en: yes
 wikidata:en: Q167339
 
 < en:cereal flour
@@ -58838,6 +58839,7 @@ zh: 菜豆
 carbon_footprint_fr_foodges_ingredient:fr: Haricot blanc en conserve (type cassoulet)
 carbon_footprint_fr_foodges_value:fr: 2
 eurocode_2_group_3:en: 7.10.30
+rare_crop:en: yes
 # azb:عادی لوْبیا
 # bar:Fisoin
 # chr:ᏚᏯ
@@ -59897,8 +59899,8 @@ eurocode_2_group_3:en: 8.45.20
 
 # rare bean from the Lyon region in France
 < en:pulse
-en: meat bean
-fr: haricot viande, haricots viande
+en: meat bean, bean of Bresse, Chartreuse and Oisan bean
+fr: haricot viande, haricots viande, haricot de Bresse, haricot de Chartreuse et d'Oisan
 hu: húsbab
 it: fagiolo di carne
 rare_crop:en: yes
@@ -60135,10 +60137,10 @@ zh: 豌豆
 # zh-tw:豌豆
 # wikidata:en:Q29472543 (seems more the vegetable)
 eurocode_2_group_3:en: 8.45.10
-wikipedia:en: https://en.wikipedia.org/wiki/Pea
 # ingredient/fr:pois has 259 products in 7 languages @2019-05-10
 # usage:fr:amidon (blé, pomme de terre, pois, maïs)
-
+rare_crop:en: yes
+wikipedia:en: https://en.wikipedia.org/wiki/Pea
 
 # <en:pea
 # fr:extrait de pois # see ingredients_processing.txt
@@ -60147,6 +60149,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Pea
 < en:pea
 en: yellow pea
 de: Palerbse, Palerbsen
+fr: pois jaune, pois jaunes
 it: pisello giallo
 
 # description:en:The chickpea or chick pea (Cicer arietinum) is an annual legume of the family Fabaceae, subfamily Faboideae.
@@ -60241,6 +60244,7 @@ ciqual_food_name:fr: Pois chiche, appertisé, égoutté
 ecobalyse:en: chickpea-fr
 ecobalyse_labels_en_organic:en: chickpea-organic
 eurocode_2_group_3:en: 7.10.15
+rare_crop:en: yes
 # aeb-arab:حمص
 # arc:ܚܪܛܘܡܢܐ
 # azb:نوخود
@@ -60567,6 +60571,7 @@ hr: sivi grašak
 it: pisello grigio
 la: pisum sativum subsp. arvense
 sv: gråärtan
+rare_crop:en: yes
 
 < en:pea
 en: grass pea, grass peas, cicerchia, blue sweet pea, chickling pea
@@ -60674,6 +60679,7 @@ ciqual_food_name:fr: Lentille, bouillie/cuite à l'eau
 ecobalyse:en: lentils-uncooked-eu
 ecobalyse_origins_en_france:en: lentils-uncooked-fr
 eurocode_2_group_3:en: 7.10.25
+rare_crop:en: yes
 # aeb-arab:عدس
 # azb:مرجیمک
 # ckb:نیسک
