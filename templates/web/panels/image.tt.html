@@ -11,10 +11,10 @@
     <meta itemprop="imgid" content="[% image.type %]">
     
     <figcaption>
-        <a href="https://nutripatrol.openfoodfacts.org/flag/image/?barcode=[% code %]&image_id=[% imgid %]&source=web&flavor=[% flavor %]" title="Report this image to our moderators" style="text-decoration: none;">
+        <a href="https://nutripatrol.openfoodfacts.org/flag/image/?barcode=[% code %]&image_id=[% imgid %]&source=web&flavor=[% flavor %]" title="[% lang("action_report_image_to_nutripatrol") %]" style="text-decoration: none;">
             ⚑
         </a>
-        <a href="/cgi/product_image.pl?code=[% code %]&amp;id=[% image.id %]" title="Photo detail and attribution information">
+        <a href="/cgi/product_image.pl?code=[% code %]&amp;id=[% image.id %]" title="[% lang("image_attribution_link_title") %]">
             [% display_icon('cc') %]
         </a>
     </figcaption>
