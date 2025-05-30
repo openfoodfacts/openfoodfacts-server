@@ -270,7 +270,7 @@ $options{users_who_can_upload_small_images} = {
 
 	{
 		name => "Yuka - checked",
-		conditions => [["user_id", "kiliweb"], ["in_states_tags", "en:checked"],],
+		conditions => [["user_id", "kiliweb"], ["data_quality_info_tags", "en:photo-and-data-checked-by-an-experienced-contributor"],], 
 		actions => [["ignore"],],
 		notifications => [
 			qw (
@@ -872,7 +872,7 @@ $options{replace_existing_values_when_importing_those_tags_fields} = {
 	data_quality_errors_tags
 	unique_scans_n
 	popularity_tags
-	completeness
+	data_quality_dimensions
 	last_image_t
 );
 

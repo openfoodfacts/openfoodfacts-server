@@ -50,10 +50,9 @@ products/[barcode path]/product.sto - link to latest revision
 
 The latest revision is stored in the products collection of the MongoDB database.
 
-=head2 Completeness, data quality and edit history
+=head2 Edit history
 
-Before a product is saved, this module compute the completeness and quality of the data,
-and the edit history.
+Before a product is saved, this module compute the edit history.
 
 =cut
 
@@ -91,8 +90,8 @@ BEGIN {
 
 		&get_change_userid_or_uuid
 		&compute_codes
-		&compute_completeness_and_missing_tags
-		&compute_product_history_and_completeness
+		&compute_product_export_status
+		&compute_product_history
 		&compute_languages
 		&review_product_type
 		&compute_changes_diff_text
@@ -1105,7 +1104,7 @@ Save changes of a product:
 - in a new .sto file on the disk
 - in MongoDB (in the products collection, or products_obsolete collection if the product is obsolete)
 
-Before saving, some field values are computed, and product history and completeness is computed.
+Before saving, some field values are computed, and product history is computed.
 
 =cut
 
@@ -1413,7 +1412,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 	my $blame_ref = {};
 
-	compute_product_history_and_completeness($product_ref, $changes_ref, $blame_ref);
+	compute_product_history($product_ref, $changes_ref, $blame_ref);
 
 	compute_data_sources($product_ref, $changes_ref);
 
@@ -1436,7 +1435,6 @@ sub store_product ($user_id, $product_ref, $comment) {
 	# make sure we have numbers, perl can convert numbers to string depending on the last operation done...
 	$product_ref->{last_modified_t} += 0;
 	$product_ref->{created_t} += 0;
-	$product_ref->{complete} += 0;
 	$product_ref->{popularity_key} += 0;
 	$product_ref->{rev} += 0;
 
@@ -1449,7 +1447,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 	if ((!$diffs) or (!keys %diffs)) {
 		$log->info("changes not stored because of empty diff", {change_ref => $change_ref}) if $log->is_info();
 		# 2019/09/12 - this was deployed today, but it causes changes not to be saved
-		# compute_product_history_and_completeness() was not written to make sure that it sees all changes
+		# compute_product_history() was not written to make sure that it sees all changes
 		# keeping the log and disabling the "return 0" so that all changes are saved
 		#return 0;
 	}
@@ -1626,214 +1624,46 @@ sub normalize_product_data($product_ref) {
 	return;
 }
 
-sub compute_completeness_and_missing_tags ($product_ref, $current_ref, $previous_ref) {
+=head1 FUNCTIONS
 
-	normalize_product_data($product_ref);
-	my $lc = $product_ref->{lc};
+=head2 compute_product_export_status
 
-	# Compute completeness and missing tags
+This function computes the export status for a product based on its last exported and last modified timestamps.
+It checks if the product has been exported or needs to be exported and updates the product's states accordingly.
 
-	my @states_tags = ();
+=head3 Arguments
 
-	# Images
+=head4 $product_ref
 
-	my $complete = 1;
-	my $notempty = 0;
-	my $step = 1.0 / 10.0;    # Currently, we check for 10 items.
-	my $completeness = 0.0;
+A hash reference to the product data.
 
-	if (scalar keys %{$current_ref->{uploaded_images}} < 1) {
-		push @states_tags, "en:photos-to-be-uploaded";
-		$complete = 0;
-	}
-	else {
-		push @states_tags, "en:photos-uploaded";
-		my $half_step = $step * 0.5;
-		$completeness += $half_step;
+=head3 Return value
 
-		my $image_step = $half_step * (1.0 / 4.0);
+Returns nothing.
 
-		my $images_completeness = 0;
+=cut
 
-		foreach my $imagetype (qw(front ingredients nutrition packaging)) {
+sub compute_product_export_status ($product_ref) {
+    # On the producers platform, keep track of which products have changes to be exported
+    if ($server_options{private_products}) {
+        my @states_tags = ();
+        if (    (defined $product_ref->{last_exported_t})
+            and ($product_ref->{last_exported_t} > $product_ref->{last_modified_t}))
+        {
+            push @states_tags, "en:exported";
+        }
+        else {
+            push @states_tags, "en:to-be-exported";
+            if ($product_ref->{to_be_automatically_exported}) {
+                push @states_tags, "en:to-be-automatically-exported";
+            }
+        }
 
-			if (defined $current_ref->{selected_images}{$imagetype . "_" . $lc}) {
-				$images_completeness += $image_step;
-				push @states_tags, "en:" . $imagetype . "-photo-selected";
-			}
-			else {
-				if (    ($imagetype eq "nutrition")
-					and (defined $product_ref->{no_nutrition_data})
-					and ($product_ref->{no_nutrition_data} eq 'on'))
-				{
-					$images_completeness += $image_step;
-				}
-				else {
-					push @states_tags, "en:" . $imagetype . "-photo-to-be-selected";
-				}
-			}
-		}
-
-		$completeness += $images_completeness;
-
-		if ($images_completeness == $half_step) {
-			push @states_tags, "en:photos-validated";
-
-		}
-		else {
-			push @states_tags, "en:photos-to-be-validated";
-			$complete = 0;
-		}
-		$notempty++;
-	}
-
-	my @needed_fields = qw(product_name quantity packaging brands categories origins);
-	my $all_fields = 1;
-	foreach my $field (@needed_fields) {
-		if ((not defined $product_ref->{$field}) or ($product_ref->{$field} eq '')) {
-			$all_fields = 0;
-			push @states_tags, "en:" . get_string_id_for_lang("en", $field) . "-to-be-completed";
-		}
-		else {
-			push @states_tags, "en:" . get_string_id_for_lang("en", $field) . "-completed";
-			$notempty++;
-			$completeness += $step;
-		}
-	}
-
-	if ($all_fields == 0) {
-		push @states_tags, "en:characteristics-to-be-completed";
-		$complete = 0;
-	}
-	else {
-		push @states_tags, "en:characteristics-completed";
-	}
-
-	if ((defined $product_ref->{emb_codes}) and ($product_ref->{emb_codes} ne '')) {
-		push @states_tags, "en:packaging-code-completed";
-		$notempty++;
-		$completeness += $step;
-	}
-	else {
-		push @states_tags, "en:packaging-code-to-be-completed";
-	}
-
-	if ((defined $product_ref->{expiration_date}) and ($product_ref->{expiration_date} ne '')) {
-		push @states_tags, "en:expiration-date-completed";
-		$notempty++;
-		$completeness += $step;
-	}
-	else {
-		push @states_tags, "en:expiration-date-to-be-completed";
-		# $complete = 0;
-	}
-
-	if (    (defined $product_ref->{ingredients_text})
-		and ($product_ref->{ingredients_text} ne '')
-		and (not($product_ref->{ingredients_text} =~ /\?/)))
-	{
-		push @states_tags, "en:ingredients-completed";
-		$notempty++;
-		$completeness += $step;
-	}
-	else {
-		push @states_tags, "en:ingredients-to-be-completed";
-		$complete = 0;
-	}
-
-	if (
-		(
-			(
-					(defined $current_ref->{nutriments})
-				and (scalar grep {$_ !~ /^(nova|fruits-vegetables)/} keys %{$current_ref->{nutriments}}) > 0
-			)
-		)
-		or ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on'))
-		)
-	{
-		push @states_tags, "en:nutrition-facts-completed";
-		$notempty++;
-		$completeness += $step;
-	}
-	else {
-		push @states_tags, "en:nutrition-facts-to-be-completed";
-		$complete = 0;
-	}
-
-	if ($complete) {
-		push @states_tags, "en:complete";
-
-		if ((defined $product_ref->{checked}) and ($product_ref->{checked} eq 'on')) {
-			push @states_tags, "en:checked";
-		}
-		else {
-			push @states_tags, "en:to-be-checked";
-		}
-	}
-	else {
-		push @states_tags, "en:to-be-completed";
-	}
-
-	if ($notempty == 0) {
-		$product_ref->{empty} = 1;
-		push @states_tags, "en:empty";
-	}
-	else {
-		delete $product_ref->{empty};
-	}
-
-	# On the producers platform, keep track of which products have changes to be exported
-	if ($server_options{private_products}) {
-		if (    (defined $product_ref->{last_exported_t})
-			and ($product_ref->{last_exported_t} > $product_ref->{last_modified_t}))
-		{
-			push @states_tags, "en:exported";
-		}
-		else {
-			push @states_tags, "en:to-be-exported";
-			if ($product_ref->{to_be_automatically_exported}) {
-				push @states_tags, "en:to-be-automatically-exported";
-			}
-		}
-	}
-
-	$product_ref->{complete} = $complete;
-	$current_ref->{complete} = $complete;
-	$product_ref->{completeness} = $completeness;
-	$current_ref->{completeness} = $completeness;
-
-	if ($complete) {
-		if ((not defined $previous_ref->{complete}) or ($previous_ref->{complete} == 0)) {
-			$product_ref->{completed_t} = $product_ref->{last_modified_t} + 0;
-			$current_ref->{completed_t} = $product_ref->{last_modified_t} + 0;
-		}
-		else {
-			$product_ref->{completed_t} = $previous_ref->{completed_t} + 0;
-			$current_ref->{completed_t} = $previous_ref->{completed_t} + 0;
-		}
-	}
-	else {
-		delete $product_ref->{completed_t};
-		delete $current_ref->{completed_t};
-	}
-
-	$product_ref->{states} = join(', ', reverse @states_tags);
-	$product_ref->{"states_hierarchy"} = [reverse @states_tags];
-	$product_ref->{"states_tags"} = [reverse @states_tags];
-
-	#my $field = "states";
-	#
-	#$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field}) ];
-	#$product_ref->{$field . "_tags" } = [];
-	#foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
-	#		push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
-	#}
-
-	# old name
-	delete $product_ref->{status};
-	delete $product_ref->{status_tags};
-
-	return;
+        $product_ref->{states} = join(', ', reverse @states_tags);
+        $product_ref->{"states_hierarchy"} = [reverse @states_tags];
+        $product_ref->{"states_tags"} = [reverse @states_tags];
+    }
+    return;
 }
 
 =head2 get_change_userid_or_uuid ( $change_ref )
@@ -2027,7 +1857,7 @@ sub replace_user_id_in_product ($product_id, $user_id, $new_user_id, $products_c
 				}
 			}
 
-			# Lists of users computed by compute_product_history_and_completeness()
+			# Lists of users computed by compute_product_history()
 
 			foreach my $users_field (@users_fields) {
 				if (defined $product_ref->{$users_field}) {
@@ -2158,13 +1988,13 @@ sub record_user_edit_type ($users_ref, $user_type, $user_id) {
 	return;
 }
 
-sub compute_product_history_and_completeness ($current_product_ref, $changes_ref, $blame_ref) {
+sub compute_product_history ($current_product_ref, $changes_ref, $blame_ref) {
 
 	my $code = $current_product_ref->{code};
 	my $product_id = $current_product_ref->{_id};
 	my $path = product_path($current_product_ref);
 
-	$log->debug("compute_product_history_and_completeness", {code => $code, product_id => $product_id})
+	$log->debug("compute_product_history", {code => $code, product_id => $product_id})
 		if $log->is_debug();
 
 	# Keep track of the last user who modified each field
@@ -2545,7 +2375,7 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 
 		$current_product_ref->{last_editor} = $change_ref->{userid};
 
-		compute_completeness_and_missing_tags($product_ref, \%current, \%previous);
+		compute_product_export_status($product_ref);
 
 		%last = %{dclone(\%previous)};
 		%previous = %{dclone(\%current)};
@@ -2573,9 +2403,9 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 	$current_product_ref->{checkers_tags} = $users_ref->{checkers}{list};
 	$current_product_ref->{weighers_tags} = $users_ref->{weighers}{list};
 
-	compute_completeness_and_missing_tags($current_product_ref, \%current, \%last);
+	compute_product_export_status($current_product_ref);
 
-	$log->debug("compute_product_history_and_completeness - done", {code => $code, product_id => $product_id})
+	$log->debug("compute_product_history - done", {code => $code, product_id => $product_id})
 		if $log->is_debug();
 
 	return;

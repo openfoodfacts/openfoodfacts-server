@@ -98,8 +98,6 @@ value:
       - 30xxxxxxxxxxx
       - 3xxxxxxxxxxxx
     compared_to_category: 'en:cocoa-and-hazelnuts-spreads'
-    complete: 0
-    completeness: 0.875
     conservation_conditions: A conserver au sec et à l'abri de la chaleur. Ne pas mettre au réfrigérateur.
     conservation_conditions_fr: A conserver au sec et à l'abri de la chaleur. Ne pas mettre au réfrigérateur.
     correctors_tags:
@@ -119,6 +117,18 @@ value:
     customer_service: 'FERRERO FRANCE COMMERCIALE - Service Consommateurs, CS 90058 - 76136 MONT SAINT AIGNAN Cedex'
     customer_service_fr: 'FERRERO FRANCE COMMERCIALE - Service Consommateurs, CS 90058 - 76136 MONT SAINT AIGNAN Cedex'
     data_quality_bugs_tags: []
+    data_quality_dimensions: {
+      accuracy: {
+        overall: "0.00"
+      },
+      completeness: {
+        general_information: "0.00",
+        ingredients: "0.50",
+        nutrition: "0.67",
+        overall: "0.40",
+        packaging: "0.67"
+      }
+    },
     data_quality_errors_tags: []
     data_quality_info_tags:
       - 'en:packaging-data-incomplete'
@@ -128,6 +138,22 @@ value:
       - 'en:food-groups-1-known'
       - 'en:food-groups-2-known'
       - 'en:food-groups-3-unknown'
+      - 'en:photo-and-data-to-be-checked-by-experienced-contributor'
+      - 'en:ingredients-es-photo-to-be-selected'
+      - 'en:ingredients-es-completed'
+      - 'en:ingredients-en-photo-to-be-selected'
+      - 'en:ingredients-en-completed'
+      - 'en:nutrition-photo-to-be-selected'
+      - 'en:categories-completed'
+      - 'en:nutriments-completed'
+      - 'en:packaging-photo-to-be-selected'
+      - 'en:packagings-completed'
+      - 'en:emb-codes-completed'
+      - 'en:front-photo-to-be-selected'
+      - 'en:product-name-to-be-completed'
+      - 'en:quantity-to-be-completed'
+      - 'en:brands-to-be-completed'
+      - 'en:expiration-date-to-be-completed'
     data_quality_tags:
       - 'en:packaging-data-incomplete'
       - 'en:ingredients-percent-analysis-ok'
@@ -984,45 +1010,6 @@ value:
         partyName: FERRERO FRANCE COMMERCIALE
         productionVariantDescription: '2014'
         publicationDateTime: '2022-07-13T16:01:41+02:00'
-    states: 'en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-completed, en:packaging-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-validated, en:packaging-photo-to-be-selected, en:nutrition-photo-selected, en:ingredients-photo-to-be-selected, en:front-photo-selected, en:photos-uploaded'
-    states_hierarchy:
-      - 'en:to-be-completed'
-      - 'en:nutrition-facts-completed'
-      - 'en:ingredients-completed'
-      - 'en:expiration-date-completed'
-      - 'en:packaging-code-to-be-completed'
-      - 'en:characteristics-to-be-completed'
-      - 'en:origins-to-be-completed'
-      - 'en:categories-completed'
-      - 'en:brands-completed'
-      - 'en:packaging-completed'
-      - 'en:quantity-completed'
-      - 'en:product-name-completed'
-      - 'en:photos-to-be-validated'
-      - 'en:packaging-photo-to-be-selected'
-      - 'en:nutrition-photo-selected'
-      - 'en:ingredients-photo-to-be-selected'
-      - 'en:front-photo-selected'
-      - 'en:photos-uploaded'
-    states_tags:
-      - 'en:to-be-completed'
-      - 'en:nutrition-facts-completed'
-      - 'en:ingredients-completed'
-      - 'en:expiration-date-completed'
-      - 'en:packaging-code-to-be-completed'
-      - 'en:characteristics-to-be-completed'
-      - 'en:origins-to-be-completed'
-      - 'en:categories-completed'
-      - 'en:brands-completed'
-      - 'en:packaging-completed'
-      - 'en:quantity-completed'
-      - 'en:product-name-completed'
-      - 'en:photos-to-be-validated'
-      - 'en:packaging-photo-to-be-selected'
-      - 'en:nutrition-photo-selected'
-      - 'en:ingredients-photo-to-be-selected'
-      - 'en:front-photo-selected'
-      - 'en:photos-uploaded'
     stores: 'Bi1  Magasins U  Carrefour  Franprix  Auchan  Casino  Intermarché,carrefour.fr'
     stores_tags:
       - bi1-magasins-u-carrefour-franprix-auchan-casino-intermarche
