@@ -63,6 +63,7 @@ use File::Basename qw/dirname/;
 use File::Copy qw/move/;
 use File::Copy::Recursive qw/dirmove/;
 use Cwd qw/abs_path/;
+use Carp qw/carp/;
 
 # Use Cpanel::JSON::XS directly rather than JSON::MaybeXS as otherwise check_perl gives error:
 # Can't locate object method "indent_length" via package "JSON::XS"
@@ -265,8 +266,7 @@ sub retrieve ($file) {
 	eval {$return = lock_retrieve($file);};
 
 	if ($@ ne '') {
-		require Carp;
-		Carp::carp("cannot retrieve $file : $@");
+		carp("cannot retrieve $file : $@");
 	}
 
 	return $return;
@@ -285,10 +285,10 @@ Write a JSON file with exclusive file locking
 
 sub write_json($file_path, $ref) {
 	# Open in append mode so that we can get a lock on the file before it is wiped
-	open(my $OUT, ">>", $file_path);
+	open(my $OUT, ">>", $file_path) or die "Can't write to $file_path";
 
 	# Get an exclusive lock on the file and the seek back to the start
-	flock($OUT, LOCK_EX);
+	flock($OUT, LOCK_EX) or die "Can't get exclusive lock on $file_path";
 
 	# Truncate any residual data in the file
 	truncate($OUT, 0);
@@ -308,29 +308,26 @@ sub write_json($file_path, $ref) {
 
 =head2 read_json($file_path)
 
-Reads from a JSON file with shared file locking
+Reads from a JSON file with shared file locking. Dies on error
 
 =cut
 
 sub read_json($file_path) {
-	my $json;
-	eval {
-		open(my $IN, "<", $file_path) or die("Can't open $file_path");
-		flock($IN, LOCK_SH);
-		local $/;    #Enable 'slurp' mode
-		$json = <$IN>;
-		# Release the lock. Some docs say this isn't needed but tests show otherwise
-		flock($IN, LOCK_UN);
-		close($IN);
-	} or do {
-		$log->error("read_json", {file_path => $file_path, error => $@}) if $log->is_error();
-	};
+	open(my $IN, "<", $file_path) or die("Can't open $file_path");
+	flock($IN, LOCK_SH) or die "Can't get shared lock on $file_path";
+	local $/;    #Enable 'slurp' mode
+	my $json = <$IN>;
+	# Release the lock. Some docs say this isn't needed but tests show otherwise
+	flock($IN, LOCK_UN);
+	close($IN);
 	return $json;
 }
 
 =head2 store_object ($path, $ref, $delete_old = 1)
 
-Serializes an object in our preferred object store, removing it from legacy storage if it is present
+Serializes an object in our preferred object store, removing it from legacy storage if it is present.
+Tries to emulate [Storable](https://metacpan.org/dist/Storable/source/Storable.pm) behavior
+but uses die instead of croak
 
 =cut
 
@@ -392,7 +389,8 @@ sub remove_extension($path) {
 
 =head2 retrieve_object($path)
 
-Fetch the JSON object from storage and return as a hash ref. Reverts to STO file if no JSON file exists
+Fetch the JSON object from storage and return as a hash ref. Reverts to STO file if no JSON file exists.
+Will die if JSON is malformed.
 
 =cut
 
@@ -407,26 +405,25 @@ sub retrieve_object($path) {
 
 	if (-e $file_path) {
 		my $ref;
-		eval {$ref = $json_for_objects->decode(read_json($file_path));} or do {
-			$log->error("retrieve_object", {file_path => $file_path, error => $@}) if $log->is_error();
-		};
+		# Carp on error to be consistent with retrieve
+		eval {$ref = $json_for_objects->decode(read_json($file_path));} or carp("cannot retrieve $file_path : $@");
 		return $ref;
 	}
 	else {
-		# If the old file is a link but the target no longer exists then assume the target has already been migrated
+		# If the old file is a link but the target no longer exists then assume the target has already been migrated to JSON
 		if (-l $sto_path) {
 			my $real_path = abs_path($sto_path);
 			# print STDERR $real_path ."\n";
 			if ($real_path) {
+				# Can retrieve object on the real file which will return the JSON if it exists
 				return retrieve_object(remove_extension($real_path));
 			}
 			else {
-				$log->error("retrieve_object orphan link", {real_path => $real_path, sto_path => $sto_path});
-				return;
+				die "retrieve_object unable to get real path from link: $sto_path";
 			}
 		}
 		# Fallback to old method
-		return retrieve($path . '.sto');
+		return retrieve($sto_path);
 	}
 }
 
@@ -654,9 +651,7 @@ sub retrieve_config($path) {
 			local $/;    #Enable 'slurp' mode
 			$ref = $json_for_config->decode(<$IN>);
 			close($IN);
-		} or do {
-			$log->error("retrieve_config", {file_path => $file_path, error => $@}) if $log->is_error();
-		};
+		} or carp("cannot retrieve_config $file_path : $@");
 		return $ref;
 	}
 	# Fallback to old method

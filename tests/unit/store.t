@@ -8,7 +8,7 @@ use Storable qw(lock_store lock_retrieve);
 use Fcntl ':flock';
 
 use ProductOpener::Store
-	qw/get_fileid get_string_id_for_lang get_urlid store_object retrieve_object store_config retrieve_config link_object move_object remove_object object_iter object_exists object_path_exists/;
+	qw/get_fileid get_string_id_for_lang get_urlid store_object retrieve_object store_config retrieve_config link_object move_object remove_object object_iter object_exists object_path_exists retrieve/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
 
 no warnings qw(experimental::signatures);
@@ -144,18 +144,24 @@ move_object("$test_path-sto-tomove", "$test_path-sto-moved");
 is(retrieve_object("$test_path-sto-moved"), {id => "sto-tomove"}, "Sto File moved");
 ok(!-e "$test_path-stotomove.sto", "Original sto file deleted");
 
-# Check copes with an empty JSON file
+# Check dies with an empty JSON file
 open(my $EMPTY, '>', "$test_path-empty.json");
 close($EMPTY);
+# Comparison with old retrieve
+is(retrieve("$test_path-empty.json"), undef, "Empty STO returns undef");
 is(retrieve_object("$test_path-empty"), undef, "Empty JSON returns undef");
 
-# Check copes with invalid JSON file
+# Check dies with invalid JSON file
 open(my $INVALID, '>', "$test_path-invalid.json");
 print $INVALID '{ not json';
 close($INVALID);
-is(retrieve_object("$test_path-invalid"), undef, "invalid JSON returns undef");
+# Comparison with lock_retrieve
+is(retrieve("$test_path-invalid.json"), undef, "Invalid STO returns undef");
+is(retrieve_object("$test_path-invalid"), undef, "Invalid JSON returns undef");
 
-is(retrieve_object("$test_path-no_exists"), undef, "Check copes with a non-existent file");
+# Comparison with lock_retrieve
+is(retrieve("$test_path-no_exists.sto"), undef, "Returns undef on non-existent STO file");
+is(retrieve_object("$test_path-no_exists"), undef, "Returns undef on non-existent JSON file");
 
 # Verify that JSON is formatted with store_config. Keys are sorted but array order is preserved
 store_config("$test_path-sorting", {c => 1, a => 3, b => ['z', 'x', 'y']});
