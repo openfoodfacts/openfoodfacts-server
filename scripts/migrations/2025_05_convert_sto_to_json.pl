@@ -27,7 +27,10 @@ use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/object_iter retrieve_object store_object/;
 use ProductOpener::Checkpoint;
 
-# This script converts all product sto files to json
+# This script converts all product sto files to json depending on the SERIALIZE_TO_JSON environment variable
+# If we are at level 1 then both files will exist afterwards. At level 2 the STO file will be deleted
+# If the STO file has been deleted running at level 0 or 1 will re-create the STO file from the JSON file
+
 # Add a "resume" argument to resume from the last checkpoint
 my $checkpoint = ProductOpener::Checkpoint->new;
 my $last_processed_path = $checkpoint->{value};
@@ -43,7 +46,8 @@ while (my $path = $next->()) {
 		}
 		next;    # we don't want to process the product again
 	}
-	# print "$path\n";
+	next if ($path =~ /\/scans$/);    # We expect scans to not have an STO file
+									  # print "$path\n";
 	store_object($path, retrieve_object($path));
 	$count++;
 	if ($count % 1000 == 0) {
