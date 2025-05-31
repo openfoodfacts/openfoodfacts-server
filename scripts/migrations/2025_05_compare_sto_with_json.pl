@@ -42,6 +42,8 @@ sub remove_extension($path) {
 }
 
 my $count = 0;
+my $json_count = 0;
+
 # Note intentionally use object_iter here rather than product_iter so we get all excluded paths too
 my $next = object_iter($BASE_DIRS{PRODUCTS});
 while (my $path = $next->()) {
@@ -56,13 +58,14 @@ while (my $path = $next->()) {
 		next;    # we don't want to process the product again
 	}
 	$checkpoint->update($path);
+	next if ($path =~ /\/scans$/);    # We expect scans to not have an STO file
 
 	my $json_path = "$path.json";
 	my $sto_path = "$path.sto";
 	if (-e $json_path) {
 		# First, see if there is a corresponding sto file
+		$json_count++;
 		if (!-e $sto_path) {
-			next if ($path =~ /\/scans$/);    # We expect scans to not have an STO file
 			print STDERR "\n$path: JSON file found without STO file";
 			next;
 		}
@@ -94,4 +97,4 @@ while (my $path = $next->()) {
 		}
 	}
 }
-print STDERR "\nChecked $count paths.\n";
+print STDERR "\nChecked $json_count files out of $count.\n";
