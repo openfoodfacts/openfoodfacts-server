@@ -24,10 +24,10 @@ use ProductOpener::PerlStandards;
 use utf8;
 
 use ProductOpener::Config qw/%options $query_url/;
-use ProductOpener::Store qw/retrieve_object object_iter/;
+use ProductOpener::Store qw/retrieve_object/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Redis qw/push_to_redis_stream/;
-use ProductOpener::Products qw/product_id_from_path/;
+use ProductOpener::Products qw/product_id_from_path product_iter/;
 use ProductOpener::Checkpoint;
 use Path::Tiny;
 use JSON::MaybeXS;
@@ -189,7 +189,7 @@ sub send_events() {
 # because getting products from mongodb won't give 'deleted' ones
 # found that path->visit was slow with full product volume
 sub find_products($dir) {
-	my $next = object_iter($dir, qr/product/);
+	my $next = product_iter($dir);
 	while (my $path = $next->()) {
 		my $dir = dirname($path);
 		if ($can_process or ($last_processed_path and $last_processed_path eq $dir)) {

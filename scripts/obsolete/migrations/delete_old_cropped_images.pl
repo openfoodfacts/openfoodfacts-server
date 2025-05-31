@@ -31,7 +31,7 @@ sub find_products($) {
 
 	my $dir = shift;
 
-	my $next = object_iter($dir, qr/product/);
+	my $next = product_iter($dir);
 	while (my $file = $next->()) {
 		push @products, product_id_from_path($file);
 	}

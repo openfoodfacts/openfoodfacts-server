@@ -42,6 +42,7 @@ sub remove_extension($path) {
 }
 
 my $count = 0;
+# Note intentionally use object_iter here rather than product_iter so we get all excluded paths too
 my $next = object_iter($BASE_DIRS{PRODUCTS});
 while (my $path = $next->()) {
 	$count++;

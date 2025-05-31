@@ -25,8 +25,8 @@ use utf8;
 
 use ProductOpener::Config qw/%options $query_url/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
-use ProductOpener::Products qw/product_id_from_path/;
-use ProductOpener::Store qw/object_iter retrieve_object_json/;
+use ProductOpener::Products qw/product_id_from_path product_iter/;
+use ProductOpener::Store qw/retrieve_object_json/;
 use ProductOpener::Checkpoint;
 use LWP::UserAgent;
 use Path::Tiny;
@@ -76,7 +76,7 @@ sub send_scans($fully_loaded = 0) {
 	return 1;
 }
 
-my $next = object_iter($BASE_DIRS{PRODUCTS}, qr/scans/);
+my $next = product_iter($BASE_DIRS{PRODUCTS}, qr/scans/);
 while (my $path = $next->()) {
 	if (not $can_process) {
 		if ($path eq $last_processed_path) {

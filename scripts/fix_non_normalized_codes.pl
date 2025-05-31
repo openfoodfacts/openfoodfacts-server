@@ -40,7 +40,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Data qw/get_products_collection remove_documents_by_ids/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Store qw/retrieve_object object_iter store_object object_path_exists/;
+use ProductOpener::Store qw/retrieve_object store_object object_path_exists/;
 use Getopt::Long;
 
 # how many operations in bulk write
@@ -50,7 +50,7 @@ sub find_non_normalized_sto ($product_path) {
 	# find all .sto files that have a non normalized code
 	# we take a very brute force approach on filename
 	# return a list with path, product_id and normalized_id
-	my $iter = object_iter($BASE_DIRS{PRODUCTS}, qr/product/i, qr/^(conflicting|invalid)-codes$/);
+	my $iter = product_iter();
 	my @anomalous = ();
 	while (my $product_path = $iter->()) {
 		my $product_code = product_id_from_path($product_path);

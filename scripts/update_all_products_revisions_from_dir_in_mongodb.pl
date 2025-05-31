@@ -24,8 +24,8 @@ use Modern::Perl '2017';
 use utf8;
 
 #11872 Use PO Storable
-use ProductOpener::Store qw/retrieve_object object_iter/;
-use ProductOpener::Products qw/product_id_from_path/;
+use ProductOpener::Store qw/retrieve_object/;
+use ProductOpener::Products qw/product_id_from_path product_iter/;
 use Encode;
 use MongoDB;
 
@@ -49,7 +49,7 @@ my $d = 0;
 sub find_products($) {
 
 	my $dir = shift;
-	my $next = object_iter($dir, qr/^(([0-9]+))/);
+	my $next = product_iter($dir, qr/^(([0-9]+))/);
 	while (my $file = $next->()) {
 		push @products, [$file, $1];
 		$d++;

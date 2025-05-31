@@ -27,7 +27,7 @@ use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
-use ProductOpener::Store qw/retrieve_object object_iter/;
+use ProductOpener::Store qw/retrieve_object/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -35,7 +35,8 @@ use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/:all/;
-use ProductOpener::Products qw/product_id_for_owner product_path_from_id retrieve_product product_id_from_path/;
+use ProductOpener::Products
+	qw/product_id_for_owner product_path_from_id retrieve_product product_id_from_path product_iter/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
@@ -65,7 +66,7 @@ sub find_products($) {
 
 	my $dir = shift;
 
-	my $next = object_iter($dir, qr/product/);
+	my $next = product_iter($dir);
 	while (my $file = $next->()) {
 		my $code = product_id_from_path($file);
 		push @products, $code;

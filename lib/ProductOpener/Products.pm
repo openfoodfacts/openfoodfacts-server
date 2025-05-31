@@ -88,6 +88,7 @@ BEGIN {
 		&normalize_search_terms
 		&compute_keywords
 		&log_change
+		&product_iter
 
 		&get_change_userid_or_uuid
 		&compute_codes
@@ -125,7 +126,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::ProductSchemaChanges qw/$current_schema_version convert_product_schema/;
 use ProductOpener::Store
-	qw/get_string_id_for_lang get_url_id_for_lang retrieve_object store_object object_exists object_path_exists move_object remove_object link_object/;
+	qw/get_string_id_for_lang get_url_id_for_lang retrieve_object store_object object_exists object_path_exists move_object remove_object link_object object_iter/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::ConfigEnv qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
@@ -3722,4 +3723,21 @@ sub is_owner_field ($product_ref, $field) {
 		return 1;
 	}
 	return 0;
+}
+
+=head2 product_iter($initial_path = $BASE_DIRS{PRODUCTS}, $name_pattern = qr/product$/i, $exclude_path_pattern = qr/^(conflicting|invalid)-codes$/)
+
+Iterate over all products in the specified path whose
+name matches the $name_pattern regex and whose path does not match the $exclude_path_pattern.
+Provides default exclusions so people don't forget to apply them
+
+=cut
+
+sub product_iter(
+	$initial_path = $BASE_DIRS{PRODUCTS},
+	$name_pattern = qr/product$/i,
+	$exclude_path_pattern = qr/^(conflicting|invalid)-codes$/
+	)
+{
+	return object_iter($initial_path, $name_pattern, $exclude_path_pattern);
 }

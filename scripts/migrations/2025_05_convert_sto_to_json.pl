@@ -34,6 +34,7 @@ my $last_processed_path = $checkpoint->{value};
 my $can_process = $last_processed_path ? 0 : 1;
 
 my $count = 0;
+# Note intentionally use object_iter here rather than product_iter so we get all excluded paths too
 my $next = object_iter($BASE_DIRS{PRODUCTS});
 while (my $path = $next->()) {
 	if (not $can_process) {
