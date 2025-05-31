@@ -60,6 +60,8 @@ Creates a knowledge panel card that contains all knowledge panels related to con
 
 =head4 product reference $product_ref
 
+#11872 Find and replace Storable with JSON
+
 Loaded from the MongoDB database, Storable files, or the OFF API.
 
 =head4 language code $target_lc
