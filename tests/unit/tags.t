@@ -847,7 +847,7 @@ is(
 	"file name from 'image' property"
 );
 is(
-	get_tag_image("de", "labels", "pt: Associação Portuguesa de Celíacos"),
+	get_tag_image("de", "labels", "pt:associacao-portuguesa-de-celiacos"),
 	"/images/lang/en/labels/apc-novo-logo.178x90.png",
 	"file name from 'image' property translated"
 );

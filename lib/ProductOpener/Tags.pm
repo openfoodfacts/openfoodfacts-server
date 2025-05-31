@@ -919,6 +919,18 @@ sub load_tags_images ($langid_dir, $lc, $tagtype) {
 
 	closedir($tdh);
 
+	# If a image is defined via a 'image:$lc' property, it overrides the standard value
+	my $image_key = "image:$lc";
+	foreach my $tagid (keys %{$properties{$tagtype}}) {
+		next if not defined $properties{$tagtype}{$tagid}{$image_key};
+
+		my $image_path = $tagtype_dir . '/'.  $properties{$tagtype}{$tagid}{$image_key};
+		next if not -e $image_path;		
+		$log->debug($tags_images{$lc}{$tagtype}{$tagid});
+		$tags_images{$lc}{$tagtype}{$tagid} = $image_path;
+		$log->debug($tags_images{$lc}{$tagtype}{$tagid});
+	}
+
 	return;
 }
 
