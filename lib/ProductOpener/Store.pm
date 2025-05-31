@@ -351,7 +351,7 @@ sub store_object ($path, $ref, $delete_old = 1) {
 		symlink($relative_path, $file_path);
 
 		#11901: Always do this once production is migrated.
-		if ($serialize_to_json) {
+		if ($serialize_to_json == 2) {
 			# Delete the real file. Symlink will be deleted further down
 			unlink($real_path);
 		}
@@ -362,7 +362,7 @@ sub store_object ($path, $ref, $delete_old = 1) {
 	}
 
 	#11901: Remove once production is migrated and always do the else. Use STO file as well as JSON
-	if (not $serialize_to_json) {
+	if ($serialize_to_json < 2) {
 		store($sto_path, $ref);
 	}
 	else {
@@ -391,7 +391,7 @@ sub retrieve_object($path) {
 	my $sto_path = $path . '.sto';
 
 	#11901: Remove once production is migrated. Use STO file as master source of truth if it exists
-	if (not $serialize_to_json and -e $sto_path) {
+	if ($serialize_to_json < 2 and -e $sto_path) {
 		return retrieve($sto_path);
 	}
 
@@ -518,7 +518,7 @@ sub link_object($name, $link) {
 	my $real_sto_path = "$dir/$name.sto";
 	my $sto_link = "$link.sto";
 	#11901: Remove $serialize_to_json part of expression once production is migrated and just create the STO link if the real STO file exists
-	if (not $serialize_to_json or -e $real_sto_path) {
+	if ($serialize_to_json < 2 or -e $real_sto_path) {
 		symlink($name . '.sto', $sto_link);
 	}
 	else {
