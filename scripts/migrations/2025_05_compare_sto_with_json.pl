@@ -61,7 +61,7 @@ while (my $path = $next->()) {
 	if (-e $json_path) {
 		# First, see if there is a corresponding sto file
 		if (!-e $sto_path) {
-			next if ($path =~ /\/scans$/); # We expect scans to not have an STO file
+			next if ($path =~ /\/scans$/);    # We expect scans to not have an STO file
 			print STDERR "\n$path: JSON file found without STO file";
 			next;
 		}
@@ -69,7 +69,8 @@ while (my $path = $next->()) {
 		if (-l $json_path) {
 			if (!-l $sto_path) {
 				print STDERR "\n$path: JSON is a symlink but STO is not";
-			} else {
+			}
+			else {
 				my $json_link = readlink($json_path);
 				my $sto_link = readlink($sto_path);
 				if (remove_extension($json_link) ne remove_extension($sto_link)) {
@@ -88,7 +89,7 @@ while (my $path = $next->()) {
 		my $sto_ref = retrieve($sto_path);
 		my $delta = compare($sto_ref, $json_ref, \&convert);
 		if ($delta) {
-	        print STDERR "\n$path: JSON file is different from STO file:\n" . $delta->diag()->as_string();
+			print STDERR "\n$path: JSON file is different from STO file:\n" . $delta->diag()->as_string();
 		}
 	}
 }

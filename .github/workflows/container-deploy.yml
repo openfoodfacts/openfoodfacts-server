@@ -44,7 +44,6 @@ jobs:
         echo "SSH_HOST=10.1.0.200" >> $GITHUB_ENV
         echo "SSH_PROXY_HOST=ovh1.openfoodfacts.org" >> $GITHUB_ENV
         echo "SSH_USERNAME=off" >> $GITHUB_ENV
-        echo "SERIALIZE_TO_JSON=1" >> $GITHUB_ENV
 
     - name: Set various variable for prod (org) deployment
       if: matrix.env == 'off-org'
@@ -182,7 +181,9 @@ jobs:
           echo "LOG_LEVEL_MONGODB=ERROR" >> .env
           echo "LOG_LEVEL_RATE_LIMITER=INFO" >> .env
           echo "BUILD_CACHE_REPO=openfoodfacts/openfoodfacts-build-cache" >> .env
-          echo "SERIALIZE_TO_JSON=${{ env.SERIALIZE_TO_JSON }}" >> .env
+
+          #11901: Remove once production is migrated. Initially duplicate STO and JSON
+          echo "SERIALIZE_TO_JSON=1" >> .env
 
           # Override domain name in nginx.conf
           sed -i.bak "s/productopener.localhost/${{ env.PRODUCT_OPENER_DOMAIN }}/g" ./conf/nginx-docker/nginx.conf

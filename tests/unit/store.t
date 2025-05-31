@@ -1,16 +1,17 @@
 #!/usr/bin/perl -w
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use Test2::V0;
 use Log::Any::Adapter 'TAP';
-use Storable qw(lock_store);
+use Storable qw(lock_store lock_retrieve);
 use Fcntl ':flock';
 
 use ProductOpener::Store
 	qw/get_fileid get_string_id_for_lang get_urlid store_object retrieve_object store_config retrieve_config link_object move_object remove_object object_iter object_exists object_path_exists/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
+
+no warnings qw(experimental::signatures);
 
 is(get_fileid('Do not challenge me!'), 'do-not-challenge-me');
 
@@ -58,6 +59,14 @@ my $test_root_path = "$BASE_DIRS{CACHE_TMP}/test-store";
 my $test_name = "test-object";
 my $test_path = "$test_root_path/$test_name";
 
+sub read_file($file_path) {
+	open(my $IN, '<', $file_path);
+	local $/;    #Enable 'slurp' mode
+	my $content = <$IN>;
+	close($IN);
+	return $content;
+}
+
 # Make sure json file doesn't exist
 remove_object($test_path);
 # Create an initial test file
@@ -71,10 +80,8 @@ is(retrieve_object("$test_path"), {id => 1}, "Verify retrieve copes with a sto f
 # Use the new method to update it
 store_object("$test_path", {id => 2});
 ok((-e "$test_path.json"), "Verify that the json file has been created");
-open(my $JSON, '<', "$test_path.json");
-local $/;    #Enable 'slurp' mode
-my $data = <$JSON>;
-close($JSON);
+
+my $data = read_file("$test_path.json");
 is($data, '{"id":2}', "Content of json file is correct");
 
 ok((not -e "$test_path.sto"), "The old sto file should be deleted");
@@ -152,10 +159,8 @@ is(retrieve_object("$test_path-no_exists"), undef, "Check copes with a non-exist
 
 # Verify that JSON is formatted with store_config. Keys are sorted but array order is preserved
 store_config("$test_path-sorting", {c => 1, a => 3, b => ['z', 'x', 'y']});
-open(my $SORTED, '<', "$test_path-sorting.json");
-local $/;    #Enable 'slurp' mode
-my $json = <$SORTED>;
-close($SORTED);
+
+my $json = read_file("$test_path-sorting.json");
 
 is(
 	$json, '{
@@ -215,6 +220,58 @@ while (my $object_path = $next->()) {
 }
 ok(grep {$_ eq $test_path} @object_paths, "Iterator includes files in non-excluded directories");
 ok(!grep {$_ eq "nested"} @object_paths, "Iterator excludes files in excluded directories");
+
+#11901: Tests for legacy behavior. Remove both blocks once production is migrated.
+# At level 0 we should not write to JSON
+{
+	my $store_mock = mock 'ProductOpener::Store' => (
+		override => [
+			get_serialize_to_json_level => 0
+		]
+	);
+
+	# Should create an STO file
+	remove_object("$test_path-level-0");
+	store_object("$test_path-level-0", {id => 'level 0'});
+	ok((!-e "$test_path-level-0.json"), "Verify that the json file has not been created");
+	is(lock_retrieve("$test_path-level-0.sto"), {id => 'level 0'}, "Check STO is created");
+
+	# Create STO link
+	remove_object("$test_path-level-0-link");
+	link_object("$test_name-level-0", "$test_path-level-0-link");
+	ok((!-e "$test_path-level-0-link.json"), "Verify that the json link has not been created");
+	ok(-l "$test_path-level-0-link.json", "Check STO link is created");
+	is(lock_retrieve("$test_path-level-0-link.sto"), {id => 'level 0'}, "Check STO link fetches data");
+}
+
+# At level 1 we should duplicate to JSON
+{
+	my $store_mock = mock 'ProductOpener::Store' => (
+		override => [
+			get_serialize_to_json_level => 1
+		]
+	);
+
+	# Should create an STO and JSON file
+	remove_object("$test_path-level-1");
+	store_object("$test_path-level-1", {id => 'level 1'});
+	is(read_file("$test_path-level-1.json"), '{"id":"level 1"}', "Verify that the json file has been created");
+	is(lock_retrieve("$test_path-level-1.sto"), {id => 'level 1'}, "Check STO is created");
+
+	# Should create both links
+	remove_object("$test_path-level-1-link");
+	link_object("$test_name-level-1", "$test_path-level-1-link");
+	ok((-l "$test_path-level-1-link.json"), "Verify that the json link has been created");
+	ok(-l "$test_path-level-1-link.json", "Check STO link is created");
+	is(read_file("$test_path-level-1-link.json"), '{"id":"level 1"}', "Verify that the json link fetches data");
+	is(lock_retrieve("$test_path-level-1-link.sto"), {id => 'level 1'}, "Check STO link fetches data");
+
+	# If JSON file differs the STO is used
+	open(my $JSON, '>', "$test_path-level-1.json");
+	print $JSON '{"id":"level 1 json"}';
+	close($JSON);
+	is(retrieve_object("$test_path-level-1"), {id => 'level 1'}, "Check STO is used");
+}
 
 # Enable these on an ad-hoc basis to test locking. Can't leave enabled as coverage doesn't support threading
 # use threads;

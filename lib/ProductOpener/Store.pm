@@ -272,7 +272,12 @@ sub retrieve ($file) {
 	return $return;
 }
 
-=head2 write_json($path, $ref)
+#11901: Remove once production is migrated.
+sub get_serialize_to_json_level() {
+	return $serialize_to_json;
+}
+
+=head2 write_json($file_path, $ref)
 
 Write a JSON file with exclusive file locking
 
@@ -297,9 +302,11 @@ sub write_json($file_path, $ref) {
 	# Release the lock. Some docs say this isn't needed but tests show otherwise
 	flock($OUT, LOCK_UN);
 	close($OUT);
+
+	return;
 }
 
-=head2 write_json($path, $ref)
+=head2 read_json($file_path)
 
 Reads from a JSON file with shared file locking
 
@@ -336,33 +343,36 @@ sub store_object ($path, $ref, $delete_old = 1) {
 		ensure_dir_created_or_die(dirname($file_path));
 	}
 
-	if (!-e $file_path && -l $sto_path) {
-		# JSON file does not currently exist and existing STO file is a symlink
-		# In this case we need write the data to the JSON symlink target an then create the JSON symlink
-		my $real_path = abs_path($sto_path);
-		my $json_path = remove_extension($real_path) . '.json';
+	#11901: Always do this once production is migrated
+	if (get_serialize_to_json_level() > 0) {
+		if (!-e $file_path && -l $sto_path) {
+			# JSON file does not currently exist and existing STO file is a symlink
+			# In this case we need write the data to the JSON symlink target an then create the JSON symlink
+			my $real_path = abs_path($sto_path);
+			my $json_path = remove_extension($real_path) . '.json';
 
-		# Write the data to the symlink target
-		write_json($json_path, $ref);
+			# Write the data to the symlink target
+			write_json($json_path, $ref);
 
-		# Create the JSON symlink
-		# Note we need to use a relative path for the link
-		my $relative_path = remove_extension(readlink($sto_path)) . '.json';
-		symlink($relative_path, $file_path);
+			# Create the JSON symlink
+			# Note we need to use a relative path for the link
+			my $relative_path = remove_extension(readlink($sto_path)) . '.json';
+			symlink($relative_path, $file_path);
 
-		#11901: Always do this once production is migrated.
-		if ($serialize_to_json == 2) {
-			# Delete the real file. Symlink will be deleted further down
-			unlink($real_path);
+			#11901: Always do this once production is migrated.
+			if (get_serialize_to_json_level() == 2) {
+				# Delete the real file. Symlink will be deleted further down
+				unlink($real_path);
+			}
 		}
-	}
-	else {
-		# JSON symlink already exists or we are writing to a real file
-		write_json($file_path, $ref);
+		else {
+			# JSON symlink already exists or we are writing to a real file
+			write_json($file_path, $ref);
+		}
 	}
 
 	#11901: Remove once production is migrated and always do the else. Use STO file as well as JSON
-	if ($serialize_to_json < 2) {
+	if (get_serialize_to_json_level() < 2) {
 		store($sto_path, $ref);
 	}
 	else {
@@ -391,7 +401,7 @@ sub retrieve_object($path) {
 	my $sto_path = $path . '.sto';
 
 	#11901: Remove once production is migrated. Use STO file as master source of truth if it exists
-	if ($serialize_to_json < 2 and -e $sto_path) {
+	if (get_serialize_to_json_level() < 2 and -e $sto_path) {
 		return retrieve($sto_path);
 	}
 
@@ -517,8 +527,8 @@ sub link_object($name, $link) {
 
 	my $real_sto_path = "$dir/$name.sto";
 	my $sto_link = "$link.sto";
-	#11901: Remove $serialize_to_json part of expression once production is migrated and just create the STO link if the real STO file exists
-	if ($serialize_to_json < 2 or -e $real_sto_path) {
+	#11901: Remove get_serialize_to_json_level() part of expression once production is migrated and just create the STO link if the real STO file exists
+	if (get_serialize_to_json_level() < 2 or -e $real_sto_path) {
 		symlink($name . '.sto', $sto_link);
 	}
 	else {
@@ -612,7 +622,7 @@ sub store_config ($path, $ref, $delete_old = 1) {
 	my $sto_path = $path . '.sto';
 	my $file_path = $path . '.json';
 
-	#11901: Config files aren't shared so ignore $serialize_to_json flag. Just remove this comment when migration is complete
+	#11901: Config files aren't shared so ignore get_serialize_to_json_level() flag. Just remove this comment when migration is complete
 
 	ensure_dir_created_or_die(dirname($file_path));
 
