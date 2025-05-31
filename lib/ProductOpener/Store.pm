@@ -272,6 +272,55 @@ sub retrieve ($file) {
 	return $return;
 }
 
+=head2 write_json($path, $ref)
+
+Write a JSON file with exclusive file locking
+
+=cut
+
+sub write_json($file_path, $ref) {
+	# Open in append mode so that we can get a lock on the file before it is wiped
+	open(my $OUT, ">>", $file_path);
+
+	# Get an exclusive lock on the file and the seek back to the start
+	flock($OUT, LOCK_EX);
+
+	# Truncate any residual data in the file
+	truncate($OUT, 0);
+
+	my $json = $json_for_objects->encode($ref);
+	# Strip out any nul characters as many parsers can't cope with these
+	# This doesn't seem to add too much overhead
+	$json =~ s/\000//g;
+	print $OUT $json;
+
+	# Release the lock. Some docs say this isn't needed but tests show otherwise
+	flock($OUT, LOCK_UN);
+	close($OUT);
+}
+
+=head2 write_json($path, $ref)
+
+Reads from a JSON file with shared file locking
+
+=cut
+
+sub read_json($file_path) {
+	my $json;
+	eval {
+		open(my $IN, "<", $file_path) or die("Can't open $file_path");
+		flock($IN, LOCK_SH);
+		local $/;    #Enable 'slurp' mode
+		$json = <$IN>;
+		# Release the lock. Some docs say this isn't needed but tests show otherwise
+		flock($IN, LOCK_UN);
+		close($IN);
+	} or do {
+		$log->error("read_json", {file_path => $file_path, error => $@}) if $log->is_error();
+	};
+	return $json;
+}
+
 =head2 store_object ($path, $ref, $delete_old = 1)
 
 Serializes an object in our preferred object store, removing it from legacy storage if it is present
@@ -282,66 +331,46 @@ sub store_object ($path, $ref, $delete_old = 1) {
 	my $sto_path = $path . '.sto';
 	my $file_path = $path . '.json';
 
-	#11901: Remove once production is migrated. Use STO file if the file hasn't already been migrated
-	if (not $serialize_to_json and not -e $file_path) {
-		return store($sto_path, $ref);
-	}
-
-	# If the file already exists then we need to first open it non-destructively as
-	# open( .., ">", ...) will create an empty file which might be read by another thread
-	# before we have applied the exclusive lock and written the data
-	my $READ_LOCK;
-	if (-e $file_path) {
-		open(my $READ_LOCK, "<", $file_path);
-		flock($READ_LOCK, LOCK_EX);
-	}
-	elsif (-l $sto_path) {
-		my $real_path = abs_path($sto_path);
-		my $json_path = remove_extension($real_path) . '.json';
-		if (not -e $real_path and -e $json_path) {
-			# If the existing sto link is pointing to a non-existent sto but existing json then migrate the link
-			my $relative_path = remove_extension(readlink($sto_path)) . '.json';
-			unlink($sto_path);
-			# Note we need to use a relative path for the link
-			symlink($relative_path, $file_path);
-			# Allow processing below to continue, which will write to the targe file
-		}
-		else {
-			# Of it is not an orphaned link then don't migrate (silent update)
-			store($sto_path, $ref);
-			return;
-		}
-	}
-	else {
+	if (!-e $file_path || !-e $sto_path) {
 		# If doesn't already exist ensure the directory tree is in place
 		ensure_dir_created_or_die(dirname($file_path));
 	}
 
-	open(my $OUT, ">", $file_path);
-	# Get an exclusive lock on the file
-	# We could also lock the STO file here but it adds a small overhead and we don't
-	# tend to run old and new versions in parallel so shouldn't be an issue
-	if (not $READ_LOCK) {
-		flock($OUT, LOCK_EX);
-	}
-	my $json = $json_for_objects->encode($ref);
-	# Strip out any nul characters as many parsers can't cope with these
-	# This doesn't seem to add too much overhead
-	$json =~ s/\000//g;
-	print $OUT $json;
+	if (!-e $file_path && -l $sto_path) {
+		# JSON file does not currently exist and existing STO file is a symlink
+		# In this case we need write the data to the JSON symlink target an then create the JSON symlink
+		my $real_path = abs_path($sto_path);
+		my $json_path = remove_extension($real_path) . '.json';
 
-	# Delete the old storable file
-	if ($delete_old and -e ($sto_path)) {
-		unlink($sto_path);
+		# Write the data to the symlink target
+		write_json($json_path, $ref);
+
+		# Create the JSON symlink
+		# Note we need to use a relative path for the link
+		my $relative_path = remove_extension(readlink($sto_path)) . '.json';
+		symlink($relative_path, $file_path);
+
+		#11901: Always do this once production is migrated.
+		if ($serialize_to_json) {
+			# Delete the real file. Symlink will be deleted further down
+			unlink($real_path);
+		}
 	}
-	# Release the lock. Some docs say this isn't needed but tests show otherwise
-	if (not $READ_LOCK) {
-		flock($OUT, LOCK_UN);
+	else {
+		# JSON symlink already exists or we are writing to a real file
+		write_json($file_path, $ref);
 	}
-	close($OUT);
-	if ($READ_LOCK) {
-		flock($READ_LOCK, LOCK_UN);
-		close($READ_LOCK);
+
+	#11901: Remove once production is migrated and always do the else. Use STO file as well as JSON
+	if (not $serialize_to_json) {
+		store($sto_path, $ref);
+	}
+	else {
+		# Remove the STO file if it exists
+		# Delete the old storable file
+		if ($delete_old and -e ($sto_path)) {
+			unlink($sto_path);
+		}
 	}
 
 	return;
@@ -359,23 +388,21 @@ Fetch the JSON object from storage and return as a hash ref. Reverts to STO file
 
 sub retrieve_object($path) {
 	my $file_path = $path . '.json';
+	my $sto_path = $path . '.sto';
+
+	#11901: Remove once production is migrated. Use STO file as master source of truth if it exists
+	if (not $serialize_to_json and -e $sto_path) {
+		return retrieve($sto_path);
+	}
+
 	if (-e $file_path) {
 		my $ref;
-		eval {
-			open(my $IN, "<", $file_path) or die("Can't open $file_path");
-			flock($IN, LOCK_SH);
-			local $/;    #Enable 'slurp' mode
-			$ref = $json_for_objects->decode(<$IN>);
-			# Release the lock. Som docs say this isn't needed but tests show otherwise
-			flock($IN, LOCK_UN);
-			close($IN);
-		} or do {
+		eval {$ref = $json_for_objects->decode(read_json($file_path));} or do {
 			$log->error("retrieve_object", {file_path => $file_path, error => $@}) if $log->is_error();
 		};
 		return $ref;
 	}
 	else {
-		my $sto_path = $path . '.sto';
 		# If the old file is a link but the target no longer exists then assume the target has already been migrated
 		if (-l $sto_path) {
 			my $real_path = abs_path($sto_path);
@@ -390,7 +417,6 @@ sub retrieve_object($path) {
 		}
 		# Fallback to old method
 		return retrieve($path . '.sto');
-
 	}
 }
 
@@ -403,19 +429,7 @@ Fetch the JSON object from storage and return as a JSON string. Reverts to STO f
 sub retrieve_object_json($path) {
 	my $file_path = $path . '.json';
 	if (-e $file_path) {
-		my $json;
-		eval {
-			open(my $IN, "<", $file_path) or die("Can't open $file_path");
-			flock($IN, LOCK_SH);
-			local $/;    #Enable 'slurp' mode
-			$json = <$IN>;
-			# Release the lock. Some docs say this isn't needed but tests show otherwise
-			flock($IN, LOCK_UN);
-			close($IN);
-		} or do {
-			$log->error("retrieve_object", {file_path => $file_path, error => $@}) if $log->is_error();
-		};
-		return $json;
+		return read_json($file_path);
 	}
 	# Fallback to old method
 	return $json_for_objects->encode(retrieve($path . '.sto'));
@@ -492,21 +506,28 @@ If the object at the $path is an sto file then an STO symbolic link will be crea
 =cut
 
 sub link_object($name, $link) {
-	# If target is a sto file then keep the link as a sto file too. Note we use relative paths for the target file
-	#11901: Remove $serialize_to_json test once production is migrated
+	my $dir = dirname($link);
+	my $real_json_path = "$dir/$name.json";
+
+	# If the JSON target file doesn't exist then log an error, but still create the link anyway
+	$log->error("link target does not exist", {link => $link, real_json_path => $real_json_path})
+		if $log->is_error() && !-e $real_json_path;
+
+	symlink($name . '.json', $link . '.json') or die("Cannot create link $link.json to $name.sto, error $!");
+
+	my $real_sto_path = "$dir/$name.sto";
 	my $sto_link = "$link.sto";
-	if (not $serialize_to_json or -e dirname($link) . '/' . $name . '.sto') {
-		symlink($name . '.sto', $sto_link) or die("Cannot create link $sto_link to $name.sto, error $!");
-		return;
+	#11901: Remove $serialize_to_json part of expression once production is migrated and just create the STO link if the real STO file exists
+	if (not $serialize_to_json or -e $real_sto_path) {
+		symlink($name . '.sto', $sto_link);
 	}
-
-	symlink($name . '.json', $link . '.json')
-		or $log->error("could not link", {source => "$name.json", link => "$link.json", error => $!});
-
-	# We normally delete a link before creating a new one but just in case make sure there is no STO link
-	if (-e $sto_link) {
-		unlink($sto_link);
-		$log->warn("previous link was not deleted", {link => $sto_link}) if $log->is_warn();
+	else {
+		# Delete the STO link if it exists and the real file does not exist
+		# We normally delete a link before creating a new one but just in case make sure there is no STO link
+		if (-e $sto_link) {
+			unlink($sto_link);
+			$log->warn("previous link was not deleted", {link => $sto_link}) if $log->is_warn();
+		}
 	}
 
 	return;
@@ -544,6 +565,7 @@ sub object_iter($initial_path, $name_pattern = undef, $exclude_path_pattern = un
 				# Sort files so that we always explore them in the same order (useful for tests)
 				my @candidates = sort readdir(DIR);
 				closedir(DIR);
+				my $last_name = '';
 				foreach my $file (@candidates) {
 					# avoid ..
 					next if $file =~ /^\.\.?$/;
@@ -557,6 +579,11 @@ sub object_iter($initial_path, $name_pattern = undef, $exclude_path_pattern = un
 					}
 					# Have a file. Strip off any extension before pattern matching
 					my $object_name = remove_extension($file);
+
+					# Skip if we have a duplicate file name with a different extension, e.g. if STO and JSON coexist during migration
+					next if ($object_name eq $last_name);
+					$last_name = $object_name;
+
 					next if ($name_pattern and $object_name !~ $name_pattern);
 					push(@object_paths, "$current_dir/$object_name");
 				}

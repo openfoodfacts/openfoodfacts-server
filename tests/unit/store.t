@@ -106,11 +106,13 @@ lock_store({id => "stolink"}, "$test_path-sto.sto");
 symlink("$test_name-sto.sto", "$test_path-sto-link.sto");
 # Check data is fetched OK
 is(retrieve_object("$test_path-sto-link"), {id => "stolink"}, "Sto Link works");
-# Update via the link
+# Update via the link. This should create the real json file and link and delete the sto file and link
 store_object("$test_path-sto-link", {id => "stolink2"});
-is(retrieve_object("$test_path-sto"), {id => "stolink2"}, "Original reflects update via sto link");
-ok(!-e "$test_path-sto.json", "JSON file is not created");
-ok(!-e "$test_path-sto-link.json", "JSON link is not created");
+is(retrieve_object("$test_path-sto"), {id => "stolink2"}, "Original reflects update via link");
+ok(-e "$test_path-sto.json", "JSON file is created");
+ok(-e "$test_path-sto-link.json", "JSON link is created");
+ok(!-e "$test_path-sto.sto", "STO file is deleted");
+ok(!-e "$test_path-sto-link.sto", "STO link is deleted");
 
 # Open an orphaned link, e.g. product.sto link points to a revision that has already been converted to JSON
 remove_object("$test_path-product_revision");
