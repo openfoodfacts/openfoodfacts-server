@@ -815,7 +815,6 @@ HTML
 	$request_ref->{scripts} .= <<HTML
 <script type="text/javascript" src="$static_subdomain/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/cropper.js"></script>
-<script type="text/javascript" src="$static_subdomain/js/dist/jquery-cropper.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/jquery.form.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/tagify.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/jquery.iframe-transport.js"></script>
@@ -825,7 +824,7 @@ HTML
 <script type="text/javascript">
 var admin = $moderator;
 </script>
-<script type="text/javascript" src="$static_subdomain/js/dist/product-multilingual.js?v=$file_timestamps{'js/dist/product-multilingual.js'}"></script>
+<script type="module" src="$static_subdomain/js/dist/product-multilingual.js?v=$file_timestamps{'js/dist/product-multilingual.js'}"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/product-history.js"></script>
 
 HTML
@@ -848,7 +847,7 @@ HTML
 	font-weight:normal;
 	font-size:0.8rem;
 }
-.select_manage .ui-selectable li { 
+.select_manage .ui-selectable li {
 	height: 180px
 }
 CSS
