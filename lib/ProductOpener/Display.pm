@@ -3715,6 +3715,12 @@ sub display_tag ($request_ref) {
 	my $new_tagid2path = deep_get($request_ref, qw(tags 1 new_tagid_path));
 	my $canon_tagid2 = deep_get($request_ref, qw(tags 1 canon_tagid));
 
+	# 1/6/2024 - du to heavy load from bots, disabling 2nd level facets unless the user is logged in
+	if ((not defined $User_id) and (defined $tagid2)) {
+		display_error_and_exit($request_ref, "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts. ", 403);
+		return;
+	}
+
 	my $weblinks_html = '';
 	my @wikidata_objects = ();
 	if (    (defined $tagtype && $tagtype ne 'additives')
