@@ -3717,7 +3717,7 @@ sub display_tag ($request_ref) {
 
 	# 1/6/2024 - du to heavy load from bots, disabling 2nd level facets unless the user is logged in
 	if ((not defined $User_id) and (defined $tagid2)) {
-		display_error_and_exit($request_ref, "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts. ", 403);
+		display_error_and_exit($request_ref, lang("robots_not_served_here"), 403);
 		return;
 	}
 
