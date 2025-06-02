@@ -1738,6 +1738,24 @@ wikidata:en: Q16976
 wikipedia:en: https://en.wikipedia.org/wiki/Pastis
 
 < en:Alcoholic beverages
+en: Absinthe
+de: Absinth
+es: Absenta
+fr: Absinthe
+hu: Abszint
+it: Assenzio
+nl: Absint
+pl: Absynt
+wikidata:en: Q170210
+
+< en:Absinthe
+fr: Absinthe de Pontarlier
+origins:en: en:france
+protected_name_file_number:en: PGI-FR-01870
+protected_name_type:en: gi
+#wikidata:en:
+
+< en:Alcoholic beverages
 xx: Sake
 en: Sake, Rice wines
 bg: Саке
@@ -1751,6 +1769,40 @@ agribalyse_food_code:en: 1026
 ciqual_food_code:en: 1026
 ciqual_food_name:en: Sake or rice wine
 wikidata:en: Q170219
+
+< en:Alcoholic beverages
+en: Shoshu
+ja: 焼酎
+
+< en:Shoshu
+en: Awamori
+agribalyse_proxy_food_code:en: 1026
+cagribalyse_proxy_food_name:en: Sake or rice wine
+
+< en:Shoshu
+en: Kome-shochu
+agribalyse_proxy_food_code:en: 1026
+cagribalyse_proxy_food_name:en: Sake or rice wine
+
+< en:Shoshu
+en: Kasutori-shochu, sake kasu
+agribalyse_proxy_food_code:en: 1026
+cagribalyse_proxy_food_name:en: Sake or rice wine
+
+< en:Shoshu
+en: Imo-Shoshu
+
+< en:Shoshu
+en: Mugi-Shoshu
+
+< en:Shoshu
+en: Soba-Shoshu
+
+< en:Shoshu
+en: Kokuto-Shoshu, Kokutojochu
+
+< en:Shoshu
+en: Kuri-Shoshu
 
 < en:Alcoholic beverages
 en: Mirin
@@ -3602,6 +3654,10 @@ protected_name_type:en: gi
 #wikidata:en:
 
 < en:Hard liquors
+en: Mezcal
+wikidata:en: Q726413
+
+< en:Hard liquors
 en: Tequilas
 bg: Текила
 de: Tequilas
@@ -3626,6 +3682,16 @@ protected_name_file_number:en: PGI-MX-01851
 protected_name_type:en: gi
 
 < en:Hard liquors
+en: Mastika
+wikidata:en: Q569332
+
+< en:Hard liquors
+en: Patxaran
+es: Pacharán
+fr: Patxaran, pacharan
+wikidata:en: Q1500295
+
+< en:Hard liquors
 en: Eaux de vie, Eau de vie, Clear fruit brandies
 de: Eau de vie, Branntwein
 fr: Eaux-de-vie, Eau-de-vie
@@ -3636,6 +3702,10 @@ agribalyse_food_code:en: 1001
 ciqual_food_code:en: 1001
 ciqual_food_name:en: Clear fruit brandy or eau-de-vie
 wikidata:en: Q2166541
+
+< en:Eaux de vie
+en: Baijiu
+zh-cn: 白酒
 
 < en:Alcoholic beverages
 de: Austrian Weinbrand
@@ -3773,6 +3843,17 @@ origins:en: en:croatia
 protected_name_file_number:en: PGI-HR-01957
 protected_name_type:en: gi
 #wikidata:en:
+
+< en:Fruit brandy
+en: Slovakian fruit spirit
+
+< en:Slovakian fruit spirit
+en: Borovicka
+sk: Borovička
+
+< en:Fruit brandy
+en: Medovaca
+ru: Медовача
 
 < en:Fruit brandy
 en: French fruit spirit
@@ -4178,6 +4259,30 @@ hu: Osztrák pálinka, Ausztriai pálinka
 origins:en: en:austria
 #wikidata:en:
 
+< en:Fruit brandy
+fr: Brandy aux pommes
+
+< en:Fruit brandy
+fr: Brandy aux prunes
+
+< en:Fruit brandy
+en: Cherry Brandy
+fr: Brandy aux cerises
+
+< en:Fruit brandy
+fr: Brandy au coing
+
+< en:Fruit brandy
+en: Portuguese fruit spirit
+
+< en:Portuguese fruit spirit
+en: Medronho
+pt: Medronho, Aquardente de Medronhos
+wikidata:en: Q175707
+
+< en:Fruit brandy
+fr: Brandy au coing, brandies au coing
+
 < en:Eaux de vie
 en: Whisky, whiskey
 bg: Уиски
@@ -4207,6 +4312,10 @@ hr: Blendirani viski
 hu: Kevert Whisky
 nl: Blended whiskies
 wikidata:en: Q883744
+
+< en:Whisky
+en: Single malt whisky
+fr: Whisky single malt
 
 < en:Whisky
 en: Rye whisky
@@ -4322,6 +4431,10 @@ hr: Miješani škotski viski
 nl: Schotse blended whiskies, Schotse blended whisky
 origins:en: en:scotland, en:united-kingdom
 
+< en:Scotch whisky
+< en:Single malt whisky
+en: Single malt scotch whisky
+
 < en:Whisky
 en: French Whisky
 de: Französische Whiskys
@@ -4409,6 +4522,14 @@ nl: Ierse whiskies
 ru: Ирландский виски
 origins:en: en:ireland
 wikidata:en: Q909747
+
+< en:Irish whiskey
+< fr:Blended whisky
+en: Blended Irish whiskey
+
+< en:Irish whiskey
+< en:Single malt whisky
+en: Single malt Irish whiskey
 
 < en:Whisky
 en: Japanese whiskey
@@ -5152,6 +5273,9 @@ protected_name_file_number:en: PGI-DE-01923
 protected_name_type:en: gi
 #wikidata:en:
 
+< en:German grain spirit
+de: Doppelkorn
+
 < en:Eaux de vie
 en: Vodka
 bg: Водка
@@ -5181,6 +5305,10 @@ fr: Vodka aromatisée, vodka parfumée
 hr: Votka s okusom
 it: Vodka aromatizzato, Vodka con aroma
 #wikidata:en:
+
+< en:Flavored vodka
+en: Nastoyka
+ru: настойка
 
 < en:Vodka
 en: Vodkas from Lithania, Lithuanian vodka
@@ -5344,6 +5472,12 @@ protected_name_file_number:en: PGI-FI-02040
 protected_name_type:en: gi
 #wikidata:en:
 
+< en:Vodka
+en: Kazak Vodkas
+
+< en:Vodka
+en: Slovak Vodkas
+
 < en:Hard liquors
 en: Gins, Gin
 bg: Джин
@@ -5407,6 +5541,14 @@ ciqual_food_code:en: 1007
 ciqual_food_name:en: Wine or fortified wine-based aperitif
 ciqual_food_name:fr: Apéritif à base de vin ou vermouth
 #wikidata:en:
+
+< en:Vermouth
+en: Red Vermouth
+fr: Vermouth rouge
+
+< en:Vermouth
+en: White Vermouth
+fr: Vermouth blanc
 
 < en:Wine-based drinks
 en: Wine-based aperitif, Fortified wine-based aperitif
@@ -5690,6 +5832,10 @@ lt: Šnapsas, Šnapsai
 nl: Schapps
 wikidata:en: Q1815494
 
+< en:Schnapps
+en: Klarer
+de: Klarer, Klarer Schnaps
+
 < en:Alcoholic beverages
 en: Rakia
 ar: راكيا
@@ -5729,6 +5875,15 @@ uk: Ракія
 zh: 拉基亞
 wikidata:en: Q931946
 
+< en: Rakia
+en: Komovica
+
+< en: Rakia
+en: Lozovaca, Loza
+
+< en: Rakia
+en: Travarica
+
 < en:Alcoholic beverages
 en: Punchs
 fr: Punchs
@@ -5756,6 +5911,10 @@ ciqual_food_name:fr: Cocktail à base de rhum
 < en:Rum-based cocktail
 fr: Daïquiri
 #wikidata:en:
+
+< en:Eaux de vie
+en: Tuzemsky, Tuzemak, Tuzemsky rum
+cs: Tuzemský, Tuzemák
 
 < en:Non-alcoholic beverages
 fr: Daïquiri sans alcool
@@ -8897,22 +9056,15 @@ gpc_category_name:en: Fruit Herbal Infusions/Tisanes - Instant
 < en:Herbal teas
 en: Absinthium, Absinthe wormwood
 de: Wermuttee
-es: Ajenjo
-fr: Absinthe
+es: Ajenjo, Artemisia absinthium
+fr: Absinthium, Armoise Absinthe
 hr: Absinthium
-hu: Abszint
-it: Assenzio
+hu: Fehér üröm
+it: Artemisia absinthium
 la: Artemisia absinthium
-nl: Absint
-pl: Piołun
+nl: Absint-alsem
+pl: Piołun, Bylica Piołun
 wikidata:en: Q25686
-
-< en:Absinthium
-fr: Absinthe de Pontarlier
-origins:en: en:france
-protected_name_file_number:en: PGI-FR-01870
-protected_name_type:en: gi
-#wikidata:en:
 
 < en:Herbal teas
 en: Alexandrian senna
@@ -11698,6 +11850,25 @@ origins:en: en:france, en:burgundy
 protected_name_file_number:en: PGI-FR-01835
 protected_name_type:en: gi
 wikidata:en: Q28496249
+
+< fr:Marc
+en: Portuguese grape marc spirit or grape marc
+
+< en:Portuguese grape marc spirit or grape marc
+pt: Bagaceira, bagaço
+
+< fr:Marc
+en: Orujo
+es: Orujo
+
+< fr:Marc
+en: Torkolypalinka
+hu: Törkölypálinka
+
+< fr:Marc
+en: Tsipouro
+el: Τσίπουρο
+fr: Tsípouro
 
 < en:Alcoholic beverages
 en: Wines
@@ -33837,7 +34008,7 @@ ciqual_food_name:fr: Biscuit sec ou tuile, aux amandes
 fr: tuile aux amandes
 
 < en:Biscuits
-en: Oatmeal cookies
+en: Oatmeal biscuits, Oatmeal cookies
 bg: Овесени бисквити
 de: Hafer-Cookies
 es: Galletas de avena
@@ -33849,6 +34020,20 @@ ja: オートミールクッキー
 lt: Avižiniai sausainiai
 nl: Haverkoekjes, Haverkoekje
 ru: Печенье овсяное, овсяное печенье
+
+# Swedish-style biscuits made with rolled oats instead of flour
+< en:Oatmeal biscuits
+en: Plain rolled oats biscuits
+fr: Biscuits aux flocons d'avoine nature
+
+< en:Chocolate biscuits
+< en:Oatmeal biscuits
+en: Chocolate rolled oats biscuits
+fr: Biscuits aux flocons d'avoine au chocolat
+
+< en:Oatmeal biscuits
+en: Oatmeal drop cookies
+fr: Cookies à l'avoine
 
 < en:Biscuits
 en: Filled biscuits
@@ -34018,10 +34203,10 @@ lt: Juodo šokolado sausainiai, Sausainiai su juodu šokoladu
 nl: Pure chocoladebiscuits, Pure chocoladebiscuit
 ro: Biscuiți cu ciocolată neagră
 
-# Biscuits type granola, pepito and other digestive biscuits covered with chocolate
-< en:Chocolate biscuits
-en: Digestives covered with chocolate, Chocolate-covered biscuits
-fr: Sablés nappés de chocolat, Biscuits nappés de chocolat
+# Biscuits type granola, pepito, mc vities and other digestive biscuits covered with chocolate
+< en: Chocolate-covered biscuits
+en: Digestives covered with chocolate
+fr: Sablés nappés de chocolat
 
 # Biscuits type Mikado
 < en:Chocolate biscuits
@@ -76726,10 +76911,17 @@ origins:en: en:czech-republic
 
 < en:Czech meat products
 cs: Pražská šunka
+en: Prague ham
+fr: Jambon de Prague
 origins:en: en:czech-republic
 protected_name_file_number:en: TSG-CZ-836
 protected_name_type:en: tsg
 wikidata:en: Q1289229
+
+< en:sausages
+en: Jemne parky
+cs: Jemné párky
+wikidata:en: Q12024490
 
 < en:Meats and their products
 en: Croatian meat products
@@ -77054,12 +77246,20 @@ protected_name_file_number:en: PGI-DE-0615
 protected_name_type:en: pgi
 wikidata:en: Q1570335
 
-< en:German meat products
-de: Thüringer Rostbratwurst
+< en:Sausages
+de: Bratwurst
+wikidata:en: Q899882
+
+< en:German sausages
+en: Thuringian sausages
+de: Thüringer Rostbratwurst, Original Thüringer Rostbratwürste, Original Thüringer Rostbratwurst
+fr: Thüringer
+hr: Tiringijske kobasice
+nl: Worst uit Thüringen
 origins:en: en:germany
 protected_name_file_number:en: PGI-DE-0223
 protected_name_type:en: pgi
-#wikidata:en:
+wikidata:en: Q887700
 
 < en:German meat products
 de: Thüringer Rotwurst
@@ -77068,13 +77268,28 @@ protected_name_file_number:en: PGI-DE-0224
 protected_name_type:en: pgi
 wikidata:en: Q1170667
 
-< en:German meat products
+< en:German sausages
+fr: Saucisses de Nuremberg, Nürnberger Rostbratwürstchen, Nürnberger Bratwürste, petites saucisses de Nuremberg
 bg: Нюрнбергски наденички
-de: Nürnberger Bratwürste, Nürnberger Rostbratwürste
+de: Nürnberger Bratwürste, Nürnberger Rostbratwürste, Original Nürnberger Rostbratwürste, Original Nürnberger Rostbratwurst
 origins:en: en:germany
 protected_name_file_number:en: PGI-DE-0184
 protected_name_type:en: pgi
 wikidata:en: Q11696257
+
+< de:Bratwurst
+de: Curry Bratwurst
+# This is the naked bratwurst seasonned with curry, not the currywurst full meal
+
+< en:Sausages
+de: Käsekrainer
+wikidata:en: Q1571899
+
+< en:Sausages
+de: Burenwurst
+
+< en:Sausages
+de: Mettwurst
 
 < en:German meat products
 de: Greußener Salami
@@ -77101,6 +77316,10 @@ protected_name_type:en: pgi
 < en:German sausages
 de: Münchner Weißwurst
 fr: Saucisse blanche de Munich
+
+< en:Sausages
+de: Jagdwurst
+wikidata:en: Q1640641
 
 < en:Meats and their products
 en: Hungarian meat products
@@ -77135,6 +77354,17 @@ origins:en: en:hungary
 protected_name_file_number:en: PDO-HU-0392
 protected_name_type:en: pdo
 #wikidata:en:
+
+< en:sausages
+en: debrecener
+de: Debrecziner, Debreciner, Debreziner, Debriziner
+hu: Debrecini virsli
+wikidata:en: Q667953
+
+< en:Black pudding
+en: Hurka
+hu: Hurka
+wikidata:en: Q12098526
 
 < en:Meats and their products
 en: Italian meat products
@@ -77189,6 +77419,12 @@ origins:en: en:italy
 protected_name_file_number:en: PGI-IT-0597
 protected_name_type:en: pgi
 wikidata:en: Q3945320
+
+< en: Salami
+it: Salame Nostrano
+
+< en: Salami
+it: Salame Milano
 
 < en:Coppa
 < en:Italian meat products
@@ -77385,6 +77621,16 @@ protected_name_file_number:en: PGI-IT-1525
 protected_name_type:en: pgi
 wikidata:en: Q21192466
 
+< en:Bresaola
+it: Bresaola Magatello
+
+< en:Bresaola
+it: Bresaola Sottofesa
+
+< en:Cured meat and sausages
+< en:Geese
+it: Bresaola d'Oca
+
 < en:Dried hams
 < en:Italian meat products
 en: Hams of San Daniele
@@ -77468,10 +77714,13 @@ pl: Polskie produkty mięsne
 
 < en:Polish meat products
 pl: Kiełbasa krakowska sucha staropolska
+en: Krakowska
+de: Krakauer
+fr: Karkauer
 origins:en: en:poland
 protected_name_file_number:en: TSG-PL-2145
 protected_name_type:en: tsg
-#wikidata:en:
+wikidata:en: Q2752204
 
 < en:Polish meat products
 pl: Kiełbasa piaszczańska
@@ -77497,6 +77746,7 @@ wikidata:en: Q50840850
 
 < en:Polish meat products
 pl: Kabanosy
+en: Cabanossi
 origins:en: en:poland
 protected_name_file_number:en: TSG-PL-0050
 protected_name_type:en: tsg
@@ -77874,6 +78124,8 @@ pl: Słoweńskie produkty mięsne
 
 < en:Slovenian meat products
 sl: Kranjska klobasa
+en: Carniolan sausage
+de: Krainer Wurst
 origins:en: en:slovenia
 protected_name_file_number:en: PGI-SI-0764
 protected_name_type:en: pgi
@@ -78102,6 +78354,7 @@ protected_name_file_number:en: PDO-ES-0009, PDO-ES-0009-AM02
 protected_name_type:en: pdo
 wikidata:en: Q5925956
 
+< en:Black pudding
 < en:Spanish meat products
 es: Morcilla de Burgos
 origins:en: en:spain
@@ -78240,6 +78493,29 @@ origins:en: en:spain
 protected_name_file_number:en: PGI-ES-0103
 protected_name_type:en: pgi
 wikidata:en: Q5759904
+
+< en:Meats and their products
+en: Chinese prepared meats
+fr: Charcuterie chinoise
+
+< en:Meats and their products
+en: Jinhua ham
+fr: jambon de Jinhua
+
+< en:Meats and their products
+en: Xuanwei ham
+fr: jambon de Xuanwei
+
+< en:Meats and their products
+en: Ossenworst, Amsterdam ossenworst
+nl: Ossenworst
+wikidata:en: Q2286933
+
+< en:Meats and their products
+en: Sujuk
+fr: Soudjouk
+tr: Sucuk
+wikidata:en: Q1432724
 
 < en:Meats and their products
 en: Meat-based sauces
@@ -80102,6 +80378,10 @@ fr: Plats préparés au cheval, plats à base de viande chevaline, plats à base
 hr: Jela s konjskim mesom
 lt: Patiekalai su arkliena
 nl: Paardenvleesgerechten
+
+< en:Meals with horse meat
+it: Bresaloa Equina
+fr: Bresaola de cheval
 
 < en:Meals with meat
 en: Meals with rabbit or hare
@@ -86394,6 +86674,18 @@ ciqual_food_name:en: Bresaola
 ciqual_food_name:fr: Bresaola
 wikidata:en: Q910095
 
+< en:Beef pastrami
+en: Pastirma
+fr: Pastirma
+tr: pastırma
+
+< en:Beef pastrami
+xx: Suho meso
+
+< en:Beef preparations
+en: Cooked beef ham
+fr: Jambon de bœuf cuit
+
 < en:Beef steaks
 < en:Ground steaks
 en: Ground beef steaks
@@ -87163,6 +87455,9 @@ ciqual_food_code:en: 28301
 ciqual_food_name:en: Pork, roast, cooked
 ciqual_food_name:fr: Porc, rôti, cuit
 
+< en:Cooked pork roast
+xx: Yakibuta
+
 < en:Cooked pork meat
 en: Pigs in blankets
 wikidata:en: Q104094239
@@ -87264,6 +87559,9 @@ ciqual_food_name:fr: Poitrine de porc demi-sel
 en: Frozen pork belly
 fr: Poitrine de porc surgelée
 
+< en:Pork belly
+xx: Kakuni
+
 < en:Pork
 en: Pork loin
 bg: Свинско филе
@@ -87303,6 +87601,10 @@ en: Lomo Ibérico bellota
 es: Lomo Ibérico bellota
 fr: Lomo Ibérico bellota, lomo de bellota
 hr: Lomo ibérico bellota
+
+< en:Cured pork loin
+en: Saxe fillet, York fillet
+fr: Filet de saxe
 
 < en:Pork
 en: Pork round steak
@@ -89416,6 +89718,7 @@ de: Teewurst
 
 < en:Teewurst
 en: Teewurst sausages
+wikidata:en: Q664482
 
 < en:Meat spreads
 < en:Teewurst
@@ -89724,6 +90027,10 @@ es: Jamón Curado
 fr: Jambon de derrière
 
 < en:Hams
+en: Game hams
+fr: Jambons de gibier
+
+< en:Hams
 en: Cured hams, cured ham
 de: Unbehandelte Schinken
 es: jamón de país, jamón salado
@@ -89784,6 +90091,9 @@ origins:en: en:france
 protected_name_file_number:en: PGI-FR-0101
 protected_name_type:en: pgi
 wikidata:en: Q3160848
+
+< en:Dried hams
+xx: Elenski but
 
 < en:French hams
 fr: Jambon d'Auvergne
@@ -89901,21 +90211,6 @@ origins:en: en:austria
 protected_name_file_number:en: PGI-AT-0192
 protected_name_type:en: pgi
 wikidata:en: Q22675107
-
-< en:German sausages
-fr: Saucisses de Nuremberg, Nürnberger Rostbratwürstchen, Nürnberger Bratwürste, petites saucisses de Nuremberg
-de: Original Nürnberger Rostbratwürste, Original Nürnberger Rostbratwurst
-origins:en: en:germany
-protected_name_type:en: pgi
-#wikidata:en:
-
-< en:German sausages
-en: Thuringian sausages
-de: Original Thüringer Rostbratwürste, Original Thüringer Rostbratwurst
-fr: Thüringer
-hr: Tiringijske kobasice
-nl: Worst uit Thüringen
-wikidata:en: Q887700
 
 < en:Prepared meats
 < en:Products with reduced salt
@@ -90284,6 +90579,7 @@ ciqual_food_name:fr: Chair à saucisse, pur porc, crue
 
 < en:Pork sausages
 en: Ham sausages, Ham sausage
+de: Schinkenwurst
 fr: Saucisses de jambon pur porc, Saucisse de jambon pur porc
 hr: Kobasice od šunke
 pl: Kiełbasy z szynki, Kiełbasa z szynki
@@ -90291,6 +90587,9 @@ agribalyse_food_code:en: 30764
 ciqual_food_code:en: 30764
 ciqual_food_name:en: Ham sausage
 ciqual_food_name:fr: Saucisse de jambon pur porc
+
+< en: Pork sausages
+en: Cajna
 
 < en:Sausage meat
 en: Sausage meat with pork and beef
@@ -90302,6 +90601,7 @@ ciqual_food_name:fr: Chair à saucisse, porc et bœuf, crue
 
 < en:Sausages
 en: Beer sausages, Beer sausage
+de: Bierwurst
 fr: Saucisses de bière, Saucisse de bière
 agribalyse_food_code:en: 30766
 ciqual_food_code:en: 30766
@@ -90362,6 +90662,7 @@ en: Bockwurst
 de: Bockwurst
 es: salchichas bockwurst
 hr: Bockwurst
+wikidata:en: Q644501
 
 < en:Sausages
 en: Sausages from Spain, Spanish sausages
@@ -90390,6 +90691,23 @@ fr: Saucisses de veau, Saucisse de veau
 hr: Teleće kobasice
 pl: Kiełbasy cielęce, Kiełbasa cielęca
 wikidata:en: Q107261757
+
+< en:Horse fresh meat
+< en:Sausages
+en: Horse sausages
+fr: Saucisses de cheval
+
+< en:Cooked meats
+< en:Horse sausages
+en: Cooked horse sausages
+fr: Saucisses de cheval cuites
+agribalyse_proxy_food_code:en: 6902
+agribalyse_proxy_food_name:en: Horse, meat, roasted/baked
+agribalyse_proxy_food_name:fr: Cheval, viande, rôtie/cuite au four
+
+< en:Pork sausages
+en: Laap Coeng
+zh-hk: 臘腸
 
 < en:Chicken preparations
 < en:Poultry sausages
@@ -90572,6 +90890,11 @@ agribalyse_food_code:en: 30134
 ciqual_food_code:en: 30134
 ciqual_food_name:en: Frankfurter sausage
 ciqual_food_name:fr: Saucisse de Francfort
+
+< en:Frankfurter sausages
+en: Rindswurst, Frankfurter Rindswurst
+de: Rindswurst
+wikidata:en: Q1169437
 
 < en:Sausages
 de: Gelbwurst
@@ -90954,6 +91277,10 @@ origins:en: en:ireland
 protected_name_file_number:en: PGI-IE-0093
 protected_name_type:en: pgi
 wikidata:en: Q7806915
+
+< en:sausages
+en: Game sausages
+fr: Saucisses de gibier
 
 < en:Prepared meats
 fr: Charcuteries à cuire, charcuterie à cuire
@@ -91640,6 +91967,65 @@ hr: Pureća salama
 nl: Kalkoensalamis
 
 < en:Salami
+en: Drubezi Sunkovi salami
+cs: Drůbeží šunkový salám
+
+< en:Salami
+en: Sunkovi salami
+cs: Šunkový salám
+
+< en:Salami
+en: Vyrobni salami
+cs: Výrobní salám
+
+< en:Salami
+en: Gothaj salami
+cs: Gothajský salám
+fr: Salami Gothaj
+
+< en:Salami
+en: Polican salami
+cs: Salám Poličan
+
+< en:Salami
+en: Herkules salami
+cs: Salám Herkules
+
+< en:Salami
+en: Lovecky salami
+cs: Lovecký salám
+
+< en:Salami
+en: Selsky salami
+cs: Selský salám
+
+< en:Salami
+en: turisticky salami
+cs: turistický salám
+
+< en:Salami
+en: vysocina salami
+cs: Salám vysočina
+
+< en:Salami
+en: Mangalitza salami
+
+< en:Salami
+Mangalitza
+
+< en:Salami
+ro: Parizer
+
+< en:Salami
+hu: Sertés párizsi
+
+< en:Salami
+hu: Sertés virsli
+
+< en:Salami
+de: Haussalami
+
+< en:Salami
 en: Chicken salami
 fr: Salami de poulet, Salamis de poulet
 
@@ -91830,6 +92216,10 @@ ciqual_food_name:en: Mutton, meat, raw
 ciqual_food_name:fr: Mouton, viande, crue
 wco_hs_heading:en: 02.04
 wikidata:en: Q14566073
+
+< en:Sheep meat
+en: Cooked sheep meat
+fr: Viandes de mouton cuites
 
 < en:sheep meat
 en: Mutton leg
@@ -93329,6 +93719,9 @@ it: Prodotti di montagna
 nl: Bergproducten
 wikidata:en: Q3406714
 #wikidata:en:Q2831936 (italy)
+
+< en:Cured meat and sausages
+xx: El Gueddid, Guedid, Gueddid
 
 < en:Cheeses
 < en:Mountain products
@@ -96511,9 +96904,9 @@ ciqual_food_code:en: 24240
 ciqual_food_name:en: Biscuit (cookie), snack with fruits filling
 ciqual_food_name:fr: Goûter sec fourré (sandwiché) parfum fruits
 
-< en:Biscuits and cakes
-en: Biscuit with chocolate covering, Cookie with chocolate covering, Chocolate covered biscuit
-fr: Biscuits nappés au chocolat, Biscuits avec nappage au chocolat, Biscuit sec avec nappage au chocolat
+< en:Chocolate biscuits
+en: Chocolate-covered biscuits, Biscuit with chocolate covering, Cookie with chocolate covering, Chocolate covered biscuit
+fr: Biscuits nappés de chocolat, Biscuits nappés au chocolat, Biscuits avec nappage au chocolat, Biscuit sec avec nappage au chocolat
 hr: Biskvit s čokoladnim preljevom
 nl: Chocoladekoekje, Koekje met chocolade, Chocolade bedekt koekje
 pt: Bolacha com cobertura de chocolate, Biscoito com cobertura de chocolate, Bolacha coberta de chocolate
