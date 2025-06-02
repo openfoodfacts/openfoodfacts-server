@@ -90,17 +90,17 @@ sub write_file($file_path, $content) {
 
 	ok(object_exists($test_path), "object_exists should recognize sto files");
 
-	is(retrieve_object("$test_path"), {id => 1}, "Verify retrieve copes with a sto file");
+	is(retrieve_object($test_path), {id => 1}, "Verify retrieve copes with a sto file");
 
 	# Use the new method to update it
-	store_object("$test_path", {id => 2});
+	store_object($test_path, {id => 2});
 	ok((-e "$test_path.json"), "Verify that the json file has been created");
 
 	my $data = read_file("$test_path.json");
 	is($data, '{"id":2}', "Content of json file is correct");
 
 	ok((not -e "$test_path.sto"), "The old sto file should be deleted");
-	is(retrieve_object("$test_path"), {id => 2}, "Check data is saved");
+	is(retrieve_object($test_path), {id => 2}, "Check data is saved");
 
 	# Test linking
 	remove_object("$test_path-link");
@@ -109,12 +109,12 @@ sub write_file($file_path, $content) {
 	is(retrieve_object("$test_path-link"), {id => 2}, "Link should show original's data");
 
 	# Update the original
-	store_object("$test_path", {id => 3});
+	store_object($test_path, {id => 3});
 	is(retrieve_object("$test_path-link"), {id => 3}, "Link reflects original");
 
 	# Update via the link
 	store_object("$test_path-link", {id => 4});
-	is(retrieve_object("$test_path"), {id => 4}, "Original reflects update via link");
+	is(retrieve_object($test_path), {id => 4}, "Original reflects update via link");
 
 	# Link to an sto file
 	remove_object("$test_path-link-stofile");
