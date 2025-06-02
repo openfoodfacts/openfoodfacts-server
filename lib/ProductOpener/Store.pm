@@ -44,6 +44,9 @@ BEGIN {
 		&move_object
 		&remove_object
 		&object_iter
+		&write_json
+		&write_canonical_json
+		&read_json
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -306,13 +309,26 @@ sub write_json($file_path, $ref) {
 	return;
 }
 
-=head2 read_json($file_path)
+=head2 write_canonical_json($file_path, $ref)
 
-Reads from a JSON file with shared file locking. Dies on error
+Write a JSON file in canonical, indented format without any file locking
 
 =cut
 
-sub read_json($file_path) {
+sub write_canonical_json($file_path, $ref) {
+	open(my $OUT, ">", $file_path) or die "Can't write to $file_path";
+	print $OUT $json_for_config->encode($ref);
+	close($OUT);
+	return;
+}
+
+=head2 read_json_raw($file_path)
+
+Reads from a JSON file with shared file locking. Note returns JSON string, not a hash. Dies on error
+
+=cut
+
+sub read_json_raw($file_path) {
 	open(my $IN, "<", $file_path) or die("Can't open $file_path");
 	flock($IN, LOCK_SH) or die "Can't get shared lock on $file_path";
 	local $/;    #Enable 'slurp' mode
@@ -323,7 +339,17 @@ sub read_json($file_path) {
 	return $json;
 }
 
-=head2 store_object ($path, $ref, $delete_old = 1)
+=head2 read_json($file_path)
+
+Reads from a JSON file with shared file locking. Returns a hash. Dies on error
+
+=cut
+
+sub read_json($file_path) {
+	return $json_for_objects->decode(read_json_raw($file_path));
+}
+
+=head2 store_object ($path, $ref)
 
 Serializes an object in our preferred object store, removing it from legacy storage if it is present.
 Tries to emulate [Storable](https://metacpan.org/dist/Storable/source/Storable.pm) behavior
@@ -331,7 +357,7 @@ but uses die instead of croak
 
 =cut
 
-sub store_object ($path, $ref, $delete_old = 1) {
+sub store_object ($path, $ref) {
 	my $sto_path = $path . '.sto';
 	my $file_path = $path . '.json';
 
@@ -374,8 +400,7 @@ sub store_object ($path, $ref, $delete_old = 1) {
 	}
 	else {
 		# Remove the STO file if it exists
-		# Delete the old storable file
-		if ($delete_old and -e ($sto_path)) {
+		if (-e ($sto_path)) {
 			unlink($sto_path);
 		}
 	}
@@ -406,7 +431,7 @@ sub retrieve_object($path) {
 	if (-e $file_path) {
 		my $ref;
 		# Carp on error to be consistent with retrieve
-		eval {$ref = $json_for_objects->decode(read_json($file_path));} or carp("cannot retrieve $file_path : $@");
+		eval {$ref = read_json($file_path);} or carp("cannot retrieve $file_path : $@");
 		return $ref;
 	}
 	else {
@@ -436,7 +461,7 @@ Fetch the JSON object from storage and return as a JSON string. Reverts to STO f
 sub retrieve_object_json($path) {
 	my $file_path = $path . '.json';
 	if (-e $file_path) {
-		return read_json($file_path);
+		return read_json_raw($file_path);
 	}
 	# Fallback to old method
 	return $json_for_objects->encode(retrieve($path . '.sto'));
@@ -607,7 +632,7 @@ sub object_iter($initial_path, $name_pattern = undef, $exclude_path_pattern = un
 	};
 }
 
-=head2 store_config ($path, $ref, $delete_old = 1)
+=head2 store_config ($path, $ref)
 
 Serializes configuration information, removing it from legacy storage if it is present.
 JSON keys are sorted and indentation is used so files can be used in source control
@@ -615,7 +640,7 @@ No locking is performed
 
 =cut
 
-sub store_config ($path, $ref, $delete_old = 1) {
+sub store_config ($path, $ref) {
 	my $sto_path = $path . '.sto';
 	my $file_path = $path . '.json';
 
@@ -623,14 +648,11 @@ sub store_config ($path, $ref, $delete_old = 1) {
 
 	ensure_dir_created_or_die(dirname($file_path));
 
-	if (open(my $OUT, ">", $file_path)) {
-		print $OUT $json_for_config->encode($ref);
-		close($OUT);
+	write_canonical_json($file_path, $ref);
 
-		# Delete the old storable file
-		if ($delete_old and -e $sto_path) {
-			unlink($sto_path);
-		}
+	#11901: Can remove this once fully migrated: Delete the old storable file
+	if (-e $sto_path) {
+		unlink($sto_path);
 	}
 
 	return;

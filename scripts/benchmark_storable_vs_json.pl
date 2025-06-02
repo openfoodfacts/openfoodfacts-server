@@ -5,7 +5,7 @@ use utf8;
 use Time::HiRes qw/gettimeofday/;
 
 use ProductOpener::PerlStandards;
-use ProductOpener::Store qw/store_object retrieve_object retrieve store store_config retrieve_config/;
+use ProductOpener::Store qw/read_json write_json write_canonical_json retrieve store store_config retrieve_config/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 
 # Performance test.
@@ -26,7 +26,6 @@ sub update_products($dir, $code, $mode) {
 
 		# Only do change files as the product files are just links
 		if ($entry =~ /\d+\.sto/) {
-			my $stripped_path = substr($file_path, 0, -4);
 			# print STDERR "$mode: $file_path\n";
 			if ($mode eq 'STORABLE') {
 				# Load and save the STO file
@@ -36,8 +35,9 @@ sub update_products($dir, $code, $mode) {
 			}
 			elsif ($mode eq 'STO_TO_JSON') {
 				# Load the STO file and save as JSON
-				my $product = retrieve_object($stripped_path);
-				store_object($stripped_path, $product, 0);    # Don't delete original
+				my $product = retrieve($file_path);
+				my $stripped_path = substr($file_path, 0, -4);
+				write_json("$stripped_path.json", $product);
 				$count += 1;
 			}
 		}
@@ -45,8 +45,8 @@ sub update_products($dir, $code, $mode) {
 			my $stripped_path = substr($file_path, 0, -5);
 			if ($mode eq 'JSON_TO_JSON') {
 				# Load the JSON file and save as JSON
-				my $product = retrieve_object($stripped_path);
-				store_object($stripped_path, $product, 0);
+				my $product = read_json($file_path);
+				write_json($file_path, $product);
 				$count += 1;
 			}
 			elsif ($mode eq 'CLEANUP') {
@@ -70,35 +70,39 @@ sub run_for_mode($mode) {
 
 # Read taxonomies. First convert to JSON non-destructively
 sub read_taxonomies($mode) {
+	my $count = 0;
 	my $started_t = gettimeofday();
-	my $dir = $BASE_DIRS{TAXONOMIES_SRC};
+	my $dir = "$BASE_DIRS{CACHE_BUILD}/taxonomies-result";
 	opendir(DH, $dir);
 	my @files = readdir(DH);
 	closedir(DH);
 	foreach my $entry (sort @files) {
 		my $file_path = "$dir/$entry";
-		if ($entry =~ /.*\.sto$/) {
-			my $stripped_path = substr($file_path, 0, -4);
-			if ($mode eq "PREPARE") {
-				# Load the STO file and save as JSON
-				my $ref = retrieve_config($stripped_path);
-				store_config($stripped_path, $ref, 0);    # Non-destructive store
+		if ($entry =~ /.*result\.sto$/) {
+			if ($mode eq "CLEANUP") {
+				unlink($file_path);
+				$count++;
 			}
 			elsif ($mode eq "STORABLE") {
 				my $ref = retrieve($file_path);
+				$count++;
 			}
 		}
-		elsif ($entry =~ /.*\.json$/) {
-			my $stripped_path = substr($file_path, 0, -5);
-			if ($mode eq "CLEANUP") {
-				unlink($file_path);
+		elsif ($entry =~ /.*result\.json$/) {
+			if ($mode eq "PREPARE") {
+				# Load the JSON file and save as STO
+				my $ref = read_json($file_path);
+				my $stripped_path = substr($file_path, 0, -5);
+				store("$stripped_path.sto", $ref);
+				$count++;
 			}
 			elsif ($mode eq 'JSON') {
-				my $ref = retrieve_config($stripped_path);
+				my $ref = read_json($file_path);
+				$count++;
 			}
 		}
 	}
-	print STDERR "$mode: Read all taxonomy files in " . (gettimeofday() - $started_t) . " s\n";
+	print STDERR "$mode: Read all $count taxonomy files in " . (gettimeofday() - $started_t) . " s\n";
 
 	return;
 }
