@@ -58,7 +58,7 @@ while (my $path = $next->()) {
 		next;    # we don't want to process the product again
 	}
 	$checkpoint->update($path);
-	next if ($path =~ /\/scans$/);    # We expect scans to not have an STO file
+	next if ($path =~ /.*scans$/);    # We expect scans to not have an STO file
 
 	my $json_path = "$path.json";
 	my $sto_path = "$path.sto";

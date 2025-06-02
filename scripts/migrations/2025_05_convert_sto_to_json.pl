@@ -46,7 +46,7 @@ while (my $path = $next->()) {
 		}
 		next;    # we don't want to process the product again
 	}
-	next if ($path =~ /\/scans$/);    # We expect scans to not have an STO file
+	next if ($path =~ /.*scans$/);    # We expect scans to not have an STO file
 									  # print "$path\n";
 	store_object($path, retrieve_object($path));
 	$count++;

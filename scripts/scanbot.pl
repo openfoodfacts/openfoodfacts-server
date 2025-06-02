@@ -31,7 +31,7 @@ use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
-use ProductOpener::Store qw/retrieve_object store_object object_exists/;
+use ProductOpener::Store qw/retrieve_object store_object object_exists write_json/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/$country/;
 use ProductOpener::Tags qw/add_tags_to_field canonicalize_taxonomy_tag/;
@@ -249,7 +249,8 @@ if ($update_scans) {
 		unique_scans_n_by_country => \%countries_for_all_products,
 	};
 
-	store_object("$BASE_DIRS{PRODUCTS}/all_products_scans", $scans_ref);
+	#11901: Switch to using store_object after migration. We always want to save these to JSON
+	write_json("$BASE_DIRS{PRODUCTS}/all_products_scans.json", $scans_ref);
 }
 
 print STDERR "Ranking products for all countries\n";
@@ -348,7 +349,8 @@ foreach my $code (sort {$codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $co
 				unique_scans_rank_by_country => $countries_ranks_for_products{$code},
 			};
 
-			store_object("$BASE_DIRS{PRODUCTS}/$path/scans", $scans_ref);
+			#11901: Switch to using store_object after migration. We always want to save these to JSON
+			write_json("$BASE_DIRS{PRODUCTS}/$path/scans.json", $scans_ref);
 		}
 
 		# Update popularity_tags + add countries
