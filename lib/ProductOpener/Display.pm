@@ -3717,7 +3717,7 @@ sub display_tag ($request_ref) {
 
 	# 2025-06-01 - due to heavy load from bots, disabling 2nd level facets unless the user is logged in
 	if ((not defined $User_id) and (defined $tagid2)) {
-		display_error_and_exit($request_ref, lang("robots_not_served_here"), 403);
+		display_error_and_exit($request_ref, lang("robots_not_served_here"), 401);
 		return;
 	}
 
