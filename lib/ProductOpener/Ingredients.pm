@@ -1521,7 +1521,6 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 									or (
 										(
 											   ($ingredients_lc eq 'af')
-											or ($ingredients_lc eq 'da')
 											or (($ingredients_lc eq 'de') and ($regexp ne 'h'))
 											or ($ingredients_lc eq 'et')
 											or ($ingredients_lc eq 'fi')
@@ -1530,7 +1529,6 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 											or ($ingredients_lc eq 'ja')
 											or ($ingredients_lc eq 'ko')
 											or ($ingredients_lc eq 'lv')
-											or ($ingredients_lc eq 'nb')
 											or ($ingredients_lc eq 'nl')
 											or ($ingredients_lc eq 'sv')
 											or ($ingredients_lc eq 'th')
@@ -1546,8 +1544,10 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 									# match before the ingredient, require a space
 									or (
 										(
-											   ($ingredients_lc eq 'fi')
+											   ($ingredients_lc eq 'da')
+											or ($ingredients_lc eq 'fi')
 											or ($ingredients_lc eq 'hu')
+											or ($ingredients_lc eq 'nb')
 											or ($ingredients_lc eq 'no')
 											or ($ingredients_lc eq 'nn')
 											or ($ingredients_lc eq 'sv')

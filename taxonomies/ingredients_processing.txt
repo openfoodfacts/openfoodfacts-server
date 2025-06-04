@@ -1743,7 +1743,6 @@ ar: منزوع الدسم
 bg: обезмаслено, обезмаслно, обезмаслен, обезмаслена, обезмаслени
 ca: desnatada, descremada, desgreixat, desgreixada, desgreixats, desgreixades, sense greix, baixa en greixos
 cs: odstředěné, odstředěné
-da: skummet
 de: Mager, entrahmtes, entrahmte, entfettet, entfettete, entfetteter, entfettetes, entfetteten, entfettetem, fettarme
 el: αποβουτυρωμένο
 es: desnatada, descremada, desengrasado, desengrasada, desgrasado, desgrasada, sin grasas, baja en grasa
@@ -1763,9 +1762,7 @@ lt: nugriebtas, nugriebto, lieso
 lv: vaj, vāj
 mk: обрано
 ms: skim
-nb: skummet
 nl: mager, magere, ontvet, ontvette, tapte, onder, afgeroomde, vetvrije
-no: skummet
 pl: odtłuszczone, chude, o obniżonej zawartości tłuszczu, odtłuszczony, odtłuszczona, odtłuszczonego
 pt: magro, desnatado, desengordurado, desengordurada
 ro: degresat
@@ -1773,7 +1770,6 @@ ru: обезжиренноё, и обезжиренноё, обезжиренн�
 sk: odstredené
 sl: posneto
 sq: i skremuar
-sv: skum, lätt
 th: ขาดมันเนย
 tr: yağsız, kaymağı alınmış
 uk: Знежирене
@@ -1790,9 +1786,7 @@ fi: kevyt
 fr: semi-écrémé, demi-écrémé, partiellement écrémé
 hr: poluobrano, djelomično obrano, djelimično obrano
 hu: zsírszegény, félzsíros
-is: létt
 it: semi-magro, parzialmente scremato, semiscremato
-nb: lett
 nl: halfvolle, gedeeltelijk afgeroomde
 pl: częściowo odtłuszczone, częściowo odtłuszczony, częściowo odtłuszczona, częściowo odtłuszczonego, półtłusty, półtłuste
 pt: meio gordo, parcialmente desengordurado, parcialmente desengordurada, parcialmente desnatado
@@ -1915,6 +1909,7 @@ sv: högpastöriserad
 < en:pasteurised
 < en:sterilised
 en: UHT, UHT pasteurised, UHT sterilised, ultra heat treated
+xx: UHT
 bg: UHT, UHT пастьоризирано
 ca: UHT, esterilitzada UHT
 de: UHT, H-, Haltbar, Haltbare
@@ -1925,7 +1920,6 @@ hr: UHT, uht pasterizirano, uht sterilizirano, trajno
 hu: UHT, pasztőrözött UHT
 it: UHT, pastorizzato UHT, UHT sterilizzato, uht verhit
 nl: UHT, UHT-gesteriliseerde
-pl: UHT
 sv: UHT, UHT-behandlad
 
 en: thermised, thermized, thermalised, thermalized
@@ -2345,48 +2339,48 @@ pt: sem sal, não salgado
 
 # sweetened is not a processing as it means an extra ingredient. 
 # It changes an ingredients into a 'compound' ingredient.
-# en: sweetened, sugared, with sugar
-# bg: подсладено, подсладен, подсладена, подсладени, захаросано, захаросан, захаросана, захаросани
-# ca: ensucrada, amb sucre, dolc de
-# cs: slazené
-# da: sødet, sukret
-# de: gesüßt, gesüßte, gezuckert, gezuckerte, gezuckerter, gezuckertes
-# el: ζαχαρούχο
-# es: endulzado, endulzada, endulzados, endulzadas, azucarado, azucarada, azucarados, azucaradas, dulce de, azucadara
-# et: magustatud
-# fi: makeutettu, makeutetut, sokeroitu, sokeroidut, sokeroitua, sokeroituja
-# fr: sucré, sucrée, sucrés, sucrées, sucree, sucrees
-# hr: zaslađene, zaslađeno, zasladeno
-# hu: édesített, cukrozott
-# it: addolcito, addolciti, addolcita, addolcite, zuccherato, zuccherati, zuccherata, zuccherate
-# ja: 加糖
-# lt: saldintas
-# lv: saldināts, saldinats
-# nb: sukkerholdig, sukret, søt
-# nl: gezoet, gezoete, gesuikerd, gesuikerde, met suiker
-# pl: słodzony, słodzona, słodzone, słodzonych, słodzonej, słodzonego
-# pt: adoçado, adoçada, adoçados, adoçadas, adocicado, adocicada, adocicados, adocicadas, açucarado, açucarada, açucarados, açucaradas
-# ro: indulcit
-# ru: с сахаром
-# sl: sladkano
-# sv: sötad, söt, sockrad
-# th: หวาน
+en: sweetened, sugared, with sugar
+bg: подсладено, подсладен, подсладена, подсладени, захаросано, захаросан, захаросана, захаросани
+ca: ensucrada, amb sucre, dolc de
+cs: slazené
+da: sødet, sukret
+de: gesüßt, gesüßte, gezuckert, gezuckerte, gezuckerter, gezuckertes
+el: ζαχαρούχο
+es: endulzado, endulzada, endulzados, endulzadas, azucarado, azucarada, azucarados, azucaradas, dulce de, azucadara
+et: magustatud
+fi: makeutettu, makeutetut, sokeroitu, sokeroidut, sokeroitua, sokeroituja
+fr: sucré, sucrée, sucrés, sucrées, sucree, sucrees
+hr: zaslađene, zaslađeno, zasladeno
+hu: édesített, cukrozott
+it: addolcito, addolciti, addolcita, addolcite, zuccherato, zuccherati, zuccherata, zuccherate
+ja: 加糖
+lt: saldintas
+lv: saldināts, saldinats
+nb: sukkerholdig, sukret, søt
+nl: gezoet, gezoete, gesuikerd, gesuikerde, met suiker
+pl: słodzony, słodzona, słodzone, słodzonych, słodzonej, słodzonego
+pt: adoçado, adoçada, adoçados, adoçadas, adocicado, adocicada, adocicados, adocicadas, açucarado, açucarada, açucarados, açucaradas
+ro: indulcit
+ru: с сахаром
+sl: sladkano
+sv: sötad, söt, sockrad
+th: หวาน
 
 < en:concentrated
-# < en:sweetened
-# en:concentrate for sweetening
-# hr: koncentrat za zaslađivanje
+< en:sweetened
+en:concentrate for sweetening
+hr: koncentrat za zaslađivanje
 
 # same comment as sweetened
-# en: unsweetened
-# de: ungesüßt, ungesüßte, ungesüßter, ungesüßtes
-# fr: non sucré, non sucrée, non sucrés, non sucrées
-# it: non zuccherato, non zuccherati, senza zucchero aggiunto, senza zuccheri aggiunti
-# nl: ongezoet
-# pl: niesłodzony, niesłodzona, niesłodzone
-# pt: não adoçado, não adoçada, não adoçados, não adoçadas, não adocicado, não adocicada, não adocicados, não adocicadas, não açucarado, não açucarada, não açucarados, não açucaradas, sem açúcar, sem açúcares
+en: unsweetened
+de: ungesüßt, ungesüßte, ungesüßter, ungesüßtes
+fr: non sucré, non sucrée, non sucrés, non sucrées
+it: non zuccherato, non zuccherati, senza zucchero aggiunto, senza zuccheri aggiunti
+nl: ongezoet
+pl: niesłodzony, niesłodzona, niesłodzone
+pt: não adoçado, não adoçada, não adoçados, não adoçadas, não adocicado, não adocicada, não adocicados, não adocicadas, não açucarado, não açucarada, não açucarados, não açucaradas, sem açúcar, sem açúcares
 
-#<en:sugared
+<en:sugared
 de: leicht gezuckert, leicht gezuckerte, leicht gezuckerter, leicht gezuckertes
 es: ligeramente azucarado, ligeramente azucarada, ligeramente azucarados, ligeramente azucaradas
 fr: légèrement sucré, légèrement sucrée, légèrement sucrés, légèrement sucrées
@@ -2395,7 +2389,7 @@ nl: licht gezoet, licht gezoete, licht gezoeter, licht gezoet
 pt: levemente açucarado, levemente açucarada, levemente açucarados, levemente açucaradas
 
 # In French, "confit" means candied, or cooked in fat (canard confit), or preserved in salted water (citron confit)
-#<en:sugared
+<en:sugared
 en: candied
 ca: confitat, confitada
 da: kandiserede
@@ -2431,8 +2425,8 @@ pl: krystalizowany, krystalizowana, krystalizowane, krystalizowane
 pt: cristalizado, cristalizada, cristalizados, cristalizadas
 sv: krystalliserad, krystalliserade, krystalliserade, krystalliserade
 
-# <en:unsweetened
-# de: ungezuckert, ungezuckerte, ungezuckerter, ungezuckertes
+<en:unsweetened
+de: ungezuckert, ungezuckerte, ungezuckerter, ungezuckertes
 
 en: oiled
 bg: маслен, маслена, маслени, маслено
