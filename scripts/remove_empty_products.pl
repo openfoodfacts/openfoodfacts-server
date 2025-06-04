@@ -63,6 +63,6 @@ while (my $product_ref = $cursor->next) {
 
 }
 
-print STDERR "removed $removed products\n--- End of script $0";
+print STDERR "removed $removed products\n--- End of script $0\n";
 
 exit(0);
