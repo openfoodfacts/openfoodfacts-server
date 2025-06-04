@@ -526,7 +526,7 @@ XML
 	# only overwrite previous dump if the new one is bigger, to reduce failed runs breaking the dump.
 	my $csv_size_old = (-s $csv_filename) // 0;
 
- 	print "Sort lines by code, except header line: $csv_filename.temp to $csv_filename.temp2";
+ 	print "Sort lines by code, except header line: $csv_filename.temp to $csv_filename.temp2\n";
 	system("(head -1 $csv_filename.temp && (tail -n +2 $csv_filename.temp | sort)) > $csv_filename.temp2");
 	unlink "$csv_filename.temp";
 	my $csv_size_new = (-s "$csv_filename.temp2") // 0;
