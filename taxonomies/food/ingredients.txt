@@ -70,6 +70,8 @@ synonyms:en: hydrolysed, hydrolyzed
 
 synonyms:en: pasteurised, pasteurized
 
+synonyms:en: grey, gray
+
 synonyms:fr: de production biologique, issu de l'agriculture biologique
 
 synonyms:en: wholemeal, whole, whole grain, wholegrain, complete
@@ -24267,6 +24269,7 @@ es: escaña menor, escanda menor, espelta pequeña, escaña cultivada
 fi: einkorn-vehnä, einkorn
 fr: petit épeautre, engrain
 hr: jednozrna pšenica
+hu: alakor, alakor búza
 it: piccolo farro, farro monococco
 ja: ヒトツブコムギ
 la: Triticum monococcum
@@ -24615,15 +24618,16 @@ wikipedia:en: https://en.wikipedia.org/wiki/Freekeh
 
 # (Triticum turgidum L. subsp. turgidum),
 < en:wheat
-en: poulard wheat, rivet wheat, cone wheat
+en: rivet wheat, poulard wheat, cone wheat
 fr: blé poulard
 hr: pularna pšenica
+hu: hasas vagy angol búza
 it: grano Poulard
-la: Triticum turgidum L. subsp. turgidu
+la: Triticum turgidum L. subsp. turgidum
 rare_crop:en: yes
 
 < en:poulard wheat
-fr: pulard d'Auvergne, blé poulard d'Auvergne
+fr: poulard d'Auvergne, blé poulard d'Auvergne
 rare_crop:en: yes
 
 < en:poulard wheat
@@ -24994,7 +24998,7 @@ fi: emmervehnä
 fr: blé amidonnier, amidonnier
 hi: खपली गेहूँ
 hr: emmer
-hu: tönkebúza
+hu: tönkebúza, tönke, emmer, emmer búza
 hy: Հաճար
 it: grano farro, farro dicocco, farro, emmer
 ja: エンマーコムギ
@@ -25012,6 +25016,7 @@ tr: Kavılca buğdayı
 uk: Полба
 zh: 二粒小麦
 allergens:en: en:gluten
+rare_crop:en: yes
 wikidata:en: Q167339
 
 < en:cereal flour
@@ -58784,7 +58789,7 @@ he: שעועית מצויה
 hi: सामान्य फलियाँ
 hr: grah
 ht: Pwa nouris
-hu: Veteménybab
+hu: Veteménybab, Közönséges bab
 hy: լոբի
 id: Buncis
 io: Fazeolo
@@ -58834,6 +58839,7 @@ zh: 菜豆
 carbon_footprint_fr_foodges_ingredient:fr: Haricot blanc en conserve (type cassoulet)
 carbon_footprint_fr_foodges_value:fr: 2
 eurocode_2_group_3:en: 7.10.30
+rare_crop:en: yes
 # azb:عادی لوْبیا
 # bar:Fisoin
 # chr:ᏚᏯ
@@ -59188,6 +59194,7 @@ fr: haricot de Lima, haricots de Lima
 ga: pónaire mhór
 hr: lima grah
 ht: pwachouk
+hu: Limabab, Lima bab
 id: kacang kratok, kacang jawa, kekara
 it: fagiolo di Lima
 ja: ライマメ
@@ -59198,7 +59205,7 @@ ms: kacang serinding, kacang keratuk, kacang kratok, kacang cina
 nb: limabønne, limabønner
 nl: limaboon, Indische maanboon, wilgenbladboon, olifantsboon
 pl: fasola półksiężycowata
-pt: feijão-de-lima
+pt: feijão de lima
 ru: фасоль луновидная, Фасо́ль лунообра́зная, фасоль ли́мская, фасоль лу́нная
 sr: лима пасуљ, lima pasulj
 su: roay, kacang jawa, kekara
@@ -59276,6 +59283,7 @@ sv: stora vita bönor
 < en:white beans
 en: lingot beans, white lingot beans
 fr: lingots blancs, lingo blanc, haricots lingots blancs, haricots blancs lingots, lingot, lingots, lingots blancs
+hu: lingot bab
 it: fagioli lingotti
 rare_crop:en: yes
 
@@ -59629,7 +59637,7 @@ fr: lupin, lupins, lupin doux, lupins doux
 ga: lúipín
 he: תורמוס
 hr: lupin, lupina, lupinu
-hu: csillagfürt
+hu: csillagfürt, csillagfürt bab
 hy: լուպին
 id: lupino
 is: úlfabaunir
@@ -59690,6 +59698,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Lupin_bean
 en: white lupin
 fr: lupin blanc, lupin blanc doux
 hr: bijela lupina
+hu: fehér csillagfürt
 it: lupino bianco
 la: lupinus albus
 rare_crop:en: yes
@@ -59698,6 +59707,7 @@ rare_crop:en: yes
 en: blue lupine
 fr: lupin bleu, lupin bleu doux
 hr: plava lupina
+hu: kék csillagfürt
 it: lupino blu
 la: lupinus angustifolius
 
@@ -59705,6 +59715,7 @@ la: lupinus angustifolius
 en: yellow lupin
 fr: lupin jaune, lupin jaune doux
 hr: žuta lupina
+hu: sárga csillagfürt
 it: lupino giallo
 la: lupinus luteus
 
@@ -59774,7 +59785,7 @@ gl: Faballón
 he: פול
 hi: बकला
 hr: bob
-hu: lóbab
+hu: lóbab, holdbab
 hy: Բակլա
 id: Kara oncet
 io: Fabo
@@ -59888,8 +59899,9 @@ eurocode_2_group_3:en: 8.45.20
 
 # rare bean from the Lyon region in France
 < en:pulse
-en: meat bean
-fr: haricot viande, haricots viande
+en: meat bean, bean of Bresse, Chartreuse and Oisan bean
+fr: haricot viande, haricots viande, haricot de Bresse, haricot de Chartreuse et d'Oisan
+hu: húsbab
 it: fagiolo di carne
 rare_crop:en: yes
 
@@ -59960,6 +59972,7 @@ gu: ચોળા
 he: לוביה
 hi: लोबिया
 hr: kravlji grah
+hu: tehénborsó, homoki bab
 is: Augnbaun
 it: fagiolo dall'occhio
 ja: ササゲ
@@ -60124,10 +60137,10 @@ zh: 豌豆
 # zh-tw:豌豆
 # wikidata:en:Q29472543 (seems more the vegetable)
 eurocode_2_group_3:en: 8.45.10
-wikipedia:en: https://en.wikipedia.org/wiki/Pea
 # ingredient/fr:pois has 259 products in 7 languages @2019-05-10
 # usage:fr:amidon (blé, pomme de terre, pois, maïs)
-
+rare_crop:en: yes
+wikipedia:en: https://en.wikipedia.org/wiki/Pea
 
 # <en:pea
 # fr:extrait de pois # see ingredients_processing.txt
@@ -60136,6 +60149,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Pea
 < en:pea
 en: yellow pea
 de: Palerbse, Palerbsen
+fr: pois jaune, pois jaunes
 it: pisello giallo
 
 # description:en:The chickpea or chick pea (Cicer arietinum) is an annual legume of the family Fabaceae, subfamily Faboideae.
@@ -60181,6 +60195,7 @@ kk: нұт
 kn: ಕಡಲೆ
 ko: 병아리콩
 ku: nok
+la: cicer arietinum
 lb: käicher
 lt: avinžirniai
 lv: auna zirņi
@@ -60229,6 +60244,7 @@ ciqual_food_name:fr: Pois chiche, appertisé, égoutté
 ecobalyse:en: chickpea-fr
 ecobalyse_labels_en_organic:en: chickpea-organic
 eurocode_2_group_3:en: 7.10.15
+rare_crop:en: yes
 # aeb-arab:حمص
 # arc:ܚܪܛܘܡܢܐ
 # azb:نوخود
@@ -60260,23 +60276,6 @@ hr: pedrosillano slanutak
 it: ceci pedrosillani
 nl: pedrosillano kikkererwten
 #3 in es @2021-10-16
-
-# This is the plant, not the peas themselves
-
-< en:chickpea
-en: Cicer arietinum
-it: cicer arietinum
-la: Cicer arietinum
-
-#<en:chickpea
-#en:organic chickpea
-#bg:био нахут
-#fi:luomukikherne, luomu kikherne
-#fr:Pois chiches biologiques
-#10@2019-06-12
-
-< en:chickpea
-fr: pois chiches précuits
 
 # <en:compound
 #processing:en: en:cooked
@@ -60570,7 +60569,9 @@ en: grey pea, grey peas
 fr: pois gris
 hr: sivi grašak
 it: pisello grigio
+la: pisum sativum subsp. arvense
 sv: gråärtan
+rare_crop:en: yes
 
 < en:pea
 en: grass pea, grass peas, cicerchia, blue sweet pea, chickling pea
@@ -60579,6 +60580,7 @@ es: almorta, Chícharo, chicharo
 fi: peltonätkelmä
 fr: pois carré, pois carrés, gesse
 hr: trava grašak
+hu: Szegletes lednek
 it: cicerchia
 la: lathyrus sativus
 pt: chícharo
@@ -60625,7 +60627,7 @@ gu: મસુર
 he: עדשה תרבותית
 hi: मसूर
 hr: leća
-hu: főzeléklencse
+hu: főzeléklencse, lencse
 is: Linsubaun
 it: Lenticchie, lenticchia
 ja: レンズマメ
@@ -60677,6 +60679,7 @@ ciqual_food_name:fr: Lentille, bouillie/cuite à l'eau
 ecobalyse:en: lentils-uncooked-eu
 ecobalyse_origins_en_france:en: lentils-uncooked-fr
 eurocode_2_group_3:en: 7.10.25
+rare_crop:en: yes
 # aeb-arab:عدس
 # azb:مرجیمک
 # ckb:نیسک
@@ -85661,6 +85664,7 @@ ko: 칠면조고기
 nl: kalkoenvlees
 nn: kalkunkjøt
 pl: Mięso indyka, mięso z indyka, mięso drobiowe z indyka
+pt: carne de peru
 ro: carne de curcan
 ru: индюшатина
 sv: Kalkonkött
@@ -85698,6 +85702,7 @@ hr: pureći file od prsa, file purećih prsa
 it: Filetto di tacchino, petto di tacchino
 nl: Kalkoenfilet
 pl: pierś indyka, pierś z indyka, mięso z piersi indyka
+pt: Peito de peru
 sv: kalkonbröst
 tr: hindi göğsü
 # ingredient/fr:filet-de-dinde has 162 products in 5 languages @2019-04-16
@@ -93976,3 +93981,4 @@ sv: paprika
 en: vitamin and mineral blend, vitamin and mineral mix
 it: vitamine e minerali misti
 ru: витаминно минеральный премикс, витаминный премикс
+
