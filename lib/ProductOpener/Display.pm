@@ -9306,9 +9306,20 @@ sub data_to_display_nutriscore ($product_ref, $version = "2021") {
 			if (has_tag($product_ref, "misc", "en:nutriscore-missing-nutrition-data")) {
 
 				my $missing_nutrients = "";
-				foreach my $misc_tag (@{$product_ref->{misc_tags}}) {
-					if ($misc_tag =~ /^en:nutriscore-missing-nutrition-data-(.*)$/) {
-						$missing_nutrients .= display_taxonomy_tag_name($lc, "nutrients", $1) . ", ";
+				if (
+					has_tag(
+						$product_ref, "data_quality_warnings",
+						"en:nutrition-data-per-serving-serving-quantity-is-not-recognized"
+					)
+					)
+				{
+					$missing_nutrients .= lang("missing_value_and_or_unit");
+				}
+				else {
+					foreach my $misc_tag (@{$product_ref->{misc_tags}}) {
+						if ($misc_tag =~ /^en:nutriscore-missing-nutrition-data-(.*)$/) {
+							$missing_nutrients .= display_taxonomy_tag_name($lc, "nutrients", $1) . ", ";
+						}
 					}
 				}
 				$missing_nutrients =~ s/, $//;
