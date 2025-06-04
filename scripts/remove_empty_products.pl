@@ -32,6 +32,8 @@ use ProductOpener::Data qw/get_products_collection/;
 # This script is run daily to remove empty products (without data or pictures)
 # in particular products created by the button to add a product without a barcode
 
+print STDERR "Starting script $0";
+
 my $cursor = get_products_collection()->query({states_tags => "en:empty"})->fields({code => 1, empty => 1});
 $cursor->immortal(1);
 my $removed = 0;
