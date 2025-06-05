@@ -58,7 +58,7 @@ then
 "
 fi
 
->&2 echo "Compress CSV exports"
+echo "Compress CSV exports"
 cd $OFF_PUBLIC_DATA_DIR
 for export in en.$PRODUCT_OPENER_DOMAIN.products.csv fr.$PRODUCT_OPENER_DOMAIN.products.csv en.$PRODUCT_OPENER_DOMAIN.products.rdf fr.$PRODUCT_OPENER_DOMAIN.products.rdf; do
    >&2 echo "Compressing ${export} to new.${export}.gz..."
