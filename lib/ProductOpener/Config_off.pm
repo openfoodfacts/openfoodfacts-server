@@ -63,6 +63,7 @@ BEGIN {
 
 		$facets_kp_url
 		$redis_url
+		$folksonomy_url
 
 		$mongodb
 		$mongodb_host
@@ -448,6 +449,10 @@ $redis_url = $ProductOpener::Config2::redis_url;
 
 # Facets knowledge panels url
 $facets_kp_url = $ProductOpener::Config2::facets_kp_url;
+
+# Set this to your instance of https://github.com/openfoodfacts/folksonomy_api/ to
+# enable folksonomy features
+$folksonomy_url = $ProductOpener::Config2::folksonomy_url;
 
 # If $rate_limiter_blocking_enabled is set to 1, the rate limiter will block requests
 # by returning a 429 error code instead of a 200 code

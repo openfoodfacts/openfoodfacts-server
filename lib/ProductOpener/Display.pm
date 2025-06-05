@@ -7937,6 +7937,7 @@ JS
 
 	$template_data_ref->{user_id} = $User_id;
 	$template_data_ref->{robotoff_url} = $robotoff_url;
+	$template_data_ref->{folksonomy_uri} = $folksonomy_url;
 	$template_data_ref->{lc} = $lc;
 
 	my $itemtype = 'https://schema.org/Product';
