@@ -67,7 +67,7 @@ for export in en.$PRODUCT_OPENER_DOMAIN.products.csv fr.$PRODUCT_OPENER_DOMAIN.p
    mv -f new.$export.gz $export.gz
 done
 
->&2 echo "Copying CSV and RDF files to AWS S3 using MinIO client..."
+echo "Copying CSV and RDF files to AWS S3 using MinIO client..."
 mc cp \
     en.$PRODUCT_OPENER_DOMAIN.products.csv \
     en.$PRODUCT_OPENER_DOMAIN.products.csv.gz \
