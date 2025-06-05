@@ -290,8 +290,9 @@ sub write_file($file_path, $content) {
 	# Create STO link
 	remove_object("$test_path-level-0-link");
 	link_object("$test_name-level-0", "$test_path-level-0-link");
-	ok((!-e "$test_path-level-0-link.json"), "Verify that the json link has not been created");
-	ok(-l "$test_path-level-0-link.json", "Check STO link is created");
+	ok((not -l "$test_path-level-0-link.json" and not -e "$test_path-level-0-link.json"),
+		"Verify that the json link has not been created");
+	ok(-l "$test_path-level-0-link.sto", "Check STO link is created");
 	is(lock_retrieve("$test_path-level-0-link.sto"), {id => 'level 0'}, "Check STO link fetches data");
 
 	# Should still read from JSON if there is no STO file

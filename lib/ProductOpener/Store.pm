@@ -539,13 +539,17 @@ If the object at the $path is an sto file then an STO symbolic link will be crea
 
 sub link_object($name, $link) {
 	my $dir = dirname($link);
-	my $real_json_path = "$dir/$name.json";
 
-	# If the JSON target file doesn't exist then log an error, but still create the link anyway
-	$log->error("link target does not exist", {link => $link, real_json_path => $real_json_path})
-		if $log->is_error() && !-e $real_json_path;
+	#11901: Always do this once production is migrated
+	if (get_serialize_to_json_level() > 0) {
+		my $real_json_path = "$dir/$name.json";
 
-	symlink($name . '.json', $link . '.json') or die("Cannot create link $link.json to $name.sto, error $!");
+		# If the JSON target file doesn't exist then log an error, but still create the link anyway
+		$log->error("link target does not exist", {link => $link, real_json_path => $real_json_path})
+			if $log->is_error() && !-e $real_json_path;
+
+		symlink($name . '.json', $link . '.json') or die("Cannot create link $link.json to $name.sto, error $!");
+	}
 
 	my $real_sto_path = "$dir/$name.sto";
 	my $sto_link = "$link.sto";
