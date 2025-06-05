@@ -13,8 +13,7 @@ properties:
     description: 'If set to "large", the content of the panel should be expanded on large screens, but it should still be possible to unexpand it.'
   evaluation:
     type: string
-    enum: [good, average, bad, neutral, unknown] # Assuming this enum is consistent.
-    description: An evaluation status specifically for this title element. This can be used to directly color the icon if 'icon_color_from_evaluation' is true and this field is present, or it might provide context for the title itself. bas is red. Please be careful in choosing colors, to avoid 50 shades of red.
+    description: An evaluation status specifically for this title element. This can be used to directly color the icon if 'icon_color_from_evaluation' is true and this field is present, or it might provide context for the title itself. e.g. bad is red. Please be careful in choosing colors, to avoid 50 shades of red.
     example: "bad"
     enum:
       - good
