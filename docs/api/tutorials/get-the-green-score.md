@@ -32,13 +32,14 @@ Helping your users get the Green-Score for any product
 * {"status_verbose":"product found","product":{"ecoscore_grade":"b"},"status":1,"code":"3414280980209"}
 * https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=ecoscore_grade
 * Here are the visuals.
-    * [https://static.openfoodfacts.org/images/attributes/dist/green-score-a.svg](https://static.openfoodfacts.org/images/attributes/dist/green-score-a.svg)
-    * [https://static.openfoodfacts.org/images/attributes/dist/green-score-b.svg](https://static.openfoodfacts.org/images/attributes/dist/green-score-b.svg)
-    * [https://static.openfoodfacts.org/images/attributes/dist/green-score-c.svg](https://static.openfoodfacts.org/images/attributes/dist/green-score-c.svg)
-    * [https://static.openfoodfacts.org/images/attributes/dist/green-score-d.svg](https://static.openfoodfacts.org/images/attributes/dist/green-score-d.svg)
-    * [https://static.openfoodfacts.org/images/attributes/dist/green-score-e.svg](https://static.openfoodfacts.org/images/attributes/dist/green-score-e.svg)
-    * [https://static.openfoodfacts.org/images/attributes/dist/green-score-f.svg](https://static.openfoodfacts.org/images/attributes/dist/green-score-f.svg)
-    * [https://static.openfoodfacts.org/images/attributes/dist/green-score-unknown.svg](https://static.openfoodfacts.org/images/attributes/dist/green-score-unknown.svg) 
+    * [A+ Green Score visual](https://static.openfoodfacts.org/images/attributes/dist/green-score-a-plus.svg)
+    * [A Green Score visual](https://static.openfoodfacts.org/images/attributes/dist/green-score-a.svg)
+    * [B Green Score visual](https://static.openfoodfacts.org/images/attributes/dist/green-score-b.svg)
+    * [C Green Score visual](https://static.openfoodfacts.org/images/attributes/dist/green-score-c.svg)
+    * [D Green Score visual](https://static.openfoodfacts.org/images/attributes/dist/green-score-d.svg)
+    * [E Green Score visual](https://static.openfoodfacts.org/images/attributes/dist/green-score-e.svg)
+    * [F Green Score visual](https://static.openfoodfacts.org/images/attributes/dist/green-score-f.svg)
+    * [Unknown Green Score visual(https://static.openfoodfacts.org/images/attributes/dist/green-score-unknown.svg) 
 
 
 #### Using the Attributes API
