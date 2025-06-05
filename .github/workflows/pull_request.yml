@@ -18,12 +18,12 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # FIXME: not used yet
   filter:
     name: "Filter changed paths"
     runs-on: ubuntu-latest
     outputs:
       code_modified: ${{ steps.filter.outputs.code_modified }}
+      docker_modified: ${{ steps.filter.outputs.docker_modified }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -32,9 +32,9 @@ jobs:
         uses: step-security/changed-files@v46
         id: changed_files
 
-      - name: Filter non-markdown and non-docs files
+      - name: Filter non-markdown and non-docs files & Check if Docker-related files changed
         id: filter
-        run: ./.github/scripts/path-filter.sh "${{ steps.changed_files.outputs.all_changed_files }}"
+        run: ./.github/scripts/path-filter.sh "${{ steps.changed_files.outputs.all_changed_files }}" && ./.github/scripts/docker-modification.sh "${{ steps.changed_files.outputs.all_changed_files }}"
 
   lint:
     name: 🕵️‍♀️ NPM lint
@@ -77,8 +77,14 @@ jobs:
         path: ./build-cache
         key: taxonomies-${{ hashFiles('taxonomies/**') }}
         restore-keys: taxonomies-
-    - name: build
+    - name: Build Docker image if needed
+      if: needs.filter.outputs.docker_modified == 'true'
       run: make build container=backend
+    - name: Pull Doker image form main branch
+      if: needs.filter.outputs.docker_modified != 'true'
+      run: |
+        docker pull ghcr.io/jagjeevanak/backend:latest || true
+        docker tag ghcr.io/jagjeevanak/backend:latest openfoodfacts-server/backend:dev || make build container=backend
     - name: push backend image as artifact
       uses: ishworkh/container-image-artifact-upload@v2.0.0
       with:
@@ -141,10 +147,14 @@ jobs:
       run: make check_perl
 
   tests:
-    name: 🐪 Perl unit tests
+    name: 🐪 Perl Tests
     needs: [filter, build_backend]
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
+    strategy:
+      fail-fast: false
+      matrix:
+        test-type: [unit, integration]
     steps:
     - uses: actions/checkout@v4
       with:
@@ -169,10 +179,14 @@ jobs:
       env:
         FILE: "${{ steps.downloadbackendimage.outputs.download_path }}"
       run: rm $FILE
-    - name: tests
+    - name: Build taxonomies for tests
+      run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies_test GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+    - name: Build language files for tests
+      run: make DOCKER_LOCAL_DATA="$(pwd)" build_lang_test GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+    - name: Run ${{ matrix.test-type }} tests
       run: |
         make codecov_prepare
-        make COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' DOCKER_LOCAL_DATA="$(pwd)" tests GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+        make COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' DOCKER_LOCAL_DATA="$(pwd)" ${{ matrix.test-type }}_test GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
     - name: generate coverage results
       # even if tests failed
       if: always()
@@ -189,7 +203,7 @@ jobs:
       uses: codecov/test-results-action@v1
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
-        files: ./tests/unit/outputs/junit.xml,./tests/integration/outputs/junit.xml
+        files: ./tests/${{ matrix.test-type }}/outputs/junit.xml
 
   tests_dev:
     name: 🧪 Test make dev
