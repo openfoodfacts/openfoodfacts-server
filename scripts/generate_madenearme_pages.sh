@@ -29,4 +29,4 @@ fi
 && mv $OFF_PUBLIC_DATA_DIR/cestemballepresdechezvous.html.tmp $OFF_PUBLIC_DATA_DIR/cestemballepresdechezvous.html \
 || report_error $? "generate_madenearme_pages.pl.fr.fr"
 
-report_failed_commands
+report_failed_commands $0

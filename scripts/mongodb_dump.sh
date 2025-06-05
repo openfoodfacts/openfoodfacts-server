@@ -78,4 +78,4 @@ mc cp \
     s3/openfoodfacts-ds \
   || report_error $? "mc.cp"
 
-report_failed_commands
+report_failed_commands $0

@@ -17,7 +17,12 @@ init_error_report () {
 function report_error () {
     return_code=$1
     script_name=$2
-    if [ "$return_code" -ne 0 ];
+    if [ -z "$script_name" ] || [ -z "$return_code" ]
+    then
+        >&2 echo "ERROR: report_error called with no arguments"
+        exit 1
+    fi
+    if [ "$return_code" -ne 0 ]
     then
         >&2 echo "ERROR: $script_name not executed successfully - return value: $return_code"
         ERRORS=`expr $ERRORS + 1`
@@ -30,14 +35,15 @@ function report_error () {
 # echo the list of commands so that it is included in the
 # failure e-mail sent to root
 function report_failed_commands () {
-    if [ $ERRORS -gt 0 ];
+    script_name=$1
+    if [ $ERRORS -gt 0 ]
     then
-        >&2 echo "ERROR: $ERRORS ERROR(S) DURING EXECUTION OF gen_fields_daily.sh"
+        >&2 echo "ERROR: $ERRORS ERROR(S) DURING EXECUTION OF $script_name"
         >&2 echo "ERROR: FAILED COMMANDS:
     $FAILED_COMMANDS"
         exit 1
     else
-        echo "No errors during execution of gen_fields_daily.sh"
+        echo "No errors during execution of $script_name"
         exit 0
     fi
 }

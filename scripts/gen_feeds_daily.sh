@@ -52,15 +52,10 @@ fi
 echo "Compress CSV exports"
 cd $OFF_PUBLIC_DATA_DIR
 for export in en.$PRODUCT_OPENER_DOMAIN.products.csv fr.$PRODUCT_OPENER_DOMAIN.products.csv en.$PRODUCT_OPENER_DOMAIN.products.rdf fr.$PRODUCT_OPENER_DOMAIN.products.rdf; do
-<<<<<<< HEAD
+    echo "Compressing ${export} to new.${export}.gz..."
     nice pigz < $export > new.$export.gz
+    echo "Moving new.${export}.gz to ${export}.gz"
     mv -f new.$export.gz $export.gz
-=======
-   echo "Compressing ${export} to new.${export}.gz..."
-   nice pigz < $export > new.$export.gz
-   echo "Moving new.${export}.gz to ${export}.gz"
-   mv -f new.$export.gz $export.gz
->>>>>>> main
 done
 
 echo "Copying CSV and RDF files to AWS S3 using MinIO client..."
