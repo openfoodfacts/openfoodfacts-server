@@ -104,11 +104,12 @@ my $tests_ref = [
 		expected_type => 'html',
 		response_content_must_not_match => 'someunknownandemptyingredient',
 	},
+	# 2025-06-02: for unregistered users, we now return a 401 for 2 level facets
 	{
 		test_case => 'country-doesnotexist-ingredients-apple',
 		method => 'GET',
 		path => '/facets/countries/doesnotexist/ingredients/apple',
-		expected_status_code => 404,
+		expected_status_code => 401,
 		expected_type => 'html',
 		response_content_must_not_match => 'doesnotexist',
 	},
