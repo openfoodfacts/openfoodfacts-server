@@ -135,7 +135,7 @@ then
     >&2 echo "$ERRORS ERROR(S) DURING EXECUTION OF gen_feeds_daily.sh"
     >&2 echo "FAILED COMMANDS:
 $FAILED_COMMANDS"
-    >&2 echo "--- END OF SCRIPT"
+    echo "--- END OF SCRIPT"
     exit 1
 else
     >&2 echo "No errors during execution of gen_feeds_daily.sh"
