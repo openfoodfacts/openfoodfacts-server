@@ -40,7 +40,7 @@ if [ -n "$IS_PRO_PLATFORM" ]; then
     echo "Generating feeds for off-pro flavor"
     ./save_org_product_data_daily_off_pro.pl || report_error $? "save_org_product_data_daily_off_pro.pl"
     echo "Skipping exports for off-pro flavor"
-    report_failed_commands
+    report_failed_commands $0
 fi
 
 ./remove_empty_products.pl || report_error $? "remove_empty_products.pl"
@@ -49,14 +49,21 @@ fi
 # Generate the CSV and RDF exports
 ./export_database.pl || report_error $? "export_database.pl"
 
-# compress CSV exports
+echo "Compress CSV exports"
 cd $OFF_PUBLIC_DATA_DIR
 for export in en.$PRODUCT_OPENER_DOMAIN.products.csv fr.$PRODUCT_OPENER_DOMAIN.products.csv en.$PRODUCT_OPENER_DOMAIN.products.rdf fr.$PRODUCT_OPENER_DOMAIN.products.rdf; do
+<<<<<<< HEAD
     nice pigz < $export > new.$export.gz
     mv -f new.$export.gz $export.gz
+=======
+   echo "Compressing ${export} to new.${export}.gz..."
+   nice pigz < $export > new.$export.gz
+   echo "Moving new.${export}.gz to ${export}.gz"
+   mv -f new.$export.gz $export.gz
+>>>>>>> main
 done
 
-# Copy CSV and RDF files to AWS S3 using MinIO client
+echo "Copying CSV and RDF files to AWS S3 using MinIO client..."
 mc cp \
     en.$PRODUCT_OPENER_DOMAIN.products.csv \
     en.$PRODUCT_OPENER_DOMAIN.products.csv.gz \
@@ -120,5 +127,4 @@ then
     ./generate_madenearme_pages.sh  || report_error $? "generate_madenearme_pages.sh"
 fi
 
-report_failed_commands
-
+report_failed_commands $0
