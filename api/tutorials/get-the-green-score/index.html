@@ -1965,18 +1965,20 @@
 </ul>
 <h4 id="using-the-raw-api">Using the Raw API<a class="headerlink" href="#using-the-raw-api" title="Permanent link">#</a></h4>
 <ul>
-<li>The API is adding a new ecoscore_grade field from A to E. Technically wise, it behaves like the Nutri-Score, so you can clone part of your Nutri-Score implementation </li>
-<li>If (and only if) the server sends back a proper value (a, b, c, d or e), display the new score, otherwise, display our gray placeholder</li>
+<li>The API is adding a new ecoscore_grade field from A to F. Technically wise, it behaves like the Nutri-Score, so you can clone part of your Nutri-Score implementation </li>
+<li>If (and only if) the server sends back a proper value (a+, a, b, c, d, e or f), display the new score, otherwise, display our gray placeholder</li>
 <li><a href="https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=environmental_score_grade">https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=environmental_score_grade</a></li>
 <li>{"status_verbose":"product found","product":{"ecoscore_grade":"b"},"status":1,"code":"3414280980209"}</li>
 <li>https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=ecoscore_grade</li>
 <li>Here are the visuals.
-    * <a href="https://static.openfoodfacts.org/images/attributes/dist/green-score-a.svg">https://static.openfoodfacts.org/images/attributes/dist/green-score-a.svg</a>
-    * <a href="https://static.openfoodfacts.org/images/attributes/dist/green-score-b.svg">https://static.openfoodfacts.org/images/attributes/dist/green-score-b.svg</a>
-    * <a href="https://static.openfoodfacts.org/images/attributes/dist/green-score-c.svg">https://static.openfoodfacts.org/images/attributes/dist/green-score-c.svg</a>
-    * <a href="https://static.openfoodfacts.org/images/attributes/dist/green-score-d.svg">https://static.openfoodfacts.org/images/attributes/dist/green-score-d.svg</a>
-    * <a href="https://static.openfoodfacts.org/images/attributes/dist/green-score-e.svg">https://static.openfoodfacts.org/images/attributes/dist/green-score-e.svg</a>
-    * <a href="https://static.openfoodfacts.org/images/attributes/dist/green-score-unknown.svg">https://static.openfoodfacts.org/images/attributes/dist/green-score-unknown.svg</a> </li>
+    * <a href="https://static.openfoodfacts.org/images/attributes/dist/green-score-a-plus.svg">A+ Green Score visual</a>
+    * <a href="https://static.openfoodfacts.org/images/attributes/dist/green-score-a.svg">A Green Score visual</a>
+    * <a href="https://static.openfoodfacts.org/images/attributes/dist/green-score-b.svg">B Green Score visual</a>
+    * <a href="https://static.openfoodfacts.org/images/attributes/dist/green-score-c.svg">C Green Score visual</a>
+    * <a href="https://static.openfoodfacts.org/images/attributes/dist/green-score-d.svg">D Green Score visual</a>
+    * <a href="https://static.openfoodfacts.org/images/attributes/dist/green-score-e.svg">E Green Score visual</a>
+    * <a href="https://static.openfoodfacts.org/images/attributes/dist/green-score-f.svg">F Green Score visual</a>
+    * [Unknown Green Score visual(https://static.openfoodfacts.org/images/attributes/dist/green-score-unknown.svg) </li>
 </ul>
 <h4 id="using-the-attributes-api">Using the Attributes API<a class="headerlink" href="#using-the-attributes-api" title="Permanent link">#</a></h4>
 <p>The Open Food Facts official app use this one, which is less work but also less flexible (will display other data as well).</p>
