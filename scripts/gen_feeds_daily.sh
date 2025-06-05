@@ -139,6 +139,6 @@ $FAILED_COMMANDS"
     exit 1
 else
     echo "No errors during execution of gen_feeds_daily.sh"
-    >&2 echo "--- END OF SCRIPT"
+    echo "--- END OF SCRIPT"
     exit 0
 fi
