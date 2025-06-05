@@ -58,14 +58,16 @@ then
 "
 fi
 
-# compress CSV exports
+echo "Compress CSV exports"
 cd $OFF_PUBLIC_DATA_DIR
 for export in en.$PRODUCT_OPENER_DOMAIN.products.csv fr.$PRODUCT_OPENER_DOMAIN.products.csv en.$PRODUCT_OPENER_DOMAIN.products.rdf fr.$PRODUCT_OPENER_DOMAIN.products.rdf; do
+   echo "Compressing ${export} to new.${export}.gz..."
    nice pigz < $export > new.$export.gz
+   echo "Moving new.${export}.gz to ${export}.gz"
    mv -f new.$export.gz $export.gz
 done
 
-# Copy CSV and RDF files to AWS S3 using MinIO client
+echo "Copying CSV and RDF files to AWS S3 using MinIO client..."
 mc cp \
     en.$PRODUCT_OPENER_DOMAIN.products.csv \
     en.$PRODUCT_OPENER_DOMAIN.products.csv.gz \
@@ -130,12 +132,13 @@ fi
 # failure e-mail sent to root
 if [ $ERRORS -gt 0 ];
 then
-    >&2 echo "$ERRORS ERROR(S) DURING EXECUTION OF gen_fields_daily.sh"
+    >&2 echo "$ERRORS ERROR(S) DURING EXECUTION OF gen_feeds_daily.sh"
     >&2 echo "FAILED COMMANDS:
 $FAILED_COMMANDS"
+    echo "--- END OF SCRIPT"
     exit 1
 else
-    echo "No errors during execution of gen_fields_daily.sh"
+    echo "No errors during execution of gen_feeds_daily.sh"
+    echo "--- END OF SCRIPT"
     exit 0
 fi
-
