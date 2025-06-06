@@ -561,7 +561,9 @@ clone_deps:
 				https://github.com/openfoodfacts/$$dep.git ${DEPS_DIR}/$$dep; \
 			echo "Cloned $$dep"; \
 		else \
-			cd ${DEPS_DIR}/$$dep && git pull; \
+			cd ${DEPS_DIR}/$$dep; \
+			git pull || \
+	                  1>&2 echo "Warning: unable to pull latest $$dep; are you online?"; \
 		fi; \
 	done
 
