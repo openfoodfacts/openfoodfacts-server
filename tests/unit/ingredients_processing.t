@@ -114,19 +114,22 @@ my @tests = (
 		},
 		[
 			{
-				'id' => 'en:sweetened-milk',
-				'is_in_taxonomy' => 0,
-				'text' => 'sweetened milk'
+				'id' => 'en:milk',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:sweetened',
+				'text' => 'milk'
 			},
 			{
-				'id' => 'en:unsweetened-tomatoes',
-				'is_in_taxonomy' => 0,
-				'text' => 'unsweetened tomatoes'
+				'id' => 'en:tomato',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:unsweetened',
+				'text' => 'tomatoes'
 			},
 			{
-				'id' => 'en:sugared-ham',
-				'is_in_taxonomy' => 0,
-				'text' => 'sugared ham'
+				'id' => 'en:ham',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:sugared',
+				'text' => 'ham'
 			}
 		]
 	],
@@ -258,24 +261,28 @@ my @tests = (
 		},
 		[
 			{
-				'id' => 'es:tomate-endulzado',
-				'is_in_taxonomy' => 0,
-				'text' => 'tomate endulzado'
+				'id' => 'en:tomato',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:sweetened',
+				'text' => 'tomate'
 			},
 			{
-				'id' => 'es:berenjena-endulzada',
-				'is_in_taxonomy' => 0,
-				'text' => 'berenjena endulzada'
+				'id' => 'en:aubergine',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:sweetened',
+				'text' => 'berenjena'
 			},
 			{
-				'id' => 'es:calabacin-endulzados',
-				'is_in_taxonomy' => 0,
-				'text' => 'calabacín endulzados'
+				'id' => 'en:courgette',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:sweetened',
+				'text' => 'calabacín'
 			},
 			{
-				'id' => 'es:jamon-endulzadas',
-				'is_in_taxonomy' => 0,
-				'text' => 'jamón endulzadas'
+				'id' => 'en:ham',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:sweetened',
+				'text' => 'jamón'
 			}
 		]
 	],
@@ -964,14 +971,16 @@ my @tests = (
 		},
 		[
 			{
-				'id' => 'de:schalotte-gesüßt',
-				'is_in_taxonomy' => 0,
-				'text' => 'Schalotte gesüßt'
+				'id' => 'en:shallot',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:sweetened',
+				'text' => 'Schalotte'
 			},
 			{
-				'id' => 'de:gesüßte-haselnüsse',
-				'is_in_taxonomy' => 0,
-				'text' => "gesüßte haselnüsse"
+				'id' => 'en:hazelnut',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:sweetened',
+				'text' => "haselnüsse"
 			}
 		]
 	],
@@ -985,14 +994,16 @@ my @tests = (
 		},
 		[
 			{
-				'id' => 'de:schalotte-gezuckert',
-				'is_in_taxonomy' => 0,
-				'text' => 'Schalotte gezuckert'
+				'id' => 'en:shallot',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:sugared',
+				'text' => 'Schalotte'
 			},
 			{
-				'id' => 'de:gezuckerte-haselnüsse',
-				'is_in_taxonomy' => 0,
-				'text' => "gezuckerte haselnüsse"
+				'id' => 'en:hazelnut',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:sugared',
+				'text' => "haselnüsse"
 			},
 			{
 				'id' => 'en:almond',
@@ -1001,9 +1012,10 @@ my @tests = (
 				'text' => 'mandeln'
 			},
 			{
-				'id' => 'de:passionsfrucht-ungezuckert',
-				'is_in_taxonomy' => 0,
-				'text' => 'passionsfrucht ungezuckert'
+				'id' => 'en:passionfruit',
+				'is_in_taxonomy' => 1,
+				'processing' => 'de:ungezuckert',
+				'text' => 'passionsfrucht'
 			}
 		]
 	],

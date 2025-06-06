@@ -2337,33 +2337,29 @@ nl: ongezouten
 pl: bez soli, niesolone
 pt: sem sal, não salgado
 
-# sweetened is not a processing as it means an extra ingredient. 
-# It changes an ingredients into a 'compound' ingredient.
-en: sweetened, sugared, with sugar
-bg: подсладено, подсладен, подсладена, подсладени, захаросано, захаросан, захаросана, захаросани
-ca: ensucrada, amb sucre, dolc de
+en: sweetened
+bg: подсладено, подсладен, подсладена, подсладени
+ca: dolc de
 cs: slazené
-da: sødet, sukret
-de: gesüßt, gesüßte, gezuckert, gezuckerte, gezuckerter, gezuckertes
+da: sødet
+de: gesüßt, gesüßte
 el: ζαχαρούχο
-es: endulzado, endulzada, endulzados, endulzadas, azucarado, azucarada, azucarados, azucaradas, dulce de, azucadara
+es: endulzado, endulzada, endulzados, endulzadas, dulce de
 et: magustatud
-fi: makeutettu, makeutetut, sokeroitu, sokeroidut, sokeroitua, sokeroituja
+fi: makeutettu, makeutetut
 fr: sucré, sucrée, sucrés, sucrées, sucree, sucrees
 hr: zaslađene, zaslađeno, zasladeno
-hu: édesített, cukrozott
-it: addolcito, addolciti, addolcita, addolcite, zuccherato, zuccherati, zuccherata, zuccherate
-ja: 加糖
+hu: édesített
+it: addolcito, addolciti, addolcita, addolcite
 lt: saldintas
 lv: saldināts, saldinats
-nb: sukkerholdig, sukret, søt
-nl: gezoet, gezoete, gesuikerd, gesuikerde, met suiker
+nb: søt
+nl: gezoet, gezoete
 pl: słodzony, słodzona, słodzone, słodzonych, słodzonej, słodzonego
-pt: adoçado, adoçada, adoçados, adoçadas, adocicado, adocicada, adocicados, adocicadas, açucarado, açucarada, açucarados, açucaradas
-ro: indulcit
-ru: с сахаром
+pt: adoçado, adoçada, adoçados, adoçadas, adocicado, adocicada, adocicados, adocicadas
+ro: indulcit, îndulcite
 sl: sladkano
-sv: sötad, söt, sockrad
+sv: sötad, söt
 th: หวาน
 
 < en:concentrated
@@ -2371,7 +2367,23 @@ th: หวาน
 en: concentrate for sweetening
 hr: koncentrat za zaslađivanje
 
-# same comment as sweetened
+< en:sweetened
+en: sugared, with sugar
+bg: захаросано, захаросан, захаросана, захаросани
+ca: ensucrada, amb sucre
+da: sukret, med sukker
+de: gezuckert, gezuckerte, gezuckerter, gezuckertes
+es: azucarado, azucarada, azucarados, azucaradas, azucadara
+fi: sokeroitu, sokeroidut, sokeroitua, sokeroituja
+hu: cukrozott
+it: zuccherato, zuccherati, zuccherata, zuccherate
+ja: 加糖
+nb: sukret, sukkerholdig
+nl: gesuikerd, gesuikerde, met suiker
+pt: açucarado, açucarada, açucarados, açucaradas
+ru: с сахаром
+sv: sockrad
+
 en: unsweetened
 de: ungesüßt, ungesüßte, ungesüßter, ungesüßtes
 fr: non sucré, non sucrée, non sucrés, non sucrées
