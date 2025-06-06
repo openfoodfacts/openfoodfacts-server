@@ -36459,6 +36459,8 @@ sv: sojabas
 # it:salsa di soia translation error
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-soja
 # 253 products in 7 languages @2018-09-25
+vegan:en: maybe
+vegetarian:en: yes
 
 < en:soya bean
 en: Okara, soy pulp
@@ -37398,6 +37400,16 @@ de: fruchtmischung
 es: mix de frutas, mezcla de frutas
 hr: miješano voće
 it: frutta mista
+
+< en:mixed fruit
+en: mango apple mix
+da: mango-æble mix
+de: Mango-Apfel Mischung
+fi: mango-omenasekoitus
+fr: mélange de mangue et de pomme
+nb: mango-eple mix
+nl: mango-appel mix
+sv: mango-äpple mix
 
 < en:mixed fruit
 en: mixed peel
@@ -43080,7 +43092,7 @@ nn: blåbær
 pl: borówka, borówki, borówkowy
 pt: mirtilo
 ru: черника
-sv: blåbär, blåbärs
+sv: blåbär
 uk: чорниця
 vi: Việt quất đen
 zh: 山桑子
@@ -53138,7 +53150,7 @@ co: Aglia
 cs: česnek, česnek kuchyňský
 cv: Ыхра
 cy: Garlleg
-da: hvidløg, hvidløgs
+da: hvidløg
 de: Knoblauch
 dv: ލޮނުމެދު
 el: σκόρδο
@@ -53216,7 +53228,7 @@ sl: Česen
 so: Toon
 sq: hudhra
 sr: бели лук, beli luk
-sv: vitlök, vitlöks
+sv: vitlök
 sw: Kitunguu saumu
 ta: பூண்டு
 te: వెల్లులి
@@ -55733,7 +55745,7 @@ pl: burak, buraki, buraka, buraków, burak ćwikłowy, buraki ćwikłowe, buraka
 pt: beterraba
 ru: Свёкла
 sk: cvikly
-sv: rödbeta, rödbetor, rödbets
+sv: rödbeta, rödbetor
 carbon_footprint_fr_foodges_ingredient:fr: Betteraves
 carbon_footprint_fr_foodges_value:fr: 0.2
 # en:beetroot has 319 products in 5 languages @2018-10-22
@@ -57089,40 +57101,34 @@ fr: piment doux
 # description:en:The JALAPEÑO is a medium-sized chili pepper pod type cultivar of the species Capsicum annuum.
 
 < en:chili pepper
-en: jalapeno pepper, jalapeño, jalapeño pepper, jalapeño chili, jalapeño chilli, jalapeño chillies, jalapeno
+en: jalapeno pepper, jalapeño pepper, jalapeño chili, jalapeño chilli, jalapeño chillies
+xx: jalapeño, jalapeños, jalapeno, jalapenos
 ar: هالبينو
 bg: халапеньо, чушки халапеньо
 ca: bitxo jalapeño
-cs: jalapeño
-da: jalapeno, jalapeño
+da: jalapeño chili
 de: Jalapeno-Chilis, Jalapenopfeffer
 eo: ĥalapenjokapsiko
-es: Pimientos Jalapeños, jalapeno, pimiento jalapeño rojo
-et: jalapeño, jalapeno
+es: Pimientos Jalapeños, pimiento jalapeño rojo
 fa: هالاپینو
-fi: jalapeño, jalapeno, jalapenot
+fi: jalapeño, jalapeño chili, jalapenot
 fr: piments jalapeño, piment jalapeño
 gl: pemento xalapeño
 he: חלפניו
 hr: jalapeno papričica
-hu: jalapeno paprika, jalapeno
+hu: jalapeno paprika
 hy: հալապենո
-id: jalapeño
 it: Peperoncini jalapeños
 ja: ハラペーニョ
 kn: ಹಾಲಪೇನ್ಯೊ
 ko: 할라페뇨
 ml: ഹലപീനൊ
-nb: jalapeño
 nl: Jalapeno pepers, jalapeño peper
-pl: papryczki jalapeño, jalapeño, papryka jalapeño
+pl: papryczki jalapeño, papryka jalapeño
 pt: pimenta-jalapenho
 ru: халапеньо
-sk: jalapeño
-sv: Jalapeno peppar, jalapeño, jalapeno, jalapeños, jalapeñochili
+sv: jalapeñopeppar, jalapenopeppar, jalapeño peppar, jalapeno peppar, jalapeñochili, jalapeno chili
 th: ฆาลาเปญโญ
-tl: jalapeño
-tr: jalapeño
 uk: халапеньйо
 zh: 墨西哥辣椒
 wikidata:en: Q504133

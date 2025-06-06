@@ -1216,9 +1216,16 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 				if $log->is_debug();
 		}
 
-		if (($ingredients_lc eq "en") || ($ingredients_lc eq "fr") || ($ingredients_lc eq "sv")) {
+		# Keeping English and French first, since those are (by far) the most common languages OFF is used in/with
+		# Sorting alphabetically after those
+		if (   ($ingredients_lc eq "en")
+			|| ($ingredients_lc eq "fr")
+			|| ($ingredients_lc eq "da")
+			|| ($ingredients_lc eq "sv"))
+		{
 			# Origin of the milk: United Kingdom
 			# Origine du Cacao: Pérou
+			# Oprindelse jalapeño chili: Peru
 			# Ursprung fullkornsrågmjöl: Sverige och Danmark
 			if (match_origin_of_the_ingredient_origin($ingredients_lc, \$text, $matched_ingredient_ref)) {
 				$origins = $matched_ingredient_ref->{origins};
@@ -1355,7 +1362,9 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 		bg => "(?:страна на произход)",
 		cs => "(?:země původu)",
 		ca => "(?:origen)",
+		da => "(?:oprindelse)",
 		es => "(?:origen)",
+		fi => "(?:alkuperä)",
 		fr => "(?:origine (?:de |du |de la |des |de l'))",
 		hr => "(?:zemlja (?:porijekla|podrijetla|porekla)|uzgojeno u)",
 		hu => "(?:származási (?:hely|ország))",
@@ -1509,27 +1518,49 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 									#  match before or after the ingredient, does not require a space
 									or (
 										(
-											   ($ingredients_lc eq 'de')
-											or ($ingredients_lc eq 'hu')
+											   ($ingredients_lc eq 'hu')
 											or ($ingredients_lc eq 'ja')
-											or ($ingredients_lc eq 'nl')
 										)
 										and ($new_ingredient =~ /(^($regexp)|($regexp)$)/i)
 									)
 
-									# match after the ingredient, does not require a space
-									# match before the ingredient, require a space
+									#  match before or after the ingredient, does not require a space, can have -s- interfix
 									or (
 										(
-											   ($ingredients_lc eq 'da')
-											or ($ingredients_lc eq 'fi')
-											or ($ingredients_lc eq 'nb')
+											   ($ingredients_lc eq 'de')
+											or ($ingredients_lc eq 'nl')
+										)
+										and ($new_ingredient =~ /(^($regexp)s??|s??($regexp)$)/i)
+									)
+
+									# match after the ingredient, does not require a space
+									# match before the ingredient, require a space
+									or (    (($ingredients_lc eq 'fi'))
+										and ($new_ingredient =~ /(^($regexp)\b|($regexp)$)/i))
+
+									# match after the ingredient, does not require a space, can include interfix and other peculiarities
+									# match before the ingredient, require a space
+									or (
+										(($ingredients_lc eq 'da'))
+										# Danish uses s, e, and n for interfixes
+										and ($new_ingredient =~ /(^($regexp)\b|[ens]??($regexp)$)/i)
+									)
+									or (
+										(($ingredients_lc eq 'sv'))
+										# Swedish uses s for interfixes,
+										# but also sometimes a trailing -a in the first word is replaced by e, u, or o, or -e by a
+										and ($new_ingredient =~ /(^($regexp)\b|[seuoa]??($regexp)$)/i)
+									)
+									or (
+										(
+											   ($ingredients_lc eq 'nb')
 											or ($ingredients_lc eq 'no')
 											or ($ingredients_lc eq 'nn')
-											or ($ingredients_lc eq 'sv')
 										)
-										and ($new_ingredient =~ /(^($regexp)\b|($regexp)$)/i)
+										# Norwegian uses s and e for interfixes
+										and ($new_ingredient =~ /(^($regexp)\b|[se]??($regexp)$)/i)
 									)
+
 								)
 							)
 							or (($pass eq "inside") and ($new_ingredient =~ /\b$regexp\b/i))
