@@ -62,7 +62,7 @@ my $product_ref = retrieve_product($code);
 			my $path = product_path($code);
 			$product_ref->{creator} = $creator;
 
-			store( "$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref );
+			store_object("$BASE_DIRS{PRODUCTS}/$path/product", $product_ref );
 			get_products_collection()->save($product_ref);
 		}
 	

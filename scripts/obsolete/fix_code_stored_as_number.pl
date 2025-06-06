@@ -180,7 +180,7 @@ while (my $product_ref = $cursor->next) {
 
 		if (not $pretend) {
 			$product_ref->{update_key} = $key;
-			store("$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref);
+			store_object("$BASE_DIRS{PRODUCTS}/$path/product", $product_ref);
 
 			# Make sure product code is saved as string and not a number
 			# see bug #1077 - https://github.com/openfoodfacts/openfoodfacts-server/issues/1077
