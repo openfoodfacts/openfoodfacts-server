@@ -50,7 +50,7 @@ while (my $product_ref = $cursor->next) {
 
 		if (($product_ref->{empty} == 1) and (time() > $product_ref->{last_modified_t} + 86400)) {
 			$product_ref->{deleted} = 'on';
-			my $comment = "remove_empty_products.pl: automatic removal of product without information or images";
+			my $comment = "[$0] automatic removal of product without information or images";
 			# Apply the deletion. Use specific user "remove-empty-products".
 			store_product("remove-empty-products", $product_ref, $comment);
 			print STDERR "removing product code $code\n";
