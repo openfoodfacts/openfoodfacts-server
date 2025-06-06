@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -31,6 +31,7 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/write_cors_headers single_param/;
 use ProductOpener::Users qw/$User_id %User/;
 use ProductOpener::Lang qw/lang/;
+use ProductOpener::Auth qw/write_auth_deprecated_headers/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -75,6 +76,7 @@ if (defined $User_id) {
 
 		$log->info("redirecting after login", {url => $url}) if $log->is_info();
 
+		write_auth_deprecated_headers();
 		$r->err_headers_out->add('Set-Cookie' => $request_ref->{cookie});
 		$r->headers_out->set(Location => "$url");
 		$r->status(302);
@@ -95,6 +97,7 @@ if (single_param('jqm')) {
 	my $data = encode_json(\%response);
 
 	write_cors_headers();
+	write_auth_deprecated_headers();
 	print header(-type => 'application/json', -charset => 'utf-8') . $data;
 
 }
@@ -121,5 +124,7 @@ else {
 		or $html = "<p>" . $tt->error() . "</p>";
 
 	$request_ref->{content_ref} = \$html;
+
+	write_auth_deprecated_headers();
 	display_page($request_ref);
 }
