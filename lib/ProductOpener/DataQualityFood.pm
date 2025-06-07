@@ -52,7 +52,6 @@ use ProductOpener::Config qw(:all);
 use ProductOpener::Store qw(get_string_id_for_lang);
 use ProductOpener::Tags qw(:all);
 use ProductOpener::Food qw(%categories_nutriments_per_country);
-use ProductOpener::EnvironmentalScore qw(is_environmental_score_extended_data_more_precise_than_agribalyse);
 use ProductOpener::Units qw(extract_standard_unit);
 
 use Data::DeepAccess qw(deep_exists);
@@ -2837,24 +2836,6 @@ sub check_environmental_score_data ($product_ref) {
 				push @{$product_ref->{data_quality_warnings_tags}}, 'en:environmental-score-' . $warning;
 			}
 		}
-	}
-
-	# Extended Environmental-Score data from impact estimator
-	if (defined $product_ref->{environmental_score_extended_data}) {
-
-		push @{$product_ref->{data_quality_info_tags}}, 'en:environmental-score-extended-data-computed';
-
-		if (is_environmental_score_extended_data_more_precise_than_agribalyse($product_ref)) {
-			push @{$product_ref->{data_quality_info_tags}},
-				'en:environmental-score-extended-data-more-precise-than-agribalyse';
-		}
-		else {
-			push @{$product_ref->{data_quality_info_tags}},
-				'en:environmental-score-extended-data-less-precise-than-agribalyse';
-		}
-	}
-	else {
-		push @{$product_ref->{data_quality_info_tags}}, 'en:environmental-score-extended-data-not-computed';
 	}
 
 	return;

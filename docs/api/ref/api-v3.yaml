@@ -117,6 +117,8 @@ paths:
     patch:
       summary: "WRITE Product - Create or update product, or analyze test product (API V3 - Implementation in progress)"
       operationId: patch-api-v3-product-barcode
+      tags:
+        - Write Requests
       responses:
         "200":
           description: |-
@@ -265,7 +267,8 @@ paths:
     parameters: []
     get:
       summary: Get taxonomy entries suggestions
-      tags: []
+      tags:
+        - Read Requests
       responses:
         "200":
           description: OK
@@ -306,7 +309,7 @@ paths:
 
         If a string is passed, an additional sort is done to put first suggestions that start with the string, followed by suggestions with a word that start with the string, and then suggestions that contain the string anywhere.
       parameters:
-        - $ref: ./api.yml#/components/parameters/tagtype
+        - $ref: ./api.yaml#/components/parameters/tagtype
         - $ref: "#/components/parameters/cc"
         - $ref: "#/components/parameters/lc"
         - schema:
@@ -361,7 +364,8 @@ paths:
         description: "Tag name (e.g. yogurts) or tag id (e.g. en:yogurts)"
     get:
       summary: Get knowledge panels for a tag
-      tags: []
+      tags:
+        - Read Requests
       responses:
         "200":
           description: OK
@@ -408,7 +412,8 @@ paths:
     parameters: []
     post:
       summary: Revert a product to a previous revision
-      tags: []
+      tags:
+        - Write Requests
       responses:
         "200":
           description: OK
@@ -455,14 +460,6 @@ components:
       name: lc
       required: false
       description: "2 letter code of the language of the user. Used for localizing some fields in returned values (e.g. knowledge panels). If not passed, the language may be inferred by the Accept-Language header of the request."
-    code:
-      schema:
-        type: string
-        example: "4251105501381"
-      in: query
-      name: code
-      description: Barcode of the product
-      required: true
 tags:
   - name: Read Requests
   - name: Write Requests

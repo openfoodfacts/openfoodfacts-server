@@ -32,6 +32,8 @@ use ProductOpener::Data qw/get_products_collection/;
 # This script is run daily to remove empty products (without data or pictures)
 # in particular products created by the button to add a product without a barcode
 
+print STDERR "Starting script $0";
+
 my $cursor
 	= get_products_collection()
 	->query({'data_quality_dimensions.completeness.overall' => "0.00"})
@@ -51,8 +53,9 @@ while (my $product_ref = $cursor->next) {
 
 		if (($product_ref->{empty} == 1) and (time() > $product_ref->{last_modified_t} + 86400)) {
 			$product_ref->{deleted} = 'on';
-			my $comment = "automatic removal of product without information or images";
-
+			my $comment = "[$0] automatic removal of product without information or images";
+			# Apply the deletion. Use specific user "remove-empty-products".
+			store_product("remove-empty-products", $product_ref, $comment);
 			print STDERR "removing product code $code\n";
 			$removed++;
 		}
@@ -63,7 +66,6 @@ while (my $product_ref = $cursor->next) {
 
 }
 
-print STDERR "removed $removed products\n";
+print STDERR "removed $removed products\n--- End of script $0\n";
 
 exit(0);
-
