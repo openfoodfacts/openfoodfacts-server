@@ -79,7 +79,7 @@
 #---
 #> language_codes:en:ar,fr,es
 #
-#19. removed "NATO" as a country 
+#19. removed "NATO" as a country
 #
 #20. New  Caledonia, add French
 #
@@ -115,7 +115,7 @@
 #> country_code_2:en:UK
 #> official_country_code_2:en:GB
 #
-#29. US : make "United States" the main name instead of "United States of America" 
+#29. US : make "United States" the main name instead of "United States of America"
 #< en:United States of America, USA, America, the States, U.S., U.S.A., United St
 #ates, US, :flag-us:, US, USA
 #---
@@ -126,6 +126,16 @@
 #< language_codes:en:la,it
 #---
 #> language_codes:en:it,la
+#
+#31. Peru: Add Finnish declension
+#< fi: Peru
+#---
+#> fi: Peru, Perussa
+#
+#32. China: Add punctuated “PRC” abbreviations
+#< en: China, PRC, People's Republic of China, CN, CHN
+#---
+#> en: China, PRC, People's Republic of China, CN, CHN, P.R.C., P.R.C
 
 # Added Kosovo
 
@@ -9076,7 +9086,7 @@ language_codes:en: es
 osm_relation:en: 167454
 wikidata:en: Q298
 
-en: China, PRC, People's Republic of China, CN, CHN
+en: China, PRC, People's Republic of China, CN, CHN, P.R.C., P.R.C
 ab: Ачынҭатәи Ажәлартә Республика
 ace: Rèpublik Rakyat Cina
 af: Volksrepubliek van Sjina
@@ -32749,7 +32759,7 @@ eu: Peru
 ext: Perú
 fa: پرو
 ff: Peru
-fi: Peru
+fi: Peru, Perussa
 fiu-vro:Peruu
 fo: Peru
 fr: Pérou
