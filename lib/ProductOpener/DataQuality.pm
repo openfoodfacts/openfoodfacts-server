@@ -114,8 +114,8 @@ sub check_quality ($product_ref) {
 	if ($options{product_type} eq "food") {
 		check_quality_food($product_ref);
 
-        # Compute the dimensions score
-        compute_dimensions_score($product_ref);
+		# Compute the dimensions score
+		compute_dimensions_score($product_ref);
 	}
 
 	# Also combine all sub facets in a data-quality facet

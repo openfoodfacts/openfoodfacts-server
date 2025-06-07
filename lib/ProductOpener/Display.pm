@@ -7985,7 +7985,9 @@ JS
 	if (defined $rev) {
 		$template_data_ref->{display_rev_info} = display_rev_info($product_ref, $rev);
 	}
-	elsif (defined $product_ref->{"data_quality_dimensions"}{completeness}{overall} && $product_ref->{"data_quality_dimensions"}{completeness}{overall} eq "1.00") {
+	elsif (defined $product_ref->{"data_quality_dimensions"}{completeness}{overall}
+		&& $product_ref->{"data_quality_dimensions"}{completeness}{overall} eq "1.00")
+	{
 		$template_data_ref->{not_has_tag} = "states-en:complete";
 	}
 

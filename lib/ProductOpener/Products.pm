@@ -1644,26 +1644,26 @@ Returns nothing.
 =cut
 
 sub compute_product_export_status ($product_ref) {
-    # On the producers platform, keep track of which products have changes to be exported
-    if ($server_options{private_products}) {
-        my @states_tags = ();
-        if (    (defined $product_ref->{last_exported_t})
-            and ($product_ref->{last_exported_t} > $product_ref->{last_modified_t}))
-        {
-            push @states_tags, "en:exported";
-        }
-        else {
-            push @states_tags, "en:to-be-exported";
-            if ($product_ref->{to_be_automatically_exported}) {
-                push @states_tags, "en:to-be-automatically-exported";
-            }
-        }
+	# On the producers platform, keep track of which products have changes to be exported
+	if ($server_options{private_products}) {
+		my @states_tags = ();
+		if (    (defined $product_ref->{last_exported_t})
+			and ($product_ref->{last_exported_t} > $product_ref->{last_modified_t}))
+		{
+			push @states_tags, "en:exported";
+		}
+		else {
+			push @states_tags, "en:to-be-exported";
+			if ($product_ref->{to_be_automatically_exported}) {
+				push @states_tags, "en:to-be-automatically-exported";
+			}
+		}
 
-        $product_ref->{states} = join(', ', reverse @states_tags);
-        $product_ref->{"states_hierarchy"} = [reverse @states_tags];
-        $product_ref->{"states_tags"} = [reverse @states_tags];
-    }
-    return;
+		$product_ref->{states} = join(', ', reverse @states_tags);
+		$product_ref->{"states_hierarchy"} = [reverse @states_tags];
+		$product_ref->{"states_tags"} = [reverse @states_tags];
+	}
+	return;
 }
 
 =head2 get_change_userid_or_uuid ( $change_ref )

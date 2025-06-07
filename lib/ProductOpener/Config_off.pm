@@ -270,7 +270,10 @@ $options{users_who_can_upload_small_images} = {
 
 	{
 		name => "Yuka - checked",
-		conditions => [["user_id", "kiliweb"], ["data_quality_info_tags", "en:photo-and-data-checked-by-an-experienced-contributor"],], 
+		conditions => [
+			["user_id", "kiliweb"],
+			["data_quality_info_tags", "en:photo-and-data-checked-by-an-experienced-contributor"],
+		],
 		actions => [["ignore"],],
 		notifications => [
 			qw (

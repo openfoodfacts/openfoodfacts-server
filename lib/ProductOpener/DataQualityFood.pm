@@ -43,7 +43,7 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&check_quality_food
-        &is_european_product
+		&is_european_product
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -1980,29 +1980,28 @@ A hash reference to the product data.
 =cut
 
 sub is_european_product {
-    my ($product_ref) = @_;
+	my ($product_ref) = @_;
 
-    # In EU, compare label claim and nutrition
-    # https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
-    my @eu_countries = (
-        "en:austria", "en:belgium", "en:bulgaria", "en:croatia", "en:cyprus", "en:czech republic",
-        "en:denmark", "en:france", "en:estonia", "en:finland", "en:germany", "en:greece",
-        "en:hungary", "en:ireland", "en:italy", "en:latvia", "en:lithuania", "en:luxembourg",
-        "en:malta", "en:netherlands", "en:poland", "en:portugal", "en:romania", "en:slovakia",
-        "en:slovenia", "en:spain", "en:sweden"
-    );
+	# In EU, compare label claim and nutrition
+	# https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+	my @eu_countries = (
+		"en:austria", "en:belgium", "en:bulgaria", "en:croatia", "en:cyprus", "en:czech republic",
+		"en:denmark", "en:france", "en:estonia", "en:finland", "en:germany", "en:greece",
+		"en:hungary", "en:ireland", "en:italy", "en:latvia", "en:lithuania", "en:luxembourg",
+		"en:malta", "en:netherlands", "en:poland", "en:portugal", "en:romania", "en:slovakia",
+		"en:slovenia", "en:spain", "en:sweden"
+	);
 
-    my $eu_product = 0;
-    foreach my $eu_country (@eu_countries) {
-        if (has_tag($product_ref, "countries", $eu_country)) {
-            $eu_product = 1;
-            last;
-        }
-    }
+	my $eu_product = 0;
+	foreach my $eu_country (@eu_countries) {
+		if (has_tag($product_ref, "countries", $eu_country)) {
+			$eu_product = 1;
+			last;
+		}
+	}
 
-    return $eu_product;
+	return $eu_product;
 }
-
 
 =head2 check_labels( PRODUCT_REF )
 
@@ -2097,7 +2096,7 @@ sub check_labels ($product_ref) {
 	# 		last;
 	# 	}
 	# }
-    my $european_product = is_european_product($product_ref);
+	my $european_product = is_european_product($product_ref);
 
 	if (    (defined $product_ref->{nutriments})
 		and (defined $product_ref->{labels_tags})

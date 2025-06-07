@@ -38,16 +38,15 @@ use Exporter qw(import);
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-        &compute_accuracy_score
+		&compute_accuracy_score
 		&compute_completeness_score
-        &compute_dimensions_score
+		&compute_dimensions_score
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
 use ProductOpener::DataQualityFood qw(is_european_product);
 use ProductOpener::Tags qw(add_tag);
-
 
 =head1 FUNCTIONS
 
@@ -70,24 +69,23 @@ Returns nothing.
 =cut
 
 sub compute_accuracy_score {
-    my ($product_ref) = @_;
+	my ($product_ref) = @_;
 
-    my $accuracy_count = 0;
-    my $accuracy_total = 0;
+	my $accuracy_count = 0;
+	my $accuracy_total = 0;
 
 	if ((defined $product_ref->{checked}) and ($product_ref->{checked} eq 'on')) {
-        add_tag($product_ref, "data_quality_info", "en:photo-and-data-checked-by-an-experienced-contributor");
-        $accuracy_count++;
+		add_tag($product_ref, "data_quality_info", "en:photo-and-data-checked-by-an-experienced-contributor");
+		$accuracy_count++;
 	}
 	else {
-        add_tag($product_ref, "data_quality_info", "en:photo-and-data-to-be-checked-by-an-experienced-contributor");
+		add_tag($product_ref, "data_quality_info", "en:photo-and-data-to-be-checked-by-an-experienced-contributor");
 	}
-    $accuracy_total++;
+	$accuracy_total++;
 
-    my $accuracy_score = $accuracy_total != 0 ? ($accuracy_count / $accuracy_total) : 0;
-    $product_ref->{"data_quality_dimensions"}{accuracy}{overall} = sprintf("%.2f", $accuracy_score);
+	my $accuracy_score = $accuracy_total != 0 ? ($accuracy_count / $accuracy_total) : 0;
+	$product_ref->{"data_quality_dimensions"}{accuracy}{overall} = sprintf("%.2f", $accuracy_score);
 }
-
 
 =head1 FUNCTIONS
 
@@ -110,58 +108,65 @@ Returns nothing.
 =cut
 
 sub compute_completeness_score {
-    my ($product_ref) = @_;
-    
-    # 1-ingredients
-    # per languages "languages_codes"
-    my @lang_codes = keys %{$product_ref->{languages_codes}};  
-    my $completeness_ingredients_count = 0;
-    my $completeness_ingredients_total = 0;
-    foreach my $lang_code (@lang_codes) {
-        # 1-1- Photos           
-        if (defined $product_ref->{images} && exists $product_ref->{images}{"ingredients_$lang_code"}) {
-            add_tag($product_ref, "data_quality_info", "en:ingredients-$lang_code-photo-selected");
-            $completeness_ingredients_count++;
-        } else {
-            add_tag($product_ref, "data_quality_info", "en:ingredients-$lang_code-photo-to-be-selected");
-        }
-        $completeness_ingredients_total++;
-        # 1-2- ingredients_text field is filled
-        if (defined $product_ref->{"ingredients_text_$lang_code"} && $product_ref->{"ingredients_text_$lang_code"} ne '') {
-            add_tag($product_ref, "data_quality_info", "en:ingredients-$lang_code-completed");
-            $completeness_ingredients_count++;
-        } else {
-            add_tag($product_ref, "data_quality_info", "en:ingredients-$lang_code-to-be-completed");
-        }
-        $completeness_ingredients_total++;
-    }
+	my ($product_ref) = @_;
 
+	# 1-ingredients
+	# per languages "languages_codes"
+	my @lang_codes = keys %{$product_ref->{languages_codes}};
+	my $completeness_ingredients_count = 0;
+	my $completeness_ingredients_total = 0;
+	foreach my $lang_code (@lang_codes) {
+		# 1-1- Photos
+		if (defined $product_ref->{images} && exists $product_ref->{images}{"ingredients_$lang_code"}) {
+			add_tag($product_ref, "data_quality_info", "en:ingredients-$lang_code-photo-selected");
+			$completeness_ingredients_count++;
+		}
+		else {
+			add_tag($product_ref, "data_quality_info", "en:ingredients-$lang_code-photo-to-be-selected");
+		}
+		$completeness_ingredients_total++;
+		# 1-2- ingredients_text field is filled
+		if (defined $product_ref->{"ingredients_text_$lang_code"}
+			&& $product_ref->{"ingredients_text_$lang_code"} ne '')
+		{
+			add_tag($product_ref, "data_quality_info", "en:ingredients-$lang_code-completed");
+			$completeness_ingredients_count++;
+		}
+		else {
+			add_tag($product_ref, "data_quality_info", "en:ingredients-$lang_code-to-be-completed");
+		}
+		$completeness_ingredients_total++;
+	}
 
-    # 2-nutrition
-    my $completeness_nutrition_count = 0;
-    my $completeness_nutrition_total = 0;
-    # 2-1- photo - remark: selected_images is an empty hash 
-    #   (populated when looking at the product on the website or read API only)
-    if (defined $product_ref->{images} && grep { /^nutrition_/ } keys %{$product_ref->{images}}) {
-        add_tag($product_ref, "data_quality_info", "en:nutrition-photo-selected");
-        $completeness_nutrition_count++;
-    } elsif ((defined $product_ref->{no_nutrition_data})
-		and ($product_ref->{no_nutrition_data} eq 'on')) {
-        $completeness_nutrition_count++;
-    } else {
-        add_tag($product_ref, "data_quality_info", "en:nutrition-photo-to-be-selected");
-    }
-    $completeness_nutrition_total++;
-    # 2-2- category
-    if ((defined $product_ref->{categories}) and ($product_ref->{categories} ne '')) {
-        add_tag($product_ref, "data_quality_info", "en:categories-completed");
-        $completeness_nutrition_count++;
-    } else {
-        add_tag($product_ref, "data_quality_info", "en:categories-to-be-completed");
-    }
-    $completeness_nutrition_total++;
-    # 2-3- nutriments 
-    if (
+	# 2-nutrition
+	my $completeness_nutrition_count = 0;
+	my $completeness_nutrition_total = 0;
+	# 2-1- photo - remark: selected_images is an empty hash
+	#   (populated when looking at the product on the website or read API only)
+	if (defined $product_ref->{images} && grep {/^nutrition_/} keys %{$product_ref->{images}}) {
+		add_tag($product_ref, "data_quality_info", "en:nutrition-photo-selected");
+		$completeness_nutrition_count++;
+	}
+	elsif ( (defined $product_ref->{no_nutrition_data})
+		and ($product_ref->{no_nutrition_data} eq 'on'))
+	{
+		$completeness_nutrition_count++;
+	}
+	else {
+		add_tag($product_ref, "data_quality_info", "en:nutrition-photo-to-be-selected");
+	}
+	$completeness_nutrition_total++;
+	# 2-2- category
+	if ((defined $product_ref->{categories}) and ($product_ref->{categories} ne '')) {
+		add_tag($product_ref, "data_quality_info", "en:categories-completed");
+		$completeness_nutrition_count++;
+	}
+	else {
+		add_tag($product_ref, "data_quality_info", "en:categories-to-be-completed");
+	}
+	$completeness_nutrition_total++;
+	# 2-3- nutriments
+	if (
 		(
 			(
 					(defined $product_ref->{nutriments})
@@ -171,119 +176,135 @@ sub compute_completeness_score {
 		or ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on'))
 		)
 	{
-        add_tag($product_ref, "data_quality_info", "en:nutriments-completed");
+		add_tag($product_ref, "data_quality_info", "en:nutriments-completed");
 		$completeness_nutrition_count++;
 	}
 	else {
-        add_tag($product_ref, "data_quality_info", "en:nutriments-to-be-completed");
+		add_tag($product_ref, "data_quality_info", "en:nutriments-to-be-completed");
 	}
-    $completeness_nutrition_total++;
+	$completeness_nutrition_total++;
 
-    # 3-packaging
-    my $completeness_packaging_count = 0;
-    my $completeness_packaging_total = 0;
-    # 3-1- photo
-    if (defined $product_ref->{images} && grep { /^packaging_/ } keys %{$product_ref->{images}}) {
-        add_tag($product_ref, "data_quality_info", "en:packaging-photo-selected");
-        $completeness_packaging_count++;
-    } else {
-        add_tag($product_ref, "data_quality_info", "en:packaging-photo-to-be-selected");
-    }
-    $completeness_packaging_total++;
-    # 3-2- packagings field is filled
-    if (defined $product_ref->{packagings} && $product_ref->{packagings} ne '') {
-        add_tag($product_ref, "data_quality_info", "en:packagings-completed");
-        $completeness_packaging_count++;
-    } else {
-        add_tag($product_ref, "data_quality_info", "en:packagings-to-be-completed");
-    }
-    $completeness_packaging_total++;
-    # 3-3- emb_codes
-    my $european_product = is_european_product($product_ref);
-    if ($european_product && defined $product_ref->{emb_codes} && $product_ref->{emb_codes} ne '') {
-        add_tag($product_ref, "data_quality_info", "en:emb-codes-completed");
-        $completeness_packaging_count++;
-    } else {
-        add_tag($product_ref, "data_quality_info", "en:emb-codes-to-be-completed");
-    }
-    $completeness_packaging_total++;
+	# 3-packaging
+	my $completeness_packaging_count = 0;
+	my $completeness_packaging_total = 0;
+	# 3-1- photo
+	if (defined $product_ref->{images} && grep {/^packaging_/} keys %{$product_ref->{images}}) {
+		add_tag($product_ref, "data_quality_info", "en:packaging-photo-selected");
+		$completeness_packaging_count++;
+	}
+	else {
+		add_tag($product_ref, "data_quality_info", "en:packaging-photo-to-be-selected");
+	}
+	$completeness_packaging_total++;
+	# 3-2- packagings field is filled
+	if (defined $product_ref->{packagings} && $product_ref->{packagings} ne '') {
+		add_tag($product_ref, "data_quality_info", "en:packagings-completed");
+		$completeness_packaging_count++;
+	}
+	else {
+		add_tag($product_ref, "data_quality_info", "en:packagings-to-be-completed");
+	}
+	$completeness_packaging_total++;
+	# 3-3- emb_codes
+	my $european_product = is_european_product($product_ref);
+	if ($european_product && defined $product_ref->{emb_codes} && $product_ref->{emb_codes} ne '') {
+		add_tag($product_ref, "data_quality_info", "en:emb-codes-completed");
+		$completeness_packaging_count++;
+	}
+	else {
+		add_tag($product_ref, "data_quality_info", "en:emb-codes-to-be-completed");
+	}
+	$completeness_packaging_total++;
 
-    # 4-general information
-    my $completeness_general_information_count = 0;
-    my $completeness_general_information_total = 0;
-    # 4-1- photo
-    if (defined $product_ref->{images} && grep { /^front_/ } keys %{$product_ref->{images}}) {
-        add_tag($product_ref, "data_quality_info", "en:front-photo-selected");
-        $completeness_general_information_count++;
-    } else {
-        add_tag($product_ref, "data_quality_info", "en:front-photo-to-be-selected");
-    }
-    $completeness_general_information_total++;
-    # 4-2- name
-    if (defined $product_ref->{product_name} && $product_ref->{product_name} ne '') {
-        add_tag($product_ref, "data_quality_info", "en:product-name-completed");
-        $completeness_general_information_count++;
-    } else {
-        add_tag($product_ref, "data_quality_info", "en:product-name-to-be-completed");  
-    }
-    $completeness_general_information_total++;
-    # 4-3- quantity
-    if (defined $product_ref->{quantity} && $product_ref->{quantity} ne '') {
-        add_tag($product_ref, "data_quality_info", "en:quantity-completed");
-        $completeness_general_information_count++;
-    } else {
-        add_tag($product_ref, "data_quality_info", "en:quantity-to-be-completed");
-    }
-    $completeness_general_information_total++;
-    # 4-4- brand
-    if (defined $product_ref->{brands} && $product_ref->{brands} ne '') {
-        add_tag($product_ref, "data_quality_info", "en:brands-completed");
-        $completeness_general_information_count++;
-    } else {
-        add_tag($product_ref, "data_quality_info", "en:brands-to-be-completed");
-    }
-    $completeness_general_information_total++;
-    # 4-4- expiration_date
-    if (defined $product_ref->{expiration_date} && $product_ref->{expiration_date} ne '') {
-        add_tag($product_ref, "data_quality_info", "en:expiration-date-completed");
-        $completeness_general_information_count++;
-    } else {
-        add_tag($product_ref, "data_quality_info", "en:expiration-date-to-be-completed");
-    }
-    $completeness_general_information_total++;
+	# 4-general information
+	my $completeness_general_information_count = 0;
+	my $completeness_general_information_total = 0;
+	# 4-1- photo
+	if (defined $product_ref->{images} && grep {/^front_/} keys %{$product_ref->{images}}) {
+		add_tag($product_ref, "data_quality_info", "en:front-photo-selected");
+		$completeness_general_information_count++;
+	}
+	else {
+		add_tag($product_ref, "data_quality_info", "en:front-photo-to-be-selected");
+	}
+	$completeness_general_information_total++;
+	# 4-2- name
+	if (defined $product_ref->{product_name} && $product_ref->{product_name} ne '') {
+		add_tag($product_ref, "data_quality_info", "en:product-name-completed");
+		$completeness_general_information_count++;
+	}
+	else {
+		add_tag($product_ref, "data_quality_info", "en:product-name-to-be-completed");
+	}
+	$completeness_general_information_total++;
+	# 4-3- quantity
+	if (defined $product_ref->{quantity} && $product_ref->{quantity} ne '') {
+		add_tag($product_ref, "data_quality_info", "en:quantity-completed");
+		$completeness_general_information_count++;
+	}
+	else {
+		add_tag($product_ref, "data_quality_info", "en:quantity-to-be-completed");
+	}
+	$completeness_general_information_total++;
+	# 4-4- brand
+	if (defined $product_ref->{brands} && $product_ref->{brands} ne '') {
+		add_tag($product_ref, "data_quality_info", "en:brands-completed");
+		$completeness_general_information_count++;
+	}
+	else {
+		add_tag($product_ref, "data_quality_info", "en:brands-to-be-completed");
+	}
+	$completeness_general_information_total++;
+	# 4-4- expiration_date
+	if (defined $product_ref->{expiration_date} && $product_ref->{expiration_date} ne '') {
+		add_tag($product_ref, "data_quality_info", "en:expiration-date-completed");
+		$completeness_general_information_count++;
+	}
+	else {
+		add_tag($product_ref, "data_quality_info", "en:expiration-date-to-be-completed");
+	}
+	$completeness_general_information_total++;
 
+	# Compute completeness score
+	my $completeness_ingredients_score
+		= $completeness_ingredients_total != 0
+		? ($completeness_ingredients_count / $completeness_ingredients_total)
+		: 0;
+	$product_ref->{"data_quality_dimensions"}{completeness}{ingredients}
+		= sprintf("%.2f", $completeness_ingredients_score);
 
+	my $completeness_nutrition_score
+		= $completeness_nutrition_total != 0
+		? ($completeness_nutrition_count / $completeness_nutrition_total)
+		: 0;
+	$product_ref->{"data_quality_dimensions"}{completeness}{nutrition} = sprintf("%.2f", $completeness_nutrition_score);
 
+	my $completeness_packaging_score
+		= $completeness_packaging_total != 0
+		? ($completeness_packaging_count / $completeness_packaging_total)
+		: 0;
+	$product_ref->{"data_quality_dimensions"}{completeness}{packaging} = sprintf("%.2f", $completeness_packaging_score);
 
+	my $completeness_general_information_score
+		= $completeness_general_information_total != 0
+		? ($completeness_general_information_count / $completeness_general_information_total)
+		: 0;
+	$product_ref->{"data_quality_dimensions"}{completeness}{general_information}
+		= sprintf("%.2f", $completeness_general_information_score);
 
-    # Compute completeness score
-    my $completeness_ingredients_score = $completeness_ingredients_total != 0
-        ? ($completeness_ingredients_count / $completeness_ingredients_total)
-        : 0;
-    $product_ref->{"data_quality_dimensions"}{completeness}{ingredients} = sprintf("%.2f", $completeness_ingredients_score);
+	# Compute overall completeness score
+	my $completeness_score
+		= (   $completeness_ingredients_count
+			+ $completeness_nutrition_count
+			+ $completeness_packaging_count
+			+ $completeness_general_information_count)
+		/ (   $completeness_ingredients_total
+			+ $completeness_nutrition_total
+			+ $completeness_packaging_total
+			+ $completeness_general_information_total);
+	$product_ref->{"data_quality_dimensions"}{completeness}{overall} = sprintf("%.2f", $completeness_score);
 
-    my $completeness_nutrition_score = $completeness_nutrition_total != 0
-        ? ($completeness_nutrition_count / $completeness_nutrition_total)
-        : 0;
-    $product_ref->{"data_quality_dimensions"}{completeness}{nutrition} = sprintf("%.2f", $completeness_nutrition_score);
-
-    my $completeness_packaging_score = $completeness_packaging_total != 0
-        ? ($completeness_packaging_count / $completeness_packaging_total)
-        : 0;
-    $product_ref->{"data_quality_dimensions"}{completeness}{packaging} = sprintf("%.2f", $completeness_packaging_score);
-
-    my $completeness_general_information_score = $completeness_general_information_total != 0
-        ? ($completeness_general_information_count / $completeness_general_information_total)
-        : 0;
-    $product_ref->{"data_quality_dimensions"}{completeness}{general_information} = sprintf("%.2f", $completeness_general_information_score);
-
-    # Compute overall completeness score
-    my $completeness_score = ($completeness_ingredients_count + $completeness_nutrition_count + $completeness_packaging_count + $completeness_general_information_count) / (
-        $completeness_ingredients_total + $completeness_nutrition_total + $completeness_packaging_total + $completeness_general_information_total
-    );
-    $product_ref->{"data_quality_dimensions"}{completeness}{overall} = sprintf("%.2f", $completeness_score);
-
-    return;
+	return;
 }
 
 =head1 FUNCTIONS
@@ -306,25 +327,25 @@ Returns nothing.
 =cut
 
 sub compute_dimensions_score {
-    my ($product_ref) = @_;
+	my ($product_ref) = @_;
 
-    # compute score for accuracy
-    compute_accuracy_score($product_ref);
+	# compute score for accuracy
+	compute_accuracy_score($product_ref);
 
-    # compute score for completeness
-    compute_completeness_score($product_ref);
+	# compute score for completeness
+	compute_completeness_score($product_ref);
 
-    # compute score for uniqueness
-    # TODO
+	# compute score for uniqueness
+	# TODO
 
-    # compute score for consistency
-    # TODO
+	# compute score for consistency
+	# TODO
 
-    # compute score for timeliness
-    # TODO
+	# compute score for timeliness
+	# TODO
 
-    # compute score for validity
-    # TODO
+	# compute score for validity
+	# TODO
 
 	return;
 }

@@ -77,11 +77,11 @@ if ($ip ne "" and $ip !~ /^((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4}$/) {
 my $socket_timeout_ms = 2 * 60000;    # 2 mins, instead of 30s default, to not die as easily if mongodb is busy.
 my $cursor = get_products_collection({timeout => $socket_timeout_ms})->query(
 	{
-        data_quality_info_tags => {
-            '$elemMatch' => [
-                '$regex' => 'en:.*-photo-to-be-selected'
-            ]
-        },
+		data_quality_info_tags => {
+			'$elemMatch' => [
+				'$regex' => 'en:.*-photo-to-be-selected'
+			]
+		},
 		data_quality_errors_tags => {'$exists' => 1, '$ne' => []},
 		creator => {'$nin' => ['', 'usda-ndb-import', qr/^org-.*/]}
 	}
@@ -115,8 +115,11 @@ while (my $product_ref = $cursor->next) {
 		? ($time - $excluded_pr_since) - $last_modified_t
 		: 0;
 	my $t_ok = defined(($time - $excluded_pr_since) - $created_t) ? ($time - $excluded_pr_since) - $created_t : 0;
-	my $completeness = defined($product_ref->{"data_quality_dimensions"}{completeness}{overall}) ? $product_ref->{"data_quality_dimensions"}{completeness}{overall} : "1.0";
-    $completeness = $completeness + 0;
+	my $completeness
+		= defined($product_ref->{"data_quality_dimensions"}{completeness}{overall})
+		? $product_ref->{"data_quality_dimensions"}{completeness}{overall}
+		: "1.0";
+	$completeness = $completeness + 0;
 
 	my $err = "";
 

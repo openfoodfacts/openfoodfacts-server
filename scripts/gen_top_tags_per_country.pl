@@ -159,8 +159,11 @@ $fields_ref->{environmental_score_extended_data} = 1;
 
 # 300 000 ms timeout so that we can export the whole database
 # 5mins is not enough, 50k docs were exported
-my $cursor = get_products_collection({timeout => 3 * 60 * 60 * 1000})
-	->query({'empty' => {"\$ne" => 1}, 'obsolete' => {"\$ne" => 1}})->sort({created_t => 1})->fields($fields_ref);
+my $cursor
+	= get_products_collection({timeout => 3 * 60 * 60 * 1000})
+	->query({'empty' => {"\$ne" => 1}, 'obsolete' => {"\$ne" => 1}})
+	->sort({created_t => 1})
+	->fields($fields_ref);
 
 $cursor->immortal(1);
 
@@ -262,7 +265,9 @@ while (my $product_ref = $cursor->next) {
 				next if ($creator eq 'tacite');
 
 				my $points = 1;
-				if (defined $product_ref->{"data_quality_dimensions"}{completeness}{overall} && $product_ref->{"data_quality_dimensions"}{completeness}{overall} eq "1.00") {
+				if (defined $product_ref->{"data_quality_dimensions"}{completeness}{overall}
+					&& $product_ref->{"data_quality_dimensions"}{completeness}{overall} eq "1.00")
+				{
 					$points = 2;
 				}
 
