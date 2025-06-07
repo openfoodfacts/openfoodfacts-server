@@ -695,13 +695,12 @@ $options{replace_existing_values_when_importing_those_tags_fields} = {
 # packaging_shapes: packaging_materials, packaging_recycling
 # packaging (packaging_materials, packaging_shapes, packaging_recycling, preservation): labels
 # periods_after_opening:
-# states:
 # traces (allergens)
 # vitamins
 
 @taxonomy_fields = qw(
 	units
-	languages states countries
+	languages countries
 	allergens origins additives_classes ingredients
 	packaging_shapes packaging_materials packaging_recycling packaging
 	labels food_groups categories

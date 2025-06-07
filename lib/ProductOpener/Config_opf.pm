@@ -331,13 +331,12 @@ HTML
 # packaging_shapes: packaging_materials, packaging_recycling
 # packaging (packaging_materials, packaging_shapes, packaging_recycling, preservation): labels
 # periods_after_opening:
-# states:
 # traces (allergens)
 # vitamins
 
 @taxonomy_fields = qw(
 	units
-	languages states countries
+	languages countries
 	origins
 	packaging_shapes packaging_materials packaging_recycling packaging
 	labels categories
