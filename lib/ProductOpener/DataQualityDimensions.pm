@@ -293,15 +293,19 @@ sub compute_completeness_score {
 		= sprintf("%.2f", $completeness_general_information_score);
 
 	# Compute overall completeness score
-	my $completeness_score
-		= (   $completeness_ingredients_count
-			+ $completeness_nutrition_count
-			+ $completeness_packaging_count
-			+ $completeness_general_information_count)
-		/ (   $completeness_ingredients_total
-			+ $completeness_nutrition_total
-			+ $completeness_packaging_total
-			+ $completeness_general_information_total);
+	my $completeness_score = (
+		(
+				  $completeness_ingredients_count
+				+ $completeness_nutrition_count
+				+ $completeness_packaging_count
+				+ $completeness_general_information_count
+		) / (
+			$completeness_ingredients_total
+				+ $completeness_nutrition_total
+				+ $completeness_packaging_total
+				+ $completeness_general_information_total
+		)
+	);
 	$product_ref->{"data_quality_dimensions"}{completeness}{overall} = sprintf("%.2f", $completeness_score);
 
 	return;

@@ -251,7 +251,8 @@ foreach my $change_ref (@get_change_userid_or_uuid_tests) {
 
 # Test remove_fields
 
-$product_ref = {"languages" => {}, "category_properties" => {}, "categories_properties" => {}, "name" => "test_prod"};
+my $product_ref
+	= {"languages" => {}, "category_properties" => {}, "categories_properties" => {}, "name" => "test_prod"};
 my $fields_to_remove = ["languages", "category_properties", "categories_properties"];
 
 remove_fields($product_ref, $fields_to_remove);
