@@ -117,7 +117,7 @@ my $count = $#products;
 				$changes_ref = [];
 			}
 
-			compute_product_history_and_completeness($product_ref, $changes_ref);
+			compute_product_history($product_ref, $changes_ref);
 
 
 			store( "$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref );
