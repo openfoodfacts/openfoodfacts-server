@@ -117,18 +117,15 @@ value:
     customer_service: 'FERRERO FRANCE COMMERCIALE - Service Consommateurs, CS 90058 - 76136 MONT SAINT AIGNAN Cedex'
     customer_service_fr: 'FERRERO FRANCE COMMERCIALE - Service Consommateurs, CS 90058 - 76136 MONT SAINT AIGNAN Cedex'
     data_quality_bugs_tags: []
-    data_quality_dimensions: {
-      accuracy: {
-        overall: "0.00"
-      },
-      completeness: {
-        general_information: "0.00",
-        ingredients: "0.50",
-        nutrition: "0.67",
-        overall: "0.40",
-        packaging: "0.67"
-      }
-    },
+    data_quality_dimensions:
+      accuracy:
+        overall: '0.00'
+      completeness:
+        general_information: '0.00'
+        ingredients: '0.50'
+        nutrition: '0.67'
+        overall: '0.40'
+        packaging: '0.67'
     data_quality_errors_tags: []
     data_quality_info_tags:
       - 'en:packaging-data-incomplete'
