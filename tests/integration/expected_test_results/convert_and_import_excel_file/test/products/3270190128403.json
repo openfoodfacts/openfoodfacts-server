@@ -119,8 +119,6 @@
       "32xxxxxxxxxxx",
       "3xxxxxxxxxxxx"
    ],
-   "complete" : 0,
-   "completeness" : 0.8625,
    "correctors_tags" : [],
    "countries" : "France",
    "countries_hierarchy" : [
@@ -134,6 +132,18 @@
    "created_t" : "--ignore--",
    "creator" : "test-user",
    "data_quality_bugs_tags" : [],
+   "data_quality_dimensions" : {
+      "accuracy" : {
+         "overall" : "0.00"
+      },
+      "completeness" : {
+         "general_information" : "0.40",
+         "ingredients" : "0.50",
+         "nutrition" : "0.67",
+         "overall" : "0.54",
+         "packaging" : "0.67"
+      }
+   },
    "data_quality_errors_tags" : [],
    "data_quality_info_tags" : [
       "en:packaging-data-incomplete",
@@ -141,7 +151,21 @@
       "en:all-but-one-ingredient-with-specified-percent",
       "en:food-groups-1-known",
       "en:food-groups-2-known",
-      "en:food-groups-3-unknown"
+      "en:food-groups-3-unknown",
+      "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
+      "en:ingredients-fr-photo-to-be-selected",
+      "en:ingredients-fr-completed",
+      "en:nutrition-photo-to-be-selected",
+      "en:categories-completed",
+      "en:nutriments-completed",
+      "en:packaging-photo-to-be-selected",
+      "en:packagings-completed",
+      "en:emb-codes-completed",
+      "en:front-photo-to-be-selected",
+      "en:product-name-completed",
+      "en:quantity-to-be-completed",
+      "en:brands-completed",
+      "en:expiration-date-to-be-completed"
    ],
    "data_quality_tags" : [
       "en:packaging-data-incomplete",
@@ -149,7 +173,21 @@
       "en:all-but-one-ingredient-with-specified-percent",
       "en:food-groups-1-known",
       "en:food-groups-2-known",
-      "en:food-groups-3-unknown"
+      "en:food-groups-3-unknown",
+      "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
+      "en:ingredients-fr-photo-to-be-selected",
+      "en:ingredients-fr-completed",
+      "en:nutrition-photo-to-be-selected",
+      "en:categories-completed",
+      "en:nutriments-completed",
+      "en:packaging-photo-to-be-selected",
+      "en:packagings-completed",
+      "en:emb-codes-completed",
+      "en:front-photo-to-be-selected",
+      "en:product-name-completed",
+      "en:quantity-to-be-completed",
+      "en:brands-completed",
+      "en:expiration-date-to-be-completed"
    ],
    "data_quality_warnings_tags" : [],
    "data_sources" : "Producers, Producer - carrefour",
@@ -1036,47 +1074,6 @@
          "name" : null,
          "url" : null
       }
-   ],
-   "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-completed, en:characteristics-to-be-completed, en:origins-completed, en:categories-completed, en:brands-completed, en:packaging-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-validated, en:packaging-photo-to-be-selected, en:nutrition-photo-to-be-selected, en:ingredients-photo-to-be-selected, en:front-photo-selected, en:photos-uploaded",
-   "states_hierarchy" : [
-      "en:to-be-completed",
-      "en:nutrition-facts-completed",
-      "en:ingredients-completed",
-      "en:expiration-date-to-be-completed",
-      "en:packaging-code-completed",
-      "en:characteristics-to-be-completed",
-      "en:origins-completed",
-      "en:categories-completed",
-      "en:brands-completed",
-      "en:packaging-completed",
-      "en:quantity-to-be-completed",
-      "en:product-name-completed",
-      "en:photos-to-be-validated",
-      "en:packaging-photo-to-be-selected",
-      "en:nutrition-photo-to-be-selected",
-      "en:ingredients-photo-to-be-selected",
-      "en:front-photo-selected",
-      "en:photos-uploaded"
-   ],
-   "states_tags" : [
-      "en:to-be-completed",
-      "en:nutrition-facts-completed",
-      "en:ingredients-completed",
-      "en:expiration-date-to-be-completed",
-      "en:packaging-code-completed",
-      "en:characteristics-to-be-completed",
-      "en:origins-completed",
-      "en:categories-completed",
-      "en:brands-completed",
-      "en:packaging-completed",
-      "en:quantity-to-be-completed",
-      "en:product-name-completed",
-      "en:photos-to-be-validated",
-      "en:packaging-photo-to-be-selected",
-      "en:nutrition-photo-to-be-selected",
-      "en:ingredients-photo-to-be-selected",
-      "en:front-photo-selected",
-      "en:photos-uploaded"
    ],
    "stores" : "Carrefour",
    "stores_imported" : "Carrefour",
