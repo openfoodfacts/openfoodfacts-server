@@ -115,6 +115,8 @@ sub compute_completeness_score {
 	# 1-ingredients
 	# per languages "languages_codes"
 	my @lang_codes = keys %{$product_ref->{languages_codes}};
+	@lang_codes = sort @lang_codes;
+
 	my $completeness_ingredients_count = 0;
 	my $completeness_ingredients_total = 0;
 	foreach my $lang_code (@lang_codes) {

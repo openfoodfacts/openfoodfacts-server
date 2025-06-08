@@ -47,7 +47,6 @@
    "cocoa_100g" : "",
    "code" : "29161690",
    "collagen-meat-protein-ratio_100g" : "",
-   "completeness" : "0.3",
    "copper_100g" : "",
    "countries" : "France",
    "countries_en" : "France",
@@ -55,6 +54,18 @@
    "created_datetime" : "--ignore--",
    "created_t" : "--ignore--",
    "creator" : "test",
+   "data_quality_dimensions": {
+      "completeness": {
+         "ingredients": "0.50",
+         "nutrition": "0.67",
+         "general_information": "0.60",
+         "packaging": "0.33",
+         "overall": "0.53"
+      },
+      "accuracy": {
+         "overall": "0.00"
+      }
+   },
    "data_quality_errors_tags" : "",
    "dihomo-gamma-linolenic-acid_100g" : "",
    "docosahexaenoic-acid_100g" : "",
@@ -178,9 +189,6 @@
    "sodium_100g" : "",
    "soluble-fiber_100g" : "",
    "starch_100g" : "",
-   "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
-   "states_en" : "To be completed,Nutrition facts completed,Ingredients to be completed,Expiration date to be completed,Packaging code to be completed,Characteristics to be completed,Origins to be completed,Categories to be completed,Brands to be completed,Packaging to be completed,Quantity completed,Product name completed,Photos to be uploaded",
-   "states_tags" : "en:to-be-completed,en:nutrition-facts-completed,en:ingredients-to-be-completed,en:expiration-date-to-be-completed,en:packaging-code-to-be-completed,en:characteristics-to-be-completed,en:origins-to-be-completed,en:categories-to-be-completed,en:brands-to-be-completed,en:packaging-to-be-completed,en:quantity-completed,en:product-name-completed,en:photos-to-be-uploaded",
    "stearic-acid_100g" : "",
    "stores" : "",
    "sucrose_100g" : "",

@@ -47,7 +47,6 @@
    "cocoa_100g" : "",
    "code" : "5601009974337",
    "collagen-meat-protein-ratio_100g" : "",
-   "completeness" : "0.9",
    "copper_100g" : "",
    "countries" : "França, Portugal",
    "countries_en" : "France,Portugal",
@@ -55,6 +54,18 @@
    "created_datetime" : "--ignore--",
    "created_t" : "--ignore--",
    "creator" : "test",
+   "data_quality_dimensions": {
+      "completeness": {
+         "ingredients": "0.50",
+         "nutrition": "0.67",
+         "general_information": "0.60",
+         "packaging": "0.33",
+         "overall": "0.53"
+      },
+      "accuracy": {
+         "overall": "0.00"
+      }
+   },
    "data_quality_errors_tags" : "",
    "dihomo-gamma-linolenic-acid_100g" : "",
    "docosahexaenoic-acid_100g" : "",
@@ -178,9 +189,6 @@
    "sodium_100g" : "0.04",
    "soluble-fiber_100g" : "",
    "starch_100g" : "",
-   "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-completed, en:characteristics-completed, en:origins-completed, en:categories-completed, en:brands-completed, en:packaging-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
-   "states_en" : "To be completed,Nutrition facts completed,Ingredients completed,Expiration date to be completed,Packaging code completed,Characteristics completed,Origins completed,Categories completed,Brands completed,Packaging completed,Quantity completed,Product name completed,Photos to be uploaded",
-   "states_tags" : "en:to-be-completed,en:nutrition-facts-completed,en:ingredients-completed,en:expiration-date-to-be-completed,en:packaging-code-completed,en:characteristics-completed,en:origins-completed,en:categories-completed,en:brands-completed,en:packaging-completed,en:quantity-completed,en:product-name-completed,en:photos-to-be-uploaded",
    "stearic-acid_100g" : "",
    "stores" : "Pingo Doce",
    "sucrose_100g" : "",
