@@ -86,7 +86,7 @@ sub compute_accuracy_score {
 	my $accuracy_score = $accuracy_total != 0 ? ($accuracy_count / $accuracy_total) : 0;
 	$product_ref->{"data_quality_dimensions"}{accuracy}{overall} = sprintf("%.2f", $accuracy_score);
 
-    return;
+	return;
 }
 
 =head1 FUNCTIONS
