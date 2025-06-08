@@ -55,15 +55,15 @@
    "created_t" : "--ignore--",
    "creator" : "test",
    "data_quality_dimensions": {
-      "completeness": {
-         "ingredients": "0.50",
-         "nutrition": "0.67",
-         "general_information": "0.60",
-         "packaging": "0.33",
-         "overall": "0.53"
-      },
       "accuracy": {
          "overall": "0.00"
+      },
+      "completeness": {
+         "general_information": "0.80",
+         "ingredients": "0.00",
+         "nutrition": "0.67",
+         "overall": "0.54",
+         "packaging": "0.33"
       }
    },
    "data_quality_errors_tags" : "",
@@ -189,6 +189,8 @@
    "sodium_100g" : "0.44",
    "soluble-fiber_100g" : "",
    "starch_100g" : "",
+   "states" : "",
+   "states_tags" : "",
    "stearic-acid_100g" : "",
    "stores" : "",
    "sucrose_100g" : "",
