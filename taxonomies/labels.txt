@@ -1421,7 +1421,7 @@ ru: Без глютена
 sk: Bez lepku
 sl: Brez glutena
 sq: Pa gluten
-sv: Glutenfri, glutenfritt
+sv: Glutenfri, glutenfritt, Fri från gluten
 th: ไม่มีกลูเตน
 tr: Glutensiz
 uk: Не містить глютену
@@ -1858,7 +1858,7 @@ it: Ricca di proteini vegetali
 nl: Rijk aan plantaardige eiwitten
 pt: Rico em proteínas vegetais, rico em proteína vegetal
 
-en: Calcium source, Source of calcium
+en: Calcium source, Source of calcium, With calcium
 xx: Calcium source
 bg: Източник на калции
 ca: Font de calci
@@ -1974,7 +1974,7 @@ ru: Источник витамина B1
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 wikidata:en: Q83187
 
-en: Vitamin B2 source, Source of vitamin B2
+en: Vitamin B2 source, Source of vitamin B2, With vitamin B2
 xx: Vitamin B2 source, Source of vitamin B2
 bg: Източник на витамин B2
 ca: Font de vitamina B2
@@ -2044,7 +2044,7 @@ pt: Fonte de vitamina B9
 ru: Источник витамина B9
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
-en: Vitamin B12 source, Source of vitamin B12
+en: Vitamin B12 source, Source of vitamin B12, With vitamin B12
 xx: Vitamin B12 source
 bg: Източник на витамин B12
 ca: Font de vitamina B12
@@ -2092,7 +2092,7 @@ tr: C Vitamini kaynağı
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 xx:en: Vitamin C source
 
-en: Vitamin D source, Source of vitamin D
+en: Vitamin D source, Source of vitamin D, With vitamin D2
 xx: Vitamin D source
 bg: Източник на витамин D
 ca: Font de Vitamina D
@@ -3363,8 +3363,8 @@ sv: från Kalifornien, kalifornisk, kaliforniska
 label_categories:en: en:Geographic label
 origins:en: en:california
 
-de: 100% Milch aus österreich
-xx: 100% Milch aus österreich
+de: 100% Milch aus Österreich
+xx: 100% Milch aus Österreich
 
 en: Australian made
 bg: Произведено в Австралия
@@ -3393,8 +3393,8 @@ label_categories:en: en:Geographic label
 origins:en: en:australia
 
 # Bosnia i Herzegovina
-bs: Proizvodeno u bosni i hercegovinu
-xx: Proizvodeno u bosni i hercegovinu
+bs: Proizvodeno u Bosni i Hercegovinu
+xx: Proizvodeno u Bosni i Hercegovinu
 
 en: Made in Bulgaria
 bg: Произведено в България
@@ -5374,6 +5374,9 @@ incompatible_with:en: labels:en:no-soy
 label_categories:en: en:Environment, en:Soy, en:Allergens
 opposite:en: en:no-soy
 
+en: Made from soya
+incompatible_with:en: labels:en:no-soy
+
 #instruction:en:Do NOT change the english key.
 en: No garlic
 bg: Без чесън
@@ -5519,6 +5522,14 @@ fi:AENOR:in sertifioima
 fr: Certifié par l'AENOR
 pt: Certificado pela AENOR
 label_categories:en: en:Certification
+
+en: ProTerra
+xx: ProTerra
+image:en: proterra.115x90.svg
+label_categories:en: en:Certification
+web:en: https://www.proterrafoundation.org/the-proterra-standard/
+# Wikidata is for the foundation behind the standard, not the standard itself
+wikidata:en: Q131907713
 
 en: Non-vegetarian, not vegetarian, not suitable for vegetarians
 de: Nicht-vegetarisch, nicht für Vegetarier geeignet
@@ -22231,15 +22242,14 @@ nl: Nutriscore experiment E
 label_categories:en: en:Nutrition Grades, en:Health
 
 en: Nutriscore
-xx: Nutriscore
+xx: Nutriscore, Nutri-Score
 ca: Comptador Nutricional, Nutriscore
-pt: Nutriscore, Nutri-Score
 label_categories:en: en:Nutrition Grades, en:Health
 wikidata:en: Q46577569
 
 < en:Nutriscore
 en: Nutriscore Grade A
-xx: Nutriscore A
+xx: Nutriscore A, Nutri-Score A
 ca: Grau A Nutriscore
 de: Nutriscore Note A
 fi: Nutriscore-arvosana A
@@ -22250,7 +22260,7 @@ label_categories:en: en:Nutrition Grades, en:Health
 
 < en:Nutriscore
 en: Nutriscore Grade B
-xx: Nutriscore B
+xx: Nutriscore B, Nutri-Score B
 ca: Grau B Nutriscore
 fi: Nutriscore-arvosana B
 he: דירוג B ב־Nutriscore
@@ -22260,7 +22270,7 @@ label_categories:en: en:Nutrition Grades, en:Health
 
 < en:Nutriscore
 en: Nutriscore Grade C
-xx: Nutriscore C
+xx: Nutriscore C, Nutri-Score C
 ca: Grau C Nutriscore
 fi: Nutriscore-arvosana C
 he: דירוג C ב־Nutriscore
@@ -22270,7 +22280,7 @@ label_categories:en: en:Nutrition Grades, en:Health
 
 < en:Nutriscore
 en: Nutriscore Grade D
-xx: Nutriscore D
+xx: Nutriscore D, Nutri-Score D
 ca: Grau D NutriScore
 fi: Nutriscore-arvosana D
 he: דירוג D ב־Nutriscore
@@ -22280,7 +22290,7 @@ label_categories:en: en:Nutrition Grades, en:Health
 
 < en:Nutriscore
 en: Nutriscore Grade E
-xx: Nutriscore E
+xx: Nutriscore E, Nutri-Score E
 ca: Grau E NutriScore
 fi: Nutriscore-arvosana E
 hr: Nutriscore oznaka E

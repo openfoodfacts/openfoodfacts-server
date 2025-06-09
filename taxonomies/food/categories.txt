@@ -65483,6 +65483,7 @@ nl: Verse producten
 pl: Świeża żywność
 pt: Alimentos frescos, fresco
 ru: Свежие продукты
+sv: Färsk mat
 th: อาหารสด
 zh: 新鲜食物
 
@@ -67096,7 +67097,7 @@ nl: Fruit en afgeleide producten
 pl: Produkty na bazie owoców, Owoce i produkty owocowe
 pt: Alimentos à base de frutas
 ru: блюда из фруктов
-sv: Fruktbaserade matvaror, Fruktbaserat mat
+sv: Matvaror baserade på frukt, Fruktbaserade matvaror, Fruktbaserat mat
 tr: Meyve kaynaklı yiyecekler, Meyve kaynaklı gıdalar, Meyve kaynaklı besinler
 food_groups:en: en:fruits
 pnns_group_2:en: Fruits
@@ -67290,12 +67291,14 @@ protected_name_type:en: pgi
 
 < en:Fruits
 en: Spanish fruits, Fruits from Spain
+da: Spanske frugter
 fr: Fruits espagnols
 hr: Španjolsko voće
 lt: Ispaniški vaisiai
 
 < en:Vegetables
 en: Vegetables from Spain, Spanish vegetables
+da: Spanske grøntsager
 fr: Légumes espagnols
 hr: Španjolsko povrće
 lt: Ispaniškos daržovės
@@ -67303,6 +67306,7 @@ origins:en: en:spain
 
 < en:Vegetables
 en: Vegetables from Italy, Italian vegetables
+da: Italienske grøntsager
 nl: Groenten uit Italië
 origins:en: en:italy
 
@@ -74432,9 +74436,6 @@ pl: Pieprz
 pt: Pimentas
 ru: Перцы
 sv: Peppar
-agribalyse_proxy_food_code:en: 11015
-agribalyse_proxy_food_name:en: Black pepper, powder
-agribalyse_proxy_food_name:fr: Poivre noir, poudre
 intake24_category_code:en: PEPR
 sales_format:en: package, weight
 wikidata:en: Q43084
@@ -104288,6 +104289,12 @@ pt: Compotas de mistura de bagas
 en: Forest berry jams
 nl: Bosvruchtenjams
 
+< en:Mixed berry jams
+en: Queen's jam
+nb: Dronningsyltetøy
+sv: Drottningsylter
+wikidata:en: Q10477006
+
 # in eu, redcurrents jams/jellies should have specific
 # content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 < en:Berry jams
@@ -106656,6 +106663,7 @@ wikidata:en: Q154389
 en: Treacle
 
 < en:Fruits and vegetables based foods
+< en:Vegetable-based foods and beverages
 en: Vegetables based foods
 bg: Зеленчукови храни
 ca: Aliments amb base de verdures
@@ -106674,6 +106682,7 @@ nl: Groente en afgeleide producten
 pl: Produkty na bazie warzyw
 pt: Alimentos à base de vegetais
 ru: блюда из овощей
+sv: Matvaror baserade på grönsaker
 th: ผลิตภัณฑ์จากพืช
 tr: Sebze yiyecekler, Sebze gıdaları, Sebze besinleri, Sebze kaynaklı yiyecekler, Sebze kaynaklı gıdalar, Sebze kaynaklı besinler
 food_groups:en: en:vegetables
@@ -107343,6 +107352,14 @@ es: Guindillas encurtidas
 hr: Ukiseljena guindilla paprika
 nl: Ingemaakte guindilla pepers
 
+< en:Jalapeños
+< en:Pickled peppers
+en: Pickled jalapeños
+
+< en:Pickled jalapeños
+< en:Sliced jalapeños
+en: Pickled sliced jalapeños
+
 < en:Mushrooms
 < en:Vegetable pickles
 en: Pickled Mushrooms, Mushrooms in oil
@@ -107448,6 +107465,7 @@ it: Verdure fresche
 nl: Verse groenten
 pt: Vegetais frescos
 ru: Свежие овощи
+sv: Färska grönsaker
 zh: 新鲜蔬菜
 comment:en: Fresh vegetable are products that are only plantbased. These products are fresh from the land and underwent a little processing (cleaning, peeling, chopping). Products can have added ingredients for preservation purposes (water, salt preservatives) if they are sold canned. Many of these products require extra processing before they can be eaten.
 gpc_category_code:en: 10000006
@@ -108655,6 +108673,7 @@ ciqual_food_name:fr: Chou frisé, cuit
 < en:Leaf vegetables
 en: Fresh cabbages
 bg: Прясно зеле
+da: Friske kål
 fr: Chou frais
 hr: Svježi kupus
 nl: Verse kolen
@@ -108722,6 +108741,7 @@ ciqual_food_name:fr: Cardon, cuit
 < en:Vegetables
 en: Carrots
 bg: Моркови
+da: Gulerødder, Gulerod
 de: Karotten, Möhren
 es: Zanahorias
 fi: porkkanat
@@ -108745,6 +108765,7 @@ sales_format:en: weight, package
 < en:Carrots
 < en:Cooked vegetables
 en: Cooked carrots
+da: Kokte gulerødder
 fr: Carottes cuites
 agribalyse_food_code:en: 20008
 ciqual_food_code:en: 20008
@@ -108755,6 +108776,7 @@ ciqual_food_name:fr: Carotte, cuite
 < en:Fresh vegetables
 en: Fresh carrots
 bg: Пресни моркови
+da: Friske gulerødder
 de: Frische Karotten
 es: Zanahorias frescas
 fi: Tuoreet porkkanat
@@ -108762,12 +108784,14 @@ fr: Carottes fraîches
 hr: Svježe mrkve
 it: Carote fresche
 nl: Verse wortel
+sv: Färska morötter
 bulk_proxy:en: en:carrots
 sales_format:en: weight, package
 season_in_country_fr:en: 1,2,3,9,10,11,12
 
 < en:Carrots
 en: Dehydrated carrots
+da: Dehydrerede gulerødder
 fr: Carottes déshydratées
 ciqual_food_code:en: 20092
 ciqual_food_name:en: Carrot, dehydrated
@@ -108776,6 +108800,7 @@ ciqual_food_name:fr: Carotte, déshydratée
 < en:Leaf vegetables
 en: Cauliflowers
 bg: Карфиол
+da: Blomkål
 de: Blumenkohl
 es: Coliflores, Coliflor
 fi: kukkakaalit
@@ -110085,12 +110110,21 @@ fr: Doux de Valence
 < en:Sweet Peppers
 fr: Doux long des Landes
 
-< en:Sweet Peppers
+< en:Peppers
+en: Jalapeños
+xx: Jalapeño
 bg: Халапеньо
 fr: Jalapeño, chipotle, morita
 ja: ハラペーニョ
 nl: Jalapenopepers
+expected_ingredients:en: en:jalapeno pepper
 wikidata:en: Q504133
+
+< en:Jalapeños
+en: Sliced jalapeños
+da: Jalapeño i skiver
+fi: Viipaloitu jalapeño
+sv: Skivad jalapeño
 
 < en:Sweet Peppers
 fr: Le Pepper Mont Jolien
@@ -116628,6 +116662,7 @@ tr: Konserve bitkisel gıdalar, Konserve bitkisel yiyecekler, Konserve bitki kay
 < en:Plant-based foods
 en: Fresh plant-based foods
 ca: Aliments vegetals frescs
+da: Friske plantebaserede fødevarer
 de: Frische pflanzliche Lebensmittel
 es: Alimentos de origen vegetal frescos, Vegetales frescos
 fi: Tuoreet kasvipohjaiset ruoat
@@ -116638,6 +116673,7 @@ hu: Friss növényi alapú ételek
 it: Cibi freschi a base vegetale
 nl: Producten op basis van verse planten
 ro: Alimente proaspete pe bază de plante
+sv: Färsk växtbaserad mat
 zh: 新鲜蔬菜食品
 
 
