@@ -439,6 +439,9 @@
     "apiUrl": "//backend:8881//api/v1",
     "imgUrl": "//images.openfoodfacts.localhost/images/products"
   }'
+  folksonomy-configuration='{
+  "apiUrl": "https://api.folksonomy.openfoodfacts.org"
+  }'
   openfoodfacts-api-url="//world.openfoodfacts.localhost"
   assets-images-path="//static.openfoodfacts.localhost/css/dist/images"
 ></off-webcomponents-configuration>
@@ -3892,6 +3895,19 @@ The score is calculated from the data of the nutrition facts table and the compo
     </div>
 </div>
 </div>
+</section>
+
+<section class="row">
+        <div class="large-12 column">
+            <div class="card">
+                <div class="reblock card-section">
+                    <div class="large-12 column">
+                        <folksonomy-editor product-code="0200000000235" page-type="view">
+                        </folksonomy-editor>
+                    </div>
+                </div>
+            </div>
+        </div>
 </section>
 
 <!-- start templates/web/common/includes/folksonomy_script.tt.html -->
