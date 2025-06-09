@@ -65,7 +65,7 @@ use ProductOpener::Display qw/$subdomain $formatted_subdomain display_error_and_
 use ProductOpener::HTTP qw/single_param redirect_to_url/;
 use ProductOpener::URL qw/get_cookie_domain format_subdomain/;
 use ProductOpener::Users qw/$User_id retrieve_user store_user_session generate_token init_user open_user_session/;
-use ProductOpener::Lang qw/$lc/;
+use ProductOpener::Lang qw/$lc lang/;
 
 use OIDC::Lite;
 use OIDC::Lite::Client::WebServer;
