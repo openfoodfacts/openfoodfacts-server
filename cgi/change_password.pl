@@ -106,6 +106,7 @@ if (get_oidc_implementation_level() < 5) {
 	display_page($request_ref);
 }
 else {
+	# redirect to keycloak for authentication
 	my $redirect = ProductOpener::Keycloak->new()->get_account_link($request_ref->{canon_url});
 	redirect_to_url($request_ref, 302, $redirect);
 }
