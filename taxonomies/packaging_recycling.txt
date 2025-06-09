@@ -1,6 +1,6 @@
 synonyms:fr: conteneur, container, poubelle, benne
 
-synonyms:sv: sortera, sorteras
+synonyms:sv: sortera, sorteras, återvinn, återvinns
 
 stopwords:en: in, the
 stopwords:bg: в, във
@@ -104,6 +104,10 @@ nl: recycle bij plastic afval, bij plastic afval, plastic afval
 sv: sorteras som plast, plast, plastförpackning
 packaging_materials:en: en:plastic
 
+< en:recycle with plastics
+en: recycle with hard plastics
+sv: sorteras som hårdplast, hårdplast
+
 < en:recycle
 en: recycle with metals
 it: raccolta metalli, alluminio, latta, metallo, metalli
@@ -167,6 +171,7 @@ fr: bac de tri
 
 en: discard, to discard, throw away, to throw away, non-recyclable, to be thrown away, to be discarded
 de: wegwerfen, nicht recycelbar, zum Wegwerfen
+es: embalaje no reciclable, no reciclable
 fr: jeter, à jeter, non-recyclable
 hu: eldobható, eldobandó, eldobni, kidobható, kidobni, kidobandó, nem újrahasznosítható, szemét
 it: non riciclabile, indifferenziata

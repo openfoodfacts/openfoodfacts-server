@@ -3715,6 +3715,12 @@ sub display_tag ($request_ref) {
 	my $new_tagid2path = deep_get($request_ref, qw(tags 1 new_tagid_path));
 	my $canon_tagid2 = deep_get($request_ref, qw(tags 1 canon_tagid));
 
+	# 2025-06-01 - due to heavy load from bots, disabling 2nd level facets unless the user is logged in
+	if ((not defined $User_id) and (defined $tagid2)) {
+		display_error_and_exit($request_ref, lang("robots_not_served_here"), 401);
+		return;
+	}
+
 	my $weblinks_html = '';
 	my @wikidata_objects = ();
 	if (    (defined $tagtype && $tagtype ne 'additives')
@@ -4435,6 +4441,7 @@ var default_preferences = $options{attribute_default_preferences_json};
 var preferences_text = "$preferences_text";
 var contributor_prefs = $contributor_prefs_json;
 var products = [];
+var product_type = "$options{product_type}";
 </script>
 JS
 			;
@@ -5620,6 +5627,7 @@ var default_preferences = $options{attribute_default_preferences_json};
 var preferences_text = "$preferences_text";
 var contributor_prefs = $contributor_prefs_json;
 var products = $products_json;
+var product_type = "$options{product_type}";
 </script>
 JS
 		;
@@ -8507,6 +8515,7 @@ var page_type = "product";
 var default_preferences = $options{attribute_default_preferences_json};
 var preferences_text = "$preferences_text";
 var product = $product_attribute_groups_json;
+var product_type = "$options{product_type}";
 </script>
 
 <script src="$static_subdomain/js/product-preferences.js"></script>
@@ -9588,12 +9597,17 @@ sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_re
 	my @displayed_product_types = ();
 	my %displayed_product_types = ();
 
-	if ((not defined $product_ref->{nutrition_data}) or ($product_ref->{nutrition_data})) {
+	if (   (not defined $product_ref->{nutrition_data})
+		or ($product_ref->{nutrition_data})
+		or has_nutrition_data_for_product_type($product_ref, ""))
+	{
 		# by default, old products did not have a checkbox, display the nutrition data entry column for the product as sold
 		push @displayed_product_types, "";
 		$displayed_product_types{as_sold} = 1;
 	}
-	if ((defined $product_ref->{nutrition_data_prepared}) and ($product_ref->{nutrition_data_prepared} eq 'on')) {
+	if (   ((defined $product_ref->{nutrition_data_prepared}) and ($product_ref->{nutrition_data_prepared} eq 'on'))
+		or (has_nutrition_data_for_product_type($product_ref, "_prepared")))
+	{
 		push @displayed_product_types, "prepared_";
 		$displayed_product_types{prepared} = 1;
 	}
