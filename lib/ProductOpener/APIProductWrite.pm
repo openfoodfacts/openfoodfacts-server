@@ -453,6 +453,7 @@ sub update_images_selected ($request_ref, $product_ref, $response_ref) {
 			my $image_selected_ref = $input_product_ref->{images}{selected}{$image_type}{$image_lc};
 
 			if (defined $image_selected_ref) {
+				# On success, this will also update product_ref to add selected image information
 				my $return_code = process_image_crop(
 					$request_ref->{user_id},
 					$product_ref, $image_type, $image_lc,
