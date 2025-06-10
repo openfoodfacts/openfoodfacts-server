@@ -154,7 +154,8 @@ sub subscribe_to_redis_streams () {
 
 sub _read_user_streams($search_from) {
 	# Listen for user-deleted events so that we can redact product contributions for this flavor
-	my @streams = ('BLOCK', 0, 'STREAMS', 'user-deleted');
+	# This will block for up to 5 seceonds waiting for messages and return a maximum of 1000
+	my @streams = ('COUNT', 1000, 'BLOCK', 5000, 'STREAMS', 'user-deleted');
 	# If this process handles global events then also listen for the user-registered events from Keycloak
 	if ($process_global_redis_events) {
 		push(@streams, 'user-registered');
