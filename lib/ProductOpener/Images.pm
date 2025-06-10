@@ -245,7 +245,6 @@ HTML
 	return $html;
 }
 
-
 =head2 display_select_crop ($object_ref, $image_type, $image_lc, $language, $request_ref) {
 
 This function is used in the product edit form to display the select cropper with the images that are already uploaded.
@@ -346,20 +345,19 @@ sub display_select_crop_init ($object_ref) {
 			my $uploaded_date = display_date($uploaded_images_ref->{$imgid}{uploaded_t});
 
 			push @images,
-{
-	imgid => $imgid,
-	thumb_url => "$imgid.$thumb_size.jpg",
-	crop_url => "$imgid.$crop_size.jpg",
-	display_url => "$imgid.$display_size.jpg",
-	uploader => "$uploader",
-	uploaded => "$uploaded_date",
-};
+				{
+				imgid => $imgid,
+				thumb_url => "$imgid.$thumb_size.jpg",
+				crop_url => "$imgid.$crop_size.jpg",
+				display_url => "$imgid.$display_size.jpg",
+				uploader => "$uploader",
+				uploaded => "$uploaded_date",
+				};
 
 		}
 	}
 
 	my $images_json = JSON::MaybeXS->new->encode(\@images);
-
 
 	return <<HTML
 
