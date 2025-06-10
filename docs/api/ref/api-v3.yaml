@@ -352,7 +352,7 @@ paths:
                             properties:
                               uploaded:
                                 description: |
-                                  List with only the image just uploaded by the user. The key is the image id (imgid) and the value is an object with the image data.
+                                  List with only the image just uploaded by the user. The key is the image id (imgid) and the value is an object with the image information.
                                 type: object
                                 title: images_uploaded
                                 patternProperties:

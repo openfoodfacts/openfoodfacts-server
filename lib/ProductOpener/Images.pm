@@ -245,6 +245,13 @@ HTML
 	return $html;
 }
 
+
+=head2 display_select_crop ($object_ref, $image_type, $image_lc, $language, $request_ref) {
+
+This function is used in the product edit form to display the select cropper with the images that are already uploaded.
+
+=cut
+
 sub display_select_crop ($object_ref, $image_type, $image_lc, $language, $request_ref) {
 
 	my $message = $Lang{"protected_image_message"}{$lc};
@@ -323,9 +330,9 @@ sub display_select_crop_init ($object_ref) {
 
 	my $path = product_path($object_ref);
 
-	my $images = '';
-
+	# Generate JSON data for uploaded images
 	my $uploaded_images_ref = deep_get($object_ref, "images", "uploaded");
+	my @images = ();
 
 	if (defined $uploaded_images_ref) {
 
@@ -338,28 +345,25 @@ sub display_select_crop_init ($object_ref) {
 			my $uploader = $uploaded_images_ref->{$imgid}{uploader};
 			my $uploaded_date = display_date($uploaded_images_ref->{$imgid}{uploaded_t});
 
-			$images .= <<JS
+			push @images,
 {
-	imgid: "$imgid",
-	thumb_url: "$imgid.$thumb_size.jpg",
-	crop_url: "$imgid.$crop_size.jpg",
-	display_url: "$imgid.$display_size.jpg",
-	uploader: "$uploader",
-	uploaded: "$uploaded_date",
-},
-JS
-				;
+	imgid => $imgid,
+	thumb_url => "$imgid.$thumb_size.jpg",
+	crop_url => "$imgid.$crop_size.jpg",
+	display_url => "$imgid.$display_size.jpg",
+	uploader => "$uploader",
+	uploaded => "$uploaded_date",
+};
+
 		}
-
-		$images =~ s/,\n?$//;
-
 	}
+
+	my $images_json = JSON::MaybeXS->new->encode(\@images);
+
 
 	return <<HTML
 
-	\$([]).selectcrop('init_images', [
-		$images
-	]);
+	\$([]).selectcrop('init_images', $images_json);
 	\$(".select_crop").selectcrop('init', {img_path : "//images.$server_domain/images/products/$path/"});
 	\$(".select_crop").selectcrop('show');
 
@@ -738,7 +742,7 @@ sub is_protected_image ($product_ref, $image_type, $image_lc) {
 
 This function generates resized images from the original image.
 
-For uploaded images, we resize to 100, and 200 pixels maximum width or height.
+For uploaded images, we resize to 100 and 400 pixels maximum width or height.
 
 For selected images, we resize to 100, 200, and 400 pixels maximum width or height.
 
@@ -884,19 +888,20 @@ sub process_image_upload ($product_ref, $imagefield, $user_id, $time, $comment, 
 
 	my $filehandle;
 
-	# Image that was already read by barcode scanner: can't read it again
-	# $imagefield can be a path to the image file (for imports and when uploading an image with a barcode)
 	my $tmp_filename;
 	if ($imagefield =~ /\//) {
+		# For imports, the imagefield is an absolute path to the image file
+		# For images that have already been read by the barcode scanner, the imagefield is also an absolute path to the image file
 		$tmp_filename = $imagefield;
 		$imagefield = 'search';
 
 		if ($tmp_filename) {
-			open($filehandle, q{<}, "$tmp_filename")
+			open($filehandle, "<", "$tmp_filename")
 				or $log->error("Could not read file", {path => $tmp_filename, error => $!});
 		}
 	}
 	else {
+		# For image uploads (CGI form or API <= v2), the image data is multipart form data encoded field
 		$filehandle = single_param('imgupload_' . $imagefield);
 		if (!$filehandle) {
 			# mobile app may not set language code
@@ -920,6 +925,44 @@ sub process_image_upload ($product_ref, $imagefield, $user_id, $time, $comment, 
 	return process_image_upload_using_filehandle($product_ref, $filehandle, $user_id, $time, $comment, $imgid_ref,
 		$debug_string_ref);
 }
+
+=head2 process_image_upload_using_filehandle ($product_ref, $filehandle, $user_id, $time, $comment, $imgid_ref, $debug_string_ref)
+
+This function processes an image uploaded to a product using a file handle.
+
+It is called by:
+
+- the process_image_upload() function above when the image is uploaded with a CGI multipart form data encoded field (product form + API <= v2)
+- APIProductImagesUpload.pm for API v3
+
+=head3 Arguments
+
+=head4 Product ref $product_ref
+
+=head4 File handle $filehandle to the image data
+
+=head4 User id $user_id
+
+=head4 Timestamp of the image $time
+
+=head4 Comment $comment
+
+=head4 Reference to an image id $imgid_ref
+
+Used to return the number identifying the image to the caller.
+
+=head4 Debug string reference $debug_string_ref
+
+Used to return some debug information to the caller.
+
+=head3 Return values
+
+-2: imgupload field not set
+-3: we have already received an image with this file size
+-4: the image is too small
+-5: the image file cannot be read by ImageMagick
+
+=cut
 
 sub process_image_upload_using_filehandle ($product_ref, $filehandle, $user_id, $time, $comment, $imgid_ref,
 	$debug_string_ref)

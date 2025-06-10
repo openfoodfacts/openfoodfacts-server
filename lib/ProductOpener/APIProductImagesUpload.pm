@@ -175,7 +175,7 @@ sub upload_product_image_api ($request_ref) {
 		($code, my $ai_data_string) = &normalize_requested_code($request_ref->{code}, $response_ref);
 
 		# Check if the code is valid
-		if ($code !~ /^\d{4,24}$/) {
+		if (not is_valid_code ($code)) {
 
 			$log->info("invalid code", {code => $code, original_code => $request_ref->{code}}) if $log->is_info();
 			add_error(
@@ -198,11 +198,9 @@ sub upload_product_image_api ($request_ref) {
 	# If we did not get a fatal error, we can upload the image to the product
 	if (not $error) {
 
-		# The product does not exist yet, or the requested code is "test"
 		if (not defined $product_ref) {
+			# The product does not exist yet, we initialize it and it will be saved with the uploaded image
 			$product_ref = init_product($User_id, $Org_id, $code, $country);
-			$product_ref->{interface_version_created} = "20250416/api/v3";
-			store_product($User_id, $product_ref, "Creating product (image upload)");
 		}
 		else {
 			# There is an existing product
