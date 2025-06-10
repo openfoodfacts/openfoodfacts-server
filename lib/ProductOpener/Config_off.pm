@@ -459,7 +459,6 @@ $rate_limiter_blocking_enabled = $ProductOpener::Config2::rate_limiter_blocking_
 # server options
 
 %server_options = %ProductOpener::Config2::server_options;
-%oidc_options = %ProductOpener::Config2::oidc_options;
 
 $build_cache_repo = $ProductOpener::Config2::build_cache_repo;
 

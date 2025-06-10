@@ -14,7 +14,7 @@ services:
     environment:
       - KEYCLOAK_BASE_URL
       - CLIENTS=OFF,http://world.openfoodfacts.localhost
-      - OFF_CLIENT_SECRET=${OIDC_CLIENT_SECRET}
+      - OFF_CLIENT_SECRET=${OFF_CLIENT_SECRET}
       - KC_BOOTSTRAP_ADMIN_USERNAME=test
       - KC_BOOTSTRAP_ADMIN_PASSWORD=test
       - KEYCLOAK_STARTUP=test

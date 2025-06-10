@@ -47,7 +47,6 @@ BEGIN {
 		$events_url
 		$events_username
 		$events_password
-		%oidc_options
 		$redis_url
 		$process_global_redis_events
 		%server_options
@@ -91,18 +90,6 @@ $query_url = '';
 $events_url = '';
 $events_username = '';
 $events_password = '';
-
-# Set this to match your instance of Keycloak
-%oidc_options = (
-	# This is the client ID of the "open-products-facts" client in Keycloak
-	client_id => '',
-	# This is the client secret of the "open-products-facts" client in Keycloak
-	client_secret => '',
-	# Keycloak specific: Implementation level 1 to 5 (see .env for values)
-	oidc_implementation_level => 0,
-	# Backchannel URL to access the OIDC configuration document
-	oidc_discovery_url => ''
-);
 
 $redis_url = '';
 $process_global_redis_events = $ENV{PROCESS_GLOBAL_REDIS_EVENTS};
