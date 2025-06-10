@@ -200,6 +200,8 @@ paths:
 
           - an object sent in the packagings field will replace any pre-existing data.
           - an object sent in the field suffixed with _add (e.g. packagings_add) will be merged with any pre-existing data.       
+      tags:
+        - Write Requests
       responses:
         "200":
           description: |-
@@ -446,7 +448,7 @@ paths:
 
         If a string is passed, an additional sort is done to put first suggestions that start with the string, followed by suggestions with a word that start with the string, and then suggestions that contain the string anywhere.
       parameters:
-        - $ref: ./api.yml#/components/parameters/tagtype
+        - $ref: ./api.yaml#/components/parameters/tagtype
         - $ref: "#/components/parameters/cc"
         - $ref: "#/components/parameters/lc"
         - schema:

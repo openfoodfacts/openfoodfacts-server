@@ -70,6 +70,8 @@ synonyms:en: hydrolysed, hydrolyzed
 
 synonyms:en: pasteurised, pasteurized
 
+synonyms:en: grey, gray
+
 synonyms:fr: de production biologique, issu de l'agriculture biologique
 
 synonyms:en: wholemeal, whole, whole grain, wholegrain, complete
@@ -14879,16 +14881,16 @@ vegetarian:en: maybe
 # comment:en:In some languages one distinghuishes between edible and non-edible oils
 
 < en:oil and fat
-en: vegetable oil and fat
+en: vegetable oil and fat, vegetable fat and oil
 bg: растително масло и мазнина, растителни мазнини и масла
 ca: Oli i greix vegetal
 cs: Rostlinný olej a tuk
-da: Vegetabilsk olie og fedt
+da: vegetabilsk olie og fedt, vegetabilsk fedt og olie
 de: pflanzliche Öle und Fette
 el: Φυτικά έλαια και λίπη
 es: aceites y grasas vegetales
 et: taimsed rasvad ja õlid
-fi: kasviöljy ja -rasva, kasviöljyt ja -rasvat
+fi: kasviöljy ja -rasva, kasviöljyt ja -rasvat, kasvirasva ja -öljy
 fr: huiles et graisses végétales, graisses et huiles végétales, graisse et huile végétales, huiles et matières grasses végétales, huile et graisses végétales, huile et graisse végétale, graisse et huiles végétales, huile et graisse végétales, graisses et huile végétales, huiles végétales hydrogénées et non hydrogénées
 he: שומן ושמן מן הצומח
 hr: biljna ulja i masnoće, biljna ulja i masti
@@ -24267,6 +24269,7 @@ es: escaña menor, escanda menor, espelta pequeña, escaña cultivada
 fi: einkorn-vehnä, einkorn
 fr: petit épeautre, engrain
 hr: jednozrna pšenica
+hu: alakor, alakor búza
 it: piccolo farro, farro monococco
 ja: ヒトツブコムギ
 la: Triticum monococcum
@@ -24331,7 +24334,7 @@ ecobalyse_origins_en_france:en: 38788025-a65e-4edf-a92f-aab0b89b0d61
 
 < en:wheat
 en: durum wheat, hard wheat
-af: durum
+xx: durum
 ar: قمح صلب
 bg: твърда пшеница
 ca: blat dur
@@ -24360,7 +24363,6 @@ ky: катуу буудай
 la: Triticum durum, Triticum turgidum subsp. durum
 lt: kietasis kvietys
 lv: cietais kviesis
-ms: durum
 mt: qamħ durum
 nb: durumhvete
 nl: durum tarwe, durumtarwe
@@ -24434,7 +24436,7 @@ fr: blé dur complet
 # ingredient/fr:ble-dur-complet has 6 products in 1 language @2020-06-08
 hr: durum pšenice
 it: grano duro integrale
-sv: fullkornsdurumvetemjöl, fullkornsmjöl av durumvete
+sv: fullkornsdurumvete, fullkorms durumvete
 ciqual_food_code:en: 9060
 ciqual_food_name:en: Durum wheat, whole, raw
 ciqual_food_name:fr: Blé dur entier, cru
@@ -24452,6 +24454,7 @@ it: farina di grano duro integrale, farina integrale di grano duro
 nl: volkoren tarwegriesmeel
 pl: pełnoziarnista mąka z pszenicy durum, pełnoziarnista mąka z pszenicy twardej, mąka pełnoziarnista z pszenicy twardej
 ru: цельно зерновая мука из твердых сортов пшеницы
+sv: fullkornsdurumvetemjöl, fullkornsmjöl av durumvete
 
 < en:durum wheat
 < en:wheat sourdough
@@ -24577,7 +24580,7 @@ pt: semola integral de trigo duro
 ru: Органичесая цельнозерновая мука из твердых сортов пшеницы
 sl: polnozrnati pšenični zdrob durum
 sr: integralna krupica durum pšenice
-sv: fullkornsdurumvete
+sv: fullkornsdurumvetesemolina
 # 350 in 20 @2021-09-28
 
 < en:whole durum wheat semolina
@@ -24592,18 +24595,14 @@ fr: semoule de blé dur précuite
 
 # description:en:Freekeh (sometimes spelled frikeh) or farik is a cereal food made from green durum wheat (Triticum turgidum var. durum) that is roasted and rubbed to create its flavour.
 < en:durum wheat
-en: freekeh, cooked spelt freekeh, frik
+en: freekeh, frik, cooked spelt freekeh
+xx: freekeh
 ar: فريكة
 ba: фәрикә
 de: Freekeh, Farik
-fr: frik, freekeh, blé vert freekeh, blé concassé frik, blé concassé
+fr: frik, blé vert freekeh, blé concassé frik, blé concassé
 he: פריקה
-hr: freekeh
-it: freekeh
 ja: フリーカ
-jv: freekeh
-nl: freekeh
-pt: freekeh
 ru: фрике
 tr: firik
 zh: 翡麦
@@ -24615,15 +24614,16 @@ wikipedia:en: https://en.wikipedia.org/wiki/Freekeh
 
 # (Triticum turgidum L. subsp. turgidum),
 < en:wheat
-en: poulard wheat, rivet wheat, cone wheat
+en: rivet wheat, poulard wheat, cone wheat
 fr: blé poulard
 hr: pularna pšenica
+hu: hasas vagy angol búza
 it: grano Poulard
-la: Triticum turgidum L. subsp. turgidu
+la: Triticum turgidum L. subsp. turgidum
 rare_crop:en: yes
 
 < en:poulard wheat
-fr: pulard d'Auvergne, blé poulard d'Auvergne
+fr: poulard d'Auvergne, blé poulard d'Auvergne
 rare_crop:en: yes
 
 < en:poulard wheat
@@ -24633,6 +24633,11 @@ rare_crop:en: yes
 < en:poulard wheat
 fr: pétanielle noire de Nice
 rare_crop:en: yes
+
+< en:durum wheat
+en: durum wheat kernels, durum kernels
+da: durumkerner
+sv: durumkärnor
 
 
 ##################################################################################
@@ -24994,7 +24999,7 @@ fi: emmervehnä
 fr: blé amidonnier, amidonnier
 hi: खपली गेहूँ
 hr: emmer
-hu: tönkebúza
+hu: tönkebúza, tönke, emmer, emmer búza
 hy: Հաճար
 it: grano farro, farro dicocco, farro, emmer
 ja: エンマーコムギ
@@ -25012,6 +25017,7 @@ tr: Kavılca buğdayı
 uk: Полба
 zh: 二粒小麦
 allergens:en: en:gluten
+rare_crop:en: yes
 wikidata:en: Q167339
 
 < en:cereal flour
@@ -36454,6 +36460,8 @@ sv: sojabas
 # it:salsa di soia translation error
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-soja
 # 253 products in 7 languages @2018-09-25
+vegan:en: maybe
+vegetarian:en: yes
 
 < en:soya bean
 en: Okara, soy pulp
@@ -37198,7 +37206,7 @@ de: Roggenvollkornsauerteig
 fi: täysjyväruistaikinajuuri
 hr: cijelo raženo kiselo tijesto
 it: pasta madre di segale integrale
-sv: surdeg av fullkornsrågmjöl, surdeg av fullkornsrågmöl, surdeg på fullkornsråg
+sv: surdeg av fullkornsrågmjöl, surdeg av fullkornsrågmöl, surdeg på fullkornsråg, surdeg av fullkornsråg
 
 < en:rye sourdough
 fr: levain de seigle dévitalisé
@@ -37393,6 +37401,16 @@ de: fruchtmischung
 es: mix de frutas, mezcla de frutas
 hr: miješano voće
 it: frutta mista
+
+< en:mixed fruit
+en: mango apple mix
+da: mango-æble mix
+de: Mango-Apfel Mischung
+fi: mango-omenasekoitus
+fr: mélange de mangue et de pomme
+nb: mango-eple mix
+nl: mango-appel mix
+sv: mango-äpple mix
 
 < en:mixed fruit
 en: mixed peel
@@ -41669,7 +41687,7 @@ eo: limeo
 es: lima
 eu: Lima
 fa: لیموترش سبز
-fi: limetti
+fi: limetti, limea, lime
 fr: citron vert
 ga: Líoma
 gl: Lima
@@ -42997,6 +43015,7 @@ it: pezzi di ribes nero
 < en:blackcurrant
 en: blackcurrant juice from concentrate
 cs: ovocná šťáva z koncentrátu černého rybízu
+da: solbærsaft fra koncentrat
 de: schwarzer Johannisbeersaft aus Konzentrat, schwarze Johannisbeere-Konzentrat
 es: zumo de cassis a base de concentrado, jugo de cassis a base de concentrado
 fi: mustaherukkamehu tiivisteestä
@@ -43004,6 +43023,7 @@ fr: jus de cassis à base de concentré
 hr: sok brusnice u granulama
 it: succo di ribes nero da concentrato
 nl: zwarte bessensap op basis van concentraat
+sv: svartvinbärsjuice från koncentrat
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-cassis-à-base-de-concentré
 # 144 in 8 @2021-09-12
 
@@ -48930,7 +48950,7 @@ en: vegetable, vegetables
 bg: зеленчук, зеленчуци
 ca: Vegetals, Verdures
 cs: Zelenina
-da: grøntsag, grøntsager
+da: grøntsag, grøntsager, grønsag, grønsager
 de: Gemüse
 el: λαχανικό, λαχανικά
 es: verduras, hortaliza, hortalizas, vegetal, vegetales
@@ -49577,7 +49597,7 @@ pt: acelga
 ro: Mangold
 ru: мангольд
 sr: блитва
-sv: Mangold
+sv: mangold
 tr: Pazı
 uk: Мангольд
 zh: 莙薘菜
@@ -49618,6 +49638,10 @@ de: Rübenkonzentrat
 fr: concentrés de blettes
 hr: koncentrat blitve
 it: concentrato di bietola
+
+< en:chard
+en: red chard
+sv: röd mangold
 
 < en:leaf vegetable
 en: spinach
@@ -53575,7 +53599,7 @@ ru: лук скорода
 sk: pažítka
 sl: drobnjak
 sr: vlašac
-sv: gräslök
+sv: gräslök, gräslöks
 ta: இனப்பூண்டு
 tr: yaprak soğanı
 uk: цибуля-різанець
@@ -56577,7 +56601,13 @@ it: insalata composta
 # do not make pepper a synonym of bell pepper
 
 < en:fruit vegetable
-en: bell pepper, sweet pepper, capsicum
+en: capsicum annuum
+xx: capsicum annuum, capsicum
+sv: spanskpeppar, spansk peppar
+wikidata:en: Q1380
+
+< en:capsicum annuum
+en: bell pepper, sweet pepper
 af: soetrissie
 an: pimiento
 ar: فلفل حلو
@@ -57084,40 +57114,34 @@ fr: piment doux
 # description:en:The JALAPEÑO is a medium-sized chili pepper pod type cultivar of the species Capsicum annuum.
 
 < en:chili pepper
-en: jalapeno pepper, jalapeño, jalapeño pepper, jalapeño chili, jalapeño chilli, jalapeño chillies, jalapeno
+en: jalapeno pepper, jalapeño pepper, jalapeño chilli, jalapeño chillies
+xx: jalapeño, jalapeños, jalapeño chili, jalapeno, jalapenos, jalapeno chili
 ar: هالبينو
 bg: халапеньо, чушки халапеньо
 ca: bitxo jalapeño
-cs: jalapeño
-da: jalapeno, jalapeño
+da: jalapeño chili
 de: Jalapeno-Chilis, Jalapenopfeffer
 eo: ĥalapenjokapsiko
-es: Pimientos Jalapeños, jalapeno, pimiento jalapeño rojo
-et: jalapeño, jalapeno
+es: Pimientos Jalapeños, pimiento jalapeño rojo
 fa: هالاپینو
-fi: jalapeño, jalapeno, jalapenot
+fi: jalapeño, jalapenot, jalapeñoa
 fr: piments jalapeño, piment jalapeño
 gl: pemento xalapeño
 he: חלפניו
 hr: jalapeno papričica
-hu: jalapeno paprika, jalapeno
+hu: jalapeno paprika
 hy: հալապենո
-id: jalapeño
 it: Peperoncini jalapeños
 ja: ハラペーニョ
 kn: ಹಾಲಪೇನ್ಯೊ
 ko: 할라페뇨
 ml: ഹലപീനൊ
-nb: jalapeño
 nl: Jalapeno pepers, jalapeño peper
-pl: papryczki jalapeño, jalapeño, papryka jalapeño
+pl: papryczki jalapeño, papryka jalapeño
 pt: pimenta-jalapenho
 ru: халапеньо
-sk: jalapeño
-sv: Jalapeno peppar, jalapeño, jalapeno, jalapeños, jalapeñochili
+sv: jalapeñopeppar, jalapenopeppar, jalapeño peppar, jalapeno peppar, jalapeñochili
 th: ฆาลาเปญโญ
-tl: jalapeño
-tr: jalapeño
 uk: халапеньйо
 zh: 墨西哥辣椒
 wikidata:en: Q504133
@@ -57126,6 +57150,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Jalape%C3%B1o
 
 < en:jalapeno pepper
 en: green jalapeno peppers, green jalapeno
+da: grøn jalapeño, grønne jalapeños
 de: grüne jalapenos
 fi: vihreä jalapeño, vihreä jalapeno, vihreät jalapenot
 fr: piment jalapeño vert
@@ -57138,29 +57163,19 @@ sv: grön jalapeño
 
 < en:jalapeno pepper
 en: chipotle, chipotle chilli, chipotle chile, chipotle pepper
+xx: chipotle, chipotle chili
 bg: Chipotle чили пипер
-ca: chipotle
-cs: chipotle
-da: chipotle
 de: Chipotle, Chipotle Chili, Chipotle Chilischoten
 el: τσιπότλε
-es: chile chipotle, chipotle
-fi: chipotle, chipotle chili
+es: chile chipotle
 fr: chipotle, piment chipotle
-gl: chipotle
 he: צ'יפוטלה
-hr: chipotle
-hu: chipotle
 it: chipotle, pepe chipotle
 ja: チポトレ
 kn: ಚಿಪೋಟ್ಲೆ
 ko: 치폴레
-nb: chipotle
-nl: chipotle
-pl: papryka chipotle, chipotle chili
-pt: chipotle
+pl: papryka chipotle
 ru: чипотле
-sv: chipotle
 th: ชิโปตเล
 uk: чипотле
 # nah:chīlpoctli
@@ -58784,7 +58799,7 @@ he: שעועית מצויה
 hi: सामान्य फलियाँ
 hr: grah
 ht: Pwa nouris
-hu: Veteménybab
+hu: Veteménybab, Közönséges bab
 hy: լոբի
 id: Buncis
 io: Fazeolo
@@ -58834,6 +58849,7 @@ zh: 菜豆
 carbon_footprint_fr_foodges_ingredient:fr: Haricot blanc en conserve (type cassoulet)
 carbon_footprint_fr_foodges_value:fr: 2
 eurocode_2_group_3:en: 7.10.30
+rare_crop:en: yes
 # azb:عادی لوْبیا
 # bar:Fisoin
 # chr:ᏚᏯ
@@ -59188,6 +59204,7 @@ fr: haricot de Lima, haricots de Lima
 ga: pónaire mhór
 hr: lima grah
 ht: pwachouk
+hu: Limabab, Lima bab
 id: kacang kratok, kacang jawa, kekara
 it: fagiolo di Lima
 ja: ライマメ
@@ -59198,7 +59215,7 @@ ms: kacang serinding, kacang keratuk, kacang kratok, kacang cina
 nb: limabønne, limabønner
 nl: limaboon, Indische maanboon, wilgenbladboon, olifantsboon
 pl: fasola półksiężycowata
-pt: feijão-de-lima
+pt: feijão de lima
 ru: фасоль луновидная, Фасо́ль лунообра́зная, фасоль ли́мская, фасоль лу́нная
 sr: лима пасуљ, lima pasulj
 su: roay, kacang jawa, kekara
@@ -59245,6 +59262,7 @@ es: frijol pinto
 fr: Haricots pinto
 hr: grah crnobijeli
 it: fagioli pinto
+sv: pintobönor, pintoböna
 eurocode_2_group_3:en: 7.10.30
 eurocode_2_group_4:en: 7.10.30.45
 
@@ -59275,6 +59293,7 @@ sv: stora vita bönor
 < en:white beans
 en: lingot beans, white lingot beans
 fr: lingots blancs, lingo blanc, haricots lingots blancs, haricots blancs lingots, lingot, lingots, lingots blancs
+hu: lingot bab
 it: fagioli lingotti
 rare_crop:en: yes
 
@@ -59628,7 +59647,7 @@ fr: lupin, lupins, lupin doux, lupins doux
 ga: lúipín
 he: תורמוס
 hr: lupin, lupina, lupinu
-hu: csillagfürt
+hu: csillagfürt, csillagfürt bab
 hy: լուպին
 id: lupino
 is: úlfabaunir
@@ -59689,6 +59708,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Lupin_bean
 en: white lupin
 fr: lupin blanc, lupin blanc doux
 hr: bijela lupina
+hu: fehér csillagfürt
 it: lupino bianco
 la: lupinus albus
 rare_crop:en: yes
@@ -59697,6 +59717,7 @@ rare_crop:en: yes
 en: blue lupine
 fr: lupin bleu, lupin bleu doux
 hr: plava lupina
+hu: kék csillagfürt
 it: lupino blu
 la: lupinus angustifolius
 
@@ -59704,6 +59725,7 @@ la: lupinus angustifolius
 en: yellow lupin
 fr: lupin jaune, lupin jaune doux
 hr: žuta lupina
+hu: sárga csillagfürt
 it: lupino giallo
 la: lupinus luteus
 
@@ -59773,7 +59795,7 @@ gl: Faballón
 he: פול
 hi: बकला
 hr: bob
-hu: lóbab
+hu: lóbab, holdbab
 hy: Բակլա
 id: Kara oncet
 io: Fabo
@@ -59887,8 +59909,9 @@ eurocode_2_group_3:en: 8.45.20
 
 # rare bean from the Lyon region in France
 < en:pulse
-en: meat bean
-fr: haricot viande, haricots viande
+en: meat bean, bean of Bresse, Chartreuse and Oisan bean
+fr: haricot viande, haricots viande, haricot de Bresse, haricot de Chartreuse et d'Oisan
+hu: húsbab
 it: fagiolo di carne
 rare_crop:en: yes
 
@@ -59959,6 +59982,7 @@ gu: ચોળા
 he: לוביה
 hi: लोबिया
 hr: kravlji grah
+hu: tehénborsó, homoki bab
 is: Augnbaun
 it: fagiolo dall'occhio
 ja: ササゲ
@@ -60123,10 +60147,10 @@ zh: 豌豆
 # zh-tw:豌豆
 # wikidata:en:Q29472543 (seems more the vegetable)
 eurocode_2_group_3:en: 8.45.10
-wikipedia:en: https://en.wikipedia.org/wiki/Pea
 # ingredient/fr:pois has 259 products in 7 languages @2019-05-10
 # usage:fr:amidon (blé, pomme de terre, pois, maïs)
-
+rare_crop:en: yes
+wikipedia:en: https://en.wikipedia.org/wiki/Pea
 
 # <en:pea
 # fr:extrait de pois # see ingredients_processing.txt
@@ -60135,6 +60159,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Pea
 < en:pea
 en: yellow pea
 de: Palerbse, Palerbsen
+fr: pois jaune, pois jaunes
 it: pisello giallo
 
 # description:en:The chickpea or chick pea (Cicer arietinum) is an annual legume of the family Fabaceae, subfamily Faboideae.
@@ -60180,6 +60205,7 @@ kk: нұт
 kn: ಕಡಲೆ
 ko: 병아리콩
 ku: nok
+la: cicer arietinum
 lb: käicher
 lt: avinžirniai
 lv: auna zirņi
@@ -60228,6 +60254,7 @@ ciqual_food_name:fr: Pois chiche, appertisé, égoutté
 ecobalyse:en: chickpea-fr
 ecobalyse_labels_en_organic:en: chickpea-organic
 eurocode_2_group_3:en: 7.10.15
+rare_crop:en: yes
 # aeb-arab:حمص
 # arc:ܚܪܛܘܡܢܐ
 # azb:نوخود
@@ -60259,23 +60286,6 @@ hr: pedrosillano slanutak
 it: ceci pedrosillani
 nl: pedrosillano kikkererwten
 #3 in es @2021-10-16
-
-# This is the plant, not the peas themselves
-
-< en:chickpea
-en: Cicer arietinum
-it: cicer arietinum
-la: Cicer arietinum
-
-#<en:chickpea
-#en:organic chickpea
-#bg:био нахут
-#fi:luomukikherne, luomu kikherne
-#fr:Pois chiches biologiques
-#10@2019-06-12
-
-< en:chickpea
-fr: pois chiches précuits
 
 # <en:compound
 #processing:en: en:cooked
@@ -60569,7 +60579,9 @@ en: grey pea, grey peas
 fr: pois gris
 hr: sivi grašak
 it: pisello grigio
+la: pisum sativum subsp. arvense
 sv: gråärtan
+rare_crop:en: yes
 
 < en:pea
 en: grass pea, grass peas, cicerchia, blue sweet pea, chickling pea
@@ -60578,6 +60590,7 @@ es: almorta, Chícharo, chicharo
 fi: peltonätkelmä
 fr: pois carré, pois carrés, gesse
 hr: trava grašak
+hu: Szegletes lednek
 it: cicerchia
 la: lathyrus sativus
 pt: chícharo
@@ -60624,7 +60637,7 @@ gu: મસુર
 he: עדשה תרבותית
 hi: मसूर
 hr: leća
-hu: főzeléklencse
+hu: főzeléklencse, lencse
 is: Linsubaun
 it: Lenticchie, lenticchia
 ja: レンズマメ
@@ -60676,6 +60689,7 @@ ciqual_food_name:fr: Lentille, bouillie/cuite à l'eau
 ecobalyse:en: lentils-uncooked-eu
 ecobalyse_origins_en_france:en: lentils-uncooked-fr
 eurocode_2_group_3:en: 7.10.25
+rare_crop:en: yes
 # aeb-arab:عدس
 # azb:مرجیمک
 # ckb:نیسک
@@ -60911,6 +60925,19 @@ de: Linsenvollkornmehl
 es: harina integral de lenteja
 hr: integralno brašno od leće
 it: farina integrale di lenticchie
+
+< en:plant protein
+en: lentil protein
+da: linseprotein
+fi: linssiproteiinia
+sv: linsprotein
+
+< en:lentil protein
+< en:preparation
+en: lentil protein preparation
+da: linseproteinpræparat
+fi: linssiproteiinivalmiste
+sv: beredning av linsprotein
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -67558,7 +67585,7 @@ ko: 백리향
 la: thymus vulgaris
 lt: čiobrelis
 ml: തോട്ടതുളസി
-nb: thyme
+nb: timian
 nl: tijm, thijm
 nn: timian
 or: ଦଅଣା
@@ -85647,6 +85674,7 @@ ko: 칠면조고기
 nl: kalkoenvlees
 nn: kalkunkjøt
 pl: Mięso indyka, mięso z indyka, mięso drobiowe z indyka
+pt: carne de peru
 ro: carne de curcan
 ru: индюшатина
 sv: Kalkonkött
@@ -85684,6 +85712,7 @@ hr: pureći file od prsa, file purećih prsa
 it: Filetto di tacchino, petto di tacchino
 nl: Kalkoenfilet
 pl: pierś indyka, pierś z indyka, mięso z piersi indyka
+pt: Peito de peru
 sv: kalkonbröst
 tr: hindi göğsü
 # ingredient/fr:filet-de-dinde has 162 products in 5 languages @2019-04-16
@@ -87657,7 +87686,9 @@ wikipedia:en: https://en.wikipedia.org/wiki/Food_browning
 # Compound ingredients are ingredients that have sub-ingredients. Usually a compound ingredient is followed by a list of other ingredients.
 # the word preparation - like berry preparation, for example - also correspond to previous definition of compound
 en: preparation
+da: præparat
 it: preparazione
+sv: beredning
 
 # description:en:Stuffing or filling is an edible substance or mixture, normally consisting primarily of small cut-up pieces of bread or a similar starch and served as a side dish or used to fill a cavity in another food item while cooking. Many foods may be stuffed, including eggs, poultry, seafood, mammals, and vegetables, but chickens and turkey are the most common.
 
@@ -88166,7 +88197,6 @@ nl: pasta uit durumtarwe
 ro: griş integral de grâu dur
 sk: múka z tvrdej pšenice
 sr: дурум пшенице гриз паста
-sv: fullkorms durumvete
 # 10@2019-06-04
 carbon_footprint_fr_foodges_ingredient:fr: Pâtes sèches
 carbon_footprint_fr_foodges_value:fr: 0.5
@@ -91365,7 +91395,7 @@ pt: leite de soja
 ru: Соевое молоко
 sk: Sójové mlieko
 sr: Sojino mleko
-sv: Sojamjölk
+sv: sojamjölk
 te: సోయా పాలు
 th: น้ำเต้าหู้
 tr: Soya sütü
@@ -93960,3 +93990,4 @@ sv: paprika
 en: vitamin and mineral blend, vitamin and mineral mix
 it: vitamine e minerali misti
 ru: витаминно минеральный премикс, витаминный премикс
+

@@ -434,10 +434,12 @@
 
 <off-webcomponents-configuration
   language-code="fr"
+  country-code="fr"
   robotoff-configuration='{
     "apiUrl": "//backend:8881//api/v1",
     "imgUrl": "//images.openfoodfacts.localhost/images/products"
-}'
+  }'
+  openfoodfacts-api-url="//fr.openfoodfacts.localhost"
   assets-images-path="//static.openfoodfacts.localhost/css/dist/images"
 ></off-webcomponents-configuration>
 
@@ -624,24 +626,17 @@
 <!-- end templates/web/common/includes/display_field.tt.html -->
 
 
-                        
+                       
                             <!-- Anonymous users will only be able to vote see AnnotationVote in robotoff,
                                 the voter uniqueness is based on a hash of its ip address -->
-                            <div class="alert-box block_blue is_hidden">
-  <robotoff-question
-    product-code="3300000000001"
-    options='{"showMessage": true, "showLoading": true, "showError": true, "showImage": true}'
-    id="robotoff-question"
-  ></robotoff-question>
-</div>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    window.listenEventToShowHideAlert("question-state", "robotoff-question");
-  });
-</script>
+                            <!-- show only questions if user is not logged in -->
+<robotoff-contribution-message
+  product-code="3300000000001"
+  id="robotoff-contribution-message"
+  
+></robotoff-contribution-message>
 
                         
-
                     
 
                     </div>
@@ -650,7 +645,6 @@
         </div>
     </section>
 
-    
 
     <!-- product summary -->
     <section class="row" id="match">

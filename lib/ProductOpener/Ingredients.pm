@@ -100,6 +100,8 @@ BEGIN {
 		&assign_property_to_ingredients
 
 		&get_ingredients_with_property_value
+
+		&detect_rare_crops
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -1209,9 +1211,16 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 				if $log->is_debug();
 		}
 
-		if (($ingredients_lc eq "en") || ($ingredients_lc eq "fr") || ($ingredients_lc eq "sv")) {
+		# Keeping English and French first, since those are (by far) the most common languages OFF is used in/with
+		# Sorting alphabetically after those
+		if (   ($ingredients_lc eq "en")
+			|| ($ingredients_lc eq "fr")
+			|| ($ingredients_lc eq "da")
+			|| ($ingredients_lc eq "sv"))
+		{
 			# Origin of the milk: United Kingdom
 			# Origine du Cacao: Pérou
+			# Oprindelse jalapeño chili: Peru
 			# Ursprung fullkornsrågmjöl: Sverige och Danmark
 			if (match_origin_of_the_ingredient_origin($ingredients_lc, \$text, $matched_ingredient_ref)) {
 				$origins = $matched_ingredient_ref->{origins};
@@ -1348,7 +1357,9 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 		bg => "(?:страна на произход)",
 		cs => "(?:země původu)",
 		ca => "(?:origen)",
+		da => "(?:oprindelse)",
 		es => "(?:origen)",
+		fi => "(?:alkuperä)",
 		fr => "(?:origine (?:de |du |de la |des |de l'))",
 		hr => "(?:zemlja (?:porijekla|podrijetla|porekla)|uzgojeno u)",
 		hu => "(?:származási (?:hely|ország))",
@@ -5992,13 +6003,6 @@ sub clean_ingredients_text ($product_ref) {
 				$text = clean_ingredients_text_for_lang($text, $language);
 
 				if ($text ne $product_ref->{"ingredients_text_" . $language}) {
-
-					my $time = time();
-
-					# Keep a copy of the original ingredients list just in case
-					$product_ref->{"ingredients_text_" . $language . "_ocr_" . $time}
-						= $product_ref->{"ingredients_text_" . $language};
-					$product_ref->{"ingredients_text_" . $language . "_ocr_" . $time . "_result"} = $text;
 					$product_ref->{"ingredients_text_" . $language} = $text;
 				}
 
@@ -8589,6 +8593,31 @@ sub get_ingredients_with_property_value ($ingredients_ref, $property, $value) {
 	}
 
 	return @matching_ingredients;
+}
+
+=head2 detect_rare_crops ( $product_ref )
+
+Detects if the product contains rare crops, and adds the tag
+en:ingredients-contain-rare-crops to the product.
+
+Rare crops are defined by the EU project DIVINFOOD (that OFF is participating in),
+which calls them NUCs (Neglected and Underutilized Crops).
+
+=cut
+
+sub detect_rare_crops($product_ref) {
+
+	remove_tag($product_ref, "misc", "en:ingredients-contain-rare-crops");
+
+	# Go through the ingredients structure, and check if they have the rare_crop:en:yes property
+	my @rare_crops_ingredients
+		= get_ingredients_with_property_value($product_ref->{ingredients}, "rare_crop:en", "yes");
+
+	if ($#rare_crops_ingredients >= 0) {
+		add_tag($product_ref, "misc", "en:ingredients-contain-rare-crops");
+	}
+
+	return;
 }
 
 1;
