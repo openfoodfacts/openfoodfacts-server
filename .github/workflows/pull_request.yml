@@ -119,16 +119,9 @@ jobs:
         restore-keys: taxonomies-
     - name: Download backend image from artifacts
       id: downloadbackendimage
-      uses: ishworkh/container-image-artifact-download@v2.0.0
+      uses: ishworkh/container-image-artifact-download@v2.1.0
       with:
         image: "openfoodfacts-server/backend:dev"
-    # downloadbackendimage task loads the image into docker and keeps the original file.
-    # As our runs tend to hit the storage limits for GitHub Actions, manually delete the
-    # downloaded file for now. It's not needed after being loaded into docker.
-    - name: Remove downloaded image
-      env:
-        FILE: "${{ steps.downloadbackendimage.outputs.download_path }}"
-      run: rm $FILE
     - name: build taxonomies (should use cache)
       run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
     - name: check taxonomies
@@ -159,16 +152,9 @@ jobs:
       run: ./.github/scripts/setup_git.sh
     - name: Download backend image from artifacts
       id: downloadbackendimage
-      uses: ishworkh/container-image-artifact-download@v2.0.0
+      uses: ishworkh/container-image-artifact-download@v2.1.0
       with:
-        image: "openfoodfacts-server/backend:dev"       
-    # downloadbackendimage task loads the image into docker and keeps the original file.
-    # As our runs tend to hit the storage limits for GitHub Actions, manually delete the
-    # downloaded file for now. It's not needed after being loaded into docker.
-    - name: Remove downloaded image
-      env:
-        FILE: "${{ steps.downloadbackendimage.outputs.download_path }}"
-      run: rm $FILE
+        image: "openfoodfacts-server/backend:dev"
     - name: tests
       run: |
         make codecov_prepare
@@ -209,16 +195,9 @@ jobs:
         restore-keys: taxonomies-
     - name: Download backend image from artifacts
       id: downloadbackendimage
-      uses: ishworkh/container-image-artifact-download@v2.0.0
+      uses: ishworkh/container-image-artifact-download@v2.1.0
       with:
         image: "openfoodfacts-server/backend:dev"
-    # downloadbackendimage task loads the image into docker and keeps the original file.
-    # As our runs tend to hit the storage limits for GitHub Actions, manually delete the
-    # downloaded file for now. It's not needed after being loaded into docker.
-    - name: Remove downloaded image
-      env:
-        FILE: "${{ steps.downloadbackendimage.outputs.download_path }}"
-      run: rm $FILE
     - name: set right UID and GID in .envrc
       run: |
         rm -f .envrc
