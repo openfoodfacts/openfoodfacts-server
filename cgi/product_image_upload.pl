@@ -296,8 +296,8 @@ if ($imagefield) {
 
 		if ($User{moderator}) {
 			$product_ref = retrieve_product($product_id);
-			$image_data_ref->{uploader} = $product_ref->{images}{$imgid}{uploader};
-			$image_data_ref->{uploaded} = $product_ref->{images}{$imgid}{uploaded_t};
+			$image_data_ref->{uploader} = $product_ref->{images}{uploaded}{$imgid}{uploader};
+			$image_data_ref->{uploaded} = display_date($product_ref->{images}{uploaded}{$imgid}{uploaded_t});
 		}
 
 		my $product_name = remove_tags_and_quote(product_name_brand_quantity($product_ref));

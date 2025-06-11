@@ -165,7 +165,7 @@ use Encode;
 use JSON::MaybeXS;
 use MIME::Base64;
 use LWP::UserAgent;
-use File::Copy;
+use File::Copy qw/move/;
 use Clone qw/clone/;
 use boolean;
 
@@ -1237,6 +1237,52 @@ sub process_image_upload_using_filehandle ($product_ref, $filehandle, $user_id, 
 	return $imgid;
 }
 
+=head2 remove_images_by_prefix ( $product_ref, $prefix )
+
+This function removes images files from a product by a given prefix (matching uploaded images or selected images).
+The image files are moved to a deleted directory.
+
+=head3 Arguments
+
+=head4 $product_ref
+
+A reference to the product data structure.
+
+=head4 $prefix
+
+The prefix of the images to be removed.
+
+For uploaded images, the prefix is the imgid.
+
+For selected images, the prefix is the image type and language code + the product revision.
+ e.g. "ingredients_en.5" or "nutrition_fr.6".
+
+=cut
+
+sub remove_images_by_prefix($product_ref, $prefix) {
+
+	my $code = $product_ref->{code};
+	my $path = product_path($product_ref);
+
+	# We move deleted images to the deleted.images dir
+	my $images_glob = "$BASE_DIRS{PRODUCTS_IMAGES}/$path/$prefix.*";
+	my $deleted_images_dir = "$BASE_DIRS{DELETED_IMAGES}/$code";
+	ensure_dir_created_or_die($deleted_images_dir);
+
+	$log->debug(
+		"moving images to deleted images directory",
+		{
+			images_glob => $images_glob,
+			destination_dir => $deleted_images_dir
+		}
+	) if $log->is_debug();
+
+	my @files = glob($images_glob);
+	move($_, $deleted_images_dir) for @files;
+
+	return;
+}
+
 =head2 delete_uploaded_image_and_associated_selected_images ( $product_ref, $imgid )
 
 This function deletes an uploaded image and its associated selected images.
@@ -1263,9 +1309,6 @@ The image id to be deleted.
 
 sub delete_uploaded_image_and_associated_selected_images($product_ref, $imgid) {
 
-	my $code = $product_ref->{code};
-	my $path = product_path($product_ref);
-
 	# Check if the image exists
 	if (not defined $product_ref->{images}{uploaded}{$imgid}) {
 		$log->error("image not found", {imgid => $imgid, product_id => $product_ref->{id}})
@@ -1273,29 +1316,8 @@ sub delete_uploaded_image_and_associated_selected_images($product_ref, $imgid) {
 		return -1;
 	}
 
-	# We move deleted images to the deleted.images dir
-	ensure_dir_created_or_die($BASE_DIRS{DELETED_IMAGES});
-
-	File::Copy->import(qw( move ));
-
-	$log->info(
-		"moving source image to deleted images directory",
-		{
-			source_path => "$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.jpg",
-			destination_path => "$BASE_DIRS{DELETED_IMAGES}/product.$code.$imgid.jpg"
-		}
-	);
-
-	move("$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.jpg", "$BASE_DIRS{DELETED_IMAGES}/product.$code.$imgid.jpg");
-	move(
-		"$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.$thumb_size.jpg",
-		"$BASE_DIRS{DELETED_IMAGES}/product.$code.$imgid.$thumb_size.jpg"
-	);
-	move(
-		"$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.$crop_size.jpg",
-		"$BASE_DIRS{DELETED_IMAGES}/product.$code.$imgid.$crop_size.jpg"
-	);
-
+	# Uploaded images start with [imgid].
+	remove_images_by_prefix($product_ref, $imgid);
 	delete $product_ref->{images}{uploaded}{$imgid};
 
 	# If we delete an image, we also unselect the images that were selected / cropped from it
@@ -1304,10 +1326,18 @@ sub delete_uploaded_image_and_associated_selected_images($product_ref, $imgid) {
 		foreach my $image_type (keys %{$product_ref->{images}{selected}}) {
 			foreach my $image_lc (keys %{$product_ref->{images}{selected}{$image_type}}) {
 				if ($product_ref->{images}{selected}{$image_type}{$image_lc}{imgid} eq $imgid) {
+
+					my $rev = $product_ref->{images}{selected}{$image_type}{$image_lc}{rev};
+
+					# Unselect the image
 					process_image_unselect($product_ref, $image_type, $image_lc);
 					$log->debug(
 						"Image ${image_type}_${image_lc} unselected because the source image $imgid was deleted", {})
 						if $log->is_debug();
+
+					# Delete the associated image files
+					my $id = $image_type . '_' . $image_lc;
+					remove_images_by_prefix($product_ref, "$id.$rev");
 				}
 			}
 		}
@@ -1351,7 +1381,7 @@ The function returns an error message if there was an error, or undef if the ope
 sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 
 	# move images only to trash or another valid barcode (number)
-	if (($move_to ne 'trash') and ($move_to !~ /^\d+$/)) {
+	if (($move_to ne 'trash') and (not is_valid_code($move_to))) {
 		return "invalid barcode number: $move_to";
 	}
 
@@ -1383,7 +1413,7 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 			my $new_imgid;
 			my $debug;
 
-			if ($move_to =~ /^\d+$/) {
+			if ($move_to ne "trash") {
 				$ok = process_image_upload(
 					$move_to_id,
 					"$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.jpg",
@@ -1440,7 +1470,7 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 			}
 		}
 		else {
-			return -1;
+			return "imgid $imgid not found in product $product_id";
 		}
 	}
 
@@ -1449,7 +1479,7 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 	$log->debug("process_image_move - end", {product_id => $product_id, imgids => $imgids, move_to_id => $move_to_id})
 		if $log->is_debug();
 
-	return 1;
+	return;
 }
 
 =head2 same_image_generation_parameters ( $generation_1_ref, $generation_2_ref )
@@ -1547,11 +1577,12 @@ sub normalize_generation_ref($generation_ref) {
 		if ((defined $generation_ref->{angle}) and ($generation_ref->{angle} % 360 != 0)) {
 			$new_generation_ref->{angle} = $generation_ref->{angle} % 360;    # Force integer
 		}
+		# Keep the boolean values only if they are true
 		if ((defined $generation_ref->{normalize}) and (isTrue($generation_ref->{normalize}))) {
-			$new_generation_ref->{normalize} = $generation_ref->{normalize};
+			$new_generation_ref->{normalize} = true;
 		}
 		if ((defined $generation_ref->{white_magic}) and (isTrue($generation_ref->{white_magic}))) {
-			$new_generation_ref->{white_magic} = $generation_ref->{white_magic};
+			$new_generation_ref->{white_magic} = true;
 		}
 		# When the image is not cropped, we can have 0 or -1 for all coordinates
 		if (    (defined $generation_ref->{x1})
