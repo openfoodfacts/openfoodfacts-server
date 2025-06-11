@@ -200,8 +200,6 @@ paths:
 
           - an object sent in the packagings field will replace any pre-existing data.
           - an object sent in the field suffixed with _add (e.g. packagings_add) will be merged with any pre-existing data.       
-      tags:
-        - Write Requests
       responses:
         "200":
           description: |-
@@ -352,7 +350,7 @@ paths:
                             properties:
                               uploaded:
                                 description: |
-                                  List with only the image just uploaded by the user. The key is the image id (imgid) and the value is an object with the image information.
+                                  List with only the image just uploaded by the user. The key is the image id (imgid) and the value is an object with the image data.
                                 type: object
                                 title: images_uploaded
                                 patternProperties:
