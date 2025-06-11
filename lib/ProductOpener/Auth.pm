@@ -797,7 +797,7 @@ sub get_oidc_configuration () {
 		}
 
 		$oidc_configuration = decode_json($discovery_response->content);
-		$log->info('got discovery document', {discovery => $oidc_configuration}) if $log->is_info();
+		# $log->info('got discovery document', {discovery => $oidc_configuration}) if $log->is_info();
 
 		_load_jwks_configuration_to_oidc_options($oidc_configuration->{jwks_uri});
 	}

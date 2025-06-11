@@ -157,15 +157,6 @@ We create the user properties file locally before, and we create the user in key
 =cut
 
 sub create_or_update_user ($self, $user_ref, $password = undef) {
-	# See if user already exists
-	my $existing_user = $self->find_user_by_username($user_ref->{userid}, 1);
-
-	# use a special application authorization to handle creation
-	my $token = $self->get_or_refresh_token();
-	unless ($token) {
-		die 'Could not get token to manage users with keycloak_users_endpoint';
-	}
-
 	my $credential
 		= defined $password
 		? {
@@ -202,12 +193,41 @@ sub create_or_update_user ($self, $user_ref, $password = undef) {
 			newsletter => ($user_ref->{newsletter} ? 'subscribe' : undef)
 		}
 	};
-	my $json = encode_json($api_request_ref);
 
+	# issue the request to keycloak
+	my $new_user_response = create_or_update_keycloak_user($self, $api_request_ref);
+	unless ($new_user_response->is_success) {
+		my $error_content = decode_json($new_user_response->content);
+		if ($error_content->{errorMessage} eq 'User exists with same email') {
+			$log->error('Duplicate user email not updated in Keycloak', {request => $api_request_ref});
+			# Set the email to null and save the old email in an attribute
+			$api_request_ref->{attributes}{old_email} = $api_request_ref->{email};
+			$api_request_ref->{email} = undef;
+			$api_request_ref->{emailVerified} = $JSON::PP::false;
+			# Try again
+			$new_user_response = create_or_update_keycloak_user($self, $api_request_ref);
+		}
+	}
+	unless ($new_user_response->is_success) {
+		die $new_user_response->content;
+	}
+
+	return;
+}
+
+sub create_or_update_keycloak_user($self, $api_request_ref) {
+	# use a special application authorization to handle creation
+	my $token = $self->get_or_refresh_token();
+	unless ($token) {
+		die 'Could not get token to manage users with keycloak_users_endpoint';
+	}
+
+	# See if user already exists
+	my $existing_user = $self->find_user_by_username($api_request_ref->{username}, 1);
+
+	my $json = encode_json($api_request_ref);
 	$log->info('updating keycloak user', {existing_user => $existing_user, request => $api_request_ref})
 		if $log->is_info();
-
-	print STDERR $json . "\n" . encode_json($existing_user) . "\n";
 
 	# create request with right headers
 	my $upsert_user_request;
@@ -221,13 +241,9 @@ sub create_or_update_user ($self, $user_ref, $password = undef) {
 	$upsert_user_request->header('Content-Type' => 'application/json');
 	$upsert_user_request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
 	$upsert_user_request->content($json);
-	# issue the request to keycloak
-	my $new_user_response = LWP::UserAgent::Plugin->new->request($upsert_user_request);
-	unless ($new_user_response->is_success) {
-		die $new_user_response->content;
-	}
 
-	return;
+	# issue the request to keycloak
+	return LWP::UserAgent::Plugin->new->request($upsert_user_request);
 }
 
 sub delete_user ($self, $userid) {
