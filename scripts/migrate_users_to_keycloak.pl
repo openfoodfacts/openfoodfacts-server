@@ -34,6 +34,7 @@ use LWP::UserAgent;
 use LWP::UserAgent::Plugin 'Retry';
 use HTTP::Request;
 use URI::Escape::XS qw/uri_escape/;
+use List::MoreUtils qw/first_index/;
 
 use Log::Any '$log', default_adapter => 'Stderr';
 
@@ -82,8 +83,6 @@ sub create_user_in_keycloak_with_scrypt_credential ($keycloak_user_ref) {
 		$log->error("$userid : Keycloak error: " . $upsert_user_response->content . "\n$userid : Request: $json\n");
 		return;
 	}
-
-	update_checkpoint($checkpoint_file, $userid);
 
 	return;
 }
@@ -137,7 +136,7 @@ sub convert_to_keycloak_user ($userid, $email, $anonymize) {
 		}
 
 		if ($anonymize) {
-			$keycloak_user_ref->{email} = 'off.' . $userid;
+			$keycloak_user_ref->{email} = 'off.' . $userid . '@openfoodfacts.org';
 			$keycloak_user_ref->{emailVerified} = $JSON::PP::true;
 		}
 		elsif ($email) {
@@ -288,36 +287,40 @@ sub update_checkpoint($checkpoint_file, $checkpoint) {
 	return 1;
 }
 
-my $anonymize = 0;
-if ((scalar @ARGV) > 0 and ('anonymize' eq $ARGV[-1])) {
-	# Anonymize the user data by removing the email address, name, and password.
-	# This is useful for testing the migration script and for adding production data to the test server.
-	$anonymize = 1;
-}
+my $anonymize = (first_index {$_ eq "anonymize"} @ARGV) + 1;
+my $resume = (first_index {$_ eq "resume"} @ARGV) + 1;
 
-$user_emails = (retrieve("all_emails.sto") or validate_user_emails());
+$user_emails = $resume ? retrieve("all_emails.sto") : validate_user_emails();
 
 # Iterate over the user_emails list rather than the directory so that we can apply the null emails first
 # before setting the valid ones. This caters for the preferred user for the email changing between migration runs
-my $total = keys %{$user_emails};
+my @emails = sort keys %{$user_emails};
+my $total = scalar @emails;
 my $count = 0;
-while (my ($email, $user_infos) = each %{$user_emails}) {
+foreach my $email (@emails) {
+	$count++;
+	next if $resume and $email le $checkpoint;
+	if ($resume) {
+		print '[' . localtime() . "] Resuming from $email\n";
+		$resume = 0;
+	}
+	my $user_infos = $user_emails->{$email};
 	foreach my $user_info (@{$user_infos->{users}}) {
 		# Do the null emails (not the favoured userid for the email) first
 		if ($user_info->{userid} ne $user_infos->{userid}) {
-			print '[' . localtime() . "] Invalid email $user_info->{userid}\n";
+			# print '[' . localtime() . "] Invalid email $user_info->{userid}\n";
 			migrate_user($user_info->{userid}, undef, $anonymize);
 		}
 	}
 	# Now do the favoured user
 	if ($user_infos->{userid}) {
-		print '[' . localtime() . "] Valid email $user_infos->{userid}\n";
+		# print '[' . localtime() . "] Valid email $user_infos->{userid}\n";
 		migrate_user($user_infos->{userid}, $email, $anonymize);
 	}
-	$count++;
 	if ($count % 10000 == 0) {
 		print '[' . localtime() . "] Migrated $count / $total\n";
 	}
+	update_checkpoint($checkpoint_file, $email);
 }
 print '[' . localtime() . "] Migrated $count / $total\n";
 
