@@ -63,6 +63,7 @@ BEGIN {
 
 		$facets_kp_url
 		$redis_url
+		$process_global_redis_events
 
 		$mongodb
 		$mongodb_host
@@ -80,6 +81,7 @@ BEGIN {
 
 		%options
 		%server_options
+		%oidc_options
 
 		@product_fields
 		@product_other_fields
@@ -445,6 +447,7 @@ $events_password = $ProductOpener::Config2::events_password;
 
 # Redis is used to push updates to the search server
 $redis_url = $ProductOpener::Config2::redis_url;
+$process_global_redis_events = $ProductOpener::Config2::process_global_redis_events;
 
 # Facets knowledge panels url
 $facets_kp_url = $ProductOpener::Config2::facets_kp_url;
