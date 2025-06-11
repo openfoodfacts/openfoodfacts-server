@@ -1971,7 +1971,7 @@ sub get_image_url ($product_ref, $image_ref, $size) {
 	my $path = product_path($product_ref);
 	my $rev = $image_ref->{rev};
 	my $id = $image_ref->{id};    # contains [image_type]_[lc]
-	return undef unless ((defined $rev) && (defined $id));
+	return unless ((defined $rev) && (defined $id));
 
 	my $url = "$images_subdomain/images/products/$path/$id.$rev.$size.jpg";
 
