@@ -282,35 +282,40 @@ sub convert_schema_1002_to_1001_refactor_images_object ($product_ref) {
 	# We need to convert the images object back to the old format
 	if (exists $product_ref->{images}) {
 		my $images_ref = $product_ref->{images};
+		my $new_images_ref = {};
 		# Copy uploaded images
 		if (exists $images_ref->{uploaded}) {
 			# We need to copy the uploaded images back to the main images object
 			foreach my $imgid (keys %{$images_ref->{uploaded}}) {
-				$product_ref->{images}->{$imgid} = $images_ref->{uploaded}{$imgid};
+				$new_images_ref->{$imgid} = $images_ref->{uploaded}{$imgid};
 			}
-			delete $product_ref->{images}->{uploaded};
 		}
 		# Copy selected images
 		if (exists $images_ref->{selected}) {
 			foreach my $type (keys %{$images_ref->{selected}}) {
 				foreach my $lc (keys %{$images_ref->{selected}->{$type}}) {
 					my $image_ref = $images_ref->{selected}->{$type}->{$lc};
+					my $new_image_ref = {};
+					# copy imgid, rev, sizes
+					$new_image_ref->{imgid} = $image_ref->{imgid};
+					$new_image_ref->{rev} = $image_ref->{rev};
+					$new_image_ref->{sizes} = $image_ref->{sizes};
 					# copy keys from the generation structure to the image structure
 					# and delete the generation structure
 					foreach my $key (keys %{$image_ref->{generation}}) {
-						$image_ref->{$key} = $image_ref->{generation}->{$key};
+						$new_image_ref->{$key} = $image_ref->{generation}->{$key};
 						# Normalize boolean values to "true" or "false" strings
 						if (($key eq 'normalize') or ($key eq 'white_magic')) {
-							$image_ref->{$key} = isTrue(normalize_boolean($image_ref->{$key})) ? "true" : "false";
+							$new_image_ref->{$key} = isTrue(normalize_boolean($new_image_ref->{$key})) ? "true" : "false";
 						}
 					}
-					delete $image_ref->{generation};
-					$product_ref->{images}->{$type . "_" . $lc} = $image_ref;
+					$new_images_ref->{$type . "_" . $lc} = $new_image_ref;
 				}
 			}
-
-			delete $product_ref->{images}->{selected};
 		}
+
+		# Replace the images object with the new one
+		$product_ref->{images} = $new_images_ref;
 	}
 
 	return;

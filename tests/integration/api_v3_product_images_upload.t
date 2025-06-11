@@ -4,7 +4,7 @@ use ProductOpener::PerlStandards;
 
 use Test2::V0;
 use ProductOpener::APITest qw/:all/;
-use ProductOpener::Test qw/remove_all_products remove_all_users/;
+use ProductOpener::Test qw/remove_all_products remove_all_users get_base64_image_data_from_file/;
 use ProductOpener::TestDefaults qw/:all/;
 
 use File::Basename "dirname";
@@ -49,18 +49,6 @@ $resp = edit_user($admin_ua, \%moderator_edit_form);
 ok(!html_displays_error($resp));
 
 my $sample_products_images_path = dirname(__FILE__) . "/inputs/upload_images";
-
-# For API v3 image upload, we will pass the image data as base64 encoded string
-
-sub get_base64_image_data_from_file($path) {
-	my $image_data = '';
-	open(my $image, "<", $path);
-	binmode($image);
-	read $image, my $content, -s $image;
-	close $image;
-	$image_data = encode_base64($content, '');    # no line breaks
-	return $image_data;
-}
 
 my $tests_ref = [
 	{
