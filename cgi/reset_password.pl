@@ -42,7 +42,6 @@ use URI::Escape::XS qw/uri_escape/;
 use Encode;
 use Log::Any qw($log);
 
-
 my $request_ref = ProductOpener::Display::init_request();
 
 if (get_oidc_implementation_level() >= 5) {
@@ -67,7 +66,8 @@ else {
 	my $id = single_param('userid_or_email');
 	my $resetid = single_param('resetid');
 
-	$log->info("start", {type => $type, action => $action, userid_or_email => $id, resetid => $resetid}) if $log->is_info();
+	$log->info("start", {type => $type, action => $action, userid_or_email => $id, resetid => $resetid})
+		if $log->is_info();
 
 	my @errors = ();
 
