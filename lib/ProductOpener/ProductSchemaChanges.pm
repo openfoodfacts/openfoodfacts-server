@@ -306,7 +306,8 @@ sub convert_schema_1002_to_1001_refactor_images_object ($product_ref) {
 						$new_image_ref->{$key} = $image_ref->{generation}->{$key};
 						# Normalize boolean values to "true" or "false" strings
 						if (($key eq 'normalize') or ($key eq 'white_magic')) {
-							$new_image_ref->{$key} = isTrue(normalize_boolean($new_image_ref->{$key})) ? "true" : "false";
+							$new_image_ref->{$key}
+								= isTrue(normalize_boolean($new_image_ref->{$key})) ? "true" : "false";
 						}
 					}
 					$new_images_ref->{$type . "_" . $lc} = $new_image_ref;

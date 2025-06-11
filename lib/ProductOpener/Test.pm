@@ -896,7 +896,6 @@ sub wait_for ($code, $timeout = 3, $poll_time = 1) {
 	return $code->();
 }
 
-
 =head2 get_base64_image_data_from_file ($path)
 
 Get the base64 encoded image data from a file.
@@ -924,6 +923,5 @@ sub get_base64_image_data_from_file ($path) {
 	$image_data = encode_base64($content, '');    # no line breaks
 	return $image_data;
 }
-
 
 1;
