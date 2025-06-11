@@ -9,10 +9,7 @@ use ProductOpener::TestDefaults qw/:all/;
 
 use File::Basename "dirname";
 use Storable qw(dclone);
-use MIME::Base64 qw(encode_base64);
-
 use JSON::MaybeXS qw(encode_json);
-
 use boolean qw/:all/;
 
 my $json = JSON::MaybeXS->new->convert_blessed->utf8->canonical;

@@ -81,6 +81,7 @@ use File::Copy;
 use Path::Tiny qw/path/;
 use Scalar::Util qw(looks_like_number);
 use Test::File::Contents qw/files_eq_or_diff/;
+use MIME::Base64 qw(encode_base64);
 
 use Log::Any qw($log);
 
