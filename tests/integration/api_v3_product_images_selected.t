@@ -36,6 +36,7 @@ sub get_base64_image_data_from_file($path) {
 	return $image_data;
 }
 
+# these tests depends on each other and must be run sequentially
 my $tests_ref = [
 	{
 		test_case => 'post-product-image',
