@@ -423,8 +423,8 @@ sub retrieve_object($path) {
 	my $file_path = $path . '.json';
 	my $sto_path = $path . '.sto';
 
-	#11901: Remove once production is migrated. Use STO file as master source of truth if it exists
-	if (get_serialize_to_json_level() < 2 and -e $sto_path) {
+	#11901: Remove once production is fully migrated. Use STO file as master source of truth if it exists
+	if (-e $sto_path) {
 		return retrieve($sto_path);
 	}
 
@@ -521,7 +521,11 @@ sub move_object($old_path, $new_path) {
 			move("$old_path.sto", "$new_path.sto")
 				or die("could not move sto file from $old_path.sto to $new_path.sto, error: $!");
 		}
-		else {
+		elsif (not -e "$old_path.json") {
+			# Dies if neither the sto or json file exist
+			die("could not move from $old_path to $new_path, no sto or json file found");
+		}
+		if (-e "$old_path.json") {
 			move("$old_path.json", "$new_path.json")
 				or die("could not move json file from $old_path.json to $new_path.json, error: $!");
 		}

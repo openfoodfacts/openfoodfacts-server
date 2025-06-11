@@ -159,6 +159,17 @@ sub write_file($file_path, $content) {
 	is(retrieve_object("$test_path-sto-moved"), {id => "sto-tomove"}, "Sto File moved");
 	ok(!-e "$test_path-stotomove.sto", "Original sto file deleted");
 
+	# Both files are moved if they exist
+	store_object("$test_path-both", {id => "json-both"});
+	lock_store({id => "sto-both"}, "$test_path-both.sto");
+	move_object("$test_path-both", "$test_path-both-moved");
+	ok((-e "$test_path-both-moved.sto" and not -e "$test_path-both.sto"), "STO file is moved");
+	ok((-e "$test_path-both-moved.json" and not -e "$test_path-both.json"), "JSON file is moved");
+
+	# Dies if the source does not exist (comparing with existing behavior)
+	ok(dies {move("$test_path-move-doesnt-exist.sto", "$test_path-move-doesnt-exist-target.sto")}, "move dies if file not found");
+	ok(dies {move_object("$test_path-move-doesnt-exist", "$test_path-move-doesnt-exist-target")}, "move_object dies if file not found");
+
 	# Check dies with an empty JSON file
 	write_file("$test_path-empty.json", "");
 	# Comparison with old retrieve
