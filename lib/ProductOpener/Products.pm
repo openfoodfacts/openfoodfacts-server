@@ -2040,7 +2040,7 @@ sub replace_user_id_in_product ($product_id, $user_id, $new_user_id, $products_c
 
 			# Images uploaders
 
-			if ((defined $product_ref->{images}) and (defined $product_ref->{images}{uploaded})) {
+			if (deep_exists($product_ref, "images", "uploaded")) {
 				foreach my $id (sort keys %{$product_ref->{images}{uploaded}}) {
 					if (    (defined $product_ref->{images}{uploaded}{$id}{uploader})
 						and ($product_ref->{images}{uploaded}{$id}{uploader} eq $user_id))

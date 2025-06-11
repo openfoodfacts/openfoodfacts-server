@@ -1971,6 +1971,7 @@ sub get_image_url ($product_ref, $image_ref, $size) {
 	my $path = product_path($product_ref);
 	my $rev = $image_ref->{rev};
 	my $id = $image_ref->{id};    # contains [image_type]_[lc]
+	return undef unless ((defined $rev) && (defined $id));
 
 	my $url = "$images_subdomain/images/products/$path/$id.$rev.$size.jpg";
 
@@ -2173,7 +2174,7 @@ sub data_to_display_image ($product_ref, $image_type, $target_lc) {
 	my $image_data_ref;
 
 	if (defined $image_ref) {
-		my $id = $image_type . "_" . $image_lc;
+		my $id = $image_ref->{id};
 		my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . lang($image_type . '_alt');
 
 		if ($image_lc ne $target_lc) {
