@@ -299,10 +299,10 @@ $user_emails = (retrieve("all_emails.sto") or validate_user_emails());
 
 # Iterate over the user_emails list rather than the directory so that we can apply the null emails first
 # before setting the valid ones. This caters for the preferred user for the email changing between migration runs
-my $total = keys %{ $user_emails };
+my $total = keys %{$user_emails};
 my $count = 0;
-while(my($email, $user_infos) = each %{ $user_emails }) {
-	foreach my $user_info (@{ $user_infos->{users} }) {
+while (my ($email, $user_infos) = each %{$user_emails}) {
+	foreach my $user_info (@{$user_infos->{users}}) {
 		# Do the null emails (not the favoured userid for the email) first
 		if ($user_info->{userid} ne $user_infos->{userid}) {
 			print '[' . localtime() . "] Invalid email $user_info->{userid}\n";
