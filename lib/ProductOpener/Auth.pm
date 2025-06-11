@@ -854,8 +854,8 @@ sub write_auth_deprecated_headers() {
 		# Add the deprecation warning once we have fully migrated to Keycloak
 		#10558: We still need to implement the mechanism for creating client_id / secrets for API users
 		my $r = Apache2::RequestUtil->request();
-		$r->err_headers_out->set('Deprecation', 'Mon, 01 Apr 2024 00:00:00 GMT');
-		$r->err_headers_out->set('Sunset', 'Tue, 01 Apr 2025 18:00:00 GMT');
+		$r->err_headers_out->set('Deprecation', 'Mon, 01 Jan 2026 00:00:00 GMT');
+		$r->err_headers_out->set('Sunset', 'Tue, 01 Jan 2027 18:00:00 GMT');
 	}
 	return;
 }
