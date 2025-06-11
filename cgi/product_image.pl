@@ -204,8 +204,8 @@ my $creativecommons = sprintf(
 );
 
 $template_data_ref->{display_image_url} = $display_image_url;
-$template_data_ref->{display_size_width} = $product_ref->{images}{$id}{sizes}{$display_size}{w};
-$template_data_ref->{display_size_height} = $product_ref->{images}{$id}{sizes}{$display_size}{h};
+$template_data_ref->{display_size_width} = $image_ref->{sizes}{$display_size}{w};
+$template_data_ref->{display_size_height} = $image_ref->{sizes}{$display_size}{h};
 $template_data_ref->{alt} = $alt;
 $template_data_ref->{full_image_url} = $full_image_url;
 $template_data_ref->{full_size} = $full_size;
