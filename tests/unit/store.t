@@ -167,8 +167,10 @@ sub write_file($file_path, $content) {
 	ok((-e "$test_path-both-moved.json" and not -e "$test_path-both.json"), "JSON file is moved");
 
 	# Dies if the source does not exist (comparing with existing behavior)
-	ok(dies {move("$test_path-move-doesnt-exist.sto", "$test_path-move-doesnt-exist-target.sto")}, "move dies if file not found");
-	ok(dies {move_object("$test_path-move-doesnt-exist", "$test_path-move-doesnt-exist-target")}, "move_object dies if file not found");
+	ok(dies {move("$test_path-move-doesnt-exist.sto", "$test_path-move-doesnt-exist-target.sto")},
+		"move dies if file not found");
+	ok(dies {move_object("$test_path-move-doesnt-exist", "$test_path-move-doesnt-exist-target")},
+		"move_object dies if file not found");
 
 	# Check dies with an empty JSON file
 	write_file("$test_path-empty.json", "");
