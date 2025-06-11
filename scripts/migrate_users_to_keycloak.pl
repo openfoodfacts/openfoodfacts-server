@@ -88,37 +88,8 @@ sub create_user_in_keycloak_with_scrypt_credential ($keycloak_user_ref) {
 	return;
 }
 
-sub import_users_in_keycloak ($users_ref) {
-	my $request_data = {users => $users_ref};
-	my $json = encode_json($request_data);
-
-	my $request_token = $keycloak->get_or_refresh_token();
-	$log->error($keycloak_partialimport_endpoint);
-	my $import_users_request = HTTP::Request->new(POST => $keycloak_partialimport_endpoint);
-	$import_users_request->header('Content-Type' => 'application/json');
-	$import_users_request->header(
-		'Authorization' => $request_token->{token_type} . ' ' . $request_token->{access_token});
-	$import_users_request->content($json);
-	my $import_users_response = LWP::UserAgent::Plugin->new->request($import_users_request);
-
-	unless ($import_users_response->is_success) {
-		$log->error(
-			'There was an error importing users to Keycloak. Please ensure that the client has permission to manage the realm. This is not enabled by default and should only be a temporary permission.',
-			{
-				response => $import_users_response->content,
-				client_id => $oidc_options{client_id},
-				users_endpoint => $keycloak->{users_endpoint}
-			}
-		);
-		return;
-	}
-
-	update_checkpoint($checkpoint_file, @{$users_ref}[-1]->{username});
-	return;
-}
-
-sub migrate_user ($userid, $anonymize) {
-	my $keycloak_user_ref = convert_to_keycloak_user($userid, $anonymize);
+sub migrate_user ($userid, $email, $anonymize) {
+	my $keycloak_user_ref = convert_to_keycloak_user($userid, $email, $anonymize);
 	if (defined $keycloak_user_ref) {
 		create_user_in_keycloak_with_scrypt_credential($keycloak_user_ref);
 	}
@@ -126,7 +97,7 @@ sub migrate_user ($userid, $anonymize) {
 	return;
 }
 
-sub convert_to_keycloak_user ($userid, $anonymize) {
+sub convert_to_keycloak_user ($userid, $email, $anonymize) {
 	my $user_file = "$BASE_DIRS{USERS}/$userid.sto";
 	my $user_ref;
 	eval {$user_ref = retrieve($user_file);};
@@ -165,20 +136,20 @@ sub convert_to_keycloak_user ($userid, $anonymize) {
 			$keycloak_user_ref->{credentials} = [$credential];
 		}
 
-		my $email = sanitise_email($user_ref->{email});
-		my $email_status = $user_emails->{$email};
-
 		if ($anonymize) {
 			$keycloak_user_ref->{email} = 'off.' . $userid;
 			$keycloak_user_ref->{emailVerified} = $JSON::PP::true;
 		}
-		elsif (not defined $email_status or $email_status->{invalid} or $email_status->{userid} ne $userid) {
-			$keycloak_user_ref->{attributes}{old_email} = $user_ref->{email};
-		}
-		else {
+		elsif ($email) {
 			$keycloak_user_ref->{email} = $email;
 			# Currently, the assumption is that all users have verified their email address. This is not true, but it's better than forcing all existing users to verify their email address.
 			$keycloak_user_ref->{emailVerified} = $JSON::PP::true;
+		}
+		else {
+			# Explicitly set the email to null in case another user has it
+			$keycloak_user_ref->{email} = undef;
+			$keycloak_user_ref->{emailVerified} = $JSON::PP::false;
+			$keycloak_user_ref->{attributes}{old_email} = $user_ref->{email};
 		}
 	};
 	if ($@) {
@@ -317,12 +288,6 @@ sub update_checkpoint($checkpoint_file, $checkpoint) {
 	return 1;
 }
 
-# Default to api-multi as realm-batch can be a bit flakey and can't do updates
-my $importtype = 'api-multi';
-if ((scalar @ARGV) > 0 and (length($ARGV[0]) > 0)) {
-	$importtype = $ARGV[0];
-}
-
 my $anonymize = 0;
 if ((scalar @ARGV) > 0 and ('anonymize' eq $ARGV[-1])) {
 	# Anonymize the user data by removing the email address, name, and password.
@@ -330,66 +295,30 @@ if ((scalar @ARGV) > 0 and ('anonymize' eq $ARGV[-1])) {
 	$anonymize = 1;
 }
 
-if ($importtype eq 'validate') {
-	validate_user_emails();
-}
-elsif ($importtype eq 'realm-batch') {
-	$user_emails = (retrieve("all_emails.sto") or validate_user_emails());
+$user_emails = (retrieve("all_emails.sto") or validate_user_emails());
 
-	my @users = ();
-
-	if (opendir(my $dh, "$BASE_DIRS{USERS}/")) {
-		my @files = readdir($dh);
-		closedir $dh;
-		foreach my $file (sort @files) {
-			next if $file le $checkpoint;
-
-			if (($file =~ /.+\.sto$/) and ($file ne 'users_emails.sto')) {
-				my $keycloak_user = convert_to_keycloak_user(substr($file, 0, -4), $anonymize);
-				push(@users, $keycloak_user) if defined $keycloak_user;
-			}
-
-			if (scalar @users >= 2000) {
-				import_users_in_keycloak(\@users);
-				@users = ();
-			}
+# Iterate over the user_emails list rather than the directory so that we can apply the null emails first
+# before setting the valid ones. This caters for the preferred user for the email changing between migration runs
+my $total = keys %{ $user_emails };
+my $count = 0;
+while(my($email, $user_infos) = each %{ $user_emails }) {
+	foreach my $user_info (@{ $user_infos->{users} }) {
+		# Do the null emails (not the favoured userid for the email) first
+		if ($user_info->{userid} ne $user_infos->{userid}) {
+			print '[' . localtime() . "] Invalid email $user_info->{userid}\n";
+			migrate_user($user_info->{userid}, undef, $anonymize);
 		}
 	}
-
-	if (scalar @users) {
-		import_users_in_keycloak(\@users);
+	# Now do the favoured user
+	if ($user_infos->{userid}) {
+		print '[' . localtime() . "] Valid email $user_infos->{userid}\n";
+		migrate_user($user_infos->{userid}, $email, $anonymize);
+	}
+	$count++;
+	if ($count % 10000 == 0) {
+		print '[' . localtime() . "] Migrated $count / $total\n";
 	}
 }
-elsif ($importtype eq 'api-multi') {
-	$user_emails = (retrieve("all_emails.sto") or validate_user_emails());
-
-	if (opendir(my $dh, "$BASE_DIRS{USERS}/")) {
-		my @files = readdir($dh);
-		closedir $dh;
-		my $count = 0;
-		print '[' . localtime() . "] Starting migration\n";
-		foreach my $file (sort @files) {
-			$count++;
-			next if $file le $checkpoint;
-
-			if (($file =~ /.+\.sto$/) and ($file ne 'users_emails.sto')) {
-				migrate_user(substr($file, 0, -4), $anonymize);
-			}
-			if ($count % 10000 == 0) {
-				print '[' . localtime() . "] Migrated $count / " . scalar @files . "\n";
-			}
-		}
-		print '[' . localtime() . "] Migrated $count / " . scalar @files . "\n";
-	}
-}
-elsif ($importtype eq 'api-single') {
-	if ((scalar @ARGV) == 2 and (length($ARGV[1]) > 0)) {
-		$user_emails = (retrieve("all_emails.sto") or validate_user_emails());
-		migrate_user($ARGV[1], $anonymize);
-	}
-}
-else {
-	die "Unknown import type: $importtype";
-}
+print '[' . localtime() . "] Migrated $count / $total\n";
 
 close $checkpoint_file;
