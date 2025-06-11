@@ -78,7 +78,6 @@ BEGIN {
 		&open_user_session
 
 		&generate_token
-		&update_login_time
 
 		&welcome_user_task
 		&delete_user_task
@@ -997,6 +996,7 @@ sub migrate_password_hash ($user_ref) {
 	if ($user_ref->{'encrypted_password'} =~ /^\$1\$(?:.*)/) {
 		$user_ref->{'encrypted_password'} = create_password_hash(encode_utf8(decode utf8 => single_param('password')));
 		$log->info("crypt password upgraded to scrypt_hash") if $log->is_info();
+		store_user($user_ref);
 	}
 	return;
 }
@@ -1134,6 +1134,7 @@ sub open_user_session ($user_ref, $refresh_token, $refresh_expires_at, $access_t
 		access_expires_at => $access_expires_at,
 		id_token => $id_token
 	};
+	$user_ref->{last_login_t} = time();
 
 	# Store user data
 	store_user_session($user_ref);
@@ -1527,7 +1528,7 @@ sub init_user ($request_ref) {
 						migrate_password_hash($user_ref);
 
 						open_user_session($user_ref, undef, undef, undef, undef, undef, $request_ref);
-						update_login_time($user_ref);
+						update_external_login_time($user_ref);
 					}
 				}
 				else {
@@ -1554,7 +1555,7 @@ sub init_user ($request_ref) {
 
 						open_user_session($user_ref, $refresh_token, $refresh_expires_at,
 							$access_token, $access_expires_at, $id_token, $request_ref);
-						update_login_time($user_ref);
+						update_external_login_time($user_ref);
 					}
 				}
 			}
@@ -1831,9 +1832,7 @@ sub check_session ($user_id, $user_session) {
 	return $results_ref;
 }
 
-sub update_login_time ($user_ref) {
-	$user_ref->{last_login_t} = time();
-	store_user($user_ref);
+sub update_external_login_time ($user_ref) {
 	update_contact_last_login($user_ref);
 	update_last_logged_in_member($user_ref);
 	return;
