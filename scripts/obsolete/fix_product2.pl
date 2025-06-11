@@ -60,7 +60,7 @@ print STDERR "updating product $code\n";
 $product_ref = retrieve_product($code);
 $product_ref->{creator} = 'adeline';
 
-store( "$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref );
+store_object("$BASE_DIRS{PRODUCTS}/$path/product", $product_ref );
 get_products_collection()->save($product_ref);
 
 exit(0);
