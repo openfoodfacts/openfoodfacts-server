@@ -797,22 +797,17 @@ sub init_additives_classes_regexps() {
 
 if ((keys %labels_regexps) > 0) {exit;}
 
-sub extract_ingredients_from_image ($product_ref, $id, $ocr_engine, $results_ref) {
+sub extract_ingredients_from_image ($product_ref, $image_type, $image_lc, $ocr_engine, $results_ref) {
 
-	my $lc = $product_ref->{lc};
-
-	if ($id =~ /_(\w\w)$/) {
-		$lc = $1;
-	}
-
-	extract_text_from_image($product_ref, $id, "ingredients_text_from_image", $ocr_engine, $results_ref);
+	extract_text_from_image($product_ref, $image_type, $image_lc, "ingredients_text_from_image", $ocr_engine,
+		$results_ref);
 
 	# remove nutrition facts etc.
 	if (($results_ref->{status} == 0) and (defined $results_ref->{ingredients_text_from_image})) {
 
 		$results_ref->{ingredients_text_from_image_orig} = $product_ref->{ingredients_text_from_image};
 		$results_ref->{ingredients_text_from_image}
-			= cut_ingredients_text_for_lang($results_ref->{ingredients_text_from_image}, $lc);
+			= cut_ingredients_text_for_lang($results_ref->{ingredients_text_from_image}, $image_lc);
 	}
 
 	return;
@@ -1217,9 +1212,16 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 				if $log->is_debug();
 		}
 
-		if (($ingredients_lc eq "en") || ($ingredients_lc eq "fr") || ($ingredients_lc eq "sv")) {
+		# Keeping English and French first, since those are (by far) the most common languages OFF is used in/with
+		# Sorting alphabetically after those
+		if (   ($ingredients_lc eq "en")
+			|| ($ingredients_lc eq "fr")
+			|| ($ingredients_lc eq "da")
+			|| ($ingredients_lc eq "sv"))
+		{
 			# Origin of the milk: United Kingdom
 			# Origine du Cacao: Pérou
+			# Oprindelse jalapeño chili: Peru
 			# Ursprung fullkornsrågmjöl: Sverige och Danmark
 			if (match_origin_of_the_ingredient_origin($ingredients_lc, \$text, $matched_ingredient_ref)) {
 				$origins = $matched_ingredient_ref->{origins};
@@ -1356,7 +1358,9 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 		bg => "(?:страна на произход)",
 		cs => "(?:země původu)",
 		ca => "(?:origen)",
+		da => "(?:oprindelse)",
 		es => "(?:origen)",
+		fi => "(?:alkuperä)",
 		fr => "(?:origine (?:de |du |de la |des |de l'))",
 		hr => "(?:zemlja (?:porijekla|podrijetla|porekla)|uzgojeno u)",
 		hu => "(?:származási (?:hely|ország))",

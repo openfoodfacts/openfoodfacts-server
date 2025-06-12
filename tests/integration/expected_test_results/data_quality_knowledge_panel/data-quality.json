@@ -83,7 +83,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<ul> <li id=\"data-error-en:environmental-score-extended-data-not-computed\"> Environmental Score - Extended data - Not computed </li> <li id=\"data-error-en:food-groups-1-unknown\"> Food groups 1 unknown </li> <li id=\"data-error-en:food-groups-2-unknown\"> Food groups 2 unknown </li> <li id=\"data-error-en:food-groups-3-unknown\"> Food groups 3 unknown </li> <li id=\"data-error-en:ingredients-percent-analysis-ok\"> Ingredients percent analysis OK </li> </ul>"
+                     "html" : "<ul> <li id=\"data-error-en:food-groups-1-unknown\"> Food groups 1 unknown </li> <li id=\"data-error-en:food-groups-2-unknown\"> Food groups 2 unknown </li> <li id=\"data-error-en:food-groups-3-unknown\"> Food groups 3 unknown </li> <li id=\"data-error-en:ingredients-percent-analysis-ok\"> Ingredients percent analysis OK </li> </ul>"
                   }
                }
             ],
@@ -1157,8 +1157,7 @@
             ],
             "type" : "inline"
          }
-      },
-      "schema_version" : 998
+      }
    },
    "status" : 1,
    "status_verbose" : "product found"

@@ -80,6 +80,7 @@ use ProductOpener::ProductsFeatures qw(feature_enabled);
 
 use ProductOpener::APIProductRead qw/read_product_api/;
 use ProductOpener::APIProductWrite qw/write_product_api/;
+use ProductOpener::APIProductImagesUpload qw/upload_product_image_api delete_product_image_api/;
 use ProductOpener::APIProductRevert qw/revert_product_api/;
 use ProductOpener::APIProductServices qw/product_services_api/;
 use ProductOpener::APITagRead qw/read_tag_api/;
@@ -89,9 +90,13 @@ use CGI qw(header);
 use Apache2::RequestIO();
 use Apache2::RequestRec();
 use JSON::MaybeXS;
-use Data::DeepAccess qw(deep_get);
+use Data::DeepAccess qw(deep_get deep_set);
 use Storable qw(dclone);
 use Encode;
+
+=head1 FUNCTIONS			
+
+=cut
 
 sub get_initialized_response() {
 	return {
@@ -352,7 +357,7 @@ sub send_api_response ($request_ref) {
 	my $status_code = $request_ref->{api_response}{status_code} || $request_ref->{status_code} || "200";
 	delete $request_ref->{api_response}{status_code};
 
-	my $json = JSON::MaybeXS->new->allow_nonref->canonical->utf8->encode($request_ref->{api_response});
+	my $json = JSON::MaybeXS->new->convert_blessed->allow_nonref->canonical->utf8->encode($request_ref->{api_response});
 
 	# add headers
 	# We need to send the header Access-Control-Allow-Credentials=true so that websites
@@ -400,6 +405,12 @@ my $dispatch_table = {
 		HEAD => \&read_product_api,
 		OPTIONS => sub {return;},    # Just return CORS headers
 		PATCH => \&write_product_api,
+	},
+	# Product image upload
+	product_images => {
+		POST => \&upload_product_image_api,
+		OPTIONS => sub {return;},    # Just return CORS headers
+		DELETE => \&delete_product_image_api,
 	},
 	# Product revert
 	product_revert => {
@@ -684,6 +695,7 @@ my %api_version_to_schema_version = (
 	"3.0" => 999,
 	"3.1" => 1000,
 	"3.2" => 1001,
+	"3.3" => 1002,
 );
 
 sub api_compatibility_for_product_response ($product_ref, $api_version) {
@@ -753,8 +765,6 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 	}
 
 	my $customized_product_ref = {};
-
-	my $carbon_footprint_computed = 0;
 
 	# Special case if fields is empty, or contains only "none" or "raw": we do not need to localize the Environmental-Score
 
@@ -931,6 +941,16 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 			next;
 		}
 
+		# Sub fields using the dot notation (e.g. images.selected.front)
+		if ($field =~ /\./) {
+			my @components = split(/\./, $field);
+			my $field_value = deep_get($product_ref, @components);
+			if (defined $field_value) {
+				deep_set($customized_product_ref, @components, $field_value);
+			}
+			next;
+		}
+
 		# straight fields
 		if ((not defined $customized_product_ref->{$field}) and (defined $product_ref->{$field})) {
 			$customized_product_ref->{$field} = $product_ref->{$field};
@@ -941,7 +961,25 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 	}
 
 	# Before returning the product, we need to make sure that the fields are compatible with the requested API version
+
+	# IMPORTANT: If the schema_version field was not requested, it will not be in $customized_product_ref.
+	# We need to add it temporarily so that we can convert the product to the requested schema version.
+	# Otherwise, if the schema version is not present, convert_product_schema() will assume that the product is in an old version (< 1000)
+	# and will not convert it to the requested schema version (specified by the API version)
+
+	my $added_schema_version = 0;
+
+	if ((not defined $customized_product_ref->{schema_version}) and (defined $product_ref->{schema_version})) {
+		$customized_product_ref->{schema_version} = $product_ref->{schema_version};
+		$added_schema_version = 1;
+	}
+
 	api_compatibility_for_product_response($customized_product_ref, $request_ref->{api_version});
+
+	# Remove the schema field if it was not requested
+	if ($added_schema_version) {
+		delete $customized_product_ref->{schema_version};
+	}
 
 	return $customized_product_ref;
 }

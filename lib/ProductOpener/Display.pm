@@ -95,7 +95,6 @@ BEGIN {
 		&data_to_display_nutrient_levels
 		&data_to_display_ingredients_analysis
 		&data_to_display_ingredients_analysis_details
-		&data_to_display_image
 
 		&count_products
 		&add_params_to_query
@@ -143,7 +142,7 @@ use ProductOpener::Tags qw(:all);
 use ProductOpener::Users qw(:all);
 use ProductOpener::Index qw(%texts);
 use ProductOpener::Lang qw(:all);
-use ProductOpener::Images qw(display_image display_image_thumb);
+use ProductOpener::Images qw(display_image data_to_display_image add_images_urls_to_product);
 use ProductOpener::Food qw(:all);
 use ProductOpener::Ingredients qw(flatten_sub_ingredients);
 use ProductOpener::Products qw(:all);
@@ -226,7 +225,7 @@ my $uri_finder = URI::Find->new(
 my $json = JSON::MaybeXS->new->utf8(0)->allow_nonref->canonical;
 my $json_indent = JSON::MaybeXS->new->indent(1)->utf8(0)->allow_nonref->canonical;
 # $json_utf8 has utf8 enabled: it encodes to UTF-8 bytes
-my $json_utf8 = JSON::MaybeXS->new->utf8(1)->allow_nonref->canonical;
+my $json_utf8 = JSON::MaybeXS->new->convert_blessed->utf8(1)->allow_nonref->canonical;
 
 =head1 VARIABLES
 
@@ -3751,6 +3750,12 @@ sub display_tag ($request_ref) {
 	my $new_tagid2path = deep_get($request_ref, qw(tags 1 new_tagid_path));
 	my $canon_tagid2 = deep_get($request_ref, qw(tags 1 canon_tagid));
 
+	# 2025-06-01 - due to heavy load from bots, disabling 2nd level facets unless the user is logged in
+	if ((not defined $User_id) and (defined $tagid2)) {
+		display_error_and_exit($request_ref, lang("robots_not_served_here"), 401);
+		return;
+	}
+
 	my $weblinks_html = '';
 	my @wikidata_objects = ();
 	if (    (defined $tagtype && $tagtype ne 'additives')
@@ -5396,7 +5401,8 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 				$product_ref->{url} = $formatted_subdomain . $url_path;
 				# Compute HTML to display the small front image, currently embedded in the HTML of web queries
 				if (not $api) {
-					$product_ref->{image_front_small_html} = display_image_thumb($product_ref, 'front');
+					$product_ref->{image_front_small_html}
+						= display_image($product_ref, "front", $request_ref->{lc}, $thumb_size);
 
 					# For web queries with personal search, we can compute some generated fields we need
 					# and then remove the source fields that are not needed anymore
@@ -6213,7 +6219,7 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 
 		$data{product_name} = $product_ref->{product_name};
 		$data{url} = $formatted_subdomain . product_url($product_ref->{code});
-		$data{img} = display_image_thumb($product_ref, 'front');
+		$data{img} = display_image($product_ref, "front", $request_ref->{lc}, $thumb_size);
 
 		# create data entry for series
 		defined $series{$seriesid} or $series{$seriesid} = '';
@@ -7057,7 +7063,7 @@ sub map_of_products ($products_iter, $request_ref, $graph_ref) {
 			brands => $product_ref->{brands},
 			url => $url,
 			origins => $origins,
-			img => display_image_thumb($product_ref, 'front')
+			img => display_image($product_ref, "front", $request_ref->{lc}, $thumb_size)
 		};
 
 		# Loop on cities: multiple emb codes can be on one product
@@ -7617,7 +7623,7 @@ sub display_page ($request_ref) {
 
 sub display_image_box ($product_ref, $id, $minheight_ref, $request_ref) {
 
-	my $img = display_image($product_ref, $id, $small_size);
+	my $img = display_image($product_ref, $id, $request_ref->{lc}, $small_size);
 	if ($img ne '') {
 		my $code = $product_ref->{code};
 		my $linkid = $id;
@@ -11656,10 +11662,10 @@ sub search_and_analyze_recipes ($request_ref, $query_ref) {
 			if (single_param("debug")) {
 				$debug
 					.= "product: "
-					. JSON::MaybeXS->new->utf8->canonical->encode($product_ref)
+					. JSON::MaybeXS->new->convert_blessed->utf8->canonical->encode($product_ref)
 					. "<br><br>\n\n"
 					. "recipe: "
-					. JSON::MaybeXS->new->utf8->canonical->encode($recipe_ref)
+					. JSON::MaybeXS->new->convert_blessed->utf8->canonical->encode($recipe_ref)
 					. "<br><br><br>\n\n\n";
 			}
 		}
@@ -11697,78 +11703,6 @@ sub display_properties ($request_ref) {
 
 	display_page($request_ref);
 	return;
-}
-
-=head2 data_to_display_image ( $product_ref, $imagetype, $target_lc )
-
-Generates a data structure to display a product image.
-
-The resulting data structure can be passed to a template to generate HTML or the JSON data for a knowledge panel.
-
-=head3 Arguments
-
-=head4 Product reference $product_ref
-
-=head4 Image type $image_type: one of [front|ingredients|nutrition|packaging]
-
-=head4 Language code $target_lc
-
-=head3 Return values
-
-- Reference to a data structure with needed data to display.
-- undef if no image is available for the requested image type
-
-=cut
-
-sub data_to_display_image ($product_ref, $imagetype, $target_lc) {
-
-	my $image_ref;
-
-	# first try the requested language
-	my @img_lcs = ($target_lc);
-
-	# next try the main language of the product
-	if ($product_ref->{lc} ne $target_lc) {
-		push @img_lcs, $product_ref->{lc};
-	}
-
-	foreach my $img_lc (@img_lcs) {
-
-		my $id = $imagetype . "_" . $img_lc;
-
-		if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})) {
-
-			my $path = product_path($product_ref);
-			my $rev = $product_ref->{images}{$id}{rev};
-			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' – '
-				. lang_in_other_lc($target_lc, $imagetype . '_alt');
-			if ($img_lc ne $target_lc) {
-				$alt .= ' – ' . $img_lc;
-			}
-
-			$image_ref = {
-				type => $imagetype,
-				lc => $img_lc,
-				alt => $alt,
-				sizes => {},
-				id => $id,
-			};
-
-			foreach my $size ($thumb_size, $small_size, $display_size, "full") {
-				if (defined $product_ref->{images}{$id}{sizes}{$size}) {
-					$image_ref->{sizes}{$size} = {
-						url => "$images_subdomain/images/products/$path/$id.$rev.$size.jpg",
-						width => $product_ref->{images}{$id}{sizes}{$size}{w},
-						height => $product_ref->{images}{$id}{sizes}{$size}{h},
-					};
-				}
-			}
-
-			last;
-		}
-	}
-
-	return $image_ref;
 }
 
 1;

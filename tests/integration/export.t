@@ -82,6 +82,7 @@ open($exported_csv, ">:encoding(UTF-8)", $exported_csv_file) or die("Could not c
 $export_args_ref->{filehandle} = $exported_csv;
 $export_args_ref->{export_computed_fields} = 1;
 $export_args_ref->{export_canonicalized_tags_fields} = 1;
+$export_args_ref->{include_images_paths} = 1;
 
 export_csv($export_args_ref);
 
