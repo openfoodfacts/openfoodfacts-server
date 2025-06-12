@@ -292,9 +292,27 @@ my $tests_ref = [
 		}'
 	},
 	{
-		test_case => 'patch-request-fields-environmental_score-data',
+		test_case => 'patch-request-fields-ecoscore-data',
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890009',
+		body => '{
+			"fields": "ecoscore_data",
+			"tags_lc": "en",
+			"product": {
+				"packagings": [
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "bag"},
+						"material": {"lc_name": "plastic"}
+					}
+				]
+			}
+		}'
+	},
+	{
+		test_case => 'patch-request-fields-environmental_score-data',
+		method => 'PATCH',
+		path => '/api/v3.2/product/1234567890009',
 		body => '{
 			"fields": "environmental_score_data",
 			"tags_lc": "en",
