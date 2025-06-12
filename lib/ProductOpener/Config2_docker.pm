@@ -56,6 +56,7 @@ BEGIN {
 		$events_username
 		$events_password
 		$redis_url
+		$folksonomy_url
 		%server_options
 		$build_cache_repo
 		$rate_limiter_blocking_enabled
@@ -131,6 +132,10 @@ $facets_kp_url = $ENV{FACETS_KP_URL};
 
 # Set this to your instance of the search service to enable writes to it
 $redis_url = $ENV{REDIS_URL};
+
+# Set this to your instance of https://github.com/openfoodfacts/folksonomy_api/ to
+# enable folksonomy features
+$folksonomy_url = $ENV{FOLKSONOMY_URL};
 
 %server_options = (
 	private_products => $producers_platform,    # 1 to make products visible only to the owner (producer platform)
