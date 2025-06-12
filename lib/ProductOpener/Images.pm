@@ -197,7 +197,8 @@ if (feature_enabled("nutrition")) {
 	$valid_image_types{nutrition} = 1;
 }
 
-$valid_image_types_regexp = join("|", sort keys %valid_image_types);
+my $valid_image_types_string = join("|", sort keys %valid_image_types);
+$valid_image_types_regexp = qr/$valid_image_types_string/;
 
 =head1 FUNCTIONS
 
