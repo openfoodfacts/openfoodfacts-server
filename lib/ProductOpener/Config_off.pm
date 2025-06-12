@@ -181,14 +181,15 @@ $flavor = 'off';
 	site_name => "Open Food Facts",
 	product_type => "food",
 	og_image_url => "https://static.openfoodfacts.org/images/logos/off-logo-vertical-white-social-media-preview.png",
-	android_apk_app_link => "https://world.openfoodfacts.org/files/off.apk?utm_source=off&utf_medium=web",
+	android_apk_app_link => "https://github.com/openfoodfacts/smooth-app/releases/latest",
+	f_droid_app_link => "https://f-droid.org/packages/openfoodfacts.github.scrachx.openfood",
 	android_app_link =>
 		"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=off&utf_medium=web",
 	ios_app_link => "https://apps.apple.com/app/open-food-facts/id588797948?utm_source=off&utf_medium=web",
 	facebook_page_url => "https://www.facebook.com/OpenFoodFacts?utm_source=off&utf_medium=web",
 	facebook_page_url_fr => "https://www.facebook.com/OpenFoodFacts.fr",
-	twitter_account => "OpenFoodFacts",
-	twitter_account_fr => "OpenFoodFactsFr",
+	x_account => "OpenFoodFacts",
+	x_account_fr => "OpenFoodFactsfr",
 	# favicon HTML and images generated with https://realfavicongenerator.net/ using the SVG icon
 	favicons => <<HTML
 <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/off/apple-touch-icon.png">
@@ -708,6 +709,7 @@ $options{replace_existing_values_when_importing_those_tags_fields} = {
 	periods_after_opening
 	data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors data_quality_warnings_producers data_quality_errors_producers
 	improvements
+	brands
 );
 
 # tag types (=facets) that should be indexed by web crawlers, all other tag types are not indexable

@@ -51,7 +51,6 @@ use ProductOpener::Config qw(:all);
 use ProductOpener::Store qw(get_string_id_for_lang);
 use ProductOpener::Tags qw(:all);
 use ProductOpener::Food qw(%categories_nutriments_per_country);
-use ProductOpener::EnvironmentalScore qw(is_environmental_score_extended_data_more_precise_than_agribalyse);
 use ProductOpener::Units qw(extract_standard_unit);
 
 use Data::DeepAccess qw(deep_exists);
@@ -1243,7 +1242,7 @@ sub check_nutrition_data ($product_ref) {
 					and not(defined $product_ref->{nutriments}{"starch_modifier"})
 				)
 				or
-				# with "<" symbo, check only that sugar or starch are not greater than carbohydrates
+				# with "<" symbol, check only that sugar or starch are not greater than carbohydrates
 				(
 					(
 						(
@@ -1280,12 +1279,93 @@ sub check_nutrition_data ($product_ref) {
 				"en:nutrition-sugars-plus-starch-greater-than-carbohydrates";
 		}
 
+		# sugar + starch + fiber cannot be greater than total carbohydrates
+		# do not raise error if sugar, starch or fiber contains "<" symbol (see issue #9267)
+		if (
+			(defined $product_ref->{nutriments}{"carbohydrates-total_100g"})
+			and (
+				# without "<" symbol, check sum of sugar, starch and fiber is not greater than carbohydrates
+				(
+					(
+						(
+							(
+								(defined $product_ref->{nutriments}{"sugars_100g"})
+								? $product_ref->{nutriments}{"sugars_100g"}
+								: 0
+							) + (
+								(defined $product_ref->{nutriments}{"starch_100g"})
+								? $product_ref->{nutriments}{"starch_100g"}
+								: 0
+							) + (
+								(defined $product_ref->{nutriments}{"fiber_100g"})
+								? $product_ref->{nutriments}{"fiber_100g"}
+								: 0
+							)
+						) > ($product_ref->{nutriments}{"carbohydrates-total_100g"}) + 0.001
+					)
+					and not(defined $product_ref->{nutriments}{"sugar_modifier"})
+					and not(defined $product_ref->{nutriments}{"starch_modifier"})
+					and not(defined $product_ref->{nutriments}{"fiber_modifier"})
+				)
+				or
+				# with "<" symbol, check only that sugar, starch or fiber are not greater than carbohydrates
+				(
+					(
+						(
+								(defined $product_ref->{nutriments}{"sugar_modifier"})
+							and ($product_ref->{nutriments}{"sugar_modifier"} eq "<")
+						)
+						and (
+							(
+								(defined $product_ref->{nutriments}{"sugars_100g"})
+								? $product_ref->{nutriments}{"sugars_100g"}
+								: 0
+							) > ($product_ref->{nutriments}{"carbohydrates-total_100g"}) + 0.001
+						)
+					)
+					or (
+						(
+								(defined $product_ref->{nutriments}{"starch_modifier"})
+							and ($product_ref->{nutriments}{"starch_modifier"} eq "<")
+						)
+						and (
+							(
+								(defined $product_ref->{nutriments}{"starch_100g"})
+								? $product_ref->{nutriments}{"starch_100g"}
+								: 0
+							) > ($product_ref->{nutriments}{"carbohydrates-total_100g"}) + 0.001
+						)
+					)
+					or (
+						(
+								(defined $product_ref->{nutriments}{"fiber_modifier"})
+							and ($product_ref->{nutriments}{"fiber_modifier"} eq "<")
+						)
+						and (
+							(
+								(defined $product_ref->{nutriments}{"fiber_100g"})
+								? $product_ref->{nutriments}{"fiber_100g"}
+								: 0
+							) > ($product_ref->{nutriments}{"carbohydrates-total_100g"}) + 0.001
+						)
+					)
+				)
+			)
+			)
+		{
+
+			push @{$product_ref->{data_quality_errors_tags}},
+				"en:nutrition-sugars-plus-starch-plus-fiber-greater-than-carbohydrates-total";
+		}
+
 		# sum of nutriments that compose sugar can not be greater than sugar value
 		if (defined $product_ref->{nutriments}{sugars_100g}) {
 			my $fructose
 				= defined $product_ref->{nutriments}{fructose_100g} ? $product_ref->{nutriments}{fructose_100g} : 0;
 			my $glucose
 				= defined $product_ref->{nutriments}{glucose_100g} ? $product_ref->{nutriments}{glucose_100g} : 0;
+			my $galactose
+				= defined $product_ref->{nutriments}{galactose_100g} ? $product_ref->{nutriments}{galactose_100g} : 0;
 			my $maltose
 				= defined $product_ref->{nutriments}{maltose_100g} ? $product_ref->{nutriments}{maltose_100g} : 0;
 			# sometimes lactose < 0.01 is written below the nutrition table together whereas
@@ -1302,9 +1382,10 @@ sub check_nutrition_data ($product_ref) {
 				}
 			}
 
-			my $total_sugar = $fructose + $glucose + $maltose + $lactose + $sucrose;
+			my $total_sugar = $fructose + $glucose + $galactose + $maltose + $lactose + $sucrose;
 
 			if ($total_sugar > $product_ref->{nutriments}{sugars_100g} + 0.001) {
+				# strictly speaking: also includes galactose, despite the label name
 				push @{$product_ref->{data_quality_errors_tags}},
 					"en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars";
 			}
@@ -2356,76 +2437,76 @@ sub check_labels ($product_ref) {
 		my %vitamins_and_minerals_labelling = (
 			europe => {
 				"vitamin-a" => {
-					"en:vitamin-a-source" => 0.0008,    # 800 µg
-					"en:rich-in-vitamin-a" => 0.0016,
+					"en:vitamin-a-source" => 0.0008 * 0.15,    # 800 µg * 0.15
+					"en:rich-in-vitamin-a" => 0.0016 * 0.15,
 				},
 				"vitamin-d" => {
-					"en:vitamin-d-source" => 0.000005,    # 5 µg
-					"en:rich-in-vitamin-d" => 0.00001,
+					"en:vitamin-d-source" => 0.000005 * 0.15,    # 5 µg * 0.15
+					"en:rich-in-vitamin-d" => 0.00001 * 0.15,
 				},
 				"vitamin-e" => {
-					"en:vitamin-e-source" => 0.01,    # 10 mg
-					"en:rich-in-vitamin-e" => 0.02,
+					"en:vitamin-e-source" => 0.01 * 0.15,    # 10 mg * 0.15
+					"en:rich-in-vitamin-e" => 0.02 * 0.15,
 				},
 				"vitamin-c" => {
-					"en:vitamin-c-source" => 0.06,    # 10 mg
-					"en:rich-in-vitamin-c" => 0.12,
+					"en:vitamin-c-source" => 0.06 * 0.15,    # 10 mg * 0.15
+					"en:rich-in-vitamin-c" => 0.12 * 0.15,
 				},
 				"vitamin-b1" => {
-					"en:vitamin-b1-source" => 0.0014,    # 1.4 mg, thiamin
-					"en:rich-in-vitamin-b1" => 0.0028,
+					"en:vitamin-b1-source" => 0.0014 * 0.15,    # 1.4 mg * 0.15 (vitamin b1 = thiamin)
+					"en:rich-in-vitamin-b1" => 0.0028 * 0.15,
 				},
 				"vitamin-b2" => {
-					"en:vitamin-b2-source" => 0.0016,    # 1.6 mg, riboflavin
-					"en:rich-in-vitamin-b2" => 0.0032,
+					"en:vitamin-b2-source" => 0.0016 * 0.15,    # 1.6 mg * 0.15 (vitamin b2 = riboflavin)
+					"en:rich-in-vitamin-b2" => 0.0032 * 0.15,
 				},
 				"vitamin-b3" => {
-					"en:vitamin-b3-source" => 0.018,    # 18 mg, niacin
-					"en:rich-in-vitamin-b3" => 0.036,
+					"en:vitamin-b3-source" => 0.018 * 0.15,    # 18 mg * 0.15 (vitamin b3 = niacin)
+					"en:rich-in-vitamin-b3" => 0.036 * 0.15,
 				},
 				"vitamin-b6" => {
-					"en:vitamin-b6-source" => 0.002,    # 2 mg
-					"en:rich-in-vitamin-b6" => 0.004,
+					"en:vitamin-b6-source" => 0.002 * 0.15,    # 2 mg * 0.15
+					"en:rich-in-vitamin-b6" => 0.004 * 0.15,
 				},
 				"vitamin-b9" => {
-					"en:vitamin-b9-source" => 0.0002,    # 200 µg, folacin
-					"en:rich-in-vitamin-b9" => 0.0004,
+					"en:vitamin-b9-source" => 0.0002 * 0.15,    # 200 µg * 0.15 (vitamin b9 = folacin)
+					"en:rich-in-vitamin-b9" => 0.0004 * 0.15,
 				},
 				"vitamin-b12" => {
-					"en:vitamin-b12-source" => 0.000001,    # 1 µg
-					"en:rich-in-vitamin-b12" => 0.000002,
+					"en:vitamin-b12-source" => 0.000001 * 0.15,    # 1 µg * 0.15
+					"en:rich-in-vitamin-b12" => 0.000002 * 0.15,
 				},
 				"biotin" => {
-					"en:source-of-biotin" => 0.00015,    # 0.15 mg
-					"en:high-in-biotin" => 0.0003,
+					"en:source-of-biotin" => 0.00015 * 0.15,    # 0.15 mg * 0.15
+					"en:high-in-biotin" => 0.0003 * 0.15,
 				},
 				"pantothenic-acid" => {
-					"en:source-of-pantothenic-acid" => 0.006,    # 6 mg
-					"en:high-in-pantothenic-acid" => 0.012,
+					"en:source-of-pantothenic-acid" => 0.006 * 0.15,    # 6 mg * 0.15
+					"en:high-in-pantothenic-acid" => 0.012 * 0.15,
 				},
 				"calcium" => {
-					"en:calcium-source" => 0.8,    # 800 mg
-					"en:high-in-calcium" => 1.6,
+					"en:calcium-source" => 0.8 * 0.15,    # 800 mg * 0.15
+					"en:high-in-calcium" => 1.6 * 0.15,
 				},
 				"phosphorus" => {
-					"en:phosphore-source" => 0.8,    # 800 mg
-					"en:high-in-phosphore" => 1.6,
+					"en:phosphore-source" => 0.8 * 0.15,    # 800 mg * 0.15
+					"en:high-in-phosphore" => 1.6 * 0.15,
 				},
 				"iron" => {
-					"en:iron-source" => 0.014,    # 14 mg
-					"en:high-in-iron" => 0.028,
+					"en:iron-source" => 0.014 * 0.15,    # 14 mg * 0.15
+					"en:high-in-iron" => 0.028 * 0.15,
 				},
 				"magnesium" => {
-					"en:magnesium-source" => 0.3,    # 300 mg
-					"en:high-in-magnesium" => 0.6,
+					"en:magnesium-source" => 0.3 * 0.15,    # 300 mg * 0.15
+					"en:high-in-magnesium" => 0.6 * 0.15,
 				},
 				"zinc" => {
-					"en:zinc-source" => 0.015,    # 15 mg
-					"en:high-in-zinc" => 0.03,
+					"en:zinc-source" => 0.015 * 0.15,    # 15 mg * 0.15
+					"en:high-in-zinc" => 0.03 * 0.15,
 				},
 				"iodine" => {
-					"en:iodine-source" => 0.00015,    # 150 µg
-					"en:high-in-iodine" => 0.0003,
+					"en:iodine-source" => 0.00015 * 0.15,    # 150 µg * 0.15
+					"en:high-in-iodine" => 0.0003 * 0.15,
 				},
 			},
 		);
@@ -2711,24 +2792,6 @@ sub check_environmental_score_data ($product_ref) {
 				push @{$product_ref->{data_quality_warnings_tags}}, 'en:environmental-score-' . $warning;
 			}
 		}
-	}
-
-	# Extended Environmental-Score data from impact estimator
-	if (defined $product_ref->{environmental_score_extended_data}) {
-
-		push @{$product_ref->{data_quality_info_tags}}, 'en:environmental-score-extended-data-computed';
-
-		if (is_environmental_score_extended_data_more_precise_than_agribalyse($product_ref)) {
-			push @{$product_ref->{data_quality_info_tags}},
-				'en:environmental-score-extended-data-more-precise-than-agribalyse';
-		}
-		else {
-			push @{$product_ref->{data_quality_info_tags}},
-				'en:environmental-score-extended-data-less-precise-than-agribalyse';
-		}
-	}
-	else {
-		push @{$product_ref->{data_quality_info_tags}}, 'en:environmental-score-extended-data-not-computed';
 	}
 
 	return;

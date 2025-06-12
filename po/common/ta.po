@@ -4655,7 +4655,7 @@ msgid "Processed foods"
 msgstr ""
 
 msgctxt "attribute_nova_4_description_short"
-msgid "Ultra processed foods"
+msgid "Ultra-processed foods"
 msgstr ""
 
 msgctxt "export_product_page"
@@ -5814,6 +5814,11 @@ msgstr "உலகெங்கிலும் உள்ள மில்லிய�
 msgctxt "donation_title_2024"
 msgid "Please give to our 2024 Fundraiser"
 msgstr "எங்கள் 2024 நிதி திரட்டிக்கு நிதி வழங்கவும்"
+
+# Don't translate {year}, it will be replaced by the 4 digits year
+msgctxt "f_donation_title_year"
+msgid "Please give to our {year} Fundraiser"
+msgstr "எங்கள் {year} நிதி திரட்டிக்கு நிதி வழங்கவும்"
 
 msgctxt "donation_list_2024_main"
 msgid "Your donations fund the day-to-day operations of our non-profit association:"

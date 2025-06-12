@@ -80,7 +80,6 @@ BEGIN {
 		&normalize_product_data
 		&init_product
 		&retrieve_product
-		&retrieve_product_rev
 		&store_product
 		&product_name_brand
 		&product_name_brand_quantity
@@ -112,8 +111,6 @@ BEGIN {
 
 		&remove_fields
 
-		&add_images_urls_to_product
-
 		&analyze_and_enrich_product_data
 
 		&is_owner_field
@@ -124,6 +121,7 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
+use ProductOpener::ProductSchemaChanges qw/$current_schema_version convert_product_schema/;
 use ProductOpener::Store qw/get_string_id_for_lang get_url_id_for_lang retrieve store/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::ConfigEnv qw/:all/;
@@ -133,11 +131,11 @@ use ProductOpener::Orgs qw/retrieve_org/;
 use ProductOpener::Lang qw/$lc %tag_type_singular lang/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Mail qw/send_email/;
-use ProductOpener::URL qw/format_subdomain/;
+use ProductOpener::URL qw(format_subdomain get_owner_pretty_path);
 use ProductOpener::Data qw/execute_query get_products_collection get_recent_changes_collection/;
 use ProductOpener::MainCountries qw/compute_main_countries/;
 use ProductOpener::Text qw/remove_email remove_tags_and_quote/;
-use ProductOpener::Display qw/single_param/;
+use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Redis qw/push_to_redis_stream/;
 use ProductOpener::Food qw/%nutriments_lists %cc_nutriment_table/;
 use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
@@ -157,7 +155,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use Encode;
 use JSON;
 use Log::Any qw($log);
-use Data::DeepAccess qw(deep_get);
+use Data::DeepAccess qw(deep_exists deep_get);
 
 use LWP::UserAgent;
 use Storable qw(dclone);
@@ -873,16 +871,28 @@ sub init_product ($userid, $orgid, $code, $countryid) {
 	return $product_ref;
 }
 
-sub retrieve_product ($product_id, $include_deleted = 0) {
+sub retrieve_product ($product_id, $include_deleted = 0, $rev = undef) {
 
 	my $path = product_path_from_id($product_id);
 
-	my $full_product_path = "$BASE_DIRS{PRODUCTS}/$path/product.sto";
+	my $full_product_path;
+
+	if (defined $rev) {
+		# check that $rev is a number
+		if ($rev !~ /^\d+$/) {
+			return;
+		}
+		$full_product_path = "$BASE_DIRS{PRODUCTS}/$path/$rev.sto";
+	}
+	else {
+		$full_product_path = "$BASE_DIRS{PRODUCTS}/$path/product.sto";
+	}
 
 	$log->debug(
 		"retrieve_product",
 		{
 			product_id => $product_id,
+			rev => $rev,
 			full_product_path => $full_product_path
 		}
 	) if $log->is_debug();
@@ -926,37 +936,9 @@ sub retrieve_product ($product_id, $include_deleted = 0) {
 		}
 	}
 
-	normalize_product_data($product_ref);
-
-	return $product_ref;
-}
-
-sub retrieve_product_rev ($product_id, $rev, $include_deleted = 0) {
-
-	if ($rev !~ /^\d+$/) {
-		return;
-	}
-
-	my $path = product_path_from_id($product_id);
-
-	my $product_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/$rev.sto");
-
-	if (defined $product_ref) {
-
-		if (($product_ref->{deleted}) and (not $include_deleted)) {
-			return;
-		}
-
-		# If the product is on another server, set the server field so that it will be saved in the other server if we save it
-		my $server = server_for_product_type($product_ref->{product_type});
-		if (defined $server) {
-			$product_ref->{server} = $server;
-		}
-		else {
-			# If the product was moved previously, it may have a server field, remove it
-			delete $product_ref->{server};
-		}
-	}
+	# We may read a product file that was saved with an old version of the schema
+	# If so, we convert it to the current schema
+	convert_product_schema($product_ref, $current_schema_version);
 
 	normalize_product_data($product_ref);
 
@@ -1133,6 +1115,9 @@ sub store_product ($user_id, $product_ref, $comment) {
 	my $rev = $product_ref->{rev};
 	my $action = "updated";
 
+	# Update product schema version
+	$product_ref->{schema_version} = $current_schema_version;
+
 	$log->debug(
 		"store_product - start",
 		{
@@ -1159,6 +1144,12 @@ sub store_product ($user_id, $product_ref, $comment) {
 			}
 		}
 		delete $product_ref->{server};
+	}
+
+	# If we do not have a product_type, we set it to the default product_type of the current server
+	# This can happen if we are reverting a product to a previous version that did not have a product_type
+	if (not defined $product_ref->{product_type}) {
+		$product_ref->{product_type} = $options{product_type};
 	}
 
 	# In case we need to move a product from OFF to OBF etc.
@@ -2049,12 +2040,12 @@ sub replace_user_id_in_product ($product_id, $user_id, $new_user_id, $products_c
 
 			# Images uploaders
 
-			if (defined $product_ref->{images}) {
-				foreach my $id (sort keys %{$product_ref->{images}}) {
-					if (    (defined $product_ref->{images}{$id}{uploader})
-						and ($product_ref->{images}{$id}{uploader} eq $user_id))
+			if (deep_exists($product_ref, "images", "uploaded")) {
+				foreach my $id (sort keys %{$product_ref->{images}{uploaded}}) {
+					if (    (defined $product_ref->{images}{uploaded}{$id}{uploader})
+						and ($product_ref->{images}{uploaded}{$id}{uploader} eq $user_id))
 					{
-						$product_ref->{images}{$id}{uploader} = $new_user_id;
+						$product_ref->{images}{uploaded}{$id}{uploader} = $new_user_id;
 						$changes++;
 					}
 				}
@@ -2291,19 +2282,29 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 			# $product_ref->{images}{$id} ($id = front / ingredients / nutrition)
 
 			if (defined $product_ref->{images}) {
-				foreach my $imgid (sort keys %{$product_ref->{images}}) {
-					if ($imgid =~ /^\d/) {
+
+				# Old revisions may have the old image schema, with uploaded and selected images at the root
+				if ((not defined $product_ref->{schema_version} or ($product_ref->{schema_version} < 1002))) {
+					ProductOpener::ProductSchemaChanges::convert_schema_1001_to_1002_refactor_images_object(
+						$product_ref);
+				}
+
+				# Uploaded images
+				if (defined $product_ref->{images}{uploaded}) {
+					foreach my $imgid (sort keys %{$product_ref->{images}{uploaded}}) {
 						$current{uploaded_images}{$imgid} = 1;
 					}
-					else {
-						my $language_imgid = $imgid;
-						if ($imgid !~ /_\w\w$/) {
-							$language_imgid = $imgid . "_" . $product_ref->{lc};
+				}
+
+				# Selected images
+				if (defined $product_ref->{images}{selected}) {
+					foreach my $image_type (sort keys %{$product_ref->{images}{selected}}) {
+						foreach my $image_lc (sort keys %{$product_ref->{images}{selected}{$image_type}}) {
+							$current{selected_images}{$image_type . '_' . $image_lc}
+								= $product_ref->{images}{selected}{$image_type}{$image_lc}{imgid} . ' '
+								. $product_ref->{images}{selected}{$image_type}{$image_lc}{rev} . ' '
+								. $product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{geometry};
 						}
-						$current{selected_images}{$language_imgid}
-							= $product_ref->{images}{$imgid}{imgid} . ' '
-							. $product_ref->{images}{$imgid}{rev} . ' '
-							. $product_ref->{images}{$imgid}{geometry};
 					}
 				}
 			}
@@ -2496,19 +2497,20 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 					if (($diff eq 'add') and ($group eq 'uploaded_images')) {
 						# images uploader and uploaded_t where not set before 2015/08/04, set them using the change history
 						# ! only update the values if the image still exists in the current version of the product (wasn't moved or deleted)
-						if (exists $current_product_ref->{images}{$id}) {
-							if (not defined $current_product_ref->{images}{$id}{uploaded_t}) {
-								$current_product_ref->{images}{$id}{uploaded_t} = $product_ref->{last_modified_t} + 0;
+						if (deep_exists($current_product_ref, "images", "uploaded", $id)) {
+							if (not defined $current_product_ref->{images}{uploaded}{$id}{uploaded_t}) {
+								$current_product_ref->{images}{uploaded}{$id}{uploaded_t}
+									= $product_ref->{last_modified_t} + 0;
 							}
-							if (not defined $current_product_ref->{images}{$id}{uploader}) {
-								$current_product_ref->{images}{$id}{uploader} = $userid;
+							if (not defined $current_product_ref->{images}{uploaded}{$id}{uploader}) {
+								$current_product_ref->{images}{uploaded}{$id}{uploader} = $userid;
 							}
 
 							# when moving images, attribute the image to the user that uploaded the image
 
-							$userid = $current_product_ref->{images}{$id}{uploader};
+							$userid = $current_product_ref->{images}{uploaded}{$id}{uploader};
 							if ($userid eq 'unknown') {    # old unknown user
-								$current_product_ref->{images}{$id}{uploader}
+								$current_product_ref->{images}{uploaded}{$id}{uploader}
 									= "openfoodfacts-contributors";
 								$userid = "openfoodfacts-contributors";
 							}
@@ -2588,116 +2590,24 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 	return;
 }
 
-# traverse the history to see if a particular user has removed values for tag fields
-# add back the removed values
-
-# NOT sure if this is useful, it's being used in one of the "obsolete" scripts
-sub add_back_field_values_removed_by_user ($current_product_ref, $changes_ref, $field, $userid) {
-
-	my $code = $current_product_ref->{code};
-	my $path = product_path($current_product_ref);
-
-	return if not defined $changes_ref;
-
-	# Read all previous versions to see which fields have been added or edited
-
-	my @fields
-		= qw(lang product_name generic_name quantity packaging brands categories origins manufacturing_places labels emb_codes expiration_date purchase_places stores countries ingredients_text traces no_nutrition_data serving_size nutrition_data_per );
-
-	my %previous = ();
-	my %last = %previous;
-	my %current;
-
-	my $previous_tags_ref = {};
-	my $current_tags_ref;
-
-	my %removed_tags = ();
-
-	my $revs = 0;
-
-	foreach my $change_ref (@{$changes_ref}) {
-		$revs++;
-		my $rev = $change_ref->{rev};
-		if (not defined $rev) {
-			$rev = $revs;    # was not set before June 2012
-		}
-		my $product_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/$rev.sto");
-
-		# if not found, we may be be updating the product, with the latest rev not set yet
-		if ((not defined $product_ref) or ($rev == $current_product_ref->{rev})) {
-			$product_ref = $current_product_ref;
-			if (not defined $product_ref) {
-				$log->warn("specified product revision was not found, using current product ref",
-					{code => $code, revision => $rev})
-					if $log->is_warn();
-			}
-		}
-
-		if (defined $product_ref->{$field . "_tags"}) {
-
-			$current_tags_ref = {map {$_ => 1} @{$product_ref->{$field . "_tags"}}};
-		}
-		else {
-			$current_tags_ref = {};
-		}
-
-		if ((defined $change_ref->{userid}) and ($change_ref->{userid} eq $userid)) {
-
-			foreach my $tagid (keys %{$previous_tags_ref}) {
-				if (not exists $current_tags_ref->{$tagid}) {
-					$log->info("user removed value for a field",
-						{user_id => $userid, tagid => $tagid, field => $field, code => $code})
-						if $log->is_info();
-					$removed_tags{$tagid} = 1;
-				}
-			}
-		}
-
-		$previous_tags_ref = $current_tags_ref;
-
-	}
-
-	my $added = 0;
-	my $added_countries = "";
-
-	foreach my $tagid (sort keys %removed_tags) {
-		if (not exists $current_tags_ref->{$tagid}) {
-			$log->info("adding back removed tag", {tagid => $tagid, field => $field, code => $code}) if $log->is_info();
-
-			# we do not know the language of the current value of $product_ref->{$field}
-			# so regenerate it in the main language of the product
-			my $value = display_tags_hierarchy_taxonomy($lc, $field, $current_product_ref->{$field . "_hierarchy"});
-			# Remove tags
-			$value =~ s/<(([^>]|\n)*)>//g;
-
-			$current_product_ref->{$field} .= $value . ", $tagid";
-
-			if ($current_product_ref->{$field} =~ /^, /) {
-				$current_product_ref->{$field} = $';
-			}
-
-			compute_field_tags($current_product_ref, $current_product_ref->{lc}, $field);
-
-			$added++;
-			$added_countries .= " $tagid";
-		}
-	}
-
-	if ($added > 0) {
-
-		return $added . $added_countries;
-	}
-	else {
-		return 0;
-	}
-}
-
 sub normalize_search_terms ($term) {
 
 	# plural?
 	$term =~ s/s$//;
 	return $term;
 }
+
+=head2 product_name_brand ( $ref )
+
+Returns a product full name, which is a combination of product name and first brand.
+
+We use a small dash (instead of a minus -) as a separator between the product name and the brand.
+
+=head3 Parameters
+
+=head4 Reference to product object $ref
+
+=cut
 
 sub product_name_brand ($ref) {
 
@@ -2724,35 +2634,46 @@ sub product_name_brand ($ref) {
 	if (defined $ref->{brands}) {
 		my $brand = $ref->{brands};
 		$brand =~ s/,.*//;    # take the first brand
+							  # note: now that brands are taxonomized, the first brand may not be the most specific one
 		my $brandid = '-' . get_string_id_for_lang($lc, $brand) . '-';
 		my $full_name_id = '-' . get_string_id_for_lang($lc, $full_name) . '-';
 		if (($brandid ne '') and ($full_name_id !~ /$brandid/i)) {
-			$full_name .= lang("title_separator") . $brand;
+			$full_name .= ' – ' . $brand;
 		}
 	}
 
-	$full_name =~ s/^ - //;
+	$full_name =~ s/^ – //;
 	return $full_name;
 }
 
-# product full name is a combination of product name, first brand and quantity
+=head2 product_name_brand_quantity ( $ref )
+
+Returns a product full name, which is a combination of product name, first brand and quantity.
+
+We use a small dash (instead of a minus -) as a separator between the product name and the brand.
+
+=head3 Parameters
+
+=head4 Reference to product object $ref
+
+=cut
 
 sub product_name_brand_quantity ($ref) {
 
 	my $full_name = product_name_brand($ref);
-	my $full_name_id = '-' . get_string_id_for_lang($lc, $full_name) . '-';
+	my $full_name_id = '–' . get_string_id_for_lang($lc, $full_name) . '–';
 
 	if (defined $ref->{quantity}) {
 		my $quantity = $ref->{quantity};
-		my $quantityid = '-' . get_string_id_for_lang($lc, $quantity) . '-';
+		my $quantityid = '–' . get_string_id_for_lang($lc, $quantity) . '–';
 		if (($quantity ne '') and ($full_name_id !~ /$quantityid/i)) {
 			# Put non breaking spaces between numbers and units
 			$quantity =~ s/(\d) (\w)/$1\xA0$2/g;
-			$full_name .= lang("title_separator") . $quantity;
+			$full_name .= ' – ' . $quantity;
 		}
 	}
 
-	$full_name =~ s/^ - //;
+	$full_name =~ s/^ – //;
 	return $full_name;
 }
 
@@ -2799,7 +2720,7 @@ sub product_url ($code_or_ref) {
 	}
 
 	$code = ($code // "");
-	return "/$path/$code" . $titleid;
+	return get_owner_pretty_path($Owner_id) . "/$path/$code" . $titleid;
 }
 
 =head2 product_action_url ( $code, $action )
@@ -2966,20 +2887,13 @@ sub compute_languages ($product_ref) {
 		}
 	}
 
-	if (defined $product_ref->{images}) {
-		foreach my $id (keys %{$product_ref->{images}}) {
-
-			if ($id =~ /^(front|ingredients|nutrition)_([a-z]{2})$/) {
-				my $language_code = $2;
-				my $language = undef;
-				if (defined $language_codes{$language_code}) {
-					$language = $language_codes{$language_code};
-				}
-				else {
-					$language = $language_code;
-				}
+	# check the languages of the images
+	if ((defined $product_ref->{images}) and (defined $product_ref->{images}{selected})) {
+		foreach my $image_type (keys %{$product_ref->{images}{selected}}) {
+			foreach my $image_lc (keys %{$product_ref->{images}{selected}{$image_type}}) {
+				my $language = $language_codes{$image_lc} || $image_lc;
 				$languages{$language}++;
-				$languages_codes{$language_code}++;
+				$languages_codes{$image_lc}++;
 			}
 		}
 	}
@@ -3604,121 +3518,6 @@ sub remove_fields ($product_ref, $fields_ref) {
 	foreach my $field (@$fields_ref) {
 		delete $product_ref->{$field};
 	}
-	return;
-}
-
-=head2 add_images_urls_to_product ($product_ref, $target_lc, $specific_imagetype = undef)
-
-Add fields like image_[front|ingredients|nutrition|packaging]_[url|small_url|thumb_url] to a product object.
-
-If it exists, the image for the target language will be returned, otherwise we will return the image
-in the main language of the product.
-
-=head3 Parameters
-
-=head4 $product_ref
-
-Reference to a complete product a subfield.
-
-=head4 $target_lc
-
-2 language code of the preferred language for the product images.
-
-=head4 $specific_imagetype
-
-Optional parameter to specify the type of image to add. Default is to add all types.
-
-=cut
-
-sub add_images_urls_to_product ($product_ref, $target_lc, $specific_imagetype = undef) {
-
-	my $images_subdomain = format_subdomain('images');
-
-	my $path = product_path($product_ref);
-
-	# If $imagetype is specified (e.g. "front" when we display a list of products), only compute the image for this type
-	my @imagetypes;
-	if (defined $specific_imagetype) {
-		@imagetypes = ($specific_imagetype);
-	}
-	else {
-		@imagetypes = ('front', 'ingredients', 'nutrition', 'packaging');
-	}
-
-	foreach my $imagetype (@imagetypes) {
-
-		my $size = $display_size;
-
-		# first try the requested language
-		my @display_ids = ($imagetype . "_" . $target_lc);
-
-		# next try the main language of the product
-		if (defined($product_ref->{lc}) && $product_ref->{lc} ne $target_lc) {
-			push @display_ids, $imagetype . "_" . $product_ref->{lc};
-		}
-
-		# last try the field without a language (for old products without updated images)
-		push @display_ids, $imagetype;
-
-		foreach my $id (@display_ids) {
-
-			if (    (defined $product_ref->{images})
-				and (defined $product_ref->{images}{$id})
-				and (defined $product_ref->{images}{$id}{sizes})
-				and (defined $product_ref->{images}{$id}{sizes}{$size}))
-			{
-
-				$product_ref->{"image_" . $imagetype . "_url"}
-					= "$images_subdomain/images/products/$path/$id."
-					. $product_ref->{images}{$id}{rev} . '.'
-					. $display_size . '.jpg';
-				$product_ref->{"image_" . $imagetype . "_small_url"}
-					= "$images_subdomain/images/products/$path/$id."
-					. $product_ref->{images}{$id}{rev} . '.'
-					. $small_size . '.jpg';
-				$product_ref->{"image_" . $imagetype . "_thumb_url"}
-					= "$images_subdomain/images/products/$path/$id."
-					. $product_ref->{images}{$id}{rev} . '.'
-					. $thumb_size . '.jpg';
-
-				if ($imagetype eq 'front') {
-					# front image is product image
-					$product_ref->{image_url} = $product_ref->{"image_" . $imagetype . "_url"};
-					$product_ref->{image_small_url} = $product_ref->{"image_" . $imagetype . "_small_url"};
-					$product_ref->{image_thumb_url} = $product_ref->{"image_" . $imagetype . "_thumb_url"};
-				}
-
-				last;
-			}
-		}
-
-		if (defined $product_ref->{languages_codes}) {
-			# compute selected image for each product language
-			foreach my $key (keys %{$product_ref->{languages_codes}}) {
-				my $id = $imagetype . '_' . $key;
-				if (    (defined $product_ref->{images})
-					and (defined $product_ref->{images}{$id})
-					and (defined $product_ref->{images}{$id}{sizes})
-					and (defined $product_ref->{images}{$id}{sizes}{$size}))
-				{
-
-					$product_ref->{selected_images}{$imagetype}{display}{$key}
-						= "$images_subdomain/images/products/$path/$id."
-						. $product_ref->{images}{$id}{rev} . '.'
-						. $display_size . '.jpg';
-					$product_ref->{selected_images}{$imagetype}{small}{$key}
-						= "$images_subdomain/images/products/$path/$id."
-						. $product_ref->{images}{$id}{rev} . '.'
-						. $small_size . '.jpg';
-					$product_ref->{selected_images}{$imagetype}{thumb}{$key}
-						= "$images_subdomain/images/products/$path/$id."
-						. $product_ref->{images}{$id}{rev} . '.'
-						. $thumb_size . '.jpg';
-				}
-			}
-		}
-	}
-
 	return;
 }
 

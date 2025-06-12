@@ -1,0 +1,199 @@
+# All brands in the brands taxonomy are language less and use the xx: prefix
+# Brands are not translated, we record what is written on the package, and we display it back as-is
+
+# Adding brands in the taxonomy allows to:
+# - display proper capitalization and accentuation
+# - handle variations using the synonyms (e.g. missing or added separators like ' or spaces, possibly missing 's)
+
+# The brands taxonomy should not be used to:
+# - handle misspelings (do not add misspellings in the taxonomy as synonyms)
+# - handle parent / child brands (too much potential for errors and conflicts, especially in an international setting and with products from different types)
+# Note: an old draft owners/brands taxonomy lives in taxonomies/unused/brands.txt, but it is hierarchic, which is something we do not want in this taxonomy.
+# You can usefully read: https://wiki.openfoodfacts.org/Brands to get up and running on the subtleties of the topic.
+
+xx: Albert Heijn
+
+xx: Aldi
+
+xx: Alesto
+
+xx: alpro
+wikidata:en: Q498666
+
+xx: Banderos
+
+#< xx:Unilever
+xx: Best Foods
+wikidata:en: Q809061
+
+xx: Bio Village
+
+xx: Bodylab
+wikidata:en: Q27530939
+
+xx: bonÀrea
+
+xx: Carrefour BIO
+
+xx: Chaque Jour Sans Gluten
+
+xx: Choice
+
+# This brand is used by different consumer cooperatives around the world
+xx: Coop
+wikidata:en: Q115764026
+
+xx: Dave & Jon's, Dave & Jon's Snack Factory, Dave and Jon's
+wikidata:en: Q134125853
+
+xx: Delief
+
+xx: dmBio, dm Bio
+
+xx: Dr. Oetker
+
+xx: DUG
+
+xx: Délisse
+
+xx: El Taco Truck, El Taco Truck AB
+
+xx: Eldorado
+wikidata:en: Q5324313
+
+xx: Fazer
+wikidata:en: Q996907
+
+# In most of the world, this is a cat food brand owned by Nestlé
+# In the Nordic countries, Felix is a (human) food brand and the cat food brand is called Latz
+xx: Felix
+
+xx: Flora
+wikidata:en: Q5460271
+
+xx: Garant
+
+# Axfood brand targeted at large kitchens, like restaurants
+xx: Gastrino
+
+xx: Golden Sun
+
+xx: Grainway
+
+xx: Green Star
+
+xx: H-E-B, HEB
+wikidata:en: Q830621
+
+xx: Heinz
+
+#< xx:Unilever
+xx: Hellmann's, Hellmann's est. 1913, Hellmanns
+wikidata:en: Q809061
+
+xx: Hälsans Kök
+
+xx: ICA
+wikidata:en: Q10516119
+
+xx: JOZO
+wikidata:en: Q10538850
+
+xx: Kellogg's, Kelloggs, Kellogg
+
+xx: Kockens
+wikidata:en: Q10546877
+
+xx: Leader Price, Leaderprice
+
+xx: Malaco
+wikidata:en: Q4346282
+
+# Portuguese version of Marque Repère
+xx: Marca Guia
+
+xx: Marks & Spencers, Marks and Spencers
+wikidata:en: Q714491
+
+xx: Marque Repère
+wikidata:en: Q3294723
+
+# Swedish burger chain
+xx: Max
+wikidata:en: Q1912172
+
+xx: Maître CoQ
+
+xx: Monte Castello
+
+xx: NAT&vie, NAT&vie veggie
+
+xx: Naturli'
+
+xx: Nestlé
+wikidata:en: Q160746
+
+xx: Oatly
+wikidata:en: Q10605824
+
+xx: Oddlygood, Oddly good
+
+# this (Swedish) brand was purchased by (Finnish) Oddlygood in 2023
+xx: Planti
+
+xx: Premier
+
+xx: Pågen
+wikidata:en: Q3102193
+
+xx: Rice Krispies
+
+xx: Récoltons l'Avenir, Récoltons l'Avenir l'agriculture durable
+
+xx: Saffola
+
+xx: Sainsbury's, Sainsburys
+
+xx: Santa Maria
+
+xx: Sevan
+
+xx: Sol&Mar
+
+xx: Soutenons nos agriculteurs
+
+xx: Special K
+
+xx: Södervidinge
+wikidata:en: Q10688845
+
+xx: Takovo
+wikidata:en: Q58177342
+
+xx: Tokapi
+
+xx: Trader Joe's
+
+xx: Turini
+
+xx: Urtekram
+wikidata:en: Q12340334
+
+xx: Valsoia
+wikidata:en: Q4008334
+
+xx: Vemondo
+
+xx: Veritas
+
+xx: Xtra, Xtra Coop
+wikidata:en: Q11902541
+
+xx: Zeina's
+
+xx: Zeta
+wikidata:en: Q10724505
+
+xx: Änglamark
+wikidata:en: Q65229572
+

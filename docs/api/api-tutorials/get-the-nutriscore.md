@@ -57,6 +57,8 @@ Here are the different messages to use according to the state:
 -   Add a one-click option to indicate no nutrition facts on the packaging
   -   "This product doesn't have nutrition facts"
 
+Note: We [now have a convenient API to automatically extract nutrition from an image](https://openfoodfacts.github.io/robotoff/references/api/#tag/Predict/paths/~1predict~1nutrition/get).
+
 #### Add a message if we have nutrition but no category
 
 <pre>if "en:categories-to-be-completed" in states_tags AND "en:nutrition-facts-completed" in states_tags</pre>
@@ -74,6 +76,8 @@ Here are the different messages to use according to the state:
 <pre>if "en:categories-to-be-completed" in states_tags  AND "en:nutrition-facts-to-be-completed" in states_tags</pre>
 
 -   Prompt: "Add nutrition facts and a category to compute the Nutri-Score"
+
+Note: We [now have a convenient API to automatically extract nutrition from an image](https://openfoodfacts.github.io/robotoff/references/api/#tag/Predict/paths/~1predict~1nutrition/get).
 
 #### Add a one-click option to indicate no nutrition facts on the packaging
 

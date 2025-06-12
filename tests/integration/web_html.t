@@ -431,51 +431,51 @@ my $tests_ref = [
 	},
 	{
 		test_case => 'world-categories',
-		path => '/category/desserts',
+		path => 'facets/categories/desserts',
 		expected_type => 'html',
 	},
 	{
 		test_case => 'fr-categories',
 		subdomain => 'fr',
-		path => '/categorie/desserts',
+		path => 'facets/categories/desserts',
 		expected_type => 'html',
 	},
 	{
 		test_case => 'world-brands',
-		path => '/brands',
+		path => 'facets/brands',
 		expected_type => 'html',
 	},
 	{
 		test_case => 'fr-brands',
 		subdomain => 'fr',
-		path => '/marques',
+		path => 'facets/marques',
 		expected_type => 'html',
 	},
 	{
 		test_case => 'world-labels',
-		path => '/labels',
+		path => 'facets/labels',
 		expected_type => 'html',
 	},
 	{
 		test_case => 'fr-labels',
 		subdomain => 'fr',
-		path => '/labels',
+		path => 'facets/labels',
 		expected_type => 'html',
 	},
 	{
 		test_case => 'world-countries',
-		path => '/countries',
+		path => 'facets/countries',
 		expected_type => 'html',
 	},
 	{
 		test_case => 'fr-countries',
 		subdomain => 'fr',
-		path => '/pays',
+		path => 'facets/pays',
 		expected_type => 'html',
 	},
 	{
 		test_case => 'world-label-organic',
-		path => '/label/organic',
+		path => 'facets/labels/organic',
 		expected_type => 'html',
 	},
 	{
@@ -549,7 +549,7 @@ my $tests_ref = [
 	{
 		test_case => 'es-ingredients',
 		subdomain => 'es',
-		path => '/ingredients',
+		path => 'facets/ingredients',
 		expected_type => 'html',
 	},
 	# /products with multiple products
@@ -568,6 +568,11 @@ my $tests_ref = [
 	{
 		test_case => 'world-product-smoothie',
 		path => '/product/3300000000001/apple-pie-bob-s-pies?user_agent=smoothie',
+		expected_type => 'html',
+	},
+	{
+		test_case => 'report-image-button',
+		path => '/cgi/product_image.pl?code=3300000000013&id=front_fr',
 		expected_type => 'html',
 	},
 ];

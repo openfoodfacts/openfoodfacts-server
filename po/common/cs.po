@@ -4680,7 +4680,7 @@ msgid "Processed foods"
 msgstr "Běžně zpracované potraviny"
 
 msgctxt "attribute_nova_4_description_short"
-msgid "Ultra processed foods"
+msgid "Ultra-processed foods"
 msgstr "Ultra zpracované potraviny"
 
 msgctxt "attribute_nova_4_1_marker"
@@ -5877,6 +5877,11 @@ msgstr "Pomozte nám informovat miliony spotřebitelů po celém světě o tom, 
 msgctxt "donation_title_2024"
 msgid "Please give to our 2024 Fundraiser"
 msgstr "Přispějte prosím do naší sbírky 2024"
+
+# Don't translate {year}, it will be replaced by the 4 digits year
+msgctxt "f_donation_title_year"
+msgid "Please give to our {year} Fundraiser"
+msgstr "Přispějte prosím do naší sbírky {year}"
 
 msgctxt "donation_list_2024_main"
 msgid "Your donations fund the day-to-day operations of our non-profit association:"

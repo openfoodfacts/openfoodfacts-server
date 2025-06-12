@@ -127,8 +127,11 @@ my $remove_team = '';
 my $remove_label = '';
 my $remove_category = '';
 my $remove_nutrient = '';
+my $remove_old_fields = '';
 my $remove_old_carbon_footprint = '';
 my $fix_spanish_ingredientes = '';
+my $remove_previous_ingredients_with_timestamp = '';
+my $remove_prev_next_debug_tags = '';
 my $team = '';
 my $assign_categories_properties = '';
 my $restore_values_deleted_by_user = '';
@@ -196,8 +199,11 @@ GetOptions(
 	"remove-label=s" => \$remove_label,
 	"remove-category=s" => \$remove_category,
 	"remove-nutrient=s" => \$remove_nutrient,
+	"remove-old-fields" => \$remove_old_fields,
 	"remove-old-carbon-footprint" => \$remove_old_carbon_footprint,
 	"fix-spanish-ingredientes" => \$fix_spanish_ingredientes,
+	"remove-previous-ingredients-with-timestamp" => \$remove_previous_ingredients_with_timestamp,
+	"remove-prev-next-debug-tags" => \$remove_prev_next_debug_tags,
 	"team=s" => \$team,
 	"restore-values-deleted-by-user=s" => \$restore_values_deleted_by_user,
 	"delete-debug-tags" => \$delete_debug_tags,
@@ -262,6 +268,9 @@ if (    (not $process_ingredients)
 	and (not $fix_rev_not_incremented)
 	and (not $fix_yuka_salt)
 	and (not $fix_spanish_ingredientes)
+	and (not $remove_old_fields)
+	and (not $remove_previous_ingredients_with_timestamp)
+	and (not $remove_prev_next_debug_tags)
 	and (not $fix_nutrition_data_per)
 	and (not $fix_nutrition_data)
 	and (not $fix_non_string_ids)
@@ -327,6 +336,11 @@ if ($fix_non_string_codes) {
 # Query products that have the last_modified_t field stored as a number
 if ($fix_string_last_modified_t) {
 	$query_ref->{last_modified_t} = {'$type' => "string"};
+}
+
+# Query products that don't have a product_type field
+if ($add_product_type) {
+	$query_ref->{product_type} = {'$exists' => 0};
 }
 
 # On the producers platform, require --query owners_tags to be set, or the --all-owners field to be set.
@@ -583,7 +597,7 @@ while (my $product_ref = $cursor->next) {
 				"environment_impact_level", "environment_impact_level_tags",
 				"environment_infocard", "environment_infocard_en",
 				"environment_infocard_fr", "carbon_footprint_from_known_ingredients_debug",
-				"carbon_footprint_from_meat_or_fish_debug"
+				"carbon_footprint_from_meat_or_fish_debug", "carbon_footprint_percent_of_known_ingredients"
 			);
 			remove_fields($product_ref, \@product_fields_to_delete);
 
@@ -637,6 +651,51 @@ while (my $product_ref = $cursor->next) {
 				}
 				$rev--;
 			}
+		}
+
+		# Remove previous ingredients with timestamp
+		if ($remove_previous_ingredients_with_timestamp) {
+			# build a regex for keys like:
+			# ingredients_text_en_ocr_1545921985
+			# ingredients_text_en_ocr_1545732141_result
+			my $re = qr/^ingredients_text_[a-z]{2}_ocr_\d+(?:_result)?$/;
+
+			foreach my $field (sort keys %{$product_ref}) {
+				if ($field =~ $re) {
+					delete $product_ref->{$field};
+				}
+				elsif ($field =~ /_(debug|prev|next)_tags/) {
+					delete $product_ref->{$field};
+				}
+			}
+		}
+
+		# We have a system to load alternate versions of taxonomies: "debug", "prev", and "next"
+		# that allows to see which products would get different tags if the taxonomy was changed.
+		# In practice this feature has not been used for several years.
+		# The following option removes the corresponding fields from products.
+		if ($remove_prev_next_debug_tags) {
+			foreach my $field (sort keys %{$product_ref}) {
+				if ($field =~ /_(debug|prev|next)_tags/) {
+					delete $product_ref->{$field};
+				}
+			}
+		}
+
+		# Remove some old fields that are no longer used
+		if ($remove_old_fields) {
+			delete $product_ref->{"brands_old"};
+			delete $product_ref->{"categories_old"};
+			delete $product_ref->{"labels_old"};
+			delete $product_ref->{"packaging_old_before_taxonomization"};
+			delete $product_ref->{"packaging_old"};
+			delete $product_ref->{"debug_param_sorted_langs"};
+			delete $product_ref->{"ingredients_debug"};
+			delete $product_ref->{"ingredients_ids_debug"};
+			delete $product_ref->{"scores"};
+			delete $product_ref->{"ecoscore_extended_data"};
+			delete $product_ref->{"ecoscore_extended_data_version"};
+			delete $product_ref->{"emb_codes_20141016"};
 		}
 
 		# Fix for nutrition_data_per / nutrition_data_prepared_per field that was set to "100.0 g" or "240 g" by Equadis import
@@ -984,42 +1043,64 @@ while (my $product_ref = $cursor->next) {
 		}
 
 		if ($autorotate) {
+			# This is old code
+			die("autorotate has not been tested recently, please test it before using it");
+
 			# OCR needs to have been run first
-			if (defined $product_ref->{images}) {
-				foreach my $imgid (sort keys %{$product_ref->{images}}) {
-					if (
-							($imgid =~ /^(ingredients|nutrition)_/)
-						and (defined $product_ref->{images}{$imgid}{orientation})
-						and ($product_ref->{images}{$imgid}{orientation} != 0)
-						# only rotate images that have not been manually cropped
-						and (  (not defined $product_ref->{images}{$imgid}{x1})
-							or ($product_ref->{images}{$imgid}{x1} <= 0))
-						and (  (not defined $product_ref->{images}{$imgid}{y1})
-							or ($product_ref->{images}{$imgid}{y1} <= 0))
-						and (  (not defined $product_ref->{images}{$imgid}{x2})
-							or ($product_ref->{images}{$imgid}{x2} <= 0))
-						and (  (not defined $product_ref->{images}{$imgid}{y2})
-							or ($product_ref->{images}{$imgid}{y2} <= 0))
-						)
-					{
-						print STDERR "rotating image $imgid by "
-							. (-$product_ref->{images}{$imgid}{orientation}) . "\n";
+			if ((defined $product_ref->{images}) and (defined $product_ref->{images}{selected})) {
+				foreach my $image_type (sort keys %{$product_ref->{images}{selected}}) {
+					if ($image_type =~ /^(ingredients|nutrition)/) {
+						foreach my $image_lc (sort keys %{$product_ref->{images}{selected}{$image_type}}) {
+							if (
+									(defined $product_ref->{images}{selected}{$image_type}{$image_lc}{orientation})
+								and ($product_ref->{images}{selected}{$image_type}{$image_lc} != 0)
+								# only rotate images that have not been manually cropped
+								and
+								((not defined $product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{x1})
+									or ($product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{x1} <= 0))
+								and
+								((not defined $product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{y1})
+									or ($product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{y1} <= 0))
+								and
+								((not defined $product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{x2})
+									or ($product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{x2} <= 0))
+								and
+								((not defined $product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{y2})
+									or ($product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{y2} <= 0))
+								)
+							{
+								print STDERR "rotating image $image_type $image_lc by "
+									. (
+									-$product_ref->$product_ref->{images}{selected}{$image_type}{$image_lc}{generation}
+										{orientation}) . "\n";
 
-						# Save product so that OCR results now:
-						# autorotate may call image_process_crop which will read the product file on disk and
-						# write a new one
-						store("$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref);
+								# Save product so that OCR results now:
+								# autorotate may call image_process_crop which will read the product file on disk and
+								# write a new one
+								store("$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref);
 
-						eval {
+								eval {
 
-							# process_image_crops saves a new version of the product
-							$product_ref = process_image_crop(
-								"autorotate-bot", $code, $imgid,
-								$product_ref->{images}{$imgid}{imgid},
-								-$product_ref->{images}{$imgid}{orientation},
-								undef, undef, -1, -1, -1, -1, "full"
-							);
-						};
+									# process_image_crops saves a new version of the product
+									$product_ref = process_image_crop(
+										"autorotate-bot",
+										$product_ref,
+										$image_type,
+										$image_lc,
+										$product_ref->{images}{selected}{$image_type}{$image_lc}{imgid},
+										-$product_ref->{images}{selected}{$image_type}{$image_lc}{generation}
+											{orientation},
+										undef,
+										undef,
+										-1,
+										-1,
+										-1,
+										-1,
+										"full"
+									);
+								};
+							}
+						}
 					}
 				}
 			}
@@ -1371,9 +1452,7 @@ while (my $product_ref = $cursor->next) {
 		# Add product type
 		if (($add_product_type) and (not defined $product_ref->{product_type})) {
 			$product_ref->{product_type} = $options{product_type};
-			# Silent update: we also change the original_product
-			# in order not to push the product to Redis
-			$original_product->{product_type} = $product_ref->{product_type};
+			print STDERR "adding product_type $options{product_type} to product $code\n";
 			# $product_values_changed = 1;
 		}
 

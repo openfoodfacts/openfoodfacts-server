@@ -94,22 +94,24 @@ If you made a change that affects stored expected results, you can use:
 
 If you regenerate test results, be sure to check carefully that the changes in your commit are expected.
 
+**NOTE:** When making changes to language files (.pot, .po), make sure to run `make build_lang_test` so that the language files are rebuild in the test environment, before regenerating expected results for integration tests.
+
 
 ## Debugging with tests
 
-Launching a test is a very effective way to understand what's going on in the code using the debugger.
+Starting a test is a very effective way to understand what's going on in the code using the debugger.
 
-This is done calling the test with `perl -d`.
-You can also use "TEST_CMD" argument with make target:
+This is done by running the test with `perl -d`.
+You can also use a "TEST_CMD" argument with the make target:
 
 ```bash
 make test-unit test="my-test.t" TEST_CMD="perl -d"
 ```
 
-Most often, you will have to use the next command "n" four times, before landing in you test, where you can easily set a breakpoint with `b <line-number>`.
+Most often, you will have to use the next command "n" four times before landing in your test, where you can easily set a breakpoint with `b <line-number>`.
 
 Read [perldoc about debugger](https://perldoc.perl.org/perldebug) to learn more.
 
 
-> :pencil: Note: With this explanation, in integration tests that issue requests to the server, you won't be able to run the debugger inside the server code, only in the test.
+> :pencil: Note: With this method, in integration tests that issue requests to the server, you won't be able to run the debugger inside the server code, only in the test.
 

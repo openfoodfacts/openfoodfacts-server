@@ -29,6 +29,7 @@ use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Mail qw/send_email/;

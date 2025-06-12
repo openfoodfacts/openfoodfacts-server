@@ -44,9 +44,6 @@ BEGIN {
 		%index_tag_types_set
 
 		&init_request
-		&redirect_to_url
-		&single_param
-		&request_param
 
 		&display_date
 		&display_date_tag
@@ -98,7 +95,6 @@ BEGIN {
 		&data_to_display_nutrient_levels
 		&data_to_display_ingredients_analysis
 		&data_to_display_ingredients_analysis_details
-		&data_to_display_image
 
 		&count_products
 		&add_params_to_query
@@ -129,7 +125,6 @@ BEGIN {
 		$knowledge_panels_options_ref
 
 		&display_nutriscore_calculation_details_2021
-		&get_owner_pretty_path
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -138,7 +133,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::HTTP
-	qw(write_cors_headers set_http_response_header write_http_response_headers get_http_request_header);
+	qw(write_cors_headers set_http_response_header write_http_response_headers get_http_request_header extension_and_query_parameters_to_redirect_url redirect_to_url single_param request_param);
 use ProductOpener::Store qw(get_string_id_for_lang retrieve);
 use ProductOpener::Config qw(:all);
 use ProductOpener::Paths qw/%BASE_DIRS/;
@@ -146,15 +141,14 @@ use ProductOpener::Tags qw(:all);
 use ProductOpener::Users qw(:all);
 use ProductOpener::Index qw(%texts);
 use ProductOpener::Lang qw(:all);
-use ProductOpener::Images qw(display_image display_image_thumb);
+use ProductOpener::Images qw(display_image data_to_display_image add_images_urls_to_product);
 use ProductOpener::Food qw(:all);
 use ProductOpener::Ingredients qw(flatten_sub_ingredients);
 use ProductOpener::Products qw(:all);
 use ProductOpener::Missions qw(:all);
 use ProductOpener::MissionsConfig qw(:all);
-use ProductOpener::URL qw(format_subdomain);
-use ProductOpener::Data
-	qw(execute_aggregate_tags_query execute_count_tags_query execute_query get_products_collection get_recent_changes_collection);
+use ProductOpener::URL qw(format_subdomain get_owner_pretty_path);
+use ProductOpener::Data qw(:all);
 use ProductOpener::Text
 	qw(escape_char escape_single_quote_and_newlines get_decimal_formatter get_percent_formatter remove_tags_and_quote);
 use ProductOpener::Nutriscore qw(%points_thresholds compute_nutriscore_grade);
@@ -171,7 +165,7 @@ use ProductOpener::PackagerCodes
 use ProductOpener::Export qw(export_csv);
 use ProductOpener::API qw(add_error customize_response_for_product process_api_request);
 use ProductOpener::Units qw/g_to_unit/;
-use ProductOpener::Cache qw/$max_memcached_object_size $memd generate_cache_key/;
+use ProductOpener::Cache qw/$max_memcached_object_size $memd generate_cache_key get_cache_results set_cache_results/;
 use ProductOpener::Permissions qw/has_permission/;
 use ProductOpener::ProductsFeatures qw(feature_enabled);
 use ProductOpener::RequestStats qw(:all);
@@ -205,10 +199,6 @@ use Tie::IxHash;
 
 use Log::Any '$log', default_adapter => 'Stderr';
 
-# special logger to make it easy to measure memcached hit and miss rates
-our $mongodb_log = Log::Any->get_logger(category => 'mongodb');
-$mongodb_log->info("start") if $mongodb_log->is_info();
-
 use Apache2::RequestUtil ();
 use Apache2::RequestRec ();
 use Apache2::Const qw(:http :common);
@@ -231,7 +221,7 @@ my $uri_finder = URI::Find->new(
 my $json = JSON::MaybeXS->new->utf8(0)->allow_nonref->canonical;
 my $json_indent = JSON::MaybeXS->new->indent(1)->utf8(0)->allow_nonref->canonical;
 # $json_utf8 has utf8 enabled: it encodes to UTF-8 bytes
-my $json_utf8 = JSON::MaybeXS->new->utf8(1)->allow_nonref->canonical;
+my $json_utf8 = JSON::MaybeXS->new->convert_blessed->utf8(1)->allow_nonref->canonical;
 
 =head1 VARIABLES
 
@@ -354,7 +344,7 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	(not defined $template_data_ref->{user_id}) and $template_data_ref->{user_id} = $User_id;
 	(not defined $template_data_ref->{user}) and $template_data_ref->{user} = \%User;
 	(not defined $template_data_ref->{org_id}) and $template_data_ref->{org_id} = $Org_id;
-	$template_data_ref->{owner_pretty_path} = get_owner_pretty_path();
+	$template_data_ref->{owner_pretty_path} = get_owner_pretty_path($Owner_id);
 
 	$template_data_ref->{flavor} = $flavor;
 	$template_data_ref->{options} = \%options;
@@ -442,94 +432,6 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	};
 
 	return ($tt->process($template_filename, $template_data_ref, $result_content_ref));
-}
-
-=head2 redirect_to_url($request_ref, $status_code, $redirect_url)
-
-This function instructs mod_perl to print redirect HTTP header (Location) and to terminate the request immediately.
-The mod_perl process is not terminated and will continue to serve future requests.
-
-=head3 Arguments
-
-=head4 Request object $request_ref
-
-The request object may contain a cookie.
-
-=head4 Status code $status_code
-
-e.g. 302 for a temporary redirect
-
-=head4 Redirect url $redirect_url
-
-=cut
-
-sub redirect_to_url ($request_ref, $status_code, $redirect_url) {
-
-	my $r = Apache2::RequestUtil->request();
-
-	$r->headers_out->set(Location => $redirect_url);
-
-	if (defined $request_ref->{cookie}) {
-		# Note: mod_perl will not output the Set-Cookie header on a 302 response
-		# unless it is set with err_headers_out instead of headers_out
-		# https://perl.apache.org/docs/2.0/api/Apache2/RequestRec.html#C_err_headers_out_
-		$r->err_headers_out->set("Set-Cookie" => $request_ref->{cookie});
-	}
-
-	$r->status($status_code);
-
-	log_request_stats($request_ref->{stats});
-
-	# note: under mod_perl, exit() will end the request without terminating the Apache mod_perl process
-	exit();
-}
-
-=head2 single_param ($param_name)
-
-CGI.pm param() function returns a list when called in a list context
-(e.g. when param() is an argument of a function, or the value of a field in a hash).
-This causes issues for function signatures that expect a scalar, and that may get passed an empty list
-if the parameter is not set.
-
-So instead of calling CGI.pm param() directly, we call single_param() to prefix it with scalar.
-
-=head3 Arguments
-
-=head4 CGI parameter name $param_name
-
-=head3 Return value
-
-A scalar value for the parameter, or undef if the parameter is not defined.
-
-=cut
-
-sub single_param ($param_name) {
-	return scalar param($param_name);
-}
-
-=head2 request_param ($request_ref, $param_name)
-
-Return a request parameter. The parameter can be passed in the query string,
-as a POST multipart form data parameter, or in a POST JSON body
-
-=head3 Arguments
-
-=head4 Parameter name $param_name
-
-=head3 Return value
-
-A scalar value for the parameter, or undef if the parameter is not defined.
-
-=cut
-
-sub request_param ($request_ref, $param_name) {
-	my $cgi_param = scalar param($param_name);
-	if (defined $cgi_param) {
-		return decode utf8 => $cgi_param;
-	}
-	else {
-		return deep_get($request_ref, "body_json", $param_name);
-	}
 }
 
 =head2 init_request ()
@@ -967,6 +869,8 @@ CSS
 		}
 	) if $log->is_debug();
 
+	# Query parameters
+
 	set_request_stats_value($request_ref->{stats}, "cc", $request_ref->{cc});
 	set_request_stats_value($request_ref->{stats}, "lc", $request_ref->{lc});
 	set_request_stats_value($request_ref->{stats}, "hostname", $hostname);
@@ -1227,8 +1131,8 @@ sub display_robots_txt_and_exit ($request_ref) {
 			my $tag_value_singular = $tag_type_singular{$type}{$l};
 			my $tag_value_plural = $tag_type_plural{$type}{$l};
 			if (
-					defined $tag_value_singular
-				and length($tag_value_singular) != 0
+					(defined $tag_value_singular)
+				and (length($tag_value_singular) != 0)
 				and not(exists($disallow_paths_localized_set{$tag_value_singular}))
 				# check that it's not one of the exception
 				# we don't perform this check below for list of tags pages as all list of
@@ -1240,9 +1144,8 @@ sub display_robots_txt_and_exit ($request_ref) {
 				push(@{$vars->{disallow_paths_localized}}, $tag_value_singular);
 			}
 			if (
-				defined $tag_value_plural
-				and length($tag_value_plural)
-				!= 0
+					(defined $tag_value_plural)
+				and (length($tag_value_plural) != 0)
 				# environmental_score has the same value for singular and plural, and products should not be disabled
 				and ($type !~ /^environmental_score|products$/)
 				and not(exists($disallow_paths_localized_set{$tag_value_plural}))
@@ -1276,7 +1179,7 @@ sub display_index_for_producer ($request_ref) {
 		if ($count > 0) {
 			push @{$template_data_ref->{facets}},
 				{
-				url => "/" . $tag_type_plural{$tagtype}{$lc},
+				url => "/facets/" . $tag_type_plural{$tagtype}{$lc},
 				number_of_products => lang("number_of_products_with_" . $tagtype),
 				count => $count,
 				};
@@ -1300,7 +1203,6 @@ sub display_index_for_producer ($request_ref) {
 	# Display a message if some product updates have not been published yet
 	# Updates can also be on obsolete products
 
-	$template_data_ref->{owner_pretty_path} = get_owner_pretty_path();
 	$template_data_ref->{count_to_be_exported} = count_products({}, {states_tags => "en:to-be-exported"});
 	$template_data_ref->{count_obsolete_to_be_exported} = count_products({}, {states_tags => "en:to-be-exported"}, 1);
 
@@ -1317,7 +1219,7 @@ sub display_text ($request_ref) {
 
 	my $textid = $request_ref->{text};
 
-	if ($textid =~ /open-food-facts-mobile-app|application-mobile-open-food-facts/) {
+	if ($textid =~ /open-food-facts-mobile-app|application-mobile-open-food-facts|open-beauty-facts-mobile-app/) {
 		# we want the mobile app landing page to be included in a <div class="row">
 		# so we display it under the `banner` page format, which is the page format
 		# used on product pages, with a colored banner on top
@@ -1543,7 +1445,7 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 
 	if ((defined $request_ref->{page}) and ($request_ref->{page} > 1)) {
 		$request_ref->{title}
-			= ($title // '') . lang("title_separator") . sprintf(lang("page_x"), $request_ref->{page});
+			= ($title // '') . ' – ' . sprintf(lang("page_x"), $request_ref->{page});
 	}
 	else {
 		$request_ref->{title} = $title;
@@ -1566,85 +1468,10 @@ sub display_mission ($request_ref) {
 	my $html = join('', (<$IN>));
 
 	$request_ref->{content_ref} = \$html;
-	$request_ref->{canon_url} = canonicalize_tag_link("missions", $missionid);
+	$request_ref->{canon_url} = "/facets" . canonicalize_tag_link("missions", $missionid);
 
 	display_page($request_ref);
 	exit();
-}
-
-sub get_cache_results ($key, $request_ref) {
-
-	my $results;
-
-	$log->debug("MongoDB hashed query key", {key => $key}) if $log->is_debug();
-
-	# disable caching if ?no_cache=1
-	# or if we are on the producers platform
-	# or if we are sent the HTTP header Cache-Control: no-cache
-	my $param_no_cache = single_param("no_cache");
-	if ((not $param_no_cache) and (not $server_options{producers_platform})) {
-		my $cache_control = get_http_request_header("Cache-Control");
-		if ((defined $cache_control) and ($cache_control =~ /no-cache/)) {
-			$log->debug("get_cache_results - HTTP Cache-Control no-cache header, skip caching", {key => $key})
-				if $log->is_debug();
-			$param_no_cache = 1;
-		}
-	}
-	if ($param_no_cache) {
-		$log->debug("MongoDB no_cache parameter, skip caching", {key => $key}) if $log->is_debug();
-		$mongodb_log->info("get_cache_results - skip - key: $key") if $mongodb_log->is_info();
-
-	}
-	else {
-		$log->debug("Retrieving value for MongoDB query key", {key => $key}) if $log->is_debug();
-		$results = $memd->get($key);
-		if (not defined $results) {
-			$log->debug("Did not find a value for MongoDB query key", {key => $key}) if $log->is_debug();
-			$mongodb_log->info("get_cache_results - miss - key: $key") if $mongodb_log->is_info();
-		}
-		else {
-			$log->debug("Found a value for MongoDB query key", {key => $key}) if $log->is_debug();
-			$mongodb_log->info("get_cache_results - hit - key: $key") if $mongodb_log->is_info();
-		}
-	}
-	return $results;
-}
-
-sub set_cache_results ($key, $results) {
-
-	$log->debug("Setting value for MongoDB query key", {key => $key}) if $log->is_debug();
-	my $result_size = total_size($results);
-
-	# $max_memcached_object_size is defined is Cache.pm
-	# we assume that compression will reduce the size by at least 50%
-	my $factor = 2;
-	if ($result_size >= $max_memcached_object_size * $factor) {
-		$mongodb_log->info(
-			"set_cache_results - skipping - setting value - key: $key (uncompressed total_size: $result_size > max size * $factor ($max_memcached_object_size * $factor))"
-		);
-		return;
-	}
-
-	if ($mongodb_log->is_info()) {
-		$mongodb_log->info("set_cache_results - setting value - key: $key - uncompressed total_size: $result_size");
-	}
-
-	if ($memd->set($key, $results, 3600)) {
-		$mongodb_log->info("set_cache_results - updated - key: $key - uncompressed total_size: $result_size")
-			if $mongodb_log->is_info();
-	}
-	else {
-		$log->debug("Could not set value for MongoDB query key", {key => $key});
-		$mongodb_log->info("set_cache_results - error - key: $key - uncompressed total_size: $result_size")
-			if $mongodb_log->is_info();
-	}
-
-	return;
-}
-
-sub can_use_query_cache() {
-	return (    ((not defined single_param("no_cache")) or (not single_param("no_cache")))
-			and (not $server_options{producers_platform}));
 }
 
 sub generate_query_cache_key ($name, $context_ref, $request_ref) {
@@ -1770,13 +1597,15 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 	#get cache results for aggregate query
 	my $key = generate_query_cache_key("aggregate", $aggregate_parameters, $request_ref);
 	$log->debug("MongoDB query key", {key => $key}) if $log->is_debug();
-	my $results = get_cache_results($key, $request_ref);
+
+	$request_ref->{data_debug} = init_data_debug();
+	my $results = get_cache_results($key, \$request_ref->{data_debug});
 
 	if ((not defined $results) or (ref($results) ne "ARRAY") or (not defined $results->[0])) {
 		$results = undef;
 		# do not use the postgres cache if ?no_cache=1
 		# or if we are on the producers platform
-		if (can_use_query_cache()) {
+		if (can_use_off_query(\$request_ref->{data_debug})) {
 			set_request_stats_time_start($request_ref->{stats}, "off_query_aggregate_tags_query");
 			$results = execute_aggregate_tags_query($aggregate_parameters);
 			set_request_stats_time_end($request_ref->{stats}, "off_query_aggregate_tags_query");
@@ -1814,7 +1643,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 
 		if (defined $results) {
 			if (defined $results->[0] and $cache_results_flag) {
-				set_cache_results($key, $results);
+				set_cache_results($key, $results, \$request_ref->{data_debug});
 			}
 		}
 		else {
@@ -1842,14 +1671,14 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 		#get total count for aggregate (without limit) and put result in cache
 		my $key_count = generate_query_cache_key("aggregate_count", $aggregate_count_parameters, $request_ref);
 		$log->debug("MongoDB aggregate count query key", {key => $key_count}) if $log->is_debug();
-		my $results_count = get_cache_results($key_count, $request_ref);
+		my $results_count = get_cache_results($key_count, \$request_ref->{data_debug});
 
 		if (not defined $results_count) {
 
 			my $count_results;
 			# do not use the smaller postgres cache if ?no_cache=1
 			# or if we are on the producers platform
-			if (can_use_query_cache()) {
+			if (can_use_off_query(\$request_ref->{data_debug})) {
 				set_request_stats_time_start($request_ref->{stats}, "off_query_aggregate_tags_query");
 				$count_results = execute_aggregate_tags_query($aggregate_count_parameters);
 				set_request_stats_time_end($request_ref->{stats}, "off_query_aggregate_tags_query");
@@ -1876,7 +1705,11 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 				$request_ref->{structured_response}{count} = $count_results->{$group_field_name};
 
 				if ($cache_results_flag) {
-					set_cache_results($key_count, $request_ref->{structured_response}{count});
+					set_cache_results(
+						$key_count,
+						$request_ref->{structured_response}{count},
+						\$request_ref->{data_debug}
+					);
 					$log->debug(
 						"Set cached aggregate count for query key",
 						{
@@ -1988,8 +1821,9 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 			. "</tr></thead>\n<tbody>\n";
 
 		# To get the root link, we remove the facet name from the current link
+		$log->info("**************** current_link: " . $request_ref->{current_link});
 		my $main_link = $request_ref->{current_link};
-		$main_link =~ s/\/[^\/]+$//;    # Remove the last / and everything after ir
+		$main_link =~ s/\/[^\/]+$//;    # Remove the last / and everything after it
 		my $nofollow = '';
 		if (defined $request_ref->{tagid}) {
 			$nofollow = ' rel="nofollow"';
@@ -2002,9 +1836,9 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 		my $i = 0;
 		my $j = 0;
 
-		my $path = $tag_type_singular{$tagtype}{$lc};
+		my $path = $tag_type_plural{$tagtype}{$lc};
 
-		if (not defined $tag_type_singular{$tagtype}{$lc}) {
+		if (not defined $tag_type_plural{$tagtype}{$lc}) {
 			$log->error("no path defined for tagtype", {tagtype => $tagtype, lc => $lc}) if $log->is_error();
 			die();
 		}
@@ -2678,7 +2512,7 @@ sub display_list_of_tags_translate ($request_ref, $query_ref) {
 		#      "Scheme"
 		#    ];
 
-		my $main_link = '';
+		my $main_link = get_owner_pretty_path($Owner_id);
 		my $nofollow = '';
 		if (defined $request_ref->{tagid}) {
 			local $log->context->{tagtype} = $request_ref->{tagtype};
@@ -2686,12 +2520,13 @@ sub display_list_of_tags_translate ($request_ref, $query_ref) {
 
 			$log->trace("determining main_link for the tag") if $log->is_trace();
 			if (defined $taxonomy_fields{$request_ref->{tagtype}}) {
-				$main_link = canonicalize_taxonomy_tag_link($lc, $request_ref->{tagtype}, $request_ref->{tagid});
+				$main_link
+					.= "/facets" . canonicalize_taxonomy_tag_link($lc, $request_ref->{tagtype}, $request_ref->{tagid});
 				$log->debug("main_link determined from the taxonomy tag", {main_link => $main_link})
 					if $log->is_debug();
 			}
 			else {
-				$main_link = canonicalize_tag_link($request_ref->{tagtype}, $request_ref->{tagid});
+				$main_link .= "/facets" . canonicalize_tag_link($request_ref->{tagtype}, $request_ref->{tagid});
 				$log->debug("main_link determined from the canonical tag", {main_link => $main_link})
 					if $log->is_debug();
 			}
@@ -2712,7 +2547,7 @@ sub display_list_of_tags_translate ($request_ref, $query_ref) {
 		my $to_be_translated = 0;
 		my $translated = 0;
 
-		my $path = $tag_type_singular{$tagtype}{$lc};
+		my $path = $tag_type_plural{$tagtype}{$lc};
 
 		my @tagcounts;
 
@@ -3014,7 +2849,7 @@ sub display_points_ranking ($tagtype, $tagid, $request_ref) {
 		$i++;
 
 		my $display_key = $key;
-		my $link = canonicalize_taxonomy_tag_link($lc, $ranktype, $key) . "/points";
+		my $link = '/facets' . canonicalize_taxonomy_tag_link($lc, $ranktype, $key) . "/points";
 
 		if ($ranktype eq "countries") {
 			$display_key = display_taxonomy_tag($lc, "countries", $key);
@@ -3114,9 +2949,10 @@ sub display_points ($request_ref) {
 			if ($new_tagid !~ /^(\w\w):/) {
 				$new_tagid = $lc . ':' . $new_tagid;
 			}
-			$new_tagid_path = canonicalize_taxonomy_tag_link($lc, $tagtype, $new_tagid);
+			$new_tagid_path = '/facets' . canonicalize_taxonomy_tag_link($lc, $tagtype, $new_tagid);
 			$request_ref->{current_link} = $new_tagid_path;
-			$request_ref->{world_current_link} = canonicalize_taxonomy_tag_link($lc, $tagtype, $canon_tagid);
+			$request_ref->{world_current_link}
+				= '/facets' . canonicalize_taxonomy_tag_link($lc, $tagtype, $canon_tagid);
 		}
 		else {
 			$display_tag = canonicalize_tag2($tagtype, $tagid);
@@ -3127,11 +2963,11 @@ sub display_points ($request_ref) {
 				$canon_tagid =~ s/-($ec_code_regexp)$/-ec/ie;
 			}
 			$title = $display_tag;
-			$new_tagid_path = canonicalize_tag_link($tagtype, $new_tagid);
+			$new_tagid_path = '/facets' . canonicalize_tag_link($tagtype, $new_tagid);
 			$request_ref->{current_link} = $new_tagid_path;
 			my $current_lc = $lc;
 			$lc = 'en';
-			$request_ref->{world_current_link} = canonicalize_tag_link($tagtype, $new_tagid);
+			$request_ref->{world_current_link} = '/facets' . canonicalize_tag_link($tagtype, $new_tagid);
 			$lc = $current_lc;
 			$log->debug("displaying points for a normal tag",
 				{canon_tagid => $canon_tagid, new_tagid => $new_tagid, title => $title})
@@ -3173,13 +3009,12 @@ sub display_points ($request_ref) {
 
 	if (defined $tagtype) {
 		$html .= display_points_ranking($tagtype, $tagid, $request_ref);
-		$request_ref->{title}
-			= "Open Food Hunt" . lang("title_separator") . lang("points_ranking") . lang("title_separator") . $title;
+		$request_ref->{title} = "Open Food Hunt" . ' – ' . lang("points_ranking") . ' – ' . $title;
 	}
 	else {
 		$html .= display_points_ranking("users", "_all_", $request_ref);
 		$html .= display_points_ranking("countries", "_all_", $request_ref);
-		$request_ref->{title} = "Open Food Hunt" . lang("title_separator") . lang("points_ranking_users_and_countries");
+		$request_ref->{title} = "Open Food Hunt" . ' – ' . lang("points_ranking_users_and_countries");
 	}
 
 	$request_ref->{content_ref} = \$html;
@@ -3209,14 +3044,14 @@ If the requested tags are not canonical, we will redirect to the canonical URL.
 
 sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 
-	$request_ref->{current_link} = '';
-	$request_ref->{world_current_link} = '';
+	$request_ref->{current_link} = '/facets';
+	$request_ref->{world_current_link} = '/facets';
 
 	my $header_meta_noindex = 0;    # Will be set if one of the tags is related to a user
-	my $redirect_to_canonical_url = 0;    # Will be set if one of the tags is not canonical
+	my $redirect_to_canonical_url = 0;    # Will be set if one of the tags is not canonical
 
 	# Go through the tags filters from the request
-
+	# request_ref->{tags} is set by extract_tagtype_and_tag_value_pairs_from_components
 	foreach my $tag_ref (@{$request_ref->{tags}}) {
 
 		# the tag name requested in url (in $lc language)
@@ -3268,9 +3103,9 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 
 		$tag_ref->{canon_tagid} = $canon_tagid;
 		$tag_ref->{new_tagid} = $new_tagid;
-		$tag_ref->{new_tagid_path} = $new_tagid_path;
+		$tag_ref->{new_tagid_path} = '/facets' . $new_tagid_path;
 		$tag_ref->{display_tag} = $display_tag;
-		$tag_ref->{tagtype_path} = '/' . $tag_type_plural{$tagtype}{$lc};
+		$tag_ref->{tagtype_path} = '/facets/' . $tag_type_plural{$tagtype}{$lc};
 		$tag_ref->{tagtype_name} = lang_in_other_lc($lc, $tagtype . '_s');
 
 		# We will redirect if the tag is not canonical
@@ -3288,11 +3123,8 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 	# The redirect is temporary (302), as the canonicalization could change if the corresponding taxonomies change
 	if ($redirect_to_canonical_url) {
 		$request_ref->{redirect} = $formatted_subdomain . $request_ref->{current_link};
-		# Re-add file suffix, so that the correct response format is kept. https://github.com/openfoodfacts/openfoodfacts-server/issues/894
-		$request_ref->{redirect} .= '.json' if single_param("json");
-		$request_ref->{redirect} .= '.jsonp' if single_param("jsonp");
-		$request_ref->{redirect} .= '.xml' if single_param("xml");
-		$request_ref->{redirect} .= '.jqm' if single_param("jqm");
+		$request_ref->{redirect} .= extension_and_query_parameters_to_redirect_url($request_ref);
+
 		$log->debug("one or more tagids mismatch, redirecting to correct url", {redirect => $request_ref->{redirect}})
 			if $log->is_debug();
 		redirect_to_url($request_ref, 302, $request_ref->{redirect});
@@ -3882,6 +3714,12 @@ sub display_tag ($request_ref) {
 	my $new_tagid2path = deep_get($request_ref, qw(tags 1 new_tagid_path));
 	my $canon_tagid2 = deep_get($request_ref, qw(tags 1 canon_tagid));
 
+	# 2025-06-01 - due to heavy load from bots, disabling 2nd level facets unless the user is logged in
+	if ((not defined $User_id) and (defined $tagid2)) {
+		display_error_and_exit($request_ref, lang("robots_not_served_here"), 401);
+		return;
+	}
+
 	my $weblinks_html = '';
 	my @wikidata_objects = ();
 	if (    (defined $tagtype && $tagtype ne 'additives')
@@ -4273,16 +4111,18 @@ HTML
 					$user_template_data_ref->{links} = [
 						{
 							text => sprintf(lang('contributors_products'), $user_or_org_ref->{name}),
-							url => canonicalize_tag_link("users", get_string_id_for_lang("no_language", $tagid)),
+							url => "/facets"
+								. canonicalize_tag_link("users", get_string_id_for_lang("no_language", $tagid)),
 						},
 						{
 							text => sprintf(lang('editors_products'), $user_or_org_ref->{name}),
-							url => canonicalize_tag_link("editors", get_string_id_for_lang("no_language", $tagid)),
+							url => "/facets"
+								. canonicalize_tag_link("editors", get_string_id_for_lang("no_language", $tagid)),
 						},
 						{
 							text => sprintf(lang('photographers_products'), $user_or_org_ref->{name}),
-							url =>
-								canonicalize_tag_link("photographers", get_string_id_for_lang("no_language", $tagid)),
+							url => "/facets"
+								. canonicalize_tag_link("photographers", get_string_id_for_lang("no_language", $tagid)),
 						},
 					];
 
@@ -4440,12 +4280,12 @@ HTML
 		else {
 			${$request_ref->{content_ref}} .= $tag_html . display_list_of_tags($request_ref, $query_ref);
 		}
-		$request_ref->{title} .= lang("title_separator") . display_taxonomy_tag($lc, "countries", $country);
+		$request_ref->{title} .= ' – ' . display_taxonomy_tag($lc, "countries", $country);
 		$request_ref->{page_type} = "list_of_tags";
 	}
 	else {
 		if ((defined $request_ref->{page}) and ($request_ref->{page} > 1)) {
-			$request_ref->{title} = $title . lang("title_separator") . sprintf(lang("page_x"), $request_ref->{page});
+			$request_ref->{title} = $title . ' – ' . sprintf(lang("page_x"), $request_ref->{page});
 		}
 		else {
 			$request_ref->{title} = $title;
@@ -4540,7 +4380,7 @@ sub display_search_results ($request_ref) {
 
 	my $html = '';
 
-	$request_ref->{title} = lang("search_results") . " - " . display_taxonomy_tag($lc, "countries", $country);
+	$request_ref->{title} = lang("search_results") . ' – ' . display_taxonomy_tag($lc, "countries", $country);
 
 	my $current_link = '';
 
@@ -4565,7 +4405,14 @@ sub display_search_results ($request_ref) {
 	$current_link =~ s/^\&/\?/;
 	$current_link = "/search" . $current_link;
 
-	if (not($request_ref->{api})) {
+	# Experimental feature to display stats of specific parent ingredients for a set of product
+	# activated by passing the parents_ingredients parameter to a search query
+	if (defined single_param('parent_ingredients')) {
+		my $query_ref = {};
+		$html .= search_and_analyze_recipes($request_ref, $query_ref);
+	}
+	# For non API requests, we let the browser query the search API and display the results
+	elsif (not($request_ref->{api})) {
 
 		# The results will be filtered and ranked on the client side
 
@@ -4593,6 +4440,7 @@ var default_preferences = $options{attribute_default_preferences_json};
 var preferences_text = "$preferences_text";
 var contributor_prefs = $contributor_prefs_json;
 var products = [];
+var product_type = "$options{product_type}";
 </script>
 JS
 			;
@@ -4621,17 +4469,10 @@ JS
 		}
 	}
 	else {
-
 		# The server generates the search results
 
 		my $query_ref = {};
-
-		if (defined single_param('parent_ingredients')) {
-			$html .= search_and_analyze_recipes($request_ref, $query_ref);
-		}
-		else {
-			$html .= search_and_display_products($request_ref, $query_ref, undef, undef, undef);
-		}
+		$html .= search_and_display_products($request_ref, $query_ref, undef, undef, undef);
 	}
 
 	$request_ref->{content_ref} = \$html;
@@ -4739,6 +4580,9 @@ sub get_products_collection_request_parameters ($request_ref, $additional_parame
 	# If the request is for obsolete products, we will select a specific products collection
 	# for obsolete products
 	$parameters_ref->{obsolete} = request_param($request_ref, "obsolete");
+
+	# Allow the source to be specified. Currently defaults to mongodb but can set to use off-query instead
+	$parameters_ref->{off_query} = request_param($request_ref, "off_query");
 
 	# Admin users can request a specific query_timeout for MongoDB queries
 	if ($request_ref->{admin}) {
@@ -4966,6 +4810,8 @@ sub add_params_to_query ($params_ref, $query_ref) {
 						# so that we can find products that have not been reprocessed yet and that still have the old tag
 						if ($tag =~ /^([a-z]{2}:.*)!$/) {
 							$tagid = $1;
+							# Hack to be able to target untaxonomized tags when a field becomes taxonomized but products have not been updated
+							$tagid =~ s/^zz://;
 						}
 						else {
 							$tagid = get_taxonomyid($tag_lc, canonicalize_taxonomy_tag($tag_lc, $tagtype, $tag));
@@ -4995,7 +4841,8 @@ sub add_params_to_query ($params_ref, $query_ref) {
 							($tagid eq get_string_id_for_lang($tag_lc, lang("unknown")))
 							or (
 								$tagid eq (
-									$tag_lc . ":"
+									# brands are always taxonomized with the xx: prefix
+									($tagtype eq "brands" ? "xx" : $tag_lc) . ":"
 										. get_string_id_for_lang($tag_lc, lang_in_other_lc($tag_lc, "unknown"))
 								)
 							)
@@ -5468,7 +5315,10 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 	$log->debug("MongoDB query key - search_products", {key => $key}) if $log->is_debug();
 
-	$request_ref->{structured_response} = get_cache_results($key, $request_ref);
+	my $request_parameters_ref = get_products_collection_request_parameters($request_ref);
+
+	$request_ref->{data_debug} = init_data_debug();
+	$request_ref->{structured_response} = get_cache_results($key, \$request_ref->{data_debug});
 
 	if (not defined $request_ref->{structured_response}) {
 
@@ -5491,12 +5341,8 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			set_request_stats_time_start($request_ref->{stats}, "mongodb_query");
 			$cursor = execute_query(
 				sub {
-					return get_products_collection(get_products_collection_request_parameters($request_ref))
-						->query($query_ref)
-						->fields($fields_ref)
-						->sort($sort_ref)
-						->limit($limit)
-						->skip($skip);
+					return execute_product_query($request_parameters_ref, $query_ref, $fields_ref, $sort_ref, $limit,
+						$skip, \$request_ref->{data_debug});
 				}
 			);
 			$log->debug("MongoDB query ok", {error => $@}) if $log->is_debug();
@@ -5516,10 +5362,11 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 				# Add a url field to the product, with the subdomain and path
 				my $url_path = product_url($product_ref);
-				$product_ref->{url} = $formatted_subdomain . get_owner_pretty_path() . $url_path;
+				$product_ref->{url} = $formatted_subdomain . $url_path;
 				# Compute HTML to display the small front image, currently embedded in the HTML of web queries
 				if (not $api) {
-					$product_ref->{image_front_small_html} = display_image_thumb($product_ref, 'front');
+					$product_ref->{image_front_small_html}
+						= display_image($product_ref, "front", $request_ref->{lc}, $thumb_size);
 
 					# For web queries with personal search, we can compute some generated fields we need
 					# and then remove the source fields that are not needed anymore
@@ -5558,7 +5405,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 			# Don't set the cache if no_count was set
 			if (not single_param('no_count') and $cache_results_flag) {
-				set_cache_results($key, $request_ref->{structured_response});
+				set_cache_results($key, $request_ref->{structured_response}, \$request_ref->{data_debug});
 				# For debugging, it can be useful to examine the structured response
 				#ProductOpener::Store::store($BASE_DIRS{CACHE_DEBUG} . "/structured_response.sto",
 				#	$request_ref->{structured_response});
@@ -5729,7 +5576,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 					push @{$template_data_ref->{current_drilldown_fields}},
 						{
-						current_link => get_owner_pretty_path() . $request_ref->{current_link},
+						current_link => get_owner_pretty_path($Owner_id) . $request_ref->{current_link},
 						tag_type_plural => $tag_type_plural{$newtagtype}{$lc},
 						nofollow => $nofollow,
 						tagtype => $newtagtype,
@@ -5780,6 +5627,7 @@ var default_preferences = $options{attribute_default_preferences_json};
 var preferences_text = "$preferences_text";
 var contributor_prefs = $contributor_prefs_json;
 var products = $products_json;
+var product_type = "$options{product_type}";
 </script>
 JS
 		;
@@ -5797,6 +5645,16 @@ display_user_product_preferences("#preferences_selected", "#preferences_selectio
 rank_and_display_products("#search_results", products, contributor_prefs);
 JS
 		;
+
+	my $search_terms = '';
+	if (defined single_param('search_terms')) {
+		$search_terms = remove_tags_and_quote(decode utf8 => single_param('search_terms'));
+		if (is_valid_code($search_terms)) {
+			$template_data_ref->{code} = $search_terms;
+			my $add_product_message = f_lang("f_add_product_to_our_database", {barcode => $search_terms});
+			$template_data_ref->{add_product_message} = $add_product_message;
+		}
+	}
 
 	process_template('web/common/includes/list_of_products.tt.html', $template_data_ref, \$html)
 		|| return "template error: " . $tt->error();
@@ -5818,13 +5676,15 @@ sub estimate_result_count ($request_ref, $query_ref, $cache_results_flag) {
 		#check if count results is in cache
 		my $key_count = generate_query_cache_key("search_products_count", $query_ref, $request_ref);
 		$log->debug("MongoDB query key - search_products_count", {key => $key_count}) if $log->is_debug();
-		$count = get_cache_results($key_count, $request_ref);
+		defined $request_ref->{data_debug} or $request_ref->{data_debug} = init_data_debug();
+		$count = get_cache_results($key_count, \$request_ref->{data_debug});
 		if (not defined $count) {
 
 			$log->debug("count not in cache for query", {key => $key_count}) if $log->is_debug();
 
 			# Count queries are very expensive, if possible, execute them on the postgres cache
-			if (can_use_query_cache()) {
+			if (can_use_off_query(\$request_ref->{data_debug})) {
+				$request_ref->{data_debug} .= "count tags using off_query\n";
 				set_request_stats_time_start($request_ref->{stats}, "off_query_count_tags_query");
 				$count = execute_count_tags_query($query_ref);
 				set_request_stats_time_end($request_ref->{stats}, "off_query_count_tags_query");
@@ -5836,6 +5696,7 @@ sub estimate_result_count ($request_ref, $query_ref, $cache_results_flag) {
 					sub {
 						$log->debug("count_documents on complete products collection", {key => $key_count})
 							if $log->is_debug();
+						$request_ref->{data_debug} .= "count_documents using MongoDB\n";
 						return get_products_collection(get_products_collection_request_parameters($request_ref))
 							->count_documents($query_ref);
 					}
@@ -5850,7 +5711,7 @@ sub estimate_result_count ($request_ref, $query_ref, $cache_results_flag) {
 			if ((defined $count) and $cache_results_flag) {
 				$log->debug("count query complete, setting cache", {key => $key_count, count => $count})
 					if $log->is_debug();
-				set_cache_results($key_count, $count);
+				set_cache_results($key_count, $count, \$request_ref->{data_debug});
 			}
 		}
 		else {
@@ -5866,6 +5727,7 @@ sub estimate_result_count ($request_ref, $query_ref, $cache_results_flag) {
 			sub {
 				$log->debug("empty query_ref, use estimated_document_count fot better performance", {})
 					if $log->is_debug();
+				$request_ref->{data_debug} .= "estimated_document_count using MongoDB\n";
 				return get_products_collection(get_products_collection_request_parameters($request_ref))
 					->estimated_document_count();
 			}
@@ -6148,14 +6010,14 @@ sub get_search_field_title_and_details ($field) {
 	elsif ($field =~ /^packagings_materials\.([^.]+)\.([^.]+)$/) {
 		my $material = $1;
 		my $subfield = $2;
-		$title = lang("packaging") . " - ";
+		$title = lang("packaging") . ' – ';
 		if ($material eq "all") {
 			$title .= lang("packagings_materials_all");
 		}
 		else {
 			$title .= display_taxonomy_tag($lc, "packaging_materials", $material);
 		}
-		$title .= ' - ' . lang($subfield);
+		$title .= ' – ' . lang($subfield);
 		if ($subfield =~ /_percent$/) {
 			$unit = ' %';
 			$unit2 = '%';
@@ -6321,7 +6183,7 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 
 		$data{product_name} = $product_ref->{product_name};
 		$data{url} = $formatted_subdomain . product_url($product_ref->{code});
-		$data{img} = display_image_thumb($product_ref, 'front');
+		$data{img} = display_image($product_ref, "front", $request_ref->{lc}, $thumb_size);
 
 		# create data entry for series
 		defined $series{$seriesid} or $series{$seriesid} = '';
@@ -6957,12 +6819,13 @@ sub search_and_graph_products ($request_ref, $query_ref, $graph_ref) {
 		$fields_ref->{"labels_tags"} = 1;
 	}
 
+	$request_ref->{data_debug} = init_data_debug();
+
 	eval {
 		$cursor = execute_query(
 			sub {
-				return get_products_collection(get_products_collection_request_parameters($request_ref))
-					->query($query_ref)
-					->fields($fields_ref);
+				return execute_product_query(get_products_collection_request_parameters($request_ref),
+					$query_ref, $fields_ref, undef, undef, undef, \$request_ref->{data_debug});
 			}
 		);
 	};
@@ -7164,7 +7027,7 @@ sub map_of_products ($products_iter, $request_ref, $graph_ref) {
 			brands => $product_ref->{brands},
 			url => $url,
 			origins => $origins,
-			img => display_image_thumb($product_ref, 'front')
+			img => display_image($product_ref, "front", $request_ref->{lc}, $thumb_size)
 		};
 
 		# Loop on cities: multiple emb codes can be on one product
@@ -7268,12 +7131,14 @@ sub search_products_for_map ($request_ref, $query_ref) {
 
 	$log->debug("retrieving products from MongoDB to display them in a map") if $log->is_debug();
 
+	$request_ref->{data_debug} = init_data_debug();
+
 	eval {
 		$cursor = execute_query(
 			sub {
-				return get_products_collection(get_products_collection_request_parameters($request_ref))
-					->query($query_ref)
-					->fields(
+				return execute_product_query(
+					get_products_collection_request_parameters($request_ref),
+					$query_ref,
 					{
 						code => 1,
 						lc => 1,
@@ -7284,8 +7149,10 @@ sub search_products_for_map ($request_ref, $query_ref) {
 						manufacturing_places => 1,
 						origins => 1,
 						emb_codes_tags => 1,
-					}
-					);
+					},
+					undef, undef, undef,
+					\$request_ref->{data_debug}
+				);
 			}
 		);
 	};
@@ -7422,17 +7289,18 @@ sub display_page ($request_ref) {
 		$title =~ s/<([^>]*)>//g;
 
 		$title = remove_tags_and_quote($title);
+		$canon_title = $title;
 	}
+
 	my $canon_description = '';
 	if (defined $description) {
-		$description = remove_tags_and_quote($description);
+		$canon_description = remove_tags_and_quote($description);
 	}
 	if ($canon_description eq '') {
 		$canon_description = lang("site_description_$flavor");
 	}
-	my $canon_image_url = "";
-	my $canon_url = $formatted_subdomain;
 
+	my $canon_url = $formatted_subdomain;
 	if (defined $request_ref->{canon_url}) {
 		if ($request_ref->{canon_url} =~ /^(http|https):/) {
 			$canon_url = $request_ref->{canon_url};
@@ -7483,6 +7351,7 @@ sub display_page ($request_ref) {
 	$template_data_ref->{canon_url} = $canon_url;
 	$template_data_ref->{meta_description} = $meta_description;
 	$template_data_ref->{canon_title} = $canon_title;
+	$template_data_ref->{canon_description} = $canon_description;
 	$template_data_ref->{og_images} = $og_images;
 	$template_data_ref->{og_images2} = $og_images2;
 	$template_data_ref->{options_favicons} = $options{favicons};
@@ -7501,7 +7370,7 @@ sub display_page ($request_ref) {
 
 	my $site_name = $options{site_name};
 	if ($server_options{producers_platform}) {
-		$site_name .= " - " . lang_in_other_lc($request_lc, "producers_platform");
+		$site_name .= ' – ' . lang_in_other_lc($request_lc, "producers_platform");
 	}
 
 	$template_data_ref->{styles} = $request_ref->{styles};
@@ -7543,10 +7412,10 @@ sub display_page ($request_ref) {
 	my $join_us_on_slack
 		= sprintf($Lang{footer_join_us_on}{$lc}, '<a href="https://slack.openfoodfacts.org">Slack</a>');
 
-	# Twitter account and Facebook page url from Config.pm
-	# Allow to have language specific Twitter accounts and Facebook page url, suffixed by the language code
-	my $twitter_account = $options{"twitter_account_$lc"} || $options{twitter_account};
-	$template_data_ref->{twitter_account} = $twitter_account;
+	# x account and Facebook page url from Config.pm
+	# Allow to have language specific x accounts and Facebook page url, suffixed by the language code
+	my $x_account = $options{"x_account_$lc"} || $options{x_account};
+	$template_data_ref->{x_account} = $x_account;
 	my $facebook_page = $options{"facebook_page_url_$lc"} || $options{facebook_page_url};
 	$template_data_ref->{facebook_page_url} = $facebook_page;
 
@@ -7656,14 +7525,14 @@ sub display_page ($request_ref) {
 		|| ($html = "template error: " . $tt->error());
 
 	# disable equalizer
-	# e.g. for product edit form, pages that load iframes (twitter embeds etc.)
+	# e.g. for product edit form, pages that load iframes (x embeds etc.)
 	if ($html =~ /<!-- disable_equalizer -->/) {
 
 		$html =~ s/data-equalizer(-watch)?//g;
 	}
 
-	# Twitter account
-	$html =~ s/<twitter_account>/$twitter_account/g;
+	# x account
+	$html =~ s/<x_account>/$x_account/g;
 
 	my $status_code = $request_ref->{status_code} // 200;
 
@@ -7708,7 +7577,7 @@ sub display_page ($request_ref) {
 
 sub display_image_box ($product_ref, $id, $minheight_ref, $request_ref) {
 
-	my $img = display_image($product_ref, $id, $small_size);
+	my $img = display_image($product_ref, $id, $request_ref->{lc}, $small_size);
 	if ($img ne '') {
 		my $code = $product_ref->{code};
 		my $linkid = $id;
@@ -7882,8 +7751,8 @@ sub display_product ($request_ref) {
 
 	$request_ref->{scripts} .= <<SCRIPTS
 <script src="$static_subdomain/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
-<script src="$static_subdomain/js/dist/display-product.js"></script>
 <script src="$static_subdomain/js/dist/product-history.js"></script>
+<script src="$static_subdomain/js/dist/off-webcomponents-utils.js"></script>
 SCRIPTS
 		;
 
@@ -7910,7 +7779,7 @@ JS
 	local $log->context->{rev} = $rev;
 	if (defined $rev) {
 		$log->debug("displaying product revision") if $log->is_debug();
-		$product_ref = retrieve_product_rev($product_id, $rev);
+		$product_ref = retrieve_product($product_id, 0, $rev);
 		$request_ref->{header} .= '<meta name="robots" content="noindex,follow">';
 	}
 	else {
@@ -7989,7 +7858,6 @@ JS
 
 	my $product_url = product_url($product_ref);
 	$template_data_ref->{this_product_url} = $product_url;
-
 	# Environmental impact and Environmental-Score
 	# Limit to the countries for which we have computed the Environmental-Score
 	# for alpha test to moderators, display eco-score for all countries
@@ -8048,6 +7916,8 @@ JS
 	if ($server_options{producers_platform}) {
 		my $public_product_url = $formatted_subdomain . $product_url;
 		$public_product_url =~ s/\.pro\./\./;
+		# Also remove the /org/[org-id]
+		$public_product_url =~ s/\/org\/[^\/]+//;
 		$template_data_ref->{public_product_url} = $public_product_url;
 	}
 
@@ -8174,10 +8044,10 @@ JS
 						$template_data_ref->{"data_source_database_provider"} = f_lang(
 							"f_data_source_database_provider",
 							{
-								manufacturer => '<a href="/editor/'
+								manufacturer => '<a href="/facets/editors/'
 									. $product_ref->{owner} . '">'
 									. $org_ref->{name} . '</a>',
-								provider => '<a href="/data-source/'
+								provider => '<a href="/facets/data-sources/'
 									. $data_source_tagid . '">'
 									. $database_name . '</a>',
 							}
@@ -8518,7 +8388,7 @@ JS
 
 	foreach my $editor (sort @other_editors) {
 		$other_editors
-			.= "<a href=\""
+			.= "<a href=\"/facets"
 			. canonicalize_tag_link("editors", get_string_id_for_lang("no_language", $editor)) . "\">"
 			. $editor
 			. "</a>, ";
@@ -8526,11 +8396,11 @@ JS
 	$other_editors =~ s/, $//;
 
 	my $creator
-		= "<a href=\""
+		= "<a href=\"/facets"
 		. canonicalize_tag_link("editors", get_string_id_for_lang("no_language", $product_ref->{creator})) . "\">"
 		. $product_ref->{creator} . "</a>";
 	my $last_editor
-		= "<a href=\""
+		= "<a href=\"/facets"
 		. canonicalize_tag_link("editors", get_string_id_for_lang("no_language", $product_ref->{last_editor})) . "\">"
 		. $product_ref->{last_editor} . "</a>";
 
@@ -8542,7 +8412,7 @@ JS
 	if ((defined $product_ref->{checked}) and ($product_ref->{checked} eq 'on')) {
 		my $last_checked_date = display_date_tag($product_ref->{last_checked_t});
 		my $last_checker
-			= "<a href=\""
+			= "<a href=\"/facets"
 			. canonicalize_tag_link("editors", get_string_id_for_lang("no_language", $product_ref->{last_checker}))
 			. "\">"
 			. $product_ref->{last_checker} . "</a>";
@@ -8568,35 +8438,35 @@ JS
 	$template_data_ref->{display_product_history} = display_product_history($request_ref, $code, $product_ref)
 		if $User{moderator};
 
-	# Twitter card
+	# x card
 
 	# example:
 
-	#<meta name="twitter:card" content="product">
-	#<meta name="twitter:site" content="@iHeartRadio">
-	#<meta name="twitter:creator" content="@iHeartRadio">
-	#<meta name="twitter:title" content="24/7 Beatles — Celebrating 50 years of Beatlemania">
-	#<meta name="twitter:image" content="http://radioedit.iheart.com/service/img/nop()/assets/images/05fbb21d-e5c6-4dfc-af2b-b1056e82a745.png">
-	#<meta name="twitter:label1" content="Genre">
-	#<meta name="twitter:data1" content="Classic Rock">
-	#<meta name="twitter:label2" content="Location">
-	#<meta name="twitter:data2" content="National">
+	#<meta name="x:card" content="product">
+	#<meta name="x:site" content="@iHeartRadio">
+	#<meta name="x:creator" content="@iHeartRadio">
+	#<meta name="x:title" content="24/7 Beatles — Celebrating 50 years of Beatlemania">
+	#<meta name="x:image" content="http://radioedit.iheart.com/service/img/nop()/assets/images/05fbb21d-e5c6-4dfc-af2b-b1056e82a745.png">
+	#<meta name="x:label1" content="Genre">
+	#<meta name="x:data1" content="Classic Rock">
+	#<meta name="x:label2" content="Location">
+	#<meta name="x:data2" content="National">
 
 	my $meta_product_image_url = "";
 	if (defined $product_image_url) {
 		$meta_product_image_url = <<HTML
-<meta name="twitter:image" content="$product_image_url">
+<meta name="x:image" content="$product_image_url">
 <meta property="og:image" content="$product_image_url">
 HTML
 			;
 	}
 
 	$request_ref->{header} .= <<HTML
-<meta name="twitter:card" content="product">
-<meta name="twitter:site" content="@<twitter_account>">
-<meta name="twitter:creator" content="@<twitter_account>">
-<meta name="twitter:title" content="$title">
-<meta name="twitter:description" content="$description">
+<meta name="x:card" content="product">
+<meta name="x:site" content="@<x_account>">
+<meta name="x:creator" content="@<x_account>">
+<meta name="x:title" content="$title">
+<meta name="x:description" content="$description">
 HTML
 		;
 
@@ -8604,8 +8474,8 @@ HTML
 		# print only first brand if multiple exist.
 		my @brands = split(',', $product_ref->{brands});
 		$request_ref->{header} .= <<HTML
-<meta name="twitter:label1" content="$Lang{brands_s}{$lc}">
-<meta name="twitter:data1" content="$brands[0]">
+<meta name="x:label1" content="$Lang{brands_s}{$lc}">
+<meta name="x:data1" content="$brands[0]">
 HTML
 			;
 	}
@@ -8614,8 +8484,8 @@ HTML
 	my $data2 = display_taxonomy_tag($lc, "categories", $product_ref->{categories_tags}[-1]);
 	if ($data2) {
 		$request_ref->{header} .= <<HTML
-<meta name="twitter:label2" content="$Lang{categories_s}{$lc}">
-<meta name="twitter:data2" content="$data2">
+<meta name="x:label2" content="$Lang{categories_s}{$lc}">
+<meta name="x:data2" content="$data2">
 HTML
 			;
 	}
@@ -8645,6 +8515,7 @@ var page_type = "product";
 var default_preferences = $options{attribute_default_preferences_json};
 var preferences_text = "$preferences_text";
 var product = $product_attribute_groups_json;
+var product_type = "$options{product_type}";
 </script>
 
 <script src="$static_subdomain/js/product-preferences.js"></script>
@@ -8705,7 +8576,7 @@ sub display_product_jqm ($request_ref) {    # jquerymobile
 	local $log->context->{rev} = $rev;
 	if (defined $rev) {
 		$log->debug("displaying product revision on jquery mobile") if $log->is_debug();
-		$product_ref = retrieve_product_rev($product_id, $rev);
+		$product_ref = retrieve_product($product_id, 0, $rev);
 	}
 	else {
 		$product_ref = retrieve_product($product_id);
@@ -8725,7 +8596,7 @@ sub display_product_jqm ($request_ref) {    # jquerymobile
 		$title .= " version $rev";
 	}
 
-	$description = $title . ' - ' . $product_ref->{brands} . ' - ' . $product_ref->{generic_name};
+	$description = $title . ' – ' . $product_ref->{brands} . ' – ' . $product_ref->{generic_name};
 	$description =~ s/ - $//;
 	$request_ref->{canon_url} = product_url($product_ref);
 
@@ -8924,7 +8795,7 @@ HTML
 
 			my $info = '';
 
-			$html .= "<li><a href=\"" . $link . "\"$info>" . $tag . "</a></li>\n";
+			$html .= "<li><a href=\"/facets" . $link . "\"$info>" . $tag . "</a></li>\n";
 		}
 		$html .= "</ul></div>";
 
@@ -9057,7 +8928,7 @@ HTML
 
 	my $creator = $product_ref->{creator};
 
-	# Remove links for iOS (issues with twitter / facebook badges loading in separate windows..)
+	# Remove links for iOS (issues with x / facebook badges loading in separate windows..)
 	$html =~ s/<a ([^>]*)href="([^"]+)"([^>]*)>/<span $1$3>/g
 		;    # replace with a span to keep class for color of additives etc.
 	$html =~ s/<\/a>/<\/span>/g;
@@ -9635,7 +9506,7 @@ sub compare_product_nutrition_facts_to_categories ($product_ref, $target_cc, $ma
 						{
 						id => $cid,
 						name => display_taxonomy_tag($lc, 'categories', $cid),
-						link => canonicalize_taxonomy_tag_link($lc, 'categories', $cid),
+						link => "/facets" . canonicalize_taxonomy_tag_link($lc, 'categories', $cid),
 						nutriments => compare_nutriments($product_ref, $categories_nutriments_ref->{$cid}),
 						count => $categories_nutriments_ref->{$cid}{count},
 						n => $categories_nutriments_ref->{$cid}{n},
@@ -9726,12 +9597,17 @@ sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_re
 	my @displayed_product_types = ();
 	my %displayed_product_types = ();
 
-	if ((not defined $product_ref->{nutrition_data}) or ($product_ref->{nutrition_data})) {
+	if (   (not defined $product_ref->{nutrition_data})
+		or ($product_ref->{nutrition_data})
+		or has_nutrition_data_for_product_type($product_ref, ""))
+	{
 		# by default, old products did not have a checkbox, display the nutrition data entry column for the product as sold
 		push @displayed_product_types, "";
 		$displayed_product_types{as_sold} = 1;
 	}
-	if ((defined $product_ref->{nutrition_data_prepared}) and ($product_ref->{nutrition_data_prepared} eq 'on')) {
+	if (   ((defined $product_ref->{nutrition_data_prepared}) and ($product_ref->{nutrition_data_prepared} eq 'on'))
+		or (has_nutrition_data_for_product_type($product_ref, "_prepared")))
+	{
 		push @displayed_product_types, "prepared_";
 		$displayed_product_types{prepared} = 1;
 	}
@@ -10633,7 +10509,7 @@ sub display_product_api ($request_ref) {
 	local $log->context->{rev} = $rev;
 	if (defined $rev) {
 		$log->debug("displaying product revision") if $log->is_debug();
-		$product_ref = retrieve_product_rev($product_id, $rev);
+		$product_ref = retrieve_product($product_id, 0, $rev);
 	}
 	else {
 		$product_ref = retrieve_product($product_id);
@@ -11000,7 +10876,7 @@ sub display_structured_response_opensearch_rss ($request_ref) {
 	$short_name = $xs->escape_value(encode_utf8($short_name));
 	my $query_link = $xs->escape_value(encode_utf8($formatted_subdomain . $request_ref->{current_link} . "&rss=1"));
 	my $description
-		= $xs->escape_value(encode_utf8($options{site_name} . " - " . lang("search_description_opensearch")));
+		= $xs->escape_value(encode_utf8($options{site_name} . ' – ' . lang("search_description_opensearch")));
 
 	my $search_terms = $xs->escape_value(encode_utf8(decode utf8 => single_param('search_terms')));
 	my $count = $xs->escape_value($request_ref->{structured_response}{count});
@@ -11198,7 +11074,7 @@ sub display_change ($change_ref, $diffs) {
 	my $user = "";
 	if (defined $change_ref->{userid}) {
 		$user
-			= "<a href=\""
+			= "<a href=\"/facets"
 			. canonicalize_tag_link("users", get_string_id_for_lang("no_language", $change_ref->{userid})) . "\">"
 			. $change_ref->{userid} . "</a>";
 	}
@@ -11303,7 +11179,7 @@ sub display_nested_list_of_ingredients ($ingredients_ref, $ingredients_text_ref,
 			)
 		{
 			if (defined $ingredient_ref->{$property}) {
-				${$ingredients_list_ref} .= " - " . $property . ":&nbsp;" . $ingredient_ref->{$property};
+				${$ingredients_list_ref} .= ' – ' . $property . ":&nbsp;" . $ingredient_ref->{$property};
 			}
 		}
 
@@ -11363,7 +11239,7 @@ sub display_list_of_specific_ingredients ($product_ref) {
 
 		foreach my $property (qw(origin labels vegan vegetarian from_palm_oil percent_min percent percent_max)) {
 			if (defined $ingredient_ref->{$property}) {
-				$html .= " - " . $property . ":&nbsp;" . $ingredient_ref->{$property};
+				$html .= ' – ' . $property . ":&nbsp;" . $ingredient_ref->{$property};
 			}
 		}
 
@@ -11679,12 +11555,13 @@ sub search_and_analyze_recipes ($request_ref, $query_ref) {
 		$fields_ref->{owner} = 1;
 	}
 
+	$request_ref->{data_debug} = init_data_debug();
+
 	eval {
 		$cursor = execute_query(
 			sub {
-				return get_products_collection(get_products_collection_request_parameters($request_ref))
-					->query($query_ref)
-					->fields($fields_ref);
+				return execute_product_query(get_products_collection_request_parameters($request_ref),
+					$query_ref, $fields_ref, undef, undef, undef, \$request_ref->{data_debug});
 			}
 		);
 	};
@@ -11737,10 +11614,10 @@ sub search_and_analyze_recipes ($request_ref, $query_ref) {
 			if (single_param("debug")) {
 				$debug
 					.= "product: "
-					. JSON::MaybeXS->new->utf8->canonical->encode($product_ref)
+					. JSON::MaybeXS->new->convert_blessed->utf8->canonical->encode($product_ref)
 					. "<br><br>\n\n"
 					. "recipe: "
-					. JSON::MaybeXS->new->utf8->canonical->encode($recipe_ref)
+					. JSON::MaybeXS->new->convert_blessed->utf8->canonical->encode($recipe_ref)
 					. "<br><br><br>\n\n\n";
 			}
 		}
@@ -11778,91 +11655,6 @@ sub display_properties ($request_ref) {
 
 	display_page($request_ref);
 	return;
-}
-
-=head2 data_to_display_image ( $product_ref, $imagetype, $target_lc )
-
-Generates a data structure to display a product image.
-
-The resulting data structure can be passed to a template to generate HTML or the JSON data for a knowledge panel.
-
-=head3 Arguments
-
-=head4 Product reference $product_ref
-
-=head4 Image type $image_type: one of [front|ingredients|nutrition|packaging]
-
-=head4 Language code $target_lc
-
-=head3 Return values
-
-- Reference to a data structure with needed data to display.
-- undef if no image is available for the requested image type
-
-=cut
-
-sub data_to_display_image ($product_ref, $imagetype, $target_lc) {
-
-	my $image_ref;
-
-	# first try the requested language
-	my @img_lcs = ($target_lc);
-
-	# next try the main language of the product
-	if ($product_ref->{lc} ne $target_lc) {
-		push @img_lcs, $product_ref->{lc};
-	}
-
-	foreach my $img_lc (@img_lcs) {
-
-		my $id = $imagetype . "_" . $img_lc;
-
-		if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})) {
-
-			my $path = product_path($product_ref);
-			my $rev = $product_ref->{images}{$id}{rev};
-			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - '
-				. lang_in_other_lc($target_lc, $imagetype . '_alt');
-			if ($img_lc ne $target_lc) {
-				$alt .= ' - ' . $img_lc;
-			}
-
-			$image_ref = {
-				type => $imagetype,
-				lc => $img_lc,
-				alt => $alt,
-				sizes => {},
-				id => $id,
-			};
-
-			foreach my $size ($thumb_size, $small_size, $display_size, "full") {
-				if (defined $product_ref->{images}{$id}{sizes}{$size}) {
-					$image_ref->{sizes}{$size} = {
-						url => "$images_subdomain/images/products/$path/$id.$rev.$size.jpg",
-						width => $product_ref->{images}{$id}{sizes}{$size}{w},
-						height => $product_ref->{images}{$id}{sizes}{$size}{h},
-					};
-				}
-			}
-
-			last;
-		}
-	}
-
-	return $image_ref;
-}
-
-=head2 get_owner_pretty_path ()
-
-Returns the pretty path for the organization page 
-or an empty string if not on the producers platform.
-
-/org/[orgid]
-
-=cut
-
-sub get_owner_pretty_path () {
-	return ($server_options{producers_platform} and defined $Owner_id) ? "/org/$Owner_id" : "";
 }
 
 1;

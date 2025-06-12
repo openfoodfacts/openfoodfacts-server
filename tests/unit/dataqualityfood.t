@@ -1498,6 +1498,72 @@ ok(!has_tag($product_ref, 'data_quality', 'en:nutrition-sugars-plus-starch-great
 	'sum of sugars and starch greater carbohydrates')
 	or diag Dumper $product_ref;
 
+# Nutrition errors - sugar + starch + fiber > totral-carbohydrates
+## without "<" symbol
+$product_ref = {
+	nutriments => {
+		"carbohydrates-total_100g" => 1,
+		"sugars_100g" => 2,
+		"starch_100g" => 3,
+		"fiber_100g" => 1,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag(
+		$product_ref, 'data_quality', 'en:nutrition-sugars-plus-starch-plus-fiber-greater-than-carbohydrates-total'
+	),
+	'sum of sugars, starch and fiber greater total carbohydrates'
+) or diag Dumper $product_ref;
+## with "<" symbol
+$product_ref = {
+	nutriments => {
+		"carbohydrates-total_100g" => 1,
+		"sugars_100g" => 1,
+		"sugars_modifier" => "<",
+		"starch_100g" => 1,
+		"starch_modifier" => "<",
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag(
+		$product_ref, 'data_quality', 'en:nutrition-sugars-plus-starch-plus-fiber-greater-than-carbohydrates-total'
+	),
+	'sum of sugars, starch and fiber greater total carbohydrates, presence of "<" symbol,  and sugars, starch or fiber is smaller than total carbohydrates'
+) or diag Dumper $product_ref;
+## sugar, starch or fiber is greater than total carbohydrates, with "<" symbol
+$product_ref = {
+	nutriments => {
+		"carbohydrates-total_100g" => 3,
+		"sugars_100g" => 1,
+		"starch_100g" => 5,
+		"starch_modifier" => "<",
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag(
+		$product_ref, 'data_quality', 'en:nutrition-sugars-plus-starch-plus-fiber-greater-than-carbohydrates-total'
+	),
+	'sum of sugars, starch and fiber greater total carbohydrates, presence of "<" symbol, and sugars, starch or fiber is greater than total carbohydrates'
+) or diag Dumper $product_ref;
+## should not be triggered
+$product_ref = {
+	nutriments => {
+		"carbohydrates-total_100g" => 3,
+		"sugars_100g" => 2,
+		"starch_100g" => 1,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag(
+		$product_ref, 'data_quality', 'en:nutrition-sugars-plus-starch-plus-fiber-greater-than-carbohydrates-total'
+	),
+	'sum of sugars, starch and fiber greater total carbohydrates'
+) or diag Dumper $product_ref;
+
 # unexpected character in ingredients
 $product_ref = {
 	languages_codes => {
@@ -1576,7 +1642,7 @@ ok(!has_tag($product_ref, 'data_quality', 'en:missing-fruit-content-for-jams-or-
 ok(
 	!has_tag(
 		$product_ref, 'data_quality',
-		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-jams'
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-45-for-category-jams'
 	),
 	'en:fruit content ok'
 ) or diag Dumper $product_ref;
@@ -1601,7 +1667,7 @@ ok(!has_tag($product_ref, 'data_quality', 'en:missing-fruit-content-for-jams-or-
 ok(
 	has_tag(
 		$product_ref, 'data_quality',
-		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-jams'
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-45-for-category-jams'
 	),
 	'en:fruit content too small'
 ) or diag Dumper $product_ref;
@@ -1623,14 +1689,14 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	!has_tag(
 		$product_ref, 'data_quality',
-		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-jams'
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-45-for-category-jams'
 	),
 	'en:fruit content too small for jam but has more specific category with smaller threshold'
 ) or diag Dumper $product_ref;
 ok(
 	has_tag(
 		$product_ref, 'data_quality',
-		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-redcurrants-jams'
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-redcurrants-jams'
 	),
 	'en:fruit content too small'
 ) or diag Dumper $product_ref;
@@ -1642,9 +1708,9 @@ $product_ref = {
 		{
 			id => "en:fruit",
 			ingredient => "fruit",
-			quantity => "30 g",
-			quantity_g => 30,
-			text => "Prepared with 30g of fruit per 100g",
+			quantity => "40 g",
+			quantity_g => 40,
+			text => "Prepared with 40g of fruit per 100g",
 		},
 	]
 };
@@ -1652,14 +1718,14 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	!has_tag(
 		$product_ref, 'data_quality',
-		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-jams'
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-45-for-category-jams'
 	),
 	'en:fruit content too small for jam but has more specific category with smaller threshold'
 ) or diag Dumper $product_ref;
 ok(
 	!has_tag(
 		$product_ref, 'data_quality',
-		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-redcurrants-jams'
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-redcurrants-jams'
 	),
 	'en:fruit content too small'
 ) or diag Dumper $product_ref;
@@ -1681,7 +1747,7 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	has_tag(
 		$product_ref, 'data_quality',
-		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-45-for-category-extra-jams'
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-50-for-category-extra-jams'
 	),
 	'en:fruit content too small extra jams'
 ) or diag Dumper $product_ref;
@@ -1703,7 +1769,7 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	has_tag(
 		$product_ref, 'data_quality',
-		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-blackcurrant-jams'
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-blackcurrant-jams'
 	),
 	'en:fruit content too small blackcurrant jams'
 ) or diag Dumper $product_ref;
@@ -1725,7 +1791,7 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	has_tag(
 		$product_ref, 'data_quality',
-		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-15-for-category-ginger-jams'
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-18-for-category-ginger-jams'
 	),
 	'en:fruit content too small ginger jams'
 ) or diag Dumper $product_ref;
@@ -1747,7 +1813,7 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	has_tag(
 		$product_ref, 'data_quality',
-		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-quince-jams'
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-quince-jams'
 	),
 	'en:fruit content too small quince jams'
 ) or diag Dumper $product_ref;
@@ -1769,7 +1835,7 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	has_tag(
 		$product_ref, 'data_quality',
-		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-rosehip-jams'
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-rosehip-jams'
 	),
 	'en:fruit content too small rosehip jams'
 ) or diag Dumper $product_ref;
@@ -1791,7 +1857,7 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	has_tag(
 		$product_ref, 'data_quality',
-		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-sea-buckthorn-jams'
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-sea-buckthorn-jams'
 	),
 	'en:fruit content too small sea-buckthorn jams'
 ) or diag Dumper $product_ref;
@@ -1857,7 +1923,7 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	has_tag(
 		$product_ref, 'data_quality',
-		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-blackcurrants-jellies'
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-blackcurrants-jellies'
 	),
 	'en:fruit content too small blackcurrants jellies'
 ) or diag Dumper $product_ref;
@@ -1879,7 +1945,7 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	has_tag(
 		$product_ref, 'data_quality',
-		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-6-for-category-passion-fruit-jellies'
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-8-for-category-passion-fruit-jellies'
 	),
 	'en:fruit content too small passion fruit jellies'
 ) or diag Dumper $product_ref;
@@ -1901,7 +1967,7 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	has_tag(
 		$product_ref, 'data_quality',
-		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-quince-jellies'
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-quince-jellies'
 	),
 	'en:fruit content too small quince jellies'
 ) or diag Dumper $product_ref;
@@ -1923,7 +1989,7 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	has_tag(
 		$product_ref, 'data_quality',
-		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-redcurrants-jellies'
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-redcurrants-jellies'
 	),
 	'en:fruit content too small redcurrants jellies'
 ) or diag Dumper $product_ref;
@@ -1945,7 +2011,7 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	has_tag(
 		$product_ref, 'data_quality',
-		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-sea-buckthorn-jellies'
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-sea-buckthorn-jellies'
 	),
 	'en:fruit content too small sea-buckthorn jellies'
 ) or diag Dumper $product_ref;

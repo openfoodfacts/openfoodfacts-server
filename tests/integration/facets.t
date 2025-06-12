@@ -199,68 +199,68 @@ edit_product(
 );
 
 # Note: expected results are stored in json files, see execute_api_tests
-# We use the API with .json to test facets, in order to easily get the products that are returned
+# We use the API with .json to test facets, in order to easily get the products that are returned
 my $tests_ref = [
 	{
 		test_case => 'brand_brand1',
 		method => 'GET',
-		path => '/brand/brand1.json?fields=product_name',
+		path => 'facets/brands/brand1.json?fields=product_name',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
 	{
 		test_case => 'brand_-brand1',
 		method => 'GET',
-		path => '/brand/-brand1.json?fields=product_name',
+		path => 'facets/brands/-brand1.json?fields=product_name',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
 	{
 		test_case => 'brand_brand2_brand_-brand1',
 		method => 'GET',
-		path => '/brand/brand2/brand/-brand1.json?fields=product_name',
+		path => 'facets/brands/brand2/brands/-brand1.json?fields=product_name',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
 	{
 		test_case => 'category_apples',
 		method => 'GET',
-		path => '/category/apples.json?fields=product_name',
+		path => 'facets/categories/apples.json?fields=product_name',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
 	{
 		test_case => 'category_-apples',
 		method => 'GET',
-		path => '/category/-apples.json?fields=product_name',
+		path => 'facets/categories/-apples.json?fields=product_name',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
 	{
 		test_case => 'category_apples_label_organic',
 		method => 'GET',
-		path => '/category/apples/label/organic.json?fields=product_name',
+		path => 'facets/categories/apples/labels/organic.json?fields=product_name',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
 	{
 		test_case => 'category_-apples_label_organic',
 		method => 'GET',
-		path => '/category/-apples/label/organic.json?fields=product_name',
+		path => 'facets/categories/-apples/labels/organic.json?fields=product_name',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
 	{
 		test_case => 'category_-apples_label_-organic',
 		method => 'GET',
-		path => '/category/-apples/label/-organic.json?fields=product_name',
+		path => 'facets/categories/-apples/labels/-organic.json?fields=product_name',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
 	{
 		test_case => 'label_fair-trade_label_-organic',
 		method => 'GET',
-		path => '/label/fair-trade/label/-organic.json?fields=product_name',
+		path => 'facets/labels/fair-trade/labels/-organic.json?fields=product_name',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
@@ -268,14 +268,14 @@ my $tests_ref = [
 	{
 		test_case => 'category_bananas_label_organic_brand_brand1',
 		method => 'GET',
-		path => '/category/bananas/label/organic/brand/brand1.json?fields=product_name',
+		path => 'facets/categories/bananas/labels/organic/brands/brand1.json?fields=product_name',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
 	{
 		test_case => 'category_bananas_label_organic_brand_-brand1',
 		method => 'GET',
-		path => '/category/bananas/label/organic/brand/-brand1.json?fields=product_name',
+		path => 'facets/categories/bananas/labels/organic/brands/-brand1.json?fields=product_name',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
@@ -283,14 +283,14 @@ my $tests_ref = [
 	{
 		test_case => 'brand_unknown',
 		method => 'GET',
-		path => '/brand/unknown.json?fields=product_name',
+		path => 'facets/brands/unknown.json?fields=product_name',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
 	{
 		test_case => 'brand_-unknown',
 		method => 'GET',
-		path => '/brand/-unknown.json?fields=product_name',
+		path => 'facets/brands/-unknown.json?fields=product_name',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
@@ -298,14 +298,14 @@ my $tests_ref = [
 	{
 		test_case => 'packager-code_fr-85-222-003-ce',
 		method => 'GET',
-		path => '/packager-code/fr-85-222-003-ce.json?fields=product_name,emb_codes_tags',
+		path => 'facets/packager-codes/fr-85-222-003-ce.json?fields=product_name,emb_codes_tags',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
 	{
 		test_case => 'packager-code_fr-85-222-003-ec',    # not normalized code (ec instead of ce)
 		method => 'GET',
-		path => '/packager-code/fr-85-222-003-ce.json?fields=product_name,emb_codes_tags',
+		path => 'facets/packager-codes/fr-85-222-003-ce.json?fields=product_name,emb_codes_tags',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
@@ -313,14 +313,14 @@ my $tests_ref = [
 	{
 		test_case => 'contributor-alice',
 		method => 'GET',
-		path => '/contributor/alice.json?fields=product_name',
+		path => 'facets/contributors/alice.json?fields=product_name',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
 	{
 		test_case => 'contributor-bob',
 		method => 'GET',
-		path => '/contributor/bob.json?fields=product_name',
+		path => 'facets/contributors/bob.json?fields=product_name',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
@@ -328,7 +328,7 @@ my $tests_ref = [
 	{
 		test_case => 'contributor-alice-label_organic',
 		method => 'GET',
-		path => '/contributor/alice/label/organic.json?fields=product_name',
+		path => 'facets/contributors/alice/labels/organic.json?fields=product_name',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
@@ -337,7 +337,7 @@ my $tests_ref = [
 		test_case => 'de-accented-cafe-label',
 		method => 'GET',
 		subdomain => 'world-de',
-		path => '/label/café-label.json?fields=product_name,labels_tags',
+		path => 'facets/labels/café-label.json?fields=product_name,labels_tags',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
@@ -346,9 +346,70 @@ my $tests_ref = [
 	{
 		test_case => 'category-vitamins',
 		method => 'GET',
-		path => '/category/vitamins.json?fields=product_name,labels_tags',
+		path => 'facets/categories/vitamins.json?fields=product_name,labels_tags',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
+	},
+	# test some redirects
+	{
+		test_case => 'redirect-facets-singulars',
+		method => 'GET',
+		path => '/category/vitamins',
+		expected_status_code => 301,
+		headers => {
+			Location => '/facets/categories/vitamins',
+		},
+		expected_type => 'html',
+	},
+	{
+		test_case => 'redirect-facets-search-with-json',
+		method => 'GET',
+		path => '/categories/vitamins.json',
+		expected_status_code => 301,
+		headers => {
+			Location => '/facets/categories/vitamins.json',
+		},
+		expected_type => 'html',    # the redirect itself is html
+	},
+	{
+		test_case => 'redirect-facets-search-with-json-and-query-parameter',
+		method => 'GET',
+		path => '/categories/vitamins.json?no_cache=1',
+		expected_status_code => 301,
+		headers => {
+			Location => '/facets/categories/vitamins.json?no_cache=1',
+		},
+		expected_type => 'html',    # the redirect itself is html
+	},
+	{
+		test_case => 'redirect-facets-search-with-json-query-parameter',
+		method => 'GET',
+		path => '/categories/vitamins?json=1',
+		expected_status_code => 301,
+		headers => {
+			Location => '/facets/categories/vitamins?json=1',
+		},
+		expected_type => 'html',    # the redirect itself is html
+	},
+	{
+		test_case => 'redirect-facets-with-multiple-query-parameters',
+		method => 'GET',
+		path => '/ingredients?filter=bon&status=unknown',
+		expected_status_code => 301,
+		headers => {
+			Location => '/facets/ingredients?filter=bon&status=unknown',
+		},
+		expected_type => 'html',    # the redirect itself is html
+	},
+	{
+		test_case => 'redirect-facets-agg-with-json',
+		method => 'GET',
+		path => '/categories.json',
+		expected_status_code => 301,
+		headers => {
+			Location => '/facets/categories.json',
+		},
+		expected_type => 'html',    # the redirect itself is html
 	},
 ];
 

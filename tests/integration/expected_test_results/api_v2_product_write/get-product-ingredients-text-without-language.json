@@ -65,13 +65,12 @@
          "en:united-kingdom"
       ],
       "created_t" : "--ignore--",
-      "creator" : "openfoodfacts-contributors",
+      "creator" : "tests",
       "data_quality_bugs_tags" : [],
       "data_quality_errors_tags" : [],
       "data_quality_info_tags" : [
          "en:no-packaging-data",
          "en:ingredients-percent-analysis-ok",
-         "en:environmental-score-extended-data-not-computed",
          "en:food-groups-1-known",
          "en:food-groups-2-known",
          "en:food-groups-3-unknown"
@@ -79,7 +78,6 @@
       "data_quality_tags" : [
          "en:no-packaging-data",
          "en:ingredients-percent-analysis-ok",
-         "en:environmental-score-extended-data-not-computed",
          "en:food-groups-1-known",
          "en:food-groups-2-known",
          "en:food-groups-3-unknown",
@@ -97,7 +95,7 @@
             "origins_of_ingredients" : {
                "aggregated_origins" : [
                   {
-                     "epi_score" : "0",
+                     "epi_score" : 0,
                      "origin" : "en:unknown",
                      "percent" : 100,
                      "transportation_score" : 0
@@ -342,7 +340,7 @@
          "unknown"
       ],
       "editors_tags" : [
-         "openfoodfacts-contributors"
+         "tests"
       ],
       "entry_dates_tags" : "--ignore--",
       "food_groups" : "en:processed-meat",
@@ -352,7 +350,7 @@
       ],
       "id" : "1234567890004",
       "informers_tags" : [
-         "openfoodfacts-contributors"
+         "tests"
       ],
       "ingredients" : [
          {
@@ -435,7 +433,7 @@
       "ingredients_without_ecobalyse_ids_n" : 2,
       "interface_version_created" : "20150316.jqm2",
       "interface_version_modified" : "20150316.jqm2",
-      "known_ingredients_n" : 5,
+      "known_ingredients_n" : 2,
       "lang" : "fr",
       "languages" : {
          "en:english" : 2
@@ -451,6 +449,8 @@
          "en:1"
       ],
       "last_edit_dates_tags" : "--ignore--",
+      "last_editor" : "tests",
+      "last_modified_by" : "tests",
       "last_modified_t" : "--ignore--",
       "last_updated_t" : "--ignore--",
       "lc" : "fr",
@@ -796,6 +796,7 @@
       "quantity" : "250 g",
       "removed_countries_tags" : [],
       "rev" : 1,
+      "schema_version" : 998,
       "serving_quantity" : "20",
       "serving_quantity_unit" : "g",
       "serving_size" : "20 g",

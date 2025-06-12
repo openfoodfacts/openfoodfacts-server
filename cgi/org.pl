@@ -28,6 +28,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/get_fileid/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/$lc %Lang lang/;
 use ProductOpener::Orgs qw/:all/;

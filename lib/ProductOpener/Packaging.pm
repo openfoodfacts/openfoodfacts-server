@@ -22,7 +22,7 @@
 
 =head1 NAME
 
-ProductOpener::Packaging 
+ProductOpener::Packaging
 
 =head1 SYNOPSIS
 
@@ -101,21 +101,16 @@ sub load_categories_packagings_materials_stats() {
 
 =head1 FUNCTIONS
 
-=head2 extract_packagings_from_image( $product_ref $id $ocr_engine $results_ref )
+=head2 extract_packagings_from_image( $product_ref, $image_type, $image_lc, $ocr_engine, $results_ref )
 
 Extract packaging data from packaging info / recycling instructions photo.
 
 =cut
 
-sub extract_packaging_from_image ($product_ref, $id, $ocr_engine, $results_ref) {
+sub extract_packaging_from_image ($product_ref, $image_type, $image_lc, $ocr_engine, $results_ref) {
 
-	my $lc = $product_ref->{lc};
-
-	if ($id =~ /_(\w\w)$/) {
-		$lc = $1;
-	}
-
-	extract_text_from_image($product_ref, $id, "packaging_text_from_image", $ocr_engine, $results_ref);
+	extract_text_from_image($product_ref, $image_type, $image_lc, "packaging_text_from_image", $ocr_engine,
+		$results_ref);
 
 	# TODO: extract structured data from the text
 	if (($results_ref->{status} == 0) and (defined $results_ref->{packaging_text_from_image})) {
@@ -802,7 +797,7 @@ sub set_packaging_facets_tags ($product_ref) {
 
 =head2 set_packaging_misc_tags($product_ref)
 
-Set some tags in the /misc/ facet so that we can track the products that have 
+Set some tags in the /misc/ facet so that we can track the products that have
 (or don't have) packaging data.
 
 =cut
@@ -998,6 +993,12 @@ sub compute_weight_stats_for_parent_materials ($product_ref) {
 					$packagings_materials_main_weight = $parent_material_ref->{weight};
 				}
 			}
+			# If there’s no packaging weight defined, but there’s one packaging item and we know that
+			# the packaging is complete, we know that the weight of that item is 100% of the total
+			# packaging weight, even if we don’t know what that weight is.
+			elsif ((scalar @{$product_ref->{packagings}} == 1) and ($product_ref->{packagings_complete})) {
+				$parent_material_ref->{weight_percent} = 100;
+			}
 		}
 	}
 
@@ -1011,7 +1012,7 @@ sub compute_weight_stats_for_parent_materials ($product_ref) {
 	return;
 }
 
-=head2 initialize_packagings_structure_with_data_from_packaging_text ($product_ref, $response_ref) 
+=head2 initialize_packagings_structure_with_data_from_packaging_text ($product_ref, $response_ref)
 
 This function populates the packagings structure with data extracted from the packaging_text field.
 It is used only when there is no pre-existing data in the packagings structure.

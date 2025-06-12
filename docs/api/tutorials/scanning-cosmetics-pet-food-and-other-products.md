@@ -26,7 +26,7 @@
 
 ### Important APIs if you want to scan any kind of product (or help your users avoid adding cosmetics by mistake in Open Food Facts)
 
-* We have a universal barcode scanning API, where you scan a barcode, and you get a result from either Open Food Facts, Open Pet Food Facts, Open Beauty Facts or Open Products Facts with a product_type
+* We have a universal barcode scanning API, where you scan a barcode, and you get a result from either Open Food Facts, Open Pet Food Facts, Open Beauty Facts or Open Products Facts with a `product_type`, you can use the `product_type=all` parameter. Asked on any instance, it will redirect you to the right instance if a product exists and is on another instance (eg: asking for a beauty barcode on food instance). See [reference documentation](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/product/-barcode-).
 * If no result is found in any of the 4 databases, you will have to ask the type of product to your users, and use the classic product addition API on the right project.
 * If (it can happen) the product appears on the wrong project, we suggest you use the NutriPatrol API to let your users report it to the moderators, and the proceed to a product addition on the right project. The moderators will then move the existing data to the right project. Eventually, project categorization errors should be infinitesimal.
 

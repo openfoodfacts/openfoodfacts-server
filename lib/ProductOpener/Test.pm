@@ -54,6 +54,7 @@ BEGIN {
 		&wait_for
 		&read_gzip_file
 		&check_ocr_result
+		&get_base64_image_data_from_file
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -80,6 +81,7 @@ use File::Copy;
 use Path::Tiny qw/path/;
 use Scalar::Util qw(looks_like_number);
 use Test::File::Contents qw/files_eq_or_diff/;
+use MIME::Base64 qw(encode_base64);
 
 use Log::Any qw($log);
 
@@ -532,6 +534,8 @@ Compare an array containing product data (e.g. the result of a CSV export) to ex
 The expected results are stored as individual JSON files for each of the product,
 in files named [barcode].json, with a flat key/value pairs structure corresponding to the CSV columns.
 
+We normalize some fields like creation dates that change for each test run.
+
 This is so that we can easily see diffs with git diffs:
 - we know how many products are affected
 - we see individual diffs with the field name
@@ -559,6 +563,8 @@ sub compare_array_to_expected_results ($array_ref, $expected_results_dir, $updat
 	my %codes = ();
 
 	foreach my $product_ref (@$array_ref) {
+
+		normalize_product_for_test_comparison($product_ref);
 
 		my $code = $product_ref->{code};
 		$codes{$code} = 1;
@@ -740,7 +746,8 @@ sub normalize_product_for_test_comparison ($product_ref) {
 			qw(
 				last_modified_t last_updated_t created_t owner_fields
 				entry_dates_tags last_edit_dates_tags
-				last_image_t last_image_dates_tags images.*.uploaded_t sources.*.import_t
+				last_image_t last_image_datetime last_image_dates_tags images.*.uploaded_t images.uploaded.*.uploaded_t sources.*.import_t
+				created_datetime last_modified_datetime last_updated_datetime
 			)
 		],
 		fields_sort => ["_keywords"],
@@ -888,6 +895,34 @@ sub wait_for ($code, $timeout = 3, $poll_time = 1) {
 	}
 	# last try
 	return $code->();
+}
+
+=head2 get_base64_image_data_from_file ($path)
+
+Get the base64 encoded image data from a file.
+
+Used for API v3 image upload, where we pass the image data as base64 encoded string.
+
+=head3 Parameters
+
+=head4 $path - String
+
+The path of the image file.
+
+=head3 Return value
+
+Returns the base64 encoded image data as a string.
+
+=cut
+
+sub get_base64_image_data_from_file ($path) {
+	my $image_data = '';
+	open(my $image, "<", $path);
+	binmode($image);
+	read $image, my $content, -s $image;
+	close $image;
+	$image_data = encode_base64($content, '');    # no line breaks
+	return $image_data;
 }
 
 1;
