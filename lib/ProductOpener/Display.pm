@@ -7752,7 +7752,6 @@ sub display_product ($request_ref) {
 	$request_ref->{scripts} .= <<SCRIPTS
 <script src="$static_subdomain/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
 <script src="$static_subdomain/js/dist/product-history.js"></script>
-<script src="$static_subdomain/js/dist/off-webcomponents-utils.js"></script>
 SCRIPTS
 		;
 
