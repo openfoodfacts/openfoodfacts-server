@@ -1045,6 +1045,7 @@ while (my $product_ref = $cursor->next) {
 		if ($autorotate) {
 			# This is old code
 			die("autorotate has not been tested recently, please test it before using it");
+
 			# OCR needs to have been run first
 			if ((defined $product_ref->{images}) and (defined $product_ref->{images}{selected})) {
 				foreach my $image_type (sort keys %{$product_ref->{images}{selected}}) {
