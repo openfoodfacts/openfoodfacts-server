@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.69.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.68.0...v2.69.0) (2025-06-12)
+
+
+### Features
+
+* images refactor + API v3 image upload + image selection ([#11818](https://github.com/openfoodfacts/openfoodfacts-server/issues/11818)) ([f9ed125](https://github.com/openfoodfacts/openfoodfacts-server/commit/f9ed125c808e1f24198d5ff8118eeb622c2f176f))
+* update webcomponent ([#12014](https://github.com/openfoodfacts/openfoodfacts-server/issues/12014)) ([92d859c](https://github.com/openfoodfacts/openfoodfacts-server/commit/92d859c3af83ae920db2481231c4542b13fc212f))
+
+
+### Bug Fixes
+
+* images refactor + API v3 image upload + image selection (more tests / comments) ([#12022](https://github.com/openfoodfacts/openfoodfacts-server/issues/12022)) ([2a36b41](https://github.com/openfoodfacts/openfoodfacts-server/commit/2a36b41d594d2a750b527de0c9d3d12dda65ab8a))
+
 ## [2.68.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.67.0...v2.68.0) (2025-06-10)
 
 
