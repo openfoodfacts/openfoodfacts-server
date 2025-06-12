@@ -67,8 +67,8 @@ my $product_ref = retrieve_product($product_id);
 
 my $results_ref = {};
 
-if (($id =~ /^ingredients/) and (single_param('process_image'))) {
-	extract_ingredients_from_image($product_ref, $id, $ocr_engine, $results_ref);
+if (($id =~ /^ingredients_(\w\w)$/) and (single_param('process_image'))) {
+	extract_ingredients_from_image($product_ref, "ingredients", $1, $ocr_engine, $results_ref);
 	if ($results_ref->{status} == 0) {
 		$results_ref->{ingredients_text_from_image} =~ s/\n/ /g;
 		if (not $annotations) {
