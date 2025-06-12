@@ -961,8 +961,10 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 
 	# Before returning the product, we need to make sure that the fields are compatible with the requested API version
 
-	# If the schema_version field was not requested, and is not in $customized_product_ref, we add it temporarily
-	# so that we can convert the product to the requested schema version
+	# IMPORTANT: If the schema_version field was not requested, it will not be in $customized_product_ref.
+	# We need to add it temporarily so that we can convert the product to the requested schema version.
+	# Otherwise, if the schema version is not present, convert_product_schema() will assume that the product is in an old version (< 1000)
+	# and will not convert it to the requested schema version (specified by the API version)
 
 	my $added_schema_version = 0;
 

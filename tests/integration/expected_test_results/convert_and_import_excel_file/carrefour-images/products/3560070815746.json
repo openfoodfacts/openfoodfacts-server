@@ -33,9 +33,7 @@
    ],
    "complete" : 0,
    "completeness" : 0.0625,
-   "correctors_tags" : [
-      "test-user"
-   ],
+   "correctors_tags" : [],
    "countries" : "fr",
    "countries_hierarchy" : [
       "en:france"
@@ -337,24 +335,24 @@
          "front" : {
             "fr" : {
                "generation" : {},
-               "imgid" : 2,
-               "rev" : 5,
+               "imgid" : 1,
+               "rev" : 3,
                "sizes" : {
                   "100" : {
                      "h" : 100,
-                     "w" : 68
+                     "w" : 73
                   },
                   "200" : {
                      "h" : 200,
-                     "w" : 135
+                     "w" : 146
                   },
                   "400" : {
                      "h" : 296,
-                     "w" : 200
+                     "w" : 216
                   },
                   "full" : {
                      "h" : 296,
-                     "w" : 200
+                     "w" : 216
                   }
                }
             }
@@ -600,7 +598,7 @@
    "popularity_key" : 12,
    "product_type" : "food",
    "removed_countries_tags" : [],
-   "rev" : 8,
+   "rev" : 7,
    "schema_version" : 1002,
    "sources" : [
       {
