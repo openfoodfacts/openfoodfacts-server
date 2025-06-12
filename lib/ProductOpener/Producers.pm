@@ -85,6 +85,7 @@ use ProductOpener::ImportConvert qw/clean_fields/;
 use ProductOpener::Minion qw/get_minion/;
 use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
 use ProductOpener::Orgs qw/update_export_date/;
+use ProductOpener::Images qw/$valid_image_types_regexp/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -1137,7 +1138,7 @@ sub init_other_fields_columns_names_for_lang ($l) {
 
 				if ($group_id eq "images") {
 					# front / ingredients / nutrition : specific to one language
-					if ($field =~ /image_(front|ingredients|nutrition|packaging)/) {
+					if ($field =~ /image_($valid_image_types_regexp)/) {
 						$fields_columns_names_for_lang{$l}
 							{get_string_id_for_lang("no_language", normalize_column_name($Lang{$field}{$l}))}
 							= {field => $field . "_$l"};
@@ -1759,7 +1760,7 @@ JSON
 				$log->debug("Select2 option", {group_id => $group_id, field => $field, name => $name})
 					if $log->is_debug();
 
-				if (($group_id eq "images") and ($field =~ /image_(front|ingredients|nutrition|packaging)/)) {
+				if (($group_id eq "images") and ($field =~ /image_($valid_image_types_regexp)/)) {
 
 					foreach my $l (@{$lcs_ref}) {
 						my $language = "";    # Don't specify the language if there is just one

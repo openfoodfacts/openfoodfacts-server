@@ -333,126 +333,124 @@
    "food_groups_tags" : [],
    "id" : "3560070815746",
    "images" : {
-      "1" : {
-         "sizes" : {
-            "100" : {
-               "h" : 75,
-               "w" : 100
-            },
-            "400" : {
-               "h" : 300,
-               "w" : 400
-            },
-            "full" : {
-               "h" : 600,
-               "w" : 800
+      "selected" : {
+         "front" : {
+            "fr" : {
+               "generation" : {},
+               "imgid" : 2,
+               "rev" : 5,
+               "sizes" : {
+                  "100" : {
+                     "h" : 100,
+                     "w" : 68
+                  },
+                  "200" : {
+                     "h" : 200,
+                     "w" : 135
+                  },
+                  "400" : {
+                     "h" : 296,
+                     "w" : 200
+                  },
+                  "full" : {
+                     "h" : 296,
+                     "w" : 200
+                  }
+               }
             }
-         },
-         "uploaded_t" : "--ignore--",
-         "uploader" : "test-user"
+         }
       },
-      "2" : {
-         "sizes" : {
-            "100" : {
-               "h" : 75,
-               "w" : 100
+      "uploaded" : {
+         "1" : {
+            "sizes" : {
+               "100" : {
+                  "h" : 75,
+                  "w" : 100
+               },
+               "400" : {
+                  "h" : 300,
+                  "w" : 400
+               },
+               "full" : {
+                  "h" : 600,
+                  "w" : 800
+               }
             },
-            "400" : {
-               "h" : 300,
-               "w" : 400
-            },
-            "full" : {
-               "h" : 600,
-               "w" : 800
-            }
+            "uploaded_t" : "--ignore--",
+            "uploader" : "test-user"
          },
-         "uploaded_t" : "--ignore--",
-         "uploader" : "test-user"
-      },
-      "3" : {
-         "sizes" : {
-            "100" : {
-               "h" : 75,
-               "w" : 100
+         "2" : {
+            "sizes" : {
+               "100" : {
+                  "h" : 75,
+                  "w" : 100
+               },
+               "400" : {
+                  "h" : 300,
+                  "w" : 400
+               },
+               "full" : {
+                  "h" : 600,
+                  "w" : 800
+               }
             },
-            "400" : {
-               "h" : 300,
-               "w" : 400
-            },
-            "full" : {
-               "h" : 600,
-               "w" : 800
-            }
+            "uploaded_t" : "--ignore--",
+            "uploader" : "test-user"
          },
-         "uploaded_t" : "--ignore--",
-         "uploader" : "test-user"
-      },
-      "4" : {
-         "sizes" : {
-            "100" : {
-               "h" : 75,
-               "w" : 100
+         "3" : {
+            "sizes" : {
+               "100" : {
+                  "h" : 75,
+                  "w" : 100
+               },
+               "400" : {
+                  "h" : 300,
+                  "w" : 400
+               },
+               "full" : {
+                  "h" : 600,
+                  "w" : 800
+               }
             },
-            "400" : {
-               "h" : 300,
-               "w" : 400
-            },
-            "full" : {
-               "h" : 600,
-               "w" : 800
-            }
+            "uploaded_t" : "--ignore--",
+            "uploader" : "test-user"
          },
-         "uploaded_t" : "--ignore--",
-         "uploader" : "test-user"
-      },
-      "5" : {
-         "sizes" : {
-            "100" : {
-               "h" : 75,
-               "w" : 100
+         "4" : {
+            "sizes" : {
+               "100" : {
+                  "h" : 75,
+                  "w" : 100
+               },
+               "400" : {
+                  "h" : 300,
+                  "w" : 400
+               },
+               "full" : {
+                  "h" : 600,
+                  "w" : 800
+               }
             },
-            "400" : {
-               "h" : 300,
-               "w" : 400
-            },
-            "full" : {
-               "h" : 600,
-               "w" : 800
-            }
+            "uploaded_t" : "--ignore--",
+            "uploader" : "test-user"
          },
-         "uploaded_t" : "--ignore--",
-         "uploader" : "test-user"
-      },
-      "front_fr" : {
-         "angle" : 0,
-         "coordinates_image_size" : "400",
-         "geometry" : "0x0--2--2",
-         "imgid" : "2",
-         "normalize" : "false",
-         "rev" : "5",
-         "sizes" : {
-            "100" : {
-               "h" : 100,
-               "w" : 68
+         "5" : {
+            "sizes" : {
+               "100" : {
+                  "h" : 75,
+                  "w" : 100
+               },
+               "400" : {
+                  "h" : 300,
+                  "w" : 400
+               },
+               "full" : {
+                  "h" : 600,
+                  "w" : 800
+               }
             },
-            "200" : {
-               "h" : 200,
-               "w" : 135
-            },
-            "400" : {
-               "h" : 296,
-               "w" : 200
-            },
-            "full" : {
-               "h" : 296,
-               "w" : 200
-            }
-         },
-         "white_magic" : "false",
-         "x1" : -1,
-         "x2" : -1,
-         "y1" : -1,
-         "y2" : -1
+            "uploaded_t" : "--ignore--",
+            "uploader" : "test-user"
+         }
       }
    },
    "informers_tags" : [
@@ -603,7 +601,7 @@
    "product_type" : "food",
    "removed_countries_tags" : [],
    "rev" : 8,
-   "schema_version" : 1001,
+   "schema_version" : 1002,
    "sources" : [
       {
          "fields" : [

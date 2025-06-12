@@ -54,6 +54,7 @@ BEGIN {
 		&wait_for
 		&read_gzip_file
 		&check_ocr_result
+		&get_base64_image_data_from_file
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -82,6 +83,7 @@ use Path::Tiny qw/path/;
 use Scalar::Util qw(looks_like_number);
 use URI::Escape::XS qw/uri_escape/;
 use Test::File::Contents qw/files_eq_or_diff/;
+use MIME::Base64 qw(encode_base64);
 
 use Log::Any qw($log);
 
@@ -753,7 +755,7 @@ sub normalize_product_for_test_comparison ($product_ref) {
 			qw(
 				last_modified_t last_updated_t created_t owner_fields
 				entry_dates_tags last_edit_dates_tags
-				last_image_t last_image_dates_tags images.*.uploaded_t sources.*.import_t
+				last_image_t last_image_datetime last_image_dates_tags images.*.uploaded_t images.uploaded.*.uploaded_t sources.*.import_t
 				created_datetime last_modified_datetime last_updated_datetime
 			)
 		],
@@ -902,6 +904,34 @@ sub wait_for ($code, $timeout = 3, $poll_time = 1) {
 	}
 	# last try
 	return $code->();
+}
+
+=head2 get_base64_image_data_from_file ($path)
+
+Get the base64 encoded image data from a file.
+
+Used for API v3 image upload, where we pass the image data as base64 encoded string.
+
+=head3 Parameters
+
+=head4 $path - String
+
+The path of the image file.
+
+=head3 Return value
+
+Returns the base64 encoded image data as a string.
+
+=cut
+
+sub get_base64_image_data_from_file ($path) {
+	my $image_data = '';
+	open(my $image, "<", $path);
+	binmode($image);
+	read $image, my $content, -s $image;
+	close $image;
+	$image_data = encode_base64($content, '');    # no line breaks
+	return $image_data;
 }
 
 =head2 get_users_from_keycloak()
