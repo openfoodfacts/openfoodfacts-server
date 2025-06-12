@@ -257,7 +257,8 @@ if ($imagefield) {
 		}
 	) if $log->is_debug();
 
-	$response_ref->{imgid} = $imgid;
+	# For backwards compatibility, if we have no imgid (if the image was not uploaded), we return the return code in the imgid field
+	$response_ref->{imgid} = $imgid || $imgid_returncode;
 	if ($imgid > 0) {
 		$response_ref->{files}[0]{thumbnailUrl} = "/images/products/$path/$imgid.$thumb_size.jpg";
 	}
