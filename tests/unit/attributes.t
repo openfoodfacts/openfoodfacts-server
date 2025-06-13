@@ -143,12 +143,13 @@ my @tests = (
 	],
 
 	[
-		'en-nutriscore-2',
+		'en-nutriscore-serving-size-error',
 		{
 			lc => "en",
 			categories => "biscuits",
 			categories_tags => ["en:biscuits"],
-			nutrition_data_per_serving => "20",
+			nutrition_data_per => "serving",
+			serving_size => "20",
 			ingredients_text => "100% fruits",
 			nutriments => {
 				"energy_100g" => 2591,
