@@ -119,7 +119,7 @@ my @tests = (
 		}
 	],
 
-	# Nutri-Score attribute, explanation when we don't have unit for the nutrition data per 
+	# Nutri-Score attribute, explanation when we don't have unit for the nutrition data per
 	# https://github.com/openfoodfacts/openfoodfacts-server/issues/11322
 	[
 		'en-nutriscore',
@@ -152,14 +152,14 @@ my @tests = (
 			serving_size => "20",
 			ingredients_text => "100% fruits",
 			nutriments => {
-				"energy_100g" => 2591,
-				"fat_100g" => 50,
-				"saturated-fat_100g" => 9.7,
-				"sugars_100g" => 5.1,
-				"salt_100g" => 0,
-				"sodium_100g" => 0,
-				"proteins_100g" => 29,
-				"fiber_100g" => 5.5,
+				"energy_serving" => 2591,
+				"fat_serving" => 50,
+				"saturated-fat_serving" => 9.7,
+				"sugars_serving" => 5.1,
+				"salt_serving" => 0,
+				"sodium_serving" => 0,
+				"proteins_serving" => 29,
+				"fiber_serving" => 5.5,
 			},
 		}
 	],
