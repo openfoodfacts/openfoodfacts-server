@@ -9319,7 +9319,7 @@ sub data_to_display_nutriscore ($product_ref, $version = "2021") {
 					)
 					)
 				{
-					$missing_nutrients .= lang("missing_value_and_or_unit");
+					$missing_nutrients .= lang("missing_serving_size_value_and_or_unit");
 				}
 				else {
 					foreach my $misc_tag (@{$product_ref->{misc_tags}}) {
