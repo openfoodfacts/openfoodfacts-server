@@ -301,10 +301,13 @@ HTML
 
 	my $image_url = '';
 
-	my $image_ref = deep_get($object_ref, "images", $image_type, $image_lc);
+	my $image_ref = deep_get($object_ref, "images", "selected", $image_type, $image_lc);
 
 	if (defined $image_ref) {
-		my $image_url = get_image_url($object_ref, $image_ref, $display_size);
+		$image_ref->{id} = $image_type . "_" . $image_lc;
+		$image_url = get_image_url($object_ref, $image_ref, $display_size);
+		# Keep only the filename
+		$image_url =~ s/.*\///;
 	}
 
 	$html
