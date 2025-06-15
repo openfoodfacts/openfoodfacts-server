@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.70.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.69.0...v2.70.0) (2025-06-15)
+
+
+### Features
+
+* Send to off-query irrespective of sort ([#12029](https://github.com/openfoodfacts/openfoodfacts-server/issues/12029)) ([6ff0274](https://github.com/openfoodfacts/openfoodfacts-server/commit/6ff02742edb4058ce75c179126dea621ab3f480e))
+
 ## [2.69.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.68.0...v2.69.0) (2025-06-12)
 
 
