@@ -1,0 +1,93 @@
+# This workflow aims at checking that no link nor image is broken in the content pages.
+# The action uses a recursive scan to avoid large arglists.
+# It runs periodically on a weekly schedule.
+name: Link Rot Check
+on:
+  schedule:
+    - cron: '0 0 * * 0'      # Runs every Sunday at midnight UTC
+  workflow_dispatch:
+  pull_request:              # Enable PR comments
+    branches: [ main, develop ]
+  push:                      # Added for act testing
+    branches: [ 'JagjeevanAK/check-links' ]  # Only on your test branch
+
+jobs:
+  link-rot:
+    concurrency:
+      group: link-rot-check
+      cancel-in-progress: true
+    permissions:
+      contents: read
+      checks: write
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run link-rot check
+        id: lychee
+        uses: lycheeverse/lychee-action@v2.4.1
+        with:
+          args: |
+            'html/' 'templates/' './**/*.md' 
+            --base . --verbose --no-progress 
+            --exclude-loopback --exclude-private 
+            --exclude-path 'CHANGELOG.md' 'CHANGELOG.md.old' '.*\[%.*%\].*' 
+            --exclude-path 'file:///*' 
+            --exclude-path 'templates/web/common/site_layout.tt.html'
+            --exclude-path 'templates/web/pages/dashboard/display_orgs_table.tt.html'
+            --exclude-path 'templates/web/pages/user_form/user_form_page.tt.html'
+            --exclude-path 'templates/web/common/includes/donate_banner.tt.html'
+            --exclude-path 'templates/web/pages/product/includes/nutriscore.tt.html'
+            --exclude-path 'templates/web/pages/product/product_page.tt.html'
+            --exclude-path 'docs/api/ref-api-and-product-schema-change-log.md'
+          output: lychee-report.md
+          format: markdown
+          fail: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload lychee report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lychee-report
+          path: lychee-report.md
+          retention-days: 30
+
+      - name: Comment on PR with results
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            
+            // Read lychee results
+            let reportContent = '';
+            try {
+              reportContent = fs.readFileSync('lychee/out.md', 'utf8');
+            } catch (error) {
+              reportContent = 'Link check failed but no detailed report available.';
+            }
+            
+            const comment = `## 🔗 Link Rot Check Results
+            
+            ❌ **Link check failed** - broken links detected in your changes.
+            
+            <details>
+            <summary>Click to see detailed report</summary>
+            
+            \`\`\`
+            ${reportContent}
+            \`\`\`
+            </details>
+            
+            Please fix the broken links before merging.`;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
