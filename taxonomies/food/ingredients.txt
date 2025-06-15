@@ -37740,8 +37740,9 @@ sv: frukt- och plantkoncentrat
 
 # Is an AGGREGATE ingredient, i.e.:concentrés de fruits (framboise, orange, citron)
 
-< en:fruit
 #<en:compound
+< en:concentrate
+< en:fruit
 < en:preparation
 en: fruit concentrate, fruit concentrates
 bg: плодов концентрат
@@ -37756,6 +37757,7 @@ pt: concentrados de fruta, concentrados de fruto, concentrados de frutas, concen
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:concentrés-de-fruits
 # 42 products in 3 languages @2018-10-04
 
+< en:concentrate
 < en:plant
 en: plant concentrate, plant concentrates
 da: plantekoncentrater
@@ -44456,6 +44458,7 @@ sv: fläderbärsjuice
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-sureau
 # 52 products @2018-09-29
 
+< en:concentrate
 < en:elderberry juice
 en: elderberry juice concentrate, concentrated elderberry juice
 de: konzentrierter Holundersaft
@@ -46960,6 +46963,7 @@ pl: sok truskawkowy, sok z truskawki, sok z truskawek
 pt: Suco de morango, sumo de morango
 sv: jordgubbsjuice, jordgubbssaft
 
+< en:concentrate
 < en:strawberry juice
 en: strawberry juice concentrate, concentrated strawberry juice
 de: erdbeersaftkonzentrat
@@ -49048,6 +49052,7 @@ fr: fibres de légume
 fi: kasviskuitu
 
 
+< en:concentrate
 < en:vegetable
 en: vegetable concentrate, vegetable concentrates
 da: grøntsagskoncentrat
@@ -57896,6 +57901,7 @@ nl: half ingedikte tomatenpuree
 fr: purée de tomates mi-réduite reconstituée
 
 #category/tomato-pastes
+< en:concentrate
 < en:tomato
 en: tomato concentrate, tomato paste
 bg: доматен концентрат, концентрат от домати
@@ -70827,6 +70833,7 @@ it: fiore di cartamo
 pl: kwiat krokosza barwierskiego, kwiatu krokosza barwierskiego
 # ingredient/fr:fleur-de-carthame has 34 products in 4 languages @2019-03-13
 
+< en:concentrate
 < en:safflower
 en: safflower concentrate, carthamus concentrate
 de: Saflorkonzentrat, Saflorextrakt, färbendes Saflorkonzentrat
@@ -72466,6 +72473,7 @@ pl: sproszkowana spirulina, spirulina w proszku
 
 # description:en:SPIRULINA CONCENTRATE is a color additive in multiple applications including ice cream, desserts, toppings, yoghurts and ready-to-eat cereals.
 
+< en:concentrate
 < en:spirulina
 en: spirulina concentrate, spirulina extract
 de: Spirulina-konzentrat, Spirulinakonzentrat
@@ -87160,21 +87168,24 @@ de: färbende Gemüsekonzentrate
 
 # description:en:CONCENTRATE is the form of substance which has had the majority of its base component (in the case of a liquid: the solvent) removed
 
+# is this the same as “concentrated extract”?
+en: concentrate
+hr: koncentrat
+nb: konsentrat
+sv: koncentrat
+# ingredients/en:concentrate has 288 products @2025-06-15
+wikidata:en: Q1355665
+
 # <en:part
 < en:extract
-en: concentrate, concentrated extract
+en: concentrated extract
 de: Extraktkonzentrat
 es: extracto concentrado
 fi: uutetiiviste
 fr: extrait concentré
-hr: koncentrat
 it: estratto concentrato
-nb: konsentrat
-sv: koncentrat
 # ingredient/fr:extrait-concentré has 31 products @2019-02-15
 # ingredients/en:concentrated-extract has 45 products @2025-06-15
-# ingredients/en:concentrate has 288 products @2025-06-15
-wikidata:en: Q1355665
 # concentrated extract (safflower flower)
 
 # description:en:PURÉE is cooked food, that has been ground, pressed, blended or sieved to the consistency of a soft creamy paste
