@@ -165,6 +165,7 @@ use Encode;
 use JSON::MaybeXS;
 use MIME::Base64;
 use LWP::UserAgent;
+use OpenTelemetry::Integration 'LWP::UserAgent';
 use File::Copy qw/move/;
 use Clone qw/clone/;
 use boolean;
