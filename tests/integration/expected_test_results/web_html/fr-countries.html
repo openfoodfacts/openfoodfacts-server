@@ -650,7 +650,6 @@
 
 <script>
 $(function() {
-var countries_map_data=JSON.parse("{\"BE\":1,\"CH\":1,\"DE\":5,\"ES\":1,\"FR\":7,\"GB\":4,\"IT\":2}");var countries_map_links=JSON.parse("{\"BE\":\"/facets/pays/belgique\",\"CH\":\"/facets/pays/suisse\",\"DE\":\"/facets/pays/allemagne\",\"ES\":\"/facets/pays/espagne\",\"FR\":\"/facets/pays/france\",\"GB\":\"/facets/pays/royaume-uni\",\"IT\":\"/facets/pays/italie\"}");var countries_map_names=JSON.parse("{\"BE\":\"Belgique\",\"CH\":\"Suisse\",\"DE\":\"Allemagne\",\"ES\":\"Espagne\",\"FR\":\"France\",\"GB\":\"Royaume-Uni\",\"IT\":\"Italie\"}");displayWorldMap('#world-map', { 'data': countries_map_data, 'links': countries_map_links, 'names': countries_map_names });
 let oTable = $('#tagstable').DataTable({
 	language: {
 		search: "Recherche :",
@@ -674,9 +673,13 @@ let oTable = $('#tagstable').DataTable({
 <script src="//static.openfoodfacts.localhost/js/dist/foundation.js" data-base-layout="true"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/jquery.cookie.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/select2.min.js"></script>
-<script src="//static.openfoodfacts.localhost/js/dist/jsvectormap.js"></script>
-<script src="//static.openfoodfacts.localhost/js/dist/world-merc.js"></script>
-<script src="//static.openfoodfacts.localhost/js/dist/display-list-of-tags.js"></script>
+<script type="module">
+import { displayWorldMap } from '//static.openfoodfacts.localhost/js/dist/display-list-of-tags.esm.js';
+const countries_map_data = JSON.parse("{\"BE\":1,\"CH\":1,\"DE\":5,\"ES\":1,\"FR\":7,\"GB\":4,\"IT\":2}");
+const countries_map_links = JSON.parse("{\"BE\":\"/facets/pays/belgique\",\"CH\":\"/facets/pays/suisse\",\"DE\":\"/facets/pays/allemagne\",\"ES\":\"/facets/pays/espagne\",\"FR\":\"/facets/pays/france\",\"GB\":\"/facets/pays/royaume-uni\",\"IT\":\"/facets/pays/italie\"}");
+const countries_map_names = JSON.parse("{\"BE\":\"Belgique\",\"CH\":\"Suisse\",\"DE\":\"Allemagne\",\"ES\":\"Espagne\",\"FR\":\"France\",\"GB\":\"Royaume-Uni\",\"IT\":\"Italie\"}");
+displayWorldMap('#world-map', { 'data': countries_map_data, 'links': countries_map_links, 'names': countries_map_names });
+</script>
 <script src="//static.openfoodfacts.localhost/js/datatables.min.js"></script>
 
 <script>

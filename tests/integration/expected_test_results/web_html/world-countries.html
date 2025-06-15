@@ -662,7 +662,6 @@
 
 <script>
 $(function() {
-var countries_map_data=JSON.parse("{\"AR\":1,\"BE\":1,\"CA\":1,\"CH\":1,\"DE\":5,\"ES\":4,\"FR\":7,\"GB\":5,\"GR\":1,\"IN\":1,\"IT\":4,\"JP\":2,\"MX\":1,\"PT\":1,\"US\":2}");var countries_map_links=JSON.parse("{\"AR\":\"/facets/countries/argentina\",\"BE\":\"/facets/countries/belgium\",\"CA\":\"/facets/countries/canada\",\"CH\":\"/facets/countries/switzerland\",\"DE\":\"/facets/countries/germany\",\"ES\":\"/facets/countries/spain\",\"FR\":\"/facets/countries/france\",\"GB\":\"/facets/countries/united-kingdom\",\"GR\":\"/facets/countries/greece\",\"IN\":\"/facets/countries/india\",\"IT\":\"/facets/countries/italy\",\"JP\":\"/facets/countries/japan\",\"MX\":\"/facets/countries/mexico\",\"PT\":\"/facets/countries/portugal\",\"US\":\"/facets/countries/united-states\"}");var countries_map_names=JSON.parse("{\"AR\":\"Argentina\",\"BE\":\"Belgium\",\"CA\":\"Canada\",\"CH\":\"Switzerland\",\"DE\":\"Germany\",\"ES\":\"Spain\",\"FR\":\"France\",\"GB\":\"United Kingdom\",\"GR\":\"Greece\",\"IN\":\"India\",\"IT\":\"Italy\",\"JP\":\"Japan\",\"MX\":\"Mexico\",\"PT\":\"Portugal\",\"US\":\"United States\"}");displayWorldMap('#world-map', { 'data': countries_map_data, 'links': countries_map_links, 'names': countries_map_names });
 let oTable = $('#tagstable').DataTable({
 	language: {
 		search: "Search:",
@@ -686,9 +685,13 @@ let oTable = $('#tagstable').DataTable({
 <script src="//static.openfoodfacts.localhost/js/dist/foundation.js" data-base-layout="true"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/jquery.cookie.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/select2.min.js"></script>
-<script src="//static.openfoodfacts.localhost/js/dist/jsvectormap.js"></script>
-<script src="//static.openfoodfacts.localhost/js/dist/world-merc.js"></script>
-<script src="//static.openfoodfacts.localhost/js/dist/display-list-of-tags.js"></script>
+<script type="module">
+import { displayWorldMap } from '//static.openfoodfacts.localhost/js/dist/display-list-of-tags.esm.js';
+const countries_map_data = JSON.parse("{\"AR\":1,\"BE\":1,\"CA\":1,\"CH\":1,\"DE\":5,\"ES\":4,\"FR\":7,\"GB\":5,\"GR\":1,\"IN\":1,\"IT\":4,\"JP\":2,\"MX\":1,\"PT\":1,\"US\":2}");
+const countries_map_links = JSON.parse("{\"AR\":\"/facets/countries/argentina\",\"BE\":\"/facets/countries/belgium\",\"CA\":\"/facets/countries/canada\",\"CH\":\"/facets/countries/switzerland\",\"DE\":\"/facets/countries/germany\",\"ES\":\"/facets/countries/spain\",\"FR\":\"/facets/countries/france\",\"GB\":\"/facets/countries/united-kingdom\",\"GR\":\"/facets/countries/greece\",\"IN\":\"/facets/countries/india\",\"IT\":\"/facets/countries/italy\",\"JP\":\"/facets/countries/japan\",\"MX\":\"/facets/countries/mexico\",\"PT\":\"/facets/countries/portugal\",\"US\":\"/facets/countries/united-states\"}");
+const countries_map_names = JSON.parse("{\"AR\":\"Argentina\",\"BE\":\"Belgium\",\"CA\":\"Canada\",\"CH\":\"Switzerland\",\"DE\":\"Germany\",\"ES\":\"Spain\",\"FR\":\"France\",\"GB\":\"United Kingdom\",\"GR\":\"Greece\",\"IN\":\"India\",\"IT\":\"Italy\",\"JP\":\"Japan\",\"MX\":\"Mexico\",\"PT\":\"Portugal\",\"US\":\"United States\"}");
+displayWorldMap('#world-map', { 'data': countries_map_data, 'links': countries_map_links, 'names': countries_map_names });
+</script>
 <script src="//static.openfoodfacts.localhost/js/datatables.min.js"></script>
 
 <script>
