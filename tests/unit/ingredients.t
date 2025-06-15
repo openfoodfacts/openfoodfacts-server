@@ -906,6 +906,15 @@ puffed orange and caramelized unknown_fruit4.",
 		}
 	],
 
+	# SV vegetabilisk olja (solros, raps i varierande proportion)
+	# https://github.com/openfoodfacts/openfoodfacts-server/issues/11991
+	[
+		"sv-vegetabilisk-olja-solros-raps-i-varierande-proportion",
+		{
+			lc => "sv",
+			ingredients_text => "vegetabilisk olja (solros, raps i varierande proportion)",
+		},
+	],
 );
 
 foreach my $test_ref (@tests) {
