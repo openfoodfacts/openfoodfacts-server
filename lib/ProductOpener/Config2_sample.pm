@@ -48,6 +48,7 @@ BEGIN {
 		$events_username
 		$events_password
 		$redis_url
+		$folksonomy_url
 		%server_options
 
 	);
@@ -91,6 +92,10 @@ $events_username = '';
 $events_password = '';
 
 $redis_url = '';
+
+# Set this to your instance of https://github.com/openfoodfacts/folksonomy_api/ to
+# enable folksonomy features
+$folksonomy_url = 'https://api.folksonomy.openfoodfacts.org';
 
 %server_options = (
 
