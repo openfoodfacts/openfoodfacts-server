@@ -61,6 +61,7 @@
       "en:plant-based-foods",
       "en:fruits-and-vegetables-based-foods",
       "en:legumes-and-their-products",
+      "en:vegetable-based-foods-and-beverages",
       "en:cereals-and-potatoes",
       "en:legumes",
       "en:seeds",
@@ -91,6 +92,7 @@
       "en:plant-based-foods",
       "en:fruits-and-vegetables-based-foods",
       "en:legumes-and-their-products",
+      "en:vegetable-based-foods-and-beverages",
       "en:cereals-and-potatoes",
       "en:legumes",
       "en:seeds",
@@ -580,54 +582,52 @@
    "generic_name_fr_imported" : "Lentilles",
    "id" : "3270190128403",
    "images" : {
-      "1" : {
-         "sizes" : {
-            "100" : {
-               "h" : 92,
-               "w" : 100
-            },
-            "400" : {
-               "h" : 183,
-               "w" : 200
-            },
-            "full" : {
-               "h" : 183,
-               "w" : 200
+      "selected" : {
+         "front" : {
+            "fr" : {
+               "generation" : {},
+               "imgid" : 1,
+               "rev" : 3,
+               "sizes" : {
+                  "100" : {
+                     "h" : 92,
+                     "w" : 100
+                  },
+                  "200" : {
+                     "h" : 183,
+                     "w" : 200
+                  },
+                  "400" : {
+                     "h" : 183,
+                     "w" : 200
+                  },
+                  "full" : {
+                     "h" : 183,
+                     "w" : 200
+                  }
+               }
             }
-         },
-         "uploaded_t" : "--ignore--",
-         "uploader" : "test-user"
+         }
       },
-      "front_fr" : {
-         "angle" : 0,
-         "coordinates_image_size" : 400,
-         "geometry" : "0x0--1--1",
-         "imgid" : 1,
-         "normalize" : "false",
-         "rev" : 3,
-         "sizes" : {
-            "100" : {
-               "h" : 92,
-               "w" : 100
+      "uploaded" : {
+         "1" : {
+            "sizes" : {
+               "100" : {
+                  "h" : 92,
+                  "w" : 100
+               },
+               "400" : {
+                  "h" : 183,
+                  "w" : 200
+               },
+               "full" : {
+                  "h" : 183,
+                  "w" : 200
+               }
             },
-            "200" : {
-               "h" : 183,
-               "w" : 200
-            },
-            "400" : {
-               "h" : 183,
-               "w" : 200
-            },
-            "full" : {
-               "h" : 183,
-               "w" : 200
-            }
-         },
-         "white_magic" : "false",
-         "x1" : -1,
-         "x2" : -1,
-         "y1" : -1,
-         "y2" : -1
+            "uploaded_t" : "--ignore--",
+            "uploader" : "test-user"
+         }
       }
    },
    "informers_tags" : [
@@ -742,7 +742,7 @@
       "auvergne",
       "france"
    ],
-   "max_imgid" : "1",
+   "max_imgid" : 1,
    "minerals_tags" : [],
    "misc_tags" : [
       "en:environmental-score-changed",
@@ -999,7 +999,7 @@
    "product_type" : "food",
    "removed_countries_tags" : [],
    "rev" : 3,
-   "schema_version" : 1001,
+   "schema_version" : 1002,
    "sources" : [
       {
          "fields" : [

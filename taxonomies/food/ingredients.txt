@@ -24334,7 +24334,7 @@ ecobalyse_origins_en_france:en: 38788025-a65e-4edf-a92f-aab0b89b0d61
 
 < en:wheat
 en: durum wheat, hard wheat
-af: durum
+xx: durum
 ar: قمح صلب
 bg: твърда пшеница
 ca: blat dur
@@ -24363,7 +24363,6 @@ ky: катуу буудай
 la: Triticum durum, Triticum turgidum subsp. durum
 lt: kietasis kvietys
 lv: cietais kviesis
-ms: durum
 mt: qamħ durum
 nb: durumhvete
 nl: durum tarwe, durumtarwe
@@ -24437,7 +24436,7 @@ fr: blé dur complet
 # ingredient/fr:ble-dur-complet has 6 products in 1 language @2020-06-08
 hr: durum pšenice
 it: grano duro integrale
-sv: fullkornsdurumvetemjöl, fullkornsmjöl av durumvete
+sv: fullkornsdurumvete, fullkorms durumvete
 ciqual_food_code:en: 9060
 ciqual_food_name:en: Durum wheat, whole, raw
 ciqual_food_name:fr: Blé dur entier, cru
@@ -24455,6 +24454,7 @@ it: farina di grano duro integrale, farina integrale di grano duro
 nl: volkoren tarwegriesmeel
 pl: pełnoziarnista mąka z pszenicy durum, pełnoziarnista mąka z pszenicy twardej, mąka pełnoziarnista z pszenicy twardej
 ru: цельно зерновая мука из твердых сортов пшеницы
+sv: fullkornsdurumvetemjöl, fullkornsmjöl av durumvete
 
 < en:durum wheat
 < en:wheat sourdough
@@ -24580,7 +24580,7 @@ pt: semola integral de trigo duro
 ru: Органичесая цельнозерновая мука из твердых сортов пшеницы
 sl: polnozrnati pšenični zdrob durum
 sr: integralna krupica durum pšenice
-sv: fullkornsdurumvete
+sv: fullkornsdurumvetesemolina
 # 350 in 20 @2021-09-28
 
 < en:whole durum wheat semolina
@@ -24595,18 +24595,14 @@ fr: semoule de blé dur précuite
 
 # description:en:Freekeh (sometimes spelled frikeh) or farik is a cereal food made from green durum wheat (Triticum turgidum var. durum) that is roasted and rubbed to create its flavour.
 < en:durum wheat
-en: freekeh, cooked spelt freekeh, frik
+en: freekeh, frik, cooked spelt freekeh
+xx: freekeh
 ar: فريكة
 ba: фәрикә
 de: Freekeh, Farik
-fr: frik, freekeh, blé vert freekeh, blé concassé frik, blé concassé
+fr: frik, blé vert freekeh, blé concassé frik, blé concassé
 he: פריקה
-hr: freekeh
-it: freekeh
 ja: フリーカ
-jv: freekeh
-nl: freekeh
-pt: freekeh
 ru: фрике
 tr: firik
 zh: 翡麦
@@ -24637,6 +24633,11 @@ rare_crop:en: yes
 < en:poulard wheat
 fr: pétanielle noire de Nice
 rare_crop:en: yes
+
+< en:durum wheat
+en: durum wheat kernels, durum kernels
+da: durumkerner
+sv: durumkärnor
 
 
 ##################################################################################
@@ -31562,6 +31563,7 @@ it: zucchero di canna naturale non raffinato
 en: whole cane sugar
 de: Vollrohrzucker
 es: azucar de caña integral, azucar integral de caña
+fi: täysruokosokeri
 fr: sucre de canne complet, suc de canne intégral, sucre de canne intégral, sucre complet de canne
 hr: cijeli šećer od trske
 it: zucchero di canna integrale
@@ -36459,6 +36461,8 @@ sv: sojabas
 # it:salsa di soia translation error
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-soja
 # 253 products in 7 languages @2018-09-25
+vegan:en: maybe
+vegetarian:en: yes
 
 < en:soya bean
 en: Okara, soy pulp
@@ -37203,7 +37207,7 @@ de: Roggenvollkornsauerteig
 fi: täysjyväruistaikinajuuri
 hr: cijelo raženo kiselo tijesto
 it: pasta madre di segale integrale
-sv: surdeg av fullkornsrågmjöl, surdeg av fullkornsrågmöl, surdeg på fullkornsråg
+sv: surdeg av fullkornsrågmjöl, surdeg av fullkornsrågmöl, surdeg på fullkornsråg, surdeg av fullkornsråg
 
 < en:rye sourdough
 fr: levain de seigle dévitalisé
@@ -37398,6 +37402,16 @@ de: fruchtmischung
 es: mix de frutas, mezcla de frutas
 hr: miješano voće
 it: frutta mista
+
+< en:mixed fruit
+en: mango apple mix
+da: mango-æble mix
+de: Mango-Apfel Mischung
+fi: mango-omenasekoitus
+fr: mélange de mangue et de pomme
+nb: mango-eple mix
+nl: mango-appel mix
+sv: mango-äpple mix
 
 < en:mixed fruit
 en: mixed peel
@@ -41674,7 +41688,7 @@ eo: limeo
 es: lima
 eu: Lima
 fa: لیموترش سبز
-fi: limetti
+fi: limetti, limea, lime
 fr: citron vert
 ga: Líoma
 gl: Lima
@@ -43002,6 +43016,7 @@ it: pezzi di ribes nero
 < en:blackcurrant
 en: blackcurrant juice from concentrate
 cs: ovocná šťáva z koncentrátu černého rybízu
+da: solbærsaft fra koncentrat
 de: schwarzer Johannisbeersaft aus Konzentrat, schwarze Johannisbeere-Konzentrat
 es: zumo de cassis a base de concentrado, jugo de cassis a base de concentrado
 fi: mustaherukkamehu tiivisteestä
@@ -43009,6 +43024,7 @@ fr: jus de cassis à base de concentré
 hr: sok brusnice u granulama
 it: succo di ribes nero da concentrato
 nl: zwarte bessensap op basis van concentraat
+sv: svartvinbärsjuice från koncentrat
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-cassis-à-base-de-concentré
 # 144 in 8 @2021-09-12
 
@@ -48935,7 +48951,7 @@ en: vegetable, vegetables
 bg: зеленчук, зеленчуци
 ca: Vegetals, Verdures
 cs: Zelenina
-da: grøntsag, grøntsager
+da: grøntsag, grøntsager, grønsag, grønsager
 de: Gemüse
 el: λαχανικό, λαχανικά
 es: verduras, hortaliza, hortalizas, vegetal, vegetales
@@ -49582,7 +49598,7 @@ pt: acelga
 ro: Mangold
 ru: мангольд
 sr: блитва
-sv: Mangold
+sv: mangold
 tr: Pazı
 uk: Мангольд
 zh: 莙薘菜
@@ -49623,6 +49639,10 @@ de: Rübenkonzentrat
 fr: concentrés de blettes
 hr: koncentrat blitve
 it: concentrato di bietola
+
+< en:chard
+en: red chard
+sv: röd mangold
 
 < en:leaf vegetable
 en: spinach
@@ -53580,7 +53600,7 @@ ru: лук скорода
 sk: pažítka
 sl: drobnjak
 sr: vlašac
-sv: gräslök
+sv: gräslök, gräslöks
 ta: இனப்பூண்டு
 tr: yaprak soğanı
 uk: цибуля-різанець
@@ -56603,7 +56623,13 @@ description:en: paprika can be either the dried powder or the fruit of a plant i
 
 
 < en:fruit vegetable
-en: bell pepper, sweet pepper, capsicum
+en: capsicum annuum
+xx: capsicum annuum, capsicum
+sv: spanskpeppar, spansk peppar
+wikidata:en: Q1380
+
+< en:capsicum annuum
+en: bell pepper, sweet pepper
 af: soetrissie
 an: pimiento
 ar: فلفل حلو
@@ -57111,40 +57137,34 @@ fr: piment doux
 # description:en:The JALAPEÑO is a medium-sized chili pepper pod type cultivar of the species Capsicum annuum.
 
 < en:chili pepper
-en: jalapeno pepper, jalapeño, jalapeño pepper, jalapeño chili, jalapeño chilli, jalapeño chillies, jalapeno
+en: jalapeno pepper, jalapeño pepper, jalapeño chilli, jalapeño chillies
+xx: jalapeño, jalapeños, jalapeño chili, jalapeno, jalapenos, jalapeno chili
 ar: هالبينو
 bg: халапеньо, чушки халапеньо
 ca: bitxo jalapeño
-cs: jalapeño
-da: jalapeno, jalapeño
+da: jalapeño chili
 de: Jalapeno-Chilis, Jalapenopfeffer
 eo: ĥalapenjokapsiko
-es: Pimientos Jalapeños, jalapeno, pimiento jalapeño rojo
-et: jalapeño, jalapeno
+es: Pimientos Jalapeños, pimiento jalapeño rojo
 fa: هالاپینو
-fi: jalapeño, jalapeno, jalapenot
+fi: jalapeño, jalapenot, jalapeñoa
 fr: piments jalapeño, piment jalapeño
 gl: pemento xalapeño
 he: חלפניו
 hr: jalapeno papričica
-hu: jalapeno paprika, jalapeno
+hu: jalapeno paprika
 hy: հալապենո
-id: jalapeño
 it: Peperoncini jalapeños
 ja: ハラペーニョ
 kn: ಹಾಲಪೇನ್ಯೊ
 ko: 할라페뇨
 ml: ഹലപീനൊ
-nb: jalapeño
 nl: Jalapeno pepers, jalapeño peper
-pl: papryczki jalapeño, jalapeño, papryka jalapeño
+pl: papryczki jalapeño, papryka jalapeño
 pt: pimenta-jalapenho
 ru: халапеньо
-sk: jalapeño
-sv: Jalapeno peppar, jalapeño, jalapeno, jalapeños, jalapeñochili
+sv: jalapeñopeppar, jalapenopeppar, jalapeño peppar, jalapeno peppar, jalapeñochili
 th: ฆาลาเปญโญ
-tl: jalapeño
-tr: jalapeño
 uk: халапеньйо
 zh: 墨西哥辣椒
 wikidata:en: Q504133
@@ -57153,6 +57173,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Jalape%C3%B1o
 
 < en:jalapeno pepper
 en: green jalapeno peppers, green jalapeno
+da: grøn jalapeño, grønne jalapeños
 de: grüne jalapenos
 fi: vihreä jalapeño, vihreä jalapeno, vihreät jalapenot
 fr: piment jalapeño vert
@@ -57165,29 +57186,19 @@ sv: grön jalapeño
 
 < en:jalapeno pepper
 en: chipotle, chipotle chilli, chipotle chile, chipotle pepper
+xx: chipotle, chipotle chili
 bg: Chipotle чили пипер
-ca: chipotle
-cs: chipotle
-da: chipotle
 de: Chipotle, Chipotle Chili, Chipotle Chilischoten
 el: τσιπότλε
-es: chile chipotle, chipotle
-fi: chipotle, chipotle chili
+es: chile chipotle
 fr: chipotle, piment chipotle
-gl: chipotle
 he: צ'יפוטלה
-hr: chipotle
-hu: chipotle
 it: chipotle, pepe chipotle
 ja: チポトレ
 kn: ಚಿಪೋಟ್ಲೆ
 ko: 치폴레
-nb: chipotle
-nl: chipotle
-pl: papryka chipotle, chipotle chili
-pt: chipotle
+pl: papryka chipotle
 ru: чипотле
-sv: chipotle
 th: ชิโปตเล
 uk: чипотле
 # nah:chīlpoctli
@@ -67597,7 +67608,7 @@ ko: 백리향
 la: thymus vulgaris
 lt: čiobrelis
 ml: തോട്ടതുളസി
-nb: thyme
+nb: timian
 nl: tijm, thijm
 nn: timian
 or: ଦଅଣା
@@ -88209,7 +88220,6 @@ nl: pasta uit durumtarwe
 ro: griş integral de grâu dur
 sk: múka z tvrdej pšenice
 sr: дурум пшенице гриз паста
-sv: fullkorms durumvete
 # 10@2019-06-04
 carbon_footprint_fr_foodges_ingredient:fr: Pâtes sèches
 carbon_footprint_fr_foodges_value:fr: 0.5
@@ -91408,7 +91418,7 @@ pt: leite de soja
 ru: Соевое молоко
 sk: Sójové mlieko
 sr: Sojino mleko
-sv: Sojamjölk
+sv: sojamjölk
 te: సోయా పాలు
 th: น้ำเต้าหู้
 tr: Soya sütü
