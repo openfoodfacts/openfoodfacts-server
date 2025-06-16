@@ -21,7 +21,9 @@
       ],
       "complete" : 0,
       "completeness" : 0.0625,
-      "correctors_tags" : [],
+      "correctors_tags" : [
+         "openfoodfacts-contributors"
+      ],
       "created_t" : "--ignore--",
       "creator" : "openfoodfacts-contributors",
       "editors_tags" : [
@@ -104,7 +106,7 @@
          "ingredients_fr" : {
             "coordinates_image_size" : "full",
             "imgid" : "1",
-            "rev" : "4",
+            "rev" : "6",
             "sizes" : {
                "100" : {
                   "h" : 100,
@@ -173,7 +175,7 @@
       "popularity_key" : 12,
       "product_type" : "food",
       "removed_countries_tags" : [],
-      "rev" : 5,
+      "rev" : 6,
       "schema_version" : 998,
       "selected_images" : {
          "front" : {
@@ -190,15 +192,15 @@
          "ingredients" : {
             "display" : {
                "es" : "http://images.openfoodfacts.localhost/images/products/123/456/789/0012/ingredients_es.5.400.jpg",
-               "fr" : "http://images.openfoodfacts.localhost/images/products/123/456/789/0012/ingredients_fr.4.400.jpg"
+               "fr" : "http://images.openfoodfacts.localhost/images/products/123/456/789/0012/ingredients_fr.6.400.jpg"
             },
             "small" : {
                "es" : "http://images.openfoodfacts.localhost/images/products/123/456/789/0012/ingredients_es.5.200.jpg",
-               "fr" : "http://images.openfoodfacts.localhost/images/products/123/456/789/0012/ingredients_fr.4.200.jpg"
+               "fr" : "http://images.openfoodfacts.localhost/images/products/123/456/789/0012/ingredients_fr.6.200.jpg"
             },
             "thumb" : {
                "es" : "http://images.openfoodfacts.localhost/images/products/123/456/789/0012/ingredients_es.5.100.jpg",
-               "fr" : "http://images.openfoodfacts.localhost/images/products/123/456/789/0012/ingredients_fr.4.100.jpg"
+               "fr" : "http://images.openfoodfacts.localhost/images/products/123/456/789/0012/ingredients_fr.6.100.jpg"
             }
          }
       },
