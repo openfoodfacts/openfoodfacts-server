@@ -1885,9 +1885,9 @@ sub localize_environmental_score ($request_cc, $product_ref) {
 				{
 
 					my $origin_id = $origin_ref->{origin};
-					$origin_ref->{epi_score} = $environmental_score_data{origins}{$origin_id}{epi_score};
+					$origin_ref->{epi_score} = $environmental_score_data{origins}{$origin_id}{epi_score} + 0;
 					$origin_ref->{transportation_score}
-						= $environmental_score_data{origins}{$origin_id}{"transportation_score_" . $cc};
+						= $environmental_score_data{origins}{$origin_id}{"transportation_score_" . $cc} + 0;
 				}
 			}
 		}
