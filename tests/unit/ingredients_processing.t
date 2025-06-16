@@ -3056,10 +3056,9 @@ my @tests = (
 				'text' => "lait"
 			},
 			{
-				'id' => 'en:skimmed-milk',
+				'id' => 'fr:lait-ecreme-a-base-de-poudre-de-lait',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:powder',
-				'text' => "lait écrémé"
+				'text' => "lait écrémé à base de poudre de lait"
 			}
 		],
 	],
