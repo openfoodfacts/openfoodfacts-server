@@ -673,7 +673,8 @@ sub write_product_api ($request_ref) {
 
 		# The product does not exist yet, or the requested code is "test"
 		if (not defined $product_ref) {
-			$product_ref = init_product($request_ref->{user_id}, $Org_id, $code, $country, get_azp($request_ref->{access_token}));
+			$product_ref = init_product($request_ref->{user_id}, $Org_id, $code, $country,
+				get_azp($request_ref->{access_token}));
 			$product_ref->{interface_version_created} = "20221102/api/v3";
 		}
 		else {
@@ -745,7 +746,8 @@ sub write_product_api ($request_ref) {
 				# Save the product
 				if ($code ne "test") {
 					my $comment = $request_body_ref->{comment} || "API v3";
-					store_product($request_ref->{user_id}, $product_ref, $comment, get_azp($request_ref->{access_token}));
+					store_product($request_ref->{user_id},
+						$product_ref, $comment, get_azp($request_ref->{access_token}));
 				}
 
 				# Select / compute only the fields requested by the caller, default to updated fields
