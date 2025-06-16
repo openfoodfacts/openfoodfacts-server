@@ -209,11 +209,10 @@ sub execute_product_query ($parameters_ref, $query_ref, $fields_ref, $sort_ref, 
 
 	defined $$data_debug_ref or $$data_debug_ref = "data_debug start\n";
 
-	# Currently only send descending popularity_key sorts to off-query
-	# Note that $sort_ref is a Tie::IxHash so can't use $sort_ref->{popularity_key}
-	if ($parameters_ref->{off_query} && $sort_ref && $sort_ref->FETCH('popularity_key') == -1) {
+	# Currently only send to off-query if the off_query parameter is set
+	if ($parameters_ref->{off_query}) {
 
-		$$data_debug_ref .= "off_query parameter set, and sorting by popularity_key: using off_query\n";
+		$$data_debug_ref .= "off_query parameter set: using off_query\n";
 
 		# Convert sort into an array so that the order of keys is not ambiguous
 		my @sort_array = ();
@@ -241,7 +240,7 @@ sub execute_product_query ($parameters_ref, $query_ref, $fields_ref, $sort_ref, 
 		}
 	}
 	else {
-		$$data_debug_ref .= "off_query parameter not set, or not sorting by popularity_key: not using off_query\n";
+		$$data_debug_ref .= "off_query parameter not set: not using off_query\n";
 	}
 
 	my $cursor = get_products_collection($parameters_ref)->query($query_ref)->fields($fields_ref);

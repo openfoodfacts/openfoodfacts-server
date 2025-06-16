@@ -92,7 +92,8 @@ requires 'Apache2::Connection::XForwardedFor';
 
 # GS1 Sunrise 2027
 requires 'GS1::SyntaxEngine::FFI';
-requires 'Imager::zxing';
+requires 'Imager', '>= 1.025, < 1.026';
+requires 'Imager::zxing', '>= 1.001, < 1.002';
 requires 'Imager::File::AVIF';
 requires 'Imager::File::HEIF';
 requires 'Imager::File::JPEG';
