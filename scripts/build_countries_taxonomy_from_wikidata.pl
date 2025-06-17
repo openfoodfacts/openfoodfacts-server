@@ -83,7 +83,8 @@ my %languages = ();
 
 foreach my $qc (@countries) {
 	print "loading country Q$qc\n";
-	my $content = create_user_agent()->get("https://www.wikidata.org/w/api.php?action=wbgetentities&sites=enwiki&ids=Q$qc&format=json");
+	my $content = create_user_agent()
+		->get("https://www.wikidata.org/w/api.php?action=wbgetentities&sites=enwiki&ids=Q$qc&format=json");
 	if (not defined $content) {
 		print "http error, could not get content from wikidata\n";
 	}
@@ -142,7 +143,8 @@ foreach my $qc (@countries) {
 foreach my $language (keys %languages) {
 	print "loading language Q$language\n";
 	my $content
-		=create_user_agent()->get("https://www.wikidata.org/w/api.php?action=wbgetentities&sites=enwiki&ids=Q$language&format=json");
+		= create_user_agent()
+		->get("https://www.wikidata.org/w/api.php?action=wbgetentities&sites=enwiki&ids=Q$language&format=json");
 	if (not defined $content) {
 		print "http error, could not get content from wikidata\n";
 	}

@@ -110,7 +110,7 @@ foreach my $code (@codes) {
 
 		print "URL: $url\n";
 
-		my $content =create_user_agent()->get($url);
+		my $content = create_user_agent()->get($url);
 		if (not defined $content) {
 			print
 				"http error, could not load http://ratings.food.gov.uk/enhanced-search/en-GB/$uriname/%5E/Relevance/0/%5E/%5E/1/1/10/json\n";

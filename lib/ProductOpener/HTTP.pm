@@ -370,7 +370,7 @@ sub create_user_agent {
 	if (%cnf) {
 		$ua = LWP::UserAgent->new(%cnf);
 	}
-	else{
+	else {
 		$ua = LWP::UserAgent->new();
 	}
 

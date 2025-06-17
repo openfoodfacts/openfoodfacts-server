@@ -247,7 +247,8 @@ foreach my $qc (@languages) {
 	$qc =~ s/^Q//;
 
 	print "loading language Q$qc\n";
-	my $content =create_user_agent()->get("https://www.wikidata.org/w/api.php?action=wbgetentities&sites=enwiki&ids=Q$qc&format=json");
+	my $content = create_user_agent()
+		->get("https://www.wikidata.org/w/api.php?action=wbgetentities&sites=enwiki&ids=Q$qc&format=json");
 	if (not defined $content) {
 		print "http error, could not get content from wikidata\n";
 	}

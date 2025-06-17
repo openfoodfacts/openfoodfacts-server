@@ -78,7 +78,7 @@ my %opportunities = map {$_->{id} => $_} @{$fetched_opportunities};
 
 # Fetch number of imported products by org
 my $url = "https://world.openfoodfacts.org/owners.json";
-my $content =create_user_agent()->get($url);
+my $content = create_user_agent()->get($url);
 if (not defined $content) {
 	die "Could not fetch $url";
 }
