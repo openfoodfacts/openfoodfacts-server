@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2025 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -67,7 +67,7 @@ use experimental 'smartmatch';
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Cursor;
-use ProductOpener::HTTP qw/request_param single_param get_http_request_header/;
+use ProductOpener::HTTP qw/request_param single_param get_http_request_header create_user_agent/;
 
 use Storable qw(freeze);
 use MongoDB;
@@ -268,7 +268,7 @@ sub execute_tags_query ($type, $query) {
 		$log->debug('Executing PostgreSQL ' . $type . ' query on ' . $url, {query => $query})
 			if $log->is_debug();
 
-		my $ua = LWP::UserAgent->new();
+		my $ua = create_user_agent();
 		# Add a timeout to the HTTP query
 		$ua->timeout(15);
 		my $resp = $ua->post(

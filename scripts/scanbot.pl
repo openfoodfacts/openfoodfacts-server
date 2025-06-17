@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2025 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -45,6 +45,7 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Data qw/get_products_collection/;
 use ProductOpener::GeoIP;
+use ProductOpener::HTTP qw/create_user_agent/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -468,9 +469,7 @@ foreach my $code (sort {$codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $co
 
 					print "notifying slack: $bot\n";
 
-					require LWP::UserAgent;
-
-					my $ua = LWP::UserAgent->new;
+					my $ua = create_user_agent();
 
 					my $server_endpoint
 						= "https://openfoodfacts.slack.com/services/hooks/incoming-webhook?token=jMDE8Fzkz9qD7uC9Lq04fbZH";
@@ -538,9 +537,7 @@ if (($changed_products > 0) and ($added_countries > 0)) {
 	print $msg;
 
 	if (1) {
-		require LWP::UserAgent;
-
-		my $ua = LWP::UserAgent->new;
+		my $ua = create_user_agent();
 
 		my $server_endpoint
 			= "https://openfoodfacts.slack.com/services/hooks/incoming-webhook?token=jMDE8Fzkz9qD7uC9Lq04fbZH";
