@@ -349,11 +349,19 @@ stop_tests:
 clean_tests:
 	${DOCKER_COMPOSE_TEST} down -v --remove-orphans
 
-update_tests_results: build_taxonomies_test build_lang_test
-	@echo "🥫 Updated expected test results with actuals for easy Git diff"
-	${DOCKER_COMPOSE_INT_TEST} up -d backend
-	${DOCKER_COMPOSE_TEST} exec -T -w /opt/product-opener/tests backend bash update_tests_results.sh
+update_tests_results: build_taxonomies_test build_lang_test update_unit_tests_results update_integration_tests_results
+
+update_unit_tests_results:
+	@echo "🥫 Updated expected unit test results with actuals for easy Git diff"
+	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
+	${DOCKER_COMPOSE_TEST} run --rm -w /opt/product-opener/tests backend bash update_unit_tests_results.sh
 	${DOCKER_COMPOSE_TEST} stop
+
+update_integration_tests_results:
+	@echo "🥫 Updated expected integration test results with actuals for easy Git diff"
+	${DOCKER_COMPOSE_INT_TEST} up -d backend
+	${DOCKER_COMPOSE_INT_TEST} exec -w /opt/product-opener/tests backend bash update_integration_tests_results.sh
+	${DOCKER_COMPOSE_INT_TEST} stop
 
 bash:
 	@echo "🥫 Open a bash shell in the backend container"
