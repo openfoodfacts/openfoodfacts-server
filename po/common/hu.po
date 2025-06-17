@@ -660,6 +660,14 @@ msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
 msgstr "A fiókbeállításai módosultak."
 
+msgctxt "edit_user_preferences"
+msgid "Preferences"
+msgstr "Beállítások"
+
+msgctxt "edit_user_preferences_result"
+msgid "Your preferences have been changed."
+msgstr "A beállításaid megváltoztak."
+
 msgctxt "editors_p"
 msgid "editors"
 msgstr "szerkesztők"
@@ -2779,6 +2787,10 @@ msgstr "A termék egyes adatai és/vagy fotói ezekből a forrásokból származ
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
 msgstr "Ez a termékoldal nem teljes. A szerkesztésével, a rendelkezésre álló fényképek alapján további adatok hozzáadásával segíthet befejezni a termékoldalt, vagy további fényképeket készíthet az alkalmazás használatával <a href=\"https://android.openfoodfacts.org\">Android-hoz</a> vagy <a href=\"https://ios.openfoodfacts.org\">iPhone-hoz/iPad-hez</a>. Köszönjük!"
+
+msgctxt "title_separator"
+msgid " - "
+msgstr " - "
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -5028,6 +5040,10 @@ msgctxt "number_of_members"
 msgid "Number of Members"
 msgstr "Tagok száma"
 
+msgctxt "serial_no"
+msgid "S.No"
+msgstr "S. szám"
+
 msgctxt "contact_form"
 msgid "Contact form"
 msgstr "Kapcsolati űrlap"
@@ -7130,6 +7146,10 @@ msgstr "Ez a felhasználó nem tagja a szervezetnek."
 msgctxt "skip_to_content"
 msgid "Skip to Content"
 msgstr "Ugrás a tartalomhoz"
+
+msgctxt "oidc_signin_no_cookie"
+msgid "You need to enable cookies to sign in."
+msgstr "A bejelentkezéshez engedélyeznie kell a sütiket."
 
 msgctxt "cant_delete_main_contact"
 msgid "You cannot remove the main contact. Change it first."
