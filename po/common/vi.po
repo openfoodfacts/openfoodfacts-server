@@ -660,6 +660,14 @@ msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
 msgstr "Thông tin tài khoản của bạn đã được thay đổi."
 
+msgctxt "edit_user_preferences"
+msgid "Preferences"
+msgstr "Tuỳ chỉnh"
+
+msgctxt "edit_user_preferences_result"
+msgid "Your preferences have been changed."
+msgstr "Tùy chọn của bạn đã được thay đổi."
+
 msgctxt "editors_p"
 msgid "editors"
 msgstr "biên tập viên"
@@ -2782,6 +2790,10 @@ msgstr "Một số dữ liệu và/hoặc hình ảnh của sản phẩm này đ
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
 msgstr "Trang sản phẩm này chưa hoàn thành. Bạn có thể giúp hoàn thành nó bằng cách chỉnh sửa và thêm nhiều dữ liệu hơn từ các ảnh chúng tôi có hoặc bằng cách chụp thêm ảnh bằng ứng dụng cho <a href=\"https://android.openfoodfacts.org\">Android</a> hoặc <a href=\"https://ios.openfoodfacts.org\">iPhone / iPad</a>. Cảm ơn bạn!"
+
+msgctxt "title_separator"
+msgid " - "
+msgstr " - "
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -5031,6 +5043,10 @@ msgctxt "number_of_members"
 msgid "Number of Members"
 msgstr "Số lượng thành viên"
 
+msgctxt "serial_no"
+msgid "S.No"
+msgstr "Số S."
+
 msgctxt "contact_form"
 msgid "Contact form"
 msgstr "Mẫu liên hệ"
@@ -7133,6 +7149,10 @@ msgstr ""
 msgctxt "skip_to_content"
 msgid "Skip to Content"
 msgstr ""
+
+msgctxt "oidc_signin_no_cookie"
+msgid "You need to enable cookies to sign in."
+msgstr "Bạn cần bật cookie để đăng nhập."
 
 msgctxt "cant_delete_main_contact"
 msgid "You cannot remove the main contact. Change it first."
