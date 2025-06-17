@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -59,6 +59,7 @@ use ProductOpener::Packaging
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Tags qw/%language_fields %writable_tags_fields add_tags_to_field compute_field_tags/;
 use ProductOpener::URL qw(format_subdomain);
+use ProductOpener::Auth qw/get_azp/;
 use ProductOpener::HTTP qw/request_param single_param redirect_to_url/;
 use ProductOpener::Images qw/:all/;
 
@@ -672,7 +673,8 @@ sub write_product_api ($request_ref) {
 
 		# The product does not exist yet, or the requested code is "test"
 		if (not defined $product_ref) {
-			$product_ref = init_product($request_ref->{user_id}, $Org_id, $code, $country);
+			$product_ref = init_product($request_ref->{user_id}, $Org_id, $code, $country,
+				get_azp($request_ref->{access_token}));
 			$product_ref->{interface_version_created} = "20221102/api/v3";
 		}
 		else {
@@ -744,7 +746,8 @@ sub write_product_api ($request_ref) {
 				# Save the product
 				if ($code ne "test") {
 					my $comment = $request_body_ref->{comment} || "API v3";
-					store_product($request_ref->{user_id}, $product_ref, $comment);
+					store_product($request_ref->{user_id},
+						$product_ref, $comment, get_azp($request_ref->{access_token}));
 				}
 
 				# Select / compute only the fields requested by the caller, default to updated fields
