@@ -660,6 +660,14 @@ msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
 msgstr "Οι παράμετροι του λογαριασμού σας έχουν αλλάξει."
 
+msgctxt "edit_user_preferences"
+msgid "Preferences"
+msgstr "Προτιμήσεις"
+
+msgctxt "edit_user_preferences_result"
+msgid "Your preferences have been changed."
+msgstr "Οι προτιμήσεις σας έχουν αλλάξει."
+
 msgctxt "editors_p"
 msgid "editors"
 msgstr "συντάκτες"
@@ -2782,6 +2790,10 @@ msgstr "Ορισμένα από τα δεδομένα ή/και φωτογραφ
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
 msgstr "Αυτή η σελίδα προϊόντος δεν έχει ολοκληρωθεί. Μπορείτε να βοηθήσετε με την επεξεργασία και την προσθήκη περισσότερων δεδομένων από τις φωτογραφίες που έχουμε, ή λαμβάνοντας περισσότερες φωτογραφίες χρησιμοποιώντας την εφαρμογή για <a href=\"https://android.openfoodfacts.org\">Android</a> ή <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Σας ευχαριστούμε!"
+
+msgctxt "title_separator"
+msgid " - "
+msgstr " - "
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -5031,6 +5043,10 @@ msgctxt "number_of_members"
 msgid "Number of Members"
 msgstr "Αριθμός Μελών"
 
+msgctxt "serial_no"
+msgid "S.No"
+msgstr "Α.Α."
+
 msgctxt "contact_form"
 msgid "Contact form"
 msgstr "Φόρμα επικοινωνίας"
@@ -7133,6 +7149,10 @@ msgstr "Αυτός ο χρήστης δεν είναι μέλος του οργ�
 msgctxt "skip_to_content"
 msgid "Skip to Content"
 msgstr "Μετάβαση στο Περιεχόμενο"
+
+msgctxt "oidc_signin_no_cookie"
+msgid "You need to enable cookies to sign in."
+msgstr "Πρέπει να ενεργοποιήσετε τα cookies για να συνδεθείτε."
 
 msgctxt "cant_delete_main_contact"
 msgid "You cannot remove the main contact. Change it first."
