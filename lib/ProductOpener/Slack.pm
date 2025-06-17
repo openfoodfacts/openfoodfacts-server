@@ -53,13 +53,12 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::ConfigEnv qw/%slack_hook_urls/;
+use ProductOpener::HTTP qw/create_user_agent/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
 use JSON::MaybeXS;
 use Log::Any qw($log);
-
-use LWP::UserAgent;
 
 =head1 FUNCTIONS
 
@@ -79,7 +78,7 @@ sub send_slack_message ($channel, $username, $text, $icon_emoji) {
 		return 0;
 	}
 
-	my $ua = LWP::UserAgent->new;
+	my $ua = create_user_agent();
 	my $req = HTTP::Request->new(POST => $slack_hook_urls{$channel});
 	$req->header('Content-Type' => 'application/json');
 
