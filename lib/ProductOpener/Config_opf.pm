@@ -79,6 +79,7 @@ BEGIN {
 
 		%options
 		%server_options
+		%oidc_options
 
 		@product_fields
 		@product_other_fields

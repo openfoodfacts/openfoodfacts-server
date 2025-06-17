@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -163,16 +163,17 @@ use ProductOpener::Recipes qw(add_product_recipe_to_set analyze_recipes compute_
 use ProductOpener::PackagerCodes
 	qw($ec_code_regexp %geocode_addresses %packager_codes init_geocode_addresses init_packager_codes);
 use ProductOpener::Export qw(export_csv);
-use ProductOpener::API qw(add_error customize_response_for_product process_api_request);
+use ProductOpener::API qw(add_error customize_response_for_product process_api_request process_auth_header);
 use ProductOpener::Units qw/g_to_unit/;
 use ProductOpener::Cache qw/$max_memcached_object_size $memd generate_cache_key get_cache_results set_cache_results/;
 use ProductOpener::Permissions qw/has_permission/;
 use ProductOpener::ProductsFeatures qw(feature_enabled);
 use ProductOpener::RequestStats qw(:all);
 use ProductOpener::PackagingFoodContact qw/determine_food_contact_of_packaging_components_service/;
+use ProductOpener::Auth qw/get_oidc_implementation_level/;
 
 use Encode;
-use URI::Escape::XS;
+use URI::Escape::XS qw/uri_escape/;
 use CGI::Carp qw(fatalsToBrowser);
 use CGI qw(:cgi :cgi-lib :form escapeHTML charset);
 use HTML::Entities;
@@ -346,6 +347,16 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	(not defined $template_data_ref->{org_id}) and $template_data_ref->{org_id} = $Org_id;
 	$template_data_ref->{owner_pretty_path} = get_owner_pretty_path($Owner_id);
 
+	my $oidc_implementation_level = get_oidc_implementation_level();
+	$template_data_ref->{oidc_implementation_level} = $oidc_implementation_level;
+	if (    $oidc_implementation_level > 0
+		and defined $template_data_ref->{user_id}
+		and defined $template_data_ref->{canon_url})
+	{
+		$template_data_ref->{keycloak_account_link}
+			= ProductOpener::Keycloak->new()->get_account_link($template_data_ref->{canon_url});
+	}
+
 	$template_data_ref->{flavor} = $flavor;
 	$template_data_ref->{options} = \%options;
 	$template_data_ref->{product_type} = $options{product_type};
@@ -429,6 +440,10 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 
 	$template_data_ref->{encode_json} = sub ($var) {
 		return $json->encode($var);
+	};
+
+	$template_data_ref->{uri_escape} = sub ($var) {
+		return uri_escape($var);
 	};
 
 	return ($tt->process($template_filename, $template_data_ref, $result_content_ref));
@@ -737,6 +752,22 @@ sub init_request ($request_ref = {}) {
 			country => $country
 		}
 	) if $log->is_debug();
+
+	# Note we allow an OAuth token for all oidc_implementation_levels
+	my $signed_in_oidc = process_auth_header($request_ref, $r);
+	if ($signed_in_oidc < 0) {
+		# We were sent a bad bearer token
+		# Otherwise we return an error page in HTML (including for v0 / v1 / v2 API queries)
+		if (not((defined $request_ref->{api_version}) and ($request_ref->{api_version} >= 3))
+			and (not($r->uri() =~ /\/cgi\/auth\.pl/)))
+		{
+			$log->debug(
+				"init_request - init_user error - display error page",
+				{init_user_error => $request_ref->{init_user_error}}
+			) if $log->is_debug();
+			display_error_and_exit($request_ref, $signed_in_oidc, 403);
+		}
+	}
 
 	my $error = ProductOpener::Users::init_user($request_ref);
 	if ($error) {
@@ -1273,17 +1304,26 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 
 	# Add org name to index title on producers platform
 
-	if (($textid eq 'index-pro') and (defined $Owner_id)) {
-		my $owner_user_or_org = $Owner_id;
-		if (defined $Org_id) {
-			if ((defined $Org{name}) and ($Org{name} ne "")) {
-				$owner_user_or_org = $Org{name};
+	if ($textid eq 'index-pro') {
+		if (defined $Owner_id) {
+			my $owner_user_or_org = $Owner_id;
+			if (defined $Org_id) {
+				if ((defined $Org{name}) and ($Org{name} ne "")) {
+					$owner_user_or_org = $Org{name};
+				}
+				else {
+					$owner_user_or_org = $Org_id;
+				}
 			}
-			else {
-				$owner_user_or_org = $Org_id;
-			}
+			$html =~ s/<\/h1>/ - $owner_user_or_org<\/h1>/;
 		}
-		$html =~ s/<\/h1>/ - $owner_user_or_org<\/h1>/;
+
+		if (get_oidc_implementation_level() >= 5) {
+			# Use the Keycloak login link once we have fully mirgrated the Login user interface
+			#11867: Should be full URL
+			my $escaped_canon_url = uri_escape($formatted_subdomain);
+			$html =~ s/<escaped_subdomain>/$escaped_canon_url/g;
+		}
 	}
 
 	$log->debug("displaying text from file",
@@ -1321,6 +1361,8 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 	if ($file =~ /\/index-pro/) {
 		# On the producers platform, display products only if the owner is logged in
 		# and has an associated org or is a moderator
+
+		#11867: Show request to join button if user is logged in but not in an org
 		if ((defined $Owner_id) and (($Owner_id =~ /^org-/) or ($User{moderator}) or $User{pro_moderator})) {
 			$html .= display_index_for_producer($request_ref);
 			$html .= search_and_display_products($request_ref, {}, "last_modified_t", undef, undef);
@@ -10733,6 +10775,7 @@ sub display_product_history ($request_ref, $code, $product_ref) {
 			userid => $userid,
 			uuid => $uuid,
 			app_version => $app_version,
+			clientid => $change_ref->{clientid},
 			diffs => compute_changes_diff_text($change_ref),
 			comment => $comment
 			};
