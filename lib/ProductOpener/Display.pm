@@ -1603,8 +1603,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 
 	if ((not defined $results) or (ref($results) ne "ARRAY") or (not defined $results->[0])) {
 		$results = undef;
-		# do not use the postgres cache if ?no_cache=1
-		# or if we are on the producers platform
+		# do not use off-query if we are on the producers platform
 		if (can_use_off_query(\$request_ref->{data_debug})) {
 			set_request_stats_time_start($request_ref->{stats}, "off_query_aggregate_tags_query");
 			$results = execute_aggregate_tags_query($aggregate_parameters);
@@ -1676,8 +1675,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 		if (not defined $results_count) {
 
 			my $count_results;
-			# do not use the smaller postgres cache if ?no_cache=1
-			# or if we are on the producers platform
+			# do not use the smaller if we are on the producers platform
 			if (can_use_off_query(\$request_ref->{data_debug})) {
 				set_request_stats_time_start($request_ref->{stats}, "off_query_aggregate_tags_query");
 				$count_results = execute_aggregate_tags_query($aggregate_count_parameters);
@@ -4580,9 +4578,6 @@ sub get_products_collection_request_parameters ($request_ref, $additional_parame
 	# If the request is for obsolete products, we will select a specific products collection
 	# for obsolete products
 	$parameters_ref->{obsolete} = request_param($request_ref, "obsolete");
-
-	# Allow the source to be specified. Currently defaults to mongodb but can set to use off-query instead
-	$parameters_ref->{off_query} = request_param($request_ref, "off_query");
 
 	# Admin users can request a specific query_timeout for MongoDB queries
 	if ($request_ref->{admin}) {

@@ -99,8 +99,8 @@ sub init_data_debug () {
 =head2 can_use_off_query ($data_debug_ref)
 
 Determine if we can use off_query backend:
-- off_query URL needs to be set
-- no_off_query parameter is not set, or off_query parameter is set
+- off_query URL needs to be set in the configuration
+- off_query parameter is 1 (defaults to 1, pass off_query=0 to disable off_query)
 - we are not on the producers platform
 
 =cut
@@ -108,18 +108,16 @@ Determine if we can use off_query backend:
 sub can_use_off_query ($data_debug_ref) {
 
 	# TODO: pass parameters inside $request_ref instead, so that we don't have to call single_param() here
-	my $param_no_off_query = single_param("no_off_query") || '';
-	my $param_off_query = single_param("off_query") || '';
+	my $param_off_query = single_param("off_query") || 1;
 	my $platform = $server_options{producers_platform} ? "producers" : "public";
 
-	$$data_debug_ref .= "no_off_query: $param_no_off_query\n";
 	$$data_debug_ref .= "off_query: $param_off_query\n";
 	$$data_debug_ref .= "platform: $platform\n";
 	$$data_debug_ref .= "query_url: " . ($query_url || '') . "\n";
 
 	# use !! operator to convert to boolean
 	my $can_use_off_query
-		= !!(((not $param_no_off_query) or ($param_off_query)) and (not $platform eq 'producers') and ($query_url));
+		= !!(($param_off_query) and (not $platform eq 'producers') and ($query_url));
 
 	$$data_debug_ref .= "can_use_off_query: $can_use_off_query\n";
 	return $can_use_off_query;
@@ -206,10 +204,10 @@ sub execute_product_query ($parameters_ref, $query_ref, $fields_ref, $sort_ref, 
 
 	defined $$data_debug_ref or $$data_debug_ref = "data_debug start\n";
 
-	# Currently only send to off-query if the off_query parameter is set
-	if ($parameters_ref->{off_query}) {
+	# If possible, send to off-query, unless off_query is set to 0
+	if (can_use_off_query($data_debug_ref)) {
 
-		$$data_debug_ref .= "off_query parameter set: using off_query\n";
+		$$data_debug_ref .= "using off_query\n";
 
 		# Convert sort into an array so that the order of keys is not ambiguous
 		my @sort_array = ();
@@ -229,15 +227,15 @@ sub execute_product_query ($parameters_ref, $query_ref, $fields_ref, $sort_ref, 
 		);
 
 		if (defined $results) {
-			return ProductOpener::Cursor->new($results);
 			$$data_debug_ref .= "got results from off_query\n";
+			return ProductOpener::Cursor->new($results);
 		}
 		else {
 			$$data_debug_ref .= "no results from off_query\n";
 		}
 	}
 	else {
-		$$data_debug_ref .= "off_query parameter not set: not using off_query\n";
+		$$data_debug_ref .= "not using off_query\n";
 	}
 
 	my $cursor = get_products_collection($parameters_ref)->query($query_ref)->fields($fields_ref);
