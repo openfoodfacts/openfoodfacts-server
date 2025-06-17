@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -24,6 +24,7 @@ use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 
+use ProductOpener::Auth qw/access_to_protected_resource get_oidc_implementation_level/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
@@ -366,7 +367,7 @@ if (($type eq 'delete') and (not $User{moderator})) {
 	display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
 }
 
-if ($User_id eq 'unwanted-bot-id') {
+if ((defined $User_id) and ($User_id eq 'unwanted-bot-id')) {
 	my $r = Apache2::RequestUtil->request();
 	$r->status(500);
 	return 500;
@@ -376,9 +377,18 @@ if (($type eq 'add') or ($type eq 'edit') or ($type eq 'delete')) {
 
 	if (not defined $User_id) {
 
-		my $submit_label = "login_and_" . $type . "_product";
-		$action = 'login';
-		$template_data_ref->{type} = $type;
+		if (get_oidc_implementation_level() < 5) {
+			# Keep legacy method until we have moved the login process to Keycloak
+			my $submit_label = "login_and_" . $type . "_product";
+			$action = 'login';
+			$template_data_ref->{type} = $type;
+		}
+		else {
+			$request_ref->{return_url}
+				= $formatted_subdomain . $request_ref->{script_name} . '?' . $request_ref->{original_query_string};
+			# Note: This su will either finish without a result if a good user/token is present, or redirect to the login page and stop the script
+			access_to_protected_resource($request_ref);
+		}
 	}
 }
 

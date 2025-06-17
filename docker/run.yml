@@ -13,6 +13,10 @@ services:
     networks:
       # Needed to access MongoDB, Redis, and OTel collector
       shared_network:
+  redis-listener:
+    networks:
+      # Needed to access MongoDB and Redis
+      shared_network:
 
 networks:
   # This network allows access to shared services like MongoDB and Redis

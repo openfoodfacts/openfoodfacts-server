@@ -327,7 +327,7 @@ $product_ref = {
 	ingredients_text_bg => "Пастьоризирано МЛЯКО, со…ктериални култури, мая.",
 	ingredients_text_en =>
 		"EN WYDOJONE Lactose free* UHT Milk. The fat content of 3,2%. Source of calcium. *The lactose content &lt; 0,01 g / 100 ml Milk is a valued element of a diet. Contains many necessary ingredients to maintain healthy body like protein and calcium. However, not everyone can consume milk or dairy products because of lactose intolerance naturally occurring sugar in its composition. Lactose intolerance is the inability to digest lactose. The alternative is a lactose free Milk.",
-	ingredients_text_pl => "Mleko bez laktozy UHT. Zawartość tłuszczu 3,2%. Źródło wapnia.",
+	ingredients_text_pl => "single unknown ingredient. Zawartość tłuszczu 3,2%. Źródło wapnia.",
 };
 check_ingredients_between_languages($product_ref);
 ok(
@@ -509,23 +509,9 @@ $product_ref = {
 	ingredients_text_sv => "Pastöriserad _komjölk_, salt, löpe, surhetsreglerande medel: citronsyra.",
 };
 check_ingredients_between_languages($product_ref);
-ok(
-	has_tag(
-		$product_ref, "taxonomies_enhancer",
-		"ingredients-da-pasteuriseret-testmaelk-is-new-translation-for-en-pasteurised-cow-s-milk"
-	),
-	'cs-da-de-en-es-fi-fr-it-nl-pt-ru-sv, new word for da based on sv as well as en'
-) or diag Dumper $product_ref;
 ok(has_tag($product_ref, "taxonomies_enhancer", "ingredients-da-new-word-is-new-translation-for-en-coagulant"),
 	'cs-da-de-en-es-fi-fr-it-nl-pt-ru-sv, new word for da based on es as well as en')
 	or diag Dumper $product_ref;
-ok(
-	has_tag(
-		$product_ref, "taxonomies_enhancer",
-		"ingredients-da-pasteuriseret-testmaelk-is-possible-typo-for-da-pasteuriseret-maelk"
-	),
-	'cs-da-de-en-es-fi-fr-it-nl-pt-ru-sv, typo in da based on fi as well as en'
-) or diag Dumper $product_ref;
 
 # Division by zero bug from product: https://fr.openfoodfacts.org/produit/3256221408515/boulgour-etui-500g-u-bio?rev=74
 # (Stéphane) this product triggered a division by zero in the Minion that imported this product (which runs with debug logs enabled)

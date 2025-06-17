@@ -16,7 +16,7 @@ requires 'JSON::PP'; # libjson-pp-perl
 requires 'Cpanel::JSON::XS'; # libcpanel-json-xs-perl - fast parsing
 requires 'JSON::MaybeXS'; # libjson-maybexs-perl
 requires 'Clone'; # libclone-perl
-requires 'Crypt::PasswdMD5'; # libcrypt-passwdmd5-perl
+requires 'Crypt::PasswdMD5'; #11866: Delete after Keycloak Migration
 requires 'Encode::Detect'; # libencode-detect-perl
 requires 'Barcode::ZBar'; # libbarcode-zbar-perl
 requires 'XML::FeedPP'; # libxml-feedpp-perl
@@ -38,6 +38,7 @@ requires 'GeoIP2', '>= 2.006002, < 3.0'; # libgeoip2-perl, deps: libdata-validat
 requires 'Email::Valid', '>= 1.202, < 2.0'; # libemail-valid-perl
 requires 'Path::Tiny', '>= 0.118'; # libpath-tiny-perl
 requires 'XML::RPC', '== 2'; # libxml-rpc-fast-perl
+requires 'AnyEvent::RipeRedis'; # libanyevent-redis-perl
 
 # Probably not available as Debian/Ubuntu packages
 requires 'MongoDB', '>= 2.2.2, < 2.3'; # libmongodb-perl has 1.8.1/2.0.3 vs 2.2.2. deps: libauthen-sasl-saslprep-perl, libbson-perl, libauthen-scram-perl, libclass-xsaccessor-perl, libdigest-hmac-perl, libsafe-isa-perl, libconfig-autoconf-perl, libpath-tiny-perl
@@ -49,7 +50,7 @@ requires 'Image::OCR::Tesseract'; # deps: libfile-find-rule-perl
 requires 'DateTime', '>= 1.54, < 2.0'; # libdatetime-perl has 1.46. deps: libclass-singleton-perl
 requires 'DateTime::Locale', '>= 1.32, < 2.0'; # libdatetime-locale-perl has 1.17. deps: libfile-sharedir-install-perl
 requires 'DateTime::Format::ISO8601'; # libdatetime-format-iso8601-perl
-requires 'Crypt::ScryptKDF';
+requires 'Crypt::ScryptKDF'; #11866: Delete after Keycloak Migration
 requires 'Locale::Maketext::Lexicon::Getcontext', '>= 0.05'; # deps: liblocale-maketext-lexicon-perl
 requires 'CLDR::Number::Format::Decimal';
 requires 'CLDR::Number::Format::Percent';
@@ -67,7 +68,6 @@ requires 'JSON::Create';
 requires 'JSON::Parse';
 requires 'Data::DeepAccess';
 requires 'XML::XML2JSON';
-requires 'Redis';
 requires 'Digest::SHA1';
 requires 'Data::Difference';
 requires 'Data::Compare';
@@ -81,6 +81,10 @@ requires 'Mojo::Pg'; # libmojo-pg-perl has 4.13 vs 4.19. deps: libsql-abstract-p
 requires 'Log::Any', '>= 1.710, < 2.0'; # liblog-any-perl has 1.707
 requires 'Log::Log4perl', '>= 1.54, < 2.0'; # liblog-log4perl-perl
 requires 'Log::Any::Adapter::Log4perl', '>= 0.09'; # liblog-any-adapter-log4perl-perl
+
+# Retry
+requires 'LWP::UserAgent::Plugin';
+requires 'LWP::UserAgent::Plugin::Retry';
 
 # AnyEvent
 requires 'AnyEvent';
@@ -99,6 +103,10 @@ requires 'Imager::File::HEIF';
 requires 'Imager::File::JPEG';
 requires 'Imager::File::PNG';
 requires 'Imager::File::WEBP';
+
+# OIDC / OAuth
+requires 'OIDC::Lite';
+requires 'Crypt::JWT';
 
 # To dynamically load Config_*.pm modules
 requires 'Module::Load';

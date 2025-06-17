@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -37,6 +37,7 @@ BEGIN {
 		&construct_test_url
 		&create_user
 		&edit_user
+		&create_user_in_keycloak
 		&edit_product
 		&get_page
 		&html_displays_error
@@ -64,6 +65,7 @@ use ProductOpener::Test qw/:all/;
 use ProductOpener::Mail qw/$LOG_EMAIL_START $LOG_EMAIL_END/;
 use ProductOpener::Store qw/store retrieve/;
 use ProductOpener::Producers qw/get_minion/;
+use ProductOpener::Config qw/%oidc_options/;
 
 use Test2::V0;
 use Data::Dumper;
@@ -86,6 +88,34 @@ no warnings qw(experimental::signatures);
 # Should be used internally only (see: construct_test_url to build urls in tests)
 my $TEST_MAIN_DOMAIN = "openfoodfacts.localhost";
 my $TEST_WEBSITE_URL = "http://world." . $TEST_MAIN_DOMAIN;
+
+=head2 wait_auth()
+
+Wait for authentication server to be ready.
+It's important because the application might fail because of that
+
+=cut
+
+sub wait_auth() {
+
+	# simply try to access front page
+	my $count = 0;
+	my $ua = new_client();
+	my $target_url = construct_test_url("");
+	my $discovery_endpoint = $oidc_options{oidc_discovery_url};
+	while (1) {
+		my $response = $ua->get($discovery_endpoint);
+		last if $response->is_success;
+		sleep 1;
+		$count++;
+		if (($count % 3) == 0) {
+			print("Waiting for auth to be ready since more than $count seconds...\n");
+			diag Dumper({url => $target_url, status => $response->code, response => $response});
+		}
+		confess("Waited too much for auth") if $count > 60;
+	}
+	return;
+}
 
 =head2 wait_dynamic_front()
 
@@ -139,7 +169,7 @@ sub wait_server() {
 
 =head2 wait_application_ready()
 
-Wait for server and dynamic front to be ready.
+Wait for server, dynamic front, and authentication server to be ready.
 Run this at the beginning of every integration test
 
 =cut
@@ -147,6 +177,7 @@ Run this at the beginning of every integration test
 sub wait_application_ready() {
 	wait_server();
 	wait_dynamic_front();
+	wait_auth();
 	return;
 }
 
@@ -224,6 +255,58 @@ sub login ($ua, $user_id, $password) {
 		confess("Resuming");
 	}
 	return $response;
+}
+
+=head2 create_user_in_keycloak($user_ref)
+
+Call API to create a user in Keycloak
+without creating them in ProductOpener, too.
+As create_user uses the ProductOpener API, this
+is useful for testing the Keycloak API on it's own.
+
+=head3 Arguments
+
+=head4 $user_ref - fields
+
+=cut
+
+sub create_user_in_keycloak ($user_ref) {
+
+	my $credential = {
+		type => 'password',
+		value => $user_ref->{password},
+		temporary => $JSON::false
+	};
+
+	my $keycloak_user_ref = {
+		email => $user_ref->{email},
+		emailVerified => $user_ref->{email_verified} ? $JSON::PP::true : $JSON::PP::true,
+		enabled => $JSON::PP::true,
+		username => $user_ref->{userid},
+		credentials => [$credential],
+		attributes => {
+			name => $user_ref->{name},
+			locale => $user_ref->{initial_lc},
+			country => $user_ref->{initial_cc},
+		}
+	};
+
+	my $json = encode_json($keycloak_user_ref);
+
+	my $keycloak = ProductOpener::Keycloak->new();
+	my $request_token = $keycloak->get_or_refresh_token();
+	my $create_user_request = HTTP::Request->new(POST => $keycloak->{users_endpoint});
+	$create_user_request->header('Content-Type' => 'application/json');
+	$create_user_request->header(
+		'Authorization' => $request_token->{token_type} . ' ' . $request_token->{access_token});
+	$create_user_request->content($json);
+	my $new_user_response = LWP::UserAgent::Plugin->new->request($create_user_request);
+
+	unless ($new_user_response->is_success) {
+		return 0;
+	}
+
+	return 1;
 }
 
 =head2 get_page ($ua, $url)
@@ -666,13 +749,22 @@ sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected
 	return;
 }
 
-sub execute_api_tests ($file, $tests_ref, $ua = undef) {
+sub execute_api_tests ($file, $tests_ref, $ua = undef, $reuse_ua = 1) {
+
+	if ((defined $ua) and (not($reuse_ua))) {
+		confess('Error in API test setup for ' . $file . ': $ua was passed but $reuse_ua was not set to 1');
+		return;
+	}
 
 	my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results($file));
 
-	$ua = $ua // LWP::UserAgent->new();
+	$ua = $ua // new_client();
 
 	foreach my $test_ref (@$tests_ref) {
+
+		if (not($reuse_ua)) {
+			$ua = new_client();
+		}
 
 		my $response = execute_request($test_ref, $ua);
 
