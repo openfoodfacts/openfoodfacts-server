@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -67,6 +67,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Data qw/execute_query get_products_collection/;
 use ProductOpener::Store "store";
+use ProductOpener::Auth qw/get_token_using_client_credentials/;
 
 use Carp qw/confess/;
 use Data::DeepAccess qw(deep_exists deep_get deep_set);
@@ -80,6 +81,7 @@ use File::Path qw/make_path remove_tree/;
 use File::Copy;
 use Path::Tiny qw/path/;
 use Scalar::Util qw(looks_like_number);
+use URI::Escape::XS qw/uri_escape/;
 use Test::File::Contents qw/files_eq_or_diff/;
 use MIME::Base64 qw(encode_base64);
 
@@ -245,11 +247,18 @@ sub remove_all_users () {
 	# Important: check we are not on a prod database
 	check_not_production();
 	# clean files
-	# clean files
 	remove_tree($BASE_DIRS{USERS}, {keep_root => 1, error => \my $err});
 	if (@$err) {
 		confess("not able to remove some users directories: " . join(":", @$err));
 	}
+	# clean keycloak
+	my @users = get_users_from_keycloak();
+	foreach (@users) {
+		foreach (@{$_}) {
+			_delete_user_from_keycloak($_);
+		}
+	}
+	return;
 }
 
 =head2 remove_all_orgs ()
@@ -923,6 +932,72 @@ sub get_base64_image_data_from_file ($path) {
 	close $image;
 	$image_data = encode_base64($content, '');    # no line breaks
 	return $image_data;
+}
+
+=head2 get_users_from_keycloak()
+
+Get a list of users registered in our Keycloak realm
+
+=head3 Return values
+
+Returns an array of users in Keycloak.
+
+=cut
+
+sub get_users_from_keycloak () {
+	unless (defined $oidc_options{oidc_discovery_url}) {
+		confess('oidc_discovery_url not configured');
+	}
+
+	my $token = get_token_using_client_credentials();
+	unless ($token) {
+		confess('Could not get token to manage users with keycloak_users_endpoint');
+	}
+
+	my $keycloak_users_endpoint = ProductOpener::Keycloak->new()->{users_endpoint};
+	my $get_users_request = HTTP::Request->new(GET => $keycloak_users_endpoint);
+	$get_users_request->header('Accept' => 'application/json');
+	$get_users_request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
+	my $get_users_response = LWP::UserAgent->new->request($get_users_request);
+	unless ($get_users_response->is_success) {
+		confess($get_users_response->content);
+	}
+
+	my @users = decode_json($get_users_response->content);
+	return @users;
+}
+
+=head2 _delete_user_from_keycloak($keycloak_user)
+
+Removes the given users from our Keycloak realm
+
+=head3 parameters
+
+=head4 $user - sub
+
+The user that will be deleted from Keycloak
+
+=cut
+
+sub _delete_user_from_keycloak ($user) {
+	unless (defined $oidc_options{oidc_discovery_url}) {
+		confess('oidc_discovery_url not configured');
+	}
+
+	my $token = get_token_using_client_credentials();
+	unless ($token) {
+		confess('Could not get token to manage users with keycloak_users_endpoint');
+	}
+
+	my $keycloak_users_endpoint = ProductOpener::Keycloak->new()->{users_endpoint};
+	my $delete_user_request = HTTP::Request->new(DELETE => $keycloak_users_endpoint . '/' . $user->{id});
+	$delete_user_request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
+	my $delete_user_response = LWP::UserAgent->new->request($delete_user_request);
+	unless ($delete_user_response->is_success) {
+		confess($delete_user_response->content);
+	}
+
+	return;
 }
 
 1;

@@ -119,6 +119,7 @@ use ProductOpener::NutritionCiqual qw/:all/;
 use ProductOpener::NutritionEstimation qw/:all/;
 use ProductOpener::RequestStats qw/:all/;
 use ProductOpener::HTTP qw/:all/;
+use ProductOpener::Auth qw/:all/;
 
 use Apache2::Const -compile => qw(OK);
 use Apache2::Connection ();
