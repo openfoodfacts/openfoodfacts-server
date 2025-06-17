@@ -55,7 +55,7 @@ BEGIN {
 		&request_param
 		&get_http_request_header
 		&create_user_agent
-	);    #the fucntions which are called outside this file
+	);    #the functions which are called outside this file
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 

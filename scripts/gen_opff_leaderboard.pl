@@ -12,7 +12,8 @@ use ProductOpener::HTTP qw/create_user_agent/;
 use Encode;
 use JSON;
 
-my $json = create_user_agent()->get("https://world.openpetfoodfacts.org/categories.json");
+my $response = create_user_agent()->get("https://world.openpetfoodfacts.org/categories.json");
+my $json = $response->decoded_content;
 
 my $categories_ref = from_json($json);
 
