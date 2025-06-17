@@ -363,10 +363,12 @@ A new LWP::UserAgent instance
 
 =cut
 
-sub create_user_agent($args = undef) {
+sub create_user_agent {
+	my (%cnf) = @_;
+
 	my $ua;
-	if (defined $args) {
-		$ua = LWP::UserAgent->new($args);
+	if (%cnf) {
+		$ua = LWP::UserAgent->new(%cnf);
 	}
 	else{
 		$ua = LWP::UserAgent->new();
