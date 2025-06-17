@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -95,7 +95,6 @@ BEGIN {
 		&data_to_display_nutrient_levels
 		&data_to_display_ingredients_analysis
 		&data_to_display_ingredients_analysis_details
-		&data_to_display_image
 
 		&count_products
 		&add_params_to_query
@@ -142,7 +141,7 @@ use ProductOpener::Tags qw(:all);
 use ProductOpener::Users qw(:all);
 use ProductOpener::Index qw(%texts);
 use ProductOpener::Lang qw(:all);
-use ProductOpener::Images qw(display_image display_image_thumb);
+use ProductOpener::Images qw(display_image data_to_display_image add_images_urls_to_product);
 use ProductOpener::Food qw(:all);
 use ProductOpener::Ingredients qw(flatten_sub_ingredients);
 use ProductOpener::Products qw(:all);
@@ -164,16 +163,17 @@ use ProductOpener::Recipes qw(add_product_recipe_to_set analyze_recipes compute_
 use ProductOpener::PackagerCodes
 	qw($ec_code_regexp %geocode_addresses %packager_codes init_geocode_addresses init_packager_codes);
 use ProductOpener::Export qw(export_csv);
-use ProductOpener::API qw(add_error customize_response_for_product process_api_request);
+use ProductOpener::API qw(add_error customize_response_for_product process_api_request process_auth_header);
 use ProductOpener::Units qw/g_to_unit/;
 use ProductOpener::Cache qw/$max_memcached_object_size $memd generate_cache_key get_cache_results set_cache_results/;
 use ProductOpener::Permissions qw/has_permission/;
 use ProductOpener::ProductsFeatures qw(feature_enabled);
 use ProductOpener::RequestStats qw(:all);
 use ProductOpener::PackagingFoodContact qw/determine_food_contact_of_packaging_components_service/;
+use ProductOpener::Auth qw/get_oidc_implementation_level/;
 
 use Encode;
-use URI::Escape::XS;
+use URI::Escape::XS qw/uri_escape/;
 use CGI::Carp qw(fatalsToBrowser);
 use CGI qw(:cgi :cgi-lib :form escapeHTML charset);
 use HTML::Entities;
@@ -222,7 +222,7 @@ my $uri_finder = URI::Find->new(
 my $json = JSON::MaybeXS->new->utf8(0)->allow_nonref->canonical;
 my $json_indent = JSON::MaybeXS->new->indent(1)->utf8(0)->allow_nonref->canonical;
 # $json_utf8 has utf8 enabled: it encodes to UTF-8 bytes
-my $json_utf8 = JSON::MaybeXS->new->utf8(1)->allow_nonref->canonical;
+my $json_utf8 = JSON::MaybeXS->new->convert_blessed->utf8(1)->allow_nonref->canonical;
 
 =head1 VARIABLES
 
@@ -347,6 +347,16 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	(not defined $template_data_ref->{org_id}) and $template_data_ref->{org_id} = $Org_id;
 	$template_data_ref->{owner_pretty_path} = get_owner_pretty_path($Owner_id);
 
+	my $oidc_implementation_level = get_oidc_implementation_level();
+	$template_data_ref->{oidc_implementation_level} = $oidc_implementation_level;
+	if (    $oidc_implementation_level > 0
+		and defined $template_data_ref->{user_id}
+		and defined $template_data_ref->{canon_url})
+	{
+		$template_data_ref->{keycloak_account_link}
+			= ProductOpener::Keycloak->new()->get_account_link($template_data_ref->{canon_url});
+	}
+
 	$template_data_ref->{flavor} = $flavor;
 	$template_data_ref->{options} = \%options;
 	$template_data_ref->{product_type} = $options{product_type};
@@ -430,6 +440,10 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 
 	$template_data_ref->{encode_json} = sub ($var) {
 		return $json->encode($var);
+	};
+
+	$template_data_ref->{uri_escape} = sub ($var) {
+		return uri_escape($var);
 	};
 
 	return ($tt->process($template_filename, $template_data_ref, $result_content_ref));
@@ -738,6 +752,22 @@ sub init_request ($request_ref = {}) {
 			country => $country
 		}
 	) if $log->is_debug();
+
+	# Note we allow an OAuth token for all oidc_implementation_levels
+	my $signed_in_oidc = process_auth_header($request_ref, $r);
+	if ($signed_in_oidc < 0) {
+		# We were sent a bad bearer token
+		# Otherwise we return an error page in HTML (including for v0 / v1 / v2 API queries)
+		if (not((defined $request_ref->{api_version}) and ($request_ref->{api_version} >= 3))
+			and (not($r->uri() =~ /\/cgi\/auth\.pl/)))
+		{
+			$log->debug(
+				"init_request - init_user error - display error page",
+				{init_user_error => $request_ref->{init_user_error}}
+			) if $log->is_debug();
+			display_error_and_exit($request_ref, $signed_in_oidc, 403);
+		}
+	}
 
 	my $error = ProductOpener::Users::init_user($request_ref);
 	if ($error) {
@@ -1220,7 +1250,7 @@ sub display_text ($request_ref) {
 
 	my $textid = $request_ref->{text};
 
-	if ($textid =~ /open-food-facts-mobile-app|application-mobile-open-food-facts/) {
+	if ($textid =~ /open-food-facts-mobile-app|application-mobile-open-food-facts|open-beauty-facts-mobile-app/) {
 		# we want the mobile app landing page to be included in a <div class="row">
 		# so we display it under the `banner` page format, which is the page format
 		# used on product pages, with a colored banner on top
@@ -1274,17 +1304,26 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 
 	# Add org name to index title on producers platform
 
-	if (($textid eq 'index-pro') and (defined $Owner_id)) {
-		my $owner_user_or_org = $Owner_id;
-		if (defined $Org_id) {
-			if ((defined $Org{name}) and ($Org{name} ne "")) {
-				$owner_user_or_org = $Org{name};
+	if ($textid eq 'index-pro') {
+		if (defined $Owner_id) {
+			my $owner_user_or_org = $Owner_id;
+			if (defined $Org_id) {
+				if ((defined $Org{name}) and ($Org{name} ne "")) {
+					$owner_user_or_org = $Org{name};
+				}
+				else {
+					$owner_user_or_org = $Org_id;
+				}
 			}
-			else {
-				$owner_user_or_org = $Org_id;
-			}
+			$html =~ s/<\/h1>/ - $owner_user_or_org<\/h1>/;
 		}
-		$html =~ s/<\/h1>/ - $owner_user_or_org<\/h1>/;
+
+		if (get_oidc_implementation_level() >= 5) {
+			# Use the Keycloak login link once we have fully mirgrated the Login user interface
+			#11867: Should be full URL
+			my $escaped_canon_url = uri_escape($formatted_subdomain);
+			$html =~ s/<escaped_subdomain>/$escaped_canon_url/g;
+		}
 	}
 
 	$log->debug("displaying text from file",
@@ -1322,6 +1361,8 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 	if ($file =~ /\/index-pro/) {
 		# On the producers platform, display products only if the owner is logged in
 		# and has an associated org or is a moderator
+
+		#11867: Show request to join button if user is logged in but not in an org
 		if ((defined $Owner_id) and (($Owner_id =~ /^org-/) or ($User{moderator}) or $User{pro_moderator})) {
 			$html .= display_index_for_producer($request_ref);
 			$html .= search_and_display_products($request_ref, {}, "last_modified_t", undef, undef);
@@ -3715,6 +3756,12 @@ sub display_tag ($request_ref) {
 	my $new_tagid2path = deep_get($request_ref, qw(tags 1 new_tagid_path));
 	my $canon_tagid2 = deep_get($request_ref, qw(tags 1 canon_tagid));
 
+	# 2025-06-01 - due to heavy load from bots, disabling 2nd level facets unless the user is logged in
+	if ((not defined $User_id) and (defined $tagid2)) {
+		display_error_and_exit($request_ref, lang("robots_not_served_here"), 401);
+		return;
+	}
+
 	my $weblinks_html = '';
 	my @wikidata_objects = ();
 	if (    (defined $tagtype && $tagtype ne 'additives')
@@ -4435,6 +4482,7 @@ var default_preferences = $options{attribute_default_preferences_json};
 var preferences_text = "$preferences_text";
 var contributor_prefs = $contributor_prefs_json;
 var products = [];
+var product_type = "$options{product_type}";
 </script>
 JS
 			;
@@ -5359,7 +5407,8 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 				$product_ref->{url} = $formatted_subdomain . $url_path;
 				# Compute HTML to display the small front image, currently embedded in the HTML of web queries
 				if (not $api) {
-					$product_ref->{image_front_small_html} = display_image_thumb($product_ref, 'front');
+					$product_ref->{image_front_small_html}
+						= display_image($product_ref, "front", $request_ref->{lc}, $thumb_size);
 
 					# For web queries with personal search, we can compute some generated fields we need
 					# and then remove the source fields that are not needed anymore
@@ -5620,6 +5669,7 @@ var default_preferences = $options{attribute_default_preferences_json};
 var preferences_text = "$preferences_text";
 var contributor_prefs = $contributor_prefs_json;
 var products = $products_json;
+var product_type = "$options{product_type}";
 </script>
 JS
 		;
@@ -6175,7 +6225,7 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 
 		$data{product_name} = $product_ref->{product_name};
 		$data{url} = $formatted_subdomain . product_url($product_ref->{code});
-		$data{img} = display_image_thumb($product_ref, 'front');
+		$data{img} = display_image($product_ref, "front", $request_ref->{lc}, $thumb_size);
 
 		# create data entry for series
 		defined $series{$seriesid} or $series{$seriesid} = '';
@@ -7019,7 +7069,7 @@ sub map_of_products ($products_iter, $request_ref, $graph_ref) {
 			brands => $product_ref->{brands},
 			url => $url,
 			origins => $origins,
-			img => display_image_thumb($product_ref, 'front')
+			img => display_image($product_ref, "front", $request_ref->{lc}, $thumb_size)
 		};
 
 		# Loop on cities: multiple emb codes can be on one product
@@ -7569,7 +7619,7 @@ sub display_page ($request_ref) {
 
 sub display_image_box ($product_ref, $id, $minheight_ref, $request_ref) {
 
-	my $img = display_image($product_ref, $id, $small_size);
+	my $img = display_image($product_ref, $id, $request_ref->{lc}, $small_size);
 	if ($img ne '') {
 		my $code = $product_ref->{code};
 		my $linkid = $id;
@@ -7744,7 +7794,6 @@ sub display_product ($request_ref) {
 	$request_ref->{scripts} .= <<SCRIPTS
 <script src="$static_subdomain/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
 <script src="$static_subdomain/js/dist/product-history.js"></script>
-<script src="$static_subdomain/js/dist/off-webcomponents-utils.js"></script>
 SCRIPTS
 		;
 
@@ -8507,6 +8556,7 @@ var page_type = "product";
 var default_preferences = $options{attribute_default_preferences_json};
 var preferences_text = "$preferences_text";
 var product = $product_attribute_groups_json;
+var product_type = "$options{product_type}";
 </script>
 
 <script src="$static_subdomain/js/product-preferences.js"></script>
@@ -9588,12 +9638,17 @@ sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_re
 	my @displayed_product_types = ();
 	my %displayed_product_types = ();
 
-	if ((not defined $product_ref->{nutrition_data}) or ($product_ref->{nutrition_data})) {
+	if (   (not defined $product_ref->{nutrition_data})
+		or ($product_ref->{nutrition_data})
+		or has_nutrition_data_for_product_type($product_ref, ""))
+	{
 		# by default, old products did not have a checkbox, display the nutrition data entry column for the product as sold
 		push @displayed_product_types, "";
 		$displayed_product_types{as_sold} = 1;
 	}
-	if ((defined $product_ref->{nutrition_data_prepared}) and ($product_ref->{nutrition_data_prepared} eq 'on')) {
+	if (   ((defined $product_ref->{nutrition_data_prepared}) and ($product_ref->{nutrition_data_prepared} eq 'on'))
+		or (has_nutrition_data_for_product_type($product_ref, "_prepared")))
+	{
 		push @displayed_product_types, "prepared_";
 		$displayed_product_types{prepared} = 1;
 	}
@@ -10720,6 +10775,7 @@ sub display_product_history ($request_ref, $code, $product_ref) {
 			userid => $userid,
 			uuid => $uuid,
 			app_version => $app_version,
+			clientid => $change_ref->{clientid},
 			diffs => compute_changes_diff_text($change_ref),
 			comment => $comment
 			};
@@ -11600,10 +11656,10 @@ sub search_and_analyze_recipes ($request_ref, $query_ref) {
 			if (single_param("debug")) {
 				$debug
 					.= "product: "
-					. JSON::MaybeXS->new->utf8->canonical->encode($product_ref)
+					. JSON::MaybeXS->new->convert_blessed->utf8->canonical->encode($product_ref)
 					. "<br><br>\n\n"
 					. "recipe: "
-					. JSON::MaybeXS->new->utf8->canonical->encode($recipe_ref)
+					. JSON::MaybeXS->new->convert_blessed->utf8->canonical->encode($recipe_ref)
 					. "<br><br><br>\n\n\n";
 			}
 		}
@@ -11641,78 +11697,6 @@ sub display_properties ($request_ref) {
 
 	display_page($request_ref);
 	return;
-}
-
-=head2 data_to_display_image ( $product_ref, $imagetype, $target_lc )
-
-Generates a data structure to display a product image.
-
-The resulting data structure can be passed to a template to generate HTML or the JSON data for a knowledge panel.
-
-=head3 Arguments
-
-=head4 Product reference $product_ref
-
-=head4 Image type $image_type: one of [front|ingredients|nutrition|packaging]
-
-=head4 Language code $target_lc
-
-=head3 Return values
-
-- Reference to a data structure with needed data to display.
-- undef if no image is available for the requested image type
-
-=cut
-
-sub data_to_display_image ($product_ref, $imagetype, $target_lc) {
-
-	my $image_ref;
-
-	# first try the requested language
-	my @img_lcs = ($target_lc);
-
-	# next try the main language of the product
-	if ($product_ref->{lc} ne $target_lc) {
-		push @img_lcs, $product_ref->{lc};
-	}
-
-	foreach my $img_lc (@img_lcs) {
-
-		my $id = $imagetype . "_" . $img_lc;
-
-		if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})) {
-
-			my $path = product_path($product_ref);
-			my $rev = $product_ref->{images}{$id}{rev};
-			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' – '
-				. lang_in_other_lc($target_lc, $imagetype . '_alt');
-			if ($img_lc ne $target_lc) {
-				$alt .= ' – ' . $img_lc;
-			}
-
-			$image_ref = {
-				type => $imagetype,
-				lc => $img_lc,
-				alt => $alt,
-				sizes => {},
-				id => $id,
-			};
-
-			foreach my $size ($thumb_size, $small_size, $display_size, "full") {
-				if (defined $product_ref->{images}{$id}{sizes}{$size}) {
-					$image_ref->{sizes}{$size} = {
-						url => "$images_subdomain/images/products/$path/$id.$rev.$size.jpg",
-						width => $product_ref->{images}{$id}{sizes}{$size}{w},
-						height => $product_ref->{images}{$id}{sizes}{$size}{h},
-					};
-				}
-			}
-
-			last;
-		}
-	}
-
-	return $image_ref;
 }
 
 1;

@@ -70,9 +70,12 @@ synonyms:en: hydrolysed, hydrolyzed
 
 synonyms:en: pasteurised, pasteurized
 
+synonyms:en: grey, gray
+
 synonyms:fr: de production biologique, issu de l'agriculture biologique
 
 synonyms:en: wholemeal, whole, whole grain, wholegrain, complete
+synonyms:sv: fullkorn, fullkorns
 
 synonyms:en: semi-wholemeal, semi-whole, semi-whole grain, semi-wholegrain, semi-complete, semiwhole, semiwholemeal
 
@@ -134,7 +137,14 @@ stopwords:fr: aux, au, de, le, du, la, a, et, avec, ou, en, proportion, variable
 # example: sojin umak bez glutena
 # example: marelice 8.3% (SADRŽE sumporni dioksid) / SADRŽI sulfite
 stopwords:hr: bez glutena, i/ili, i, ili, iz, max, min, najmanje, najviše, obično poznat kao, od, u promjenjivim omjerima, u promjenjivim udjelima, u različitim omjerima, u tragovima, bogat bjelančevinama, klasična mješavina, od čega, odgovara, titriran na 25 % 5-HTP, uključujući i, uključujući, sadrže, sadrži
-stopwords:hu: tartalmaz, változó arányban, min, zsírtartalom, összetevő, összetétel, amelyből, amiből
+# percentage of fat for cream, removed for now as it is more a "quality" thing, like "Eggs (caliber 1)".
+stopwords:hr: s mliječne masti, s 2.8% mliječne masti, s 3.2% mliječne masti, s 3.5% mliječne masti, s 6.0% mliječne masti, s 6% mliječne masti, s 10% mliječne masti, s 12% mliječne masti, s 18% mliječne masti, s 20% mliječne masti, s 25% mliječne masti, s 33% mliječne masti, s 36% mliječne masti
+# percentage of fat for skimmed milk, removed for now as it is more a "quality" thing, like "Eggs (caliber 1)".
+stopwords:hr: s 0.5% mliječne masti, s 0.1% mliječne masti
+# percentage of fat for semi-skimmed milk, removed for now as it is more a "quality" thing, like "Eggs (caliber 1)".
+stopwords:hr: s 1.5% mliječne masti, s 1.0% mliječne masti, s 1% mliječne masti, s 2.0% mliječne masti, s 2% mliječne masti, s 2.5% mliječne masti
+# example: tejpor alapú termékek (milk-powder based product)
+stopwords:hu: tartalmaz, változó arányban, min, zsírtartalom, összetevő, összetétel, amelyből, amiből, alapú termékek
 stopwords:id: mengandung
 stopwords:is: úr
 # example: COCCO in proporzione variabile
@@ -232,21 +242,6 @@ sv: karamelliserad sockersirap, karamelliserat sockersirap, karamelliserad sirap
 fr: caramel au lait
 hu: tejkaramella
 it: caramello al latte
-
-
-< en:E150
-en: caramel powder
-bg: карамел на прах
-de: Karamell-Pulver, Caramelpulver, Karamellpulver
-fi: karamellijauhe
-fr: caramel en poudre
-# hr:karamel prahu # see ingredients_processings.txt
-hu: karamellpor
-it: caramello in polvere
-nl: karamelpoeder
-pl: proszek karmelowy, karmel w proszku
-pt: caramelo em pó
-# ingredient/fr:caramel-en-poudre has 69 products in 5 languages @2019-03-09
 
 < en:preparation
 en: caramel chocolate preparation
@@ -898,6 +893,8 @@ sv: bivax vitt och gult
 < en:E942
 nl: E942 en E941
 
+en: cyclamate, cyclamates
+wikidata:en: Q76824182
 
 # description:en:Sodium cyclamate (sweetener code 952) is an artificial sweetener.
 
@@ -928,6 +925,7 @@ sr: Natrijum ciklamat
 sv: Natriumcyklamat
 th: โซเดียมไซคลาเมต
 vi: Natri cyclamat
+wikidata:en: Q407786
 wikipedia:en: https://en.wikipedia.org/wiki/Sodium_cyclamate
 
 < en:E1105
@@ -2082,7 +2080,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Xylanase
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-en: dairy, dairy product, dairy products, dairy food, dairy foods, milk product, milk products
+en: dairy, dairy product, dairy products, dairy food, dairy foods, milk product, milk products, milk based product
 af: Suiwelproduk
 als: Milcherzeugnis
 ar: منتجات الألبان
@@ -2091,7 +2089,7 @@ be: Малочныя прадукты
 br: Boued-laezh
 bs: Mliječni proizvodi
 bxr: Сагаан эдеэн
-ca: Làctic, producte làctic, llet i els seus derivats, llet i derivats, derivats làctics, làctics, productes làctics
+ca: Làctic, producte làctic, llet i els seus derivats, llet i derivats, derivats làctics, làctics, productes làctics, producte a base de llet, productes a base de llet
 ckb: سپیاتی
 cs: Mléčný výrobek
 cy: Cynnyrch llaeth
@@ -2099,7 +2097,7 @@ da: Mejeriprodukter
 de: Milcherzeugnisse, Milchprodukte, Molkereiprodukte, Milcherzeugnis, Milchprodukt, Molkereiprodukt
 el: Γαλακτοκομικά προϊόντα
 eo: Laktoprodukto
-es: productos lácteos, leche y sus derivados, leche y derivados, derivados lácteos, lácteos, lácteo
+es: productos lácteos, leche y sus derivados, leche y derivados, derivados lácteos, lácteos, lácteo, producto lácteo, producto a base de leche, productos a base de leche
 et: Piimatoode
 eu: Esneki
 fa: فراورده لبنی
@@ -2114,7 +2112,7 @@ hu: tejtermék, tejtermékek
 hy: Կաթնամթերք
 id: Produk susu
 is: Mjólkurafurð
-it: Latticini, derivati del latte, latte e derivati
+it: Latticini, derivati del latte, latte e derivati, prodotti a base di latte, a base di latte
 ja: 乳製品
 kab: Ifarisen n yiɣi
 kk: Сүт тағамдары
@@ -2177,35 +2175,19 @@ vegetarian:en: maybe
 wikidata:en: Q3506176
 wikipedia:en: https://en.wikipedia.org/wiki/Fermented_milk_products
 
-< en:dairy
-en: powdered milk products, dried milk products, product on base on milk powder
-# en:process:en:powder
-bg: сухо мляко на прах
-ca: producte làctic en pols, producte a base de llet en pols, productes làctics en pols, productes a base de llet en pols
-de: Trockenmilcherzeugnis
-es: producto lácteo en polvo, producto a base de leche en polvo, productos lácteos en polvo, productos a base de leche en polvo
-#fr:produits laitiers en poudre
-hr: mliječni proizvodi u prahu
-hu: tejpor alapú termékek
-it: prodotti a base di latte in polvere, a base di latte in polvere
-nova:en: 4
-
+< en:milk
 en: First age baby milk powder, First milk powder, First infant milk formula in powder
 fr: Lait 1er âge en poudre soluble, Lait premier âge en poudre soluble, Préparation pour nourrissons en poudre soluble
-hr: mlijeko u prahu za bebe prve dobi
-it: latte in polvere per neonati prima infanzia
 ciqual_food_code:en: 3000
 ciqual_food_name:en: Baby milk, first age, powder
 ciqual_food_name:fr: Lait 1er âge, poudre soluble (préparation pour nourrissons)
 
+< en:milk
 en: Second age baby milk powder, Second milk powder, Second infant milk formula in powder
 fr: Lait 2ème âge en poudre soluble, Lait deuxième âge en poudre soluble, Préparation de suite en poudre soluble
-hr: mlijeko u prahu za bebe druge dobi
-it: latte in polvere per neonati di seconda età
 ciqual_food_code:en: 3002
 ciqual_food_name:en: Baby milk, second age, powder
 ciqual_food_name:fr: Lait 2e âge, poudre soluble (préparation de suite)
-
 
 ################################ BUTTER related stuff ##########################
 
@@ -2381,7 +2363,7 @@ wikipedia:fr: https://fr.wikipedia.org/wiki/Beurre_doux
 # ingredient/unsalted-butter has 755 products in 5 languages @2019-07-10
 
 < en:unsalted butter
-en: 82% fat unsalted Butter
+en: 82% fat unsalted butter
 fr: Beurre à 82% MG doux
 hr: neslani maslac 82% masti
 it: Burro non salato 82% di grassi, burro dolce 82% di grassi
@@ -2389,10 +2371,8 @@ ciqual_food_code:en: 16400
 ciqual_food_name:en: Butter, 82% fat, unsalted
 ciqual_food_name:fr: Beurre à 82% MG, doux
 
-< en:unsalted butter
-en: 82% fat unsalted butter
-fr: Beurre à 82% MG doux
-hr: neslani maslac 82% masti
+< en:82% fat unsalted butter
+en: 82% fat unsalted easy-to-spread butter
 it: Burro morbido non salato 82% di grassi, burro morbido dolce 82% di grassi
 ciqual_food_code:en: 16404
 ciqual_food_name:en: Butter, 82% fat, unsalted, easy-to-spread
@@ -2629,13 +2609,13 @@ it: burro di capra
 # description:en:MILK - a white liquid nutrient-rich food produced by the mammary glands of mammals.
 
 < en:dairy
-en: milk
+en: milk, milk ingredients
 af: Melk
 am: ወተት
 an: Leit
-ar: حليب
+ar: الحليب, حليب
 as: গাখীৰ
-ay: Millk'i
+ay: Millk'i, süd
 az: Süd
 ba: Һөт
 be: Малако
@@ -2644,22 +2624,23 @@ bm: Nɔnɔ
 bn: দুধ
 br: Laezh
 bs: Mlijeko
-ca: llet
+ca: llet, ingredients de la llet
 ce: Шура
 co: Latti
 cs: Mléko
 cv: Сĕт
 cy: Llaeth
-da: Mælk, mælke
-de: Milch
+da: Mælk, mælke, mælks
+de: Milch, Milchbestandteile
 el: Γάλα, γάλακτος
-es: Leche
+eo: lakto
+es: Leche, Ingredientes de leche
 et: Piim, piimast, piima
 eu: Esne
 fa: شیر
-fi: maito, maidosta
+fi: maito, maidosta, maitoaineksia
 fo: Mjólk
-fr: Lait
+fr: Lait, substances laitières
 fy: Molke
 ga: Bainne
 gd: Bainne
@@ -2668,21 +2649,22 @@ gn: Kamby
 gu: દૂધ
 gv: Bainney
 he: חלב
-hr: mlijeko, mlijeka, mliječna, mliječno
+hr: mlijeko, mlijeka, mliječna, mliječno, mliječnih sastojaka
 ht: Lèt
-hu: Tej, Tejet, tejből
+hu: Tej, Tejet, tejből, tej összetevők
 hy: Կաթ
 ia: Lacte
 id: Susu
 ik: Immuk
 is: Mjólk
-it: Latte
+it: Latte, ingredienti del latte
 iu: ᐃᒻᒧᒃ
 ja: 乳
 jv: Susu
 ka: რძე
 kk: Сүт
-ko: 젖
+kn: ಮಿಲ್ಕ್
+ko: 젖, 유
 ku: Şîr
 ky: Сүт
 la: Lac
@@ -2690,8 +2672,8 @@ lb: Mëllech
 li: Mèlk
 ln: Míliki
 lo: ນົມ
-lt: Pienas, pieno
-lv: Piens, piena, vājpiena, pilnpiena
+lt: Pienas, pieno, pieniniai
+lv: Piens, piena
 mg: Ronono
 mk: Млеко
 ml: പാൽ
@@ -2700,9 +2682,9 @@ mr: दूध
 ms: Susu
 mt: ħalib
 my: နို့
-nb: Melk
+nb: Melk, Melke
 ne: दूध
-nl: melk
+nl: melk, melkbestanddelen
 nn: Mjølk
 no: melk
 nv: Abeʼ
@@ -2723,7 +2705,7 @@ sk: Mlieko
 sl: mleko
 sn: Mukaka
 so: Caano
-sq: Qumështi
+sq: Qumështi, qumesht
 sr: Млеко
 su: Susu
 sv: Mjölk
@@ -2731,7 +2713,7 @@ sw: Maziwa
 ta: பால்
 te: పాలు
 tg: Шир
-th: นม
+th: นม, น้ำนม
 tl: Gatas
 tr: Süt
 tt: Сөт
@@ -2740,7 +2722,7 @@ ur: دودھ
 vi: Sữa
 wa: Laecea
 yi: מילך
-zh: 乳
+zh: 乳, 奶
 zu: Ubisi
 carbon_footprint_fr_foodges_ingredient:fr: Lait semi-écrémé, pasteurisé
 carbon_footprint_fr_foodges_value:fr: 1.2
@@ -2826,111 +2808,6 @@ fr: lait enrichi de crème
 hr: mlijeko obogaćeno vrhnjem
 it: latte arrichito con crema
 
-< en:milk
-en: sterilised milk
-bg: стерилизирано мляко
-ca: llet esterilitzada
-da: steriliseret mælk
-de: Sterilisierte Milch
-es: Leche esterilizada
-fi: steriloitu maito
-fr: lait stérilisé
-hr: sterilizirano mlijeko
-hu: hőkezelt tej, sterilizált tej
-it: Latte sterilizzato
-lt: sterilizuotas pienas
-nl: gesteriliseerde melk
-pl: mleko sterylizowane
-sv: steriliserad mjölk
-# ingredient/fr:lait-sterilise-u-h-t has 8 products @2019-05-28
-
-# comment:en:Pasteurisation is a specific sterilisation method
-
-< en:milk
-en: pasteurised milk
-bg: пастьоризирано мляко
-ca: llet pasteuritzada
-cs: pasterizované mléko
-da: pasteuriseret mælk
-de: Pasteurisierte Milch
-es: leche pasteurizada
-et: pastöriseeritud piim
-fi: pastöroitu maito, pastöroidusta maidosta
-fr: lait pasteurisé
-hr: pasterizirano mlijeko
-hu: pasztőrözött tej, pasztörizált tej
-it: latte pastorizzato
-lt: pasterizuotas pienas
-nb: pasteurisert melk
-nl: gepasteuriseerde melk
-pl: Mleko pasteryzowane
-pt: leite pasteurizado
-ro: lapte pasteurizat
-ru: Пастеризованное молоко, молоко пастеризованное
-sv: pastöriserad mjölk
-tr: pastörize süt
-
-< en:sterilised milk
-en: UHT pasteurised milk
-bg: UHT пастьоризирано мляко
-ca: llet esterilitzada UHT
-de: UHT Milch
-es: leche esterelizada UHT
-fi: iskukuumennettu maito, UHT-käsitelty maito, UHT-maito
-fr: lait stérilisé U.H.T
-hr: uht pasterizirano mlijeko
-hu: UHT tej, ultrapasztőrözött tej
-it: Latte pastorizzato UHT
-pl: mleko UHT
-sv: UHT-behandlad mjölk
-
-#pasteurisation of 15s under 72–74 °C
-< en:pasteurised milk
-sv: lågpastöriserad mjölk
-
-#pasteurisation of 5s under 80 °C
-< en:pasteurised milk
-sv: högpastöriserad mjölk
-
-< en:pasteurised milk
-sv: opastöriserad mjölk
-
-< en:sterilised milk
-fr: lait thermisé
-
-
-< en:milk
-en: milk solids
-da: mælketørstoffer
-es: solidos lacteos, solidos de la leche
-he: מוצקי חלב
-hr: čvrste tvari mlijeka
-it: Solidi di latte
-
-< en:milk
-nl: vloeibare melkbestanddelen
-
-< en:milk
-en: lactose-free milk
-bg: мляко без лактоза, безлактозно мляко
-ca: llet sense lactosa
-de: laktosefreie Milch
-es: leche sin lactosa
-fr: lait sans lactose
-hr: mlijeko bez laktoze
-it: latte delattosato
-nl: lactosevrije melk
-pl: mleko bez laktozy
-
-< en:lactose-free milk
-en: whole lactose-free milk, lactose-free whole milk
-bg: пълномаслено мляко без лактоза
-de: Laktosefreie Vollmilch
-es: Leche entera sin lactosa
-fr: lait entier sans lactose, lait sans lactose entier
-hr: punomasno mlijeko bez laktoze
-it: latte intero senza lattosio, latte intero delattosato
-
 en: Follow-on milk
 ca: llet de seguiment
 de: Folgemilch
@@ -2942,56 +2819,12 @@ it: latte di proseguimento
 # ingredient/fr:lait-de-suite has 54 products in 4 languages @2019-04-05
 
 < en:milk
-en: organic milk
-bg: биологично мляко, био мляко
-ca: llet ecològica, llet d'agricultura ecològica
-de: Bio-milch
-es: leche ecológica, leche de agricultura ecológica, leche orgánica
-fi: luomumaito
-fr: lait bio, lait issu de l'agriculture biologique
-hr: organsko mlijeko
-hu: bio tej
-it: Latte biologico
-lt: ekologiškas pienas
-# ingredient/fr:lait-bio has 24 products @2019-02-22
-
-< en:milk
 en: milk from France
 de: Milch aus Frankreich
 fr: lait origine france
 hr: mlijeko iz Francuske
 it: latte origine Francia, latte francese
 nl: melk uit Frankrijk
-
-#<en:milk
-#en:origin of the milk
-#bg:произход на млякото
-#ca:origen de la llet
-#es:origen de la leche
-
-# comment:en:Any milk can be fresh (whatever that means)
-< en:milk
-en: fresh milk
-bg: свежо мляко
-ca: llet fresca
-de: Frischmilch
-es: Leche fresca
-fi: tuore maito
-fr: lait frais
-hr: svježe mlijeko
-hu: friss tej
-it: latte fresco
-nl: verse melk
-pt: leite fresco
-# ingredient/fr:lait-frais has 79 products in 2 languages 2019-04-05
-
-< en:fresh milk
-bg: свежо пастьоризирано мляко
-ca: llet fresca pasteuritzada
-es: leche fresca pasteurizada, leche fluída pasteurizada
-fr: lait frais pasteurisé
-hu: pasztőrözött friss tej
-pt: leite fresco pasteurizado
 
 < en:milk
 de: Käsereimilch
@@ -3008,12 +2841,6 @@ hr: mlijeko od sijena
 it: latte fieno, latte fieno STG
 wikidata:en: Q1616491
 
-#hat has been added?
-< en:milk
-en: cultured pasteurized milk
-hr: kultivirano pasterizirano mlijeko
-it: latte pastorizzato fermentato
-
 ########################## LOW FAT and SKIMMED MILK ############################
 
 # description:en:LOW-FAT MILK is a 1% fat milk, sold in the United States
@@ -3027,6 +2854,7 @@ it: latte pastorizzato fermentato
 # 0.2% fat. We are thus using only one taxonomy entry for all milks with
 # a maximum of 0.5% fat
 
+# TODO, processing problem in some language "skimmed milk" is a single word (without milk)
 < en:milk
 en: skimmed milk, skim milk, non-fat milk, nonfat milk, fat-free milk, low-fat milk, 1% fat milk, lowfat milk
 ar: حليب منزوع الدسم
@@ -3068,7 +2896,6 @@ ciqual_proxy_food_name:fr: Lait écrémé, pasteurisé
 wikidata:en: Q2352187
 wikipedia:en: https://en.wikipedia.org/wiki/Skimmed_milk
 
-< en:pasteurised milk
 #kept due to ciqual
 < en:skimmed milk
 en: pasteurized skimmed milk
@@ -3094,7 +2921,6 @@ ciqual_food_name:fr: Lait écrémé, pasteurisé
 
 #kept due to ciqual
 < en:skimmed milk
-< en:sterilised milk
 en: UHT sterilised skimmed milk, UHT skimmed milk, ultra heat treated skimmed milk
 ca: llet descremada esterilitzada UHT, llet desnatada esterilitzada UHT
 de: entrahmte H-Milch
@@ -3108,38 +2934,6 @@ nl: UHT-gesteriliseerde magere melk
 ciqual_food_code:en: 19050
 ciqual_food_name:en: Milk, skimmed, UHT
 ciqual_food_name:fr: Lait écrémé, UHT
-
-#<en:UHT sterilised skimmed milk
-#en:organic UHT sterilised skimmed milk
-#ca:llet desnatada esterilitzada UHT ecològica, llet descremada esterilitzada ecològica
-#es:leche desnatada esterilizada UHT ecológica, leche descremada esterilizada ecológica
-#fr:lait écrémé stérilisé uht issu de l'agriculture biologique
-
-
-< en:skimmed milk
-en: skimmed milk with 0.1% lactose-free milk fat
-hr: obrano mlijeko s 0.1% mliječne masti bez laktoze
-it: latte scremato con 0.1% di grassi senza lattosio
-
-< en:skimmed milk
-en: skimmed milk with 0.5% milk fat
-hr: obrano mlijeko s 0.5% mliječne masti
-it: latte scremato con 0.5% di grassi
-
-< en:lactose-free milk
-< en:skimmed milk
-en: lactose-free skimmed milk, skimmed lactose-free milk
-bg: обезмаслено мляко без лактоза
-fr: lait sans lactose écrémé, lait écrémé sans lactose
-hr: obrano mlijeko bez laktoze
-it: latte scremato senza lattosio, latte senza lattosio scremato
-
-< en:lactose-free-milk
-en: semi-skimmed lactose-free milk, lactose-free semi-skimmed milk
-bg: полуобезмаслено мляко без лактоза
-fr: lait sans lactose demi-écrémé, lait demi-écrémé sans lactose
-it: latte parzialmente scremato senza lattosio, latte senza lattosio parzialmente scremato
-
 
 ################################# SEMI-SKIMMED MILK ############################
 
@@ -3182,27 +2976,6 @@ ciqual_food_name:en: Milk, semi-skimmed, UHT
 ciqual_food_name:fr: Lait demi-écrémé, UHT
 #274 @2021-09-23
 
-< fr:lait demi écrémé uht
-fr: lait de montagne demi écrémé stérilisé uht
-
-#<en:semi-skimmed milk
-#en:organic semi-skimmed milk, semi-skimmed milk from organic farming
-#ca:llet parcialment desnatada ecològica, llet semidesnatada ecològica
-#de:Fettarme Milch aus biologischer Landwirtschaft
-#es:leche parcialmente desnatada ecológica, leche semidesnatada ecológica, leche parcialmente #descremada orgánica
-#fr:Lait demi-écrémé issu de l'agriculture biologique
-#hu:bio zsírszegény tej, zsírszegény bio tej
-#it:latte parzialmente scremato da agricoltura biologica
-#nl:biologische halfvolle melk
-# ingredient/nl:biologische-halfvolle-melk has 1 product @2019-05-24
-
-#<en:organic semi-skimmed milk
-#fr:lait demi-écrémé stérilisé uht biologique,lait demi-écrémé issu de l'agriculture biologique #stérilisé uht, lait demi-écrémé stérilisé uht issu de l'agriculture biologique, lait demi-écrémé #biologique
-#ca:llet semidesnatada esterilitzada UHT ecològica, llet parcialment desnatada esterilitzada UHT #ecològica
-#es:leche semidesnatada esterilizada UHT ecológica, leche parcialmente desnatada esterilizada UHT ecológica
-
-# description:en:PASTEURIZED SEMI-SKIMMED MILK has a butterfat percentage of 1.5-1.8% AND is pasteurised
-
 < en:semi-skimmed milk
 en: pasteurized semi-skimmed milk
 bg: пастьоризирано полуобезмаслено мляко
@@ -3222,70 +2995,6 @@ ciqual_food_code:en: 19042
 ciqual_food_name:en: Milk, semi-skimmed, pasteurised
 ciqual_food_name:fr: Lait demi-écrémé, pasteurisé
 #4146 @2021-09-23
-
-#<en:organic semi-skimmed milk
-#<en:UHT pasteurised milk
-#en:organic UHT pasteurised semi-skimmed milk
-#ca:llet semidesnatada ecològica esterilitzada UHT, llet parcialment desnatada ecològica #esterilitzada UHT
-#es:leche semidesnatada ecológica esterilizada UHT, leche parcialmente desnatada ecológica #esterilizada UHT
-#fr:lait demi-écrémé issu de l'agriculture biologique stérilisé u h t, lait demi-écrémé biologique #stérilisé uht
-
-#<en:pasteurized skimmed milk
-#en:organic pasteurized skimmed milk
-#de:pasteurisierte entrahmte Bio-Milch
-#fr:lait biologique écrémé et pasteurisé
-
-# comment:en:Is there a difference between pasteurized milk and sterilised milk?
-
-< en:semi-skimmed milk
-< en:sterilised milk
-en: sterilised semi-skimmed milk
-bg: стерилизирано полуобезмаслено мляко
-ca: llet parcialment desnatada esterilitzada, llet esterilitzada parcialment desnatada, llet semidesnatada esterilitzada
-de: sterilisierte teilentrahmte Milch, teilentrahmte Milch sterilisiert
-es: leche parcialmente desnatada esterelizada, leche semidesnatada esterilizada, leche esterilizada parcialmente desnatada, leche esterilizada semidesnatada
-fr: lait demi-écrémé stérilisé
-hr: sterilizirano poluobrano mlijeko
-it: latte sterilizzato parzialmente scremato, latte parzialmente scremato sterilizzato
-
-< en:lactose-free milk
-< en:pasteurised milk
-< en:semi-skimmed milk
-ca: llet de vaca sense lactosa semidesnatada pasteuritzada
-
-< en:semi-skimmed milk
-fr: lait de montagne partiellement écrémé
-
-< en:fresh milk
-< en:pasteurised milk
-< en:semi-skimmed milk
-en: fresh organic pasteurised semi-skimmed milk
-ca: llet fresca semidesnatada, llet fresca parcialment desnatda
-de: frische entrahmte Bio-Milch pasteurisiert
-es: leche fresca semidesnatada, leche fresca parcialmente desnatada
-fr: lait frais demi-écrémé
-hr: svježe organsko pasterizirano poluobrano mlijeko
-it: latte fresco organico pastorizzato parzialmente scremato
-
-#<en:organic semi-skimmed milk
-< en:fresh milk
-fr: Lait frais demi-écrémé microfiltré issu de l'agriculture biologique
-
-< en:fresh milk
-< en:semi-skimmed milk
-de: Frische fettarme Milch
-
-< en:semi-skimmed milk
-en: semi-skimmed milk with 1.5% milk fat
-bg: полуобезмаслено мляко с 1,5% масленост
-hr: djelomično obrano mlijeko s 1.5% mliječne masti
-it: latte parzialmente scremato con 1.5% di grasso
-
-< en:lactose-free milk
-< en:semi-skimmed milk
-en: semi-skimmed milk with 1.5% lactose-free milk fat
-hr: djelomično obrano mlijeko s 1,5% mliječne masti bez laktoze, djelomično obrano mlijeko s 1,5% mliječne masti bez laktoze (<0,1 g/100 g)
-it: latte parzialmente scremato con 1.5% di grasso senza lattosio
 
 ################################## FULL FAT MILKS ##############################
 
@@ -3319,67 +3028,7 @@ ciqual_food_code:en: 19023
 ciqual_food_name:en: Milk, whole, UHT
 ciqual_food_name:fr: Lait entier, UHT
 
-< en:fresh milk
 < en:whole milk
-en: fresh whole milk
-bg: прясно пълномаслено мляко
-ca: llet sencera fresca, llet fresca sencera
-de: Frische Vollmilch
-es: leche entera fresca, leche fresca entera, leche entera fluída, leche fluida entera
-fi: tuore täysmaito
-fr: lait entier frais, lait frais entier
-hr: svježe punomasno mlijeko
-hu: friss teljes tej
-it: latte intero fresco, latte fresco intero
-nl: verse volle melk
-ru: молоко цельное, цельное молоко
-
-< en:fresh whole milk
-fr: lait frais entier microfiltré
-
-< en:fresh whole milk
-fr: lait frais entier pasteurisé, lait frais pasteurisé entier
-ca: llet frecsa sencera pasteuritzada, llet fresca pasteuritzada sencera
-es: leche fresca entera pasteurizada, leche fresca pasteurizada entera
-it: latte intero fresco pastorizzato
-
-< en:fresh whole milk
-fr: lait frais de montagne entier pasteurisé
-
-< en:sterilised milk
-< en:whole milk
-fr: lait de montagne entier stérilisé uht
-
-< en:organic milk
-< en:whole milk
-en: organic whole milk
-bg: биологично пълномаслено мляко
-ca: llet sencera ecològica, llet sencera d'agricultura ecològica
-de: Bio-Vollmilch
-es: leche entera ecológica, leche entera de agricultura ecológica, leche entera orgánica
-fi: luomu täysmaito
-fr: lait entier bio, lait entier issu de l'agriculture biologique
-hr: organsko punomasno mlijeko
-hu: bio teljes tej
-it: latte intero biologico, latte biologico intero
-lt: ekologiškas nenugriebtas pienas
-nl: volle melk van biologische oorsprong
-
-< en:sterilised milk
-< en:whole milk
-en: sterilised whole milk
-bg: стерилизирано пълномаслено мляко
-ca: llet sencera esterilitzada, llet esterolitzada sencera
-de: sterilisierte Vollmilch
-es: leche entera esterilizada, leche esterilizada entera
-fi: steriloitu täysmaito
-fr: lait entier stérilisé
-hr: sterilizirano punomasno mlijeko
-hu: hőkezelt teljes tej
-it: latte intero sterilizzato, latte sterilizzato intero
-
-< en:UHT pasteurised milk
-< en:pasteurised whole milk
 en: UHT pasteurised whole milk
 bg: UHT пастьоризирано пълномаслено мляко
 ca: llet sencera esterilitzada UHT, llet esterilitzada UHT sencera
@@ -3397,16 +3046,6 @@ ciqual_food_name:en: Milk, whole, UHT
 ciqual_food_name:fr: Lait entier, UHT
 # 105 in 2 languages @2021-09-22
 
-< en:UHT pasteurised whole milk
-en: organic UHT pasteurised whole milk
-ca: llet sencera esterilitzada UHT ecològica, llet sencera esterilitzada d'agricultura ecològica
-es: leche entera esterilizada UHT ecológica, leche entera esterilizada de agricultura ecológica
-fi: iskukuumennettu luomu täysmaito
-fr: lait entier stérilisé uht issu de l'agriculture biologique
-hr: organsko uht pasterizirano punomasno mlijeko
-it: latte intero pastorizzato UHT biologico
-
-< en:pasteurised milk
 < en:whole milk
 en: pasteurised whole milk, pasteurized whole milk
 bg: пастьоризирано пълномаслено мляко
@@ -3428,86 +3067,6 @@ ciqual_food_name:en: Milk, whole, pasteurised
 ciqual_food_name:fr: Lait entier, pasteurisé
 #1241 @2011-09-23
 
-< en:whole milk
-bg: стандартизирано пълномаслено мляко
-fr: lait entier standardisé
-hr: standardizirano punomasno mlijeko
-
-< en:milk
-en: milk with 1.0% milk fat
-hr: mlijeko s 1.0% mliječne masti, mlijeko s 1% mliječne masti
-
-< en:milk
-en: milk with 1.5% milk fat
-hr: mlijeko s 1.5% mliječne masti
-
-< en:milk
-en: milk with 2.0% milk fat
-hr: mlijeko s 2.0% mliječne masti, mlijeko s 2% mliječne masti
-
-< en:milk
-en: milk with 2.5% milk fat
-hr: mlijeko s 2.5% mliječne masti
-
-< en:milk
-en: milk with 2.8% milk fat
-hr: mlijeko s 2.8% mliječne masti
-
-< en:whole milk
-en: whole milk with 2.8% milk fat
-hr: mlijeko trajno s 2.8% mliječne masti
-
-< en:milk
-en: milk with 3.2% milk fat
-hr: mlijeko 3,2 % m.m.
-
-< en:whole milk
-en: whole milk with 3.5% milk fat
-hr: punomasno mlijeko s 3.5% mliječne masti
-
-< en:milk
-en: milk with 6.0% milk fat
-hr: punomasno mlijeko s 6.0% mliječne masti, punomasno mlijeko s 6% mliječne masti
-
-
-################################## RAW MILKS ###################################
-
-# description:en:RAW MILK - milk produced by female mammals (probably cow) before any treatment
-
-< en:milk
-en: raw milk
-bg: сурово мляко
-ca: llet crua
-de: Rohmilch
-es: Leche cruda
-fi: raakamaito, tilamaito
-fr: lait cru
-hr: sirovo mlijeko
-hu: nyers tej
-it: latte crudo
-ja: 生乳
-nl: rauwe melk
-pl: surowe mleko
-pt: leite cru
-ro: lapte crud
-ru: сырое молоко
-tr: çiğ süt, pastörize edilmemiş süt
-zh: 生牛奶
-wikipedia:en: https://en.wikipedia.org/wiki/Raw_milk
-
-< en:raw milk
-< en:whole milk
-fr: lait cru entier
-bg: сурово пълномаслено мляко
-ca: llet crua sencera
-es: leche cruda entera
-it: latte crudo intero
-lt: neapdorotas pilnas pienas
-nl: rauwe volle melk
-pl: surowe mleko pełne
-pt: leite cru integral
-ro: lapte crud integral
-
 ################################## COW MILKS ###################################
 
 # description:en:COW MILK - raw cow milk that probably has been treated (pasteurisation)
@@ -3515,11 +3074,11 @@ ro: lapte crud integral
 < en:milk
 en: cow's milk, cows' milk, cow milk
 bg: краве мляко
-ca: llet de vaca
+ca: llet de vaca, llect de vaca
 da: komælk
 de: Kuhmilch
 es: leche de vaca, nata de vaca
-fi: lehmänmaito
+fi: lehmänmaito, lehmän maito
 fr: lait de vache
 hr: kravlje mlijeko
 hu: tehéntej
@@ -3532,157 +3091,11 @@ pt: leite de vaca
 ro: lapte de vacă, lapte de vaca
 ru: коровье молоко
 sv: Komjölk
+th: น้ำนมโค
 tr: inek sütü
 uk: Коров'яче молоко
 zh: 牛奶
 wikipedia:fr: https://fr.wikipedia.org/wiki/Lait_de_vache
-
-# description:en:RAW COW MILK - milk produced by female cows before any treatment
-
-< en:cow's milk
-< en:raw milk
-en: raw cow's milk
-bg: сурово краве мляко
-ca: llet crua de vaca, llet de vaca crua
-da: rå komælk
-de: Kuhrohmilch
-es: leche de vaca cruda, leche cruda de vaca
-fi: lehmän raakamaito, raaka lehmänmaito
-fr: lait de vache cru, lait cru de vache
-hr: sirovo kravlje mlijeko
-hu: nyers tehéntej
-it: Latte di mucca crudo
-nl: rauwe koemelk
-sv: opastöriserad komjölk
-
-< en:cow's milk
-< en:organic milk
-< en:sterilised milk
-fr: lait de vache bio thermisé
-ca: llet de vaca ecològica termitzada
-es: leche de vaca ecológica termizada
-
-# WHOLE COWS MILK (around 3.5–4% fat), dans l'Union européenne, le lait entier doit contenir au minimum 3,50 % en masse de matière grasse.
-
-< en:cow's milk
-< en:whole milk
-en: whole cow's milk
-bg: пълномаслено краве мляко, краве пълномаслено мляко
-ca: llect de vaca sencera, llet sencera de vaca
-de: Kuhvollmilch
-es: Leche entera de vaca, leche de vaca entera
-fi: lehmän täysmaito
-fr: Lait de vache entier, lait entier de vache
-hr: punomasno kravlje mlijeko
-hu: teljes tehéntej
-pl: mleko krowie pełne
-ro: lapte de vacă integral, lapte de vaca integral
-ru: молоко коровье цельное
-
-< en:whole cow's milk
-en: raw whole cow's milk
-bg: сурово пълномаслено краве мляко
-ca: llet de vaca sencera crua, llet sencera crua de vaca
-de: rohe Kuhvollmilch
-es: leche de vaca entera cruda, leche entera cruda de vaca
-fr: lait de vache entier cru
-hr: sirovo punomasno kravlje mlijeko
-# ingredient/fr:lait-de-vache-entier-cru has 10 products @2019-05-27
-
-< en:whole cow's milk
-en: pasteurised whole cow's milk
-bg: пастьоризирано пълномаслено краве мляко
-ca: llet sencera pasteuritzada de vaca, llet de vaca sencera pasteuritzada, llet pasteuritzada de vaca sencera, llet sencera de vaca pasteuritzada
-da: pasteuriseret komælk, pasteuriseret komaelk
-de: pasteurisierte Kuhvollmilch
-es: Leche entera pasteurizada de vaca, leche de vaca entera pasteurizada, leche pasteurizada de vaca entera, leche entera de vaca pasteurizada
-fr: lait de vache entier pasteurisé, lait pasteurisé de vache entier, lait entier de vache pasteurisé, lait entier pasteurisé de vache
-hr: pasterizirano punomasno kravlje mlijeko
-it: Latte vaccino intero pastorizzato
-nl: gepasteuriseerde volle koeienmelk
-ro: lapte de vacă integral pasteurizat, lapte de vaca integral pasteurizat
-
-< en:cow's milk
-en: semi-skimmed cow's milk
-bg: полуобезмаслено краве мляко
-ca: llet semidesnatada de vaca, llet de vaca semidesnatada, llet de vaca parcialment desnatada, llet parcialment desnatada de vaca
-de: teilentrahmte Kuhmilch, fettarme Kuhmilch
-es: leche semidesnatada de vaca, leche de vaca semidesnatada, leche de vaca parcialmente desnatada, leche parcialmente desnatada de vaca
-fr: lait de vache demi écrémé
-hr: poluobrano kravlje mlijeko
-nl: halfvolle koemelk
-
-< en:semi-skimmed cow's milk
-en: pasteurised semi-skimmed cow's milk
-bg: пастьоризирано полуобезмаслено краве мляко
-ca: llet de vaca semidesnatada pasteuritzada
-de: pasteurisierte teilentrahmte Kuhmilch
-es: leche de vaca pasteurizada semidesnatada, leche semidescremada pasteurizada, leche pasteurizada semidescremada, leche semi-descremada pasteurizada, leche de vaca semidescremada pasteurizada
-fr: lait de vache partiellement écrémé et pasteurisé
-hr: pasterizirano poluobrano kravlje mlijeko
-it: Latte vaccino pastorizzato parzialmente scremato
-
-# description:en:PASTEURISED COW MILK - raw cow milk that has been treated (pasteurisation)
-
-< en:cow's milk
-< en:pasteurised milk
-en: pasteurised cow's milk, pasteurised cows milk
-bg: пастьоризирано краве мляко
-ca: llet de vaca pasteuritzada, llet pasteuritzada de vaca
-de: Pasteuriseret komælk, pasteurisierte Kuhmilch
-es: leche de vaca pasteurizada, leche pasteurizada de vaca
-fi: pastöroitu lehmänmaito, pastöroitu lehmän maito
-fr: lait de vache pasteurisé, lait pasteurisé de vache
-hr: pasterizirano kravlje mlijeko
-hu: pasztőrözött tehéntej
-it: latte di mucca pastorizzato
-nb: pasteurisert kumelk
-nl: gepasteuriseerde koemelk
-pl: Mleko krowie pasteryzowane
-pt: Leite de vaca pasteurizado, Leite de vaca pasteurizada
-sv: pastöriserad komjölk
-tr: pastörize inek sütü
-
-< en:Cow's milk
-fr: lait de vache thermisé
-ca: llet de vaca termitzada, llet termitzada de vaca
-es: leche de vaca termizada, leche termizada de vaca
-it: latte di mucca termizzato
-nl: gestremde koeienmelk
-
-< en:Cow's milk
-fr: lait frais de nos vaches non homogeneise
-
-# <en:Cow's milk
-# en:unhomogenized pasteurized milk  # see ingredients_processing.txt
-# hr:nehomogenizirano pasterizirano mlijeko  # see ingredients_processing.txt
-
-< en:cow's milk
-en: skimmed cows milk
-bg: обезмаслено краве мляко
-ca: llet desnatada de vaca, llet descremada de vaca
-de: entrahmte Kuhmilch
-es: leche desnatada de vaca, leche descremada de vaca
-hr: obrano kravlje mlijeko
-it: latte vaccino scremato
-nl: magere koeienmelk
-
-< en:cow's milk
-en: pasteurized skimmed cow's milk
-bg: пастьоризирано обезмаслено краве мляко
-ca: llet fresca desnatada pasteuritzada de vaca
-de: pasteurisierte entrahmte Kuhmilch
-es: leche de vaca desnatada pasterizada
-hr: pasterizirano obrano kravlje mlijeko
-th: น้ำนมโคขาดมันเนย
-
-< en:cow's milk
-en: homogenized milk with 2.8% milk fats
-hr: homogenizirano mlijeko s 2.8% mliječne masti
-
-< en:cow's milk
-en: homogenized milk with 3.2% milk fats
-hr: homogenizirano mlijeko s 3.2% mliječne masti
 
 ################################# GOAT MILKS ###################################
 
@@ -4064,66 +3477,7 @@ it: panna da caffè
 nl: koffieroom
 # 14@2019-06-06
 
-# description:en:CONDENSED MILK is cow's milk from which water has been removed.  It is most often found in the form of "sweetened condensed milk" ("SCM"), with sugar added, and the terms "condensed milk" and "sweetened condensed milk" are often used interchangeably today. Sweetened condensed milk is a very thick, sweet product, which when canned can last for years without refrigeration if not opened. Condensed milk is used in numerous dessert dishes in many countries.
-
-#category/condensed-milks
 < en:milk
-en: condensed milk
-af: Kondensmelk
-ar: الحليب المبخر
-az: Qatılaşdırılmış süd
-be: згушчанае малако
-bg: кондензирано мляко
-ca: llet condensada
-cs: kondenzované mléko
-da: Kondenseret mælk
-de: Kondensmilch, Dosenmilch, Büchsenmilch, eingedickte Milch
-eo: kondensita lakto
-es: leche condensada
-et: kondenspiim
-eu: esne lurrundua, Esne kondentsatu
-fa: شیر تغلیظ‌شده
-fi: Kondensoitu maito
-fr: lait condensé, lait concentré
-gl: Leite condensado
-he: חלב מרוכז
-hr: kondenzirano mlijeko
-hu: sűrített tej
-hy: Խտացրած կաթ
-id: susu kental
-it: latte condensato
-ja: 加糖練乳
-kn: ಕಂಡೆನ್ಸ್‌ಡ್ ಮಿಲ್ಕ್
-ko: 연유
-lb: Béchsemëllech
-lt: Kondensuotas pienas
-ms: Susu pekat
-nb: kondensert melk
-nl: gecondenseerde melk
-pl: mleko skondensowane, mleko zagęszczone, skondensowane mleko, zagęszczone mleko
-pt: leche condensada, leite condensado
-ro: Lapte condensat
-ru: сгущённое молоко
-sl: Kondenzirano mleko
-sv: kondenserad mjölk
-th: นมข้นหวาน
-tl: Gatas na kondensada
-tr: Kondense süt
-tt: Куертылган сөт
-uk: згущене молоко
-vi: Sữa đặc
-zh: 煉奶
-# be-tarask:згушчанае малако
-# de-ch:Kondensmilch
-# en-ca:Condensed milk
-# en-gb:Condensed milk
-# pt-br:Leite condensado
-# yue:煉奶
-wikidata:en: Q2830455
-wikipedia:en: https://en.wikipedia.org/wiki/Condensed_milk
-# 6229 in 31 @2021-09-05
-
-< en:condensed milk
 en: sweetened condensed milk, condensed milk with sugar
 bg: подсладено кондензирано мляко
 ca: llet condensada ensucrada, llet ensucrada condensada
@@ -4198,6 +3552,23 @@ ciqual_food_name:en: Condensed milk, with sugar, whole
 ciqual_food_name:fr: Lait concentré sucré, entier
 # ingredient/fr:lait-entier-condensé-sucré has 37 products in 4 languages @2019-04-16
 
+< en:sweetened condensed milk
+en: sweetened condensed whole milk, Whole condensed milk with sugar
+ca: llet sencera condensada ensucrada
+da: sockrad kondenserad skummjölk
+de: gezuckerte Kondensvollmilch
+es: leche entera condensada azucadara
+fi: Makeutettu tiivistetty täysmaito
+fr: lait entier condensé sucré, lait entier concentré sucré, Lait concentré entier sucré
+hr: zaslađeno kondenzirano punomasno mlijeko
+hu: édesített sűrített teljes tej
+it: latte intero condensato zuccherato
+nl: gecondenseerde volle melk met suiker
+ciqual_food_code:en: 19027
+ciqual_food_name:en: Condensed milk, with sugar, whole
+ciqual_food_name:fr: Lait concentré sucré, entier
+# ingredient/fr:lait-entier-condensé-sucré has 37 products in 4 languages @2019-04-16
+
 # <en:compound
 # category:en: en:Milk jams
 < en:sweetened condensed milk
@@ -4231,7 +3602,7 @@ ciqual_food_name:fr: Confiture de lait
 wikidata:en: Q17072931
 wikipedia:en: https://en.wikipedia.org/wiki/Dulce_de_leche
 
-< en:condensed milk
+< en:whole milk
 en: condensed whole milk
 ca: llet sencera condensada, llet condensada sencera
 de: kondensierte Vollmilch
@@ -4246,45 +3617,6 @@ ciqual_food_code:en: 19026
 ciqual_food_name:en: Condensed milk, without sugar, whole
 ciqual_food_name:fr: Lait concentré non sucré, entier
 # ingredient/condensed-whole-milk has 52 products in 5 languages @2019-04-16
-
-< en:condensed milk
-en: condensed semi-skimmed milk
-ca: llet semidesnatada condensada, llet parcialment desnatada condensada, llet condensada semidesnatada, llet condensada parcialment desnatada
-de: teilentrahmte Kondensmilch
-es: leche semidesnatada condensada, leche parcialmente desnatada condensada, leche condensada semidesnatada, leche condensada parcialmente desnatada
-fi: kondensoitu vähärasvainen maito, tiivistetty vähärasvainen maito
-fr: lait demi-écrémé condensé
-hr: kondenzirano poluobrano mlijeko
-hu: sűrített zsírszegény tej, sűrtett zsírszegény tej
-it: Latte semi-magro condensato
-nl: gecondenseerde halfvolle melk
-# ingredient/condensed-semi-skimmed-milk has 3 products in german @2019-04-16
-
-< en:condensed milk
-en: condensed skimmed milk, concentrated skim milk, concentrated skimmed milk
-bg: кондензирано обезмаслено мляко
-ca: llet descremada condensada, llet desnatada condensada, llet condensada descremada, llet condensada desnatada
-da: kondenseret skummetmælk, kondenseret skummetmaelk
-de: Kondensmagermilch, kondensierte Magermilch, konzentrierte Magermilch, Magermilchkonzentrat, eingedickte entrahmte Milch
-es: leche descremada condensada, leche desnatada condensada, leche condensada descremada, leche condensada desnatada
-fi: rasvaton maitotiiviste, kondensoitu rasvaton maito
-fr: lait écrémé concentré, concentré de lait écrémé, lait écrémé condensé, lait concentré écrémé
-hr: kondenzirano obrano mlijeko
-hu: sűrített sovány tej
-it: latte scremato concentrato, latte magro concentrato
-nl: gecondenseerde magere melk
-pt: leche condensada desnatada
-sv: kondenserad skummjölk
-# ingredient/condensed-skimmed-milk has 43 products @2019-04-16
-
-
-< en:condensed milk
-< en:powdered milk
-#en:process:en:powder
-fr: lait écrémé concentré ou en poudre
-ca: llet en pols condensada, llet condensada en pols
-es: leche en polvo condensada, leche condensada en polvo
-nl: gecondenseerde magere poedermelk
 
 < en:lactose
 < en:milk proteins
@@ -4349,10 +3681,8 @@ nova:en: 3
 vegan:en: no
 vegetarian:en: yes
 
-< en:milk from France
-< en:whole milk powder
-#en:process:en:powder
-fr: lait origine france en poudre écrémé
+< en:milk powder
+fr: lait écrémé à base de poudre de lait
 
 < en:milk powder
 #process:en: en:powder
@@ -4368,21 +3698,6 @@ pt: leite meio gordo em pó
 ciqual_food_code:en: 19044
 ciqual_food_name:en: Milk, powder, semi-skimmed
 ciqual_food_name:fr: Lait en poudre, demi-écrémé
-
-< en:milk powder
-fr: lait en poudre enrichi en matière grasse
-ca: llet en pols enriquida en matèria grassa
-es: leche en polvo enriquecida en materia grasa
-
-< en:milk powder
-fr: lait maigre en poudre, lait en poudre maigre
-
-
-< en:milk powder
-fr: lait écrémé à base de poudre de lait
-
-< en:milk powder
-fr: poudre de lait réhydratée
 
 < en:milk powder
 en: skimmed milk powder, nonfat dry milk, skimmed cow's milk powder
@@ -4417,18 +3732,6 @@ ciqual_food_code:en: 19054
 ciqual_food_name:en: Milk, powder, skimmed
 ciqual_food_name:fr: Lait en poudre, écrémé
 
-#<en:skimmed milk powder
-#nl:magere melkpoeder van biologische oorsprong, bio magere melkpoeder
-# ingredient/nl:magere-melkpoeder-van-biologische-oorsprong has 1 product @2019-05-24
-
-< en:skimmed milk powder
-en: caramelised skimmed milk powder
-de: Karamellisiertes entrahmtes Milchpulver
-fi: karamellisoitu rasvaton maitojauhe
-fr: Lait écrémé caramélisé en poudre
-hr: karamelizirano obrano mlijeko u prahu
-it: latte scremato in polvere caramellato
-
 < en:milk powder
 en: whole milk powder, dried whole milk, powdered whole milk, whole powdered milk, whole dry milk, dry whole milk
 bg: пълномаслено мляко на прах, пълномаслено сухо мляко, сухо пълномаслено мляко
@@ -4462,88 +3765,9 @@ ciqual_food_code:en: 19021
 ciqual_food_name:en: Milk, powder, whole
 ciqual_food_name:fr: Lait en poudre, entier
 
-< en:whole milk powder
-en: whole cow's milk powder
-de: Kuhvollmilchpulver, Kuhmilchpulver
-es: leche entera de vaca en polvo
-hr: punomasno kravlje mlijeko u prahu
-
-< en:skimmed milk powder
-< en:whole milk powder
-en: skimmed and whole milk powder
-fr: poudres de lait écrémé et entier
-hr: obrano i punomasno mlijeko u prahu
-it: latte scremato e intero in polvere
-ru: молоко сухое цельное и обезжиренноё
-
-< en:whole milk powder
-en: reconstituted milk powder
-bg: възстановено мляко на прах
-ca: llet en pols reconstituida
-es: leche en polvo reconstituida
-hr: rekonstituirano mlijeko u prahu
-it: latte in polvere ricostituito
-ru: восстановленное молоко из сухого молока
-
-< en:milk
-fr: lait écrémé reconstitué
-nl: gereconstitueerde melk
-
-< en:skimmed milk
-en: reconstituted skimmed milk
-bg: възтановено обезмаслено мляко
-ca: llet desnatada reconstituida, llet desnatada rehidratada, llet descremada rehidratada, llet descremada reconstituida
-de: rekonstituierte Magermilch
-es: leche desnatada reconstituida, leche desnatada rehidratada, leche descremada rehidratada, leche descremada reconstituida
-fr: lait écrémé réhydraté
-# hr:rekonstituirano obrano mlijeko # see ingredients_processing.txt
-hu: visszaállított sovány tej, feloldott sovány tej
-it: latte scremato reidratato
-lt: regeneruotas nugriebtas pienas
-nl: gerehydrateerde magere melk
-pl: odtworzone odtłuszczone mleko, odtworzone mleko odtłuszczone
-pt: leite magro reconstituído
-
-< en:skimmed milk powder
-bg: възстановено обезмаслено мляко на прах, възстановео обезмаслено сухо мляко
-ca: llet desnatada en pols reconstituida, llet desnatada en pols rehidratada
-es: leche desnatada en polvo reconstituida, leche desnatada en polvo rehidratada
-
-fr: matière grasse de lait anhydre
-it: grasso di latte anidro
-
-< en:milk
-fr: lait écrémé en poudre reconstitué, lait écrémé en poudre réhydraté
-
-< en:milk
-fr: lait entier en poudre reconstitué, lait entier reconstitué
-ca: llet sencera en pols reconstituida, llet en pols rehidratada
-es: leche entera en polvo reconstituida, leche en polvo rehidratada
-
-< en:milk
-en: modified milk ingredients
-ca: Ingredients de la llet modificats
-de: Modifizierte Milchbestandteile
-es: Ingredientes de leche modificados
-fi: Muunnettuja maitoaineksia
-fr: substances laitières modifiées
-hr: modificiranih mliječnih sastojaka
-hu: módosított tej összetevők
-it: ingredienti del latte modificati
-# ingredient/fr:substances-laitières-modifiées has 86 products @2019-02-22
-
-< en:milk
-fr: lait écrémé caillé
-ca: llet desnatada cuallada, llet descremada cuallada, llet cuallada desnatada, llet cuallada descremada
-es: leche desnatada cuajada, leche descremada cuajada, leche cuajada desnatada, leche cuahada descremada
-
-< en:milk
-en: milk filtrate
-hr: filtrat mlijeka
-it: filtrato di latte
-
 < en:coating
 < en:milk
+< en:preparation
 en: milk coating
 hr: mliječni preljev
 it: rivestimento al latte
@@ -5770,8 +4994,8 @@ it: Panna montata
 nl: slagroom
 pl: bita śmietana, bitej śmietany
 
+< en:cream
 < en:skimmed milk
-#<en:pasteurized cream
 en: Skim milk and pasteurized cream
 ca: crema de llet desnatat pasteuritzat, nata desnatat pasteuritzat
 de: Magermilch und pasteurisiertes Sahne
@@ -8586,6 +7810,7 @@ en: buffalo mozzarella, buffalo milk mozzarella
 fr: mozzarella de bufflonne, mozzarella au lait de bufflonne
 hr: buffalo mozzarella
 it: mozzarella di bufala
+pl: ser mozzarella z mleka bawolego, ser mozzarella di Bufala
 
 < en:mozzarella
 en: low moisture mozzarella
@@ -9605,791 +8830,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/American_cheese
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
-#                                                  V I T A M I N S     S E C T I O N
-#
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-# description:en: A vitamin is an organic molecule (or related set of molecules) which is an essential micronutrient that an organism needs in small quantities for the proper functioning of its metabolism. This ingredient is written in plural
-
-en: Vitamins, vitamin, vit.
-af: Vitamien, vit.
-ar: فيتامين
-as: ভিটামিন
-az: Vitaminlər, vit.
-ba: Витаминдар
-be: Вітаміны, Вітамін
-bg: Витамини, Витамин, vitamins, vit.
-bn: ভিটামিন
-bs: Vitamini, Vitamin, vit.
-ca: vitamina, vitamines, vit.
-cs: Vitaminy, vitamín, vit.
-cv: Витамин
-cy: Fitaminau, Fitamin
-da: Vitaminer, Vitamin, vit.
-de: Vitamine, Vitamin, Vitaminmischung, vit.
-dv: ވިޓަމިން
-el: Βιταμίνες, Βιταμίνη
-eo: vitamino
-es: Vitaminas, vitamina, vit.
-et: Vitamiin, Vitamiinid, vit.
-eu: Bitamina
-fa: ویتامین
-fi: Vitamiinit, vitamiini, vit.
-fo: Vitamin
-fr: Vitamines, vitamine, mélange de vitamines, vit.
-ga: Vitimín, vit.
-gl: Vitamina, vit.
-he: ויטמין
-hi: विटामिन
-hr: vitamin, vitamini, vitaminska mješavina, vit.
-ht: Vitamin, vit.
-hu: Vitaminok, vitamin, vit.
-hy: Վիտամին
-ia: Vitamina, vit.
-id: Vitamin, vit.
-is: Vítamín, vit.
-it: Vitamine, vit.
-ja: ビタミン
-jv: Vitamin, vit.
-ka: ვიტამინი
-kk: Дәрумен
-km: វីតាមីន
-kn: ಜೀವಸತ್ವಗಳು
-ko: 비타민
-ky: Витаминдер
-la: Vitaminum, vit.
-lb: Vitamin, vit.
-lg: Vitamin, vit.
-lo: ວິຕາມິນ
-lt: Vitaminai, Vitaminas, vit.
-lv: Vitamīni, vit.
-mk: Витамин
-ml: ജീവകം
-mr: जीवनसत्त्व
-ms: Vitamin, vit.
-mt: Vitamini, vit.
-my: ဗီတာမင်
-nb: Vitaminer, vitamin, vit.
-ne: भिटामिन
-nl: Vitamines, vitaminen, Vitamine, vit.
-nn: Vitaminer, vitamin, vit.
-no: vitaminer, vitamin, vit.
-nv: Vitamine, vit.
-oc: Vitamina, vit.
-or: ଜୀବସାର
-pa: ਵਿਟਾਮਿਨ
-pl: Witamina, Witaminy
-ps: ويټامين
-pt: Vitaminas, vitamina, Premezcla de Vitaminas, vit.
-ro: Vitamine, Vitamină, vit.
-ru: витамин
-sh: Vitamini, Vitamin, vit.
-si: විටමින්
-sk: Vitamíny, vitamín, vit.
-sl: Vitamini, Vitamin, vit.
-so: Fiitamiin
-sq: Vitamina, Vitaminat, vit.
-sr: Витамини, витамин
-su: Vitamin, vit.
-sv: Vitaminer, Vitamin, vit.
-sw: Vitamini, vit.
-ta: உயிர்ச்சத்து
-te: విటమిన్
-tg: Витамин
-th: วิตามิน
-tk: Witamin
-tl: Bitamina
-tr: Vitamin, vit.
-tt: Витамин
-uk: Вітаміни
-ur: حیاتین
-uz: Vitaminlar, vit.
-vi: vitamin, vit.
-wa: Vitamene, vit.
-yi: וויטאמין
-yo: Àmínìamáralókun
-zh: 维生素
-vegan:en: yes
-vegetarian:en: yes
-# ast:Vitamina
-# be-tarask:Вітаміны
-# cdo:Mì-sĕng-só
-# ckb:ڤیتامین
-# de-ch:Vitamin
-# dty:भिटामिन
-# en-ca:Vitamin
-# en-gb:Vitamin
-# frr:Vitamiin
-# hak:Ví-ta-mìn
-# kaa:Vitamin
-# koi:витамин
-# lmo:Vitamina
-# nan:Bî-tá-mín
-# pnb:ਵਿਟਾਮਿਨ
-# pt-br:vitamina
-# rue:Витамин
-# scn:Vitamini, Vitamina
-# sco:vitamin
-# sr-ec:Витамини, витамин
-# sr-el:vitamin
-# tyv:Витаминнер
-# war:Bitamina
-# xmf:ვიტამინეფი
-# yue:維他命
-#wikidata:en:Q34956
-wikipedia:en: https://en.wikipedia.org/wiki/Vitamin
-
-
-# description:en:Vitamin A is a group of unsaturated nutritional organic compounds that includes retinol, retinal, retinoic acid
-# and several provitamin A carotenoids (most notably beta-carotene).
-
-< en:vitamins
-en: vitamin A
-af: Vitamien A
-ar: فيتامين ألف
-az: A vitamini
-bg: витамин А, vitamin A
-bs: Vitamin A
-ca: Vitamina A, Vitamina A (Retinol)
-cs: vitamín A
-cy: Fitamin A
-da: Vitamin A
-de: Vitamin A, Vitamin A (Retinol)
-dv: ވިޓަމިން އޭ
-eo: Vitamino A
-es: vitamina A, Vitamina A (Retinol)
-et: A-vitamiin
-eu: A bitamina
-fa: ویتامین آ
-fi: A-vitamiini
-fo: A vitamin
-fr: vitamine A, Vitamine A (rétinol)
-gl: Vitamina A
-he: A ויטמין
-hi: विटामिन ए
-hr: vitamin A
-hu: A-vitamin
-id: Vitamin A
-is: A-vítamín
-it: vitamina A, Vitamina A (Retinolo)
-ja: ビタミンA
-jv: Vitamin A
-ka: ვიტამინი A
-kn: ಎ ಜೀವಸತ್ವ
-ko: 비타민 A
-lt: Vitaminas A
-lv: A vitamīns
-mk: Витамин А
-ml: ജീവകം എ
-mn: Витамин А
-mr: अ-जीवनसत्त्व
-ms: Vitamin A
-nb: Vitamin A
-ne: भिटामिन ए
-nl: vitamine A
-nn: vitamin A, A-vitamin
-oc: Vitamina A
-or: ଜୀବସାର କ
-pa: ਵਿਟਾਮਿਨ ਏ
-pl: witamina A
-ps: ويټامين اې
-pt: vitamina A
-ro: vitamine A
-ru: витамин А
-rw: Vitamini A
-sh: Vitamin A
-si: විටමින් A
-sl: Vitamin A
-sq: Vitamina A
-sr: vitamin A
-sv: vitamin A
-sw: Vitamini A
-ta: உயிர்ச்சத்து ஏ
-te: విటమిన్ ఎ
-th: วิตามินเอ
-tr: A vitamini
-tt: А витамины
-ug: ۋىتامىن A
-uk: Вітамін A
-ur: ریئٹنول
-vi: Vitamin A
-zh: 維生素A
-# ast:Vitamina A
-# en-ca:Vitamin A
-# en-gb:Vitamin A
-# jbo:abumoi mivytcuxu'i
-# kk-cyrl:А витамині
-# kk-kz:А витамині
-# lfn:Vitamina A
-# pt-br:Vitamin A
-# scn:Vitamina A
-# sco:Vitamin A
-# sr-ec:витамин А
-# sr-el:vitamin A
-# tyv:А витамины
-# wuu:维生素A
-# zh-hans:维生素A
-# zh-hant:維生素A
-wikidata:en: Q18225
-wikipedia:en: https://en.wikipedia.org/wiki/Vitamin_A
-# vitamin/vitamin-a has 1768 products in 17 languages @2018-11-20
-
-
-
-
-
-
-
-
-
-# description:en:Riboflavin, also known as vitamin B2, is a vitamin found in food and used as a dietary supplement.
-
-< en:vitamins
-en: Riboflavin, vitamin b2, E101, B2
-af: Riboflavien
-ar: فيتامين ب2
-be: Рыбафлавін
-bg: Рибофлавин, Витамин B2
-bn: রিবোফ্লেবিন
-bs: Vitamin B2
-ca: riboflavina, Vitamina B2
-cs: riboflavin, vitamín B2
-cy: Ribofflafin, Fitamin B2
-da: Riboflavin, Vitamin B2
-de: Riboflavin, Vitamin B2
-dv: ވިޓަމިން ބީ2
-el: ριβοφλαβίνη, βιταμίνη Β2
-eo: riboflavino, vitamino B2
-es: riboflavina, vitamina b2
-et: Riboflaviin, Vitamiin B2
-eu: B2 bitamina
-fa: ویتامین ب۲
-fi: Riboflaviini
-fo: Riboflavin, Vitamin B2
-fr: riboflavine, vitamine b2, B2
-ga: Ribeaflaivin
-gl: Riboflavina, Vitamina B2
-he: ויטמין B2
-hi: रिबोफ्लेविन, विटामिन बी२
-hr: riboflavin, Vitamin B2, B2
-hu: Riboflavin, B2-vitamin
-hy: Վիտամին B2
-id: Riboflavin, Vitamin B2
-it: riboflavina, vitamina B2
-ja: リボフラビン, ビタミンB2
-kk: Рибофлавин
-ko: 리보플래빈, 바이타민 B2
-ky: Рибофлавин, Витамин В2
-lb: Riboflavin, Vitamin B2
-lt: Riboflavinas
-lv: Riboflavīns, B2 vitamīns
-mk: Рибофлавин
-ml: റൈബോഫ്ലേവിൻ
-ms: Riboflavin, Vitamin B2
-mt: Riboflavina
-nb: Riboflavin
-ne: भिटामिन बी-२
-nl: Riboflavine, vitamine B2
-nn: riboflavin, vitamin B2
-oc: Riboflavina, Vitamina B2
-or: ରାଇବୋଫ୍ଲାଭିନ, ଜୀବସାର ଖ୨
-pl: Ryboflawina, ryboflawiny, Witamina B2
-pt: riboflavina, vitamina B2
-ro: Riboflavină, Vitamina B2
-ru: рибофлавин, Витамин B2
-rw: Vitamini B2
-sh: Vitamin B2
-sk: Riboflavín, Vitamín B2
-sl: Riboflavin, Vitamin B2
-sr: riboflavin, vitamin B2
-su: Riboflavin
-sv: Riboflavin, Vitamin B2, B2
-ta: ரிபோஃபிளாவின்
-th: ไรโบเฟลวิน
-tr: Riboflavin, B2 vitamini
-uk: Рибофлавін, Вітамін B2
-uz: Riboflavin
-vi: Riboflavin
-wa: Riboflavene, Vitamene B2
-zh: 核黄素
-vegan:en: maybe
-# ingredient/vitamin-b2 has 4263 products in 10 languages @2018-11-23
-vegetarian:en: yes
-# ast:Vitamina B2
-# be-tarask:Рыбафлявін
-# de-ch:Riboflavin
-# en-ca:Riboflavin
-# en-gb:Riboflavin
-# pt-br:riboflavina
-# sco:Riboflavin
-# sr-ec:витамин Б2
-# sr-el:riboflavin, vitamin B2
-# tyv:Витамин В2
-# zh-cn:核黄素
-# zh-hans:核黄素
-# zh-hant:核黄素
-# zh-hk:核黄素
-# zh-sg:核黄素
-# zh-tw:核黄素
-wikidata:en: Q130365
-wikipedia:en: https://en.wikipedia.org/wiki/Riboflavin
-
-
-# description:en:Niacin, also known as nicotinic acid, is an organic compound and a form of vitamin B3, an essential human nutrient.
-
-< en:vitamins
-en: niacin, vitamin b3, vitamin PP, E375, B3, PP
-af: Niasien
-ar: نياسين
-be: Нікацінавая кіслата
-bg: Никотинова киселина, Витамин B3, Витамин PP
-bs: Vitamin B3
-ca: niacina, Vitamina B3, Vitamina PP
-cs: niacin, vitamín B3, vitamín PP
-cy: Niacin, Fitamin B3
-da: Niacin
-de: Niacin, Vitamin B3
-dv: ވިޓަމިން ބީ3
-eo: niacino, vitamino B3
-es: niacina, Vitamina B3, vitamina PP
-et: Niatsiin, Vitamiin B3
-eu: Niazina, B3 bitamina
-fa: ویتامین ب۳
-fi: Niasiini, B3-vitamiini
-fo: Niacin
-fr: niacine, vitamine b3, Vitamine PP
-ga: Aigéad nicitíneach
-gl: Niacina, Vitamina B3
-he: ויטמין B3
-hi: नाइयासिन
-hr: niacin, Vitamin B3, B3
-hu: Niacin, B3-vitamin, PP-vitamin, B3
-hy: Վիտամին B3
-id: Niasin, Vitamin B3
-it: niacina, vitamina PP
-ja: ナイアシン, ビタミンB3, ビタミンPP
-nl: Niacine, Vitamine B3, Vitamine PP
-pl: witamina b3, niacyna
-ru: Ниацин, витамин B3, витамин PP, E375, B3, никотиновая кислота
-sv: vitamin B3, B3
-# ast:Vitamina B3
-# azb:ویتامین ب۳
-# en-ca:Niacin
-# en-gb:Niacin
-wikidata:en: Q134658
-wikipedia:en: https://en.wikipedia.org/wiki/Niacin
-# ingredient/vitamin-b3 has 744 products in 8 languages @2018-11-23
-
-
-# description:en:Nicotinamide (NAM), also known as niacinamide, is a form of vitamin B3 found in food and used as a dietary supplement and medication.
-
-
-< en:vitamin B3
-en: Nicotinamide, niacinamide
-ar: نيكوتيناميد
-bg: никотинамид
-ca: niacinamida
-cs: Nikotinamid
-cy: nicotinamid
-de: Nicotinamid
-el: νικοτιναμίδη
-eo: nikotinamido
-fi: nikotiiniamidi, niasiiniamidi
-fr: nicotinamide, niacinamide
-hi: निकोटिनामाइड
-hr: nikotinamid
-hu: Nikotinamid
-hy: Նիկոտինամիդ
-id: Nikotinamida
-it: Nicotinamide
-ja: ニコチンアミド
-ko: 니코틴아마이드
-lv: nikotīnamīds
-nl: Nicotinamide
-or: ନିକୋଟିନାମାଇଡ଼
-pl: nikotynoamid
-pt: nicotinamida
-ru: Никотинамид
-sh: Nikotinamid
-sr: никотинамид
-tr: Nikotinamid
-uk: Нікотинамід
-vi: Nicotinamide
-zh: 烟酰胺
-# sr-ec:Никотинамид
-# sr-el:Nikotinamid
-# zh-cn:烟酰胺
-# zh-hans:烟酰胺
-# zh-hant:煙醯胺
-# zh-hk:菸鹼醯胺
-# zh-sg:烟酰胺
-# zh-tw:菸鹼醯胺
-wikidata:en: Q192423
-wikipedia:en: https://en.wikipedia.org/wiki/Nicotinamide
-# ingredient/fr:nicotinamide has 172 products in 2 languages @2019-01-16
-
-
-# description:en:Pantothenic acid, also called vitamin B5 (a B vitamin), is a water-soluble vitamin.
-< en:vitamins
-en: Pantothenic acid, vitamin B5, B5
-ar: فيتامين بي5
-bg: Пантотенова киселина, витамин B5, B5
-bs: Vitamin B5
-ca: àcid pantotènic, vitamina B5, B5
-cs: kyselina pantothenová, vitamín B5, B5
-cy: Asid pantothenig, Fitamin B5, B5
-de: Pantothensäure, Vitamin B5, B5
-dv: ވިޓަމިން ބީ5
-eo: Pantotena acido
-es: ácido pantoténico, Vitamina B5, B5
-et: Pantoteenhape, Vitamiin B5, B5
-eu: Azido pantoteniko, B5 bitamina
-fa: ویتامین ب۵
-fi: Pantoteenihappo, B5-vitamiini, B5
-fr: acide pantothénique, Vitamine B5, B5
-ga: Aigéad pantaitéineach
-gl: Ácido pantoténico, Vitamina B5
-he: ויטמין B5
-hi: विटामिन बी५
-hr: pantotenska kiselina, Vitamin B5, B5
-hu: pantoténsav, B5, B5-vitamin
-hy: Պանտոտենաթթու
-id: Asam pantotenat, Vitamin B5
-it: acido pantotenico, Vitamina B5, B5
-ja: パントテン酸, ビタミンB5
-kk: Пантотен қышқылы
-ko: 판토텐산
-ky: Пантотен кычкылы
-lb: Pantothensaier, Vitamin B5
-lt: Pantoteno rūgštis, B5
-lv: pantotēnskābe, B5 vitamīns, B5
-mk: Пантотенска киселина
-ml: പാന്റോത്തിനിക് ആസിഡ്
-mn: Пантотений хүчил
-ms: Asid pantotenik
-nb: pantotensyre
-nl: pantoteenzuur, Pantotheenzuur, B5
-oc: Acid pantotenic, Vitamina B5
-pl: kwas pantotenomy, Witamina B5, B5
-pt: ácido pantoténico, Vitamina b5, B5
-ro: acid pantotenic, vitamina B5, B5
-ru: пантотеновая кислота, Витамин B5, B5
-sh: Vitamin B5
-sk: Kyselina pantoténová, Vitamín B5, B5
-sl: Pantonenska kislina
-sr: Пантотенска киселина, витамин Б5
-sv: pantotensyra, Vitamin B5, B5
-ta: பான்டோதெனிக் அமிலம், உயிர்ச்சத்து பி5
-th: กรดแพนโทเทนิก, วิตามินบี5
-tr: Pantotenik asit, Vitamin B5
-uk: Пантотенова кислота, Вітамін В5
-ur: پینٹوتھینک تیزاب
-vi: Axit pantothenic
-zh: 泛酸
-# azb:پانتوتنیک اسید
-# sco:pantothenic acid
-# sr-ec:Пантотенска киселина, витамин Б5
-# sr-el:Vitamin B5
-# zh-cn:泛酸
-# zh-hans:泛酸
-# zh-hant:泛酸
-# zh-hk:泛酸
-# zh-sg:泛酸
-# zh-tw:泛酸
-wikidata:en: Q179894
-wikipedia:en: https://en.wikipedia.org/wiki/Pantothenic_acid
-# vitamin/pantothenic-acid has 1373 products in 12 languages @2018-11-19
-# fr:acide-pantothénique has 900 products in 9 languages @2018-11-19
-
-
-# description:en:Another common supplemental form of the vitamin is CALCIUM PANTOTHENATE. Calcium pantothenate is often used in dietary supplements because, as a salt, it is more stable than pantothenic acid.
-
-< en:Pantothenic acid
-en: calcium pantothenate
-de: Calcium-Pantothenat
-es: pantotenato de calcio
-fi: kalsiumpantotenaatti, kalsium-d-pantotenaatti
-fr: pantothénate de calcium
-hr: kalcijev pantotenat
-hu: kalcium-pantotenát
-it: pantotenato di calcio
-ja: パントテン酸カルシウム, パントテン酸Ca
-nl: calcium pantothenaat
-nn: kalsiumpantotenat
-wikidata:en: Q27261387
-wikipedia:en: https://en.wikipedia.org/wiki/Pantothenic_acid
-# ingredient/fr:pantothénate-de-calcium has 109 products in 4 languages @2019-04-21
-
-
-# description:en:Vitamin B6 refers to a group of chemically similar compounds which can be interconverted in biological systems.
-# Should this be split up in several chemical compounds?
-
-< en:vitamins
-en: vitamin b6, pyridoxamine, B6
-ar: فيتامين بي6
-az: Piridoksalfosfat
-bg: Витамин B6
-bn: পাইরিডক্সিন
-bs: Vitamin B6
-ca: vitamina B6, piridoxina, B6
-cs: vitamín B6
-da: Vitamin B6
-de: Vitamin B6
-dv: ވިޓަމިން ބީ6
-eo: vitamino B6
-es: vitamina b6, piridoxina, B6
-et: Vitamiin B6
-eu: B6 bitamina
-fa: ویتامین ب۶
-fi: B6-vitamiini, B6, pyridoksamiini
-fr: vitamine b6, B6
-fy: Fitamine B6
-gl: Vitamina B6
-gu: વિટામિન બી૬
-he: B6 ויטמין
-hi: विटामिन बी६
-hr: vitamin B6, B6
-hu: B6-vitamin, Piridoxamin, B6
-hy: Վիտամին B6
-id: Vitamin B6
-it: vitamina B6
-ja: ビタミンB6
-jv: Vitamin B6
-ko: 비타민 B6
-ky: Витамин В6
-lv: B6 vitamīns
-mk: Витамин Б6
-mn: B6 витамин
-ms: Vitamin B6
-my: ဗီတာမင်ဘီ-၆
-ne: भिटामिन बी-६
-nl: vitamine B6
-oc: Vitamina B6
-pl: witamina B6
-pt: vitamina B6, piridoxina
-ro: Vitamina B6
-ru: Витамин B6
-rw: Vitamini B6
-sh: Vitamin B6
-sk: vitamín B6
-sl: Vitamin B6
-sr: vitamin B6
-sv: vitamin B6, B6
-ta: உயிர்ச்சத்து பி6
-th: วิตามินบี6
-uk: Вітамін B6
-uz: Piridoksin
-vi: Vitamin B6
-zh: 维生素B6
-# ast:Vitamina B6
-# en-ca:Vitamin B6
-# en-gb:Vitamin B6
-# pt-br:Vitamina B6
-# sco:Vitamin B6
-# sr-ec:Витамин Б6
-# sr-el:vitamin B6
-# tyv:Витамин Б6
-# zh-cn:维生素B6
-# zh-hans:维生素B6
-# zh-hant:维生素B6
-# zh-hk:维生素B6
-# zh-sg:维生素B6
-# sh-tw:维生素B6
-wikidata:en: Q205130
-wikipedia:en: https://en.wikipedia.org/wiki/Vitamin_B6
-# ingredient/vitamin-b6 has 2556 products in 12 languages  @2018-11-24
-
-< en:vitamin B6
-en: pyridoxine hydrochloride
-bg: пиридоксин хидрохлорид
-de: Pyridoxinhydrochlorid
-es: clorhidrato de piridoxina
-fi: pyridoksiinihydrokloridi
-fr: chlorhydrate de pyridoxine
-hr: piridoksin-hidroklorid, piridoksinhidrohlorid
-hu: Piridoxamin-hidroklorid
-nl: pyridoxine hydrochloride
-pt: cloridrato de piridoxina
-ru: пиридоксин гидрохлорид
-sr: piridoksin-hidrohlorid
-# sr-el:piridoksin-hidrohlorid
-wikidata:en: Q26841284
-# ingredient/pyridoxine-hydrochloride has 1751 products in 5 languages @2018-11-24
-
-
-# description:en:Biotin is a water-soluble B vitamin, also called vitamin B7 and formerly known as vitamin H or coenzyme R.
-
-< en:vitamins
-en: biotin, Vitamin H, Vitamin B7, B7
-ar: بيوتين
-be: біятын
-bg: биотин
-bs: Biotin
-ca: biotina, vitamina B7, Vitamina H, B7
-cs: Biotin, vitamin B7, vitamin H
-cy: Biotin
-da: Biotin
-de: Biotin, Vitamin B7, Vitamin H
-dv: ވިޓަމިން ބީ7
-el: βιοτίνη
-eo: biotino
-es: Biotina, Vitamina B7, Vitamina H, B7, D-biotina
-et: Biotiin, B7-vitamiin, H-vitamiin
-eu: Biotina, B7 bitamina
-fa: بیوتین
-fi: biotiini, B7-vitamiini, B7, H-vitamiini, D-biotiini
-fr: vitamine B7, vitamine H
-ga: Bitin
-gl: Biotina, Vitamina B7
-he: ביוטין
-hi: बायोटिन
-hr: biotin, Vitamin B7, Vitamin H, biotine
-hu: Biotin, B7-vitamin, H-vitamin, B7
-hy: Վիտամին H
-id: Biotin, Vitamin B7, Vitamin H
-it: Biotina, Vitamina B7, Vitamina H
-ja: ビオチン, ビタミンB7, ビタミンH
-kk: Биотин
-ko: 바이오틴, 비타민 B7, 비타민 H
-ky: Биотин
-lb: Biotin, Vitamin B7, Vitamin H
-lt: Biotinas, Vitaminas B7, Vitaminas H
-lv: biotīns
-mk: Биотин
-ml: ബയോട്ടിൻ
-nb: Biotin
-nl: biotine, Vitamine B7, Vitamine H
-nn: biotin
-oc: Biotina, Vitamina B7, Vitamina H
-pl: biotyna, witamina B7, witamina H
-pt: biotina, Vitamina B7, Vitamina H
-ro: Biotină, Vitamina B7, Vitamina H
-ru: биотин, Витамин B7, Витамин H
-sh: Biotin, Vitamin B7, Vitamin H
-sk: Biotín, Vitamín B7, Vitamín H
-sl: Biotin, Vitamin B7, Vitamin H
-sr: Биотин, витамин Х, Витамин Б7
-su: Biotin
-sv: Biotin, B7-vitamin, H-vitamin
-ta: பயோட்டின், உயிர்ச்சத்து பி7
-th: ไบโอติน, ตามินบี7
-tr: Biyotin, B7 vitamini, H vitamini
-uk: Біотин
-vi: Biotin
-zh: 生物素
-# azb:بیوتین
-# sco:biotin
-# sr-ec:Биотин, витамин Х, Витамин Б7
-# sr-el:Vitamin H
-# zh-cn:生物素
-# zh-hans:生物素
-# zh-hant:生物素
-# zh-hk:生物素
-# zh-sg:生物素
-# zh-tw:生物素
-wikidata:en: Q181354
-wikipedia:en: https://en.wikipedia.org/wiki/Biotin
-# ingredient/biotin has 145 products in 3 languages @2018-11-24
-
-< en:vitamins
-en: vitamin b8, B8
-ca: vitamina B8, B8
-de: Vitamin B8
-es: vitamina b8 B8
-fi: B8-vitamiini, B8
-fr: vitamine b8, b8
-hr: vitamin b8
-hu: B8-vitamin, B8
-it: vitamina b8, B8
-pl: witamina B8, B8
-pt: Vitamina B8
-# ingredient/vitamin-b8 has 35 products in 3 languages @2018-11-24
-
-
-
-
-
-
-
-# description:en:Vitamin K is a group of structurally similar, fat-soluble vitamins that the human body requires
-# for complete synthesis of certain proteins that are prerequisites for blood coagulation
-# and which the body also needs for controlling binding of calcium in bones and other tissues.
-
-< en:vitamins
-en: vitamin K
-af: Vitamien K
-ar: فيتامين ك
-az: K vitamini
-bg: Витамин K
-bs: Vitamin K
-ca: Vitamina K
-cs: vitamín K
-da: Vitamin K
-de: Vitamin K
-dv: ވިޓަމިން ކޭ
-es: Vitamina K
-eu: K bitamina
-fa: ویتامین کا
-fi: K-vitamiini, K-vitamiinit
-fr: vitamine K
-gl: Vitamina K
-he: ויטמין K
-hi: विटामिन के
-hr: vitamin K
-hu: K-vitamin
-hy: Վիտամին K
-id: Vitamin K
-is: K-vítamín
-it: vitamina K
-ja: ビタミンK
-jv: Vitamin K
-ka: ვიტამინი K
-ko: 비타민 K
-ky: Витамин К
-lt: Vitaminas K
-lv: K vitamīns
-ml: ജീവകം കെ
-mr: के-जीवनसत्त्व
-ms: Vitamin K
-my: ဗီတာမင်ကေ
-nb: Vitamin K
-ne: भिटामिन के
-nl: vitamine K
-nn: Vitamin K
-oc: Vitamina K
-pl: Witamina K
-pt: vitamina K
-ro: Vitamina K
-ru: Витамин K
-sh: Vitamin K
-sl: Vitamin K
-sr: витамин К
-su: Vitamin K
-sv: K-vitamin
-ta: உயிர்ச்சத்து கே
-th: วิตามินเค
-tr: K vitamini
-uk: Вітамін K
-vi: Vitamin K
-zh: 维生素K
-# ast:Vitamina K
-# nan:Bî-tá-mín K
-# sco:Vitamin K
-# sr-ec:витамин К
-# sr-el:vitamin K
-# tyv:Витамин К
-# zh-cn:维生素K
-# zh-hans:维生素K
-# zh-hant:维生素K
-# zh-hk:维生素K
-# zh-sg:维生素K
-# zh-tw:维生素K
-wikidata:en: Q182338
-wikipedia:en: https://en.wikipedia.org/wiki/Vitamin_K
-# ingredient/vitamin-k has 85 products in 4 languages @2018-11-25
-
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-#
 #                                                  S A L T     S E C T I O N
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -10568,6 +9008,10 @@ ciqual_food_name:en: Salt, white, for human consumption (sea, igneous or rock), 
 ciqual_food_name:fr: Sel blanc alimentaire, non iodé, non fluoré (marin, ignigène ou gemme)
 
 # description:en:SMOKED SALT is an aromatic salt smoked with any number of select bark free woods for up to 14 days.
+
+< en: rock salt
+en: salt from Salies de Béarn
+fr: sel de Salies de Béarn
 
 < en:salt
 en: Smoked salt
@@ -15657,16 +14101,16 @@ vegetarian:en: maybe
 # comment:en:In some languages one distinghuishes between edible and non-edible oils
 
 < en:oil and fat
-en: vegetable oil and fat
+en: vegetable oil and fat, vegetable fat and oil
 bg: растително масло и мазнина, растителни мазнини и масла
 ca: Oli i greix vegetal
 cs: Rostlinný olej a tuk
-da: Vegetabilsk olie og fedt
+da: vegetabilsk olie og fedt, vegetabilsk fedt og olie
 de: pflanzliche Öle und Fette
 el: Φυτικά έλαια και λίπη
 es: aceites y grasas vegetales
 et: taimsed rasvad ja õlid
-fi: kasviöljy ja -rasva, kasviöljyt ja -rasvat
+fi: kasviöljy ja -rasva, kasviöljyt ja -rasvat, kasvirasva ja -öljy
 fr: huiles et graisses végétales, graisses et huiles végétales, graisse et huile végétales, huiles et matières grasses végétales, huile et graisses végétales, huile et graisse végétale, graisse et huiles végétales, huile et graisse végétales, graisses et huile végétales, huiles végétales hydrogénées et non hydrogénées
 he: שומן ושמן מן הצומח
 hr: biljna ulja i masnoće, biljna ulja i masti
@@ -16114,7 +14558,7 @@ fr: matière grasse lactique, matière grasse laitière, matière grasse de lait
 hr: mlijecnu mast, mliječna mast, mliječne masti, mliječne masti
 hu: tejzsír
 is: mjólkurfita
-it: grasso del latte
+it: grasso del latte, grasso di latte
 lt: pieno riebalai
 lv: piena tauki
 nb: melkefett
@@ -18452,7 +16896,9 @@ it: grasso di cartamo
 
 < en:vegetable oil
 # producedFrom:en:chia
-en: chia oil
+en: chia oil, chia seed oil
+ca: oli de xia
+da: chiaolie
 de: Chiaöl
 es: aceite de chía
 fi: chiaöljy, chia-öljy, chia-siemenöljy
@@ -18460,8 +16906,11 @@ fr: huile de chia
 hr: chia ulje
 hu: chia olaj, chiamagolaj, chiamag olaj, chia mag olaj
 it: olio di chia
+ja: チアオイル
 nl: chia-olie
+sv: chiaolja
 from_palm_oil:en: no
+wikidata:en: Q1071708
 
 < en:vegetable oil
 # producedFrom:en:hazelnut
@@ -22113,6 +20562,7 @@ fr: arôme d'érable
 hr: aroma javora
 it: aroma di acero
 
+< en:maple flavouring
 < en:natural flavouring
 en: natural maple flavouring
 fr: arôme naturel d'érable
@@ -22130,6 +20580,14 @@ en: natural maple extract
 fr: extrait naturel d'érable
 hr: prirodni ekstrakt javora
 it: estratto naturale di acero
+
+< en:flavouring
+en: arrack flavouring
+sv: arraksarom
+
+< en:flavouring
+en: mocha flavouring
+sv: mockaarom
 
 < en:flavouring
 en: plum flavouring
@@ -24403,11 +22861,6 @@ de: Getreideextrudat
 fr: extrudat de céréales
 it: estruso di cereali
 
-< en:cereal
-en: cereal extrudate
-de: Getreideextrudat
-fr: extrudat de céréales
-
 #probably more for mixed cereals
 < en:cereal
 en: crunchy cereals
@@ -24853,7 +23306,7 @@ it: frumento integrale
 lt: viso kviečių rupiniai, viso kvietiniai rupiniai, viso kvietinės rupiniai, viso kvietinis rupiniai
 nb: sammalt hvete
 nl: volkorentarwe, volkoren tarwe
-pl: pszenica z pełnego przemiału, pszenica pełnoziarnista
+pl: pszenica z pełnego przemiału, pszenica pełnoziarnista, pszenne pełnoziarniste
 pt: trigo integral
 sk: polnozrnata pšenica
 sl: pšenični polnozrnati
@@ -24897,7 +23350,7 @@ pl: płatki pszenne, chrupki pszenno-żytnie
 pt: flocos de trigo
 ro: fulgi de grâu
 sl: pšenični kosmiči
-sv: veteflingor
+sv: veteflingor, veteflinga
 th: เกล็ดข้าวสาลี
 #1457 in 19 @2021-10-22
 
@@ -24910,6 +23363,7 @@ hr: sladne pšenične pahuljice
 it: fiocchi di frumento maltato
 
 < en:wheat flakes
+< en:whole wheat
 en: whole wheat flakes
 ca: flocs de blat integral
 de: Vollkorn-Weizenflocken, Weizenvollkornflocken
@@ -24922,7 +23376,7 @@ it: Fiocchi di grano interi
 lt: pilno grūdo kviečių dribsniai, pilno grūdo kvietiniai dribsniai, pilno grūdo kvietinės dribsniai, pilno grūdo kvietinis dribsniai
 nl: volkoren tarwevlokken
 pt: flocos de trigo integral, płatki pszenne pełnoziarniste
-sv: fullkornsveteflingor, fullkorn veteflinga
+sv: fullkornsveteflingor, fullkorn veteflingor, fullkorn veteflinga
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pétales-de-blé-complet
 # 22 products in 5 languages @2018-09-22
 
@@ -25035,6 +23489,7 @@ es: escaña menor, escanda menor, espelta pequeña, escaña cultivada
 fi: einkorn-vehnä, einkorn
 fr: petit épeautre, engrain
 hr: jednozrna pšenica
+hu: alakor, alakor búza
 it: piccolo farro, farro monococco
 ja: ヒトツブコムギ
 la: Triticum monococcum
@@ -25099,7 +23554,7 @@ ecobalyse_origins_en_france:en: 38788025-a65e-4edf-a92f-aab0b89b0d61
 
 < en:wheat
 en: durum wheat, hard wheat
-af: durum
+xx: durum
 ar: قمح صلب
 bg: твърда пшеница
 ca: blat dur
@@ -25128,7 +23583,6 @@ ky: катуу буудай
 la: Triticum durum, Triticum turgidum subsp. durum
 lt: kietasis kvietys
 lv: cietais kviesis
-ms: durum
 mt: qamħ durum
 nb: durumhvete
 nl: durum tarwe, durumtarwe
@@ -25202,7 +23656,7 @@ fr: blé dur complet
 # ingredient/fr:ble-dur-complet has 6 products in 1 language @2020-06-08
 hr: durum pšenice
 it: grano duro integrale
-sv: fullkornsdurumvetemjöl, fullkornsmjöl av durumvete
+sv: fullkornsdurumvete, fullkorms durumvete
 ciqual_food_code:en: 9060
 ciqual_food_name:en: Durum wheat, whole, raw
 ciqual_food_name:fr: Blé dur entier, cru
@@ -25220,6 +23674,7 @@ it: farina di grano duro integrale, farina integrale di grano duro
 nl: volkoren tarwegriesmeel
 pl: pełnoziarnista mąka z pszenicy durum, pełnoziarnista mąka z pszenicy twardej, mąka pełnoziarnista z pszenicy twardej
 ru: цельно зерновая мука из твердых сортов пшеницы
+sv: fullkornsdurumvetemjöl, fullkornsmjöl av durumvete
 
 < en:durum wheat
 < en:wheat sourdough
@@ -25345,7 +23800,7 @@ pt: semola integral de trigo duro
 ru: Органичесая цельнозерновая мука из твердых сортов пшеницы
 sl: polnozrnati pšenični zdrob durum
 sr: integralna krupica durum pšenice
-sv: fullkornsdurumvete
+sv: fullkornsdurumvetesemolina
 # 350 in 20 @2021-09-28
 
 < en:whole durum wheat semolina
@@ -25360,18 +23815,14 @@ fr: semoule de blé dur précuite
 
 # description:en:Freekeh (sometimes spelled frikeh) or farik is a cereal food made from green durum wheat (Triticum turgidum var. durum) that is roasted and rubbed to create its flavour.
 < en:durum wheat
-en: freekeh, cooked spelt freekeh, frik
+en: freekeh, frik, cooked spelt freekeh
+xx: freekeh
 ar: فريكة
 ba: фәрикә
 de: Freekeh, Farik
-fr: frik, freekeh, blé vert freekeh, blé concassé frik, blé concassé
+fr: frik, blé vert freekeh, blé concassé frik, blé concassé
 he: פריקה
-hr: freekeh
-it: freekeh
 ja: フリーカ
-jv: freekeh
-nl: freekeh
-pt: freekeh
 ru: фрике
 tr: firik
 zh: 翡麦
@@ -25383,15 +23834,16 @@ wikipedia:en: https://en.wikipedia.org/wiki/Freekeh
 
 # (Triticum turgidum L. subsp. turgidum),
 < en:wheat
-en: poulard wheat, rivet wheat, cone wheat
+en: rivet wheat, poulard wheat, cone wheat
 fr: blé poulard
 hr: pularna pšenica
+hu: hasas vagy angol búza
 it: grano Poulard
-la: Triticum turgidum L. subsp. turgidu
+la: Triticum turgidum L. subsp. turgidum
 rare_crop:en: yes
 
 < en:poulard wheat
-fr: pulard d'Auvergne, blé poulard d'Auvergne
+fr: poulard d'Auvergne, blé poulard d'Auvergne
 rare_crop:en: yes
 
 < en:poulard wheat
@@ -25401,6 +23853,11 @@ rare_crop:en: yes
 < en:poulard wheat
 fr: pétanielle noire de Nice
 rare_crop:en: yes
+
+< en:durum wheat
+en: durum wheat kernels, durum kernels
+da: durumkerner
+sv: durumkärnor
 
 
 ##################################################################################
@@ -25762,7 +24219,7 @@ fi: emmervehnä
 fr: blé amidonnier, amidonnier
 hi: खपली गेहूँ
 hr: emmer
-hu: tönkebúza
+hu: tönkebúza, tönke, emmer, emmer búza
 hy: Հաճար
 it: grano farro, farro dicocco, farro, emmer
 ja: エンマーコムギ
@@ -25780,6 +24237,7 @@ tr: Kavılca buğdayı
 uk: Полба
 zh: 二粒小麦
 allergens:en: en:gluten
+rare_crop:en: yes
 wikidata:en: Q167339
 
 < en:cereal flour
@@ -25990,7 +24448,7 @@ hu: teljes kiőrésű árpa
 it: orzo integrale
 nl: volkorengerst
 nn: fulkornsbygg
-pl: jeçzmień z pełnego przemiału
+pl: jeçzmień z pełnego przemiału, jęczmienne pełnoziarniste
 pt: cevada integral
 ciqual_food_code:en: 9320
 ciqual_food_name:en: Barley, whole, raw
@@ -27074,7 +25532,7 @@ hr: integralna zob
 hu: teljes kiőrlésű zab
 it: Avena integrale
 nl: volkoren haver
-pl: pełnoziarnisty owies
+pl: pełnoziarnisty owies, owsiane pełnoziarniste
 sv: fullkornshavre
 
 < en:oat
@@ -27247,7 +25705,7 @@ it: farina di avena senza glutine
 pl: bezglutenowa mąka owsiana
 
 < en:oat
-< en:vegetable fibre
+< en:vegetable fiber
 en: oat fibre
 bg: овесени влакнини, фибри от овес
 da: Havrefibre
@@ -27281,7 +25739,7 @@ nl: glutenvrije havervezels
 pl: błonnik owsiany bezglutenowy, bezglutenowy błonnik owsiany
 
 < en:oat
-< en:vegetable fibre
+< en:vegetable fiber
 en: oat husk fiber
 de: Haferspelzfaser, Haferspelzfasern
 fr: fibre de son d'avoine
@@ -27338,12 +25796,6 @@ uk: вівсяне молоко
 zh: 燕麦奶
 wikidata:en: Q20972637
 #28 @2021-09-22
-
-< en:oat milk
-en: oat milk powder
-de: Haferdrinkpulver
-hr: zobeno mlijeko u prahu
-it: latte d'avena in polvere
 
 # <en:compound
 en: oat base
@@ -29801,10 +28253,12 @@ nl: maïsvezel
 pl: błonnik kukurydziany
 sk: kukuričná vláknina
 
-< en: corn fiber
+< en:corn fiber
 en: soluble corn fiber
 fr: Fibre soluble de maïs
+hr: topivih kukuruznih vlakana
 it: fibra di mais solubile
+pl: rozpuszczalny błonnik kukurydziany, błonnik rozpuszczalny kukurydziany
 
 < en:corn
 en: Maize bran, Corn bran
@@ -29814,11 +28268,6 @@ it: crusca di mais
 ciqual_food_code:en: 9641
 ciqual_food_name:en: Maize/corn bran
 ciqual_food_name:fr: Son de maïs
-
-< en:corn fiber
-en: soluble corn fiber
-hr: topivih kukuruznih vlakana
-pl: rozpuszczalny błonnik kukurydziany, błonnik rozpuszczalny kukurydziany
 
 < en:corn
 nl: maïspoeder
@@ -32328,6 +30777,7 @@ it: zucchero di canna naturale non raffinato
 en: whole cane sugar
 de: Vollrohrzucker
 es: azucar de caña integral, azucar integral de caña
+fi: täysruokosokeri
 fr: sucre de canne complet, suc de canne intégral, sucre de canne intégral, sucre complet de canne
 hr: cijeli šećer od trske
 it: zucchero di canna integrale
@@ -34326,6 +32776,7 @@ it: proteine vegetali testurizzate
 en: almond protein
 de: Mandelprotein
 fr: protéine d'amande
+it: proteine delle mandorle, proteine dalle mandorle, proteine (mandorle), proteina (mandorle)
 pl: białko migdałowe
 
 < en:plant protein
@@ -34403,7 +32854,8 @@ it: proteina di ceci
 
 < en:plant protein
 en: sunflower protein
-de: Sonnenblumenprotein, Eiweißpulver aus Sonnenblumenkernen
+de: Sonnenblumeneiweiß, Sonnenblumenprotein, Eiweißpulver aus Sonnenblumenkernen
+fr: protéine de tournesol
 hr: suncokretovih bjelančevina, suncokretove bjelančevine, proteini suncokreta
 it: proteine di girasole
 pl: białko słonecznika, białko słonecznikowe, białka słonecznika
@@ -34429,12 +32881,6 @@ pt: Proteína de batata
 ro: proteină de cartofi
 sv: potatisprotein
 # ingredient/fr:proteine-de-pomme-de-terre has 44 products in 4 languages @2020-05-25
-
-< en:plant protein
-en: almond protein
-de: Mandelprotein
-fr: protéine d'amande
-it: proteine delle mandorle, proteine dalle mandorle, proteine (mandorle), proteina (mandorle)
 
 # description:en:HYDROLYZED VEGETABLE PROTEIN -  products are foodstuffs obtained by protein hydrolysis
 
@@ -34482,7 +32928,6 @@ en: hydrolysed sunflower protein, hydrolyzed sunflower protein
 da: hydrolyseret solsikkeprotein
 it: proteina di girasole idrolizzata
 pl: hydrolizat białka słonecznikowego, hydrolizowane białko słonecznikowe, hydrolizat białka słonecznika
-
 
 < en:plant protein
 en: soy protein
@@ -34668,7 +33113,7 @@ nl: getextuurd tarwe-eiwit, getextureerd tarwe-eiwit
 pl: teksturat białek pszenicy, teksturowane białko pszenne, teksturowane białko pszenicy, teksturowany gluten pszenny
 # ingredient/en:textured-wheat-protein has 75 products in 3 languages @2020-06-11
 
-< en:vegetable hydrolysed protein
+< en:hydrolysed vegetable protein
 < en:wheat protein
 en: hydrolyzed wheat protein
 da: hydrolyseret hvedeprotein
@@ -34682,7 +33127,7 @@ it: proteine del grano idrolizzate
 nl: gehydroliseerd tarwe-eiwit, gehydrolyseerd tarweeiwit
 pl: hydrolizat białka pszenicy, hydrolizowane białko pszenne
 
-< en:vegetable hydrolysed protein
+< en:hydrolysed vegetable protein
 en: hydrolysed corn protein
 de: Maisproteinhydrolysat
 es: proteína de maíz hidrolizada
@@ -35057,11 +33502,6 @@ wikidata:en: Q522243
 wikipedia:en: https://en.wikipedia.org/wiki/Calcium_caseinate
 
 < en:plant protein
-en: sunflower protein
-de: Sonnenblumeneiweiß, Sonnenblumenprotein
-fr: protéine de tournesol
-
-< en:plant protein
 en: rapeseed protein
 bg: рапичен протеин
 de: Rapseiweiß
@@ -35167,14 +33607,6 @@ fr: Cacao alcalinisé
 hr: kakao obrađen lužinom
 it: Cacao trattato con agenti alcalinizzanti
 pl: kakao alkalizowane
-
-< en:cocoa-powder
-#en:processing:en:powder
-en: cocoa powder processed with alkali, alkalized cocoa powder
-es: Cacao en polvo procesado con álcali
-fr: Cacao en poudre alcalinisé
-hr: kakao prah obrađen alkalijom
-it: cacao in polvere
 
 < en:cocoa
 en: fat reduced cocoa, reduced fat cocoa, low fat cocoa, lean cocoa
@@ -35359,7 +33791,7 @@ he: אבקת קקאו
 # hr:kakao prah, kakaov prah # see ingredients_processing.txt
 hu: kakaópor
 id: Kakao padat
-#it:cacao in polvere
+it: cacao in polvere
 ja: ココアパウダー
 ko: 코코아 가루
 lt: kakavos milteliai
@@ -35446,6 +33878,7 @@ sv: fettreducerat kakaopulver, fettreducerad kakaopulver, skummet kakaopulver, f
 # ingredient/fr:cacao-en-poudre-fortement-dégraissé has 76 products @2019-05-25
 
 < en:cocoa-powder
+#en:processing:en:powder
 en: cocoa powder processed with alkali, alkalized cocoa powder
 de: Kakaopulver mit Alkalisalzen versetzt
 es: Cacao en polvo procesado con álcali
@@ -37242,6 +35675,8 @@ sv: sojabas
 # it:salsa di soia translation error
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-soja
 # 253 products in 7 languages @2018-09-25
+vegan:en: maybe
+vegetarian:en: yes
 
 < en:soya bean
 en: Okara, soy pulp
@@ -37986,7 +36421,7 @@ de: Roggenvollkornsauerteig
 fi: täysjyväruistaikinajuuri
 hr: cijelo raženo kiselo tijesto
 it: pasta madre di segale integrale
-sv: surdeg av fullkornsrågmjöl, surdeg av fullkornsrågmöl, surdeg på fullkornsråg
+sv: surdeg av fullkornsrågmjöl, surdeg av fullkornsrågmöl, surdeg på fullkornsråg, surdeg av fullkornsråg
 
 < en:rye sourdough
 fr: levain de seigle dévitalisé
@@ -38181,6 +36616,16 @@ de: fruchtmischung
 es: mix de frutas, mezcla de frutas
 hr: miješano voće
 it: frutta mista
+
+< en:mixed fruit
+en: mango apple mix
+da: mango-æble mix
+de: Mango-Apfel Mischung
+fi: mango-omenasekoitus
+fr: mélange de mangue et de pomme
+nb: mango-eple mix
+nl: mango-appel mix
+sv: mango-äpple mix
 
 < en:mixed fruit
 en: mixed peel
@@ -42457,7 +40902,7 @@ eo: limeo
 es: lima
 eu: Lima
 fa: لیموترش سبز
-fi: limetti
+fi: limetti, limea, lime
 fr: citron vert
 ga: Líoma
 gl: Lima
@@ -43785,6 +42230,7 @@ it: pezzi di ribes nero
 < en:blackcurrant
 en: blackcurrant juice from concentrate
 cs: ovocná šťáva z koncentrátu černého rybízu
+da: solbærsaft fra koncentrat
 de: schwarzer Johannisbeersaft aus Konzentrat, schwarze Johannisbeere-Konzentrat
 es: zumo de cassis a base de concentrado, jugo de cassis a base de concentrado
 fi: mustaherukkamehu tiivisteestä
@@ -43792,6 +42238,7 @@ fr: jus de cassis à base de concentré
 hr: sok brusnice u granulama
 it: succo di ribes nero da concentrato
 nl: zwarte bessensap op basis van concentraat
+sv: svartvinbärsjuice från koncentrat
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-cassis-à-base-de-concentré
 # 144 in 8 @2021-09-12
 
@@ -43841,7 +42288,7 @@ ar: عنب الأحراج
 be: Ягаднік
 bg: боровинка, боровинки
 cs: Borůvka
-da: bølle
+da: blåbær, bølle
 de: Heidelbeeren, Blaubeeren, Heidelbeere
 eo: mirtelo
 es: arándano, arándanos, mirtilo
@@ -43904,7 +42351,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Vaccinium_myrtillus
 en: cultivated blueberry
 bg: Сини боровинки
 cs: Borůvky
-da: Blåbærsorter
+da: blåbærsorter
 de: Kulturheidelbeeren
 # hr:borovnica
 pl: borówka amerykańska, borówki amerykańskie
@@ -43916,7 +42363,7 @@ wikidata:en: Q1791749
 < en:blueberry
 en: wild blueberry, wild blueberries
 bg: дива боровинка, диви боровинки
-da: blåbær
+da: vildt blåbær, vilde blåbær
 de: Wilde Heidelbeeren
 fi: villimustikka
 fr: myrtille sauvage
@@ -43956,7 +42403,9 @@ pl: borówka dzika, borówki dzikie
 #processing:en: en:juice
 < en:blueberry
 en: blueberry juice
+da: blåbærsaft
 it: succo di mirtillo
+sv: blåbärssaft
 #es:Jugo de zarzamora
 #fi:mustikkamehu
 #fr:jus de myrtille
@@ -44779,6 +43228,7 @@ wikipedia:fr: https://fr.wikipedia.org/wiki/Noix_de_coco
 # NOTE the oil and fat of a coconut can be found under the fats section
 # When coconut is listed as ingredient, probably the white stuff is meant. The watery stuff is probably never used? I.e. coco versus coconut
 
+< en:coconut
 #<en:compound
 en: coconut cream
 bg: кокосов крем
@@ -44816,7 +43266,7 @@ es: Leche de coco
 fi: kookosmaito
 fr: lait de noix de coco, lait de coco
 hr: kokosovo mlijeko
-it: latte di noce di cocco
+it: latte di noce di cocco, latte di noci di cocco
 nb: kokosmelk
 nl: kokosmelk, kokosnootmelk, kokosroom
 pl: mleko kokosowe, mleczko kokosowe, mleka kokosowego, mleczka kokosowego, napój kokosowy, napój z kokosa
@@ -44865,27 +43315,6 @@ es: agua de coco natural
 fr: Eau de noix de coco naturelle
 hr: prirodna kokosova voda
 it: acqua di cocco naturale
-
-< en:coconut milk
-en: coconut milk powder, powdered coconut milk
-bg: кокосово мляко на прах
-ca: llet de coco en pols
-de: Kokosnussmilchpulver, Kokosmilchpulver
-es: leche de coco en polvo
-fi: kookosmaitojauhe
-fr: lait de noix de coco en poudre, lait de coco en poudre
-hr: kokosovo mlijeko u prahu
-it: latte di noci di cocco in polvere
-nl: kokosmelkpoeder
-pl: mleko kokosowe w proszku, mleczko kokosowe w proszku
-sv: kokosmjölkspulver
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:lait-de-noix-de-coco-en-poudre
-# 53 products in 3 languages @2018-10-03
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:lait-de-coco-en-poudre
-# 69 products in 3 languages @2018-10-03
-
-< en:coconut milk powder
-fr: lait de coco reconstitué
 
 #processing:en: en:extract
 #<en:coconut
@@ -49584,18 +48013,6 @@ it: Žlahtina
 wikidata:en: Q394231
 wikipedia:hr: https://hr.wikipedia.org/wiki/%C5%BDlahtina
 
-< en:coconut
-en: coconut cream
-de: Kokosnusscreme
-es: Crema de coco
-fi: kookoskerma
-fr: crème de noix de coco, crème de coco
-hr: vrhnje od kokosa
-it: Crema di noce di cocco
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:crème-de-noix-de-coco
-# 33 products @2018-10-03
-nutriscore_fruits_vegetables_nuts:en: no
-
 ###################################################################################################
 #
 #                                Tamarind
@@ -49727,7 +48144,7 @@ en: vegetable, vegetables
 bg: зеленчук, зеленчуци
 ca: Vegetals, Verdures
 cs: Zelenina
-da: grøntsag, grøntsager
+da: grøntsag, grøntsager, grønsag, grønsager
 de: Gemüse
 el: λαχανικό, λαχανικά
 es: verduras, hortaliza, hortalizas, vegetal, vegetales
@@ -50374,7 +48791,7 @@ pt: acelga
 ro: Mangold
 ru: мангольд
 sr: блитва
-sv: Mangold
+sv: mangold
 tr: Pazı
 uk: Мангольд
 zh: 莙薘菜
@@ -50415,6 +48832,10 @@ de: Rübenkonzentrat
 fr: concentrés de blettes
 hr: koncentrat blitve
 it: concentrato di bietola
+
+< en:chard
+en: red chard
+sv: röd mangold
 
 < en:leaf vegetable
 en: spinach
@@ -51324,11 +49745,13 @@ wikipedia:en: https://en.wikipedia.org/wiki/Broccoli
 
 < en:broccoli
 en: broccoli floret, broccoli top
+da: broccolibuket, broccolibuketter
 de: Brokkoliröschen
 fr: brocolis en fleurettes, fleurettes de brocolis
 hr: cvjetić brokule
 it: fiore di broccolo
 nl: broccoliroosjes, broccoli roosjes
+sv: broccolibukett, broccolibuketter
 # ingredient/fr:brocolis-en-fleurettes has 17 products in 3 languages @2019-05-24
 carbon_footprint_fr_foodges_ingredient:fr: Brocoli (France)
 carbon_footprint_fr_foodges_value:fr: 0.4
@@ -51336,12 +49759,14 @@ eurocode_2_group_3:en: 8.15.12
 
 < en:broccoli
 en: broccoli cress
+da: broccolikarse
 de: Brokkolikresse
 es: mastuerzo
 fr: pousses de brocoli
 hr: brokula kres
 it: crescione di broccoli
 nl: broccoli cress
+sv: broccolikrasse
 # en:broccoli-cress has 1 product in 1 language @2018-10-16
 
 < en:broccoli
@@ -51412,17 +49837,20 @@ wikipedia:en: https://en.wikipedia.org/wiki/Cauliflower
 
 < en:cauliflower
 en: cauliflower florets
+da: blomkålsbuketter, blomkålsbuket
 de: Blumenkohlröschen, Blumenkohl-Röschen
 fr: Choux-fleurs en fleurettes
 hr: cvjetovi cvjetače
 it: cimette di cavolfiore
 nl: Bloemkoolroosjes
+sv: blomkålsbuketter, blomkålsbukett
 # ingredient/fr:choux-fleurs-en-fleurettes has 15 products in 6 languages @2019-05-24
 
 # description:en:POINTED CABBAGE (Brassica oleracea var. capitata f. acuta), also known as cone, sweetheart, hispi or sugarloaf cabbage is a form of cabbage (Brassica oleracea) with a tapering shape and large delicate leaves varying in colour from yellowish to blue-green. It tastes less pronounced and more delicate than common white cabbage (Brassica oleracea var. capitata f. alba).
 
 < en:brassica
 en: pointed cabbage
+da: spidskål
 de: Spitzkohl
 sv: spetskål
 wikidata:en: Q7225623
@@ -52865,7 +51293,7 @@ ciqual_food_name:en: Chicory, powder, instant
 ciqual_food_name:fr: Chicorée, poudre soluble
 
 < en:chicory
-en: extract of chicory
+en: chicory extract, extract of chicory
 bg: екстракт от цикория
 de: Zichorien-Extrakt
 es: extracto de achicoria
@@ -54365,7 +52793,7 @@ ru: лук скорода
 sk: pažítka
 sl: drobnjak
 sr: vlašac
-sv: gräslök
+sv: gräslök, gräslöks
 ta: இனப்பூண்டு
 tr: yaprak soğanı
 uk: цибуля-різанець
@@ -57271,7 +55699,7 @@ ru: руккола
 sd: ڄانڀو
 sq: sallatë manushaqeje
 sr: рукола
-sv: ruccola, ruccolasallad
+sv: rucola, rucolasallad, ruccola, ruccolasallad
 tr: roka
 uk: рукола
 zh: 芝麻菜
@@ -57367,7 +55795,13 @@ it: insalata composta
 # do not make pepper a synonym of bell pepper
 
 < en:fruit vegetable
-en: bell pepper, sweet pepper, capsicum
+en: capsicum annuum
+xx: capsicum annuum, capsicum
+sv: spanskpeppar, spansk peppar
+wikidata:en: Q1380
+
+< en:capsicum annuum
+en: bell pepper, sweet pepper
 af: soetrissie
 an: pimiento
 ar: فلفل حلو
@@ -57874,40 +56308,34 @@ fr: piment doux
 # description:en:The JALAPEÑO is a medium-sized chili pepper pod type cultivar of the species Capsicum annuum.
 
 < en:chili pepper
-en: jalapeno pepper, jalapeño, jalapeño pepper, jalapeño chili, jalapeño chilli, jalapeño chillies, jalapeno
+en: jalapeno pepper, jalapeño pepper, jalapeño chilli, jalapeño chillies
+xx: jalapeño, jalapeños, jalapeño chili, jalapeno, jalapenos, jalapeno chili
 ar: هالبينو
 bg: халапеньо, чушки халапеньо
 ca: bitxo jalapeño
-cs: jalapeño
-da: jalapeno, jalapeño
+da: jalapeño chili
 de: Jalapeno-Chilis, Jalapenopfeffer
 eo: ĥalapenjokapsiko
-es: Pimientos Jalapeños, jalapeno, pimiento jalapeño rojo
-et: jalapeño, jalapeno
+es: Pimientos Jalapeños, pimiento jalapeño rojo
 fa: هالاپینو
-fi: jalapeño, jalapeno, jalapenot
+fi: jalapeño, jalapenot, jalapeñoa
 fr: piments jalapeño, piment jalapeño
 gl: pemento xalapeño
 he: חלפניו
 hr: jalapeno papričica
-hu: jalapeno paprika, jalapeno
+hu: jalapeno paprika
 hy: հալապենո
-id: jalapeño
 it: Peperoncini jalapeños
 ja: ハラペーニョ
 kn: ಹಾಲಪೇನ್ಯೊ
 ko: 할라페뇨
 ml: ഹലപീനൊ
-nb: jalapeño
 nl: Jalapeno pepers, jalapeño peper
-pl: papryczki jalapeño, jalapeño, papryka jalapeño
+pl: papryczki jalapeño, papryka jalapeño
 pt: pimenta-jalapenho
 ru: халапеньо
-sk: jalapeño
-sv: Jalapeno peppar, jalapeño, jalapeno, jalapeños, jalapeñochili
+sv: jalapeñopeppar, jalapenopeppar, jalapeño peppar, jalapeno peppar, jalapeñochili
 th: ฆาลาเปญโญ
-tl: jalapeño
-tr: jalapeño
 uk: халапеньйо
 zh: 墨西哥辣椒
 wikidata:en: Q504133
@@ -57916,6 +56344,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Jalape%C3%B1o
 
 < en:jalapeno pepper
 en: green jalapeno peppers, green jalapeno
+da: grøn jalapeño, grønne jalapeños
 de: grüne jalapenos
 fi: vihreä jalapeño, vihreä jalapeno, vihreät jalapenot
 fr: piment jalapeño vert
@@ -57928,29 +56357,19 @@ sv: grön jalapeño
 
 < en:jalapeno pepper
 en: chipotle, chipotle chilli, chipotle chile, chipotle pepper
+xx: chipotle, chipotle chili
 bg: Chipotle чили пипер
-ca: chipotle
-cs: chipotle
-da: chipotle
 de: Chipotle, Chipotle Chili, Chipotle Chilischoten
 el: τσιπότλε
-es: chile chipotle, chipotle
-fi: chipotle, chipotle chili
+es: chile chipotle
 fr: chipotle, piment chipotle
-gl: chipotle
 he: צ'יפוטלה
-hr: chipotle
-hu: chipotle
 it: chipotle, pepe chipotle
 ja: チポトレ
 kn: ಚಿಪೋಟ್ಲೆ
 ko: 치폴레
-nb: chipotle
-nl: chipotle
-pl: papryka chipotle, chipotle chili
-pt: chipotle
+pl: papryka chipotle
 ru: чипотле
-sv: chipotle
 th: ชิโปตเล
 uk: чипотле
 # nah:chīlpoctli
@@ -58381,7 +56800,7 @@ it: pomodorini, pomodorini ciliegia, pomodoro ciliegino
 ja: ミニトマト
 nl: kerstomaatjes, cherry tomaat, cheryytomaatjes, cherrytomaten, tomaatjes, snoeptomaatjes
 nn: cocktailtomater
-pl: pomidor koktajlowy, pomidory koktajlowe, pomidorów koktajlowych
+pl: pomidor koktajlowy, pomidory koktajlowe, pomidorów koktajlowych, pomidorki koktajlowe
 pt: tomates cerejas, tomates cereja
 sv: körsbärstomater, cherrytomater, cocktailtomater
 # ingredient/fr:tomates-cerise has 432 products in 10 languages @2018-12-26
@@ -58995,7 +57414,7 @@ ar: إيليوكاريس حلو
 as: শিঙৰি
 bg: китайски воден кестен
 cs: Bahnička jedlá
-da: Vandkastanje
+da: vandkastanje, vandkastanjer
 de: Wasserkastanien
 el: Κινέζικο νεροκάστανο
 eo: Akvokaŝtano
@@ -59018,7 +57437,7 @@ nl: waterkastanje, waterkastanjes, Chinese waterkastanje
 pl: Ponikło słodkie
 ru: Болотница сладкая
 sd: سنگھارا
-sv: Vattenkastanj
+sv: vattenkastanj, vattenkastanjer
 th: แห้วทรงกระเทียม
 tl: Apulid
 to: Kuta
@@ -59574,7 +57993,7 @@ he: שעועית מצויה
 hi: सामान्य फलियाँ
 hr: grah
 ht: Pwa nouris
-hu: Veteménybab
+hu: Veteménybab, Közönséges bab
 hy: լոբի
 id: Buncis
 io: Fazeolo
@@ -59624,6 +58043,7 @@ zh: 菜豆
 carbon_footprint_fr_foodges_ingredient:fr: Haricot blanc en conserve (type cassoulet)
 carbon_footprint_fr_foodges_value:fr: 2
 eurocode_2_group_3:en: 7.10.30
+rare_crop:en: yes
 # azb:عادی لوْبیا
 # bar:Fisoin
 # chr:ᏚᏯ
@@ -59846,6 +58266,12 @@ zh: 荷包豆
 #nah:ayecohtli, ayocohtli
 wikidata:en: Q159753
 
+# may or may not contain bean-beans
+< en:legume
+< en:pulse
+en: mixed beans, bean mix
+sv: blandade bönor
+
 ###########################
 #
 #
@@ -59972,6 +58398,7 @@ fr: haricot de Lima, haricots de Lima
 ga: pónaire mhór
 hr: lima grah
 ht: pwachouk
+hu: Limabab, Lima bab
 id: kacang kratok, kacang jawa, kekara
 it: fagiolo di Lima
 ja: ライマメ
@@ -59982,7 +58409,7 @@ ms: kacang serinding, kacang keratuk, kacang kratok, kacang cina
 nb: limabønne, limabønner
 nl: limaboon, Indische maanboon, wilgenbladboon, olifantsboon
 pl: fasola półksiężycowata
-pt: feijão-de-lima
+pt: feijão de lima
 ru: фасоль луновидная, Фасо́ль лунообра́зная, фасоль ли́мская, фасоль лу́нная
 sr: лима пасуљ, lima pasulj
 su: roay, kacang jawa, kekara
@@ -60029,6 +58456,7 @@ es: frijol pinto
 fr: Haricots pinto
 hr: grah crnobijeli
 it: fagioli pinto
+sv: pintobönor, pintoböna
 eurocode_2_group_3:en: 7.10.30
 eurocode_2_group_4:en: 7.10.30.45
 
@@ -60052,10 +58480,14 @@ sv: vit böna, vita bönor
 eurocode_2_group_3:en: 7.10.30
 eurocode_2_group_4:en: 7.10.30.10
 
+< en:white beans
+en: large white beans
+sv: stora vita bönor
 
 < en:white beans
 en: lingot beans, white lingot beans
 fr: lingots blancs, lingo blanc, haricots lingots blancs, haricots blancs lingots, lingot, lingots, lingots blancs
+hu: lingot bab
 it: fagioli lingotti
 rare_crop:en: yes
 
@@ -60174,6 +58606,7 @@ de: Cannellini Bohnen, Cannellinibohnen
 fr: haricots cannellini
 hr: cannellini grah
 it: fagioli cannellini, cannellini
+sv: cannellinibönor, cannelliniböna
 wikidata:en: Q74663825
 
 #comment:en:Do not confuse these with mungo beans: Vigna mungo
@@ -60408,7 +58841,7 @@ fr: lupin, lupins, lupin doux, lupins doux
 ga: lúipín
 he: תורמוס
 hr: lupin, lupina, lupinu
-hu: csillagfürt
+hu: csillagfürt, csillagfürt bab
 hy: լուպին
 id: lupino
 is: úlfabaunir
@@ -60469,6 +58902,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Lupin_bean
 en: white lupin
 fr: lupin blanc, lupin blanc doux
 hr: bijela lupina
+hu: fehér csillagfürt
 it: lupino bianco
 la: lupinus albus
 rare_crop:en: yes
@@ -60477,6 +58911,7 @@ rare_crop:en: yes
 en: blue lupine
 fr: lupin bleu, lupin bleu doux
 hr: plava lupina
+hu: kék csillagfürt
 it: lupino blu
 la: lupinus angustifolius
 
@@ -60484,6 +58919,7 @@ la: lupinus angustifolius
 en: yellow lupin
 fr: lupin jaune, lupin jaune doux
 hr: žuta lupina
+hu: sárga csillagfürt
 it: lupino giallo
 la: lupinus luteus
 
@@ -60553,7 +58989,7 @@ gl: Faballón
 he: פול
 hi: बकला
 hr: bob
-hu: lóbab
+hu: lóbab, holdbab
 hy: Բակլա
 id: Kara oncet
 io: Fabo
@@ -60667,8 +59103,9 @@ eurocode_2_group_3:en: 8.45.20
 
 # rare bean from the Lyon region in France
 < en:pulse
-en: meat bean
-fr: haricot viande, haricots viande
+en: meat bean, bean of Bresse, Chartreuse and Oisan bean
+fr: haricot viande, haricots viande, haricot de Bresse, haricot de Chartreuse et d'Oisan
+hu: húsbab
 it: fagiolo di carne
 rare_crop:en: yes
 
@@ -60739,6 +59176,7 @@ gu: ચોળા
 he: לוביה
 hi: लोबिया
 hr: kravlji grah
+hu: tehénborsó, homoki bab
 is: Augnbaun
 it: fagiolo dall'occhio
 ja: ササゲ
@@ -60903,10 +59341,10 @@ zh: 豌豆
 # zh-tw:豌豆
 # wikidata:en:Q29472543 (seems more the vegetable)
 eurocode_2_group_3:en: 8.45.10
-wikipedia:en: https://en.wikipedia.org/wiki/Pea
 # ingredient/fr:pois has 259 products in 7 languages @2019-05-10
 # usage:fr:amidon (blé, pomme de terre, pois, maïs)
-
+rare_crop:en: yes
+wikipedia:en: https://en.wikipedia.org/wiki/Pea
 
 # <en:pea
 # fr:extrait de pois # see ingredients_processing.txt
@@ -60915,6 +59353,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Pea
 < en:pea
 en: yellow pea
 de: Palerbse, Palerbsen
+fr: pois jaune, pois jaunes
 it: pisello giallo
 
 # description:en:The chickpea or chick pea (Cicer arietinum) is an annual legume of the family Fabaceae, subfamily Faboideae.
@@ -60960,6 +59399,7 @@ kk: нұт
 kn: ಕಡಲೆ
 ko: 병아리콩
 ku: nok
+la: cicer arietinum
 lb: käicher
 lt: avinžirniai
 lv: auna zirņi
@@ -61008,6 +59448,7 @@ ciqual_food_name:fr: Pois chiche, appertisé, égoutté
 ecobalyse:en: chickpea-fr
 ecobalyse_labels_en_organic:en: chickpea-organic
 eurocode_2_group_3:en: 7.10.15
+rare_crop:en: yes
 # aeb-arab:حمص
 # arc:ܚܪܛܘܡܢܐ
 # azb:نوخود
@@ -61039,23 +59480,6 @@ hr: pedrosillano slanutak
 it: ceci pedrosillani
 nl: pedrosillano kikkererwten
 #3 in es @2021-10-16
-
-# This is the plant, not the peas themselves
-
-< en:chickpea
-en: Cicer arietinum
-it: cicer arietinum
-la: Cicer arietinum
-
-#<en:chickpea
-#en:organic chickpea
-#bg:био нахут
-#fi:luomukikherne, luomu kikherne
-#fr:Pois chiches biologiques
-#10@2019-06-12
-
-< en:chickpea
-fr: pois chiches précuits
 
 # <en:compound
 #processing:en: en:cooked
@@ -61349,7 +59773,9 @@ en: grey pea, grey peas
 fr: pois gris
 hr: sivi grašak
 it: pisello grigio
+la: pisum sativum subsp. arvense
 sv: gråärtan
+rare_crop:en: yes
 
 < en:pea
 en: grass pea, grass peas, cicerchia, blue sweet pea, chickling pea
@@ -61358,6 +59784,7 @@ es: almorta, Chícharo, chicharo
 fi: peltonätkelmä
 fr: pois carré, pois carrés, gesse
 hr: trava grašak
+hu: Szegletes lednek
 it: cicerchia
 la: lathyrus sativus
 pt: chícharo
@@ -61404,7 +59831,7 @@ gu: મસુર
 he: עדשה תרבותית
 hi: मसूर
 hr: leća
-hu: főzeléklencse
+hu: főzeléklencse, lencse
 is: Linsubaun
 it: Lenticchie, lenticchia
 ja: レンズマメ
@@ -61456,6 +59883,7 @@ ciqual_food_name:fr: Lentille, bouillie/cuite à l'eau
 ecobalyse:en: lentils-uncooked-eu
 ecobalyse_origins_en_france:en: lentils-uncooked-fr
 eurocode_2_group_3:en: 7.10.25
+rare_crop:en: yes
 # aeb-arab:عدس
 # azb:مرجیمک
 # ckb:نیسک
@@ -61691,6 +60119,19 @@ de: Linsenvollkornmehl
 es: harina integral de lenteja
 hr: integralno brašno od leće
 it: farina integrale di lenticchie
+
+< en:plant protein
+en: lentil protein
+da: linseprotein
+fi: linssiproteiinia
+sv: linsprotein
+
+< en:lentil protein
+< en:preparation
+en: lentil protein preparation
+da: linseproteinpræparat
+fi: linssiproteiinivalmiste
+sv: beredning av linsprotein
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -61929,6 +60370,7 @@ fr: amande coque
 < en:almond
 en: raw almonds, Natural whole almonds, Raw natural almonds
 bg: сурови бадеми
+da: rå mandel
 de: rohe Mandeln
 es: almendras crudas
 # fr: amandes crues, amandes décortiquées # see ingredients_processing.txt
@@ -63106,7 +61548,7 @@ lv: pekanrieksti
 mt: ġewż Amerikan
 nl: pecannoot, pecannoten
 nn: pekannøtter
-pl: orzeszki pekan, Orzechy pekan łuskane
+pl: orzeszki pekan, Orzechy pekan łuskane, orzechów pekan
 pt: nozes pécan
 ro: nuci Pecan
 ru: пекан
@@ -63754,9 +62196,11 @@ description:en: Chia is grown commercially for its seed, a food rich in omega-3 
 description:it: I semi di chia, ricchi di omega-3, sono paragonabili dal punto di vista nutrizionale a quelli del lino e del sesamo.
 # ingredient/chia-seed 2376 in 18 @2021-08-20
 nutriscore_fruits_vegetables_nuts:en: no
+wikidata:en: Q27688832
 
 < en:chia seed
 en: dried chia seeds
+da: tørret chiafrø, tørrede chiafrø
 fr: Graines de chia séchées
 it: semi di chia secchi
 ciqual_food_code:en: 15047
@@ -64368,12 +62812,14 @@ wikidata:en: Q3143131
 
 < en:pepper
 en: peppercorns
+da: peberkorn
 de: Pfefferkörner
 es: pimienta en grano
 fi: Pippureita
 fr: grains de poivre
 hr: papar u zrnu
 it: grani di pepe
+sv: pepparkorn
 
 < en:pepper
 en: pepper extract
@@ -64399,12 +62845,14 @@ fi: luontainen pippuriuute
 < en:black pepper
 < en:white pepper
 en: black and white pepper
+da: sort og hvid peber
 de: schwarzer und weißer Pfeffer
 fi: musta- ja valkopippuri
 fr: Poivres noir et blanc
 hr: bijeli biber
 it: pepe nero e bianco
 nl: zwarte en witte peper
+sv: svart- och vitpeppar, svart och vit peppar
 
 < en:pepper
 en: long pepper
@@ -68331,7 +66779,7 @@ ko: 백리향
 la: thymus vulgaris
 lt: čiobrelis
 ml: തോട്ടതുളസി
-nb: thyme
+nb: timian
 nl: tijm, thijm
 nn: timian
 or: ଦଅଣା
@@ -73167,7 +71615,7 @@ ko: 스피룰리나
 la: Spirulina platensis
 ml: സ്പൈറുലിന
 my: စပီရူလိုင်းနား
-pl: spirulina, spiruliny
+pl: spirulina, spirulíny, spiruliny
 ro: Spirulia
 ru: Спирулина
 ta: நீலப்பச்சைப்பாசி
@@ -85059,12 +83507,10 @@ pl: estry stanoli roślinnych
 sv: växtstanolester
 # ingredient/fr:esters-de-stanols-vegetaux has 4 products in 3 languages @2020-06-13
 
-en: plant stanol ester
-de: Pflanzenstanolester
+en: plant sterol ester
 es: éster de esterol vegetal, ésteres de esteroles vegetales
 fi: kasvisteroliesteri, kasvisteroliesterit
 fr: ester de stérol végétal, esters de stérol végétal
-hr: biljni stanol ester
 pl: estry steroli roślinnych
 # ingredient/fr:esters-de-sterol-vegetal has 29 products in 3 languages @2020-12-21
 vegan:en: yes
@@ -86422,6 +84868,7 @@ ko: 칠면조고기
 nl: kalkoenvlees
 nn: kalkunkjøt
 pl: Mięso indyka, mięso z indyka, mięso drobiowe z indyka
+pt: carne de peru
 ro: carne de curcan
 ru: индюшатина
 sv: Kalkonkött
@@ -86459,6 +84906,7 @@ hr: pureći file od prsa, file purećih prsa
 it: Filetto di tacchino, petto di tacchino
 nl: Kalkoenfilet
 pl: pierś indyka, pierś z indyka, mięso z piersi indyka
+pt: Peito de peru
 sv: kalkonbröst
 tr: hindi göğsü
 # ingredient/fr:filet-de-dinde has 162 products in 5 languages @2019-04-16
@@ -86981,7 +85429,7 @@ en: organic free range chicken eggs
 fr: oeufs frais de poules élevées en plein air issus de l'agriculture biologique
 it: uova biologiche di galline allevate all'aperto
 
-< en:category A egg
+< en:category A eggs
 < en:free range chicken eggs
 fr: Œufs de catégorie A de poules élevées en plein air, Oeufs de catégorie A de poules élevées en plein air, 9 Œufs de catégorie A de poules élevées en plein air, Œufs frais de poules élevées en plein air de catégorie A
 # ingredient/fr:oeufs-de-categorie-a-de-poules-elevees-en-plein-air has 5 products @2019-05-31
@@ -87845,6 +86293,7 @@ kn: ಸಾರ
 ky: Экстракттар
 lt: Ekstraktas
 nl: extract, extracten
+pl: ekstrakt, ekstrakty
 pt: extrato, extracto
 ru: Экстракт
 sl: ekstrat
@@ -88226,7 +86675,7 @@ fr: fibre de pois, fibres de pois
 hr: vlakna graška
 it: fibra di pisello
 nl: erwtenvezel, erwtvezel
-pl: błonnik grochowy, błonnik grochu
+pl: błonnik grochowy, błonnik grochu, włókna grochu
 ro: fibre de mazare
 # ingredient/fr:fibre-de-pois has 173 products in 7 languages @2019-04-21
 
@@ -88431,7 +86880,9 @@ wikipedia:en: https://en.wikipedia.org/wiki/Food_browning
 # Compound ingredients are ingredients that have sub-ingredients. Usually a compound ingredient is followed by a list of other ingredients.
 # the word preparation - like berry preparation, for example - also correspond to previous definition of compound
 en: preparation
+da: præparat
 it: preparazione
+sv: beredning
 
 # description:en:Stuffing or filling is an edible substance or mixture, normally consisting primarily of small cut-up pieces of bread or a similar starch and served as a side dish or used to fill a cavity in another food item while cooking. Many foods may be stuffed, including eggs, poultry, seafood, mammals, and vegetables, but chickens and turkey are the most common.
 
@@ -88940,7 +87391,6 @@ nl: pasta uit durumtarwe
 ro: griş integral de grâu dur
 sk: múka z tvrdej pšenice
 sr: дурум пшенице гриз паста
-sv: fullkorms durumvete
 # 10@2019-06-04
 carbon_footprint_fr_foodges_ingredient:fr: Pâtes sèches
 carbon_footprint_fr_foodges_value:fr: 0.5
@@ -90747,7 +89197,7 @@ ko: 빵가루
 lt: Malti džiūvėsiai
 nb: strøkavring, griljermel
 nl: paneermeel, Paneermelen
-pl: bułka tarta, bułki tartej
+pl: bułka tarta, bułki tartej, panier
 pt: pão ralado
 ru: Панировочные сухари
 sk: Strúhanka
@@ -92139,7 +90589,7 @@ pt: leite de soja
 ru: Соевое молоко
 sk: Sójové mlieko
 sr: Sojino mleko
-sv: Sojamjölk
+sv: sojamjölk
 te: సోయా పాలు
 th: น้ำเต้าหู้
 tr: Soya sütü
@@ -94728,4 +93178,10 @@ no: paprika
 pl: papryka, papryki, paprykowy, paprykowe, paprykowa
 sl: paprika
 sv: paprika
+
+< en:Minerals
+< en:Vitamins
+en: vitamin and mineral blend, vitamin and mineral mix
+it: vitamine e minerali misti
+ru: витаминно минеральный премикс, витаминный премикс
 

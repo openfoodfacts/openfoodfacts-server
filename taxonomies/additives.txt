@@ -1511,7 +1511,7 @@ bg: E150, Карамел
 ca: E150, Caramel
 cs: E150, karamel
 da: E150, Karamel
-de: E150, Karamell
+de: E150, Karamell, Caramel
 el: E150, καραμέλα
 eo: E150, karamelo
 es: E150, Caramelo, Caramelina
@@ -3369,7 +3369,7 @@ bg: E170, Калциеви карбонати
 bn: ক্যালসিয়াম কার্বোনেটস
 ca: E170, Carbonats de calci
 cs: E170, Uhličitany vápenaté
-da: E170, Calciumcarbonater
+da: E170, calciumkarbonater, calciumcarbonater
 de: E170, Calciumcarbonate
 el: E170, ανθρακικά άλατα ασβεστίου
 eo: E170, Kalcia karbonatoj
@@ -3431,7 +3431,7 @@ bs: E170(i), Kalcij-karbonat
 ca: E170(i), Carbonat de calci
 cs: E170(i), Uhličitan vápenatý, CI bílý pigment 18
 cy: E170(i), calsiwm carbonad
-da: E170(i), Calciumcarbonat, CI Pigment White 18
+da: E170(i), calciumkarbonat, calciumcarbonat, CI Pigment White 18
 de: E170(i), Calciumcarbonat, Pigment White 18, Kalk, Calcium-carbonat, Kalziumkarbonat
 el: E170(i), Ανθρακικο ασβεστιο, Λευκό CI Pigment 18
 eo: E170(i), kalcia karbonato
@@ -3521,7 +3521,7 @@ xx: E170(ii)
 ar: E170(ii), بيكربونات الكالسيوم
 ca: E170(ii), Hidrogencarbonat de calci
 cs: E170(ii), Hydrogenuhličitan vápenatý
-da: E170(ii), calciumhydrogencarbonat
+da: E170(ii), calciumhydrogenkarbonat, calciumhydrogencarbonat
 de: E170(ii), Calciumhydrogencarbonat, Calciumbicarbonat
 el: E170(ii), όξινο ανθρακικό ασβέστιο
 eo: E170(ii), kalcia hidrogenkarbonato
@@ -5569,7 +5569,7 @@ ar: E242, ثنائي ميثيل ثنائي الكربونات
 bg: E242, Диметил дикарбонат, DMDC
 ca: E242, Dicarbonat de dimetil, DMDC
 cs: E242, Dimethyldiuhličitan, DMDC
-da: E242, Dimethyldicarbonat, DMDC
+da: E242, dimethyldikarbonat, dimethyldicarbonat, DMDC
 de: E242, Dimethyldicarbonat, DMDC, Velcorin
 el: E242, Δικαρβονικος διμεθυλεστερας, DMDC
 es: E242, Dimetil dicarbonato, DMDC, Dicarbonato de dimetilo
@@ -6158,7 +6158,7 @@ it: E262, acetati di sodio
 ja: E262, 酢酸ナトリウム族
 nl: E262, natriumacetaten
 pl: E262, Octany sodu, Octan sodowy
-pt: E262, acétates de sodium
+pt: E262, acetatos de sódio
 ru: E262, ацетат натрия
 sl: E262, Natrijev acetats
 sv: E262, Natriumacetater
@@ -7198,7 +7198,7 @@ wikidata:en: Q56410901
 
 #comment:en:E304 is the old version of E304(i)
 
-en: E304, Fatty acid esters of ascorbic acid
+en: E304, Fatty acid esters of ascorbic acid, ascorbic acid esters of fatty acid
 xx: E304
 ar: إسترات الأحماض الدهنية لحمض الأسكوربيك
 az: Askorbin turşusunun yağ turşusu esterləri
@@ -7212,7 +7212,7 @@ es: ésteres de ácidos grasos del ácido ascórbico
 et: Askorbiinhappe rasvhappeestrid
 eu: Azido askorbikoaren gantz-azidoen esterrak
 fa: استرهای اسید چرب اسید آسکوربیک
-fi: Askorbiinihapon rasvahappoesterit
+fi: askorbiinihapon rasvahappoesterit
 fr: Acide palmityle-6-L-ascorbique, esters d'acides gras de l'acide ascorbique
 ga: ইস্টেরí aicídí sailleacha d'aigéad ascorbic
 he: אסטרים של חומצות שומן של חומצה אסקורבית
@@ -7234,7 +7234,7 @@ ru: Эфиры жирных кислот аскорбиновой кислоты
 sk: Estery mastných kyselín kyseliny askorbovej
 sl: Estri maščobnih kislin askorbinske kisline
 sr: Естри масних киселина аскорбинске киселине
-sv: Fettsyraestrar av askorbinsyra
+sv: fettsyraestrar av askorbinsyra, askorbinsyraestrar av fettsyror
 th: เอสเทอร์ของกรดไขมันของกรดแอสคอร์บิก
 tr: Askorbik asidin yağ asidi esterleri
 uk: Ефіри жирних кислот аскорбінової кислоти
@@ -7250,7 +7250,6 @@ from_palm_oil:en: maybe
 vegan:en: maybe
 vegetarian:en: maybe
 wikidata:en: Q43303953
-
 
 < en:E304
 en: E304(i), Ascorbyl palmitate, L-Ascorbyl Palmitate
@@ -8668,10 +8667,10 @@ en: E331(iii), Trisodium citrate
 xx: E331(iii)
 bg: E331(iii), Тринатриев цитрат
 ca: E331(iii), Citrat trisòdic, citrat trisodic
-da: E331(iii), Trinatriumcitrat
+da: E331(iii), Trinatriumcitrat, trinatriumcitrater
 de: E331(iii), Trinatriumcitrat
 es: E331(iii), Citrato trisódico
-fi: E331(iii), Trinatriumsitraatti, Trinatriumsitraattia
+fi: E331(iii), Trinatriumsitraatti, Trinatriumsitraattia, Trinatriumsitraatit
 fr: E331(iii), Citrate trisodique
 hr: E331(iii), trinatrijev citrat
 hu: E331(iii), Trinátrium-citrát
@@ -8682,7 +8681,7 @@ nl: E331(iii), trinatriumcitraat
 pl: E331(iii), Cytrynian trisodowy
 pt: E331(iii), Citrato trissódico
 ru: E331(iii), цитрат натрия 3-замещенный, цитрат натрия 3 замещенный
-sv: E331(iii), Trinatriumcitrat
+sv: E331(iii), Trinatriumcitrat, Trinatriumcitrater
 e_number:en: 331
 # Other sodium citrates are not in the additives list in Japan https://www.ffcr.or.jp/tenka/list/post-11.html
 
@@ -9765,7 +9764,7 @@ bg: E341(ii), Дикалциев фосфат, Двуосновен калцие
 bs: E341(ii), Dikalcij-fosfat
 ca: E341(ii), Fosfat de dicalci, Hidrogenfosfat de calci
 cs: E341(ii), Hydrogenfosforečnan vápenatý
-da: E341(ii), Dicalciumphosphat, Dibasisk calciumphosphat
+da: E341(ii), dicalciumfosfat, dicalciumphosphat, dibasisk calciumphosphat
 de: E341(ii), Dicalciumphosphat, zweibasiges Calciumphosphat
 el: E341(ii), Οξινο φωσφορικο ασβεστιο, Διβασικό φωσφορικό ασβέστιο
 es: E341(ii), Fosfato dicálcico, Fosfato dibásico cálcico, fosfato dicálcico, Calcio (di) fosfato, calcio fosfato dibásico, calcio hidrógeno orto-fosfato, calcio fosfato dibásico, calcio secundario fosfato, calcio hidrógeno fosfato, calcio hidrógeno monofosfato
@@ -13702,7 +13701,7 @@ lt: E450(iii), Tetranatrio difosfatas, Tetranatrio pirofosfatas, tetranatrio dif
 lv: E450(iii), Tetranātrija difosfāts, Tetranātrija pirofosfāts, Tetranātrija difosfāts
 mt: E450(iii), Difosfat tetrasodiku, Pirofosfat tetrasodiku, Disfosfat tetrasodiku
 nl: E450(iii), Tetranatriumdifosfaat, Tetranatriumpyrofosfaat
-pl: E450(iii), Difosforan tetrasodowy, Pirofosforan czterosodowy, difosforan czterosodowy
+pl: E450(iii), Difosforan tetrasodowy, Pirofosforan czterosodowy, difosforan czterosodowy, pirofosforan sodu
 pt: E450(iii), Difosfato tetrassódico, Pirofosfato tetrassódico, difosfato de tetrassódio
 ro: E450(iii), Difosfat tetrasodic, Pirofosfat tetrasodic, Difosfat tetrasodic
 ru: E450(iii), E450III, Пирофосфат натрия, Пирофосфат тетранатрия, e450iii
@@ -13925,7 +13924,7 @@ mt: E451, Trifosfati
 nb: E451, Trifosfater, Trifosfat
 nl: E451, Trifosfaten, Trifosfaat
 pl: E451, Trifosforany, Trifosforan
-pt: E451, Tripolifosfato, Trifosfato
+pt: E451, Trifosfatos, trifosfato, polifosfatos, tripolifosfato
 ro: E451, trifosfați
 ru: E451, Tрифосфаты
 sk: E451, Trifosforečnany
@@ -15162,6 +15161,11 @@ wikipedia:en: https://en.wikipedia.org/wiki/Mono-_and_diglycerides_of_fatty_acid
 # mono—and-diglycerides-of-fatty-acids has 2139 products in 19 languages @2018-11-12
 # fr:diglycérides-d’acide-gras has 2301 products in 11 languages @2018-11-12
 
+< en:E471
+en: mono- and diglycerides of vegetable fatty acids
+sv: mono- och diglycerider av vegetabiliska fettsyror
+vegan:en: maybe
+vegetarian:en: yes
 
 en: E472, acid esters of mono- and diglycerides of fatty acids
 xx: E472
@@ -16408,7 +16412,7 @@ xx: E500
 bg: E500, Натриеви карбонати
 ca: E500, Carbonats de sodi
 cs: E500, Uhličitany sodné
-da: E500, Natriumcarbonater
+da: E500, natriumkarbonater, natriumcarbonater
 de: E500, Natriumcarbonate
 el: E500, Ανθρακικά νάτρια
 es: E500, Carbonatos de sodio
@@ -16455,7 +16459,7 @@ bn: E500(i), সোডিয়াম কার্বনেট
 bs: E500(i), Natrij-karbonat
 ca: E500(i), carbonat de sodi
 cs: E500(i), Uhličitan sodný, Bezvodý uhličitan sodný, Soda na praní
-da: E500(i), Natriumcarbonat, Soda
+da: E500(i), natriumkarbonat, natriumcarbonat, soda
 de: E500(i), Natriumcarbonat, Natriumkarbonat, Calciniertes Soda, Calcinierte Soda, Waschsoda, Kalzinierte Soda, Kalziniertes Soda
 el: E500(i), Ανθρακικα αλατα του νατριου
 eo: E500(i), natria karbonato
@@ -16540,7 +16544,7 @@ bs: E500(ii), Natrij-hidrogenkarbonat
 ca: E500(ii), Bicarbonat de sodi, carbonat àcid de sodi, Bicarbonat sòdic, hidrogencarbonat de sodi
 cs: E500(ii), Hydrogenuhličitan sodný, Kyselý uhličitan sodný, bikarbonát sodný
 cy: E500(ii), sodiwm deucarbonad
-da: E500(ii), Natriumhydrogencarbonat, Natriumbicarbonat, surt natriumcarbonat, natron
+da: E500(ii), natriumhydrogenkarbonat, natriumbikarbonat, surt natriumkarbonat, natriumhydrogencarbonat, natriumbicarbonat, surt natriumcarbonat, natron
 de: E500(ii), Natriumhydrogencarbonat, Natriumbicarbonat, doppeltkohlensaures Natrium, doppeltkohlensaures Natron
 el: E500(ii), Οξινο ανθρακικο νατριο, Διττανθρακικό νάτριο, όξινο ανθρακικό νάτριο, διττανθρακική σόδα
 eo: E500(ii), natria bikarbonato
@@ -16630,7 +16634,7 @@ en: E500(iii), Sodium sesquicarbonate
 xx: E500(iii)
 bg: E500(iii), Натриев сескикарбонат
 cs: E500(iii), Seskviuhličitan sodný
-da: E500(iii), Natriumsesquicarbonat
+da: E500(iii), natriumsesquikarbonat, natriumsesquicarbonat
 de: E500(iii), Natriumsesquicarbonat
 el: E500(iii), Σεσκιανθρακικο νατριο
 eo: E500(iii), Natria seskvikarbonato
@@ -16674,7 +16678,7 @@ en: E501, Potassium carbonates
 xx: E501
 bg: E501, калиеви карбонати
 ca: E501, carbonats de potassi
-da: E501, Kaliumcarbonater
+da: E501, kaliumkarbonater, kaliumcarbonater
 de: E501, Kaliumcarbonate, Kaliumcarbonaten
 el: E501, ανθρακικά άλατα καλίου
 es: E501, Carbonatos de potasio
@@ -16710,7 +16714,7 @@ bg: E501(i), Калиев карбонат
 bn: E501(i), পটাসিয়াম কার্বনেট
 ca: E501(i), Carbonat de potassi
 cs: E501(i), Uhličitan draselný, Potaš, K2CO3, Kalcinované draslo
-da: E501(i), Kaliumcarbonat, Potaske
+da: E501(i), kaliumkarbonat, kaliumcarbonat, Potaske
 de: E501(i), Kaliumcarbonat, Pottasche, Kaliumkarbonat
 el: E501(i), Ανθρακικα αλατα του καλιου
 eo: E501(i), kalia karbonato
@@ -16788,7 +16792,7 @@ en: E501(ii), Potassium hydrogen carbonate, Potassium bicarbonate
 xx: E501(ii)
 bg: E501(ii), Калиев хидроген карбонат, Калиев бикарбонат
 cs: E501(ii), Hydrogenuhličitan draselný, Bikarbonát draselný
-da: E501(ii), Kaliumhydrogencarbonat, Kaliumbicarbonat
+da: E501(ii), kaliumhydrogenkarbonat, kaliumbikarbonat, kaliumhydrogencarbonat, kaliumbicarbonat
 de: E501(ii), Kaliumhydrogencarbonat, Kaliumbicarbonat
 el: E501(ii), Οξινο ανθρακικο καλιο, Διττανθρακικό κάλιο
 eo: E501(ii), Kalia bikarbonato
@@ -16840,7 +16844,7 @@ en: E502, Carbonates
 xx: E502
 bg: E502, Карбонати
 cs: E502, Uhličitany
-da: E502, Carbonater
+da: E502, karbonater, carbonater
 de: E502, Carbonate
 el: E502, Ανθρακικά
 es: E502, Carbonatos
@@ -16874,7 +16878,7 @@ xx: E503
 bg: E503, Амониеви карбонати
 ca: E503, carbonatos de amonio, carbonats d'amoni
 cs: E503, Amoniakální uhličitany
-da: E503, ammoniumcarbonater
+da: E503, ammoniumkarbonater, ammoniumcarbonater
 de: E503, Ammoniumcarbonate
 el: E503, Αμμωνιακά άλατα
 es: E503, Carbonatos de amonio
@@ -16910,7 +16914,7 @@ ar: E503(i), كربونات الأمونيوم
 bg: E503(i), Амониев карбонат
 ca: E503(i), Carbonat d'amoni
 cs: E503(i), Uhličitan amonný
-da: E503(i), Ammoniumcarbonat
+da: E503(i), ammoniumkarbonat, ammoniumcarbonat
 de: E503(i), Ammoniumcarbonat
 el: E503(i), Ανθρακικα αλατα του αμμωνιου
 eo: E503(i), Amonia karbonato
@@ -16964,7 +16968,7 @@ ar: E503(ii), بيكربونات الأمونيوم
 bg: E503(ii), Амониев хидроген карбонат, Амониев бикарбонат, Амониев хидрогенкарбонат
 ca: E503(ii), carbonat àcid d'amoni, bicarbonato amonico, gasificant E503II
 cs: E503(ii), Hydrogenuhličitan amonný
-da: E503(ii), Ammoniumhydrogencarbonat, Hjortetakssalt, ammoniumvätekarbonat
+da: E503(ii), ammoniumhydrogenkarbonat, ammoniumhydrogencarbonat, hjortetakssalt
 de: E503(ii), Ammoniumhydrogencarbonat, Ammonium-hydrogencarbonat, Ammoniumbicarbonat, Hirschhornsalz
 el: E503(ii), Οξινο ανθρακικο αμμωνιο
 eo: E503(ii), Amonia bikarbonato
@@ -16996,7 +17000,7 @@ sh: E503(ii), Amonijum bikarbonat
 sk: E503(ii), Hydrogenuhličitan amónny
 sl: E503(ii), Amonijev hidrogenkarbonat
 sr: E503(ii), Amonijum bikarbonat, aditiv sredstvo za dizanje testa E503ii
-sv: E503(ii), Ammoniumvätekarbonat, hjorthornssalt
+sv: E503(ii), ammoniumvätekarbonat, hjorthornssalt
 te: E503(ii), అమ్మోనియం బైకార్బొనేట్
 th: E503(ii), แอมโมเนียมไบคาร์บอเนต
 zh: E503(ii), 碳酸氢铵
@@ -17021,7 +17025,7 @@ xx: E504
 bg: E504, Магнезиеви карбонати
 ca: E504, Carbonats de magnesi
 cs: E504, Uhličitany hořečnaté
-da: E504, Magnesiumcarbonater
+da: E504, magnesiumkarbonater, magnesiumcarbonater
 de: E504, Magnesiumcarbonaten, Magnesiumcarbonate
 el: E504, Ανθρακικά μαγνήσια
 es: E504, Carbonatos de magnesio
@@ -17055,7 +17059,7 @@ bg: E504(i), Магнезиев карбонат
 bs: E504(i), Magnezijum karbonat
 ca: E504(i), Carbonat de magnesi
 cs: E504(i), Uhličitan hořečnatý
-da: E504(i), Magnesiumcarbonat
+da: E504(i), magnesiumkarbonat, magnesiumcarbonat
 de: E504(i), Magnesiumcarbonat
 el: E504(i), Ανθρακικό μαγνήσιο, Ανθρακικα αλατα του μαγνησιου
 eo: E504(i), magnezia karbonato
@@ -17114,7 +17118,7 @@ en: E504(ii), Magnesium hydroxide carbonate
 xx: E504(ii)
 bg: E504(ii), Магнезиев хидрокси карбонат
 cs: E504(ii), Uhličitan-dihydroxid hořečnatý
-da: E504(ii), Magnesiumhydroxidcarbonat
+da: E504(ii), magnesiumhydroxidkarbonat, magnesiumhydroxidcarbonat
 de: E504(ii), Magnesiumhydroxidcarbonat
 el: E504(ii), Ανθρακικο υδροξειδιο του μαγνησιου
 es: E504(ii), Carbonato ácido de magnesio
@@ -17142,7 +17146,7 @@ en: E505, Ferrous carbonate
 xx: E505
 bg: E505, Желязен карбонат
 cs: E505, Uhličitan železnatý
-da: E505, Jerncarbonat
+da: E505, jernkarbonat, jerncarbonat
 de: E505, Eisen(II)-carbonat
 el: E505, Ανθρακικός σίδηρος
 es: E505, Carbonato ferroso
@@ -22484,7 +22488,7 @@ az: E927, Azodikarbonamid və Karbamid
 bg: E927, Азодикарбонамид и Карбамид
 ca: E927, Azodicarbonamida i Carbamide
 cs: E927, Azodicarbonamid a Karbamide
-da: E927, Azodicarbonamid og Carbamide
+da: E927, azodikarbonamid og karbamid, azodicarbonamid og carbamide
 de: E927, Azodicarbonamid und Carbamide
 el: E927, Αζοδικαρβοναμίδιο και Καρβαμίδιο
 eo: E927, Azodicarbonamide kaj Carbamide
@@ -22521,7 +22525,7 @@ az: E927a, Azodikarbonamid
 bg: E927a, Азодикарбонамид
 ca: E927a, Azodicarbonamida
 cs: E927a, Azodicarbonamid
-da: E927a, Azodicarbonamid
+da: E927a, azodikarbonamid, azodicarbonamid
 de: E927a, Azodicarboxamid, Azodicarbonamid
 el: E927a, Αζοδικαρβοναμίδιο
 eo: E927a, Azodikarbonamido
@@ -22576,7 +22580,7 @@ bn: E927b, ইউরিয়া
 bs: E927b, Urea
 ca: E927b, Carbamida
 cs: E927b, Karbamid, Močovina
-da: E927b, Carbamid, Urea, Urinstof
+da: E927b, karbamid, carbamid, urea, urinstof
 de: E927b, Carbamid, Harnstoff, Urea, Kohlensäurediamid
 el: E927b, Καρβαμιδιο, Ουρία
 eo: E927b, ureo
@@ -26592,7 +26596,7 @@ sv: di- och trifosfater
 < en:E500
 < en:E503
 en: ammonium and sodium carbonates
-da: ammonium - og natriumcarbonat
+da: ammonium- og natriumkarbonat, ammonium- og natriumcarbonat
 de: Ammonium und Natriumcarbonat
 fi: ammonium- ja natriumkarbonaatit
 fr: carbonates d'ammonium et de sodium

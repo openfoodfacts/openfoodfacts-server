@@ -75,14 +75,12 @@
    "data_quality_errors_tags" : [],
    "data_quality_info_tags" : [
       "en:no-packaging-data",
-      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown"
    ],
    "data_quality_tags" : [
       "en:no-packaging-data",
-      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown",
@@ -518,7 +516,7 @@
    "product_type" : "food",
    "removed_countries_tags" : [],
    "rev" : 1,
-   "schema_version" : 1001,
+   "schema_version" : 1002,
    "serving_size_value" : "33",
    "serving_size_value_imported" : "33",
    "sources" : [

@@ -13,5 +13,9 @@ Environment=PERL5LIB=/srv/%i/lib/:/usr/local/share/perl/5.32.1/:/usr/lib/perl5
 EnvironmentFile=/srv/%i/env/env.%i
 WorkingDirectory=/srv/%i
 ExecStart=/srv/%i/scripts/gen_feeds_daily.sh
+# place a timeout for bad cases
+# otherwise this could prevent next export to start
+# note: we have to use TimeoutStartSec as it's a Type=oneshot service
+TimeoutStartSec=20h
 
 

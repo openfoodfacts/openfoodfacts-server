@@ -99,7 +99,8 @@ use ProductOpener::Tags qw/%language_fields %tags_fields %taxonomy_fields list_t
 use ProductOpener::Display qw/search_and_export_products/;
 use ProductOpener::Food qw/%nutriments_tables/;
 use ProductOpener::Data qw/get_products_collection/;
-use ProductOpener::Products qw/add_images_urls_to_product product_path/;
+use ProductOpener::Products qw/product_path/;
+use ProductOpener::Images qw/add_images_urls_to_product $valid_image_types_regexp/;
 use ProductOpener::EnvironmentalScore qw/localize_environmental_score/;
 use ProductOpener::ProductsFeatures qw(feature_enabled);
 
@@ -609,15 +610,17 @@ sub export_csv ($args_ref) {
 									. $other_images{$product_ref->{code} . "." . $imagefield}{imgid} . ".jpg";
 							}
 						}
-						elsif ($field =~ /^image_(.*)_(x1|y1|x2|y2|angle|normalize|white_magic|coordinates_image_size)/)
+						elsif ($field
+							=~ /^image_($valid_image_types_regexp)_(\w\w)_(x1|y1|x2|y2|angle|normalize|white_magic|coordinates_image_size)/
+							)
 						{
 							# Coordinates for image cropping
-							my $imagefield = $1;
-							my $coord = $2;
+							my $image_type = $1;
+							my $image_lc = $2;
+							my $coord = $3;
 
-							if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$imagefield})) {
-								$value = $product_ref->{images}{$imagefield}{$coord};
-							}
+							$value = deep_get($product_ref,
+								("images", "selected", $image_type, $image_lc, "generation", $coord));
 						}
 						elsif ($field =~ /^image_(ingredients|nutrition|packaging)_json$/) {
 							if (defined $product_ref->{"image_$1_url"}) {
@@ -692,7 +695,7 @@ sub include_image_paths ($product_ref, $populated_fields_ref, $other_images_ref)
 	my %selected_images = ();
 	foreach my $imageid (sort keys %{$product_ref->{images}}) {
 
-		if ($imageid =~ /^(front|ingredients|nutrition|packaging|other)_(\w\w)$/) {
+		if ($imageid =~ /^($valid_image_types_regexp)_(\w\w)$/) {
 
 			$selected_images{$product_ref->{images}{$imageid}{imgid}} = 1;
 			$populated_fields_ref->{"image_" . $imageid . "_file"} = sprintf("%08d", 10 * 1000) . "_" . $imageid;
