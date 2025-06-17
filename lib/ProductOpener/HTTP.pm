@@ -68,6 +68,7 @@ use Encode;
 use CGI qw(:cgi :cgi-lib :form escapeHTML charset);
 use Data::DeepAccess qw(deep_get);
 use LWP::UserAgent;
+use OpenTelemetry::Integration 'LWP::UserAgent';
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::RequestStats qw(:all);
