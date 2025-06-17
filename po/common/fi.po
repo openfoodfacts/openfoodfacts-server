@@ -659,6 +659,14 @@ msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
 msgstr "Tilisi parametreja on muutettu."
 
+msgctxt "edit_user_preferences"
+msgid "Preferences"
+msgstr "Asetukset"
+
+msgctxt "edit_user_preferences_result"
+msgid "Your preferences have been changed."
+msgstr "Asetuksesi ovat muuttuneet."
+
 msgctxt "editors_p"
 msgid "editors"
 msgstr "muokkaajat"
@@ -2779,6 +2787,10 @@ msgstr "Osa tämän tuotteen tiedoista ja/tai kuvista on peräisin näistä läh
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
 msgstr "Tämä tuotesivu ei ole valmis. Voit auttaa sen täydentämisessä muokkaamalla sitä, ja lisäämällä lisätietoja valokuvistamme, tai ottamalla lisää valokuvia <a href=\"https://android.openfoodfacts.org\">Android</a> tai <a href=\"https://ios.openfoodfacts.org\">iPhone / iPad</a> -sovelluksella. Kiitos!"
+
+msgctxt "title_separator"
+msgid " - "
+msgstr " - "
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -5029,6 +5041,10 @@ msgctxt "number_of_members"
 msgid "Number of Members"
 msgstr "Jäsenmäärä"
 
+msgctxt "serial_no"
+msgid "S.No"
+msgstr "S.No"
+
 msgctxt "contact_form"
 msgid "Contact form"
 msgstr "Yhteydenottolomake"
@@ -7131,6 +7147,10 @@ msgstr "Tämä käyttäjä ei ole organisaation jäsen."
 msgctxt "skip_to_content"
 msgid "Skip to Content"
 msgstr "Siirry sisältöön"
+
+msgctxt "oidc_signin_no_cookie"
+msgid "You need to enable cookies to sign in."
+msgstr "Sinun on otettava evästeet käyttöön kirjautuaksesi sisään."
 
 msgctxt "cant_delete_main_contact"
 msgid "You cannot remove the main contact. Change it first."
