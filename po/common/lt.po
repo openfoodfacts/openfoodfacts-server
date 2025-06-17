@@ -662,6 +662,14 @@ msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
 msgstr "Jūsų paskyros parametrai buvo pakeisti."
 
+msgctxt "edit_user_preferences"
+msgid "Preferences"
+msgstr ""
+
+msgctxt "edit_user_preferences_result"
+msgid "Your preferences have been changed."
+msgstr "Jūsų nuostatos buvo pakeistos."
+
 msgctxt "editors_p"
 msgid "editors"
 msgstr "redaguotojai"
@@ -2782,6 +2790,10 @@ msgstr "Kai kurie šio produkto duomenys ir (arba) nuotraukos gaunami iš šių 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
 msgstr "Šis produkto puslapis nėra užbaigtas. Galite padėti jį užbaigti, redaguodami ir pridėdami daugiau duomenų iš turimų nuotraukų arba nufotografavę daugiau nuotraukų naudodami programą, skirtą „ <a href=\"https://android.openfoodfacts.org\">Android</a> arba <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Ačiū!"
+
+msgctxt "title_separator"
+msgid " - "
+msgstr " - "
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -5031,6 +5043,10 @@ msgctxt "number_of_members"
 msgid "Number of Members"
 msgstr "Narių skaičius"
 
+msgctxt "serial_no"
+msgid "S.No"
+msgstr "S. Nr."
+
 msgctxt "contact_form"
 msgid "Contact form"
 msgstr "Kontaktų forma"
@@ -7133,6 +7149,10 @@ msgstr ""
 msgctxt "skip_to_content"
 msgid "Skip to Content"
 msgstr ""
+
+msgctxt "oidc_signin_no_cookie"
+msgid "You need to enable cookies to sign in."
+msgstr "Norėdami prisijungti, turite įjungti slapukus."
 
 msgctxt "cant_delete_main_contact"
 msgid "You cannot remove the main contact. Change it first."
