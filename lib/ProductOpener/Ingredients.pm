@@ -123,7 +123,6 @@ use ProductOpener::Food qw/is_fat_oil_nuts_seeds_for_nutrition_score/;
 use Encode;
 use Clone qw(clone);
 
-use LWP::UserAgent;
 use Encode;
 use JSON::MaybeXS;
 use Log::Any qw($log);

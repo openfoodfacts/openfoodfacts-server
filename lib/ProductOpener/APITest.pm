@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2025 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -64,11 +64,11 @@ use ProductOpener::Test qw/:all/;
 use ProductOpener::Mail qw/$LOG_EMAIL_START $LOG_EMAIL_END/;
 use ProductOpener::Store qw/store retrieve/;
 use ProductOpener::Producers qw/get_minion/;
+use ProductOpener::HTTP qw/create_user_agent/;
 
 use Test2::V0;
 use Data::Dumper;
 $Data::Dumper::Terse = 1;
-use LWP::UserAgent;
 use HTTP::CookieJar::LWP;
 use HTTP::Request::Common;
 use Encode;
@@ -161,7 +161,7 @@ Return a user agent
 
 sub new_client () {
 	my $jar = HTTP::CookieJar::LWP->new;
-	my $ua = LWP::UserAgent->new(cookie_jar => $jar);
+	my $ua = create_user_agent(cookie_jar => $jar);
 	# set a neutral user-agent, for it may appear in some results
 	$ua->agent("Product-opener-tests/1.0");
 	return $ua;
@@ -669,7 +669,7 @@ sub execute_api_tests ($file, $tests_ref, $ua = undef) {
 
 	my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results($file));
 
-	$ua = $ua // LWP::UserAgent->new();
+	$ua = $ua // create_user_agent();
 
 	foreach my $test_ref (@$tests_ref) {
 
