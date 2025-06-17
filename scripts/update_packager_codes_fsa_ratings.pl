@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2025 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -29,12 +29,12 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::PackagerCodes qw/%packager_codes normalize_packager_codes/;
+use ProductOpener::HTTP qw/create_user_agent/;
 
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
 use JSON::MaybeXS;
-use LWP::Simple;
 
 my $packager_codes_ref = retrieve("$data_root/packager-codes/packager_codes.sto");
 if (not defined $packager_codes_ref) {
@@ -110,7 +110,7 @@ foreach my $code (@codes) {
 
 		print "URL: $url\n";
 
-		my $content = get($url);
+		my $content =create_user_agent()->get($url);
 		if (not defined $content) {
 			print
 				"http error, could not load http://ratings.food.gov.uk/enhanced-search/en-GB/$uriname/%5E/Relevance/0/%5E/%5E/1/1/10/json\n";

@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2025 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -29,13 +29,13 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
+use ProductOpener::HTTP qw/create_user_agent/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
 use JSON::MaybeXS;
-use LWP::Simple;
 
 # https://www.wikidata.org/w/api.php?action=wbgetentities&sites=enwiki&ids=Q39&format=json
 
@@ -83,7 +83,7 @@ my %languages = ();
 
 foreach my $qc (@countries) {
 	print "loading country Q$qc\n";
-	my $content = get("https://www.wikidata.org/w/api.php?action=wbgetentities&sites=enwiki&ids=Q$qc&format=json");
+	my $content = create_user_agent()->get("https://www.wikidata.org/w/api.php?action=wbgetentities&sites=enwiki&ids=Q$qc&format=json");
 	if (not defined $content) {
 		print "http error, could not get content from wikidata\n";
 	}
@@ -142,7 +142,7 @@ foreach my $qc (@countries) {
 foreach my $language (keys %languages) {
 	print "loading language Q$language\n";
 	my $content
-		= get("https://www.wikidata.org/w/api.php?action=wbgetentities&sites=enwiki&ids=Q$language&format=json");
+		=create_user_agent()->get("https://www.wikidata.org/w/api.php?action=wbgetentities&sites=enwiki&ids=Q$language&format=json");
 	if (not defined $content) {
 		print "http error, could not get content from wikidata\n";
 	}

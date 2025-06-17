@@ -30,9 +30,10 @@ use ProductOpener::Orgs qw/list_org_ids retrieve_org/;
 use ProductOpener::Users qw/retrieve_user/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::CRM qw/:all/;
+use ProductOpener::HTTP qw/create_user_agent/;
+
 use Encode;
 use JSON;
-use LWP::Simple;
 
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
@@ -77,7 +78,7 @@ my %opportunities = map {$_->{id} => $_} @{$fetched_opportunities};
 
 # Fetch number of imported products by org
 my $url = "https://world.openfoodfacts.org/owners.json";
-my $content = get($url);
+my $content =create_user_agent()->get($url);
 if (not defined $content) {
 	die "Could not fetch $url";
 }

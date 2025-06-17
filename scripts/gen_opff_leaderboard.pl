@@ -7,13 +7,12 @@ use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
+use ProductOpener::HTTP qw/create_user_agent/;
 
 use Encode;
 use JSON;
 
-use LWP::Simple;
-
-my $json = get("https://world.openpetfoodfacts.org/categories.json");
+my $json =create_user_agent()->get("https://world.openpetfoodfacts.org/categories.json");
 
 my $categories_ref = from_json($json);
 
