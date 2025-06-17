@@ -196,7 +196,6 @@ use Template;
 use Devel::Size qw(size total_size);
 use Data::DeepAccess qw(deep_get deep_set);
 use Log::Log4perl;
-use LWP::UserAgent;
 use Tie::IxHash;
 
 use OpenTelemetry::Context;

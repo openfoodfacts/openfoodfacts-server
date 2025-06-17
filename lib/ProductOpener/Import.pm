@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2025 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -106,6 +106,7 @@ use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
 use ProductOpener::API qw/get_initialized_response/;
+use ProductOpener::HTTP qw/create_user_agent/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -118,8 +119,6 @@ use Text::CSV;
 use DateTime::Format::ISO8601;
 use URI;
 use Digest::MD5 qw(md5_hex);
-use LWP::UserAgent;
-use OpenTelemetry::Integration 'LWP::UserAgent';
 use Data::Difference qw(data_diff);
 
 $IMPORT_MAX_PACKAGING_COMPONENTS = 10;
@@ -509,10 +508,7 @@ sub upload_images_for_product($args_ref, $images_ref, $product_ref, $imported_pr
 # download image at given url parameter
 sub download_image ($image_url) {
 
-	my $ua = LWP::UserAgent->new(timeout => 10);
-
-	# Some platforms such as CloudFlare block the default LWP user agent.
-	$ua->agent("Open Food Facts (https://world.pro.openfoodfacts.org)");
+	my $ua = create_user_agent(timeout => 10);
 
 	$log->debug("downloading image", {image_url => $image_url}) if $log->is_debug();
 	my $response = $ua->get($image_url, 'Accept' => '*/*');

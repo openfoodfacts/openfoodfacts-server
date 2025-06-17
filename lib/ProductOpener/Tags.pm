@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2025 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -182,6 +182,7 @@ use ProductOpener::Lang qw/$lc  %Lang %tag_type_plural %tag_type_singular lang/;
 use ProductOpener::Text qw/normalize_percentages regexp_escape/;
 use ProductOpener::PackagerCodes qw/localize_packager_code normalize_packager_codes/;
 use ProductOpener::Index qw/$lang_dir/;
+use ProductOpener::HTTP qw/create_user_agent/;
 
 use Clone qw(clone);
 use List::MoreUtils qw(uniq);
@@ -193,8 +194,6 @@ use Digest::SHA1;
 use File::Copy;
 use MIME::Base64 qw(encode_base64);
 use POSIX qw(strftime);
-use LWP::UserAgent ();
-use OpenTelemetry::Integration 'LWP::UserAgent';
 use Encode;
 use IO::Compress::Gzip qw(gzip $GzipError);
 use IO::Uncompress::AnyInflate qw(anyinflate $AnyInflateError);
@@ -1093,7 +1092,7 @@ sub get_file_from_cache ($source, $target) {
 	}
 
 	# Else try to get it from the github project acting as cache
-	my $ua = LWP::UserAgent->new();
+	my $ua = create_user_agent();
 	my $response = $ua->get("https://raw.githubusercontent.com/$build_cache_repo/main/taxonomies/$source.gz");
 
 	if ($response->is_success) {
@@ -1181,7 +1180,7 @@ sub put_file_to_cache ($source, $target) {
 		$content .= encode_base64($buf, '');
 		$content .= '"}';
 
-		my $ua = LWP::UserAgent->new(timeout => 300);
+		my $ua = create_user_agent(timeout => 300);
 		my $url = "https://api.github.com/repos/$build_cache_repo/contents/taxonomies/$target.gz";
 		my $response = $ua->put(
 			$url,
