@@ -110,10 +110,9 @@ foreach my $code (@codes) {
 
 		print "URL: $url\n";
 
-		my $content = create_user_agent()->get($url);
-		if (not defined $content) {
-			print
-				"http error, could not load http://ratings.food.gov.uk/enhanced-search/en-GB/$uriname/%5E/Relevance/0/%5E/%5E/1/1/10/json\n";
+		my $resp = create_user_agent()->get($url);
+		if (!$resp->is_success) {
+			print "http error, could not load $url: " . $resp->status_line . "\n";
 		}
 		else {
 
@@ -132,7 +131,7 @@ foreach my $code (@codes) {
 	"Geocode":{"Longitude":"-4.043087","Latitude":"52.40259"},"Distance":{"\@xsi:nil":"true"}}}}}
 JSON
 				;
-			my $json = $content;
+			my $json = $resp->decoded_content;
 			my $json_ref;
 			# URL: http://ratings.food.gov.uk/enhanced-search/en-GB/Framptons/%5E/Relevance/0/%5E/%5E/1/1/10/json
 			# malformed UTF-8 character in JSON string, at character offset 3698 (before "\x{e9} Bar","Address...") at ./update_packager_codes_fsa_ratings.pl line 137.

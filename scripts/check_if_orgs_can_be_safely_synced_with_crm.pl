@@ -78,11 +78,12 @@ my %opportunities = map {$_->{id} => $_} @{$fetched_opportunities};
 
 # Fetch number of imported products by org
 my $url = "https://world.openfoodfacts.org/owners.json";
-my $content = create_user_agent()->get($url);
-if (not defined $content) {
-	die "Could not fetch $url";
+my $resp = create_user_agent()->get($url);
+if (!$resp->is_success) {
+	die "Could not fetch $url: " . $resp->status_line;
 }
-my $orgs = decode_json($content)->{tags};
+
+my $orgs = decode_json($resp->decoded_content)->{tags};
 my $nbr_products = {};
 foreach my $org (@{$orgs}) {
 	if (not defined $org->{id}) {
