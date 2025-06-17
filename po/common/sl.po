@@ -659,6 +659,14 @@ msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
 msgstr "Parametri vašega računa so bili spremenjeni."
 
+msgctxt "edit_user_preferences"
+msgid "Preferences"
+msgstr "Nastavitve"
+
+msgctxt "edit_user_preferences_result"
+msgid "Your preferences have been changed."
+msgstr "Vaše nastavitve so bile spremenjene."
+
 msgctxt "editors_p"
 msgid "editors"
 msgstr "uredniki"
@@ -2778,6 +2786,10 @@ msgstr "Nekateri podatki in / ali fotografije tega izdelka prihajajo iz teh viro
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
 msgstr "Ta stran izdelka ni popolna. Pomagate lahko, da ga dokončate tako, da ga uredite in dodate več podatkov iz fotografij, ki jih imamo, ali pa z aplikacijo uporabite več fotografij za <a href=\"https://android.openfoodfacts.org\">Android</a> ali <a href=\"https://ios.openfoodfacts.org\">iPhone / iPad</a>Hvala vam!"
+
+msgctxt "title_separator"
+msgid " - "
+msgstr " - "
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -5027,6 +5039,10 @@ msgctxt "number_of_members"
 msgid "Number of Members"
 msgstr ""
 
+msgctxt "serial_no"
+msgid "S.No"
+msgstr "Št."
+
 msgctxt "contact_form"
 msgid "Contact form"
 msgstr "Kontaktni obrazec"
@@ -7129,6 +7145,10 @@ msgstr ""
 msgctxt "skip_to_content"
 msgid "Skip to Content"
 msgstr ""
+
+msgctxt "oidc_signin_no_cookie"
+msgid "You need to enable cookies to sign in."
+msgstr "Za prijavo morate omogočiti piškotke."
 
 msgctxt "cant_delete_main_contact"
 msgid "You cannot remove the main contact. Change it first."
