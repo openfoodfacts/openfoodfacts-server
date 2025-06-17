@@ -107,18 +107,99 @@ paths:
 
         The fields parameter allows to specify what fields to retrieve.
       operationId: get-product-by-barcode
-    parameters:
-      - schema:
-          type: string
-        name: barcode
-        in: path
-        required: true
-        description: 'Barcode of the product to create or update, or "test" to analyze the product data sent without creating or updating a product'
     patch:
-      summary: "WRITE Product - Create or update product, or analyze test product (API V3 - Implementation in progress)"
-      operationId: patch-api-v3-product-barcode
       tags:
-        - Write Requests
+        - Write Requests      
+      summary: "WRITE Product - Create or update product, select images, or analyze test product (API V3 - Implementation in progress)"
+      operationId: patch-api-v3-product-barcode
+      description: |-
+        This API allows to create or update a product (if the product already exists, its data is updated, otherwise it is created), or to analyze a test product (in which case no product is created or updated). To analyze a product, the "barcode" path component needs to contain the value "test" instead of a barcode.
+
+        New API to send structured product data in a JSON format instead of in a flattened list of key / value pairs field as-in the current product add / edit API that relies on a multipart/form-data format.
+
+        Important: this new Product WRITE API has been deployed in production, but it is still under development, and it may change.
+
+        This new API is used in particular to send structured packaging data: https://openfoodfacts.github.io/openfoodfacts-server/dev/explain-packaging-data/
+
+        The new API is gradually being extended to support other product fields.
+
+        Currently supported fields are:
+          - language specific fields (e.g. product name, ingredients text)
+          - tags fields (e.g. categories, labels)
+          - packaging fields (e.g. packagings, packagings_add, packagings_complete)
+          - image selection of uploaded images (e.g. front, ingredients, nutrition, packaging) for specific languages
+      parameters:
+        - name: barcode
+          in: path
+          description: |
+            The barcode of the product to to create or update, or "test" to analyze the product data sent without creating or updating a product.
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: "3017620422003"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: ./requestBodies/lc_cc.yaml
+                - $ref: ./requestBodies/fields_tags_lc.yaml
+                - type: object
+                  properties:
+                    user_id:
+                      type: string
+                    password:
+                      type: string
+                      description: Password for login
+                      format: password
+                    product:
+                      $ref: ./schemas/product_update_api_v3.yaml
+            examples:
+              example-1:
+                value:
+                  lc: fr
+                  cc: fr
+                  fields: "product_name,packagings"
+                  tags_lc: fr
+                  userid: string
+                  password: string
+                  code: string
+                  product:
+                    packagings:
+                      - number_of_units: 6
+                        shape:
+                          id: "en:bottle"
+                        material:
+                          id: "en:plastic"
+                        recycling:
+                          id: "en:recycle"
+                        quantity_per_unit: 25 cl
+                        weight_measured: 10
+                    packagings_add:
+                      - number_of_units: 6
+                        shape:
+                          id: "en:bottle"
+                        material:
+                          id: "en:plastic"
+                        recycling:
+                          id: "en:recycle"
+                        quantity_per_unit: 25 cl
+                        weight_measured: 10                      
+                    product:
+                      $ref: ./schemas/product_update_api_v3.yaml
+          application/xml:
+            schema:
+              type: object
+              properties: {}
+        description: |
+          Structured data for the product is passed in the product field.
+
+          For complex structures such as the packagings object, it is possible to replace pre-existing data, or completing it:
+
+          - an object sent in the packagings field will replace any pre-existing data.
+          - an object sent in the field suffixed with _add (e.g. packagings_add) will be merged with any pre-existing data.       
       responses:
         "200":
           description: |-
@@ -187,24 +268,35 @@ paths:
                           quantity_value: 200
                           quantity_unit: ml
                           weight: 80
-          headers: {}
+  "/api/v3/product/{barcode}/images":
+    post:
+      tags:
+        - Write Requests          
+      summary: "UPLOAD Product Image - Upload (and possibly select) an image for a product"
+      operationId: post-api-v3-product-barcode-images
       description: |-
-        This API allows to create or update a product (if the product already exists, its data is updated, otherwise it is created), or to analyze a test product (in which case no product is created or updated). To analyze a product, the "barcode" path component needs to contain the value "test" instead of a barcode.
-
-        New API to send structured product data in a JSON format instead of in a flattened list of key / value pairs field as-in the current product add / edit API that relies on a multipart/form-data format.
-
-        Important: this new Product WRITE API is under development. The initial deployment will support only packaging fields.
-
-        This new API will be used in particular to send structured packaging data: https://openfoodfacts.github.io/openfoodfacts-server/dev/explain-packaging-data/
-
-        The new API can then be gradually extended to support other product fields.
+        
+        This endpoint allows to upload an image for a product. The image is uploaded in the request body as a base64 encoded string.
+        Optionally, it is possible to select the uploaded image for specific information (e.g. front, ingredients, nutrition, packaging) for specific languages. Each selected image is a cropped version of the uploaded image.
+       
+        If the product does not exist, it will be created.
+      parameters:
+        - name: barcode
+          in: path
+          description: |
+            The barcode of the product corresponding to the image.
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: "3017620422003"
       requestBody:
         content:
           application/json:
             schema:
               allOf:
                 - $ref: ./requestBodies/lc_cc.yaml
-                - $ref: ./requestBodies/fields_tags_lc.yaml
                 - type: object
                   properties:
                     user_id:
@@ -217,52 +309,97 @@ paths:
                     password:
                       type: string
                       description: Password for login
-                      format: password
-                    product:
-                      $ref: ./schemas/product_update_api_v3.yaml
-            examples:
-              example-1:
-                value:
-                  lc: fr
-                  cc: fr
-                  fields: "product_name,packagings"
-                  tags_lc: fr
-                  userid: string
-                  password: string
-                  code: string
-                  product:
-                    packagings:
-                      - number_of_units: 6
-                        shape:
-                          id: "en:bottle"
-                        material:
-                          id: "en:plastic"
-                        recycling:
-                          id: "en:recycle"
-                        quantity_per_unit: 25 cl
-                        weight_measured: 10
-                    packagings_add:
-                      - number_of_units: 6
-                        shape:
-                          id: "en:bottle"
-                        material:
-                          id: "en:plastic"
-                        recycling:
-                          id: "en:recycle"
-                        quantity_per_unit: 25 cl
-                        weight_measured: 10
+                      format: password                      
+                    image_data_base64:
+                      type: string
+                      description: |-
+                        Base64 encoded image data (supported formats: JPEG, PNG, GIF, HEIC)
+                    selected:
+                      description: |
+                        Optional instructions to select (and possibly crop) the uploaded image for specific information (e.g. front, ingredients, nutrition, packaging) for specific languages.
+                      $ref: "./schemas/image_selected.yaml#/components/schemas/ImagesSelected"
           application/xml:
             schema:
               type: object
               properties: {}
         description: |
-          Structured data for the product is passed in the product field.
+          Image data for the product is passed in the image_data_base64 field as a base64 encoded string.
+      responses:
+        "200":
+          description: |-
+            The response will include a "product" structure. The fields returned in this structure will depend on the value of the "fields" input field:
 
-          For complex structures such as the packagings object, it is possible to replace pre-existing data, or completing it:
+            - "updated" (default): all fields updated by the query will be returned, including fields that are directly generated from the updated fields. For instance, sending "packagings" or "packagings_add" will return the "packagings" field.
 
-          - an object sent in the packagings field will replace any pre-existing data.
-          - an object sent in the field suffixed with _add (e.g. packagings_add) will be merged with any pre-existing data.
-      parameters: []
+            - "none": no fields are returned.
+
+            - "all": returns all fields except generated fields that need to be explicitly requested such as "knowledge_panels".
+
+            The "fields" values can also be concatenated: "all,knowledge_panels"
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: ./responses/response-status/response_status.yaml
+                  - type: object
+                    properties:
+                      product:
+                        properties:
+                          images:
+                            type: object
+                            properties:
+                              uploaded:
+                                description: |
+                                  List with only the image just uploaded by the user. The key is the image id (imgid) and the value is an object with the image data.
+                                type: object
+                                title: images_uploaded
+                                patternProperties:
+                                  '(?<imgid>\d+)':
+                                    $ref: "./schemas/image_uploaded.yaml#/components/schemas/ImageUploaded"
+  "/api/v3/product/{barcode}/images/uploaded/{imgid}":
+    delete: 
+      tags:
+        - Write Requests
+      summary: DELETE Product Image - Delete an uploaded image for a product, and selected images that are cropped from it
+      operationId: delete-api-v3-product-barcode-images-uploaded-imgid
+      description: |-
+        This endpoint allows to delete an uploaded image for a product.
+        Selected images that are cropped from it will also be deleted.
+
+        Image deletion is allowed only for moderators and admins, so the request must be authenticated with a session cookie or userid and password.
+      parameters:
+        - name: barcode
+          in: path
+          description: |
+            The barcode of the product corresponding to the image.
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: "3017620422003"
+        - name: imgid
+          in: path
+          description: |
+            The id of the image to be deleted.
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: integer
+            example: 2
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: ./responses/response-status/response_status.yaml
+        "403":
+          description: User not authenticated or not allowed to delete the image
+        "404":
+          description: Product or image not found                 
   /api/v3/taxonomy_suggestions:
     parameters: []
     get:

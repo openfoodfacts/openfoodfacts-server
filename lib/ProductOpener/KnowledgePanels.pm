@@ -65,6 +65,7 @@ use ProductOpener::Food qw/%categories_nutriments_per_country/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Lang qw/f_lang f_lang_in_lc lang lang_in_other_lc/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::Images qw/data_to_display_image/;
 use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::PackagerCodes qw/%packager_codes/;
 use ProductOpener::KnowledgePanelsIngredients qw/create_ingredients_list_panel/;
@@ -1015,6 +1016,9 @@ sub create_health_card_panel ($product_ref, $target_lc, $target_cc, $options_ref
 		ingredients_image => data_to_display_image($product_ref, "ingredients", $target_lc),
 		nutrition_image => data_to_display_image($product_ref, "nutrition", $target_lc),
 	};
+
+	$log->debug("create health card panel - data", {code => $product_ref->{code}, panel_data => $panel_data_ref})
+		if $log->is_debug();
 
 	create_panel_from_json_template("health_card", "api/knowledge-panels/health/health_card.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
