@@ -65,7 +65,7 @@ use IO::Capture::Stdout::Extended;
 use IO::Capture::Stderr::Extended;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
-use ProductOpener::Data qw/execute_query get_products_collection/;
+use ProductOpener::Data qw/execute_query get_orgs_collection get_products_collection get_recent_changes_collection/;
 use ProductOpener::Store "store";
 
 use Carp qw/confess/;
@@ -222,6 +222,16 @@ sub remove_all_products () {
 			return get_products_collection()->delete_many({});
 		}
 	);
+	execute_query(
+		sub {
+			return get_products_collection({obsolete => 1})->delete_many({});
+		}
+	);
+	execute_query(
+		sub {
+			return get_recent_changes_collection()->delete_many({});
+		}
+	);
 	# clean files
 	remove_tree($BASE_DIRS{PRODUCTS}, {keep_root => 1, error => \my $err});
 	if (@$err) {
@@ -263,6 +273,12 @@ This function should only be called by tests, and never on production environmen
 sub remove_all_orgs () {
 	# Important: check we are not on a prod database
 	check_not_production();
+	# clean mongo
+	execute_query(
+		sub {
+			return get_orgs_collection()->delete_many({});
+		}
+	);
 	# clean files
 	remove_tree($BASE_DIRS{ORGS}, {keep_root => 1, error => \my $err});
 	if (@$err) {
