@@ -663,6 +663,14 @@ msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
 msgstr "تم تغيير اسم الحساب الخاص بك."
 
+msgctxt "edit_user_preferences"
+msgid "Preferences"
+msgstr "الخيارات"
+
+msgctxt "edit_user_preferences_result"
+msgid "Your preferences have been changed."
+msgstr "لقد تم تغيير تفضيلاتك."
+
 msgctxt "editors_p"
 msgid "editors"
 msgstr "المحررين"
@@ -2785,6 +2793,10 @@ msgstr "بعض البيانات و/أو الصور لهذا المنتج تأت�
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
 msgstr "هذه الصفحة المنتج ليست كاملة. يمكنك المساعدة في إكماله عن طريق تحريره وإضافة المزيد من البيانات من الصور الموجودة لدينا ، أو عن طريق التقاط المزيد من الصور باستخدام التطبيق لـ <a href=\"https://android.openfoodfacts.org\"> Android </a> أو <a href=\"https://ios.openfoodfacts.org\"> iPhone / iPad </a>. شكرا لكم!"
+
+msgctxt "title_separator"
+msgid " - "
+msgstr " - "
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -5034,6 +5046,10 @@ msgctxt "number_of_members"
 msgid "Number of Members"
 msgstr "عدد الأعضاء"
 
+msgctxt "serial_no"
+msgid "S.No"
+msgstr "رقم التسلسل"
+
 msgctxt "contact_form"
 msgid "Contact form"
 msgstr "نموذج الاتصال"
@@ -7136,6 +7152,10 @@ msgstr ""
 msgctxt "skip_to_content"
 msgid "Skip to Content"
 msgstr ""
+
+msgctxt "oidc_signin_no_cookie"
+msgid "You need to enable cookies to sign in."
+msgstr "يجب عليك تفعيل ملفات تعريف الارتباط لتسجيل الدخول."
 
 msgctxt "cant_delete_main_contact"
 msgid "You cannot remove the main contact. Change it first."
