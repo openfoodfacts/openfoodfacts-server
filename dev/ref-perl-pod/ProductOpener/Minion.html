@@ -1,4 +1,4 @@
-<html><head><title>ProductOpener::APIProductRead</title>
+<html><head><title>ProductOpener::Minion</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" >
 <link rel="stylesheet" title="simple.min" type="text/css" href="../simple.min.css" media="all" >
 
@@ -26,12 +26,10 @@
   <li class='indexItem indexItem1'><a href='#NAME'>NAME</a>
   <li class='indexItem indexItem1'><a href='#DESCRIPTION'>DESCRIPTION</a>
   <ul   class='indexList indexList2'>
-    <li class='indexItem indexItem2'><a href='#read_product_api_(_%24request_ref_)'>read_product_api ( $request_ref )</a>
+    <li class='indexItem indexItem2'><a href='#get_minion()'>get_minion()</a>
     <ul   class='indexList indexList3'>
-      <li class='indexItem indexItem3'><a href='#Parameters'>Parameters</a>
-      <ul   class='indexList indexList4'>
-        <li class='indexItem indexItem4'><a href='#%24request_ref_(input)'>$request_ref (input)</a>
-      </ul>
+      <li class='indexItem indexItem3'><a href='#Arguments'>Arguments</a>
+      <li class='indexItem indexItem3'><a href='#Return_values'>Return values</a>
     </ul>
   </ul>
 </ul>
@@ -41,32 +39,33 @@
 name="NAME"
 >NAME</a></h1>
 
-<p>ProductOpener::APIProductRead - implementation of READ API for accessing product data</p>
+<p>ProductOpener::Minion - functions to integrate with minion</p>
 
 <h1><a class='u' href='#___top' title='click to go to top of document'
 name="DESCRIPTION"
 >DESCRIPTION</a></h1>
 
+<p><code>ProductOpener::Minion</code> is handling pushing info to Redis to communicate updates to all services,
+including search-a-licious,
+as well as receiving updates from other services like Keycloak.</p>
+
 <h2><a class='u' href='#___top' title='click to go to top of document'
-name="read_product_api_(_$request_ref_)"
->read_product_api ( $request_ref )</a></h2>
+name="get_minion()"
+>get_minion()</a></h2>
 
-<p>Process API V3 READ product requests.</p>
-
-<p>TODO: v0 / v1 / v2 READ product requests are still handled by Display::display_product_api () which contains similar code.
-Internally,
-we should be able to upgrade those requests to v3,
-and then customize the response to make it return the v2 expected response.</p>
+<p>Function to get the backend minion</p>
 
 <h3><a class='u' href='#___top' title='click to go to top of document'
-name="Parameters"
->Parameters</a></h3>
+name="Arguments"
+>Arguments</a></h3>
 
-<h4><a class='u' href='#___top' title='click to go to top of document'
-name="$request_ref_(input)"
->$request_ref (input)</a></h4>
+<p>None</p>
 
-<p>Reference to the request object.</p>
+<h3><a class='u' href='#___top' title='click to go to top of document'
+name="Return_values"
+>Return values</a></h3>
+
+<p>The backend minion $minion</p>
 <p class="backlinkbottom"><b><a name="___bottom" href="../index.html" title="All Documents">&lt;&lt;</a></b></p>
 
 <!-- end doc -->
