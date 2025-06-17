@@ -662,6 +662,14 @@ msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
 msgstr "您的帐户参数已更改。"
 
+msgctxt "edit_user_preferences"
+msgid "Preferences"
+msgstr "偏好"
+
+msgctxt "edit_user_preferences_result"
+msgid "Your preferences have been changed."
+msgstr "您的偏好已更改。"
+
 msgctxt "editors_p"
 msgid "editors"
 msgstr "编辑"
@@ -2777,6 +2785,10 @@ msgstr "本产品的一些数据和/或照片来自以下来源:"
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
 msgstr "此产品页面不完整。 您可以通过编辑它并从我们的照片中添加更多数据，或通过使用应用程序拍摄更多照片来帮助完成<a href=\"https://android.openfoodfacts.org\">安卓</a>或者<a href=\"https://ios.openfoodfacts.org\">iphone手机</a>感谢"
+
+msgctxt "title_separator"
+msgid " - "
+msgstr " - "
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -5026,6 +5038,10 @@ msgctxt "number_of_members"
 msgid "Number of Members"
 msgstr "会员人数"
 
+msgctxt "serial_no"
+msgid "S.No"
+msgstr "序号"
+
 msgctxt "contact_form"
 msgid "Contact form"
 msgstr "联系表单"
@@ -7128,6 +7144,10 @@ msgstr "此用户不是组织成员。"
 msgctxt "skip_to_content"
 msgid "Skip to Content"
 msgstr "跳转到内容"
+
+msgctxt "oidc_signin_no_cookie"
+msgid "You need to enable cookies to sign in."
+msgstr "您需要启用 cookies 才能登录。"
 
 msgctxt "cant_delete_main_contact"
 msgid "You cannot remove the main contact. Change it first."
