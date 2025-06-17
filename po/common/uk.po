@@ -660,6 +660,14 @@ msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
 msgstr "Параметри вашого облікового запису було змінено."
 
+msgctxt "edit_user_preferences"
+msgid "Preferences"
+msgstr "Налаштування"
+
+msgctxt "edit_user_preferences_result"
+msgid "Your preferences have been changed."
+msgstr "Ваші налаштування змінено."
+
 msgctxt "editors_p"
 msgid "editors"
 msgstr "видавці"
@@ -2780,6 +2788,10 @@ msgstr "Деякі дані та/або фотографії цього прод
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
 msgstr "Сторінка цієї продукції є незавершеною. Ви можете допомогти її завершити відредагувавши її та додавши більше інформації з поточних зображень або ж використати більше зображень за допомогою програми <a href=\"https://android.openfoodfacts.org\">Android</a> або <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Дякуємо!"
+
+msgctxt "title_separator"
+msgid " - "
+msgstr " - "
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -5033,6 +5045,10 @@ msgctxt "number_of_members"
 msgid "Number of Members"
 msgstr "Кількість учасників"
 
+msgctxt "serial_no"
+msgid "S.No"
+msgstr "№ S."
+
 msgctxt "contact_form"
 msgid "Contact form"
 msgstr "Форма зворотного зв'язку"
@@ -7146,6 +7162,10 @@ msgstr "Цей користувач не є членом організації.
 msgctxt "skip_to_content"
 msgid "Skip to Content"
 msgstr "Перейти до змісту"
+
+msgctxt "oidc_signin_no_cookie"
+msgid "You need to enable cookies to sign in."
+msgstr "Вам потрібно ввімкнути файли cookie, щоб увійти."
 
 msgctxt "cant_delete_main_contact"
 msgid "You cannot remove the main contact. Change it first."
