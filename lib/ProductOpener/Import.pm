@@ -1956,10 +1956,7 @@ sub import_csv_file ($args_ref) {
 						if ($field =~ /_prepared/) {
 							my $unprepared_field = $` . $';
 							if (
-								(
-										(defined $imported_product_ref->{$field})
-									and ($imported_product_ref->{$field} ne '')
-								)
+								((defined $imported_product_ref->{$field}) and ($imported_product_ref->{$field} ne ''))
 								and not((defined $imported_product_ref->{$unprepared_field})
 									and ($imported_product_ref->{$unprepared_field} ne ""))
 								)
