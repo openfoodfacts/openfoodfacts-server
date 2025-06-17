@@ -660,6 +660,14 @@ msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
 msgstr "Uw accountparameters zijn gewijzigd."
 
+msgctxt "edit_user_preferences"
+msgid "Preferences"
+msgstr "Voorkeuren"
+
+msgctxt "edit_user_preferences_result"
+msgid "Your preferences have been changed."
+msgstr "Uw voorkeuren zijn gewijzigd."
+
 msgctxt "editors_p"
 msgid "editors"
 msgstr "bewerkers"
@@ -2780,6 +2788,10 @@ msgstr "Sommige productgegevens en/of foto's zijn afkomstig uit de volgende bron
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
 msgstr "Deze productpagina is niet compleet. Je kunt helpen door het product te bewerken en meer gegevens van bestaande foto's toe te voegen, of door meer foto's te maken met de app voor <a href=\"https://android.openfoodfacts.org\">Android</a> of <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Bedankt!"
+
+msgctxt "title_separator"
+msgid " - "
+msgstr " - "
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -5029,6 +5041,10 @@ msgctxt "number_of_members"
 msgid "Number of Members"
 msgstr "Aantal leden"
 
+msgctxt "serial_no"
+msgid "S.No"
+msgstr "S.Nr"
+
 msgctxt "contact_form"
 msgid "Contact form"
 msgstr "Contactformulier"
@@ -7131,6 +7147,10 @@ msgstr "Deze gebruiker is geen lid van de organisatie."
 msgctxt "skip_to_content"
 msgid "Skip to Content"
 msgstr "Ga naar de inhoud"
+
+msgctxt "oidc_signin_no_cookie"
+msgid "You need to enable cookies to sign in."
+msgstr "U moet cookies inschakelen om u aan te melden."
 
 msgctxt "cant_delete_main_contact"
 msgid "You cannot remove the main contact. Change it first."
