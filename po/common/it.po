@@ -660,6 +660,14 @@ msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
 msgstr "I parametri del suo account sono stati modificati."
 
+msgctxt "edit_user_preferences"
+msgid "Preferences"
+msgstr "Impostazioni"
+
+msgctxt "edit_user_preferences_result"
+msgid "Your preferences have been changed."
+msgstr "Le tue preferenze sono state modificate."
+
 msgctxt "editors_p"
 msgid "editors"
 msgstr "editori"
@@ -2783,6 +2791,10 @@ msgstr "Alcuni dei dati e/o foto per questo prodotto provengono da queste fonti:
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
 msgstr "Questa pagina del prodotto non è completa. Puoi aiutarci a completarla modificandola e aggiungendo altri dati dalle foto che abbiamo, o scattando altre foto usando l’applicazione per <a href=“https://android.openfoodfacts.org”>Android</a> o <a href=“https://ios.openfoodfacts.org”>iPhone/iPad</a>. Grazie!"
+
+msgctxt "title_separator"
+msgid " - "
+msgstr " - "
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -5032,6 +5044,10 @@ msgctxt "number_of_members"
 msgid "Number of Members"
 msgstr "Numero di Membri"
 
+msgctxt "serial_no"
+msgid "S.No"
+msgstr "Numero di serie"
+
 msgctxt "contact_form"
 msgid "Contact form"
 msgstr "Modulo di contatto"
@@ -7134,6 +7150,10 @@ msgstr "Questo utente non è un membro dell'organizzazione."
 msgctxt "skip_to_content"
 msgid "Skip to Content"
 msgstr "Salta al contenuto"
+
+msgctxt "oidc_signin_no_cookie"
+msgid "You need to enable cookies to sign in."
+msgstr "Devi abilitare i cookie per effettuare l'accesso."
 
 msgctxt "cant_delete_main_contact"
 msgid "You cannot remove the main contact. Change it first."
