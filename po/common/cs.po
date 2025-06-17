@@ -659,6 +659,14 @@ msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
 msgstr "Parametry vašeho účtu byly změněny."
 
+msgctxt "edit_user_preferences"
+msgid "Preferences"
+msgstr "Předvolby"
+
+msgctxt "edit_user_preferences_result"
+msgid "Your preferences have been changed."
+msgstr "Vaše preference byly změněny."
+
 msgctxt "editors_p"
 msgid "editors"
 msgstr "editoři"
@@ -2778,6 +2786,10 @@ msgstr "Některá data a/nebo fotografie pro tento produkt pocházejí z těchto
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
 msgstr "Tato stránka produktu není úplná. Můžete pomoci dokončit ji úpravou a přidáním dalších dat z fotografií, které máme, nebo pořízením více fotek pomocí aplikace pro <a href=\"https://android.openfoodfacts.org\">Android</a> nebo <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Děkujeme!"
+
+msgctxt "title_separator"
+msgid " - "
+msgstr " - "
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -5027,6 +5039,10 @@ msgctxt "number_of_members"
 msgid "Number of Members"
 msgstr "Počet členů"
 
+msgctxt "serial_no"
+msgid "S.No"
+msgstr "Číslo S."
+
 msgctxt "contact_form"
 msgid "Contact form"
 msgstr "Kontaktní formulář"
@@ -7129,6 +7145,10 @@ msgstr "Tento uživatel není členem organizace."
 msgctxt "skip_to_content"
 msgid "Skip to Content"
 msgstr "Přejít k obsahu"
+
+msgctxt "oidc_signin_no_cookie"
+msgid "You need to enable cookies to sign in."
+msgstr "Pro přihlášení je nutné povolit soubory cookie."
 
 msgctxt "cant_delete_main_contact"
 msgid "You cannot remove the main contact. Change it first."
