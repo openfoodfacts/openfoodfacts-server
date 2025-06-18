@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2024 Association Open Food Facts
+# Copyright (C) 2011-2025 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -29,6 +29,8 @@ use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Redis qw/push_to_redis_stream/;
 use ProductOpener::Products qw/product_id_from_path product_iter/;
 use ProductOpener::Checkpoint;
+use ProductOpener::HTTP qw/create_user_agent/;
+
 use Path::Tiny;
 use JSON::MaybeXS;
 use File::Basename qw/dirname/;
@@ -59,7 +61,7 @@ my @events = ();
 $query_url =~ s/^\s+|\s+$//g;
 # TODO Note that the productupdates route is not yet implemented in the Python version of off-query
 my $query_post_url = URI->new("$query_url/productupdates");
-my $ua = LWP::UserAgent->new();
+my $ua = create_user_agent();
 # Add a timeout to the HTTP query
 $ua->timeout(15);
 
