@@ -6,6 +6,7 @@ use Test2::V0;
 use Log::Any::Adapter 'TAP';
 use Storable qw(lock_store lock_retrieve);
 use Fcntl ':flock';
+use boolean;
 
 use ProductOpener::Store
 	qw/get_fileid get_string_id_for_lang get_urlid store_object retrieve_object store_config retrieve_config link_object move_object remove_object object_iter object_exists object_path_exists retrieve/;
@@ -251,6 +252,11 @@ sub write_file($file_path, $content) {
 	}
 	ok(grep {$_ eq $test_path} @object_paths, "Iterator includes files in non-excluded directories");
 	ok(!grep {$_ eq "nested"} @object_paths, "Iterator excludes files in excluded directories");
+
+	# Copes with blessed objects
+	store_object("$test_path-blessed", {id => 10, true => true, false => false});
+	ok((-e "$test_path-blessed.json"), "Verify that blessed objects are saved to json");
+	is(retrieve_object("$test_path-blessed"), {id => 10, true => true, false => false}, "Blessed objects retrieved OK");
 
 	# Enable these on an ad-hoc basis to test locking. Can't leave enabled as coverage doesn't support threading
 	# use threads;

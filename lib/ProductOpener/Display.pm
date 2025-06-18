@@ -221,6 +221,7 @@ my $uri_finder = URI::Find->new(
 my $json = JSON::MaybeXS->new->utf8(0)->allow_nonref->canonical;
 my $json_indent = JSON::MaybeXS->new->indent(1)->utf8(0)->allow_nonref->canonical;
 # $json_utf8 has utf8 enabled: it encodes to UTF-8 bytes
+# Make sure we include convert_blessed to cater for blessed objects, like booleans
 my $json_utf8 = JSON::MaybeXS->new->convert_blessed->utf8(1)->allow_nonref->canonical;
 
 =head1 VARIABLES
@@ -11655,10 +11656,10 @@ sub search_and_analyze_recipes ($request_ref, $query_ref) {
 			if (single_param("debug")) {
 				$debug
 					.= "product: "
-					. JSON::MaybeXS->new->convert_blessed->utf8->canonical->encode($product_ref)
+					. $json_utf8->encode($product_ref)
 					. "<br><br>\n\n"
 					. "recipe: "
-					. JSON::MaybeXS->new->convert_blessed->utf8->canonical->encode($recipe_ref)
+					. $json_utf8->encode($recipe_ref)
 					. "<br><br><br>\n\n\n";
 			}
 		}

@@ -70,7 +70,7 @@ use Carp qw/carp/;
 
 # Use Cpanel::JSON::XS directly rather than JSON::MaybeXS as otherwise check_perl gives error:
 # Can't locate object method "indent_length" via package "JSON::XS"
-# Make sure we include convert_blessed here as some newer parts of the code are using blessed objects, like the Boolean type
+# Make sure we include convert_blessed to cater for blessed objects, like booleans
 my $json_for_config = Cpanel::JSON::XS->new->allow_nonref->convert_blessed->canonical->indent->indent_length(1)->utf8;
 my $json_for_objects = Cpanel::JSON::XS->new->allow_nonref->convert_blessed->utf8;
 
