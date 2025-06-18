@@ -27,7 +27,8 @@ use ProductOpener::Config qw/%options $query_url/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Data qw/get_products_collection/;
 use ProductOpener::Products qw/split_code/;
-use LWP::UserAgent;
+use ProductOpener::HTTP qw/create_user_agent/;
+
 use Path::Tiny;
 use File::Slurp;
 
@@ -43,7 +44,7 @@ my $scan_count = 0;
 
 $query_url =~ s/^\s+|\s+$//g;
 my $query_post_url = URI->new("$query_url/scans");
-my $ua = LWP::UserAgent->new();
+my $ua = create_user_agent();
 # Add a timeout to the HTTP query
 $ua->timeout(15);
 

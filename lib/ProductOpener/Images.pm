@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2025 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -149,7 +149,7 @@ use Image::OCR::Tesseract 'get_ocr';
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Lang qw/$lc  %Lang lang/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/single_param/;
+use ProductOpener::HTTP qw/single_param create_user_agent/;
 use ProductOpener::URL qw/format_subdomain/;
 use ProductOpener::Users qw/%User/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
@@ -164,7 +164,6 @@ use Log::Any qw($log);
 use Encode;
 use JSON::MaybeXS;
 use MIME::Base64;
-use LWP::UserAgent;
 use File::Copy qw/move/;
 use Clone qw/clone/;
 use boolean;
@@ -2530,7 +2529,7 @@ sub send_image_to_cloud_vision ($image_path, $json_file, $features_ref, $gv_logs
 		. $ProductOpener::Config::google_cloud_vision_api_key;
 	print($gv_logs "CV:sending to $url\n");
 
-	my $ua = LWP::UserAgent->new();
+	my $ua = create_user_agent();
 
 	open(my $IMAGE, "<", $image_path) || die "Could not read $image_path: $!\n";
 	binmode($IMAGE);
