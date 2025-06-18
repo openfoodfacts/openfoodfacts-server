@@ -70,8 +70,9 @@ use Carp qw/carp/;
 
 # Use Cpanel::JSON::XS directly rather than JSON::MaybeXS as otherwise check_perl gives error:
 # Can't locate object method "indent_length" via package "JSON::XS"
-my $json_for_config = Cpanel::JSON::XS->new->allow_nonref->canonical->indent->indent_length(1)->utf8;
-my $json_for_objects = Cpanel::JSON::XS->new->allow_nonref->utf8;
+# Make sure we include convert_blessed here as some newer parts of the code are using blessed objects, like the Boolean type
+my $json_for_config = Cpanel::JSON::XS->new->allow_nonref->convert_blessed->canonical->indent->indent_length(1)->utf8;
+my $json_for_objects = Cpanel::JSON::XS->new->allow_nonref->convert_blessed->utf8;
 
 # Text::Unaccent unac_string causes Apache core dumps with Apache 2.4 and mod_perl 2.0.9 on jessie
 
