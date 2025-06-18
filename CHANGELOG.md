@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.70.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.70.0...v2.70.1) (2025-06-18)
+
+
+### Bug Fixes
+
+* turn on off-query for all product list queries ([#12045](https://github.com/openfoodfacts/openfoodfacts-server/issues/12045)) ([5f5cbe9](https://github.com/openfoodfacts/openfoodfacts-server/commit/5f5cbe90c35c0cdda77daa8e32e64d11d20f18f8))
+
 ## [2.70.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.69.0...v2.70.0) (2025-06-18)
 
 
