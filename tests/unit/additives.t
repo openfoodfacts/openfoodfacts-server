@@ -591,11 +591,11 @@ my @tests = (
 	],
 
 	# Saffron should be recognized as an additive only if there is a color additive class first
-	[		'fr-saffron-additive',
+	[
+		'fr-saffron-additive',
 		{
 			lc => "fr",
-			ingredients_text =>
-				"Sucre, colorant : safran, arôme naturel de vanille"
+			ingredients_text => "Sucre, colorant : safran, arôme naturel de vanille"
 		}
 	],
 	# Saffron should not be recognized as an additive if there is no color additive class first
@@ -603,8 +603,7 @@ my @tests = (
 		'fr-saffron-not-additive',
 		{
 			lc => "fr",
-			ingredients_text =>
-				"Blé dur, oeufs, safran, sel"
+			ingredients_text => "Blé dur, oeufs, safran, sel"
 		}
 	],
 );
