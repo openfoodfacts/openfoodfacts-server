@@ -210,9 +210,13 @@ sub execute_product_query ($parameters_ref, $query_ref, $fields_ref, $sort_ref, 
 		$$data_debug_ref .= "using off_query\n";
 
 		# Convert sort into an array so that the order of keys is not ambiguous
+		# Note: some queries may not have a sort (currently the case for the experimental recipe stats queries for parent_ingredients)
+		# e.g. https://world.openfoodfacts.org/search?categories_tags=en:pizzas&parent_ingredients=cheese,flour,tomato,olive%20oil
 		my @sort_array = ();
-		foreach my $k ($sort_ref->Keys) {
-			push(@sort_array, [$k, $sort_ref->FETCH($k)]);
+		if (defined $sort_ref) {
+			foreach my $k ($sort_ref->Keys) {
+				push(@sort_array, [$k, $sort_ref->FETCH($k)]);
+			}
 		}
 
 		my $results = execute_tags_query(
