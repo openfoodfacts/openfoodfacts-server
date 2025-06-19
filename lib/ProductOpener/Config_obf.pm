@@ -63,6 +63,7 @@ BEGIN {
 		$rate_limiter_blocking_enabled
 		$facets_kp_url
 		$redis_url
+		$process_global_redis_events
 
 		$mongodb
 		$mongodb_host
@@ -249,6 +250,10 @@ $query_url = $ProductOpener::Config2::query_url;
 $events_url = $ProductOpener::Config2::events_url;
 $events_username = $ProductOpener::Config2::events_username;
 $events_password = $ProductOpener::Config2::events_password;
+
+# Redis is used to push updates to the search server
+$redis_url = $ProductOpener::Config2::redis_url;
+$process_global_redis_events = $ProductOpener::Config2::process_global_redis_events;
 
 # If $rate_limiter_blocking_enabled is set to 1, the rate limiter will block requests
 # by returning a 429 error code instead of a 200 code
