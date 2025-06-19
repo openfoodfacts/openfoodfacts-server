@@ -14258,6 +14258,8 @@ zh: 油
 # zh-hant:油
 wikidata:en: Q42962
 wikipedia:en: https://en.wikipedia.org/wiki/Cooking_oil
+ciqual_proxy_food_code:en: 17130
+ciqual_proxy_food_name:fr: Huile de colza
 
 # description:en:Hydrogenation converts liquid vegetable oils into solid or semi-solid fats, such as those present in margarine. Changing the degree of saturation of the fat changes some important physical properties, such as the melting range, which is why liquid oils become semi-solid.
 
@@ -22852,6 +22854,8 @@ sl: Žitarice
 sv: spannmål, sädesslag, Säd
 carbon_footprint_fr_foodges_ingredient:fr: Mélange de céréales
 carbon_footprint_fr_foodges_value:fr: 0.3
+ciqual_proxy_food_code:en: 9410
+ciqual_proxy_food_name:fr: Farine de blé tendre ou froment T110
 vegan:en: yes
 vegetarian:en: yes
 
@@ -24401,6 +24405,9 @@ description:en: barley (hordeum vulgare), a member of the grass family, is a maj
 # wuu:大麦
 # zh-min-nan:tōa-be̍h
 # yue:大麥
+ciqual_proxy_food_code:en: 9550
+ciqual_proxy_food_name:en: Barley flour
+ciqual_proxy_food_name:fr: Farine d'orge
 wikidata:en: Q61665121
 wikipedia:en: https://en.wikipedia.org/wiki/Barley
 #23663 @2021-10-20
@@ -35468,6 +35475,9 @@ description:en: SOYA is used as a generic word to indicate it is made from soybe
 # war:Soya
 vegan:en: yes
 vegetarian:en: yes
+ciqual_proxy_food_code:en: 20901
+ciqual_proxy_food_name:en: Soybean, whole grain
+ciqual_proxy_food_name:fr: Soja, graine entière
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/soy
 # 39698 products in 23 languages @2018-09-25
 
@@ -37254,10 +37264,13 @@ da: tørret abrikos, tørrede abrikoser
 de: getrocknete Aprikosen
 es: albaricoques deshidratados
 fi: kuivattu aprikoosi, kuivatut aprikoosit
-fr: abricots secs, abricots séchés
+fr: abricots secs, abricots séchés, abricot sec, abricot séché
 hr: suhe marelice
 it: albicocche secche
 nl: gedroogde abrikozen
+ciqual_food_code:en: 13001
+ciqual_food_name:en: Apricot, pitted, dried
+ciqual_food_name:fr: Abricot, dénoyauté, sec
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:abricots-secs
 # 138 products in 5 languages @2018-09-29
 
@@ -57931,8 +57944,11 @@ ecobalyse:en: rapeseed-non-eu
 ecobalyse_labels_en_organic:en: rapeseed-organic
 ecobalyse_origins_en_european_union:en: rapeseed-eu
 ecobalyse_origins_en_france:en: rapeseed-fr
+ciqual_proxy_food_code:en: 17130
+ciqual_proxy_food_name:fr: Huile de colza
 wikidata:en: Q177932
 wikipedia:en: https://en.wikipedia.org/wiki/Rapeseed
+# note: we put rapeseed oil as a ciqual proxy, as in many cases, "rapeseed" is parsed instead of "rapeseed oil" when we have complex formulations for oil sub-ingredients
 
 #This should denote only the american variety
 < en:Rapeseed
@@ -62681,6 +62697,9 @@ hr: lan, lana
 it: lino
 pl: len, lnu
 pt: Linho
+ciqual_proxy_food_code:en: 15034
+ciqual_proxy_food_name:en: Flaxseed
+ciqual_proxy_food_name:fr: Lin, graine
 # ingredient/fr:lin has 239 products in 6 languages @2018-12-06
 
 < en:flax
