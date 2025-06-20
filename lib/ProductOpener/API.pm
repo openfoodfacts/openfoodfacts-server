@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2024 Association Open Food Facts
+# Copyright (C) 2011-2025 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -61,8 +61,9 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Constants qw(OTEL_SPAN_PNOTES_KEY);
 use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/write_cors_headers request_param/;
+use ProductOpener::HTTP qw/write_cors_headers request_param get_http_request_pnote/;
 use ProductOpener::Auth qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/$lc lang_in_other_lc/;
@@ -374,6 +375,8 @@ sub send_api_response ($request_ref) {
 	print $json;
 
 	my $r = Apache2::RequestUtil->request();
+	my $span = get_http_request_pnote(OTEL_SPAN_PNOTES_KEY, $r);
+	$span->set_attribute('http.response.status_code', $status_code) if (defined $span);
 
 	$r->rflush;
 
