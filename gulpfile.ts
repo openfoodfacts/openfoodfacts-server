@@ -107,7 +107,7 @@ export function copyJs() {
     "./node_modules/jquery-cropper/dist/jquery-cropper.js",
     "./node_modules/jquery-form/src/jquery.form.js",
     "./node_modules/highcharts/highcharts.js",
-    "./node_modules/jsvectormap/dist/jsvectormap.js",
+    "./node_modules/jsvectormap/dist/jsvectormap.esm.js",
     "./node_modules/jsvectormap/dist/maps/world-merc.js",
     "./node_modules/select2/dist/js/select2.min.js",
     "./node_modules/jsbarcode/dist/JsBarcode.all.min.js",
