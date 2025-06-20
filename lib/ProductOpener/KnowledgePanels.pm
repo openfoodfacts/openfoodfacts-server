@@ -135,6 +135,8 @@ in a specific language, and return them in an array of panels.
 
 =head4 product reference $product_ref
 
+#11872 Find and replace Storable with JSON
+
 Loaded from the MongoDB database, Storable files, or the OFF API.
 
 =head4 language code $target_lc (or "data")

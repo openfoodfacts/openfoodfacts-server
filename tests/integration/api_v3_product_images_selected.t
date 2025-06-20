@@ -14,6 +14,7 @@ use JSON::MaybeXS qw(encode_json);
 
 use boolean qw/:all/;
 
+# Make sure we include convert_blessed to cater for blessed objects, like booleans
 my $json = JSON::MaybeXS->new->convert_blessed->utf8->canonical;
 
 remove_all_users();

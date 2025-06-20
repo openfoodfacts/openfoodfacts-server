@@ -40,7 +40,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Data qw/get_products_collection remove_documents_by_ids/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Store qw/retrieve sto_iter store/;
+use ProductOpener::Store qw/retrieve_object object_path_exists/;
 use Getopt::Long;
 
 my $current_products_collection = get_products_collection(
@@ -63,11 +63,11 @@ sub find_non_normalized_sto ($product_path) {
 	# find all .sto files that have a non normalized code
 	# we take a very brute force approach on filename
 	# return a list with path, product_id and normalized_product_id
-	my $iter = sto_iter($BASE_DIRS{PRODUCTS}, qr/product\.sto$/i);
+	my $iter = product_iter();
 	my @anomalous = ();
 	my $i = 0;
 	while (my $product_path = $iter->()) {
-		my $product_ref = retrieve($product_path);
+		my $product_ref = retrieve_object($product_path);
 		if (defined $product_ref) {
 			my $code = $product_ref->{code};
 			my $product_id = $product_ref->{_id};
@@ -76,7 +76,7 @@ sub find_non_normalized_sto ($product_path) {
 			my $normalized_product_path = product_path_from_id($normalized_product_id);
 
 			$product_path =~ s/.*\/products\///;
-			$product_path =~ s/\/product\.sto$//;
+			$product_path =~ s/\/product$//;
 			#print STDERR "code: $code - normalized_code: $normalized_code - product_id: $product_id - normalized_product_id: $normalized_product_id - product_path: $product_path - normalized_product_path: $normalized_product_path\n";
 
 			if (   ($code ne $normalized_code)
@@ -105,7 +105,7 @@ sub fix_non_normalized_sto ($product_path, $fix, $out) {
 		my ($product_path, $normalized_product_path, $code, $normalized_code, $product_id, $normalized_product_id)
 			= @$item;
 
-		my $is_duplicate = (-e "$BASE_DIRS{PRODUCTS}/$normalized_product_path") || 0;
+		my $is_duplicate = (object_path_exists("$BASE_DIRS{PRODUCTS}/$normalized_product_path")) || 0;
 
 		my $is_invalid = ($normalized_product_path eq "invalid") || 0;
 
@@ -201,4 +201,3 @@ GetOptions(
 # fix errors on filesystem
 my $product_path = $BASE_DIRS{PRODUCTS};
 fix_non_normalized_sto($product_path, $fix, \*STDOUT);
-
