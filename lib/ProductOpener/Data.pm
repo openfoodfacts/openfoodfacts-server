@@ -205,7 +205,8 @@ sub execute_product_query ($parameters_ref, $query_ref, $fields_ref, $sort_ref, 
 	defined $$data_debug_ref or $$data_debug_ref = "data_debug start\n";
 
 	# If possible, send to off-query, unless off_query is set to 0
-	if (can_use_off_query($data_debug_ref)) {
+	# or the request parameters include no_off_query set to 1 (e.g. for API queries that could ask for fields not supported by off-query)
+	if (can_use_off_query($data_debug_ref) and not $parameters_ref->{no_off_query}) {
 
 		$$data_debug_ref .= "using off_query\n";
 
