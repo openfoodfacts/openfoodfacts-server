@@ -284,50 +284,17 @@ lint: lint_perltidy lint_taxonomies
 
 tests: build_taxonomies_test build_lang_test unit_test integration_test brands_sort_test
 
-# Unit tests support two execution modes:
-# - Local development: Uses yath with job-count parallelization (default)  
-# - CI environment: Uses GNU parallel to run test files in parallel (when CI=true)
-# Use 'make unit_test_force_parallel' to test the parallel mode locally
+# Unit tests - use yath's built-in parallelization for both local and CI
 # add COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover"' if you want to trigger code coverage report generation
 unit_test: create_folders
 	@echo "🥫 Running unit tests …"
 	mkdir -p tests/unit/outputs/
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-ifeq ($(CI),true)
-	@echo "🥫 Running tests in parallel with GNU parallel (CI mode)"
-	@$(MAKE) unit_test_parallel
-else
-	@echo "🥫 Running tests with yath (local mode)"
+	@echo "🥫 Running tests with yath (parallel jobs: ${CPU_COUNT})"
 	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit.xml" -T --rm backend yath test --renderer=Formatter --renderer=JUnit --job-count=${CPU_COUNT} tests/unit
-endif
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 unit tests success"
 
-# GNU parallel version for CI environments
-unit_test_parallel: 
-	@echo " Running unit tests in parallel with GNU parallel"
-	# Install GNU parallel if not available and suppress citation notice
-	${DOCKER_COMPOSE_TEST} exec -T backend bash -c "\
-		command -v parallel >/dev/null 2>&1 || (apt-get update && apt-get install -y parallel); \
-		echo 'will cite' | parallel --citation >/dev/null 2>&1 || true \
-	"
-	# Run tests in parallel with proper output handling and error propagation
-	${DOCKER_COMPOSE_TEST} exec ${COVER_OPTS} -T backend bash -c "\
-		cd /opt/product-opener && \
-		export TEST_EXIT_CODE=0 && \
-		find tests/unit -name '*.t' -type f | sort | \
-		parallel -j ${CPU_COUNT} --halt now,fail=1 --line-buffer --tagstring '[{}]' \
-		'echo \"Starting: {}\"; \
-		if yath test --renderer=Formatter {} 2>&1; then \
-			echo \"✅ PASSED: {}\"; \
-		else \
-			echo \"❌ FAILED: {}\"; \
-			exit 1; \
-		fi' || exit 1 \
-	"
-	# Generate combined JUnit output for CI reporting
-	@echo "📊 Generating JUnit XML report..."
-	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit.xml" -T --rm backend yath test --renderer=JUnit --job-count=1 tests/unit || true
 
 integration_test: create_folders
 	@echo "🥫 Running integration tests …"
@@ -651,6 +618,40 @@ unit_test_force_parallel: create_folders
 	@$(MAKE) unit_test_parallel
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 unit tests success"
+
+# Unit test groups for parallel execution in CI
+# Usage: make unit_test_group TEST_GROUP=1
+# Groups are balanced by number of test files
+define UNIT_TEST_GROUPS
+UNIT_GROUP_1_TESTS := additives_tags.t additives.t all_pod_correct.t allergens_tags.t allergens.t api.t attributes.t booleans.t brevo.t contribution_knowledge_panels.t convert_gs1_xml_to_json.t cursor.t data_quality_tags_panel.t dataquality.t dataqualityfood_labels.t dataqualityfood.t display.t environmental_impact.t environmental_score.t
+UNIT_GROUP_2_TESTS := food_groups.t food.t forest_footprint.t http.t i18n.t images.t import_convert_carrefour_france.t import_gs1.t import.t ingredients_analysis.t ingredients_clean.t ingredients_contents.t ingredients_extract.t ingredients_nesting.t ingredients_nutriscore.t ingredients_parsing_todo.t ingredients_percent.t ingredients_preparsing.t ingredients_processing.t
+UNIT_GROUP_3_TESTS := ingredients_tags.t ingredients.t knowledge_panels.t lang.t load_csv_or_excel_file.t match_ingredient_origin.t nova.t numbers.t nutriscore.t nutrition_ciqual.t nutrition_estimation.t packager_codes.t packaging_food_contact.t packaging_stats.t packaging.t parse_origins_from_text.t paths.t process_product_edit_rules.t
+UNIT_GROUP_4_TESTS := producers.t product_schema_changes.t products.t recipes.t redis.t routing.t send_image_to_cloud_vision.t spam_user.t store.t tags_unit.t tags.t taxonomies_enhancer.t taxonomies.t taxonomy_suggestions.t templates.t text.t units.t vitamins.t
+endef
+
+$(eval $(UNIT_TEST_GROUPS))
+
+# Get unit test group tests
+get_unit_group_tests = $(UNIT_GROUP_$(1)_TESTS)
+
+# Unit test group runner for CI parallelization
+unit_test_group: create_folders
+ifeq ($(TEST_GROUP),)
+	$(error TEST_GROUP is required. Usage: make unit_test_group TEST_GROUP=1)
+endif
+	@echo "🥫 Running unit test group $(TEST_GROUP) …"
+	@echo "📋 Tests in group $(TEST_GROUP): $(call get_unit_group_tests,$(TEST_GROUP))"
+	mkdir -p tests/unit/outputs/
+	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
+	@echo "🔄 Running tests sequentially in group $(TEST_GROUP)..."
+	@for test in $(call get_unit_group_tests,$(TEST_GROUP)); do \
+		echo "🧪 Running test: $$test"; \
+		${DOCKER_COMPOSE_TEST} exec ${COVER_OPTS} -T backend yath test --renderer=Formatter tests/unit/$$test || exit 1; \
+	done
+	@echo "📊 Generating JUnit XML for group $(TEST_GROUP)..."
+	${DOCKER_COMPOSE_TEST} exec ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit_group_$(TEST_GROUP).xml" -T backend bash -c "yath test --renderer=JUnit $(addprefix tests/unit/,$(call get_unit_group_tests,$(TEST_GROUP)))" || true
+	${DOCKER_COMPOSE_TEST} stop
+	@echo "✅ Unit test group $(TEST_GROUP) completed successfully"
 
 # Integration test groups for parallel execution in CI
 # Usage: make integration_test_group TEST_GROUP=1
