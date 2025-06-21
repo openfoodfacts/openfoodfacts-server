@@ -635,7 +635,7 @@ endif
 	mkdir -p tests/unit/outputs/
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
 	@echo "🥫 Running all tests in group $(TEST_GROUP) with parallel execution and JUnit XML generation..."
-	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit_group_$(TEST_GROUP).xml" -T --rm backend yath test --renderer=Formatter --renderer=JUnit --job-count=4 $(addprefix tests/unit/,$(call get_unit_group_tests,$(TEST_GROUP)))
+	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit_group_$(TEST_GROUP).xml" -T --rm backend yath test --renderer=Formatter --renderer=JUnit --job-count=${CPU_COUNT} $(addprefix tests/unit/,$(call get_unit_group_tests,$(TEST_GROUP)))
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 Unit test group $(TEST_GROUP) completed successfully"
 
