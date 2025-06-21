@@ -678,4 +678,4 @@ endif
 	@echo "🥫 Generating JUnit XML for group $(TEST_GROUP)..."
 	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/integration/outputs/junit_group_$(TEST_GROUP).xml" -T backend bash -c "yath test --renderer=JUnit $(addprefix tests/integration/,$(call get_group_tests,$(TEST_GROUP)))" || true
 	${DOCKER_COMPOSE_INT_TEST} stop
-	@echo 🥫 Integration test group $(TEST_GROUP) completed successfully"
+	@echo "🥫 Integration test group $(TEST_GROUP) completed successfully"
