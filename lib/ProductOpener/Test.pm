@@ -261,13 +261,11 @@ sub remove_all_users () {
 	if (@$err) {
 		confess("not able to remove some users directories: " . join(":", @$err));
 	}
-	# clean keycloak (only if OIDC is configured and available)
-	if (defined $oidc_options{oidc_discovery_url} && $oidc_options{oidc_discovery_url}) {
-		my @users = get_users_from_keycloak();
-		foreach (@users) {
-			foreach (@{$_}) {
-				_delete_user_from_keycloak($_);
-			}
+	# clean keycloak
+	my @users = get_users_from_keycloak();
+	foreach (@users) {
+		foreach (@{$_}) {
+			_delete_user_from_keycloak($_);
 		}
 	}
 	return;
