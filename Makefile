@@ -21,14 +21,7 @@ NFS_VOLUMES_ADDRESS ?= 10.0.0.3
 NFS_VOLUMES_BASE_PATH ?= /rpool/staging-clones
 
 export DOCKER_BUILDKIT=1
-export COMPOSE_DOCK	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	@echo "🔄 Running tests sequentially in group $(TEST_GROUP)..."
-	@for test in $(call get_unit_group_tests,$(TEST_GROUP)); do \
-		echo "🧪 Running test: $$test"; \
-		${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -T --rm backend yath test --renderer=Formatter tests/unit/$$test || exit 1; \
-	done
-	@echo "📊 Generating JUnit XML for group $(TEST_GROUP)..."
-	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit_group_$(TEST_GROUP).xml" -T --rm backend bash -c "yath test --renderer=JUnit $(addprefix tests/unit/,$(call get_unit_group_tests,$(TEST_GROUP)))" || trueUILD=1
+export COMPOSE_DOCKER_CLI_BUILD=1
 UID ?= $(shell id -u)
 export USER_UID:=${UID}
 ifeq ($(OS), Darwin)
@@ -638,15 +631,15 @@ endif
 	@echo "🥫 Running unit test group $(TEST_GROUP) …"
 	@echo "🥫 Tests in group $(TEST_GROUP): $(call get_unit_group_tests,$(TEST_GROUP))"
 	mkdir -p tests/unit/outputs/
-	${DOCKER_COMPOSE_TEST} up -d backend
+	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
 	@echo "🥫 Running tests sequentially in group $(TEST_GROUP)..."
 	@for test in $(call get_unit_group_tests,$(TEST_GROUP)); do \
 		echo "🥫 Running test: $$test"; \
-		${DOCKER_COMPOSE_TEST} exec ${COVER_OPTS} -T backend yath test --renderer=Formatter tests/unit/$$test || exit 1; \
+		${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -T --rm backend yath test --renderer=Formatter tests/unit/$$test || exit 1; \
 	done
 	@echo "🥫 Generating JUnit XML for group $(TEST_GROUP)..."
-	${DOCKER_COMPOSE_TEST} exec ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit_group_$(TEST_GROUP).xml" -T backend bash -c "yath test --renderer=JUnit $(addprefix tests/unit/,$(call get_unit_group_tests,$(TEST_GROUP)))" || true
-	${DOCKER_COMPOSE_TEST} stop
+	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit_group_$(TEST_GROUP).xml" -T --rm backend bash -c "yath test --renderer=JUnit $(addprefix tests/unit/,$(call get_unit_group_tests,$(TEST_GROUP)))" || true
+	# ${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 Unit test group $(TEST_GROUP) completed successfully"
 
 # Integration test groups for parallel execution in CI
