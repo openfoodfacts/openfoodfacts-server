@@ -24,3 +24,7 @@ services:
       redis-listener:
         condition: service_started
       # No keycloak dependency for faster startup
+    environment:
+      # Disable OIDC/Keycloak functionality for tests that don't need it
+      - OIDC_IMPLEMENTATION_LEVEL=0
+      - OIDC_DISCOVERY_URL=
