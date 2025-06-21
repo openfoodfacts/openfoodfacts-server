@@ -59,8 +59,7 @@ jobs:
     name: 🏗 Build backend dev image for tests
     needs: filter
     runs-on: ubuntu-latest
-    if: >
-      ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true'
+    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true'
 
     steps:
       - uses: actions/checkout@v4
@@ -111,7 +110,7 @@ jobs:
           tags: openfoodfacts-server/backend:dev
 
       - name: push backend image as artifact
-        uses: ishworkh/container-image-artifact-upload@v2.1.0
+        uses: ishworkh/container-image-artifact-upload@v2.0.0
         with:
           image: "openfoodfacts-server/backend:dev"
 
