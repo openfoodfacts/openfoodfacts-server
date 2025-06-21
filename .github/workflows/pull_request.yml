@@ -46,14 +46,9 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v4
       with:
-        node-version: '22.x'
-    - name: Cache node modules
-      uses: actions/cache@v4
-      with:
-        path: node_modules
-        key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
+        node-version: '24.x'
+        cache: 'npm'
+        cache-dependency-path: 'package-lock.json'
     - name: gulp build
       run: make front_build
     - name: lint
@@ -64,40 +59,86 @@ jobs:
     name: 🏗 Build backend dev image for tests
     needs: filter
     runs-on: ubuntu-latest
-    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true'
+    if: >
+      ((github.event_name == 'push' && github.ref == 'refs/heads/main')|| github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true'
+
     steps:
-    - uses: actions/checkout@v4
-      with:
-        # needs depth to run git log below
-        fetch-depth: 50
-    - uses: actions/cache@v4
-      id: cache
-      with:
-        path: ./build-cache
-        key: taxonomies-${{ hashFiles('taxonomies/**') }}
-        restore-keys: taxonomies-
-    - name: build
-      run: make build container=backend
-    - name: push backend image as artifact
-      uses: ishworkh/container-image-artifact-upload@v2.0.0
-      with:
-        image: "openfoodfacts-server/backend:dev"
-    - name: Setup Git and Restore Taxonomies
-      run: ./.github/scripts/setup_git.sh
-    - name: Rebuild taxonomies for Open Food Facts (off)
-      run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
-    - name: Rebuild taxonomies for Open Beauty Facts (obf)
-      run: |
-        source env/setenv.sh obf
-        make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
-    - name: Rebuild taxonomies for Open Products Facts (opf)
-      run: |
-        source env/setenv.sh opf
-        make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
-    - name: Rebuild taxonomies for Open Pet Food Facts (opff)
-      run: |
-        source env/setenv.sh opff
-        make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+      - uses: actions/checkout@v4
+        with:
+          # needs depth to run git log below
+          fetch-depth: 50
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+        # Restore BuildKit cache from previous builds
+      - name: Restore BuildKit cache
+        uses: actions/cache@v4
+        with:
+          # Cache key based on files that trigger Docker rebuild (from path-filter logic)
+          key: ${{ runner.os }}-docker-${{ hashFiles('Dockerfile*', 'docker-compose.yml', 'docker/**', 'cpanfile*', 'conf/apache*') }}
+          restore-keys: |
+            ${{ runner.os }}-docker-
+          path: /tmp/.buildx-cache
+
+      # Restore taxonomies cache
+      - uses: actions/cache@v4
+        id: cache
+        with:
+          path: ./build-cache
+          key: taxonomies-${{ hashFiles('taxonomies/**') }}
+          restore-keys: taxonomies-
+
+      - name: Build backend image with cache
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: ./Dockerfile
+          builder: default
+          build-args: |
+            USER_UID=1000
+            USER_GID=1000
+            CPANMOPTS=--with-develop
+          # reference the GitHub cache as a source
+          cache-from: type=local,src=/tmp/.buildx-cache
+          # after build, export the new layer cache back
+          cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
+          load: true                   # loads the image into local docker daemon
+          tags: openfoodfacts-server/backend:dev
+
+      - name: push backend image as artifact
+        uses: ishworkh/container-image-artifact-upload@v2.1.0
+        with:
+          image: "openfoodfacts-server/backend:dev"
+
+      # Prepare cache for next run
+      - name: Prepare cache for next run
+        if: always()
+        run: |
+          rm -rf /tmp/.buildx-cache
+          if [ -d /tmp/.buildx-cache-new ]; then
+            mv /tmp/.buildx-cache-new /tmp/.buildx-cache
+          fi
+
+      - name: Setup Git and Restore Taxonomies
+        run: ./.github/scripts/setup_git.sh
+
+      - name: Rebuild taxonomies for Open Food Facts (off)
+        run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+
+      - name: Rebuild taxonomies for Open Beauty Facts (obf)
+        run: |
+          source env/setenv.sh obf
+          make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+
+      - name: Rebuild taxonomies for Open Products Facts (opf)
+        run: |
+          source env/setenv.sh opf
+          make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+
+      - name: Rebuild taxonomies for Open Pet Food Facts (opff)
+        run: |
+          source env/setenv.sh opff
+          make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
 
   check_perl:
     name: 🐪 Check Perl
