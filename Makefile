@@ -21,7 +21,14 @@ NFS_VOLUMES_ADDRESS ?= 10.0.0.3
 NFS_VOLUMES_BASE_PATH ?= /rpool/staging-clones
 
 export DOCKER_BUILDKIT=1
-export COMPOSE_DOCKER_CLI_BUILD=1
+export COMPOSE_DOCK	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
+	@echo "🔄 Running tests sequentially in group $(TEST_GROUP)..."
+	@for test in $(call get_unit_group_tests,$(TEST_GROUP)); do \
+		echo "🧪 Running test: $$test"; \
+		${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -T --rm backend yath test --renderer=Formatter tests/unit/$$test || exit 1; \
+	done
+	@echo "📊 Generating JUnit XML for group $(TEST_GROUP)..."
+	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit_group_$(TEST_GROUP).xml" -T --rm backend bash -c "yath test --renderer=JUnit $(addprefix tests/unit/,$(call get_unit_group_tests,$(TEST_GROUP)))" || trueUILD=1
 UID ?= $(shell id -u)
 export USER_UID:=${UID}
 ifeq ($(OS), Darwin)
@@ -284,7 +291,6 @@ lint: lint_perltidy lint_taxonomies
 
 tests: build_taxonomies_test build_lang_test unit_test integration_test brands_sort_test
 
-# Unit tests - use yath's built-in parallelization for both local and CI
 # add COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover"' if you want to trigger code coverage report generation
 unit_test: create_folders
 	@echo "🥫 Running unit tests …"
@@ -609,16 +615,6 @@ guard-%: # guard clause for targets that require an environment variable (usuall
    		exit 1; \
 	fi;
 
-# Force parallel execution (for testing the parallel implementation locally)
-unit_test_force_parallel: create_folders
-	@echo "🥫 Running unit tests in parallel mode (forced) …"
-	mkdir -p tests/unit/outputs/
-	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	@echo "🚀 Running tests in parallel with GNU parallel (forced mode)"
-	@$(MAKE) unit_test_parallel
-	${DOCKER_COMPOSE_TEST} stop
-	@echo "🥫 unit tests success"
-
 # Unit test groups for parallel execution in CI
 # Usage: make unit_test_group TEST_GROUP=1
 # Groups are balanced by number of test files
@@ -640,18 +636,18 @@ ifeq ($(TEST_GROUP),)
 	$(error TEST_GROUP is required. Usage: make unit_test_group TEST_GROUP=1)
 endif
 	@echo "🥫 Running unit test group $(TEST_GROUP) …"
-	@echo "📋 Tests in group $(TEST_GROUP): $(call get_unit_group_tests,$(TEST_GROUP))"
+	@echo "🥫 Tests in group $(TEST_GROUP): $(call get_unit_group_tests,$(TEST_GROUP))"
 	mkdir -p tests/unit/outputs/
-	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	@echo "🔄 Running tests sequentially in group $(TEST_GROUP)..."
+	${DOCKER_COMPOSE_TEST} up -d backend
+	@echo "🥫 Running tests sequentially in group $(TEST_GROUP)..."
 	@for test in $(call get_unit_group_tests,$(TEST_GROUP)); do \
-		echo "🧪 Running test: $$test"; \
+		echo "🥫 Running test: $$test"; \
 		${DOCKER_COMPOSE_TEST} exec ${COVER_OPTS} -T backend yath test --renderer=Formatter tests/unit/$$test || exit 1; \
 	done
-	@echo "📊 Generating JUnit XML for group $(TEST_GROUP)..."
+	@echo "🥫 Generating JUnit XML for group $(TEST_GROUP)..."
 	${DOCKER_COMPOSE_TEST} exec ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit_group_$(TEST_GROUP).xml" -T backend bash -c "yath test --renderer=JUnit $(addprefix tests/unit/,$(call get_unit_group_tests,$(TEST_GROUP)))" || true
 	${DOCKER_COMPOSE_TEST} stop
-	@echo "✅ Unit test group $(TEST_GROUP) completed successfully"
+	@echo "🥫 Unit test group $(TEST_GROUP) completed successfully"
 
 # Integration test groups for parallel execution in CI
 # Usage: make integration_test_group TEST_GROUP=1
