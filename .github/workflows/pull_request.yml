@@ -18,7 +18,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # FIXME: not used yet
   filter:
     name: "Filter changed paths"
     runs-on: ubuntu-latest
@@ -134,11 +133,11 @@ jobs:
     - name: check perl
       run: make check_perl
 
-  tests:
-    name: 🐪 Perl unit tests
+  unit_tests:
+    name: 🐪 Perl Unit Tests
     needs: [filter, build_backend]
     runs-on: ubuntu-latest
-    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true'
+    if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     steps:
     - uses: actions/checkout@v4
       with:
@@ -153,14 +152,24 @@ jobs:
       run: ./.github/scripts/setup_git.sh
     - name: Download backend image from artifacts
       id: downloadbackendimage
-      uses: ishworkh/container-image-artifact-download@v2.1.0
+      uses: ishworkh/container-image-artifact-download@v2.0.0
       with:
-        image: "openfoodfacts-server/backend:dev"
-        download_tmp_dir: ${{ runner.temp }}
-    - name: tests
+        image: "openfoodfacts-server/backend:dev"       
+    # downloadbackendimage task loads the image into docker and keeps the original file.
+    # As our runs tend to hit the storage limits for GitHub Actions, manually delete the
+    # downloaded file for now. It's not needed after being loaded into docker.
+    - name: Remove downloaded image
+      env:
+        FILE: "${{ steps.downloadbackendimage.outputs.download_path }}"
+      run: rm $FILE
+    - name: Build taxonomies for tests
+      run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies_test GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+    - name: Build language files for tests
+      run: make DOCKER_LOCAL_DATA="$(pwd)" build_lang_test GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+    - name: Run unit tests (with GNU parallel in CI)
       run: |
         make codecov_prepare
-        make COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' DOCKER_LOCAL_DATA="$(pwd)" tests GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+        make COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' DOCKER_LOCAL_DATA="$(pwd)" unit_test GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
     - name: generate coverage results
       # even if tests failed
       if: always()
@@ -177,8 +186,67 @@ jobs:
       uses: codecov/test-results-action@v1
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
-        files: ./tests/unit/outputs/junit.xml,./tests/integration/outputs/junit.xml
+        files: ./tests/unit/outputs/junit.xml
 
+  integration_tests:
+    name: 🐪 Perl Integration Tests
+    needs: [filter, build_backend]
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
+    strategy:
+      fail-fast: false
+      matrix:
+        test-group: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 1
+    - uses: actions/cache/restore@v4
+      id: cache
+      with:
+        path: ./build-cache
+        key: taxonomies-${{ hashFiles('taxonomies/**') }}
+        restore-keys: taxonomies-
+    - name: Setup Git and Restore Taxonomies
+      run: ./.github/scripts/setup_git.sh
+    - name: Download backend image from artifacts
+      id: downloadbackendimage
+      uses: ishworkh/container-image-artifact-download@v2.0.0
+      with:
+        image: "openfoodfacts-server/backend:dev"       
+    # downloadbackendimage task loads the image into docker and keeps the original file.
+    # As our runs tend to hit the storage limits for GitHub Actions, manually delete the
+    # downloaded file for now. It's not needed after being loaded into docker.
+    - name: Remove downloaded image
+      env:
+        FILE: "${{ steps.downloadbackendimage.outputs.download_path }}"
+      run: rm $FILE
+    - name: Build taxonomies for tests
+      run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies_test GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+    - name: Build language files for tests
+      run: make DOCKER_LOCAL_DATA="$(pwd)" build_lang_test GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+    - name: Run integration test group ${{ matrix.test-group }}
+      run: |
+        make codecov_prepare
+        make COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' DOCKER_LOCAL_DATA="$(pwd)" integration_test_group TEST_GROUP=${{ matrix.test-group }} GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+    - name: generate coverage results
+      # even if tests failed
+      if: always()
+      run: |
+        make coverage_txt
+        make codecov
+    - uses: codecov/codecov-action@v5
+      if: always()
+      with:
+        files: cover_db/codecov.json
+        token: ${{ secrets.CODECOV_TOKEN }}
+    - name: Upload test results to Codecov
+      if: ${{ !cancelled() }}
+      uses: codecov/test-results-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        files: ./tests/integration/outputs/junit_group_${{ matrix.test-group }}.xml
+    
   tests_dev:
     name: 🧪 Test make dev
     needs: [filter, build_backend]  # build_backend - only to avoid building taxonomies

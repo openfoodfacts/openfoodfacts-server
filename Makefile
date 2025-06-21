@@ -651,3 +651,41 @@ unit_test_force_parallel: create_folders
 	@$(MAKE) unit_test_parallel
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 unit tests success"
+
+# Integration test groups for parallel execution in CI
+# Usage: make integration_test_group TEST_GROUP=1
+# Groups are balanced by test complexity and execution time
+define INTEGRATION_TEST_GROUPS
+GROUP_1_TESTS := api_v3_product_write.t api_cgi_nutrients.t countries.t modify_user.t add_update_to_redis.t
+GROUP_2_TESTS := web_html.t search_v1.t create_product.t remove_documents_by_ids.t oidc_signin.t
+GROUP_3_TESTS := change_product_code_and_product_type.t protected_images.t product_read.t create_user.t oidc_signout.t
+GROUP_4_TESTS := facets.t api_v3_product_read.t auth.t run_cloud_vision_ocr.t madenearme.t
+GROUP_5_TESTS := protected_product.t api_v3_product_services.t recipes_stats.t import_systemeu.t auth_user_from_keycloak.t
+GROUP_6_TESTS := page_crawler.t upload_images.t data_quality_knowledge_panel.t export.t auth-keycloak.t
+GROUP_7_TESTS := api_v3_product_images_selected.t api_v3_taxonomy_suggestions.t unknown_tags.t delete_user.t create_pro_user.t
+GROUP_8_TESTS := api_v2_product_read.t api_v2_product_write.t convert_and_import_excel_file.t import_csv_file.t cors.t
+GROUP_9_TESTS := api_v3_product_images_upload.t api_v3_product_revert.t fix_non_normalized_codes.t api_cgi_suggest.t
+endef
+
+$(eval $(INTEGRATION_TEST_GROUPS))
+
+# Get the tests for a specific group
+get_group_tests = $(GROUP_$(1)_TESTS)
+
+integration_test_group: create_folders
+ifeq ($(TEST_GROUP),)
+	$(error TEST_GROUP is required. Usage: make integration_test_group TEST_GROUP=1)
+endif
+	@echo "🥫 Running integration test group $(TEST_GROUP) …"
+	@echo "📋 Tests in group $(TEST_GROUP): $(call get_group_tests,$(TEST_GROUP))"
+	mkdir -p tests/integration/outputs/
+	${DOCKER_COMPOSE_INT_TEST} up -d backend
+	@echo "🔄 Running tests sequentially in group $(TEST_GROUP)..."
+	@for test in $(call get_group_tests,$(TEST_GROUP)); do \
+		echo "🧪 Running test: $$test"; \
+		${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -T backend yath test --renderer=Formatter tests/integration/$$test || exit 1; \
+	done
+	@echo "📊 Generating JUnit XML for group $(TEST_GROUP)..."
+	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/integration/outputs/junit_group_$(TEST_GROUP).xml" -T backend bash -c "yath test --renderer=JUnit $(addprefix tests/integration/,$(call get_group_tests,$(TEST_GROUP)))" || true
+	${DOCKER_COMPOSE_INT_TEST} stop
+	@echo "✅ Integration test group $(TEST_GROUP) completed successfully"
