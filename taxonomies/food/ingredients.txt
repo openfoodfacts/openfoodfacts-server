@@ -9259,6 +9259,7 @@ fr: Sel de Guérande, sel marin de guérande, sel de Guérande IGP
 hr: sol iz guérande
 it: Sale di Guérande
 nl: Zout uit Guérande
+sv: Guérande-havssalt
 origins:en: en:france
 protected_name_type:en: en:pgi
 
@@ -30753,7 +30754,7 @@ sv: råsocker
 en: unrefined cane sugar, raw cane sugar, unrefined raw cane sugar
 bg: нерафинирана тръстикова захар
 cs: nerafinovaný třtinový cukr
-da: rå rørsukker
+da: rå rørsukker, uraffineret rørsukker
 de: Rohrohrzucker, Roh-Rohrzucker, Rohr-rohzucker, roher Rohrzucker, Rohrrohzucker
 el: ακατέργαστη ζάχαρη ζαχαροκάλαμου
 es: Azucar de caña sin refinar, azucar de caña no refinada, azucar de caña en bruto
@@ -33939,6 +33940,7 @@ en: cocoa bean, cocoa beans, cacao bean
 af: Kakaoboon
 bg: какаови зърна
 ca: gra de cacau
+da: kakaobønne, kakaobønner
 de: Kakaobohne, Kakaobohnen
 es: Cacao en grano
 et: kakaooad, kakaopuu seemned
@@ -34809,7 +34811,7 @@ so: Biyo
 sq: Uji
 sr: Вода
 su: Cai
-sv: Vatten
+sv: vatten, bordsvatten
 sw: Maji
 ta: நீர்
 te: నీరు
@@ -34924,7 +34926,6 @@ vegetarian:en: yes
 wikidata:en: Q283
 wikipedia:en: https://en.wikipedia.org/wiki/Water
 
-
 < en:water
 en: distilled water
 bg: дестилирана вода
@@ -34935,6 +34936,8 @@ hr: destilirana voda
 it: acqua distillata
 pl: woda destylowana
 pt: Água destilada
+wikidata:en: Q274959
+wikipedia:en: https://en.wikipedia.org/wiki/Distilled_water
 
 < en:water
 en: water like ice wrap
@@ -34968,6 +34971,7 @@ nl: bronwater
 pl: woda źródlana
 pt: Água de nascente
 tr: kaynak suyu
+wikidata:en: Q1881858
 
 < en:spring water
 fr: eau de source St Benoît, Eau de source Saint Benoît
@@ -35066,7 +35070,7 @@ sh: Mineralna voda
 sk: Minerálna voda
 sl: Mineralna voda
 sr: Минерална вода
-sv: Mineralvatten
+sv: mineralvatten
 ta: கனிம நீர்
 th: น้ำแร่
 tr: Maden suyu
@@ -35077,11 +35081,13 @@ vi: Nước khoáng
 zh: 礦泉水
 # ast:Agua mineral
 # yue:礦泉水
+wikidata:en: Q178921
 wikipedia:en: https://en.wikipedia.org/wiki/Mineral_water
 
 < en:mineral water
 en: natural mineral water
 bg: натурална минерална вода
+da: naturligt mineralvand
 de: Natürliches Mineralwasser
 es: Agua Mineral natural
 fi: luontainen kivennäisvesi, luonnollinen mineraalivesi
@@ -35158,7 +35164,7 @@ ro: Sifon, Apa carbonatată, apa gazoasă, sifonul
 ru: Газированная вода
 si: Sifon, Apa carbonatată, apa gazoasă, sifonul
 sr: Сода вода
-sv: Bordsvatten, kolsyrat vatten
+sv: kolsyrat vatten
 ta: சோடா நீர்
 th: โซดา
 tr: Soda, sodalı su, karbonatlı su
@@ -35171,6 +35177,7 @@ zh: 碳酸水
 # hi:वातिल जल this needs to be checked
 # wuu:汽水
 # yue:荷蘭水
+wikidata:en: Q264554
 wikipedia:en: https://en.wikipedia.org/wiki/Carbonated_water
 
 < en:carbonated water
@@ -35224,6 +35231,7 @@ fr: Eau minérale naturelle renforcée au gaz de la source
 
 < en:water
 en: filtered water, purified water
+da: filtreret vand
 de: gefiltertes Wasser, gereinigtes Wasser
 es: agua filtrada, agua purificada, agua filtrada y purificada
 fi: suodatettu vesi, puhdistettu vesi
@@ -35235,7 +35243,7 @@ nl: gezuiverd water
 pl: Woda filtrowana
 pt: Água filtrada
 ru: Фильтрованная вода
-sv: Filterat vatten
+sv: filtrerat vatten
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:eau-filtrée
 # 134 products in 2 languages @2018-09-29
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:eau-purifiée
