@@ -674,7 +674,7 @@ ifeq ($(TEST_GROUP),)
 	$(error TEST_GROUP is required. Usage: make integration_test_group TEST_GROUP=1)
 endif
 	@echo "🥫 Running integration test group $(TEST_GROUP) …"
-	@echo "📋 Tests in group $(TEST_GROUP): $(call get_group_tests,$(TEST_GROUP))"
+	@echo "🥫 Tests in group $(TEST_GROUP): $(call get_group_tests,$(TEST_GROUP))"
 	mkdir -p tests/integration/outputs/
 	${DOCKER_COMPOSE_INT_TEST} up -d backend
 	@echo "🔄 Running tests sequentially in group $(TEST_GROUP)..."
@@ -682,7 +682,7 @@ endif
 		echo "🧪 Running test: $$test"; \
 		${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -T backend yath test --renderer=Formatter tests/integration/$$test || exit 1; \
 	done
-	@echo "📊 Generating JUnit XML for group $(TEST_GROUP)..."
+	@echo "🥫 Generating JUnit XML for group $(TEST_GROUP)..."
 	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/integration/outputs/junit_group_$(TEST_GROUP).xml" -T backend bash -c "yath test --renderer=JUnit $(addprefix tests/integration/,$(call get_group_tests,$(TEST_GROUP)))" || true
 	${DOCKER_COMPOSE_INT_TEST} stop
-	@echo "✅ Integration test group $(TEST_GROUP) completed successfully"
+	@echo 🥫 Integration test group $(TEST_GROUP) completed successfully"
