@@ -18,7 +18,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # FIXME: not used yet
   filter:
     name: "Filter changed paths"
     runs-on: ubuntu-latest
@@ -48,13 +47,8 @@ jobs:
     - uses: actions/setup-node@v4
       with:
         node-version: '22.x'
-    - name: Cache node modules
-      uses: actions/cache@v4
-      with:
-        path: node_modules
-        key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
+        cache: 'npm'
+        cache-dependency-path: 'package-lock.json'
     - name: gulp build
       run: make front_build
     - name: lint
@@ -63,42 +57,105 @@ jobs:
   # this will build the docker image and upload as an artifact for following jobs
   build_backend:
     name: 🏗 Build backend dev image for tests
-    needs: filter
     runs-on: ubuntu-latest
-    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true'
+    if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request'
     steps:
-    - uses: actions/checkout@v4
-      with:
-        # needs depth to run git log below
-        fetch-depth: 50
-    - uses: actions/cache@v4
-      id: cache
-      with:
-        path: ./build-cache
-        key: taxonomies-${{ hashFiles('taxonomies/**') }}
-        restore-keys: taxonomies-
-    - name: build
-      run: make build container=backend
-    - name: push backend image as artifact
-      uses: ishworkh/container-image-artifact-upload@v2.0.0
-      with:
-        image: "openfoodfacts-server/backend:dev"
-    - name: Setup Git and Restore Taxonomies
-      run: ./.github/scripts/setup_git.sh
-    - name: Rebuild taxonomies for Open Food Facts (off)
-      run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
-    - name: Rebuild taxonomies for Open Beauty Facts (obf)
-      run: |
-        source env/setenv.sh obf
-        make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
-    - name: Rebuild taxonomies for Open Products Facts (opf)
-      run: |
-        source env/setenv.sh opf
-        make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
-    - name: Rebuild taxonomies for Open Pet Food Facts (opff)
-      run: |
-        source env/setenv.sh opff
-        make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+      - uses: actions/checkout@v4
+        with:
+          # needs depth to run git log below
+          fetch-depth: 50
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+        with:
+          driver: docker-container
+          use: true
+
+        # Restore BuildKit cache from previous builds
+      - name: Restore BuildKit cache
+        uses: actions/cache@v4
+        with:
+          # Cache key based on files that trigger Docker rebuild (from path-filter logic)
+          key: ${{ runner.os }}-docker-${{ hashFiles('Dockerfile*', 'docker-compose.yml', 'docker/**', 'cpanfile*', 'conf/apache*') }}
+          restore-keys: |
+            ${{ runner.os }}-docker-
+          path: /tmp/.buildx-cache
+          # Enable compression for faster cache restoration
+          enableCrossOsArchive: false
+
+      # Restore taxonomies cache
+      - uses: actions/cache@v4
+        id: cache
+        with:
+          path: ./build-cache
+          key: taxonomies-${{ hashFiles('taxonomies/**') }}
+          restore-keys: taxonomies-
+
+      # Get current user/group IDs for proper file permissions in Docker
+      - name: Get user IDs
+        id: user_ids
+        run: |
+          echo "uid=$(id -u)" >> $GITHUB_OUTPUT
+          echo "gid=$(id -g)" >> $GITHUB_OUTPUT
+
+      - name: Build backend image with cache
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile
+          build-args: |
+            USER_UID=${{ steps.user_ids.outputs.uid }}
+            USER_GID=${{ steps.user_ids.outputs.gid }}
+            CPANMOPTS=--with-develop
+          # Multi-layer caching strategy for maximum performance
+          cache-from: |
+            type=local,src=/tmp/.buildx-cache
+            type=gha
+          cache-to: |
+            type=local,dest=/tmp/.buildx-cache-new,mode=max
+            type=gha,mode=max
+          load: true                   # loads the image into local docker daemon
+          tags: openfoodfacts-server/backend:dev
+
+      - name: push backend image as artifact
+        uses: ishworkh/container-image-artifact-upload@v2.0.0
+        with:
+          image: "openfoodfacts-server/backend:dev"
+
+      # Prepare cache for next run
+      - name: Prepare cache for next run
+        if: always()
+        run: |
+          rm -rf /tmp/.buildx-cache
+          if [ -d /tmp/.buildx-cache-new ]; then
+            mv /tmp/.buildx-cache-new /tmp/.buildx-cache
+          fi
+
+      - name: Setup Git and Restore Taxonomies
+        run: ./.github/scripts/setup_git.sh
+
+      # Set up environment variables for proper Docker user/group permissions
+      - name: Set up user environment for Docker
+        run: |
+          echo "export USER_UID=$(id -u)" >> .envrc
+          echo "export USER_GID=$(id -g)" >> .envrc
+
+      - name: Rebuild taxonomies for Open Food Facts (off)
+        run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+
+      - name: Rebuild taxonomies for Open Beauty Facts (obf)
+        run: |
+          source env/setenv.sh obf
+          make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+
+      - name: Rebuild taxonomies for Open Products Facts (opf)
+        run: |
+          source env/setenv.sh opf
+          make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+
+      - name: Rebuild taxonomies for Open Pet Food Facts (opff)
+        run: |
+          source env/setenv.sh opff
+          make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
 
   check_perl:
     name: 🐪 Check Perl
@@ -134,33 +191,60 @@ jobs:
     - name: check perl
       run: make check_perl
 
-  tests:
-    name: 🐪 Perl unit tests
+  unit_tests:
+    name: 🐪 Perl Unit Tests
     needs: [filter, build_backend]
     runs-on: ubuntu-latest
     if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true'
+    strategy:
+      fail-fast: false
+      matrix:
+        test-group: [1, 2, 3, 4, 5, 6]
     steps:
     - uses: actions/checkout@v4
       with:
         fetch-depth: 1
+    
+    # Restore cached taxonomies built in build_backend job
+    # This avoids rebuilding taxonomies for each test group
     - uses: actions/cache/restore@v4
       id: cache
       with:
         path: ./build-cache
         key: taxonomies-${{ hashFiles('taxonomies/**') }}
         restore-keys: taxonomies-
+    
     - name: Setup Git and Restore Taxonomies
       run: ./.github/scripts/setup_git.sh
+    
+    # Download the Docker image built in build_backend job as an artifact
+    # This reuses the cached Docker image instead of rebuilding it
     - name: Download backend image from artifacts
       id: downloadbackendimage
-      uses: ishworkh/container-image-artifact-download@v2.1.0
+      uses: ishworkh/container-image-artifact-download@v2.0.0
       with:
-        image: "openfoodfacts-server/backend:dev"
-        download_tmp_dir: ${{ runner.temp }}
-    - name: tests
+        image: "openfoodfacts-server/backend:dev"       
+    
+    # Clean up downloaded file to save GitHub Actions storage space
+    # The image is already loaded into Docker daemon, file no longer needed
+    - name: Remove downloaded image
+      env:
+        FILE: "${{ steps.downloadbackendimage.outputs.download_path }}"
+      run: rm $FILE
+    
+    # Build test-specific taxonomies and language files
+    # These use the cached taxonomies from build_backend when possible
+    - name: Build taxonomies for tests
+      run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies_test GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+    - name: Build language files for tests
+      run: make DOCKER_LOCAL_DATA="$(pwd)" build_lang_test GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+    
+    # Run unit tests for this specific test group (parallel execution)
+    # Matrix strategy splits tests across 6 parallel jobs for faster execution
+    - name: Run unit test group ${{ matrix.test-group }}
       run: |
         make codecov_prepare
-        make COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' DOCKER_LOCAL_DATA="$(pwd)" tests GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+        make COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' DOCKER_LOCAL_DATA="$(pwd)" unit_test_group TEST_GROUP=${{ matrix.test-group }} GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
     - name: generate coverage results
       # even if tests failed
       if: always()
@@ -177,8 +261,73 @@ jobs:
       uses: codecov/test-results-action@v1
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
-        files: ./tests/unit/outputs/junit.xml,./tests/integration/outputs/junit.xml
+        files: ./tests/unit/outputs/junit_group_${{ matrix.test-group }}.xml
 
+  integration_tests:
+    name: 🐪 Perl Integration Tests
+    needs: [filter, build_backend]
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
+    strategy:
+      fail-fast: false
+      matrix:
+        test-group: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 1
+    
+    - uses: actions/cache/restore@v4
+      id: cache
+      with:
+        path: ./build-cache
+        key: taxonomies-${{ hashFiles('taxonomies/**') }}
+        restore-keys: taxonomies-
+    
+    - name: Setup Git and Restore Taxonomies
+      run: ./.github/scripts/setup_git.sh
+  
+    - name: Download backend image from artifacts
+      id: downloadbackendimage
+      uses: ishworkh/container-image-artifact-download@v2.0.0
+      with:
+        image: "openfoodfacts-server/backend:dev"       
+    
+    - name: Remove downloaded image
+      env:
+        FILE: "${{ steps.downloadbackendimage.outputs.download_path }}"
+      run: rm $FILE
+    
+    - name: Build taxonomies for tests
+      run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies_test GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+    - name: Build language files for tests
+      run: make DOCKER_LOCAL_DATA="$(pwd)" build_lang_test GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+    
+    # Run integration tests for this specific test group (parallel execution)
+    # Matrix strategy splits tests across 9 parallel jobs (more than unit tests)
+    # Integration tests typically take longer and test end-to-end functionality
+    - name: Run integration test group ${{ matrix.test-group }}
+      run: |
+        make codecov_prepare
+        make COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' DOCKER_LOCAL_DATA="$(pwd)" integration_test_group TEST_GROUP=${{ matrix.test-group }} GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+    - name: generate coverage results
+      # even if tests failed
+      if: always()
+      run: |
+        make coverage_txt
+        make codecov
+    - uses: codecov/codecov-action@v5
+      if: always()
+      with:
+        files: cover_db/codecov.json
+        token: ${{ secrets.CODECOV_TOKEN }}
+    - name: Upload test results to Codecov
+      if: ${{ !cancelled() }}
+      uses: codecov/test-results-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        files: ./tests/integration/outputs/junit_group_${{ matrix.test-group }}.xml
+    
   tests_dev:
     name: 🧪 Test make dev
     needs: [filter, build_backend]  # build_backend - only to avoid building taxonomies

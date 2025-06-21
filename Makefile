@@ -289,9 +289,11 @@ unit_test: create_folders
 	@echo "🥫 Running unit tests …"
 	mkdir -p tests/unit/outputs/
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
+	@echo "🥫 Running tests with yath (parallel jobs: ${CPU_COUNT})"
 	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit.xml" -T --rm backend yath test --renderer=Formatter --renderer=JUnit --job-count=${CPU_COUNT} tests/unit
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 unit tests success"
+
 
 integration_test: create_folders
 	@echo "🥫 Running integration tests …"
@@ -605,3 +607,67 @@ guard-%: # guard clause for targets that require an environment variable (usuall
    		echo "Environment variable '$*' is not set"; \
    		exit 1; \
 	fi;
+
+# Unit test groups for parallel execution in CI
+# Usage: make unit_test_group TEST_GROUP=1
+# Groups are balanced by number of test files
+define UNIT_TEST_GROUPS
+UNIT_GROUP_1_TESTS := additives_tags.t additives.t all_pod_correct.t allergens_tags.t allergens.t api.t attributes.t booleans.t brevo.t contribution_knowledge_panels.t convert_gs1_xml_to_json.t cursor.t
+UNIT_GROUP_2_TESTS := data_quality_tags_panel.t dataquality.t dataqualityfood_labels.t dataqualityfood.t display.t environmental_impact.t environmental_score.t food_groups.t food.t forest_footprint.t http.t i18n.t
+UNIT_GROUP_3_TESTS := images.t import_convert_carrefour_france.t import_gs1.t import.t ingredients_analysis.t ingredients_clean.t ingredients_contents.t ingredients_extract.t ingredients_nesting.t ingredients_nutriscore.t ingredients_parsing_todo.t ingredients_percent.t
+UNIT_GROUP_4_TESTS := ingredients_preparsing.t ingredients_processing.t ingredients_tags.t ingredients.t knowledge_panels.t lang.t load_csv_or_excel_file.t match_ingredient_origin.t nova.t numbers.t nutriscore.t nutrition_ciqual.t
+UNIT_GROUP_5_TESTS := nutrition_estimation.t packager_codes.t packaging_food_contact.t packaging_stats.t packaging.t parse_origins_from_text.t paths.t process_product_edit_rules.t producers.t product_schema_changes.t products.t recipes.t
+UNIT_GROUP_6_TESTS := redis.t routing.t send_image_to_cloud_vision.t spam_user.t store.t tags_unit.t tags.t taxonomies_enhancer.t taxonomies.t taxonomy_suggestions.t templates.t text.t units.t vitamins.t
+endef
+
+$(eval $(UNIT_TEST_GROUPS))
+
+# Get unit test group tests
+get_unit_group_tests = $(UNIT_GROUP_$(1)_TESTS)
+
+# Unit test group runner for CI parallelization
+unit_test_group: create_folders
+ifeq ($(TEST_GROUP),)
+	$(error TEST_GROUP is required. Usage: make unit_test_group TEST_GROUP=1)
+endif
+	@echo "🥫 Running unit test group $(TEST_GROUP) …"
+	@echo "🥫 Tests in group $(TEST_GROUP): $(call get_unit_group_tests,$(TEST_GROUP))"
+	mkdir -p tests/unit/outputs/
+	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
+	@echo "🥫 Running all tests in group $(TEST_GROUP) with parallel execution and JUnit XML generation..."
+	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit_group_$(TEST_GROUP).xml" -T --rm backend yath test --renderer=Formatter --renderer=JUnit --job-count=${CPU_COUNT} $(addprefix tests/unit/,$(call get_unit_group_tests,$(TEST_GROUP)))
+	${DOCKER_COMPOSE_TEST} stop
+	@echo "🥫 Unit test group $(TEST_GROUP) completed successfully"
+
+# Integration test groups for parallel execution in CI
+# Usage: make integration_test_group TEST_GROUP=1
+# Groups are balanced by test complexity and execution time
+define INTEGRATION_TEST_GROUPS
+GROUP_1_TESTS := api_v3_product_write.t api_cgi_nutrients.t countries.t modify_user.t add_update_to_redis.t
+GROUP_2_TESTS := web_html.t search_v1.t create_product.t remove_documents_by_ids.t oidc_signin.t
+GROUP_3_TESTS := change_product_code_and_product_type.t protected_images.t product_read.t create_user.t oidc_signout.t
+GROUP_4_TESTS := facets.t api_v3_product_read.t auth.t run_cloud_vision_ocr.t madenearme.t
+GROUP_5_TESTS := protected_product.t api_v3_product_services.t recipes_stats.t import_systemeu.t auth_user_from_keycloak.t
+GROUP_6_TESTS := page_crawler.t upload_images.t data_quality_knowledge_panel.t export.t auth-keycloak.t
+GROUP_7_TESTS := api_v3_product_images_selected.t api_v3_taxonomy_suggestions.t unknown_tags.t delete_user.t create_pro_user.t
+GROUP_8_TESTS := api_v2_product_read.t api_v2_product_write.t convert_and_import_excel_file.t import_csv_file.t cors.t
+GROUP_9_TESTS := api_v3_product_images_upload.t api_v3_product_revert.t fix_non_normalized_codes.t api_cgi_suggest.t
+endef
+
+$(eval $(INTEGRATION_TEST_GROUPS))
+
+# Get the tests for a specific group
+get_group_tests = $(GROUP_$(1)_TESTS)
+
+integration_test_group: create_folders
+ifeq ($(TEST_GROUP),)
+	$(error TEST_GROUP is required. Usage: make integration_test_group TEST_GROUP=1)
+endif
+	@echo "🥫 Running integration test group $(TEST_GROUP) …"
+	@echo "🥫 Tests in group $(TEST_GROUP): $(call get_group_tests,$(TEST_GROUP))"
+	mkdir -p tests/integration/outputs/
+	${DOCKER_COMPOSE_INT_TEST} up -d backend
+	@echo "🥫 Running all tests in group $(TEST_GROUP) with both console output and JUnit XML generation..."
+	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/integration/outputs/junit_group_$(TEST_GROUP).xml" -T backend yath test --renderer=Formatter --renderer=JUnit $(addprefix tests/integration/,$(call get_group_tests,$(TEST_GROUP)))
+	${DOCKER_COMPOSE_INT_TEST} stop
+	@echo "🥫 Integration test group $(TEST_GROUP) completed successfully"
