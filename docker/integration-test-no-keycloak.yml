@@ -1,0 +1,26 @@
+include:
+  - ${DEPS_DIR}/openfoodfacts-shared-services/docker-compose.yml
+
+services:
+  frontend:
+    depends_on:
+        backend:
+          condition: service_started
+
+  backend:
+    depends_on:
+      postgres:
+        condition: service_started
+      mongodb:
+        condition: service_started
+      dynamicfront:
+        condition: service_started
+      incron:
+        condition: service_started
+      minion:
+        condition: service_started
+      redis:
+        condition: service_started
+      redis-listener:
+        condition: service_started
+      # No keycloak dependency for faster startup
