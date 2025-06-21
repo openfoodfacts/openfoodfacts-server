@@ -279,8 +279,6 @@ jobs:
       with:
         fetch-depth: 1
     
-    # Restore cached taxonomies built in build_backend job
-    # Same caching strategy as unit_tests for consistency
     - uses: actions/cache/restore@v4
       id: cache
       with:
@@ -290,22 +288,18 @@ jobs:
     
     - name: Setup Git and Restore Taxonomies
       run: ./.github/scripts/setup_git.sh
-    
-    # Reuse the Docker image from build_backend job (same as unit_tests)
-    # Integration tests use the same backend image but with different test suites
+  
     - name: Download backend image from artifacts
       id: downloadbackendimage
       uses: ishworkh/container-image-artifact-download@v2.0.0
       with:
         image: "openfoodfacts-server/backend:dev"       
     
-    # Storage cleanup (same as unit_tests)
     - name: Remove downloaded image
       env:
         FILE: "${{ steps.downloadbackendimage.outputs.download_path }}"
       run: rm $FILE
     
-    # Build test dependencies (same as unit_tests)
     - name: Build taxonomies for tests
       run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies_test GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
     - name: Build language files for tests
