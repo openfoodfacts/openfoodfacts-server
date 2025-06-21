@@ -60,7 +60,7 @@ jobs:
     needs: filter
     runs-on: ubuntu-latest
     if: >
-      ((github.event_name == 'push' && github.ref == 'refs/heads/main')|| github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true'
+      ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true'
 
     steps:
       - uses: actions/checkout@v4
@@ -79,6 +79,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-docker-
           path: /tmp/.buildx-cache
+          # Enable compression for faster cache restoration
+          enableCrossOsArchive: false
 
       # Restore taxonomies cache
       - uses: actions/cache@v4
@@ -89,7 +91,7 @@ jobs:
           restore-keys: taxonomies-
 
       - name: Build backend image with cache
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v5
         with:
           context: .
           file: ./Dockerfile
@@ -98,10 +100,13 @@ jobs:
             USER_UID=1000
             USER_GID=1000
             CPANMOPTS=--with-develop
-          # reference the GitHub cache as a source
-          cache-from: type=local,src=/tmp/.buildx-cache
-          # after build, export the new layer cache back
-          cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
+          # Multi-layer caching strategy for maximum performance
+          cache-from: |
+            type=local,src=/tmp/.buildx-cache
+            type=gha
+          cache-to: |
+            type=local,dest=/tmp/.buildx-cache-new,mode=max
+            type=gha,mode=max
           load: true                   # loads the image into local docker daemon
           tags: openfoodfacts-server/backend:dev
 
