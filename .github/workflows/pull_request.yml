@@ -46,7 +46,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v4
       with:
-        node-version: '24.x'
+        node-version: '22.x'
         cache: 'npm'
         cache-dependency-path: 'package-lock.json'
     - name: gulp build
@@ -197,7 +197,7 @@ jobs:
     name: 🐪 Perl Unit Tests
     needs: [filter, build_backend]
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
+    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true'
     strategy:
       fail-fast: false
       matrix:
