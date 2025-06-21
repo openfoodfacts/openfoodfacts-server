@@ -284,14 +284,50 @@ lint: lint_perltidy lint_taxonomies
 
 tests: build_taxonomies_test build_lang_test unit_test integration_test brands_sort_test
 
+# Unit tests support two execution modes:
+# - Local development: Uses yath with job-count parallelization (default)  
+# - CI environment: Uses GNU parallel to run test files in parallel (when CI=true)
+# Use 'make unit_test_force_parallel' to test the parallel mode locally
 # add COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover"' if you want to trigger code coverage report generation
 unit_test: create_folders
 	@echo "🥫 Running unit tests …"
 	mkdir -p tests/unit/outputs/
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
+ifeq ($(CI),true)
+	@echo "🥫 Running tests in parallel with GNU parallel (CI mode)"
+	@$(MAKE) unit_test_parallel
+else
+	@echo "🥫 Running tests with yath (local mode)"
 	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit.xml" -T --rm backend yath test --renderer=Formatter --renderer=JUnit --job-count=${CPU_COUNT} tests/unit
+endif
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 unit tests success"
+
+# GNU parallel version for CI environments
+unit_test_parallel: 
+	@echo " Running unit tests in parallel with GNU parallel"
+	# Install GNU parallel if not available and suppress citation notice
+	${DOCKER_COMPOSE_TEST} exec -T backend bash -c "\
+		command -v parallel >/dev/null 2>&1 || (apt-get update && apt-get install -y parallel); \
+		echo 'will cite' | parallel --citation >/dev/null 2>&1 || true \
+	"
+	# Run tests in parallel with proper output handling and error propagation
+	${DOCKER_COMPOSE_TEST} exec ${COVER_OPTS} -T backend bash -c "\
+		cd /opt/product-opener && \
+		export TEST_EXIT_CODE=0 && \
+		find tests/unit -name '*.t' -type f | sort | \
+		parallel -j ${CPU_COUNT} --halt now,fail=1 --line-buffer --tagstring '[{}]' \
+		'echo \"Starting: {}\"; \
+		if yath test --renderer=Formatter {} 2>&1; then \
+			echo \"✅ PASSED: {}\"; \
+		else \
+			echo \"❌ FAILED: {}\"; \
+			exit 1; \
+		fi' || exit 1 \
+	"
+	# Generate combined JUnit output for CI reporting
+	@echo "📊 Generating JUnit XML report..."
+	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit.xml" -T --rm backend yath test --renderer=JUnit --job-count=1 tests/unit || true
 
 integration_test: create_folders
 	@echo "🥫 Running integration tests …"
@@ -605,3 +641,13 @@ guard-%: # guard clause for targets that require an environment variable (usuall
    		echo "Environment variable '$*' is not set"; \
    		exit 1; \
 	fi;
+
+# Force parallel execution (for testing the parallel implementation locally)
+unit_test_force_parallel: create_folders
+	@echo "🥫 Running unit tests in parallel mode (forced) …"
+	mkdir -p tests/unit/outputs/
+	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
+	@echo "🚀 Running tests in parallel with GNU parallel (forced mode)"
+	@$(MAKE) unit_test_parallel
+	${DOCKER_COMPOSE_TEST} stop
+	@echo "🥫 unit tests success"
