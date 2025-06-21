@@ -612,10 +612,12 @@ guard-%: # guard clause for targets that require an environment variable (usuall
 # Usage: make unit_test_group TEST_GROUP=1
 # Groups are balanced by number of test files
 define UNIT_TEST_GROUPS
-UNIT_GROUP_1_TESTS := additives_tags.t additives.t all_pod_correct.t allergens_tags.t allergens.t api.t attributes.t booleans.t brevo.t contribution_knowledge_panels.t convert_gs1_xml_to_json.t cursor.t data_quality_tags_panel.t dataquality.t dataqualityfood_labels.t dataqualityfood.t display.t environmental_impact.t environmental_score.t
-UNIT_GROUP_2_TESTS := food_groups.t food.t forest_footprint.t http.t i18n.t images.t import_convert_carrefour_france.t import_gs1.t import.t ingredients_analysis.t ingredients_clean.t ingredients_contents.t ingredients_extract.t ingredients_nesting.t ingredients_nutriscore.t ingredients_parsing_todo.t ingredients_percent.t ingredients_preparsing.t ingredients_processing.t
-UNIT_GROUP_3_TESTS := ingredients_tags.t ingredients.t knowledge_panels.t lang.t load_csv_or_excel_file.t match_ingredient_origin.t nova.t numbers.t nutriscore.t nutrition_ciqual.t nutrition_estimation.t packager_codes.t packaging_food_contact.t packaging_stats.t packaging.t parse_origins_from_text.t paths.t process_product_edit_rules.t
-UNIT_GROUP_4_TESTS := producers.t product_schema_changes.t products.t recipes.t redis.t routing.t send_image_to_cloud_vision.t spam_user.t store.t tags_unit.t tags.t taxonomies_enhancer.t taxonomies.t taxonomy_suggestions.t templates.t text.t units.t vitamins.t
+UNIT_GROUP_1_TESTS := additives_tags.t additives.t all_pod_correct.t allergens_tags.t allergens.t api.t attributes.t booleans.t brevo.t contribution_knowledge_panels.t convert_gs1_xml_to_json.t cursor.t
+UNIT_GROUP_2_TESTS := data_quality_tags_panel.t dataquality.t dataqualityfood_labels.t dataqualityfood.t display.t environmental_impact.t environmental_score.t food_groups.t food.t forest_footprint.t http.t i18n.t
+UNIT_GROUP_3_TESTS := images.t import_convert_carrefour_france.t import_gs1.t import.t ingredients_analysis.t ingredients_clean.t ingredients_contents.t ingredients_extract.t ingredients_nesting.t ingredients_nutriscore.t ingredients_parsing_todo.t ingredients_percent.t
+UNIT_GROUP_4_TESTS := ingredients_preparsing.t ingredients_processing.t ingredients_tags.t ingredients.t knowledge_panels.t lang.t load_csv_or_excel_file.t match_ingredient_origin.t nova.t numbers.t nutriscore.t nutrition_ciqual.t
+UNIT_GROUP_5_TESTS := nutrition_estimation.t packager_codes.t packaging_food_contact.t packaging_stats.t packaging.t parse_origins_from_text.t paths.t process_product_edit_rules.t producers.t product_schema_changes.t products.t recipes.t
+UNIT_GROUP_6_TESTS := redis.t routing.t send_image_to_cloud_vision.t spam_user.t store.t tags_unit.t tags.t taxonomies_enhancer.t taxonomies.t taxonomy_suggestions.t templates.t text.t units.t vitamins.t
 endef
 
 $(eval $(UNIT_TEST_GROUPS))
@@ -632,13 +634,8 @@ endif
 	@echo "🥫 Tests in group $(TEST_GROUP): $(call get_unit_group_tests,$(TEST_GROUP))"
 	mkdir -p tests/unit/outputs/
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	@echo "🥫 Running tests sequentially in group $(TEST_GROUP)..."
-	@for test in $(call get_unit_group_tests,$(TEST_GROUP)); do \
-		echo "🥫 Running test: $$test"; \
-		${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -T --rm backend yath test --renderer=Formatter tests/unit/$$test || exit 1; \
-	done
-	@echo "🥫 Generating JUnit XML for group $(TEST_GROUP)..."
-	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit_group_$(TEST_GROUP).xml" -T --rm backend bash -c "yath test --renderer=JUnit $(addprefix tests/unit/,$(call get_unit_group_tests,$(TEST_GROUP)))" || true
+	@echo "🥫 Running all tests in group $(TEST_GROUP) with parallel execution and JUnit XML generation..."
+	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit_group_$(TEST_GROUP).xml" -T --rm backend yath test --renderer=Formatter --renderer=JUnit --job-count=4 $(addprefix tests/unit/,$(call get_unit_group_tests,$(TEST_GROUP)))
 	# ${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 Unit test group $(TEST_GROUP) completed successfully"
 
@@ -670,12 +667,7 @@ endif
 	@echo "🥫 Tests in group $(TEST_GROUP): $(call get_group_tests,$(TEST_GROUP))"
 	mkdir -p tests/integration/outputs/
 	${DOCKER_COMPOSE_INT_TEST} up -d backend
-	@echo "🔄 Running tests sequentially in group $(TEST_GROUP)..."
-	@for test in $(call get_group_tests,$(TEST_GROUP)); do \
-		echo "🧪 Running test: $$test"; \
-		${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -T backend yath test --renderer=Formatter tests/integration/$$test || exit 1; \
-	done
-	@echo "🥫 Generating JUnit XML for group $(TEST_GROUP)..."
-	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/integration/outputs/junit_group_$(TEST_GROUP).xml" -T backend bash -c "yath test --renderer=JUnit $(addprefix tests/integration/,$(call get_group_tests,$(TEST_GROUP)))" || true
+	@echo "🥫 Running all tests in group $(TEST_GROUP) with both console output and JUnit XML generation..."
+	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/integration/outputs/junit_group_$(TEST_GROUP).xml" -T backend yath test --renderer=Formatter --renderer=JUnit $(addprefix tests/integration/,$(call get_group_tests,$(TEST_GROUP)))
 	${DOCKER_COMPOSE_INT_TEST} stop
 	@echo "🥫 Integration test group $(TEST_GROUP) completed successfully"

@@ -141,7 +141,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        test-group: [1, 2, 3, 4]
+        test-group: [1, 2, 3, 4, 5, 6]
     steps:
     - uses: actions/checkout@v4
       with:
