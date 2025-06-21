@@ -92,14 +92,21 @@ jobs:
           key: taxonomies-${{ hashFiles('taxonomies/**') }}
           restore-keys: taxonomies-
 
+      # Get current user/group IDs for proper file permissions in Docker
+      - name: Get user IDs
+        id: user_ids
+        run: |
+          echo "uid=$(id -u)" >> $GITHUB_OUTPUT
+          echo "gid=$(id -g)" >> $GITHUB_OUTPUT
+
       - name: Build backend image with cache
         uses: docker/build-push-action@v5
         with:
           context: .
           file: ./Dockerfile
           build-args: |
-            USER_UID=1000
-            USER_GID=1000
+            USER_UID=${{ steps.user_ids.outputs.uid }}
+            USER_GID=${{ steps.user_ids.outputs.gid }}
             CPANMOPTS=--with-develop
           # Multi-layer caching strategy for maximum performance
           cache-from: |
@@ -127,6 +134,12 @@ jobs:
 
       - name: Setup Git and Restore Taxonomies
         run: ./.github/scripts/setup_git.sh
+
+      # Set up environment variables for proper Docker user/group permissions
+      - name: Set up user environment for Docker
+        run: |
+          echo "export USER_UID=$(id -u)" >> .envrc
+          echo "export USER_GID=$(id -g)" >> .envrc
 
       - name: Rebuild taxonomies for Open Food Facts (off)
         run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
@@ -193,30 +206,43 @@ jobs:
     - uses: actions/checkout@v4
       with:
         fetch-depth: 1
+    
+    # Restore cached taxonomies built in build_backend job
+    # This avoids rebuilding taxonomies for each test group
     - uses: actions/cache/restore@v4
       id: cache
       with:
         path: ./build-cache
         key: taxonomies-${{ hashFiles('taxonomies/**') }}
         restore-keys: taxonomies-
+    
     - name: Setup Git and Restore Taxonomies
       run: ./.github/scripts/setup_git.sh
+    
+    # Download the Docker image built in build_backend job as an artifact
+    # This reuses the cached Docker image instead of rebuilding it
     - name: Download backend image from artifacts
       id: downloadbackendimage
       uses: ishworkh/container-image-artifact-download@v2.0.0
       with:
         image: "openfoodfacts-server/backend:dev"       
-    # downloadbackendimage task loads the image into docker and keeps the original file.
-    # As our runs tend to hit the storage limits for GitHub Actions, manually delete the
-    # downloaded file for now. It's not needed after being loaded into docker.
+    
+    # Clean up downloaded file to save GitHub Actions storage space
+    # The image is already loaded into Docker daemon, file no longer needed
     - name: Remove downloaded image
       env:
         FILE: "${{ steps.downloadbackendimage.outputs.download_path }}"
       run: rm $FILE
+    
+    # Build test-specific taxonomies and language files
+    # These use the cached taxonomies from build_backend when possible
     - name: Build taxonomies for tests
       run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies_test GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
     - name: Build language files for tests
       run: make DOCKER_LOCAL_DATA="$(pwd)" build_lang_test GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+    
+    # Run unit tests for this specific test group (parallel execution)
+    # Matrix strategy splits tests across 6 parallel jobs for faster execution
     - name: Run unit test group ${{ matrix.test-group }}
       run: |
         make codecov_prepare
@@ -252,30 +278,42 @@ jobs:
     - uses: actions/checkout@v4
       with:
         fetch-depth: 1
+    
+    # Restore cached taxonomies built in build_backend job
+    # Same caching strategy as unit_tests for consistency
     - uses: actions/cache/restore@v4
       id: cache
       with:
         path: ./build-cache
         key: taxonomies-${{ hashFiles('taxonomies/**') }}
         restore-keys: taxonomies-
+    
     - name: Setup Git and Restore Taxonomies
       run: ./.github/scripts/setup_git.sh
+    
+    # Reuse the Docker image from build_backend job (same as unit_tests)
+    # Integration tests use the same backend image but with different test suites
     - name: Download backend image from artifacts
       id: downloadbackendimage
       uses: ishworkh/container-image-artifact-download@v2.0.0
       with:
         image: "openfoodfacts-server/backend:dev"       
-    # downloadbackendimage task loads the image into docker and keeps the original file.
-    # As our runs tend to hit the storage limits for GitHub Actions, manually delete the
-    # downloaded file for now. It's not needed after being loaded into docker.
+    
+    # Storage cleanup (same as unit_tests)
     - name: Remove downloaded image
       env:
         FILE: "${{ steps.downloadbackendimage.outputs.download_path }}"
       run: rm $FILE
+    
+    # Build test dependencies (same as unit_tests)
     - name: Build taxonomies for tests
       run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies_test GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
     - name: Build language files for tests
       run: make DOCKER_LOCAL_DATA="$(pwd)" build_lang_test GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+    
+    # Run integration tests for this specific test group (parallel execution)
+    # Matrix strategy splits tests across 9 parallel jobs (more than unit tests)
+    # Integration tests typically take longer and test end-to-end functionality
     - name: Run integration test group ${{ matrix.test-group }}
       run: |
         make codecov_prepare
