@@ -1716,7 +1716,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 		if (not defined $results_count) {
 
 			my $count_results;
-			# do not use the smaller if we are on the producers platform
+			# do not use off-query if we are on the producers platform
 			if (can_use_off_query(\$request_ref->{data_debug})) {
 				set_request_stats_time_start($request_ref->{stats}, "off_query_aggregate_tags_query");
 				$count_results = execute_aggregate_tags_query($aggregate_count_parameters);
