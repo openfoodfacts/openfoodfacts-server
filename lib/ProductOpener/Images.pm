@@ -1623,7 +1623,7 @@ Select and possibly crop an uploaded image to represent the front, ingredients, 
 =cut
 
 sub process_image_crop ($user_id, $product_ref, $image_type, $image_lc, $imgid, $generation_ref) {
-	my $product_id = $product_ref->{id};
+	my $product_id = $product_ref->{_id};
 	my $id = $image_type . "_" . $image_lc;
 
 	$log->debug(
