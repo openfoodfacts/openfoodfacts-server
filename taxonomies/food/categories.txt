@@ -80380,7 +80380,7 @@ ru: Блюда с мясом
 sv: Rätter med kött
 zh: 肉餐
 intake24_category_code:en: MDSH
-opposite:en: en:meats, en:meat-preparations
+incompatible_with:en: en:meats, en:meat-preparations
 
 < en:Meals with meat
 en: Frozen meals with meat
@@ -84884,7 +84884,7 @@ food_groups:en: en:meat-other-than-poultry
 intake24_category_code:en: MEAT
 # Products that are poultry hopefully have the en:Poultries category which will assign the en:Poultry food group
 pnns_group_2:en: Meat
-opposite:en: en:meals-with-meat, en:meat-preparations
+incompatible_with:en: en:meals-with-meat, en:meat-preparations
 
 #Products containing at least 99% meat according to French regulations. Products with lower meat percentage goes in "Ground meat preparations"
 < en:Meats
@@ -86546,7 +86546,7 @@ hr: Mesnih pripravaka
 it: Preparazioni a base di carne
 lt: Mėsos ruošiniai
 nl: Vleesbereidingen
-opposite:en: en:meals-with-meat, en:meats
+incompatible_with:en: en:meals-with-meat, en:meats
 
 en: Skewers, Kebabs, kebab, kabobs, kabob, kababs, kabab
 de: Spieße
@@ -94774,7 +94774,7 @@ intake24_category_code:en: PTNS
 pnns_group_2:en: Cereals
 wikidata:en: Q178
 wikipedia:en: https://en.wikipedia.org/wiki/Pasta
-opposite:en: en:pasta-dishes
+incompatible_with:en: en:pasta-dishes
 
 < en:pastas
 en: Semiya
