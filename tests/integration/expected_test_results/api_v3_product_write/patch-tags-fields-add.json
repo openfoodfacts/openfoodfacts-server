@@ -59,7 +59,6 @@
          "Végétarien",
          "Something-unrecognized-in-french"
       ],
-      "schema_version" : 999,
       "stores" : "Carrefour, Mon Ptit magasin",
       "stores_tags" : [
          "carrefour",
@@ -70,23 +69,6 @@
          "Mon-ptit-magasin"
       ]
    },
-   "status" : "success_with_warnings",
-   "warnings" : [
-      {
-         "field" : {
-            "default_value" : "en",
-            "id" : "tags_lc"
-         },
-         "impact" : {
-            "id" : "warning",
-            "lc_name" : "Warning",
-            "name" : "Warning"
-         },
-         "message" : {
-            "id" : "missing_field",
-            "lc_name" : "Missing field",
-            "name" : "Missing field"
-         }
-      }
-   ]
+   "status" : "success",
+   "warnings" : []
 }

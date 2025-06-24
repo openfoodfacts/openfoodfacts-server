@@ -34,7 +34,7 @@ use ProductOpener::Lang qw/$lc lang/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
 use ProductOpener::Images
-	qw/get_code_and_imagefield_from_file_name is_protected_image process_image_crop process_image_upload scan_code/;
+	qw/get_code_and_imagefield_from_file_name is_protected_image process_image_crop process_image_upload scan_code $valid_image_types_regexp/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::APIProductWrite qw/:all/;
@@ -46,6 +46,7 @@ use Storable qw/dclone/;
 use Encode;
 use JSON::MaybeXS;
 use Log::Any qw($log);
+use Data::DeepAccess qw(deep_exists deep_get deep_set);
 
 my $type = single_param('type') || 'add';
 my $action = single_param('action') || 'display';
@@ -225,10 +226,10 @@ if ($imagefield) {
 	$response_ref->{files}[0]{name} = $product_name;
 
 	# Some apps may be passing a full locale like imagefield=front_pt-BR
-	$imagefield =~ s/^(front|ingredients|nutrition|packaging|other)_(\w\w)-.*/$1_$2/;
+	$imagefield =~ s/^($valid_image_types_regexp)_(\w\w)-.*/$1_$2/;
 
 	# For apps that do not specify the language associated with the image, try to assign one
-	if ($imagefield =~ /^(front|ingredients|nutrition|packaging|other)$/) {
+	if ($imagefield =~ /^($valid_image_types_regexp)$/) {
 		# If the product exists, use the main language of the product
 		# otherwise if the product was just created above, we will get the current $lc
 		$imagefield .= "_" . $product_ref->{lc};
@@ -243,7 +244,7 @@ if ($imagefield) {
 	(defined $tmp_filename) and $imagefield_or_filename = $tmp_filename;
 
 	my $imgid_returncode
-		= process_image_upload($product_id, $imagefield_or_filename, $User_id, time(), "image upload", \$imgid,
+		= process_image_upload($product_ref, $imagefield_or_filename, $User_id, time(), "image upload", \$imgid,
 		\$debug_string);
 
 	$log->debug(
@@ -251,17 +252,19 @@ if ($imagefield) {
 		{
 			imgid => $imgid,
 			imagefield => $imagefield,
-			$imgid_returncode => $imgid_returncode,
+			imgid_returncode => $imgid_returncode,
 			debug_string => $debug_string
 		}
 	) if $log->is_debug();
 
-	$response_ref->{imgid} = $imgid;
+	# For backwards compatibility, if we have no imgid (if the image was not uploaded), we return the return code in the imgid field
+	$response_ref->{imgid} = $imgid || $imgid_returncode;
 	if ($imgid > 0) {
 		$response_ref->{files}[0]{thumbnailUrl} = "/images/products/$path/$imgid.$thumb_size.jpg";
 	}
 
 	if ($imgid_returncode < 0) {
+		# Error during upload
 		$response_ref->{status} = 'status not ok';
 		$response_ref->{error} = "error";
 		($imgid_returncode == -2) and $response_ref->{error} = "field imgupload_$imagefield not set";
@@ -284,6 +287,7 @@ if ($imagefield) {
 		}
 	}
 	else {
+		# Image uploaded successfully
 
 		my $image_data_ref = {
 			imgid => $imgid,
@@ -293,8 +297,8 @@ if ($imagefield) {
 
 		if ($User{moderator}) {
 			$product_ref = retrieve_product($product_id);
-			$image_data_ref->{uploader} = $product_ref->{images}{$imgid}{uploader};
-			$image_data_ref->{uploaded} = $product_ref->{images}{$imgid}{uploaded_t};
+			$image_data_ref->{uploader} = $product_ref->{images}{uploaded}{$imgid}{uploader};
+			$image_data_ref->{uploaded} = display_date($product_ref->{images}{uploaded}{$imgid}{uploaded_t});
 		}
 
 		my $product_name = remove_tags_and_quote(product_name_brand_quantity($product_ref));
@@ -308,29 +312,35 @@ if ($imagefield) {
 		$response_ref->{image} = $image_data_ref;
 
 		# Select the image
-		if (
-			($imagefield =~ /^(front|ingredients|nutrition|packaging)_/)
-			# Changed 2020-03-05: overwrite already selected images
-			# and ((not defined $product_ref->{images}{$imagefield}) or ($select_image))
-			# Changed 2020-04-20: don't overwrite selected images if the source is the product edit form
-			and (  (not defined single_param('source'))
-				or (single_param('source') ne "product_edit_form")
-				or (not defined $product_ref->{images}{$imagefield}))
-			and (not is_protected_image($product_ref, $imagefield) or $User{moderator})
+		if ($imagefield =~ /^($valid_image_types_regexp)_(\w\w)$/) {
 
-			)
-		{
-			$log->debug("selecting image", {imgid => $imgid, imagefield => $imagefield}) if $log->is_debug();
-			process_image_crop($User_id, $product_id, $imagefield, $imgid, 0, undef, undef, -1, -1, -1, -1, "full");
+			my $image_type = $1;
+			my $image_lc = $2;
+			# Changed 2020-03-05: overwrite already selected images
+			# Changed 2020-04-20: don't overwrite selected images if the source is the product edit form
+			if (
+				(
+					   (not defined single_param('source'))
+					or (single_param('source') ne "product_edit_form")
+					or (not deep_exists($product_ref, "images", "selected", $image_type, $image_lc))
+				)
+				and (not is_protected_image($product_ref, $image_type, $image_lc) or $User{moderator})
+
+				)
+			{
+				$log->debug("selecting image", {imgid => $imgid, image_type => $image_type, lc => $image_lc})
+					if $log->is_debug();
+				process_image_crop($User_id, $product_ref, $image_type, $image_lc, $imgid, undef);
+			}
 		}
 		# If the image type is "other" and we don't have a front image, assign it
 		# This is in particular for producers that send us many images without specifying their type: assume the first one is the front
 		elsif (
 			($imagefield =~ /^other/)
 			and (
-				(not defined $product_ref->{images}{"front_" . $product_ref->{lc}})
+				(not deep_exists($product_ref, "images", "selected", "front", $product_ref->{lc}))
 				or (    (defined $previous_imgid)
-					and ($previous_imgid eq $product_ref->{images}{"front_" . $product_ref->{lc}}{imgid}))
+					and ($previous_imgid eq $product_ref->{images}{selected}{"front"}{$product_ref->{lc}}{imgid}))
 			)
 			)
 		{
@@ -343,20 +353,7 @@ if ($imagefield) {
 					front_imagefield => "front_" . $product_ref->{lc}
 				}
 			) if $log->is_debug();
-			process_image_crop($User_id, $product_id, "front_" . $product_ref->{lc},
-				$imgid, 0, undef, undef, -1, -1, -1, -1, "full");
-		}
-		else {
-			$log->debug(
-				"not selecting as front image",
-				{
-					imgid => $imgid,
-					previous_imgid => $previous_imgid,
-					imagefield => $imagefield,
-					front_imagefield => "front_" . $product_ref->{lc},
-					front_image => $product_ref->{images}{"front_" . $product_ref->{lc}}
-				}
-			) if $log->is_debug();
+			process_image_crop($User_id, $product_ref, "front", $product_ref->{lc}, $imgid, undef);
 		}
 	}
 

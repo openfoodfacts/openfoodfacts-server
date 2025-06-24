@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -24,6 +24,7 @@ use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 
+use ProductOpener::Auth qw/access_to_protected_resource get_oidc_implementation_level/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
@@ -71,6 +72,7 @@ use JSON::MaybeXS;
 use Log::Any qw($log);
 use File::Copy qw(move);
 use Data::Dumper;
+use Data::DeepAccess qw(deep_get deep_set);
 
 # Function to display a form to add a product with a specific barcode (either typed in a field, or extracted from a barcode photo)
 # or without a barcode
@@ -291,7 +293,7 @@ if ($type eq 'search_or_add') {
 				if (defined $filename) {
 					my $imgid;
 					my $debug;
-					process_image_upload($product_ref->{_id}, $filename, $User_id, time(),
+					process_image_upload($product_ref, $filename, $User_id, time(),
 						'image with barcode from web site Add product button',
 						\$imgid, \$debug);
 				}
@@ -365,7 +367,7 @@ if (($type eq 'delete') and (not $User{moderator})) {
 	display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
 }
 
-if ($User_id eq 'unwanted-bot-id') {
+if ((defined $User_id) and ($User_id eq 'unwanted-bot-id')) {
 	my $r = Apache2::RequestUtil->request();
 	$r->status(500);
 	return 500;
@@ -375,9 +377,18 @@ if (($type eq 'add') or ($type eq 'edit') or ($type eq 'delete')) {
 
 	if (not defined $User_id) {
 
-		my $submit_label = "login_and_" . $type . "_product";
-		$action = 'login';
-		$template_data_ref->{type} = $type;
+		if (get_oidc_implementation_level() < 5) {
+			# Keep legacy method until we have moved the login process to Keycloak
+			my $submit_label = "login_and_" . $type . "_product";
+			$action = 'login';
+			$template_data_ref->{type} = $type;
+		}
+		else {
+			$request_ref->{return_url}
+				= $formatted_subdomain . $request_ref->{script_name} . '?' . $request_ref->{original_query_string};
+			# Note: This su will either finish without a result if a good user/token is present, or redirect to the login page and stop the script
+			access_to_protected_resource($request_ref);
+		}
 	}
 }
 
@@ -544,20 +555,24 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 				# Selected photos
 
-				foreach my $imageid ("front", "ingredients", "nutrition", "packaging") {
+				foreach my $image_type ("front", "ingredients", "nutrition", "packaging") {
 
-					my $from_imageid = $imageid . "_" . $from_lc;
-					my $to_imageid = $imageid . "_" . $product_lc;
+					my $from_imageid = $image_type . "_" . $from_lc;
+					my $to_imageid = $image_type . "_" . $product_lc;
 
-					if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$from_imageid})) {
+					my $from_image_ref = deep_get($product_ref, "images", "selected", $image_type, $from_lc);
+					my $to_image_ref = deep_get($product_ref, "images", "selected", $image_type, $product_lc);
+
+					if (defined $from_image_ref) {
 
 						$log->debug("moving selected image", {from_imageid => $from_imageid, to_imageid => $to_imageid})
 							if $log->is_debug();
 
-						if (($mode eq "replace") or (not defined $product_ref->{images}{$to_imageid})) {
+						if (($mode eq "replace") or (not defined $to_image_ref)) {
 
-							$product_ref->{images}{$to_imageid} = $product_ref->{images}{$from_imageid};
-							my $rev = $product_ref->{images}{$from_imageid}{rev};
+							deep_set($product_ref, "images", "selected", $image_type, $product_lc, $from_image_ref);
+
+							my $rev = $from_image_ref->{rev};
 
 							# Rename the images
 
@@ -578,7 +593,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 							}
 						}
 
-						delete $product_ref->{images}{$from_imageid};
+						delete $product_ref->{images}{selected}{$image_type}{$from_lc};
 					}
 				}
 			}
@@ -1110,8 +1125,9 @@ CSS
 
 					if ($field =~ /^(.*)_image/) {
 
-						my $image_field = $1 . "_" . $display_lc;
-						$display_div = display_select_crop($product_ref, $image_field, $language, $request_ref);
+						my $image_type = $1;
+						$display_div
+							= display_select_crop($product_ref, $image_type, $display_lc, $language, $request_ref);
 					}
 					elsif ($field eq 'ingredients_text') {
 						$image_full_id = "ingredients_" . ${display_lc} . "_image_full";

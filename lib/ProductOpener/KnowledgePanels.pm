@@ -65,8 +65,8 @@ use ProductOpener::Food qw/%categories_nutriments_per_country/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Lang qw/f_lang f_lang_in_lc lang lang_in_other_lc/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::Images qw/data_to_display_image/;
 use ProductOpener::HTTP qw/single_param/;
-use ProductOpener::EnvironmentalScore qw/is_environmental_score_extended_data_more_precise_than_agribalyse/;
 use ProductOpener::PackagerCodes qw/%packager_codes/;
 use ProductOpener::KnowledgePanelsIngredients qw/create_ingredients_list_panel/;
 use ProductOpener::KnowledgePanelsContribution qw/create_contribution_card_panel/;
@@ -463,96 +463,6 @@ sub create_panel_from_json_template ($panel_id, $panel_template, $panel_data_ref
 				"json" => $panel_json,
 				"json_debug_url" => $static_subdomain . $url
 			};
-		}
-	}
-	return;
-}
-
-=head2 extract_data_from_impact_estimator_best_recipe ($product_ref, $panel_data_ref)
-
-The impact estimator adds a lot of data to products. This function extracts the data we need to display knowledge panels.
-
-=cut
-
-sub extract_data_from_impact_estimator_best_recipe ($product_ref, $panel_data_ref) {
-
-	# Copy data from product data (which format may change) to panel data to make it easier to use in the template
-
-	$panel_data_ref->{climate_change}
-		= $product_ref->{environmental_score_extended_data}{impact}{likeliest_impacts}{Climate_change};
-	$panel_data_ref->{ef_score}
-		= $product_ref->{environmental_score_extended_data}{impact}{likeliest_impacts}{EF_single_score};
-
-	# Compute the index of the recipe with the maximum confidence
-	my $max_confidence = 0;
-	my $max_confidence_index;
-	my $i = 0;
-
-	foreach my $confidence (@{$product_ref->{environmental_score_extended_data}{impact}{confidence_score_distribution}})
-	{
-		if ($confidence > $max_confidence) {
-
-			$max_confidence_index = $i;
-			$max_confidence = $confidence;
-		}
-		$i++;
-	}
-
-	my $best_recipe_ref = $product_ref->{environmental_score_extended_data}{impact}{recipes}[$max_confidence_index];
-
-	# list ingredients for max confidence recipe, sorted by quantity
-	my @ingredients = ();
-
-	my @ingredients_by_quantity = sort {$best_recipe_ref->{$b} <=> $best_recipe_ref->{$a}} keys %{$best_recipe_ref};
-	foreach my $ingredient (@ingredients_by_quantity) {
-		push @ingredients,
-			{
-			id => $ingredient,
-			quantity => $best_recipe_ref->{$ingredient},
-			};
-	}
-
-	$product_ref->{environmental_score_extended_data}{impact}{max_confidence_recipe} = \@ingredients;
-
-	$panel_data_ref->{environmental_score_extended_data_more_precise_than_agribalyse}
-		= is_environmental_score_extended_data_more_precise_than_agribalyse($product_ref);
-
-	# TODO: compute the complete score, using Agribalyse impacts except for agriculture where we use the estimator impact
-	return;
-}
-
-=head2 compare_impact_estimator_data_to_category_average ($product_ref, $panel_data_ref, $target_cc)
-
-gen_top_tags_per_country.pl computes stats for categories for nutrients, and now also for the
-extended environmental_score impacts computed by the impact estimator.
-
-For a specific product, this function finds the most specific category for which we have impact stats to compare with.
-
-=cut
-
-sub compare_impact_estimator_data_to_category_average ($product_ref, $panel_data_ref, $target_cc) {
-
-	# Comparison to other products
-
-	my $categories_nutriments_ref = $categories_nutriments_per_country{$target_cc};
-
-	if (defined $categories_nutriments_ref) {
-
-		foreach my $cid (reverse @{$product_ref->{categories_tags}}) {
-
-			if (    (defined $categories_nutriments_ref->{$cid})
-				and (defined $categories_nutriments_ref->{$cid}{nutriments})
-				and (defined $categories_nutriments_ref->{$cid}{nutriments}{climate_change}))
-			{
-
-				$panel_data_ref->{environmental_score_extended_data_for_category} = {
-					category_id => $cid,
-					climate_change => $categories_nutriments_ref->{$cid}{nutriments}{climate_change},
-					ef_score => $categories_nutriments_ref->{$cid}{nutriments}{ef_score},
-				};
-
-				last;
-			}
 		}
 	}
 	return;
@@ -1104,6 +1014,9 @@ sub create_health_card_panel ($product_ref, $target_lc, $target_cc, $options_ref
 		ingredients_image => data_to_display_image($product_ref, "ingredients", $target_lc),
 		nutrition_image => data_to_display_image($product_ref, "nutrition", $target_lc),
 	};
+
+	$log->debug("create health card panel - data", {code => $product_ref->{code}, panel_data => $panel_data_ref})
+		if $log->is_debug();
 
 	create_panel_from_json_template("health_card", "api/knowledge-panels/health/health_card.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);

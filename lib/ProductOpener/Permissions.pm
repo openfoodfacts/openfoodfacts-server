@@ -88,6 +88,7 @@ sub has_permission_product_revert ($request_ref) {
 
 # Map permissions string_id to functions to check if the user has the permission
 my %permissions = (
+	"image_delete" => \&is_admin_or_moderator,
 	"product_revert" => \&has_permission_product_revert,
 	"product_change_obsolete" => \&is_admin_or_moderator_or_on_pro_platform,
 	"product_change_code" => \&is_admin_or_moderator_or_on_pro_platform,
