@@ -1,0 +1,26 @@
+{
+    "type": "card",
+    "expanded": true,
+    "title": "Product information",
+    "topics": [
+        "product"
+    ],
+    "elements": [
+        [% IF brand_panels.size > 0 %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "type": "panel",
+                "title": "[% edq(lang('brands')) %]",
+                "panels_from_data": {
+                    "from": "brand_panels",
+                    "template": {
+                        "type": "panel",
+                        "title": "{{.}}"
+                    }
+                }
+            }
+        }
+        [% END %]
+    ]
+}

@@ -7893,6 +7893,8 @@ JS
 		= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "environment_card");
 	$template_data_ref->{health_card_panel}
 		= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "health_card");
+	$template_data_ref->{product_card_panel}
+		= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "product_card");
 	if ($product_ref->{"knowledge_panels_" . $lc}{"secondhand_card"}) {
 		$template_data_ref->{secondhand_card_panel}
 			= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "secondhand_card");

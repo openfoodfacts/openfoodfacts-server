@@ -42,5 +42,13 @@
                 },
             },
         [% END %]
+        [% IF panel.has_product_card %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "product_card",
+            },
+        },
+        [% END %]
     ],
 }

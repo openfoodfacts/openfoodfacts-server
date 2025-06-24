@@ -1,0 +1,18 @@
+{
+    "type": "panel",
+    "title": "All brands",
+    "panels_from_data": {
+        "from": "brands",
+        "template": {
+            "type": "panel",
+            "title": "{{name}}",
+            "widgets": [
+                {
+                    "type": "link",
+                    "title": "See all products of {{name}}",
+                    "url": "{{url}}"
+                }
+            ]
+        }
+    }
+}
