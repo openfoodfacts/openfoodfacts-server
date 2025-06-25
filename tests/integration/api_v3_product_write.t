@@ -3,24 +3,31 @@
 use ProductOpener::PerlStandards;
 
 use Test2::V0;
+use Log::Any::Adapter 'TAP';
+use Log::Any qw($log);
+
 use ProductOpener::APITest qw/create_user execute_api_tests new_client wait_application_ready/;
 use ProductOpener::Test qw/remove_all_products remove_all_users/;
 use ProductOpener::TestDefaults qw/%default_user_form/;
+use ProductOpener::Auth qw/get_token_using_password_credentials/;
 
-use File::Basename "dirname";
+use File::Basename qw/dirname/;
 
-use Storable qw(dclone);
+use Storable qw/dclone/;
+
+wait_application_ready();
 
 remove_all_users();
 
 remove_all_products();
 
-wait_application_ready();
-
 my $ua = new_client();
 
 my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
 create_user($ua, \%create_user_args);
+
+my $token = get_token_using_password_credentials('tests', 'testtest')->{access_token};
+$log->debug('test token', {token => $token}) if $log->is_debug();
 
 # Note: expected results are stored in json files, see execute_api_tests
 my $tests_ref = [
@@ -428,7 +435,7 @@ my $tests_ref = [
 			}
 		}'
 	},
-	# Test authentication
+	# Test authentication - HTTP Basic Auth
 	{
 		test_case => 'patch-auth-good-password',
 		method => 'PATCH',
@@ -469,6 +476,50 @@ my $tests_ref = [
 			}
 		}',
 		expected_status_code => 403,
+	},
+	# Test authentication - OAuth token
+	{
+		test_case => 'patch-auth-good-oauth-token',
+		method => 'PATCH',
+		path => '/api/v3/product/2234567890001',
+		body => '{
+			"fields": "creator,editors_tags,packagings,created_by_client,last_modified_by_client",
+			"tags_lc": "en",
+			"product": {
+				"packagings": [
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "can"},
+						"recycling": {"lc_name": "recycle"}
+					}
+				]
+			}
+		}',
+		headers_in => {
+			'Authorization' => 'Bearer ' . $token,
+		},
+	},
+	{
+		test_case => 'patch-auth-bad-oauth-token',
+		method => 'PATCH',
+		path => '/api/v3/product/2234567890002',
+		body => '{
+			"fields": "creator,editors_tags,packagings",
+			"tags_lc": "en",
+			"product": {
+				"packagings": [
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "can"},
+						"recycling": {"lc_name": "recycle"}
+					}			
+				]
+			}
+		}',
+		headers_in => {
+			'Authorization' => 'Bearer 4711',
+		},
+		expected_status_code => 400,
 	},
 	# Packaging complete
 	{
