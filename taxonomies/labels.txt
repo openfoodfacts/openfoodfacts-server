@@ -20,7 +20,7 @@
 stopwords:en: ingredients, agricultural, from, with, of, by, the, verified, certified, approved, 100%, pure, guaranty, guaranteed, product guaranteed, product certified, standard, during, period, phase, label, mark, logo
 stopwords:bg: съставки, земеделие, от, с, контролиран, сертифициран, 100%, натурален, гарантиран, продуктheart
 
-stopwords:da: fra, kontrolleret, dyrkning, dyrket, dyrkede, råvarer, landbrug, certificeret
+stopwords:da: fra, kontrolleret, dyrkning, dyrket, dyrkede, råvarer, landbrug, certificeret, 100%
 stopwords:de: Zutaten, von, mit, enthält, kontrolliert, zertifiziert, geprüft, 100%, rein, Produkt, Garantie, garantiert, Standard, während
 stopwords:es: por, la, las, los, el, apto, para, con, de, verificado, certificado, aprovado, controlado, registrado, 100%, garantía, garantizado, garantizada, estándar, procedente
 stopwords:fi: ainesosat, vahvistettu, sertifioitu, hyväksytty, 100%, puhdas, tuote, standardi, valvottu, valvottua, tuotettu
@@ -20325,6 +20325,10 @@ th: ใช้น้ำตาลเทียม
 incompatible_with:en: labels:en:without-sweeteners
 opposite:en: en:Without sweeteners
 
+< en:With sweeteners
+en: With sweeteners (steviol glycosides)
+sv: Innehåller sötningsmedel (steviolglykosider)
+
 en: Without sweeteners
 bg: Без подсладители
 ca: Sense edulcorants
@@ -22175,6 +22179,10 @@ it: Nuova ricetta
 nl: Nieuw recept
 pt: Receita nova, nova receita
 th: สูตรใหม่
+
+en: New flavour, New taste
+da: Ny smag
+sv: Ny smak
 
 en: 2016 Nutrition labelling experiment
 ca: Experiment d’etiquetatge nutricional 2016
