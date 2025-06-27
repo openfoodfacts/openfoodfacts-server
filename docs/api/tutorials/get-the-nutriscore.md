@@ -25,6 +25,8 @@ Please use only the official assets to display the Nutri-Score. You can get v1 l
 - https://static.openfoodfacts.org/images/attributes/dist/nutriscore-c-new-en.svg
 - https://static.openfoodfacts.org/images/attributes/dist/nutriscore-d-new-en.svg
 - https://static.openfoodfacts.org/images/attributes/dist/nutriscore-e-new-en.svg
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-unknown-new-en.svg
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-not-applicable-new-en.svg
 
 #### Available languages
 - Dutch (nl), French (fr), German (de), Luxembourgish (lb), English (en)
