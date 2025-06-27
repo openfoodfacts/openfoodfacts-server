@@ -32,8 +32,6 @@ Please use only the official assets to display the Nutri-Score. You can get v1 l
 - Dutch (nl), French (fr), German (de), Luxembourgish (lb), English (en)
 - Replace likeso `nutriscore-e-new-en.svg` > `nutriscore-e-new-fr.svg`
 
-- You can get the new assets in additional languages by contacting <a href="mailto:reuse@openfoodfacts.org">reuse@openfoodfacts.org</a>. We will provide unofficial courtesy translations.
--  Make sure you use v2 assets when showing v2 values.
 
 ### Manual version: Getting the Nutri-Score v1 value (we don't recommand the manual way anymore, especially with v2 around the corner)
 
