@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2025 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -135,7 +135,7 @@ use ProductOpener::URL qw(format_subdomain get_owner_pretty_path);
 use ProductOpener::Data qw/execute_query get_products_collection get_recent_changes_collection/;
 use ProductOpener::MainCountries qw/compute_main_countries/;
 use ProductOpener::Text qw/remove_email remove_tags_and_quote/;
-use ProductOpener::HTTP qw/single_param/;
+use ProductOpener::HTTP qw/single_param create_user_agent/;
 use ProductOpener::Redis qw/push_to_redis_stream/;
 use ProductOpener::Food qw/%nutriments_lists %cc_nutriment_table/;
 use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
@@ -157,7 +157,6 @@ use JSON;
 use Log::Any qw($log);
 use Data::DeepAccess qw(deep_exists deep_get);
 
-use LWP::UserAgent;
 use Storable qw(dclone);
 use File::Copy::Recursive;
 use File::Basename qw/dirname/;
@@ -732,7 +731,7 @@ sub get_owner_id ($userid, $orgid, $ownerid) {
 	return $ownerid;
 }
 
-=head2 init_product ( $userid, $orgid, $code, $countryid )
+=head2 init_product ( $userid, $orgid, $code, $countryid, $client_id = undef )
 
 Initializes and return a $product_ref structure for a new product.
 If $countryid is defined and is not "en:world", then assign this country for the countries field.
@@ -744,7 +743,7 @@ Returns a $product_ref structure
 
 =cut
 
-sub init_product ($userid, $orgid, $code, $countryid) {
+sub init_product ($userid, $orgid, $code, $countryid, $client_id = undef) {
 
 	$log->debug("init_product", {userid => $userid, orgid => $orgid, code => $code, countryid => $countryid})
 		if $log->is_debug();
@@ -775,9 +774,8 @@ sub init_product ($userid, $orgid, $code, $countryid) {
 		product_type => $options{product_type},
 	};
 
-	if (defined $server) {
-		$product_ref->{server} = $server;
-	}
+	$product_ref->{server} = $server if defined $server;
+	$product_ref->{created_by_client} = $client_id if defined $client_id;
 
 	if ($server_options{private_products}) {
 		my $ownerid = get_owner_id($userid, $orgid, $Owner_id);
@@ -1097,7 +1095,7 @@ sub compute_sort_keys ($product_ref) {
 	return;
 }
 
-=head2 store_product ($user_id, $product_ref, $comment)
+=head2 store_product ($user_id, $product_ref, $comment, $client_id = undef)
 
 Save changes of a product:
 - in a new .sto file on the disk
@@ -1107,7 +1105,7 @@ Before saving, some field values are computed, and product history and completen
 
 =cut
 
-sub store_product ($user_id, $product_ref, $comment) {
+sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 
 	my $code = $product_ref->{code};
 	my $product_id = $product_ref->{_id};
@@ -1357,6 +1355,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 	# last_modified_t is the date of the last change of the product raw data
 	# last_updated_t is the date of the last change of the product derived data (e.g. ingredient analysis, scores etc.)
 	$product_ref->{last_modified_by} = $user_id;
+	$product_ref->{last_modified_by_client} = $client_id if defined $client_id;
 	$product_ref->{last_modified_t} = time() + 0;
 	$product_ref->{last_updated_t} = $product_ref->{last_modified_t};
 	if (not exists $product_ref->{creator}) {
@@ -1376,6 +1375,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 	my $change_ref = {
 		userid => $user_id,
+		clientid => $client_id,
 		ip => remote_addr(),
 		t => $product_ref->{last_modified_t},
 		comment => $comment,
@@ -3327,7 +3327,7 @@ sub process_product_edit_rules ($product_ref) {
 										$emoji = ":pear:";
 									}
 
-									my $ua = LWP::UserAgent->new;
+									my $ua = create_user_agent();
 									my $server_endpoint
 										= "https://hooks.slack.com/services/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";
 

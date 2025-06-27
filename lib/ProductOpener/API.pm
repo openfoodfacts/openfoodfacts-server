@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -53,6 +53,7 @@ BEGIN {
 		&normalize_requested_code
 		&customize_response_for_product
 		&check_user_permission
+		&process_auth_header
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -62,6 +63,7 @@ use vars @EXPORT_OK;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/write_cors_headers request_param/;
+use ProductOpener::Auth qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/$lc lang_in_other_lc/;
 use ProductOpener::Products qw/normalize_code_with_gs1_ai product_name_brand_quantity/;
@@ -85,7 +87,7 @@ use ProductOpener::APIProductServices qw/product_services_api/;
 use ProductOpener::APITagRead qw/read_tag_api/;
 use ProductOpener::APITaxonomySuggestions qw/taxonomy_suggestions_api/;
 
-use CGI qw(header);
+use CGI qw/:cgi :form escapeHTML/;
 use Apache2::RequestIO();
 use Apache2::RequestRec();
 use JSON::MaybeXS;
@@ -1027,6 +1029,101 @@ sub check_user_permission ($request_ref, $response_ref, $permission) {
 	}
 
 	return $has_permission;
+}
+
+=head2 process_auth_header ( $request_ref, $r )
+
+Using the Authorization HTTP header, check if we have a valid user.
+
+=head3 Parameters
+
+=head4 $request_ref (input)
+
+Reference to the request object.
+
+=head4 $r (input)
+
+Reference to the Apache2 request object
+
+=head3 Return value
+
+1 if the user has been signed in, -1 if the Bearer token was invalid, 0 otherwise.
+
+=cut
+
+sub process_auth_header ($request_ref, $r) {
+	my $token = _read_auth_header($request_ref, $r);
+	unless ($token) {
+		return 0;
+	}
+
+	my $access_token;
+	# verify token using JWKS (see Auth.pm)
+	eval {$access_token = verify_access_token($token);};
+	my $error = $@;
+	if ($error) {
+		$log->info('Access token invalid', {token => $token}) if $log->is_info();
+	}
+
+	unless ($access_token) {
+		add_error(
+			$request_ref->{api_response},
+			{
+				message => {id => 'invalid_token'},
+				impact => {id => 'failure'},
+			}
+		);
+		return -1;
+	}
+
+	$request_ref->{access_token} = $token;
+	my $user_id = get_user_id_using_token($access_token, $request_ref);
+	unless (defined $user_id) {
+		$log->info('User not found and not created') if $log->is_info();
+		display_error_and_exit($request_ref, 'Internal error', 500);
+	}
+
+	my $user_ref = retrieve_user($user_id);
+	unless (defined $user_ref) {
+		$log->info('User not found', {user_id => $user_id}) if $log->is_info();
+		display_error_and_exit($request_ref, 'Internal error', 500);
+	}
+
+	$log->debug('user_id found', {user_id => $user_id}) if $log->is_debug();
+
+	$request_ref->{oidc_user_id} = $user_id;
+
+	return 1;
+}
+
+=head2 _read_auth_header ( $request_ref, $r )
+
+Using the Authorization HTTP header, check if it looks like a 
+Bearer token, and if it does, copy it to the request_ref
+
+=head3 Parameters
+
+=head4 $request_ref (input)
+
+Reference to the request object.
+
+=head4 $r (input)
+
+Reference to the Apache2 request object
+
+=head3 Return value
+
+None
+
+=cut
+
+sub _read_auth_header ($request_ref, $r) {
+	my $authorization = $r->headers_in->{Authorization};
+	if ((defined $authorization) and ($authorization =~ /^Bearer (?<token>.+)$/)) {
+		return $+{token};
+	}
+
+	return;
 }
 
 1;

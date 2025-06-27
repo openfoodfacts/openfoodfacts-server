@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Update the expected results with the content of the actual results
+# Update the unit tests expected results with the content of the actual results
 # git diff can then be used to review the differences
 
 # This script should be run only inside the po_backend_1 container
@@ -23,8 +23,3 @@ for FILE in $(grep -l init_expected_results unit/*.t);
 do
     perl $FILE --update-expected-results
 done
-
-# Integration tests
-
-for FILE in integration/*.t; do perl $FILE --update-expected-results; done
-
