@@ -298,6 +298,8 @@ integration_test: create_folders
 # this is the place where variables are important
 # note that we don't launch the frontend because it causes issues,
 # as we use localhost in tests (which is the backend)
+# Need to start dynamicfront explicitly so it is built on-demand. Just listing it as a depends_on for backend doesn't seem to do this
+	${DOCKER_COMPOSE_INT_TEST} up -d dynamicfront
 	${DOCKER_COMPOSE_INT_TEST} up -d backend
 # note: we need the -T option for ci (non tty environment)
 	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/integration/outputs/junit.xml" -T backend yath --renderer=Formatter --renderer=JUnit tests/integration
