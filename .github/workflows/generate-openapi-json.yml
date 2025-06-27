@@ -23,7 +23,7 @@ jobs:
 
       - name: Generate openapi.json from YAML
         run: |
-          openapi-generator-cli generate -i docs/api/ref/api.yaml -g openapi-json -o html/resources/files
+          openapi-generator-cli generate -i docs/api/ref/api.yaml -g openapi -o html/resources/files
 
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
