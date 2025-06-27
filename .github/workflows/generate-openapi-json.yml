@@ -1,0 +1,43 @@
+name: Generate OpenAPI JSON
+
+on:
+  push:
+    paths:
+      - 'docs/api/ref/**/*.yaml'
+      - '.github/workflows/generate-openapi-json.yml'
+
+jobs:
+  generate-openapi-json:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install PyYAML
+        run: pip install pyyaml
+
+      - name: Convert YAML to JSON
+        run: |
+          mkdir -p html/resources/files
+          python3 -c "
+import sys, yaml, json, glob, os
+yaml_files = sorted(glob.glob('docs/api/ref/**/*.yaml', recursive=True))
+for yaml_file in yaml_files:
+    with open(yaml_file, 'r') as f:
+        data = yaml.safe_load(f)
+    basename = os.path.splitext(os.path.basename(yaml_file))[0]
+    out_path = f'html/resources/files/{basename}.json' if len(yaml_files) > 1 else 'html/resources/files/openapi.json'
+    with open(out_path, 'w') as out:
+        json.dump(data, out, indent=2)
+"
+
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore: auto-generate openapi.json from YAML'
+          file_pattern: html/resources/files/*.json
