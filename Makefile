@@ -74,8 +74,6 @@ DOCKER_COMPOSE_TEST=COMPOSE_FILE="${COMPOSE_FILE_BUILD};${DEPS_DIR}/openfoodfact
 # Note the integration-test.yml file contains references to the docker-compose files from shared-services and auth
 DOCKER_COMPOSE_INT_TEST=COMPOSE_FILE="${COMPOSE_FILE_BUILD};docker/integration-test.yml" \
 	REDIS_URL="redis:6379" \
-	KEYCLOAK_BASE_URL=http://keycloak:8080 \
-	KEYCLOAK_TAG=main \
 	${DOCKER_COMPOSE_TEST_BASE}
 
 TEST_CMD ?= yath test
@@ -562,6 +560,7 @@ clean_folders: clean_logs
 
 clean_logs:
 	( rm -f logs/* logs/apache2/* logs/nginx/* || true )
+	echo "" > logs/apache2/log4perl.log
 
 clean: goodbye hdown prune prune_deps prune_cache clean_folders
 
