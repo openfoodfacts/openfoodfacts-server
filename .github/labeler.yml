@@ -246,6 +246,7 @@ Footer:
       - any-glob-to-any-file: "scripts/generate_perl_html_doc_from_pod.pl"
       - any-glob-to-any-file: "po/README.md"
       - any-glob-to-any-file: "README.md"
+      - any-glob-to-any-file: "mkdocs.yml"
 
 # OpenAPI documentation of Open Food Facts. Still incomplete, and needs help.
 # Eventually, we'd like to see if it's possible to generate clean SDKs out of it.
