@@ -19,6 +19,7 @@ const jsSrc = [
   "./html/js/stikelem.js",
   "./html/js/scrollNav.js",
   "./html/js/barcode-scanner*.js",
+  "./html/js/rewind-browser.js",
 ];
 
 const sassSrc = "./scss/**/*.scss";

@@ -19,66 +19,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import * as L from './leaflet-src.esm.js';
-
-/* (c) mapstertech https://github.com/mapstertech/mapster-right-hand-rule-fixer/blob/d374e4153ba26c2100b509f59e5a5fe616e267dd/lib/rewind-browser.js */
-class GeoJSONRewind {
-
-  static rewindRing(ring, dir) {
-    let area = 0,
-      err = 0;
-    // eslint-disable-next-line no-plusplus
-    for (let i = 0, len = ring.length, j = len - 1; i < len; j = i++) {
-      const k = (ring[i][0] - ring[j][0]) * (ring[j][1] + ring[i][1]);
-      const m = area + k;
-      err += Math.abs(area) >= Math.abs(k) ? area - m + k : k - m + area;
-      area = m;
-    }
-    // eslint-disable-next-line no-mixed-operators
-    if (area + err >= 0 !== Boolean(dir)) {
-      ring.reverse();
-    }
-  }
-
-  rewindRings(rings, outer) {
-    if (rings.length === 0) {
-      return;
-    }
-
-    this.rewindRing(rings[0], outer);
-    for (let i = 1; i < rings.length; i++) {
-      this.rewindRing(rings[i], !outer);
-    }
-  }
-
-  rewind(gj, outer) {
-    const type = gj?.type;
-    let i;
-
-    if (type === 'FeatureCollection') {
-      for (i = 0; i < gj.features.length; i++) {
-        this.rewind(gj.features[i], outer);
-      }
-
-    } else if (type === 'GeometryCollection') {
-      for (i = 0; i < gj.geometries.length; i++) {
-        this.rewind(gj.geometries[i], outer);
-      }
-
-    } else if (type === 'Feature') {
-      this.rewind(gj.geometry, outer);
-
-    } else if (type === 'Polygon') {
-      this.rewindRings(gj.coordinates, outer);
-
-    } else if (type === 'MultiPolygon') {
-      for (i = 0; i < gj.coordinates.length; i++) {
-        this.rewindRings(gj.coordinates[i], outer);
-      }
-    }
-
-    return gj;
-  }
-}
+import { GeoJSONRewind } from './rewind-browser.js';
 
 function createLeafletMap() {
   const tagDescription = document.getElementById('tag_description');
@@ -153,9 +94,8 @@ async function getOpenStreetMapFromWikidata(id) {
 async function getGeoJsonFromOsmRelation(id) {
   const response = await fetch(`https://polygons.openstreetmap.fr/get_geojson.py?params=0&id=${encodeURIComponent(id)}`);
   const data = await response.json();
-  const geoJsonRewind = new GeoJSONRewind();
-
-  return geoJsonRewind.rewind(data);
+  
+  return GeoJSONRewind.rewind(data);
 }
 
 function displayPointers(pointers) {
