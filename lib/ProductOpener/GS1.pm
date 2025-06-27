@@ -1000,11 +1000,20 @@ my %gs1_product_to_off = (
 												"productInformationDetail",
 												{
 													fields => [
-														["claimDetail",
+														[
+															"claimDetail",
 															[
-																{ 
-																	match => [["claimMarkedOnPackage", "TRUE"], ["claimTypeCode", "NO_ADDED"],],
-																	fields => [["claimElementCode", "+labels%claimElementCode"],],
+																{
+																	match => [
+																		["claimMarkedOnPackage", "TRUE"],
+																		["claimTypeCode", "NO_ADDED"],
+																	],
+																	fields => [
+																		[
+																			"claimElementCode",
+																			"+labels%claimElementCode"
+																		],
+																	],
 																}
 															]
 														]
