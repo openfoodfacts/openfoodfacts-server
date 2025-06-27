@@ -48,7 +48,7 @@ Here are the different messages to use according to the state:
 <pre>"We could not compute an Nutri-Score for this product. It might be that the category is an exception. If you believe this is an error, you can email contact@thenameofyourapp.org"</pre>
 
 -   List of exceptions: <https://www.santepubliquefrance.fr/content/download/150262/file/QR_scientifique_technique_150421.pdf>
--   You can get states with [https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=ecoscore_grade,states_tags ](https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=ecoscore_grade,states_tags)
+- You can get states with [https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=environmental_score_grade,states_tags](https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=environmental_score_grade,states_tags)
 
 #### Add a message if we have a category but no nutrition
 
