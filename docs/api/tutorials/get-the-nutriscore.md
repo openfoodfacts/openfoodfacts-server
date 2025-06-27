@@ -13,7 +13,14 @@
 ### Using the official visual assets of the Nutri-Score
 
 Please use only the official assets to display the Nutri-Score. You can get v1 logos here: [NutriScore variants](https://drive.google.com/drive/u/1/folders/13SL2hgqYHSLMhYjMze9nYXV9GOdGMBgc)
-
+Those are v1 assets, and although they can be used during the transition period, we recommand using the blue banner version to avoid any ambiguity.
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a.svg
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-b.svg
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-c.svg
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-d.svg
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-e.svg
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-unknown.svg
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-not-applicable.svg
 ### Getting ready for Nutri-Score V2
 - Nutri-Score V2 has a new computation method, which now requires the ingredient list, a category, and of course the nutrition table
 - It also has a transition period new logo, to indicate you are using the new computation. It is not compulsory to use it, but it will save you from a lot of questions from your users ("Do you have the new formula ?")
