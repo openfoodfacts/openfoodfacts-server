@@ -27,19 +27,19 @@ jobs:
           node-version: '22'
 
       - name: Run Spectral lint
+        id: spectral
+        continue-on-error: true
         uses: stoplightio/spectral-action@latest
         with:
           file_glob: 'docs/api/ref/*.yaml'
           spectral_ruleset: .spectral.yaml
 
       - name: Comment on PR with linting results
-        if: failure() && github.event_name == 'pull_request'
-        uses: actions/github-script@v7
-        with:
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: '🚨 **API Specification Linting Failed**\n\nPlease check the workflow logs for details and fix the issues in your OpenAPI specification file (`doc/references/api.yml`).\n\nYou can run the linting locally using:\n```bash\nmake api-lint-check\n```'
-            })
+        if: github.event_name == 'pull_request' && always()
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_WORKSPACE: ${{ github.workspace }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: ./.github/scripts/spectral-pr-comment.js
