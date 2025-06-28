@@ -4,11 +4,13 @@ on:
   pull_request:
     paths:
       - 'docs/api/ref/**/*.yaml'
+      - '.spectral.yml'
   push:
     branches:
       - main
     paths:
       - 'docs/api/ref/**/*.yaml'
+      - '.spectral.yml'
 
 jobs:
   lint-api:
