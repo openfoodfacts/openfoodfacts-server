@@ -33,15 +33,3 @@ jobs:
         with:
           file_glob: 'docs/api/ref/*.yaml'
           spectral_ruleset: .spectral.yaml
-
-      - name: Comment on PR with linting results
-        if: github.event_name == 'pull_request' && always()
-        env:
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-          GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-          GITHUB_WORKSPACE: ${{ github.workspace }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SPECTRAL_STEP_OUTCOME: ${{ steps.spectral.outcome }}
-          SPECTRAL_STEP_CONCLUSION: ${{ steps.spectral.conclusion }}
-        run: ./.github/scripts/spectral-pr-comment.js
