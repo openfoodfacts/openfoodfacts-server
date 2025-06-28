@@ -42,4 +42,6 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_WORKSPACE: ${{ github.workspace }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SPECTRAL_STEP_OUTCOME: ${{ steps.spectral.outcome }}
+          SPECTRAL_STEP_CONCLUSION: ${{ steps.spectral.conclusion }}
         run: ./.github/scripts/spectral-pr-comment.js
