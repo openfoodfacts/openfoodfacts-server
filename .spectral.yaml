@@ -1,1 +1,125 @@
-extends: "spectral:oas"
+# Open Food Facts API - Spectral Configuration
+# This file defines Spectral rules for linting the Open Food Facts OpenAPI specification
+
+extends: ["spectral:oas"]
+
+rules:
+  # Documentation Quality Rules
+  require-operation-description:
+    description: "All operations must have descriptions"
+    message: "Operation {{property}} is missing a description"
+    severity: error
+    given: "$.paths.*[get,post,put,patch,delete,head,options,trace]"
+    then:
+      field: description
+      function: truthy
+
+  require-parameter-description:
+    description: "All parameters must have descriptions"
+    message: "Parameter {{value.name}} is missing a description"
+    severity: error
+    given: "$.paths..parameters[*]"
+    then:
+      field: description
+      function: truthy
+
+  require-schema-description:
+    description: "All schemas should have descriptions"
+    message: "Schema {{property}} is missing a description"
+    severity: warn
+    given: "$.components.schemas.*"
+    then:
+      field: description
+      function: truthy
+
+  # Response Structure Rules
+  consistent-error-responses:
+    description: "Error responses should follow consistent structure"
+    message: "Error response should include schema definition"
+    severity: warn
+    given: "$.paths..responses['400','401','403','404','500']"
+    then:
+      field: "content.application/json.schema"
+      function: truthy
+
+  require-response-examples:
+    description: "Success responses should include examples"
+    message: "Response {{property}} should include examples for better documentation"
+    severity: info
+    given: "$.paths..responses['200','201','202']"
+    then:
+      field: "content.application/json.examples"
+      function: truthy
+
+  # Component Organization Rules
+  consistent-component-naming:
+    description: "Component names should follow PascalCase convention"
+    message: "Component name '{{property}}' should use PascalCase"
+    severity: warn
+    given: "$.components.schemas"
+    then:
+      field: "@key"
+      function: pattern
+      functionOptions:
+        match: "^[A-Z][a-zA-Z0-9-]*$"
+
+  # Open Food Facts specific validations
+  require-api-version-in-paths:
+    description: "API paths should include version numbers"
+    message: "API path should include version number for proper versioning"
+    severity: info
+    given: "$.paths.*~"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^/api/v\\d+/"
+
+  # Ensure operation IDs are present
+  require-operation-id:
+    description: "All operations should have operation IDs"
+    message: "Operation should have an operationId"
+    severity: warn
+    given: "$.paths.*[get,post,put,patch,delete,head,options,trace]"
+    then:
+      field: operationId
+      function: truthy
+
+  # Tags for organization
+  require-operation-tags:
+    description: "All operations should be tagged for organization"
+    message: "Operation should have tags for better organization"
+    severity: info
+    given: "$.paths.*[get,post,put,patch,delete,head,options,trace]"
+    then:
+      field: tags
+      function: truthy
+
+  # API Documentation Best Practices
+  require-summary-for-operations:
+    description: "All operations should have summaries"
+    message: "Operation should have a summary for better documentation"
+    severity: warn
+    given: "$.paths.*[get,post,put,patch,delete,head,options,trace]"
+    then:
+      field: summary
+      function: truthy
+
+  # Response Documentation
+  require-success-response-description:
+    description: "Success responses should have descriptions"
+    message: "Success response should have a meaningful description"
+    severity: warn
+    given: "$.paths..responses['200','201','202']"
+    then:
+      field: description
+      function: truthy
+
+  # Content Type Consistency
+  json-content-type-consistency:
+    description: "JSON responses should use application/json content type"
+    message: "Response should specify application/json content type"
+    severity: info
+    given: "$.paths..responses..content"
+    then:
+      field: "application/json"
+      function: truthy
