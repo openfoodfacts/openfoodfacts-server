@@ -20,41 +20,48 @@ async function main() {
   let hintCount = 0;
   
   try {
-    const spectralResultsPath = './spectral-results.json';
-    if (fs.existsSync(spectralResultsPath)) {
-      const spectralData = JSON.parse(fs.readFileSync(spectralResultsPath, 'utf8'));
-      for (const result of spectralData) {
-        switch(result.severity) {
-          case 0: errorCount++; break;
-          case 1: warningCount++; break;
-          case 2: infoCount++; break;
-          case 3: hintCount++; break;
-        }
+    console.log('Running Spectral to get linting stats...');
+    const spectralOutput = execSync('npx spectral lint -r .spectral.yaml -f json docs/api/ref/*.yaml', { 
+      encoding: 'utf8',
+      cwd: process.env.GITHUB_WORKSPACE || process.cwd()
+    });
+    
+    const results = JSON.parse(spectralOutput);
+    console.log(`Found ${results.length} total linting issues`);
+    
+    for (const result of results) {
+      switch(result.severity) {
+        case 0: errorCount++; break;
+        case 1: warningCount++; break;
+        case 2: infoCount++; break;
+        case 3: hintCount++; break;
       }
-    } else {
-      console.log('No spectral results file found, running spectral directly...');
-      const spectralOutput = execSync('npx spectral lint -r .spectral.yaml -f json docs/api/ref/*.yaml', { 
+    }
+    
+    console.log(`Parsed counts - Errors: ${errorCount}, Warnings: ${warningCount}, Info: ${infoCount}, Hints: ${hintCount}`);
+    
+  } catch (error) {
+    console.log('JSON parsing failed, trying text output...');
+    try {
+      const spectralOutput = execSync('npx spectral lint -r .spectral.yaml docs/api/ref/*.yaml', { 
         encoding: 'utf8',
         cwd: process.env.GITHUB_WORKSPACE || process.cwd()
       });
       
-      const results = JSON.parse(spectralOutput);
-      for (const result of results) {
-        switch(result.severity) {
-          case 0: errorCount++; break;
-          case 1: warningCount++; break;
-          case 2: infoCount++; break;
-          case 3: hintCount++; break;
-        }
-      }
-    }
-  } catch (error) {
-    console.log('Error reading spectral results:', error.message);
-    console.log('Spectral step outcome:', process.env.SPECTRAL_STEP_OUTCOME);
-    console.log('Spectral step conclusion:', process.env.SPECTRAL_STEP_CONCLUSION);
-    
-    if (process.env.SPECTRAL_STEP_OUTCOME === 'failure') {
-      errorCount = 1;
+      console.log('Spectral text output (first 1000 chars):');
+      console.log(spectralOutput.substring(0, 1000));
+      
+      errorCount = (spectralOutput.match(/\s+error\s+/gi) || []).length;
+      warningCount = (spectralOutput.match(/\s+warning\s+/gi) || []).length;
+      infoCount = (spectralOutput.match(/\s+information\s+/gi) || []).length;
+      hintCount = (spectralOutput.match(/\s+hint\s+/gi) || []).length;
+      
+      console.log(`Text parsed counts - Errors: ${errorCount}, Warnings: ${warningCount}, Info: ${infoCount}, Hints: ${hintCount}`);
+      
+    } catch (e) {
+      console.log('Could not run spectral:', e.message);
+      console.log('Working directory:', process.env.GITHUB_WORKSPACE || process.cwd());
+      console.log('Spectral step outcome:', process.env.SPECTRAL_STEP_OUTCOME);
     }
   }
   
