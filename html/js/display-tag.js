@@ -18,7 +18,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import * as L from './leaflet-src.esm.js';
+import { FeatureGroup, GeoJSON, LatLngBounds, Map as LeafletMap, Marker, TileLayer } from 'leaflet';
 import { GeoJSONRewind } from './rewind-browser.js';
 
 function createLeafletMap() {
@@ -33,18 +33,19 @@ function createLeafletMap() {
     tagMap.style.display = '';
   }
 
-  const map = L.map('container');
+  const map = new LeafletMap('container');
 
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  const tileLayer = new TileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-  }).addTo(map);
+  });
+  tileLayer.addTo(map);
 
   return map;
 }
 
 function fitBoundsToAllLayers(mapToUpdate) {
-  const latlngbounds = new L.latLngBounds();
+  const latlngbounds = new LatLngBounds();
 
   mapToUpdate.eachLayer(function (l) {
     if (typeof l.getBounds === "function") {
@@ -71,7 +72,7 @@ async function addWikidataObjectToMap(id) {
   const geoJson = await getGeoJsonFromOsmRelation(relationId);
   if (geoJson) {
     const map = createLeafletMap();
-    L.geoJSON(geoJson).addTo(map);
+    new GeoJSON(geoJson).addTo(map);
     fitBoundsToAllLayers(map);
   }
 }
@@ -114,12 +115,12 @@ function displayPointers(pointers) {
       coordinates = [pointer.geo.lat, pointer.geo.lng];
     }
 
-    const marker = new L.marker(coordinates);
+    const marker = new Marker(coordinates);
     markers.push(marker);
   }
 
   if (markers.length > 0) {
-    L.featureGroup(markers).addTo(map);
+    new FeatureGroup(markers).addTo(map);
     fitBoundsToAllLayers(map);
     map.setZoom(8);
   }

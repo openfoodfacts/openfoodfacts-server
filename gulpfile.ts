@@ -96,9 +96,8 @@ export function copyJs() {
     "./node_modules/foundation-sites/js/vendor/*.js",
     "./node_modules/foundation-sites/js/foundation.js",
     "./node_modules/papaparse/papaparse.js",
-    "./node_modules/leaflet/dist/leaflet.js",
-    "./node_modules/leaflet/dist/leaflet-src.esm.js",
-    "./node_modules/leaflet.markercluster/dist/leaflet.markercluster.js",
+    "./node_modules/leaflet/dist/*.js",
+    "./node_modules/leaflet.markercluster-es/dist/*.js",
     "./node_modules/blueimp-tmpl/js/tmpl.js",
     "./node_modules/blueimp-load-image/js/load-image.all.min.js",
     "./node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js",
@@ -192,8 +191,8 @@ function jQueryUiThemes() {
 function copyCss() {
   const processed = src([
     "./node_modules/leaflet/dist/leaflet.css",
-    "./node_modules/leaflet.markercluster/dist/MarkerCluster.css",
-    "./node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css",
+    "./node_modules/leaflet.markercluster-es/dist/MarkerCluster.css",
+    "./node_modules/leaflet.markercluster-es/dist/MarkerCluster.Default.css",
     "./node_modules/@yaireo/tagify/dist/tagify.css",
     "./node_modules/cropperjs/dist/cropper.css",
     "./node_modules/select2/dist/css/select2.min.css",
