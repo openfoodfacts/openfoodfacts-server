@@ -91,7 +91,7 @@ paths:
   /cgi/product_image_upload.pl:
     post:
       tags:
-        - Upload Images
+        - Images
       summary: Upload Product Image
       operationId: get-cgi-product_image_upload.pl
       description: |
