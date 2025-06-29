@@ -27,3 +27,4 @@ jobs:
         with:
           file_glob: 'docs/api/ref/*.yaml'
           spectral_ruleset: .spectral.yaml
+          
