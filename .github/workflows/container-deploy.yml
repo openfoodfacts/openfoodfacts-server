@@ -182,6 +182,9 @@ jobs:
           echo "LOG_LEVEL_RATE_LIMITER=INFO" >> .env
           echo "BUILD_CACHE_REPO=openfoodfacts/openfoodfacts-build-cache" >> .env
 
+          #11901: Remove once production is migrated. Initially duplicate STO and JSON
+          echo "SERIALIZE_TO_JSON=1" >> .env
+
           # Override domain name in nginx.conf
           sed -i.bak "s/productopener.localhost/${{ env.PRODUCT_OPENER_DOMAIN }}/g" ./conf/nginx-docker/nginx.conf
 

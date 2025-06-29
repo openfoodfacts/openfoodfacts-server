@@ -323,13 +323,13 @@ sudo apt-get install make
 
 For other distros, consult your distro's documentation or support resources for the command to use.
 
-### make dev error: [build_lang] Error 2 - Could not load taxonomy: /mnt/podata/taxonomies/traces.result.sto
+### make dev error: [build_lang] Error 2 - Could not load taxonomy: /mnt/podata/taxonomies/traces.result.json
 
 When running `make dev`:
 
 ```console
 <h1>Software error:</h1>
-<pre>Could not load taxonomy: /mnt/podata/taxonomies/traces.result.sto at /opt/product-opener/lib/ProductOpener/Tags.pm line 1976.
+<pre>Could not load taxonomy: /mnt/podata/taxonomies/traces.result.json at /opt/product-opener/lib/ProductOpener/Tags.pm line 1976.
 Compilation failed in require at /opt/product-opener/scripts/build_lang.pl line 31, &lt;DATA&gt; line 2104.
 BEGIN failed--compilation aborted at /opt/product-opener/scripts/build_lang.pl line 31, &lt;DATA&gt; line 2104.
 </pre>
@@ -337,7 +337,7 @@ BEGIN failed--compilation aborted at /opt/product-opener/scripts/build_lang.pl l
 For help, please send mail to this site's webmaster, giving this error message
 and the time and date of the error.
 </p>
-[Tue Apr  5 19:36:40 2022] build_lang.pl: Could not load taxonomy: /mnt/podata/taxonomies/traces.result.sto at /opt/product-opener/lib/ProductOpener/Tags.pm line 1976.
+[Tue Apr  5 19:36:40 2022] build_lang.pl: Could not load taxonomy: /mnt/podata/taxonomies/traces.result.json at /opt/product-opener/lib/ProductOpener/Tags.pm line 1976.
 [Tue Apr  5 19:36:40 2022] build_lang.pl: Compilation failed in require at /opt/product-opener/scripts/build_lang.pl line 31, <DATA> line 2104.
 [Tue Apr  5 19:36:40 2022] build_lang.pl: BEGIN failed--compilation aborted at /opt/product-opener/scripts/build_lang.pl line 31, <DATA> line 2104.
 make: *** [build_lang] Error 2
@@ -345,7 +345,7 @@ make: *** [build_lang] Error 2
 
 **Solution:**
 Project needs Symlinks to be enabled.
-traces.result.sto is a symlink to allergens.result.sto
+traces.result.json is a symlink to allergens.result.json
 
 You have to enable the 'Developer Mode' in order to use the symlinks.
 To enable Developer Mode:
