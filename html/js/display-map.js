@@ -1,7 +1,7 @@
 // This file is part of Product Opener.
 //
 // Product Opener
-// Copyright (C) 2011-2023 Association Open Food Facts
+// Copyright (C) 2011-2025 Association Open Food Facts
 // Contact: contact@openfoodfacts.org
 // Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 //
@@ -18,10 +18,10 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-/*global L */
-/*exported displayMap*/
+import * as L from './leaflet-src.esm.js';
+import { MarkerClusterGroup } from './leaflet.markercluster.js';
 
-function displayMap(containerId, pointers) {
+export function displayMap(containerId, pointers) {
   const map = L.map(containerId, { maxZoom: 12 });
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -30,7 +30,7 @@ function displayMap(containerId, pointers) {
   }).addTo(map);
 
 
-  const markers = new L.MarkerClusterGroup({ singleMarkerMode: true });
+  const markers = new MarkerClusterGroup({ singleMarkerMode: true });
   const layers = [];
 
   for (const pointer of pointers) {

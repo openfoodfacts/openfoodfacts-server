@@ -19,6 +19,7 @@ const jsSrc = [
   "./html/js/stikelem.js",
   "./html/js/scrollNav.js",
   "./html/js/barcode-scanner*.js",
+  "./html/js/rewind-browser.js",
 ];
 
 const sassSrc = "./scss/**/*.scss";
@@ -95,8 +96,8 @@ export function copyJs() {
     "./node_modules/foundation-sites/js/vendor/*.js",
     "./node_modules/foundation-sites/js/foundation.js",
     "./node_modules/papaparse/papaparse.js",
-    "./node_modules/osmtogeojson/osmtogeojson.js",
     "./node_modules/leaflet/dist/leaflet.js",
+    "./node_modules/leaflet/dist/leaflet-src.esm.js",
     "./node_modules/leaflet.markercluster/dist/leaflet.markercluster.js",
     "./node_modules/blueimp-tmpl/js/tmpl.js",
     "./node_modules/blueimp-load-image/js/load-image.all.min.js",
