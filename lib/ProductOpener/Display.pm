@@ -2432,19 +2432,19 @@ HTML
 
 		# countries map?
 		if (keys %{$countries_map_data} > 0) {
-			$request_ref->{initjs}
-				.= 'var countries_map_data=JSON.parse(' . $json->encode($json->encode($countries_map_data)) . ');'
-				.= 'var countries_map_links=JSON.parse(' . $json->encode($json->encode($countries_map_links)) . ');'
-				.= 'var countries_map_names=JSON.parse(' . $json->encode($json->encode($countries_map_names)) . ');'
-				.= <<"JS";
+			my $countries_map_data_json = $json->encode($json->encode($countries_map_data));
+			my $countries_map_links_json = $json->encode($json->encode($countries_map_links));
+			my $countries_map_names_json = $json->encode($json->encode($countries_map_names));
+			$request_ref->{scripts} .= <<SCRIPTS;
+<script type="module">
+import { displayWorldMap } from '$static_subdomain/js/dist/display-list-of-tags.esm.js';
+const countries_map_data = JSON.parse($countries_map_data_json);
+const countries_map_links = JSON.parse($countries_map_links_json);
+const countries_map_names = JSON.parse($countries_map_names_json);
 displayWorldMap('#world-map', { 'data': countries_map_data, 'links': countries_map_links, 'names': countries_map_names });
-JS
-			$request_ref->{scripts} .= <<SCRIPTS
-<script src="$static_subdomain/js/dist/jsvectormap.js"></script>
-<script src="$static_subdomain/js/dist/world-merc.js"></script>
-<script src="$static_subdomain/js/dist/display-list-of-tags.js"></script>
+</script>
 SCRIPTS
-				;
+
 			my $map_html = <<HTML
   <div id="world-map" style="min-width: 250px; max-width: 600px; min-height: 250px; max-height: 400px;"></div>
 
