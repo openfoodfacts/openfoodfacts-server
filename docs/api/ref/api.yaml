@@ -140,7 +140,7 @@ paths:
         - OCR
   /cgi/product_image_crop.pl:
     post:
-      summary: Crop Image
+      summary: Select and Crop Image
       operationId: post-cgi-product_image_crop.pl
       responses:
         "200":
