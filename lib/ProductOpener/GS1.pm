@@ -185,6 +185,7 @@ my %gs1_maps = (
 		"E14" => "kcal",
 		"KJO" => "kJ",
 		"H87" => "pièces",
+		"P1" => "%",
 	},
 
 	# reference: GS1 T4073 Nutrient type code
@@ -335,6 +336,7 @@ my %gs1_maps = (
 		"ŒUFS_DE_FRANCE" => "en:french-eggs",
 		"OEUFS_DE_FRANCE" => "en:french-eggs",
 		"ORIGINE_FRANCE_GARANTIE" => "fr:origine-france",
+		"PME_PLUS" => "fr:pme-plus",
 		"POMMES_DE_TERRES_DE_FRANCE" => "en:potatoes-from-france",
 		"PRODUIT_EN_BRETAGNE" => "en:produced-in-brittany",
 		"PROTECTED_DESIGNATION_OF_ORIGIN" => "en:pdo",
@@ -821,6 +823,24 @@ my %gs1_product_to_off = (
 									},
 								],
 
+								# See https://navigator.gs1.org/gdsn/class-details?name=NutritionalProgramIngredientTypeCode&version=12
+								# As of 2025/06/01, the nutritionalProgramIngredients values seem to refer to the old Nutri-Score formula
+								# There seems to be new fields for the new formula:
+								# https://www.gs1.nl/kennisbank/gs1-data-source/levensmiddelen-drogisterij/welke-data/nutri-score/ (in Dutch)
+
+								# <health_related_information:healthRelatedInformationModule xmlns:health_related_information="urn:gs1:gdsn:health_related_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:health_related_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/HealthRelatedInformationModule.xsd">
+								#  <healthRelatedInformation>
+								#   <nutritionalProgram>
+								#    <nutritionalProgramCode>8</nutritionalProgramCode>
+								#    <nutritionalScore>A</nutritionalScore>
+								#    <nutritionalProgramIngredients>
+								#     <nutritionalProgramIngredientMeasurement measurementUnitCode="P1">59</nutritionalProgramIngredientMeasurement>
+								#     <nutritionalProgramIngredientTypeCode>FRUITS_VEGETABLES_LEGUMES_AND_NUTS</nutritionalProgramIngredientTypeCode>
+								#    </nutritionalProgramIngredients>
+								#   </nutritionalProgram>
+								#  </healthRelatedInformation>
+								# </health_related_information:healthRelatedInformationModule>
+
 								# 2021-12-20: it looks like the nutritionalProgramCode is now in an extra nutritionProgram field
 								[
 									"health_related_information:healthRelatedInformationModule",
@@ -836,6 +856,69 @@ my %gs1_product_to_off = (
 																match => [["nutritionalProgramCode", "8"],],
 																fields => [
 																	["nutritionalScore", "nutriscore_grade_producer"],
+																	[
+																		"nutritionalProgramIngredients",
+																		[
+																			# New Nutri-Score formula (2023)
+																			{
+																				match => [
+																					[
+																						"nutritionalProgramIngredientTypeCode",
+																						"FRUITS_VEGETABLES_LEGUMES_AND_NUTS"
+																					],
+																				],
+																				fields => [
+																					[
+																						'nutritionalProgramIngredientMeasurement',
+																						'fruits-vegetables-nuts_100g_value_unit'
+																					],
+																				],
+																			},
+																			{
+																				match => [
+																					[
+																						"nutritionalProgramIngredientTypeCode",
+																						"FRUITS_VEGETABLES_LEGUMES_AND_NUTS"
+																					],
+																				],
+																				fields => [
+																					[
+																						'nutritionalProgramIngredientMeasurement',
+																						'fruits-vegetables-nuts_100g_value_unit'
+																					],
+																				],
+																			},
+																			# Old Nutri-Score formula (2021)
+																			{
+																				match => [
+																					[
+																						"nutritionalProgramIngredientTypeCode",
+																						"FRUITS_VEGETABLES_LEGUMES_AND_NUTS"
+																					],
+																				],
+																				fields => [
+																					[
+																						'nutritionalProgramIngredientMeasurement',
+																						'fruits-vegetables-nuts_100g_value_unit'
+																					],
+																				],
+																			},
+																			{
+																				match => [
+																					[
+																						"nutritionalProgramIngredientTypeCode",
+																						"CONCENTRATED_FRUITS_AND_VEGETABLES"
+																					],
+																				],
+																				fields => [
+																					[
+																						'nutritionalProgramIngredientMeasurement',
+																						'fruits-vegetables-nuts-dried_100g_value'
+																					],
+																				],
+																			},
+																		],
+																	],
 																],
 															},
 														],
