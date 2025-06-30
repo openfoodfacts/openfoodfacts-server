@@ -110,7 +110,7 @@ paths:
     patch:
       tags:
         - Products     
-      summary: Create Update Product
+      summary: Create or Update Product
       operationId: patch-api-v3-product-barcode
       description: |-
         This API allows to create or update a product (if the product already exists, its data is updated, otherwise it is created), or to analyze a test product (in which case no product is created or updated). To analyze a product, the "barcode" path component needs to contain the value "test" instead of a barcode.
