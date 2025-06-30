@@ -30,11 +30,7 @@ is($response_signin->code, 302, 'GET /cgi/oidc_signin.pl redirects');
 
 my $location = $response_signin->header('Location');
 my @url_parts = split qr/[?]/sxm, $location;
-is(
-	$url_parts[0],
-	'http://keycloak:8080/realms/openfoodfacts/protocol/openid-connect/auth',
-	'Redirect to OIDC service'
-);
+is($url_parts[0], 'http://keycloak:8080/realms/openfoodfacts/protocol/openid-connect/auth', 'Redirect to OIDC service');
 
 my @raw_params = split qr/&/sxm, $url_parts[1];
 my @params = map {my ($key, $value) = split qr/=/sxm; [uri_unescape($key), uri_unescape($value)]} @raw_params;
