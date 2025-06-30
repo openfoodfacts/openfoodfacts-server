@@ -5375,11 +5375,6 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 				if $log->is_debug();
 
 			set_request_stats_time_start($request_ref->{stats}, "mongodb_query");
-			# For API queries, we do not want to send the product list queries to off-query as off-query supports a limited set
-			# of fields that it can return. (we can use it for the count as off-query will return an error if a filter is not supported)
-			if ($api) {
-				$request_parameters_ref->{no_off_query} = 1;
-			}
 			$cursor = execute_query(
 				sub {
 					return execute_product_query($request_parameters_ref, $query_ref, $fields_ref, $sort_ref, $limit,
