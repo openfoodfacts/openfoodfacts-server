@@ -31,7 +31,7 @@ paths:
     get:
       tags:
         - Products
-      summary: Get Product Details
+      summary: Get Product Data
       parameters:
         - name: barcode
           in: path
