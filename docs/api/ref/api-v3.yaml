@@ -548,7 +548,7 @@ paths:
   /api/v3/product_revert:
     parameters: []
     post:
-      summary: Revert Product Revision
+      summary: Revert Product to Previous Revision
       tags:
         - Products
       responses:
