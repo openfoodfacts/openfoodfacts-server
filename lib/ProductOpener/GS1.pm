@@ -369,6 +369,10 @@ my %gs1_maps = (
 		"MON" => "month",
 		"DAY" => "day",
 	},
+
+	claimElementCode => {
+		"SUGARS" => "en:no-added-sugars",
+	},
 );
 
 # Normalize some entries
@@ -1071,6 +1075,37 @@ my %gs1_product_to_off = (
 										],
 									},
 								],
+								[
+									"product_information:productInformationModule",
+									{
+										fields => [
+											[
+												"productInformationDetail",
+												{
+													fields => [
+														[
+															"claimDetail",
+															[
+																{
+																	match => [
+																		["claimMarkedOnPackage", "TRUE"],
+																		["claimTypeCode", "NO_ADDED"],
+																	],
+																	fields => [
+																		[
+																			"claimElementCode",
+																			"+labels%claimElementCode"
+																		],
+																	],
+																}
+															]
+														]
+													]
+												}
+											]
+										]
+									}
+								]
 							],
 						},
 					],
