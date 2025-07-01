@@ -1538,9 +1538,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#make-dev-error-build_lang-error-2-could-not-load-taxonomy-mntpodatataxonomiestracesresultsto" class="md-nav__link">
+  <a href="#make-dev-error-build_lang-error-2-could-not-load-taxonomy-mntpodatataxonomiestracesresultjson" class="md-nav__link">
     <span class="md-ellipsis">
-      make dev error: [build_lang] Error 2 - Could not load taxonomy: /mnt/podata/taxonomies/traces.result.sto
+      make dev error: [build_lang] Error 2 - Could not load taxonomy: /mnt/podata/taxonomies/traces.result.json
     </span>
   </a>
   
@@ -2232,9 +2232,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#make-dev-error-build_lang-error-2-could-not-load-taxonomy-mntpodatataxonomiestracesresultsto" class="md-nav__link">
+  <a href="#make-dev-error-build_lang-error-2-could-not-load-taxonomy-mntpodatataxonomiestracesresultjson" class="md-nav__link">
     <span class="md-ellipsis">
-      make dev error: [build_lang] Error 2 - Could not load taxonomy: /mnt/podata/taxonomies/traces.result.sto
+      make dev error: [build_lang] Error 2 - Could not load taxonomy: /mnt/podata/taxonomies/traces.result.json
     </span>
   </a>
   
@@ -2620,10 +2620,10 @@ Check that your bash PATH setting is correct. If it is, your Linux distro doesn'
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>make
 </code></pre></div>
 <p>For other distros, consult your distro's documentation or support resources for the command to use.</p>
-<h3 id="make-dev-error-build_lang-error-2-could-not-load-taxonomy-mntpodatataxonomiestracesresultsto">make dev error: [build_lang] Error 2 - Could not load taxonomy: /mnt/podata/taxonomies/traces.result.sto<a class="headerlink" href="#make-dev-error-build_lang-error-2-could-not-load-taxonomy-mntpodatataxonomiestracesresultsto" title="Permanent link">#</a></h3>
+<h3 id="make-dev-error-build_lang-error-2-could-not-load-taxonomy-mntpodatataxonomiestracesresultjson">make dev error: [build_lang] Error 2 - Could not load taxonomy: /mnt/podata/taxonomies/traces.result.json<a class="headerlink" href="#make-dev-error-build_lang-error-2-could-not-load-taxonomy-mntpodatataxonomiestracesresultjson" title="Permanent link">#</a></h3>
 <p>When running <code>make dev</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="go">&lt;h1&gt;Software error:&lt;/h1&gt;</span>
-<span class="go">&lt;pre&gt;Could not load taxonomy: /mnt/podata/taxonomies/traces.result.sto at /opt/product-opener/lib/ProductOpener/Tags.pm line 1976.</span>
+<span class="go">&lt;pre&gt;Could not load taxonomy: /mnt/podata/taxonomies/traces.result.json at /opt/product-opener/lib/ProductOpener/Tags.pm line 1976.</span>
 <span class="go">Compilation failed in require at /opt/product-opener/scripts/build_lang.pl line 31, &amp;lt;DATA&amp;gt; line 2104.</span>
 <span class="go">BEGIN failed--compilation aborted at /opt/product-opener/scripts/build_lang.pl line 31, &amp;lt;DATA&amp;gt; line 2104.</span>
 <span class="go">&lt;/pre&gt;</span>
@@ -2631,14 +2631,14 @@ Check that your bash PATH setting is correct. If it is, your Linux distro doesn'
 <span class="go">For help, please send mail to this site&#39;s webmaster, giving this error message</span>
 <span class="go">and the time and date of the error.</span>
 <span class="go">&lt;/p&gt;</span>
-<span class="go">[Tue Apr  5 19:36:40 2022] build_lang.pl: Could not load taxonomy: /mnt/podata/taxonomies/traces.result.sto at /opt/product-opener/lib/ProductOpener/Tags.pm line 1976.</span>
+<span class="go">[Tue Apr  5 19:36:40 2022] build_lang.pl: Could not load taxonomy: /mnt/podata/taxonomies/traces.result.json at /opt/product-opener/lib/ProductOpener/Tags.pm line 1976.</span>
 <span class="go">[Tue Apr  5 19:36:40 2022] build_lang.pl: Compilation failed in require at /opt/product-opener/scripts/build_lang.pl line 31, &lt;DATA&gt; line 2104.</span>
 <span class="go">[Tue Apr  5 19:36:40 2022] build_lang.pl: BEGIN failed--compilation aborted at /opt/product-opener/scripts/build_lang.pl line 31, &lt;DATA&gt; line 2104.</span>
 <span class="go">make: *** [build_lang] Error 2</span>
 </code></pre></div>
 <p><strong>Solution:</strong>
 Project needs Symlinks to be enabled.
-traces.result.sto is a symlink to allergens.result.sto</p>
+traces.result.json is a symlink to allergens.result.json</p>
 <p>You have to enable the 'Developer Mode' in order to use the symlinks.
 To enable Developer Mode:</p>
 <ul>
