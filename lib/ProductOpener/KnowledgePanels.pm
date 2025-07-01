@@ -39,6 +39,7 @@ use ProductOpener::PerlStandards;
 use Exporter qw< import >;
 
 use Log::Any qw($log);
+use Data::Dumper;
 
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
@@ -230,6 +231,12 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 		$has_health_card = create_health_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 
+	my $has_product_card;
+	if ($panel_is_requested->('product_card'))
+	{
+		$has_product_card = create_product_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+	}
+
 	my $has_environment_card;
 	if ($panel_is_requested->('environment_card')) {
 		$has_environment_card
@@ -254,20 +261,22 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 
 	# Create the root panel that contains the panels we want to show directly on the product page
 	create_panel_from_json_template(
-		"root",
-		"api/knowledge-panels/root.tt.json",
-		{
-			has_health_card => $has_health_card,
-			has_report_problem_card => $has_report_problem_card,
-			has_contribution_card => $has_contribution_card,
-			has_environment_card => $has_environment_card,
-			has_secondhand_card => $has_secondhand_card,
-		},
-		$product_ref,
-		$target_lc,
-		$target_cc,
-		$options_ref
-	);
+       "root",
+       "api/knowledge-panels/root.tt.json",
+       {
+           has_health_card => $has_health_card,
+           has_report_problem_card => $has_report_problem_card,
+           has_contribution_card => $has_contribution_card,
+           has_environment_card => $has_environment_card,
+           has_secondhand_card => $has_secondhand_card,
+           has_product_card => $has_product_card,
+       },
+       $product_ref,
+       $target_lc,
+       $target_cc,
+       $options_ref
+   );
+
 	return;
 }
 
@@ -1025,6 +1034,94 @@ sub create_health_card_panel ($product_ref, $target_lc, $target_cc, $options_ref
 
 	return 1;
 }
+
+=head2 create_product_card_panel ( $product_ref, $target_lc, $target_cc, $options_ref )
+
+
+Creates a knowledge panel card that contains all knowledge panels related to the product.
+
+
+This panel card is created for food, pet food, and beauty products.
+
+
+=head3 Arguments
+
+
+=head4 product reference $product_ref
+
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+
+=head4 language code $target_lc
+
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+
+=head4 country code $target_cc
+
+
+We may display country specific recommendations from health authorities, or country specific scores.
+
+
+=head4 options reference $options_ref
+
+
+=cut
+
+
+sub create_product_card_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
+   $log->debug("create product card panel", { code => $product_ref->{code} }) if $log->is_debug();
+
+
+   my $base_url = "/world.openfoodfacts.org/facets/brands/";
+
+
+   my @brands = map {
+       my $clean_name = $_;
+       $clean_name =~ s/^xx://;
+       {
+           name => $_,
+           url  => $base_url . $clean_name
+       }
+   } @{ $product_ref->{brands_tags} || [] };
+
+
+   my @ingredient = ();
+   if (my $origins = $product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{aggregated_origins}) {
+       @ingredient = map {
+           {
+               origin  => $_->{origin},
+               percent => $_->{percent}
+           }
+       } @$origins;
+   }
+
+
+   my $panel_data_ref = {
+       brand_panels       => \@brands,
+       ingredient_origin  => \@ingredient
+   };
+
+
+   $log->debug("Origin panels: " . Dumper($panel_data_ref->{ingredient_origin})) if $log->is_debug();
+   $log->debug("Panel data: " . Dumper($panel_data_ref)) if $log->is_debug();
+
+
+   create_panel_from_json_template(
+       "product_card",
+       "api/knowledge-panels/product/product_card.tt.json",
+       $panel_data_ref,
+       $product_ref,
+       $target_lc,
+       $target_cc,
+       $options_ref
+   );
+   return 1;
+}
+
 
 =head2 create_nutriscore_panel ( $product_ref, $target_lc, $target_cc, $options_ref )
 

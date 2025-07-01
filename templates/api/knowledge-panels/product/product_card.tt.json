@@ -1,0 +1,109 @@
+{
+  "type": "card",
+  "expanded": true,
+  "topics": ["product"],
+  "title_element": {
+    "title": "Product information"
+  },
+  "elements": [
+    {
+      "element_type": "panel",
+      "panel_element": {
+        "type": "panel",
+        "title": "All brands",
+        "elements": [
+          [% FOREACH brand IN panel.brand_panels %]
+          {
+            "type": "panel",
+            "title": "[% brand.name %]",
+            "url": "https://[% brand.url %]"
+          }[% IF !loop.last %],[% END %]
+          [% END %]
+        ]
+      }
+    }
+    [% IF product.origins_tags %],
+    {
+      "element_type": "panel",
+      "panel_element": {
+        "type": "panel",
+        "title": "Origin of ingredients",
+        "elements": [
+          [% FOREACH origin IN product.origins_tags %]
+          {
+            "type": "panel",
+            "title": "[% origin %]"
+          }[% IF !loop.last %],[% END %]
+          [% END %]
+        ]
+      }
+    }
+    [% END %]
+    [% IF product.origin %],
+    {
+      "element_type": "panel",
+      "panel_element": {
+        "type": "panel",
+        "title": "Origin of product",
+        "elements": [
+          {
+            "type": "panel",
+            "title": "[% product.origin %]"
+          }
+        ]
+      }
+    }
+    [% END %]
+    [% IF product.stores_tags %],
+    {
+      "element_type": "panel",
+      "panel_element": {
+        "type": "panel",
+        "title": "All stores",
+        "elements": [
+          [% FOREACH store IN product.stores_tags %]
+          {
+            "type": "panel",
+            "title": "[% store %]"
+          }[% IF !loop.last %],[% END %]
+          [% END %]
+        ]
+      }
+    }
+    [% END %]
+    [% IF product.countries_tags %],
+    {
+      "element_type": "panel",
+      "panel_element": {
+        "type": "panel",
+        "title": "All countries",
+        "elements": [
+          [% FOREACH countrie IN product.countries_tags %]
+          {
+            "type": "panel",
+            "title": "[% countrie %]"
+          }[% IF !loop.last %],[% END %]
+          [% END %]
+        ]
+      }
+    }
+    [% END %]
+    [% IF product.manufacturing_places_tags %],
+    {
+      "element_type": "panel",
+      "panel_element": {
+        "type": "panel",
+        "title": "All manufacturing places",
+        "elements": [
+          [% FOREACH place IN product.manufacturing_places_tags %]
+          {
+            "type": "panel",
+            "title": "[% place %]"
+          }[% IF !loop.last %],[% END %]
+          [% END %]
+        ]
+      }
+    }
+    [% END %]
+  ]
+}
