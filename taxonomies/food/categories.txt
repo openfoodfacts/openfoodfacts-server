@@ -41486,7 +41486,7 @@ ciqual_proxy_food_name:en: Salmon roe, semi-preserved
 ciqual_proxy_food_name:fr: Oeufs de saumon, semi-conserve
 
 < en:Canned meals
-< en:Ravioli
+< en:Stuffed pastas in sauce
 en: Canned raviolis
 de: Dosenravioli, Konservenravioli
 es: Raviolis enlatados
@@ -41500,7 +41500,7 @@ nl: Ravioli in blik/pot
 ro: Conserve de ravioli
 
 < en:Canned raviolis
-< en:Meat ravioli
+< en:Meals with meat
 en: Canned raviolis filled with meat in tomato sauce
 fr: Raviolis à la viande en conserve, Raviolis à la viande sauce tomate en conserve, Raviolis à la viande sauce tomate appertisés
 agribalyse_food_code:en: 25019
@@ -119000,15 +119000,23 @@ wikidata:en: Q160525
 fr: mélange Sticks et Bretzels
 
 < en:Crackers(Appetizers)
-en: Puffed salty snacks, Salty snacks puff pastry, Salty palmiers
-fr: Biscuit apéritif feuilleté, Palmiers salés, Biscuits apéritifs soufflés, Gâteaux apéritifs soufflés
+en: Puffed salty snacks, Salty snacks puff pastry
+fr: Biscuits apéritifs soufflés, Gâteaux apéritifs soufflés
 hr: Napuhane slane grickalice
-nl: Gezouten vlinders, Gezouten palmiers
 ro: Pufuleți
+
+< en:Crackers(Appetizers)
+en: Salty flaky biscuits
+fr: Biscuits apéritifs feuilletés, Biscuit apéritif feuilleté
 agribalyse_food_code:en: 38407
 ciqual_food_code:en: 38407
 ciqual_food_name:en: Salty snacks, puff pastry
 ciqual_food_name:fr: Biscuit apéritif feuilleté
+
+< en: Salty flaky biscuits
+en: Salty palmiers
+fr: Palmiers salés
+nl: Gezouten vlinders, Gezouten palmiers
 
 < en:Crackers(Appetizers)
 en: Salty snacks with reduced fat, Crackers with reduced fat
