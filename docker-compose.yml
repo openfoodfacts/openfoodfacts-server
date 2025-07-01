@@ -42,6 +42,7 @@
     - OPFF_CLIENT_SECRET
     - OPF_CLIENT_SECRET
     - OFF_PRO_CLIENT_SECRET
+    - SLACK_HOOK_URLS
   depends_on:
     - memcached
   volumes:
