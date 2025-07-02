@@ -36,6 +36,7 @@
     "win32"
   ],
   "dependencies": {
+    "@openfoodfacts/openfoodfacts-webcomponents": "1.9.0",
     "@snyk/protect": "^1.1297.1",
     "@webcomponents/webcomponentsjs": "2.8.0",
     "@yaireo/tagify": ">=4.12.0 <4.36.0",
@@ -47,14 +48,13 @@
     "jquery-cropper": "^1.0.2",
     "jquery-form": "^4.3.0",
     "jquery-ui": "1.14.1",
+    "jsbarcode": "^3.11.6",
     "jsvectormap": "^1.6.0",
     "leaflet": "^1.7.1",
     "leaflet.markercluster": "1.5.3",
     "osmtogeojson": "^3.0.0-beta.4",
     "papaparse": "^5.5.3",
-    "select2": "~4.0",
-    "jsbarcode": "^3.11.6",
-    "@openfoodfacts/openfoodfacts-webcomponents": "1.9.0"
+    "select2": "~4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.27.4",

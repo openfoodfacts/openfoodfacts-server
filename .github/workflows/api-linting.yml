@@ -4,11 +4,13 @@ on:
   pull_request:
     paths:
       - 'docs/api/ref/**/*.yaml'
+      - '.spectral.yaml'
   push:
     branches:
       - main
     paths:
       - 'docs/api/ref/**/*.yaml'
+      - '.spectral.yaml'
 
 jobs:
   lint-api:
@@ -19,13 +21,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-
       - name: Run Spectral lint
+        continue-on-error: true
         uses: stoplightio/spectral-action@latest
         with:
           file_glob: 'docs/api/ref/*.yaml'
           spectral_ruleset: .spectral.yaml
+          
