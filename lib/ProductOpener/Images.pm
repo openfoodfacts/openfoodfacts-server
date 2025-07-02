@@ -134,7 +134,7 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
-use ProductOpener::Store qw/get_string_id_for_lang retrieve store/;
+use ProductOpener::Store qw/get_string_id_for_lang store_object retrieve_object/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
 use ProductOpener::Products qw/:all/;
@@ -987,7 +987,7 @@ sub process_image_upload_using_filehandle ($product_ref, $filehandle, $user_id, 
 	my $file = undef;
 
 	# Check if we have already received this image before
-	my $images_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/images.sto");
+	my $images_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/images");
 	defined $images_ref or $images_ref = {};
 
 	my $file_size = -s $filehandle;
@@ -1097,7 +1097,7 @@ sub process_image_upload_using_filehandle ($product_ref, $filehandle, $user_id, 
 			if $log->is_debug();
 		for (my $i = 0; $i < $imgid; $i++) {
 
-			# We did not store original files sizes in images.sto and original files in [imgid].[extension].orig before July 2020,
+			# We did not store original files sizes in images.json and original files in [imgid].[extension].orig before July 2020,
 			# but we stored original PNG files before they were converted to JPG in [imgid].png
 			# We compare both the sizes of the original files and the converted files
 
@@ -1147,7 +1147,7 @@ sub process_image_upload_using_filehandle ($product_ref, $filehandle, $user_id, 
 							return -3;
 						}
 						# else {
-						# 	print STDERR "missing image $i in product.sto, keeping image $imgid\n";
+						# 	print STDERR "missing image $i in product, keeping image $imgid\n";
 						# }
 					}
 				}
@@ -1213,7 +1213,7 @@ sub process_image_upload_using_filehandle ($product_ref, $filehandle, $user_id, 
 
 			# Save the image file size so that we can skip the image before processing it if it is uploaded again
 			$images_ref->{$size_orig} = $imgid;
-			store("$BASE_DIRS{PRODUCTS}/$path/images.sto", $images_ref);
+			store_object("$BASE_DIRS{PRODUCTS}/$path/images", $images_ref);
 		}
 		else {
 			# Could not read image
@@ -1400,6 +1400,21 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 	my $product_ref = retrieve_product($product_id);
 	defined $product_ref->{images} or $product_ref->{images} = {};
 
+	# New product to which the images are moved
+	my $move_to_product_ref;
+
+	if ($move_to ne "trash") {
+		# Retrieve the product to which the images are moved
+		$move_to_product_ref = retrieve_product($move_to_id);
+
+		if (not $move_to_product_ref) {
+			$log->info("move_to product code does not exist yet, creating product", {code => $move_to_id});
+			$move_to_product_ref = init_product($user_id, $ownerid, $move_to_id, $country);
+			$move_to_product_ref->{lc} = $lc;
+			store_product($user_id, $move_to_product_ref, "Creating product (image move)");
+		}
+	}
+
 	# iterate on each images
 
 	my @image_queue = split(/,/, $imgids);
@@ -1419,7 +1434,7 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 
 			if ($move_to ne "trash") {
 				$ok = process_image_upload(
-					$move_to_id,
+					$move_to_product_ref,
 					"$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.jpg",
 					$product_ref->{images}{uploaded}{$imgid}{uploader},
 					$product_ref->{images}{uploaded}{$imgid}{uploaded_t},

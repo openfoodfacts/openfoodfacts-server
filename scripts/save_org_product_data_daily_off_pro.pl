@@ -30,6 +30,7 @@ use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
 use ProductOpener::Users qw/$Owner_id/;
 use ProductOpener::Orgs qw/retrieve_org/;
 use ProductOpener::CRM qw/update_public_products update_pro_products/;
+#11872 Use PO Storable
 use Storable qw(store);
 
 # This script is run daily to gather organization data

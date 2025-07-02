@@ -10,6 +10,7 @@ $Data::Dumper::Sortkeys = 1;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Products qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 
 # code normalization
 is(normalize_code('036000291452'), '0036000291452', 'should add leading 0 to valid UPC12');
@@ -417,5 +418,7 @@ is(
 	'Test Carrefour Product',
 	"don't add brand when already in product name"
 );
+
+is(product_id_from_path("$BASE_DIRS{PRODUCTS}/123/456/789/product"), "123456789");
 
 done_testing();
