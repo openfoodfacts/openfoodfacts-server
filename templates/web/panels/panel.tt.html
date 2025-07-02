@@ -374,11 +374,10 @@
     </div>
 
     <link rel="stylesheet" href="[% static_subdomain %]/css/dist/leaflet.css" />
-    <script src="[% static_subdomain %]/js/dist/leaflet.js"></script>
-    <script src="[% static_subdomain %]/js/dist/osmtogeojson.js"></script>
-    <script src="[% static_subdomain %]/js/dist/display-tag.js"></script>
+    
+    <script type="module">
+    import { displayMap } from '[% static_subdomain %]/js/dist/display-tag.js';
 
-    <script>
     document.addEventListener('DOMContentLoaded', function () {
         displayMap([% encode_json(map_element.pointers) %], null);
     });
