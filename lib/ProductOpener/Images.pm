@@ -1399,6 +1399,21 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 	my $product_ref = retrieve_product($product_id);
 	defined $product_ref->{images} or $product_ref->{images} = {};
 
+	# New product to which the images are moved
+	my $move_to_product_ref;
+
+	if ($move_to ne "trash") {
+		# Retrieve the product to which the images are moved
+		$move_to_product_ref = retrieve_product($move_to_id);
+
+		if (not $move_to_product_ref) {
+			$log->info("move_to product code does not exist yet, creating product", {code => $move_to_id});
+			$move_to_product_ref = init_product($user_id, $ownerid, $move_to_id, $country);
+			$move_to_product_ref->{lc} = $lc;
+			store_product($user_id, $move_to_product_ref, "Creating product (image move)");
+		}
+	}
+
 	# iterate on each images
 
 	my @image_queue = split(/,/, $imgids);
@@ -1418,7 +1433,7 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 
 			if ($move_to ne "trash") {
 				$ok = process_image_upload(
-					$move_to_id,
+					$move_to_product_ref,
 					"$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.jpg",
 					$product_ref->{images}{uploaded}{$imgid}{uploader},
 					$product_ref->{images}{uploaded}{$imgid}{uploaded_t},
