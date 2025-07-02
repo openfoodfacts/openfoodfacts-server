@@ -80634,17 +80634,6 @@ ciqual_food_name:fr: Blanquette de veau
 wikidata:en: Q1191278
 
 < en:Beef dishes
-en: Corned-beef
-de: Corned Beef
-fr: Corned-beef, Corned-beef appertisé, Corned-beef en conserve
-hr: Usoljena govedina
-ja: コーンビーフ
-ciqual_food_code:en: 28505
-ciqual_food_name:en: Corned-beef
-ciqual_food_name:fr: Corned-beef, appertisé
-wikidata:en: Q1133209
-
-< en:Beef dishes
 en: Beef Wellington
 
 # cottage pie is the first synonyme because more products are called cottage pie than sheperd's pie
@@ -89848,6 +89837,17 @@ hr: Goveđa pastrama
 ja: パストラミ
 nl: Rundvleespastrami
 
+< en:Prepared beef meats
+en: Corned beef
+de: Corned Beef
+fr: Corned-beef, Corned-beef appertisé, Corned-beef en conserve
+hr: Usoljena govedina
+ja: コーンビーフ
+ciqual_food_code:en: 28505
+ciqual_food_name:en: Corned-beef
+ciqual_food_name:fr: Corned-beef, appertisé
+wikidata:en: Q1133209
+
 < en:Prepared pork meats
 en: Coppa, Capicola, Capocollo
 fr: Coppa
@@ -91626,6 +91626,20 @@ origins:en: en:italy
 protected_name_file_number:en: PGI-IT-01333, PGI-IT-01333-AM01
 protected_name_type:en: pgi
 #wikidata:en:
+
+< fr:Charcuteries cuites
+en: Lyoner
+de: Lyoner
+xx: Lyoner
+
+< en:Lyoner
+< en:Prepared pork meats
+en: Pork lyoner
+de: Schweine Lyoner
+
+< en:Lyoner
+en: Poultry lyoner
+de: Geflügel Lyoner
 
 < en:Prepared meats
 fr: Charcuteries diverses
@@ -118351,9 +118365,12 @@ ciqual_food_name:en: Plant-based ham, prepacked
 ciqual_food_name:fr: Spécialité végétale type jambon cuit, préemballée
 
 < en:Prepared meat cuts substitutes
-en: Vegan salami
+en: Salami substitutes, Vegan salami
 da: Vegansk salami
 sv: Vegansk salami
+
+< en:Prepared meat cuts substitutes
+en: Lyoner substitutes
 
 < en:Meat analogues
 en: Foie gras substitutes
