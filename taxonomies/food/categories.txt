@@ -89747,6 +89747,26 @@ food_groups:en: en:processed-meat
 nova:en: 3
 pnns_group_2:en: Processed meat
 
+< en:Prepared meats
+< en:Beef and its products
+en: Prepared beef meats
+fr: Charcuteries de bœuf
+
+< en:Prepared meats
+< en:Pork and its products
+en: Prepared pork meats
+fr: Charcuteries de porc
+
+< en:Prepared meats
+< en:Chicken and its products
+en: Prepared chicken meats
+fr: Charcuteries de poulet
+
+< en:Prepared meats
+< en:Turkey and its products
+en: Prepared turkey meats
+fr: Charcuteries de dinde
+
 < fr:Charcuteries cuites
 fr: Andouillettes
 agribalyse_food_code:en: 8550
@@ -89812,7 +89832,7 @@ ciqual_food_code:en: 8551
 ciqual_food_name:en: Chitterling sausage, sautéed/pan-fried
 ciqual_food_name:fr: Andouillette, sautée/poêlée
 
-< en:Prepared meats
+< en:Prepared pork meats
 en: Porchetta
 es: Porchetta
 fr: Porchetta
@@ -89821,14 +89841,14 @@ it: Porchetta
 ja: ポルケッタ
 wikidata:en: Q1106345
 
-< en:Prepared meats
+< en:Prepared beef meats
 en: Beef pastrami
 fr: Pastrami de bœuf
 hr: Goveđa pastrama
 ja: パストラミ
 nl: Rundvleespastrami
 
-< en:Prepared meats
+< en:Prepared pork meats
 en: Coppa, Capicola, Capocollo
 fr: Coppa
 hr: Coppa
@@ -90466,10 +90486,12 @@ wikidata:en: Q47325346
 fr: Grillons de canard
 
 < en:Poultry rillettes
+< en:Prepared turkey meats
 en: Turkey rillettes
 fr: Rillettes de dinde
 
 < en:Poultry rillettes
+< en:Prepared chicken meats
 en: chicken rillettes
 de: Hühnchen-Rillettes, Hühnchen Rillettes, Hühnchenrillettes
 fi: Kanarilletet
@@ -90492,6 +90514,7 @@ en: Lamb rillettes
 fr: Rillettes d’agneau
 
 < fr:Rillettes de viande rouge
+< en:Prepared beef meats
 en: Beef rillettes
 fr: Rillettes de bœuf
 hr: Goveđi rilet
@@ -90509,6 +90532,7 @@ en: Mutton rillettes
 fr: Rillettes de mouton
 
 < fr:Rillettes de viande rouge
+< en:Prepared pork meats
 en: Pork rillettes
 de: Schweinefleisch Rillettes
 fr: Rillettes de porc, Rillettes de cochon
@@ -90519,7 +90543,6 @@ ciqual_food_code:en: 8000
 ciqual_food_name:en: Rillettes, pork
 
 < en:Pork rillettes
-< en:Prepared meats
 en: Rillettes pure pork
 fr: Rillettes pur porc
 agribalyse_food_code:en: 8001
@@ -90696,6 +90719,7 @@ ciqual_food_name:fr: Saucisse (aliment moyen)
 intake24_category_code:en: SSGS
 
 < en:Sausages
+< en:Prepared beef meats
 en: Beef sausages, Beef sausage
 fr: Saucisses de bœuf, Saucisse de bœuf
 agribalyse_proxy_food_code:en: 30152
@@ -90719,6 +90743,7 @@ ciqual_food_code:en: 30050
 ciqual_food_name:en: Sausage meat, raw
 
 < en:Sausages
+< en:Prepared pork meats
 en: Pork sausages
 bg: Свински колбаси
 fr: Saucisses de porc, Saucisses au porc
@@ -90847,7 +90872,7 @@ ciqual_food_name:en: Tongue sausage w pistachios
 ciqual_food_name:fr: Saucisse de langue à la pistache
 
 < en:Sausages
-< en:Veal meat
+< en:Prepared beef meats
 en: Veal sausages, Veal Sausage
 bg: Телешки колбаси
 de: Kalbswürste
@@ -90858,12 +90883,10 @@ hr: Teleće kobasice
 pl: Kiełbasy cielęce, Kiełbasa cielęca
 wikidata:en: Q107261757
 
-< en:Horse fresh meat
 < en:Sausages
 en: Horse sausages
 fr: Saucisses de cheval
 
-< en:Cooked meats
 < en:Horse sausages
 en: Cooked horse sausages
 fr: Saucisses de cheval cuites
@@ -90875,7 +90898,7 @@ agribalyse_proxy_food_name:fr: Cheval, viande, rôtie/cuite au four
 en: Laap Coeng
 zh-hk: 臘腸
 
-< en:Chicken preparations
+< en:Prepared chicken meats
 < en:Poultry sausages
 en: Chicken sausages
 bg: Пилешки колбаси
@@ -90895,9 +90918,8 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Chicken Sausages - Prepared/Processed
 wikidata:en: Q47472153
 
-
 < en:Poultry sausages
-< en:Turkey preparations
+< en:Prepared turkey meats
 en: Turkey sausages
 bg: Пуешки колбаси
 de: Truthahnwurst
@@ -90938,6 +90960,7 @@ hr: Ovčetina merguez
 nl: Schaapsvlees-merguez
 
 < fr:Merguez
+< en:Prepared beef meats
 en: Beef merguez
 fr: Merguez de bœuf
 hr: Goveđi merguez
@@ -91014,7 +91037,7 @@ ciqual_food_code:en: 30732
 ciqual_food_name:en: Saveloy or cervelat, pure pork with garlic
 ciqual_food_name:fr: Cervelas à l'ail, pur porc
 
-< en:Cervelat
+< en:Pork
 en: Pork brain
 fr: Cervelle de porc
 agribalyse_food_code:en: 40005
@@ -91042,7 +91065,7 @@ it: Salsicce tedesche
 nl: Duitse worsten
 pl: Kiełbasa Niemiecka
 
-< en:German sausages
+< en:Sausages
 en: Frankfurter sausages, Frankfurter sausage
 de: Frankfurter Würstchen
 es: salchichas Frankfurt, frankfurt
@@ -91084,7 +91107,7 @@ fr: Saucisses sèches de foie, Saucisses de foie
 wikidata:en: Q111211562
 
 < en:Liver sausages
-< en:Pork preparations
+< en:Pork prepared meats
 en: Pork liver sausages
 de: Schweineleberwürste, Schweineleberwurst
 fr: Saucisses de foie de porc
@@ -91464,6 +91487,7 @@ it: Prosciutti di pollame
 nl: Gevogelte bilvlees
 
 < en:Poultry hams
+< en:Prepared chicken meats
 en: Cooked chicken breast slices, chicken ham
 de: Hähnchen-brustfilet in Scheiben
 es: Fiambre de pechuga de pollo, Pechuga de pollo cocida en lonchas
@@ -91498,6 +91522,7 @@ en: Reconstituted chicken breast slices
 fr: Blancs de poulet reconstitués
 
 < en:Poultry hams
+< en:Prepared turkey meats
 en: Cooked turkey breast slices, Turkey ham, cooked turkey breast
 es: Fiambre de pechuga de pavo, Pechuga de pavo cocida en lonchas
 fr: Blancs de dinde en tranches, blanc de dinde en tranche, jambon de dinde
