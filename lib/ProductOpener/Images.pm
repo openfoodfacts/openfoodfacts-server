@@ -118,6 +118,7 @@ BEGIN {
 
 		&display_image
 
+		&select_ocr_engine
 		&extract_text_from_image
 		&send_image_to_cloud_vision
 
@@ -821,8 +822,8 @@ sub generate_resized_images ($path, $filename, $image_source, $sizes_ref, @sizes
 			last;
 		}
 		else {
-			$log->info("jpeg written", {path => "jpeg:$path/$filename.$max.jpg"})
-				if $log->is_info();
+			$log->debug("jpeg written", {path => "jpeg:$path/$filename.$max.jpg"})
+				if $log->is_debug();
 		}
 
 		$sizes_ref->{$max} = {w => $img->Get('width'), h => $img->Get('height')};
@@ -1233,7 +1234,7 @@ sub process_image_upload_using_filehandle ($product_ref, $filehandle, $user_id, 
 		$imgid = -2;
 	}
 
-	$log->info("upload processed", {imgid => $imgid}) if $log->is_info();
+	$log->debug("upload processed", {imgid => $imgid}) if $log->is_debug();
 
 	${$imgid_ref} = $imgid;
 
@@ -1455,7 +1456,7 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 					);
 				}
 				else {
-					$log->info(
+					$log->debug(
 						"moved image to other product",
 						{
 							source_path => "$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.jpg",
@@ -1469,7 +1470,7 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 				}
 			}
 			else {
-				$log->info(
+				$log->debug(
 					"moved image to trash",
 					{
 						source_path => "$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.jpg",
@@ -1932,7 +1933,7 @@ sub process_image_unselect ($product_ref, $image_type, $image_lc) {
 	local $log->context->{image_type} = $image_type;
 	local $log->context->{image_lc} = $image_lc;
 
-	$log->info("unselecting image") if $log->is_info();
+	$log->debug("unselecting image") if $log->is_debug();
 
 	if (deep_exists($product_ref, "images", "selected", $image_type, $image_lc)) {
 		delete $product_ref->{images}{selected}{$image_type}{$image_lc};
@@ -2362,6 +2363,53 @@ sub compute_orientation_from_cloud_vision_annotations ($annotations_ref) {
 	return;
 }
 
+=head2 select_ocr_engine ($requested_ocr_engine)
+
+Select the OCR engine to use based on the requested OCR engine and the available engines.
+
+If the requested OCR engine is not available, we return the first available one.
+
+=head3 Arguments
+
+=head4 $requested_ocr_engine
+
+Either 'tesseract' or 'google_cloud_vision'.
+
+=head3 Return values
+
+- 'google_cloud_vision' if Google Cloud Vision API key is available
+- 'tesseract' if Tesseract OCR is available
+- undef if no OCR engine is available
+
+=cut
+
+sub select_ocr_engine($requested_ocr_engine) {
+
+	my $ocr_engine;
+
+	if ($requested_ocr_engine eq 'tesseract') {
+		$ocr_engine = 'tesseract' if $ProductOpener::Config::tesseract_ocr_available;
+	}
+	elsif ($requested_ocr_engine eq 'google_cloud_vision') {
+		$ocr_engine = 'google_cloud_vision' if $ProductOpener::Config::google_cloud_vision_api_key;
+	}
+
+	# Default to google cloud vision if available, otherwise tesseract if available, otherwise return undef
+	if (not defined $ocr_engine) {
+		if ($ProductOpener::Config::google_cloud_vision_api_key) {
+			$ocr_engine = 'google_cloud_vision';
+		}
+		elsif ($ProductOpener::Config::tesseract_ocr_available) {
+			$ocr_engine = 'tesseract';
+		}
+	}
+
+	$log->debug("select_ocr_engine", {requested_ocr_engine => $requested_ocr_engine, ocr_engine => $ocr_engine})
+		if $log->is_debug();
+
+	return $ocr_engine;
+}
+
 =head2 extract_text_from_image( $product_ref, $id, $field, $ocr_engine, $results_ref )
 
 Perform OCR for a specific image (either a source image, or a selected image) and return the results.
@@ -2386,9 +2434,10 @@ If $id is a field name, the last selected image for that field is used.
 Field to update in the product object.
 e.g. ingredients_text_from_image, nutrition_text_from_image, packaging_text_from_image
 
-=head4 OCR engine $ocr_engine
+=head4 Requested OCR engine $requested_ocr_engine
 
-Either "tesseract" or "google_cloud_vision"
+Either "tesseract" or "google_cloud_vision".
+Note: if the requested OCR engine is not available, we will select the first available one.
 
 =head4 Results reference $results_ref
 
@@ -2396,9 +2445,17 @@ A hash reference to store the results.
 
 =cut
 
-sub extract_text_from_image ($product_ref, $image_type, $image_lc, $field, $ocr_engine, $results_ref) {
+sub extract_text_from_image ($product_ref, $image_type, $image_lc, $field, $requested_ocr_engine, $results_ref) {
 
 	delete $product_ref->{$field};
+
+	my $ocr_engine = select_ocr_engine($requested_ocr_engine);
+
+	# Return if the OCR engine is undef
+	if (not defined $ocr_engine) {
+		$results_ref->{error} = "no OCR engine available";
+		return;
+	}
 
 	my $path = product_path($product_ref);
 	$results_ref->{status} = 1;    # 1 = nok, 0 = ok
@@ -2542,6 +2599,34 @@ sub send_image_to_cloud_vision ($image_path, $json_file, $features_ref, $gv_logs
 	my $url
 		= $ProductOpener::Config::google_cloud_vision_api_url . "?key="
 		. $ProductOpener::Config::google_cloud_vision_api_key;
+
+	# If we already have a CloudVision result JSON file that is less than 1 month old, we return it
+	# instead of sending the image to the API. This is in particular useful for integration tests
+	# that make the same request multiple times.
+
+	if (-e $json_file) {
+		my $mtime = (stat($json_file))[9];
+		my $age = time() - $mtime;
+		if ($age < 30 * 24 * 60 * 60) {    # less than 30 days old
+			print($gv_logs "CV:getting existing cached JSON file for $url\n");
+			$log->debug("using cached cloud vision result", {path => $json_file, age => $age}) if $log->is_debug();
+			open(my $IN, "<:raw", $json_file) or die "Could not read $json_file: $!\n";
+			# use an eval block to catch errors in the JSON decoding in case the file is corrupted
+			my $response;
+			eval {
+				my $gzip_handle = IO::Uncompress::Gunzip->new($IN)
+					or die "Cannot create gzip filehandle: $GzipError\n";
+				my $json_response = do {local $/; <$gzip_handle>};
+				$gzip_handle->close;
+				close $IN;
+				$response = decode_json($json_response);
+			};
+			if (defined $response) {
+				return $response;
+			}
+		}
+	}
+
 	print($gv_logs "CV:sending to $url\n");
 
 	my $ua = create_user_agent();
@@ -2568,12 +2653,12 @@ sub send_image_to_cloud_vision ($image_path, $json_file, $features_ref, $gv_logs
 	$request->content($json);
 
 	my $cloud_vision_response = $ua->request($request);
-	# $log->info("google cloud vision response", { json_response => $cloud_vision_response->decoded_content, api_token => $ProductOpener::Config::google_cloud_vision_api_key });
+	# $log->debug("google cloud vision response", { json_response => $cloud_vision_response->decoded_content, api_token => $ProductOpener::Config::google_cloud_vision_api_key });
 
 	my $cloudvision_ref = undef;
 	if ($cloud_vision_response->is_success) {
 
-		$log->info("request to google cloud vision was successful for $image_path") if $log->is_info();
+		$log->debug("request to google cloud vision was successful for $image_path") if $log->is_debug();
 
 		my $json_response = $cloud_vision_response->decoded_content(charset => 'UTF-8');
 
@@ -2582,7 +2667,7 @@ sub send_image_to_cloud_vision ($image_path, $json_file, $features_ref, $gv_logs
 		# Adding creation timestamp, to know when the OCR has been generated
 		$cloudvision_ref->{created_at} = time();
 
-		$log->info("saving google cloud vision json response to file", {path => $json_file}) if $log->is_info();
+		$log->debug("saving google cloud vision json response to file", {path => $json_file}) if $log->is_debug();
 
 		if (open(my $OUT, ">:raw", $json_file)) {
 			my $gzip_handle = IO::Compress::Gzip->new($OUT)
