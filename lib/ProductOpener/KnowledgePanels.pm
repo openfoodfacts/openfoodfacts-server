@@ -72,6 +72,7 @@ use ProductOpener::PackagerCodes qw/%packager_codes/;
 use ProductOpener::KnowledgePanelsIngredients qw/create_ingredients_list_panel/;
 use ProductOpener::KnowledgePanelsContribution qw/create_contribution_card_panel/;
 use ProductOpener::KnowledgePanelsReportProblem qw/create_report_problem_card_panel/;
+use ProductOpener::KnowledgePanelsProduct qw/create_product_card_panel/;
 use ProductOpener::ProductsFeatures qw/feature_enabled/;
 
 use JSON::MaybeXS;
@@ -1033,93 +1034,6 @@ sub create_health_card_panel ($product_ref, $target_lc, $target_cc, $options_ref
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 
 	return 1;
-}
-
-=head2 create_product_card_panel ( $product_ref, $target_lc, $target_cc, $options_ref )
-
-
-Creates a knowledge panel card that contains all knowledge panels related to the product.
-
-
-This panel card is created for food, pet food, and beauty products.
-
-
-=head3 Arguments
-
-
-=head4 product reference $product_ref
-
-
-Loaded from the MongoDB database, Storable files, or the OFF API.
-
-
-=head4 language code $target_lc
-
-
-Returned attributes contain both data and strings intended to be displayed to users.
-This parameter sets the desired language for the user facing strings.
-
-
-=head4 country code $target_cc
-
-
-We may display country specific recommendations from health authorities, or country specific scores.
-
-
-=head4 options reference $options_ref
-
-
-=cut
-
-
-sub create_product_card_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
-   $log->debug("create product card panel", { code => $product_ref->{code} }) if $log->is_debug();
-
-
-   my $base_url = "/world.openfoodfacts.org/facets/brands/";
-
-
-   my @brands = map {
-       my $clean_name = $_;
-       $clean_name =~ s/^xx://;
-       {
-           name => $_,
-           url  => $base_url . $clean_name
-       }
-   } @{ $product_ref->{brands_tags} || [] };
-
-
-   my @ingredient = ();
-   if (my $origins = $product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{aggregated_origins}) {
-       @ingredient = map {
-           {
-               origin  => $_->{origin},
-               percent => $_->{percent}
-           }
-       } @$origins;
-   }
-
-
-   my $panel_data_ref = {
-       brand_panels       => \@brands,
-       ingredient_origin  => \@ingredient
-   };
-
-
-   $log->debug("Origin panels: " . Dumper($panel_data_ref->{ingredient_origin})) if $log->is_debug();
-   $log->debug("Panel data: " . Dumper($panel_data_ref)) if $log->is_debug();
-
-
-   create_panel_from_json_template(
-       "product_card",
-       "api/knowledge-panels/product/product_card.tt.json",
-       $panel_data_ref,
-       $product_ref,
-       $target_lc,
-       $target_cc,
-       $options_ref
-   );
-   return 1;
 }
 
 

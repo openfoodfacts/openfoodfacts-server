@@ -105,5 +105,24 @@
       }
     }
     [% END %]
+    [% IF product.labels_hierarchy %],
+    {
+      "element_type": "panel",
+      "panel_element": {
+        "type": "panel",
+        "title": "All labels",
+        "elements": [
+          [% FOREACH label IN product.labels_hierarchy %]
+          {
+            "type": "panel",
+            "title": "[% label %]",
+            "content": "[% static_subdomain %]/facets/labels/[% label %]"
+          }[% IF !loop.last %],[% END %]
+          [% END %]
+        ]
+      }
+    }
+    [% END %]
+
   ]
 }
