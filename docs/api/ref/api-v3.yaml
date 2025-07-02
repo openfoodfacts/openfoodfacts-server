@@ -30,8 +30,8 @@ paths:
   "/api/v3/product/{barcode}":
     get:
       tags:
-        - Read Requests
-      summary: READ Product - Get information for a specific product by barcode (API V3)
+        - Products
+      summary: Get Product Data
       parameters:
         - name: barcode
           in: path
@@ -109,8 +109,8 @@ paths:
       operationId: get-product-by-barcode
     patch:
       tags:
-        - Write Requests      
-      summary: "WRITE Product - Create or update product, select images, or analyze test product (API V3 - Implementation in progress)"
+        - Products     
+      summary: Create or Update Product
       operationId: patch-api-v3-product-barcode
       description: |-
         This API allows to create or update a product (if the product already exists, its data is updated, otherwise it is created), or to analyze a test product (in which case no product is created or updated). To analyze a product, the "barcode" path component needs to contain the value "test" instead of a barcode.
@@ -271,8 +271,8 @@ paths:
   "/api/v3/product/{barcode}/images":
     post:
       tags:
-        - Write Requests          
-      summary: "UPLOAD Product Image - Upload (and possibly select) an image for a product"
+        - Images         
+      summary: Upload Product Image
       operationId: post-api-v3-product-barcode-images
       description: |-
         
@@ -359,8 +359,8 @@ paths:
   "/api/v3/product/{barcode}/images/uploaded/{imgid}":
     delete: 
       tags:
-        - Write Requests
-      summary: DELETE Product Image - Delete an uploaded image for a product, and selected images that are cropped from it
+        - Images
+      summary: Delete Product Image
       operationId: delete-api-v3-product-barcode-images-uploaded-imgid
       description: |-
         This endpoint allows to delete an uploaded image for a product.
@@ -403,9 +403,9 @@ paths:
   /api/v3/taxonomy_suggestions:
     parameters: []
     get:
-      summary: Get taxonomy entries suggestions
+      summary: Get Taxonomy Suggestions
       tags:
-        - Read Requests
+        - Taxonomy
       responses:
         "200":
           description: OK
@@ -500,9 +500,9 @@ paths:
         required: true
         description: "Tag name (e.g. yogurts) or tag id (e.g. en:yogurts)"
     get:
-      summary: Get knowledge panels for a tag
+      summary: Get Tag Knowledge Panels
       tags:
-        - Read Requests
+        - Knowledge Panels
       responses:
         "200":
           description: OK
@@ -548,9 +548,9 @@ paths:
   /api/v3/product_revert:
     parameters: []
     post:
-      summary: Revert a product to a previous revision
+      summary: Revert Product to Previous Revision
       tags:
-        - Write Requests
+        - Products
       responses:
         "200":
           description: OK
@@ -598,5 +598,11 @@ components:
       required: false
       description: "2 letter code of the language of the user. Used for localizing some fields in returned values (e.g. knowledge panels). If not passed, the language may be inferred by the Accept-Language header of the request."
 tags:
-  - name: Read Requests
-  - name: Write Requests
+  - name: Products
+    description: Endpoints for managing product data, creating, updating, and reverting products.
+  - name: Images
+    description: Endpoints for uploading, managing, and deleting product images.
+  - name: Taxonomy
+    description: Endpoints for retrieving taxonomy suggestions and data.
+  - name: Knowledge Panels
+    description: Endpoints for retrieving knowledge panels for tags and categories.
