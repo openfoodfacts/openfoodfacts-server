@@ -1093,6 +1093,33 @@
                "environment"
             ]
          },
+         "product_card" : {
+            "elements" : [
+               {
+                  "elements" : [],
+                  "title" : "Brands",
+                  "type" : "panel"
+               },
+               {
+                  "elements" : [
+                     {
+                        "title" : "Germany",
+                        "type" : "panel"
+                     }
+                  ],
+                  "title" : "Origin of product",
+                  "type" : "panel"
+               }
+            ],
+            "expanded" : true,
+            "title_element" : {
+               "title" : "Product information"
+            },
+            "topics" : [
+               "product"
+            ],
+            "type" : "card"
+         },
          "report_problem_card" : {
             "elements" : [
                {
@@ -1135,6 +1162,12 @@
                   "element_type" : "panel",
                   "panel_element" : {
                      "panel_id" : "contribution_card"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "product_card"
                   }
                }
             ],

@@ -88,56 +88,37 @@ We may display country specific recommendations from health authorities, or coun
 
 =cut
 
-
 sub create_product_card_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
-   $log->debug("create product card panel", { code => $product_ref->{code} }) if $log->is_debug();
+	$log->debug("create product card panel", {code => $product_ref->{code}}) if $log->is_debug();
 
+	my $base_url = "/world.openfoodfacts.org/facets/brands/";
 
-   my $base_url = "/world.openfoodfacts.org/facets/brands/";
+	my @brands = map {
+		my $clean_name = $_;
+		$clean_name =~ s/^xx://;
+		{
+			name => $_,
+			url => $base_url . $clean_name
+		}
+	} @{$product_ref->{brands_tags} || []};
 
+	my @ingredient = ();
+	if (my $origins = $product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{aggregated_origins}) {
+		@ingredient = map {{origin => $_->{origin}, percent => $_->{percent}}} @$origins;
+	}
 
-   my @brands = map {
-       my $clean_name = $_;
-       $clean_name =~ s/^xx://;
-       {
-           name => $_,
-           url  => $base_url . $clean_name
-       }
-   } @{ $product_ref->{brands_tags} || [] };
+	my $panel_data_ref = {
+		brand_panels => \@brands,
+		ingredient_origin => \@ingredient,
+		target_lc => $target_lc,
+	};
 
+	$log->debug("Origin panels: " . Dumper($panel_data_ref->{ingredient_origin})) if $log->is_debug();
+	$log->debug("Panel data: " . Dumper($panel_data_ref)) if $log->is_debug();
 
-   my @ingredient = ();
-   if (my $origins = $product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{aggregated_origins}) {
-       @ingredient = map {
-           {
-               origin  => $_->{origin},
-               percent => $_->{percent}
-           }
-       } @$origins;
-   }
-
-
-   my $panel_data_ref = {
-       brand_panels       => \@brands,
-       ingredient_origin  => \@ingredient,
-       target_lc => $target_lc,
-   };
-
-
-   $log->debug("Origin panels: " . Dumper($panel_data_ref->{ingredient_origin})) if $log->is_debug();
-   $log->debug("Panel data: " . Dumper($panel_data_ref)) if $log->is_debug();
-
-
-   create_panel_from_json_template(
-       "product_card",
-       "api/knowledge-panels/product/product_card.tt.json",
-       $panel_data_ref,
-       $product_ref,
-       $target_lc,
-       $target_cc,
-       $options_ref
-   );
-   return 1;
+	create_panel_from_json_template("product_card", "api/knowledge-panels/product/product_card.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+	return 1;
 }
 
 1;

@@ -233,8 +233,7 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 	}
 
 	my $has_product_card;
-	if ($panel_is_requested->('product_card'))
-	{
+	if ($panel_is_requested->('product_card')) {
 		$has_product_card = create_product_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 
@@ -262,21 +261,21 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 
 	# Create the root panel that contains the panels we want to show directly on the product page
 	create_panel_from_json_template(
-       "root",
-       "api/knowledge-panels/root.tt.json",
-       {
-           has_health_card => $has_health_card,
-           has_report_problem_card => $has_report_problem_card,
-           has_contribution_card => $has_contribution_card,
-           has_environment_card => $has_environment_card,
-           has_secondhand_card => $has_secondhand_card,
-           has_product_card => $has_product_card,
-       },
-       $product_ref,
-       $target_lc,
-       $target_cc,
-       $options_ref
-   );
+		"root",
+		"api/knowledge-panels/root.tt.json",
+		{
+			has_health_card => $has_health_card,
+			has_report_problem_card => $has_report_problem_card,
+			has_contribution_card => $has_contribution_card,
+			has_environment_card => $has_environment_card,
+			has_secondhand_card => $has_secondhand_card,
+			has_product_card => $has_product_card,
+		},
+		$product_ref,
+		$target_lc,
+		$target_cc,
+		$options_ref
+	);
 
 	return;
 }
@@ -1035,7 +1034,6 @@ sub create_health_card_panel ($product_ref, $target_lc, $target_cc, $options_ref
 
 	return 1;
 }
-
 
 =head2 create_nutriscore_panel ( $product_ref, $target_lc, $target_cc, $options_ref )
 

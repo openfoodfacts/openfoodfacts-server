@@ -2014,6 +2014,44 @@
                "environment"
             ]
          },
+         "product_card" : {
+            "elements" : [
+               {
+                  "elements" : [],
+                  "title" : "Marques",
+                  "type" : "panel"
+               },
+               {
+                  "elements" : [
+                     {
+                        "title" : "France",
+                        "type" : "panel"
+                     }
+                  ],
+                  "title" : "Origin of product",
+                  "type" : "panel"
+               },
+               {
+                  "elements" : [
+                     {
+                        "content" : "http://static.openfoodfacts.localhost/facets/labels/en:organic",
+                        "title" : "en:organic",
+                        "type" : "panel"
+                     }
+                  ],
+                  "title" : "Labels, certifications, récompenses",
+                  "type" : "panel"
+               }
+            ],
+            "expanded" : true,
+            "title_element" : {
+               "title" : "Product information"
+            },
+            "topics" : [
+               "product"
+            ],
+            "type" : "card"
+         },
          "recommendation_ultra_processed_foods" : {
             "elements" : [
                {
@@ -2076,6 +2114,12 @@
                   "element_type" : "panel",
                   "panel_element" : {
                      "panel_id" : "report_problem_card"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "product_card"
                   }
                }
             ],

@@ -3064,6 +3064,44 @@
                "environment"
             ]
          },
+         "product_card" : {
+            "elements" : [
+               {
+                  "elements" : [],
+                  "title" : "Brands",
+                  "type" : "panel"
+               },
+               {
+                  "elements" : [
+                     {
+                        "title" : "France",
+                        "type" : "panel"
+                     }
+                  ],
+                  "title" : "Origin of product",
+                  "type" : "panel"
+               },
+               {
+                  "elements" : [
+                     {
+                        "content" : "http://static.openfoodfacts.localhost/facets/labels/en:organic",
+                        "title" : "en:organic",
+                        "type" : "panel"
+                     }
+                  ],
+                  "title" : "Labels, certifications, awards",
+                  "type" : "panel"
+               }
+            ],
+            "expanded" : true,
+            "title_element" : {
+               "title" : "Product information"
+            },
+            "topics" : [
+               "product"
+            ],
+            "type" : "card"
+         },
          "recommendation_ultra_processed_foods" : {
             "elements" : [
                {
@@ -3126,6 +3164,12 @@
                   "element_type" : "panel",
                   "panel_element" : {
                      "panel_id" : "report_problem_card"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "product_card"
                   }
                }
             ],
@@ -3422,7 +3466,7 @@
       "popularity_key" : 0,
       "product_name" : "Some product",
       "product_name_en" : "Some product",
-      "product_quantity" : "100",
+      "product_quantity" : 100,
       "product_quantity_unit" : "g",
       "product_type" : "food",
       "quantity" : "100 g",
