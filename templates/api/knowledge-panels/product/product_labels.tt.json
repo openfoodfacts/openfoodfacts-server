@@ -1,0 +1,13 @@
+{
+  "type": "panel",
+  "title": "[% edq(lang('labels')) %]",
+  "elements": [
+    [% FOREACH label IN product.labels_hierarchy %]
+    {
+      "type": "panel",
+      "title": "[% display_taxonomy_tag('labels_hierarchy', label) %]",
+      "content": "[% static_subdomain %]/facets/labels/[% label %]"
+    }[% IF !loop.last %],[% END %]
+    [% END %]
+  ]
+},

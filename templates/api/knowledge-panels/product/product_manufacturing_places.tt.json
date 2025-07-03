@@ -1,0 +1,12 @@
+{
+  "type": "panel",
+  "title": "[% edq(lang('manufacturing_places')) %]",
+  "elements": [
+    [% FOREACH place IN product.manufacturing_places_tags %]
+    {
+      "type": "panel",
+      "title": "[% display_taxonomy_tag('manufacturing_places_tags', place) %]"
+    }[% IF !loop.last %],[% END %]
+    [% END %]
+  ]
+},

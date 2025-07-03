@@ -119,7 +119,8 @@ sub create_product_card_panel ($product_ref, $target_lc, $target_cc, $options_re
 
    my $panel_data_ref = {
        brand_panels       => \@brands,
-       ingredient_origin  => \@ingredient
+       ingredient_origin  => \@ingredient,
+       target_lc => $target_lc,
    };
 
 

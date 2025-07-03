@@ -1,0 +1,12 @@
+{
+  "type": "panel",
+  "title": "[% edq(lang('stores')) %]",
+  "elements": [
+    [% FOREACH store IN product.stores_tags %]
+    {
+      "type": "panel",
+      "title": "[% display_taxonomy_tag('stores_tags', store) %]"
+    }[% IF !loop.last %],[% END %]
+    [% END %]
+  ]
+},

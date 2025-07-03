@@ -1,0 +1,10 @@
+{
+  "type": "panel",
+  "title": "[% edq(lang('origin_of_product')) %]",
+  "elements": [
+    {
+      "type": "panel",
+      "title": "[% display_taxonomy_tag('origin', product.origin) %]"
+    }
+  ]
+},
