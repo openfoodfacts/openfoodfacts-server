@@ -3017,6 +3017,10 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                 
 
                                     
+
+                                
+
+                                    
                                         <tr id="nutriment_new_0_tr" class="nutriment_main" style="display:none">
 
                                     <td>
@@ -3876,9 +3880,7 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
 <script>
 $(function() {
 
-	$([]).selectcrop('init_images', [
-		
-	]);
+	$([]).selectcrop('init_images', []);
 	$(".select_crop").selectcrop('init', {img_path : "//images.openfoodfacts.localhost/images/products/330/000/000/0002/"});
 	$(".select_crop").selectcrop('show');
 
@@ -4149,6 +4151,7 @@ var nutriments = {
 "Iode" : "iodine",
 "Caféine" : "caffeine",
 "Taurine" : "taurine",
+"MSM" : "methylsulfonylmethane",
 "PH" : "ph",
 "Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive" : "fruits-vegetables-nuts",
 "Fruits‚ légumes et noix - séchés" : "fruits-vegetables-nuts-dried",
@@ -4258,6 +4261,7 @@ var otherNutriments = [
 { "value" : "Iode", "unit" : "µg", "iu": false  },
 { "value" : "Caféine", "unit" : "mg", "iu": false  },
 { "value" : "Taurine", "unit" : "g", "iu": false  },
+{ "value" : "MSM", "unit" : "mg", "iu": false  },
 { "value" : "PH", "unit" : "", "iu": false  },
 { "value" : "Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive", "unit" : "%", "iu": false  },
 { "value" : "Fruits‚ légumes et noix - séchés", "unit" : "%", "iu": false  },

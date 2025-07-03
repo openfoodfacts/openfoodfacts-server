@@ -45,6 +45,7 @@ BEGIN {
 		$mongodb_host
 		$mongodb_timeout_ms
 		$memd_servers
+		$tesseract_ocr_available
 		$google_cloud_vision_api_key
 		$google_cloud_vision_api_url
 		$crowdin_project_identifier
@@ -57,6 +58,7 @@ BEGIN {
 		$events_password
 		$redis_url
 		$folksonomy_url
+		$process_global_redis_events
 		%server_options
 		$build_cache_repo
 		$rate_limiter_blocking_enabled
@@ -65,6 +67,7 @@ BEGIN {
 		$crm_username
 		$crm_db
 		$crm_pwd
+		$serialize_to_json
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -97,6 +100,7 @@ $mongodb_timeout_ms = 50000;    # config option max_time_ms/maxTimeMS
 
 $memd_servers = ["memcached:11211"];
 
+$tesseract_ocr_available = $ENV{TESSERACT_OCR_AVAILABLE} // 1;    # Set to 0 to disable Tesseract OCR
 $google_cloud_vision_api_key = $ENV{GOOGLE_CLOUD_VISION_API_KEY};
 $google_cloud_vision_api_url = $ENV{GOOGLE_CLOUD_VISION_API_URL} || "https://vision.googleapis.com/v1/images:annotate";
 
@@ -132,6 +136,7 @@ $facets_kp_url = $ENV{FACETS_KP_URL};
 
 # Set this to your instance of the search service to enable writes to it
 $redis_url = $ENV{REDIS_URL};
+$process_global_redis_events = $ENV{PROCESS_GLOBAL_REDIS_EVENTS};
 
 # Set this to your instance of https://github.com/openfoodfacts/folksonomy_api/ to
 # enable folksonomy features
@@ -163,4 +168,6 @@ $crm_username = $ENV{ODOO_CRM_USER};
 $crm_db = $ENV{ODOO_CRM_DB};
 $crm_pwd = $ENV{ODOO_CRM_PASSWORD};
 
+#11901: Remove once production is migrated
+$serialize_to_json = $ENV{SERIALIZE_TO_JSON};
 1;
