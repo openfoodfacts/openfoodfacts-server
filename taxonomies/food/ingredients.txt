@@ -3552,23 +3552,6 @@ ciqual_food_name:en: Condensed milk, with sugar, whole
 ciqual_food_name:fr: Lait concentré sucré, entier
 # ingredient/fr:lait-entier-condensé-sucré has 37 products in 4 languages @2019-04-16
 
-< en:sweetened condensed milk
-en: sweetened condensed whole milk, Whole condensed milk with sugar
-ca: llet sencera condensada ensucrada
-da: sockrad kondenserad skummjölk
-de: gezuckerte Kondensvollmilch
-es: leche entera condensada azucadara
-fi: Makeutettu tiivistetty täysmaito
-fr: lait entier condensé sucré, lait entier concentré sucré, Lait concentré entier sucré
-hr: zaslađeno kondenzirano punomasno mlijeko
-hu: édesített sűrített teljes tej
-it: latte intero condensato zuccherato
-nl: gecondenseerde volle melk met suiker
-ciqual_food_code:en: 19027
-ciqual_food_name:en: Condensed milk, with sugar, whole
-ciqual_food_name:fr: Lait concentré sucré, entier
-# ingredient/fr:lait-entier-condensé-sucré has 37 products in 4 languages @2019-04-16
-
 # <en:compound
 # category:en: en:Milk jams
 < en:sweetened condensed milk
@@ -10037,6 +10020,7 @@ ciqual_food_name:fr: Boeuf, queue, bouillie/cuite à l'eau
 
 < en:beef meat
 en: beef kidney, Raw beef kidney
+de: Rindernieren
 fr: Rognon de boeuf, Rognon de boeuf cru
 hr: govedi bubreg, goveđi bubreg
 it: rene di manzo
@@ -10192,10 +10176,6 @@ pl: flaki wołowe, żołądki wołowe
 en: beef lung
 de: Rinderlunge
 it: polmone di manzo
-
-< en:beef meat
-en: beef kidney
-de: Rindernieren
 
 < en:beef meat
 en: beef udder
