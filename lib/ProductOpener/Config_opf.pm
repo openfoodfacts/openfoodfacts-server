@@ -63,6 +63,7 @@ BEGIN {
 		$rate_limiter_blocking_enabled
 		$facets_kp_url
 		$redis_url
+		$folksonomy_url
 		$process_global_redis_events
 
 		$mongodb
