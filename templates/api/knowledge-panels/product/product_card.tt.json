@@ -6,32 +6,6 @@
     "title": "[% edq(lang('product_information')) %]"
   },
   "elements": [
-    [% IF panel.brand_panels %]
-      [% INCLUDE "api/knowledge-panels/product/product_brands.tt.json" %]
-    [% END %]
-
-    [% IF product.origins_tags %]
-      [% INCLUDE "api/knowledge-panels/product/product_origins_ingredients.tt.json" %]
-    [% END %]
-
-    [% IF product.origin %]
-      [% INCLUDE "api/knowledge-panels/product/product_origin.tt.json" %]
-    [% END %]
-
-    [% IF product.stores_tags %]
-      [% INCLUDE "api/knowledge-panels/product/product_stores.tt.json" %]
-    [% END %]
-
-    [% IF product.countries_tags %]
-      [% INCLUDE "api/knowledge-panels/product/product_countries.tt.json" %]
-    [% END %]
-
-    [% IF product.manufacturing_places_tags %]
-      [% INCLUDE "api/knowledge-panels/product/product_manufacturing_places.tt.json" %]
-    [% END %]
-
-    [% IF product.labels_hierarchy %]
-      [% INCLUDE "api/knowledge-panels/product/product_labels.tt.json" %]
-    [% END %]
+    [% INCLUDE "api/knowledge-panels/product/product_tags_panels.tt.json" %]
   ]
 }

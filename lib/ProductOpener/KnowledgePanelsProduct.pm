@@ -47,7 +47,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::KnowledgePanels qw(create_panel_from_json_template);
-use ProductOpener::Tags qw(display_taxonomy_tag get_tags_grouped_by_property);
+use ProductOpener::Tags qw(display_taxonomy_tag get_tags_grouped_by_property get_taxonomy_tag_and_link_for_lang);
 
 use Encode;
 use Data::DeepAccess qw(deep_get);
@@ -89,36 +89,53 @@ We may display country specific recommendations from health authorities, or coun
 =cut
 
 sub create_product_card_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
-	$log->debug("create product card panel", {code => $product_ref->{code}}) if $log->is_debug();
+	$log->debug("create product card panel", { code => $product_ref->{code} }) if $log->is_debug();
 
-	my $base_url = "/world.openfoodfacts.org/facets/brands/";
+	my @taxonomy_fields = qw(
+		brands_tags
+		countries_tags
+		stores_tags
+		origins_tags
+		manufacturing_places_tags
+		labels_tags
+	);
 
-	my @brands = map {
-		my $clean_name = $_;
-		$clean_name =~ s/^xx://;
-		{
-			name => $_,
-			url => $base_url . $clean_name
-		}
-	} @{$product_ref->{brands_tags} || []};
+	my @taxonomy_panels;
 
-	my @ingredient = ();
-	if (my $origins = $product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients}{aggregated_origins}) {
-		@ingredient = map {{origin => $_->{origin}, percent => $_->{percent}}} @$origins;
+	foreach my $field (@taxonomy_fields) {
+		my $tags = $product_ref->{$field};
+		next unless $tags && @$tags;
+
+		(my $field_name = $field) =~ s/_tags$//;
+		$field_name =~ s/_/-/g;
+
+		my @tags_data = map {
+			my $link = get_taxonomy_tag_and_link_for_lang($target_lc, $field_name, $_);
+			{
+				name => $link->{display},
+				url  => "/facets/$field_name/" . $link->{tagurl},
+			}
+		} @$tags;
+
+		push @taxonomy_panels, {
+			field_name => $field_name,
+			tags       => \@tags_data,
+		};
 	}
 
 	my $panel_data_ref = {
-		brand_panels => \@brands,
-		ingredient_origin => \@ingredient,
-		target_lc => $target_lc,
+		taxonomy_panels   => \@taxonomy_panels,
+		target_lc         => $target_lc,
 	};
 
-	$log->debug("Origin panels: " . Dumper($panel_data_ref->{ingredient_origin})) if $log->is_debug();
-	$log->debug("Panel data: " . Dumper($panel_data_ref)) if $log->is_debug();
+	$log->debug("Taxonomy panels: " . Dumper($panel_data_ref->{taxonomy_panels})) if $log->is_debug();
+	$log->debug("Ingredient origins: " . Dumper($panel_data_ref->{ingredient_origin})) if $log->is_debug();
 
 	create_panel_from_json_template("product_card", "api/knowledge-panels/product/product_card.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+	
 	return 1;
 }
+
 
 1;
