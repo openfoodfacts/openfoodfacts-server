@@ -104,6 +104,7 @@ e_number:en: 100
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of curcumin (E 100) as a food additive
 efsa_evaluation_date:en: 2010-09-06
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2010.1679
+organic_eu:en: not authorized
 vegan:en: yes
 vegetarian:en: yes
 # azb:E100, کورکومین
@@ -290,6 +291,7 @@ efsa_evaluation:en: Scientific Opinion on the re-evaluation of riboflavin (E 101
 efsa_evaluation_date:en: 2013-10-22
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2013.3357
 wikidata:en: Q376061
+# Additif non autorisé en Europe (liste N° 1129/2011 du 11 Novembre 2011)
 
 
 en: E102, Tartrazine, Yellow 5, Yellow number 5, Yellow no 5, Yellow no5, FD&C Yellow 5, FD&C Yellow no 5, FD&C Yellow no5, FD and C Yellow no. 5, FD and C Yellow 5, Yellow 5 lake
@@ -3626,6 +3628,8 @@ vegetarian:en: yes
 wikidata:en: Q193521
 wikipedia:en: https://en.wikipedia.org/wiki/Titanium_dioxide
 # description:en:TITANIUM DIOXIDE, also known as titanium(IV) oxide or titania, is the naturally occurring oxide of titanium, chemical formula TiO2. Generally, it is sourced from ilmenite, rutile and anatase. It has a wide range of applications, including paint, sunscreen and food coloring.
+authorized_in_europe: en:no
+authorized_in_the_usa: en:yes
 
 #<en:E171
 #en:colorant E171
@@ -4108,7 +4112,8 @@ e_number:en: 201
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q420152
-
+authorized_in_europe: en:no
+authorized_in_the_usa: en:yes
 
 
 en: E202, Potassium sorbate
@@ -4231,6 +4236,8 @@ vegetarian:en: yes
 # azb:E203, کلسیوم سوربات
 wikidata:en: Q425183
 wikipedia:en: https://en.wikipedia.org/wiki/Calcium_sorbate
+authorized_in_europe: en:no
+authorized_in_the_usa: en:yes
 
 en: E209, Heptylparaben
 xx: E209
@@ -4544,6 +4551,8 @@ e_number:en: 216
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q511627
+authorized_in_europe: en:no
+authorized_in_the_usa: en:yes
 
 en: E217, Sodium propyl para-hydroxybenzoate
 xx: E217
@@ -8245,7 +8254,8 @@ e_number:en: 324
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q1657816
-
+authorized_in_europe: en:no
+authorized_in_the_usa: en:yes
 
 
 
@@ -9876,6 +9886,8 @@ e_number:en: 342
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q18967184
+authorized_in_europe: en:no
+authorized_in_the_usa: en:yes
 
 #comment:en:Is in plural, as it can be any specific variant
 # description:en:Magnesium phosphate is a general term for salts of magnesium and phosphate appearing in several forms and several hydrates
@@ -16079,6 +16091,8 @@ e_number:en: 488
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q18967225
+authorized_in_europe: en:no
+authorized_in_the_usa: en:yes
 
 en: E489, Methyl glucoside-coconut oil ester
 xx: E489
@@ -19627,6 +19641,9 @@ e_number:en: 586
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of 4-hexylresorcinol (E 586) as a food additive
 efsa_evaluation_date:en: 2014-04-24
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2014.3643
+authorized_categories: en:Unprocessed molluscs, en: Unprocessed crustaceans
+# https://ec.europa.eu/food/food-feed-portal/screen/food-additives/search/details/POL-FAD-IMPORT-3251
+wikidata:en: Q229969
 
 en: E620, Glutamic acid, L-Glutamic acid
 xx: E620
@@ -20279,6 +20296,7 @@ zh: E636, 麦芽酚
 e_number:en: 636
 vegan:en: yes
 vegetarian:en: yes
+Q420648
 
 en: E637, Ethyl maltol
 xx: E637
@@ -20306,6 +20324,7 @@ sv: E637, Etylmaltol
 e_number:en: 637
 vegan:en: yes
 vegetarian:en: yes
+Q930843
 
 en: E638
 xx: E638
@@ -20422,7 +20441,7 @@ e_number:en: 640
 vegan:en: maybe
 vegetarian:en: maybe
 wikidata:en: Q18967228
-# comment:en:GLYCINE is produced mainly from gelatin, which is derived from animal bones. It is therefore not suitable for vegans, vegetarians and, as long as the origin is not known, not for Jews, Muslims and Hindus. Only the producer can provide the origin of the product.
+description:en:GLYCINE is produced mainly from gelatin, which is derived from animal bones. It is therefore not suitable for vegans, vegetarians and, as long as the origin is not known, not for Jews, Muslims and Hindus. Only the producer can provide the origin of the product.
 
 
 < en:E640
@@ -22316,6 +22335,8 @@ e_number:en: 924
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q409241
+authorized_in_europe: en:no
+authorized_in_the_usa: en:yes
 
 en: E924a, Potassium bromate
 xx: E924a
@@ -22364,6 +22385,8 @@ e_number:en: 924a
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q409241
+authorized_in_europe: en:no
+authorized_in_the_usa: en:yes
 
 en: E924b, Calcium bromate
 xx: E924b
@@ -22439,6 +22462,8 @@ e_number:en: 925
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q688
+authorized_in_europe: en:no
+authorized_in_the_usa: en:yes
 
 en: E926, Chlorine dioxide
 xx: E926
@@ -22565,6 +22590,8 @@ vegetarian:en: yes
 # azb:E927a, آزودیکربونآمید
 #zh-cn:E927a, 偶氮甲酰胺
 wikidata:en: Q415646
+authorized_in_europe: en:no
+authorized_in_the_usa: en:yes
 
 < en:E927
 en: E927b, Carbamide, urea
@@ -24263,6 +24290,7 @@ sweetener:en: yes
 vegan:en: no
 vegetarian:en: no
 wikidata:en: Q414089
+# Additif non autorisé en Europe (liste N° 1129/2011 du 11 Novembre 2011)
 
 en: E964, Polyglycitol syrup
 xx: E964
@@ -24306,6 +24334,7 @@ sweetener:en: yes
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q18601425
+# Additif non autorisé en Europe (liste N° 1129/2011 du 11 Novembre 2011)
 
 en: E965, maltitol
 xx: E965
@@ -24682,6 +24711,7 @@ e_number:en: 1000
 vegan:en: no
 vegetarian:en: no
 wikidata:en: Q287415
+# Additif non autorisé en Europe (liste N° 1129/2011 du 11 Novembre 2011)
 
 en: E1001, Choline salt
 xx: E1001
@@ -24723,6 +24753,8 @@ mandatory_additive_class:en: en:emulsifier
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q18668392
+# Additif non autorisé en Europe (liste N° 1129/2011 du 11 Novembre 2011)
+# https://ec.europa.eu/growth/tools-databases/cosing/details/28387
 
 # description:en:AMYLASE are enzymes that catalyse the hydrolysis of starch into sugars.
 
@@ -26328,6 +26360,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q83253
 # comment:en:E1518 can be used by all religious groups, vegetarians and vegans.
+# https://ec.europa.eu/food/food-feed-portal/screen/food-additives/search/details/POL-FAD-IMPORT-3329
 
 en: E1519, Benzyl alcohol, Phenylcarbinol, Phenylmethyl alcohol, Benzenemethanol
 xx: E1519
