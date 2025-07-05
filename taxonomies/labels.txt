@@ -93,7 +93,7 @@ synonyms:it: senza, 0%, zero
 synonyms:nl: zonder, 0%
 synonyms:pt: sem, 0%, livre de, zero
 synonyms:ru: без, 0%, 0 %
-synonyms:sv: utan, inga, ingen, inget, noll, 0%, fritt från, fri från
+synonyms:sv: utan, inga, ingen, inget, noll, 0%, fritt från, fri från, innehåller inga
 
 synonyms:fi: lisätty
 synonyms:fr: ajout, adjonction
@@ -3601,6 +3601,13 @@ uk: Вироблено в Данії
 country:en: en:Denmark
 label_categories:en: en:Geographic label
 
+da: Bagt i Danmark med dansk rugmel
+xx: Bagt i Danmark med dansk rugmel
+country:en: en:Denmark
+ingredients:en: en:rye-flour
+label_categories:en: en:Geographic label
+origins:en: en:denmark
+
 en: Made in Germany
 bg: Произведено в Германия
 ca: Fet a Alemanya
@@ -5293,7 +5300,7 @@ sk: Bez konzervačných látok
 sl: Brez konzervansov
 sq: Pa konservues
 sr: Bez konzervansa
-sv: Utan konserveringsmedel
+sv: Utan konserveringsmedel, Innehåller inga konserveringsmedel
 th: ไม่ใช้วัตถุกันเสีย
 tr: Koruyucu yok, Koruyucu madde içermez
 uk: Без консервантів
@@ -19124,6 +19131,17 @@ es: con farina integralna
 fr: contient de la farine complète
 hr: s integralnim brašnom
 sv: med fullkornsmjöl
+
+#< en:whole grain
+en: Rich in whole grain
+sv: Fullkornsrik
+
+en: The Danish Whole Grain Logo, The Whole Grain Logo
+xx: Vælg fuldkorn først
+da: Vælg fuldkorn først, Fuldkornslogoet
+image:da: vælg-fuldkorn-først.90x90.png
+web:en: https://fuldkorn.dk/en/
+web:da: https://fuldkorn.dk/
 
 #label for more sustainable production of agricultural products
 < en:Sustainable

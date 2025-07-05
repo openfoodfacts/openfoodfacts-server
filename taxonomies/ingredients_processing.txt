@@ -246,6 +246,7 @@ sr: list
 # the ends/small amounts cut off, e.g. beans.
 # possible false positive "trimmed with"="garnished with", but no instances in the data currently.
 en: trimmed
+sv: klippt
 
 en: cut, steel cut, regular cut
 #en:false_positives:cuttlefish, cutlet
@@ -2632,8 +2633,8 @@ ro: omogenizat
 wikidata:en: Q1165158
 wikipedia:en: https://en.wikipedia.org/wiki/Homogenization_(chemistry)
 
-# for ingredients, lactose-free is not a processing but involves a chemical process, 
-# use of enzyme lactase to break down lactose into simpler sugars (glucose and galactose), 
+# for ingredients, lactose-free is not a processing but involves a chemical process,
+# use of enzyme lactase to break down lactose into simpler sugars (glucose and galactose),
 # which are easier to digest for those with lactose intolerance.
 en: lactose-free
 bg: без лактоза, безлактозно
@@ -2656,7 +2657,7 @@ it: filtrato
 ru: Фильтрат
 sl: filtrat
 
-# microfiltration: filtration process where a contaminated fluid is passed through a special 
+# microfiltration: filtration process where a contaminated fluid is passed through a special
 # pore-sized membrane filter to separate microorganisms and suspended particles from process liquid
 en: microfiltrated
 fr: microfiltré

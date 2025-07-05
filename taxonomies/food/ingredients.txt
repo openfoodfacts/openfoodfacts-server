@@ -121,7 +121,7 @@ synonyms:pt: láctico, lático, lácteo
 stopwords:bg: съдържа, в, от, с, със, до, и, или, и/или, минимум, произведено с, с добавенo, включително, променливо, отношение, съотношение
 stopwords:bs: i, u promjenljivom odnosu
 stopwords:ca: i, de
-stopwords:da: og, eller, samt, av, af, blandt andet, bl a, inklusive, heraf, indeholder, tilsat
+stopwords:da: og, eller, samt, av, af, blandt andet, bl a, inklusive, heraf, indeholder, tilsat, ingredienser som i dette brød
 stopwords:de: Allergene Zutaten, und, mit, von, aus, enthält, enthalten, mindestens, naturbelassen, in veränderlichen gewichtsanteilen, wenig, min, max
 stopwords:el: περιέχει
 # example: "artificial flavouring substances", "natural and nature identical flavouring substances"
@@ -23514,6 +23514,11 @@ az: Manna yarması
 pl: kasza manna, kasza manna z pszenicy
 sr: griz
 
+< en:whole wheat
+en: whole wheat kernels
+da: fuldkornshvedekerner
+sv: fullkornskärnor av vete
+
 # Soft wheat
 
 < en:wheat
@@ -26468,6 +26473,11 @@ fr: épeautre perlé
 hr: biserni farro
 it: farro perlato
 
+< en:whole spelt
+en: whole spelt kernels
+da: fuldkornsspeltkerner
+se: fullkornskärnor av dinkelvete
+
 < en:cereal flour
 en: spelt flour, spelt wheat flour
 bg: брашно от спелта
@@ -26645,6 +26655,23 @@ it: farina integrale di teff avorio
 < en:teff
 fr: teff soufflé
 
+##################################################################################
+#
+#                        Mixed cereals
+#
+##################################################################################
+# description:en:MIXED CEREALS are ingredients specifying two or more cereal subingredients.
+
+< en:whole spelt kernels
+< en:whole wheat kernels
+en: whole spelt and wheat kernels
+da: fuldkornsspelt- og hvedekerner
+sv: fullkornskärnor av dinkelvete och vete
+
+< en:malted barley
+< en:wheat malt
+en: barley and wheat malt
+sv: malt av korn och vete
 
 ##################################################################################
 #
@@ -36442,6 +36469,11 @@ sv: surdeg på råg och durumvete
 < en:whole rye sourdough
 en: whole rye and durum wheat sourdough
 sv: surdeg på fullkornsråg och fullkornsdurumvete
+
+< en:wheat sourdough
+< en:whole rye sourdough
+en: wheat and whole rye sourdough
+sv: surdeg på fullkornsråg och vete
 
 < en:sourdough
 nl: speltzuurdesempoeder
@@ -62736,12 +62768,14 @@ it: semi di lino giallo
 nl: geel lijnzaad, lijnzaad geel
 pl: siemię lniane złote
 pt: sementes de linho amarelo
+sv: gula linfrö
 wikidata:en: none
 #ingredient/golden-flax-seeds 407 in 7 @2021-08-20
 
 < en:flax seed
 en: brown flax seeds, brown linseed, Brown flaxseed
 bg: кафяво ленено семе, кафяв лен
+da: brune hørfrø
 de: brauner Leinsamen
 es: linaza marron, lino marron
 fi: ruskeat pellavansiemenet
@@ -62751,6 +62785,7 @@ it: semi di lino scuro
 nl: bruin lijnzaad
 nn: brune linfrø
 pl: siemię lniane brązowe
+sv: bruna linfrö
 ciqual_food_code:en: 15052
 ciqual_food_name:en: Flaxseed, brown
 ciqual_food_name:fr: Lin, brun, graine
@@ -65472,7 +65507,7 @@ sk: Horčica
 sl: Gorčica
 sq: mustardë kuzhine
 sr: сенф
-sv: senap
+sv: senap, senaps
 ta: கடுகு
 th: มัสตาร์ด
 tr: hardal
@@ -89201,7 +89236,7 @@ be: Паніровачныя сухары
 bg: Галета, панировка
 ca: pa ratllat, farina de galeta
 cs: strouhanka
-da: Rasp, panering, krydret panering
+da: rasp, panering, krydret panering
 de: Paniermehl, Panur, Semmelbrösel
 el: ψίχουλα ψωμιού
 eo: raspaĵo
@@ -89255,6 +89290,11 @@ es: pan rallado integral
 hr: integralne prezle
 it: pangrattato integrale
 pt: pão ralado integral, pão integral ralado
+
+< en:breadcrumbs
+< en:rye bread
+en: rye bread breadcrumbs
+da: rugbrødsrasp
 
 < en:breadcrumbs
 fr: chapelure de blé
