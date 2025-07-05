@@ -20419,6 +20419,9 @@ zh: 天然调味剂
 vegan:en: maybe
 vegetarian:en: maybe
 
+< en:natural flavouring
+de: natürliches Pfirsich– und Holunderblütenaroma mit anderen natürlichen Aromen
+
 < en:flavouring
 en: nature identical flavouring
 hr: prirodno identična aroma
@@ -43746,7 +43749,7 @@ fi: seljanmarjatiiviste
 
 < en:elder
 en: elderflower, elderflowers
-de: Holunderblüten
+de: Holunderblüten, Holunderblüte
 fi: seljankukka
 fr: fleurs de sureau
 hr: cvijet bazge, Sambucus nigra L
@@ -43754,6 +43757,9 @@ it: fiori di sambuco
 nl: vlierbloesem
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fleurs-de-sureau
 # 51 products @2018-09-29
+
+< en:elderflower
+de: Aufguss aus weißem Tee und Holunderblüte
 
 #comment:en:Be sure it refers to the flower
 < en:elderflower
@@ -63650,6 +63656,19 @@ vegan:en: yes
 vegetarian:en: yes
 
 < en:herb
+en: herbal tea
+de: Kräutertee
+
+< en:herb
+de: Süßblatt
+
+< en:herbal tea
+de: Aufguss aus Schwarztee und Kräutertee
+
+< de:Süßblatt
+de: konzentrierter Steviablätter-Aufguss
+
+< en:herb
 en: herb extract
 bg: екстракт от билки
 da: krydderiekstrakt, krydderiekstrakter
@@ -70529,7 +70548,7 @@ bo: ཇ་དམར།
 ca: te negre
 cs: černý čaj
 da: sort te
-de: Schwarztee, Schwarzer Tee
+de: Schwarztee, Schwarzer Tee, Aufguss aus Schwarztee, Gebrühter Schwarztee, Aufguss aus Schwarzem Tee
 el: μαύρο τσάι
 eo: nigra teo
 es: té negro
@@ -70590,6 +70609,10 @@ wikidata:en: Q203415
 wikipedia:en: https://en.wikipedia.org/wiki/Black_tea
 # ingredient/black-tea has 751 products in 13 languages @2019-04-22
 
+< en:herbal tea
+< en:black tea
+de: Aufguss aus Schwarztee und Kräutertee
+
 < en:black tea
 en: black tea leaf, black tea leaves
 fr: feuilles de thé noir
@@ -70624,6 +70647,7 @@ fr: thé noir darjeeling
 
 < en:black tea
 fr: infusion de thé noir concentrée
+de: konzentrierter Schwarztee, konzentrierter Schwarztee-Aufguss
 
 < en:black tea
 en: black tea extract
@@ -70652,7 +70676,7 @@ ca: te verd
 cs: zelený čaj
 cy: te gwyrdd
 da: grøn te
-de: Grüner Tee, Grüntee
+de: Grüner Tee, Grüntee, Aufguss aus grünem Tee, Gebrühter Grüntee, Aufguss aus Grüntee
 el: πράσινο τσάι
 eo: verda teo
 es: té verde
@@ -70838,6 +70862,10 @@ hr: bijeli čaj
 it: tè bianco
 pl: biała herbata, herbata biała
 # ingredient/en:white-tea has 77 products @2023-07-01
+
+< en:white tea
+< en:elderflower
+de: Aufguss aus weißem Tee und Holunderblüte
 
 < en:green tea
 en: decaffeinated green tea
