@@ -30,10 +30,6 @@ updates:
           - "@typescript-eslint/*"
           - "eslint*"
           - "stylelint*"
-      test-dependencies:
-        patterns:
-          - "chai*"
-          - "mocha"
       typescript:
         patterns:
           - "ts-node"

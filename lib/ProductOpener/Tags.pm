@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2025 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -182,6 +182,7 @@ use ProductOpener::Lang qw/$lc  %Lang %tag_type_plural %tag_type_singular lang/;
 use ProductOpener::Text qw/normalize_percentages regexp_escape/;
 use ProductOpener::PackagerCodes qw/localize_packager_code normalize_packager_codes/;
 use ProductOpener::Index qw/$lang_dir/;
+use ProductOpener::HTTP qw/create_user_agent/;
 
 use Clone qw(clone);
 use List::MoreUtils qw(uniq);
@@ -193,7 +194,6 @@ use Digest::SHA1;
 use File::Copy;
 use MIME::Base64 qw(encode_base64);
 use POSIX qw(strftime);
-use LWP::UserAgent ();
 use Encode;
 use IO::Compress::Gzip qw(gzip $GzipError);
 use IO::Uncompress::AnyInflate qw(anyinflate $AnyInflateError);
@@ -1092,14 +1092,14 @@ sub get_file_from_cache ($source, $target) {
 	}
 
 	# Else try to get it from the github project acting as cache
-	my $ua = LWP::UserAgent->new();
+	my $ua = create_user_agent();
 	my $response = $ua->get("https://raw.githubusercontent.com/$build_cache_repo/main/taxonomies/$source.gz");
 
 	if ($response->is_success) {
 		# inflate content
 		anyinflate \$response->content => $local_cache_source or die "anyinflate of $source failed: $AnyInflateError\n";
 		copy($local_cache_source, $target);
-		if ($source =~ /\.result\.sto$/) {
+		if ($source =~ /\.result\.json$/) {
 			# Only give one message rather than one for each individual file
 			print "Fetched $source from GitHub cache\n";
 		}
@@ -1145,7 +1145,7 @@ sub get_from_cache ($tagtype, @files) {
 	# disable by env variable, useful when iterating over Tags.pm (see make rebuild_taxonomies)
 	return $cache_prefix if $ENV{TAXONOMY_NO_GET_FROM_CACHE};
 
-	my $got_from_cache = get_file_from_cache("$cache_prefix.result.sto", "$tag_data_root.result.sto");
+	my $got_from_cache = get_file_from_cache("$cache_prefix.result.json", "$tag_data_root.result.json");
 	if ($got_from_cache) {
 		$got_from_cache = get_file_from_cache("$cache_prefix.result.txt", "$tag_data_root.result.txt");
 	}
@@ -1180,7 +1180,7 @@ sub put_file_to_cache ($source, $target) {
 		$content .= encode_base64($buf, '');
 		$content .= '"}';
 
-		my $ua = LWP::UserAgent->new(timeout => 300);
+		my $ua = create_user_agent(timeout => 300);
 		my $url = "https://api.github.com/repos/$build_cache_repo/contents/taxonomies/$target.gz";
 		my $response = $ua->put(
 			$url,
@@ -1193,7 +1193,7 @@ sub put_file_to_cache ($source, $target) {
 		if (!$response->is_success()) {
 			print "Error uploading to GitHub cache for $target: ${\$response->message()}\n";
 		}
-		elsif ($target =~ /\.result\.sto$/) {
+		elsif ($target =~ /\.result\.json$/) {
 			# Only give one message rather than one for each individual file
 			print "Uploaded $target to GitHub cache\n";
 		}
@@ -1210,7 +1210,7 @@ sub put_to_cache ($tagtype, $cache_prefix) {
 	put_file_to_cache("$tag_www_root.full.json", "$cache_prefix.full.json");
 	put_file_to_cache("$tag_www_root.extended.json", "$cache_prefix.extended.json");
 	put_file_to_cache("$tag_data_root.result.txt", "$cache_prefix.result.txt");
-	put_file_to_cache("$tag_data_root.result.sto", "$cache_prefix.result.sto");
+	put_file_to_cache("$tag_data_root.result.json", "$cache_prefix.result.json");
 	# note: we don't put errors to cache as it is a non sense, errors are to be fixed before
 	# and you need them only if you touch the taxonomy hence rebuild it (and thus have them locally)
 
@@ -1629,7 +1629,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			my $taxonomy_with_duplicate_tolerated
 				= (($tagtype eq "ingredients") or ($tagtype eq "packaging") or ($tagtype eq "inci_functions"));
 			unless ($only_duplicate_errors and $taxonomy_with_duplicate_tolerated) {
-				store("$result_dir/$tagtype.errors.sto", {errors => \@taxonomy_errors});
+				store_config("$result_dir/$tagtype.errors", {errors => \@taxonomy_errors});
 				die("Errors in the $tagtype taxonomy definition");
 			}
 		}
@@ -2293,7 +2293,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			}
 
 			unless ($only_duplicate_errors and $taxonomy_with_duplicate_tolerated) {
-				store("$result_dir/$tagtype.errors.sto", {errors => \@taxonomy_errors});
+				store_config("$result_dir/$tagtype.errors", {errors => \@taxonomy_errors});
 				die("Errors in the $tagtype taxonomy definition");
 			}
 		}
@@ -2341,8 +2341,8 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 		};
 
 		if ($publish) {
-			store("$result_dir/$tagtype.result.sto", $taxonomy_ref);
-			store("$result_dir/$tagtype.errors.sto", {errors => \@taxonomy_errors});
+			store_config("$result_dir/$tagtype.result", $taxonomy_ref);
+			store_config("$result_dir/$tagtype.errors", {errors => \@taxonomy_errors});
 			put_to_cache($tagtype, $cache_prefix);
 		}
 	}
@@ -2619,12 +2619,12 @@ sub retrieve_tags_taxonomy ($tagtype, $die_if_taxonomy_cannot_be_loaded = 0) {
 		$file = "data_quality";
 	}
 
-	my $taxonomy_ref = retrieve("$result_dir/$file.result.sto");
+	my $taxonomy_ref = retrieve_config("$result_dir/$file.result");
 
 	if (not defined $taxonomy_ref) {
 		if ($die_if_taxonomy_cannot_be_loaded) {
 			$log->error("Could not load taxonomy $tagtype - dying") if $log->is_error();
-			die("Could not load taxonomy: $result_dir/$file.result.sto");
+			die("Could not load taxonomy: $result_dir/$file.result");
 		}
 		else {
 			$log->info("Could not load taxonomy $tagtype - skipping") if $log->is_info();

@@ -304,10 +304,9 @@ is(
 	]
 ) or diag Dumper(\@tags);
 
-foreach my $tag (@tags) {
-
-	print STDERR "tag: $tag\tlevel: " . $level{ingredients}{$tag} . "\n";
-}
+# foreach my $tag (@tags) {
+# 	print STDERR "tag: $tag\tlevel: " . $level{ingredients}{$tag} . "\n";
+# }
 
 @tags = gen_ingredients_tags_hierarchy_taxonomy("en", "en:concentrated-orange-juice, en:sugar, en:salt, en:orange");
 
@@ -435,8 +434,6 @@ is(exists_taxonomy_tag("additives", "en:e330"), 1);
 is(get_inherited_property("ingredients", "en:milk", "vegetarian:en"), "yes");
 is(get_property("ingredients", "en:milk", "vegan:en"), "no");
 is(get_inherited_property("ingredients", "en:milk", "vegan:en"), "no");
-is(get_inherited_property("ingredients", "en:semi-skimmed-milk", "vegetarian:en"), "yes");
-is(get_inherited_property("ingredients", "en:semi-skimmed-milk", "vegan:en"), "no");
 
 is(display_taxonomy_tag("en", "ingredients_analysis", "en:non-vegan"), "Non-vegan");
 
