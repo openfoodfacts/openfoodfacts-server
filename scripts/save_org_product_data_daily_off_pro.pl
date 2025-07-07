@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -30,9 +30,10 @@ use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
 use ProductOpener::Users qw/$Owner_id/;
 use ProductOpener::Orgs qw/retrieve_org/;
 use ProductOpener::CRM qw/update_public_products update_pro_products/;
+#11872 Use PO Storable
 use Storable qw(store);
 
-# This script is run daily to gather organisation data
+# This script is run daily to gather organization data
 # such as number of products, number of products with errors etc.
 # Some data such as number of products on the public platform and in the producer platform
 # are synced with the CRM.
