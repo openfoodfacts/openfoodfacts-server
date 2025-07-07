@@ -45,8 +45,8 @@ We like learning what the Open Food Facts data is used for. It is not mandatory,
 To protect our infrastructure, we enforce rate-limits on the API and the website. The following limits apply:
 
 - 100 req/min for all read product queries (`GET /api/v*/product` requests or product page). There is no limit on product write queries.
-- 10 req/min for all search queries (`GET /api/v*/search` or `GET /cgi/search.pl` requests)
-- 2 req/min for facet queries (such as `/categories`, `/label/organic`, `/ingredient/salt/category/breads`,...)
+- 10 req/min for all search queries (`GET /api/v*/search` or `GET /cgi/search.pl` requests); don't use it for a search-as-you-type feature, you would be blocked very quickly.
+- 2 req/min for facet queries (such as `/categories`, `/label/organic`, `/ingredient/salt/category/breads`,...).
 
 If these limits are reached, we reserve the right to deny you access to the website and the API through IP address ban. If your IP has been banned, feel free to [email us to explain why you reached the limits][why_reached_limits]: reverting the ban is possible.
 
@@ -75,9 +75,19 @@ The OpenFoodFacts API has two deployments.
 - Production: <https://world.openfoodfacts.org>
 - Staging: <https://world.openfoodfacts.net>
 
-Consider using the [staging environment](https://world.openfoodfacts.net) if you are not in a production scenario.
+Consider using the [staging environment](https://world.openfoodfacts.net) if you are not in a production scenario. 
 
 While testing your applications, **make all API requests to the staging environment**. This way, we can ensure the product database is safe.
+
+Staging require an http basic auth to avoid search engine indexing. The username is `off`, and the password `off`. Here is a small javascript code that you can test in your browser console:
+```js
+fetch('https://world.openfoodfacts.net/api/v2/product/3274080005003.json', {
+  method: 'GET',
+  headers: { Authorization: 'Basic ' + btoa('off:off') },
+})
+.then(response => response.json())
+.then(json => console.log(json));
+```
 
 ## Authentication
 
@@ -91,7 +101,7 @@ Create an account on the [Open Food Facts app](https://world.openfoodfacts.org/)
 
 - **The preferred one**:
   Use the login API to get a session cookie and use this cookie for authentication in your subsequent requests. However, the session must always be used from the same IP address, and there's a limit on sessions per user (currently 10) with older sessions being automatically logged out to stay within the limit.
-- If session conditions are too restrictive for your use case, include your account credentials as parameters for authenticated requests where `user_id` is your username and `password` is your password (do this on POST / PUT / DELETE requests, not on GET).
+- If session conditions are too restrictive for your use case, include your account credentials as parameters for authenticated requests where `user_id`^[user_id_not_email] is your username and `password` is your password (do this on POST / PUT / DELETE requests, not on GET).
 
 You can create a global account to allow your app users to contribute without registering individual accounts on the Open Food Facts website. This way, we know that these contributions came from your application.
 
@@ -103,6 +113,8 @@ We however ask that you send the [`app_name`, `app_version` and `app_uuid` param
 > Production and staging have different account databases, so **the account you create in the production environment will only work for production requests**. If you want to query (WRITE requests) the staging environment, you'll need to create another account there too.
 
 > Note: we're currently moving to a modern Auth system (Keycloak), so we will have new Auth options, hopefully this year.
+
+^[user_id_not_email]: user_id is the username of your account. You must not use your email address.
 
 ## Reference Documentation (OpenAPI)
 
@@ -147,6 +159,7 @@ Open-source contributors develop our SDKs, and more contributions are welcome to
 *   Elixir: [GitHub](https://github.com/openfoodfacts/openfoodfacts-elixir) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C758AFX0S)
 *   Go: [GitHub](https://github.com/openfoodfacts/openfoodfacts-go) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C14LGGCUV)
 *   Java: [GitHub](https://github.com/openfoodfacts/openfoodfacts-java) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C1G3J5RT3)
+*   Spring Boot: [GitHub](https://github.com/openfoodfacts/openfoodfacts-springboot-starter) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C1G3J5RT3)
 *   Kotlin: [GitHub](https://github.com/openfoodfacts/openfoodfacts-kotlin) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C045VU7NXS9)
 *   NodeJS: [GitHub](https://github.com/openfoodfacts/openfoodfacts-nodejs) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C1JQQ28P8)
 *   PHP: [GitHub](https://github.com/openfoodfacts/openfoodfacts-php) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C1G3GTJNM)

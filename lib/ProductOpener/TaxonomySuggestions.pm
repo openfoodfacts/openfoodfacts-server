@@ -47,7 +47,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
-use ProductOpener::Store qw/get_string_id_for_lang retrieve_json/;
+use ProductOpener::Store qw/get_string_id_for_lang retrieve_config/;
 use ProductOpener::Display qw/$country/;
 use ProductOpener::Lang qw/lang/;
 use ProductOpener::Tags qw/:all/;
@@ -62,19 +62,19 @@ my $categories_packagings_stats_for_suggestions_ref;
 
 sub load_categories_packagings_stats_for_suggestions() {
 	if (not defined $categories_packagings_stats_for_suggestions_ref) {
-		my $file = "$BASE_DIRS{PRIVATE_DATA}/categories_stats/categories_packagings_stats.all.popular.json";
+		my $file = "$BASE_DIRS{PRIVATE_DATA}/categories_stats/categories_packagings_stats.all.popular";
 		# In dev environments, we provide a sample stats file in the data-default directory
 		# so that we can run tests with meaningful and unchanging data
 		if (!-e $file) {
 			my $default_file
-				= "$BASE_DIRS{PRIVATE_DATA}-default/categories_stats/categories_packagings_stats.all.popular.json";
+				= "$BASE_DIRS{PRIVATE_DATA}-default/categories_stats/categories_packagings_stats.all.popular";
 			$log->debug("local packaging stats file does not exist, will use default",
 				{file => $file, default_file => $default_file})
 				if $log->is_debug();
 			$file = $default_file;
 		}
 		$log->debug("loading packaging stats", {file => $file}) if $log->is_debug();
-		$categories_packagings_stats_for_suggestions_ref = retrieve_json($file);
+		$categories_packagings_stats_for_suggestions_ref = retrieve_config($file);
 		if (not defined $categories_packagings_stats_for_suggestions_ref) {
 			$log->debug("unable to load packaging stats", {file => $file}) if $log->is_debug();
 		}

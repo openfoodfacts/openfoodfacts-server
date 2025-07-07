@@ -9,10 +9,10 @@ synonyms:en: coloring, colouring, color, colour
 synonyms:en: GMOs, Genetically Modified Organisms
 
 synonyms:en: without, 0%
-synonyms:da: uden, 0%
+synonyms:da: uden, ingen, intet, nul, 0%
 synonyms:es: sin, 0%
 synonyms:fr: sans, 0%
-synonyms:sv: utan, 0%
+synonyms:sv: utan, ingen, inget, noll, 0%
 
 # already in food labels.txt
 # synonyms:fr: ajout, adjonction
@@ -364,6 +364,34 @@ vi: Không tẩy trắng bằng clo
 zh-CN: 无氯漂白
 zh-TW: 無氯漂白
 
+en: Without water, Waterfree
+sv: Utan vatten, Vattenfri
+
+en: With glycerine, With glycerin
+sv: Med glycerin
+
+en: With rapeseed oil
+sv: Med rapsolja
+
+en: With vitamin E
+sv: Med vitamin E
+
+en: With fluoride
+fi: Lisätty fluoria
+sv: Med fluorid
+
+en: Low foam
+fi: Vähän vaahtoava
+sv: Lätt skummande
+
+en: Caries preventive
+fi: Ennaltaehkäisee kariesta
+sv: Kariesförebyggande
+
+en: Developed by dental experts
+
+en: Developed in collaboration with dental experts
+
 en: Carbon compensated product, carbon neutral
 fr: Produit compensé carbone, Carbone neutre, neutre en carbone, carbone compensé
 
@@ -444,8 +472,27 @@ en: TransFer, TransFer Canada
 # it: Dati errati sull'etichetta, Dati errati
 # nl: Onjuiste gegevens op het etiket, Onjuiste gegevens
 
+en: New
+bg: Ново
+ca: Nou
+da: Nyhed, Ny
+de: Neu
+es: Nuevo
+fi: Uutuus, uusi
+fr: Nouveau
+he: חדש
+hu: Új
+it: Nuovo
+nl: Nieuw
+pl: Nowość, Nowy, Nowe
+pt: Novo, novidade
+ru: Новинка
+sv: Nyhet
+th: สินค้าใหม่
+tr: Yeni
 
 en: Without paraben, Paraben-free, No paraben, No parabens
+da: Uden parabener
 de: Ohne paraben, Parabenfrei
 es: Sin Parabenos
 fr: Sans paraben, Sans parabenes, 0 parabens, 0 paraben, Sans parabene, Sans parabens, Zero paraben
@@ -528,6 +575,16 @@ nl: Zonder EDTA
 pt: Sem EDTA
 zh-CN: 不含EDTA
 zh-TW: 不含EDTA
+
+en: Good Environmental Choice
+xx: Bra Miljöval
+sv: Bra Miljöval
+country:en: en:Sweden
+image:sv: bra-miljöval.74x90.svg
+web:en: https://www.bramiljoval.se/in-english/
+web:sv: https://www.bramiljoval.se/
+wikidata:en: Q10434081
+wikipedia:sv: https://sv.wikipedia.org/wiki/Bra_Milj%C3%B6val
 
 en: Organic
 de: Bio, Öko, Biologisch, Ökologisch, Kontrolliert biologisch, Kontrolliert ökologisch, biologische Landwirtschaft, ökologische Landwirtschaft, biologischer Landbau, ökologischer Landbau
@@ -1874,7 +1931,7 @@ en: Ecolabel
 < en:Ecolabel
 xx: Nordic Swan Ecolabel, Nordic Ecolabel
 en: Nordic Swan Ecolabel, Nordic Ecolabel
-da: Svanemærket
+da: Svanemærket, Nordisk miljømærkning
 fi: Joutsenmerkki, pohjoismainen ympäristömerkki, ympäristömerkki, ympäristömerkki miljömärkt
 is: Svansmerkið, Svanurinn, Umhverfismerkið Svanurinn
 nb: Svanemerket, miljømerket
@@ -1907,6 +1964,15 @@ nl: Hypoallergeen
 pt: Hipoalergênico
 zh-CN: 低过敏性
 zh-TW: 低過敏性
+
+# This label/mark has been absorbed into Asthma Allergy Nordic
+< en: Hypoallergenic
+xx: Astma-Allergi Danmark
+en: Asthma Allergy Denmark
+da: Astma-Allergi Danmark
+image:da: astma-allergi-danmark.90x90.svg
+web:da: https://www.astma-allergi.dk/
+wikidata:xx: Q12302380
 
 < en: Hypoallergenic
 xx: Asthma Allergy Nordic
@@ -2233,9 +2299,13 @@ ja: 無香料
 ko: 향료 없음
 nl: Zonder parfum
 pt: Sem perfume
-sv: Utan parfym
+sv: Utan parfym, Oparfymerad
 zh-CN: 无香精
 zh-TW: 無香精
+
+< en:No colorings
+< en:Without perfume
+en: No perfume or colourants, 0% perfume & colourants
 
 en: Synthetic scent free, free from synthesis fragrance, synthesis fragrance free, free from synthetic fragrances, synthetic fragrances free
 de: Ohne synthetischen Duft, frei von synthetischen Duftstoffen, synthetische Duftstoffe frei
@@ -3176,7 +3246,7 @@ sk: Vodotesný, odolný voči striekajúcej vode, vodoodolný
 sl: Vodoodporen, odporen proti brizganju, vodoodporen
 sq: I papërshkueshëm nga uji, rezistent ndaj spërkatjeve, rezistent ndaj ujit
 sr: Водоотпоран, отпоран на прскање, водоотпоран
-sv: Vattentät, stänksäker, vattentålig
+sv: Vattentät, stänksäker, vattentålig, vattenresistent
 sw: Haipitishi maji, haipitishi maji, hustahimili maji
 ta: நீர்ப்புகா, தெறிக்காத, நீர் எதிர்ப்பு
 te: నీటిని నిరోధించే, స్ప్లాష్ ప్రూఫ్, నీటి నిరోధకత
@@ -3190,6 +3260,10 @@ uz: Suv o'tkazmaydigan, sachrashga chidamli, suvga chidamli
 vi: Chống thấm nước, chống bắn tóe, chịu nước
 zh-CN: 防水, 防溅, 耐水
 zh-TW: 防水, 防潑濺, 耐水
+
+< en:Waterproof
+en: Extra waterproof, Extra water resistant
+sv: Extra vattenresistent
 
 fr: Anti-traces, anti-trace
 

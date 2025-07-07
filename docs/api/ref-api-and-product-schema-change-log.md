@@ -32,7 +32,14 @@ Note: API v3 is under active development, and the API and corresponding product 
 
 ## Schema version and API version change log
 
-### 2025-03-12 - Product version 1001 - API version 3.2 - Removed ingredients_hierarchy, added schema_version, made brands a taxonomized field.
+### 2025-06-11 - Product version 1002 - API version 3.3 - New uploaded and selected images structure, new API for image upload and selection
+
+Breaking changes:
+- the "images" structure has been changed to better separate uploaded and selected images (see [images schema](../api/ref/schemas/product_images_v3.yaml))
+- new API v3 endpoint to upload an image: /api/v3.3/product/[barcode]/images
+- added support for image selection in existing API v3 product write endpoint
+
+### 2025-03-12 - Product version 1001 - API version 3.2 - Removed ingredients_hierarchy, added schema_version, made brands a taxonomized field
 
 Breaking changes:
 - Ingredients_hierarchy array has been removed (its content is identical to the ingredients_tags array) - [PR](https://github.com/openfoodfacts/openfoodfacts-server/pull/11615)

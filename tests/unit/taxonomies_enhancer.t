@@ -169,7 +169,7 @@ $product_ref = {
 	ingredients_text_ro =>
 		"69% făină de grâu, apă, ulei de rapiță, stabilizator: glicerol; gluten din grâu, corector de aciditate: acid malic; sare, emulsifiant: mono - şi digliceride ale acizilor graşi; dextroză, agent de afanare: carbonați de sodiu ; conservanți: propionat de calciu, sorbat de potasiu; agent de tratare a făinii: L-cisteină.",
 	ingredients_text_sk =>
-		"69% pšeničná múka, pitná voda, repkový olej, stabilizátor: glycerol; pšeničný glutén, regulátor kyslosti: kyselina jablčná; jedlá soľ, emulgátor: mono - a diglyceridy mastných kyselín; dextróza, kypriaca látka: uhličitany sodné; konzervačné látky: propionan vápenatý, sorban draselný; múku upravujúca látka: L-cystein.",
+		"69% pšeničná múka, pitná voda, repkový olej, stabilizátor: glycerol; pšeničný glutén, regulátor kyslosti: kyselina jablčná; jedlá soľ, emulgátor: mono - a diglyceridy mastných kyselín; dextróza, kypriaca látka: uhličitany sodné; new word for preservative: propionan vápenatý, sorban draselný; múku upravujúca látka: L-cystein.",
 };
 check_ingredients_between_languages($product_ref);
 ok(
@@ -327,7 +327,7 @@ $product_ref = {
 	ingredients_text_bg => "Пастьоризирано МЛЯКО, со…ктериални култури, мая.",
 	ingredients_text_en =>
 		"EN WYDOJONE Lactose free* UHT Milk. The fat content of 3,2%. Source of calcium. *The lactose content &lt; 0,01 g / 100 ml Milk is a valued element of a diet. Contains many necessary ingredients to maintain healthy body like protein and calcium. However, not everyone can consume milk or dairy products because of lactose intolerance naturally occurring sugar in its composition. Lactose intolerance is the inability to digest lactose. The alternative is a lactose free Milk.",
-	ingredients_text_pl => "Mleko bez laktozy UHT. Zawartość tłuszczu 3,2%. Źródło wapnia.",
+	ingredients_text_pl => "single unknown ingredient. Zawartość tłuszczu 3,2%. Źródło wapnia.",
 };
 check_ingredients_between_languages($product_ref);
 ok(
@@ -394,9 +394,9 @@ $product_ref = {
 	ingredients_text_pl =>
 		"69% mąka pszenna, woda, olej rzepakowy, stabilizator: glicerol; gluten pszenny, regulator kwasowości: kwas jabłkowy; sól, emuglator: mono - i diglicerydy kwasów tłuszczowych; glukoza, substancja spulchniająca: węglany sodu; substancje konserwujące: propionian wapnia, sorbinian potasu ; środek do przetwarzania mąki: L-cysteina.",
 	ingredients_text_ro =>
-		"69% făină de grâu, apă, ulei de rapiță, stabilizator: glicerol; gluten din grâu, corector de aciditate: acid malic; sare, emulsifiant: mono - ti digliceride ale acizilor graşi; dextroză, agent de afanare: carbonați de sodiu ; conservanți: propionat de calciu, sorbat de potasiu; agent de tratare a făinii: L-cisteină.",
+		"69% făină de grâu, apă, ulei de rapiță, stabilizator: glicerol; gluten din grâu, corector de aciditate: acid malic; sare, emulsifiant: mono - ti digliceride ale acizilor graşi; dextroză, agent de afanare: carbonara de sodiu ; conservanți: propionat de calciu, sorbat de potasiu; agent de tratare a făinii: L-cisteină.",
 	ingredients_text_sk =>
-		"69% pšeničná múka, pitná voda, repkový olej, stabilizátor: glycerol; pšeničný glutén, regulátor kyslosti: kyselina jablčná; jedlá soľ, emulgátor: mono - a diglyceridy mastných kyselín; dextróza, kypriaca látka: uhličitany sodné; konzervačné látky: propionan vápenatý, sorban draselný; múku upravujúca látka: L-cystein.",
+		"69% pšeničná múka, pitná voda, repkový olej, stabilizátor: glycerol; pšeničný glutén, regulátor kyslosti: kyselina jablčná; jedlá soľ, emulgátor: mono - a diglyceridy mastných kyselín; dextróza, kypriaca látka: uhličitany sodné; konzervačna latka newword: propionan vápenatý, sorban draselný; múku upravujúca látka: L-cystein.",
 	ingredients_text_sl =>
 		"69% pšenična moka, voda, olje oljne ogrščice, stabilizator: glicerol; pšenični gluten, sredstvo za uravnavanje kislosti: jabolčna kislina ; nejodirana sol, emulgator: mono - in diglicerid! maščobnih kislin; dekstroza, sredstvo za vzhajanje: natrijevi karbonati; konzervansa: kalcijev propionat , kalijev sorbat; sredstvo za obdelavo moke: L-cistein. Uporabno najmanj do: glej odtis na zadnji strani embalaže.",
 };
@@ -413,14 +413,8 @@ ok(has_tag($product_ref, "taxonomies_enhancer", "possible-stop-word-after-hr-ču
 	or diag Dumper $product_ref;
 ok(
 	has_tag(
-		$product_ref, "taxonomies_enhancer", "ingredients-sk-pšeničny-gluten-is-new-translation-for-en-wheat-gluten"
-	),
-	'cs-hr-hu-pl-ro-sk-sl, sk new translation'
-) or diag Dumper $product_ref;
-ok(
-	has_tag(
 		$product_ref, "taxonomies_enhancer",
-		"ingredients-ro-carbonați-de-sodiu-is-possible-typo-for-ro-carbonati-de-sodiu"
+		"ingredients-ro-carbonara-de-sodiu-is-possible-typo-for-ro-carbonați-de-sodiu"
 	),
 	'cs-hr-hu-pl-ro-sk-sl, ro typo in taxonomy'
 ) or diag Dumper $product_ref;
@@ -437,7 +431,7 @@ ok(
 ok(
 	has_tag(
 		$product_ref, "taxonomies_enhancer",
-		"ingredients-sk-konzervačne-latky-is-possible-typo-for-sk-konzervačna-latka"
+		"ingredients-sk-konzervačna-latka-newword-is-possible-typo-for-sk-konzervačna-latka"
 	),
 	'cs-hr-hu-pl-ro-sk-sl, sk missing declension'
 ) or diag Dumper $product_ref;
@@ -501,7 +495,7 @@ ok(has_tag($product_ref, "taxonomies_enhancer", "ingredients-es-acido-citico-is-
 #   };
 $product_ref = {
 	ingredients_text_cs => "",
-	ingredients_text_da => "Pasteuriseret _komælk_, salt, new-word, surhedsregulerende middel: citronsyre.",
+	ingredients_text_da => "Pasteuriseret _testmælk_, salt, new-word, surhedsregulerende middel: citronsyre.",
 	ingredients_text_de => "Pasteurisierte _Milch_, Salz, Lab, Säuerungsmittel: Citronensäure.",
 	ingredients_text_en => "Pasteurised _milk_, salt, vegetarian coagulant, acidity regulator: citric acid.",
 	ingredients_text_es => "_Leche_, sal, coagulante microbiano y corrector de acidez (ácido cítrico).",
@@ -515,23 +509,9 @@ $product_ref = {
 	ingredients_text_sv => "Pastöriserad _komjölk_, salt, löpe, surhetsreglerande medel: citronsyra.",
 };
 check_ingredients_between_languages($product_ref);
-ok(
-	has_tag(
-		$product_ref, "taxonomies_enhancer",
-		"ingredients-da-pasteuriseret-komaelk-is-new-translation-for-en-pasteurised-cow-s-milk"
-	),
-	'cs-da-de-en-es-fi-fr-it-nl-pt-ru-sv, new word for da based on sv as well as en'
-) or diag Dumper $product_ref;
 ok(has_tag($product_ref, "taxonomies_enhancer", "ingredients-da-new-word-is-new-translation-for-en-coagulant"),
 	'cs-da-de-en-es-fi-fr-it-nl-pt-ru-sv, new word for da based on es as well as en')
 	or diag Dumper $product_ref;
-ok(
-	has_tag(
-		$product_ref, "taxonomies_enhancer",
-		"ingredients-da-pasteuriseret-komaelk-is-possible-typo-for-da-pasteuriseret-maelk"
-	),
-	'cs-da-de-en-es-fi-fr-it-nl-pt-ru-sv, typo in da based on fi as well as en'
-) or diag Dumper $product_ref;
 
 # Division by zero bug from product: https://fr.openfoodfacts.org/produit/3256221408515/boulgour-etui-500g-u-bio?rev=74
 # (Stéphane) this product triggered a division by zero in the Minion that imported this product (which runs with debug logs enabled)

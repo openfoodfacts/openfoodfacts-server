@@ -154,7 +154,7 @@ nl: Pot, Potten, Bokaal, Bokaalen
 pl: Słoik
 pt: Jarro, jarros, jarra, jarras
 ro: Borcan
-sv: burk
+sv: burk, burken
 # suggest:packaging_materials:nl: en:glass
 description:nl: Cilindervormig voorwerp van glas of aardewerk
 # image:xx:bocal-verre.svg (looks like the Nutella jar)
@@ -182,14 +182,16 @@ description:nl: Een veelal kartonnen balkvormige verpakking
 
 #Boxes for eggs
 < en:Box
-nl: Eierdoos
-en: egg carton, egg box
+en: egg carton, egg box, egg tray
+da: æggebakke, ægbakke
 de: Eierkarton
 fr: Boîte à œufs
 # image:xx:boite-boitier-4.svg
 it: scatola di uova, scatola delle uova
 ja: 卵パック
+nl: eierdoos
 pl: Wytłaczanka, Wytłoczka
+sv: äggkartong
 tr: Yumurta kartonu
 # suggest:packaging_materials:nl: en:cardboard
 # suggest:category: en:eggs
@@ -204,10 +206,12 @@ wikidata:en: Q959287
 # boxes for pizza's
 < en:Box
 en: Pizza box
+da: pizzabakke
 de: Pizzakarton
 fr: carton à pizza
 it: Cartone della pizza
 nl: Pizzadoos, pizzadozen
+sv: pizzakartong
 # suggest:packaging_materials:nl: en:cardboard
 description:nl: platte, vierkante, kartonnen doos waarin men een pizza kan stoppen
 wikidata:en: Q2097650
@@ -216,6 +220,7 @@ wikidata:en: Q2097650
 
 < en:box
 en: pill box
+da: pilleæske
 de: Pillendose
 fr: pilulier
 it: scatola per pillole
@@ -474,6 +479,17 @@ nl: clip, klemmetje
 pt: Atilho, atilhos, presilha, presilhas, fita, fitas, cordão, cordões, atadura, ataduras, fecho, fechos, fexo, feixo, fexos, feixos, fio, fios
 description:fr: Ce qui sert à relier deux ou plusieurs pièces d'un ouvrage ou à le fixer.
 description:nl: Een klein werktuig waarin iets door samendrukken bijeengehouden of vastgezet kan worden
+wikidata:en: Q2002016
+
+< en:fastener
+en: bread clip, bag clip, occlupanid
+description:en: Usually a single plastic piece, in a roughly square shape, through which the neck of a plastic bag can be threaded.
+wikidata:en: Q3018341
+
+< en:fastener
+en: clipband, clip band
+description:en: A typically short (~5 cm/2″) band of some material (plastic or paper are common), reinforced with metal wires along the edges.
+wikidata:en: Q134396173
 
 # fr:Liens ( collier , ficelle , ruban , ruban adhésif , bolduc , feuillard , bande , cordon , fil , elastique , bracelet…) in data from Les Mousquetaires
 en: Tie, knot
@@ -621,7 +637,7 @@ nb: Lokk
 nl: Deksel, deksels
 pl: Nakrętka, Zakrętka, Pokrywka, Wieczko, Wieko
 pt: Tampa, tampas
-sv: Lock
+sv: lock, locket
 
 < en:Lid or cap
 en: Bottle cap, bottle top, cap, top, bottle caps, bottle tops, caps, tops

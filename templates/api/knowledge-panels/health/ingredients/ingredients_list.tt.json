@@ -5,7 +5,7 @@
     ],
     "expanded": true,
     "title_element": {
-        "title":"[% lang("ingredient_information") %]",
+        "title":"[% edq(lang("ingredient_information")) %]",
     },
     "elements": [
         [% FOREACH ingredient_panel_id IN panel.ingredients_panels_ids %]

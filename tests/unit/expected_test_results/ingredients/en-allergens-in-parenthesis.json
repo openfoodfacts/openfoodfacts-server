@@ -89,7 +89,9 @@
          "percent_estimate" : 9.375,
          "percent_max" : 25,
          "percent_min" : 0,
-         "text" : "dough"
+         "text" : "dough",
+         "vegan" : "maybe",
+         "vegetarian" : "yes"
       }
    ],
    "ingredients_analysis" : {
@@ -99,12 +101,6 @@
       ],
       "en:non-vegetarian" : [
          "en:surimi"
-      ],
-      "en:vegan-status-unknown" : [
-         "en:dough"
-      ],
-      "en:vegetarian-status-unknown" : [
-         "en:dough"
       ]
    },
    "ingredients_analysis_tags" : [

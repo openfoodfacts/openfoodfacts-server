@@ -5885,6 +5885,11 @@ msgctxt "donation_title_2024"
 msgid "Please give to our 2024 Fundraiser"
 msgstr "Merci de contribuer à notre collecte de fonds 2024"
 
+# Don't translate {year}, it will be replaced by the 4 digits year
+msgctxt "f_donation_title_year"
+msgid "Please give to our {year} Fundraiser"
+msgstr "Merci de contribuer à notre collecte de fonds {year}"
+
 msgctxt "donation_list_2024_main"
 msgid "Your donations fund the day-to-day operations of our non-profit association:"
 msgstr "Vos dons financent le fonctionnement quotidien de notre association à but non lucratif :"
@@ -7373,3 +7378,6 @@ msgctxt "in_contact_with_food"
 msgid "In contact with food"
 msgstr "En contact avec l'aliment"
 
+msgctxt "robots_not_served_here"
+msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
+msgstr "En raison d'abus importants de la part de robots, nous ne pouvons pas servir cette page aux utilisateurs non identifiés. Merci de créer un compte Open Food Facts gratuit pour accéder à l'ensemble d'Open Food Facts."

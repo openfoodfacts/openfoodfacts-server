@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2025 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -49,11 +49,13 @@ BEGIN {
 		&get_http_request_headers
 		&set_http_response_header
 		&write_http_response_headers
+		&extension_and_query_parameters_to_redirect_url
 		&redirect_to_url
 		&single_param
 		&request_param
 		&get_http_request_header
-	);    #the fucntions which are called outside this file
+		&create_user_agent
+	);    #the functions which are called outside this file
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -64,9 +66,11 @@ use Apache2::RequestRec();
 use Encode;
 use CGI qw(:cgi :cgi-lib :form escapeHTML charset);
 use Data::DeepAccess qw(deep_get);
+use LWP::UserAgent;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::RequestStats qw(:all);
+use ProductOpener::Version qw/$version/;
 
 =head1 FUNCTIONS
 
@@ -218,6 +222,37 @@ sub get_http_request_header($header_name) {
 	return;
 }
 
+=head2 extension_and_query_parameters_to_redirect_url($request_ref)
+
+This function returns the extension and query parameters that can be added to a redirect URL.
+e.g. if the URL is /ingredients.json?filter=strawberry
+we get a .json?filter=strawberry
+
+=head3 Parameters
+
+=head4 $request_ref - Reference to the request object.
+
+=head3 Return value
+
+A string with the extension and query parameters that can be added to a redirect URL.
+
+=cut
+
+sub extension_and_query_parameters_to_redirect_url($request_ref) {
+	# Add the extension to the redirect URL
+	my $add_to_url = '';
+
+	if ($request_ref->{extension}) {
+		$add_to_url .= '.' . $request_ref->{extension};
+	}
+	# Add the query parameters to the redirect URL
+	if ($request_ref->{query_parameters}) {
+		$add_to_url .= '?' . $request_ref->{query_parameters};
+	}
+
+	return $add_to_url;
+}
+
 =head2 redirect_to_url($request_ref, $status_code, $redirect_url)
 
 This function instructs mod_perl to print redirect HTTP header (Location) and to terminate the request immediately.
@@ -304,6 +339,44 @@ sub request_param ($request_ref, $param_name) {
 	else {
 		return deep_get($request_ref, "body_json", $param_name);
 	}
+}
+
+=head2 create_user_agent([$args])
+
+Creates a standardized LWP::UserAgent
+
+=head3 Parameters
+
+=over 4
+
+=item * C<[$args]> - (Optional) Optional constructor arguments for LWP::UserAgent->new()
+
+=back
+
+=head3 Behavior
+
+Creates a standardized HTTP client with correct user agent.
+
+=head3 Return value
+
+A new LWP::UserAgent instance
+
+=cut
+
+sub create_user_agent {
+	my (%cnf) = @_;
+
+	my $ua;
+	if (%cnf) {
+		$ua = LWP::UserAgent->new(%cnf);
+	}
+	else {
+		$ua = LWP::UserAgent->new();
+	}
+
+	$ua->agent("Mozilla/5.0 (compatible; Open Food Facts/$version; +https://world.$server_domain)");
+
+	return $ua;
 }
 
 1;

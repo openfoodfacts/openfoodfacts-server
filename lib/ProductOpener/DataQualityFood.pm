@@ -51,7 +51,6 @@ use ProductOpener::Config qw(:all);
 use ProductOpener::Store qw(get_string_id_for_lang);
 use ProductOpener::Tags qw(:all);
 use ProductOpener::Food qw(%categories_nutriments_per_country);
-use ProductOpener::EnvironmentalScore qw(is_environmental_score_extended_data_more_precise_than_agribalyse);
 use ProductOpener::Units qw(extract_standard_unit);
 
 use Data::DeepAccess qw(deep_exists);
@@ -1243,7 +1242,7 @@ sub check_nutrition_data ($product_ref) {
 					and not(defined $product_ref->{nutriments}{"starch_modifier"})
 				)
 				or
-				# with "<" symbo, check only that sugar or starch are not greater than carbohydrates
+				# with "<" symbol, check only that sugar or starch are not greater than carbohydrates
 				(
 					(
 						(
@@ -1280,12 +1279,93 @@ sub check_nutrition_data ($product_ref) {
 				"en:nutrition-sugars-plus-starch-greater-than-carbohydrates";
 		}
 
+		# sugar + starch + fiber cannot be greater than total carbohydrates
+		# do not raise error if sugar, starch or fiber contains "<" symbol (see issue #9267)
+		if (
+			(defined $product_ref->{nutriments}{"carbohydrates-total_100g"})
+			and (
+				# without "<" symbol, check sum of sugar, starch and fiber is not greater than carbohydrates
+				(
+					(
+						(
+							(
+								(defined $product_ref->{nutriments}{"sugars_100g"})
+								? $product_ref->{nutriments}{"sugars_100g"}
+								: 0
+							) + (
+								(defined $product_ref->{nutriments}{"starch_100g"})
+								? $product_ref->{nutriments}{"starch_100g"}
+								: 0
+							) + (
+								(defined $product_ref->{nutriments}{"fiber_100g"})
+								? $product_ref->{nutriments}{"fiber_100g"}
+								: 0
+							)
+						) > ($product_ref->{nutriments}{"carbohydrates-total_100g"}) + 0.001
+					)
+					and not(defined $product_ref->{nutriments}{"sugar_modifier"})
+					and not(defined $product_ref->{nutriments}{"starch_modifier"})
+					and not(defined $product_ref->{nutriments}{"fiber_modifier"})
+				)
+				or
+				# with "<" symbol, check only that sugar, starch or fiber are not greater than carbohydrates
+				(
+					(
+						(
+								(defined $product_ref->{nutriments}{"sugar_modifier"})
+							and ($product_ref->{nutriments}{"sugar_modifier"} eq "<")
+						)
+						and (
+							(
+								(defined $product_ref->{nutriments}{"sugars_100g"})
+								? $product_ref->{nutriments}{"sugars_100g"}
+								: 0
+							) > ($product_ref->{nutriments}{"carbohydrates-total_100g"}) + 0.001
+						)
+					)
+					or (
+						(
+								(defined $product_ref->{nutriments}{"starch_modifier"})
+							and ($product_ref->{nutriments}{"starch_modifier"} eq "<")
+						)
+						and (
+							(
+								(defined $product_ref->{nutriments}{"starch_100g"})
+								? $product_ref->{nutriments}{"starch_100g"}
+								: 0
+							) > ($product_ref->{nutriments}{"carbohydrates-total_100g"}) + 0.001
+						)
+					)
+					or (
+						(
+								(defined $product_ref->{nutriments}{"fiber_modifier"})
+							and ($product_ref->{nutriments}{"fiber_modifier"} eq "<")
+						)
+						and (
+							(
+								(defined $product_ref->{nutriments}{"fiber_100g"})
+								? $product_ref->{nutriments}{"fiber_100g"}
+								: 0
+							) > ($product_ref->{nutriments}{"carbohydrates-total_100g"}) + 0.001
+						)
+					)
+				)
+			)
+			)
+		{
+
+			push @{$product_ref->{data_quality_errors_tags}},
+				"en:nutrition-sugars-plus-starch-plus-fiber-greater-than-carbohydrates-total";
+		}
+
 		# sum of nutriments that compose sugar can not be greater than sugar value
 		if (defined $product_ref->{nutriments}{sugars_100g}) {
 			my $fructose
 				= defined $product_ref->{nutriments}{fructose_100g} ? $product_ref->{nutriments}{fructose_100g} : 0;
 			my $glucose
 				= defined $product_ref->{nutriments}{glucose_100g} ? $product_ref->{nutriments}{glucose_100g} : 0;
+			my $galactose
+				= defined $product_ref->{nutriments}{galactose_100g} ? $product_ref->{nutriments}{galactose_100g} : 0;
 			my $maltose
 				= defined $product_ref->{nutriments}{maltose_100g} ? $product_ref->{nutriments}{maltose_100g} : 0;
 			# sometimes lactose < 0.01 is written below the nutrition table together whereas
@@ -1302,9 +1382,10 @@ sub check_nutrition_data ($product_ref) {
 				}
 			}
 
-			my $total_sugar = $fructose + $glucose + $maltose + $lactose + $sucrose;
+			my $total_sugar = $fructose + $glucose + $galactose + $maltose + $lactose + $sucrose;
 
 			if ($total_sugar > $product_ref->{nutriments}{sugars_100g} + 0.001) {
+				# strictly speaking: also includes galactose, despite the label name
 				push @{$product_ref->{data_quality_errors_tags}},
 					"en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars";
 			}
@@ -2711,24 +2792,6 @@ sub check_environmental_score_data ($product_ref) {
 				push @{$product_ref->{data_quality_warnings_tags}}, 'en:environmental-score-' . $warning;
 			}
 		}
-	}
-
-	# Extended Environmental-Score data from impact estimator
-	if (defined $product_ref->{environmental_score_extended_data}) {
-
-		push @{$product_ref->{data_quality_info_tags}}, 'en:environmental-score-extended-data-computed';
-
-		if (is_environmental_score_extended_data_more_precise_than_agribalyse($product_ref)) {
-			push @{$product_ref->{data_quality_info_tags}},
-				'en:environmental-score-extended-data-more-precise-than-agribalyse';
-		}
-		else {
-			push @{$product_ref->{data_quality_info_tags}},
-				'en:environmental-score-extended-data-less-precise-than-agribalyse';
-		}
-	}
-	else {
-		push @{$product_ref->{data_quality_info_tags}}, 'en:environmental-score-extended-data-not-computed';
 	}
 
 	return;

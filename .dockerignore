@@ -1,4 +1,5 @@
 node_modules
+deps/
 .devcontainer
 .git
 .github
@@ -40,4 +41,4 @@ packager-codes/*.csv
 packager-codes/*.tsv
 packager-codes/*.py
 packager-codes/*.json
-taxonomies*/**/*.sto
+taxonomies*/**/*.json

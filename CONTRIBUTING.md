@@ -22,7 +22,7 @@ Get started running server in development mode, see [Dev environment quick start
      Example: **fix: Add toast warning in `MainActivity.java` Fixes #529**
    * We are following [conventional commit](https://www.conventionalcommits.org/en/v1.0.0-beta.2/)
      with a [set of standard prefixes](https://github.com/commitizen/conventional-commit-types/blob/master/index.json)
-     (`fix`, `feat`, `doc`, `build`, `test`…),
+     (`fix`, `feat`, `docs`, `build`, `test`…), ([full list for the server](https://github.com/openfoodfacts/openfoodfacts-server/blob/main/.github/workflows/semantic-pr.yml))
      with the addition of:
      * `l10n` for translations
      * `taxonomy` for PR modifying a taxonomy
