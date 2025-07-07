@@ -313,60 +313,22 @@
 
 								
 
-<section id="donation-banner-top" class="donation-banner row">
-  <div class="donation-banner__left-aside">
-    <div class="donation-banner__hook-section">
-      <p>Aidez-nous à informer des millions de consommateurs à travers le monde sur ce qu'ils mangent</p>
-    </div>
-    <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="group photo donation 2024" />
-  </div>
-  <div>
-    <div class="donation-banner__aside">
-      <div class="donation-banner__main-section">
-        <img
-          width="50"
-          height="50"
-          src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
-          alt="open food facts logo"
-        />
-        <h3 class="donation-banner__main-title">Merci de contribuer à notre collecte de fonds 2025</h3>
-      </div>
-      <div style="padding:1rem;">
-        <p>Vos dons financent le fonctionnement quotidien de notre association à but non lucratif :</p>
-        <ul>
-          <li>
-            garder notre base de données ouverte et accessible à tous,
-            <ul>
-              <li>infrastructure technique (site web/application mobile) et une petite équipe permanente</li>
-            </ul>
-          </li>
-          <li>
-            <p>rester indépendant de l'industrie alimentaire,</p>
-          </li>
-          <li>
-            <p>mobiliser une communauté de citoyens engagés,</p>
-          </li>
-          <li>
-            <p>soutenir l’avancement de la recherche en santé publique.</p>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="donation-banner__actions-section">
-      <div class="donation-banner__actions-section__financial">
-        <p>
-          
-          (déductible à 66 % de vos impôts: ex. un don de 20€ vous reviendra à 6,80€)
-          
-        </p>
-      </div>
-      <div class="donation-banner__actions-section__donate-button">
-        <a href="//open-food-facts.assoconnect.com/collect/description/476750-c-faire-un-don-a-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2024-a&utm_term=en-text-button">
-          <button>JE SOUTIENS</button>
-        </a>
-      </div>
-    </div>
-  </div>
+
+<section id="donation-banner-top" class="row" style="position:relative">
+  
+  <a href="//connect.openfoodfacts.org/fr/event/open-food-facts-days-2025-30/register">
+    <img src="/images/misc/donation-banners/off-days-2025-fr.1280x191.png"
+       alt="Journées Open Food Facts 2025"
+       width="1280"
+       height="191" class="show-for-medium-up"/>
+       <img src="/images/misc/donation-banners/off-days-2025-fr.mobile.png"
+       alt="Journées Open Food Facts 2025"
+       width="1280"
+       height="477" class="show-for-small-only"/>       
+  </a>  
+  
+
+
   <div class="donation-banner__close">
     <button id="hide-donate-banner" class="material-icons modest" onclick="DonationButton();" onkeypress="DonationButton();">close</button>
   </div>
@@ -399,11 +361,11 @@
   }
 
   function DonationButton() {
-    setBannerCookie('off_donation_banner_2024_a', 1, 180);
+    setBannerCookie('off_days_2025', 1, 180);
     bannerID.style.display = 'none';
   }
 
-  if (getBannerCookie('off_donation_banner_2024_a') !== '') {
+  if (getBannerCookie('off_days_2025') !== '') {
     bannerID.style.display = 'none';
   } else {
     bannerID.style.display = 'flex';
@@ -1474,15 +1436,19 @@ can_use_cache:
 Cache-Control: no-cache
 platform: public
 can_use_cache: 
-no_off_query: 
-off_query: 
+off_query: 1
 platform: public
 query_url: //query:5510
 can_use_off_query: 1
 count tags using off_query
 count_documents using MongoDB
 set_cache_results: updated
-off_query parameter not set, or not sorting by popularity_key: not using off_query
+off_query: 1
+platform: public
+query_url: //query:5510
+can_use_off_query: 1
+using off_query
+no results from off_query
 got results from MongoDB
 set_cache_results: updated
 -->

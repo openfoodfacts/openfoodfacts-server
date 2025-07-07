@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2025 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -61,6 +61,7 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Data qw/get_products_collection/;
 use ProductOpener::Data qw/:all/;
+use ProductOpener::HTTP qw/create_user_agent/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -69,8 +70,7 @@ use Encode;
 use JSON::MaybeXS;
 use Getopt::Long;
 
-use LWP::UserAgent;
-my $ua = LWP::UserAgent->new;
+my $ua = create_user_agent();
 
 # Initial settings
 my $max_sendings = 10;    # maximum number of alerts sent by the bot
