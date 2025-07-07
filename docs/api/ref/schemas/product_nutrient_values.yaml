@@ -1,0 +1,103 @@
+type: object
+description: |
+  Quantity of sodium
+
+  (per 100g, per 100ml or per serving) in a standard unit (g or ml)
+properties:
+  value_string:
+    type: string
+    description: |
+        todo
+    examples:
+      - "2.0"
+      - "4.1"
+  value:
+    type: number
+    description: |
+      todo
+    examples:
+      - 2
+      - 4.1
+  unit:
+    type: string
+    description: |
+        The unit of the value entered by the contributor (a user or the manufacturer), for the product as sold (not prepared).
+        In most cases, this unit is the unit displayed on the product for the nutrient, but it is not guaranteed, as some apps may force specific units when writing nutrient values.          
+
+        The possible values depends on the nutrient.
+
+        * `g` for grams
+        * `mg` for milligrams
+        * `μg` for micrograms
+        * `cl` for centiliters
+        * `ml` for mililiters
+        * `dv` for recommended daily intakes (aka [Dietary Reference Intake](https://en.wikipedia.org/wiki/Dietary_Reference_Intake))
+        * `% vol` for alcohol vol per 100 ml
+
+        🤓 code: see the [Units module][units-module],
+        and [Food:default_unit_for_nid function][default-unit]
+
+        [units-module]: https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Units.html
+        [default-unit]: https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Food.html#default_unit_for_nid_(_%24nid)
+
+        **Note**: For most use cases, you should not use this unit, as it can change depending on how the value was entered.
+        Instead use the `<nutrient>_100g` or `<nutrient>_serving` fields, and convert them to the unit you need.
+    enum:
+      [
+        "公斤",
+        "公升",
+        "kg",
+        "кг",
+        "l",
+        "л",
+        "毫克",
+        "mg",
+        "мг",
+        "mcg",
+        "µg",
+        "oz",
+        "fl oz",
+        "dl",
+        "дл",
+        "cl",
+        "кл",
+        "斤",
+        "g",
+        "",
+        " ",
+        "kJ",
+        "克",
+        "公克",
+        "г",
+        "мл",
+        "ml",
+        "mmol/l",
+        "毫升",
+        "% vol",
+        "ph",
+        "%",
+        "% dv",
+        "% vol (alcohol)",
+        "iu",
+        "mol/l",
+        "mval/l",
+        "ppm",
+        "�rh",
+        "�fh",
+        "�e",
+        "�dh",
+        "gpg",
+      ]
+  modifier:
+    type: string
+    enum: ["<", "<=", "~", ">=", ">"]
+    description: |
+      todo (this property is optional)
+  source:
+    type: string
+    description: |
+      todo
+    examples:
+      - packaging
+      - manufacturer
+      - estimate
