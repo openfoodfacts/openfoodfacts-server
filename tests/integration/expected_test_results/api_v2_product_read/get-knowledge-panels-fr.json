@@ -2017,29 +2017,14 @@
          "product_card" : {
             "elements" : [
                {
-                  "elements" : [],
-                  "title" : "Marques",
-                  "type" : "panel"
-               },
-               {
                   "elements" : [
                      {
-                        "title" : "France",
-                        "type" : "panel"
+                        "title" : "Bio",
+                        "type" : "panel",
+                        "url" : "/facets/labels/bio"
                      }
                   ],
-                  "title" : "Origin of product",
-                  "type" : "panel"
-               },
-               {
-                  "elements" : [
-                     {
-                        "content" : "http://static.openfoodfacts.localhost/facets/labels/en:organic",
-                        "title" : "en:organic",
-                        "type" : "panel"
-                     }
-                  ],
-                  "title" : "Labels, certifications, récompenses",
+                  "title" : "labels",
                   "type" : "panel"
                }
             ],

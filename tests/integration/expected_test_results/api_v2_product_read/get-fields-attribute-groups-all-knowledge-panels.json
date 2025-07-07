@@ -3451,29 +3451,14 @@
          "product_card" : {
             "elements" : [
                {
-                  "elements" : [],
-                  "title" : "Brands",
-                  "type" : "panel"
-               },
-               {
                   "elements" : [
                      {
-                        "title" : "France",
-                        "type" : "panel"
+                        "title" : "Organic",
+                        "type" : "panel",
+                        "url" : "/facets/labels/organic"
                      }
                   ],
-                  "title" : "Origin of product",
-                  "type" : "panel"
-               },
-               {
-                  "elements" : [
-                     {
-                        "content" : "http://static.openfoodfacts.localhost/facets/labels/en:organic",
-                        "title" : "en:organic",
-                        "type" : "panel"
-                     }
-                  ],
-                  "title" : "Labels, certifications, awards",
+                  "title" : "labels",
                   "type" : "panel"
                }
             ],
