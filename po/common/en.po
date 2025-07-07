@@ -652,6 +652,14 @@ msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
 msgstr "Your account parameters have been changed."
 
+msgctxt "edit_user_preferences"
+msgid "Preferences"
+msgstr "Preferences"
+
+msgctxt "edit_user_preferences_result"
+msgid "Your preferences have been changed."
+msgstr "Your preferences have been changed."
+
 msgctxt "editors_p"
 msgid "editors"
 msgstr "editors"
@@ -5035,6 +5043,10 @@ msgctxt "number_of_members"
 msgid "Number of Members"
 msgstr "Number of Members"
 
+msgctxt "serial_no"
+msgid "S.No"
+msgstr "S.No"
+
 msgctxt "contact_form"
 msgid "Contact form"
 msgstr "Contact form"
@@ -6656,6 +6668,38 @@ msgctxt "api_message_unrecognized_value"
 msgid "Unrecognized value"
 msgstr "Unrecognized value"
 
+msgctxt "api_message_image_already_uploaded"
+msgid "Image already uploaded"
+msgstr "Image already uploaded"
+
+msgctxt "api_message_image_too_small"
+msgid "Image too small"
+msgstr "Image too small"
+
+msgctxt "api_result_image_uploaded"
+msgid "Image uploaded"
+msgstr "Image uploaded"
+
+msgctxt "api_result_image_not_uploaded"
+msgid "Image not uploaded"
+msgstr "Image not uploaded"
+
+msgctxt "api_result_image_selected"
+msgid "Image selected"
+msgstr "Image selected"
+
+msgctxt "api_result_image_not_selected"
+msgid "Image not selected"
+msgstr "Image not selected"
+
+msgctxt "api_result_image_deleted"
+msgid "Image deleted"
+msgstr "Image deleted"
+
+msgctxt "api_result_image_not_deleted"
+msgid "Image not deleted"
+msgstr "Image not deleted"
+
 msgctxt "api_impact_none"
 msgid "None"
 msgstr "None"
@@ -7394,6 +7438,10 @@ msgstr "Add products with a category, ingredients list and nutrition facts to di
 msgctxt "in_contact_with_food"
 msgid "In contact with food"
 msgstr "In contact with food"
+
+msgctxt "oidc_signin_no_cookie"
+msgid "You need to enable cookies to sign in."
+msgstr "You need to enable cookies to sign in."
 
 msgctxt "contact_us_producers"
 msgid "Contact Us"

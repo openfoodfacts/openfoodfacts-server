@@ -88,7 +88,13 @@ properties:
       It should be the value as displayed on the product. The ℮ sign is allowed.
       When it refers to the number of portions, it can be filled without any units (e.g. "6 eggs").
     example: "3 x 150 g"
-
+  schema_version:
+    type: integer
+    description: |
+      Version of the product object schema used in the response.
+      This indicates the structure of the 'product' field itself.
+      For more details, please read: https://openfoodfacts.github.io/openfoodfacts-server/api/ref-api-and-product-schema-change-log
+    example: 999
 
 patternProperties:
   abbreviated_product_name_(?<language_code>\w\w):
