@@ -31,8 +31,6 @@ is(
 	'"<a href=\"https://agribalyse.ademe.fr/app/aliments/[% product.environmental_score_data.agribalyse.code %]\">"'
 );
 
-
-
 load_data();
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
@@ -40,8 +38,7 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 my @tests = (
 	{
 		'id' => 'en-nutriscore-serving-size-error',
-		'product' =>
-		{
+		'product' => {
 			lc => "en",
 			categories => "biscuits",
 			categories_tags => ["en:biscuits"],
@@ -138,6 +135,5 @@ foreach my $test_ref (@tests) {
 		fail("could not load $expected_result_dir/$testid.json");
 	}
 }
-
 
 done_testing();
