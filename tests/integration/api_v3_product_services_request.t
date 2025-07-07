@@ -21,49 +21,56 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 # Sample product
 
 my $product_ref = {
-    product_name => "My hazelnut spread",
-    product_name_fr => "Ma pâte aux noisettes",
-    ingredients => [
-        {
-            id => "en:sugar",
-            text => "Sucre",
-            vegan => "yes",
-            vegetarian => "yes"
-        },
-        {
-            ciqual_food_code => "16129",
-            from_palm_oil => "yes",
-            id => "en:palm-oil",
-            text => "huile de palme",
-            vegan => "yes",
-            vegetarian => "yes"
-        },
-        {
-            ciqual_food_code => "17210",
-            from_palm_oil => "no",
-            id => "en:hazelnut-oil",
-            percent => 13,
-            text => "huile de NOISETTES",
-            vegan => "yes",
-            vegetarian => "yes"
-        }
-    ]
+	product_name => "My hazelnut spread",
+	product_name_fr => "Ma pâte aux noisettes",
+	ingredients => [
+		{
+			id => "en:sugar",
+			text => "Sucre",
+			vegan => "yes",
+			vegetarian => "yes"
+		},
+		{
+			ciqual_food_code => "16129",
+			from_palm_oil => "yes",
+			id => "en:palm-oil",
+			text => "huile de palme",
+			vegan => "yes",
+			vegetarian => "yes"
+		},
+		{
+			ciqual_food_code => "17210",
+			from_palm_oil => "no",
+			id => "en:hazelnut-oil",
+			percent => 13,
+			text => "huile de NOISETTES",
+			vegan => "yes",
+			vegetarian => "yes"
+		}
+	]
 };
 
 # Make a call to an external product service
 # We use a Product Opener product service, but we call it as if it was an external service through HTTP
 
 my $services_url = construct_test_url("/api/v3/product_services");
+my $services_ref = ["estimate_ingredients_percent"];
 my $request_ref = {};
 init_api_response($request_ref);
 
-make_product_services_api_request ($request_ref, $product_ref, $services_url, ["estimate_ingredients_percent"], undef);
+# Following lines are for testing recipe-estimator connection, they should be commented out
+
+# $services_url = "https://recipe-estimator.openfoodfacts.net/api/v3/estimate_recipe_scipy";
+# following does not seem to work, maybe because recipe-estimator listens only to http://127.0.0.1:8000
+# $services_url = "http://host.docker.internal:8000/api/v3/estimate_recipe";
+# $services_ref = undef;
+
+make_product_services_api_request($request_ref, $product_ref, $services_url, $services_ref, undef);
 my $response_ref = $request_ref->{api_response};
 
 $test_id = "estimate_ingredients_percent";
 
 compare_to_expected_results($response_ref, "$expected_result_dir/$test_id.response.json", $update_expected_results);
 compare_to_expected_results($product_ref, "$expected_result_dir/$test_id.product.json", $update_expected_results);
-
 
 done_testing();

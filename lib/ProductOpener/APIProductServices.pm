@@ -113,18 +113,24 @@ sub make_product_services_api_request ($request_ref, $product_ref, $url, $servic
 		if $log->is_debug();
 
 	defined $request_ref->{api_response} or init_api_response($request_ref);
-	my $reponse_ref = $request_ref->{api_response};
 
 	my $response_ref = $request_ref->{api_response};
 
-	my $body_ref = {
-		product => $product_ref,
-		services => $services_ref,
-	};
+	my $body_ref = {product => $product_ref,};
+
+	if (defined $services_ref) {
+		$body_ref->{services} = $services_ref;
+	}
 
 	# If the caller requested specific fields, we will return only those fields
 	if (defined $fields_ref) {
 		$body_ref->{fields} = $fields_ref;
+	}
+
+	# hack: recipe-estimator currently expects the product at the root of the body
+	if ($url =~ /estimate_recipe/) {
+		# We will send the product as the root object
+		$body_ref = $product_ref;
 	}
 
 	my $ua = create_user_agent();
@@ -135,15 +141,19 @@ sub make_product_services_api_request ($request_ref, $product_ref, $url, $servic
 		"Content-Type" => "application/json; charset=utf-8",
 	);
 
-	if ($response->{status} eq 'error') {
+	if (not $response->is_success) {
 		$log->error("make_product_services_api_request - error response", {response => $response})
 			if $log->is_error();
 		add_error(
 			$response_ref,
 			{
 				message => {id => "external_service_error"},
-				field =>
-					{id => "services", value => join(", ", @$services_ref), url => $url, error => $response->{error}},
+				field => {
+					id => "services",
+					value => join(", ", @{$services_ref || []}),
+					url => $url,
+					error => $response->status_line
+				},
 				impact => {id => "failure"},
 			}
 		);
@@ -177,6 +187,13 @@ sub make_product_services_api_request ($request_ref, $product_ref, $url, $servic
 		};
 
 		# If the response is not an error, we expect it to be a valid product object
+
+		# hack: recipe-estimator currently returns the product at the root of the body
+		if ($url =~ /estimate_recipe/) {
+			if (not defined $decoded_json->{product}) {
+				$decoded_json = {product => $decoded_json};
+			}
+		}
 
 		my $response_product_ref = $decoded_json->{product};
 		if (not defined $response_product_ref) {

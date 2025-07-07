@@ -53,12 +53,14 @@ my $type = single_param('type') || 'add';
 my $action = single_param('action') || 'display';
 
 my $ingredients_text = remove_tags_and_quote(decode utf8 => single_param('ingredients_text'));
+my $estimator = single_param('estimator') || 'product_opener';
 
 my $html = '';
 $template_data_ref->{action} = $action;
 $template_data_ref->{type} = $type;
 
 $template_data_ref->{ingredients_text} = $ingredients_text;
+$template_data_ref->{estimator} = $estimator;
 
 if ($action eq 'process') {
 
@@ -68,11 +70,12 @@ if ($action eq 'process') {
 		lc => $lc,
 		"ingredients_text_$lc" => $ingredients_text,
 		"ingredients_text" => $ingredients_text,
+		nutriments => {},
 	};
 
 	clean_ingredients_text($product_ref);
 	$log->debug("extract_ingredients_from_text") if $log->is_debug();
-	extract_ingredients_from_text($product_ref);
+	extract_ingredients_from_text($product_ref, {estimate_ingredients_percent => $estimator});
 	$log->debug("extract_additives_from_text") if $log->is_debug();
 	extract_additives_from_text($product_ref);
 
