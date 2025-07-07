@@ -43,6 +43,8 @@
     - OPF_CLIENT_SECRET
     - OFF_PRO_CLIENT_SECRET
     - SLACK_HOOK_URLS
+    #11901: Remove once production is migrated
+    - SERIALIZE_TO_JSON
   depends_on:
     - memcached
   volumes:

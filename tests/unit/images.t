@@ -37,7 +37,7 @@ my @tests = (
 
 foreach my $test_ref (@tests) {
 
-	print STDERR $test_ref->[0] . " " . $test_ref->[1] . "\n";
+	# print STDERR $test_ref->[0] . " " . $test_ref->[1] . "\n";
 	my ($code, $imagefield) = get_code_and_imagefield_from_file_name($test_ref->[0], $test_ref->[1]);
 	is($code, $test_ref->[2]);
 	is($imagefield, $test_ref->[3]);

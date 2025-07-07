@@ -106,6 +106,10 @@ requires 'Imager::File::PNG';
 requires 'Imager::File::WEBP';
 
 # OIDC / OAuth
+# Note: (2025/06/18) in production (not Docker), we had to first install Crypt::OpenSSL::RSA
+# (required by OIDC::Lite)
+# with the Debian package as it had errors with building with cpan
+# then "cpanm --cpanfile cpanfile --installdeps ." worked
 requires 'OIDC::Lite';
 requires 'Crypt::JWT';
 

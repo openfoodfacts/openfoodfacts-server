@@ -84,9 +84,7 @@ if (not defined $code) {
 
 my $product_ref = retrieve_product($product_id);
 
-# the id field is of the form [image_type]_[image_lc]
-my $image_type;
-my $image_lc;
+# the id field is of the form [image_type]_[image_lc]
 my ($image_type, $image_lc) = get_image_type_and_image_lc_from_imagefield($id);
 if (not defined $image_type) {
 	my $data = encode_json(

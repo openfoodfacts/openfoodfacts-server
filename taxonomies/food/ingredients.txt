@@ -121,7 +121,7 @@ synonyms:pt: láctico, lático, lácteo
 stopwords:bg: съдържа, в, от, с, със, до, и, или, и/или, минимум, произведено с, с добавенo, включително, променливо, отношение, съотношение
 stopwords:bs: i, u promjenljivom odnosu
 stopwords:ca: i, de
-stopwords:da: og, eller, samt, av, af, blandt andet, bl a, inklusive, heraf, indeholder, tilsat
+stopwords:da: og, eller, samt, av, af, blandt andet, bl a, inklusive, heraf, indeholder, tilsat, ingredienser som i dette brød
 stopwords:de: Allergene Zutaten, und, mit, von, aus, enthält, enthalten, mindestens, naturbelassen, in veränderlichen gewichtsanteilen, wenig, min, max
 stopwords:el: περιέχει
 # example: "artificial flavouring substances", "natural and nature identical flavouring substances"
@@ -161,7 +161,7 @@ stopwords:pt: de, da, do, das, dos, com, e, ou, em, do qual, dos quais, contém,
 stopwords;ro: Produsul poate conține
 stopwords:sk: obsahuje
 stopwords:sl: vsebuje, sestavine
-stopwords:sv: och, eller, samt, av, bl a, bland annat, certifierad, droppar, en, for allergener, från, innehåller, innehållande, innehålle, ingredienser, inklusive, liten, maximum, med, minimum, några, skvätt, tillsatt, valio, varav, bäst före
+stopwords:sv: och, eller, samt, av, bl a, bland annat, certifierad, droppar, en, for allergener, från, innehåller, innehållande, innehålle, ingredienser, inklusive, liten, maximum, med, minimum, några, skvätt, tillsatt, valio, varav, bäst före, i varierande proportion
 stopwords:zh: :配料
 
 
@@ -3534,23 +3534,6 @@ ro: lapte degresat condensat indulcit
 sl: sladkano kondenzirano posneto mleko
 # ingredient/fr:lait-écrémé-condensé-sucré has 42 products in 4 languages @2019-04-18
 # usage:de: gezuckerte Kondensmagermilch (Milch, Zucker)
-
-< en:sweetened condensed milk
-en: sweetened condensed whole milk, Whole condensed milk with sugar
-ca: llet sencera condensada ensucrada
-da: sockrad kondenserad skummjölk
-de: gezuckerte Kondensvollmilch
-es: leche entera condensada azucadara
-fi: Makeutettu tiivistetty täysmaito
-fr: lait entier condensé sucré, lait entier concentré sucré, Lait concentré entier sucré
-hr: zaslađeno kondenzirano punomasno mlijeko
-hu: édesített sűrített teljes tej
-it: latte intero condensato zuccherato
-nl: gecondenseerde volle melk met suiker
-ciqual_food_code:en: 19027
-ciqual_food_name:en: Condensed milk, with sugar, whole
-ciqual_food_name:fr: Lait concentré sucré, entier
-# ingredient/fr:lait-entier-condensé-sucré has 37 products in 4 languages @2019-04-16
 
 < en:sweetened condensed milk
 en: sweetened condensed whole milk, Whole condensed milk with sugar
@@ -9053,7 +9036,7 @@ fr: Sel de l'Himalaya
 hr: himalajska sol
 it: Sale dell'Himalaya
 pl: Sól himalajska, soli himalajskiej
-ro: sare himalayana
+ro: sare himalayana, sare de himalaya
 ru: гималайская соль
 sr: хималajsка сол
 tr: Himalaya tuzu
@@ -9259,6 +9242,7 @@ fr: Sel de Guérande, sel marin de guérande, sel de Guérande IGP
 hr: sol iz guérande
 it: Sale di Guérande
 nl: Zout uit Guérande
+sv: Guérande-havssalt
 origins:en: en:france
 protected_name_type:en: en:pgi
 
@@ -10036,6 +10020,7 @@ ciqual_food_name:fr: Boeuf, queue, bouillie/cuite à l'eau
 
 < en:beef meat
 en: beef kidney, Raw beef kidney
+de: Rindernieren
 fr: Rognon de boeuf, Rognon de boeuf cru
 hr: govedi bubreg, goveđi bubreg
 it: rene di manzo
@@ -10191,10 +10176,6 @@ pl: flaki wołowe, żołądki wołowe
 en: beef lung
 de: Rinderlunge
 it: polmone di manzo
-
-< en:beef meat
-en: beef kidney
-de: Rindernieren
 
 < en:beef meat
 en: beef udder
@@ -16602,7 +16583,7 @@ bg: соево олио, соево масло
 ca: oli de soia, oli de soja, oli vegetal de soja
 cs: sójový olej
 da: Sojaolie
-de: Sojaöl, Sojabohnenöl, Sojafett
+de: Sojaöl, Sojabohnenöl, Sojafett, Sojabohnen Ôl
 eo: Sojoleo
 es: aceite de soja, aceite vegetal de soja
 eu: soja-olio
@@ -23533,6 +23514,11 @@ az: Manna yarması
 pl: kasza manna, kasza manna z pszenicy
 sr: griz
 
+< en:whole wheat
+en: whole wheat kernels
+da: fuldkornshvedekerner
+sv: fullkornskärnor av vete
+
 # Soft wheat
 
 < en:wheat
@@ -26487,6 +26473,11 @@ fr: épeautre perlé
 hr: biserni farro
 it: farro perlato
 
+< en:whole spelt
+en: whole spelt kernels
+da: fuldkornsspeltkerner
+se: fullkornskärnor av dinkelvete
+
 < en:cereal flour
 en: spelt flour, spelt wheat flour
 bg: брашно от спелта
@@ -26664,6 +26655,23 @@ it: farina integrale di teff avorio
 < en:teff
 fr: teff soufflé
 
+##################################################################################
+#
+#                        Mixed cereals
+#
+##################################################################################
+# description:en:MIXED CEREALS are ingredients specifying two or more cereal subingredients.
+
+< en:whole spelt kernels
+< en:whole wheat kernels
+en: whole spelt and wheat kernels
+da: fuldkornsspelt- og hvedekerner
+sv: fullkornskärnor av dinkelvete och vete
+
+< en:malted barley
+< en:wheat malt
+en: barley and wheat malt
+sv: malt av korn och vete
 
 ##################################################################################
 #
@@ -30753,7 +30761,7 @@ sv: råsocker
 en: unrefined cane sugar, raw cane sugar, unrefined raw cane sugar
 bg: нерафинирана тръстикова захар
 cs: nerafinovaný třtinový cukr
-da: rå rørsukker
+da: rå rørsukker, uraffineret rørsukker
 de: Rohrohrzucker, Roh-Rohrzucker, Rohr-rohzucker, roher Rohrzucker, Rohrrohzucker
 el: ακατέργαστη ζάχαρη ζαχαροκάλαμου
 es: Azucar de caña sin refinar, azucar de caña no refinada, azucar de caña en bruto
@@ -33939,6 +33947,7 @@ en: cocoa bean, cocoa beans, cacao bean
 af: Kakaoboon
 bg: какаови зърна
 ca: gra de cacau
+da: kakaobønne, kakaobønner
 de: Kakaobohne, Kakaobohnen
 es: Cacao en grano
 et: kakaooad, kakaopuu seemned
@@ -34809,7 +34818,7 @@ so: Biyo
 sq: Uji
 sr: Вода
 su: Cai
-sv: Vatten
+sv: vatten, bordsvatten
 sw: Maji
 ta: நீர்
 te: నీరు
@@ -34924,7 +34933,6 @@ vegetarian:en: yes
 wikidata:en: Q283
 wikipedia:en: https://en.wikipedia.org/wiki/Water
 
-
 < en:water
 en: distilled water
 bg: дестилирана вода
@@ -34935,6 +34943,8 @@ hr: destilirana voda
 it: acqua distillata
 pl: woda destylowana
 pt: Água destilada
+wikidata:en: Q274959
+wikipedia:en: https://en.wikipedia.org/wiki/Distilled_water
 
 < en:water
 en: water like ice wrap
@@ -34957,6 +34967,7 @@ wikipedia:de: https://de.wikipedia.org/wiki/Brauwasser
 < en:water
 en: spring water
 bg: изворна вода
+da: kildevand
 de: Quellwasser
 es: Agua de manantial
 fi: lähdevesi
@@ -34967,7 +34978,9 @@ it: acqua di fonte
 nl: bronwater
 pl: woda źródlana
 pt: Água de nascente
+sv: källvatten
 tr: kaynak suyu
+wikidata:en: Q1881858
 
 < en:spring water
 fr: eau de source St Benoît, Eau de source Saint Benoît
@@ -34975,6 +34988,7 @@ fr: eau de source St Benoît, Eau de source Saint Benoît
 < en:spring water
 en: natural spring water
 bg: натурална изворна вода
+da: naturligt kildevand
 de: natürliches Quellwasser
 es: agua de manantial natural
 fi: luontainen lähdevesi
@@ -34984,6 +34998,7 @@ it: acqua di sorgente naturale
 nl: natuurlijk bronwater
 pt: Água mineral natural
 ru: вода артезианская подготовленная
+sv: naturligt källvatten
 
 < en:spring water
 en: mountain spring water
@@ -35008,6 +35023,7 @@ hr: gazirana izvorska voda
 it: acqua di sorgente gassata
 nl: bruisend bronwater
 pt: água de nascente gaseificada
+sv: kolsyrat källvatten
 
 < en:carbonated spring water
 fr: eau de source St Benoît gazéifiée
@@ -35026,7 +35042,7 @@ br: Dour melar
 ca: Aigua mineral
 cs: Minerální voda, minerálka
 cy: Dŵr mwyn
-da: Mineralvand
+da: mineralvand
 de: Mineralwasser
 el: Μεταλλικό νερό
 eo: Mineralakvo
@@ -35066,7 +35082,7 @@ sh: Mineralna voda
 sk: Minerálna voda
 sl: Mineralna voda
 sr: Минерална вода
-sv: Mineralvatten
+sv: mineralvatten
 ta: கனிம நீர்
 th: น้ำแร่
 tr: Maden suyu
@@ -35077,11 +35093,13 @@ vi: Nước khoáng
 zh: 礦泉水
 # ast:Agua mineral
 # yue:礦泉水
+wikidata:en: Q178921
 wikipedia:en: https://en.wikipedia.org/wiki/Mineral_water
 
 < en:mineral water
 en: natural mineral water
 bg: натурална минерална вода
+da: naturligt mineralvand
 de: Natürliches Mineralwasser
 es: Agua Mineral natural
 fi: luontainen kivennäisvesi, luonnollinen mineraalivesi
@@ -35158,7 +35176,7 @@ ro: Sifon, Apa carbonatată, apa gazoasă, sifonul
 ru: Газированная вода
 si: Sifon, Apa carbonatată, apa gazoasă, sifonul
 sr: Сода вода
-sv: Bordsvatten, kolsyrat vatten
+sv: kolsyrat vatten
 ta: சோடா நீர்
 th: โซดา
 tr: Soda, sodalı su, karbonatlı su
@@ -35171,6 +35189,7 @@ zh: 碳酸水
 # hi:वातिल जल this needs to be checked
 # wuu:汽水
 # yue:荷蘭水
+wikidata:en: Q264554
 wikipedia:en: https://en.wikipedia.org/wiki/Carbonated_water
 
 < en:carbonated water
@@ -35224,6 +35243,7 @@ fr: Eau minérale naturelle renforcée au gaz de la source
 
 < en:water
 en: filtered water, purified water
+da: filtreret vand
 de: gefiltertes Wasser, gereinigtes Wasser
 es: agua filtrada, agua purificada, agua filtrada y purificada
 fi: suodatettu vesi, puhdistettu vesi
@@ -35235,7 +35255,7 @@ nl: gezuiverd water
 pl: Woda filtrowana
 pt: Água filtrada
 ru: Фильтрованная вода
-sv: Filterat vatten
+sv: filtrerat vatten
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:eau-filtrée
 # 134 products in 2 languages @2018-09-29
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:eau-purifiée
@@ -35598,6 +35618,11 @@ it: fagioli di soia decorticati
 en: GMO-free hulled soya bean
 fr: fèves de soja sans ogm décortiquées
 # fr:fèves-de-soja-sans-ogm-décortiquées has 31 products in 5 languages @2018-09-25
+
+< en:soya bean
+en: black soy bean
+de: Schwarze Sojabohnen
+fr: soja noir
 
 < en:soya bean
 en: green soy bean
@@ -36445,6 +36470,11 @@ sv: surdeg på råg och durumvete
 en: whole rye and durum wheat sourdough
 sv: surdeg på fullkornsråg och fullkornsdurumvete
 
+< en:wheat sourdough
+< en:whole rye sourdough
+en: wheat and whole rye sourdough
+sv: surdeg på fullkornsråg och vete
+
 < en:sourdough
 nl: speltzuurdesempoeder
 
@@ -36954,8 +36984,9 @@ sv: frukt- och plantkoncentrat
 
 # Is an AGGREGATE ingredient, i.e.:concentrés de fruits (framboise, orange, citron)
 
-< en:fruit
 #<en:compound
+< en:concentrate
+< en:fruit
 < en:preparation
 en: fruit concentrate, fruit concentrates
 bg: плодов концентрат
@@ -36970,6 +37001,7 @@ pt: concentrados de fruta, concentrados de fruto, concentrados de frutas, concen
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:concentrés-de-fruits
 # 42 products in 3 languages @2018-10-04
 
+< en:concentrate
 < en:plant
 en: plant concentrate, plant concentrates
 da: plantekoncentrater
@@ -43649,6 +43681,7 @@ sv: fläderbärsjuice
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-sureau
 # 52 products @2018-09-29
 
+< en:concentrate
 < en:elderberry juice
 en: elderberry juice concentrate, concentrated elderberry juice
 de: konzentrierter Holundersaft
@@ -46153,6 +46186,7 @@ pl: sok truskawkowy, sok z truskawki, sok z truskawek
 pt: Suco de morango, sumo de morango
 sv: jordgubbsjuice, jordgubbssaft
 
+< en:concentrate
 < en:strawberry juice
 en: strawberry juice concentrate, concentrated strawberry juice
 de: erdbeersaftkonzentrat
@@ -48241,6 +48275,7 @@ fr: fibres de légume
 fi: kasviskuitu
 
 
+< en:concentrate
 < en:vegetable
 en: vegetable concentrate, vegetable concentrates
 da: grøntsagskoncentrat
@@ -54973,6 +55008,7 @@ en: beetroot powder
 #de:Rote-Bete-Pulver, färbendes Lebensmittel Rote-Bete-Pulver, Rote Beete-Pulver, Randenpulver
 de: färbendes Lebensmittel Rote Bete Pulver
 it: polvere di barbabietola
+ro: pudră de sfeclă roșie
 #es:remolacha en polvo
 #fi:punajuurijauhe
 #fr:poudre de betterave
@@ -56087,7 +56123,7 @@ pa: ਮਿਰਚ
 pl: papryka chili, chili, chilli, papryczka chili, papryczki chili, papryka chilli, papryka pepperoni, ostra papryka pepperoni
 pt: chili
 qu: Utsu
-ro: Chili
+ro: chili, ardei iute
 ru: перец чили
 sa: मरीचिका
 sd: ڳاڙھا مرچ
@@ -57089,6 +57125,7 @@ nl: half ingedikte tomatenpuree
 fr: purée de tomates mi-réduite reconstituée
 
 #category/tomato-pastes
+< en:concentrate
 < en:tomato
 en: tomato concentrate, tomato paste
 bg: доматен концентрат, концентрат от домати
@@ -59572,6 +59609,7 @@ nl: kikkererwtenmeel, besan, gram-meel
 nn: kikertmel
 pa: ਬੇਸਨ
 pl: mąka z ciecierzycy
+ro: făină de năut
 ru: нутовая мука
 sa: चणकपिष्टम्
 sk: mleté cicerové bôby
@@ -62623,6 +62661,7 @@ or: ସୁର୍ଯ୍ୟମୂଖୀ ମଞ୍ଜି
 pa: ਸੂਰਜਮੁਖੀ ਦੇ ਬੀਜ
 pl: nasiona słonecznika, ziarna słonecznika, pestki słonecznika, nasion słonecznika, ziaren słonecznika, ziarno słonecznika
 pt: Semente de girassol
+ro: semințe de floarea soarelui
 ru: Семена Подсолнечника
 sk: slnečnicové jadierka
 sl: sončnicina Semena
@@ -62697,6 +62736,7 @@ nl: lijnzaad
 nn: linfrø
 pl: Siemię lniane, nasiona lnu, siemienia lnianego, nasion lnu
 pt: linhaça
+ro: semințe de in
 ru: семена льна
 sv: linfrön, linfrö
 tr: keten
@@ -62728,12 +62768,14 @@ it: semi di lino giallo
 nl: geel lijnzaad, lijnzaad geel
 pl: siemię lniane złote
 pt: sementes de linho amarelo
+sv: gula linfrö
 wikidata:en: none
 #ingredient/golden-flax-seeds 407 in 7 @2021-08-20
 
 < en:flax seed
 en: brown flax seeds, brown linseed, Brown flaxseed
 bg: кафяво ленено семе, кафяв лен
+da: brune hørfrø
 de: brauner Leinsamen
 es: linaza marron, lino marron
 fi: ruskeat pellavansiemenet
@@ -62743,6 +62785,7 @@ it: semi di lino scuro
 nl: bruin lijnzaad
 nn: brune linfrø
 pl: siemię lniane brązowe
+sv: bruna linfrö
 ciqual_food_code:en: 15052
 ciqual_food_name:en: Flaxseed, brown
 ciqual_food_name:fr: Lin, brun, graine
@@ -62809,6 +62852,10 @@ ciqual_proxy_food_name:fr: Poivre noir, poudre
 # pt-br:pimenta
 # sgs:Pėpėrā
 wikidata:en: Q3143131
+
+< en:pepper
+en: pepper mix
+ro: mix de piper
 
 < en:pepper
 en: peppercorns
@@ -65460,7 +65507,7 @@ sk: Horčica
 sl: Gorčica
 sq: mustardë kuzhine
 sr: сенф
-sv: senap
+sv: senap, senaps
 ta: கடுகு
 th: มัสตาร์ด
 tr: hardal
@@ -70020,6 +70067,7 @@ it: fiore di cartamo
 pl: kwiat krokosza barwierskiego, kwiatu krokosza barwierskiego
 # ingredient/fr:fleur-de-carthame has 34 products in 4 languages @2019-03-13
 
+< en:concentrate
 < en:safflower
 en: safflower concentrate, carthamus concentrate
 de: Saflorkonzentrat, Saflorextrakt, färbendes Saflorkonzentrat
@@ -71659,6 +71707,7 @@ pl: sproszkowana spirulina, spirulina w proszku
 
 # description:en:SPIRULINA CONCENTRATE is a color additive in multiple applications including ice cream, desserts, toppings, yoghurts and ready-to-eat cereals.
 
+< en:concentrate
 < en:spirulina
 en: spirulina concentrate, spirulina extract
 de: Spirulina-konzentrat, Spirulinakonzentrat
@@ -86353,6 +86402,17 @@ de: färbende Gemüsekonzentrate
 
 # description:en:CONCENTRATE is the form of substance which has had the majority of its base component (in the case of a liquid: the solvent) removed
 
+# TODO: improve parsing so this can live in processing only.
+# See comments on https://github.com/openfoodfacts/openfoodfacts-server/pull/12031
+en: concentrate
+hr: koncentrat
+nb: konsentrat
+sv: koncentrat
+# ingredients/en:concentrate has 288 products @2025-06-15
+vegan:en: maybe
+vegetarian:en: maybe
+wikidata:en: Q1355665
+
 # <en:part
 < en:extract
 en: concentrated extract
@@ -86360,9 +86420,9 @@ de: Extraktkonzentrat
 es: extracto concentrado
 fi: uutetiiviste
 fr: extrait concentré
-hr: koncentrat
 it: estratto concentrato
 # ingredient/fr:extrait-concentré has 31 products @2019-02-15
+# ingredients/en:concentrated-extract has 45 products @2025-06-15
 # concentrated extract (safflower flower)
 
 # description:en:PURÉE is cooked food, that has been ground, pressed, blended or sieved to the consistency of a soft creamy paste
@@ -89176,7 +89236,7 @@ be: Паніровачныя сухары
 bg: Галета, панировка
 ca: pa ratllat, farina de galeta
 cs: strouhanka
-da: Rasp, panering, krydret panering
+da: rasp, panering, krydret panering
 de: Paniermehl, Panur, Semmelbrösel
 el: ψίχουλα ψωμιού
 eo: raspaĵo
@@ -89230,6 +89290,11 @@ es: pan rallado integral
 hr: integralne prezle
 it: pangrattato integrale
 pt: pão ralado integral, pão integral ralado
+
+< en:breadcrumbs
+< en:rye bread
+en: rye bread breadcrumbs
+da: rugbrødsrasp
 
 < en:breadcrumbs
 fr: chapelure de blé

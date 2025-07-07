@@ -46,6 +46,7 @@ BEGIN {
 		$admin_email
 		$producers_email
 
+		$tesseract_ocr_available
 		$google_cloud_vision_api_key
 		$google_cloud_vision_api_url
 
@@ -99,6 +100,7 @@ BEGIN {
 		@edit_rules
 
 		$build_cache_repo
+		$serialize_to_json
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -425,6 +427,7 @@ $sftp_root = $ProductOpener::Config2::sftp_root;    # might be undef
 
 $geolite2_path = $ProductOpener::Config2::geolite2_path;
 
+$tesseract_ocr_available = $ProductOpener::Config2::tesseract_ocr_available;
 $google_cloud_vision_api_key = $ProductOpener::Config2::google_cloud_vision_api_key;
 $google_cloud_vision_api_url = $ProductOpener::Config2::google_cloud_vision_api_url;
 
@@ -461,6 +464,9 @@ $rate_limiter_blocking_enabled = $ProductOpener::Config2::rate_limiter_blocking_
 %server_options = %ProductOpener::Config2::server_options;
 
 $build_cache_repo = $ProductOpener::Config2::build_cache_repo;
+
+#11901: Remove once production is migrated
+$serialize_to_json = $ProductOpener::Config2::serialize_to_json;
 
 $reference_timezone = 'Europe/Paris';
 

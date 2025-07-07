@@ -122,8 +122,8 @@ my $cursor = get_products_collection()->query({})->fields({ code => 1 })->sort({
 		
 		next if $path =~ /invalid/;
 
-		if (-e "$BASE_DIRS{PRODUCTS}/$path/product.sto") {
-			#store("$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref);		
+		if (object_exists("$BASE_DIRS{PRODUCTS}/$path/product")) {
+			#store_object("$BASE_DIRS{PRODUCTS}/$path/product", $product_ref);		
 			#get_products_collection()->save($product_ref);
 		
 			# print $OUT "<a href=\"" . product_url($product_ref) . "\">$product_ref->{code} - $product_ref->{name}</a> : " . join (" ", sort @{$product_ref->{$class . '_tags'}}) . "<br />\n";

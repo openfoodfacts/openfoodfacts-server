@@ -64,7 +64,7 @@ my $tests_ref = [
 	{
 		test_case => 'options-api-v3',
 		method => 'OPTIONS',
-		path => '/api/v3/product/0000002',
+		path => '/api/v3/product/1234567890123',
 		expected_status_code => 200,
 		headers => {
 			"Access-Control-Allow-Origin" => "*",
@@ -86,7 +86,7 @@ my $tests_ref = [
 	{
 		test_case => 'get-api-v3',
 		method => 'GET',
-		path => '/api/v3/product/0000002',
+		path => '/api/v3/product/1234567890123',
 		expected_status_code => 404,
 		headers => {
 			"Access-Control-Allow-Origin" => "*",
@@ -97,7 +97,7 @@ my $tests_ref = [
 	{
 		test_case => 'options-api-v2',
 		method => 'OPTIONS',
-		path => '/api/v2/product/0000002',
+		path => '/api/v2/product/1234567890123',
 		expected_status_code => 404,
 		headers => {
 			"Access-Control-Allow-Origin" => "*",
@@ -108,7 +108,7 @@ my $tests_ref = [
 	{
 		test_case => 'get-api-v2',
 		method => 'GET',
-		path => '/api/v2/product/0000002',
+		path => '/api/v2/product/1234567890123',
 		expected_status_code => 404,
 		headers => {
 			"Access-Control-Allow-Origin" => "*",
