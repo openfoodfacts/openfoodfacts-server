@@ -135,7 +135,7 @@ sub add_product_data_from_external_service ($request_ref, $product_ref, $url, $s
 		$body_ref = $product_ref;
 	}
 
-	my $ua = create_user_agent();
+	my $ua = create_user_agent(timeout => 10);
 
 	my $response = $ua->post(
 		$url,
