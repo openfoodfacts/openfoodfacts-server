@@ -177,7 +177,7 @@ To add a new environment variable `TEST`:
 * In a `.env` file, add `TEST=test_val` [local].
 * In `.github/workflows/container-deploy.yml`, add `echo "TEST=${{ secrets.TEST }}" >> .env` to the "Set environment variables" build step [remote]. Also add the corresponding GitHub secret `TEST=test_val`.
 * In `docker-compose.yml` file, add it under the `backend` > `environment` section.
-* In `conf/apache.conf` file, add `PerlPassEnv TEST`.
+* In `conf/apache-2.4/modperl.conf` file, add `PerlPassEnv TEST`.
 * In `lib/Config2.pm`, add `$test = $ENV{TEST};`. Also add `$test` to the `EXPORT_OK` list at the top of the file to avoid a compilation error.
 
 The call stack goes like this:
