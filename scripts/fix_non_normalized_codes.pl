@@ -101,7 +101,7 @@ sub fix_non_normalized_sto ($product_path, $dry_run, $out) {
 		# print "product_path: $product_path - new_path: $new_path - product_id: $product_id - normalized_id: $normalized_id - is_duplicate: $is_duplicate - is_invalid: $is_invalid - path_from_old_id: $path_from_old_id\n";
 		# we could have different codes but the same path: EAN8 padded with 5 0s
 		# it happens in the test
-		if ($new_path eq $path_from_old_id) {
+		if (($new_path eq $path_from_old_id) and not $is_invalid) {
 			# we should change the code to the normalized code, store the new product, and remove the old code from MongoDB
 			move_product_to($product_path, $product_id, $normalized_id) unless $dry_run;
 			push(@actions, "Updated product in place: $product_id and $normalized_id have the same path $product_path");
