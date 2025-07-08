@@ -3480,7 +3480,7 @@ sub extract_ingredients_from_text ($product_ref, $services_ref = {}) {
 			and ($services_ref->{estimate_ingredients_percent} eq "recipe_estimator_glop"))
 		{
 			# Use the recipe estimator service
-			my $services_url = "https://recipe-estimator.openfoodfacts.net/api/v3/estimate_recipe";
+			my $services_url = $recipe_estimator_url;
 			my $services_ref = undef;
 			my $request_ref = {};
 			add_product_data_from_external_service({$request_ref}, $product_ref, $services_url, $services_ref, undef);
@@ -3489,7 +3489,7 @@ sub extract_ingredients_from_text ($product_ref, $services_ref = {}) {
 			and ($services_ref->{estimate_ingredients_percent} eq "recipe_estimator_scipy"))
 		{
 			# Use the recipe estimator service
-			my $services_url = "https://recipe-estimator.openfoodfacts.net/api/v3/estimate_recipe_scipy";
+			my $services_url = $recipe_estimator_scipy_url;
 			my $services_ref = undef;
 			my $request_ref = {};
 			add_product_data_from_external_service($request_ref, $product_ref, $services_url, $services_ref, undef);
