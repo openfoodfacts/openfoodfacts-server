@@ -6,7 +6,7 @@ use Test2::V0;
 use ProductOpener::APITest qw/execute_api_tests wait_application_ready construct_test_url/;
 use ProductOpener::Test qw/:all/;
 use ProductOpener::TestDefaults qw/:all/;
-use ProductOpener::APIProductServices qw/make_product_services_api_request/;
+use ProductOpener::APIProductServices qw/add_product_data_from_external_service/;
 use ProductOpener::API qw/init_api_response/;
 
 use File::Basename "dirname";
@@ -65,7 +65,7 @@ init_api_response($request_ref);
 # $services_url = "http://host.docker.internal:8000/api/v3/estimate_recipe";
 # $services_ref = undef;
 
-make_product_services_api_request($request_ref, $product_ref, $services_url, $services_ref, undef);
+add_product_data_from_external_service($request_ref, $product_ref, $services_url, $services_ref, undef);
 my $response_ref = $request_ref->{api_response};
 
 $test_id = "estimate_ingredients_percent";

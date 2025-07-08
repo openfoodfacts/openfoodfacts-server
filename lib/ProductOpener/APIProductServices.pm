@@ -78,7 +78,7 @@ use Log::Any qw($log);
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-		&make_product_services_api_request
+		&add_product_data_from_external_service
 		&product_services_api
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -98,17 +98,19 @@ use ProductOpener::HTTP qw/create_user_agent/;
 use JSON qw(decode_json encode_json);
 use Encode;
 
-=head2 make_product_services_api_request ($request_ref, $product_ref, $url, $services_ref)
+=head2 add_product_data_from_external_service ($request_ref, $product_ref, $url, $services_ref)
 
-Make a request to execute services on an external server using the product services API.
+Make a request to execute services on product on an external server using the product services API.
+
+The resulting fields are added to the product object.
 
 e.g. this function is used to run the percent estimation service on the recipe-estimator server.
 
 =cut
 
-sub make_product_services_api_request ($request_ref, $product_ref, $url, $services_ref, $fields_ref = undef) {
+sub add_product_data_from_external_service ($request_ref, $product_ref, $url, $services_ref, $fields_ref = undef) {
 
-	$log->debug("make_product_services_api_request - start",
+	$log->debug("add_product_data_from_external_service - start",
 		{request => $request_ref, url => $url, services_ref => $services_ref})
 		if $log->is_debug();
 
@@ -142,7 +144,7 @@ sub make_product_services_api_request ($request_ref, $product_ref, $url, $servic
 	);
 
 	if (not $response->is_success) {
-		$log->error("make_product_services_api_request - error response", {response => $response})
+		$log->error("add_product_data_from_external_service - error response", {response => $response})
 			if $log->is_error();
 		add_error(
 			$response_ref,
@@ -172,7 +174,7 @@ sub make_product_services_api_request ($request_ref, $product_ref, $url, $servic
 		} or do {
 			$json_decode_error = $@;
 			$log->error(
-				"make_product_services_api_request - error decoding JSON response",
+				"add_product_data_from_external_service - error decoding JSON response",
 				{response_content => $response_content, error => $json_decode_error}
 			) if $log->is_error();
 			add_error(
@@ -197,7 +199,7 @@ sub make_product_services_api_request ($request_ref, $product_ref, $url, $servic
 
 		my $response_product_ref = $decoded_json->{product};
 		if (not defined $response_product_ref) {
-			$log->error("make_product_services_api_request - response does not contain a product object",
+			$log->error("add_product_data_from_external_service - response does not contain a product object",
 				{response => $decoded_json})
 				if $log->is_error();
 			add_error(
@@ -219,7 +221,7 @@ sub make_product_services_api_request ($request_ref, $product_ref, $url, $servic
 
 	}
 
-	$log->debug("make_product_services_api_request - stop", {response => $response_ref}) if $log->is_debug();
+	$log->debug("add_product_data_from_external_service - stop", {response => $response_ref}) if $log->is_debug();
 
 	return;
 }

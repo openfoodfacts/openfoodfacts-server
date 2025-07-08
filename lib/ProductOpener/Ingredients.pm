@@ -119,7 +119,7 @@ use ProductOpener::Images qw/extract_text_from_image/;
 use ProductOpener::Lang qw/$lc %Lang lang/;
 use ProductOpener::Units qw/normalize_quantity/;
 use ProductOpener::Food qw/is_fat_oil_nuts_seeds_for_nutrition_score/;
-use ProductOpener::APIProductServices qw/make_product_services_api_request/;
+use ProductOpener::APIProductServices qw/add_product_data_from_external_service/;
 
 use Encode;
 use Clone qw(clone);
@@ -3483,7 +3483,7 @@ sub extract_ingredients_from_text ($product_ref, $services_ref = {}) {
 			my $services_url = "https://recipe-estimator.openfoodfacts.net/api/v3/estimate_recipe";
 			my $services_ref = undef;
 			my $request_ref = {};
-			make_product_services_api_request({$request_ref}, $product_ref, $services_url, $services_ref, undef);
+			add_product_data_from_external_service({$request_ref}, $product_ref, $services_url, $services_ref, undef);
 		}
 		elsif ( (defined $services_ref->{estimate_ingredients_percent})
 			and ($services_ref->{estimate_ingredients_percent} eq "recipe_estimator_scipy"))
@@ -3492,7 +3492,7 @@ sub extract_ingredients_from_text ($product_ref, $services_ref = {}) {
 			my $services_url = "https://recipe-estimator.openfoodfacts.net/api/v3/estimate_recipe_scipy";
 			my $services_ref = undef;
 			my $request_ref = {};
-			make_product_services_api_request($request_ref, $product_ref, $services_url, $services_ref, undef);
+			add_product_data_from_external_service($request_ref, $product_ref, $services_url, $services_ref, undef);
 		}
 		else {
 			estimate_ingredients_percent_service($product_ref, {}, []);
