@@ -133,7 +133,7 @@ sub make_product_services_api_request ($request_ref, $product_ref, $url, $servic
 		$body_ref = $product_ref;
 	}
 
-	my $ua = create_user_agent();
+	my $ua = create_user_agent(timeout => 10);
 
 	my $response = $ua->post(
 		$url,
