@@ -64,12 +64,8 @@ BEGIN {
 		$rate_limiter_blocking_enabled
 		$facets_kp_url
 		$redis_url
-<<<<<<< HEAD
 		$folksonomy_url
-=======
 		$process_global_redis_events
->>>>>>> main
-
 		$mongodb
 		$mongodb_host
 		$mongodb_timeout_ms
