@@ -5,10 +5,10 @@ properties:
   preparation:
     type: string
     enum:
-      - as sold
+      - as_sold
       - prepared
     description: |
-      Indicates whether the nutrition values refer to the product *as sold* or *prepared*.
+      Indicates whether the nutrition values refer to the product *as_sold* or *prepared*.
 
       The preparation state affects nutrient values.
   per:
