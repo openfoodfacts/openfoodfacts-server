@@ -10,7 +10,9 @@ properties:
       You can get all possible nutrients from the
       [nutrients taxonomy](https://static.openfoodfacts.org/data/taxonomies/nutrients.json)
 
-      **FIXME** add more nutrients with description.
+      New nutrients are regularly added.
+
+      Clients should not break if they encounter an unexpected nutrient to preserve compatibility.
     properties:
       acidity:
         description: |
