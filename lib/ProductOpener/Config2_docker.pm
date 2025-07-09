@@ -57,6 +57,8 @@ BEGIN {
 		$events_username
 		$events_password
 		$redis_url
+		$recipe_estimator_url
+		$recipe_estimator_scipy_url
 		$process_global_redis_events
 		%server_options
 		$build_cache_repo
@@ -136,6 +138,16 @@ $facets_kp_url = $ENV{FACETS_KP_URL};
 # Set this to your instance of the search service to enable writes to it
 $redis_url = $ENV{REDIS_URL};
 $process_global_redis_events = $ENV{PROCESS_GLOBAL_REDIS_EVENTS};
+
+# recipe-estimator product service
+# To test a locally running recipe-estimator with product opener in a docker dev environment:
+# - run recipe-estimator with `uvicorn recipe_estimator.main:app --reload --host 0.0.0.0`
+# $recipe_estimator_url = "http://host.docker.internal:8000/api/v3/estimate_recipe";
+$recipe_estimator_url = $ENV{RECIPE_ESTIMATOR_URL};
+$recipe_estimator_scipy_url = $ENV{RECIPE_ESTIMATOR_SCIPY_URL};
+
+#$recipe_estimator_url = "http://host.docker.internal:8000/api/v3/estimate_recipe";
+#$recipe_estimator_scipy_url = "http://host.docker.internal:8000/api/v3/estimate_recipe";
 
 %server_options = (
 	private_products => $producers_platform,    # 1 to make products visible only to the owner (producer platform)
