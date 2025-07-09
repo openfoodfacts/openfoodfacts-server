@@ -701,6 +701,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'glycemic-index-', 'water-hardness-',
 			'sulfate-', 'nitrate-',
 			'acidity-', 'carbohydrates-',
+			'melatonin-',
 		)
 	],
 	off_us_before_2017 => [
