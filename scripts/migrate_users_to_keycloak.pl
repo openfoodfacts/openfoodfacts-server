@@ -23,6 +23,7 @@
 use ProductOpener::PerlStandards;
 
 use ProductOpener::Auth qw/:all/;
+use ProductOpener::Checkpoint;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -49,7 +50,9 @@ my $keycloak = ProductOpener::Keycloak->new();
 my $keycloak_partialimport_endpoint = $keycloak->{users_endpoint} =~ s/\/users/\/partialImport/r;
 
 my $user_emails = undef;
-my ($checkpoint_file, $checkpoint) = open_checkpoint('migrate_users_to_keycloak_checkpoint.tmp');
+my $checkpoint = ProductOpener::Checkpoint->new;
+my $last_processed_email = $checkpoint->{value};
+my $resume = defined $last_processed_email;
 
 sub create_user_in_keycloak_with_scrypt_credential ($keycloak_user_ref) {
 	my $json = encode_json($keycloak_user_ref);
@@ -112,7 +115,13 @@ sub convert_to_keycloak_user ($userid, $email, $anonymize) {
 	my $keycloak_user_ref;
 	eval {
 		my $credential
-			= $anonymize ? undef : convert_scrypt_password_to_keycloak_credentials($user_ref->{'encrypted_password'});
+			= $anonymize
+			? {
+			type => 'password',
+			value => 'offoff',
+			temporary => $JSON::false
+			}
+			: convert_scrypt_password_to_keycloak_credentials($user_ref->{'encrypted_password'});
 		my $name = ($anonymize ? $userid : $user_ref->{name});
 		# Inverted expression from: https://github.com/keycloak/keycloak/blob/2eae68010877c6807b6a454c2d54e0d1852ed1c0/services/src/main/java/org/keycloak/userprofile/validator/PersonNameProhibitedCharactersValidator.java#L42C63-L42C114
 		$name =~ s/[<>&"$%!#?§;*~\/\\|^=\[\]{}()\x00-\x1F\x7F]+//g;
@@ -200,7 +209,7 @@ sub convert_scrypt_password_to_keycloak_credentials ($hashed_password) {
 
 sub validate_user_emails() {
 	print '[' . localtime() . "] Starting email validation\n";
-	open(my $invalid_user_file, '>:encoding(UTF-8)', 'invalid_users.csv') or die "Could not open invalid_users file $!";
+	open(my $invalid_user_file, '>:encoding(UTF-8)', "$BASE_DIRS{CACHE_TMP}/invalid_users.csv") or die "Could not open invalid_users file $!";
 
 	my $all_emails = {};
 	if (opendir(my $dh, "$BASE_DIRS{USERS}/")) {
@@ -253,7 +262,7 @@ sub validate_user_emails() {
 			}
 		}
 
-		store("all_emails.sto", $all_emails);
+		store("$BASE_DIRS{CACHE_TMP}/all_emails.sto", $all_emails);
 	}
 
 	close $invalid_user_file;
@@ -268,29 +277,8 @@ sub sanitise_email($email) {
 	return $email;
 }
 
-sub open_checkpoint($filename) {
-	if (!-e $filename) {
-		`touch $filename`;
-	}
-	open(my $checkpoint_file, '+<', $filename) or die "Could not open file '$filename' $!";
-	seek($checkpoint_file, 0, 0);
-	my $checkpoint = <$checkpoint_file>;
-	chomp $checkpoint if $checkpoint;
-	$checkpoint = '' if not defined $checkpoint;
-	return ($checkpoint_file, $checkpoint);
-}
-
-sub update_checkpoint($checkpoint_file, $checkpoint) {
-	seek($checkpoint_file, 0, 0);
-	print $checkpoint_file "$checkpoint.sto";
-	truncate($checkpoint_file, tell($checkpoint_file));
-	return 1;
-}
-
 my $anonymize = (first_index {$_ eq "anonymize"} @ARGV) + 1;
-my $resume = (first_index {$_ eq "resume"} @ARGV) + 1;
-
-$user_emails = $resume ? retrieve("all_emails.sto") : validate_user_emails();
+$user_emails = $resume ? retrieve("$BASE_DIRS{CACHE_TMP}/all_emails.sto") : validate_user_emails();
 
 # Iterate over the user_emails list rather than the directory so that we can apply the null emails first
 # before setting the valid ones. This caters for the preferred user for the email changing between migration runs
@@ -299,7 +287,7 @@ my $total = scalar @emails;
 my $count = 0;
 foreach my $email (@emails) {
 	$count++;
-	next if $resume and $email le $checkpoint;
+	next if $resume and $email le $last_processed_email;
 	if ($resume) {
 		print '[' . localtime() . "] Resuming from $email\n";
 		$resume = 0;
@@ -320,8 +308,7 @@ foreach my $email (@emails) {
 	if ($count % 10000 == 0) {
 		print '[' . localtime() . "] Migrated $count / $total\n";
 	}
-	update_checkpoint($checkpoint_file, $email);
+	$checkpoint->update($email);
 }
 print '[' . localtime() . "] Migrated $count / $total\n";
 
-close $checkpoint_file;
