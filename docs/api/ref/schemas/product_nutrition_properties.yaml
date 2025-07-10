@@ -26,8 +26,9 @@ properties:
     minimum: 0
     description: |
       The nutrition data on the package can be per serving, per 100g or per 100ml.
-      When the data is given per serving, the actual quantity that defines one serving may vary 
-      between products and should be stored in this field.
+      When the data is given per serving, 
+      the actual quantity that defines one serving may vary between products 
+      and is stored in this field.
 
       This is essential to understand to which quantity values in `nutrients` apply for.
 
@@ -37,8 +38,9 @@ properties:
     type: string
     description: |
       The nutrition data on the package can be per serving, per 100g or per 100ml.
-      When the data is given per serving, the actual unit that defines one serving may vary 
-      between products and should be stored in this field.
+      When the data is given per serving, 
+      the actual unit that defines one serving may vary between products 
+      and is stored in this field.
 
       This is essential to understand to which quantity values in `nutrients` apply for.
 

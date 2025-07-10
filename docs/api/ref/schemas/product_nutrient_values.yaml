@@ -19,7 +19,7 @@ properties:
   unit:
     type: string
     description: |
-        The unit of the value entered by the contributor (a user or the manufacturer), for the product as sold (not prepared).
+        The unit of the value entered by the contributor (a user or the manufacturer), for the product.
         In most cases, this unit is the unit displayed on the product for the nutrient, but it is not guaranteed, as some apps may force specific units when writing nutrient values.          
 
         The possible values depends on the nutrient.
@@ -37,10 +37,7 @@ properties:
 
         [units-module]: https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Units.html
         [default-unit]: https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Food.html#default_unit_for_nid_(_%24nid)
-
-        **Note**: For most use cases, you should not use this unit, as it can change depending on how the value was entered.
-        Instead use the `<nutrient>_100g` or `<nutrient>_serving` fields, and convert them to the unit you need.
-    enum:
+    examples:
       [
         "公斤",
         "公升",
