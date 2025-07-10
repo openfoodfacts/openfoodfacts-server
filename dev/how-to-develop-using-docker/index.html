@@ -2223,11 +2223,25 @@ db.products.deleteOne({_id: &quot;5053990155354&quot;})
 <li>In a <code>.env</code> file, add <code>TEST=test_val</code> [local].</li>
 <li>In <code>.github/workflows/container-deploy.yml</code>, add <code>echo "TEST=${{ secrets.TEST }}" &gt;&gt; .env</code> to the "Set environment variables" build step [remote]. Also add the corresponding GitHub secret <code>TEST=test_val</code>.</li>
 <li>In <code>docker-compose.yml</code> file, add it under the <code>backend</code> &gt; <code>environment</code> section.</li>
-<li>In <code>conf/apache.conf</code> file, add <code>PerlPassEnv TEST</code>.</li>
+<li>In <code>conf/apache-2.4/modperl.conf</code> file, add <code>PerlPassEnv TEST</code>.</li>
 <li>In <code>lib/Config2.pm</code>, add <code>$test = $ENV{TEST};</code>. Also add <code>$test</code> to the <code>EXPORT_OK</code> list at the top of the file to avoid a compilation error.</li>
 </ul>
 <p>The call stack goes like this:</p>
-<p><code>make up</code> &gt; <code>docker compose</code> &gt; loads <code>.env</code> &gt; pass env variables to the <code>backend</code> container &gt; pass to <code>mod_perl</code> &gt; initialized in <code>Config2.pm</code>.</p>
+<div class="highlight"><pre><span></span><code>stateDiagram-v2
+  make_up: make up
+  docker_compose: docker compose
+  env_file:.env
+  docker_compose_service_definition: docker compose service definition
+  make_up  --&gt; docker_compose:launch
+  docker_compose --&gt; env_file:loads
+  env_file --&gt; docker_compose_service_definition:pass variables
+  docker_compose_service_definition --&gt; docker_container:define env variables to pass
+  docker_container --&gt; mod_perl:pass env variables
+  mod_perl --&gt; Config2pm:initialize variables from env
+</code></pre></div>
+<p><strong>Important:</strong> Note that when you change environment variables, a restart of docker containers is not sufficient. You must destroy and re-create the container.
+The best way to do it, most of the time, is <code>docker compose down &amp;&amp; docker compose up -d</code>
+(you can also destroy individual container with <code>docker compose rm -sf &lt;service_name&gt; &amp;&amp; docker compose ud -d &lt;service_name&gt;</code>)</p>
 <h2 id="managing-multiple-deployments">Managing multiple deployments<a class="headerlink" href="#managing-multiple-deployments" title="Permanent link">#</a></h2>
 <p>To juggle between multiple local deployments (e.g: to run different flavors of Open Food Facts on the same host),
 there are different possible strategies.</p>
