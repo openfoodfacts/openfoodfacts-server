@@ -47,24 +47,24 @@ msgstr "Dünyanın dört bir yanından kozmetik ürünlerin bulunduğu işbirli�
 # OPF
 msgctxt "site_description_opf"
 msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr ""
+msgstr "Dünya çapındaki yiyecek ürünleri hakkında içerikler, besin değerleri ve bilgi içeren işbirlikçi, ücretsiz ve açık bir veritabanı."
 
 msgctxt "tagline_opf"
 msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr ""
+msgstr "Open Products Facts, dünyanın dört bir yanından çok çeşitli ürünler hakkında bilgi ve veri toplar."
 
 msgctxt "footer_tagline_opf"
 msgid "A collaborative, free and open database of various products from around the world."
-msgstr ""
+msgstr "Dünyanın dört bir yanındaki çeşitli ürünlerin bulunduğu işbirlikçi, ücretsiz ve açık veritabanı."
 
 # OPFF
 msgctxt "site_description_opff"
 msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr ""
+msgstr "Dünya çapındaki evcil hayvan yiyecek ürünleri hakkında içerikler, besin değerleri ve bilgi içeren işbirlikçi, ücretsiz ve açık bir veritabanı."
 
 msgctxt "tagline_opff"
 msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr ""
+msgstr "Open Pet Food Facts, dünyanın dört bir yanından evcil hayvan maması ürünlerine ilişkin bilgi ve verileri topluyor."
 
 msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
@@ -296,11 +296,11 @@ msgstr "Ürün sayfasını da düzenleyen"
 
 msgctxt "analytical_constituents"
 msgid "Analytical constituents"
-msgstr ""
+msgstr "Analitik bileşenler"
 
 msgctxt "analytical_constituents_per_1kg"
 msgid "for 1 kg"
-msgstr ""
+msgstr "1 kg için"
 
 msgctxt "android_apk_app_icon_url"
 msgid "/images/misc/app-landing-page/download-apk/download-apk_en.svg"
@@ -313,7 +313,7 @@ msgstr "Android APK"
 # Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
-msgstr ""
+msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -4660,12 +4660,12 @@ msgstr "Ortalama beslenme kalitesi"
 # lower: translate to "less good" in some languages (e.g. French: "Moins bonne qualité nutritionnelle")
 msgctxt "attribute_nutriscore_d_description_short"
 msgid "Lower nutritional quality"
-msgstr ""
+msgstr "Daha düşük besin kalitesi"
 
 # lower: translate to "less good" in some languages (e.g. French: "Moins bonne qualité nutritionnelle")
 msgctxt "attribute_nutriscore_e_description_short"
 msgid "Lower nutritional quality"
-msgstr ""
+msgstr "Daha düşük besin kalitesi"
 
 msgctxt "attribute_group_processing_name"
 msgid "Food processing"
@@ -4689,7 +4689,7 @@ msgstr "Gıda işlemesi hiç ya da az (NOVA grup)"
 
 msgctxt "attribute_nova_setting_note"
 msgid "To determine the level of processing of a product, we rely on the list of ingredients (markers, processing methods) and categories."
-msgstr ""
+msgstr "Bir ürünün işlenmişlik seviyesini belirlemek için içerik listesine (işaretleyiciler, işleme yöntemleri) ve kategorilere güveniyoruz."
 
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
@@ -4714,12 +4714,12 @@ msgstr "Aşırı işlenmiş gıdalar"
 
 msgctxt "attribute_nova_4_1_marker"
 msgid "1 ultra-processing marker"
-msgstr ""
+msgstr "1 ultra işleme işaretleyicisi"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nova_4_markers"
 msgid "{number} ultra-processing markers"
-msgstr ""
+msgstr "{number} ultra-işleme işaretleyicileri"
 
 msgctxt "export_product_page"
 msgid "Export product to public database"
@@ -4860,7 +4860,7 @@ msgstr "Çevre"
 
 msgctxt "attribute_environmental_score_name"
 msgid "Green-Score"
-msgstr ""
+msgstr "Green-Score"
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
@@ -4868,12 +4868,12 @@ msgstr "Düşük çevresel etki (Eko-Skor)"
 
 msgctxt "attribute_environmental_score_setting_note"
 msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr ""
+msgstr "Green-Score, gıda ürünlerinin çevre üzerindeki etkilerini karşılaştırmayı kolaylaştıran A'dan E'ye kadar bir çevre puanıdır."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
 msgid "Green-Score"
-msgstr ""
+msgstr "Green-Score"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
@@ -4881,12 +4881,12 @@ msgstr "Düşük çevresel etki (Eko-Skor)"
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr ""
+msgstr "Green-Score, gıda ürünlerinin çevre üzerindeki etkilerini karşılaştırmayı kolaylaştıran A'dan E'ye kadar bir çevre puanıdır."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
 msgid "Green-Score %s"
-msgstr ""
+msgstr "Green-Score %s"
 
 msgctxt "attribute_environmental_score_a_plus_description_short"
 msgid "Very low environmental impact"
@@ -5120,19 +5120,19 @@ msgstr "Eksik besin değerleri"
 
 msgctxt "ecoscore_p"
 msgid "Green-Score"
-msgstr ""
+msgstr "Green-Score"
 
 msgctxt "ecoscore_s"
 msgid "Green-Score"
-msgstr ""
+msgstr "Green-Score"
 
 msgctxt "environmental_score_p"
 msgid "Green-Score"
-msgstr ""
+msgstr "Green-Score"
 
 msgctxt "environmental_score_s"
 msgid "Green-Score"
-msgstr ""
+msgstr "Green-Score"
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
