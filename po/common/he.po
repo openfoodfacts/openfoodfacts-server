@@ -264,9 +264,10 @@ msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
 msgstr "חיפוש מתקדם ותרשימים"
 
+# duplicate
 msgctxt "alcohol_warning"
-msgid "Excess drinking is harmful for health."
-msgstr "שתייה מוגזמת של אלכוהול עשויה לפגוע בבריאות."
+msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr "צריכה מופרזת של אלכוהול מסוכנת לבריאות, יש לצרוך בכמות מתונה."
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
@@ -301,16 +302,16 @@ msgid "for 1 kg"
 msgstr "לקילו"
 
 msgctxt "android_apk_app_icon_url"
-msgid "/images/misc/android-apk.svg"
-msgstr "/images/misc/android-apk.svg"
+msgid "/images/misc/app-landing-page/download-apk/download-apk_en.svg"
+msgstr ""
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
 msgstr "APK ל־Android"
 
-# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
+# Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
-msgid "/images/misc/playstore/img/en_get.svg"
+msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
 msgstr ""
 
 msgctxt "android_app_icon_alt_text"
@@ -567,17 +568,13 @@ msgctxt "delete_product"
 msgid "Delete a product"
 msgstr "מחיקת מוצר"
 
-msgctxt "delete_product_page"
-msgid "Delete the page"
-msgstr "מחיקת העמוד"
-
 msgctxt "delete_the_images"
 msgid "Delete the images"
 msgstr "מחיקת התמונות"
 
 msgctxt "delete_user"
-msgid "Delete a user"
-msgstr "מחיקת משתמש"
+msgid "Delete the user"
+msgstr "מחיקת המשתמש"
 
 msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
@@ -662,6 +659,14 @@ msgstr "משתני החשבון"
 msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
 msgstr "משתני החשבון שלך הוחלפו."
+
+msgctxt "edit_user_preferences"
+msgid "Preferences"
+msgstr "העדפות"
+
+msgctxt "edit_user_preferences_result"
+msgid "Your preferences have been changed."
+msgstr "ההעדפות שלך שונו."
 
 msgctxt "editors_p"
 msgid "editors"
@@ -2756,6 +2761,7 @@ msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
 msgstr "NutriScore nutrition grade"
 
+# duplicate
 msgctxt "delete_product_page"
 msgid "Delete the product page"
 msgstr "מחיקת עמוד המוצר"
@@ -2771,10 +2777,6 @@ msgstr "מוצר נמחק"
 msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
 msgstr "למחוק את העמוד למוצר זה?"
-
-msgctxt "delete_user"
-msgid "Delete the user"
-msgstr "מחיקת המשתמש"
 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s."
@@ -4197,10 +4199,6 @@ msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr "נא לתרום"
 
-msgctxt "alcohol_warning"
-msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
-msgstr "צריכה מופרזת של אלכוהול מסוכנת לבריאות, יש לצרוך בכמות מתונה."
-
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "פיקוח על פלטפורמת היצרנים"
@@ -4691,6 +4689,10 @@ msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
 msgstr "עיבוד מזון מועט או נטול (קבוצת NOVA)"
 
+msgctxt "attribute_nova_setting_note"
+msgid "To determine the level of processing of a product, we rely on the list of ingredients (markers, processing methods) and categories."
+msgstr ""
+
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
 msgid "NOVA %s"
@@ -5039,6 +5041,10 @@ msgstr "חברי הארגון"
 msgctxt "number_of_members"
 msgid "Number of Members"
 msgstr "מספר חברים"
+
+msgctxt "serial_no"
+msgid "S.No"
+msgstr "מספר ס."
 
 msgctxt "contact_form"
 msgid "Contact form"
@@ -5733,10 +5739,6 @@ msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
 msgstr "המידע על רכיבי מוצר זה לא נמסרו."
 
-msgctxt "environmental_score_edit_for_more_precise_environmental_score"
-msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "לחישוב מדויק יותר של Green-Score, ניתן לערוך את דף המוצר ולהוסיף אותם."
-
 msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
 msgstr "יחס"
@@ -5757,9 +5759,15 @@ msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
 msgstr "המידע על אריזת המוצר הזה אינה מדויקת מספיק (הצורות המדויקות והחומרים של כל הרכיבים של האריזה)."
 
+# duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
 msgstr "לחישוב מדויק יותר של Green-Score, ניתן לשנות את דף המוצר ולהוסיף אותם."
+
+# duplicate
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
+msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
+msgstr "לחישוב מדויק יותר של Green-Score, ניתן לערוך את דף המוצר ולהוסיף אותם."
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
@@ -5910,7 +5918,7 @@ msgstr "נא לתרום לגיוס התרומות לשנת 2024"
 # Don't translate {year}, it will be replaced by the 4 digits year
 msgctxt "f_donation_title_year"
 msgid "Please give to our {year} Fundraiser"
-msgstr "נא לתרום לגיוס התרומות לשנת {year}"
+msgstr ""
 
 msgctxt "donation_list_2024_main"
 msgid "Your donations fund the day-to-day operations of our non-profit association:"
@@ -6267,6 +6275,10 @@ msgid "No ingredients containing palm oil detected"
 msgstr "לא זוהו רכיבים שמכילים שמן דקלים"
 
 msgctxt "attribute_palm_oil_setting_note"
+msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
+msgstr "כדי לקבוע אם מוצר מכיל שמן דקלים, אנו מסתמכים רק על רשימת הרכיבים."
+
+msgctxt "attribute_without_palm_oil_setting_note"
 msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
 msgstr "כדי לקבוע אם מוצר מכיל שמן דקלים, אנו מסתמכים רק על רשימת הרכיבים."
 
@@ -6661,6 +6673,38 @@ msgctxt "api_message_unrecognized_value"
 msgid "Unrecognized value"
 msgstr "ערך לא מוכר"
 
+msgctxt "api_message_image_already_uploaded"
+msgid "Image already uploaded"
+msgstr "התמונה כבר הועלתה"
+
+msgctxt "api_message_image_too_small"
+msgid "Image too small"
+msgstr "התמונה קטנה מדי"
+
+msgctxt "api_result_image_uploaded"
+msgid "Image uploaded"
+msgstr "התמונה הועלתה"
+
+msgctxt "api_result_image_not_uploaded"
+msgid "Image not uploaded"
+msgstr "התמונה לא הועלתה"
+
+msgctxt "api_result_image_selected"
+msgid "Image selected"
+msgstr "תמונה שנבחרה"
+
+msgctxt "api_result_image_not_selected"
+msgid "Image not selected"
+msgstr "התמונה לא נבחרה"
+
+msgctxt "api_result_image_deleted"
+msgid "Image deleted"
+msgstr "התמונה נמחקה"
+
+msgctxt "api_result_image_not_deleted"
+msgid "Image not deleted"
+msgstr "התמונה לא נמחקה"
+
 msgctxt "api_impact_none"
 msgid "None"
 msgstr "אין"
@@ -7052,6 +7096,11 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr "דיווח על תקלה"
 
+# duplicate with "report_problem_panel_title"
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
+msgstr "דיווח על תקלה"
+
 msgctxt "report_problem_navigation"
 msgid "Report a problem."
 msgstr "דיווח על תקלה."
@@ -7080,11 +7129,6 @@ msgctxt "description"
 msgid "Description"
 msgstr "תיאור"
 
-# duplicate with "report_problem_panel_title"
-msgctxt "report_problem_navigation"
-msgid "Report a problem"
-msgstr "דיווח על תקלה"
-
 msgctxt "enter_main_contact_username"
 msgid "Enter main contact's username :"
 msgstr "נא למלא את שם משתמש הקשר העיקרי:"
@@ -7104,6 +7148,10 @@ msgstr "המשתמש הזה לא חבר בארגון."
 msgctxt "skip_to_content"
 msgid "Skip to Content"
 msgstr "דילוג לתוכן"
+
+msgctxt "oidc_signin_no_cookie"
+msgid "You need to enable cookies to sign in."
+msgstr "עליך להפעיל עוגיות כדי להיכנס."
 
 msgctxt "cant_delete_main_contact"
 msgid "You cannot remove the main contact. Change it first."
@@ -7407,4 +7455,61 @@ msgstr "יצירת קשר"
 msgctxt "delete"
 msgid "Delete"
 msgstr "מחיקה"
+
+msgctxt "f_add_product_to_our_database"
+msgid "Is {barcode} the barcode of a product you have? If so, please add it to the database. It only takes a few minutes."
+msgstr ""
+
+# Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
+msgctxt "f_droid_app_icon_url"
+msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
+msgstr ""
+
+msgctxt "f_droid_app_icon_alt_text"
+msgid "Available on F-Droid"
+msgstr "זמין ב־F-Droid"
+
+msgctxt "update_nutrients_data"
+msgid "Update nutrients data"
+msgstr "עדכון נתוני תזונה"
+
+msgctxt "update_nutrition_facts"
+msgid "Extract nutrition facts"
+msgstr "חילוץ עובדות תזונתיות"
+
+msgctxt "scan_a_product"
+msgid "Scan a product"
+msgstr "לסרוק מוצר"
+
+msgctxt "or_enter_barcode_manually"
+msgid "Or enter barcode manually"
+msgstr "או למלא ברקוד ידנית"
+
+msgctxt "scan"
+msgid "Scan"
+msgstr "סריקה"
+
+msgctxt "reset_preferences_details_beauty"
+msgid "Organic farming and fair trade"
+msgstr "חקלאות אורגנית וסחר הוגן"
+
+msgctxt "reset_preferences_details_food"
+msgid "Nutri-Score, Green-Score and food processing level (NOVA)"
+msgstr "Nutri-Score,‏ Green-Score ורמת עיבוד מזון (NOVA)"
+
+msgctxt "reset_preferences_details_product"
+msgid "Good repairability"
+msgstr "יכולת תיקון טובה"
+
+msgctxt "reset_preferences_details_pet_food"
+msgid "Organic farming and fair trade"
+msgstr "חקלאות אורגנית וסחר הוגן"
+
+msgctxt "action_report_image_to_nutripatrol"
+msgid "Report this image to our moderators"
+msgstr "דיווח על התמונה הזאת למפקחים שלנו"
+
+msgctxt "robots_not_served_here"
+msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
+msgstr "עקב שימוש לרעה מצד רובוטים באופן חמור, איננו יכולים להציג דף זה למשתמשים לא מזוהים. נא ליצור חשבון Open Food Facts בחינם כדי לגשת לכל Open Food Facts."
 
