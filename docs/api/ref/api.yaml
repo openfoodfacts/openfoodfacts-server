@@ -34,8 +34,8 @@ paths:
   "/api/v2/product/{barcode}":
     get:
       tags:
-        - Read Requests
-      summary: Get information for a specific product by barcode
+        - Products
+      summary: Get Product Details
       description: |
         Fetches product details by its unique barcode. 
         Can return all product details or specific fields like knowledge panels.
@@ -91,8 +91,8 @@ paths:
   /cgi/product_image_upload.pl:
     post:
       tags:
-        - Write Requests
-      summary: Add a Photo to an Existing Product
+        - Images
+      summary: Upload Product Image
       operationId: get-cgi-product_image_upload.pl
       description: |
         Photos are source and proof of data.
@@ -120,7 +120,7 @@ paths:
   /cgi/ingredients.pl:
     parameters: []
     get:
-      summary: Performing OCR on a Product
+      summary: OCR on Ingredients
       operationId: get-cgi-ingredients.pl
       responses:
         "200":
@@ -137,10 +137,10 @@ paths:
         - $ref: "#/components/parameters/process_image"
         - $ref: "#/components/parameters/ocr_engine"
       tags:
-        - Read Requests
+        - OCR
   /cgi/product_image_crop.pl:
     post:
-      summary: Crop A Photo
+      summary: Select and Crop Image
       operationId: post-cgi-product_image_crop.pl
       responses:
         "200":
@@ -163,9 +163,9 @@ paths:
                 - $ref: ./requestBodies/change_ref_properties.yaml
         required: true
       tags:
-        - Write Requests
+        - Images
     get:
-      summary: Rotate A Photo
+      summary: Rotate Image
       operationId: get-cgi-product_image_crop.pl
       responses:
         "200":
@@ -184,16 +184,16 @@ paths:
         - $ref: "#/components/parameters/imgid"
         - $ref: "#/components/parameters/angle"
       tags:
-        - Write Requests
+        - Images
   /cgi/product_image_unselect.pl:
     post:
-      summary: Unselect A Photo
+      summary: Unselect Image
       description: |
         This endpoint allows the user to unselect a photo for a product.
         The user must provide the product code and the image ID to unselect.
       operationId: post-cgi-product_image_unselect.pl
       tags:
-        - Write Requests
+        - Images
       requestBody:
         content:
           multipart/form-data:
@@ -223,7 +223,7 @@ paths:
 
   /cgi/product_jqm2.pl:
     post:
-      summary: Add or Edit A Product
+      summary: Edit Product
       operationId: post-cgi-product_jqm2.pl
       responses:
         "200":
@@ -241,7 +241,7 @@ paths:
                 - $ref: ./requestBodies/add_or_edit_a_product.yaml
                 - $ref: ./requestBodies/change_ref_properties.yaml
       tags:
-        - Write Requests
+        - Products
       description: |
         This updates a product.
 
@@ -254,9 +254,9 @@ paths:
 
   /api/v2/search:
     get:
-      summary: Search for Products
+      summary: Search Products
       tags:
-        - Read Requests
+        - Search
       responses:
         "200":
           description: OK
@@ -358,9 +358,9 @@ paths:
     parameters: []
   /cgi/suggest.pl:
     get:
-      summary: Get Suggestions to Aid Adding/Editing Products
+      summary: Get Suggestions
       tags:
-        - Read Requests
+        - Suggestions
       responses:
         "200":
           description: OK
@@ -381,9 +381,9 @@ paths:
         for a specific product field.
   /cgi/nutrients.pl:
     get:
-      summary: Get a nested list of nutrients that can be displayed in the nutrition facts table for a specific country and language
+      summary: Get Nutrients List
       tags:
-        - Read Requests
+        - Nutrients
       responses:
         "200":
           description: OK
@@ -399,7 +399,7 @@ paths:
         Used to display the nutrition facts table of a product, or to display a form to input those nutrition facts.
   /api/v2/attribute_groups:
     get:
-      summary: Get the list of attributes available for personal search.
+      summary: Get Attribute Groups
       description: |
         Attributes are at the heart of personal search.
         They score the products according to different criterias,
@@ -410,8 +410,7 @@ paths:
 
         note: `/api/v2/attribute_groups_{lc}` is also a valid route, but consider it deprecated
       tags:
-        # - Read Requests
-        - Personal search
+        - Personal Search
       operationId: get-attribute-groups
       responses:
         "200":
@@ -425,16 +424,13 @@ paths:
         - $ref: "#/components/parameters/lc"
   /api/v2/preferences:
     get:
-      summary: |
-        Get the weights corresponding to attributes preferences
-        to compute personal product
+      summary: Get Preferences Weights
       description: |
         This endpoint retrieves the weights corresponding to attribute preferences
         for computing personal product recommendations. The weights are used to
         personalize the product recommendations based on user preferences.
       tags:
-        # - Read Requests
-        - Personal search
+        - Personal Search
       operationId: get-preferences
       parameters:
         - $ref: "#/components/parameters/lc"
@@ -447,7 +443,7 @@ paths:
                 $ref: ./responses/get_preferences.yaml
   /cgi/session.pl:
     post:
-      summary: Login and obtain a session cookie
+      summary: Login Session
       operationId: get-cgi-session.pl
       description: Retrieve session cookie for writing operations.
       tags:
@@ -682,11 +678,19 @@ security:
   - {} # No authentication required by default (for read requests)
 
 tags:
-  - name: Read Requests
-    description: Endpoints that allow reading or retrieving data from the Open Food Facts database.
-  - name: Write Requests
-    description: Endpoints that allow writing or modifying data in the Open Food Facts database.
+  - name: Products
+    description: Endpoints for managing product data and information.
+  - name: Images
+    description: Endpoints for uploading, cropping, rotating, and managing product images.
+  - name: Search
+    description: Endpoints for searching products with various filters and criteria.
+  - name: OCR
+    description: Endpoints for optical character recognition on product labels.
+  - name: Suggestions
+    description: Endpoints for getting suggestions to aid in product editing.
+  - name: Nutrients
+    description: Endpoints for retrieving nutrition-related data and facts.
+  - name: Personal Search
+    description: Endpoints for personalized search and recommendations.
   - name: Authentication
-    description: Endpoints used to retrieve authentication info.
-  - name: Personal search
-    description: Endpoints related to personal search and recommendation
+    description: Endpoints for user authentication and session management.

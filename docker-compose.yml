@@ -45,6 +45,10 @@
     - OTEL_SERVICE_NAME
     - OTEL_RESOURCE_ATTRIBUTES
     - OTEL_EXPORTER_OTLP_ENDPOINT
+    - RECIPE_ESTIMATOR_URL
+    - RECIPE_ESTIMATOR_SCIPY_URL
+    #11901: Remove once production is migrated
+    - SERIALIZE_TO_JSON
   depends_on:
     - memcached
   volumes:

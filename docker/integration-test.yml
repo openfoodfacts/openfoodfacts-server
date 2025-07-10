@@ -8,16 +8,9 @@ services:
           condition: service_started
 
   keycloak:
-    extends: 
-      file: ${DEPS_DIR}/openfoodfacts-auth/docker-compose.yml
-      service: keycloak
+    image: ghcr.io/openfoodfacts/openfoodfacts-auth:testcontainer
     environment:
-      - KEYCLOAK_BASE_URL
-      - CLIENTS=OFF,http://world.openfoodfacts.localhost
-      - OFF_CLIENT_SECRET=${OFF_CLIENT_SECRET}
-      - KC_BOOTSTRAP_ADMIN_USERNAME=test
-      - KC_BOOTSTRAP_ADMIN_PASSWORD=test
-      - KEYCLOAK_STARTUP=test
+      - KC_SPI_EVENTS_LISTENER_REDIS_EVENT_LISTENER_REDIS_URL=${REDIS_URL}
 
   backend:
     depends_on:
