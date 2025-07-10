@@ -91,16 +91,3 @@ properties:
     enum: ["<", "<=", "~", ">=", ">"]
     description: |
       todo (this property is optional)
-  source:
-    type: string
-    description: |
-      todo
-    examples:
-      - packaging
-      - manufacturer
-      - estimate
-  source_per:
-    type: string
-    description: |
-      Indicates if the original source is per serving or per 100g, 100ml
-    enum: ["100g", "100ml", "serving"]

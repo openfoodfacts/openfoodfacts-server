@@ -21,8 +21,7 @@ components:
                 todo
               allOf:
                 - $ref: "../schemas/product_nutrition_properties.yaml"
-                - $ref: "../schemas/nutrients_v3.yaml"
-            #$ref: "../schemas/nutrients_v3.yaml"
+                - $ref: "../schemas/nutrients_v3_with_source.yaml"
             nutrient_sets:
               type: array
               description: |
@@ -37,7 +36,7 @@ components:
               items:
                 type: object
                 allOf:
-                  - $ref: "../schemas/nutrients_v3.yaml"
+                  - $ref: "../schemas/nutrients_v3_base.yaml"
                   - $ref: "../schemas/product_nutrition_properties.yaml"
                   - type: object
                     properties:
