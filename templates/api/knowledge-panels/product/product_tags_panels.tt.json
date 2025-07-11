@@ -1,0 +1,15 @@
+[% FOREACH panel IN panel.taxonomy_panels %]
+    {
+      "type": "panel",
+      "title": "[% edq(lang("${panel.field_name}_p")) %]",
+      "elements": [
+        [% FOREACH tag IN panel.tags %]
+        {
+          "type": "panel",
+          "title": "[% tag.name %]",
+          "url": "[% tag.url %]"
+        },
+        [% END %]
+      ]
+    },
+[% END %]

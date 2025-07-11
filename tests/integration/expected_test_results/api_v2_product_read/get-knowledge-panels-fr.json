@@ -2014,6 +2014,29 @@
                "environment"
             ]
          },
+         "product_card" : {
+            "elements" : [
+               {
+                  "elements" : [
+                     {
+                        "title" : "Bio",
+                        "type" : "panel",
+                        "url" : "/facets/labels/bio"
+                     }
+                  ],
+                  "title" : "labels",
+                  "type" : "panel"
+               }
+            ],
+            "expanded" : true,
+            "title_element" : {
+               "title" : "Product information"
+            },
+            "topics" : [
+               "product"
+            ],
+            "type" : "card"
+         },
          "recommendation_ultra_processed_foods" : {
             "elements" : [
                {
@@ -2076,6 +2099,12 @@
                   "element_type" : "panel",
                   "panel_element" : {
                      "panel_id" : "report_problem_card"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "product_card"
                   }
                }
             ],
