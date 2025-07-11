@@ -1,7 +1,7 @@
 // This file is part of Product Opener.
 //
 // Product Opener
-// Copyright (C) 2011-2024 Association Open Food Facts
+// Copyright (C) 2011-2025 Association Open Food Facts
 // Contact: contact@openfoodfacts.org
 // Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 //
@@ -18,22 +18,25 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-/*exported displayWorldMap*/
-/*global lang jsVectorMap*/
+/*global lang*/
+
+import jsVectorMap from './jsvectormap.esm.js';
+// The code in world-merc depends on jsVectorMap being loaded.
+// eslint-disable-next-line sort-imports
+import './world-merc.js';
 
 function getServerDomain() {
   return (/^https?:\/\/([^/?#]+)(?:[/?#]|$)/i).exec(window.location.href)[1];
 }
 
-function displayWorldMap(selector, countries) {
+export function displayWorldMap(selector, countries) {
   const countries_map_data = countries.data;
   const countries_map_links = countries.links;
   const countries_map_names = countries.names;
   const products = lang().products;
   const direction = getComputedStyle(document.querySelector(selector)).direction;
 
-  const JsVectorMap = jsVectorMap; // Workaround for SonarQube false positive
-  const map = new JsVectorMap({
+  const map = new jsVectorMap({
     selector: selector,
     map: "world_merc",
     visualizeData: {
