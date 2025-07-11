@@ -32,13 +32,13 @@ stopwords:pt: ingredientes, agrícola, de, com, por, a, o, as, os, apto, para, v
 stopwords:ru: ингредиенты, из, с, проверено, сертифицировано, подтверждено, 100%, чистый, продукт, гарантия, гарантировано, стандарт
 stopwords:sv: certifierad, ingrediens, ingredienser, godkänd, råvara, enlighet, med, kriterierna, produkt, från, kontrollerat, kontrollerade, jordbruk, lantbruk, odling, odlingar
 
-synonyms:en: coloring, colouring, color, colour
+synonyms:en: coloring, colouring, color, colour, colors, colours
 synonyms:es: color, colorante
 synonyms:fi: väri, värjäys, väriaine
 synonyms:pt: cor, colorante
 synonyms:ru: окраска, цвет
 
-synonyms:en: flavor, flavour, flavoring, flavouring
+synonyms:en: flavor, flavour, flavoring, flavouring, flavors, flavours
 synonyms:es: sabor, saborizante
 synonyms:fi: aromi, maku
 synonyms:hu: ízesítő, ízesítők, ízesítőt, ízesítőket, aroma, aromák, aromákat, aromát
@@ -82,7 +82,7 @@ synonyms:bg: морска храна
 synonyms:fi: merenantimet, merenelävät
 synonyms:ru: дары моря, морепродукты
 
-synonyms:en: without, 0%, free
+synonyms:en: without, 0%, free, contains no
 synonyms:da: uden, ingen, intet, nul, 0%, fri for
 synonyms:de: ohne, 0%
 synonyms:es: sin, 0%, libre de
@@ -4473,6 +4473,7 @@ nl: Zonder kunstmatige toevoegingen
 pt: Sem aditivos artificiais, sem aditivo artificial
 label_categories:en: en:Health, en:Additives
 
+en: No yeast, Contains no yeast
 
 sv: Ä-märket
 xx: Ä-märket
@@ -4534,7 +4535,7 @@ ru: без аллергенов
 th: ไม่มีสารก่อภูมิแพ้
 
 #instruction:en:Do NOT change the english key.
-en: No artificial colors, free of artificial color, no artificial colours, free from artificial colours, no artificial colouring
+en: No artificial colors, free of artificial color, no artificial colours, free from artificial colours, no artificial colouring, contains no artificial colors
 bg: Без изкуствени оцветители
 ca: Sense colorants artificials
 de: Ohne künstliche Farbstoffe
@@ -4559,7 +4560,7 @@ fr: Sans colorants azoïques
 label_categories:en: en:Health, en:Additives
 
 #instruction:en:Do NOT change the english key.
-en: No artificial flavors, free of artificial flavor, No artificial flavours
+en: No artificial flavors, free of artificial flavor, No artificial flavours, contains no artificial flavors
 bg: Без изкуствени аромати
 ca: Sense aromes artificials, Lliure d'aromes artificials
 cs: Bez umělých aromat
@@ -4810,7 +4811,7 @@ th: ไม่มีคอเลสเตอรอล
 label_categories:en: en:Health
 
 #instruction:en:Do NOT change the english key.
-en: No colorings, no added colorings
+en: No colorings, no added colorings, No colours
 ar: بدون ملونات
 bg: Без оцветители
 ca: Sense colorants, sense colorants afegits
@@ -4854,7 +4855,7 @@ th: ไม่มีส่วนผสมของไข่
 #-allergens:en: en:Eggs
 
 #instruction:en:Do NOT change the english key.
-en: No flavors, no added flavors
+en: No flavors, no added flavors, no added flavours
 ca: Sense aromes afegits
 de: Ohne Zusatz von Aromen, Ohne Zusatz von Aromastoffen, Ohne Aromen, ohne Aromastoffzusatz
 es: Sin aromas, Sin aromas añadidos
@@ -5009,6 +5010,8 @@ hu: Természetes termék növényi olajok nélkül, Természetes termék növén
 nl: Zonder plantaardige vetten
 pt: Produto natural sem óleos vegetais, produto natural sem óleo vegetal
 ru: натуральный продукт без растительных жиров
+
+en: Natural ingredients, Ingredients from natural origins
 
 < en:No flavour enhancer
 #instruction:en:Do NOT change the english key.
@@ -5269,7 +5272,7 @@ label_categories:en: en:Allergens
 opposite:en: en:no-milk
 
 #instruction:en:Do NOT change the english key.
-en: No preservatives, no added preservatives, preservatives free
+en: No preservatives, no added preservatives, preservatives free, contains no preservatives
 ar: بدون مواد حافظة
 bg: Без консерванти
 ca: Sense conservants, sense conservants afegits, lliure de conservants artificials
@@ -19724,6 +19727,7 @@ hr: Održiv
 it: Sostenibile
 nl: Duurzaam
 pt: Sustentável
+sv: Hållbar, Hållbart
 
 < en:Sustainable
 en: Sustainable fishery, Sustainable fishing, Sustainable Seafood
@@ -19902,7 +19906,7 @@ wikidata:en: Q7918353
 
 
 < en:Vegetarian
-en: Vegan, Suitable for vegans, Suitable for vegetarians and vegans, vegetal, from plants, derived from plants, vegetal origin, not from animals, not derived from animals, non-animal, from vegetal source, free from animal products
+en: Vegan, Suitable for vegans, Suitable for vegetarians and vegans, vegetal, from plants, derived from plants, vegetal origin, not from animals, not derived from animals, non-animal, from vegetal source, free from animal products, vegetable source
 an: vegano
 bg: Веган
 ca: Vegà, Adequat per persones veganes
@@ -23398,3 +23402,4 @@ en: Planet-Score Grade A
 
 < en:Planet-Score
 en: Planet-Score Grade C
+

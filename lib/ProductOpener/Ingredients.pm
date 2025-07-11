@@ -119,6 +119,7 @@ use ProductOpener::Images qw/extract_text_from_image/;
 use ProductOpener::Lang qw/$lc %Lang lang/;
 use ProductOpener::Units qw/normalize_quantity/;
 use ProductOpener::Food qw/is_fat_oil_nuts_seeds_for_nutrition_score/;
+use ProductOpener::APIProductServices qw/add_product_data_from_external_service/;
 
 use Encode;
 use Clone qw(clone);
@@ -3435,7 +3436,7 @@ and to compute the resulting value for the complete product
 
 =cut
 
-sub extract_ingredients_from_text ($product_ref) {
+sub extract_ingredients_from_text ($product_ref, $services_ref = {}) {
 
 	delete $product_ref->{ingredients_percent_analysis};
 
@@ -3473,7 +3474,29 @@ sub extract_ingredients_from_text ($product_ref) {
 		extend_ingredients_service($product_ref, {}, []);
 
 		# Compute minimum and maximum percent ranges and percent estimates for each ingredient and sub ingredient
-		estimate_ingredients_percent_service($product_ref, {}, []);
+
+		# We can be passed an external percent estimate service to call in $services_ref
+		if (    (defined $services_ref->{estimate_ingredients_percent})
+			and ($services_ref->{estimate_ingredients_percent} eq "recipe_estimator_glop"))
+		{
+			# Use the recipe estimator service
+			my $services_url = $recipe_estimator_url;
+			my $services_ref = undef;
+			my $request_ref = {};
+			add_product_data_from_external_service({$request_ref}, $product_ref, $services_url, $services_ref, undef);
+		}
+		elsif ( (defined $services_ref->{estimate_ingredients_percent})
+			and ($services_ref->{estimate_ingredients_percent} eq "recipe_estimator_scipy"))
+		{
+			# Use the recipe estimator service
+			my $services_url = $recipe_estimator_scipy_url;
+			my $services_ref = undef;
+			my $request_ref = {};
+			add_product_data_from_external_service($request_ref, $product_ref, $services_url, $services_ref, undef);
+		}
+		else {
+			estimate_ingredients_percent_service($product_ref, {}, []);
+		}
 
 		estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients($product_ref);
 		estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients($product_ref);
