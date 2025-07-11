@@ -1,6 +1,8 @@
 type: object
 description: |
   Quantity of a nutrient
+
+  (per 100g, per 100ml or per serving) in a standard unit (g or ml)
 properties:
   value_string:
     type: string

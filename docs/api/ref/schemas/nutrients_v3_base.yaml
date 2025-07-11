@@ -31,40 +31,16 @@ properties:
           (per 100g or per serving) in a standard unit (g or ml)
         $ref: "../schemas/product_nutrient_values.yaml"
       fat:
-        description: |
-          Quantity of fat
-
-          (per 100g, per 100ml or per serving) in a standard unit (g or ml)
         $ref: "../schemas/product_nutrient_values.yaml"
       saturated-fat:
-        description: |
-          Quantity of saturated fat
-
-          (per 100g, per 100ml or per serving) in a standard unit (g or ml)
         $ref: "../schemas/product_nutrient_values.yaml"
       trans-fat:
-        description: |
-          Quantity of trans fat
-
-          (per 100g, per 100ml or per serving) in a standard unit (g or ml)
         $ref: "../schemas/product_nutrient_values.yaml"  
       cholesterol:
-        description: |
-          Quantity of cholesterol
-
-          (per 100g, per 100ml or per serving) in a standard unit (g or ml)
         $ref: "../schemas/product_nutrient_values.yaml"
       salt:
-        description: |
-          Quantity of salt
-
-          (per 100g, per 100ml or per serving) in a standard unit (g or ml)
         $ref: "../schemas/product_nutrient_values.yaml"
       sodium:
-        description: |
-          Quantity of sodium
-
-          (per 100g, per 100ml or per serving) in a standard unit (g or ml)
         $ref: "../schemas/product_nutrient_values.yaml"  
       carbohydrates-total:
         description: |
@@ -79,52 +55,20 @@ properties:
           (per 100g, per 100ml or per serving) in a standard unit (g or ml)
         $ref: "../schemas/product_nutrient_values.yaml"
       fiber:
-        description: |
-          Quantity of fiber
-
-          (per 100g, per 100ml or per serving) in a standard unit (g or ml)
         $ref: "../schemas/product_nutrient_values.yaml"
       sugars:
-        description: |
-          Quantity of sugars
-
-          (per 100g, per 100ml or per serving) in a standard unit (g or ml)
         $ref: "../schemas/product_nutrient_values.yaml"  
       added-sugars:
-        description: |
-          Quantity of added sugars
-
-          (per 100g, per 100ml or per serving) in a standard unit (g or ml)
         $ref: "../schemas/product_nutrient_values.yaml"
       proteins:
-        description: |
-          Quantity of proteins
-
-          (per 100g, per 100ml or per serving) in a standard unit (g or ml)
         $ref: "../schemas/product_nutrient_values.yaml"
       vitamin-d:
-        description: |
-          Quantity of vitamin D
-
-          (per 100g, per 100ml or per serving) in a standard unit (g or ml)
         $ref: "../schemas/product_nutrient_values.yaml"
       calcium:
-        description: |
-          Quantity of calcium
-
-          (per 100g, per 100ml or per serving) in a standard unit (g or ml)
         $ref: "../schemas/product_nutrient_values.yaml"
       iron:
-        description: |
-          Quantity of iron
-
-          (per 100g, per 100ml or per serving) in a standard unit (g or ml)
         $ref: "../schemas/product_nutrient_values.yaml"
       potassium:
-        description: |
-          Quantity of potassium
-
-          (per 100g, per 100ml or per serving) in a standard unit (g or ml)
         $ref: "../schemas/product_nutrient_values.yaml"
     additionalProperties:
       description: |
