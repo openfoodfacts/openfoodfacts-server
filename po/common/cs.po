@@ -44,6 +44,32 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "Společná, bezplatná a otevřená databáze kosmetických výrobků z celého světa."
 
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
+msgstr ""
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr ""
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr ""
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr ""
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr ""
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr "Společná, bezplatná a otevřená databáze krmiv pro domácí zvířata z celého světa."
+
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
@@ -238,9 +264,10 @@ msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
 msgstr "Pokročilé vyhledávání a grafy"
 
+# duplicate
 msgctxt "alcohol_warning"
-msgid "Excess drinking is harmful for health."
-msgstr "Nadměrné pití je škodlivé pro zdraví."
+msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr "Nadměrná konzumace alkoholu je zdraví škodlivá, konzumujte jej s mírou."
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
@@ -272,20 +299,20 @@ msgstr ""
 
 msgctxt "analytical_constituents_per_1kg"
 msgid "for 1 kg"
-msgstr ""
+msgstr "na 1 kg"
 
 msgctxt "android_apk_app_icon_url"
-msgid "/images/misc/android-apk.svg"
-msgstr "/images/misc/android-apk.svg"
+msgid "/images/misc/app-landing-page/download-apk/download-apk_en.svg"
+msgstr ""
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
 msgstr "Android APK"
 
-# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
+# Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
-msgid "/images/misc/playstore/img/en_get.svg"
-msgstr ""
+msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
+msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_Czech.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -540,17 +567,13 @@ msgctxt "delete_product"
 msgid "Delete a product"
 msgstr "Odstranit výrobek"
 
-msgctxt "delete_product_page"
-msgid "Delete the page"
-msgstr "Smazat stránku"
-
 msgctxt "delete_the_images"
 msgid "Delete the images"
 msgstr "Smazat obrázky"
 
 msgctxt "delete_user"
-msgid "Delete a user"
-msgstr "Odstranit uživatele"
+msgid "Delete the user"
+msgstr "Smazat uživatele"
 
 msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
@@ -635,6 +658,14 @@ msgstr "Vlastnosti účtu"
 msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
 msgstr "Parametry vašeho účtu byly změněny."
+
+msgctxt "edit_user_preferences"
+msgid "Preferences"
+msgstr "Předvolby"
+
+msgctxt "edit_user_preferences_result"
+msgid "Your preferences have been changed."
+msgstr "Vaše preference byly změněny."
 
 msgctxt "editors_p"
 msgid "editors"
@@ -2727,6 +2758,7 @@ msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
 msgstr "Nutriční stupeň NutriScore"
 
+# duplicate
 msgctxt "delete_product_page"
 msgid "Delete the product page"
 msgstr "Smazat stránku produktu"
@@ -2742,10 +2774,6 @@ msgstr "smazal produkt"
 msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
 msgstr "Opravdu chcete smazat stránku tohoto produktu?"
-
-msgctxt "delete_user"
-msgid "Delete the user"
-msgstr "Smazat uživatele"
 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s."
@@ -4168,10 +4196,6 @@ msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr "Prosím přispějte"
 
-msgctxt "alcohol_warning"
-msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
-msgstr "Nadměrná konzumace alkoholu je zdraví škodlivá, konzumujte jej s mírou."
-
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "Moderování platformy producentů"
@@ -4662,6 +4686,10 @@ msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
 msgstr "Žádné nebo malé zpracování potravin (skupina NOVA)"
 
+msgctxt "attribute_nova_setting_note"
+msgid "To determine the level of processing of a product, we rely on the list of ingredients (markers, processing methods) and categories."
+msgstr ""
+
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
 msgid "NOVA %s"
@@ -5011,6 +5039,10 @@ msgctxt "number_of_members"
 msgid "Number of Members"
 msgstr "Počet členů"
 
+msgctxt "serial_no"
+msgid "S.No"
+msgstr "Číslo S."
+
 msgctxt "contact_form"
 msgid "Contact form"
 msgstr "Kontaktní formulář"
@@ -5049,7 +5081,7 @@ msgstr ""
 # do not translate Green-Score
 msgctxt "environmental_score_calculation_details"
 msgid "Details of the calculation of the Green-Score"
-msgstr ""
+msgstr "Podrobnosti výpočtu Green-Score"
 
 # do not translate Green-Score
 msgctxt "environmental_score_information"
@@ -5704,10 +5736,6 @@ msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
 msgstr "Informace o složkách tohoto produktu nebyly uvedeny."
 
-msgctxt "environmental_score_edit_for_more_precise_environmental_score"
-msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "Pro přesnější výpočet Eko-skóre můžete upravit stránku produktu a přidat je."
-
 msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
 msgstr "poměr"
@@ -5728,9 +5756,15 @@ msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
 msgstr "Údaje o obalu tohoto výrobku nejsou dostatečně přesné (přesné tvary a materiály všech součástí obalu)."
 
+# duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
 msgstr "Pro přesnější výpočet Green-Score můžete upravit stránku produktu a přidat je."
+
+# duplicate
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
+msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
+msgstr "Pro přesnější výpočet Eko-skóre můžete upravit stránku produktu a přidat je."
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
@@ -5881,7 +5915,7 @@ msgstr "Přispějte prosím do naší sbírky 2024"
 # Don't translate {year}, it will be replaced by the 4 digits year
 msgctxt "f_donation_title_year"
 msgid "Please give to our {year} Fundraiser"
-msgstr "Přispějte prosím do naší sbírky {year}"
+msgstr ""
 
 msgctxt "donation_list_2024_main"
 msgid "Your donations fund the day-to-day operations of our non-profit association:"
@@ -6238,6 +6272,10 @@ msgid "No ingredients containing palm oil detected"
 msgstr "Nebyly zjištěny žádné složky obsahující palmový olej"
 
 msgctxt "attribute_palm_oil_setting_note"
+msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
+msgstr "Abychom zjistili, zda produkt obsahuje palmový olej, spoléháme se pouze na seznam složek."
+
+msgctxt "attribute_without_palm_oil_setting_note"
 msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
 msgstr "Abychom zjistili, zda produkt obsahuje palmový olej, spoléháme se pouze na seznam složek."
 
@@ -6632,6 +6670,38 @@ msgctxt "api_message_unrecognized_value"
 msgid "Unrecognized value"
 msgstr "Nerozpoznaná hodnota"
 
+msgctxt "api_message_image_already_uploaded"
+msgid "Image already uploaded"
+msgstr "Obrázek již nahrán"
+
+msgctxt "api_message_image_too_small"
+msgid "Image too small"
+msgstr "Obrázek je příliš malý"
+
+msgctxt "api_result_image_uploaded"
+msgid "Image uploaded"
+msgstr "Obrázek nahrán"
+
+msgctxt "api_result_image_not_uploaded"
+msgid "Image not uploaded"
+msgstr "Obrázek se nenahrál"
+
+msgctxt "api_result_image_selected"
+msgid "Image selected"
+msgstr "Vybraný obrázek"
+
+msgctxt "api_result_image_not_selected"
+msgid "Image not selected"
+msgstr "Obrázek nebyl vybrán"
+
+msgctxt "api_result_image_deleted"
+msgid "Image deleted"
+msgstr "Obrázek smazán"
+
+msgctxt "api_result_image_not_deleted"
+msgid "Image not deleted"
+msgstr "Obrázek nebyl smazán"
+
 msgctxt "api_impact_none"
 msgid "None"
 msgstr "Žádný"
@@ -7023,6 +7093,11 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr "Nahlásit problém"
 
+# duplicate with "report_problem_panel_title"
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
+msgstr "Nahlásit problém"
+
 msgctxt "report_problem_navigation"
 msgid "Report a problem."
 msgstr "Nahlásit problém."
@@ -7051,11 +7126,6 @@ msgctxt "description"
 msgid "Description"
 msgstr "Popis"
 
-# duplicate with "report_problem_panel_title"
-msgctxt "report_problem_navigation"
-msgid "Report a problem"
-msgstr "Nahlásit problém"
-
 msgctxt "enter_main_contact_username"
 msgid "Enter main contact's username :"
 msgstr "Zadejte uživatelské jméno hlavního kontaktu:"
@@ -7075,6 +7145,10 @@ msgstr "Tento uživatel není členem organizace."
 msgctxt "skip_to_content"
 msgid "Skip to Content"
 msgstr "Přejít k obsahu"
+
+msgctxt "oidc_signin_no_cookie"
+msgid "You need to enable cookies to sign in."
+msgstr "Pro přihlášení je nutné povolit soubory cookie."
 
 msgctxt "cant_delete_main_contact"
 msgid "You cannot remove the main contact. Change it first."
@@ -7316,7 +7390,7 @@ msgstr "Špatná opravitelnost"
 
 msgctxt "estimate"
 msgid "estimate"
-msgstr ""
+msgstr "odhad"
 
 # information on several ingredients, in plural in languages like French
 msgctxt "ingredient_information"
@@ -7370,4 +7444,69 @@ msgstr "Přidejte produkty s kategorií, seznamem ingrediencí a nutričními ú
 msgctxt "in_contact_with_food"
 msgid "In contact with food"
 msgstr "Při kontaktu s potravinami"
+
+msgctxt "contact_us_producers"
+msgid "Contact Us"
+msgstr "Kontaktujte nás"
+
+msgctxt "delete"
+msgid "Delete"
+msgstr "Odstranit"
+
+msgctxt "f_add_product_to_our_database"
+msgid "Is {barcode} the barcode of a product you have? If so, please add it to the database. It only takes a few minutes."
+msgstr ""
+
+# Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
+msgctxt "f_droid_app_icon_url"
+msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
+msgstr ""
+
+msgctxt "f_droid_app_icon_alt_text"
+msgid "Available on F-Droid"
+msgstr "Dostupné na F-Droidu"
+
+msgctxt "update_nutrients_data"
+msgid "Update nutrients data"
+msgstr ""
+
+msgctxt "update_nutrition_facts"
+msgid "Extract nutrition facts"
+msgstr "Extrahovat nutriční fakta"
+
+msgctxt "scan_a_product"
+msgid "Scan a product"
+msgstr ""
+
+msgctxt "or_enter_barcode_manually"
+msgid "Or enter barcode manually"
+msgstr "Nebo zadejte čárový kód ručně"
+
+msgctxt "scan"
+msgid "Scan"
+msgstr "Skenovat"
+
+msgctxt "reset_preferences_details_beauty"
+msgid "Organic farming and fair trade"
+msgstr "Bio zemědělství a fair trade"
+
+msgctxt "reset_preferences_details_food"
+msgid "Nutri-Score, Green-Score and food processing level (NOVA)"
+msgstr "Nutri-Score, Green-Score a úroveň zpracování potravin (NOVA)"
+
+msgctxt "reset_preferences_details_product"
+msgid "Good repairability"
+msgstr "Dobrá opravitelnost"
+
+msgctxt "reset_preferences_details_pet_food"
+msgid "Organic farming and fair trade"
+msgstr "Bio zemědělství a fair trade"
+
+msgctxt "action_report_image_to_nutripatrol"
+msgid "Report this image to our moderators"
+msgstr "Nahlásit tento obrázek našim moderátorům"
+
+msgctxt "robots_not_served_here"
+msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
+msgstr "Kvůli silnému zneužívání roboty nemůžeme tuto stránku zobrazovat neidentifikovaným uživatelům. Vytvořte si prosím bezplatný účet Open Food Facts, abyste měli přístup ke všem stránkám Open Food Facts."
 
