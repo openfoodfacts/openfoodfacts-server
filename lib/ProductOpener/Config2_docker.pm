@@ -57,6 +57,7 @@ BEGIN {
 		$events_username
 		$events_password
 		$redis_url
+		$folksonomy_url
 		$recipe_estimator_url
 		$recipe_estimator_scipy_url
 		$process_global_redis_events
@@ -139,6 +140,9 @@ $facets_kp_url = $ENV{FACETS_KP_URL};
 $redis_url = $ENV{REDIS_URL};
 $process_global_redis_events = $ENV{PROCESS_GLOBAL_REDIS_EVENTS};
 
+# Set this to your instance of https://github.com/openfoodfacts/folksonomy_api/ to
+# enable folksonomy features
+$folksonomy_url = $ENV{FOLKSONOMY_URL};
 # recipe-estimator product service
 # To test a locally running recipe-estimator with product opener in a docker dev environment:
 # - run recipe-estimator with `uvicorn recipe_estimator.main:app --reload --host 0.0.0.0`
