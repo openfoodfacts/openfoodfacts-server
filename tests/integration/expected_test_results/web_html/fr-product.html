@@ -5021,8 +5021,10 @@ un outil de la Direction générale de la concurrence, de la consommation et de 
 </section>
 
 <!-- start templates/web/common/includes/folksonomy_script.tt.html -->
+<!-- Folksonomy Engine script -->
 
-<!-- end templates/web/common/includes/folksonomy_script.tt.html -->
+
+<!-- end templates/web/common/includes/folksonomy_script.tt.html --> 
 
 
 <!-- end templates/web/pages/product/product_page.tt.html -->
@@ -5218,6 +5220,8 @@ $('.f-dropdown').on('closed.fndtn.dropdown', function() {
 display_user_product_preferences("#preferences_selected", "#preferences_selection_form", function () { display_product_summary("#product_summary", product); });
 display_product_summary("#product_summary", product);
 
+    folksonomy_engine_init();
+
 
 });
 </script>
@@ -5239,6 +5243,8 @@ var product_type = "food";
 
 <script src="//static.openfoodfacts.localhost/js/product-preferences.js"></script>
 <script src="//static.openfoodfacts.localhost/js/product-search.js"></script>
+
+    <script src="//static.openfoodfacts.localhost/js/folksonomy.js"></script>
 
 <script>
 $(document).foundation({
