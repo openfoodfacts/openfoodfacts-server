@@ -26,7 +26,7 @@ allOf:
   - $ref: "./product_images_v3.yaml#/components/schemas/ProductImagesV3"
   - $ref: "../api.yaml#/components/schemas/Product-Eco-Score"
   - $ref: "../api.yaml#/components/schemas/Product-Ingredients"
-  - $ref: "../api.yaml#/components/schemas/Product-Nutrition"
+  - $ref: "./product_nutrition_v3.yaml#/components/schemas/ProductNutritionDataV3"
   - $ref: "../api.yaml#/components/schemas/Product-Nutriscore"
   - $ref: "../api.yaml#/components/schemas/Product-Quality"
   - $ref: "../api.yaml#/components/schemas/Product-Extended"
