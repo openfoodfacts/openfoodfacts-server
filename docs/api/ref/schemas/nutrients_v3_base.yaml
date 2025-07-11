@@ -1,6 +1,4 @@
 type: object
-description: |
-  todo
 properties:
   nutrients:
     type: object
@@ -8,7 +6,7 @@ properties:
       All known nutrients for the product.
 
       You can get all possible nutrients from the
-      [nutrients taxonomy](https://static.openfoodfacts.org/data/taxonomies/nutrients.json)
+      [nutrients taxonomy](https://static.openfoodfacts.org/data/taxonomies/nutrients.json).
 
       New nutrients are regularly added.
 
@@ -16,11 +14,15 @@ properties:
     properties:
       added-sugars:
         description: |
-          todo
+          Quantity of added sugars
+
+          (per 100g, per 100ml or per serving) in a standard unit (g or ml)
         $ref: "../schemas/product_nutrient_values.yaml"
       calcium:
         description: |
-          todo
+          Quantity of calcium
+
+          (per 100g, per 100ml or per serving) in a standard unit (g or ml)
         $ref: "../schemas/product_nutrient_values.yaml"
       carbohydrates:
         description: |
@@ -36,7 +38,9 @@ properties:
         $ref: "../schemas/product_nutrient_values.yaml"
       cholesterol:
         description: |
-          todo
+          Quantity of cholesterol
+
+          (per 100g, per 100ml or per serving) in a standard unit (g or ml)
         $ref: "../schemas/product_nutrient_values.yaml"
       energy:
         description: |
@@ -64,15 +68,21 @@ properties:
         $ref: "../schemas/product_nutrient_values.yaml"
       fiber:
         description: |
-          todo
+          Quantity of fiber
+
+          (per 100g, per 100ml or per serving) in a standard unit (g or ml)
         $ref: "../schemas/product_nutrient_values.yaml"
       iron:
         description: |
-          todo
+          Quantity of iron
+
+          (per 100g, per 100ml or per serving) in a standard unit (g or ml)
         $ref: "../schemas/product_nutrient_values.yaml"
       potassium:
         description: |
-          todo
+          Quantity of potassium
+
+          (per 100g, per 100ml or per serving) in a standard unit (g or ml)
         $ref: "../schemas/product_nutrient_values.yaml"
       proteins:
         description: |
@@ -93,26 +103,34 @@ properties:
           (per 100g, per 100ml or per serving) in a standard unit (g or ml)
         $ref: "../schemas/product_nutrient_values.yaml"
       sodium:
-        $ref: "../schemas/product_nutrient_values.yaml"
         description: |
           Quantity of sodium
 
           (per 100g, per 100ml or per serving) in a standard unit (g or ml)
-      sugars:
         $ref: "../schemas/product_nutrient_values.yaml"
+      sugars:
         description: |
           Quantity of sugars
 
           (per 100g, per 100ml or per serving) in a standard unit (g or ml)
+        $ref: "../schemas/product_nutrient_values.yaml"
       trans-fat:
         description: |
-          todo
+          Quantity of trans fat
+
+          (per 100g, per 100ml or per serving) in a standard unit (g or ml)
         $ref: "../schemas/product_nutrient_values.yaml"
       vitamin-d:
         description: |
-          todo
+          Quantity of vitamin D
+
+          (per 100g, per 100ml or per serving) in a standard unit (g or ml)
         $ref: "../schemas/product_nutrient_values.yaml"
     additionalProperties:
       description: |
-        todo
+        Quantity of other nutrients from the nutrients taxonomy.
+
+        See [nutrients taxonomy file](https://static.openfoodfacts.org/data/taxonomies/nutrients.json) for all nutrients in Open Food Facts.
+
+        (per 100g, per 100ml or per serving) in a standard unit (g or ml)
       $ref: "../schemas/product_nutrient_values.yaml"

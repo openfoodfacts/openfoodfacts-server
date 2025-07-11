@@ -5,14 +5,14 @@ properties:
   value_string:
     type: string
     description: |
-        todo
+        A string representing the value of the quantity.
     examples:
       - "2.0"
       - "4.1"
   value:
     type: number
     description: |
-      todo
+      A normalized float value for the quantity, computed from `value_string` if it exists.
     examples:
       - 2
       - 4.1
@@ -87,4 +87,4 @@ properties:
     type: string
     enum: ["<", "<=", "~", ">=", ">"]
     description: |
-      todo (this property is optional)
+      This property is optional.

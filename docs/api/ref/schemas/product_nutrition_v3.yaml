@@ -3,22 +3,23 @@ components:
     ProductNutritionDataV3:
       type: object
       title: Product Nutrition Data
-      description: |
-        Nutrition fields of a product
-
-        Most of these properties are read-only.
-
-        See [how to add nutrition data](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-cheatsheet/#add-nutrition-facts-values-units-and-base)
       properties:
         nutrition:
           type: object
           description: |
-            todo
+            Nutrition fields of a product
+
+            Most of these properties are read-only.
+
+            See [how to add nutrition data](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-cheatsheet/#add-nutrition-facts-values-units-and-base)
           properties:
             nutrient_set_preferred:
               type: object
               description: | 
-                todo
+                A set that combines set of nutriments with the preferred sources, with normalized units.
+                
+                It takes values from multiple sources (by priority: manufacturer, packaging, usda, estimate)
+                and normalizes all values to the same unit: g for weights, kJ for energy and energy-kj, kcal for energy-kcal.
               allOf:
                 - $ref: "../schemas/product_nutrition_properties.yaml"
                 - $ref: "../schemas/nutrients_v3_with_source.yaml"
@@ -42,7 +43,7 @@ components:
                     properties:
                       source:
                         type: string
-                        enum:
+                        enum: 
                           - packaging
                           - manufacturer
                           - usda
@@ -66,13 +67,13 @@ components:
                         examples:
                           - 1631270265
                           - 1512153487
-                      unspecific_nutrients(optional):
+                      unspecific_nutrients:
                         type: array
                         description: |
-                          todo
+                          A list of nutrients that are typically present, but that are not specified for this particular product,
+                          especially for packaging source.
+
+                          This property is optional.
                         items:
                           type: string
-                          description: |
-                            todo
-                          example: ["fibers"]
-                          
+                        example: ["fibers"]

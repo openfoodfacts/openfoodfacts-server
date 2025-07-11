@@ -1,6 +1,4 @@
 type: object
-description: |
-  todo
 properties:
   nutrients:
     type: object
@@ -8,7 +6,7 @@ properties:
       All known nutrients for the product.
 
       You can get all possible nutrients from the
-      [nutrients taxonomy](https://static.openfoodfacts.org/data/taxonomies/nutrients.json)
+      [nutrients taxonomy](https://static.openfoodfacts.org/data/taxonomies/nutrients.json).
 
       New nutrients are regularly added.
 
@@ -16,7 +14,9 @@ properties:
     properties:
       added-sugars:
         description: |
-          todo
+          Quantity of added sugars
+
+          (per 100g, per 100ml or per serving) in a standard unit (g or ml)
         allOf:
           - $ref: "../schemas/product_nutrient_values.yaml"
           - type: object
@@ -24,14 +24,18 @@ properties:
               source:
                 type: string
                 description: |
-                  todo
+                  Indicates the original source like “packaging”, “manufacturer”, “estimate”, “usda”
+                example: "packaging"
               source_per:
                 type: string
                 description: |
-                  todo
+                  Indicates if the original source is per serving or per 100g, 100ml
+                enum: ["100g", "100ml", "serving"]
       calcium:
         description: |
-          todo
+          Quantity of calcium
+
+          (per 100g, per 100ml or per serving) in a standard unit (g or ml)
         allOf:
           - $ref: "../schemas/product_nutrient_values.yaml"
           - type: object
@@ -39,11 +43,13 @@ properties:
               source:
                 type: string
                 description: |
-                  todo
+                  Indicates the original source like “packaging”, “manufacturer”, “estimate”, “usda”
+                example: "packaging"
               source_per:
                 type: string
                 description: |
-                  todo
+                  Indicates if the original source is per serving or per 100g, 100ml
+                enum: ["100g", "100ml", "serving"]
       carbohydrates:
         description: |
           This is the available carbohydrates (excluding fiber), also known as net carbohydrates
@@ -56,11 +62,13 @@ properties:
               source:
                 type: string
                 description: |
-                  todo
+                  Indicates the original source like “packaging”, “manufacturer”, “estimate”, “usda”
+                example: "packaging"
               source_per:
                 type: string
                 description: |
-                  todo
+                  Indicates if the original source is per serving or per 100g, 100ml
+                enum: ["100g", "100ml", "serving"]
       carbohydrates-total:
         description: |
           This follows the US / Canada definition of carbohydrates which includes fiber, also known as gross carbohydrates
@@ -73,14 +81,18 @@ properties:
               source:
                 type: string
                 description: |
-                  todo
+                  Indicates the original source like “packaging”, “manufacturer”, “estimate”, “usda”
+                example: "packaging"
               source_per:
                 type: string
                 description: |
-                  todo
+                  Indicates if the original source is per serving or per 100g, 100ml
+                enum: ["100g", "100ml", "serving"]
       cholesterol:
         description: |
-          todo
+          Quantity of cholesterol
+
+          (per 100g, per 100ml or per serving) in a standard unit (g or ml)
         allOf:
           - $ref: "../schemas/product_nutrient_values.yaml"
           - type: object
@@ -88,11 +100,13 @@ properties:
               source:
                 type: string
                 description: |
-                  todo
+                  Indicates the original source like “packaging”, “manufacturer”, “estimate”, “usda”
+                example: "packaging"
               source_per:
                 type: string
                 description: |
-                  todo
+                  Indicates if the original source is per serving or per 100g, 100ml
+                enum: ["100g", "100ml", "serving"]
       energy:
         description: |
           It is the same as `energy-kj` if we have it, or computed from `energy-kcal` otherwise
@@ -105,11 +119,13 @@ properties:
               source:
                 type: string
                 description: |
-                  todo
+                  Indicates the original source like “packaging”, “manufacturer”, “estimate”, “usda”
+                example: "packaging"
               source_per:
                 type: string
                 description: |
-                  todo
+                  Indicates if the original source is per serving or per 100g, 100ml
+                enum: ["100g", "100ml", "serving"]
       energy_kcal:
         description: |
           energy in kcal, if it is specified
@@ -122,11 +138,13 @@ properties:
               source:
                 type: string
                 description: |
-                  todo
+                  Indicates the original source like “packaging”, “manufacturer”, “estimate”, “usda”
+                example: "packaging"
               source_per:
                 type: string
                 description: |
-                  todo
+                  Indicates if the original source is per serving or per 100g, 100ml
+                enum: ["100g", "100ml", "serving"]
       energy_kj:
         description: |
           energy in kj, if it is specified
@@ -139,11 +157,13 @@ properties:
               source:
                 type: string
                 description: |
-                  todo
+                  Indicates the original source like “packaging”, “manufacturer”, “estimate”, “usda”
+                example: "packaging"
               source_per:
                 type: string
                 description: |
-                  todo
+                  Indicates if the original source is per serving or per 100g, 100ml
+                enum: ["100g", "100ml", "serving"]
       fat:
         description: |
           Quantity of fat
@@ -156,14 +176,18 @@ properties:
               source:
                 type: string
                 description: |
-                  todo
+                  Indicates the original source like “packaging”, “manufacturer”, “estimate”, “usda”
+                example: "packaging"
               source_per:
                 type: string
                 description: |
-                  todo
+                  Indicates if the original source is per serving or per 100g, 100ml
+                enum: ["100g", "100ml", "serving"]
       fiber:
         description: |
-          todo
+          Quantity of fiber
+
+          (per 100g, per 100ml or per serving) in a standard unit (g or ml)
         allOf:
           - $ref: "../schemas/product_nutrient_values.yaml"
           - type: object
@@ -171,14 +195,18 @@ properties:
               source:
                 type: string
                 description: |
-                  todo
+                  Indicates the original source like “packaging”, “manufacturer”, “estimate”, “usda”
+                example: "packaging"
               source_per:
                 type: string
                 description: |
-                  todo
+                  Indicates if the original source is per serving or per 100g, 100ml
+                enum: ["100g", "100ml", "serving"]
       iron:
         description: |
-          todo
+          Quantity of iron
+
+          (per 100g, per 100ml or per serving) in a standard unit (g or ml)
         allOf:
           - $ref: "../schemas/product_nutrient_values.yaml"
           - type: object
@@ -186,14 +214,18 @@ properties:
               source:
                 type: string
                 description: |
-                  todo
+                  Indicates the original source like “packaging”, “manufacturer”, “estimate”, “usda”
+                example: "packaging"
               source_per:
                 type: string
                 description: |
-                  todo
+                  Indicates if the original source is per serving or per 100g, 100ml
+                enum: ["100g", "100ml", "serving"]
       potassium:
         description: |
-          todo
+          Quantity of potassium
+
+          (per 100g, per 100ml or per serving) in a standard unit (g or ml)
         allOf:
           - $ref: "../schemas/product_nutrient_values.yaml"
           - type: object
@@ -201,11 +233,13 @@ properties:
               source:
                 type: string
                 description: |
-                  todo
+                  Indicates the original source like “packaging”, “manufacturer”, “estimate”, “usda”
+                example: "packaging"
               source_per:
                 type: string
                 description: |
-                  todo
+                  Indicates if the original source is per serving or per 100g, 100ml
+                enum: ["100g", "100ml", "serving"]
       proteins:
         description: |
           Quantity of proteins
@@ -218,11 +252,13 @@ properties:
               source:
                 type: string
                 description: |
-                  todo
+                  Indicates the original source like “packaging”, “manufacturer”, “estimate”, “usda”
+                example: "packaging"
               source_per:
                 type: string
                 description: |
-                  todo
+                  Indicates if the original source is per serving or per 100g, 100ml
+                enum: ["100g", "100ml", "serving"]
       salt:
         description: |
           Quantity of salt
@@ -235,11 +271,16 @@ properties:
               source:
                 type: string
                 description: |
-                  todo
+                  Indicates the original source like “packaging”, “manufacturer”, “estimate”, “usda”
+                example: "packaging"
               source_per:
                 type: string
                 description: |
-                  todo
+                  Indicates if the original source is per serving or per 100g, 100ml
+                enum: 
+                  - 100g
+                  - 100ml
+                  - serving
       saturated-fat:
         description: |
           Quantity of saturated fat
@@ -252,29 +293,18 @@ properties:
               source:
                 type: string
                 description: |
-                  todo
+                  Indicates the original source like “packaging”, “manufacturer”, “estimate”, “usda”
+                example: "packaging"
               source_per:
                 type: string
                 description: |
-                  todo
+                  Indicates if the original source is per serving or per 100g, 100ml
+                enum: ["100g", "100ml", "serving"]
       sodium:
-        allOf:
-          - $ref: "../schemas/product_nutrient_values.yaml"
-          - type: object
-            properties:
-              source:
-                type: string
-                description: |
-                  todo
-              source_per:
-                type: string
-                description: |
-                  todo
         description: |
           Quantity of sodium
 
           (per 100g, per 100ml or per serving) in a standard unit (g or ml)
-      sugars:
         allOf:
           - $ref: "../schemas/product_nutrient_values.yaml"
           - type: object
@@ -282,18 +312,37 @@ properties:
               source:
                 type: string
                 description: |
-                  todo
+                  Indicates the original source like “packaging”, “manufacturer”, “estimate”, “usda”
+                example: "packaging"
               source_per:
                 type: string
                 description: |
-                  todo
+                  Indicates if the original source is per serving or per 100g, 100ml
+                enum: ["100g", "100ml", "serving"]
+      sugars:
         description: |
           Quantity of sugars
 
           (per 100g, per 100ml or per serving) in a standard unit (g or ml)
+        allOf:
+          - $ref: "../schemas/product_nutrient_values.yaml"
+          - type: object
+            properties:
+              source:
+                type: string
+                description: |
+                  Indicates the original source like “packaging”, “manufacturer”, “estimate”, “usda”
+                example: "packaging"
+              source_per:
+                type: string
+                description: |
+                  Indicates if the original source is per serving or per 100g, 100ml
+                enum: ["100g", "100ml", "serving"]
       trans-fat:
         description: |
-          todo
+          Quantity of trans fat
+
+          (per 100g, per 100ml or per serving) in a standard unit (g or ml)
         allOf:
           - $ref: "../schemas/product_nutrient_values.yaml"
           - type: object
@@ -301,14 +350,18 @@ properties:
               source:
                 type: string
                 description: |
-                  todo
+                  Indicates the original source like “packaging”, “manufacturer”, “estimate”, “usda”
+                example: "packaging"
               source_per:
                 type: string
                 description: |
-                  todo
+                  Indicates if the original source is per serving or per 100g, 100ml
+                enum: ["100g", "100ml", "serving"]
       vitamin-d:
         description: |
-          todo
+          Quantity of vitamin D
+
+          (per 100g, per 100ml or per serving) in a standard unit (g or ml)
         allOf:
           - $ref: "../schemas/product_nutrient_values.yaml"
           - type: object
@@ -316,14 +369,20 @@ properties:
               source:
                 type: string
                 description: |
-                  todo
+                  Indicates the original source like “packaging”, “manufacturer”, “estimate”, “usda”
+                example: "packaging"
               source_per:
                 type: string
                 description: |
-                  todo
+                  Indicates if the original source is per serving or per 100g, 100ml
+                enum: ["100g", "100ml", "serving"]
     additionalProperties: 
       description: |
-        todo
+        Quantity of other nutrients from the nutrients taxonomy.
+        
+        See [nutrients taxonomy file](https://static.openfoodfacts.org/data/taxonomies/nutrients.json) for all nutrients in Open Food Facts.
+
+        (per 100g, per 100ml or per serving) in a standard unit (g or ml)
       allOf:
         - $ref: "../schemas/product_nutrient_values.yaml"
         - type: object
@@ -331,8 +390,8 @@ properties:
             source:
               type: string
               description: |
-                todo
+                Indicates the original source like “packaging”, “manufacturer”, “estimate”, “usda”
             source_per:
               type: string
               description: |
-                todo
+                Indicates if the original source is per serving or per 100g, 100ml
