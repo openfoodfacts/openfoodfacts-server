@@ -124,14 +124,24 @@ function folskonomy_engine_init() {
 
     if (pageType === "property") {
         // detect /property/test or /property/test/value/test_value
-        const results = new RegExp('/property/([^/]*)(/value/)?(.*)').exec(window.location.href);
+        const results = new RegExp("/property/([^/]*)(/value/)?(.*)").exec(
+          window.location.href
+        );
         if (results === null) {
-            return null;
+          return null;
         }
+      
         const property = results[1];
-        const value = results[3];
-        displayProductsWithProperty(property, value);
-    }
+      
+        const webComponentHTML = `
+          <div style="padding: 32px;">
+            <folksonomy-property-products property-name="${property}"></folksonomy-property-products>
+          </div>
+        `;
+      
+        $("#main_column").append(webComponentHTML);
+      }
+      
 
     if (pageType === "properties") {
         displayAllProperties();
