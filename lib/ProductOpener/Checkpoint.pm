@@ -74,6 +74,7 @@ sub log ($self, $message) {
 	my $log_message = '[' . localtime() . '] ' . $message . "\n";
 	print $log_message;
 	print $log_file $log_message;
+	return;
 }
 
 sub DESTROY {

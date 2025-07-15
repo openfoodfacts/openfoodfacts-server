@@ -81,7 +81,8 @@ sub create_user_in_keycloak_with_scrypt_credential ($keycloak_user_ref) {
 	$upsert_user_request->content($json);
 	my $upsert_user_response = LWP::UserAgent::Plugin->new->request($upsert_user_request);
 	unless ($upsert_user_response->is_success) {
-		$checkpoint->log("Error: $userid: Keycloak error: " . $upsert_user_response->content . "\n$userid : Request: $json");
+		$checkpoint->log(
+			"Error: $userid: Keycloak error: " . $upsert_user_response->content . "\n$userid : Request: $json");
 		return;
 	}
 
