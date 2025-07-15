@@ -16,21 +16,10 @@ sub generate_nutrient_set_preferred_from_sets {
             $nutrient_set_preferred_ref->{per_unit} = $nutrient_sets[0]{per_unit};
         }
         
-        foreach my $nutrient_set (@nutrient_sets) {
-            if (exists $nutrient_set->{nutrients} 
-                && ref $nutrient_set->{nutrients} eq 'HASH') 
-            {
-                foreach my $nutrient (keys %{$nutrient_set->{nutrients}}) {
-                    $nutrient_set_preferred_ref->{nutrients}{$nutrient} = $nutrient_set->{nutrients}{$nutrient};
-                    $nutrient_set_preferred_ref->{nutrients}{$nutrient}{source} = $nutrient_set->{source};
-                    $nutrient_set_preferred_ref->{nutrients}{$nutrient}{source_per} = $nutrient_set->{per};
-                }
-            }
-        }  
+        $nutrient_set_preferred_ref = set_nutrient_values($nutrient_set_preferred_ref, @nutrient_sets);
     }
     return $nutrient_set_preferred_ref;
 }
-
 
 my %source_priority = (
     manufacturer => 0,
@@ -55,20 +44,43 @@ my %per_priority = (
 
 sub sort_sets_by_priority (@nutrient_sets) {
     return sort {
-        my $source_a = $source_priority{$a->{source}} // $source_priority{_default};
-        my $source_b = $source_priority{$b->{source}} // $source_priority{_default};
+        my $source_key_a = defined $a->{source} ? $a->{source} : '_default';
+        my $source_key_b = defined $b->{source} ? $b->{source} : '_default';
+        my $source_a = $source_priority{$source_key_a};
+        my $source_b = $source_priority{$source_key_b};
 
-        my $per_a = $per_priority{$a->{per}} // $per_priority{_default};
-        my $per_b = $per_priority{$b->{per}} // $per_priority{_default};
+        my $per_key_a = defined $a->{per} ? $a->{per} : '_default';
+        my $per_key_b = defined $b->{per} ? $b->{per} : '_default';
+        my $per_a = $per_priority{$per_key_a};
+        my $per_b = $per_priority{$per_key_b};
 
-        my $preparation_a = $preparation_priority{$a->{preparation}} // $preparation_priority{_default};
-        my $preparation_b = $preparation_priority{$b->{preparation}} // $preparation_priority{_default};
+        my $preparation_key_a = defined $a->{preparation} ? $a->{preparation} : '_default';
+        my $preparation_key_b = defined $b->{preparation} ? $b->{preparation} : '_default';
+        my $preparation_a = $preparation_priority{$preparation_key_a};
+        my $preparation_b = $preparation_priority{$preparation_key_b};
         
-        return 
-               $source_a <=> $source_b
-            || $per_a <=> $per_b
-            || $preparation_a <=> $preparation_b;
+        return $source_a <=> $source_b || $per_a <=> $per_b || $preparation_a <=> $preparation_b;
     } @nutrient_sets;
 }
 
+sub set_nutrient_values ($nutrient_set_preferred_ref, @nutrient_sets) {
+    foreach my $nutrient_set (@nutrient_sets) {
+        if (    defined $nutrient_set->{preparation}
+            and $nutrient_set->{preparation} eq $nutrient_set_preferred_ref->{preparation}
+            and exists $nutrient_set->{nutrients} 
+            and ref $nutrient_set->{nutrients} eq 'HASH') 
+        {
+            foreach my $nutrient (keys %{$nutrient_set->{nutrients}}) {
+                if (!exists $nutrient_set_preferred_ref->{nutrients}{$nutrient}
+                    and $nutrient_set->{per} eq $nutrient_set_preferred_ref->{per}) 
+                {
+                    $nutrient_set_preferred_ref->{nutrients}{$nutrient} = $nutrient_set->{nutrients}{$nutrient};
+                    $nutrient_set_preferred_ref->{nutrients}{$nutrient}{source} = $nutrient_set->{source};
+                    $nutrient_set_preferred_ref->{nutrients}{$nutrient}{source_per} = $nutrient_set->{per};    
+                }
+            }
+        }
+    } 
+    return $nutrient_set_preferred_ref;
+}
 1;
