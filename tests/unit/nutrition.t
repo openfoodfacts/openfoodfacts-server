@@ -23,7 +23,7 @@ my @tests = (
                     sodium => {
                         value_string => "2.0", 
                         value => 2, 
-                        unit => "mg", 
+                        unit => "g", 
                         modifier => "<="
                     }
                 }
@@ -38,7 +38,7 @@ my @tests = (
                 sodium => {
                     value_string => "2.0", 
                     value => 2, 
-                    unit => "mg", 
+                    unit => "g", 
                     modifier => "<=",
                     source => "packaging",
                     source_per => "100g",
@@ -60,7 +60,7 @@ my @tests = (
                     sodium => {
                         value_string => "2.0", 
                         value => 2, 
-                        unit => "mg", 
+                        unit => "g", 
                         modifier => "<="
                     }
                 }
@@ -75,7 +75,7 @@ my @tests = (
                 sodium => {
                     value_string => "2.0", 
                     value => 2, 
-                    unit => "mg", 
+                    unit => "g", 
                     modifier => "<=",
                     source => "packaging",
                     source_per => "100g",
@@ -96,7 +96,7 @@ my @tests = (
                     sodium => {
                         value_string => "2.0", 
                         value => 2, 
-                        unit => "mg", 
+                        unit => "g", 
                         modifier => "<="
                     }
                 }
@@ -111,7 +111,7 @@ my @tests = (
                     sugars => {
                         value_string => "5.2", 
                         value => 5.2, 
-                        unit => "mg", 
+                        unit => "g", 
                     }
                 }
             }
@@ -125,7 +125,7 @@ my @tests = (
                 sodium => {
                     value_string => "2.0", 
                     value => 2, 
-                    unit => "mg", 
+                    unit => "g", 
                     modifier => "<=",
                     source => "packaging",
                     source_per => "100g",
@@ -133,7 +133,7 @@ my @tests = (
                 sugars => {
                     value_string => "5.2", 
                     value => 5.2, 
-                    unit => "mg", 
+                    unit => "g", 
                     source => "usda",
                     source_per => "100g",
                 }
@@ -153,7 +153,7 @@ my @tests = (
                     sodium => {
                         value_string => "2.0", 
                         value => 2, 
-                        unit => "mg", 
+                        unit => "g", 
                         modifier => "<="
                     }
                 }
@@ -168,12 +168,12 @@ my @tests = (
                     sodium => {
                         value_string => "0.1", 
                         value => 0.1, 
-                        unit => "mg",
+                        unit => "g",
                     },
                     sugars => {
                         value_string => "5.2", 
                         value => 5.2, 
-                        unit => "mg", 
+                        unit => "g", 
                     }
                 }
             }
@@ -187,7 +187,7 @@ my @tests = (
                 sodium => {
                     value_string => "2.0", 
                     value => 2, 
-                    unit => "mg", 
+                    unit => "g", 
                     modifier => "<=",
                     source => "packaging",
                     source_per => "100g",
@@ -195,7 +195,7 @@ my @tests = (
                 sugars => {
                     value_string => "5.2", 
                     value => 5.2, 
-                    unit => "mg", 
+                    unit => "g", 
                     source => "usda",
                     source_per => "100g",
                 }
@@ -215,7 +215,7 @@ my @tests = (
                     sodium => {
                         value_string => "2.0", 
                         value => 2, 
-                        unit => "mg", 
+                        unit => "g", 
                         modifier => "<="
                     },
                     protein => {
@@ -235,12 +235,12 @@ my @tests = (
                     sodium => {
                         value_string => "0.1", 
                         value => 0.1, 
-                        unit => "mg",
+                        unit => "g",
                     },
                     sugars => {
                         value_string => "5.2", 
                         value => 5.2, 
-                        unit => "mg", 
+                        unit => "g", 
                     }
                 }
             }
@@ -254,14 +254,14 @@ my @tests = (
                 sodium => {
                     value_string => "0.1", 
                     value => 0.1, 
-                    unit => "mg", 
+                    unit => "g", 
                     source => "packaging",
                     source_per => "100g",
                 },
                 sugars => {
                     value_string => "5.2", 
                     value => 5.2, 
-                    unit => "mg", 
+                    unit => "g", 
                     source => "packaging",
                     source_per => "100g",
                 }
@@ -281,7 +281,7 @@ my @tests = (
                     sodium => {
                         value_string => "2.0", 
                         value => 2, 
-                        unit => "mg", 
+                        unit => "g", 
                         modifier => "<="
                     }
                 }
@@ -296,7 +296,7 @@ my @tests = (
                     sodium => {
                         value_string => "0.1", 
                         value => 0.1, 
-                        unit => "mg",
+                        unit => "g",
                     },
                     protein => {
                         value_string => "12",
@@ -315,7 +315,7 @@ my @tests = (
                     sugars => {
                         value_string => "5.2", 
                         value => 5.2, 
-                        unit => "mg", 
+                        unit => "g", 
                     }
                 }
             }
@@ -329,7 +329,7 @@ my @tests = (
                 sodium => {
                     value_string => "2.0", 
                     value => 2, 
-                    unit => "mg", 
+                    unit => "g", 
                     modifier => "<=",
                     source => "packaging",
                     source_per => "100g",
@@ -337,7 +337,7 @@ my @tests = (
                 sugars => {
                     value_string => "5.2", 
                     value => 5.2, 
-                    unit => "mg", 
+                    unit => "g", 
                     source => "packaging",
                     source_per => "100g",
                 }
@@ -357,7 +357,7 @@ my @tests = (
                     sugars => {
                         value_string => "5.2", 
                         value => 5.2, 
-                        unit => "mg", 
+                        unit => "g", 
                     }
                 }
             },
@@ -371,7 +371,7 @@ my @tests = (
                     sodium => {
                         value_string => "2.0", 
                         value => 2, 
-                        unit => "mg", 
+                        unit => "g", 
                         modifier => "<="
                     }
                 }
@@ -386,7 +386,7 @@ my @tests = (
                 sodium => {
                     value_string => "2.0", 
                     value => 2, 
-                    unit => "mg",
+                    unit => "g",
                     modifier => "<=", 
                     source => "manufacturer",
                     source_per => "serving",
@@ -407,7 +407,7 @@ my @tests = (
                     sodium => {
                         value_string => "2.0", 
                         value => 2, 
-                        unit => "mg", 
+                        unit => "g", 
                         modifier => "<="
                     }
                 }
@@ -422,7 +422,7 @@ my @tests = (
                     sugars => {
                         value_string => "5.2", 
                         value => 5.2, 
-                        unit => "mg", 
+                        unit => "g", 
                     }
                 }
             }
@@ -436,7 +436,7 @@ my @tests = (
                 sodium => {
                     value_string => "2.0", 
                     value => 2, 
-                    unit => "mg",
+                    unit => "g",
                     modifier => "<=", 
                     source => "manufacturer",
                     source_per => "100g",
@@ -457,7 +457,7 @@ my @tests = (
                     sodium => {
                         value_string => "2.0", 
                         value => 2, 
-                        unit => "mg", 
+                        unit => "g", 
                         modifier => "<="
                     }
                 }
@@ -472,7 +472,7 @@ my @tests = (
                     sugars => {
                         value_string => "5.2", 
                         value => 5.2, 
-                        unit => "mg", 
+                        unit => "g", 
                     }
                 }
             }
@@ -486,7 +486,7 @@ my @tests = (
                 sugars => {
                     value_string => "5.2", 
                     value => 5.2, 
-                    unit => "mg",
+                    unit => "g",
                     source => "packaging",
                     source_per => "100g",
                 }
@@ -494,6 +494,43 @@ my @tests = (
         },
         "Generated set should have nutrients from most important per then preparation given sets with same nutrients with different per and preparations"
     ],
+    [
+        [
+            {
+                preparation => "as_sold", 
+                per => "100g", 
+                per_quantity => "100", 
+                per_unit => "g", 
+                source => "packaging", 
+                nutrients => {
+                    sodium => {
+                        value_string => "200.0", 
+                        value => 200, 
+                        unit => "mg", 
+                        modifier => "<="
+                    }
+                }
+            }
+        ],
+        {
+            preparation => "as_sold", 
+            per => "100g", 
+            per_quantity => "100", 
+            per_unit => "g", 
+            nutrients => {
+                sodium => {
+                    value_string => "0.2", 
+                    value => 0.2, 
+                    unit => "g",
+                    source => "packaging",
+                    source_per => "100g",
+                    modifier => "<=",
+                }
+            }
+        },
+        "Generated set should have normalized weight units for nutrients"
+    ],
+    
 );      
 
 foreach my $test_ref (@tests) {

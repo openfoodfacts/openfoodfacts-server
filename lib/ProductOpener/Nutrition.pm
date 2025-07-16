@@ -1,4 +1,5 @@
 use ProductOpener::PerlStandards;
+use ProductOpener::Units qw/unit_to_g/;
 
 sub generate_nutrient_set_preferred_from_sets {
     my ($nutrient_sets_ref) = @_; 
@@ -75,6 +76,7 @@ sub set_nutrient_values ($nutrient_set_preferred_ref, @nutrient_sets) {
                     and $nutrient_set->{per} eq $nutrient_set_preferred_ref->{per}) 
                 {
                     $nutrient_set_preferred_ref->{nutrients}{$nutrient} = $nutrient_set->{nutrients}{$nutrient};
+                    nutrient_in_g($nutrient_set_preferred_ref->{nutrients}{$nutrient});
                     $nutrient_set_preferred_ref->{nutrients}{$nutrient}{source} = $nutrient_set->{source};
                     $nutrient_set_preferred_ref->{nutrients}{$nutrient}{source_per} = $nutrient_set->{per};    
                 }
@@ -82,5 +84,13 @@ sub set_nutrient_values ($nutrient_set_preferred_ref, @nutrient_sets) {
         }
     } 
     return $nutrient_set_preferred_ref;
+}
+
+sub nutrient_in_g ($nutrient_ref) {
+    if ($nutrient_ref->{unit} ne "g") {
+        $nutrient_ref->{value} = unit_to_g($nutrient_ref->{value}, $nutrient_ref->{unit});
+        $nutrient_ref->{value_string} = sprintf("%s", $nutrient_ref->{value});
+        $nutrient_ref->{unit} = "g";
+    }
 }
 1;
