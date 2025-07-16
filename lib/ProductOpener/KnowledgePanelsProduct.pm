@@ -89,7 +89,7 @@ We may display country specific recommendations from health authorities, or coun
 =cut
 
 sub create_product_card_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
-	$log->debug("create product card panel", { code => $product_ref->{code} }) if $log->is_debug();
+	$log->debug("create product card panel", {code => $product_ref->{code}}) if $log->is_debug();
 
 	my @taxonomy_fields = qw(
 		brands_tags
@@ -107,35 +107,52 @@ sub create_product_card_panel ($product_ref, $target_lc, $target_cc, $options_re
 		next unless $tags && @$tags;
 
 		(my $field_name = $field) =~ s/_tags$//;
+		my $raw_field_name = $field_name;
 		$field_name =~ s/_/-/g;
 
 		my @tags_data = map {
 			my $link = get_taxonomy_tag_and_link_for_lang($target_lc, $field_name, $_);
 			{
 				name => $link->{display},
-				url  => "/facets/$field_name/" . $link->{tagurl},
+				url => "/facets/$field_name/" . $link->{tagurl},
 			}
 		} @$tags;
 
-		push @taxonomy_panels, {
+		# Generation of html for product page
+		my $html = "<ul>\n";
+		foreach my $tag (@tags_data) {
+			$html .= "  <li><a href=\"$tag->{url}\">$tag->{name}</a></li>\n";
+		}
+		$html .= "</ul>\n";
+
+		my $panel_data_ref = {
 			field_name => $field_name,
-			tags       => \@tags_data,
+			tags => \@tags_data,
+			html => $html,
+			raw_field_name => $raw_field_name,
 		};
+
+		create_panel_from_json_template($field_name, "api/knowledge-panels/product/product_panel.tt.json",
+			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+
+		push @taxonomy_panels,
+			{
+			field_name => $field_name,
+			tags => \@tags_data,
+			};
 	}
 
 	my $panel_data_ref = {
-		taxonomy_panels   => \@taxonomy_panels,
-		target_lc         => $target_lc,
+		taxonomy_panels => \@taxonomy_panels,
+		target_lc => $target_lc,
 	};
 
 	$log->debug("Taxonomy panels: " . Dumper($panel_data_ref->{taxonomy_panels})) if $log->is_debug();
-	$log->debug("Ingredient origins: " . Dumper($panel_data_ref->{ingredient_origin})) if $log->is_debug();
 
 	create_panel_from_json_template("product_card", "api/knowledge-panels/product/product_card.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
-	
+
 	return 1;
 }
-
 
 1;

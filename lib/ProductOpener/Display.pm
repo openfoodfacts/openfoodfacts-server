@@ -7939,6 +7939,10 @@ JS
 		$template_data_ref->{contribution_card_panel}
 			= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "contribution_card");
 	}
+	if (request_param($request_ref, 'raw_panel')) {
+		$template_data_ref->{product_card_panel}
+			= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "product_card");
+	}
 
 	# User preferences
 	$template_data_ref->{user_preferences} = $request_ref->{user_preferences};
