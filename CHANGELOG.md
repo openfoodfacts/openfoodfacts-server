@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.73.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.73.0...v2.73.1) (2025-07-16)
+
+
+### Bug Fixes
+
+* Get Keycloak anonymized migration to use the existing password ([#12140](https://github.com/openfoodfacts/openfoodfacts-server/issues/12140)) ([bbc2ba9](https://github.com/openfoodfacts/openfoodfacts-server/commit/bbc2ba91953e94395484c0af1d86674bbbbb7724))
+* Specific NOVA group details not showing ([#12153](https://github.com/openfoodfacts/openfoodfacts-server/issues/12153)) ([c1837c1](https://github.com/openfoodfacts/openfoodfacts-server/commit/c1837c1a1bc8f7acfdcd4cdbffbe769c2c56906b)), closes [#10493](https://github.com/openfoodfacts/openfoodfacts-server/issues/10493)
+
 ## [2.73.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.72.0...v2.73.0) (2025-07-09)
 
 
