@@ -1863,6 +1863,25 @@
                "health"
             ]
          },
+         "labels" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                <ul>\n  <li><a href=\"http://world.openfoodfacts.localhost/facets/labels/organic\">Organic</a></li>\n</ul>\n\n                "
+                  }
+               }
+            ],
+            "evaluation" : "neutral",
+            "expand_for" : "large",
+            "level" : "info",
+            "title_element" : {
+               "title" : "Labels, certifications, awards"
+            },
+            "topics" : [
+               "problem"
+            ]
+         },
          "nova" : {
             "elements" : [
                {
@@ -2413,15 +2432,10 @@
          "product_card" : {
             "elements" : [
                {
-                  "elements" : [
-                     {
-                        "title" : "Organic",
-                        "type" : "panel",
-                        "url" : "/facets/labels/organic"
-                     }
-                  ],
-                  "title" : "labels",
-                  "type" : "panel"
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "labels"
+                  }
                }
             ],
             "expanded" : true,

@@ -1098,6 +1098,25 @@
                "health"
             ]
          },
+         "labels" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                <ul>\n  <li><a href=\"http://world-fr.openfoodfacts.localhost/facets/labels/bio\">Bio</a></li>\n</ul>\n\n                "
+                  }
+               }
+            ],
+            "evaluation" : "neutral",
+            "expand_for" : "large",
+            "level" : "info",
+            "title_element" : {
+               "title" : "Labels, certifications, récompenses"
+            },
+            "topics" : [
+               "problem"
+            ]
+         },
          "nova" : {
             "elements" : [
                {
@@ -1648,15 +1667,10 @@
          "product_card" : {
             "elements" : [
                {
-                  "elements" : [
-                     {
-                        "title" : "Bio",
-                        "type" : "panel",
-                        "url" : "/facets/labels/bio"
-                     }
-                  ],
-                  "title" : "labels",
-                  "type" : "panel"
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "labels"
+                  }
                }
             ],
             "expanded" : true,
