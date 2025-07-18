@@ -985,6 +985,7 @@ $options{attribute_groups} = [
 		],
 	],
 	["ingredients_analysis", ["vegan", "vegetarian", "palm_oil_free",]],
+	["ingredients", ["unwanted_ingredients"]],
 	["labels", ["labels_organic", "labels_fair_trade"]],
 	# Note: before 2025, the Environmental-Score was called the Eco-Score,
 	# as the id of the attribute is stored inside clients, we keep the
