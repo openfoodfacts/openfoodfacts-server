@@ -2,7 +2,7 @@
 {
   "element_type": "panel",
   "panel_element": {
-    "panel_id": "[% panel.field_name %]"
+    "panel_id": "raw_[% panel.field_name %]"
   }
 },
 [% END %]

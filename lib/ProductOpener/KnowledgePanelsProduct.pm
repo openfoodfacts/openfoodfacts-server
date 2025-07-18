@@ -132,7 +132,7 @@ sub create_product_card_panel ($product_ref, $target_lc, $target_cc, $options_re
 			raw_field_name => $raw_field_name,
 		};
 
-		create_panel_from_json_template($field_name, "api/knowledge-panels/product/product_panel.tt.json",
+		create_panel_from_json_template("raw_$field_name", "api/knowledge-panels/product/product_panel.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 
 		push @taxonomy_panels,
