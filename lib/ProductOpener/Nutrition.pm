@@ -2,7 +2,7 @@ use Exporter qw< import >;
 use ProductOpener::PerlStandards;
 
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Units qw/unit_to_kcal/;
+use ProductOpener::Units qw/unit_to_kcal unit_to_kj unit_to_g/;
 
 sub generate_nutrient_set_preferred_from_sets {
     my ($nutrient_sets_ref) = @_; 
@@ -94,17 +94,15 @@ sub nutrient_in_standard_unit ($nutrient_ref, $nutrient_name) {
         $nutrient_ref->{value_string} = sprintf("%s", $nutrient_ref->{value});
         $nutrient_ref->{unit} = "kcal";
     }
-    else {
-        my $unit_key = "xx:" . $nutrient_ref->{unit};
-        my $nutrient_key = "zz:" . $nutrient_name;
-        my $unit_standard = get_property("units", $unit_key, "standard_unit:en");
-        my $conversion_factor = get_property("units", $unit_key, "conversion_factor:en");
-
-        if (defined $unit_standard and defined $conversion_factor and $conversion_factor != 1) {
-            $nutrient_ref->{value} = $nutrient_ref->{value} * $conversion_factor;
-            $nutrient_ref->{value_string} = sprintf("%s", $nutrient_ref->{value});
-            $nutrient_ref->{unit} = $unit_standard;
-        }
+    elsif (($nutrient_name eq "energy" or $nutrient_name eq "energy-kj") and $nutrient_ref->{unit} ne "kj") {
+        $nutrient_ref->{value} = unit_to_kj($nutrient_ref->{value}, $nutrient_ref->{unit});
+        $nutrient_ref->{value_string} = sprintf("%s", $nutrient_ref->{value});
+        $nutrient_ref->{unit} = "kj";
+    }
+    elsif ($nutrient_ref->{unit} ne "g") {
+        $nutrient_ref->{value} = unit_to_g($nutrient_ref->{value}, $nutrient_ref->{unit});
+        $nutrient_ref->{value_string} = sprintf("%s", $nutrient_ref->{value});
+        $nutrient_ref->{unit} = "g";
     }
 }
 

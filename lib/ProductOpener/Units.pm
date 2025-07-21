@@ -41,6 +41,8 @@ BEGIN {
 
 		&unit_to_kcal
 
+		&unit_to_kj
+
 		&unit_to_mmoll
 		&mmoll_to_unit
 
@@ -75,6 +77,23 @@ sub unit_to_kcal ($value, $unit) {
 	($unit eq 'kj') and return int($value / 4.184 + 0.5);
 
 	# return value without modification if it's already in kcal
+	return $value + 0;    # + 0 to make sure the value is treated as number
+}
+
+=head2 unit_to_kj($value, $unit)
+
+Converts <xx><unit> into <xx> kj.
+
+=cut
+
+sub unit_to_kj ($value, $unit) {
+	$unit = lc($unit);
+
+	(not defined $value) and return $value;
+
+	($unit eq 'kcal') and return int($value * 4.184);
+
+	# return value without modification if it's already in kj
 	return $value + 0;    # + 0 to make sure the value is treated as number
 }
 
