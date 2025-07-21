@@ -1098,25 +1098,6 @@
                "health"
             ]
          },
-         "labels" : {
-            "elements" : [
-               {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "\n                <ul>\n  <li><a href=\"http://world-fr.openfoodfacts.localhost/facets/labels/bio\">Bio</a></li>\n</ul>\n\n                "
-                  }
-               }
-            ],
-            "evaluation" : "neutral",
-            "expand_for" : "large",
-            "level" : "info",
-            "title_element" : {
-               "title" : "Labels, certifications, récompenses"
-            },
-            "topics" : [
-               "problem"
-            ]
-         },
          "nova" : {
             "elements" : [
                {
@@ -2038,7 +2019,7 @@
                {
                   "element_type" : "panel",
                   "panel_element" : {
-                     "panel_id" : "labels"
+                     "panel_id" : "raw_labels"
                   }
                }
             ],
@@ -2050,6 +2031,25 @@
                "product"
             ],
             "type" : "card"
+         },
+         "raw_labels" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                <ul>\n  <li><a href=\"http://world-fr.openfoodfacts.localhost/facets/labels/bio\">Bio</a></li>\n</ul>\n\n                "
+                  }
+               }
+            ],
+            "evaluation" : "neutral",
+            "expand_for" : "large",
+            "level" : "info",
+            "title_element" : {
+               "title" : "Labels, certifications, récompenses"
+            },
+            "topics" : [
+               "problem"
+            ]
          },
          "recommendation_ultra_processed_foods" : {
             "elements" : [
