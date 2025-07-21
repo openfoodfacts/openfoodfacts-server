@@ -530,7 +530,40 @@ my @tests = (
         },
         "Generated set should have normalized weight units for nutrients"
     ],
-    
+    [
+        [
+            {
+                preparation => "as_sold", 
+                per => "100g", 
+                per_quantity => "100", 
+                per_unit => "g", 
+                source => "packaging", 
+                nutrients => {
+                    "energy-kcal" => {
+                        value_string => "125", 
+                        value => 125, 
+                        unit => "kj", 
+                    }
+                }
+            }
+        ],
+        {
+            preparation => "as_sold", 
+            per => "100g", 
+            per_quantity => "100", 
+            per_unit => "g", 
+            nutrients => {
+                "energy-kcal" => {
+                    value_string => "30", 
+                    value => 30, 
+                    unit => "kcal",
+                    source => "packaging",
+                    source_per => "100g",
+                }
+            }
+        },
+        "Generated set should have normalized unit for energy-kcal nutrient"
+    ],    
 );      
 
 foreach my $test_ref (@tests) {
