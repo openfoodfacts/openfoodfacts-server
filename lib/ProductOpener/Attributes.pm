@@ -321,6 +321,9 @@ sub initialize_attribute ($attribute_id, $target_lc) {
 	elsif ($attribute_id eq "repairability_index_france") {
 		$attribute_ref->{icon_url} = "$static_subdomain/images/lang/fr/labels/indice-de-reparabilite-10.152x90.svg";
 	}
+	elsif ($attribute_id eq "unwanted_ingredients") {
+        $attribute_ref->{setting_name} = "Ingredients to avoid";
+    }
 
 	# Initialize name and setting name if a language is requested
 

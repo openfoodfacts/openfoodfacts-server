@@ -234,11 +234,11 @@ function display_user_product_preferences(target_selected, target_selection_form
                     "<div class='attribute_img'><div style='width:96px;float:left;margin-right:1em;'><img src='" + attribute.icon_url + "' class='match_icons' alt=''></div>" +
                     "<span class='attribute_name'>" + attribute.setting_name + "</span></div><div class='attribute_group'>";
 
-                if (attribute.id === "unwanted_ingredients") {
+                if (attribute.id == "unwanted_ingredients") {
                     attribute_group_html += `
                         <div>
-                            <label for="unwanted_ingredients_tags">"Ingredients to avoid:"</label>
-                            <input id="unwanted_ingredients_tags" type="text" placeholder="e.g. garlic, mango" />
+                            <label for="unwanted_ingredients_tags">Ingredients to avoid:</label>
+                            <input id="unwanted_ingredients_tags" type="text" value="${(localStorage.getItem('unwanted_ingredients_tags') || '')}" />
                         </div>
                     `;
                 }
@@ -347,5 +347,9 @@ function display_user_product_preferences(target_selected, target_selection_form
 
         $("#user_product_preferences").foundation();
         $(document).foundation('equalizer', 'reflow');
+
+        $(document).on('input', '#unwanted_ingredients_tags', function() {
+            localStorage.setItem('unwanted_ingredients_tags', $(this).val());
+        });
     }
 }
