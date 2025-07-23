@@ -90,6 +90,7 @@ BEGIN {
 
 		&estimate_nutriscore_2021_milk_percent_from_ingredients
 		&estimate_nutriscore_2023_red_meat_percent_from_ingredients
+		&estimate_added_sugars_percent_from_ingredients
 
 		&has_specific_ingredient_property
 
@@ -8636,6 +8637,24 @@ sub estimate_nutriscore_2023_red_meat_percent_from_ingredients ($product_ref) {
 Returns a list of ingredients that have a specific property value.
 
 =cut
+
+=head2 estimate_added_sugars_percent_from_ingredients ($product_ref)
+
+This function analyzes the ingredients to estimate the percentage of added sugars in a product.
+
+=cut
+
+sub estimate_added_sugars_percent_from_ingredients ($product_ref) {
+
+	return estimate_ingredients_matching_function(
+		$product_ref,
+		sub {
+			my ($ingredient_id, $processing) = @_;
+			return is_a("ingredients", $ingredient_id, "en:added-sugar");
+		},
+		#"added-sugars-estimate-from-ingredients"
+	);
+}
 
 sub get_ingredients_with_property_value ($ingredients_ref, $property, $value) {
 

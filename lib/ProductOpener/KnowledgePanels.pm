@@ -1451,7 +1451,13 @@ sub create_ingredients_added_sugars_panel ($product_ref, $target_lc, $target_cc,
 
 	if ($#added_sugars_ingredients >= 0) {
 
-		my $panel_data_ref = {ingredients_added_sugars => \@added_sugars_ingredients,};
+		# Estimate the % of added sugars
+		my $added_sugars_percent_estimate = estimate_added_sugars_percent_from_ingredients($product_ref);
+
+		my $panel_data_ref = {
+			ingredients_added_sugars => \@added_sugars_ingredients,
+			added_sugars_percent_estimate => $added_sugars_percent_estimate
+		};
 
 		create_panel_from_json_template("ingredients_added_sugars",
 			"api/knowledge-panels/health/ingredients/ingredients_added_sugars.tt.json",
