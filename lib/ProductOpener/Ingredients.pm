@@ -100,6 +100,7 @@ BEGIN {
 		&assign_property_to_ingredients
 
 		&get_ingredients_with_property_value
+		&get_ingredients_with_parent
 
 		&detect_rare_crops
 	);    # symbols to export on request
@@ -8651,6 +8652,30 @@ sub get_ingredients_with_property_value ($ingredients_ref, $property, $value) {
 		if (defined $ingredient_ref->{ingredients}) {
 			push @matching_ingredients,
 				get_ingredients_with_property_value($ingredient_ref->{ingredients}, $property, $value);
+		}
+	}
+
+	return @matching_ingredients;
+}
+
+=head2 sub get_ingredients_with_parent ($ingredients_ref, $property, $value)
+
+Returns a list of ingredients that have a specific parent.
+
+=cut
+
+sub get_ingredients_with_parent ($ingredients_ref, $parent) {
+
+	my @matching_ingredients = ();
+
+	foreach my $ingredient_ref (@{$ingredients_ref}) {
+
+		if (is_a("ingredients", $ingredient_ref->{id}, $parent)) {
+			push @matching_ingredients, $ingredient_ref->{id};
+		}
+
+		if (defined $ingredient_ref->{ingredients}) {
+			push @matching_ingredients, get_ingredients_with_parent($ingredient_ref->{ingredients}, $parent);
 		}
 	}
 

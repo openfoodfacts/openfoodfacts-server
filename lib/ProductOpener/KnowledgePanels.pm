@@ -981,6 +981,8 @@ sub create_health_card_panel ($product_ref, $target_lc, $target_cc, $options_ref
 
 	create_ingredients_rare_crops_panel($product_ref, $target_lc, $target_cc, $options_ref);
 
+	create_ingredients_added_sugars_panel($product_ref, $target_lc, $target_cc, $options_ref);
+
 	# Scores for food products
 	if (feature_enabled("nova")) {
 		create_nova_panel($product_ref, $target_lc, $target_cc, $options_ref);
@@ -1434,6 +1436,25 @@ sub create_ingredients_rare_crops_panel ($product_ref, $target_lc, $target_cc, $
 
 		create_panel_from_json_template("ingredients_rare_crops",
 			"api/knowledge-panels/health/ingredients/ingredients_rare_crops.tt.json",
+			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+	}
+	return;
+}
+
+sub create_ingredients_added_sugars_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
+
+	# Go through the ingredients structure, and check if they have the added_sugar:en:yes property
+	my @added_sugars_ingredients = get_ingredients_with_parent($product_ref->{ingredients}, "en:added-sugar");
+
+	$log->debug("added sugars", {added_sugars_ingredients => \@added_sugars_ingredients})
+		if $log->is_debug();
+
+	if ($#added_sugars_ingredients >= 0) {
+
+		my $panel_data_ref = {ingredients_added_sugars => \@added_sugars_ingredients,};
+
+		create_panel_from_json_template("ingredients_added_sugars",
+			"api/knowledge-panels/health/ingredients/ingredients_added_sugars.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 	}
 	return;
