@@ -211,7 +211,7 @@ sub create_ingredients_added_sugars_panel ($product_ref, $target_lc, $target_cc,
 			
 			my $no_sweeteners_link = canonicalize_taxonomy_tag_link($target_lc, 'ingredients', "en:sweetener");
 			my $no_added_sugars_link = canonicalize_taxonomy_tag_link($target_lc, 'ingredients', "en:added-sugar");
-			. canonicalize_taxonomy_tag_link($target_lc, 'ingredients', "en:added-sugar");
+			
 			# Transform the last /[added-sugar] in /-[added-sugar]
 			$no_sweeteners_link =~ s/\/([^\/]+)$/\/-$1/;
 			$no_added_sugars_link =~ s/\/([^\/]+)$/\/-$1/;
