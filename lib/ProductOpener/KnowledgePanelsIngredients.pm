@@ -201,28 +201,40 @@ sub create_ingredients_added_sugars_panel ($product_ref, $target_lc, $target_cc,
 
 		# Get the most specific category so that we can link to the category without added sugars
 		# Skip products that are in the "en:sweeteners" category
-		my $category_id;
-		if ((defined $product_ref->{categories_hierarchy}) and 
-			(scalar @{$product_ref->{categories_hierarchy}} > 0)
-			and not (has_tag($product_ref, "categories", "en:sweeteners")))
+		if (    (defined $product_ref->{categories_hierarchy})
+			and (scalar @{$product_ref->{categories_hierarchy}} > 0)
+			and not(has_tag($product_ref, "categories", "en:sweeteners")))
 		{
-			$category_id = $product_ref->{categories_hierarchy}[-1];
+			my $category_id;
 
-			
-			my $no_sweeteners_link = canonicalize_taxonomy_tag_link($target_lc, 'ingredients', "en:sweetener");
-			my $no_added_sugars_link = canonicalize_taxonomy_tag_link($target_lc, 'ingredients', "en:added-sugar");
-			
-			# Transform the last /[added-sugar] in /-[added-sugar]
-			$no_sweeteners_link =~ s/\/([^\/]+)$/\/-$1/;
-			$no_added_sugars_link =~ s/\/([^\/]+)$/\/-$1/;
+			# Find the most specific taxonomy that exists in the categories taxonomy
+			foreach my $category_id2 (reverse @{$product_ref->{categories_hierarchy}}) {
+				if (exists_taxonomy_tag("categories", $category_id2)) {
+					$category_id = $category_id2;
+					last;
+				}
+			}
 
-			my $category_without_added_sugars_url = format_subdomain($subdomain) . "/facets" . canonicalize_taxonomy_tag_link($target_lc, 'categories', $category_id)
-			. canonicalize_taxonomy_tag_link($target_lc, 'states', "en:ingredients-completed")
-			. $no_added_sugars_link
-			. $no_sweeteners_link;
+			if (defined $category_id) {
 
-			$panel_data_ref->{category_id} = $category_id;
-			$panel_data_ref->{category_without_added_sugars_url} = $category_without_added_sugars_url;
+				my $no_sweeteners_link = canonicalize_taxonomy_tag_link($target_lc, 'ingredients', "en:sweetener");
+				my $no_added_sugars_link = canonicalize_taxonomy_tag_link($target_lc, 'ingredients', "en:added-sugar");
+
+				# Transform the last /[added-sugar] in /-[added-sugar]
+				$no_sweeteners_link =~ s/\/([^\/]+)$/\/-$1/;
+				$no_added_sugars_link =~ s/\/([^\/]+)$/\/-$1/;
+
+				my $category_without_added_sugars_url
+					= format_subdomain($subdomain)
+					. "/facets"
+					. canonicalize_taxonomy_tag_link($target_lc, 'categories', $category_id)
+					. canonicalize_taxonomy_tag_link($target_lc, 'states', "en:ingredients-completed")
+					. $no_added_sugars_link
+					. $no_sweeteners_link;
+
+				$panel_data_ref->{category_id} = $category_id;
+				$panel_data_ref->{category_without_added_sugars_url} = $category_without_added_sugars_url;
+			}
 		}
 
 		create_panel_from_json_template("ingredients_added_sugars",
@@ -425,6 +437,5 @@ sub create_ingredients_analysis_panel ($product_ref, $target_lc, $target_cc, $op
 	}
 	return;
 }
-
 
 1;
