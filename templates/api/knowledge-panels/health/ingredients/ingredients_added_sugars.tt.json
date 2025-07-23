@@ -23,6 +23,21 @@
         },
         [% END %]
     
+        [% IF panel.category_id %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "html":
+                `
+<b>[% lang("search_products_in_same_category_without_added_sugars") %]</b>
+<a href="[% panel.category_without_added_sugars_url %]">
+[% display_taxonomy_tag("categories", panel.category_id) %]
+</a>
+                `,
+            },
+        },
+        [% END %]
+
         [% INCLUDE "api/knowledge-panels/health/nutrition/nutrient_level_sugars.tt.json" %]        
     ]
 }
