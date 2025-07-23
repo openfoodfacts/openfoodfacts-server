@@ -50,7 +50,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Units qw/unit_to_kcal unit_to_kj unit_to_g/;
+use ProductOpener::Units qw/unit_to_kcal unit_to_kj unit_to_g g_to_unit/;
 
 =head1 FUNCTIONS
 
@@ -189,7 +189,9 @@ sub set_nutrient_values ($nutrient_set_preferred_ref, @nutrient_sets) {
                     nutrient_in_wanted_per(
                         $nutrient_set_preferred_ref->{nutrients}{$nutrient},
                         $nutrient_set_ref->{per_quantity}, 
-                        $nutrient_set_preferred_ref->{per_quantity}
+                        $nutrient_set_ref->{per_unit},
+                        $nutrient_set_preferred_ref->{per_quantity}, 
+                        $nutrient_set_preferred_ref->{per_unit}
                     );
                     $nutrient_set_preferred_ref->{nutrients}{$nutrient}{source} = $nutrient_set_ref->{source};
                     $nutrient_set_preferred_ref->{nutrients}{$nutrient}{source_per} = $nutrient_set_ref->{per};    
@@ -251,17 +253,29 @@ Hash of the nutrient set with the value to convert
 
 Current per amount of the nutrient
 
+=head4 $original_per_unit
+
+Current per unit of the nutrient
+
 =head4 $wanted_per_quantity
 
 Wanted per amount of the nutrient
 
+=head4 $wanted_per_unit
+
+Wanted per unit of the nutrient
+
 =cut
 
-sub nutrient_in_wanted_per ($nutrient_ref, $original_per_quantity, $wanted_per_quantity) {
+sub nutrient_in_wanted_per ($nutrient_ref, $original_per_quantity, $original_per_unit, $wanted_per_quantity, 
+    $wanted_per_unit) 
+{
     if ($original_per_quantity != $wanted_per_quantity) {
         my $original_value = $nutrient_ref->{value};
 
-        $nutrient_ref->{value} = ($original_value * $wanted_per_quantity) / $original_per_quantity;
+        # set value of nutrient according to wanted per amount + unit
+        my $per_conversion_factor = g_to_unit(unit_to_g($original_per_quantity, $original_per_unit), $wanted_per_unit);
+        $nutrient_ref->{value} = ($original_value * $wanted_per_quantity) / $per_conversion_factor;
         $nutrient_ref->{value_string} = sprintf("%s", $nutrient_ref->{value});
     }
     return;

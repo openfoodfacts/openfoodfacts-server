@@ -844,6 +844,116 @@ my @tests = (
         },
         "Generated set should have converted per when different per in nutrients given nutrients per in different servings"
     ],
+    [
+        [
+            {
+                preparation => "as_sold", 
+                per => "serving", 
+                per_quantity => "100", 
+                per_unit => "mg", 
+                source => "packaging", 
+                nutrients => {
+                    "sodium" => {
+                        value_string => "2.5", 
+                        value => 2.5, 
+                        unit => "g", 
+                    }
+                }
+            },
+            {
+                preparation => "as_sold", 
+                per => "serving", 
+                per_quantity => "50", 
+                per_unit => "g", 
+                source => "manufacturer", 
+                nutrients => {
+                    "sugars" => {
+                        value_string => "6.3", 
+                        value => 6.3, 
+                        unit => "g", 
+                    }
+                }
+            }
+        ],
+        {
+            preparation => "as_sold", 
+            per => "serving", 
+            per_quantity => "50", 
+            per_unit => "g", 
+            nutrients => {
+                sodium => {
+                    value_string => "1250", 
+                    value => 1250, 
+                    unit => "g",
+                    source => "packaging",
+                    source_per => "serving",
+                },
+                sugars => {
+                    value_string => "6.3", 
+                    value => 6.3, 
+                    unit => "g",
+                    source => "manufacturer",
+                    source_per => "serving",
+                }
+            }
+        },
+        "Generated set should have converted per when different per in nutrients given nutrients per in different servings with wanted in g"
+    ],
+    [
+        [
+            {
+                preparation => "as_sold", 
+                per => "serving", 
+                per_quantity => "100", 
+                per_unit => "mg", 
+                source => "packaging", 
+                nutrients => {
+                    "sodium" => {
+                        value_string => "0.25", 
+                        value => 0.25, 
+                        unit => "g", 
+                    }
+                }
+            },
+            {
+                preparation => "as_sold", 
+                per => "serving", 
+                per_quantity => "5", 
+                per_unit => "kg", 
+                source => "manufacturer", 
+                nutrients => {
+                    "sugars" => {
+                        value_string => "6.3", 
+                        value => 6.3, 
+                        unit => "g", 
+                    }
+                }
+            }
+        ],
+        {
+            preparation => "as_sold", 
+            per => "serving", 
+            per_quantity => "5", 
+            per_unit => "kg", 
+            nutrients => {
+                sodium => {
+                    value_string => "12500", 
+                    value => 12500, 
+                    unit => "g",
+                    source => "packaging",
+                    source_per => "serving",
+                },
+                sugars => {
+                    value_string => "6.3", 
+                    value => 6.3, 
+                    unit => "g",
+                    source => "manufacturer",
+                    source_per => "serving",
+                }
+            }
+        },
+        "Generated set should have converted per when different per in nutrients given nutrients per in different servings with wanted in not in g"
+    ],
 );      
 
 foreach my $test_ref (@tests) {
