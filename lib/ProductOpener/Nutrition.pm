@@ -68,20 +68,23 @@ sub sort_sets_by_priority (@nutrient_sets) {
 }
 
 sub set_nutrient_values ($nutrient_set_preferred_ref, @nutrient_sets) {
-    foreach my $nutrient_set (@nutrient_sets) {
-        if (    defined $nutrient_set->{preparation}
-            and $nutrient_set->{preparation} eq $nutrient_set_preferred_ref->{preparation}
-            and exists $nutrient_set->{nutrients} 
-            and ref $nutrient_set->{nutrients} eq 'HASH') 
+    foreach my $nutrient_set_ref (@nutrient_sets) {
+        if (    defined $nutrient_set_ref->{preparation}
+            and $nutrient_set_ref->{preparation} eq $nutrient_set_preferred_ref->{preparation}
+            and exists $nutrient_set_ref->{nutrients} 
+            and ref $nutrient_set_ref->{nutrients} eq 'HASH') 
         {
-            foreach my $nutrient (keys %{$nutrient_set->{nutrients}}) {
-                if (!exists $nutrient_set_preferred_ref->{nutrients}{$nutrient}
-                    and $nutrient_set->{per} eq $nutrient_set_preferred_ref->{per}) 
-                {
-                    $nutrient_set_preferred_ref->{nutrients}{$nutrient} = $nutrient_set->{nutrients}{$nutrient};
+            foreach my $nutrient (keys %{$nutrient_set_ref->{nutrients}}) {
+                if (!exists $nutrient_set_preferred_ref->{nutrients}{$nutrient}) {
+                    $nutrient_set_preferred_ref->{nutrients}{$nutrient} = $nutrient_set_ref->{nutrients}{$nutrient};
                     nutrient_in_standard_unit($nutrient_set_preferred_ref->{nutrients}{$nutrient}, $nutrient);
-                    $nutrient_set_preferred_ref->{nutrients}{$nutrient}{source} = $nutrient_set->{source};
-                    $nutrient_set_preferred_ref->{nutrients}{$nutrient}{source_per} = $nutrient_set->{per};    
+                    nutrient_in_wanted_per(
+                        $nutrient_set_preferred_ref->{nutrients}{$nutrient}, $nutrient_set_ref->{per}, 
+                        $nutrient_set_preferred_ref->{per}, $nutrient_set_ref->{per_quantity}, 
+                        $nutrient_set_preferred_ref->{per_quantity}
+                    );
+                    $nutrient_set_preferred_ref->{nutrients}{$nutrient}{source} = $nutrient_set_ref->{source};
+                    $nutrient_set_preferred_ref->{nutrients}{$nutrient}{source_per} = $nutrient_set_ref->{per};    
                 }
             }
         }
@@ -103,6 +106,15 @@ sub nutrient_in_standard_unit ($nutrient_ref, $nutrient_name) {
         $nutrient_ref->{value} = unit_to_g($nutrient_ref->{value}, $nutrient_ref->{unit});
         $nutrient_ref->{value_string} = sprintf("%s", $nutrient_ref->{value});
         $nutrient_ref->{unit} = "g";
+    }
+}
+
+sub nutrient_in_wanted_per ($nutrient_ref, $original_per, $wanted_per, $original_per_quantity, $wanted_per_quantity) {
+    if ($original_per ne $wanted_per) {
+        my $original_value = $nutrient_ref->{value};
+
+        $nutrient_ref->{value} = ($original_value * $wanted_per_quantity) / $original_per_quantity;
+        $nutrient_ref->{value_string} = sprintf("%s", $nutrient_ref->{value});
     }
 }
 

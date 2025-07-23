@@ -297,11 +297,6 @@ my @tests = (
                         value_string => "0.1", 
                         value => 0.1, 
                         unit => "g",
-                    },
-                    protein => {
-                        value_string => "12",
-                        value => 12,
-                        unit => "g",
                     }
                 }
             },
@@ -349,6 +344,20 @@ my @tests = (
         [
             {
                 preparation => "as_sold", 
+                per => "serving", 
+                per_quantity => "100", 
+                per_unit => "g", 
+                source => "packaging", 
+                nutrients => {
+                    protein => {
+                        value_string => "8.2", 
+                        value => 8.2, 
+                        unit => "g", 
+                    }
+                }
+            },
+            {
+                preparation => "as_sold", 
                 per => "100g", 
                 per_quantity => "100", 
                 per_unit => "g", 
@@ -358,18 +367,42 @@ my @tests = (
                         value_string => "5.2", 
                         value => 5.2, 
                         unit => "g", 
+                    },
+                    protein => {
+                        value_string => "0",
+                        value => 0,
+                        unit => "g"
                     }
                 }
             },
             {
                 preparation => "as_sold", 
                 per => "serving", 
-                per_quantity => "250", 
+                per_quantity => "100", 
                 per_unit => "g", 
                 source => "manufacturer", 
                 nutrients => {
                     sodium => {
-                        value_string => "2.0", 
+                        value_string => "0", 
+                        value => 0, 
+                        unit => "g", 
+                    },
+                    sugars => {
+                        value_string => "7.6",
+                        value => 7.6,
+                        unit => "g",
+                    }
+                }
+            },
+            {
+                preparation => "as_sold", 
+                per => "100g", 
+                per_quantity => "100", 
+                per_unit => "g", 
+                source => "manufacturer", 
+                nutrients => {
+                    sodium => {
+                        value_string => "2", 
                         value => 2, 
                         unit => "g", 
                         modifier => "<="
@@ -379,17 +412,31 @@ my @tests = (
         ],
         {
             preparation => "as_sold", 
-            per => "serving", 
-            per_quantity => "250", 
+            per => "100g", 
+            per_quantity => "100", 
             per_unit => "g", 
             nutrients => {
                 sodium => {
-                    value_string => "2.0", 
+                    value_string => "2", 
                     value => 2, 
                     unit => "g",
                     modifier => "<=", 
                     source => "manufacturer",
-                    source_per => "serving",
+                    source_per => "100g",
+                },
+                sugars => {
+                    value_string => "7.6",
+                    value => 7.6,
+                    unit => "g",
+                    source => "manufacturer",
+                    source_per => "serving"
+                },
+                protein => {
+                    value_string => "0",
+                    value => 0,
+                    unit => "g",
+                    source => "packaging",
+                    source_per => "100g"
                 }
             }
         },
@@ -631,6 +678,116 @@ my @tests = (
             }
         },
         "Generated set should have normalized unit for energy-kj nutrient"
+    ],
+    [
+        [
+            {
+                preparation => "as_sold", 
+                per => "100g", 
+                per_quantity => "100", 
+                per_unit => "g", 
+                source => "packaging", 
+                nutrients => {
+                    "sodium" => {
+                        value_string => "2.5", 
+                        value => 2.5, 
+                        unit => "g", 
+                    }
+                }
+            },
+            {
+                preparation => "as_sold", 
+                per => "serving", 
+                per_quantity => "50", 
+                per_unit => "g", 
+                source => "packaging", 
+                nutrients => {
+                    "sugars" => {
+                        value_string => "6.3", 
+                        value => 6.3, 
+                        unit => "g", 
+                    }
+                }
+            }
+        ],
+        {
+            preparation => "as_sold", 
+            per => "100g", 
+            per_quantity => "100", 
+            per_unit => "g", 
+            nutrients => {
+                sodium => {
+                    value_string => "2.5", 
+                    value => 2.5, 
+                    unit => "g",
+                    source => "packaging",
+                    source_per => "100g",
+                },
+                sugars => {
+                    value_string => "12.6", 
+                    value => 12.6, 
+                    unit => "g",
+                    source => "packaging",
+                    source_per => "serving",
+                }
+            }
+        },
+        "Generated set should have converted per when different per in nutrients given nutrient with most priority with per in 100g/ml"
+    ],
+    [
+        [
+            {
+                preparation => "as_sold", 
+                per => "100g", 
+                per_quantity => "100", 
+                per_unit => "g", 
+                source => "packaging", 
+                nutrients => {
+                    "sodium" => {
+                        value_string => "2.5", 
+                        value => 2.5, 
+                        unit => "g", 
+                    }
+                }
+            },
+            {
+                preparation => "as_sold", 
+                per => "serving", 
+                per_quantity => "50", 
+                per_unit => "g", 
+                source => "manufacturer", 
+                nutrients => {
+                    "sugars" => {
+                        value_string => "6.3", 
+                        value => 6.3, 
+                        unit => "g", 
+                    }
+                }
+            }
+        ],
+        {
+            preparation => "as_sold", 
+            per => "serving", 
+            per_quantity => "50", 
+            per_unit => "g", 
+            nutrients => {
+                sodium => {
+                    value_string => "1.25", 
+                    value => 1.25, 
+                    unit => "g",
+                    source => "packaging",
+                    source_per => "100g",
+                },
+                sugars => {
+                    value_string => "6.3", 
+                    value => 6.3, 
+                    unit => "g",
+                    source => "manufacturer",
+                    source_per => "serving",
+                }
+            }
+        },
+        "Generated set should have converted per when different per in nutrients given nutrient with most priority with per in serving"
     ],
 );      
 
