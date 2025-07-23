@@ -954,6 +954,61 @@ my @tests = (
         },
         "Generated set should have converted per when different per in nutrients given nutrients per in different servings with wanted in not in g"
     ],
+    [
+        [
+            {
+                preparation => "as_sold", 
+                per => "serving", 
+                per_quantity => "1", 
+                per_unit => "l", 
+                source => "packaging", 
+                nutrients => {
+                    "sodium" => {
+                        value_string => "0.25", 
+                        value => 0.25, 
+                        unit => "g", 
+                    }
+                }
+            },
+            {
+                preparation => "as_sold", 
+                per => "serving", 
+                per_quantity => "50", 
+                per_unit => "ml", 
+                source => "manufacturer", 
+                nutrients => {
+                    "sugars" => {
+                        value_string => "6.3", 
+                        value => 6.3, 
+                        unit => "g", 
+                    }
+                }
+            }
+        ],
+        {
+            preparation => "as_sold", 
+            per => "serving", 
+            per_quantity => "50", 
+            per_unit => "ml", 
+            nutrients => {
+                sodium => {
+                    value_string => "0.0125", 
+                    value => 0.0125, 
+                    unit => "g",
+                    source => "packaging",
+                    source_per => "serving",
+                },
+                sugars => {
+                    value_string => "6.3", 
+                    value => 6.3, 
+                    unit => "g",
+                    source => "manufacturer",
+                    source_per => "serving",
+                }
+            }
+        },
+        "Generated set should have converted per when different per in nutrients given nutrients per in different servings with volume units"
+    ],
 );      
 
 foreach my $test_ref (@tests) {
