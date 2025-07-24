@@ -70,7 +70,9 @@ use ProductOpener::Display qw/$static_subdomain/;
 use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::ProductsFeatures qw/feature_enabled/;
 
+
 use Data::DeepAccess qw(deep_get);
+use CGI qw/:cgi/;
 
 =head1 CONFIGURATION
 
@@ -1745,15 +1747,13 @@ sub compute_attributes ($product_ref, $target_lc, $target_cc, $options_ref) {
 			$attribute_ref = compute_attribute_ingredients_analysis($product_ref, $target_lc, $analysis);
 			add_attribute_to_group($product_ref, $target_lc, "ingredients_analysis", $attribute_ref);
 		}
+		# Unwanted ingredients
+		if (defined cookie("unwanted_ingredients_tags")) {
+			my @unwanted_ingredients = map { s/^\s+|\s+$//gr } split /,/, cookie("unwanted_ingredients_tags");
+			$attribute_ref = compute_attribute_unwanted_ingredients($product_ref, $target_lc, \@unwanted_ingredients);
+			add_attribute_to_group($product_ref, $target_lc, "ingredients", $attribute_ref);
+		}
 	}
-
-	# Unwanted ingredients
-    if (defined $attribute_groups{"ingredients"}) {
-        # Temporarily hardcoded list of unwanted ingredients
-        # my @unwanted_ingredients = ("en:garlic", "en:mango");
-        $attribute_ref = compute_attribute_unwanted_ingredients($product_ref, $target_lc, \@{$attribute_groups{"ingredients"}});
-        add_attribute_to_group($product_ref, $target_lc, "ingredients", $attribute_ref);
-    }
 
 	# Processing
 

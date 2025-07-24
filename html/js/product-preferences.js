@@ -168,6 +168,17 @@ function display_use_preferences_switch_and_edit_preferences_button(target_selec
     $(document).foundation('reflow');
 }
 
+// set a cookie with a name, value and expiration in days
+function setCookie(name, value, days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (encodeURIComponent(value) || "")  + expires + "; path=/";
+}
+
 
 // display_user_product_preferences can be called by other scripts
 /* exported display_user_product_preferences */
@@ -349,7 +360,13 @@ function display_user_product_preferences(target_selected, target_selection_form
         $(document).foundation('equalizer', 'reflow');
 
         $(document).on('input', '#unwanted_ingredients_tags', function() {
-            localStorage.setItem('unwanted_ingredients_tags', $(this).val());
+            var val = $(this).val();
+            localStorage.setItem('unwanted_ingredients_tags', val);
+            setCookie('unwanted_ingredients_tags', val, 3650); // 10 years
+
+            if (change) {
+                change();
+            }
         });
     }
 }
