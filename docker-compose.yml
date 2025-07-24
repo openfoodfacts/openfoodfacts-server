@@ -42,6 +42,10 @@
     - OPFF_CLIENT_SECRET
     - OPF_CLIENT_SECRET
     - OFF_PRO_CLIENT_SECRET
+    - RECIPE_ESTIMATOR_URL
+    - RECIPE_ESTIMATOR_SCIPY_URL
+    #11901: Remove once production is migrated
+    - SERIALIZE_TO_JSON
   depends_on:
     - memcached
   volumes:

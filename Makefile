@@ -74,8 +74,6 @@ DOCKER_COMPOSE_TEST=COMPOSE_FILE="${COMPOSE_FILE_BUILD};${DEPS_DIR}/openfoodfact
 # Note the integration-test.yml file contains references to the docker-compose files from shared-services and auth
 DOCKER_COMPOSE_INT_TEST=COMPOSE_FILE="${COMPOSE_FILE_BUILD};docker/integration-test.yml" \
 	REDIS_URL="redis:6379" \
-	KEYCLOAK_BASE_URL=http://keycloak:8080 \
-	KEYCLOAK_TAG=main \
 	${DOCKER_COMPOSE_TEST_BASE}
 
 TEST_CMD ?= yath test
@@ -300,6 +298,8 @@ integration_test: create_folders
 # this is the place where variables are important
 # note that we don't launch the frontend because it causes issues,
 # as we use localhost in tests (which is the backend)
+# Need to start dynamicfront explicitly so it is built on-demand. Just listing it as a depends_on for backend doesn't seem to do this
+	${DOCKER_COMPOSE_INT_TEST} up -d dynamicfront
 	${DOCKER_COMPOSE_INT_TEST} up -d backend
 # note: we need the -T option for ci (non tty environment)
 	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/integration/outputs/junit.xml" -T backend yath --renderer=Formatter --renderer=JUnit tests/integration
@@ -562,6 +562,7 @@ clean_folders: clean_logs
 
 clean_logs:
 	( rm -f logs/* logs/apache2/* logs/nginx/* || true )
+	echo "" > logs/apache2/log4perl.log
 
 clean: goodbye hdown prune prune_deps prune_cache clean_folders
 
