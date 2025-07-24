@@ -518,7 +518,7 @@ Returned values:
 
 - [nutrient]_value -> rounded values for each nutrient according to the Nutri-Score rules
 - [nutrient]_points -> points for each nutrient
-- [nutrient]_points_max -> ???
+- [nutrient]_points_max -> maximum number of points that can be allocated for each specific nutrient
 - negative_nutrients -> list of nutrients that are counted in negative points
 - negative_points -> sum of negative nutrients points
 - positive_nutrients -> list of nutrients that are counted in positive points
