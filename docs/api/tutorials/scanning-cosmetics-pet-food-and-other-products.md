@@ -22,7 +22,7 @@
 #### Specificities of Open Products Facts
 * No nutrition table
 * No Eco-Score, Nutri-Score or NOVA level for ultra-processing
-* Most data will be modelled using the [Folksonomy Engine](docs/reference/api-tutorials/folksonomy-engine.md)
+* Most data will be modelled using the [Folksonomy Engine](docs/api/tutorials/folksonomy-engine.md)
 
 ### Important APIs if you want to scan any kind of product (or help your users avoid adding cosmetics by mistake in Open Food Facts)
 

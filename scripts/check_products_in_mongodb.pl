@@ -44,7 +44,7 @@ TXT
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
-use ProductOpener::Store qw/retrieve store/;
+use ProductOpener::Store qw/object_exists/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -169,10 +169,10 @@ while (my $product_ref = $cursor->next) {
 		$to_be_fixed = 1;
 		print STDERR "Not normalized code. code: $code - normalized: $normalized_code\n";
 	}
-	elsif (!-e "$data_root/products/$path/product.sto") {
+	elsif (!object_exists("$data_root/products/$path/product")) {
 		$to_be_fixed = 1;
 		$exists_only_in_db++;
-		print STDERR "Product $productid - data_root/products/$path/product.sto does not exist in the filesystem\n";
+		print STDERR "Product $productid - data_root/products/$path/product does not exist in the filesystem\n";
 	}
 
 	if ($fix and $to_be_fixed) {

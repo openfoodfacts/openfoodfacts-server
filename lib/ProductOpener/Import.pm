@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2025 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -82,7 +82,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
-use ProductOpener::Store qw/get_string_id_for_lang retrieve store/;
+use ProductOpener::Store qw/get_string_id_for_lang retrieve retrieve_object store_object/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -106,6 +106,7 @@ use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
 use ProductOpener::API qw/get_initialized_response/;
+use ProductOpener::HTTP qw/create_user_agent/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -118,7 +119,6 @@ use Text::CSV;
 use DateTime::Format::ISO8601;
 use URI;
 use Digest::MD5 qw(md5_hex);
-use LWP::UserAgent;
 use Data::Difference qw(data_diff);
 
 $IMPORT_MAX_PACKAGING_COMPONENTS = 10;
@@ -508,10 +508,7 @@ sub upload_images_for_product($args_ref, $images_ref, $product_ref, $imported_pr
 # download image at given url parameter
 sub download_image ($image_url) {
 
-	my $ua = LWP::UserAgent->new(timeout => 10);
-
-	# Some platforms such as CloudFlare block the default LWP user agent.
-	$ua->agent("Open Food Facts (https://world.pro.openfoodfacts.org)");
+	my $ua = create_user_agent(timeout => 10);
 
 	$log->debug("downloading image", {image_url => $image_url}) if $log->is_debug();
 	my $response = $ua->get($image_url, 'Accept' => '*/*');
@@ -1956,10 +1953,7 @@ sub import_csv_file ($args_ref) {
 						if ($field =~ /_prepared/) {
 							my $unprepared_field = $` . $';
 							if (
-								(
-										(defined $imported_product_ref->{$field})
-									and ($imported_product_ref->{$field} ne '')
-								)
+								((defined $imported_product_ref->{$field}) and ($imported_product_ref->{$field} ne ''))
 								and not((defined $imported_product_ref->{$unprepared_field})
 									and ($imported_product_ref->{$unprepared_field} ne ""))
 								)
@@ -2981,7 +2975,7 @@ sub update_export_status_for_csv_file ($args_ref) {
 
 			# Update the product without creating a new revision
 			my $path = product_path($product_ref);
-			store("$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref);
+			store_object("$BASE_DIRS{PRODUCTS}/$path/product", $product_ref);
 			$product_ref->{code} = $product_ref->{code} . '';
 			# Use the obsolete collection if the product is obsolete
 			my $products_collection = get_products_collection({obsolete => $product_ref->{obsolete}});
@@ -3066,9 +3060,10 @@ sub import_products_categories_from_public_database ($args_ref) {
 		if (defined $server_options{export_data_root}) {
 
 			my $public_path = product_path_from_id($code);
-			my $file = $server_options{export_data_root} . "/products/$public_path/product.sto";
+			#11872 TODO check for other scenarios like this
+			my $file = $server_options{export_data_root} . "/products/$public_path/product";
 
-			$imported_product_ref = retrieve($file);
+			$imported_product_ref = retrieve_object($file);
 
 			if (not defined $imported_product_ref) {
 				$log->debug("import_product_categories - unable to load public product file",
