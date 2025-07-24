@@ -238,7 +238,7 @@ function display_user_product_preferences(target_selected, target_selection_form
                     attribute_group_html += `
                         <div>
                             <label for="unwanted_ingredients_tags">Ingredients to avoid:</label>
-                            <input id="unwanted_ingredients_tags" type="text" value="${(localStorage.getItem('unwanted_ingredients_tags') || '')}" />
+                            <input type="text" name="unwanted_ingredients" id="unwanted_ingredients_tags" class="text tagify-me" value="${(localStorage.getItem('unwanted_ingredients_tags') || '')}" data-autocomplete="http://world.openfoodfacts.localhost/api/v3/taxonomy_suggestions?tagtype=ingredients" lang="en"/>
                         </div>
                     `;
                 }

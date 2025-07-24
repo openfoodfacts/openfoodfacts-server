@@ -1750,8 +1750,8 @@ sub compute_attributes ($product_ref, $target_lc, $target_cc, $options_ref) {
 	# Unwanted ingredients
     if (defined $attribute_groups{"ingredients"}) {
         # Temporarily hardcoded list of unwanted ingredients
-        my @unwanted_ingredients = ("en:garlic", "en:mango");
-        $attribute_ref = compute_attribute_unwanted_ingredients($product_ref, $target_lc, \@unwanted_ingredients);
+        # my @unwanted_ingredients = ("en:garlic", "en:mango");
+        $attribute_ref = compute_attribute_unwanted_ingredients($product_ref, $target_lc, \@{$attribute_groups{"ingredients"}});
         add_attribute_to_group($product_ref, $target_lc, "ingredients", $attribute_ref);
     }
 
