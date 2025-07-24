@@ -134,7 +134,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::HTTP
 	qw(write_cors_headers set_http_response_header write_http_response_headers get_http_request_header extension_and_query_parameters_to_redirect_url redirect_to_url single_param request_param);
-use ProductOpener::Store qw(get_string_id_for_lang retrieve);
+use ProductOpener::Store qw(get_string_id_for_lang retrieve retrieve_object);
 use ProductOpener::Config qw(:all);
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Tags qw(:all);
@@ -221,6 +221,7 @@ my $uri_finder = URI::Find->new(
 my $json = JSON::MaybeXS->new->utf8(0)->allow_nonref->canonical;
 my $json_indent = JSON::MaybeXS->new->indent(1)->utf8(0)->allow_nonref->canonical;
 # $json_utf8 has utf8 enabled: it encodes to UTF-8 bytes
+# Make sure we include convert_blessed to cater for blessed objects, like booleans
 my $json_utf8 = JSON::MaybeXS->new->convert_blessed->utf8(1)->allow_nonref->canonical;
 
 =head1 VARIABLES
@@ -4896,8 +4897,8 @@ sub add_params_to_query ($params_ref, $query_ref) {
 					}
 					# Normal single value (not unknown)
 					else {
-						if ($tagtype eq 'nova_groups') {
-							# Remove language code. e.g. for nova_groups : en:not-applicable -> not-applicable
+						if ($tagtype eq 'nova_groups' and ($tagid eq 'en:unknown' or $tagid eq 'en:not-applicable')) {
+							# Remove language code. for unknown and not-applicable nova_groups
 							$tagid =~ s/^[a-z]{2}://;
 						}
 						if ($not) {
@@ -10661,7 +10662,7 @@ sub display_product_api ($request_ref) {
 		# Return blame information
 		if (single_param("blame")) {
 			my $path = product_path_from_id($product_id);
-			my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
+			my $changes_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/changes");
 			if (not defined $changes_ref) {
 				$changes_ref = [];
 			}
@@ -10691,7 +10692,7 @@ sub display_rev_info ($product_ref, $rev) {
 	my $code = $product_ref->{code};
 
 	my $path = product_path($product_ref);
-	my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
+	my $changes_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/changes");
 	if (not defined $changes_ref) {
 		return '';
 	}
@@ -10739,7 +10740,7 @@ sub display_product_history ($request_ref, $code, $product_ref) {
 	}
 
 	my $path = product_path($product_ref);
-	my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
+	my $changes_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/changes");
 	if (not defined $changes_ref) {
 		$changes_ref = [];
 	}
@@ -11650,10 +11651,10 @@ sub search_and_analyze_recipes ($request_ref, $query_ref) {
 			if (single_param("debug")) {
 				$debug
 					.= "product: "
-					. JSON::MaybeXS->new->convert_blessed->utf8->canonical->encode($product_ref)
+					. $json_utf8->encode($product_ref)
 					. "<br><br>\n\n"
 					. "recipe: "
-					. JSON::MaybeXS->new->convert_blessed->utf8->canonical->encode($recipe_ref)
+					. $json_utf8->encode($recipe_ref)
 					. "<br><br><br>\n\n\n";
 			}
 		}
