@@ -43,7 +43,7 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&generate_nutrient_set_preferred_from_sets
-    );    # symbols to export on request
+	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -68,25 +68,25 @@ The generated preferred nutrient set
 =cut
 
 sub generate_nutrient_set_preferred_from_sets {
-    my ($nutrient_sets_ref) = @_; 
-    my @nutrient_sets = @$nutrient_sets_ref;
-    
-    my $nutrient_set_preferred_ref = {};
-    
-    if (@nutrient_sets) {
-        @nutrient_sets = sort_sets_by_priority(@nutrient_sets);
+	my ($nutrient_sets_ref) = @_;
+	my @nutrient_sets = @$nutrient_sets_ref;
 
-        if (%{$nutrient_sets[0]}) {
-            # set preparation, per, per_quantity and per_unit of preferred set as values of the nutrient_set with the highest priority
-            $nutrient_set_preferred_ref->{preparation} = $nutrient_sets[0]{preparation};
-            $nutrient_set_preferred_ref->{per} = $nutrient_sets[0]{per};
-            $nutrient_set_preferred_ref->{per_quantity} = $nutrient_sets[0]{per_quantity};
-            $nutrient_set_preferred_ref->{per_unit} = $nutrient_sets[0]{per_unit};
-        }
-        
-        set_nutrient_values($nutrient_set_preferred_ref, @nutrient_sets);
-    }
-    return $nutrient_set_preferred_ref;
+	my $nutrient_set_preferred_ref = {};
+
+	if (@nutrient_sets) {
+		@nutrient_sets = sort_sets_by_priority(@nutrient_sets);
+
+		if (%{$nutrient_sets[0]}) {
+			# set preparation, per, per_quantity and per_unit of preferred set as values of the nutrient_set with the highest priority
+			$nutrient_set_preferred_ref->{preparation} = $nutrient_sets[0]{preparation};
+			$nutrient_set_preferred_ref->{per} = $nutrient_sets[0]{per};
+			$nutrient_set_preferred_ref->{per_quantity} = $nutrient_sets[0]{per_quantity};
+			$nutrient_set_preferred_ref->{per_unit} = $nutrient_sets[0]{per_unit};
+		}
+
+		set_nutrient_values($nutrient_set_preferred_ref, @nutrient_sets);
+	}
+	return $nutrient_set_preferred_ref;
 }
 
 =head2 sort_sets_by_priority
@@ -108,46 +108,46 @@ Sorted array nutrient sets hashes
 =cut
 
 sub sort_sets_by_priority (@nutrient_sets) {
-    my %source_priority = (
-        manufacturer => 0,
-        packaging => 1,
-        usda => 2,
-        estimate => 3,
-        _default => 4,
-    );
+	my %source_priority = (
+		manufacturer => 0,
+		packaging => 1,
+		usda => 2,
+		estimate => 3,
+		_default => 4,
+	);
 
-    my %per_priority = (
-        "100g" => 0,
-        "100ml" => 0,
-        serving => 1,
-        _default => 2,
-    );
+	my %per_priority = (
+		"100g" => 0,
+		"100ml" => 0,
+		serving => 1,
+		_default => 2,
+	);
 
-    my %preparation_priority = (
-        prepared => 0,
-        as_sold => 1,
-        _default => 2,
-    );
+	my %preparation_priority = (
+		prepared => 0,
+		as_sold => 1,
+		_default => 2,
+	);
 
-    return sort {
-        my $source_key_a = defined $a->{source} ? $a->{source} : '_default';
-        my $source_key_b = defined $b->{source} ? $b->{source} : '_default';
-        my $source_a = $source_priority{$source_key_a};
-        my $source_b = $source_priority{$source_key_b};
+	return sort {
+		my $source_key_a = defined $a->{source} ? $a->{source} : '_default';
+		my $source_key_b = defined $b->{source} ? $b->{source} : '_default';
+		my $source_a = $source_priority{$source_key_a};
+		my $source_b = $source_priority{$source_key_b};
 
-        my $per_key_a = defined $a->{per} ? $a->{per} : '_default';
-        my $per_key_b = defined $b->{per} ? $b->{per} : '_default';
-        my $per_a = $per_priority{$per_key_a};
-        my $per_b = $per_priority{$per_key_b};
+		my $per_key_a = defined $a->{per} ? $a->{per} : '_default';
+		my $per_key_b = defined $b->{per} ? $b->{per} : '_default';
+		my $per_a = $per_priority{$per_key_a};
+		my $per_b = $per_priority{$per_key_b};
 
-        my $preparation_key_a = defined $a->{preparation} ? $a->{preparation} : '_default';
-        my $preparation_key_b = defined $b->{preparation} ? $b->{preparation} : '_default';
-        my $preparation_a = $preparation_priority{$preparation_key_a};
-        my $preparation_b = $preparation_priority{$preparation_key_b};
-        
-        # sort priority : source then per then preparation
-        return $source_a <=> $source_b || $per_a <=> $per_b || $preparation_a <=> $preparation_b;
-    } @nutrient_sets;
+		my $preparation_key_a = defined $a->{preparation} ? $a->{preparation} : '_default';
+		my $preparation_key_b = defined $b->{preparation} ? $b->{preparation} : '_default';
+		my $preparation_a = $preparation_priority{$preparation_key_a};
+		my $preparation_b = $preparation_priority{$preparation_key_b};
+
+		# sort priority : source then per then preparation
+		return $source_a <=> $source_b || $per_a <=> $per_b || $preparation_a <=> $preparation_b;
+	} @nutrient_sets;
 }
 
 =head2 set_nutrient_values
@@ -173,33 +173,33 @@ The sorted array of nutrient set hashes used to generate the preferred set.
 =cut
 
 sub set_nutrient_values ($nutrient_set_preferred_ref, @nutrient_sets) {
-    foreach my $nutrient_set_ref (@nutrient_sets) {
-        # set nutrient values from set if preparation state is the same as in the preferred set and if set has nutrients
-        if (    defined $nutrient_set_ref->{preparation}
-            and $nutrient_set_ref->{preparation} eq $nutrient_set_preferred_ref->{preparation}
-            and exists $nutrient_set_ref->{nutrients} 
-            and ref $nutrient_set_ref->{nutrients} eq 'HASH') 
-        {
-            foreach my $nutrient (keys %{$nutrient_set_ref->{nutrients}}) {
-                # for each nutrient, set its values if values are not already present in preferred set
-                # (ie if nutrient not present in other set with highest priority)
-                if (!exists $nutrient_set_preferred_ref->{nutrients}{$nutrient}) {
-                    $nutrient_set_preferred_ref->{nutrients}{$nutrient} = $nutrient_set_ref->{nutrients}{$nutrient};
-                    nutrient_in_standard_unit($nutrient_set_preferred_ref->{nutrients}{$nutrient}, $nutrient);
-                    nutrient_in_wanted_per(
-                        $nutrient_set_preferred_ref->{nutrients}{$nutrient},
-                        $nutrient_set_ref->{per_quantity}, 
-                        $nutrient_set_ref->{per_unit},
-                        $nutrient_set_preferred_ref->{per_quantity}, 
-                        $nutrient_set_preferred_ref->{per_unit}
-                    );
-                    $nutrient_set_preferred_ref->{nutrients}{$nutrient}{source} = $nutrient_set_ref->{source};
-                    $nutrient_set_preferred_ref->{nutrients}{$nutrient}{source_per} = $nutrient_set_ref->{per};    
-                }
-            }
-        }
-    } 
-    return;
+	foreach my $nutrient_set_ref (@nutrient_sets) {
+		# set nutrient values from set if preparation state is the same as in the preferred set and if set has nutrients
+		if (    defined $nutrient_set_ref->{preparation}
+			and $nutrient_set_ref->{preparation} eq $nutrient_set_preferred_ref->{preparation}
+			and exists $nutrient_set_ref->{nutrients}
+			and ref $nutrient_set_ref->{nutrients} eq 'HASH')
+		{
+			foreach my $nutrient (keys %{$nutrient_set_ref->{nutrients}}) {
+				# for each nutrient, set its values if values are not already present in preferred set
+				# (ie if nutrient not present in other set with highest priority)
+				if (!exists $nutrient_set_preferred_ref->{nutrients}{$nutrient}) {
+					$nutrient_set_preferred_ref->{nutrients}{$nutrient} = $nutrient_set_ref->{nutrients}{$nutrient};
+					nutrient_in_standard_unit($nutrient_set_preferred_ref->{nutrients}{$nutrient}, $nutrient);
+					nutrient_in_wanted_per(
+						$nutrient_set_preferred_ref->{nutrients}{$nutrient},
+						$nutrient_set_ref->{per_quantity},
+						$nutrient_set_ref->{per_unit},
+						$nutrient_set_preferred_ref->{per_quantity},
+						$nutrient_set_preferred_ref->{per_unit}
+					);
+					$nutrient_set_preferred_ref->{nutrients}{$nutrient}{source} = $nutrient_set_ref->{source};
+					$nutrient_set_preferred_ref->{nutrients}{$nutrient}{source_per} = $nutrient_set_ref->{per};
+				}
+			}
+		}
+	}
+	return;
 }
 
 =head2 nutrient_in_standard_unit
@@ -221,22 +221,22 @@ Name of the nutrient to normalize
 =cut
 
 sub nutrient_in_standard_unit ($nutrient_ref, $nutrient_name) {
-    if ($nutrient_name eq "energy-kcal" and $nutrient_ref->{unit} ne "kcal") {
-        $nutrient_ref->{value} = unit_to_kcal($nutrient_ref->{value}, $nutrient_ref->{unit});
-        $nutrient_ref->{value_string} = sprintf("%s", $nutrient_ref->{value});
-        $nutrient_ref->{unit} = "kcal";
-    }
-    elsif (($nutrient_name eq "energy" or $nutrient_name eq "energy-kj") and $nutrient_ref->{unit} ne "kj") {
-        $nutrient_ref->{value} = unit_to_kj($nutrient_ref->{value}, $nutrient_ref->{unit});
-        $nutrient_ref->{value_string} = sprintf("%s", $nutrient_ref->{value});
-        $nutrient_ref->{unit} = "kj";
-    }
-    elsif ($nutrient_ref->{unit} ne "g") {
-        $nutrient_ref->{value} = unit_to_g($nutrient_ref->{value}, $nutrient_ref->{unit});
-        $nutrient_ref->{value_string} = sprintf("%s", $nutrient_ref->{value});
-        $nutrient_ref->{unit} = "g";
-    }
-    return;
+	if ($nutrient_name eq "energy-kcal" and $nutrient_ref->{unit} ne "kcal") {
+		$nutrient_ref->{value} = unit_to_kcal($nutrient_ref->{value}, $nutrient_ref->{unit});
+		$nutrient_ref->{value_string} = sprintf("%s", $nutrient_ref->{value});
+		$nutrient_ref->{unit} = "kcal";
+	}
+	elsif (($nutrient_name eq "energy" or $nutrient_name eq "energy-kj") and $nutrient_ref->{unit} ne "kj") {
+		$nutrient_ref->{value} = unit_to_kj($nutrient_ref->{value}, $nutrient_ref->{unit});
+		$nutrient_ref->{value_string} = sprintf("%s", $nutrient_ref->{value});
+		$nutrient_ref->{unit} = "kj";
+	}
+	elsif ($nutrient_ref->{unit} ne "g") {
+		$nutrient_ref->{value} = unit_to_g($nutrient_ref->{value}, $nutrient_ref->{unit});
+		$nutrient_ref->{value_string} = sprintf("%s", $nutrient_ref->{value});
+		$nutrient_ref->{unit} = "g";
+	}
+	return;
 }
 
 =head2 nutrient_in_wanted_per
@@ -267,18 +267,18 @@ Wanted per unit of the nutrient
 
 =cut
 
-sub nutrient_in_wanted_per ($nutrient_ref, $original_per_quantity, $original_per_unit, $wanted_per_quantity, 
-    $wanted_per_unit) 
+sub nutrient_in_wanted_per ($nutrient_ref, $original_per_quantity, $original_per_unit, $wanted_per_quantity,
+	$wanted_per_unit)
 {
-    if ($original_per_quantity != $wanted_per_quantity) {
-        my $original_value = $nutrient_ref->{value};
+	if ($original_per_quantity != $wanted_per_quantity) {
+		my $original_value = $nutrient_ref->{value};
 
-        # set value of nutrient according to wanted per amount + unit
-        my $per_conversion_factor = g_to_unit(unit_to_g($original_per_quantity, $original_per_unit), $wanted_per_unit);
-        $nutrient_ref->{value} = ($original_value * $wanted_per_quantity) / $per_conversion_factor;
-        $nutrient_ref->{value_string} = sprintf("%s", $nutrient_ref->{value});
-    }
-    return;
+		# set value of nutrient according to wanted per amount + unit
+		my $per_conversion_factor = g_to_unit(unit_to_g($original_per_quantity, $original_per_unit), $wanted_per_unit);
+		$nutrient_ref->{value} = ($original_value * $wanted_per_quantity) / $per_conversion_factor;
+		$nutrient_ref->{value_string} = sprintf("%s", $nutrient_ref->{value});
+	}
+	return;
 }
 
 1;
