@@ -4897,8 +4897,8 @@ sub add_params_to_query ($params_ref, $query_ref) {
 					}
 					# Normal single value (not unknown)
 					else {
-						if ($tagtype eq 'nova_groups') {
-							# Remove language code. e.g. for nova_groups : en:not-applicable -> not-applicable
+						if ($tagtype eq 'nova_groups' and ($tagid eq 'en:unknown' or $tagid eq 'en:not-applicable')) {
+							# Remove language code. for unknown and not-applicable nova_groups
 							$tagid =~ s/^[a-z]{2}://;
 						}
 						if ($not) {

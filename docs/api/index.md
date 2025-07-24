@@ -45,8 +45,8 @@ We like learning what the Open Food Facts data is used for. It is not mandatory,
 To protect our infrastructure, we enforce rate-limits on the API and the website. The following limits apply:
 
 - 100 req/min for all read product queries (`GET /api/v*/product` requests or product page). There is no limit on product write queries.
-- 10 req/min for all search queries (`GET /api/v*/search` or `GET /cgi/search.pl` requests)
-- 2 req/min for facet queries (such as `/categories`, `/label/organic`, `/ingredient/salt/category/breads`,...)
+- 10 req/min for all search queries (`GET /api/v*/search` or `GET /cgi/search.pl` requests); don't use it for a search-as-you-type feature, you would be blocked very quickly.
+- 2 req/min for facet queries (such as `/categories`, `/label/organic`, `/ingredient/salt/category/breads`,...).
 
 If these limits are reached, we reserve the right to deny you access to the website and the API through IP address ban. If your IP has been banned, feel free to [email us to explain why you reached the limits][why_reached_limits]: reverting the ban is possible.
 
