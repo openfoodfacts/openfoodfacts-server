@@ -592,24 +592,33 @@ sub export_csv ($args_ref) {
 							$added_images_urls = 1;
 						}
 
-						if ($field =~ /^image_(.*)_file/) {
+						# Other images
+						if ($field =~ /^image_other_(\d+)_file$/) {
 							# File path for the image on the server, used for exporting from producers platform to public database
+							my $other = $1;
 
-							my $imagefield = $1;
-
-							if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$imagefield})) {
+							if (defined $other_images{$product_ref->{code} . "." . $other}) {
 								$value
 									= "$BASE_DIRS{PRODUCTS_IMAGES}/"
 									. $product_path . "/"
-									. $product_ref->{images}{$imagefield}{imgid} . ".jpg";
-							}
-							elsif (defined $other_images{$product_ref->{code} . "." . $imagefield}) {
-								$value
-									= "$BASE_DIRS{PRODUCTS_IMAGES}/"
-									. $product_path . "/"
-									. $other_images{$product_ref->{code} . "." . $imagefield}{imgid} . ".jpg";
+									. $other_images{$product_ref->{code} . "." . $other}{imgid} . ".jpg";
 							}
 						}
+
+						# Selected images
+						elsif ($field =~ /^image_(.+)_(.+)_file/) {
+							# File path for the image on the server, used for exporting from producers platform to public database
+
+							my $image_type = $1;
+							my $image_lc = $2;
+
+							my $imgid = deep_get($product_ref, ("images", "selected", $image_type, $image_lc, "imgid"));
+
+							if (defined $imgid) {
+								$value = "$BASE_DIRS{PRODUCTS_IMAGES}/" . $product_path . "/" . $imgid . ".jpg";
+							}
+						}
+
 						elsif ($field
 							=~ /^image_($valid_image_types_regexp)_(\w\w)_(x1|y1|x2|y2|angle|normalize|white_magic|coordinates_image_size)/
 							)
@@ -693,23 +702,32 @@ sub include_image_paths ($product_ref, $populated_fields_ref, $other_images_ref)
 
 	# First list the selected images
 	my %selected_images = ();
-	foreach my $imageid (sort keys %{$product_ref->{images}}) {
+	if (defined $product_ref->{images}{selected}) {
+		foreach my $image_type (sort keys %{$product_ref->{images}{selected}}) {
+			foreach my $image_lc (sort keys %{$product_ref->{images}{selected}{$image_type}}) {
 
-		if ($imageid =~ /^($valid_image_types_regexp)_(\w\w)$/) {
+				$selected_images{$product_ref->{images}{selected}{$image_type}{$image_lc}{imgid}} = 1;
+				$populated_fields_ref->{"image_" . $image_type . "_" . $image_lc . "_file"} = 
+					sprintf("%08d", 10 * 1000) . "_" . $image_type . "_" . $image_lc;
 
-			$selected_images{$product_ref->{images}{$imageid}{imgid}} = 1;
-			$populated_fields_ref->{"image_" . $imageid . "_file"} = sprintf("%08d", 10 * 1000) . "_" . $imageid;
-			# Also export the crop coordinates
-			foreach my $coord (qw(x1 x2 y1 y2 angle normalize white_magic coordinates_image_size)) {
-				if (
-					(defined $product_ref->{images}{$imageid}{$coord})
-					and (  ($coord !~ /^(x|y)/)
-						or ($product_ref->{images}{$imageid}{$coord} != -1)
-					)    # -1 is passed when the image is not cropped
-					)
-				{
-					$populated_fields_ref->{"image_" . $imageid . "_" . $coord}
-						= sprintf("%08d", 10 * 1000) . "_" . $imageid . "_" . $coord;
+				# Also export the crop coordinates
+				if (defined $product_ref->{images}{selected}{$image_type}{$image_lc}{generation}) {
+
+					foreach my $gen_field (qw(x1 x2 y1 y2 angle normalize white_magic coordinates_image_size)) {
+
+						my $gen_value = deep_get($product_ref,
+							("images", "selected", $image_type, $image_lc, "generation", $gen_field));
+
+						if (
+							(defined $gen_value)
+							and (  ($gen_field !~ /^(x|y)/)
+								or ($gen_value != -1))    # -1 is passed when the image is not cropped
+							)
+						{
+							$populated_fields_ref->{"image_" . $image_type . "_" . $image_lc . "_" . $gen_field}
+								= sprintf("%08d", 10 * 1000) . "_" . $image_type . "_" . $image_lc . "_" . $gen_field;
+						}
+					}
 				}
 			}
 		}
@@ -717,16 +735,19 @@ sub include_image_paths ($product_ref, $populated_fields_ref, $other_images_ref)
 
 	# Then list unselected images as other
 	my $other = 0;
-	foreach my $imageid (sort keys %{$product_ref->{images}}) {
+	if (defined $product_ref->{images}{uploaded}) {
+		foreach my $imageid (sort keys %{$product_ref->{images}{uploaded}}) {
 
-		if (($imageid =~ /^(\d+)$/) and (not defined $selected_images{$imageid})) {
-			$other++;
-			$populated_fields_ref->{"image_" . "other_" . $other . "_file"}
-				= sprintf("%08d", 10 * 1000) . "_" . "other_" . $other;
-			# Keep the imgid for second loop on products
-			$other_images_ref->{$product_ref->{code} . "." . "other_" . $other} = {imgid => $imageid};
+			if (($imageid =~ /^(\d+)$/) and (not defined $selected_images{$imageid})) {
+				$other++;
+				$populated_fields_ref->{"image_" . "other_" . $other . "_file"}
+					= sprintf("%08d", 10 * 1000) . "_" . "other_" . $other;
+				# Keep the imgid for second loop on products
+				$other_images_ref->{$product_ref->{code} . "." . "other_" . $other} = {imgid => $imageid};
+			}
 		}
 	}
+
 	return;
 }
 
