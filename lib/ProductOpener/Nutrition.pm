@@ -18,8 +18,6 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-=encoding UTF-8
-
 =head1 NAME
 
 ProductOpener::Nutrition - functions related to nutrition facts of food products
@@ -166,7 +164,7 @@ sub sort_sets_by_priority (@nutrient_sets) {
 
 For each nutrient appearing in the nutrient sets array, sets its values in the preferred set.
 
-The units of the nutrients quantities are normalized (g, kj or kcal).
+The units of the nutrients quantities are normalized (g, kJ or kcal).
 
 Each nutrient is only added once. Its value is the one in the set with the highest priority.
 
@@ -219,7 +217,7 @@ sub set_nutrient_values ($nutrient_set_preferred_ref, @nutrient_sets) {
 
 Normalizes the unit of the nutrient value if necessary.
 
-The normalized units are g, kj or kcal based on the nutrient.
+The normalized units are g, kJ or kcal based on the nutrient.
 
 =head3 Arguments
 

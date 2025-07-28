@@ -82,7 +82,7 @@ sub unit_to_kcal ($value, $unit) {
 
 =head2 unit_to_kj($value, $unit)
 
-Converts <xx><unit> into <xx> kj.
+Converts <xx><unit> into <xx> kJ.
 
 =cut
 
