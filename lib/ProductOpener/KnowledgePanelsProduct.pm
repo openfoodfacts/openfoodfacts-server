@@ -118,17 +118,9 @@ sub create_product_card_panel ($product_ref, $target_lc, $target_cc, $options_re
 			}
 		} @$tags;
 
-		# Generation of html for product page
-		my $html = "<ul>\n";
-		foreach my $tag (@tags_data) {
-			$html .= "  <li><a href=\"$tag->{url}\">$tag->{name}</a></li>\n";
-		}
-		$html .= "</ul>\n";
-
 		my $panel_data_ref = {
 			field_name => $field_name,
 			tags => \@tags_data,
-			html => $html,
 			raw_field_name => $raw_field_name,
 		};
 

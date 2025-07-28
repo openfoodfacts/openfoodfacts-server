@@ -9,13 +9,6 @@
         "title": "[% edq(lang(panel.raw_field_name)) %]",
     },
     "elements": [
-        {
-            "element_type": "text",
-            "text_element": {
-                "html": `
-                [% panel.html %]
-                `         
-            },
-        },
+        [% INCLUDE "api/knowledge-panels/product/product_panel_html.tt.json" %]
     ]
 }
