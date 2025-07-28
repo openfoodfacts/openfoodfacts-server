@@ -1,0 +1,56 @@
+{
+    "nutrition": {
+        "nutrient_set_preferred": {
+            "preparation": "as_sold", 
+            "per": "serving", 
+            "per_quantity": "50", 
+            "per_unit": "ml", 
+            "nutrients": {
+                "sodium": {
+                    "value_string": "0.0125", 
+                    "value": 0.0125, 
+                    "unit": "g",
+                    "source": "packaging",
+                    "source_per": "serving"
+                },
+                "sugars": {
+                    "value_string": "6.3", 
+                    "value": 6.3, 
+                    "unit": "g",
+                    "source": "manufacturer",
+                    "source_per": "serving"
+                }
+            }
+        },
+        "nutrient_sets": [
+            {
+                "preparation": "as_sold", 
+                "per": "serving", 
+                "per_quantity": "1", 
+                "per_unit": "l", 
+                "source": "packaging", 
+                "nutrients": {
+                    "sodium": {
+                        "value_string": "0.25", 
+                        "value": 0.25, 
+                        "unit": "g"
+                    }
+                }
+            },
+            {
+                "preparation": "as_sold", 
+                "per": "serving", 
+                "per_quantity": "50", 
+                "per_unit": "ml", 
+                "source": "manufacturer", 
+                "nutrients": {
+                    "sugars": {
+                        "value_string": "6.3", 
+                        "value": 6.3, 
+                        "unit": "g"
+                    }
+                }
+            }
+        ]
+    }
+}

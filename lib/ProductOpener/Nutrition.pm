@@ -49,6 +49,8 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
+use Clone qw/clone/; #todo use clone function to clone line 185-188
+
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Units qw/unit_to_kcal unit_to_kj unit_to_g g_to_unit/;
 
@@ -67,8 +69,10 @@ The generated preferred nutrient set
 
 =cut
 
-sub generate_nutrient_set_preferred_from_sets {
-    my ($nutrient_sets_ref) = @_; 
+sub generate_nutrient_set_preferred_from_sets ($nutrient_sets_ref) { #todo add the parameter to documentation
+    if (!defined $nutrient_sets_ref) {
+        return;
+    }
     my @nutrient_sets = @$nutrient_sets_ref;
     
     my $nutrient_set_preferred_ref = {};
@@ -118,9 +122,9 @@ sub sort_sets_by_priority (@nutrient_sets) {
 
     my %per_priority = (
         "100g" => 0,
-        "100ml" => 0,
-        serving => 1,
-        _default => 2,
+        "100ml" => 1,
+        serving => 2,
+        _default => 3, #todo add test to check that 100ml is after 100g
     );
 
     my %preparation_priority = (
@@ -184,7 +188,7 @@ sub set_nutrient_values ($nutrient_set_preferred_ref, @nutrient_sets) {
                 # for each nutrient, set its values if values are not already present in preferred set
                 # (ie if nutrient not present in other set with highest priority)
                 if (!exists $nutrient_set_preferred_ref->{nutrients}{$nutrient}) {
-                    $nutrient_set_preferred_ref->{nutrients}{$nutrient} = $nutrient_set_ref->{nutrients}{$nutrient};
+                    $nutrient_set_preferred_ref->{nutrients}{$nutrient} = clone($nutrient_set_ref->{nutrients}{$nutrient});
                     nutrient_in_standard_unit($nutrient_set_preferred_ref->{nutrients}{$nutrient}, $nutrient);
                     nutrient_in_wanted_per(
                         $nutrient_set_preferred_ref->{nutrients}{$nutrient},
