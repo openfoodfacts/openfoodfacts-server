@@ -36,6 +36,11 @@
                         "value": 2, 
                         "unit": "g", 
                         "modifier": "<="
+                    },
+                    "sugars": {
+                        "value_string": "5.2", 
+                        "value": 5.2, 
+                        "unit": "g"
                     }
                 }
             },
@@ -55,14 +60,14 @@
             },
             {
                 "preparation": "as_sold", 
-                "per": "100g", 
+                "per": "100ml", 
                 "per_quantity": "100", 
                 "per_unit": "g", 
                 "source": "packaging", 
                 "nutrients": {
                     "sugars": {
-                        "value_string": "5.2", 
-                        "value": 5.2, 
+                        "value_string": "4.6", 
+                        "value": 4.6, 
                         "unit": "g"
                     }
                 }

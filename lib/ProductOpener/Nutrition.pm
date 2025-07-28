@@ -49,7 +49,7 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
-use Clone qw/clone/; #todo use clone function to clone line 185-188
+use Clone qw/clone/;
 
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Units qw/unit_to_kcal unit_to_kj unit_to_g g_to_unit/;
@@ -63,19 +63,25 @@ Generates and returns a hash reference of the preferred nutrient set from the gi
 The generated set is a combined set of nutrients with the preferred sources, per references and preparation states 
 and with normalized units.
 
+=head3 Arguments
+
+=head4 $nutrient_sets_ref
+
+Array of nutrients sets used to generate the preferred set
+
 =head3 Return values
 
 The generated preferred nutrient set
 
 =cut
 
-sub generate_nutrient_set_preferred_from_sets ($nutrient_sets_ref) { #todo add the parameter to documentation
-    if (!defined $nutrient_sets_ref) {
-        return;
-    }
-    my @nutrient_sets = @$nutrient_sets_ref;
-    
-    my $nutrient_set_preferred_ref = {};
+sub generate_nutrient_set_preferred_from_sets ($nutrient_sets_ref) {
+	if (!defined $nutrient_sets_ref) {
+		return;
+	}
+	my @nutrient_sets = @$nutrient_sets_ref;
+
+	my $nutrient_set_preferred_ref = {};
 
 	if (@nutrient_sets) {
 		@nutrient_sets = sort_sets_by_priority(@nutrient_sets);
@@ -120,12 +126,12 @@ sub sort_sets_by_priority (@nutrient_sets) {
 		_default => 4,
 	);
 
-    my %per_priority = (
-        "100g" => 0,
-        "100ml" => 1,
-        serving => 2,
-        _default => 3, #todo add test to check that 100ml is after 100g
-    );
+	my %per_priority = (
+		"100g" => 0,
+		"100ml" => 1,
+		serving => 2,
+		_default => 3,
+	);
 
 	my %preparation_priority = (
 		prepared => 0,
@@ -177,33 +183,34 @@ The sorted array of nutrient set hashes used to generate the preferred set.
 =cut
 
 sub set_nutrient_values ($nutrient_set_preferred_ref, @nutrient_sets) {
-    foreach my $nutrient_set_ref (@nutrient_sets) {
-        # set nutrient values from set if preparation state is the same as in the preferred set and if set has nutrients
-        if (    defined $nutrient_set_ref->{preparation}
-            and $nutrient_set_ref->{preparation} eq $nutrient_set_preferred_ref->{preparation}
-            and exists $nutrient_set_ref->{nutrients} 
-            and ref $nutrient_set_ref->{nutrients} eq 'HASH') 
-        {
-            foreach my $nutrient (keys %{$nutrient_set_ref->{nutrients}}) {
-                # for each nutrient, set its values if values are not already present in preferred set
-                # (ie if nutrient not present in other set with highest priority)
-                if (!exists $nutrient_set_preferred_ref->{nutrients}{$nutrient}) {
-                    $nutrient_set_preferred_ref->{nutrients}{$nutrient} = clone($nutrient_set_ref->{nutrients}{$nutrient});
-                    nutrient_in_standard_unit($nutrient_set_preferred_ref->{nutrients}{$nutrient}, $nutrient);
-                    nutrient_in_wanted_per(
-                        $nutrient_set_preferred_ref->{nutrients}{$nutrient},
-                        $nutrient_set_ref->{per_quantity}, 
-                        $nutrient_set_ref->{per_unit},
-                        $nutrient_set_preferred_ref->{per_quantity}, 
-                        $nutrient_set_preferred_ref->{per_unit}
-                    );
-                    $nutrient_set_preferred_ref->{nutrients}{$nutrient}{source} = $nutrient_set_ref->{source};
-                    $nutrient_set_preferred_ref->{nutrients}{$nutrient}{source_per} = $nutrient_set_ref->{per};    
-                }
-            }
-        }
-    } 
-    return;
+	foreach my $nutrient_set_ref (@nutrient_sets) {
+		# set nutrient values from set if preparation state is the same as in the preferred set and if set has nutrients
+		if (    defined $nutrient_set_ref->{preparation}
+			and $nutrient_set_ref->{preparation} eq $nutrient_set_preferred_ref->{preparation}
+			and exists $nutrient_set_ref->{nutrients}
+			and ref $nutrient_set_ref->{nutrients} eq 'HASH')
+		{
+			foreach my $nutrient (keys %{$nutrient_set_ref->{nutrients}}) {
+				# for each nutrient, set its values if values are not already present in preferred set
+				# (ie if nutrient not present in other set with highest priority)
+				if (!exists $nutrient_set_preferred_ref->{nutrients}{$nutrient}) {
+					$nutrient_set_preferred_ref->{nutrients}{$nutrient}
+						= clone($nutrient_set_ref->{nutrients}{$nutrient});
+					nutrient_in_standard_unit($nutrient_set_preferred_ref->{nutrients}{$nutrient}, $nutrient);
+					nutrient_in_wanted_per(
+						$nutrient_set_preferred_ref->{nutrients}{$nutrient},
+						$nutrient_set_ref->{per_quantity},
+						$nutrient_set_ref->{per_unit},
+						$nutrient_set_preferred_ref->{per_quantity},
+						$nutrient_set_preferred_ref->{per_unit}
+					);
+					$nutrient_set_preferred_ref->{nutrients}{$nutrient}{source} = $nutrient_set_ref->{source};
+					$nutrient_set_preferred_ref->{nutrients}{$nutrient}{source_per} = $nutrient_set_ref->{per};
+				}
+			}
+		}
+	}
+	return;
 }
 
 =head2 nutrient_in_standard_unit
