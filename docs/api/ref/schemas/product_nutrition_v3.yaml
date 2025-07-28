@@ -16,7 +16,7 @@ components:
             nutrient_set_preferred:
               type: object
               description: | 
-                A set that combines set of nutriments with the preferred sources, with normalized units.
+                A set that combines nutrient data from preferred sources, with normalized units.
                 
                 It takes values from multiple sources (by priority: manufacturer, packaging, usda, estimate)
                 and normalizes all values to the same unit: g for weights, kJ for energy and energy-kj, kcal for energy-kcal.
@@ -43,7 +43,7 @@ components:
                     properties:
                       source:
                         type: string
-                        enum: 
+                        examples: 
                           - packaging
                           - manufacturer
                           - usda
