@@ -113,3 +113,7 @@ Make a simple GET request to the appropriate v2 API endpoint with your normalize
     * **If found:** The app navigates to a beautifully formatted product page.
     * **If not found:** The app shows a "Product not found" screen with a call-to-action to add it.
     * **If network error:** The app shows a "Connection error" message.
+
+### Bonus: I am doing a "AI" app, how can I handle barcodes as well ?
+* Add a barcode button beyond your AI viewfinder, that will start the barcode decoder. Benefits of using barcodes: reducing the cost of a query to 0 and a much faster answer.
+* Make sure you allow users to send us photos so that the database stays competitive (more comprehensive) compared to purely AI solutions.
