@@ -7,7 +7,6 @@ use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Nutrition qw/generate_nutrient_set_preferred_from_sets/;
-
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
