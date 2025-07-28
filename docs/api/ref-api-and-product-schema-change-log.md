@@ -36,6 +36,7 @@ Note: API v3 is under active development, and the API and corresponding product 
 
 Breaking changes:
 - The nutrition facts structure has been changed to have a structure it lacked and better align with the current uses and needs of the database (see [2025 - API - Nutrition Facts Schema and API](https://docs.google.com/document/d/19ZRrlWJraJm61E6U7AwxQ1uubPDvmSuNfl9F1oLC0Tg) for new structure and discussions)
+- **This product version is still currently under active development**
 
 ### 2025-06-11 - Product version 1002 - API version 3.3 - New uploaded and selected images structure, new API for image upload and selection
 
