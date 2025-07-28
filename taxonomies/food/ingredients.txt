@@ -216,6 +216,8 @@ pt: xarope de caramelo
 ru: Карамельный сироп
 uk: карамельный сироп
 # ingredient/caramel-syrup has 248 products @2019-03-09
+vegan:en: maybe
+vegetarian:en: yes
 
 < en:caramel syrup
 < en:sugar
@@ -248,7 +250,10 @@ it: caramello al latte
 en: caramel chocolate preparation
 hr: karamelno čokoladni pripravak
 it: preparazione di cioccolato al caramello
+vegan:en: maybe
+vegetarian:en: yes
 
+< en:caramel
 # <en:compound
 en: salted butter caramel
 de: gesalzene Karamellbutter, gesalzenes Butter-Karamell
@@ -261,7 +266,10 @@ hu: sós vajkaramella, vajkaramell
 # salted butter caramel (glucose syrup, sugar, butter, water, fresh cream, Guérande salt)
 it: caramello di burro salato
 nl: gekarameliseerde gezouten boter, karamel en gezouten boter
+vegan:en: no
+vegetarian:en: yes
 
+< en:caramel
 # <en:compound
 fr: éclats de caramel
 de: Caramelstücke, Karamellstücke, Karamellsplitter
@@ -270,6 +278,7 @@ sv: karamellbitar
 # ingredient/fr:éclats-de-caramel has 120 products in 3 languages @2019-03-09
 
 # <en:compound
+< fr:éclats de caramel
 fr: éclats de caramel au beurre salé
 # ingredient/fr:éclats-de-caramel-au-beurre-salé has 53 products in 2 languages @2019-02-21
 # éclats de caramel au beurre salé (sucre, sirop de glucose, crème fraîche de Normandie, beurre salé , lait écrémé en poudre, fleur de sel de Guérande, caramel (sirop de glucose-fructose, eau))
@@ -889,6 +898,8 @@ sk: biely a žltý včelí vosk
 sl: čebelji vosek beli in rumeni
 sv: bivax vitt och gult
 # ingredient/fr:cire-d’abeille-blanche-et-jaune has 200 products in 9 languages  @2019-05-13
+vegan:en: no
+vegetarian:en: maybe
 
 < en:E941
 < en:E942
@@ -9577,6 +9588,8 @@ nl: dier
 pl: Zwierzę, zwierzęta, zwierzęcy, zwierzęca, zwierzęce
 pt: Animal
 sv: djur
+vegan:en: no
+# vegetarian:en: no # are there any instances where this _would_ be vegetarian?
 
 en: meat
 bg: месо
@@ -9736,6 +9749,7 @@ fr: abats
 hr: iznutrice
 it: frattaglie
 pl: podroby
+vegetarian:en: no
 wikipedia:en: https://en.wikipedia.org/wiki/Offal
 
 #category/fr:quenelles
@@ -9760,6 +9774,7 @@ description:fr: La quenelle est une pâte moelleuse de forme cylindrique pochée
 description:it: La quenelle è una pietanza d'origine francese composta di crema di pesce, pollo, o carne, a volte mescolata con molliche di pane e legata da piccole quantità d'uovo.
 description:nl: Een quenelle is een langwerpig balletje gemaakt van deeg en gepureerde (traditioneel) vis. Quenelles lijken op knoedels en worden ook van vlees of gevogelte gemaakt.
 description:pt: A quenelle é um bolinho feito com carne ou peixe muito condimentados, ligados com clara de ovo e natas, ovos batidos ou manteiga e farinha.
+vegetarian:en: no
 wikidata:en: Q12958
 
 # comment:en:The popular name of the meat is used, when a part of the animal has been used. So it has been kept separate. But do not include the word meat in these. Use en:beef meat for that.
@@ -10433,6 +10448,7 @@ it: coscia di agnello
 ciqual_food_code:en: 21502
 ciqual_food_name:en: Lamb, leg, raw
 ciqual_food_name:fr: Agneau, gigot, cru
+vegetarian:en: no
 
 < en:lamb leg
 en: Pan-fried lamb leg
@@ -17830,6 +17846,8 @@ ru: Винный уксус
 sv: vinsvinäger, vinättika, vinäger av vin, vinvinäger
 carbon_footprint_fr_foodges_ingredient:fr: Vinaigre de vin
 carbon_footprint_fr_foodges_value:fr: 4.2
+vegan:en: maybe
+vegetarian:en: maybe
 
 < en:wine vinegar
 en: white wine vinegar
@@ -18003,6 +18021,8 @@ zh: 意大利香醋
 ciqual_food_code:en: 11091
 ciqual_food_name:en: Vinegar, balsamic
 ciqual_food_name:fr: Vinaigre balsamique
+vegan:en: maybe
+vegetarian:en: yes
 wikidata:en: Q170037
 wikipedia:en: https://en.wikipedia.org/wiki/Balsamic_vinegar
 #2233 @2021-09-26
@@ -18127,10 +18147,12 @@ ru: Рисовый уксус
 sv: risvinäger, risvinvinäger
 uk: Рисовий оцет
 zh: 米醋
+vegan:en: maybe
+vegetarian:en: maybe
 wikidata:en: Q1849012
 wikipedia:en: https://en.wikipedia.org/wiki/Rice_vinegar
 
-< en:vinegar
+< en:wine vinegar
 en: sherry vinegar
 de: Sherry Wein Essig
 es: Vinagre de Jerez
@@ -18150,7 +18172,7 @@ hu: ételecet
 it: aceto da tavola
 nl: tafelazijn
 
-< en:vinegar
+< en:wine vinegar
 en: red wine vinegar
 bg: червен винен оцет
 da: Rødvinseddike, rødvinseddikke
@@ -18652,7 +18674,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Gin
 
 # description:en:Champagne is sparkling wine or, in the EU countries, legally only that sparkling wine which comes from the Champagne region of France.
 
-< en:alcohol
+< en:sparkling wine
 en: champagne
 an: Champán
 ar: شامبانيا
@@ -19072,6 +19094,8 @@ description:en: WINE is an alcoholic beverage made from fermented grapes.
 # yue:葡萄酒
 # zh-hans:葡萄酒
 # zh-hant:葡萄酒
+vegan:en: maybe
+vegetarian:en: maybe
 wikidata:en: Q282
 wikipedia:en: https://en.wikipedia.org/wiki/Wine
 # en:wine has 4233 products in 6 languages @2018-10-29
@@ -19952,6 +19976,8 @@ description:fr: Vin blanc dans lequel on a fait infuser des plantes amères, ton
 description:nl: Vermout is een versterkte wijn, op smaak gebracht met aromatische planten en kruiden.
 description:pt: bebida alcoólica à base de vinho, com adição de flores ou ervas aromáticas.
 # 151 in 5 @2021-09-09
+vegan:en: maybe
+vegetarian:en: maybe
 wikidata:en: Q231088
 wiktionary:en: vermouth
 
@@ -20005,6 +20031,9 @@ en: campari
 xx: campari
 de: Campari
 hr: kampari
+# the red colour traditionally came from secretions of cochineal beetles, still in use in some cases
+vegan:en: maybe
+vegetarian:en: yes
 
 < en:alcohol
 en: cider, apple cider
@@ -20215,6 +20244,9 @@ ru: Пиво
 sl: pivo
 carbon_footprint_fr_foodges_ingredient:fr: Bière
 carbon_footprint_fr_foodges_value:fr: 2.7
+# animal-based ingredients (mostly from fish) are sometimes used to clarify beers
+vegan:en: maybe
+vegetarian:en: maybe
 
 < en:beer
 es: cerveza Amstel
@@ -20253,11 +20285,27 @@ wikipedia:en: https://en.wikipedia.org/wiki/Chartreuse_(liqueur)
 # de:Chartreuse
 
 < en:alcohol
-en: sake, sake wine
+en: rice wine
+bg: оризово вино
+ca: vi d'arròs
 de: Reiswein
+es: vino de arroz
+fr: Alcool de riz
+hr: vino od riže
+it: vino di riso
+nl: rijstwijn
+ru: рисовое вино
+ciqual_food_code:en: 1026
+ciqual_food_name:en: Sake or rice wine
+ciqual_food_name:fr: Saké ou Alcool de riz
+vegan:en: maybe
+vegetarian:en: maybe
+
+< en:rice wine
+en: sake, sake wine
+xx: sake
 es: sake, vino sake
 fr: Saké
-hr: sake
 it: sakè
 ja: 日本酒
 ciqual_food_code:en: 1026
@@ -20277,20 +20325,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Rakia
 en: rakia sugar
 hr: šećer rakija
 it: zucchero Rakia
-
-< en:alcohol
-en: rice wine
-bg: оризово вино
-ca: vi d'arròs
-es: vino de arroz
-fr: Alcool de riz
-hr: vino od riže
-it: vino di riso
-nl: rijstwijn
-ru: рисовое вино
-ciqual_food_code:en: 1026
-ciqual_food_name:en: Sake or rice wine
-ciqual_food_name:fr: Saké ou Alcool de riz
 
 < en:alcohol
 en: vodka
@@ -21396,6 +21430,7 @@ nl: natuurlijk koffie aroma
 pl: naturalny aromat kawy
 pt: sabor natural de café
 
+< en:caramel flavouring
 < en:natural flavouring
 en: natural caramel flavouring
 ca: caramel natural
@@ -21495,6 +21530,9 @@ pt: aroma baunilha
 ro: aromă de vanilie
 ru: ароматизатор идентичный натуральному-ванилин
 sv: vaniljarom
+# vanilla flavouring (incl. “natural”) is sometimes beaver castoreum
+vegan:en: maybe
+vegetarian:en: maybe
 
 < en:natural flavouring
 < en:vanilla flavouring
@@ -21518,9 +21556,6 @@ pl: naturalny aromat wanilii, naturalny aromat waniliowy
 pt: aroma de baunilha natural, aromatizante de baunilha natural, aroma natural de baunilha
 ro: aromă naturală de vanilie, aromă de vanilie naturală
 sv: naturlig vaniljarom, naturlig vanilijarom
-vegan:en: yes
-vegetarian:en: yes
-
 
 < en:natural vanilla flavouring
 en: natural organic vanilla flavouring
@@ -21846,6 +21881,8 @@ it: aroma di caramello
 nl: karamel aroma, caramelaroma
 pt: aroma de caramelo
 sv: kolaarom
+vegan:en: maybe
+vegetarian:en: yes
 
 < en:natural flavouring
 en: natural pork flavouring
@@ -21860,6 +21897,8 @@ nl: natuurlijk karamel aroma, natuurlijk varkensvleesaroma
 pt: sabor natural de porco
 ro: aromă naturală de porc
 sv: naturlig fläskarom
+vegan:en: no
+vegetarian:en: no
 
 < en:flavouring
 en: bacon flavouring
@@ -22353,6 +22392,7 @@ sv: biffarom
 vegan:en: no
 vegetarian:en: no
 
+< en:chocolate flavouring
 < en:natural flavouring
 en: natural chocolate flavouring
 de: natürliches Schokoladenaroma, natürliches Schokoladen-Aroma
@@ -24241,6 +24281,8 @@ it: farina di farro, farina di grano farro
 fr: préparation pain d'épices
 likely_allergens:en: en:gluten
 # usage:fr:préparation pain d'épices 7,8% [farine de seigle, épices (cannelle, coriandre, anis), caramel (sirop de glucose), maltodextrine, gluten de blé]
+vegan:en: maybe
+vegetarian:en: yes
 
 ##################################################################################
 #
@@ -24708,6 +24750,8 @@ it: malto caramellato
 pt: malte de caramelo
 sv: karamellmalt
 # ingredient/en:caramel-malt has 11 products in 1 language @2020-06-08
+vegan:en: maybe
+vegetarian:en: yes
 
 < en:malt
 en: munich malt
@@ -30195,8 +30239,9 @@ carbon_footprint_fr_foodges_value:fr: 1.3
 ciqual_proxy_food_code:en: 31016
 ciqual_proxy_food_name:en: Sugar, white
 ciqual_proxy_food_name:fr: Sucre blanc
+comment:en: The most common way to whiten sugar is using bone char as a carbon filter to remove colouration from cane sugar, making it non-vegan.
 ecobalyse:en: 8f075c25-9ebf-430c-b41d-51d165c6e0d8
-vegan:en: yes
+vegan:en: maybe
 vegetarian:en: yes
 # als:Zucker
 # arc:ܫܟܪ
@@ -30507,6 +30552,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Powdered_sugar
 
 # <en:compound
 < en:sugar
+< en:vanilla flavouring
 en: vanilla sugar
 bg: ванилова захар
 bs: vanilin šećer
@@ -31355,7 +31401,7 @@ tr: Şurup
 uk: Сироп
 vi: Xi rô
 zh: 糖漿
-vegan:en: yes
+vegan:en: maybe
 vegetarian:en: yes
 wikidata:en: Q6584340
 # ast:Almíbar
@@ -34304,19 +34350,6 @@ en: chocolate-flavored paste with ground cocoa biscuits
 hr: pasta okusa čokolade s mljevenim kakao keksima
 
 < en:chocolate
-en: milk chocolate chips, milk chocolate drops
-da: mælkechokoladestykker
-de: Milchschokoladenstücke
-es: pepitas de chocolate con leche
-fi: maitosuklaapalat
-fr: Flocons de chocolat au lait
-# hr:komadići mliječne čokolade # ingredients_processings.txt
-it: scaglie di cioccolato al latte, gocce di cioccolato al latte
-nb: melkesjokoladedråper
-sv: mjölkchokladdroppar
-allergens:en: en:milk
-
-< en:chocolate
 en: sugar free chocolate
 hr: čokolada bez šećera
 it: cioccolato senza zucchero
@@ -34417,6 +34450,7 @@ ecobalyse:en: 6f3939f7-408c-45d5-8653-61f3336bf305
 wikidata:en: Q277628
 wikipedia:en: https://en.wikipedia.org/wiki/Dark_chocolate
 
+< en:belgian chocolate
 < en:dark chocolate
 en: belgian dark chocolate, dark belgian chocolate
 de: belgische dunkle Schokolade, dunkle belgische Schokolade
@@ -34445,6 +34479,7 @@ pl: kawalki czekolady deserowej
 # usage:it: pezzetti di cioccolato fondente (zucchero, pasta di cacao, burro di cacao, emulsionante: lecitina di soia: aroma naturale di vaniglia)
 
 < en:dark chocolate chunks
+< en:sugar free chocolate
 en: sugar free dark chocolate chunks
 hr: kapljice tamne čokolade bez šećera
 it: pezzetti di cioccolato fondente senza zucchero
@@ -34530,6 +34565,20 @@ vegan:en: no
 vegetarian:en: yes
 wikidata:en: Q2164820
 
+#< en:chocolate chips
+< en:milk chocolate
+en: milk chocolate chips, milk chocolate drops
+da: mælkechokoladestykker
+de: Milchschokoladenstücke
+es: pepitas de chocolate con leche
+fi: maitosuklaapalat
+fr: Flocons de chocolat au lait
+# hr:komadići mliječne čokolade # ingredients_processings.txt
+it: scaglie di cioccolato al latte, gocce di cioccolato al latte
+nb: melkesjokoladedråper
+sv: mjölkchokladdroppar
+
+< en:belgian chocolate
 < en:milk chocolate
 en: belgian milk chocolate
 de: belgische Milchschokolade
@@ -34541,7 +34590,7 @@ nl: Belgische melkchocolade
 < en:milk chocolate
 # <en:chocolate chips
 fr: pépites de chocolat au lait
-da: stykker af mæelkechocolade
+da: stykker af mæelkechokolade
 de: Milchschokoladenstückchen, Vollmilchschokoladenstückchen, Vollmilchschokoladentropfen
 fi: maitosuklaarouhe, maitosuklaapaloja
 it: pezzetti di cioccolato di latte
@@ -34656,7 +34705,7 @@ en: chocolate and white chocolate
 hr: čokolade i bijele čokolade
 it: cioccolato e cioccolato bianco
 
-< en:chocolate
+< en:white chocolate
 en: white chocolate powder
 it: cioccolato bianco in polvere
 #en:processing:en:powder
@@ -34666,6 +34715,7 @@ it: cioccolato bianco in polvere
 #fr:chocolat blanc en poudre
 
 < en:chocolate
+< en:sauce
 en: chocolate sauce
 de: Schokoladensoße
 fi: suklaakastike
@@ -34682,16 +34732,22 @@ ciqual_food_name:fr: Sauce au chocolat
 
 # chocolate covered ingredients
 
+< en:chocolate
 # <en:compound
+< en:corn flakes
 de: Schokolierte Cornflakes
 fr: cornflakes au chocolat
 nl: cornflakes omhuld met chocolade
 
+< en:chocolate
 # <en: compound
+< en:puffed rice
 de: schokolierter Puffreis
 fr: riz soufflé chocolaté
 nl: met chocolade omhulde gepofte rijst
 
+< de:Reisextrudat
+< en:chocolate
 # <en: compound
 de: schokoliertes Reisextrudat
 fr: extrudat de riz chocolaté
@@ -37468,8 +37524,10 @@ carbon_footprint_fr_foodges_value:fr: 1.2
 ciqual_food_code:en: 13005
 ciqual_food_name:en: Banana, pulp, raw
 ciqual_food_name:fr: Banane, pulpe, crue
+comment:en: Non-organic bananas are commonly treated with the preservative chitosan, which is most commonly made from shellfish, making them non-vegan.
 ecobalyse:en: f79d155e-3f9e-4882-8dd0-b03f28c1ff76
 ecobalyse_labels_en_organic:en: b3f92ca9-3121-4e2d-9e1d-0cc2c5d392fe
+vegan:en: maybe
 wikidata:en: Q503
 # als:Banane
 # arz:موز
@@ -39102,8 +39160,10 @@ carbon_footprint_fr_foodges_value:fr: 1.3
 ciqual_food_code:en: 13050
 ciqual_food_name:en: Apple, pulp, raw
 ciqual_food_name:fr: Pomme, pulpe, crue
+comment:en: Non-organic apples may be treated with beeswax or shellac, making them non-vegan.
 ecobalyse:en: 8c2299d6-49e4-493c-bafe-c0b4b7ef2079
 ecobalyse_labels_en_organic:en: 3d3fc6bd-0a43-462b-bc39-fed04cf34498
+vegan:en: maybe
 # aeb-arab:كعبة تفّاح
 # aeb-latn:toffè7
 # ang:Æppel
@@ -39822,6 +39882,8 @@ zh: 柑橘属
 # sco:Citrus
 # war:Citrus
 # yue:柑桔
+comment:en: Non-organic citrus fruits are often treated with beeswax or shellac, making them non-vegan.
+vegan:en: maybe
 wikidata:en: Q81513
 wikipedia:en: https://en.wikipedia.org/wiki/Citrus
 
@@ -65736,6 +65798,8 @@ description:de: Dijon-Senf ist ein scharfer Tafelsenf, der nach der Stadt Dijon 
 description:es: La mostaza de Dijon es una mostaza francesa.
 description:fr: La moutarde de Dijon est une moutarde française originaire de la ville de Dijon.
 description:pt: A mostarda de Dijon é uma variedade de mostarda forte muito usada na culinária francesa.
+vegan:en: maybe
+vegetarian:en: maybe
 wikidata:en: Q204226
 wiktionary:en: Dijon_mustard
 # 3445 in 9 @2021-09-10
@@ -69166,6 +69230,9 @@ fr: guimauve
 hr: marshmallow
 it: marshmallow, Toffolette
 nl: Marshmallow
+# marshmallow-the-sweet usually contains gelatin
+vegan:en: maybe
+vegetarian:en: maybe
 wikidata:en: Q272198
 wikipedia:en: https://en.wikipedia.org/wiki/Marshmallow
 
@@ -87108,8 +87175,11 @@ sv: karamellfyllning
 # usage:en:caramel filling (15%) [glucose syrup, palm fat, sugar, sweetened skimmed, emulsifier (soy lecithin), rapeseed oil (fully hydrogenated), salt, natural flavouring]
 # mainIngredient:en:glucose syrup
 # ingredient/en:caramel-filling 94 in 3  @2020-12-19
+vegan:en: maybe
+vegetarian:en: yes
 
 < en:filling
+< en:vanilla flavoring
 en: stuffing with vanilla flavor
 bg: пълнеж с ванилов вкус
 de: Füllung mit Vanillegeschmack
@@ -87168,6 +87238,8 @@ description:sv: ljust långjäst bröd från Frankrike som innehåller ägg och 
 # be-tarask:Брыёш
 # sr-ec:Бриош
 # yue:法式甜包
+vegan:en: no
+vegetarian:en: yes
 wikidata:en: Q917574
 wikipedia:en: https://en.wikipedia.org/wiki/Brioche
 # ingredient/fr:brioche 47 in 3 @2019-01-28
@@ -89095,6 +89167,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Plazma_(biscuit)
 
 < en:biscuit
 < en:preparation
+< en:vanilla flavouring
 en: vanilla flavored pudding powder
 hr: prašak za puding s okusom vanilije
 it: polvere di budino al gusto di vaniglia
@@ -89150,6 +89223,7 @@ lt: kakavos glaistas
 < en:coating
 fr: décor au cacao maigre, decor au cacao maigre, enrobage au cacao maigre
 
+< en:chocolate
 < en:coating
 en: chocolate coating
 ca: cobertura de xocolata, cobertura de cacau
@@ -89186,6 +89260,7 @@ en: white chocolate coating
 hr: bijeli čokoladni preljev, preljev s bijelom čokoladom
 it: rivestimento di cioccolato bianco
 
+< en:coating
 < en:hazelnut
 en: hazelnut coating
 hr: preljev s lješnjacíma
@@ -89208,7 +89283,6 @@ it: copertura al latte e nocciole
 en: nougat coating
 hr: nougat preljev
 it: rivestimento al torrone
-
 
 < en:berries
 < en:coating
@@ -90204,6 +90278,8 @@ zh: 肉凍
 # bar:Sulz
 # myv:Терьге
 # sgs:Kuošelīna
+vegan:en: no
+vegetarian:en: no
 wikidata:en: Q837480
 wikipedia:en: https://en.wikipedia.org/wiki/Aspic
 # ingredient/fr:gelée has 166 products in 4 languages @2019-05-07
@@ -91066,6 +91142,7 @@ description:en: ICE CREAM is a sweetened frozen food typically eaten as a snack 
 # description:en:VANILLA ICE CREAM is flavored by artificial or natural vanilla flavoring. The type of vanilla used to flavor ice cream varies by location.
 
 < en:ice cream
+< en:vanilla flavouring
 en: vanilla ice cream
 bg: ванилов сладолед
 ca: gelat de vainilla
@@ -91887,40 +91964,26 @@ sv: chilimajonnäs
 
 # description:en:MIRIN is a type of rice wine similar to sake, but with a lower alcohol content and higher sugar content. Mirin is used to add a bright touch to grilled (broiled) fish or to erase the fishy smell.
 
+< en:rice wine
 < en:sauce
 en: mirin, mirin sauce, mirin wine
+xx: mirin
 ar: ميرين
 bg: мирин
 bn: মিরিন
-cs: mirin
-da: mirin
-de: mirin
 eo: Mirino
-es: mirin
-et: mirin
 fa: میرین
-fi: mirin
 fr: mirin, sauce mirin
 he: מירין
 hi: मीरीन
 hr: mirin, mirin vino, mirin sirup
-hu: mirin
 hy: Միրին
 id: Mirin
-it: mirin
 ja: みりん
 jv: Mirin
 ko: 미림
 ms: Mirin
-nb: mirin
-nl: mirin
-nn: mirin
 pa: ਮੀਰੀਨ
-pl: mirin
-pt: mirin
-sk: mirin
-sq: mirin
-sv: mirin
 th: มิริง
 tr: Mirin
 uk: Мірін
@@ -92540,6 +92603,8 @@ ru: карамельный соус
 sv: kolasås
 # ingredient/fr:sauce-caramel has 54 products in 4 languages @2019-03-09
 # usage:fr:sauce au caramel (sirop de sucre inverti, eau, 14% sirop de sucre caramélisé)
+vegan:en: maybe
+vegetarian:en: yes
 
 # category:en:not available @2019-07-01
 < en:caramel sauce
@@ -92549,6 +92614,8 @@ fr: sauce au caramel au beurre salé
 hr: slani maslac karamel umak
 it: salsa al caramello al burro salato
 # usage:fr:sauce au caramel au beurre salé 1,5% (caramel au beurre salé 0,5% (sucre, lait concentré sucré, beurre salé 0,1% (beurre, sel)), eau, sirop de glucose, amidon modifié de maïs, sucre, sucre caramélisé, émulsifiant : E471, correcteur d´acidité : acide lactique, épaississant : gomme xanthane, arômes naturels)
+vegan:en: no
+vegetarian:en: yes
 
 < en:sauce
 en: cream sauce
@@ -92579,6 +92646,8 @@ ciqual_food_name:en: Cream sauce
 ciqual_food_name:fr: Sauce à la crème
 description:de: Rahmsauce (auch Rahmsoße) sind mit Rahm bzw. Sahne verfeinerte warme Grundsaucen.
 description:sv: Gräddsås är en sås baserad på grädde och kalvfond eller buljong.
+vegan:en: no
+vegetarian:en: yes
 wikidata:en: Q10509700
 wikipedia:de: https://de.wikipedia.org/wiki/Rahmsauce
 # 23 in 6 @2021-09-06
@@ -92687,6 +92756,8 @@ description:it: La salsa bernese o salsa bearnaise o semplicemente la bernese, �
 description:nl: Bearnaisesaus is een saus gemaakt van opgeklopte boter en eigeel met toevoeging van een gastrique, bestaande uit wijn, azijn, dragon, mignonettes, kervel, bouquet garni en sjalotten.
 # simple:béarnaise sauce
 # zh_yue:賓利士汁
+vegan:en: no
+vegetarian:en: maybe
 wikidata:en: Q58265
 wikipedia:en: https://en.wikipedia.org/wiki/B%C3%A9arnaise_sauce
 
@@ -92819,6 +92890,9 @@ description:pt: Margarina é termo genérico para identificar gorduras alimentar
 # war:Margarina
 # wuu:瑪淇淋
 # yue:人造牛油
+# some margarines contain dairy
+vegan:en: maybe
+vegetarian:en: yes
 wikidata:en: Q4287
 wikipedia:en: https://en.wikipedia.org/wiki/Margarine
 # ingredient/margarine 5892 in 34 @2021-08-21

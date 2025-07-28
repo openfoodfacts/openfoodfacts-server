@@ -461,6 +461,7 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Baby/Infant - Specialised Beverages (Shelf Stable)
 
 < en:Baby drinks
+< en:Plant-based beverages
 en: Plant-based beverage for baby
 fr: Boisson à base de plantes pour bébé
 hr: Biljni napitak za bebe
@@ -477,6 +478,7 @@ agribalyse_proxy_food_code:en: 13173
 ciqual_food_code:en: 13182
 ciqual_food_name:en: Milky cereal-based beverage(average)
 ciqual_food_name:fr: Boisson infantile céréales lactées (aliment moyen)
+incompatible_with:en: categories:en:vegan-products
 
 < en:Milky cereal-based beverages
 en: Dairy cereal-based beverage for baby's breakfast
@@ -584,6 +586,7 @@ lt: Kūdikių pieniški desertai, Pieniški desertai kūdikiams
 nl: Babymelktoetjes, Babymelktoetje, Melktoetje voor babies
 nl_be: Babymelkdesserten, Melkdesserten voor babies, Melkdessert voor babies
 ro: Deserturi cu lactate pentru bebeluși, Deserturi cu lactate bebeluși
+incompatible_with:en: categories:en:vegan-products
 
 < en:Dairy dessert for baby
 en: Dairy dessert for baby with custard
@@ -850,6 +853,7 @@ fr: Menus Poissons pour bébé
 hr: Riblji jelovnici za bebe
 it: Pasti per neonati a base di pesce
 nl: Babyvismaaltijden, Babyvismaaltijd
+incompatible_with:en: categories:en:vegetarian-products
 
 < en:Main meals for babies
 en: Meat menus for babies
@@ -859,6 +863,7 @@ fr: Menus Viandes pour bébé
 hr: Mesni jelovnici za bebe
 it: Pasti per neonati a base di carne
 nl: Babyvleesmaaltijden, Babyvleesmaaltijd
+incompatible_with:en: categories:en:vegetarian-products
 
 < en:Main meals for babies
 fr: Petits pots pour bébé, petits pots bébé, petit pot bébé, petits pots pour bébés, petits pots, petit pot
@@ -948,6 +953,7 @@ agribalyse_food_code:en: 20253
 ciqual_food_code:en: 20253
 ciqual_food_name:en: Soup for baby, with vegetables, cereals and milk
 ciqual_food_name:fr: Soupe pour bébé légumes, céréales et lait
+incompatible_with:en: categories:en:vegan-products
 
 < en:Main meals for babies
 en: Soup for baby with vegetables and potatoes
@@ -973,6 +979,7 @@ agribalyse_food_code:en: 42603
 ciqual_food_code:en: 42603
 ciqual_food_name:en: Vegetable dish for baby, w meat/fish and starch, from 6-8 months
 ciqual_food_name:fr: Plat légumes, avec féculent et viande/poisson, dès 6-8 mois
+incompatible_with:en: categories:en:vegetarian-products
 
 < en:From 6 months
 < en:Main meals for babies
@@ -982,6 +989,7 @@ agribalyse_food_code:en: 42603
 ciqual_food_code:en: 42603
 ciqual_food_name:en: Vegetable dish for baby, w meat/fish and starch, from 6-8 months
 ciqual_food_name:fr: Plat légumes, avec féculent et viande/poisson, dès 6-8 mois
+incompatible_with:en: categories:en:vegetarian-products
 
 < en:From 6 months
 < en:Main meals for babies
@@ -991,6 +999,7 @@ agribalyse_food_code:en: 20249
 ciqual_food_code:en: 20249
 ciqual_food_name:en: Vegetable dish for baby, with milk/cream and starch, from 6-8 months
 ciqual_food_name:fr: Plat légumes, avec féculent et lait/crème, dès 6-8 mois
+incompatible_with:en: categories:en:vegan-products
 
 < en:From 6 months
 < en:Main meals for babies
@@ -1013,6 +1022,7 @@ agribalyse_food_code:en: 42604
 ciqual_food_code:en: 42604
 ciqual_food_name:en: Vegetable dish for baby, w meat/fish and starch, from 8-12 months
 ciqual_food_name:fr: Plat légumes, avec féculent et viande/poisson, dès 8-12 mois
+incompatible_with:en: categories:en:vegetarian-products
 
 < en:From 8 months
 < en:Main meals for babies
@@ -1022,6 +1032,7 @@ agribalyse_food_code:en: 42604
 ciqual_food_code:en: 42604
 ciqual_food_name:en: Vegetable dish for baby, w meat/fish and starch, from 8-12 months
 ciqual_food_name:fr: Plat légumes, avec féculent et viande/poisson, dès 8-12 mois
+incompatible_with:en: categories:en:vegetarian-products
 
 < en:From 8 months
 < en:Main meals for babies
@@ -1031,6 +1042,7 @@ agribalyse_food_code:en: 20250
 ciqual_food_code:en: 20250
 ciqual_food_name:en: Vegetable dish for baby, with milk/cream and starch, from 8-12 months
 ciqual_food_name:fr: Plat légumes, avec féculent et lait/crème, dès 8-12 mois
+incompatible_with:en: categories:en:vegan-products
 
 < en:From 12 months old
 < en:Main meals for babies
@@ -1044,6 +1056,7 @@ agribalyse_food_code:en: 42605
 ciqual_food_code:en: 42605
 ciqual_food_name:en: Vegetable dish for baby, w meat/fish and starch, from 12 months
 ciqual_food_name:fr: Plat légumes, avec féculent et viande/poisson, dès 12 mois
+incompatible_with:en: categories:en:vegetarian-products
 
 < en:From 12 months old
 < en:Main meals for babies
@@ -1053,6 +1066,7 @@ agribalyse_food_code:en: 42605
 ciqual_food_code:en: 42605
 ciqual_food_name:en: Vegetable dish for baby, w meat/fish and starch, from 12 months
 ciqual_food_name:fr: Plat légumes, avec féculent et viande/poisson, dès 12 mois
+incompatible_with:en: categories:en:vegetarian-products
 
 < en:From 12 months old
 < en:Main meals for babies
@@ -1062,6 +1076,7 @@ agribalyse_food_code:en: 20251
 ciqual_food_code:en: 20251
 ciqual_food_name:en: Vegetable dish for baby, with milk/cream and starch, from 12 months
 ciqual_food_name:fr: Plat légumes, avec féculent et lait/crème, dès 12 mois
+incompatible_with:en: categories:en:vegan-products
 
 < en:From 18 months
 < en:Main meals for babies
@@ -1071,6 +1086,7 @@ agribalyse_food_code:en: 42606
 ciqual_food_code:en: 42606
 ciqual_food_name:en: Vegetable dish for baby, w meat/fish and starch, from 18 months
 ciqual_food_name:fr: Plat légumes, avec féculent et viande/poisson, dès 18 mois
+incompatible_with:en: categories:en:vegetarian-products
 
 < en:From 18 months
 < en:Main meals for babies
@@ -1080,6 +1096,7 @@ agribalyse_food_code:en: 42606
 ciqual_food_code:en: 42606
 ciqual_food_name:en: Vegetable dish for baby, w meat/fish and starch, from 18 months
 ciqual_food_name:fr: Plat légumes, avec féculent et viande/poisson, dès 18 mois
+incompatible_with:en: categories:en:vegetarian-products
 
 < en:From 18 months
 < en:Main meals for babies
@@ -1089,6 +1106,7 @@ agribalyse_food_code:en: 20254
 ciqual_food_code:en: 20254
 ciqual_food_name:en: Vegetable dish for baby, with milk/cream and starch, from 18 months
 ciqual_food_name:fr: Plat légumes, avec féculent et lait/crème, dès 18 mois
+incompatible_with:en: categories:en:vegan-products
 
 en: Bee products, products from bees, Products of the hive, Hive products
 bg: Пчелни продукти
@@ -1108,6 +1126,7 @@ pt: Produtos des abelhas, produtos de colmeia
 ro: Produse apicole, Produse de apicultură, Produse apicultură, Produse de apicultura, Produse apicultura
 ru: Продукция пчеловодства, Продукты пчеловодства
 tr: Arı ürünleri
+incompatible_with:en: categories:en:vegan-products
 wikidata_category:en: Q7189914
 
 < en:Bee products
@@ -11927,6 +11946,7 @@ intake24_category_code:en: WINE
 nova:en: 3
 wikidata:en: Q282
 
+< en:Vegan products
 < en:Wines
 en: Vegan wines, Vegan-friendly wines
 da: Veganske vin
@@ -34007,6 +34027,7 @@ it: Biscotti con cioccolato al latte
 lt: Sausainiai su pieniško šokolado gabaliukais
 nl: Melkchocoladekoekjes, Melkchocoladekoekje
 ro: Prăjituri cu ciocolată cu lapte
+incompatible_with:en: categories:en:vegan-products
 
 < en:Chocolate chip cookies
 en: Cookies with chocolate and coconut
@@ -34253,6 +34274,7 @@ nl: Melkchocoladebiscuits, Melkchocoladebiscuit
 pt: Biscoitos de chocolate de leite
 ro: Biscuiți cu ciocolată cu lapte
 tr: Sütlü çikolatalı bisküvi
+incompatible_with:en: categories:en:vegan-products
 
 < en:Chocolate biscuits
 en: Dark chocolate biscuits
@@ -38621,6 +38643,7 @@ zh: 什锦巧克力
 #wikidata:en:Q5103648 Life is like a wikipedia disambiguation page.
 
 < en:Chocolates
+< en:Plant-based foods and beverages
 en: Plant milk chocolates
 fi: Kasvimaitosuklaat
 fr: Chocolats au lait végétal
@@ -38657,6 +38680,7 @@ sv: Mjölkchoklad, ljus choklad
 tr: Sütlü çikolata
 zh: 牛奶巧克力
 agribalyse_proxy_food_code:en: 31004
+incompatible_with:en: categories:en:vegan-products
 wikidata:en: Q2164820
 #all agribalyse milk chocolate categories have the same CO2 score
 
@@ -38782,7 +38806,7 @@ sv: Choklad med mandlar, choklad med mandel
 tr: Bademli çikolata
 #wikidata:en:
 
-< en:Chocolates
+< en:Milk chocolates
 en: Milk chocolate bar with nougat, Toblerone
 es: Barra de chocolate con leche y nougat, Toblerone
 fr: Barre de chocolat au lait avec nougat, Toblerone
@@ -39664,6 +39688,7 @@ fr: Barres chocolatées au lait et aux céréales, barre chocolatée au lait et 
 agribalyse_food_code:en: 31100
 ciqual_food_code:en: 31100
 ciqual_food_name:en: Milky cereal breakfast bar, with chocolate or not, fortified with vitamins and minerals
+incompatible_with:en: categories:en:vegan-products
 
 < en:Bars covered with chocolate
 fr: Barres chocolatées aux fruits oléagineux, barre chocolatée aux fruits oléagineux type Snickers, Snickers
@@ -39828,6 +39853,7 @@ fr: Bonbons de chocolat au lait
 hr: Bomboni od mliječne čokolade
 lt: Pieniško šokolado saldainiai, Pieniški šokoladiniai saldainiai
 nl: Melkchocoladebonbons
+incompatible_with:en: categories:en:vegan-products
 
 < en:Bonbons
 en: Assorted chocolate candies
@@ -44472,7 +44498,7 @@ uz: Sut mahsulotlari
 vi: Chế phẩm sữa
 yi: מילכיגס
 zh: 乳製品, 奶制品
-incompatible_with:en: categories:en:dairy-substitutes
+incompatible_with:en: categories:en:dairy-substitutes, categories:en:vegan-products
 wikidata:en: Q185217
 
 < en:Dairies
@@ -50320,7 +50346,6 @@ incompatible_with:en: categories:en:milks, categories:en:creams, categories:en:H
 
 #this category is not made for vegan products but for dairy products used in replacement of cream
 < en:Dairies
-< en:Vegan products
 en: Compound dairy creams
 de: Sahne-Ersatz
 fr: Succédanés de la crème
@@ -58903,6 +58928,7 @@ pl: Tłuszcze zwierzęce, Tłuscze zwierzęce
 pt: Gorduras animais
 ru: животные жиры, жиры животные
 zh: 动物脂肪
+incompatible_with:en: categories:en:vegan-products
 nova:en: 2
 wikidata:en: Q1423543
 
@@ -58923,6 +58949,7 @@ agribalyse_food_code:en: 16743
 ciqual_food_code:en: 16743
 ciqual_food_name:en: Blended fat (vegetable and animal origins), 50-63% fat
 ciqual_food_name:fr: Matière grasse mélangée (végétale et laitière) à 50-63% MG
+incompatible_with:en: categories:en:vegan-products
 
 < en:Fats
 < en:Margarines
@@ -58932,6 +58959,7 @@ agribalyse_food_code:en: 16744
 ciqual_food_code:en: 16744
 ciqual_food_name:en: Blended fat (vegetable and animal origins), 50-63% fat, lightly salted
 ciqual_food_name:fr: Matière grasse mélangée (végétale et laitière) à 50-63% MG, demi-sel
+incompatible_with:en: categories:en:vegan-products
 
 < en:Fats
 < en:Margarines
@@ -58941,6 +58969,7 @@ agribalyse_food_code:en: 16745
 ciqual_food_code:en: 16745
 ciqual_food_name:en: Blended fat (vegetable and animal origins), spreadable, 30-40% fat
 ciqual_food_name:fr: Matière grasse mélangée (végétale et laitière), à tartiner, à 30-40% MG
+incompatible_with:en: categories:en:vegan-products
 
 < en:Fats
 < en:Margarines
@@ -58950,6 +58979,7 @@ agribalyse_food_code:en: 16746
 ciqual_food_code:en: 16746
 ciqual_food_name:en: Blended fat (vegetable and animal origins), spreadable, 30-40% fat, lightly salted
 ciqual_food_name:fr: Matière grasse mélangée (végétale et laitière), à tartiner, à 30-40% MG, demi-sel
+incompatible_with:en: categories:en:vegan-products
 
 < en:Fats
 en: Dairy fat 25% fat light spreadable unsalted
@@ -58957,6 +58987,7 @@ fr: Matière grasse laitière à 25% MG légère à tartiner doux
 agribalyse_food_code:en: 16712
 ciqual_food_code:en: 16712
 ciqual_food_name:en: Dairy fat 25% fat, light, spreadable, unsalted
+incompatible_with:en: categories:en:vegan-products
 
 < en:Fats
 en: Dairy fat 20% fat light spreadable unsalted
@@ -58964,6 +58995,7 @@ fr: Matière grasse laitière à 20% MG légère à tartiner doux
 agribalyse_food_code:en: 16713
 ciqual_food_code:en: 16713
 ciqual_food_name:en: Dairy fat 20% fat, light, spreadable, unsalted
+incompatible_with:en: categories:en:vegan-products
 
 
 < en:Animal fats
@@ -66133,11 +66165,13 @@ fr: Bâtonnets glacés vanille enrobés de chocolat noir
 en: Vanilla ice cream bars coated with milk chocolate
 de: Vanilleeis am Stiel überzogen mit Milchschokolade
 fr: Bâtonnets glacés vanille enrobés de chocolat au lait
+incompatible_with:en: categories:en:vegan-products
 
 < en: Ice cream bars coated with chocolate
 en: Vanilla ice cream bars coated with milk chocolate and almonds
 de: Vanilleeis am Stiel überzogen mit Milchschokolade und Mandeln
 fr: Bâtonnets glacés vanille enrobés de chocolat au lait aux amandes
+incompatible_with:en: categories:en:vegan-products
 
 < en: Ice cream bars coated with chocolate
 en: Vanilla ice cream bars coated with white chocolate
@@ -75352,6 +75386,7 @@ lt: Padažai miltelių pagrindu
 nl: Gedroogde sauzen, Gedroogde saus
 
 < en:Sauces
+< en:Vegetarian products
 en: Vegetarian sauces
 bg: Вегетариански сосове
 fr: Sauces végétariennes
@@ -75397,6 +75432,7 @@ fr: Sauces végétariennes façon carbonara
 hr: Vegetarijanski umaci u stilu carbonare
 lt: Carbonara stiliaus vegetariški padažai
 
+< en:Vegan products
 < en:Vegetarian sauces
 en: Vegan sauces
 bg: Веган сосове
@@ -76975,6 +77011,7 @@ ru: Продукты из мяса
 sv: Kött och dess produkter, Köttbaserade produkter
 tr: Et ürünleri
 zh: 肉制品
+incompatible_with:en: categories:en:vegetarian-products
 wikidata:en: Q1427844
 
 < en:Meats and their products
@@ -78994,6 +79031,7 @@ agribalyse_food_code:en: 11208
 ciqual_food_code:en: 11208
 ciqual_food_name:en: Tomato sauce, w cheese, prepacked
 ciqual_food_name:fr: Sauce tomate au fromage, préemballée
+incompatible_with:en: categories:en:vegan-products
 
 < en:Meal sauces
 < en:Tomato sauces with cheese
@@ -79747,6 +79785,7 @@ nl: Hamcroissants
 agribalyse_food_code:en: 25418
 ciqual_food_code:en: 25418
 ciqual_food_name:en: Croissant filled with ham
+incompatible_with:en: categories:en:vegetarian-products
 wikidata:en: Q56320624
 
 < en:Puff pastry meals
@@ -79761,6 +79800,7 @@ agribalyse_food_code:en: 26266
 ciqual_food_code:en: 26266
 ciqual_food_name:en: Croissant filled with ham and cheese
 ciqual_food_name:fr: Croissant au jambon fromage
+incompatible_with:en: categories:en:vegetarian-products
 
 < en:Puff pastry meals
 en: Vol-au-vent, Filled vol-au-vent
@@ -79862,6 +79902,7 @@ lt: Kiaušinienė
 agribalyse_food_code:en: 22502
 ciqual_food_code:en: 22502
 ciqual_food_name:en: Egg, scrambled, with added fat
+incompatible_with:en: categories:en:vegan-products
 wikidata:en: Q668855
 
 < en:Meals
@@ -79873,6 +79914,7 @@ lt: virtų kiaušinių
 agribalyse_food_code:en: 22011
 ciqual_food_code:en: 22011
 ciqual_food_name:en: Egg, poached
+incompatible_with:en: categories:en:vegan-products
 wikidata:en: Q1363043
 
 < en:Meals
@@ -79884,6 +79926,7 @@ lt: Silpnai virti kiaušiniai
 agribalyse_food_code:en: 22014
 ciqual_food_code:en: 22014
 ciqual_food_name:en: Egg, soft-boiled
+incompatible_with:en: categories:en:vegan-products
 wikidata:en: Q11716216
 
 < en:Meals
@@ -79894,6 +79937,7 @@ lt: Keptas kiaušinio trynys
 agribalyse_food_code:en: 22009
 ciqual_food_code:en: 22009
 ciqual_food_name:en: Egg yolk, cooked
+incompatible_with:en: categories:en:vegan-products
 
 < en:Meals
 en: Fried egg, Egg fried without added fat
@@ -79901,6 +79945,7 @@ fr: Oeuf au plat, Oeuf au plat sans matière grasse
 agribalyse_food_code:en: 22505
 ciqual_food_code:en: 22505
 ciqual_food_name:en: Egg, fried without added fat
+incompatible_with:en: categories:en:vegan-products
 wikidata:en: Q274151
 
 < en:Prepared vegetables
@@ -80166,7 +80211,7 @@ agribalyse_food_code:en: 25107
 ciqual_food_code:en: 25107
 ciqual_food_name:en: Couscous w fish
 ciqual_food_name:fr: Couscous au poisson
-#wikidata:en:
+incompatible_with:en: categories:en:vegetarian-products
 
 < en:Prepared couscous
 en: Couscous with mutton
@@ -80176,7 +80221,7 @@ lt: Kuskusas su aviena
 agribalyse_food_code:en: 25029
 ciqual_food_code:en: 25029
 ciqual_food_name:en: Couscous w mutton
-#wikidata:en:
+incompatible_with:en: categories:en:vegetarian-products
 
 < en:Prepared couscous
 en: Couscous with meat
@@ -80188,7 +80233,7 @@ agribalyse_food_code:en: 25152
 ciqual_food_code:en: 25152
 ciqual_food_name:en: Couscous w meat
 ciqual_food_name:fr: Couscous à la viande
-#wikidata:en:
+incompatible_with:en: categories:en:vegetarian-products
 
 < en:Couscous with meat
 en: Royal couscous, Royal couscous with different meats
@@ -80235,6 +80280,7 @@ fr: Plats aux fruits de mer
 hr: Jela sa školjkama
 it: Piatti ai frutti di mare
 lt: Patiekalai su vėžiagyviais
+incompatible_with:en: categories:en:vegetarian-products
 
 < en:Meals with shellfish
 en: Dishes with scallops, prepared dishes with scallops
@@ -80277,8 +80323,8 @@ nl: Vismaaltijden
 pl: Dania z rybami, Dania z rybą
 pt: Refeições com peixe, pratos com peixe
 ru: Блюда с рыбой
+incompatible_with:en: categories:en:vegan-products
 intake24_category_code:en: FDSH
-#wikidata:en:
 
 < en:Meals with fish
 it: piatto a base di tonno
@@ -80476,6 +80522,7 @@ pt: Refeições com carne
 ru: Блюда с мясом
 sv: Rätter med kött
 zh: 肉餐
+incompatible_with:en: categories:en:vegetarian-products
 intake24_category_code:en: MDSH
 
 < en:Meals with meat
@@ -83111,6 +83158,7 @@ en: Stuffed vegetables in oil
 fr: Légumes farcis dans l'huile, légumes farcis à l'huile
 
 < en:Meals
+< en:Vegetarian products
 en: Vegetarian meals
 description:en: Should be distinghuished from vegetable meals, that might contain meat
 
@@ -83261,6 +83309,7 @@ ciqual_food_name:fr: Lasagnes ou cannelloni aux légumes
 #wikidata:en:
 
 < en:Prepared lasagne
+< en:Vegetarian products
 en: Vegetarian lasagne
 de: Vegetarische Lasagne
 es: Lasaña vegetariana
@@ -83820,6 +83869,7 @@ ciqual_food_name:en: Pizza, cheese and tomato or Margherita pizza
 ciqual_food_name:fr: Pizza au fromage ou Pizza margherita
 
 < en:Pizzas
+< en:Vegetarian products
 en: Vegetarian pizzas
 fr: Pizzas végétariennes, pizza végétarienne
 agribalyse_proxy_food_code:en: 25472
@@ -84767,6 +84817,7 @@ pl: Sałatki z makaronem, Sałatki makaronowe
 wikidata:en: Q1052236
 
 < en:Pasta salads
+< en:Vegetarian products
 en: Vegetarian pasta salads, Prepared vegetarian pasta salad
 de: vegetarische Nudelsalate
 fi: Kasvispastasalaatit
@@ -84834,6 +84885,7 @@ wikidata:en: Q13360264
 
 < en:Double crust pies
 < en:Salted pies
+< en:Vegetarian products
 en: Vegetarian double crust pies
 fr: Tourtes végétariennes
 
@@ -85409,6 +85461,7 @@ wikidata:en: Q1464898
 en: Fleischkäse substitutes
 
 < en:Meat alternatives
+< en:Vegetarian products
 en: Vegetarian balls
 fr: Boulettes végétariennes
 hr: Vegetarijanske kuglice
@@ -86653,6 +86706,7 @@ nl: Spiesjes
 
 < en:Meat alternatives
 < en:Skewers
+< en:Vegetarian products
 en: Vegetarian skewers
 fr: Brochettes végétariennes
 
@@ -95373,6 +95427,7 @@ it: Paste all'uovo
 nl: Eierpastas, eierpasta
 pt: Massas de ovo
 ru: Яичные макароны
+incompatible_with:en: en:vegan-products
 
 < en:Dry pastas
 en: Cooked unsalted dried pasta
@@ -95811,6 +95866,7 @@ ciqual_food_name:en: Lasagna or cannelloni with fish
 ciqual_food_name:fr: Lasagnes ou cannelloni au poisson
 
 < en:Cannelloni
+< en:Vegetarian products
 en: Vegetarian cannelloni
 es: Canelones vegetarianos
 fr: Cannelloni végétariens
@@ -98542,6 +98598,7 @@ ciqual_food_name:en: Fish burger, fast foods restaurant
 ciqual_food_name:fr: Burger au poisson
 
 < en:Meat alternatives
+< en:Vegetarian products
 en: Vegetarian hamburgers, Veggie burgers
 ca: Hamburgueses vegetals
 de: Vegetarische Hamburger
@@ -98584,6 +98641,7 @@ ciqual_food_name:en: Sandwich made with French bread, merguez sausage, ketchup a
 ciqual_food_name:fr: Sandwich baguette, merguez, ketchup moutarde
 
 < en:Sandwiches
+< en:Vegetarian products
 en: Vegetarian hot dog sandwiches
 es: Perritos calientes vegetales, Perritos vegetales, Hot dog vegetales
 fr: Hot-dogs végétariens, hot-dog végétal, hots-dogs végétaux, Hot-dog végétarien
@@ -99342,6 +99400,7 @@ it: Wraps di prosciutto e formaggio di capra
 nl: Ham en geitenkaas wraps
 pt: Wraps de presunto e queijo de cabra
 
+< en:Vegetarian products
 < en:Wraps
 en: Vegetarian wraps, Wheat tortilla wrap filled with soy-based vegetarian
 de: Vegetarische Wraps
@@ -99360,7 +99419,8 @@ ciqual_food_name:fr: Wrap végétarien
 en: Vegetable wraps
 fr: Wraps aux légumes
 
-< en:Vegetable Wraps
+< en:Frozen foods
+< en:Vegetable wraps
 en: Frozen vegetable wraps
 fr: Wraps aux légumes surgelés
 
@@ -100279,6 +100339,7 @@ pt: Crustáceos, crustáceo
 se: Kräftdjur
 sv: Kräftdjur
 ciqual_food_code:en: 10043
+incompatible_with:en: categories:en:vegetarian-products
 
 < en:Crustaceans
 en: Spider crab
@@ -100588,6 +100649,7 @@ en: Fishes and their products
 fr: Poissons et dérivés
 hr: Ribama i njihovim proizvodima
 nl: Vis- en afgeleide producten
+incompatible_with:en: categories:en:vegan-products
 
 < en:Fishes and their products
 en: Fishes, fish
@@ -100612,6 +100674,7 @@ ru: Рыба
 sv: Fiskar, fisk
 tr: Balık
 zh: 鱼类
+incompatible_with:en: categories:en:vegetarian-products
 intake24_category_code:en: RWFH
 wikidata:en: Q600396
 
@@ -103926,8 +103989,7 @@ fr: Sauce arachide, Mafé, Maffé
 en: Peri-Peri sauces, Peri-Peri sauce
 fr: Sauces Piri-Piri, Sauce Piri-Piri
 
-# "vegan bread spreads" added as a synonym to spreads as some producers send it, but we don't have a specific category for them (which would be too broad)
-en: Spreads, spreadable preparations, spreadable products, bread spreads, vegan bread spreads
+en: Spreads, spreadable preparations, spreadable products, bread spreads
 bg: Крем за мазане
 ca: Productes per untar
 da: Smørbare produkter
@@ -103991,7 +104053,7 @@ wikidata:en: Q909729
 
 < en:Plant-based foods
 < en:Spreads
-en: Plant-based spreads, Vegetable spreads, vegetable pastes. Plant-based spread
+en: Plant-based spreads, Vegetable spreads, vegetable pastes, Plant-based spread, vegan bread spreads
 ca: Productes amb base vegetal per untar
 de: pflanzliche Brotaufstriche, pflanzlicher Brotaufstrich
 es: Untables vegetales
@@ -104010,6 +104072,7 @@ tr: Ekmeğe sürülen bitkisel ürünler, Ekmeğe sürülen bitki kaynaklı ür�
 #Vegetarian alternative to "Fleischsalat"
 < en:Plant-based spreads
 < en:Salted spreads
+< en:Vegetarian products
 en: Vegetarian spreads with meat-like pieces
 fr: Tartinades avec des morceaux végétariens
 
@@ -104031,7 +104094,13 @@ ciqual_food_name:fr: Spécialité végétale type fromage à tartiner, au soja, 
 en: Egg salads substitutes, Egg spreads substitutes
 fr: Substituts de salades d'œufs, Substituts de tartinades d'œufs, Substituts de tartinades d'oeufs
 
+en: Vegetarian products
+da: Vegetariske produkter
+sv: Vegetarianska produkter
+
+< en:Vegetarian products
 en: Vegan products
+da: Veganske produkter
 fr: Produits veganes
 nl: Veganistische producten
 
@@ -104050,6 +104119,7 @@ nl: Veganistische groentespreads
 pl: Wegańskie pasty warzywne
 
 < en:Salted spreads
+< en:Vegetarian products
 en: Vegetarian vegetable and cheese spreads
 fr: Tartinades végétariennes aux légumes et fromage
 
@@ -105757,6 +105827,7 @@ en: Sweet pepper chutneys
 fr: Confits de poivrons
 
 < en:Plant-based spreads
+< en:Vegetarian products
 en: Plant-based pâtés, Vegetarian pâtés
 ca: Patés vegetals
 de: Pflanzlische Pasteten, Vegetarische Pasteten
@@ -118352,6 +118423,7 @@ ciqual_food_name:en: Plant-based ham, prepacked
 ciqual_food_name:fr: Spécialité végétale type jambon cuit, préemballée
 
 < en:Prepared meat cuts substitutes
+< en:Vegan products
 en: Vegan salami
 da: Vegansk salami
 sv: Vegansk salami
@@ -118390,6 +118462,7 @@ en: Chicken kievs substitutes
 
 < en:Breaded products
 < en:Meat analogues
+< en:Vegetarian products
 en: Vegetarian cordons bleus
 es: Cordones azules vegetarianos
 fi: Kasviscordons bleu
@@ -118404,6 +118477,7 @@ ru: Вегетарианские кордоны бле
 
 < en:Breaded products
 < en:Meat analogues
+< en:Vegetarian products
 en: Vegetarian nuggets, veggie nuggets
 da: Vegetariske nuggets
 de: Vegetarische Nuggets
@@ -118451,7 +118525,8 @@ da: Frosne veganske nuggets
 sv: Frysta veganska nuggets
 
 < en:Breaded products
-< en:Meat analogues
+< en:Fish analogues
+< en:Vegetarian products
 en: Breaded fish substitutes, Vegetarian breaded fish substituts
 de: Panierter Fischersatz, Vegetarischer panierter Fischersatz
 es: Sustitutos de pescado empanado, Sustitutos vegetarianos de pescado empanado
@@ -118460,6 +118535,7 @@ hr: Pohane zamjene za ribu
 pl: Zamienniki panierowanego ryby, Zamienniki panierowanego ryby dla wegetarian
 
 < en:Meat analogues
+< en:Vegetarian products
 en: Vegetarian grounds, Veggie grounds
 de: Vegetarisches Gehacktes, Gemüsehack, Vegetarisches Hackfleisch
 fr: Hachés végétaux
@@ -118472,6 +118548,7 @@ fr: Hachés végétaux surgelés
 
 #Patties are a very generic term for anything flat baked in a pan
 < en:Meat alternatives
+< en:Vegetarian products
 en: Vegetarian patties, Veggie patties, veggie burger patties, vegetarian cutlet, vegetarian steaks
 de: Gemüsebratling, Vegetarische Burger
 es: Filetes vegetales para hamburguesas
@@ -118554,6 +118631,7 @@ en: Seitan patties
 fr: Galettes au seitan
 
 < en:Meat analogues
+< en:Vegetarian products
 en: Vegetarian sausages
 de: Vegetarische Würste
 es: Salchichas vegetales
@@ -118756,6 +118834,7 @@ fr: Galettes de maïs au chocolat au lait
 hr: Lisnati kukuruzni kolačići s mliječnom čokoladom
 hu: Puffasztott kukoricafekete csokoládéval
 nl: Maiswafels met melkchocolade
+incompatible_with:en: categories:en:vegan-products
 
 < en:Puffed cereal cakes
 en: Puffed rice cakes
@@ -118804,6 +118883,7 @@ es: Tortitas de arroz con chocolate con leche
 fr: Galettes de riz au chocolat au lait
 hr: Lisnate riže s mliječnom čokoladom
 nl: Rijstwafels met melkchocolade
+incompatible_with:en: categories:en:vegan-products
 
 < en:Puffed rice cakes
 en: Puffed rice cakes with white chocolate
@@ -120618,6 +120698,7 @@ nl: Chocoladehagelslag puur, Chocolade hagel puur
 < en:Chocolate sprinkles
 en: Milk chocolate sprinkles, Milk choclate sprinkles
 nl: Chocoladehagelslag melk, Hagelchocolade hagel melk
+incompatible_with:en: categories:en:vegan-products
 
 < en:Festive foods
 en: Halloween foods and drinks

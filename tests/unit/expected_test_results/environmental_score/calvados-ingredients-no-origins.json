@@ -256,18 +256,21 @@
          "percent_min" : 100,
          "text" : "wine",
          "vegan" : "maybe",
-         "vegetarian" : "yes"
+         "vegetarian" : "maybe"
       }
    ],
    "ingredients_analysis" : {
       "en:maybe-vegan" : [
+         "en:wine"
+      ],
+      "en:maybe-vegetarian" : [
          "en:wine"
       ]
    },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
       "en:maybe-vegan",
-      "en:vegetarian"
+      "en:maybe-vegetarian"
    ],
    "ingredients_lc" : "en",
    "ingredients_n" : 1,

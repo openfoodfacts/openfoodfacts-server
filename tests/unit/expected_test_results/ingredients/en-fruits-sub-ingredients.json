@@ -13,7 +13,7 @@
                "percent_max" : 20,
                "percent_min" : 20,
                "text" : "apple",
-               "vegan" : "yes",
+               "vegan" : "maybe",
                "vegetarian" : "yes"
             },
             {
@@ -48,7 +48,7 @@
                "percent_max" : 7.5,
                "percent_min" : 0,
                "text" : "lemon",
-               "vegan" : "yes",
+               "vegan" : "maybe",
                "vegetarian" : "yes"
             }
          ],
@@ -70,14 +70,20 @@
          "percent_max" : 50,
          "percent_min" : 50,
          "text" : "sugar",
-         "vegan" : "yes",
+         "vegan" : "maybe",
          "vegetarian" : "yes"
       }
    ],
-   "ingredients_analysis" : {},
+   "ingredients_analysis" : {
+      "en:maybe-vegan" : [
+         "en:apple",
+         "en:lemon",
+         "en:sugar"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:vegan",
+      "en:maybe-vegan",
       "en:vegetarian"
    ],
    "ingredients_lc" : "en",

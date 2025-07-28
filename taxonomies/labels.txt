@@ -194,6 +194,7 @@ sv: 100% naturlig, 100% naturligt, 100% naturliga
 th: ธรรมชาติ 100%
 tr: %100 doğal
 
+< en:Plant based
 en: 100% vegetable
 xx: 100% vegetal
 de: 100% pflanzlich
@@ -240,7 +241,9 @@ nl: Authentiek Trappistenproduct
 ru: аутентичный траппистский продукт, настоящий траппистский продукт
 wikidata:en: Q3406760
 
+< en:Non-vegan
 en: British Lion Quality, Lion Quality, British Lion Eggs, Lion Eggs, The Lion Mark, Lion Mark
+incompatible_with:en: labels:en:vegan
 wikidata:en: Q4969906
 
 xx: CE
@@ -256,10 +259,12 @@ image:en: ukca.90x90.svg
 web:en: https://www.gov.uk/guidance/using-the-ukca-marking
 wikidata:en: Q101220997
 
+< en:Non-vegan
 nl: Beter Leven
 xx: beter leven
 country:en: en:Netherlands
 description:en: The Better Life label scheme uses a star rating to indicate the animal-friendliness of the systems used to rear livestock for the production of meat, eggs and dairy produce. The higher the number of stars, the more attention is paid to animal welfare. Our website shows the exact criteria per animal species that are applicable for livestock farmers and producers.
+incompatible_with:en: labels:en:vegan
 label_categories:en: en:Animal welfare
 web:en: https://beterleven.dierenbescherming.nl/zakelijk/en/what-is-the-better-life-label/
 wikidata:en: Q58477631
@@ -292,10 +297,12 @@ label_categories:en: en:Animal welfare
 web:en: https://beterleven.dierenbescherming.nl/zakelijk/en/what-is-the-better-life-label/
 
 en: RSPCA Assured
+incompatible_with:en: labels:en:vegan
 label_categories:en: en:Animal welfare
 
 en: Bord Bia Quality Assurance
 
+< en:Non-vegan
 en: Free range
 bg: Свободно отглеждане
 ca: Rang lliure
@@ -309,8 +316,10 @@ it: Allevamento a terra
 nl: Vrije uitloop
 pt: Em liberdade, ao ar livre
 ru: свободный выгул, открытый воздух
+incompatible_with:en: labels:en:vegan
 label_categories:en: en:Animal welfare
 
+< en:Non-vegan
 en: French eggs, Eggs from France, Oeufs de France
 bg: Френски яйца
 ca: Ous francesos, Ous de França
@@ -322,10 +331,13 @@ he: ביצים צרפתיות, ביצים מצרפת
 it: Uova francesi, Uova dalla Francia
 nl: Franse eieren, eieren uit Frankrijk
 pt: Ovos franceses, Ovos de França, Ovos originários de França
+incompatible_with:en: labels:en:vegan
 ingredients:en: en:egg
 origins:en: en:france
 
+< en:Non-vegan
 fr: Oeufs origine France
+incompatible_with:en: labels:en:vegan
 
 < en:Free range
 en: Free range eggs
@@ -363,12 +375,14 @@ fr: Cultivé en plein air
 pt: Cultivado ao ar livre, cultivados ao ar livre, cultivada ao ar livre, cultivadas ao ar livre
 
 < en:Free range
+< en:Non-vegetarian
 en: Free range pork
 de: Fleisch von Freilandschweinen
 fi: vapaana kasvanutta porsasta, vapaan porsaan liha, ulkoilevan porsaan liha, vapaan sian liha, ulkoilevan sian liha
 hu: Szabad tartású sertés
 it: Maiali allevati a terra
 pt: Porcos criados em liberdade, Porcos criados ao ar livre
+incompatible_with:en: labels:en:vegetarian
 
 < en:Free range pork
 fr: Porc élevé sur paille ou en plein air
@@ -383,6 +397,7 @@ hu: Szabad tartású szabadtéri sertés
 pt: Porco de fazenda criado ao ar livre
 
 < en:Free range
+< en:Non-vegetarian
 en: Free range chicken
 de: Freilandhühnchen
 fi: ulkokana, vapaana elänyt kana
@@ -391,6 +406,7 @@ it: Polli allevati a terra, galline allevate a terra
 pt: Galinhas criadas em liberdade, galinhas em liberdade, galinhas livres de gaiolas, galinhas criadas ao ar livre, galinhas ao ar livre
 
 < en:Free range
+< en:Non-vegetarian
 en: Free range poultry
 de: Freilandgeflügel
 fi: Vapaana kasvanut siipikarja
@@ -402,9 +418,11 @@ pt: Aves criadas em liberdade, aves em liberdade, aves livres de gaiolas, aves c
 < en:Free range poultry
 fr: Volailles fermières de Loué élevées en liberté
 
+< en:Non-vegan
 de: Haltungsform
 xx: Haltungsform
 country:en: en:Germany
+incompatible_with:en: labels:en:vegan
 label_categories:en: en:animal welfare
 web:en: https://haltungsform.de/en
 web:de: https://haltungsform.de
@@ -438,8 +456,10 @@ image:de: haltungsform-5.79x90.svg
 de: Neuland
 xx: Neuland
 
+< en:Non-vegan
 da: Bedre Dyrevelfærd, Bedre Dyrevelfaerd
 xx: Bedre Dyrevelfærd, Bedre Dyrevelfaerd
+incompatible_with:en: labels:en:vegan
 
 < da:Bedre Dyrevelfærd
 da: Bedre Dyrevelfærd 1 Hjerte, Bedre Dyrevelfaerd 1 Hjerte
@@ -456,8 +476,10 @@ da: Bedre Dyrevelfærd 3 Hjerter, Bedre Dyrevelfaerd 3 Hjerter
 xx: Bedre Dyrevelfærd 3 Hearts, Bedre Dyrevelfaerd 3 Hearts
 de: Bedre Dyrevelfærd 3 Herzen, Bedre Dyrevelfaerd 3 Herzen
 
+< en:Non-vegan
 de: Für mehr Tierschutz
 xx: Für mehr Tierschutz
+incompatible_with:en: labels:en:vegan
 
 < de:Für mehr Tierschutz
 de: Für mehr Tierschutz 1 Stern, Für mehr Tierschutz ein Stern, Für mehr Tierschutz Einsteigerstufe
@@ -1245,6 +1267,7 @@ de: Fairtrade kokao, Fairtrade cocoa
 
 # note: we need full entries like "issu d'animaux nourris sans OGM" even though we have "issu" and "d'" in stopwords
 # in order to cleanly separate ingredient and label in strings like "viande de boeuf issue d'animaux nourris sans OGM"
+< en:Non-vegan
 en: Fed without GMOs, Fed without GMO, Animals fed without GMOs, Animals fed without GMO, from animals fed without GMOs, from animals fed without GMO
 bg: Хранене без ГМО
 ca: Alimentat sense Organismes Modificats Genèticament
@@ -1253,6 +1276,7 @@ fr: Nourri sans OGM, nourris sans OGM, nourries sans OGM, Alimentation sans OGM,
 it: Alimentati senza OGM
 nl: Zonder OGM voedsel
 pt: Alimentado sem OGM, alimentado sem alimentos geneticamente modificados, alimentado sem alimentos transgênicos, alimentado sem alimentos transgénicos, alimentada sem OGM, alimentada sem alimentos geneticamente modificados, alimentada sem alimentos transgênicos, alimentada sem alimentos transgénicos, alimentados sem OGM, alimentados sem alimentos geneticamente modificados, alimentados sem alimentos transgênicos, alimentados sem alimentos transgénicos, alimentadas sem OGM, alimentadas sem alimentos geneticamente modificados, alimentadas sem alimentos transgênicos, alimentadas sem alimentos transgénicos
+incompatible_with:en: labels:en:vegan
 
 < en:Fed without GMOs
 en: Eggs from animals fed without GMOs
@@ -1260,6 +1284,7 @@ es: Huevos de animales alimentados sin OGM
 fr: Oeufs issus d'animaux nourris sans OGMs, oeufs issus de poules nourries sans OGMs
 pt: Ovos de animais alimentados sem OGM, ovos de animais alimentados sem alimentos geneticamente modificados, ovos de animais alimentados sem transgênicos, ovos de animais alimentados sem transgénicos
 
+< en:Non-vegan
 en: Fed without soy
 de: Ohne Soja gefüttert
 es: Alimentados sin soja, alimentadas sin soja
@@ -1267,6 +1292,7 @@ fr: Nourri sans soja
 it: Alimentato senza soia, alimentati senza soia, alimentata senza soia, alimentate senza soia
 nl: Gevoerd zonder soja, gevoerd zonder soja
 pt: Alimentado sem soja, alimentados sem soja, alimantada sem soja, alimantadas sem soja
+incompatible_with:en: labels:en:vegan
 
 en: Freedom Food, Freedom food rspca monitored
 he: מזון חופש
@@ -3846,6 +3872,7 @@ label_categories:en: en:Origins, en:Geographic label
 web:pl: https://www.gov.pl/web/rolnictwo/produkt-polski1
 wikidata:en: Q43151531
 
+< en:Non-vegan
 en: Polish milk
 bg: Полско мляко
 cs: Polské mléko
@@ -3860,6 +3887,7 @@ nl: Pools melk
 pl: polskie mleko
 pt: Leite polonês
 sv: Polsk mjölk
+incompatible_with:en: labels:en:no-milk, labels:en:vegan
 origins:en: en:poland
 
 en: Made in Portugal
@@ -3920,17 +3948,21 @@ label_categories:en: en:Geographic label
 origins:en: en:sweden
 web:sv: https://fransverige.se/
 
+< en:Non-vegetarian
 xx: Kött från Sverige
 sv: Kött från Sverige
 image:en: fran-sverige-kott.90x90.png
+incompatible_with:en: labels:en:vegetarian
 ingredients:en: en:meat
 label_categories:en: en:Geographic label
 origins:en: en:sweden
 web:sv: https://fransverige.se/svenska-ravaror-all-varldens-mat/vad-ar-fran-sverige/market-kott-fran-sverige/
 
+< en:Non-vegan
 xx: Mjölk från Sverige
 sv: Mjölk från Sverige
 image:en: fran-sverige-mjolk.90x90.png
+incompatible_with:en: labels:en:vegan, labels:en:no-milk
 ingredients:en: en:dairy
 label_categories:en: en:Geographic label
 origins:en: en:sweden
@@ -4131,6 +4163,7 @@ nl: Beperkte oplage
 pt: Edição limitada
 ru: Лимитированное издание
 
+< en:Non-vegan
 en: Egg laid in France
 ca: Ous posats a França
 de: in Frankreich gelegte Eier
@@ -4138,6 +4171,7 @@ fi: munittu Ranskassa
 fr: Pondu en France, Pondue en France, Pondues en France, Pondus en France, oeufs pondus en France
 it: Uova deposte in Francia
 pt: Ovos postos em França
+incompatible_with:en: labels:en:vegan
 ingredients:en: en:egg
 label_categories:en: en:Geographic label
 origins:en: en:france
@@ -5256,6 +5290,7 @@ nl: Zonder toevoeging van zuivel
 pt: Sem adição de produtos lácteos, sem adição de lacticínios, sem adição de laticínios
 ru: Без добавления молочных продуктов
 
+< en:Non-vegan
 en: Contains milk
 bg: Съдържа мляко
 ca: Conté llet
@@ -5272,7 +5307,7 @@ pl: Zawiera mleko, Z mlekiem
 pt: Contém leite
 ru: Содержит молоко
 th: มีส่วนผสมของนม
-incompatible_with:en: labels:en:no-milk
+incompatible_with:en: labels:en:no-milk, labels:en:vegan
 label_categories:en: en:Allergens
 opposite:en: en:no-milk
 
@@ -5416,6 +5451,7 @@ sv: Utan lök
 
 #instruction:en:Do NOT change the english key.
 < en:No garlic
+< en:No onion
 en: No garlic or onion, no onion or garlic
 bg: Без чесън или лук, без лук или чесън
 es: Sin ajo ni cebolla, sin cebolla ni ajo
@@ -5552,6 +5588,7 @@ web:en: https://www.proterrafoundation.org/the-proterra-standard/
 # Wikidata is for the foundation behind the standard, not the standard itself
 wikidata:en: Q131907713
 
+< en:Derived from animals
 en: Non-vegetarian, not vegetarian, not suitable for vegetarians
 de: Nicht-vegetarisch, nicht für Vegetarier geeignet
 fi: ei-vegetaarinen, ei sovellu kasvissyöjille
@@ -18789,11 +18826,15 @@ ru: Знак соответствия государственной систе�
 uk: Знак відповідності державної системи сертифікації (добровільна сертифікація)
 country:en: en:Ukraine
 
+< en:Non-vegan
 en: Real California Milk
 country:en: United States
+incompatible_with:en: labels:en:vegan
 
+< en:Non-vegan
 en: Real California Cheese
 country:en: United States
+incompatible_with:en: labels:en:vegan
 
 en: Green Label - Israel
 he: הסימון הירוק
@@ -18811,6 +18852,7 @@ en: High level of sugar - Israel
 he: סוכר בכמות גבוהה
 country:en: en:Israel
 
+< en:Non-vegetarian
 en: Pure beef
 ca: Pura vedella
 de: 100% Rindfleisch
@@ -18820,7 +18862,9 @@ he: בקר טהור
 hu: 100% marhahús, Tiszta marhahús
 it: Puro manzo
 nl: puur rund
+incompatible_with:en: labels:en:vegetarian
 
+< en:Non-vegan
 en: Pure butter
 ca: Mantega pura
 de: 100% Butter
@@ -18832,6 +18876,7 @@ hu: 100% vaj, Tiszta vaj
 it: Burro puro
 nl: Pure boter
 pt: Pura manteiga, 100% manteiga, manteiga pura
+incompatible_with:en: labels:en:vegan
 
 en: pure cocoa butter, pure cocoa butter chocolate
 ca: Mantega de cacau pura
@@ -18857,6 +18902,7 @@ hu: 100%-os gyümölcslé
 it: Succo puro
 pt: Sumo puro, puro sumo 100% sumo, suco puro, 100% suco, puro suco
 
+< en:Non-vegetarian
 en: Pure pork
 ca: Pur porc
 de: 100% Schweinefleisch
@@ -18868,6 +18914,7 @@ it: Maiale puro
 nl: puur varkensvlees
 pl: Wieprzowina bez domieszek
 pt: Carne de porco pura, Puro bife, 100% bife, bife puro, pura carne de porco, 100% carne de porco
+incompatible_with:en: labels:en:vegetarian
 
 en: Rainforest Alliance
 xx: Rainforest Alliance, Rainforest Alliance People & Nature, Rainforest Alliance People and Nature, Rainforest
@@ -19531,6 +19578,7 @@ fr: Pêche française
 ingredients:en: en:fish
 origins:en: en:france
 
+< en:Non-vegetarian
 en: fishing method
 bg: метод на риболов
 ca: mètode de pesca
@@ -19555,6 +19603,7 @@ ro: metodă de pescuit
 sk: rybárska metóda
 sl: ribiška metoda
 sv: fiskemetod
+incompatible_with:en: labels:en:vegetarian
 
 < en:Sustainable fishery
 # Should not be automatically triggered by the MSC label
@@ -19734,6 +19783,7 @@ nl: Duurzaam
 pt: Sustentável
 sv: Hållbar, Hållbart
 
+< en:Non-vegetarian
 < en:Sustainable
 en: Sustainable fishery, Sustainable fishing, Sustainable Seafood
 bg: Устойчив риболов
@@ -19749,6 +19799,7 @@ it: Pesca sostenibile
 nl: Duurzame visserij
 pl: Zrównoważone rybołówstwo
 pt: Pesca sustentável
+incompatible_with:en: labels:en:vegetarian
 label_categories:en: en:Fishing labels
 
 < en:Sustainable fishery
@@ -19878,7 +19929,7 @@ da: Vegetarisk, Velegnet for vegetarer
 de: Vegetarisch
 es: Vegetariano, Producto vegetariano, Apto para vegetarianos, Vegetarian
 fi: kasvisruoka, vegetaarinen, sopii kasvissyöjille, sopii kasvisruokavalioon
-fr: Végétarien, Convient aux végétariens, Adapté au régime végétarien
+fr: Végétarien, Convient aux végétariens, Adapté au régime végétarien, végétaux
 he: צמחוני, מתאים לצמחונים
 hr: Vegetarijanski
 hu: Vegetáriánus
@@ -19901,6 +19952,7 @@ description:it: Il vegetarianismo designa, nell'ambito della nutrizione umana, u
 description:nl: Vegetarisme is de voedingswijze waarbij men geen vlees eet (inclusief gevogelte, vis, schaaldieren en insecten). Bijproducten van geslachte dieren, zoals dierlijk stremsel in kaas en gelatine in snoep en pudding, wordt door sommigen eveneens uit de voeding weggelaten.
 description:pt: O vegetarianismo é um regime alimentar que tem como princípio deixar de consimur qualquer tipo de carne ou pescado ou derivados destes como ovos e leite de vaca.
 incompatible_with:en: labels:en:non-vegetarian
+opposite:en: en:non-vegetarian
 wikidata:en: Q638022
 wikipedia:en: Vegetarianism
 
@@ -19909,18 +19961,28 @@ en: Green Dot India, India Green Dot, Indian Green Dot, vegetarian mark India
 wikidata:en: Q7918353
 
 
-
 < en:Vegetarian
-en: Vegan, Suitable for vegans, Suitable for vegetarians and vegans, vegetal, from plants, derived from plants, vegetal origin, not from animals, not derived from animals, non-animal, from vegetal source, free from animal products, vegetable source
+en: Plant based, plantbased, vegetal, from plants, derived from plants, vegetal origin, not from animals, not derived from animals, non-animal, from vegetal source, free from animal products, vegetable source, vegetable based
+da: Plantebaseret, vegetabilsk
+fr: végétal, à base de plantes, à base de végétaux, de plantes, dérivé de plante, dérivés de plante, dérivée de plante, dérivées de plante, origine végétale, non-animal
+sv: växtbaserad, vegetabilisk, vegetabiliskt ursprung
+description:en: “Plant based” is food entirely based on plants, but unlike veganism it isn’t necessarily concerned with animal welfare or whether non-human animal products were used in the treatment/processing of the plant material.
+incompatible_with:en: labels:en:derived-from-animals
+opposite:en: labels:en:derived-from-animals
+wikidata:en: Q7201457
+
+
+< en:Plant based
+en: Vegan, Suitable for vegans, Suitable for vegetarians and vegans
 an: vegano
 bg: Веган
 ca: Vegà, Adequat per persones veganes
 cs: Veganské
-da: Vegansk, Velegnet til veganere, vegetabilsk
+da: Vegansk, Velegnet til veganere
 de: Vegan
 es: Vegano, Producto vegano, Vegan, Apto para veganos y vegetarianos
 fi: vegaaninen, sopii vegaaneille, kasviperäinen, Sopii vegaaniruokavalioon
-fr: Végétalien, Végan, végétal, végétaux, de plantes, dérivé de plante, dérivés de plante, dérivée de plante, dérivées de plante, origine végétale, non-animal
+fr: Végétalien, Végan
 gl: vegano
 he: טבעוני, מתאים לטבעונים
 hr: vegan
@@ -19932,7 +19994,7 @@ nl: Veganistisch, plantaardig, niet dierlijk
 pl: Wegańskie, przyjazne weganom, wegański, wegańska
 pt: Vegano, produto vegano, vegan, adequado para veganos, adequado a veganos, adequado a uma dieta vegan, adequado a uma dieta vegana, adequado a vegetarianos e veganos, odpowiedni dla wegan
 sq: vegan
-sv: Vegansk, Passar för veganer, vegetabilisk, vegetabiliskt ursprung
+sv: Vegansk, Passar för veganer
 th: สูตรเจ
 tr: Vegan
 zh: 纯素
@@ -19941,18 +20003,24 @@ description:de: Veganismus ist eine aus dem Vegetarismus hervorgegangene Einstel
 description:es: El veganismo o vegetarianismo estricto es la abstención del uso de productos y servicios de origen animal, ya sea para alimentación, vestimenta, medicamentos, cosméticos, transporte, experimentación, ayuda en el trabajo o entretenimiento, a excepción en este último caso de los animales de compañía.
 description:fr: Le véganisme, dit également végétalisme intégral, est un mode de vie qui consiste à ne consommer aucun produit d'origine animale. Au-delà de l'adoption d'une pratique alimentaire végétalienne, le véganisme exclut également la consommation de tout autre produit issu des animaux, de leur exploitation ou testé sur eux.
 description:nl: Veganisme is een levenswijze waarin gestreefd wordt naar het vermijden van het gebruik van dierlijke producten. Als zodanig gelden ten eerste delen van het dierenlichaam of producten die daarvan vervaardigd zijn en ten tweede door dieren voortgebrachte producten.
-incompatible_with:en: labels:en:not vegan
+incompatible_with:en: labels:en:not-vegan
 opposite:en: en:non-vegan
 wikidata:en: Q7918273
 wikipedia:en: Veganism
 
-en: Non-vegan, not vegan, not suitable for vegans, from animal origin, derived from animals, from animal source
-fr: Non-végétalien, non-végan, non-végétal, ne convient pas aux végétaliens, ne convient pas aux végans, d'origine animale, de source animale
+en: Non-vegan, not vegan, not suitable for vegans
+fr: Non-végétalien, non-végan, ne convient pas aux végétaliens, ne convient pas aux végans
 hr: nije vegansko
 pl: Niewegańskie, niewegański
 pt: Não-vegan, não vegan, não adequado a vegans, não adequado a uma dieta vegan
 incompatible_with:en: labels:en:vegan
 opposite:en: en:vegan
+
+< en:Non-vegan
+en: Derived from animals, from animal origin, from animal source
+fr: Non-végétal, d'origine animale, de source animale
+incompatible_with:en: labels:en:plant-based
+opposite:en: labels:en:plant-based
 
 < en:Vegan
 < en:organic
@@ -19971,10 +20039,12 @@ xx: I'm Vegan, I'M VEGAN
 image:en: im-vegan.72x90.png
 website:sv: https://djurensratt.se/vad-vi-gor/vaxtbaserat/im-vegan
 
+< en:Vegetarian
 en: NZ Vegetarian Society, NZVS
 xx: NZ Vegetarian Society, NZVS
 
 < en:NZ Vegetarian Society
+< en:vegan
 en: NZ Vegetarian Society Vegan Certification, NZVS Vegan Certification
 xx: NZ Vegetarian Society Vegan Certification, NZVS Vegan Certification
 
@@ -20025,6 +20095,7 @@ xx: ICEA Bio Vegetariano
 it: Vegan Cert, Vegan Product Certification
 xx: Vegan Cert, Vegan Product Certification
 
+< en:Vegetarian
 en: Vegetarian Society Approved
 xx: Vegetarian Society Approved
 
@@ -20088,12 +20159,7 @@ xx: Vege Project Vegetarian, Vege Project Japan Vegetarian
 en: Vege Project Vegan, Vege Project Japan Vegan
 xx: Vege Project Vegan, Vege Project Japan Vegan
 
-< en: Vegan
-en: plant based, plantbased
-fr: à base de plantes, à base de végétaux
-sv: växtbaserad
-
-< en:Vegan
+< en:Plant based
 en: certified plant based, plant based certified
 xx: certified plant based, plant based certified
 description:en: The Certified Plant Based certification and label - delivered by the National Science Foundation, USA - make it easy for consumers to choose sustainable alternatives to meat, egg and dairy products by providing assurance that the food contains no animal-derived ingredients.
@@ -20375,6 +20441,7 @@ sv: Utan sötningsmedel
 incompatible_with:en: labels:en:with-sweeteners
 opposite:en: en:With sweeteners
 
+< en:Non-vegetarian
 en: 100% muscle
 ca: Múscul 100%
 de: 100% Muskel
@@ -20384,8 +20451,11 @@ fr: 100% muscle, v 100% muscle, viande 100% muscle
 he: 100% שריר
 it: 100% muscolo
 pt: 100% músculo
+incompatible_with:en: labels:en:vegetarian
 
+< en:Non-vegetarian
 fr: 100% filet
+incompatible_with:en: labels:en:vegetarian
 
 en: Without brown muscle
 de: Ohne braunen Muskel
@@ -20452,26 +20522,40 @@ origins:en: en:france
 fr: Bleu Blanc Cœur, Filière Qualité Bleu Blanc Cœur, Filière nutrition oméga 3 naturels Association Bleu-Blanc-Cœur, Bleu Blanc Cœur Oméga 3 Naturels, BBC
 auth_url:fr: https://www.bleu-blanc-coeur.org
 
-< fr: Bleu Blanc Cœur
+< en:Non-vegetarian
+< fr:Bleu Blanc Cœur
 fr: Bleu Blanc Cœur Viande, BBC viande
+incompatible_with:en: labels:en:vegetarian
 
+< en:Non-vegetarian
 < fr:Bleu Blanc Cœur
 fr: Bleu Blanc Cœur Volaille, BBC volaille, voilaille BBC
+incompatible_with:en: labels:en:vegetarian
 
+< en:Non-vegetarian
 < fr:Bleu Blanc Cœur
 fr: Bleu Blanc Cœur Poulet, BBC poulet, poulet BBC
+incompatible_with:en: labels:en:vegetarian
 
+< en:Non-vegetarian
 < fr:Bleu Blanc Cœur
 fr: Bleu Blanc Cœur Bœuf, Boeuf BBC, BBC Boeuf
+incompatible_with:en: labels:en:vegetarian
 
+< en:Non-vegetarian
 < fr:Bleu Blanc Cœur
 fr: Bleu Blanc Cœur Porc, Porc BBC, BBC Porc
+incompatible_with:en: labels:en:vegetarian
 
+< en:Non-vegan
 < fr:Bleu Blanc Cœur
 fr: Bleu Blanc Cœur Œuf, Oeuf BBC, BBC Oeuf, Oeufs BBC, BBC Oeufs
+incompatible_with:en: labels:en:vegan
 
+< en:Non-vegan
 < fr:Bleu Blanc Cœur
 fr: Bleu Blanc Cœur Lait, Lait BBC, BBC Lait
+incompatible_with:en: labels:en:vegan
 
 fr: demain la terre
 xx: demain la terre
@@ -20509,6 +20593,7 @@ pt: Defumado natural, fumado natural, naturalmente defumado, naturalmente fumado
 
 fr: Garantie IPLC, Institut Professionnel du Lait de Consommation, IPLC
 
+< en:Non-vegan
 en: French milk
 bg: Френско мляко
 ca: Llet francesa
@@ -20520,13 +20605,16 @@ he: חלב צרפתי
 it: Latte francese
 nl: Franse melk
 pt: Leite francês, leite de França, leite da França
+incompatible_with:en: labels:en:vegan, labels:en:no-milk
 ingredients:en: en:milk
 origins:en: en:france
 
 fr: Eleveurs laitiers de France
 # on a few yoghurts
 
+< en:Non-vegan
 fr: Crème origine France
+incompatible_with:en: labels:en:vegan
 ingredients:en: en:cream
 origins:en: en:france
 
@@ -20650,10 +20738,13 @@ fr: Tidy man, tidyman
 xx: Tidy man, tidyman
 wikidata:en: Q3528198
 
+< en:Non-vegan
 en: Animal welfare
+da: Dyrevelfærd
 es: Bienestar animal
 nl: Dierenwelzijn
 pt: Bem-estar animal
+incompatible_with:en: labels:en:vegan
 
 < en:Animal welfare
 en: Chicken welfare
@@ -20682,8 +20773,10 @@ es: 150 días de pastoreo, 150 días alimentados con pasto
 fr: 150 jours de pâturage
 nl: 150 dagen grasgevoerd
 
+< en:Non-vegetarian
 en: Dutch meat
 nl: Nederlands vlees
+incompatible_with:en: labels:en:vegetarian
 
 < en:Chicken welfare
 # Nieuwe Standaard Kip is een bedrijfslogo van de supermarktketen Jumbo
@@ -20695,6 +20788,7 @@ nl: Nederlands vlees
 en: New standard chicken
 nl: Nieuwe standaard kip
 
+< en:Non-vegetarian
 en: French meat
 bg: Френско месо
 ca: Carn francesa
@@ -20706,6 +20800,7 @@ he: בשר צרפתי
 it: Carne francese
 nl: Frans vlees
 pt: Carne francesa, carde de França, carne da França
+incompatible_with:en: labels:en:vegetarian
 ingredients:en: en:meat
 origins:en: en:france
 # Note: putting
@@ -20740,9 +20835,11 @@ pt: Pato francês, pato de França, pato da França
 ingredients:en: en:duck
 origins:en: en:france
 
+< en:French meat
 fr: Foie gras de France
 origins:en: en:france
 
+< en:French duck
 en: Duck born and bred in France
 de: In Frankreich geborene und aufgezogene Ente
 es: Pato nacido y criado en Francia
@@ -20767,6 +20864,7 @@ pt: Porco francês, porco de França, porco da França
 ingredients:en: en:pork
 origins:en: en:france
 
+< en:French pork
 fr: Les porcs bio de France
 ingredients:en: en:pork
 label:en: en:organic
@@ -21914,48 +22012,58 @@ country:en: en:Switzerland
 label_categories:en: en:Quality, en:Environment
 
 < en:Migros M-Check
+< en:Non-vegan
 en: Migros M-Check Animal Welfare 1/5, M-Check Animal Welfare 1/5
 xx: Migros M-Check Animal Welfare 1/5, M-Check Animal Welfare 1/5
 de: Migros M-Check Tierwohl 1/5, M-Check Tierwohl 1/5
 fr: Migros M-Check Bien-être Animal 1/5, M-Check Bien-être Animal 1/5
 it: Migros M-Check Benessere degli animali 1/5, M-Check Benessere degli animali 1/5
 country:en: en:Switzerland
+incompatible_with:en: labels:en:vegan
 label_categories:en: en:Animal welfare
 
 < en:Migros M-Check
+< en:Non-vegan
 en: Migros M-Check Animal Welfare 2/5, M-Check Animal Welfare 2/5
 xx: Migros M-Check Animal Welfare 2/5, M-Check Animal Welfare 2/5
 de: Migros M-Check Tierwohl 2/5, M-Check Tierwohl 2/5
 fr: Migros M-Check Bien-être Animal 2/5, M-Check Bien-être Animal 2/5
 it: Migros M-Check Benessere degli animali 2/5, M-Check Benessere degli animali 2/5
 country:en: en:Switzerland
+incompatible_with:en: labels:en:vegan
 label_categories:en: en:Animal welfare
 
 < en:Migros M-Check
+< en:Non-vegan
 en: Migros M-Check Animal Welfare 3/5, M-Check Animal Welfare 3/5
 xx: Migros M-Check Animal Welfare 3/5, M-Check Animal Welfare 3/5
 de: Migros M-Check Tierwohl 3/5, M-Check Tierwohl 3/5
 fr: Migros M-Check Bien-être Animal 3/5, M-Check Bien-être Animal 3/5
 it: Migros M-Check Benessere degli animali 3/5, M-Check Benessere degli animali 3/5
 country:en: en:Switzerland
+incompatible_with:en: labels:en:vegan
 label_categories:en: en:Animal welfare
 
 < en:Migros M-Check
+< en:Non-vegan
 en: Migros M-Check Animal Welfare 4/5, M-Check Animal Welfare 4/5
 xx: Migros M-Check Animal Welfare 4/5, M-Check Animal Welfare 4/5
 de: Migros M-Check Tierwohl 4/5, M-Check Tierwohl 4/5
 fr: Migros M-Check Bien-être Animal 4/5, M-Check Bien-être Animal 4/5
 it: Migros M-Check Benessere degli animali 4/5, M-Check Benessere degli animali 4/5
 country:en: en:Switzerland
+incompatible_with:en: labels:en:vegan
 label_categories:en: en:Animal welfare
 
 < en:Migros M-Check
+< en:Non-vegan
 en: Migros M-Check Animal Welfare 5/5, M-Check Animal Welfare 5/5
 xx: Migros M-Check Animal Welfare 5/5, M-Check Animal Welfare 5/5
 de: Migros M-Check Tierwohl 5/5, M-Check Tierwohl 5/5
 fr: Migros M-Check Bien-être Animal 5/5, M-Check Bien-être Animal 5/5
 it: Migros M-Check Benessere degli animali 5/5, M-Check Benessere degli animali 5/5
 country:en: en:Switzerland
+incompatible_with:en: labels:en:vegan
 label_categories:en: en:Animal welfare
 
 < en:Migros M-Check
@@ -22004,48 +22112,58 @@ country:en: en:Switzerland
 label_categories:en: en:Quality, en:Environment
 
 < en:Migros M-Check
+< en:Non-vegetarian
 en: Migros M-Check fish from responsible sources 1/5, M-Check fish from responsible sources 1/5
 xx: Migros M-Check fish from responsible sources 1/5, M-Check fish from responsible sources 1/5
 de: Migros M-Check Fisch aus verantwortungsvollen Quellen 1/5, M-Check Fisch aus verantwortungsvollen Quellen 1/5
 fr: Migros M-Check Poisson de sources responsables 1/5, M-Check Poisson de sources responsables 1/5
 it: Migros M-Check Pesce proveniente da fonti responsabili 1/5, M-Check Pesce proveniente da fonti responsabili 1/5
 country:en: en:Switzerland
+incompatible_with:en: labels:en:vegetarian
 label_categories:en: en:Quality, en:Environment, en:Animal welfare
 
 < en:Migros M-Check
+< en:Non-vegetarian
 en: Migros M-Check fish from responsible sources 2/5, M-Check fish from responsible sources 2/5
 xx: Migros M-Check fish from responsible sources 2/5, M-Check fish from responsible sources 2/5
 de: Migros M-Check Fisch aus verantwortungsvollen Quellen 2/5, M-Check Fisch aus verantwortungsvollen Quellen 2/5
 fr: Migros M-Check Poisson de sources responsables 2/5, M-Check Poisson de sources responsables 2/5
 it: Migros M-Check Pesce proveniente da fonti responsabili 2/5, M-Check Pesce proveniente da fonti responsabili 2/5
 country:en: en:Switzerland
+incompatible_with:en: labels:en:vegetarian
 label_categories:en: en:Quality, en:Environment, en:Animal welfare
 
 < en:Migros M-Check
+< en:Non-vegetarian
 en: Migros M-Check fish from responsible sources 3/5, M-Check fish from responsible sources 3/5
 xx: Migros M-Check fish from responsible sources 3/5, M-Check fish from responsible sources 3/5
 de: Migros M-Check Fisch aus verantwortungsvollen Quellen 3/5, M-Check Fisch aus verantwortungsvollen Quellen 3/5
 fr: Migros M-Check Poisson de sources responsables 3/5, M-Check Poisson de sources responsables 3/5
 it: Migros M-Check Pesce proveniente da fonti responsabili 3/5, M-Check Pesce proveniente da fonti responsabili 3/5
 country:en: en:Switzerland
+incompatible_with:en: labels:en:vegetarian
 label_categories:en: en:Quality, en:Environment, en:Animal welfare
 
 < en:Migros M-Check
+< en:Non-vegetarian
 en: Migros M-Check fish from responsible sources 4/5, M-Check fish from responsible sources 4/5
 xx: Migros M-Check fish from responsible sources 4/5, M-Check fish from responsible sources 4/5
 de: Migros M-Check Fisch aus verantwortungsvollen Quellen 4/5, M-Check Fisch aus verantwortungsvollen Quellen 4/5
 fr: Migros M-Check Poisson de sources responsables 4/5, M-Check Poisson de sources responsables 4/5
 it: Migros M-Check Pesce proveniente da fonti responsabili 4/5, M-Check Pesce proveniente da fonti responsabili 4/5
 country:en: en:Switzerland
+incompatible_with:en: labels:en:vegetarian
 label_categories:en: en:Quality, en:Environment, en:Animal welfare
 
 < en:Migros M-Check
+< en:Non-vegetarian
 en: Migros M-Check fish from responsible sources 5/5, M-Check fish from responsible sources 5/5
 xx: Migros M-Check fish from responsible sources 5/5, M-Check fish from responsible sources 5/5
 de: Migros M-Check Fisch aus verantwortungsvollen Quellen 5/5, M-Check Fisch aus verantwortungsvollen Quellen 5/5
 fr: Migros M-Check Poisson de sources responsables 5/5, M-Check Poisson de sources responsables 5/5
 it: Migros M-Check Pesce proveniente da fonti responsabili 5/5, M-Check Pesce proveniente da fonti responsabili 5/5
 country:en: en:Switzerland
+incompatible_with:en: labels:en:vegetarian
 label_categories:en: en:Quality, en:Environment, en:Animal welfare
 
 < en:Migros M-Check
@@ -22565,6 +22683,7 @@ en: Bee Friendly, I protect the bees
 xx: Bee Friendly
 fr: Bee Friendly, Je protège les abeilles
 
+< en:Non-vegan
 en: Honey from France
 bg: Френски мед
 de: Honig aus Frankreich
@@ -22572,15 +22691,18 @@ fi: hunajaa Ranskasta, hunajan alkuperä Ranska
 fr: Miel de France, miel français
 he: דבש מצרפת
 pt: Mel da França, mel de frança, mel francês
+incompatible_with:en: labels:en:vegan
 ingredients:en: en:honey
 label_categories:en: en:Honey
 origins:en: en:france
 
 #<en:supply chain labels
 #<en:certified labels
+< en:Non-vegan
 en: True Source Certified
 description:en: True Source Honey is a voluntary system of traceability and authenticity testing for those participants who wish to demonstrate through an independent third party that their sourcing practices are in full compliance with U.S. and international trade laws.
 image:en: true-source-certified.143x116.jpeg
+incompatible_with:en: labels:en:vegan
 ingredients:en: en:honey
 web:en: https://truesourcehoney.com/true-source-certified/
 
@@ -22670,6 +22792,7 @@ hu: E-szám mentes
 label_categories:en: en:Health
 
 #instruction:en:Do NOT change the english key.
+< en:Non-vegan
 en: No antibiotics, Without antibiotics, antibiotic-free, antibiotics-free, no antibiotic, raised without antibiotics, no Antibiotics Administered
 bg: Без антибиотици
 ca: Sense antibiòtics, Lliure d'antibiòtics, No s'han administrat antibiòtics, Engreixat sense antibiòtics
@@ -22680,6 +22803,7 @@ fr: Sans antibiotique, sans antibiotiques, sans traitement antibiotique, élevag
 hu: Antibiotikum mentes
 it: Senza antibiotici
 pt: Sem antibióticos, 0% antibióticos, livre de antibióticos, criado sem antibióticos, criados sem antibióticos, criada sem antibióticos, criadas sem antibióticos
+incompatible_with:en: labels:en:vegan
 label_categories:en: en:Health
 
 < en:No antibiotics
@@ -22704,12 +22828,14 @@ fr: Sans antibiotique après le premier âge, Sans antibiotique après le 1er â
 pt: Sem antibióticos desde o primeiro ano de vida
 
 < en:No antibiotics
+< en:Non-vegetarian
 en: Porks raised without antibiotics
 de: Schweineaufzucht ohne Antibiotika
 fi: porsaat kasvatettu ilman antibiootteja, siat kasvatettu ilman antibiootteja
 fr: Porcs élevés sans antibiotique, Cochons élevés sans antibiotique
 it: Maiali allevati senza antibiotici
 pt: Porco criado sem antibióticos, porcos criados sem antibióticos
+incompatible_with:en: labels:en:vegetarian
 
 < en:Porks raised without antibiotics
 < en:Without antibiotics since birth
@@ -22732,6 +22858,7 @@ ca: Porcs criats sense antibiòtics després del primer any de vida
 fr: Porcs élevés sans antibiotique après le premier âge, Porcs élevés sans antibiotique après le 1er âge
 pt: Porco criado sem antibióticos desde o primeiro ano de vida, porcos criados sem antibióticos desde o primeiro ano de vida
 
+# Is this also used for eggs?
 < en:No antibiotics
 en: Chickens raised without antibiotics
 bg: Пилета отглеждани без антибиотици
@@ -22756,6 +22883,7 @@ fr: Poulets élevés sans antibiotique dès la naissance
 it: Polli allevati senza antibiotici fin dalla nascita
 pt: Galinha criada sem antibióticos desde o nascimento, galinhas criadas sem antibióticos desde o nascimento
 
+# Is this also used for eggs?
 < en:No antibiotics
 en: Hens raised without antibiotics
 de: Hennenaufzucht ohne Antibiotika
@@ -22850,6 +22978,7 @@ hu: 100% magyar
 
 hu: Jó magyar árú
 
+< en:Non-vegan
 en: raised in Norway
 ca: Criat a Noruega
 de: In Norwegen aufgewachsen
@@ -22858,23 +22987,28 @@ fi: Kasvatettu Norjassa
 fr: élevé en Norvège, élevés en Norvège, élevée en Norvège, élevées en Norvège
 it: Cresciuto in Norvegia, Allevato in Norvegia
 pt: Criado na Noruega, criados na Noruega, criada na Noruega, criadas na Noruega
+incompatible_with:en: labels:en:vegan
 label_categories:en: en:Geographic label
 origins:en: en:norway
 
+< en:Non-vegan
 en: raised in Scotland
 de: In Schottland aufgewachsen
 fi: Kasvatettu Skotlannissa
 fr: élevé en Ecosse, élevés en Ecosse, élevée en Ecosse, élevées en Ecosse
 it: Cresciuto in Scozia, Allevato in Scozia
 pt: Criado na Escócia, criados na Escócia, criada na Escócia, criadas na Escócia
+incompatible_with:en: labels:en:vegan
 label_categories:en: en:Geographic label
 origins:en: en:scotland, en:united-kingdom
 
+< en:Non-vegan
 en: raised in Ireland
 de: aufgezogen in Irland, aufgewachsen in Irland
 fi: kasvatettu Irlannissa
 fr: élevé en Irlande, élevés en Irlande, élevée en Irlande, élevées en Irlande
 pt: Criado na Irlanda, criados na Irlanda, criada na Irlanda, criadas na Irlanda
+incompatible_with:en: labels:en:vegan
 label_categories:en: en:Geographic label
 origins:en: en:ireland
 
@@ -23262,6 +23396,7 @@ pt: Certificação Welfair, Certificação Welfair de bem-estar animal
 country:en: en:Spain
 description:en: Evaluates and monitors animal welfare quality on farms, in rearing areas and in slaughterhouses for bovine, porcine and ovine species as well as for hens, chickens, rabbits and turkeys.
 image:es: bienestar-animal.62x90.png
+incompatible_with:en: labels:en:vegan
 label_categories:en: en:Animal welfare
 web:en: https://www.animalwelfair.com/
 
