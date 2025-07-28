@@ -707,8 +707,8 @@ sub include_image_paths ($product_ref, $populated_fields_ref, $other_images_ref)
 			foreach my $image_lc (sort keys %{$product_ref->{images}{selected}{$image_type}}) {
 
 				$selected_images{$product_ref->{images}{selected}{$image_type}{$image_lc}{imgid}} = 1;
-				$populated_fields_ref->{"image_" . $image_type . "_" . $image_lc . "_file"} = 
-					sprintf("%08d", 10 * 1000) . "_" . $image_type . "_" . $image_lc;
+				$populated_fields_ref->{"image_" . $image_type . "_" . $image_lc . "_file"}
+					= sprintf("%08d", 10 * 1000) . "_" . $image_type . "_" . $image_lc;
 
 				# Also export the crop coordinates
 				if (defined $product_ref->{images}{selected}{$image_type}{$image_lc}{generation}) {

@@ -19,7 +19,8 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
-use ProductOpener::Test qw/compare_csv_file_to_expected_results init_expected_results remove_all_products remove_all_users/;
+use ProductOpener::Test
+	qw/compare_csv_file_to_expected_results init_expected_results remove_all_products remove_all_users/;
 use ProductOpener::LoadData qw/load_data/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::APITest qw/create_user execute_api_tests new_client wait_application_ready/;
