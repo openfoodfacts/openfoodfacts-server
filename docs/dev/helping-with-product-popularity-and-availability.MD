@@ -24,7 +24,6 @@ To count a scan, your app must send a request to the OFF API with a special HTTP
 
 When making a request (e.g., fetching a product by barcode), add a custom header such as:
 
-TODO(): put actual query
 
 ```http
 GET /api/v2/product/1234567890123.json HTTP/1.1
