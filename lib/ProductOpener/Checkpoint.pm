@@ -22,7 +22,6 @@ package ProductOpener::Checkpoint;
 
 use ProductOpener::PerlStandards;
 
-use experimental 'smartmatch';
 use File::Basename qw/basename/;
 use List::MoreUtils qw/first_index/;
 
@@ -41,18 +40,24 @@ sub new ($class) {
 		seek($checkpoint_file, 0, 0);
 		$checkpoint = <$checkpoint_file>;
 		chomp $checkpoint if $checkpoint;
-		if ($checkpoint) {
-			print STDERR "Resuming from $checkpoint\n";
-		}
 		splice(@ARGV, $is_resume, 1);
 	}
+	my $log_filename = "$BASE_DIRS{CACHE_TMP}/$script_name.log";
+	my $mode = ($is_resume > -1 ? '>>' : '>');
+	open(my $log_file, $mode, $log_filename);
 
 	my $self = {
 		checkpoint_file => $checkpoint_file,
+		log_file => $log_file,
 		value => $checkpoint
 	};
 
-	return bless $self, $class;
+	my $blessed = bless $self, $class;
+	if ($checkpoint) {
+		$blessed->log("Resuming from $checkpoint");
+	}
+
+	return $blessed;
 }
 
 sub update ($self, $checkpoint) {
@@ -64,9 +69,18 @@ sub update ($self, $checkpoint) {
 	return;
 }
 
+sub log ($self, $message) {
+	my $log_file = $self->{log_file};
+	my $log_message = '[' . localtime() . '] ' . $message . "\n";
+	print $log_message;
+	print $log_file $log_message;
+	return;
+}
+
 sub DESTROY {
 	my ($self) = @_;
 	close $self->{checkpoint_file};
+	close $self->{log_file};
 	return;
 }
 
