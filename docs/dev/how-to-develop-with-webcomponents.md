@@ -1,6 +1,9 @@
+# How to use WebComponents
+- We have a variety of Web Components to do the hard work for you: explore them at [openfoodfacts-webcomponents](https://github.com/openfoodfacts/openfoodfacts-webcomponents)
+- Nutrition extraction, Ingredient extraction, Robotoff questions, spellcheck, barcode scanner for PWA, Product card, and more.
 # How to develop with WebComponents
 
-If you are developing a new WebComponent in openfoodfacts-webcomponents project,
+If you are developing a new WebComponent in [openfoodfacts-webcomponents](https://github.com/openfoodfacts/openfoodfacts-webcomponents) project,
 you might want to test its integration immediately.
 
 To do this you can use the following steps:
