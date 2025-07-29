@@ -55,7 +55,7 @@ Once you have a barcode string, you must normalize it before querying the correc
 Barcode scanners can return codes in various formats (EAN-8, EAN-13, UPC-A, UPC-E). To ensure a match in the database, you **must normalize the barcode to the EAN-13 format.**
 
 1.  **Pad with Zeros:** If the scanned barcode has fewer than 13 digits, pad it with leading zeros until it reaches 13 digits. For example, `12345678` (EAN-8) becomes `0000012345678`.
-2.  **Calculate the Check Digit (for 12-digit UPC-A):** If you have a 12-digit barcode (common in North America), you must calculate the 13th digit (the EAN-13 check digit) and append it.
+2.  **Calculate the Check Digit:** If you have a 13 or 12-digit barcode, you must take the last 12th digits, the final digit being the check digit.
 
     **Algorithm to calculate the EAN-13 check digit from the first 12 digits:**
     * Let the 12-digit code be $d_1 d_2 d_3 d_4 d_5 d_6 d_7 d_8 d_9 d_{10} d_{11} d_{12}$.
