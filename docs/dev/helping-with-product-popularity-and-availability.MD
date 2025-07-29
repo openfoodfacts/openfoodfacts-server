@@ -28,7 +28,7 @@ When making a request (e.g., fetching a product by barcode), add a custom header
 ```http
 GET /api/v2/product/1234567890123.json HTTP/1.1
 Host: world.openfoodfacts.org
-User-Agent: MyAwesomeScanner/1.0
+User-Agent: MyAwesomeScanner - 1.0 (Build 21E236) ios - scan
 X-OpenFoodFacts-Scan: Scan; app=MyAwesomeScanner; version=1.0
 ```
 
