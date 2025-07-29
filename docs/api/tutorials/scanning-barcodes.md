@@ -54,7 +54,7 @@ Once you have a barcode string, you must normalize it before querying the correc
 #### **✔️ Step 3.1: Pre-process the Barcode (Normalization)**
 Barcode scanners can return codes in various formats (EAN-8, EAN-13, UPC-A, UPC-E). To ensure a match in the database, the Open Food Facts server will normalize the barcode on your behalf. You should not try to normalize barcodes**
 
-1.  **Pad with Zeros:** If the scanned barcode has fewer than 13 digits, pad it with leading zeros until it reaches 13 digits. For example, `12345678` (EAN-8) becomes `0000012345678`.
+1.  **Padding with Zeros:** If the scanned barcode has fewer than 13 digits, the Open Food Facts server will pad it with leading zeros until it reaches 13 digits. For example, `12345678` (EAN-8) becomes `0000012345678`.
 2.  **Calculate the Check Digit:** to ensure your barcode is valid, you can calculate the check digits ([instructions here](https://documents.gs1us.org/adobe/assets/deliver/urn:aaid:aem:77c80eac-d4e2-41b1-a80d-97739060e8f4/How-to-Calculate-a-Check-Digit.pdf?_gl=1*5aa50n*_gcl_au*Mzc4MDI0NDUwLjE3NTM3NzYyOTI.), you will find the algorithm in many places, including Open Food Facts SDKs, barcode scanning SDKs…). Please note that -sometimes- some producers make up barcodes without knowing about this (to avoid buying barcode ranges), and you may stump on edge cases.
 
 #### **🌍 Step 3.2: Choose the Right Database Endpoint**
