@@ -56,7 +56,7 @@ You can enable users to submit price data in your app. Here’s how:
 1. **Prompt users** to add the price after scanning a product.
 2. **Send a POST request** to the Open Prices API endpoint with the relevant data.
 
-TODO: add a link to the relevant API
+[Get started with Open Prices](./docs/api/tutorials/product-prices.md)
 
 
 Thank you for helping make food data more open, accurate, and useful!
