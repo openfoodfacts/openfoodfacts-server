@@ -52,7 +52,7 @@ Sometimes a barcode is damaged, or the camera fails. Always provide a fallback.
 Once you have a barcode string, you must normalize it before querying the correct database.
 
 #### **✔️ Step 3.1: Pre-process the Barcode (Normalization)**
-Barcode scanners can return codes in various formats (EAN-8, EAN-13, UPC-A, UPC-E). To ensure a match in the database, you **must normalize the barcode to the EAN-13 format.**
+Barcode scanners can return codes in various formats (EAN-8, EAN-13, UPC-A, UPC-E). To ensure a match in the database, the Open Food Facts server will normalize the barcode on your behalf. You should not try to normalize barcodes**
 
 1.  **Pad with Zeros:** If the scanned barcode has fewer than 13 digits, pad it with leading zeros until it reaches 13 digits. For example, `12345678` (EAN-8) becomes `0000012345678`.
 2.  **Calculate the Check Digit:** If you have a 13 or 12-digit barcode, you must take the last 12th digits, the final digit being the check digit.
