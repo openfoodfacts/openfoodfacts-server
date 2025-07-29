@@ -55,25 +55,7 @@ Once you have a barcode string, you must normalize it before querying the correc
 Barcode scanners can return codes in various formats (EAN-8, EAN-13, UPC-A, UPC-E). To ensure a match in the database, the Open Food Facts server will normalize the barcode on your behalf. You should not try to normalize barcodes**
 
 1.  **Pad with Zeros:** If the scanned barcode has fewer than 13 digits, pad it with leading zeros until it reaches 13 digits. For example, `12345678` (EAN-8) becomes `0000012345678`.
-2.  **Calculate the Check Digit:** If you have a 13 or 12-digit barcode, you must take the last 12th digits, the final digit being the check digit.
-
-    **Algorithm to calculate the EAN-13 check digit from the first 12 digits:**
-    * Let the 12-digit code be $d_1 d_2 d_3 d_4 d_5 d_6 d_7 d_8 d_9 d_{10} d_{11} d_{12}$.
-    * Sum the digits in the odd positions: $S_{odd} = d_1 + d_3 + d_5 + d_7 + d_9 + d_{11}$.
-    * Sum the digits in the even positions: $S_{even} = d_2 + d_4 + d_6 + d_8 + d_{10} + d_{12}$.
-    * Calculate the total sum: $S_{total} = S_{odd} + 3 \times S_{even}$.
-    * Find the remainder when dividing by 10: $M = S_{total} \pmod{10}$.
-    * The check digit ($d_{13}$) is:
-        * If $M = 0$, then $d_{13} = 0$.
-        * If $M \neq 0$, then $d_{13} = 10 - M$.
-
-    *Example:* For UPC-A `036000291452`:
-    * $S_{odd} = 0+6+0+2+1+5 = 14$
-    * $S_{even} = 3+0+0+9+4+2 = 18$
-    * $S_{total} = 14 + 3 \times 18 = 14 + 54 = 68$
-    * $M = 68 \pmod{10} = 8$
-    * $d_{13} = 10 - 8 = 2$
-    * The final EAN-13 code to query is `036000291452`.
+2.  **Calculate the Check Digit:** to ensure your barcode is valid, you can calculate the check digits ([instructions here](https://documents.gs1us.org/adobe/assets/deliver/urn:aaid:aem:77c80eac-d4e2-41b1-a80d-97739060e8f4/How-to-Calculate-a-Check-Digit.pdf?_gl=1*5aa50n*_gcl_au*Mzc4MDI0NDUwLjE3NTM3NzYyOTI.), you will find the algorithm in many places, including Open Food Facts SDKs, barcode scanning SDKs…). Please note that -sometimes- some producers make up barcodes without knowing about this (to avoid buying barcode ranges), and you may stump on edge cases.
 
 #### **🌍 Step 3.2: Choose the Right Database Endpoint**
 The Open "Everything" Facts platform uses the same API structure across different domains. Simply change the domain in the URL to query the database you need. You can also make a universal call that will call all 4 databases for an answer, and you can display results however you like, mention you don't support specific data types, and help users add missing products by taking photos.
