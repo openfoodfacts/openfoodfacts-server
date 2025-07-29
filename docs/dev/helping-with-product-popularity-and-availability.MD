@@ -33,7 +33,7 @@ X-OpenFoodFacts-Scan: Scan; app=MyAwesomeScanner; version=1.0
 ```
 
 **Requirements:**
-- The header value **must include the word "Scan"** (e.g., `Scan; app=YourAppName`).
+- The header value **must include the word "Scan" at the end** of the user agent, even if the app name already contains the word scan.
 
 **Tip:** You can add more info after "Scan", such as app name, version, platform, etc.
 
