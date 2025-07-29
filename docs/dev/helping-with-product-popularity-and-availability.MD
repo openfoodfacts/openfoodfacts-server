@@ -33,7 +33,6 @@ X-OpenFoodFacts-Scan: Scan; app=MyAwesomeScanner; version=1.0
 ```
 
 **Requirements:**
-- The header key can be any custom header (recommended: `X-OpenFoodFacts-Scan`).
 - The header value **must include the word "Scan"** (e.g., `Scan; app=YourAppName`).
 
 **Tip:** You can add more info after "Scan", such as app name, version, platform, etc.
