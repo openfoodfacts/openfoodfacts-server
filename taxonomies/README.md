@@ -24,7 +24,7 @@ When contributing new logos for labels, follow these guidelines to ensure consis
 * **File Naming Convention**:
     * Name the file as `name-of-the-label.[width]x90.png`. The `[width]` refers to the logo's width when its height is scaled to 90 pixels.
     * Filenames must be **unaccented**, **lowercase**, and use hyphens (`-`) instead of spaces.
-    * **Example**: `organic-label.120x90.png`
+    * **Example**: “Kvalitatīvs produkts ražots Latvijā” → `kvalitativs-produkts-razots-latvija.123x90.png`
 * **Directory Placement**: Place the logo file in the language-specific directory that corresponds to its canonical name. The root directory for label logos is:
     * **[html/images/lang/ in openfoodfacts-server](https://github.com/openfoodfacts/openfoodfacts-server/tree/main/html/images/lang)**
 
