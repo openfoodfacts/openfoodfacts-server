@@ -72,7 +72,7 @@ Make a simple GET request to the appropriate v2 API endpoint with your normalize
 `GET https://{domain}/api/v2/product/{normalized_barcode}.json`
 
 **Crucial Best Practice:**
-* **Set a Proper User-Agent:** This is essential for API etiquette. Use the format: `User-Agent: MyAppName - Android - Version 2.1 - https://example.com`
+* **Set a Proper User-Agent:** This is essential for API etiquette. Use the format: `User-Agent: MyAppName - Android - Version 2.1 - https://example.com - scan`
 
 #### **📥 Step 3.4: Handle the API Response**
 * **Product Found (`"status": 1`):** The product exists. Parse the `"product"` object for the data you need (e.g., `product_name`, `image_front_url`, `nutriments`, `nutriscore_grade`, etc.).
