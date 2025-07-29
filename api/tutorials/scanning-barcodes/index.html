@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/api/tutorials/license-be-on-the-legal-side/">
+        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/api/tutorials/scanning-barcodes/">
       
       
-        <link rel="prev" href="../how-to-create-data-quality-controls-in-your-app/">
+        <link rel="prev" href="../reporting-issues-with-nutripatrol/">
       
       
-        <link rel="next" href="../product-prices/">
+        <link rel="next" href="../scanning-cosmetics-pet-food-and-other-products/">
       
       
       <link rel="icon" href="https://static.openfoodfacts.org/images/logos/off-logo-favicon-light.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>License be on the legal side - Product Opener (Open Food Facts Server)</title>
+        <title>Scanning barcodes - Product Opener (Open Food Facts Server)</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#understanding-and-being-compliant-with-our-data-licences" class="md-skip">
+        <a href="#tutorial-implementing-a-world-class-barcode-scan-experience-for-your-app" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              License be on the legal side
+              Scanning barcodes
             
           </span>
         </div>
@@ -905,30 +905,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    License be on the legal side
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../license-be-on-the-legal-side/" class="md-nav__link">
         
   
   
@@ -939,42 +919,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#understanding-and-being-compliant-with-our-data-licences" class="md-nav__link">
-    <span class="md-ellipsis">
-      Understanding and being compliant with our data licences
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-in-touch" class="md-nav__link">
-    <span class="md-ellipsis">
-      Getting in touch
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1030,10 +974,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../scanning-barcodes/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Scanning barcodes
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1044,6 +1008,162 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tutorial-implementing-a-world-class-barcode-scan-experience-for-your-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tutorial: Implementing a World-Class Barcode Scan Experience for Your App
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-choose-the-right-barcode-scanning-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Choose the Right Barcode Scanning SDK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-design-an-insanely-great-scan-uiux" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Design an "Insanely Great" Scan UI/UX
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Design an &#34;Insanely Great&#34; Scan UI/UX">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-viewfinder-guidance" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 The Viewfinder &amp; Guidance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#handle-poor-lighting" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔦 Handle Poor Lighting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#provide-instant-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Provide Instant Feedback
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-escape-hatch-manual-entry" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✍️ The Escape Hatch: Manual Entry
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-master-the-api-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Master the API Interaction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Master the API Interaction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-31-pre-process-the-barcode-normalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✔️ Step 3.1: Pre-process the Barcode (Normalization)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-32-choose-the-right-database-endpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌍 Step 3.2: Choose the Right Database Endpoint
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-33-make-the-api-call" class="md-nav__link">
+    <span class="md-ellipsis">
+      📡 Step 3.3: Make the API Call
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-34-handle-the-api-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      📥 Step 3.4: Handle the API Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-the-complete-flow-from-start-to-finish" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. The Complete Flow from Start to Finish
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonus-i-am-doing-a-ai-app-how-can-i-handle-barcodes-as-well" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bonus: I am doing a "AI" app, how can I handle barcodes as well ?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1755,18 +1875,138 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#understanding-and-being-compliant-with-our-data-licences" class="md-nav__link">
+  <a href="#tutorial-implementing-a-world-class-barcode-scan-experience-for-your-app" class="md-nav__link">
     <span class="md-ellipsis">
-      Understanding and being compliant with our data licences
+      Tutorial: Implementing a World-Class Barcode Scan Experience for Your App
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#getting-in-touch" class="md-nav__link">
+  <a href="#1-choose-the-right-barcode-scanning-sdk" class="md-nav__link">
     <span class="md-ellipsis">
-      Getting in touch
+      1. Choose the Right Barcode Scanning SDK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-design-an-insanely-great-scan-uiux" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Design an "Insanely Great" Scan UI/UX
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Design an &#34;Insanely Great&#34; Scan UI/UX">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-viewfinder-guidance" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 The Viewfinder &amp; Guidance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#handle-poor-lighting" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔦 Handle Poor Lighting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#provide-instant-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Provide Instant Feedback
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-escape-hatch-manual-entry" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✍️ The Escape Hatch: Manual Entry
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-master-the-api-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Master the API Interaction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Master the API Interaction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-31-pre-process-the-barcode-normalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✔️ Step 3.1: Pre-process the Barcode (Normalization)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-32-choose-the-right-database-endpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌍 Step 3.2: Choose the Right Database Endpoint
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-33-make-the-api-call" class="md-nav__link">
+    <span class="md-ellipsis">
+      📡 Step 3.3: Make the API Call
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-34-handle-the-api-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      📥 Step 3.4: Handle the API Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-the-complete-flow-from-start-to-finish" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. The Complete Flow from Start to Finish
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonus-i-am-doing-a-ai-app-how-can-i-handle-barcodes-as-well" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bonus: I am doing a "AI" app, how can I handle barcodes as well ?
     </span>
   </a>
   
@@ -1788,7 +2028,7 @@
 
 
   
-    <a href="https://github.com/openfoodfacts/openfoodfacts-server/edit/main/docs/api/tutorials/license-be-on-the-legal-side.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/openfoodfacts/openfoodfacts-server/edit/main/docs/api/tutorials/scanning-barcodes.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1796,25 +2036,155 @@
   
 
 
-  <h1>License be on the legal side</h1>
+  <h1>Scanning barcodes</h1>
 
-<h2 id="understanding-and-being-compliant-with-our-data-licences">Understanding and being compliant with our data licences<a class="headerlink" href="#understanding-and-being-compliant-with-our-data-licences" title="Permanent link">#</a></h2>
+<h3 id="tutorial-implementing-a-world-class-barcode-scan-experience-for-your-app">Tutorial: Implementing a World-Class Barcode Scan Experience for Your App<a class="headerlink" href="#tutorial-implementing-a-world-class-barcode-scan-experience-for-your-app" title="Permanent link">#</a></h3>
+<p>Creating a seamless barcode scanning feature is more than just decoding a barcode; it's about crafting a user experience that feels fast, intuitive, and reliable. This guide covers how to build that experience for the entire <strong>Open "Everything" Facts ecosystem</strong>, including Food, Beauty, Pet Food, and general Products.</p>
+<h3 id="1-choose-the-right-barcode-scanning-sdk">1. Choose the Right Barcode Scanning SDK<a class="headerlink" href="#1-choose-the-right-barcode-scanning-sdk" title="Permanent link">#</a></h3>
+<p>The choice of SDK is the foundation of the experience. Here's a breakdown of the main options:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">SDK / Library</th>
+<th style="text-align: left;">Platform(s)</th>
+<th style="text-align: left;">Cost</th>
+<th style="text-align: left;">Pros ✅</th>
+<th style="text-align: left;">Cons ❌</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>ZXing ("Zebra Crossing")</strong></td>
+<td style="text-align: left;">Java, with ports for many languages</td>
+<td style="text-align: left;">Free (Open Source)</td>
+<td style="text-align: left;"><strong>Truly Open.</strong> No reliance on Google/Apple services. Battle-tested over many years.</td>
+<td style="text-align: left;">Can be less performant than modern native SDKs, especially in poor lighting.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Google ML Kit</strong></td>
+<td style="text-align: left;">Android &amp; iOS</td>
+<td style="text-align: left;">Free</td>
+<td style="text-align: left;"><strong>Modern Standard.</strong> Excellent performance, on-device processing, part of a larger ML ecosystem. No data harvesting for ads.</td>
+<td style="text-align: left;">Part of the Google ecosystem, which might be a concern for some projects.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Apple Vision</strong></td>
+<td style="text-align: left;">iOS</td>
+<td style="text-align: left;">Free</td>
+<td style="text-align: left;"><strong>Native &amp; Optimized.</strong> The best performance on iOS. Seamlessly integrated into the OS (<code>VNDetectBarcodesRequest</code>).</td>
+<td style="text-align: left;">iOS only.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Scandit</strong></td>
+<td style="text-align: left;">Android &amp; iOS</td>
+<td style="text-align: left;">Paid</td>
+<td style="text-align: left;"><strong>Premium Performance.</strong> Often superior in challenging conditions (glare, damaged barcodes, distance). Dedicated support.</td>
+<td style="text-align: left;">Expensive. Their business model involves data collection.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>For Cross-Platform Frameworks (React Native, Flutter, etc.):</strong>
+Developers using these frameworks will interact with an abstraction library. The key is to choose a package that is well-maintained and uses the native SDKs (ZXING and/or ML Kit and Apple Vision) under the hood.</p>
+<p><strong>Recommendation:</strong> For most new apps, while not open, using <strong>Google ML Kit</strong> on Android and <strong>Apple Vision</strong> on iOS (or a cross-platform wrapper that uses them) provides the best balance of performance, features, and cost.</p>
+<hr />
+<h3 id="2-design-an-insanely-great-scan-uiux">2. Design an "Insanely Great" Scan UI/UX<a class="headerlink" href="#2-design-an-insanely-great-scan-uiux" title="Permanent link">#</a></h3>
+<p>This is where you turn a functional feature into a delightful one. It's all about the details you build <em>around</em> the scanner.</p>
+<h4 id="the-viewfinder-guidance"><strong>💡 The Viewfinder &amp; Guidance</strong><a class="headerlink" href="#the-viewfinder-guidance" title="Permanent link">#</a></h4>
+<p>The user should know exactly what to do.</p>
 <ul>
-<li>The Open Food Facts database is available under the <a href="https://opendatacommons.org/licenses/odbl/1.0/">Open Database License</a>.</li>
-<li>The individual contents of the database are available under the <a href="https://opendatacommons.org/licenses/dbcl/1.0/">Database Contents License</a>.</li>
-<li>Product images are available under the <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">Creative Commons Attribution ShareAlike</a> license. They may contain graphical elements subject to copyright or other rights that may, in some cases, be reproduced (quotation rights or fair use).</li>
+<li><strong>Clear Target Area:</strong> Display a semi-transparent overlay on the camera feed with a clear, rectangular cutout in the center. A laser-like line or crosshairs can help guide the user's aim.</li>
+<li><strong>Helpful Text:</strong> Add a simple instruction like "Center the barcode in the frame."</li>
+<li><strong>Automatic Focus:</strong> Ensure tap-to-focus is enabled, or even better, continuous auto-focus.</li>
 </ul>
+<h4 id="handle-poor-lighting"><strong>🔦 Handle Poor Lighting</strong><a class="headerlink" href="#handle-poor-lighting" title="Permanent link">#</a></h4>
+<p>A significant portion of scan failures happen in poorly lit kitchens or stores.</p>
 <ul>
-<li>Please read the <a href="https://world.openfoodfacts.org/terms-of-use">Terms and conditions of use and reuse</a> before reusing the data.</li>
-<li>Please read our <a href="https://wiki.openfoodfacts.org/ODBL_License">simple summary of the OdBL and our licence on the wiki</a></li>
-<li>Please read our <a href="https://wiki.openfoodfacts.org/ODBL_License">attribution guidelines (how to) on the wiki</a></li>
-<li>Please <a href="https://wiki.openfoodfacts.org/ODBL_non-compliance">check that your app is not in the non-compliance shamelist</a>. If so, please get in touch at <a href="mailto:reuse@openfoodfacts.org">reuse@openfoodfacts.org</a> or on the Slack so that we can fix it together.</li>
-<li>Please read the <a href="https://support.openfoodfacts.org/help/en-gb/12-api">API FAQ</a>, which includes legal questions as well. If your question is not answered, please send it to <a href="mailto:reuse@openfoodfacts.org">reuse@openfoodfacts.org</a></li>
+<li><strong>Manual Torch Button:</strong> Always include an easily accessible button to toggle the device's flashlight.</li>
+<li><strong>(Advanced) Automatic Torch:</strong> You can even use the ambient light sensor to detect low-light conditions and proactively display a message like, "It's dark, want to turn on the light?"</li>
 </ul>
-<h2 id="getting-in-touch">Getting in touch<a class="headerlink" href="#getting-in-touch" title="Permanent link">#</a></h2>
+<h4 id="provide-instant-feedback"><strong>✅ Provide Instant Feedback</strong><a class="headerlink" href="#provide-instant-feedback" title="Permanent link">#</a></h4>
+<p>The user needs immediate confirmation that a scan was successful.</p>
 <ul>
-<li>We like learning what the Open Food Facts data is used for. It is not mandatory, but we would appreciate it if you would <a href="mailto:reuse@openfoodfacts.org">tell us about your use case</a> so that we can share them with the Open Food Facts community.</li>
-<li>You can learn more on the getting in touch with Open Food Facts page of this document, which also covers the technical side.</li>
+<li><strong>Haptic Feedback:</strong> A short vibration is a powerful, non-intrusive signal.</li>
+<li><strong>Auditory Cue:</strong> A quick, pleasant "beep" sound.</li>
+<li><strong>Visual Confirmation:</strong> Briefly freeze the frame or animate the viewfinder box (e.g., it flashes green). Follow this <em>immediately</em> with a loading indicator so the user knows the app is fetching data.</li>
+</ul>
+<h4 id="the-escape-hatch-manual-entry"><strong>✍️ The Escape Hatch: Manual Entry</strong><a class="headerlink" href="#the-escape-hatch-manual-entry" title="Permanent link">#</a></h4>
+<p>Sometimes a barcode is damaged, or the camera fails. Always provide a fallback.</p>
+<ul>
+<li>Include a button on the scanner screen labeled <strong>"Enter barcode manually."</strong> This builds user trust and handles edge cases gracefully.</li>
+</ul>
+<hr />
+<h3 id="3-master-the-api-interaction">3. Master the API Interaction<a class="headerlink" href="#3-master-the-api-interaction" title="Permanent link">#</a></h3>
+<p>Once you have a barcode string, you must normalize it before querying the correct database.</p>
+<h4 id="step-31-pre-process-the-barcode-normalization"><strong>✔️ Step 3.1: Pre-process the Barcode (Normalization)</strong><a class="headerlink" href="#step-31-pre-process-the-barcode-normalization" title="Permanent link">#</a></h4>
+<p>Barcode scanners can return codes in various formats (EAN-8, EAN-13, UPC-A, UPC-E). To ensure a match in the database, the Open Food Facts server will normalize the barcode on your behalf. You should not try to normalize barcodes**</p>
+<ol>
+<li><strong>Padding with Zeros:</strong> If the scanned barcode has fewer than 13 digits, the Open Food Facts server will pad it with leading zeros until it reaches 13 digits. For example, <code>12345678</code> (EAN-8) becomes <code>0000012345678</code>.</li>
+<li><strong>Calculate the Check Digit:</strong> to ensure your barcode is valid, you can calculate the check digits (<a href="https://documents.gs1us.org/adobe/assets/deliver/urn:aaid:aem:77c80eac-d4e2-41b1-a80d-97739060e8f4/How-to-Calculate-a-Check-Digit.pdf?_gl=1*5aa50n*_gcl_au*Mzc4MDI0NDUwLjE3NTM3NzYyOTI.">instructions here</a>, you will find the algorithm in many places, including Open Food Facts SDKs, barcode scanning SDKs…). Please note that -sometimes- some producers make up barcodes without knowing about this (to avoid buying barcode ranges), and you may stump on edge cases.</li>
+</ol>
+<h4 id="step-32-choose-the-right-database-endpoint"><strong>🌍 Step 3.2: Choose the Right Database Endpoint</strong><a class="headerlink" href="#step-32-choose-the-right-database-endpoint" title="Permanent link">#</a></h4>
+<p>The Open "Everything" Facts platform uses the same API structure across different domains. Simply change the domain in the URL to query the database you need. You can also make a universal call that will call all 4 databases for an answer, and you can display results however you like, mention you don't support specific data types, and help users add missing products by taking photos.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Project</th>
+<th style="text-align: left;">Domain for API Calls</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Open Food Facts</strong></td>
+<td style="text-align: left;"><code>https://world.openfoodfacts.org</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Open Beauty Facts</strong></td>
+<td style="text-align: left;"><code>https://world.openbeautyfacts.org</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Open Pet Food Facts</strong></td>
+<td style="text-align: left;"><code>https://world.openpetfoodfacts.org</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Open Products Facts</strong></td>
+<td style="text-align: left;"><code>https://world.openproductsfacts.org</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="step-33-make-the-api-call"><strong>📡 Step 3.3: Make the API Call</strong><a class="headerlink" href="#step-33-make-the-api-call" title="Permanent link">#</a></h4>
+<p>Make a simple GET request to the appropriate v2 API endpoint with your normalized barcode:
+<code>GET https://{domain}/api/v2/product/{normalized_barcode}.json</code></p>
+<p><strong>Crucial Best Practice:</strong></p>
+<ul>
+<li><strong>Set a Proper User-Agent:</strong> This is essential for API etiquette. Use the format: <code>User-Agent: MyAppName - Android - Version 2.1 - https://example.com - scan</code></li>
+</ul>
+<h4 id="step-34-handle-the-api-response"><strong>📥 Step 3.4: Handle the API Response</strong><a class="headerlink" href="#step-34-handle-the-api-response" title="Permanent link">#</a></h4>
+<ul>
+<li><strong>Product Found (<code>"status": 1</code>):</strong> The product exists. Parse the <code>"product"</code> object for the data you need (e.g., <code>product_name</code>, <code>image_front_url</code>, <code>nutriments</code>, <code>nutriscore_grade</code>, etc.).</li>
+<li><strong>Product Not Found (<code>"status": 0</code>):</strong> The barcode is valid, but the product isn't in the database.
+    * <strong>Do not show an error!</strong> Display a friendly screen: "Product Not Found."
+    * <strong>🚀 Empower the User:</strong> Add a button: <strong>"Be the first to add this product!"</strong> This can link to the appropriate Open Facts product creation form, turning a dead-end into a powerful contribution.</li>
+<li><strong>Network Errors:</strong> Wrap your API call in a <code>try/catch</code> block to handle connection issues and show a clear error message to the user.</li>
+<li><strong>Server Errors:</strong> Prepare for the case our or your servers are down, and handle those cases gracefully as well.</li>
+</ul>
+<hr />
+<h3 id="4-the-complete-flow-from-start-to-finish">4. The Complete Flow from Start to Finish<a class="headerlink" href="#4-the-complete-flow-from-start-to-finish" title="Permanent link">#</a></h3>
+<ol>
+<li>User taps the "Scan" button in your app.</li>
+<li>The camera view opens instantly with the viewfinder UI and help text.</li>
+<li>The native SDK detects a barcode and returns a string.</li>
+<li>The app gives <strong>immediate feedback</strong> (vibration + sound).</li>
+<li>The app <strong>normalizes the barcode string</strong> (pads with zeros, calculates check digit if necessary).</li>
+<li>A loading spinner is displayed while the app makes the API call to the correct domain (Food, Beauty, etc.) with the normalized barcode and a proper <code>User-Agent</code>.</li>
+<li>The API response is received.
+    * <strong>If found:</strong> The app navigates to a beautifully formatted product page.
+    * <strong>If not found:</strong> The app shows a "Product not found" screen with a call-to-action to add it.
+    * <strong>If network error:</strong> The app shows a "Connection error" message.</li>
+</ol>
+<h3 id="bonus-i-am-doing-a-ai-app-how-can-i-handle-barcodes-as-well">Bonus: I am doing a "AI" app, how can I handle barcodes as well ?<a class="headerlink" href="#bonus-i-am-doing-a-ai-app-how-can-i-handle-barcodes-as-well" title="Permanent link">#</a></h3>
+<ul>
+<li>Add a barcode button beyond your AI viewfinder, that will start the barcode decoder. Benefits of using barcodes: reducing the cost of a query to 0 and a much faster answer.</li>
+<li>Make sure you allow users to send us photos so that the database stays competitive (more comprehensive) compared to purely AI solutions.</li>
 </ul>
 
 
