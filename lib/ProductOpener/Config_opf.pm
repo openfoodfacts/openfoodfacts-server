@@ -46,6 +46,7 @@ BEGIN {
 		$admin_email
 		$producers_email
 
+		$tesseract_ocr_available
 		$google_cloud_vision_api_key
 		$google_cloud_vision_api_url
 
@@ -62,6 +63,7 @@ BEGIN {
 		$rate_limiter_blocking_enabled
 		$facets_kp_url
 		$redis_url
+		$process_global_redis_events
 
 		$mongodb
 		$mongodb_host
@@ -79,6 +81,7 @@ BEGIN {
 
 		%options
 		%server_options
+		%oidc_options
 
 		@product_fields
 		@product_other_fields
@@ -96,6 +99,7 @@ BEGIN {
 		@edit_rules
 
 		$build_cache_repo
+		$serialize_to_json
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -229,6 +233,7 @@ $conf_root = $ProductOpener::Config2::conf_root;
 
 $geolite2_path = $ProductOpener::Config2::geolite2_path;
 
+$tesseract_ocr_available = $ProductOpener::Config2::tesseract_ocr_available;
 $google_cloud_vision_api_key = $ProductOpener::Config2::google_cloud_vision_api_key;
 $google_cloud_vision_api_url = $ProductOpener::Config2::google_cloud_vision_api_url;
 
@@ -246,6 +251,10 @@ $events_url = $ProductOpener::Config2::events_url;
 $events_username = $ProductOpener::Config2::events_username;
 $events_password = $ProductOpener::Config2::events_password;
 
+# Redis is used to push updates to the search server
+$redis_url = $ProductOpener::Config2::redis_url;
+$process_global_redis_events = $ProductOpener::Config2::process_global_redis_events;
+
 # If $rate_limiter_blocking_enabled is set to 1, the rate limiter will block requests
 # by returning a 429 error code instead of a 200 code
 $rate_limiter_blocking_enabled = $ProductOpener::Config2::rate_limiter_blocking_enabled;
@@ -255,6 +264,9 @@ $rate_limiter_blocking_enabled = $ProductOpener::Config2::rate_limiter_blocking_
 %server_options = %ProductOpener::Config2::server_options;
 
 $build_cache_repo = $ProductOpener::Config2::build_cache_repo;
+
+#11901: Remove once production is migrated
+$serialize_to_json = $ProductOpener::Config2::serialize_to_json;
 
 $reference_timezone = 'Europe/Paris';
 

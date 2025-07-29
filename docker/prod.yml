@@ -15,6 +15,10 @@ services:
     restart: always
     networks:
     - webnet
+  redis-listener:
+    restart: always
+    networks:
+    - webnet
   minion:
     restart: always
     networks:

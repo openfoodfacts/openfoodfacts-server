@@ -90,6 +90,7 @@ BEGIN {
 
 		&estimate_nutriscore_2021_milk_percent_from_ingredients
 		&estimate_nutriscore_2023_red_meat_percent_from_ingredients
+		&estimate_added_sugars_percent_from_ingredients
 
 		&has_specific_ingredient_property
 
@@ -100,6 +101,7 @@ BEGIN {
 		&assign_property_to_ingredients
 
 		&get_ingredients_with_property_value
+		&get_ingredients_with_parent
 
 		&detect_rare_crops
 	);    # symbols to export on request
@@ -119,11 +121,11 @@ use ProductOpener::Images qw/extract_text_from_image/;
 use ProductOpener::Lang qw/$lc %Lang lang/;
 use ProductOpener::Units qw/normalize_quantity/;
 use ProductOpener::Food qw/is_fat_oil_nuts_seeds_for_nutrition_score/;
+use ProductOpener::APIProductServices qw/add_product_data_from_external_service/;
 
 use Encode;
 use Clone qw(clone);
 
-use LWP::UserAgent;
 use Encode;
 use JSON::MaybeXS;
 use Log::Any qw($log);
@@ -796,22 +798,17 @@ sub init_additives_classes_regexps() {
 
 if ((keys %labels_regexps) > 0) {exit;}
 
-sub extract_ingredients_from_image ($product_ref, $id, $ocr_engine, $results_ref) {
+sub extract_ingredients_from_image ($product_ref, $image_type, $image_lc, $ocr_engine, $results_ref) {
 
-	my $lc = $product_ref->{lc};
-
-	if ($id =~ /_(\w\w)$/) {
-		$lc = $1;
-	}
-
-	extract_text_from_image($product_ref, $id, "ingredients_text_from_image", $ocr_engine, $results_ref);
+	extract_text_from_image($product_ref, $image_type, $image_lc, "ingredients_text_from_image", $ocr_engine,
+		$results_ref);
 
 	# remove nutrition facts etc.
 	if (($results_ref->{status} == 0) and (defined $results_ref->{ingredients_text_from_image})) {
 
 		$results_ref->{ingredients_text_from_image_orig} = $product_ref->{ingredients_text_from_image};
 		$results_ref->{ingredients_text_from_image}
-			= cut_ingredients_text_for_lang($results_ref->{ingredients_text_from_image}, $lc);
+			= cut_ingredients_text_for_lang($results_ref->{ingredients_text_from_image}, $image_lc);
 	}
 
 	return;
@@ -1216,9 +1213,16 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 				if $log->is_debug();
 		}
 
-		if (($ingredients_lc eq "en") || ($ingredients_lc eq "fr") || ($ingredients_lc eq "sv")) {
+		# Keeping English and French first, since those are (by far) the most common languages OFF is used in/with
+		# Sorting alphabetically after those
+		if (   ($ingredients_lc eq "en")
+			|| ($ingredients_lc eq "fr")
+			|| ($ingredients_lc eq "da")
+			|| ($ingredients_lc eq "sv"))
+		{
 			# Origin of the milk: United Kingdom
 			# Origine du Cacao: Pérou
+			# Oprindelse jalapeño chili: Peru
 			# Ursprung fullkornsrågmjöl: Sverige och Danmark
 			if (match_origin_of_the_ingredient_origin($ingredients_lc, \$text, $matched_ingredient_ref)) {
 				$origins = $matched_ingredient_ref->{origins};
@@ -1355,7 +1359,9 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 		bg => "(?:страна на произход)",
 		cs => "(?:země původu)",
 		ca => "(?:origen)",
+		da => "(?:oprindelse)",
 		es => "(?:origen)",
+		fi => "(?:alkuperä)",
 		fr => "(?:origine (?:de |du |de la |des |de l'))",
 		hr => "(?:zemlja (?:porijekla|podrijetla|porekla)|uzgojeno u)",
 		hu => "(?:származási (?:hely|ország))",
@@ -1484,38 +1490,64 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 								($pass eq "start_and_end") and (
 									# match before or after the ingredient, require a space
 									(
-										#($ingredients_lc =~ /^(en|es|it|fr)$/)
 										(
 											   ($ingredients_lc eq 'ar')
+											or ($ingredients_lc eq 'az')
+											or ($ingredients_lc eq 'be')
 											or ($ingredients_lc eq 'bg')
 											or ($ingredients_lc eq 'bs')
 											or ($ingredients_lc eq 'ca')
 											or ($ingredients_lc eq 'cs')
 											or ($ingredients_lc eq 'el')
 											or ($ingredients_lc eq 'en')
+											or ($ingredients_lc eq 'eo')
 											or ($ingredients_lc eq 'es')
+											or ($ingredients_lc eq 'eu')
+											or ($ingredients_lc eq 'fi')
 											or ($ingredients_lc eq 'fr')
+											or ($ingredients_lc eq 'he')
 											or ($ingredients_lc eq 'hr')
 											or ($ingredients_lc eq 'it')
+											or ($ingredients_lc eq 'lt')
 											or ($ingredients_lc eq 'mk')
 											or ($ingredients_lc eq 'pl')
+											or ($ingredients_lc eq 'pt')
 											or ($ingredients_lc eq 'ro')
+											or ($ingredients_lc eq 'ru')
+											or ($ingredients_lc eq 'sk')
 											or ($ingredients_lc eq 'sl')
 											or ($ingredients_lc eq 'sr')
+											or ($ingredients_lc eq 'tl')
+											or ($ingredients_lc eq 'tr')
+											or ($ingredients_lc eq 'tt')
+											or ($ingredients_lc eq 'uk')
+											or ($ingredients_lc eq 'vi')
 										)
 										and ($new_ingredient =~ /(^($regexp)\b|\b($regexp)$)/i)
 									)
 
-									#  match before or after the ingredient, does not require a space
+									#  match before or after the ingredient, does not require a space, for German (H- for UHT will remove all H letters) handle 'h' separately
 									or (
 										(
-											   ($ingredients_lc eq 'de')
+											   ($ingredients_lc eq 'af')
+											or (($ingredients_lc eq 'de') and ($regexp ne 'h'))
+											or ($ingredients_lc eq 'et')
+											or ($ingredients_lc eq 'fi')
 											or ($ingredients_lc eq 'hu')
+											or ($ingredients_lc eq 'is')
 											or ($ingredients_lc eq 'ja')
+											or ($ingredients_lc eq 'ko')
+											or ($ingredients_lc eq 'lv')
 											or ($ingredients_lc eq 'nl')
+											or ($ingredients_lc eq 'sv')
+											or ($ingredients_lc eq 'th')
+											or ($ingredients_lc eq 'zh')
 										)
 										and ($new_ingredient =~ /(^($regexp)|($regexp)$)/i)
 									)
+									or (    ($ingredients_lc eq 'de')
+										and ($regexp eq 'h')
+										and ($new_ingredient =~ /(^($regexp))/i))
 
 									# match after the ingredient, does not require a space
 									# match before the ingredient, require a space
@@ -1523,6 +1555,7 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 										(
 											   ($ingredients_lc eq 'da')
 											or ($ingredients_lc eq 'fi')
+											or ($ingredients_lc eq 'hu')
 											or ($ingredients_lc eq 'nb')
 											or ($ingredients_lc eq 'no')
 											or ($ingredients_lc eq 'nn')
@@ -1532,7 +1565,20 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 									)
 								)
 							)
-							or (($pass eq "inside") and ($new_ingredient =~ /\b$regexp\b/i))
+							# match inside the ingredient
+							or (
+								($pass eq "inside") and (
+									($new_ingredient =~ /\b$regexp\b/i)
+									# without space before, with space after
+									or (($ingredients_lc eq 'hu') and ($new_ingredient =~ /$regexp\b/i))
+									# without space before, without space after, set a minimal length (H- for UHT in German will remove all H letters)
+									or (    ($ingredients_lc eq 'de')
+										and (length($regexp) >= 3)
+										and ($new_ingredient =~ /-?$regexp-?/i))
+									# with space before, without space after
+									or (($ingredients_lc eq 'fi') and ($new_ingredient =~ /\b$regexp/i))
+								)
+							)
 							)
 						{
 							$new_ingredient = $` . $';
@@ -1549,7 +1595,10 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 
 							$removed_a_processing = 1;
 
-							push @new_processings, $ingredient_processing_regexp_ref->[0];
+							my $processing = $ingredient_processing_regexp_ref->[0];
+							unless (grep {$_ eq $processing} @new_processings) {
+								push @new_processings, $processing;
+							}
 
 							# remove starting or ending " and "
 							# viande traitée en salaison et cuite -> viande et
@@ -2610,9 +2659,6 @@ Text to analyze
 				if (defined $labels_regexps{$ingredients_lc}) {
 					# start with uncomposed labels first, so that we decompose "fair-trade organic" into "fair-trade, organic"
 					foreach my $labelid (reverse @labels) {
-						# Skip processing if the labelid is "organic"
-						next if $labelid eq "en:natural-flavors";
-
 						my $regexp = $labels_regexps{$ingredients_lc}{$labelid};
 						#$debug_ingredients and $log->trace("checking labels regexps",
 						#	{ingredient => $ingredient, labelid => $labelid, regexp => $regexp})
@@ -3392,7 +3438,7 @@ and to compute the resulting value for the complete product
 
 =cut
 
-sub extract_ingredients_from_text ($product_ref) {
+sub extract_ingredients_from_text ($product_ref, $services_ref = {}) {
 
 	delete $product_ref->{ingredients_percent_analysis};
 
@@ -3430,7 +3476,29 @@ sub extract_ingredients_from_text ($product_ref) {
 		extend_ingredients_service($product_ref, {}, []);
 
 		# Compute minimum and maximum percent ranges and percent estimates for each ingredient and sub ingredient
-		estimate_ingredients_percent_service($product_ref, {}, []);
+
+		# We can be passed an external percent estimate service to call in $services_ref
+		if (    (defined $services_ref->{estimate_ingredients_percent})
+			and ($services_ref->{estimate_ingredients_percent} eq "recipe_estimator_glop"))
+		{
+			# Use the recipe estimator service
+			my $services_url = $recipe_estimator_url;
+			my $services_ref = undef;
+			my $request_ref = {};
+			add_product_data_from_external_service({$request_ref}, $product_ref, $services_url, $services_ref, undef);
+		}
+		elsif ( (defined $services_ref->{estimate_ingredients_percent})
+			and ($services_ref->{estimate_ingredients_percent} eq "recipe_estimator_scipy"))
+		{
+			# Use the recipe estimator service
+			my $services_url = $recipe_estimator_scipy_url;
+			my $services_ref = undef;
+			my $request_ref = {};
+			add_product_data_from_external_service($request_ref, $product_ref, $services_url, $services_ref, undef);
+		}
+		else {
+			estimate_ingredients_percent_service($product_ref, {}, []);
+		}
 
 		estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients($product_ref);
 		estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients($product_ref);
@@ -8570,6 +8638,24 @@ Returns a list of ingredients that have a specific property value.
 
 =cut
 
+=head2 estimate_added_sugars_percent_from_ingredients ($product_ref)
+
+This function analyzes the ingredients to estimate the percentage of added sugars in a product.
+
+=cut
+
+sub estimate_added_sugars_percent_from_ingredients ($product_ref) {
+
+	return estimate_ingredients_matching_function(
+		$product_ref,
+		sub {
+			my ($ingredient_id, $processing) = @_;
+			return is_a("ingredients", $ingredient_id, "en:added-sugar");
+		},
+		#"added-sugars-estimate-from-ingredients"
+	);
+}
+
 sub get_ingredients_with_property_value ($ingredients_ref, $property, $value) {
 
 	my @matching_ingredients = ();
@@ -8585,6 +8671,30 @@ sub get_ingredients_with_property_value ($ingredients_ref, $property, $value) {
 		if (defined $ingredient_ref->{ingredients}) {
 			push @matching_ingredients,
 				get_ingredients_with_property_value($ingredient_ref->{ingredients}, $property, $value);
+		}
+	}
+
+	return @matching_ingredients;
+}
+
+=head2 sub get_ingredients_with_parent ($ingredients_ref, $property, $value)
+
+Returns a list of ingredients that have a specific parent.
+
+=cut
+
+sub get_ingredients_with_parent ($ingredients_ref, $parent) {
+
+	my @matching_ingredients = ();
+
+	foreach my $ingredient_ref (@{$ingredients_ref}) {
+
+		if (is_a("ingredients", $ingredient_ref->{id}, $parent)) {
+			push @matching_ingredients, $ingredient_ref->{id};
+		}
+
+		if (defined $ingredient_ref->{ingredients}) {
+			push @matching_ingredients, get_ingredients_with_parent($ingredient_ref->{ingredients}, $parent);
 		}
 	}
 

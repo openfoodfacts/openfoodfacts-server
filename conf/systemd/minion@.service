@@ -1,4 +1,4 @@
-# service instance name "%i" is off or off-pro
+# service instance name "%i" is off, obf, opf, opff or off-pro
 [Unit]
 Description=%i minion workers
 After=postgresql.service

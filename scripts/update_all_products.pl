@@ -60,7 +60,7 @@ TXT
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
-use ProductOpener::Store qw/retrieve store/;
+use ProductOpener::Store qw/retrieve_object store_object/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -627,7 +627,7 @@ while (my $product_ref = $cursor->next) {
 
 			my $rev = $product_ref->{rev} - 1;
 			while ($rev >= 1) {
-				my $rev_product_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/$rev.sto");
+				my $rev_product_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/$rev");
 				if ((defined $rev_product_ref) and (defined $rev_product_ref->{ingredients_text_es})) {
 					my $rindex = rindex($rev_product_ref->{ingredients_text_es}, $current_ingredients);
 
@@ -764,7 +764,7 @@ while (my $product_ref = $cursor->next) {
 
 		if ($fix_rev_not_incremented) {    # https://github.com/openfoodfacts/openfoodfacts-server/issues/2321
 
-			my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
+			my $changes_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/changes");
 			if (defined $changes_ref) {
 				my $change_ref = $changes_ref->[-1];
 				my $last_rev = $change_ref->{rev};
@@ -777,7 +777,7 @@ while (my $product_ref = $cursor->next) {
 					my $blame_ref = {};
 					compute_product_history_and_completeness($data_root, $product_ref, $changes_ref, $blame_ref);
 					compute_data_sources($product_ref, $changes_ref);
-					store("$BASE_DIRS{PRODUCTS}/$path/changes.sto", $changes_ref);
+					store_object("$BASE_DIRS{PRODUCTS}/$path/changes", $changes_ref);
 				}
 				else {
 					next;
@@ -790,7 +790,7 @@ while (my $product_ref = $cursor->next) {
 
 		if ($fix_last_modified_t) {
 			# https://github.com/openfoodfacts/openfoodfacts-server/pull/9646#issuecomment-1892160060
-			my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
+			my $changes_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/changes");
 			if (defined $changes_ref) {
 				my $change_ref = $changes_ref->[-1];
 				my $change_last_modified_t = $change_ref->{t};
@@ -1043,42 +1043,80 @@ while (my $product_ref = $cursor->next) {
 		}
 
 		if ($autorotate) {
+			# This is old code
+			die("autorotate has not been tested recently, please test it before using it");
+
 			# OCR needs to have been run first
-			if (defined $product_ref->{images}) {
-				foreach my $imgid (sort keys %{$product_ref->{images}}) {
-					if (
-							($imgid =~ /^(ingredients|nutrition)_/)
-						and (defined $product_ref->{images}{$imgid}{orientation})
-						and ($product_ref->{images}{$imgid}{orientation} != 0)
-						# only rotate images that have not been manually cropped
-						and (  (not defined $product_ref->{images}{$imgid}{x1})
-							or ($product_ref->{images}{$imgid}{x1} <= 0))
-						and (  (not defined $product_ref->{images}{$imgid}{y1})
-							or ($product_ref->{images}{$imgid}{y1} <= 0))
-						and (  (not defined $product_ref->{images}{$imgid}{x2})
-							or ($product_ref->{images}{$imgid}{x2} <= 0))
-						and (  (not defined $product_ref->{images}{$imgid}{y2})
-							or ($product_ref->{images}{$imgid}{y2} <= 0))
-						)
-					{
-						print STDERR "rotating image $imgid by "
-							. (-$product_ref->{images}{$imgid}{orientation}) . "\n";
+			if ((defined $product_ref->{images}) and (defined $product_ref->{images}{selected})) {
+				foreach my $image_type (sort keys %{$product_ref->{images}{selected}}) {
+					if ($image_type =~ /^(ingredients|nutrition)/) {
+						foreach my $image_lc (sort keys %{$product_ref->{images}{selected}{$image_type}}) {
+							if (
+									(defined $product_ref->{images}{selected}{$image_type}{$image_lc}{orientation})
+								and ($product_ref->{images}{selected}{$image_type}{$image_lc} != 0)
+								# only rotate images that have not been manually cropped
+								and (
+									(
+										not
+										defined $product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{x1}
+									)
+									or ($product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{x1} <= 0)
+								)
+								and (
+									(
+										not
+										defined $product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{y1}
+									)
+									or ($product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{y1} <= 0)
+								)
+								and (
+									(
+										not
+										defined $product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{x2}
+									)
+									or ($product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{x2} <= 0)
+								)
+								and (
+									(
+										not
+										defined $product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{y2}
+									)
+									or ($product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{y2} <= 0)
+								)
+								)
+							{
+								print STDERR "rotating image $image_type $image_lc by "
+									. (
+									-$product_ref->$product_ref->{images}{selected}{$image_type}{$image_lc}{generation}
+										{orientation}) . "\n";
 
-						# Save product so that OCR results now:
-						# autorotate may call image_process_crop which will read the product file on disk and
-						# write a new one
-						store("$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref);
+								# Save product so that OCR results now:
+								# autorotate may call image_process_crop which will read the product file on disk and
+								# write a new one
+								store_object("$BASE_DIRS{PRODUCTS}/$path/product", $product_ref);
 
-						eval {
+								eval {
 
-							# process_image_crops saves a new version of the product
-							$product_ref = process_image_crop(
-								"autorotate-bot", $code, $imgid,
-								$product_ref->{images}{$imgid}{imgid},
-								-$product_ref->{images}{$imgid}{orientation},
-								undef, undef, -1, -1, -1, -1, "full"
-							);
-						};
+									# process_image_crops saves a new version of the product
+									$product_ref = process_image_crop(
+										"autorotate-bot",
+										$product_ref,
+										$image_type,
+										$image_lc,
+										$product_ref->{images}{selected}{$image_type}{$image_lc}{imgid},
+										-$product_ref->{images}{selected}{$image_type}{$image_lc}{generation}
+											{orientation},
+										undef,
+										undef,
+										-1,
+										-1,
+										-1,
+										-1,
+										"full"
+									);
+								};
+							}
+						}
 					}
 				}
 			}
@@ -1149,7 +1187,7 @@ while (my $product_ref = $cursor->next) {
 		}
 
 		if ($compute_data_sources) {
-			my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
+			my $changes_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/changes");
 			if (not defined $changes_ref) {
 				$changes_ref = [];
 			}
@@ -1216,7 +1254,7 @@ while (my $product_ref = $cursor->next) {
 		if ($fix_yuka_salt) {    # https://github.com/openfoodfacts/openfoodfacts-server/issues/2945
 			my $blame_ref = {};
 
-			my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
+			my $changes_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/changes");
 			compute_product_history_and_completeness($data_root, $product_ref, $changes_ref, $blame_ref);
 
 			if (
@@ -1328,18 +1366,18 @@ while (my $product_ref = $cursor->next) {
 		}
 
 		if (($compute_history) or ((defined $User_id) and ($User_id ne '') and ($product_values_changed))) {
-			my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
+			my $changes_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/changes");
 			if (not defined $changes_ref) {
 				$changes_ref = [];
 			}
 			my $blame_ref = {};
 			compute_product_history_and_completeness($data_root, $product_ref, $changes_ref, $blame_ref);
 			compute_data_sources($product_ref, $changes_ref);
-			store("$BASE_DIRS{PRODUCTS}/$path/changes.sto", $changes_ref);
+			store_object("$BASE_DIRS{PRODUCTS}/$path/changes", $changes_ref);
 		}
 
 		if ($restore_values_deleted_by_user) {
-			my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
+			my $changes_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/changes");
 			if (not defined $changes_ref) {
 				$changes_ref = [];
 			}
@@ -1357,7 +1395,7 @@ while (my $product_ref = $cursor->next) {
 					$rev = $revs;    # was not set before June 2012
 				}
 
-				my $rev_product_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/$rev.sto");
+				my $rev_product_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/$rev");
 
 				if (defined $rev_product_ref) {
 
@@ -1494,7 +1532,7 @@ while (my $product_ref = $cursor->next) {
 
 				if (!$mongodb_to_mongodb) {
 					# Store data to .sto file
-					store("$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref);
+					store_object("$BASE_DIRS{PRODUCTS}/$path/product", $product_ref);
 				}
 
 				# Store data to mongodb
