@@ -1,5 +1,23 @@
 # Changelog
 
+## [2.74.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.73.1...v2.74.0) (2025-07-30)
+
+
+### Features
+
+* add panel to identify added sugars ([#12169](https://github.com/openfoodfacts/openfoodfacts-server/issues/12169)) ([c7a9562](https://github.com/openfoodfacts/openfoodfacts-server/commit/c7a956251ab9caebcbbe808a58e4e8d3581672bf))
+* Implement Keycloak for Staging ([#12147](https://github.com/openfoodfacts/openfoodfacts-server/issues/12147)) ([3e0999a](https://github.com/openfoodfacts/openfoodfacts-server/commit/3e0999a9cefebfe3e2cced77f1c9794552ebdef3))
+
+
+### Bug Fixes
+
+* export images on pro platform ([#12178](https://github.com/openfoodfacts/openfoodfacts-server/issues/12178)) ([c6d1ace](https://github.com/openfoodfacts/openfoodfacts-server/commit/c6d1aceeddd99930c41f938b30c75472545146dc))
+* new id for Ecobalyse transform ([#12144](https://github.com/openfoodfacts/openfoodfacts-server/issues/12144)) ([2043a37](https://github.com/openfoodfacts/openfoodfacts-server/commit/2043a37a564897afb36c063947b99ccd71955579))
+* obf, opf, opff social media logos ([#12184](https://github.com/openfoodfacts/openfoodfacts-server/issues/12184)) ([c05bff0](https://github.com/openfoodfacts/openfoodfacts-server/commit/c05bff00a5b6bb054e3e9af7881ea0e107236d35))
+* remove improvements for nutriscore 2021 ([#12176](https://github.com/openfoodfacts/openfoodfacts-server/issues/12176)) ([49e7e88](https://github.com/openfoodfacts/openfoodfacts-server/commit/49e7e88e5b2572eaf9841af683fe66d45c4c6208)), closes [#12172](https://github.com/openfoodfacts/openfoodfacts-server/issues/12172)
+* response schema for GET /api/v3/product/[barcode] ([#12177](https://github.com/openfoodfacts/openfoodfacts-server/issues/12177)) ([2903ace](https://github.com/openfoodfacts/openfoodfacts-server/commit/2903acedac6b8656cdb9f827a734ad42a6131f2b))
+* Update off.locations-redirects.include to get the proper press p… ([#12035](https://github.com/openfoodfacts/openfoodfacts-server/issues/12035)) ([2d85cdc](https://github.com/openfoodfacts/openfoodfacts-server/commit/2d85cdc5f9a203f2ccf03a243b9ee416101dafc5))
+
 ## [2.73.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.73.0...v2.73.1) (2025-07-16)
 
 
