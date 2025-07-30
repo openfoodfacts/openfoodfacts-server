@@ -103,11 +103,8 @@ If you regenerate test results, be sure to check carefully that the changes in y
 
 ### Github action helper
 
-If your branch was created from the main repository, you can trigger a special action from your pull request by issuing a comment containing only `/update_tests_results`.
-This will trigger a special action that will run regenerate tests results using github CI, and will commit the changes to your branch.
-
-Please be sure to review the changes before merging the branch.
-
+You can trigger an update of tests results using a special comment on your PR.
+See [How to use automated PR actions - updating tests-results](./how-to-use-automated-pr-actions.md#updating-tests-results)
 
 ## Debugging with tests
 
