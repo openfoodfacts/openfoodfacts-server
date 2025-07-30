@@ -179,7 +179,7 @@ $flavor = "opff";
 %options = (
 	site_name => "Open Pet Food Facts",
 	product_type => "petfood",
-	og_image_url => "https://world.openpetfoodfacts.org/images/misc/openpetfoodfacts-logo-en.png",
+	og_image_url => "https://static.openfoodfacts.org/images/logos/opff-logo-vertical-white-social-media-preview.png",
 	#android_apk_app_link => "https://world.openbeautyfacts.org/images/apps/obf.apk",
 	#android_app_link => "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&utm_source=opff&utf_medium=web",
 	#ios_app_link => "https://apps.apple.com/app/open-beauty-facts/id1122926380?utm_source=opff&utf_medium=web",
