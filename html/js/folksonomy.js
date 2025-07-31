@@ -124,7 +124,8 @@ function folskonomy_engine_init() {
 
     if (pageType === "property") {
         // detect /property/test or /property/test/value/test_value
-        const results = new RegExp("/property/([^/]*)(/value/)?(.*)").exec(
+        // we capture a value without / and quotes (to avoid html injection)
+        const results = new RegExp("/property/([^"'/]*)(/value/)?(.*)").exec(
           window.location.href
         );
         if (results === null) {
