@@ -12,17 +12,6 @@ If you are new to tests, please read:
 - [Test::More module doc](https://perldoc.perl.org/Test::More)
 
 
-## Helpers
-
-We have some helper functions for tests.
-
-See mainly:
-* [Test.pm](https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Test.html) (notably `init_expected_results` and `compare_to_expected_results`)
-* [APITest.pm](https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/APITest.html)
-
-and other modules with Test in their name!
-
-
 ## Unit and Integration tests
 
 Unit tests are located in `tests/unit/`.
@@ -30,6 +19,10 @@ Unit tests are located in `tests/unit/`.
 Integration tests are in `tests/integration/`.
 
 Most integration tests issue queries to an open food facts
+
+For some tests, we store expected results in form of HTML and JSON files (and some other formats like CSV).
+See below on how you can use this mechanism and how to regenerate those files in case your modification affect them
+(for example if you change the HTML of product pages).
 
 ## Integration with docker compose
 
@@ -42,6 +35,17 @@ Using Makefile targets, tests are run
 You can read other tests to understand how we write them (get inspiration from recently created tests).
 
 One effective way is to create a list of tests each represented by a hashmap with inputs and expected outputs and run them in a loop. Add an `id` and/or a `desc` (description) and use it as last argument to check functions (like `ok`, `is`, …) to easily see tests running and identify failing tests.
+
+### Helpers
+
+We have some helper functions for tests.
+
+See mainly:
+* [Test.pm](https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Test.html) (notably `init_expected_results` and `compare_to_expected_results`)
+* [APITest.pm](https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/APITest.html)
+
+and other modules with Test in their name!
+
 
 ### Using JSON files to save expected results of tests
 
@@ -78,6 +82,7 @@ To run a single test you can use:
    ```bash
    make test-int test="filename.t"
    ```
+## Regenerating tests results
 
 If you made a change that affects stored expected results, you can use:
 
@@ -96,6 +101,10 @@ If you regenerate test results, be sure to check carefully that the changes in y
 
 **NOTE:** When making changes to language files (.pot, .po), make sure to run `make build_lang_test` so that the language files are rebuild in the test environment, before regenerating expected results for integration tests.
 
+### Github action helper
+
+You can trigger an update of tests results using a special comment on your PR.
+See [How to use automated PR actions - updating tests-results](./how-to-use-automated-pr-actions.md#updating-tests-results)
 
 ## Debugging with tests
 
