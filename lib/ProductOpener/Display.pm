@@ -7948,9 +7948,8 @@ JS
 	$template_data_ref->{front_image} = data_to_display_image($product_ref, "front", $lc);
 
 	# Take the imgid from the front image, from website language or the product language if it doesn't exist
-	$template_data_ref->{imgid} = $product_ref->{images}{"$template_data_ref->{front_image}{type}_$lc"}{imgid}
-		|| $product_ref->{images}{"$template_data_ref->{front_image}{type}_$product_ref->{lc}"}{imgid};
-
+	$template_data_ref->{imgid} = $product_ref->{images}{selected}{$template_data_ref->{front_image}{type}}{$lc}{imgid}
+		|| $product_ref->{images}{selected}{$template_data_ref->{front_image}{type}}{$product_ref->{lc}}{imgid};
 	# On the producers platform, show a link to the public platform
 
 	if ($server_options{producers_platform}) {
