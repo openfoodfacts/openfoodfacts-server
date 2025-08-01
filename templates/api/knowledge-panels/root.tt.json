@@ -25,7 +25,7 @@
                 "panel_id": "secondhand_card",
             },
         },
-        [% END %]        
+        [% END %]       
         [% IF panel.has_report_problem_card %]
         {
             "element_type": "panel",
@@ -41,6 +41,14 @@
                     "panel_id": "contribution_card",
                 },
             },
+        [% END %]
+        [% IF panel.has_product_card %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "product_card",
+            },
+        },
         [% END %]
     ],
 }
