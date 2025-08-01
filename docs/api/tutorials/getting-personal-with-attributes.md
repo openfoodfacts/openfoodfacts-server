@@ -44,7 +44,7 @@ Avoid hardcoding. Future-proof your app.
 
 ---
 
-## 🚀 3. Step-by-Step Guide
+## 🚀 Step-by-Step Guide
 
 ---
 
