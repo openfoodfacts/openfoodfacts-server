@@ -171,6 +171,7 @@ use ProductOpener::ProductsFeatures qw(feature_enabled);
 use ProductOpener::RequestStats qw(:all);
 use ProductOpener::PackagingFoodContact qw/determine_food_contact_of_packaging_components_service/;
 use ProductOpener::Auth qw/get_oidc_implementation_level/;
+use ProductOpener::ConfigEnv qw/:all/;
 
 use Encode;
 use URI::Escape::XS qw/uri_escape/;
@@ -7947,6 +7948,9 @@ JS
 	# that are displayed directly through the knowledge panels
 	$template_data_ref->{front_image} = data_to_display_image($product_ref, "front", $lc);
 
+	# Take the imgid from the front image, from website language or the product language if it doesn't exist
+	$template_data_ref->{imgid} = $product_ref->{images}{selected}{$template_data_ref->{front_image}{type}}{$lc}{imgid}
+		|| $product_ref->{images}{selected}{$template_data_ref->{front_image}{type}}{$product_ref->{lc}}{imgid};
 	# On the producers platform, show a link to the public platform
 
 	if ($server_options{producers_platform}) {
@@ -8566,6 +8570,7 @@ display_product_summary("#product_summary", product);
 JS
 			;
 	}
+	$template_data_ref->{nutripatrol_url} = $nutripatrol_url;
 
 	my $html_display_product;
 	process_template('web/pages/product/product_page.tt.html', $template_data_ref, \$html_display_product, $request_ref)

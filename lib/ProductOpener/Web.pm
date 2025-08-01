@@ -48,6 +48,7 @@ use ProductOpener::Users qw(:all);
 use ProductOpener::Orgs qw(:all);
 use ProductOpener::Lang qw($lc @Langs lang);
 use ProductOpener::Images qw(:all);
+use ProductOpener::ConfigEnv qw/:all/;
 
 use Template;
 use Log::Log4perl;
@@ -285,6 +286,7 @@ sub display_knowledge_panel ($product_ref, $panels_ref, $panel_id) {
 		product => $product_ref,
 		panels => $panels_ref,
 		panel_id => $panel_id,
+		nutripatrol_url => $nutripatrol_url,
 	};
 
 	process_template('web/panels/panel.tt.html', $template_data_ref, \$html)
