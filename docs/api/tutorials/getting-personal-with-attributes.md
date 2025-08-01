@@ -7,7 +7,7 @@ Leverage the Open Food Facts API to dynamically personalize product recommendati
 
 ---
 
-## 🧠 1. Core Concepts
+## Core Concepts
 
 ### What are Product Attributes?
 
