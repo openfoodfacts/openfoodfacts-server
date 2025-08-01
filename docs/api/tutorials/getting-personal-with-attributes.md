@@ -3,7 +3,7 @@
 # 🎯 Tutorial: Personalizing Product Matching with Open Food Facts Attributes API
 
 **Objective:**
-Leverage the Open Food Facts API to dynamically personalize product recommendations based on user preferences using `attributes` and `attribute_groups`, avoiding hardcoding logic.
+Leverage the Open Food Facts API to dynamically personalize product recommendations based on user preferences using `attributes` and `attribute_groups`, avoiding hardcoding logic, and preserving user privacy
 
 ---
 
