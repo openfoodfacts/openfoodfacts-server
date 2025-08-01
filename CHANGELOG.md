@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.75.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.74.0...v2.75.0) (2025-08-01)
+
+
+### Features
+
+* adds new folksonomy-editor web component to product page ([#12136](https://github.com/openfoodfacts/openfoodfacts-server/issues/12136)) ([5f5c8b9](https://github.com/openfoodfacts/openfoodfacts-server/commit/5f5c8b960b9ad919b4ebdafdc978d90b4fe1ea12))
+
+
+### Bug Fixes
+
+* recipe_estimator_url variable for obf, opf, opff ([#12191](https://github.com/openfoodfacts/openfoodfacts-server/issues/12191)) ([bf45273](https://github.com/openfoodfacts/openfoodfacts-server/commit/bf452735dacd9eacfd8db22c237e140bf52cd159))
+* split bottom_content and add lilo only for fr ([#11917](https://github.com/openfoodfacts/openfoodfacts-server/issues/11917)) ([3e453ce](https://github.com/openfoodfacts/openfoodfacts-server/commit/3e453cee1ef8bbbbeec7367c042072101ce06db5))
+
 ## [2.74.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.73.1...v2.74.0) (2025-07-30)
 
 
