@@ -17,7 +17,7 @@ Product attributes describe key characteristics and compliance information about
 * `nova-group`
 * `labels` (e.g. "organic", "fair-trade")
 * `ingredients_analysis` (e.g. "palm-oil-free", "vegan")
-* allergens
+* `allergens`
 
 Note: We have experimental yet limited support for cosmetics, pet food and other products.
 
