@@ -360,10 +360,6 @@ msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
 msgstr "Manual de administração de produtores"
 
-msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://world-pt.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Fazer um donativo ao Open Food Facts\" /></a><p><<site_name>> é um projeto gerido por uma associação sem fins lucrativos, independente da indústria. É feito para todos, por todos e é financiado por todos. Pode apoiar o nosso trabalho <a href=\"https://world-pt.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">fazendo um donativo ao Open Food Facts</a> e também <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">utilizando o motor de pesquisa Lilo</a>.<br/><b>Obrigado!</b></p>"
-
 msgctxt "bottom_title"
 msgid "Donate to support our work"
 msgstr "Faça um donativo para apoiar o nosso trabalho"
@@ -7507,6 +7503,18 @@ msgstr "Agricultura biológica e comércio justo"
 msgctxt "action_report_image_to_nutripatrol"
 msgid "Report this image to our moderators"
 msgstr "Denunciar esta imagem aos nossos moderadores"
+
+msgctxt "bottom_content_split"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> é feito por uma associação sem fins lucrativos, independente da indústria. É feito para todos, por todos e financiado por todos. Pode apoiar o nosso trabalho doando para o Open Food Facts.<br/><b>Obrigado!</b>"
+
+msgctxt "bottom_content_split_with_lilo"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> é feito por uma associação sem fins lucrativos, independente da indústria. É feito para todos, por todos e é financiado por todos. Pode apoiar o nosso trabalho doando para o Open Food Facts e também utilizando o motor de busca Lilo.<br/><b>Obrigado!</b>"
+
+msgctxt "lilo_search_engine"
+msgid "Lilo search engine"
+msgstr "Motor de busca Lilo"
 
 msgctxt "robots_not_served_here"
 msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
