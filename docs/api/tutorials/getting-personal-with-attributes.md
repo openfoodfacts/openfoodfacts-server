@@ -36,7 +36,7 @@ Avoid hardcoding. Future-proof your app.
 
 ---
 
-## ⚙️ 2. Prerequisites
+## Prerequisites
 
 * REST client (Postman, curl, JS/TS, Python requests, etc.)
 * Basic understanding of JSON and REST APIs
