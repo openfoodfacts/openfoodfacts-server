@@ -53168,7 +53168,11 @@ wikidata:en: Q81
 wikipedia:en: https://en.wikipedia.org/wiki/Carrot
 
 < en:carrot
+fr: carotte nantaise, carottes nantaises
 es: Zanahorias de la variedad Nantesa
+
+< en:carrot
+fr: carotte parisienne, carotte de Paris, carotte ronde de Paris, carottes parisiennes, carottes de Paris, carottes rondes de Paris
 
 < en:carrot
 en: dried carrot
@@ -59676,12 +59680,14 @@ vegetarian:en: yes
 wikidata:en: Q3377275
 #3142 in 20 @2021-10-05
 
+# in French, distinction between "petits pois", "petits poids doux" and "garden peas": https://www.ctcpa.org/wp-content/uploads/2021/10/Decision-petits-pois-surgeles-110920191.pdf
+
 < en:green peas
-en: garden peas, sweet peas
+en: garden peas, English peas
 de: Markerbsen, Gartenerbsen, Markerbsenschoten
 es: guisantes de jardín
 fi: tarhaherne, tarhaherneet
-fr: petits pois, petit pois, pois doux
+fr: petits pois, petit pois
 hr: vrtni grašak
 it: pisellini
 la: Pisum sativum L. subsp. sativum var. sativum
@@ -59713,16 +59719,23 @@ it: piselli extra fini
 nl: extra fijne doperwten, erwten zeer fijn
 
 < en:garden peas
-fr: petits pois doux
+en: sweet peas
+fr: petits pois doux, petit pois doux, pois doux
 it: pisello dolce
 nl: zoete doperwten
 sv: söta ärtor
 # ingredient/fr:petits-pois-doux has 38 products in 3 languages @2019-02-07
 
 < fr:petits pois doux
-fr: petits pois doux extra fins, petits pois doux extra-fins
+en: extra fine sweat peas
+fr: petits pois doux extra fins, petits pois doux extra-fins, petits pois doux très fins
 it: piselli dolci finissimi
 sv: extra fina söta ärtor
+
+# in French, garden peas are larger peas: https://www.ctcpa.org/wp-content/uploads/2021/10/Decision-petits-pois-surgeles-110920191.pdf
+< en: garden peas
+en: large garden peas
+fr: garden peas, garden peas petits, garden peas medium, garden peas gros, gros pois, grois pois à saveur sucrée
 
 < en:garden peas
 de: Junge Markerbsen
