@@ -360,10 +360,6 @@ msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
 msgstr "生産者管理マニュアル"
 
-msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> は、業界から独立した非営利団体によって作成されています。すべてのために、すべてによって作られ、すべてによって資金提供されています。 <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">Open Food Facts</a> に寄付することで、また <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">Lilo 検索エンジンを使用して</a>、私たちの活動を支援することができます。<br/><b>ありがとうございます！</b></p>"
-
 msgctxt "bottom_title"
 msgid "Donate to support our work"
 msgstr "活動を支援するために寄付する"
@@ -7508,6 +7504,18 @@ msgstr "有機農業とフェアトレード"
 msgctxt "action_report_image_to_nutripatrol"
 msgid "Report this image to our moderators"
 msgstr "この画像をモデレーターに報告してください"
+
+msgctxt "bottom_content_split"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+msgstr "<<site_name>>は、業界から独立した非営利団体によって作られています。すべての人のために、すべての人によって、そしてすべての人の資金によって作られています。Open Food Factsへの寄付で、私たちの活動を支援していただけます。<br/><b>ありがとうございます！</b>"
+
+msgctxt "bottom_content_split_with_lilo"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+msgstr "<<site_name>>は、業界から独立した非営利団体によって作成されています。すべての人のために、すべての人によって、そしてすべての人の資金によって作られています。Open Food Factsへの寄付やLilo検索エンジンのご利用で、私たちの活動を支援していただけます。<br/><b>ありがとうございます！</b>"
+
+msgctxt "lilo_search_engine"
+msgid "Lilo search engine"
+msgstr "Lilo検索エンジン"
 
 msgctxt "robots_not_served_here"
 msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
