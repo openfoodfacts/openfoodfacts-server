@@ -359,10 +359,6 @@ msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
 msgstr "프로듀서 관리자 매뉴얼"
 
-msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
-
 msgctxt "bottom_title"
 msgid "Donate to support our work"
 msgstr "저희가 하는 일을 돕고 싶다면 기부해주세요"
@@ -7507,6 +7503,18 @@ msgstr "유기농업과 공정무역"
 msgctxt "action_report_image_to_nutripatrol"
 msgid "Report this image to our moderators"
 msgstr "이 이미지를 관리자에게 신고하세요"
+
+msgctxt "bottom_content_split"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+msgstr "<<site_name>>는 업계와 무관한 비영리 협회에서 제작합니다. 모두를 위해, 모두에 의해, 그리고 모두의 후원으로 제작됩니다. Open Food Facts에 기부하여 저희 활동을 지원해 주세요.<br/><b>감사합니다!</b>"
+
+msgctxt "bottom_content_split_with_lilo"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+msgstr "<<site_name>>는 업계와 무관한 비영리 협회에서 제작했습니다. 모두를 위해, 모두에 의해, 그리고 모두의 후원으로 만들어졌습니다. Open Food Facts에 기부하시거나 Lilo 검색 엔진을 이용하셔서 저희 활동을 지원해 주세요.<br/><b>감사합니다!</b>"
+
+msgctxt "lilo_search_engine"
+msgid "Lilo search engine"
+msgstr "릴로 검색 엔진"
 
 msgctxt "robots_not_served_here"
 msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
