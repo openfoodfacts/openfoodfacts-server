@@ -360,10 +360,6 @@ msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
 msgstr "Gyártói Adminisztrátori Kézikönyv"
 
-msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org Az /images/svg/donate-icon.svg\" alt=\"Adományozás az Open Food Facts-nak\" /></a><p>A(z) <<site_name>> egy, az iparágtól független non-profit egyesület által készített adatbázis. Mindenki számára készült, mindenki által, és mindenki finanszírozza. Munkánkat úgy támogathatja, hogy <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">adományoz az Open Food Facts számára</a >, valamint <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">a Lilo keresőmotor használatával</a> is.<br/ ><b>Köszönjük!</b></p>"
-
 msgctxt "bottom_title"
 msgid "Donate to support our work"
 msgstr "Támogasson munkánkat adománnyal"
@@ -7506,6 +7502,18 @@ msgstr "Biogazdálkodás és méltányos kereskedelem"
 msgctxt "action_report_image_to_nutripatrol"
 msgid "Report this image to our moderators"
 msgstr "Jelentsd ezt a képet a moderátorainknak"
+
+msgctxt "bottom_content_split"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+msgstr "A <<site_name>> egy non-profit szervezet készítette, amely független az iparágtól. Mindenkinek, mindenki által készült, és mindenki finanszírozza. Munkánkat az Open Food Factsnak nyújtott adományozással támogathatja.<br/><b>Köszönjük!</b>"
+
+msgctxt "bottom_content_split_with_lilo"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+msgstr "A <<site_name>> oldalt egy non-profit szervezet készítette, amely független az iparágtól. Mindenkinek, mindenki által készült, és mindenki finanszírozza. Munkánkat támogathatod az Open Food Factsnek nyújtott adományoddal, valamint a Lilo keresőmotor használatával.<br/><b>Köszönjük!</b>"
+
+msgctxt "lilo_search_engine"
+msgid "Lilo search engine"
+msgstr "Lilo keresőmotor"
 
 msgctxt "robots_not_served_here"
 msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
