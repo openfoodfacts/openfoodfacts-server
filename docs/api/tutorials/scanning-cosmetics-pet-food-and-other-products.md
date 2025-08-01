@@ -14,41 +14,49 @@
 
 #### Specificities of Open Beauty Facts
 * No nutrition table
-* No Eco-Score, Nutri-Score or NOVA level for ultra-processing
+* No Green-Score, Nutri-Score or NOVA groups for ultra-processing
 
 #### Specificities of Open Pet Food Facts
-* No Eco-Score, Nutri-Score or NOVA level for ultra-processing
+* No Green-Score, Nutri-Score or NOVA groups for ultra-processing
 
 #### Specificities of Open Products Facts
 * No nutrition table
-* No Eco-Score, Nutri-Score or NOVA level for ultra-processing
+* No Green-Score, Nutri-Score or NOVA groups for ultra-processing
 * Most data will be modelled using the [Folksonomy Engine](docs/api/tutorials/folksonomy-engine.md)
 
 ### Important APIs if you want to scan any kind of product (or help your users avoid adding cosmetics by mistake in Open Food Facts)
 
-* We have a universal barcode scanning API, where you scan a barcode, and you get a result from either Open Food Facts, Open Pet Food Facts, Open Beauty Facts or Open Products Facts with a `product_type`, you can use the `product_type=all` parameter. Asked on any instance, it will redirect you to the right instance if a product exists and is on another instance (eg: asking for a beauty barcode on food instance). See [reference documentation](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/product/-barcode-).
+* We have a universal barcode scanning API, where you scan a barcode, and you get a result from either Open Food Facts, Open Pet Food Facts, Open Beauty Facts or Open Products Facts with a `product_type` (beauty ┃ food ┃ petfood ┃ product), you can use the `product_type=all` parameter. Asked on any instance, it will redirect you to the right instance if a product exists and is on another instance (eg: asking for a beauty barcode on food instance). See [reference documentation](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/product/-barcode-).
+* https://world.openfoodfacts.org/api/v2/product/3760044183738?product_type=all (will redirect you to the proper payload on Open Products Facts)
 * If no result is found in any of the 4 databases, you will have to ask the type of product to your users, and use the classic product addition API on the right project.
 * If (it can happen) the product appears on the wrong project, we suggest you use the NutriPatrol API to let your users report it to the moderators, and the proceed to a product addition on the right project. The moderators will then move the existing data to the right project. Eventually, project categorization errors should be infinitesimal.
 
 ### API Roadmap and multi-project behaviour
 * We plan to bring the APIs mentionned above to Open Beauty Facts (Search-a-licious, Knowledge Panels, Open Prices, Robotoff, Folksonomy Engine)
 
-
 ### Sample outputs
 * Please use the Open Food Facts API reference for most operations (data and photo addition, ingredient lists, categories, labels…)
+
+### WRITE Operations
+* You can do WRITE operations on the right server, but normally all servers should forward operations automatically based on the `product_type`
+* For cosmetic, the crucial thing we need is an ingredient photo
+* For pet food, the crucial thing we need is an ingredient photo and a nutrition photo
+* For other products, you should encourage the users to take photos of all angles of the packaging of the product, since variability is high across categories and there's a lot of information.
 
 #### Product in Open Beauty Facts
 * https://world.openbeautyfacts.org/api/v2/product/3560070791460.json
 
-#### Ingredients
-*Very experimental. Do not rely on this for allergen or ingredient parsing yet.*
-##### List of ingredients detected by the current experimental parser
+#### Warning on specific ingredients
+* Note: we'll soon have an elegant way to let your users block ingredients using product attributes.
+
+#### Ingredients on Open Beauty Facts
+##### List of ingredients on Open Beauty Facts
 * https://world.openbeautyfacts.org/ingredients.json
 
-##### Products where the current experimental parser could not detect aluminium salts
+##### Products where we could not detect aluminium salts
 * https://world.openbeautyfacts.org/ingredient/-aluminum-salts.json
 
-##### Products where the current experimental parser could detect aluminium salts
+##### Products where we could detect aluminium salts
 * https://world.openbeautyfacts.org/ingredient/aluminum-salts.json
 
 #### Periods after Opening
