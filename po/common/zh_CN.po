@@ -362,10 +362,6 @@ msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
 msgstr "生产者管理手册"
 
-msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> 由一个独立于行业的非盈利性的协会制定。它服务所有人，也是由所有人贡献而成的。您可以通过<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">向Open Food Facts捐款</a> 以及 <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">使用Lilo 搜索引擎</a>.<br/><b>谢谢！</b></p>"
-
 msgctxt "bottom_title"
 msgid "Donate to support our work"
 msgstr "捐款支持我们的工作"
@@ -7504,6 +7500,18 @@ msgstr "有机农业和公平贸易"
 msgctxt "action_report_image_to_nutripatrol"
 msgid "Report this image to our moderators"
 msgstr "向我们的版主举报此图片"
+
+msgctxt "bottom_content_split"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> 由一个独立于食品行业的非营利协会制作。它由所有人制作，惠及所有人，并由所有人资助。您可以通过向 Open Food Facts 捐款来支持我们的工作。<br/><b>谢谢！</b>"
+
+msgctxt "bottom_content_split_with_lilo"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> 由一个独立于食品行业的非营利协会制作。它为所有人服务，由所有人制作，并由所有人资助。您可以通过向 Open Food Facts 捐款或使用 Lilo 搜索引擎来支持我们的工作。<br/><b>谢谢！</b>"
+
+msgctxt "lilo_search_engine"
+msgid "Lilo search engine"
+msgstr "Lilo搜索引擎"
 
 msgctxt "robots_not_served_here"
 msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
