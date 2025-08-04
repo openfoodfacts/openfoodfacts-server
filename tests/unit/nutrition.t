@@ -524,6 +524,30 @@ my @tests = (
 		}
 	],
 	[
+		# Generated set should keep unit if it is standard unit
+		"keep_standard_unit",
+		{
+			nutrition => {
+				nutrient_sets => [
+					{
+						preparation => "as_sold",
+						per => "100g",
+						per_quantity => "100",
+						per_unit => "g",
+						source => "packaging",
+						nutrients => {
+							"energy-kj" => {
+								value_string => "30",
+								value => 30,
+								unit => "kj",
+							}
+						}
+					}
+				]
+			}
+		}
+	],
+	[
 		# Generated set should have converted per when different per in nutrients given nutrient with most priority with per in 100g/ml
 		"convert_per_nutrients_when_wanted_per_100g",
 		{

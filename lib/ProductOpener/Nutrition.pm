@@ -232,15 +232,19 @@ Name of the nutrient to normalize
 =cut
 
 sub convert_nutrient_to_standard_unit ($nutrient_ref, $nutrient_name) {
-	if ($nutrient_name eq "energy-kcal" and $nutrient_ref->{unit} ne "kcal") {
-		$nutrient_ref->{value} = unit_to_kcal($nutrient_ref->{value}, $nutrient_ref->{unit});
-		$nutrient_ref->{value_string} = sprintf("%s", $nutrient_ref->{value});
-		$nutrient_ref->{unit} = "kcal";
+	if ($nutrient_name eq "energy-kcal") {
+		if ($nutrient_ref->{unit} ne "kcal") {
+			$nutrient_ref->{value} = unit_to_kcal($nutrient_ref->{value}, $nutrient_ref->{unit});
+			$nutrient_ref->{value_string} = sprintf("%s", $nutrient_ref->{value});
+			$nutrient_ref->{unit} = "kcal";
+		}
 	}
-	elsif (($nutrient_name eq "energy" or $nutrient_name eq "energy-kj") and $nutrient_ref->{unit} ne "kj") {
-		$nutrient_ref->{value} = unit_to_kj($nutrient_ref->{value}, $nutrient_ref->{unit});
-		$nutrient_ref->{value_string} = sprintf("%s", $nutrient_ref->{value});
-		$nutrient_ref->{unit} = "kj";
+	elsif ($nutrient_name eq "energy" or $nutrient_name eq "energy-kj") {
+		if ($nutrient_ref->{unit} ne "kj") {
+			$nutrient_ref->{value} = unit_to_kj($nutrient_ref->{value}, $nutrient_ref->{unit});
+			$nutrient_ref->{value_string} = sprintf("%s", $nutrient_ref->{value});
+			$nutrient_ref->{unit} = "kj";
+		}
 	}
 	elsif ($nutrient_ref->{unit} ne "g") {
 		$nutrient_ref->{value} = unit_to_g($nutrient_ref->{value}, $nutrient_ref->{unit});
