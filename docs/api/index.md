@@ -2,9 +2,9 @@
 
 Everything you need to know about Open Food Facts API.
 
-!!!note "Please read this"
-    👮‍♂️🚥Are you going to use our API?
-    Please **read this documentation entirely** before using it. 
+> [!CAUTION]
+> 👮‍♂️🚥Are you going to use our API?
+> Please **read this documentation entirely** before using it. 
 
 ## Overview
 
@@ -24,11 +24,11 @@ The Open Food Facts API enables developers to get information like ingredients a
 - The individual contents of the database are available under the [Database Contents License](https://opendatacommons.org/licenses/dbcl/1.0/).
 - Product images are available under the [Creative Commons Attribution ShareAlike](https://creativecommons.org/licenses/by-sa/3.0/deed.en) license. They may contain graphical elements subject to copyright or other rights that may, in some cases, be reproduced (quotation rights or fair use).
 
-Please read the [Terms and conditions of use and reuse](https://world.openfoodfacts.org/terms-of-use) before reusing the data.
-
-We like learning what the Open Food Facts data is used for. It is not mandatory, but we would appreciate it if you would [tell us about your use case][use_case] so that we can share them with the Open Food Facts community.
-
-[use_case]: mailto:contact@openfoodfacts.org
+Before using the API, please : 
+1. Read the [Terms and conditions of use and reuse](https://world.openfoodfacts.org/terms-of-use) 
+2. **Tell us how you'll use it** by filling out this short form:  
+👉 [Fill out the API usage form](https://docs.google.com/forms/d/e/1FAIpQLSdIE3D8qvjC_zRJw1W8OmuHhsWJ_NSckiiniAHlfaVwUZCziQ/viewform)
+This helps us understand real-world uses of the API and prioritize improvements. 
 
 ## How to Best Use the API
 
