@@ -240,10 +240,10 @@ sub convert_nutrient_to_standard_unit ($nutrient_ref, $nutrient_name) {
 		}
 	}
 	elsif ($nutrient_name eq "energy" or $nutrient_name eq "energy-kj") {
-		if ($nutrient_ref->{unit} ne "kj") {
+		if ($nutrient_ref->{unit} ne "kJ") {
 			$nutrient_ref->{value} = unit_to_kj($nutrient_ref->{value}, $nutrient_ref->{unit});
 			$nutrient_ref->{value_string} = sprintf("%s", $nutrient_ref->{value});
-			$nutrient_ref->{unit} = "kj";
+			$nutrient_ref->{unit} = "kJ";
 		}
 	}
 	elsif ($nutrient_ref->{unit} ne "g") {

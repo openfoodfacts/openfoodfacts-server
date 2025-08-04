@@ -467,7 +467,7 @@ my @tests = (
 							"energy-kcal" => {
 								value_string => "125",
 								value => 125,
-								unit => "kj",
+								unit => "kJ",
 							}
 						}
 					}
@@ -539,7 +539,7 @@ my @tests = (
 							"energy-kj" => {
 								value_string => "30",
 								value => 30,
-								unit => "kj",
+								unit => "kJ",
 							}
 						}
 					}
