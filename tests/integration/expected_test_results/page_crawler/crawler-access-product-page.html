@@ -401,10 +401,14 @@
     "apiUrl": "//backend:8881//api/v1",
     "imgUrl": "//images.openfoodfacts.localhost/images/products"
   }'
+  
+  folksonomy-configuration='{
+  "apiUrl": "//api.folksonomy.openfoodfacts.localhost"
+  }'
+  
   openfoodfacts-api-url="//world.openfoodfacts.localhost"
   assets-images-path="//static.openfoodfacts.localhost/css/dist/images"
-></off-webcomponents-configuration>
-
+  ></off-webcomponents-configuration>
 <a href="#upNav" class="back-to-top scrollto button">
     <span class="material-icons size-20 ">
         arrow_upward
@@ -460,7 +464,7 @@
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#environment"><span>Environment</span></a></li>
                                                 
                         
-                        <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#report_problem"><span>Report a problem</span></a></li>
+                        <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#report_problem"><span>Report a problem.</span></a></li>
                         
                         
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#contribution"><span>Contribution</span></a></li>
@@ -1522,7 +1526,7 @@ The score is calculated from the data of the nutrition facts table and the compo
 
 	   	 <div
 	   	    id="panel_ingredients_list_content"
-	   	    class="content panel_content active"
+	   	    class="content panel_content"
 	   	  >
           
               
@@ -3017,7 +3021,7 @@ The score is calculated from the data of the nutrition facts table and the compo
     
            <div class="panel_text panel_text_warning">⚠
              ️
-                For a more precise calculation of the Green-Score, you can modify the product page and add them.
+                For a more precise calculation of the Green-Score, you can edit the product page and add them.
                 <br><br>
                 If you are the manufacturer of this product, you can send us the information with our <a href="//world.pro.openfoodfacts.org">free platform for producers</a>.
                     
@@ -3903,10 +3907,18 @@ The score is calculated from the data of the nutrition facts table and the compo
 </div>
 </section>
 
-<!-- start templates/web/common/includes/folksonomy_script.tt.html -->
-
-<!-- end templates/web/common/includes/folksonomy_script.tt.html -->
-
+<section class="row">
+        <div class="large-12 column">
+            <div class="card">
+                <div class="reblock card-section">
+                    <div class="large-12 column">
+                        <folksonomy-editor product-code="0200000000235" page-type="view">
+                        </folksonomy-editor>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
 
 <!-- end templates/web/pages/product/product_page.tt.html -->
 						

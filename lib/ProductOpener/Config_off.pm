@@ -64,7 +64,11 @@ BEGIN {
 
 		$facets_kp_url
 		$redis_url
+		$folksonomy_url
 		$process_global_redis_events
+
+		$recipe_estimator_url
+		$recipe_estimator_scipy_url
 
 		$mongodb
 		$mongodb_host
@@ -439,6 +443,14 @@ $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
 $robotoff_url = $ProductOpener::Config2::robotoff_url;
 $query_url = $ProductOpener::Config2::query_url;
 
+# recipe-estimator product service
+# To test a locally running recipe-estimator with product opener in a docker dev environment:
+# - run recipe-estimator with `uvicorn recipe_estimator.main:app --reload --host 0.0.0.0`
+# $recipe_estimator_url = "http://host.docker.internal:8000/api/v3/estimate_recipe";
+
+$recipe_estimator_url = $ProductOpener::Config2::recipe_estimator_url;
+$recipe_estimator_scipy_url = $ProductOpener::Config2::recipe_estimator_scipy_url;
+
 # do we want to send emails
 $log_emails = $ProductOpener::Config2::log_emails;
 
@@ -454,6 +466,10 @@ $process_global_redis_events = $ProductOpener::Config2::process_global_redis_eve
 
 # Facets knowledge panels url
 $facets_kp_url = $ProductOpener::Config2::facets_kp_url;
+
+# Set this to your instance of https://github.com/openfoodfacts/folksonomy_api/ to
+# enable folksonomy features
+$folksonomy_url = $ProductOpener::Config2::folksonomy_url;
 
 # If $rate_limiter_blocking_enabled is set to 1, the rate limiter will block requests
 # by returning a 429 error code instead of a 200 code
