@@ -1,4 +1,4 @@
-# Labels specific for Open Product Facts (generic products: not food, pet food or beauty)
+# Labels specific for Open Products Facts (generic products: not food, pet food or beauty)
 
 xx: CE
 en: CE, CE marking
@@ -6,13 +6,26 @@ fr: CE, Marquage CE
 image:en: ce.126x90.svg
 wikidata:en: Q467405
 
+xx: Energy Star
 en: Energy Star
 fr: Energy Star
 wikidata:en: Q1054823
 
+xx: EPEAT
 en: EPEAT
 fr: EPEAT
 wikidata:en: Q3046046
+
+<en: EPEAT
+en: EPEAT Gold
+
+<en: EPEAT
+en: EPEAT Silver
+
+<en: EPEAT
+en: EPEAT Bronze
+
+en: EPEAT Climate+
 
 xx: FCC
 en: FCC, FCC certification
@@ -24,6 +37,7 @@ en: RoHS, RoHS compliant
 fr: RoHS, Conforme RoHS
 wikidata:en: Q740504
 
+xx: WEEE
 en: WEEE
 fr: DEEE
 wikidata:en: Q327400
@@ -47,10 +61,32 @@ auth_url:en: https://www.icasa.org.za/
 # wikidata:en: 
 
 en: Battery included
+ar: بطارية مشمولة
+de: Batterie enthalten
+es: Batería incluida
 fr: Pile incluse
+it: Batteria inclusa
+ja: バッテリー付属
+ko: 배터리 포함
+nl: Batterij inbegrepen
+pl: Bateria w zestawie
+pt: Bateria incluída
+ru: Батарея в комплекте
+zh: 包括电池
 
 en: Contains rechargeable battery
+ar: يحتوي على بطارية قابلة للشحن
+de: Enthält wiederaufladbare Batterie
+es: Contiene batería recargable
 fr: Contient une batterie rechargeable
+it: Contiene batteria ricaricabile
+ja: 充電式バッテリーが含まれています
+ko: 충전식 배터리 포함
+nl: Bevat oplaadbare batterij
+pl: Zawiera akumulator
+pt: Contém bateria recarregável
+ru: Содержит аккумуляторную батарею
+zh: 包含可充电电池
 
 en: Without perfume
 da: Uden parfume
@@ -142,14 +178,19 @@ zh: 台灣製造
 # https://en.wikipedia.org/wiki/PEGI
 # https://www.wikidata.org/wiki/Q192916
 
+xx: PEGI 3
 en: PEGI 3
 
+xx: PEGI 7
 en: PEGI 7
 
+xx: PEGI 12
 en: PEGI 12
 
+xx: PEGI 16
 en: PEGI 16
 
+xx: PEGI 18
 en: PEGI 18
 
 en: ESRB Everyone (E)
@@ -209,13 +250,35 @@ en: Water resistant
 fr: Résistant à l'eau
 
 en: Dust resistant
+ar: مقاومة للغبار
+de: Staubresistent
+es: Resistente al polvo
 fr: Résistant à la poussière
+it: Resistente alla polvere
+ja: 防塵
+ko: 방진
+nl: Stofbestendig
+pl: Odporny na kurz
+pt: Resistente à poeira
+ru: Пылеустойчивый
+zh: 防尘
 
 en: Scratch resistant
 fr: Résistant aux rayures
 
 en: Made for iPhone
+ar: صنع لأجهزة iPhone
+de: Gemacht für iPhone
+es: Hecho para iPhone
 fr: Fabriqué pour iPhone
+it: Fatto per iPhone
+ja: iPhone向け
+ko: iPhone용으로 제작
+nl: Gemaakt voor iPhone
+pl: Stworzone dla iPhone'a
+pt: Feito para iPhone
+ru: Сделано для iPhone
+zh: 专为iPhone设计
 
 # French reparability index
 
