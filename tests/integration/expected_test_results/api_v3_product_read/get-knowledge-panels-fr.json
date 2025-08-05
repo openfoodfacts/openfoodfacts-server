@@ -1089,7 +1089,7 @@
                   }
                }
             ],
-            "expanded" : true,
+            "expanded" : false,
             "level" : "info",
             "title_element" : {
                "title" : "Information sur les ingrédients"
@@ -1729,8 +1729,7 @@
             ],
             "type" : "inline"
          }
-      },
-      "schema_version" : 999
+      }
    },
    "result" : {
       "id" : "product_found",

@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -54,6 +54,7 @@ BEGIN {
 		&wait_for
 		&read_gzip_file
 		&check_ocr_result
+		&get_base64_image_data_from_file
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -64,8 +65,9 @@ use IO::Capture::Stdout::Extended;
 use IO::Capture::Stderr::Extended;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
-use ProductOpener::Data qw/execute_query get_products_collection/;
+use ProductOpener::Data qw/execute_query get_orgs_collection get_products_collection get_recent_changes_collection/;
 use ProductOpener::Store "store";
+use ProductOpener::Auth qw/get_token_using_client_credentials/;
 
 use Carp qw/confess/;
 use Data::DeepAccess qw(deep_exists deep_get deep_set);
@@ -79,7 +81,9 @@ use File::Path qw/make_path remove_tree/;
 use File::Copy;
 use Path::Tiny qw/path/;
 use Scalar::Util qw(looks_like_number);
+use URI::Escape::XS qw/uri_escape/;
 use Test::File::Contents qw/files_eq_or_diff/;
+use MIME::Base64 qw(encode_base64);
 
 use Log::Any qw($log);
 
@@ -220,7 +224,18 @@ sub remove_all_products () {
 			return get_products_collection()->delete_many({});
 		}
 	);
+	execute_query(
+		sub {
+			return get_products_collection({obsolete => 1})->delete_many({});
+		}
+	);
+	execute_query(
+		sub {
+			return get_recent_changes_collection()->delete_many({});
+		}
+	);
 	# clean files
+	#11872 Note this should probably be owned by Store.pm
 	remove_tree($BASE_DIRS{PRODUCTS}, {keep_root => 1, error => \my $err});
 	if (@$err) {
 		confess("not able to remove some products directories: " . join(":", @$err));
@@ -243,11 +258,18 @@ sub remove_all_users () {
 	# Important: check we are not on a prod database
 	check_not_production();
 	# clean files
-	# clean files
 	remove_tree($BASE_DIRS{USERS}, {keep_root => 1, error => \my $err});
 	if (@$err) {
 		confess("not able to remove some users directories: " . join(":", @$err));
 	}
+	# clean keycloak
+	my @users = get_users_from_keycloak();
+	foreach (@users) {
+		foreach (@{$_}) {
+			_delete_user_from_keycloak($_);
+		}
+	}
+	return;
 }
 
 =head2 remove_all_orgs ()
@@ -261,6 +283,12 @@ This function should only be called by tests, and never on production environmen
 sub remove_all_orgs () {
 	# Important: check we are not on a prod database
 	check_not_production();
+	# clean mongo
+	execute_query(
+		sub {
+			return get_orgs_collection()->delete_many({});
+		}
+	);
 	# clean files
 	remove_tree($BASE_DIRS{ORGS}, {keep_root => 1, error => \my $err});
 	if (@$err) {
@@ -744,7 +772,7 @@ sub normalize_product_for_test_comparison ($product_ref) {
 			qw(
 				last_modified_t last_updated_t created_t owner_fields
 				entry_dates_tags last_edit_dates_tags
-				last_image_t last_image_dates_tags images.*.uploaded_t sources.*.import_t
+				last_image_t last_image_datetime last_image_dates_tags images.*.uploaded_t images.uploaded.*.uploaded_t sources.*.import_t
 				created_datetime last_modified_datetime last_updated_datetime
 			)
 		],
@@ -893,6 +921,100 @@ sub wait_for ($code, $timeout = 3, $poll_time = 1) {
 	}
 	# last try
 	return $code->();
+}
+
+=head2 get_base64_image_data_from_file ($path)
+
+Get the base64 encoded image data from a file.
+
+Used for API v3 image upload, where we pass the image data as base64 encoded string.
+
+=head3 Parameters
+
+=head4 $path - String
+
+The path of the image file.
+
+=head3 Return value
+
+Returns the base64 encoded image data as a string.
+
+=cut
+
+sub get_base64_image_data_from_file ($path) {
+	my $image_data = '';
+	open(my $image, "<", $path);
+	binmode($image);
+	read $image, my $content, -s $image;
+	close $image;
+	$image_data = encode_base64($content, '');    # no line breaks
+	return $image_data;
+}
+
+=head2 get_users_from_keycloak()
+
+Get a list of users registered in our Keycloak realm
+
+=head3 Return values
+
+Returns an array of users in Keycloak.
+
+=cut
+
+sub get_users_from_keycloak () {
+	unless (defined $oidc_options{oidc_discovery_url}) {
+		confess('oidc_discovery_url not configured');
+	}
+
+	my $token = get_token_using_client_credentials();
+	unless ($token) {
+		confess('Could not get token to manage users with keycloak_users_endpoint');
+	}
+
+	my $keycloak_users_endpoint = ProductOpener::Keycloak->new()->{users_endpoint};
+	my $get_users_request = HTTP::Request->new(GET => $keycloak_users_endpoint);
+	$get_users_request->header('Accept' => 'application/json');
+	$get_users_request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
+	my $get_users_response = LWP::UserAgent->new->request($get_users_request);
+	unless ($get_users_response->is_success) {
+		confess($get_users_response->content);
+	}
+
+	my @users = decode_json($get_users_response->content);
+	return @users;
+}
+
+=head2 _delete_user_from_keycloak($keycloak_user)
+
+Removes the given users from our Keycloak realm
+
+=head3 parameters
+
+=head4 $user - sub
+
+The user that will be deleted from Keycloak
+
+=cut
+
+sub _delete_user_from_keycloak ($user) {
+	unless (defined $oidc_options{oidc_discovery_url}) {
+		confess('oidc_discovery_url not configured');
+	}
+
+	my $token = get_token_using_client_credentials();
+	unless ($token) {
+		confess('Could not get token to manage users with keycloak_users_endpoint');
+	}
+
+	my $keycloak_users_endpoint = ProductOpener::Keycloak->new()->{users_endpoint};
+	my $delete_user_request = HTTP::Request->new(DELETE => $keycloak_users_endpoint . '/' . $user->{id});
+	$delete_user_request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
+	my $delete_user_response = LWP::UserAgent->new->request($delete_user_request);
+	unless ($delete_user_response->is_success) {
+		confess($delete_user_response->content);
+	}
+
+	return;
 }
 
 1;

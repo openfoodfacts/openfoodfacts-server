@@ -1037,7 +1037,7 @@
                   }
                }
             ],
-            "expanded" : true,
+            "expanded" : false,
             "level" : "info",
             "title_element" : {
                "title" : "Ingredient information"
@@ -1653,8 +1653,7 @@
             ],
             "type" : "inline"
          }
-      },
-      "schema_version" : 999
+      }
    },
    "result" : {
       "id" : "product_found",

@@ -499,17 +499,18 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'selenium-', 'chromium-',
 			'molybdenum-', 'iodine-',
 			'caffeine-', 'taurine-',
-			'ph-', 'fruits-vegetables-nuts-',
-			'fruits-vegetables-nuts-dried-', 'fruits-vegetables-nuts-estimate-',
-			'collagen-meat-protein-ratio-', 'cocoa-',
-			'chlorophyl-', 'carbon-footprint-',
-			'carbon-footprint-from-meat-or-fish-', 'nutrition-score-fr-',
-			'nutrition-score-uk-', 'glycemic-index-',
-			'water-hardness-', 'choline-',
-			'phylloquinone-', 'beta-glucan-',
-			'inositol-', 'carnitine-',
-			'sulphate-', 'nitrate-',
-			'acidity-', 'carbohydrates-total-',
+			'methylsulfonylmethane-', 'ph-',
+			'fruits-vegetables-nuts-', 'fruits-vegetables-nuts-dried-',
+			'fruits-vegetables-nuts-estimate-', 'collagen-meat-protein-ratio-',
+			'cocoa-', 'chlorophyl-',
+			'carbon-footprint-', 'carbon-footprint-from-meat-or-fish-',
+			'nutrition-score-fr-', 'nutrition-score-uk-',
+			'glycemic-index-', 'water-hardness-',
+			'choline-', 'phylloquinone-',
+			'beta-glucan-', 'inositol-',
+			'carnitine-', 'sulphate-',
+			'nitrate-', 'acidity-',
+			'carbohydrates-total-',
 		)
 	],
 	off_ca => [
@@ -700,6 +701,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'glycemic-index-', 'water-hardness-',
 			'sulfate-', 'nitrate-',
 			'acidity-', 'carbohydrates-',
+			'melatonin-',
 		)
 	],
 	off_us_before_2017 => [
@@ -3026,9 +3028,10 @@ sub compute_nova_group ($product_ref) {
 	return;
 }
 
-sub extract_nutrition_from_image ($product_ref, $id, $ocr_engine, $results_ref) {
+sub extract_nutrition_from_image ($product_ref, $image_type, $image_lc, $ocr_engine, $results_ref) {
 
-	extract_text_from_image($product_ref, $id, "nutrition_text_from_image", $ocr_engine, $results_ref);
+	extract_text_from_image($product_ref, $image_type, $image_lc, "nutrition_text_from_image", $ocr_engine,
+		$results_ref);
 
 	# clean and process text
 	if (($results_ref->{status} == 0) and (defined $results_ref->{nutrition_text_from_image})) {

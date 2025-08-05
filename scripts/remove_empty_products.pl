@@ -25,7 +25,7 @@ use ProductOpener::PerlStandards;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Products qw/retrieve_product/;
+use ProductOpener::Products qw/retrieve_product store_product/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Data qw/get_products_collection/;
 

@@ -20,7 +20,7 @@
 stopwords:en: ingredients, agricultural, from, with, of, by, the, verified, certified, approved, 100%, pure, guaranty, guaranteed, product guaranteed, product certified, standard, during, period, phase, label, mark, logo
 stopwords:bg: съставки, земеделие, от, с, контролиран, сертифициран, 100%, натурален, гарантиран, продуктheart
 
-stopwords:da: fra, kontrolleret, dyrkning, dyrket, dyrkede, råvarer, landbrug, certificeret
+stopwords:da: fra, kontrolleret, dyrkning, dyrket, dyrkede, råvarer, landbrug, certificeret, 100%
 stopwords:de: Zutaten, von, mit, enthält, kontrolliert, zertifiziert, geprüft, 100%, rein, Produkt, Garantie, garantiert, Standard, während
 stopwords:es: por, la, las, los, el, apto, para, con, de, verificado, certificado, aprovado, controlado, registrado, 100%, garantía, garantizado, garantizada, estándar, procedente
 stopwords:fi: ainesosat, vahvistettu, sertifioitu, hyväksytty, 100%, puhdas, tuote, standardi, valvottu, valvottua, tuotettu
@@ -32,13 +32,13 @@ stopwords:pt: ingredientes, agrícola, de, com, por, a, o, as, os, apto, para, v
 stopwords:ru: ингредиенты, из, с, проверено, сертифицировано, подтверждено, 100%, чистый, продукт, гарантия, гарантировано, стандарт
 stopwords:sv: certifierad, ingrediens, ingredienser, godkänd, råvara, enlighet, med, kriterierna, produkt, från, kontrollerat, kontrollerade, jordbruk, lantbruk, odling, odlingar
 
-synonyms:en: coloring, colouring, color, colour
+synonyms:en: coloring, colouring, color, colour, colors, colours
 synonyms:es: color, colorante
 synonyms:fi: väri, värjäys, väriaine
 synonyms:pt: cor, colorante
 synonyms:ru: окраска, цвет
 
-synonyms:en: flavor, flavour, flavoring, flavouring
+synonyms:en: flavor, flavour, flavoring, flavouring, flavors, flavours
 synonyms:es: sabor, saborizante
 synonyms:fi: aromi, maku
 synonyms:hu: ízesítő, ízesítők, ízesítőt, ízesítőket, aroma, aromák, aromákat, aromát
@@ -82,7 +82,7 @@ synonyms:bg: морска храна
 synonyms:fi: merenantimet, merenelävät
 synonyms:ru: дары моря, морепродукты
 
-synonyms:en: without, 0%, free
+synonyms:en: without, 0%, free, contains no
 synonyms:da: uden, ingen, intet, nul, 0%, fri for
 synonyms:de: ohne, 0%
 synonyms:es: sin, 0%, libre de
@@ -93,7 +93,7 @@ synonyms:it: senza, 0%, zero
 synonyms:nl: zonder, 0%
 synonyms:pt: sem, 0%, livre de, zero
 synonyms:ru: без, 0%, 0 %
-synonyms:sv: utan, inga, ingen, inget, noll, 0%, fritt från, fri från
+synonyms:sv: utan, inga, ingen, inget, noll, 0%, fritt från, fri från, innehåller inga
 
 synonyms:fi: lisätty
 synonyms:fr: ajout, adjonction
@@ -1421,7 +1421,7 @@ ru: Без глютена
 sk: Bez lepku
 sl: Brez glutena
 sq: Pa gluten
-sv: Glutenfri, glutenfritt
+sv: Glutenfri, glutenfritt, Fri från gluten
 th: ไม่มีกลูเตน
 tr: Glutensiz
 uk: Не містить глютену
@@ -1568,6 +1568,9 @@ de: Ohne Zusatz von Polyphosphaten
 fr: Sans addition de polyphosphates, Sans addition de polyphosphate, Sans polyphosphates ajoutés
 pt: Sem adição de polifosfatos, sem adição de polifosfato
 ru: Без добавления полифосфатов
+
+en: Not from concentrate
+sv: Inte från koncentrat
 
 en: Halal
 xx: Halal
@@ -1742,7 +1745,7 @@ pl: wysoka zawartość błonnika
 pt: Rico em fibras, teor elevado de fibras, teor elevado em fibras, alto teor em fibra, alto teor em fibras
 ro: Високо съдържание на хранителни влакнини
 ru: Обогащено клетчаткой
-sv: Fiberrik, Rik på fiber
+sv: Fiberrik, Rik på fiber, Fiberrikt
 th: ใยอาหารสูง
 description:en: In EU, a claim that a food is high in fibre may only be made where the product contains at least 6 g of fibre per 100 g or at least 3 g of fibre per 100 kcal. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
@@ -1858,7 +1861,7 @@ it: Ricca di proteini vegetali
 nl: Rijk aan plantaardige eiwitten
 pt: Rico em proteínas vegetais, rico em proteína vegetal
 
-en: Calcium source, Source of calcium
+en: Calcium source, Source of calcium, With calcium
 xx: Calcium source
 bg: Източник на калции
 ca: Font de calci
@@ -1974,7 +1977,7 @@ ru: Источник витамина B1
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 wikidata:en: Q83187
 
-en: Vitamin B2 source, Source of vitamin B2
+en: Vitamin B2 source, Source of vitamin B2, With vitamin B2
 xx: Vitamin B2 source, Source of vitamin B2
 bg: Източник на витамин B2
 ca: Font de vitamina B2
@@ -2044,7 +2047,7 @@ pt: Fonte de vitamina B9
 ru: Источник витамина B9
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
-en: Vitamin B12 source, Source of vitamin B12
+en: Vitamin B12 source, Source of vitamin B12, With vitamin B12
 xx: Vitamin B12 source
 bg: Източник на витамин B12
 ca: Font de vitamina B12
@@ -2088,11 +2091,12 @@ nl: Bron van Vitamine C
 pl: Źródło witaminy C
 pt: Fonte de vitamina C
 ru: Источник витамина C
+sv: Källa till vitamin C
 tr: C Vitamini kaynağı
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 xx:en: Vitamin C source
 
-en: Vitamin D source, Source of vitamin D
+en: Vitamin D source, Source of vitamin D, With vitamin D2
 xx: Vitamin D source
 bg: Източник на витамин D
 ca: Font de Vitamina D
@@ -2128,6 +2132,7 @@ nl: Bron van Vitamine E
 pl: Źródło witaminy E
 pt: Fonte de vitamina e
 ru: Источник витамина E
+sv: Källa till vitamin E
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: iron source, Source of iron
@@ -3089,7 +3094,7 @@ zh: 低糖或无糖
 label_categories:en: en:Health
 
 < en:Low or no sugar
-en: Low sugar
+en: Low sugar, Low in sugars
 xx: low sugar
 ca: Baix en sucre
 de: Wenig Zucker
@@ -3363,8 +3368,8 @@ sv: från Kalifornien, kalifornisk, kaliforniska
 label_categories:en: en:Geographic label
 origins:en: en:california
 
-de: 100% Milch aus österreich
-xx: 100% Milch aus österreich
+de: 100% Milch aus Österreich
+xx: 100% Milch aus Österreich
 
 en: Australian made
 bg: Произведено в Австралия
@@ -3393,8 +3398,8 @@ label_categories:en: en:Geographic label
 origins:en: en:australia
 
 # Bosnia i Herzegovina
-bs: Proizvodeno u bosni i hercegovinu
-xx: Proizvodeno u bosni i hercegovinu
+bs: Proizvodeno u Bosni i Hercegovinu
+xx: Proizvodeno u Bosni i Hercegovinu
 
 en: Made in Bulgaria
 bg: Произведено в България
@@ -3600,6 +3605,13 @@ sv: Tillverkad i Danmark, Producerad i Danmark
 uk: Вироблено в Данії
 country:en: en:Denmark
 label_categories:en: en:Geographic label
+
+da: Bagt i Danmark med dansk rugmel
+xx: Bagt i Danmark med dansk rugmel
+country:en: en:Denmark
+ingredients:en: en:rye-flour
+label_categories:en: en:Geographic label
+origins:en: en:denmark
 
 en: Made in Germany
 bg: Произведено в Германия
@@ -3932,6 +3944,12 @@ ingredients:en: en:flour
 label_categories:en: en:Geographic label
 origins:en: en:sweden
 web:sv: https://pagen.se/sortiment/svenskt-mjol-fran-egen-kvarn-markta-brod/
+
+en: Swedish potatoes
+sv: Svensk potatis
+ingredients:en: en:potato
+label_categories:en: en:Geographic label
+origins:en: en:sweden
 
 en: Made in Sweden, Manufactured in Sweden
 sv: Tillverkad i Sverige, Tillagat i Sverige, Producerad i Sverige
@@ -4460,6 +4478,7 @@ nl: Zonder kunstmatige toevoegingen
 pt: Sem aditivos artificiais, sem aditivo artificial
 label_categories:en: en:Health, en:Additives
 
+en: No yeast, Contains no yeast
 
 sv: Ä-märket
 xx: Ä-märket
@@ -4521,7 +4540,7 @@ ru: без аллергенов
 th: ไม่มีสารก่อภูมิแพ้
 
 #instruction:en:Do NOT change the english key.
-en: No artificial colors, free of artificial color, no artificial colours, free from artificial colours, no artificial colouring
+en: No artificial colors, free of artificial color, no artificial colours, free from artificial colours, no artificial colouring, contains no artificial colors
 bg: Без изкуствени оцветители
 ca: Sense colorants artificials
 de: Ohne künstliche Farbstoffe
@@ -4546,7 +4565,7 @@ fr: Sans colorants azoïques
 label_categories:en: en:Health, en:Additives
 
 #instruction:en:Do NOT change the english key.
-en: No artificial flavors, free of artificial flavor, No artificial flavours
+en: No artificial flavors, free of artificial flavor, No artificial flavours, contains no artificial flavors
 bg: Без изкуствени аромати
 ca: Sense aromes artificials, Lliure d'aromes artificials
 cs: Bez umělých aromat
@@ -4797,7 +4816,7 @@ th: ไม่มีคอเลสเตอรอล
 label_categories:en: en:Health
 
 #instruction:en:Do NOT change the english key.
-en: No colorings, no added colorings
+en: No colorings, no added colorings, No colours
 ar: بدون ملونات
 bg: Без оцветители
 ca: Sense colorants, sense colorants afegits
@@ -4841,7 +4860,7 @@ th: ไม่มีส่วนผสมของไข่
 #-allergens:en: en:Eggs
 
 #instruction:en:Do NOT change the english key.
-en: No flavors, no added flavors
+en: No flavors, no added flavors, no added flavours
 ca: Sense aromes afegits
 de: Ohne Zusatz von Aromen, Ohne Zusatz von Aromastoffen, Ohne Aromen, ohne Aromastoffzusatz
 es: Sin aromas, Sin aromas añadidos
@@ -4996,6 +5015,8 @@ hu: Természetes termék növényi olajok nélkül, Természetes termék növén
 nl: Zonder plantaardige vetten
 pt: Produto natural sem óleos vegetais, produto natural sem óleo vegetal
 ru: натуральный продукт без растительных жиров
+
+en: Natural ingredients, Ingredients from natural origins
 
 < en:No flavour enhancer
 #instruction:en:Do NOT change the english key.
@@ -5256,7 +5277,7 @@ label_categories:en: en:Allergens
 opposite:en: en:no-milk
 
 #instruction:en:Do NOT change the english key.
-en: No preservatives, no added preservatives, preservatives free
+en: No preservatives, no added preservatives, preservatives free, contains no preservatives
 ar: بدون مواد حافظة
 bg: Без консерванти
 ca: Sense conservants, sense conservants afegits, lliure de conservants artificials
@@ -5287,7 +5308,7 @@ sk: Bez konzervačných látok
 sl: Brez konzervansov
 sq: Pa konservues
 sr: Bez konzervansa
-sv: Utan konserveringsmedel
+sv: Utan konserveringsmedel, Innehåller inga konserveringsmedel
 th: ไม่ใช้วัตถุกันเสีย
 tr: Koruyucu yok, Koruyucu madde içermez
 uk: Без консервантів
@@ -5373,6 +5394,9 @@ pt: Contém soja, com soja
 incompatible_with:en: labels:en:no-soy
 label_categories:en: en:Environment, en:Soy, en:Allergens
 opposite:en: en:no-soy
+
+en: Made with soy, Made from soya
+incompatible_with:en: labels:en:no-soy
 
 #instruction:en:Do NOT change the english key.
 en: No garlic
@@ -5520,6 +5544,14 @@ fr: Certifié par l'AENOR
 pt: Certificado pela AENOR
 label_categories:en: en:Certification
 
+en: ProTerra
+xx: ProTerra
+image:en: proterra.115x90.svg
+label_categories:en: en:Certification
+web:en: https://www.proterrafoundation.org/the-proterra-standard/
+# Wikidata is for the foundation behind the standard, not the standard itself
+wikidata:en: Q131907713
+
 en: Non-vegetarian, not vegetarian, not suitable for vegetarians
 de: Nicht-vegetarisch, nicht für Vegetarier geeignet
 fi: ei-vegetaarinen, ei sovellu kasvissyöjille
@@ -5623,27 +5655,28 @@ label_categories:en: en:Specific diets
 
 en: Organic, organically grown, organically produced, ingredient produced organically, from organic farming, From Organic Agriculture, organic ingredients, from controlled organic agriculture, from organic controlled cultivation
 bg: Био, биологично земеделие, биологично
-ca: Orgànic, de cultiu ecologic
+ca: Orgànic, de cultiu ecologic, ecològica, d'agricultura ecològica
 cs: Bio, z kontrolovane ekologicke produkce, z ekologickeho, z kontrolovaného ekologického zemědělství
 cz: z ekologického zemědělství, z kontrolované ekologické produkce
-da: Økologisk, Økologiske
+da: Økologisk, Økologiske, certificeret økologisk
 de: Bio, Öko, biologisch, biologische, biologischer, biologisches, Ökologisch, Kontrolliert biologisch, Kontrolliert ökologisch, biologische Landwirtschaft, aus biologischer Landwirtschaft, ökologische Landwirtschaft, biologischer Landbau, ökologischer Landbau, aus kontrolliert biologischem Anbau, biologisch gewonnen, aus kontrolliert biologischer landwirtschaft, aus kontrolliert ökologischer erzeugung, aus kontrolliert ökologischer landwirtschaft, aus kontrolliert ökologischem anbau, aus kontrolliert ökologischem landbau, aus kontrollierter biologischer landwirtschaft, aus kontrollierter ökologischer landwirtschaft, kontrolliert biologischer anbau, biologisch zertifiziert
-es: Ecológico, ecológica, Producto ecológico, Biológico, Producto biológico, Orgánico, Producto orgánico, Eco, Bio, Ingredientes ecológicos, Ingrediente ecológico, ingredientes procedentes de la agricultura ecológica, ingrediente procedente de la agricultura ecológica, agricultura ecológica, cumple con el reglamento de agricultura ecológica CE 2092/91, procedentes de la agricultura ecológica, procedente de la agricultura ecológica, de agricultura ecológica, de agricultura ecologica, Procedente e agricultura ecológica, de cultivo ecológico
-fi: Luomu, luomutuotanto, luomutuotantoa, luomuraaka-aine, luonnonmukainen tuotanto, luonnonmukaisesti
+es: Ecológico, ecológica, Producto ecológico, Biológico, Producto biológico, Orgánico, Producto orgánico, Eco, Bio, Ingredientes ecológicos, Ingrediente ecológico, ingredientes procedentes de la agricultura ecológica, ingrediente procedente de la agricultura ecológica, agricultura ecológica, cumple con el reglamento de agricultura ecológica CE 2092/91, procedentes de la agricultura ecológica, procedente de la agricultura ecológica, de agricultura ecológica, de agricultura ecologica, Procedente e agricultura ecológica, de cultivo ecológico, orgánica
+fi: Luomu, luomutuotanto, luomutuotantoa, luomuraaka-aine, luonnonmukainen tuotanto, luonnonmukaisesti, sertifioitu luomutuote, luomutuote
 fr: Bio, agriculture biologique, biologique, organic, organique, issu de l'agriculture biologique, issus de l'agriculture biologique, issus de l'agriculture biologique contrôlée, issue de l'agriculture biologique, issues de l'agriculture biologique, ingrédient issu de l'agriculture biologique, ingrédients issus de l'agriculture biologique, Les-ingredients-sont-issus-d-une-agriculture-biologique, ingrédients agricoles issus de l'agriculture biologique, produits issus de l'agriculture biologique, produit issu de l'agriculture biologique, ingrédient agricole issu de l'agriculture biologique, tous les ingrédients agricoles sont issus de l'agriculture biologique, les ingrédients agricoles sont issus de l'agriculture biologique, tous les ingrédients sont issus de l'agriculture biologique, ingrédients bio, ingrédients biologiques, ingrédient bio, ingrédient biologique, issue de l'agriculture biologique controlee, issu de production biologique
 he: אורגני
-hr: ekološki uzgoj, iz ekološkog uzgoja, iz kontroliranog ekološkog uzgoja, iz kontrolirane ekološke proizvodnje, iz kontroliranog biološkog uzgoja, iz kontroliranog organskog uzgoja, iz biološkog uzgoja, ekološki
+hr: ekološki uzgoj, iz ekološkog uzgoja, iz kontroliranog ekološkog uzgoja, iz kontrolirane ekološke proizvodnje, iz kontroliranog biološkog uzgoja, iz kontroliranog organskog uzgoja, iz biološkog uzgoja, ekološki, organsko
 hu: Bio, Öko, Organikus, biogazdálkodásból, ellenőrzött ökológiai gazdálkodásból
 it: Biologico, biologici, da agricoltura biologica
 ko: 유기농
 lt: Ekologiškas, ekologiškai užaugintas, ekologiškai pagamintas, ingredientas pagamintas ekologiškai, iš ekologiško žemės ūkio, iš ekologiško žemės ūkio
+nb: Økologisk, certificeret økologisk
 nl: Biologisch, biologische, van biologische oorsprong, van biologische teelt, van gecontroleerd biologische teelt, afkomstig van biologische productiemethode, van gecontroleerde biologische landbouw
 pl: ekologiczny, bio, ekologiczne, ekologiczna, ekologicznych, ekologicznego, z kontrolowanych upraw ekologicznych, z kontrolowanej produkcji ekologicznej, z kontrolowanego rolnictwa ekologicznego, certyfikowany składnik ekologiczny, składnik ekologiczny, produkt pochodzący z kontrolowanych certyfikowanych upraw ekologicznych
 pt: Orgânico, produção orgânica, produzido de forma orgânica, numa quinta orgânica, de agricultura orgânica, agricultura orgânica, de produção Biológica
 ro: din agricultură ecologică controlată, din cultură organică controlată
 sk: z kontrolovaného ekologického poľnohospodárstva, produkt ekologického poľnohospodárstva
 sl: iz kontrolirane ekološke pridelave
-sv: Ekologisk, Ekologiskt, Ekologiska, ekologisk ingrediens
+sv: Ekologisk, Ekologiskt, Ekologiska, ekologisk ingrediens, certifierad ekologisk
 th: ออร์แกนิค
 tr: Organik
 zh: 有机
@@ -19107,6 +19140,17 @@ fr: contient de la farine complète
 hr: s integralnim brašnom
 sv: med fullkornsmjöl
 
+#< en:whole grain
+en: Rich in whole grain
+sv: Fullkornsrik
+
+en: The Danish Whole Grain Logo, The Whole Grain Logo
+xx: Vælg fuldkorn først
+da: Vælg fuldkorn først, Fuldkornslogoet
+image:da: vælg-fuldkorn-først.90x90.png
+web:en: https://fuldkorn.dk/en/
+web:da: https://fuldkorn.dk/
+
 #label for more sustainable production of agricultural products
 < en:Sustainable
 en: Planet Proof
@@ -19688,6 +19732,7 @@ hr: Održiv
 it: Sostenibile
 nl: Duurzaam
 pt: Sustentável
+sv: Hållbar, Hållbart
 
 < en:Sustainable
 en: Sustainable fishery, Sustainable fishing, Sustainable Seafood
@@ -19866,7 +19911,7 @@ wikidata:en: Q7918353
 
 
 < en:Vegetarian
-en: Vegan, Suitable for vegans, Suitable for vegetarians and vegans, vegetal, from plants, derived from plants, vegetal origin, not from animals, not derived from animals, non-animal, from vegetal source, free from animal products
+en: Vegan, Suitable for vegans, Suitable for vegetarians and vegans, vegetal, from plants, derived from plants, vegetal origin, not from animals, not derived from animals, non-animal, from vegetal source, free from animal products, vegetable source
 an: vegano
 bg: Веган
 ca: Vegà, Adequat per persones veganes
@@ -20306,6 +20351,10 @@ sv: Innehåller sötningsmedel
 th: ใช้น้ำตาลเทียม
 incompatible_with:en: labels:en:without-sweeteners
 opposite:en: en:Without sweeteners
+
+< en:With sweeteners
+en: With sweeteners (steviol glycosides)
+sv: Innehåller sötningsmedel (steviolglykosider)
 
 en: Without sweeteners
 bg: Без подсладители
@@ -22158,6 +22207,10 @@ nl: Nieuw recept
 pt: Receita nova, nova receita
 th: สูตรใหม่
 
+en: New flavour, New taste
+da: Ny smag
+sv: Ny smak
+
 en: 2016 Nutrition labelling experiment
 ca: Experiment d’etiquetatge nutricional 2016
 fi: Ravintomerkintäkokeilu 2016
@@ -22231,15 +22284,14 @@ nl: Nutriscore experiment E
 label_categories:en: en:Nutrition Grades, en:Health
 
 en: Nutriscore
-xx: Nutriscore
+xx: Nutriscore, Nutri-Score
 ca: Comptador Nutricional, Nutriscore
-pt: Nutriscore, Nutri-Score
 label_categories:en: en:Nutrition Grades, en:Health
 wikidata:en: Q46577569
 
 < en:Nutriscore
 en: Nutriscore Grade A
-xx: Nutriscore A
+xx: Nutriscore A, Nutri-Score A
 ca: Grau A Nutriscore
 de: Nutriscore Note A
 fi: Nutriscore-arvosana A
@@ -22250,7 +22302,7 @@ label_categories:en: en:Nutrition Grades, en:Health
 
 < en:Nutriscore
 en: Nutriscore Grade B
-xx: Nutriscore B
+xx: Nutriscore B, Nutri-Score B
 ca: Grau B Nutriscore
 fi: Nutriscore-arvosana B
 he: דירוג B ב־Nutriscore
@@ -22260,7 +22312,7 @@ label_categories:en: en:Nutrition Grades, en:Health
 
 < en:Nutriscore
 en: Nutriscore Grade C
-xx: Nutriscore C
+xx: Nutriscore C, Nutri-Score C
 ca: Grau C Nutriscore
 fi: Nutriscore-arvosana C
 he: דירוג C ב־Nutriscore
@@ -22270,7 +22322,7 @@ label_categories:en: en:Nutrition Grades, en:Health
 
 < en:Nutriscore
 en: Nutriscore Grade D
-xx: Nutriscore D
+xx: Nutriscore D, Nutri-Score D
 ca: Grau D NutriScore
 fi: Nutriscore-arvosana D
 he: דירוג D ב־Nutriscore
@@ -22280,7 +22332,7 @@ label_categories:en: en:Nutrition Grades, en:Health
 
 < en:Nutriscore
 en: Nutriscore Grade E
-xx: Nutriscore E
+xx: Nutriscore E, Nutri-Score E
 ca: Grau E NutriScore
 fi: Nutriscore-arvosana E
 hr: Nutriscore oznaka E
@@ -22919,6 +22971,10 @@ sv: Filtrerat, filtrerade
 incompatible_with:en: labels:en:unfiltered
 opposite:en: en:unfiltered
 
+en: Rinsed and ready to eat
+sv: Sköljd & färdig att äta, Sköljd och färdig att äta
+#processing:en: en:rinsed
+
 fr: Haute Valeur Environnementale, HVE
 xx: Haute Valeur Environnementale, HVE
 auth_url:fr: https://hve-asso.com
@@ -23333,3 +23389,22 @@ fr: Pêche d'une espèce bien gérée
 
 de: Herkunftskennzeichen Deutschland, Gutes aus Deutscher Landwirtschaft, herkunft-deutschland.de, www.herkunft-deutschland.de
 origins:en: en:germany
+
+
+en: Planet-Score
+
+< en:Planet-Score
+en: Planet-Score Grade E
+
+< en:Planet-Score
+en: Planet-Score Grade D
+
+< en:Planet-Score
+en: Planet-Score Grade B
+
+< en:Planet-Score
+en: Planet-Score Grade A
+
+< en:Planet-Score
+en: Planet-Score Grade C
+

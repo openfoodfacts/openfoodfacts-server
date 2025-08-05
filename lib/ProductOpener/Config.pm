@@ -22,6 +22,7 @@ package ProductOpener::Config;
 
 use utf8;
 use Modern::Perl '2017';
+use Exporter qw< import >;
 
 # Config.pm will dynamically load Config_off.pm or Config_obf.pm etc.
 # based on the value of the PRODUCT_OPENER_FLAVOR_SHORT environment variable
@@ -214,5 +215,14 @@ $ProductOpener::Config::options{rate_limit_allow_list_blocks} = [
 	# Schools
 	'163.5.0.0/16'    # EPITECH https://bgpview.io/prefix/163.5.0.0/16
 ];
+
+# OIDC options
+my $client_id = uc($flavor . ($ENV{PRODUCERS_PLATFORM} ? "_PRO" : ''));
+%ProductOpener::Config::oidc_options = (
+	client_id => $client_id,
+	client_secret => $ENV{"${client_id}_CLIENT_SECRET"},
+	oidc_implementation_level => $ENV{OIDC_IMPLEMENTATION_LEVEL},
+	oidc_discovery_url => $ENV{OIDC_DISCOVERY_URL}
+);
 
 1;
