@@ -60,6 +60,20 @@ my $tests_ref = [
 		},
 		expected_type => "none",    # no body for OPTIONS requests
 	},
+	# redirects should include CORS
+	{
+		test_case => 'redirect-have-cors',
+		method => 'GET',
+		path => '/editors/tests',
+		expected_status_code => 301,
+		headers_in => {"Origin" => "http://other.localhost"},
+		headers => {
+			"Access-Control-Allow-Origin" => "*",
+			"Access-Control-Allow-Credentials" => undef,
+			"Location" => "/facets/editors/tests",
+		},
+		expected_type => "none",    # no body for OPTIONS requests
+	},
 	# Note: in API v3, we return a 200 status code for OPTIONS, even if the product does not exist
 	{
 		test_case => 'options-api-v3',
