@@ -598,6 +598,11 @@ prune_deps: clone_deps
 		cd ${DEPS_DIR}/$$dep && $(MAKE) prune; \
 	done
 
+stop_deps:
+	@for dep in ${DEPS} ; do \
+		cd ${DEPS_DIR}/$$dep && ( $(MAKE) stop || env -i docker compose stop ) ; \
+	done
+
 #-----------#
 # Utilities #
 #-----------#
