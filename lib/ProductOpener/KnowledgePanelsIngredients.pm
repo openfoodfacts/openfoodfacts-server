@@ -228,7 +228,8 @@ sub create_ingredients_added_sugars_panel ($product_ref, $target_lc, $target_cc,
 					= format_subdomain($subdomain)
 					. "/facets"
 					. canonicalize_taxonomy_tag_link($target_lc, 'categories', $category_id)
-					. canonicalize_taxonomy_tag_link($target_lc, 'states', "en:ingredients-completed")
+					. canonicalize_taxonomy_tag_link($target_lc, 'data-quality-info',
+					"en:ingredients-completed-at-least-for-one-language")
 					. $no_added_sugars_link
 					. $no_sweeteners_link;
 
