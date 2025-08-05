@@ -10,7 +10,7 @@ use JSON;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::ProductSchemaChanges qw/convert_product_schema/;
-use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
+use ProductOpener::Test qw/compare_to_expected_results init_expected_results normalize_product_for_test_comparison/;
 
 #use Test::MockTime qw(set_fixed_time);
 #set_fixed_time(1650000000);  # freeze time to a known epoch
@@ -669,6 +669,9 @@ foreach my $test_ref (@tests) {
 	my $product_ref = $test_ref->[2];
 
 	convert_product_schema($product_ref, $target_schema_version);
+	if ($testid eq "1002-to-1003-new-nutrition-schema") {
+		normalize_product_for_test_comparison($product_ref);
+	}
 
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
 }

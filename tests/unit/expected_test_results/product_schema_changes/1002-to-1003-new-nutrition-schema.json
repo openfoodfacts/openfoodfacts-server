@@ -1,7 +1,6 @@
 {
     "nutrition": 
     {
-        "unspecified_nutrients": ["added-sugars"],
         "nutrient_sets": 
         [
             {
@@ -10,7 +9,7 @@
                 "per_quantity": 100,
                 "per_unit": "g",
                 "source": "packaging",
-                "last_updated_t": "0045618",
+                "last_updated_t": "--ignore--",
                 "nutrients": {
                     "calcium": {
                         "value_string": "0.118",
@@ -89,10 +88,10 @@
             {
                 "preparation": "prepared",
                 "per": "serving",
-                "per_quantity": 250000,
-                "per_unit": "mg",
+                "per_quantity": 250,
+                "per_unit": "g",
                 "source": "packaging",
-                "last_updated_t": "0045618",
+                "last_updated_t": "--ignore--",
                 "nutrients": {},
                 "unspecified_nutrients": ["added-sugars"]
             },
@@ -102,7 +101,7 @@
                 "per_quantity": 100,
                 "per_unit": "g",
                 "source": "packaging",
-                "last_updated_t": "0045618",
+                "last_updated_t": "--ignore--",
                 "nutrients": {
                     "carbohydrates": {
                         "value_string": "78.9",
@@ -149,7 +148,7 @@
                         "value": 4,
                         "unit": "g"
                     },
-                    "nutrition_score_fr": {
+                    "nutrition-score-fr": {
                         "value_string": "9",
                         "value": 9,
                         "unit": "g"
@@ -186,7 +185,7 @@
                         "unit": "g"
                     },
                     "vitamin-d": {
-                        "value_string": "0.000011",
+                        "value_string": "1.1e-05",
                         "value": 0.000011,
                         "unit": "g"
                     }
@@ -196,10 +195,10 @@
             {
                 "preparation": "as_sold",
                 "per": "serving",
-                "per_quantity": 250000, 
-                "per_unit": "mg", 
+                "per_quantity": 250, 
+                "per_unit": "g", 
                 "source": "packaging",
-                "last_updated_t": "0045618",
+                "last_updated_t": "--ignore--",
                 "nutrients": {
                     "fruits-vegetables-legumes-estimate-from-ingredients": {
                         "value_string": "0",
@@ -327,5 +326,8 @@
                 }
             }
         }
-    }
+    },
+    "schema_version": 1003,
+    "serving_quantity": 250, 
+    "serving_quantity_unit": "g"
 }

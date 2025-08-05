@@ -69,7 +69,6 @@ use ProductOpener::Booleans qw/normalize_boolean/;
 use ProductOpener::Images qw/normalize_generation_ref/;
 use ProductOpener::Nutrition qw/generate_nutrient_set_preferred_from_sets/;
 
-
 use Data::DeepAccess qw(deep_get deep_set);
 use boolean ':all';
 
@@ -126,7 +125,7 @@ sub convert_product_schema ($product_ref, $to_version) {
 	999 => \&convert_schema_999_to_1000_rename_ecoscore_fields_to_environmental_score,
 	1000 => \&convert_schema_1000_to_1001_remove_ingredients_hierarchy_taxonomize_brands,
 	1001 => \&convert_schema_1001_to_1002_refactor_images_object,
-	1002 => \&convert_schema_1002_to_1002_refactor_product_nutrition_schema,
+	1002 => \&convert_schema_1002_to_1003_refactor_product_nutrition_schema,
 );
 
 %downgrade_functions = (
@@ -325,16 +324,15 @@ sub convert_schema_1002_to_1001_refactor_images_object ($product_ref) {
 	return;
 }
 
-
 =head2 1002 to 1003 - Refactor the product nutrition schema - API v3.4
 
 The nutrition schema is updated to allow storing several nutrition sets
 
 =cut
 
-sub convert_schema_1002_to_1002_refactor_product_nutrition_schema ($product_ref) {
+sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref) {
 	$product_ref->{nutrition} = {};
-	
+
 	my $new_nutrition_sets_ref = {
 		"prepared_100g" => {},
 		"100g" => {},
@@ -349,13 +347,13 @@ sub convert_schema_1002_to_1002_refactor_product_nutrition_schema ($product_ref)
 		"prepared_100g" => {state => "prepared", modifier_state => "_prepared"},
 		"prepared_serving" => {state => "prepared", modifier_state => "_prepared"},
 		"100g" => {state => "as_sold", modifier_state => ""},
-		"serving" => {state => "as_sold", modifier_state =>""},
+		"serving" => {state => "as_sold", modifier_state => ""},
 	};
 
 	if (defined $product_ref->{nutriments}) {
-		my %hash_nutrients = map { /^([a-z][a-z\-]*[a-z]?)(?:_\w+)?$/ ? ($1 => 1) : () }
-		keys %{$product_ref->{nutriments}};;
-		
+		my %hash_nutrients = map {/^([a-z][a-z\-]*[a-z]?)(?:_\w+)?$/ ? ($1 => 1) : ()}
+			keys %{$product_ref->{nutriments}};
+
 		my @nutrients = keys %hash_nutrients;
 
 		foreach my $state (keys %$new_nutrition_sets_ref) {
@@ -363,54 +361,67 @@ sub convert_schema_1002_to_1002_refactor_product_nutrition_schema ($product_ref)
 			$new_nutrition_sets_ref->{$state}{source} = "packaging";
 			$new_nutrition_sets_ref->{$state}{last_updated_t} = time() + 0;
 
-			$new_nutrition_sets_ref->{$state}{per_unit} = set_per_unit($product_ref->{product_quantity_unit}, $product_ref->{serving_quantity_unit});
-			$new_nutrition_sets_ref->{$state}{per_quantity} = set_per_value($state, $product_ref->{serving_quantity});
-			$new_nutrition_sets_ref->{$state}{per} = $new_nutrition_sets_ref->{$state}{per_quantity} . $new_nutrition_sets_ref->{$state}{per_unit};
-			
+			$new_nutrition_sets_ref->{$state}{per_unit}
+				= set_per_unit($product_ref->{product_quantity_unit}, $product_ref->{serving_quantity_unit});
+			$new_nutrition_sets_ref->{$state}{per_quantity}
+				= ($state eq "serving" or $state eq "prepared_serving")
+				? $product_ref->{serving_quantity}
+				: 100;    #set_per_value($state, $product_ref->{serving_quantity});
+			$new_nutrition_sets_ref->{$state}{per}
+				= ($state eq "serving" or $state eq "prepared_serving")
+				? "serving"
+				: "100" . $new_nutrition_sets_ref->{$state}{per_unit};
+
 			$new_nutrition_sets_ref->{$state}{unspecified_nutrients} = [];
 			$new_nutrition_sets_ref->{$state}{nutrients} = {};
-			
+
 			foreach my $nutrient (@nutrients) {
 				if (defined $product_ref->{nutriments}{$nutrient . '_' . $state}) {
-					$new_nutrition_sets_ref->{$state}{nutrients}{$nutrient}{value} = $product_ref->{nutriments}{$nutrient . '_' . $state};
-					$new_nutrition_sets_ref->{$state}{nutrients}{$nutrient}{value_string} = $product_ref->{nutriments}{$nutrient . '_' . $state} . "" ;
+					$new_nutrition_sets_ref->{$state}{nutrients}{$nutrient}{value}
+						= $product_ref->{nutriments}{$nutrient . '_' . $state};
+
+					$new_nutrition_sets_ref->{$state}{nutrients}{$nutrient}{value_string}
+						= sprintf("%s", $product_ref->{nutriments}{$nutrient . '_' . $state});
 					$new_nutrition_sets_ref->{$state}{nutrients}{$nutrient}{unit} = set_nutrient_unit($nutrient);
-					
-					if (defined $product_ref->{nutriments}{$nutrient . ($nutrition_preparations_ref->{$state}{modifier_state}) . "_modifier"}) {
-						$new_nutrition_sets_ref->{$state}{nutrients}{$nutrient}{modifier} = $product_ref->{nutriments}{$nutrient . $nutrition_preparations_ref->{$state}{modifier_state} . "_modifier"};
+
+					if (
+						defined $product_ref->{nutriments}
+						{$nutrient . ($nutrition_preparations_ref->{$state}{modifier_state}) . "_modifier"})
+					{
+						$new_nutrition_sets_ref->{$state}{nutrients}{$nutrient}{modifier} = $product_ref->{nutriments}
+							{$nutrient . $nutrition_preparations_ref->{$state}{modifier_state} . "_modifier"};
 					}
 				}
 
-				elsif ($product_ref->{nutriments}{$nutrient . "_modifier"} eq "-") {
-					push( @{ $new_nutrition_sets_ref->{$state}{unspecified_nutrients} }, $nutrient);
+				elsif (defined $product_ref->{nutriments}{$nutrient . "_modifier"}
+					and $product_ref->{nutriments}{$nutrient . "_modifier"} eq "-")
+				{
+					push(@{$new_nutrition_sets_ref->{$state}{unspecified_nutrients}}, $nutrient);
 				}
 			}
 		}
 	}
 
-	$product_ref->{nutrition}{nutrient_sets} = [$new_nutrition_sets_ref->{"prepared_100g"}, 
-												$new_nutrition_sets_ref->{prepared_serving}, 
-												$new_nutrition_sets_ref->{"100g"}, 
-												$new_nutrition_sets_ref->{serving}];
-	use Data::Dumper;
-	warn "================= PREPARED 100g ===========\n" . Dumper($new_nutrition_sets_ref->{"prepared_100g"});
-	warn "================= PREPARED SERVING ===========\n" . Dumper($new_nutrition_sets_ref->{"prepared_serving"});
-	warn "================= AS SOLD 100g ===========\n" . Dumper($new_nutrition_sets_ref->{"100g"});
-	warn "================= AS SOLD SERVING ===========\n" . Dumper($new_nutrition_sets_ref->{"serving"});
-	$product_ref->{nutrition}{nutrient_set_preferred} = generate_nutrient_set_preferred_from_sets($product_ref->{nutrition}{nutrient_sets});
-	warn "========= PREFERED =========" . Dumper($product_ref->{nutrition}->{nutrient_set_preferred});
+	$product_ref->{nutrition}{nutrient_sets} = [
+		$new_nutrition_sets_ref->{"prepared_100g"}, $new_nutrition_sets_ref->{prepared_serving},
+		$new_nutrition_sets_ref->{"100g"}, $new_nutrition_sets_ref->{serving}
+	];
+	$product_ref->{nutrition}{nutrient_set_preferred}
+		= generate_nutrient_set_preferred_from_sets($product_ref->{nutrition}{nutrient_sets});
+
 	delete $product_ref->{nutriments};
+
 	return;
 }
 
-
 sub set_per_value ($state, $serving_quantity) {
 	my $per_value = 100;
-	if ($state eq "serving") {
+	if ($state eq "serving" or $state eq "prepared_serving") {
 		$per_value = $serving_quantity;
 	}
 	return $per_value;
 }
+
 sub set_per_unit ($product_quantity_unit, $serving_quantity_unit) {
 	my $per_unit = "g";
 	if (defined $product_quantity_unit) {
