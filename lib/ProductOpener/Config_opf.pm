@@ -514,6 +514,77 @@ HTML
 	last_image_t
 );
 
+# List of fields that can be imported on the producers platform
+# and that are also exported from the producers platform to the public platform
+$options{import_export_fields_groups} = [
+	[
+		"identification",
+		[
+			"code", "producer_product_id",
+			"producer_version_id", "lc",
+			"product_name", "abbreviated_product_name",
+			"generic_name",
+			"quantity_value_unit", "net_weight_value_unit",
+			"drained_weight_value_unit", "volume_value_unit",
+			"serving_size_value_unit", "packaging",
+			"brands", "brand_owner",
+			"categories", "categories_specific",
+			"labels", "labels_specific",
+			"countries", "stores",
+			"obsolete", "obsolete_since_date",
+			"periods_after_opening"    # included for OBF imports via the producers platform
+		]
+	],
+	[
+		"origins",
+		["origins", "origin", "manufacturing_places", "producer", "emb_codes"]
+	],
+	["ingredients", ["ingredients_text", "allergens", "traces"]],
+	["nutrition"],
+	["nutrition_other"],
+	["packaging"],
+	[
+		"other",
+		[
+			"conservation_conditions", "warning",
+			"preparation", "nutriscore_score_producer",
+			"nutriscore_grade_producer", "nova_group_producer",
+			"recipe_idea", "customer_service",
+			"link",
+		]
+	],
+	[
+		"images",
+		[
+			"image_front_url", "image_ingredients_url", "image_nutrition_url", "image_packaging_url",
+			"image_other_url", "image_other_type",
+		]
+	],
+];
+
+# Secondary fields that are computed by OFF from primary data
+# Those fields are only exported, they are not imported.
+$options{off_export_fields_groups} = [
+	[
+		"off",
+		[
+			"food_groups",
+			"nova_groups",
+			"nutriscore_grade",
+			"nutriscore_score",
+			"environmental_score_grade",
+			"environmental_score_score",
+			"environmental_score_data.missing_key_data",
+			"environmental_score_data.agribalyse.code",
+			"environmental_score_data.adjustments.origins_of_ingredients.value",
+			"environmental_score_data.adjustments.packaging.value",
+			"environmental_score_data.adjustments.packaging.non_recyclable_and_non_biodegradable_materials",
+			"environmental_score_data.adjustments.production_system.value",
+			"environmental_score_data.adjustments.threatened_species.value",
+		]
+	],
+];
+
 # Used to generate the list of possible product attributes, which is
 # used to display the possible choices for user preferences
 $options{attribute_groups}
