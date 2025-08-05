@@ -46,7 +46,7 @@ use Getopt::Long;
 # how many operations in bulk write
 my $BULK_WRITE_SIZE = 100;
 
-sub find_non_normalized_sto ($product_path, $out, $verbose=1) {
+sub find_non_normalized_sto ($product_path, $out, $verbose = 1) {
 	# find all .sto files that have a non normalized code
 	# we take a very brute force approach on filename
 	# return a list with path, product_id and normalized_id
@@ -54,7 +54,7 @@ sub find_non_normalized_sto ($product_path, $out, $verbose=1) {
 	my @anomalous = ();
 	my $products_count = 0;
 	while (my $product_path = $iter->()) {
-		if ($verbose and (not ($products_count % 10000))) {
+		if ($verbose and (not($products_count % 10000))) {
 			print($out "$products_count processed\n") unless !$out;
 		}
 		$products_count += 1;
