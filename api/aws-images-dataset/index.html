@@ -1732,13 +1732,8 @@ Facts and the OCR results on these images obtained using Google Cloud Vision.</p
 <p>Data is synchronized monthly between the Open Food Facts server and the bucket;
 as such some recent images are likely missing. You should not assume all
 images are present in the bucket.</p>
-<p>To know the bucket key associated with an image for the product with barcode
-'4012359114303', you should first split the barcode as follows:
-<code>/401/235/911/4303</code> (that is, three groups of 3 digits followed by one group of
-4 digits, all four groups being prefixed with a <code>/</code>).</p>
-<p>This splitting is only relevant for EAN13 (13-digit barcodes):
-for barcodes with fewer digits (like EAN8), the directory path is
-not split: <code>/20065034</code>.</p>
+<p>To know the bucket key associated with an image, we use the same directory structure as on Product Opener. See <a href="../how-to-download-images/#computing-single-product-image-folder">How to download images</a> for more information.</p>
+<p>For example, for the product with barcode '4012359114303', the directory containing the image is <code>/401/235/911/4303</code> (that is, three groups of 3 digits followed by one group of 4 digits, all four groups being prefixed with a <code>/</code>).</p>
 <p>To get the raw image '1' for barcode '4012359114303', simply add the image ID:
 <code>/401/235/911/4303/1.jpg</code>. Here, you will get the "raw" image, as sent by the
 contributor. If you don't need the full resolution image, a 400px resized
