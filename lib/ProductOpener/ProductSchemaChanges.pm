@@ -436,7 +436,7 @@ sub set_per_unit ($product_quantity_unit, $serving_quantity_unit) {
 sub set_nutrient_unit ($nutrient) {
 	my $unit = "g";
 	if ($nutrient eq "energy" or $nutrient eq "energy-kj") {
-		$unit = "kj";
+		$unit = "kJ";
 	}
 	elsif ($nutrient eq "energy-kcal") {
 		$unit = "kcal";

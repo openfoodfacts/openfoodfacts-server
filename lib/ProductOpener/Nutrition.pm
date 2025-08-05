@@ -78,12 +78,10 @@ sub generate_nutrient_set_preferred_from_sets ($nutrient_sets_ref) {
 		return;
 	}
 	my @nutrient_sets = @$nutrient_sets_ref;
-	
 	my $nutrient_set_preferred_ref = {};
 
 	if (@nutrient_sets) {
 		@nutrient_sets = sort_sets_by_priority(@nutrient_sets);
-		
 		if (%{$nutrient_sets[0]}) {
 			# set preparation, per, per_quantity and per_unit of preferred set as values of the nutrient_set with the highest priority
 			$nutrient_set_preferred_ref->{preparation} = $nutrient_sets[0]{preparation};
@@ -240,10 +238,10 @@ sub convert_nutrient_to_standard_unit ($nutrient_ref, $nutrient_name) {
 		}
 	}
 	elsif ($nutrient_name eq "energy" or $nutrient_name eq "energy-kj") {
-		if ($nutrient_ref->{unit} ne "kj") {
+		if ($nutrient_ref->{unit} ne "kJ") {
 			$nutrient_ref->{value} = unit_to_kj($nutrient_ref->{value}, $nutrient_ref->{unit});
 			$nutrient_ref->{value_string} = sprintf("%s", $nutrient_ref->{value});
-			$nutrient_ref->{unit} = "kj";
+			$nutrient_ref->{unit} = "kJ";
 		}
 	}
 	elsif ($nutrient_ref->{unit} ne "g") {

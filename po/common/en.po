@@ -264,6 +264,11 @@ msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
 msgstr "Advanced search and graphs"
 
+# duplicate
+msgctxt "alcohol_warning"
+msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
 msgstr "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
@@ -296,7 +301,6 @@ msgctxt "analytical_constituents_per_1kg"
 msgid "for 1 kg"
 msgstr "for 1 kg"
 
-# Do not translate URL 
 msgctxt "android_apk_app_icon_url"
 msgid "/images/misc/app-landing-page/download-apk/download-apk_en.svg"
 msgstr "/images/misc/app-landing-page/download-apk/download-apk_en.svg"
@@ -355,10 +359,6 @@ msgstr "You can also help to fund the Open Food Facts project"
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
 msgstr "Producers Admin manual"
-
-msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -567,6 +567,10 @@ msgstr "Delete a product"
 msgctxt "delete_the_images"
 msgid "Delete the images"
 msgstr "Delete the images"
+
+msgctxt "delete_user"
+msgid "Delete the user"
+msgstr "Delete the user"
 
 msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
@@ -2755,6 +2759,7 @@ msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
 msgstr "NutriScore nutrition grade"
 
+# duplicate
 msgctxt "delete_product_page"
 msgid "Delete the product page"
 msgstr "Delete the product page"
@@ -2770,10 +2775,6 @@ msgstr "has deleted product"
 msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
 msgstr "Are you sure that you want to delete the page for this product?"
-
-msgctxt "delete_user"
-msgid "Delete the user"
-msgstr "Delete the user"
 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s."
@@ -4195,10 +4196,6 @@ msgstr "We need your support!"
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr "Please Donate"
-
-msgctxt "alcohol_warning"
-msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
-msgstr "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
 
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
@@ -5760,9 +5757,15 @@ msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
 msgstr "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
 
+# duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
 msgstr "For a more precise calculation of the Green-Score, you can modify the product page and add them."
+
+# duplicate
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
+msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
+msgstr "For a more precise calculation of the Green-Score, you can edit the product page and add them."
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
@@ -7091,6 +7094,11 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr "Report a problem"
 
+# duplicate with "report_problem_panel_title"
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
+msgstr "Report a problem"
+
 msgctxt "report_problem_navigation"
 msgid "Report a problem."
 msgstr "Report a problem."
@@ -7119,11 +7127,6 @@ msgctxt "description"
 msgid "Description"
 msgstr "Description"
 
-# duplicate with "report_problem_panel_title"
-msgctxt "report_problem_navigation"
-msgid "Report a problem"
-msgstr "Report a problem"
-
 msgctxt "enter_main_contact_username"
 msgid "Enter main contact's username :"
 msgstr "Enter main contact's username :"
@@ -7143,6 +7146,10 @@ msgstr "This user is not a member of the organization."
 msgctxt "skip_to_content"
 msgid "Skip to Content"
 msgstr "Skip to Content"
+
+msgctxt "oidc_signin_no_cookie"
+msgid "You need to enable cookies to sign in."
+msgstr "You need to enable cookies to sign in."
 
 msgctxt "cant_delete_main_contact"
 msgid "You cannot remove the main contact. Change it first."
@@ -7439,10 +7446,6 @@ msgctxt "in_contact_with_food"
 msgid "In contact with food"
 msgstr "In contact with food"
 
-msgctxt "oidc_signin_no_cookie"
-msgid "You need to enable cookies to sign in."
-msgstr "You need to enable cookies to sign in."
-
 msgctxt "contact_us_producers"
 msgid "Contact Us"
 msgstr "Contact Us"
@@ -7455,7 +7458,7 @@ msgctxt "f_add_product_to_our_database"
 msgid "Is {barcode} the barcode of a product you have? If so, please add it to the database. It only takes a few minutes."
 msgstr "Is {barcode} the barcode of a product you have? If so, please add it to the database. It only takes a few minutes."
 
-# Please change get-it-on-en.svg to get-it-on-XX.svg. check the new image url exists https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
+# Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
 msgctxt "f_droid_app_icon_url"
 msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
 msgstr "/images/misc/f-droid/svg/get-it-on-en.svg"
@@ -7464,13 +7467,13 @@ msgctxt "f_droid_app_icon_alt_text"
 msgid "Available on F-Droid"
 msgstr "Available on F-Droid"
 
-msgctxt "update_nutrition_facts"
-msgid "Extract nutrition facts"
-msgstr "Extract nutrition facts"
-
 msgctxt "update_nutrients_data"
 msgid "Update nutrients data"
 msgstr "Update nutrients data"
+
+msgctxt "update_nutrition_facts"
+msgid "Extract nutrition facts"
+msgstr "Extract nutrition facts"
 
 msgctxt "scan_a_product"
 msgid "Scan a product"
@@ -7483,7 +7486,6 @@ msgstr "Or enter barcode manually"
 msgctxt "scan"
 msgid "Scan"
 msgstr "Scan"
-
 
 msgctxt "reset_preferences_details_beauty"
 msgid "Organic farming and fair trade"
@@ -7504,6 +7506,18 @@ msgstr "Organic farming and fair trade"
 msgctxt "action_report_image_to_nutripatrol"
 msgid "Report this image to our moderators"
 msgstr "Report this image to our moderators"
+
+msgctxt "bottom_content_split"
+msgid  "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+
+msgctxt "bottom_content_split_with_lilo"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+
+msgctxt "lilo_search_engine"
+msgid "Lilo search engine"
+msgstr "Lilo search engine"
 
 msgctxt "robots_not_served_here"
 msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."

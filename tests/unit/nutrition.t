@@ -467,7 +467,7 @@ my @tests = (
 							"energy-kcal" => {
 								value_string => "125",
 								value => 125,
-								unit => "kj",
+								unit => "kJ",
 							}
 						}
 					}
@@ -516,6 +516,30 @@ my @tests = (
 								value_string => "30",
 								value => 30,
 								unit => "kcal",
+							}
+						}
+					}
+				]
+			}
+		}
+	],
+	[
+		# Generated set should keep unit if it is standard unit
+		"keep_standard_unit",
+		{
+			nutrition => {
+				nutrient_sets => [
+					{
+						preparation => "as_sold",
+						per => "100g",
+						per_quantity => "100",
+						per_unit => "g",
+						source => "packaging",
+						nutrients => {
+							"energy-kj" => {
+								value_string => "30",
+								value => 30,
+								unit => "kJ",
 							}
 						}
 					}
@@ -651,8 +675,8 @@ my @tests = (
 						source => "packaging",
 						nutrients => {
 							"sodium" => {
-								value_string => "2.5",
-								value => 2.5,
+								value_string => "0.025",
+								value => 0.025,
 								unit => "g",
 							}
 						}
@@ -689,8 +713,8 @@ my @tests = (
 						source => "packaging",
 						nutrients => {
 							"sodium" => {
-								value_string => "0.25",
-								value => 0.25,
+								value_string => "0.025",
+								value => 0.025,
 								unit => "g",
 							}
 						}
@@ -741,8 +765,8 @@ my @tests = (
 						source => "manufacturer",
 						nutrients => {
 							"sugars" => {
-								value_string => "6.3",
-								value => 6.3,
+								value_string => "0.063",
+								value => 0.063,
 								unit => "g",
 							}
 						}
