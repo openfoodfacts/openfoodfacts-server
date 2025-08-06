@@ -135,7 +135,7 @@ sub compute_completeness_score {
 		{
 			add_tag($product_ref, "data_quality_info", "en:ingredients-$lang_code-completed");
 			# the following is needed for the KnowledgePanelsIngredients and web_html.t tests
-			add_tag($product_ref, "data_quality_info", "en:ingredients-completed");
+			add_tag($product_ref, "data_quality_info", "en:ingredients-completed-at-least-for-one-language");
 			$completeness_ingredients_count++;
 		}
 		else {
