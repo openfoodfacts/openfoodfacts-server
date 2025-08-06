@@ -47,6 +47,7 @@ BEGIN {
 		$admin_email
 		$producers_email
 
+		$tesseract_ocr_available
 		$google_cloud_vision_api_key
 		$google_cloud_vision_api_url
 
@@ -63,11 +64,14 @@ BEGIN {
 		$rate_limiter_blocking_enabled
 		$facets_kp_url
 		$redis_url
+		$folksonomy_url
 		$process_global_redis_events
-
 		$mongodb
 		$mongodb_host
 		$mongodb_timeout_ms
+
+		$recipe_estimator_url
+		$recipe_estimator_scipy_url
 
 		$memd_servers
 
@@ -99,6 +103,7 @@ BEGIN {
 		@edit_rules
 
 		$build_cache_repo
+		$serialize_to_json
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -178,7 +183,7 @@ $flavor = 'obf';
 %options = (
 	site_name => "Open Beauty Facts",
 	product_type => "beauty",
-	og_image_url => "https://world.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en.png",
+	og_image_url => "https://static.openfoodfacts.org/images/logos/obf-logo-vertical-white-social-media-preview.png",
 	android_apk_app_link => "https://world.openbeautyfacts.org/images/apps/obf.apk?utm_source=obf&utf_medium=web",
 	android_app_link =>
 		"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=obf&utf_medium=web",
@@ -233,6 +238,7 @@ $conf_root = $ProductOpener::Config2::conf_root;
 
 $geolite2_path = $ProductOpener::Config2::geolite2_path;
 
+$tesseract_ocr_available = $ProductOpener::Config2::tesseract_ocr_available;
 $google_cloud_vision_api_key = $ProductOpener::Config2::google_cloud_vision_api_key;
 $google_cloud_vision_api_url = $ProductOpener::Config2::google_cloud_vision_api_url;
 
@@ -243,6 +249,14 @@ $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
 # enable an in-site robotoff-asker in the product page
 $robotoff_url = $ProductOpener::Config2::robotoff_url;
 $query_url = $ProductOpener::Config2::query_url;
+
+# recipe-estimator product service
+# To test a locally running recipe-estimator with product opener in a docker dev environment:
+# - run recipe-estimator with `uvicorn recipe_estimator.main:app --reload --host 0.0.0.0`
+# $recipe_estimator_url = "http://host.docker.internal:8000/api/v3/estimate_recipe";
+
+$recipe_estimator_url = $ProductOpener::Config2::recipe_estimator_url;
+$recipe_estimator_scipy_url = $ProductOpener::Config2::recipe_estimator_scipy_url;
 
 # Set this to your instance of https://github.com/openfoodfacts/openfoodfacts-events
 # enable creating events for some actions (e.g. when a product is edited)
@@ -258,11 +272,18 @@ $process_global_redis_events = $ProductOpener::Config2::process_global_redis_eve
 # by returning a 429 error code instead of a 200 code
 $rate_limiter_blocking_enabled = $ProductOpener::Config2::rate_limiter_blocking_enabled;
 
+# Set this to your instance of https://github.com/openfoodfacts/folksonomy_api/ to
+# enable folksonomy features
+$folksonomy_url = $ProductOpener::Config2::folksonomy_url;
+
 # server options
 
 %server_options = %ProductOpener::Config2::server_options;
 
 $build_cache_repo = $ProductOpener::Config2::build_cache_repo;
+
+#11901: Remove once production is migrated
+$serialize_to_json = $ProductOpener::Config2::serialize_to_json;
 
 $reference_timezone = 'Europe/Paris';
 

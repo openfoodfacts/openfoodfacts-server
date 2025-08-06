@@ -348,6 +348,7 @@ stop_tests:
 # clean tests, remove containers and volume (useful if you changed env variables, etc.)
 clean_tests:
 	${DOCKER_COMPOSE_TEST} down -v --remove-orphans
+	${DOCKER_COMPOSE_INT_TEST} down -v --remove-orphans
 
 update_tests_results: build_taxonomies_test build_lang_test update_unit_tests_results update_integration_tests_results
 
