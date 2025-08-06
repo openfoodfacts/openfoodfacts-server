@@ -78949,8 +78949,8 @@ agribalyse_food_code:en: 11008
 ciqual_food_code:en: 11008
 ciqual_food_name:en: Ketchup
 ciqual_food_name:fr: Ketchup
-wikidata:en: Q178143
 opposite:en: en:ketchup-and-mayonnaise-mix-sauces
+wikidata:en: Q178143
 
 < en:Ketchup
 < en:Tomato sauces
@@ -80380,8 +80380,8 @@ pt: Refeições com carne
 ru: Блюда с мясом
 sv: Rätter med kött
 zh: 肉餐
-intake24_category_code:en: MDSH
 incompatible_with:en: en:meats, en:meat-preparations
+intake24_category_code:en: MDSH
 
 < en:Meals with meat
 en: Frozen meals with meat
@@ -84882,10 +84882,10 @@ th: ผลิตภัณฑ์จากเนื้อสัตว์
 tr: Et
 zh: 肉类, 肉
 food_groups:en: en:meat-other-than-poultry
+incompatible_with:en: en:meals-with-meat, en:meat-preparations
 intake24_category_code:en: MEAT
 # Products that are poultry hopefully have the en:Poultries category which will assign the en:Poultry food group
 pnns_group_2:en: Meat
-incompatible_with:en: en:meals-with-meat, en:meat-preparations
 
 #Products containing at least 99% meat according to French regulations. Products with lower meat percentage goes in "Ground meat preparations"
 < en:Meats
@@ -94771,11 +94771,11 @@ food_groups:en: en:cereals
 gpc_category_code:en: 10000242
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a savoury pasta, noodle or gnocchi not ready to eat product. These products must not include any additional ingredients such as vegetables, protein or a sauce, and must not be part of a recipe prior to sale. These products are not ready to eat and require cooking prior to consumption. These products have been treated or packaged in such a way to extend their consumable life. Definition Excludes: Specifically excludes all dough based prepared products such as Spaghetti Bolognaise. Excludes products such as Perishable and Frozen Not Ready to Eat and all Ready to Eat Pasta, Noodles and Gnocchi and all Dough Based Prepared Recipe Products.
 gpc_category_name:en: Pasta/Noodles - Not Ready to Eat (Shelf Stable)
+incompatible_with:en: en:pasta-dishes
 intake24_category_code:en: PTNS
 pnns_group_2:en: Cereals
 wikidata:en: Q178
 wikipedia:en: https://en.wikipedia.org/wiki/Pasta
-incompatible_with:en: en:pasta-dishes
 
 < en:pastas
 en: Semiya
@@ -96918,8 +96918,8 @@ pt: Pratos de massa
 ru: Блюда из макарон
 sv: Pastarätter
 intake24_category_code:en: PTDH
-wikidata:en: Q18679685
 opposite:en: en:pastas
+wikidata:en: Q18679685
 
 < en:Pasta dishes
 en: Pot noodles
@@ -119553,7 +119553,7 @@ intake24_category_code:en: WFFL
 < en:Potato preparations
 en: Kopytka
 pl: Kopytka
-wikidata:en:Q1154225
+wikidata:en: Q1154225
 
 < en:Potato preparations
 en: Rostis, Potatoes cakes, Potato cakes

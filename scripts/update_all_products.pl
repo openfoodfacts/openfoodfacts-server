@@ -1055,18 +1055,34 @@ while (my $product_ref = $cursor->next) {
 									(defined $product_ref->{images}{selected}{$image_type}{$image_lc}{orientation})
 								and ($product_ref->{images}{selected}{$image_type}{$image_lc} != 0)
 								# only rotate images that have not been manually cropped
-								and
-								((not defined $product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{x1})
-									or ($product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{x1} <= 0))
-								and
-								((not defined $product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{y1})
-									or ($product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{y1} <= 0))
-								and
-								((not defined $product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{x2})
-									or ($product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{x2} <= 0))
-								and
-								((not defined $product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{y2})
-									or ($product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{y2} <= 0))
+								and (
+									(
+										not
+										defined $product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{x1}
+									)
+									or ($product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{x1} <= 0)
+								)
+								and (
+									(
+										not
+										defined $product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{y1}
+									)
+									or ($product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{y1} <= 0)
+								)
+								and (
+									(
+										not
+										defined $product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{x2}
+									)
+									or ($product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{x2} <= 0)
+								)
+								and (
+									(
+										not
+										defined $product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{y2}
+									)
+									or ($product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{y2} <= 0)
+								)
 								)
 							{
 								print STDERR "rotating image $image_type $image_lc by "

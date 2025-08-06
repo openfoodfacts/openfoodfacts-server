@@ -380,10 +380,7 @@ sub compute_nutriscore_score_2021 ($nutriscore_data_ref) {
 		foreach my $threshold (@{$points_thresholds_2021{$nutrient_threshold_id}}) {
 			# The saturated fat ratio table uses the greater or equal sign instead of greater
 			if (
-				(
-						($nutrient eq "saturated_fat_ratio")
-					and ($nutriscore_data_ref->{$nutrient . "_value"} >= $threshold)
-				)
+				(($nutrient eq "saturated_fat_ratio") and ($nutriscore_data_ref->{$nutrient . "_value"} >= $threshold))
 				or (    ($nutrient ne "saturated_fat_ratio")
 					and ($nutriscore_data_ref->{$nutrient . "_value"} > $threshold))
 				)
