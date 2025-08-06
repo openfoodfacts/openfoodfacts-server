@@ -1232,6 +1232,7 @@ span.ico-bold {
 @import "product-form";
 @import "inputs_redesign";
 @import "modals";
+@import "external-knowledge-panels";
 
 .white-button {
   @include button(10, $white);
@@ -2014,3 +2015,4 @@ div.form-field-with-btn {
 .is_hidden {
   display: none;
 }
+

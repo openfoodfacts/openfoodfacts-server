@@ -163,16 +163,56 @@ async function renderExternalKnowledgeSections() {
         sectionTitle.textContent = section.label;
         cardSection.appendChild(sectionTitle);
         visiblePanels.forEach(panel => {
-            const panelTitle = document.createElement("h3");
-            panelTitle.textContent = panel.name;
-            cardSection.appendChild(panelTitle);
+            const providerCard = document.createElement("div");
+            providerCard.className = "provider-card";
+
+            const details = document.createElement("details");
+            details.open = true;
+
+            const summary = document.createElement("summary");
+            summary.className = "provider-summary";
+
+            if (panel.icon_url) {
+                const logo = document.createElement("img");
+                logo.src = panel.icon_url;
+                logo.className = "provider-logo";
+                logo.alt = panel.provider_name || panel.name || "";
+                summary.appendChild(logo);
+            }
+            const providerName = document.createElement("span");
+            providerName.className = "provider-name";
+            providerName.textContent = panel.provider_name || panel.name || "";
+            summary.appendChild(providerName);
+
+            if (panel.description) {
+                const providerDesc = document.createElement("span");
+                providerDesc.className = "provider-desc";
+                providerDesc.textContent = panel.description;
+                summary.appendChild(providerDesc);
+            }
+
+            const arrow = document.createElement("span");
+            arrow.className = "provider-arrow";
+            arrow.innerHTML = "&#9660;"; // ▼
+            summary.appendChild(arrow);
+
+            details.appendChild(summary);
+
+            const hr = document.createElement("hr");
+            hr.className = "provider-separator";
+            details.appendChild(hr);
+
             const url = interpolateUrl(panel.knowledge_panel_url, window.productData);
             const knowledgePanel = document.createElement("knowledge-panels");
             knowledgePanel.setAttribute("url", url);
             knowledgePanel.setAttribute("path", "panels");
             knowledgePanel.setAttribute("heading-level", "h4");
-            cardSection.appendChild(knowledgePanel);
+            details.appendChild(knowledgePanel);
+
+            providerCard.appendChild(details);
+            cardSection.appendChild(providerCard);
         });
+
         if (insertAfter.nextSibling) {
             parent.insertBefore(sectionDiv, insertAfter.nextSibling);
         } else {
