@@ -520,7 +520,6 @@ HTML
 	data_quality_errors_tags
 	unique_scans_n
 	popularity_tags
-	data_quality_dimensions
 	last_image_t
 );
 

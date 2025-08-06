@@ -899,7 +899,6 @@ $options{replace_existing_values_when_importing_those_tags_fields} = {
 	data_quality_errors_tags
 	unique_scans_n
 	popularity_tags
-	data_quality_dimensions
 	last_image_t
 );
 
