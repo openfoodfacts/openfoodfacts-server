@@ -15,7 +15,7 @@ To get the status of a product's images, you make a standard `GET` request to th
 **URL Structure:**
 
 ```
-https://{world|fr|...}.openfoodfacts.org/api/v0/product/[BARCODE].json?fields=images_to_update_[LANG]
+https://{world|fr|...}.openfoodfacts.org/api/v2/product/[BARCODE]?fields=images_to_update_[LANG]
 ```
 
 **Parameters:**
@@ -28,7 +28,7 @@ https://{world|fr|...}.openfoodfacts.org/api/v0/product/[BARCODE].json?fields=im
 Here is a request for the French (`fr`) images for product `3483130043180`.
 
 ```
-https://fr.openfoodfacts.org/api/v2/produit/3483130043180.json?fields=images_to_update_fr
+https://fr.openfoodfacts.org/api/v2/produit/3483130043180?fields=images_to_update_fr
 ```
 
 -----
