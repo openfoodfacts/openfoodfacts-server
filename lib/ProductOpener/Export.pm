@@ -166,7 +166,7 @@ and importing to the public database.
 
 Obsolete products are in the products_obsolete collection.
 
-=head4 mongo_timeout_ms - optional - specific mongo timeout
+=head4 mongo_timeout_ms - optional - specific mongoDB timeout
 
 Use it if you need to export big collections.
 This should only be used from scripts
