@@ -563,7 +563,6 @@ $options{import_export_fields_groups} = [
 # Secondary fields that are computed by OPF from primary data
 # Those fields are only exported, they are not imported.
 # Todo: populate when calculated indicators are available on OPF
-];
 
 # Used to generate the list of possible product attributes, which is
 # used to display the possible choices for user preferences
