@@ -696,6 +696,11 @@ Nutrients:
       - any-glob-to-any-file: "docs/​api/​ref/​schemas/​nutrients.yaml"
       - any-glob-to-any-file: "docs/​api/​ref/​schemas/​nutrient_unit.yaml"
       - any-glob-to-any-file: "docs/​api/​ref/​responses/​get_nutrients.yaml"
+      - any-glob-to-any-file: "taxonomies/nutrients.txt"
+
+units:
+  - changed-files:
+      - any-glob-to-any-file: "taxonomies/units.txt"
 
 Nutrition facts:
   - changed-files:
