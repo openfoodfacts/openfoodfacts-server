@@ -540,8 +540,6 @@ $options{import_export_fields_groups} = [
 		["origins", "origin", "manufacturing_places", "producer", "emb_codes"]
 	],
 	["ingredients", ["ingredients_text", "allergens", "traces"]],
-	["nutrition"],
-	["nutrition_other"],
 	["packaging"],
 	[
 		"other",
