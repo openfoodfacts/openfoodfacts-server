@@ -538,7 +538,7 @@ $options{import_export_fields_groups} = [
 			"generic_name",
 			"quantity_value_unit", "net_weight_value_unit",
 			"drained_weight_value_unit", "volume_value_unit",
-			"serving_size_value_unit", "packaging",
+			"packaging",
 			"brands", "brand_owner",
 			"categories", "categories_specific",
 			"labels", "labels_specific",
