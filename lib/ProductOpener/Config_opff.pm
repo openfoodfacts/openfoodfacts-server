@@ -608,9 +608,7 @@ $options{import_export_fields_groups} = [
 		"other",
 		[
 			"conservation_conditions", "warning",
-			"preparation", "nutriscore_score_producer",
-			"nutriscore_grade_producer", "nova_group_producer",
-			"recipe_idea", "customer_service",
+			"preparation", "customer_service",
 			"link",
 		]
 	],
