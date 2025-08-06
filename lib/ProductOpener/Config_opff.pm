@@ -623,7 +623,7 @@ $options{import_export_fields_groups} = [
 
 # Secondary fields that are computed by OFF from primary data
 # Those fields are only exported, they are not imported.
-$options{off_export_fields_groups} = [
+$options{opff_export_fields_groups} = [
 	[
 		"opff",
 		[
