@@ -625,7 +625,7 @@ $options{import_export_fields_groups} = [
 # Those fields are only exported, they are not imported.
 $options{off_export_fields_groups} = [
 	[
-		"off",
+		"opff",
 		[
 			"food_groups",
 			"nova_groups",
