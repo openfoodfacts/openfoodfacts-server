@@ -42,8 +42,8 @@ BEGIN {
 	@EXPORT_OK = qw(
 		%BASE_DIRS
 
-		&get_path_for_taxonomy
-		&get_file_for_taxonomy
+		&get_path_for_taxonomy_file
+		&get_files_for_taxonomy
 		&base_paths
 		&base_paths_loading_script
 		&check_missing_dirs
@@ -73,6 +73,14 @@ A hashmap containing references to base directories
 =cut
 
 %BASE_DIRS = ();
+
+=head3 $BASE_DIRS{SCRIPTS}
+
+Directory for scripts
+
+=cut
+
+$BASE_DIRS{SCRIPTS} = _source_dir() . "/scripts";
 
 =head3 $BASE_DIRS{LOGS}
 
@@ -290,43 +298,7 @@ my @PRO_ONLY_PATHS = qw(SFTP_HOME);
 
 =head1 FUNCTIONS
 
-=head2 products_dir($server_name)
-
-products directory for a foreign server
-
-=head3 Arguments
-
-=head4 $server_name - off/obf/opf/opff…
-
-=head3 Return
-
-String of path to base directory containing products sto
-
 =cut
-
-sub products_dir ($server_name) {
-	my $server_data_root = $options{other_servers}{$server_name}{data_root};
-	return "$server_data_root/products";
-}
-
-=head2 products_images_dir($server_name)
-
-products images directory for a foreign server
-
-=head3 Arguments
-
-=head4 $server_name - off/obf/opf/opff…
-
-=head3 Return
-
-String of path to base directory containing products images
-
-=cut
-
-sub products_images_dir ($server_name) {
-	my $server_www_root = $options{other_servers}{$server_name}{www_root};
-	return "$server_www_root/images/products";
-}
 
 sub _source_dir() {
 	# compute $src_root
@@ -334,7 +306,7 @@ sub _source_dir() {
 	return $src_root;
 }
 
-=head2 get_file_for_taxonomy( $tagtype )
+=head2 get_files_for_taxonomy( $tagtype )
 
 Taxonomy .txt source files are stored in the /taxonomies directory.
 
@@ -349,15 +321,18 @@ e.g. OFF ingredients are in /taxonomies/food/ingredients.txt and OBF ingredients
 
 =cut
 
-sub get_file_for_taxonomy ($tagtype, $product_type) {
+sub get_files_for_taxonomy ($tagtype, $product_type) {
 
-	my $file = $tagtype . '.txt';
-	# If the flavor has a specific product type, first check if we have a source file for this product type
-	if ((defined $product_type) and (-e "$BASE_DIRS{TAXONOMIES_SRC}/$product_type/$tagtype.txt")) {
-		$file = "$product_type/$tagtype.txt";
+	my @files = ();
+	# Check if there is a common taxonomy file for this tag type
+	if (-e "$BASE_DIRS{TAXONOMIES_SRC}/$tagtype.txt") {
+		push @files, "$tagtype.txt";
 	}
-
-	return $file;
+	# Check if there is product type specific taxonomy file for this tag type
+	if ((defined $product_type) and (-e "$BASE_DIRS{TAXONOMIES_SRC}/$product_type/$tagtype.txt")) {
+		push @files, "$product_type/$tagtype.txt";
+	}
+	return @files;
 }
 
 =head2 get_path_for_taxonomy( $tagtype, $product_type )
@@ -366,9 +341,8 @@ full path for taxonomy file
 
 =cut
 
-sub get_path_for_taxonomy($tagtype, $product_type) {
+sub get_path_for_taxonomy_file($source_file) {
 	# The source file can be prefixed by the product type
-	my $source_file = get_file_for_taxonomy($tagtype, $product_type);
 	return "$BASE_DIRS{TAXONOMIES_SRC}/$source_file";
 }
 
@@ -382,15 +356,6 @@ sub base_paths() {
 	my %paths = (%BASE_DIRS);
 	if (!$server_options{producers_platform}) {
 		# on non pro instances,
-		# also add foreign projects dirs for products migrations
-		my $servers_options = $options{other_servers};
-		foreach my $server_name (keys %{$servers_options}) {
-			if ($server_name eq $options{current_server}) {
-				next;
-			}
-			$paths{uc($server_name) . "_PRODUCTS_DIR"} = products_dir($server_name);
-			$paths{uc($server_name) . "_PRODUCTS_IMAGES_DIR"} = products_images_dir($server_name);
-		}
 		# remove some paths
 		foreach my $path (@PRO_ONLY_PATHS) {
 			delete $paths{$path};

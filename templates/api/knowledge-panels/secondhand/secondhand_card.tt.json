@@ -1,0 +1,28 @@
+{
+    "type": "card",
+    "expanded": true,
+    "topics": [
+        "secondhand"
+    ],
+    "title_element": {
+        "title": "[% edq(lang('secondhand')) %]",
+    },    
+    "elements": [
+        [% IF panels.donated_products.defined %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "donated_products",
+            },
+        },
+        [% END %]
+        [% IF panels.used_products.defined %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "used_products",
+            },
+        },
+        [% END %]
+    ],
+}

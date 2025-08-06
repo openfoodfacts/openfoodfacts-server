@@ -11,7 +11,8 @@ ARG CPANMOPTS=
 FROM debian:bullseye AS modperl
 
 # Install cpm to install cpanfile dependencies
-RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
+    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
     apt update && \
     apt install -y \
         apache2 \
@@ -53,6 +54,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         libcache-memcached-fast-perl \
         libjson-pp-perl \
         libclone-perl \
+        #11866: Delete following after Keycloak Migration:
         libcrypt-passwdmd5-perl \
         libencode-detect-perl \
         libgraphics-color-perl \
@@ -67,6 +69,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         libdbd-pg-perl \
         libtemplate-perl \
         liburi-escape-xs-perl \
+        libanyevent-redis-perl \
         # NB: not available in ubuntu 1804 LTS:
         libmath-random-secure-perl \
         libfile-copy-recursive-perl \
@@ -80,7 +83,12 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         # NB: not available in ubuntu 1804 LTS:
         libgeoip2-perl \
         libemail-valid-perl
-RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
+    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
+    # rerun apt update, because last RUN might be in cache
+    ( ( [ ! -e /var/cache/apt/pkgcache.bin ] || [ $(($(date +%s) - $(stat --format=%Y /var/cache/apt/pkgcache.bin))) -gt 3600 ] ) && \
+      apt update || true \
+    ) && \
     apt install -y \
         #
         # cpan dependencies that can be satisfied by apt even if the package itself can't:
@@ -158,6 +166,10 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         libperl-dev \
         # needed to build Apache2::Connection::XForwardedFor
         libapache2-mod-perl2-dev \
+        # OpenSSL dev needed by OIDC::Lite
+        libssl-dev \
+        # needed for  Imager::File::WEBP
+        libwebpmux3 \
         # Imager::zxing - build deps
         cmake \
         pkg-config \
@@ -171,18 +183,19 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         libx265-dev
 
 # Install zxing-cpp from source until 2.1 or higher is available in Debian: https://github.com/openfoodfacts/openfoodfacts-server/pull/8911/files#r1322987464
+ARG ZXING_VERSION=2.3.0
 RUN set -x && \
     cd /tmp && \
-    wget https://github.com/zxing-cpp/zxing-cpp/archive/refs/tags/v2.1.0.tar.gz && \
-    tar xfz v2.1.0.tar.gz && \
-    cmake -S zxing-cpp-2.1.0 -B zxing-cpp.release \
+    wget https://github.com/zxing-cpp/zxing-cpp/archive/refs/tags/v${ZXING_VERSION}.tar.gz && \
+    tar xfz v${ZXING_VERSION}.tar.gz && \
+    cmake -S zxing-cpp-${ZXING_VERSION} -B zxing-cpp.release \
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DCMAKE_BUILD_TYPE=Release \
     -DBUILD_WRITERS=OFF -DBUILD_READERS=ON -DBUILD_EXAMPLES=OFF && \
     cmake --build zxing-cpp.release -j8 && \
     cmake --install zxing-cpp.release && \
     cd / && \
-    rm -rf /tmp/v2.1.0.tar.gz /tmp/zxing-cpp*
+    rm -rf /tmp/v${ZXING_VERSION}.tar.gz /tmp/zxing-cpp*
 
 # Run www-data user AS host user 'off' or developper uid
 ARG USER_UID
@@ -201,7 +214,15 @@ WORKDIR /tmp
 # Install Product Opener from the workdir.
 COPY ./cpanfile* /tmp/
 # Add ProductOpener runtime dependencies from cpan
-RUN --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
+# we also add apt cache as some libraries might be installed from apt
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
+    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt \
+    --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
+    set -x && \
+    # also run apt update if needed because some package might need to apt install
+    ( ( [ ! -e /var/cache/apt/pkgcache.bin ] || [ $(($(date +%s) - $(stat --format=%Y /var/cache/apt/pkgcache.bin))) -gt 3600 ] ) && \
+      apt update || true \
+    ) && \
     # first install some dependencies that are not well handled
     cpanm --notest --quiet --skip-satisfied --local-lib /tmp/local/ "Apache::Bootstrap" && \
     cpanm $CPANMOPTS --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps . \

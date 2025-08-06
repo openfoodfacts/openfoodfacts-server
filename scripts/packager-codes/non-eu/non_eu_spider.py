@@ -9,7 +9,8 @@ from scrapy.loader.processors import MapCompose
 
 def get_one(values: list) -> Any:
     if len(values) != 1:
-        raise ValueError("values list length must be equal to 1: {}".format(values))
+        raise ValueError(
+            "values list length must be equal to 1: {}".format(values))
     return values[0]
 
 
@@ -36,19 +37,23 @@ class NonEuSpider(scrapy.Spider):
 
     def parse(self, response):
         for country_cell in response.xpath("//ul[@class='country-list']/li"):
-            country_name = country_cell.xpath("a[@class='country-name']/text()").get()
+            country_name = country_cell.xpath(
+                "a[@class='country-name']/text()").get()
 
             for section_table in country_cell.xpath("ul"):
-                section = section_table.xpath("preceding-sibling::h3[1]/text()").get()
+                section = section_table.xpath(
+                    "preceding-sibling::h3[1]/text()").get()
 
                 for doc_link in section_table.xpath("li/a"):
                     file_path = doc_link.xpath("@href").get()
 
-                    doc_loader = ItemLoader(item=NonEuDocumentItem(), selector=doc_link)
+                    doc_loader = ItemLoader(
+                        item=NonEuDocumentItem(), selector=doc_link)
                     doc_loader.add_value("country_name", country_name)
                     doc_loader.add_value("section", section)
                     doc_loader.add_xpath("title", "text()")
                     doc_loader.add_xpath("publication_date", "span/text()")
                     doc_loader.add_value("file_path", file_path)
-                    doc_loader.add_value("url", urljoin(response.url, file_path))
+                    doc_loader.add_value(
+                        "url", urljoin(response.url, file_path))
                     yield doc_loader.load_item()

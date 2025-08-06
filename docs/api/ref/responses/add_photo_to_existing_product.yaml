@@ -1,4 +1,5 @@
 #TODO: Describe these response fields
+title: add_photo_to_existing_product_response
 type: object
 properties:
   files:
@@ -11,7 +12,7 @@ properties:
           example: /product/3017620422003/nutella-ferrero
         filename:
           type: string
-          example: ''
+          example: ""
         name:
           type: string
           example: Nutella - Ferrero - 400g
@@ -20,7 +21,7 @@ properties:
           example: /images/products/301/762/042/2003/123.100.jpg
         code:
           type: string
-          example: '3017620422003'
+          example: "3017620422003"
   image:
     type: object
     properties:
@@ -44,4 +45,4 @@ properties:
     example: front_en
   code:
     type: string
-    example: '3017620422003'
+    example: "3017620422003"

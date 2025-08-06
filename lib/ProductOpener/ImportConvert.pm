@@ -51,6 +51,9 @@ use Log::Any qw($log);
 use Storable qw(dclone);
 use Text::Fuzzy;
 
+# to use read_file
+use File::Slurp;
+
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
@@ -854,7 +857,7 @@ sub clean_fields ($product_ref) {
 	# Populate the quantity / weight fields from their quantity_value_unit, quantity_value, quantity_unit etc. components
 	clean_weights($product_ref);
 
-	foreach my $field (keys %{$product_ref}) {
+	foreach my $field (sort keys %{$product_ref}) {
 
 		# Split the generic name from the ingredient list
 		# Warning: this should be done only once, on the producers platform, when we import product data from a producer
@@ -883,12 +886,12 @@ sub clean_fields ($product_ref) {
 		}
 	}
 
-	foreach my $field (keys %{$product_ref}) {
+	foreach my $field (sort keys %{$product_ref}) {
 
 		$log->debug("clean_fields", {field => $field, value => $product_ref->{$field}}) if $log->is_debug();
 
 		if (not defined $product_ref->{$field}) {
-			print STDERR "undefined value for field $field\n";
+			# print STDERR "undefined value for field $field\n";
 			next;
 		}
 
@@ -1215,6 +1218,15 @@ sub load_xml_file ($file, $xml_rules_ref, $xml_fields_mapping_ref, $code) {
 
 	$log->info("parsing xml file with XML::Rules", {file => $file, xml_rules => $xml_rules_ref}) if $log->is_info();
 
+	# Read the file content
+	# Check if the file is empty or contains only comments
+	# See issue #9655, file 13003_3270190006787_valNut.xml + 5 others are empty
+	my $content = read_file($file);
+	if ($content =~ /^\s*<!--.*-->\s*$/s) {
+		# $log->warn("File is empty or contains only comments", {file => $file}) if $log->is_warn();
+		return 1;
+	}
+
 	my $parser = XML::Rules->new(rules => $xml_rules_ref);
 
 	my $xml_ref;
@@ -1398,10 +1410,10 @@ sub load_xml_file ($file, $xml_rules_ref, $xml_fields_mapping_ref, $code) {
 
 			my $current_tag = $xml_ref;
 
-			print STDERR "\nsource: $source\n";
+			# print STDERR "\nsource: $source\n";
 
 			foreach my $source_tag (split(/\./, $source)) {
-				print STDERR "source_tag: $source_tag\n";
+				# print STDERR "source_tag: $source_tag\n";
 
 				# commands
 
@@ -1425,12 +1437,12 @@ sub load_xml_file ($file, $xml_rules_ref, $xml_fields_mapping_ref, $code) {
 
 						# special case where we have something like allergens.nuts = traces
 						if ($tag_target eq "value_as_target_and_source_as_value") {
-							print STDERR "* tag key: $tag - target: $tag_target\n";
+							# print STDERR "* tag key: $tag - target: $tag_target\n";
 							if (    (defined $current_tag->{$tag})
 								and (not ref($current_tag->{$tag}))
 								and ($current_tag->{$tag} ne ''))
 							{
-								print STDERR "assign $tag to $current_tag->{$tag}\n";
+								# print STDERR "assign $tag to $current_tag->{$tag}\n";
 
 								assign_value($product_ref, $current_tag->{$tag}, $tag);
 							}
@@ -1439,13 +1451,13 @@ sub load_xml_file ($file, $xml_rules_ref, $xml_fields_mapping_ref, $code) {
 
 							$tag_target =~ s/\*/$tag/;
 							$tag_target = lc($tag_target);
-							print STDERR "* tag key: $tag - target: $tag_target\n";
+							# print STDERR "* tag key: $tag - target: $tag_target\n";
 							if (    (defined $current_tag->{$tag})
 								and (not ref($current_tag->{$tag}))
 								and ($current_tag->{$tag} ne ''))
 							{
-								print STDERR
-									"$tag value is a scalar: $current_tag->{$tag}, assign value to $tag_target\n";
+								# print STDERR
+								# 	"$tag value is a scalar: $current_tag->{$tag}, assign value to $tag_target\n";
 								if ($tag_target eq 'code') {
 									$code = $current_tag->{$tag};
 
@@ -1455,7 +1467,7 @@ sub load_xml_file ($file, $xml_rules_ref, $xml_fields_mapping_ref, $code) {
 								assign_value($product_ref, $tag_target, $current_tag->{$tag});
 
 								if ($tag_target eq 'emb_codes') {
-									print STDERR "emb_codes : " . $product_ref->{$tag_target} . "\n";
+									# print STDERR "emb_codes : " . $product_ref->{$tag_target} . "\n";
 								}
 							}
 						}
@@ -1468,7 +1480,7 @@ sub load_xml_file ($file, $xml_rules_ref, $xml_fields_mapping_ref, $code) {
 				elsif ($source_tag =~ /^\[(\d+)\]$/) {
 					my $i = $1;
 					if ((ref($current_tag) eq 'ARRAY') and (defined $current_tag->[$i])) {
-						print STDERR "going down to array element $source_tag - $i\n";
+						# print STDERR "going down to array element $source_tag - $i\n";
 						$current_tag = $current_tag->[$i];
 					}
 				}
@@ -1491,7 +1503,7 @@ sub load_xml_file ($file, $xml_rules_ref, $xml_fields_mapping_ref, $code) {
 							}
 						}
 						if (defined $max_version_ref) {
-							print STDERR "going down to array element $source_tag - version $max\n";
+							# print STDERR "going down to array element $source_tag - version $max\n";
 							$current_tag = $max_version_ref;
 						}
 					}
@@ -1499,7 +1511,7 @@ sub load_xml_file ($file, $xml_rules_ref, $xml_fields_mapping_ref, $code) {
 
 				elsif (defined $current_tag->{$source_tag}) {
 					if ((ref($current_tag->{$source_tag}) eq 'HASH') or (ref($current_tag->{$source_tag}) eq 'ARRAY')) {
-						print STDERR "going down to hash $source_tag\n";
+						# print STDERR "going down to hash $source_tag\n";
 						$current_tag = $current_tag->{$source_tag};
 					}
 					elsif ( (defined $current_tag->{$source_tag})
@@ -1509,7 +1521,7 @@ sub load_xml_file ($file, $xml_rules_ref, $xml_fields_mapping_ref, $code) {
 
 						my $value = $current_tag->{$source_tag};
 
-						print STDERR "$source_tag is a scalar: $value, assign value to $target\n";
+						# print STDERR "$source_tag is a scalar: $value, assign value to $target\n";
 						if ($target eq 'code') {
 							$code = $value;
 							$code = normalize_code($code);
@@ -1672,21 +1684,21 @@ sub load_csv_file ($options_ref) {
 					if ($target_field eq 'code') {
 						$code = $value;
 						$code = normalize_code($code);
-						print STDERR "reading product code $code\n";
+						# print STDERR "reading product code $code\n";
 
 						if ((defined $options_ref->{skip_invalid_codes}) and ($code !~ /^\d+$/)) {
-							print STDERR "skipping invalid code\n";
+							# print STDERR "skipping invalid code\n";
 							last;
 						}
 						elsif ( (defined $skip_non_existing_products)
 							and ($skip_non_existing_products)
 							and (not exists $products{$code}))
 						{
-							print STDERR "skipping non existing product\n";
+							# print STDERR "skipping non existing product\n";
 							last;
 						}
 						elsif ((defined $skip_empty_codes) and ((not defined $code) or ($code eq ""))) {
-							print STDERR "skipping empty code\n";
+							# print STDERR "skipping empty code\n";
 							last;
 						}
 						else {
@@ -1716,7 +1728,7 @@ sub load_csv_file ($options_ref) {
 
 						if ((!-e "$dir/$file") or ((-s "$dir/$file") < 10000)) {
 
-							print STDERR "downloading image: wget $csv_product_ref->{$source_field} -O $dir/$file\n";
+							# print STDERR "downloading image: wget $csv_product_ref->{$source_field} -O $dir/$file\n";
 							system("wget \"" . $csv_product_ref->{$source_field} . "\" -O $dir/$file");
 							sleep 2;    # there seems to be some limit as we received 403 Forbidden responses
 						}
@@ -1784,7 +1796,7 @@ sub recursive_list ($list_ref, $arg) {
 
 		my $dir = $arg;
 
-		print STDERR "Opening dir $dir\n";
+		# print STDERR "Opening dir $dir\n";
 
 		if (opendir(DH, "$dir")) {
 			foreach my $file (sort {$a cmp $b} readdir(DH)) {
@@ -1812,7 +1824,7 @@ sub get_list_of_files (@files_and_dirs) {
 
 	foreach my $arg (@files_and_dirs) {
 
-		print STDERR "arg: $arg\n";
+		# print STDERR "arg: $arg\n";
 
 		recursive_list(\@files, $arg);
 	}
@@ -1844,7 +1856,7 @@ sub print_csv_file ($file_handle) {
 
 		$csv_out->print($file_handle, \@values);
 
-		print STDERR "code: $code\n";
+		# print STDERR "code: $code\n";
 	}
 
 	return;
@@ -1868,10 +1880,10 @@ sub print_stats() {
 		$i++;
 	}
 
-	print STDERR "products:\t$i\n";
+	# print STDERR "products:\t$i\n";
 	foreach my $field (@fields) {
 		if (defined $existing_values{$field}) {
-			print STDERR "$field:\t$existing_values{$field}\n";
+			# print STDERR "$field:\t$existing_values{$field}\n";
 		}
 	}
 

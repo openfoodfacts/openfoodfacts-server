@@ -1,49 +1,64 @@
 {
    "ingredients" : [
       {
-         "ciqual_food_code" : "17130",
-         "from_palm_oil" : "no",
-         "id" : "en:rapeseed-oil",
+         "from_palm_oil" : "maybe",
+         "id" : "en:vegetable-oil-and-fat",
+         "ingredients" : [
+            {
+               "ciqual_food_code" : "17130",
+               "ecobalyse_code" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
+               "from_palm_oil" : "no",
+               "id" : "en:rapeseed-oil",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 62.5,
+               "percent_max" : 100,
+               "percent_min" : 25,
+               "text" : "Rapsöl",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_proxy_food_code" : "16129",
+               "ecobalyse_code" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+               "from_palm_oil" : "yes",
+               "id" : "en:palm-fat",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 18.75,
+               "percent_max" : 50,
+               "percent_min" : 0,
+               "text" : "Palmfett",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_food_code" : "16110",
+               "from_palm_oil" : "no",
+               "id" : "en:shea-butter",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 9.375,
+               "percent_max" : 33.3333333333333,
+               "percent_min" : 0,
+               "text" : "Sheafett",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "from_palm_oil" : "no",
+               "id" : "en:sunflower-fat",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 9.375,
+               "percent_max" : 25,
+               "percent_min" : 0,
+               "text" : "Sonnenblumenfett",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 62.5,
+         "percent_estimate" : 100,
          "percent_max" : 100,
-         "percent_min" : 25,
-         "text" : "Rapsöl",
-         "vegan" : "yes",
-         "vegetarian" : "yes"
-      },
-      {
-         "ciqual_proxy_food_code" : "16129",
-         "from_palm_oil" : "yes",
-         "id" : "en:palm-fat",
-         "is_in_taxonomy" : 1,
-         "percent_estimate" : 18.75,
-         "percent_max" : 50,
-         "percent_min" : 0,
-         "text" : "Palmfett",
-         "vegan" : "yes",
-         "vegetarian" : "yes"
-      },
-      {
-         "ciqual_food_code" : "16110",
-         "from_palm_oil" : "no",
-         "id" : "en:shea-butter",
-         "is_in_taxonomy" : 1,
-         "percent_estimate" : 9.375,
-         "percent_max" : 33.3333333333333,
-         "percent_min" : 0,
-         "text" : "Sheafett",
-         "vegan" : "yes",
-         "vegetarian" : "yes"
-      },
-      {
-         "from_palm_oil" : "no",
-         "id" : "en:sunflower-fat",
-         "is_in_taxonomy" : 1,
-         "percent_estimate" : 9.375,
-         "percent_max" : 25,
-         "percent_min" : 0,
-         "text" : "Sonnenblumenfett",
+         "percent_min" : 100,
+         "text" : "pflanzliche Öle und Fette",
          "vegan" : "yes",
          "vegetarian" : "yes"
       }
@@ -58,22 +73,14 @@
       "en:vegan",
       "en:vegetarian"
    ],
-   "ingredients_hierarchy" : [
-      "en:rapeseed-oil",
-      "en:oil-and-fat",
-      "en:vegetable-oil-and-fat",
-      "en:palm-fat",
-      "en:palm-oil-and-fat",
-      "en:shea-butter",
-      "en:vegetable-fat",
-      "en:sunflower-fat"
-   ],
-   "ingredients_n" : 4,
+   "ingredients_lc" : "de",
+   "ingredients_n" : 5,
    "ingredients_n_tags" : [
-      "4",
+      "5",
       "1-10"
    ],
    "ingredients_original_tags" : [
+      "en:vegetable-oil-and-fat",
       "en:rapeseed-oil",
       "en:palm-fat",
       "en:shea-butter",
@@ -81,9 +88,9 @@
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
-      "en:rapeseed-oil",
-      "en:oil-and-fat",
       "en:vegetable-oil-and-fat",
+      "en:oil-and-fat",
+      "en:rapeseed-oil",
       "en:palm-fat",
       "en:palm-oil-and-fat",
       "en:shea-butter",
@@ -96,10 +103,17 @@
    "ingredients_with_unspecified_percent_n" : 4,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:sunflower-fat"
+      "en:sunflower-fat",
+      "en:vegetable-oil-and-fat"
    ],
-   "ingredients_without_ciqual_codes_n" : 1,
-   "known_ingredients_n" : 8,
+   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:shea-butter",
+      "en:sunflower-fat",
+      "en:vegetable-oil-and-fat"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 3,
+   "known_ingredients_n" : 5,
    "lc" : "de",
    "nutriments" : {
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,

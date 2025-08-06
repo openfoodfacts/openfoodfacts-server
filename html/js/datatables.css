@@ -4,61 +4,445 @@
  *
  * To rebuild or modify this file with the latest versions of the included
  * software please visit:
- *   https://datatables.net/download/#zf/dt-1.10.12/r-2.1.0/sc-1.4.2
+ *   https://datatables.net/download/#zf/dt-2.1.6/b-3.1.2/b-colvis-3.1.2/cr-2.0.4/fh-4.0.1/r-3.0.3/sc-2.4.3/sp-2.3.2
  *
  * Included libraries:
- *   DataTables 1.10.12, Responsive 2.1.0, Scroller 1.4.2
+ *   DataTables 2.1.6, Buttons 3.1.2, Column visibility 3.1.2, ColReorder 2.0.4, FixedHeader 4.0.1, Responsive 3.0.3, Scroller 2.4.3, SearchPanes 2.3.2
  */
 
-table.dataTable {
-  clear: both;
-  margin: 0.5em 0 !important;
-  max-width: none !important;
+@charset "UTF-8";
+:root {
+  --dt-row-selected: 0, 137, 182;
+  --dt-row-selected-text: 255, 255, 255;
+  --dt-row-selected-link: 9, 10, 11;
+  --dt-row-stripe: 0, 0, 0;
+  --dt-row-hover: 0, 0, 0;
+  --dt-column-ordering: 0, 0, 0;
+  --dt-html-background: white;
+}
+:root.dark {
+  --dt-html-background: rgb(33, 37, 41);
+}
+
+table.dataTable td.dt-control {
+  text-align: center;
+  cursor: pointer;
+}
+table.dataTable td.dt-control:before {
+  display: inline-block;
+  box-sizing: border-box;
+  content: "";
+  border-top: 5px solid transparent;
+  border-left: 10px solid rgba(0, 0, 0, 0.5);
+  border-bottom: 5px solid transparent;
+  border-right: 0px solid transparent;
+}
+table.dataTable tr.dt-hasChild td.dt-control:before {
+  border-top: 10px solid rgba(0, 0, 0, 0.5);
+  border-left: 5px solid transparent;
+  border-bottom: 0px solid transparent;
+  border-right: 5px solid transparent;
+}
+
+html.dark table.dataTable td.dt-control:before,
+:root[data-bs-theme=dark] table.dataTable td.dt-control:before,
+:root[data-theme=dark] table.dataTable td.dt-control:before {
+  border-left-color: rgba(255, 255, 255, 0.5);
+}
+html.dark table.dataTable tr.dt-hasChild td.dt-control:before,
+:root[data-bs-theme=dark] table.dataTable tr.dt-hasChild td.dt-control:before,
+:root[data-theme=dark] table.dataTable tr.dt-hasChild td.dt-control:before {
+  border-top-color: rgba(255, 255, 255, 0.5);
+  border-left-color: transparent;
+}
+
+div.dt-scroll {
   width: 100%;
 }
-table.dataTable td,
-table.dataTable th {
-  -webkit-box-sizing: content-box;
-  box-sizing: content-box;
+
+div.dt-scroll-body thead tr,
+div.dt-scroll-body tfoot tr {
+  height: 0;
 }
-table.dataTable td.dataTables_empty,
-table.dataTable th.dataTables_empty {
+div.dt-scroll-body thead tr th, div.dt-scroll-body thead tr td,
+div.dt-scroll-body tfoot tr th,
+div.dt-scroll-body tfoot tr td {
+  height: 0 !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  border-top-width: 0px !important;
+  border-bottom-width: 0px !important;
+}
+div.dt-scroll-body thead tr th div.dt-scroll-sizing, div.dt-scroll-body thead tr td div.dt-scroll-sizing,
+div.dt-scroll-body tfoot tr th div.dt-scroll-sizing,
+div.dt-scroll-body tfoot tr td div.dt-scroll-sizing {
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+table.dataTable thead > tr > th:active,
+table.dataTable thead > tr > td:active {
+  outline: none;
+}
+table.dataTable thead > tr > th.dt-orderable-asc span.dt-column-order:before, table.dataTable thead > tr > th.dt-ordering-asc span.dt-column-order:before,
+table.dataTable thead > tr > td.dt-orderable-asc span.dt-column-order:before,
+table.dataTable thead > tr > td.dt-ordering-asc span.dt-column-order:before {
+  position: absolute;
+  display: block;
+  bottom: 50%;
+  content: "▲";
+  content: "▲"/"";
+}
+table.dataTable thead > tr > th.dt-orderable-desc span.dt-column-order:after, table.dataTable thead > tr > th.dt-ordering-desc span.dt-column-order:after,
+table.dataTable thead > tr > td.dt-orderable-desc span.dt-column-order:after,
+table.dataTable thead > tr > td.dt-ordering-desc span.dt-column-order:after {
+  position: absolute;
+  display: block;
+  top: 50%;
+  content: "▼";
+  content: "▼"/"";
+}
+table.dataTable thead > tr > th.dt-orderable-asc, table.dataTable thead > tr > th.dt-orderable-desc, table.dataTable thead > tr > th.dt-ordering-asc, table.dataTable thead > tr > th.dt-ordering-desc,
+table.dataTable thead > tr > td.dt-orderable-asc,
+table.dataTable thead > tr > td.dt-orderable-desc,
+table.dataTable thead > tr > td.dt-ordering-asc,
+table.dataTable thead > tr > td.dt-ordering-desc {
+  position: relative;
+  padding-right: 30px;
+}
+table.dataTable thead > tr > th.dt-orderable-asc span.dt-column-order, table.dataTable thead > tr > th.dt-orderable-desc span.dt-column-order, table.dataTable thead > tr > th.dt-ordering-asc span.dt-column-order, table.dataTable thead > tr > th.dt-ordering-desc span.dt-column-order,
+table.dataTable thead > tr > td.dt-orderable-asc span.dt-column-order,
+table.dataTable thead > tr > td.dt-orderable-desc span.dt-column-order,
+table.dataTable thead > tr > td.dt-ordering-asc span.dt-column-order,
+table.dataTable thead > tr > td.dt-ordering-desc span.dt-column-order {
+  position: absolute;
+  right: 12px;
+  top: 0;
+  bottom: 0;
+  width: 12px;
+}
+table.dataTable thead > tr > th.dt-orderable-asc span.dt-column-order:before, table.dataTable thead > tr > th.dt-orderable-asc span.dt-column-order:after, table.dataTable thead > tr > th.dt-orderable-desc span.dt-column-order:before, table.dataTable thead > tr > th.dt-orderable-desc span.dt-column-order:after, table.dataTable thead > tr > th.dt-ordering-asc span.dt-column-order:before, table.dataTable thead > tr > th.dt-ordering-asc span.dt-column-order:after, table.dataTable thead > tr > th.dt-ordering-desc span.dt-column-order:before, table.dataTable thead > tr > th.dt-ordering-desc span.dt-column-order:after,
+table.dataTable thead > tr > td.dt-orderable-asc span.dt-column-order:before,
+table.dataTable thead > tr > td.dt-orderable-asc span.dt-column-order:after,
+table.dataTable thead > tr > td.dt-orderable-desc span.dt-column-order:before,
+table.dataTable thead > tr > td.dt-orderable-desc span.dt-column-order:after,
+table.dataTable thead > tr > td.dt-ordering-asc span.dt-column-order:before,
+table.dataTable thead > tr > td.dt-ordering-asc span.dt-column-order:after,
+table.dataTable thead > tr > td.dt-ordering-desc span.dt-column-order:before,
+table.dataTable thead > tr > td.dt-ordering-desc span.dt-column-order:after {
+  left: 0;
+  opacity: 0.125;
+  line-height: 9px;
+  font-size: 0.8em;
+}
+table.dataTable thead > tr > th.dt-orderable-asc, table.dataTable thead > tr > th.dt-orderable-desc,
+table.dataTable thead > tr > td.dt-orderable-asc,
+table.dataTable thead > tr > td.dt-orderable-desc {
+  cursor: pointer;
+}
+table.dataTable thead > tr > th.dt-orderable-asc:hover, table.dataTable thead > tr > th.dt-orderable-desc:hover,
+table.dataTable thead > tr > td.dt-orderable-asc:hover,
+table.dataTable thead > tr > td.dt-orderable-desc:hover {
+  outline: 2px solid rgba(0, 0, 0, 0.05);
+  outline-offset: -2px;
+}
+table.dataTable thead > tr > th.dt-ordering-asc span.dt-column-order:before, table.dataTable thead > tr > th.dt-ordering-desc span.dt-column-order:after,
+table.dataTable thead > tr > td.dt-ordering-asc span.dt-column-order:before,
+table.dataTable thead > tr > td.dt-ordering-desc span.dt-column-order:after {
+  opacity: 0.6;
+}
+table.dataTable thead > tr > th.sorting_desc_disabled span.dt-column-order:after, table.dataTable thead > tr > th.sorting_asc_disabled span.dt-column-order:before,
+table.dataTable thead > tr > td.sorting_desc_disabled span.dt-column-order:after,
+table.dataTable thead > tr > td.sorting_asc_disabled span.dt-column-order:before {
+  display: none;
+}
+table.dataTable thead > tr > th:active,
+table.dataTable thead > tr > td:active {
+  outline: none;
+}
+
+div.dt-scroll-body > table.dataTable > thead > tr > th,
+div.dt-scroll-body > table.dataTable > thead > tr > td {
+  overflow: hidden;
+}
+
+:root.dark table.dataTable thead > tr > th.dt-orderable-asc:hover, :root.dark table.dataTable thead > tr > th.dt-orderable-desc:hover,
+:root.dark table.dataTable thead > tr > td.dt-orderable-asc:hover,
+:root.dark table.dataTable thead > tr > td.dt-orderable-desc:hover,
+:root[data-bs-theme=dark] table.dataTable thead > tr > th.dt-orderable-asc:hover,
+:root[data-bs-theme=dark] table.dataTable thead > tr > th.dt-orderable-desc:hover,
+:root[data-bs-theme=dark] table.dataTable thead > tr > td.dt-orderable-asc:hover,
+:root[data-bs-theme=dark] table.dataTable thead > tr > td.dt-orderable-desc:hover {
+  outline: 2px solid rgba(255, 255, 255, 0.05);
+}
+
+div.dt-processing {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  margin-left: -100px;
+  margin-top: -22px;
   text-align: center;
+  padding: 2px;
+  z-index: 10;
+}
+div.dt-processing > div:last-child {
+  position: relative;
+  width: 80px;
+  height: 15px;
+  margin: 1em auto;
+}
+div.dt-processing > div:last-child > div {
+  position: absolute;
+  top: 0;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: rgb(0, 137, 182);
+  background: rgb(var(--dt-row-selected));
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+div.dt-processing > div:last-child > div:nth-child(1) {
+  left: 8px;
+  animation: datatables-loader-1 0.6s infinite;
+}
+div.dt-processing > div:last-child > div:nth-child(2) {
+  left: 8px;
+  animation: datatables-loader-2 0.6s infinite;
+}
+div.dt-processing > div:last-child > div:nth-child(3) {
+  left: 32px;
+  animation: datatables-loader-2 0.6s infinite;
+}
+div.dt-processing > div:last-child > div:nth-child(4) {
+  left: 56px;
+  animation: datatables-loader-3 0.6s infinite;
+}
+
+@keyframes datatables-loader-1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes datatables-loader-3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes datatables-loader-2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
 }
 table.dataTable.nowrap th, table.dataTable.nowrap td {
   white-space: nowrap;
 }
+table.dataTable th,
+table.dataTable td {
+  box-sizing: border-box;
+}
+table.dataTable th.dt-left,
+table.dataTable td.dt-left {
+  text-align: left;
+}
+table.dataTable th.dt-center,
+table.dataTable td.dt-center {
+  text-align: center;
+}
+table.dataTable th.dt-right,
+table.dataTable td.dt-right {
+  text-align: right;
+}
+table.dataTable th.dt-justify,
+table.dataTable td.dt-justify {
+  text-align: justify;
+}
+table.dataTable th.dt-nowrap,
+table.dataTable td.dt-nowrap {
+  white-space: nowrap;
+}
+table.dataTable th.dt-empty,
+table.dataTable td.dt-empty {
+  text-align: center;
+  vertical-align: top;
+}
+table.dataTable th.dt-type-numeric, table.dataTable th.dt-type-date,
+table.dataTable td.dt-type-numeric,
+table.dataTable td.dt-type-date {
+  text-align: right;
+}
+table.dataTable thead th,
+table.dataTable thead td,
+table.dataTable tfoot th,
+table.dataTable tfoot td {
+  text-align: left;
+}
+table.dataTable thead th.dt-head-left,
+table.dataTable thead td.dt-head-left,
+table.dataTable tfoot th.dt-head-left,
+table.dataTable tfoot td.dt-head-left {
+  text-align: left;
+}
+table.dataTable thead th.dt-head-center,
+table.dataTable thead td.dt-head-center,
+table.dataTable tfoot th.dt-head-center,
+table.dataTable tfoot td.dt-head-center {
+  text-align: center;
+}
+table.dataTable thead th.dt-head-right,
+table.dataTable thead td.dt-head-right,
+table.dataTable tfoot th.dt-head-right,
+table.dataTable tfoot td.dt-head-right {
+  text-align: right;
+}
+table.dataTable thead th.dt-head-justify,
+table.dataTable thead td.dt-head-justify,
+table.dataTable tfoot th.dt-head-justify,
+table.dataTable tfoot td.dt-head-justify {
+  text-align: justify;
+}
+table.dataTable thead th.dt-head-nowrap,
+table.dataTable thead td.dt-head-nowrap,
+table.dataTable tfoot th.dt-head-nowrap,
+table.dataTable tfoot td.dt-head-nowrap {
+  white-space: nowrap;
+}
+table.dataTable tbody th.dt-body-left,
+table.dataTable tbody td.dt-body-left {
+  text-align: left;
+}
+table.dataTable tbody th.dt-body-center,
+table.dataTable tbody td.dt-body-center {
+  text-align: center;
+}
+table.dataTable tbody th.dt-body-right,
+table.dataTable tbody td.dt-body-right {
+  text-align: right;
+}
+table.dataTable tbody th.dt-body-justify,
+table.dataTable tbody td.dt-body-justify {
+  text-align: justify;
+}
+table.dataTable tbody th.dt-body-nowrap,
+table.dataTable tbody td.dt-body-nowrap {
+  white-space: nowrap;
+}
 
-div.dataTables_wrapper {
+table.dataTable {
+  clear: both;
+  margin: 0 !important;
+  max-width: none !important;
+  width: 100%;
+}
+table.dataTable tr:nth-child(2n) {
+  background-color: transparent;
+}
+table.dataTable > tbody > tr {
+  background-color: transparent;
+}
+table.dataTable > tbody > tr.selected > * {
+  box-shadow: inset 0 0 0 9999px rgb(0, 137, 182);
+  box-shadow: inset 0 0 0 9999px rgb(var(--dt-row-selected));
+  color: rgb(255, 255, 255);
+  color: rgb(var(--dt-row-selected-text));
+}
+table.dataTable > tbody > tr.selected a {
+  color: rgb(9, 10, 11);
+  color: rgb(var(--dt-row-selected-link));
+}
+table.dataTable > tbody > tr:nth-child(2n) > * {
+  box-shadow: inset 0 0 0 9999px rgba(var(--dt-row-stripe), 0.054);
+}
+table.dataTable > tbody > tr:nth-child(2n).selected > * {
+  box-shadow: inset 0 0 0 9999px rgba(0, 137, 182, 0.954);
+  box-shadow: inset 0 0 0 9999px rgba(var(--dt-row-selected), 0.954);
+}
+table.dataTable.hover > tbody > tr:hover > * {
+  box-shadow: inset 0 0 0 9999px rgba(var(--dt-row-hover), 0.074);
+}
+table.dataTable.hover > tbody > tr.selected:hover > * {
+  box-shadow: inset 0 0 0 9999px rgba(0, 137, 182, 0.974);
+  box-shadow: inset 0 0 0 9999px rgba(var(--dt-row-selected), 0.974);
+}
+
+div.dt-container div.dt-layout-start > *:not(:last-child) {
+  margin-right: 1em;
+}
+div.dt-container div.dt-layout-end > *:not(:first-child) {
+  margin-left: 1em;
+}
+div.dt-container div.dt-layout-full {
+  width: 100%;
+}
+div.dt-container div.dt-layout-full > *:only-child {
+  margin-left: auto;
+  margin-right: auto;
+}
+div.dt-container div.dt-layout-table > div {
+  display: block !important;
+}
+
+@media screen and (max-width: 767px) {
+  div.dt-container div.dt-layout-start > *:not(:last-child) {
+    margin-right: 0;
+  }
+  div.dt-container div.dt-layout-end > *:not(:first-child) {
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: 767px) {
+  div.dt-container > div.grid-x:not(.dt-layout-table) {
+    margin-bottom: 0 !important;
+  }
+  div.dt-container > div.grid-x:not(.dt-layout-table) > div.flex-container {
+    display: block !important;
+    text-align: center;
+    margin: 5px auto;
+    width: 100%;
+  }
+}
+div.dt-container {
   position: relative;
 }
-div.dataTables_wrapper div.dataTables_length label {
-  float: left;
+div.dt-container div.grid-x {
+  margin-bottom: 0.75rem;
+}
+div.dt-container div.grid-x:last-child {
+  margin-bottom: 0;
+}
+div.dt-container div.dt-length label {
+  display: inline;
   text-align: left;
   margin-bottom: 0;
 }
-div.dataTables_wrapper div.dataTables_length select {
+div.dt-container div.dt-length select {
   width: 75px;
   margin-bottom: 0;
 }
-div.dataTables_wrapper div.dataTables_filter label {
-  float: right;
+div.dt-container div.dt-search label {
+  display: inline;
   margin-bottom: 0;
 }
-div.dataTables_wrapper div.dataTables_filter input {
+div.dt-container div.dt-search input {
   display: inline-block !important;
   width: auto !important;
   margin-bottom: 0;
   margin-left: 0.5em;
 }
-div.dataTables_wrapper div.dataTables_info {
-  padding-top: 2px;
-}
-div.dataTables_wrapper div.dataTables_paginate {
-  float: right;
+div.dt-container div.dt-paging ul.pagination {
   margin: 0;
 }
-div.dataTables_wrapper div.dataTables_processing {
+div.dt-container div.dt-processing {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -69,62 +453,434 @@ div.dataTables_wrapper div.dataTables_processing {
   padding: 1rem 0;
 }
 
-table.dataTable thead > tr > th.sorting_asc, table.dataTable thead > tr > th.sorting_desc, table.dataTable thead > tr > th.sorting,
-table.dataTable thead > tr > td.sorting_asc,
-table.dataTable thead > tr > td.sorting_desc,
-table.dataTable thead > tr > td.sorting {
-  padding-right: 1.5rem;
+div.dt-scroll-head table {
+  margin-bottom: 0 !important;
 }
-table.dataTable thead > tr > th:active,
-table.dataTable thead > tr > td:active {
-  outline: none;
+
+div.dt-scroll-body {
+  border-bottom: 1px solid #f1f1f1;
 }
-table.dataTable thead .sorting,
-table.dataTable thead .sorting_asc,
-table.dataTable thead .sorting_desc {
+div.dt-scroll-body table {
+  border-top: none;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+div.dt-scroll-body table tbody {
+  border-bottom-width: 0;
+}
+div.dt-scroll-body table tbody tr:first-child th,
+div.dt-scroll-body table tbody tr:first-child td {
+  border-top: none;
+}
+
+div.dt-scroll-foot table {
+  margin-top: 0 !important;
+  border-top: none;
+}
+
+
+@keyframes dtb-spinner {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes dtb-spinner {
+  100% {
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-ms-keyframes dtb-spinner {
+  100% {
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes dtb-spinner {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes dtb-spinner {
+  100% {
+    -moz-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+div.dataTables_wrapper {
+  position: relative;
+}
+
+div.dt-buttons {
+  position: initial;
+}
+div.dt-buttons .dt-button {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+div.dt-button-info {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  margin-top: -100px;
+  margin-left: -200px;
+  background-color: white;
+  border-radius: 0.75em;
+  box-shadow: 3px 4px 10px 1px rgba(0, 0, 0, 0.8);
+  text-align: center;
+  z-index: 2003;
+  overflow: hidden;
+}
+div.dt-button-info h2 {
+  padding: 2rem 2rem 1rem 2rem;
+  margin: 0;
+  font-weight: normal;
+}
+div.dt-button-info > div {
+  padding: 1em 2em 2em 2em;
+}
+
+div.dtb-popover-close {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 22px;
+  height: 22px;
+  text-align: center;
+  border-radius: 3px;
   cursor: pointer;
-}
-table.dataTable thead .sorting,
-table.dataTable thead .sorting_asc,
-table.dataTable thead .sorting_desc,
-table.dataTable thead .sorting_asc_disabled,
-table.dataTable thead .sorting_desc_disabled {
-  background-repeat: no-repeat;
-  background-position: center right;
-}
-table.dataTable thead .sorting {
-  background-image: url("DataTables-1.10.12/images/sort_both.png");
-}
-table.dataTable thead .sorting_asc {
-  background-image: url("DataTables-1.10.12/images/sort_asc.png");
-}
-table.dataTable thead .sorting_desc {
-  background-image: url("DataTables-1.10.12/images/sort_desc.png");
-}
-table.dataTable thead .sorting_asc_disabled {
-  background-image: url("DataTables-1.10.12/images/sort_asc_disabled.png");
-}
-table.dataTable thead .sorting_desc_disabled {
-  background-image: url("DataTables-1.10.12/images/sort_desc_disabled.png");
+  z-index: 2003;
 }
 
-div.dataTables_scrollHead table {
-  margin-bottom: 0 !important;
+button.dtb-hide-drop {
+  display: none !important;
 }
 
-div.dataTables_scrollBody table {
-  border-top: none;
+div.dt-button-collection-title {
+  text-align: center;
+  padding: 0.3em 0.5em 0.5em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  font-size: 0.9em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+div.dt-button-collection-title:empty {
+  display: none;
+}
+
+span.dt-button-spacer {
+  display: inline-block;
+  margin: 0.5em;
+  white-space: nowrap;
+}
+span.dt-button-spacer.bar {
+  border-left: 1px solid rgba(0, 0, 0, 0.3);
+  vertical-align: middle;
+  padding-left: 0.5em;
+}
+span.dt-button-spacer.bar:empty {
+  height: 1em;
+  width: 1px;
+  padding-left: 0;
+}
+
+div.dt-button-collection .dt-button-active {
+  padding-right: 3em;
+}
+div.dt-button-collection .dt-button-active:after {
+  position: absolute;
+  top: 50%;
+  margin-top: -10px;
+  right: 1em;
+  display: inline-block;
+  content: "✓";
+  color: inherit;
+}
+div.dt-button-collection .dt-button-active.dt-button-split {
+  padding-right: 0;
+}
+div.dt-button-collection .dt-button-active.dt-button-split:after {
+  display: none;
+}
+div.dt-button-collection .dt-button-active.dt-button-split > *:first-child {
+  padding-right: 3em;
+}
+div.dt-button-collection .dt-button-active.dt-button-split > *:first-child:after {
+  position: absolute;
+  top: 50%;
+  margin-top: -10px;
+  right: 1em;
+  display: inline-block;
+  content: "✓";
+  color: inherit;
+}
+div.dt-button-collection .dt-button-active-a a {
+  padding-right: 3em;
+}
+div.dt-button-collection .dt-button-active-a a:after {
+  position: absolute;
+  right: 1em;
+  display: inline-block;
+  content: "✓";
+  color: inherit;
+}
+div.dt-button-collection span.dt-button-spacer {
+  width: 100%;
+  font-size: 0.9em;
+  text-align: center;
+  margin: 0.5em 0;
+}
+div.dt-button-collection span.dt-button-spacer:empty {
+  height: 0;
+  width: 100%;
+}
+div.dt-button-collection span.dt-button-spacer.bar {
+  border-left: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-left: 0;
+}
+
+@media print {
+  table.dataTable tr > * {
+    box-shadow: none !important;
+  }
+}
+html.dark div.dt-button-info {
+  background-color: var(--dt-html-background);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+div.dt-buttons.button-group div.dt-button-split {
+  margin-bottom: 0;
+}
+div.dt-buttons.button-group div.dt-button-split > button:last-child {
+  margin-right: 1px;
+}
+div.dt-buttons.button-group div.dt-button-split li {
+  overflow: hidden;
+  white-space: nowrap;
+}
+div.dt-buttons.button-group div.dt-button-split li a {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+div.dt-buttons.button-group div.dt-button-collection {
+  position: absolute;
+  width: 200px;
+  margin-top: 3px !important;
+  z-index: 2002;
+  border: 1px solid #cacaca;
+  background: #fefefe;
+}
+div.dt-buttons.button-group div.dt-button-collection .dropdown.menu {
+  position: relative;
+  width: 100%;
+  display: block;
+  left: 0;
+  border: none;
+  background: transparent;
+}
+div.dt-buttons.button-group div.dt-button-collection .dropdown.menu .dt-button {
+  position: relative;
+}
+div.dt-buttons.button-group div.dt-button-collection div.dt-button-collection-title {
+  padding: 1em 0.75em 0.5em;
+}
+div.dt-buttons.button-group div.dt-button-collection div.dt-button-split {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: stretch;
+}
+div.dt-buttons.button-group div.dt-button-collection div.dt-button-split > *:first-child {
+  min-width: auto;
+  flex: 1 0 50px;
+  padding-right: 0;
+}
+div.dt-buttons.button-group div.dt-button-collection div.dt-button-split > *:last-child {
+  min-width: 33px;
+  flex: 0;
+  background: transparent;
+  border: none;
+  line-height: 1rem;
+}
+div.dt-buttons.button-group div.dt-button-collection div.dt-button-split > *:last-child:after {
+  border-top-color: #1779ba;
+  margin-left: -10px;
+}
+div.dt-buttons.button-group div.dt-button-collection.fixed {
+  position: fixed;
+  display: block;
+  top: 50%;
+  left: 50%;
+  margin-left: -75px;
+  border-radius: 5px;
+  background-color: white;
+  padding: 0.5em;
+}
+div.dt-buttons.button-group div.dt-button-collection.fixed.two-column {
+  margin-left: -200px;
+}
+div.dt-buttons.button-group div.dt-button-collection.fixed.three-column {
+  margin-left: -225px;
+}
+div.dt-buttons.button-group div.dt-button-collection.fixed.four-column {
+  margin-left: -300px;
+}
+div.dt-buttons.button-group div.dt-button-collection.fixed.columns {
+  margin-left: -409px;
+}
+@media screen and (max-width: 1024px) {
+  div.dt-buttons.button-group div.dt-button-collection.fixed.columns {
+    margin-left: -308px;
+  }
+}
+@media screen and (max-width: 640px) {
+  div.dt-buttons.button-group div.dt-button-collection.fixed.columns {
+    margin-left: -203px;
+  }
+}
+@media screen and (max-width: 460px) {
+  div.dt-buttons.button-group div.dt-button-collection.fixed.columns {
+    margin-left: -100px;
+  }
+}
+div.dt-buttons.button-group div.dt-button-collection.fixed > :last-child {
+  max-height: 100vh;
+  overflow: auto;
+}
+div.dt-buttons.button-group div.dt-button-collection.two-column > :last-child, div.dt-buttons.button-group div.dt-button-collection.three-column > :last-child, div.dt-buttons.button-group div.dt-button-collection.four-column > :last-child {
+  display: block !important;
+  -webkit-column-gap: 8px;
+  -moz-column-gap: 8px;
+  -ms-column-gap: 8px;
+  -o-column-gap: 8px;
+  column-gap: 8px;
+}
+div.dt-buttons.button-group div.dt-button-collection.two-column > :last-child > *, div.dt-buttons.button-group div.dt-button-collection.three-column > :last-child > *, div.dt-buttons.button-group div.dt-button-collection.four-column > :last-child > * {
+  -webkit-column-break-inside: avoid;
+  break-inside: avoid;
+}
+div.dt-buttons.button-group div.dt-button-collection.two-column {
+  width: 400px;
+}
+div.dt-buttons.button-group div.dt-button-collection.two-column > :last-child {
+  padding-bottom: 1px;
+  column-count: 2;
+}
+div.dt-buttons.button-group div.dt-button-collection.three-column {
+  width: 450px;
+}
+div.dt-buttons.button-group div.dt-button-collection.three-column > :last-child {
+  padding-bottom: 1px;
+  column-count: 3;
+}
+div.dt-buttons.button-group div.dt-button-collection.four-column {
+  width: 600px;
+}
+div.dt-buttons.button-group div.dt-button-collection.four-column > :last-child {
+  padding-bottom: 1px;
+  column-count: 4;
+}
+div.dt-buttons.button-group div.dt-button-collection .dt-button {
+  border-radius: 0;
+}
+div.dt-buttons.button-group div.dt-button-collection.columns {
+  width: auto;
+}
+div.dt-buttons.button-group div.dt-button-collection.columns > :last-child {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 6px;
+  width: 818px;
+  padding-bottom: 1px;
+}
+div.dt-buttons.button-group div.dt-button-collection.columns > :last-child .dt-button {
+  min-width: 200px;
+  flex: 0 1;
+  margin: 0;
+}
+div.dt-buttons.button-group div.dt-button-collection.columns.dtb-b3 > :last-child, div.dt-buttons.button-group div.dt-button-collection.columns.dtb-b2 > :last-child, div.dt-buttons.button-group div.dt-button-collection.columns.dtb-b1 > :last-child {
+  justify-content: space-between;
+}
+div.dt-buttons.button-group div.dt-button-collection.columns.dtb-b3 .dt-button {
+  flex: 1 1 32%;
+}
+div.dt-buttons.button-group div.dt-button-collection.columns.dtb-b2 .dt-button {
+  flex: 1 1 48%;
+}
+div.dt-buttons.button-group div.dt-button-collection.columns.dtb-b1 .dt-button {
+  flex: 1 1 100%;
+}
+@media screen and (max-width: 1024px) {
+  div.dt-buttons.button-group div.dt-button-collection.columns > :last-child {
+    width: 612px;
+  }
+}
+@media screen and (max-width: 640px) {
+  div.dt-buttons.button-group div.dt-button-collection.columns > :last-child {
+    width: 406px;
+  }
+  div.dt-buttons.button-group div.dt-button-collection.columns.dtb-b3 .dt-button {
+    flex: 0 1 32%;
+  }
+}
+@media screen and (max-width: 460px) {
+  div.dt-buttons.button-group div.dt-button-collection.columns > :last-child {
+    width: 200px;
+  }
+}
+
+
+body.dtcr-dragging {
+  overflow-x: hidden;
+}
+
+table.dtcr-cloned.dataTable {
+  position: absolute !important;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 202;
+  border-radius: 4px;
+}
+
+table.dataTable tbody tr td.dtcr-moving {
+  background-color: rgba(127, 127, 127, 0.15);
+}
+table.dataTable tbody tr td.dtcr-moving-first {
+  border-left: 1px solid #008CBA;
+}
+table.dataTable tbody tr td.dtcr-moving-last {
+  border-right: 1px solid #008CBA;
+}
+
+html.dark table.dtcr-cloned.dataTable {
+  background-color: rgba(33, 33, 33, 0.9);
+}
+
+
+table.dataTable.fixedHeader-floating,
+table.dataTable.fixedHeader-locked {
+  position: relative !important;
+  background-color: white;
   margin-top: 0 !important;
   margin-bottom: 0 !important;
 }
-div.dataTables_scrollBody table tbody tr:first-child th,
-div.dataTables_scrollBody table tbody tr:first-child td {
-  border-top: none;
-}
 
-div.dataTables_scrollFoot table {
-  margin-top: 0 !important;
-  border-top: none;
+@media print {
+  table.fixedHeader-floating {
+    display: none;
+  }
 }
 
 
@@ -138,83 +894,74 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > th.child:before,
 table.dataTable.dtr-inline.collapsed > tbody > tr > td.dataTables_empty:before {
   display: none !important;
 }
-table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child,
-table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child {
-  position: relative;
-  padding-left: 30px;
+table.dataTable.dtr-inline.collapsed > tbody > tr > td.dtr-control,
+table.dataTable.dtr-inline.collapsed > tbody > tr > th.dtr-control {
   cursor: pointer;
 }
-table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before,
-table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child:before {
-  top: 9px;
-  left: 4px;
-  height: 14px;
-  width: 14px;
-  display: block;
-  position: absolute;
-  color: white;
-  border: 2px solid white;
-  border-radius: 14px;
-  box-shadow: 0 0 3px #444;
-  box-sizing: content-box;
-  text-align: center;
-  font-family: 'Courier New', Courier, monospace;
-  line-height: 14px;
-  content: '+';
-  background-color: #008CBA;
+table.dataTable.dtr-inline.collapsed > tbody > tr > td.dtr-control:before,
+table.dataTable.dtr-inline.collapsed > tbody > tr > th.dtr-control:before {
+  margin-right: 0.5em;
+  display: inline-block;
+  box-sizing: border-box;
+  content: "";
+  border-top: 5px solid transparent;
+  border-left: 10px solid rgba(0, 0, 0, 0.5);
+  border-bottom: 5px solid transparent;
+  border-right: 0px solid transparent;
 }
-table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child:before,
-table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th:first-child:before {
-  content: '-';
-  background-color: #d33333;
+table.dataTable.dtr-inline.collapsed > tbody > tr > td.dtr-control.arrow-right::before,
+table.dataTable.dtr-inline.collapsed > tbody > tr > th.dtr-control.arrow-right::before {
+  border-top: 5px solid transparent;
+  border-left: 0px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 10px solid rgba(0, 0, 0, 0.5);
 }
-table.dataTable.dtr-inline.collapsed > tbody > tr.child td:before {
-  display: none;
+table.dataTable.dtr-inline.collapsed > tbody > tr.dtr-expanded > td.dtr-control:before,
+table.dataTable.dtr-inline.collapsed > tbody > tr.dtr-expanded > th.dtr-control:before {
+  border-top: 10px solid rgba(0, 0, 0, 0.5);
+  border-left: 5px solid transparent;
+  border-bottom: 0px solid transparent;
+  border-right: 5px solid transparent;
 }
-table.dataTable.dtr-inline.collapsed.compact > tbody > tr > td:first-child,
-table.dataTable.dtr-inline.collapsed.compact > tbody > tr > th:first-child {
-  padding-left: 27px;
+table.dataTable.dtr-inline.collapsed.compact > tbody > tr > td.dtr-control,
+table.dataTable.dtr-inline.collapsed.compact > tbody > tr > th.dtr-control {
+  padding-left: 0.333em;
 }
-table.dataTable.dtr-inline.collapsed.compact > tbody > tr > td:first-child:before,
-table.dataTable.dtr-inline.collapsed.compact > tbody > tr > th:first-child:before {
-  top: 5px;
-  left: 4px;
-  height: 14px;
-  width: 14px;
-  border-radius: 14px;
-  line-height: 14px;
-  text-indent: 3px;
-}
+table.dataTable.dtr-column > tbody > tr > td.dtr-control,
+table.dataTable.dtr-column > tbody > tr > th.dtr-control,
 table.dataTable.dtr-column > tbody > tr > td.control,
 table.dataTable.dtr-column > tbody > tr > th.control {
-  position: relative;
   cursor: pointer;
 }
+table.dataTable.dtr-column > tbody > tr > td.dtr-control:before,
+table.dataTable.dtr-column > tbody > tr > th.dtr-control:before,
 table.dataTable.dtr-column > tbody > tr > td.control:before,
 table.dataTable.dtr-column > tbody > tr > th.control:before {
-  top: 50%;
-  left: 50%;
-  height: 16px;
-  width: 16px;
-  margin-top: -10px;
-  margin-left: -10px;
-  display: block;
-  position: absolute;
-  color: white;
-  border: 2px solid white;
-  border-radius: 14px;
-  box-shadow: 0 0 3px #444;
-  box-sizing: content-box;
-  text-align: center;
-  font-family: 'Courier New', Courier, monospace;
-  line-height: 14px;
-  content: '+';
-  background-color: #008CBA;
+  display: inline-block;
+  box-sizing: border-box;
+  content: "";
+  border-top: 5px solid transparent;
+  border-left: 10px solid rgba(0, 0, 0, 0.5);
+  border-bottom: 5px solid transparent;
+  border-right: 0px solid transparent;
 }
-table.dataTable.dtr-column > tbody > tr.parent td.control:before,
-table.dataTable.dtr-column > tbody > tr.parent th.control:before {
-  content: '-';
-  background-color: #d33333;
+table.dataTable.dtr-column > tbody > tr > td.dtr-control.arrow-right::before,
+table.dataTable.dtr-column > tbody > tr > th.dtr-control.arrow-right::before,
+table.dataTable.dtr-column > tbody > tr > td.control.arrow-right::before,
+table.dataTable.dtr-column > tbody > tr > th.control.arrow-right::before {
+  border-top: 5px solid transparent;
+  border-left: 0px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 10px solid rgba(0, 0, 0, 0.5);
+}
+table.dataTable.dtr-column > tbody > tr.dtr-expanded td.dtr-control:before,
+table.dataTable.dtr-column > tbody > tr.dtr-expanded th.dtr-control:before,
+table.dataTable.dtr-column > tbody > tr.dtr-expanded td.control:before,
+table.dataTable.dtr-column > tbody > tr.dtr-expanded th.control:before {
+  border-top: 10px solid rgba(0, 0, 0, 0.5);
+  border-left: 5px solid transparent;
+  border-bottom: 0px solid transparent;
+  border-right: 5px solid transparent;
 }
 table.dataTable > tbody > tr.child {
   padding: 0.5em 1em;
@@ -222,20 +969,21 @@ table.dataTable > tbody > tr.child {
 table.dataTable > tbody > tr.child:hover {
   background: transparent !important;
 }
-table.dataTable > tbody > tr.child ul {
+table.dataTable > tbody > tr.child ul.dtr-details {
   display: inline-block;
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
-table.dataTable > tbody > tr.child ul li {
+table.dataTable > tbody > tr.child ul.dtr-details > li {
   border-bottom: 1px solid #efefef;
   padding: 0.5em 0;
 }
-table.dataTable > tbody > tr.child ul li:first-child {
+table.dataTable > tbody > tr.child ul.dtr-details > li:first-child {
   padding-top: 0;
 }
-table.dataTable > tbody > tr.child ul li:last-child {
+table.dataTable > tbody > tr.child ul.dtr-details > li:last-child {
+  padding-bottom: 0;
   border-bottom: none;
 }
 table.dataTable > tbody > tr.child span.dtr-title {
@@ -261,7 +1009,8 @@ div.dtr-modal div.dtr-modal-display {
   bottom: 0;
   right: 0;
   width: 50%;
-  height: 50%;
+  height: fit-content;
+  max-height: 75%;
   overflow: auto;
   margin: auto;
   z-index: 102;
@@ -273,7 +1022,10 @@ div.dtr-modal div.dtr-modal-display {
 }
 div.dtr-modal div.dtr-modal-content {
   position: relative;
-  padding: 1em;
+  padding: 2.5em;
+}
+div.dtr-modal div.dtr-modal-content h2 {
+  margin-top: 0;
 }
 div.dtr-modal div.dtr-modal-close {
   position: absolute;
@@ -281,15 +1033,10 @@ div.dtr-modal div.dtr-modal-close {
   right: 6px;
   width: 22px;
   height: 22px;
-  border: 1px solid #eaeaea;
-  background-color: #f9f9f9;
   text-align: center;
   border-radius: 3px;
   cursor: pointer;
   z-index: 12;
-}
-div.dtr-modal div.dtr-modal-close:hover {
-  background-color: #eaeaea;
 }
 div.dtr-modal div.dtr-modal-background {
   position: fixed;
@@ -306,27 +1053,499 @@ div.dtr-modal div.dtr-modal-background {
     width: 95%;
   }
 }
+html.dark table.dataTable > tbody > tr > td.dtr-control:before,
+html[data-bs-theme=dark] table.dataTable > tbody > tr > td.dtr-control:before {
+  border-left-color: rgba(255, 255, 255, 0.5) !important;
+}
+html.dark table.dataTable > tbody > tr > td.dtr-control.arrow-right::before,
+html[data-bs-theme=dark] table.dataTable > tbody > tr > td.dtr-control.arrow-right::before {
+  border-right-color: rgba(255, 255, 255, 0.5) !important;
+}
+html.dark table.dataTable > tbody > tr.dtr-expanded > td.dtr-control:before,
+html.dark table.dataTable > tbody > tr.dtr-expanded > th.dtr-control:before,
+html[data-bs-theme=dark] table.dataTable > tbody > tr.dtr-expanded > td.dtr-control:before,
+html[data-bs-theme=dark] table.dataTable > tbody > tr.dtr-expanded > th.dtr-control:before {
+  border-top-color: rgba(255, 255, 255, 0.5) !important;
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+}
+html.dark table.dataTable > tbody > tr.child ul.dtr-details > li,
+html[data-bs-theme=dark] table.dataTable > tbody > tr.child ul.dtr-details > li {
+  border-bottom-color: rgb(64, 67, 70);
+}
+html.dark div.dtr-modal div.dtr-modal-display,
+html[data-bs-theme=dark] div.dtr-modal div.dtr-modal-display {
+  background-color: rgb(33, 37, 41);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
 table.dataTable > tbody > tr.child ul {
   font-size: 1em;
 }
 
 
-div.DTS tbody th,
-div.DTS tbody td {
+div.dts {
+  display: block !important;
+}
+div.dts tbody th,
+div.dts tbody td {
   white-space: nowrap;
 }
-div.DTS div.DTS_Loading {
+div.dts div.dts_loading {
   z-index: 1;
 }
-div.DTS div.dataTables_scrollBody {
-  background: repeating-linear-gradient(45deg, #edeeff, #edeeff 10px, white 10px, white 20px);
+div.dts div.dts_label {
+  position: absolute;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+  text-align: right;
+  border-radius: 3px;
+  padding: 0.4em;
+  z-index: 2;
+  display: none;
 }
-div.DTS div.dataTables_scrollBody table {
+div.dts div.dt-scroll-body,
+div.dts div.dataTables_scrollBody {
+  background: repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.025), rgba(0, 0, 0, 0.025) 10px, rgba(0, 0, 0, 0) 10px, rgba(0, 0, 0, 0) 20px);
+}
+div.dts div.dt-scroll-body table,
+div.dts div.dataTables_scrollBody table {
+  background-color: white;
   z-index: 2;
 }
-div.DTS div.dataTables_paginate,
-div.DTS div.dataTables_length {
+div.dts div.dt-length,
+div.dts div.dt-paging,
+div.dts div.dataTables_paginate,
+div.dts div.dataTables_length {
   display: none;
+}
+
+html.dark div.dts div.dts_label {
+  background: rgba(255, 255, 255, 0.8);
+  color: black;
+}
+html.dark div.dts div.dt-scroll-body,
+html.dark div.dts div.dataTables_scrollBody {
+  background: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.025), rgba(255, 255, 255, 0.025) 10px, rgba(255, 255, 255, 0) 10px, rgba(255, 255, 255, 0) 20px);
+}
+html.dark div.dts div.dt-scroll-body table,
+html.dark div.dts div.dataTables_scrollBody table {
+  background-color: var(--dt-html-background);
+  z-index: 2;
+}
+
+
+div.dtsp-topRow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  border: 2px solid rgba(0, 0, 0, 0);
+  border-radius: 3px;
+  justify-content: space-around;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+div.dtsp-topRow input.dtsp-search {
+  text-overflow: ellipsis;
+  min-width: 50px;
+  flex-basis: 90px;
+  max-width: none;
+}
+div.dtsp-topRow input.dtsp-search::placeholder {
+  color: inherit;
+}
+div.dtsp-topRow div.dtsp-subRow1 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex: 1 1 auto;
+}
+div.dtsp-topRow div.dtsp-subRow1 div.dtsp-searchCont {
+  position: relative;
+  width: 100%;
+}
+div.dtsp-topRow div.dtsp-subRow1 input {
+  padding-right: 2em;
+  width: 100% !important;
+  box-sizing: border-box;
+  font-size: 1em;
+}
+div.dtsp-topRow div.dtsp-subRow1 input[disabled=disabled] {
+  background-color: transparent;
+  border: none;
+  cursor: initial;
+  box-shadow: none;
+  padding-bottom: 0;
+  padding-top: 0;
+  min-height: 1em;
+  height: fit-content;
+  box-sizing: content-box;
+}
+div.dtsp-topRow div.dtsp-subRow1 input[disabled=disabled]::placeholder {
+  color: initial;
+  opacity: 1;
+}
+div.dtsp-topRow div.dtsp-subRow1 button.dtsp-searchIcon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+div.dtsp-topRow div.dtsp-subRow1 button.dtsp-searchIcon span {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAABbmlDQ1BpY2MAACiRdZE7SwNBFIU/EyWikRRaiFhsoWKhEBREO42FTZAQFYza7G5eQhKX3QQJtoKNhWAh2vgq/AfaCrYKgqAIIhb+Al+NhPVOEkiQZJbZ+3FmzmXmDHjCGTPrtAYhm8vb0bmQthxb0Xzv+PHRxRSabjrWTCQSpun4eaRF1YdR1av5voajM55wTGhpF54wLTsvPC0c3sxbineFe8y0Hhc+ER6x5YDCt0o3KvymOFXhL8X2YnQWPKqnlqpjo47NtJ0VHhYeyGYKZvU86ib+RG5pQWqfzH4coswRQsOgwDoZ8oxKzUlmjX3Bsm+eDfGY8rcoYosjRVq8I6IWpGtCalL0hHwZiir3/3k6yfGxSnd/CNpeXfdzEHz7UNpz3d9T1y2dgfcFrnM1/4bkNPkt+l5NGziGwDZc3tQ04wCudqD32dJtvSx5ZXqSSfi4gK4YdN9Dx2olq+o650+wuCVPdAeHRzAk+wNrfw8JaBFXEnV+AAAACXBIWXMAAA9hAAAPYQGoP6dpAAABMUlEQVQoU6XRr0vDQRjH8akoM4iIjqGoOIZ5oIjB5XWxajaYDGLSIhhNYjcPRDSJwbQNw+L+BNGgYYo/5pT5/shz8vDlBgMPXux7z3N3z+25VOofYyCyd4ZYCavI4gXPsRp9LqiDdrEMH+8wv8Vh8gBfWclFPOEUN3hAHjlMoRa7wTzBS5xgKLFglPkZLjDic6HyDsEMNvGR2Nxifoci3tEI+X770JU0XmPXIlax+LTPh83fFox1X6kxyzdjm9UcdXi9S+Vti6svfyNULhNR9TVsYNhW6Ff9KKCNR7/Zv6eeaQ+6+qcdpu9BqGlp1HFgud+FYdzzUcUExu0Q/cdzHGEFetIlXKPjK/sbqYoOftMiS+j9jzEJPd1Wt+5+kdR/9EM9ucIC5jCbyPc01Q32kfsBppYz3hYFcCwAAAAASUVORK5CYII=") !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 12px;
+}
+div.dtsp-topRow div.dtsp-subRow2 {
+  white-space: nowrap;
+  flex: 0 0 auto;
+}
+div.dtsp-topRow button > span {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+}
+div.dtsp-topRow button.dtsp-nameButton span {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAABcGlDQ1BpY2MAACiRdZHNSwJBGMYftTDS8FCHkA57sOigIAXRMQzyYh3UIKvL7rirwe66zK6IdA26dBA6RF36OvQf1DXoWhAERRAR9B/0dQnZ3nEFJXSG2ffHs/O8zDwD+DM6M+yBJGCYDs+mU9JaYV0KviNMM4QoEjKzreXcUh59x88jfKI+JESv/vt6jlBRtRngGyKeYxZ3iBeIMzXHErxHPMbKcpH4hDjO6YDEt0JXPH4TXPL4SzDPZxcBv+gplbpY6WJW5gbxNHHM0KusfR5xk7BqruaoRmlNwEYWaaQgQUEVW9DhIEHVpMx6+5It3woq5GH0tVAHJ0cJZfLGSa1SV5WqRrpKU0dd5P4/T1ubnfG6h1PA4Kvrfk4CwX2g2XDd31PXbZ4BgRfg2uz4K5TT/DfpjY4WOwYiO8DlTUdTDoCrXWD82ZK53JICtPyaBnxcACMFYPQeGN7wsmr/x/kTkN+mJ7oDDo+AKdof2fwDCBRoDkL8UccAAAAJcEhZcwAAD2EAAA9hAag/p2kAAAK2SURBVFgJ7ZY9j41BFICvryCExrJBQ6HyEYVEIREaUZDQIRoR2ViJKCioxV+gkVXYTVZEQiEUhG2EQnxUCh0FKolY4ut5XnM2cyfva3Pt5m7EPcmzZ2bemTNnzjkzd1utnvQi0IvAfxiBy5z5FoxO89kPY+8mbMjtzs47RXs5/WVpbAG6bWExt5PuIibvhVkwmC+ck3eK9ln6/fAddFojYzBVuYSBpcnIEvRaqOw2RcaN18FPuJH0JvRUxbT3wWf4ltiKPgfVidWlbGZgPozDFfgAC+EA/K2EI4cwcAJ+gPaeQ+VQU2SOMMGcPgPl/m/V2p50rrbRsRgt9Iv5h6xtpP22Bz7Ce1C+gFFxfKzOmShcU+Qmyh2w3w8rIJfddHTck66EukL/xPhj+JM8rHNmFys0Pg4v0up3aFNlwR9NYyodd3OL/C64zpsymcTFcf6ElM4YzjAWKYrJkaq8kE/yUYNP4BoYvS1QRo+hNtF5xfkTUjoTheukSFFMjlTFm6PjceOca/SMpKfeCR1L6Uzk/y2WIkVhNFJlJAZhP+hYns7b9D3IPuhY5mYrIv8OrQJvR5NYyNaW4jsU8pSGNySiVx4o5tXq3JkoXE/mg5R/M8dGJCJpKhaDcjBRdbI/Rm8g69c122om33BHmj2CHoV5qa9jUXBraJ+G1fAVjIBO1klc87ro1K4JZ/K35SWW3TwcyDd6TecqnAEd8cGq2+w84xvBm1n3vS0izKkkwh5XNC/GmFPqqAtPF89AOScKuemaNzoTV1SD5dtSbmLf1/RV+tC0WTgcj6R7HEtrVGWaqu/lYDZ/2pvxQ/kIyw/gFByHC9AHw910hv1aUUumyd8yy0QfhmEkfiNod0Xusct68J1qc8Tdux0Z97Q+hsDb+AYGYEbF/4Guw2Q/qDPqZG/zXgT+3Qj8AtKnfWhFwmuAAAAAAElFTkSuQmCC") !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 23px;
+  vertical-align: bottom;
+}
+div.dtsp-topRow button.dtsp-countButton span {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABcGlDQ1BpY2MAACiRdZHNSwJBGMYftTDS8FCHkA57sOigIAXRMQzyYh3UIKvL7rirwe66zK6IdA26dBA6RF36OvQf1DXoWhAERRAR9B/0dQnZ3nEFJXSG2ffHs/O8zDwD+DM6M+yBJGCYDs+mU9JaYV0KviNMM4QoEjKzreXcUh59x88jfKI+JESv/vt6jlBRtRngGyKeYxZ3iBeIMzXHErxHPMbKcpH4hDjO6YDEt0JXPH4TXPL4SzDPZxcBv+gplbpY6WJW5gbxNHHM0KusfR5xk7BqruaoRmlNwEYWaaQgQUEVW9DhIEHVpMx6+5It3woq5GH0tVAHJ0cJZfLGSa1SV5WqRrpKU0dd5P4/T1ubnfG6h1PA4Kvrfk4CwX2g2XDd31PXbZ4BgRfg2uz4K5TT/DfpjY4WOwYiO8DlTUdTDoCrXWD82ZK53JICtPyaBnxcACMFYPQeGN7wsmr/x/kTkN+mJ7oDDo+AKdof2fwDCBRoDkL8UccAAAAJcEhZcwAAD2EAAA9hAag/p2kAAAG5SURBVEgN3VU9LwVBFF0fiYhofUSlEQkKhU7z/oBCQkIiGr9BgUbhVzy9BAnhFyjV/AYFiU5ICM7ZN+c5Zud5dm3lJmfmzrkz9+7cu3c3y/6jjOBSF8CxXS7FmTkbwqIJjDpJvTcmsJ4K3KPZUpyZsx0sxoB9J6mnAkyC7wGuuCFIipNtEcpcWExgXpOBc78vgj6N+QO4NVsjwdFM59tUIDxDrHMBOeIQ34C5ZDregXuAQm4YcI68nN9B3wr2PcwPAIPkN2EqtJH6b+QZm1ajjTx7BqwAr26Lb+C2Kvpbt0Mb2HAJ7NrGFGfmXO3DeA4UshDfQAVmH0gaUFg852TTTDvlxwBlCtxy9zXyBhQFaq0wMmIdRebrfgosA3zb2hKnqG0oqchp4QbuR8X0TjzABhbdOT8jnQ/atcgqpnfwOA7yqZyTU587ZkIGdesLTt2EkynOnbreMUUKMI/dA4B/QVOcO13CQh+5wWCgDwo/75u59odB/wjmfhbgvACcAOyZPHihMWAoIwxyCLgf1oxfgjzVbgBXSTzIN+f0pg6s5DkcesLMRpsBrgE2XO3CN64JFP7JtUeKHX4CKtRRXFZ+7dEAAAAASUVORK5CYII=") !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 18px;
+  vertical-align: bottom;
+}
+div.dtsp-topRow button.dtsp-collapseButton span.dtsp-caret {
+  position: relative;
+  top: 9px;
+  display: inline-block;
+}
+div.dtsp-topRow button.dtsp-collapseButton.dtsp-rotated {
+  transform: rotate(180deg);
+}
+
+div.dtsp-searchPane table thead th,
+div.dtsp-searchPane table thead td {
+  width: 100% !important;
+}
+
+div.dt-button-collection {
+  z-index: 2002;
+}
+
+div.dt-button-collection.dtb-collection-closeable div.dtsp-titleRow {
+  padding-right: 25px;
+}
+
+div.dtsp-columns-1 {
+  max-width: 100%;
+  min-width: 100%;
+  margin: 0px !important;
+}
+
+div.dtsp-columns-2 {
+  max-width: 49%;
+  min-width: 49%;
+  margin: 0px !important;
+}
+
+div.dtsp-columns-3 {
+  max-width: 32%;
+  min-width: 32%;
+  margin: 0px !important;
+}
+
+div.dtsp-columns-4 {
+  max-width: 24%;
+  min-width: 24%;
+  margin: 0px !important;
+}
+
+div.dtsp-columns-5 {
+  max-width: 19%;
+  min-width: 19%;
+  margin: 0px !important;
+}
+
+div.dtsp-columns-6 {
+  max-width: 16%;
+  min-width: 16%;
+  margin: 0px !important;
+}
+
+div.dtsp-columns-7 {
+  max-width: 14%;
+  min-width: 14%;
+  margin: 0px !important;
+}
+
+div.dtsp-columns-8 {
+  max-width: 12%;
+  min-width: 12%;
+  margin: 0px !important;
+}
+
+div.dtsp-columns-9 {
+  max-width: 10.5%;
+  min-width: 10.5%;
+  margin: 0px !important;
+}
+
+div.dtsp-narrow {
+  flex-direction: column !important;
+}
+div.dtsp-narrow div.dtsp-subRow1,
+div.dtsp-narrow div.dtsp-subRow2 {
+  width: 100%;
+}
+div.dtsp-narrow div.dtsp-subRow2 button {
+  margin: 0 !important;
+  width: 25% !important;
+}
+
+div.dt-button-collection div.dtsp-panesContainer {
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-bottom: 0;
+}
+
+div.dtsp-panesContainer {
+  margin-bottom: 1em;
+}
+
+div.dtsp-searchPane div.dt-container,
+div.dtsp-searchPane div.dataTables_wrapper {
+  width: 100%;
+}
+div.dtsp-searchPane div.dt-container div.dataTables_layout_cell,
+div.dtsp-searchPane div.dataTables_wrapper div.dataTables_layout_cell {
+  padding: 0;
+}
+div.dtsp-searchPane div.dt-container div.dt-scroll-head,
+div.dtsp-searchPane div.dt-container div.dataTables_scrollHead,
+div.dtsp-searchPane div.dataTables_wrapper div.dt-scroll-head,
+div.dtsp-searchPane div.dataTables_wrapper div.dataTables_scrollHead {
+  display: none !important;
+}
+div.dtsp-searchPane div.dt-container div.dt-scroll-body,
+div.dtsp-searchPane div.dt-container div.dataTables_scrollBody,
+div.dtsp-searchPane div.dataTables_wrapper div.dt-scroll-body,
+div.dtsp-searchPane div.dataTables_wrapper div.dataTables_scrollBody {
+  background: white !important;
+  border: none;
+}
+div.dtsp-searchPane div.dt-container div.dt-scroll-body thead,
+div.dtsp-searchPane div.dt-container div.dataTables_scrollBody thead,
+div.dtsp-searchPane div.dataTables_wrapper div.dt-scroll-body thead,
+div.dtsp-searchPane div.dataTables_wrapper div.dataTables_scrollBody thead {
+  display: none;
+}
+div.dtsp-searchPane div.dt-container div.dt-scroll-body table tr > th,
+div.dtsp-searchPane div.dt-container div.dt-scroll-body table tr > td,
+div.dtsp-searchPane div.dt-container div.dataTables_scrollBody table tr > th,
+div.dtsp-searchPane div.dt-container div.dataTables_scrollBody table tr > td,
+div.dtsp-searchPane div.dataTables_wrapper div.dt-scroll-body table tr > th,
+div.dtsp-searchPane div.dataTables_wrapper div.dt-scroll-body table tr > td,
+div.dtsp-searchPane div.dataTables_wrapper div.dataTables_scrollBody table tr > th,
+div.dtsp-searchPane div.dataTables_wrapper div.dataTables_scrollBody table tr > td {
+  padding: 5px 10px;
+}
+div.dtsp-searchPane div.dt-container div.dt-scroll-body td.dtsp-nameColumn,
+div.dtsp-searchPane div.dt-container div.dataTables_scrollBody td.dtsp-nameColumn,
+div.dtsp-searchPane div.dataTables_wrapper div.dt-scroll-body td.dtsp-nameColumn,
+div.dtsp-searchPane div.dataTables_wrapper div.dataTables_scrollBody td.dtsp-nameColumn {
+  width: 100% !important;
+}
+div.dtsp-searchPane div.dt-container div.dt-scroll-body div.dtsp-nameCont,
+div.dtsp-searchPane div.dt-container div.dataTables_scrollBody div.dtsp-nameCont,
+div.dtsp-searchPane div.dataTables_wrapper div.dt-scroll-body div.dtsp-nameCont,
+div.dtsp-searchPane div.dataTables_wrapper div.dataTables_scrollBody div.dtsp-nameCont {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+div.dtsp-searchPane div.dt-container div.dt-scroll-body div.dtsp-nameCont span.dtsp-name,
+div.dtsp-searchPane div.dt-container div.dt-scroll-body div.dtsp-nameCont span.dtsp-pill,
+div.dtsp-searchPane div.dt-container div.dataTables_scrollBody div.dtsp-nameCont span.dtsp-name,
+div.dtsp-searchPane div.dt-container div.dataTables_scrollBody div.dtsp-nameCont span.dtsp-pill,
+div.dtsp-searchPane div.dataTables_wrapper div.dt-scroll-body div.dtsp-nameCont span.dtsp-name,
+div.dtsp-searchPane div.dataTables_wrapper div.dt-scroll-body div.dtsp-nameCont span.dtsp-pill,
+div.dtsp-searchPane div.dataTables_wrapper div.dataTables_scrollBody div.dtsp-nameCont span.dtsp-name,
+div.dtsp-searchPane div.dataTables_wrapper div.dataTables_scrollBody div.dtsp-nameCont span.dtsp-pill {
+  cursor: default;
+}
+div.dtsp-searchPane div.dt-container div.dt-scroll-body div.dtsp-nameCont span.dtsp-name,
+div.dtsp-searchPane div.dt-container div.dataTables_scrollBody div.dtsp-nameCont span.dtsp-name,
+div.dtsp-searchPane div.dataTables_wrapper div.dt-scroll-body div.dtsp-nameCont span.dtsp-name,
+div.dtsp-searchPane div.dataTables_wrapper div.dataTables_scrollBody div.dtsp-nameCont span.dtsp-name {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+  white-space: nowrap;
+  flex-grow: 1;
+  text-align: left;
+}
+div.dtsp-searchPane div.dt-container div.dt-scroll-body div.dtsp-nameCont span.dtsp-pill,
+div.dtsp-searchPane div.dt-container div.dataTables_scrollBody div.dtsp-nameCont span.dtsp-pill,
+div.dtsp-searchPane div.dataTables_wrapper div.dt-scroll-body div.dtsp-nameCont span.dtsp-pill,
+div.dtsp-searchPane div.dataTables_wrapper div.dataTables_scrollBody div.dtsp-nameCont span.dtsp-pill {
+  display: inline-block;
+  background-color: #cfcfcf;
+  text-align: center;
+  border-radius: 10px;
+  width: auto;
+  min-width: 30px;
+  color: black;
+  font-size: 0.9em;
+  padding: 0 4px;
+}
+div.dtsp-searchPane div.dt-container div.dt-scroll-body div.dtsp-nameCont span.dtsp-pill:empty,
+div.dtsp-searchPane div.dt-container div.dataTables_scrollBody div.dtsp-nameCont span.dtsp-pill:empty,
+div.dtsp-searchPane div.dataTables_wrapper div.dt-scroll-body div.dtsp-nameCont span.dtsp-pill:empty,
+div.dtsp-searchPane div.dataTables_wrapper div.dataTables_scrollBody div.dtsp-nameCont span.dtsp-pill:empty {
+  display: none;
+}
+
+div.dtsp-panesContainer {
+  clear: both;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: center;
+}
+div.dtsp-panesContainer div.dtsp-searchPanes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  align-items: stretch;
+  clear: both;
+  text-align: left;
+}
+div.dtsp-panesContainer div.dtsp-searchPanes div.dtsp-searchPane {
+  flex-grow: 1;
+  flex-shrink: 0;
+  font-size: 0.9em;
+  margin-top: 15px !important;
+}
+div.dtsp-panesContainer div.dtsp-searchPanes div.dtsp-searchPane div.dt-container,
+div.dtsp-panesContainer div.dtsp-searchPanes div.dtsp-searchPane div.dataTables_wrapper {
+  flex: 1;
+  box-sizing: border-box;
+}
+div.dtsp-panesContainer div.dtsp-searchPanes div.dtsp-searchPane div.dt-container div.dt-search,
+div.dtsp-panesContainer div.dtsp-searchPanes div.dtsp-searchPane div.dt-container div.dataTables_filter,
+div.dtsp-panesContainer div.dtsp-searchPanes div.dtsp-searchPane div.dataTables_wrapper div.dt-search,
+div.dtsp-panesContainer div.dtsp-searchPanes div.dtsp-searchPane div.dataTables_wrapper div.dataTables_filter {
+  display: none;
+}
+div.dtsp-panesContainer div.dtsp-title {
+  float: left;
+  padding: 10px 0;
+}
+div.dtsp-panesContainer button.dtsp-clearAll,
+div.dtsp-panesContainer button.dtsp-collapseAll,
+div.dtsp-panesContainer button.dtsp-showAll {
+  float: right;
+}
+
+div.dtsp-hidden {
+  display: none !important;
+}
+
+html.dark div.dtsp-topRow div.dtsp-subRow1 div.dtsp-searchCont input[disabled=disabled]::placeholder,
+html[data-bs-theme=dark] div.dtsp-topRow div.dtsp-subRow1 div.dtsp-searchCont input[disabled=disabled]::placeholder {
+  color: white;
+}
+
+button.dtsp-clearAll,
+button.dtsp-showAll {
+  margin-left: 3px;
+}
+
+button.dtsp-collapseAll {
+  margin-right: 1px !important;
+}
+
+div.dtsp-searchPane div.dtsp-title button {
+  margin-bottom: 0;
+}
+div.dtsp-searchPane div.dtsp-topRow {
+  margin: 0.5em 0;
+}
+div.dtsp-searchPane div.dtsp-topRow div.dtsp-subRow2 {
+  margin-left: 0.5em;
+}
+div.dtsp-searchPane div.dtsp-topRow input {
+  min-height: 40px;
+}
+div.dtsp-searchPane div.dtsp-topRow .button-group {
+  margin-bottom: 0;
+}
+div.dtsp-searchPane div.dtsp-topRow button {
+  width: 35px;
+  margin-bottom: 0;
+  padding: 0;
+  line-height: 38px;
+}
+div.dtsp-searchPane div.dtsp-topRow button.dtsp-searchIcon {
+  height: 40px;
+}
+div.dtsp-searchPane div.dtsp-topRow button.dtsp-collapseButton span {
+  right: 1px;
+}
+div.dtsp-searchPane div.dtsp-topRow button.dtsp-collapseButton span.dtsp-caret {
+  top: 3px;
+}
+div.dtsp-searchPane div.dtsp-topRow button.dtsp-searchIcon span {
+  filter: invert(1);
+}
+div.dtsp-searchPane div.dtsp-topRow button.dtsp-nameButton span {
+  filter: invert(1);
+}
+div.dtsp-searchPane div.dtsp-topRow button.dtsp-countButton span {
+  filter: invert(1);
+}
+div.dtsp-searchPane div.dtsp-topRow.dtsp-bordered:hover button.disabled {
+  cursor: pointer !important;
+  pointer-events: none;
+}
+div.dtsp-searchPane div.dtsp-topRow.dtsp-bordered:hover input.dtsp-paneInputButton {
+  pointer-events: none;
+}
+div.dtsp-searchPane div.dt-container,
+div.dtsp-searchPane div.dataTables_wrapper {
+  border: 2px #f0f0f0 solid;
+}
+div.dtsp-searchPane div.dt-container:hover,
+div.dtsp-searchPane div.dataTables_wrapper:hover {
+  border: 2px solid #cfcfcf !important;
+}
+div.dtsp-searchPane div.dt-container div.dtsp-nameCont span.badge,
+div.dtsp-searchPane div.dataTables_wrapper div.dtsp-nameCont span.badge {
+  min-width: 30px;
+  line-height: 1.25em;
+  margin-top: 2.5px;
+  border-radius: 9px;
+}
+div.dtsp-searchPane div.dt-container div.dtsp-nameCont span.badge:empty,
+div.dtsp-searchPane div.dataTables_wrapper div.dtsp-nameCont span.badge:empty {
+  display: none;
+}
+
+div.dt-button-collection div.dtsp-panesContainer {
+  padding: 1rem;
 }
 
 

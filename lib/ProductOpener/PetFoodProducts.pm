@@ -53,7 +53,7 @@ use ProductOpener::Ingredients
 	qw/select_ingredients_lc clean_ingredients_text extract_ingredients_from_text extract_additives_from_text detect_allergens_from_text/;
 use ProductOpener::NutritionEstimation qw/estimate_nutrients_from_ingredients/;
 use ProductOpener::Food
-	qw/fix_salt_equivalent compute_nutrition_data_per_100g_and_per_serving assign_categories_properties_to_product compute_estimated_nutrients compute_unknown_nutrients compute_nova_group/;
+	qw/compute_nutrition_data_per_100g_and_per_serving assign_categories_properties_to_product compute_estimated_nutrients compute_unknown_nutrients compute_nova_group/;
 
 use Hash::Util;
 use Encode;
@@ -88,19 +88,17 @@ sub specific_processes_for_pet_food_product ($product_ref) {
 	extract_additives_from_text($product_ref);
 	detect_allergens_from_text($product_ref);
 
-	# Nutrition data per 100g and per serving
+	# Category analysis
 
-	fix_salt_equivalent($product_ref);
+	# Nutrition data
 	compute_nutrition_data_per_100g_and_per_serving($product_ref);
 
 	# Nutrients
-
-	compute_estimated_nutrients($product_ref);
 	compute_unknown_nutrients($product_ref);
 
 	# Scores
 
-	compute_nova_group($product_ref);
+	# Environmental analysis
 
 	return;
 }

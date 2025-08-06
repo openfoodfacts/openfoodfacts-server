@@ -28,6 +28,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/get_fileid/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/$lc %Lang lang/;
 use ProductOpener::Orgs qw/:all/;
@@ -69,12 +70,7 @@ my $org_ref = retrieve_org($orgid);
 if (not defined $org_ref) {
 	$log->debug("org does not exist", {orgid => $orgid}) if $log->is_debug();
 
-	if ($request_ref->{admin} or $request_ref->{pro_moderator}) {
-		$template_data_ref->{org_does_not_exist} = 1;
-	}
-	else {
-		display_error_and_exit($request_ref, $Lang{error_org_does_not_exist}{$lc}, 404);
-	}
+	$template_data_ref->{org_does_not_exist} = 1;
 }
 
 # Does the user have permission to edit the org profile?
@@ -91,7 +87,12 @@ my @errors = ();
 if ($action eq 'process') {
 
 	if ($type eq 'edit') {
-		if (single_param('delete') eq 'on') {
+		#11867: Add a honeypot field
+
+		#11867: Set org_id from Name if not set and return an error if the org already exists
+
+		my $delete = single_param('delete') // '';
+		if ($delete eq 'on') {
 			if ($request_ref->{admin}) {
 				$type = 'delete';
 			}
@@ -116,6 +117,7 @@ if ($action eq 'process') {
 					@admin_fields,
 					(
 						"valid_org",
+						"crm_org_id",
 						"enable_manual_export_to_public_platform",
 						"activate_automated_daily_export_to_public_platform",
 						"protect_data",
@@ -135,6 +137,8 @@ if ($action eq 'process') {
 					$org_ref->{$field} = remove_tags_and_quote(decode utf8 => single_param($field));
 				}
 
+				$org_ref->{crm_org_id} ||= undef;
+
 				# Set the list of org GLNs
 				set_org_gs1_gln($org_ref, remove_tags_and_quote(decode utf8 => single_param("list_of_gs1_gln")));
 			}
@@ -151,6 +155,9 @@ if ($action eq 'process') {
 			if (not defined $org_ref->{name}) {
 				push @errors, $Lang{error_missing_org_name}{$lc};
 			}
+
+			#11867: If adding a new org check the org doesn't already exist and return an error if it does
+			# with suggestion to join the existing org
 
 			# Contact sections
 
@@ -372,7 +379,8 @@ if ($action eq 'display') {
 elsif ($action eq 'process') {
 
 	if ($type eq "edit") {
-
+		#11867: Set main contact to the current user if not an admin or moderator
+		# And add as a member and administrator
 		store_org($org_ref);
 		$template_data_ref->{result} = lang("edit_org_result");
 	}

@@ -1,0 +1,86 @@
+{
+   "ingredients" : [
+      {
+         "id" : "en:emulsifier",
+         "ingredients" : [
+            {
+               "id" : "en:e322",
+               "ingredients" : [
+                  {
+                     "id" : "en:sunflower-lecithin",
+                     "is_in_taxonomy" : 1,
+                     "percent_estimate" : 100,
+                     "percent_max" : 100,
+                     "percent_min" : 100,
+                     "text" : "lécithines de tournesol",
+                     "vegan" : "yes",
+                     "vegetarian" : "yes"
+                  }
+               ],
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 100,
+               "percent_max" : 100,
+               "percent_min" : 100,
+               "text" : "lécithines",
+               "vegan" : "maybe",
+               "vegetarian" : "maybe"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 100,
+         "percent_max" : 100,
+         "percent_min" : 100,
+         "text" : "émulsifiant"
+      }
+   ],
+   "ingredients_analysis" : {},
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 3,
+   "ingredients_n_tags" : [
+      "3",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:emulsifier",
+      "en:e322",
+      "en:sunflower-lecithin"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:emulsifier",
+      "en:e322",
+      "en:sunflower-lecithin",
+      "en:e322i"
+   ],
+   "ingredients_text" : "émulsifiant : lécithines (tournesol)",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 1,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:e322",
+      "en:emulsifier",
+      "en:sunflower-lecithin"
+   ],
+   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:e322",
+      "en:emulsifier",
+      "en:sunflower-lecithin"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 3,
+   "known_ingredients_n" : 3,
+   "lc" : "fr",
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
+   },
+   "unknown_ingredients_n" : 0
+}

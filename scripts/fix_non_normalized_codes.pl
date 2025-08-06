@@ -40,7 +40,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Data qw/get_products_collection remove_documents_by_ids/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Store qw/retrieve sto_iter store/;
+use ProductOpener::Store qw/retrieve_object store_object object_path_exists/;
 use Getopt::Long;
 
 # how many operations in bulk write
@@ -50,14 +50,14 @@ sub find_non_normalized_sto ($product_path) {
 	# find all .sto files that have a non normalized code
 	# we take a very brute force approach on filename
 	# return a list with path, product_id and normalized_id
-	my $iter = sto_iter($BASE_DIRS{PRODUCTS}, qr/product\.sto$/i);
+	my $iter = product_iter();
 	my @anomalous = ();
 	while (my $product_path = $iter->()) {
 		my $product_code = product_id_from_path($product_path);
 		my $normalized_code = normalize_code($product_code);
 		if ($product_code ne $normalized_code) {
 			# we intentionally use a simple retrieve, to avoid processing
-			my $product_ref = retrieve($product_path);
+			my $product_ref = retrieve_object($product_path);
 			# skip deleted
 			next if $product_ref->{deleted};
 			# item to normalize
@@ -73,16 +73,17 @@ sub move_product_to ($product_path, $product_id, $normalized_id) {
 	$product_ref->{code} = $normalized_id;
 	$product_ref->{_id} = $normalized_id;
 	# store updated (will move it)
-	store_product("fix-non-normalized-codes-script", $product_ref, "Normalize barcode");
+	store_product("fix-non-normalized-codes-script",
+		$product_ref, "Normalize barcode from $product_id to $normalized_id");
 	return;
 }
 
 sub delete_product ($product_path) {
 	# we must use retrieve because path might be invalid for retrieve_product
-	my $product_ref = retrieve($product_path);
+	my $product_ref = retrieve_object($product_path);
 	$product_ref->{deleted} = "on";
 	# and we use store, as we used retrieve
-	store($product_path, $product_ref);
+	store_object($product_path, $product_ref);
 	return;
 }
 
@@ -95,9 +96,17 @@ sub fix_non_normalized_sto ($product_path, $dry_run, $out) {
 		# handle a special case where previous id is higly broken …
 		# and moving would not work
 		my $path_from_old_id = product_path_from_id($product_id);
-		my $is_duplicate = (-e "$BASE_DIRS{PRODUCTS}/$new_path");
+		my $is_duplicate = (object_path_exists("$BASE_DIRS{PRODUCTS}/$new_path"));
 		my $is_invalid = $path_from_old_id eq "invalid";
-		if ($is_duplicate || $is_invalid) {
+		# print "product_path: $product_path - new_path: $new_path - product_id: $product_id - normalized_id: $normalized_id - is_duplicate: $is_duplicate - is_invalid: $is_invalid - path_from_old_id: $path_from_old_id\n";
+		# we could have different codes but the same path: EAN8 padded with 5 0s
+		# it happens in the test
+		if (($new_path eq $path_from_old_id) and not $is_invalid) {
+			# we should change the code to the normalized code, store the new product, and remove the old code from MongoDB
+			move_product_to($product_path, $product_id, $normalized_id) unless $dry_run;
+			push(@actions, "Updated product in place: $product_id and $normalized_id have the same path $product_path");
+		}
+		elsif ($is_duplicate || $is_invalid) {
 			# this is probably older data than the normalized one, we will ditch it !
 			delete_product($product_path) unless $dry_run;
 			my $msg = "Removed $product_id";
@@ -149,14 +158,14 @@ sub fix_int_barcodes_sto ($int_ids_ref, $dry_run) {
 	foreach my $int_id (@$int_ids_ref) {
 		# load
 		my $str_code = "$int_id";
-		my $product_ref = retrieve_product_or_deleted_product($str_code);
+		my $product_ref = retrieve_product($str_code, "include_deleted");
 		if (defined $product_ref) {
 			$product_ref->{_id} .= '';
 			$product_ref->{code} .= '';
 			my $path = product_path_from_id($product_ref->{code});
 			if (!$dry_run) {
 				# Silently replace values in sto (no rev)
-				store("$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref);
+				store_object("$BASE_DIRS{PRODUCTS}/$path/product", $product_ref);
 				# Refresh mongodb
 				if ($product_ref->{deleted}) {
 					$products_collection->delete_one({"_id" => $product_ref->{_id}});

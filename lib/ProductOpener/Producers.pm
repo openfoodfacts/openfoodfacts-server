@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -82,8 +82,10 @@ use ProductOpener::Export qw/export_csv/;
 use ProductOpener::Import
 	qw/$IMPORT_MAX_PACKAGING_COMPONENTS import_csv_file import_products_categories_from_public_database/;
 use ProductOpener::ImportConvert qw/clean_fields/;
+use ProductOpener::Minion qw/get_minion/;
 use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
 use ProductOpener::Orgs qw/update_export_date/;
+use ProductOpener::Images qw/$valid_image_types_regexp/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -93,37 +95,6 @@ use JSON::MaybeXS;
 use Time::Local;
 use Data::Dumper;
 use Text::CSV();
-use Minion;
-
-# Minion backend
-my $minion;
-
-=head2 get_minion()
-
-Function to get the backend minion
-
-=head3 Arguments
-
-None
-
-=head3 Return values
-
-The backend minion $minion
-
-=cut
-
-sub get_minion() {
-	if (not defined $minion) {
-		if (not defined $server_options{minion_backend}) {
-			print STDERR "No Minion backend configured in lib/ProductOpener/Config2.pm\n";
-		}
-		else {
-			print STDERR "Initializing Minion backend configured in lib/ProductOpener/Config2.pm\n";
-			$minion = Minion->new(%{$server_options{minion_backend}});
-		}
-	}
-	return $minion;
-}
 
 =head1 FUNCTIONS
 
@@ -946,7 +917,7 @@ sub init_packaging_columns_names_for_lang ($l) {
 
 sub init_nutrients_columns_names_for_lang ($l) {
 
-	$nutriment_table = $cc_nutriment_table{default};
+	$nutriment_table = $cc_nutriment_table{off_default};
 
 	# Go through all the nutrients in the nutrients taxonomy
 	foreach my $nutrient_tagid (sort(get_all_taxonomy_entries("nutrients"))) {
@@ -1167,7 +1138,7 @@ sub init_other_fields_columns_names_for_lang ($l) {
 
 				if ($group_id eq "images") {
 					# front / ingredients / nutrition : specific to one language
-					if ($field =~ /image_(front|ingredients|nutrition|packaging)/) {
+					if ($field =~ /image_($valid_image_types_regexp)/) {
 						$fields_columns_names_for_lang{$l}
 							{get_string_id_for_lang("no_language", normalize_column_name($Lang{$field}{$l}))}
 							= {field => $field . "_$l"};
@@ -1789,7 +1760,7 @@ JSON
 				$log->debug("Select2 option", {group_id => $group_id, field => $field, name => $name})
 					if $log->is_debug();
 
-				if (($group_id eq "images") and ($field =~ /image_(front|ingredients|nutrition|packaging)/)) {
+				if (($group_id eq "images") and ($field =~ /image_($valid_image_types_regexp)/)) {
 
 					foreach my $l (@{$lcs_ref}) {
 						my $language = "";    # Don't specify the language if there is just one
@@ -2069,10 +2040,6 @@ sub update_export_status_for_csv_file_task ($job, $args_ref) {
 	$job->finish("done");
 
 	return;
-}
-
-sub queue_job {    ## no critic (Subroutines::RequireArgUnpacking)
-	return get_minion()->enqueue(@_);
 }
 
 1;

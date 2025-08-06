@@ -2,6 +2,7 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "17270",
+         "ecobalyse_code" : "f1b219e6-7a77-429b-b372-461e3ad0d3bd",
          "from_palm_oil" : "no",
          "id" : "en:olive-oil",
          "is_in_taxonomy" : 1,
@@ -15,6 +16,7 @@
       },
       {
          "ciqual_food_code" : "17130",
+         "ecobalyse_code" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
          "from_palm_oil" : "no",
          "id" : "en:rapeseed-oil",
          "is_in_taxonomy" : 1,
@@ -28,6 +30,7 @@
       },
       {
          "ciqual_food_code" : "17440",
+         "ecobalyse_code" : "3cfab110-363e-442a-9170-1af337fe9ea3",
          "from_palm_oil" : "no",
          "id" : "en:sunflower-oil",
          "is_in_taxonomy" : 1,
@@ -59,15 +62,7 @@
       "en:vegan",
       "en:vegetarian"
    ],
-   "ingredients_hierarchy" : [
-      "en:olive-oil",
-      "en:oil-and-fat",
-      "en:vegetable-oil-and-fat",
-      "en:vegetable-oil",
-      "en:rapeseed-oil",
-      "en:sunflower-oil",
-      "en:walnut-oil"
-   ],
+   "ingredients_lc" : "en",
    "ingredients_n" : 4,
    "ingredients_n_tags" : [
       "4",
@@ -96,7 +91,11 @@
    "ingredients_with_unspecified_percent_sum" : 0,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "known_ingredients_n" : 7,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:walnut-oil"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
+   "known_ingredients_n" : 4,
    "lc" : "en",
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",

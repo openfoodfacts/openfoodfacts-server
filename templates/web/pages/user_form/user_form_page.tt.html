@@ -29,6 +29,7 @@
 
     inputfield.value = value;
     }
+    // #11866: Can remove after keycloak migration
     [% INCLUDE web/pages/user_form/togglepassword.tt.js %]
 </script>
 
@@ -67,9 +68,15 @@
                     
                     [% IF field.field == 'crm_user_id' AND crm_contact_url != "" %]
                         <label for="[% field.field %]">[% field.label %]</label>
-                        <div class="open-in-crm">
+                        <div class="form-field-with-btn">
                             <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]"/>
                             <a type="button" class="button" id="crm_button" href="[% crm_contact_url %]" target="_blank" rel="noopener">[% lang("open_in_crm") %]</a> 
+                        </div>
+                    [% ELSIF field.field == 'org' AND org_url != "" %]
+                        <label for="[% field.field %]">[% field.label %]</label>
+                        <div class="form-field-with-btn">
+                            <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]"/>
+                            <a type="button" class="button" id="" href="[% org_url %]" target="_blank" rel="noopener">[% lang("open_org") %]</a> 
                         </div>
 					[% ELSIF field.field == 'userid' %]
                         [% IF type == 'edit' %]
@@ -169,7 +176,7 @@
             <p>[% lang("unsubscribe_info") %]</p>
         [% END %]
 
-        [% IF userid and (type != 'add') %]
+        [% IF oidc_implementation_level < 5 and userid and (type != 'add') %]
             <fieldset>
                 <legend class="text_warning">[% lang("danger_zone") %]</legend>
                 [% delete_confirm=esq(lang("delete_confirmation")) %]
@@ -250,10 +257,7 @@
         <!-- Do not display donate link on producers platform -->
 
         [% IF !(server_options_producers_platform) %]
-            [% IF lc == "en" or lc == "fr" %]
-                <h3>[% lang("you_can_also_help_us") %]</h3>
-                <p>[% lang("bottom_content") %]</p>
-            [% END %]
+            [% INCLUDE 'web/common/includes/help_us_block.tt.html' %]
         [% END %]
 
     [% END %]

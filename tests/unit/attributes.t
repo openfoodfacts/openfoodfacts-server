@@ -21,7 +21,7 @@ use ProductOpener::Test qw/init_expected_results/;
 use ProductOpener::Products qw/analyze_and_enrich_product_data/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
-use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Attributes qw/compute_attributes/;
 use ProductOpener::Packaging qw/:all/;
@@ -132,7 +132,7 @@ my @tests = (
 
 	# bug https://github.com/openfoodfacts/openfoodfacts-server/issues/6356
 	[
-		'en-ecoscore-score-at-20-threshold',
+		'en-environmental_score-score-at-20-threshold',
 		{
 			lc => "en",
 			categories => "Cocoa and hazelnuts spreads",
@@ -235,7 +235,7 @@ foreach my $test_ref (@tests) {
 
 		local $/;    #Enable 'slurp' mode
 		my $expected_product_ref = $json->decode(<$expected_result>);
-		print STDERR "testid: $testid\n";
+		# print STDERR "testid: $testid\n";
 		is($product_ref, $expected_product_ref) or diag Dumper $product_ref;
 	}
 	else {

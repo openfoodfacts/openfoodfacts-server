@@ -109,7 +109,7 @@ my @tests = (
 	],
 	[
 		{lc => "fi", ingredients_text => "Vitamiinit (A, B2, B12, C, D2)"},
-		["en:vitamins", "en:vitamin-a", "en:e101", "en:vitamin-b12", "en:e300", "en:ergocalciferol"],
+		["en:vitamins", "en:vitamin-a", "en:e101", "en:vitamin-b12", "en:vitamin-c", "en:ergocalciferol"],
 	],
 
 	[{lc => "it", ingredients_text => "sale e spezie"}, ["en:salt", "en:spice"],],
@@ -130,7 +130,7 @@ my @tests = (
 			ingredients_text =>
 				"Lait de vache pasteurisé (origine: France), crème pasteurisée (origine France), sel (origine UE), ferments."
 		},
-		['en:pasteurised-cow-s-milk', 'en:cream', 'en:salt', 'en:ferment'],
+		['en:cow-s-milk', 'en:cream', 'en:salt', 'en:ferment'],
 	],
 	[{lc => "en", ingredients_text => "Organically grown green tea"}, ["en:green-tea"],],
 	[
@@ -187,7 +187,7 @@ my @tests = (
 		["en:colour", "en:e162", "en:e160c", "en:e100"],
 	],
 
-	[{lc => "fr", ingredients_text => "graisse végétale bio (colza)"}, ["en:colza-oil"]],
+	[{lc => "fr", ingredients_text => "graisse végétale bio (colza)"}, ["en:vegetable-fat", "en:colza-oil"]],
 
 	[{lc => "fr", ingredients_text => "lait cru de lapin"}, ["fr:lait-cru-de-lapin"]],
 	[
@@ -199,7 +199,10 @@ my @tests = (
 		["en:unrefined-cane-sugar", "en:banana", "en:tomato", "en:unrefined-sugar"]
 	],
 
-	[{lc => "en", ingredients_text => "vegetable oil (coconut & rapeseed)"}, ["en:coconut-oil", "en:rapeseed-oil"]],
+	[
+		{lc => "en", ingredients_text => "vegetable oil (coconut & rapeseed)"},
+		["en:vegetable-oil", "en:coconut-oil", "en:rapeseed-oil"]
+	],
 
 	[{lc => "fr", ingredients_text => "amidon de blé. traces de _céleri_."}, ["en:wheat-starch"]],
 
@@ -225,7 +228,7 @@ my @tests = (
 	# and all sub-ingredients being discarded
 	[
 		{lc => "en", ingredients_text => "Organic 100% juice (organic pear, organic apple), natural flavor."},
-		['en:juice', 'en:natural-flavouring', 'en:pear', 'en:apple']
+		['en:juice', 'en:natural-flavouring', 'en:pear-juice', 'en:apple-juice']
 	],
 	[{lc => "en", ingredients_text => "au jus (beef stock, water)"}, ['en:au-jus', 'en:beef-broth', 'en:water']],
 	# pure juice is a label, and currently not an ingredient
@@ -316,7 +319,7 @@ my @tests = (
 	# Russian oil
 	[
 		{lc => "ru", ingredients_text => "масло растительное (подсолнечное, соевое), Масло (Пальмовое)"},
-		["en:sunflower-oil", "en:soya-oil", "en:palm-oil"]
+		["en:vegetable-oil", "en:oil", "en:sunflower-oil", "en:soya-oil", "en:palm-oil"]
 	],
 	[{lc => "fr", ingredients_text => "Banane coupée et cuite au naturel"}, ["en:banana"],],
 	[
@@ -334,7 +337,7 @@ foreach my $test_ref (@tests) {
 	my $product_ref = $test_ref->[0];
 	my $expected_tags = $test_ref->[1];
 
-	print STDERR "ingredients_text: " . $product_ref->{ingredients_text} . "\n";
+	# print STDERR "ingredients_text: " . $product_ref->{ingredients_text} . "\n";
 
 	extract_ingredients_from_text($product_ref);
 

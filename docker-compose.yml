@@ -1,6 +1,4 @@
-﻿version: "3.7"
-
-x-backend-conf: &backend-conf
+﻿x-backend-conf: &backend-conf
   image: ghcr.io/openfoodfacts/openfoodfacts-server/backend:${TAG}
   environment:
     - PRODUCERS_PLATFORM
@@ -20,6 +18,8 @@ x-backend-conf: &backend-conf
     - EVENTS_USERNAME
     - EVENTS_PASSWORD
     - REDIS_URL
+    - FOLKSONOMY_URL
+    - PROCESS_GLOBAL_REDIS_EVENTS
     - GOOGLE_CLOUD_VISION_API_KEY
     - GOOGLE_CLOUD_VISION_API_URL
     - CROWDIN_PROJECT_IDENTIFIER
@@ -28,6 +28,7 @@ x-backend-conf: &backend-conf
     - LOG_LEVEL_ROOT
     - LOG_LEVEL_MONGODB
     - LOG_LEVEL_RATE_LIMITER
+    - NUTRIPATROL_URL
     - INFLUXDB_HOST
     - BUILD_CACHE_REPO
     - RATE_LIMITER_BLOCKING_ENABLED
@@ -35,6 +36,17 @@ x-backend-conf: &backend-conf
     - ODOO_CRM_DB
     - ODOO_CRM_USER
     - ODOO_CRM_PASSWORD
+    - OIDC_IMPLEMENTATION_LEVEL
+    - OIDC_DISCOVERY_URL
+    - OFF_CLIENT_SECRET
+    - OBF_CLIENT_SECRET
+    - OPFF_CLIENT_SECRET
+    - OPF_CLIENT_SECRET
+    - OFF_PRO_CLIENT_SECRET
+    - RECIPE_ESTIMATOR_URL
+    - RECIPE_ESTIMATOR_SCIPY_URL
+    #11901: Remove once production is migrated
+    - SERIALIZE_TO_JSON
   depends_on:
     - memcached
   volumes:
@@ -65,7 +77,6 @@ x-backend-conf: &backend-conf
     # all the rest
     - podata:/mnt/podata
 
-
     # Logs
     - ./logs/apache2:/var/log/apache2
     - ./logs/apache2:/mnt/podata/logs
@@ -75,7 +86,6 @@ x-backend-conf: &backend-conf
     - ./conf/apache2-docker/apache.conf:/etc/apache2/sites-enabled/product-opener.conf
     - ./conf/apache2-docker/apache-mpm_prefork.conf:/etc/apache2/mods-enabled/mpm_prefork.conf
     - ./conf/apache-2.4/modperl.conf:/etc/apache2/conf-enabled/modperl.conf
-
 
 services:
   memcached:
@@ -104,8 +114,15 @@ services:
       - "$MINION_QUEUE"
   incron:
     <<: *backend-conf
-    # This service watch for new images to trigger ocr and robotoff processing
-    command: ["perl", "scripts/run_cloud_vision_ocr.pl", "/mnt/podata/new_images"]
+    # This service watches for new images to trigger ocr and robotoff processing
+    command:
+      ["perl", "scripts/run_cloud_vision_ocr.pl", "/mnt/podata/new_images"]
+  redis-listener:
+    <<: *backend-conf
+    # we want the redis_listerner for off, but not for pro profile
+    profiles: ["off"]
+    # This service watches for new events on a redis stream to delete users
+    command: ["perl", "scripts/listen_to_redis_stream.pl"]
   frontend:
     image: ghcr.io/openfoodfacts/openfoodfacts-server/frontend:${TAG}
     depends_on:
@@ -128,7 +145,6 @@ services:
 
       # openfoodfacts-web static files
       - ${WEB_RESOURCES_PATH}/html:/opt/product-opener/html/off_web_html
-
 
       # Logs
       - ./logs/nginx/:/var/log/nginx/

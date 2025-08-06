@@ -48,7 +48,8 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::KnowledgePanels qw(create_panel_from_json_template);
-use ProductOpener::Tags qw(:all);
+use ProductOpener::Tags qw/:all/;
+use ProductOpener::ConfigEnv qw/:all/;
 
 use Encode;
 use Data::DeepAccess qw(deep_get);
@@ -87,15 +88,14 @@ sub create_report_problem_card_panel ($product_ref, $target_lc, $target_cc, $opt
 	# + add promo message for the pro platform ("Are you the owner? Add your contact information")
 
 	# Panel to tell users that they can fix the data themselves
-
+	# or report to nutripatrol
 	create_panel_from_json_template(
 		"incomplete_or_incorrect_data",
 		"api/knowledge-panels/report_problem/incomplete_or_incorrect_data.tt.json",
-		{}, $product_ref, $target_lc, $target_cc, $options_ref
+		{nutripatrol_enabled => !!$nutripatrol_url},
+		$product_ref, $target_lc, $target_cc, $options_ref
 	);
 	push(@panels, "incomplete_or_incorrect_data");
-
-	# TODO: add a panel for Nutri-Patrol once it is ready
 
 	# Panels to report product issues to local authorities
 

@@ -33,9 +33,7 @@
    ],
    "complete" : 0,
    "completeness" : 0.0625,
-   "correctors_tags" : [
-      "test-user"
-   ],
+   "correctors_tags" : [],
    "countries" : "fr",
    "countries_hierarchy" : [
       "en:france"
@@ -51,27 +49,25 @@
    "data_quality_errors_tags" : [],
    "data_quality_info_tags" : [
       "en:no-packaging-data",
-      "en:ecoscore-extended-data-not-computed",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown"
    ],
    "data_quality_tags" : [
       "en:no-packaging-data",
-      "en:ecoscore-extended-data-not-computed",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown",
-      "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-      "en:ecoscore-packaging-packaging-data-missing",
-      "en:ecoscore-production-system-no-label",
-      "en:ecoscore-threatened-species-ingredients-missing"
+      "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+      "en:environmental-score-packaging-packaging-data-missing",
+      "en:environmental-score-production-system-no-label",
+      "en:environmental-score-threatened-species-ingredients-missing"
    ],
    "data_quality_warnings_tags" : [
-      "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-      "en:ecoscore-packaging-packaging-data-missing",
-      "en:ecoscore-production-system-no-label",
-      "en:ecoscore-threatened-species-ingredients-missing"
+      "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+      "en:environmental-score-packaging-packaging-data-missing",
+      "en:environmental-score-production-system-no-label",
+      "en:environmental-score-threatened-species-ingredients-missing"
    ],
    "data_sources" : "Producers, Producer - test-org",
    "data_sources_imported" : "Producers, Producer - test-org",
@@ -79,7 +75,14 @@
       "producers",
       "producer-test-org"
    ],
-   "ecoscore_data" : {
+   "ecoscore_tags" : [
+      "unknown"
+   ],
+   "editors_tags" : [
+      "test-user"
+   ],
+   "entry_dates_tags" : "--ignore--",
+   "environmental_score_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
             "aggregated_origins" : [
@@ -294,7 +297,6 @@
             "warning" : "origins_are_100_percent_unknown"
          },
          "packaging" : {
-            "non_recyclable_and_non_biodegradable_materials" : 1,
             "value" : -15,
             "warning" : "packaging_data_missing"
          },
@@ -310,6 +312,7 @@
       "agribalyse" : {
          "warning" : "missing_agribalyse_match"
       },
+      "grade" : "unknown",
       "missing" : {
          "categories" : 1,
          "ingredients" : 1,
@@ -321,143 +324,136 @@
       "missing_key_data" : 1,
       "status" : "unknown"
    },
-   "ecoscore_grade" : "unknown",
-   "ecoscore_tags" : [
+   "environmental_score_grade" : "unknown",
+   "environmental_score_tags" : [
       "unknown"
    ],
-   "editors_tags" : [
-      "test-user"
-   ],
-   "entry_dates_tags" : "--ignore--",
    "food_groups_tags" : [],
    "id" : "3560070815746",
    "images" : {
-      "1" : {
-         "sizes" : {
-            "100" : {
-               "h" : 75,
-               "w" : 100
-            },
-            "400" : {
-               "h" : 300,
-               "w" : 400
-            },
-            "full" : {
-               "h" : 600,
-               "w" : 800
+      "selected" : {
+         "front" : {
+            "fr" : {
+               "generation" : {},
+               "imgid" : 1,
+               "rev" : 3,
+               "sizes" : {
+                  "100" : {
+                     "h" : 100,
+                     "w" : 73
+                  },
+                  "200" : {
+                     "h" : 200,
+                     "w" : 146
+                  },
+                  "400" : {
+                     "h" : 296,
+                     "w" : 216
+                  },
+                  "full" : {
+                     "h" : 296,
+                     "w" : 216
+                  }
+               }
             }
-         },
-         "uploaded_t" : "--ignore--",
-         "uploader" : "test-user"
+         }
       },
-      "2" : {
-         "sizes" : {
-            "100" : {
-               "h" : 75,
-               "w" : 100
+      "uploaded" : {
+         "1" : {
+            "sizes" : {
+               "100" : {
+                  "h" : 75,
+                  "w" : 100
+               },
+               "400" : {
+                  "h" : 300,
+                  "w" : 400
+               },
+               "full" : {
+                  "h" : 600,
+                  "w" : 800
+               }
             },
-            "400" : {
-               "h" : 300,
-               "w" : 400
-            },
-            "full" : {
-               "h" : 600,
-               "w" : 800
-            }
+            "uploaded_t" : "--ignore--",
+            "uploader" : "test-user"
          },
-         "uploaded_t" : "--ignore--",
-         "uploader" : "test-user"
-      },
-      "3" : {
-         "sizes" : {
-            "100" : {
-               "h" : 75,
-               "w" : 100
+         "2" : {
+            "sizes" : {
+               "100" : {
+                  "h" : 75,
+                  "w" : 100
+               },
+               "400" : {
+                  "h" : 300,
+                  "w" : 400
+               },
+               "full" : {
+                  "h" : 600,
+                  "w" : 800
+               }
             },
-            "400" : {
-               "h" : 300,
-               "w" : 400
-            },
-            "full" : {
-               "h" : 600,
-               "w" : 800
-            }
+            "uploaded_t" : "--ignore--",
+            "uploader" : "test-user"
          },
-         "uploaded_t" : "--ignore--",
-         "uploader" : "test-user"
-      },
-      "4" : {
-         "sizes" : {
-            "100" : {
-               "h" : 75,
-               "w" : 100
+         "3" : {
+            "sizes" : {
+               "100" : {
+                  "h" : 75,
+                  "w" : 100
+               },
+               "400" : {
+                  "h" : 300,
+                  "w" : 400
+               },
+               "full" : {
+                  "h" : 600,
+                  "w" : 800
+               }
             },
-            "400" : {
-               "h" : 300,
-               "w" : 400
-            },
-            "full" : {
-               "h" : 600,
-               "w" : 800
-            }
+            "uploaded_t" : "--ignore--",
+            "uploader" : "test-user"
          },
-         "uploaded_t" : "--ignore--",
-         "uploader" : "test-user"
-      },
-      "5" : {
-         "sizes" : {
-            "100" : {
-               "h" : 75,
-               "w" : 100
+         "4" : {
+            "sizes" : {
+               "100" : {
+                  "h" : 75,
+                  "w" : 100
+               },
+               "400" : {
+                  "h" : 300,
+                  "w" : 400
+               },
+               "full" : {
+                  "h" : 600,
+                  "w" : 800
+               }
             },
-            "400" : {
-               "h" : 300,
-               "w" : 400
-            },
-            "full" : {
-               "h" : 600,
-               "w" : 800
-            }
+            "uploaded_t" : "--ignore--",
+            "uploader" : "test-user"
          },
-         "uploaded_t" : "--ignore--",
-         "uploader" : "test-user"
-      },
-      "front_fr" : {
-         "angle" : 0,
-         "coordinates_image_size" : "400",
-         "geometry" : "0x0--2--2",
-         "imgid" : "2",
-         "normalize" : "false",
-         "rev" : "5",
-         "sizes" : {
-            "100" : {
-               "h" : 100,
-               "w" : 68
+         "5" : {
+            "sizes" : {
+               "100" : {
+                  "h" : 75,
+                  "w" : 100
+               },
+               "400" : {
+                  "h" : 300,
+                  "w" : 400
+               },
+               "full" : {
+                  "h" : 600,
+                  "w" : 800
+               }
             },
-            "200" : {
-               "h" : 200,
-               "w" : 135
-            },
-            "400" : {
-               "h" : 296,
-               "w" : 200
-            },
-            "full" : {
-               "h" : 296,
-               "w" : 200
-            }
-         },
-         "white_magic" : "false",
-         "x1" : "-1",
-         "x2" : "-1",
-         "y1" : "-1",
-         "y2" : "-1"
+            "uploaded_t" : "--ignore--",
+            "uploader" : "test-user"
+         }
       }
    },
    "informers_tags" : [
       "test-user"
    ],
-   "ingredients_lc" : "fr",
    "interface_version_created" : "import_csv_file - version 2019/09/17",
    "lang" : "fr",
    "lang_imported" : "fr",
@@ -486,8 +482,7 @@
    "main_countries_tags" : [],
    "max_imgid" : 5,
    "misc_tags" : [
-      "en:ecoscore-extended-data-not-computed",
-      "en:ecoscore-not-computed",
+      "en:environmental-score-not-computed",
       "en:nutriscore-missing-category",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-energy",
@@ -567,7 +562,7 @@
    "nutriscore_tags" : [
       "unknown"
    ],
-   "nutriscore_version" : "2021",
+   "nutriscore_version" : "2023",
    "nutrition_data_per" : "100g",
    "nutrition_data_prepared_per" : "100g",
    "nutrition_grade_fr" : "unknown",
@@ -601,8 +596,10 @@
       "missing-category"
    ],
    "popularity_key" : 12,
+   "product_type" : "food",
    "removed_countries_tags" : [],
-   "rev" : 8,
+   "rev" : 7,
+   "schema_version" : 1002,
    "sources" : [
       {
          "fields" : [

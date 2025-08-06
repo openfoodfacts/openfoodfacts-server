@@ -1,0 +1,23 @@
+{
+   "code" : "1234567890012",
+   "errors" : [
+      {
+         "field" : {
+            "id" : "images.selected.invalid_type"
+         },
+         "impact" : {
+            "id" : "field_ignored",
+            "lc_name" : "Field ignored",
+            "name" : "Field ignored"
+         },
+         "message" : {
+            "id" : "invalid_image_type",
+            "lc_name" : "",
+            "name" : ""
+         }
+      }
+   ],
+   "product" : {},
+   "status" : "success_with_errors",
+   "warnings" : []
+}

@@ -15,11 +15,11 @@ use ProductOpener::Cache qw/$memd/;
 # We need to flush memcached so that cached queries from other tests (e.g. web_html.t) don't interfere with this test
 $memd->flush_all;
 
+wait_application_ready();
+
 remove_all_users();
 
 remove_all_products();
-
-wait_application_ready();
 
 my $ua = new_client();
 
@@ -60,14 +60,14 @@ my $tests_ref = [
 	{
 		test_case => 'country-france-exists',
 		method => 'GET',
-		path => '/country/france',
+		path => '/facets/countries/france',
 		expected_status_code => 200,
 		expected_type => 'html',
 	},
 	{
 		test_case => 'country-cambodia-exists-but-empty',
 		method => 'GET',
-		path => '/country/cambodia',
+		path => '/facets/countries/cambodia',
 		expected_status_code => 200,
 		expected_type => 'html',
 		response_content_must_match => 'cambodia',
@@ -75,7 +75,7 @@ my $tests_ref = [
 	{
 		test_case => 'country-doesnotexist',
 		method => 'GET',
-		path => '/country/doesnotexist',
+		path => '/facets/countries/doesnotexist',
 		expected_status_code => 404,
 		expected_type => 'html',
 		response_content_must_not_match => 'doesnotexist',
@@ -83,7 +83,7 @@ my $tests_ref = [
 	{
 		test_case => 'ingredient-apple-exists',
 		method => 'GET',
-		path => '/ingredient/apple',
+		path => '/facets/ingredients/apple',
 		expected_status_code => 200,
 		expected_type => 'html',
 		response_content_must_match => 'apple',
@@ -91,7 +91,7 @@ my $tests_ref = [
 	{
 		test_case => 'ingredient-someunknowningredient-does-not-exist-but-not-empty',
 		method => 'GET',
-		path => '/ingredient/someunknowningredient',
+		path => '/facets/ingredients/someunknowningredient',
 		expected_status_code => 200,
 		expected_type => 'html',
 		response_content_must_match => 'someunknowningredient',
@@ -99,23 +99,24 @@ my $tests_ref = [
 	{
 		test_case => 'ingredient-someunknownandemptyingredient-does-not-exist-and-empty',
 		method => 'GET',
-		path => '/ingredient/someunknownandemptyingredient',
+		path => '/facets/ingredients/someunknownandemptyingredient',
 		expected_status_code => 404,
 		expected_type => 'html',
 		response_content_must_not_match => 'someunknownandemptyingredient',
 	},
+	# 2025-06-02: for unregistered users, we now return a 401 for 2 level facets
 	{
 		test_case => 'country-doesnotexist-ingredients-apple',
 		method => 'GET',
-		path => '/country/doesnotexist/ingredient/apple',
-		expected_status_code => 404,
+		path => '/facets/countries/doesnotexist/ingredients/apple',
+		expected_status_code => 401,
 		expected_type => 'html',
 		response_content_must_not_match => 'doesnotexist',
 	},
 	{
 		test_case => 'country-doesnotexist-ingredients',
 		method => 'GET',
-		path => '/country/doesnotexist/ingredients',
+		path => '/facets/countries/doesnotexist/ingredients',
 		expected_status_code => 404,
 		expected_type => 'html',
 		response_content_must_not_match => 'doesnotexist',
@@ -124,7 +125,7 @@ my $tests_ref = [
 		test_case => 'ingredient-someunknowningredient-does-not-exist-but-not-empty-labels',
 		method => 'GET',
 		# we need &no_cache=1 in order to get results (otherwise we use the query service)
-		path => '/ingredient/someunknowningredient/labels&no_cache=1',
+		path => '/facets/ingredients/someunknowningredient/labels&no_cache=1',
 		expected_status_code => 200,
 		expected_type => 'html',
 		response_content_must_match => 'someunknowningredient',

@@ -24,7 +24,7 @@ ProductOpener::ForestFootprint - compute the forest footprint of a food product
 
 =head1 SYNOPSIS
 
-C<ProductOpener::Ecoscore> is used to compute the forest footprint of a food product.
+C<ProductOpener::EnvironmentalScore> is used to compute the forest footprint of a food product.
 
 =head1 DESCRIPTION
 
@@ -145,7 +145,7 @@ sub load_forest_footprint_data() {
 								if (defined $taxonomy_fields{$tagtype}) {
 									$tagid = canonicalize_taxonomy_tag($language, $tagtype, $value);
 
-									if (not exists_taxonomy_tag($tagtype, $tagid)) {
+									if (($tagtype ne "brands") and (not exists_taxonomy_tag($tagtype, $tagid))) {
 
 										$log->error(
 											"forest footprint condition does not exist in taxonomy",
@@ -193,10 +193,11 @@ sub load_forest_footprint_data() {
 
 						my $tagid;
 
+						# Check that the tags used to configure the forest footprint exist in the taxonomies
 						if (defined $taxonomy_fields{$tagtype}) {
 							$tagid = canonicalize_taxonomy_tag($language, $tagtype, $value);
 
-							if (not exists_taxonomy_tag($tagtype, $tagid)) {
+							if (($tagtype ne "brands") and (not exists_taxonomy_tag($tagtype, $tagid))) {
 
 								$log->error("forest footprint ingredient or category tag does not exist in taxonomy",
 									{tagtype => $tagtype, tagid => $tagid})
@@ -245,8 +246,8 @@ The forest footprint and computations details are stored in the product referenc
 
 Returned values:
 
-- ecoscore_score : numeric Eco-Score value
-- ecoscore_grade : corresponding A to E grade
+- environmental_score_score : numeric Environmental-Score value
+- environmental_score_grade : corresponding A to E grade
 - forest_footprint_data : forest footprint computation details
 
 =cut

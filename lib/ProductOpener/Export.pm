@@ -93,14 +93,16 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
-use ProductOpener::Store qw/retrieve_json/;
+use ProductOpener::Store qw/retrieve_object/;
 use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Tags qw/%language_fields %tags_fields %taxonomy_fields list_taxonomy_tags_in_language/;
 use ProductOpener::Display qw/search_and_export_products/;
 use ProductOpener::Food qw/%nutriments_tables/;
 use ProductOpener::Data qw/get_products_collection/;
-use ProductOpener::Products qw/add_images_urls_to_product product_path/;
-use ProductOpener::Ecoscore qw/localize_ecoscore/;
+use ProductOpener::Products qw/product_path/;
+use ProductOpener::Images qw/add_images_urls_to_product $valid_image_types_regexp/;
+use ProductOpener::EnvironmentalScore qw/localize_environmental_score/;
+use ProductOpener::ProductsFeatures qw(feature_enabled);
 
 use Text::CSV;
 use Excel::Writer::XLSX;
@@ -187,7 +189,7 @@ sub export_csv ($args_ref) {
 		= $args_ref->{export_computed_fields};    # Fields like the Nutri-Score score computed by OFF
 	my $export_canonicalized_tags_fields
 		= $args_ref->{export_canonicalized_tags_fields};    # e.g. include "categories_tags" and not only "categories"
-	my $export_cc = $args_ref->{cc} || "world";    # used to localize Eco-Score fields
+	my $export_cc = $args_ref->{cc} || "world";    # used to localize Environmental-Score fields
 
 	$log->debug("export_csv - start", {args_ref => $args_ref}) if $log->is_debug();
 
@@ -275,7 +277,7 @@ sub export_csv ($args_ref) {
 						next if not defined $product_ref->{nutriments};
 
 						# Go through the nutriment table
-						foreach my $nutriment (@{$nutriments_tables{europe}}) {
+						foreach my $nutriment (@{$nutriments_tables{off_europe}}) {
 
 							next if $nutriment =~ /^\#/;
 							my $nid = $nutriment;
@@ -389,14 +391,14 @@ sub export_csv ($args_ref) {
 							}
 							else {
 								my $key = $field;
-								# Special case for ecoscore_data.adjustments.origins_of_ingredients.value
-								# which is only present if the Eco-Score fields have been localized (done only once after)
+								# Special case for environmental_score_data.adjustments.origins_of_ingredients.value
+								# which is only present if the Environmental-Score fields have been localized (done only once after)
 								# we check for .values (with an s) instead
-								if ($field eq "ecoscore_data.adjustments.origins_of_ingredients.value") {
+								if ($field eq "environmental_score_data.adjustments.origins_of_ingredients.value") {
 									$key = $key . "s";
 								}
 								# Allow returning fields that are not at the root of the product structure
-								# e.g. ecoscore_data.agribalyse.score  -> $product_ref->{ecoscore_data}{agribalyse}{score}
+								# e.g. environmental_score_data.agribalyse.score  -> $product_ref->{environmental_score_data}{agribalyse}{score}
 								if (deep_exists($product_ref, split(/\./, $key))) {
 									$populated_fields{$group_prefix . $field} = $field_sort_key;
 								}
@@ -514,8 +516,8 @@ sub export_csv ($args_ref) {
 
 			my $scans_ref;
 
-			# If an ecoscore_* field is requested, we will localize all the Eco-Score fields once
-			my $ecoscore_localized = 0;
+			# If an environmental_score_* field is requested, we will localize all the Environmental-Score fields once
+			my $environmental_score_localized = 0;
 
 			foreach my $field (@sorted_populated_fields) {
 
@@ -526,10 +528,13 @@ sub export_csv ($args_ref) {
 				# Remove the off: prefix for fields computed by OFF, as we don't have the prefix in the product structure
 				$field =~ s/^off://;
 
-				# Localize the Eco-Score fields that depend on the country of the request
-				if (($field =~ /^ecoscore/) and (not $ecoscore_localized)) {
-					localize_ecoscore($export_cc, $product_ref);
-					$ecoscore_localized = 1;
+				# Localize the Environmental-Score fields that depend on the country of the request
+				if (    feature_enabled("environmental_score", $product_ref)
+					and ($field =~ /^environmental_score/)
+					and (not $environmental_score_localized))
+				{
+					localize_environmental_score($export_cc, $product_ref);
+					$environmental_score_localized = 1;
 				}
 
 				# Scans must be loaded separately
@@ -539,7 +544,7 @@ sub export_csv ($args_ref) {
 
 					if (not defined $scans_ref) {
 						# Load the scan data
-						$scans_ref = retrieve_json("$BASE_DIRS{PRODUCTS}/$product_path/scans.json");
+						$scans_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$product_path/scans");
 					}
 					if (not defined $scans_ref) {
 						$scans_ref = {};
@@ -587,33 +592,44 @@ sub export_csv ($args_ref) {
 							$added_images_urls = 1;
 						}
 
-						if ($field =~ /^image_(.*)_file/) {
+						# Other images
+						if ($field =~ /^image_other_(\d+)_file$/) {
 							# File path for the image on the server, used for exporting from producers platform to public database
+							my $other = $1;
 
-							my $imagefield = $1;
-
-							if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$imagefield})) {
+							if (defined $other_images{$product_ref->{code} . "." . $other}) {
 								$value
 									= "$BASE_DIRS{PRODUCTS_IMAGES}/"
 									. $product_path . "/"
-									. $product_ref->{images}{$imagefield}{imgid} . ".jpg";
-							}
-							elsif (defined $other_images{$product_ref->{code} . "." . $imagefield}) {
-								$value
-									= "$BASE_DIRS{PRODUCTS_IMAGES}/"
-									. $product_path . "/"
-									. $other_images{$product_ref->{code} . "." . $imagefield}{imgid} . ".jpg";
+									. $other_images{$product_ref->{code} . "." . $other}{imgid} . ".jpg";
 							}
 						}
-						elsif ($field =~ /^image_(.*)_(x1|y1|x2|y2|angle|normalize|white_magic|coordinates_image_size)/)
+
+						# Selected images
+						elsif ($field =~ /^image_(.+)_(.+)_file/) {
+							# File path for the image on the server, used for exporting from producers platform to public database
+
+							my $image_type = $1;
+							my $image_lc = $2;
+
+							my $imgid = deep_get($product_ref, ("images", "selected", $image_type, $image_lc, "imgid"));
+
+							if (defined $imgid) {
+								$value = "$BASE_DIRS{PRODUCTS_IMAGES}/" . $product_path . "/" . $imgid . ".jpg";
+							}
+						}
+
+						elsif ($field
+							=~ /^image_($valid_image_types_regexp)_(\w\w)_(x1|y1|x2|y2|angle|normalize|white_magic|coordinates_image_size)/
+							)
 						{
 							# Coordinates for image cropping
-							my $imagefield = $1;
-							my $coord = $2;
+							my $image_type = $1;
+							my $image_lc = $2;
+							my $coord = $3;
 
-							if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$imagefield})) {
-								$value = $product_ref->{images}{$imagefield}{$coord};
-							}
+							$value = deep_get($product_ref,
+								("images", "selected", $image_type, $image_lc, "generation", $coord));
 						}
 						elsif ($field =~ /^image_(ingredients|nutrition|packaging)_json$/) {
 							if (defined $product_ref->{"image_$1_url"}) {
@@ -645,7 +661,7 @@ sub export_csv ($args_ref) {
 							$value = deep_get($product_ref, ("packagings", $index, $property));
 						}
 						# Allow returning fields that are not at the root of the product structure
-						# e.g. ecoscore_data.agribalyse.score  -> $product_ref->{ecoscore_data}{agribalyse}{score}
+						# e.g. environmental_score_data.agribalyse.score  -> $product_ref->{environmental_score_data}{agribalyse}{score}
 						elsif ($field =~ /\./) {
 							$value = deep_get($product_ref, split(/\./, $field));
 						}
@@ -686,23 +702,32 @@ sub include_image_paths ($product_ref, $populated_fields_ref, $other_images_ref)
 
 	# First list the selected images
 	my %selected_images = ();
-	foreach my $imageid (sort keys %{$product_ref->{images}}) {
+	if (defined $product_ref->{images}{selected}) {
+		foreach my $image_type (sort keys %{$product_ref->{images}{selected}}) {
+			foreach my $image_lc (sort keys %{$product_ref->{images}{selected}{$image_type}}) {
 
-		if ($imageid =~ /^(front|ingredients|nutrition|packaging|other)_(\w\w)$/) {
+				$selected_images{$product_ref->{images}{selected}{$image_type}{$image_lc}{imgid}} = 1;
+				$populated_fields_ref->{"image_" . $image_type . "_" . $image_lc . "_file"}
+					= sprintf("%08d", 10 * 1000) . "_" . $image_type . "_" . $image_lc;
 
-			$selected_images{$product_ref->{images}{$imageid}{imgid}} = 1;
-			$populated_fields_ref->{"image_" . $imageid . "_file"} = sprintf("%08d", 10 * 1000) . "_" . $imageid;
-			# Also export the crop coordinates
-			foreach my $coord (qw(x1 x2 y1 y2 angle normalize white_magic coordinates_image_size)) {
-				if (
-					(defined $product_ref->{images}{$imageid}{$coord})
-					and (  ($coord !~ /^(x|y)/)
-						or ($product_ref->{images}{$imageid}{$coord} != -1)
-					)    # -1 is passed when the image is not cropped
-					)
-				{
-					$populated_fields_ref->{"image_" . $imageid . "_" . $coord}
-						= sprintf("%08d", 10 * 1000) . "_" . $imageid . "_" . $coord;
+				# Also export the crop coordinates
+				if (defined $product_ref->{images}{selected}{$image_type}{$image_lc}{generation}) {
+
+					foreach my $gen_field (qw(x1 x2 y1 y2 angle normalize white_magic coordinates_image_size)) {
+
+						my $gen_value = deep_get($product_ref,
+							("images", "selected", $image_type, $image_lc, "generation", $gen_field));
+
+						if (
+							(defined $gen_value)
+							and (  ($gen_field !~ /^(x|y)/)
+								or ($gen_value != -1))    # -1 is passed when the image is not cropped
+							)
+						{
+							$populated_fields_ref->{"image_" . $image_type . "_" . $image_lc . "_" . $gen_field}
+								= sprintf("%08d", 10 * 1000) . "_" . $image_type . "_" . $image_lc . "_" . $gen_field;
+						}
+					}
 				}
 			}
 		}
@@ -710,16 +735,19 @@ sub include_image_paths ($product_ref, $populated_fields_ref, $other_images_ref)
 
 	# Then list unselected images as other
 	my $other = 0;
-	foreach my $imageid (sort keys %{$product_ref->{images}}) {
+	if (defined $product_ref->{images}{uploaded}) {
+		foreach my $imageid (sort keys %{$product_ref->{images}{uploaded}}) {
 
-		if (($imageid =~ /^(\d+)$/) and (not defined $selected_images{$imageid})) {
-			$other++;
-			$populated_fields_ref->{"image_" . "other_" . $other . "_file"}
-				= sprintf("%08d", 10 * 1000) . "_" . "other_" . $other;
-			# Keep the imgid for second loop on products
-			$other_images_ref->{$product_ref->{code} . "." . "other_" . $other} = {imgid => $imageid};
+			if (($imageid =~ /^(\d+)$/) and (not defined $selected_images{$imageid})) {
+				$other++;
+				$populated_fields_ref->{"image_" . "other_" . $other . "_file"}
+					= sprintf("%08d", 10 * 1000) . "_" . "other_" . $other;
+				# Keep the imgid for second loop on products
+				$other_images_ref->{$product_ref->{code} . "." . "other_" . $other} = {imgid => $imageid};
+			}
 		}
 	}
+
 	return;
 }
 

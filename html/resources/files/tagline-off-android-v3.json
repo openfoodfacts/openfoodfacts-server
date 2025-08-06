@@ -1,331 +1,427 @@
 {
   "news": {
-    "nutriscore_v2": {
-      "start_date": "2024-06-08 00:00:00",
-      "end_date": "2024-06-30 23:59:59",
-      "url": "https://world.openfoodfacts.org/nutriscore-v2",
+    "app_update": {
+      "start_date": "2025-01-01 00:00:00",
+      "end_date": "2099-12-25 23:59:59",
+      "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
       "translations": {
         "default": {
-          "title": "It's new!",
-          "message": "The **New Calculation** of the NutriScore is available in the application",
-          "button_label": "Learn more",
+          "title": "New update available!",
+          "message": "A new version of the application is available on the Google Play and F-Droid.",
+          "button_label": "Update",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
           "image": {
-            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg",
-            "width": 0.2
-          }
-        },
-        "de": {
-          "title": "Es ist neu!",
-          "message": "Die **Neue Berechnung** des Nutri-Scores ist in der App verfügbar",
-          "button_label": "Mehr erfahren",
-          "image": {
-            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-de.svg",
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
             "width": 0.2,
-            "alt": "Das Nutri-Score A Logo"
-          }
-        },
-        "es": {
-          "title": "¡Es nuevo!",
-          "message": "El **Nuevo Cálculo** del Nutri-Score está disponible en la aplicación",
-          "button_label": "Más información",
-          "image": {
-            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg",
-            "width": 0.2,
-            "alt": "El logo de Nutri-Score A"
+            "alt": "Update the Open Food Facts app"
           }
         },
         "fr": {
-          "title": "C’est tout nouveau !",
-          "message": "Le **Nouveau Calcul** du NutriScore est disponible dans l’application",
-          "button_label": "En savoir plus",
+          "title": "Nouvelle mise à jour!",
+          "message": "Une nouvelle version de l'application est disponible sur le Google Play et F-Droid.",
+          "button_label": "Mettre à jour",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
           "image": {
-            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-fr.svg",
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_fr.svg",
             "width": 0.2,
-            "alt": "Le logo du NutriScore A"
-          }
-        },
-        "it": {
-          "title": "È nuovo!",
-          "message": "Il **Nuovo Calcolo** del NutriScore è disponibile nell'app",
-          "button_label": "Scopri di più",
-          "image": {
-            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg",
-            "width": 0.2,
-            "alt": "Il logo NutriScore A"
-          }
-        },
-        "nl": {
-          "title": "Het is nieuw!",
-          "message": "De **Nieuwe Berekening** van de Nutri-Score is beschikbaar in de app",
-          "button_label": "Meer informatie",
-          "image": {
-            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-nl.svg",
-            "width": 0.2,
-            "alt": "Het Nutri-Score A-logo"
-          }
-        },
-        "pt": {
-          "title": "É novo!",
-          "message": "O **Novo Cálculo** do Nutri-Score está disponível no aplicativo",
-          "button_label": "Saiba mais",
-          "image": {
-            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg",
-            "width": 0.2,
-            "alt": "O logotipo Nutri-Score A"
-          }
-        }
-      }
-    },
-    "translate_openfoodfacts": {
-      "start_date": "2024-06-08 00:00:00",
-      "end_date": "2024-06-30 23:59:59",
-      "url": "https://translate.openfoodfacts.org/project/openfoodfacts/en",
-      "translations": {
-        "default": {
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/en",
-          "title": "Bring food transparency to your language",
-          "message": "Translate the app, website and more to help others make informed food choices",
-          "button_label": "Join the translators team",
-          "image": {
-            "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png",
-            "width": 0.2
+            "alt": "Mettre à jour l'application Open Food Facts"
           }
         },
         "ar": {
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/ar",
-          "title": "اجعل شفافية الغذاء تصل إلى لغتك",
-          "message": "ترجم التطبيق والموقع الإلكتروني والمزيد لمساعدة الآخرين على اتخاذ خيارات غذائية مستنيرة",
-          "button_label": "انضم إلى فريق المترجمين",
+          "title": "تحديث جديد متاح!",
+          "message": "يتوفر إصدار جديد من التطبيق على Google Play و F-Droid.",
+          "button_label": "تحديث",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
           "image": {
-            "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_ar.svg",
+            "width": 0.2,
+            "alt": "تحديث تطبيق Open Food Facts"
+          }
+        },
+        "bg": {
+          "title": "Налична е нова актуализация!",
+          "message": "Нова версия на приложението е налична в Google Play и F-Droid.",
+          "button_label": "Актуализиране",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_bg.svg",
+            "width": 0.2,
+            "alt": "Актуализирайте приложението Open Food Facts"
           }
         },
         "bn": {
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/bn",
-          "title": "আপনার ভাষায় খাদ্য স্বচ্ছতা আনুন",
-          "message": "অন্যদের তথ্যবহুল খাদ্য পছন্দ করতে সাহায্য করার জন্য অ্যাপ, ওয়েবসাইট এবং আরও অনেক কিছু অনুবাদ করুন",
-          "button_label": "অনুবাদক দলে যোগ দিন",
+          "title": "একটি নতুন আপডেট উপলব্ধ!",
+          "message": "অ্যাপ্লিকেশনের একটি নতুন সংস্করণ Google Play এবং F-Droid-এ উপলব্ধ।",
+          "button_label": "আপডেট",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
           "image": {
-            "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_bn.svg",
+            "width": 0.2,
+            "alt": "Open Food Facts অ্যাপ আপডেট করুন"
+          }
+        },
+        "ca": {
+          "title": "Hi ha una nova actualització disponible!",
+          "message": "Hi ha una nova versió de l'aplicació disponible a Google Play i F-Droid.",
+          "button_label": "Actualitzar",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_ca.svg",
+            "width": 0.2,
+            "alt": "Actualitza l'aplicació Open Food Facts"
+          }
+        },
+        "cs": {
+          "title": "Je k dispozici nová aktualizace!",
+          "message": "Nová verze aplikace je k dispozici na Google Play a F-Droid.",
+          "button_label": "Aktualizovat",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_cs.svg",
+            "width": 0.2,
+            "alt": "Aktualizujte aplikaci Open Food Facts"
+          }
+        },
+        "da": {
+          "title": "En ny opdatering er tilgængelig!",
+          "message": "En ny version af applikationen er tilgængelig på Google Play og F-Droid.",
+          "button_label": "Opdater",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_da.svg",
+            "width": 0.2,
+            "alt": "Opdater Open Food Facts-appen"
           }
         },
         "de": {
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/de",
-          "title": "Bringen Sie Lebensmitteltransparenz in Ihre Sprache",
-          "message": "Übersetzen Sie die App, die Website und mehr, um anderen zu helfen, informierte Entscheidungen über Lebensmittel zu treffen",
-          "button_label": "Dem Übersetzerteam beitreten",
+          "title": "Ein neues Update ist verfügbar!",
+          "message": "Eine neue Version der Anwendung ist auf Google Play und F-Droid verfügbar.",
+          "button_label": "Aktualisieren",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
           "image": {
-            "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_de.svg",
+            "width": 0.2,
+            "alt": "Aktualisieren Sie die Open Food Facts App"
+          }
+        },
+        "ee": {
+          "title": "Uus värskendus on saadaval!",
+          "message": "Rakenduse uus versioon on saadaval Google Plays ja F-Droidis.",
+          "button_label": "Värskenda",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_ee.svg",
+            "width": 0.2,
+            "alt": "Värskendage Open Food Facts rakendust"
           }
         },
         "el": {
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/el",
-          "title": "Φέρτε τη διαφάνεια τροφίμων στη γλώσσα σας",
-          "message": "Μεταφράστε την εφαρμογή, τον ιστότοπο και άλλα για να βοηθήσετε άλλους να κάνουν ενημερωμένες επιλογές τροφίμων",
-          "button_label": "Γίνετε μέλος της ομάδας μεταφραστών",
+          "title": "Μια νέα ενημέρωση είναι διαθέσιμη!",
+          "message": "Μια νέα έκδοση της εφαρμογής είναι διαθέσιμη στο Google Play και στο F-Droid.",
+          "button_label": "Ενημέρωση",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
           "image": {
-            "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_el.svg",
+            "width": 0.2,
+            "alt": "Ενημερώστε την εφαρμογή Open Food Facts"
           }
         },
         "es": {
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/es",
-          "title": "Haz que la transparencia alimentaria llegue a tu idioma",
-          "message": "Traduce la aplicación, el sitio web y más para ayudar a otros a tomar decisiones alimentarias informadas",
-          "button_label": "Únete al equipo de traductores",
+          "title": "¡Una nueva actualización está disponible!",
+          "message": "Una nueva versión de la aplicación está disponible en Google Play y F-Droid.",
+          "button_label": "Actualizar",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
           "image": {
-            "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
-          }
-        },
-        "fr": {
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/fr",
-          "title": "Rendez la transparence alimentaire accessible dans votre langue",
-          "message": "Traduisez l'application, le site web et plus encore pour aider les autres à faire des choix alimentaires éclairés",
-          "button_label": "Rejoindre l'équipe de traducteurs",
-          "image": {
-            "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
-          }
-        },
-        "hi": {
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/hi",
-          "title": "अपनी भाषा में खाद्य पारदर्शिता लाएँ",
-          "message": "दूसरों को सूचित खाद्य विकल्प बनाने में मदद करने के लिए ऐप, वेबसाइट और बहुत कुछ का अनुवाद करें",
-          "button_label": "अनुवादक टीम में शामिल हों",
-          "image": {
-            "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
-          }
-        },
-        "pt": {
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/pt",
-          "title": "Traga transparência alimentar para o seu idioma",
-          "message": "Traduza o aplicativo, o site e muito mais para ajudar outras pessoas a fazer escolhas alimentares informadas",
-          "button_label": "Junte-se à equipe de tradutores",
-          "image": {
-            "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
-          }
-        },
-        "it": {
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/it",
-          "title": "Porta la trasparenza alimentare nella tua lingua",
-          "message": "Traduci l'app, il sito web e altro ancora per aiutare gli altri a fare scelte alimentari informate",
-          "button_label": "Unisciti al team di traduttori",
-          "image": {
-            "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
-          }
-        },
-        "ja": {
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/ja",
-          "title": "食品の透明性をあなたの言語で",
-          "message": "アプリ、ウェブサイトなどを翻訳して、他の人が情報に基づいた食品の選択をするのを手伝ってください",
-          "button_label": "翻訳チームに参加する",
-          "image": {
-            "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
-          }
-        },
-        "ko": {
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/ko",
-          "title": "식품 투명성을 귀하의 언어로 가져오세요",
-          "message": "앱, 웹사이트 등을 번역하여 다른 사람들이 정보에 입각한 식품 선택을 할 수 있도록 돕습니다.",
-          "button_label": "번역 팀에 합류하기",
-          "image": {
-            "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
-          }
-        },
-        "nl": {
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/nl",
-          "title": "Breng voedseltransparantie naar uw taal",
-          "message": "Vertaal de app, website en meer om anderen te helpen weloverwogen voedselkeuzes te maken",
-          "button_label": "Word lid van het vertalersteam",
-          "image": {
-            "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
-          }
-        },
-        "pl": {
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/pl",
-          "title": "Przynieś przejrzystość żywności do swojego języka",
-          "message": "Przetłumacz aplikację, stronę internetową i wiele więcej, aby pomóc innym w podejmowaniu świadomych wyborów żywieniowych",
-          "button_label": "Dołącz do zespołu tłumaczy",
-          "image": {
-            "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
-          }
-        },
-        "ru": {
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/ru",
-          "title": "Обеспечьте прозрачность пищевых продуктов на вашем языке",
-          "message": "Переведите приложение, веб-сайт и многое другое, чтобы помочь другим сделать осознанный выбор продуктов питания",
-          "button_label": "Присоединиться к команде переводчиков",
-          "image": {
-            "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
-          }
-        },
-        "sv": {
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/sv",
-          "title": "Ge din språklig insyn i livsmedel",
-          "message": "Översätt appen, webbplatsen och mer för att hjälpa andra att göra välgrundade val av livsmedel",
-          "button_label": "Gå med i översättarteamet",
-          "image": {
-            "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
-          }
-        },
-        "tr": {
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/tr",
-          "title": "Gıda şeffaflığını dilinize getirin",
-          "message": "Uygulamayı, web sitesini ve daha fazlasını çevirerek başkalarının bilinçli gıda seçimleri yapmasına yardımcı olun",
-          "button_label": "Çevirmenler ekibine katılın",
-          "image": {
-            "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
-          }
-        },
-        "uk": {
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/uk",
-          "title": "Зробіть прозорість харчових продуктів доступною вашою мовою",
-          "message": "Перекладіть додаток, веб-сайт та багато іншого, щоб допомогти іншим зробити усвідомлений вибір продуктів харчування",
-          "button_label": "Приєднатися до команди перекладачів",
-          "image": {
-            "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
-          }
-        },
-        "vi": {
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/vi",
-          "title": "Mang tính minh bạch về thực phẩm đến ngôn ngữ của bạn",
-          "message": "Dịch ứng dụng, trang web và hơn thế nữa để giúp người khác đưa ra lựa chọn thực phẩm sáng suốt",
-          "button_label": "Tham gia đội ngũ dịch thuật",
-          "image": {
-            "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
-          }
-        },
-        "zh": {
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/zh",
-          "title": "将食品透明度带到您的语言",
-          "message": "翻译应用程序、网站等，帮助他人做出明智的食品选择",
-          "button_label": "加入翻译团队",
-          "image": {
-            "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
-          }
-        },
-        "id": {
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/id",
-          "title": "Hadirkan transparansi makanan dalam bahasa Anda",
-          "message": "Terjemahkan aplikasi, situs web, dan lainnya untuk membantu orang lain membuat pilihan makanan yang tepat",
-          "button_label": "Bergabunglah dengan tim penerjemah",
-          "image": {
-            "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
-          }
-        },
-        "ms": {
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/ms",
-          "title": "Bawa ketelusan makanan ke bahasa anda",
-          "message": "Terjemahkan aplikasi, laman web dan banyak lagi untuk membantu orang lain membuat pilihan makanan yang bijak",
-          "button_label": "Sertai pasukan penterjemah",
-          "image": {
-            "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
-          }
-        },
-        "th": {
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/th",
-          "title": "นำความโปร่งใสด้านอาหารมาสู่ภาษาของคุณ",
-          "message": "แปลแอป เว็บไซต์ และอื่นๆ เพื่อช่วยให้ผู้อื่นตัดสินใจเลือกอาหารได้อย่างชาญฉลาด",
-          "button_label": "เข้าร่วมทีมนักแปล",
-          "image": {
-            "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_es.svg",
+            "width": 0.2,
+            "alt": "Actualizar la aplicación Open Food Facts"
           }
         },
         "fa": {
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/fa",
-          "title": "شفافیت غذایی را به زبان خود بیاورید",
-          "message": "برنامه، وب‌سایت و موارد دیگر را ترجمه کنید تا به دیگران در انتخاب آگاهانه مواد غذایی کمک کنید",
-          "button_label": "به تیم مترجمین بپیوندید",
+          "title": "به‌روزرسانی جدیدی در دسترس است!",
+          "message": "نسخه جدیدی از برنامه در Google Play و F-Droid موجود است.",
+          "button_label": "به‌روزرسانی",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
           "image": {
-            "url": "https://world.openfoodfacts.org/images/misc/tagline-images/worldwide.png"
-          }
-        }
-      }
-    },
-    "product_prices": {
-      "start_date": "2024-06-20 00:00:00",
-      "end_date": "2024-07-20 23:59:59",
-      "url": "https://prices.openfoodfacts.org/",
-      "translations": {
-        "default": {
-          "title": "Prices arrive on Open Food Facts",
-          "message": "Contribute prices and view their evolution across space and time, right from the product page.",
-          "button_label": "Learn about Open Prices",
-          "image": {
-            "url": "https://prices.openfoodfacts.org/app/android-chrome-512x512.png",
-            "width": 0.2
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_fa.svg",
+            "width": 0.2,
+            "alt": "برنامه Open Food Facts را به‌روزرسانی کنید"
           }
         },
-        "en_us": {
-          "title": "Track Prices Over Time"
+        "fi": {
+          "title": "Uusi päivitys on saatavilla!",
+          "message": "Sovelluksen uusi versio on saatavilla Google Playssa ja F-Droidissa.",
+          "button_label": "Päivitä",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_fi.svg",
+            "width": 0.2,
+            "alt": "Päivitä Open Food Facts -sovellus"
+          }
         },
-        "fr": {
-          "title": "Suivez l'évolution des prix",
-          "message": "Collectez les prix des produits et visualisez leur évolution dans l'espace et le temps.",
-          "button_label": "Collecter des prix"
+        "he": {
+          "title": "עדכון חדש זמין!",
+          "message": "גרסה חדשה של האפליקציה זמינה ב-Google Play וב-F-Droid.",
+          "button_label": "עדכון",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_he.svg",
+            "width": 0.2,
+            "alt": "עדכן את אפליקציית Open Food Facts"
+          }
         },
-        "de": {
-          "title": "Verfolgen Sie die Preisentwicklung",
-          "message": "Tragen Sie Preise bei und sehen Sie deren Entwicklung über Raum und Zeit.",
-          "button_label": "Preise erkunden"
+        "hi": {
+          "title": "एक नया अपडेट उपलब्ध है!",
+          "message": "एप्लिकेशन का एक नया संस्करण Google Play और F-Droid पर उपलब्ध है।",
+          "button_label": "अपडेट करें",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_hi.svg",
+            "width": 0.2,
+            "alt": "Open Food Facts ऐप को अपडेट करें"
+          }
+        },
+        "ht": {
+          "title": "Yon nouvo mizajou disponib!",
+          "message": "Yon nouvo vèsyon aplikasyon an disponib sou Google Play ak F-Droid.",
+          "button_label": "Mizajou",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_ht.svg",
+            "width": 0.2,
+            "alt": "Mizajou aplikasyon Open Food Facts la"
+          }
+        },
+        "hu": {
+          "title": "Új frissítés érhető el!",
+          "message": "Az alkalmazás új verziója elérhető a Google Playen és az F-Droidon.",
+          "button_label": "Frissítés",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_hu.svg",
+            "width": 0.2,
+            "alt": "Frissítse az Open Food Facts alkalmazást"
+          }
+        },
+        "id": {
+          "title": "Pembaruan baru tersedia!",
+          "message": "Versi baru aplikasi tersedia di Google Play dan F-Droid.",
+          "button_label": "Perbarui",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_id.svg",
+            "width": 0.2,
+            "alt": "Perbarui aplikasi Open Food Facts"
+          }
+        },
+        "it": {
+          "title": "È disponibile un nuovo aggiornamento!",
+          "message": "È disponibile una nuova versione dell'applicazione su Google Play e F-Droid.",
+          "button_label": "Aggiorna",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_it.svg",
+            "width": 0.2,
+            "alt": "Aggiorna l'app Open Food Facts"
+          }
+        },
+        "ja": {
+          "title": "新しいアップデートが利用可能です！",
+          "message": "アプリケーションの新しいバージョンがGoogle PlayとF-Droidで利用可能です。",
+          "button_label": "更新",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_ja.svg",
+            "width": 0.2,
+            "alt": "Open Food Factsアプリを更新する"
+          }
+        },
+        "ko": {
+          "title": "새로운 업데이트가 있습니다!",
+          "message": "애플리케이션의 새로운 버전이 Google Play와 F-Droid에서 사용할 수 있습니다.",
+          "button_label": "업데이트",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_ko.svg",
+            "width": 0.2,
+            "alt": "Open Food Facts 앱을 업데이트하세요"
+          }
+        },
+        "lu": {
+          "title": "Een nieuwe update is beschikbaar!",
+          "message": "Een nieuwe versie van de applicatie is beschikbaar op Google Play en F-Droid.",
+          "button_label": "Bijwerken",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_lu.svg",
+            "width": 0.2,
+            "alt": "Update de Open Food Facts app"
+          }
+        },
+        "lt": {
+          "title": "Yra naujas atnaujinimas!",
+          "message": "Nauja programos versija pasiekiama „Google Play“ ir „F-Droid“.",
+          "button_label": "Atnaujinti",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_lt.svg",
+            "width": 0.2,
+            "alt": "Atnaujinkite „Open Food Facts“ programą"
+          }
+        },
+        "ms": {
+          "title": "Kemas kini baharu tersedia!",
+          "message": "Versi baharu aplikasi tersedia di Google Play dan F-Droid.",
+          "button_label": "Kemas kini",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_ms.svg",
+            "width": 0.2,
+            "alt": "Kemas kini aplikasi Open Food Facts"
+          }
+        },
+        "nb": {
+          "title": "En ny oppdatering er tilgjengelig!",
+          "message": "En ny versjon av applikasjonen er tilgjengelig på Google Play og F-Droid.",
+          "button_label": "Oppdater",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_nb.svg",
+            "width": 0.2,
+            "alt": "Oppdater Open Food Facts-appen"
+          }
+        },
+        "nl": {
+          "title": "Een nieuwe update is beschikbaar!",
+          "message": "Een nieuwe versie van de applicatie is beschikbaar op Google Play en F-Droid.",
+          "button_label": "Bijwerken",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_nl.svg",
+            "width": 0.2,
+            "alt": "Update de Open Food Facts app"
+          }
+        },
+        "pt": {
+          "title": "Uma nova atualização está disponível!",
+          "message": "Uma nova versão do aplicativo está disponível no Google Play e F-Droid.",
+          "button_label": "Atualizar",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_pt.svg",
+            "width": 0.2,
+            "alt": "Atualize o aplicativo Open Food Facts"
+          }
+        },
+        "pl": {
+          "title": "Dostępna jest nowa aktualizacja!",
+          "message": "Nowa wersja aplikacji jest dostępna w Google Play i F-Droid.",
+          "button_label": "Aktualizuj",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_pl.svg",
+            "width": 0.2,
+            "alt": "Zaktualizuj aplikację Open Food Facts"
+          }
+        },
+        "ro": {
+          "title": "O nouă actualizare este disponibilă!",
+          "message": "O nouă versiune a aplicației este disponibilă pe Google Play și F-Droid.",
+          "button_label": "Actualizați",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_ro.svg",
+            "width": 0.2,
+            "alt": "Actualizați aplicația Open Food Facts"
+          }
+        },
+        "ru": {
+          "title": "Доступно новое обновление!",
+          "message": "Новая версия приложения доступна в Google Play и F-Droid.",
+          "button_label": "Обновить",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_ru.svg",
+            "width": 0.2,
+            "alt": "Обновите приложение Open Food Facts"
+          }
+        },
+        "sk": {
+          "title": "K dispozícii je nová aktualizácia!",
+          "message": "Nová verzia aplikácie je k dispozícii na Google Play a F-Droid.",
+          "button_label": "Aktualizovať",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_sk.svg",
+            "width": 0.2,
+            "alt": "Aktualizujte aplikáciu Open Food Facts"
+          }
+        },
+        "sl": {
+          "title": "Na voljo je nova posodobitev!",
+          "message": "Nova različica aplikacije je na voljo v Google Play in F-Droid.",
+          "button_label": "Posodobi",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_sl.svg",
+            "width": 0.2,
+            "alt": "Posodobite aplikacijo Open Food Facts"
+          }
+        },
+        "sv": {
+          "title": "En ny uppdatering är tillgänglig!",
+          "message": "En ny version av applikationen är tillgänglig på Google Play och F-Droid.",
+          "button_label": "Uppdatera",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_sv.svg",
+            "width": 0.2,
+            "alt": "Uppdatera Open Food Facts-appen"
+          }
+        },
+        "th": {
+          "title": "มีการอัปเดตใหม่!",
+          "message": "มีเวอร์ชันใหม่ของแอปพลิเคชันใน Google Play และ F-Droid",
+          "button_label": "อัปเดต",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_th.svg",
+            "width": 0.2,
+            "alt": "อัปเดตแอป Open Food Facts"
+          }
+        },
+        "tr": {
+          "title": "Yeni bir güncelleme mevcut!",
+          "message": "Uygulamanın yeni bir sürümü Google Play ve F-Droid'de mevcut.",
+          "button_label": "Güncelle",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_tr.svg",
+            "width": 0.2,
+            "alt": "Open Food Facts uygulamasını güncelle"
+          }
+        },
+        "vi": {
+          "title": "Có bản cập nhật mới!",
+          "message": "Một phiên bản mới của ứng dụng có sẵn trên Google Play và F-Droid.",
+          "button_label": "Cập nhật",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_vi.svg",
+            "width": 0.2,
+            "alt": "Cập nhật ứng dụng Open Food Facts"
+          }
+        },
+        "zh": {
+          "title": "有新更新可用！",
+          "message": "Google Play 和 F-Droid 上有新版本的应用程序。",
+          "button_label": "更新",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_zh.svg",
+            "width": 0.2,
+            "alt": "更新 Open Food Facts 应用程序"
+          }
         }
       }
     }
@@ -334,12 +430,8 @@
     "default": {
       "news": [
         {
-          "id": "nutriscore_v2"
+          "id": "app_update"
         }
-      ]
-    },
-    "_FR": {
-      "news": [
       ]
     }
   }

@@ -4,7 +4,6 @@ requires 'Array::Diff';
 requires 'CGI', '>= 4.53, < 5.0'; # libcgi-pm-perl
 requires 'Tie::IxHash'; # libtie-ixhash-perl
 requires 'LWP::Authen::Digest'; # libwww-perl
-requires 'LWP::Simple'; # libwww-perl
 requires 'LWP::UserAgent'; # libwww-perl
 requires 'Image::Magick'; # libimage-magick-perl
 requires 'XML::Encoding'; # libxml-encoding-perl
@@ -16,7 +15,7 @@ requires 'JSON::PP'; # libjson-pp-perl
 requires 'Cpanel::JSON::XS'; # libcpanel-json-xs-perl - fast parsing
 requires 'JSON::MaybeXS'; # libjson-maybexs-perl
 requires 'Clone'; # libclone-perl
-requires 'Crypt::PasswdMD5'; # libcrypt-passwdmd5-perl
+requires 'Crypt::PasswdMD5'; #11866: Delete after Keycloak Migration
 requires 'Encode::Detect'; # libencode-detect-perl
 requires 'Barcode::ZBar'; # libbarcode-zbar-perl
 requires 'XML::FeedPP'; # libxml-feedpp-perl
@@ -38,7 +37,7 @@ requires 'GeoIP2', '>= 2.006002, < 3.0'; # libgeoip2-perl, deps: libdata-validat
 requires 'Email::Valid', '>= 1.202, < 2.0'; # libemail-valid-perl
 requires 'Path::Tiny', '>= 0.118'; # libpath-tiny-perl
 requires 'XML::RPC', '== 2'; # libxml-rpc-fast-perl
-
+requires 'AnyEvent::RipeRedis'; # libanyevent-redis-perl
 
 # Probably not available as Debian/Ubuntu packages
 requires 'MongoDB', '>= 2.2.2, < 2.3'; # libmongodb-perl has 1.8.1/2.0.3 vs 2.2.2. deps: libauthen-sasl-saslprep-perl, libbson-perl, libauthen-scram-perl, libclass-xsaccessor-perl, libdigest-hmac-perl, libsafe-isa-perl, libconfig-autoconf-perl, libpath-tiny-perl
@@ -50,7 +49,7 @@ requires 'Image::OCR::Tesseract'; # deps: libfile-find-rule-perl
 requires 'DateTime', '>= 1.54, < 2.0'; # libdatetime-perl has 1.46. deps: libclass-singleton-perl
 requires 'DateTime::Locale', '>= 1.32, < 2.0'; # libdatetime-locale-perl has 1.17. deps: libfile-sharedir-install-perl
 requires 'DateTime::Format::ISO8601'; # libdatetime-format-iso8601-perl
-requires 'Crypt::ScryptKDF';
+requires 'Crypt::ScryptKDF'; #11866: Delete after Keycloak Migration
 requires 'Locale::Maketext::Lexicon::Getcontext', '>= 0.05'; # deps: liblocale-maketext-lexicon-perl
 requires 'CLDR::Number::Format::Decimal';
 requires 'CLDR::Number::Format::Percent';
@@ -68,7 +67,6 @@ requires 'JSON::Create';
 requires 'JSON::Parse';
 requires 'Data::DeepAccess';
 requires 'XML::XML2JSON';
-requires 'Redis';
 requires 'Digest::SHA1';
 requires 'Data::Difference';
 requires 'Data::Compare';
@@ -86,6 +84,8 @@ requires 'Log::Any::Adapter::Log4perl', '>= 0.09'; # liblog-any-adapter-log4perl
 # Retry
 requires 'Action::CircuitBreaker';
 requires 'Action::Retry'; # deps: libmath-fibonacci-perl
+requires 'LWP::UserAgent::Plugin';
+requires 'LWP::UserAgent::Plugin::Retry';
 
 # AnyEvent
 requires 'AnyEvent';
@@ -97,18 +97,33 @@ requires 'Apache2::Connection::XForwardedFor';
 
 # GS1 Sunrise 2027
 requires 'GS1::SyntaxEngine::FFI';
-requires 'Imager::zxing';
+requires 'Imager', '>= 1.025, < 1.026';
+requires 'Imager::zxing', '>= 1.001, < 1.002';
 requires 'Imager::File::AVIF';
 requires 'Imager::File::HEIF';
 requires 'Imager::File::JPEG';
 requires 'Imager::File::PNG';
 requires 'Imager::File::WEBP';
 
+# OIDC / OAuth
+# Note: (2025/06/18) in production (not Docker), we had to first install Crypt::OpenSSL::RSA
+# (required by OIDC::Lite)
+# with the Debian package as it had errors with building with cpan
+# then "cpanm --cpanfile cpanfile --installdeps ." worked
+requires 'OIDC::Lite';
+requires 'Crypt::JWT';
+
 # To dynamically load Config_*.pm modules
 requires 'Module::Load';
 
 # To measure the time taken by requests
 requires 'Time::Monotonic';
+
+# To measure similarity between words and find possible typo
+requires 'Text::Levenshtein';
+
+# To handle IP and IP blocks white lists
+requires 'Net::CIDR'; # libnet-cidr-perl
 
 on 'test' => sub {
   requires 'Test2::V0';
@@ -141,7 +156,8 @@ on 'develop' => sub {
   requires 'Devel::Cover';
   requires 'Devel::Cover::Report::Codecov';
   requires 'Devel::Cover::Report::Codecovbash';
-  requires 'Test2::Harness';
+  requires 'Test2::Harness', '<2'; # Seems to be a problem with newer versions in Docker. See #11858
+  requires 'Test2::Harness::Renderer::JUnit', '<2'; # As above
 };
 
 feature "off_server_dev_tools", "Optional development tools" => sub {

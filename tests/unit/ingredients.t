@@ -508,7 +508,7 @@ Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of A
 			Beurre (contient Lait) 2.7%, Moutarde à l'ancienne (contient Moutarde, Sulfites) 2.7%, Crème (contient Lait) 2.7%, Moutarde de Dijon (contient Moutarde, Sulfites) 2.7%,
 			Miel de fleurs 2.7%, Epices (contient Sésame) 0.55%, bouillon (contient Gluten, Lait, Céleri) 0.55%, Sel fin 0.14%",
 			origin_fr =>
-				"Pomme de Terre de France, Porc de France, Lait demi-écrémé de France, Crème liquide de France, Eau de France, Beurre de France, 
+				"Pomme de Terre de France, Porc de France, Lait demi-écrémé de France, Crème liquide de France, Eau de France, Beurre de France,
 				Moutarde à l'ancienne de France, Crème de France, Moutarde de Dijon de France, Miel de fleurs de France, Epices : Inde, Bouillon de France, Sel fin de France",
 		}
 	],
@@ -550,8 +550,8 @@ Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of A
 		"ja-origins",
 		{
 			lc => "ja",
-			ingredients_text => "塩(国産), 
-クレームフレーシュ(国内製造), 
+			ingredients_text => "塩(国産),
+クレームフレーシュ(国内製造),
 肉(オーストラリア),
 オリーブ油(ブラジル産、エチオピア産),
 白ワインビネガー(オーストラリア又はフィンランド又はその他),
@@ -857,6 +857,71 @@ puffed orange and caramelized unknown_fruit4.",
 		{
 			lc => "en",
 			ingredients_text => "some unknown ingredient and salt",
+		}
+	],
+
+	# Do not consider A at the end of the string to be a stopword
+	# https://github.com/openfoodfacts/openfoodfacts-server/pull/11095
+	[
+		"en-ingredient-ending-with-a",
+		{
+			lc => "en",
+			ingredients_text => "E124, Ponceau 4R, Cochineal Red A, Cochineal Red, a pear",
+		}
+	],
+
+	# Vegetable oils with one unrecognized oil
+	[
+		"en-vegetable-oils-with-one-unrecognized-oil",
+		{
+			lc => "en",
+			ingredients_text => "vegetable oils (sunflower, soy, something strange)",
+		}
+	],
+
+	# émulsifiant : lécithines (tournesol)
+	[
+		"fr-emulsifiant-lecithines-tournesol",
+		{
+			lc => "fr",
+			ingredients_text => "émulsifiant : lécithines (tournesol)",
+		}
+	],
+
+	# émulsifiant e471
+	[
+		"fr-emulsifiant-e471-emulsifiant-lecithine-de-soja",
+		{
+			lc => "fr",
+			ingredients_text => "émulsifiant e471, émulsifiant lécithine de soja",
+		}
+	],
+
+	# SV koncentrat från (morot, svarta vinbär)
+	[
+		"sv-koncentrat-fran-morot-svarta-vinbar",
+		{
+			lc => "sv",
+			ingredients_text => "koncentrat från (morot, svarta vinbär)",
+		}
+	],
+
+	# SV vegetabilisk olja (solros, raps i varierande proportion)
+	# https://github.com/openfoodfacts/openfoodfacts-server/issues/11991
+	[
+		"sv-vegetabilisk-olja-solros-raps-i-varierande-proportion",
+		{
+			lc => "sv",
+			ingredients_text => "vegetabilisk olja (solros, raps i varierande proportion)",
+		},
+	],
+
+	# FR - demi-secs processing + "garden peas medium" (official name in French for some peas)
+	[
+		"fr-haricots-blancs-demi-secs-garden-peas-medium",
+		{
+			lc => "fr",
+			ingredients_text => "haricots blancs demi-secs, garden peas medium, carottes parisiennes",
 		}
 	],
 );

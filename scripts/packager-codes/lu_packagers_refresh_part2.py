@@ -1,7 +1,7 @@
 '''
 This file is part of Product Opener.
 Product Opener
-Copyright (C) 2011-2023 Association Open Food Facts
+Copyright (C) 2011-2024 Association Open Food Facts
 Contact: contact@openfoodfacts.org
 Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 Product Opener is free software: you can redistribute it and/or modify
@@ -36,8 +36,9 @@ def extract_address_components(address_to_convert):
     address_split = address_to_convert.split(',')
 
     address_split = [x.strip() for x in address_split]
-    street, postalcode, city = ", ".join(address_split[:-2]), address_split[-2], address_split[-1]
-    
+    street, postalcode, city = ", ".join(
+        address_split[:-2]), address_split[-2], address_split[-1]
+
     return street, postalcode, city
 
 
@@ -70,7 +71,6 @@ def cached_get(url: str, cache) -> list:
             print("cached_get,   restart ", i)
         else:
             restart = False
-
 
     # Store the JSON response in the cache
     cache[url] = json.dumps(data)
@@ -117,13 +117,13 @@ def convert_address_to_lat_lng(address_to_convert: str) -> list:
     iter_failures = 0
     while failed:
         with dbm.open('cache', 'c') as cache:
-                data = cached_get(url, cache)
-                if data != []:
-                    lat, lng = [data[0]['lat'], data[0]['lon']]
-                    failed = False
-                else:
-                    iter_failures += 1
-                    url = no_results_update_query(url, iter_failures)
+            data = cached_get(url, cache)
+            if data != []:
+                lat, lng = [data[0]['lat'], data[0]['lon']]
+                failed = False
+            else:
+                iter_failures += 1
+                url = no_results_update_query(url, iter_failures)
 
     return [lat, lng]
 
@@ -133,7 +133,8 @@ if __name__ == "__main__":
     country_name = 'Luxembourg'
     source_file = f'{country_code}-merge-UTF-8_no_coord.csv'
     target_file = f'{country_code}-merge-UTF-8.csv'
-    index_last_line_processed = f'{country_code.lower()}_packagers_refresh_part2_index_tmp.txt'
+    index_last_line_processed = f'{
+        country_code.lower()}_packagers_refresh_part2_index_tmp.txt'
 
     # use user agent for requests
     headers = {'User-Agent': 'packager-openfoodfacts'}
@@ -163,7 +164,7 @@ if __name__ == "__main__":
                     row += ['lat', 'lng']
                 else:
                     row += convert_address_to_lat_lng(row[2])
-                    
+
                 writer.writerow(row)
 
                 with open(index_last_line_processed, 'w') as f:

@@ -226,6 +226,7 @@ de: Brennwert aus Fetten
 fi: Energia rasvasta
 fr: Énergie provenant des graisses
 hu: Energia zsírból
+it: Energia dai grassi
 ja: 脂質からのエネルギー
 nl: Energie van vetten
 pt: Energia proveniente de gorduras/lípidos, Energia das gorduras, Energia proveniente de lípidos
@@ -254,7 +255,7 @@ br: Druzoni
 ca: greix
 cs: Tuky, tuk
 cy: Braster
-da: Fedt, Fedtstof, fed
+da: Fedt, Fedtstof, fed, lipider
 de: Fett
 el: Λιπαρά, λίπος, λιπαρός
 eo: graso
@@ -336,8 +337,8 @@ ar: دهن مشبع
 bg: Наситени мастни киселини
 ca: àcid gras saturat
 cs: Nasycené mastné kyseliny
-da: Mættede fedtsyrer
-de: gesättigte Fettsäuren, Mættet fedt
+da: Mættet fedt, Mættede fedtsyrer
+de: gesättigte Fettsäuren
 dv: ފެޓް
 el: Κορεσμένα λιπαρά
 eo: Saturita graso
@@ -749,7 +750,7 @@ fi: Psikoosi
 fr: Psicose
 fy: Psikoaze
 gl: Psicosa
-it: Allulosio
+it: Allulosio, D-allulosio, psicosio, D-psicosio
 ja: プシコース
 ko: 프시코스
 pt: Psicose
@@ -1055,6 +1056,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Melissic_acid
 zz: unsaturated-fat
 xx: Unsaturated fat
 en: Unsaturated fat
+it: grassi insaturi, grassi non saturi
 nl: Onverzadigde vetzuren, Onverzadigd vet, onverzadigde vetten
 unit:en: g
 
@@ -1161,24 +1163,30 @@ wikidata:en: Q3604509
 
 zz: omega-3-fat
 xx: Omega 3 fat, Omega 3 fatty acids
-en: Omega 3 fat, Omega 3 fatty acids
+en: Omega 3 fat, Omega 3 fatty acids, Omega 3 Fats
 bg: Омега 3 мастни киселини
 cs: Omega 3 mastné kyseliny
-de: Omega-3-Fettsäuren
-el: Ωμέγα-3 λιπαρά
+da: Omega 3
+de: Omega-3-Fettsäuren, Omega-3-Fette
+el: Ωμέγα-3 λιπαρά, Ωμέγα 3
 es: Ácidos grasos Omega 3
+et: Omega-3-rasvad
 fi: Omega-3-rasvahapot
 fr: Acides gras Oméga 3, Oméga 3
 he: אומגה 3
+hr: Omega-3 masne kiseline
 hu: Omega-3 zsírsavak
 it: Acidi grassi Omega 3
-nl: Omega 3-vetzuren
+lv: Omega-3 taukskābes
+nl: Omega 3-vetzuren, omega 3-vetten
 nl_be: Omega 3-vetzuren
 pl: Kwasy tłuszczowe omega 3
-pt: Ácidos graxos Ômega 3, Ácidos gordos Ómega 3
+pt: Ácidos graxos Ômega 3, Ácidos gordos Ómega 3, ómega 3
 pt_pt: Ácidos gordos Ómega 3
 ro: Acizi grași omega-3
 ru: Омега-3 жирные кислоты
+sl: Omega-3 maščobne kisline
+sv: omega-3-fetter
 zh: Omega 3 脂肪酸
 zh_CN: Omega 3 脂肪酸
 zh_HK: Omega 3 脂肪酸
@@ -1930,6 +1938,61 @@ unit:en: mg
 wikidata:en: Q43656
 wikipedia:en: https://en.wikipedia.org/wiki/Cholesterol
 
+zz: gamma-oryzanol
+xx: γ-oryzanol, oryzanol, gamma-oryzanol
+en: oryzanol, gamma-orizanol
+de: γ-Oryzanol, Oryzanol, Gamma-Oryzanol
+unit:en: mg
+wikidata:en: Q423972
+wikipedia:en: https://en.wikipedia.org/wiki/%CE%93-Oryzanol
+
+# total carbohydrates include fiber
+zz: carbohydrates-total
+xx: Total carbohydrates (includes fiber), total carbohydrates, total carbohydrate
+en: Total carbohydrates (includes fiber), total carbohydrates, total carbohydrate
+ar: الكربوهيدرات الكلية (تشمل الألياف)، الكربوهيدرات الكلية
+bg: Общи въглехидрати (включващи влакна), общи въглехидрати
+ca: Hidrats de carboni totals (inclou fibra), hidrats de carboni totals, glúcids totals, carbohidrats totals
+cs: Celkové sacharidy (včetně vlákniny), celkové sacharidy
+da: Totalt kulhydrat (inkluderer kostfiber), totalt kulhydrat
+de: Gesamtkohlenhydrate (enthält Ballaststoffe), Gesamtkohlenhydrate
+el: Συνολικοί υδατάνθρακες (περιλαμβάνουν ίνες), συνολικοί υδατάνθρακες
+es: Hidratos de carbono totales (incluye fibra), hidratos de carbono totales, glúcidos totales, carbohidratos totales
+et: Kogu süsivesikud (sisaldab kiudaineid), kogu süsivesikud
+fa: کربوهیدرات های کل (شامل فیبر), کربوهیدرات های کل
+fi: Kokonais-hiilihydraatit (sisältää kuitua), kokonais-hiilihydraatit, kokonais-hiilihydraatti
+fr: Glucides totaux (inclut les fibres), glucides totaux
+ga: Carbaihiodráit iomlán (cuimsíonn siúcra), carbaihiodráit iomlán
+he: פחמימות כוללות (כולל סיבים), פחמימות כוללות
+hr: Ukupni ugljikohidrati (uključuje vlakna), ukupni ugljikohidrati
+hu: Teljes szénhidrát (tartalmaz rostokat), teljes szénhidrát
+id: Total karbohidrat (termasuk serat), total karbohidrat
+it: Carboidrati totali (inclusi fibre), carboidrati totali
+ja: 総炭水化物（食物繊維を含む）、総炭水化物
+lt: Bendrieji angliavandeniai (įskaitant skaidulines medžiagas), bendrieji angliavandeniai
+lv: Kopējie ogļhidrāti (iekļauj šķiedru), kopējie ogļhidrāti
+mt: Karboidrati ġenerali (jinkludu l-fibra), karboidrati ġenerali
+nb: Totalt karbohydrat (inkluderer fiber), totalt karbohydrat
+nl: Totale koolhydraten (inclusief vezels), totale koolhydraten
+nl_be: Totale koolhydraten (inclusief vezels), totale koolhydraten
+pl: Całkowite węglowodany (zawiera błonnik), całkowite węglowodany
+pt: Carboidratos totais (inclui fibras), carboidratos totais, glicídios totais, glícidos totais, glucídios totais, glúcides totais, hidratos de carbono totais
+pt_br: Carboidratos totais (inclui fibras), carboidratos totais
+pt_pt: Hidratos de carbono totais (inclui fibras), hidratos de carbono totais, glícidos totais
+ro: Glucide totale (include fibre), glucide totale
+rs: Ukupni ugljeni hidrati (uključuje vlakna), ukupni ugljeni hidrati
+ru: Общие углеводы (включая клетчатку), общие углеводы
+sk: Celkové sacharidy (vrátane vlákniny), celkové sacharidy
+sl: Skupni ogljikovi hidrati (vključuje vlakna), skupni ogljikovi hidrati
+sv: Totalt kolhydrat (inkluderar fibrer), totalt kolhydrat
+tr: Toplam karbonhidratlar (lif içerir), toplam karbonhidratlar
+zh: 总碳水化合物（包括纤维），总碳水化合物
+zh_CN: 总碳水化合物（包括纤维），总碳水化合物
+zh_HK: 總碳水化合物（包括纖維），總碳水化合物
+zh_TW: 總碳水化合物（包括纖維），總碳水化合物
+unit:en: g
+
+# carbohydrates or net carbohydrates DO NOT include fiber
 zz: carbohydrates
 xx: Carbohydrates, carbohydrate
 en: Carbohydrates, carbohydrate
@@ -2109,6 +2172,7 @@ pl: Cukry dodane, Dodany cukier
 pt: Açúcares adicionados, Açúcar adicionado
 evaluation:en: bad
 unit:en: g
+unit_se:en: %
 
 zz: sucrose
 xx: Sucrose
@@ -2358,6 +2422,7 @@ xx: Oligosaccharide, oligosaccharides
 en: Oligosaccharide, oligosaccharides
 ca: Oligosacàrids
 es: Oligosacáridos
+it: Oligosaccaride, oligosaccaridi
 description:en: a saccharide polymer containing a small number (typically two to ten) of simple sugars (monosaccharides)
 unit:en: g
 wikidata:en: Q320607
@@ -2438,6 +2503,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Lactose
 zz: galactose
 en: galactose
 fr: galactose
+it: galattosio
 unit:en: g
 
 zz: maltose
@@ -2624,6 +2690,7 @@ xx: Polydextrose
 en: Polydextrose
 es: Polidextrosa
 gl: Polidextrosa
+it: polidestrosio
 ja: ポリデキストロース
 pt: Polidextrose
 description:en: Polydextrose is a synthetic polymer of glucose.[1] It is a food ingredient classified as soluble fiber by the US FDA as well as Health Canada, as of April 2013. It is frequently used to increase the dietary fiber content of food, to replace sugar
@@ -2676,8 +2743,8 @@ unit:en: g
 wikidata:en: Q421873
 
 zz: fiber
-xx: Fiber, Dietary fiber, Fiber, fibers, dietary fibers, fibers aoac, fibre, fibres, fibres aoac
-en: Fiber, Dietary fiber, Fiber, fibers, dietary fibers, fibers aoac, fibre, fibres, fibres aoac
+xx: Fiber, Dietary fiber, fibers, dietary fibers, fibre, fibres, dietary fibre, dietary fibres, fibers aoac, fibres aoac
+en: Fiber, Dietary fiber, fibers, dietary fibers, fibre, fibres, dietary fibre, dietary fibres, fibers aoac, fibres aoac
 bg: Влакнини
 cs: Vláknina
 da: Kostfibre
@@ -2795,7 +2862,7 @@ eu: proteina
 fa: ﭘﺮﻭﺗﺌ‍ین
 fi: Proteiinit, Proteiini
 fo: Protein
-fr: Protéines, Protéine, Protéine brute
+fr: Protéines, Protéine
 fy: proteïne
 ga: Próitéin
 gl: Proteína
@@ -3477,8 +3544,8 @@ wikidata:en: Q306135
 wikipedia:en: https://en.wikipedia.org/wiki/Beta-Carotene
 
 zz: vitamin-d
-xx: Vitamin D, D, D3, vitamin D3
-en: Vitamin D, D
+xx: Vitamin D (D3), Vitamin D, D, Vitamin D3, D3
+en: Vitamin D (D3), Vitamin D, D, Vitamin D3, D3
 af: Vitamien D
 ar: فيتامين دي
 az: D vitamini
@@ -3720,7 +3787,7 @@ sl: Vitamin C, Askorbinska kislina
 sq: Vitamina C
 sr: витамин Ц
 su: Vitamin C
-sv: Askorbinsyra
+sv: C-vitamin, Askorbinsyra
 sw: Vitamini C
 ta: உயிர்ச்சத்து சி
 te: విటమిన్ సి
@@ -3773,14 +3840,14 @@ dv_value:en: 1.2
 unit:en: mg
 
 zz: vitamin-b2
-xx: Vitamin B2 (Riboflavin), Vitamin B2, Riboflavin
+xx: Vitamin B2 (Riboflavin), Vitamin B2, Riboflavin, Riboflavin (B2)
 en: Vitamin B2 (Riboflavin), Vitamin B2, Riboflavin
 bg: Витамин B2 (Рибофлавин)
 de: Vitamin B2 (Riboflavin)
 el: Βιταμίνη B2 (Ριβοφλαβίνη)
 es: Vitamina B2 (Riboflavina)
 et: Vitamiin B2 (Riboflaviin)
-fi: B2-vitamiini (Riboflaviini), B2-vitamiini, Riboflaviini
+fi: B2-vitamiini (Riboflaviini), B2-vitamiini, Riboflaviini, Riboflaviini (B2)
 fr: Vitamine B2 (Riboflavine), Vitamine B2, Riboflavine
 ga: Vitimín B2 (Ribeaflaivin)
 he: ויטמין B2 (ריבופלבין)
@@ -3922,6 +3989,7 @@ pl: Witamina B9 (Kwas foliowy)
 pt: Vitamina B9 (Ácido Fólico), Folacina, Ácido pteroil-L-glutâmico
 ro: Vitamina B9 (Acid folic)
 sk: Vitamín B9 (Kyselina listová)
+sv: Vitamin B9 (Folsyra), Folsyra
 zh: 维生素B9(叶酸)
 dv_2016_value:en: 400
 dv_value:en: 400
@@ -3932,6 +4000,7 @@ xx: Folates (total folates), Folates, Total folates
 en: Folates (total folates), Folates, Total folates
 fi: Folaatit
 fr: Folates (folates totaux)
+it: folati, folati (totali)
 dv_2016_value:en: 400
 dv_value:en: 400
 unit:en: µg
@@ -3958,6 +4027,7 @@ pl: Witamina B12
 pt: Vitamina B12 (Cobalamina)
 ro: Vitamina B12
 sk: Vitamín B12
+sv: Vitamin B12
 zh: 维生素B12
 dv_2016_value:en: 2.4
 dv_value:en: 6
@@ -6184,6 +6254,13 @@ zh: 水果\，蔬菜\，豆类（根据成分清单分析估算）
 automatically_computed:en: yes
 unit:en: %
 
+zz: whole-grain
+xx: Whole grain
+en: Whole grain
+da: Fuldkorn
+sv: Fullkorn
+unit:en: %
+
 zz: collagen-meat-protein-ratio
 xx: Collagen/Meat protein ratio (maximum)
 en: Collagen/Meat protein ratio (maximum)
@@ -6205,6 +6282,7 @@ de: Kakao (Minimum)
 es: Cacao (mínimo)
 fi: Kaakao (minimi)
 fr: Cacao (minimum)
+it: cacao (minimo)
 nl: Cacao (minimum)
 pt: Cacau (mínimo)
 ro: Cacao (minim)
@@ -6216,6 +6294,7 @@ en: Chlorophyl
 bg: Хлорофил
 de: Chlorophyll
 fi: Lehtivihreä, Klorofylli
+it: clorofilla
 nl: Chlorofyl
 nl_be: Chlorofyl
 ro: Clorofilă
@@ -6599,6 +6678,20 @@ unit:en: g
 wikidata:en: Q243309
 wikipedia:en: https://en.wikipedia.org/wiki/Carnitine
 
+zz: melatonin
+xx: Melatonin
+unit:en: µg
+wikidata:en: Q180912
+wikipedia:en: https://en.wikipedia.org/wiki/Melatonin
+
+zz: methylsulfonylmethane
+xx: MSM, OptiMSM
+en: Methylsulfonylmethane, Dimethyl sulfone, Methyl sulfone
+sv: Metylsulfonylmetan
+unit:en: mg
+wikidata:en: Q423842
+wikipedia:en: https://en.wikipedia.org/wiki/Methylsulfonylmethane
+
 # NOVA group is not a nutrient, but we also store it in the nutrition facts table (as we do for the Nutri-Score)
 # to enable some features like statistics per category
 
@@ -6607,6 +6700,7 @@ xx: NOVA group
 en: NOVA group
 bg: Група NOVA
 fr: Groupe NOVA
+it: Gruppo NOVA
 automatically_computed:en: yes
 unit:en:
 
@@ -6637,6 +6731,7 @@ en: Water
 ca: Aigua
 es: Agua
 fr: Eau
+it: Acqua
 unit:en: g
 
 zz: acidity
@@ -6648,6 +6743,7 @@ es: Acideze
 fr: Acidité
 hu: Savasság
 is: Sýrustig
+it: Acidità
 nl: Zuurgraad
 pt: Acidez
 sv: Surhet
@@ -6675,6 +6771,7 @@ en: Creatine, Creatine Monohydrate
 ca: Creatina, Monohidrat de creatina, Monohidrat Creatina
 es: Creatina, Monohidrato de creatina, Monohidrato Creatina
 fr: Créatine, Monohydrate de Créatine
+it: Creatina
 unit:en: g
 wikidata:en: Q223600
 wikipedia:en: https://en.wikipedia.org/wiki/Creatine
@@ -6718,6 +6815,7 @@ zz: l-leucine
 en: L-Leucine, Leucine
 ca: L-Leucina, Leucina
 es: L-Leucina, Leucina
+sv: L-leucin
 unit:en: mg
 wikidata:en: Q483745
 wikipedia:en: https://en.wikipedia.org/wiki/Leucine
@@ -6726,6 +6824,7 @@ zz: l-isoleucine
 en: L-Isoleucine, Isoleucine
 ca: L-Isoleucina, Isoleucina
 es: L-Isoleucina, Isoleucina
+sv: L-isoleucin
 unit:en: mg
 wikidata:en: Q484940
 wikipedia:en: https://en.wikipedia.org/wiki/Isoleucine
@@ -6756,4 +6855,232 @@ es: L-Glutatión, Glutationa
 unit:en: mg
 wikidata:en: Q116907
 wikipedia:en: https://en.wikipedia.org/wiki/Glutathione
+
+# following nutrients are for pet food
+# https://eur-lex.europa.eu/eli/reg/2009/767/2018-12-26
+# I- analytical constituents
+zz: crude fat
+xx: crude fat
+en: crude fat, Fat Content
+bg: Сурови мазнини
+cs: hrubý tuk
+da: råfedt, fedtindhold
+de: Rohfett, Fettgehalt
+el: ακατέργαστες λιπαρές ουσίες, Περιεκτικότητα σε λιπαρές ουσίες
+es: Grasa bruta, Contenido de grasa
+et: toorrasv, Rasvasisaldus
+fi: raakarasva, rasvasisältö
+fr: matières grasses brutes, teneur en matières grasses
+hr: sirova mast, sirove masti, sadržaj masti
+hu: nyerszsír
+it: grassi grezzi
+lt: žali riebalai
+lv: koptauki, Tauku saturs
+mt: ix-xaħam mhux raffinat
+nl: ruw vet, vetgehalte
+pl: tłuszcz surowy
+pt: matéria gorda bruta, teor de matéria gorda
+ro: grăsimi brute
+ru: Содержание жира
+sk: tuk
+sl: surove maščobe, Vsebnost maščob
+sv: råfett, fettinnehåll
+unit:en: %
+
+zz: crude protein
+xx: crude protein
+en: crude protein
+bg: Суров протеин
+cs: hrubý protein
+da: råprotein
+de: Rohprotein
+el: ακατέργαστη πρωτεΐνη, Ολική πρωτεΐνη
+es: Proteína bruta
+et: toorvalk
+fi: raakavalkuainen
+fr: protéine brute, protéines brutes
+hr: sirove bjelančevine, sirovi bjelančevini
+hu: nyersfehérje
+it: proteina grezza
+lt: žali baltymai
+lv: kopproteīns, neapstrādāts proteins
+mt: il-proteini mhux raffinati
+nl: ruw eiwit
+pl: białko surowe
+pt: proteína bruta
+ro: proteine brute
+ru: Сырой белок
+sk: dusíkaté látky
+sl: surove beljakovine
+sv: råprotein
+unit:en: %
+
+zz: crude ash
+xx: crude ash
+en: crude ash
+bg: Сурова пепел
+cs: hrubý popel
+da: råaske
+de: Rohasche
+el: ακατέργαστη τέφρα, Ολική τέφρα
+es: Ceniza bruta
+et: toortuhk
+fi: tuhka, raakatuhat
+fr: Cendres brutes
+hr: sirovi pepeo
+hu: nyershamu
+it: ceneri grezze
+lt: žali pelenai
+lv: koppelni, Neapstrādātā pelnu
+mt: l-irmied mhux raffinat
+nl: ruwe as
+pl: popiół surowy
+pt: cinza bruta
+ro: cenușă brută
+ru: Сырая зола
+sk: popol
+sl: surovi pepel
+sv: råaska
+unit:en: %
+
+zz: crude fibre
+xx: crude fibre
+en: crude fibre
+bg: Сурови влакнини
+cs: hrubá vláknina
+da: træstof, råfiber
+de: Rohfaser
+el: ακατέργαστες ινώδεις ουσίες, Ολική κυτταρίνη
+es: Fibra bruta
+et: toorkiud
+fi: raakakuitu
+fr: Cellulose brute, fibres brutes
+hr: sirova vlaknina, Sirova vlakna
+hu: nyersrost
+it: fibra grezza, fibre grezze
+lt: žalia ląsteliena
+lv: kopšķiedra, Neapstrādātas šķiedrvielas
+mt: il-fibri mhux maħdumin
+nl: ruwe celstof
+pl: włókno surowe
+pt: fibra bruta
+ro: fibre brute
+ru: Сырая клетчатка
+sk: hrubá vláknina
+sl: surove vlaknine, Surova vlakna
+sv: växttråd, råfiber
+unit:en: %
+
+zz: moisture
+xx: moisture
+en: moisture
+bg: Влага
+cs: vlhkost
+da: vandindhold
+de: Feuchtigkeit
+el: υγρασία
+es: Humedad
+et: niiskus
+fi: kosteus
+fr: humidité
+hr: vlaga
+hu: nedvesség
+it: umidità
+lt: drėgnis
+lv: mitrums
+mt: l-umdità
+nl: vocht
+pl: wilgotność
+pt: humidade
+ro: umiditate
+sk: vlhkosť
+sl: vlaga
+sv: vatten
+unit:en: %
+
+# II- nutritional additives
+zz: iron II sulphate monohydrate
+xx: iron II sulphate monohydrate
+en: iron II sulphate monohydrate
+es: sulfato ferroso monohidratado
+fr: sulfate de fer II monohydraté, sulfate ferreux monohydraté, fer sulfureux monohydraté
+it: solfato ferroso monoidrato
+unit:en: mg
+
+zz: potassium iodide
+xx: potassium iodide
+en: potassium iodide
+es: yoduro de potasio
+fr: iodure de potassium
+it: ioduro di potassio
+unit:en: mg
+
+zz: copper II sulphate pentahydrate
+xx: copper II sulphate pentahydrate
+en: copper II sulphate pentahydrate
+es: sulfato de cobre II pentahidratado, sulfato de cobre pentahidratado
+fr: sulfate de cuivre II pentahydraté, sulfate de cuivre pentahydraté, sulfate cuivrique pentahydraté
+it: solfato di rarne pentaidrato
+nl: koper II sulfaatpentahydraat
+pt: sulfato de cobre II penta-hidratado
+unit:en: mg
+
+zz: manganous sulphate monohydrate
+xx: manganous sulphate monohydrate
+en: manganous sulphate monohydrate
+es: sulfato manganoso monohidratado
+fr: sulfate de manganèse monohydraté
+hr: mangan sulfat monohidrat
+it: solfato manganoso monoidrato
+nl: mangaansulfaat-monohydraat
+pt: sulfato de manganês II mono-hidratodo
+unit:en: mg
+
+zz: zinc sulphate monohydrate
+xx: zinc sulphate monohydrate
+en: zinc sulphate monohydrate
+es: sulfato de cinc monohidratado
+fr: sulfate de zinc monohydraté
+hr: cink sulfat monohidrat
+it: solfato di zinco monoidrato
+nl: zinksulfaat-monohydraat
+pt: sulfato de zinco mono-hidratodo
+unit:en: mg
+
+zz: sodium selenite
+xx: sodium selenite
+en: sodium selenite
+es: selenito de sodio
+fr: sélénite de sodium
+it: selenite di sodio
+unit:en: mg
+
+zz: calcium iodate anhydrous
+xx: calcium iodate anhydrous
+en: calcium iodate anhydrous
+fr: iodate de calcium anhydre
+hr: kalcij jodat
+nl: watervrij calciumjodaat
+unit:en: mg
+
+# III- zootechnical additives or technological additives
+
+zz: cassia gum
+xx: cassia gum
+en: cassia gum
+fr: gomme cassia
+unit:en: mg
+
+zz: ammonium chloride
+xx: ammonium chloride
+en: ammonium chloride
+fr: chlorure d'ammonium
+unit:en: mg
+
+zz: choline chloride
+xx: choline chloride
+en: choline chloride
+fr: chlorure de choline
+hr: kolin klorid
+unit:en: mg
 

@@ -1,7 +1,7 @@
 '''
 This file is part of Product Opener.
 Product Opener
-Copyright (C) 2011-2023 Association Open Food Facts
+Copyright (C) 2011-2024 Association Open Food Facts
 Contact: contact@openfoodfacts.org
 Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 Product Opener is free software: you can redistribute it and/or modify
@@ -35,7 +35,8 @@ def extract_address_components(address_to_convert):
         print("warning missing address")
     elif len(address_split) < 2:
         if address_split[0][:4].isdigit():
-            print("warning address without street name (only postcode and town):", address_split[0])
+            print(
+                "warning address without street name (only postcode and town):", address_split[0])
             post_and_town = address_split[0]
             if "," in post_and_town:
                 postal_code = post_and_town.split()[0]
@@ -80,7 +81,6 @@ def extract_address_components(address_to_convert):
             town = " ".join(post_and_town.split()[1:])
         else:
             print("error to extract postcode and town:", address)
-
 
     return street, postal_code, town
 
@@ -136,9 +136,10 @@ def convert_address_to_lat_lng(address_to_convert: str) -> list:
                     if street in url_2:
                         url_3 = url_2.replace(f"street={street}&", "")
                     else:
-                        print(f'Empty response for before url_3: {address_to_convert}: {url_2}')
+                        print(f'Empty response for before url_3: {
+                              address_to_convert}: {url_2}')
                         sys.exit(1)
-                    
+
                     try:
                         print("url_3", url_3)
                         response = requests.get(url_3)
@@ -146,7 +147,8 @@ def convert_address_to_lat_lng(address_to_convert: str) -> list:
                         if data != []:
                             lat, lng = data[0]['lat'], data[0]['lon']
                         else:
-                            print(f'Empty response for: {address_to_convert}" {url_3}')
+                            print(f'Empty response for: {
+                                  address_to_convert}" {url_3}')
                             sys.exit(1)
                     except (requests.exceptions.RequestException, KeyError, IndexError) as e:
                         print(f"Error: {e}, url: {url}")
@@ -164,7 +166,7 @@ def convert_address_to_lat_lng(address_to_convert: str) -> list:
 source_file = 'AT-merge-UTF-8_no_coord.csv'
 target_file = "AT-merge-UTF-8.csv"
 index_last_line_processed = 'at_packagers_refresh_part2_index_tmp.txt'
-api_key = "" # TODO remove
+api_key = ""  # TODO remove
 
 
 data = []
@@ -193,7 +195,7 @@ with open(source_file, mode='r', newline='') as csv_file_read:
                 row += ['lat', 'lng']
             else:
                 row += convert_address_to_lat_lng(row[2])
-                
+
             writer.writerow(row)
 
             with open(index_last_line_processed, 'w') as f:

@@ -1,0 +1,11 @@
+title: Indexed taxonomy tag entry (lossy, for search only)
+type: string
+description: |-
+  This field is used for search only. It is a lossy representation of the taxonomy tag entry, that can be used to index the entry in a search engine.
+  A tag entry, that has been matched against a taxonomy (e.g. a category, a label)
+
+  The entry is a string that can contain either:
+
+  - a taxonomy entry id, in the form [2 letter language code]:[normalized canonical name] (e.g. "en:green-teas") -> for entries that could be matched to a taxonomy entry
+  - a string in a specific language, prefixed by the 2 letter language code, and normalized (deaccented and lowercased, depending on language)
+  (e.g. "fr:thes-verts") -> for entries that could not be matched to a taxonomy entry

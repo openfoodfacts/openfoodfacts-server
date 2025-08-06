@@ -50,17 +50,7 @@
       "en:non-vegan",
       "en:non-vegetarian"
    ],
-   "ingredients_hierarchy" : [
-      "en:sea-salt",
-      "en:salt",
-      "en:american-cheese",
-      "en:dairy",
-      "en:cheese",
-      "en:beef-gelatin",
-      "en:animal",
-      "en:beef",
-      "en:e428"
-   ],
+   "ingredients_lc" : "en",
    "ingredients_n" : 3,
    "ingredients_n_tags" : [
       "3",
@@ -92,7 +82,13 @@
       "en:beef-gelatin"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
-   "known_ingredients_n" : 9,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:american-cheese",
+      "en:beef-gelatin",
+      "en:sea-salt"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 3,
+   "known_ingredients_n" : 3,
    "lc" : "en",
    "nutriments" : {
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,

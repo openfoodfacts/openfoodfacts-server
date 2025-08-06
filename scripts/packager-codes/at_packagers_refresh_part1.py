@@ -1,7 +1,7 @@
 '''
 This file is part of Product Opener.
 Product Opener
-Copyright (C) 2011-2023 Association Open Food Facts
+Copyright (C) 2011-2024 Association Open Food Facts
 Contact: contact@openfoodfacts.org
 Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 Product Opener is free software: you can redistribute it and/or modify
@@ -79,7 +79,7 @@ def split_name_address(input_name_address: str, output: str) -> str:
     name += lines[0]
     for line in lines[1:]:
         line_split = line.split(',')
-        
+
         if line_split[0][:4].isdigit():
             address += ', ' + line_split[0]
         else:
@@ -108,7 +108,8 @@ def read_all_pdf() -> pl.dataframe.frame.DataFrame:
             pdf_path = os.path.join(pdf_directory, filename)
             try:
                 # Extract tables from each PDF page
-                tables = camelot.read_pdf(pdf_path, pages='all', flavor="stream")
+                tables = camelot.read_pdf(
+                    pdf_path, pages='all', flavor="stream")
 
                 file_dfs = []
                 for table in tables:
@@ -116,30 +117,37 @@ def read_all_pdf() -> pl.dataframe.frame.DataFrame:
 
                     # some rows have been split in 2 or 3
                     # to tackle it, 1) replace by the previous code when code is null
-                    df_replace_null = df.with_columns(pl.all().replace("", None))
-                    df_fill_code = df_replace_null.with_columns(pl.col("0").fill_null(strategy="forward"),)
+                    df_replace_null = df.with_columns(
+                        pl.all().replace("", None))
+                    df_fill_code = df_replace_null.with_columns(
+                        pl.col("0").fill_null(strategy="forward"),)
                     # first row of the df are empty, select df without those
-                    df_not_null = df_fill_code.filter(pl.any_horizontal(pl.col("0").is_not_null()))
+                    df_not_null = df_fill_code.filter(
+                        pl.any_horizontal(pl.col("0").is_not_null()))
                     # 2) group by code and concat other columns
                     df_grouped_by_code = df_not_null.group_by('0').agg(
                         **{col: pl.col(col).str.concat(", ") for col in df.columns if col != '0'}
                     )
 
                     # ignore rows if first column does not start by "AT "
-                    df = df_grouped_by_code.filter(df_grouped_by_code['0'].str.starts_with("AT "))
+                    df = df_grouped_by_code.filter(
+                        df_grouped_by_code['0'].str.starts_with("AT "))
 
-                    # select col before concat because on some pages two columns 
+                    # select col before concat because on some pages two columns
                     # are merged as a single one by the extraction
                     # resulting in different nb of columnes
                     # case column 0 & column 1 are merged (column 0 contains identification number: AT 61898 EG8007004)
                     column_1_suffix_check = df['0'].str.ends_with('EG').all()
                     if not column_1_suffix_check:
-                        updated_col = df['0'].str.split("EG", inclusive=True).list.first()
+                        updated_col = df['0'].str.split(
+                            "EG", inclusive=True).list.first()
 
                         # other columns are shifted
-                        df = df.with_columns(updated_col.alias('0'), pl.col('2').alias('3'), pl.col('1').alias('2'))
+                        df = df.with_columns(updated_col.alias('0'), pl.col(
+                            '2').alias('3'), pl.col('1').alias('2'))
 
-                        column_1_suffix_double_check = df['0'].str.ends_with('EG').all()
+                        column_1_suffix_double_check = df['0'].str.ends_with(
+                            'EG').all()
                         if not column_1_suffix_double_check:
                             print("error parsing first column: ")
                             print(df.head(2))
@@ -147,9 +155,11 @@ def read_all_pdf() -> pl.dataframe.frame.DataFrame:
                     # example: KOPP ANGELIKA UND STEFAN\nEhringstraße 41, [WEINZIERL]\n9412 Wolfsberg,...
                     # the column 4 is always empty
                     if df.filter(pl.col('3') != '').is_empty():
-                        # assume name1\naddres1, name2\naddress2, name3(\naddress3, name4) 
-                        df = df.with_columns(pl.col('2').map_elements(lambda x: split_name_address(x, 'address'), return_dtype=str).alias('3'))
-                        df = df.with_columns(pl.col('2').map_elements(lambda x: split_name_address(x, 'name'), return_dtype=str).alias('2'))
+                        # assume name1\naddres1, name2\naddress2, name3(\naddress3, name4)
+                        df = df.with_columns(pl.col('2').map_elements(
+                            lambda x: split_name_address(x, 'address'), return_dtype=str).alias('3'))
+                        df = df.with_columns(pl.col('2').map_elements(
+                            lambda x: split_name_address(x, 'name'), return_dtype=str).alias('2'))
 
                     df = df.select(['0', '2', '3'])
 
@@ -193,10 +203,8 @@ def clean_name(input_name: str) -> str:
     if '[' in input_name and ']' in input_name:
         input_name = input_name.split('[')[0].strip(', ')
 
-
     input_name = input_name.replace(',,', ',')
     input_name = input_name.replace(', ,', ',')
-
 
     return input_name
 
@@ -206,7 +214,8 @@ df = read_all_pdf()
 new_column_names = ['code', 'name', 'address']
 df_renamed = df.rename({i: j for i, j in zip(df.columns, new_column_names)})
 
-df_clean_name = df_renamed.with_columns(pl.col('name').map_elements(lambda x: clean_name(x), return_dtype=str))
+df_clean_name = df_renamed.with_columns(
+    pl.col('name').map_elements(lambda x: clean_name(x), return_dtype=str))
 
 # rm duplicates
 df_deduplicated = df_clean_name.unique()

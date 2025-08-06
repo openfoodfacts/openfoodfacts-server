@@ -126,14 +126,14 @@ sub convert_carrefour_france_files ($file_handle, $files_ref) {
 		elsif ($file =~ /(\d+)_(\d+)_(\w+).xml/) {
 
 			$code = $2;
-			print STDERR "File $file - Code: $code\n";
+			# print STDERR "File $file - Code: $code\n";
 		}
 		else {
 			# print STDERR "Skipping file $file: unrecognized file name format\n";
 			next;
 		}
 
-		print STDERR "Reading file $file\n";
+		# print STDERR "Reading file $file\n";
 
 		if ($file =~ /_text/) {
 			# General info about the product, ingredients
@@ -155,9 +155,9 @@ sub convert_carrefour_france_files ($file_handle, $files_ref) {
 
 				#"b" => "pass",
 				#"strong" => "pass",
-				"b" => sub {return '<b>' . $_[1]->{_content} . '</b>'},
-				"strong" => sub {return '<strong>' . $_[1]->{_content} . '</strong>'},
-				"u" => sub {return '<u>' . $_[1]->{_content} . '</u>'},
+				"b" => sub {return '<b>' . ($_[1]->{_content} // '') . '</b>'},
+				"strong" => sub {return '<strong>' . ($_[1]->{_content} // '') . '</strong>'},
+				"u" => sub {return '<u>' . ($_[1]->{_content} // '') . '</u>'},
 				"em" => "pass",
 
 				"br" => "==<br />",
@@ -438,6 +438,8 @@ sub convert_carrefour_france_files ($file_handle, $files_ref) {
 			$product_ref->{producer_fr} = $product_ref->{emb_codes};
 			delete $product_ref->{emb_codes};
 		}
+
+		$product_ref->{lc} = "fr";
 	}
 
 	# Clean and normalize fields
@@ -569,15 +571,15 @@ sub convert_carrefour_france_files ($file_handle, $files_ref) {
 
 	print_stats();
 
-	print STDERR "$xml_errors xml errors\n";
+	# print STDERR "$xml_errors xml errors\n";
 
-	foreach my $file (@xml_errors) {
-		#print STDERR $file . "\n";
-	}
+	# foreach my $file (@xml_errors) {
+	# 	print STDERR $file . "\n";
+	# }
 
-	foreach my $nutrient (sort {$nutrients{$b} <=> $nutrients{$a}} keys %nutrients) {
-		#print STDERR $nutrient . "\t" . $nutrients{$nutrient} . "\n";
-	}
+	# foreach my $nutrient (sort {$nutrients{$b} <=> $nutrients{$a}} keys %nutrients) {
+	# 	print STDERR $nutrient . "\t" . $nutrients{$nutrient} . "\n";
+	# }
 	return;
 }
 

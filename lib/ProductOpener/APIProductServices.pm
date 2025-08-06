@@ -47,7 +47,11 @@ An array list of services to perform.
 Currently implemented services:
 
 - echo : does nothing, mostly for testing
+- parse_ingredients_text : parse the ingredients text list and return an ingredients object
+- extend_ingredients : extend the ingredients object with additional information
 - estimate_ingredients_percent : compute percent_min, percent_max, percent_estimate for each ingredient in the ingredients object
+- analyze_ingredients : analyze the ingredients object and return a summary object
+- estimate_environmental_cost_ingredients : estimate the environmental cost of a given product (see Ecobalyse)
 
 =head4 product
 
@@ -74,6 +78,7 @@ use Log::Any qw($log);
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
+		&add_product_data_from_external_service
 		&product_services_api
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -82,24 +87,161 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/request_param/;
+use ProductOpener::HTTP qw/request_param/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::API qw/add_error customize_response_for_product/;
+use ProductOpener::API qw/add_error customize_response_for_product init_api_response/;
+use ProductOpener::EnvironmentalImpact;
+use ProductOpener::HTTP qw/create_user_agent/;
 
+use JSON qw(decode_json encode_json);
 use Encode;
 
-=head2 echo_service ($product_ref)
+=head2 add_product_data_from_external_service ($request_ref, $product_ref, $url, $services_ref)
+
+Make a request to execute services on product on an external server using the product services API.
+
+The resulting fields are added to the product object.
+
+e.g. this function is used to run the percent estimation service on the recipe-estimator server.
+
+=cut
+
+sub add_product_data_from_external_service ($request_ref, $product_ref, $url, $services_ref, $fields_ref = undef) {
+
+	$log->debug("add_product_data_from_external_service - start",
+		{request => $request_ref, url => $url, services_ref => $services_ref})
+		if $log->is_debug();
+
+	defined $request_ref->{api_response} or init_api_response($request_ref);
+
+	my $response_ref = $request_ref->{api_response};
+
+	my $body_ref = {product => $product_ref,};
+
+	if (defined $services_ref) {
+		$body_ref->{services} = $services_ref;
+	}
+
+	# If the caller requested specific fields, we will return only those fields
+	if (defined $fields_ref) {
+		$body_ref->{fields} = $fields_ref;
+	}
+
+	# hack: recipe-estimator currently expects the product at the root of the body
+	if ($url =~ /estimate_recipe/) {
+		# We will send the product as the root object
+		$body_ref = $product_ref;
+	}
+
+	my $ua = create_user_agent(timeout => 10);
+
+	my $response = $ua->post(
+		$url,
+		Content => encode_json($body_ref),
+		"Content-Type" => "application/json; charset=utf-8",
+	);
+
+	if (not $response->is_success) {
+		$log->error("add_product_data_from_external_service - error response", {response => $response})
+			if $log->is_error();
+		add_error(
+			$response_ref,
+			{
+				message => {id => "external_service_error"},
+				field => {
+					id => "services",
+					value => join(", ", @{$services_ref || []}),
+					url => $url,
+					error => $response->status_line
+				},
+				impact => {id => "failure"},
+			}
+		);
+		return;
+	}
+	else {
+
+		# Decode the response body
+		my $response_content = $response->decoded_content;
+
+		my $decoded_json;
+		my $json_decode_error;
+		eval {
+			$decoded_json = decode_json($response_content);
+			1;
+		} or do {
+			$json_decode_error = $@;
+			$log->error(
+				"add_product_data_from_external_service - error decoding JSON response",
+				{response_content => $response_content, error => $json_decode_error}
+			) if $log->is_error();
+			add_error(
+				$response_ref,
+				{
+					message => {id => "external_service_invalid_json_response"},
+					field => {id => "response", value => $response_content, error => $json_decode_error},
+					impact => {id => "failure"},
+				}
+			);
+			return;
+		};
+
+		# If the response is not an error, we expect it to be a valid product object
+
+		# hack: recipe-estimator currently returns the product at the root of the body
+		if ($url =~ /estimate_recipe/) {
+			if (not defined $decoded_json->{product}) {
+				$decoded_json = {product => $decoded_json};
+			}
+		}
+
+		my $response_product_ref = $decoded_json->{product};
+		if (not defined $response_product_ref) {
+			$log->error("add_product_data_from_external_service - response does not contain a product object",
+				{response => $decoded_json})
+				if $log->is_error();
+			add_error(
+				$response_ref,
+				{
+					message => {id => "external_service_invalid_response"},
+					field => {id => "response", value => $response_content, error => "missing product object"},
+					impact => {id => "failure"},
+				}
+			);
+			return;
+		}
+
+		# Copy the fields present in the response product object to the request product object
+		foreach my $field (keys %$response_product_ref) {
+
+			$product_ref->{$field} = $response_product_ref->{$field};
+		}
+
+	}
+
+	$log->debug("add_product_data_from_external_service - stop", {response => $response_ref}) if $log->is_debug();
+
+	return;
+}
+
+=head2 echo_service ($product_ref, $updated_product_fields_ref, $errors_ref)
 
 Echo service that returns the input product unchanged.
 
 =cut
 
-sub echo_service ($product_ref, $updated_product_fields_ref) {
+sub echo_service ($product_ref, $updated_product_fields_ref, $errors_ref) {
 
 	return;
 }
+
+=head2 Service function handlers
+
+They will be called with the input product object, a reference to the updated fields hash, and a reference to the errors array.
+
+=cut
 
 my %service_functions = (
 	echo => \&echo_service,
@@ -107,6 +249,9 @@ my %service_functions = (
 	extend_ingredients => \&ProductOpener::Ingredients::extend_ingredients_service,
 	estimate_ingredients_percent => \&ProductOpener::Ingredients::estimate_ingredients_percent_service,
 	analyze_ingredients => \&ProductOpener::Ingredients::analyze_ingredients_service,
+	estimate_environmental_impact => \&ProductOpener::EnvironmentalImpact::estimate_environmental_impact_service,
+	determine_food_contact_of_packaging_components =>
+		\&ProductOpener::PackagingFoodContact::determine_food_contact_of_packaging_components_service,
 );
 
 sub check_product_services_api_input ($request_ref) {
@@ -191,6 +336,12 @@ sub product_services_api ($request_ref) {
 	if (not $error) {
 
 		my $product_ref = $request_body_ref->{product};
+		# Normalization of some fields like lc / lang
+		normalize_product_data($product_ref);
+
+		# TODO: check that the product object is valid
+		# any input product data can be sent, and most of the services expect a specific structure
+		# they may crash and return a 500 error if the input data is not as expected (e.g. hash instead of array)
 
 		# We will track of fields updated by the services so that we can return only those fields
 		# if the fields parameter value is "updated"
@@ -199,7 +350,7 @@ sub product_services_api ($request_ref) {
 		foreach my $service (@{$request_body_ref->{services}}) {
 			my $service_function = $service_functions{$service};
 			if (defined $service_function) {
-				&$service_function($product_ref, $request_ref->{updated_product_fields});
+				&$service_function($product_ref, $request_ref->{updated_product_fields}, $response_ref->{errors});
 			}
 			else {
 				add_error(

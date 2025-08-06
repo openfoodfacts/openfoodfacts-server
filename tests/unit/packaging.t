@@ -782,6 +782,60 @@ is(
 
 ) or diag Dumper $product_ref->{packagings_materials};
 
+# Single packaging item with unknown weight, complete
+
+$product_ref = {
+	lc => "sv",
+	packagings => [
+		{
+			material => 'plast',
+		},
+	],
+	packagings_complete => 1
+};
+
+ProductOpener::Packaging::canonicalize_packaging_components_properties($product_ref);
+ProductOpener::Packaging::aggregate_packaging_by_parent_materials($product_ref);
+ProductOpener::Packaging::compute_weight_stats_for_parent_materials($product_ref);
+
+is(
+	$product_ref->{packagings_materials},
+	{
+		'all' => {
+			'weight_percent' => 100
+		},
+		'en:plastic' => {
+			'weight_percent' => 100
+		}
+	}
+
+) or diag Dumper $product_ref->{packagings_materials};
+
+# Single packaging item with unknown weight, incomplete
+
+$product_ref = {
+	lc => "sv",
+	packagings => [
+		{
+			material => 'plast',
+		},
+	],
+	packagings_complete => 0
+};
+
+ProductOpener::Packaging::canonicalize_packaging_components_properties($product_ref);
+ProductOpener::Packaging::aggregate_packaging_by_parent_materials($product_ref);
+ProductOpener::Packaging::compute_weight_stats_for_parent_materials($product_ref);
+
+is(
+	$product_ref->{packagings_materials},
+	{
+		'all' => {},
+		'en:plastic' => {}
+	}
+
+) or diag Dumper $product_ref->{packagings_materials};
+
 # Empty product hash
 
 $product_ref = {};

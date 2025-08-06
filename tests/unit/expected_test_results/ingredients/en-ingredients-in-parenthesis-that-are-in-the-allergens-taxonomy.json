@@ -3,6 +3,7 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "16400",
+         "ecobalyse_code" : "bbda834e-1548-4682-a461-c367dc1ce517",
          "id" : "en:butter",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 75,
@@ -52,12 +53,7 @@
       "en:non-vegan",
       "en:maybe-vegetarian"
    ],
-   "ingredients_hierarchy" : [
-      "en:butter",
-      "en:dairy",
-      "en:cheese",
-      "en:parmigiano-reggiano"
-   ],
+   "ingredients_lc" : "en",
    "ingredients_n" : 3,
    "ingredients_n_tags" : [
       "3",
@@ -82,7 +78,12 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "known_ingredients_n" : 4,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:cheese",
+      "en:parmigiano-reggiano"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 2,
+   "known_ingredients_n" : 3,
    "lc" : "en",
    "nutriments" : {
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,

@@ -1,7 +1,7 @@
 '''
 This file is part of Product Opener.
 Product Opener
-Copyright (C) 2011-2023 Association Open Food Facts
+Copyright (C) 2011-2024 Association Open Food Facts
 Contact: contact@openfoodfacts.org
 Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 Product Opener is free software: you can redistribute it and/or modify
@@ -25,12 +25,12 @@ import dbm
 import json
 
 
-counties_list = ["antrim", "armagh", "carlow", "cavan", "clare", "cork", \
-                 "donegal", "down", "dublin", "fermanagh", "galway", \
-                 "kerry", "kildare", "kilkenny", "laois", "leitrim", \
-                 "limerick", "londonderry", "longford", "louth", "mayo", \
-                 "meath", "monaghan", "offaly", "roscommon", "sligo", \
-                 "tipperary", "tyrone", "waterford", "westmeath", \
+counties_list = ["antrim", "armagh", "carlow", "cavan", "clare", "cork",
+                 "donegal", "down", "dublin", "fermanagh", "galway",
+                 "kerry", "kildare", "kilkenny", "laois", "leitrim",
+                 "limerick", "londonderry", "longford", "louth", "mayo",
+                 "meath", "monaghan", "offaly", "roscommon", "sligo",
+                 "tipperary", "tyrone", "waterford", "westmeath",
                  "wexford", "wicklow"]
 
 
@@ -46,7 +46,8 @@ def possible_county_check(possible_field: str) -> str:
             possible_field = possible_field[:match.start()]
         possible_field = possible_field.strip()
 
-    extracted_county = possible_field.lower().replace('co. ', '').replace('co.', '').replace('co ', '')
+    extracted_county = possible_field.lower().replace(
+        'co. ', '').replace('co.', '').replace('co ', '')
     if extracted_county in counties_list:
         return extracted_county.title()
     else:
@@ -57,8 +58,9 @@ def possible_postcode_check(field: str) -> bool:
     # examples: D24 NY84, X35 Y670, P51A525, D22 E6P4
     field = field.replace(' ', '')
     if len(field) < 7:
-        return False 
-    postcode_bool = all([field[0].isalpha(), field[1:3].isdigit(), field[3].isalpha(), field[4:6].isalnum(), field[6:].isdigit()])
+        return False
+    postcode_bool = all([field[0].isalpha(), field[1:3].isdigit(
+    ), field[3].isalpha(), field[4:6].isalnum(), field[6:].isdigit()])
     return postcode_bool
 
 
@@ -86,7 +88,8 @@ def missing_comma_check(field: str) -> str:
     print(f"missing_comma_check, split: {decomposed}")
     updated_field = []
     for i in decomposed:
-        print(f"missing_comma_check, loop element: {i}, updated field: {updated_field}")
+        print(f"missing_comma_check, loop element: {
+              i}, updated field: {updated_field}")
         possible_county = possible_county_check(i)
         if possible_county:
             missing_comma_check_update_county(possible_county, updated_field)
@@ -101,13 +104,13 @@ def missing_comma_check(field: str) -> str:
             continue
 
         updated_field.append(i)
-    
+
     print(f"missing_comma_check, before join: {updated_field}")
     updated_field = " ".join(updated_field)
     print(f"missing_comma_check, after join: {updated_field}")
     updated_field = updated_field.strip(',')
     print(f"missing_comma_check, after strip: {updated_field}")
-    
+
     return updated_field
 
 
@@ -152,16 +155,16 @@ def extract_address_components_two_commas(address_components: list) -> tuple:
 
 
 def extract_address_components_more_than_two_commas(address_components: list) -> tuple:
-    # start from the end and 
+    # start from the end and
     # assign county if found,
     # ignore additional county if found,
     # ignore postcode if found,
     # ignore 'Ireland' if found
-    
+
     street = ''
     city = ''
     county = ''
-    
+
     for i in range(1, len(address_components)+1):
         possible_county = possible_county_check(address_components[-i])
         possible_postcode = possible_postcode_check(address_components[-i])
@@ -172,14 +175,15 @@ def extract_address_components_more_than_two_commas(address_components: list) ->
         # example: Quinlan Steele, Milleens Cheese ltd., Eyeries, Beara, Co.Cork, Ireland, P75 FN52
         if address_components[-i].lower() == 'ireland':
             continue
-        
+
         if not possible_county and not possible_postcode:
             if not city:
                 city = address_components[-i]
             elif not street:
                 street = address_components[-i]
             else:
-                print(f"info, extract_address_components_more_than_two_commas, already extracted everything, ignore: {address_components[-i]}")
+                print(f"info, extract_address_components_more_than_two_commas, already extracted everything, ignore: {
+                      address_components[-i]}")
 
     return street, city, county
 
@@ -187,12 +191,16 @@ def extract_address_components_more_than_two_commas(address_components: list) ->
 def extract_address_components(address_to_convert):
     address_split = address_to_convert.split(',')
     # handle cases like Co Cork P85AT89 -> Co Cork, P85AT89 (Ireland)
-    address_split_with_sublist = [missing_comma_check(i).split(',') for i in address_split]
-    address_split = [item for sublist in address_split_with_sublist for item in sublist]
-    print(f"extract_address_components, address_split after missing comma check: {address_split}")
+    address_split_with_sublist = [missing_comma_check(
+        i).split(',') for i in address_split]
+    address_split = [
+        item for sublist in address_split_with_sublist for item in sublist]
+    print(f"extract_address_components, address_split after missing comma check: {
+          address_split}")
 
     address_split = [x.strip() for x in address_split]
-    print(f"extract_address_components, address_split after strip elements: {address_split}")
+    print(f"extract_address_components, address_split after strip elements: {
+          address_split}")
 
     street = ''
     city = ''
@@ -206,13 +214,16 @@ def extract_address_components(address_to_convert):
         city = address_split[0]
     elif len(address_split) == 2:
         print("info, extract_address_components, exactly 1 comma")
-        street, city, county = extract_address_components_one_comma(address_split)
+        street, city, county = extract_address_components_one_comma(
+            address_split)
     elif len(address_split) == 3:
         print("info, extract_address_components, contains 2 commas")
-        street, city, county = extract_address_components_two_commas(address_split)
+        street, city, county = extract_address_components_two_commas(
+            address_split)
     else:
         print("info, extract_address_components, more than 2 commas")
-        street, city, county = extract_address_components_more_than_two_commas(address_split)
+        street, city, county = extract_address_components_more_than_two_commas(
+            address_split)
 
     print(f"street: {street}, city: {city}, county: {county}")
     return street, city, county
@@ -248,7 +259,6 @@ def cached_get(url: str, cache) -> list:
         else:
             restart = False
 
-
     # Store the JSON response in the cache
     cache[url] = json.dumps(data)
 
@@ -260,7 +270,7 @@ def no_results_update_query(url: str, i: int) -> str:
     if i == 1:
         url = re.sub("street=[^&]*&", "", url)
         print(f"no_results_update_query, remove street: {url}")
-    elif i ==2:
+    elif i == 2:
         url = re.sub("city=[^&]*&", "", url)
         print(f"no_results_update_query, remove city: {url}")
     else:
@@ -289,13 +299,13 @@ def convert_address_to_lat_lng(address_to_convert: str) -> list:
     iter_failures = 0
     while failed:
         with dbm.open('cache', 'c') as cache:
-                data = cached_get(url, cache)
-                if data != []:
-                    lat, lng = [data[0]['lat'], data[0]['lon']]
-                    failed = False
-                else:
-                    iter_failures += 1
-                    url = no_results_update_query(url, iter_failures)
+            data = cached_get(url, cache)
+            if data != []:
+                lat, lng = [data[0]['lat'], data[0]['lon']]
+                failed = False
+            else:
+                iter_failures += 1
+                url = no_results_update_query(url, iter_failures)
 
     return [lat, lng]
 
@@ -305,7 +315,8 @@ if __name__ == "__main__":
     country_name = 'Ireland'
     source_file = f'{country_code}-merge-UTF-8_no_coord.csv'
     target_file = f'{country_code}-merge-UTF-8.csv'
-    index_last_line_processed = f'{country_code.lower()}_packagers_refresh_part2_index_tmp.txt'
+    index_last_line_processed = f'{
+        country_code.lower()}_packagers_refresh_part2_index_tmp.txt'
 
     # use user agent for requests
     headers = {'User-Agent': 'packager-openfoodfacts'}
@@ -335,7 +346,7 @@ if __name__ == "__main__":
                     row += ['lat', 'lng']
                 else:
                     row += convert_address_to_lat_lng(row[2])
-                    
+
                 writer.writerow(row)
 
                 with open(index_last_line_processed, 'w') as f:

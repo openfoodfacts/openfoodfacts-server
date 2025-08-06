@@ -21,6 +21,8 @@ properties:
       When an app uses a single user to log its contributions,
       it might be interesting to know which user of the app is providing the information.
       You can use this field to provide an identifier (eg: an sha1 of the username) that's privacy preserving. Make sure that your salt is strong, perfectly random and secret
+
+      In case we have trouble with one of your user, it helps our moderators revert edits.
   User-Agent:
     type: string
     description: |
