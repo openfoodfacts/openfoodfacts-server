@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/api/tutorials/product-prices/">
+        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/api/tutorials/contributing-to-image-refresh-api/">
       
       
-        <link rel="prev" href="../license-be-on-the-legal-side/">
+        <link rel="prev" href="../comparing-sodas/">
       
       
-        <link rel="next" href="../reporting-issues-with-nutripatrol/">
+        <link rel="next" href="../creating-a-local-cache-of-open-food-facts-data/">
       
       
       <link rel="icon" href="https://static.openfoodfacts.org/images/logos/off-logo-favicon-light.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Product prices - Product Opener (Open Food Facts Server)</title>
+        <title>Contributing to image refresh api - Product Opener (Open Food Facts Server)</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#open-prices" class="md-skip">
+        <a href="#tutorial-using-the-image-refresh-api" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Product prices
+              Contributing to image refresh api
             
           </span>
         </div>
@@ -721,10 +721,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../contributing-to-image-refresh-api/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Contributing to image refresh api
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -735,6 +755,99 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tutorial-using-the-image-refresh-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      📸 Tutorial: Using the Image Refresh API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📸 Tutorial: Using the Image Refresh API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-concept" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Concept
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-api-endpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      The API Endpoint
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-the-api-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding the API Response
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#client-side-implementation-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Client-Side Implementation Logic
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Client-Side Implementation Logic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generating-button-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generating Button Text
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-displaying-the-image-age" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optional: Displaying the Image Age
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -951,30 +1064,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Product prices
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../product-prices/" class="md-nav__link">
         
   
   
@@ -985,42 +1078,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#open-prices" class="md-nav__link">
-    <span class="md-ellipsis">
-      Open Prices
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#links" class="md-nav__link">
-    <span class="md-ellipsis">
-      Links
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1778,20 +1835,77 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#open-prices" class="md-nav__link">
+  <a href="#tutorial-using-the-image-refresh-api" class="md-nav__link">
     <span class="md-ellipsis">
-      Open Prices
+      📸 Tutorial: Using the Image Refresh API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📸 Tutorial: Using the Image Refresh API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-concept" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Concept
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#links" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#the-api-endpoint" class="md-nav__link">
     <span class="md-ellipsis">
-      Links
+      The API Endpoint
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-the-api-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding the API Response
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#client-side-implementation-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Client-Side Implementation Logic
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Client-Side Implementation Logic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generating-button-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generating Button Text
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-displaying-the-image-age" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optional: Displaying the Image Age
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1811,7 +1925,7 @@
 
 
   
-    <a href="https://github.com/openfoodfacts/openfoodfacts-server/edit/main/docs/api/tutorials/product-prices.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/openfoodfacts/openfoodfacts-server/edit/main/docs/api/tutorials/contributing-to-image-refresh-api.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1819,19 +1933,108 @@
   
 
 
-  <h1>Product prices</h1>
+  <h1>Contributing to image refresh api</h1>
 
-<h3 id="open-prices">Open Prices<a class="headerlink" href="#open-prices" title="Permanent link">#</a></h3>
-<ul>
-<li>Open Prices is a project to collect and share prices of food products around the world. It’s a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.</li>
-<li>We are crowdsourcing an open-source dataset of food prices. Prices can be added by users through our web app. Retailers or third-party apps can contribute as well by using our API.</li>
-<li>We ask contributors to provide a proof of the price, in the form of a photo of the price tag or receipt. This is to make it easier to ensure data quality.</li>
-</ul>
-<h3 id="links">Links<a class="headerlink" href="#links" title="Permanent link">#</a></h3>
-<ul>
-<li>Please read the FAQ at <a href="https://prices.openfoodfacts.org/">https://prices.openfoodfacts.org/</a></li>
-<li>The API is located at <a href="https://prices.openfoodfacts.org/api/docs">https://prices.openfoodfacts.org/api/docs</a></li>
-</ul>
+<h2 id="tutorial-using-the-image-refresh-api">📸 Tutorial: Using the Image Refresh API<a class="headerlink" href="#tutorial-using-the-image-refresh-api" title="Permanent link">#</a></h2>
+<p>This tutorial explains how to use the Open Food Facts API to identify which product images are missing or outdated. This allows your application to prompt users to take or retake specific photos, helping keep the database current and complete. The more drastic solution is to put back the user into a refresh/completion pipeline before he can access the product.</p>
+<h3 id="core-concept">Core Concept<a class="headerlink" href="#core-concept" title="Permanent link">#</a></h3>
+<p>The goal is to request a special field, <code>images_to_update_[lang]</code>, for a given product. The API will return a list of key image types (front, ingredients, etc.) and a value indicating their status: either they are missing or they are old.</p>
+<hr />
+<h3 id="the-api-endpoint">The API Endpoint<a class="headerlink" href="#the-api-endpoint" title="Permanent link">#</a></h3>
+<p>To get the status of a product's images, you make a standard <code>GET</code> request to the product endpoint and specify the <code>images_to_update_[lang]</code> in the <code>fields</code> parameter.</p>
+<p><strong>URL Structure:</strong></p>
+<div class="highlight"><pre><span></span><code>https://{world|fr|...}.openfoodfacts.org/api/v2/product/[BARCODE]?fields=images_to_update_[LANG]
+</code></pre></div>
+<p><strong>Parameters:</strong></p>
+<p>* <code>[BARCODE]</code>: The barcode of the product you are querying.
+  * <code>[LANG]</code>: The two-letter <a href="https://static.openfoodfacts.org/data/taxonomies/languages.json">ISO language code</a> for which you want to check the images (e.g., <code>en</code>, <code>fr</code>, <code>de</code>). Your application should use its current language setting here.</p>
+<p><strong>Example Request:</strong></p>
+<p>Here is a request for the French (<code>fr</code>) images for product <code>3483130043180</code>.</p>
+<div class="highlight"><pre><span></span><code>https://fr.openfoodfacts.org/api/v2/produit/3483130043180?fields=images_to_update_fr
+</code></pre></div>
+<hr />
+<h3 id="understanding-the-api-response">Understanding the API Response<a class="headerlink" href="#understanding-the-api-response" title="Permanent link">#</a></h3>
+<p>The API returns a standard product JSON object, but it will only contain the <code>images_to_update_[lang]</code> field you requested.</p>
+<p><strong>Sample Response:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;product&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;images_to_update_fr&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;packaging_fr&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;front_fr&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">83734290</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;ingredients_fr&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">83734290</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Interpreting the Response:</strong></p>
+<p>The <code>images_to_update_fr</code> object contains key-value pairs.</p>
+<p>* <strong>Key</strong>: The key is a combination of the <strong>image type</strong> and the <strong>language code</strong>, separated by an underscore (e.g., <code>front_fr</code>). The main image types are:
+      * <code>front</code>
+      * <code>ingredients</code>
+      * <code>nutrition</code>
+      * <code>packaging</code>
+  * <strong>Value</strong>: The value tells you the status of the image.
+      * <code>0</code>: The image <strong>does not exist</strong>. The user should be prompted to <strong>take</strong> a new picture.
+      * <code>&gt; 0</code>: The image <strong>exists but is old</strong>. The value is the age of the image in <strong>seconds</strong>. The user should be prompted to <strong>refresh</strong> it with a new one.</p>
+<hr />
+<h3 id="client-side-implementation-logic">Client-Side Implementation Logic<a class="headerlink" href="#client-side-implementation-logic" title="Permanent link">#</a></h3>
+<p>Your application should parse this response to dynamically generate calls to action (like buttons).</p>
+<h4 id="generating-button-text">Generating Button Text<a class="headerlink" href="#generating-button-text" title="Permanent link">#</a></h4>
+<p>Here is a pseudo-code example demonstrating how to create button text based on the API response.</p>
+<div class="highlight"><pre><span></span><code>// Assume &#39;images_to_update&#39; is the object from the API response
+// e.g., { packaging_fr: 0, front_fr: 83734290 }
+
+for (key, value) in images_to_update:
+    // 1. Determine the action (verb)
+    let verb = &quot;&quot;
+    if value == 0:
+        verb = &quot;Take&quot;  // Image is missing
+    else:
+        verb = &quot;Refresh&quot; // Image is old
+
+    // 2. Get the field name and language
+    // e.g., &quot;front_fr&quot; -&gt; [&quot;front&quot;, &quot;fr&quot;]
+    let parts = key.split(&quot;_&quot;)
+    let field_name = parts[0]
+    let field_language = parts[1] // Useful for localization
+
+    // 3. Create the button text
+    // You would use localized strings in a real app
+    let button_text = `${verb} ${field_name} picture`
+
+    // Now, create a button with this text.
+    // e.g., &quot;Refresh front picture&quot;, &quot;Take packaging picture&quot;
+</code></pre></div>
+<h4 id="optional-displaying-the-image-age">Optional: Displaying the Image Age<a class="headerlink" href="#optional-displaying-the-image-age" title="Permanent link">#</a></h4>
+<p>For images that need refreshing (where the value is <code>&gt; 0</code>), you can provide more context to the user by converting the age in seconds to a human-readable format.</p>
+<p><strong>Example Conversion Logic:</strong></p>
+<p>You can use a library or a simple function to convert seconds into years, months, days, etc.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">formatTime</span><span class="p">(</span><span class="nx">seconds</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">seconds</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">60</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;just now&quot;</span><span class="p">;</span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">units</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">year</span><span class="o">:</span><span class="w"> </span><span class="mf">31536000</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">month</span><span class="o">:</span><span class="w"> </span><span class="mf">2592000</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">week</span><span class="o">:</span><span class="w"> </span><span class="mf">604800</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">day</span><span class="o">:</span><span class="w"> </span><span class="mf">86400</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">hour</span><span class="o">:</span><span class="w"> </span><span class="mf">3600</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">minute</span><span class="o">:</span><span class="w"> </span><span class="mf">60</span>
+<span class="w">  </span><span class="p">};</span>
+
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">unit</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">units</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">units</span><span class="p">[</span><span class="nx">unit</span><span class="p">];</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">seconds</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">seconds</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nx">value</span><span class="p">);</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">count</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">unit</span><span class="si">}${</span><span class="nx">count</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;s&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="si">}</span><span class="sb"> ago`</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Using the value from the sample response</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">age_in_seconds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">83734290</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">formatTime</span><span class="p">(</span><span class="nx">age_in_seconds</span><span class="p">));</span><span class="w"> </span><span class="c1">// Output: &quot;2 years ago&quot;</span>
+</code></pre></div>
+<p>You can then display this next to your button: "Refresh front picture (photo from 2 years ago)".</p>
 
 
 
