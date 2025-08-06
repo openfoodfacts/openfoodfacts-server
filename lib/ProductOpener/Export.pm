@@ -166,6 +166,12 @@ and importing to the public database.
 
 Obsolete products are in the products_obsolete collection.
 
+=head4 mongo_timeout_ms - optional - specific mongo timeout
+
+Use it if you need to export big collections.
+This should only be used from scripts
+(not for the web, as it would monopolize Apache workers and make server unresponsive)
+
 =head4 Return value
 
 Count of the exported documents.
@@ -190,6 +196,7 @@ sub export_csv ($args_ref) {
 	my $export_canonicalized_tags_fields
 		= $args_ref->{export_canonicalized_tags_fields};    # e.g. include "categories_tags" and not only "categories"
 	my $export_cc = $args_ref->{cc} || "world";    # used to localize Environmental-Score fields
+	my $mongo_timeout_ms = $args_ref->{mongo_timeout_ms} || undef;
 
 	$log->debug("export_csv - start", {args_ref => $args_ref}) if $log->is_debug();
 
@@ -216,12 +223,14 @@ sub export_csv ($args_ref) {
 
 		my $obsolete = ($collection eq "products_obsolete") ? 1 : 0;
 
-		my $count = get_products_collection({obsolete => $obsolete})->count_documents($query_ref);
+		my $count = get_products_collection({obsolete => $obsolete, timeout => $mongo_timeout_ms})
+			->count_documents($query_ref);
 
 		$log->debug("export_csv - documents to export", {count => $count, collection => $collection})
 			if $log->is_debug();
 
-		$cursors{$collection} = get_products_collection({obsolete => $obsolete})->find($query_ref);
+		$cursors{$collection}
+			= get_products_collection({obsolete => $obsolete, timeout => $mongo_timeout_ms})->find($query_ref);
 		$cursors{$collection}->immortal(1);
 	}
 
@@ -239,7 +248,7 @@ sub export_csv ($args_ref) {
 		# and a sort key as the value so that the CSV columns are in the order of $options{import_export_fields_groups}
 		my %populated_fields = ();
 
-		# Loop on collections
+		# Loop on collections
 		foreach my $collection (@collections) {
 
 			while (my $product_ref = $cursors{$collection}->next) {
