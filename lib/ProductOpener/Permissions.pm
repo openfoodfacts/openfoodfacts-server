@@ -125,6 +125,7 @@ sub has_permission ($request_ref, $permission) {
 	}
 	else {
 		$log->error("has_permission - unknown permission", {permission => $permission}) if $log->is_error();
+		die "Unknown permission: $permission";
 	}
 
 	return $has_permission;

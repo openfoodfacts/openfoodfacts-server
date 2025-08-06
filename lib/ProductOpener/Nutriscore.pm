@@ -83,8 +83,6 @@ BEGIN {
 		&compute_nutriscore_score_and_grade
 		&compute_nutriscore_grade
 
-		&get_value_with_one_less_negative_point
-		&get_value_with_one_more_positive_point
 		&get_value_with_one_less_negative_point_2023
 		&get_value_with_one_more_positive_point_2023
 
@@ -115,15 +113,6 @@ sub compute_nutriscore_score_and_grade ($nutriscore_data_ref, $version = "2021")
 		return compute_nutriscore_score_and_grade_2023($nutriscore_data_ref);
 	}
 	return compute_nutriscore_score_and_grade_2021($nutriscore_data_ref);
-}
-
-# methods returning the 2021 version for now, to ease switch, later on.
-sub get_value_with_one_less_negative_point ($nutriscore_data_ref, $nutrient) {
-	return get_value_with_one_less_negative_point_2023($nutriscore_data_ref, $nutrient);
-}
-
-sub get_value_with_one_more_positive_point ($nutriscore_data_ref, $nutrient) {
-	return get_value_with_one_more_positive_point_2023($nutriscore_data_ref, $nutrient);
 }
 
 sub compute_nutriscore_grade ($nutrition_score, $is_beverage, $is_water, $version = "2021") {
@@ -225,87 +214,6 @@ my %points_thresholds_2021 = (
 	proteins => [1.6, 3.2, 4.8, 6.4, 8.0]    # g / 100g
 );
 
-=head2 get_value_with_one_less_negative_point_2021 ( $nutriscore_data_ref, $nutrient )
-
-For a given Nutri-Score nutrient value, return the highest smaller value that would result in less negative points.
-e.g. for a sugars value of 15 (which gives 3 points), return 13.5 (which gives 2 points).
-
-The value corresponds to the highest smaller threshold.
-
-Return undef is the input nutrient value already gives the minimum amount of points (0).
-
-=cut
-
-sub get_value_with_one_less_negative_point_2021 ($nutriscore_data_ref, $nutrient) {
-
-	my $nutrient_threshold_id = $nutrient;
-	if (    (defined $nutriscore_data_ref->{is_beverage})
-		and ($nutriscore_data_ref->{is_beverage})
-		and (defined $points_thresholds_2021{$nutrient_threshold_id . "_beverages"}))
-	{
-		$nutrient_threshold_id .= "_beverages";
-	}
-
-	my $lower_threshold;
-
-	foreach my $threshold (@{$points_thresholds_2021{$nutrient_threshold_id}}) {
-		# The saturated fat ratio table uses the greater or equal sign instead of greater
-		if (   (($nutrient eq "saturated_fat_ratio") and ($nutriscore_data_ref->{$nutrient . "_value"} >= $threshold))
-			or (($nutrient ne "saturated_fat_ratio") and ($nutriscore_data_ref->{$nutrient . "_value"} > $threshold)))
-		{
-			$lower_threshold = $threshold;
-		}
-	}
-
-	return $lower_threshold;
-}
-
-=head2 get_value_with_one_more_positive_point_2021 ( $nutriscore_data_ref, $nutrient )
-
-For a given Nutri-Score nutrient value, return the smallest higher value that would result in more positive points.
-e.g. for a proteins value of 2.0 (which gives 1 point), return 3.3 (which gives 2 points)
-
-The value correspond to the smallest higher threshold + 1 increment so that it strictly greater than the threshold.
-
-Return undef is the input nutrient value already gives the maximum amount of points.
-
-=cut
-
-sub get_value_with_one_more_positive_point_2021 ($nutriscore_data_ref, $nutrient) {
-
-	my $nutrient_threshold_id = $nutrient;
-	if (    (defined $nutriscore_data_ref->{is_beverage})
-		and ($nutriscore_data_ref->{is_beverage})
-		and (defined $points_thresholds_2021{$nutrient_threshold_id . "_beverages"}))
-	{
-		$nutrient_threshold_id .= "_beverages";
-	}
-
-	my $higher_threshold;
-
-	foreach my $threshold (@{$points_thresholds_2021{$nutrient_threshold_id}}) {
-		if ($nutriscore_data_ref->{$nutrient . "_value"} < $threshold) {
-			$higher_threshold = $threshold;
-			last;
-		}
-	}
-
-	# The return value needs to be stricly greater than the threshold
-
-	my $return_value = $higher_threshold;
-
-	if ($return_value) {
-		if ($nutrient eq "fruits_vegetables_nuts_colza_walnut_olive_oils") {
-			$return_value += 1;
-		}
-		else {
-			$return_value += 0.1;
-		}
-	}
-
-	return $return_value;
-}
-
 sub compute_nutriscore_score_2021 ($nutriscore_data_ref) {
 
 	# If the product is in fats and oils category,
@@ -380,10 +288,7 @@ sub compute_nutriscore_score_2021 ($nutriscore_data_ref) {
 		foreach my $threshold (@{$points_thresholds_2021{$nutrient_threshold_id}}) {
 			# The saturated fat ratio table uses the greater or equal sign instead of greater
 			if (
-				(
-						($nutrient eq "saturated_fat_ratio")
-					and ($nutriscore_data_ref->{$nutrient . "_value"} >= $threshold)
-				)
+				(($nutrient eq "saturated_fat_ratio") and ($nutriscore_data_ref->{$nutrient . "_value"} >= $threshold))
 				or (    ($nutrient ne "saturated_fat_ratio")
 					and ($nutriscore_data_ref->{$nutrient . "_value"} > $threshold))
 				)

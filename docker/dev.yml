@@ -20,12 +20,23 @@
     - ./debug:/mnt/podata/debug/
     # sftp folder for the pro platform
     - ./sftp:/mnt/podata/sftp/
-  # Allow the container to connect to the host when using Linux.
-  # This is needed to access other services that are running outside of Docker
-  # e.g. when developing with openfoodfacts-query
   extra_hosts:
-    - "host.docker.internal:host-gateway"
-    - "auth.openfoodfacts.localhost:host-gateway"
+    # Allow the containers to connect to the host when using Linux.
+    # This is needed to access other services that are running outside of Docker
+    # e.g. when developing with openfoodfacts-query
+    - host.docker.internal=host-gateway
+    - auth.openfoodfacts.localhost=host-gateway
+    # Define domains needed by "make update_tests_results"
+    # Used by backend but defined here as extra_hosts cannot be defined in parts
+    - ch-it.openfoodfacts.localhost=127.0.0.1
+    - es-it.openfoodfacts.localhost=127.0.0.1
+    - es.openfoodfacts.localhost=127.0.0.1
+    - fr.openfoodfacts.localhost=127.0.0.1
+    - fr.pro.openfoodfacts.localhost=127.0.0.1
+    - ssl-api.openfoodfacts.localhost=127.0.0.1
+    - world-it.openfoodfacts.localhost=127.0.0.1
+    - world.openfoodfacts.localhost=127.0.0.1
+    - world.pro.openfoodfacts.localhost=127.0.0.1
   networks:
     default:
 
@@ -43,16 +54,6 @@ services:
   backend:
     # For some reason we need to list minion-db-network first otherwise it isn't included
     <<: [*minion-db-network, *backend-conf] 
-    extra_hosts:
-      - ch-it.openfoodfacts.localhost:127.0.0.1
-      - es-it.openfoodfacts.localhost:127.0.0.1
-      - es.openfoodfacts.localhost:127.0.0.1
-      - fr.openfoodfacts.localhost:127.0.0.1
-      - fr.pro.openfoodfacts.localhost:127.0.0.1
-      - ssl-api.openfoodfacts.localhost:127.0.0.1
-      - world-it.openfoodfacts.localhost:127.0.0.1
-      - world.openfoodfacts.localhost:127.0.0.1
-      - world.pro.openfoodfacts.localhost:127.0.0.1
   incron: *backend-conf
   redis-listener: *backend-conf
   minion:

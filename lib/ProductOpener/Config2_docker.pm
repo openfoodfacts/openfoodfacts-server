@@ -45,6 +45,7 @@ BEGIN {
 		$mongodb_host
 		$mongodb_timeout_ms
 		$memd_servers
+		$tesseract_ocr_available
 		$google_cloud_vision_api_key
 		$google_cloud_vision_api_url
 		$crowdin_project_identifier
@@ -56,6 +57,9 @@ BEGIN {
 		$events_username
 		$events_password
 		$redis_url
+		$folksonomy_url
+		$recipe_estimator_url
+		$recipe_estimator_scipy_url
 		$process_global_redis_events
 		%server_options
 		$build_cache_repo
@@ -98,6 +102,7 @@ $mongodb_timeout_ms = 50000;    # config option max_time_ms/maxTimeMS
 
 $memd_servers = ["memcached:11211"];
 
+$tesseract_ocr_available = $ENV{TESSERACT_OCR_AVAILABLE} // 1;    # Set to 0 to disable Tesseract OCR
 $google_cloud_vision_api_key = $ENV{GOOGLE_CLOUD_VISION_API_KEY};
 $google_cloud_vision_api_url = $ENV{GOOGLE_CLOUD_VISION_API_URL} || "https://vision.googleapis.com/v1/images:annotate";
 
@@ -134,6 +139,19 @@ $facets_kp_url = $ENV{FACETS_KP_URL};
 # Set this to your instance of the search service to enable writes to it
 $redis_url = $ENV{REDIS_URL};
 $process_global_redis_events = $ENV{PROCESS_GLOBAL_REDIS_EVENTS};
+
+# Set this to your instance of https://github.com/openfoodfacts/folksonomy_api/ to
+# enable folksonomy features
+$folksonomy_url = $ENV{FOLKSONOMY_URL};
+# recipe-estimator product service
+# To test a locally running recipe-estimator with product opener in a docker dev environment:
+# - run recipe-estimator with `uvicorn recipe_estimator.main:app --reload --host 0.0.0.0`
+# $recipe_estimator_url = "http://host.docker.internal:8000/api/v3/estimate_recipe";
+$recipe_estimator_url = $ENV{RECIPE_ESTIMATOR_URL};
+$recipe_estimator_scipy_url = $ENV{RECIPE_ESTIMATOR_SCIPY_URL};
+
+#$recipe_estimator_url = "http://host.docker.internal:8000/api/v3/estimate_recipe";
+#$recipe_estimator_scipy_url = "http://host.docker.internal:8000/api/v3/estimate_recipe";
 
 %server_options = (
 	private_products => $producers_platform,    # 1 to make products visible only to the owner (producer platform)
