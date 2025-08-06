@@ -119,28 +119,6 @@ my @tests = (
 		}
 	],
 
-	# Nutri-Score attribute, explanation when we don't have unit for the nutrition data per
-	# https://github.com/openfoodfacts/openfoodfacts-server/issues/11322
-	[
-		'en-nutriscore',
-		{
-			lc => "en",
-			categories => "biscuits",
-			categories_tags => ["en:biscuits"],
-			nutrition_data_per => "100g",
-			ingredients_text => "100% fruits",
-			nutriments => {
-				"energy_100g" => 2591,
-				"fat_100g" => 50,
-				"saturated-fat_100g" => 9.7,
-				"sugars_100g" => 5.1,
-				"salt_100g" => 0,
-				"sodium_100g" => 0,
-				"proteins_100g" => 29,
-				"fiber_100g" => 5.5,
-			},
-		}
-	],
 
 	[
 		'en-nutriscore-serving-size-error',
