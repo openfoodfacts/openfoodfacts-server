@@ -627,19 +627,6 @@ $options{opff_export_fields_groups} = [
 	[
 		"opff",
 		[
-			"food_groups",
-			"nova_groups",
-			"nutriscore_grade",
-			"nutriscore_score",
-			"environmental_score_grade",
-			"environmental_score_score",
-			"environmental_score_data.missing_key_data",
-			"environmental_score_data.agribalyse.code",
-			"environmental_score_data.adjustments.origins_of_ingredients.value",
-			"environmental_score_data.adjustments.packaging.value",
-			"environmental_score_data.adjustments.packaging.non_recyclable_and_non_biodegradable_materials",
-			"environmental_score_data.adjustments.production_system.value",
-			"environmental_score_data.adjustments.threatened_species.value",
 		]
 	],
 ];
