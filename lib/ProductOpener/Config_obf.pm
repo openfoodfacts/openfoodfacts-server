@@ -572,28 +572,9 @@ $options{import_export_fields_groups} = [
 	],
 ];
 
-# Secondary fields that are computed by OFF from primary data
+# Secondary fields that are computed by OBF from primary data
 # Those fields are only exported, they are not imported.
-$options{off_export_fields_groups} = [
-	[
-		"off",
-		[
-			"food_groups",
-			"nova_groups",
-			"nutriscore_grade",
-			"nutriscore_score",
-			"environmental_score_grade",
-			"environmental_score_score",
-			"environmental_score_data.missing_key_data",
-			"environmental_score_data.agribalyse.code",
-			"environmental_score_data.adjustments.origins_of_ingredients.value",
-			"environmental_score_data.adjustments.packaging.value",
-			"environmental_score_data.adjustments.packaging.non_recyclable_and_non_biodegradable_materials",
-			"environmental_score_data.adjustments.production_system.value",
-			"environmental_score_data.adjustments.threatened_species.value",
-		]
-	],
-];
+# TODO: populate when calculated indicators are available on OBF
 
 # Used to generate the list of possible product attributes, which is
 # used to display the possible choices for user preferences
