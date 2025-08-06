@@ -623,13 +623,7 @@ $options{import_export_fields_groups} = [
 
 # Secondary fields that are computed by OFF from primary data
 # Those fields are only exported, they are not imported.
-$options{opff_export_fields_groups} = [
-	[
-		"opff",
-		[
-		]
-	],
-];
+# Todo: populate when calculated indicators are available on OPFF
 
 # Used to generate the list of possible product attributes, which is
 # used to display the possible choices for user preferences
