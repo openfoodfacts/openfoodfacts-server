@@ -284,8 +284,8 @@ function display_user_product_preferences(target_selected, target_selection_form
 			+ '</div>'
 		);
 
-$('.edit_button.close_food_preferences:last', target_selection_form).before('<div id="external_panels_prefs"></div>');
-renderExternalPanelsOptinPreferences($(target_selection_form).find('#external_panels_prefs')[0]);
+    $('.edit_button.close_food_preferences:last', target_selection_form).before('<div id="external_panels_prefs"></div>');
+    renderExternalPanelsOptinPreferences($(target_selection_form).find('#external_panels_prefs')[0]);
 
 		activate_preferences_switch_buttons(change);
 
@@ -342,48 +342,4 @@ renderExternalPanelsOptinPreferences($(target_selection_form).find('#external_pa
         $("#user_product_preferences").foundation();
         $(document).foundation('equalizer', 'reflow');
     }
-}
-
-function renderExternalPanelsOptinPreferences(container) {
-    fetch('/resources/files/external-sources.json')
-        .then(r => r.json())
-        .then(sources => {
-            const bySection = {};
-            sources.forEach(panel => {
-                if (!bySection[panel.section]) bySection[panel.section] = [];
-                bySection[panel.section].push(panel);
-            });
-
-            let html = '<div class="card" style="background:#fff;margin-top:2em;margin-bottom:2em;padding:2em 2em 1em 2em;">';
-            html += `<h2 style="margin-bottom:1em;">Panels externes (sources externes)</h2>`;
-
-            Object.entries(bySection).forEach(([sectionId, panels]) => {
-                html += `<div class="external-pref-section" style="margin-bottom:2em;">`;
-                html += `<h3 style="margin-bottom:0.5em;">${prettySectionName(sectionId)}</h3>`;
-                panels.forEach(panel => {
-                    html += `
-                        <div style="margin-bottom:1em;padding:1em;background:#fff7f2;border-radius:10px;">
-                            <label>
-                                <input type="checkbox" class="optin_external_panel"
-                                    data-panel-id="${panel.id}"
-                                    ${getExternalKnowledgePanelsOptin(panel.id) ? "checked" : ""}>
-                                ${panel.description}
-                            </label>
-                        </div>
-                    `;
-                });
-                html += `</div>`;
-            });
-
-            html += '</div>';
-
-            container.innerHTML = html;
-
-            container.querySelectorAll(".optin_external_panel").forEach(cb => {
-                cb.addEventListener("change", function () {
-                    setExternalKnowledgePanelsOptin(this.dataset.panelId, this.checked);
-                    renderExternalKnowledgeSections();
-                });
-            });
-        });
 }
