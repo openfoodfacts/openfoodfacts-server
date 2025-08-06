@@ -815,6 +815,13 @@
          "important" : false,
          "name" : "Carbohydrates",
          "unit" : "g"
+      },
+      {
+         "display_in_edit_form" : false,
+         "id" : "melatonin",
+         "important" : false,
+         "name" : "Melatonin",
+         "unit" : "µg"
       }
    ]
 }

@@ -478,6 +478,8 @@ sub _try_normalize_code_gs1 ($code) {
 
 C<is_valid_code()> checks if the given code is a valid product code.
 
+It checks if the code is defined, if it contains only digits, and if its length is between 4 and 40 digits, excluding leading zeroes.
+
 =head3 Arguments
 
 Product Code: $code
@@ -491,7 +493,10 @@ Boolean value indicating if the code is valid or not.
 sub is_valid_code ($code) {
 	# Return an empty string if $code is undef
 	return '' if !defined $code;
-	return $code =~ /^\d{4,40}$/;
+	my $code_without_leading_zeroes = $code;
+	# Remove leading zeroes
+	$code_without_leading_zeroes =~ s/^0+//;
+	return $code_without_leading_zeroes =~ /^\d{4,40}$/;
 }
 
 =head2 split_code()
