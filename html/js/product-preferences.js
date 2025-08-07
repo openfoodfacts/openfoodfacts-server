@@ -168,6 +168,17 @@ function display_use_preferences_switch_and_edit_preferences_button(target_selec
     $(document).foundation('reflow');
 }
 
+// set a cookie with a name, value and expiration in days
+function setCookie(name, value, days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (encodeURIComponent(value) || "")  + expires + "; path=/";
+}
+
 
 // display_user_product_preferences can be called by other scripts
 /* exported display_user_product_preferences */
@@ -234,6 +245,15 @@ function display_user_product_preferences(target_selected, target_selection_form
                     "<div class='attribute_img'><div style='width:96px;float:left;margin-right:1em;'><img src='" + attribute.icon_url + "' class='match_icons' alt=''></div>" +
                     "<span class='attribute_name'>" + attribute.setting_name + "</span></div><div class='attribute_group'>";
 
+                if (attribute.id == "unwanted_ingredients") {
+                    attribute_group_html += `
+                        <div>
+                            <label for="unwanted_ingredients_tags">Ingredients to avoid:</label>
+                            <input type="text" name="unwanted_ingredients" id="unwanted_ingredients_tags" class="text tagify-me" value="${(localStorage.getItem('unwanted_ingredients_tags') || '')}" data-autocomplete="http://world.openfoodfacts.localhost/api/v3/taxonomy_suggestions?tagtype=ingredients" lang="en"/>
+                        </div>
+                    `;
+                }
+                
                 $.each(preferences, function(key, preference) {
 
                     var checked = '';
@@ -338,5 +358,15 @@ function display_user_product_preferences(target_selected, target_selection_form
 
         $("#user_product_preferences").foundation();
         $(document).foundation('equalizer', 'reflow');
+
+        $(document).on('input', '#unwanted_ingredients_tags', function() {
+            var val = $(this).val();
+            localStorage.setItem('unwanted_ingredients_tags', val);
+            setCookie('unwanted_ingredients_tags', val, 3650); // 10 years
+
+            if (change) {
+                change();
+            }
+        });
     }
 }
