@@ -95,36 +95,6 @@ sub display_field ($product_ref, $field) {
 			|| return "template error: " . $tt->error();
 	}
 
-	# We will split the states field in 2 different fields: "to do" fields and "done" fields
-	elsif ($field eq 'states') {
-
-		my %states = (
-			to_do => [],
-			done => [],
-		);
-		my $state_items = $product_ref->{$field . "_hierarchy"};
-		foreach my $val (@{$state_items}) {
-			if (index($val, 'empty') != -1 or $val =~ /(en:|-)to-be-/sxmn) {
-				push(@{$states{to_do}}, $val);
-			}
-			else {
-				push(@{$states{done}}, $val);
-			}
-		}
-
-		foreach my $status ('done', 'to_do') {
-			$template_data_ref_field->{field} = $status;
-			$template_data_ref_field->{name} = lang($status . "_status");
-			$template_data_ref_field->{value} = display_tags_hierarchy_taxonomy($lc, $field, $states{$status});
-			if ($template_data_ref_field->{value} ne "") {
-				my $html_status = '';
-				process_template('web/common/includes/display_field.tt.html', $template_data_ref_field, \$html_status)
-					|| return "template error: " . $tt->error();
-				$html .= $html_status;
-			}
-		}
-	}
-
 	else {
 
 		my $value = $product_ref->{$field};
