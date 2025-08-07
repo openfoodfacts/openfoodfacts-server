@@ -119,7 +119,6 @@ my @tests = (
 		}
 	],
 
-
 	[
 		'en-nutriscore-serving-size-error',
 		{
