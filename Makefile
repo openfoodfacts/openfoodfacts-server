@@ -183,6 +183,10 @@ restart: run_deps
 	${DOCKER_COMPOSE} restart backend frontend
 	@echo "🥫  started service at http://openfoodfacts.localhost"
 
+stop: stop_deps
+	@echo "🥫 Stopping containers …"
+	${DOCKER_COMPOSE} stop
+
 status: run_deps
 	@echo "🥫 Getting container status …"
 	${DOCKER_COMPOSE} ps
