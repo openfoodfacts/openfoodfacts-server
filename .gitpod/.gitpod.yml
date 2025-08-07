@@ -1,0 +1,14 @@
+# Gitpod Classic configuration for Open Food Facts server
+# See https://www.gitpod.io/docs/config-gitpod-file
+
+image:
+  file: .gitpod/.gitpod.Dockerfile
+
+tasks:
+  - name: Start development environment
+    command: make dev
+
+ports:
+  - port: 80
+    visibility: public
+    onOpen: open-preview
