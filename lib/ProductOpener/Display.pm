@@ -7950,10 +7950,10 @@ JS
 
 	# Take the imgid from the front image, from website language or the product language if it doesn't exist
 	my $imgtype = deep_get($template_data_ref, "front_image", "type");
-	my $imgid = deep_get($product_ref, 'images', 'selected', $imgtype, $lc, 'imgid')
+	my $front_image_id = deep_get($product_ref, 'images', 'selected', $imgtype, $lc, 'imgid')
 		// deep_get($product_ref, 'images', 'selected', $template_data_ref->{front_image}{type},
 		$product_ref->{lc}, 'imgid');
-	$template_data_ref->{imgid} = $imgid if defined $imgid;
+	$template_data_ref->{imgid} = $front_image_id if defined $front_image_id;
 	# On the producers platform, show a link to the public platform
 
 	if ($server_options{producers_platform}) {
