@@ -110,6 +110,8 @@ my @outputs = split("\n", $script_out);
 is(
 	\@outputs,
 	[
+		# progress indicator
+		"0 processed",
 		# removed product_broken_code
 		"Removed broken-123",
 		# product_non_normalized_code : normalized the code
