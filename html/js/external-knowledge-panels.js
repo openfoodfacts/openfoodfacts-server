@@ -144,7 +144,8 @@ async function renderExternalKnowledgeSections() {
             const matchCountry = !f.countries || !f.countries.length || f.countries.some(c => country.includes(c));
             const matchLang = !f.languages || !f.languages.length || f.languages.some(l => language.includes(l));
             const matchType = !f.product_types || !f.product_types.length || f.product_types.some(pt => product_type.includes(pt));
-            return matchCat && matchCountry && matchLang && matchType && getExternalKnowledgePanelsOptin(section.sectionId, panel.id);
+            const scopeOk = !panel.scope || panel.scope !== "moderators" || window.isModerator === 1;
+            return matchCat && matchCountry && matchLang && matchType && scopeOk && getExternalKnowledgePanelsOptin(section.sectionId, panel.id);
         });
         if (!visiblePanels.length) return;
         const sectionDiv = document.createElement("section");
@@ -236,9 +237,14 @@ function renderExternalPanelsOptinPreferences(container) {
     let html = '<div class="card" style="background:#fff;margin-top:2em;margin-bottom:2em;padding:2em 2em 1em 2em;">';
     html += `<h2 style="margin-bottom:1em;">External Knowledge Panels (BETA)</h2>`;
     allPanelsBySection.forEach(section => {
+        const visiblePanels = section.panels.filter(
+            panel => !panel.scope || panel.scope !== "moderators" || window.isModerator === 1
+        );
+        if (!visiblePanels.length) return;
+
         html += `<div class="external-pref-section" style="margin-bottom:2em;">`;
         html += `<h3 style="margin-bottom:0.5em;">${section.label}</h3>`;
-        section.panels.forEach(panel => {
+        visiblePanels.forEach(panel => {
             html += `
                 <div style="margin-bottom:1em;padding:1em;background:#fff7f2;border-radius:10px;">
                     <label>
