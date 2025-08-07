@@ -1,36 +1,34 @@
 {
     "nutrition": {
-        "nutrient_set_preferred": {
+        "aggregated_set": {
             "preparation": "as_sold", 
-            "per": "100g", 
-            "per_quantity": "100", 
-            "per_unit": "g", 
+            "per": "100g",
             "nutrients": {
                 "sodium": {
-                    "value_string": "2", 
                     "value": 2, 
                     "unit": "g",
                     "modifier": "<=", 
                     "source": "manufacturer",
-                    "source_per": "100g"
+                    "source_per": "100g",
+                    "source_index": 3
                 },
                 "sugars": {
-                    "value_string": "7.6",
                     "value": 7.6,
                     "unit": "g",
                     "source": "manufacturer",
-                    "source_per": "serving"
+                    "source_per": "serving",
+                    "source_index": 2
                 },
                 "protein": {
-                    "value_string": "0",
                     "value": 0,
                     "unit": "g",
                     "source": "packaging",
-                    "source_per": "100g"
+                    "source_per": "100g",
+                    "source_index": 1
                 }
             }
         },
-        "nutrient_sets": [
+        "input_sets": [
             {
                 "preparation": "as_sold", 
                 "per": "serving", 
