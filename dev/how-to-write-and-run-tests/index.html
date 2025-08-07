@@ -1630,6 +1630,30 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#some-known-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Some known errors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Some known errors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test-stops-with-error-137" class="md-nav__link">
+    <span class="md-ellipsis">
+      test stops with Error 137
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1949,6 +1973,30 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#some-known-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Some known errors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Some known errors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test-stops-with-error-137" class="md-nav__link">
+    <span class="md-ellipsis">
+      test stops with Error 137
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1991,7 +2039,7 @@
 See below on how you can use this mechanism and how to regenerate those files in case your modification affect them
 (for example if you change the HTML of product pages).</p>
 <h2 id="integration-with-docker-compose">Integration with docker compose<a class="headerlink" href="#integration-with-docker-compose" title="Permanent link">#</a></h2>
-<p>Using Makefile targets, tests are run </p>
+<p>Using Makefile targets, tests are run</p>
 <ul>
 <li>with a specific `COMPOSE_PROJECT_NAME° to avoid crashing your development data while running tests (as the project name <a href="https://docs.docker.com/compose/environment-variables/envvars/#compose_project_name">changes container, network and volumes names</a>)</li>
 <li>with a specific exposed port for Mongodb, to avoid clashes with the dev instance.</li>
@@ -2009,7 +2057,7 @@ See below on how you can use this mechanism and how to regenerate those files in
 <p>and other modules with Test in their name!</p>
 <h3 id="using-json-files-to-save-expected-results-of-tests">Using JSON files to save expected results of tests<a class="headerlink" href="#using-json-files-to-save-expected-results-of-tests" title="Permanent link">#</a></h3>
 <p>If the output of the function you are testing is small (e.g. a function that returns one single value), the expected return value can be stored in the .t test file.</p>
-<p>If your outputs are complex and/or large (e.g. for unit tests of functions that return a complex structure, or for API integration tests that return a JSON response), you can use json files to store the expected result of each test. </p>
+<p>If your outputs are complex and/or large (e.g. for unit tests of functions that return a complex structure, or for API integration tests that return a JSON response), you can use json files to store the expected result of each test.</p>
 <p><a href="https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Test.html">Test.pm</a> contains helper functions to compare results to expected results and to update the expected results. For instance if your function returns a reference $results_ref to a complex object (like a product):</p>
 <p><code>compare_to_expected_results($results_ref, "$expected_result_dir/$testid.json", $update_expected_results);</code></p>
 <p>After writing the test, you need to use <code>init_expected_results</code> (see below) once to create a JSON file that contains the resulting object.</p>
@@ -2056,6 +2104,19 @@ You can also use a "TEST_CMD" argument with the make target:</p>
 <blockquote>
 <p>:pencil: Note: With this method, in integration tests that issue requests to the server, you won't be able to run the debugger inside the server code, only in the test.</p>
 </blockquote>
+<h2 id="some-known-errors">Some known errors<a class="headerlink" href="#some-known-errors" title="Permanent link">#</a></h2>
+<h3 id="test-stops-with-error-137">test stops with Error 137<a class="headerlink" href="#test-stops-with-error-137" title="Permanent link">#</a></h3>
+<p>Sometimes you may get a test failing with no output but <em>error 137</em>.
+It may simply means that the backend container was stopped.
+Most of the time this is due to a fatal error that makes apache ends.</p>
+<p>Beware that you may also have a completely unrelated message when running with the debugger,
+mostly due to the fact that it is an abrupt kill of the process.
+For example it can be a misleading message from <code>SSLeay.pm</code>
+(because your test stop while waiting for the apache server to be ready)</p>
+<p>The right reflex is to look at last logs in logs/apache (<code>ls -ltr logs/apache</code>)
+and understand what is missing.</p>
+<p>It might be as simple as a  <code>make build_taxonomies_test</code> or <code>make build_lang_test</code> is needed
+(it is not run automatically for the single test targets)</p>
 
 
 
