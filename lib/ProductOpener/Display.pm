@@ -7949,7 +7949,8 @@ JS
 	$template_data_ref->{front_image} = data_to_display_image($product_ref, "front", $lc);
 
 	# Take the imgid from the front image, from website language or the product language if it doesn't exist
-	my $imgid = deep_get($product_ref, 'images', 'selected', $template_data_ref->{front_image}{type}, $lc, 'imgid')
+	my $imgtype = deep_get($template_data_ref, "front_image", "type");
+	my $imgid = deep_get($product_ref, 'images', 'selected', $imgtype, $lc, 'imgid')
 		// deep_get($product_ref, 'images', 'selected', $template_data_ref->{front_image}{type},
 		$product_ref->{lc}, 'imgid');
 	$template_data_ref->{imgid} = $imgid if defined $imgid;
