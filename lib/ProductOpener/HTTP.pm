@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2025 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -54,7 +54,8 @@ BEGIN {
 		&single_param
 		&request_param
 		&get_http_request_header
-	);    #the fucntions which are called outside this file
+		&create_user_agent
+	);    #the functions which are called outside this file
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -65,9 +66,11 @@ use Apache2::RequestRec();
 use Encode;
 use CGI qw(:cgi :cgi-lib :form escapeHTML charset);
 use Data::DeepAccess qw(deep_get);
+use LWP::UserAgent;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::RequestStats qw(:all);
+use ProductOpener::Version qw/$version/;
 
 =head1 FUNCTIONS
 
@@ -273,6 +276,10 @@ sub redirect_to_url ($request_ref, $status_code, $redirect_url) {
 
 	my $r = Apache2::RequestUtil->request();
 
+	# we need CORS headers even on redirect
+	# Or some browser will prevent the redirect to happen
+	write_cors_headers();
+
 	$r->headers_out->set(Location => $redirect_url);
 
 	if (defined $request_ref->{cookie}) {
@@ -336,6 +343,44 @@ sub request_param ($request_ref, $param_name) {
 	else {
 		return deep_get($request_ref, "body_json", $param_name);
 	}
+}
+
+=head2 create_user_agent([$args])
+
+Creates a standardized LWP::UserAgent
+
+=head3 Parameters
+
+=over 4
+
+=item * C<[$args]> - (Optional) Optional constructor arguments for LWP::UserAgent->new()
+
+=back
+
+=head3 Behavior
+
+Creates a standardized HTTP client with correct user agent.
+
+=head3 Return value
+
+A new LWP::UserAgent instance
+
+=cut
+
+sub create_user_agent {
+	my (%cnf) = @_;
+
+	my $ua;
+	if (%cnf) {
+		$ua = LWP::UserAgent->new(%cnf);
+	}
+	else {
+		$ua = LWP::UserAgent->new();
+	}
+
+	$ua->agent("Mozilla/5.0 (compatible; Open Food Facts/$version; +https://world.$server_domain)");
+
+	return $ua;
 }
 
 1;

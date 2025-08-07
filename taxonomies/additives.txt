@@ -1511,7 +1511,7 @@ bg: E150, Карамел
 ca: E150, Caramel
 cs: E150, karamel
 da: E150, Karamel
-de: E150, Karamell
+de: E150, Karamell, Caramel
 el: E150, καραμέλα
 eo: E150, karamelo
 es: E150, Caramelo, Caramelina
@@ -3213,7 +3213,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q27145212
 
-en: E164, saffron
+en: E164, saffron, Gardenia Yellow
 xx: E164
 af: E164, saffraan
 an: E164, zafrán
@@ -3296,6 +3296,7 @@ ciqual_food_name:fr: Safran
 # sco:E164, saffron
 # yue:E164, 藏紅花
 e_number:en: 164
+mandatory_additive_class:en: en:colour
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q25434
@@ -7198,7 +7199,7 @@ wikidata:en: Q56410901
 
 #comment:en:E304 is the old version of E304(i)
 
-en: E304, Fatty acid esters of ascorbic acid
+en: E304, Fatty acid esters of ascorbic acid, ascorbic acid esters of fatty acid
 xx: E304
 ar: إسترات الأحماض الدهنية لحمض الأسكوربيك
 az: Askorbin turşusunun yağ turşusu esterləri
@@ -7212,7 +7213,7 @@ es: ésteres de ácidos grasos del ácido ascórbico
 et: Askorbiinhappe rasvhappeestrid
 eu: Azido askorbikoaren gantz-azidoen esterrak
 fa: استرهای اسید چرب اسید آسکوربیک
-fi: Askorbiinihapon rasvahappoesterit
+fi: askorbiinihapon rasvahappoesterit
 fr: Acide palmityle-6-L-ascorbique, esters d'acides gras de l'acide ascorbique
 ga: ইস্টেরí aicídí sailleacha d'aigéad ascorbic
 he: אסטרים של חומצות שומן של חומצה אסקורבית
@@ -7234,7 +7235,7 @@ ru: Эфиры жирных кислот аскорбиновой кислоты
 sk: Estery mastných kyselín kyseliny askorbovej
 sl: Estri maščobnih kislin askorbinske kisline
 sr: Естри масних киселина аскорбинске киселине
-sv: Fettsyraestrar av askorbinsyra
+sv: fettsyraestrar av askorbinsyra, askorbinsyraestrar av fettsyror
 th: เอสเทอร์ของกรดไขมันของกรดแอสคอร์บิก
 tr: Askorbik asidin yağ asidi esterleri
 uk: Ефіри жирних кислот аскорбінової кислоти
@@ -7250,7 +7251,6 @@ from_palm_oil:en: maybe
 vegan:en: maybe
 vegetarian:en: maybe
 wikidata:en: Q43303953
-
 
 < en:E304
 en: E304(i), Ascorbyl palmitate, L-Ascorbyl Palmitate
@@ -9765,7 +9765,7 @@ bg: E341(ii), Дикалциев фосфат, Двуосновен калцие
 bs: E341(ii), Dikalcij-fosfat
 ca: E341(ii), Fosfat de dicalci, Hidrogenfosfat de calci
 cs: E341(ii), Hydrogenfosforečnan vápenatý
-da: E341(ii), Dicalciumphosphat, Dibasisk calciumphosphat
+da: E341(ii), dicalciumfosfat, dicalciumphosphat, dibasisk calciumphosphat
 de: E341(ii), Dicalciumphosphat, zweibasiges Calciumphosphat
 el: E341(ii), Οξινο φωσφορικο ασβεστιο, Διβασικό φωσφορικό ασβέστιο
 es: E341(ii), Fosfato dicálcico, Fosfato dibásico cálcico, fosfato dicálcico, Calcio (di) fosfato, calcio fosfato dibásico, calcio hidrógeno orto-fosfato, calcio fosfato dibásico, calcio secundario fosfato, calcio hidrógeno fosfato, calcio hidrógeno monofosfato
@@ -15162,6 +15162,11 @@ wikipedia:en: https://en.wikipedia.org/wiki/Mono-_and_diglycerides_of_fatty_acid
 # mono—and-diglycerides-of-fatty-acids has 2139 products in 19 languages @2018-11-12
 # fr:diglycérides-d’acide-gras has 2301 products in 11 languages @2018-11-12
 
+< en:E471
+en: mono- and diglycerides of vegetable fatty acids
+sv: mono- och diglycerider av vegetabiliska fettsyror
+vegan:en: maybe
+vegetarian:en: yes
 
 en: E472, acid esters of mono- and diglycerides of fatty acids
 xx: E472
@@ -17555,13 +17560,15 @@ sk: E514, sirany sodné
 sl: E514, Natrijevi sulfati
 sq: E514, Sulfatet e natriumit
 sr: E514, Натријум сулфати
-sv: E514, Natriumsulfater
+sv: E514, natriumsulfater
 th: E514, โซเดียมซัลเฟต
 tr: E514, Sodyum sülfatlar
 uk: E514, Сульфати натрію
 vi: E514, Natri sulfat
 zh: E514, 硫酸钠
 e_number:en: 514
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q211737
 
 < en:E514
@@ -17588,7 +17595,7 @@ pt: E514(i), Sulfato de sódio, Sal de Glauber
 ro: E514(i), Sulfat de sodiu
 sk: E514(i), Síran sodný, siran sodný
 sl: E514(i), Natrijev sulfat
-sv: E514(i), Natriumsulfat, Glaubersalt
+sv: E514(i), natriumsulfat, Glaubersalt
 e_number:en: 514
 wikidata:en: Q211737
 
@@ -17615,7 +17622,7 @@ pt: E514(ii), Hidrogenossulfato de sódio, Sulfato ácido de sódio
 ro: E514(ii), Bisulfat de sodiu, Sulfat acid de sodiu
 sk: E514(ii), Hydrogensíran sodný, Kyslý síran sodný, bisulfát sodný
 sl: E514(ii), Natrijev hidrogensulfat, kisli natrijev sulfat, natrijev bisulfat
-sv: E514(ii), Natriumvätesulfat, Surt natriumsulfat
+sv: E514(ii), natriumvätesulfat, surt natriumsulfat
 e_number:en: 514
 wikidata:en: Q211737
 
@@ -26490,6 +26497,12 @@ uk: Йодид калію
 zh: 碘化钾
 wikidata:en: Q121874
 wikipedia:en: https://en.wikipedia.org/wiki/Potassium_iodide
+
+en: methylsulfonylmethane, dimethyl sulfone, methyl sulfone
+xx: MSM, OptiMSM
+sv: metylsulfonylmetan
+wikidata:en: Q423842
+wikipedia:en: https://en.wikipedia.org/wiki/Methylsulfonylmethane
 
 # Japanese additives can be listed only with their type (e.g. amino acids), without the specific additive name
 

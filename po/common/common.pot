@@ -365,10 +365,6 @@ msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
 msgstr "Producers Admin manual"
 
-msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-
 msgctxt "bottom_title"
 msgid "Donate to support our work"
 msgstr ""
@@ -666,6 +662,14 @@ msgstr "Account parameters"
 msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
 msgstr "Your account parameters have been changed."
+
+msgctxt "edit_user_preferences"
+msgid "Preferences"
+msgstr ""
+
+msgctxt "edit_user_preferences_result"
+msgid "Your preferences have been changed."
+msgstr ""
 
 msgctxt "editors_p"
 msgid "editors"
@@ -2770,6 +2774,10 @@ msgstr "Some of the data and/or photos for this product come from those sources:
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
+msgstr ""
+
+msgctxt "title_separator"
+msgid " - "
 msgstr ""
 
 msgctxt "recent_changes"
@@ -5020,6 +5028,10 @@ msgctxt "number_of_members"
 msgid "Number of Members"
 msgstr "Number of Members"
 
+msgctxt "serial_no"
+msgid "S.No"
+msgstr "S.No"
+
 msgctxt "contact_form"
 msgid "Contact form"
 msgstr "Contact form"
@@ -6647,6 +6659,38 @@ msgctxt "api_message_unrecognized_value"
 msgid "Unrecognized value"
 msgstr "Unrecognized value"
 
+msgctxt "api_message_image_already_uploaded"
+msgid "Image already uploaded"
+msgstr "Image already uploaded"
+
+msgctxt "api_message_image_too_small"
+msgid "Image too small"
+msgstr "Image too small"
+
+msgctxt "api_result_image_uploaded"
+msgid "Image uploaded"
+msgstr "Image uploaded"
+
+msgctxt "api_result_image_not_uploaded"
+msgid "Image not uploaded"
+msgstr "Image not uploaded"
+
+msgctxt "api_result_image_selected"
+msgid "Image selected"
+msgstr "Image selected"
+
+msgctxt "api_result_image_not_selected"
+msgid "Image not selected"
+msgstr "Image not selected"
+
+msgctxt "api_result_image_deleted"
+msgid "Image deleted"
+msgstr "Image deleted"
+
+msgctxt "api_result_image_not_deleted"
+msgid "Image not deleted"
+msgstr "Image not deleted"
+
 msgctxt "api_impact_none"
 msgid "None"
 msgstr "None"
@@ -7111,6 +7155,11 @@ msgctxt "skip_to_content"
 msgid "Skip to Content"
 msgstr "Skip to Content"
 
+msgctxt "oidc_signin_no_cookie"
+msgid "You need to enable cookies to sign in."
+msgstr "You need to enable cookies to sign in."
+
+
 msgctxt "cant_delete_main_contact"
 msgid "You cannot remove the main contact. Change it first."
 msgstr "You cannot remove the main contact. Change it first."
@@ -7495,7 +7544,34 @@ msgctxt "missing_serving_size_value_and_or_unit"
 msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
 msgstr "We are missing the serving size value and/or unit to calculate the Nutri-Score"
 
+msgctxt "bottom_content_split"
+msgid  "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+
+msgctxt "bottom_content_split_with_lilo"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+
+msgctxt "lilo_search_engine"
+msgid "Lilo search engine"
+msgstr "Lilo search engine"
+
 msgctxt "robots_not_served_here"
 msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
 msgstr ""
 
+msgctxt "knowledge_panels_ingredients_added_sugars_title"
+msgid "Contains added sugars"
+msgstr "Contains added sugars"
+
+msgctxt "knowledge_panels_ingredients_added_sugars_subtitle"
+msgid "Added sugars:"
+msgstr "Added sugars:"
+
+msgctxt "estimated_quantity_of_added_sugars"
+msgid "Estimated quantity of added sugars in ingredients"
+msgstr "Estimated quantity of added sugars in ingredients"
+
+msgctxt "search_products_in_same_category_without_added_sugars"
+msgid "Search for products in the same category without added sugars:"
+msgstr "Search for products in the same category without added sugars:"
