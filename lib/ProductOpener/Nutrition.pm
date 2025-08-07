@@ -78,12 +78,10 @@ sub generate_nutrient_set_preferred_from_sets ($nutrient_sets_ref) {
 		return;
 	}
 	my @nutrient_sets = @$nutrient_sets_ref;
-
 	my $nutrient_set_preferred_ref = {};
 
 	if (@nutrient_sets) {
 		@nutrient_sets = sort_sets_by_priority(@nutrient_sets);
-
 		if (%{$nutrient_sets[0]}) {
 			# set preparation, per, per_quantity and per_unit of preferred set as values of the nutrient_set with the highest priority
 			$nutrient_set_preferred_ref->{preparation} = $nutrient_sets[0]{preparation};
