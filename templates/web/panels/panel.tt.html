@@ -185,9 +185,11 @@
                 [% image_type = image_parts.0 %]
                 [% image_lc = image_parts.1 %]
                 [% image_data = product.images.selected.${image_type}.${image_lc} || product.images.selected.${image_type}.${product.lc} %]
+                [% IF image_data && image_data.imgid %]
                 <div class="large-4 small-12 columns">
                     [% INCLUDE web/panels/image.tt.html code = product.code image = panel_group_element.image imgid = image_data.imgid nutripatrol_url = nutripatrol_url %]
                 </div>
+                [% END %]
             </div>
         [% END %]                
         
