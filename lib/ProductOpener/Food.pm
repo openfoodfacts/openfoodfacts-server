@@ -1520,7 +1520,7 @@ sub compute_nutriscore_2023_fruits_vegetables_legumes ($product_ref, $prepared) 
 	if (defined $nutriscore_category_override_for_fruits_vegetables_legumes) {
 		# We are close to certain that those category overrides (either 0 or 100) are correct,
 		# so we do not add a nutrition_score_warning_fruits_vegetables_legumes_from_category warning
-		add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-legumes-from-category");
+		add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-legumes-from-category-override");
 		my $category = $category_id;
 		$category =~ s/:/-/;
 		add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-legumes-from-category-$category");
@@ -1711,7 +1711,9 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 			is_cheese => is_cheese_for_nutrition_score($product_ref),
 			is_fat_oil_nuts_seeds => $is_fat_oil_nuts_seeds,
 			is_red_meat_product => is_red_meat_product_for_nutrition_score($product_ref),
-
+			fruits_vegetables_legumes_from_category_override => has_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-legumes-from-category-override"),
+			fruits_vegetables_legumes_from_category => has_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-legumes-from-category"),
+			fruits_vegetables_legumes_estimate_from_ingredients => has_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients"),
 			energy => $nutriments_ref->{"energy" . $prepared . "_100g"},
 			sugars => $nutriments_ref->{"sugars" . $prepared . "_100g"},
 			saturated_fat => $nutriments_ref->{"saturated-fat" . $prepared . "_100g"},
