@@ -9367,15 +9367,22 @@ sub data_to_display_nutriscore ($product_ref, $version = "2021") {
 				}
 				$missing_nutrients =~ s/, $//;
 
+				my $missing_nutrition_mgs_details
+					= has_tag($product_ref, "misc", "en:nutriscore-missing-prepared-nutrition-data")
+					? "nutriscore_missing_prepared_nutrition_data_details"
+					: "nutriscore_missing_nutrition_data_details";
 				push @nutriscore_warnings,
 					  lang("nutriscore_missing_nutrition_data") . "<p>"
-					. lang("nutriscore_missing_nutrition_data_details") . " <b>"
+					. lang($missing_nutrition_mgs_details) . " <b>"
 					. $missing_nutrients . "</b>" . "</p>";
 
 				if (not has_tag($product_ref, "misc", "en:nutriscore-missing-category")) {
 					$result_data_ref->{nutriscore_unknown_reason} = "missing_nutrition_data";
-					$result_data_ref->{nutriscore_unknown_reason_short}
-						= lang("nutriscore_missing_nutrition_data_short");
+					my $msg
+						= has_tag($product_ref, "misc", "en:nutriscore-missing-prepared-nutrition-data")
+						? "nutriscore_missing_prepared_nutrition_data_short"
+						: "nutriscore_missing_nutrition_data_short";
+					$result_data_ref->{nutriscore_unknown_reason_short} = lang($msg);
 				}
 				else {
 					$result_data_ref->{nutriscore_unknown_reason} = "missing_category_and_nutrition_data";
