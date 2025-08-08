@@ -2995,7 +2995,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n\n    <p>This product is not considered a beverage for the calculation of the Nutri-Score.</p>\n\n\n\n\n\n<p>Points for proteins are counted because the negative points are less than 11.</p>\n\n<p>\n  <strong>Nutritional score: 7</strong>\n  (9 - 2)\n</p>\n<p><strong>Nutri-Score: C</strong></p>                \n                "
+                     "html" : "\n\n    <p>This product is not considered a beverage for the calculation of the Nutri-Score.</p>\n\n\n\n\n\n<p>Points for proteins are counted because the negative points are less than 11.</p>\n\n\n\n  <p>Percent of fruits, vegetables, legumes estimated from category  (  %)</p>\n\n\n<p>\n  <strong>Nutritional score: 7</strong>\n  (9 - 2)\n</p>\n<p><strong>Nutri-Score: C</strong></p>                \n                "
                   }
                }
             ],
@@ -3791,6 +3791,9 @@
                },
                "count_proteins" : 1,
                "count_proteins_reason" : "negative_points_less_than_11",
+               "fruits_vegetables_legumes_estimate_from_ingredients" : 1,
+               "fruits_vegetables_legumes_from_category" : 0,
+               "fruits_vegetables_legumes_from_category_override" : 0,
                "is_beverage" : 0,
                "is_cheese" : 0,
                "is_fat_oil_nuts_seeds" : 0,
@@ -3877,6 +3880,9 @@
          },
          "count_proteins" : 1,
          "count_proteins_reason" : "negative_points_less_than_11",
+         "fruits_vegetables_legumes_estimate_from_ingredients" : 1,
+         "fruits_vegetables_legumes_from_category" : 0,
+         "fruits_vegetables_legumes_from_category_override" : 0,
          "grade" : "c",
          "is_beverage" : 0,
          "is_cheese" : 0,
