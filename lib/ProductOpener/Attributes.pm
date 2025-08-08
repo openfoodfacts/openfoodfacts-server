@@ -1207,7 +1207,12 @@ sub compute_attribute_nutrient_level ($product_ref, $target_lc, $level, $nid) {
 				display_taxonomy_tag($target_lc, "nutrients", "zz:$nid"),
 				lang_in_other_lc($target_lc, "unknown_quantity")
 			);
-			$attribute_ref->{missing} = lang_in_other_lc($target_lc, "missing_nutrition_facts");
+			if (has_tag($product_ref, "misc", "en:nutriscore-missing-prepared-nutrition-data")) {
+				$attribute_ref->{missing} = lang_in_other_lc($target_lc, "missing_nutrition_facts_prepared");
+			}
+			else {
+				$attribute_ref->{missing} = lang_in_other_lc($target_lc, "missing_nutrition_facts");
+			}
 			$attribute_ref->{panel_id} = "nutrition_facts_table";
 		}
 	}
