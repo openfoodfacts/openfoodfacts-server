@@ -2,17 +2,17 @@
     "nutrition": {
         "aggregated_set": {
             "preparation": "as_sold", 
-            "per": "serving",
+            "per": "100g",
             "nutrients": {
                 "sodium": {
-                    "value": 1.25, 
+                    "value": 2.5, 
                     "unit": "g",
                     "source": "packaging",
                     "source_per": "100g",
                     "source_index": 0
                 },
                 "sugars": {
-                    "value": 6.3, 
+                    "value": 12.6, 
                     "unit": "g",
                     "source": "manufacturer",
                     "source_per": "serving",

@@ -50,7 +50,7 @@ use vars @EXPORT_OK;
 use Clone qw/clone/;
 
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Units qw/unit_to_kcal unit_to_kj unit_to_g g_to_unit/;
+use ProductOpener::Units qw/unit_to_kcal unit_to_kj unit_to_g g_to_unit convert_to_standard_unit/;
 
 =head1 FUNCTIONS
 
@@ -79,20 +79,28 @@ sub generate_nutrient_aggregated_set_from_sets ($input_sets_ref) {
 	}
 	my @input_sets = map {{index => $_, set => $input_sets_ref->[$_]}} 0 .. $#$input_sets_ref;
 
-	my $aggregated_nutrient_set = {};
+	my $aggregated_nutrient_set_ref = {};
 
 	if (@input_sets) {
 		@input_sets = sort_sets_by_priority(@input_sets);
 
 		if (%{$input_sets[0]} and %{$input_sets[0]{set}}) {
 			# set preparation and per of aggregated set as values of the nutrient_set with the highest priority
-			$aggregated_nutrient_set->{preparation} = $input_sets[0]{set}{preparation};
-			$aggregated_nutrient_set->{per} = $input_sets[0]{set}{per};
+			$aggregated_nutrient_set_ref->{preparation} = $input_sets[0]{set}{preparation};
+
+			# set per only if given per unit can be converted to g or to ml
+			my $standard_unit = convert_to_standard_unit($input_sets[0]{set}{per_unit});
+			if ($standard_unit eq "g") {
+				$aggregated_nutrient_set_ref->{per} = "100g";
+			}
+			elsif ($standard_unit eq "ml") {
+				$aggregated_nutrient_set_ref->{per} = "100ml";
+			}
 		}
 
-		set_nutrient_values($aggregated_nutrient_set, @input_sets);
+		set_nutrient_values($aggregated_nutrient_set_ref, @input_sets);
 	}
-	return $aggregated_nutrient_set;
+	return $aggregated_nutrient_set_ref;
 }
 
 =head2 sort_sets_by_priority
@@ -170,7 +178,7 @@ If the preparation value in a set is different from the one in the aggregated se
 
 =head3 Arguments
 
-=head4 $aggregated_nutrient_set
+=head4 $aggregated_nutrient_set_ref
 
 The generated aggregated nutrient set.
 
@@ -180,35 +188,35 @@ The sorted array of nutrient set hashes used to generate the aggregated set.
 
 =cut
 
-sub set_nutrient_values ($aggregated_nutrient_set, @input_sets) {
+sub set_nutrient_values ($aggregated_nutrient_set_ref, @input_sets) {
 	foreach my $element_ref (@input_sets) {
 		my $nutrient_set_ref = $element_ref->{set};
 		my $index = $element_ref->{index};
 
 		# set nutrient values from set if preparation state is the same as in the aggregated set and if set has nutrients
 		if (    defined $nutrient_set_ref->{preparation}
-			and $nutrient_set_ref->{preparation} eq $aggregated_nutrient_set->{preparation}
+			and $nutrient_set_ref->{preparation} eq $aggregated_nutrient_set_ref->{preparation}
 			and exists $nutrient_set_ref->{nutrients}
 			and ref $nutrient_set_ref->{nutrients} eq 'HASH')
 		{
 			foreach my $nutrient (keys %{$nutrient_set_ref->{nutrients}}) {
 				# for each nutrient, set its values if values are not already present in aggregated set
 				# (ie if nutrient not present in other set with highest priority)
-				if (!exists $aggregated_nutrient_set->{nutrients}{$nutrient}) {
-					$aggregated_nutrient_set->{nutrients}{$nutrient}
+				if (!exists $aggregated_nutrient_set_ref->{nutrients}{$nutrient}) {
+					$aggregated_nutrient_set_ref->{nutrients}{$nutrient}
 						= clone($nutrient_set_ref->{nutrients}{$nutrient});
-					delete $aggregated_nutrient_set->{nutrients}{$nutrient}{value_string};
-					convert_nutrient_to_standard_unit($aggregated_nutrient_set->{nutrients}{$nutrient}, $nutrient);
-					convert_nutrient_to_wanted_per(
-						$aggregated_nutrient_set->{nutrients}{$nutrient},
+					delete $aggregated_nutrient_set_ref->{nutrients}{$nutrient}{value_string};
+					convert_nutrient_to_standard_unit($aggregated_nutrient_set_ref->{nutrients}{$nutrient}, $nutrient);
+					convert_nutrient_to_100g(
+						$aggregated_nutrient_set_ref->{nutrients}{$nutrient},
+						$nutrient_set_ref->{per},
 						$nutrient_set_ref->{per_quantity},
 						$nutrient_set_ref->{per_unit},
-						$input_sets[0]->{set}{per_quantity},
-						$input_sets[0]->{set}{per_unit}
+						$aggregated_nutrient_set_ref->{per}
 					);
-					$aggregated_nutrient_set->{nutrients}{$nutrient}{source} = $nutrient_set_ref->{source};
-					$aggregated_nutrient_set->{nutrients}{$nutrient}{source_per} = $nutrient_set_ref->{per};
-					$aggregated_nutrient_set->{nutrients}{$nutrient}{source_index} = $index;
+					$aggregated_nutrient_set_ref->{nutrients}{$nutrient}{source} = $nutrient_set_ref->{source};
+					$aggregated_nutrient_set_ref->{nutrients}{$nutrient}{source_per} = $nutrient_set_ref->{per};
+					$aggregated_nutrient_set_ref->{nutrients}{$nutrient}{source_index} = $index;
 				}
 			}
 		}
@@ -254,7 +262,7 @@ sub convert_nutrient_to_standard_unit ($nutrient_ref, $nutrient_name) {
 	return;
 }
 
-=head2 convert_nutrient_to_wanted_per
+=head2 convert_nutrient_to_100g
 
 Converts the value of the amount of the nutrient based on the wanted per reference if necessary.
 
@@ -282,18 +290,20 @@ Wanted per unit of the nutrient
 
 =cut
 
-sub convert_nutrient_to_wanted_per ($nutrient_ref, $original_per_quantity, $original_per_unit, $wanted_per_quantity,
-	$wanted_per_unit)
-{
-	if ($original_per_quantity != $wanted_per_quantity) {
+sub convert_nutrient_to_100g ($nutrient_ref, $original_per, $original_per_quantity, $original_per_unit, $wanted_per) {
+	if ($original_per ne $wanted_per) {
 		my $original_value = $nutrient_ref->{value};
+		my $wanted_per_unit = $wanted_per eq "100g" ? "g" : "ml";
 
-		# set value of nutrient according to wanted per amount + unit
+		# set value of nutrient according to wanted per unit
 		my $per_conversion_factor = g_to_unit(unit_to_g($original_per_quantity, $original_per_unit), $wanted_per_unit);
-		$nutrient_ref->{value} = ($original_value * $wanted_per_quantity) / $per_conversion_factor;
+		$nutrient_ref->{value} = ($original_value * 100) / $per_conversion_factor;
 
 	}
 	return;
 }
 
 1;
+
+#---------> + what about the energy_computed -> do i just add it to the nutrients of the aggregated sets or do i create another field for this ?
+#---------> + we need to check if values are in prepared or as_sold (check field go see fields to check in notes)
