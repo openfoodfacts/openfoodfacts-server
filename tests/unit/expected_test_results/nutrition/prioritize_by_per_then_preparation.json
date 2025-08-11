@@ -1,48 +1,48 @@
 {
-    "nutrition": {
-        "aggregated_set": {
-            "preparation": "as_sold", 
-            "per": "100g",
+   "nutrition": {
+      "aggregated_set": {
+         "nutrients": {
+            "sugars": {
+               "source": "packaging",
+               "source_index": 1,
+               "source_per": "100g",
+               "unit": "g",
+               "value": 5.2
+            }
+         },
+         "per": "100g",
+         "preparation": "as_sold"
+      },
+      "input_sets": [
+         {
             "nutrients": {
-                "sugars": {
-                    "value": 5.2, 
-                    "unit": "g",
-                    "source": "packaging",
-                    "source_per": "100g",
-                    "source_index": 1
-                }
-            }
-        },
-        "input_sets": [
-            {
-                "preparation": "prepared", 
-                "per": "serving", 
-                "per_quantity": "250", 
-                "per_unit": "g", 
-                "source": "packaging", 
-                "nutrients": {
-                    "sodium": {
-                        "value_string": "2.0", 
-                        "value": 2, 
-                        "unit": "g", 
-                        "modifier": "<="
-                    }
-                }
+               "sodium": {
+                  "modifier": "<=",
+                  "unit": "g",
+                  "value": 2,
+                  "value_string": "2.0"
+               }
             },
-            {
-                "preparation": "as_sold", 
-                "per": "100g", 
-                "per_quantity": "100", 
-                "per_unit": "g", 
-                "source": "packaging", 
-                "nutrients": {
-                    "sugars": {
-                        "value_string": "5.2", 
-                        "value": 5.2, 
-                        "unit": "g"
-                    }
-                }
-            }
-        ]
-    }
+            "per": "serving",
+            "per_quantity": "250",
+            "per_unit": "g",
+            "preparation": "prepared",
+            "source": "packaging"
+         },
+         {
+            "nutrients": {
+               "sugars": {
+                  "unit": "g",
+                  "value": 5.2,
+                  "value_string": "5.2"
+               }
+            },
+            "per": "100g",
+            "per_quantity": "100",
+            "per_unit": "g",
+            "preparation": "as_sold",
+            "source": "packaging"
+         }
+      ]
+   }
 }
