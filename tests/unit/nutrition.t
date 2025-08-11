@@ -810,7 +810,7 @@ my @tests = (
 							}
 						}
 					},
-					
+
 					{
 						preparation => "as_sold",
 						per => "serving",
