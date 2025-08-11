@@ -105,3 +105,12 @@ components:
                         items:
                           type: string
                         example: ["fibers"]
+            quality_checks:
+              type: object
+              description: |
+                Fields useful for quality checks.
+              properties:
+                energy_kcal_value_computed_from_other_nutrients:
+                  type: object
+                  description: |
+                    The energy in kcal computer from the other nutrients of the aggregated set.

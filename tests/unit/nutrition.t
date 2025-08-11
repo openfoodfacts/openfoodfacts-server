@@ -775,6 +775,74 @@ my @tests = (
 			}
 		}
 	],
+	[
+		# Generated set should not have nutrient values from sets without serving quantity
+		"keep_only_nutrients_with_serving_quantity",
+		{
+			nutrition => {
+				input_sets => [
+					{
+						preparation => "as_sold",
+						per => "100g",
+						per_quantity => "100",
+						per_unit => "g",
+						source => "packaging",
+						nutrients => {
+							sodium => {
+								value_string => "2.0",
+								value => 2,
+								unit => "g",
+								modifier => "<="
+							}
+						}
+					},
+					{
+						preparation => "as_sold",
+						per => "serving",
+						per_quantity => undef,
+						per_unit => "g",
+						source => "packaging",
+						nutrients => {
+							sugars => {
+								value_string => "5.60",
+								value => 5.6,
+								unit => "g"
+							}
+						}
+					},
+					
+					{
+						preparation => "as_sold",
+						per => "serving",
+						per_quantity => "",
+						per_unit => "g",
+						source => "packaging",
+						nutrients => {
+							protein => {
+								value_string => "1.2",
+								value => 1.2,
+								unit => "g"
+							}
+						}
+					},
+					{
+						preparation => "as_sold",
+						per => "serving",
+						per_quantity => "100",
+						per_unit => "g",
+						source => "packaging",
+						nutrients => {
+							iron => {
+								value_string => "0.1",
+								value => 0.1,
+								unit => "g",
+							}
+						}
+					}
+				]
+			}
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {
