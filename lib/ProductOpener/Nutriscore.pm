@@ -304,7 +304,6 @@ sub get_value_with_one_more_positive_point_2021 ($nutriscore_data_ref, $nutrient
 	return $return_value;
 }
 
-
 sub compute_nutriscore_score_2021 ($nutriscore_data_ref) {
 
 	# If the product is in fats and oils category,
