@@ -530,7 +530,7 @@ sub facets_route($request_ref) {
 	# We may have a page number
 	if (scalar @{$request_ref->{components}} > 0) {
 		# The last component can be a page number
-		if (($request_ref->{components}[-1] =~ /^\d+$/) and ($request_ref->{components}[-1] <= 1000)) {
+		if ($request_ref->{components}[-1] =~ /^\d+$/) {
 			$request_ref->{page} = pop @{$request_ref->{components}};
 			$log->debug("got a page number", {$request_ref->{page}}) if $log->is_debug();
 		}
