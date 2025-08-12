@@ -63,7 +63,11 @@ BEGIN {
 		$rate_limiter_blocking_enabled
 		$facets_kp_url
 		$redis_url
+		$folksonomy_url
 		$process_global_redis_events
+
+		$recipe_estimator_url
+		$recipe_estimator_scipy_url
 
 		$mongodb
 		$mongodb_host
@@ -179,7 +183,7 @@ $flavor = "opf";
 %options = (
 	site_name => "Open Products Facts",
 	product_type => "product",
-	og_image_url => "https://world.openproductsfacts.org/images/misc/openproductsfacts-logo-en.png",
+	og_image_url => "https://static.openfoodfacts.org/images/logos/opf-logo-vertical-white-social-media-preview.png",
 	#android_apk_app_link => "https://world.openbeautyfacts.org/images/apps/obf.apk?utm_source=opf&utf_medium=web",
 	#android_app_link => "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&utm_source=opf&utf_medium=web",
 	#ios_app_link => "https://apps.apple.com/app/open-beauty-facts/id1122926380?utm_source=opf&utf_medium=web",
@@ -244,6 +248,14 @@ $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
 # enable an in-site robotoff-asker in the product page
 $robotoff_url = $ProductOpener::Config2::robotoff_url;
 $query_url = $ProductOpener::Config2::query_url;
+
+# recipe-estimator product service
+# To test a locally running recipe-estimator with product opener in a docker dev environment:
+# - run recipe-estimator with `uvicorn recipe_estimator.main:app --reload --host 0.0.0.0`
+# $recipe_estimator_url = "http://host.docker.internal:8000/api/v3/estimate_recipe";
+
+$recipe_estimator_url = $ProductOpener::Config2::recipe_estimator_url;
+$recipe_estimator_scipy_url = $ProductOpener::Config2::recipe_estimator_scipy_url;
 
 # Set this to your instance of https://github.com/openfoodfacts/openfoodfacts-events
 # enable creating events for some actions (e.g. when a product is edited)

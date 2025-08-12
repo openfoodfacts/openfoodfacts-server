@@ -158,5 +158,8 @@ if ($include_images_paths) {
 	$args_ref->{include_images_paths} = 1;
 }
 
+# go for a large timeout
+$args_ref->{mongo_timeout_ms} = 2 * 60000;
+
 export_csv($args_ref);
 

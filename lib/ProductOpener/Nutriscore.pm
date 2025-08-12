@@ -83,8 +83,6 @@ BEGIN {
 		&compute_nutriscore_score_and_grade
 		&compute_nutriscore_grade
 
-		&get_value_with_one_less_negative_point
-		&get_value_with_one_more_positive_point
 		&get_value_with_one_less_negative_point_2023
 		&get_value_with_one_more_positive_point_2023
 
@@ -306,6 +304,7 @@ sub get_value_with_one_more_positive_point_2021 ($nutriscore_data_ref, $nutrient
 	return $return_value;
 }
 
+
 sub compute_nutriscore_score_2021 ($nutriscore_data_ref) {
 
 	# If the product is in fats and oils category,
@@ -380,10 +379,7 @@ sub compute_nutriscore_score_2021 ($nutriscore_data_ref) {
 		foreach my $threshold (@{$points_thresholds_2021{$nutrient_threshold_id}}) {
 			# The saturated fat ratio table uses the greater or equal sign instead of greater
 			if (
-				(
-						($nutrient eq "saturated_fat_ratio")
-					and ($nutriscore_data_ref->{$nutrient . "_value"} >= $threshold)
-				)
+				(($nutrient eq "saturated_fat_ratio") and ($nutriscore_data_ref->{$nutrient . "_value"} >= $threshold))
 				or (    ($nutrient ne "saturated_fat_ratio")
 					and ($nutriscore_data_ref->{$nutrient . "_value"} > $threshold))
 				)

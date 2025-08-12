@@ -89,7 +89,10 @@ paths:
               schema:
                 allOf:
                   - $ref: ./responses/response-status/response_status.yaml
-                  - $ref: ./schemas/product_v3.yaml
+                  - type: object
+                    properties:
+                      product:
+                        $ref: ./schemas/product_v3.yaml
         "302":
           description: Redirect to the correct server for the product type of the requested product
           headers:
