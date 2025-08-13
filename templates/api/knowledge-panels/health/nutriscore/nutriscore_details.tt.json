@@ -45,14 +45,16 @@
     <p>[% lang('nutriscore_is_red_meat_product') %]</p>
 [% END %]
 <p>[% lang("nutriscore_count_proteins_reason_" _ product.nutriscore.2023.data.count_proteins_reason )%]</p>
+[% SET percent_fruits_vegetables_legumes = product.nutriscore.2023.data.fruits_vegetables_legumes  IF product.nutriscore.2023.data.fruits_vegetables_legumes.defined %]
+[% SET percent_fruits_vegetables_legumes_text = "( $percent_fruits_vegetables_legumes %)" IF percent_fruits_vegetables_legumes.defined %]
 [% IF product.nutriscore.2023.data.fruits_vegetables_legumes_from_category_override %]
-  <p>[% lang('nutriscore_fruits_vegetables_legumes_from_category_override') %] ( [% product.nutriscore.2023.data.fruits_vegetables_legumes %] %)</p>
+  <p>[% lang('nutriscore_fruits_vegetables_legumes_from_category_override') %] [% percent_fruits_vegetables_legumes_text %]</p>
 [% END %]
 [% IF product.nutriscore.2023.data.fruits_vegetables_legumes_from_category %]
-  <p>[% lang('nutriscore_fruits_vegetables_legumes_from_category') %]  ( [% product.nutriscore.2023.data.fruits_vegetables_legumes %] %)</p>
+  <p>[% lang('nutriscore_fruits_vegetables_legumes_from_category') %] [% percent_fruits_vegetables_legumes_text %]</p>
 [% END %]
 [% IF product.nutriscore.2023.data.fruits_vegetables_legumes_estimate_from_ingredients %]
-  <p>[% lang('nutriscore_fruits_vegetables_legumes_estimate_from_ingredients') %]  ( [% product.nutriscore.2023.data.fruits_vegetables_legumes %] %)</p>
+  <p>[% lang('nutriscore_fruits_vegetables_legumes_estimate_from_ingredients') %] [% percent_fruits_vegetables_legumes_text %]</p>
 [% END %]
 
 <p>

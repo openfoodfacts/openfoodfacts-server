@@ -1717,7 +1717,6 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 				has_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-legumes-from-category"),
 			fruits_vegetables_legumes_estimate_from_ingredients =>
 				has_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients"),
-			fruits_vegetables_legumes => $fruits_vegetables_legumes,
 			energy => $nutriments_ref->{"energy" . $prepared . "_100g"},
 			sugars => $nutriments_ref->{"sugars" . $prepared . "_100g"},
 			saturated_fat => $nutriments_ref->{"saturated-fat" . $prepared . "_100g"},
@@ -2213,7 +2212,7 @@ sub compute_nutriscore ($product_ref, $current_version = "2023") {
 		deep_set($product_ref, "nutriscore", $version, "data",
 			compute_nutriscore_data($product_ref, $prepared, $nutriments_field, $version));
 
-		# Compute the Nutri-Score
+		# Compute the Nutri-Score
 		my ($nutriscore_score, $nutriscore_grade);
 
 		if (not $category_available) {
