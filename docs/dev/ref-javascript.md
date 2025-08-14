@@ -1,4 +1,4 @@
-## JavaScript Usage and Strategy
+# Explain JavaScript Usage and Strategy
 
 While the core backend of the Open Food Facts server is built with Perl, JavaScript is crucial for creating a dynamic and interactive user experience. The project is currently in a transitional phase, moving from a legacy jQuery-based approach towards a modern, component-based architecture.
 
