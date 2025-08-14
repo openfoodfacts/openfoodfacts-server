@@ -331,6 +331,9 @@ The nutrition schema is updated to allow storing several nutrition sets
 =cut
 
 sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref) {
+	# generate the same update time for the nutrition sets that are going to be created
+	my $update_time = time() + 0;
+
 	$product_ref->{nutrition} = {};
 
 	my $new_nutrition_sets_ref = {
@@ -343,6 +346,7 @@ sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref)
 		$new_nutrition_sets_ref->{"serving"} = {};
 	}
 
+	# hash used to easily access nutrient fields of old set and set preparation values of new sets
 	my $nutrition_preparations_ref = {
 		"prepared_100g" => {state => "prepared", modifier_state => "_prepared"},
 		"prepared_serving" => {state => "prepared", modifier_state => "_prepared"},
@@ -356,47 +360,57 @@ sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref)
 
 		my @nutrients = keys %hash_nutrients;
 
-		foreach my $state (keys %$new_nutrition_sets_ref) {
-			$new_nutrition_sets_ref->{$state}{preparation} = $nutrition_preparations_ref->{$state}{state};
-			$new_nutrition_sets_ref->{$state}{source} = "packaging";
-			$new_nutrition_sets_ref->{$state}{last_updated_t} = time() + 0;
+		# Generates the nutrition sets,
+		# which, for old data, are all from source "packaging"
+		foreach my $set_type (keys %$new_nutrition_sets_ref) {
+			$new_nutrition_sets_ref->{$set_type}{preparation} = $nutrition_preparations_ref->{$set_type}{state};
+			$new_nutrition_sets_ref->{$set_type}{source} = "packaging";
+			$new_nutrition_sets_ref->{$set_type}{last_updated_t} = $update_time;
 
-			$new_nutrition_sets_ref->{$state}{per_unit}
+			$new_nutrition_sets_ref->{$set_type}{per_unit}
 				= set_per_unit($product_ref->{product_quantity_unit}, $product_ref->{serving_quantity_unit});
-			$new_nutrition_sets_ref->{$state}{per_quantity}
-				= ($state eq "serving" or $state eq "prepared_serving")
-				? $product_ref->{serving_quantity}
-				: 100;    #set_per_value($state, $product_ref->{serving_quantity});
-			$new_nutrition_sets_ref->{$state}{per}
-				= ($state eq "serving" or $state eq "prepared_serving")
-				? "serving"
-				: "100" . $new_nutrition_sets_ref->{$state}{per_unit};
 
-			$new_nutrition_sets_ref->{$state}{unspecified_nutrients} = [];
-			$new_nutrition_sets_ref->{$state}{nutrients} = {};
+			# set per_quantity as the serving quantity if the set is generated with nutrient quantities per serving,
+			# or as 100 if it is generated with quantities per 100g/ml
+			$new_nutrition_sets_ref->{$set_type}{per_quantity}
+				= ($set_type eq "serving" or $set_type eq "prepared_serving")
+				? $product_ref->{serving_quantity}
+				: 100;
+
+			# set per as serving if the set is generated with nutrient quantities per serving,
+			# or as 100g or 100ml if it is generated with quantities per 100g/ml
+			$new_nutrition_sets_ref->{$set_type}{per}
+				= ($set_type eq "serving" or $set_type eq "prepared_serving")
+				? "serving"
+				: "100" . $new_nutrition_sets_ref->{$set_type}{per_unit};
+
+			$new_nutrition_sets_ref->{$set_type}{unspecified_nutrients} = [];
+			$new_nutrition_sets_ref->{$set_type}{nutrients} = {};
 
 			foreach my $nutrient (@nutrients) {
-				if (defined $product_ref->{nutriments}{$nutrient . '_' . $state}) {
-					$new_nutrition_sets_ref->{$state}{nutrients}{$nutrient}{value}
-						= $product_ref->{nutriments}{$nutrient . '_' . $state};
-
-					$new_nutrition_sets_ref->{$state}{nutrients}{$nutrient}{value_string}
-						= sprintf("%s", $product_ref->{nutriments}{$nutrient . '_' . $state});
-					$new_nutrition_sets_ref->{$state}{nutrients}{$nutrient}{unit} = set_nutrient_unit($nutrient);
-
-					if (
-						defined $product_ref->{nutriments}
-						{$nutrient . ($nutrition_preparations_ref->{$state}{modifier_state}) . "_modifier"})
-					{
-						$new_nutrition_sets_ref->{$state}{nutrients}{$nutrient}{modifier} = $product_ref->{nutriments}
-							{$nutrient . $nutrition_preparations_ref->{$state}{modifier_state} . "_modifier"};
-					}
-				}
-
-				elsif (defined $product_ref->{nutriments}{$nutrient . "_modifier"}
+				# if nutrient modifier is "-" then this nutrient is unspecified and will not be added to the nutrients of the set
+				if (defined $product_ref->{nutriments}{$nutrient . "_modifier"}
 					and $product_ref->{nutriments}{$nutrient . "_modifier"} eq "-")
 				{
-					push(@{$new_nutrition_sets_ref->{$state}{unspecified_nutrients}}, $nutrient);
+					push(@{$new_nutrition_sets_ref->{$set_type}{unspecified_nutrients}}, $nutrient);
+				}
+
+				# else if the nutrient value field exists for this set type then add it to the nutrients of the set
+				elsif (defined $product_ref->{nutriments}{$nutrient . '_' . $set_type}) {
+					my $nutrient_value = $product_ref->{nutriments}{$nutrient . '_' . $set_type};
+
+					$new_nutrition_sets_ref->{$set_type}{nutrients}{$nutrient}{value} = $nutrient_value;
+					$new_nutrition_sets_ref->{$set_type}{nutrients}{$nutrient}{unit} = set_nutrient_unit($nutrient);
+					# the 1002 version products do not have a string value so the float value is converted to string
+					$new_nutrition_sets_ref->{$set_type}{nutrients}{$nutrient}{value_string}
+						= sprintf("%s", $nutrient_value);
+
+					my $nutrient_field_modifier
+						= $nutrient . ($nutrition_preparations_ref->{$set_type}{modifier_state}) . "_modifier";
+					if (defined $product_ref->{nutriments}{$nutrient_field_modifier}) {
+						$new_nutrition_sets_ref->{$set_type}{nutrients}{$nutrient}{modifier}
+							= $product_ref->{nutriments}{$nutrient_field_modifier};
+					}
 				}
 			}
 		}
@@ -406,20 +420,13 @@ sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref)
 		$new_nutrition_sets_ref->{"prepared_100g"}, $new_nutrition_sets_ref->{prepared_serving},
 		$new_nutrition_sets_ref->{"100g"}, $new_nutrition_sets_ref->{serving}
 	];
+	# generate the preferred set with the created sets
 	$product_ref->{nutrition}{nutrient_set_preferred}
 		= generate_nutrient_set_preferred_from_sets($product_ref->{nutrition}{nutrient_sets});
 
 	delete $product_ref->{nutriments};
 
 	return;
-}
-
-sub set_per_value ($state, $serving_quantity) {
-	my $per_value = 100;
-	if ($state eq "serving" or $state eq "prepared_serving") {
-		$per_value = $serving_quantity;
-	}
-	return $per_value;
 }
 
 sub set_per_unit ($product_quantity_unit, $serving_quantity_unit) {
