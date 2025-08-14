@@ -36,7 +36,7 @@
     "win32"
   ],
   "dependencies": {
-    "@snyk/protect": "^1.1297.3",
+    "@snyk/protect": "^1.1298.2",
     "@webcomponents/webcomponentsjs": "2.8.0",
     "@yaireo/tagify": ">=4.12.0 <4.36.0",
     "blueimp-file-upload": "^10.31.0",
@@ -53,11 +53,11 @@
     "osmtogeojson": "^3.0.0-beta.4",
     "papaparse": "^5.5.3",
     "select2": "~4.0",
-    "jsbarcode": "^3.11.6",
+    "jsbarcode": "^3.12.1",
     "@openfoodfacts/openfoodfacts-webcomponents": "1.11.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.27.4",
+    "@babel/core": "^7.28.0",
     "@babel/preset-env": "^7.22.0",
     "@types/gulp": "^4.0.17",
     "@types/gulp-concat": "^0.0.37",
@@ -67,9 +67,9 @@
     "@types/gulp-sourcemaps": "^0.0.38",
     "@types/gulp-svgmin": "^1.2.4",
     "@types/gulp-terser": "^1.2.6",
-    "@typescript-eslint/eslint-plugin": "^8.35.1",
+    "@typescript-eslint/eslint-plugin": "^8.38.0",
     "@typescript-eslint/parser": "^8.32.0",
-    "dotenv": "^17.0.1",
+    "dotenv": "^17.2.1",
     "eslint": "^8.57.1",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",

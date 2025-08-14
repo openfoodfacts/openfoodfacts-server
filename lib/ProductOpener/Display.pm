@@ -7939,6 +7939,10 @@ JS
 		$template_data_ref->{contribution_card_panel}
 			= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "contribution_card");
 	}
+	if (request_param($request_ref, 'raw_panel')) {
+		$template_data_ref->{product_card_panel}
+			= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "product_card");
+	}
 
 	# User preferences
 	$template_data_ref->{user_preferences} = $request_ref->{user_preferences};
@@ -9349,9 +9353,20 @@ sub data_to_display_nutriscore ($product_ref, $version = "2021") {
 			if (has_tag($product_ref, "misc", "en:nutriscore-missing-nutrition-data")) {
 
 				my $missing_nutrients = "";
-				foreach my $misc_tag (@{$product_ref->{misc_tags}}) {
-					if ($misc_tag =~ /^en:nutriscore-missing-nutrition-data-(.*)$/) {
-						$missing_nutrients .= display_taxonomy_tag_name($lc, "nutrients", $1) . ", ";
+				if (
+					has_tag(
+						$product_ref, "data_quality_warnings",
+						"en:nutrition-data-per-serving-serving-quantity-is-not-recognized"
+					)
+					)
+				{
+					$missing_nutrients .= lang("missing_serving_size_value_and_or_unit");
+				}
+				else {
+					foreach my $misc_tag (@{$product_ref->{misc_tags}}) {
+						if ($misc_tag =~ /^en:nutriscore-missing-nutrition-data-(.*)$/) {
+							$missing_nutrients .= display_taxonomy_tag_name($lc, "nutrients", $1) . ", ";
+						}
 					}
 				}
 				$missing_nutrients =~ s/, $//;
