@@ -158,10 +158,38 @@ jobs:
           AVAIL_GB=$((AVAIL/1024/1024))
           echo "Available space: ${AVAIL_GB}GB"
           
-          # Docker save will need ~6-11GB, check if we have enough
-          if [ "$AVAIL_GB" -lt 10 ]; then
-            echo "⚠️ Still tight on space. Available: ${AVAIL_GB}GB, needed: ~8-11GB"
-            echo "Proceeding anyway - should work with compression"
+          # Docker save will need ~12-16GB, check if we have enough
+          if [ "$AVAIL_GB" -lt 16 ]; then
+            echo "⚠️ Still tight on space. Available: ${AVAIL_GB}GB, needed: ~12-16GB"
+            echo "Need more cleanup..."
+            
+            # Additional aggressive cleanup
+            echo "Performing aggressive cleanup..."
+            
+            # Remove more Docker system components
+            docker system prune -af --volumes || true
+            
+            # Clean up more system caches
+            sudo rm -rf /var/log/*.log /var/log/*/*.log || true
+            sudo rm -rf /usr/share/doc/* || true
+            sudo rm -rf /usr/share/man/* || true
+            
+            # Remove any large files in common locations
+            sudo find /var -type f -size +100M -delete 2>/dev/null || true
+            sudo find /usr -type f -size +100M -delete 2>/dev/null || true
+            
+            # Final space check
+            echo "Space after aggressive cleanup:"
+            df -h / | tail -1
+            AVAIL=$(df / | tail -1 | awk '{print $4}')
+            AVAIL_GB=$((AVAIL/1024/1024))
+            echo "Final available space: ${AVAIL_GB}GB"
+            
+            if [ "$AVAIL_GB" -lt 15 ]; then
+              echo "⚠️ Still might be tight with ${AVAIL_GB}GB available"
+            else
+              echo "✅ Should have sufficient space now"
+            fi
           else
             echo "✅ Sufficient space available for Docker save"
           fi
