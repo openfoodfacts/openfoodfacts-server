@@ -112,3 +112,6 @@ taxonomies/*.all.txt
 # Shared services and other dependencies
 /deps
 /deps/*
+
+# Dynamic test groups cache
+/.test_groups_cache

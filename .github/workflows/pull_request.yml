@@ -132,8 +132,12 @@ jobs:
 
       - name: Setup Git and Restore Taxonomies
         run: ./.github/scripts/setup_git.sh
+        
+      # Update dynamic test groups before running tests
+      - name: Update dynamic test groups
+        run: ./.github/scripts/update_test_groups.sh
 
-      # Set up environment variables for proper Docker user/group permissions
+        # Set up environment variables for proper Docker user/group permissions
       - name: Set up user environment for Docker
         run: |
           echo "export USER_UID=$(id -u)" >> .envrc
@@ -208,14 +212,38 @@ jobs:
     # Restore cached taxonomies built in build_backend job
     # This avoids rebuilding taxonomies for each test group
     - uses: actions/cache/restore@v4
-      id: cache
+      id: taxonomies_cache
       with:
         path: ./build-cache
         key: taxonomies-${{ hashFiles('taxonomies/**') }}
         restore-keys: taxonomies-
     
+    # Cache dynamic test groups and timing data
+    # This enables persistent learning and avoids regenerating groups unnecessarily
+    - uses: actions/cache@v4
+      id: test_groups_cache
+      with:
+        path: ./.test_groups_cache
+        key: test-groups-unit-${{ hashFiles('tests/unit/**/*.t') }}-${{ hashFiles('scripts/dynamic_test_grouper.pl') }}
+        restore-keys: |
+          test-groups-unit-${{ hashFiles('tests/unit/**/*.t') }}-
+          test-groups-unit-
+    
     - name: Setup Git and Restore Taxonomies
       run: ./.github/scripts/setup_git.sh
+    
+    # Update dynamic test groups before running tests
+    # This ensures optimal load balancing based on historical timing data
+    - name: Update dynamic test groups
+      run: |
+        echo "🥫 Checking and updating dynamic test groups..."
+        ./.github/scripts/update_test_groups.sh --stats
+        
+        # Generate test groups for Makefile if needed
+        if [ ! -f ".test_groups_cache/unit_groups.mk" ]; then
+          echo "🥫 Generating unit test groups for Makefile..."
+          perl scripts/dynamic_test_grouper.pl --type=unit --groups=6 > .test_groups_cache/unit_groups.mk
+        fi
     
     # Download the Docker image built in build_backend job as an artifact
     # This reuses the cached Docker image instead of rebuilding it
@@ -241,10 +269,26 @@ jobs:
     
     # Run unit tests for this specific test group (parallel execution)
     # Matrix strategy splits tests across 6 parallel jobs for faster execution
+    # Now uses dynamically generated groups for optimal load balancing
     - name: Run unit test group ${{ matrix.test-group }}
       run: |
+        echo "🥫 Running dynamically balanced unit test group ${{ matrix.test-group }}..."
         make codecov_prepare
         make COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' DOCKER_LOCAL_DATA="$(pwd)" unit_test_group TEST_GROUP=${{ matrix.test-group }} GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+    
+    # Update timing data after test execution for future optimization
+    # This enables the system to learn and improve load balancing over time
+    - name: Update test timing data
+      if: always()
+      run: |
+        echo "🥫 Updating timing data from test results..."
+        if [ -d "tests/unit/outputs" ] && [ "$(ls -A tests/unit/outputs/*.xml 2>/dev/null)" ]; then
+          perl scripts/dynamic_test_grouper.pl --type=unit --update-timings --junit-dir=tests/unit/outputs
+          echo "🥫 Timing data updated successfully"
+        else
+          echo "🥫 No JUnit XML files found, skipping timing update"
+        fi
+    
     - name: generate coverage results
       # even if tests failed
       if: always()
@@ -278,15 +322,39 @@ jobs:
         fetch-depth: 1
     
     - uses: actions/cache/restore@v4
-      id: cache
+      id: taxonomies_cache
       with:
         path: ./build-cache
         key: taxonomies-${{ hashFiles('taxonomies/**') }}
         restore-keys: taxonomies-
     
+    # Cache dynamic test groups and timing data for integration tests
+    # Integration tests typically have more variable execution times
+    - uses: actions/cache@v4
+      id: test_groups_cache
+      with:
+        path: ./.test_groups_cache
+        key: test-groups-integration-${{ hashFiles('tests/integration/**/*.t') }}-${{ hashFiles('scripts/dynamic_test_grouper.pl') }}
+        restore-keys: |
+          test-groups-integration-${{ hashFiles('tests/integration/**/*.t') }}-
+          test-groups-integration-
+    
     - name: Setup Git and Restore Taxonomies
       run: ./.github/scripts/setup_git.sh
   
+    # Update dynamic test groups before running tests
+    # Integration tests benefit more from timing-based grouping due to variable execution times
+    - name: Update dynamic test groups
+      run: |
+        echo "🥫 Checking and updating dynamic integration test groups..."
+        ./.github/scripts/update_test_groups.sh --stats
+        
+        # Generate test groups for Makefile if needed
+        if [ ! -f ".test_groups_cache/integration_groups.mk" ]; then
+          echo "🥫 Generating integration test groups for Makefile..."
+          perl scripts/dynamic_test_grouper.pl --type=integration --groups=9 > .test_groups_cache/integration_groups.mk
+        fi
+
     - name: Download backend image from artifacts
       id: downloadbackendimage
       uses: ishworkh/container-image-artifact-download@v2.0.0
@@ -306,10 +374,26 @@ jobs:
     # Run integration tests for this specific test group (parallel execution)
     # Matrix strategy splits tests across 9 parallel jobs (more than unit tests)
     # Integration tests typically take longer and test end-to-end functionality
+    # Now uses dynamically generated groups for optimal load balancing
     - name: Run integration test group ${{ matrix.test-group }}
       run: |
+        echo "🥫 Running dynamically balanced integration test group ${{ matrix.test-group }}..."
         make codecov_prepare
         make COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' DOCKER_LOCAL_DATA="$(pwd)" integration_test_group TEST_GROUP=${{ matrix.test-group }} GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+    
+    # Update timing data after test execution for future optimization
+    # Integration test timing data is especially valuable due to higher variance
+    - name: Update test timing data
+      if: always()
+      run: |
+        echo "🥫 Updating integration test timing data from test results..."
+        if [ -d "tests/integration/outputs" ] && [ "$(ls -A tests/integration/outputs/*.xml 2>/dev/null)" ]; then
+          perl scripts/dynamic_test_grouper.pl --type=integration --update-timings --junit-dir=tests/integration/outputs
+          echo "🥫 Integration test timing data updated successfully"
+        else
+          echo "🥫 No JUnit XML files found, skipping timing update"
+        fi
+    
     - name: generate coverage results
       # even if tests failed
       if: always()
