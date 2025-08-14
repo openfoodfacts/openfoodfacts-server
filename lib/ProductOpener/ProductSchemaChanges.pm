@@ -414,8 +414,23 @@ sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref)
 				}
 			}
 		}
+
+		# add the quality checks to the new nutrition field
+		my $quality_checks_ref = {};
+
+		if (defined $product_ref->{nutriments}{"energy-kcal_value_computed"}) {
+			$quality_checks_ref->{"energy-kcal_from_other_nutrients"}
+				= $product_ref->{nutriments}{"energy-kcal_value_computed"};
+		}
+		if (defined $product_ref->{nutriments}{"energy-kj_value_computed"}) {
+			$quality_checks_ref->{"energy-kj_from_other_nutrients"}
+				= $product_ref->{nutriments}{"energy-kj_value_computed"};
+		}
+
+		$product_ref->{nutrition}{quality_checks} = $quality_checks_ref;
 	}
 
+	# add the created sets to the new nutrition field
 	$product_ref->{nutrition}{nutrient_sets} = [
 		$new_nutrition_sets_ref->{"prepared_100g"}, $new_nutrition_sets_ref->{prepared_serving},
 		$new_nutrition_sets_ref->{"100g"}, $new_nutrition_sets_ref->{serving}
@@ -424,6 +439,7 @@ sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref)
 	$product_ref->{nutrition}{nutrient_set_preferred}
 		= generate_nutrient_set_preferred_from_sets($product_ref->{nutrition}{nutrient_sets});
 
+	# delete the old nutrition schema from the product
 	delete $product_ref->{nutriments};
 
 	return;
