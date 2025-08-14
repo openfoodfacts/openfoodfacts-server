@@ -8568,6 +8568,18 @@ JS
 	}
 
 	my $html_display_product;
+
+	use JSON;
+
+	my $categories_json = encode_json($product_ref->{categories_tags});
+
+	$template_data_ref->{category} = $categories_json;
+	$template_data_ref->{product_type} = $product_ref->{product_type};
+
+	use ProductOpener::Users qw/%User is_admin_user/;
+	my $is_moderator = is_admin_user($User_id) || $User{moderator};
+	$template_data_ref->{is_moderator} = $is_moderator ? 1 : 0;
+
 	process_template('web/pages/product/product_page.tt.html', $template_data_ref, \$html_display_product, $request_ref)
 		|| ($html_display_product = "template error: " . $tt->error());
 	$html .= $html_display_product;
