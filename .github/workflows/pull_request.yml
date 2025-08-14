@@ -163,35 +163,37 @@ jobs:
             echo "⚠️ Still tight on space. Available: ${AVAIL_GB}GB, needed: ~12-16GB"
             echo "Need more cleanup..."
             
-            # Additional aggressive cleanup
-            echo "Performing aggressive cleanup..."
+            # Additional aggressive cleanup - AVOID Docker image cleanup entirely
+            echo "Performing aggressive system cleanup (avoiding Docker images)..."
             
-            # First verify our target image exists before cleanup
+            # First verify our target image exists
             echo "Checking if target image exists..."
             docker images openfoodfacts-server/backend:dev
             
-            # Remove Docker components but be very careful about images
-            echo "Cleaning Docker system while preserving backend:dev image..."
+            # SKIP Docker cleanup entirely to preserve our image
+            echo "Skipping Docker cleanup to preserve target image..."
             
-            # Only remove containers and volumes, NOT images
-            docker container prune -f || true
-            docker volume prune -f || true
-            docker network prune -f || true
+            # Focus on system files only
+            echo "Cleaning system caches and files..."
             
-            # Remove only untagged/dangling images (not our tagged image)
-            docker image prune -f || true
-            
-            # Clean up more system caches
+            # Clean up system caches (this freed the most space)
             sudo rm -rf /var/log/*.log /var/log/*/*.log || true
+            sudo rm -rf /var/cache/* || true
             sudo rm -rf /usr/share/doc/* || true
             sudo rm -rf /usr/share/man/* || true
+            sudo rm -rf /usr/share/locale/* || true
             
             # Remove any large files in common locations
             sudo find /var -type f -size +100M -delete 2>/dev/null || true
             sudo find /usr -type f -size +100M -delete 2>/dev/null || true
+            sudo find /opt -type f -size +100M -delete 2>/dev/null || true
             
-            # Verify our image still exists after cleanup
-            echo "Verifying target image still exists after cleanup..."
+            # Clean up more system temporary files
+            sudo rm -rf /tmp/* || true
+            sudo rm -rf /var/tmp/* || true
+            
+            # Verify our image still exists
+            echo "Verifying target image still exists..."
             docker images openfoodfacts-server/backend:dev
             
             # Final space check
