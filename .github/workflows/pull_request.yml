@@ -120,59 +120,35 @@ jobs:
           load: true                   # loads the image into local docker daemon
           tags: openfoodfacts-server/backend:dev
 
-      # Analyze disk space usage before attempting upload
-      - name: Comprehensive disk space analysis
+      # Clean up BuildKit cache duplication to free space for Docker save
+      - name: Clean up duplicate BuildKit cache
         run: |
-          echo "🔍 Comprehensive disk space analysis..."
+          echo "🧹 Cleaning up duplicate BuildKit cache before Docker save..."
           
-          echo "=== Overall disk usage ==="
-          df -h
+          # Show space before cleanup
+          echo "Space before cleanup:"
+          df -h / | tail -1
           
-          echo -e "\n=== Top 20 largest directories in root ==="
-          sudo du -sh /* 2>/dev/null | sort -hr | head -20
+          # Remove the old BuildKit cache (keeping the new one)
+          echo "Removing old BuildKit cache..."
+          rm -rf /tmp/.buildx-cache
           
-          echo -e "\n=== Docker space usage ==="
-          docker system df -v
+          # Show space freed
+          echo "Space after cleanup:"
+          df -h / | tail -1
           
-          echo -e "\n=== Docker images ==="
-          docker images --format "table {{.Repository}}\t{{.Tag}}\t{{.Size}}"
-          
-          echo -e "\n=== Large files and directories in /tmp ==="
-          sudo find /tmp -type f -size +100M -exec ls -lh {} \; 2>/dev/null | head -10 || echo "No large files in /tmp"
-          sudo du -sh /tmp/* 2>/dev/null | sort -hr | head -10 || echo "No directories in /tmp"
-          
-          echo -e "\n=== Large files and directories in /var ==="
-          sudo du -sh /var/* 2>/dev/null | sort -hr | head -10
-          
-          echo -e "\n=== Build cache sizes ==="
-          sudo du -sh /tmp/.buildx-cache* 2>/dev/null || echo "No BuildKit cache found"
-          sudo du -sh /home/runner/.cache/* 2>/dev/null | head -10 || echo "No user cache found"
-          
-          echo -e "\n=== Package cache ==="
-          sudo du -sh /var/cache/apt/* 2>/dev/null || echo "No APT cache"
-          sudo du -sh /var/lib/apt/* 2>/dev/null | head -5 || echo "No APT lib"
-          
-          echo -e "\n=== Snap packages ==="
-          sudo du -sh /snap/* 2>/dev/null | head -10 || echo "No snap packages"
-          
-          echo -e "\n=== Log files ==="
-          sudo find /var/log -type f -size +10M -exec ls -lh {} \; 2>/dev/null | head -10 || echo "No large log files"
-          
-          echo -e "\n=== Current working directory ==="
-          du -sh . || echo "Cannot access current directory size"
-          
-          echo -e "\n=== Available space breakdown ==="
-          TOTAL=$(df / | tail -1 | awk '{print $2}')
-          USED=$(df / | tail -1 | awk '{print $3}')
+          # Calculate available space
           AVAIL=$(df / | tail -1 | awk '{print $4}')
-          echo "Total space: ${TOTAL}KB (~$((TOTAL/1024/1024))GB)"
-          echo "Used space: ${USED}KB (~$((USED/1024/1024))GB)"
-          echo "Available space: ${AVAIL}KB (~$((AVAIL/1024/1024))GB)"
+          AVAIL_GB=$((AVAIL/1024/1024))
+          echo "Available space: ${AVAIL_GB}GB"
           
-          echo -e "\n=== Space needed for Docker save estimate ==="
-          IMAGE_SIZE=$(docker images openfoodfacts-server/backend:dev --format "{{.Size}}")
-          echo "Built image size: $IMAGE_SIZE"
-          echo "Docker save typically creates a tar file ~1.2-2x the image size"
+          # Docker save will need ~6-11GB, check if we have enough
+          if [ "$AVAIL_GB" -lt 12 ]; then
+            echo "Still tight on space. Available: ${AVAIL_GB}GB, needed: ~8-11GB"
+            echo "Proceeding anyway - should be just enough"
+          else
+            echo "Sufficient space available for Docker save"
+          fi
 
       - name: push backend image as artifact
         uses: ishworkh/container-image-artifact-upload@v2.0.0
@@ -181,14 +157,16 @@ jobs:
           # Add retention to save space in Actions storage
           retention_days: 1
 
-      # Prepare cache for next run and final cleanup
+      # Prepare cache for next run (old cache was removed for space)
       - name: Prepare cache for next run
         if: always()
         run: |
-          # Move the new cache into place
+          # The old cache was already removed, just rename the new one
           if [ -d /tmp/.buildx-cache-new ]; then
-            rm -rf /tmp/.buildx-cache
             mv /tmp/.buildx-cache-new /tmp/.buildx-cache
+            echo "Moved new BuildKit cache into place"
+          else
+            echo "ℹNo new BuildKit cache found"
           fi
 
       - name: Setup Git and Restore Taxonomies
