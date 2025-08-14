@@ -120,30 +120,59 @@ jobs:
           load: true                   # loads the image into local docker daemon
           tags: openfoodfacts-server/backend:dev
 
-      # Clean up disk space before uploading image artifact
-      - name: Free up disk space
+      # Analyze disk space usage before attempting upload
+      - name: Comprehensive disk space analysis
         run: |
-          echo "🧹 Cleaning up disk space before image upload..."
+          echo "🔍 Comprehensive disk space analysis..."
           
-          # Show current disk usage
+          echo "=== Overall disk usage ==="
           df -h
           
-          # Remove unused Docker images and containers (but keep our built image)
-          docker system prune -f
+          echo -e "\n=== Top 20 largest directories in root ==="
+          sudo du -sh /* 2>/dev/null | sort -hr | head -20
           
-          # Remove any large temporary files but keep BuildKit cache for now
-          sudo rm -rf /tmp/docker* /tmp/.docker* || true
+          echo -e "\n=== Docker space usage ==="
+          docker system df -v
           
-          # Clean up APT cache to free more space
-          sudo apt-get clean
-          sudo rm -rf /var/lib/apt/lists/*
+          echo -e "\n=== Docker images ==="
+          docker images --format "table {{.Repository}}\t{{.Tag}}\t{{.Size}}"
           
-          # Remove large unneeded packages
-          sudo apt-get autoremove -y || true
+          echo -e "\n=== Large files and directories in /tmp ==="
+          sudo find /tmp -type f -size +100M -exec ls -lh {} \; 2>/dev/null | head -10 || echo "No large files in /tmp"
+          sudo du -sh /tmp/* 2>/dev/null | sort -hr | head -10 || echo "No directories in /tmp"
           
-          # Show disk usage after cleanup
-          echo "After cleanup:"
-          df -h
+          echo -e "\n=== Large files and directories in /var ==="
+          sudo du -sh /var/* 2>/dev/null | sort -hr | head -10
+          
+          echo -e "\n=== Build cache sizes ==="
+          sudo du -sh /tmp/.buildx-cache* 2>/dev/null || echo "No BuildKit cache found"
+          sudo du -sh /home/runner/.cache/* 2>/dev/null | head -10 || echo "No user cache found"
+          
+          echo -e "\n=== Package cache ==="
+          sudo du -sh /var/cache/apt/* 2>/dev/null || echo "No APT cache"
+          sudo du -sh /var/lib/apt/* 2>/dev/null | head -5 || echo "No APT lib"
+          
+          echo -e "\n=== Snap packages ==="
+          sudo du -sh /snap/* 2>/dev/null | head -10 || echo "No snap packages"
+          
+          echo -e "\n=== Log files ==="
+          sudo find /var/log -type f -size +10M -exec ls -lh {} \; 2>/dev/null | head -10 || echo "No large log files"
+          
+          echo -e "\n=== Current working directory ==="
+          du -sh . || echo "Cannot access current directory size"
+          
+          echo -e "\n=== Available space breakdown ==="
+          TOTAL=$(df / | tail -1 | awk '{print $2}')
+          USED=$(df / | tail -1 | awk '{print $3}')
+          AVAIL=$(df / | tail -1 | awk '{print $4}')
+          echo "Total space: ${TOTAL}KB (~$((TOTAL/1024/1024))GB)"
+          echo "Used space: ${USED}KB (~$((USED/1024/1024))GB)"
+          echo "Available space: ${AVAIL}KB (~$((AVAIL/1024/1024))GB)"
+          
+          echo -e "\n=== Space needed for Docker save estimate ==="
+          IMAGE_SIZE=$(docker images openfoodfacts-server/backend:dev --format "{{.Size}}")
+          echo "Built image size: $IMAGE_SIZE"
+          echo "Docker save typically creates a tar file ~1.2-2x the image size"
 
       - name: push backend image as artifact
         uses: ishworkh/container-image-artifact-upload@v2.0.0
