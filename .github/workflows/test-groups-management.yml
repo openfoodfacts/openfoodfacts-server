@@ -17,6 +17,11 @@ on:
         default: '12'
         type: string
 
+  
+permissions:
+  contents: read
+  issues: write
+
 jobs:
   analyze_and_optimize:
     name: 🔍 Analyze Test Performance & Optimize Groups

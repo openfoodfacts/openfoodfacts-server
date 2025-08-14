@@ -3,6 +3,9 @@ name: Test Dynamic Test Grouping
 on:
   workflow_dispatch:
 
+      
+permissions:
+  contents: read
 jobs:
   test_grouping:
     name: Test Dynamic Test Grouping
