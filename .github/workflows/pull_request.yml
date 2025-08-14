@@ -121,7 +121,7 @@ jobs:
           tags: openfoodfacts-server/backend:dev
 
       # Clean up BuildKit cache duplication to free space for Docker save
-      - name: Clean up duplicate BuildKit cache
+      - name: Clean up duplicate BuildKit cache and additional space
         run: |
           echo "🧹 Cleaning up duplicate BuildKit cache before Docker save..."
           
@@ -133,6 +133,22 @@ jobs:
           echo "Removing old BuildKit cache..."
           rm -rf /tmp/.buildx-cache
           
+          # Additional cleanup to get us over the threshold
+          echo "Additional cleanup for more space..."
+          
+          # Remove APT package cache (can be regenerated)
+          sudo apt-get clean
+          sudo rm -rf /var/cache/apt/archives/*.deb
+          
+          # Remove large APT lists (can be regenerated)
+          sudo rm -rf /var/lib/apt/lists/*
+          
+          # Remove any temporary files in /tmp
+          sudo find /tmp -type f -size +50M -delete 2>/dev/null || true
+          
+          # Remove Docker build cache that's not needed for save
+          docker builder prune -af || true
+          
           # Show space freed
           echo "Space after cleanup:"
           df -h / | tail -1
@@ -143,11 +159,11 @@ jobs:
           echo "Available space: ${AVAIL_GB}GB"
           
           # Docker save will need ~6-11GB, check if we have enough
-          if [ "$AVAIL_GB" -lt 12 ]; then
-            echo "Still tight on space. Available: ${AVAIL_GB}GB, needed: ~8-11GB"
-            echo "Proceeding anyway - should be just enough"
+          if [ "$AVAIL_GB" -lt 10 ]; then
+            echo "⚠️ Still tight on space. Available: ${AVAIL_GB}GB, needed: ~8-11GB"
+            echo "Proceeding anyway - should work with compression"
           else
-            echo "Sufficient space available for Docker save"
+            echo "✅ Sufficient space available for Docker save"
           fi
 
       - name: push backend image as artifact
