@@ -72,8 +72,14 @@ class DynamicTestGrouper:
         # Calculate optimal group count to keep each group under MAX_GROUP_TIME
         optimal_groups = max(1, int(total_time / MAX_GROUP_TIME) + 1)
         
-        # Apply reasonable bounds
-        min_groups = 1
+        # Apply reasonable bounds with test type-specific minimums
+        if self.test_type == 'unit':
+            min_groups = 6  # Minimum 6 groups for unit tests
+        elif self.test_type == 'integration':
+            min_groups = 9  # Minimum 9 groups for integration tests
+        else:
+            min_groups = 1  # Default minimum
+        
         max_groups = min(len(test_files), 12)  # Don't exceed test count or 12 groups
         
         optimal_groups = max(min_groups, min(optimal_groups, max_groups))

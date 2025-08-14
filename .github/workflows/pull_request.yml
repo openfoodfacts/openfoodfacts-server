@@ -199,15 +199,61 @@ jobs:
     - name: check perl
       run: make check_perl
 
+  # Calculate dynamic test group matrix based on current test files and timing data
+  calculate_test_matrix:
+    name: 🧮 Calculate Dynamic Test Matrix
+    needs: [filter, build_backend]
+    runs-on: ubuntu-latest
+    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true'
+    outputs:
+      unit_test_groups: ${{ steps.matrix.outputs.unit_test_groups }}
+      integration_test_groups: ${{ steps.matrix.outputs.integration_test_groups }}
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 1
+    
+    # Cache dynamic test groups and timing data
+    - uses: actions/cache@v4
+      id: test_groups_cache
+      with:
+        path: ./.test_groups_cache
+        key: test-groups-${{ hashFiles('tests/**/*.t') }}-${{ hashFiles('scripts/dynamic_test_grouper.py') }}
+        restore-keys: |
+          test-groups-${{ hashFiles('tests/**/*.t') }}-
+          test-groups-
+    
+    - name: Calculate optimal test group counts
+      id: matrix
+      run: |
+        echo "🥫 Calculating optimal test group counts..."
+        
+        # Generate matrix configuration using the Python script
+        python3 scripts/generate_matrix_config.py > matrix_config.json
+        
+        # Extract group counts
+        unit_groups=$(python3 -c "import json; data=json.load(open('matrix_config.json')); print(json.dumps(data['unit_group_range']))")
+        integration_groups=$(python3 -c "import json; data=json.load(open('matrix_config.json')); print(json.dumps(data['integration_group_range']))")
+        
+        echo "🥫 Unit test groups: $unit_groups"
+        echo "🥫 Integration test groups: $integration_groups"
+        
+        # Set outputs for the matrix
+        echo "unit_test_groups=$unit_groups" >> $GITHUB_OUTPUT
+        echo "integration_test_groups=$integration_groups" >> $GITHUB_OUTPUT
+        
+        # Display the calculated matrix
+        cat matrix_config.json
+
   unit_tests:
     name: 🐪 Perl Unit Tests
-    needs: [filter, build_backend]
+    needs: [filter, build_backend, calculate_test_matrix]
     runs-on: ubuntu-latest
     if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true'
     strategy:
       fail-fast: false
       matrix:
-        test-group: [1, 2, 3, 4, 5, 6]
+        test-group: ${{ fromJson(needs.calculate_test_matrix.outputs.unit_test_groups) }}
     steps:
     - uses: actions/checkout@v4
       with:
@@ -228,7 +274,7 @@ jobs:
       id: test_groups_cache
       with:
         path: ./.test_groups_cache
-        key: test-groups-unit-${{ hashFiles('tests/unit/**/*.t') }}-${{ hashFiles('scripts/dynamic_test_grouper.pl') }}
+        key: test-groups-unit-${{ hashFiles('tests/unit/**/*.t') }}-${{ hashFiles('scripts/dynamic_test_grouper.py') }}
         restore-keys: |
           test-groups-unit-${{ hashFiles('tests/unit/**/*.t') }}-
           test-groups-unit-
@@ -246,7 +292,7 @@ jobs:
         # Generate test groups for Makefile if needed
         if [ ! -f ".test_groups_cache/unit_groups.mk" ]; then
           echo "🥫 Generating unit test groups for Makefile..."
-          perl scripts/dynamic_test_grouper.pl --type=unit --groups=6 > .test_groups_cache/unit_groups.mk
+          python3 scripts/dynamic_test_grouper.py --type=unit --groups=6 > .test_groups_cache/unit_groups.mk
         fi
     
     # Download the Docker image built in build_backend job as an artifact
@@ -287,7 +333,7 @@ jobs:
       run: |
         echo "🥫 Updating timing data from test results..."
         if [ -d "tests/unit/outputs" ] && [ "$(ls -A tests/unit/outputs/*.xml 2>/dev/null)" ]; then
-          perl scripts/dynamic_test_grouper.pl --type=unit --update-timings --junit-dir=tests/unit/outputs
+          python3 scripts/dynamic_test_grouper.py --type=unit --update-timings --junit-dir=tests/unit/outputs
           echo "🥫 Timing data updated successfully"
         else
           echo "🥫 No JUnit XML files found, skipping timing update"
@@ -313,13 +359,13 @@ jobs:
 
   integration_tests:
     name: 🐪 Perl Integration Tests
-    needs: [filter, build_backend]
+    needs: [filter, build_backend, calculate_test_matrix]
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     strategy:
       fail-fast: false
       matrix:
-        test-group: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        test-group: ${{ fromJson(needs.calculate_test_matrix.outputs.integration_test_groups) }}
     steps:
     - uses: actions/checkout@v4
       with:
@@ -338,7 +384,7 @@ jobs:
       id: test_groups_cache
       with:
         path: ./.test_groups_cache
-        key: test-groups-integration-${{ hashFiles('tests/integration/**/*.t') }}-${{ hashFiles('scripts/dynamic_test_grouper.pl') }}
+        key: test-groups-integration-${{ hashFiles('tests/integration/**/*.t') }}-${{ hashFiles('scripts/dynamic_test_grouper.py') }}
         restore-keys: |
           test-groups-integration-${{ hashFiles('tests/integration/**/*.t') }}-
           test-groups-integration-
@@ -356,7 +402,7 @@ jobs:
         # Generate test groups for Makefile if needed
         if [ ! -f ".test_groups_cache/integration_groups.mk" ]; then
           echo "🥫 Generating integration test groups for Makefile..."
-          perl scripts/dynamic_test_grouper.pl --type=integration --groups=9 > .test_groups_cache/integration_groups.mk
+          python3 scripts/dynamic_test_grouper.py --type=integration --groups=9 > .test_groups_cache/integration_groups.mk
         fi
 
     - name: Download backend image from artifacts
@@ -392,7 +438,7 @@ jobs:
       run: |
         echo "🥫 Updating integration test timing data from test results..."
         if [ -d "tests/integration/outputs" ] && [ "$(ls -A tests/integration/outputs/*.xml 2>/dev/null)" ]; then
-          perl scripts/dynamic_test_grouper.pl --type=integration --update-timings --junit-dir=tests/integration/outputs
+          python3 scripts/dynamic_test_grouper.py --type=integration --update-timings --junit-dir=tests/integration/outputs
           echo "🥫 Integration test timing data updated successfully"
         else
           echo "🥫 No JUnit XML files found, skipping timing update"

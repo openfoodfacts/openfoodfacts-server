@@ -27,14 +27,14 @@ def generate_matrix_config():
     # Calculate without printing
     total_unit_time = sum(unit_grouper._get_test_time(test, unit_timings) for test in unit_test_files)
     unit_groups = max(1, int(total_unit_time / 780) + 1)  # 780 seconds = 13 minutes
-    unit_groups = max(1, min(unit_groups, min(len(unit_test_files), 12)))
+    unit_groups = max(6, min(unit_groups, min(len(unit_test_files), 12)))  # Minimum 6 groups for unit tests
     
     integration_test_files = integration_grouper._discover_test_files()
     integration_timings = integration_grouper._load_cache(integration_grouper.cache_dir / "integration_timings.json") or {}
     
     total_integration_time = sum(integration_grouper._get_test_time(test, integration_timings) for test in integration_test_files)
     integration_groups = max(1, int(total_integration_time / 780) + 1)
-    integration_groups = max(1, min(integration_groups, min(len(integration_test_files), 12)))
+    integration_groups = max(9, min(integration_groups, min(len(integration_test_files), 12)))  # Minimum 9 groups for integration tests
     
     # Print info to stderr so it doesn't interfere with JSON
     print(f"# Auto-calculated {unit_groups} unit test groups for {len(unit_test_files)} tests (total estimated time: {total_unit_time/60:.1f}m)", file=sys.stderr)
