@@ -120,17 +120,45 @@ jobs:
           load: true                   # loads the image into local docker daemon
           tags: openfoodfacts-server/backend:dev
 
+      # Clean up disk space before uploading image artifact
+      - name: Free up disk space
+        run: |
+          echo "🧹 Cleaning up disk space before image upload..."
+          
+          # Show current disk usage
+          df -h
+          
+          # Remove unused Docker images and containers (but keep our built image)
+          docker system prune -f
+          
+          # Remove any large temporary files but keep BuildKit cache for now
+          sudo rm -rf /tmp/docker* /tmp/.docker* || true
+          
+          # Clean up APT cache to free more space
+          sudo apt-get clean
+          sudo rm -rf /var/lib/apt/lists/*
+          
+          # Remove large unneeded packages
+          sudo apt-get autoremove -y || true
+          
+          # Show disk usage after cleanup
+          echo "After cleanup:"
+          df -h
+
       - name: push backend image as artifact
         uses: ishworkh/container-image-artifact-upload@v2.0.0
         with:
           image: "openfoodfacts-server/backend:dev"
+          # Add retention to save space in Actions storage
+          retention_days: 1
 
-      # Prepare cache for next run
+      # Prepare cache for next run and final cleanup
       - name: Prepare cache for next run
         if: always()
         run: |
-          rm -rf /tmp/.buildx-cache
+          # Move the new cache into place
           if [ -d /tmp/.buildx-cache-new ]; then
+            rm -rf /tmp/.buildx-cache
             mv /tmp/.buildx-cache-new /tmp/.buildx-cache
           fi
 
