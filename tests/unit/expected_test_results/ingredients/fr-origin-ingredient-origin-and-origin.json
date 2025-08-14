@@ -98,7 +98,9 @@
          "origins" : "en:france",
          "percent" : 2.69353551476456,
          "percent_estimate" : 2.69353551476456,
-         "text" : "Moutarde de Dijon"
+         "text" : "Moutarde de Dijon",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
       },
       {
          "ciqual_food_code" : "31008",
@@ -156,12 +158,10 @@
       ],
       "en:vegan-status-unknown" : [
          "fr:moutarde-a-l-ancienne",
-         "en:dijon-mustard",
          "en:broth"
       ],
       "en:vegetarian-status-unknown" : [
          "fr:moutarde-a-l-ancienne",
-         "en:dijon-mustard",
          "en:broth"
       ]
    },

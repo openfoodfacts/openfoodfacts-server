@@ -411,7 +411,7 @@
                "percent_min" : 25,
                "rank" : 1,
                "text" : "apple",
-               "vegan" : "yes",
+               "vegan" : "maybe",
                "vegetarian" : "yes"
             },
             {
@@ -1979,7 +1979,7 @@
                "percent_min" : 33.3333333333333,
                "rank" : 1,
                "text" : "apple",
-               "vegan" : "yes",
+               "vegan" : "maybe",
                "vegetarian" : "yes"
             },
             {
@@ -2830,7 +2830,7 @@
                "percent_min" : 33.3333333333333,
                "rank" : 1,
                "text" : "apple",
-               "vegan" : "yes",
+               "vegan" : "maybe",
                "vegetarian" : "yes"
             },
             {
@@ -2862,13 +2862,16 @@
             }
          ],
          "ingredients_analysis" : {
+            "en:maybe-vegan" : [
+               "en:apple"
+            ],
             "en:palm-oil" : [
                "en:palm-oil"
             ]
          },
          "ingredients_analysis_tags" : [
             "en:palm-oil",
-            "en:vegan",
+            "en:maybe-vegan",
             "en:vegetarian"
          ],
          "ingredients_hierarchy" : [
@@ -3834,7 +3837,7 @@
                "percent_min" : 50,
                "rank" : 1,
                "text" : "apple",
-               "vegan" : "yes",
+               "vegan" : "maybe",
                "vegetarian" : "yes"
             },
             {
@@ -3851,10 +3854,14 @@
                "vegetarian" : "yes"
             }
          ],
-         "ingredients_analysis" : {},
+         "ingredients_analysis" : {
+            "en:maybe-vegan" : [
+               "en:apple"
+            ]
+         },
          "ingredients_analysis_tags" : [
             "en:palm-oil-free",
-            "en:vegan",
+            "en:maybe-vegan",
             "en:vegetarian"
          ],
          "ingredients_hierarchy" : [
@@ -4852,7 +4859,7 @@
                "percent_min" : 50,
                "rank" : 1,
                "text" : "apple",
-               "vegan" : "yes",
+               "vegan" : "maybe",
                "vegetarian" : "yes"
             },
             {
@@ -4869,10 +4876,14 @@
                "vegetarian" : "yes"
             }
          ],
-         "ingredients_analysis" : {},
+         "ingredients_analysis" : {
+            "en:maybe-vegan" : [
+               "en:apple"
+            ]
+         },
          "ingredients_analysis_tags" : [
             "en:palm-oil-free",
-            "en:vegan",
+            "en:maybe-vegan",
             "en:vegetarian"
          ],
          "ingredients_hierarchy" : [
