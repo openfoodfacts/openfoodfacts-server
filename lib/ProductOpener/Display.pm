@@ -7953,8 +7953,7 @@ JS
 	my $imgtype = deep_get($template_data_ref, "front_image", "type");
 	my $front_image_type = deep_get($template_data_ref, "front_image", "type");
 	my $front_image_id = deep_get($product_ref, 'images', 'selected', $imgtype, $lc, 'imgid')
-		// deep_get($product_ref, 'images', 'selected', $front_image_type,
-		$product_ref->{lc}, 'imgid');
+		// deep_get($product_ref, 'images', 'selected', $front_image_type, $product_ref->{lc}, 'imgid');
 	$template_data_ref->{imgid} = $front_image_id if defined $front_image_id;
 	# On the producers platform, show a link to the public platform
 
