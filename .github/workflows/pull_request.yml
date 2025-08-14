@@ -166,8 +166,13 @@ jobs:
             # Additional aggressive cleanup
             echo "Performing aggressive cleanup..."
             
-            # Remove more Docker system components
-            docker system prune -af --volumes || true
+            # Remove more Docker system components BUT preserve our target image
+            echo "Cleaning Docker system while preserving backend:dev image..."
+            docker image prune -af || true
+            docker container prune -af || true
+            docker volume prune -af || true
+            docker network prune -af || true
+            # Note: NOT using docker system prune -af as it would remove our target image
             
             # Clean up more system caches
             sudo rm -rf /var/log/*.log /var/log/*/*.log || true
