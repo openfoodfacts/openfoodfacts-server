@@ -90,6 +90,7 @@ BEGIN {
 
 		&estimate_nutriscore_2021_milk_percent_from_ingredients
 		&estimate_nutriscore_2023_red_meat_percent_from_ingredients
+		&estimate_added_sugars_percent_from_ingredients
 
 		&has_specific_ingredient_property
 
@@ -100,6 +101,7 @@ BEGIN {
 		&assign_property_to_ingredients
 
 		&get_ingredients_with_property_value
+		&get_ingredients_with_parent
 
 		&detect_rare_crops
 	);    # symbols to export on request
@@ -119,6 +121,7 @@ use ProductOpener::Images qw/extract_text_from_image/;
 use ProductOpener::Lang qw/$lc %Lang lang/;
 use ProductOpener::Units qw/normalize_quantity/;
 use ProductOpener::Food qw/is_fat_oil_nuts_seeds_for_nutrition_score/;
+use ProductOpener::APIProductServices qw/add_product_data_from_external_service/;
 
 use Encode;
 use Clone qw(clone);
@@ -3435,7 +3438,7 @@ and to compute the resulting value for the complete product
 
 =cut
 
-sub extract_ingredients_from_text ($product_ref) {
+sub extract_ingredients_from_text ($product_ref, $services_ref = {}) {
 
 	delete $product_ref->{ingredients_percent_analysis};
 
@@ -3473,7 +3476,29 @@ sub extract_ingredients_from_text ($product_ref) {
 		extend_ingredients_service($product_ref, {}, []);
 
 		# Compute minimum and maximum percent ranges and percent estimates for each ingredient and sub ingredient
-		estimate_ingredients_percent_service($product_ref, {}, []);
+
+		# We can be passed an external percent estimate service to call in $services_ref
+		if (    (defined $services_ref->{estimate_ingredients_percent})
+			and ($services_ref->{estimate_ingredients_percent} eq "recipe_estimator_glop"))
+		{
+			# Use the recipe estimator service
+			my $services_url = $recipe_estimator_url;
+			my $services_ref = undef;
+			my $request_ref = {};
+			add_product_data_from_external_service({$request_ref}, $product_ref, $services_url, $services_ref, undef);
+		}
+		elsif ( (defined $services_ref->{estimate_ingredients_percent})
+			and ($services_ref->{estimate_ingredients_percent} eq "recipe_estimator_scipy"))
+		{
+			# Use the recipe estimator service
+			my $services_url = $recipe_estimator_scipy_url;
+			my $services_ref = undef;
+			my $request_ref = {};
+			add_product_data_from_external_service($request_ref, $product_ref, $services_url, $services_ref, undef);
+		}
+		else {
+			estimate_ingredients_percent_service($product_ref, {}, []);
+		}
 
 		estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients($product_ref);
 		estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients($product_ref);
@@ -8613,6 +8638,24 @@ Returns a list of ingredients that have a specific property value.
 
 =cut
 
+=head2 estimate_added_sugars_percent_from_ingredients ($product_ref)
+
+This function analyzes the ingredients to estimate the percentage of added sugars in a product.
+
+=cut
+
+sub estimate_added_sugars_percent_from_ingredients ($product_ref) {
+
+	return estimate_ingredients_matching_function(
+		$product_ref,
+		sub {
+			my ($ingredient_id, $processing) = @_;
+			return is_a("ingredients", $ingredient_id, "en:added-sugar");
+		},
+		#"added-sugars-estimate-from-ingredients"
+	);
+}
+
 sub get_ingredients_with_property_value ($ingredients_ref, $property, $value) {
 
 	my @matching_ingredients = ();
@@ -8628,6 +8671,30 @@ sub get_ingredients_with_property_value ($ingredients_ref, $property, $value) {
 		if (defined $ingredient_ref->{ingredients}) {
 			push @matching_ingredients,
 				get_ingredients_with_property_value($ingredient_ref->{ingredients}, $property, $value);
+		}
+	}
+
+	return @matching_ingredients;
+}
+
+=head2 sub get_ingredients_with_parent ($ingredients_ref, $property, $value)
+
+Returns a list of ingredients that have a specific parent.
+
+=cut
+
+sub get_ingredients_with_parent ($ingredients_ref, $parent) {
+
+	my @matching_ingredients = ();
+
+	foreach my $ingredient_ref (@{$ingredients_ref}) {
+
+		if (is_a("ingredients", $ingredient_ref->{id}, $parent)) {
+			push @matching_ingredients, $ingredient_ref->{id};
+		}
+
+		if (defined $ingredient_ref->{ingredients}) {
+			push @matching_ingredients, get_ingredients_with_parent($ingredient_ref->{ingredients}, $parent);
 		}
 	}
 

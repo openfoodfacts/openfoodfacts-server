@@ -40,6 +40,10 @@ jobs:
         echo "INFLUXDB_HOST=10.1.0.200" >> $GITHUB_ENV
         echo "FACETS_KP_URL=https://facets-kp.openfoodfacts.net/render-to-html" >> $GITHUB_ENV
         echo "NUTRIPATROL_URL=nutripatrol.openfoodfacts.net" >> $GITHUB_ENV
+
+        echo "OIDC_IMPLEMENTATION_LEVEL=1" >> $GITHUB_ENV
+        echo "OIDC_DISCOVERY_URL=https://auth.openfoodfacts.net/realms/openfoodfacts/.well-known/openid-configuration" >> $GITHUB_ENV
+
         # deploy target
         echo "SSH_HOST=10.1.0.200" >> $GITHUB_ENV
         echo "SSH_PROXY_HOST=ovh1.openfoodfacts.org" >> $GITHUB_ENV
@@ -181,6 +185,15 @@ jobs:
           echo "LOG_LEVEL_MONGODB=ERROR" >> .env
           echo "LOG_LEVEL_RATE_LIMITER=INFO" >> .env
           echo "BUILD_CACHE_REPO=openfoodfacts/openfoodfacts-build-cache" >> .env
+
+          #11901: Remove once production is migrated. Initially duplicate STO and JSON
+          echo "SERIALIZE_TO_JSON=1" >> .env
+
+          # OIDC (Keycloak) settings
+          echo "OIDC_IMPLEMENTATION_LEVEL=${{ env.OIDC_IMPLEMENTATION_LEVEL }}" >> .env
+          echo "OIDC_DISCOVERY_URL=${{ env.OIDC_DISCOVERY_URL }}" >> .env
+          echo "OFF_CLIENT_SECRET=${{ secrets.OFF_CLIENT_SECRET }}" >> .env
+          echo "PROCESS_GLOBAL_REDIS_EVENTS=1" >> .env
 
           # Override domain name in nginx.conf
           sed -i.bak "s/productopener.localhost/${{ env.PRODUCT_OPENER_DOMAIN }}/g" ./conf/nginx-docker/nginx.conf

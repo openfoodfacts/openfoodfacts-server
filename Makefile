@@ -74,8 +74,6 @@ DOCKER_COMPOSE_TEST=COMPOSE_FILE="${COMPOSE_FILE_BUILD};${DEPS_DIR}/openfoodfact
 # Note the integration-test.yml file contains references to the docker-compose files from shared-services and auth
 DOCKER_COMPOSE_INT_TEST=COMPOSE_FILE="${COMPOSE_FILE_BUILD};docker/integration-test.yml" \
 	REDIS_URL="redis:6379" \
-	KEYCLOAK_BASE_URL=http://keycloak:8080 \
-	KEYCLOAK_TAG=main \
 	${DOCKER_COMPOSE_TEST_BASE}
 
 TEST_CMD ?= yath test
@@ -184,6 +182,10 @@ restart: run_deps
 	@echo "🥫 Restarting frontend & backend containers …"
 	${DOCKER_COMPOSE} restart backend frontend
 	@echo "🥫  started service at http://openfoodfacts.localhost"
+
+stop: stop_deps
+	@echo "🥫 Stopping containers …"
+	${DOCKER_COMPOSE} stop
 
 status: run_deps
 	@echo "🥫 Getting container status …"
@@ -302,6 +304,8 @@ integration_test: create_folders
 # this is the place where variables are important
 # note that we don't launch the frontend because it causes issues,
 # as we use localhost in tests (which is the backend)
+# Need to start dynamicfront explicitly so it is built on-demand. Just listing it as a depends_on for backend doesn't seem to do this
+	${DOCKER_COMPOSE_INT_TEST} up -d dynamicfront
 	${DOCKER_COMPOSE_INT_TEST} up -d backend
 # note: we need the -T option for ci (non tty environment)
 	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/integration/outputs/junit.xml" -T backend yath --renderer=Formatter --renderer=JUnit tests/integration
@@ -350,6 +354,7 @@ stop_tests:
 # clean tests, remove containers and volume (useful if you changed env variables, etc.)
 clean_tests:
 	${DOCKER_COMPOSE_TEST} down -v --remove-orphans
+	${DOCKER_COMPOSE_INT_TEST} down -v --remove-orphans
 
 update_tests_results: build_taxonomies_test build_lang_test update_unit_tests_results update_integration_tests_results
 
@@ -564,6 +569,7 @@ clean_folders: clean_logs
 
 clean_logs:
 	( rm -f logs/* logs/apache2/* logs/nginx/* || true )
+	echo "" > logs/apache2/log4perl.log
 
 clean: goodbye hdown prune prune_deps prune_cache clean_folders
 
@@ -596,6 +602,11 @@ prune_deps: clone_deps
 	@for dep in ${DEPS} ; do \
 		echo "🥫 Pruning $$dep..."; \
 		cd ${DEPS_DIR}/$$dep && $(MAKE) prune; \
+	done
+
+stop_deps:
+	@for dep in ${DEPS} ; do \
+		cd ${DEPS_DIR}/$$dep && ( $(MAKE) stop || env -i docker compose stop ) ; \
 	done
 
 #-----------#
