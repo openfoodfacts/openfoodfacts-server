@@ -166,13 +166,20 @@ jobs:
             # Additional aggressive cleanup
             echo "Performing aggressive cleanup..."
             
-            # Remove more Docker system components BUT preserve our target image
+            # First verify our target image exists before cleanup
+            echo "Checking if target image exists..."
+            docker images openfoodfacts-server/backend:dev
+            
+            # Remove Docker components but be very careful about images
             echo "Cleaning Docker system while preserving backend:dev image..."
-            docker image prune -af || true
-            docker container prune -af || true
-            docker volume prune -af || true
-            docker network prune -af || true
-            # Note: NOT using docker system prune -af as it would remove our target image
+            
+            # Only remove containers and volumes, NOT images
+            docker container prune -f || true
+            docker volume prune -f || true
+            docker network prune -f || true
+            
+            # Remove only untagged/dangling images (not our tagged image)
+            docker image prune -f || true
             
             # Clean up more system caches
             sudo rm -rf /var/log/*.log /var/log/*/*.log || true
@@ -182,6 +189,10 @@ jobs:
             # Remove any large files in common locations
             sudo find /var -type f -size +100M -delete 2>/dev/null || true
             sudo find /usr -type f -size +100M -delete 2>/dev/null || true
+            
+            # Verify our image still exists after cleanup
+            echo "Verifying target image still exists after cleanup..."
+            docker images openfoodfacts-server/backend:dev
             
             # Final space check
             echo "Space after aggressive cleanup:"
