@@ -7949,9 +7949,11 @@ JS
 	$template_data_ref->{front_image} = data_to_display_image($product_ref, "front", $lc);
 
 	# Take the imgid from the front image, from website language or the product language if it doesn't exist
+	# we must take extra care of not provoking autovivification
 	my $imgtype = deep_get($template_data_ref, "front_image", "type");
+	my $front_image_type = deep_get($template_data_ref, "front_image", "type");
 	my $front_image_id = deep_get($product_ref, 'images', 'selected', $imgtype, $lc, 'imgid')
-		// deep_get($product_ref, 'images', 'selected', $template_data_ref->{front_image}{type},
+		// deep_get($product_ref, 'images', 'selected', $front_image_type,
 		$product_ref->{lc}, 'imgid');
 	$template_data_ref->{imgid} = $front_image_id if defined $front_image_id;
 	# On the producers platform, show a link to the public platform
