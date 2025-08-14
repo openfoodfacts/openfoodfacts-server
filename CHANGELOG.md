@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.76.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.75.0...v2.76.0) (2025-08-14)
+
+
+### Features
+
+* M3 raw data knowledge panel ([#12116](https://github.com/openfoodfacts/openfoodfacts-server/issues/12116)) ([256475c](https://github.com/openfoodfacts/openfoodfacts-server/commit/256475cf6450fde7e22672958902b413f5ca44e9))
+
 ## [2.75.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.74.0...v2.75.0) (2025-08-13)
 
 
