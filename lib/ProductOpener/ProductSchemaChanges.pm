@@ -336,14 +336,19 @@ sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref)
 
 	$product_ref->{nutrition} = {};
 
-	my $new_nutrition_sets_ref = {
-		"prepared_100g" => {},
-		"100g" => {},
-	};
-	# only create serving sets if we know the serving quantity
-	if (defined $product_ref->{serving_quantity}) {
-		$new_nutrition_sets_ref->{"prepared_serving"} = {};
-		$new_nutrition_sets_ref->{"serving"} = {};
+	# only create sets for which the nutrient values are given and not computed
+	my $new_nutrition_sets_ref = {};
+	my $nutrition_given_as_prepared
+		= defined $product_ref->{nutrition_data_prepared} && $product_ref->{nutrition_data_prepared} eq "on";
+	my $nutrition_given_as_sold = defined $product_ref->{nutrition_data} && $product_ref->{nutrition_data} eq "on";
+
+	if ($nutrition_given_as_sold) {
+		$new_nutrition_sets_ref->{"100g"} = {};
+		$new_nutrition_sets_ref->{serving} = {};
+	}
+	if ($nutrition_given_as_prepared) {
+		$new_nutrition_sets_ref->{"prepared_100g"} = {};
+		$new_nutrition_sets_ref->{prepared_serving} = {};
 	}
 
 	# hash used to easily access nutrient fields of old set and set preparation values of new sets
@@ -395,7 +400,7 @@ sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref)
 					push(@{$new_nutrition_sets_ref->{$set_type}{unspecified_nutrients}}, $nutrient);
 				}
 
-				# else if the nutrient value field exists for this set type then add it to the nutrients of the set
+				# else only add the nutrient value if it is provided for the set type
 				elsif (defined $product_ref->{nutriments}{$nutrient . '_' . $set_type}) {
 					my $nutrient_value = $product_ref->{nutriments}{$nutrient . '_' . $set_type};
 
@@ -432,8 +437,10 @@ sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref)
 
 	# add the created sets to the new nutrition field
 	$product_ref->{nutrition}{nutrient_sets} = [
-		$new_nutrition_sets_ref->{"prepared_100g"}, $new_nutrition_sets_ref->{prepared_serving},
-		$new_nutrition_sets_ref->{"100g"}, $new_nutrition_sets_ref->{serving}
+		grep {defined $_} (
+			$new_nutrition_sets_ref->{"prepared_100g"}, $new_nutrition_sets_ref->{prepared_serving},
+			$new_nutrition_sets_ref->{"100g"}, $new_nutrition_sets_ref->{serving}
+		)
 	];
 	# generate the preferred set with the created sets
 	$product_ref->{nutrition}{nutrient_set_preferred}
