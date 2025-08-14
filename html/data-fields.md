@@ -124,7 +124,7 @@ The file encoding is Unicode UTF-8. The character that separates fields is <tab>
 - `data_quality_errors_tags`
 - `unique_scans_n`
 - `popularity_tags`
-- `completeness`
+- `data_quality_dimensions`
 - `last_image_t`
 - `last_image_datetime`
 - `main_category`
