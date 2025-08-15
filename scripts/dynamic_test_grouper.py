@@ -172,8 +172,9 @@ class DynamicTestGrouper:
         test_files = []
         for test_file in test_dir.rglob("*.t"):
             if test_file.is_file():
-                relative_path = test_file.relative_to(test_dir)
-                test_files.append(str(relative_path))
+                # Use the full path from project root, not relative to test_dir
+                full_path = str(test_file)
+                test_files.append(full_path)
         
         return sorted(test_files)
     
