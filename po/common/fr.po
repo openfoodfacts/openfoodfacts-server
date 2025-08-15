@@ -361,10 +361,6 @@ msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
 msgstr "Manuel d'administration des producteurs"
 
-msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donner à Open Food Facts\" /></a><p><<site_name>> est développé par une association à but non lucratif indépendante de l'industrie. Open Food Facts est fait pour tous, par tous, et est financé par tous. Vous pouvez soutenir notre travail en <a href=\"https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts?utm_source=login-open-food-facts\">donnant à Open Food Facts</a> et aussi en utilisant le <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">moteur de recherche Lilo</a>.<br/><b>Merci beaucoup !</b></p>"
-
 msgctxt "bottom_title"
 msgid "Donate to support our work"
 msgstr "Faites un don pour soutenir notre travail"
@@ -7513,9 +7509,41 @@ msgctxt "action_report_image_to_nutripatrol"
 msgid "Report this image to our moderators"
 msgstr "Signaler cette image à nos modérateurs"
 
+msgctxt "missing_serving_size_value_and_or_unit"
+msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
+msgstr "Il nous manque la valeur de la portion et/ou l'unité pour calculer le Nutri-Score"
+
+msgctxt "bottom_content_split"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> est produit par une association à but non lucratif, indépendante de l'industrie. Il est conçu pour tous, par tous, et financé par tous. Vous pouvez soutenir notre action en faisant un don à Open Food Facts.<br/><b>Merci !</b>"
+
+msgctxt "bottom_content_split_with_lilo"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> est produit par une association à but non lucratif, indépendante de l'industrie. Il est conçu pour tous, par tous, et financé par tous. Vous pouvez soutenir notre action en faisant un don à Open Food Facts et en utilisant le moteur de recherche Lilo.<br/><b>Merci !</b>"
+
+msgctxt "lilo_search_engine"
+msgid "Lilo search engine"
+msgstr "Moteur de recherche Lilo"
+
 msgctxt "robots_not_served_here"
 msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
-msgstr "En raison d'abus importants de la part de robots, nous ne pouvons pas servir cette page aux utilisateurs non identifiés. Merci de créer un compte Open Food Facts gratuit pour accéder à l'ensemble d'Open Food Facts."
+msgstr "En raison d'abus de robots, nous ne pouvons pas proposer cette page aux utilisateurs non identifiés. Veuillez créer un compte Open Food Facts gratuit pour accéder à l'intégralité d'Open Food Facts."
+
+msgctxt "origin_of_ingredients"
+msgid "Origin of ingredients"
+msgstr "Origine des ingrédients"
+
+msgctxt "origin_of_product"
+msgid "Origin of product"
+msgstr "Origine du produit"
+
+msgctxt "product_information"
+msgid "Product information"
+msgstr "Informations sur le produit"
+
+msgctxt "raw_product_information"
+msgid "Raw product information"
+msgstr "Informations sur le produit brut"
 
 msgctxt "knowledge_panels_ingredients_added_sugars_title"
 msgid "Contains added sugars"
@@ -7531,4 +7559,5 @@ msgstr "Quantité estimée de sucres ajoutés dans les ingrédients"
 
 msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
-msgstr "Chercher des produits de la même catégorie sans sucres ajoutés :"
+msgstr "Rechercher des produits de la même catégorie sans sucres ajoutés :"
+
