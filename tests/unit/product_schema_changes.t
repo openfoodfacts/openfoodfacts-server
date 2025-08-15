@@ -333,6 +333,55 @@ my @tests = (
 		}
 
 	],
+	[
+		'1002-to-1003-new-nutrition-schema-no-nutrition-data',
+		1003,
+		{
+			"serving_quantity" => 250,
+			"serving_quantity_unit" => "g",
+			"no_nutrition_data" => "on",
+			"nutrition_data" => "on",
+			"nutriments" => {
+				"calcium_label" => "Calcium",
+				"calcium_prepared" => 0.118,
+				"calcium_prepared_100g" => 0.118,
+				"calcium_prepared_unit" => "mg",
+				"calcium_prepared_value" => 118,
+
+				"energy-kcal" => 386,
+				"energy-kcal_100g" => 386,
+				"energy-kcal_prepared" => 72,
+				"energy-kcal_prepared_100g" => 72,
+				"energy-kcal_prepared_unit" => "kcal",
+				"energy-kcal_prepared_value" => 72,
+				"energy-kcal_unit" => "kcal",
+				"energy-kcal_value" => 386,
+				"energy-kcal_value_computed" => 383.8,
+
+				"energy-kj" => 1634,
+				"energy-kj_100g" => 1634,
+				"energy-kj_prepared" => 304,
+				"energy-kj_prepared_100g" => 304,
+				"energy-kj_prepared_unit" => "kJ",
+				"energy-kj_prepared_value" => 304,
+				"energy-kj_unit" => "kJ",
+				"energy-kj_value" => 1634,
+				"energy-kj_value_computed" => 1622.8,
+
+				"energy" => 1634,
+				"energy_100g" => 1634,
+				"energy_prepared" => 304,
+				"energy_prepared_100g" => 304,
+				"energy_prepared_unit" => "kJ",
+				"energy_prepared_value" => 304,
+				"energy_unit" => "kJ",
+				"energy_value" => 1634,
+
+				"added-sugars_modifier" => "-",
+			},
+		}
+
+	],
 
 	[
 		'1002-to-1001-change-images-object',

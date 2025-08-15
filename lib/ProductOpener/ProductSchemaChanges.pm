@@ -338,15 +338,16 @@ sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref)
 
 	# only create sets for which the nutrient values are given and not computed
 	my $new_nutrition_sets_ref = {};
+	my $no_nutrition_data = defined $product_ref->{no_nutrition_data} and $product_ref->{no_nutrition_data} eq "on";
 	my $nutrition_given_as_prepared
 		= defined $product_ref->{nutrition_data_prepared} && $product_ref->{nutrition_data_prepared} eq "on";
 	my $nutrition_given_as_sold = defined $product_ref->{nutrition_data} && $product_ref->{nutrition_data} eq "on";
 
-	if ($nutrition_given_as_sold) {
+	if (!$no_nutrition_data and $nutrition_given_as_sold) {
 		$new_nutrition_sets_ref->{"100g"} = {};
 		$new_nutrition_sets_ref->{serving} = {};
 	}
-	if ($nutrition_given_as_prepared) {
+	if (!$no_nutrition_data and $nutrition_given_as_prepared) {
 		$new_nutrition_sets_ref->{"prepared_100g"} = {};
 		$new_nutrition_sets_ref->{prepared_serving} = {};
 	}
