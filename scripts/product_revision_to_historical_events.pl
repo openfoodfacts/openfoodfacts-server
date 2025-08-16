@@ -26,7 +26,6 @@ use utf8;
 use ProductOpener::Config qw/%options $query_url/;
 use ProductOpener::Store qw/retrieve_object/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
-use ProductOpener::Redis qw/push_to_redis_stream/;
 use ProductOpener::Products qw/product_id_from_path product_iter/;
 use ProductOpener::Checkpoint;
 use ProductOpener::HTTP qw/create_user_agent/;
@@ -174,7 +173,7 @@ sub send_events() {
 	}
 
 	# Note pushing to redis will cause product to be reloaded
-	# push_to_redis_stream(
+	# push_product_update_to_redis(
 	# 	$change->{userid} // 'initial_import',
 	# 	{code=>$code, rev=>$rev},
 	# 	$action,

@@ -51,7 +51,6 @@ use ProductOpener::Mail qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Data qw/get_products_collection/;
 use ProductOpener::LoadData qw/load_data/;
-use ProductOpener::Redis qw/push_to_redis_stream/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
