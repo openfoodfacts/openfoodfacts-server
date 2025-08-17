@@ -124,14 +124,25 @@ function folskonomy_engine_init() {
 
     if (pageType === "property") {
         // detect /property/test or /property/test/value/test_value
-        const results = new RegExp('/property/([^/]*)(/value/)?(.*)').exec(window.location.href);
+        // we capture a value without / and quotes (to avoid html injection)
+        const results = new RegExp("/property/([^\"'/]*)(/value/)?(.*)").exec(
+          window.location.href
+        );
         if (results === null) {
-            return null;
+          return null;
         }
+      
         const property = results[1];
-        const value = results[3];
-        displayProductsWithProperty(property, value);
-    }
+      
+        const webComponentHTML = `
+          <div style="padding: 32px;">
+            <folksonomy-property-products property-name="${property}"></folksonomy-property-products>
+          </div>
+        `;
+      
+        $("#main_column").append(webComponentHTML);
+      }
+      
 
     if (pageType === "properties") {
         displayAllProperties();
@@ -354,56 +365,6 @@ function displayFolksonomyPropertyValues() {
         } );
     });
 }
-
-
-function displayProductsWithProperty(_property, _value) {
-
-    /* curl -X 'GET' \
-        'https://api.folksonomy.openfoodfacts.org/products?k=test&v=test' \
-        -H 'accept: application/json'
-    */
-    //$("#main_column p").remove();  // remove <p>Invalid address.</p>
-    $("#main_column").append('<!-- display products with property ' + _property + (_value ? ": "+ _value : '') + ' -->' +
-                        '<h2 id="property_title">Folksonomy property: '+ _property + (_value ? ": "+ _value : '') + '</h2>' +
-                        '<p>You should find a <a href="https://wiki.openfoodfacts.org/Folksonomy/Property/'+ _property + '">dedicated documentation</a>' +
-                        ' about this property on Open Food Facts wiki</p>' +
-                        '<p>List of products using this property:</p>' +
-                        '<div id="fe_infobox" style="float: right; border: solid black; width: 20%">Tip: you can also find the <a href="/properties">list of all properties</a>.</div>' +
-                        '<ul id="product_list"></ul>');
-    //$("#main_column h1").remove(); // remove <h1>Error</h1>
-
-    console.log("FEUS - displayProductsWithProperty(_property) - GET " + feAPI + "/products?k=" + _property + (_value ? "&v="+ _value : ''));
-    $.getJSON(feAPI + "/products?k=" + _property + (_value ? "&v="+ _value : ''), function(data) {
-        console.log("FEUS - displayProductsWithProperty() - " + JSON.stringify(data));
-        let index = data.length; 
-        let content = "";
-        //const mainAPI = window.location.origin;
-        //$.getJSON(mainAPI +
-        content +=
-            '<table id="properties_list">' +
-            '<tr>' +
-            '<th class="product_code">Product barcode</th>' +
-            '<th class="values">Corresponding value</th>' +
-            '</tr>' +
-            '<tbody id="free_prop_body">';
-        while (index--) {
-            content += ('<tr>' +
-                        '<td class="product_code">' +
-                        '<a href="/product/'+ data[index].product + '">' + data[index].product + '</a>' +
-                        '</td>' +
-                        '<td class="property_value">'+
-                        '<a href="/property/'+ _property + '/value/' + data[index].v + '">' + data[index].v + '</a>' +
-                        '</td>' +
-                        '</tr>');
-        }
-        content +=
-            '' +
-            '</tbody>' +
-            '</table>';
-        $("#product_list").append(content);
-    });
-}
-
 
 function displayAllProperties() {
 
