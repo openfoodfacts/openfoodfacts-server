@@ -1639,10 +1639,28 @@
                "panel_element" : {
                   "panel_id" : "report_problem_card"
                }
+            },
+            {
+               "element_type" : "panel",
+               "panel_element" : {
+                  "panel_id" : "product_card"
+               }
             }
          ],
          "expanded" : true,
          "type" : "root"
+      },
+      "product_card" : {
+         "elements" : [
+         ],
+         "expanded" : true,
+         "title_element" : {
+            "title" : "Product information"
+         },
+         "topics" : [
+            "product"
+         ],
+         "type" : "card"
       },
       "serving_size" : {
          "elements" : [

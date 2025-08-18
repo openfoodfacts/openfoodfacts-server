@@ -1,6 +1,6 @@
 # Auto-calculated 6 groups for 75 tests (total estimated time: 37.5m)
 # Generated test groups for unit tests
-# Generated at: Mon Aug 18 17:12:44 2025
+# Generated at: Mon Aug 18 18:10:18 2025
 
 UNIT_GROUP_1_TESTS := additives.t attributes.t data_quality_tags_panel.t environmental_score.t images.t ingredients_clean.t ingredients_percent.t load_csv_or_excel_file.t nutrition_ciqual.t parse_origins_from_text.t recipes.t tags.t text.t
 UNIT_GROUP_2_TESTS := additives_tags.t booleans.t dataquality.t food.t import.t ingredients_contents.t ingredients_preparsing.t match_ingredient_origin.t nutrition_estimation.t paths.t redis.t tags_unit.t units.t
@@ -8,12 +8,3 @@ UNIT_GROUP_3_TESTS := all_pod_correct.t brevo.t dataqualityfood.t food_groups.t 
 UNIT_GROUP_4_TESTS := allergens.t contribution_knowledge_panels.t dataqualityfood_labels.t forest_footprint.t import_gs1.t ingredients_nesting.t ingredients_tags.t numbers.t packaging.t producers.t send_image_to_cloud_vision.t taxonomies_enhancer.t
 UNIT_GROUP_5_TESTS := allergens_tags.t convert_gs1_xml_to_json.t display.t http.t ingredients.t ingredients_nutriscore.t knowledge_panels.t nutriscore.t packaging_food_contact.t product_schema_changes.t spam_user.t taxonomy_suggestions.t
 UNIT_GROUP_6_TESTS := api.t cursor.t environmental_impact.t i18n.t ingredients_analysis.t ingredients_parsing_todo.t lang.t nutrition.t packaging_stats.t products.t store.t templates.t
-
-# Group Statistics:
-# Group 1: 13 tests, 6m 30s
-# Group 2: 13 tests, 6m 30s
-# Group 3: 13 tests, 6m 30s
-# Group 4: 12 tests, 6m 0s
-# Group 5: 12 tests, 6m 0s
-# Group 6: 12 tests, 6m 0s
-# Max group time: 6.5m, Min: 6.0m, Avg: 6.2m
