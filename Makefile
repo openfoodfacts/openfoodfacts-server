@@ -633,7 +633,7 @@ guard-%: # guard clause for targets that require an environment variable (usuall
 -include .test_groups_cache/unit_groups.mk
 
 # Get unit test group tests from dynamically generated groups
-get_unit_group_tests = $(GROUP_$(1)_TESTS)
+get_unit_group_tests = $(UNIT_GROUP_$(1)_TESTS)
 
 # Unit test group runner for CI parallelization
 unit_test_group: create_folders
@@ -671,7 +671,7 @@ regenerate_unit_groups:
 -include .test_groups_cache/integration_groups.mk
 
 # Get the tests for a specific group from dynamically generated groups
-get_group_tests = $(GROUP_$(1)_TESTS)
+get_group_tests = $(INTEGRATION_GROUP_$(1)_TESTS)
 
 integration_test_group: create_folders
 ifeq ($(TEST_GROUP),)

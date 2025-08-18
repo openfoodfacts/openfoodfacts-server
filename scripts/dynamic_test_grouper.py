@@ -266,6 +266,9 @@ class DynamicTestGrouper:
         print(f"# Generated test groups for {self.test_type} tests")
         print(f"# Generated at: {time.ctime()}\n")
         
+        # Use test-type-specific variable names to avoid conflicts
+        var_prefix = f"{self.test_type.upper()}_GROUP"
+        
         for i, group in enumerate(groups, 1):
             tests = group.get('tests', [])
             # Strip the test type prefix from paths since Makefile adds it
@@ -276,7 +279,7 @@ class DynamicTestGrouper:
                     relative_tests.append(test[len(test_prefix):])
                 else:
                     relative_tests.append(test)
-            print(f"GROUP_{i}_TESTS := {' '.join(relative_tests)}")
+            print(f"{var_prefix}_{i}_TESTS := {' '.join(relative_tests)}")
     
     def _print_group_statistics(self, groups: List[TestGroup], 
                                timings: Dict[str, float]) -> None:
