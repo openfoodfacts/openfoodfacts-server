@@ -1,6 +1,6 @@
 # Auto-calculated 9 groups for 45 tests (total estimated time: 22.5m)
 # Generated test groups for integration tests
-# Generated at: Mon Aug 18 14:23:28 2025
+# Generated at: Mon Aug 18 15:26:06 2025
 
 GROUP_1_TESTS := add_update_to_redis.t api_v3_product_services.t cors.t fix_non_normalized_codes.t protected_images.t
 GROUP_2_TESTS := api_cgi_nutrients.t api_v3_product_services_external.t countries.t import_csv_file.t protected_product.t
