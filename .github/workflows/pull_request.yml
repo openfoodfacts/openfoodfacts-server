@@ -384,13 +384,11 @@ jobs:
     - name: Update dynamic test groups
       run: |
         echo "🥫 Checking and updating dynamic test groups..."
-        ./.github/scripts/update_test_groups.sh --stats
+        ./.github/scripts/update_test_groups.sh
         
-        # Generate test groups for Makefile if needed
-        if [ ! -f ".test_groups_cache/unit_groups.mk" ]; then
-          echo "🥫 Generating unit test groups for Makefile..."
-          python3 scripts/dynamic_test_grouper.py --type=unit --groups=6 > .test_groups_cache/unit_groups.mk
-        fi
+        # Ensure .mk files are regenerated for current test discovery
+        echo "🥫 Regenerating unit test groups for Makefile..."
+        python3 scripts/dynamic_test_grouper.py --type=unit --force > .test_groups_cache/unit_groups.mk
     
     # Download the Docker image built in build_backend job as an artifact
     # This reuses the cached Docker image instead of rebuilding it
@@ -494,13 +492,11 @@ jobs:
     - name: Update dynamic test groups
       run: |
         echo "🥫 Checking and updating dynamic integration test groups..."
-        ./.github/scripts/update_test_groups.sh --stats
+        ./.github/scripts/update_test_groups.sh
         
-        # Generate test groups for Makefile if needed
-        if [ ! -f ".test_groups_cache/integration_groups.mk" ]; then
-          echo "🥫 Generating integration test groups for Makefile..."
-          python3 scripts/dynamic_test_grouper.py --type=integration --groups=9 > .test_groups_cache/integration_groups.mk
-        fi
+        # Ensure .mk files are regenerated for current test discovery
+        echo "🥫 Regenerating integration test groups for Makefile..."
+        python3 scripts/dynamic_test_grouper.py --type=integration --force > .test_groups_cache/integration_groups.mk
 
     - name: Download backend image from artifacts
       id: downloadbackendimage
