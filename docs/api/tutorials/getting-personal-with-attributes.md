@@ -146,17 +146,8 @@ GET https://world.openfoodfacts.org/api/v2/product/3700214614266?fields=product_
 
 #### Matching algorithm (simplified):
 
-```python
-def match_product(product, preferences):
-    score = 0
-    for group in product["attribute_groups"]:
-        for attr in group["attributes"]:
-            if attr["id"] in preferences["preferred_attributes"] and attr["match"] == 1:
-                score += 1
-            if attr["id"] in preferences["avoided_attributes"] and attr["match"] == 1:
-                score -= 1
-    return score
-```
+Here's the scoring algorithm in Javascript: https://github.com/openfoodfacts/openfoodfacts-server/blob/main/html/js/product-search.js
+You can adapt it to your programming language
 
 💡 Use this score to **rank products**.
 
