@@ -299,7 +299,7 @@ jobs:
   # Calculate dynamic test group matrix based on current test files and timing data
   calculate_test_matrix:
     name: 🧮 Calculate Dynamic Test Matrix
-    needs: [filter, build_backend]
+    needs: [filter] 
     runs-on: ubuntu-latest
     if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true'
     outputs:

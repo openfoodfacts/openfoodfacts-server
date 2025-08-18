@@ -268,7 +268,15 @@ class DynamicTestGrouper:
         
         for i, group in enumerate(groups, 1):
             tests = group.get('tests', [])
-            print(f"GROUP_{i}_TESTS := {' '.join(tests)}")
+            # Strip the test type prefix from paths since Makefile adds it
+            test_prefix = f"tests/{self.test_type}/"
+            relative_tests = []
+            for test in tests:
+                if test.startswith(test_prefix):
+                    relative_tests.append(test[len(test_prefix):])
+                else:
+                    relative_tests.append(test)
+            print(f"GROUP_{i}_TESTS := {' '.join(relative_tests)}")
     
     def _print_group_statistics(self, groups: List[TestGroup], 
                                timings: Dict[str, float]) -> None:
