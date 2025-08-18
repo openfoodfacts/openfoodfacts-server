@@ -4372,7 +4372,7 @@ msgstr "Squadra %s"
 
 msgctxt "contributor_settings"
 msgid "Contributor"
-msgstr "Contributore"
+msgstr "Collaboratori"
 
 msgctxt "contributor_settings_description"
 msgid "Those settings allow you to personalize some aspects of the website"
@@ -5117,6 +5117,10 @@ msgstr "Elenco di ingredienti mancante"
 msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr "Dati nutrizionali mancanti"
+
+msgctxt "missing_nutrition_facts_prepared"
+msgid "Missing nutrition facts for prepared product"
+msgstr "Mancano i valori nutrizionali del prodotto preparato"
 
 msgctxt "ecoscore_p"
 msgid "Green-Score"
@@ -6106,6 +6110,10 @@ msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
 msgstr "Valori nutrizionali mancanti:"
 
+msgctxt "nutriscore_missing_prepared_nutrition_data_details"
+msgid "Missing nutrition facts for prepared product:"
+msgstr "Informazioni nutrizionali mancanti per il prodotto preparato:"
+
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "La categoria e i valori nutrizionali del prodotto devono esser specificati per poter calcolare il Nutri-Score."
@@ -6193,6 +6201,10 @@ msgstr "Categoria mancante"
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr "Dati nutrizionali mancanti"
+
+msgctxt "nutriscore_missing_prepared_nutrition_data_short"
+msgid "Missing prepared nutrition facts"
+msgstr "Mancano i valori nutrizionali preparati"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
