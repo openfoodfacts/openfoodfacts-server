@@ -14,7 +14,15 @@ operations:
   product_updated:
     action: send
     channel:
-      address: product_updated
       messages:
-        product_updated:
-          $ref: "./messages/product_updated.yaml"
+        $ref: "./messages/product_updated.yaml"
+  user-registered:
+    action: receive
+    channel:
+      messages:
+        $ref: "https://raw.githubusercontent.com/openfoodfacts/openfoodfacts-auth/refs/heads/redis-docs/docs/events/messages/user-registered.yaml"
+  user-deleted:
+    action: receive
+    channel:
+      messages:
+        $ref: "https://raw.githubusercontent.com/openfoodfacts/openfoodfacts-auth/refs/heads/redis-docs/docs/events/messages/user-deleted.yaml"
