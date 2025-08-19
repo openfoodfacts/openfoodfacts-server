@@ -1,0 +1,20 @@
+asyncapi: "3.0.0"
+
+info:
+  title: Events emitted by Product Opener
+  version: 0.0.1
+
+servers:
+  redis:
+    title: Redis server
+    host: redis:6379
+    protocol: redis
+
+operations:
+  product_updated:
+    action: send
+    channel:
+      address: product_updated
+      messages:
+        product_updated:
+          $ref: "./messages/product_updated.yaml"
