@@ -62,6 +62,7 @@ use vars @EXPORT_OK;
 
 use Log::Any qw($log);
 
+use ProductOpener::Food qw/default_unit_for_nid/;
 use ProductOpener::Tags qw/compute_field_tags/;
 use ProductOpener::Products qw/normalize_code/;
 use ProductOpener::Config qw/:all/;
@@ -338,16 +339,16 @@ sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref)
 
 	# only create sets for which the nutrient values are given and not computed
 	my $new_nutrition_sets_ref = {};
-	my $no_nutrition_data = defined $product_ref->{no_nutrition_data} and $product_ref->{no_nutrition_data} eq "on";
+	my $no_nutrition_data = defined $product_ref->{no_nutrition_data} && $product_ref->{no_nutrition_data} eq "on";
 	my $nutrition_given_as_prepared
 		= defined $product_ref->{nutrition_data_prepared} && $product_ref->{nutrition_data_prepared} eq "on";
 	my $nutrition_given_as_sold = defined $product_ref->{nutrition_data} && $product_ref->{nutrition_data} eq "on";
 
-	if (!$no_nutrition_data and $nutrition_given_as_sold) {
+	if (!$no_nutrition_data && $nutrition_given_as_sold) {
 		$new_nutrition_sets_ref->{"100g"} = {};
 		$new_nutrition_sets_ref->{serving} = {};
 	}
-	if (!$no_nutrition_data and $nutrition_given_as_prepared) {
+	if (!$no_nutrition_data && $nutrition_given_as_prepared) {
 		$new_nutrition_sets_ref->{"prepared_100g"} = {};
 		$new_nutrition_sets_ref->{prepared_serving} = {};
 	}
@@ -374,7 +375,7 @@ sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref)
 			$new_nutrition_sets_ref->{$set_type}{last_updated_t} = $update_time;
 
 			$new_nutrition_sets_ref->{$set_type}{per_unit}
-				= set_per_unit($product_ref->{product_quantity_unit}, $product_ref->{serving_quantity_unit});
+				= set_per_unit($product_ref->{product_quantity_unit}, $product_ref->{serving_quantity_unit}, $set_type);
 
 			# set per_quantity as the serving quantity if the set is generated with nutrient quantities per serving,
 			# or as 100 if it is generated with quantities per 100g/ml
@@ -404,19 +405,18 @@ sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref)
 				# else only add the nutrient value if it is provided for the set type
 				elsif (defined $product_ref->{nutriments}{$nutrient . '_' . $set_type}) {
 					my $nutrient_value = $product_ref->{nutriments}{$nutrient . '_' . $set_type};
-
-					$new_nutrition_sets_ref->{$set_type}{nutrients}{$nutrient}{value} = $nutrient_value;
-					$new_nutrition_sets_ref->{$set_type}{nutrients}{$nutrient}{unit} = set_nutrient_unit($nutrient);
-					# the 1002 version products do not have a string value so the float value is converted to string
-					$new_nutrition_sets_ref->{$set_type}{nutrients}{$nutrient}{value_string}
-						= sprintf("%s", $nutrient_value);
+					my $nutrient_set_ref = {};
+					$nutrient_set_ref->{value} = $nutrient_value;
+					$nutrient_set_ref->{unit} = default_unit_for_nid($nutrient);
+					# the 1002 version products do not have a value string so the float value is converted to string
+					$nutrient_set_ref->{value_string} = sprintf("%s", $nutrient_value);
 
 					my $nutrient_field_modifier
 						= $nutrient . ($nutrition_preparations_ref->{$set_type}{modifier_state}) . "_modifier";
 					if (defined $product_ref->{nutriments}{$nutrient_field_modifier}) {
-						$new_nutrition_sets_ref->{$set_type}{nutrients}{$nutrient}{modifier}
-							= $product_ref->{nutriments}{$nutrient_field_modifier};
+						$nutrient_set_ref->{modifier} = $product_ref->{nutriments}{$nutrient_field_modifier};
 					}
+					$new_nutrition_sets_ref->{$set_type}{nutrients}{$nutrient} = $nutrient_set_ref;
 				}
 			}
 		}
@@ -438,7 +438,7 @@ sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref)
 
 	# add the created sets to the new nutrition field
 	$product_ref->{nutrition}{nutrient_sets} = [
-		grep {defined $_} (
+		grep {defined $_ && %{$_->{nutrients}}} (
 			$new_nutrition_sets_ref->{"prepared_100g"}, $new_nutrition_sets_ref->{prepared_serving},
 			$new_nutrition_sets_ref->{"100g"}, $new_nutrition_sets_ref->{serving}
 		)
@@ -453,24 +453,17 @@ sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref)
 	return;
 }
 
-sub set_per_unit ($product_quantity_unit, $serving_quantity_unit) {
-	my $per_unit = "g";
+sub set_per_unit ($product_quantity_unit, $serving_quantity_unit, $set_type) {
+	my $per_unit = undef;
 	if (defined $product_quantity_unit) {
 		$per_unit = $product_quantity_unit;
 	}
 	elsif (defined $serving_quantity_unit) {
 		$per_unit = $serving_quantity_unit;
 	}
+	# unit is either g or ml for set types of 100g or prepared_100g because, the default being g
+	elsif ($set_type eq "100g" || $set_type eq "prepared_100g") {
+		$per_unit = "g";
+	}
 	return $per_unit;
-}
-
-sub set_nutrient_unit ($nutrient) {
-	my $unit = "g";
-	if ($nutrient eq "energy" or $nutrient eq "energy-kj") {
-		$unit = "kJ";
-	}
-	elsif ($nutrient eq "energy-kcal") {
-		$unit = "kcal";
-	}
-	return $unit;
 }

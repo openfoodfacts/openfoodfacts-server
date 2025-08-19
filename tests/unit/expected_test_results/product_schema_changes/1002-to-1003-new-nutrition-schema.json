@@ -194,7 +194,13 @@
          },
          {
             "last_updated_t": "--ignore--",
-            "nutrients": {},
+            "nutrients": {
+               "carbohydrates": {
+                  "unit": "g",
+                  "value": 9.9,
+                  "value_string": "9.9"
+               }
+            },
             "per": "serving",
             "per_quantity": 250,
             "per_unit": "g",
@@ -238,12 +244,12 @@
                   "value_string": "7.7"
                },
                "fruits-vegetables-legumes-estimate-from-ingredients": {
-                  "unit": "g",
+                  "unit": "%",
                   "value": 0,
                   "value_string": "0"
                },
                "fruits-vegetables-nuts-estimate-from-ingredients": {
-                  "unit": "g",
+                  "unit": "%",
                   "value": 0,
                   "value_string": "0"
                },
@@ -307,12 +313,12 @@
             "last_updated_t": "--ignore--",
             "nutrients": {
                "fruits-vegetables-legumes-estimate-from-ingredients": {
-                  "unit": "g",
+                  "unit": "%",
                   "value": 0,
                   "value_string": "0"
                },
                "fruits-vegetables-nuts-estimate-from-ingredients": {
-                  "unit": "g",
+                  "unit": "%",
                   "value": 0,
                   "value_string": "0"
                },
@@ -337,8 +343,8 @@
          "energy-kj_from_other_nutrients": 1622.8
       }
    },
-   "nutrition_data_prepared": "on",
    "nutrition_data": "on",
+   "nutrition_data_prepared": "on",
    "schema_version": 1003,
    "serving_quantity": 250,
    "serving_quantity_unit": "g"

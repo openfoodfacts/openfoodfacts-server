@@ -49,6 +49,7 @@ use vars @EXPORT_OK;
 
 use Clone qw/clone/;
 
+use ProductOpener::Food qw/default_unit_for_nid/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Units qw/unit_to_kcal unit_to_kj unit_to_g g_to_unit/;
 
@@ -82,15 +83,19 @@ sub generate_nutrient_set_preferred_from_sets ($nutrient_sets_ref) {
 
 	if (@nutrient_sets) {
 		@nutrient_sets = sort_sets_by_priority(@nutrient_sets);
-		if (%{$nutrient_sets[0]}) {
+
+		# sets with unknown per quantities or units cannot be used to generate the aggregated set
+		@nutrient_sets = grep {defined $_->{per_unit} && defined $_->{per_quantity}} @nutrient_sets;
+
+		if (@nutrient_sets && %{$nutrient_sets[0]}) {
 			# set preparation, per, per_quantity and per_unit of preferred set as values of the nutrient_set with the highest priority
 			$nutrient_set_preferred_ref->{preparation} = $nutrient_sets[0]{preparation};
 			$nutrient_set_preferred_ref->{per} = $nutrient_sets[0]{per};
 			$nutrient_set_preferred_ref->{per_quantity} = $nutrient_sets[0]{per_quantity};
 			$nutrient_set_preferred_ref->{per_unit} = $nutrient_sets[0]{per_unit};
-		}
 
-		set_nutrient_values($nutrient_set_preferred_ref, @nutrient_sets);
+			set_nutrient_values($nutrient_set_preferred_ref, @nutrient_sets);
+		}
 	}
 	return $nutrient_set_preferred_ref;
 }
@@ -230,24 +235,21 @@ Name of the nutrient to normalize
 =cut
 
 sub convert_nutrient_to_standard_unit ($nutrient_ref, $nutrient_name) {
-	if ($nutrient_name eq "energy-kcal") {
-		if ($nutrient_ref->{unit} ne "kcal") {
+	my $converted_unit = default_unit_for_nid($nutrient_name);
+
+	if ($converted_unit ne $nutrient_ref->{unit}) {
+		if ($converted_unit eq "kcal") {
 			$nutrient_ref->{value} = unit_to_kcal($nutrient_ref->{value}, $nutrient_ref->{unit});
-			$nutrient_ref->{value_string} = sprintf("%s", $nutrient_ref->{value});
-			$nutrient_ref->{unit} = "kcal";
 		}
-	}
-	elsif ($nutrient_name eq "energy" or $nutrient_name eq "energy-kj") {
-		if ($nutrient_ref->{unit} ne "kJ") {
+		elsif ($converted_unit eq "kJ") {
 			$nutrient_ref->{value} = unit_to_kj($nutrient_ref->{value}, $nutrient_ref->{unit});
-			$nutrient_ref->{value_string} = sprintf("%s", $nutrient_ref->{value});
-			$nutrient_ref->{unit} = "kJ";
 		}
-	}
-	elsif ($nutrient_ref->{unit} ne "g") {
-		$nutrient_ref->{value} = unit_to_g($nutrient_ref->{value}, $nutrient_ref->{unit});
+		else {
+			$nutrient_ref->{value} = unit_to_g($nutrient_ref->{value}, $nutrient_ref->{unit});
+		}
+
 		$nutrient_ref->{value_string} = sprintf("%s", $nutrient_ref->{value});
-		$nutrient_ref->{unit} = "g";
+		$nutrient_ref->{unit} = $converted_unit;
 	}
 	return;
 }

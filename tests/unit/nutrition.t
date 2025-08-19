@@ -775,6 +775,30 @@ my @tests = (
 			}
 		}
 	],
+	[
+		# Aggregated set cannot be generated with sets that don't have a per quantity or unit
+		"ignore_sets_without_per",
+		{
+			nutrition => {
+				nutrient_sets => [
+					{
+						preparation => "as_sold",
+						per => "serving",
+						per_quantity => undef,
+						per_unit => undef,
+						source => "packaging",
+						nutrients => {
+							"sodium" => {
+								value_string => "0.25",
+								value => 0.25,
+								unit => "g",
+							}
+						}
+					}
+				]
+			}
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {

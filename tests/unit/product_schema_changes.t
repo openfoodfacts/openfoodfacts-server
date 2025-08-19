@@ -40,6 +40,7 @@ my @tests = (
 				"carbohydrates_100g" => 78.9,
 				"carbohydrates_prepared" => 9.8,
 				"carbohydrates_prepared_100g" => 9.8,
+				"carbohydrates_prepared_serving" => 9.9,
 				"carbohydrates_prepared_unit" => "g",
 				"carbohydrates_prepared_value" => 9.8,
 				"carbohydrates_unit" => "g",
@@ -377,12 +378,123 @@ my @tests = (
 				"energy_unit" => "kJ",
 				"energy_value" => 1634,
 
+				"fruits-vegetables-legumes-estimate-from-ingredients_100g" => 0,
+				"fruits-vegetables-legumes-estimate-from-ingredients_serving" => 0,
+
+				"fruits-vegetables-nuts-estimate-from-ingredients_100g" => 0,
+				"fruits-vegetables-nuts-estimate-from-ingredients_serving" => 0,
+
 				"added-sugars_modifier" => "-",
 			},
 		}
 
 	],
 
+	[
+		'1002-to-1003-new-nutrition-schema-set-without-nutrients',
+		1003,
+		{
+			"serving_quantity" => 250,
+			"serving_quantity_unit" => "g",
+			"nutrition_data" => "on",
+			"nutriments" => {
+				"calcium_label" => "Calcium",
+				"calcium_prepared" => 0.118,
+				"calcium_prepared_100g" => 0.118,
+				"calcium_prepared_unit" => "mg",
+				"calcium_prepared_value" => 118,
+
+				"energy-kcal" => 386,
+				"energy-kcal_100g" => 386,
+				"energy-kcal_prepared" => 72,
+				"energy-kcal_prepared_100g" => 72,
+				"energy-kcal_prepared_unit" => "kcal",
+				"energy-kcal_prepared_value" => 72,
+				"energy-kcal_unit" => "kcal",
+				"energy-kcal_value" => 386,
+				"energy-kcal_value_computed" => 383.8,
+
+				"energy-kj" => 1634,
+				"energy-kj_100g" => 1634,
+				"energy-kj_prepared" => 304,
+				"energy-kj_prepared_100g" => 304,
+				"energy-kj_prepared_unit" => "kJ",
+				"energy-kj_prepared_value" => 304,
+				"energy-kj_unit" => "kJ",
+				"energy-kj_value" => 1634,
+				"energy-kj_value_computed" => 1622.8,
+
+				"energy" => 1634,
+				"energy_100g" => 1634,
+				"energy_prepared" => 304,
+				"energy_prepared_100g" => 304,
+				"energy_prepared_unit" => "kJ",
+				"energy_prepared_value" => 304,
+				"energy_unit" => "kJ",
+				"energy_value" => 1634,
+
+				"fruits-vegetables-legumes-estimate-from-ingredients_100g" => 0,
+
+				"added-sugars_modifier" => "-",
+			},
+		}
+
+	],
+
+	[
+		'1002-to-1003-new-nutrition-schema-no-serving-quantity',
+		1003,
+		{
+			"serving_quantity" => undef,
+			"serving_quantity_unit" => undef,
+			"nutrition_data" => "on",
+			"nutrition_data_prepared" => "",
+			"nutriments" => {
+				"alcohol" => 0,
+				"alcohol_serving" => 0,
+				"alcohol_unit" => "% vol",
+				"alcohol_value" => 0,
+
+				"carbohydrates" => 100,
+				"carbohydrates_serving" => 100,
+				"carbohydrates_unit" => "g",
+				"carbohydrates_value" => 100,
+
+				"energy-kcal" => 400,
+				"energy-kcal_serving" => 400,
+				"energy-kcal_unit" => "kcal",
+				"energy-kcal_value" => 400,
+				"energy-kcal_value_computed" => 400,
+
+				"energy-kj" => 1700,
+				"energy-kj_serving" => 1700,
+				"energy-kj_unit" => "kJ",
+				"energy-kj_value" => 1700,
+				"energy-kj_value_computed" => 1700,
+
+				"energy" => 1700,
+				"energy_serving" => 1700,
+				"energy_unit" => "kJ",
+				"energy_value" => 1700,
+
+				"fat" => 0,
+				"fat_serving" => 0,
+				"fat_unit" => "g",
+				"fat_value" => 0,
+
+				"fiber" => 0,
+				"fiber_serving" => 0,
+				"fiber_unit" => "g",
+				"fiber_value" => 0,
+
+				"sugars" => 100,
+				"sugars_serving" => 100,
+				"sugars_unit" => "g",
+				"sugars_value" => 100
+			},
+		}
+
+	],
 	[
 		'1002-to-1001-change-images-object',
 		1001,
