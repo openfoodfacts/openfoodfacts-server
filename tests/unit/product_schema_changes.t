@@ -25,6 +25,7 @@ my @tests = (
 		'1002-to-1003-new-nutrition-schema',
 		1003,
 		{
+			"schema_version" => 1002,
 			"serving_quantity" => 250,
 			"serving_quantity_unit" => "g",
 			"nutrition_data_prepared" => "on",
@@ -183,6 +184,7 @@ my @tests = (
 		'1002-to-1003-new-nutrition-schema-no-prepared',
 		1003,
 		{
+			"schema_version" => 1002,
 			"serving_quantity" => 250,
 			"serving_quantity_unit" => "g",
 			"nutrition_data" => "on",
@@ -338,6 +340,7 @@ my @tests = (
 		'1002-to-1003-new-nutrition-schema-no-nutrition-data',
 		1003,
 		{
+			"schema_version" => 1002,
 			"serving_quantity" => 250,
 			"serving_quantity_unit" => "g",
 			"no_nutrition_data" => "on",
@@ -394,6 +397,7 @@ my @tests = (
 		'1002-to-1003-new-nutrition-schema-set-without-nutrients',
 		1003,
 		{
+			"schema_version" => 1002,
 			"serving_quantity" => 250,
 			"serving_quantity_unit" => "g",
 			"nutrition_data" => "on",
@@ -445,6 +449,7 @@ my @tests = (
 		'1002-to-1003-new-nutrition-schema-no-serving-quantity',
 		1003,
 		{
+			"schema_version" => 1002,
 			"serving_quantity" => undef,
 			"serving_quantity_unit" => undef,
 			"nutrition_data" => "on",
@@ -494,6 +499,226 @@ my @tests = (
 			},
 		}
 
+	],
+	[
+		'1003-to-1002-prepared-serving-nutrients',
+		1002,
+		{
+			"schema_version" => 1003,
+			"serving_quantity" => 250,
+			"serving_quantity_unit" => "g",
+			"nutrition" => {
+				"nutrient_set_preferred" => {
+					"nutrients" => {
+						"alcohol" => {
+							"source" => "packaging",
+							"source_per" => "100g",
+							"unit" => "% vol",
+							"value" => 0,
+							"value_string" => "0"
+						},
+						"carbohydrates" => {
+							"source" => "manufacturer",
+							"source_per" => "serving",
+							"unit" => "g",
+							"value" => 100,
+							"value_string" => "100"
+						},
+						"energy" => {
+							"source" => "packaging",
+							"source_per" => "serving",
+							"unit" => "kJ",
+							"value" => 1700,
+							"value_string" => "1700"
+						},
+						"energy-kcal" => {
+							"source" => "packaging",
+							"source_per" => "serving",
+							"unit" => "kcal",
+							"value" => 400,
+							"value_string" => "400"
+						},
+						"energy-kj" => {
+							"source" => "packaging",
+							"source_per" => "serving",
+							"unit" => "kJ",
+							"value" => 1700,
+							"value_string" => "1700"
+						},
+						"fat" => {
+							"source" => "packaging",
+							"source_per" => "serving",
+							"unit" => "g",
+							"value" => 5,
+							"value_string" => "5"
+						},
+						"fiber" => {
+							"source" => "packaging",
+							"source_per" => "serving",
+							"unit" => "g",
+							"value" => 0,
+							"value_string" => "0",
+							"modifier" => "\x{007E}"
+						},
+						"sugars" => {
+							"source" => "packaging",
+							"source_per" => "serving",
+							"unit" => "g",
+							"value" => 100,
+							"value_string" => "100"
+						},
+
+					},
+					"per" => "serving",
+					"per_quantity" => 250,
+					"per_unit" => "g",
+					"preparation" => "prepared"
+				},
+				"nutrient_sets" => []
+			},
+		}
+	],
+	[
+		'1003-to-1002-as-sold-100g-nutrients',
+		1002,
+		{
+			"schema_version" => 1003,
+			"serving_quantity" => 250,
+			"serving_quantity_unit" => "g",
+			"nutrition" => {
+				"nutrient_set_preferred" => {
+					"nutrients" => {
+						"alcohol" => {
+							"source" => "packaging",
+							"source_per" => "100g",
+							"unit" => "% vol",
+							"value" => 0,
+							"value_string" => "0"
+						},
+						"carbohydrates" => {
+							"source" => "manufacturer",
+							"source_per" => "serving",
+							"unit" => "g",
+							"value" => 40,
+							"value_string" => "40"
+						},
+						"energy" => {
+							"source" => "packaging",
+							"source_per" => "serving",
+							"unit" => "kJ",
+							"value" => 680,
+							"value_string" => "680"
+						},
+						"energy-kcal" => {
+							"source" => "packaging",
+							"source_per" => "serving",
+							"unit" => "kcal",
+							"value" => 160,
+							"value_string" => "160"
+						},
+						"energy-kj" => {
+							"source" => "packaging",
+							"source_per" => "serving",
+							"unit" => "kJ",
+							"value" => 680,
+							"value_string" => "680"
+						},
+						"fat" => {
+							"source" => "packaging",
+							"source_per" => "serving",
+							"unit" => "g",
+							"value" => 2,
+							"value_string" => "2",
+							"modifier" => "\x{003C}"
+						},
+						"fiber" => {
+							"source" => "packaging",
+							"source_per" => "serving",
+							"unit" => "g",
+							"value" => 0,
+							"value_string" => "0"
+						},
+						"sugars" => {
+							"source" => "packaging",
+							"source_per" => "serving",
+							"unit" => "g",
+							"value" => 40,
+							"value_string" => "40"
+						},
+
+					},
+					"per" => "100g",
+					"per_quantity" => 100,
+					"per_unit" => "g",
+					"preparation" => "as_sold"
+				},
+				"nutrient_sets" => []
+			},
+		}
+	],
+	[
+		'1003-to-1002-no-aggregated-set',
+		1002,
+		{
+			"schema_version" => 1003,
+			"serving_quantity" => 250,
+			"serving_quantity_unit" => "g",
+			"nutrition" => {
+				"nutrient_set_preferred" => {},
+				"nutrient_sets" => [
+					{
+						"nutrients" => {
+							"alcohol" => {
+								"unit" => "% vol",
+								"value" => 0,
+								"value_string" => "0"
+							},
+							"carbohydrates" => {
+								"unit" => "g",
+								"value" => 40,
+								"value_string" => "40"
+							},
+							"energy" => {
+								"unit" => "kJ",
+								"value" => 680,
+								"value_string" => "680"
+							},
+							"energy-kcal" => {
+								"unit" => "kcal",
+								"value" => 160,
+								"value_string" => "160"
+							},
+							"energy-kj" => {
+								"unit" => "kJ",
+								"value" => 680,
+								"value_string" => "680"
+							},
+							"fat" => {
+								"unit" => "g",
+								"value" => 2,
+								"value_string" => "2"
+							},
+							"fiber" => {
+								"unit" => "g",
+								"value" => 0,
+								"value_string" => "0"
+							},
+							"sugars" => {
+								"unit" => "g",
+								"value" => 40,
+								"value_string" => "40"
+							},
+						},
+						"per" => "100g",
+						"per_quantity" => 100,
+						"per_unit" => "g",
+						"preparation" => "as_sold",
+						"source" => "packaging",
+						"unspecified_nutrients" => ["added-sugars"]
+					}
+				]
+			},
+		}
 	],
 	[
 		'1002-to-1001-change-images-object',

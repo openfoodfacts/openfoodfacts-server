@@ -133,6 +133,7 @@ sub convert_product_schema ($product_ref, $to_version) {
 	1000 => \&convert_schema_1000_to_999_rename_ecoscore_fields_to_environmental_score,
 	1001 => \&convert_schema_1001_to_1000_remove_ingredients_hierarchy_taxonomize_brands,
 	1002 => \&convert_schema_1002_to_1001_refactor_images_object,
+	1003 => \&convert_schema_1003_to_1002_refactor_product_nutrition_schema,
 );
 
 =head2 998 to 999 - Change in barcode normalization
@@ -466,4 +467,53 @@ sub set_per_unit ($product_quantity_unit, $serving_quantity_unit, $set_type) {
 		$per_unit = "g";
 	}
 	return $per_unit;
+}
+
+sub convert_schema_1003_to_1002_refactor_product_nutrition_schema ($product_ref, $delete_nutrition_data = true) {
+	# if no preferred set then there is no nutrition information
+	if (   !defined $product_ref->{nutrition}{nutrient_set_preferred}
+		|| !%{$product_ref->{nutrition}{nutrient_set_preferred}})
+	{
+		$product_ref->{no_nutrition_data} = "on";
+		$product_ref->{nutriments} = {};
+		delete $product_ref->{nutrition};
+	}
+
+	else {
+		my $nutrient_set_ref = $product_ref->{nutrition}{nutrient_set_preferred};
+		my $preparation_state = $nutrient_set_ref->{preparation} eq "prepared" ? "_prepared" : "";
+		# if per is 100ml then 1002 product version nutrient per field is 100g
+		my $per = $nutrient_set_ref->{per} eq "100ml" ? "_100g" : "_" . $nutrient_set_ref->{per};
+
+		# first create the nutriments field
+		my $nutriments = {};
+
+		foreach my $nutrient (keys %{$nutrient_set_ref->{nutrients}}) {
+			$nutriments->{$nutrient . $preparation_state . $per} = $nutrient_set_ref->{nutrients}{$nutrient}{value};
+			$nutriments->{$nutrient . "_unit"} = $nutrient_set_ref->{nutrients}{$nutrient}{unit};
+			if (defined $nutrient_set_ref->{nutrients}{$nutrient}{modifier}) {
+				$nutriments->{$nutrient . $preparation_state . "_modifier"}
+					= $nutrient_set_ref->{nutrients}{$nutrient}{modifier};
+			}
+		}
+
+		$product_ref->{nutriments} = $nutriments;
+
+		# then add other useful data on the nutrients to the product
+		if ($preparation_state eq "") {
+			$product_ref->{nutrition_data} = "on";
+			$product_ref->{nutrition_data_per} = $product_ref->{nutrition}{nutrient_set_preferred}{per};
+		}
+		else {
+			$product_ref->{nutrition_data_prepared} = "on";
+			$product_ref->{nutrition_data_prepared_per} = $product_ref->{nutrition}{nutrient_set_preferred}{per};
+		}
+
+		# finally remove the nutrition field of the 1003 product version if deletion on
+		if ($delete_nutrition_data) {
+			delete $product_ref->{nutrition};
+		}
+	}
+
+	return;
 }
