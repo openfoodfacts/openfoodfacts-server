@@ -27,10 +27,12 @@ Always reference these instructions first and fallback to search or bash command
 **✅ WORKING COMMANDS:**
 - `npm install` - Install frontend dependencies (~30 seconds)
 - `npm run build` - Build frontend assets with Gulp (~15 seconds)  
+- `npm run build:watch` - Auto-rebuild on file changes (use Ctrl+C to stop)
 - `npm run lint` - Lint JavaScript, CSS, and SCSS (~4 seconds)
 - `npm run lint:js` - Lint JavaScript files only
 - `npm run lint:css` - Lint CSS files only  
 - `npm run lint:scss` - Lint SCSS files only
+- `npm run test` - Alias for npm run lint (frontend validation)
 
 **❌ BROKEN COMMANDS (DNS/Network Issues):**
 - `make dev` - **FAILS** after ~60 seconds with Debian package errors
@@ -55,7 +57,17 @@ Based on documentation and partial validation:
 Always validate frontend changes with these WORKING commands:
 - `npm run build` - Ensure frontend builds successfully
 - `npm run lint` - Check code style compliance
-- Manual review of generated files in `html/css/` and `html/js/` directories
+- Manual review of generated files in `html/css/dist/` and `html/js/dist/` directories
+- Check build artifacts: Verify CSS/JS files are generated in correct directories
+- Test watch mode: `npm run build:watch` for development (auto-rebuilds on file changes)
+
+**Frontend Development Workflow (VERIFIED):**
+1. Edit source files in `scss/` directory for styles
+2. Edit JavaScript files in `html/js/` directory  
+3. Run `npm run build` to compile changes (~15 seconds)
+4. Verify output files in `html/css/dist/` and `html/js/dist/`
+5. Run `npm run lint` to check compliance (~4 seconds)
+6. For active development: Use `npm run build:watch` (stops with Ctrl+C)
 
 ### Backend/Full System Validation (CURRENTLY BROKEN)
 **WARNING**: These commands currently fail due to Docker build issues:
@@ -74,20 +86,25 @@ When the Docker build issues are resolved, always test these scenarios:
 ## Repository Structure
 
 ### Key Directories
-- `lib/` - Perl backend modules and business logic
-- `html/` - Web frontend files (PHP/HTML)
-- `js/` and `scss/` - Frontend source files (built to `html/js/` and `html/css/`)
-- `tests/` - Unit and integration test suites  
+- `lib/ProductOpener/` - Perl backend modules and business logic (33+ modules)
+- `html/` - Web frontend files and compiled assets  
+- `scss/` - Frontend SCSS source files (compiled to `html/css/dist/`)
+- `html/js/` - Frontend JavaScript files (processed to `html/js/dist/`)
+- `tests/unit/` and `tests/integration/` - Test suites (unit tests and full system tests)
 - `docker/` - Docker configuration and overrides
 - `docs/dev/` - Development documentation
-- `taxonomies/` - Food classification taxonomies
+- `taxonomies/` - Food classification taxonomies (ingredients, categories, etc.)
+- `templates/` - HTML templates for web interface
+- `cgi/` - CGI scripts for web endpoints
 
-### Configuration Files
-- `package.json` - Frontend dependencies and npm scripts
-- `cpanfile` - Perl dependencies
-- `docker-compose.yml` - Main container orchestration
-- `Makefile` - Build automation and shortcuts
-- `.env` - Environment variables for Docker
+### Critical Files
+- `package.json` - Frontend dependencies and npm scripts  
+- `gulpfile.ts` - Frontend build configuration (TypeScript)
+- `cpanfile` - Perl backend dependencies
+- `docker-compose.yml` - Main container orchestration  
+- `Makefile` - Build automation and shortcuts (580+ lines)
+- `.env` - Environment variables for Docker (PRODUCT_OPENER_DOMAIN, etc.)
+- `lib/ProductOpener/Config2.pm` - Main backend configuration
 
 ## Common Development Tasks
 
@@ -99,9 +116,17 @@ When the Docker build issues are resolved, always test these scenarios:
 
 ### Backend Development (WHEN DOCKER WORKS)
 - Edit Perl modules in `lib/ProductOpener/` directory
+- Key modules: `API.pm`, `Products.pm`, `Store.pm`, `Tags.pm`, `Config2.pm`  
 - Test individual modules: `make test-unit test=modulename.t`
 - Test API endpoints: `make test-int test=api-test.t`
 - Always run `make checks` before committing changes
+
+### Common File Patterns
+- **API endpoints**: `cgi/*.pl` files (product.pl, search.pl, etc.)
+- **Core business logic**: `lib/ProductOpener/*.pm` modules  
+- **Frontend templates**: `templates/web/pages/*.tt.html`
+- **Test files**: `tests/unit/*.t` and `tests/integration/*.t`
+- **Configuration**: `lib/ProductOpener/Config2_*.pm` files for different environments
 
 ### Testing Workflow (WHEN SYSTEM WORKS)
 1. Make code changes
@@ -122,6 +147,38 @@ The system requires these external dependencies (managed automatically):
 - `openfoodfacts-shared-services` - Shared Docker services  
 - `openfoodfacts-auth` - Authentication services
 - Various prebuilt container images from GitHub Container Registry
+
+## Troubleshooting Common Issues
+
+### Docker Build Failures
+**Problem**: `make dev` fails with "Temporary failure resolving 'deb.debian.org'"
+**Solution**: This is a known network connectivity issue. Use prebuilt images:
+```bash
+docker pull ghcr.io/openfoodfacts/openfoodfacts-server/backend:latest
+docker pull ghcr.io/openfoodfacts/openfoodfacts-server/frontend:latest
+```
+
+**Problem**: `make build` fails after ~60 seconds with package installation errors  
+**Solution**: Do not attempt local builds. Focus on frontend development with npm commands.
+
+### Frontend Build Issues
+**Problem**: `npm install` fails with permission errors
+**Solution**: Ensure you have write permissions to the project directory
+
+**Problem**: `npm run build` produces warnings about deprecated Sass @import rules
+**Solution**: These are expected warnings. Build still succeeds - ignore deprecation warnings.
+
+**Problem**: ESLint warnings during `npm run lint`  
+**Solution**: These are style warnings, not errors. Build still succeeds. Fix with:
+- Replace `var` with `let` or `const`
+- Avoid unary operators like `++` and `--` where possible
+
+### Performance Issues
+**Problem**: Frontend builds seem slow
+**Solution**: ~15 seconds is normal for full build. Use `npm run build:watch` during active development.
+
+**Problem**: npm install takes too long
+**Solution**: ~30 seconds is normal. Consider using npm ci for faster CI builds.
 
 ## Emergency Procedures
 
