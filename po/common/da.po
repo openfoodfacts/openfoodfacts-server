@@ -4631,17 +4631,17 @@ msgid "Missing data to compute the Nutri-Score"
 msgstr "Mangler data til beregning af Nutri-Score"
 
 msgctxt "attribute_nutriscore_not_applicable_title"
-msgid "Nutri-Score not-applicable"
-msgstr "Nutri-Score uanvendelig"
+msgid "Nutri-Score not applicable"
+msgstr "Nutri-Score ikke relevant"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Not-applicable for the category"
-msgstr "Endnu ikke anvendelig for kategorien"
+msgid "Not applicable for the category"
+msgstr "Ikke relevant for kategorien"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
-msgid "Not-applicable for the category: {category}"
-msgstr "Ikke anvendelig for flg. kategori: {category}"
+msgid "Not applicable for the category: {category}"
+msgstr "Ikke relevant for kategorien: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -5462,6 +5462,10 @@ msgstr "Green-Score ikke beregnet"
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr "Ukendt miljøpåvirkning"
+
+msgctxt "attribute_environmental_score_unknown_description_short_missing_precise_category"
+msgid "Missing a precise category"
+msgstr "Mangler en præcis kategori"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
@@ -6388,6 +6392,10 @@ msgstr "Kan du tilføje de nødvendige oplysninger til at beregne Nutri-Score?"
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
 msgstr "Kan du kategorisere produktet præcist, så Øko-Score kan beregnes?"
+
+msgctxt "actions_to_compute_environmental_score_unprecise_category"
+msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
+msgstr "Den kategori, vi har for dette produkt, er ikke præcis nok til at beregne Green-Score. Kunne I tilføje en mere præcis produktkategori?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -7367,12 +7375,12 @@ msgid "Repairability index unknown"
 msgstr "Reparationsindeks ukendt"
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
-msgid "Repairability index not-applicable"
-msgstr "Reparationsindeks er ikke relevant"
+msgid "Repairability index not applicable"
+msgstr "Reparerbarhedsindeks ikke relevant"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
-msgid "Not-applicable for the category"
-msgstr "Endnu ikke anvendelig for kategorien"
+msgid "Not applicable for the category"
+msgstr "Ikke relevant for kategorien"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_repairability_index_france_not_applicable_description"
