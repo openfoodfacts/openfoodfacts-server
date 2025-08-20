@@ -49,6 +49,7 @@ use vars @EXPORT_OK;
 
 use Clone qw/clone/;
 
+use ProductOpener::Food qw/default_unit_for_nid/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Units qw/unit_to_kcal unit_to_kj unit_to_g g_to_unit convert_to_standard_unit/;
 
@@ -204,12 +205,12 @@ sub set_nutrient_values ($aggregated_nutrient_set_ref, @input_sets) {
 		{
 			foreach my $nutrient (keys %{$nutrient_set_ref->{nutrients}}) {
 				# for each nutrient, set its values if values are not already present in aggregated set
-				# (ie if nutrient not present in other set with highest priority)
+				# (ie if nutrient not present in other set with higher priority)
 				if (!exists $aggregated_nutrient_set_ref->{nutrients}{$nutrient}) {
 					$aggregated_nutrient_set_ref->{nutrients}{$nutrient}
 						= clone($nutrient_set_ref->{nutrients}{$nutrient});
 					delete $aggregated_nutrient_set_ref->{nutrients}{$nutrient}{value_string};
-					convert_nutrient_to_standard_unit($aggregated_nutrient_set_ref->{nutrients}{$nutrient}, $nutrient);
+					get_standard_unit($aggregated_nutrient_set_ref->{nutrients}{$nutrient}, $nutrient);
 					convert_nutrient_to_100g(
 						$aggregated_nutrient_set_ref->{nutrients}{$nutrient},
 						$nutrient_set_ref->{per},
@@ -227,7 +228,7 @@ sub set_nutrient_values ($aggregated_nutrient_set_ref, @input_sets) {
 	return;
 }
 
-=head2 convert_nutrient_to_standard_unit
+=head2 get_standard_unit
 
 Normalizes the unit of the nutrient value if necessary.
 
@@ -245,22 +246,21 @@ Name of the nutrient to normalize
 
 =cut
 
-sub convert_nutrient_to_standard_unit ($nutrient_ref, $nutrient_name) {
-	if ($nutrient_name eq "energy-kcal") {
-		if ($nutrient_ref->{unit} ne "kcal") {
+sub get_standard_unit ($nutrient_ref, $nutrient_name) {
+	my $standard_unit = default_unit_for_nid($nutrient_name);
+
+	if ($standard_unit ne $nutrient_ref->{unit}) {
+		if ($standard_unit eq "kcal") {
 			$nutrient_ref->{value} = unit_to_kcal($nutrient_ref->{value}, $nutrient_ref->{unit});
-			$nutrient_ref->{unit} = "kcal";
 		}
-	}
-	elsif ($nutrient_name eq "energy" or $nutrient_name eq "energy-kj") {
-		if ($nutrient_ref->{unit} ne "kJ") {
+		elsif ($standard_unit eq "kJ") {
 			$nutrient_ref->{value} = unit_to_kj($nutrient_ref->{value}, $nutrient_ref->{unit});
-			$nutrient_ref->{unit} = "kJ";
 		}
-	}
-	elsif ($nutrient_ref->{unit} ne "g") {
-		$nutrient_ref->{value} = unit_to_g($nutrient_ref->{value}, $nutrient_ref->{unit});
-		$nutrient_ref->{unit} = "g";
+		else {
+			$nutrient_ref->{value} = unit_to_g($nutrient_ref->{value}, $nutrient_ref->{unit});
+		}
+
+		$nutrient_ref->{unit} = $standard_unit;
 	}
 	return;
 }
