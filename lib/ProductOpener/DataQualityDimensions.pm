@@ -68,8 +68,7 @@ Returns nothing.
 
 =cut
 
-sub compute_accuracy_score {
-	my ($product_ref) = @_;
+sub compute_accuracy_score($product_ref) {
 
 	my $accuracy_count = 0;
 	my $accuracy_total = 0;
@@ -109,8 +108,7 @@ Returns nothing.
 
 =cut
 
-sub compute_completeness_score {
-	my ($product_ref) = @_;
+sub compute_completeness_score($product_ref) {
 
 	# 1-ingredients
 	# per languages "languages_codes"
@@ -176,6 +174,7 @@ sub compute_completeness_score {
 		(
 			(
 					(defined $product_ref->{nutriments})
+				# we have at least on valid nutrient (not counting nova and fruits-vegetables-*-estimates
 				and (scalar grep {$_ !~ /^(nova|fruits-vegetables)/} keys %{$product_ref->{nutriments}}) > 0
 			)
 		)
@@ -336,8 +335,7 @@ Returns nothing.
 
 =cut
 
-sub compute_dimensions_score {
-	my ($product_ref) = @_;
+sub compute_dimensions_score($product_ref) {
 
 	# compute score for accuracy
 	compute_accuracy_score($product_ref);

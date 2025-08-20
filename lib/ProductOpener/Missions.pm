@@ -203,6 +203,7 @@ sub compute_missions_for_user ($user_ref) {
 				my $query_ref = clone($condition_ref->[1]);
 				$query_ref->{creator} = $user_ref->{userid};
 				$query_ref->{lc} = $l;
+				# $query_ref->{complete} = 1;
 
 				foreach my $field (keys %{$query_ref}) {
 					next if $field eq 'creator';

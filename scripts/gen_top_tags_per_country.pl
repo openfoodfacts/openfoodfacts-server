@@ -94,7 +94,7 @@ my @fields = qw (
 my %countries = ();
 my $total = 0;
 
-my @dates = ('created_t', 'completed_t');
+my @dates = ('created_t');
 # country => $date_name.start => first date for this country
 # country => $date_name.end => last date for this country
 # country => $date_name => day (as timestamp) => number of cumulated products at this date
@@ -116,7 +116,7 @@ my %tags = ();
 my %countries_tags = ();
 # hashmap of all seen codes
 my %codes = ();
-# for each country associate the minimun and maximum found dates (either completed_t or created_t)
+# for each country associate the minimun and maximum found dates (created_t only, completed_t has been removed when introducing quality dimensions)
 # we start with 0 and 100000000000000000
 my %true_end = ();    # 0;
 my %true_start = ();    # 100000000000000000;
