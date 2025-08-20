@@ -4629,17 +4629,17 @@ msgid "Missing data to compute the Nutri-Score"
 msgstr "Nutri-Score를 계산하기 위한 누락된 데이터"
 
 msgctxt "attribute_nutriscore_not_applicable_title"
-msgid "Nutri-Score not-applicable"
-msgstr "Nutri-Score 미적용"
+msgid "Nutri-Score not applicable"
+msgstr "Nutri-Score 적용 안됨"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Not-applicable for the category"
-msgstr "카테고리에 해당되지 않음"
+msgid "Not applicable for the category"
+msgstr ""
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
-msgid "Not-applicable for the category: {category}"
-msgstr "카테고리에 해당하지 않음: {category}"
+msgid "Not applicable for the category: {category}"
+msgstr "{category}카테고리에는 적용되지 않습니다."
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -5461,6 +5461,10 @@ msgstr "에코 점수가 계산되지 않음"
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr "알 수 없는 환경적 영향"
+
+msgctxt "attribute_environmental_score_unknown_description_short_missing_precise_category"
+msgid "Missing a precise category"
+msgstr "정확한 카테고리가 누락되었습니다"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
@@ -6387,6 +6391,10 @@ msgstr "Nutri-Score를 계산하는 데 필요한 정보를 추가할 수 있습
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
 msgstr "Green-Score를 계산할 수 있도록 정확한 상품 카테고리를 추가해주실 수 있나요?"
+
+msgctxt "actions_to_compute_environmental_score_unprecise_category"
+msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
+msgstr "이 제품에 대한 카테고리는 Green-Score를 계산하기에 충분히 정확하지 않습니다. 더 정확한 제품 카테고리를 추가해 주시겠습니까?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -7366,12 +7374,12 @@ msgid "Repairability index unknown"
 msgstr ""
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
-msgid "Repairability index not-applicable"
-msgstr ""
+msgid "Repairability index not applicable"
+msgstr "수리가능성 지수 적용 불가"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
-msgid "Not-applicable for the category"
-msgstr "카테고리에 해당되지 않음"
+msgid "Not applicable for the category"
+msgstr ""
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_repairability_index_france_not_applicable_description"
