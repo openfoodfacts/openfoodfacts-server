@@ -4635,16 +4635,16 @@ msgid "Missing data to compute the Nutri-Score"
 msgstr "بيانات مفقودة لحساب درجة الجودة الغذائية"
 
 msgctxt "attribute_nutriscore_not_applicable_title"
-msgid "Nutri-Score not-applicable"
-msgstr "درجة الجودة الغذائية غير قابل للتطبيق"
+msgid "Nutri-Score not applicable"
+msgstr "Nutri-Score غير قابل للتطبيق"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr "غير قابل للتطبيق على الفئة"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
-msgid "Not-applicable for the category: {category}"
+msgid "Not applicable for the category: {category}"
 msgstr "غير قابل للتطبيق على الفئة: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
@@ -5466,6 +5466,10 @@ msgstr "لم يتم حساب الدرجة البيئية"
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr "التأثير البيئي غير المعروف"
+
+msgctxt "attribute_environmental_score_unknown_description_short_missing_precise_category"
+msgid "Missing a precise category"
+msgstr "فقدان فئة دقيقة"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
@@ -6392,6 +6396,10 @@ msgstr "هل بإمكانك إضافة المعلومات اللازمة لحس�
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
 msgstr "هل بإمكانك إضافة فئة منتج محددة حتى نتمكن من حساب النتيجة البيئية؟"
+
+msgctxt "actions_to_compute_environmental_score_unprecise_category"
+msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
+msgstr "تصنيف هذا المنتج ليس دقيقًا بما يكفي لحساب درجة الجودة الخضراء. هل يمكنك إضافة تصنيف أكثر دقة؟"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -7371,11 +7379,11 @@ msgid "Repairability index unknown"
 msgstr ""
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
-msgid "Repairability index not-applicable"
-msgstr ""
+msgid "Repairability index not applicable"
+msgstr "مؤشر قابلية الإصلاح غير قابل للتطبيق"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr "غير قابل للتطبيق على الفئة"
 
 # variable names between { } must not be translated
