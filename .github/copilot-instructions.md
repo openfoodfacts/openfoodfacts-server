@@ -18,15 +18,15 @@ Always reference these instructions first and fallback to search or bash command
 ### Initial Setup (Frontend Only - VERIFIED WORKING)
 1. **Prerequisites**: Ensure Docker and Docker Compose are available
 2. **Clone repository**: `git clone https://github.com/openfoodfacts/openfoodfacts-server.git`
-3. **Frontend dependencies**: `npm install` - takes ~30 seconds, WORKS
-4. **Frontend build**: `npm run build` - takes ~15 seconds, WORKS  
+3. **Frontend dependencies**: `npm install` - takes ~4 seconds (cached) to ~30 seconds (fresh), WORKS
+4. **Frontend build**: `npm run build` - takes ~17 seconds, WORKS  
 5. **Frontend linting**: `npm run lint` - takes ~4 seconds, WORKS
 
 ### Build and Development Commands Status
 
-**✅ WORKING COMMANDS:**
-- `npm install` - Install frontend dependencies (~30 seconds)
-- `npm run build` - Build frontend assets with Gulp (~15 seconds)  
+**✅ WORKING COMMANDS (VERIFIED IN FRESH ENVIRONMENT):**
+- `npm install` - Install frontend dependencies (~4 seconds cached, ~30 seconds fresh)
+- `npm run build` - Build frontend assets with Gulp (~17 seconds)  
 - `npm run build:watch` - Auto-rebuild on file changes (use Ctrl+C to stop)
 - `npm run lint` - Lint JavaScript, CSS, and SCSS (~4 seconds)
 - `npm run lint:js` - Lint JavaScript files only
@@ -34,19 +34,20 @@ Always reference these instructions first and fallback to search or bash command
 - `npm run lint:scss` - Lint SCSS files only
 - `npm run test` - Alias for npm run lint (frontend validation)
 
-**❌ BROKEN COMMANDS (DNS/Network Issues):**
-- `make dev` - **FAILS** after ~60 seconds with Debian package errors
-- `make build` - **FAILS** after ~60 seconds with Debian package errors
+**❌ BROKEN COMMANDS (DNS/Network Issues - VERIFIED):**
+- `make dev` - **FAILS** after ~60 seconds with "Unable to locate package" errors
+- `make build` - **FAILS** after ~60 seconds with Debian DNS resolution issues  
 - `make up` - **FAILS** during container build phase
 - `make unit_test` - **FAILS** during container build phase  
 - `make integration_test` - **FAILS** during container build phase
 - `make checks` - **FAILS** because it requires backend container builds
 
 ### Expected Timing (When Working)
-Based on documentation and partial validation:
+Based on documentation and complete validation:
 - **First-time setup**: 10-30 minutes (when Docker build works)
-- **Frontend build**: ~15 seconds - VERIFIED
-- **Frontend linting**: ~4 seconds - VERIFIED  
+- **Frontend build**: ~17 seconds - VERIFIED IN FRESH ENVIRONMENT
+- **Frontend linting**: ~4 seconds - VERIFIED IN FRESH ENVIRONMENT
+- **Frontend dependencies**: ~4 seconds (cached) to ~30 seconds (fresh) - VERIFIED
 - **Unit tests**: Estimated 15+ minutes (NEVER CANCEL - set timeout to 30+ minutes)
 - **Integration tests**: Estimated 15+ minutes (NEVER CANCEL - set timeout to 30+ minutes)
 - **Full test suite**: Estimated 30+ minutes (NEVER CANCEL - set timeout to 60+ minutes)
