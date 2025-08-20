@@ -427,9 +427,13 @@ The product code associated with the image.
 
 The ID of the image.
 
+=head4 String $json_url
+
+The URL where the OCR result JSON file can be found.
+
 =cut
 
-sub push_ocr_ready_to_redis ($code, $image_id, $timestamp = time()) {
+sub push_ocr_ready_to_redis ($code, $image_id, $json_url, $timestamp = time()) {
 
 	if (!$redis_url) {
 		# No Redis URL provided, we can't push to Redis
@@ -463,6 +467,8 @@ sub push_ocr_ready_to_redis ($code, $image_id, $timestamp = time()) {
 				Encode::encode_utf8($code),
 				'image_id',
 				Encode::encode_utf8($image_id),
+				'json_url',
+				Encode::encode_utf8($json_url),
 				'product_type',
 				$options{product_type},
 				sub {

@@ -86,7 +86,7 @@ sub send_file_to_ocr ($file) {
 	}
 
 	# We notify that the OCR file is ready on Redis
-	push_ocr_ready_to_redis($code, $imgid);
+	push_ocr_ready_to_redis($code, $imgid, $json_url);
 	return;
 }
 
