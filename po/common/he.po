@@ -4631,17 +4631,17 @@ msgid "Missing data to compute the Nutri-Score"
 msgstr "חסרים נתונים לחישוב Nutri-Score"
 
 msgctxt "attribute_nutriscore_not_applicable_title"
-msgid "Nutri-Score not-applicable"
-msgstr "Nutri-Score לא ניתן ליישום"
+msgid "Nutri-Score not applicable"
+msgstr "ציון תזונתי לא רלוונטי"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr "לא חל על הקטגוריה"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
-msgid "Not-applicable for the category: {category}"
-msgstr "לא חל על הקטגוריה: {category}"
+msgid "Not applicable for the category: {category}"
+msgstr "לא רלוונטי לקטגוריה: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -5462,6 +5462,10 @@ msgstr "Green-Score לא מחושב"
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr "ההשפעה על איכות הסביבה לא ידועה"
+
+msgctxt "attribute_environmental_score_unknown_description_short_missing_precise_category"
+msgid "Missing a precise category"
+msgstr "חסרה קטגוריה מדויקת"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
@@ -6388,6 +6392,10 @@ msgstr "נוכל לבקש ממך להוסיף את המידע הדרוש לחי�
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
 msgstr "נוכל לבקש ממך להוסיף קטגוריה מדויקת כדי שנוכל לחשב Green-Score?"
+
+msgctxt "actions_to_compute_environmental_score_unprecise_category"
+msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
+msgstr "הקטגוריה שיש לנו עבור מוצר זה אינה מדויקת מספיק כדי לחשב את הציון הירוק. האם תוכל להוסיף קטגוריית מוצר מדויקת יותר?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -7367,11 +7375,11 @@ msgid "Repairability index unknown"
 msgstr "מדד יכולת תיקון לא ידוע"
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
-msgid "Repairability index not-applicable"
-msgstr "מדד יכולת תיקון לא ישים"
+msgid "Repairability index not applicable"
+msgstr "מדד יכולת התיקון אינו רלוונטי"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr "לא חל על הקטגוריה"
 
 # variable names between { } must not be translated
