@@ -17,6 +17,7 @@ sub compute_and_test_accuracy($product_ref, $score, $with) {
 	compute_accuracy_score($product_ref);
 	my $message = sprintf('%s is %g%% accurate', $with, $percent);
 	is($product_ref->{data_quality_dimensions}{accuracy}{overall}, $score, $message);
+	return;
 }
 
 sub compute_and_test_completeness($product_ref, $score, $with) {
@@ -24,6 +25,7 @@ sub compute_and_test_completeness($product_ref, $score, $with) {
 	compute_completeness_score($product_ref);
 	my $message = sprintf('%s is %g%% complete', $with, $percent);
 	is($product_ref->{data_quality_dimensions}{completeness}{overall}, $score, $message);
+	return;
 }
 
 sub check_tags($product_ref, $field, %expectations) {
@@ -31,6 +33,7 @@ sub check_tags($product_ref, $field, %expectations) {
 		my $expected = $expectations{$tag};
 		is(has_tag($product_ref, "data_quality_info", $tag), $expected, "$field - tag $tag expected $expected");
 	}
+	return;
 }
 
 #################################
