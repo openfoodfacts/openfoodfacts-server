@@ -49,7 +49,7 @@ BEGIN {
 		&normalize_serving_size
 		&normalize_quantity
 		&extract_standard_unit
-		&convert_to_standard_unit
+		&get_standard_unit
 		&normalize_product_quantity_and_serving_size
 
 	);    # symbols to export on request
@@ -323,17 +323,16 @@ Returns undef if no unit was detected.
 
 =cut
 
-#todo : add documentation + unit tests if needed
 sub extract_standard_unit ($quantity_field) {
 
 	my (undef, undef, $unit) = parse_quantity_unit($quantity_field);
 
-	my $standard_unit = convert_to_standard_unit($unit);
+	my $standard_unit = get_standard_unit($unit);
 
 	return $standard_unit;
 }
 
-=head2 convert_to_standard_unit ($unit)
+=head2 get_standard_unit ($unit)
 
 Converts the given unit to its corresponding standard unit.
 
@@ -349,7 +348,7 @@ Standard unit corresponding to the given unit.
 
 =cut
 
-sub convert_to_standard_unit ($unit) {
+sub get_standard_unit ($unit) {
 
 	my $standard_unit = undef;
 

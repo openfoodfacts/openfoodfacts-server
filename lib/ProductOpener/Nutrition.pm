@@ -51,7 +51,7 @@ use Clone qw/clone/;
 
 use ProductOpener::Food qw/default_unit_for_nid/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Units qw/unit_to_kcal unit_to_kj unit_to_g g_to_unit convert_to_standard_unit/;
+use ProductOpener::Units qw/unit_to_kcal unit_to_kj unit_to_g g_to_unit get_standard_unit/;
 
 =head1 FUNCTIONS
 
@@ -93,7 +93,7 @@ sub generate_nutrient_aggregated_set_from_sets ($input_sets_ref) {
 			$aggregated_nutrient_set_ref->{preparation} = $input_sets[0]{set}{preparation};
 
 			# set per only if given per unit can be converted to g or to ml
-			my $standard_unit = convert_to_standard_unit($input_sets[0]{set}{per_unit});
+			my $standard_unit = get_standard_unit($input_sets[0]{set}{per_unit});
 			if ($standard_unit eq "g") {
 				$aggregated_nutrient_set_ref->{per} = "100g";
 			}
@@ -210,7 +210,7 @@ sub set_nutrient_values ($aggregated_nutrient_set_ref, @input_sets) {
 					$aggregated_nutrient_set_ref->{nutrients}{$nutrient}
 						= clone($nutrient_set_ref->{nutrients}{$nutrient});
 					delete $aggregated_nutrient_set_ref->{nutrients}{$nutrient}{value_string};
-					get_standard_unit($aggregated_nutrient_set_ref->{nutrients}{$nutrient}, $nutrient);
+					convert_nutrient_to_standard_unit($aggregated_nutrient_set_ref->{nutrients}{$nutrient}, $nutrient);
 					convert_nutrient_to_100g(
 						$aggregated_nutrient_set_ref->{nutrients}{$nutrient},
 						$nutrient_set_ref->{per},
@@ -228,7 +228,7 @@ sub set_nutrient_values ($aggregated_nutrient_set_ref, @input_sets) {
 	return;
 }
 
-=head2 get_standard_unit
+=head2 convert_nutrient_to_standard_unit
 
 Normalizes the unit of the nutrient value if necessary.
 
@@ -246,7 +246,7 @@ Name of the nutrient to normalize
 
 =cut
 
-sub get_standard_unit ($nutrient_ref, $nutrient_name) {
+sub convert_nutrient_to_standard_unit ($nutrient_ref, $nutrient_name) {
 	my $standard_unit = default_unit_for_nid($nutrient_name);
 
 	if ($standard_unit ne $nutrient_ref->{unit}) {
