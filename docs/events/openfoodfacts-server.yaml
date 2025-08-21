@@ -20,9 +20,9 @@ operations:
     action: receive
     channel:
       messages:
-        $ref: "https://raw.githubusercontent.com/openfoodfacts/openfoodfacts-auth/refs/heads/redis-docs/docs/events/messages/user-registered.yaml"
+        $ref: "https://raw.githubusercontent.com/openfoodfacts/openfoodfacts-auth/refs/heads/main/docs/events/messages/user-registered.yaml"
   user-deleted:
     action: receive
     channel:
       messages:
-        $ref: "https://raw.githubusercontent.com/openfoodfacts/openfoodfacts-auth/refs/heads/redis-docs/docs/events/messages/user-deleted.yaml"
+        $ref: "https://raw.githubusercontent.com/openfoodfacts/openfoodfacts-auth/refs/heads/main/docs/events/messages/user-deleted.yaml"
