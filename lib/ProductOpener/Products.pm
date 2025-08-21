@@ -137,7 +137,7 @@ use ProductOpener::Data qw/execute_query get_products_collection get_recent_chan
 use ProductOpener::MainCountries qw/compute_main_countries/;
 use ProductOpener::Text qw/remove_email remove_tags_and_quote/;
 use ProductOpener::HTTP qw/single_param create_user_agent/;
-use ProductOpener::Redis qw/push_to_redis_stream/;
+use ProductOpener::Redis qw/push_product_update_to_redis/;
 use ProductOpener::Food qw/%nutriments_lists %cc_nutriment_table/;
 use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
 
@@ -1471,10 +1471,10 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 	}
 
 	# Publish information about update on Redis stream
-	$log->debug("push_to_redis_stream",
+	$log->debug("push_product_update_to_redis",
 		{code => $code, product_id => $product_id, action => $action, comment => $comment, diffs => $diffs})
 		if $log->is_debug();
-	push_to_redis_stream($user_id, $product_ref, $action, $comment, $diffs);
+	push_product_update_to_redis($product_ref, $change_ref, $action);
 
 	return 1;
 }

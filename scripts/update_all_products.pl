@@ -82,7 +82,7 @@ use ProductOpener::MainCountries qw(compute_main_countries);
 use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
 use ProductOpener::API qw/get_initialized_response/;
 use ProductOpener::LoadData qw/load_data/;
-use ProductOpener::Redis qw/push_to_redis_stream/;
+use ProductOpener::Redis qw/push_product_update_to_redis/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -1565,7 +1565,9 @@ while (my $product_ref = $cursor->next) {
 					else {
 						$products_pushed_to_redis++;
 						print STDERR ". Pushed to Redis stream";
-						push_to_redis_stream('update_all_products', $product_ref, "reprocessed", $comment, {});
+						push_product_update_to_redis($product_ref,
+							{"userid" => 'update_all_products', "comment" => $comment},
+							"reprocessed");
 					}
 				}
 				else {

@@ -791,8 +791,9 @@ sub get_oidc_configuration () {
 		my $discovery_request = HTTP::Request->new(GET => $discovery_endpoint);
 		my $discovery_response = LWP::UserAgent::Plugin->new->request($discovery_request);
 		unless ($discovery_response->is_success) {
-			$log->info('Unable to load OIDC data from IdP', {response => $discovery_response->content})
-				if $log->is_info();
+			$log->error('Unable to load OIDC data from IdP',
+				{discovery_endpoint => $discovery_endpoint, response => $discovery_response->content})
+				if $log->is_error();
 			return;
 		}
 
@@ -826,7 +827,7 @@ sub _load_jwks_configuration_to_oidc_options ($jwks_uri) {
 	my $jwks_request = HTTP::Request->new(GET => $jwks_uri);
 	my $jwks_response = LWP::UserAgent::Plugin->new->request($jwks_request);
 	unless ($jwks_response->is_success) {
-		$log->info('Unable to load JWKS from IdP', {response => $jwks_response->content}) if $log->is_info();
+		$log->error('Unable to load JWKS from IdP', {response => $jwks_response->content}) if $log->is_error();
 		return;
 	}
 
