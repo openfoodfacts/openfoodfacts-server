@@ -1,6 +1,6 @@
 # OpenFoodFacts Server Development Instructions
 
-OpenFoodFacts server (Product Opener) is a Perl web application with Docker containerization, serving the world's largest open food products database. The system uses Make + Docker Compose for builds, npm for frontend tooling, and comprehensive test suites.
+OpenFoodFacts server (Product Opener) is a Perl web application with Docker containerization, serving the world's largest open food products database. The system uses Make + Docker Compose for builds, containerized frontend tooling, and comprehensive test suites.
 
 Always reference these instructions first and fallback to search or bash commands only when you encounter unexpected information that does not match the info here.
 
@@ -9,7 +9,7 @@ Always reference these instructions first and fallback to search or bash command
 **ALL BUILD COMMANDS NOW WORKING**: Docker build and development environment are fully functional after network connectivity issues were resolved through proper URL whitelisting.
 
 **Key Requirements for Success**:
-- Use `DOCKER_BUILDKIT=1` for optimal build performance
+- Build and development commands work with documented performance metrics
 - First-time builds take 15-20 minutes due to extensive Perl dependencies
 - All major development workflows are operational
 
@@ -18,31 +18,22 @@ Always reference these instructions first and fallback to search or bash command
 ### Initial Setup (Full Development Environment - VERIFIED WORKING)
 1. **Prerequisites**: Ensure Docker and Docker Compose are available
 2. **Clone repository**: `git clone https://github.com/openfoodfacts/openfoodfacts-server.git`
-3. **Frontend dependencies**: `npm install` - takes ~4 seconds (cached) to ~30 seconds (fresh), WORKS
-4. **Frontend build**: `npm run build` - takes ~17 seconds, WORKS  
-5. **Frontend linting**: `npm run lint` - takes ~4 seconds, WORKS
-6. **Full development environment**: `DOCKER_BUILDKIT=1 make dev` - takes ~15-20 minutes first time, WORKS
+3. **Frontend dependencies**: `make front_npm_update` - Install/update frontend dependencies via container
+4. **Frontend build**: `make front_build` - Build frontend assets with Gulp via container  
+5. **Frontend linting**: `make front_lint` - Lint JavaScript, CSS, and SCSS via container
+6. **Full development environment**: `make dev` - takes ~15-20 minutes first time, WORKS
 7. **Unit tests**: `make unit_test` - runs all backend unit tests, WORKS
 
 ### Build and Development Commands Status
 
 **✅ WORKING COMMANDS (FULLY VALIDATED):**
-- `npm install` - Install frontend dependencies (~4 seconds cached, ~30 seconds fresh)
-- `npm run build` - Build frontend assets with Gulp (~17 seconds)  
-- `npm run build:watch` - Auto-rebuild on file changes (use Ctrl+C to stop)
-- `npm run lint` - Lint JavaScript, CSS, and SCSS (~4 seconds)
-- `npm run lint:js` - Lint JavaScript files only
-- `npm run lint:css` - Lint CSS files only  
-- `npm run lint:scss` - Lint SCSS files only
-- `npm run test` - Alias for npm run lint (frontend validation)
-- `DOCKER_BUILDKIT=1 make dev` - Start full development environment (~15-20 minutes first time, <5 minutes subsequent)
+- `make dev` - Start full development environment (~15-20 minutes first time, <5 minutes subsequent)
 - `make unit_test` - Run backend unit tests (~15 minutes)
 - `make integration_test` - Run integration tests (~15+ minutes)  
 - `make build` - Build all containers (~15-20 minutes)
 - `make checks` - Run comprehensive linting and validation
 
 **⚠️ IMPORTANT BUILD NOTES:**
-- Use `DOCKER_BUILDKIT=1` prefix for optimal performance and reliability
 - First-time builds take 15-20 minutes due to extensive Perl CPAN modules installation
 - Subsequent builds are much faster due to Docker layer caching
 - Unit tests may show some failures in development environment - this is expected
@@ -59,7 +50,7 @@ Based on comprehensive testing with complete build validation:
 - **Full test suite**: 30+ minutes (comprehensive validation - set timeout to 60+ minutes)
 
 **Performance Tips**:
-- Always use `DOCKER_BUILDKIT=1` for faster, more reliable builds
+- Always use the Makefile for faster, more reliable builds
 - Layer caching makes subsequent builds significantly faster
 - Containers stay running between sessions, reducing restart time
 
@@ -67,30 +58,30 @@ Based on comprehensive testing with complete build validation:
 
 ### Frontend Validation (WORKING)
 Always validate frontend changes with these WORKING commands:
-- `npm run build` - Ensure frontend builds successfully
-- `npm run lint` - Check code style compliance
+- `make front_build` - Ensure frontend builds successfully via container
+- `make front_lint` - Check code style compliance via container
 - Manual review of generated files in `html/css/dist/` and `html/js/dist/` directories
 - Check build artifacts: Verify CSS/JS files are generated in correct directories
-- Test watch mode: `npm run build:watch` for development (auto-rebuilds on file changes)
+- Test watch mode: Use container-based development environment for auto-rebuilds
 
 **Frontend Development Workflow (VERIFIED):**
 1. Edit source files in `scss/` directory for styles
 2. Edit JavaScript files in `html/js/` directory  
-3. Run `npm run build` to compile changes (~15 seconds)
+3. Run `make front_build` to compile changes via container
 4. Verify output files in `html/css/dist/` and `html/js/dist/`
-5. Run `npm run lint` to check compliance (~4 seconds)
-6. For active development: Use `npm run build:watch` (stops with Ctrl+C)
+5. Run `make front_lint` to check compliance via container
+6. For active development: Use the development environment for live reloading
 
 ### Backend/Full System Validation (WORKING)
 **Complete Backend Development Workflow**:
 - Unit tests: `make unit_test` - Tests Perl backend logic and business rules (~15 minutes)
 - Integration tests: `make integration_test` - Tests full system workflows and API endpoints (~20 minutes)  
 - All checks: `make checks` - Runs comprehensive linting and validation for both frontend and backend
-- Development environment: `DOCKER_BUILDKIT=1 make dev` - Starts full development environment at http://world.openfoodfacts.localhost/
-- Backend build: `DOCKER_BUILDKIT=1 make build` - Builds all backend containers
+- Development environment: `make dev` - Starts full development environment at http://world.openfoodfacts.localhost/
+- Backend build: `make build` - Builds all backend containers
 
 **Technical Details**:
-- All containers build successfully with DOCKER_BUILDKIT=1
+- All containers build successfully with the Makefile configuration
 - Development environment includes ~100 test products by default
 - Full database setup (MongoDB, PostgreSQL, Redis, Memcached) works properly
 - All API endpoints and Perl modules are testable locally
@@ -131,9 +122,9 @@ When the Docker build issues are resolved, always test these scenarios:
 
 ### Frontend Development (WORKING)
 - Edit source files in `scss/` and `html/js/` directories
-- Run `npm run build` to compile changes  
-- Run `npm run lint` to check style compliance
-- Use `npm run build:watch` for auto-compilation during development
+- Run `make front_build` to compile changes via container
+- Run `make front_lint` to check style compliance via container
+- Use development environment for auto-compilation during development
 
 ### Backend Development (FULLY OPERATIONAL)
 **Complete Backend Workflow**:
@@ -141,8 +132,8 @@ When the Docker build issues are resolved, always test these scenarios:
 - Key modules: `API.pm`, `Products.pm`, `Store.pm`, `Tags.pm`, `Config2.pm`  
 - Test individual modules: `make test-unit test=modulename.t` - runs specific unit tests
 - Test API endpoints: `make test-int test=api-test.t` - validates specific API functionality
-- Run `DOCKER_BUILDKIT=1 make checks` before committing changes
-- Development server: `DOCKER_BUILDKIT=1 make dev` provides hot-reload at http://world.openfoodfacts.localhost/
+- Run `make checks` before committing changes
+- Development server: `make dev` provides hot-reload at http://world.openfoodfacts.localhost/
 
 **Performance Notes**:
 - Backend containers stay running between sessions
@@ -159,9 +150,9 @@ When the Docker build issues are resolved, always test these scenarios:
 ### Testing Workflow (FULL SYSTEM OPERATIONAL)
 Complete testing workflow for all components:
 1. Make code changes (frontend or backend)
-2. Run appropriate linting: `npm run lint` for frontend, `make check_perltidy` for Perl
+2. Run appropriate linting: `make front_lint` for frontend, `make check_perltidy` for Perl
 3. Run relevant tests: `make test-unit test=specific.t` or `make test-int test=specific.t`
-4. Run full validation before PR: `DOCKER_BUILDKIT=1 make checks` (includes all linting + taxonomies + backend validation)
+4. Run full validation before PR: `make checks` (includes all linting + taxonomies + backend validation)
 5. Test in browser: Visit http://world.openfoodfacts.localhost/ for manual validation
 
 **Test Results Interpretation**:
@@ -175,7 +166,7 @@ Complete testing workflow for all components:
 1. **First-time Build Duration**: Initial container builds take 15-20 minutes due to extensive Perl CPAN module compilation
 2. **Test Environment Variance**: Some unit tests may fail in development environment vs. production - focus on tests related to your changes
 3. **Resource Requirements**: Full development environment requires significant disk space and memory for containers
-4. **Build Performance**: Always use `DOCKER_BUILDKIT=1` for optimal build speed and reliability
+4. **Build Performance**: Always use the Makefile for optimal build speed and reliability
 5. **Network Dependencies**: Requires reliable internet connection for initial dependency downloads
 
 ## Repository Dependencies
@@ -189,10 +180,10 @@ The system requires these external dependencies (managed automatically):
 
 ### Build Performance Issues
 **Problem**: Initial builds taking very long (15-20+ minutes)
-**Solution**: This is expected behavior. Use `DOCKER_BUILDKIT=1` prefix and ensure good internet connection. Subsequent builds will be much faster due to layer caching.
+**Solution**: This is expected behavior. Use the provided Makefile commands and ensure good internet connection. Subsequent builds will be much faster due to layer caching.
 
 **Problem**: Build fails with "buildkit" errors
-**Solution**: Ensure Docker Buildkit is enabled: `DOCKER_BUILDKIT=1` prefix on all `make` commands
+**Solution**: Ensure Docker Buildkit is enabled via the Makefile configuration
 
 ### Development Environment Issues  
 **Problem**: Cannot access http://world.openfoodfacts.localhost/
@@ -202,37 +193,37 @@ The system requires these external dependencies (managed automatically):
 **Solution**: Allow containers to fully start. Wait 1-2 minutes after `make dev` completes before running tests.
 
 ### Frontend Build Issues
-**Problem**: `npm install` fails with permission errors
-**Solution**: Ensure you have write permissions to the project directory
+**Problem**: Frontend dependency issues
+**Solution**: Use `make front_npm_update` to update dependencies via container
 
-**Problem**: `npm run build` produces warnings about deprecated Sass @import rules
+**Problem**: Frontend build produces warnings about deprecated Sass @import rules
 **Solution**: These are expected warnings. Build still succeeds - ignore deprecation warnings.
 
-**Problem**: ESLint warnings during `npm run lint`  
+**Problem**: ESLint warnings during `make front_lint`  
 **Solution**: These are style warnings, not errors. Build still succeeds. Fix with:
 - Replace `var` with `let` or `const`
 - Avoid unary operators like `++` and `--` where possible
 
 ### Performance Issues
 **Problem**: Frontend builds seem slow
-**Solution**: ~15 seconds is normal for full build. Use `npm run build:watch` during active development.
+**Solution**: Containerized builds provide consistent performance. Use development environment for faster iterations.
 
-**Problem**: npm install takes too long
-**Solution**: ~30 seconds is normal. Consider using npm ci for faster CI builds.
+**Problem**: Container startup takes time
+**Solution**: This is normal for first-time container builds. Subsequent runs are much faster.
 
 ## Emergency Procedures
 
 If encountering build or runtime issues:
-1. **Always use DOCKER_BUILDKIT=1** - Required for reliable builds  
+1. **Always use the Makefile** - Required for reliable builds  
 2. **Allow sufficient time** - First builds take 15-20 minutes, don't cancel early
 3. **Check container status** - Use `docker ps` to verify all containers are running
-4. **Restart if needed** - Use `make down` then `DOCKER_BUILDKIT=1 make dev` to reset environment
+4. **Restart if needed** - Use `make down` then `make dev` to reset environment
 5. **Monitor logs** - Use `docker compose logs [service_name]` to diagnose issues
 6. **Clean rebuild** - Use `docker system prune` then rebuild if persistent issues occur
 
 ## Important Notes
 
-- **ALWAYS use DOCKER_BUILDKIT=1** - Essential for reliable builds and optimal performance
+- **ALWAYS use the Makefile** - Essential for reliable builds and optimal performance
 - **Always validate all changes** with appropriate tests and linting before committing
 - **Development environment is production-critical** - Test thoroughly as this serves millions of users worldwide
 - **Frontend and backend testing both work** - Use the full test suite to validate changes
