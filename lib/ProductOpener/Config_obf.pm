@@ -549,17 +549,13 @@ $options{import_export_fields_groups} = [
 	],
 	[
 		"origins",
-		["origins", "origin", "manufacturing_places", "producer", "emb_codes"]
+		["origins", "origin", "manufacturing_places", "producer"]
 	],
 	["ingredients", ["ingredients_text", "allergens", "traces"]],
 	["packaging"],
 	[
 		"other",
 		[
-			"conservation_conditions", "warning",
-			"preparation", "nutriscore_score_producer",
-			"nutriscore_grade_producer", "nova_group_producer",
-			"recipe_idea", "customer_service",
 			"link",
 		]
 	],

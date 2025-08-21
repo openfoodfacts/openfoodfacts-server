@@ -526,7 +526,7 @@ $options{import_export_fields_groups} = [
 			"generic_name",
 			"quantity_value_unit", "net_weight_value_unit",
 			"drained_weight_value_unit", "volume_value_unit",
-			"serving_size_value_unit", "packaging",
+			"packaging",
 			"brands", "brand_owner",
 			"categories", "categories_specific",
 			"labels", "labels_specific",
@@ -537,18 +537,13 @@ $options{import_export_fields_groups} = [
 	],
 	[
 		"origins",
-		["origins", "origin", "manufacturing_places", "producer", "emb_codes"]
+		["origins", "origin", "manufacturing_places", "producer"]
 	],
-	["ingredients", ["ingredients_text", "allergens", "traces"]],
 	["packaging"],
 	[
 		"other",
 		[
-			"conservation_conditions", "warning",
-			"preparation", "nutriscore_score_producer",
-			"nutriscore_grade_producer", "nova_group_producer",
-			"recipe_idea", "customer_service",
-			"link",
+			"customer_service", "link",
 		]
 	],
 	[

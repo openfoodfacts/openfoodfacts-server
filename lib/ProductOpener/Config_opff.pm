@@ -608,7 +608,8 @@ $options{import_export_fields_groups} = [
 		"other",
 		[
 			"conservation_conditions", "warning",
-			"preparation", "customer_service",
+			"preparation", "nova_group_producer",
+			"customer_service",
 			"link",
 		]
 	],
