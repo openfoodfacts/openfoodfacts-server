@@ -4645,7 +4645,7 @@ msgstr "Non applicable pour la catégorie"
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
 msgid "Not applicable for the category: {category}"
-msgstr "Non applicable pour la catégorie : {category}"
+msgstr "Non applicable pour la catégorie : {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -5469,7 +5469,7 @@ msgstr "Impact environnemental inconnu"
 
 msgctxt "attribute_environmental_score_unknown_description_short_missing_precise_category"
 msgid "Missing a precise category"
-msgstr "Manque une catégorie précise"
+msgstr "Catégorie précise manquante"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
@@ -6399,7 +6399,7 @@ msgstr "Pourriez-vous ajouter une catégorie de produit précise afin que nous p
 
 msgctxt "actions_to_compute_environmental_score_unprecise_category"
 msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
-msgstr "La catégorie de ce produit n'est pas assez précise pour calculer le Green-Score. Pourriez-vous ajouter une catégorie de produit plus précise ?"
+msgstr "La catégorie que nous avons pour ce produit n'est pas suffisament précise pour calculer le Green-Score. Pourriez-vous ajouter une catégorie plus précise ?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"

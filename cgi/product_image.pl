@@ -36,6 +36,7 @@ use ProductOpener::Images qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::HTTP qw/single_param/;
+use ProductOpener::ConfigEnv qw/$nutripatrol_url/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -214,6 +215,7 @@ $template_data_ref->{original_link} = $original_link;
 $template_data_ref->{attribution} = $attribution;
 $template_data_ref->{original_id} = $original_id;
 $template_data_ref->{code} = $code;
+$template_data_ref->{nutripatrol_url} = $nutripatrol_url;
 
 my $html;
 process_template('web/pages/product/includes/product_image.tt.html', $template_data_ref, \$html) or $html = '';
