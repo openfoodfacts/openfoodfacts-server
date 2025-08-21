@@ -173,7 +173,7 @@ sub compute_completeness_score($product_ref) {
 	if (
 		(
 			(
-					(defined $product_ref->{nutriments})
+				(defined $product_ref->{nutriments})
 				# we have at least on valid nutrient (not counting nova and fruits-vegetables-*-estimates
 				and (scalar grep {$_ !~ /^(nova|fruits-vegetables)/} keys %{$product_ref->{nutriments}}) > 0
 			)
