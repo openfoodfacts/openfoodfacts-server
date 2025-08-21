@@ -44,6 +44,7 @@ BEGIN {
 		&increment_rate_limit_requests
 		&subscribe_to_redis_streams
 		&push_product_update_to_redis
+		&push_ocr_ready_to_redis
 
 		&process_xread_stream_reply
 	);    # symbols to export on request
@@ -352,7 +353,7 @@ sub push_product_update_to_redis ($product_ref, $change_ref, $action) {
 			my $cv = AE::cv;
 			$redis_client->xadd(
 				# name of the Redis stream
-				$options{redis_stream_name},
+				$options{redis_stream_name_product_updates},
 				# We do not add a MAXLEN
 				'MAXLEN', '~', '10000000',
 				# We let Redis generate the id
@@ -405,6 +406,99 @@ sub push_product_update_to_redis ($product_ref, $change_ref, $action) {
 	}
 	else {
 		$log->debug("Successfully pushed product update to Redis", {product_code => $product_ref->{code}})
+			if $log->is_debug();
+	}
+
+	return;
+}
+
+=head2 push_ocr_ready_to_redis ($code, $image_id)
+
+Add an event to Redis stream to notify that OCR was run on an image and that the
+OCR result (gzipped JSON file) is ready to be used.
+
+=head3 Arguments
+
+=head4 String $code
+
+The product code associated with the image.
+
+=head4 String $image_id
+
+The ID of the image.
+
+=head4 String $json_url
+
+The URL where the OCR result JSON file can be found.
+
+=cut
+
+sub push_ocr_ready_to_redis ($code, $image_id, $json_url, $timestamp = time()) {
+
+	if (!$redis_url) {
+		# No Redis URL provided, we can't push to Redis
+		if (!$sent_warning_about_missing_redis_url) {
+			$log->warn("Redis URL not provided for streaming") if $log->is_warn();
+			$sent_warning_about_missing_redis_url = 1;
+		}
+		return;
+	}
+
+	my $error = "";
+	if (!defined $redis_client) {
+		# we were disconnected, try again
+		$log->debug("Trying to reconnect to Redis") if $log->is_debug();
+		init_redis();
+	}
+	if (defined $redis_client) {
+		$log->debug("Pushing `ocr_ready` event to Redis", {code => $code}) if $log->is_debug();
+		eval {
+			my $cv = AE::cv;
+			$redis_client->xadd(
+				# name of the Redis stream
+				$options{redis_stream_name_ocr_ready},
+				'MAXLEN', '~', '500000',
+				# We let Redis generate the id
+				'*',
+				# fields
+				'timestamp',
+				$timestamp,
+				'code',
+				Encode::encode_utf8($code),
+				'image_id',
+				Encode::encode_utf8($image_id),
+				'json_url',
+				Encode::encode_utf8($json_url),
+				'product_type',
+				$options{product_type},
+				sub {
+					my ($reply, $err) = @_;
+					if (defined $err) {
+						$log->warn("Error adding data to stream", {error => $err}) if $log->is_warn();
+					}
+					else {
+						$log->debug("Data added to stream with ID", {reply => $reply}) if $log->is_info();
+					}
+
+					$cv->send;
+					return;
+				}
+			);
+			$cv->recv;
+		};
+		$error = $@;
+	}
+	else {
+		$error = "Can't connect to Redis";
+	}
+	if (!($error eq "")) {
+		$log->error("Failed to push `ocr_ready` event to Redis", {product_code => $code, error => $error})
+			if $log->is_warn();
+		# ask for eventual reconnection for next call
+		$redis_client = undef;
+	}
+	else {
+		$log->debug("Successfully pushed `ocr_ready` event to Redis", {product_code => $code})
 			if $log->is_debug();
 	}
 

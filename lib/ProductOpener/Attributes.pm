@@ -755,10 +755,9 @@ sub compute_attribute_environmental_score ($product_ref, $target_lc, $target_cc)
 		$attribute_ref->{match} = 0;
 		if ($target_lc ne "data") {
 			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_environmental_score_unknown_title");
-			$attribute_ref->{description}
-				= lang_in_other_lc($target_lc, "attribute_environmental_score_unknown_description");
 			$attribute_ref->{description_short}
-				= lang_in_other_lc($target_lc, "attribute_environmental_score_unknown_description_short");
+				= lang_in_other_lc($target_lc,
+				"attribute_environmental_score_unknown_description_short_missing_precise_category");
 		}
 	}
 

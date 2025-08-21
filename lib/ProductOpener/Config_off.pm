@@ -1106,7 +1106,10 @@ $options{import_export_fields_importance} = {
 );
 
 # Name of the Redis stream to which product updates are published
-$options{redis_stream_name} = "product_updates";
+$options{redis_stream_name_product_updates} = "product_updates";
+# Name of the Redis stream where we notify that OCR results
+# are ready
+$options{redis_stream_name_ocr_ready} = "ocr_ready";
 
 # used to rename texts and to redirect to the new name
 $options{redirect_texts} = {
