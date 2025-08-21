@@ -8,10 +8,12 @@ Always reference these instructions first and fallback to search or bash command
 
 **DOCKER BUILD FAILURES - NETWORK CONNECTIVITY ISSUES**: 
 - The local Docker build process currently fails due to DNS resolution issues with Debian package repositories
-- Error: "Temporary failure resolving 'deb.debian.org'" during `apt update` operations
-- This affects ALL make commands that trigger container builds: `make dev`, `make build`, `make unit_test`, `make integration_test`
-- **WORKAROUND**: Use prebuilt container images from GitHub Container Registry when available
-- **DO NOT attempt to build containers locally** - it will fail after ~60 seconds with package installation errors
+- **Specific Error**: "Unable to locate package" errors during `apt update` operations in Dockerfile
+- **Root Cause**: DNS resolution fails for `deb.debian.org` and related Debian package repositories
+- This affects ALL make commands that trigger container builds: `make dev`, `make dev_no_build`, `make build`, `make unit_test`, `make integration_test`
+- **TIMEOUT**: Build fails after approximately 60 seconds with exit code 100
+- **WORKAROUND LIMITATION**: Even though prebuilt images exist (`ghcr.io/openfoodfacts/openfoodfacts-server/backend:latest`), the development environment in `docker/dev.yml` overrides with build contexts, forcing local builds
+- **CURRENT STATUS**: No functional workaround exists for full backend development locally
 
 ## Working Effectively
 
@@ -36,21 +38,29 @@ Always reference these instructions first and fallback to search or bash command
 
 **❌ BROKEN COMMANDS (DNS/Network Issues - VERIFIED):**
 - `make dev` - **FAILS** after ~60 seconds with "Unable to locate package" errors
+- `make dev_no_build` - **FAILS** during taxonomy build step (requires backend container)  
 - `make build` - **FAILS** after ~60 seconds with Debian DNS resolution issues  
 - `make up` - **FAILS** during container build phase
 - `make unit_test` - **FAILS** during container build phase  
 - `make integration_test` - **FAILS** during container build phase
 - `make checks` - **FAILS** because it requires backend container builds
 
+**⚠️ ATTEMPTED WORKAROUNDS (UNSUCCESSFUL):**
+- Prebuilt images exist: `ghcr.io/openfoodfacts/openfoodfacts-server/backend:latest`
+- However, `docker/dev.yml` overrides with local build contexts, forcing builds
+- `COMPOSE_FILE` manipulation cannot skip the build requirement
+- No current method exists to run full development environment locally
+
 ### Expected Timing (When Working)
-Based on documentation and complete validation:
-- **First-time setup**: 10-30 minutes (when Docker build works)
-- **Frontend build**: ~17 seconds - VERIFIED IN FRESH ENVIRONMENT
+Based on documentation and complete validation in fresh environments:
+- **First-time setup**: 10-30 minutes (when Docker build works - currently not possible locally)
+- **Frontend build**: ~15 seconds - VERIFIED IN FRESH ENVIRONMENT
 - **Frontend linting**: ~4 seconds - VERIFIED IN FRESH ENVIRONMENT
-- **Frontend dependencies**: ~4 seconds (cached) to ~30 seconds (fresh) - VERIFIED
-- **Unit tests**: Estimated 15+ minutes (NEVER CANCEL - set timeout to 30+ minutes)
-- **Integration tests**: Estimated 15+ minutes (NEVER CANCEL - set timeout to 30+ minutes)
-- **Full test suite**: Estimated 30+ minutes (NEVER CANCEL - set timeout to 60+ minutes)
+- **Frontend dependencies**: ~4 seconds (cached) to ~33 seconds (fresh) - VERIFIED
+- **Backend/Full system**: Currently impossible to test locally due to build failures
+- **Unit tests**: Estimated 15+ minutes (requires working backend - set timeout to 30+ minutes when available)
+- **Integration tests**: Estimated 15+ minutes (requires working backend - set timeout to 30+ minutes when available)
+- **Full test suite**: Estimated 30+ minutes (requires working backend - set timeout to 60+ minutes when available)
 
 ## Testing and Validation
 
@@ -70,11 +80,20 @@ Always validate frontend changes with these WORKING commands:
 5. Run `npm run lint` to check compliance (~4 seconds)
 6. For active development: Use `npm run build:watch` (stops with Ctrl+C)
 
-### Backend/Full System Validation (CURRENTLY BROKEN)
-**WARNING**: These commands currently fail due to Docker build issues:
-- Unit tests: `make unit_test` - Would test Perl backend logic  
-- Integration tests: `make integration_test` - Would test full system workflows
-- All checks: `make checks` - Would run comprehensive linting and validation
+### Backend/Full System Validation (CURRENTLY IMPOSSIBLE)
+**CRITICAL**: These commands currently fail due to Docker build issues:
+- Unit tests: `make unit_test` - Would test Perl backend logic, but cannot build containers
+- Integration tests: `make integration_test` - Would test full system workflows, but cannot build containers  
+- All checks: `make checks` - Would run comprehensive linting and validation, but requires backend
+- Development environment: `make dev` - Cannot start full development environment
+- Even `make dev_no_build` fails because it requires building containers for taxonomy generation
+
+**Technical Details**:
+- Prebuilt images exist (`ghcr.io/openfoodfacts/openfoodfacts-server/backend:latest`)
+- `docker pull` commands work successfully for prebuilt images
+- However, `docker/dev.yml` overrides images with local build contexts
+- No workaround exists to use prebuilt images for full development workflow
+- Build failures occur at Debian package installation step with DNS resolution errors
 
 ### Manual Validation Scenarios (When System Works)
 When the Docker build issues are resolved, always test these scenarios:
@@ -115,12 +134,14 @@ When the Docker build issues are resolved, always test these scenarios:
 - Run `npm run lint` to check style compliance
 - Use `npm run build:watch` for auto-compilation during development
 
-### Backend Development (WHEN DOCKER WORKS)
-- Edit Perl modules in `lib/ProductOpener/` directory
+### Backend Development (CURRENTLY IMPOSSIBLE LOCALLY)
+**BLOCKED**: Cannot run backend development locally due to build failures
+- Edit Perl modules in `lib/ProductOpener/` directory (files can be edited, but cannot be tested)
 - Key modules: `API.pm`, `Products.pm`, `Store.pm`, `Tags.pm`, `Config2.pm`  
-- Test individual modules: `make test-unit test=modulename.t`
-- Test API endpoints: `make test-int test=api-test.t`
-- Always run `make checks` before committing changes
+- Test individual modules: `make test-unit test=modulename.t` (FAILS - cannot build containers)
+- Test API endpoints: `make test-int test=api-test.t` (FAILS - cannot build containers)
+- `make checks` before committing changes (FAILS - cannot build containers)
+- **Alternative**: All backend testing must be done through GitHub Actions CI pipeline
 
 ### Common File Patterns
 - **API endpoints**: `cgi/*.pl` files (product.pl, search.pl, etc.)
@@ -129,18 +150,26 @@ When the Docker build issues are resolved, always test these scenarios:
 - **Test files**: `tests/unit/*.t` and `tests/integration/*.t`
 - **Configuration**: `lib/ProductOpener/Config2_*.pm` files for different environments
 
-### Testing Workflow (WHEN SYSTEM WORKS)
-1. Make code changes
-2. Run appropriate linting: `npm run lint` for frontend, `make check_perltidy` for Perl
-3. Run relevant tests: `make test-unit test=specific.t` or `make test-int test=specific.t`
-4. Run full validation before PR: `make checks` (includes all linting + taxonomies)
+### Testing Workflow (WHEN SYSTEM WORKS - CURRENTLY BLOCKED)
+The ideal workflow when backend builds work:
+1. Make code changes (frontend works, backend editing possible but not testable)
+2. Run appropriate linting: `npm run lint` for frontend (WORKS), `make check_perltidy` for Perl (FAILS)
+3. Run relevant tests: `make test-unit test=specific.t` (FAILS) or `make test-int test=specific.t` (FAILS)
+4. Run full validation before PR: `make checks` (FAILS - includes all linting + taxonomies)
+
+**Current Reality**:
+- Only frontend linting and building work locally
+- All backend/Perl testing must be done via GitHub Actions CI
+- Changes must be pushed to see test results
 
 ## Known Limitations
 
-1. **Critical Docker Build Failure**: Local container builds fail due to network connectivity issues with Debian repositories
+1. **Critical Docker Build Failure**: Local container builds fail due to network connectivity issues with Debian repositories - affects ALL backend functionality
 2. **No Local Backend Testing**: Cannot validate backend changes locally until Docker issues resolved  
-3. **Limited Development Environment**: Only frontend development/testing currently functional
-4. **CI-Dependent**: Full testing requires GitHub Actions CI environment
+3. **Development Environment Incomplete**: Only frontend development/testing currently functional locally
+4. **CI-Dependent Backend Testing**: Full backend and system testing requires GitHub Actions CI environment
+5. **Docker Configuration Issue**: `docker/dev.yml` forces local builds instead of using prebuilt images
+6. **No Working Workarounds**: Despite prebuilt images existing, development environment cannot use them
 
 ## Repository Dependencies
 
@@ -152,15 +181,17 @@ The system requires these external dependencies (managed automatically):
 ## Troubleshooting Common Issues
 
 ### Docker Build Failures
-**Problem**: `make dev` fails with "Temporary failure resolving 'deb.debian.org'"
-**Solution**: This is a known network connectivity issue. Use prebuilt images:
-```bash
-docker pull ghcr.io/openfoodfacts/openfoodfacts-server/backend:latest
-docker pull ghcr.io/openfoodfacts/openfoodfacts-server/frontend:latest
-```
+**Problem**: `make dev` fails with "Unable to locate package apache2, apt-utils, cpanminus..." after ~60 seconds
+**Root Cause**: DNS resolution fails for `deb.debian.org` during `apt update` in Dockerfile build process
+**Error Code**: Exit code 100
+**Solution**: No current local workaround. Prebuilt images exist but cannot be used due to `docker/dev.yml` forcing builds.
+
+**Problem**: `make dev_no_build` fails during taxonomy building step  
+**Root Cause**: Even "no build" targets require backend container for taxonomy generation, which triggers build
+**Solution**: All backend work must be tested via GitHub Actions CI pipeline
 
 **Problem**: `make build` fails after ~60 seconds with package installation errors  
-**Solution**: Do not attempt local builds. Focus on frontend development with npm commands.
+**Solution**: Cannot build containers locally. Focus on frontend development with npm commands.
 
 ### Frontend Build Issues
 **Problem**: `npm install` fails with permission errors
