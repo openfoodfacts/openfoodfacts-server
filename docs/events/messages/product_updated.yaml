@@ -52,11 +52,31 @@ product_updated:
         description: Overview of the change, provided by the user
         type: string
       diffs:
-        description: Undocumented structure describing which product fields were changed
+        description: Lists of field names that were changed
         type: object
+        properties:
+          fields:
+            type: object
+            properties:
+              add:
+                type: array
+                items:
+                  type: string
+              change:
+                $ref: '#/product_updated/payload/properties/diffs/properties/fields/properties/add'
+              delete:
+                $ref: '#/product_updated/payload/properties/diffs/properties/fields/properties/add'
+          uploaded_images:
+            $ref: '#/product_updated/payload/properties/diffs/properties/fields'
+          selected_images:
+            $ref: '#/product_updated/payload/properties/diffs/properties/fields'
+          nutriments:
+            $ref: '#/product_updated/payload/properties/diffs/properties/fields'
+          packagings:
+            $ref: '#/product_updated/payload/properties/diffs/properties/fields'
         examples:
           - fields:
-              change: 
+              change:
                 - categories
       ip:
         description: The IP address of the client device that made the change
