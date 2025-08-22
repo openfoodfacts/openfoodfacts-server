@@ -453,8 +453,13 @@ sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref)
 	$product_ref->{nutrition}{aggregated_set}
 		= generate_nutrient_set_preferred_from_sets($product_ref->{nutrition}{input_sets});
 
-	# delete the old nutrition schema from the product
+	# delete the old nutrition schema from the product and other now useless fields
 	delete $product_ref->{nutriments};
+	delete $product_ref->{no_nutrition_data};
+	delete $product_ref->{nutrition_data};
+	delete $product_ref->{nutrition_data_per};
+	delete $product_ref->{nutrition_data_prepared};
+	delete $product_ref->{nutrition_data_prepared_per};
 
 	return;
 }
