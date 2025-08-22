@@ -183,6 +183,10 @@ restart: run_deps
 	${DOCKER_COMPOSE} restart backend frontend
 	@echo "🥫  started service at http://openfoodfacts.localhost"
 
+stop: stop_deps
+	@echo "🥫 Stopping containers …"
+	${DOCKER_COMPOSE} stop
+
 status: run_deps
 	@echo "🥫 Getting container status …"
 	${DOCKER_COMPOSE} ps
@@ -519,6 +523,10 @@ else
 	docker volume create --label com.docker.compose.project=${COMPOSE_PROJECT_NAME}${PROJECT_SUFFIX} --label com.docker.compose.version=$(shell docker compose version --short) --label com.docker.compose.volume=${MOUNT_VOLUME} --driver=local -o type=none -o o=bind -o "device=${DOCKER_LOCAL_DATA}/${MOUNT_FOLDER}" ${COMPOSE_PROJECT_NAME}${PROJECT_SUFFIX}_${MOUNT_VOLUME}
 endif
 
+build_asyncapi:
+	npm list -g @asyncapi/cli || npm install -g @asyncapi/cli
+	cd docs/events && asyncapi generate fromTemplate openfoodfacts-server.yaml @asyncapi/html-template@3.0.0 --use-new-generator --param singleFile=true outFilename=openfoodfacts-server.html --force-write --output=.
+
 #------------#
 # Production #
 #------------#
@@ -596,6 +604,11 @@ prune_deps: clone_deps
 	@for dep in ${DEPS} ; do \
 		echo "🥫 Pruning $$dep..."; \
 		cd ${DEPS_DIR}/$$dep && $(MAKE) prune; \
+	done
+
+stop_deps:
+	@for dep in ${DEPS} ; do \
+		cd ${DEPS_DIR}/$$dep && ( $(MAKE) stop || env -i docker compose stop ) ; \
 	done
 
 #-----------#

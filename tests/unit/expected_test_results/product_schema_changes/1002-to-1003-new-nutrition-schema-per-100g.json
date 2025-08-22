@@ -4,107 +4,105 @@
          "nutrients": {
             "calcium": {
                "source": "packaging",
+               "source_index": 0,
                "source_per": "100g",
                "unit": "g",
-               "value": 0.118,
-               "value_string": "0.118"
+               "value": 0.118
             },
             "carbohydrates": {
                "source": "packaging",
+               "source_index": 0,
                "source_per": "100g",
                "unit": "g",
-               "value": 9.8,
-               "value_string": "9.8"
+               "value": 9.8
             },
             "energy": {
                "source": "packaging",
+               "source_index": 0,
                "source_per": "100g",
                "unit": "kJ",
-               "value": 304,
-               "value_string": "304"
+               "value": 304
             },
             "energy-kcal": {
                "source": "packaging",
+               "source_index": 0,
                "source_per": "100g",
                "unit": "kcal",
-               "value": 72,
-               "value_string": "72"
+               "value": 72
             },
             "energy-kj": {
                "source": "packaging",
+               "source_index": 0,
                "source_per": "100g",
                "unit": "kJ",
-               "value": 304,
-               "value_string": "304"
+               "value": 304
             },
             "fat": {
                "source": "packaging",
+               "source_index": 0,
                "source_per": "100g",
                "unit": "g",
-               "value": 1.8,
-               "value_string": "1.8"
+               "value": 1.8
             },
             "fiber": {
                "modifier": "<",
                "source": "packaging",
+               "source_index": 0,
                "source_per": "100g",
                "unit": "g",
-               "value": 0.5,
-               "value_string": "0.5"
+               "value": 0.5
             },
             "proteins": {
                "source": "packaging",
+               "source_index": 0,
                "source_per": "100g",
                "unit": "g",
-               "value": 3.6,
-               "value_string": "3.6"
+               "value": 3.6
             },
             "salt": {
                "source": "packaging",
+               "source_index": 0,
                "source_per": "100g",
                "unit": "g",
-               "value": 0.14,
-               "value_string": "0.14"
+               "value": 0.14
             },
             "saturated-fat": {
                "source": "packaging",
+               "source_index": 0,
                "source_per": "100g",
                "unit": "g",
-               "value": 1.1,
-               "value_string": "1.1"
+               "value": 1.1
             },
             "sodium": {
                "source": "packaging",
+               "source_index": 0,
                "source_per": "100g",
                "unit": "g",
-               "value": 0.056,
-               "value_string": "0.056"
+               "value": 0.056
             },
             "sugars": {
                "source": "packaging",
+               "source_index": 0,
                "source_per": "100g",
                "unit": "g",
-               "value": 9.5,
-               "value_string": "9.5"
+               "value": 9.5
             },
             "vitamin-c": {
                "source": "packaging",
+               "source_index": 0,
                "source_per": "100g",
                "unit": "g",
-               "value": 0.011,
-               "value_string": "0.011"
+               "value": 0.011
             },
             "vitamin-d": {
                "source": "packaging",
+               "source_index": 0,
                "source_per": "100g",
                "unit": "g",
-               "value": 7.3e-07,
-               "value_string": "7.3e-07"
+               "value": 7.3e-07
             }
          },
          "per": "100g",
-         "per_quantity": 100,
-         "per_unit": "g",
          "preparation": "prepared"
       },
       "input_sets": [

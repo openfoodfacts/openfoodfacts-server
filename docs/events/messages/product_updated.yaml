@@ -1,0 +1,86 @@
+product_updated:
+  title: Details of the product that has been updated
+  payload:
+    type: object
+    properties:
+      timestamp:
+        description: The Unix epoch time when this update took place
+        type: integer
+        examples:
+          - 1234567890
+      code:
+        description: The code of the product that was updated
+        type: string
+        examples:
+          - "3017620420009"
+      rev:
+        description: The revision number for the change
+        type: integer
+        examples:
+          - 194
+      product_type:
+        description: The high-level type product, e.g. "food", "beauty", "petfood"
+        enum:
+          - food
+          - beauty
+          - petfood
+          - product
+      flavor:
+        deprecated: true
+        description: |
+          DEPRECATED: The product_type field should be used to identify the kind of product this event relates to.
+          The Product Opener application type that generated the message, e.g. off, opff, off-pro
+        enum:
+          - off
+          - opff
+          - obf
+          - opf
+          - off-pro
+      user_id:
+        description: The public facing user id of the user that made the edit
+        type: string
+      action:
+        description: The nature of the change, e.g. "created", "deleted"
+        enum:
+          - updated
+          - created
+          - deleted
+          - archived
+          - unarchived
+          - reprocessed
+      comment:
+        description: Overview of the change, provided by the user
+        type: string
+      diffs:
+        description: Lists of field names that were changed
+        type: object
+        properties:
+          fields:
+            type: object
+            properties:
+              add:
+                type: array
+                items:
+                  type: string
+              change:
+                $ref: '#/product_updated/payload/properties/diffs/properties/fields/properties/add'
+              delete:
+                $ref: '#/product_updated/payload/properties/diffs/properties/fields/properties/add'
+          uploaded_images:
+            $ref: '#/product_updated/payload/properties/diffs/properties/fields'
+          selected_images:
+            $ref: '#/product_updated/payload/properties/diffs/properties/fields'
+          nutriments:
+            $ref: '#/product_updated/payload/properties/diffs/properties/fields'
+          packagings:
+            $ref: '#/product_updated/payload/properties/diffs/properties/fields'
+        examples:
+          - fields:
+              change:
+                - categories
+      ip:
+        description: The IP address of the client device that made the change
+        type: string
+      client_id:
+        description: The OIDC client_id of an application that made the change on behalf of a user
+        type: string

@@ -6,7 +6,7 @@ use utf8;
 use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Nutrition qw/generate_nutrient_set_preferred_from_sets/;
+use ProductOpener::Nutrition qw/generate_nutrient_aggregated_set_from_sets/;
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
@@ -17,7 +17,7 @@ my @tests = (
 		"empty_with_no_set",
 		{
 			nutrition => {
-				nutrient_sets => []
+				input_sets => []
 			}
 		},
 	],
@@ -26,7 +26,7 @@ my @tests = (
 		"empty_with_empty_set",
 		{
 			nutrition => {
-				nutrient_sets => [{}]
+				input_sets => [{}]
 			}
 		}
 	],
@@ -35,7 +35,7 @@ my @tests = (
 		"keep_only_given_set",
 		{
 			nutrition => {
-				nutrient_sets => [
+				input_sets => [
 					{
 						preparation => "as_sold",
 						per => "100g",
@@ -60,7 +60,7 @@ my @tests = (
 		"keep_only_non_empty_set",
 		{
 			nutrition => {
-				nutrient_sets => [
+				input_sets => [
 					{},
 					{
 						preparation => "as_sold",
@@ -86,7 +86,7 @@ my @tests = (
 		"keep_all_nutrients_with_same_properties",
 		{
 			nutrition => {
-				nutrient_sets => [
+				input_sets => [
 					{
 						preparation => "as_sold",
 						per => "100g",
@@ -125,7 +125,7 @@ my @tests = (
 		"prioritize_by_source",
 		{
 			nutrition => {
-				nutrient_sets => [
+				input_sets => [
 					{
 						preparation => "as_sold",
 						per => "100g",
@@ -169,7 +169,7 @@ my @tests = (
 		"prioritize_by_preparation",
 		{
 			nutrition => {
-				nutrient_sets => [
+				input_sets => [
 					{
 						preparation => "as_sold",
 						per => "100g",
@@ -218,7 +218,7 @@ my @tests = (
 		"prioritize_by_per",
 		{
 			nutrition => {
-				nutrient_sets => [
+				input_sets => [
 					{
 						preparation => "as_sold",
 						per => "100g",
@@ -276,7 +276,7 @@ my @tests = (
 		"prioritize_by_source_then_per",
 		{
 			nutrition => {
-				nutrient_sets => [
+				input_sets => [
 					{
 						preparation => "as_sold",
 						per => "serving",
@@ -353,7 +353,7 @@ my @tests = (
 		"prioritize_by_source_then_preparation",
 		{
 			nutrition => {
-				nutrient_sets => [
+				input_sets => [
 					{
 						preparation => "as_sold",
 						per => "100g",
@@ -392,7 +392,7 @@ my @tests = (
 		"prioritize_by_per_then_preparation",
 		{
 			nutrition => {
-				nutrient_sets => [
+				input_sets => [
 					{
 						preparation => "prepared",
 						per => "serving",
@@ -431,7 +431,7 @@ my @tests = (
 		"normalize_nutrient_weights",
 		{
 			nutrition => {
-				nutrient_sets => [
+				input_sets => [
 					{
 						preparation => "as_sold",
 						per => "100g",
@@ -456,7 +456,7 @@ my @tests = (
 		"normalize_energy_kcal_nutrient_unit",
 		{
 			nutrition => {
-				nutrient_sets => [
+				input_sets => [
 					{
 						preparation => "as_sold",
 						per => "100g",
@@ -480,7 +480,7 @@ my @tests = (
 		"normalize_energy_nutrient_unit",
 		{
 			nutrition => {
-				nutrient_sets => [
+				input_sets => [
 					{
 						preparation => "as_sold",
 						per => "100g",
@@ -504,7 +504,7 @@ my @tests = (
 		"normalize_energy_kj_nutrient_unit",
 		{
 			nutrition => {
-				nutrient_sets => [
+				input_sets => [
 					{
 						preparation => "as_sold",
 						per => "100g",
@@ -528,7 +528,7 @@ my @tests = (
 		"keep_standard_unit",
 		{
 			nutrition => {
-				nutrient_sets => [
+				input_sets => [
 					{
 						preparation => "as_sold",
 						per => "100g",
@@ -552,7 +552,7 @@ my @tests = (
 		"convert_per_nutrients_when_wanted_per_100g",
 		{
 			nutrition => {
-				nutrient_sets => [
+				input_sets => [
 					{
 						preparation => "as_sold",
 						per => "100g",
@@ -590,7 +590,7 @@ my @tests = (
 		"convert_per_nutrients_when_wanted_per_serving",
 		{
 			nutrition => {
-				nutrient_sets => [
+				input_sets => [
 					{
 						preparation => "as_sold",
 						per => "100g",
@@ -628,7 +628,7 @@ my @tests = (
 		"convert_per_nutrients_when_different_per_serving_quantities",
 		{
 			nutrition => {
-				nutrient_sets => [
+				input_sets => [
 					{
 						preparation => "as_sold",
 						per => "serving",
@@ -666,7 +666,7 @@ my @tests = (
 		"convert_per_nutrients_when_different_per_units_g",
 		{
 			nutrition => {
-				nutrient_sets => [
+				input_sets => [
 					{
 						preparation => "as_sold",
 						per => "serving",
@@ -704,7 +704,7 @@ my @tests = (
 		"convert_per_nutrients_when_different_per_units_not_g",
 		{
 			nutrition => {
-				nutrient_sets => [
+				input_sets => [
 					{
 						preparation => "as_sold",
 						per => "serving",
@@ -742,7 +742,7 @@ my @tests = (
 		"convert_per_nutrients_when_different_per_units_volume",
 		{
 			nutrition => {
-				nutrient_sets => [
+				input_sets => [
 					{
 						preparation => "as_sold",
 						per => "serving",
@@ -776,21 +776,65 @@ my @tests = (
 		}
 	],
 	[
-		# Aggregated set cannot be generated with sets that don't have a per quantity or unit
-		"ignore_sets_without_per",
+		# Generated set should not have nutrient values from sets without serving quantity
+		"keep_only_nutrients_with_serving_quantity",
 		{
 			nutrition => {
-				nutrient_sets => [
+				input_sets => [
+					{
+						preparation => "as_sold",
+						per => "100g",
+						per_quantity => "100",
+						per_unit => "g",
+						source => "packaging",
+						nutrients => {
+							sodium => {
+								value_string => "2.0",
+								value => 2,
+								unit => "g",
+								modifier => "<="
+							}
+						}
+					},
 					{
 						preparation => "as_sold",
 						per => "serving",
 						per_quantity => undef,
-						per_unit => undef,
+						per_unit => "g",
 						source => "packaging",
 						nutrients => {
-							"sodium" => {
-								value_string => "0.25",
-								value => 0.25,
+							sugars => {
+								value_string => "5.60",
+								value => 5.6,
+								unit => "g"
+							}
+						}
+					},
+
+					{
+						preparation => "as_sold",
+						per => "serving",
+						per_quantity => "",
+						per_unit => "g",
+						source => "packaging",
+						nutrients => {
+							protein => {
+								value_string => "1.2",
+								value => 1.2,
+								unit => "g"
+							}
+						}
+					},
+					{
+						preparation => "as_sold",
+						per => "serving",
+						per_quantity => "100",
+						per_unit => "g",
+						source => "packaging",
+						nutrients => {
+							iron => {
+								value_string => "0.1",
+								value => 0.1,
 								unit => "g",
 							}
 						}
@@ -807,9 +851,9 @@ foreach my $test_ref (@tests) {
 	my $product_ref = $test_ref->[1];
 
 	my $nutrient_set_preferred_ref
-		= generate_nutrient_set_preferred_from_sets($product_ref->{nutrition}{nutrient_sets});
+		= generate_nutrient_aggregated_set_from_sets($product_ref->{nutrition}{input_sets});
 	if (defined $nutrient_set_preferred_ref) {
-		$product_ref->{nutrition}{nutrient_set_preferred} = $nutrient_set_preferred_ref;
+		$product_ref->{nutrition}{aggregated_set} = $nutrient_set_preferred_ref;
 	}
 
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json",

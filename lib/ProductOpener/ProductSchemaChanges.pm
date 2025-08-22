@@ -68,7 +68,7 @@ use ProductOpener::Products qw/normalize_code/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Booleans qw/normalize_boolean/;
 use ProductOpener::Images qw/normalize_generation_ref/;
-use ProductOpener::Nutrition qw/generate_nutrient_set_preferred_from_sets/;
+use ProductOpener::Nutrition qw/generate_nutrient_aggregated_set_from_sets/;
 
 use Data::DeepAccess qw(deep_get deep_set);
 use boolean ':all';
@@ -451,7 +451,7 @@ sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref)
 	];
 	# generate the aggregated set with the created sets
 	$product_ref->{nutrition}{aggregated_set}
-		= generate_nutrient_set_preferred_from_sets($product_ref->{nutrition}{input_sets});
+		= generate_nutrient_aggregated_set_from_sets($product_ref->{nutrition}{input_sets});
 
 	# delete the old nutrition schema from the product and other now useless fields
 	delete $product_ref->{nutriments};
