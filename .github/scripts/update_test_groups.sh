@@ -26,6 +26,8 @@ echo "🐍 Python version: $(python3 --version)"
 mkdir -p .test_groups_cache
 
 # Function to check if test groups need regeneration
+# Param $1: the type of test: unit or integration
+# Exit with code 1 if tests needs to be regenerated
 check_test_groups_validity() {
     local test_type="$1"
     
