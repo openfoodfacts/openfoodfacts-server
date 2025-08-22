@@ -1,6 +1,6 @@
 {
    "nutrition": {
-      "nutrient_set_preferred": {
+      "aggregated_set": {
          "nutrients": {
             "calcium": {
                "source": "packaging",
@@ -36,7 +36,7 @@
          "per_unit": "g",
          "preparation": "prepared"
       },
-      "nutrient_sets": [
+      "input_sets": [
          {
             "last_updated_t": "--ignore--",
             "nutrients": {
@@ -65,11 +65,11 @@
             "per_quantity": 250,
             "per_unit": "g",
             "preparation": "prepared",
-            "source": "packaging",
-            "unspecified_nutrients": [
-               "added-sugars"
-            ]
+            "source": "packaging"
          }
+      ],
+      "unspecified_nutrients": [
+         "added-sugars"
       ]
    },
    "nutrition_data_prepared": "on",
