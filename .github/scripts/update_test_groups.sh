@@ -2,6 +2,8 @@
 
 # Script to update test groups in CI based on new tests or timing changes
 # This script should be run before test execution to ensure groups are up-to-date
+# It uses dynamic_test_grouper.py to generate test groups, generating
+# .test_groups_cache/${test_type}_groups.json and ".test_groups_cache/${test_type}_groups.mk
 
 set -e
 
