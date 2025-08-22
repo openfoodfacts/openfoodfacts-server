@@ -22,14 +22,16 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 my @tests = (
 
 	[
-		'1002-to-1003-new-nutrition-schema',
+		'1002-to-1003-new-nutrition-schema-per-100g',
 		1003,
 		{
 			"schema_version" => 1002,
 			"serving_quantity" => 250,
 			"serving_quantity_unit" => "g",
 			"nutrition_data_prepared" => "on",
+			"nutrition_data_prepared_per" => "100g",
 			"nutrition_data" => "on",
+			"nutrition_data_per" => "100g",
 			"nutriments" => {
 				"calcium_label" => "Calcium",
 				"calcium_prepared" => 0.118,
@@ -177,17 +179,17 @@ my @tests = (
 				"added-sugars_modifier" => "-",
 			},
 		}
-
 	],
 
 	[
-		'1002-to-1003-new-nutrition-schema-no-prepared',
+		'1002-to-1003-new-nutrition-schema-as-sold-100g',
 		1003,
 		{
 			"schema_version" => 1002,
 			"serving_quantity" => 250,
 			"serving_quantity_unit" => "g",
 			"nutrition_data" => "on",
+			"nutrition_data_per" => "100g",
 			"nutriments" => {
 				"calcium_label" => "Calcium",
 				"calcium_prepared" => 0.118,
@@ -334,8 +336,8 @@ my @tests = (
 				"added-sugars_modifier" => "-",
 			},
 		}
-
 	],
+
 	[
 		'1002-to-1003-new-nutrition-schema-no-nutrition-data',
 		1003,
@@ -345,6 +347,7 @@ my @tests = (
 			"serving_quantity_unit" => "g",
 			"no_nutrition_data" => "on",
 			"nutrition_data" => "on",
+			"nutrition_data_per" => "100g",
 			"nutriments" => {
 				"calcium_label" => "Calcium",
 				"calcium_prepared" => 0.118,
@@ -390,21 +393,22 @@ my @tests = (
 				"added-sugars_modifier" => "-",
 			},
 		}
-
 	],
 
 	[
-		'1002-to-1003-new-nutrition-schema-set-without-nutrients',
+		'1002-to-1003-new-nutrition-schema-prepared-serving',
 		1003,
 		{
 			"schema_version" => 1002,
 			"serving_quantity" => 250,
 			"serving_quantity_unit" => "g",
-			"nutrition_data" => "on",
+			"nutrition_data_prepared" => "on",
+			"nutrition_data_prepared_per" => "serving",
 			"nutriments" => {
 				"calcium_label" => "Calcium",
 				"calcium_prepared" => 0.118,
 				"calcium_prepared_100g" => 0.118,
+				"calcium_prepared_serving" => 0.295,
 				"calcium_prepared_unit" => "mg",
 				"calcium_prepared_value" => 118,
 
@@ -412,6 +416,7 @@ my @tests = (
 				"energy-kcal_100g" => 386,
 				"energy-kcal_prepared" => 72,
 				"energy-kcal_prepared_100g" => 72,
+				"energy-kcal_prepared_serving" => 180,
 				"energy-kcal_prepared_unit" => "kcal",
 				"energy-kcal_prepared_value" => 72,
 				"energy-kcal_unit" => "kcal",
@@ -422,6 +427,7 @@ my @tests = (
 				"energy-kj_100g" => 1634,
 				"energy-kj_prepared" => 304,
 				"energy-kj_prepared_100g" => 304,
+				"energy-kj_prepared_serving" => 760,
 				"energy-kj_prepared_unit" => "kJ",
 				"energy-kj_prepared_value" => 304,
 				"energy-kj_unit" => "kJ",
@@ -432,17 +438,18 @@ my @tests = (
 				"energy_100g" => 1634,
 				"energy_prepared" => 304,
 				"energy_prepared_100g" => 304,
+				"energy_prepared_serving" => 760,
 				"energy_prepared_unit" => "kJ",
 				"energy_prepared_value" => 304,
 				"energy_unit" => "kJ",
 				"energy_value" => 1634,
 
 				"fruits-vegetables-legumes-estimate-from-ingredients_100g" => 0,
+				"fruits-vegetables-legumes-estimate-from-ingredients_serving" => 0,
 
 				"added-sugars_modifier" => "-",
 			},
 		}
-
 	],
 
 	[
@@ -453,6 +460,7 @@ my @tests = (
 			"serving_quantity" => undef,
 			"serving_quantity_unit" => undef,
 			"nutrition_data" => "on",
+			"nutrition_data_per" => "serving",
 			"nutrition_data_prepared" => "",
 			"nutriments" => {
 				"alcohol" => 0,
@@ -498,8 +506,8 @@ my @tests = (
 				"sugars_value" => 100
 			},
 		}
-
 	],
+
 	[
 		'1003-to-1002-prepared-serving-nutrients',
 		1002,
@@ -578,6 +586,7 @@ my @tests = (
 			},
 		}
 	],
+
 	[
 		'1003-to-1002-as-sold-100g-nutrients',
 		1002,
@@ -656,6 +665,7 @@ my @tests = (
 			},
 		}
 	],
+
 	[
 		'1003-to-1002-no-aggregated-set',
 		1002,
@@ -720,6 +730,7 @@ my @tests = (
 			},
 		}
 	],
+
 	[
 		'1002-to-1001-change-images-object',
 		1001,

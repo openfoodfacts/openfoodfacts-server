@@ -227,42 +227,11 @@
             "unspecified_nutrients": [
                "added-sugars"
             ]
-         },
-         {
-            "last_updated_t": "--ignore--",
-            "nutrients": {
-               "fruits-vegetables-legumes-estimate-from-ingredients": {
-                  "unit": "%",
-                  "value": 0,
-                  "value_string": "0"
-               },
-               "fruits-vegetables-nuts-estimate-from-ingredients": {
-                  "unit": "%",
-                  "value": 0,
-                  "value_string": "0"
-               },
-               "nova-group": {
-                  "unit": "g",
-                  "value": 4,
-                  "value_string": "4"
-               }
-            },
-            "per": "serving",
-            "per_quantity": 250,
-            "per_unit": "g",
-            "preparation": "as_sold",
-            "source": "packaging",
-            "unspecified_nutrients": [
-               "added-sugars"
-            ]
          }
-      ],
-      "quality_checks": {
-         "energy-kcal_from_other_nutrients": 383.8,
-         "energy-kj_from_other_nutrients": 1622.8
-      }
+      ]
    },
    "nutrition_data": "on",
+   "nutrition_data_per": "100g",
    "schema_version": 1003,
    "serving_quantity": 250,
    "serving_quantity_unit": "g"

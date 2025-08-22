@@ -53,13 +53,10 @@
             "source": "packaging",
             "unspecified_nutrients": []
          }
-      ],
-      "quality_checks": {
-         "energy-kcal_from_other_nutrients": 400,
-         "energy-kj_from_other_nutrients": 1700
-      }
+      ]
    },
    "nutrition_data": "on",
+   "nutrition_data_per": "serving",
    "nutrition_data_prepared": "",
    "schema_version": 1003,
    "serving_quantity": null,

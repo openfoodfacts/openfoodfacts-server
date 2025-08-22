@@ -346,12 +346,24 @@ sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref)
 	my $nutrition_given_as_sold = defined $product_ref->{nutrition_data} && $product_ref->{nutrition_data} eq "on";
 
 	if (!$no_nutrition_data && $nutrition_given_as_sold) {
-		$new_nutrition_sets_ref->{"100g"} = {};
-		$new_nutrition_sets_ref->{serving} = {};
+		if (defined $product_ref->{nutrition_data_per} && $product_ref->{nutrition_data_per} eq "100g") {
+			$new_nutrition_sets_ref->{"100g"} = {};
+		}
+		elsif (defined $product_ref->{nutrition_data_per} && $product_ref->{nutrition_data_per} eq "serving") {
+			$new_nutrition_sets_ref->{serving} = {};
+		}
 	}
 	if (!$no_nutrition_data && $nutrition_given_as_prepared) {
-		$new_nutrition_sets_ref->{"prepared_100g"} = {};
-		$new_nutrition_sets_ref->{prepared_serving} = {};
+		if (defined $product_ref->{nutrition_data_prepared_per}
+			&& $product_ref->{nutrition_data_prepared_per} eq "100g")
+		{
+			$new_nutrition_sets_ref->{"prepared_100g"} = {};
+		}
+		elsif (defined $product_ref->{nutrition_data_prepared_per}
+			&& $product_ref->{nutrition_data_prepared_per} eq "serving")
+		{
+			$new_nutrition_sets_ref->{prepared_serving} = {};
+		}
 	}
 
 	# hash used to easily access nutrient fields of old set and set preparation values of new sets
@@ -421,20 +433,6 @@ sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref)
 				}
 			}
 		}
-
-		# add the quality checks to the new nutrition field
-		my $quality_checks_ref = {};
-
-		if (defined $product_ref->{nutriments}{"energy-kcal_value_computed"}) {
-			$quality_checks_ref->{"energy-kcal_from_other_nutrients"}
-				= $product_ref->{nutriments}{"energy-kcal_value_computed"};
-		}
-		if (defined $product_ref->{nutriments}{"energy-kj_value_computed"}) {
-			$quality_checks_ref->{"energy-kj_from_other_nutrients"}
-				= $product_ref->{nutriments}{"energy-kj_value_computed"};
-		}
-
-		$product_ref->{nutrition}{quality_checks} = $quality_checks_ref;
 	}
 
 	# add the created sets to the new nutrition field
