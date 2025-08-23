@@ -312,10 +312,6 @@ sub get_user_id_using_token ($id_token, $request_ref, $require_verified_email = 
 		$user_ref = {userid => $user_id};
 	}
 
-	# Update duplicated information from Keycloak
-	$user_ref->{name} = $id_token->{'name'} // $user_id;
-	$user_ref->{email} = $id_token->{'email'};
-
 	# Make sure initial information is set (user may have been created by Redis)
 	defined $user_ref->{registered_t} or $user_ref->{registered_t} = time();
 	defined $user_ref->{last_login_t} or $user_ref->{last_login_t} = time();
@@ -867,10 +863,10 @@ Returns the current Keycloak implementation level
 
 0 = Not available
 1 = Use legacy Authentication and Registration but keep users in sync
-2 = Users are fully synced. Use Keycloak for back-channel authentication but use legacy login and Registration forms
-3 = [DELETED. This won't work as the Keycloak login forms will direct to the Keycloak registration forms] Use Keycloak backend and front end for all authentication. Legacy Registration forms
-4 = Respond to Keycloak events for user registration / deletion tasks (welcome email, etc.)
-5 = Fully implemented, including Keycloak registration forms
+2 = Users are fully synced. Use Keycloak as the primary source of truth for user data and authentication but use legacy login and Registration forms. Respond to Keycloak events for user registration / deletion tasks (welcome email, etc.)
+3 = Use Keycloak backend and front end for all authentication. Use new Keycloak registration forms but legacy account management forms
+4 = [MOVED TO STEP 2] 
+5 = Fully implemented, including Keycloak account management forms
 
 =cut
 

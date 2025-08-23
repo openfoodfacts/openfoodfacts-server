@@ -189,7 +189,7 @@ sub create_or_update_user ($self, $user_ref, $password = undef) {
 			locale => $user_ref->{preferred_language},
 			country => country_to_cc($user_ref->{country} || 'en:world'),
 			registered => 'registered',    # The prevents welcome emails from being sent
-			reqested_org => $user_ref->{requested_org},
+			requested_org => $user_ref->{requested_org},
 			newsletter => ($user_ref->{newsletter} ? 'subscribe' : undef)
 		}
 	};

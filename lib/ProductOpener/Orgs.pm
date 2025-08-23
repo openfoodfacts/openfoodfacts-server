@@ -77,7 +77,7 @@ use ProductOpener::Lang qw/lang/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/canonicalize_tag_link/;
 use ProductOpener::CRM qw/:all/;
-use ProductOpener::Users qw/retrieve_user store_user $User_id %User/;
+use ProductOpener::Users qw/retrieve_user store_user_session $User_id %User/;
 use ProductOpener::Data qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
@@ -556,7 +556,7 @@ sub accept_pending_user_in_org ($org_ref, $user_id) {
 	$user_ref->{org_id} = $org_ref->{org_id};
 	delete $user_ref->{requested_org};
 	delete $user_ref->{requested_org_id};
-	store_user($user_ref);
+	store_user_session($user_ref);
 	return;
 }
 

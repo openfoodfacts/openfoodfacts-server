@@ -84,7 +84,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config2;
 use ProductOpener::Tags qw/country_to_cc/;
-use ProductOpener::Users qw/retrieve_user store_user/;
+use ProductOpener::Users qw/retrieve_user store_user_session/;
 use ProductOpener::Orgs qw/retrieve_org is_user_in_org_group/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
 use ProductOpener::Store qw/retrieve store/;
@@ -118,7 +118,7 @@ sub sync_org_with_crm($org_ref, $salesperson_user_id) {
 			$partner_id = $user_ref->{crm_user_id} // find_or_create_contact($user_ref);
 			defined $partner_id or die "Failed to get contact";
 			$user_ref->{crm_user_id} = $partner_id;
-			store_user($user_ref);
+			store_user_session($user_ref);
 		}
 
 		my $company_id = find_or_create_company($org_ref, $partner_id);
@@ -601,7 +601,7 @@ sub add_user_to_company($user_id, $company_id) {
 	}
 	add_contact_to_company($contact_id, $company_id);
 	$user_ref->{crm_user_id} = $contact_id;
-	store_user($user_ref);
+	store_user_session($user_ref);
 	return $contact_id;
 }
 

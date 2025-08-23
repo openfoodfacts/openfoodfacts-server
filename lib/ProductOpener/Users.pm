@@ -65,6 +65,7 @@ BEGIN {
 		&create_password_hash
 		&check_password_hash
 		&retrieve_user
+		&retrieve_user_session
 		&retrieve_userids
 		&retrieve_user_by_email
 		&store_user
@@ -105,6 +106,7 @@ use ProductOpener::Auth qw/:all/;
 use ProductOpener::Keycloak qw/:all/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::Minion qw/queue_job/;
+use ProductOpener::Tags qw/cc_to_country/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
@@ -372,7 +374,7 @@ sub delete_user_task ($job, $args_ref) {
 
 	my $userid = $args_ref->{userid};
 	my $new_userid;
-	if (get_oidc_implementation_level() < 4) {
+	if (get_oidc_implementation_level() < 2) {
 		# Use the legacy method until we have moved to processing events from Keycloak
 		# Suffix is a combination of seconds since epoch plus a 16 bit random number
 		$new_userid = "anonymous-" . lc(encode_base32(pack('LS', time(), rand(65536))));
@@ -665,13 +667,13 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 		}
 
 		if (get_oidc_implementation_level() < 5 and length(decode utf8 => single_param('password')) < 6) {
-			# Password validation will move to Keycloak once it is managing user registration
+			# Password validation will move to Keycloak once it is managing account management
 			push @{$errors_ref}, $Lang{error_invalid_password}{$lc};
 		}
 	}
 
 	if (get_oidc_implementation_level() < 5) {
-		# Password validation will move to Keycloak once it is managing user registration
+		# Password validation will move to Keycloak once it is managing account management
 		if (param('password') ne single_param('confirm_password')) {
 			push @{$errors_ref}, $Lang{error_different_passwords}{$lc};
 		}
@@ -853,8 +855,8 @@ sub process_user_form ($type, $user_ref, $request_ref) {
 		param("user_id", $userid);
 		init_user($request_ref);
 
-		if (get_oidc_implementation_level() < 4) {
-			# These fields will move to Keycloak once it is managing user registration
+		if (get_oidc_implementation_level() < 5) {
+			# These fields will move to Keycloak once it is managing account management
 
 			# Fetch the HTML mail template corresponding to the user language, english is the
 			# default if the translation is not available
@@ -1146,13 +1148,38 @@ sub open_user_session ($user_ref, $refresh_token, $refresh_expires_at, $access_t
 	return $user_session;
 }
 
-sub retrieve_user ($user_id) {
+# This just fetches the local data about the user, e.g. sessions. It should not be used if you need access to data
+# that comes from Keycloak, like email, name, locale and country
+sub retrieve_user_session ($user_id) {
 	my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
 	my $user_ref;
 	if (-e $user_file) {
 		$user_ref = retrieve($user_file);
 		if (not defined $user_ref) {
 			$log->info("could not load user", {user_id => $user_id}) if $log->is_info();
+		}
+	}
+	return $user_ref;
+}
+
+# This fetches the data from Keycloak and merges it into the local data
+# This might take some time so should only be used if you really need all the user information
+sub retrieve_user ($user_id) {
+	my $user_ref = retrieve_user_session($user_id);
+	if (get_oidc_implementation_level() > 1) {
+		# Fetch the user from Keycloak once it has become the source of truth
+		my $keycloak = ProductOpener::Keycloak->new();
+		my $keycloak_user_ref = $keycloak->find_user_by_username($user_id);
+
+		if ($keycloak_user_ref) {
+			$user_ref //= {};
+			$user_ref->{email} = $keycloak_user_ref->{email};
+			$user_ref->{userid} = $keycloak_user_ref->{username};
+			$user_ref->{name} = $keycloak_user_ref->{attributes}->{name}[0];
+			$user_ref->{preferred_language} = $keycloak_user_ref->{attributes}->{locale}[0];
+			$user_ref->{country} = cc_to_country($keycloak_user_ref->{attributes}->{country}[0]);
+			$user_ref->{requested_org} = $keycloak_user_ref->{attributes}->{requested_org}[0];
+			$user_ref->{newsletter} = ($keycloak_user_ref->{attributes}->{newsletter}[0] == 'subscribe');
 		}
 	}
 	return $user_ref;
@@ -1179,22 +1206,33 @@ sub retrieve_user_by_email($email) {
 
 # store user information that is not reflected in Keycloak
 sub store_user_session ($user_ref) {
+	my $user_preferences = {%$user_ref};
+	if (get_oidc_implementation_level() > 1) {
+		# Make a shallow clone and delete the PII from the user data once Keycloak has become the master source
+		delete $user_preferences->{email};
+		delete $user_preferences->{name};
+		delete $user_preferences->{country};
+		delete $user_preferences->{preferred_language};
+	}
 	my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $user_ref->{userid}) . ".sto";
-	store($user_file, $user_ref);
+	$log->info("storing user session", {user_preferences => $user_preferences}) if $log->is_info();
+
+	store($user_file, $user_preferences);
 
 	return;
 }
 
+# Store user information that should ultimately be stored in Keycloak
+# There should be nothing calling this once we have fully migrated.
 sub store_user ($user_ref) {
 	my $oidc_implementation_level = get_oidc_implementation_level();
-	if ($oidc_implementation_level < 5) {
-		# We are still using legacy code for registration
-
-		if ($oidc_implementation_level > 0) {
-			# Sync the user with Keycloak
-			my $keycloak = ProductOpener::Keycloak->new();
-			$keycloak->create_or_update_user($user_ref);
-		}
+	if ($oidc_implementation_level > 0) {
+		# Sync the user with Keycloak
+		my $keycloak = ProductOpener::Keycloak->new();
+		$keycloak->create_or_update_user($user_ref);
+	}
+	if ($oidc_implementation_level < 2) {
+		# We are still using legacy data structures as the source of truth
 
 		my $userid = $user_ref->{userid};
 
@@ -1211,8 +1249,7 @@ sub store_user ($user_ref) {
 		}
 		store("$BASE_DIRS{USERS}/users_emails.sto", $emails_ref);
 	}
-
-	# save user
+	# save other user preferences
 	store_user_session($user_ref);
 
 	return;
@@ -1272,7 +1309,7 @@ sub _get_or_create_account_by_mail ($email, $require_verified_email = 0) {
 		};
 
 		$user_ref->{email} = $user->{email};
-		store_user($user_ref);
+		store_user_session($user_ref);
 	}
 
 	return $user_ref->{userid};
@@ -1302,7 +1339,7 @@ sub remove_user ($user_ref) {
 
 	my $oidc_implementation_level = get_oidc_implementation_level();
 	if ($oidc_implementation_level > 0 and $oidc_implementation_level < 5) {
-		# Keep Keycloak in sync until it is managing user registration
+		# Keep Keycloak in sync until it is managing account management
 		my $keycloak = ProductOpener::Keycloak->new();
 		$keycloak->delete_user($userid);
 	}
@@ -1361,7 +1398,7 @@ sub remove_user_by_org_admin ($orgid, $user_id) {
 	my $user_ref = retrieve_user($user_id);
 	delete $user_ref->{org};
 	delete $user_ref->{org_id};
-	store_user($user_ref);
+	store_user_session($user_ref);
 	return;
 }
 
@@ -1462,8 +1499,8 @@ sub init_user ($request_ref) {
 		$user_id = remove_tags_and_quote(request_param($request_ref, 'user_id'));
 
 		if ($user_id =~ /\@/) {
-			if (get_oidc_implementation_level() < 5) {
-				# Validate user information until registration has moved to Keycloak
+			if (get_oidc_implementation_level() < 2) {
+				# Validate user information from legacy files until Keycloak is fully synced
 				$log->info("got email while initializing user", {email => $user_id}) if $log->is_info();
 				$user_ref = retrieve_user_by_email($user_id);
 
@@ -1496,16 +1533,16 @@ sub init_user ($request_ref) {
 
 		# If the user exists
 		if (defined $user_id) {
-			if (not defined $user_ref) {
-				$user_ref = retrieve_user($user_id);
-			}
+			if (get_oidc_implementation_level() < 2) {
+				# Use legacy password checking until back-channel authentication has moved to Keycloak
+				if (not defined $user_ref) {
+					$user_ref = retrieve_user($user_id);
+				}
 
-			if (defined $user_ref) {
-				$user_id = $user_ref->{'userid'};
-				$log->context->{user_id} = $user_id;
+				if (defined $user_ref) {
+					$user_id = $user_ref->{'userid'};
+					$log->context->{user_id} = $user_id;
 
-				if (get_oidc_implementation_level() < 2) {
-					# Use legacy password checking until back-channel authentication has moved to Keycloak
 					my $hash_is_correct = check_password_hash(encode_utf8(request_param($request_ref, 'password')),
 						$user_ref->{'encrypted_password'});
 					# We don't have the right password
@@ -1532,38 +1569,36 @@ sub init_user ($request_ref) {
 					}
 				}
 				else {
-					my (
-						$oidc_user_id, $refresh_token, $refresh_expires_at,
-						$access_token, $access_expires_at, $id_token
-						)
-						= password_signin($user_id, encode_utf8(request_param($request_ref, 'password')), $request_ref);
-					# We don't have the right password
-					if (not $oidc_user_id) {
-						$user_id = undef;
-						$log->info('bad password - input does not match stored hash') if $log->is_info();
-						# Trigger an error
-						return ($Lang{error_bad_login_password}{$lc});
-					}
-					# We have the right login/password
-					elsif (
-						not defined request_param($request_ref, 'no_log')
-						)    # no need to store sessions for internal requests
-					{
-						$user_id = $oidc_user_id;
-
-						$log->info("correct password for user provided") if $log->is_info();
-
-						open_user_session($user_ref, $refresh_token, $refresh_expires_at,
-							$access_token, $access_expires_at, $id_token, $request_ref);
-						update_external_login_time($user_ref);
-					}
+					$user_id = undef;
+					$log->info("bad user") if $log->is_info();
+					# Trigger an error
+					return ($Lang{error_bad_login_password}{$lc});
 				}
 			}
 			else {
-				$user_id = undef;
-				$log->info("bad user") if $log->is_info();
-				# Trigger an error
-				return ($Lang{error_bad_login_password}{$lc});
+				my ($oidc_user_id, $refresh_token, $refresh_expires_at, $access_token, $access_expires_at, $id_token)
+					= password_signin($user_id, encode_utf8(request_param($request_ref, 'password')), $request_ref);
+				# We don't have the right password
+				if (not $oidc_user_id) {
+					$user_id = undef;
+					$log->info('bad password - input does not match stored hash') if $log->is_info();
+					# Trigger an error
+					return ($Lang{error_bad_login_password}{$lc});
+				}
+				# We have the right login/password
+				elsif (
+					not defined request_param($request_ref, 'no_log')) # no need to store sessions for internal requests
+				{
+					$user_id = $oidc_user_id;
+
+					# password_signin will update the user.sto file, so wait until here before loading it
+					$user_ref = retrieve_user($user_id);
+
+					$log->info("creating OIDC session") if $log->is_info();
+					open_user_session($user_ref, $refresh_token, $refresh_expires_at,
+						$access_token, $access_expires_at, $id_token, $request_ref);
+					update_external_login_time($user_ref);
+				}
 			}
 		}
 	}

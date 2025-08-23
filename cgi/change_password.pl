@@ -42,7 +42,7 @@ use Log::Any qw($log);
 my $request_ref = ProductOpener::Display::init_request();
 
 if (get_oidc_implementation_level() < 5) {
-	# Keep legacy method until we have moved registration and account management to Keycloak
+	# Keep legacy method until we have account management to Keycloak
 	my $template_data_ref = {method => $ENV{'REQUEST_METHOD'}};
 
 	$log->info('start') if $log->is_info();

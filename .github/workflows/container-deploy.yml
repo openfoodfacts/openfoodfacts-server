@@ -41,7 +41,7 @@ jobs:
         echo "FACETS_KP_URL=https://facets-kp.openfoodfacts.net/render-to-html" >> $GITHUB_ENV
         echo "NUTRIPATROL_URL=nutripatrol.openfoodfacts.net" >> $GITHUB_ENV
 
-        echo "OIDC_IMPLEMENTATION_LEVEL=1" >> $GITHUB_ENV
+        echo "OIDC_IMPLEMENTATION_LEVEL=2" >> $GITHUB_ENV
         echo "OIDC_DISCOVERY_URL=https://auth.openfoodfacts.net/realms/openfoodfacts/.well-known/openid-configuration" >> $GITHUB_ENV
 
         # deploy target

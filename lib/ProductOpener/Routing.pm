@@ -273,7 +273,7 @@ sub org_route($request_ref) {
 		if (scalar @errors eq 0) {
 			set_owner_id($request_ref);
 			# will save the pro_moderator_owner field
-			store_user($moderator);
+			store_user_session($moderator);
 		}
 		else {
 			$request_ref->{status_code} = 404;
