@@ -38,7 +38,7 @@ use vars @EXPORT_OK;
 use ProductOpener::Store qw/get_string_id_for_lang retrieve store/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
-use ProductOpener::Users qw/retrieve_user retrieve_userids store_user_session/;
+use ProductOpener::Users qw/retrieve_user retrieve_userids store_user_preferences/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::MissionsConfig qw/%Missions %Missions_by_lang/;
@@ -159,7 +159,7 @@ sub compute_missions() {
 		compute_missions_for_user($user_ref);
 
 		# This assumes email is not affectd and will not update Keycloak
-		store_user_session($user_ref);
+		store_user_preferences($user_ref);
 
 		foreach my $missionid (keys %{$user_ref->{missions}}) {
 			(defined $missions_ref->{$missionid}) or $missions_ref->{$missionid} = {};

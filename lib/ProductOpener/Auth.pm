@@ -64,7 +64,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Display qw/$subdomain $formatted_subdomain display_error_and_exit/;
 use ProductOpener::HTTP qw/single_param redirect_to_url/;
 use ProductOpener::URL qw/get_cookie_domain format_subdomain/;
-use ProductOpener::Users qw/$User_id retrieve_user store_user_session generate_token init_user open_user_session/;
+use ProductOpener::Users qw/$User_id retrieve_user store_user_preferences generate_token init_user open_user_session/;
 use ProductOpener::Lang qw/$lc lang/;
 
 use OIDC::Lite;
@@ -321,7 +321,7 @@ sub get_user_id_using_token ($id_token, $request_ref, $require_verified_email = 
 	defined $user_ref->{initial_user_agent} or $user_ref->{initial_user_agent} = user_agent();
 
 	# Don't use store_user here as will sync the user back to keycloak
-	store_user_session($user_ref);
+	store_user_preferences($user_ref);
 
 	return $user_ref->{userid};
 }

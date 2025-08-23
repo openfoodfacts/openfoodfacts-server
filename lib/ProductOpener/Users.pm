@@ -65,11 +65,11 @@ BEGIN {
 		&create_password_hash
 		&check_password_hash
 		&retrieve_user
-		&retrieve_user_session
+		&retrieve_user_preferences
 		&retrieve_userids
 		&retrieve_user_by_email
 		&store_user
-		&store_user_session
+		&store_user_preferences
 		&remove_user_by_org_admin
 		&add_users_to_org_by_admin
 		&is_suspicious_name
@@ -1139,7 +1139,7 @@ sub open_user_session ($user_ref, $refresh_token, $refresh_expires_at, $access_t
 	$user_ref->{last_login_t} = time();
 
 	# Store user data
-	store_user_session($user_ref);
+	store_user_preferences($user_ref);
 
 	$log->debug("session initialized and user info stored") if $log->is_debug();
 
@@ -1150,7 +1150,7 @@ sub open_user_session ($user_ref, $refresh_token, $refresh_expires_at, $access_t
 
 # This just fetches the local data about the user, e.g. sessions. It should not be used if you need access to data
 # that comes from Keycloak, like email, name, locale and country
-sub retrieve_user_session ($user_id) {
+sub retrieve_user_preferences ($user_id) {
 	my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
 	my $user_ref;
 	if (-e $user_file) {
@@ -1165,7 +1165,7 @@ sub retrieve_user_session ($user_id) {
 # This fetches the data from Keycloak and merges it into the local data
 # This might take some time so should only be used if you really need all the user information
 sub retrieve_user ($user_id) {
-	my $user_ref = retrieve_user_session($user_id);
+	my $user_ref = retrieve_user_preferences($user_id);
 	if (get_oidc_implementation_level() > 1) {
 		# Fetch the user from Keycloak once it has become the source of truth
 		my $keycloak = ProductOpener::Keycloak->new();
@@ -1205,7 +1205,7 @@ sub retrieve_user_by_email($email) {
 }
 
 # store user information that is not reflected in Keycloak
-sub store_user_session ($user_ref) {
+sub store_user_preferences ($user_ref) {
 	my $user_preferences = {%$user_ref};
 	if (get_oidc_implementation_level() > 1) {
 		# Make a shallow clone and delete the PII from the user data once Keycloak has become the master source
@@ -1250,7 +1250,7 @@ sub store_user ($user_ref) {
 		store("$BASE_DIRS{USERS}/users_emails.sto", $emails_ref);
 	}
 	# save other user preferences
-	store_user_session($user_ref);
+	store_user_preferences($user_ref);
 
 	return;
 }
@@ -1309,7 +1309,7 @@ sub _get_or_create_account_by_mail ($email, $require_verified_email = 0) {
 		};
 
 		$user_ref->{email} = $user->{email};
-		store_user_session($user_ref);
+		store_user_preferences($user_ref);
 	}
 
 	return $user_ref->{userid};
@@ -1398,7 +1398,7 @@ sub remove_user_by_org_admin ($orgid, $user_id) {
 	my $user_ref = retrieve_user($user_id);
 	delete $user_ref->{org};
 	delete $user_ref->{org_id};
-	store_user_session($user_ref);
+	store_user_preferences($user_ref);
 	return;
 }
 

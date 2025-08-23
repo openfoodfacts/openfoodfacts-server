@@ -56,7 +56,7 @@ use vars @EXPORT_OK;
 use Log::Any qw/$log/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Minion qw/queue_job/;
-use ProductOpener::Users qw/retrieve_user store_user_session/;
+use ProductOpener::Users qw/retrieve_user store_user_preferences/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Auth qw/get_oidc_implementation_level/;
@@ -255,7 +255,7 @@ sub _process_registered_users_stream($stream_values_ref) {
 				$user_ref->{pro} = 1;
 			}
 		}
-		store_user_session($user_ref);
+		store_user_preferences($user_ref);
 
 		my $args_ref = {userid => $user_id};
 

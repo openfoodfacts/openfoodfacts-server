@@ -145,7 +145,7 @@ else {
 				$user_ref->{token} = generate_token(64);
 				$user_ref->{token_ip} = remote_addr();
 
-				store_user_session($user_ref);
+				store_user_preferences($user_ref);
 				my $userid = $user_ref->{userid};
 
 				my $url
