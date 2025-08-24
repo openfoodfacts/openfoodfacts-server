@@ -1078,18 +1078,12 @@ sub process_auth_header ($request_ref, $r) {
 	}
 
 	$request_ref->{access_token} = $token;
-	my $user_id = get_user_id_using_token($access_token, $request_ref);
-	unless (defined $user_id) {
+	my $user_ref = retrieve_user_using_token($access_token, $request_ref);
+	unless (defined $user_ref) {
 		$log->info('User not found and not created') if $log->is_info();
 		display_error_and_exit($request_ref, 'Internal error', 500);
 	}
-
-	my $user_ref = retrieve_user($user_id);
-	unless (defined $user_ref) {
-		$log->info('User not found', {user_id => $user_id}) if $log->is_info();
-		display_error_and_exit($request_ref, 'Internal error', 500);
-	}
-
+	my $user_id = $user_ref->{userid};
 	$log->debug('user_id found', {user_id => $user_id}) if $log->is_debug();
 
 	$request_ref->{oidc_user_id} = $user_id;

@@ -46,7 +46,7 @@ BEGIN {
 		&password_signin
 		&verify_access_token
 		&verify_id_token
-		&get_user_id_using_token
+		&retrieve_user_using_token
 		&get_token_using_client_credentials
 		&get_token_using_password_credentials
 		&get_azp
@@ -197,17 +197,12 @@ sub signin_callback ($request_ref) {
 		display_error_and_exit($request_ref, 'Authentication error', 401);
 	}
 
-	my $user_id = get_user_id_using_token($id_token, $request_ref);
-	unless (defined $user_id) {
+	my $user_ref = retrieve_user_using_token($id_token, $request_ref);
+	unless (defined $user_ref) {
 		$log->info('User not found and not created') if $log->is_info();
 		display_error_and_exit($request_ref, 'Internal error', 500);
 	}
-
-	my $user_ref = retrieve_user($user_id);
-	unless ($user_ref) {
-		$log->info('User not found', {user_id => $user_id}) if $log->is_info();
-		display_error_and_exit($request_ref, 'Internal error', 500);
-	}
+	my $user_id = $user_ref->{userid};
 
 	$log->debug('user found', {user_ref => $user_ref}) if $log->is_debug();
 	my $user_session = open_user_session(
@@ -240,7 +235,7 @@ We support this to enable passing user and password in the request json. This is
 
 =head3 Return Values
 
-A list containing the user's ID, refresh token, refresh token expiration time, access token, access token expiration time, and the ID token
+A list containing the user ref, refresh token, refresh token expiration time, access token, access token expiration time, and the ID token
 
 =cut
 
@@ -261,10 +256,12 @@ sub password_signin ($username, $password, $request_ref) {
 		return;
 	}
 
-	my $user_id = get_user_id_using_token($id_token, $request_ref);
+	my $user_ref = retrieve_user_using_token($id_token, $request_ref);
+	my $user_id = $user_ref->{userid};
+
 	$log->debug('user_id found', {user_id => $user_id}) if $log->is_debug();
 	return (
-		$user_id,
+		$user_ref,
 		$access_token->{refresh_token},
 		# use absolute time instead of relative time
 		$time + $access_token->{refresh_expires_in},
@@ -275,7 +272,7 @@ sub password_signin ($username, $password, $request_ref) {
 	);
 }
 
-=head2 get_user_id_using_token ($id_token, , $request_ref, $require_verified_email)
+=head2 retrieve_user_using_token ($id_token, , $request_ref, $require_verified_email)
 
 Extract the user id from the OIDC identification token (which contains an email).
 
@@ -295,11 +292,11 @@ If true, the email must be verified before proceeding.
 
 =head3 Return Value
 
-The userid as a string
+The user hash
 
 =cut
 
-sub get_user_id_using_token ($id_token, $request_ref, $require_verified_email = 0) {
+sub retrieve_user_using_token ($id_token, $request_ref, $require_verified_email = 0) {
 	if ($require_verified_email and (not($id_token->{'email_verified'} eq $JSON::PP::true))) {
 		$log->info('User email is not verified.', {email => $id_token->{'email'}}) if $log->is_info();
 		return;
@@ -323,7 +320,7 @@ sub get_user_id_using_token ($id_token, $request_ref, $require_verified_email = 
 	# Don't use store_user here as will sync the user back to keycloak
 	store_user_preferences($user_ref);
 
-	return $user_ref->{userid};
+	return $user_ref;
 }
 
 =head2 refresh_access_token ($id_token)

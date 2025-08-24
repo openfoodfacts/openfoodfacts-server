@@ -344,6 +344,7 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{images_subdomain} = $images_subdomain;
 	$template_data_ref->{formatted_subdomain} = $formatted_subdomain;
 	(not defined $template_data_ref->{user_id}) and $template_data_ref->{user_id} = $User_id;
+	# TODO: Rather than use %User we should add specific fields so that templates don't assume they can access every single user field
 	(not defined $template_data_ref->{user}) and $template_data_ref->{user} = \%User;
 	(not defined $template_data_ref->{org_id}) and $template_data_ref->{org_id} = $Org_id;
 	$template_data_ref->{owner_pretty_path} = get_owner_pretty_path($Owner_id);

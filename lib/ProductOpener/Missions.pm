@@ -38,7 +38,7 @@ use vars @EXPORT_OK;
 use ProductOpener::Store qw/get_string_id_for_lang retrieve store/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
-use ProductOpener::Users qw/retrieve_user retrieve_userids store_user_preferences/;
+use ProductOpener::Users qw/retrieve_user_preference_ids retrieve_user_preferences store_user_preferences/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::MissionsConfig qw/%Missions %Missions_by_lang/;
@@ -149,12 +149,12 @@ sub gen_missions_html() {
 
 sub compute_missions() {
 
-	my @userids = retrieve_userids();
+	my @userids = retrieve_user_preference_ids();
 
 	my $missions_ref = {};
 
 	foreach my $userid (@userids) {
-		my $user_ref = retrieve_user($userid);
+		my $user_ref = retrieve_user_preferences($userid);
 
 		compute_missions_for_user($user_ref);
 

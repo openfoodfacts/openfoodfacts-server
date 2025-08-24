@@ -66,14 +66,14 @@ BEGIN {
 		&check_password_hash
 		&retrieve_user
 		&retrieve_user_preferences
-		&retrieve_userids
-		&retrieve_user_by_email
+		&retrieve_user_preference_ids
+		&retrieve_user_preferences_by_email
 		&store_user
 		&store_user_preferences
 		&remove_user_by_org_admin
 		&add_users_to_org_by_admin
 		&is_suspicious_name
-		&is_email_has_off_account
+		&retrieve_user_by_email
 
 		&check_session
 		&open_user_session
@@ -534,15 +534,9 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 
 		# check that the email is not already used
 		my $user_id_from_mail;
-		if (get_oidc_implementation_level() < 2) {
-			# Use legacy method until Keycloak is fully synced
-			my $existing_user = retrieve_user_by_email($email);
-			if (defined $existing_user) {
-				$user_id_from_mail = $existing_user->{userid};
-			}
-		}
-		else {
-			$user_id_from_mail = is_email_has_off_account($email);
+		my $existing_user = retrieve_user_by_email($email);
+		if (defined $existing_user) {
+			$user_id_from_mail = $existing_user->{userid};
 		}
 		if ((defined $user_id_from_mail) and ($user_id_from_mail ne $user_ref->{userid})) {
 			# email is already associated with an OFF account
@@ -656,7 +650,7 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 		if (length($user_ref->{userid}) < 2) {
 			push @{$errors_ref}, $Lang{error_no_username}{$lc};
 		}
-		elsif (user_exists($user_ref->{userid})) {
+		elsif (user_preferences_exists($user_ref->{userid})) {
 			push @{$errors_ref}, $Lang{error_username_not_available}{$lc};
 		}
 		elsif ($user_ref->{userid} !~ /^[a-z0-9]+[a-z0-9\-]*[a-z0-9]+$/) {
@@ -942,7 +936,7 @@ sub check_edit_owner ($user_ref, $errors_ref, $ownerid = undef) {
 		my $userid = $';
 		# Add check that organization exists when we add org profiles
 
-		if (!user_exists($userid)) {
+		if (!user_preferences_exists($userid)) {
 			push @{$errors_ref}, sprintf($Lang{error_user_does_not_exist}{$lc}, $userid);
 		}
 		else {
@@ -1178,20 +1172,22 @@ sub retrieve_user ($user_id) {
 			$user_ref->{name} = $keycloak_user_ref->{attributes}->{name}[0];
 			$user_ref->{preferred_language} = $keycloak_user_ref->{attributes}->{locale}[0];
 			$user_ref->{country} = cc_to_country($keycloak_user_ref->{attributes}->{country}[0]);
-			$user_ref->{requested_org} = $keycloak_user_ref->{attributes}->{requested_org}[0];
-			$user_ref->{newsletter} = ($keycloak_user_ref->{attributes}->{newsletter}[0] == 'subscribe');
+
+			# The following two are only initially set in Keycloak but aren't edited there
+			$user_ref->{requested_org} //= $keycloak_user_ref->{attributes}->{requested_org}[0];
+			$user_ref->{newsletter} //= ($keycloak_user_ref->{attributes}->{newsletter}[0] == 'subscribe');
 		}
 	}
 	return $user_ref;
 }
 
-sub user_exists ($user_id) {
+sub user_preferences_exists ($user_id) {
 	my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
 	return (-e $user_file);
 }
 
 #11866: Can remove after migration to Keycloak
-sub retrieve_user_by_email($email) {
+sub retrieve_user_preferences_by_email($email) {
 	my $user_ref;
 	my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");
 	if (not defined $emails_ref->{$email}) {
@@ -1199,7 +1195,7 @@ sub retrieve_user_by_email($email) {
 		$email = lc $email;
 	}
 	if (defined $emails_ref->{$email}) {
-		$user_ref = retrieve_user($emails_ref->{$email}[0]);
+		$user_ref = retrieve_user_preferences($emails_ref->{$email}[0]);
 	}
 	return $user_ref;
 }
@@ -1347,7 +1343,7 @@ sub remove_user ($user_ref) {
 	return;
 }
 
-sub retrieve_userids() {
+sub retrieve_user_preference_ids() {
 	my @userids = ();
 	opendir DH, $BASE_DIRS{USERS} or die "Couldn't open the users directory: $!";
 	my @files = sort(readdir(DH));
@@ -1365,28 +1361,26 @@ sub retrieve_userids() {
 	return @userids;
 }
 
-sub is_email_has_off_account ($email) {
+sub retrieve_user_by_email ($email) {
 	if (get_oidc_implementation_level() < 2) {
 		# Use legacy search until Keycloak is fully synced
-		my $user_ref = retrieve_user_by_email($email);
-		return $user_ref->{userid} if defined $user_ref;
-
-		return;    # Email is not associated with an OFF account
+		my $user_ref = retrieve_user_preferences_by_email($email);
+		return $user_ref;
 	}
 	else {
-		my $user = _find_user_by_email_in_keycloak($email);
-		unless (defined $user) {
+		my $keycloak_user = _find_user_by_email_in_keycloak($email);
+		unless (defined $keycloak_user) {
 			return;    # Email is not known in Keycloak
 		}
 
-		my $user_id = $user->{preferred_username};
+		my $user_id = $keycloak_user->{preferred_username};
 		my $user_ref = retrieve_user($user_id);
 		unless ($user_ref) {
 			$log->info('User not found', {user_id => $user_id}) if $log->is_info();
 			return;    # Email is not associated with an OFF account
 		}
 
-		return $user_ref->{userid};
+		return $user_ref;
 	}
 }
 
@@ -1395,7 +1389,7 @@ sub remove_user_by_org_admin ($orgid, $user_id) {
 	remove_user_from_org($orgid, $user_id, $groups_ref);
 
 	# Reset the 'org' field of the user
-	my $user_ref = retrieve_user($user_id);
+	my $user_ref = retrieve_user_preferences($user_id);
 	delete $user_ref->{org};
 	delete $user_ref->{org_id};
 	store_user_preferences($user_ref);
@@ -1413,10 +1407,10 @@ sub add_users_to_org_by_admin ($org_id, $email_list) {
 	foreach my $email (@emails) {
 
 		# Check if the email is associated with an OpenFoodFacts account
-		my $user_id = is_email_has_off_account($email);
-		if (defined $user_id) {
+		my $user_ref = retrieve_user_by_email($email);
+		if (defined $user_ref) {
 			# Add the user to the organization
-			add_user_to_org($org_id, $user_id, ["members"]);
+			add_user_to_org($org_id, $user_ref->{userid}, ["members"]);
 			push @emails_added, $email;
 		}
 		else {
@@ -1502,7 +1496,7 @@ sub init_user ($request_ref) {
 			if (get_oidc_implementation_level() < 2) {
 				# Validate user information from legacy files until Keycloak is fully synced
 				$log->info("got email while initializing user", {email => $user_id}) if $log->is_info();
-				$user_ref = retrieve_user_by_email($user_id);
+				$user_ref = retrieve_user_preferences_by_email($user_id);
 
 				if (not defined $user_ref) {
 					$user_id = undef;
@@ -1576,10 +1570,10 @@ sub init_user ($request_ref) {
 				}
 			}
 			else {
-				my ($oidc_user_id, $refresh_token, $refresh_expires_at, $access_token, $access_expires_at, $id_token)
+				my ($user_ref, $refresh_token, $refresh_expires_at, $access_token, $access_expires_at, $id_token)
 					= password_signin($user_id, encode_utf8(request_param($request_ref, 'password')), $request_ref);
 				# We don't have the right password
-				if (not $oidc_user_id) {
+				if (not $user_ref) {
 					$user_id = undef;
 					$log->info('bad password - input does not match stored hash') if $log->is_info();
 					# Trigger an error
@@ -1589,10 +1583,7 @@ sub init_user ($request_ref) {
 				elsif (
 					not defined request_param($request_ref, 'no_log')) # no need to store sessions for internal requests
 				{
-					$user_id = $oidc_user_id;
-
-					# password_signin will update the user.sto file, so wait until here before loading it
-					$user_ref = retrieve_user($user_id);
+					$user_id = $user_ref->{userid}
 
 					$log->info("creating OIDC session") if $log->is_info();
 					open_user_session($user_ref, $refresh_token, $refresh_expires_at,
@@ -1623,6 +1614,7 @@ sub init_user ($request_ref) {
 		}
 
 		if (defined $user_id) {
+			# TODO: This will call out to Keycloak on every page refresh which may not be a good thing
 			$user_ref = retrieve_user($user_id);
 
 			if (defined $user_ref) {
@@ -1671,6 +1663,7 @@ sub init_user ($request_ref) {
 
 					if (get_oidc_implementation_level() >= 2) {
 						# Add Keycloak information to the session if we are using Keycloak for back-channel authentication
+						# TODO: We should probably remove the access_token, et.c from the user.sto file as it contains PII
 						my $session_ref = $user_ref->{'user_sessions'}{$user_session};
 						$request_ref->{access_token} = $session_ref->{access_token} if $session_ref->{access_token};
 						$request_ref->{access_expires_at} = $session_ref->{access_expires_at}
