@@ -2036,22 +2036,16 @@ sub check_labels ($product_ref) {
 		}
 	}
 
-	# In EU, compare label claim and nutrition
-	# https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
-	my @eu_countries = (
-		"en:austria", "en:belgium", "en:bulgaria", "en:croatia", "en:cyprus", "en:czech republic",
-		"en:denmark", "en:france", "en:estonia", "en:finland", "en:germany", "en:greece",
-		"en:hungary", "en:ireland", "en:italy", "en:latvia", "en:lithuania", "en:luxembourg",
-		"en:malta", "en:netherlands", "en:poland", "en:portugal", "en:romania", "en:slovakia",
-		"en:slovenia", "en:spain", "en:sweden"
-	);
-	my $european_product = 0;
-	foreach my $eu_country (@eu_countries) {
-		if (has_tag(($product_ref, "countries", $eu_country))) {
-			$european_product = 1;
-			last;
-		}
-	}
+       # In EU, compare label claim and nutrition
+       # Now using the 'regional_entity:en: european-union' property in the countries taxonomy
+       my $european_product = 0;
+       my $eu_countries = get_all_tags_having_property($product_ref, 'countries', 'regional_entity:en');
+       foreach my $country (keys %{$eu_countries}) {
+	       if ($eu_countries->{$country} eq 'european-union') {
+		       $european_product = 1;
+		       last;
+	       }
+       }
 
 	if (    (defined $product_ref->{nutriments})
 		and (defined $product_ref->{labels_tags})
