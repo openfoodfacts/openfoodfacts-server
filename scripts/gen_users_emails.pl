@@ -30,7 +30,6 @@ use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Users qw/retrieve_user retrieve_user_preference_ids/;
 
-
 #11866: This script will become redundant once Keycloak becomes the source of truth
 my @userids;
 

@@ -1583,8 +1583,7 @@ sub init_user ($request_ref) {
 				elsif (
 					not defined request_param($request_ref, 'no_log')) # no need to store sessions for internal requests
 				{
-					$user_id = $user_ref->{userid}
-
+					$user_id = $user_ref->{userid};
 					$log->info("creating OIDC session") if $log->is_info();
 					open_user_session($user_ref, $refresh_token, $refresh_expires_at,
 						$access_token, $access_expires_at, $id_token, $request_ref);
