@@ -68,13 +68,13 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Users qw/retrieve_user retrieve_userids/;
+use ProductOpener::Users qw/retrieve_user retrieve_user_preference_ids/;
 
 my @userids;
 my $arg = $ARGV[0] || "";
 
 if (scalar $#userids < 0) {
-	@userids = retrieve_userids();
+	@userids = retrieve_preference_userids();
 }
 
 foreach my $userid (@userids) {
