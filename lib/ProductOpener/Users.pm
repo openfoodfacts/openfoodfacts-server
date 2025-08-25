@@ -215,13 +215,21 @@ Takes in the $user_ref of the user to be deleted
 
 #11866: Can delete this when we fully implement Keycloak
 sub delete_user ($user_ref) {
-	my $args_ref = {
-		userid => get_string_id_for_lang("no_language", $user_ref->{userid}),
-		email => $user_ref->{email},
-	};
+	if (get_oidc_implementation_level() < 2) {
+		# If Keycloak is not the source of truth then delete from PO first
+		my $args_ref = {
+			userid => get_string_id_for_lang("no_language", $user_ref->{userid}),
+			email => $user_ref->{email},
+		};
 
-	queue_job(delete_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
-
+		queue_job(delete_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
+	}
+	else {
+		# Delete from Keycloak. This will trigger a Redis event that will then queue the delete_user_task in Minion
+		print STDERR "[" . localtime() . "] deleting user from keycloak\n";
+		my $keycloak = ProductOpener::Keycloak->new();
+		$keycloak->delete_user($user_ref->{userid});
+	}
 	return;
 }
 
@@ -365,7 +373,7 @@ sub delete_user_task ($job, $args_ref) {
 
 	my $job_id = $job->{id};
 
-	my $log_message = "delete_user_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
+	my $log_message = "[" . localtime() . "] delete_user_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
 	open(my $minion_log, ">>", "$BASE_DIRS{LOGS}/minion.log");
 	print $minion_log $log_message;
 	close($minion_log);
@@ -389,7 +397,7 @@ sub delete_user_task ($job, $args_ref) {
 	# Remove the user
 	# Note that all flavours will do this, so only one will actually delete the user file
 	# The others should just silently continue
-	remove_user($args_ref);
+	remove_user_preferences($args_ref);
 
 	#  re-assign product edits to anonymous-[random number]
 	find_and_replace_user_id_in_products($userid, $new_userid);
@@ -836,7 +844,10 @@ sub process_user_form ($type, $user_ref, $request_ref) {
 	$log->debug("process_user_form", {type => $type, user_ref => $user_ref}) if $log->is_debug();
 
 	# Professional account with a requested org (existing or new)
-	process_user_requested_org($user_ref, $request_ref);
+	if (get_oidc_implementation_level() < 2) {
+		# Keycloak will trigger this via Redis once it is the source of truth
+		process_user_requested_org($user_ref, $request_ref);
+	}
 
 	# save user
 	store_user($user_ref);
@@ -849,8 +860,8 @@ sub process_user_form ($type, $user_ref, $request_ref) {
 		param("user_id", $userid);
 		init_user($request_ref);
 
-		if (get_oidc_implementation_level() < 5) {
-			# These fields will move to Keycloak once it is managing account management
+		if (get_oidc_implementation_level() < 2) {
+			# Send welcome emails until Keycloak becomes the source of truth
 
 			# Fetch the HTML mail template corresponding to the user language, english is the
 			# default if the translation is not available
@@ -1159,13 +1170,14 @@ sub retrieve_user_preferences ($user_id) {
 # This fetches the data from Keycloak and merges it into the local data
 # This might take some time so should only be used if you really need all the user information
 sub retrieve_user ($user_id) {
-	my $user_ref = retrieve_user_preferences($user_id) // {};
+	my $user_ref = retrieve_user_preferences($user_id);
 	if (get_oidc_implementation_level() > 1) {
 		# Fetch the user from Keycloak once it has become the source of truth
 		my $keycloak = ProductOpener::Keycloak->new();
 		my $keycloak_user_ref = $keycloak->find_user_by_username($user_id);
 
 		if ($keycloak_user_ref) {
+			$user_ref //= {};
 			$user_ref->{email} = $keycloak_user_ref->{email};
 			$user_ref->{userid} = $keycloak_user_ref->{username};
 			$user_ref->{name} = $keycloak_user_ref->{attributes}->{name}[0];
@@ -1174,7 +1186,7 @@ sub retrieve_user ($user_id) {
 
 			# The following two are only initially set in Keycloak but aren't edited there
 			$user_ref->{requested_org} //= $keycloak_user_ref->{attributes}->{requested_org}[0];
-			$user_ref->{newsletter} //= ($keycloak_user_ref->{attributes}->{newsletter}[0] == 'subscribe');
+			$user_ref->{newsletter} //= defined $keycloak_user_ref->{attributes}->{newsletter}[0];
 		}
 	}
 	return $user_ref;
@@ -1310,8 +1322,8 @@ sub _get_or_create_account_by_mail ($email, $require_verified_email = 0) {
 	return $user_ref->{userid};
 }
 
-# This does the actual user deletion
-sub remove_user ($user_ref) {
+# Delete the PO specific user preferences
+sub remove_user_preferences ($user_ref) {
 	my $userid = $user_ref->{userid};
 	my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $userid) . ".sto";
 
@@ -1319,24 +1331,26 @@ sub remove_user ($user_ref) {
 	unlink($user_file);
 
 	# Remove the e-mail
-	my $emails_file = "$BASE_DIRS{USERS}/users_emails.sto";
-	if (-e $emails_file) {
-		my $emails_ref = retrieve($emails_file);
-		my $email = $user_ref->{email};
+	my $oidc_implementation_level = get_oidc_implementation_level();
+	if ($oidc_implementation_level < 2) {
+		# Need to update user_emails until Keycloak becomes the source of truth
+		my $emails_file = "$BASE_DIRS{USERS}/users_emails.sto";
+		if (-e $emails_file) {
+			my $emails_ref = retrieve($emails_file);
+			my $email = $user_ref->{email};
 
-		if ((defined $email) and ($email =~ /\@/)) {
-			if (defined $emails_ref->{$email}) {
-				delete $emails_ref->{$email};
-				store($emails_file, $emails_ref);
+			if ((defined $email) and ($email =~ /\@/)) {
+				if (defined $emails_ref->{$email}) {
+					delete $emails_ref->{$email};
+					store($emails_file, $emails_ref);
+				}
 			}
 		}
-	}
-
-	my $oidc_implementation_level = get_oidc_implementation_level();
-	if ($oidc_implementation_level > 0 and $oidc_implementation_level < 5) {
-		# Keep Keycloak in sync until it is managing account management
-		my $keycloak = ProductOpener::Keycloak->new();
-		$keycloak->delete_user($userid);
+		if ($oidc_implementation_level == 1) {
+			# Keep Keycloak in sync until it has become the source of truth
+			my $keycloak = ProductOpener::Keycloak->new();
+			$keycloak->delete_user($userid);
+		}
 	}
 
 	return;

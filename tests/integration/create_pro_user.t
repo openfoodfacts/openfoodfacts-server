@@ -52,8 +52,16 @@ my %user_form = (
 	requested_org => "Acme Inc."
 );
 my $tail = tail_log_start();
+my $before_create_ts = time();
 $resp = create_user($user_ua, \%user_form);
 ok(!html_displays_error($resp), "no error creating pro user");
+
+# Create user starts in Keycloak, then triggers Redis which creates minion job
+# Wait for minion job to complete
+my $max_time = 60;
+my $jobs_ref = get_minion_jobs("process_user_requested_org", $before_create_ts, $max_time);
+is(scalar @{$jobs_ref}, 1, "One process_user_requested_org was triggered");
+
 my $logs = tail_log_read($tail);
 
 # As it is the first user of the org, user is already part of the org

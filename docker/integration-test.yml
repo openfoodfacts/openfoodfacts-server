@@ -15,7 +15,7 @@ services:
   backend:
     depends_on:
       postgres:
-        condition: service_started
+        condition: service_healthy
       mongodb:
         condition: service_started
       dynamicfront:

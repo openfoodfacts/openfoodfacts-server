@@ -286,13 +286,12 @@ sub _process_deleted_users_stream($stream_values_ref) {
 			$message_hash{$key} = $value;
 		}
 
-		$log->info("User deleted", {user_id => $message_hash{'userName'}}) if $log->is_info();
-
 		my $args_ref = {
 			userid => $message_hash{'userName'},
 			newuserid => $message_hash{'newUserName'}
 		};
-		queue_job(delete_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
+		my $job_id = queue_job(delete_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
+		$log->info("[" . localtime() . "] User deletion queued", {args_ref => $args_ref, job_id => $job_id}) if $log->is_info();
 
 		$last_processed_message_id = $message_id;
 	}

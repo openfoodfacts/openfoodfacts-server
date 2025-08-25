@@ -36,7 +36,7 @@ use ProductOpener::PerlStandards;
 
 use Log::Any qw($log);
 
-use ProductOpener::Auth qw/get_oidc_configuration get_token_using_client_credentials/;
+use ProductOpener::Auth qw/get_oidc_configuration get_token_using_client_credentials get_oidc_implementation_level/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/country_to_cc/;
 
@@ -188,11 +188,14 @@ sub create_or_update_user ($self, $user_ref, $password = undef) {
 			name => substr($name, 0, 128),
 			locale => $user_ref->{preferred_language},
 			country => country_to_cc($user_ref->{country} || 'en:world'),
-			registered => 'registered',    # The prevents welcome emails from being sent
 			requested_org => $user_ref->{requested_org},
 			newsletter => ($user_ref->{newsletter} ? 'subscribe' : undef)
 		}
 	};
+	if (get_oidc_implementation_level() < 2) {
+		# Prevent Keycloak sending registration emails unless it is the primary source of truth
+		$api_request_ref->{attributes}->{registered} = 'registered';
+	}
 
 	# issue the request to keycloak
 	my $new_user_response = create_or_update_keycloak_user($self, $api_request_ref);

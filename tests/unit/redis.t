@@ -67,7 +67,7 @@ subtest 'user registration from redis to minion' => sub {
 			},
 			'find_user_by_username' => sub {
 				++$find_user_by_username_called;
-				return;
+				return {};
 			}
 		]
 	);
