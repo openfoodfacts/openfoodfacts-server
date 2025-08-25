@@ -64,6 +64,7 @@ BEGIN {
 
 		$facets_kp_url
 		$redis_url
+		$folksonomy_url
 		$process_global_redis_events
 
 		$recipe_estimator_url
@@ -465,6 +466,10 @@ $process_global_redis_events = $ProductOpener::Config2::process_global_redis_eve
 
 # Facets knowledge panels url
 $facets_kp_url = $ProductOpener::Config2::facets_kp_url;
+
+# Set this to your instance of https://github.com/openfoodfacts/folksonomy_api/ to
+# enable folksonomy features
+$folksonomy_url = $ProductOpener::Config2::folksonomy_url;
 
 # If $rate_limiter_blocking_enabled is set to 1, the rate limiter will block requests
 # by returning a 429 error code instead of a 200 code
@@ -1101,7 +1106,10 @@ $options{import_export_fields_importance} = {
 );
 
 # Name of the Redis stream to which product updates are published
-$options{redis_stream_name} = "product_updates";
+$options{redis_stream_name_product_updates} = "product_updates";
+# Name of the Redis stream where we notify that OCR results
+# are ready
+$options{redis_stream_name_ocr_ready} = "ocr_ready";
 
 # used to rename texts and to redirect to the new name
 $options{redirect_texts} = {

@@ -148,8 +148,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties: {}
+                $ref: ./responses/product_image_crop.yaml
       description: |
         Cropping is only relevant for editing existing products.
         You cannot crop an image the first time you upload it to the system.

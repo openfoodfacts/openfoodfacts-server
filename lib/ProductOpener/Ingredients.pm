@@ -90,6 +90,7 @@ BEGIN {
 
 		&estimate_nutriscore_2021_milk_percent_from_ingredients
 		&estimate_nutriscore_2023_red_meat_percent_from_ingredients
+		&estimate_added_sugars_percent_from_ingredients
 
 		&has_specific_ingredient_property
 
@@ -100,6 +101,7 @@ BEGIN {
 		&assign_property_to_ingredients
 
 		&get_ingredients_with_property_value
+		&get_ingredients_with_parent
 
 		&detect_rare_crops
 	);    # symbols to export on request
@@ -6260,8 +6262,8 @@ my %ingredients_categories_and_types = (
 	cs => [
 		# oil and fat
 		{
-			categories => ["rostlinné oleje"],
-			types => ["řepkový", "slunečnicový",],
+			categories => ["rostlinné oleje, rostlinné tuky"],
+			types => ["bambucký", "kokosový", "olivový", "palmový", "palmojadrový", "řepkový", "slunečnicový",],
 			alternate_names => ["<type> olej"],
 		},
 	],
@@ -8636,6 +8638,24 @@ Returns a list of ingredients that have a specific property value.
 
 =cut
 
+=head2 estimate_added_sugars_percent_from_ingredients ($product_ref)
+
+This function analyzes the ingredients to estimate the percentage of added sugars in a product.
+
+=cut
+
+sub estimate_added_sugars_percent_from_ingredients ($product_ref) {
+
+	return estimate_ingredients_matching_function(
+		$product_ref,
+		sub {
+			my ($ingredient_id, $processing) = @_;
+			return is_a("ingredients", $ingredient_id, "en:added-sugar");
+		},
+		#"added-sugars-estimate-from-ingredients"
+	);
+}
+
 sub get_ingredients_with_property_value ($ingredients_ref, $property, $value) {
 
 	my @matching_ingredients = ();
@@ -8651,6 +8671,30 @@ sub get_ingredients_with_property_value ($ingredients_ref, $property, $value) {
 		if (defined $ingredient_ref->{ingredients}) {
 			push @matching_ingredients,
 				get_ingredients_with_property_value($ingredient_ref->{ingredients}, $property, $value);
+		}
+	}
+
+	return @matching_ingredients;
+}
+
+=head2 sub get_ingredients_with_parent ($ingredients_ref, $property, $value)
+
+Returns a list of ingredients that have a specific parent.
+
+=cut
+
+sub get_ingredients_with_parent ($ingredients_ref, $parent) {
+
+	my @matching_ingredients = ();
+
+	foreach my $ingredient_ref (@{$ingredients_ref}) {
+
+		if (is_a("ingredients", $ingredient_ref->{id}, $parent)) {
+			push @matching_ingredients, $ingredient_ref->{id};
+		}
+
+		if (defined $ingredient_ref->{ingredients}) {
+			push @matching_ingredients, get_ingredients_with_parent($ingredient_ref->{ingredients}, $parent);
 		}
 	}
 

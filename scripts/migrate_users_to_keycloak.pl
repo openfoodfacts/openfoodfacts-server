@@ -37,8 +37,6 @@ use HTTP::Request;
 use URI::Escape::XS qw/uri_escape/;
 use List::MoreUtils qw/first_index/;
 
-use Log::Any '$log', default_adapter => 'Stderr';
-
 # Turn warnings into exceptions
 local $SIG{__WARN__} = sub {
 	my $message = shift;
@@ -64,7 +62,7 @@ sub create_user_in_keycloak_with_scrypt_credential ($keycloak_user_ref) {
 	$get_user_request->header('Authorization' => $request_token->{token_type} . ' ' . $request_token->{access_token});
 	my $get_user_response = LWP::UserAgent::Plugin->new->request($get_user_request);
 	unless ($get_user_response->is_success) {
-		$log->error($userid . ": " . $get_user_response->content);
+		$checkpoint->log("Error: $userid: " . $get_user_response->content);
 		return;
 	}
 	my $existing_user = decode_json($get_user_response->content);
@@ -83,7 +81,8 @@ sub create_user_in_keycloak_with_scrypt_credential ($keycloak_user_ref) {
 	$upsert_user_request->content($json);
 	my $upsert_user_response = LWP::UserAgent::Plugin->new->request($upsert_user_request);
 	unless ($upsert_user_response->is_success) {
-		$log->error("$userid : Keycloak error: " . $upsert_user_response->content . "\n$userid : Request: $json\n");
+		$checkpoint->log(
+			"Error: $userid: Keycloak error: " . $upsert_user_response->content . "\n$userid : Request: $json");
 		return;
 	}
 
@@ -104,11 +103,11 @@ sub convert_to_keycloak_user ($userid, $email, $anonymize) {
 	my $user_ref;
 	eval {$user_ref = retrieve($user_file);};
 	if ($@) {
-		$log->warn("$userid : Error reading STO: $@\n");
+		$checkpoint->log("Warning: $userid : Error reading STO: $@");
 		return;
 	}
 	if (not(defined $user_ref)) {
-		$log->warn("$userid : Empty STO file");
+		$checkpoint->log("Warning: $userid : Empty STO file");
 		return;
 	}
 
@@ -155,7 +154,7 @@ sub convert_to_keycloak_user ($userid, $email, $anonymize) {
 		}
 	};
 	if ($@) {
-		$log->warn("$userid : Error converting user: $@\n$userid : User_ref: " . encode_json($user_ref) . "\n");
+		$checkpoint->log("Warning: $userid : Error converting user: $@\n$userid : User_ref: " . encode_json($user_ref));
 		return;
 	}
 	return $keycloak_user_ref;
@@ -202,7 +201,7 @@ sub convert_scrypt_password_to_keycloak_credentials ($hashed_password) {
 }
 
 sub validate_user_emails() {
-	print '[' . localtime() . "] Starting email validation\n";
+	$checkpoint->log("Starting email validation");
 	open(my $invalid_user_file, '>:encoding(UTF-8)', "$BASE_DIRS{CACHE_TMP}/invalid_users.csv")
 		or die "Could not open invalid_users file $!";
 
@@ -216,7 +215,7 @@ sub validate_user_emails() {
 				my $user_ref;
 				eval {$user_ref = retrieve("$BASE_DIRS{USERS}/$file");};
 				if ($@) {
-					$log->warn("$file : Error reading STO: $@\n");
+					$checkpoint->log("Warning: $file : Error reading STO: $@");
 					$user_ref = undef;
 				}
 
@@ -253,10 +252,11 @@ sub validate_user_emails() {
 			}
 			$count++;
 			if ($count % 10000 == 0) {
-				print '[' . localtime() . "] Validated $count / " . scalar @files . "\n";
+				$checkpoint->log("Validated $count / " . scalar @files);
 			}
 		}
 
+		$checkpoint->log("Validated $count / " . scalar @files);
 		store("$BASE_DIRS{CACHE_TMP}/all_emails.sto", $all_emails);
 	}
 
@@ -284,26 +284,26 @@ foreach my $email (@emails) {
 	$count++;
 	next if $resume and $email le $last_processed_email;
 	if ($resume) {
-		print '[' . localtime() . "] Resuming from $email\n";
+		$checkpoint->log("Resuming from $email");
 		$resume = 0;
 	}
 	my $user_infos = $user_emails->{$email};
 	foreach my $user_info (@{$user_infos->{users}}) {
 		# Do the null emails (not the favoured userid for the email) first
 		if ($user_info->{userid} ne $user_infos->{userid}) {
-			# print '[' . localtime() . "] Invalid email $user_info->{userid}\n";
+			# $checkpoint->log("Invalid email $user_info->{userid}");
 			migrate_user($user_info->{userid}, undef, $anonymize);
 		}
 	}
 	# Now do the favoured user
 	if ($user_infos->{userid}) {
-		# print '[' . localtime() . "] Valid email $user_infos->{userid}\n";
+		# $checkpoint->log("Valid email $user_infos->{userid}");
 		migrate_user($user_infos->{userid}, $email, $anonymize);
 	}
 	if ($count % 10000 == 0) {
-		print '[' . localtime() . "] Migrated $count / $total\n";
+		$checkpoint->log("Migrated $count / $total");
 	}
 	$checkpoint->update($email);
 }
-print '[' . localtime() . "] Migrated $count / $total\n";
+$checkpoint->log("Migrated $count / $total");
 
