@@ -542,16 +542,11 @@ $options{import_export_fields_groups} = [
 	["packaging"],
 	[
 		"other",
-		[
-			"customer_service", "link",
-		]
+		["customer_service", "link",]
 	],
 	[
 		"images",
-		[
-			"image_front_url", "image_ingredients_url", "image_packaging_url",
-			"image_other_url", "image_other_type",
-		]
+		["image_front_url", "image_ingredients_url", "image_packaging_url", "image_other_url", "image_other_type",]
 	],
 ];
 

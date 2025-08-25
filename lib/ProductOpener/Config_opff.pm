@@ -606,12 +606,7 @@ $options{import_export_fields_groups} = [
 	["packaging"],
 	[
 		"other",
-		[
-			"conservation_conditions", "warning",
-			"preparation", "nova_group_producer",
-			"customer_service",
-			"link",
-		]
+		["conservation_conditions", "warning", "preparation", "nova_group_producer", "customer_service", "link",]
 	],
 	[
 		"images",

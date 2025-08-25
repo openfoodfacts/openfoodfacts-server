@@ -525,7 +525,6 @@ HTML
 	last_image_t
 );
 
-
 # List of fields that can be imported on the producers platform
 # and that are also exported from the producers platform to the public platform
 $options{import_export_fields_groups} = [
@@ -555,16 +554,11 @@ $options{import_export_fields_groups} = [
 	["packaging"],
 	[
 		"other",
-		[
-			"link",
-		]
+		["link",]
 	],
 	[
 		"images",
-		[
-			"image_front_url", "image_ingredients_url", "image_packaging_url",
-			"image_other_url", "image_other_type",
-		]
+		["image_front_url", "image_ingredients_url", "image_packaging_url", "image_other_url", "image_other_type",]
 	],
 ];
 
