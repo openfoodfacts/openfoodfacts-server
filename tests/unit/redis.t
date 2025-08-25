@@ -105,9 +105,9 @@ subtest 'user deletion from redis to minion' => sub {
 	my $call_count = 0;
 	my $user1_called = 0;
 	my $user2_called = 0;
-	my $import_module = mock 'ProductOpener::Minion' => (
+	my $import_module = mock 'Minion' => (
 		override => [
-			'queue_job' => sub {
+			'enqueue' => sub {
 				my ($client, $topic, $tasks_ref) = @_;
 				if ($topic ne 'delete_user') {
 					return;
@@ -131,9 +131,9 @@ subtest 'user deletion from redis to minion' => sub {
 	my $result = process_xread_stream_reply($mock_reply);
 
 	# Verify the result
-	is($call_count, 2, 'process_xread_stream_reply caused 2 calls to ProductOpener::Minion->queue_job');
-	is($user1_called, 1, 'process_xread_stream_reply called ProductOpener::Minion->queue_job with user1');
-	is($user2_called, 1, 'process_xread_stream_reply called ProductOpener::Minion->queue_job with user2');
+	is($call_count, 2, 'process_xread_stream_reply caused 2 calls to Minion->enqueue');
+	is($user1_called, 1, 'process_xread_stream_reply called Minion->enqueue with user1');
+	is($user2_called, 1, 'process_xread_stream_reply called Minion->enqueue with user2');
 };
 
 done_testing();

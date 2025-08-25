@@ -1159,14 +1159,13 @@ sub retrieve_user_preferences ($user_id) {
 # This fetches the data from Keycloak and merges it into the local data
 # This might take some time so should only be used if you really need all the user information
 sub retrieve_user ($user_id) {
-	my $user_ref = retrieve_user_preferences($user_id);
+	my $user_ref = retrieve_user_preferences($user_id) // {};
 	if (get_oidc_implementation_level() > 1) {
 		# Fetch the user from Keycloak once it has become the source of truth
 		my $keycloak = ProductOpener::Keycloak->new();
 		my $keycloak_user_ref = $keycloak->find_user_by_username($user_id);
 
 		if ($keycloak_user_ref) {
-			$user_ref //= {};
 			$user_ref->{email} = $keycloak_user_ref->{email};
 			$user_ref->{userid} = $keycloak_user_ref->{username};
 			$user_ref->{name} = $keycloak_user_ref->{attributes}->{name}[0];
