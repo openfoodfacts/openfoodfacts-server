@@ -91,7 +91,7 @@ services:
   memcached:
     image: memcached:1.6-alpine
   postgres:
-    image: postgres:12-alpine
+    image: pgautoupgrade/pgautoupgrade:13-alpine
     # we want postgres for off, but not for pro profile
     profiles: ["off"]
     environment:
