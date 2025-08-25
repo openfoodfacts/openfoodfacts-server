@@ -476,6 +476,13 @@ sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref)
 	return;
 }
 
+=head2 set_per_unit
+
+Set the per unit depending on the given product quantity unit, the serving quantity unit
+and on the fact that the created set is per 100g or per serving
+
+=cut
+
 sub set_per_unit ($product_quantity_unit, $serving_quantity_unit, $set_type) {
 	my $per_unit = undef;
 	if (defined $product_quantity_unit) {
