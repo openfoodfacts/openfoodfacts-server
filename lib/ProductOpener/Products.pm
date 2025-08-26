@@ -3120,6 +3120,7 @@ sub process_product_edit_rules ($product_ref) {
 
 		# If conditions match, process actions and notifications
 		if ($conditions) {
+			$log->info("edit_rule: conditions matched") if $log->is_info();
 
 			# 	actions => {
 			# 		["ignore_if_existing_ingredients_texts_fr"],
@@ -3148,7 +3149,7 @@ sub process_product_edit_rules ($product_ref) {
 						$proceed_with_edit = 0;
 					}
 					# rules with conditions
-					elsif ($action =~ /^(ignore|warn)(_if_(existing|0|greater|lesser|equal|match|regexp_match)_)?(.*)$/)
+					elsif ($action =~ /^(ignore|warn)(_if_(existing|0|greater|lesser|equal|match|regexp_match))?_?(.*)$/)
 					{
 						my ($type, $condition, $field) = ($1, $3, $4);
 						my $default_field = $field;
@@ -3266,8 +3267,10 @@ sub process_product_edit_rules ($product_ref) {
 
 							if ($type eq 'ignore') {
 								Delete($field);
+								$log->info("edit_rule: Removed $field") if $log->is_info();
 								if ($default_field ne $field) {
 									Delete($default_field);
+									$log->info("edit_rule: Removed $default_field") if $log->is_info();
 								}
 							}
 						}
