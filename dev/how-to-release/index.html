@@ -1953,6 +1953,12 @@ git<span class="w"> </span>checkout<span class="w"> </span><span class="nv">$VER
 ./scripts/taxonomies/build_tags_taxonomy.pl
 ./scripts/build_lang.pl
 </code></pre></div></li>
+<li>on the PRO platform, also rebuild the fields columns names
+   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>off<span class="w"> </span>bash
+<span class="nb">cd</span><span class="w"> </span>/srv/<span class="nv">$SERVICE</span>
+<span class="nb">source</span><span class="w"> </span>env/setenv.sh<span class="w"> </span><span class="nv">$SERVICE</span>
+./scripts/build_pro_platform_fields_columns_names.pl
+</code></pre></div></li>
 <li>update the frontend assets you just downloaded
    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>off<span class="w"> </span>/srv/<span class="nv">$SERVICE</span>/scripts/deploy/install-dist-files.sh<span class="w"> </span><span class="nv">$VERSION</span><span class="w"> </span><span class="nv">$SERVICE</span>
 </code></pre></div></li>
