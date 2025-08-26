@@ -672,6 +672,9 @@ $options{attribute_default_preferences_json}
 );
 
 # Name of the Redis stream to which product updates are published
-$options{redis_stream_name} = "product_updates";
+$options{redis_stream_name_product_updates} = "product_updates";
+# Name of the Redis stream where we notify that OCR results
+# are ready
+$options{redis_stream_name_ocr_ready} = "ocr_ready";
 
 1;

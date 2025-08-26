@@ -31817,7 +31817,7 @@ sv: Glukos-Fruktos
 en: glucose-fructose syrup, fructose-glucose syrup, glucose and fructose syrup
 bg: глюкозо-фруктозен сироп, сироп от глюкоза и фруктоза, фруктозо-глюкозен сироп
 ca: Xarop de glucosa-fructosa, xarop de glicosa-fructosa, xarop de glucosa i fructosa
-cs: glukózo-fruktózový sirup, glukózový-fruktózový sirup, glukózovo-fruktózový sirup
+cs: glukózo-fruktózový sirup, glukózový-fruktózový sirup, glukózovo-fruktózový sirup, fruktózo-glukózový sirup
 da: glukos-fruktossirap, glukose-fruktosesirup
 de: Glukose-Fruktose-Sirup, Glukose-Fruktosesirup, Glukose Fruktose sirup, Glucose-Fructose-Sirup, Fruktose-Glukose-Sirup
 el: σιρόπι γλυκόζης-φρουκτόζης
@@ -37245,6 +37245,10 @@ ciqual_proxy_food_name:en: Jam, apricot
 fr: purée d'abricots Bergeron, purée d'abricot bergeron, pulpe d'abricot Bergeron
 
 < en:apricot
+en: apricot pulp
+cs: meruňková dřeň
+
+< en:apricot
 en: apricot juice
 es: zumo de albaricoque, jugo de albaricoque
 fr: jus d'abricot
@@ -38295,6 +38299,10 @@ ciqual_food_name:fr: Pêche, pulpe et peau, crue
 #<en:peach puree
 #da:koncentreret ferskenpuré
 #pt:puré de melocotón concentrado
+
+< en:peach
+en: peach pulp
+cs: broskvová dřeň
 
 #process:en:juice
 < en:peach
@@ -39416,6 +39424,7 @@ fr: compote de pommes allégée en sucres
 
 < en:apple
 en: apple pulp
+cs: jablečná dřeň
 de: Apfelmark
 fr: pulpe de pomme
 hr: pulpa jabuke
@@ -39434,6 +39443,7 @@ ciqual_food_name:fr: Pomme, pulpe, crue
 < en:purée
 en: apple puree
 bg: пюре от ябълки, ябълково пюре
+cs: jablečné pyré
 da: Æblemos
 de: Apfelmus
 es: Puré de manzana
@@ -39848,6 +39858,7 @@ fr: écorces d'agrumes
 
 < en:flavouring
 en: citrus flavouring
+cs: citrusové aroma
 de: Zitrusfruchtaroma, Zitrusfrucht-Aroma
 es: aroma de cítricos, aroma cítrico
 fi: sitrusaromi
@@ -39860,6 +39871,7 @@ pl: aromat cytrusowy, aromat z cytrusów
 < en:citrus flavouring
 < en:natural flavouring
 en: natural citrus flavouring
+cs: přírodní citrusová aroma, přírodní citrusové aroma
 de: natürliches Citrusaroma, natürliches Zitrusaroma, natürliche Zitrusfruchtaromen
 es: aroma natural de cítricos
 fi: luontainen sitrusaromi
@@ -41438,7 +41450,7 @@ be: Апельсінавы сок
 bg: Портокалов сок, сок от портокал
 bo: ཚ་ལུ་མའི་ཁུ་བ།
 ca: suc de taronja
-cs: Pomerančový džus
+cs: pomerančová šťáva, Pomerančový džus
 da: appelsinjuice, appelsinsaft
 de: Orangensaft
 el: Πορτοκαλάδα
@@ -41704,7 +41716,7 @@ it: cellule arancioni
 en: orange zest, orange peel
 bg: портокалови кори, портокалови корички
 ca: pell de taronja
-cs: Pomerančová kůra
+cs: pomerančová kůra, pomerančové kůry
 da: orangeskal
 de: Orangenschale, Orangenschalen
 es: cáscara de naranja, corteza de naranja, ralladura de naranja, cáscara de naranja natural
@@ -41757,6 +41769,7 @@ it: estratto naturale d'arancia, estratto naturale di arancia
 # CANDIED ORANGE PEEL is a compound ingredient
 en: candied orange peel, candied orange zest
 bg: захаросани портокалови кори
+cs: proslazená pomerančová kůra
 de: kandierte Orangenschalen, Orangeat, Orangenschalen confiert
 es: corteza de naranja confitada
 fi: kandeerattu appelsiininkuori
@@ -41813,6 +41826,7 @@ ja: 柚子, ゆず
 < en:flavouring
 en: orange flavouring
 bg: портокалов ароматизант, ароматизант портокал
+cs: pomerančové aroma
 da: appensinsmag
 de: Orangenaroma
 es: aroma de naranja
@@ -41822,6 +41836,25 @@ hr: aroma naranče
 hu: narancsaroma
 it: Aroma di arancia
 nl: sinaasappelsmaak
+
+#<en:orange
+< en:natural flavouring
+en: natural orange flavouring, natural orange flavor
+cs: přírodní pomerančové aroma
+de: natürlichen Orangenaroma, Natürliches orangenaroma, Natürliches orangen-aroma
+es: aroma de naranja natural, aroma natural naranja, aroma natural de naranja
+et: apelsini aroomaine, apelsini lõhnaaine, apelsini maitseaine
+fi: luontainen appelsiiniaromi
+fr: arôme naturel d'orange, arômes naturels d'orange
+hr: prirodna aroma naranče
+hu: természetes narancsaroma
+it: aroma naturale di arancia
+lt: natūralios apelsino kvapiosios medžiagos
+lv: apelsīnu dabīgs aromatizētājs
+nl: natuurlijk sinaasappelaroma
+pl: naturalny aromat pomarańczowy
+pt: aroma de laranja natural
+sv: naturlig apelsinarom
 
 #<en:orange
 < en:natural flavouring
@@ -41923,24 +41956,6 @@ fr: arôme d'orange amère
 hr: aroma gorke naranče
 hu: savanyú narancsaroma
 it: aroma di arancia amara
-
-#<en:orange
-< en:natural flavouring
-en: natural orange flavouring, natural orange flavor
-de: natürlichen Orangenaroma, Natürliches orangenaroma, Natürliches orangen-aroma
-es: aroma de naranja natural, aroma natural naranja, aroma natural de naranja
-et: apelsini aroomaine, apelsini lõhnaaine, apelsini maitseaine
-fi: luontainen appelsiiniaromi
-fr: arôme naturel d'orange, arômes naturels d'orange
-hr: prirodna aroma naranče
-hu: természetes narancsaroma
-it: aroma naturale di arancia
-lt: natūralios apelsino kvapiosios medžiagos
-lv: apelsīnu dabīgs aromatizētājs
-nl: natuurlijk sinaasappelaroma
-pl: naturalny aromat pomarańczowy
-pt: aroma de laranja natural
-sv: naturlig apelsinarom
 
 ###################################################################################################
 #
@@ -43442,7 +43457,7 @@ ciqual_food_name:fr: Noix de coco, amande, sèche
 #<en:coconut
 #en:grated coconut
 #ca:Coco ratllat
-#cs:kokos strouhaný
+#cs:strouhaný kokos, kokos strouhaný
 #de:Kokosraspel, Kokosraspeln
 #es:coco rallado
 #fi:kookosraaste
@@ -53168,7 +53183,11 @@ wikidata:en: Q81
 wikipedia:en: https://en.wikipedia.org/wiki/Carrot
 
 < en:carrot
+fr: carotte nantaise, carottes nantaises
 es: Zanahorias de la variedad Nantesa
+
+< en:carrot
+fr: carotte parisienne, carotte de Paris, carotte ronde de Paris, carottes parisiennes, carottes de Paris, carottes rondes de Paris
 
 < en:carrot
 en: dried carrot
@@ -59676,12 +59695,14 @@ vegetarian:en: yes
 wikidata:en: Q3377275
 #3142 in 20 @2021-10-05
 
+# in French, distinction between "petits pois", "petits poids doux" and "garden peas": https://www.ctcpa.org/wp-content/uploads/2021/10/Decision-petits-pois-surgeles-110920191.pdf
+
 < en:green peas
-en: garden peas, sweet peas
+en: garden peas, English peas
 de: Markerbsen, Gartenerbsen, Markerbsenschoten
 es: guisantes de jardín
 fi: tarhaherne, tarhaherneet
-fr: petits pois, petit pois, pois doux
+fr: petits pois, petit pois
 hr: vrtni grašak
 it: pisellini
 la: Pisum sativum L. subsp. sativum var. sativum
@@ -59713,16 +59734,23 @@ it: piselli extra fini
 nl: extra fijne doperwten, erwten zeer fijn
 
 < en:garden peas
-fr: petits pois doux
+en: sweet peas
+fr: petits pois doux, petit pois doux, pois doux
 it: pisello dolce
 nl: zoete doperwten
 sv: söta ärtor
 # ingredient/fr:petits-pois-doux has 38 products in 3 languages @2019-02-07
 
 < fr:petits pois doux
-fr: petits pois doux extra fins, petits pois doux extra-fins
+en: extra fine sweat peas
+fr: petits pois doux extra fins, petits pois doux extra-fins, petits pois doux très fins
 it: piselli dolci finissimi
 sv: extra fina söta ärtor
+
+# in French, garden peas are larger peas: https://www.ctcpa.org/wp-content/uploads/2021/10/Decision-petits-pois-surgeles-110920191.pdf
+< en: garden peas
+en: large garden peas
+fr: garden peas, garden peas petits, garden peas medium, garden peas gros, gros pois, grois pois à saveur sucrée
 
 < en:garden peas
 de: Junge Markerbsen

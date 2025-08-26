@@ -171,6 +171,7 @@ use ProductOpener::ProductsFeatures qw(feature_enabled);
 use ProductOpener::RequestStats qw(:all);
 use ProductOpener::PackagingFoodContact qw/determine_food_contact_of_packaging_components_service/;
 use ProductOpener::Auth qw/get_oidc_implementation_level/;
+use ProductOpener::ConfigEnv qw/:all/;
 
 use Encode;
 use URI::Escape::XS qw/uri_escape/;
@@ -7939,6 +7940,10 @@ JS
 		$template_data_ref->{contribution_card_panel}
 			= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "contribution_card");
 	}
+	if (request_param($request_ref, 'raw_panel')) {
+		$template_data_ref->{product_card_panel}
+			= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "product_card");
+	}
 
 	# User preferences
 	$template_data_ref->{user_preferences} = $request_ref->{user_preferences};
@@ -7947,6 +7952,13 @@ JS
 	# that are displayed directly through the knowledge panels
 	$template_data_ref->{front_image} = data_to_display_image($product_ref, "front", $lc);
 
+	# Take the imgid from the front image, from website language or the product language if it doesn't exist
+	# we must take extra care of not provoking autovivification
+	my $imgtype = deep_get($template_data_ref, "front_image", "type");
+	my $front_image_type = deep_get($template_data_ref, "front_image", "type");
+	my $front_image_id = deep_get($product_ref, 'images', 'selected', $imgtype, $lc, 'imgid')
+		// deep_get($product_ref, 'images', 'selected', $front_image_type, $product_ref->{lc}, 'imgid');
+	$template_data_ref->{imgid} = $front_image_id if defined $front_image_id;
 	# On the producers platform, show a link to the public platform
 
 	if ($server_options{producers_platform}) {
@@ -8566,6 +8578,7 @@ display_product_summary("#product_summary", product);
 JS
 			;
 	}
+	$template_data_ref->{nutripatrol_url} = $nutripatrol_url;
 
 	my $html_display_product;
 	process_template('web/pages/product/product_page.tt.html', $template_data_ref, \$html_display_product, $request_ref)
@@ -9349,22 +9362,40 @@ sub data_to_display_nutriscore ($product_ref, $version = "2021") {
 			if (has_tag($product_ref, "misc", "en:nutriscore-missing-nutrition-data")) {
 
 				my $missing_nutrients = "";
-				foreach my $misc_tag (@{$product_ref->{misc_tags}}) {
-					if ($misc_tag =~ /^en:nutriscore-missing-nutrition-data-(.*)$/) {
-						$missing_nutrients .= display_taxonomy_tag_name($lc, "nutrients", $1) . ", ";
+				if (
+					has_tag(
+						$product_ref, "data_quality_warnings",
+						"en:nutrition-data-per-serving-serving-quantity-is-not-recognized"
+					)
+					)
+				{
+					$missing_nutrients .= lang("missing_serving_size_value_and_or_unit");
+				}
+				else {
+					foreach my $misc_tag (@{$product_ref->{misc_tags}}) {
+						if ($misc_tag =~ /^en:nutriscore-missing-nutrition-data-(.*)$/) {
+							$missing_nutrients .= display_taxonomy_tag_name($lc, "nutrients", $1) . ", ";
+						}
 					}
 				}
 				$missing_nutrients =~ s/, $//;
 
+				my $missing_nutrition_mgs_details
+					= has_tag($product_ref, "misc", "en:nutriscore-missing-prepared-nutrition-data")
+					? "nutriscore_missing_prepared_nutrition_data_details"
+					: "nutriscore_missing_nutrition_data_details";
 				push @nutriscore_warnings,
 					  lang("nutriscore_missing_nutrition_data") . "<p>"
-					. lang("nutriscore_missing_nutrition_data_details") . " <b>"
+					. lang($missing_nutrition_mgs_details) . " <b>"
 					. $missing_nutrients . "</b>" . "</p>";
 
 				if (not has_tag($product_ref, "misc", "en:nutriscore-missing-category")) {
 					$result_data_ref->{nutriscore_unknown_reason} = "missing_nutrition_data";
-					$result_data_ref->{nutriscore_unknown_reason_short}
-						= lang("nutriscore_missing_nutrition_data_short");
+					my $msg
+						= has_tag($product_ref, "misc", "en:nutriscore-missing-prepared-nutrition-data")
+						? "nutriscore_missing_prepared_nutrition_data_short"
+						: "nutriscore_missing_nutrition_data_short";
+					$result_data_ref->{nutriscore_unknown_reason_short} = lang($msg);
 				}
 				else {
 					$result_data_ref->{nutriscore_unknown_reason} = "missing_category_and_nutrition_data";

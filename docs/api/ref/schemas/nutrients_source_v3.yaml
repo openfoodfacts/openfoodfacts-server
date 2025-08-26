@@ -10,3 +10,8 @@ properties:
     description: |
       Indicates if the original source is per serving or per 100g, 100ml
     enum: ["100g", "100ml", "serving"]
+  source_index:
+    type: integer
+    description: |
+      Index of the source nutrient set in the input_sets array of the nutrition field
+    minimum: 0
