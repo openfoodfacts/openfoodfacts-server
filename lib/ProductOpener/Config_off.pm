@@ -464,10 +464,6 @@ $options{users_who_can_upload_small_images} = {
 	},
 );
 
-
-
-
-
 # server constants
 $server_domain = $ProductOpener::Config2::server_domain;
 @ssl_subdomains = @ProductOpener::Config2::ssl_subdomains;
