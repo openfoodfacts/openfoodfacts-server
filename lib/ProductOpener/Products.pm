@@ -3163,6 +3163,19 @@ sub process_product_edit_rules ($product_ref) {
 						local $log->context->{action} = $field;
 						local $log->context->{field} = $field;
 
+						if ($field =~ /_(\w\w)$/) {
+							# localized field ? remove language to get value in request
+							$default_field = $`;
+						}
+						if ($field =~ /_100g$/) {
+							# nutrient 100g ? remove 100g to get value in request
+							$default_field = $`;
+						}
+						elsif ($field =~ /nutriments_.*$/) {
+							# also consider nutrient_100g
+							$default_field = $field . "_100g";
+						}
+
 						if (defined $condition) {
 
 							my $param_field = undef;
@@ -3170,12 +3183,8 @@ sub process_product_edit_rules ($product_ref) {
 								# param_field is the new value defined by edit
 								$param_field = remove_tags_and_quote(decode utf8 => single_param($field));
 							}
-							if ($field =~ /_(\w\w)$/) {
-								# localized field ? remove language to get value in request
-								$default_field = $`;
-								if ((!defined $param_field) && (defined single_param($default_field))) {
-									$param_field = remove_tags_and_quote(decode utf8 => single_param($default_field));
-								}
+							if ((!defined $param_field) && (defined single_param($default_field))) {
+								$param_field = remove_tags_and_quote(decode utf8 => single_param($default_field));
 							}
 
 							# if field is not passed, skip rule
