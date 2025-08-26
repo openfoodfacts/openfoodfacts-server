@@ -94,7 +94,7 @@ my @fields = qw (
 my %countries = ();
 my $total = 0;
 
-my @dates = ('created_t', 'completed_t');
+my @dates = ('created_t');
 # country => $date_name.start => first date for this country
 # country => $date_name.end => last date for this country
 # country => $date_name => day (as timestamp) => number of cumulated products at this date
@@ -116,11 +116,10 @@ my %tags = ();
 my %countries_tags = ();
 # hashmap of all seen codes
 my %codes = ();
-# for each country associate the minimun and maximum found dates (either completed_t or created_t)
+# for each country associate the minimun and maximum found dates (created_t only, completed_t has been removed when introducing quality dimensions)
 # we start with 0 and 100000000000000000
 my %true_end = ();    # 0;
 my %true_start = ();    # 100000000000000000;
-my $complete = 0;
 
 # Add in $fields_ref all the fields we need to retrieve from MongoDB
 # simple tags
@@ -150,8 +149,6 @@ delete $fields_ref->{users_tags};
 $fields_ref->{creator} = 1;
 $fields_ref->{nutriments} = 1;
 $fields_ref->{created_t} = 1;
-$fields_ref->{complete} = 1;
-$fields_ref->{completed_t} = 1;
 
 $fields_ref->{nutriments} = 1;
 $fields_ref->{nutrition_grade_fr} = 1;
@@ -252,7 +249,9 @@ while (my $product_ref = $cursor->next) {
 				next if ($creator eq 'tacite');
 
 				my $points = 1;
-				if ($product_ref->{complete}) {
+				if (defined $product_ref->{"data_quality_dimensions"}{completeness}{overall}
+					&& $product_ref->{"data_quality_dimensions"}{completeness}{overall} eq "1.00")
+				{
 					$points = 2;
 				}
 
@@ -373,15 +372,6 @@ while (my $product_ref = $cursor->next) {
 			}
 		}
 		$products{$country}++;
-	}
-
-	if (    ($product_ref->{complete} > 0)
-		and ((not defined $product_ref->{completed_t}) or ($product_ref->{completed_t} <= 0)))
-	{
-		#print "product $code - complete: $product_ref->{complete} , completed_t: $product_ref->{completed_t}\n";
-	}
-	elsif ((defined $product_ref->{completed_t}) and ($product_ref->{completed_t} > 0)) {
-		$complete++;
 	}
 }
 
