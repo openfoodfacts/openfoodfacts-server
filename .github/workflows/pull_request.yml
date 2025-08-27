@@ -61,9 +61,9 @@ jobs:
       run: make front_lint
     - name: Verify package-lock is the right one
       run: |
-        cp update_package_lock update_package_lock.orig
+        cp package-lock.json package-lock.json.orig
         make update_package_lock
-        if ! diff -q update_package_lock.orig update_package_lock
+        if ! diff -q package-lock.json.orig package-lock.json
         then
           echo "Package lock is not up to date, please run make update_package_lock"
           diff -u package-lock.json.orig package-lock.json
