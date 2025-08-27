@@ -18,7 +18,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # FIXME: not used yet
+  # FIXME: not used yet
   filter:
     name: "Filter changed paths"
     runs-on: ubuntu-latest
@@ -59,6 +59,15 @@ jobs:
       run: make front_build
     - name: lint
       run: make front_lint
+    - name: Verify package-lock is the right one
+      run: |
+        make update_package_lock
+        if [[ $(git diff -- package-lock.json|wc -l) -gt 0 ]]
+        then
+          echo "Package lock is not up to date, please run make update_package_lock"
+          git diff -- package-lock.json
+          exit(1)
+        fi
 
   # this will build the docker image and upload as an artifact for following jobs
   build_backend:
