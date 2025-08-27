@@ -61,12 +61,13 @@ jobs:
       run: make front_lint
     - name: Verify package-lock is the right one
       run: |
+        cp update_package_lock update_package_lock.orig
         make update_package_lock
-        if [[ $(git diff -- package-lock.json|wc -l) -gt 0 ]]
+        if ! diff -q update_package_lock.orig update_package_lock
         then
           echo "Package lock is not up to date, please run make update_package_lock"
-          git diff -- package-lock.json
-          exit(1)
+          diff -u package-lock.json.orig package-lock.json
+          exit 1
         fi
 
   # this will build the docker image and upload as an artifact for following jobs
