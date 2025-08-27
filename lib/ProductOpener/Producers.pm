@@ -50,6 +50,7 @@ BEGIN {
 
 		&load_csv_or_excel_file
 
+		&build_fields_columns_names_for_lang
 		&init_fields_columns_names_for_lang
 		&match_column_name_to_field
 		&init_columns_fields_match
@@ -71,7 +72,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created ensure_dir_created_or_die/;
-use ProductOpener::Store qw/get_string_id_for_lang retrieve store/;
+use ProductOpener::Store qw/get_string_id_for_lang retrieve store store_config retrieve_config/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/%cc_nutriment_table %nutriments_tables/;
@@ -831,6 +832,43 @@ sub init_fields_columns_names_for_lang ($l) {
 		return;
 	}
 
+	my $path = "$BASE_DIRS{CACHE_BUILD}/pro/fields_column_names/$l";
+
+	$fields_columns_names_for_lang{$l} = retrieve_config($path);
+
+	if (not defined $fields_columns_names_for_lang{$l}) {
+		die("Could not load $path.json, run scripts/build_pro_platform_fields_columns_names.pl");
+	}
+
+	return $fields_columns_names_for_lang{$l};
+}
+
+=head2 build_fields_columns_names_for_lang ( $l )
+
+Creates global $fields_columns_names_for_lang for the specified language.
+
+The function creates a hash of all the possible localized column names
+that we can automatically recognize, and maps them to the corresponding field in OFF.
+
+The result is stored in the global variable %fields_columns_names_for_lang,
+and saved to a file.
+
+This function can be called through the script scripts/build_pro_platform_fields_column_names.pl
+
+=head3 Arguments
+
+=head4 $l - required
+
+Language code (string)
+
+=head3 Return value
+
+Reference to the column names hash.
+
+=cut
+
+sub build_fields_columns_names_for_lang ($l) {
+
 	$fields_columns_names_for_lang{$l} = {};
 
 	init_nutrients_columns_names_for_lang($l);
@@ -845,9 +883,9 @@ sub init_fields_columns_names_for_lang ($l) {
 	}
 	$fields_columns_names_for_lang{$l}{"kj"} = {field => "energy-kj_100g_value_unit", value_unit => "value_in_kj"};
 
-	ensure_dir_created($BASE_DIRS{CACHE_DEBUG});
+	my $path = "$BASE_DIRS{CACHE_BUILD}/pro/fields_column_names/$l";
 
-	store("$BASE_DIRS{CACHE_DEBUG}/fields_columns_names_$l.sto", $fields_columns_names_for_lang{$l});
+	store_config($path, $fields_columns_names_for_lang{$l});
 
 	return $fields_columns_names_for_lang{$l};
 }

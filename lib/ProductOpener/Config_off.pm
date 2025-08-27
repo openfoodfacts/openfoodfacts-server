@@ -64,6 +64,7 @@ BEGIN {
 
 		$facets_kp_url
 		$redis_url
+		$folksonomy_url
 		$process_global_redis_events
 
 		$recipe_estimator_url
@@ -411,7 +412,25 @@ $options{users_who_can_upload_small_images} = {
 			)
 		],
 	},
-
+	# 2025-08-25 prevent municorn-calorie-counter-app from editing nutrients
+	# see https://github.com/openfoodfacts/contributor-quality-issues/issues/18
+	{
+		name => "municorn-calorie-counter-app nutrients edition",
+		conditions => [["user_id", "municorn-calorie-counter-app"],],
+		actions => [
+			["ignore_nutriment_energy-kj"], ["ignore_nutriment_energy-kcal"],
+			["ignore_nutriment_fat"], ["ignore_nutriment_saturated-fat"],
+			["ignore_nutriment_trans-fat"], ["ignore_nutriment_monounsaturated-fat"],
+			["ignore_nutriment_polyunsaturated-fat"], ["ignore_nutriment_cholesterol"],
+			["ignore_nutriment_carbohydrates"], ["ignore_nutriment_carbohydrates-total"],
+			["ignore_nutriment_sugars"], ["ignore_nutriment_added_sugars"],
+			["ignore_nutriment_fiber"], ["ignore_nutriment_proteins"],
+			["ignore_nutriment_salt"], ["ignore_nutriment_sodium"],
+			["ignore_nutriment_alcohol"], ["ignore_nutriment_vitamin-d"],
+			["ignore_nutriment_calcium"], ["ignore_nutriment_potassium"],
+			["ignore_serving_size"],
+		],
+	},
 );
 
 # server constants
@@ -465,6 +484,10 @@ $process_global_redis_events = $ProductOpener::Config2::process_global_redis_eve
 
 # Facets knowledge panels url
 $facets_kp_url = $ProductOpener::Config2::facets_kp_url;
+
+# Set this to your instance of https://github.com/openfoodfacts/folksonomy_api/ to
+# enable folksonomy features
+$folksonomy_url = $ProductOpener::Config2::folksonomy_url;
 
 # If $rate_limiter_blocking_enabled is set to 1, the rate limiter will block requests
 # by returning a 429 error code instead of a 200 code
@@ -1101,7 +1124,10 @@ $options{import_export_fields_importance} = {
 );
 
 # Name of the Redis stream to which product updates are published
-$options{redis_stream_name} = "product_updates";
+$options{redis_stream_name_product_updates} = "product_updates";
+# Name of the Redis stream where we notify that OCR results
+# are ready
+$options{redis_stream_name_ocr_ready} = "ocr_ready";
 
 # used to rename texts and to redirect to the new name
 $options{redirect_texts} = {

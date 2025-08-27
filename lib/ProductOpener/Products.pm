@@ -138,7 +138,7 @@ use ProductOpener::Data qw/execute_query get_products_collection get_recent_chan
 use ProductOpener::MainCountries qw/compute_main_countries/;
 use ProductOpener::Text qw/remove_email remove_tags_and_quote/;
 use ProductOpener::HTTP qw/single_param create_user_agent/;
-use ProductOpener::Redis qw/push_to_redis_stream/;
+use ProductOpener::Redis qw/push_product_update_to_redis/;
 use ProductOpener::Food qw/%nutriments_lists %cc_nutriment_table/;
 use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
 
@@ -1473,10 +1473,10 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 	}
 
 	# Publish information about update on Redis stream
-	$log->debug("push_to_redis_stream",
+	$log->debug("push_product_update_to_redis",
 		{code => $code, product_id => $product_id, action => $action, comment => $comment, diffs => $diffs})
 		if $log->is_debug();
-	push_to_redis_stream($user_id, $product_ref, $action, $comment, $diffs);
+	push_product_update_to_redis($product_ref, $change_ref, $action);
 
 	return 1;
 }
@@ -3120,6 +3120,7 @@ sub process_product_edit_rules ($product_ref) {
 
 		# If conditions match, process actions and notifications
 		if ($conditions) {
+			$log->info("edit_rule: conditions matched") if $log->is_info();
 
 			# 	actions => {
 			# 		["ignore_if_existing_ingredients_texts_fr"],
@@ -3148,7 +3149,8 @@ sub process_product_edit_rules ($product_ref) {
 						$proceed_with_edit = 0;
 					}
 					# rules with conditions
-					elsif ($action =~ /^(ignore|warn)(_if_(existing|0|greater|lesser|equal|match|regexp_match)_)?(.*)$/)
+					elsif (
+						$action =~ /^(ignore|warn)(_if_(existing|0|greater|lesser|equal|match|regexp_match))?_?(.*)$/)
 					{
 						my ($type, $condition, $field) = ($1, $3, $4);
 						my $default_field = $field;
@@ -3161,6 +3163,19 @@ sub process_product_edit_rules ($product_ref) {
 						local $log->context->{action} = $field;
 						local $log->context->{field} = $field;
 
+						if ($field =~ /_(\w\w)$/) {
+							# localized field ? remove language to get value in request
+							$default_field = $`;
+						}
+						if ($field =~ /_100g$/) {
+							# nutrient 100g ? remove 100g to get value in request
+							$default_field = $`;
+						}
+						elsif ($field =~ /nutriments_.*$/) {
+							# also consider nutrient_100g
+							$default_field = $field . "_100g";
+						}
+
 						if (defined $condition) {
 
 							my $param_field = undef;
@@ -3168,12 +3183,8 @@ sub process_product_edit_rules ($product_ref) {
 								# param_field is the new value defined by edit
 								$param_field = remove_tags_and_quote(decode utf8 => single_param($field));
 							}
-							if ($field =~ /_(\w\w)$/) {
-								# localized field ? remove language to get value in request
-								$default_field = $`;
-								if ((!defined $param_field) && (defined single_param($default_field))) {
-									$param_field = remove_tags_and_quote(decode utf8 => single_param($default_field));
-								}
+							if ((!defined $param_field) && (defined single_param($default_field))) {
+								$param_field = remove_tags_and_quote(decode utf8 => single_param($default_field));
 							}
 
 							# if field is not passed, skip rule
@@ -3266,8 +3277,10 @@ sub process_product_edit_rules ($product_ref) {
 
 							if ($type eq 'ignore') {
 								Delete($field);
+								$log->info("edit_rule: Removed $field") if $log->is_info();
 								if ($default_field ne $field) {
 									Delete($default_field);
+									$log->info("edit_rule: Removed $default_field") if $log->is_info();
 								}
 							}
 						}
