@@ -183,6 +183,10 @@ restart: run_deps
 	${DOCKER_COMPOSE} restart backend frontend
 	@echo "🥫  started service at http://openfoodfacts.localhost"
 
+stop: stop_deps
+	@echo "🥫 Stopping containers …"
+	${DOCKER_COMPOSE} stop
+
 status: run_deps
 	@echo "🥫 Getting container status …"
 	${DOCKER_COMPOSE} ps
@@ -348,6 +352,7 @@ stop_tests:
 # clean tests, remove containers and volume (useful if you changed env variables, etc.)
 clean_tests:
 	${DOCKER_COMPOSE_TEST} down -v --remove-orphans
+	${DOCKER_COMPOSE_INT_TEST} down -v --remove-orphans
 
 update_tests_results: build_taxonomies_test build_lang_test update_unit_tests_results update_integration_tests_results
 
@@ -595,6 +600,11 @@ prune_deps: clone_deps
 	@for dep in ${DEPS} ; do \
 		echo "🥫 Pruning $$dep..."; \
 		cd ${DEPS_DIR}/$$dep && $(MAKE) prune; \
+	done
+
+stop_deps:
+	@for dep in ${DEPS} ; do \
+		cd ${DEPS_DIR}/$$dep && ( $(MAKE) stop || env -i docker compose stop ) ; \
 	done
 
 #-----------#

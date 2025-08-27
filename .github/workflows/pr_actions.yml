@@ -45,7 +45,7 @@ jobs:
     - name: Run linting
       run: make lint front_lint
     - name: Push changes if needed
-      uses: stefanzweifel/git-auto-commit-action@v5
+      uses: stefanzweifel/git-auto-commit-action@v6
       with:
         commit_message: "chore: Linting changes"
         branch: "${{ steps.get-branch.outputs.branch }}"
@@ -91,7 +91,7 @@ jobs:
     - name: Run update tests results
       run: make update_tests_results
     - name: Push changes if needed
-      uses: stefanzweifel/git-auto-commit-action@v5
+      uses: stefanzweifel/git-auto-commit-action@v6
       with:
         commit_message: "test: Update tests results"
         branch: "${{ steps.get-branch.outputs.branch }}"
