@@ -60,6 +60,8 @@ use ProductOpener::Users qw/retrieve_user store_user_preferences/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Auth qw/get_oidc_implementation_level/;
+use ProductOpener::Cache qw/$memd/;
+
 use AnyEvent;
 use AnyEvent::RipeRedis;
 
@@ -165,6 +167,8 @@ sub _read_user_streams($search_from) {
 	# Note the message index to search from is provided at the end of the list in the same order as the list of keys
 	push(@streams, $search_from);
 
+	#12279 TODO: Also catch user-updated. Need to catch user-registered for all processes in order to add to cache
+
 	$log->info("Reading from Redis", {streams => \@streams}) if $log->is_info();
 	$redis_client->xread(
 		@streams,
@@ -225,6 +229,7 @@ sub _process_registered_users_stream($stream_values_ref) {
 			$message_hash{$key} = $value;
 		}
 
+		#12279 TODO: Can cache user here once additional attributes are included
 		my $user_id = $message_hash{'userName'};
 		my $newsletter = $message_hash{'newsletter'};
 		my $requested_org = $message_hash{'requestedOrg'};
@@ -286,8 +291,12 @@ sub _process_deleted_users_stream($stream_values_ref) {
 			$message_hash{$key} = $value;
 		}
 
+		# Remove user from the cache
+		my $userid = $message_hash{'userName'};
+		$memd->delete("user/$userid");
+
 		my $args_ref = {
-			userid => $message_hash{'userName'},
+			userid => $userid,
 			newuserid => $message_hash{'newUserName'}
 		};
 		my $job_id = queue_job(delete_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
