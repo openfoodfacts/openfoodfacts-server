@@ -1010,13 +1010,11 @@ sub get_minion_jobs ($task_name, $created_after_ts, $max_waiting_time) {
 				my $job_state = $job->{state};
 				# check if the job is done
 				if (($job_state eq "active") or ($job_state eq "inactive")) {
-					print STDERR "[" . localtime() . "] waiting for job $job_id\n";
 					$jobs_complete = 0;
 					sleep(2);
 					$waited += 2;
 				}
 				else {
-					print STDERR "[" . localtime() . "] adding $job_id\n";
 					$run_jobs{$job_id} = $job;
 				}
 			}

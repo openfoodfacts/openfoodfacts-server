@@ -226,7 +226,6 @@ sub delete_user ($user_ref) {
 	}
 	else {
 		# Delete from Keycloak. This will trigger a Redis event that will then queue the delete_user_task in Minion
-		print STDERR "[" . localtime() . "] deleting user from keycloak\n";
 		my $keycloak = ProductOpener::Keycloak->new();
 		$keycloak->delete_user($user_ref->{userid});
 	}
@@ -361,7 +360,7 @@ sub delete_user_task ($job, $args_ref) {
 
 	my $job_id = $job->{id};
 
-	my $log_message = "[" . localtime() . "] delete_user_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
+	my $log_message = "delete_user_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
 	open(my $minion_log, ">>", "$BASE_DIRS{LOGS}/minion.log");
 	print $minion_log $log_message;
 	close($minion_log);
@@ -695,6 +694,7 @@ the request object
 =cut
 
 sub notify_user_requested_org ($user_ref, $org_created, $request_ref) {
+
 	# the template for the email, we will build it gradually
 	my $template_data_ref = {
 		userid => $user_ref->{userid},
@@ -859,11 +859,12 @@ sub process_user_form ($type, $user_ref, $request_ref) {
 		if (get_oidc_implementation_level() < 2) {
 			# Send welcome emails until Keycloak becomes the source of truth
 			$error = send_welcome_emails($user_ref);
-		}
-		# Check if the user subscribed to the newsletter
-		if ($user_ref->{newsletter}) {
-			add_contact_to_list($user_ref->{email}, $user_ref->{user_id}, $user_ref->{country},
-				$user_ref->{preferred_language});
+
+			# Check if the user subscribed to the newsletter
+			if ($user_ref->{newsletter}) {
+				add_contact_to_list($user_ref->{email}, $user_ref->{user_id}, $user_ref->{country},
+					$user_ref->{preferred_language});
+			}
 		}
 
 		return $error;
@@ -1225,8 +1226,6 @@ sub store_user_preferences ($user_ref) {
 		delete $user_preferences->{preferred_language};
 	}
 	my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $user_ref->{userid}) . ".sto";
-	$log->info("storing user session", {user_preferences => $user_preferences}) if $log->is_info();
-
 	store($user_file, $user_preferences);
 
 	return;
