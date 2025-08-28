@@ -914,6 +914,8 @@ is(
 );
 
 is(country_to_cc('en:france'), 'fr');
+is(country_to_cc('en:world'), 'world');
+is(country_to_cc('unknown'), 'world');
 is(cc_to_country('fr'), 'en:france');
 is(cc_to_country('unknown'), 'en:world');
 is(cc_to_country(undef), 'en:world');

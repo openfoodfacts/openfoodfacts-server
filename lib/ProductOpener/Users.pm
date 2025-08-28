@@ -106,7 +106,7 @@ use ProductOpener::Auth qw/:all/;
 use ProductOpener::Keycloak qw/:all/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::Minion qw/queue_job/;
-use ProductOpener::Tags qw/cc_to_country/;
+use ProductOpener::Tags qw/cc_to_country country_to_cc/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
@@ -259,20 +259,9 @@ sub welcome_user_task ($job, $args_ref) {
 	print STDERR $log_message;
 
 	my $userid = $args_ref->{userid};
-	my $keycloak = ProductOpener::Keycloak->new();
-	my $user_ref = $keycloak->find_user_by_username($userid);
+	my $user_ref = retrieve_user($userid);
 
-	# Fetch the HTML mail template corresponding to the user language, english is the
-	# default if the translation is not available
-	my $language = $user_ref->{attributes}->{locale}[0];
-	my $email_content = get_html_email_content("user_welcome.html", $language);
-	my $user_name = $user_ref->{attributes}->{name}[0] || $userid;
-	$user_ref->{name} = $user_name;
-
-	# Replace placeholders by user values
-	$email_content =~ s/\{\{USERID\}\}/$userid/g;
-	$email_content =~ s/\{\{NAME\}\}/$user_name/g;
-	send_html_email($user_ref, lang("add_user_email_subject"), $email_content);
+	send_welcome_emails($user_ref);
 
 	$job->finish("done");
 
@@ -303,17 +292,16 @@ sub subscribe_user_newsletter_task ($job, $args_ref) {
 	print STDERR $log_message;
 
 	my $userid = $args_ref->{userid};
-	my $keycloak = ProductOpener::Keycloak->new();
-	my $user_ref = $keycloak->find_user_by_username($userid);
+	my $user_ref = retrieve_user($userid);
 	if (not(defined $user_ref)) {
 		$job->fail({errors => ['User with id ' . $userid . ' not found in Keycloak.']});
 		return;
 	}
 
 	add_contact_to_list(
-		$user_ref->{email}, $user_ref->{username},
-		$user_ref->{attributes}->{country},
-		$user_ref->{attributes}->{preferred_language}
+		$user_ref->{email}, $user_ref->{name},
+		$user_ref->{country},
+		$user_ref->{preferred_language}
 	);
 
 	$job->finish("done");
@@ -707,13 +695,12 @@ the request object
 =cut
 
 sub notify_user_requested_org ($user_ref, $org_created, $request_ref) {
-
 	# the template for the email, we will build it gradually
 	my $template_data_ref = {
 		userid => $user_ref->{userid},
 		user => $user_ref,
 		requested_org => $user_ref->{requested_org_id},
-		cc => $request_ref->{cc},
+		cc => country_to_cc($user_ref->{country}),
 	};
 
 	# construct first part of the mail about new pro account
@@ -791,14 +778,23 @@ sub process_user_requested_org ($user_ref, $request_ref) {
 
 	if (not(defined $requested_org_ref)) {
 		# The requested org does not exist, create it
-		my $org_ref = create_org($userid, $user_ref->{requested_org});
+		my $org_ref = create_org($userid, $user_ref->{requested_org}, $user_ref->{country});
+
+		# The following is also done in init_user, but with Keycloak the org won't exist at the time the session is initially created
+		$org_ref->{last_logged_member} = $userid;
+		$org_ref->{last_logged_member_t} = time();
+
 		add_user_to_org($org_ref, $userid, ["admins", "members"]);
 
+		# # Re-load the user here as the above may have taken some time
+		$user_ref = retrieve_user($userid);
 		$user_ref->{org} = $user_ref->{requested_org_id};
 		$user_ref->{org_id} = get_string_id_for_lang("no_language", $user_ref->{org});
 
 		delete $user_ref->{requested_org};
 		delete $user_ref->{requested_org_id};
+
+		store_user_preferences($user_ref);
 
 		$org_created = 1;
 	}
@@ -862,18 +858,35 @@ sub process_user_form ($type, $user_ref, $request_ref) {
 
 		if (get_oidc_implementation_level() < 2) {
 			# Send welcome emails until Keycloak becomes the source of truth
+			$error = send_welcome_emails($user_ref);
+		}
+		# Check if the user subscribed to the newsletter
+		if ($user_ref->{newsletter}) {
+			add_contact_to_list($user_ref->{email}, $user_ref->{user_id}, $user_ref->{country},
+				$user_ref->{preferred_language});
+		}
 
-			# Fetch the HTML mail template corresponding to the user language, english is the
-			# default if the translation is not available
-			my $language = $user_ref->{preferred_language} || $user_ref->{initial_lc};
-			my $email_content = get_html_email_content("user_welcome.html", $language);
-			my $user_name = $user_ref->{name};
-			# Replace placeholders by user values
-			$email_content =~ s/\{\{USERID\}\}/$userid/g;
-			$email_content =~ s/\{\{NAME\}\}/$user_name/g;
-			$error = send_html_email($user_ref, lang("add_user_email_subject"), $email_content);
+		return $error;
+	}
+	else {
+		return;
+	}
+}
 
-			my $admin_mail_body = <<EMAIL
+sub send_welcome_emails($user_ref) {
+	# Fetch the HTML mail template corresponding to the user language, english is the
+	# default if the translation is not available
+
+	my $userid = $user_ref->{userid};
+	my $language = $user_ref->{preferred_language} || $user_ref->{initial_lc};
+	my $email_content = get_html_email_content("user_welcome.html", $language);
+	my $user_name = $user_ref->{name} || $userid;
+	# Replace placeholders by user values
+	$email_content =~ s/\{\{USERID\}\}/$userid/g;
+	$email_content =~ s/\{\{NAME\}\}/$user_name/g;
+	my $error = send_html_email($user_ref, lang("add_user_email_subject"), $email_content);
+
+	my $admin_mail_body = <<EMAIL
 
 Bonjour,
 
@@ -889,19 +902,9 @@ cc: $user_ref->{initial_cc}
 
 EMAIL
 				;
-			$error += send_email_to_admin("Inscription de $userid", $admin_mail_body);
-		}
-		# Check if the user subscribed to the newsletter
-		if ($user_ref->{newsletter}) {
-			add_contact_to_list($user_ref->{email}, $user_ref->{user_id}, $user_ref->{country},
-				$user_ref->{preferred_language});
-		}
+	$error += send_email_to_admin("Inscription de $userid", $admin_mail_body);
 
-		return $error;
-	}
-	else {
-		return;
-	}
+	return $error;
 }
 
 =head2 check_edit_owner($user_ref, $errors_ref)
@@ -1170,25 +1173,25 @@ sub retrieve_user_preferences ($user_id) {
 # This fetches the data from Keycloak and merges it into the local data
 # This might take some time so should only be used if you really need all the user information
 sub retrieve_user ($user_id) {
-	my $user_ref = retrieve_user_preferences($user_id);
+	my $keycloak_user_ref;
 	if (get_oidc_implementation_level() > 1) {
 		# Fetch the user from Keycloak once it has become the source of truth
+		# Do this before fetching the local preferences as it can take a while
 		my $keycloak = ProductOpener::Keycloak->new();
-		my $keycloak_user_ref = $keycloak->find_user_by_username($user_id);
-
-		if ($keycloak_user_ref) {
-			$user_ref //= {};
-			$user_ref->{email} = $keycloak_user_ref->{email};
-			$user_ref->{userid} = $keycloak_user_ref->{username};
-			$user_ref->{name} = $keycloak_user_ref->{attributes}->{name}[0];
-			$user_ref->{preferred_language} = $keycloak_user_ref->{attributes}->{locale}[0];
-			$user_ref->{country} = cc_to_country($keycloak_user_ref->{attributes}->{country}[0]);
-
-			# The following two are only initially set in Keycloak but aren't edited there
-			$user_ref->{requested_org} //= $keycloak_user_ref->{attributes}->{requested_org}[0];
-			$user_ref->{newsletter} //= defined $keycloak_user_ref->{attributes}->{newsletter}[0];
-		}
+		$keycloak_user_ref = $keycloak->find_user_by_username($user_id);
 	}
+	my $user_ref = retrieve_user_preferences($user_id);
+	if ($keycloak_user_ref) {
+		$user_ref //= {};
+		$user_ref->{email} = $keycloak_user_ref->{email};
+		$user_ref->{userid} = $keycloak_user_ref->{username};
+		$user_ref->{name} = $keycloak_user_ref->{attributes}->{name}[0];
+		$user_ref->{preferred_language} = $keycloak_user_ref->{attributes}->{locale}[0];
+		$user_ref->{country} = cc_to_country($keycloak_user_ref->{attributes}->{country}[0]);
+
+		# Don't set requested_org and newsletter here as they are only relevant the first time a user registers
+	}
+
 	return $user_ref;
 }
 
@@ -1233,11 +1236,6 @@ sub store_user_preferences ($user_ref) {
 # There should be nothing calling this once we have fully migrated.
 sub store_user ($user_ref) {
 	my $oidc_implementation_level = get_oidc_implementation_level();
-	if ($oidc_implementation_level > 0) {
-		# Sync the user with Keycloak
-		my $keycloak = ProductOpener::Keycloak->new();
-		$keycloak->create_or_update_user($user_ref);
-	}
 	if ($oidc_implementation_level < 2) {
 		# We are still using legacy data structures as the source of truth
 
@@ -1256,8 +1254,13 @@ sub store_user ($user_ref) {
 		}
 		store("$BASE_DIRS{USERS}/users_emails.sto", $emails_ref);
 	}
-	# save other user preferences
+	# save user preferences before we call Keycloak so that session information is saved before Redis can kick in
 	store_user_preferences($user_ref);
+	if ($oidc_implementation_level > 0) {
+		# Sync the user with Keycloak
+		my $keycloak = ProductOpener::Keycloak->new();
+		$keycloak->create_or_update_user($user_ref);
+	}
 
 	return;
 }

@@ -250,6 +250,11 @@ sub _process_registered_users_stream($stream_values_ref) {
 
 		my $args_ref = {userid => $user_id};
 
+		# Register interest in joining an organization
+		if (defined $requested_org) {
+			queue_job(process_user_requested_org => [$args_ref] => {queue => $server_options{minion_local_queue}});
+		}
+
 		if (not defined $clientId or $clientId ne 'OFF_PRO') {
 			# Don't send normal welcome email for users that sign-up via the pro platform
 			queue_job(welcome_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
@@ -258,11 +263,6 @@ sub _process_registered_users_stream($stream_values_ref) {
 		# Subscribe to newsletter
 		if (defined $newsletter and $newsletter eq 'subscribe') {
 			queue_job(subscribe_user_newsletter => [$args_ref] => {queue => $server_options{minion_local_queue}});
-		}
-
-		# Register interest in joining an organization
-		if (defined $requested_org) {
-			queue_job(process_user_requested_org => [$args_ref] => {queue => $server_options{minion_local_queue}});
 		}
 
 		$last_processed_message_id = $message_id;

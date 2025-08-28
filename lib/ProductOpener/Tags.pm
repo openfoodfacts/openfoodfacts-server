@@ -2696,7 +2696,7 @@ sub country_to_cc ($country) {
 		return lc($properties{countries}{$country}{"country_code_2:en"});
 	}
 
-	return;
+	return 'world';
 }
 
 sub cc_to_country($cc) {

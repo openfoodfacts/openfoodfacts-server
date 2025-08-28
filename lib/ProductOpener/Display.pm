@@ -382,7 +382,7 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{edq} = sub {escape_char(@_, '"')};    # edq as escape_double_quote
 	$template_data_ref->{lang_sprintf} = \&lang_sprintf;
 	$template_data_ref->{lc} = $lc;
-	$template_data_ref->{cc} = $request_ref->{cc};
+	$template_data_ref->{cc} //= $request_ref->{cc};
 	$template_data_ref->{display_icon} = \&display_icon;
 	$template_data_ref->{time_t} = time();
 	$template_data_ref->{display_date_without_time} = \&display_date_without_time;

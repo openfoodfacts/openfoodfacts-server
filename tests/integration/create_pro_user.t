@@ -4,6 +4,8 @@ use ProductOpener::PerlStandards;
 
 use ProductOpener::Config qw/$data_root/;
 use ProductOpener::Store qw/retrieve/;
+use ProductOpener::Users qw/retrieve_user/;
+use ProductOpener::Auth qw/get_oidc_implementation_level/;
 
 use Test2::V0;
 use ProductOpener::APITest qw/:all/;
@@ -14,6 +16,8 @@ use ProductOpener::TestDefaults
 use Clone qw/clone/;
 use List::Util qw/first/;
 use Storable qw(dclone);
+use JSON::MaybeXS qw/to_json/;
+use List::MoreUtils qw/first_index any/;
 
 =head1 Test creation of a producer user
 
@@ -51,7 +55,12 @@ my %user_form = (
 	pro => "1",
 	requested_org => "Acme Inc."
 );
-my $tail = tail_log_start();
+my $log_path;
+if (get_oidc_implementation_level() > 1) {
+	# Emails will be in the Minion log once Keycloak is the master source of truth
+	$log_path = "/var/log/apache2/minion_log4perl.log"
+}
+my $tail = tail_log_start($log_path);
 my $before_create_ts = time();
 $resp = create_user($user_ua, \%user_form);
 ok(!html_displays_error($resp), "no error creating pro user");
@@ -59,14 +68,16 @@ ok(!html_displays_error($resp), "no error creating pro user");
 # Create user starts in Keycloak, then triggers Redis which creates minion job
 # Wait for minion job to complete
 my $max_time = 60;
+# Wait for the welcome email jobs as they come last
+get_minion_jobs("welcome_user", $before_create_ts, $max_time);
+# Now get the requested orgs jobs
 my $jobs_ref = get_minion_jobs("process_user_requested_org", $before_create_ts, $max_time);
 is(scalar @{$jobs_ref}, 1, "One process_user_requested_org was triggered");
 
 my $logs = tail_log_read($tail);
 
 # As it is the first user of the org, user is already part of the org
-#11866: This may need to change with Keycloak
-my $user_ref = retrieve("$data_root/users/tests.sto");
+my $user_ref = retrieve_user("tests");
 # user is already part of org
 is($user_ref->{pro}, 1, "user is marked as pro");
 
@@ -93,6 +104,12 @@ compare_to_expected_results(
 my @mails = mails_from_log($logs);
 # get text
 @mails = map {; normalize_mail_for_comparison($_)} @mails;
+
+# Ensure the promoter email is at the start for comparison as with Minion jobs they aren't always processed in the same order
+my $promoter_email_index = first_index {any {index($_, "user_new_pro_account_admin_notification.tt.html") != -1} $_} @mails;
+my $promoter_email = splice(@mails, $promoter_email_index, 1);
+unshift(@mails, $promoter_email);
+
 # we got three
 is(scalar @mails, 3, "3 mails sent on subscription");
 # compare

@@ -187,7 +187,7 @@ sub create_or_update_user ($self, $user_ref, $password = undef) {
 			# Truncate name more than 255 because of UTF-8 encoding. Could do this more precisely...
 			name => substr($name, 0, 128),
 			locale => $user_ref->{preferred_language},
-			country => country_to_cc($user_ref->{country} || 'en:world'),
+			country => country_to_cc($user_ref->{country} || 'world'),
 			requested_org => $user_ref->{requested_org},
 			newsletter => ($user_ref->{newsletter} ? 'subscribe' : undef)
 		}

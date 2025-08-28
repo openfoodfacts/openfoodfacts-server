@@ -179,7 +179,7 @@ if ($action eq 'display') {
 
 	if ($user_ref) {
 		if (get_oidc_implementation_level() < 5) {
-			# Keep legacy method until we have moved account management to Keycloak
+			# Keep legacy display fields until we have moved account management to Keycloak
 			my $selected_language = $user_ref->{preferred_language}
 				// (remove_tags_and_quote(single_param('preferred_language')) || "$lc");
 			my $selected_country = $user_ref->{country} // (remove_tags_and_quote(single_param('country')) || $country);

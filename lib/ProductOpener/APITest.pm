@@ -1023,7 +1023,7 @@ sub get_minion_jobs ($task_name, $created_after_ts, $max_waiting_time) {
 		}
 	}
 	# sort by creation date to have jobs in predictable order
-	my @all_jobs = sort {$_->info->{created}} (values %run_jobs);
+	my @all_jobs = sort {$a->{created} <=> $b->{created}} (values %run_jobs);
 	return \@all_jobs;
 }
 
