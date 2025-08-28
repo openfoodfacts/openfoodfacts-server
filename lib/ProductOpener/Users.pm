@@ -1585,8 +1585,10 @@ sub init_user ($request_ref) {
 				}
 			}
 			else {
-				my ($user_ref, $refresh_token, $refresh_expires_at, $access_token, $access_expires_at, $id_token)
+				my ($keycloak_user_ref, $refresh_token, $refresh_expires_at, $access_token, $access_expires_at, $id_token)
 					= password_signin($user_id, encode_utf8(request_param($request_ref, 'password')), $request_ref);
+				$user_ref = $keycloak_user_ref;
+
 				# We don't have the right password
 				if (not $user_ref) {
 					$user_id = undef;
