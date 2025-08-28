@@ -58,7 +58,7 @@ my %user_form = (
 my $log_path;
 if (get_oidc_implementation_level() > 1) {
 	# Emails will be in the Minion log once Keycloak is the master source of truth
-	$log_path = "/var/log/apache2/minion_log4perl.log"
+	$log_path = "/var/log/apache2/minion_log4perl.log";
 }
 my $tail = tail_log_start($log_path);
 my $before_create_ts = time();
@@ -106,7 +106,10 @@ my @mails = mails_from_log($logs);
 @mails = map {; normalize_mail_for_comparison($_)} @mails;
 
 # Ensure the promoter email is at the start for comparison as with Minion jobs they aren't always processed in the same order
-my $promoter_email_index = first_index {any {index($_, "user_new_pro_account_admin_notification.tt.html") != -1} $_} @mails;
+my $promoter_email_index = first_index {
+	any {index($_, "user_new_pro_account_admin_notification.tt.html") != -1} $_
+}
+@mails;
 my $promoter_email = splice(@mails, $promoter_email_index, 1);
 unshift(@mails, $promoter_email);
 

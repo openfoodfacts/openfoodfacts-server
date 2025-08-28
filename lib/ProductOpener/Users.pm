@@ -297,11 +297,7 @@ sub subscribe_user_newsletter_task ($job, $args_ref) {
 		return;
 	}
 
-	add_contact_to_list(
-		$user_ref->{email}, $user_ref->{name},
-		$user_ref->{country},
-		$user_ref->{preferred_language}
-	);
+	add_contact_to_list($user_ref->{email}, $user_ref->{name}, $user_ref->{country}, $user_ref->{preferred_language});
 
 	$job->finish("done");
 
@@ -902,7 +898,7 @@ lc: $user_ref->{initial_lc}
 cc: $user_ref->{initial_cc}
 
 EMAIL
-				;
+		;
 	$error += send_email_to_admin("Inscription de $userid", $admin_mail_body);
 
 	return $error;
@@ -1556,8 +1552,10 @@ sub init_user ($request_ref) {
 				}
 			}
 			else {
-				my ($keycloak_user_ref, $refresh_token, $refresh_expires_at, $access_token, $access_expires_at, $id_token)
-					= password_signin($user_id, encode_utf8(request_param($request_ref, 'password')), $request_ref);
+				my (
+					$keycloak_user_ref, $refresh_token, $refresh_expires_at,
+					$access_token, $access_expires_at, $id_token
+				) = password_signin($user_id, encode_utf8(request_param($request_ref, 'password')), $request_ref);
 				$user_ref = $keycloak_user_ref;
 
 				# We don't have the right password
