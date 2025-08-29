@@ -1,14 +1,9 @@
 # This files enable live preview of your webcomponents
 # (but you have to build it in your webcomonents project)
+# see ../docs/dev/how-to-develop-with-webcomponents.md
 
 services:
-  frontend:
-    volumes:
-      # this mounts the dist folder of the webcomponents project in the container
-      # so that it can be used by the dynamicfront
-      - ${WEBCOMPONENTS_DIR:-../openfoodfacts-webcomponents}/web-components:/opt/product-opener/node_modules/@openfoodfacts/openfoodfacts-webcomponents
   dynamicfront:
     volumes:
-      # this mounts the dist folder of the webcomponents project in the container
-      # so that it can be used by the dynamicfront
-      - ${WEBCOMPONENTS_DIR:-../openfoodfacts-webcomponents}/web-components:/opt/product-opener/node_modules/@openfoodfacts/openfoodfacts-webcomponents
+      # Mount webcomponents to a separate location, that will be referenced by package.json
+      - ${WEBCOMPONENTS_DIR:-../openfoodfacts-webcomponents}/web-components:/opt/webcomponents

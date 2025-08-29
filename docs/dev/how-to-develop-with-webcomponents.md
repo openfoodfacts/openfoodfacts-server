@@ -1,6 +1,7 @@
 # How to use WebComponents
 - We have a variety of Web Components to do the hard work for you: explore them at [openfoodfacts-webcomponents](https://github.com/openfoodfacts/openfoodfacts-webcomponents)
 - Nutrition extraction, Ingredient extraction, Robotoff questions, spellcheck, barcode scanner for PWA, Product card, and more.
+
 # How to develop with WebComponents
 
 If you are developing a new WebComponent in [openfoodfacts-webcomponents](https://github.com/openfoodfacts/openfoodfacts-webcomponents) project,
@@ -17,11 +18,19 @@ COMPOSE_FILE=docker-compose.yml;docker/dev.yml;docker/dev-webcomponents.yml;dock
 ```
 
 If your project is located, relatively to your openfoodfacts-server project,
-at `../openfoodfacts-webcomponents`, you are all set,
+at `../openfoodfacts-webcomponents`, it's ok,
 otherwise you need to define the `WEBCOMPONENTS_DIR` in your .env file
 to point to  the right relative location.
 
-BEWARE: not to commit you .env changes !
+Modify the `package.json` file so that the webcomponents dependency
+is not a version anymore but instead `/opt/webcomponents`:
+
+```diff
+-    "@openfoodfacts/openfoodfacts-webcomponents": "1.12.3"
++    "@openfoodfacts/openfoodfacts-webcomponents": "/opt/webcomponents",
+```
+
+BEWARE: not to commit your `.env`, `package.json`  and `package-lock.json` changes !
 
 ## If you want to use envrc
 
