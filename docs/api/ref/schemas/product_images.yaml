@@ -122,16 +122,25 @@ properties:
       **IMPORTANT:** you should use `selected_images` field instead of this one.
 
 patternProperties:
-  "^image_.*_url$":
+  "^image_(front|ingredients|nutrition|packaging|other)_url$":
     description: |
-      URL for product images in various types and sizes.
+      URL for the display version (400px max) of product images.
       
-      The pattern matches fields like:
-      - image_[type]_url (display size, 400px max)  
-      - image_[type]_small_url (small size, 200px max)
-      - image_[type]_thumb_url (thumbnail size, 100px max)
+      The image is the one for current language (affected by `lc` parameter) if an image exists for this language, the image in main product language otherwise.
+
+      **IMPORTANT:** you should use `selected_images` field instead of these individual URL fields.
+    type: string
+  "^image_(front|ingredients|nutrition|packaging|other)_small_url$":
+    description: |
+      URL for the small version (200px max) of product images.
       
-      Where [type] can be: front, ingredients, nutrition, packaging, or other.
+      The image is the one for current language (affected by `lc` parameter) if an image exists for this language, the image in main product language otherwise.
+
+      **IMPORTANT:** you should use `selected_images` field instead of these individual URL fields.
+    type: string
+  "^image_(front|ingredients|nutrition|packaging|other)_thumb_url$":
+    description: |
+      URL for the thumbnail version (100px max) of product images.
       
       The image is the one for current language (affected by `lc` parameter) if an image exists for this language, the image in main product language otherwise.
 
