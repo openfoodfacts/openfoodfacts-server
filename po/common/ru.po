@@ -360,10 +360,6 @@ msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
 msgstr "Руководство администратора производителей"
 
-msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> создано некоммерческой организацией, независимой от индустрии. Наше приложение сделано всеми для всех и финансируется всеми. Вы можете поддержать наш труд<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">, отправляя денежные пожертвования Open Food Facts</a>, а также <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">используя поисковик Lilo</a>.<br/><b>Спасибо!</b></p>"
-
 msgctxt "bottom_title"
 msgid "Donate to support our work"
 msgstr "Пожертвовать, чтобы поддержать нашу работу"
@@ -4637,17 +4633,17 @@ msgid "Missing data to compute the Nutri-Score"
 msgstr "Отсутствуют данные для расчета Nutri-Score"
 
 msgctxt "attribute_nutriscore_not_applicable_title"
-msgid "Nutri-Score not-applicable"
-msgstr "Nutri-Score неприменим"
+msgid "Nutri-Score not applicable"
+msgstr "Nutri-Score не применим"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Not-applicable for the category"
-msgstr "Неприменимо для категории"
+msgid "Not applicable for the category"
+msgstr "Неприменимо к этой категории"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
-msgid "Not-applicable for the category: {category}"
-msgstr "Не применимо к категории: {category}"
+msgid "Not applicable for the category: {category}"
+msgstr "Не применимо для категории: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -5122,6 +5118,10 @@ msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr "Отсутствует информация о пищевой ценности"
 
+msgctxt "missing_nutrition_facts_prepared"
+msgid "Missing nutrition facts for prepared product"
+msgstr "Отсутствуют сведения о пищевой ценности готового продукта"
+
 msgctxt "ecoscore_p"
 msgid "Green-Score"
 msgstr "Green-Score"
@@ -5464,6 +5464,10 @@ msgstr "Green-Score не рассчитана"
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr "Воздействие на окружающую среду неизвестно"
+
+msgctxt "attribute_environmental_score_unknown_description_short_missing_precise_category"
+msgid "Missing a precise category"
+msgstr "Отсутствует точная категория"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
@@ -6110,6 +6114,10 @@ msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
 msgstr "Нет данных о пищевой ценности:"
 
+msgctxt "nutriscore_missing_prepared_nutrition_data_details"
+msgid "Missing nutrition facts for prepared product:"
+msgstr "Отсутствующие сведения о пищевой ценности готового продукта:"
+
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "Для определения Nutri-Score необходимо указать категорию продукта и его пищевую ценность."
@@ -6197,6 +6205,10 @@ msgstr "Отсутствующая категория"
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr "Отсутствует информация о пищевой ценности"
+
+msgctxt "nutriscore_missing_prepared_nutrition_data_short"
+msgid "Missing prepared nutrition facts"
+msgstr "Отсутствуют сведения о пищевой ценности готового продукта"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
@@ -6382,6 +6394,10 @@ msgstr "Не могли бы вы добавить информацию для �
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
 msgstr "Не могли бы вы уточнить категорию продукта, чтобы мы могли рассчитать Green-Score?"
+
+msgctxt "actions_to_compute_environmental_score_unprecise_category"
+msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
+msgstr "Категория, указанная для этого продукта, недостаточно точна для расчета Green-Score. Не могли бы вы указать более точную категорию продукта?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -7362,12 +7378,12 @@ msgid "Repairability index unknown"
 msgstr "Индекс ремонтопригодности неизвестен"
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
-msgid "Repairability index not-applicable"
-msgstr "Индекс ремонтопригодности неприменим"
+msgid "Repairability index not applicable"
+msgstr "Индекс ремонтопригодности не применим"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
-msgid "Not-applicable for the category"
-msgstr "Неприменимо для категории"
+msgid "Not applicable for the category"
+msgstr "Неприменимо к этой категории"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_repairability_index_france_not_applicable_description"
@@ -7512,9 +7528,41 @@ msgctxt "action_report_image_to_nutripatrol"
 msgid "Report this image to our moderators"
 msgstr "Сообщить об этом изображении нашим модераторам"
 
+msgctxt "missing_serving_size_value_and_or_unit"
+msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
+msgstr "У нас отсутствует значение размера порции и/или единицы измерения для расчета показателя Nutri-Score."
+
+msgctxt "bottom_content_split"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> создан некоммерческой организацией, независимой от отрасли. Он создан для всех, всеми и финансируется всеми. Вы можете поддержать нашу работу, сделав пожертвование в Open Food Facts.<br/><b>Спасибо!</b>"
+
+msgctxt "bottom_content_split_with_lilo"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> создан некоммерческой организацией, независимой от отрасли. Он создан для всех, всеми и финансируется всеми. Вы можете поддержать нашу работу, сделав пожертвование в Open Food Facts, а также воспользовавшись поисковой системой Lilo.<br/><b>Спасибо!</b>"
+
+msgctxt "lilo_search_engine"
+msgid "Lilo search engine"
+msgstr "Поисковая система Lilo"
+
 msgctxt "robots_not_served_here"
 msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
 msgstr "Из-за сильного злоупотребления со стороны роботов мы не можем обслуживать эту страницу для неопознанных пользователей. Пожалуйста, создайте бесплатную учетную запись Open Food Facts, чтобы получить доступ ко всем Open Food Facts."
+
+msgctxt "origin_of_ingredients"
+msgid "Origin of ingredients"
+msgstr "Происхождение ингредиентов"
+
+msgctxt "origin_of_product"
+msgid "Origin of product"
+msgstr "Происхождение продукта"
+
+msgctxt "product_information"
+msgid "Product information"
+msgstr "Информация о продукте"
+
+msgctxt "raw_product_information"
+msgid "Raw product information"
+msgstr "Информация о первичном продукте"
 
 msgctxt "knowledge_panels_ingredients_added_sugars_title"
 msgid "Contains added sugars"
