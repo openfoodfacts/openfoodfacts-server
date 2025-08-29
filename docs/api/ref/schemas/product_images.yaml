@@ -80,15 +80,60 @@ properties:
       otherwise in the main product language.
       
       **IMPORTANT:** you should use `selected_images` field instead of this one.
+  image_front_thumb_url:
+    type: string
+    description: |
+      URL for the thumbnail version (100px max) of the front image.
+      This is the front product image in the requested language if available, 
+      otherwise in the main product language.
+      
+      **IMPORTANT:** you should use `selected_images` field instead of this one.
+  image_front_url:
+    type: string
+    description: |
+      URL for the display version (400px max) of the front image.
+      This is the front product image in the requested language if available, 
+      otherwise in the main product language.
+      
+      **IMPORTANT:** you should use `selected_images` field instead of this one.
+  image_nutrition_small_url:
+    type: string
+    description: |
+      URL for the small version (200px max) of the nutrition image.
+      This is the nutrition image in the requested language if available, 
+      otherwise in the main product language.
+      
+      **IMPORTANT:** you should use `selected_images` field instead of this one.
+  image_nutrition_thumb_url:
+    type: string
+    description: |
+      URL for the thumbnail version (100px max) of the nutrition image.
+      This is the nutrition image in the requested language if available, 
+      otherwise in the main product language.
+      
+      **IMPORTANT:** you should use `selected_images` field instead of this one.
+  image_nutrition_url:
+    type: string
+    description: |
+      URL for the display version (400px max) of the nutrition image.
+      This is the nutrition image in the requested language if available, 
+      otherwise in the main product language.
+      
+      **IMPORTANT:** you should use `selected_images` field instead of this one.
 
 patternProperties:
   "^image_.*_url$":
     description: |
-      the URL of image of type `image_type` in size `image_size` (or full size if not given).
-
-      The `image_type` tells which image the url correspond to. `image_type` is `front` if not provided.
-
+      URL for product images in various types and sizes.
+      
+      The pattern matches fields like:
+      - image_[type]_url (display size, 400px max)  
+      - image_[type]_small_url (small size, 200px max)
+      - image_[type]_thumb_url (thumbnail size, 100px max)
+      
+      Where [type] can be: front, ingredients, nutrition, packaging, or other.
+      
       The image is the one for current language (affected by `lc` parameter) if an image exists for this language, the image in main product language otherwise.
 
-      **IMPORTANT:** you should use `selected_images` field instead of this one.
+      **IMPORTANT:** you should use `selected_images` field instead of these individual URL fields.
     type: string
