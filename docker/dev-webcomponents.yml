@@ -1,9 +1,0 @@
-# This files enable live preview of your webcomponents
-# (but you have to build it in your webcomonents project)
-# see ../docs/dev/how-to-develop-with-webcomponents.md
-
-services:
-  dynamicfront:
-    volumes:
-      # Mount webcomponents to a separate location, that will be referenced by package.json
-      - ${WEBCOMPONENTS_DIR:-../openfoodfacts-webcomponents}/web-components:/opt/webcomponents

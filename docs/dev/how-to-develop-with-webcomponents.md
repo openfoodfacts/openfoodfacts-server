@@ -9,42 +9,19 @@ you might want to test its integration immediately.
 
 To do this you can use the following steps:
 
-We need to include the dev-webcomponents.yml file in the docker-compose.yml file.
+1. Define the `WEBCOMPONENTS_DIR` in your .env file (or better .envrc if you use that)
+   to point to  the relative location corresponding to your webcomponents project.
+   For example: `../openfoodfacts-webcomponents`.
 
-Edit your .env to add the following line:
-```ini
-COMPOSE_FILE_BUILD=docker-compose.yml;docker/dev.yml;docker/dev-webcomponents.yml
-COMPOSE_FILE=docker-compose.yml;docker/dev.yml;docker/dev-webcomponents.yml;docker/run.yml
-```
 
-If your project is located, relatively to your openfoodfacts-server project,
-at `../openfoodfacts-webcomponents`, it's ok,
-otherwise you need to define the `WEBCOMPONENTS_DIR` in your .env file
-to point to  the right relative location.
+2. Modify the `package.json` file so that the webcomponents dependency
+   is not a version anymore but instead `/opt/webcomponents`:
 
-Modify the `package.json` file so that the webcomponents dependency
-is not a version anymore but instead `/opt/webcomponents`:
+   ```diff
+   -    "@openfoodfacts/openfoodfacts-webcomponents": "1.12.3"
+   +    "@openfoodfacts/openfoodfacts-webcomponents": "/opt/webcomponents",
+   ```
 
-```diff
--    "@openfoodfacts/openfoodfacts-webcomponents": "1.12.3"
-+    "@openfoodfacts/openfoodfacts-webcomponents": "/opt/webcomponents",
-```
+3. Restart the dynamicfront container.
 
-BEWARE: not to commit your `.env`, `package.json`  and `package-lock.json` changes !
-
-## If you want to use envrc
-
-There is a caveat if you [use the .envrc file](./how-to-use-direnv.md)
-(which as the advantage to be ignored by git),
-because, in `.env` we define the separator between the different `COMPOSE_FILE` to be `;`
-which does not work with the `.envrc` syntax.
-So you have to define the `COMPOSE_FILE` variable in your `.envrc` file to be `:`.
-Which means the changes in your .envrc should be:
-
-```bash
-# eventually use this if your location is distinct
-# export WEBCOMPONENTS_DIR=../openfoodfacts-webcomponents
-export COMPOSE_PATH_SEPARATOR=:
-export COMPOSE_FILE_BUILD=docker-compose.yml:docker/dev.yml:docker/dev-webcomponents.yml
-export COMPOSE_FILE=docker-compose.yml:docker/dev.yml:docker/dev-webcomponents.yml:docker/run.yml
-```
+> **BEWARE**: not to commit your `.env`, `package.json`  and `package-lock.json` changes !
