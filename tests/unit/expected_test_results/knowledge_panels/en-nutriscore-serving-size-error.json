@@ -1725,23 +1725,45 @@
    "nucleotides_tags" : [],
    "nutrient_levels" : {},
    "nutrient_levels_tags" : [],
-   "nutriments" : {
-      "energy_serving" : 2591,
-      "fat_serving" : 50,
-      "fiber_serving" : 5.5,
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 100,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 100,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100,
-      "nova-group" : 1,
-      "nova-group_100g" : 1,
-      "nova-group_serving" : 1,
-      "proteins_serving" : 29,
-      "salt_serving" : 0,
-      "saturated-fat_serving" : 9.7,
-      "sodium_serving" : 0,
-      "sugars_serving" : 5.1
-   },
+   "nutrition": {
+		"aggregated_set": {
+			"nutrients": {
+				"energy": {
+					"value": 2591
+				},
+				"fat": {
+					"value": 50
+				},
+				"saturated-fat": {
+					"value": 9.7
+				},
+				"sugars": {
+					"value": 5.1
+				},
+				"salt": {
+					"value": 0
+				},
+				"sodium": {
+					"value": 0
+				},
+				"proteins": {
+					"value": 29
+				},
+				"fiber": {
+					"value": 5.5
+				},
+            "fruits-vegetables-legumes-estimate-from-ingredients": {
+               "value": 100
+            },
+            "fruits-vegetables-nuts-estimate-from-ingredients": {
+               "value": 100
+            },
+            "nova_group": {
+               "value": 1
+            }
+			}
+		}
+	},
    "nutriscore" : {
       "2021" : {
          "category_available" : 1,
