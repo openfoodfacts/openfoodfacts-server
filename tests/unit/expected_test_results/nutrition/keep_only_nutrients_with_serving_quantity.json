@@ -1,90 +1,84 @@
 {
-    "nutrition": {
-        "aggregated_set": {
-            "preparation": "as_sold", 
-            "per": "100g",
-            "nutrients": {
-                "sodium": {
-                    "value": 2, 
-                    "unit": "g", 
-                    "modifier": "<=",
-                    "source": "packaging",
-                    "source_per": "100g",
-                    "source_index": 0
-                },
-                "iron": {
-                    "value": 0.1,
-                    "unit": "g",
-                    "source": "packaging",
-                    "source_per": "serving",
-                    "source_index": 3
-                }
+   "nutrition" : {
+      "aggregated_set" : {
+         "nutrients" : {
+            "iron" : {
+               "source" : "packaging",
+               "source_index" : 3,
+               "source_per" : "serving",
+               "unit" : "g",
+               "value" : 0.1
+            },
+            "sodium" : {
+               "modifier" : "<=",
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 2
             }
-        },
-        "input_sets": [
-            {
-			    "preparation": "as_sold",
-			    "per": "100g",
-				"per_quantity": "100",
-				"per_unit": "g",
-				"source": "packaging",
-				"nutrients": {
-					"sodium": {
-						"value_string": "2.0",
-						"value": 2,
-						"unit": "g",
-						"modifier": "<="
-					}
-				}
-			},
-			{
-				"preparation": "as_sold",
-				"per": "serving",
-				"per_quantity": null,
-				"per_unit": "g",
-				"source": "packaging",
-				"nutrients": {
-				    "sugars": {
-						"value_string": "5.60",
-						"value": 5.6,
-						"unit": "g"
-					}
-				}
-			},					
-			{
-				"preparation": "as_sold",
-				"per": "serving",
-				"per_quantity": "",
-				"per_unit": "g",
-				"source": "packaging",
-				"nutrients": {
-					"protein": {
-						"value_string": "1.2",
-						"value": 1.2,
-						"unit": "g"
-					}
-				}
-			},
-			{
-				"preparation": "as_sold",
-				"per": "serving",
-				"per_quantity": "100",
-				"per_unit": "g",
-				"source": "packaging",
-				"nutrients": {
-					"iron": {
-						"value_string": "0.1",
-						"value": 0.1,
-						"unit": "g"
-					}
-				}
-			}
-        ]
-    }
+         },
+         "per" : "100g",
+         "preparation" : "as_sold"
+      },
+      "input_sets" : [
+         {
+            "nutrients" : {
+               "sodium" : {
+                  "modifier" : "<=",
+                  "unit" : "g",
+                  "value" : 2,
+                  "value_string" : "2.0"
+               }
+            },
+            "per" : "100g",
+            "per_quantity" : "100",
+            "per_unit" : "g",
+            "preparation" : "as_sold",
+            "source" : "packaging"
+         },
+         {
+            "nutrients" : {
+               "sugars" : {
+                  "unit" : "g",
+                  "value" : 5.6,
+                  "value_string" : "5.60"
+               }
+            },
+            "per" : "serving",
+            "per_quantity" : null,
+            "per_unit" : "g",
+            "preparation" : "as_sold",
+            "source" : "packaging"
+         },
+         {
+            "nutrients" : {
+               "protein" : {
+                  "unit" : "g",
+                  "value" : 1.2,
+                  "value_string" : "1.2"
+               }
+            },
+            "per" : "serving",
+            "per_quantity" : "",
+            "per_unit" : "g",
+            "preparation" : "as_sold",
+            "source" : "packaging"
+         },
+         {
+            "nutrients" : {
+               "iron" : {
+                  "unit" : "g",
+                  "value" : 0.1,
+                  "value_string" : "0.1"
+               }
+            },
+            "per" : "serving",
+            "per_quantity" : "100",
+            "per_unit" : "g",
+            "preparation" : "as_sold",
+            "source" : "packaging"
+         }
+      ]
+   }
 }
-
-
-
-
-
-

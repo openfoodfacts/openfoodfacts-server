@@ -145,7 +145,13 @@ function folskonomy_engine_init() {
       
 
     if (pageType === "properties") {
-        displayAllProperties();
+        const webComponentHTML = `
+          <div style="padding: 32px;">
+            <folksonomy-properties></folksonomy-properties>
+          </div>
+        `;
+
+        $("#main_column").append(webComponentHTML);
     }
 }
 
@@ -363,54 +369,6 @@ function displayFolksonomyPropertyValues() {
                 editPropertyValue(this);
             });
         } );
-    });
-}
-
-function displayAllProperties() {
-
-    /* curl -X 'GET' \
-            'https://api.folksonomy.openfoodfacts.org/keys' \
-            -H 'accept: application/json'
-    */
-    // TODO: add owner filter?
-    //$("#main_column p").remove(); // remove <p>Invalid address.</p>
-
-    // Display empty table
-    $("#main_column").append(String('<h2 id="property_title">Properties</h2>' +
-                        "<p>Open Food Facts allows anyone to reuse contributed properties or create new ones " +
-                        "(see the <a href='https://wiki.openfoodfacts.org/Folksonomy_Engine'>Folksonomy Engine project</a>). " + 
-                        "Here's the list of all contributed properties.</p>" +
-                        '<table id="properties_list">' +
-                        '<tr>' +
-                        '<th> </th>' +
-                        '<th class="property_name">Property</th>' +
-                        '<th class="doc">Documentation</th>' +
-                        '<th class="count">Count</th>' +
-                        '<th class="values">Values</th>' +
-                        '</tr>' +
-                        '<tbody id="free_prop_body">') +
-                        '</tbody>' +
-                        '</table>');
-    //$("#main_column h1").remove(); // remove <h1>Error</h1>
-
-    // Populate table
-    console.log("FEUS - displayAllProperties(_owner) - GET " + feAPI + "/keys");
-    $.getJSON(feAPI + "/keys", function(data) {
-        console.log("FEUS - displayAllProperties() - " + JSON.stringify(data));
-        let index = data.length;
-        let content = "";
-        // sort by count
-        const d = data.sort(function(a,b){ return a.count >b.count ?1 :-1; });
-        while (index--) {
-            content += ('<tr class="property">' +
-                        '<td> </td>' +
-                        '<td><a href="/property/'+ d[index].k + '">' + d[index].k + '</a></td>' +
-                        '<td><a href="https://wiki.openfoodfacts.org/Folksonomy/Property/' + d[index].k + '">🛈</a></td>' +
-                        '<td>' + d[index].count + '</td>' +
-                        '<td>' + d[index].values + '</td>' +
-                        '</tr>');
-        }
-        $("#properties_list").append(content);
     });
 }
 

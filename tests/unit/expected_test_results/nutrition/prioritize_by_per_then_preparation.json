@@ -1,47 +1,47 @@
 {
-   "nutrition": {
-      "aggregated_set": {
-         "nutrients": {
-            "sugars": {
-               "source": "packaging",
-               "source_index": 1,
-               "source_per": "100g",
-               "unit": "g",
-               "value": 5.2
+   "nutrition" : {
+      "aggregated_set" : {
+         "nutrients" : {
+            "sugars" : {
+               "source" : "packaging",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 5.2
             }
          },
-         "per": "100g",
-         "preparation": "as_sold"
+         "per" : "100g",
+         "preparation" : "as_sold"
       },
-      "input_sets": [
+      "input_sets" : [
          {
-            "nutrients": {
-               "sodium": {
-                  "modifier": "<=",
-                  "unit": "g",
-                  "value": 2,
-                  "value_string": "2.0"
+            "nutrients" : {
+               "sodium" : {
+                  "modifier" : "<=",
+                  "unit" : "g",
+                  "value" : 2,
+                  "value_string" : "2.0"
                }
             },
-            "per": "serving",
-            "per_quantity": "250",
-            "per_unit": "g",
-            "preparation": "prepared",
-            "source": "packaging"
+            "per" : "serving",
+            "per_quantity" : "250",
+            "per_unit" : "g",
+            "preparation" : "prepared",
+            "source" : "packaging"
          },
          {
-            "nutrients": {
-               "sugars": {
-                  "unit": "g",
-                  "value": 5.2,
-                  "value_string": "5.2"
+            "nutrients" : {
+               "sugars" : {
+                  "unit" : "g",
+                  "value" : 5.2,
+                  "value_string" : "5.2"
                }
             },
-            "per": "100g",
-            "per_quantity": "100",
-            "per_unit": "g",
-            "preparation": "as_sold",
-            "source": "packaging"
+            "per" : "100g",
+            "per_quantity" : "100",
+            "per_unit" : "g",
+            "preparation" : "as_sold",
+            "source" : "packaging"
          }
       ]
    }
