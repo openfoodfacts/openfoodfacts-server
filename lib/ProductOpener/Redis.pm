@@ -56,10 +56,12 @@ use vars @EXPORT_OK;
 use Log::Any qw/$log/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Minion qw/queue_job/;
-use ProductOpener::Users qw/retrieve_user store_user/;
+use ProductOpener::Users qw/retrieve_user store_user_preferences/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Auth qw/get_oidc_implementation_level/;
+use ProductOpener::Cache qw/$memd/;
+
 use AnyEvent;
 use AnyEvent::RipeRedis;
 
@@ -145,7 +147,7 @@ sub subscribe_to_redis_streams () {
 		return;
 	}
 
-	if (get_oidc_implementation_level() >= 4) {
+	if (get_oidc_implementation_level() >= 2) {
 		# Read Keycloak events to process actions following user creation / deletion
 		_read_user_streams('$');
 	}
@@ -164,6 +166,8 @@ sub _read_user_streams($search_from) {
 	}
 	# Note the message index to search from is provided at the end of the list in the same order as the list of keys
 	push(@streams, $search_from);
+
+	#12279 TODO: Also catch user-updated. Need to catch user-registered for all processes in order to add to cache
 
 	$log->info("Reading from Redis", {streams => \@streams}) if $log->is_info();
 	$redis_client->xread(
@@ -225,6 +229,7 @@ sub _process_registered_users_stream($stream_values_ref) {
 			$message_hash{$key} = $value;
 		}
 
+		#12279 TODO: Can cache user here once additional attributes are included
 		my $user_id = $message_hash{'userName'};
 		my $newsletter = $message_hash{'newsletter'};
 		my $requested_org = $message_hash{'requestedOrg'};
@@ -234,17 +239,8 @@ sub _process_registered_users_stream($stream_values_ref) {
 		$log->info("User registered", {user_id => $user_id, newsletter => $newsletter})
 			if $log->is_info();
 
-		# Create the user if they don't exist and set the properties
+		# Create the user preferences if they don't exist and set the properties
 		my $user_ref = retrieve_user($user_id);
-		unless ($user_ref) {
-			# This doesn't set registered_t and other fields,
-			# these are updated in Auth.pm when the user is redirected back to PO
-			$user_ref = {
-				userid => $user_id,
-				name => $user_id
-			};
-		}
-		$user_ref->{email} = $email;
 		if (defined $requested_org) {
 			$user_ref->{requested_org} = remove_tags_and_quote(decode utf8 => $requested_org);
 
@@ -255,9 +251,14 @@ sub _process_registered_users_stream($stream_values_ref) {
 				$user_ref->{pro} = 1;
 			}
 		}
-		store_user($user_ref);
+		store_user_preferences($user_ref);
 
 		my $args_ref = {userid => $user_id};
+
+		# Register interest in joining an organization
+		if (defined $requested_org) {
+			queue_job(process_user_requested_org => [$args_ref] => {queue => $server_options{minion_local_queue}});
+		}
 
 		if (not defined $clientId or $clientId ne 'OFF_PRO') {
 			# Don't send normal welcome email for users that sign-up via the pro platform
@@ -267,11 +268,6 @@ sub _process_registered_users_stream($stream_values_ref) {
 		# Subscribe to newsletter
 		if (defined $newsletter and $newsletter eq 'subscribe') {
 			queue_job(subscribe_user_newsletter => [$args_ref] => {queue => $server_options{minion_local_queue}});
-		}
-
-		# Register interest in joining an organization
-		if (defined $requested_org) {
-			queue_job(process_user_requested_org => [$args_ref] => {queue => $server_options{minion_local_queue}});
 		}
 
 		$last_processed_message_id = $message_id;
@@ -295,13 +291,17 @@ sub _process_deleted_users_stream($stream_values_ref) {
 			$message_hash{$key} = $value;
 		}
 
-		$log->info("User deleted", {user_id => $message_hash{'userName'}}) if $log->is_info();
+		# Remove user from the cache
+		my $userid = $message_hash{'userName'};
+		$memd->delete("user/$userid");
 
 		my $args_ref = {
-			userid => $message_hash{'userName'},
+			userid => $userid,
 			newuserid => $message_hash{'newUserName'}
 		};
-		queue_job(delete_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
+		my $job_id = queue_job(delete_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
+		$log->info("[" . localtime() . "] User deletion queued", {args_ref => $args_ref, job_id => $job_id})
+			if $log->is_info();
 
 		$last_processed_message_id = $message_id;
 	}

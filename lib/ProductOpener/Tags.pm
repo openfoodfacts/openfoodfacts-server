@@ -148,6 +148,7 @@ BEGIN {
 		%Languages
 
 		&country_to_cc
+		&cc_to_country
 
 		&add_user_translation
 		&load_users_translations_for_lc
@@ -2688,14 +2689,27 @@ sub retrieve_tags_taxonomy ($tagtype, $die_if_taxonomy_cannot_be_loaded = 0) {
 
 sub country_to_cc ($country) {
 
-	if ($country eq 'en:world') {
+	if (not defined $country or $country eq 'en:world') {
 		return 'world';
 	}
 	elsif (defined $properties{countries}{$country}{"country_code_2:en"}) {
 		return lc($properties{countries}{$country}{"country_code_2:en"});
 	}
 
-	return;
+	return 'world';
+}
+
+sub cc_to_country($cc) {
+	if (not defined $cc) {
+		return 'en:world';
+	}
+	my @countries = keys %{$properties{countries}};
+	return (
+		grep {
+			defined $properties{countries}{$_}{"country_code_2:en"}
+				and lc($cc) eq lc($properties{countries}{$_}{"country_code_2:en"})
+		} @countries
+	)[0] // 'en:world';
 }
 
 sub init_languages() {
