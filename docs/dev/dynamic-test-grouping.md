@@ -1,4 +1,4 @@
-# Dynamic Test Grouping System
+# Explain Dynamic Test Grouping System
 
 This document describes the dynamic test grouping system that automatically optimizes test execution in CI by balancing test groups based on execution time and test count.
 
