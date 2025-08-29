@@ -65,13 +65,24 @@ properties:
 
   image_small_url:
     type: string
+    description: URL for the small (200px max) image
   image_thumb_url:
     type: string
+    description: URL for the thumbnail (100px max) image
   image_url:
     type: string
+    description: URL for the display (400px max) image
+  image_front_small_url:
+    type: string
+    description: |
+      URL for the small version (200px max) of the front image. 
+      This is the front product image in the requested language if available, 
+      otherwise in the main product language.
+      
+      **IMPORTANT:** you should use `selected_images` field instead of this one.
 
 patternProperties:
-  "image(_(?<image_type>front|packaging|ingredients|nutrition|other))?(_(?<image_size>small|thumb))?_url":
+  "^image_.*_url$":
     description: |
       the URL of image of type `image_type` in size `image_size` (or full size if not given).
 
