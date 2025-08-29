@@ -22,6 +22,9 @@ To do this you can use the following steps:
    +    "@openfoodfacts/openfoodfacts-webcomponents": "/opt/webcomponents",
    ```
 
-3. Restart the dynamicfront container.
+3. Don't forget to build your webcomponents
+
+4. Restart the dynamicfront container
+
 
 > **BEWARE**: not to commit your `.env`, `package.json`  and `package-lock.json` changes !
