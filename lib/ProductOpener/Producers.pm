@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -50,6 +50,7 @@ BEGIN {
 
 		&load_csv_or_excel_file
 
+		&build_fields_columns_names_for_lang
 		&init_fields_columns_names_for_lang
 		&match_column_name_to_field
 		&init_columns_fields_match
@@ -71,7 +72,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created ensure_dir_created_or_die/;
-use ProductOpener::Store qw/get_string_id_for_lang retrieve store/;
+use ProductOpener::Store qw/get_string_id_for_lang retrieve store store_config retrieve_config/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/%cc_nutriment_table %nutriments_tables/;
@@ -82,8 +83,10 @@ use ProductOpener::Export qw/export_csv/;
 use ProductOpener::Import
 	qw/$IMPORT_MAX_PACKAGING_COMPONENTS import_csv_file import_products_categories_from_public_database/;
 use ProductOpener::ImportConvert qw/clean_fields/;
+use ProductOpener::Minion qw/get_minion/;
 use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
 use ProductOpener::Orgs qw/update_export_date/;
+use ProductOpener::Images qw/$valid_image_types_regexp/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -93,37 +96,6 @@ use JSON::MaybeXS;
 use Time::Local;
 use Data::Dumper;
 use Text::CSV();
-use Minion;
-
-# Minion backend
-my $minion;
-
-=head2 get_minion()
-
-Function to get the backend minion
-
-=head3 Arguments
-
-None
-
-=head3 Return values
-
-The backend minion $minion
-
-=cut
-
-sub get_minion() {
-	if (not defined $minion) {
-		if (not defined $server_options{minion_backend}) {
-			print STDERR "No Minion backend configured in lib/ProductOpener/Config2.pm\n";
-		}
-		else {
-			print STDERR "Initializing Minion backend configured in lib/ProductOpener/Config2.pm\n";
-			$minion = Minion->new(%{$server_options{minion_backend}});
-		}
-	}
-	return $minion;
-}
 
 =head1 FUNCTIONS
 
@@ -860,6 +832,43 @@ sub init_fields_columns_names_for_lang ($l) {
 		return;
 	}
 
+	my $path = "$BASE_DIRS{CACHE_BUILD}/pro/fields_column_names/$l";
+
+	$fields_columns_names_for_lang{$l} = retrieve_config($path);
+
+	if (not defined $fields_columns_names_for_lang{$l}) {
+		die("Could not load $path.json, run scripts/build_pro_platform_fields_columns_names.pl");
+	}
+
+	return $fields_columns_names_for_lang{$l};
+}
+
+=head2 build_fields_columns_names_for_lang ( $l )
+
+Creates global $fields_columns_names_for_lang for the specified language.
+
+The function creates a hash of all the possible localized column names
+that we can automatically recognize, and maps them to the corresponding field in OFF.
+
+The result is stored in the global variable %fields_columns_names_for_lang,
+and saved to a file.
+
+This function can be called through the script scripts/build_pro_platform_fields_column_names.pl
+
+=head3 Arguments
+
+=head4 $l - required
+
+Language code (string)
+
+=head3 Return value
+
+Reference to the column names hash.
+
+=cut
+
+sub build_fields_columns_names_for_lang ($l) {
+
 	$fields_columns_names_for_lang{$l} = {};
 
 	init_nutrients_columns_names_for_lang($l);
@@ -874,9 +883,9 @@ sub init_fields_columns_names_for_lang ($l) {
 	}
 	$fields_columns_names_for_lang{$l}{"kj"} = {field => "energy-kj_100g_value_unit", value_unit => "value_in_kj"};
 
-	ensure_dir_created($BASE_DIRS{CACHE_DEBUG});
+	my $path = "$BASE_DIRS{CACHE_BUILD}/pro/fields_column_names/$l";
 
-	store("$BASE_DIRS{CACHE_DEBUG}/fields_columns_names_$l.sto", $fields_columns_names_for_lang{$l});
+	store_config($path, $fields_columns_names_for_lang{$l});
 
 	return $fields_columns_names_for_lang{$l};
 }
@@ -1167,7 +1176,7 @@ sub init_other_fields_columns_names_for_lang ($l) {
 
 				if ($group_id eq "images") {
 					# front / ingredients / nutrition : specific to one language
-					if ($field =~ /image_(front|ingredients|nutrition|packaging)/) {
+					if ($field =~ /image_($valid_image_types_regexp)/) {
 						$fields_columns_names_for_lang{$l}
 							{get_string_id_for_lang("no_language", normalize_column_name($Lang{$field}{$l}))}
 							= {field => $field . "_$l"};
@@ -1789,7 +1798,7 @@ JSON
 				$log->debug("Select2 option", {group_id => $group_id, field => $field, name => $name})
 					if $log->is_debug();
 
-				if (($group_id eq "images") and ($field =~ /image_(front|ingredients|nutrition|packaging)/)) {
+				if (($group_id eq "images") and ($field =~ /image_($valid_image_types_regexp)/)) {
 
 					foreach my $l (@{$lcs_ref}) {
 						my $language = "";    # Don't specify the language if there is just one
@@ -2069,10 +2078,6 @@ sub update_export_status_for_csv_file_task ($job, $args_ref) {
 	$job->finish("done");
 
 	return;
-}
-
-sub queue_job {    ## no critic (Subroutines::RequireArgUnpacking)
-	return get_minion()->enqueue(@_);
 }
 
 1;

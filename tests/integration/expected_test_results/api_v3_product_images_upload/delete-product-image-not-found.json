@@ -1,0 +1,22 @@
+{
+   "errors" : [
+      {
+         "field" : {
+            "id" : "imgid",
+            "value" : "25"
+         },
+         "impact" : {
+            "id" : "failure",
+            "lc_name" : "Failure",
+            "name" : "Failure"
+         },
+         "message" : {
+            "id" : "image_not_found",
+            "lc_name" : "",
+            "name" : ""
+         }
+      }
+   ],
+   "status" : "failure",
+   "warnings" : []
+}

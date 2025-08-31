@@ -4,7 +4,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2025 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -25,6 +25,8 @@ use strict;
 use warnings;
 use utf8;
 
+use ProductOpener::HTTP qw/create_user_agent/;
+
 use Encode qw(decode);
 use File::Spec;
 use File::Temp ();
@@ -33,7 +35,6 @@ use Data::Table;
 use Data::Table::Excel qw(excelFileToTable);
 use Geo::Coder::Google v0.19.100;
 use Geo::Coder::OSM;
-use LWP::Simple;
 use Readonly;
 use URI;
 

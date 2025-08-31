@@ -192,26 +192,8 @@
          "score" : 18
       },
       "nutriscore_grade" : "d",
-      "nutriscore_score" : 18,
-      "schema_version" : 999
+      "nutriscore_score" : 18
    },
-   "status" : "success_with_warnings",
-   "warnings" : [
-      {
-         "field" : {
-            "default_value" : "en",
-            "id" : "tags_lc"
-         },
-         "impact" : {
-            "id" : "warning",
-            "lc_name" : "Warning",
-            "name" : "Warning"
-         },
-         "message" : {
-            "id" : "missing_field",
-            "lc_name" : "Missing field",
-            "name" : "Missing field"
-         }
-      }
-   ]
+   "status" : "success",
+   "warnings" : []
 }

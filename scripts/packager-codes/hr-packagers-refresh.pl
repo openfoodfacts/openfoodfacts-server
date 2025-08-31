@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2025 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -41,9 +41,10 @@
 # $ rpl " ;" ";" hr-export.csv
 # $ rpl "; " ";" hr-export.csv
 
+use ProductOpener::HTTP qw/create_user_agent/;
+
 use Time::HiRes;    # sleep less than a second
 use HTTP::CookieJar::LWP;
-use LWP::UserAgent;
 use JSON qw(from_json);
 use Encode qw( encode );
 use Text::CSV qw( csv );
@@ -51,7 +52,7 @@ use strict;
 use warnings;
 
 my $jar = HTTP::CookieJar::LWP->new;
-my $ua = LWP::UserAgent->new(cookie_jar => $jar);
+my $ua = create_user_agent(cookie_jar => $jar);
 
 my $csv_file = 'hr-export.csv';    # this file should be in the same folder as this script
 my $csv_encoding = 'utf-8';

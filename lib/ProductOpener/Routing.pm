@@ -265,6 +265,7 @@ sub org_route($request_ref) {
 			ProductOpener::Users::check_edit_owner($moderator, \@errors, $orgid);
 		}
 		else {
+			#11867: Provide link to join existing org
 			$request_ref->{status_code} = 404;
 			$request_ref->{error_message} = lang("error_invalid_address");
 			return;
@@ -317,6 +318,19 @@ sub api_route($request_ref) {
 	if ($api_action =~ /^products?/) {    # api/v3/product/[code]
 		param("code", $components[3]);
 		$request_ref->{code} = $components[3];
+		# We also have a specific endpoint for image upload
+		# /api/v3/product/[barcode]/images
+		# And an endpoint DELETE /api/v3/product/[barcode]/images/uploaded/[imgid]
+		if ((defined $components[4]) and ($components[4] eq "images")) {
+			$api_action = "product_images";
+			if ((defined $components[5]) and ($components[5] eq "uploaded") and (defined $components[6])) {
+				$request_ref->{imgid} = $components[6];
+			}
+			elsif (not scalar @components == 5) {
+				# endpoint not recognized
+				$request_ref->{status_code} = 404;
+			}
+		}
 	}
 	elsif ($api_action eq "tag") {    # api/v3/tag/[type]/[tagid]
 		param("tagtype", $components[3]);
@@ -516,7 +530,7 @@ sub facets_route($request_ref) {
 	# We may have a page number
 	if (scalar @{$request_ref->{components}} > 0) {
 		# The last component can be a page number
-		if (($request_ref->{components}[-1] =~ /^\d+$/) and ($request_ref->{components}[-1] <= 1000)) {
+		if ($request_ref->{components}[-1] =~ /^\d+$/) {
 			$request_ref->{page} = pop @{$request_ref->{components}};
 			$log->debug("got a page number", {$request_ref->{page}}) if $log->is_debug();
 		}

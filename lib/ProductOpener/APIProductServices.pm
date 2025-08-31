@@ -78,6 +78,7 @@ use Log::Any qw($log);
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
+		&add_product_data_from_external_service
 		&product_services_api
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -90,10 +91,140 @@ use ProductOpener::HTTP qw/request_param/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::API qw/add_error customize_response_for_product/;
+use ProductOpener::API qw/add_error customize_response_for_product init_api_response/;
 use ProductOpener::EnvironmentalImpact;
+use ProductOpener::HTTP qw/create_user_agent/;
 
+use JSON qw(decode_json encode_json);
 use Encode;
+
+=head2 add_product_data_from_external_service ($request_ref, $product_ref, $url, $services_ref)
+
+Make a request to execute services on product on an external server using the product services API.
+
+The resulting fields are added to the product object.
+
+e.g. this function is used to run the percent estimation service on the recipe-estimator server.
+
+=cut
+
+sub add_product_data_from_external_service ($request_ref, $product_ref, $url, $services_ref, $fields_ref = undef) {
+
+	$log->debug("add_product_data_from_external_service - start",
+		{request => $request_ref, url => $url, services_ref => $services_ref})
+		if $log->is_debug();
+
+	defined $request_ref->{api_response} or init_api_response($request_ref);
+
+	my $response_ref = $request_ref->{api_response};
+
+	my $body_ref = {product => $product_ref,};
+
+	if (defined $services_ref) {
+		$body_ref->{services} = $services_ref;
+	}
+
+	# If the caller requested specific fields, we will return only those fields
+	if (defined $fields_ref) {
+		$body_ref->{fields} = $fields_ref;
+	}
+
+	# hack: recipe-estimator currently expects the product at the root of the body
+	if ($url =~ /estimate_recipe/) {
+		# We will send the product as the root object
+		$body_ref = $product_ref;
+	}
+
+	my $ua = create_user_agent(timeout => 10);
+
+	my $response = $ua->post(
+		$url,
+		Content => encode_json($body_ref),
+		"Content-Type" => "application/json; charset=utf-8",
+	);
+
+	if (not $response->is_success) {
+		$log->error("add_product_data_from_external_service - error response", {response => $response})
+			if $log->is_error();
+		add_error(
+			$response_ref,
+			{
+				message => {id => "external_service_error"},
+				field => {
+					id => "services",
+					value => join(", ", @{$services_ref || []}),
+					url => $url,
+					error => $response->status_line
+				},
+				impact => {id => "failure"},
+			}
+		);
+		return;
+	}
+	else {
+
+		# Decode the response body
+		my $response_content = $response->decoded_content;
+
+		my $decoded_json;
+		my $json_decode_error;
+		eval {
+			$decoded_json = decode_json($response_content);
+			1;
+		} or do {
+			$json_decode_error = $@;
+			$log->error(
+				"add_product_data_from_external_service - error decoding JSON response",
+				{response_content => $response_content, error => $json_decode_error}
+			) if $log->is_error();
+			add_error(
+				$response_ref,
+				{
+					message => {id => "external_service_invalid_json_response"},
+					field => {id => "response", value => $response_content, error => $json_decode_error},
+					impact => {id => "failure"},
+				}
+			);
+			return;
+		};
+
+		# If the response is not an error, we expect it to be a valid product object
+
+		# hack: recipe-estimator currently returns the product at the root of the body
+		if ($url =~ /estimate_recipe/) {
+			if (not defined $decoded_json->{product}) {
+				$decoded_json = {product => $decoded_json};
+			}
+		}
+
+		my $response_product_ref = $decoded_json->{product};
+		if (not defined $response_product_ref) {
+			$log->error("add_product_data_from_external_service - response does not contain a product object",
+				{response => $decoded_json})
+				if $log->is_error();
+			add_error(
+				$response_ref,
+				{
+					message => {id => "external_service_invalid_response"},
+					field => {id => "response", value => $response_content, error => "missing product object"},
+					impact => {id => "failure"},
+				}
+			);
+			return;
+		}
+
+		# Copy the fields present in the response product object to the request product object
+		foreach my $field (keys %$response_product_ref) {
+
+			$product_ref->{$field} = $response_product_ref->{$field};
+		}
+
+	}
+
+	$log->debug("add_product_data_from_external_service - stop", {response => $response_ref}) if $log->is_debug();
+
+	return;
+}
 
 =head2 echo_service ($product_ref, $updated_product_fields_ref, $errors_ref)
 

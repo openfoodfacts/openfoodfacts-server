@@ -39,12 +39,8 @@
             "uploader" : "tests"
          },
          "front_en" : {
-            "angle" : 0,
-            "coordinates_image_size" : "full",
-            "geometry" : "0x0--1--1",
-            "imgid" : "1",
-            "normalize" : null,
-            "rev" : "4",
+            "imgid" : 1,
+            "rev" : 4,
             "sizes" : {
                "100" : {
                   "h" : 67,
@@ -62,16 +58,10 @@
                   "h" : 183,
                   "w" : 275
                }
-            },
-            "white_magic" : null,
-            "x1" : -1,
-            "x2" : -1,
-            "y1" : -1,
-            "y2" : -1
+            }
          }
       },
       "owner" : "sample-owner",
-      "schema_version" : 998,
       "selected_images" : {
          "front" : {
             "display" : {

@@ -34,7 +34,7 @@ You can also upload some photos that are neither of that 4 categories, but they 
 
 ### Label Languages
 
-Multilingual products have several photos based on the languages present on the packaging. You can specify the language by adding a lang code suffix to the [image field]((#imagefield)).
+Multilingual products have several photos based on the languages present on the packaging. You can specify the language by adding a lang code suffix to the [image field](#Imagefield).
 
 ## Authentication
 

@@ -62,25 +62,21 @@ my $image_path = dirname(__FILE__) . "/inputs/small-img.jpg";
 	# test new request updates
 	open($gv_logs, ">:encoding(UTF-8)", $gv_logs_path);
 	$response = HTTP::Response->new("200", "OK", HTTP::Headers->new(), $ocr_default_response);
-	push @ua_responses, $response;
-	send_image_to_cloud_vision($image_path, $json_path, \@CLOUD_VISION_FEATURES_FULL, $gv_logs);
+	$ocr_data = send_image_to_cloud_vision($image_path, $json_path, \@CLOUD_VISION_FEATURES_FULL, $gv_logs);
 	close($gv_logs);
-	is(scalar @ua_requests, 1, "test request update - One request issued to cloud vision");
-	$issued_request = shift @ua_requests;
-	$request_json_body = decode_json($issued_request->content());
-	compare_to_expected_results($request_json_body, "$expected_result_dir/request_body_2.json",
-		$update_expected_results);
-	$ocr_content = read_gzip_file($json_path);
-	$ocr_data = decode_json($ocr_content);
+	is(scalar @ua_requests,
+		0, "test request update - No new request issued to cloud vision, as the JSON OCR result file already exists");
+	# check that the cache result is as expected
 	check_ocr_result($ocr_data);
 	$logs = read_file($gv_logs_path);
-	like($logs, qr/cloud vision success/, "test request update - cloud vision success in logs");
+	like($logs, qr/getting existing cached/, "test request update - cloud vision success in logs");
 
 	# test with different feature set \@CLOUD_VISION_FEATURES_TEXT
 	open($gv_logs, ">:encoding(UTF-8)", $gv_logs_path);
 	$response = HTTP::Response->new("200", "OK", HTTP::Headers->new(), $ocr_default_response);
 	push @ua_responses, $response;
-	send_image_to_cloud_vision($image_path, $json_path, \@CLOUD_VISION_FEATURES_TEXT, $gv_logs);
+	# Suffix the JSON path with 2 as otherwise the response would already be cached from the previous test
+	send_image_to_cloud_vision($image_path, $json_path . "2", \@CLOUD_VISION_FEATURES_TEXT, $gv_logs);
 	close($gv_logs);
 	is(scalar @ua_requests, 1, "test request features text - One request issued to cloud vision");
 	$issued_request = shift @ua_requests;
@@ -115,7 +111,7 @@ my $image_path = dirname(__FILE__) . "/inputs/small-img.jpg";
 	$json_path = $tmp_dir . "/small-img2.json.gz";
 	$response = HTTP::Response->new("403", "Not authorized", HTTP::Headers->new(), $ocr_default_response);
 	push @ua_responses, $response;
-	send_image_to_cloud_vision($image_path, $json_path, \@CLOUD_VISION_FEATURES_FULL, $gv_logs);
+	send_image_to_cloud_vision($image_path, $json_path . "3", \@CLOUD_VISION_FEATURES_FULL, $gv_logs);
 	close($gv_logs);
 	is(scalar @ua_requests, 1, "request error - one request issued to cloud vision");
 	$issued_request = shift @ua_requests;

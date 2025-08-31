@@ -1,0 +1,80 @@
+type: object
+properties:
+  nutrients:
+    type: object
+    description: |
+      All known nutrients for the product.
+
+      You can get all possible nutrients from the
+      [nutrients taxonomy](https://static.openfoodfacts.org/data/taxonomies/nutrients.json).
+
+      New nutrients are regularly added.
+
+      Clients should not break if they encounter an unexpected nutrient to preserve compatibility.
+    properties:
+      energy:
+        description: |
+          It is the same as `energy-kj` if we have it, or computed from `energy-kcal` otherwise
+
+          (per 100g or per serving) in kj
+        $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"
+      energy_kcal:
+        description: |
+          energy in kcal, if it is specified
+
+          (per 100g or per serving) in a standard unit (g or ml)
+        $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"
+      energy_kj:
+        description: |
+          energy in kj, if it is specified
+
+          (per 100g or per serving) in a standard unit (g or ml)
+        $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"
+      fat:
+        $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"
+      saturated-fat:
+        $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"
+      trans-fat:
+        $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"  
+      cholesterol:
+        $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"
+      salt:
+        $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"
+      sodium:
+        $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"  
+      carbohydrates-total:
+        description: |
+          This follows the US / Canada definition of carbohydrates which includes fiber, also known as gross carbohydrates
+
+          (per 100g, per 100ml or per serving) in a standard unit (g or ml)
+        $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"  
+      carbohydrates:
+        description: |
+          This is the available carbohydrates (excluding fiber), also known as net carbohydrates
+
+          (per 100g, per 100ml or per serving) in a standard unit (g or ml)
+        $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"
+      fiber:
+        $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"
+      sugars:
+        $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"  
+      added-sugars:
+        $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"
+      proteins:
+        $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"
+      vitamin-d:
+        $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"
+      calcium:
+        $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"
+      iron:
+        $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"
+      potassium:
+        $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"
+    additionalProperties:
+      description: |
+        Quantity of other nutrients from the nutrients taxonomy.
+
+        See [nutrients taxonomy file](https://static.openfoodfacts.org/data/taxonomies/nutrients.json) for all nutrients in Open Food Facts.
+
+        (per 100g, per 100ml or per serving) in a standard unit (g or ml)
+      $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"

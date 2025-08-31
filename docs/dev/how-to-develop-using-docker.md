@@ -177,12 +177,28 @@ To add a new environment variable `TEST`:
 * In a `.env` file, add `TEST=test_val` [local].
 * In `.github/workflows/container-deploy.yml`, add `echo "TEST=${{ secrets.TEST }}" >> .env` to the "Set environment variables" build step [remote]. Also add the corresponding GitHub secret `TEST=test_val`.
 * In `docker-compose.yml` file, add it under the `backend` > `environment` section.
-* In `conf/apache.conf` file, add `PerlPassEnv TEST`.
+* In `conf/apache-2.4/modperl.conf` file, add `PerlPassEnv TEST`.
 * In `lib/Config2.pm`, add `$test = $ENV{TEST};`. Also add `$test` to the `EXPORT_OK` list at the top of the file to avoid a compilation error.
 
 The call stack goes like this:
 
-`make up` > `docker compose` > loads `.env` > pass env variables to the `backend` container > pass to `mod_perl` > initialized in `Config2.pm`.
+```mermaid
+stateDiagram-v2
+  make_up: make up
+  docker_compose: docker compose
+  env_file:.env
+  docker_compose_service_definition: docker compose service definition
+  make_up  --> docker_compose:launch
+  docker_compose --> env_file:loads
+  env_file --> docker_compose_service_definition:pass variables
+  docker_compose_service_definition --> docker_container:define env variables to pass
+  docker_container --> mod_perl:pass env variables
+  mod_perl --> Config2pm:initialize variables from env
+```
+
+**Important:** Note that when you change environment variables, a restart of docker containers is not sufficient. You must destroy and re-create the container.
+The best way to do it, most of the time, is `docker compose down && docker compose up -d`
+(you can also destroy individual container with `docker compose rm -sf <service_name> && docker compose ud -d <service_name>`)
 
 ## Managing multiple deployments
 

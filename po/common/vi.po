@@ -44,6 +44,32 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "Cơ sở dữ liệu hợp tác, miễn phí và mở về các sản phẩm mỹ phẩm từ khắp nơi trên thế giới."
 
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
+msgstr ""
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr ""
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr ""
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr ""
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr ""
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr "Cơ sở dữ liệu hợp tác, miễn phí và mở về các sản phẩm thức ăn cho thú nuôi từ khắp nơi trên thế giới."
+
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
@@ -238,9 +264,10 @@ msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
 msgstr "Tìm kiếm và đồ thị nâng cao"
 
+# duplicate
 msgctxt "alcohol_warning"
-msgid "Excess drinking is harmful for health."
-msgstr "Uống quá nhiều có hại cho sức khỏe."
+msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr "Uống quá nhiều rượu có thể gây hại cho sức khỏe, cần hạn chế."
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
@@ -266,17 +293,25 @@ msgctxt "also_edited_by"
 msgid "Product page also edited by"
 msgstr "Trang sản phẩm cũng được chỉnh sửa bởi"
 
+msgctxt "analytical_constituents"
+msgid "Analytical constituents"
+msgstr ""
+
+msgctxt "analytical_constituents_per_1kg"
+msgid "for 1 kg"
+msgstr ""
+
 msgctxt "android_apk_app_icon_url"
-msgid "/images/misc/android-apk.svg"
-msgstr "/images/misc/android-apk.svg"
+msgid "/images/misc/app-landing-page/download-apk/download-apk_en.svg"
+msgstr ""
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
 msgstr ""
 
-# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
+# Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
-msgid "/images/misc/playstore/img/en_get.svg"
+msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
 msgstr ""
 
 msgctxt "android_app_icon_alt_text"
@@ -533,17 +568,13 @@ msgctxt "delete_product"
 msgid "Delete a product"
 msgstr "Xóa sản phẩm"
 
-msgctxt "delete_product_page"
-msgid "Delete the page"
-msgstr "Xóa trang"
-
 msgctxt "delete_the_images"
 msgid "Delete the images"
 msgstr "Xóa các hình ảnh"
 
 msgctxt "delete_user"
-msgid "Delete a user"
-msgstr "Xoá người dùng"
+msgid "Delete the user"
+msgstr "Xóa người dùng"
 
 msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
@@ -628,6 +659,14 @@ msgstr "Thông số tài khoản"
 msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
 msgstr "Thông tin tài khoản của bạn đã được thay đổi."
+
+msgctxt "edit_user_preferences"
+msgid "Preferences"
+msgstr "Tuỳ chỉnh"
+
+msgctxt "edit_user_preferences_result"
+msgid "Your preferences have been changed."
+msgstr "Tùy chọn của bạn đã được thay đổi."
 
 msgctxt "editors_p"
 msgid "editors"
@@ -2723,6 +2762,7 @@ msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
 msgstr "NutriScore cấp dinh dưỡng"
 
+# duplicate
 msgctxt "delete_product_page"
 msgid "Delete the product page"
 msgstr "Xóa trang sản phẩm"
@@ -2738,10 +2778,6 @@ msgstr "đã xóa sản phẩm"
 msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
 msgstr "Bạn có chắc chắn muốn xóa trang cho sản phẩm này không?"
-
-msgctxt "delete_user"
-msgid "Delete the user"
-msgstr "Xóa người dùng"
 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s."
@@ -4164,10 +4200,6 @@ msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr "Xin hãy quyên góp"
 
-msgctxt "alcohol_warning"
-msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
-msgstr "Uống quá nhiều rượu có thể gây hại cho sức khỏe, cần hạn chế."
-
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "Kiểm duyệt nền tảng của nhà sản xuất"
@@ -4628,13 +4660,15 @@ msgctxt "attribute_nutriscore_c_description_short"
 msgid "Average nutritional quality"
 msgstr "Chất lượng dinh dưỡng trung bình"
 
+# lower: translate to "less good" in some languages (e.g. French: "Moins bonne qualité nutritionnelle")
 msgctxt "attribute_nutriscore_d_description_short"
-msgid "Poor nutritional quality"
-msgstr "Chất lượng dinh dưỡng kém"
+msgid "Lower nutritional quality"
+msgstr ""
 
+# lower: translate to "less good" in some languages (e.g. French: "Moins bonne qualité nutritionnelle")
 msgctxt "attribute_nutriscore_e_description_short"
-msgid "Bad nutritional quality"
-msgstr "Chất lượng dinh dưỡng rất kém"
+msgid "Lower nutritional quality"
+msgstr ""
 
 msgctxt "attribute_group_processing_name"
 msgid "Food processing"
@@ -4656,6 +4690,10 @@ msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
 msgstr "Thực phẩm không qua chế biến hoặc chế biến ít (nhóm NOVA)"
 
+msgctxt "attribute_nova_setting_note"
+msgid "To determine the level of processing of a product, we rely on the list of ingredients (markers, processing methods) and categories."
+msgstr ""
+
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
 msgid "NOVA %s"
@@ -4675,7 +4713,16 @@ msgstr "Thực phẩm đã qua chế biến"
 
 msgctxt "attribute_nova_4_description_short"
 msgid "Ultra-processed foods"
-msgstr "Thực phẩm siêu chế biến"
+msgstr "Thức ăn siêu chế biến"
+
+msgctxt "attribute_nova_4_1_marker"
+msgid "1 ultra-processing marker"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_nova_4_markers"
+msgid "{number} ultra-processing markers"
+msgstr ""
 
 msgctxt "export_product_page"
 msgid "Export product to public database"
@@ -4823,8 +4870,21 @@ msgid "Low environmental impact (Green-Score)"
 msgstr "Tác động môi trường thấp (Green-Score)"
 
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score (environmental_score) from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "Green-Score là điểm số về môi trường (Điểm sinh thái) xếp hạng từ A đến E giúp việc so sánh tác động của các sản phẩm thực phẩm đối với môi trường trở nên dễ dàng."
+msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
+msgstr ""
+
+# Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
+msgctxt "attribute_ecoscore_name"
+msgid "Green-Score"
+msgstr "Điểm sinh thái"
+
+msgctxt "attribute_ecoscore_setting_name"
+msgid "Low environmental impact (Green-Score)"
+msgstr "Tác động môi trường thấp (Green-Score)"
+
+msgctxt "attribute_ecoscore_setting_note"
+msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
+msgstr ""
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -4983,6 +5043,10 @@ msgctxt "number_of_members"
 msgid "Number of Members"
 msgstr "Số lượng thành viên"
 
+msgctxt "serial_no"
+msgid "S.No"
+msgstr "Số S."
+
 msgctxt "contact_form"
 msgid "Contact form"
 msgstr "Mẫu liên hệ"
@@ -5008,25 +5072,25 @@ msgctxt "environmental_impact"
 msgid "Environmental impact"
 msgstr "Tác động môi trường"
 
-# Numerical score for the Eco-score (do not translate Eco-score)
+# Numerical score for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_score"
-msgid "Eco-score score"
-msgstr "Điểm sinh thái"
+msgid "Green-Score score"
+msgstr ""
 
-# Letter grade from A to E for the Eco-score (do not translate Eco-score)
+# Letter grade from A to E for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_grade"
-msgid "Eco-score grade"
-msgstr "Xếp hạng sinh thái"
+msgid "Green-Score grade"
+msgstr ""
 
-# do not translate Eco-score
+# do not translate Green-Score
 msgctxt "environmental_score_calculation_details"
-msgid "Details of the calculation of the Eco-score"
-msgstr "Chi tiết về cách tính điểm số sinh thái"
+msgid "Details of the calculation of the Green-Score"
+msgstr ""
 
-# do not translate Eco-score
+# do not translate Green-Score
 msgctxt "environmental_score_information"
-msgid "Information about the Eco-score"
-msgstr "Thông tin về Điểm số sinh thái"
+msgid "Information about the Green-Score"
+msgstr ""
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
@@ -5057,6 +5121,14 @@ msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr "Thiếu thông tin về dinh dưỡng"
 
+msgctxt "ecoscore_p"
+msgid "Green-Score"
+msgstr "Điểm sinh thái"
+
+msgctxt "ecoscore_s"
+msgid "Green-Score"
+msgstr "Điểm sinh thái"
+
 msgctxt "environmental_score_p"
 msgid "Green-Score"
 msgstr "Điểm sinh thái"
@@ -5064,6 +5136,14 @@ msgstr "Điểm sinh thái"
 msgctxt "environmental_score_s"
 msgid "Green-Score"
 msgstr "Điểm sinh thái"
+
+msgctxt "misc_p"
+msgid "Miscellaneous"
+msgstr "Các tùy chọn khác"
+
+msgctxt "misc_s"
+msgid "Miscellaneous"
+msgstr "Các tùy chọn khác"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5225,8 +5305,8 @@ msgstr "Nền tảng cũng cung cấp phân tích chuyên sâu về sản phẩm
 
 # It = the platform
 msgctxt "product_edits_by_producers_indicators"
-msgid "It computes indicators such as the Nutri-Score, NOVA, and the Eco-score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
-msgstr "Nó tính toán các chỉ số như Điểm Dinh Dưỡng, NOVA, và Điểm Sinh Thái, và tự động đưa ra các khuyến nghị để cải thiện (ví dụ tất cả sản phẩm với mức Điểm Dinh Dưỡng tốt hơn bằng việc thay đổi một số nguyên liệu trong bảng thành phần)."
+msgid "It computes indicators such as the Nutri-Score, NOVA, and the Green-Score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest footprint"
@@ -5360,12 +5440,12 @@ msgid "User is being deleted. This may take a few minutes."
 msgstr "Người dùng đang bị xóa. Có thể sẽ mất vài phút."
 
 msgctxt "attribute_environmental_score_not_applicable_title"
-msgid "Green-Score not yet applicable"
-msgstr "Điểm sinh thái chưa được áp dụng"
+msgid "Green-Score not applicable"
+msgstr ""
 
 msgctxt "attribute_environmental_score_not_applicable_description_short"
-msgid "Not yet applicable for the category"
-msgstr "Chưa áp dụng cho danh mục"
+msgid "Not applicable for the category"
+msgstr ""
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_environmental_score_not_applicable_description"
@@ -5660,10 +5740,6 @@ msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
 msgstr "Thông tin về thành phần của sản phẩm này không được cung cấp."
 
-msgctxt "environmental_score_edit_for_more_precise_environmental_score"
-msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "Để tính toán chính xác hơn Điểm sinh thái, bạn có thể chỉnh sửa và bổ sung thêm trang thông tin về sản phẩm."
-
 msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
 msgstr "tỷ lệ"
@@ -5684,9 +5760,15 @@ msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
 msgstr "Thông tin về bao bì của sản phẩm này không đủ chính xác (hình dạng và vật liệu chính xác của tất cả các thành phần của bao bì)."
 
+# duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
 msgstr "Để tính toán chính xác hơn Điểm sinh thái, bạn có thể sửa đổi và thêm trang thông tin sản phẩm."
+
+# duplicate
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
+msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
+msgstr "Để tính toán chính xác hơn Điểm sinh thái, bạn có thể chỉnh sửa và bổ sung thêm trang thông tin về sản phẩm."
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
@@ -5832,6 +5914,11 @@ msgstr ""
 
 msgctxt "donation_title_2024"
 msgid "Please give to our 2024 Fundraiser"
+msgstr ""
+
+# Don't translate {year}, it will be replaced by the 4 digits year
+msgctxt "f_donation_title_year"
+msgid "Please give to our {year} Fundraiser"
 msgstr ""
 
 msgctxt "donation_list_2024_main"
@@ -6192,6 +6279,10 @@ msgctxt "attribute_palm_oil_setting_note"
 msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
 msgstr ""
 
+msgctxt "attribute_without_palm_oil_setting_note"
+msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
+msgstr ""
+
 msgctxt "unrecognized_ingredients"
 msgid "Unrecognized ingredients"
 msgstr "Thành phần không xác định"
@@ -6374,6 +6465,10 @@ msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
 msgstr ""
 
+msgctxt "action_report_product_to_nutripatrol"
+msgid "Report this product to our moderators"
+msgstr ""
+
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
 msgid "What you need to know"
@@ -6519,6 +6614,10 @@ msgctxt "api_result_product_not_found"
 msgid "Product not found"
 msgstr "Không tìm thấy sản phẩm"
 
+msgctxt "api_result_product_found_with_a_different_product_type"
+msgid "Product found with a different product type"
+msgstr ""
+
 msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr "Đã cập nhật sản phẩm"
@@ -6541,6 +6640,10 @@ msgstr "JSON không hợp lệ trong nội dung yêu cầu"
 
 msgctxt "api_message_invalid_code"
 msgid "Invalid code"
+msgstr ""
+
+msgctxt "api_message_invalid_product_type"
+msgid "Invalid product type"
 msgstr ""
 
 msgctxt "api_message_invalid_type_must_be_object"
@@ -6570,6 +6673,38 @@ msgstr ""
 msgctxt "api_message_unrecognized_value"
 msgid "Unrecognized value"
 msgstr "Giá trị không được công nhận"
+
+msgctxt "api_message_image_already_uploaded"
+msgid "Image already uploaded"
+msgstr "Hình ảnh đã được tải lên"
+
+msgctxt "api_message_image_too_small"
+msgid "Image too small"
+msgstr "Hình ảnh quá nhỏ"
+
+msgctxt "api_result_image_uploaded"
+msgid "Image uploaded"
+msgstr "Hình ảnh đã tải lên"
+
+msgctxt "api_result_image_not_uploaded"
+msgid "Image not uploaded"
+msgstr "Hình ảnh chưa được tải lên"
+
+msgctxt "api_result_image_selected"
+msgid "Image selected"
+msgstr "Hình ảnh đã chọn"
+
+msgctxt "api_result_image_not_selected"
+msgid "Image not selected"
+msgstr "Hình ảnh chưa được chọn"
+
+msgctxt "api_result_image_deleted"
+msgid "Image deleted"
+msgstr "Hình ảnh đã xóa"
+
+msgctxt "api_result_image_not_deleted"
+msgid "Image not deleted"
+msgstr "Hình ảnh không bị xóa"
 
 msgctxt "api_impact_none"
 msgid "None"
@@ -6856,6 +6991,18 @@ msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_
 msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
 msgstr ""
 
+msgctxt "nutriscore_new_computation_title"
+msgid "Discover the new Nutri-Score!"
+msgstr ""
+
+msgctxt "nutriscore_new_computation_description"
+msgid "<p>The computation of the Nutri-Score is evolving to provide better recommendations based on the latest scientific evidence.</p><p>Main improvements:</p><ul><li>Better score for some fatty fish and oils rich in good fats</li><li>Better score for whole products rich in fiber</li><li>Worse score for products containing a lot of salt or sugar</li><li>Worse score for red meat (compared to poultry)</li></ul>"
+msgstr ""
+
+msgctxt "nutriscore_new_computation_link_text"
+msgid "Discover all the improvements of the new Nutri-Score"
+msgstr ""
+
 msgctxt "nutriscore_explanation_what_it_is"
 msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
 msgstr ""
@@ -6950,6 +7097,11 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr ""
 
+# duplicate with "report_problem_panel_title"
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
+msgstr ""
+
 msgctxt "report_problem_navigation"
 msgid "Report a problem."
 msgstr ""
@@ -6970,13 +7122,12 @@ msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
 msgstr ""
 
-msgctxt "description"
-msgid "Description"
+msgctxt "report_to_nutripatrol_explain"
+msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
 msgstr ""
 
-# duplicate with "report_problem_panel_title"
-msgctxt "report_problem_navigation"
-msgid "Report a problem"
+msgctxt "description"
+msgid "Description"
 msgstr ""
 
 msgctxt "enter_main_contact_username"
@@ -6998,6 +7149,10 @@ msgstr ""
 msgctxt "skip_to_content"
 msgid "Skip to Content"
 msgstr ""
+
+msgctxt "oidc_signin_no_cookie"
+msgid "You need to enable cookies to sign in."
+msgstr "Bạn cần bật cookie để đăng nhập."
 
 msgctxt "cant_delete_main_contact"
 msgid "You cannot remove the main contact. Change it first."
@@ -7236,4 +7391,142 @@ msgstr ""
 msgctxt "attribute_repairability_index_france_bad_description_short"
 msgid "Bad repairability"
 msgstr ""
+
+msgctxt "estimate"
+msgid "estimate"
+msgstr ""
+
+# information on several ingredients, in plural in languages like French
+msgctxt "ingredient_information"
+msgid "Ingredient information"
+msgstr ""
+
+msgctxt "product_type"
+msgid "Product type"
+msgstr ""
+
+# Food product type
+msgctxt "product_type_food"
+msgid "Food"
+msgstr ""
+
+# Pet food product type
+msgctxt "product_type_petfood"
+msgid "Pet food"
+msgstr ""
+
+# Beauty product type
+msgctxt "product_type_beauty"
+msgid "Beauty"
+msgstr ""
+
+# General product product type
+msgctxt "product_type_product"
+msgid "Product"
+msgstr "Sản phẩm"
+
+msgctxt "recommendation_limit_ultra_processed_foods_title"
+msgid "Limit ultra-processed foods"
+msgstr ""
+
+msgctxt "recommendation_limit_ultra_processed_foods_subtitle"
+msgid "Limiting ultra-processed foods reduces the risk of noncommunicable chronic diseases"
+msgstr ""
+
+msgctxt "recommendation_limit_ultra_processed_foods_text"
+msgid "Several studies have found that a lower consumption of ultra-processed foods is associated with a reduced risk of noncommunicable chronic diseases, such as obesity, hypertension and diabetes."
+msgstr ""
+
+msgctxt "discover_the_evolution_of_the_nutriscore_grades_of_your_products"
+msgid "Discover the evolution of the Nutri-Score grades of your products"
+msgstr ""
+
+msgctxt "add_products_to_discover_the_evolution_of_their_nutriscore_grades"
+msgid "Add products with a category, ingredients list and nutrition facts to discover the evolution of their Nutri-Score grades."
+msgstr ""
+
+msgctxt "in_contact_with_food"
+msgid "In contact with food"
+msgstr ""
+
+msgctxt "contact_us_producers"
+msgid "Contact Us"
+msgstr ""
+
+msgctxt "delete"
+msgid "Delete"
+msgstr "Xóa"
+
+msgctxt "f_add_product_to_our_database"
+msgid "Is {barcode} the barcode of a product you have? If so, please add it to the database. It only takes a few minutes."
+msgstr ""
+
+# Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
+msgctxt "f_droid_app_icon_url"
+msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
+msgstr ""
+
+msgctxt "f_droid_app_icon_alt_text"
+msgid "Available on F-Droid"
+msgstr ""
+
+msgctxt "update_nutrients_data"
+msgid "Update nutrients data"
+msgstr ""
+
+msgctxt "update_nutrition_facts"
+msgid "Extract nutrition facts"
+msgstr ""
+
+msgctxt "scan_a_product"
+msgid "Scan a product"
+msgstr ""
+
+msgctxt "or_enter_barcode_manually"
+msgid "Or enter barcode manually"
+msgstr ""
+
+msgctxt "scan"
+msgid "Scan"
+msgstr "Quét"
+
+msgctxt "reset_preferences_details_beauty"
+msgid "Organic farming and fair trade"
+msgstr "Nông nghiệp hữu cơ và thương mại công bằng"
+
+msgctxt "reset_preferences_details_food"
+msgid "Nutri-Score, Green-Score and food processing level (NOVA)"
+msgstr "Điểm dinh dưỡng, Điểm sinh thái và mức độ chế biến thực phẩm (NOVA)"
+
+msgctxt "reset_preferences_details_product"
+msgid "Good repairability"
+msgstr ""
+
+msgctxt "reset_preferences_details_pet_food"
+msgid "Organic farming and fair trade"
+msgstr "Nông nghiệp hữu cơ và thương mại công bằng"
+
+msgctxt "action_report_image_to_nutripatrol"
+msgid "Report this image to our moderators"
+msgstr "Báo cáo hình ảnh này cho người kiểm duyệt của chúng tôi"
+
+msgctxt "robots_not_served_here"
+msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
+msgstr "Do bị robot lạm dụng quá mức, chúng tôi không thể phục vụ trang này cho người dùng không xác định. Vui lòng tạo tài khoản Open Food Facts miễn phí để truy cập tất cả Open Food Facts."
+
+msgctxt "knowledge_panels_ingredients_added_sugars_title"
+msgid "Contains added sugars"
+msgstr "Có chứa thêm đường"
+
+msgctxt "knowledge_panels_ingredients_added_sugars_subtitle"
+msgid "Added sugars:"
+msgstr "Đường bổ sung:"
+
+msgctxt "estimated_quantity_of_added_sugars"
+msgid "Estimated quantity of added sugars in ingredients"
+msgstr "Lượng đường bổ sung ước tính trong thành phần"
+
+msgctxt "search_products_in_same_category_without_added_sugars"
+msgid "Search for products in the same category without added sugars:"
+msgstr "Tìm kiếm sản phẩm cùng danh mục không chứa đường bổ sung:"
 

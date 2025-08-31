@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -53,6 +53,7 @@ BEGIN {
 		&normalize_requested_code
 		&customize_response_for_product
 		&check_user_permission
+		&process_auth_header
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -62,6 +63,7 @@ use vars @EXPORT_OK;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/write_cors_headers request_param/;
+use ProductOpener::Auth qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/$lc lang_in_other_lc/;
 use ProductOpener::Products qw/normalize_code_with_gs1_ai product_name_brand_quantity/;
@@ -79,18 +81,23 @@ use ProductOpener::ProductsFeatures qw(feature_enabled);
 
 use ProductOpener::APIProductRead qw/read_product_api/;
 use ProductOpener::APIProductWrite qw/write_product_api/;
+use ProductOpener::APIProductImagesUpload qw/upload_product_image_api delete_product_image_api/;
 use ProductOpener::APIProductRevert qw/revert_product_api/;
 use ProductOpener::APIProductServices qw/product_services_api/;
 use ProductOpener::APITagRead qw/read_tag_api/;
 use ProductOpener::APITaxonomySuggestions qw/taxonomy_suggestions_api/;
 
-use CGI qw(header);
+use CGI qw/:cgi :form escapeHTML/;
 use Apache2::RequestIO();
 use Apache2::RequestRec();
 use JSON::MaybeXS;
-use Data::DeepAccess qw(deep_get);
+use Data::DeepAccess qw(deep_get deep_set);
 use Storable qw(dclone);
 use Encode;
+
+=head1 FUNCTIONS			
+
+=cut
 
 sub get_initialized_response() {
 	return {
@@ -351,7 +358,8 @@ sub send_api_response ($request_ref) {
 	my $status_code = $request_ref->{api_response}{status_code} || $request_ref->{status_code} || "200";
 	delete $request_ref->{api_response}{status_code};
 
-	my $json = JSON::MaybeXS->new->allow_nonref->canonical->utf8->encode($request_ref->{api_response});
+	# Make sure we include convert_blessed to cater for blessed objects, like booleans
+	my $json = JSON::MaybeXS->new->convert_blessed->allow_nonref->canonical->utf8->encode($request_ref->{api_response});
 
 	# add headers
 	# We need to send the header Access-Control-Allow-Credentials=true so that websites
@@ -397,6 +405,12 @@ my $dispatch_table = {
 		HEAD => \&read_product_api,
 		OPTIONS => sub {return;},    # Just return CORS headers
 		PATCH => \&write_product_api,
+	},
+	# Product image upload
+	product_images => {
+		POST => \&upload_product_image_api,
+		OPTIONS => sub {return;},    # Just return CORS headers
+		DELETE => \&delete_product_image_api,
 	},
 	# Product revert
 	product_revert => {
@@ -681,6 +695,7 @@ my %api_version_to_schema_version = (
 	"3.0" => 999,
 	"3.1" => 1000,
 	"3.2" => 1001,
+	"3.3" => 1002,
 );
 
 sub api_compatibility_for_product_response ($product_ref, $api_version) {
@@ -926,6 +941,16 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 			next;
 		}
 
+		# Sub fields using the dot notation (e.g. images.selected.front)
+		if ($field =~ /\./) {
+			my @components = split(/\./, $field);
+			my $field_value = deep_get($product_ref, @components);
+			if (defined $field_value) {
+				deep_set($customized_product_ref, @components, $field_value);
+			}
+			next;
+		}
+
 		# straight fields
 		if ((not defined $customized_product_ref->{$field}) and (defined $product_ref->{$field})) {
 			$customized_product_ref->{$field} = $product_ref->{$field};
@@ -936,7 +961,25 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 	}
 
 	# Before returning the product, we need to make sure that the fields are compatible with the requested API version
+
+	# IMPORTANT: If the schema_version field was not requested, it will not be in $customized_product_ref.
+	# We need to add it temporarily so that we can convert the product to the requested schema version.
+	# Otherwise, if the schema version is not present, convert_product_schema() will assume that the product is in an old version (< 1000)
+	# and will not convert it to the requested schema version (specified by the API version)
+
+	my $added_schema_version = 0;
+
+	if ((not defined $customized_product_ref->{schema_version}) and (defined $product_ref->{schema_version})) {
+		$customized_product_ref->{schema_version} = $product_ref->{schema_version};
+		$added_schema_version = 1;
+	}
+
 	api_compatibility_for_product_response($customized_product_ref, $request_ref->{api_version});
+
+	# Remove the schema field if it was not requested
+	if ($added_schema_version) {
+		delete $customized_product_ref->{schema_version};
+	}
 
 	return $customized_product_ref;
 }
@@ -987,6 +1030,101 @@ sub check_user_permission ($request_ref, $response_ref, $permission) {
 	}
 
 	return $has_permission;
+}
+
+=head2 process_auth_header ( $request_ref, $r )
+
+Using the Authorization HTTP header, check if we have a valid user.
+
+=head3 Parameters
+
+=head4 $request_ref (input)
+
+Reference to the request object.
+
+=head4 $r (input)
+
+Reference to the Apache2 request object
+
+=head3 Return value
+
+1 if the user has been signed in, -1 if the Bearer token was invalid, 0 otherwise.
+
+=cut
+
+sub process_auth_header ($request_ref, $r) {
+	my $token = _read_auth_header($request_ref, $r);
+	unless ($token) {
+		return 0;
+	}
+
+	my $access_token;
+	# verify token using JWKS (see Auth.pm)
+	eval {$access_token = verify_access_token($token);};
+	my $error = $@;
+	if ($error) {
+		$log->info('Access token invalid', {token => $token}) if $log->is_info();
+	}
+
+	unless ($access_token) {
+		add_error(
+			$request_ref->{api_response},
+			{
+				message => {id => 'invalid_token'},
+				impact => {id => 'failure'},
+			}
+		);
+		return -1;
+	}
+
+	$request_ref->{access_token} = $token;
+	my $user_id = get_user_id_using_token($access_token, $request_ref);
+	unless (defined $user_id) {
+		$log->info('User not found and not created') if $log->is_info();
+		display_error_and_exit($request_ref, 'Internal error', 500);
+	}
+
+	my $user_ref = retrieve_user($user_id);
+	unless (defined $user_ref) {
+		$log->info('User not found', {user_id => $user_id}) if $log->is_info();
+		display_error_and_exit($request_ref, 'Internal error', 500);
+	}
+
+	$log->debug('user_id found', {user_id => $user_id}) if $log->is_debug();
+
+	$request_ref->{oidc_user_id} = $user_id;
+
+	return 1;
+}
+
+=head2 _read_auth_header ( $request_ref, $r )
+
+Using the Authorization HTTP header, check if it looks like a 
+Bearer token, and if it does, copy it to the request_ref
+
+=head3 Parameters
+
+=head4 $request_ref (input)
+
+Reference to the request object.
+
+=head4 $r (input)
+
+Reference to the Apache2 request object
+
+=head3 Return value
+
+None
+
+=cut
+
+sub _read_auth_header ($request_ref, $r) {
+	my $authorization = $r->headers_in->{Authorization};
+	if ((defined $authorization) and ($authorization =~ /^Bearer (?<token>.+)$/)) {
+		return $+{token};
+	}
+
+	return;
 }
 
 1;

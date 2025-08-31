@@ -2,7 +2,35 @@
 
 [% banner_main = BLOCK %]
 
+[% IF "off_days_2025" == "off_days_2025" %]
+<section id="donation-banner-top" class="row" style="position:relative">
+  [% IF lc == "fr" %]
+  <a href="https://connect.openfoodfacts.org/fr/event/open-food-facts-days-2025-30/register">
+    <img src="/images/misc/donation-banners/off-days-2025-fr.1280x191.png"
+       alt="Journées Open Food Facts 2025"
+       width="1280"
+       height="191" class="show-for-medium-up"/>
+       <img src="/images/misc/donation-banners/off-days-2025-fr.mobile.png"
+       alt="Journées Open Food Facts 2025"
+       width="1280"
+       height="477" class="show-for-small-only"/>       
+  </a>  
+  [% ELSE %]
+  <a href="https://connect.openfoodfacts.org/event/open-food-facts-days-2025-30/register">
+    <img src="/images/misc/donation-banners/off-days-2025-en.1280x191.png"
+       alt="Open Food Facts Days 2025"
+       width="1280"
+       height="191" class="show-for-medium-up"/>
+    <img src="/images/misc/donation-banners/off-days-2025-en.mobile.png"
+       alt="Open Food Facts Days 2025"
+       width="1280"
+       height="477" class="show-for-small-only"/>    
+  </a>
+  [% END %]
+[% ELSE %]
+
 <section id="donation-banner-top" class="donation-banner row">
+
   <div class="donation-banner__left-aside">
     <div class="donation-banner__hook-section">
       <p>[% lang("donation_hook_2024") %]</p>
@@ -58,6 +86,8 @@
       </div>
     </div>
   </div>
+[% END %]
+
   <div class="donation-banner__close">
     <button id="hide-donate-banner" class="material-icons modest" onclick="DonationButton();" onkeypress="DonationButton();">close</button>
   </div>
@@ -90,11 +120,11 @@
   }
 
   function DonationButton() {
-    setBannerCookie('off_donation_banner_2024_a', 1, 180);
+    setBannerCookie('off_days_2025', 1, 180);
     bannerID.style.display = 'none';
   }
 
-  if (getBannerCookie('off_donation_banner_2024_a') !== '') {
+  if (getBannerCookie('off_days_2025') !== '') {
     bannerID.style.display = 'none';
   } else {
     bannerID.style.display = 'flex';
