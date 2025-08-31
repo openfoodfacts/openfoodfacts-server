@@ -10,14 +10,9 @@
     [% END %]
 [% END %]
 
-
-[% IF (robotoff_url.defined) && (robotoff_url.length > 0) %]
-    <!-- Anonymous users will only be able to vote see AnnotationVote in robotoff,
-        the voter uniqueness is based on a hash of its ip address
-    -->
-	<robotoff-asker url='[% robotoff_url %]' code='[% code %]' lang='[% lc %]' style='display: none;' caption-yes='[% esq(lang("button_caption_yes")) %]' caption-no='[% esq(lang("button_caption_no")) %]' caption-skip='[% esq(lang("button_caption_skip")) %]'></robotoff-asker>
-[% END %]
-
+[% INCLUDE web/common/includes/off_webcomponents_configuration.tt.html language_code = lc country_code = cc
+robotoff_domain = robotoff_url images_domain = images_subdomain api_domain = formatted_subdomain folksonomy_uri =
+folksonomy_uri %]
 <a href="#upNav" class="back-to-top scrollto button">
     <span class="material-icons size-20 ">
         arrow_upward
@@ -96,6 +91,9 @@
                         [% IF report_problem_card_panel %]
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#report_problem"><span>[% lang("report_problem_navigation") %]</span></a></li>
                         [% END %]
+                        [% IF product_card_panel %]
+                        <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#product_kp"><span>[% lang("raw_product_information") %]</span></a></li>
+                        [% END %]
                         [% IF display_data_quality_issues_and_improvement_opportunities %]
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#improvement"><span>[% lang("improvements_navigation") %]</span></a></li>
                         [% END %]
@@ -116,7 +114,7 @@
                     [% IF front_image %]
                         <div class="row">
                             <div class="medium-4 small-12 columns">
-                                [% INCLUDE web/panels/image.tt.html code = code image = front_image %]
+                                [% INCLUDE web/panels/image.tt.html code = code image = front_image imgid = imgid nutripatrol_url = nutripatrol_url %]
                             </div>
                             <div class="medium-8 small-12 columns">
                     [% END %]   
@@ -155,7 +153,7 @@
             <!-- owner -->
             [% IF owner %]
                 <p>
-                    [% FILTER format(lang("sources_manufacturer")) %]<a href="facets/editors/[% owner %]">[% owner_org.name %]</a>[% END %]
+                    [% FILTER format(lang("sources_manufacturer")) %]<a href="/facets[% canonicalize_taxonomy_tag_link("editors", owner) %]">[% owner_org.name %]</a>[% END %]
                     
                     [% IF owner_org.customer_service.email || owner_org.customer_service.link || owner_org.customer_service.phone %]
                             - [% lang("customer_service") %][% sep %]:
@@ -198,10 +196,15 @@
                         
                         [% product_fields %]
 
+                       [% IF (robotoff_url.defined) && (robotoff_url.length > 0) %]
+                            <!-- Anonymous users will only be able to vote see AnnotationVote in robotoff,
+                                the voter uniqueness is based on a hash of its ip address -->
+                            [% INCLUDE web/common/includes/robotoff_contribution_message.tt.html product_code = code id = "robotoff-contribution-message" is_logged_in = user_id.defined %]
+                        [% END %]
                     [% IF front_image.defined %]
                             </div>
                         </div>
-                    [% END %]   
+                    [% END %]
 
                     </div>
                 </div>
@@ -280,6 +283,18 @@
             <div class="card">
                 <div class="card-section">
                         [% secondhand_card_panel %]
+                </div>
+            </div>
+        </div>
+    </section>
+[% END %]
+
+[% IF product_card_panel %]
+<section class="row" id="product_kp">
+        <div class="large-12 column">
+            <div class="card">
+                <div class="card-section">
+                        [% product_card_panel %]
                 </div>
             </div>
         </div>
@@ -412,6 +427,17 @@
 </div>
 </section>
 
-[% INCLUDE web/common/includes/folksonomy_script.tt.html %]
+<section class="row">
+        <div class="large-12 column">
+            <div class="card">
+                <div class="reblock card-section">
+                    <div class="large-12 column">
+                        <folksonomy-editor product-code="[% code %]" page-type="view">
+                        </folksonomy-editor>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
 
 <!-- end templates/[% template.name %] -->

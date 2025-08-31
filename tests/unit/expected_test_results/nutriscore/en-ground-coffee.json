@@ -1,0 +1,240 @@
+{
+   "additives_n" : 0,
+   "additives_original_tags" : [],
+   "additives_tags" : [],
+   "allergens" : "",
+   "allergens_from_ingredients" : "",
+   "allergens_from_user" : "(en) ",
+   "allergens_hierarchy" : [],
+   "allergens_tags" : [],
+   "amino_acids_tags" : [],
+   "categories" : "ground coffee",
+   "categories_hierarchy" : [
+      "en:beverages-and-beverages-preparations",
+      "en:plant-based-foods-and-beverages",
+      "en:plant-based-foods",
+      "en:beverage-preparations",
+      "en:coffees",
+      "en:ground-coffees"
+   ],
+   "categories_lc" : "en",
+   "categories_properties" : {
+      "agribalyse_food_code:en" : "18003",
+      "ciqual_food_code:en" : "18003"
+   },
+   "categories_properties_tags" : [
+      "all-products",
+      "categories-known",
+      "agribalyse-food-code-18003",
+      "agribalyse-food-code-known",
+      "agribalyse-proxy-food-code-unknown",
+      "ciqual-food-code-18003",
+      "ciqual-food-code-known",
+      "agribalyse-known",
+      "agribalyse-18003"
+   ],
+   "categories_tags" : [
+      "en:beverages-and-beverages-preparations",
+      "en:plant-based-foods-and-beverages",
+      "en:plant-based-foods",
+      "en:beverage-preparations",
+      "en:coffees",
+      "en:ground-coffees"
+   ],
+   "food_groups" : "en:unsweetened-beverages",
+   "food_groups_tags" : [
+      "en:beverages",
+      "en:unsweetened-beverages"
+   ],
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "18003",
+         "ecobalyse_code" : "coffee-ground",
+         "id" : "en:ground-coffee",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 100,
+         "percent_max" : 100,
+         "percent_min" : 100,
+         "text" : "ground coffee",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {},
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_lc" : "en",
+   "ingredients_n" : 1,
+   "ingredients_n_tags" : [
+      "1",
+      "1-10"
+   ],
+   "ingredients_non_nutritive_sweeteners_n" : 0,
+   "ingredients_original_tags" : [
+      "en:ground-coffee"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_sweeteners_n" : 0,
+   "ingredients_tags" : [
+      "en:ground-coffee",
+      "en:coffee"
+   ],
+   "ingredients_text" : "ground coffee",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 1,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
+   "known_ingredients_n" : 1,
+   "lc" : "en",
+   "minerals_tags" : [],
+   "misc_tags" : [
+      "en:nutriscore-missing-prepared-nutrition-data",
+      "en:nutrition-not-enough-data-to-compute-nutrition-score",
+      "en:nutriscore-missing-nutrition-data",
+      "en:nutriscore-missing-nutrition-data-energy",
+      "en:nutriscore-missing-nutrition-data-fat",
+      "en:nutriscore-missing-nutrition-data-saturated-fat",
+      "en:nutriscore-missing-nutrition-data-sugars",
+      "en:nutriscore-missing-nutrition-data-sodium",
+      "en:nutriscore-missing-nutrition-data-proteins",
+      "en:nutrition-no-fiber",
+      "en:nutriscore-not-computed",
+      "en:nutrition-no-fruits-vegetables-nuts",
+      "en:nutrition-no-fiber-or-fruits-vegetables-nuts"
+   ],
+   "nova_group" : 1,
+   "nova_group_debug" : "",
+   "nova_groups" : "1",
+   "nova_groups_markers" : {},
+   "nova_groups_tags" : [
+      "en:1-unprocessed-or-minimally-processed-foods"
+   ],
+   "nucleotides_tags" : [],
+   "nutrient_levels" : {},
+   "nutrient_levels_tags" : [],
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0,
+      "nova-group" : 1,
+      "nova-group_100g" : 1,
+      "nova-group_serving" : 1
+   },
+   "nutriments_estimated" : {
+      "alcohol_100g" : 0,
+      "calcium_100g" : 0.12,
+      "carbohydrates_100g" : 40.2,
+      "cholesterol_100g" : 0,
+      "copper_100g" : 0.00155,
+      "energy_100g" : 397,
+      "fat_100g" : 15.4,
+      "fiber_100g" : 19.8,
+      "iron_100g" : 0.0041,
+      "magnesium_100g" : 0.24,
+      "manganese_100g" : 0.00213,
+      "phosphorus_100g" : 0.16,
+      "polyols_100g" : 0,
+      "potassium_100g" : 2.02,
+      "proteins_100g" : 14.4,
+      "salt_100g" : 0.19,
+      "sodium_100g" : 0.074,
+      "vitamin-b6_100g" : 1e-06,
+      "vitamin-c_100g" : 0,
+      "vitamin-e_100g" : 0.0027,
+      "water_100g" : 5.5,
+      "zinc_100g" : 0.00079
+   },
+   "nutriscore" : {
+      "2021" : {
+         "category_available" : 1,
+         "data" : {
+            "energy" : null,
+            "fiber" : 0,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0,
+            "is_beverage" : 1,
+            "is_cheese" : 0,
+            "is_fat" : 0,
+            "is_water" : 0,
+            "proteins" : null,
+            "saturated_fat" : null,
+            "sodium" : null,
+            "sugars" : null
+         },
+         "grade" : "unknown",
+         "nutrients_available" : 0,
+         "nutriscore_applicable" : 1,
+         "nutriscore_computed" : 0
+      },
+      "2023" : {
+         "category_available" : 1,
+         "data" : {
+            "energy" : null,
+            "fiber" : null,
+            "fruits_vegetables_legumes" : null,
+            "is_beverage" : 1,
+            "is_cheese" : 0,
+            "is_fat_oil_nuts_seeds" : 0,
+            "is_red_meat_product" : 0,
+            "is_water" : 0,
+            "non_nutritive_sweeteners" : 0,
+            "proteins" : null,
+            "salt" : null,
+            "saturated_fat" : null,
+            "sugars" : null
+         },
+         "grade" : "unknown",
+         "nutrients_available" : 0,
+         "nutriscore_applicable" : 1,
+         "nutriscore_computed" : 0
+      }
+   },
+   "nutriscore_2021_tags" : [
+      "unknown"
+   ],
+   "nutriscore_2023_tags" : [
+      "unknown"
+   ],
+   "nutriscore_grade" : "unknown",
+   "nutriscore_tags" : [
+      "unknown"
+   ],
+   "nutriscore_version" : "2023",
+   "nutrition_data_per" : "100g",
+   "nutrition_data_prepared_per" : "100g",
+   "nutrition_grade_fr" : "unknown",
+   "nutrition_grades" : "unknown",
+   "nutrition_grades_tags" : [
+      "unknown"
+   ],
+   "nutrition_score_beverage" : 1,
+   "nutrition_score_debug" : "no score for category en:beverage-preparations without data for prepared product - missing energy_prepared_100g - missing fat_prepared_100g - missing saturated-fat_prepared_100g - missing sugars_prepared_100g - missing sodium_prepared_100g - missing proteins_prepared_100g",
+   "nutrition_score_warning_no_fiber" : 1,
+   "nutrition_score_warning_no_fruits_vegetables_nuts" : 1,
+   "other_nutritional_substances_tags" : [],
+   "pnns_groups_1" : "Beverages",
+   "pnns_groups_1_tags" : [
+      "beverages",
+      "known"
+   ],
+   "pnns_groups_2" : "Unsweetened beverages",
+   "pnns_groups_2_tags" : [
+      "unsweetened-beverages",
+      "known"
+   ],
+   "traces" : "",
+   "traces_from_ingredients" : "",
+   "traces_from_user" : "(en) ",
+   "traces_hierarchy" : [],
+   "traces_tags" : [],
+   "unknown_ingredients_n" : 0,
+   "unknown_nutrients_tags" : [],
+   "vitamins_tags" : []
+}

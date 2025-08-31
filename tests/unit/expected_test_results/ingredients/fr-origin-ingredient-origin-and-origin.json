@@ -170,32 +170,6 @@
       "en:non-vegan",
       "en:non-vegetarian"
    ],
-   "ingredients_hierarchy" : [
-      "en:potato",
-      "en:vegetable",
-      "en:root-vegetable",
-      "en:tuber",
-      "en:pork",
-      "en:animal",
-      "en:semi-skimmed-milk",
-      "en:dairy",
-      "en:milk",
-      "en:single-cream",
-      "en:cream",
-      "en:water",
-      "en:butter",
-      "fr:moutarde-a-l-ancienne",
-      "en:mustard",
-      "en:dijon-mustard",
-      "en:flower-honey",
-      "en:added-sugar",
-      "en:honey",
-      "en:spice",
-      "en:condiment",
-      "en:broth",
-      "en:finegrained-salt",
-      "en:salt"
-   ],
    "ingredients_lc" : "fr",
    "ingredients_n" : 13,
    "ingredients_n_tags" : [
@@ -267,7 +241,7 @@
       "fr:moutarde-a-l-ancienne"
    ],
    "ingredients_without_ecobalyse_ids_n" : 9,
-   "known_ingredients_n" : 24,
+   "known_ingredients_n" : 13,
    "lc" : "fr",
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
@@ -281,7 +255,7 @@
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
-   "origin_fr" : "Pomme de Terre de France, Porc de France, Lait demi-écrémé de France, Crème liquide de France, Eau de France, Beurre de France, \n\t\t\t\tMoutarde à l'ancienne de France, Crème de France, Moutarde de Dijon de France, Miel de fleurs de France, Epices : Inde, Bouillon de France, Sel fin de France",
+   "origin_fr" : "Pomme de Terre de France, Porc de France, Lait demi-écrémé de France, Crème liquide de France, Eau de France, Beurre de France,\n\t\t\t\tMoutarde à l'ancienne de France, Crème de France, Moutarde de Dijon de France, Miel de fleurs de France, Epices : Inde, Bouillon de France, Sel fin de France",
    "specific_ingredients" : [
       {
          "id" : "en:potato",

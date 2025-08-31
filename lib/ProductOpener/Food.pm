@@ -77,6 +77,7 @@ BEGIN {
 		&compute_units_of_alcohol
 		&compute_estimated_nutrients
 
+		&has_nutrition_data_for_product_type
 		&compare_nutriments
 
 		&extract_nutrition_from_image
@@ -113,7 +114,7 @@ use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::FoodGroups qw/compute_food_groups/;
 use ProductOpener::Units qw/:all/;
 use ProductOpener::Products qw(&remove_fields);
-use ProductOpener::Display qw/single_param/;
+use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::APIProductWrite qw/skip_protected_field/;
 use ProductOpener::NutritionEstimation qw/estimate_nutrients_from_ingredients/;
 
@@ -315,7 +316,7 @@ Assign a value with a unit and an optional modifier (< or ~) to a nutrient in th
 
 =head4 $product_ref
 
-=head4 $nid 
+=head4 $nid
 
 Nutrient id, possibly suffixed with "_prepared"
 
@@ -471,33 +472,36 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'-cholesterol-', '!carbohydrates',
 			'!-sugars', '--added-sugars-',
 			'--sucrose-', '--glucose-',
-			'--fructose-', '--lactose-',
-			'--maltose-', '--maltodextrins-',
+			'--fructose-', '--galactose-',
+			'--lactose-', '--maltose-',
+			'--maltodextrins-', '-psicose-',
 			'-starch-', '-polyols-',
-			'--erythritol-', '!fiber',
-			'-soluble-fiber-', '-insoluble-fiber-',
-			'!proteins', '-casein-',
-			'-serum-proteins-', '-nucleotides-',
-			'!salt', '-added-salt-',
-			'sodium', 'alcohol',
-			'#vitamins', 'vitamin-a-',
-			'beta-carotene-', 'vitamin-d-',
-			'vitamin-e-', 'vitamin-k-',
-			'vitamin-c-', 'vitamin-b1-',
-			'vitamin-b2-', 'vitamin-pp-',
-			'vitamin-b6-', 'vitamin-b9-',
-			'folates-', 'vitamin-b12-',
-			'biotin-', 'pantothenic-acid-',
-			'#minerals', 'silica-',
-			'bicarbonate-', 'potassium-',
-			'chloride-', 'calcium-',
-			'phosphorus-', 'iron-',
-			'magnesium-', 'zinc-',
-			'copper-', 'manganese-',
-			'fluoride-', 'selenium-',
-			'chromium-', 'molybdenum-',
-			'iodine-', 'caffeine-',
-			'taurine-', 'ph-',
+			'--erythritol-', '--isomalt-',
+			'--maltitol-', '--sorbitol-',
+			'!fiber', '-soluble-fiber-',
+			'-insoluble-fiber-', '!proteins',
+			'-casein-', '-serum-proteins-',
+			'-nucleotides-', '!salt',
+			'-added-salt-', 'sodium',
+			'alcohol', '#vitamins',
+			'vitamin-a-', 'beta-carotene-',
+			'vitamin-d-', 'vitamin-e-',
+			'vitamin-k-', 'vitamin-c-',
+			'vitamin-b1-', 'vitamin-b2-',
+			'vitamin-pp-', 'vitamin-b6-',
+			'vitamin-b9-', 'folates-',
+			'vitamin-b12-', 'biotin-',
+			'pantothenic-acid-', '#minerals',
+			'silica-', 'bicarbonate-',
+			'potassium-', 'chloride-',
+			'calcium-', 'phosphorus-',
+			'iron-', 'magnesium-',
+			'zinc-', 'copper-',
+			'manganese-', 'fluoride-',
+			'selenium-', 'chromium-',
+			'molybdenum-', 'iodine-',
+			'caffeine-', 'taurine-',
+			'methylsulfonylmethane-', 'ph-',
 			'fruits-vegetables-nuts-', 'fruits-vegetables-nuts-dried-',
 			'fruits-vegetables-nuts-estimate-', 'collagen-meat-protein-ratio-',
 			'cocoa-', 'chlorophyl-',
@@ -508,6 +512,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'beta-glucan-', 'inositol-',
 			'carnitine-', 'sulphate-',
 			'nitrate-', 'acidity-',
+			'carbohydrates-total-',
 		)
 	],
 	off_ca => [
@@ -531,46 +536,49 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'--elaidic-acid-', '--gondoic-acid-',
 			'--mead-acid-', '--erucic-acid-',
 			'--nervonic-acid-', '-trans-fat',
-			'cholesterol', '!carbohydrates',
+			'cholesterol', '!carbohydrates-total',
 			'-fiber', '--soluble-fiber-',
 			'--insoluble-fiber-', '-sugars',
 			'--added-sugars-', '--sucrose-',
 			'--glucose-', '--fructose-',
-			'--lactose-', '--maltose-',
-			'--maltodextrins-', '-starch-',
-			'-polyols-', '-erythritol-',
-			'!proteins', '-casein-',
-			'-serum-proteins-', '-nucleotides-',
-			'salt', '-added-salt-',
-			'sodium', 'alcohol',
-			'#vitamins', 'vitamin-a',
-			'beta-carotene-', 'vitamin-d-',
-			'vitamin-e-', 'vitamin-k-',
-			'vitamin-c', 'vitamin-b1-',
-			'vitamin-b2-', 'vitamin-pp-',
-			'vitamin-b6-', 'vitamin-b9-',
-			'folates-', 'vitamin-b12-',
-			'biotin-', 'pantothenic-acid-',
-			'#minerals', 'silica-',
-			'bicarbonate-', 'potassium-',
-			'chloride-', 'calcium',
-			'phosphorus-', 'iron',
-			'magnesium-', 'zinc-',
-			'copper-', 'manganese-',
-			'fluoride-', 'selenium-',
-			'chromium-', 'molybdenum-',
-			'iodine-', 'caffeine-',
-			'taurine-', 'ph-',
-			'fruits-vegetables-nuts-', 'fruits-vegetables-nuts-dried-',
-			'fruits-vegetables-nuts-estimate-', 'collagen-meat-protein-ratio-',
-			'cocoa-', 'chlorophyl-',
-			'carbon-footprint-', 'carbon-footprint-from-meat-or-fish-',
-			'nutrition-score-fr-', 'nutrition-score-uk-',
-			'glycemic-index-', 'water-hardness-',
-			'choline-', 'phylloquinone-',
-			'beta-glucan-', 'inositol-',
-			'carnitine-', 'sulphate-',
-			'nitrate-', 'acidity-',
+			'--galactose-', '--lactose-',
+			'--maltose-', '--maltodextrins-',
+			'-psicose-', '-starch-',
+			'-polyols-', '--erythritol-',
+			'--isomalt-', '--maltitol-',
+			'--sorbitol-', '!proteins',
+			'-casein-', '-serum-proteins-',
+			'-nucleotides-', 'salt',
+			'-added-salt-', 'sodium',
+			'alcohol', '#vitamins',
+			'vitamin-a', 'beta-carotene-',
+			'vitamin-d-', 'vitamin-e-',
+			'vitamin-k-', 'vitamin-c',
+			'vitamin-b1-', 'vitamin-b2-',
+			'vitamin-pp-', 'vitamin-b6-',
+			'vitamin-b9-', 'folates-',
+			'vitamin-b12-', 'biotin-',
+			'pantothenic-acid-', '#minerals',
+			'silica-', 'bicarbonate-',
+			'potassium-', 'chloride-',
+			'calcium', 'phosphorus-',
+			'iron', 'magnesium-',
+			'zinc-', 'copper-',
+			'manganese-', 'fluoride-',
+			'selenium-', 'chromium-',
+			'molybdenum-', 'iodine-',
+			'caffeine-', 'taurine-',
+			'ph-', 'fruits-vegetables-nuts-',
+			'fruits-vegetables-nuts-dried-', 'fruits-vegetables-nuts-estimate-',
+			'collagen-meat-protein-ratio-', 'cocoa-',
+			'chlorophyl-', 'carbon-footprint-',
+			'carbon-footprint-from-meat-or-fish-', 'nutrition-score-fr-',
+			'nutrition-score-uk-', 'glycemic-index-',
+			'water-hardness-', 'choline-',
+			'phylloquinone-', 'beta-glucan-',
+			'inositol-', 'carnitine-',
+			'sulphate-', 'nitrate-',
+			'acidity-', 'carbohydrates-',
 		)
 	],
 	off_ru => [
@@ -598,42 +606,45 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'-cholesterol-', '!carbohydrates',
 			'-sugars', '--added-sugars-',
 			'--sucrose-', '--glucose-',
-			'--fructose-', '--lactose-',
-			'--maltose-', '--maltodextrins-',
+			'--fructose-', '--galactose-',
+			'--lactose-', '--maltose-',
+			'--maltodextrins-', '-psicose-',
 			'-starch-', '-polyols-',
-			'--erythritol-', '!energy-kj',
-			'!energy-kcal', 'energy-',
-			'-energy-from-fat-', 'fiber',
-			'salt', '-added-salt-',
-			'sodium', 'alcohol',
-			'#vitamins', 'vitamin-a-',
-			'beta-carotene-', 'vitamin-d-',
-			'vitamin-e-', 'vitamin-k-',
-			'vitamin-c-', 'vitamin-b1-',
-			'vitamin-b2-', 'vitamin-pp-',
-			'vitamin-b6-', 'vitamin-b9-',
-			'folates-', 'vitamin-b12-',
-			'biotin-', 'pantothenic-acid-',
-			'#minerals', 'silica-',
-			'bicarbonate-', 'potassium-',
-			'chloride-', 'calcium-',
-			'phosphorus-', 'iron-',
-			'magnesium-', 'zinc-',
-			'copper-', 'manganese-',
-			'fluoride-', 'selenium-',
-			'chromium-', 'molybdenum-',
-			'iodine-', 'caffeine-',
-			'taurine-', 'ph-',
-			'fruits-vegetables-nuts-', 'fruits-vegetables-nuts-dried-',
-			'fruits-vegetables-nuts-estimate-', 'collagen-meat-protein-ratio-',
-			'cocoa-', 'chlorophyl-',
-			'carbon-footprint-', 'carbon-footprint-from-meat-or-fish-',
-			'nutrition-score-fr-', 'nutrition-score-uk-',
-			'glycemic-index-', 'water-hardness-',
-			'choline-', 'phylloquinone-',
-			'beta-glucan-', 'inositol-',
-			'carnitine-', 'sulphate-',
-			'nitrate-', 'acidity-',
+			'--erythritol-', '--isomalt-',
+			'--maltitol-', '--sorbitol-',
+			'!energy-kj', '!energy-kcal',
+			'energy-', '-energy-from-fat-',
+			'fiber', 'salt',
+			'-added-salt-', 'sodium',
+			'alcohol', '#vitamins',
+			'vitamin-a-', 'beta-carotene-',
+			'vitamin-d-', 'vitamin-e-',
+			'vitamin-k-', 'vitamin-c-',
+			'vitamin-b1-', 'vitamin-b2-',
+			'vitamin-pp-', 'vitamin-b6-',
+			'vitamin-b9-', 'folates-',
+			'vitamin-b12-', 'biotin-',
+			'pantothenic-acid-', '#minerals',
+			'silica-', 'bicarbonate-',
+			'potassium-', 'chloride-',
+			'calcium-', 'phosphorus-',
+			'iron-', 'magnesium-',
+			'zinc-', 'copper-',
+			'manganese-', 'fluoride-',
+			'selenium-', 'chromium-',
+			'molybdenum-', 'iodine-',
+			'caffeine-', 'taurine-',
+			'ph-', 'fruits-vegetables-nuts-',
+			'fruits-vegetables-nuts-dried-', 'fruits-vegetables-nuts-estimate-',
+			'collagen-meat-protein-ratio-', 'cocoa-',
+			'chlorophyl-', 'carbon-footprint-',
+			'carbon-footprint-from-meat-or-fish-', 'nutrition-score-fr-',
+			'nutrition-score-uk-', 'glycemic-index-',
+			'water-hardness-', 'choline-',
+			'phylloquinone-', 'beta-glucan-',
+			'inositol-', 'carnitine-',
+			'sulphate-', 'nitrate-',
+			'acidity-', 'total-carboydrates-',
 		)
 	],
 	off_us => [
@@ -659,42 +670,46 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'--erucic-acid-', '--nervonic-acid-',
 			'-trans-fat', 'cholesterol',
 			'salt-', '-added-salt-',
-			'sodium', '!carbohydrates',
+			'sodium', '!carbohydrates-total',
 			'-fiber', '--soluble-fiber-',
 			'--insoluble-fiber-', '-sugars',
 			'--added-sugars', '--sucrose-',
 			'--glucose-', '--fructose-',
-			'--lactose-', '--maltose-',
-			'--maltodextrins-', '-starch-',
-			'-polyols-', '-erythritol-',
-			'!proteins', '-casein-',
-			'-serum-proteins-', '-nucleotides-',
-			'alcohol', '#vitamins',
-			'vitamin-a-', 'beta-carotene-',
-			'vitamin-d', 'vitamin-e-',
-			'vitamin-k-', 'vitamin-c-',
-			'vitamin-b1-', 'vitamin-b2-',
-			'vitamin-pp-', 'vitamin-b6-',
-			'vitamin-b9-', 'folates-',
-			'vitamin-b12-', 'biotin-',
-			'pantothenic-acid-', '#minerals',
-			'calcium', 'iron',
-			'potassium', 'silica-',
-			'bicarbonate-', 'chloride-',
-			'phosphorus-', 'magnesium-',
-			'zinc-', 'copper-',
-			'manganese-', 'fluoride-',
-			'selenium-', 'chromium-',
-			'molybdenum-', 'iodine-',
-			'caffeine-', 'taurine-',
-			'ph-', 'fruits-vegetables-nuts-',
-			'fruits-vegetables-nuts-dried-', 'fruits-vegetables-nuts-estimate-',
-			'collagen-meat-protein-ratio-', 'cocoa-',
-			'chlorophyl-', 'carbon-footprint-',
-			'carbon-footprint-from-meat-or-fish-', 'nutrition-score-fr-',
-			'nutrition-score-uk-', 'glycemic-index-',
-			'water-hardness-', 'sulfate-',
-			'nitrate-', 'acidity-',
+			'--galactose-', '--lactose-',
+			'--maltose-', '--maltodextrins-',
+			'-psicose-', '-starch-',
+			'-polyols-', '--erythritol-',
+			'--isomalt-', '--maltitol-',
+			'--sorbitol-', '!proteins',
+			'-casein-', '-serum-proteins-',
+			'-nucleotides-', 'alcohol',
+			'#vitamins', 'vitamin-a-',
+			'beta-carotene-', 'vitamin-d',
+			'vitamin-e-', 'vitamin-k-',
+			'vitamin-c-', 'vitamin-b1-',
+			'vitamin-b2-', 'vitamin-pp-',
+			'vitamin-b6-', 'vitamin-b9-',
+			'folates-', 'vitamin-b12-',
+			'biotin-', 'pantothenic-acid-',
+			'#minerals', 'calcium',
+			'iron', 'potassium',
+			'silica-', 'bicarbonate-',
+			'chloride-', 'phosphorus-',
+			'magnesium-', 'zinc-',
+			'copper-', 'manganese-',
+			'fluoride-', 'selenium-',
+			'chromium-', 'molybdenum-',
+			'iodine-', 'caffeine-',
+			'taurine-', 'ph-',
+			'fruits-vegetables-nuts-', 'fruits-vegetables-nuts-dried-',
+			'fruits-vegetables-nuts-estimate-', 'collagen-meat-protein-ratio-',
+			'cocoa-', 'chlorophyl-',
+			'carbon-footprint-', 'carbon-footprint-from-meat-or-fish-',
+			'nutrition-score-fr-', 'nutrition-score-uk-',
+			'glycemic-index-', 'water-hardness-',
+			'sulfate-', 'nitrate-',
+			'acidity-', 'carbohydrates-',
+			'melatonin-',
 		)
 	],
 	off_us_before_2017 => [
@@ -719,14 +734,16 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'--mead-acid-', '--erucic-acid-',
 			'--nervonic-acid-', '-trans-fat',
 			'cholesterol', 'salt-',
-			'sodium', '!carbohydrates',
+			'sodium', '!carbohydrates-total',
 			'-fiber', '--soluble-fiber-',
 			'--insoluble-fiber-', '-sugars',
 			'--sucrose-', '--glucose-',
 			'--fructose-', '--lactose-',
 			'--maltose-', '--maltodextrins-',
-			'-starch-', '-polyols-',
-			'--erythritol-', '!proteins',
+			'-psicose-', '-starch-',
+			'-polyols-', '--erythritol-',
+			'--isomalt-', '--maltitol-',
+			'--sorbitol-', '!proteins',
 			'-casein-', '-serum-proteins-',
 			'-nucleotides-', 'alcohol',
 			'#vitamins', 'vitamin-a',
@@ -757,19 +774,21 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'beta-glucan-', 'inositol-',
 			'carnitine-', 'sulfate-',
 			'nitrate-', 'acidity-',
+			'carbohydrates-',
 		)
 	],
 	off_hk => [
 		(
 			'!energy-kj', '!energy-kcal', '!proteins', '!fat',
 			'-saturated-fat', '-unsaturated-fat-', '--monounsaturated-fat-', '--monounsaturated-fat-',
-			'-trans-fat', 'cholesterol', '!carbohydrates', '-sugars',
+			'-trans-fat', 'cholesterol', '!carbohydrates-total', '-sugars',
 			'-fiber', 'salt-', 'sodium', '#vitamins',
 			'vitamin-a', 'vitamin-d-', 'vitamin-c', 'vitamin-b1-',
 			'vitamin-b2-', 'vitamin-pp-', 'vitamin-b6-', 'vitamin-b9-',
 			'folates-', 'vitamin-b12-', '#minerals', 'calcium',
 			'potassium-', 'phosphorus-', 'iron', 'alcohol',
 			'nutrition-score-fr-', 'sulphate-', 'nitrate-', 'acidity-',
+			'carbohydrates-',
 		)
 	],
 	off_jp => [
@@ -796,7 +815,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'--elaidic-acid-', '--gondoic-acid-',
 			'--mead-acid-', '--erucic-acid-',
 			'--nervonic-acid-', '-trans-fat-',
-			'cholesterol-', '!carbohydrates',
+			'cholesterol-', '!carbohydrates-total',
 			'-sugars-', '-fiber-',
 			'-soluble-fiber-', '-insoluble-fiber-',
 			'!salt', '-added-salt-',
@@ -829,6 +848,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'beta-glucan-', 'inositol-',
 			'carnitine-', 'sulphate-',
 			'nitrate-', 'acidity-',
+			'carbohydrates-',
 		)
 	],
 	off_in => [
@@ -854,13 +874,16 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'--elaidic-acid-', '--gondoic-acid-',
 			'--mead-acid-', '--erucic-acid-',
 			'--nervonic-acid-', '-trans-fat-',
-			'-cholesterol-', '!carbohydrates',
-			'-sugars', '--added-sugars-',
-			'--sucrose-', '--glucose-',
-			'--fructose-', '--lactose-',
+			'-cholesterol-', '-gamma-oryzanol-',
+			'!carbohydrates', '-sugars',
+			'--added-sugars-', '--sucrose-',
+			'--glucose-', '--fructose-',
+			'--galactose-', '--lactose-',
 			'--maltose-', '--maltodextrins-',
-			'-starch-', '-polyols-',
-			'--erythritol-', '!fiber',
+			'-psicose-', '-starch-',
+			'-polyols-', '--erythritol-',
+			'--isomalt-', '--maltitol-',
+			'--sorbitol-', '!fiber',
 			'-soluble-fiber-', '-insoluble-fiber-',
 			'!salt', '-added-salt-',
 			'sodium', 'alcohol',
@@ -892,6 +915,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'beta-glucan-', 'inositol-',
 			'carnitine-', 'sulphate-',
 			'nitrate-', 'acidity-',
+			'carbohydrates-total-',
 		)
 	],
 	# https://eur-lex.europa.eu/eli/reg/2009/767/2018-12-26
@@ -939,7 +963,7 @@ foreach my $region (keys %nutriments_tables) {
 
 =head2 canonicalize_nutriment ( $product_ref )
 
-Canonicalizes the nutrients input by the user in the nutrition table product edit. 
+Canonicalizes the nutrients input by the user in the nutrition table product edit.
 This sub converts these nutrients (which are arguments to this function), into a recognizable/standard form.
 
 =head3 Parameters
@@ -1232,6 +1256,24 @@ sub is_red_meat_product_for_nutrition_score ($product_ref) {
 
 	return 0;
 }
+
+=head2 fix_salt_equivalent ( $product_ref )
+
+Adjusts the sodium and salt values in a product's nutritional information based on EU conversion standards.
+
+=head3 Argument
+
+=over
+
+=item * C<$product_ref> (HashRef): Reference to a hash containing the product's nutritional data.
+
+=back
+
+=head3 Return Type
+
+Returns nothing (modifies the input hash reference in place).
+
+=cut
 
 sub fix_salt_equivalent ($product_ref) {
 
@@ -2215,6 +2257,47 @@ sub compute_nutriscore ($product_ref, $current_version = "2023") {
 	return;
 }
 
+=head2 has_nutrition_data_for_product_type ($product_ref, $nutrition_product_type)
+
+Check if the product has nutrition data for the given type ("" or "_prepared").
+
+=head3 Arguments
+
+=head4 $product_ref - ref to the product
+
+=head4 $nutrition_product_type - string, either "" or "_prepared"
+
+=head3 Return values
+
+=head4 0 or 1
+
+=head4 0 if the product does not have nutrition data for the given type
+
+=head4 1 if the product has nutrition data for the given type
+
+=cut
+
+sub has_nutrition_data_for_product_type ($product_ref, $nutrition_product_type) {
+
+	if (not defined $product_ref->{nutriments}) {
+		return 0;
+	}
+
+	foreach my $nid (keys %{$product_ref->{nutriments}}) {
+		if (
+			(
+				   (($nutrition_product_type eq "") and ($nid !~ /_prepared/))
+				or (($nutrition_product_type eq "_prepared") and ($nid =~ /_prepared/))
+			)
+			and ($nid =~ /_(serving|100g)$/)
+			)
+		{
+			return 1;
+		}
+	}
+	return 0;
+}
+
 =head2 compute_nutrition_data_per_100g_and_per_serving ($product_ref)
 
 Input nutrition data is indicated per 100g or per serving.
@@ -2318,11 +2401,9 @@ sub compute_nutrition_data_per_100g_and_per_serving ($product_ref) {
 				elsif ((defined $serving_quantity) and ($serving_quantity > 5)) {
 					$product_ref->{nutriments}{$nid . $product_type . "_100g"}
 						= sprintf("%.2e", $value * 100.0 / $product_ref->{serving_quantity}) + 0.0;
-
-					# Record that we have a nutrient value for this product type (with a unit, not NOVA, alcohol % etc.)
-					$nutrition_data{$product_type} = 1;
 				}
-
+				# Record that we have a nutrient value for this product type (with a unit, not NOVA, alcohol % etc.)
+				$nutrition_data{$product_type} = 1;
 			}
 		}
 		# nutrition_data_<_/prepared>_per eq '100g' or '1kg'
@@ -2369,10 +2450,9 @@ sub compute_nutrition_data_per_100g_and_per_serving ($product_ref) {
 					$product_ref->{nutriments}{$nid . $product_type . "_serving"} = sprintf("%.2e",
 						$product_ref->{nutriments}{$nid . $product_type} / 100.0 * $product_ref->{serving_quantity})
 						+ 0.0;
-
-					# Record that we have a nutrient value for this product type (with a unit, not NOVA, alcohol % etc.)
-					$nutrition_data{$product_type} = 1;
 				}
+				# Record that we have a nutrient value for this product type (with a unit, not NOVA, alcohol % etc.)
+				$nutrition_data{$product_type} = 1;
 			}
 		}
 
@@ -2411,11 +2491,7 @@ sub compute_nutrition_data_per_100g_and_per_serving ($product_ref) {
 
 	# If we have nutrient data for as sold or prepared, make sure the checkbox are ticked
 	foreach my $product_type (sort keys %nutrition_data) {
-		if (   (not defined $product_ref->{"nutrition_data" . $product_type})
-			or ($product_ref->{"nutrition_data" . $product_type} ne "on"))
-		{
-			$product_ref->{"nutrition_data" . $product_type} = 'on';
-		}
+		$product_ref->{"nutrition_data" . $product_type} = 'on';
 	}
 
 	return;
@@ -2471,7 +2547,6 @@ sub compute_nutrient_levels ($product_ref) {
 		foreach my $category_id (@{$options{categories_exempted_from_nutrient_levels}}) {
 
 			if (has_tag($product_ref, "categories", $category_id)) {
-				$product_ref->{"nutrition_grades_tags"} = ["not-applicable"];
 				return;
 			}
 		}
@@ -2965,9 +3040,10 @@ sub compute_nova_group ($product_ref) {
 	return;
 }
 
-sub extract_nutrition_from_image ($product_ref, $id, $ocr_engine, $results_ref) {
+sub extract_nutrition_from_image ($product_ref, $image_type, $image_lc, $ocr_engine, $results_ref) {
 
-	extract_text_from_image($product_ref, $id, "nutrition_text_from_image", $ocr_engine, $results_ref);
+	extract_text_from_image($product_ref, $image_type, $image_lc, "nutrition_text_from_image", $ocr_engine,
+		$results_ref);
 
 	# clean and process text
 	if (($results_ref->{status} == 0) and (defined $results_ref->{nutrition_text_from_image})) {

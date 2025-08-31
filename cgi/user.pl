@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -27,12 +27,15 @@ use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Web qw/get_countries_options_list get_languages_options_list/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/$lc  %Lang lang/;
 use ProductOpener::Orgs qw/org_name retrieve_org/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::CRM qw/get_contact_url/;
+use ProductOpener::Keycloak;
+use ProductOpener::Auth qw/get_oidc_implementation_level/;
 
 use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
@@ -71,9 +74,20 @@ if (defined single_param('userid')) {
 
 	# The userid looks like an e-mail
 	if ($request_ref->{admin} and ($userid =~ /\@/)) {
-		my $user_by_email = retrieve_user_by_email($userid);
-		if (defined $user_by_email) {
-			$userid = $user_by_email->{userid};
+		if (get_oidc_implementation_level() < 2) {
+			# Use legacy method until we have fully synced users into Keycloak
+			my $user_by_email = retrieve_user_by_email($userid);
+			if (defined $user_by_email) {
+				$userid = $user_by_email->{userid};
+			}
+		}
+		else {
+			#11866: Might be able to do this unconditionally
+			my $mail_based_userid = is_email_has_off_account($userid);
+			if (defined $mail_based_userid) {
+				$userid = $mail_based_userid;
+
+			}
 		}
 	}
 }
@@ -105,9 +119,12 @@ my @errors = ();
 
 if ($action eq 'process') {
 
-	if ($type eq 'edit') {
-		if (single_param('delete') eq 'on') {
-			$type = 'delete';
+	if (get_oidc_implementation_level() < 5) {
+		# Keep legacy method until we have moved account management to Keycloak
+		if ($type eq 'edit') {
+			if (single_param('delete') eq 'on') {
+				$type = 'delete';
+			}
 		}
 	}
 
@@ -121,7 +138,7 @@ if ($action eq 'process') {
 			display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
 		}
 	}
-	elsif ($type ne 'delete') {
+	elsif ($type ne 'delete') {    #11866: Can remove delete check once Keycloak fully implemented
 		ProductOpener::Users::check_user_form($request_ref, $type, $user_ref, \@errors);
 	}
 
@@ -154,11 +171,13 @@ if ($action eq 'display') {
 			$user_ref->{email} = $user_info;
 			$user_ref->{userid} = $1;
 			$user_ref->{name} = $1;
-			$user_ref->{password} = $new_user_password;
 		}
 		else {
 			$user_ref->{userid} = $user_info;
 			$user_ref->{name} = $user_info;
+		}
+		if (get_oidc_implementation_level() < 5) {
+			# Keep legacy method until we have moved account management to Keycloak
 			$user_ref->{password} = $new_user_password;
 		}
 	}
@@ -170,59 +189,80 @@ if ($action eq 'display') {
 	$template_data_ref->{sections} = [];
 
 	if ($user_ref) {
-		my $selected_language = $user_ref->{preferred_language}
-			// (remove_tags_and_quote(single_param('preferred_language')) || "$lc");
-		my $selected_country = $user_ref->{country} // (remove_tags_and_quote(single_param('country')) || $country);
-		if ($selected_country eq "en:world") {
-			$selected_country = "";
+		if (get_oidc_implementation_level() < 5) {
+			# Keep legacy method until we have moved account management to Keycloak
+			my $selected_language = $user_ref->{preferred_language}
+				// (remove_tags_and_quote(single_param('preferred_language')) || "$lc");
+			my $selected_country = $user_ref->{country} // (remove_tags_and_quote(single_param('country')) || $country);
+			if ($selected_country eq "en:world") {
+				$selected_country = "";
+			}
+			push @{$template_data_ref->{sections}}, {
+				id => "user",
+				fields => [
+					{
+						field => "name"
+					},
+					{
+						field => "email",
+						type => "email",
+					},
+					{
+						field => "userid",
+						label => "username"
+					},
+					{
+						field => "password",
+						type => "password",
+						label => "password"
+					},
+					{
+						field => "confirm_password",
+						type => "password",
+						label => "password_confirm"
+					},
+					{
+						field => "preferred_language",
+						type => "select",
+						label => "preferred_language",
+						selected => $selected_language,
+						options => get_languages_options_list($lc),
+					},
+					{
+						field => "country",
+						type => "select",
+						label => "select_country",
+						selected => $selected_country,
+						options => get_countries_options_list($lc),
+					},
+					{
+						# this is a honeypot to detect scripts, that fills every fields
+						# this one is hidden in a div and user won't see it
+						field => "faxnumber",
+						type => "honeypot",
+						label => "Do not enter your fax number",
+					},
+				]
+			};
 		}
-		push @{$template_data_ref->{sections}}, {
-			id => "user",
-			fields => [
-				{
-					field => "name"
-				},
-				{
-					field => "email",
-					type => "email",
-				},
-				{
-					field => "userid",
-					label => "username"
-				},
-				{
-					field => "password",
-					type => "password",
-					label => "password"
-				},
-				{
-					field => "confirm_password",
-					type => "password",
-					label => "password_confirm"
-				},
-				{
-					field => "preferred_language",
-					type => "select",
-					label => "preferred_language",
-					selected => $selected_language,
-					options => get_languages_options_list($lc),
-				},
-				{
-					field => "country",
-					type => "select",
-					label => "select_country",
-					selected => $selected_country,
-					options => get_countries_options_list($lc),
-				},
-				{
-					# this is a honeypot to detect scripts, that fills every fields
-					# this one is hidden in a div and user won't see it
-					field => "faxnumber",
-					type => "honeypot",
-					label => "Do not enter your fax number",
-				},
-			]
-		};
+		else {
+			push @{$template_data_ref->{sections}}, {
+				id => "user",
+				fields => [
+					{
+						field => "userid",
+						label => "username"
+					},
+					{
+						# this is a honeypot to detect scripts, that fills every fields
+						# this one is hidden in a div and user won't see it
+						field => "faxnumber",
+						type => "honeypot",
+						label => "Do not enter your fax number",
+					},
+				]
+			};
+		}
 
 		# news letter subscription value
 		my $newsletter = $user_ref->{newsletter} // (remove_tags_and_quote(single_param('newsletter')) || "on");
@@ -403,7 +443,8 @@ elsif ($action eq 'process') {
 	if (($type eq 'add') or ($type =~ /^edit/)) {
 		ProductOpener::Users::process_user_form($type, $user_ref, $request_ref);
 	}
-	elsif ($type eq 'delete') {
+	elsif (get_oidc_implementation_level() < 5 and $type eq 'delete') {
+		# Keep legacy method until we have moved account management to Keycloak
 		ProductOpener::Users::delete_user($user_ref);
 	}
 

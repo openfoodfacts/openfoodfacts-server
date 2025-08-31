@@ -6,9 +6,9 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Data qw/:all/;
+use ProductOpener::HTTP qw/create_user_agent/;
 
-use LWP::UserAgent;
-my $ua = LWP::UserAgent->new;
+my $ua = create_user_agent();
 my $server_endpoint = "https://hooks.slack.com/services/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";
 
 sub send_msg($) {

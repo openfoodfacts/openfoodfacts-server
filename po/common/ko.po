@@ -44,6 +44,32 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "세계 각국에서의 화장품에 대해 협업하는 무료 오픈 데이터베이스."
 
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
+msgstr ""
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr ""
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr ""
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr ""
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr ""
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr "세계 각국에서 사료의 협업 무료 오픈 데이터베이스."
+
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
@@ -238,9 +264,10 @@ msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
 msgstr "고급 검색 및 그래프"
 
+# duplicate
 msgctxt "alcohol_warning"
-msgid "Excess drinking is harmful for health."
-msgstr "과음은 건강에 해롭습니다."
+msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr "과도한 알코올 섭취는 건강에 해로우며, 적당히 섭취해야 합니다."
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
@@ -275,16 +302,16 @@ msgid "for 1 kg"
 msgstr ""
 
 msgctxt "android_apk_app_icon_url"
-msgid "/images/misc/android-apk.svg"
-msgstr "/images/misc/android-apk.svg"
+msgid "/images/misc/app-landing-page/download-apk/download-apk_en.svg"
+msgstr ""
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
 msgstr "안드로이드 APK"
 
-# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
+# Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
-msgid "/images/misc/playstore/img/en_get.svg"
+msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
 msgstr ""
 
 msgctxt "android_app_icon_alt_text"
@@ -540,17 +567,13 @@ msgctxt "delete_product"
 msgid "Delete a product"
 msgstr "상품을 삭제하기"
 
-msgctxt "delete_product_page"
-msgid "Delete the page"
-msgstr "페이지 삭제"
-
 msgctxt "delete_the_images"
 msgid "Delete the images"
 msgstr "이미지를 삭제하기"
 
 msgctxt "delete_user"
-msgid "Delete a user"
-msgstr ""
+msgid "Delete the user"
+msgstr "사용자 삭제"
 
 msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
@@ -635,6 +658,14 @@ msgstr "계정 매개 변수"
 msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
 msgstr "귀하의 계정 매개변수가 변경되었습니다."
+
+msgctxt "edit_user_preferences"
+msgid "Preferences"
+msgstr "환경 설정"
+
+msgctxt "edit_user_preferences_result"
+msgid "Your preferences have been changed."
+msgstr "귀하의 기본 설정이 변경되었습니다."
 
 msgctxt "editors_p"
 msgid "editors"
@@ -2728,6 +2759,7 @@ msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
 msgstr "NutriScore 영양 등급"
 
+# duplicate
 msgctxt "delete_product_page"
 msgid "Delete the product page"
 msgstr "제품 삭제"
@@ -2743,10 +2775,6 @@ msgstr "제품을 삭제함"
 msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
 msgstr "이 제품의 페이지를 삭제하시겠습니까?"
-
-msgctxt "delete_user"
-msgid "Delete the user"
-msgstr "사용자 삭제"
 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s."
@@ -4169,10 +4197,6 @@ msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr "기부를 부탁합니다"
 
-msgctxt "alcohol_warning"
-msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
-msgstr "과도한 알코올 섭취는 건강에 해로우며, 적당히 섭취해야 합니다."
-
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "생산자 플랫폼 운영"
@@ -4663,6 +4687,10 @@ msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
 msgstr "식품 가공이 없거나 거의 없음(NOVA 그룹)"
 
+msgctxt "attribute_nova_setting_note"
+msgid "To determine the level of processing of a product, we rely on the list of ingredients (markers, processing methods) and categories."
+msgstr ""
+
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
 msgid "NOVA %s"
@@ -4681,8 +4709,8 @@ msgid "Processed foods"
 msgstr "가공 식품"
 
 msgctxt "attribute_nova_4_description_short"
-msgid "Ultra processed foods"
-msgstr "초가공식품"
+msgid "Ultra-processed foods"
+msgstr "가공 식품"
 
 msgctxt "attribute_nova_4_1_marker"
 msgid "1 ultra-processing marker"
@@ -5012,6 +5040,10 @@ msgstr ""
 msgctxt "number_of_members"
 msgid "Number of Members"
 msgstr ""
+
+msgctxt "serial_no"
+msgid "S.No"
+msgstr "일련번호"
 
 msgctxt "contact_form"
 msgid "Contact form"
@@ -5706,10 +5738,6 @@ msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
 msgstr "이 제품의 성분에 대한 정보는 제공되지 않았습니다."
 
-msgctxt "environmental_score_edit_for_more_precise_environmental_score"
-msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "Green-Score의 보다 정확한 계산을 위해 제품 페이지를 편집하고 추가할 수 있습니다."
-
 msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
 msgstr "비율"
@@ -5730,9 +5758,15 @@ msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
 msgstr "이 제품의 포장에 대한 정보가 충분히 정확하지 않습니다(포장의 모든 구성 요소의 정확한 모양 및 재료)."
 
+# duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
 msgstr "Green-Score의 보다 정확한 계산을 위해 제품 페이지를 수정하여 추가할 수 있습니다."
+
+# duplicate
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
+msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
+msgstr "Green-Score의 보다 정확한 계산을 위해 제품 페이지를 편집하고 추가할 수 있습니다."
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
@@ -5878,6 +5912,11 @@ msgstr ""
 
 msgctxt "donation_title_2024"
 msgid "Please give to our 2024 Fundraiser"
+msgstr ""
+
+# Don't translate {year}, it will be replaced by the 4 digits year
+msgctxt "f_donation_title_year"
+msgid "Please give to our {year} Fundraiser"
 msgstr ""
 
 msgctxt "donation_list_2024_main"
@@ -6235,6 +6274,10 @@ msgid "No ingredients containing palm oil detected"
 msgstr "팜유 포함 성분 감지되지 않음"
 
 msgctxt "attribute_palm_oil_setting_note"
+msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
+msgstr ""
+
+msgctxt "attribute_without_palm_oil_setting_note"
 msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
 msgstr ""
 
@@ -6629,6 +6672,38 @@ msgctxt "api_message_unrecognized_value"
 msgid "Unrecognized value"
 msgstr ""
 
+msgctxt "api_message_image_already_uploaded"
+msgid "Image already uploaded"
+msgstr "이미지가 이미 업로드되었습니다"
+
+msgctxt "api_message_image_too_small"
+msgid "Image too small"
+msgstr "이미지가 너무 작습니다"
+
+msgctxt "api_result_image_uploaded"
+msgid "Image uploaded"
+msgstr "이미지 업로드됨"
+
+msgctxt "api_result_image_not_uploaded"
+msgid "Image not uploaded"
+msgstr "이미지가 업로드되지 않았습니다"
+
+msgctxt "api_result_image_selected"
+msgid "Image selected"
+msgstr "이미지 선택됨"
+
+msgctxt "api_result_image_not_selected"
+msgid "Image not selected"
+msgstr "이미지가 선택되지 않았습니다"
+
+msgctxt "api_result_image_deleted"
+msgid "Image deleted"
+msgstr "이미지가 삭제되었습니다"
+
+msgctxt "api_result_image_not_deleted"
+msgid "Image not deleted"
+msgstr "이미지가 삭제되지 않았습니다"
+
 msgctxt "api_impact_none"
 msgid "None"
 msgstr ""
@@ -7020,6 +7095,11 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr ""
 
+# duplicate with "report_problem_panel_title"
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
+msgstr ""
+
 msgctxt "report_problem_navigation"
 msgid "Report a problem."
 msgstr ""
@@ -7048,11 +7128,6 @@ msgctxt "description"
 msgid "Description"
 msgstr "설명"
 
-# duplicate with "report_problem_panel_title"
-msgctxt "report_problem_navigation"
-msgid "Report a problem"
-msgstr ""
-
 msgctxt "enter_main_contact_username"
 msgid "Enter main contact's username :"
 msgstr ""
@@ -7072,6 +7147,10 @@ msgstr ""
 msgctxt "skip_to_content"
 msgid "Skip to Content"
 msgstr ""
+
+msgctxt "oidc_signin_no_cookie"
+msgid "You need to enable cookies to sign in."
+msgstr "로그인하려면 쿠키를 허용해야 합니다."
 
 msgctxt "cant_delete_main_contact"
 msgid "You cannot remove the main contact. Change it first."
@@ -7367,4 +7446,85 @@ msgstr ""
 msgctxt "in_contact_with_food"
 msgid "In contact with food"
 msgstr ""
+
+msgctxt "contact_us_producers"
+msgid "Contact Us"
+msgstr ""
+
+msgctxt "delete"
+msgid "Delete"
+msgstr "삭제"
+
+msgctxt "f_add_product_to_our_database"
+msgid "Is {barcode} the barcode of a product you have? If so, please add it to the database. It only takes a few minutes."
+msgstr ""
+
+# Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
+msgctxt "f_droid_app_icon_url"
+msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
+msgstr ""
+
+msgctxt "f_droid_app_icon_alt_text"
+msgid "Available on F-Droid"
+msgstr ""
+
+msgctxt "update_nutrients_data"
+msgid "Update nutrients data"
+msgstr ""
+
+msgctxt "update_nutrition_facts"
+msgid "Extract nutrition facts"
+msgstr ""
+
+msgctxt "scan_a_product"
+msgid "Scan a product"
+msgstr ""
+
+msgctxt "or_enter_barcode_manually"
+msgid "Or enter barcode manually"
+msgstr ""
+
+msgctxt "scan"
+msgid "Scan"
+msgstr "스캔"
+
+msgctxt "reset_preferences_details_beauty"
+msgid "Organic farming and fair trade"
+msgstr "유기농업과 공정무역"
+
+msgctxt "reset_preferences_details_food"
+msgid "Nutri-Score, Green-Score and food processing level (NOVA)"
+msgstr "Nutri-Score, Green-Score 및 식품 가공 수준(NOVA)"
+
+msgctxt "reset_preferences_details_product"
+msgid "Good repairability"
+msgstr ""
+
+msgctxt "reset_preferences_details_pet_food"
+msgid "Organic farming and fair trade"
+msgstr "유기농업과 공정무역"
+
+msgctxt "action_report_image_to_nutripatrol"
+msgid "Report this image to our moderators"
+msgstr "이 이미지를 관리자에게 신고하세요"
+
+msgctxt "robots_not_served_here"
+msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
+msgstr "로봇의 과도한 악용으로 인해 신원이 확인되지 않은 사용자에게 이 페이지를 제공할 수 없습니다. Open Food Facts의 모든 기능을 이용하려면 무료 Open Food Facts 계정을 생성하세요."
+
+msgctxt "knowledge_panels_ingredients_added_sugars_title"
+msgid "Contains added sugars"
+msgstr "첨가당이 포함되어 있습니다"
+
+msgctxt "knowledge_panels_ingredients_added_sugars_subtitle"
+msgid "Added sugars:"
+msgstr "첨가당:"
+
+msgctxt "estimated_quantity_of_added_sugars"
+msgid "Estimated quantity of added sugars in ingredients"
+msgstr "재료에 첨가된 설탕의 추정량"
+
+msgctxt "search_products_in_same_category_without_added_sugars"
+msgid "Search for products in the same category without added sugars:"
+msgstr "추가 설탕이 없는 동일 카테고리의 제품을 검색하세요:"
 

@@ -43,14 +43,12 @@
       "data_quality_errors_tags" : [],
       "data_quality_info_tags" : [
          "en:packaging-data-incomplete",
-         "en:environmental-score-extended-data-not-computed",
          "en:food-groups-1-unknown",
          "en:food-groups-2-unknown",
          "en:food-groups-3-unknown"
       ],
       "data_quality_tags" : [
          "en:packaging-data-incomplete",
-         "en:environmental-score-extended-data-not-computed",
          "en:food-groups-1-unknown",
          "en:food-groups-2-unknown",
          "en:food-groups-3-unknown",
@@ -482,6 +480,7 @@
       "product_type" : "food",
       "removed_countries_tags" : [],
       "rev" : 5,
+      "schema_version" : 999,
       "states" : "en:empty, en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-to-be-completed, en:photos-to-be-uploaded",
       "states_hierarchy" : [
          "en:empty",

@@ -44,6 +44,32 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "Skupna, brezplačna in odprta baza kozmetičnih izdelkov z vsega sveta."
 
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
+msgstr ""
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr ""
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr ""
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr ""
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr ""
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr ""
+
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
@@ -238,9 +264,10 @@ msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
 msgstr "Napredno iskanje in grafi"
 
+# duplicate
 msgctxt "alcohol_warning"
-msgid "Excess drinking is harmful for health."
-msgstr "Prekomerno pitje je škodljivo za zdravje."
+msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr "Prekomerno uživanje alkohola škoduje zdravju, uživajmo ga zmerno."
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
@@ -275,16 +302,16 @@ msgid "for 1 kg"
 msgstr ""
 
 msgctxt "android_apk_app_icon_url"
-msgid "/images/misc/android-apk.svg"
-msgstr "/images/misc/android-apk.svg"
+msgid "/images/misc/app-landing-page/download-apk/download-apk_en.svg"
+msgstr ""
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
 msgstr ""
 
-# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
+# Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
-msgid "/images/misc/playstore/img/en_get.svg"
+msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
 msgstr ""
 
 msgctxt "android_app_icon_alt_text"
@@ -540,17 +567,13 @@ msgctxt "delete_product"
 msgid "Delete a product"
 msgstr "Izbriši izdelek"
 
-msgctxt "delete_product_page"
-msgid "Delete the page"
-msgstr "Izbriši stran"
-
 msgctxt "delete_the_images"
 msgid "Delete the images"
 msgstr "Izbriši sliko"
 
 msgctxt "delete_user"
-msgid "Delete a user"
-msgstr ""
+msgid "Delete the user"
+msgstr "Izbriši uporabnika"
 
 msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
@@ -635,6 +658,14 @@ msgstr "Parametri računa"
 msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
 msgstr "Parametri vašega računa so bili spremenjeni."
+
+msgctxt "edit_user_preferences"
+msgid "Preferences"
+msgstr "Nastavitve"
+
+msgctxt "edit_user_preferences_result"
+msgid "Your preferences have been changed."
+msgstr "Vaše nastavitve so bile spremenjene."
 
 msgctxt "editors_p"
 msgid "editors"
@@ -2727,6 +2758,7 @@ msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
 msgstr "NutriScore ocena"
 
+# duplicate
 msgctxt "delete_product_page"
 msgid "Delete the product page"
 msgstr "Izbriši stran z izdelkom"
@@ -2742,10 +2774,6 @@ msgstr "je izbrisal izdelek"
 msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
 msgstr "Ali ste prepričani, da želite izbrisati stran za ta izdelek?"
-
-msgctxt "delete_user"
-msgid "Delete the user"
-msgstr "Izbriši uporabnika"
 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s."
@@ -4168,10 +4196,6 @@ msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr "Prosimo, donirajte"
 
-msgctxt "alcohol_warning"
-msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
-msgstr "Prekomerno uživanje alkohola škoduje zdravju, uživajmo ga zmerno."
-
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "Zmernost platforme proizvajalcev"
@@ -4662,6 +4686,10 @@ msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
 msgstr "Brez ali malo predelana hrana (skupina NOVA)"
 
+msgctxt "attribute_nova_setting_note"
+msgid "To determine the level of processing of a product, we rely on the list of ingredients (markers, processing methods) and categories."
+msgstr ""
+
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
 msgid "NOVA %s"
@@ -4680,8 +4708,8 @@ msgid "Processed foods"
 msgstr "Predelana živila"
 
 msgctxt "attribute_nova_4_description_short"
-msgid "Ultra processed foods"
-msgstr "Zelo predelana hrana"
+msgid "Ultra-processed foods"
+msgstr "Ultra predelana živila"
 
 msgctxt "attribute_nova_4_1_marker"
 msgid "1 ultra-processing marker"
@@ -5010,6 +5038,10 @@ msgstr ""
 msgctxt "number_of_members"
 msgid "Number of Members"
 msgstr ""
+
+msgctxt "serial_no"
+msgid "S.No"
+msgstr "Št."
 
 msgctxt "contact_form"
 msgid "Contact form"
@@ -5704,10 +5736,6 @@ msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
 msgstr "Poreklo sestavin tega izdelka ni navedeno."
 
-msgctxt "environmental_score_edit_for_more_precise_environmental_score"
-msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "Za natančnejši izračun Green-Score lahko uredite stran izdelka in jih dodate."
-
 msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
 msgstr "razmerje"
@@ -5728,9 +5756,15 @@ msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
 msgstr "Podatki o embalaži tega izdelka niso dovolj natančni (natančne oblike in materiali vseh sestavnih delov embalaže)."
 
+# duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
 msgstr "Za natančnejši izračun Green-Score lahko spremenite stran izdelka in jih dodate."
+
+# duplicate
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
+msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
+msgstr "Za natančnejši izračun Green-Score lahko uredite stran izdelka in jih dodate."
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
@@ -5876,6 +5910,11 @@ msgstr ""
 
 msgctxt "donation_title_2024"
 msgid "Please give to our 2024 Fundraiser"
+msgstr ""
+
+# Don't translate {year}, it will be replaced by the 4 digits year
+msgctxt "f_donation_title_year"
+msgid "Please give to our {year} Fundraiser"
 msgstr ""
 
 msgctxt "donation_list_2024_main"
@@ -6233,6 +6272,10 @@ msgid "No ingredients containing palm oil detected"
 msgstr "Zaznana ni nobena sestavina, ki bi lahko vsebovala palmovo olje"
 
 msgctxt "attribute_palm_oil_setting_note"
+msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
+msgstr ""
+
+msgctxt "attribute_without_palm_oil_setting_note"
 msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
 msgstr ""
 
@@ -6627,6 +6670,38 @@ msgctxt "api_message_unrecognized_value"
 msgid "Unrecognized value"
 msgstr ""
 
+msgctxt "api_message_image_already_uploaded"
+msgid "Image already uploaded"
+msgstr "Slika je že naložena"
+
+msgctxt "api_message_image_too_small"
+msgid "Image too small"
+msgstr "Premajhna slika"
+
+msgctxt "api_result_image_uploaded"
+msgid "Image uploaded"
+msgstr "Slika je bila naložena"
+
+msgctxt "api_result_image_not_uploaded"
+msgid "Image not uploaded"
+msgstr "Slika ni bila naložena"
+
+msgctxt "api_result_image_selected"
+msgid "Image selected"
+msgstr "Izbrana slika"
+
+msgctxt "api_result_image_not_selected"
+msgid "Image not selected"
+msgstr "Slika ni izbrana"
+
+msgctxt "api_result_image_deleted"
+msgid "Image deleted"
+msgstr "Slika je bila izbrisana"
+
+msgctxt "api_result_image_not_deleted"
+msgid "Image not deleted"
+msgstr "Slika ni bila izbrisana"
+
 msgctxt "api_impact_none"
 msgid "None"
 msgstr "Brez"
@@ -7018,6 +7093,11 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr ""
 
+# duplicate with "report_problem_panel_title"
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
+msgstr ""
+
 msgctxt "report_problem_navigation"
 msgid "Report a problem."
 msgstr ""
@@ -7046,11 +7126,6 @@ msgctxt "description"
 msgid "Description"
 msgstr ""
 
-# duplicate with "report_problem_panel_title"
-msgctxt "report_problem_navigation"
-msgid "Report a problem"
-msgstr ""
-
 msgctxt "enter_main_contact_username"
 msgid "Enter main contact's username :"
 msgstr ""
@@ -7070,6 +7145,10 @@ msgstr ""
 msgctxt "skip_to_content"
 msgid "Skip to Content"
 msgstr ""
+
+msgctxt "oidc_signin_no_cookie"
+msgid "You need to enable cookies to sign in."
+msgstr "Za prijavo morate omogočiti piškotke."
 
 msgctxt "cant_delete_main_contact"
 msgid "You cannot remove the main contact. Change it first."
@@ -7365,4 +7444,85 @@ msgstr ""
 msgctxt "in_contact_with_food"
 msgid "In contact with food"
 msgstr ""
+
+msgctxt "contact_us_producers"
+msgid "Contact Us"
+msgstr ""
+
+msgctxt "delete"
+msgid "Delete"
+msgstr "Izbriši"
+
+msgctxt "f_add_product_to_our_database"
+msgid "Is {barcode} the barcode of a product you have? If so, please add it to the database. It only takes a few minutes."
+msgstr ""
+
+# Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
+msgctxt "f_droid_app_icon_url"
+msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
+msgstr ""
+
+msgctxt "f_droid_app_icon_alt_text"
+msgid "Available on F-Droid"
+msgstr ""
+
+msgctxt "update_nutrients_data"
+msgid "Update nutrients data"
+msgstr ""
+
+msgctxt "update_nutrition_facts"
+msgid "Extract nutrition facts"
+msgstr ""
+
+msgctxt "scan_a_product"
+msgid "Scan a product"
+msgstr ""
+
+msgctxt "or_enter_barcode_manually"
+msgid "Or enter barcode manually"
+msgstr ""
+
+msgctxt "scan"
+msgid "Scan"
+msgstr "Preberi"
+
+msgctxt "reset_preferences_details_beauty"
+msgid "Organic farming and fair trade"
+msgstr "Ekološko kmetovanje in poštena trgovina"
+
+msgctxt "reset_preferences_details_food"
+msgid "Nutri-Score, Green-Score and food processing level (NOVA)"
+msgstr "Nutri-Score, Green-Score in stopnja predelave hrane (NOVA)"
+
+msgctxt "reset_preferences_details_product"
+msgid "Good repairability"
+msgstr ""
+
+msgctxt "reset_preferences_details_pet_food"
+msgid "Organic farming and fair trade"
+msgstr "Ekološko kmetovanje in poštena trgovina"
+
+msgctxt "action_report_image_to_nutripatrol"
+msgid "Report this image to our moderators"
+msgstr "Prijavi to sliko našim moderatorjem"
+
+msgctxt "robots_not_served_here"
+msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
+msgstr "Zaradi hudih zlorab robotov te strani ne moremo prikazati neidentificiranim uporabnikom. Za dostop do vseh dejstev o hrani ustvarite brezplačen račun Open Food Facts."
+
+msgctxt "knowledge_panels_ingredients_added_sugars_title"
+msgid "Contains added sugars"
+msgstr "Vsebuje dodane sladkorje"
+
+msgctxt "knowledge_panels_ingredients_added_sugars_subtitle"
+msgid "Added sugars:"
+msgstr "Dodani sladkorji:"
+
+msgctxt "estimated_quantity_of_added_sugars"
+msgid "Estimated quantity of added sugars in ingredients"
+msgstr "Ocenjena količina dodanih sladkorjev v sestavinah"
+
+msgctxt "search_products_in_same_category_without_added_sugars"
+msgid "Search for products in the same category without added sugars:"
+msgstr "Išči izdelke v isti kategoriji brez dodanih sladkorjev:"
 

@@ -22,6 +22,7 @@ package ProductOpener::Config;
 
 use utf8;
 use Modern::Perl '2017';
+use Exporter qw< import >;
 
 # Config.pm will dynamically load Config_off.pm or Config_obf.pm etc.
 # based on the value of the PRODUCT_OPENER_FLAVOR_SHORT environment variable
@@ -194,6 +195,7 @@ $ProductOpener::Config::options{rate_limit_product} = 100;
 
 # Rate limit allow list
 $ProductOpener::Config::options{rate_limit_allow_list} = {
+	# Internal servers
 	'146.59.148.140' => 1,    # OVH1
 	'51.210.154.203' => 1,    # OVH2
 	'51.210.32.79' => 1,    # OVH3
@@ -204,6 +206,23 @@ $ProductOpener::Config::options{rate_limit_allow_list} = {
 	'213.36.253.208' => 1,    # off2
 	'45.147.209.254' => 1,    # Moji server (actually OSM proxy, Moji only has ipv6)
 	'217.182.132.133' => 1,    # ks1
+							   # Journalists
+	'194.51.35.103' => 1,    # FranceTV
 };
+
+# Rate limit allow list blocks
+$ProductOpener::Config::options{rate_limit_allow_list_blocks} = [
+	# Schools
+	'163.5.0.0/16'    # EPITECH https://bgpview.io/prefix/163.5.0.0/16
+];
+
+# OIDC options
+my $client_id = uc($flavor . ($ENV{PRODUCERS_PLATFORM} ? "_PRO" : ''));
+%ProductOpener::Config::oidc_options = (
+	client_id => $client_id,
+	client_secret => $ENV{"${client_id}_CLIENT_SECRET"},
+	oidc_implementation_level => $ENV{OIDC_IMPLEMENTATION_LEVEL},
+	oidc_discovery_url => $ENV{OIDC_DISCOVERY_URL}
+);
 
 1;

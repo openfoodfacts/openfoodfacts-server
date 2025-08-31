@@ -275,8 +275,7 @@
          {
             "attributes" : [
                {
-                  "description" : "",
-                  "description_short" : "Unknown environmental impact",
+                  "description_short" : "Missing a precise category",
                   "grade" : "unknown",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-unknown.svg",
                   "id" : "ecoscore",
@@ -389,7 +388,7 @@
             "title_element" : {
                "grade" : "unknown",
                "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-unknown.svg",
-               "subtitle" : "Unknown environmental impact",
+               "subtitle" : "Missing a precise category",
                "title" : "Green-Score not computed",
                "type" : "grade"
             },
@@ -619,7 +618,7 @@
                "grade" : "unknown",
                "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown-new-en.svg",
                "subtitle" : "Missing category and nutrition facts",
-               "title" : "Nutri-Score UNKNOWN",
+               "title" : "Nutri-Score unknown",
                "type" : "grade"
             },
             "topics" : [
@@ -841,7 +840,7 @@
                   "element_type" : "text",
                   "text_element" : {
                      "evaluation" : "neutral",
-                     "html" : "\n                        \n                            \n                                1 x \n                                <strong>\n                                    Bag\n                                    \n                                </strong>\n                                    \n                                        (Plastic)\n                                    \n                                    \n                                        - In contact with food\n                                    \n                                    <br>\n                            \n                        \n                        ",
+                     "html" : "\n                        \n                            \n                                1 × \n                                <strong>\n                                    Bag\n                                    \n                                </strong>\n                                    \n                                        (Plastic)\n                                    \n                                    \n                                        - In contact with food\n                                    \n                                    <br>\n                            \n                        \n                        ",
                      "icon_alt" : "Unknown",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/help.svg",
@@ -933,6 +932,17 @@
                "environment"
             ]
          },
+         "product_card" : {
+            "elements" : [],
+            "expanded" : true,
+            "title_element" : {
+               "title" : "Product information"
+            },
+            "topics" : [
+               "product"
+            ],
+            "type" : "card"
+         },
          "report_problem_card" : {
             "elements" : [
                {
@@ -969,6 +979,12 @@
                   "element_type" : "panel",
                   "panel_element" : {
                      "panel_id" : "report_problem_card"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "product_card"
                   }
                }
             ],

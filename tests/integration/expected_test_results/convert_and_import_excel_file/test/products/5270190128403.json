@@ -18,9 +18,13 @@
    "allergens_tags" : [],
    "amino_acids_tags" : [],
    "brands" : "World Test",
+   "brands_hierarchy" : [
+      "xx:World Test"
+   ],
    "brands_imported" : "World Test",
+   "brands_lc" : "xx",
    "brands_tags" : [
-      "world-test"
+      "xx:world-test"
    ],
    "categories_properties" : {},
    "categories_properties_tags" : [
@@ -66,7 +70,6 @@
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
       "en:all-but-one-ingredient-with-specified-percent",
-      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown"
@@ -75,7 +78,6 @@
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
       "en:all-but-one-ingredient-with-specified-percent",
-      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown",
@@ -368,10 +370,6 @@
       "en:vegan",
       "en:vegetarian"
    ],
-   "ingredients_hierarchy" : [
-      "en:banana",
-      "en:fruit"
-   ],
    "ingredients_lc" : "fr",
    "ingredients_n" : 1,
    "ingredients_n_tags" : [
@@ -402,7 +400,7 @@
    "ingredients_without_ecobalyse_ids" : [],
    "ingredients_without_ecobalyse_ids_n" : 0,
    "interface_version_created" : "import_csv_file - version 2019/09/17",
-   "known_ingredients_n" : 2,
+   "known_ingredients_n" : 1,
    "lang" : "fr",
    "lang_imported" : "fr",
    "languages" : {
@@ -614,6 +612,7 @@
    "product_type" : "food",
    "removed_countries_tags" : [],
    "rev" : 1,
+   "schema_version" : 1002,
    "sources" : [
       {
          "fields" : [

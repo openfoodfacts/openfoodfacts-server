@@ -13,6 +13,7 @@
       "en:plant-based-foods-and-beverages",
       "en:plant-based-foods",
       "en:fruits-and-vegetables-based-foods",
+      "en:vegetable-based-foods-and-beverages",
       "en:vegetables-based-foods",
       "en:vegetables",
       "en:tomatoes-and-their-products",
@@ -39,6 +40,7 @@
       "en:plant-based-foods-and-beverages",
       "en:plant-based-foods",
       "en:fruits-and-vegetables-based-foods",
+      "en:vegetable-based-foods-and-beverages",
       "en:vegetables-based-foods",
       "en:vegetables",
       "en:tomatoes-and-their-products",
@@ -70,12 +72,6 @@
       "en:vegan",
       "en:vegetarian"
    ],
-   "ingredients_hierarchy" : [
-      "en:cherry-tomato",
-      "en:vegetable",
-      "en:fruit-vegetable",
-      "en:tomato"
-   ],
    "ingredients_lc" : "en",
    "ingredients_n" : 1,
    "ingredients_n_tags" : [
@@ -103,7 +99,7 @@
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [],
    "ingredients_without_ecobalyse_ids_n" : 0,
-   "known_ingredients_n" : 4,
+   "known_ingredients_n" : 1,
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
@@ -418,6 +414,7 @@
       "a"
    ],
    "nutriscore_version" : "2023",
+   "nutrition_data" : "on",
    "nutrition_data_per" : "100g",
    "nutrition_data_prepared_per" : "100g",
    "nutrition_grade_fr" : "a",

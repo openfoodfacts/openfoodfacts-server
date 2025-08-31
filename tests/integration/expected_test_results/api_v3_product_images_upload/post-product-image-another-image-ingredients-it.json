@@ -1,0 +1,63 @@
+{
+   "code" : "1234567890012",
+   "errors" : [],
+   "product" : {
+      "images" : {
+         "selected" : {
+            "ingredients" : {
+               "it" : {
+                  "generation" : {},
+                  "imgid" : 2,
+                  "rev" : 3,
+                  "sizes" : {
+                     "100" : {
+                        "h" : 92,
+                        "w" : 100
+                     },
+                     "200" : {
+                        "h" : 183,
+                        "w" : 200
+                     },
+                     "400" : {
+                        "h" : 183,
+                        "w" : 200
+                     },
+                     "full" : {
+                        "h" : 183,
+                        "w" : 200
+                     }
+                  }
+               }
+            }
+         },
+         "uploaded" : {
+            "2" : {
+               "imgid" : 2,
+               "sizes" : {
+                  "100" : {
+                     "h" : 92,
+                     "w" : 100
+                  },
+                  "400" : {
+                     "h" : 183,
+                     "w" : 200
+                  },
+                  "full" : {
+                     "h" : 183,
+                     "w" : 200
+                  }
+               },
+               "uploaded_t" : "--ignore--",
+               "uploader" : "openfoodfacts-contributors"
+            }
+         }
+      }
+   },
+   "result" : {
+      "id" : "image_uploaded",
+      "lc_name" : "Image uploaded",
+      "name" : "Image uploaded"
+   },
+   "status" : "success",
+   "warnings" : []
+}

@@ -91,7 +91,6 @@
       "data_quality_info_tags" : [
          "en:packaging-data-incomplete",
          "en:ingredients-percent-analysis-ok",
-         "en:environmental-score-extended-data-not-computed",
          "en:food-groups-1-known",
          "en:food-groups-2-known",
          "en:food-groups-3-unknown"
@@ -99,7 +98,6 @@
       "data_quality_tags" : [
          "en:packaging-data-incomplete",
          "en:ingredients-percent-analysis-ok",
-         "en:environmental-score-extended-data-not-computed",
          "en:food-groups-1-known",
          "en:food-groups-2-known",
          "en:food-groups-3-unknown",
@@ -110,6 +108,9 @@
          "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
          "en:environmental-score-production-system-no-label"
       ],
+      "ecoscore_tags" : [
+         "c"
+      ],
       "editors_tags" : [
          "tests"
       ],
@@ -119,7 +120,7 @@
             "origins_of_ingredients" : {
                "aggregated_origins" : [
                   {
-                     "epi_score" : "0",
+                     "epi_score" : 0,
                      "origin" : "en:unknown",
                      "percent" : 100,
                      "transportation_score" : 0
@@ -776,7 +777,7 @@
       "ingredients_without_ecobalyse_ids_n" : 4,
       "interface_version_created" : "20150316.jqm2",
       "interface_version_modified" : "20150316.jqm2",
-      "known_ingredients_n" : 16,
+      "known_ingredients_n" : 8,
       "labels" : "organic",
       "labels_hierarchy" : [
          "en:organic"
@@ -1049,13 +1050,14 @@
       "popularity_key" : 0,
       "product_name" : "Some product",
       "product_name_en" : "Some product",
-      "product_quantity" : "100",
+      "product_quantity" : 100,
       "product_quantity_unit" : "g",
       "product_type" : "food",
       "quantity" : "100 g",
       "removed_countries_tags" : [],
       "rev" : 1,
-      "serving_quantity" : "10",
+      "schema_version" : 1000,
+      "serving_quantity" : 10,
       "serving_quantity_unit" : "g",
       "serving_size" : "10 g",
       "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",

@@ -4,16 +4,16 @@
 <html class="no-js" lang="en" data-serverdomain="openfoodfacts.localhost" dir="ltr">
 <head>
     <meta charset="utf-8">
-    <title>Apple pie - Bob's pies - 100 g</title>
-    <meta name="description" content="Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product Apple pie - Bob's pies - 100 g">
+    <title>Apple pie – Bob's pies – 100 g</title>
+    <meta name="description" content="Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product Apple pie – Bob's pies – 100 g">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta property="fb:app_id" content="219331381518041">
     <meta property="og:type" content="food">
-    <meta property="og:title" content="">
+    <meta property="og:title" content="Apple pie – Bob's pies – 100 g">
     <meta property="og:url" content="//world.openfoodfacts.localhost/product/3300000000001/apple-pie-bob-s-pies">
     
     <meta property="og:image" content="//static.openfoodfacts.org/images/logos/off-logo-vertical-white-social-media-preview.png">
-    <meta property="og:description" content="">
+    <meta property="og:description" content="Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product Apple pie – Bob's pies – 100 g">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/off/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/off/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/off/favicon-16x16.png">
@@ -30,23 +30,41 @@
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/select2.min.css">
     <link rel="search" href="//world.openfoodfacts.localhost/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="Open Food Facts">
-	<meta name="twitter:card" content="product">
-<meta name="twitter:site" content="@OpenFoodFacts">
-<meta name="twitter:creator" content="@OpenFoodFacts">
-<meta name="twitter:title" content="Apple pie - Bob's pies - 100 g">
-<meta name="twitter:description" content="Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product Apple pie - Bob's pies - 100 g">
-<meta name="twitter:label1" content="brand">
-<meta name="twitter:data1" content="Bob's pies">
-<meta name="twitter:label2" content="category">
-<meta name="twitter:data2" content="Apple pies">
+    <script type="module" src="//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js"></script>
+	<meta name="x:card" content="product">
+<meta name="x:site" content="@OpenFoodFacts">
+<meta name="x:creator" content="@OpenFoodFacts">
+<meta name="x:title" content="Apple pie – Bob's pies – 100 g">
+<meta name="x:description" content="Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product Apple pie – Bob's pies – 100 g">
+<meta name="x:label1" content="brand">
+<meta name="x:data1" content="Bob's pies">
+<meta name="x:label2" content="category">
+<meta name="x:data2" content="Apple pies">
 
 
 
     <style media="all">
-        
         .show-when-no-access-to-producers-platform {display:none}
 .show-when-logged-in {display:none}
 
+		
+		.badge-container{
+			margin: 0 auto;
+		}
+
+		.badge-container img{
+			margin: 5px;
+		}
+		@media only screen and (max-width: 537px ) and (min-width: 280px) {
+			.badge-container{
+				width: 280px;
+			}
+		}
+		@media only screen and (max-width: 279px ){
+			.badge-container{
+				width: 130px;
+			}
+		}
     </style>
 </head>
 <body about="/product/3300000000001/apple-pie-bob-s-pies" typeof="food:foodProduct" class="product_page">
@@ -77,6 +95,31 @@
 
 	
 
+	<div id="barcode-scanner-modal" class="modal is_hidden">
+  <div class="modal-backdrop"></div>
+  <div class="modal-content">
+    <div class="modal-header">
+      <span><h2>Scan a product<h2></span>
+      <button class="modal-close-button">&times;</button>
+    </div>
+    <div>
+      <barcode-scanner id="barcode-scanner"></barcode-scanner>
+    </div>
+    <div>
+    </div>
+    <div >
+      <label for="barcode-modal-input">Or enter barcode manually</label>
+      <div class="barcode-modal-group">
+        <input type="text" id="barcode-modal-input" class="barcode-modal-input" inputmode="numeric" pattern="\d*" />
+        <button class="barcode-modal-button button" id="barcode-modal-button" disabled>Scan</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="//static.openfoodfacts.localhost/js/dist/barcode-scanner.js"></script>
+
+
 	<div id="page">
 		
 
@@ -102,14 +145,21 @@
 <script src="//static.openfoodfacts.localhost/js/dist/JsBarcode.all.min.js"></script>
 
 
-
-
-    <!-- Anonymous users will only be able to vote see AnnotationVote in robotoff,
-        the voter uniqueness is based on a hash of its ip address
-    -->
-	<robotoff-asker url='//backend:8881/' code='3300000000001' lang='en' style='display: none;' caption-yes='Yes' caption-no='No' caption-skip='Skip'></robotoff-asker>
-
-
+<off-webcomponents-configuration
+  language-code="en"
+  country-code="world"
+  robotoff-configuration='{
+    "apiUrl": "//backend:8881//api/v1",
+    "imgUrl": "//images.openfoodfacts.localhost/images/products"
+  }'
+  
+  folksonomy-configuration='{
+  "apiUrl": "//api.folksonomy.openfoodfacts.localhost"
+  }'
+  
+  openfoodfacts-api-url="//world.openfoodfacts.localhost"
+  assets-images-path="//static.openfoodfacts.localhost/css/dist/images"
+  ></off-webcomponents-configuration>
 <a href="#upNav" class="back-to-top scrollto button">
     <span class="material-icons size-20 ">
         arrow_upward
@@ -119,7 +169,7 @@
     <div class="block v-space-tiny product_banner_unranked" id="prodHead">
         <div class="row h-space-normal">
             <div class="large-12 flex-grid ">
-                <h1 class="title-3" property="food:name" itemprop="name">Apple pie - Bob's pies - 100 g</h1>
+                <h1 class="title-3" property="food:name" itemprop="name">Apple pie – Bob's pies – 100 g</h1>
                 <div class="buttons_prod">
                     <!-- Edit product page -->
                     <div class="edit_button">
@@ -133,7 +183,7 @@
 
                     <!-- Share -->
                     <div class="share_button" style="display:none;">
-                        <a href="//world.openfoodfacts.localhost/product/3300000000001/apple-pie-bob-s-pies" class="button small" title="Apple pie - Bob's pies - 100 g">
+                        <a href="//world.openfoodfacts.localhost/product/3300000000001/apple-pie-bob-s-pies" class="button small" title="Apple pie – Bob's pies – 100 g">
                             <span class="material-icons size-20 ">
                             share
                             </span>
@@ -165,7 +215,8 @@
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#environment"><span>Environment</span></a></li>
                                                 
                         
-                        <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#report_problem"><span>Report a problem</span></a></li>
+                        <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#report_problem"><span>Report a problem.</span></a></li>
+                        
                         
                         
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#contribution"><span>Contribution</span></a></li>
@@ -185,7 +236,7 @@
                        
 
 
-                    <h2 class="title-1" property="food:name" itemprop="name">Apple pie - Bob's pies - 100 g</h1>
+                    <h2 class="title-1" property="food:name" itemprop="name">Apple pie – Bob's pies – 100 g</h1>
 
                     
                     
@@ -246,7 +297,7 @@
 
 <p id="field_brands">
     <span class="field">Brands: </span>
-    <span class="field_value" id="field_brands_value"><a itemprop="brand" href="/facets/brands/bob-s-pies">Bob's pies</a></span>
+    <span class="field_value" id="field_brands_value"><a itemprop="brand" href="/facets/brands/bob-s-pies" class="tag user_defined">Bob's pies</a></span>
 </p>
 
 <!-- end templates/web/common/includes/display_field.tt.html -->
@@ -293,6 +344,17 @@
 
 
                        
+                            <!-- Anonymous users will only be able to vote see AnnotationVote in robotoff,
+                                the voter uniqueness is based on a hash of its ip address -->
+                            <!-- show only questions if user is not logged in -->
+<robotoff-contribution-message
+  product-code="3300000000001"
+  id="robotoff-contribution-message"
+  
+></robotoff-contribution-message>
+
+                        
+                    
 
                     </div>
                 </div>
@@ -1795,7 +1857,7 @@ The score is calculated from the data of the nutrition facts table and the compo
 
 	   	 <div
 	   	    id="panel_ingredients_list_content"
-	   	    class="content panel_content active"
+	   	    class="content panel_content"
 	   	  >
           
               
@@ -2261,6 +2323,148 @@ The score is calculated from the data of the nutrition facts table and the compo
 </ul>
 
 	<!-- end templates/web/panels/panel.tt.html - panel_id: ingredients -->
+        
+            
+
+	<!-- start templates/web/panels/panel.tt.html - panel_id: ingredients_added_sugars -->
+
+	<ul data-accordion class="panel_accordion accordion" id="panel_ingredients_added_sugars"
+    
+        style="margin-top:0.5rem;margin-bottom:1.5rem;"
+    
+>
+<li class="accordion-navigation">
+
+    
+        <a href="#panel_ingredients_added_sugars_content" class="panel_title"
+            
+        >
+            
+            <img src="//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-high.svg"
+                style="height:72px;float:left;margin-right:1rem;"
+                alt="icon"
+                
+            >
+            
+            <h4 
+                class="evaluation_bad_title"
+                
+            >
+                
+                Contains added sugars (~ 11%)
+            </h4>
+            
+                <span >Added sugars: Sugar</span>
+            
+            <hr class="floatclear">
+        </a>
+    
+
+	   	 <div
+	   	    id="panel_ingredients_added_sugars_content"
+	   	    class="content panel_content"
+	   	  >
+          
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
+
+
+    
+           <div class="panel_text">
+             
+<b>Estimated quantity of added sugars in ingredients:</b> 11%
+                
+           </div>
+    
+
+    
+    </div>
+
+    
+    </div>
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
+
+
+    
+           <div class="panel_text">
+             
+<b>Search for products in the same category without added sugars:</b>
+<a href="//world.openfoodfacts.localhost/facets/categories/apple-pies/states/ingredients-completed/ingredients/-added-sugar/ingredients/-sweetener">
+Apple pies
+</a>
+                
+           </div>
+    
+
+    
+    </div>
+
+    
+    </div>
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
+
+
+    
+           <div class="panel_text">
+             
+<b>What you need to know</b>
+<ul>
+<li>A high consumption of sugar can cause weight gain and tooth decay. It also augments the risk of type 2 diabetes and cardio-vascular diseases.</li>
+</ul>
+<br>
+<b>Recommendation</b>:
+<b>Limit the consumption of sugar and sugary drinks</b>
+<ul>
+<li>Sugary drinks (such as sodas, fruit beverages, and fruit juices and nectars) should be limited as much as possible (no more than 1 glass a day).</li>
+<li>Choose products with lower sugar content and reduce the consumption of products with added sugars.</li>
+</ul>
+
+           </div>
+    
+
+    
+    </div>
+
+    
+    </div>
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
+
+
+    
+           <div class="panel_text">
+             
+
+           </div>
+    
+
+    
+        <em>Source:
+            <a href="//www.nhs.uk/live-well/eat-well/food-types/how-does-sugar-in-our-diet-affect-our-health/">National Health Service UK (NHS) - Sugar: the facts
+                
+            </a>
+        </em>
+    
+    </div>
+
+    
+    </div>
+	   	 </div>
+	
+</li>
+</ul>
+
+	<!-- end templates/web/panels/panel.tt.html - panel_id: ingredients_added_sugars -->
         
 
                         
@@ -2957,19 +3161,19 @@ The score is calculated from the data of the nutrition facts table and the compo
     
            <div class="panel_text">
              <ol id="ordered_ingredients_list">
-<li><span>Wheat flour</span> -> en:wheat-flour - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_proxy_food_code:&nbsp;9410 - percent_min:&nbsp;11.1111111111111 - percent_max:&nbsp;100</li>
-<li><span>apples</span> -> en:apple - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;13050 - percent_min:&nbsp;0 - percent_max:&nbsp;50</li>
-<li><span>sugar</span> -> en:sugar - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_proxy_food_code:&nbsp;31016 - percent_min:&nbsp;0 - percent_max:&nbsp;33.3333333333333</li>
-<li><span>butter</span> -> en:butter - vegan:&nbsp;no - vegetarian:&nbsp;yes - ciqual_proxy_food_code:&nbsp;16400 - percent_min:&nbsp;0 - percent_max:&nbsp;25</li>
-<li><span>eggs</span> -> en:egg - vegan:&nbsp;no - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;22000 - percent_min:&nbsp;0 - percent_max:&nbsp;20</li>
-<li><span>salt</span> -> en:salt - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;11058 - percent_min:&nbsp;0 - percent_max:&nbsp;16.6666666666667</li>
-<li><span>palm oil</span> -> en:palm-oil - vegan:&nbsp;yes - vegetarian:&nbsp;yes - from_palm_oil:&nbsp;yes - ciqual_food_code:&nbsp;16129 - percent_min:&nbsp;0 - percent_max:&nbsp;14.2857142857143</li>
-<li><span>acidifier</span> -> en:acid - percent_min:&nbsp;0 - percent_max:&nbsp;12.5<ol id="ordered_ingredients_list">
-<li><span>citric acid</span> -> en:e330 - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;12.5</li>
+<li><span>Wheat flour</span> -> en:wheat-flour – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_proxy_food_code:&nbsp;9410 – percent_min:&nbsp;11.1111111111111 – percent_max:&nbsp;100</li>
+<li><span>apples</span> -> en:apple – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;13050 – percent_min:&nbsp;0 – percent_max:&nbsp;50</li>
+<li><span>sugar</span> -> en:sugar – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_proxy_food_code:&nbsp;31016 – percent_min:&nbsp;0 – percent_max:&nbsp;33.3333333333333</li>
+<li><span>butter</span> -> en:butter – vegan:&nbsp;no – vegetarian:&nbsp;yes – ciqual_proxy_food_code:&nbsp;16400 – percent_min:&nbsp;0 – percent_max:&nbsp;25</li>
+<li><span>eggs</span> -> en:egg – vegan:&nbsp;no – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;22000 – percent_min:&nbsp;0 – percent_max:&nbsp;20</li>
+<li><span>salt</span> -> en:salt – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;11058 – percent_min:&nbsp;0 – percent_max:&nbsp;16.6666666666667</li>
+<li><span>palm oil</span> -> en:palm-oil – vegan:&nbsp;yes – vegetarian:&nbsp;yes – from_palm_oil:&nbsp;yes – ciqual_food_code:&nbsp;16129 – percent_min:&nbsp;0 – percent_max:&nbsp;14.2857142857143</li>
+<li><span>acidifier</span> -> en:acid – percent_min:&nbsp;0 – percent_max:&nbsp;12.5<ol id="ordered_ingredients_list">
+<li><span>citric acid</span> -> en:e330 – vegan:&nbsp;yes – vegetarian:&nbsp;yes – percent_min:&nbsp;0 – percent_max:&nbsp;12.5</li>
 </ol>
 </li>
-<li><span>raising agent</span> -> en:raising-agent - percent_min:&nbsp;0 - percent_max:&nbsp;11.1111111111111<ol id="ordered_ingredients_list">
-<li><span>sodium bicarbonate</span> -> en:e500ii - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;11.1111111111111</li>
+<li><span>raising agent</span> -> en:raising-agent – percent_min:&nbsp;0 – percent_max:&nbsp;11.1111111111111<ol id="ordered_ingredients_list">
+<li><span>sodium bicarbonate</span> -> en:e500ii – vegan:&nbsp;yes – vegetarian:&nbsp;yes – percent_min:&nbsp;0 – percent_max:&nbsp;11.1111111111111</li>
 </ol>
 </li>
 </ol>
@@ -3679,7 +3883,7 @@ The score is calculated from the data of the nutrition facts table and the compo
     
            <div class="panel_text panel_text_warning">⚠
              ️
-                For a more precise calculation of the Green-Score, you can modify the product page and add them.
+                For a more precise calculation of the Green-Score, you can edit the product page and add them.
                 <br><br>
                 If you are the manufacturer of this product, you can send us the information with our <a href="//world.pro.openfoodfacts.org">free platform for producers</a>.
                     
@@ -3743,7 +3947,7 @@ The score is calculated from the data of the nutrition facts table and the compo
                 Impact for this product: B (Score: 60/100)
             </h4>
             
-                <span >Product: Apple pie - Bob's pies - 100 g</span>
+                <span >Product: Apple pie – Bob's pies – 100 g</span>
             
             <hr class="floatclear">
         </a>
@@ -4425,6 +4629,8 @@ The score is calculated from the data of the nutrition facts table and the compo
 
 
 
+
+
 <!-- Report problem card, if not on the platform for producers -->    
 
     <section class="row" id="report_problem">
@@ -4650,10 +4856,18 @@ The score is calculated from the data of the nutrition facts table and the compo
 </div>
 </section>
 
-<!-- start templates/web/common/includes/folksonomy_script.tt.html -->
-
-<!-- end templates/web/common/includes/folksonomy_script.tt.html -->
-
+<section class="row">
+        <div class="large-12 column">
+            <div class="card">
+                <div class="reblock card-section">
+                    <div class="large-12 column">
+                        <folksonomy-editor product-code="3300000000001" page-type="view">
+                        </folksonomy-editor>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
 
 <!-- end templates/web/pages/product/product_page.tt.html -->
 						
@@ -4697,13 +4911,13 @@ display_product_summary("#product_summary", product);
 <script src="//static.openfoodfacts.localhost/js/dist/jquery.cookie.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/select2.min.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
-<script src="//static.openfoodfacts.localhost/js/dist/display-product.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/product-history.js"></script>
 <script type="text/javascript">
 var page_type = "product";
 var default_preferences = {"ecoscore":"important","nova":"important","nutriscore":"very_important"};
 var preferences_text = "Classify products according to your preferences";
 var product = {"attribute_groups":[{"attributes":[{"description":"","description_short":"Lower nutritional quality","grade":"d","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d-new-en.svg","id":"nutriscore","match":27.3333333333333,"name":"Nutri-Score","panel_id":"nutriscore_2023","status":"known","title":"Nutri-Score D"},{"grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-unknown.svg","id":"low_salt","missing":"Missing nutrition facts","name":"Salt","panel_id":"nutrition_facts_table","status":"unknown","title":"Salt in unknown quantity"},{"grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-unknown.svg","id":"low_fat","missing":"Missing nutrition facts","name":"Fat","panel_id":"nutrition_facts_table","status":"unknown","title":"Fat in unknown quantity"},{"grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-unknown.svg","id":"low_sugars","missing":"Missing nutrition facts","name":"Sugars","panel_id":"nutrition_facts_table","status":"unknown","title":"Sugars in unknown quantity"},{"grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-unknown.svg","id":"low_saturated_fat","missing":"Missing nutrition facts","name":"Saturated fat","panel_id":"nutrition_facts_table","status":"unknown","title":"Saturated fat in unknown quantity"}],"id":"nutritional_quality","name":"Nutritional quality"},{"attributes":[{"debug":"en:gluten in allergens","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/contains-gluten.svg","id":"allergens_no_gluten","match":0,"name":"Gluten","status":"known","title":"Contains: Gluten"},{"debug":"en:milk in allergens","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/contains-milk.svg","id":"allergens_no_milk","match":0,"name":"Milk","status":"known","title":"Contains: Milk"},{"debug":"en:eggs in allergens","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/contains-eggs.svg","id":"allergens_no_eggs","match":0,"name":"Eggs","status":"known","title":"Contains: Eggs"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-nuts.svg","id":"allergens_no_nuts","match":100,"name":"Nuts","status":"known","title":"Does not contain: Nuts"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-peanuts.svg","id":"allergens_no_peanuts","match":100,"name":"Peanuts","status":"known","title":"Does not contain: Peanuts"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-sesame-seeds.svg","id":"allergens_no_sesame_seeds","match":100,"name":"Sesame seeds","status":"known","title":"Does not contain: Sesame seeds"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-soybeans.svg","id":"allergens_no_soybeans","match":100,"name":"Soybeans","status":"known","title":"Does not contain: Soybeans"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-celery.svg","id":"allergens_no_celery","match":100,"name":"Celery","status":"known","title":"Does not contain: Celery"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-mustard.svg","id":"allergens_no_mustard","match":100,"name":"Mustard","status":"known","title":"Does not contain: Mustard"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-lupin.svg","id":"allergens_no_lupin","match":100,"name":"Lupin","status":"known","title":"Does not contain: Lupin"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-fish.svg","id":"allergens_no_fish","match":100,"name":"Fish","status":"known","title":"Does not contain: Fish"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-crustaceans.svg","id":"allergens_no_crustaceans","match":100,"name":"Crustaceans","status":"known","title":"Does not contain: Crustaceans"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-molluscs.svg","id":"allergens_no_molluscs","match":100,"name":"Molluscs","status":"known","title":"Does not contain: Molluscs"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-sulphur-dioxide-and-sulphites.svg","id":"allergens_no_sulphur_dioxide_and_sulphites","match":100,"name":"Sulphur dioxide and sulphites","status":"known","title":"Does not contain: Sulphur dioxide and sulphites"}],"id":"allergens","name":"Allergens","warning":"There is always a possibility that data about allergens may be missing, incomplete, incorrect or that the product's composition has changed. If you are allergic, always check the information on the actual product packaging."},{"attributes":[{"grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/non-vegan.svg","id":"vegan","match":0,"name":"Vegan","panel_id":"ingredients_analysis_en:non-vegan","status":"known","title":"Non-vegan"},{"grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/vegetarian.svg","id":"vegetarian","match":100,"name":"Vegetarian","panel_id":"ingredients_analysis_en:vegetarian","status":"known","title":"Vegetarian"},{"grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/contains-palm-oil.svg","id":"palm_oil_free","match":0,"name":"Palm oil free","panel_id":"ingredients_analysis_en:palm-oil","status":"known","title":"Palm oil"}],"id":"ingredients_analysis","name":"Ingredients"},{"attributes":[{"grade":"b","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg","id":"nova","match":75,"name":"NOVA group","panel_id":"nova","status":"known","title":"Processed foods"},{"grade":"c","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/2-additives.svg","id":"additives","match":60,"name":"Additives","panel_id":"additives","status":"known","title":"2 additives"}],"id":"processing","name":"Food processing"},{"attributes":[{"description":"","description_short":"Low environmental impact","grade":"c","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-b.svg","id":"ecoscore","match":60,"name":"Green-Score","panel_id":"environmental_score","status":"known","title":"Green-Score B"},{"description":"","description_short":"Almost no risk of deforestation","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-a.svg","id":"forest_footprint","match":99.9118518518518,"name":"Forest footprint","status":"known","title":"Very small forest footprint"}],"id":"environment","name":"Environment"},{"attributes":[{"description":"Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives.","description_short":"Organic products promote ecological sustainability and biodiversity.","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/not-organic.svg","id":"labels_organic","match":0,"name":"Organic farming","status":"known","title":"Not an organic product"},{"description":"When you buy fair trade products, producers in developing countries are paid an higher and fairer price, which helps them improve and sustain higher social and often environmental standards.","description_short":"Helps producers in developing countries.","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/fair-trade.svg","id":"labels_fair_trade","match":100,"name":"Fair trade","status":"known","title":"Fair trade product"}],"id":"labels","name":"Labels"}]};
+var product_type = "food";
 </script>
 
 <script src="//static.openfoodfacts.localhost/js/product-preferences.js"></script>
@@ -4742,7 +4956,7 @@ $(document).foundation({
 	"url": "//world.openfoodfacts.localhost",
 	"logo": "//static.openfoodfacts.localhost/images/logos/off-logo-vertical-light.svg",
 	"name": "Open Food Facts",
-	"sameAs" : ["//www.facebook.com/OpenFoodFacts?utm_source=off&utf_medium=web", "//twitter.com/OpenFoodFacts"]
+	"sameAs" : ["//www.facebook.com/OpenFoodFacts?utm_source=off&utf_medium=web", "//x.com/OpenFoodFacts"]
 }
 </script>
 
@@ -4752,5 +4966,7 @@ $(document).foundation({
 
 </body>
 </html>
+
+
 
 <!-- end templates/web/common/site_layout.tt.html -->

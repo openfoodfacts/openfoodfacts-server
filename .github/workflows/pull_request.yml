@@ -18,29 +18,66 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # FIXME: not used yet
+  filter:
+    name: "Filter changed paths"
+    runs-on: ubuntu-latest
+    outputs:
+      code_modified: ${{ steps.filter.outputs.code_modified }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Get changed files
+        uses: step-security/changed-files@v46
+        id: changed_files
+
+      - name: Filter non-markdown and non-docs files
+        id: filter
+        run: ./.github/scripts/path-filter.sh "${{ steps.changed_files.outputs.all_changed_files }}"
 
   lint:
     name: 🕵️‍♀️ NPM lint
+    needs: filter
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
+    if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
       with:
         fetch-depth: 1
     - uses: actions/setup-node@v4
       with:
-        node-version: '12.x'
+        node-version: '22.x'
+    - name: Cache node modules
+      uses: actions/cache@v4
+      with:
+        path: node_modules
+        key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
     - name: gulp build
       run: make front_build
     - name: lint
       run: make front_lint
+    - name: Verify package-lock is the right one
+      run: |
+        cp package-lock.json package-lock.json.orig
+        make update_package_lock
+        if ! diff -q package-lock.json.orig package-lock.json
+        then
+          echo "Package lock is not up to date, please run make update_package_lock"
+          diff -u package-lock.json.orig package-lock.json
+          exit 1
+        fi
 
   # this will build the docker image and upload as an artifact for following jobs
   build_backend:
     name: 🏗 Build backend dev image for tests
+    needs: filter
     runs-on: ubuntu-latest
+    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true'
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
       with:
         # needs depth to run git log below
         fetch-depth: 50
@@ -56,16 +93,8 @@ jobs:
       uses: ishworkh/container-image-artifact-upload@v2.0.0
       with:
         image: "openfoodfacts-server/backend:dev"
-    - name: Fetch origin/main
-      # we need origin/main to have comparison linting work
-      run: |
-        git remote set-branches --add origin main
-        git fetch --no-tags --prune --progress --no-recurse-submodules --depth=5 origin main
-    - name: Restore taxonomies dates
-      # here we first restore dates from git for taxonomies to avoid build them all
-      # see https://stackoverflow.com/a/60984318/2886726
-      run: |
-        git ls-files taxonomies/ | xargs -I{} git log -1 --date=format:%Y%m%d%H%M.%S --format='touch -t %ad "{}"' "{}" | bash
+    - name: Setup Git and Restore Taxonomies
+      run: ./.github/scripts/setup_git.sh
     - name: Rebuild taxonomies for Open Food Facts (off)
       run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
     - name: Rebuild taxonomies for Open Beauty Facts (obf)
@@ -83,23 +112,15 @@ jobs:
 
   check_perl:
     name: 🐪 Check Perl
-    needs: build_backend
+    needs: [filter, build_backend]
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
+    if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
       with:
         fetch-depth: 1
-    - name: Fetch origin/main
-      # we need origin/main to have comparison linting work
-      run: |
-        git remote set-branches --add origin main
-        git fetch --no-tags --prune --progress --no-recurse-submodules --depth=5 origin main
-    - name: Restore taxonomies dates
-      # here we first restore dates from git for taxonomies to avoid build them all
-      # see https://stackoverflow.com/a/60984318/2886726
-      run: |
-        git ls-files taxonomies/ | xargs -I{} git log -1 --date=format:%Y%m%d%H%M.%S --format='touch -t %ad "{}"' "{}" | bash
+    - name: Setup Git and Restore Taxonomies
+      run: ./.github/scripts/setup_git.sh
     - uses: actions/cache/restore@v4
       id: cache
       with:
@@ -108,16 +129,10 @@ jobs:
         restore-keys: taxonomies-
     - name: Download backend image from artifacts
       id: downloadbackendimage
-      uses: ishworkh/container-image-artifact-download@v2.0.0
+      uses: ishworkh/container-image-artifact-download@v2.1.0
       with:
         image: "openfoodfacts-server/backend:dev"
-    # downloadbackendimage task loads the image into docker and keeps the original file.
-    # As our runs tend to hit the storage limits for GitHub Actions, manually delete the
-    # downloaded file for now. It's not needed after being loaded into docker.
-    - name: Remove downloaded image
-      env:
-        FILE: "${{ steps.downloadbackendimage.outputs.download_path }}"
-      run: rm $FILE
+        download_tmp_dir: ${{ runner.temp }}
     - name: build taxonomies (should use cache)
       run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
     - name: check taxonomies
@@ -131,10 +146,11 @@ jobs:
 
   tests:
     name: 🐪 Perl unit tests
-    needs: build_backend
+    needs: [filter, build_backend]
     runs-on: ubuntu-latest
+    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true'
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
       with:
         fetch-depth: 1
     - uses: actions/cache/restore@v4
@@ -143,28 +159,14 @@ jobs:
         path: ./build-cache
         key: taxonomies-${{ hashFiles('taxonomies/**') }}
         restore-keys: taxonomies-
-    - name: Fetch origin/main
-      # we need origin/main to have comparison linting work
-      run: |
-        git remote set-branches --add origin main
-        git fetch --no-tags --prune --progress --no-recurse-submodules --depth=5 origin main
-    - name: Restore taxonomies dates
-      # here we first restore dates from git for taxonomies to avoid build them all
-      # see https://stackoverflow.com/a/60984318/2886726
-      run: |
-        git ls-files taxonomies/ | xargs -I{} git log -1 --date=format:%Y%m%d%H%M.%S --format='touch -t %ad "{}"' "{}" | bash
+    - name: Setup Git and Restore Taxonomies
+      run: ./.github/scripts/setup_git.sh
     - name: Download backend image from artifacts
       id: downloadbackendimage
-      uses: ishworkh/container-image-artifact-download@v2.0.0
+      uses: ishworkh/container-image-artifact-download@v2.1.0
       with:
-        image: "openfoodfacts-server/backend:dev"       
-    # downloadbackendimage task loads the image into docker and keeps the original file.
-    # As our runs tend to hit the storage limits for GitHub Actions, manually delete the
-    # downloaded file for now. It's not needed after being loaded into docker.
-    - name: Remove downloaded image
-      env:
-        FILE: "${{ steps.downloadbackendimage.outputs.download_path }}"
-      run: rm $FILE
+        image: "openfoodfacts-server/backend:dev"
+        download_tmp_dir: ${{ runner.temp }}
     - name: tests
       run: |
         make codecov_prepare
@@ -189,11 +191,12 @@ jobs:
 
   tests_dev:
     name: 🧪 Test make dev
-    needs: build_backend  # only to avoid building taxonomies
-    if: github.event_name == 'pull_request'
+    needs: [filter, build_backend]  # build_backend - only to avoid building taxonomies
+    if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     runs-on: ubuntu-latest
+    
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
       with:
         fetch-depth: 1
     - uses: actions/cache/restore@v4
@@ -204,16 +207,10 @@ jobs:
         restore-keys: taxonomies-
     - name: Download backend image from artifacts
       id: downloadbackendimage
-      uses: ishworkh/container-image-artifact-download@v2.0.0
+      uses: ishworkh/container-image-artifact-download@v2.1.0
       with:
         image: "openfoodfacts-server/backend:dev"
-    # downloadbackendimage task loads the image into docker and keeps the original file.
-    # As our runs tend to hit the storage limits for GitHub Actions, manually delete the
-    # downloaded file for now. It's not needed after being loaded into docker.
-    - name: Remove downloaded image
-      env:
-        FILE: "${{ steps.downloadbackendimage.outputs.download_path }}"
-      run: rm $FILE
+        download_tmp_dir: ${{ runner.temp }}
     - name: set right UID and GID in .envrc
       run: |
         rm -f .envrc
@@ -230,10 +227,11 @@ jobs:
 
   test_deployment:
     name: 🦾 Some test of deployment tools
+    needs: filter
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
+    if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
       with:
         fetch-depth: 1
     - name: verify apache2 envvars is correct

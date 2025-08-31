@@ -39,6 +39,7 @@ use ProductOpener::PerlStandards;
 use Exporter qw< import >;
 
 use Log::Any qw($log);
+use Data::Dumper;
 
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
@@ -65,11 +66,13 @@ use ProductOpener::Food qw/%categories_nutriments_per_country/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Lang qw/f_lang f_lang_in_lc lang lang_in_other_lc/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::EnvironmentalScore qw/is_environmental_score_extended_data_more_precise_than_agribalyse/;
+use ProductOpener::Images qw/data_to_display_image/;
+use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::PackagerCodes qw/%packager_codes/;
-use ProductOpener::KnowledgePanelsIngredients qw/create_ingredients_list_panel/;
+use ProductOpener::KnowledgePanelsIngredients qw/:all/;
 use ProductOpener::KnowledgePanelsContribution qw/create_contribution_card_panel/;
 use ProductOpener::KnowledgePanelsReportProblem qw/create_report_problem_card_panel/;
+use ProductOpener::KnowledgePanelsProduct qw/create_product_card_panel/;
 use ProductOpener::ProductsFeatures qw/feature_enabled/;
 
 use JSON::MaybeXS;
@@ -133,6 +136,8 @@ in a specific language, and return them in an array of panels.
 =head3 Arguments
 
 =head4 product reference $product_ref
+
+#11872 Find and replace Storable with JSON
 
 Loaded from the MongoDB database, Storable files, or the OFF API.
 
@@ -227,6 +232,11 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 		$has_health_card = create_health_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 
+	my $has_product_card;
+	if ($panel_is_requested->('product_card')) {
+		$has_product_card = create_product_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+	}
+
 	my $has_environment_card;
 	if ($panel_is_requested->('environment_card')) {
 		$has_environment_card
@@ -259,12 +269,14 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 			has_contribution_card => $has_contribution_card,
 			has_environment_card => $has_environment_card,
 			has_secondhand_card => $has_secondhand_card,
+			has_product_card => $has_product_card,
 		},
 		$product_ref,
 		$target_lc,
 		$target_cc,
 		$options_ref
 	);
+
 	return;
 }
 
@@ -462,96 +474,6 @@ sub create_panel_from_json_template ($panel_id, $panel_template, $panel_data_ref
 				"json" => $panel_json,
 				"json_debug_url" => $static_subdomain . $url
 			};
-		}
-	}
-	return;
-}
-
-=head2 extract_data_from_impact_estimator_best_recipe ($product_ref, $panel_data_ref)
-
-The impact estimator adds a lot of data to products. This function extracts the data we need to display knowledge panels.
-
-=cut
-
-sub extract_data_from_impact_estimator_best_recipe ($product_ref, $panel_data_ref) {
-
-	# Copy data from product data (which format may change) to panel data to make it easier to use in the template
-
-	$panel_data_ref->{climate_change}
-		= $product_ref->{environmental_score_extended_data}{impact}{likeliest_impacts}{Climate_change};
-	$panel_data_ref->{ef_score}
-		= $product_ref->{environmental_score_extended_data}{impact}{likeliest_impacts}{EF_single_score};
-
-	# Compute the index of the recipe with the maximum confidence
-	my $max_confidence = 0;
-	my $max_confidence_index;
-	my $i = 0;
-
-	foreach my $confidence (@{$product_ref->{environmental_score_extended_data}{impact}{confidence_score_distribution}})
-	{
-		if ($confidence > $max_confidence) {
-
-			$max_confidence_index = $i;
-			$max_confidence = $confidence;
-		}
-		$i++;
-	}
-
-	my $best_recipe_ref = $product_ref->{environmental_score_extended_data}{impact}{recipes}[$max_confidence_index];
-
-	# list ingredients for max confidence recipe, sorted by quantity
-	my @ingredients = ();
-
-	my @ingredients_by_quantity = sort {$best_recipe_ref->{$b} <=> $best_recipe_ref->{$a}} keys %{$best_recipe_ref};
-	foreach my $ingredient (@ingredients_by_quantity) {
-		push @ingredients,
-			{
-			id => $ingredient,
-			quantity => $best_recipe_ref->{$ingredient},
-			};
-	}
-
-	$product_ref->{environmental_score_extended_data}{impact}{max_confidence_recipe} = \@ingredients;
-
-	$panel_data_ref->{environmental_score_extended_data_more_precise_than_agribalyse}
-		= is_environmental_score_extended_data_more_precise_than_agribalyse($product_ref);
-
-	# TODO: compute the complete score, using Agribalyse impacts except for agriculture where we use the estimator impact
-	return;
-}
-
-=head2 compare_impact_estimator_data_to_category_average ($product_ref, $panel_data_ref, $target_cc)
-
-gen_top_tags_per_country.pl computes stats for categories for nutrients, and now also for the
-extended environmental_score impacts computed by the impact estimator.
-
-For a specific product, this function finds the most specific category for which we have impact stats to compare with.
-
-=cut
-
-sub compare_impact_estimator_data_to_category_average ($product_ref, $panel_data_ref, $target_cc) {
-
-	# Comparison to other products
-
-	my $categories_nutriments_ref = $categories_nutriments_per_country{$target_cc};
-
-	if (defined $categories_nutriments_ref) {
-
-		foreach my $cid (reverse @{$product_ref->{categories_tags}}) {
-
-			if (    (defined $categories_nutriments_ref->{$cid})
-				and (defined $categories_nutriments_ref->{$cid}{nutriments})
-				and (defined $categories_nutriments_ref->{$cid}{nutriments}{climate_change}))
-			{
-
-				$panel_data_ref->{environmental_score_extended_data_for_category} = {
-					category_id => $cid,
-					climate_change => $categories_nutriments_ref->{$cid}{nutriments}{climate_change},
-					ef_score => $categories_nutriments_ref->{$cid}{nutriments}{ef_score},
-				};
-
-				last;
-			}
 		}
 	}
 	return;
@@ -1068,6 +990,8 @@ sub create_health_card_panel ($product_ref, $target_lc, $target_cc, $options_ref
 
 	create_ingredients_rare_crops_panel($product_ref, $target_lc, $target_cc, $options_ref);
 
+	create_ingredients_added_sugars_panel($product_ref, $target_lc, $target_cc, $options_ref);
+
 	# Scores for food products
 	if (feature_enabled("nova")) {
 		create_nova_panel($product_ref, $target_lc, $target_cc, $options_ref);
@@ -1103,6 +1027,9 @@ sub create_health_card_panel ($product_ref, $target_lc, $target_cc, $options_ref
 		ingredients_image => data_to_display_image($product_ref, "ingredients", $target_lc),
 		nutrition_image => data_to_display_image($product_ref, "nutrition", $target_lc),
 	};
+
+	$log->debug("create health card panel - data", {code => $product_ref->{code}, panel_data => $panel_data_ref})
+		if $log->is_debug();
 
 	create_panel_from_json_template("health_card", "api/knowledge-panels/health/health_card.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
@@ -1170,6 +1097,9 @@ sub create_nutriscore_2023_panel ($product_ref, $target_lc, $target_cc, $options
 	# Title
 	if ($grade eq "not-applicable") {
 		$panel_data_ref->{title} = lang_in_other_lc($target_lc, "attribute_nutriscore_not_applicable_title");
+	}
+	elsif ($grade eq 'unknown') {
+		$panel_data_ref->{title} = lang_in_other_lc($target_lc, "attribute_nutriscore_unknown_title");
 	}
 	else {
 		$panel_data_ref->{title}
@@ -1500,219 +1430,6 @@ sub create_physical_activities_panel ($product_ref, $target_lc, $target_cc, $opt
 		create_panel_from_json_template("physical_activities",
 			"api/knowledge-panels/health/nutrition/physical_activities.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
-	}
-	return;
-}
-
-sub create_ingredients_rare_crops_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
-
-	# Go through the ingredients structure, and check if they have the rare_crop:en:yes property
-	my @rare_crops_ingredients
-		= get_ingredients_with_property_value($product_ref->{ingredients}, "rare_crop:en", "yes");
-
-	$log->debug("rare crops", {rare_crops_ingredients => \@rare_crops_ingredients}) if $log->is_debug();
-
-	if ($#rare_crops_ingredients >= 0) {
-
-		my $panel_data_ref = {ingredients_rare_crops => \@rare_crops_ingredients,};
-
-		create_panel_from_json_template("ingredients_rare_crops",
-			"api/knowledge-panels/health/ingredients/ingredients_rare_crops.tt.json",
-			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
-	}
-	return;
-}
-
-=head2 create_ingredients_panel ( $product_ref, $target_lc, $target_cc, $options_ref )
-
-Creates a knowledge panel with the list of ingredients.
-
-=head3 Arguments
-
-=head4 product reference $product_ref
-
-Loaded from the MongoDB database, Storable files, or the OFF API.
-
-=head4 language code $target_lc
-
-Returned attributes contain both data and strings intended to be displayed to users.
-This parameter sets the desired language for the user facing strings.
-
-=head4 country code $target_cc
-
-=cut
-
-sub create_ingredients_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
-
-	$log->debug("create ingredients panel", {code => $product_ref->{code}}) if $log->is_debug();
-
-	# try to display ingredients in the requested language if available
-
-	my $ingredients_text = $product_ref->{ingredients_text};
-	my $ingredients_text_with_allergens = $product_ref->{ingredients_text_with_allergens};
-	my $ingredients_text_lc = $product_ref->{ingredients_lc};
-
-	if (    (defined $product_ref->{"ingredients_text" . "_" . $target_lc})
-		and ($product_ref->{"ingredients_text" . "_" . $target_lc} ne ''))
-	{
-		$ingredients_text = $product_ref->{"ingredients_text" . "_" . $target_lc};
-		$ingredients_text_with_allergens = $product_ref->{"ingredients_text_with_allergens" . "_" . $target_lc};
-		$ingredients_text_lc = $target_lc;
-	}
-
-	my $title = "";
-	if (!(defined $product_ref->{ingredients_n}) || ($product_ref->{ingredients_n} == 0)) {
-		$title = lang("no_ingredient");
-	}
-	elsif ($product_ref->{ingredients_n} == 1) {
-		$title = lang("one_ingredient");
-	}
-	else {
-		$title = f_lang("f_ingredients_with_number", {number => $product_ref->{ingredients_n}});
-	}
-
-	my $panel_data_ref = {
-		title => $title,
-		ingredients_text => $ingredients_text,
-		ingredients_text_with_allergens => $ingredients_text_with_allergens,
-		ingredients_text_lc => $ingredients_text_lc,
-	};
-
-	if (defined $ingredients_text_lc) {
-		$panel_data_ref->{ingredients_text_language}
-			= display_taxonomy_tag($target_lc, 'languages', $language_codes{$ingredients_text_lc});
-	}
-
-	create_panel_from_json_template("ingredients", "api/knowledge-panels/health/ingredients/ingredients.tt.json",
-		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
-	return;
-}
-
-=head2 create_additives_panel ( $product_ref, $target_lc, $target_cc, $options_ref )
-
-Creates knowledge panels for additives.
-
-=head3 Arguments
-
-=head4 product reference $product_ref
-
-=head4 language code $target_lc
-
-=head4 country code $target_cc
-
-=cut
-
-sub create_additives_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
-
-	$log->debug("create additives panel", {code => $product_ref->{code}}) if $log->is_debug();
-
-	# Create a panel only if the product has additives
-
-	if ((defined $product_ref->{additives_tags}) and (scalar @{$product_ref->{additives_tags}} > 0)) {
-
-		my $additives_panel_data_ref = {};
-
-		foreach my $additive (@{$product_ref->{additives_tags}}) {
-
-			my $additive_panel_id = "additive_" . $additive;
-
-			my $additive_panel_data_ref = {additive => $additive,};
-
-			# Wikipedia abstracts, in target language or English
-
-			my $target_lcs_ref = [$target_lc];
-			if ($target_lc ne "en") {
-				push @$target_lcs_ref, "en";
-			}
-
-			add_taxonomy_properties_in_target_languages_to_object($additive_panel_data_ref, "additives", $additive,
-				["wikipedia_url", "wikipedia_title", "wikipedia_abstract"],
-				$target_lcs_ref);
-
-			# We check if the knowledge content for this additive (and language/country) is available.
-			# If it is it will be displayed instead of the wikipedia extract
-			my $additive_description = get_knowledge_content("additives", $additive, $target_lc, $target_cc);
-
-			if (defined $additive_description) {
-				$additive_panel_data_ref->{additive_description} = $additive_description;
-			}
-
-			create_panel_from_json_template($additive_panel_id,
-				"api/knowledge-panels/health/ingredients/additive.tt.json",
-				$additive_panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
-		}
-
-		create_panel_from_json_template("additives", "api/knowledge-panels/health/ingredients/additives.tt.json",
-			$additives_panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
-
-	}
-	return;
-}
-
-=head2 create_ingredients_analysis_panel ( $product_ref, $target_lc, $target_cc, $options_ref )
-
-Creates a knowledge panel with the results of ingredients analysis.
-
-=head3 Arguments
-
-=head4 product reference $product_ref
-
-Loaded from the MongoDB database, Storable files, or the OFF API.
-
-=head4 language code $target_lc
-
-Returned attributes contain both data and strings intended to be displayed to users.
-This parameter sets the desired language for the user facing strings.
-
-=head4 country code $target_cc
-
-=cut
-
-sub create_ingredients_analysis_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
-
-	$log->debug("create ingredients analysis panel", {code => $product_ref->{code}}) if $log->is_debug();
-
-	# First create an ingredients analysis details sub-panel
-	# It will be included in the ingredients analysis panel
-
-	my $ingredients_analysis_details_data_ref = data_to_display_ingredients_analysis_details($product_ref);
-
-	# When we don't have ingredients, we don't display the ingredients analysis details
-	if (defined $ingredients_analysis_details_data_ref) {
-		create_panel_from_json_template(
-			"ingredients_analysis_details",
-			"api/knowledge-panels/health/ingredients/ingredients_analysis_details.tt.json",
-			$ingredients_analysis_details_data_ref,
-			$product_ref, $target_lc, $target_cc, $options_ref
-		);
-
-		# If we have some unrecognized ingredients, create a call for help panel that will be displayed in the ingredients analysis details panel
-		# + the panels specific to each property (vegan, vegetarian, palm oil free)
-		if ($ingredients_analysis_details_data_ref->{unknown_ingredients}) {
-			create_panel_from_json_template("ingredients_analysis_help",
-				"api/knowledge-panels/health/ingredients/ingredients_analysis_help.tt.json",
-				{}, $product_ref, $target_lc, $target_cc, $options_ref);
-		}
-	}
-
-	# Create the ingredients analysis panel
-
-	my $ingredients_analysis_data_ref = data_to_display_ingredients_analysis($product_ref);
-
-	if (defined $ingredients_analysis_data_ref) {
-
-		foreach my $property_panel_data_ref (@{$ingredients_analysis_data_ref->{ingredients_analysis_tags}}) {
-
-			my $property_panel_id = "ingredients_analysis_" . $property_panel_data_ref->{tag};
-
-			create_panel_from_json_template($property_panel_id,
-				"api/knowledge-panels/health/ingredients/ingredients_analysis_property.tt.json",
-				$property_panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
-		}
-
-		create_panel_from_json_template("ingredients_analysis",
-			"api/knowledge-panels/health/ingredients/ingredients_analysis.tt.json",
-			{}, $product_ref, $target_lc, $target_cc, $options_ref);
 	}
 	return;
 }

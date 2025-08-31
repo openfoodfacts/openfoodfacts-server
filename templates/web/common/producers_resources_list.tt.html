@@ -2,13 +2,15 @@
 Example: <ul> ... INCLUDE 'web/common/producers_resources_list.tt.html' ... </ul> %]
 <li>
     <a href="[% IF lc == "fr" %]
-        https://blog.openfoodfacts.org/fr/Guide-dutilisation-Plateforme-Pro.pdf
+    https://blog.openfoodfacts.org/fr/FR-Guide-dutilisation-Plateforme-Pro.pdf 
         [% ELSIF lc== "it" %]
-        https://blog.openfoodfacts.org/it/guida-pratica-piattaforma-produttori.pdf
+        https://blog.openfoodfacts.org/it/IT-guida-pratica-piattaforma-produttori.pdf 
         [% ELSIF lc== "de" %]
-        https://blog.openfoodfacts.org/de/Pro-Plateform-Benutzerhandbuch.pdf
+        https://blog.openfoodfacts.org/de/DE-Pro-Plattform-Benutzerhandbuch.pdf 
+        [% ELSIF lc== "es" %]
+        https://blog.openfoodfacts.org/es/ES-Guia-de-usuario-de-la-Plataforma-Pro.pdf 
         [% ELSE %]
-        https://blog.openfoodfacts.org/en/EN-Pro-Plateform-User-Guide.pdf
+        https://blog.openfoodfacts.org/en/EN-Pro-Platform-User-Guide.pdf
         [% END %]">
         [% lang('pro_platform_user_guide') %]
     </a>
@@ -27,5 +29,15 @@ Example: <ul> ... INCLUDE 'web/common/producers_resources_list.tt.html' ... </ul
             https://support.openfoodfacts.org/help/en-gb/3-producers
             [% END %]">
         [% lang('faq_for_producers') %]
+    </a>
+</li>
+<li>
+
+    <a href="[% IF lc == "fr" %]
+            https://connect.openfoodfacts.org/support-pro-fr
+            [% ELSE %]
+            https://connect.openfoodfacts.org/support-pro-en
+            [% END %]">
+        [% lang('contact_us_producers') %]
     </a>
 </li>

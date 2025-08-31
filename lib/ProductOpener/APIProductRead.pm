@@ -45,13 +45,16 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
-use ProductOpener::Display qw/$subdomain redirect_to_url request_param single_param/;
+use ProductOpener::Display qw/$subdomain/;
+use ProductOpener::HTTP qw/request_param single_param redirect_to_url/;
 use ProductOpener::Users qw/$Owner_id/;
 use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Ingredients qw/flatten_sub_ingredients/;
 use ProductOpener::API qw/add_error customize_response_for_product normalize_requested_code/;
 use ProductOpener::URL qw(format_subdomain);
+use ProductOpener::Images qw(add_images_urls_to_product);
+use ProductOpener::Store qw/retrieve_object/;
 
 my $cc;
 
@@ -116,7 +119,7 @@ sub read_product_api ($request_ref) {
 		my $rev = single_param("rev");
 		local $log->context->{rev} = $rev;
 		if (defined $rev) {
-			$product_ref = retrieve_product_rev($product_id, $rev);
+			$product_ref = retrieve_product($product_id, 0, $rev);
 		}
 		else {
 			$product_ref = retrieve_product($product_id);
@@ -196,12 +199,12 @@ sub read_product_api ($request_ref) {
 		# Return blame information
 		if (single_param("blame")) {
 			my $path = product_path_from_id($product_id);
-			my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
+			my $changes_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/changes");
 			if (not defined $changes_ref) {
 				$changes_ref = [];
 			}
 			$response_ref->{blame} = {};
-			compute_product_history_and_completeness($data_root, $product_ref, $changes_ref, $response_ref->{blame});
+			compute_product_history_and_completeness($product_ref, $changes_ref, $response_ref->{blame});
 		}
 
 	}

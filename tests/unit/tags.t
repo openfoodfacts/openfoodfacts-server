@@ -122,10 +122,9 @@ is(
 
 ) or diag Dumper $product_ref;
 
-foreach my $tag (@{$product_ref->{categories_tags}}) {
-
-	print STDERR "tag: $tag\tlevel: " . $level{categories}{$tag} . "\n";
-}
+# foreach my $tag (@{$product_ref->{categories_tags}}) {
+# 	print STDERR "tag: $tag\tlevel: " . $level{categories}{$tag} . "\n";
+# }
 
 add_tags_to_field($product_ref, "fr", "categories", "pommes, bananes");
 
@@ -232,21 +231,33 @@ is(
 
 $product_ref = {lc => "fr",};
 
-add_tags_to_field($product_ref, "fr", "brands", "Baba, Bobo");
+add_tags_to_field($product_ref, "fr", "brands", "Baba, Bobo, nestlé, kelloggs");
+
+# 2024/08: brands are now taxonomized using the xx: prefix
+
+is canonicalize_taxonomy_tag('en', 'brands', 'some brand'), 'xx:some brand';
+is canonicalize_taxonomy_tag('en', 'brands', 'xx:some-brand'), 'xx:some-brand';
+is canonicalize_taxonomy_tag('en', 'brands', 'xx:Some brand'), 'xx:Some brand';
+is canonicalize_taxonomy_tag('xx', 'brands', 'some brand'), 'xx:some brand';
+is get_taxonomyid("en", "some brand"), "some-brand";
+is [gen_tags_hierarchy_taxonomy("en", "brands", "some brand, xx:some-other-brand")],
+	['xx:some brand', 'xx:some-other-brand'];
 
 is(
 	$product_ref,
 	{
-		'brands' => 'Baba, Bobo',
-		'brands_tags' => ['baba', 'bobo'],
-
+		'brands' => 'Baba, Bobo, nestlé, kelloggs',
+		'brands_lc' => 'xx',
+		'brands_tags' => ['xx:kellogg-s', 'xx:nestle', 'xx:baba', 'xx:bobo'],
+		'brands_hierarchy' => ['xx:kellogg-s', 'xx:nestle', 'xx:Baba', 'xx:Bobo'],
 		'lc' => 'fr'
 	}
 ) or diag Dumper($product_ref);
 
 compute_field_tags($product_ref, "fr", "brands");
 
-is($product_ref->{brands_tags}, ['baba', 'bobo',]) or diag Dumper $product_ref->{brands_tags};
+is($product_ref->{brands_tags}, ['xx:kellogg-s', 'xx:nestle', 'xx:baba', 'xx:bobo'])
+	or diag Dumper $product_ref->{brands_tags};
 
 add_tags_to_field($product_ref, "fr", "brands", "Bibi");
 
@@ -255,9 +266,10 @@ delete $product_ref->{brands_debug_tags};
 is(
 	$product_ref,
 	{
-		'brands' => 'Baba, Bobo, Bibi',
-		'brands_tags' => ['baba', 'bobo', 'bibi',],
-
+		'brands' => 'Kellogg\'s, Nestlé, Baba, Bobo, Bibi',
+		'brands_lc' => 'xx',
+		'brands_tags' => ['xx:kellogg-s', 'xx:nestle', 'xx:baba', 'xx:bibi', 'xx:bobo'],
+		'brands_hierarchy' => ['xx:kellogg-s', 'xx:nestle', 'xx:Baba', 'xx:Bibi', 'xx:Bobo'],
 		'lc' => 'fr'
 	}
 ) or diag Dumper($product_ref);
@@ -266,7 +278,8 @@ compute_field_tags($product_ref, "fr", "brands");
 
 delete $product_ref->{brands_debug_tags};
 
-is($product_ref->{brands_tags}, ['baba', 'bobo', 'bibi',]) or diag Dumper $product_ref->{brands_tags};
+is($product_ref->{brands_tags}, ['xx:kellogg-s', 'xx:nestle', 'xx:baba', 'xx:bibi', 'xx:bobo'])
+	or diag Dumper $product_ref->{brands_tags};
 
 my @tags = ();
 
@@ -291,10 +304,9 @@ is(
 	]
 ) or diag Dumper(\@tags);
 
-foreach my $tag (@tags) {
-
-	print STDERR "tag: $tag\tlevel: " . $level{ingredients}{$tag} . "\n";
-}
+# foreach my $tag (@tags) {
+# 	print STDERR "tag: $tag\tlevel: " . $level{ingredients}{$tag} . "\n";
+# }
 
 @tags = gen_ingredients_tags_hierarchy_taxonomy("en", "en:concentrated-orange-juice, en:sugar, en:salt, en:orange");
 
@@ -422,8 +434,6 @@ is(exists_taxonomy_tag("additives", "en:e330"), 1);
 is(get_inherited_property("ingredients", "en:milk", "vegetarian:en"), "yes");
 is(get_property("ingredients", "en:milk", "vegan:en"), "no");
 is(get_inherited_property("ingredients", "en:milk", "vegan:en"), "no");
-is(get_inherited_property("ingredients", "en:semi-skimmed-milk", "vegetarian:en"), "yes");
-is(get_inherited_property("ingredients", "en:semi-skimmed-milk", "vegan:en"), "no");
 
 is(display_taxonomy_tag("en", "ingredients_analysis", "en:non-vegan"), "Non-vegan");
 
@@ -820,7 +830,7 @@ is(get_tag_image("en", "labels", "en:usda-organic"), "/images/lang/en/labels/usd
 is(get_tag_image("sv", "labels", "sv:ä-märket"), "/images/lang/sv/labels/ä-märket.85x90.png");   # file name is accented
 is(get_tag_image("fr", "labels", "fr:commerce-equitable"), "/images/lang/fr/labels/commerce-equitable.96x90.png")
 	;    # file name is unaccented, unaccented language
-is(get_tag_image("fr", "labels", "fi:sydänmerkki"), "/images/lang/fi/labels/sydanmerkki.90x90.png")
+is(get_tag_image("fr", "labels", "fi:sydänmerkki"), "/images/lang/fi/labels/sydanmerkki.90x90.svg")
 	;    # file name is unaccented, accented language
 
 # strings with multiple tags separated by /
@@ -873,6 +883,8 @@ is(
 );
 
 # Test get_knowledge_content subroutine
+
+ProductOpener::Tags::load_knowledge_content();
 
 # a match is expected here, as lang-default/fr/knowledge_panels/additives/en_e100_world.html exists
 is(

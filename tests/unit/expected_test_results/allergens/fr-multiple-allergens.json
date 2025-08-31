@@ -1,0 +1,50 @@
+{
+   "allergens" : "",
+   "allergens_from_ingredients" : "blé, lupin, soja, moutarde, céleri",
+   "allergens_hierarchy" : [
+      "en:celery",
+      "en:gluten",
+      "en:lupin",
+      "en:mustard",
+      "en:soybeans"
+   ],
+   "allergens_tags" : [
+      "en:celery",
+      "en:gluten",
+      "en:lupin",
+      "en:mustard",
+      "en:soybeans"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_text" : "Farine de blé et de lupin, épices (soja, moutarde et céleri), crème de cassis, traces de fruits à coques, d'arachide et de poisson",
+   "ingredients_text_fr" : "Farine de blé et de lupin, épices (soja, moutarde et céleri), crème de cassis, traces de fruits à coques, d'arachide et de poisson",
+   "ingredients_text_with_allergens" : "Farine de <span class=\"allergen\">blé</span> et de <span class=\"allergen\">lupin</span>, épices (<span class=\"allergen\">soja</span>, <span class=\"allergen\">moutarde</span> et <span class=\"allergen\">céleri</span>), crème de cassis, traces de <span class=\"allergen\">fruits à coques</span>, d'<span class=\"allergen\">arachide</span> et de <span class=\"allergen\">poisson</span>",
+   "ingredients_text_with_allergens_fr" : "Farine de <span class=\"allergen\">blé</span> et de <span class=\"allergen\">lupin</span>, épices (<span class=\"allergen\">soja</span>, <span class=\"allergen\">moutarde</span> et <span class=\"allergen\">céleri</span>), crème de cassis, traces de <span class=\"allergen\">fruits à coques</span>, d'<span class=\"allergen\">arachide</span> et de <span class=\"allergen\">poisson</span>",
+   "lang" : "fr",
+   "languages" : {
+      "en:french" : 1
+   },
+   "languages_codes" : {
+      "fr" : 1
+   },
+   "languages_hierarchy" : [
+      "en:french"
+   ],
+   "languages_tags" : [
+      "en:french",
+      "en:1"
+   ],
+   "lc" : "fr",
+   "traces" : "",
+   "traces_from_ingredients" : "fruits à coques, arachide, poisson",
+   "traces_hierarchy" : [
+      "en:fish",
+      "en:nuts",
+      "en:peanuts"
+   ],
+   "traces_tags" : [
+      "en:fish",
+      "en:nuts",
+      "en:peanuts"
+   ]
+}
