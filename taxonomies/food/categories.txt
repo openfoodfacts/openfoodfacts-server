@@ -3379,6 +3379,9 @@ en: Root beers
 wikidata:en: Q36275
 wikipedia:en: https://en.wikipedia.org/wiki/Root_beer
 
+< en:Alcoholic beverages
+en: Hard Seltzers
+xx: Hard seltzers
 
 < en:Alcoholic beverages
 en: Pure alcohol
@@ -3412,7 +3415,6 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Spirits
 intake24_category_code:en: SPLI
 wikidata:en: Q2832208
-
 
 < en:Spirit drinks
 en: Portuguese spirit drinks
@@ -71132,6 +71134,10 @@ comment:en: Bananas is restricted to whole fresh ones
 opposite:en: en:bananas, en: banana-crisps
 
 < en:Dried fruits
+en: Dried raspberries
+fr: Framboises séchées
+
+< en:Dried fruits
 en: Dried strawberries
 bg: Сушени ягоди
 fr: Fraises séchées
@@ -108392,11 +108398,11 @@ en: Dried jackfruit
 fr: Jacquiers séchés, fruits du jacquier séchés
 
 < en:Vegetables
-en: Aubergines, Eggplants
+en: Aubergines, Eggplants, aubergine, eggplant
 bg: Патладжани
 de: Auberginen
 es: Berenjenas
-fr: Aubergines
+fr: Aubergines, aubergine
 hr: Patlidžani
 ja: ナス, なす, 茄子, ナスビ
 la: Solanum melongena
@@ -108443,7 +108449,6 @@ opposite:en: en:fresh-aubergines
 en: Graffiti eggplants
 fr: Aubergines graffiti
 
-< en:Frozen vegetables
 < en:Prepared vegetables
 en: Prepared eggplants
 fr: Aubergines préparées
@@ -116962,7 +116967,7 @@ sv: Färsk växtbaserad mat
 zh: 新鲜蔬菜食品
 
 
-< en:Fresh plant-based foods
+< en:Vegetables
 # <en:ingredient:en:vegetable
 en: Hearts of palm, Heart of palm
 ar: جمار
@@ -116995,25 +117000,18 @@ wikidata:en: Q743144
 wikipedia:en: https://en.wikipedia.org/wiki/Heart_of_palm
 
 < en:Canned plant-based foods
-en: Canned hearts of palm
+en: Canned palm hearts, Canned palm heart, Canned hearts of palm
 de: Palmherzen in der Dose
 es: Palmitos en conserva, Palmito en conserva
-fr: Cœurs de palmier en conserve
+fr: Cœurs de palmier en conserve, Coeur de palmier appertisé
 hr: Konzervirano srce palme
 it: Cuori di palma in scatola
 nl: Palmharten in blik/pot
-agribalyse_proxy_food_code:en: 20018
-agribalyse_proxy_food_name:en: Palm heart, canned, drained
-agribalyse_proxy_food_name:fr: Coeur de palmier, appertisé, égoutté
-wikidata:en: Q743144
-
-< en:Hearts of palm
-en: Canned palm heart
-fr: Coeur de palmier appertisé
 agribalyse_food_code:en: 20018
 ciqual_food_code:en: 20018
 ciqual_food_name:en: Palm heart, canned, drained
 ciqual_food_name:fr: Coeur de palmier, appertisé, égoutté
+wikidata:en: Q743144
 
 < en:Salty snacks
 en: Appetizers, Starters
