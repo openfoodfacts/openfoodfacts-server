@@ -1,0 +1,126 @@
+{
+   "blame" : {
+      "fields" : {
+         "categories" : {
+            "rev" : 1,
+            "t" : 1,
+            "userid" : "tests",
+            "value" : "cookies"
+         },
+         "generic_name" : {
+            "rev" : 1,
+            "t" : 1,
+            "userid" : "tests",
+            "value" : "Tester"
+         },
+         "ingredients_text" : {
+            "rev" : 1,
+            "t" : 1,
+            "userid" : "tests",
+            "value" : "apple, milk, eggs, palm oil, coloring: curcumin, emulsifier: soy lecithin"
+         },
+         "labels" : {
+            "rev" : 1,
+            "t" : 1,
+            "userid" : "tests",
+            "value" : "organic"
+         },
+         "lc" : {
+            "rev" : 1,
+            "t" : 1,
+            "userid" : "tests",
+            "value" : "en"
+         },
+         "origin" : {
+            "rev" : 1,
+            "t" : 1,
+            "userid" : "tests",
+            "value" : "france"
+         },
+         "packaging_text_en" : {
+            "rev" : 1,
+            "t" : 1,
+            "userid" : "tests",
+            "value" : "1 wooden box to recycle, 6 25cl glass bottles to reuse, 3 steel lids to recycle, 1 plastic film to discard"
+         },
+         "product_name" : {
+            "rev" : 1,
+            "t" : 1,
+            "userid" : "tests",
+            "value" : "Some product"
+         }
+      },
+      "nutriments" : {
+         "carbohydrates_100g" : {
+            "rev" : 1,
+            "t" : 1,
+            "userid" : "tests",
+            "value" : 10.5
+         },
+         "energy-kj_100g" : {
+            "rev" : 1,
+            "t" : 1,
+            "userid" : "tests",
+            "value" : 400
+         },
+         "fat_100g" : {
+            "rev" : 1,
+            "t" : 1,
+            "userid" : "tests",
+            "value" : 8.5
+         },
+         "fiber_100g" : {
+            "rev" : 1,
+            "t" : 1,
+            "userid" : "tests",
+            "value" : 2
+         },
+         "proteins_100g" : {
+            "rev" : 1,
+            "t" : 1,
+            "userid" : "tests",
+            "value" : 4.5
+         },
+         "salt_100g" : {
+            "rev" : 1,
+            "t" : 1,
+            "userid" : "tests",
+            "value" : 0.0502
+         },
+         "saturated-fat_100g" : {
+            "rev" : 1,
+            "t" : 1,
+            "userid" : "tests",
+            "value" : 5.6
+         },
+         "sugars_100g" : {
+            "rev" : 1,
+            "t" : 1,
+            "userid" : "tests",
+            "value" : 12.5
+         }
+      },
+      "packagings" : {
+         "data" : {
+            "rev" : 1,
+            "t" : 1,
+            "userid" : "tests",
+            "value" : "number_of_units:1,shape:en:box,material:en:wood,recycling:en:recycle,quantity_per_unit:,\nnumber_of_units:6,shape:en:bottle,material:en:glass,recycling:en:reuse,quantity_per_unit:25cl,\nnumber_of_units:3,shape:en:lid,material:en:steel,recycling:en:recycle,quantity_per_unit:,\nnumber_of_units:1,shape:en:film,material:en:plastic,recycling:en:discard,quantity_per_unit:,\n"
+         }
+      }
+   },
+   "code" : "0200000000034",
+   "product" : {
+      "_id" : "0200000000034",
+      "_keywords" : [
+         "cookie",
+         "organic",
+         "product",
+         "some",
+         "tester"
+      ],
+      "product_name" : "Some product"
+   },
+   "status" : 1,
+   "status_verbose" : "product found"
+}
