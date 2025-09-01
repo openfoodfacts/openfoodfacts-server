@@ -1,4 +1,4 @@
-Helping your users get the Green-Score for any product
+# Helping your users get the Green-Score for any product
 
 - If you can't get the information on a specific product, you can get your user to send photos and data.
 - That will then be processed by Open Food Facts to get the computed result you want to show them.
@@ -15,16 +15,15 @@ Helping your users get the Green-Score for any product
 * Adding disclaimers when we can't display the Green-Score
 * Adding disclaimers when the Green-Score is computed with a data gap + Asking the users to photograph and/or complete missing information
 * Adding value by explaining
-* Product Attributes
-* Additional ways to get ready
+* Knowledge panels API
 * Onboarding producers you know
 
 ### Implementing the basic display of the score
 
-#### Preferred method : Knowledge panels
+#### Preferred method : Using the Knowledge Panels API
 * With Knowledge panels, you just have to implement a for-loop in your app. Translations, updates, and all the complexity will be handled 
-
-
+* The Open Food Facts official app uses this one, which is less initial work, and less maintenance work.
+  
 #### Using the Raw API
 * The API is adding a new ecoscore_grade field from A to F. Technically wise, it behaves like the Nutri-Score, so you can clone part of your Nutri-Score implementation 
 * If (and only if) the server sends back a proper value (a+, a, b, c, d, e or f), display the new score, otherwise, display our gray placeholder
@@ -40,12 +39,6 @@ Helping your users get the Green-Score for any product
     * [E Green Score visual](https://static.openfoodfacts.org/images/attributes/dist/green-score-e.svg)
     * [F Green Score visual](https://static.openfoodfacts.org/images/attributes/dist/green-score-f.svg)
     * [Unknown Green Score visual(https://static.openfoodfacts.org/images/attributes/dist/green-score-unknown.svg) 
-
-
-#### Using the Attributes API
-
-The Open Food Facts official app use this one, which is less work but also less flexible (will display other data as well).
-
 
 ### Displaying the Green-Score outside France
 * You need to ensure the country your users are in:
@@ -94,17 +87,10 @@ _We can compute the Green-Score for most of the database, but we’re missing so
 
 ### Adding value by explaining
 
-* Product Attributes
-* You can implement the product attributes API that displays additional information with a minimum of coding
-    * Full API documentation: [https://wiki.openfoodfacts.org/Product_Attributes](https://wiki.openfoodfacts.org/Product_Attributes)
-    * Visual mockups: [https://github.com/openfoodfacts/openfoodfacts-androidapp/issues/3501](https://github.com/openfoodfacts/openfoodfacts-androidapp/issues/3501) 
-    * A Flutter implementation is available, and you are very welcome to contribute implementation in one of our existing SDKs (or create your own)
-* Explanation of Green-Score computations
-    * [https://world-fr.openfoodfacts.org/api/v0/product/0634065322366.json?fields=environment_infocard,ecoscore_grade](https://world-fr.openfoodfacts.org/api/v0/product/0634065322366.json?fields=environment_infocard,ecoscore_grade) 
-    * HTML explanation. You can get the localized version by changing world-fr into world-de
-    * The HTML explanation is already available in the openfoodfacts-dart package
+* Explanation of Green-Score computations using Knowledge panels: You can implement the Knowledge panels API that displays additional information with a minimum of coding (you can filter on Environment Knowledge Panels only if you wish)
+* A Flutter implementation is available, and you are very welcome to contribute implementation in one of our existing SDKs (or create your own)
 
-### Additional ways to get ready
+### If you have relationships or connexions with food producers
 
-* Onboarding producers you know
+* Onboarding producers you know to the Green-Score and the Open Food Facts Platform for Producers (Free)
 * You can ask any producer you know to get in touch with us at [producers@openfoodfacts.org](mailto:producers@openfoodfacts.org) so that their products are Green-Score ready in terms of data (we have easy ways to import their data using the Producer Platform: [https://world.pro.openfoodfacts.org/](https://world.pro.openfoodfacts.org/) )
