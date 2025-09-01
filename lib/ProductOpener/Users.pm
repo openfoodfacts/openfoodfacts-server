@@ -696,7 +696,7 @@ sub notify_user_requested_org ($user_ref, $org_created, $request_ref) {
 		userid => $user_ref->{userid},
 		user => $user_ref,
 		requested_org => $user_ref->{requested_org_id},
-		cc => country_to_cc($user_ref->{country}),
+		cc => country_to_cc($user_ref->{country}) // $request_ref->{cc},
 	};
 
 	# construct first part of the mail about new pro account

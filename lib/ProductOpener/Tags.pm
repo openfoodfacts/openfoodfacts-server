@@ -2689,14 +2689,14 @@ sub retrieve_tags_taxonomy ($tagtype, $die_if_taxonomy_cannot_be_loaded = 0) {
 
 sub country_to_cc ($country) {
 
-	if (not defined $country or $country eq 'en:world') {
+	if ($country eq 'en:world') {
 		return 'world';
 	}
 	elsif (defined $properties{countries}{$country}{"country_code_2:en"}) {
 		return lc($properties{countries}{$country}{"country_code_2:en"});
 	}
 
-	return 'world';
+	return;
 }
 
 sub cc_to_country($cc) {
