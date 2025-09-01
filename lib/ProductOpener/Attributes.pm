@@ -70,7 +70,6 @@ use ProductOpener::Display qw/$static_subdomain/;
 use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::ProductsFeatures qw/feature_enabled/;
 
-
 use Data::DeepAccess qw(deep_get);
 use CGI qw/:cgi/;
 
@@ -324,8 +323,8 @@ sub initialize_attribute ($attribute_id, $target_lc) {
 		$attribute_ref->{icon_url} = "$static_subdomain/images/lang/fr/labels/indice-de-reparabilite-10.152x90.svg";
 	}
 	elsif ($attribute_id eq "unwanted_ingredients") {
-        $attribute_ref->{setting_name} = "Ingredients to avoid";
-    }
+		$attribute_ref->{setting_name} = "Ingredients to avoid";
+	}
 
 	# Initialize name and setting name if a language is requested
 
@@ -1373,6 +1372,7 @@ sub compute_attribute_allergen ($product_ref, $target_lc, $attribute_id) {
 				. " ingredients ("
 				. $product_ref->{unknown_ingredients_n}
 				. " unknown)";
+			$attribute_ref->{description_short} = lang_in_other_lc($target_lc, "too_many_unknown_ingredients");
 		}
 	}
 	else {
@@ -1401,13 +1401,12 @@ sub compute_attribute_allergen ($product_ref, $target_lc, $attribute_id) {
 		$attribute_ref->{match} = 0;
 	}
 
+	my $allergen_name = display_taxonomy_tag($target_lc, "allergens", $allergen_id);
+
 	# No match: mark the attribute unknown
 	if (not defined $attribute_ref->{match}) {
 		$attribute_ref->{status} = "unknown";
-		$attribute_ref->{title} = sprintf(
-			lang_in_other_lc($target_lc, "presence_unknown_s"),
-			display_taxonomy_tag($target_lc, "allergens", $allergen_id)
-		);
+		$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "presence_unknown_s"), $allergen_name);
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/$allergen-content-unknown.svg";
 
 		if (not($product_ref->{ingredients_n})) {
@@ -1422,25 +1421,16 @@ sub compute_attribute_allergen ($product_ref, $target_lc, $attribute_id) {
 		}
 	}
 	elsif ($attribute_ref->{match} == 100) {
-		$attribute_ref->{title} = sprintf(
-			lang_in_other_lc($target_lc, "does_not_contain_s"),
-			display_taxonomy_tag($target_lc, "allergens", $allergen_id)
-		);
+		$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "does_not_contain_s"), $allergen_name);
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/no-$allergen.svg";
 	}
 	elsif ($attribute_ref->{match} == 20) {
-		$attribute_ref->{title} = sprintf(
-			lang_in_other_lc($target_lc, "may_contain_s"),
-			display_taxonomy_tag($target_lc, "allergens", $allergen_id)
-		);
+		$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "may_contain_s"), $allergen_name);
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/may-contain-$allergen.svg";
 	}
 	elsif ($attribute_ref->{match} == 0) {
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/contains-$allergen.svg";
-		$attribute_ref->{title} = sprintf(
-			lang_in_other_lc($target_lc, "contains_s"),
-			display_taxonomy_tag($target_lc, "allergens", $allergen_id)
-		);
+		$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "contains_s"), $allergen_name);
 	}
 
 	return $attribute_ref;
@@ -1753,7 +1743,7 @@ sub compute_attributes ($product_ref, $target_lc, $target_cc, $options_ref) {
 		}
 		# Unwanted ingredients
 		if (defined cookie("unwanted_ingredients_tags")) {
-			my @unwanted_ingredients = map { s/^\s+|\s+$//gr } split /,/, cookie("unwanted_ingredients_tags");
+			my @unwanted_ingredients = map {s/^\s+|\s+$//gr} split /,/, cookie("unwanted_ingredients_tags");
 			$attribute_ref = compute_attribute_unwanted_ingredients($product_ref, $target_lc, \@unwanted_ingredients);
 			add_attribute_to_group($product_ref, $target_lc, "ingredients", $attribute_ref);
 		}
@@ -1934,7 +1924,6 @@ sub compute_attribute_repairability_index_france ($product_ref, $target_lc, $tar
 	return $attribute_ref;
 }
 
-
 =head2 compute_attribute_unwanted_ingredients($product_ref, $target_lc, $unwanted_ingredients_ref)
 
 Checks if the product contains any unwanted ingredients specified by the user.
@@ -1961,43 +1950,75 @@ The return value is a reference to the resulting attribute data structure.
 
 - 100: none of the unwanted ingredients are present
 - 0: at least one unwanted ingredient is present
-- unknown: if the unwanted ingredients list is not specified
 
 =cut
 
 sub compute_attribute_unwanted_ingredients ($product_ref, $target_lc, $unwanted_ingredients_ref) {
-    my $attribute_id = "unwanted_ingredients";
-    my $attribute_ref = initialize_attribute($attribute_id, $target_lc);
+	my $attribute_id = "unwanted_ingredients";
+	my $attribute_ref = initialize_attribute($attribute_id, $target_lc);
+	$attribute_ref->{status} = "unknown";
 
-    if (!defined $unwanted_ingredients_ref || ref($unwanted_ingredients_ref) ne 'ARRAY' || !@$unwanted_ingredients_ref) {
-        $attribute_ref->{status} = "unknown";
-        $attribute_ref->{match} = 0;
-        $attribute_ref->{title} = "Ingrédients indésirables non spécifiés";
-        $attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/unwanted-ingredients-unknown.svg";
-        return $attribute_ref;
-    }
+	# In theory, should not happen, as the cookie is set only if unwanted ingredients are defined
+	if (!defined $unwanted_ingredients_ref || ref($unwanted_ingredients_ref) ne 'ARRAY' || !@$unwanted_ingredients_ref)
+	{
+		$attribute_ref->{debug} = "no unwanted ingredients defined";
+	}
+	# If we don't have ingredients, return unknown
+	elsif ((not defined $product_ref->{ingredients_tags}) or (scalar @{$product_ref->{ingredients_tags}} == 0)) {
+		$attribute_ref->{description_short} = lang_in_other_lc($target_lc, "missing_ingredients_list");
+		# link to the ingredients panel that will have an action to add ingredients
+		$attribute_ref->{panel_id} = "ingredients";
+	}
+	else {
+		# We have ingredients, check for unwanted ingredients
 
-    my $found = 0;
-    foreach my $ingredient (@$unwanted_ingredients_ref) {
-        if (has_tag($product_ref, "ingredients", $ingredient)) {
-            $found = 1;
-            last;
-        }
-    }
+		my @found_unwanted_ingredients = ();
+		foreach my $ingredient (@$unwanted_ingredients_ref) {
+			if (has_tag($product_ref, "ingredients", $ingredient)) {
+				push @found_unwanted_ingredients, $ingredient;
+			}
+		}
 
-    if ($found) {
-        $attribute_ref->{status} = "known";
-        $attribute_ref->{match} = 0;
-        $attribute_ref->{title} = "Contient un ingrédient indésirable";
-        $attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/contains-unwanted-ingredient.svg";
-    } else {
-        $attribute_ref->{status} = "known";
-        $attribute_ref->{match} = 100;
-        $attribute_ref->{title} = "Ne contient pas d'ingrédient indésirable";
-        $attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/no-unwanted-ingredient.svg";
-    }
+		if (scalar @found_unwanted_ingredients > 0) {
+			# At least one unwanted ingredient is present
+			my $unwanted_ingredients
+				= join(", ", map {display_taxonomy_tag($target_lc, "ingredients", $_)} @found_unwanted_ingredients);
+			$attribute_ref->{status} = "known";
+			$attribute_ref->{match} = 0;
+			$attribute_ref->{title} = lang_in_other_lc($target_lc, "contains_unwanted_ingredients");
+			$attribute_ref->{description_short} = $unwanted_ingredients;
+			$attribute_ref->{description}
+				= lang_in_other_lc($target_lc, "attribute_unwanted_ingredients_name")
+				. lang_in_other_lc($target_lc, "sep") . ": "
+				. $unwanted_ingredients;
+			$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/contains-unwanted-ingredients.svg";
+		}
+		else {
+			# No unwanted ingredients detected
 
-    return $attribute_ref;
+			# Check that we do not have too many unknown ingredients, otherwise mark as unknown
+			if ($product_ref->{unknown_ingredients_n} <= $product_ref->{ingredients_n} / 10) {
+				$attribute_ref->{status} = "known";
+				$attribute_ref->{match} = 100;
+				$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/no-unwanted-ingredients.svg";
+				$attribute_ref->{title} = lang_in_other_lc($target_lc, "no_unwanted_ingredients");
+			}
+			else {
+				# Keep status unknown if too many unknown ingredients
+				# link to the ingredients analysis details
+				$attribute_ref->{description_short} = lang_in_other_lc($target_lc, "too_many_unknown_ingredients");
+				$attribute_ref->{panel_id} = "ingredients_analysis_details";
+			}
+		}
+
+		if ($attribute_ref->{status} eq "unknown") {
+			$attribute_ref->{title} = lang_in_other_lc($target_lc, "presence_of_unwanted_ingredients_unknown");
+			$attribute_ref->{icon_url}
+				= "$static_subdomain/images/attributes/dist/unwanted-ingredients-content-unknown.svg";
+		}
+	}
+
+	return $attribute_ref;
 }
 
 1;

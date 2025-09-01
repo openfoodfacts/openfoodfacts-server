@@ -5316,6 +5316,11 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			"traces_tags" => 1,
 			"unknown_ingredients_n" => 1
 		};
+
+		# If the user has selected some unwanted ingredients, we need the ingredients_tags field to compute the corresponding attribute
+		if (defined cookie("unwanted_ingredients_tags")) {
+			$fields_ref->{"ingredients_tags"} = 1;
+		}
 	}
 	else {
 		# For HTML, limit the fields we retrieve from MongoDB
