@@ -34,6 +34,8 @@ sub test_template($) {
 		}
 	}
 	else {
+		# Skip README.md files as they are documentation, not templates
+		return if $path =~ /README\.md$/;
 
 		ok($path =~ /\.tt\./) or diag("file $path does not contain .tt.");
 
