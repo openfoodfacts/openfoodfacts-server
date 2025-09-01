@@ -204,7 +204,7 @@ sub read_product_api ($request_ref) {
 				$changes_ref = [];
 			}
 			$response_ref->{blame} = {};
-			compute_product_history_and_completeness($data_root, $product_ref, $changes_ref, $response_ref->{blame});
+			compute_product_history_and_completeness($product_ref, $changes_ref, $response_ref->{blame});
 		}
 
 	}

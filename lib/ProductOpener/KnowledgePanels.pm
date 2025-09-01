@@ -1098,6 +1098,9 @@ sub create_nutriscore_2023_panel ($product_ref, $target_lc, $target_cc, $options
 	if ($grade eq "not-applicable") {
 		$panel_data_ref->{title} = lang_in_other_lc($target_lc, "attribute_nutriscore_not_applicable_title");
 	}
+	elsif ($grade eq 'unknown') {
+		$panel_data_ref->{title} = lang_in_other_lc($target_lc, "attribute_nutriscore_unknown_title");
+	}
 	else {
 		$panel_data_ref->{title}
 			= sprintf(lang_in_other_lc($target_lc, "attribute_nutriscore_grade_title"), uc($grade));

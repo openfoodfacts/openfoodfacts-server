@@ -59,7 +59,7 @@ There were lots of non-breaking changes (new fields) from 2012 to 2024. Those ch
 
 ### Product version 999 - Changed barcode normalization
 
-The normalization of leading 0s has been changed. See [Barcode normalization](/ref-barcode-normalization.md)
+The normalization of leading 0s has been changed. See [Barcode normalization](./ref-barcode-normalization.md)
 
 ### Product version 998 - API version 3
 
