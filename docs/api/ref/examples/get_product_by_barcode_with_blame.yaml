@@ -1,0 +1,57 @@
+summary: Product response including blame information
+value:
+  code: "3017620422003"
+  product:
+    _id: "3017620422003"
+    product_name: "Nutella"
+    brands: "Ferrero"
+    categories: "Spreads"
+    ingredients_text: "Sugar, palm oil, hazelnuts, cocoa, milk powder, lecithin, vanillin"
+    nutriments:
+      energy-kcal_100g: 539
+      fat_100g: 30.9
+      carbohydrates_100g: 57.5
+  blame:
+    fields:
+      product_name:
+        userid: "editortester"
+        t: 1636466428
+        rev: 3
+        value: "Nutella"
+      brands:
+        userid: "another-editor"
+        t: 1636366400
+        rev: 2
+        value: "Ferrero"
+        previous_userid: "original-contributor"
+        previous_t: 1636266400
+        previous_rev: 1
+        previous_value: "Ferrero Group"
+      categories:
+        userid: "category-expert"
+        t: 1636566428
+        rev: 4
+        value: "Spreads"
+    nutriments:
+      energy-kcal_100g:
+        userid: "nutrition-editor"
+        t: 1636666428
+        rev: 5
+        value: 539
+      fat_100g:
+        userid: "nutrition-editor"
+        t: 1636666428
+        rev: 5
+        value: 30.9
+    uploaded_images:
+      front_fr:
+        userid: "photo-contributor"
+        t: 1636766428
+        rev: 6
+        value: "front_fr.jpg"
+    selected_images:
+      front_fr:
+        userid: "image-selector"
+        t: 1636866428
+        rev: 7
+        value: "selected_front_fr.jpg"
