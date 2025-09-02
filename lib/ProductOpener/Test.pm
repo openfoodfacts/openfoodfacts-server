@@ -272,7 +272,7 @@ sub remove_all_users () {
 	foreach (@users) {
 		foreach (@{$_}) {
 			_delete_user_from_keycloak($_);
-			print STDERR "[" . localtime() . "] Deleted user " . $_->{username} . " from keycloak\n";
+			# print STDERR "[" . localtime() . "] Deleted user " . $_->{username} . " from keycloak\n";
 			$keycloak_users_affected = 1;
 		}
 	}

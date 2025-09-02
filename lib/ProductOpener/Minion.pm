@@ -89,8 +89,10 @@ sub get_minion() {
 sub queue_job {    ## no critic (Subroutines::RequireArgUnpacking)
 	my $create_time = time();
 	my $job_id = get_minion()->enqueue(@_);
-	my $job = get_minion()->job($job_id);
-	write_minion_log("Job $job_id for " . $job->task . " created at " . localtime($create_time) . " has created time of " . localtime($job->info->{created}));
+
+	# Can uncomment this for debugging during integration testing but need to comment out again for normal use
+	# my $job = get_minion()->job($job_id);
+	# write_minion_log("Job $job_id for " . $job->task . " created at " . localtime($create_time) . " has created time of " . localtime($job->info->{created}));
 
 	return $job_id;
 }

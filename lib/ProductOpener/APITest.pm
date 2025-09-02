@@ -175,7 +175,7 @@ Run this at the beginning of every integration test
 =cut
 
 sub wait_application_ready($file) {
-	write_minion_log("Starting test $file");
+	# write_minion_log("Starting test $file");
 
 	wait_server();
 	wait_dynamic_front();
