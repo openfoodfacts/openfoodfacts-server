@@ -179,6 +179,31 @@ function setCookie(name, value, days) {
     document.cookie = name + "=" + (encodeURIComponent(value) || "")  + expires + "; path=/";
 }
 
+// callback function when the unwanted ingredients input field is changed
+function unwanted_ingredients_change_callback(e) {
+    var val = e.value;
+    // store the entered ingredient names in local storage
+    localStorage.setItem('attribute_unwanted_ingredients_tags', val);
+    // FIXME call the API to get the canonical tags for the entered ingredient names
+    alert("val");
+    localStorage.setItem('attribute_unwanted_ingredients_tags', val);
+    setCookie('attribute_unwanted_ingredients_tags', val, 3650); // 10 years
+
+    if (change) {
+        change();
+    }
+}
+
+// initialize the Tagify autocomplete suggestions on the unwanted ingredients input field
+function initialize_unwanted_ingredients_tagify() {
+
+    var input = document.querySelector('input[name=attribute_unwanted_ingredients_names]');
+    // initialize Tagify on the input field using the autocomplete URL from the data-autocomplete attribute
+    // we use the initializeTagifyInput function from tagify-init.js
+    // as it does a lot of things to handle suggestions, synonyms etc.
+
+    initializeTagifyInput(input, unwanted_ingredients_change_callback);
+}
 
 // display_user_product_preferences can be called by other scripts
 /* exported display_user_product_preferences */
@@ -220,6 +245,8 @@ function display_user_product_preferences(target_selected, target_selection_form
 
         var attribute_groups_html = [];
 
+        var attribute_unwanted_ingredients_enabled = false;
+
         // Iterate over attribute groups
         $.each(attribute_groups, function(key, attribute_group) {
 
@@ -246,10 +273,16 @@ function display_user_product_preferences(target_selected, target_selection_form
                     "<span class='attribute_name'>" + attribute.setting_name + "</span></div><div class='attribute_group'>";
 
                 if (attribute.id == "unwanted_ingredients") {
+
+                    // Record that we have the unwanted ingredients attribute, so that we can initialize tagify on the input field once it's added to the DOM
+                    attribute_unwanted_ingredients_enabled = true;
+
+                    // FIXME: get the local ingredient names from the ingredients tags stored in localstorage
+
                     attribute_group_html += `
                         <div>
-                            <label for="unwanted_ingredients_tags">Ingredients to avoid:</label>
-                            <input type="text" name="unwanted_ingredients" id="unwanted_ingredients_tags" class="text tagify-me" value="${(localStorage.getItem('unwanted_ingredients_tags') || '')}" data-autocomplete="http://world.openfoodfacts.localhost/api/v3/taxonomy_suggestions?tagtype=ingredients" lang="en"/>
+                            <label for="attribute_unwanted_ingredients_names">${lang().attribute_unwanted_ingredients_name}</label>
+                            <input type="text" name="attribute_unwanted_ingredients_names" id="attribute_unwanted_ingredients_names" class="text" value="${(localStorage.getItem('attribute_unwanted_ingredients_tags') || '')}" data-autocomplete="/api/v3/taxonomy_suggestions?tagtype=ingredients" lang="en"/>
                         </div>
                     `;
                 }
@@ -303,6 +336,47 @@ function display_user_product_preferences(target_selected, target_selection_form
 			+ " " + lang().close + '</a></div><br><br>'
 			+ '</div>'
 		);
+
+        // Initialize tagify on the unwanted ingredients input field if we have it
+        if (attribute_unwanted_ingredients_enabled) {
+            console.log("Initializing tagify on unwanted ingredients input field");
+            // We need to load tagify library if not already loaded
+            if (typeof Tagify === 'undefined') {
+                // Load tagify CSS
+                // We use jQuery to load the CSS file dynamically
+                console.log("Loading tagify JS");
+
+                function loadCSS(href) {
+                    return new Promise(function(resolve, reject) {
+                        const link = document.createElement("link");
+                        link.rel = "stylesheet";
+                        link.type = "text/css";
+                        link.href = href;
+                        link.onload = resolve;
+                        link.onerror = reject;
+                        document.head.appendChild(link);
+                    });
+                }
+
+                // Load tagify JS and CSS
+                $.when(
+                    $.getScript("/js/dist/tagify.js"), // FIXME: use static subdomain
+                    $.getScript("/js/dist/tagify-init.js"), // FIXME: use static subdomain
+                    loadCSS("/css/dist/tagify.css")
+                ).done(function() {
+                    // Initialize tagify on the unwanted ingredients input field
+                    console.log("Tagify JS loaded, initializing tagify on unwanted ingredients input field");
+                    initialize_unwanted_ingredients_tagify();
+                })
+                .fail(function(jqxhr, settings, exception) {
+                    console.error("Error loading tagify JS or CSS:", exception);
+                });
+            }
+            else {
+                console.log("Tagify already loaded, initializing tagify on unwanted ingredients input field");
+                initialize_unwanted_ingredients_tagify();
+            }
+        }
 
 		activate_preferences_switch_buttons(change);        
 
@@ -358,15 +432,5 @@ function display_user_product_preferences(target_selected, target_selection_form
 
         $("#user_product_preferences").foundation();
         $(document).foundation('equalizer', 'reflow');
-
-        $(document).on('input', '#unwanted_ingredients_tags', function() {
-            var val = $(this).val();
-            localStorage.setItem('unwanted_ingredients_tags', val);
-            setCookie('unwanted_ingredients_tags', val, 3650); // 10 years
-
-            if (change) {
-                change();
-            }
-        });
     }
 }
