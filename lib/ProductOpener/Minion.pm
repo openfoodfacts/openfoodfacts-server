@@ -43,6 +43,7 @@ BEGIN {
 
 		&get_minion
 		&queue_job
+		&write_minion_log
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -51,6 +52,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 
 use Minion;
 
@@ -88,4 +90,12 @@ sub queue_job {    ## no critic (Subroutines::RequireArgUnpacking)
 	return get_minion()->enqueue(@_);
 }
 
+sub write_minion_log($message) {
+	open(my $log, ">>", "$BASE_DIRS{LOGS}/minion.log");
+	print $log "[" . localtime() . "] $message\n";
+	close($log);
+	print STDERR "[" . localtime() . "] $message\n";
+
+	return;
+}
 1;

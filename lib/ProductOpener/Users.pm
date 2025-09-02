@@ -105,7 +105,7 @@ use ProductOpener::CRM qw/update_contact_last_login/;
 use ProductOpener::Auth qw/:all/;
 use ProductOpener::Keycloak qw/:all/;
 use ProductOpener::URL qw/:all/;
-use ProductOpener::Minion qw/queue_job/;
+use ProductOpener::Minion qw/queue_job write_minion_log/;
 use ProductOpener::Tags qw/country_to_cc/;
 
 use CGI qw/:cgi :form escapeHTML/;
@@ -250,18 +250,14 @@ sub welcome_user_task ($job, $args_ref) {
 
 	my $job_id = $job->{id};
 
-	my $log_message = "welcome_user_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
-	open(my $minion_log, ">>", "$BASE_DIRS{LOGS}/minion.log");
-	print $minion_log $log_message;
-	close($minion_log);
-
-	print STDERR $log_message;
+	write_minion_log("welcome_user_task - job: $job_id started - args: " . encode_json($args_ref));
 
 	my $userid = $args_ref->{userid};
 	my $user_ref = retrieve_user($userid);
 
 	send_welcome_emails($user_ref);
 
+	write_minion_log("welcome_user_task - job: $job_id done");
 	$job->finish("done");
 
 	return;
@@ -283,12 +279,7 @@ sub subscribe_user_newsletter_task ($job, $args_ref) {
 
 	my $job_id = $job->{id};
 
-	my $log_message = "subscribe_user_newsletter_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
-	open(my $minion_log, ">>", "$BASE_DIRS{LOGS}/minion.log");
-	print $minion_log $log_message;
-	close($minion_log);
-
-	print STDERR $log_message;
+	write_minion_log("subscribe_user_newsletter_task - job: $job_id started - args: " . encode_json($args_ref));
 
 	my $userid = $args_ref->{userid};
 	my $user_ref = retrieve_user($userid);
@@ -299,6 +290,7 @@ sub subscribe_user_newsletter_task ($job, $args_ref) {
 
 	add_contact_to_list($user_ref->{email}, $user_ref->{name}, $user_ref->{country}, $user_ref->{preferred_language});
 
+	write_minion_log("subscribe_user_newsletter_task - job: $job_id done");
 	$job->finish("done");
 
 	return;
@@ -319,12 +311,7 @@ sub process_user_requested_org_task ($job, $args_ref) {
 
 	my $job_id = $job->{id};
 
-	my $log_message = "process_user_requested_org_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
-	open(my $minion_log, ">>", "$BASE_DIRS{LOGS}/minion.log");
-	print $minion_log $log_message;
-	close($minion_log);
-
-	print STDERR $log_message;
+	write_minion_log("process_user_requested_org_task - job: $job_id started - args: " . encode_json($args_ref));
 
 	my $userid = $args_ref->{userid};
 	my $user_ref = retrieve_user($userid);
@@ -335,6 +322,7 @@ sub process_user_requested_org_task ($job, $args_ref) {
 
 	process_user_requested_org($user_ref, {});
 
+	write_minion_log("process_user_requested_org_task - job: $job_id done");
 	$job->finish("done");
 
 	return;
@@ -356,12 +344,7 @@ sub delete_user_task ($job, $args_ref) {
 
 	my $job_id = $job->{id};
 
-	my $log_message = "delete_user_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
-	open(my $minion_log, ">>", "$BASE_DIRS{LOGS}/minion.log");
-	print $minion_log $log_message;
-	close($minion_log);
-
-	print STDERR $log_message;
+	write_minion_log("delete_user_task - job: $job_id started - args: " . encode_json($args_ref));
 
 	my $userid = $args_ref->{userid};
 	my $new_userid;
@@ -385,6 +368,7 @@ sub delete_user_task ($job, $args_ref) {
 	#  re-assign product edits to anonymous-[random number]
 	find_and_replace_user_id_in_products($userid, $new_userid);
 
+	write_minion_log("delete_user_task - job: $job_id done");
 	$job->finish("done");
 
 	return;
