@@ -181,13 +181,15 @@ function setCookie(name, value, days) {
 
 // callback function when the unwanted ingredients input field is changed
 function unwanted_ingredients_change_callback(e) {
-    var val = e.value;
+    var values_json = e.value;
+    // The value is a string like: [{"value":"Amidon de patate douce"},{"value":"test"}]
+    // Turn it into a comma separated string
+    values_string = JSON.parse(values_json).map(function(v) { return v.value; }).join(", ");
     // store the entered ingredient names in local storage
-    localStorage.setItem('attribute_unwanted_ingredients_tags', val);
+    localStorage.setItem('attribute_unwanted_ingredients_tags', values_string);
     // FIXME call the API to get the canonical tags for the entered ingredient names
-    alert("val");
-    localStorage.setItem('attribute_unwanted_ingredients_tags', val);
-    setCookie('attribute_unwanted_ingredients_tags', val, 3650); // 10 years
+    localStorage.setItem('attribute_unwanted_ingredients_tags', values_string);
+    setCookie('attribute_unwanted_ingredients_tags', values_string, 3650); // 10 years
 
     if (change) {
         change();
@@ -267,10 +269,7 @@ function display_user_product_preferences(target_selected, target_selection_form
 
             $.each(attribute_group.attributes, function(key, attribute) {
 
-                attribute_group_html += "<li id='attribute_" + attribute.id + "' class='attribute'>" +
-                    "<fieldset class='fieldset_attribute_group' style='margin:0;padding:0;border:none'>" +
-                    "<div class='attribute_img'><div style='width:96px;float:left;margin-right:1em;'><img src='" + attribute.icon_url + "' class='match_icons' alt=''></div>" +
-                    "<span class='attribute_name'>" + attribute.setting_name + "</span></div><div class='attribute_group'>";
+                var attribute_name_and_parameters_html = '';
 
                 if (attribute.id == "unwanted_ingredients") {
 
@@ -279,13 +278,27 @@ function display_user_product_preferences(target_selected, target_selection_form
 
                     // FIXME: get the local ingredient names from the ingredients tags stored in localstorage
 
-                    attribute_group_html += `
-                        <div>
-                            <label for="attribute_unwanted_ingredients_names">${lang().attribute_unwanted_ingredients_name}</label>
-                            <input type="text" name="attribute_unwanted_ingredients_names" id="attribute_unwanted_ingredients_names" class="text" value="${(localStorage.getItem('attribute_unwanted_ingredients_tags') || '')}" data-autocomplete="/api/v3/taxonomy_suggestions?tagtype=ingredients" lang="en"/>
-                        </div>
-                    `;
+                    attribute_name_and_parameters_html = `
+                    <div style="display: flex; flex-direction: column; align-items: flex-start;">
+                        <label for="attribute_unwanted_ingredients_names">
+                            <span class='attribute_name' style="margin-bottom: 0.5rem;">${attribute.setting_name}</span>
+                        </label>
+                        <input type="text" name="attribute_unwanted_ingredients_names" id="attribute_unwanted_ingredients_names" class="text" value="${(localStorage.getItem('attribute_unwanted_ingredients_tags') || '')}" data-autocomplete="/api/v3/taxonomy_suggestions?tagtype=ingredients" lang="en" style="width: 100%;"/>
+                    </div>
+                `;
                 }
+                else {
+                    attribute_name_and_parameters_html = "<span class='attribute_name'>" + attribute.setting_name + "</span>";
+                }
+
+                attribute_group_html += "<li id='attribute_" + attribute.id + "' class='attribute'>" +
+                    "<fieldset class='fieldset_attribute_group' style='margin:0;padding:0;border:none'>" +
+                    "<div class='attribute_img'><div style='width:96px;float:left;margin-right:1em;'><img src='" + attribute.icon_url + "' class='match_icons' alt=''></div>" +
+                    attribute_name_and_parameters_html +
+                    "</div>" +
+                    "<div class='attribute_group'>";
+
+
                 
                 $.each(preferences, function(key, preference) {
 

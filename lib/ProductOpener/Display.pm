@@ -10521,6 +10521,12 @@ sub display_taxonomy_api ($request_ref) {
 	my $tags = single_param('tags');
 	my @tags = split(/,/, $tags);
 
+	# If the canonicalize parameter is set to 1, canonicalize the tags to their canonical form
+	my $canonicalize = 0;
+	if (defined single_param('canonicalize') and (single_param('canonicalize') == 1)) {
+		$canonicalize = 1;
+	}
+
 	my $options_ref = {};
 
 	foreach my $field (qw(fields include_children include_parents include_root_entries)) {
@@ -10529,7 +10535,7 @@ sub display_taxonomy_api ($request_ref) {
 		}
 	}
 
-	my $taxonomy_ref = generate_tags_taxonomy_extract($tagtype, \@tags, $options_ref, \@lcs);
+	my $taxonomy_ref = generate_tags_taxonomy_extract($tagtype, \@tags, $options_ref, \@lcs, $canonicalize);
 
 	$request_ref->{structured_response} = $taxonomy_ref;
 

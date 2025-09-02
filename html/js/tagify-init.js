@@ -112,7 +112,7 @@ function initializeTagifyInput(el, changeCallback) {
         value = "";
         updateSuggestions(false);
         if (changeCallback) {
-            changeCallback();
+            changeCallback(el);
         }
     });
 
