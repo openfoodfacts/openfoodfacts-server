@@ -995,11 +995,12 @@ not the Minion job object.
 sub get_minion_jobs ($task_name, $created_after_ts, $max_waiting_time) {
 	my $waited = 0;    # counting the waiting time
 	my %run_jobs = ();
-	my $jobs_complete = 0;
-	while (($waited < $max_waiting_time) and (not $jobs_complete)) {
+	my $waiting_jobs = 0;
+	my $completed_jobs = 0;
+	while ($waited < $max_waiting_time and ($waiting_jobs or not $completed_jobs)) {
 		my $jobs = get_minion()->jobs({tasks => [$task_name]});
+		$waiting_jobs = 0;
 		# iterate on jobs
-		$jobs_complete = 1;
 		while (my $job = $jobs->next) {
 			next if (defined $run_jobs{$job->{id}});
 			# only those who were created after the timestamp
@@ -1010,15 +1011,24 @@ sub get_minion_jobs ($task_name, $created_after_ts, $max_waiting_time) {
 				my $job_state = $job->{state};
 				# check if the job is done
 				if (($job_state eq "active") or ($job_state eq "inactive")) {
-					$jobs_complete = 0;
-					sleep(2);
-					$waited += 2;
+					$waiting_jobs = 1;
 				}
 				else {
+					$completed_jobs += 1;
 					$run_jobs{$job_id} = $job;
 				}
 			}
 		}
+		if ($waiting_jobs or not $completed_jobs) {
+			sleep(1);
+			$waited += 1;
+			if (not $waited % 10) {
+				print STDERR "Waiting $waited seconds for $task_name minion jobs to complete. $completed_jobs completed so far\n";
+			}
+		}
+	}
+	if ($waiting_jobs or not $completed_jobs) {
+		print STDERR "Timed out waiting for $task_name minion jobs to complete. $completed_jobs completed so far, $waiting_jobs jobs still waiting\n";
 	}
 	# sort by creation date to have jobs in predictable order
 	my @all_jobs = sort {$a->{created} <=> $b->{created}} (values %run_jobs);
