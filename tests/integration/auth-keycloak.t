@@ -14,11 +14,9 @@ use ProductOpener::Auth qw/:all/;
 use List::Util qw/first/;
 use URI::Escape::XS qw/uri_unescape/;
 
-wait_application_ready();
-
-remove_all_users();
-
+wait_application_ready(__FILE__);
 remove_all_products();
+remove_all_users();
 
 my $ua = new_client();
 

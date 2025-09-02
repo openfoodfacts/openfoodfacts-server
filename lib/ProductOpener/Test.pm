@@ -272,14 +272,14 @@ sub remove_all_users () {
 	foreach (@users) {
 		foreach (@{$_}) {
 			_delete_user_from_keycloak($_);
+			print STDERR "[" . localtime() . "] Deleted user " . $_->{username} . " from keycloak\n";
 			$keycloak_users_affected = 1;
 		}
 	}
 
 	# Wait for minion jobs triggered by Redis complete as otherwise can get race conditions with the main test
 	if ($keycloak_users_affected and get_oidc_implementation_level() > 1) {
-		my $max_time = 60;
-		my $jobs_ref = get_minion_jobs("delete_user", $before_delete_ts, $max_time);
+		my $jobs_ref = get_minion_jobs("delete_user", $before_delete_ts);
 	}
 
 	return;

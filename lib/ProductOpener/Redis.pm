@@ -241,33 +241,38 @@ sub _process_registered_users_stream($stream_values_ref) {
 
 		# Create the user preferences if they don't exist and set the properties
 		my $user_ref = retrieve_user($user_id);
-		if (defined $requested_org) {
-			$user_ref->{requested_org} = remove_tags_and_quote(decode utf8 => $requested_org);
+		if ($user_ref) {
+			if (defined $requested_org) {
+				$user_ref->{requested_org} = remove_tags_and_quote(decode utf8 => $requested_org);
 
-			my $requested_org_id = get_string_id_for_lang("no_language", $user_ref->{requested_org});
+				my $requested_org_id = get_string_id_for_lang("no_language", $user_ref->{requested_org});
 
-			if ($requested_org_id ne "") {
-				$user_ref->{requested_org_id} = $requested_org_id;
-				$user_ref->{pro} = 1;
+				if ($requested_org_id ne "") {
+					$user_ref->{requested_org_id} = $requested_org_id;
+					$user_ref->{pro} = 1;
+				}
+			}
+			store_user_preferences($user_ref);
+
+			my $args_ref = {userid => $user_id};
+
+			# Register interest in joining an organization
+			if (defined $requested_org) {
+				queue_job(process_user_requested_org => [$args_ref] => {queue => $server_options{minion_local_queue}});
+			}
+
+			if (not defined $clientId or $clientId ne 'OFF_PRO') {
+				# Don't send normal welcome email for users that sign-up via the pro platform
+				queue_job(welcome_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
+			}
+
+			# Subscribe to newsletter
+			if (defined $newsletter and $newsletter eq 'subscribe') {
+				queue_job(subscribe_user_newsletter => [$args_ref] => {queue => $server_options{minion_local_queue}});
 			}
 		}
-		store_user_preferences($user_ref);
-
-		my $args_ref = {userid => $user_id};
-
-		# Register interest in joining an organization
-		if (defined $requested_org) {
-			queue_job(process_user_requested_org => [$args_ref] => {queue => $server_options{minion_local_queue}});
-		}
-
-		if (not defined $clientId or $clientId ne 'OFF_PRO') {
-			# Don't send normal welcome email for users that sign-up via the pro platform
-			queue_job(welcome_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
-		}
-
-		# Subscribe to newsletter
-		if (defined $newsletter and $newsletter eq 'subscribe') {
-			queue_job(subscribe_user_newsletter => [$args_ref] => {queue => $server_options{minion_local_queue}});
+		else {
+			$log->warn("User $user_id not found when processing user registered event") if $log->is_warn();
 		}
 
 		$last_processed_message_id = $message_id;

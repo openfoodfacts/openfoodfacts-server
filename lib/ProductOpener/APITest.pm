@@ -64,9 +64,10 @@ use ProductOpener::TestDefaults qw/:all/;
 use ProductOpener::Test qw/:all/;
 use ProductOpener::Mail qw/$LOG_EMAIL_START $LOG_EMAIL_END/;
 use ProductOpener::Store qw/store retrieve/;
-use ProductOpener::Producers qw/get_minion/;
+use ProductOpener::Minion qw/get_minion write_minion_log/;
 use ProductOpener::HTTP qw/create_user_agent/;
 use ProductOpener::Config qw/%oidc_options/;
+use ProductOpener::Auth qw/get_oidc_implementation_level/;
 
 use Test2::V0;
 use Data::Dumper;
@@ -108,7 +109,7 @@ sub wait_auth() {
 		sleep 1;
 		$count++;
 		if (($count % 3) == 0) {
-			print("Waiting for auth to be ready since more than $count seconds...\n");
+			print STDERR "Waiting for auth to be ready since more than $count seconds...\n";
 			diag Dumper({url => $target_url, status => $response->code, response => $response});
 		}
 		confess("Waited too much for auth") if $count > 60;
@@ -132,7 +133,7 @@ sub wait_dynamic_front() {
 		sleep 1;
 		$count++;
 		if (($count % 3) == 0) {
-			print("Waiting for dynamicfront to be ready since $count seconds...\n");
+			print STDERR "Waiting for dynamicfront to be ready since $count seconds...\n";
 		}
 		confess("Waited too much for backend") if $count > 100;
 	}
@@ -158,7 +159,7 @@ sub wait_server() {
 		sleep 1;
 		$count++;
 		if (($count % 3) == 0) {
-			print("Waiting for backend to be ready since more than $count seconds...\n");
+			print STDERR "Waiting for backend to be ready since more than $count seconds...\n";
 			diag Dumper({url => $target_url, status => $response->code, response => $response});
 		}
 		confess("Waited too much for backend") if $count > 60;
@@ -166,14 +167,16 @@ sub wait_server() {
 	return;
 }
 
-=head2 wait_application_ready()
+=head2 wait_application_ready(__FILE__)
 
 Wait for server, dynamic front, and authentication server to be ready.
 Run this at the beginning of every integration test
 
 =cut
 
-sub wait_application_ready() {
+sub wait_application_ready($file) {
+	write_minion_log("Starting test $file");
+
 	wait_server();
 	wait_dynamic_front();
 	wait_auth();
@@ -210,7 +213,9 @@ Call API to create a user
 
 =cut
 
-sub create_user ($ua, $args_ref) {
+sub create_user ($ua, $args_ref, $is_edit = 0) {
+	my $before_create_ts = time();
+
 	my %fields = %{clone($args_ref)};
 	my $tail = tail_log_start();
 	my $response = $ua->post("$TEST_WEBSITE_URL/cgi/user.pl", Content => \%fields);
@@ -219,6 +224,10 @@ sub create_user ($ua, $args_ref) {
 		diag Dumper $response;
 		diag("\n\nLog4Perl Logs: \n" . tail_log_read($tail) . "\n\n");
 		confess("\nResuming");
+	}
+	elsif (not $is_edit and get_oidc_implementation_level() > 1) {
+		# Wait for the welcome email job before proceeding so the user is fully created
+		get_minion_jobs("welcome_user", $before_create_ts);
 	}
 	return $response;
 }
@@ -231,8 +240,8 @@ Call API to edit a user, see create_user
 
 sub edit_user ($ua, $args_ref) {
 	($args_ref->{type} eq "edit") or confess("Action type must be 'edit' in edit_user");
-	# technically the same as create_user !
-	return create_user($ua, $args_ref);
+	# technically the same as create_user but need to know it is an edit so we don't wait for Keycloak events !
+	return create_user($ua, $args_ref, 1);
 }
 
 =head2 login($ua, $user_id, $password)
@@ -270,6 +279,7 @@ is useful for testing the Keycloak API on it's own.
 =cut
 
 sub create_user_in_keycloak ($user_ref) {
+	my $before_create_ts = time();
 
 	my $credential = {
 		type => 'password',
@@ -304,6 +314,9 @@ sub create_user_in_keycloak ($user_ref) {
 	unless ($new_user_response->is_success) {
 		return 0;
 	}
+
+	# Wait for the welcome email job before proceeding so the user is fully created
+	get_minion_jobs("welcome_user", $before_create_ts);
 
 	return 1;
 }
@@ -992,7 +1005,7 @@ not the Minion job object.
 
 =cut
 
-sub get_minion_jobs ($task_name, $created_after_ts, $max_waiting_time) {
+sub get_minion_jobs ($task_name, $created_after_ts, $max_waiting_time = 60) {
 	my $waited = 0;    # counting the waiting time
 	my %run_jobs = ();
 	my $waiting_jobs = 0;
@@ -1004,7 +1017,8 @@ sub get_minion_jobs ($task_name, $created_after_ts, $max_waiting_time) {
 		while (my $job = $jobs->next) {
 			next if (defined $run_jobs{$job->{id}});
 			# only those who were created after the timestamp
-			if ($job->{created} >= $created_after_ts) {
+			# Reduce test time by one second to account for small clock differences
+			if ($job->{created} >= ($created_after_ts - 1)) {
 				# retrieving the job id
 				my $job_id = $job->{id};
 				# retrieving the job state
@@ -1024,13 +1038,13 @@ sub get_minion_jobs ($task_name, $created_after_ts, $max_waiting_time) {
 			$waited += 1;
 			if (not $waited % 10) {
 				print STDERR
-					"Waiting $waited seconds for $task_name minion jobs to complete. $completed_jobs completed so far\n";
+					"Waiting $waited seconds since " . localtime($created_after_ts) . " for $task_name minion jobs to complete. $completed_jobs completed so far\n";
 			}
 		}
 	}
 	if ($waiting_jobs or not $completed_jobs) {
 		print STDERR
-			"Timed out waiting for $task_name minion jobs to complete. $completed_jobs completed so far, $waiting_jobs jobs still waiting\n";
+			"Timed out waiting for $task_name minion jobs to complete after " . localtime($created_after_ts) . ". $completed_jobs completed so far, $waiting_jobs jobs still waiting\n";
 	}
 	# sort by creation date to have jobs in predictable order
 	my @all_jobs = sort {$a->{created} <=> $b->{created}} (values %run_jobs);

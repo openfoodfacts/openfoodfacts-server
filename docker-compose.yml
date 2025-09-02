@@ -120,6 +120,9 @@ services:
       - "$MINION_MODE"
       - "-q"
       - "$MINION_QUEUE"
+    depends_on:
+      postgres:
+        condition: service_healthy
   incron:
     <<: *backend-conf
     # This service watches for new images to trigger ocr and robotoff processing

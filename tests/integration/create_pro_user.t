@@ -28,9 +28,9 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 #11867: These tests need to be re-written for the new workflow
 
 # clean
+wait_application_ready(__FILE__);
+remove_all_products();
 remove_all_users();
-remove_all_orgs();
-wait_application_ready();
 
 my $admin_ua = new_client();
 my $resp = create_user($admin_ua, \%admin_user_form);
@@ -66,12 +66,8 @@ $resp = create_user($user_ua, \%user_form);
 ok(!html_displays_error($resp), "no error creating pro user");
 
 # Create user starts in Keycloak, then triggers Redis which creates minion job
-# Wait for minion job to complete
-my $max_time = 60;
-# Wait for the welcome email jobs as they come last
-get_minion_jobs("welcome_user", $before_create_ts, $max_time);
-# Now get the requested orgs jobs
-my $jobs_ref = get_minion_jobs("process_user_requested_org", $before_create_ts, $max_time);
+# Wait for the requested orgs job to complete
+my $jobs_ref = get_minion_jobs("process_user_requested_org", $before_create_ts);
 is(scalar @{$jobs_ref}, 1, "One process_user_requested_org was triggered");
 
 my $logs = tail_log_read($tail);

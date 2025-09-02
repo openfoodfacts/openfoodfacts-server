@@ -10,7 +10,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Users qw/retrieve_user/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 
-wait_application_ready();
+wait_application_ready(__FILE__);
 remove_all_users();
 # we need to create spam user log to be able to tail on it
 open(my $log, ">>", "$BASE_DIRS{LOGS}/user_spam.log");
