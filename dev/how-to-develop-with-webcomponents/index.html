@@ -1847,29 +1847,29 @@
 <p>If you are developing a new WebComponent in <a href="https://github.com/openfoodfacts/openfoodfacts-webcomponents">openfoodfacts-webcomponents</a> project,
 you might want to test its integration immediately.</p>
 <p>To do this you can use the following steps:</p>
-<p>We need to include the dev-webcomponents.yml file in the docker-compose.yml file.</p>
-<p>Edit your .env to add the following line:
-<div class="highlight"><pre><span></span><code><span class="na">COMPOSE_FILE_BUILD</span><span class="o">=</span><span class="s">docker-compose.yml</span><span class="c1">;docker/dev.yml;docker/dev-webcomponents.yml</span>
-<span class="na">COMPOSE_FILE</span><span class="o">=</span><span class="s">docker-compose.yml</span><span class="c1">;docker/dev.yml;docker/dev-webcomponents.yml;docker/run.yml</span>
-</code></pre></div></p>
-<p>If your project is located, relatively to your openfoodfacts-server project,
-at <code>../openfoodfacts-webcomponents</code>, you are all set,
-otherwise you need to define the <code>WEBCOMPONENTS_DIR</code> in your .env file
-to point to  the right relative location.</p>
-<p>BEWARE: not to commit you .env changes !</p>
-<h2 id="if-you-want-to-use-envrc">If you want to use envrc<a class="headerlink" href="#if-you-want-to-use-envrc" title="Permanent link">#</a></h2>
-<p>There is a caveat if you <a href="../how-to-use-direnv/">use the .envrc file</a>
-(which as the advantage to be ignored by git),
-because, in <code>.env</code> we define the separator between the different <code>COMPOSE_FILE</code> to be <code>;</code>
-which does not work with the <code>.envrc</code> syntax.
-So you have to define the <code>COMPOSE_FILE</code> variable in your <code>.envrc</code> file to be <code>:</code>.
-Which means the changes in your .envrc should be:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># eventually use this if your location is distinct</span>
-<span class="c1"># export WEBCOMPONENTS_DIR=../openfoodfacts-webcomponents</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">COMPOSE_PATH_SEPARATOR</span><span class="o">=</span>:
-<span class="nb">export</span><span class="w"> </span><span class="nv">COMPOSE_FILE_BUILD</span><span class="o">=</span>docker-compose.yml:docker/dev.yml:docker/dev-webcomponents.yml
-<span class="nb">export</span><span class="w"> </span><span class="nv">COMPOSE_FILE</span><span class="o">=</span>docker-compose.yml:docker/dev.yml:docker/dev-webcomponents.yml:docker/run.yml
+<ol>
+<li>
+<p>Define the <code>WEBCOMPONENTS_DIR</code> in your .env file (or better .envrc if you use that)
+   to point to  the relative location corresponding to your webcomponents project.
+   For example: <code>../openfoodfacts-webcomponents</code>.</p>
+</li>
+<li>
+<p>Modify the <code>package.json</code> file so that the webcomponents dependency
+   is not a version anymore but instead <code>/opt/webcomponents</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="gd">-    &quot;@openfoodfacts/openfoodfacts-webcomponents&quot;: &quot;1.12.3&quot;</span>
+<span class="gi">+    &quot;@openfoodfacts/openfoodfacts-webcomponents&quot;: &quot;/opt/webcomponents&quot;,</span>
 </code></pre></div>
+</li>
+<li>
+<p>Don't forget to build your webcomponents (got to webcomponents directory and run <code>npm build</code>)</p>
+</li>
+<li>
+<p>Restart the dynamicfront container (<code>docker-compose restart dynamicfront</code>)</p>
+</li>
+</ol>
+<blockquote>
+<p><strong>BEWARE</strong>: not to commit your <code>.env</code>, <code>package.json</code>  and <code>package-lock.json</code> changes !</p>
+</blockquote>
 
 
 
