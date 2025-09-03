@@ -24,10 +24,10 @@
 
 // Note: this function is used in product-multilingual.js and product-preferences.js to select unwanted ingredients
 
-function initializeTagifyInput(el, changeCallback) {
+function initializeTagifyInput(el, maximumRecentEntriesPerTag, changeCallback) {
     const input = new Tagify(el, {
         autocomplete: true,
-        whitelist: get_recents(el.id) || [],
+        whitelist: get_recents(el.id, maximumRecentEntriesPerTag) || [],
         dropdown: {
             highlightFirst: false,
             enabled: 0,
@@ -48,7 +48,7 @@ function initializeTagifyInput(el, changeCallback) {
                 input.dropdown.show(term);
             }
         } else {
-            input.whitelist = get_recents(el.id) || [];
+            input.whitelist = get_recents(el.id, maximumRecentEntriesPerTag) || [];
             if (show) {
                 input.dropdown.show();
             }
@@ -139,36 +139,43 @@ function initializeTagifyInput(el, changeCallback) {
     });
 
     input.on("add", function (event) {
-        let obj;
 
-        try {
-            obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
-        } catch (err) {
-            if (err.name == "NS_ERROR_FILE_CORRUPTED") {
-                obj = null;
-            }
-        }
+        // Store the last tags in localStorage if maximumRecentEntriesPerTag > 0
 
-        const tag = event.detail.data.value;
-        if (obj === null) {
-            obj = {};
-            obj[el.id] = [tag];
-        } else if (obj[el.id] === null || !Array.isArray(obj[el.id])) {
-            obj[el.id] = [tag];
-        } else if (obj[el.id].indexOf(tag) == -1) {
-            if (obj[el.id].length >= maximumRecentEntriesPerTag) {
-                obj[el.id].pop();
+        if (maximumRecentEntriesPerTag) {
+
+            let obj;
+
+            try {
+                obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
+            } catch (err) {
+                if (err.name == "NS_ERROR_FILE_CORRUPTED") {
+                    obj = null;
+                }
             }
 
-            obj[el.id].unshift(tag);
-        }
+            const tag = event.detail.data.value;
+            if (obj === null) {
+                obj = {};
+                obj[el.id] = [tag];
+            } else if (obj[el.id] === null || !Array.isArray(obj[el.id])) {
+                obj[el.id] = [tag];
+            } else if (obj[el.id].indexOf(tag) == -1) {
+                if (obj[el.id].length >= maximumRecentEntriesPerTag) {
+                    obj[el.id].pop();
+                }
 
-        try {
-            window.localStorage.setItem("po_last_tags", JSON.stringify(obj));
-        } catch (err) {
-            if (err.name == "NS_ERROR_FILE_CORRUPTED") {
-                // Don't to anything
+                obj[el.id].unshift(tag);
             }
+
+            try {
+                window.localStorage.setItem("po_last_tags", JSON.stringify(obj));
+            } catch (err) {
+                if (err.name == "NS_ERROR_FILE_CORRUPTED") {
+                    // Don't to anything
+                }
+            }
+
         }
 
         value = "";
@@ -186,22 +193,24 @@ function initializeTagifyInput(el, changeCallback) {
     });
 }
 
-function get_recents(tagfield) {
-    let obj;
-    try {
-        obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
-    } catch (e) {
-        if (e.name == "NS_ERROR_FILE_CORRUPTED") {
-            obj = null;
+function get_recents(tagfield, maximumRecentEntriesPerTag) {
+    if (maximumRecentEntriesPerTag > 0) {
+        let obj;
+        try {
+            obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
+        } catch (e) {
+            if (e.name == "NS_ERROR_FILE_CORRUPTED") {
+                obj = null;
+            }
         }
-    }
 
-    if (
-        obj !== null &&
-        typeof obj[tagfield] !== "undefined" &&
-        obj[tagfield] !== null
-    ) {
-        return obj[tagfield];
+        if (
+            obj !== null &&
+            typeof obj[tagfield] !== "undefined" &&
+            obj[tagfield] !== null
+        ) {
+            return obj[tagfield];
+        }
     }
 
     return [];

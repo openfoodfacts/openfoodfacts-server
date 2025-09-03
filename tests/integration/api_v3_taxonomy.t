@@ -19,7 +19,7 @@ remove_all_products();
 
 # Note: expected results are stored in json files, see execute_api_tests
 my $tests_ref = [
-    # taxonomy_canonicalize_tags
+	# taxonomy_canonicalize_tags
 	{
 		test_case => 'canonicalize-no-tagtype',
 		method => 'GET',
@@ -36,37 +36,39 @@ my $tests_ref = [
 		test_case => 'canonicalize-ingredients-no-local-tags-list',
 		method => 'GET',
 		path => '/api/v3/taxonomy_canonicalize_tags?tagtype=ingredients',
-        expected_status_code => 400,
+		expected_status_code => 400,
 	},
 	{
 		test_case => 'canonicalize-ingredients-local-tags-list',
 		method => 'GET',
-		path => '/api/v3/taxonomy_canonicalize_tags?tagtype=ingredients&lc=fr&local_tags_list=banane,en:pineapple,petits pois, épinards, unknown ingredient,de:Other Unknown Ingredient',
+		path =>
+			'/api/v3/taxonomy_canonicalize_tags?tagtype=ingredients&lc=fr&local_tags_list=banane,en:pineapple,petits pois, épinards, unknown ingredient,de:Other Unknown Ingredient',
 	},
-    # taxonomy_display_tags
-    {
-        test_case => 'display-no-tagtype',
-        method => 'GET',
-        path => '/api/v3/taxonomy_display_tags',
-        expected_status_code => 400,
-    },
-    {
-        test_case => 'display-incorrect-tagtype',
-        method => 'GET',
-        path => '/api/v3/taxonomy_display_tags?tagtype=not_a_taxonomy',
-        expected_status_code => 400,
-    },
-    {
-        test_case => 'display-ingredients-no-canonical-tags-list',
-        method => 'GET',
-        path => '/api/v3/taxonomy_display_tags?tagtype=ingredients',
-        expected_status_code => 400,
-    },
-    {
-        test_case => 'display-ingredients-canonical-tags-list',
-        method => 'GET',
-        path => '/api/v3/taxonomy_display_tags?tagtype=ingredients&lc=fr&canonical_tags_list=en:banana,en:pineapple, en:garden-peas, en:spinach,fr:unknown ingredient, de:Other Unknown Ingredient',
-    },
+	# taxonomy_display_tags
+	{
+		test_case => 'display-no-tagtype',
+		method => 'GET',
+		path => '/api/v3/taxonomy_display_tags',
+		expected_status_code => 400,
+	},
+	{
+		test_case => 'display-incorrect-tagtype',
+		method => 'GET',
+		path => '/api/v3/taxonomy_display_tags?tagtype=not_a_taxonomy',
+		expected_status_code => 400,
+	},
+	{
+		test_case => 'display-ingredients-no-canonical-tags-list',
+		method => 'GET',
+		path => '/api/v3/taxonomy_display_tags?tagtype=ingredients',
+		expected_status_code => 400,
+	},
+	{
+		test_case => 'display-ingredients-canonical-tags-list',
+		method => 'GET',
+		path =>
+			'/api/v3/taxonomy_display_tags?tagtype=ingredients&lc=fr&canonical_tags_list=en:banana,en:pineapple, en:garden-peas, en:spinach,fr:unknown ingredient, de:Other Unknown Ingredient',
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);

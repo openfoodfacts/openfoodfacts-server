@@ -181,19 +181,38 @@ function setCookie(name, value, days) {
 
 // callback function when the unwanted ingredients input field is changed
 function unwanted_ingredients_change_callback(e) {
-    var values_json = e.value;
+    var values_json = e.tagifyValue;
+    // If the value is empty, it is an initial call to initialize tagify, ignore it
+    if (!values_json || values_json.length == 0) {
+        return;
+    }
     // The value is a string like: [{"value":"Amidon de patate douce"},{"value":"test"}]
     // Turn it into a comma separated string
+    console.log("Unwanted ingredients changed, new value:", values_json);
     values_string = JSON.parse(values_json).map(function(v) { return v.value; }).join(", ");
-    // store the entered ingredient names in local storage
-    localStorage.setItem('attribute_unwanted_ingredients_tags', values_string);
-    // FIXME call the API to get the canonical tags for the entered ingredient names
-    localStorage.setItem('attribute_unwanted_ingredients_tags', values_string);
-    setCookie('attribute_unwanted_ingredients_tags', values_string, 3650); // 10 years
 
-    if (change) {
-        change();
-    }
+    // Call the /api/v3/taxonomy_canonicalize_tags API to get the canonical tags for the entered ingredient names
+    console.log("Unwanted ingredients changed, entered values:", values_string);
+    $.ajax({
+        url: "/api/v3/taxonomy_canonicalize_tags?tagtype=ingredients&local_tags_list=" + encodeURIComponent(values_string),
+        type: "GET",
+        dataType: "json",
+        success: function(data) {
+            var canonical_tags_list = data.canonical_tags_list;
+
+            console.log("Canonical unwanted ingredients tags:", canonical_tags_list);
+
+            // store the entered ingredient names in local storage
+            // Note: local storage is subdomain specific, so it will be different for each country / language subdomain
+            // It is already the case for the other preferences settings
+            localStorage.setItem('attribute_unwanted_ingredients_tags', canonical_tags_list);
+            // also set a cookie so that the server can access it when rendering product pages and product list pages
+            setCookie('attribute_unwanted_ingredients_tags', canonical_tags_list, 3650); // 10 years
+        }
+    });
+
+    // Ideally we should find a way to call the change callback to update search results attributes
+    // if unwanted ingredients are changed, but it's not easy to pass the change callback to this function
 }
 
 // initialize the Tagify autocomplete suggestions on the unwanted ingredients input field
@@ -203,8 +222,9 @@ function initialize_unwanted_ingredients_tagify() {
     // initialize Tagify on the input field using the autocomplete URL from the data-autocomplete attribute
     // we use the initializeTagifyInput function from tagify-init.js
     // as it does a lot of things to handle suggestions, synonyms etc.
+    // We pass 0 as maximumRecentEntriesPerTag to avoid storing recent entries
 
-    initializeTagifyInput(input, unwanted_ingredients_change_callback);
+    initializeTagifyInput(input, 0, unwanted_ingredients_change_callback);
 }
 
 // display_user_product_preferences can be called by other scripts
@@ -276,14 +296,14 @@ function display_user_product_preferences(target_selected, target_selection_form
                     // Record that we have the unwanted ingredients attribute, so that we can initialize tagify on the input field once it's added to the DOM
                     attribute_unwanted_ingredients_enabled = true;
 
-                    // FIXME: get the local ingredient names from the ingredients tags stored in localstorage
+                    // We pass an empty input, as we will fill it later with the local ingredient names corresponding to the canonical ingredient tags we have in local storage
 
                     attribute_name_and_parameters_html = `
                     <div style="display: flex; flex-direction: column; align-items: flex-start;">
                         <label for="attribute_unwanted_ingredients_names">
                             <span class='attribute_name' style="margin-bottom: 0.5rem;">${attribute.setting_name}</span>
                         </label>
-                        <input type="text" name="attribute_unwanted_ingredients_names" id="attribute_unwanted_ingredients_names" class="text" value="${(localStorage.getItem('attribute_unwanted_ingredients_tags') || '')}" data-autocomplete="/api/v3/taxonomy_suggestions?tagtype=ingredients" lang="en" style="width: 100%;"/>
+                        <input type="text" name="attribute_unwanted_ingredients_names" id="attribute_unwanted_ingredients_names" class="text" value="" data-autocomplete="/api/v3/taxonomy_suggestions?tagtype=ingredients" style="width: 100%;"/>
                     </div>
                 `;
                 }
@@ -371,11 +391,44 @@ function display_user_product_preferences(target_selected, target_selection_form
                     });
                 }
 
-                // Load tagify JS and CSS
+                // We also want to turn the canonical ingredient tags list into local ingredient names
+                // using the /api/v3/taxonomy_display_tags API
+
+                function localize_unwanted_ingredients_tags() {
+                    console.log("Localizing unwanted ingredients tags into local ingredient names");
+                    return new Promise(function(resolve, reject) {
+                        var tags = localStorage.getItem('attribute_unwanted_ingredients_tags');
+                        console.log("Canonical unwanted ingredients tags from local storage:", tags);
+                        if (tags && tags.length > 0) {
+                            $.ajax({
+                                url: "/api/v3/taxonomy_display_tags?tagtype=ingredients&canonical_tags_list=" + encodeURIComponent(tags),
+                                type: "GET",
+                                dataType: "json",
+                                success: function(data) {
+                                    var local_tags_list = data.local_tags_list;
+                                    console.log("Local ingredient names for unwanted ingredients:", local_tags_list);
+                                    // store the local ingredient names in the input field
+                                    $('input[name=attribute_unwanted_ingredients_names]').val(local_tags_list);
+                                    resolve();
+                                },
+                                error: function(jqxhr, status, exception) {
+                                    console.error("Error fetching local ingredient names:", exception);
+                                    reject(exception);
+                                }
+                            });
+                        }
+                        else {
+                            resolve();
+                        }
+                    });
+                }
+
+                // Load tagify JS and CSS + 
                 $.when(
                     $.getScript("/js/dist/tagify.js"), // FIXME: use static subdomain
                     $.getScript("/js/dist/tagify-init.js"), // FIXME: use static subdomain
-                    loadCSS("/css/dist/tagify.css")
+                    loadCSS("/css/dist/tagify.css"),
+                    localize_unwanted_ingredients_tags()
                 ).done(function() {
                     // Initialize tagify on the unwanted ingredients input field
                     console.log("Tagify JS loaded, initializing tagify on unwanted ingredients input field");

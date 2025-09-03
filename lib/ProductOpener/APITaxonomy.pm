@@ -37,7 +37,7 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&taxonomy_canonicalize_tags_api
-        &taxonomy_display_tags_api
+		&taxonomy_display_tags_api
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -92,17 +92,17 @@ sub taxonomy_canonicalize_tags_api ($request_ref) {
 			}
 		);
 	}
-    if (not defined $local_tags_list) {
-        $log->info("missing local_tags_list") if $log->is_info();
-        add_error(
-            $response_ref,
-            {
-                message => {id => "missing_field"},
-                field => {id => "local_tags_list"},
-                impact => {id => "failure"},
-            }
-        );
-    }
+	if (not defined $local_tags_list) {
+		$log->info("missing local_tags_list") if $log->is_info();
+		add_error(
+			$response_ref,
+			{
+				message => {id => "missing_field"},
+				field => {id => "local_tags_list"},
+				impact => {id => "failure"},
+			}
+		);
+	}
 
 	# Check that the taxonomy exists
 	elsif (not defined $taxonomy_fields{$tagtype}) {
@@ -118,16 +118,18 @@ sub taxonomy_canonicalize_tags_api ($request_ref) {
 	}
 	# Canonicalize the tags
 	else {
-		my @canonical_tags = map { canonicalize_taxonomy_tag($target_lc, $tagtype, $_) } split(/\s*,\s*/, $local_tags_list);
-        $response_ref->{canonical_tags_list} = join(",", grep { defined $_ } @canonical_tags);
+		my @canonical_tags
+			= map {canonicalize_taxonomy_tag($target_lc, $tagtype, $_)} split(/\s*,\s*/, $local_tags_list);
+		$response_ref->{canonical_tags_list} = join(",", grep {defined $_} @canonical_tags);
 
-        # Also return the canonical tags as an array, and indicate if they exist in the taxonomy
-        $response_ref->{canonical_tags} = map { { tag => $_, exists_in_taxonomy => exists_taxonomy_tag($tagtype, $_) ? JSON::true : JSON::false } } @canonical_tags;
+		# Also return the canonical tags as an array, and indicate if they exist in the taxonomy
+		$response_ref->{canonical_tags}
+			= map {{tag => $_, exists_in_taxonomy => exists_taxonomy_tag($tagtype, $_) ? JSON::true : JSON::false}}
+			@canonical_tags;
 	}
 
 	return;
 }
-
 
 =head2 taxonomy_display_tags_api ( $request_ref )
 
@@ -168,17 +170,17 @@ sub taxonomy_display_tags_api ($request_ref) {
 			}
 		);
 	}
-    if (not defined $canonical_tags_list) {
-        $log->info("missing canonical_tags_list") if $log->is_info();
-        add_error(
-            $response_ref,
-            {
-                message => {id => "missing_field"},
-                field => {id => "tags_list"},
-                impact => {id => "failure"},
-            }
-        );
-    }
+	if (not defined $canonical_tags_list) {
+		$log->info("missing canonical_tags_list") if $log->is_info();
+		add_error(
+			$response_ref,
+			{
+				message => {id => "missing_field"},
+				field => {id => "tags_list"},
+				impact => {id => "failure"},
+			}
+		);
+	}
 
 	# Check that the taxonomy exists
 	elsif (not defined $taxonomy_fields{$tagtype}) {
@@ -194,7 +196,8 @@ sub taxonomy_display_tags_api ($request_ref) {
 	}
 	# Generate the local display tags
 	else {
-        $response_ref->{local_tags_list} = join(", ", map { display_taxonomy_tag($target_lc, $tagtype, $_) } split(/\s*,\s*/, $canonical_tags_list));
+		$response_ref->{local_tags_list}
+			= join(", ", map {display_taxonomy_tag($target_lc, $tagtype, $_)} split(/\s*,\s*/, $canonical_tags_list));
 	}
 
 	return;
