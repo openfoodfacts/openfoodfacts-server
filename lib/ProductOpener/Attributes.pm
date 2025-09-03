@@ -1742,10 +1742,14 @@ sub compute_attributes ($product_ref, $target_lc, $target_cc, $options_ref) {
 			add_attribute_to_group($product_ref, $target_lc, "ingredients_analysis", $attribute_ref);
 		}
 		# Unwanted ingredients
-		if (defined cookie("unwanted_ingredients_tags")) {
-			my @unwanted_ingredients = map {s/^\s+|\s+$//gr} split /,/, cookie("unwanted_ingredients_tags");
-			$attribute_ref = compute_attribute_unwanted_ingredients($product_ref, $target_lc, \@unwanted_ingredients);
-			add_attribute_to_group($product_ref, $target_lc, "ingredients", $attribute_ref);
+		if (defined cookie("attribute_unwanted_ingredients_tags")) {
+			my @unwanted_ingredients = map {s/^\s+|\s+$//gr} split /,/, cookie("attribute_unwanted_ingredients_tags");
+			# Only compute the unwanted ingredients attribute if we do have unwanted ingredients
+			if (scalar(@unwanted_ingredients) > 0) {
+				$attribute_ref
+					= compute_attribute_unwanted_ingredients($product_ref, $target_lc, \@unwanted_ingredients);
+				add_attribute_to_group($product_ref, $target_lc, "ingredients", $attribute_ref);
+			}
 		}
 	}
 
@@ -1958,6 +1962,9 @@ sub compute_attribute_unwanted_ingredients ($product_ref, $target_lc, $unwanted_
 	my $attribute_ref = initialize_attribute($attribute_id, $target_lc);
 	$attribute_ref->{status} = "unknown";
 
+	# By default, link to the ingredients panel
+	$attribute_ref->{panel_id} = "ingredients";
+
 	# In theory, should not happen, as the cookie is set only if unwanted ingredients are defined
 	if (!defined $unwanted_ingredients_ref || ref($unwanted_ingredients_ref) ne 'ARRAY' || !@$unwanted_ingredients_ref)
 	{
@@ -1966,8 +1973,6 @@ sub compute_attribute_unwanted_ingredients ($product_ref, $target_lc, $unwanted_
 	# If we don't have ingredients, return unknown
 	elsif ((not defined $product_ref->{ingredients_tags}) or (scalar @{$product_ref->{ingredients_tags}} == 0)) {
 		$attribute_ref->{description_short} = lang_in_other_lc($target_lc, "missing_ingredients_list");
-		# link to the ingredients panel that will have an action to add ingredients
-		$attribute_ref->{panel_id} = "ingredients";
 	}
 	else {
 		# We have ingredients, check for unwanted ingredients
@@ -2010,12 +2015,12 @@ sub compute_attribute_unwanted_ingredients ($product_ref, $target_lc, $unwanted_
 				$attribute_ref->{panel_id} = "ingredients_analysis_details";
 			}
 		}
+	}
 
-		if ($attribute_ref->{status} eq "unknown") {
-			$attribute_ref->{title} = lang_in_other_lc($target_lc, "presence_of_unwanted_ingredients_unknown");
-			$attribute_ref->{icon_url}
-				= "$static_subdomain/images/attributes/dist/unwanted-ingredients-content-unknown.svg";
-		}
+	if ($attribute_ref->{status} eq "unknown") {
+		$attribute_ref->{title} = lang_in_other_lc($target_lc, "presence_of_unwanted_ingredients_unknown");
+		$attribute_ref->{icon_url}
+			= "$static_subdomain/images/attributes/dist/unwanted-ingredients-content-unknown.svg";
 	}
 
 	return $attribute_ref;

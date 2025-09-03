@@ -529,7 +529,7 @@ function update_display(imagefield, first_display, protected_product) {
 function initializeTagifyInputs() {
     document.
         querySelectorAll("input.tagify-me").
-        forEach((input) => initializeTagifyInput(input)); // defined in tagify-init.js
+        forEach((input) => initializeTagifyInput(input, 1)); // defined in tagify-init.js, we send 1 in the second parameter to enable remembering recent values
 
     // Before submitting the form, we need to convert the Tagify values (array of objects) to a simple comma-separated string
     document.
