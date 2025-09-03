@@ -26,7 +26,7 @@ See below on how you can use this mechanism and how to regenerate those files in
 
 ## Integration with docker compose
 
-Using Makefile targets, tests are run 
+Using Makefile targets, tests are run
 * with a specific `COMPOSE_PROJECT_NAME° to avoid crashing your development data while running tests (as the project name [changes container, network and volumes names](https://docs.docker.com/compose/environment-variables/envvars/#compose_project_name))
 * with a specific exposed port for Mongodb, to avoid clashes with the dev instance.
 
@@ -51,7 +51,7 @@ and other modules with Test in their name!
 
 If the output of the function you are testing is small (e.g. a function that returns one single value), the expected return value can be stored in the .t test file.
 
-If your outputs are complex and/or large (e.g. for unit tests of functions that return a complex structure, or for API integration tests that return a JSON response), you can use json files to store the expected result of each test. 
+If your outputs are complex and/or large (e.g. for unit tests of functions that return a complex structure, or for API integration tests that return a JSON response), you can use json files to store the expected result of each test.
 
 [Test.pm](https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Test.html) contains helper functions to compare results to expected results and to update the expected results. For instance if your function returns a reference $results_ref to a complex object (like a product):
 
@@ -124,3 +124,21 @@ Read [perldoc about debugger](https://perldoc.perl.org/perldebug) to learn more.
 
 > :pencil: Note: With this method, in integration tests that issue requests to the server, you won't be able to run the debugger inside the server code, only in the test.
 
+## Some known errors
+
+### test stops with Error 137
+
+Sometimes you may get a test failing with no output but *error 137*.
+It may simply means that the backend container was stopped.
+Most of the time this is due to a fatal error that makes apache ends.
+
+Beware that you may also have a completely unrelated message when running with the debugger,
+mostly due to the fact that it is an abrupt kill of the process.
+For example it can be a misleading message from `SSLeay.pm`
+(because your test stop while waiting for the apache server to be ready)
+
+The right reflex is to look at last logs in logs/apache (`ls -ltr logs/apache`)
+and understand what is missing.
+
+It might be as simple as a  `make build_taxonomies_test` or `make build_lang_test` is needed
+(it is not run automatically for the single test targets)
