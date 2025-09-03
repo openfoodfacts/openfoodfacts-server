@@ -2703,13 +2703,7 @@ sub cc_to_country($cc) {
 	if (not defined $cc) {
 		return 'en:world';
 	}
-	my @countries = keys %{$properties{countries}};
-	return (
-		grep {
-			defined $properties{countries}{$_}{"country_code_2:en"}
-				and lc($cc) eq lc($properties{countries}{$_}{"country_code_2:en"})
-		} @countries
-	)[0] // 'en:world';
+	return $country_codes{$cc} // 'en:world';
 }
 
 sub init_languages() {
