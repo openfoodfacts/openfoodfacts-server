@@ -1037,14 +1037,16 @@ sub get_minion_jobs ($task_name, $created_after_ts, $max_waiting_time = 60) {
 			sleep(1);
 			$waited += 1;
 			if (not $waited % 10) {
-				print STDERR
-					"Waiting $waited seconds since " . localtime($created_after_ts) . " for $task_name minion jobs to complete. $completed_jobs completed so far\n";
+				print STDERR "Waiting $waited seconds since "
+					. localtime($created_after_ts)
+					. " for $task_name minion jobs to complete. $completed_jobs completed so far\n";
 			}
 		}
 	}
 	if ($waiting_jobs or not $completed_jobs) {
-		print STDERR
-			"Timed out waiting for $task_name minion jobs to complete after " . localtime($created_after_ts) . ". $completed_jobs completed so far, $waiting_jobs jobs still waiting\n";
+		print STDERR "Timed out waiting for $task_name minion jobs to complete after "
+			. localtime($created_after_ts)
+			. ". $completed_jobs completed so far, $waiting_jobs jobs still waiting\n";
 	}
 	# sort by creation date to have jobs in predictable order
 	my @all_jobs = sort {$a->{created} <=> $b->{created}} (values %run_jobs);
