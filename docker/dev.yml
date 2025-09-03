@@ -82,6 +82,13 @@ services:
       - ./icons:/opt/product-opener/icons
       - ./scss:/opt/product-opener/scss
       - ./gulpfile.ts:/opt/product-opener/gulpfile.ts
+      # We may mount webcomponents here to test development version
+      # by referencing them by package.json
+      # see ../docs/dev/how-to-develop-with-webcomponents.md
+      # by default we use a small dir, with whatever content,
+      # that we know exists
+      - ${WEBCOMPONENTS_DIR:-./web-default}/web-components:/opt/webcomponents
+
   frontend:
     image: openfoodfacts-server/frontend:dev
     build:

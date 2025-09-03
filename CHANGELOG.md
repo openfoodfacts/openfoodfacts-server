@@ -1,5 +1,31 @@
 # Changelog
 
+## [2.76.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.75.0...v2.76.0) (2025-08-29)
+
+
+### Features
+
+* add an `ocr_ready` Redis Stream to notify of OCR result creation ([#12257](https://github.com/openfoodfacts/openfoodfacts-server/issues/12257)) ([fab8fdc](https://github.com/openfoodfacts/openfoodfacts-server/commit/fab8fdc7e7f4f61562edfb8037b006b7db9fa1f9))
+* add report flag button in the product page ([#11962](https://github.com/openfoodfacts/openfoodfacts-server/issues/11962)) ([d0f3dc6](https://github.com/openfoodfacts/openfoodfacts-server/commit/d0f3dc622a4107e292fb4e103b04cfcd0311244f))
+* explained nutriscore missing prepared nutrition ([#12240](https://github.com/openfoodfacts/openfoodfacts-server/issues/12240)) ([a72c2af](https://github.com/openfoodfacts/openfoodfacts-server/commit/a72c2afdc3298be623b4251e7bc01f0adf3b2362))
+* Include client IP in product update Redis events ([#12253](https://github.com/openfoodfacts/openfoodfacts-server/issues/12253)) ([3beff9e](https://github.com/openfoodfacts/openfoodfacts-server/commit/3beff9e9ba737e193411066a076f9e411d3677c9))
+* M3 raw data knowledge panel ([#12116](https://github.com/openfoodfacts/openfoodfacts-server/issues/12116)) ([256475c](https://github.com/openfoodfacts/openfoodfacts-server/commit/256475cf6450fde7e22672958902b413f5ca44e9))
+* update new nutrition schema ([#12239](https://github.com/openfoodfacts/openfoodfacts-server/issues/12239)) ([4fa309c](https://github.com/openfoodfacts/openfoodfacts-server/commit/4fa309c01b99b435593a5dcb96abbc931d3d2d66))
+* upgrade webcomponents to 1.12.3 ([#12293](https://github.com/openfoodfacts/openfoodfacts-server/issues/12293)) ([ced7808](https://github.com/openfoodfacts/openfoodfacts-server/commit/ced7808c7466170ebf71623bec6690cdfee662a2))
+
+
+### Bug Fixes
+
+* add export configurations for all flavors ([#12230](https://github.com/openfoodfacts/openfoodfacts-server/issues/12230)) ([9241cd7](https://github.com/openfoodfacts/openfoodfacts-server/commit/9241cd7513491c0e664a68e0b0472ee83d36b4e2))
+* API blame parameter ([#12307](https://github.com/openfoodfacts/openfoodfacts-server/issues/12307)) ([5852fa8](https://github.com/openfoodfacts/openfoodfacts-server/commit/5852fa834f710b076cde281684223791e9f281e3))
+* attributes and panels improvements for missing Nutri-Score and G… ([#12263](https://github.com/openfoodfacts/openfoodfacts-server/issues/12263)) ([ac3d60f](https://github.com/openfoodfacts/openfoodfacts-server/commit/ac3d60f408f79149822e17578f0a77fa9bdbe7b6))
+* block municorn-calorie-counter-app ([#12292](https://github.com/openfoodfacts/openfoodfacts-server/issues/12292)) ([68b0eb5](https://github.com/openfoodfacts/openfoodfacts-server/commit/68b0eb5c4404d10c4050b6f026ea6458da022ad5))
+* build and save pro platform column names mapping ([#12274](https://github.com/openfoodfacts/openfoodfacts-server/issues/12274)) ([266af79](https://github.com/openfoodfacts/openfoodfacts-server/commit/266af79455c5dcf7aeece43383de67c61a6992ce))
+* Fixed typo in README (thoughfully → thoughtfully) ([#12291](https://github.com/openfoodfacts/openfoodfacts-server/issues/12291)) ([b65c624](https://github.com/openfoodfacts/openfoodfacts-server/commit/b65c6248faa0b50a5dc1ffcad8a6d2ebf8eb7596))
+* **openapi:** change status_id to status in response_status.yaml ([#12286](https://github.com/openfoodfacts/openfoodfacts-server/issues/12286)) ([8102863](https://github.com/openfoodfacts/openfoodfacts-server/commit/81028631403b4884fc91d6e4511caf685074ee8b))
+* **openapi:** move additionalProperties out of properties block in knowledge panels schema ([#12285](https://github.com/openfoodfacts/openfoodfacts-server/issues/12285)) ([a8282ad](https://github.com/openfoodfacts/openfoodfacts-server/commit/a8282ad7ec62efcb272cd5e42e917c696024030e))
+* Upgrade to PostgreSQL 13 ([#12283](https://github.com/openfoodfacts/openfoodfacts-server/issues/12283)) ([abbef04](https://github.com/openfoodfacts/openfoodfacts-server/commit/abbef04008f4f586ffc6daa8e68df3235605ba78))
+
 ## [2.75.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.74.0...v2.75.0) (2025-08-13)
 
 
