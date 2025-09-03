@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.77.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.76.0...v2.77.0) (2025-09-03)
+
+
+### Features
+
+* adds folksonomy-properties-webcomponent ([#12277](https://github.com/openfoodfacts/openfoodfacts-server/issues/12277)) ([a28cd5c](https://github.com/openfoodfacts/openfoodfacts-server/commit/a28cd5c932bd92413e14c940d3592d4fb5bca177))
+
+
+### Bug Fixes
+
+* Fix templates.t test to exclude README.md files from .tt. extension validation ([#12320](https://github.com/openfoodfacts/openfoodfacts-server/issues/12320)) ([07a953e](https://github.com/openfoodfacts/openfoodfacts-server/commit/07a953ee306a7f02451ac64ec3bf48f9ba776032))
+* minion service name in verify-deployment.sh ([#12315](https://github.com/openfoodfacts/openfoodfacts-server/issues/12315)) ([6f823b3](https://github.com/openfoodfacts/openfoodfacts-server/commit/6f823b3dc906e2497c519c98ad4ff11aa101eb40))
+* Not able to add products without a bar code ([#12333](https://github.com/openfoodfacts/openfoodfacts-server/issues/12333)) ([98b1156](https://github.com/openfoodfacts/openfoodfacts-server/commit/98b11562d7504f11e58c29f3af53e7b80570ab14))
+* use added sugars value from nutrition facts in knowledge panel ([#12332](https://github.com/openfoodfacts/openfoodfacts-server/issues/12332)) ([2e4c97f](https://github.com/openfoodfacts/openfoodfacts-server/commit/2e4c97f595e4dd06cf98a954505def97b040c97e))
+
 ## [2.76.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.75.0...v2.76.0) (2025-08-29)
 
 
