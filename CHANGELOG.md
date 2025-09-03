@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.78.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.77.0...v2.78.0) (2025-09-03)
+
+
+### Features
+
+* upgrade webcomponents to 1.13.0 ([#12336](https://github.com/openfoodfacts/openfoodfacts-server/issues/12336)) ([ae0b32b](https://github.com/openfoodfacts/openfoodfacts-server/commit/ae0b32b8744785892afe05f51deb0f557749f8a9))
+
 ## [2.77.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.76.0...v2.77.0) (2025-09-03)
 
 
