@@ -304,7 +304,7 @@ A hashmap reference with user information from Keycloak mapped onto PO user fiel
 sub find_user_by_username ($self, $userid) {
 	my $user_ref = $memd->get("user/$userid");
 	if (not defined $user_ref) {
-		my $user_ref = keycloak_to_user_ref($self->find_keycloak_user_by_username($userid));
+		$user_ref = keycloak_to_user_ref($self->find_keycloak_user_by_username($userid));
 	}
 	return $user_ref;
 }
