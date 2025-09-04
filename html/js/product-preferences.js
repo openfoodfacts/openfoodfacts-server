@@ -154,6 +154,8 @@ function display_use_preferences_switch_and_edit_preferences_button(target_selec
 	activate_preferences_switch_buttons(change);
 
     $("#show_selection_form").on("click", function() {
+        // Initialize and display unwanted ingredients preferences if needed
+        display_unwanted_ingredients_preferences();
         $(target_selected).hide();
         $(target_selection_form).show();
         $(document).foundation('equalizer', 'reflow');
@@ -227,6 +229,94 @@ function initialize_unwanted_ingredients_tagify() {
     initializeTagifyInput(input, 0, unwanted_ingredients_change_callback);
 }
 
+// Populate the input field for unwanted ingredients and initialize tagify on it
+// As it calls several JS, CSS and APIs, we do it only when the preferences form is shown
+var unwanted_ingredients_preferences_initalized = false;
+var attribute_unwanted_ingredients_enabled = false;
+
+function display_unwanted_ingredients_preferences() {
+
+    if (unwanted_ingredients_preferences_initalized) {
+        return;
+    }
+
+    // Initialize tagify on the unwanted ingredients input field if we have it
+    if (attribute_unwanted_ingredients_enabled) {
+        console.log("Initializing tagify on unwanted ingredients input field");
+        // We need to load tagify library if not already loaded
+        if (typeof Tagify === 'undefined') {
+            // Load tagify CSS
+            // We use jQuery to load the CSS file dynamically
+            console.log("Loading tagify JS");
+
+            function loadCSS(href) {
+                return new Promise(function(resolve, reject) {
+                    const link = document.createElement("link");
+                    link.rel = "stylesheet";
+                    link.type = "text/css";
+                    link.href = href;
+                    link.onload = resolve;
+                    link.onerror = reject;
+                    document.head.appendChild(link);
+                });
+            }
+
+            // We also want to turn the canonical ingredient tags list into local ingredient names
+            // using the /api/v3/taxonomy_display_tags API
+
+            function localize_unwanted_ingredients_tags() {
+                console.log("Localizing unwanted ingredients tags into local ingredient names");
+                return new Promise(function(resolve, reject) {
+                    var tags = localStorage.getItem('attribute_unwanted_ingredients_tags');
+                    console.log("Canonical unwanted ingredients tags from local storage:", tags);
+                    if (tags && tags.length > 0) {
+                        $.ajax({
+                            url: "/api/v3/taxonomy_display_tags?tagtype=ingredients&canonical_tags_list=" + encodeURIComponent(tags),
+                            type: "GET",
+                            dataType: "json",
+                            success: function(data) {
+                                var local_tags_list = data.local_tags_list;
+                                console.log("Local ingredient names for unwanted ingredients:", local_tags_list);
+                                // store the local ingredient names in the input field
+                                $('input[name=attribute_unwanted_ingredients_names]').val(local_tags_list);
+                                resolve();
+                            },
+                            error: function(jqxhr, status, exception) {
+                                console.error("Error fetching local ingredient names:", exception);
+                                reject(exception);
+                            }
+                        });
+                    }
+                    else {
+                        resolve();
+                    }
+                });
+            }
+
+            // Load tagify JS and CSS + 
+            $.when(
+                $.getScript("/js/dist/tagify.js"), // FIXME: use static subdomain
+                $.getScript("/js/dist/tagify-init.js"), // FIXME: use static subdomain
+                loadCSS("/css/dist/tagify.css"),
+                localize_unwanted_ingredients_tags()
+            ).done(function() {
+                // Initialize tagify on the unwanted ingredients input field
+                console.log("Tagify JS loaded, initializing tagify on unwanted ingredients input field");
+                initialize_unwanted_ingredients_tagify();
+            })
+            .fail(function(jqxhr, settings, exception) {
+                console.error("Error loading tagify JS or CSS:", exception);
+            });
+        }
+        else {
+            console.log("Tagify already loaded, initializing tagify on unwanted ingredients input field");
+            initialize_unwanted_ingredients_tagify();
+        }
+    }
+
+    unwanted_ingredients_preferences_initalized = true;
+}
+
 // display_user_product_preferences can be called by other scripts
 /* exported display_user_product_preferences */
 
@@ -266,8 +356,6 @@ function display_user_product_preferences(target_selected, target_selection_form
         var user_product_preferences = get_user_product_preferences();
 
         var attribute_groups_html = [];
-
-        var attribute_unwanted_ingredients_enabled = false;
 
         // Iterate over attribute groups
         $.each(attribute_groups, function(key, attribute_group) {
@@ -317,8 +405,6 @@ function display_user_product_preferences(target_selected, target_selection_form
                     attribute_name_and_parameters_html +
                     "</div>" +
                     "<div class='attribute_group'>";
-
-
                 
                 $.each(preferences, function(key, preference) {
 
@@ -369,80 +455,6 @@ function display_user_product_preferences(target_selected, target_selection_form
 			+ " " + lang().close + '</a></div><br><br>'
 			+ '</div>'
 		);
-
-        // Initialize tagify on the unwanted ingredients input field if we have it
-        if (attribute_unwanted_ingredients_enabled) {
-            console.log("Initializing tagify on unwanted ingredients input field");
-            // We need to load tagify library if not already loaded
-            if (typeof Tagify === 'undefined') {
-                // Load tagify CSS
-                // We use jQuery to load the CSS file dynamically
-                console.log("Loading tagify JS");
-
-                function loadCSS(href) {
-                    return new Promise(function(resolve, reject) {
-                        const link = document.createElement("link");
-                        link.rel = "stylesheet";
-                        link.type = "text/css";
-                        link.href = href;
-                        link.onload = resolve;
-                        link.onerror = reject;
-                        document.head.appendChild(link);
-                    });
-                }
-
-                // We also want to turn the canonical ingredient tags list into local ingredient names
-                // using the /api/v3/taxonomy_display_tags API
-
-                function localize_unwanted_ingredients_tags() {
-                    console.log("Localizing unwanted ingredients tags into local ingredient names");
-                    return new Promise(function(resolve, reject) {
-                        var tags = localStorage.getItem('attribute_unwanted_ingredients_tags');
-                        console.log("Canonical unwanted ingredients tags from local storage:", tags);
-                        if (tags && tags.length > 0) {
-                            $.ajax({
-                                url: "/api/v3/taxonomy_display_tags?tagtype=ingredients&canonical_tags_list=" + encodeURIComponent(tags),
-                                type: "GET",
-                                dataType: "json",
-                                success: function(data) {
-                                    var local_tags_list = data.local_tags_list;
-                                    console.log("Local ingredient names for unwanted ingredients:", local_tags_list);
-                                    // store the local ingredient names in the input field
-                                    $('input[name=attribute_unwanted_ingredients_names]').val(local_tags_list);
-                                    resolve();
-                                },
-                                error: function(jqxhr, status, exception) {
-                                    console.error("Error fetching local ingredient names:", exception);
-                                    reject(exception);
-                                }
-                            });
-                        }
-                        else {
-                            resolve();
-                        }
-                    });
-                }
-
-                // Load tagify JS and CSS + 
-                $.when(
-                    $.getScript("/js/dist/tagify.js"), // FIXME: use static subdomain
-                    $.getScript("/js/dist/tagify-init.js"), // FIXME: use static subdomain
-                    loadCSS("/css/dist/tagify.css"),
-                    localize_unwanted_ingredients_tags()
-                ).done(function() {
-                    // Initialize tagify on the unwanted ingredients input field
-                    console.log("Tagify JS loaded, initializing tagify on unwanted ingredients input field");
-                    initialize_unwanted_ingredients_tagify();
-                })
-                .fail(function(jqxhr, settings, exception) {
-                    console.error("Error loading tagify JS or CSS:", exception);
-                });
-            }
-            else {
-                console.log("Tagify already loaded, initializing tagify on unwanted ingredients input field");
-                initialize_unwanted_ingredients_tagify();
-            }
-        }
 
 		activate_preferences_switch_buttons(change);        
 
