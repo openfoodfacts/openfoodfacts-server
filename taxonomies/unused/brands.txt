@@ -4,30 +4,46 @@
 # # comment
 #
 # Brand or company name / group, synonyms
-# <es:Parent brand or company name / group, synonyms
-# es:Child brand or company name / group, synonyms
+# <zz:Parent brand
+# zz:A unique key for the brand
+# xx:Child brand
+# eutrademarknumber:en: the trademark number of the eu database https://euipo.europa.eu/. There might be multiple related trademarks.
+# brand_owner:en: the owner of the brand as noted on https://euipo.europa.eu/
+# brand_owner_opencorporates:XX: the id on opencorporates (https://opencorporates.com/); XX defines the country where it is registered
+# brand_status:en: the status of the brand on eu database https://euipo.europa.eu/
+# website:en: the website or the brand (if any)
+# wikipedia:en: the wikipedia entry for the brand
+# wikidata:en: the wikidata entry for the brand
+# production_company:en: the company that produces the product
+# production_company_opencorporates:XX: the id on opencorporates; XX defines the country where it is registered
 #
 
-es:Abafoods S.R.L. 
+###################### A A A A A A A A A A A A A A A A A A
 
-<es:Abafoods S.R.L. 
-es:Isola Bio
 
-nl:Abdij Onze Lieve Vrouw Van Koningshoeven
 
-<nl:Abdij Onze Lieve Vrouw Van Koningshoeven
-es:La Trappe
+zz:aceitunasbarruz
+es:Aceitunas Barruz
+brand_owner_opencorporates:ES:78055712
+barcodeprefix:en:8411236
+#comment:en:Barruz is also a type of olive, that some products use as brand name
+#1 products @2022-04-23
 
-es:Abellán Biofoods S.L.
+zz:adpan
+xx:Adpan
+brand_owner_opencorporates:ES:33593740
+barcodeprefix:en:84360188
+#13 products @2022-04-23
 
-<es:Abellán Biofoods S.L.
-es:Abellán Ecological Foods, Abellan Ecological Foods
+zz:alpina-meats
+xx:Alpina
+barcodeprefix:en:4099200
+category:en: en:prepared-meats
 
-<es:Abellán Biofoods S.L.
-es:Bioaprica
-
-<es:Abellán Biofoods S.L.
-es:Natural Bioaprica
+zz:alpina-dairies
+xx:Alpina
+barcodeprefix:en:7702001
+category/dairies
 
 en:Albert Heijn
 nl:Albert Heijn, AH
@@ -38,68 +54,1090 @@ nl:Albert Heijn Basic, AH Basic
 en:Associated British Foods plc
 es:Associated British Foods plc
 
-<es:Associated British Foods plc
-en:AB Mauri Spanish Holdings S.L. 
+zz:auchan
+xx:auchan
+ru:Ашан
+brand_owner_opencorporates:LU:B73616
+wikipedia:fr:https://fr.wikipedia.org/wiki/Auchan
+barcodeprefix:en:302017
+barcodeprefix:en:324567
+barcodeprefix:en:325456
+barcodeprefix:en:350562
+barcodeprefix:en:353756
+barcodeprefix:en:359671
+barcodeprefix:en:3660831
+barcodeprefix:en:3661121
+stores:en: fr:Auchan
+stores:en: ru:Ашан Супермаркет
+#14936 products @2022-04-23
+#comment:en: they seem to have put their brands in a separate company?
 
-<en:AB Mauri Spanish Holdings S.L.
-es:Azucarera
+<xx:Auchan
+zz:atak
+xx:Atac
+ru:Атак
+#0 products @2022-04-23
+#comment:en:Is this a russian brand?
 
-<es:Associated British Foods plc
-en:AB World Foods Ltd.
+zz:azucarera
+xx:Azucarera
+barcodeprefix:en:84107141
+website:es:https://www.azucarera.es
+wikipedia:en:none
+wikidata:en:none
+brand_owner_opencorporates:xx:none
+# brand_owner:en:AB Mauri Spanish Holdings, S.L. - Calle Levadura, 5 - E-Cordoba
+#64 products @2022-04-23
 
-<en:AB World Foods Ltd.
-es:Blue Dragon
+###################### B B B B B B B B B B B B B B B B B B
 
-es:Aceites del Sur - Coosur S.A. (Acesur)
+zz:bluedragon
+xx:Blue Dragon
+barcodeprefix:en:50103382
+brand_owner_opencorporates:GB:01400901
+wikipedia:es:none
+wikidata:es:none
+#146 products @2022-04-23
 
-<es:Aceites del Sur - Coosur S.A. (Acesur) 
-es:Coosur
+zz:bonarea
+xx:bonÀrea
+barcodeprefix:en:8413585
+brand_owner_opencorporates:eES:25445131
+wikidata:en:Q11924743
+# 10104 products @2022-04-23
 
-<es:Aceites del Sur - Coosur S.A. (Acesur) 
-es:La Española
+###################### C C C C C C C C C C C C C C C C C C
 
-es:Aceites Toledo S.A. 
+zz:carrefour
+xx:Carrefour
+eutrademarknumber:en:005178371
+brand_owner:en:CARREFOUR, SA - 33, avenue Emile Zola - F-92100 Boulogne Billancourt
+brand_owner_opencorporates:LU:B44782
+barcodeprefix:en:302033
+barcodeprefix:en:302047
+barcodeprefix:en:302108
+barcodeprefix:en:323758
+barcodeprefix:en:324539 (Grand Jury)
+barcodeprefix:en:324541
+barcodeprefix:en:327019
+barcodeprefix:en:327655
+barcodeprefix:en:339050
+barcodeprefix:en:346448
+barcodeprefix:en:356007 (Marque "1")
+barcodeprefix:en:357256
+barcodeprefix:en:357257
+barcodeprefix:en:359914
+barcodeprefix:en:360006
+barcodeprefix:en:3660239
+barcodeprefix:en:302182
+barcodeprefix:en:324703
+#comment:en:Can these barcodeprefixes be assigned to any child brand?
+#21268 products @2022-04-23
 
-<es:Aceites Toledo S.A. 
-es:Dintel
+<zz:carrefour
+zz:carrefourbaby
+xx:Carrefour Baby
+#81 products @2022-04-24
 
-es:Aceitunas Barruz S.A.
+<xx:Carrefour
+xx:Carrefour Bio
+labels:en: en:organic
+#2179 products @2022-04-24
 
-<es:Aceitunas Barruz S.A.
-es:Barruz
+<zz:carrefour
+zz:carrefourkids
+xx:Carrefour Kids
+#106 products @2022-04-24
 
-es:Aceitunas Guadalquivir S.L.
+<zz:carrefour
+xx:Carrefour Selección, Carrefour Seleccion
 
-<es:Aceitunas Guadalquivir S.L. 
-es:Excelencia del Olivar
+<zz:carrefour
+zz:carrefourselection
+xx:Carrefour Sélection, Sélection Carrefour, Carrefour Selection, Selection Carrefour
+#216 products @2022-04-24
 
-es:Aceitunas Guerra S.L.U.
+<zz:carrefour
+zz:denuestratierra
+xx:De Nuestra Tierra
+#0 products @2022-04-24
+
+zz:coop
+xx:coop
+barcodeprefix:en:800112
+barcodeprefix:en:761165
+#7198 products @2022-04-24
+
+<zz:coop
+zz:coop-viviverde
+xx:Vivi Verde
+#176 products @2022-04-24
+
+###################### D D D D D D D D D D D D D D D D D D
+
+zz:dintelSpain
+xx:Dintel
+brand_owner_opencorporates:ES:45002581
+barcodeprefix:en:84104131
+#6 products @2022-04-23
+
+zz:dintelArgentina
+xx:Dintel
+barcodeprefix:en:779042
+
+zz:dolca-beverages
+xx:Dolca
+barcodeprefix:en:377001
+country:en: en:france
+#1 products @2022-04-23
+
+###################### E E E E E E E E E E E E E E E E E E
+
+zz:elninodelcampo
+xx:El Niño del Campo
+barcodeprefix:en:843700
+brand_owner_opencorporates:ES:73060113
+brand_owner:en:agricola el niño del campo, S.L - Camino Casa Murcia, s/n - La Hoya - E-30816 Lorca (Murcia)
+#4 products @2022-04-23
+
+zz:elvalledemadriles
+xx:El Valle de Madriles
+barcodeprefix:en:8414637
+brand_owner_opencorporates:ES:40193658
+#6 products @2022-04-23
+#comment:en:Is this company still active?
+
+zz:excelenciadelolivar
+xx:Excelencia del Olivar
+eutrademarknumber:en:007365571
+brand_owner:en:Aceitunas Guadalquivir, S.L. - Camino Alcoba, s/n - E-41530 Moron de la Frontera (Sevilla)
+brand_owner_opencorporates:ES:41229188
+#1 products @2022-04-23
+
+###################### G G G G G G G G G G G G G G G G G G
 
 <es:Aceitunas Guerra S.L.U.
-es:Aceitunas Guerra
+zz:guerra
+xx:Guerra
+brand_owner_opencorporates:ES:83104745
+#25 products @2022-04-23
 
-<es:Aceitunas Guerra S.L.U.
-es:Guerra
+###################### I I I I I I I I I I I I I I I I I I
 
-es:Adpan Europa S.L 
+zz:isolabio
+xx:Isola Bio
+barcodeprefix:en:8023678
+category:en: en:plant-based-beverages
+website:en:https://www.isolabio.com/en/
+production_company:en:Abafoods s.r.l.
+brand_owner_opencorporates:XX:not listed
+#106 products @2022-04-23
 
-<es:Adpan Europa S.L 
-es:Adpan
+###################### L L L L L L L L L L L L L L L L L L
 
-es:Agrícolas Promaver S.L.
+zz:laespanola
+xx:La Española
+barcodeprefix:en:8410226
+barcodeprefix:en:8410660
+category:en en:Olive tree products
+brand_owner_opencorporates:ES:80245129
+#94 products @2022-04-23
 
-<es:Agrícolas Promaver S.L.
-es:El Valle de Madriles
+zz:laestralla-bolivia
+xx:La Estrella
+barcodeprefix:en:777170
+country:en: en:bolivia
+category:en: en:breakfast-cereals
 
-es:Agrícola El Niño del Campo S.L. 
+zz:laestralla-unitedstates
+xx:La Estrella
+country:en: en:united-states
+barcodeprefix:en:0071656
 
-<es:Agrícola El Niño del Campo S.L. 
-es:El Niño del Campo
+zz:laestralla-wine
+xx:La Estrella
+category:en: en:wines
+barcodeprefix:en:403415
 
-es:Agrícola Santa Eulalia S.L. 
+zz:latrappe
+xx:La Trappe
+barcodeprefix:en:8711406
+category:en en:belgian-beers
+label:en: en:authentic-trappist-product
+website:nl:https://nl.latrappetrappist.com/nl/nl.html
+brand_owner_opencorporates:BE:0838355558
+wikidata:en:Q590921
+#11 products @2022-04-23
 
-<es:Agrícola Santa Eulalia S.L. 
-es:San Juan del Valle
+zz:leclerc
+xx:Leclerc
+# fr:A.C.D. Lec, E. Leclerc, Association des Centres Distributeurs E. Leclerc
+#2815 products @2022-04-24
+
+<zz:leclerc
+zz:leclerc-eco+
+xx: €CO+, ÉCO+, Économies comme Objectif, E.C.O.+
+#131 products @2022-04-24
+
+<zz:leclerc
+zz:leclerc-nosrégionsontdutalent
+xx: Nos Régions Ont du Talent
+#804 products @2022-04-24
+
+<zz:leclerc
+zz:leclerc-marquerepere
+xx:Marque Repère
+es:Marca Guía
+#6907 products @2022-04-24
+
+<zz:leclerc-marquerepere
+zz:leclerc-marquerepere-autourdudessert
+fr:Autour du Dessert
+barcodeprefix:en:3564700
+#15 products @2022-04-24
+category:en: en:Frozen cakes and pastries
+
+<zz:leclerc-marquerepere
+zz:leclerc-marquerepere-biovillage
+xx:Bio Village, Biovillage, Marque repere bio village
+barcodeprefix:en: 3564707
+barcodeprefix:en: 2860360
+barcodeprefix:en: 2860350
+labels:en: en:organic
+#1670+52+14 products @2022-04-24
+
+<zz:leclerc-marquerepere
+<zz:leclerc-marquerepere-bonchoco
+xx:Bon Choco
+barcodeprefix:en:3564700
+#7 products @2022-04-24
+category:en: en:cocoa-and-chocolate-powders
+
+<zz:leclerc-marquerepere
+zz:leclerc-marquerepere-brindejour
+xx:Brin de Jour
+category:en: en:cereal-bars
+category:en: en:breakfast-cereals
+#55 products @2022-04-24
+
+<zz:leclerc-marquerepere
+zz:leclerc-marquerepere-britley
+xx:Britley
+barcodeprefix:en:3564700
+category:en: en:Teas
+#20 products @2022-04-24
+
+<zz:leclerc-marquerepere
+zz:leclerc-marquerepere-jourréduitenlactose
+xx:Chaque Jour Réduit en Lactose
+#0 products @2022-04-24
+
+<zz:leclerc-marquerepere
+zz:leclerc-marquerepere-joursansgluten
+xx:Chaque Jour sans Gluten
+labels:en: en:No gluten
+#1 products @2022-04-24
+
+<zz:leclerc-marquerepere
+zz:leclerc-marquerepere-chantegril
+xx:Chantegril
+barcodeprefix:en:3661112
+category:en: en:beef-steaks
+#7 products @2022-04-24
+
+<zz:leclerc-marquerepere
+zz:leclerc-marquerepere-comptoirdugrain
+xx:Comptoir du Grain
+barcodeprefix:en:3564700
+category:en: en:cereal-grains
+category:en: en:meals
+#59 products @2022-04-24
+
+<zz:leclerc-marquerepere
+zz:leclerc-marquerepere-cotesnack
+xx:Côté Snack
+barcodeprefix:en:3564700
+category:en: en:meals
+#115 products @2022-04-24
+
+<zz:leclerc-marquerepere
+zz:leclerc-marquerepere-cotetable
+xx:Côté Table
+barcodeprefix:en:3564706
+#288 products @2022-04-24
+
+<zz:leclerc-marquerepere
+zz:leclerc-marquerepere- couleursvives
+xx:Couleurs Vives
+barcodeprefix:en:3564700
+category:en: en:plant-based-foods
+#44 products @2022-04-24
+
+<zz:leclerc-marquerepere
+zz:leclerc-marquerepere-confiseo
+xx:Confiséo
+barcodeprefix:en:3564700
+category:en: en:candies
+#18 products @2022-04-24
+
+<zz:leclerc-marquerepere
+zz:leclerc-marquerepere-copainscopines
+fr:Copains Copines
+categories:en: en:candies
+#50 products @2022-04-24
+
+<fr:Marque Repère
+fr:Day Break
+#categories:
+
+<fr:Marque Repère
+fr:Déli Délo
+#categories:
+
+<fr:Marque Repère
+fr:Délisse
+#categories:
+
+<fr:Délisse
+fr:Déli'Light
+#categories:
+
+<fr:Marque Repère
+fr:Douceur du Verger
+#categories:
+
+<fr:Marque Repère
+fr:Edulcorel
+#categories:
+
+<fr:Marque Repère
+fr:Entre'aide
+labels:en: fr:commerce équitable
+
+<fr:Marque Repère
+fr:Équador
+#categories:en: fr:Confiseries chocolatées
+
+<fr:Marque Repère
+fr:Férial
+#categories:
+
+<fr:Marque Repère
+fr:Eskiss
+#categories:
+
+<fr:Marque Repère
+fr:Férial
+#categories:
+
+<fr:Marque Repère
+fr:Festalie
+#categories:
+
+<fr:Marque Repère
+fr:Fresh Tea
+#categories:
+
+<fr:Marque Repère
+fr:Frucci
+#categories:en: fr:sirops
+
+<fr:Marque Repère
+fr:Fruistar
+#categories:en: fr:fruits en conserve
+
+<fr:Marque Repère
+fr:Jafaden
+#categories:
+
+<fr:Marque Repère
+fr:Jean's
+#categories:
+
+<zz:leclerc-marquerepere
+zz:leclerc-marquerepere-hillborg
+xx:Hilbörg
+#4 products @2022-04-24
+barcodeprefix:en:35647007
+#category:en: en:Wheat beers
+
+<fr:Marque Repère
+fr:Laqueuille
+#categories:
+
+<fr:Marque Repère
+fr:Lagoa
+#categories:
+
+<en: Marque Repère
+fr: Les Caractères
+#categories:
+
+<fr:Marque Repère
+fr:Les Croisés
+#categories:
+
+<fr:Marque Repère
+fr:Les Goëlleries
+#categories:
+
+<en: Marque Repère
+fr: L’Origine du Goût
+#categories:
+
+<fr:Marque Repère
+fr:Lydog
+#categories:en: fr:Aliments pour chiens
+
+<fr:Marque Repère
+fr:Maître Coquille
+#categories:
+
+<fr:Marque Repère
+fr:Manava
+#categories:shampoos
+
+<fr:Marque Repère
+fr:Mamie Douceur
+#categories:
+
+<fr:Marque Repère
+fr:Menu Fraîcheur
+#categories:en: fr:Salades composées, fr:plats préparés réfrigérés
+
+<fr:Marque Repère
+fr:Mots d'enfants
+#categories:
+
+<fr:Marque Repère
+fr:Notre Jardin
+#categories:
+
+<fr:Marque Repère
+fr:Nustikao
+#categories:
+
+<fr:Marque Repère
+fr:Nadya
+#categories:en: fr:Margarines
+
+<fr:Marque Repère
+fr:Nat & Vie, Nat&Vie, Nat et Vie
+#categories:
+
+<en: Marque Repère
+fr: New’R, New’ R
+#categories:en: fr:Chewing gum
+
+<fr:Marque Repère
+fr:Nid d'Abeille
+#categories:en: fr:miels
+
+<fr:Marque Repère
+fr:Œufs de nos Régions,  oeufs de nos régions
+#categories:
+
+<fr:Marque Repère
+fr:Pause Fraîcheur
+#categories:en: fr:Salades composées, plats préparés réfrigérés
+
+<fr:Marque Repère
+fr:Pêche Océan
+#categories:
+
+<fr:Marque Repère
+fr:Pic'Express
+#categories:
+
+<fr:Marque Repère
+fr:Pierre de Chaumeyrac
+#categories:
+
+<fr:Marque Repère
+fr:Plantation
+#categories:en: fr:cafes
+
+<fr:Marque Repère
+fr:Pom'Lisse
+#categories:
+
+<fr:Marque Repère
+fr:P'tit Deli
+#categories:
+
+<fr:Marque Repère
+fr:Régal Soupe
+#categories:en: en:soups
+
+<en: Marque Repère
+fr: Rives & Terrasses, Rives et Terrasses
+#categories:en: fr:soups
+
+<fr:Marque Repère
+fr:Ronde des Mers
+#categories:
+
+<fr:Marque Repère
+fr:Rustica
+#categories:
+
+
+<en: Marque Repère
+fr: Saint Azay, St Azay
+#categories:
+
+<en: Marque Repère
+fr: St Diéry, Saint Diéry
+#categories:
+
+<en: Marque Repère
+fr: Saint Charmin
+#categories:
+
+<en: Marque Repère
+fr: Smicy
+#categories:en: fr:glaces
+
+<en: Marque Repère
+fr: Tables du Monde
+#categories:
+
+<en: Marque Repère
+fr: Tablette d’Or
+#categories:en: fr:Chocolats
+
+<en: Marque Repère
+fr: Tablier Blanc
+#categories:
+
+<fr:Marque Repère
+fr:Téva
+#categories:
+
+<en: Marque Repère
+fr: Tiséa
+#categories:
+
+<en: Marque Repère
+fr: Tokapi
+#categories:en: fr:Snacks salés
+
+<en: Marque Repère
+fr: Tradilège
+#categories:en: fr:Charcuteries
+
+<en: Marque Repère
+fr: Tradizioni d’Italia
+#categories:
+
+<en: Marque Repère
+fr: Trofic
+#categories:
+
+<en: Marque Repère
+fr: Turini
+#categories:
+
+<en: Marque Repère
+fr: Vieux Carion
+#categories:
+
+<en: Marque Repère
+fr: Volandry
+#categories:en: fr:volailles
+
+<fr:Marque Repère
+fr:Volpone
+#categories:en: fr:pizzas
+
+
+fr:Leclerc
+<fr:Leclerc
+fr:Produits de boucheries par Kermené
+barcodeprefix:en:3661112
+barcodeprefix:en:3760109
+
+#comment centrales d'achat not related to brands (I think)
+#
+#<fr:Leclerc
+#fr:Centrale d'Achat de l'Allier (03400)
+#barcodeprefix:en:302576
+#barcodeprefix:en:356842
+#
+#<fr:Leclerc
+#fr:Centrale d'Achat de Gironde (33492)
+#barcodeprefix:en:3661891
+#barcodeprefix:en:302572
+#barcodeprefix:en:352438 (vaisselle)
+#
+#<fr:Leclerc
+#fr:Centrale d'Achat du Val-de-Marne (94859)
+#302542
+#barcodeprefix:en:360164
+#barcodeprefix:en:360604
+#barcodeprefix:en:360770
+#barcodeprefix:en:361398
+#barcodeprefix:en:3660193 (Produits pétroliers?)
+#
+#<fr:Leclerc
+#fr:Centrale d'Achat du Var (83340)
+#barcodeprefix:en:302573
+#
+#<fr:Leclerc
+#fr:Centrale d'Achat de Normandie (14101)
+#barcodeprefix:en:302574
+#
+#<fr:Leclerc
+#fr:Centrale d'Achat de Loire-Atlantique (44360)
+#barcodeprefix:en:302564
+#barcodeprefix:en:349140
+#
+#<fr:Leclerc
+#fr:Centrale d'Achat de Charente (16700)
+#barcodeprefix:en:302571
+#barcodeprefix:en:356695
+#
+#<fr:Leclerc
+#fr:Centrale d'Achat de Seine-et-Marne (77176)
+#barcodeprefix:en:302073
+#
+#<fr:Leclerc
+#fr:Centrale d'Achat des Landes (40001)
+#barcodeprefix:en:302050
+#
+#<fr:Leclerc
+#fr:Centrale d'Achat Scamark SA d'Ivry-sur-Seine
+#barcodeprefix:en:345097
+#barcodeprefix:en:356470
+#barcodeprefix:en:37003319
+#barcodeprefix:en:302071
+#barcodeprefix:en:351883
+#barcodeprefix:en:3661461
+#
+#<fr:Leclerc
+#fr:Centrale d'Achat d'Alsace (68025)
+#barcodeprefix:en:302575
+#
+#<fr:Leclerc
+#fr:Centrale d'Achat de l'Oise (60490)
+#barcodeprefix:en:360824
+#
+#<fr:Leclerc
+#fr:Centrale d'Achat du Pas-de-Calais (62217)
+#barcodeprefix:en:302051
+#barcodeprefix:en:356746
+#
+#<fr:Leclerc
+#fr:Centrale d'Achat de l'Essonne (91380)
+#barcodeprefix:en:302539
+#barcodeprefix:en:376011574 (produits de la mer)
+#
+#<fr:Leclerc
+#fr:Centrale d'Achat du Val-d'oise
+#barcodeprefix:en:302139
+#barcodeprefix:en:349451
+#
+#<fr:Leclerc
+#fr:Centrale d'Achat du Finistère (29419)
+#barcodeprefix:en:302568
+#
+#
+#<fr:Leclerc
+#<fr:Société d'Importation de Leclerc (SIPLEC)
+#barcodeprefix:en:345922
+#barcodeprefix:en:360331
+#barcodeprefix:en:3660941
+#barcodeprefix:en:360101 (Produits ECO+)
+#barcodeprefix:en:360102 (Produits Marques Repères)
+#
+#<fr:Leclerc
+#fr:Centrale d'Achat de la Sarthe (72240)
+#barcodeprefix:en:302569
+#barcodeprefix:en:351490
+#
+#<fr:Leclerc
+#fr:Centrale d'Achat de Haute-Garonne (31170)
+#barcodeprefix:en:302565
+#barcodeprefix:en:350229
+#
+#<fr:Leclerc
+#fr:Centrale d'Achat d'Isère (38070)
+#barcodeprefix:en:302550
+#barcodeprefix:en:350091
+
+###################### N N N N N N N N N N N N N N N N N
+
+zz:naturalbioaprica
+xx:Natural Bioaprica
+84360203
+category:en: en:jams
+category:en: en:cocoa-powders
+website:es:https://abellanbiofoods.com
+brand_owner:en:Abellán Biofoods S.L. - Cruce de El Raal nº 61 - E-30139 El Raal (Murcia)
+brand_owner_opencorporates:ES:30354625
+wikipedia:es:none
+wikidata:es:none
+#5 products @2022-04-23
+
+zz:nestle
+xx:Nestlé
+barcodeprefix:en:761303
+brand_owner:en:Société des Produits Nestlé SA - Avenue Nestlé, 55 - CH-Vevey 1800
+brand_owner_opencorporates:CH:179860
+# 8476 products @2022-04-23
+
+
+<zz:nestle
+zz:nestle-aftereight
+xx:After Eight
+category:en: en:filled-chocolates
+#49 products @2022-04-23
+
+<zz:nestle
+zz:nestle-alpina
+xx:Alpina
+barcodeprefix:en:3252970
+category:en: en:dry-pastas
+#261 products @2022-04-23
+
+#<zz:nestle
+#zz:nestle-aquarel
+#xx:Aquarel
+# no products @2022-04-26
+
+<zz:nestle
+zz:nestle-bonka
+xx:Bonka
+category:en: en:coffees
+# 4 products @2022-04-26
+
+<zz:nestle
+zz:nestle-buitoni
+xx:Buitoni
+# 453 products @2022-04-26
+
+<zz:nestle
+zz:nestle-cheerios
+xx:Cheerios
+barcode:en: en:00160001
+barcode:en: en:00656331
+category:en: en:breakfast-cereals
+# 97 products @2022-04-26
+
+<zz:nestle
+zz:nestle-crunch
+xx:Crunch
+# 21 products @2022-04-26
+
+<zz:nestle
+zz:nestle-dolca
+xx:Dolca
+category:en: en:instant-coffees
+country:en: en:argentina
+# 4 products @2022-04-26
+
+<zz:nestle
+zz:nestle-eko
+xx:Eko
+category:en: en:canned-vegetables
+country:en: en:russia
+# 41 products @2022-04-26
+
+<zz:nestle
+zz:nestle-ideal
+xx:Idéal
+barcodeprefix:en:611118
+# 41 products @2022-04-26
+
+<zz:nestle
+zz:kitkat
+xx:Kit Kat, KitKat
+category:en: en:chocolate-biscuity-bars
+eutrademarknumber:en:1192348
+# 128 products @2022-04-26
+#comment:en:not a unique barcode
+
+<zz:nestle
+zz:nestle-laestrella
+xx:La Estrella
+barcodeprefix:en:841012
+# 15 products @2022-04-26
+
+<zz:nestle
+zz:nestle-cocinera
+xx:La Cocinera
+country:en: en:spain
+# 67 products @2022-04-26
+
+<zz:nestle
+zz:nestle-lalechera
+xx:La Lechera
+country:en: en:spain
+# 47 products @2022-04-26
+
+<zz:nestle
+zz:nestle-litoral
+xx:Litoral
+category:en: en:meals
+category:en: en:canned-foods
+# 47 products @2022-04-26
+
+<zz:nestle
+zz:nestle-maggi
+xx:Maggi
+# 1956 products @2022-04-26
+
+<zz:nestle
+zz:nestle-milkybar
+xx:Milkybar
+category:en: en:chocolates
+# 3 products @2022-04-26
+
+<zz:nestle
+zz:nestle-nescafe
+xx:Nescafé, Nescafe
+category:en: en:instant-coffees
+# 1108 products @2022-04-26
+
+<zz:nestle-nescafe
+zz:nestle-nescafe-classic
+xx:Nescafé Classic, Nescafe Classic
+barcodeprefix:en:693433
+category:en: en:instant-coffees
+# 2 products @2022-04-26
+#should this be seen as a separate brand?
+
+<zz:nestle-nescafe
+zz:nestle-nescafe-dolce gusto
+xx:Nescafé Dolce Gusto, Dolce Gusto
+category:en: en:dolce-gusto-compatible-coffee-capsules
+# 32 products @2022-04-26
+
+<zz:nestle-nescafe
+zz:nestle-nescafe-gold
+xx:Nescafé Gold, Gold
+category:en: en:instant-coffees
+# 7 products @2022-04-26
+
+<zz:nestle
+zz:nestle-nespresso
+xx:Nespresso
+barcodeprefix:en:76300
+category:en: en:nespresso-compatible-coffee-capsules
+# 327 products @2022-04-26
+
+<zz:nestle-nespresso
+zz:nestle-nespresso-starbucks
+xx:Starbucks by Nespresso
+category:en: en:nespresso-compatible-coffee-capsules
+
+<zz:nestle
+zz:nestle-nesquik
+xx:Nesquik, Nesquick
+barcodeprefix:en:338739
+category:en: en:chocolate-powders
+# 127 products @2022-04-26
+
+<zz:nestle
+zz:nestle-nestea
+xx:Nestea
+barcodeprefix:en:544900
+category:en: en:beverages
+# 127 products @2022-04-26
+
+<zz:nestle
+zz:nestlewaters
+xx:Nestlé Waters
+category:en: en:beverages
+# 11 products @2022-04-26
+
+<zz:nestlewaters
+zz:nestlewaters-acquapanna
+xx:Acqua Panna
+barcodeprefix:en:8002270
+category:en: en:mineral-waters
+# 6 products @2022-04-26
+
+<zz:nestlewaters
+zz:nestlewaters-aquarel
+xx:Nestlé Aquarel
+category:en: en:waters
+# 1 products @2022-04-26
+
+<zz:nestlewaters
+zz:nestlewaters-contrex
+xx:Contrex
+barcodeprefix:en:317973
+category:en: en:waters
+# 35 products @2022-04-26
+
+<zz:nestlewaters-contrex
+zz:nestlewaters-contrex-green
+xx:Contrex Green
+category:en: en:flavored-waters
+
+<zz:nestlewaters
+zz:nestlewaters-hepar
+xx:Hépar
+category:en: en:natural-mineral-waters
+# 17 products @2022-04-26
+#comment:en: there is no clear single barcode prefix
+
+<zz:nestlewaters
+zz:nestlewaters-purelife
+xx:Nestlé Pure Life
+barcodeprefix:en:68274
+category:en: en:waters
+# 5 products @2022-04-26
+
+<zz:nestlewaters
+zz:nestlewaters-perrier
+xx:Perrier
+barcodeprefix:en:0074780
+category:en: en:beverages
+# 272 products @2022-04-26
+
+<zz:nestlewaters
+zz:nestlewaters-quezac
+xx:Quézac
+category:en: en:waters
+# 12 products @2022-04-25
+
+<zz:nestlewaters
+zz:nestlewaters-sanpellegrino
+xx:San Pellegrino, S.Pellegrino, Pellegrino
+barcodeprefix:en:8002270
+category:en: en:beverages
+# 176 products @2022-04-25
+
+<zz:nestlewaters
+zz:nestlewaters-valvert
+xx:Valvert
+barcodeprefix:en:5410789
+category:en: en:mineral-waters
+# 2 products @2022-04-25
+
+<zz:nestlewaters
+zz:nestlewaters-vittel
+xx:Vittel
+barcodeprefix:en:317973
+category:en: en:waters
+# 90 products @2022-04-25
+
+<zz:nestle
+zz:nestle-maxibon
+xx:Maxibon
+category:en en:ice-creams-and-sorbets
+# 4 products @2022-04-25
+
+#<zz:nestle
+#xx:Nestlé Purina PetCare, Purina
+
+<zz:nestle
+zz:nestle-solis
+xx:Solís, Solis
+barcodeprefix:en:8413000
+# 33 products @2022-04-25
+
+<zz:nestle
+zz:nestle-sveltesse
+xx:Sveltesse
+barcodeprefix:en:3023290
+# 37 products @2022-04-25
+
+#<zz:nestle
+#zz:nestle-tasterschoice
+#xx:Taster's Choice, Tasters Choice
+# no products @2022-04-25
+
+###################### P P P P P P P P P P P P P P P P P
+
+zz:perrier-chocolate
+xx:Perrier
+category:en: en:cocoa-and-its-products
+barcodeprefix:en:7610036
+# 1 products @2022-04-25
+
+###################### S S S S S S S S S S S S S S S S S
+
+zz:sanjuandelvalle
+xx:San Juan del Valle
+barcodeprefix:en:8437000
+brand_owner_opencorporates:ES:30417109
+# 1 products @2022-04-25
+
+###################### U U U U U U U U U U U U U U U U U
+
+zz:u
+xx:U, Les produits U
+barcodeprefix:en:3256228
+brand_owner_opencorporates:fr:304602956
+wikipedia:fr:https://fr.wikipedia.org/wiki/Système_U
+wikidata:en:Q2529029
+# 8451 products @2022-04-25
+#comment:en:None of the subbrands have specific barcodes
+
+<zz:u
+zz:u-saveurs
+xx:U Saveurs
+# 778 products @2022-04-25
+
+<zz:u
+zz:u-bio
+xx:U Bio
+labels:en: en:organic
+# 961 products @2022-04-25
+
+#<zz:u
+#zz:u-nature
+#xx:U Nature
+# no products @2022-04-25
+
+#<zz:u
+#zz:u-byu
+#xx:By U
+# no products @2022-04-25
+
+<zz:u
+zz:u-toutpetits
+xx:U tout petits
+category:en: en:baby-foods
+# 118 products @2022-04-25
+
+#<zz:u
+#zz:u-collection
+#xx:U collection
+# no products @2022-04-25
+
+#<zz:u
+#zz:u-essentiel
+#xx:U essentiel
+# no products @2022-04-25
+
+#<zz:u
+#zz:u-maison
+#xx:U maison
+# no products @2022-04-25
+
+#<zz:u
+#zz:u-clubvinsetterroirs
+#xx:Club Vins & Terroirs
+# no products @2022-04-25
+
+zz:valvert
+xx:Valvert
+barcodeprefix:en:370034
+category:en: en:butters
+# 1 products @2022-04-25
+
+################################################################################################################################################
+#                                             BELOW THIS LINE, STILL NEED TO BE DONE
+################################################################################################################################################
+
+
+
+
+
 
 es:Agrícola Villena Coop.V., Agrícola Villena COOP. V.
 
@@ -629,450 +1667,6 @@ es:La Montaña
 <es:Aves Nobles y Derivados S.L. 
 es:Matachin
 
-fr:A.C.D. Lec, E. Leclerc, Association des Centres Distributeurs E. Leclerc
-en:Leclerc
-
-<en: Leclerc
-fr: €CO+, ÉCO+, Économies comme Objectif, E.C.O.+
-
-<en: Leclerc
-fr: Nos Régions Ont du Talent
-
-<en:Leclerc
-es:Marca Guía
-fr:Marque Repère
-
-<fr:Marque Repère
-fr:Autour du Dessert
-#categories: fr:Gâteaux et pâtisseries surgelés
-#language:fr
-
-<fr:Marque Repère
-fr:Bio Village
-labels:en: en:organic
-
-<fr:Marque Repère
-fr:Bon Choco
-#categories:
-
-<fr:Marque Repère
-fr:Brin de Jour
-#categories: fr:Céréales, fr:Barres de céréales
-
-<fr:Marque Repère
-fr:Britley
-#categories: en:Teas
-
-<fr:Marque Repère
-fr:Chaque Jour Réduit en Lactose
-
-<fr:Marque Repère
-fr:Chaque Jour sans Gluten
-labels:sans_gluten
-#language:fr
-
-<fr:Marque Repère
-fr:Chantegril
-#categories:
-
-<fr:Marque Repère
-fr:Comptoir du Grain
-#categories:en: fr:Céréales en grains
-
-<fr:Marque Repère
-fr:Côté' Snack, Côté Snack
-#categories:
-
-<fr:Marque Repère
-fr:Côté Table
-#categories:
-
-<fr:Marque Repère
-fr:Couleurs Vives
-#categories:en: fr:Fruits secs
-
-<fr:Marque Repère
-fr:Confiséo
-#categories:en: fr:Bonbons
-
-<fr:Marque Repère
-fr:Copains Copines
-#categories:
-
-<fr:Marque Repère
-fr:Day Break
-#categories:
-
-<fr:Marque Repère
-fr:Déli Délo
-#categories:
-
-<fr:Marque Repère
-fr:Délisse
-#categories:
-
-<fr:Délisse
-fr:Déli'Light
-#categories:
-
-<fr:Marque Repère
-fr:Douceur du Verger
-#categories:
-
-<fr:Marque Repère
-fr:Edulcorel
-#categories:
-
-<fr:Marque Repère
-fr:Entre'aide
-labels:en: fr:commerce équitable
-
-<fr:Marque Repère
-fr:Équador
-#categories:en: fr:Confiseries chocolatées
-
-<fr:Marque Repère
-fr:Férial
-#categories:
-
-<fr:Marque Repère
-fr:Eskiss
-#categories:
-
-<fr:Marque Repère
-fr:Férial
-#categories:
-
-<fr:Marque Repère
-fr:Festalie
-#categories:
-
-<fr:Marque Repère
-fr:Fresh Tea
-#categories:
-
-<fr:Marque Repère
-fr:Frucci
-#categories:en: fr:sirops
-
-<fr:Marque Repère
-fr:Fruistar
-#categories:en: fr:fruits en conserve
-
-<fr:Marque Repère
-fr:Jafaden
-#categories:
-
-<fr:Marque Repère
-fr:Jean's
-#categories:
-
-<fr:Marque Repère
-fr:Hilbörg
-#categories:
-
-<fr:Marque Repère
-fr:Laqueuille
-#categories:
-
-<fr:Marque Repère
-fr:Lagoa
-#categories:
-
-<en: Marque Repère
-fr: Les Caractères
-#categories:
-
-<fr:Marque Repère
-fr:Les Croisés
-#categories:
-
-<fr:Marque Repère
-fr:Les Goëlleries
-#categories:
-
-<en: Marque Repère
-fr: L’Origine du Goût
-#categories:
-
-<fr:Marque Repère
-fr:Lydog
-#categories:en: fr:Aliments pour chiens
-
-<fr:Marque Repère
-fr:Maître Coquille
-#categories:
-
-<fr:Marque Repère
-fr:Manava
-#categories:shampoos
-
-<fr:Marque Repère
-fr:Mamie Douceur
-#categories:
-
-<fr:Marque Repère
-fr:Menu Fraîcheur
-#categories:en: fr:Salades composées, fr:plats préparés réfrigérés
-
-<fr:Marque Repère
-fr:Mots d'enfants
-#categories:
-
-<fr:Marque Repère
-fr:Notre Jardin
-#categories:
-
-<fr:Marque Repère
-fr:Nustikao
-#categories:
-
-<fr:Marque Repère
-fr:Nadya
-#categories:en: fr:Margarines
-
-<fr:Marque Repère
-fr:Nat & Vie, Nat&Vie, Nat et Vie
-#categories:
-
-<en: Marque Repère
-fr: New’R, New’ R
-#categories:en: fr:Chewing gum
-
-<fr:Marque Repère
-fr:Nid d'Abeille
-#categories:en: fr:miels
-
-<fr:Marque Repère
-fr:Œufs de nos Régions,  oeufs de nos régions
-#categories:
-
-<fr:Marque Repère
-fr:Pause Fraîcheur
-#categories:en: fr:Salades composées, plats préparés réfrigérés
-
-<fr:Marque Repère
-fr:Pêche Océan
-#categories:
-
-<fr:Marque Repère
-fr:Pic'Express
-#categories:
-
-<fr:Marque Repère
-fr:Pierre de Chaumeyrac
-#categories:
-
-<fr:Marque Repère
-fr:Plantation
-#categories:en: fr:cafes
-
-<fr:Marque Repère
-fr:Pom'Lisse
-#categories:
-
-<fr:Marque Repère
-fr:P'tit Deli
-#categories:
-
-<fr:Marque Repère
-fr:Régal Soupe
-#categories:en: en:soups
-
-<en: Marque Repère
-fr: Rives & Terrasses, Rives et Terrasses
-#categories:en: fr:soups
-
-<fr:Marque Repère
-fr:Ronde des Mers
-#categories:
-
-<fr:Marque Repère
-fr:Rustica
-#categories:
-
-
-<en: Marque Repère
-fr: Saint Azay, St Azay
-#categories:
-
-<en: Marque Repère
-fr: St Diéry, Saint Diéry
-#categories:
-
-<en: Marque Repère
-fr: Saint Charmin
-#categories:
-
-<en: Marque Repère
-fr: Smicy
-#categories:en: fr:glaces
-
-<en: Marque Repère
-fr: Tables du Monde
-#categories:
-
-<en: Marque Repère
-fr: Tablette d’Or
-#categories:en: fr:Chocolats
-
-<en: Marque Repère
-fr: Tablier Blanc
-#categories:
-
-<fr:Marque Repère
-fr:Téva
-#categories:
-
-<en: Marque Repère
-fr: Tiséa
-#categories:
-
-<en: Marque Repère
-fr: Tokapi
-#categories:en: fr:Snacks salés
-
-<en: Marque Repère
-fr: Tradilège
-#categories:en: fr:Charcuteries
-
-<en: Marque Repère
-fr: Tradizioni d’Italia
-#categories:
-
-<en: Marque Repère
-fr: Trofic
-#categories:
-
-<en: Marque Repère
-fr: Turini
-#categories:
-
-<en: Marque Repère
-fr: Vieux Carion
-#categories:
-
-<en: Marque Repère
-fr: Volandry
-#categories:en: fr:volailles
-
-<fr:Marque Repère
-fr:Volpone
-#categories:en: fr:pizzas
-
-
-fr:Leclerc
-<fr:Leclerc
-fr:Produits de boucheries par Kermené
-326611
-barcodeprefix:3661112
-barcodeprefix:376010952
-
-<fr:Leclerc
-fr:Centrale d'Achat de l'Allier (03400)
-barcodeprefix:302576
-barcodeprefix:356842
-
-<fr:Leclerc
-fr:Centrale d'Achat de Gironde (33492)
-barcodeprefix:3661891
-barcodeprefix:302572
-barcodeprefix:352438 (vaisselle)
-
-<fr:Leclerc
-fr:Centrale d'Achat du Val-de-Marne (94859)
-302542
-barcodeprefix:360164
-barcodeprefix:360604
-barcodeprefix:360770
-barcodeprefix:361398
-barcodeprefix:3660193 (Produits pétroliers?)
-
-<fr:Leclerc
-fr:Centrale d'Achat du Var (83340)
-barcodeprefix:302573
-
-<fr:Leclerc
-fr:Centrale d'Achat de Normandie (14101)
-barcodeprefix:302574
-
-<fr:Leclerc
-fr:Centrale d'Achat de Loire-Atlantique (44360)
-barcodeprefix:302564
-barcodeprefix:349140
-
-<fr:Leclerc
-fr:Centrale d'Achat de Charente (16700)
-barcodeprefix:302571
-barcodeprefix:356695
-
-<fr:Leclerc
-fr:Centrale d'Achat de Seine-et-Marne (77176)
-barcodeprefix:302073
-
-<fr:Leclerc
-fr:Centrale d'Achat des Landes (40001)
-barcodeprefix:302050
-
-<fr:Leclerc
-fr:Centrale d'Achat Scamark SA d'Ivry-sur-Seine
-barcodeprefix:345097
-barcodeprefix:356470
-barcodeprefix:37003319
-barcodeprefix:302071
-barcodeprefix:351883
-barcodeprefix:3661461
-
-<fr:Leclerc
-fr:Centrale d'Achat d'Alsace (68025)
-barcodeprefix:302575
-
-<fr:Leclerc
-fr:Centrale d'Achat de l'Oise (60490)
-barcodeprefix:360824
-
-<fr:Leclerc
-fr:Centrale d'Achat du Pas-de-Calais (62217)
-barcodeprefix:302051
-barcodeprefix:356746
-
-<fr:Leclerc
-fr:Centrale d'Achat de l'Essonne (91380)
-barcodeprefix:302539
-barcodeprefix:376011574 (produits de la mer)
-
-<fr:Leclerc
-fr:Centrale d'Achat du Val-d'oise
-barcodeprefix:302139
-barcodeprefix:349451
-
-<fr:Leclerc
-fr:Centrale d'Achat du Finistère (29419)
-barcodeprefix:302568
-
-
-<fr:Leclerc
-<fr:Société d'Importation de Leclerc (SIPLEC)
-barcodeprefix:345922
-barcodeprefix:360331
-barcodeprefix:3660941
-barcodeprefix:360101 (Produits ECO+)
-barcodeprefix:360102 (Produits Marques Repères)
-
-<fr:Leclerc
-fr:Centrale d'Achat de la Sarthe (72240)
-barcodeprefix:302569
-barcodeprefix:351490
-
-<fr:Leclerc
-fr:Centrale d'Achat de Haute-Garonne (31170)
-barcodeprefix:302565
-barcodeprefix:350229
-
-<fr:Leclerc
-fr:Centrale d'Achat d'Isère (38070)
-barcodeprefix:302550
-barcodeprefix:350091
 
 A. Olmedo e Hijos S.L. 
 es:La Vicaría
@@ -2158,86 +2752,10 @@ en:Conagra Brands, ConAgra Foods
 en:Van Camp's
 
 fr:Cora
-barcodeprefix:325798
-barcodeprefix:302470
+barcodeprefix:en:325798
+barcodeprefix:en:302470
 
-es:Carrefour S.A.
-stores:en: fr:Carrefour
 
-<es:Carrefour S.A.
-es:Carrefour
-
-<es:Carrefour S.A.
-es:Carrefour Baby
-
-<es:Carrefour S.A.
-es:Carrefour Bio
-labels:en: en:organic
-
-<es:Carrefour S.A.
-es:Carrefour Kids
-
-<es:Carrefour S.A.
-es:Carrefour Selección, Carrefour Seleccion
-
-<es:Carrefour S.A.
-fr:Carrefour Sélection, Sélection Carrefour, Carrefour Selection, Selection Carrefour
-
-<es:Carrefour S.A.
-es:De Nuestra Tierra
-
-fr:Carrefour France
-barcodeprefix:302033
-barcodeprefix:302047
-barcodeprefix:302108
-barcodeprefix:323758
-barcodeprefix:324539 (Grand Jury)
-barcodeprefix:324541
-barcodeprefix:327019
-barcodeprefix:327655
-barcodeprefix:339050
-barcodeprefix:346448
-barcodeprefix:356007 (Marque "1")
-barcodeprefix:357256
-barcodeprefix:357257
-barcodeprefix:359914
-barcodeprefix:360006
-barcodeprefix:3660239
-barcodeprefix:302182
-barcodeprefix:324703
-
-fr:Système U
-
-<fr:Système U
-fr:U, Les produits U
-
-<fr:Système U
-fr:U Saveurs
-
-<fr:Système U
-fr:U Bio
-labels:en: en:organic
-
-<fr:Système U
-fr:U Nature
-
-<fr:Système U
-fr:By U
-
-<fr:Système U
-fr:U tout petits
-
-<fr:Système U
-fr:U collection
-
-<fr:Système U
-fr:U essentiel
-
-<fr:Système U
-fr:U maison
-
-<fr:Système U
-fr:Club Vins & Terroirs
 
 fr:Monoprix
 stores:en: fr:Monoprix
@@ -2713,7 +3231,7 @@ es:Dia
 es:Dianitos
 
 fr:Dia
-barcodeprefix:848001
+barcodeprefix:en:848001
 
 Dica Pak S.A.
 <es:Grupo LC
@@ -3166,7 +3684,7 @@ es:La Fortaleza
 es:Espsilon
 
 it:Galbani
-barcodeprefix:800043xxxxxxx
+barcodeprefix:en:800043xxxxxxx
 wikidata:en:Q946650
 
 <es:Nutrexpa S.L.
@@ -3270,28 +3788,6 @@ es:Tom Cherry
 <es:Granada La Palma S.C.A. 
 es:Topmato
 
-fr:Groupe Auchan S.A.
-
-<fr:Groupe Auchan S.A.
-fr:Auchan
-ru:Ашан
-barcodeprefix:302017
-barcodeprefix:324567
-barcodeprefix:325456
-barcodeprefix:350562
-barcodeprefix:353756
-barcodeprefix:359671
-barcodeprefix:3660831
-barcodeprefix:3661121
-stores:en: fr:Auchan
-
-# I am not sure what to do with these two Russian chains, see https://ru.wikipedia.org/wiki/Auchan
-<fr:Auchan
-ru:Ашан Супермаркет
-
-<fr:Auchan
-fr:Atac
-ru:Атак
 
 Groupe Lactalis
 <es:B.S.A. International S.A.
@@ -4654,14 +5150,14 @@ es:InterLázaro S.L.
 es:Lázaro, Lazaro
 
 fr:Intermarché
-barcodeprefix:302482
-barcodeprefix:325039
+barcodeprefix:en:302482
+barcodeprefix:en:325039
 
 <fr:Intermarché
 fr:Netto
-barcodeprefix:341028
-barcodeprefix:3661974
-barcodeprefix:351977
+barcodeprefix:en:341028
+barcodeprefix:en:3661974
+barcodeprefix:en:351977
 
 
 <de:Internationale Spar Centrale B.V.
@@ -5487,6 +5983,78 @@ en:Wrigley
 en:Odintsovo Confectionery Plant
 ru:Одинцовская кондитерская фабрика
 
+<en:Mars Inc.
+en:William Wrigley Jr. Company
+
+<en:William Wrigley Jr. Company
+es:Orbit
+
+<en:William Wrigley Jr. Company
+es:Sugus
+
+fr:Winny
+description:Les produits Winny sont distribués dans tout le Benelux et la France. En France, ce sont Cora, Match, Maximo, Diapar et Segurel qui les commercialisent)
+barcodeprefix:en:54002470
+barcodeprefix:en:2953062
+
+en:X5 Retail Group
+wikidata:en:Q258748
+
+<en:X5 Retail Group
+ru:Красная цена
+
+<en:Yantai Yitian Food Co. Ltd.
+es:Yantai Yitian Food
+
+<es:Yemas de Santa Teresa S.A. 
+es:Santa Teresa
+
+es:Ynsadiet S.A.
+
+<es:Ynsadiet S.A.
+es:El Clérigo
+
+<es:Ynsadiet S.A.
+es:Hijas del Sol
+
+<es:Ynsadiet S.A.
+es:NaturTierra, Natur Tierra
+
+en:General Mills Inc.
+
+en:Sodiaal International
+
+<en:General Mills Inc.
+<en:Sodiaal International
+fr:Yoplait Marques SNC
+
+<fr:Yoplait Marques SNC
+en:Yoplait
+
+<en:Sodiaal International
+en:Sodiaal
+
+<en:Sodiaal
+fr:Candia
+
+<en:Sodiaal
+fr:Nactalia
+
+<en:Sodiaal
+fr:Entremont
+
+<en:Sodiaal
+fr:Meule d'Or
+
+<en:Sodiaal
+fr:Le Rustique
+
+<en:Sodiaal
+fr:Grandlait
+
+<en:Sodiaal
+fr:Regilait
+
 <ru:Одинцовская кондитерская фабрика
 ru:А.Коркунов, А. Коркунов, Коркунов
 
@@ -6292,131 +6860,6 @@ es:Nassari
 
 <es:Sociedad Gestora de Negocios e Inversiones S.A. 
 es:Itac
-
-<en:Nestlé S.A.
-en:After Eight
-
-<en:Nestlé S.A.
-en:Alpina
-
-<en:Nestlé S.A.
-en:Aquarel
-
-<en:Nestlé S.A.
-en:Bonka
-
-<en:Nestlé S.A.
-en:Buitoni
-
-<en:Nestlé S.A.
-en:Cheerios
-
-<en:Nestlé S.A.
-en:Crunch
-
-<en:Nestlé S.A.
-en:Dolca
-
-<en:Nestlé S.A.
-en:Dolce Gusto
-
-<en:Nestlé S.A.
-en:Eko
-
-<en:Nestlé S.A.
-en:Ideal
-
-<en:Nestlé S.A.
-en:Kit Kat, KitKat
-
-<en:Nestlé S.A.
-en:La Estrella
-
-<en:Nestlé S.A.
-en:La Cocinera
-
-<en:Nestlé S.A.
-en:La Lechera
-
-<en:Nestlé S.A.
-en:Litoral
-
-<en:Nestlé S.A.
-en:Maggi
-
-<en:Nestlé S.A.
-en:Milkybar
-
-<en:Nestlé S.A.
-en:Nescafé, Nescafe
-
-<en:Nestlé S.A.
-en:Nescafé Classic, Nescafe Classic
-
-<en:Nestlé S.A.
-en:Nespresso
-
-<en:Nestlé S.A.
-en:Nesquik
-
-<en:Nestlé S.A.
-en:Nestea
-
-<en:Nestlé S.A.
-en:Nestlé, Nestle
-
-<en:Nestlé S.A.
-en:Nestlé Gold, Nestle Gold
-
-<en:Nestlé S.A.
-en:Nestlé Waters
-
-<en:Nestlé Waters
-it:Acqua Panna
-
-<en:Nestlé Waters
-en:Nestlé Aquarel
-fr:Nestlé Aquarel
-
-<en:Nestlé Waters
-fr:Contrex
-
-<en:Nestlé Waters
-fr:Hépar
-
-<en:Nestlé Waters
-en:Nestlé Pure Life
-fr:Nestlé Pure Life
-
-<en:Nestlé Waters
-fr:Perrier
-
-<en:Nestlé Waters
-fr:Quézac
-
-<en:Nestlé Waters
-it:S.Pellegrino, San Pellegrino
-
-<en:Nestlé Waters
-fr:Valvert
-
-<en:Nestlé Waters
-fr:Vittel
-
-<en:Nestlé S.A.
-en:Maxibon
-
-<en:Nestlé S.A.
-en:Nestlé Purina PetCare, Purina
-
-<en:Nestlé S.A.
-en:Solís, Solis
-
-<en:Nestlé S.A.
-en:Sveltesse
-
-<en:Nestlé S.A.
-en:Taster's Choice, Tasters Choice
 
 Sogepi Consulting y Publicidad S.L.
 <es:Casa Tarradellas S.A.
@@ -7577,7 +8020,6 @@ es:Weetabix
 <es:WH Group Ltd.
 en:WH Food Europe S.L.
 
-
 #######################################################################################
 #
 #                           WWWWWWWWWWWWWWWWWW
@@ -7648,15 +8090,27 @@ es:Yantai Yitian Food
 
 es:Santa Teresa, Yemas de Santa Teresa S.A. 
 
+
+<ru:ОАО «Молоко»
+ru:Радостино
+barcodeprefix:en:460701227
+
 en:Ynsadiet
 xx:Ynsadiet
 es:Ynsadiet S.A.
 
+
 <en:Ynsadiet.
 es:El Clérigo
 
+
+<ru:ООО «Молочный мир»
+ru:От фермера
+barcodeprefix:en:4620016810
+
 <en:Ynsadiet
 es:Hijas del Sol
+
 
 <en:Ynsadiet
 es:NaturTierra, Natur Tierra
