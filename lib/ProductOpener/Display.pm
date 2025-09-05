@@ -344,6 +344,7 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{images_subdomain} = $images_subdomain;
 	$template_data_ref->{formatted_subdomain} = $formatted_subdomain;
 	(not defined $template_data_ref->{user_id}) and $template_data_ref->{user_id} = $User_id;
+	#12279 TODO: Rather than use %User we should add specific fields so that templates don't assume they can access every single user field
 	(not defined $template_data_ref->{user}) and $template_data_ref->{user} = \%User;
 	(not defined $template_data_ref->{org_id}) and $template_data_ref->{org_id} = $Org_id;
 	$template_data_ref->{owner_pretty_path} = get_owner_pretty_path($Owner_id);
@@ -384,7 +385,7 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{edq} = sub {escape_char(@_, '"')};    # edq as escape_double_quote
 	$template_data_ref->{lang_sprintf} = \&lang_sprintf;
 	$template_data_ref->{lc} = $lc;
-	$template_data_ref->{cc} = $request_ref->{cc};
+	$template_data_ref->{cc} //= $request_ref->{cc};
 	$template_data_ref->{display_icon} = \&display_icon;
 	$template_data_ref->{time_t} = time();
 	$template_data_ref->{display_date_without_time} = \&display_date_without_time;
@@ -1322,8 +1323,8 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 			$html =~ s/<\/h1>/ - $owner_user_or_org<\/h1>/;
 		}
 
-		if (get_oidc_implementation_level() >= 5) {
-			# Use the Keycloak login link once we have fully mirgrated the Login user interface
+		if (get_oidc_implementation_level() >= 3) {
+			# Use the Keycloak login link once we have migrated the Login user interface
 			#11867: Should be full URL
 			my $escaped_canon_url = uri_escape($formatted_subdomain);
 			$html =~ s/<escaped_subdomain>/$escaped_canon_url/g;

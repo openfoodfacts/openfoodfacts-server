@@ -14,11 +14,9 @@ use ProductOpener::Auth qw/get_token_using_password_credentials/;
 use List::Util qw/first/;
 use URI::Escape::XS qw/uri_unescape/;
 
-wait_application_ready();
-
-remove_all_users();
-
+wait_application_ready(__FILE__);
 remove_all_products();
+remove_all_users();
 
 subtest 'Signout with incorrect Method' => sub {
 	my $ua = new_client();
