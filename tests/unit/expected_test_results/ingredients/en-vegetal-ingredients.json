@@ -3,68 +3,77 @@
       {
          "id" : "en:e428",
          "is_in_taxonomy" : 1,
-         "labels" : "en:vegan",
+         "labels" : "en:plant-based",
          "percent_estimate" : 60,
          "percent_max" : 100,
          "percent_min" : 20,
          "text" : "Gelatin",
-         "vegan" : "yes",
-         "vegetarian" : "yes"
+         "vegan" : "no",
+         "vegetarian" : "no"
       },
       {
          "id" : "en:charcoal",
          "is_in_taxonomy" : 0,
-         "labels" : "en:vegan",
+         "labels" : "en:plant-based",
          "percent_estimate" : 20,
          "percent_max" : 50,
          "percent_min" : 0,
-         "text" : "Charcoal",
-         "vegan" : "yes",
-         "vegetarian" : "yes"
+         "text" : "Charcoal"
       },
       {
          "id" : "en:ferment",
          "is_in_taxonomy" : 1,
-         "labels" : "en:vegan",
+         "labels" : "en:plant-based",
          "percent_estimate" : 10,
          "percent_max" : 33.3333333333333,
          "percent_min" : 0,
          "text" : "ferments",
-         "vegan" : "yes",
-         "vegetarian" : "yes"
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
       },
       {
-         "id" : "en:rennet",
+         "id" : "en:vegetarian-rennet",
          "is_in_taxonomy" : 1,
-         "labels" : "en:vegan",
          "percent_estimate" : 5,
          "percent_max" : 25,
          "percent_min" : 0,
-         "text" : "rennet",
+         "text" : "non-animal rennet",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
          "id" : "en:flavouring",
          "is_in_taxonomy" : 1,
-         "labels" : "en:vegan",
+         "labels" : "en:plant-based",
          "percent_estimate" : 5,
          "percent_max" : "5",
          "percent_min" : 0,
          "text" : "flavours",
-         "vegan" : "yes",
-         "vegetarian" : "yes"
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
       }
    ],
    "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:e428"
+      ],
+      "en:non-vegetarian" : [
+         "en:e428"
+      ],
       "en:palm-oil-content-unknown" : [
+         "en:charcoal"
+      ],
+      "en:vegan-status-unknown" : [
+         "en:charcoal"
+      ],
+      "en:vegetarian-status-unknown" : [
          "en:charcoal"
       ]
    },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:vegan",
-      "en:vegetarian"
+      "en:non-vegan",
+      "en:non-vegetarian"
    ],
    "ingredients_lc" : "en",
    "ingredients_n" : 5,
@@ -76,7 +85,7 @@
       "en:e428",
       "en:charcoal",
       "en:ferment",
-      "en:rennet",
+      "en:vegetarian-rennet",
       "en:flavouring"
    ],
    "ingredients_percent_analysis" : 1,
@@ -84,9 +93,10 @@
       "en:e428",
       "en:charcoal",
       "en:ferment",
-      "en:rennet",
+      "en:vegetarian-rennet",
       "en:enzyme",
       "en:coagulating-enzyme",
+      "en:rennet",
       "en:flavouring"
    ],
    "ingredients_text" : "Gelatin (vegetal), Charcoal (not from animals), ferments (from plants), non-animal rennet, flavours (derived from plants)",
@@ -99,7 +109,7 @@
       "en:e428",
       "en:ferment",
       "en:flavouring",
-      "en:rennet"
+      "en:vegetarian-rennet"
    ],
    "ingredients_without_ciqual_codes_n" : 5,
    "ingredients_without_ecobalyse_ids" : [
@@ -107,7 +117,7 @@
       "en:e428",
       "en:ferment",
       "en:flavouring",
-      "en:rennet"
+      "en:vegetarian-rennet"
    ],
    "ingredients_without_ecobalyse_ids_n" : 5,
    "known_ingredients_n" : 4,
