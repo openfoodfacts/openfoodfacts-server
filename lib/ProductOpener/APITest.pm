@@ -71,7 +71,7 @@ use ProductOpener::Config qw/%oidc_options/;
 use Test2::V0;
 use Data::Dumper;
 $Data::Dumper::Terse = 1;
-use HTTP::CookieJar::LWP;
+use HTTP::Cookies;
 use HTTP::Request::Common;
 use Encode;
 use JSON::MaybeXS;
@@ -191,7 +191,7 @@ Return a user agent
 =cut
 
 sub new_client () {
-	my $jar = HTTP::CookieJar::LWP->new;
+	my $jar = HTTP::Cookies->new;
 	my $ua = create_user_agent(cookie_jar => $jar);
 	# set a neutral user-agent, for it may appear in some results
 	$ua->agent("Product-opener-tests/1.0");

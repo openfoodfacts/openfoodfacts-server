@@ -268,6 +268,16 @@ my $tests_ref = [
 		expected_status_code => 200,
 	},
 
+	# Get attributes with unwanted_ingredients
+	{
+		test_case => 'get-attributes-unwanted-ingredients-milk',
+		method => 'GET',
+		path => '/api/v3/product/4260392550101',
+		query_string => '?fields=attribute_groups',
+		cookies => [{name => "attribute_unwanted_ingredients_tags", value => "en:milk,en:chocolate"}],
+		expected_status_code => 200,
+	},
+
 ];
 
 execute_api_tests(__FILE__, $tests_ref);

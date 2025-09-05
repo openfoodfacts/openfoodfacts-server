@@ -193,18 +193,6 @@ my @tests = (
 			ingredients_text => "some ingredient that we do not recognize",
 		}
 	],
-
-	# Unwanted ingredients
-	[
-		'en-unwanted-ingredients',
-		{
-			lc => "en",
-			categories => "Cheeses",
-			categories_tags => ["en:cheeses"],
-			ingredients_text => "milk, salt",
-		},
-		cookies => [{name => attribute_unwanted_ingredients_tags, value => "en:milk,en:chocolate"}],
-	],
 );
 
 foreach my $test_ref (@tests) {
