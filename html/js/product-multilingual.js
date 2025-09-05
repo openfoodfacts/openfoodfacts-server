@@ -538,7 +538,10 @@ function initializeTagifyInputs() {
             document.
                 querySelectorAll("input.tagify-me").
                 forEach((input) => {
-                    input.value = input.value.map((obj) => obj.value).join(",");
+                    // Parse the Tagify value (JSON string) into an array of objects
+                    const tagifyValues = JSON.parse(input.value || "[]");
+                    // Map the objects to their `value` property and join them into a string
+                    input.value = tagifyValues.map((obj) => obj.value).join(",");
                 });
         });
 }

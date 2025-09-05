@@ -184,34 +184,58 @@ function setCookie(name, value, days) {
 // callback function when the unwanted ingredients input field is changed
 function unwanted_ingredients_change_callback(e) {
     var values_json = e.tagifyValue;
-    // If the value is empty, it is an initial call to initialize tagify, ignore it
-    if (!values_json || values_json.length == 0) {
+    // If tagifyValue is empty and value is not an array and is a non-empty string, it is an initial call to initialize tagify, ignore it
+    if ((!values_json || values_json.length == 0) && (!Array.isArray(e.value) && e.value && e.value.length > 0)) {
+        console.log("Unwanted ingredients changed, empty value, ignoring");
         return;
     }
-    // The value is a string like: [{"value":"Amidon de patate douce"},{"value":"test"}]
+    // The tagifyValue is a string like: [{"value":"Amidon de patate douce"},{"value":"test"}]
     // Turn it into a comma separated string
     console.log("Unwanted ingredients changed, new value:", values_json);
+    // If the JSON is an empty string, turn it to an empty array
+    if (!values_json || values_json.length == 0) {
+        values_json = "[]";
+    }
     values_string = JSON.parse(values_json).map(function(v) { return v.value; }).join(", ");
 
-    // Call the /api/v3/taxonomy_canonicalize_tags API to get the canonical tags for the entered ingredient names
-    console.log("Unwanted ingredients changed, entered values:", values_string);
-    $.ajax({
-        url: "/api/v3/taxonomy_canonicalize_tags?tagtype=ingredients&local_tags_list=" + encodeURIComponent(values_string),
-        type: "GET",
-        dataType: "json",
-        success: function(data) {
-            var canonical_tags_list = data.canonical_tags_list;
+    // If there are no unwanted ingredients, remove the local storage item and cookie
+    if (values_string.length == 0) {
+        console.log("No unwanted ingredients, removing local storage item and cookie");
+        localStorage.removeItem('attribute_unwanted_ingredients_tags');
+        setCookie('attribute_unwanted_ingredients_tags', '', -1); // delete the cookie
 
-            console.log("Canonical unwanted ingredients tags:", canonical_tags_list);
-
-            // store the entered ingredient names in local storage
-            // Note: local storage is subdomain specific, so it will be different for each country / language subdomain
-            // It is already the case for the other preferences settings
-            localStorage.setItem('attribute_unwanted_ingredients_tags', canonical_tags_list);
-            // also set a cookie so that the server can access it when rendering product pages and product list pages
-            setCookie('attribute_unwanted_ingredients_tags', canonical_tags_list, 3650); // 10 years
+        // Also change the value of the unwanted_ingredients radio button to not_important if it is not already
+        if ($("input[name='unwanted_ingredients']:checked").val() != "not_important") {
+            $("input[name='unwanted_ingredients'][value='not_important']").prop("checked", true).trigger("change");
         }
-    });
+    }
+    else
+    {
+        // Call the /api/v3/taxonomy_canonicalize_tags API to get the canonical tags for the entered ingredient names
+        console.log("Unwanted ingredients changed, entered values:", values_string);
+        $.ajax({
+            url: "/api/v3/taxonomy_canonicalize_tags?tagtype=ingredients&local_tags_list=" + encodeURIComponent(values_string),
+            type: "GET",
+            dataType: "json",
+            success: function(data) {
+                var canonical_tags_list = data.canonical_tags_list;
+
+                console.log("Canonical unwanted ingredients tags:", canonical_tags_list);
+
+                // store the entered ingredient names in local storage
+                // Note: local storage is subdomain specific, so it will be different for each country / language subdomain
+                // It is already the case for the other preferences settings
+                localStorage.setItem('attribute_unwanted_ingredients_tags', canonical_tags_list);
+                // also set a cookie so that the server can access it when rendering product pages and product list pages
+                setCookie('attribute_unwanted_ingredients_tags', canonical_tags_list, 3650); // 10 years
+            }
+        });
+
+        // If the unwanted_ingredients attribute is currently set to not_important, change it to important
+        if ($("input[name='unwanted_ingredients']:checked").val() == "not_important") {
+            $("input[name='unwanted_ingredients'][value='important']").prop("checked", true).trigger("change");
+        }
+    }
 
     // Ideally we should find a way to call the change callback to update search results attributes
     // if unwanted ingredients are changed, but it's not easy to pass the change callback to this function
@@ -387,11 +411,11 @@ function display_user_product_preferences(target_selected, target_selection_form
                     // We pass an empty input, as we will fill it later with the local ingredient names corresponding to the canonical ingredient tags we have in local storage
 
                     attribute_name_and_parameters_html = `
-                    <div style="display: flex; flex-direction: column; align-items: flex-start;">
+                    <div style="display: flex; flex-direction: column; align-items: flex-start;width: 100%;">
                         <label for="attribute_unwanted_ingredients_names">
                             <span class='attribute_name' style="margin-bottom: 0.5rem;">${attribute.setting_name}</span>
                         </label>
-                        <input type="text" name="attribute_unwanted_ingredients_names" id="attribute_unwanted_ingredients_names" class="text" value="" data-autocomplete="/api/v3/taxonomy_suggestions?tagtype=ingredients" style="width: 100%;"/>
+                        <input type="text" name="attribute_unwanted_ingredients_names" id="attribute_unwanted_ingredients_names" class="text" placeholder="Enter ingredients you cannot or do not want to eat" value="" data-autocomplete="/api/v3/taxonomy_suggestions?tagtype=ingredients" style="width: 100%;"/>
                     </div>
                 `;
                 }
