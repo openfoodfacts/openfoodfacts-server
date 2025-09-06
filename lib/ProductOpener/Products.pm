@@ -2950,6 +2950,7 @@ sub process_product_edit_rules ($product_ref) {
 
 		# If conditions match, process actions and notifications
 		if ($conditions) {
+			$log->info("edit_rule: conditions matched") if $log->is_info();
 
 			# 	actions => {
 			# 		["ignore_if_existing_ingredients_texts_fr"],
@@ -2978,7 +2979,8 @@ sub process_product_edit_rules ($product_ref) {
 						$proceed_with_edit = 0;
 					}
 					# rules with conditions
-					elsif ($action =~ /^(ignore|warn)(_if_(existing|0|greater|lesser|equal|match|regexp_match)_)?(.*)$/)
+					elsif (
+						$action =~ /^(ignore|warn)(_if_(existing|0|greater|lesser|equal|match|regexp_match))?_?(.*)$/)
 					{
 						my ($type, $condition, $field) = ($1, $3, $4);
 						my $default_field = $field;
@@ -2991,6 +2993,19 @@ sub process_product_edit_rules ($product_ref) {
 						local $log->context->{action} = $field;
 						local $log->context->{field} = $field;
 
+						if ($field =~ /_(\w\w)$/) {
+							# localized field ? remove language to get value in request
+							$default_field = $`;
+						}
+						if ($field =~ /_100g$/) {
+							# nutrient 100g ? remove 100g to get value in request
+							$default_field = $`;
+						}
+						elsif ($field =~ /nutriments_.*$/) {
+							# also consider nutrient_100g
+							$default_field = $field . "_100g";
+						}
+
 						if (defined $condition) {
 
 							my $param_field = undef;
@@ -2998,12 +3013,8 @@ sub process_product_edit_rules ($product_ref) {
 								# param_field is the new value defined by edit
 								$param_field = remove_tags_and_quote(decode utf8 => single_param($field));
 							}
-							if ($field =~ /_(\w\w)$/) {
-								# localized field ? remove language to get value in request
-								$default_field = $`;
-								if ((!defined $param_field) && (defined single_param($default_field))) {
-									$param_field = remove_tags_and_quote(decode utf8 => single_param($default_field));
-								}
+							if ((!defined $param_field) && (defined single_param($default_field))) {
+								$param_field = remove_tags_and_quote(decode utf8 => single_param($default_field));
 							}
 
 							# if field is not passed, skip rule
@@ -3096,8 +3107,10 @@ sub process_product_edit_rules ($product_ref) {
 
 							if ($type eq 'ignore') {
 								Delete($field);
+								$log->info("edit_rule: Removed $field") if $log->is_info();
 								if ($default_field ne $field) {
 									Delete($default_field);
+									$log->info("edit_rule: Removed $default_field") if $log->is_info();
 								}
 							}
 						}
