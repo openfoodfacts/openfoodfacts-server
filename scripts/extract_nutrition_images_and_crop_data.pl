@@ -74,7 +74,7 @@ if (!-e $target_dir) {
 }
 
 #my $query_ref = {entry_dates_tags => "2018-03-02"};
-my $query_ref = {states_tags => "en:complete", lc => "en"};
+my $query_ref = {'data_quality_dimensions.completeness.overall' => "1.00", lc => "en"};
 
 my $products_collection = get_products_collection();
 
