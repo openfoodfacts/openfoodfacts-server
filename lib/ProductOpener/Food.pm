@@ -932,7 +932,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'cassia-gum-', 'choline-chloride-', 'copper-ii-sulphate-pentahydrate-',
 			'iron-ii-sulphate-monohydrate-', 'manganous-sulphate-monohydrate-',
 			'potassium-iodide-', 'sodium-selenite-', 'zinc-sulphate-monohydrate-',
-			'!energy-kj', '!energy-kcal', 'proteins-'
+			'!energy-kj', '!energy-kcal', 'protein-value-'
 		)
 	]
 );
