@@ -1089,7 +1089,7 @@
                   }
                }
             ],
-            "expanded" : true,
+            "expanded" : false,
             "level" : "info",
             "title_element" : {
                "title" : "Information sur les ingrédients"
@@ -1188,7 +1188,7 @@
                "grade" : "unknown",
                "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown-new-fr.svg",
                "subtitle" : "Données nutritionnelles manquantes",
-               "title" : "Nutri-Score UNKNOWN",
+               "title" : "Nutri-Score inconnu",
                "type" : "grade"
             },
             "topics" : [
@@ -1645,6 +1645,43 @@
                "environment"
             ]
          },
+         "product_card" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "raw_labels"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "title_element" : {
+               "title" : "Product information"
+            },
+            "topics" : [
+               "product"
+            ],
+            "type" : "card"
+         },
+         "raw_labels" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n        <ul>\n            \n                <li><a href=\"http://world-fr.openfoodfacts.localhost/facets/labels/bio\">Bio</a></li>\n            \n        </ul>\n        "
+                  }
+               }
+            ],
+            "evaluation" : "neutral",
+            "expand_for" : "large",
+            "level" : "info",
+            "title_element" : {
+               "title" : "Labels, certifications, récompenses"
+            },
+            "topics" : [
+               "product"
+            ]
+         },
          "recommendation_ultra_processed_foods" : {
             "elements" : [
                {
@@ -1707,6 +1744,12 @@
                   "element_type" : "panel",
                   "panel_element" : {
                      "panel_id" : "report_problem_card"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "product_card"
                   }
                }
             ],

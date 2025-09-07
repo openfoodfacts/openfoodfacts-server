@@ -258,6 +258,13 @@ sub write_file($file_path, $content) {
 	ok((-e "$test_path-blessed.json"), "Verify that blessed objects are saved to json");
 	is(retrieve_object("$test_path-blessed"), {id => 10, true => true, false => false}, "Blessed objects retrieved OK");
 
+	# Converts to and from reference
+	my $raw_value = 'test';
+	store_object("$test_path-ref", \$raw_value);
+	my $ref_value = retrieve_object("$test_path-ref");
+	is(ref $ref_value, 'SCALAR', "Returns a reference to a scalar");
+	is($$ref_value, $raw_value, "Values match");
+
 	# Enable these on an ad-hoc basis to test locking. Can't leave enabled as coverage doesn't support threading
 	# use threads;
 	# # Verify that read waits for a current write to complete

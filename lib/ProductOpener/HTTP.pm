@@ -278,6 +278,10 @@ sub redirect_to_url ($request_ref, $status_code, $redirect_url) {
 
 	my $r = Apache2::RequestUtil->request();
 
+	# we need CORS headers even on redirect
+	# Or some browser will prevent the redirect to happen
+	write_cors_headers();
+
 	$r->headers_out->set(Location => $redirect_url);
 
 	if (defined $request_ref->{cookie}) {

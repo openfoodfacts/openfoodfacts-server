@@ -18,6 +18,11 @@ services:
       # Needed to access MongoDB and Redis
       shared_network:
 
+  incron:
+    networks:
+      # Needed to access Redis
+      shared_network:
+
 networks:
   # This network allows access to shared services like MongoDB and Redis
   shared_network:

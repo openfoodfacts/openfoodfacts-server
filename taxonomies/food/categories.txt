@@ -3379,6 +3379,9 @@ en: Root beers
 wikidata:en: Q36275
 wikipedia:en: https://en.wikipedia.org/wiki/Root_beer
 
+< en:Alcoholic beverages
+en: Hard Seltzers
+xx: Hard seltzers
 
 < en:Alcoholic beverages
 en: Pure alcohol
@@ -3412,7 +3415,6 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Spirits
 intake24_category_code:en: SPLI
 wikidata:en: Q2832208
-
 
 < en:Spirit drinks
 en: Portuguese spirit drinks
@@ -50320,7 +50322,6 @@ incompatible_with:en: categories:en:milks, categories:en:creams, categories:en:H
 
 #this category is not made for vegan products but for dairy products used in replacement of cream
 < en:Dairies
-< en:Vegan products
 en: Compound dairy creams
 de: Sahne-Ersatz
 fr: Succédanés de la crème
@@ -65862,7 +65863,7 @@ ciqual_food_name:fr: Dessert glacé, type sundae
 en: Ice creams and sorbets, Flavoured ice creams, Flavoured sorbets, Flavoured ice pops
 bg: Сладолед и сорбе
 ca: Sorbets i gelats
-da: Is og sorbet
+da: Is og sorbeter
 de: Speiseeis und Sorbets, Eiskrem und Sorbets
 es: Helados y sorbetes
 fi: jäätelöt ja sorbetit
@@ -65876,7 +65877,7 @@ nl: IJs en sorbets
 pl: Lody i sorbety
 pt: Gelados e sorvetes
 ru: Мороженное
-sv: Glass och sorbet
+sv: Glass och sorbeter
 zh: 冰淇淋和果汁冰糕
 ciqual_food_code:en: 39500
 ciqual_food_name:en: Ice cream or sorbet or ice pop, flavoured (average)
@@ -65929,7 +65930,7 @@ bs: Sladoled
 ca: gelat, gelats
 cs: zmrzlina
 cy: Hufen iâ
-da: is
+da: Flødeis, Is
 de: Speiseeis, Eiskrem
 el: Παγωτό
 eo: glaciaĵo
@@ -66002,7 +66003,7 @@ sq: akullorja
 sr: сладолед
 st: aesekerimi
 su: Éskrim
-sv: glass
+sv: Gräddglass, Glass
 sw: aiskrimu
 ta: குளிர்களி
 te: ఐస్ క్రీం
@@ -66301,6 +66302,7 @@ fr: Glaces à la fraise
 hr: Kadice sladoleda od jagoda
 lt: Braškiniai ledai indeliuose
 nl: Aardbeienroomijs
+sv: Jordgubbsgräddglassbyttor
 
 < en:Ice cream tubs
 en: Coconut ice cream tubs
@@ -66330,6 +66332,7 @@ hr: Kadice sladoleda od vanilije
 it: Vaschetta di gelato alla vaniglia
 lt: Vaniliniai ledai indeliuose
 nl: Vanille-roomijs
+sv: Vaniljgräddglassbyttor
 
 < en:Ice cream tubs
 en: Coffee ice cream tubs
@@ -66408,10 +66411,11 @@ en: Hazelnut ice cream tubs
 fr: Glaces aux noisettes
 
 < en:Ice cream tubs
-en: Berries ice cream tubs
+en: Berries ice cream tubs, Berry ice cream tubs
 de: Eiskrem mit roten Früchten, Speiseeis mit roten Früchten
 fr: Glaces aux fruits rouges
 hr: Bobice sladoled kadice
+sv: Bärgräddglassbyttor
 
 < en:Ice cream tubs
 fr: Glaces aux amandes
@@ -66440,10 +66444,12 @@ hr: Sladoledni sendviči
 it: Biscotto gelato
 lt: Ledų sumuštiniai
 nl: Roomijswafels
+sv: Glasssandwichar
 
 < en:Ice creams and sorbets
 en: Sorbets
 bg: Сорбе
+da: Sorbeter
 de: Fruchteise
 es: Sorbetes
 fi: sorbetit
@@ -66456,6 +66462,7 @@ lt: Šerbetai
 nl: Sorbets
 pl: Sorbet, sorbety
 ru: Сорбеты
+sv: Sorbeter
 agribalyse_proxy_food_code:en: 31013
 agribalyse_proxy_food_name:en: Sorbet, on stick
 agribalyse_proxy_food_name:fr: Sorbet, bâtonnet
@@ -66466,6 +66473,7 @@ en: Sorbet tub, Sorbet in box
 fr: Sorbet en bac
 hr: Sorbet kada
 lt: Šerbetai indeliuse, šerbetai dėžutėse
+sv: Sorbetbyttor, Sorbetglassbyttor
 agribalyse_food_code:en: 39524
 ciqual_food_code:en: 39524
 ciqual_food_name:en: Sorbet, in box
@@ -66483,6 +66491,7 @@ ciqual_food_name:fr: Sorbet, bâtonnet
 
 < en:Sorbets
 en: Orange sorbets, Frosted orange sorbets
+da: Appelsinsorbeter
 es: Sorbetes de naranja
 fr: Sorbets à l’orange, Sorbets à l'orange givrée
 hr: Sorbeti od naranče
@@ -66507,6 +66516,7 @@ nl: Mandarijnsorbets
 
 < en:Sorbets
 en: Strawberry sorbets
+da: Jordbærsorbeter
 es: Sorbetes de fresa
 fi: mansikkasorbetit
 fr: Sorbets à la fraise
@@ -66514,6 +66524,7 @@ hr: Sorbeti od jagoda
 it: Sorbetto alla fragola
 lt: Braškiniai šerbetai
 nl: Aardbeiensorbets
+sv: Jordgubbsorbeter
 
 < en:Sorbets
 en: Raspberry sorbets
@@ -66563,7 +66574,7 @@ lt: Mangų šerbetai
 nl: Mangosorbets
 
 < en:Sorbets
-en: Ananas sorbets
+en: Pineapple sorbets, Ananas sorbets
 es: Sorbete de piña
 fr: Sorbets à l'ananas
 hr: Ananas sorbeti
@@ -66691,6 +66702,7 @@ lt: Gervuogių šerbetai
 
 < en:Sorbets
 en: Cherry sorbets
+da: Kirsebærsorbeter
 fr: Sorbets à la cerise
 hr: Sorbeti od višanja
 it: Sorbetto alla ciliegia
@@ -66698,11 +66710,23 @@ lt: Vyšnių šerbetai
 
 < en:Sorbets
 en: Melon sorbets
+da: Melonsorbeter
 fr: Sorbets au melon
 hr: Sorbeti od dinje
 it: Sorbetto al melone
 lt: Melionų šerbetai
 nl: Meloensorbet
+sv: Melonsorbeter
+
+< en:Melon sorbets
+en: Watermelon sorbets
+da: Vandmelonsorbeter
+sv: Vattenmelonsorbeter
+
+< en:Sorbet tub
+< en:Watermelon sorbets
+en: Watermelon sorbet tubs
+sv: Vattenmelonsorbetbyttor
 
 < en:Sorbets
 en: Multifruit sorbets
@@ -71108,6 +71132,10 @@ ciqual_food_name:en: Banana, pulp, dried
 ciqual_food_name:fr: Banane, pulpe, sèche
 comment:en: Bananas is restricted to whole fresh ones
 opposite:en: en:bananas, en: banana-crisps
+
+< en:Dried fruits
+en: Dried raspberries
+fr: Framboises séchées
 
 < en:Dried fruits
 en: Dried strawberries
@@ -79741,13 +79769,14 @@ ciqual_food_name:fr: Croissant au jambon fromage
 
 < en:Puff pastry meals
 en: Vol-au-vent, Filled vol-au-vent
+de: Vol-au-vent, Königin-Pasteten, Pastetli, Bouchée
 fr: Bouchée à la reine, Bouchée à la reine garnie
 hr: Vol-au-vent
 nl: Vol au vent
 ciqual_food_code:en: 25580
 ciqual_food_name:en: Vol-au-vent, filled (average)
 ciqual_food_name:fr: Bouchée à la reine, garnie (aliment moyen)
-wikidata:en: Q16533506
+wikidata:en: Q304868
 
 < en:Vol-au-vent
 en: Vol-au-vent with fish and seafood
@@ -108369,11 +108398,11 @@ en: Dried jackfruit
 fr: Jacquiers séchés, fruits du jacquier séchés
 
 < en:Vegetables
-en: Aubergines, Eggplants
+en: Aubergines, Eggplants, aubergine, eggplant
 bg: Патладжани
 de: Auberginen
 es: Berenjenas
-fr: Aubergines
+fr: Aubergines, aubergine
 hr: Patlidžani
 ja: ナス, なす, 茄子, ナスビ
 la: Solanum melongena
@@ -108420,7 +108449,6 @@ opposite:en: en:fresh-aubergines
 en: Graffiti eggplants
 fr: Aubergines graffiti
 
-< en:Frozen vegetables
 < en:Prepared vegetables
 en: Prepared eggplants
 fr: Aubergines préparées
@@ -116939,7 +116967,7 @@ sv: Färsk växtbaserad mat
 zh: 新鲜蔬菜食品
 
 
-< en:Fresh plant-based foods
+< en:Vegetables
 # <en:ingredient:en:vegetable
 en: Hearts of palm, Heart of palm
 ar: جمار
@@ -116972,25 +117000,18 @@ wikidata:en: Q743144
 wikipedia:en: https://en.wikipedia.org/wiki/Heart_of_palm
 
 < en:Canned plant-based foods
-en: Canned hearts of palm
+en: Canned palm hearts, Canned palm heart, Canned hearts of palm
 de: Palmherzen in der Dose
 es: Palmitos en conserva, Palmito en conserva
-fr: Cœurs de palmier en conserve
+fr: Cœurs de palmier en conserve, Coeur de palmier appertisé
 hr: Konzervirano srce palme
 it: Cuori di palma in scatola
 nl: Palmharten in blik/pot
-agribalyse_proxy_food_code:en: 20018
-agribalyse_proxy_food_name:en: Palm heart, canned, drained
-agribalyse_proxy_food_name:fr: Coeur de palmier, appertisé, égoutté
-wikidata:en: Q743144
-
-< en:Hearts of palm
-en: Canned palm heart
-fr: Coeur de palmier appertisé
 agribalyse_food_code:en: 20018
 ciqual_food_code:en: 20018
 ciqual_food_name:en: Palm heart, canned, drained
 ciqual_food_name:fr: Coeur de palmier, appertisé, égoutté
+wikidata:en: Q743144
 
 < en:Salty snacks
 en: Appetizers, Starters
