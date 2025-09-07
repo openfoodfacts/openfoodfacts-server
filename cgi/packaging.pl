@@ -49,12 +49,6 @@ my $id = single_param('id');
 my $ocr_engine = single_param('ocr_engine');
 my $annotations = single_param('annotations') | 0;
 
-if (not defined $ocr_engine) {
-	$ocr_engine = "tesseract";
-
-	# $ocr_engine = "google_cloud_vision";
-}
-
 $log->debug("start", {code => $code, id => $id}) if $log->is_debug();
 
 if (not defined $code) {
