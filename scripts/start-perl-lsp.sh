@@ -8,7 +8,7 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 COMPOSE_FILE="$PROJECT_ROOT/docker/perl-lsp.yml"
-CONTAINER_NAME="openfoodfacts-server-perl-lsp-1"
+CONTAINER_NAME="po_off-perl-lsp-1"
 LSP_PORT=13603
 
 # Colors for output

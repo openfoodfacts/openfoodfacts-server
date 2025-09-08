@@ -47,4 +47,5 @@ services:
 
 networks:
   default:
-    driver: bridge
+    external: true
+    name: po_off_default
