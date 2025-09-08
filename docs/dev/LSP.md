@@ -1,267 +1,277 @@
-# Perl Language Server Setup for OpenFoodFacts Server
+# How to setup Perl Language Server (LSP) for IDE support
 
-This document explains how to set up and use Perl Language Server (LSP) support for development in Docker containers with Cursor/VS Code.
+This guide explains how to set up and use Perl Language Server (LSP) support for development in Docker containers with Cursor/VS Code.
 
-## Overview
+The Perl LSP provides modern IDE features like syntax checking, IntelliSense, go-to definition, and debugging capabilities for Perl development in the OpenFoodFacts project.
 
-The Perl LSP setup provides:
-- ✅ Syntax checking and error detection
-- ✅ IntelliSense/autocompletion for Perl code
-- ✅ Go-to definition and find references
-- ✅ Debugging capabilities
-- ✅ Docker container integration
-- ✅ Public interface binding (fixes GitHub issue #131)
+## Prerequisites
+
+Before setting up the Perl LSP, ensure you have:
+
+- **Docker development environment** already set up following the [dev environment quick start guide](how-to-quick-start-guide.md)
+- **Cursor or VS Code** installed on your machine
+- **Basic Docker knowledge** - see [how to develop using Docker](how-to-develop-using-docker.md)
+
+> **_NOTE:_** New to Perl? Check [how to learn perl](how-to-learn-perl.md)!
 
 ## Quick Start
 
-### 1. Start the LSP Server
+### 1. Complete Setup (Recommended)
 
-**Using Make Commands (Recommended):**
-```bash
-# Complete setup (install extension + start server)
+For new developers, use the one-command setup:
+
+```console
 make lsp_setup
-
-# Or individual commands:
-make lsp_start    # Start the Perl Language Server container
-make lsp_status   # Check status
-make lsp_logs     # View logs
 ```
 
-**Using Scripts Directly:**
-```bash
-# Start the Perl Language Server container
-./scripts/start-perl-lsp.sh start
+This command will:
+- Install the Perl extension in your IDE
+- Start the Perl Language Server container
+- Configure everything automatically
 
-# Check status
-./scripts/start-perl-lsp.sh status
+### 2. Manual Step-by-Step Setup
 
-# View logs
-./scripts/start-perl-lsp.sh logs
+If you prefer to set up manually:
+
+```console
+# 1. Start your main development environment (if not already running)
+make dev
+
+# 2. Start the Perl Language Server
+make lsp_start
+
+# 3. Install the Perl extension
+make lsp_install
+
+# 4. Check everything is working
+make lsp_status
 ```
 
-### 2. Configure Cursor/VS Code
+### 3. Verify Setup
 
-The configuration files are already created:
-- `.vscode/settings.json` - LSP client configuration
-- `.vscode/launch.json` - Debugging configuration
+Open any Perl file (e.g., `cgi/auth.pl`) in your IDE and verify:
+- ✅ Syntax highlighting works
+- ✅ Error detection appears
+- ✅ Ctrl/Cmd+Click for go-to-definition
+- ✅ IntelliSense suggestions appear
 
-### 3. Install Perl Extension
+## Available Make Commands
 
-In Cursor/VS Code:
-1. Install the "Perl" extension by richterger
-2. The extension will automatically connect to the LSP server on `localhost:13603`
+The Perl LSP integrates with the existing make command structure:
 
-## Architecture
+```console
+# Setup and management
+make lsp_setup     # Complete setup (install extension + start server)
+make lsp_start     # Start Perl Language Server
+make lsp_stop      # Stop Perl Language Server
+make lsp_restart   # Restart Perl Language Server
 
-### Docker Configuration
+# Monitoring and debugging
+make lsp_status    # Check LSP server status
+make lsp_logs      # View LSP server logs
+make lsp_test      # Test LSP functionality
+make lsp_shell     # Access container shell
 
-**File: `docker/perl-lsp.yml`**
-- Extends the development environment
-- Exposes LSP server on port 13603
+# Extension management
+make lsp_install   # Install Perl extension for Cursor/VS Code
+```
+
+## IDE Features
+
+Once the LSP server is running and the Perl extension is installed, you get:
+
+### Syntax Checking
+- Real-time error detection
+- Warning highlights
+- Compile-time error checking
+
+### IntelliSense
+- Auto-completion for variables, functions, and modules
+- Context-aware suggestions
+- Documentation on hover
+
+### Navigation
+- **Go to Definition**: Ctrl/Cmd+Click on symbols
+- **Find References**: Right-click → "Find All References"
+- **Symbol search**: Ctrl/Cmd+T to search symbols
+
+### Debugging
+- Set breakpoints in Perl code
+- Step through code execution
+- Inspect variables and call stack
+- Support for CGI script debugging
+
+## Debugging Perl Scripts
+
+The LSP setup includes pre-configured debugging profiles:
+
+1. **Set breakpoints** in your Perl code by clicking in the gutter
+2. **Press F5** or use "Run and Debug" panel
+3. **Choose debug configuration**:
+   - `Debug Perl Script` - for regular Perl scripts
+   - `Debug Perl CGI Script` - for CGI scripts with web environment
+   - `Debug Current Perl File in Container` - for container-specific debugging
+
+## Architecture Overview
+
+### Docker Integration
+
+The Perl LSP runs in a separate Docker container that:
+- Extends your existing development environment
+- Exposes the LSP server on port `13603`
 - Binds to `0.0.0.0` to work across Docker network boundaries
 - Includes health checks and proper volume mounts
 
-**File: `scripts/perl-lsp-server.sh`**
-- Container startup script
-- Configures LSP server to bind to public interfaces
-- Handles dependency installation and validation
+### Key Files
 
-### LSP Client Configuration
+- **`docker/perl-lsp.yml`** - Docker Compose configuration
+- **`scripts/perl-lsp-server.sh`** - Container startup script
+- **`scripts/start-perl-lsp.sh`** - Management script
+- **`.vscode/settings.json`** - IDE configuration
+- **`.vscode/launch.json`** - Debug configurations
 
-**File: `.vscode/settings.json`**
-- Configures Perl extension to connect to containerized LSP server
-- Sets up proper path mappings and Perl library paths
-- Enables debugging and advanced LSP features
+### Network Configuration
 
-**File: `.vscode/launch.json`**
-- Debugging configurations for Perl scripts
-- Path mapping between host and container
-- Support for CGI script debugging
-
-## Usage
-
-### Starting/Stopping LSP Server
-
-**Using Make Commands (Recommended):**
-```bash
-# Complete setup for new developers
-make lsp_setup     # Install extension + start server
-
-# Individual commands
-make lsp_start     # Start LSP server
-make lsp_stop      # Stop LSP server  
-make lsp_restart   # Restart LSP server
-make lsp_status    # Check status
-make lsp_logs      # View logs
-make lsp_test      # Test functionality
-make lsp_shell     # Access container shell
-make lsp_install   # Install Perl extension
-```
-
-**Using Scripts Directly:**
-```bash
-# Start LSP server
-./scripts/start-perl-lsp.sh start
-
-# Stop LSP server
-./scripts/start-perl-lsp.sh stop
-
-# Restart LSP server
-./scripts/start-perl-lsp.sh restart
-
-# Check status
-./scripts/start-perl-lsp.sh status
-
-# View logs
-./scripts/start-perl-lsp.sh logs
-
-# Test functionality
-./scripts/start-perl-lsp.sh test
-
-# Access container shell
-./scripts/start-perl-lsp.sh shell
-```
-
-### IDE Features
-
-Once the LSP server is running and the Perl extension is installed:
-
-1. **Syntax Checking**: Errors and warnings appear in real-time
-2. **IntelliSense**: Auto-completion for variables, functions, and modules
-3. **Go to Definition**: Ctrl/Cmd+Click on symbols to jump to definitions
-4. **Find References**: Right-click → "Find All References"
-5. **Debugging**: Use F5 to start debugging with breakpoints
-
-### Debugging Perl Scripts
-
-1. Set breakpoints in your Perl code
-2. Press F5 or use "Run and Debug" panel
-3. Choose appropriate debug configuration:
-   - "Debug Perl Script" - for regular Perl scripts
-   - "Debug Perl CGI Script" - for CGI scripts with environment setup
-   - "Debug Current Perl File in Container" - for container-specific debugging
-
-## Technical Details
-
-### Public Interface Binding Solution
-
-The key fix for GitHub issue #131 is in `scripts/perl-lsp-server.sh`:
-
-```perl
-my $server = Perl::LanguageServer->new({
-    host => "0.0.0.0",  # Bind to all interfaces, not just localhost
-    port => 13603,
-    # ... other configuration
-});
-```
-
-This allows the LSP server running inside the Docker container to accept connections from the host machine.
-
-### Port Configuration
-
-- **LSP Server Port**: 13603
+- **LSP Server Port**: `13603`
 - **Docker Port Mapping**: `13603:13603`
 - **Host Access**: `localhost:13603`
-
-### Path Mapping
-
-The LSP server maps paths between host and container:
 - **Container Path**: `/opt/product-opener`
-- **Host Path**: Your project directory
 - **Perl Libraries**: `/opt/product-opener/lib/` and `/opt/perl/local/lib/perl5/`
-
-### Dependencies
-
-The LSP server requires these Perl modules (already in cpanfile):
-- `Perl::LanguageServer`
-- `Hash::SafeKeys`
-- `IO::Socket::INET`
-- `JSON`
 
 ## Troubleshooting
 
 ### LSP Server Won't Start
 
-1. Check Docker is running:
-   ```bash
+1. **Check Docker is running**:
+   ```console
    docker info
    ```
 
-2. Check port availability:
-   ```bash
+2. **Check port availability**:
+   ```console
    lsof -i :13603
    ```
 
-3. View container logs:
-   ```bash
-   ./scripts/start-perl-lsp.sh logs
+3. **View container logs**:
+   ```console
+   make lsp_logs
+   ```
+
+4. **Test functionality**:
+   ```console
+   make lsp_test
    ```
 
 ### IDE Not Connecting
 
-1. Verify LSP server is running:
-   ```bash
-   ./scripts/start-perl-lsp.sh status
+1. **Verify LSP server is running**:
+   ```console
+   make lsp_status
    ```
 
-2. Check Perl extension configuration in VS Code settings
-3. Restart the Perl extension or reload VS Code window
+2. **Check extension installation**:
+   - Open VS Code/Cursor extensions panel
+   - Look for "Perl" extension by richterger
+   - Reinstall if necessary: `make lsp_install`
 
-### Debugging Issues
-
-1. Ensure path mappings are correct in `.vscode/launch.json`
-2. Check PERL5LIB environment variable includes project libraries
-3. Verify container has access to source files
+3. **Restart IDE or reload window**:
+   - VS Code: Ctrl/Cmd+Shift+P → "Developer: Reload Window"
+   - Cursor: Similar reload command
 
 ### Performance Issues
 
-1. Disable cache if needed:
+If the LSP server is slow or unresponsive:
+
+1. **Check container resources**:
+   ```console
+   docker stats openfoodfacts-server-perl-lsp-1
+   ```
+
+2. **Disable cache** (edit `.vscode/settings.json`):
    ```json
    "perl-language-server.disableCache": true
    ```
 
-2. Reduce log level:
+3. **Reduce log level**:
    ```json
    "perl-language-server.logLevel": 0
    ```
 
+### Debugging Issues
+
+1. **Check path mappings** in `.vscode/launch.json`
+2. **Verify PERL5LIB** includes project libraries
+3. **Ensure container access** to source files
+4. **Test with simple script** first
+
 ## Development Workflow
 
-### Recommended Setup
+### Daily Development
 
-1. Complete LSP setup: `make lsp_setup`
-2. Open project in Cursor/VS Code  
-3. Start coding with full LSP support!
+```console
+# Start main development environment
+make up
 
-**Alternative step-by-step:**
-1. Start main development: `make dev`
-2. Start LSP server: `make lsp_start`
-3. Install Perl extension: `make lsp_install`
-4. Start coding with full LSP support!
+# Start LSP server
+make lsp_start
 
-### Integration with Existing Development
+# Start coding with full IDE support!
+```
 
-The LSP setup integrates seamlessly with existing development workflow:
-- Works alongside `docker-compose -f docker/dev.yml`
-- Doesn't interfere with existing containers
-- Can be started/stopped independently
+### Integration with Existing Workflow
+
+The LSP setup integrates seamlessly:
+- ✅ Works alongside existing `make dev` workflow
+- ✅ Doesn't interfere with main development containers
+- ✅ Can be started/stopped independently
+- ✅ Uses same Docker network as main containers
 
 ### Team Development
 
 The configuration is version-controlled and shareable:
-- All team members get the same LSP setup
-- No manual configuration required
-- Consistent development experience across machines
+- ✅ All team members get identical LSP setup
+- ✅ No manual configuration required
+- ✅ Consistent development experience across machines
+- ✅ Works on macOS, Linux, and Windows with Docker
+
+## Technical Details
+
+### Public Interface Binding Fix
+
+The setup solves the Docker networking issue (GitHub issue #131) by configuring the LSP server to bind to `0.0.0.0` instead of `localhost`:
+
+```perl
+my $server = Perl::LanguageServer->new({
+    host => "0.0.0.0",  # Bind to all interfaces
+    port => 13603,
+    # ... other configuration
+});
+```
+
+### Dependencies
+
+The LSP server uses these Perl modules (already in `cpanfile`):
+- `Perl::LanguageServer` - Main LSP implementation
+- `Hash::SafeKeys` - Required dependency
+- `IO::Socket::INET` - Network communication
+- `JSON` - Protocol communication
+
+### Health Monitoring
+
+The container includes health checks that verify:
+- LSP server responds on port 13603
+- Perl dependencies are available
+- Container is healthy and ready
 
 ## Advanced Configuration
 
 ### Custom LSP Settings
 
 Edit `.vscode/settings.json` to customize:
-- Log levels
-- Cache behavior
-- Path mappings
-- Debugging options
+- Log levels and debugging output
+- Cache behavior and performance
+- Path mappings between host and container
+- Debugging options and breakpoint behavior
 
 ### Container Customization
 
@@ -275,49 +285,50 @@ Edit `docker/perl-lsp.yml` to:
 
 Edit `scripts/perl-lsp-server.sh` to:
 - Change LSP server configuration
-- Add custom initialization
+- Add custom initialization steps
 - Modify logging behavior
+- Add project-specific setup
 
 ## Maintenance
 
 ### Updating Dependencies
 
 When Perl dependencies change:
-1. Update cpanfile
-2. Rebuild LSP container: `./scripts/start-perl-lsp.sh restart`
+1. Update `cpanfile`
+2. Rebuild LSP container: `make lsp_restart`
 
 ### Log Management
 
-LSP logs are stored in:
-- Container: `/tmp/perl-lsp.log`
-- Docker logs: `docker logs openfoodfacts-server-perl-lsp-1`
+LSP logs are available in:
+- **Container logs**: `make lsp_logs`
+- **Internal log file**: `/tmp/perl-lsp.log` (inside container)
+- **Access container**: `make lsp_shell`
 
-### Health Monitoring
+### Cleanup
 
-The LSP container includes health checks that verify:
-- LSP server is responding on port 13603
-- Perl dependencies are available
-- Container is healthy
+To clean up LSP resources:
+```console
+make lsp_stop
+docker system prune -f --filter "label=com.docker.compose.project=docker"
+```
 
-## Support
+## Support and Resources
 
-For issues with this LSP setup:
-1. Check this README for troubleshooting steps
-2. View container logs for error details
-3. Test with `./scripts/start-perl-lsp.sh test`
-4. Refer to [Perl::LanguageServer documentation](https://metacpan.org/pod/Perl::LanguageServer)
+### Getting Help
 
-## Files Created/Modified
+1. **Check this guide** for common issues and solutions
+2. **View container logs**: `make lsp_logs`
+3. **Test functionality**: `make lsp_test`
+4. **Access container shell**: `make lsp_shell`
 
-This setup creates the following files:
-- `docker/perl-lsp.yml` - Docker Compose configuration
-- `scripts/perl-lsp-server.sh` - LSP server startup script
-- `scripts/start-perl-lsp.sh` - Management script
-- `.vscode/settings.json` - VS Code/Cursor settings
-- `.vscode/launch.json` - Debug configurations
-- `README-PERL-LSP.md` - This documentation
+### External Resources
 
-The setup leverages existing files:
-- `cpanfile` - Already includes Perl::LanguageServer in development dependencies
-- `Dockerfile` - Used as base for LSP container
-- Existing Docker development infrastructure
+- [Perl::LanguageServer documentation](https://metacpan.org/pod/Perl::LanguageServer)
+- [VS Code Perl extension](https://marketplace.visualstudio.com/items?itemName=richterger.perl)
+- [Docker Compose documentation](https://docs.docker.com/compose/)
+
+### Related Documentation
+
+- [How to setup dev environment](how-to-quick-start-guide.md)
+- [How to develop using Docker](how-to-develop-using-docker.md)
+- [How to learn Perl](how-to-learn-perl.md)
