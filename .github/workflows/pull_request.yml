@@ -444,23 +444,27 @@ jobs:
           echo "🥫 No JUnit XML files found, skipping timing update"
         fi
     
-    - name: generate coverage results
-      # even if tests failed
-      if: always()
-      run: |
-        make coverage_txt
-        make codecov
-    - uses: codecov/codecov-action@v5
-      if: always()
-      with:
-        files: cover_db/codecov.json
-        token: ${{ secrets.CODECOV_TOKEN }}
-    - name: Upload test results to Codecov
-      if: ${{ !cancelled() }}
-      uses: codecov/test-results-action@v1
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }}
-        files: ./tests/unit/outputs/junit_group_${{ matrix.test-group }}.xml
+    # TODO: Coverage reporting is disabled for now as it won't be effective after splitting tests.
+    # We should upload test coverage as artifacts and have a separate action that collects
+    # all coverage files and sends the coverage report. We can live without it for some time.
+    #
+    # - name: generate coverage results
+    #   # even if tests failed
+    #   if: always()
+    #   run: |
+    #     make coverage_txt
+    #     make codecov
+    # - uses: codecov/codecov-action@v5
+    #   if: always()
+    #   with:
+    #     files: cover_db/codecov.json
+    #     token: ${{ secrets.CODECOV_TOKEN }}
+    # - name: Upload test results to Codecov
+    #   if: ${{ !cancelled() }}
+    #   uses: codecov/test-results-action@v1
+    #   with:
+    #     token: ${{ secrets.CODECOV_TOKEN }}
+    #     files: ./tests/unit/outputs/junit_group_${{ matrix.test-group }}.xml
 
   integration_tests:
     name: 🐪 Perl Integration Tests
@@ -547,23 +551,27 @@ jobs:
           echo "🥫 No JUnit XML files found, skipping timing update"
         fi
     
-    - name: generate coverage results
-      # even if tests failed
-      if: always()
-      run: |
-        make coverage_txt
-        make codecov
-    - uses: codecov/codecov-action@v5
-      if: always()
-      with:
-        files: cover_db/codecov.json
-        token: ${{ secrets.CODECOV_TOKEN }}
-    - name: Upload test results to Codecov
-      if: ${{ !cancelled() }}
-      uses: codecov/test-results-action@v1
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }}
-        files: ./tests/integration/outputs/junit_group_${{ matrix.test-group }}.xml
+    # TODO: Coverage reporting is disabled for now as it won't be effective after splitting tests.
+    # We should upload test coverage as artifacts and have a separate action that collects
+    # all coverage files and sends the coverage report. We can live without it for some time.
+    #
+    # - name: generate coverage results
+    #   # even if tests failed
+    #   if: always()
+    #   run: |
+    #     make coverage_txt
+    #     make codecov
+    # - uses: codecov/codecov-action@v5
+    #   if: always()
+    #   with:
+    #     files: cover_db/codecov.json
+    #     token: ${{ secrets.CODECOV_TOKEN }}
+    # - name: Upload test results to Codecov
+    #   if: ${{ !cancelled() }}
+    #   uses: codecov/test-results-action@v1
+    #   with:
+    #     token: ${{ secrets.CODECOV_TOKEN }}
+    #     files: ./tests/integration/outputs/junit_group_${{ matrix.test-group }}.xml
     
   tests_dev:
     name: 🧪 Test make dev
