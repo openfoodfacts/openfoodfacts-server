@@ -247,15 +247,16 @@
          {
             "attributes" : [
                {
-                  "description" : ": Milk",
+                  "description" : "Unwanted ingredients: Milk",
                   "description_short" : "Milk",
                   "grade" : "e",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/contains-unwanted-ingredients.svg",
                   "id" : "unwanted_ingredients",
                   "match" : 0,
+                  "name" : "Unwanted ingredients",
                   "panel_id" : "ingredients",
                   "status" : "known",
-                  "title" : ""
+                  "title" : "Contains unwanted ingredients"
                }
             ],
             "id" : "ingredients",
