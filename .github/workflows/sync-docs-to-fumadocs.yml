@@ -9,7 +9,9 @@ on:
   pull_request:
     paths:
       - "docs/**"
-      - "!docs/api/**" 
+      - "!docs/api/**"
+  workflow_dispatch:
+
 
 jobs:
   sync-docs:
