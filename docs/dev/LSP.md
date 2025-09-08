@@ -50,10 +50,10 @@ make lsp_status
 ### 3. Verify Setup
 
 Open any Perl file (e.g., `cgi/auth.pl`) in your IDE and verify:
-- ✅ Syntax highlighting works
-- ✅ Error detection appears
-- ✅ Ctrl/Cmd+Click for go-to-definition
-- ✅ IntelliSense suggestions appear
+- Syntax highlighting works
+- Error detection appears
+- Ctrl/Cmd+Click for go-to-definition
+- IntelliSense suggestions appear
 
 ## Available Make Commands
 
@@ -221,18 +221,18 @@ make lsp_start
 ### Integration with Existing Workflow
 
 The LSP setup integrates seamlessly:
-- ✅ Works alongside existing `make dev` workflow
-- ✅ Doesn't interfere with main development containers
-- ✅ Can be started/stopped independently
-- ✅ Uses same Docker network as main containers
+- Works alongside existing `make dev` workflow
+- Doesn't interfere with main development containers
+- Can be started/stopped independently
+- Uses same Docker network as main containers
 
 ### Team Development
 
 The configuration is version-controlled and shareable:
-- ✅ All team members get identical LSP setup
-- ✅ No manual configuration required
-- ✅ Consistent development experience across machines
-- ✅ Works on macOS, Linux, and Windows with Docker
+- All team members get identical LSP setup
+- No manual configuration required
+- Consistent development experience across machines
+- Works on macOS, Linux, and Windows with Docker
 
 ## Technical Details
 
