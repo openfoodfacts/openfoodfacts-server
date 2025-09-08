@@ -40,32 +40,38 @@ jobs:
           cache: 'npm'
           cache-dependency-path: openfoodfacts-server/package.json
 
-      - name: Install fumadocs-transpiler`
+      - name: Install fumadocs-transpiler
         run: |
           cd openfoodfacts-server
           npm install fumadocs-transpiler --save-dev
+
+      - name: Initialize fumadocs-transpiler configuration
+        run: |
+          cd openfoodfacts-server
+          # Create configuration file for proper component imports
+          npx fumadocs-transpiler config init
+          
+          # Create a temporary directory for converted files
+          mkdir -p temp-mdx
 
       - name: Convert markdown files to MDX
         run: |
           cd openfoodfacts-server
           
-          # Create a temporary directory for converted files
-          mkdir -p temp-mdx
+          # First, validate the markdown files
+          echo "Validating markdown files..."
+          npx fumadocs-transpiler ./docs --validate-only
           
-          # Find all .md files in docs directory and convert them
-          find docs -name "*.md" -type f | while read -r file; do
-            echo "Converting: $file"
-            
-            # Create directory structure in temp-mdx
-            relative_path=$(dirname "$file")
-            mkdir -p "temp-mdx/$relative_path"
-            
-            # Get filename without extension
-            filename=$(basename "$file" .md)
-            
-            # Convert using fumadocs-transpiler
-            npx fumadocs-transpiler "$file" -o "temp-mdx/$relative_path/$filename.mdx"
-          done
+          # Use fumadocs-transpiler to convert entire docs directory
+          # This will convert all .md files to .mdx format with proper component imports
+          echo "Converting markdown files to MDX..."
+          npx fumadocs-transpiler ./docs ./temp-mdx --verbose
+          
+          echo "Conversion completed. Files converted to temp-mdx directory."
+          
+          # List converted files for debugging
+          echo "Converted files:"
+          find temp-mdx -name "*.mdx" -type f | head -10
 
       - name: Copy converted MDX files to documentation repository
         run: |
@@ -77,14 +83,14 @@ jobs:
           # Create the target directory
           mkdir -p ../openfoodfacts-documentation/content/docs/Product-Opener
           
-          # Copy all converted MDX files
-          if [ -d "temp-mdx/docs" ]; then
-            cp -r temp-mdx/docs/* ../openfoodfacts-documentation/content/docs/Product-Opener/
-          fi
-          
-          # Create index file if it doesn't exist
-          if [ ! -f "../openfoodfacts-documentation/content/docs/Product-Opener/index.mdx" ] && [ -f "../openfoodfacts-documentation/content/docs/Product-Opener/index.md" ]; then
-            mv ../openfoodfacts-documentation/content/docs/Product-Opener/index.md ../openfoodfacts-documentation/content/docs/Product-Opener/index.mdx
+          # Copy all converted MDX files from temp-mdx to documentation repo
+          if [ -d "temp-mdx" ]; then
+            # Copy the entire converted directory structure
+            cp -r temp-mdx/* ../openfoodfacts-documentation/content/docs/Product-Opener/
+            echo "Files copied to documentation repository"
+          else
+            echo "No converted files found in temp-mdx directory"
+            exit 1
           fi
 
       - name: Create meta.json files for Fumadocs navigation
@@ -181,9 +187,3 @@ jobs:
           
           # Push changes
           git push origin main
-
-      - name: Summary
-        run: |
-          echo "✅ Documentation sync completed successfully!"
-          echo "📁 Converted files from openfoodfacts-server/docs to openfoodfacts-documentation/content/docs/Product-Opener"
-          echo "🔗 Files are now available in MDX format for Fumadocs"

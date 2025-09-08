@@ -33,8 +33,18 @@ For the workflow to function, you need to set up a GitHub secret:
 
 ### Dependencies
 
-The workflow automatically installs the required dependency:
+The workflow automatically installs and configures the required dependency:
 - `fumadocs-transpiler` - Converts markdown to MDX format compatible with Fumadocs
+- Creates a `fumadocs-transpiler.config.json` configuration file with proper component imports
+
+The configuration includes built-in component mappings for:
+- Callouts (`:::callout-info`, `:::callout-warn`, etc.)
+- Tabs (`:::tabs`)
+- Steps (`:::steps`)
+- Accordions (`:::accordion`)
+- Code blocks (`:::code-block`)
+- File trees (`:::files`)
+- Banners (`:::banner`)
 
 ## File Structure
 
@@ -81,11 +91,20 @@ To test the conversion locally:
 # Install dependencies
 npm install
 
-# Convert a single file
-npx fumadocs-transpiler docs/index.md -o output/index.mdx
+# Initialize configuration (creates fumadocs-transpiler.config.json)
+npx fumadocs-transpiler config init
 
-# Convert multiple files
-find docs -name "*.md" -exec npx fumadocs-transpiler {} -o output/{} \;
+# Validate markdown files
+npx fumadocs-transpiler ./docs --validate-only
+
+# Convert entire docs directory to output directory
+npx fumadocs-transpiler ./docs ./output --verbose
+
+# Convert with watch mode for development
+npx fumadocs-transpiler ./docs ./output --watch
+
+# Dry run to preview changes
+npx fumadocs-transpiler ./docs ./output --dry-run
 ```
 
 ## Troubleshooting
@@ -93,10 +112,24 @@ find docs -name "*.md" -exec npx fumadocs-transpiler {} -o output/{} \;
 1. **Workflow fails with authentication error**: Check that the `DOCUMENTATION_REPO_TOKEN` secret is set correctly
 2. **Conversion errors**: Check the fumadocs-transpiler logs in the workflow output
 3. **Missing files**: Ensure the source `.md` files are in the `/docs` directory
+4. **Component import errors**: The transpiler automatically adds required imports for Fumadocs components
+5. **Annotation syntax issues**: Check that triple colon syntax (`:::`) is used correctly for components
+6. **Configuration errors**: The workflow automatically creates the config file, but you can customize it locally
 
 ## Contributing
 
 When making changes to documentation:
 1. Edit the `.md` files in the `/docs` directory
-2. Commit and push to the `main` branch
-3. The workflow will automatically sync changes to the documentation repository
+2. Use fumadocs annotation syntax for enhanced components:
+   ```markdown
+   :::callout-info
+   This is an info callout that will be converted to a Fumadocs component
+   :::
+   
+   :::tabs
+   Tab 1|Content for tab 1
+   Tab 2|Content for tab 2
+   :::
+   ```
+3. Commit and push to the `main` branch
+4. The workflow will automatically sync changes to the documentation repository
