@@ -100,6 +100,13 @@ usage:
 	@echo "🥫 Welcome to the Open Food Facts project"
 	@echo "🥫 See available commands at docker/README.md"
 	@echo "🥫 or https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-docker-commands/"
+	@echo ""
+	@echo "🥫 Perl Language Server commands:"
+	@echo "   make lsp_setup    - Complete LSP setup (install extension + start server)"
+	@echo "   make lsp_start    - Start Perl Language Server"
+	@echo "   make lsp_stop     - Stop Perl Language Server"
+	@echo "   make lsp_status   - Check LSP server status"
+	@echo "   make lsp_logs     - View LSP server logs"
 
 hello:
 	@echo "🥫 Welcome to the Open Food Facts dev environment setup!"
@@ -624,6 +631,49 @@ stop_deps:
 	@for dep in ${DEPS} ; do \
 		cd ${DEPS_DIR}/$$dep && ( $(MAKE) stop || env -i docker compose stop ) ; \
 	done
+
+#-----------#
+# Perl LSP   #
+#-----------#
+
+# Perl Language Server commands for IDE integration
+lsp_start:
+	@echo "🥫 Starting Perl Language Server for IDE integration …"
+	./scripts/start-perl-lsp.sh start
+
+lsp_stop:
+	@echo "🥫 Stopping Perl Language Server …"
+	./scripts/start-perl-lsp.sh stop
+
+lsp_restart:
+	@echo "🥫 Restarting Perl Language Server …"
+	./scripts/start-perl-lsp.sh restart
+
+lsp_status:
+	@echo "🥫 Checking Perl Language Server status …"
+	./scripts/start-perl-lsp.sh status
+
+lsp_logs:
+	@echo "🥫 Showing Perl Language Server logs …"
+	./scripts/start-perl-lsp.sh logs
+
+lsp_test:
+	@echo "🥫 Testing Perl Language Server functionality …"
+	./scripts/start-perl-lsp.sh test
+
+lsp_shell:
+	@echo "🥫 Opening shell in Perl Language Server container …"
+	./scripts/start-perl-lsp.sh shell
+
+lsp_install:
+	@echo "🥫 Installing Perl extension for Cursor/VS Code …"
+	./scripts/install-perl-extension.sh
+
+# Complete LSP setup for new developers
+lsp_setup: lsp_install lsp_start
+	@echo "🥫 Perl Language Server setup complete!"
+	@echo "🥫 Your IDE should now have full Perl support with syntax checking, IntelliSense, and debugging."
+	@echo "🥫 Open any .pl or .pm file to test the integration."
 
 #-----------#
 # Utilities #
