@@ -43,7 +43,7 @@ check_test_groups_validity() {
     local current_test_files
     current_test_files=$(find "tests/$test_type" -name "*.t" -type f 2>/dev/null | sort || echo "")
     
-    # Get cached test files
+    # Get the list of tests contained in cached files
     local cached_test_files=""
     if [ -f ".test_groups_cache/${test_type}_groups.json" ]; then
         cached_test_files=$(python3 -c "
