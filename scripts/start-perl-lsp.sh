@@ -65,9 +65,9 @@ start_lsp() {
     check_docker
     check_port
     
-    # Set environment variables
+    # Set environment variables (use 1000 for GID to avoid conflicts)
     export USER_UID=$(id -u)
-    export USER_GID=$(id -g)
+    export USER_GID=1000
     
     print_status "Building and starting LSP container..."
     cd "$PROJECT_ROOT"

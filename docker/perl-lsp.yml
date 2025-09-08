@@ -6,10 +6,10 @@ services:
   perl-lsp:
     image: openfoodfacts-server/backend:dev
     build:
-      context: .
+      context: ../
       dockerfile: Dockerfile
       args:
-        USER_UID: ${USER_UID:-1000}
+        USER_UID: ${USER_UID:-501}
         USER_GID: ${USER_GID:-1000}
         # Enable development tools including Perl::LanguageServer
         CPANMOPTS: "--with-develop --with-feature=off_server_dev_tools"
