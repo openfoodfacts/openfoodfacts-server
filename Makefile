@@ -236,7 +236,7 @@ reset_owner:
 	${DOCKER_COMPOSE_BUILD} run --rm --no-deps --user root backend chown www-data:www-data -R /opt/product-opener/ /mnt/podata /var/log/apache2 /var/log/httpd  || true
 	${DOCKER_COMPOSE_BUILD} run --rm --no-deps --user root frontend chown www-data:www-data -R /opt/product-opener/html/images/icons/dist /opt/product-opener/html/js/dist /opt/product-opener/html/css/dist
 
-init_backend: build_taxonomies build_lang
+init_backend: build_taxonomies build_lang build_pro_platform
 
 create_mongodb_indexes: run_deps
 	@echo "🥫 Creating MongoDB indexes …"
@@ -270,6 +270,9 @@ import_prod_data: run_deps
 # Checks #
 #--------#
 
+update_package_lock:
+	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml" docker compose run --rm dynamicfront npm install --package-lock-only
+
 front_npm_update:
 	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker compose run --rm dynamicfront  npm update
 
@@ -284,7 +287,7 @@ checks: front_build front_lint check_perltidy check_perl_fast check_critic check
 
 lint: lint_perltidy lint_taxonomies
 
-tests: build_taxonomies_test build_lang_test unit_test integration_test brands_sort_test
+tests: build_taxonomies_test build_lang_test build_pro_platform_test unit_test integration_test brands_sort_test
 
 # add COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover"' if you want to trigger code coverage report generation
 unit_test: create_folders
@@ -356,7 +359,7 @@ clean_tests:
 	${DOCKER_COMPOSE_TEST} down -v --remove-orphans
 	${DOCKER_COMPOSE_INT_TEST} down -v --remove-orphans
 
-update_tests_results: build_taxonomies_test build_lang_test update_unit_tests_results update_integration_tests_results
+update_tests_results: build_taxonomies_test build_lang_test build_pro_platform_test update_unit_tests_results update_integration_tests_results
 
 update_unit_tests_results:
 	@echo "🥫 Updated expected unit test results with actuals for easy Git diff"
@@ -496,6 +499,17 @@ build_taxonomies_test: create_folders
 # GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
 	${DOCKER_COMPOSE_TEST} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
 
+build_pro_platform: create_folders
+	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache _bind_local
+	@echo "🥫 build pro platform"
+	${DOCKER_COMPOSE_BUILD} run --no-deps --rm backend /opt/product-opener/scripts/build_pro_platform_fields_columns_names.pl
+
+build_pro_platform_test: create_folders
+	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache PROJECT_SUFFIX=_test _bind_local
+	@echo "🥫 build pro platform"
+	${DOCKER_COMPOSE_TEST} run --no-deps --rm backend /opt/product-opener/scripts/build_pro_platform_fields_columns_names.pl
+
+
 
 _clean_old_external_volumes:
 # THIS IS A MIGRATION STEP, TO BE REMOVED IN THE FUTURE
@@ -524,6 +538,10 @@ else
 	docker volume rm ${COMPOSE_PROJECT_NAME}${PROJECT_SUFFIX}_${MOUNT_VOLUME} || true
 	docker volume create --label com.docker.compose.project=${COMPOSE_PROJECT_NAME}${PROJECT_SUFFIX} --label com.docker.compose.version=$(shell docker compose version --short) --label com.docker.compose.volume=${MOUNT_VOLUME} --driver=local -o type=none -o o=bind -o "device=${DOCKER_LOCAL_DATA}/${MOUNT_FOLDER}" ${COMPOSE_PROJECT_NAME}${PROJECT_SUFFIX}_${MOUNT_VOLUME}
 endif
+
+build_asyncapi:
+	npm list -g @asyncapi/cli || npm install -g @asyncapi/cli
+	cd docs/events && asyncapi generate fromTemplate openfoodfacts-server.yaml @asyncapi/html-template@3.0.0 --use-new-generator --param singleFile=true outFilename=openfoodfacts-server.html --force-write --output=.
 
 #------------#
 # Production #

@@ -29,7 +29,7 @@ jobs:
       code_modified: ${{ steps.filter.outputs.code_modified }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Get changed files
         uses: step-security/changed-files@v46
@@ -45,7 +45,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
       with:
         fetch-depth: 1
     - uses: actions/setup-node@v4
@@ -57,6 +57,16 @@ jobs:
       run: make front_build
     - name: lint
       run: make front_lint
+    - name: Verify package-lock is the right one
+      run: |
+        cp package-lock.json package-lock.json.orig
+        make update_package_lock
+        if ! diff -q package-lock.json.orig package-lock.json
+        then
+          echo "Package lock is not up to date, please run make update_package_lock"
+          diff -u package-lock.json.orig package-lock.json
+          exit 1
+        fi
 
   # this will build the docker image and upload as an artifact for following jobs
   build_backend:
@@ -268,7 +278,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
       with:
         fetch-depth: 1
     - name: Setup Git and Restore Taxonomies
@@ -352,7 +362,7 @@ jobs:
       matrix:
         test-group: ${{ fromJson(needs.calculate_test_matrix.outputs.unit_test_groups) }}
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
       with:
         fetch-depth: 1
     
@@ -562,7 +572,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
       with:
         fetch-depth: 1
     - uses: actions/cache/restore@v4
@@ -597,7 +607,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
       with:
         fetch-depth: 1
     - name: verify apache2 envvars is correct
