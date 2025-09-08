@@ -36,7 +36,7 @@
     "win32"
   ],
   "dependencies": {
-    "@snyk/protect": "^1.1298.3",
+    "@snyk/protect": "^1.1299.0",
     "@webcomponents/webcomponentsjs": "2.8.0",
     "@yaireo/tagify": ">=4.12.0 <4.36.0",
     "blueimp-file-upload": "^10.31.0",
@@ -54,10 +54,11 @@
     "papaparse": "^5.5.3",
     "select2": "~4.0",
     "jsbarcode": "^3.12.1",
-    "@openfoodfacts/openfoodfacts-webcomponents": "1.12.3"
+    "@openfoodfacts/openfoodfacts-nodejs": "2.0.0-alpha.16",
+    "@openfoodfacts/openfoodfacts-webcomponents": "1.13.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.28.0",
+    "@babel/core": "^7.28.3",
     "@babel/preset-env": "^7.22.0",
     "@types/gulp": "^4.0.17",
     "@types/gulp-concat": "^0.0.37",
