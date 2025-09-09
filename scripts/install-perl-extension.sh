@@ -34,6 +34,8 @@ detect_ide() {
         echo "cursor"
     elif command -v code >/dev/null 2>&1; then
         echo "code"
+    elif command -v codium > /dev/null 2>&1; then
+        echo "codium"
     else
         echo "none"
     fi
@@ -42,18 +44,15 @@ detect_ide() {
 # Function to install Perl extension
 install_extension() {
     local ide=$1
-    
+
     print_status "Installing Perl extension for $ide..."
-    
+
     case $ide in
-        cursor)
-            cursor --install-extension richterger.perl
-            ;;
-        code)
-            code --install-extension richterger.perl
+        cursor | code | codium)
+            $ide --install-extension richterger.perl
             ;;
         *)
-            print_error "No supported IDE found (cursor or code)"
+            print_error "No supported IDE found (cursor or code/codium)"
             return 1
             ;;
     esac
@@ -62,13 +61,9 @@ install_extension() {
 # Function to check if extension is installed
 check_extension() {
     local ide=$1
-    
     case $ide in
-        cursor)
-            cursor --list-extensions | grep -q "richterger.perl"
-            ;;
-        code)
-            code --list-extensions | grep -q "richterger.perl"
+        cursor | code | codium)
+            $ide --list-extensions | grep -q "richterger.perl"
             ;;
         *)
             return 1
@@ -86,7 +81,7 @@ Next Steps:
 1. Start the LSP server:
    ./scripts/start-perl-lsp.sh start
 
-2. Open your IDE (Cursor/VS Code) in this project directory
+2. Open your IDE (Cursor/VS Code/Codium) in this project directory
 
 3. The Perl extension should automatically connect to the LSP server
 
@@ -119,10 +114,11 @@ main() {
     local ide=$(detect_ide)
     
     if [ "$ide" = "none" ]; then
-        print_error "Neither Cursor nor VS Code found in PATH"
-        print_status "Please install Cursor or VS Code and try again"
+        print_error "Neither Cursor nor VS Code / Codium found in PATH"
+        print_status "Please install Cursor,VS Code or Codium and try again"
         print_status "Cursor: https://cursor.sh/"
         print_status "VS Code: https://code.visualstudio.com/"
+        print_status "https://vscodium.com/"
         exit 1
     fi
     
