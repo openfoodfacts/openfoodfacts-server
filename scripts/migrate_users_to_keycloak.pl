@@ -125,8 +125,8 @@ sub convert_to_keycloak_user ($userid, $email, $anonymize) {
 			attributes => {
 				# Truncate name more than 255 because of UTF-8 encoding. Could do this more precisely...
 				name => substr($name, 0, 128),
-				locale => $user_ref->{preferred_language} || 'en',
-				country => country_to_cc($user_ref->{country} || 'en:world') || 'world',
+				locale => $user_ref->{preferred_language} || $user_ref->{initial_lc} || 'en',
+				country => country_to_cc($user_ref->{country}) || $user_ref->{initial_cc} || 'world',
 				registered => 'registered',    # The prevents welcome emails from being sent
 				importTimestamp => time(),
 				importSourceChangedTimestamp => (stat($user_file))[9]

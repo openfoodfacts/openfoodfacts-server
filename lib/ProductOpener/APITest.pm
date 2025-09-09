@@ -295,8 +295,8 @@ sub create_user_in_keycloak ($user_ref) {
 		credentials => [$credential],
 		attributes => {
 			name => $user_ref->{name},
-			locale => $user_ref->{initial_lc},
-			country => $user_ref->{initial_cc},
+			locale => $user_ref->{preferred_language},
+			country => $user_ref->{country},
 		}
 	};
 

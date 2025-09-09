@@ -488,7 +488,7 @@ sub send_rejection_email ($org_ref) {
 		return;
 	}
 
-	my $language = $user_ref->{preferred_language} || $user_ref->{initial_lc};
+	my $language = $user_ref->{preferred_language};
 	# if template does not exist in the requested language, use English
 	my $template_name = "org_rejected.tt.html";
 	my $template_path = "emails/$language/$template_name";

@@ -106,7 +106,7 @@ use ProductOpener::Auth qw/:all/;
 use ProductOpener::Keycloak qw/:all/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::Minion qw/queue_job write_minion_log/;
-use ProductOpener::Tags qw/country_to_cc/;
+use ProductOpener::Tags qw/country_to_cc cc_to_country/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
@@ -566,8 +566,8 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 		$user_ref->{newsletter} = remove_tags_and_quote(single_param('newsletter'));
 		$user_ref->{discussion} = remove_tags_and_quote(single_param('discussion'));
 		$user_ref->{ip} = remote_addr();
-		$user_ref->{initial_lc} = $lc;
-		$user_ref->{initial_cc} = $request_ref->{cc};
+		$user_ref->{preferred_language} = $lc;
+		$user_ref->{country} = cc_to_country($request_ref->{cc});
 		$user_ref->{initial_user_agent} = user_agent();
 	}
 
@@ -859,7 +859,8 @@ sub send_welcome_emails($user_ref) {
 	# default if the translation is not available
 
 	my $userid = $user_ref->{userid};
-	my $language = $user_ref->{preferred_language} || $user_ref->{initial_lc};
+	my $language = $user_ref->{preferred_language};
+	my $user_cc = country_to_cc($user_ref->{country});
 	my $email_content = get_html_email_content("user_welcome.html", $language);
 	my $user_name = $user_ref->{name} || $userid;
 	# Replace placeholders by user values
@@ -878,8 +879,8 @@ email: $user_ref->{email}
 x: https://x.com/$user_ref->{x}
 newsletter: $user_ref->{newsletter}
 discussion: $user_ref->{discussion}
-lc: $user_ref->{initial_lc}
-cc: $user_ref->{initial_cc}
+lc: $language
+cc: $user_cc
 
 EMAIL
 		;
@@ -1147,6 +1148,13 @@ sub retrieve_user_preferences ($user_id) {
 		if (not defined $user_ref) {
 			$log->info("could not load user", {user_id => $user_id}) if $log->is_info();
 		}
+		else {
+			# Migrate initial_lc and initial_cc if present
+			$user_ref->{preferred_language} //= $user_ref->{initial_lc};
+			$user_ref->{country} //= cc_to_country($user_ref->{initial_cc});
+			delete $user_ref->{initial_lc};
+			delete $user_ref->{initial_cc};
+		}
 	}
 	return $user_ref;
 }
@@ -1204,6 +1212,8 @@ sub store_user_preferences ($user_ref) {
 		delete $user_preferences->{name};
 		delete $user_preferences->{country};
 		delete $user_preferences->{preferred_language};
+		delete $user_preferences->{initial_lc};
+		delete $user_preferences->{initial_cc};
 	}
 	my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $user_ref->{userid}) . ".sto";
 	store($user_file, $user_preferences);

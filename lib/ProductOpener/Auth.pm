@@ -313,8 +313,6 @@ sub retrieve_user_using_token ($id_token, $request_ref, $require_verified_email 
 	defined $user_ref->{registered_t} or $user_ref->{registered_t} = time();
 	defined $user_ref->{last_login_t} or $user_ref->{last_login_t} = time();
 	defined $user_ref->{ip} or $user_ref->{ip} = remote_addr();
-	defined $user_ref->{initial_lc} or $user_ref->{initial_lc} = $lc;
-	defined $user_ref->{initial_cc} or $user_ref->{initial_cc} = $request_ref->{cc};
 	defined $user_ref->{initial_user_agent} or $user_ref->{initial_user_agent} = user_agent();
 
 	# Don't use store_user here as will sync the user back to keycloak

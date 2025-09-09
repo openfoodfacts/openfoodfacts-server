@@ -184,6 +184,7 @@ sub create_or_update_user ($self, $user_ref, $password = undef) {
 		# Truncate name more than 255 because of UTF-8 encoding. Could do this more precisely...
 		name => substr($name, 0, 128),
 		preferred_language => $user_ref->{preferred_language},
+		# Note in Keycloak we store the country code (cc), e.g. "fr" whereas $user_ref->{country} is a canonical country tag, e.g. "en:france"
 		country => $user_ref->{country}
 	};
 
@@ -196,7 +197,6 @@ sub create_or_update_user ($self, $user_ref, $password = undef) {
 		credentials => [$credential],
 		createdTimestamp => ($user_ref->{registered_t} // time()) * 1000,
 		attributes => {
-			# Truncate name more than 255 because of UTF-8 encoding. Could do this more precisely...
 			name => $keycloak_user_ref->{name},
 			locale => $keycloak_user_ref->{preferred_language},
 			country => country_to_cc($keycloak_user_ref->{country}),

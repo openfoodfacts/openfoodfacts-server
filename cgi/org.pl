@@ -32,7 +32,7 @@ use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/$lc %Lang lang/;
 use ProductOpener::Orgs qw/:all/;
-use ProductOpener::Tags qw/canonicalize_tag_link/;
+use ProductOpener::Tags qw/canonicalize_tag_link country_to_cc/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::CRM qw/get_company_url/;
 
@@ -471,12 +471,13 @@ foreach my $member_id (sort keys %{$org_ref->{members}}) {
 	else {
 		$user_is_admin{$member_id} = 0;
 	}
-	my $member_user_ref = retrieve_user_preferences($member_id);
+	my $member_user_ref = retrieve_user($member_id);
+	$member_user_ref->{user_cc} = country_to_cc($member_user_ref->{country});
 	push @org_members, $member_user_ref;
 }
 $template_data_ref->{org_members} = \@org_members;
 $template_data_ref->{user_is_admin} = \%user_is_admin;
-$template_data_ref->{pending_users} = [map {retrieve_user_preferences($_)} sort keys %{$org_ref->{pending}}];
+$template_data_ref->{pending_users} = [map {retrieve_user($_)} sort keys %{$org_ref->{pending}}];
 
 $template_data_ref->{current_user_id} = $User_id;
 
