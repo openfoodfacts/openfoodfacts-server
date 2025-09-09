@@ -17,13 +17,11 @@ function get_user_product_preferences() {
 
 	if (user_product_preferences_string) {
 		user_product_preferences = JSON.parse(user_product_preferences_string);
-	}
-	else {
-		// Default preferences
-		user_product_preferences = default_preferences;
-	}
-	
-	return user_product_preferences;
+    } else {
+        user_product_preferences = default_preferences;
+    }
+
+    return user_product_preferences;
 }
 
 
@@ -198,9 +196,9 @@ function unwanted_ingredients_change_callback(e) {
     if (!values_json || values_json.length == 0) {
         values_json = "[]";
     }
-    const values_string = JSON.parse(values_json)
-        .map(function(v) { return v.value; })
-        .join(", ");
+    const values_string = JSON.parse(values_json).map(function(v) {
+        return v.value;
+    }).join(", ");
 
     // If there are no unwanted ingredients, remove the local storage item and cookie
     if (values_string.length == 0) {
@@ -264,6 +262,7 @@ var attribute_unwanted_ingredients_enabled = false;
 
 // We use jQuery to load the CSS file dynamically
 function loadCSS(href) {
+
     return new Promise(function(resolve, reject) {
         const link = document.createElement("link");
         link.rel = "stylesheet";
@@ -279,6 +278,7 @@ function loadCSS(href) {
 // using the /api/v3/taxonomy_display_tags API
 function localize_unwanted_ingredients_tags() {
     console.log("Localizing unwanted ingredients tags into local ingredient names");
+
     return new Promise(function(resolve, reject) {
         var tags = localStorage.getItem('attribute_unwanted_ingredients_tags');
         console.log("Canonical unwanted ingredients tags from local storage:", tags);
@@ -331,8 +331,7 @@ function display_unwanted_ingredients_preferences() {
                 // Initialize tagify on the unwanted ingredients input field
                 console.log("Tagify JS loaded, initializing tagify on unwanted ingredients input field");
                 initialize_unwanted_ingredients_tagify();
-            })
-            .fail(function(jqxhr, settings, exception) {
+            }).fail(function(jqxhr, settings, exception) {
                 console.error("Error loading tagify JS or CSS:", exception);
             });
         }
