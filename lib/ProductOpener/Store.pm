@@ -288,6 +288,11 @@ Write a JSON file with exclusive file locking
 =cut
 
 sub write_json($file_path, $ref) {
+	# If $ref is to a scalar then dereference it first
+	if (ref $ref eq 'SCALAR') {
+		$ref = $$ref;
+	}
+
 	# Open in append mode so that we can get a lock on the file before it is wiped
 	open(my $OUT, ">>", $file_path) or die "Can't write to $file_path";
 
@@ -347,7 +352,12 @@ Reads from a JSON file with shared file locking. Returns a hash. Dies on error
 =cut
 
 sub read_json($file_path) {
-	return $json_for_objects->decode(read_json_raw($file_path));
+	my $ref = $json_for_objects->decode(read_json_raw($file_path));
+	# return a reference if it isn't one already
+	if (ref $ref eq '') {
+		return \$ref;
+	}
+	return $ref;
 }
 
 =head2 store_object ($path, $ref)

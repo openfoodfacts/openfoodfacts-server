@@ -347,6 +347,9 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	(not defined $template_data_ref->{user}) and $template_data_ref->{user} = \%User;
 	(not defined $template_data_ref->{org_id}) and $template_data_ref->{org_id} = $Org_id;
 	$template_data_ref->{owner_pretty_path} = get_owner_pretty_path($Owner_id);
+	# webcomponents configuration
+	$template_data_ref->{robotoff_url} = $robotoff_url;
+	$template_data_ref->{folksonomy_uri} = $folksonomy_url;
 
 	my $oidc_implementation_level = get_oidc_implementation_level();
 	$template_data_ref->{oidc_implementation_level} = $oidc_implementation_level;
@@ -7989,11 +7992,6 @@ JS
 
 	$request_ref->{bodyabout} = " about=\"" . product_url($product_ref) . "\" typeof=\"food:foodProduct\"";
 
-	$template_data_ref->{user_id} = $User_id;
-	$template_data_ref->{robotoff_url} = $robotoff_url;
-	$template_data_ref->{folksonomy_uri} = $folksonomy_url;
-	$template_data_ref->{lc} = $lc;
-
 	my $itemtype = 'https://schema.org/Product';
 	if (has_tag($product_ref, 'categories', 'en:dietary-supplements')) {
 		$itemtype = 'https://schema.org/DietarySupplement';
@@ -10699,7 +10697,7 @@ sub display_product_api ($request_ref) {
 				$changes_ref = [];
 			}
 			$response{blame} = {};
-			compute_product_history_and_completeness($data_root, $product_ref, $changes_ref, $response{blame});
+			compute_product_history_and_completeness($product_ref, $changes_ref, $response{blame});
 		}
 
 		if (single_param("jqm")) {

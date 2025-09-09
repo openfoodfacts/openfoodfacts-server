@@ -107,6 +107,7 @@ BEGIN {
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
+
 use vars @EXPORT_OK;    # no 'my' keyword for these
 
 use ProductOpener::Config2;
@@ -573,6 +574,52 @@ XML
 	completeness
 	last_image_t
 );
+
+# List of fields that can be imported on the producers platform
+# and that are also exported from the producers platform to the public platform
+$options{import_export_fields_groups} = [
+	[
+		"identification",
+		[
+			"code", "producer_product_id",
+			"producer_version_id", "lc",
+			"product_name", "abbreviated_product_name",
+			"generic_name",
+			"quantity_value_unit", "net_weight_value_unit",
+			"drained_weight_value_unit", "volume_value_unit",
+			"serving_size_value_unit", "packaging",
+			"brands", "brand_owner",
+			"categories", "categories_specific",
+			"labels", "labels_specific",
+			"countries", "stores",
+			"obsolete", "obsolete_since_date",
+			"periods_after_opening"    # included for OBF imports via the producers platform
+		]
+	],
+	[
+		"origins",
+		["origins", "origin", "manufacturing_places", "producer", "emb_codes"]
+	],
+	["ingredients", ["ingredients_text", "allergens", "traces"]],
+	["nutrition"],
+	["nutrition_other"],
+	["packaging"],
+	[
+		"other",
+		["conservation_conditions", "warning", "preparation", "nova_group_producer", "customer_service", "link",]
+	],
+	[
+		"images",
+		[
+			"image_front_url", "image_ingredients_url", "image_nutrition_url", "image_packaging_url",
+			"image_other_url", "image_other_type",
+		]
+	],
+];
+
+# Secondary fields that are computed by OFF from primary data
+# Those fields are only exported, they are not imported.
+# Todo: populate when calculated indicators are available on OPFF
 
 # Used to generate the list of possible product attributes, which is
 # used to display the possible choices for user preferences
