@@ -43,6 +43,9 @@
     - OPFF_CLIENT_SECRET
     - OPF_CLIENT_SECRET
     - OFF_PRO_CLIENT_SECRET
+    - OTEL_SERVICE_NAME=${OTEL_SERVICE_NAME_BACKEND}
+    - OTEL_RESOURCE_ATTRIBUTES
+    - OTEL_EXPORTER_OTLP_ENDPOINT
     - RECIPE_ESTIMATOR_URL
     - RECIPE_ESTIMATOR_SCIPY_URL
     #11901: Remove once production is migrated
@@ -129,6 +132,10 @@ services:
       - backend
     environment:
       - PRODUCT_OPENER_DOMAIN
+      - OTEL_SERVICE_NAME=${OTEL_SERVICE_NAME_FRONTEND}
+      - OTEL_RESOURCE_ATTRIBUTES
+      - OTEL_COLLECTOR_HOST
+      - OTEL_COLLECTOR_PORT_GRPC
     volumes:
       - product_images:/opt/product-opener/html/images/products:ro
       - html_data:/opt/product-opener/html/data:ro
@@ -150,7 +157,8 @@ services:
       - ./logs/nginx/:/var/log/nginx/
 
       # Nginx, we use templates dir to be able to use environment vars
-      - ./conf/nginx-docker/nginx.conf:/etc/nginx/templates/default.conf.template
+      - ./conf/nginx-docker/nginx.conf:/etc/nginx/nginx.conf
+      - ./conf/nginx-docker/default.conf.template:/etc/nginx/templates/default.conf.template
       # cors headers definition as an include
       - ./conf/nginx/snippets/off.cors-headers.include:/etc/nginx/snippets/off.cors-headers.include
       - ./conf/nginx/snippets/expiry-headers.include:/etc/nginx/snippets/expiry-headers.include
