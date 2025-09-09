@@ -70,6 +70,9 @@ BEGIN {
 		$crm_db
 		$crm_pwd
 		$serialize_to_json
+		$oidc_implementation_level
+		$oidc_client_id
+		$oidc_client_secret
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -181,4 +184,8 @@ $crm_pwd = $ENV{ODOO_CRM_PASSWORD};
 
 #11901: Remove once production is migrated
 $serialize_to_json = $ENV{SERIALIZE_TO_JSON};
+
+$oidc_implementation_level = $ENV{OIDC_IMPLEMENTATION_LEVEL};
+$oidc_client_id = $ENV{OIDC_CLIENT_ID};
+$oidc_client_secret = $ENV{OIDC_CLIENT_SECRET};
 1;
