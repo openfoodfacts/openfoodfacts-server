@@ -69,34 +69,14 @@ start_lsp() {
     export USER_UID=$(id -u)
     export USER_GID=1000
     
-    print_status "Building and starting LSP container..."
+    print_status "Starting LSP container..."
     cd "$PROJECT_ROOT"
     
     # Start the LSP service
-    docker compose -f "$COMPOSE_FILE" up -d --build
-    
-    # Wait for the service to be ready
-    print_status "Waiting for LSP server to be ready..."
-    local max_attempts=30
-    local attempt=1
-    
-    while [ $attempt -le $max_attempts ]; do
-        if docker exec "$CONTAINER_NAME" perl -e "use IO::Socket::INET; my \$sock = IO::Socket::INET->new(PeerAddr => '127.0.0.1', PeerPort => $LSP_PORT, Timeout => 1); exit(\$sock ? 0 : 1);" 2>/dev/null; then
-            print_success "Perl Language Server is ready on port $LSP_PORT"
-            print_status "Container logs:"
-            docker logs --tail=10 "$CONTAINER_NAME"
-            return 0
-        fi
-        
-        print_status "Attempt $attempt/$max_attempts - waiting for LSP server..."
-        sleep 2
-        ((attempt++))
-    done
-    
-    print_error "LSP server failed to start within expected time"
-    print_status "Container logs:"
-    docker logs "$CONTAINER_NAME"
-    exit 1
+    docker compose -f "$COMPOSE_FILE" up -d
+    # TODO: we should check it's really started…
+    print_success "Container started"
+    docker ps |grep $CONTAINER_NAME
 }
 
 # Function to stop the LSP server
@@ -119,21 +99,8 @@ restart_lsp() {
 
 # Function to show LSP server status
 status_lsp() {
-    print_status "Checking Perl Language Server status..."
-    
-    if docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}" | grep -q "$CONTAINER_NAME"; then
-        print_success "LSP container is running:"
-        docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}" | grep "$CONTAINER_NAME"
-        
-        # Test LSP connection
-        if docker exec "$CONTAINER_NAME" perl -e "use IO::Socket::INET; my \$sock = IO::Socket::INET->new(PeerAddr => '127.0.0.1', PeerPort => $LSP_PORT, Timeout => 1); exit(\$sock ? 0 : 1);" 2>/dev/null; then
-            print_success "LSP server is responding on port $LSP_PORT"
-        else
-            print_warning "LSP container is running but server is not responding"
-        fi
-    else
-        print_warning "LSP container is not running"
-    fi
+    echo "FIXME: implement this"
+    exit 1
 }
 
 # Function to show LSP server logs

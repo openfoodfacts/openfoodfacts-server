@@ -29,7 +29,7 @@ This command will:
 - Start the Perl Language Server container
 - Configure everything automatically
 
-### 2. Manual Step-by-Step Setup
+### 1bis. Manual Step-by-Step Setup
 
 If you prefer to set up manually:
 
@@ -42,10 +42,24 @@ make lsp_start
 
 # 3. Install the Perl extension
 make lsp_install
-
-# 4. Check everything is working
-make lsp_status
 ```
+
+### 2. Modify your settings
+
+You have to edit the vscode/setting.json with those keys:
+```json
+    "perl.sshCmd": "",
+    "perl.perlInc": [],
+    "perl.containerName": "po_off-perl-lsp-1",
+    "perl.containerMode": "exec",
+    "perl.containerArgs": [],
+    "perl.disablePassEnv": true,
+    "perl.logLevel": 2,
+    "perl.containerCmd": "docker",
+    "perl.pathMap": [["file:///opt/product-opener", "file:///home/alex/docker/off-server"]]
+```
+For the last line, it of course depends on where your project is located 
+(here it was located in `/home/alex/docker/off-server`).
 
 ### 3. Verify Setup
 

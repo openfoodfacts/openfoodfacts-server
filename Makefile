@@ -642,10 +642,6 @@ lsp_restart:
 	@echo "🥫 Restarting Perl Language Server …"
 	./scripts/start-perl-lsp.sh restart
 
-lsp_status:
-	@echo "🥫 Checking Perl Language Server status …"
-	./scripts/start-perl-lsp.sh status
-
 lsp_logs:
 	@echo "🥫 Showing Perl Language Server logs …"
 	./scripts/start-perl-lsp.sh logs
