@@ -566,8 +566,6 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 		$user_ref->{newsletter} = remove_tags_and_quote(single_param('newsletter'));
 		$user_ref->{discussion} = remove_tags_and_quote(single_param('discussion'));
 		$user_ref->{ip} = remote_addr();
-		$user_ref->{preferred_language} = $lc;
-		$user_ref->{country} = cc_to_country($request_ref->{cc});
 		$user_ref->{initial_user_agent} = user_agent();
 	}
 
