@@ -194,7 +194,6 @@ jobs:
           echo "OIDC_DISCOVERY_URL=${{ env.OIDC_DISCOVERY_URL }}" >> .env
           echo "OIDC_CLIENT_ID=OFF" >> .env
           echo "OIDC_CLIENT_SECRET=${{ secrets.OFF_CLIENT_SECRET }}" >> .env
-          echo "PROCESS_GLOBAL_REDIS_EVENTS=1" >> .env
 
           # Override domain name in nginx.conf
           sed -i.bak "s/productopener.localhost/${{ env.PRODUCT_OPENER_DOMAIN }}/g" ./conf/nginx-docker/nginx.conf

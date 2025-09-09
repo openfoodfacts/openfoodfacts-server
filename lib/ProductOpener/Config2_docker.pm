@@ -60,7 +60,6 @@ BEGIN {
 		$folksonomy_url
 		$recipe_estimator_url
 		$recipe_estimator_scipy_url
-		$process_global_redis_events
 		%server_options
 		$build_cache_repo
 		$rate_limiter_blocking_enabled
@@ -141,7 +140,6 @@ $facets_kp_url = $ENV{FACETS_KP_URL};
 
 # Set this to your instance of the search service to enable writes to it
 $redis_url = $ENV{REDIS_URL};
-$process_global_redis_events = $ENV{PROCESS_GLOBAL_REDIS_EVENTS};
 
 # Set this to your instance of https://github.com/openfoodfacts/folksonomy_api/ to
 # enable folksonomy features
