@@ -100,13 +100,6 @@ usage:
 	@echo "🥫 Welcome to the Open Food Facts project"
 	@echo "🥫 See available commands at docker/README.md"
 	@echo "🥫 or https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-docker-commands/"
-	@echo ""
-	@echo "🥫 Perl Language Server commands:"
-	@echo "   make lsp_setup    - Complete LSP setup (install extension + start server)"
-	@echo "   make lsp_start    - Start Perl Language Server"
-	@echo "   make lsp_stop     - Stop Perl Language Server"
-	@echo "   make lsp_status   - Check LSP server status"
-	@echo "   make lsp_logs     - View LSP server logs"
 
 hello:
 	@echo "🥫 Welcome to the Open Food Facts dev environment setup!"
