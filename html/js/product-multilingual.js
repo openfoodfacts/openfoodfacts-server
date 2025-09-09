@@ -20,7 +20,7 @@
 
 /*eslint dot-location: "off"*/
 /*eslint no-console: "off"*/
-/*global lang admin otherNutriments Tagify*/
+/*global lang admin otherNutriments initializeTagifyInput*/
 /*exported add_line upload_image update_image update_nutrition_image_copy*/
 
 //Polyfill, just in case
@@ -30,17 +30,17 @@ if (!Array.isArray) {
     };
 }
 
-var code;
-var current_cropbox;
-var images = [];
-var imgids = {};
-var img_path;
-var angles = {};
-var imagefield_imgid = {};
-var imagefield_url = {};
-var use_low_res_images = false;
+let code;
+let current_cropbox;
+let images = [];
+const imgids = {};
+let img_path;
+const angles = {};
+const imagefield_imgid = {};
+const imagefield_url = {};
+let use_low_res_images = false;
 
-var units = [
+ const units = [
     ['g', 'mg', "\u00B5g", '% DV'],
     ['mol/l', 'moll/l', 'mmol/l', 'mval/l', 'ppm', "\u00B0rH", "\u00B0fH", "\u00B0e", "\u00B0dH", 'gpg'],
     ['kJ', 'kcal'],
@@ -213,7 +213,6 @@ function rotate_image(event) {
 
     $('img#crop_' + imagefield).cropper('rotate', angle);
 
-    //var selection = $('img#crop_' + imagefield ).cropper('getData');
     const selection = $('img#crop_' + imagefield).cropper('getCropBoxData');
 
     selection.x = selection.left;
@@ -529,7 +528,7 @@ function update_display(imagefield, first_display, protected_product) {
 function initializeTagifyInputs() {
     document.
         querySelectorAll("input.tagify-me").
-        forEach((input) => initializeTagifyInput(input, 1)); // defined in tagify-init.js, we send 1 in the second parameter to enable remembering recent values
+        forEach((input) => initializeTagifyInput(input, maximumRecentEntriesPerTag)); // defined in tagify-init.js
 
     // Before submitting the form, we need to convert the Tagify values (array of objects) to a simple comma-separated string
     document.

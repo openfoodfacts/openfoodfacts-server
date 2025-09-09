@@ -21,6 +21,7 @@
 /*eslint dot-location: "off"*/
 /*eslint no-console: "off"*/
 /*global Tagify*/
+/*exported initializeTagifyInput*/
 
 // Note: this function is used in product-multilingual.js and product-preferences.js to select unwanted ingredients
 

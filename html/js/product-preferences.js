@@ -2,17 +2,18 @@
 /*global preferences_text*/ // depends on which type of page the preferences are shown on
 /*global default_preferences*/ // depends on flavor: OFF, OBF etc.
 /*global product_type */
+/*global initializeTagifyInput */
 
-var attribute_groups; // All supported attribute groups and attributes + translated strings
-var preferences; // All supported preferences + translated strings
-var use_user_product_preferences_for_ranking = JSON.parse(localStorage.getItem('use_user_product_preferences_for_ranking'));
-var reset_message;
+let attribute_groups; // All supported attribute groups and attributes + translated strings
+let preferences; // All supported preferences + translated strings
+let use_user_product_preferences_for_ranking = JSON.parse(localStorage.getItem('use_user_product_preferences_for_ranking'));
+let reset_message;
 
 function get_user_product_preferences() {
     // Retrieve user preferences from local storage
 
-    var user_product_preferences = {};
-    var user_product_preferences_string = localStorage.getItem('user_product_preferences');
+    let user_product_preferences = {};
+    const user_product_preferences_string = localStorage.getItem('user_product_preferences');
 
 	if (user_product_preferences_string) {
 		user_product_preferences = JSON.parse(user_product_preferences_string);
@@ -46,7 +47,7 @@ else {
 
 function display_selected_preferences(target_selected_summary, product_preferences) {
 
-    var selected_preference_groups = {
+    const selected_preference_groups = {
         "mandatory": [],
         "very_important": [],
         "important": [],
@@ -66,11 +67,11 @@ function display_selected_preferences(target_selected_summary, product_preferenc
         });
     });
 
-    var selected_preferences_html = '';
+    let selected_preferences_html = '';
 
     $.each(selected_preference_groups, function(selected_preference, selected_preference_group) {
 
-        var selected_preference_name;
+        let selected_preference_name;
 
         $.each(preferences, function(key, preference) {
 
@@ -183,10 +184,11 @@ function setCookie(name, value, days) {
 
 // callback function when the unwanted ingredients input field is changed
 function unwanted_ingredients_change_callback(e) {
-    var values_json = e.tagifyValue;
+    let values_json = e.tagifyValue;
     // If tagifyValue is empty and value is not an array and is a non-empty string, it is an initial call to initialize tagify, ignore it
     if ((!values_json || values_json.length == 0) && (!Array.isArray(e.value) && e.value && e.value.length > 0)) {
         console.log("Unwanted ingredients changed, empty value, ignoring");
+
         return;
     }
     // The tagifyValue is a string like: [{"value":"Amidon de patate douce"},{"value":"test"}]
@@ -196,7 +198,9 @@ function unwanted_ingredients_change_callback(e) {
     if (!values_json || values_json.length == 0) {
         values_json = "[]";
     }
-    values_string = JSON.parse(values_json).map(function(v) { return v.value; }).join(", ");
+    const values_string = JSON.parse(values_json)
+        .map(function(v) { return v.value; })
+        .join(", ");
 
     // If there are no unwanted ingredients, remove the local storage item and cookie
     if (values_string.length == 0) {
@@ -218,7 +222,7 @@ function unwanted_ingredients_change_callback(e) {
             type: "GET",
             dataType: "json",
             success: function(data) {
-                var canonical_tags_list = data.canonical_tags_list;
+                const canonical_tags_list = data.canonical_tags_list;
 
                 console.log("Canonical unwanted ingredients tags:", canonical_tags_list);
 
@@ -258,6 +262,50 @@ function initialize_unwanted_ingredients_tagify() {
 var unwanted_ingredients_preferences_initalized = false;
 var attribute_unwanted_ingredients_enabled = false;
 
+// We use jQuery to load the CSS file dynamically
+function loadCSS(href) {
+    return new Promise(function(resolve, reject) {
+        const link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.href = href;
+        link.onload = resolve;
+        link.onerror = reject;
+        document.head.appendChild(link);
+    });
+}
+
+// We also want to turn the canonical ingredient tags list into local ingredient names
+// using the /api/v3/taxonomy_display_tags API
+function localize_unwanted_ingredients_tags() {
+    console.log("Localizing unwanted ingredients tags into local ingredient names");
+    return new Promise(function(resolve, reject) {
+        var tags = localStorage.getItem('attribute_unwanted_ingredients_tags');
+        console.log("Canonical unwanted ingredients tags from local storage:", tags);
+        if (tags && tags.length > 0) {
+            $.ajax({
+                url: "/api/v3/taxonomy_display_tags?tagtype=ingredients&canonical_tags_list=" + encodeURIComponent(tags),
+                type: "GET",
+                dataType: "json",
+                success: function(data) {
+                    var local_tags_list = data.local_tags_list;
+                    console.log("Local ingredient names for unwanted ingredients:", local_tags_list);
+                    // store the local ingredient names in the input field
+                    $('input[name=attribute_unwanted_ingredients_names]').val(local_tags_list);
+                    resolve();
+                },
+                error: function(jqxhr, status, exception) {
+                    console.error("Error fetching local ingredient names:", exception);
+                    reject(exception);
+                }
+            });
+        }
+        else {
+            resolve();
+        }
+    });
+}
+
 function display_unwanted_ingredients_preferences() {
 
     if (unwanted_ingredients_preferences_initalized) {
@@ -273,54 +321,10 @@ function display_unwanted_ingredients_preferences() {
             // We use jQuery to load the CSS file dynamically
             console.log("Loading tagify JS");
 
-            function loadCSS(href) {
-                return new Promise(function(resolve, reject) {
-                    const link = document.createElement("link");
-                    link.rel = "stylesheet";
-                    link.type = "text/css";
-                    link.href = href;
-                    link.onload = resolve;
-                    link.onerror = reject;
-                    document.head.appendChild(link);
-                });
-            }
-
-            // We also want to turn the canonical ingredient tags list into local ingredient names
-            // using the /api/v3/taxonomy_display_tags API
-
-            function localize_unwanted_ingredients_tags() {
-                console.log("Localizing unwanted ingredients tags into local ingredient names");
-                return new Promise(function(resolve, reject) {
-                    var tags = localStorage.getItem('attribute_unwanted_ingredients_tags');
-                    console.log("Canonical unwanted ingredients tags from local storage:", tags);
-                    if (tags && tags.length > 0) {
-                        $.ajax({
-                            url: "/api/v3/taxonomy_display_tags?tagtype=ingredients&canonical_tags_list=" + encodeURIComponent(tags),
-                            type: "GET",
-                            dataType: "json",
-                            success: function(data) {
-                                var local_tags_list = data.local_tags_list;
-                                console.log("Local ingredient names for unwanted ingredients:", local_tags_list);
-                                // store the local ingredient names in the input field
-                                $('input[name=attribute_unwanted_ingredients_names]').val(local_tags_list);
-                                resolve();
-                            },
-                            error: function(jqxhr, status, exception) {
-                                console.error("Error fetching local ingredient names:", exception);
-                                reject(exception);
-                            }
-                        });
-                    }
-                    else {
-                        resolve();
-                    }
-                });
-            }
-
             // Load tagify JS and CSS + 
             $.when(
-                $.getScript("/js/dist/tagify.js"), // FIXME: use static subdomain
-                $.getScript("/js/dist/tagify-init.js"), // FIXME: use static subdomain
+                $.getScript("/js/dist/tagify.js"), // FIX ME: use static subdomain
+                $.getScript("/js/dist/tagify-init.js"), // FIX ME: use static subdomain
                 loadCSS("/css/dist/tagify.css"),
                 localize_unwanted_ingredients_tags()
             ).done(function() {
@@ -345,7 +349,7 @@ function display_unwanted_ingredients_preferences() {
 /* exported display_user_product_preferences */
 
 // Make sure we display the preferences only once when we have both preferences and attribute_groups loaded
-var displayed_user_product_preferences = false;
+let displayed_user_product_preferences = false;
 
 function display_user_product_preferences(target_selected, target_selection_form, change) {
 
