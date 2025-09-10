@@ -31,6 +31,7 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 wait_application_ready(__FILE__);
 remove_all_products();
 remove_all_users();
+remove_all_orgs();
 
 my $admin_ua = new_client();
 my $resp = create_user($admin_ua, \%admin_user_form);
