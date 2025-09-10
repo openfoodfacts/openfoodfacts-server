@@ -68,6 +68,7 @@ use ProductOpener::Minion qw/get_minion write_minion_log/;
 use ProductOpener::HTTP qw/create_user_agent/;
 use ProductOpener::Config qw/%oidc_options/;
 use ProductOpener::Auth qw/get_oidc_implementation_level/;
+use ProductOpener::Tags qw/country_to_cc/;
 
 use Test2::V0;
 use Data::Dumper;
@@ -296,7 +297,7 @@ sub create_user_in_keycloak ($user_ref) {
 		attributes => {
 			name => $user_ref->{name},
 			locale => $user_ref->{preferred_language},
-			country => $user_ref->{country},
+			country => country_to_cc($user_ref->{country}),
 		}
 	};
 
@@ -312,7 +313,7 @@ sub create_user_in_keycloak ($user_ref) {
 	my $new_user_response = LWP::UserAgent::Plugin->new->request($create_user_request);
 
 	unless ($new_user_response->is_success) {
-		return 0;
+		die $new_user_response->content;
 	}
 
 	# Wait for the welcome email job before proceeding so the user is fully created
