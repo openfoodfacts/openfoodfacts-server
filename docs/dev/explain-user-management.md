@@ -56,7 +56,7 @@ The main users informations are stored in Keycloak using the PostgreSQL database
 ### Users preferences
 
 Keycloak store users information, but not application specific preferences
-which are deferred to a file on disk.
+which are deferred to a file on disk. (see `User.pm`, `retrieve_user` and `store_user`)
 
 Those files are in a users dataset which is shared between all OxF websites.
 
