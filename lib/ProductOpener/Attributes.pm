@@ -70,7 +70,9 @@ use ProductOpener::Display qw/$static_subdomain/;
 use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::ProductsFeatures qw/feature_enabled/;
 
+
 use Data::DeepAccess qw(deep_get);
+use CGI qw/:cgi/;
 
 =head1 CONFIGURATION
 
@@ -321,6 +323,9 @@ sub initialize_attribute ($attribute_id, $target_lc) {
 	elsif ($attribute_id eq "repairability_index_france") {
 		$attribute_ref->{icon_url} = "$static_subdomain/images/lang/fr/labels/indice-de-reparabilite-10.152x90.svg";
 	}
+	elsif ($attribute_id eq "unwanted_ingredients") {
+        $attribute_ref->{setting_name} = "Ingredients to avoid";
+    }
 
 	# Initialize name and setting name if a language is requested
 
@@ -1746,6 +1751,12 @@ sub compute_attributes ($product_ref, $target_lc, $target_cc, $options_ref) {
 			$attribute_ref = compute_attribute_ingredients_analysis($product_ref, $target_lc, $analysis);
 			add_attribute_to_group($product_ref, $target_lc, "ingredients_analysis", $attribute_ref);
 		}
+		# Unwanted ingredients
+		if (defined cookie("unwanted_ingredients_tags")) {
+			my @unwanted_ingredients = map { s/^\s+|\s+$//gr } split /,/, cookie("unwanted_ingredients_tags");
+			$attribute_ref = compute_attribute_unwanted_ingredients($product_ref, $target_lc, \@unwanted_ingredients);
+			add_attribute_to_group($product_ref, $target_lc, "ingredients", $attribute_ref);
+		}
 	}
 
 	# Processing
@@ -1921,6 +1932,72 @@ sub compute_attribute_repairability_index_france ($product_ref, $target_lc, $tar
 	}
 
 	return $attribute_ref;
+}
+
+
+=head2 compute_attribute_unwanted_ingredients($product_ref, $target_lc, $unwanted_ingredients_ref)
+
+Checks if the product contains any unwanted ingredients specified by the user.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+
+=head4 unwanted ingredients array reference $unwanted_ingredients_ref
+
+Array reference containing ingredient tags to avoid (e.g. ["en:garlic", "en:mango"]).
+
+=head3 Return value
+
+The return value is a reference to the resulting attribute data structure.
+
+=head4 % Match
+
+- 100: none of the unwanted ingredients are present
+- 0: at least one unwanted ingredient is present
+- unknown: if the unwanted ingredients list is not specified
+
+=cut
+
+sub compute_attribute_unwanted_ingredients ($product_ref, $target_lc, $unwanted_ingredients_ref) {
+    my $attribute_id = "unwanted_ingredients";
+    my $attribute_ref = initialize_attribute($attribute_id, $target_lc);
+
+    if (!defined $unwanted_ingredients_ref || ref($unwanted_ingredients_ref) ne 'ARRAY' || !@$unwanted_ingredients_ref) {
+        $attribute_ref->{status} = "unknown";
+        $attribute_ref->{match} = 0;
+        $attribute_ref->{title} = "Ingrédients indésirables non spécifiés";
+        $attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/unwanted-ingredients-unknown.svg";
+        return $attribute_ref;
+    }
+
+    my $found = 0;
+    foreach my $ingredient (@$unwanted_ingredients_ref) {
+        if (has_tag($product_ref, "ingredients", $ingredient)) {
+            $found = 1;
+            last;
+        }
+    }
+
+    if ($found) {
+        $attribute_ref->{status} = "known";
+        $attribute_ref->{match} = 0;
+        $attribute_ref->{title} = "Contient un ingrédient indésirable";
+        $attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/contains-unwanted-ingredient.svg";
+    } else {
+        $attribute_ref->{status} = "known";
+        $attribute_ref->{match} = 100;
+        $attribute_ref->{title} = "Ne contient pas d'ingrédient indésirable";
+        $attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/no-unwanted-ingredient.svg";
+    }
+
+    return $attribute_ref;
 }
 
 1;
