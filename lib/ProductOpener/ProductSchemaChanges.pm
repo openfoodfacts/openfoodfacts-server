@@ -365,7 +365,7 @@ sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref)
 				$new_nutrition_sets_ref->{serving} = {};
 			}
 		}
-		if (!$no_nutrition_data && $nutrition_given_as_prepared) {
+		if ($nutrition_given_as_prepared) {
 			my $nutrition_given_for_100g = defined $product_ref->{nutrition_data_prepared_per}
 				&& $product_ref->{nutrition_data_prepared_per} eq "100g";
 			my $nutrition_given_for_serving = defined $product_ref->{nutrition_data_prepared_per}
