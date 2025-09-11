@@ -185,13 +185,10 @@ function unwanted_ingredients_change_callback(e) {
     let values_json = e.tagifyValue;
     // If tagifyValue is empty and value is not an array and is a non-empty string, it is an initial call to initialize tagify, ignore it
     if ((!values_json || values_json.length == 0) && (!Array.isArray(e.value) && e.value && e.value.length > 0)) {
-        console.log("Unwanted ingredients changed, empty value, ignoring");
-
         return;
     }
     // The tagifyValue is a string like: [{"value":"Amidon de patate douce"},{"value":"test"}]
     // Turn it into a comma separated string
-    console.log("Unwanted ingredients changed, new value:", values_json);
     // If the JSON is an empty string, turn it to an empty array
     if (!values_json || values_json.length == 0) {
         values_json = "[]";
@@ -202,7 +199,6 @@ function unwanted_ingredients_change_callback(e) {
 
     // If there are no unwanted ingredients, remove the local storage item and cookie
     if (values_string.length == 0) {
-        console.log("No unwanted ingredients, removing local storage item and cookie");
         localStorage.removeItem('attribute_unwanted_ingredients_tags');
         setCookie('attribute_unwanted_ingredients_tags', '', -1); // delete the cookie
 
@@ -214,16 +210,12 @@ function unwanted_ingredients_change_callback(e) {
     else
     {
         // Call the /api/v3/taxonomy_canonicalize_tags API to get the canonical tags for the entered ingredient names
-        console.log("Unwanted ingredients changed, entered values:", values_string);
         $.ajax({
             url: "/api/v3/taxonomy_canonicalize_tags?tagtype=ingredients&local_tags_list=" + encodeURIComponent(values_string),
             type: "GET",
             dataType: "json",
             success: function(data) {
                 const canonical_tags_list = data.canonical_tags_list;
-
-                console.log("Canonical unwanted ingredients tags:", canonical_tags_list);
-
                 // store the entered ingredient names in local storage
                 // Note: local storage is subdomain specific, so it will be different for each country / language subdomain
                 // It is already the case for the other preferences settings
@@ -277,11 +269,9 @@ function loadCSS(href) {
 // We also want to turn the canonical ingredient tags list into local ingredient names
 // using the /api/v3/taxonomy_display_tags API
 function localize_unwanted_ingredients_tags() {
-    console.log("Localizing unwanted ingredients tags into local ingredient names");
 
     return new Promise(function(resolve, reject) {
         var tags = localStorage.getItem('attribute_unwanted_ingredients_tags');
-        console.log("Canonical unwanted ingredients tags from local storage:", tags);
         if (tags && tags.length > 0) {
             $.ajax({
                 url: "/api/v3/taxonomy_display_tags?tagtype=ingredients&canonical_tags_list=" + encodeURIComponent(tags),
@@ -289,13 +279,11 @@ function localize_unwanted_ingredients_tags() {
                 dataType: "json",
                 success: function(data) {
                     var local_tags_list = data.local_tags_list;
-                    console.log("Local ingredient names for unwanted ingredients:", local_tags_list);
                     // store the local ingredient names in the input field
                     $('input[name=attribute_unwanted_ingredients_names]').val(local_tags_list);
                     resolve();
                 },
                 error: function(jqxhr, status, exception) {
-                    console.error("Error fetching local ingredient names:", exception);
                     reject(exception);
                 }
             });
@@ -314,14 +302,10 @@ function display_unwanted_ingredients_preferences() {
 
     // Initialize tagify on the unwanted ingredients input field if we have it
     if (attribute_unwanted_ingredients_enabled) {
-        console.log("Initializing tagify on unwanted ingredients input field");
         // We need to load tagify library if not already loaded
         if (typeof Tagify === 'undefined') {
-            // Load tagify CSS
+            // Load tagify JS and CSS
             // We use jQuery to load the CSS file dynamically
-            console.log("Loading tagify JS");
-
-            // Load tagify JS and CSS + 
             $.when(
                 $.getScript("/js/dist/tagify.js"), // FIX ME: use static subdomain
                 $.getScript("/js/dist/tagify-init.js"), // FIX ME: use static subdomain
@@ -329,14 +313,12 @@ function display_unwanted_ingredients_preferences() {
                 localize_unwanted_ingredients_tags()
             ).done(function() {
                 // Initialize tagify on the unwanted ingredients input field
-                console.log("Tagify JS loaded, initializing tagify on unwanted ingredients input field");
                 initialize_unwanted_ingredients_tagify();
             }).fail(function(jqxhr, settings, exception) {
                 console.error("Error loading tagify JS or CSS:", exception);
             });
         }
         else {
-            console.log("Tagify already loaded, initializing tagify on unwanted ingredients input field");
             initialize_unwanted_ingredients_tagify();
         }
     }
