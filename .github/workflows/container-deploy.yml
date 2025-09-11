@@ -112,7 +112,7 @@ jobs:
         proxy_host: ${{ env.SSH_PROXY_HOST }}
         proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script_stop: false
+        continue-on-error: false
         script: |
           # while we would use shallow clone on a normal repo,
           # comparison is too costly for this project and takes too much time, so we use a regular clone
@@ -138,7 +138,7 @@ jobs:
         proxy_host: ${{ env.SSH_PROXY_HOST }}
         proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script_stop: false
+        continue-on-error: false
         script: |
           # Go to repository directory
           cd ${{ matrix.env }}
@@ -192,8 +192,8 @@ jobs:
           # OIDC (Keycloak) settings
           echo "OIDC_IMPLEMENTATION_LEVEL=${{ env.OIDC_IMPLEMENTATION_LEVEL }}" >> .env
           echo "OIDC_DISCOVERY_URL=${{ env.OIDC_DISCOVERY_URL }}" >> .env
-          echo "OFF_CLIENT_SECRET=${{ secrets.OFF_CLIENT_SECRET }}" >> .env
-          echo "PROCESS_GLOBAL_REDIS_EVENTS=1" >> .env
+          echo "OIDC_CLIENT_ID=OFF" >> .env
+          echo "OIDC_CLIENT_SECRET=${{ secrets.OFF_CLIENT_SECRET }}" >> .env
 
           # Override domain name in nginx.conf
           sed -i.bak "s/productopener.localhost/${{ env.PRODUCT_OPENER_DOMAIN }}/g" ./conf/nginx-docker/nginx.conf
@@ -207,7 +207,7 @@ jobs:
         proxy_host: ${{ env.SSH_PROXY_HOST }}
         proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script_stop: false
+        continue-on-error: false
         script: |
           cd ${{ matrix.env }} && \
           make create_external_volumes && \
@@ -224,7 +224,7 @@ jobs:
         proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         command_timeout: 25m
-        script_stop: false
+        continue-on-error: false
         script: |
           waited=0
           for IMAGE_TYPE in frontend backend
@@ -253,7 +253,7 @@ jobs:
         proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         command_timeout: 25m
-        script_stop: false
+        continue-on-error: false
         script: |
           cd ${{ matrix.env }} && \
           make init_backend
@@ -269,10 +269,12 @@ jobs:
         proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         command_timeout: 15m
-        script_stop: false
+        continue-on-error: false
         script: |
           cd ${{ matrix.env }} && \
           make hdown && \
+          # verify dist volumes were removed
+          ! (docker volume list |grep po_.*_dist) && \
           make build_lang && \
           make prod_up
 
@@ -286,7 +288,7 @@ jobs:
         proxy_host: ${{ env.SSH_PROXY_HOST }}
         proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script_stop: false
+        continue-on-error: false
         script: |
           cd ${{ matrix.env }} && \
           make livecheck
@@ -301,7 +303,7 @@ jobs:
         proxy_host: ${{ env.SSH_PROXY_HOST }}
         proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script_stop: false
+        continue-on-error: false
         script: |
           cd ${{ matrix.env }} && \
           make prune
