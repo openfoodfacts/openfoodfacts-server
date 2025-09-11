@@ -290,7 +290,7 @@ lint: lint_perltidy lint_taxonomies
 tests: build_taxonomies_test build_lang_test build_pro_platform_test unit_test integration_test brands_sort_test
 
 # add COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover"' if you want to trigger code coverage report generation
-unit_test: create_folders
+unit_test: create_folders build_pro_platform_test
 	@echo "🥫 Running unit tests …"
 	mkdir -p tests/unit/outputs/
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
@@ -654,7 +654,7 @@ guard-%: # guard clause for targets that require an environment variable (usuall
 get_unit_group_tests = $(UNIT_GROUP_$(1)_TESTS)
 
 # Unit test group runner for CI parallelization
-unit_test_group: create_folders
+unit_test_group: create_folders build_pro_platform_test
 ifeq ($(TEST_GROUP),)
 	$(error TEST_GROUP is required. Usage: make unit_test_group TEST_GROUP=1)
 endif
