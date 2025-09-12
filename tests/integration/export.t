@@ -33,11 +33,9 @@ use File::Basename "dirname";
 
 # Remove all products
 
-wait_application_ready();
-
-remove_all_users();
-
+wait_application_ready(__FILE__);
 remove_all_products();
+remove_all_users();
 
 # Import test products
 

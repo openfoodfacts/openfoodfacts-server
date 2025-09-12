@@ -29,6 +29,8 @@ sub test_template($) {
 			chomp($file);
 			next if $file eq '.';
 			next if $file eq '..';
+			# Ignore README files
+			next if $file =~ /\.md$/;
 
 			test_template($path . '/' . $file);
 		}

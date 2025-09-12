@@ -13,7 +13,7 @@ use ProductOpener::Auth qw/get_oidc_implementation_level/;
 use Clone qw/clone/;
 use Minion::Job;
 
-wait_application_ready();
+wait_application_ready(__FILE__);
 remove_all_users();
 
 #new common user agent
@@ -68,8 +68,7 @@ if (get_oidc_implementation_level() < 5) {
 	);
 
 	#waiting the deletion task to be done (weirdly enough it is not useful anymore..)
-	my $max_time = 60;
-	my $jobs_ref = get_minion_jobs("delete_user", $before_delete_ts, $max_time);
+	my $jobs_ref = get_minion_jobs("delete_user", $before_delete_ts);
 
 	is(scalar @{$jobs_ref}, 1, "One delete_user was triggered");
 	my $delete_job_state = $jobs_ref->[0]{state};

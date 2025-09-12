@@ -11,8 +11,8 @@ org_name: [% user.org or user.requested_org %]<br>
 userid: [% user.userid %]<br>
 name: [% user.name %]<br>
 email: [% user.email %]<br>
-lc: [% user.initial_lc %]<br>
-cc: [% user.initial_cc %]<br>
+lc: [% user.preferred_language %]<br>
+cc: [% cc %]<br>
 
 <a href="https://world.openfoodfacts.org/cgi/org.pl?type=edit&orgid=[% user.org or user.requested_org %]">Access org [% user.org or user.requested_org %] to validate if it is a real organization</a>
 <br>

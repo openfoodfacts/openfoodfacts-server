@@ -83,7 +83,7 @@ use ProductOpener::Export qw/export_csv/;
 use ProductOpener::Import
 	qw/$IMPORT_MAX_PACKAGING_COMPONENTS import_csv_file import_products_categories_from_public_database/;
 use ProductOpener::ImportConvert qw/clean_fields/;
-use ProductOpener::Minion qw/get_minion/;
+use ProductOpener::Minion qw/get_minion write_minion_log/;
 use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
 use ProductOpener::Orgs qw/update_export_date/;
 use ProductOpener::Images qw/$valid_image_types_regexp/;
@@ -1976,16 +1976,11 @@ sub import_csv_file_task ($job, $args_ref) {
 
 	my $job_id = $job->{id};
 
-	open(my $log, ">>", "$BASE_DIRS{LOGS}/minion.log");
-	print $log "import_csv_file_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
-	close($log);
-
-	print STDERR "import_csv_file_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
-
-	print STDERR "import_csv_file_task - job: $job_id - running import_csv_file\n";
+	write_minion_log("import_csv_file_task - job: $job_id started - args: " . encode_json($args_ref));
 
 	ProductOpener::Import::import_csv_file($args_ref);
 
+	write_minion_log("import_csv_file_task - job: $job_id done");
 	$job->finish("done");
 
 	return;
@@ -1997,13 +1992,7 @@ sub export_csv_file_task ($job, $args_ref) {
 
 	my $job_id = $job->{id};
 
-	open(my $minion_log, ">>", "$BASE_DIRS{LOGS}/minion.log");
-	print $minion_log "export_csv_file_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
-	close($minion_log);
-
-	print STDERR "export_csv_file_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
-
-	print STDERR "export_csv_file_task - job: $job_id - running export_csv_file\n";
+	write_minion_log("export_csv_file_task - job: $job_id started - args: " . encode_json($args_ref));
 
 	my $filehandle;
 	open($filehandle, ">:encoding(UTF-8)", $args_ref->{csv_file})
@@ -2015,11 +2004,7 @@ sub export_csv_file_task ($job, $args_ref) {
 
 	close($filehandle);
 
-	print STDERR "export_csv_file_task - job: $job_id - done\n";
-
-	open(my $log, ">>", "$BASE_DIRS{LOGS}/minion.log");
-	print $log "export_csv_file_task - job: $job_id done\n";
-	close($log);
+	write_minion_log("export_csv_file_task - job: $job_id done");
 
 	$job->finish("done");
 
@@ -2032,21 +2017,12 @@ sub import_products_categories_from_public_database_task ($job, $args_ref) {
 
 	my $job_id = $job->{id};
 
-	open(my $minion_log, ">>", "$BASE_DIRS{LOGS}/minion.log");
-	print $minion_log "import_products_categories_from_public_database_file_task - job: $job_id started - args: "
-		. encode_json($args_ref) . "\n";
-	close($minion_log);
-
-	print STDERR "import_products_categories_from_public_database_file_task - job: $job_id started - args: "
-		. encode_json($args_ref) . "\n";
+	write_minion_log("import_products_categories_from_public_database_file_task - job: $job_id started - args: "
+			. encode_json($args_ref));
 
 	ProductOpener::Import::import_products_categories_from_public_database($args_ref);
 
-	print STDERR "import_products_categories_from_public_database_file_task - job: $job_id - done\n";
-
-	open(my $log, ">>", "$BASE_DIRS{LOGS}/minion.log");
-	print $log "import_products_categories_from_public_database_file_task - job: $job_id done\n";
-	close($log);
+	write_minion_log("import_products_categories_from_public_database_file_task - job: $job_id done");
 
 	$job->finish("done");
 
@@ -2059,21 +2035,11 @@ sub update_export_status_for_csv_file_task ($job, $args_ref) {
 
 	my $job_id = $job->{id};
 
-	open(my $minion_log, ">>", "$BASE_DIRS{LOGS}/minion.log");
-	print $minion_log "update_export_status_for_csv_file_task - job: $job_id started - args: "
-		. encode_json($args_ref) . "\n";
-	close($minion_log);
-
-	print STDERR "update_export_status_for_csv_file_task - job: $job_id started - args: "
-		. encode_json($args_ref) . "\n";
+	write_minion_log("update_export_status_for_csv_file_task - job: $job_id started - args: " . encode_json($args_ref));
 
 	ProductOpener::Import::update_export_status_for_csv_file($args_ref);
 
-	print STDERR "update_export_status_for_csv_file_task - job: $job_id - done\n";
-
-	open(my $log, ">>", "$BASE_DIRS{LOGS}/minion.log");
-	print $log "update_export_status_file_task - job: $job_id done\n";
-	close($log);
+	write_minion_log("update_export_status_file_task - job: $job_id done");
 
 	$job->finish("done");
 

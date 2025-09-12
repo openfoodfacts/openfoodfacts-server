@@ -28,24 +28,27 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Users qw/retrieve_user retrieve_userids/;
+use ProductOpener::Users qw/retrieve_user retrieve_user_preference_ids/;
+use ProductOpener::Tags qw/country_to_cc/;
 
 require ProductOpener::GeoIP;
 
 my @userids;
 
 if (scalar $#userids < 0) {
-	@userids = retrieve_userids();
+	@userids = retrieve_user_preference_ids();
 }
 
 foreach my $userid (@userids) {
+	# This is kind of inconsistent as we get the list of user ids from preferences rather than Keycloak
+	# But a user can only be in an org if they have preferences saved
 	my $user_ref = retrieve_user($userid);
 
 	if ((defined $user_ref->{org}) and ($user_ref->{org} ne "")) {
 		my $country = ProductOpener::GeoIP::get_country_code_for_ip($user_ref->{ip});
 		defined $country or $country = "";
-		my $lc = $user_ref->{initial_lc} || "";
-		my $cc = $user_ref->{initial_cc} || "";
+		my $lc = $user_ref->{preferred_language} || "";
+		my $cc = country_to_cc($user_ref->{country}) || "";
 		my $t = $user_ref->{registered_t} || "";
 		print lc($user_ref->{email}) . "\t"
 			. $lc . "\t"

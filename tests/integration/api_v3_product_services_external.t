@@ -14,7 +14,7 @@ use File::Basename "dirname";
 use Storable qw(dclone);
 use JSON qw(decode_json);
 
-wait_application_ready();
+wait_application_ready(__FILE__);
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
