@@ -192,8 +192,8 @@ jobs:
           # OIDC (Keycloak) settings
           echo "OIDC_IMPLEMENTATION_LEVEL=${{ env.OIDC_IMPLEMENTATION_LEVEL }}" >> .env
           echo "OIDC_DISCOVERY_URL=${{ env.OIDC_DISCOVERY_URL }}" >> .env
-          echo "OFF_CLIENT_SECRET=${{ secrets.OFF_CLIENT_SECRET }}" >> .env
-          echo "PROCESS_GLOBAL_REDIS_EVENTS=1" >> .env
+          echo "OIDC_CLIENT_ID=OFF" >> .env
+          echo "OIDC_CLIENT_SECRET=${{ secrets.OFF_CLIENT_SECRET }}" >> .env
 
           # Override domain name in nginx.conf
           sed -i.bak "s/productopener.localhost/${{ env.PRODUCT_OPENER_DOMAIN }}/g" ./conf/nginx-docker/nginx.conf

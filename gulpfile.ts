@@ -14,6 +14,7 @@ const sass = gulpSass(sassLib);
 const jsSrc = [
   "./html/js/display*.js",
   "./html/js/product-*.js",
+  "./html/js/tagify-init.js",  
   "./html/js/search.js",
   "./html/js/hc-sticky.js",
   "./html/js/stikelem.js",
