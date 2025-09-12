@@ -62,14 +62,17 @@ use vars @EXPORT_OK;
 
 use Log::Any qw($log);
 
+use ProductOpener::Food qw/default_unit_for_nid/;
 use ProductOpener::Tags qw/compute_field_tags/;
 use ProductOpener::Products qw/normalize_code/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Booleans qw/normalize_boolean/;
 use ProductOpener::Images qw/normalize_generation_ref/;
+use ProductOpener::Nutrition qw/generate_nutrient_aggregated_set_from_sets/;
 
 use Data::DeepAccess qw(deep_get deep_set);
 use boolean ':all';
+use List::Util qw/any/;
 
 $current_schema_version = 1002;
 
@@ -124,12 +127,14 @@ sub convert_product_schema ($product_ref, $to_version) {
 	999 => \&convert_schema_999_to_1000_rename_ecoscore_fields_to_environmental_score,
 	1000 => \&convert_schema_1000_to_1001_remove_ingredients_hierarchy_taxonomize_brands,
 	1001 => \&convert_schema_1001_to_1002_refactor_images_object,
+	1002 => \&convert_schema_1002_to_1003_refactor_product_nutrition_schema,
 );
 
 %downgrade_functions = (
 	1000 => \&convert_schema_1000_to_999_rename_ecoscore_fields_to_environmental_score,
 	1001 => \&convert_schema_1001_to_1000_remove_ingredients_hierarchy_taxonomize_brands,
 	1002 => \&convert_schema_1002_to_1001_refactor_images_object,
+	1003 => \&convert_schema_1003_to_1002_refactor_product_nutrition_schema,
 );
 
 =head2 998 to 999 - Change in barcode normalization
@@ -317,6 +322,226 @@ sub convert_schema_1002_to_1001_refactor_images_object ($product_ref) {
 
 		# Replace the images object with the new one
 		$product_ref->{images} = $new_images_ref;
+	}
+
+	return;
+}
+
+=head2 1002 to 1003 - Refactor the product nutrition schema - API v3.4
+
+The nutrition schema is updated to allow storing several nutrition sets
+
+=cut
+
+sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref) {
+	# generate the same update time for the nutrition sets that are going to be created
+	my $update_time = time() + 0;
+
+	$product_ref->{nutrition} = {};
+	$product_ref->{nutrition}{unspecified_nutrients} = [];
+
+	# only create sets for which the nutrient values are given and not computed
+	my $new_nutrition_sets_ref = {};
+	my $no_nutrition_data = defined $product_ref->{no_nutrition_data} && $product_ref->{no_nutrition_data} eq "on";
+
+	if ($no_nutrition_data) {
+		$product_ref->{nutrition}{no_nutrition_data} = true;
+	}
+	else {
+		my $nutrition_given_as_prepared
+			= defined $product_ref->{nutrition_data_prepared} && $product_ref->{nutrition_data_prepared} eq "on";
+		my $nutrition_given_as_sold = defined $product_ref->{nutrition_data} && $product_ref->{nutrition_data} eq "on";
+
+		if ($nutrition_given_as_sold) {
+			my $nutrition_given_for_100g
+				= defined $product_ref->{nutrition_data_per} && $product_ref->{nutrition_data_per} eq "100g";
+			my $nutrition_given_for_serving
+				= defined $product_ref->{nutrition_data_per} && $product_ref->{nutrition_data_per} eq "serving";
+
+			if ($nutrition_given_for_100g) {
+				$new_nutrition_sets_ref->{"100g"} = {};
+			}
+			elsif ($nutrition_given_for_serving) {
+				$new_nutrition_sets_ref->{serving} = {};
+			}
+		}
+		if ($nutrition_given_as_prepared) {
+			my $nutrition_given_for_100g = defined $product_ref->{nutrition_data_prepared_per}
+				&& $product_ref->{nutrition_data_prepared_per} eq "100g";
+			my $nutrition_given_for_serving = defined $product_ref->{nutrition_data_prepared_per}
+				&& $product_ref->{nutrition_data_prepared_per} eq "serving";
+
+			if ($nutrition_given_for_100g) {
+				$new_nutrition_sets_ref->{"prepared_100g"} = {};
+			}
+			elsif ($nutrition_given_for_serving) {
+				$new_nutrition_sets_ref->{prepared_serving} = {};
+			}
+		}
+	}
+
+	# hash used to easily access nutrient fields of old set and set preparation values of new sets
+	my $nutrition_preparations_ref = {
+		"prepared_100g" => {state => "prepared", modifier_state => "_prepared"},
+		"prepared_serving" => {state => "prepared", modifier_state => "_prepared"},
+		"100g" => {state => "as_sold", modifier_state => ""},
+		"serving" => {state => "as_sold", modifier_state => ""},
+	};
+
+	if (defined $product_ref->{nutriments} && !$no_nutrition_data) {
+		my %hash_nutrients = map {/^([a-z][a-z\-]*[a-z]?)(?:_\w+)?$/ ? ($1 => 1) : ()}
+			keys %{$product_ref->{nutriments}};
+
+		my @nutrients = keys %hash_nutrients;
+
+		# add unspecified nutrients to the unspecified list
+		# those nutrients won't be added to the nutrient sets
+		foreach my $nutrient (@nutrients) {
+			# if nutrient modifier is "-" then this nutrient is unspecified
+			if (defined $product_ref->{nutriments}{$nutrient . "_modifier"}
+				and $product_ref->{nutriments}{$nutrient . "_modifier"} eq "-")
+			{
+				push(@{$product_ref->{nutrition}{unspecified_nutrients}}, $nutrient);
+			}
+		}
+
+		# Generates the nutrition sets,
+		# which, for old data, are all from source "packaging"
+		foreach my $set_type (keys %$new_nutrition_sets_ref) {
+			$new_nutrition_sets_ref->{$set_type}{preparation} = $nutrition_preparations_ref->{$set_type}{state};
+			$new_nutrition_sets_ref->{$set_type}{source} = "packaging";
+			$new_nutrition_sets_ref->{$set_type}{last_updated_t} = $update_time;
+
+			$new_nutrition_sets_ref->{$set_type}{per_unit}
+				= set_per_unit($product_ref->{product_quantity_unit}, $product_ref->{serving_quantity_unit}, $set_type);
+
+			# set per_quantity as the serving quantity if the set is generated with nutrient quantities per serving,
+			# or as 100 if it is generated with quantities per 100g/ml
+			$new_nutrition_sets_ref->{$set_type}{per_quantity}
+				= ($set_type eq "serving" or $set_type eq "prepared_serving")
+				? $product_ref->{serving_quantity}
+				: 100;
+
+			# set per as serving if the set is generated with nutrient quantities per serving,
+			# or as 100g or 100ml if it is generated with quantities per 100g/ml
+			$new_nutrition_sets_ref->{$set_type}{per}
+				= ($set_type eq "serving" or $set_type eq "prepared_serving")
+				? "serving"
+				: "100" . $new_nutrition_sets_ref->{$set_type}{per_unit};
+
+			$new_nutrition_sets_ref->{$set_type}{nutrients} = {};
+
+			foreach my $nutrient (@nutrients) {
+				# only add the nutrient value if it is provided for the set type
+				if (defined $product_ref->{nutriments}{$nutrient . '_' . $set_type} && !any {$_ eq $nutrient}
+					@{$product_ref->{nutrition}{unspecified_nutrients}})
+				{
+					my $nutrient_value = $product_ref->{nutriments}{$nutrient . '_' . $set_type};
+					my $nutrient_set_ref = {};
+					$nutrient_set_ref->{value} = $nutrient_value;
+					$nutrient_set_ref->{unit} = default_unit_for_nid($nutrient);
+					# the 1002 version products do not have a value string so the float value is converted to string
+					$nutrient_set_ref->{value_string} = sprintf("%s", $nutrient_value);
+
+					my $nutrient_field_modifier
+						= $nutrient . ($nutrition_preparations_ref->{$set_type}{modifier_state}) . "_modifier";
+					if (defined $product_ref->{nutriments}{$nutrient_field_modifier}) {
+						$nutrient_set_ref->{modifier} = $product_ref->{nutriments}{$nutrient_field_modifier};
+					}
+					$new_nutrition_sets_ref->{$set_type}{nutrients}{$nutrient} = $nutrient_set_ref;
+				}
+			}
+		}
+	}
+
+	# add the created sets to the new nutrition field
+	$product_ref->{nutrition}{input_sets} = [
+		grep {defined $_ && %{$_->{nutrients}}} (
+			$new_nutrition_sets_ref->{"prepared_100g"}, $new_nutrition_sets_ref->{prepared_serving},
+			$new_nutrition_sets_ref->{"100g"}, $new_nutrition_sets_ref->{serving}
+		)
+	];
+	# generate the aggregated set with the created sets
+	$product_ref->{nutrition}{aggregated_set}
+		= generate_nutrient_aggregated_set_from_sets($product_ref->{nutrition}{input_sets});
+
+	# delete the old nutrition schema from the product and other now useless fields
+	delete $product_ref->{nutriments};
+	delete $product_ref->{no_nutrition_data};
+	delete $product_ref->{nutrition_data};
+	delete $product_ref->{nutrition_data_per};
+	delete $product_ref->{nutrition_data_prepared};
+	delete $product_ref->{nutrition_data_prepared_per};
+
+	return;
+}
+
+=head2 set_per_unit
+
+Set the per unit depending on the given product quantity unit, the serving quantity unit
+and on the fact that the created set is per 100g or per serving
+
+=cut
+
+sub set_per_unit ($product_quantity_unit, $serving_quantity_unit, $set_type) {
+	my $per_unit = undef;
+	if (defined $product_quantity_unit) {
+		$per_unit = $product_quantity_unit;
+	}
+	elsif (defined $serving_quantity_unit) {
+		$per_unit = $serving_quantity_unit;
+	}
+	# unit is either g or ml for set types of 100g or prepared_100g because, the default being g
+	elsif ($set_type eq "100g" || $set_type eq "prepared_100g") {
+		$per_unit = "g";
+	}
+	return $per_unit;
+}
+
+sub convert_schema_1003_to_1002_refactor_product_nutrition_schema ($product_ref, $delete_nutrition_data = true) {
+	# if no aggregated set then there is no nutrition information
+	if (   !defined $product_ref->{nutrition}{aggregated_set}
+		|| !%{$product_ref->{nutrition}{aggregated_set}})
+	{
+		$product_ref->{no_nutrition_data} = "on";
+		$product_ref->{nutriments} = {};
+		delete $product_ref->{nutrition};
+	}
+
+	else {
+		my $nutrient_set_ref = $product_ref->{nutrition}{aggregated_set};
+		my $preparation_state = $nutrient_set_ref->{preparation} eq "prepared" ? "_prepared" : "";
+		# if per is 100ml then 1002 product version nutrient per field is 100g
+		my $per = $nutrient_set_ref->{per} eq "100ml" ? "_100g" : "_" . $nutrient_set_ref->{per};
+
+		# first create the nutriments field
+		my $nutriments = {};
+
+		foreach my $nutrient (keys %{$nutrient_set_ref->{nutrients}}) {
+			$nutriments->{$nutrient . $preparation_state . $per} = $nutrient_set_ref->{nutrients}{$nutrient}{value};
+			$nutriments->{$nutrient . "_unit"} = $nutrient_set_ref->{nutrients}{$nutrient}{unit};
+			if (defined $nutrient_set_ref->{nutrients}{$nutrient}{modifier}) {
+				$nutriments->{$nutrient . $preparation_state . "_modifier"}
+					= $nutrient_set_ref->{nutrients}{$nutrient}{modifier};
+			}
+		}
+
+		$product_ref->{nutriments} = $nutriments;
+
+		# then add other useful data on the nutrients to the product
+		if ($preparation_state eq "") {
+			$product_ref->{nutrition_data} = "on";
+			$product_ref->{nutrition_data_per} = $product_ref->{nutrition}{aggregated_set}{per};
+		}
+		else {
+			$product_ref->{nutrition_data_prepared} = "on";
+			$product_ref->{nutrition_data_prepared_per} = $product_ref->{nutrition}{aggregated_set}{per};
+		}
+
+		# finally remove the nutrition field of the 1003 product version if deletion on
+		if ($delete_nutrition_data) {
+			delete $product_ref->{nutrition};
+		}
 	}
 
 	return;
