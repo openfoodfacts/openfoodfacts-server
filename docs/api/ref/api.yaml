@@ -39,6 +39,8 @@ paths:
       description: |
         Fetches product details by its unique barcode. 
         Can return all product details or specific fields like knowledge panels.
+        
+        Use the `blame` parameter to include information about who last modified each field of the product.
       operationId: get-product-by-barcode
       parameters:
         - name: barcode
@@ -55,6 +57,7 @@ paths:
         - $ref: "#/components/parameters/fields"
         - $ref: "#/components/parameters/knowledge_panels_included"
         - $ref: "#/components/parameters/knowledge_panels_excluded"
+        - $ref: "./parameters/blame.yaml#/components/parameters/Blame"
       responses:
         "200":
           description: OK
@@ -71,11 +74,14 @@ paths:
                         properties:
                           product:
                             $ref: "#/components/schemas/Product-Knowledge-Panels"
+                  - $ref: "./responses/get_product_by_barcode_with_blame.yaml"
               examples:
                 full-product:
                   $ref: "./examples/get_product_by_barcode_spread.yaml"
                 knowledge-panels:
                   $ref: "./examples/get_product_by_barcode_knowledge_panels.yaml" # You'll need to create this example
+                with-blame:
+                  $ref: "./examples/get_product_by_barcode_with_blame.yaml"
         "302":
           description: Redirect to the correct server for the product type of the requested product
           headers:

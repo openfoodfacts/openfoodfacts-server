@@ -179,6 +179,13 @@ my $tests_ref = [
 			'?fields=knowledge_panels&knowledge_panels_included=health_card,environment_card&knowledge_panels_excluded=health_card',
 		expected_status_code => 200,
 	},
+	{
+		test_case => 'get-with-blame',
+		method => 'GET',
+		path => '/api/v2/product/200000000034',
+		query_string => '?blame=1',
+		expected_status_code => 200,
+	},
 	# Test authentication
 	# (currently not needed for READ requests, but it could in the future, for instance to get personalized results)
 	{
