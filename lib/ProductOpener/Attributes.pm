@@ -2003,10 +2003,28 @@ sub compute_attribute_unwanted_ingredients ($product_ref, $target_lc, $unwanted_
 
 			# Check that we do not have too many unknown ingredients, otherwise mark as unknown
 			if ($product_ref->{unknown_ingredients_n} <= $product_ref->{ingredients_n} / 10) {
+
+				my $unwanted_ingredients
+					= join(', ', map {display_taxonomy_tag($target_lc, "ingredients", $_)} @$unwanted_ingredients_ref);
+
 				$attribute_ref->{status} = "known";
 				$attribute_ref->{match} = 100;
 				$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/no-unwanted-ingredients.svg";
 				$attribute_ref->{title} = lang_in_other_lc($target_lc, "no_unwanted_ingredients");
+				$attribute_ref->{description_short} = f_lang_in_lc(
+					$target_lc,
+					"f_we_did_not_detect_unwanted_ingredients",
+					{
+						unwanted_ingredients => $unwanted_ingredients
+					}
+				);
+				$attribute_ref->{description} = f_lang_in_lc(
+					$target_lc,
+					"f_we_did_not_detect_unwanted_ingredients_warning",
+					{
+						unwanted_ingredients => $unwanted_ingredients
+					}
+				);
 			}
 			else {
 				# Keep status unknown if too many unknown ingredients
