@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.79.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.78.1...v2.79.0) (2025-09-12)
+
+
+### Features
+
+* unwanted ingredients attribute for personal search ([#12321](https://github.com/openfoodfacts/openfoodfacts-server/issues/12321)) ([209a733](https://github.com/openfoodfacts/openfoodfacts-server/commit/209a7338bd7567e60cbaf5fce57af1f1685014f9))
+
+
+### Bug Fixes
+
+* add energy and proteins for pet food nutrition ([#12346](https://github.com/openfoodfacts/openfoodfacts-server/issues/12346)) ([93ceee9](https://github.com/openfoodfacts/openfoodfacts-server/commit/93ceee92ef3366dd02d28cb9939bf6b9b7da1ffe))
+* **docs:** add imgid to api v2 image schema ([#12349](https://github.com/openfoodfacts/openfoodfacts-server/issues/12349)) ([9f74d5e](https://github.com/openfoodfacts/openfoodfacts-server/commit/9f74d5e02a7ee5d06ceff364793e8a66de92422b))
+* free space during workflow ([#12350](https://github.com/openfoodfacts/openfoodfacts-server/issues/12350)) ([4951aaf](https://github.com/openfoodfacts/openfoodfacts-server/commit/4951aaf4f4c321ad2215684c041023b65dee664c))
+* **openapi:** Required fields in product_base.yml ([35e64cf](https://github.com/openfoodfacts/openfoodfacts-server/commit/35e64cf792b25623a42a5a32be542b351b6eadae))
+
 ## [2.78.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.78.0...v2.78.1) (2025-09-05)
 
 
