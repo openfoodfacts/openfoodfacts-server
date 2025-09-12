@@ -626,6 +626,45 @@ stop_deps:
 	done
 
 #-----------#
+# Perl LSP   #
+#-----------#
+
+# Perl Language Server commands for IDE integration
+lsp_start:
+	@echo "🥫 Starting Perl Language Server for IDE integration …"
+	./scripts/start-perl-lsp.sh start
+
+lsp_stop:
+	@echo "🥫 Stopping Perl Language Server …"
+	./scripts/start-perl-lsp.sh stop
+
+lsp_restart:
+	@echo "🥫 Restarting Perl Language Server …"
+	./scripts/start-perl-lsp.sh restart
+
+lsp_logs:
+	@echo "🥫 Showing Perl Language Server logs …"
+	./scripts/start-perl-lsp.sh logs
+
+lsp_test:
+	@echo "🥫 Testing Perl Language Server functionality …"
+	./scripts/start-perl-lsp.sh test
+
+lsp_shell:
+	@echo "🥫 Opening shell in Perl Language Server container …"
+	./scripts/start-perl-lsp.sh shell
+
+lsp_install:
+	@echo "🥫 Installing Perl extension for Cursor/VS Code …"
+	./scripts/install-perl-extension.sh
+
+# Complete LSP setup for new developers
+lsp_setup: lsp_install lsp_start
+	@echo "🥫 Perl Language Server setup complete!"
+	@echo "🥫 Your IDE should now have full Perl support with syntax checking, IntelliSense, and debugging."
+	@echo "🥫 Open any .pl or .pm file to test the integration."
+
+#-----------#
 # Utilities #
 #-----------#
 
