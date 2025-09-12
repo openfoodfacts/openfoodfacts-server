@@ -222,7 +222,7 @@ script.
 To use it, open a terminal, where you want to be in pro environment and simply use:
 
 ```bash
-. setenv.sh off-pro
+. .env/setenv.sh off-pro
 ```
 
 then you can use whatever docker compose command.
