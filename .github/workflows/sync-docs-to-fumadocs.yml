@@ -1,0 +1,191 @@
+name: Sync Documentation to Fumadocs
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - "docs/**"
+      - "!docs/api/**"  
+  pull_request:
+    paths:
+      - "docs/**"
+      - "!docs/api/**"
+  workflow_dispatch:
+
+
+jobs:
+  sync-docs:
+    name: Convert MD to MDX and Sync to Documentation Repository
+    runs-on: ubuntu-latest
+    # Only run on push to main, not on PRs (PRs will just validate the workflow)
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Checkout openfoodfacts-server repository
+        uses: actions/checkout@v4
+        with:
+          path: openfoodfacts-server
+          fetch-depth: 1
+
+      - name: Checkout openfoodfacts-documentation repository
+        uses: actions/checkout@v4
+        with:
+          repository: openfoodfacts/openfoodfacts-documentation
+          token: ${{ secrets.DOCUMENTATION_REPO_TOKEN }}
+          path: openfoodfacts-documentation
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: openfoodfacts-server/package.json
+
+      - name: Install fumadocs-transpiler
+        run: |
+          cd openfoodfacts-server
+          npm install fumadocs-transpiler --save-dev
+
+      - name: Initialize fumadocs-transpiler configuration
+        run: |
+          cd openfoodfacts-server
+          # Create configuration file for proper component imports
+          npx fumadocs-transpiler config init
+          
+          # Create a temporary directory for converted files
+          mkdir -p temp-mdx
+
+      - name: Convert markdown files to MDX
+        run: |
+          cd openfoodfacts-server
+          
+          # First, validate the markdown files
+          echo "Validating markdown files..."
+          npx fumadocs-transpiler ./docs --validate-only
+          
+          # Use fumadocs-transpiler to convert entire docs directory
+          # This will convert all .md files to .mdx format with proper component imports
+          echo "Converting markdown files to MDX..."
+          npx fumadocs-transpiler ./docs ./temp-mdx --verbose
+          
+          echo "Conversion completed. Files converted to temp-mdx directory."
+          
+          # List converted files for debugging
+          echo "Converted files:"
+          find temp-mdx -name "*.mdx" -type f | head -10
+
+      - name: Copy converted MDX files to documentation repository
+        run: |
+          cd openfoodfacts-server
+          
+          # Remove existing Product-Opener directory in documentation repo
+          rm -rf ../openfoodfacts-documentation/content/docs/Product-Opener
+          
+          # Create the target directory
+          mkdir -p ../openfoodfacts-documentation/content/docs/Product-Opener
+          
+          # Copy all converted MDX files from temp-mdx to documentation repo
+          if [ -d "temp-mdx" ]; then
+            # Copy the entire converted directory structure
+            cp -r temp-mdx/* ../openfoodfacts-documentation/content/docs/Product-Opener/
+            echo "Files copied to documentation repository"
+          else
+            echo "No converted files found in temp-mdx directory"
+            exit 1
+          fi
+
+      - name: Create meta.json files for Fumadocs navigation
+        run: |
+          cd openfoodfacts-documentation/content/docs/Product-Opener
+          
+          # Create main meta.json for Product-Opener
+          cat > meta.json << 'EOF'
+          {
+            "title": "Product Opener",
+            "description": "Documentation for Product Opener - Open Food Facts web server",
+            "pages": [
+              "index",
+              "api",
+              "dev"
+            ]
+          }
+          EOF
+          
+          # Create meta.json for API directory if it exists
+          if [ -d "api" ]; then
+            cat > api/meta.json << 'EOF'
+          {
+            "title": "API Documentation",
+            "description": "API documentation for Product Opener"
+          }
+          EOF
+          fi
+          
+          # Create meta.json for dev directory if it exists
+          if [ -d "dev" ]; then
+            cat > dev/meta.json << 'EOF'
+          {
+            "title": "Developer Documentation", 
+            "description": "Developer documentation for Product Opener contributors"
+          }
+          EOF
+          fi
+
+      - name: Fix MDX frontmatter and content
+        run: |
+          cd openfoodfacts-documentation/content/docs/Product-Opener
+          
+          # Process all MDX files to ensure proper frontmatter
+          find . -name "*.mdx" -type f | while read -r file; do
+            echo "Processing frontmatter for: $file"
+            
+            # Extract title from first heading if no frontmatter exists
+            if ! head -1 "$file" | grep -q "^---"; then
+              # Get title from first # heading
+              title=$(grep -m 1 "^# " "$file" | sed 's/^# //' | sed 's/[^a-zA-Z0-9 ]//g' || echo "Documentation")
+              
+              # Create temporary file with frontmatter
+              temp_file=$(mktemp)
+              echo "---" > "$temp_file"
+              echo "title: \"$title\"" >> "$temp_file"
+              echo "description: \"$title documentation\"" >> "$temp_file"
+              echo "---" >> "$temp_file"
+              echo "" >> "$temp_file"
+              cat "$file" >> "$temp_file"
+              mv "$temp_file" "$file"
+            fi
+            
+            # Fix relative links to work with Fumadocs structure
+            sed -i 's|\]\(\.\/|\]\(/docs/Product-Opener/|g' "$file"
+            sed -i 's|\]\(\.\.\/|\]\(/docs/Product-Opener/|g' "$file"
+          done
+
+      - name: Check for changes and commit
+        run: |
+          cd openfoodfacts-documentation
+          
+          # Configure git
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Check if there are any changes
+          if git diff --quiet && git diff --cached --quiet; then
+            echo "No changes detected in documentation"
+            exit 0
+          fi
+          
+          # Add all changes
+          git add content/docs/Product-Opener/
+          
+          # Commit changes
+          git commit -m "docs: sync Product Opener documentation from openfoodfacts-server
+          
+          - Auto-converted .md files to .mdx using fumadocs-transpiler
+          - Updated navigation metadata
+          - Fixed relative links for Fumadocs structure
+          
+          Source commit: ${{ github.sha }}"
+          
+          # Push changes
+          git push origin main
