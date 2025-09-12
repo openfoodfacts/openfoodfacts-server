@@ -354,6 +354,18 @@
       "en:code-missing",
       "en:created-missing"
    ],
+   "data_quality_dimensions" : {
+      "accuracy" : {
+         "overall" : "0.00"
+      },
+      "completeness" : {
+         "general_information" : "0.00",
+         "ingredients" : "0.00",
+         "nutrition" : "0.67",
+         "overall" : "0.27",
+         "packaging" : "0.33"
+      }
+   },
    "data_quality_errors_tags" : [],
    "data_quality_info_tags" : [
       "en:no-packaging-data",
@@ -362,7 +374,19 @@
       "en:sum-of-ingredients-with-unspecified-percent-lesser-than-10",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
-      "en:food-groups-3-unknown"
+      "en:food-groups-3-unknown",
+      "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
+      "en:nutrition-photo-to-be-selected",
+      "en:categories-completed",
+      "en:nutriments-completed",
+      "en:packaging-photo-to-be-selected",
+      "en:packagings-completed",
+      "en:emb-codes-to-be-completed",
+      "en:front-photo-to-be-selected",
+      "en:product-name-to-be-completed",
+      "en:quantity-to-be-completed",
+      "en:brands-to-be-completed",
+      "en:expiration-date-to-be-completed"
    ],
    "data_quality_tags" : [
       "en:main-language-missing",
@@ -375,6 +399,18 @@
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown",
+      "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
+      "en:nutrition-photo-to-be-selected",
+      "en:categories-completed",
+      "en:nutriments-completed",
+      "en:packaging-photo-to-be-selected",
+      "en:packagings-completed",
+      "en:emb-codes-to-be-completed",
+      "en:front-photo-to-be-selected",
+      "en:product-name-to-be-completed",
+      "en:quantity-to-be-completed",
+      "en:brands-to-be-completed",
+      "en:expiration-date-to-be-completed",
       "en:nutrition-data-per-serving-serving-quantity-is-not-recognized",
       "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
       "en:environmental-score-packaging-packaging-data-missing",

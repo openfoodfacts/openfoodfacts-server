@@ -122,22 +122,6 @@ like($nutriscore_calculation_detail, qr/Positive points: 2/);
 like($nutriscore_calculation_detail, qr/Negative points: 8/);
 like($nutriscore_calculation_detail, qr/<strong>Nutri-Score: C<\/strong>/);
 
-$lc = 'en';
-my $product_ref = {
-	states => ['en:front-photo-selected'],
-	states_hierarchy => ['en:front-photo-selected']
-};
-my $expected = lang('done_status') . separator_before_colon($lc) . q{:};
-like(display_field($product_ref, 'states'), qr/$expected/);
-
-$lc = 'en';
-$product_ref = {
-	states => ['en:front-photo-to-be-selected'],
-	states_hierarchy => ['en:front-photo-to-be-selected']
-};
-$expected = lang('to_do_status') . separator_before_colon($lc) . q{:};
-like(display_field($product_ref, 'states'), qr/$expected/);
-
 # should not loose the second facet at the end of the url on redirection
 my $facets_ref = {
 	tags => [

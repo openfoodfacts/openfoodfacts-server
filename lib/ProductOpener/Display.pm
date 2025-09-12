@@ -7982,7 +7982,7 @@ JS
 
 	if ($request_ref->{product_changes_saved}) {
 		my $query_ref = {};
-		$query_ref->{("states_tags")} = "en:to-be-completed";
+		$query_ref->{("data_quality_info_tags")} = "en:photo-and-data-to-be-checked-by-an-experienced-contributor";
 
 		my $search_result = search_and_display_products($request_ref, $query_ref, undef, undef, undef);
 		$template_data_ref->{search_result} = $search_result;
@@ -8043,7 +8043,9 @@ JS
 	if (defined $rev) {
 		$template_data_ref->{display_rev_info} = display_rev_info($product_ref, $rev);
 	}
-	elsif (not has_tag($product_ref, "states", "en:complete")) {
+	elsif (defined $product_ref->{"data_quality_dimensions"}{completeness}{overall}
+		&& $product_ref->{"data_quality_dimensions"}{completeness}{overall} ne "1.00")
+	{
 		$template_data_ref->{not_has_tag} = "states-en:complete";
 	}
 
@@ -8482,10 +8484,6 @@ JS
 	$template_data_ref->{last_editor} = $last_editor;
 	$template_data_ref->{other_editors} = $other_editors;
 	$template_data_ref->{checked} = $checked;
-
-	if (defined $User_id) {
-		$template_data_ref->{display_field_states} = display_field($product_ref, 'states');
-	}
 
 	$template_data_ref->{display_product_history} = display_product_history($request_ref, $code, $product_ref)
 		if $User{moderator};
@@ -10708,7 +10706,7 @@ sub display_product_api ($request_ref) {
 				$changes_ref = [];
 			}
 			$response{blame} = {};
-			compute_product_history_and_completeness($product_ref, $changes_ref, $response{blame});
+			compute_product_history($product_ref, $changes_ref, $response{blame});
 		}
 
 		if (single_param("jqm")) {
