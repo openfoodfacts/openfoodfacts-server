@@ -7621,17 +7621,16 @@ msgid "Unwanted ingredients"
 msgstr "Unwanted ingredients"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "Presence of unwanted ingredients unknown"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "No unwanted ingredients"
+msgid "No unwanted ingredients detected"
+msgstr "No unwanted ingredients detected"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7640,3 +7639,11 @@ msgstr "Contains unwanted ingredients"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Some ingredients were not recognized"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "We did not detect: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
