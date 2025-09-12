@@ -121,7 +121,7 @@ while (my $product_ref = $cursor->next) {
 		$err .= ($creator ne 'usda-ndb-import') ? "" : "u";    # exclude USDA imports
 		$err .= ($creator !~ /^org-.*/) ? "" : "p";    # exclude orgs like "org-database-usda"
 		$err .= ($creator ne '') ? "" : "v";    #exclude products with no creator (bugs?)
-		$err .= ($completeness < 0.4) ? "" : "c";    # exclude products which have a certain level of completeness
+		$err .= ($completeness < 0.3) ? "" : "c";    # exclude products which have a certain level of completeness
 		$err .= ($last_image_t eq "") ? "" : "i";    # exclude products which have an image
 		$err .= ($t_ok > 0) ? "" : "t";    #
 		$err .= ($first_quality_error ne '-') ? "" : "q";    #
@@ -130,7 +130,11 @@ while (my $product_ref = $cursor->next) {
 
 			# Test before deleting the products; comment if you don't want it
 			if ($misc) {
+				print "$code ----------------------------------------------------------\n";
 				add_tag($product_ref, "misc", 'en:bad-product-wo-image-to-be-deleted');    # Test before deleting
+				#add_tags_to_field($product_ref, "en", "categories", "en:bad-product-wo-image-to-be-deleted");    # Test before deleting
+				store_product("remove-bad-products-wo-photos-bot", $product_ref, 'category => bad-product-wo-image-to-be-deleted');
+				sleep(360);
 			}
 
 			# Remove the product if --remove argument is set
