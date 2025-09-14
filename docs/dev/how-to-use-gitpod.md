@@ -88,4 +88,4 @@ $ make tail
 After development, before opening a pull request, run the following command:  
 ```
 $ make checks  
-```  
+```

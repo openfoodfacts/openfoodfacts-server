@@ -1,3 +1,5 @@
+# Getting Ingredient Analysis from Open Food Facts
+
 Dev Journey 6: Get ingredient related analysis on new or existing products (presence of palm oil, vegan, veggie, ultra-processed foods, allergens, additives…)
 
 [https://docs.google.com/document/d/1avnxJr8_m6OjRBt0vgwBzlzaZB7Q6z14t0taMKIrkp0/edit](https://docs.google.com/document/d/1avnxJr8_m6OjRBt0vgwBzlzaZB7Q6z14t0taMKIrkp0/edit)
@@ -22,7 +24,7 @@ You can get information about absence or unawareness of the presence of:
 * That will ensure user satisfaction
 * Most of the operations described below are implemented in the openfoodfacts-dart plugin, but as individual operations, not as a coherent pipe
 
-![Schema of the ingredients flow](https://docs.google.com/drawings/d/12345/export/png)
+<!-- ![Schema of the ingredients flow](https://docs.google.com/drawings/d/12345/export/png) -->
 
 ## Flow
 ### The product does not exist
@@ -114,5 +116,5 @@ Open Food Facts uses optical character recognition (OCR) to retrieve ingredient 
 ### Refresh product to display the result to your user
 
 * [Please look at the reference](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v3/#get-/api/v3/product/-barcode-)
-![alt_text](images/image1.png "image_tooltip")
+<!-- ![alt_text](images/image1.png "image_tooltip") -->
 

@@ -42,8 +42,10 @@ Breaking changes:
 ### 2025-03-12 - Product version 1001 - API version 3.2 - Removed ingredients_hierarchy, added schema_version, made brands a taxonomized field
 
 Breaking changes:
-- Ingredients_hierarchy array has been removed (its content is identical to the ingredients_tags array) - [PR](https://github.com/openfoodfacts/openfoodfacts-server/pull/11615)
-- The brands field is now taxonomized. brands_tags entries are prefixed with the language-less xx: prefix, and there is a new brands_hierarchy field ([see tags schema](../api/ref/schemas/product_tags.yaml)) - [PR](https://github.com/openfoodfacts/openfoodfacts-server/pull/11606)
+- Ingredients_hierarchy array has been removed (its content is identical to the ingredients_tags array) 
+- [PR](https://github.com/openfoodfacts/openfoodfacts-server/pull/11615)
+- The brands field is now taxonomized. brands_tags entries are prefixed with the language-less xx: prefix, and there is a new brands_hierarchy field ([see tags schema](../api/ref/schemas/product_tags.yaml)) 
+- [PR](https://github.com/openfoodfacts/openfoodfacts-server/pull/11606)
 
 Non-breaking changes:
 - Added schema_version field

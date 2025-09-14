@@ -1,3 +1,5 @@
+# Comparing Soda Products Using the Open Food Facts API
+
 **Dave** wants his app to make an API call to provide Anna the information she needs to make a conscious choice when buying sodas.
 
 ---

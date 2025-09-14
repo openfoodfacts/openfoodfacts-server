@@ -1,3 +1,5 @@
+# Adding Missing Products to Open Food Facts
+
 **Dave** regularly adds new products to the database and completes missing information via API calls. He has described the process below to show other developers how easy it is to contribute.
 
 ---
@@ -116,4 +118,4 @@ Getting your users to [input packaging data](../../dev/explain-packaging-data.md
 - Make sure to congratulate them each time for their contribution to Open Food Facts and the common good.
 
 
- 
+

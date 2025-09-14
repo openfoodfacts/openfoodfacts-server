@@ -1,4 +1,4 @@
-Ensuring Data Quality for Open Food Facts Contributions
+# Ensuring Data Quality for Open Food Facts Contributions
 -------------------------------------------------------
 
 This tutorial will guide you through best practices for maintaining high-quality data contributions to Open Food Facts through your app. As you know, Open Food Facts (and your app, since you have implemented or are implementing contributing back to Open Food Facts) leverages crowdsourcing, which is a fantastic way to gather a vast amount of information. However, it also necessitates measures to ensure data accuracy.

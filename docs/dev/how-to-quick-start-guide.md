@@ -107,7 +107,7 @@ Make sure you also activated the [Developer mode](https://learn.microsoft.com/en
 
 Ensure that you have WSL installed on your Windows machine. For instructions on how to do so, you can follow [Microsoft's guide to install WSL](https://learn.microsoft.com/en-us/windows/wsl/install).
 
-After successfully installing WSL, you need to set up your Linux distribution and install Docker on it:
+After succcessfully installing WSL, you need to set up your Linux distribution and install Docker on it:
 - Go to the Microsoft Store and install [Ubuntu](https://www.microsoft.com/store/productId/9PDXGNCFSCZV?ocid=pdpshare) as your Linux distribution
 - Open Ubuntu and execute the commands/instructions specified in [Installing Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/) (**NOTE: this is NOT the same thing as Docker for Desktop)
 - Restart your computer to ensure all changes take effect and WSL can properly integrate with Docker
@@ -323,13 +323,13 @@ sudo apt-get install make
 
 For other distros, consult your distro's documentation or support resources for the command to use.
 
-### make dev error: [build_lang] Error 2 - Could not load taxonomy: /mnt/podata/taxonomies/traces.result.json
+### make dev error: [build_lang] Error 2 - Could not load taxonomy: /mnt/podata/taxonomies/traces.result.sto
 
 When running `make dev`:
 
 ```console
 <h1>Software error:</h1>
-<pre>Could not load taxonomy: /mnt/podata/taxonomies/traces.result.json at /opt/product-opener/lib/ProductOpener/Tags.pm line 1976.
+<pre>Could not load taxonomy: /mnt/podata/taxonomies/traces.result.sto at /opt/product-opener/lib/ProductOpener/Tags.pm line 1976.
 Compilation failed in require at /opt/product-opener/scripts/build_lang.pl line 31, &lt;DATA&gt; line 2104.
 BEGIN failed--compilation aborted at /opt/product-opener/scripts/build_lang.pl line 31, &lt;DATA&gt; line 2104.
 </pre>
@@ -337,7 +337,7 @@ BEGIN failed--compilation aborted at /opt/product-opener/scripts/build_lang.pl l
 For help, please send mail to this site's webmaster, giving this error message
 and the time and date of the error.
 </p>
-[Tue Apr  5 19:36:40 2022] build_lang.pl: Could not load taxonomy: /mnt/podata/taxonomies/traces.result.json at /opt/product-opener/lib/ProductOpener/Tags.pm line 1976.
+[Tue Apr  5 19:36:40 2022] build_lang.pl: Could not load taxonomy: /mnt/podata/taxonomies/traces.result.sto at /opt/product-opener/lib/ProductOpener/Tags.pm line 1976.
 [Tue Apr  5 19:36:40 2022] build_lang.pl: Compilation failed in require at /opt/product-opener/scripts/build_lang.pl line 31, <DATA> line 2104.
 [Tue Apr  5 19:36:40 2022] build_lang.pl: BEGIN failed--compilation aborted at /opt/product-opener/scripts/build_lang.pl line 31, <DATA> line 2104.
 make: *** [build_lang] Error 2
@@ -345,7 +345,7 @@ make: *** [build_lang] Error 2
 
 **Solution:**
 Project needs Symlinks to be enabled.
-traces.result.json is a symlink to allergens.result.json
+traces.result.sto is a symlink to allergens.result.sto
 
 You have to enable the 'Developer Mode' in order to use the symlinks.
 To enable Developer Mode:
@@ -520,16 +520,3 @@ Finally, run this to allow .envrc:
 ```console
 direnv allow
 ```
-
-
-### make dev error: permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Head "http://%2Fvar%2Frun%2Fdocker.sock/_ping": dial unix /var/run/docker.sock: connect: permission denied make: *** [Makefile:147 : build] Erreur 1
-
-
-
-**Solution:**
-
-Add the user to docker group :
-```console
-sudo usermod -aG docker $USER
-```
-

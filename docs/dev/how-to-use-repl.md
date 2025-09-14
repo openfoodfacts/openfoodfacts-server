@@ -49,5 +49,5 @@ Eg. for a user:
 
 ```perl
 $ use ProductOpener::Store qw/:all/;
-$ my $product_ref = retrieve_object("/mnt/podata/products/007/107/917/0260/product");
+$ my $product_ref = retrieve("/mnt/podata/products/007/107/917/0260/product.sto");
 ```
