@@ -1,9 +1,4 @@
----
-title: Learning Perl for Open Food Facts Development
-description: Guide to getting started with Perl programming for Open Food Facts development, including learning resources, best practices, and common patterns used in the project
----
-
-<!-- # How can I learn the Perl programming language? -->
+# How can I learn the Perl programming language?
 
 Here are some introductory resources to learn Perl:
 

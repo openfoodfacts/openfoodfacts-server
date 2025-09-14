@@ -1,9 +1,4 @@
----
-title: Debugging Minion Import and Export Tasks
-description: Guide to debugging Minion tasks in Open Food Facts, including log file locations, task status checking, and troubleshooting failed imports/exports
----
-
-<!-- # How to debug Minion import and export tasks -->
+# How to debug Minion import and export tasks
 
 For imports on the pro platform, and exports from the pro platform and imports on the public platform, we use Minion tasks.
 

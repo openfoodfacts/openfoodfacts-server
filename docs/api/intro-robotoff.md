@@ -1,9 +1,4 @@
----
-title: Introduction to Robotoff - Open Food Facts AI Assistant
-description: Overview of the Robotoff project, an artificial intelligence system that helps complete product information through machine learning predictions and user validations
----
-
-<!-- # Introduction to the Robotoff Project -->
+# Introduction to the Robotoff Project
 
 The Robotoff project is intended to complete missing product information by prompting users to confirm predictions inferred by Artificial Intelligence algorithms. These algorithms are calculated based on "insights", which are facts about a product that have been extracted or deduced from the product pictures, ingredients, categories, labels, etc.
 

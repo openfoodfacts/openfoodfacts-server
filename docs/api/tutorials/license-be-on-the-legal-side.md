@@ -1,9 +1,4 @@
----
-title: Licensing Guide for Open Food Facts Data
-description: Essential information about Open Food Facts data licenses, including ODbL, database contents license, and image licensing, with guidelines for proper attribution and compliance
----
-
-<!-- ## Understanding and being compliant with our data licences -->
+## Understanding and being compliant with our data licences
 
 -   The Open Food Facts database is available under the [Open Database License](https://opendatacommons.org/licenses/odbl/1.0/).
 -   The individual contents of the database are available under the [Database Contents License](https://opendatacommons.org/licenses/dbcl/1.0/).

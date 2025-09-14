@@ -1,9 +1,4 @@
----
-title: Developing for the Open Food Facts Producer Platform
-description: Guide for setting up and developing features for the Open Food Facts producer platform using Docker, including environment configuration, service management, and development workflow
----
-
-<!-- # How to develop on the producers platform -->
+# How to develop on the producers platform
 
 Here is how to develop for the producers platform using docker.
 

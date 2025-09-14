@@ -1,9 +1,6 @@
----
-title: Implementing Nutri-Score in Your Application
-description: A comprehensive tutorial on implementing Nutri-Score computation and display in your application, including knowledge panels, visual assets, and data completion workflows
----
+# Get Nutri-Score
 
-<!-- ### Introduction -->
+### Introduction
 
 -   If you can't get the information on a specific product, you can get your user to send photos and data, that will then be processed by Open Food Facts AI and contributors to get the computed result you want to show them.
 -   You can implement the complete flow below so that they get immediately the result with some effort on their side.

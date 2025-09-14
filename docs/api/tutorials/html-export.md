@@ -1,9 +1,4 @@
----
-title: HTML Export in Open Food Facts
-description: Guide to using the Open Food Facts HTML export feature for displaying product information in webpages and embedding data in other applications
----
-
-<!-- # HTML Export Tutorial -->
+# HTML Export Tutorial
 
 Open Food Facts provides an HTML export feature that allows you to display product information on webpages and embed data in other applications. This tutorial will guide you through the process of using this feature effectively.
 

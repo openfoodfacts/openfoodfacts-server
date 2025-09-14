@@ -1,8 +1,3 @@
----
-title: Understanding Knowledge Panels in Open Food Facts
-description: Technical explanation of Knowledge Panels, a feature that provides ready-to-display product information through the Open Food Facts API, including panel structure, implementation, and testing guidelines
----
-
 # Explanation on Knowledge panels
 
 The Open Food Facts API allows clients (such as the Open Food Facts website and mobile app) to request ready-to-display information about an object (such as a product or a facet like a category).

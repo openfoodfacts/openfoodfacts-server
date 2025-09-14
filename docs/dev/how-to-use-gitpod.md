@@ -1,9 +1,4 @@
----
-title: Using Gitpod for Open Food Facts Development
-description: Guide to setting up and using Gitpod for cloud-based development of Open Food Facts, including environment setup, SSH tunneling, and common development commands
----
-
-<!-- # How to use Gitpod for Remote Development -->
+# How to use Gitpod for Remote Development
 
 If your computer performance restricts you from developing, you can use [Gitpod](https://gitpod.io). 
 Gitpod allows you to do the devs on an ephemeral environment. It is free up to

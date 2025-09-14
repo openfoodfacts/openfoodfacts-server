@@ -1,9 +1,4 @@
----
-title: Barcode Normalization in Open Food Facts
-description: Technical reference explaining how different types of barcodes (EAN-13, EAN-8, UPC-A, UPC-E, GTIN-14) are normalized in the Open Food Facts system to prevent duplicate entries
----
-
-<!-- # Reference: Barcode Normalization -->
+# Reference: Barcode Normalization
 
 This reference describes how barcodes are normalized in Open Food Facts.
 

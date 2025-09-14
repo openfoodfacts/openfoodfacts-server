@@ -1,10 +1,5 @@
----
-title: Creating a Local Cache of Open Food Facts Data
-description: Comprehensive guide to implementing and maintaining a local cache of Open Food Facts data, including technology choices, synchronization strategies, and best practices for data sharing
----
-
-<!-- Open Food Facts Local Caching: A Tutorial
------------------------------------------ -->
+# Open Food Facts Local Caching: A Tutorial
+-----------------------------------------
 
 Open Food Facts (OFF) offers a rich dataset of food product information. Creating a local cache can enhance performance for your heavy-duty applications. This tutorial will guide you through the process, considerations, and best practices.
 

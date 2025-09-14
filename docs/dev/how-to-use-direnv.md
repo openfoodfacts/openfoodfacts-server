@@ -1,9 +1,4 @@
----
-title: Setting Up direnv for Open Food Facts Development
-description: Guide to using direnv for managing environment variables in Open Food Facts development, including installation, configuration, and common usage patterns
----
-
-<!-- # How to use direnv -->
+# How to use direnv
 
 As a developer, it can be better not to think too much about setting the right env variables as you enter a project.
 [`direnv`](https://direnv.net/) aims at providing a solution.

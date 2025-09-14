@@ -1,7 +1,4 @@
----
-title: Scanning Cosmetics, Pet Food and Other Products
-description: Guide to using Open Food Facts APIs for scanning and managing non-food products across Open Beauty Facts, Open Pet Food Facts, and Open Products Facts platforms
----
+# Scanning Cosmetics, Pet Food and Other Products
 
 ### Open Beauty Facts, Open Pet Food Facts, Open Products Facts experimental and specific APIs
 

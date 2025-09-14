@@ -1,9 +1,4 @@
----
-title: Quick Start Guide - Open Food Facts Development
-description: Step-by-step guide to setting up a development environment for Open Food Facts using Docker, including prerequisites, installation steps, and troubleshooting tips
----
-
-<!-- # How to setup the Dev environment (quick start guide) -->
+# How to setup the Dev environment (quick start guide)
 
 This guide will allow you to rapidly build a ready-to-use development environment for **Product Opener** running in Docker.
 As an alternative to setting up your environment locally, follow the [Gitpod how-to guide](how-to-use-gitpod.md)

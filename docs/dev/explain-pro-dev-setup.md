@@ -1,9 +1,5 @@
 ---
-title: Docker Setup for Producer Platform Development
-description: Technical explanation of the Docker configuration for the Open Food Facts producer platform, including container networking, volume sharing, and database setup
----
-
-<!-- # Explanation on Docker Setup of pro platform for development -->
+# Explanation on Docker Setup of pro platform for development
 
 This explains how we setup docker file for pro platform development.
 For explanations on how to use it, see: [how-to-guides/pro-development](how-to-develop-producer-platform.md)

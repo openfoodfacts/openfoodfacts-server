@@ -1,9 +1,4 @@
----
-title: Open Food Facts API and Product Schema Changelog
-description: Complete history of changes to the Open Food Facts API and product schema, including breaking changes, version updates, and field modifications since the initial version
----
-
-<!-- # Reference: API and product schema change log -->
+# Reference: API and product schema change log
 
 This reference lists changes to the API and/or the product schema.
 
@@ -37,11 +32,20 @@ Note: API v3 is under active development, and the API and corresponding product 
 
 ## Schema version and API version change log
 
-### 2025-03-12 - Product version 1001 - API version 3.2 - Removed ingredients_hierarchy, added schema_version, made brands a taxonomized field.
+### 2025-06-11 - Product version 1002 - API version 3.3 - New uploaded and selected images structure, new API for image upload and selection
 
 Breaking changes:
-- Ingredients_hierarchy array has been removed (its content is identical to the ingredients_tags array) - [PR](https://github.com/openfoodfacts/openfoodfacts-server/pull/11615)
-- The brands field is now taxonomized. brands_tags entries are prefixed with the language-less xx: prefix, and there is a new brands_hierarchy field ([see tags schema](../api/ref/schemas/product_tags.yaml)) - [PR](https://github.com/openfoodfacts/openfoodfacts-server/pull/11606)
+- the "images" structure has been changed to better separate uploaded and selected images (see [images schema](../api/ref/schemas/product_images_v3.yaml))
+- new API v3 endpoint to upload an image: /api/v3.3/product/[barcode]/images
+- added support for image selection in existing API v3 product write endpoint
+
+### 2025-03-12 - Product version 1001 - API version 3.2 - Removed ingredients_hierarchy, added schema_version, made brands a taxonomized field
+
+Breaking changes:
+- Ingredients_hierarchy array has been removed (its content is identical to the ingredients_tags array) 
+- [PR](https://github.com/openfoodfacts/openfoodfacts-server/pull/11615)
+- The brands field is now taxonomized. brands_tags entries are prefixed with the language-less xx: prefix, and there is a new brands_hierarchy field ([see tags schema](../api/ref/schemas/product_tags.yaml)) 
+- [PR](https://github.com/openfoodfacts/openfoodfacts-server/pull/11606)
 
 Non-breaking changes:
 - Added schema_version field
@@ -57,7 +61,7 @@ There were lots of non-breaking changes (new fields) from 2012 to 2024. Those ch
 
 ### Product version 999 - Changed barcode normalization
 
-The normalization of leading 0s has been changed. See [Barcode normalization](/ref-barcode-normalization.md)
+The normalization of leading 0s has been changed. See [Barcode normalization](./ref-barcode-normalization.md)
 
 ### Product version 998 - API version 3
 

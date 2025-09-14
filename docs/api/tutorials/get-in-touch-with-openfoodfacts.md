@@ -1,7 +1,4 @@
----
-title: Getting in Touch with Open Food Facts
-description: Contact information and resources for Open Food Facts developers, including reuse reporting, moderation channels, showcase opportunities, and community support
----
+# Getting in Touch with Open Food Facts
 
 ## Tell us about your reuse
 

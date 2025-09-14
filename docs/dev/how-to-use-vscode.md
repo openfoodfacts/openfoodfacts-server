@@ -1,9 +1,4 @@
----
-title: Using VS Code with Open Food Facts
-description: Guide to setting up and using Visual Studio Code for Open Food Facts development, including recommended extensions, debugging tips, and development container configuration
----
-
-<!-- # How to use VSCode -->
+# How to use VSCode
 
 VSCode (or better the open source version [VSCodium](https://github.com/VSCodium/vscodium/))
 may be used to edit files.

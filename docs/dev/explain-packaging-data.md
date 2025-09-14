@@ -1,9 +1,4 @@
----
-title: Understanding Packaging Data in Open Food Facts
-description: Technical guide to handling and storing packaging information in Open Food Facts, including data structures, parsing rules, and standardization processes
----
-
-<!-- # Explanation on packaging data -->
+# Explanation on packaging data
 
 This document explains how packaging data is currently added, updated and structured in the Open Food Facts database, and how it could be improved.
 

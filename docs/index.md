@@ -1,9 +1,4 @@
----
-title: Product Opener (Open Food Facts web server) documentation
-description: Your first document
----
-
-<!-- # Product Opener (Open Food Facts web server) documentation -->
+# Product Opener (Open Food Facts web server) documentation
 
 Welcome to the documentation of **Product Opener**, the web server at the heart of **[Open Food Facts](https://world.openfoodfacts.org/)** project. 
 

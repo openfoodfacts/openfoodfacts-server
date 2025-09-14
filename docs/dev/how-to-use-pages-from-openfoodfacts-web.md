@@ -1,9 +1,4 @@
----
-title: Using Pages from openfoodfacts-web
-description: Guide to integrating and using pages from the openfoodfacts-web repository in your Open Food Facts development environment
----
-
-<!-- # How to use pages from openfoodfacts-web -->
+# How to use pages from openfoodfacts-web
 
 To avoid messing the product-opener repository with translations of web pages,
 we moved most pages in 

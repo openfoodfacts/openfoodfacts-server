@@ -1,7 +1,4 @@
----
-title: Comparing Soda Products Using the Open Food Facts API
-description: A practical tutorial demonstrating how to use the Open Food Facts API to fetch and compare nutritional information of different soda products, including authentication, region selection, and product lookup
----
+# Comparing Soda Products Using the Open Food Facts API
 
 **Dave** wants his app to make an API call to provide Anna the information she needs to make a conscious choice when buying sodas.
 

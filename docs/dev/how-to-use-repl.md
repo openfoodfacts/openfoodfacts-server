@@ -1,9 +1,4 @@
----
-title: Using the Perl REPL in Open Food Facts
-description: Guide to using the Perl REPL (Read-Eval-Print Loop) for interactive development and debugging in Open Food Facts, including setup and common usage patterns
----
-
-<!-- # How to use Perl REPL (re.pl) -->
+# How to use Perl REPL (re.pl)
 
 > **_NOTE:_**  New to Perl? Check [how to learn perl](how-to-learn-perl.md)!
 

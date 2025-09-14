@@ -1,7 +1,5 @@
----
-title: Finding Healthy Breakfast Cereals with Open Food Facts API
-description: Step-by-step guide on using the Open Food Facts API to search for healthy breakfast cereals, demonstrating search parameters for nutrition grade, additives, palm oil, and more
----
+# Finding Healthy Breakfast Cereals with Open Food Facts API
+
 
 **Dave** wants his app to make an API call to provide Stefano healthy plant-based breakfast cereals.
 

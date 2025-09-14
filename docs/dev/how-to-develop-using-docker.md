@@ -1,9 +1,4 @@
----
-title: Docker Development Guide for Open Food Facts
-description: Comprehensive guide for developers on using Docker with Open Food Facts, including debugging, log management, container operations, code changes, and managing multiple deployments
----
-
-<!-- # How to use Docker to Develop - a guide -->
+# How to use Docker to Develop - a guide
 
 This guide is for developers and newcomers to help them debug and explore Docker.
 

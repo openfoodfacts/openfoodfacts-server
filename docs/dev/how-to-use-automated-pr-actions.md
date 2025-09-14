@@ -1,9 +1,4 @@
----
-title: Using Automated PR Actions in Open Food Facts
-description: Guide to working with automated GitHub Actions in Open Food Facts pull requests, including available actions, configuration, and troubleshooting steps
----
-
-<!-- # How to use automated pull request actions -->
+# How to use automated pull request actions
 
 We have github actions workflow that tries to help doing tedious tasks on pull-request. (see `pr_actions.yml`)
 

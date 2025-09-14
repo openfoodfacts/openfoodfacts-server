@@ -1,9 +1,4 @@
----
-title: Product Opener Developer Documentation
-description: Technical documentation for developers working with Product Opener, including quick start guides, development setup instructions, and best practices
----
-
-<!-- # Introduction to Product Opener developer documentation -->
+# Introduction to Product Opener developer documentation
 
 This documentation is for developers who wants to understand technical aspects of Product Opener.
 

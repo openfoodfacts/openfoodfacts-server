@@ -1,7 +1,4 @@
----
-title: Implementing Green-Score (Eco-Score) in Your Application
-description: Complete guide to implementing the Green-Score environmental impact rating system, including display options, handling data gaps, user experience considerations, and international usage
----
+# Implementing Green-Score (Eco-Score) in Your Application
 
 Helping your users get the Green-Score for any product
 

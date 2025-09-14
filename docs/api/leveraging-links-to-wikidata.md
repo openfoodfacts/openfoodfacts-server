@@ -1,9 +1,4 @@
----
-title: Using Wikidata Links in Open Food Facts
-description: Guide to leveraging Wikidata and Wikipedia integration in Open Food Facts, including accessing encyclopedic knowledge and using external APIs for enhanced product information
----
-
-<!-- #### How to leverage links to Wikidata (and Wikipedia) {#link_to_wikipedia_and_wikidata} -->
+#### How to leverage links to Wikidata (and Wikipedia) {#link_to_wikipedia_and_wikidata}
 - You may have spotted things like https://www.wikidata.org/wiki/Q40050 in API outputs, especially those related to Taxonomies
 - Whenever possible, Open Food Facts entities are linked to Wikidata,and in turn to Wikipedia. What this means is that you get access to a trove of additional encyclopedic knowledge about food. You can for instance get: Wikipedia articles about Camembert, the translation of salt in many languages, the molecular structure of a cosmetic ingredient...\
 - We provide the Wikidata QID, which is an unambiguous, stable and reliable identifier for a concept that will be useful to actually retrieve info from Wikipedia and Wikidata.

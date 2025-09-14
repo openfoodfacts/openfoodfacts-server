@@ -1,9 +1,4 @@
----
-title: Getting Started with the Open Food Facts API
-description: Comprehensive tutorial on using the Open Food Facts API, with practical examples of retrieving product data, computing Nutri-Score, and searching products using various criteria
----
-
-<!-- # Tutorial on using the Open Food Facts API -->
+# Tutorial on using the Open Food Facts API
 
 Welcome to this tutorial on basic usage of Open Food Facts API.
 
@@ -154,7 +149,7 @@ The sample response above for 100% Real Orange Juice `misc_tags` shows that the 
 
 ### Write data to make Nutri-Score computation possible
 
-The WRITE operations in the OFF API require authentication. Therefore you need a valid `user_id` and `password` to write the missing nutriment data to 100% Real Orange Juice.
+The WRITE operations in the OFF API require authentication. Therefore you need a valid `user_id`^[user_id_not_email] and `password` to write the missing nutriment data to 100% Real Orange Juice.
 
 > Sign up on the [Open Food Facts App](https://world.openfoodfacts.net/) to get your`user_id` and `password` if you don't have one.
 
@@ -193,6 +188,8 @@ If the request is successful, it returns a response that indicates that the fiel
     "status": 1
 }
 ```
+
+^[user_id_not_email]: user_id is the username of your account. You must not use your email address.
 
 ### Read newly computed Nutri-Score
 

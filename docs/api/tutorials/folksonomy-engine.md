@@ -1,9 +1,4 @@
----
-title: Folksonomy API in Open Food Facts
-description: Introduction to the experimental Folksonomy API for adding and reading extended product information across Open Food Facts and related platforms
----
-
-Folksonomy API
+# Folksonomy API in Open Food Facts
 
 The Experimental Folksonomy API allows you to add and read information beyond the traditional product format to Open Food Facts, Open Products Facts, Open Pet Food Facts and Open Beauty Facts.  
 The API is documented separately at [https://api.folksonomy.openfoodfacts.org/](https://api.folksonomy.openfoodfacts.org/)

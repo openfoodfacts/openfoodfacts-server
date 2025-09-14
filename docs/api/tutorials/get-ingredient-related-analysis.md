@@ -1,7 +1,4 @@
----
-title: Getting Ingredient Analysis from Open Food Facts
-description: Guide to obtaining ingredient-related analysis including palm oil content, vegan/vegetarian status, NOVA classification, allergens, and additives, with complete workflow for new and existing products
----
+# Getting Ingredient Analysis from Open Food Facts
 
 Dev Journey 6: Get ingredient related analysis on new or existing products (presence of palm oil, vegan, veggie, ultra-processed foods, allergens, additives…)
 

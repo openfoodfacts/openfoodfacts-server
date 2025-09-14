@@ -1,7 +1,4 @@
----
-title: Adding Missing Products to Open Food Facts
-description: Step-by-step guide for developers on contributing new products to the Open Food Facts database via API, including authentication, image upload, and leveraging machine learning predictions
----
+# Adding Missing Products to Open Food Facts
 
 **Dave** regularly adds new products to the database and completes missing information via API calls. He has described the process below to show other developers how easy it is to contribute.
 

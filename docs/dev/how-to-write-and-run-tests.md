@@ -1,9 +1,4 @@
----
-title: Writing and Running Tests in Open Food Facts
-description: Guide to writing, running, and debugging tests in Open Food Facts, including unit tests, integration tests, and continuous integration workflows
----
-
-<!-- # How to write and run tests -->
+# How to write and run tests
 
 If you are a developer you are really encouraged to write tests as you fix bugs or develop new features.
 

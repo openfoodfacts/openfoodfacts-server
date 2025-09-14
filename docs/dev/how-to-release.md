@@ -1,9 +1,4 @@
----
-title: Deploying a Release to Production
-description: Comprehensive guide for deploying Open Food Facts releases, including staging environment setup, production deployment steps, and service management
----
-
-<!-- # How to deploy a release -->
+# How to deploy a release
 
 ## Staging environment
 

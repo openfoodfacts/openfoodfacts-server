@@ -1,9 +1,4 @@
----
-title: Open Food Facts API Cheatsheet
-description: Quick reference guide for common Open Food Facts API operations, including product editing, searching, field suggestions, and taxonomy-based operations
----
-
-<!-- # Reference: API CheatSheet  -->
+# Reference: API CheatSheet 
 
 This reference cheatsheet gives you a quick reminder to send requests to the OFF API.
 

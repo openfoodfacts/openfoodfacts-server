@@ -1,9 +1,4 @@
----
-title: How to Update Agribalyse Data for Eco-Score Calculations
-description: Step-by-step guide for updating the Agribalyse database used in Open Food Facts Eco-Score calculations, including data conversion, category mapping, and database updates
----
-
-<!-- # How to update Agribalyse (Ecoscore) -->
+# How to update Agribalyse (Ecoscore)
 
 Open Food Facts calculates the Ecoscore of a product from the Categories taxonomy where this has been linked to an AGRIBALYSE food code or proxy.
 

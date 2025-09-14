@@ -1,7 +1,4 @@
----
-title: Understanding Nutrition Data Fields in Open Food Facts
-description: A comprehensive guide to nutrition-related fields and their units in the Open Food Facts database, including serving sizes and nutrient value representations
----
+# explain-nutrition-data
 
 Product fields:
  - nutrition_data_per: Whether it is per "serving" or "100g"

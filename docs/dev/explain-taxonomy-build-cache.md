@@ -1,8 +1,3 @@
----
-title: Understanding the Taxonomy Build Cache System
-description: Technical explanation of the taxonomy build caching system in Open Food Facts, including how caches are created, stored, and managed using GitHub for improved build performance
----
-
 # Explanation on Taxonomy Build Cache
 
 Taxonomies have a significant impact on OFF processing and automated test results so need to be rebuilt before running any tests. However, this process takes some time, so the built taxonomy files are cached in a GitHub repository so that they only need to be rebuilt when there is a genuine change.

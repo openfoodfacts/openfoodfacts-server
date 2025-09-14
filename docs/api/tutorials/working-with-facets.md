@@ -1,7 +1,4 @@
----
-title: Working with Open Food Facts Facets
-description: Guide to using and implementing knowledge panels for Open Food Facts facets (categories, brands, etc.), including setup and contribution guidelines
----
+# Working with Open Food Facts Facets
 
 ## Providing knowledge panels for a particular Open Food Facts facet (category, brand, etc...)
 
