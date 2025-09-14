@@ -1,28 +1,26 @@
 {
    "nutrition" : {
-      "nutrient_set_preferred" : {
+      "aggregated_set" : {
          "nutrients" : {
             "sodium" : {
                "source" : "packaging",
+               "source_index" : 0,
                "source_per" : "serving",
                "unit" : "g",
-               "value" : 0.0125,
-               "value_string" : "0.0125"
+               "value" : 0.025
             },
             "sugars" : {
                "source" : "manufacturer",
+               "source_index" : 1,
                "source_per" : "serving",
                "unit" : "g",
-               "value" : 0.063,
-               "value_string" : "0.063"
+               "value" : 0.126
             }
          },
-         "per" : "serving",
-         "per_quantity" : "50",
-         "per_unit" : "ml",
+         "per" : "100ml",
          "preparation" : "as_sold"
       },
-      "nutrient_sets" : [
+      "input_sets" : [
          {
             "nutrients" : {
                "sodium" : {

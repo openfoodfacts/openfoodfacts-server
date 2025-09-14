@@ -13,17 +13,18 @@ components:
 
             See [how to add nutrition data](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-cheatsheet/#add-nutrition-facts-values-units-and-base)
           properties:
-            nutrient_set_preferred:
+            aggregated_set:
               type: object
               description: | 
-                A set that combines nutrient data from preferred sources, with normalized units.
+                A set that combines nutrient data from preferred sources, with normalized units, 
+                and for a normalized 100g or 100ml quantity.
                 
                 It takes values from multiple sources (by priority: manufacturer, packaging, usda, estimate)
                 and normalizes all values to the same unit: g for weights, kJ for energy and energy-kj, kcal for energy-kcal.
               allOf:
                 - $ref: "../schemas/product_nutrition_properties.yaml"
                 - $ref: "../schemas/nutrients_v3_with_source.yaml"
-            nutrient_sets:
+            input_sets:
               type: array
               description: |
                 An array of nutrient sets of the product.
@@ -41,6 +42,31 @@ components:
                   - $ref: "../schemas/product_nutrition_properties.yaml"
                   - type: object
                     properties:
+                      per_quantity:
+                        type: number
+                        minimum: 0
+                        description: |
+                          The nutrition data on the package can be per serving, per 100g or per 100ml.
+                          When the data is given per serving, 
+                          the actual quantity that defines one serving may vary between products 
+                          and is stored in this field.
+
+                          This is essential to understand to which quantity values in `nutrients` apply for.
+
+                          For example, if the label states "per 250g", then this field should be *250*.
+                        example: 250
+                      per_unit:
+                        type: string
+                        description: |
+                          The nutrition data on the package can be per serving, per 100g or per 100ml.
+                          When the data is given per serving, 
+                          the actual unit that defines one serving may vary between products 
+                          and is stored in this field.
+
+                          This is essential to understand to which quantity values in `nutrients` apply for.
+
+                          For example, if the label states "per 250g", then this field should be *g*.
+                        example: "g"
                       source:
                         type: string
                         examples: 
@@ -56,6 +82,8 @@ components:
                           A description of the source used for this nutrition set.
 
                           This provides more information on how and when the source was used.
+
+                          This property is optional.
                         examples:
                           - USDA non-branded foods 2025/04
                           - Import from org-nestle-france through Equadis

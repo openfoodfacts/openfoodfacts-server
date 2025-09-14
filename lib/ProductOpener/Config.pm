@@ -216,12 +216,11 @@ $ProductOpener::Config::options{rate_limit_allow_list_blocks} = [
 	'163.5.0.0/16'    # EPITECH https://bgpview.io/prefix/163.5.0.0/16
 ];
 
-# OIDC options
-my $client_id = uc($flavor . ($ENV{PRODUCERS_PLATFORM} ? "_PRO" : ''));
+# OIDC options.
 %ProductOpener::Config::oidc_options = (
-	client_id => $client_id,
-	client_secret => $ENV{"${client_id}_CLIENT_SECRET"},
-	oidc_implementation_level => $ENV{OIDC_IMPLEMENTATION_LEVEL},
+	client_id => $ProductOpener::Config2::oidc_client_id,
+	client_secret => $ProductOpener::Config2::oidc_client_secret,
+	oidc_implementation_level => $ProductOpener::Config2::oidc_implementation_level,
 	oidc_discovery_url => $ENV{OIDC_DISCOVERY_URL}
 );
 

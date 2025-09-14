@@ -101,6 +101,22 @@
 
 
 
+	<off-webcomponents-configuration
+  language-code="fr"
+  country-code="fr"
+  robotoff-configuration='{
+    "apiUrl": "//backend:8881//api/v1",
+    "imgUrl": "//images.openfoodfacts.localhost/images/products"
+  }'
+  
+  folksonomy-configuration='{
+  "apiUrl": "//api.folksonomy.openfoodfacts.localhost"
+  }'
+  
+  openfoodfacts-api-url="//fr.openfoodfacts.localhost"
+  assets-images-path="//static.openfoodfacts.localhost/css/dist/images"
+  ></off-webcomponents-configuration>
+	
 	
 	<div class="skip"><a href="#content" tabindex="0">Aller au contenu</a></div>
 	
@@ -2515,6 +2531,22 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                 
 
                                     
+
+                                
+
+                                    
+
+                                
+
+                                    
+
+                                
+
+                                    
+
+                                
+
+                                    
                                         <tr id="nutriment_fiber_tr" class="nutriment_main">
 
                                     <td>
@@ -4021,6 +4053,7 @@ $(document).on("focus", ".select2", function (e) {
 <script type="text/javascript">
 var admin = 0;
 </script>
+<script type="text/javascript" src="//static.openfoodfacts.localhost/js/dist/tagify-init.js"></script>
 <script type="text/javascript" src="//static.openfoodfacts.localhost/js/dist/product-multilingual.js?v=--ignore--"></script>
 <script type="text/javascript" src="//static.openfoodfacts.localhost/js/dist/product-history.js"></script>
 
@@ -4071,9 +4104,13 @@ var nutriments = {
 "Lactose" : "lactose",
 "Maltose" : "maltose",
 "Maltodextrines" : "maltodextrins",
+"Psicose" : "psicose",
 "Amidon" : "starch",
 "Polyols" : "polyols",
 "Érythritol" : "erythritol",
+"Isomalt" : "isomalt",
+"Maltitol" : "maltitol",
+"Sorbitol" : "sorbitol",
 "Fibres solubles" : "soluble-fiber",
 "Fibres insolubles" : "insoluble-fiber",
 "Caséine" : "casein",
@@ -4181,9 +4218,13 @@ var otherNutriments = [
 { "value" : "Lactose", "unit" : "g", "iu": false  },
 { "value" : "Maltose", "unit" : "g", "iu": false  },
 { "value" : "Maltodextrines", "unit" : "g", "iu": false  },
+{ "value" : "Psicose", "unit" : "g", "iu": false  },
 { "value" : "Amidon", "unit" : "g", "iu": false  },
 { "value" : "Polyols", "unit" : "g", "iu": false  },
 { "value" : "Érythritol", "unit" : "g", "iu": false  },
+{ "value" : "Isomalt", "unit" : "g", "iu": false  },
+{ "value" : "Maltitol", "unit" : "g", "iu": false  },
+{ "value" : "Sorbitol", "unit" : "g", "iu": false  },
 { "value" : "Fibres solubles", "unit" : "g", "iu": false  },
 { "value" : "Fibres insolubles", "unit" : "g", "iu": false  },
 { "value" : "Caséine", "unit" : "g", "iu": false  },

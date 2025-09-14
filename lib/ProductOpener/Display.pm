@@ -171,6 +171,7 @@ use ProductOpener::ProductsFeatures qw(feature_enabled);
 use ProductOpener::RequestStats qw(:all);
 use ProductOpener::PackagingFoodContact qw/determine_food_contact_of_packaging_components_service/;
 use ProductOpener::Auth qw/get_oidc_implementation_level/;
+use ProductOpener::ConfigEnv qw/:all/;
 
 use Encode;
 use URI::Escape::XS qw/uri_escape/;
@@ -346,6 +347,9 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	(not defined $template_data_ref->{user}) and $template_data_ref->{user} = \%User;
 	(not defined $template_data_ref->{org_id}) and $template_data_ref->{org_id} = $Org_id;
 	$template_data_ref->{owner_pretty_path} = get_owner_pretty_path($Owner_id);
+	# webcomponents configuration
+	$template_data_ref->{robotoff_url} = $robotoff_url;
+	$template_data_ref->{folksonomy_uri} = $folksonomy_url;
 
 	my $oidc_implementation_level = get_oidc_implementation_level();
 	$template_data_ref->{oidc_implementation_level} = $oidc_implementation_level;
@@ -5315,6 +5319,11 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			"traces_tags" => 1,
 			"unknown_ingredients_n" => 1
 		};
+
+		# If the user has selected some unwanted ingredients, we need the ingredients_tags field to compute the corresponding attribute
+		if (defined cookie("attribute_unwanted_ingredients_tags")) {
+			$fields_ref->{"ingredients_tags"} = 1;
+		}
 	}
 	else {
 		# For HTML, limit the fields we retrieve from MongoDB
@@ -7939,6 +7948,10 @@ JS
 		$template_data_ref->{contribution_card_panel}
 			= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "contribution_card");
 	}
+	if (request_param($request_ref, 'raw_panel')) {
+		$template_data_ref->{product_card_panel}
+			= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "product_card");
+	}
 
 	# User preferences
 	$template_data_ref->{user_preferences} = $request_ref->{user_preferences};
@@ -7947,6 +7960,13 @@ JS
 	# that are displayed directly through the knowledge panels
 	$template_data_ref->{front_image} = data_to_display_image($product_ref, "front", $lc);
 
+	# Take the imgid from the front image, from website language or the product language if it doesn't exist
+	# we must take extra care of not provoking autovivification
+	my $imgtype = deep_get($template_data_ref, "front_image", "type");
+	my $front_image_type = deep_get($template_data_ref, "front_image", "type");
+	my $front_image_id = deep_get($product_ref, 'images', 'selected', $imgtype, $lc, 'imgid')
+		// deep_get($product_ref, 'images', 'selected', $front_image_type, $product_ref->{lc}, 'imgid');
+	$template_data_ref->{imgid} = $front_image_id if defined $front_image_id;
 	# On the producers platform, show a link to the public platform
 
 	if ($server_options{producers_platform}) {
@@ -7976,11 +7996,6 @@ JS
 	my @fields = @ProductOpener::Config::display_fields;
 
 	$request_ref->{bodyabout} = " about=\"" . product_url($product_ref) . "\" typeof=\"food:foodProduct\"";
-
-	$template_data_ref->{user_id} = $User_id;
-	$template_data_ref->{robotoff_url} = $robotoff_url;
-	$template_data_ref->{folksonomy_uri} = $folksonomy_url;
-	$template_data_ref->{lc} = $lc;
 
 	my $itemtype = 'https://schema.org/Product';
 	if (has_tag($product_ref, 'categories', 'en:dietary-supplements')) {
@@ -8566,6 +8581,7 @@ display_product_summary("#product_summary", product);
 JS
 			;
 	}
+	$template_data_ref->{nutripatrol_url} = $nutripatrol_url;
 
 	my $html_display_product;
 
@@ -9361,22 +9377,40 @@ sub data_to_display_nutriscore ($product_ref, $version = "2021") {
 			if (has_tag($product_ref, "misc", "en:nutriscore-missing-nutrition-data")) {
 
 				my $missing_nutrients = "";
-				foreach my $misc_tag (@{$product_ref->{misc_tags}}) {
-					if ($misc_tag =~ /^en:nutriscore-missing-nutrition-data-(.*)$/) {
-						$missing_nutrients .= display_taxonomy_tag_name($lc, "nutrients", $1) . ", ";
+				if (
+					has_tag(
+						$product_ref, "data_quality_warnings",
+						"en:nutrition-data-per-serving-serving-quantity-is-not-recognized"
+					)
+					)
+				{
+					$missing_nutrients .= lang("missing_serving_size_value_and_or_unit");
+				}
+				else {
+					foreach my $misc_tag (@{$product_ref->{misc_tags}}) {
+						if ($misc_tag =~ /^en:nutriscore-missing-nutrition-data-(.*)$/) {
+							$missing_nutrients .= display_taxonomy_tag_name($lc, "nutrients", $1) . ", ";
+						}
 					}
 				}
 				$missing_nutrients =~ s/, $//;
 
+				my $missing_nutrition_mgs_details
+					= has_tag($product_ref, "misc", "en:nutriscore-missing-prepared-nutrition-data")
+					? "nutriscore_missing_prepared_nutrition_data_details"
+					: "nutriscore_missing_nutrition_data_details";
 				push @nutriscore_warnings,
 					  lang("nutriscore_missing_nutrition_data") . "<p>"
-					. lang("nutriscore_missing_nutrition_data_details") . " <b>"
+					. lang($missing_nutrition_mgs_details) . " <b>"
 					. $missing_nutrients . "</b>" . "</p>";
 
 				if (not has_tag($product_ref, "misc", "en:nutriscore-missing-category")) {
 					$result_data_ref->{nutriscore_unknown_reason} = "missing_nutrition_data";
-					$result_data_ref->{nutriscore_unknown_reason_short}
-						= lang("nutriscore_missing_nutrition_data_short");
+					my $msg
+						= has_tag($product_ref, "misc", "en:nutriscore-missing-prepared-nutrition-data")
+						? "nutriscore_missing_prepared_nutrition_data_short"
+						: "nutriscore_missing_nutrition_data_short";
+					$result_data_ref->{nutriscore_unknown_reason_short} = lang($msg);
 				}
 				else {
 					$result_data_ref->{nutriscore_unknown_reason} = "missing_category_and_nutrition_data";
@@ -10497,6 +10531,12 @@ sub display_taxonomy_api ($request_ref) {
 	my $tags = single_param('tags');
 	my @tags = split(/,/, $tags);
 
+	# If the canonicalize parameter is set to 1, canonicalize the tags to their canonical form
+	my $canonicalize = 0;
+	if (defined single_param('canonicalize') and (single_param('canonicalize') == 1)) {
+		$canonicalize = 1;
+	}
+
 	my $options_ref = {};
 
 	foreach my $field (qw(fields include_children include_parents include_root_entries)) {
@@ -10505,7 +10545,7 @@ sub display_taxonomy_api ($request_ref) {
 		}
 	}
 
-	my $taxonomy_ref = generate_tags_taxonomy_extract($tagtype, \@tags, $options_ref, \@lcs);
+	my $taxonomy_ref = generate_tags_taxonomy_extract($tagtype, \@tags, $options_ref, \@lcs, $canonicalize);
 
 	$request_ref->{structured_response} = $taxonomy_ref;
 
@@ -10680,7 +10720,7 @@ sub display_product_api ($request_ref) {
 				$changes_ref = [];
 			}
 			$response{blame} = {};
-			compute_product_history_and_completeness($data_root, $product_ref, $changes_ref, $response{blame});
+			compute_product_history_and_completeness($product_ref, $changes_ref, $response{blame});
 		}
 
 		if (single_param("jqm")) {

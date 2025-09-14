@@ -93,6 +93,22 @@
 
 
 
+	<off-webcomponents-configuration
+  language-code="en"
+  country-code="world"
+  robotoff-configuration='{
+    "apiUrl": "//backend:8881//api/v1",
+    "imgUrl": "//images.openfoodfacts.localhost/images/products"
+  }'
+  
+  folksonomy-configuration='{
+  "apiUrl": "//api.folksonomy.openfoodfacts.localhost"
+  }'
+  
+  openfoodfacts-api-url="//world.openfoodfacts.localhost"
+  assets-images-path="//static.openfoodfacts.localhost/css/dist/images"
+  ></off-webcomponents-configuration>
+	
 	
 
 	<div id="barcode-scanner-modal" class="modal is_hidden">
@@ -144,36 +160,7 @@
 							<!-- start templates/web/pages/product/product_page.tt.html -->
 <script src="//static.openfoodfacts.localhost/js/dist/JsBarcode.all.min.js"></script>
 
-<script>
-  window.productData = {
-    code: "3300000000001",
-    category: ["en:desserts","en:pies","en:sweet-pies","en:apple-pies"],
-    country: "world",
-    language: "en",
-    product_type: "food"
-  };
-  window.isModerator = 0;
-</script>
 
-<script src="//static.openfoodfacts.localhost/js/external-knowledge-panels.js"></script>
-
-
-
-<off-webcomponents-configuration
-  language-code="en"
-  country-code="world"
-  robotoff-configuration='{
-    "apiUrl": "//backend:8881//api/v1",
-    "imgUrl": "//images.openfoodfacts.localhost/images/products"
-  }'
-  
-  folksonomy-configuration='{
-  "apiUrl": "//api.folksonomy.openfoodfacts.localhost"
-  }'
-  
-  openfoodfacts-api-url="//world.openfoodfacts.localhost"
-  assets-images-path="//static.openfoodfacts.localhost/css/dist/images"
-  ></off-webcomponents-configuration>
 <a href="#upNav" class="back-to-top scrollto button">
     <span class="material-icons size-20 ">
         arrow_upward
@@ -211,7 +198,7 @@
 
                     
                 </div>
-            </div>
+            </div> 
         </div>
     </div>
     <div class="block v-space-tiny prod-nav product_banner_unranked" id="prodNav">
@@ -227,32 +214,33 @@
                             <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#health"><span>Health</span></a></li>
                         
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#environment"><span>Environment</span></a></li>
-                        
+                                                
                         
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#report_problem"><span>Report a problem.</span></a></li>
+                        
                         
                         
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#contribution"><span>Contribution</span></a></li>
                     </ul>
                 </nav><!-- .navbar -->
-            </div>
+            </div> 
         </div>
     </div>
 <div id="prodInfos">
     <!-- product_characteristics -->
     <section class="row" id="product">
         <div class="large-12 column">
-
+            
             <div class="card" style="border-top:none">
                 <div id="prodBanner" style="display:none"></div>
                 <div class="card-section">
-                    
+                       
 
 
                     <h2 class="title-1" property="food:name" itemprop="name">Apple pie – Bob's pies – 100 g</h1>
 
                     
-
+                    
             <!-- Obsolete product -->
             
 
@@ -267,8 +255,8 @@
             
 
             <!-- owner -->
-            
-
+                                
+                    
                     <!-- Display UPC code if the EAN starts with 0 -->
                         
                             <div id="barcode_div">
@@ -289,7 +277,7 @@
                             <script>if (screen && screen.width >= 600) JsBarcode("#barcode_svg").init()</script>
                             <div property="gr:hasEAN_UCC-13" content="3300000000001" datatype="xsd:string"></div>
                         
-
+                        
                         <!-- start templates/web/common/includes/display_field.tt.html -->
 
 <p id="field_generic_name">
@@ -379,18 +367,18 @@
     <!-- product summary -->
     <section class="row" id="match">
         <div class="large-12 column">
-
+            
             <div class="card">
                 <div class="card-section">
                     <h2 id="match_title">Matching with your preferences</h2>
 
                     <div id="match_score_and_status"></div>
-
+                            
                     <div id="product_summary" class="v-space-short text-left"></div>
 
                     <div id="preferences_selected" class="text-left"></div>
-
-                    <div id="preferences_selection_form" class="text-left v-space-whide h-space-wide" style="display:none"></div>
+                        
+                    <div id="preferences_selection_form" class="text-left v-space-whide h-space-wide" style="display:none"></div>                   
                 </div>
             </div>
 
@@ -2387,7 +2375,9 @@ The score is calculated from the data of the nutrition facts table and the compo
     
            <div class="panel_text">
              
+
 <b>Estimated quantity of added sugars in ingredients:</b> 11%
+
                 
            </div>
     
@@ -4642,7 +4632,9 @@ Apple pies
 
 
 
-<!-- Report problem card, if not on the platform for producers -->
+
+
+<!-- Report problem card, if not on the platform for producers -->    
 
     <section class="row" id="report_problem">
         <div class="large-12 column">
@@ -4829,7 +4821,7 @@ Apple pies
             
             
         </p>
-
+ 
             <div class="alert-box info">
                 If the data is incomplete or incorrect, you can complete or correct it by editing this page.
             </div>
@@ -4881,7 +4873,6 @@ Apple pies
 </section>
 
 <!-- end templates/web/pages/product/product_page.tt.html -->
-
 						
 					</div>
 				</div>

@@ -39,6 +39,7 @@ use ProductOpener::PerlStandards;
 use Exporter qw< import >;
 
 use Log::Any qw($log);
+use Data::Dumper;
 
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
@@ -71,6 +72,7 @@ use ProductOpener::PackagerCodes qw/%packager_codes/;
 use ProductOpener::KnowledgePanelsIngredients qw/:all/;
 use ProductOpener::KnowledgePanelsContribution qw/create_contribution_card_panel/;
 use ProductOpener::KnowledgePanelsReportProblem qw/create_report_problem_card_panel/;
+use ProductOpener::KnowledgePanelsProduct qw/create_product_card_panel/;
 use ProductOpener::ProductsFeatures qw/feature_enabled/;
 
 use JSON::MaybeXS;
@@ -230,6 +232,11 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 		$has_health_card = create_health_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 
+	my $has_product_card;
+	if ($panel_is_requested->('product_card')) {
+		$has_product_card = create_product_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+	}
+
 	my $has_environment_card;
 	if ($panel_is_requested->('environment_card')) {
 		$has_environment_card
@@ -262,12 +269,14 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 			has_contribution_card => $has_contribution_card,
 			has_environment_card => $has_environment_card,
 			has_secondhand_card => $has_secondhand_card,
+			has_product_card => $has_product_card,
 		},
 		$product_ref,
 		$target_lc,
 		$target_cc,
 		$options_ref
 	);
+
 	return;
 }
 
@@ -412,6 +421,7 @@ sub create_panel_from_json_template ($panel_id, $panel_template, $panel_data_ref
 		$panel_json =~ s/href="\//href="$formatted_subdomain\//g;
 
 		# Convert multilines strings between backticks `` into single line strings
+		# We use two backticks `` to remove line breaks and extra spaces
 		# In the template, we use multiline strings for readability
 		# e.g. when we want to generate HTML
 
@@ -1088,6 +1098,9 @@ sub create_nutriscore_2023_panel ($product_ref, $target_lc, $target_cc, $options
 	# Title
 	if ($grade eq "not-applicable") {
 		$panel_data_ref->{title} = lang_in_other_lc($target_lc, "attribute_nutriscore_not_applicable_title");
+	}
+	elsif ($grade eq 'unknown') {
+		$panel_data_ref->{title} = lang_in_other_lc($target_lc, "attribute_nutriscore_unknown_title");
 	}
 	else {
 		$panel_data_ref->{title}

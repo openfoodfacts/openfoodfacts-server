@@ -181,7 +181,7 @@
                      "actions" : [
                         "add_categories"
                      ],
-                     "html" : "Could you add a precise product category so that we can compute the Green-Score?"
+                     "html" : "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
                   },
                   "element_type" : "action"
                }
@@ -190,7 +190,7 @@
             "title_element" : {
                "grade" : "unknown",
                "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-unknown.svg",
-               "subtitle" : "Unknown environmental impact",
+               "subtitle" : "Missing a precise category",
                "title" : "Green-Score not computed",
                "type" : "grade"
             },
@@ -653,7 +653,7 @@
                "grade" : "unknown",
                "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown-new-en.svg",
                "subtitle" : "Missing nutrition facts",
-               "title" : "Nutri-Score UNKNOWN",
+               "title" : "Nutri-Score unknown",
                "type" : "grade"
             },
             "topics" : [
@@ -992,6 +992,17 @@
                "environment"
             ]
          },
+         "product_card" : {
+            "elements" : [],
+            "expanded" : true,
+            "title_element" : {
+               "title" : "Product information"
+            },
+            "topics" : [
+               "product"
+            ],
+            "type" : "card"
+         },
          "report_problem_card" : {
             "elements" : [
                {
@@ -1034,6 +1045,12 @@
                   "element_type" : "panel",
                   "panel_element" : {
                      "panel_id" : "contribution_card"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "product_card"
                   }
                }
             ],
