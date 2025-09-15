@@ -7568,16 +7568,16 @@ msgid "Unwanted ingredients"
 msgstr "Ingredienti indesiderati"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "Questa preferenza hè basata annantu à a cumprensione di Open Food Facts di a lista di l'ingredienti è puderia micca esse precisa, verificate sempre u pruduttu da voi stessu."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Questa preferenza hè basata annantu à a cumprensione di Open Food Facts di a lista d'ingredienti è pò ùn esse micca precisa, verificate sempre u pruduttu voi stessu."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "Presenza d'ingredienti indesiderati scunnisciuti"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "Nisun ingrediente indesideratu"
+msgid "No unwanted ingredients detected"
+msgstr "Nisun ingrediente indesideratu rilevatu"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "Contene ingredienti indesiderati"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Certi ingredienti ùn sò stati ricunnisciuti"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Ùn avemu micca rilevatu: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Ùn avemu micca rilevatu: {unwanted_ingredients}. Pudemu avè mancatu certi ingredienti, per piacè verificate sempre a lista di l'ingredienti."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Queste preferenze sò basate nantu à a capiscitura di Open Food Facts di a lista di l'ingredienti è ci hè sempre a pussibilità chì ùn sia micca precisa o cumpleta, verificate sempre u pruduttu voi stessu."
 
