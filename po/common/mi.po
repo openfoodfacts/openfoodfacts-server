@@ -7568,16 +7568,16 @@ msgid "Unwanted ingredients"
 msgstr "Nga kai e kore e hiahiatia"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "Ko tenei manakohanga i ahu mai i runga i te maaramatanga o nga Meka Kai Tuwhera ki te rarangi kai me te kore e tika, tirohia te hua nau ano."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "I ahu mai tenei manakohanga i runga i te maaramatanga o Open Food Facts ki te rarangi whakauru me te kore e tika, tirohia tonu te hua."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "Te aroaro o nga kai kore e mohiotia"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "Karekau he kai kino"
+msgid "No unwanted ingredients detected"
+msgstr "Karekau he kai kino i kitea"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "Kei roto nga kai kore e hiahiatia"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Ko etahi kai kaore i mohiotia"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Kaore i kitea e matou: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Kaore i kitea e matou: {unwanted_ingredients}. Kua ngaro pea i a maatau etahi kai, tena koa tirohia te rarangi whakauru."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Ko aua manakohanga i ahu mai i runga i te maaramatanga o Open Food Facts ki te rarangi whakauru me te kore pea e tika, kia oti ranei, tirohia tonu te hua."
 
