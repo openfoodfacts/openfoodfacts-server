@@ -7568,16 +7568,16 @@ msgid "Unwanted ingredients"
 msgstr "የማይፈለጉ ንጥረ ነገሮች"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "ይህ ምርጫ በክፍት ምግብ እውነታዎች ላይ የተመሰረተ የንጥረ ነገሮች ዝርዝር መረዳት እና ትክክል ላይሆን ይችላል፣ ሁልጊዜ ምርቱን በራስዎ ያረጋግጡ።"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "ይህ ምርጫ በክፍት ምግብ እውነታዎች ስለ ንጥረ ነገሩ ዝርዝር ግንዛቤ ላይ የተመሰረተ ነው እና ትክክል ላይሆን ይችላል፣ ሁልጊዜ ምርቱን እራስዎ ያረጋግጡ።"
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "የማይታወቁ የማይፈለጉ ንጥረ ነገሮች መገኘት"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "ምንም ያልተፈለጉ ንጥረ ነገሮች"
+msgid "No unwanted ingredients detected"
+msgstr "ምንም ያልተፈለጉ ንጥረ ነገሮች አልተገኙም።"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "የማይፈለጉ ንጥረ ነገሮችን ይዟል"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "አንዳንድ ንጥረ ነገሮች አልታወቁም።"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "እኛ አላገኘንም: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "እኛ አላገኘንም: {unwanted_ingredients}. አንዳንድ ንጥረ ነገሮችን አምልጦን ሊሆን ይችላል፣ እባክዎ ሁልጊዜ የንጥረ ነገሮች ዝርዝሩን ያረጋግጡ።"
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "እነዚያ ምርጫዎች የተመሰረቱት በክፍት ምግብ እውነታዎች የንጥረ ነገር ዝርዝር ግንዛቤ ላይ ነው እና ሁልጊዜም ትክክል ወይም ሙሉ ላይሆን የሚችልበት እድል አለ፣ ሁልጊዜ ምርቱን እራስዎ ያረጋግጡ።"
 
