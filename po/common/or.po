@@ -7568,16 +7568,16 @@ msgid "Unwanted ingredients"
 msgstr "ଅନାବଶ୍ୟକ ଉପାଦାନଗୁଡ଼ିକ"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "ଏହି ପସନ୍ଦ ଓପନ ଫୁଡ୍ ଫ୍ୟାକ୍ଟସ୍ ଉପାଦାନ ତାଲିକାର ବୁଝାମଣା ଉପରେ ଆଧାରିତ ଏବଂ ଏହା ସଠିକ୍ ନ ହୋଇପାରେ, ସର୍ବଦା ନିଜେ ଉତ୍ପାଦଟି ଯାଞ୍ଚ କରନ୍ତୁ।"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "ଏହି ପସନ୍ଦ ଓପନ ଫୁଡ୍ ଫ୍ୟାକ୍ଟସର ଉପାଦାନ ତାଲିକାର ବୁଝାମଣା ଉପରେ ଆଧାରିତ ଏବଂ ଏହା ସଠିକ୍ ନ ହୋଇପାରେ, ସର୍ବଦା ନିଜେ ଉତ୍ପାଦଟି ଯାଞ୍ଚ କରନ୍ତୁ।"
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "ଅନାବଶ୍ୟକ ଉପାଦାନର ଉପସ୍ଥିତି ଅଜଣା"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "କୌଣସି ଅନାବଶ୍ୟକ ଉପାଦାନ ନାହିଁ"
+msgid "No unwanted ingredients detected"
+msgstr "କୌଣସି ଅନାବଶ୍ୟକ ଉପାଦାନ ଚିହ୍ନଟ ହୋଇନାହିଁ"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "ଏଥିରେ ଅନାବଶ୍ୟକ ଉପାଦାନ ଅଛି"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "କିଛି ଉପାଦାନ ଚିହ୍ନଟ ହୋଇନଥିଲା"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "ଆମେ ଚିହ୍ନଟ କରିପାରିଲୁ ନାହିଁ: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "ଆମେ ଚିହ୍ନଟ କରିପାରିଲୁ ନାହିଁ: {unwanted_ingredients}। ଆମେ କିଛି ଉପାଦାନ ହରାଇ ଦେଇଥାଇପାରୁ, ଦୟାକରି ସର୍ବଦା ଉପାଦାନ ତାଲିକା ଯାଞ୍ଚ କରନ୍ତୁ।"
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "ସେହି ପସନ୍ଦଗୁଡ଼ିକ ଓପନ ଫୁଡ୍ ଫ୍ୟାକ୍ଟସର ଉପାଦାନ ତାଲିକାର ବୁଝାମଣା ଉପରେ ଆଧାରିତ ଏବଂ ସର୍ବଦା ଏକ ସମ୍ଭାବନା ରହିଥାଏ ଯେ ଏହା ସଠିକ୍ କିମ୍ବା ସମ୍ପୂର୍ଣ୍ଣ ନ ହୋଇପାରେ, ସର୍ବଦା ନିଜେ ଉତ୍ପାଦଟି ଯାଞ୍ଚ କରନ୍ତୁ।"
 
