@@ -7585,7 +7585,7 @@ msgid "Unwanted ingredients"
 msgstr "Ingredientes indesejados"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
 msgstr "Esta preferência é baseada no entendimento da lista de ingredientes do Open Food Facts e pode não ser precisa. Sempre verifique o produto você mesmo."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
@@ -7593,8 +7593,8 @@ msgid "Presence of unwanted ingredients unknown"
 msgstr "Presença de ingredientes indesejados desconhecida"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "Sem ingredientes indesejados"
+msgid "No unwanted ingredients detected"
+msgstr "Nenhum ingrediente indesejado detectado"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7603,4 +7603,16 @@ msgstr "Contém ingredientes indesejados"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Alguns ingredientes não foram reconhecidos"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Não detectamos: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Não detectamos: {unwanted_ingredients}. Podemos ter esquecido alguns ingredientes. Por favor, verifique sempre a lista de ingredientes."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Essas preferências são baseadas no entendimento da Open Food Facts sobre a lista de ingredientes e sempre há a possibilidade de que ela não seja precisa ou completa. Verifique sempre o produto você mesmo."
 
