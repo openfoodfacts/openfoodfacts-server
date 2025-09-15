@@ -7568,16 +7568,16 @@ msgid "Unwanted ingredients"
 msgstr "Izithako ezingafunekiyo"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "Olu khetho lusekwe kwi-Open Food Facts yokuqonda uluhlu lwezithako kwaye isenokungachaneki, soloko uqinisekisa imveliso wedwa."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Olu khetho lusekwe kwi-Open Food Facts 'yokuqonda kuluhlu lwezithako kwaye isenokungachaneki, soloko ujonga imveliso ngokwakho."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "Ubukho bezithako ezingafunwayo akwaziwa"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "Akukho zithako ezingafunwayo"
+msgid "No unwanted ingredients detected"
+msgstr "Akukho zithako ezingafunwayo zifunyenweyo"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "Iqulethe izithako ezingafunekiyo"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Ezinye izithako azizange zibonwe"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Asiyibhaqanga: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Asiyibhaqanga: {unwanted_ingredients}. Sisenokuba ziphosile ezinye izithako, nceda uhlale ujonge uluhlu lwezithako."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Ezo zinto zikhethwayo zisekwe kukuqonda okuVulekileyo kokutya koluhlu lwezithako kwaye kuhlala kukho ithuba lokuba ingachaneki okanye iphelele, soloko ujonga imveliso ngokwakho."
 
