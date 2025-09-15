@@ -7568,16 +7568,16 @@ msgid "Unwanted ingredients"
 msgstr "Grìtheidean nach eilear ag iarraidh"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "Tha an roghainn seo stèidhichte air tuigse Open Food Facts air liosta nan tàthchuid agus is dòcha nach eil e ceart, dearbhaich an toradh leat fhèin an-còmhnaidh."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Tha an roghainn seo stèidhichte air tuigse Open Food Facts air liosta nan tàthchuid agus is dòcha nach eil e ceart, thoir sùil air an toradh thu fhèin an-còmhnaidh."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "Làthaireachd tàthchuid nach eilear ag iarraidh neo-aithnichte"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "Gun ghrìtheidean nach eilear ag iarraidh"
+msgid "No unwanted ingredients detected"
+msgstr "Cha deach grìtheidean nach eilear ag iarraidh a lorg"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "Anns a bheil grìtheidean nach eilear ag iarraidh"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Cha deach cuid de na grìtheidean aithneachadh"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Cha do lorg sinn: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Cha do lorg sinn: {unwanted_ingredients}. Is dòcha gu bheil sinn air cuid de ghrìtheidean a chall, feuch an toir thu sùil an-còmhnaidh air liosta nan tàthchuid."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Tha na roghainnean sin stèidhichte air tuigse Open Food Facts air liosta nan tàthchuid agus tha cothrom ann an-còmhnaidh nach eil e ceart no coileanta, thoir sùil air an toradh thu fhèin an-còmhnaidh."
 
