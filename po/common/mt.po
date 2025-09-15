@@ -7568,16 +7568,16 @@ msgid "Unwanted ingredients"
 msgstr "Ingredjenti mhux mixtieqa"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "Din il-preferenza hija bbażata fuq il-fehim tal-lista tal-ingredjenti minn Open Food Facts u tista' ma tkunx preċiża, dejjem ivverifika l-prodott int stess."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Din il-preferenza hija bbażata fuq il-fehim ta' Open Food Facts tal-lista tal-ingredjenti u tista' ma tkunx preċiża, dejjem iċċekkja l-prodott int stess."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "Il-preżenza ta' ingredjenti mhux mixtieqa mhix magħrufa"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "L-ebda ingredjenti mhux mixtieqa"
+msgid "No unwanted ingredients detected"
+msgstr "Ma nstab l-ebda ingredjent mhux mixtieq"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "Fih ingredjenti mhux mixtieqa"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Xi ingredjenti ma ġewx rikonoxxuti"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Ma skoprejniex: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Ma skoprejniex: {unwanted_ingredients}. Jista' jkun li tlifna xi ingredjenti, jekk jogħġbok dejjem iċċekkja l-lista tal-ingredjenti."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Dawk il-preferenzi huma bbażati fuq il-fehim ta' Open Food Facts tal-lista tal-ingredjenti u dejjem hemm il-possibbiltà li din ma tkunx preċiża jew kompluta, dejjem iċċekkja l-prodott int stess."
 
