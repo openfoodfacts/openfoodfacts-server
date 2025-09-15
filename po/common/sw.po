@@ -7569,16 +7569,16 @@ msgid "Unwanted ingredients"
 msgstr "Viungo visivyohitajika"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "Upendeleo huu unatokana na uelewa wa Open Food Facts kuhusu orodha ya viungo na huenda isiwe sahihi, thibitisha bidhaa peke yako kila wakati."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Upendeleo huu unatokana na uelewa wa Open Food Facts kuhusu orodha ya viambato na huenda usiwe sahihi, angalia bidhaa mwenyewe kila wakati."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "Uwepo wa viungo visivyohitajika haijulikani"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "Hakuna viungo visivyohitajika"
+msgid "No unwanted ingredients detected"
+msgstr "Hakuna viungo visivyohitajika vilivyogunduliwa"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7587,4 +7587,16 @@ msgstr "Ina viungo visivyohitajika"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Viungo vingine havikutambuliwa"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Hatukugundua: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Hatukugundua: {unwanted_ingredients}. Huenda tumekosa baadhi ya viungo, tafadhali angalia orodha ya viambato kila wakati."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Mapendeleo hayo yanatokana na uelewa wa Open Food Facts kuhusu orodha ya viambato na daima kuna uwezekano kwamba inaweza isiwe sahihi au kamili, angalia bidhaa mwenyewe kila wakati."
 
