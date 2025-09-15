@@ -7568,16 +7568,16 @@ msgid "Unwanted ingredients"
 msgstr "Titsako letingafuneki"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "Loku lokukhetsako kususelwa ku Open Food Facts kuvisisa luhlu lwetitsako futsi kungenteka kungabi ngulokunembile, hlala ucinisekisa umkhicito nguwe."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Loku lokukhetsako kususelwa ekuvisisekeni kwe Open Food Facts’ kweluhlu lwetitsako futsi kungenteka kungabi ngulokunembile, hlala uhlola lomkhicito wena."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "Kuba khona kwetitsako letingafuneki akwatiwa"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "Kute tintfo letingafuneki"
+msgid "No unwanted ingredients detected"
+msgstr "Kute titsako letingafuneki letitfolakele"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "Icuketse tintfo letingafuneki"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Letinye titsako atizange tibonwe"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Asizange sitfole: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Asizange sitfole: {unwanted_ingredients}. Kungenteka kutsi siphutselwe nguletinye titsako, sicela uhlale uhlola luhlu lwetitsako."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Leto tintfo letikhetsiwe tisuselwa ekuvisisekeni kwe Open Food Facts’ kweluhlu lwetitsako futsi kuhlala kunematfuba ekutsi kungenteka kungabi ngulokunembile noma lokuphelele, hlala uhlola lomkhicito wena."
 
