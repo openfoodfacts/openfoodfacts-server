@@ -1,4 +1,4 @@
-## 📸 Tutorial: Using the Image Refresh API
+#  Using the Image Refresh API
 
 This tutorial explains how to use the Open Food Facts API to identify which product images are missing or outdated. This allows your application to prompt users to take or retake specific photos, helping keep the database current and complete. The more drastic solution is to put back the user into a refresh/completion pipeline before he can access the product.
 
@@ -14,20 +14,20 @@ To get the status of a product's images, you make a standard `GET` request to th
 
 **URL Structure:**
 
-```
+```sh
 https://{world|fr|...}.openfoodfacts.org/api/v2/product/[BARCODE]?fields=images_to_update_[LANG]
 ```
 
 **Parameters:**
 
-  * `[BARCODE]`: The barcode of the product you are querying.
-  * `[LANG]`: The two-letter [ISO language code](https://static.openfoodfacts.org/data/taxonomies/languages.json) for which you want to check the images (e.g., `en`, `fr`, `de`). Your application should use its current language setting here.
+  - `[BARCODE]`: The barcode of the product you are querying.
+  - `[LANG]`: The two-letter [ISO language code](https://static.openfoodfacts.org/data/taxonomies/languages.json) for which you want to check the images (e.g., `en`, `fr`, `de`). Your application should use its current language setting here.
 
 **Example Request:**
 
 Here is a request for the French (`fr`) images for product `3483130043180`.
 
-```
+```sh
 https://fr.openfoodfacts.org/api/v2/produit/3483130043180?fields=images_to_update_fr
 ```
 
@@ -55,14 +55,14 @@ The API returns a standard product JSON object, but it will only contain the `im
 
 The `images_to_update_fr` object contains key-value pairs.
 
-  * **Key**: The key is a combination of the **image type** and the **language code**, separated by an underscore (e.g., `front_fr`). The main image types are:
-      * `front`
-      * `ingredients`
-      * `nutrition`
-      * `packaging`
-  * **Value**: The value tells you the status of the image.
-      * `0`: The image **does not exist**. The user should be prompted to **take** a new picture.
-      * `> 0`: The image **exists but is old**. The value is the age of the image in **seconds**. The user should be prompted to **refresh** it with a new one.
+- **Key**: The key is a combination of the **image type** and the **language code**, separated by an underscore (e.g., `front_fr`). The main image types are:
+      - `front`
+      - `ingredients`
+      - `nutrition`
+      - `packaging`
+  - **Value**: The value tells you the status of the image.
+      - `0`: The image **does not exist**. The user should be prompted to **take** a new picture.
+      - `> 0`: The image **exists but is old**. The value is the age of the image in **seconds**. The user should be prompted to **refresh** it with a new one.
 
 -----
 
@@ -74,7 +74,7 @@ Your application should parse this response to dynamically generate calls to act
 
 Here is a pseudo-code example demonstrating how to create button text based on the API response.
 
-```
+``` js
 // Assume 'images_to_update' is the object from the API response
 // e.g., { packaging_fr: 0, front_fr: 83734290 }
 
