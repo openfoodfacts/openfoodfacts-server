@@ -7584,16 +7584,16 @@ msgid "Unwanted ingredients"
 msgstr "Nemkívánatos összetevők"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "Ez a preferencia az Open Food Facts összetevőlistájának megértésén alapul, és lehet, hogy nem pontos, mindig ellenőrizze a terméket személyesen."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Ez a preferencia az Open Food Facts összetevőlistájának értelmezésén alapul, és előfordulhat, hogy nem pontos, ezért mindig ellenőrizze a terméket személyesen."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "Nemkívánatos összetevők jelenléte ismeretlen"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "Nincsenek nem kívánt összetevők"
+msgid "No unwanted ingredients detected"
+msgstr "Nem észleltek nem kívánt összetevőket"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7602,4 +7602,16 @@ msgstr "Nemkívánatos összetevőket tartalmaz"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Néhány összetevőt nem ismert fel"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Nem észleltük: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Nem észleltük a következőt: {unwanted_ingredients}. Lehet, hogy kihagytunk néhány összetevőt, kérjük, mindig ellenőrizze az összetevők listáját."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Ezek a preferenciák az Open Food Facts összetevőlistájának értelmezésén alapulnak, és mindig fennáll annak a lehetősége, hogy az nem pontos vagy teljes, ezért mindig ellenőrizze a terméket személyesen."
 
