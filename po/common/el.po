@@ -7587,16 +7587,16 @@ msgid "Unwanted ingredients"
 msgstr "Ανεπιθύμητα συστατικά"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "Αυτή η προτίμηση βασίζεται στην κατανόηση της λίστας συστατικών του Open Food Facts και ενδέχεται να μην είναι ακριβής, επομένως επαληθεύετε πάντα το προϊόν μόνοι σας."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Αυτή η προτίμηση βασίζεται στην κατανόηση της λίστας συστατικών από το Open Food Facts και ενδέχεται να μην είναι ακριβής, επομένως ελέγχετε πάντα το προϊόν μόνοι σας."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "Άγνωστη η παρουσία ανεπιθύμητων συστατικών"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "Χωρίς ανεπιθύμητα συστατικά"
+msgid "No unwanted ingredients detected"
+msgstr "Δεν εντοπίστηκαν ανεπιθύμητα συστατικά"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7605,4 +7605,16 @@ msgstr "Περιέχει ανεπιθύμητα συστατικά"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Ορισμένα συστατικά δεν αναγνωρίστηκαν"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Δεν εντοπίσαμε: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Δεν εντοπίσαμε: {unwanted_ingredients}. Μπορεί να μας έχουν παραλείψει ορισμένα συστατικά, παρακαλούμε να ελέγχετε πάντα τη λίστα συστατικών."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Αυτές οι προτιμήσεις βασίζονται στην κατανόηση της λίστας συστατικών από το Open Food Facts και υπάρχει πάντα η πιθανότητα να μην είναι ακριβής ή πλήρης, επομένως να ελέγχετε πάντα το προϊόν μόνοι σας."
 
