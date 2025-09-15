@@ -7568,16 +7568,16 @@ msgid "Unwanted ingredients"
 msgstr "अवांछित सामग्री"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "इदं प्राधान्यं सामग्रीसूचिकायाः Open Food Facts अवगमने आधारितं भवति तथा च समीचीनं न भवेत्, सर्वदा स्वयमेव उत्पादस्य सत्यापनम् कुर्वन्तु।"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "इदं प्राधान्यं Open Food Facts इत्यस्य घटकसूचिकायाः अवगमनस्य आधारेण भवति तथा च समीचीनं न भवेत्, सर्वदा उत्पादं स्वयमेव पश्यन्तु।"
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "अवांछितसामग्रीणां उपस्थितिः अज्ञाता"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "न अवांछितसामग्री"
+msgid "No unwanted ingredients detected"
+msgstr "न अवांछितसामग्री ज्ञाता"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "अवांछितसामग्रीः सन्ति"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "केचन अवयवः न ज्ञाताः आसन्"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "वयं न ज्ञातवन्तः: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "वयं न ज्ञातवन्तः: {unwanted_ingredients}. वयं केचन अवयवः त्यक्तवन्तः स्यात्, कृपया सर्वदा सामग्रीसूचीं पश्यन्तु।"
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "तानि प्राधान्यानि Open Food Facts इत्यस्य घटकसूचिकायाः अवगमनस्य आधारेण भवन्ति तथा च सदैव सम्भावना वर्तते यत् सा सटीकं वा पूर्णं वा न भवेत्, सर्वदा उत्पादं स्वयमेव पश्यन्तु।"
 
