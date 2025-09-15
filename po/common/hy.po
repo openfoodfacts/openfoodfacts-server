@@ -7568,16 +7568,16 @@ msgid "Unwanted ingredients"
 msgstr "Անցանկալի բաղադրիչներ"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "Այս նախընտրությունը հիմնված է «Բաց սննդի փաստեր»-ի բաղադրիչների ցանկի ըմբռնման վրա և կարող է ճշգրիտ չլինել, միշտ ստուգեք ապրանքը ինքներդ։"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Այս նախընտրությունը հիմնված է Open Food Facts-ի բաղադրիչների ցանկի վերաբերյալ ունեցած գիտելիքների վրա և կարող է ճշգրիտ չլինել, միշտ ինքներդ ստուգեք ապրանքը։"
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "Անցանկալի բաղադրիչների առկայությունը անհայտ է"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "Առանց անցանկալի բաղադրիչների"
+msgid "No unwanted ingredients detected"
+msgstr "Անցանկալի բաղադրիչներ չեն հայտնաբերվել"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "Պարունակում է անցանկալի բաղադրիչներ"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Որոշ բաղադրիչներ չեն ճանաչվել"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Մենք չենք հայտնաբերել՝ {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Մենք չենք հայտնաբերել՝ {unwanted_ingredients}: Հնարավոր է՝ որոշ բաղադրիչներ բաց ենք թողել, խնդրում ենք միշտ ստուգել բաղադրիչների ցանկը:"
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Այդ նախընտրությունները հիմնված են «Բաց սննդի փաստերի» կողմից բաղադրիչների ցանկի վերաբերյալ ունեցած գիտելիքների վրա, և միշտ կա հնարավորություն, որ այն ճշգրիտ կամ ամբողջական չէ, միշտ ինքներդ ստուգեք ապրանքը։"
 
