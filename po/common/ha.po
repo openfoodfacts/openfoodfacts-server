@@ -7568,16 +7568,16 @@ msgid "Unwanted ingredients"
 msgstr "Abubuwan da ba a so"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "Wannan zaɓin ya dogara ne akan Fahimtar Fahimtar Bayanan Abinci na lissafin abubuwan sinadaran kuma maiyuwa ba daidai bane, koyaushe tabbatar da samfurin da kanka."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Wannan zaɓin ya dogara ne akan Fahimtar Bayanan Gaskiyar Abinci na jerin abubuwan sinadarai kuma maiyuwa ba daidai bane, koyaushe duba samfurin da kanku."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "Kasancewar abubuwan da ba'a so ba a sani ba"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "Babu abubuwan da ba'a so"
+msgid "No unwanted ingredients detected"
+msgstr "Ba a gano abubuwan da ba'a so ba"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "Ya ƙunshi abubuwan da ba'a so"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Wasu sinadaran ba a gane su ba"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Ba mu gano: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Ba mu gano: {unwanted_ingredients}. Wataƙila mun rasa wasu sinadarai, da fatan za a bincika jerin abubuwan sinadarai koyaushe."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Wadancan abubuwan da ake so sun dogara ne akan Fahimtar Fahimtar Bayanan Abinci na abubuwan sinadaran kuma koyaushe akwai yuwuwar cewa bazai yi daidai ko cikakke ba, koyaushe duba samfurin da kanka."
 
