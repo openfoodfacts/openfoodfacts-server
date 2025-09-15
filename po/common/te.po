@@ -7568,16 +7568,16 @@ msgid "Unwanted ingredients"
 msgstr "అవాంఛిత పదార్థాలు"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "ఈ ప్రాధాన్యత పదార్థాల జాబితాపై ఓపెన్ ఫుడ్ ఫ్యాక్ట్స్ అవగాహనపై ఆధారపడి ఉంటుంది మరియు ఇది ఖచ్చితమైనది కాకపోవచ్చు, ఎల్లప్పుడూ ఉత్పత్తిని మీరే ధృవీకరించండి."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "ఈ ప్రాధాన్యత ఓపెన్ ఫుడ్ ఫ్యాక్ట్స్ పదార్థాల జాబితాపై అవగాహనపై ఆధారపడి ఉంటుంది మరియు ఇది ఖచ్చితమైనది కాకపోవచ్చు, ఎల్లప్పుడూ ఉత్పత్తిని మీరే తనిఖీ చేయండి."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "అవాంఛిత పదార్థాల ఉనికి తెలియదు"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "అవాంఛిత పదార్థాలు లేవు"
+msgid "No unwanted ingredients detected"
+msgstr "అవాంఛిత పదార్థాలు ఏవీ కనుగొనబడలేదు."
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "అవాంఛిత పదార్థాలను కలిగి ఉ
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "కొన్ని పదార్థాలు గుర్తించబడలేదు."
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "మేము గుర్తించలేదు: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "మేము గుర్తించలేదు: {unwanted_ingredients}. మేము కొన్ని పదార్థాలను తప్పిపోయి ఉండవచ్చు, దయచేసి ఎల్లప్పుడూ పదార్థాల జాబితాను తనిఖీ చేయండి."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "ఆ ప్రాధాన్యతలు ఓపెన్ ఫుడ్ ఫ్యాక్ట్స్ పదార్థాల జాబితా యొక్క అవగాహనపై ఆధారపడి ఉంటాయి మరియు అది ఖచ్చితమైనది లేదా పూర్తిగా ఉండకపోవచ్చు, ఎల్లప్పుడూ ఉత్పత్తిని మీరే తనిఖీ చేయండి."
 
