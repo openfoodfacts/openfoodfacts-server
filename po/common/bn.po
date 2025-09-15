@@ -7569,16 +7569,16 @@ msgid "Unwanted ingredients"
 msgstr "অবাঞ্ছিত উপাদান"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "এই পছন্দটি ওপেন ফুড ফ্যাক্টস দ্বারা উপাদান তালিকার বোঝার উপর ভিত্তি করে এবং সঠিক নাও হতে পারে, সর্বদা নিজেই পণ্যটি যাচাই করুন।"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "এই পছন্দটি ওপেন ফুড ফ্যাক্টসের উপাদান তালিকার বোঝার উপর ভিত্তি করে এবং সঠিক নাও হতে পারে, সর্বদা নিজেই পণ্যটি পরীক্ষা করে দেখুন।"
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "অবাঞ্ছিত উপাদানের উপস্থিতি অজানা"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "কোনও অবাঞ্ছিত উপাদান নেই"
+msgid "No unwanted ingredients detected"
+msgstr "কোনও অবাঞ্ছিত উপাদান সনাক্ত করা হয়নি"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7587,4 +7587,16 @@ msgstr "অবাঞ্ছিত উপাদান রয়েছে"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "কিছু উপাদান স্বীকৃত হয়নি"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "আমরা সনাক্ত করতে পারিনি: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "আমরা সনাক্ত করতে পারিনি: {unwanted_ingredients}। আমরা কিছু উপাদান মিস করে থাকতে পারি, অনুগ্রহ করে সর্বদা উপাদান তালিকাটি পরীক্ষা করে দেখুন।"
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "এই পছন্দগুলি ওপেন ফুড ফ্যাক্টসের উপাদান তালিকার বোঝার উপর ভিত্তি করে তৈরি এবং সর্বদা এটি সঠিক বা সম্পূর্ণ নাও হতে পারে, সর্বদা নিজেই পণ্যটি পরীক্ষা করে দেখুন।"
 
