@@ -7568,16 +7568,16 @@ msgid "Unwanted ingredients"
 msgstr "គ្រឿងផ្សំដែលមិនចង់បាន"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "ចំណូលចិត្តនេះគឺផ្អែកលើការយល់ដឹងអំពីការពិតនៃអាហារបើកចំហអំពីបញ្ជីគ្រឿងផ្សំ ហើយប្រហែលជាមិនត្រឹមត្រូវទេ សូមផ្ទៀងផ្ទាត់ផលិតផលដោយខ្លួនឯងជានិច្ច។"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "ចំណូលចិត្តនេះគឺផ្អែកលើការយល់ដឹងរបស់ Open Food Facts អំពីបញ្ជីគ្រឿងផ្សំ ហើយប្រហែលជាមិនត្រឹមត្រូវទេ សូមពិនិត្យមើលផលិតផលដោយខ្លួនឯងជានិច្ច។"
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "វត្តមាននៃគ្រឿងផ្សំដែលមិនចង់បានមិនស្គាល់"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "មិនមានគ្រឿងផ្សំដែលមិនចង់បាន"
+msgid "No unwanted ingredients detected"
+msgstr "រកមិនឃើញធាតុផ្សំដែលមិនចង់បាន"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "មានគ្រឿងផ្សំដែលមិនចង់បាន
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "គ្រឿងផ្សំមួយចំនួនមិនត្រូវបានគេទទួលស្គាល់ទេ។"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "យើងរកមិនឃើញ៖ {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "យើងរកមិនឃើញ៖ {unwanted_ingredients}. យើងប្រហែលជាខកខានគ្រឿងផ្សំមួយចំនួន សូមពិនិត្យមើលបញ្ជីគ្រឿងផ្សំជានិច្ច។"
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "ចំណូលចិត្តទាំងនោះគឺផ្អែកលើការយល់ដឹងរបស់ Open Food Facts អំពីបញ្ជីគ្រឿងផ្សំ ហើយតែងតែមានលទ្ធភាពដែលវាប្រហែលជាមិនត្រឹមត្រូវ ឬពេញលេញ សូមពិនិត្យមើលផលិតផលដោយខ្លួនឯងជានិច្ច។"
 
