@@ -30,7 +30,7 @@
 - The API is adding a new ecoscore_grade field from A to F. Technically wise, it behaves like the Nutri-Score, so you can clone part of your Nutri-Score implementation
 - If (and only if) the server sends back a proper value (a+, a, b, c, d, e or f), display the new score, otherwise, display our gray placeholder
 - [https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=environmental_score_grade](https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=environmental_score_grade)
-- {"status_verbose":"product found","product":{"ecoscore_grade":"b"},"status":1,"code":"3414280980209"}
+-  Response: {"status_verbose":"product found","product":{"ecoscore_grade":"b"},"status":1,"code":"3414280980209"}
 - https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=ecoscore_grade
 - Here are the visuals.
   - [A+ Green Score visual](https://static.openfoodfacts.org/images/attributes/dist/green-score-a-plus.svg)
