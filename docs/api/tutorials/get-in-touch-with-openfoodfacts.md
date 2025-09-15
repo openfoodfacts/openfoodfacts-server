@@ -1,4 +1,4 @@
-# Get in touch with OpenFoodFacts"
+# Get in touch with OpenFoodFacts
 
 ## Tell us about your reuse
 
