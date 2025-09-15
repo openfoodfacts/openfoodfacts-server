@@ -7583,16 +7583,16 @@ msgid "Unwanted ingredients"
 msgstr "Nežádoucí přísady"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "Tato preference je založena na pochopení seznamu složek na webu Open Food Facts a nemusí být přesná, vždy si produkt ověřte sami."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Tato preference vychází z toho, jak Open Food Facts chápe seznam složek, a nemusí být přesná, vždy si produkt sami zkontrolujte."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "Přítomnost nežádoucích složek není známa"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "Žádné nežádoucí přísady"
+msgid "No unwanted ingredients detected"
+msgstr "Žádné nežádoucí přísady nebyly zjištěny"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7601,4 +7601,16 @@ msgstr "Obsahuje nežádoucí složky"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Některé ingredience nebyly rozpoznány"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Nezjistili jsme: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Nenašli jsme: {unwanted_ingredients}. Možná jsme některé ingredience vynechali, vždy si prosím zkontrolujte seznam ingrediencí."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Tyto preference jsou založeny na tom, jak Open Food Facts chápe seznam složek, a vždy existuje možnost, že nemusí být přesný nebo úplný, proto si vždy produkt sami zkontrolujte."
 
