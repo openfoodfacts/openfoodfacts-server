@@ -84,7 +84,7 @@ While testing your applications, **make all API requests to the staging environm
 
 Staging require an http basic auth to avoid search engine indexing. The username is `off`, and the password `off`. Here is a small javascript code that you can test in your browser console:
 
-```js title="API Deployments"
+```js 
 fetch("https://world.openfoodfacts.net/api/v2/product/3274080005003.json", {
   method: "GET",
   headers: { Authorization: "Basic " + btoa("off:off") },
