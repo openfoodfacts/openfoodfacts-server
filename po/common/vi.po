@@ -7587,16 +7587,16 @@ msgid "Unwanted ingredients"
 msgstr "Thành phần không mong muốn"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "Sở thích này dựa trên sự hiểu biết về danh sách thành phần của Open Food Facts và có thể không chính xác, hãy luôn tự mình xác minh sản phẩm."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Sở thích này dựa trên sự hiểu biết của Open Food Facts về danh sách thành phần và có thể không chính xác, hãy luôn tự mình kiểm tra sản phẩm."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "Sự hiện diện của các thành phần không mong muốn chưa được biết"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "Không có thành phần không mong muốn"
+msgid "No unwanted ingredients detected"
+msgstr "Không phát hiện thành phần không mong muốn"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7605,4 +7605,16 @@ msgstr "Chứa các thành phần không mong muốn"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Một số thành phần không được công nhận"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Chúng tôi không phát hiện: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Chúng tôi không phát hiện: {unwanted_ingredients}. Chúng tôi có thể đã bỏ sót một số thành phần, vui lòng luôn kiểm tra danh sách thành phần."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Những sở thích đó dựa trên sự hiểu biết của Open Food Facts về danh sách thành phần và luôn có khả năng danh sách này không chính xác hoặc không đầy đủ, hãy luôn tự mình kiểm tra sản phẩm."
 
