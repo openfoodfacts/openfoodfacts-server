@@ -7568,16 +7568,16 @@ msgid "Unwanted ingredients"
 msgstr "Хүсээгүй найрлага"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "Энэхүү сонголт нь Нээлттэй Хүнсний Баримтуудын орц найрлагын жагсаалтын талаарх ойлголтод үндэслэсэн бөгөөд үнэн зөв биш байж болзошгүй тул бүтээгдэхүүнийг үргэлж өөрөө шалгаарай."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Энэхүү давуу эрх нь Open Food Facts-ийн орцын жагсаалтын талаарх ойлголтод үндэслэсэн бөгөөд үнэн зөв биш байж магадгүй тул бүтээгдэхүүнийг өөрөө шалгаж үзээрэй."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "Хүсээгүй найрлага байгаа эсэх нь тодорхойгүй байна"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "Хүсээгүй найрлага байхгүй"
+msgid "No unwanted ingredients detected"
+msgstr "Хүсээгүй найрлага илрээгүй"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "Хүсээгүй найрлагатай"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Зарим найрлага нь танигдаагүй"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Бид илрүүлээгүй: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Бид илрүүлээгүй: {unwanted_ingredients}. Бид зарим орцуудыг орхигдуулсан байж магадгүй, найрлагын жагсаалтыг үргэлж шалгана уу."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Эдгээр сонголтууд нь Open Food Facts-ийн орцын жагсаалтын талаархи ойлголт дээр үндэслэсэн бөгөөд энэ нь үнэн зөв эсвэл бүрэн биш байж болзошгүй тул бүтээгдэхүүнийг өөрөө шалгаж үзээрэй."
 
