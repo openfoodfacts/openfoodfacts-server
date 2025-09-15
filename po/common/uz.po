@@ -7569,16 +7569,16 @@ msgid "Unwanted ingredients"
 msgstr "Keraksiz ingredientlar"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "Ushbu afzallik Open Food Facts ma'lumotlar ro'yxatini tushunishga asoslangan va aniq bo'lmasligi mumkin, har doim mahsulotni o'zingiz tekshirib ko'ring."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Ushbu afzallik Open Food Facts kompaniyasining ingredientlar ro'yxatini tushunishiga asoslanadi va aniq bo'lmasligi mumkin, har doim mahsulotni o'zingiz tekshiring."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "Keraksiz ingredientlarning mavjudligi noma'lum"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "Keraksiz ingredientlar yo'q"
+msgid "No unwanted ingredients detected"
+msgstr "Keraksiz ingredientlar aniqlanmadi"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7587,4 +7587,16 @@ msgstr "Keraksiz ingredientlarni o'z ichiga oladi"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Ba'zi ingredientlar tan olinmadi"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Biz aniqlamadik: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Biz aniqlamadik: {unwanted_ingredients}. Biz ba'zi ingredientlarni o'tkazib yuborgan bo'lishimiz mumkin, iltimos, har doim ingredientlar ro'yxatini tekshiring."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Ushbu afzalliklar Open Food Facts kompaniyasining ingredientlar ro'yxatini tushunishiga asoslanadi va u har doim aniq yoki to'liq bo'lmasligi mumkin, har doim mahsulotni o'zingiz tekshirib ko'ring."
 
