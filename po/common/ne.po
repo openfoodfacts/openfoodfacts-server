@@ -7568,16 +7568,16 @@ msgid "Unwanted ingredients"
 msgstr "नचाहिने सामग्रीहरू"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "यो प्राथमिकता सामग्री सूचीको ओपन फूड फ्याक्ट्स बुझाइमा आधारित छ र यो सही नहुन सक्छ, सधैं आफैंले उत्पादन प्रमाणित गर्नुहोस्।"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "यो प्राथमिकता ओपन फूड फ्याक्ट्सको सामग्री सूचीको बुझाइमा आधारित छ र यो सही नहुन सक्छ, सधैं उत्पादन आफैं जाँच गर्नुहोस्।"
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "अनावश्यक सामग्रीहरूको उपस्थिति अज्ञात छ"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "कुनै अनावश्यक सामग्री छैन"
+msgid "No unwanted ingredients detected"
+msgstr "कुनै पनि अवांछित सामग्री पत्ता लागेन"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "अनावश्यक सामग्रीहरू समावे�
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "केही सामग्रीहरू पहिचान भएनन्"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "हामीले पत्ता लगाएनौं: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "हामीले पत्ता लगाएनौं: {unwanted_ingredients}। हामीले केही सामग्रीहरू छुटाएका हुन सक्छौं, कृपया सधैं सामग्री सूची जाँच गर्नुहोस्।"
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "ती प्राथमिकताहरू ओपन फूड फ्याक्ट्सको सामग्री सूचीको बुझाइमा आधारित हुन्छन् र यो सही वा पूर्ण नहुन सक्ने सम्भावना सधैं रहन्छ, सधैं उत्पादन आफैं जाँच गर्नुहोस्।"
 
