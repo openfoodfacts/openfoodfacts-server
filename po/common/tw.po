@@ -7568,16 +7568,16 @@ msgid "Unwanted ingredients"
 msgstr "Nneɛma a wɔde yɛ aduan a wɔmpɛ"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "Saa apɛdeɛ yi gyina Open Food Facts nteaseɛ a ɛfa nneɛma a wɔde yɛ aduane a wɔahyehyɛ ho na ebia ɛnyɛ nokware, bere nyinaa w’ankasa hwɛ sɛ aduru no yɛ nokware."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Saa apɛdeɛ yi gyina Open Food Facts nteaseɛ a ɛwɔ nneɛma a wɔde yɛ aduane no ho so na ebia ɛnyɛ nokware, bere nyinaa w’ankasa hwɛ aduru no."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "Nneɛma a wɔmpɛ a ɛwɔ hɔ a wonnim"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "Nneɛma a wɔde yɛ aduan a wɔmpɛ biara nni hɔ"
+msgid "No unwanted ingredients detected"
+msgstr "Wɔanhu nneɛma a wɔmpɛ biara"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "Nneɛma a wɔmpɛ wɔ mu"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Wɔanhu nneɛma bi a wɔde yɛ aduan no"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Yɛanhu: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Yɛanhu: {unwanted_ingredients}. Ebia yɛayera nneɛma bi a yɛde yɛ aduan no, yɛsrɛ sɛ hwɛ nneɛma a wɔde yɛ aduan no mu bere nyinaa."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Saa apɛdeɛ no gyina Open Food Facts nteaseɛ a ɛwɔ nneɛma a wɔde yɛ aduane no ho so na ɛyɛ yie berɛ biara sɛ ebia ɛnyɛ pɛpɛɛpɛ anaasɛ ɛnyɛ pɛpɛɛpɛ, bere nyinaa w’ankasa hwɛ aduru no."
 
