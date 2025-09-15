@@ -7586,16 +7586,16 @@ msgid "Unwanted ingredients"
 msgstr "不要な成分"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "この設定は Open Food Facts の原材料リストの理解に基づいており、正確ではない可能性があります。必ず自分で製品を確認してください。"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "この好みは、Open Food Facts の成分リストの理解に基づいており、正確ではない可能性がありますので、必ずご自身で製品を確認してください。"
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "不要な成分の存在は不明"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "不要な成分なし"
+msgid "No unwanted ingredients detected"
+msgstr "不要な成分は検出されませんでした"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7604,4 +7604,16 @@ msgstr "不要な成分が含まれている"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "一部の成分は認識されませんでした"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "検出されませんでした: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "検出されませんでした: {unwanted_ingredients}。一部の成分が漏れている可能性がありますので、必ず成分表をご確認ください。"
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "これらの好みは、Open Food Facts の成分リストの理解に基づいており、正確または完全ではない可能性が常にありますので、必ず自分で製品を確認してください。"
 
