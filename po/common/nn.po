@@ -7569,16 +7569,16 @@ msgid "Unwanted ingredients"
 msgstr "Uønskede ingredienser"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "Denne preferansen er basert på Open Food Facts forståelse av ingredienslisten og er kanskje ikke nøyaktig. Bekreft alltid produktet selv."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Denne preferansen er basert på Open Food Facts' forståelse av ingredienslisten og er kanskje ikke nøyaktig. Sjekk alltid produktet selv."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "Tilstedeværelsen av uønskede ingredienser er ukjent"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "Ingen uønskede ingredienser"
+msgid "No unwanted ingredients detected"
+msgstr "Ingen uønskede ingredienser oppdaget"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7587,4 +7587,16 @@ msgstr "Inneholder uønskede ingredienser"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Noen ingredienser ble ikke gjenkjent"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Vi oppdaget ikke: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Vi oppdaget ikke: {unwanted_ingredients}. Vi kan ha oversett noen ingredienser. Sjekk alltid ingredienslisten."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Disse preferansene er basert på Open Food Facts' forståelse av ingredienslisten, og det er alltid en mulighet for at den ikke er nøyaktig eller fullstendig. Sjekk alltid produktet selv."
 
