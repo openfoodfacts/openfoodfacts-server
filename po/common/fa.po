@@ -7568,16 +7568,16 @@ msgid "Unwanted ingredients"
 msgstr "مواد ناخواسته"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "این ترجیح بر اساس درک شما از لیست مواد تشکیل دهنده Open Food Facts است و ممکن است دقیق نباشد، همیشه خودتان محصول را تأیید کنید."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "این ترجیح بر اساس درک Open Food Facts از لیست مواد تشکیل دهنده است و ممکن است دقیق نباشد، همیشه خودتان محصول را بررسی کنید."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "وجود مواد ناخواسته ناشناخته"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "بدون مواد ناخواسته"
+msgid "No unwanted ingredients detected"
+msgstr "هیچ ماده ناخواسته‌ای شناسایی نشد"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "حاوی ترکیبات ناخواسته است"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "برخی از مواد تشکیل دهنده شناسایی نشدند"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "ما تشخیص ندادیم: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "ما متوجه نشدیم: {unwanted_ingredients}. ممکن است برخی از مواد تشکیل دهنده را از قلم انداخته باشیم، لطفاً همیشه لیست مواد تشکیل دهنده را بررسی کنید."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "این ترجیحات بر اساس درک Open Food Facts از لیست مواد تشکیل دهنده است و همیشه این احتمال وجود دارد که دقیق یا کامل نباشد، همیشه خودتان محصول را بررسی کنید."
 
