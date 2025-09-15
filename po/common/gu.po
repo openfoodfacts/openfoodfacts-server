@@ -7571,16 +7571,16 @@ msgid "Unwanted ingredients"
 msgstr "અનિચ્છનીય ઘટકો"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "આ પસંદગી ઘટકોની યાદીની ઓપન ફૂડ ફેક્ટ્સની સમજ પર આધારિત છે અને તે સચોટ ન પણ હોઈ શકે, હંમેશા ઉત્પાદન જાતે ચકાસો."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "આ પસંદગી ઓપન ફૂડ ફેક્ટ્સની ઘટકોની સૂચિની સમજ પર આધારિત છે અને તે સચોટ ન પણ હોઈ શકે, હંમેશા ઉત્પાદન જાતે તપાસો."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "અનિચ્છનીય ઘટકોની હાજરી અજાણ છે"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "કોઈ અનિચ્છનીય ઘટકો નથી"
+msgid "No unwanted ingredients detected"
+msgstr "કોઈ અનિચ્છનીય ઘટકો મળ્યા નથી"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7589,4 +7589,16 @@ msgstr "અનિચ્છનીય ઘટકો ધરાવે છે"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "કેટલાક ઘટકો ઓળખાયા ન હતા"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "અમને આ મળ્યું નથી: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "અમને આ મળ્યું નથી: {unwanted_ingredients}. અમે કેટલાક ઘટકો ચૂકી ગયા હોઈ શકીએ છીએ, કૃપા કરીને હંમેશા ઘટકોની સૂચિ તપાસો."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "તે પસંદગીઓ ઓપન ફૂડ ફેક્ટ્સની ઘટકોની સૂચિની સમજ પર આધારિત છે અને હંમેશા એવી શક્યતા રહે છે કે તે સચોટ અથવા સંપૂર્ણ ન પણ હોય, હંમેશા ઉત્પાદન જાતે તપાસો."
 
