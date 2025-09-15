@@ -7568,16 +7568,16 @@ msgid "Unwanted ingredients"
 msgstr "Ingredientia non desiderata"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "Haec praeferentia in intellectu indicis ingredientium ex \"Open Food Facts\" nititur et fortasse non accurata est; semper productum ipse verifica."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Haec praeferentia in intellectu indicis ingredientium ab Open Food Facts fundatur et fortasse non accurata est, semper productum ipse inspice."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "Praesentia ingredientium non desideratorum ignota"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "Nulla ingredientia non desiderata"
+msgid "No unwanted ingredients detected"
+msgstr "Nullae res inutiles detectae sunt"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "Ingredientia non desiderata continet"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Quaedam ingredientia non agnita sunt"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Non deprehendimus: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Non deprehendimus: {unwanted_ingredients}. Fortasse nonnulla ingredientia omisimus; quaeso semper indicem ingredientium inspice."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Hae praeferentiae in intellectu indicem ingredientium ab Open Food Facts factum nituntur, et semper est possibilitas ut non sit accuratus aut completus; semper igitur ipse productum inspice."
 
