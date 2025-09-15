@@ -7568,16 +7568,16 @@ msgid "Unwanted ingredients"
 msgstr "Компонентҳои номатлуб"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "Ин афзалият ба фаҳмиши Open Food Facts дар бораи рӯйхати компонентҳо асос ёфтааст ва шояд дақиқ набошад, ҳамеша маҳсулотро худатон тафтиш кунед."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Ин афзалият ба фаҳмиши Open Food Facts дар бораи рӯйхати компонентҳо асос ёфтааст ва метавонад дақиқ набошад, ҳамеша маҳсулотро худатон тафтиш кунед."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "Мавҷудияти компонентҳои номатлуб номаълум"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "Не компонентҳои номатлуб"
+msgid "No unwanted ingredients detected"
+msgstr "Ягон компонентҳои номатлуб ошкор карда нашудаанд"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "Дорои компонентҳои номатлуб"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Баъзе компонентҳо эътироф карда нашуданд"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Мо муайян накардем: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Мо муайян накардем: {unwanted_ingredients}. Мо шояд баъзе компонентҳоро аз даст додаем, лутфан ҳамеша рӯйхати компонентҳоро тафтиш кунед."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Ин афзалиятҳо ба фаҳмиши Open Food Facts дар бораи рӯйхати компонентҳо асос ёфтаанд ва ҳамеша эҳтимолияти он вуҷуд дорад, ки он дақиқ ё пурра набошад, ҳамеша маҳсулотро худатон тафтиш кунед."
 
