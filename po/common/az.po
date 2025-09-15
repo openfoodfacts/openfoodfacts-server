@@ -7568,16 +7568,16 @@ msgid "Unwanted ingredients"
 msgstr "Arzuolunmaz maddələr"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "Bu seçim Açıq Qida Faktlarının inqrediyentlər siyahısının anlayışına əsaslanır və dəqiq olmaya bilər, həmişə məhsulu özünüz yoxlayın."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Bu üstünlük Open Food Facts-ın inqrediyentlər siyahısına dair anlayışına əsaslanır və dəqiq olmaya bilər, həmişə məhsulu özünüz yoxlayın."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "Arzuolunmaz maddələrin mövcudluğu bilinmir"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "İstənməyən maddələr yoxdur"
+msgid "No unwanted ingredients detected"
+msgstr "Heç bir arzuolunmaz inqrediyent aşkar edilmədi"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "Tərkibində arzuolunmaz maddələr var"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Bəzi maddələr tanınmadı"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Biz aşkar etmədik: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Biz aşkar etmədik: {unwanted_ingredients}. Bəzi inqrediyentləri qaçırmış ola bilərik, lütfən, həmişə inqrediyent siyahısını yoxlayın."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Bu üstünlüklər Açıq Qida Faktlarının inqrediyentlər siyahısı haqqında anlayışına əsaslanır və onun dəqiq və ya tam olmama ehtimalı həmişə var, həmişə məhsulu özünüz yoxlayın."
 
