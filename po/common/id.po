@@ -7586,16 +7586,16 @@ msgid "Unwanted ingredients"
 msgstr "Bahan-bahan yang tidak diinginkan"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "Preferensi ini berdasarkan pemahaman Open Food Facts mengenai daftar bahan dan mungkin tidak akurat, selalu verifikasi produk sendiri."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Preferensi ini didasarkan pada pemahaman Open Food Facts tentang daftar bahan dan mungkin tidak akurat, selalu periksa sendiri produknya."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "Kehadiran bahan yang tidak diinginkan tidak diketahui"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "Tidak ada bahan yang tidak diinginkan"
+msgid "No unwanted ingredients detected"
+msgstr "Tidak terdeteksi adanya bahan yang tidak diinginkan"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7604,4 +7604,16 @@ msgstr "Mengandung bahan-bahan yang tidak diinginkan"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Beberapa bahan tidak dikenali"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Kami tidak mendeteksi: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Kami tidak mendeteksi: {unwanted_ingredients}. Kami mungkin melewatkan beberapa bahan, harap selalu periksa daftar bahan."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Preferensi tersebut didasarkan pada pemahaman Open Food Facts terhadap daftar bahan dan selalu ada kemungkinan daftar tersebut tidak akurat atau lengkap, selalu periksa sendiri produknya."
 
