@@ -7586,16 +7586,16 @@ msgid "Unwanted ingredients"
 msgstr "Niechciane składniki"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "Preferencje te opierają się na wiedzy Open Food Facts na temat listy składników i mogą być niedokładne, zawsze należy samodzielnie sprawdzić produkt."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Preferencje te opierają się na wiedzy Open Food Facts na temat listy składników i mogą być niedokładne, zawsze należy sprawdzić produkt samodzielnie."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "Obecność niepożądanych składników nieznana"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "Bez niepożądanych składników"
+msgid "No unwanted ingredients detected"
+msgstr "Nie wykryto niepożądanych składników"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7604,4 +7604,16 @@ msgstr "Zawiera niepożądane składniki"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Niektóre składniki nie zostały rozpoznane"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Nie wykryliśmy: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Nie wykryliśmy: {unwanted_ingredients}. Mogliśmy pominąć niektóre składniki, prosimy zawsze sprawdzać listę składników."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Preferencje te opierają się na analizie listy składników przez Open Food Facts. Zawsze istnieje ryzyko, że jest ona niedokładna lub niekompletna, dlatego zawsze należy sprawdzić produkt samodzielnie."
 
