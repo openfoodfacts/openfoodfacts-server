@@ -142,7 +142,7 @@ We are building a complete OpenAPI reference. Here is a list of the current API 
 - [Report Bugs][report_bugs] on the Open Food Facts GitHub repository.
 - Do you have an issue or feature request? You can submit it [on GitHub](https://github.com/openfoodfacts/openfoodfacts-server/issues/new) too.
 - Are you interested in contributing to this project? See our [Contribution Guidelines][contribution_guidelines].
-<!-- Embed contribution guideline link.-->
+  {/* <!-- Embed contribution guideline link.--> */}
 
 [slack_url]: https://slack.openfoodfacts.org/
 [report_bugs]: https://github.com/openfoodfacts/openfoodfacts-server/issues/new/choose
