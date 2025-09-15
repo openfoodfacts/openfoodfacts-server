@@ -210,7 +210,7 @@ The `.env` file contains ProductOpener default settings:
 | Field | Description |
 | ----------------------------------------------------------------- | --- |
 | `PRODUCT_OPENER_DOMAIN`                                           | Can be set to different values based on which **OFF flavor** is run.|
-| `PRODUCT_OPENER_PORT`                                             | can be modified to run NGINX on a different port. Useful when running **multiple OFF flavors** on different ports on the same host. <br> Default port: `80`.|
+| `PRODUCT_OPENER_PORT`                                             | can be modified to run NGINX on a different port. Useful when running **multiple OFF flavors** on different ports on the same host.  Default port: `80`.|
 | `PRODUCT_OPENER_FLAVOR`                                           | Can be modified to run different flavors of OpenFoodFacts, amongst `openfoodfacts` (default), `openbeautyfacts`, `openpetfoodfacts`, `openproductsfacts`.|
 | `PRODUCT_OPENER_FLAVOR_SHORT`                                     | can be modified to run different flavors of OpenFoodFacts, amongst `off` (default), `obf`, `oppf`, `opf`.|
 | `PRODUCERS_PLATFORM`                                              | can be set to `1` to build / run the **producer platform**.|
@@ -220,7 +220,7 @@ The `.env` file contains ProductOpener default settings:
 | `GOOGLE_CLOUD_VISION_API_KEY`                                     | can be set to **enable OCR using Google Cloud Vision**.|
 | `CROWDIN_PROJECT_IDENTIFIER` and `CROWDIN_PROJECT_KEY`            | can be set to **run translations**.|
 | `GEOLITE2_PATH`, `GEOLITE2_ACCOUNT_ID` and `GEOLITE2_LICENSE_KEY` | can be set to **enable Geolite2**.|
-| `TAG`                                                             | Is set to `latest` by default, but you can specify any Docker Hub tag for the `frontend` / `backend` images. <br> Note that this is useful only if you use pre-built images from the Docker Hub (`docker/prod.yml` override); the default dev setup (`docker/dev.yml`) builds images locally|
+| `TAG`                                                             | Is set to `latest` by default, but you can specify any Docker Hub tag for the `frontend` / `backend` images.  Note that this is useful only if you use pre-built images from the Docker Hub (`docker/prod.yml` override); the default dev setup (`docker/dev.yml`) builds images locally|
 
 The `.env` file also contains some useful Docker Compose variables:
 * `COMPOSE_PROJECT_NAME` is the compose project name that sets the **prefix to every container name**. Do not update this unless you know what you're doing.
