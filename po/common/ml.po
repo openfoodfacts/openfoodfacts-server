@@ -7568,16 +7568,16 @@ msgid "Unwanted ingredients"
 msgstr "ആവശ്യമില്ലാത്ത ചേരുവകൾ"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "ഈ മുൻഗണന ചേരുവകളുടെ പട്ടികയെക്കുറിച്ചുള്ള ഓപ്പൺ ഫുഡ് ഫാക്‌ട്‌സ് ധാരണയെ അടിസ്ഥാനമാക്കിയുള്ളതാണ്, ഇത് കൃത്യമായിരിക്കില്ല, എല്ലായ്പ്പോഴും ഉൽപ്പന്നം സ്വയം പരിശോധിക്കുക."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "ഓപ്പൺ ഫുഡ് ഫാക്റ്റ്സിന്റെ ചേരുവകളുടെ പട്ടികയെക്കുറിച്ചുള്ള ധാരണയെ അടിസ്ഥാനമാക്കിയുള്ളതാണ് ഈ മുൻഗണന, ഇത് കൃത്യമായിരിക്കില്ല, എല്ലായ്പ്പോഴും ഉൽപ്പന്നം സ്വയം പരിശോധിക്കുക."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "അനാവശ്യമായ ചേരുവകളുടെ സാന്നിധ്യം അജ്ഞാതം."
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "ആവശ്യമില്ലാത്ത ചേരുവകൾ ഇല്ല"
+msgid "No unwanted ingredients detected"
+msgstr "അനാവശ്യമായ ചേരുവകളൊന്നും കണ്ടെത്തിയില്ല."
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "ആവശ്യമില്ലാത്ത ചേരുവകൾ അട�
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "ചില ചേരുവകൾ തിരിച്ചറിഞ്ഞില്ല."
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "ഞങ്ങൾക്ക് ഇത് കണ്ടെത്താൻ കഴിഞ്ഞില്ല: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "ഞങ്ങൾക്ക് ഇത് കണ്ടെത്താൻ കഴിഞ്ഞില്ല: {unwanted_ingredients}. ചില ചേരുവകൾ ഞങ്ങൾക്ക് നഷ്ടപ്പെട്ടിട്ടുണ്ടാകാം, ദയവായി എപ്പോഴും ചേരുവകളുടെ പട്ടിക പരിശോധിക്കുക."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "ആ മുൻഗണനകൾ ഓപ്പൺ ഫുഡ് ഫാക്റ്റ്സിന്റെ ചേരുവകളുടെ പട്ടികയെക്കുറിച്ചുള്ള ധാരണയെ അടിസ്ഥാനമാക്കിയുള്ളതാണ്, അത് കൃത്യമോ പൂർണ്ണമോ ആകണമെന്നില്ല എന്നതിന് എപ്പോഴും സാധ്യതയുണ്ട്, എല്ലായ്പ്പോഴും ഉൽപ്പന്നം സ്വയം പരിശോധിക്കുക."
 
