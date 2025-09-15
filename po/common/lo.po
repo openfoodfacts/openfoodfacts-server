@@ -7568,16 +7568,16 @@ msgid "Unwanted ingredients"
 msgstr "ສ່ວນປະກອບທີ່ບໍ່ຕ້ອງການ"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "ການຕັ້ງຄ່ານີ້ແມ່ນອີງໃສ່ຄວາມເຂົ້າໃຈຂອງ Open Food Facts ກ່ຽວກັບລາຍການສ່ວນປະກອບ ແລະອາດຈະບໍ່ຖືກຕ້ອງ, ກວດສອບຜະລິດຕະພັນດ້ວຍຕົວທ່ານເອງສະເໝີ."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "ຄວາມຕ້ອງການນີ້ແມ່ນອີງໃສ່ຄວາມເຂົ້າໃຈຂອງ Open Food Facts ກ່ຽວກັບບັນຊີລາຍຊື່ສ່ວນປະກອບແລະອາດຈະບໍ່ຖືກຕ້ອງ, ສະເຫມີກວດເບິ່ງຜະລິດຕະພັນດ້ວຍຕົນເອງ."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "ມີສ່ວນປະກອບທີ່ບໍ່ຕ້ອງການບໍ່ຮູ້"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "ບໍ່ມີສ່ວນປະກອບທີ່ບໍ່ຕ້ອງການ"
+msgid "No unwanted ingredients detected"
+msgstr "ບໍ່ພົບສ່ວນປະກອບທີ່ບໍ່ຕ້ອງການ"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "ມີສ່ວນປະກອບທີ່ບໍ່ຕ້ອງການ
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "ສ່ວນປະກອບບາງຢ່າງບໍ່ຖືກຮັບຮູ້"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "ພວກເຮົາບໍ່ໄດ້ກວດພົບ: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "ພວກເຮົາບໍ່ໄດ້ກວດພົບ: {unwanted_ingredients}. ພວກເຮົາອາດຈະພາດສ່ວນປະກອບບາງຢ່າງ, ກະລຸນາກວດເບິ່ງລາຍການສ່ວນປະກອບຢູ່ສະເໝີ."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "ຄວາມມັກເຫຼົ່ານັ້ນແມ່ນອີງໃສ່ຄວາມເຂົ້າໃຈຂອງ Open Food Facts ກ່ຽວກັບບັນຊີລາຍຊື່ສ່ວນປະກອບແລະມີຄວາມເປັນໄປໄດ້ທີ່ມັນອາດຈະບໍ່ຖືກຕ້ອງຫຼືຄົບຖ້ວນ, ສະເຫມີກວດເບິ່ງຜະລິດຕະພັນດ້ວຍຕົນເອງ."
 
