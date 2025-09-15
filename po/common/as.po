@@ -7568,16 +7568,16 @@ msgid "Unwanted ingredients"
 msgstr "অবাঞ্চিত উপাদান"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "এই পছন্দটো উপাদানৰ তালিকাৰ বিষয়ে মুক্ত খাদ্য তথ্যৰ বুজাবুজিৰ ওপৰত ভিত্তি কৰি কৰা হৈছে আৰু ই সঠিক নহ'বও পাৰে, সদায় নিজেই প্ৰডাক্টটো পৰীক্ষা কৰক।"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "এই পছন্দ Open Food Facts ৰ উপাদানৰ তালিকাৰ বুজাবুজিৰ ওপৰত ভিত্তি কৰি কৰা হৈছে আৰু ই সঠিক নহ'বও পাৰে, সদায় নিজেই প্ৰডাক্টটো পৰীক্ষা কৰক।"
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "অবাঞ্চিত উপাদানৰ উপস্থিতি অজ্ঞাত"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "কোনো অবাঞ্চিত উপাদান নাই"
+msgid "No unwanted ingredients detected"
+msgstr "কোনো অবাঞ্চিত উপাদান ধৰা পৰা নাই"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "অবাঞ্চিত উপাদান থাকে"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "কিছুমান উপাদান চিনি পোৱা নাছিল"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "আমি ধৰা পেলাব পৰা নাছিলো: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "আমি ধৰা পেলাব পৰা নাছিলো: {unwanted_ingredients}। আমি হয়তো কিছুমান উপাদান হেৰুৱাই পেলাইছো, অনুগ্ৰহ কৰি সদায় উপাদানৰ তালিকাখন পৰীক্ষা কৰক।"
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "সেই পছন্দসমূহ Open Food Facts ৰ উপাদানৰ তালিকাখনৰ বিষয়ে বুজাৰ ওপৰত ভিত্তি কৰি কৰা হয় আৰু ই সঠিক বা সম্পূৰ্ণ নহ’বও পাৰে বুলি সদায় সম্ভাৱনা থাকে, সদায় নিজেই প্ৰডাক্টটো পৰীক্ষা কৰক।"
 
