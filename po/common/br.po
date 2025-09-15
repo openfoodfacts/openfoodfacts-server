@@ -7568,16 +7568,16 @@ msgid "Unwanted ingredients"
 msgstr "Elfennoù dic'hoantaet"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "Diazezet eo an dibab-mañ war kompren Open Food Facts war roll ar c'hementadoù ha marteze ne vo ket reizh, gwiriit ar produ hoc'h-unan bepred."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Diazezet eo an dibab-mañ war kompren Open Food Facts eus roll ar c'hementadoù ha marteze ne vo ket reizh, gwiriit ar produ hoc'h-unan bepred."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "Dianav ez eus elfennoù dic'hoantaet"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "Danvez dic'hoantaet ebet"
+msgid "No unwanted ingredients detected"
+msgstr "N'eus bet kavet elfenn dic'hoantaet ebet"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "Ennañ elfennoù dic'hoantaet"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "N'eo ket bet anavezet elfennoù zo"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "N'hon eus ket detektet : {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "N'hon eus ket detektet : {unwanted_ingredients}. Marteze hon eus kollet elfennoù zo, gwiriit bepred roll an elfennoù."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Diazezet eo an dibaboù-se war gompren Open Food Facts eus roll ar c'hementadoù ha bepred ez eus ur chañs da vezañ reizh pe klok, gwiriit ar produ hoc'h-unan bepred."
 
