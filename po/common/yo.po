@@ -7569,16 +7569,16 @@ msgid "Unwanted ingredients"
 msgstr "Awọn eroja ti aifẹ"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "Iyanfẹ yii da lori Oye Awọn Otitọ Ounjẹ Ṣiṣii ti atokọ awọn eroja ati pe o le ma ṣe deede, rii daju ọja nigbagbogbo funrararẹ."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Iyanfẹ yii da lori Oye Awọn Otitọ Ounjẹ Ṣii ti atokọ eroja ati pe o le ma ṣe deede, nigbagbogbo ṣayẹwo ọja funrararẹ."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "Wiwa ti aifẹ eroja aimọ"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "Ko si awọn eroja ti aifẹ"
+msgid "No unwanted ingredients detected"
+msgstr "Ko si awọn eroja ti aifẹ ti a rii"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7587,4 +7587,16 @@ msgstr "Ni awọn eroja ti aifẹ ninu"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Diẹ ninu awọn eroja ti won ko da"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "A ko ri: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "A ko ri: {unwanted_ingredients}. A le ti padanu diẹ ninu awọn eroja, jọwọ ṣayẹwo nigbagbogbo akojọ awọn eroja."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Awọn ayanfẹ wọnyẹn da lori oye Awọn Otitọ Ounjẹ Ṣiṣii ti atokọ eroja ati pe o ṣeeṣe nigbagbogbo pe o le ma jẹ deede tabi pipe, nigbagbogbo ṣayẹwo ọja funrararẹ."
 
