@@ -7568,16 +7568,16 @@ msgid "Unwanted ingredients"
 msgstr "ਅਣਚਾਹੇ ਤੱਤ"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "ਇਹ ਤਰਜੀਹ ਸਮੱਗਰੀ ਸੂਚੀ ਦੀ ਓਪਨ ਫੂਡ ਫੈਕਟਸ ਸਮਝ 'ਤੇ ਅਧਾਰਤ ਹੈ ਅਤੇ ਹੋ ਸਕਦਾ ਹੈ ਕਿ ਇਹ ਸਹੀ ਨਾ ਹੋਵੇ, ਹਮੇਸ਼ਾ ਉਤਪਾਦ ਦੀ ਖੁਦ ਪੁਸ਼ਟੀ ਕਰੋ।"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "ਇਹ ਤਰਜੀਹ ਓਪਨ ਫੂਡ ਫੈਕਟਸ ਦੀ ਸਮੱਗਰੀ ਸੂਚੀ ਦੀ ਸਮਝ 'ਤੇ ਅਧਾਰਤ ਹੈ ਅਤੇ ਹੋ ਸਕਦਾ ਹੈ ਕਿ ਇਹ ਸਹੀ ਨਾ ਹੋਵੇ, ਹਮੇਸ਼ਾ ਉਤਪਾਦ ਦੀ ਖੁਦ ਜਾਂਚ ਕਰੋ।"
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "ਅਣਚਾਹੇ ਤੱਤਾਂ ਦੀ ਮੌਜੂਦਗੀ ਅਣਜਾਣ"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "ਕੋਈ ਅਣਚਾਹੇ ਤੱਤ ਨਹੀਂ"
+msgid "No unwanted ingredients detected"
+msgstr "ਕੋਈ ਅਣਚਾਹੇ ਤੱਤ ਨਹੀਂ ਮਿਲੇ"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "ਅਣਚਾਹੇ ਤੱਤ ਸ਼ਾਮਲ ਹਨ"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "ਕੁਝ ਸਮੱਗਰੀਆਂ ਦੀ ਪਛਾਣ ਨਹੀਂ ਹੋਈ।"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "ਸਾਨੂੰ ਇਹ ਪਤਾ ਨਹੀਂ ਲੱਗਿਆ: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "ਸਾਨੂੰ ਇਹ ਪਤਾ ਨਹੀਂ ਲੱਗਿਆ: {unwanted_ingredients}। ਅਸੀਂ ਕੁਝ ਸਮੱਗਰੀ ਖੁੰਝਾਈ ਹੋ ਸਕਦੀ ਹੈ, ਕਿਰਪਾ ਕਰਕੇ ਹਮੇਸ਼ਾ ਸਮੱਗਰੀ ਸੂਚੀ ਦੀ ਜਾਂਚ ਕਰੋ।"
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "ਉਹ ਤਰਜੀਹਾਂ ਓਪਨ ਫੂਡ ਫੈਕਟਸ ਦੀ ਸਮੱਗਰੀ ਸੂਚੀ ਦੀ ਸਮਝ 'ਤੇ ਅਧਾਰਤ ਹਨ ਅਤੇ ਹਮੇਸ਼ਾ ਇਹ ਸੰਭਾਵਨਾ ਰਹਿੰਦੀ ਹੈ ਕਿ ਇਹ ਸਹੀ ਜਾਂ ਸੰਪੂਰਨ ਨਾ ਹੋਵੇ, ਹਮੇਸ਼ਾ ਉਤਪਾਦ ਦੀ ਖੁਦ ਜਾਂਚ ਕਰੋ।"
 
