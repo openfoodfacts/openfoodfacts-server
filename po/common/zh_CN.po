@@ -7582,16 +7582,16 @@ msgid "Unwanted ingredients"
 msgstr "不需要的成分"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "此偏好基于对成分列表的开放食品事实理解，可能不准确，请务必自行验证产品。"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "此偏好基于 Open Food Facts 对成分表的理解，可能不准确，请务必自行检查产品。"
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "是否存在未知的有害成分"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "不含不需要的成分"
+msgid "No unwanted ingredients detected"
+msgstr "未检测到不需要的成分"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7600,4 +7600,16 @@ msgstr "含有有害成分"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "有些成分无法被识别"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "我们没有检测到： {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "我们没有检测到： {unwanted_ingredients}。我们可能遗漏了一些成分，请务必检查成分表。"
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "这些偏好基于 Open Food Facts 对成分表的理解，并且始终存在不准确或不完整的可能性，请务必亲自检查产品。"
 
