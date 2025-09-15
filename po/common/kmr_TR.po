@@ -7568,16 +7568,16 @@ msgid "Unwanted ingredients"
 msgstr "Malzemeyên nexwestî"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "Ev tercîh li ser têgihîştina navnîşa pêkhateyan a Open Food Facts e û dibe ku ne rast be, her gav hilberê bi xwe verast bikin."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Ev tercîh li ser têgihîştina navnîşa pêkhateyan a Open Food Facts ye û dibe ku ne rast be, her gav hilberê bi xwe kontrol bikin."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "Hebûna pêkhateyên nexwestî nayê zanîn"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "Malzemeyên nexwestî tune ne"
+msgid "No unwanted ingredients detected"
+msgstr "Materyalên nexwestî nehatine dîtin"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "Materyalên nexwestî dihewîne"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Hin pêkhate nehatin naskirin"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Me tespît nekir: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Me ev tespît nekir: {unwanted_ingredients}. Dibe ku me hin malzeme ji bîr kiribin, ji kerema xwe her gav navnîşa malzemeyan kontrol bikin."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Ew tercîh li ser bingeha têgihîştina navnîşa pêkhateyan a Open Food Facts ne û her gav îhtîmalek heye ku ew rast an ne temam be, her gav hilberê bi xwe kontrol bikin."
 
