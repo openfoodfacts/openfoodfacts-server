@@ -7568,16 +7568,16 @@ msgid "Unwanted ingredients"
 msgstr "අනවශ්‍ය අමුද්‍රව්‍ය"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "මෙම මනාපය පදනම් වී ඇත්තේ අමුද්‍රව්‍ය ලැයිස්තුව පිළිබඳ විවෘත ආහාර කරුණු අවබෝධය මත වන අතර එය නිවැරදි නොවිය හැකිය, සෑම විටම ඔබ විසින්ම නිෂ්පාදනය සත්‍යාපනය කරන්න."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "මෙම මනාපය පදනම් වී ඇත්තේ අමුද්‍රව්‍ය ලැයිස්තුව පිළිබඳ Open Food Facts හි අවබෝධය මත වන අතර එය නිවැරදි නොවිය හැකිය, සෑම විටම නිෂ්පාදනය ඔබම පරීක්ෂා කරන්න."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "අනවශ්‍ය අමුද්‍රව්‍ය තිබීම නොදන්නා කරුණකි."
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "අනවශ්‍ය අමුද්‍රව්‍ය නැත"
+msgid "No unwanted ingredients detected"
+msgstr "අනවශ්‍ය අමුද්‍රව්‍ය කිසිවක් අනාවරණය නොවීය."
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "අනවශ්‍ය අමුද්‍රව්‍ය අඩංගු�
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "සමහර අමුද්‍රව්‍ය හඳුනා නොගන්නා ලදී."
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "අපි මෙය හඳුනා ගත්තේ නැහැ: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "අපට මෙය හමු නොවීය: {unwanted_ingredients}. අපට සමහර අමුද්‍රව්‍ය මග හැරී ඇති, කරුණාකර සෑම විටම අමුද්‍රව්‍ය ලැයිස්තුව පරීක්ෂා කරන්න."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "එම මනාපයන් පදනම් වී ඇත්තේ අමුද්‍රව්‍ය ලැයිස්තුව පිළිබඳ Open Food Facts හි අවබෝධය මත වන අතර එය නිවැරදි හෝ සම්පූර්ණ නොවිය හැකි බවට සෑම විටම හැකියාවක් ඇත, සෑම විටම නිෂ්පාදනය ඔබම පරීක්ෂා කරන්න."
 
