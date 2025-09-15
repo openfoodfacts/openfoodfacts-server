@@ -163,15 +163,14 @@ Add your valid `user_id` and `password` as body parameters to your request for a
 
 To write `sodium` and `category` to 100% Real Orange Juice so that the Nutri-Score can be computed, the request body should contain these fields:
 
-| Key        | Value           | Description  |
-| ------------- |:-------------:| -----:|
-| user_id     | *** | A valid user_id |
-| password      | ***     |   A valid password |
-| code | 0180411000803      |    The barcode of the product to be added/edited |
-| nutriment_sodium | 0.015      |    Amount of sodium |
-| nutriment_sodium_unit | g      |   Unit of sodium relative to the amount |
-| categories | Orange Juice     |   Category of the Product |
-
+| Key                   |     Value     |                                   Description |
+| --------------------- | :-----------: | --------------------------------------------: |
+| user_id               |    \*\*\*     |                               A valid user_id |
+| password              |    \*\*\*     |                              A valid password |
+| code                  | 0180411000803 | The barcode of the product to be added/edited |
+| nutriment_sodium      |     0.015     |                              Amount of sodium |
+| nutriment_sodium_unit |       g       |         Unit of sodium relative to the amount |
+| categories            | Orange Juice  |                       Category of the Product |
 Using curl:
 
 ```bash

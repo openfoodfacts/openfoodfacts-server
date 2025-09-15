@@ -1,4 +1,6 @@
-Dev Journey 6: Get ingredient related analysis on new or existing products (presence of palm oil, vegan, veggie, ultra-processed foods, allergens, additives…)
+# Get ingredient related analysis on new or existing products
+
+### Dev Journey 6: Get ingredient related analysis on new or existing products (presence of palm oil, vegan, veggie, ultra-processed foods, allergens, additives…)
 
 [https://docs.google.com/document/d/1avnxJr8_m6OjRBt0vgwBzlzaZB7Q6z14t0taMKIrkp0/edit](https://docs.google.com/document/d/1avnxJr8_m6OjRBt0vgwBzlzaZB7Q6z14t0taMKIrkp0/edit)
 
@@ -30,7 +32,7 @@ You can get information about absence or unawareness of the presence of:
 
 ### The product does exist: Get the status of the product and show prompts in case of incomplete ingredients or category (also required for NOVA ultra-processing levels)
 
-```
+```js
 if ( 
 status= category-to-be-completed && 
 status = ingredients-to-be-completed 
