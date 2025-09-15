@@ -7568,16 +7568,16 @@ msgid "Unwanted ingredients"
 msgstr "Lisebelisoa tse sa batleheng"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "Khetho ena e ipapisitse le kutloisiso ea Open Food Facts ea lethathamo la metsoako 'me e kanna ea se be e nepahetseng, ka linako tsohle netefatsa sehlahisoa u le mong."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Khetho ena e ipapisitse le kutloisiso ea Open Food Facts ea lethathamo la metsoako mme e kanna ea se be e nepahetseng, ka linako tsohle hlahloba sehlahisoa ka bouena."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "Ho ba teng ha metsoako e sa batleheng e sa tsejoeng"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "Ha ho metsoako e sa batleheng"
+msgid "No unwanted ingredients detected"
+msgstr "Ha ho metsoako e sa batleheng e fumanoeng"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "E na le metsoako e sa batleheng"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Metsoako e meng ha ea ka ea tsejoa"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Ha rea fumana: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Ha rea hlokomela: {unwanted_ingredients}. E ka 'na eaba re hlolohetsoe lisebelisoa tse ling, ka kopo kamehla hlahloba lethathamo la metsoako."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Likhetho tseo li ipapisitse le kutloisiso ea Open Food Facts mabapi le lenane la metsoako 'me ho na le monyetla oa hore e kanna ea se be e nepahetseng kapa e felletseng, hlahloba sehlahisoa ka bowena kamehla."
 
