@@ -7568,7 +7568,7 @@ msgid "Unwanted ingredients"
 msgstr "Нежељени састојци"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
 msgstr "Ова преференција се заснива на разумевању листе састојака од стране Open Food Facts и можда није тачна, увек сами проверите производ."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
@@ -7576,8 +7576,8 @@ msgid "Presence of unwanted ingredients unknown"
 msgstr "Присуство нежељених састојака непознато"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "Без нежељених састојака"
+msgid "No unwanted ingredients detected"
+msgstr "Нису откривени нежељени састојци"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "Садржи нежељене састојке"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Неки састојци нису препознати"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Нисмо открили: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Нисмо открили: {unwanted_ingredients}. Можда смо пропустили неке састојке, увек проверите списак састојака."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Те преференције се заснивају на разумевању листе састојака од стране Open Food Facts и увек постоји могућност да она није тачна или потпуна, увек сами проверите производ."
 
