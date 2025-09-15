@@ -71,21 +71,22 @@ Create an account to be able to edit products.
 
 ## Some commands
 After you made devs and want to apply changes and see them on the website, you can run:  
-```
+```sh
 $ docker compose restart 
 ```
-```
+```sh
 $ make up  
 ```
 
 If you face some difficulties, you can always look at the logs (use ctrl + c, to quit):  
-```
+```sh
 $ make log  
 ```
-```
+
+```sh
 $ make tail  
 ```
 After development, before opening a pull request, run the following command:  
-```
+```sh
 $ make checks  
 ```  

@@ -17,14 +17,13 @@ You can get information about absence or unawareness of the presence of:
 **Important!** Parsing might not be perfect and the ingredient detection might have issues in some languages. For more information on how you can help improve it, read: [https://github.com/openfoodfacts/openfoodfacts-server/blob/master/taxonomies/ingredients.txt](https://github.com/openfoodfacts/openfoodfacts-server/blob/master/taxonomies/ingredients.txt)
 
 
-## Introduction {#introduction}
+## Introduction 
 
 * If you can't get the information on a specific product, you can get your user to send photos and data, that will then be processed by Open Food Facts AI and contributors to get the computed result you want to show them.
 * You can implement the complete flow so that they get immediately the result with some effort on their side.
 * That will ensure user satisfaction
 * Most of the operations described below are implemented in the openfoodfacts-dart plugin, but as individual operations, not as a coherent pipe
 
-![Schema of the ingredients flow](https://docs.google.com/drawings/d/12345/export/png)
 
 ## Flow
 ### The product does not exist
@@ -116,5 +115,3 @@ Open Food Facts uses optical character recognition (OCR) to retrieve ingredient 
 ### Refresh product to display the result to your user
 
 * [Please look at the reference](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v3/#get-/api/v3/product/-barcode-)
-![alt_text](images/image1.png "image_tooltip")
-

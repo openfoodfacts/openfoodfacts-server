@@ -21,7 +21,7 @@ https://world.openfoodfacts.org/categories.json
 Beverages → https://world.openfoodfacts.org/category/beverages → Q40050 → https://www.wikidata.org/wiki/Q40050
 As you see, you'll get a beautiful image, information about the Quality label... As Wikidata is a Wiki, the knowledge you'll be able to retrieve will increase over time.
 
-#### Retrieving info from Wikipedia and Wikidata {#retrieving_info_from_wikipedia_and_wikidata}
+#### Retrieving info from Wikipedia and Wikidata 
 
 You can use the Wikipedia and Wikidata APIs to get the information you want:
 
@@ -29,7 +29,7 @@ You can use the Wikipedia and Wikidata APIs to get the information you want:
 
 * https://en.wikipedia.org/w/api.php
 
-#### Examples of things you can do {#examples_of_things_you_can_do}
+#### Examples of things you can do
 
 - Provide more context and more information about a specific Product, a Category of products, a Quality label, a Geography, a Brand, a Packaging material, an ingredient...
 
