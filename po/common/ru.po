@@ -7589,16 +7589,16 @@ msgid "Unwanted ingredients"
 msgstr "Нежелательные ингредиенты"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "Данное предпочтение основано на понимании списка ингредиентов Open Food Facts и может быть неточным, всегда проверяйте состав продукта самостоятельно."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Это предпочтение основано на понимании Open Food Facts списка ингредиентов и может быть неточным, всегда проверяйте продукт самостоятельно."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "Наличие нежелательных ингредиентов неизвестно"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "Никаких нежелательных ингредиентов"
+msgid "No unwanted ingredients detected"
+msgstr "Нежелательных ингредиентов не обнаружено."
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7607,4 +7607,16 @@ msgstr "Содержит нежелательные ингредиенты"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Некоторые ингредиенты не были распознаны"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Мы не обнаружили: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Мы не обнаружили: {unwanted_ingredients}. Возможно, мы пропустили некоторые ингредиенты, пожалуйста, всегда проверяйте список ингредиентов."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Эти предпочтения основаны на понимании Open Food Facts списка ингредиентов, и всегда существует вероятность, что он может быть неточным или неполным, всегда проверяйте продукт самостоятельно."
 
