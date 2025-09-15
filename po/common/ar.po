@@ -7590,7 +7590,7 @@ msgid "Unwanted ingredients"
 msgstr "المكونات غير المرغوب فيها"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
 msgstr "يعتمد هذا التفضيل على فهم Open Food Facts لقائمة المكونات وقد لا يكون دقيقًا، لذا تحقق دائمًا من المنتج بنفسك."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
@@ -7598,8 +7598,8 @@ msgid "Presence of unwanted ingredients unknown"
 msgstr "وجود مكونات غير مرغوب فيها غير معروفة"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "لا يوجد مكونات غير مرغوب فيها"
+msgid "No unwanted ingredients detected"
+msgstr "لم يتم الكشف عن أي مكونات غير مرغوب فيها"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7608,4 +7608,16 @@ msgstr "يحتوي على مكونات غير مرغوب فيها"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "لم يتم التعرف على بعض المكونات"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "لم نكتشف: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "لم نكتشف: {unwanted_ingredients}. ربما فاتتنا بعض المكونات، لذا يُرجى مراجعة قائمة المكونات دائمًا."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "تعتمد هذه التفضيلات على فهم Open Food Facts لقائمة المكونات، وهناك دائمًا احتمال ألا تكون دقيقة أو كاملة، لذا تحقق دائمًا من المنتج بنفسك."
 
