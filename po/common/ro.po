@@ -7585,16 +7585,16 @@ msgid "Unwanted ingredients"
 msgstr "Ingrediente nedorite"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "Această preferință se bazează pe înțelegerea listei de ingrediente din Open Food Facts și este posibil să nu fie exactă, verificați întotdeauna produsul singur."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Această preferință se bazează pe înțelegerea de către Open Food Facts a listei de ingrediente și este posibil să nu fie exactă; verificați întotdeauna produsul dumneavoastră."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "Prezența ingredientelor nedorite este necunoscută"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "Fără ingrediente nedorite"
+msgid "No unwanted ingredients detected"
+msgstr "Nu au fost detectate ingrediente nedorite"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7603,4 +7603,16 @@ msgstr "Conține ingrediente nedorite"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Unele ingrediente nu au fost recunoscute"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Nu am detectat: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Nu am detectat: {unwanted_ingredients}. Este posibil să fi omis unele ingrediente, vă rugăm să verificați întotdeauna lista de ingrediente."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Aceste preferințe se bazează pe înțelegerea de către Open Food Facts a listei de ingrediente și există întotdeauna posibilitatea ca aceasta să nu fie exactă sau completă; verificați întotdeauna produsul dumneavoastră."
 
