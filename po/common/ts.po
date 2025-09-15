@@ -7568,16 +7568,16 @@ msgid "Unwanted ingredients"
 msgstr "Swilo leswi nga laviwiki"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "Ku tsakela loku ku sekeriwe eka ku twisisa ka Open Food Facts ka nxaxamelo wa swiaki naswona swi nga ha va swi nga ri ntiyiso, minkarhi hinkwayo tiyisisa xiendliwa hi wexe."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Kutsakela loku ku seketeriwile eka ku twisisa ka Open Food Facts eka nxaxamelo wa swiaki naswona swinga endleka kungari ntiyiso, minkarhi hinkwayo kambela xiendliwa hi wexe."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "Vukona bya swiaki leswi nga laviwiki a byi tiveki"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "Ku hava swilo leswi nga laviwiki"
+msgid "No unwanted ingredients detected"
+msgstr "Ku hava swiaki leswi nga laviwiki leswi kumiweke"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "Yi ni swilo leswi nga laviwiki"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Swilo swin’wana leswi a swi tirhisiwa a swi nga tiviwi"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "A hi swi kumanga: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "A hi swi kumanga: {unwanted_ingredients}. Hi nga ha va hi hundze hi le ka swin’wana swa swiaki, hi kombela u tshama u ri karhi u languta nxaxamelo wa swiaki."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Swihlawulekisi sweswo swi seketeriwile eka ku twisisa ka Open Food Facts eka nxaxamelo wa swiaki naswona ku tshama ku ri na ku koteka ka leswaku swi nga ha va swi nga ri ntiyiso kumbe leswi heleleke, tshama u ri karhi u languta xiendliwa hi wexe."
 
