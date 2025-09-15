@@ -7568,16 +7568,16 @@ msgid "Unwanted ingredients"
 msgstr "Përbërës të padëshiruar"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "Kjo preferencë bazohet në kuptimin e listës së përbërësve nga Open Food Facts dhe mund të mos jetë e saktë, prandaj gjithmonë verifikojeni vetë produktin."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Kjo preferencë bazohet në kuptimin e listës së përbërësve nga Open Food Facts dhe mund të mos jetë e saktë, gjithmonë kontrolloni vetë produktin."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "Prania e përbërësve të padëshiruar është e panjohur"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "Pa përbërës të padëshiruar"
+msgid "No unwanted ingredients detected"
+msgstr "Nuk u zbuluan përbërës të padëshiruar"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "Përmban përbërës të padëshiruar"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Disa përbërës nuk u njohën"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Ne nuk zbuluam: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Nuk zbuluam: {unwanted_ingredients}. Mund të na kenë shpëtuar disa përbërës, ju lutemi kontrolloni gjithmonë listën e përbërësve."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Këto preferenca bazohen në kuptimin e listës së përbërësve nga Open Food Facts dhe gjithmonë ekziston mundësia që ajo të mos jetë e saktë ose e plotë, prandaj gjithmonë kontrolloni vetë produktin."
 
